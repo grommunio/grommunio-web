@@ -16,36 +16,36 @@ Zarafa.core.plugins.ContentWindowLayerPlugin = Ext.extend(Zarafa.core.plugins.Co
 	 * @type Ext.Window
 	 * @protected
 	 */
-	win : undefined,
+	win: undefined,
 
 	/**
 	 * @cfg {Array} windowRelays The list of event names which should be {@link Zarafa.core.ui.ContentPanel#relayEvents relayed}
 	 * from the {@link #win}. Defaults to 'beforeshow', 'show', 'beforehide' and 'hide'.
 	 */
-	windowRelays : undefined,
+	windowRelays: undefined,
 
 	/**
 	 * @constructor
 	 * @param {Object} config Configuration object
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		config = config || {};
 
 		Ext.applyIf(config, {
-			windowRelays : ['beforeshow', 'show', 'beforehide', 'hide']
+			windowRelays: ['beforeshow', 'show', 'beforehide', 'hide']
 		});
 
 		Zarafa.core.plugins.ContentWindowLayerPlugin.superclass.constructor.call(this, config);
 	},
-	
+
 	/**
 	 * This is called after {@link #init} when the {@link #field} has been fully initialized,
 	 * and the owner of the component is known. This allows the plugin to access the parent.
 	 *
 	 * @protected
 	 */
-	initPlugin : function()
+	initPlugin: function()
 	{
 		this.win = this.field.findParentByType('window');
 
@@ -61,16 +61,16 @@ Zarafa.core.plugins.ContentWindowLayerPlugin = Ext.extend(Zarafa.core.plugins.Co
 
 		this.win.on('render', this.applyTooltip);
 	},
-	
+
 	/**
 	 * This will apply tooltip on close button ('X') of (@link Ext.Window Window).
 	 */
-	applyTooltip : function()
+	applyTooltip: function()
 	{
 		var el = this.el;
 		var closeTab = Ext.get(el).child('.x-tool-close', true);
 		if(closeTab) {
-			closeTab.qtip =  _('Close') + ' (Ctrl + Alt + W)';
+			closeTab.qtip = _('Close') + ' (Ctrl + Alt + W)';
 		}
 	},
 
@@ -80,7 +80,7 @@ Zarafa.core.plugins.ContentWindowLayerPlugin = Ext.extend(Zarafa.core.plugins.Co
 	 * @param {String} title The title to apply
 	 * @protected
 	 */
-	setTitle : function(title)
+	setTitle: function(title)
 	{
 		this.win.setTitle(Ext.util.Format.htmlEncode(title));
 	},
@@ -91,7 +91,7 @@ Zarafa.core.plugins.ContentWindowLayerPlugin = Ext.extend(Zarafa.core.plugins.Co
 	 * This plugin contains an {@link #win Ext.Window}, which is hidden by calling win.hide
 	 * @protected
 	 */
-	hide : function()
+	hide: function()
 	{
 		this.win.hide();
 	},
@@ -102,7 +102,7 @@ Zarafa.core.plugins.ContentWindowLayerPlugin = Ext.extend(Zarafa.core.plugins.Co
 	 * This plugin contains an {@link #win Ext.Window}, which is closed by calling win.close
 	 * @protected
 	 */
-	close : function()
+	close: function()
 	{
 		this.win.close();
 	},
@@ -112,7 +112,7 @@ Zarafa.core.plugins.ContentWindowLayerPlugin = Ext.extend(Zarafa.core.plugins.Co
 	 * of the user by {@link Ext.WindowMgr#bringToFront moving the dialog to the top}
 	 * @protected
 	 */
-	focus : function()
+	focus: function()
 	{
 		(this.win.manager || Ext.WindowMgr).bringToFront(this.win);
 	}

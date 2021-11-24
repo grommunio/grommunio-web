@@ -25,14 +25,14 @@ Zarafa.contact.DistlistMemberFields = [
  * @extends Ext.data.Record
  */
 Zarafa.contact.DistlistMemberRecord = Ext.extend(Ext.data.Record, {
-	idProperties : ['entryid'],
+	idProperties: ['entryid'],
 
 	/**
 	 * Copy the {@link Zarafa.contact.DistlistMemberRecord Record} to a new instance
 	 * @param {String} newId (optional) A new Record id, defaults to the id of the record being copied. See id.
 	 * @return {Zarafa.contact.DistlistMemberRecord} The copy of the record.
 	 */
-	copy : function(newId)
+	copy: function(newId)
 	{
 		var copy = Zarafa.core.data.RecordFactory.createRecordObjectByCustomType(Zarafa.core.data.RecordCustomObjectType.ZARAFA_DISTLIST_MEMBER, this.data, newId || this.id);
 
@@ -45,11 +45,11 @@ Zarafa.contact.DistlistMemberRecord = Ext.extend(Ext.data.Record, {
 	/**
 	 * Applies all data from an {@link Zarafa.contact.DistlistMemberRecord DistlistMemberRecord}
 	 * to this instance. This will update all data.
-	 * 
+	 *
 	 * @param {Zarafa.contact.DistlistMemberRecord} record The record to apply to this
 	 * @return {Zarafa.contact.DistlistMemberRecord} this
 	 */
-	applyData : function(record)
+	applyData: function(record)
 	{
 		this.beginEdit();
 
@@ -65,12 +65,12 @@ Zarafa.contact.DistlistMemberRecord = Ext.extend(Ext.data.Record, {
 
 	/**
 	 * Compare this {@link Zarafa.core.data.MAPIRecord record} instance with another one to see
-	 * if they are same 
+	 * if they are same
 	 *
 	 * @param {Zarafa.core.data.MAPIRecord} record The Record to compare with
 	 * @return {Boolean} True if the records are the same.
 	 */
-	equals : function(record)
+	equals: function(record)
 	{
 		return Zarafa.core.EntryId.compareEntryIds(this.get('entryid'), record.get('entryid'));
 	},
@@ -82,7 +82,7 @@ Zarafa.contact.DistlistMemberRecord = Ext.extend(Ext.data.Record, {
 	 * @return {Zarafa.addressbook.AddressBookRecord} The addressbook record which
 	 * is represented by this recipient.
 	 */
-	convertToAddressBookRecord : function()
+	convertToAddressBookRecord: function()
 	{
 		var entryid = this.get('entryid');
 		var distlistType = this.get('distlist_type');
@@ -107,7 +107,7 @@ Zarafa.contact.DistlistMemberRecord = Ext.extend(Ext.data.Record, {
 	 * @return {Zarafa.contact.ContactRecord} The addressbook record which
 	 * is represented by this distlist member.
 	 */
-	convertToContactRecord : function()
+	convertToContactRecord: function()
 	{
 		var entryid = this.get('entryid');
 		var distlistType = this.get('distlist_type');
@@ -127,9 +127,9 @@ Zarafa.contact.DistlistMemberRecord = Ext.extend(Ext.data.Record, {
 		}
 
 		return Zarafa.core.data.RecordFactory.createRecordObjectByMessageClass(messageClass, {
-			entryid : entryid,
-			message_class : messageClass,
-			object_type : Zarafa.core.mapi.ObjectType.MAPI_MESSAGE
+			entryid: entryid,
+			message_class: messageClass,
+			object_type: Zarafa.core.mapi.ObjectType.MAPI_MESSAGE
 		}, entryid);
 	},
 
@@ -138,7 +138,7 @@ Zarafa.contact.DistlistMemberRecord = Ext.extend(Ext.data.Record, {
 	 * @return {Boolean} True if this member has been {@link #attemptedToResolve attempted to resolve},
 	 * but turned out to be ambiguous. Currently it only returns false.
 	 */
-	isAmbiguous : function()
+	isAmbiguous: function()
 	{
 		return false;
 	},
@@ -155,7 +155,7 @@ Zarafa.contact.DistlistMemberRecord = Ext.extend(Ext.data.Record, {
 	 * Checks if a member is resolved or not, currently only returns true.
 	 * @return {Boolean} True if this member has been resolved.
 	 */
-	isResolved : function()
+	isResolved: function()
 	{
 		return true;
 	}

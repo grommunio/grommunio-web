@@ -12,7 +12,7 @@ Zarafa.core.data.Record = {
 	 * @param {Type} base The base type from which the subclass must be derived.
 	 * @return {Object} The type of the subclass.
 	 */
-	create : function(fields, base)
+	create: function(fields, base)
 	{
 		var subclass = Ext.extend(base || Ext.data.Record, {});
 		var proto = subclass.prototype;
@@ -37,7 +37,7 @@ Zarafa.core.data.Record = {
 	 * @param {Object} fields The array of fields which must be added
 	 * @private
 	 */
-	addFields : function(proto, fields)
+	addFields: function(proto, fields)
 	{
 		for(var i = 0, len = fields.length; i < len; i++) {
 			if (Array.isArray(fields[i])) {

@@ -11,20 +11,21 @@ Ext.namespace('Zarafa.mail');
  * single specific folder only.
  */
 Zarafa.mail.MailStore = Ext.extend(Zarafa.core.data.ListModuleStore, {
+
 	/**
 	 * @constructor
 	 * @param {Object} config configuration params that should be used to create instance of this store.
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		config = config || {};
 
 		// Apply default settings.
 		Ext.applyIf(config, {
-			preferredMessageClass : 'IPM.Note',
-			defaultSortInfo : {
-				field : 'message_delivery_time',
-				direction : 'desc'
+			preferredMessageClass: 'IPM.Note',
+			defaultSortInfo: {
+				field: 'message_delivery_time',
+				direction: 'desc'
 			}
 		});
 
@@ -55,13 +56,13 @@ Zarafa.mail.MailStore = Ext.extend(Zarafa.core.data.ListModuleStore, {
 	 * applied to those records.
 	 * @private
 	 */
-	getRecordsForUpdateData : function(records, action)
+	getRecordsForUpdateData: function(records, action)
 	{
 		if (!Ext.isDefined(records) || action !== Ext.data.Api.actions.open) {
 			return Zarafa.mail.MailStore.superclass.getRecordsForUpdateData.apply(this, arguments);
 		}
 
-		var results = { records: [],  updatedRecords : [] };
+		var results = { records: [], updatedRecords: [] };
 
 		if (!Array.isArray(records)) {
 			records = [ records ];
@@ -127,18 +128,81 @@ Zarafa.mail.MailStore = Ext.extend(Zarafa.core.data.ListModuleStore, {
 	 * @param {Object} options An options which set the filter restriction in params
 	 * if filter was already applied on store.
 	 */
-	reload : function(options)
+	reload: function(options)
 	{
 		if (this.hasFilterApplied) {
 			options = Ext.apply(options||{}, {
 				params:{
 					restriction:{
-						filter:this.getFilterRestriction(Zarafa.common.data.Filters.UNREAD)
+						filter: this.getFilterRestriction(Zarafa.common.data.Filters.UNREAD)
 					}
 				}
 			});
 		}
 		Zarafa.mail.MailStore.superclass.reload.call(this, options);
+	},
+
+	/**
+	 * Returns the number of items that have the store has
+	 * corresponds as a parent folder. (i.e. for conversations it will only
+	 * count the items from the Inbox folder and not the items from the Sent Items
+	 * folder)
+	 *
+	 * @return {Number} The number of items
+	 */
+	getStoreLength: function()
+	{
+		// Get all items count when 'Unread' filtered has been applied.
+		if (!this.hasFilterApplied) {
+			var count = 0;
+			var items = this.snapshot ? this.snapshot.items : this.getRange();
+			items.forEach(function(item) {
+				if (item.get('folder_name') === 'inbox') {
+					count++;
+				}
+			});
+
+			return count;
+		}
+
+		return Zarafa.mail.MailStore.superclass.getStoreLength.apply(this, arguments);
+	},
+
+	/**
+	 * Function which provide the restriction based on the given {@link Zarafa.common.data.Filters.UNREAD Filter}
+	 *
+	 * @param {Zarafa.common.data.Filters} filterType The filterType which needs to perform on store.
+	 * @return {Array|false} RES_BITMASK restriction else false.
+	 */
+	getFilterRestriction: function(filterType)
+	{
+		if (filterType === Zarafa.common.data.Filters.UNREAD) {
+			var unreadFilterRestriction = Zarafa.core.data.RestrictionFactory.dataResBitmask(
+				'PR_MESSAGE_FLAGS',
+				Zarafa.core.mapi.Restrictions.BMR_EQZ,
+				Zarafa.core.mapi.MessageFlags.MSGFLAG_READ);
+
+			var model = container.getCurrentContext().getModel();
+			if (model) {
+				var previewedRecord = model.getPreviewRecord();
+
+				// Add preview record in filter restriction so we can
+				// make it remains preview in preview panel.
+				if(!Ext.isEmpty(previewedRecord) && this.hasFilterApplied) {
+					return Zarafa.core.data.RestrictionFactory.createResOr([
+						Zarafa.core.data.RestrictionFactory.dataResProperty(
+							'entryid',
+							Zarafa.core.mapi.Restrictions.RELOP_EQ,
+							previewedRecord.get('entryid')
+						),
+						unreadFilterRestriction
+					]);
+				}
+			}
+
+			return unreadFilterRestriction;
+		}
+		return false;
 	}
 });
 

@@ -28,9 +28,9 @@ Zarafa.task.printer.TaskListViewRenderer = Ext.extend(Zarafa.common.printer.rend
 		// | priority | % complete | due date | subject | owner |
 		// ....
 		// +----------------------------------------------------+
-		// [name]                                    [print date]
+		// [name]                  [print date]
 
-		html += '<table id="printlist" cellpadding=0 cellspacing=0>\n';
+		html += '<table id="k-printlist" cellpadding=0 cellspacing=0>\n';
 
 		html += '<tr>'
 			+ '<th>' + _('Priority') + '</th>'
@@ -47,19 +47,19 @@ Zarafa.task.printer.TaskListViewRenderer = Ext.extend(Zarafa.common.printer.rend
 			+ '<td>{values.data.percent_complete:percentage(0)}</td>'
 			+ '<td>{values.data.subject:htmlEncode}</td>'
 			+ '<td>{values.data.owner:htmlEncode}</td>'
-			// # TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
+			// # TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 			+ '<td>{values.data.duedate:date("' + _("l jS F Y") + '")}</td>'
 			+ '</tr>\n'
 			+ '</tpl>';
 
 		html += '</table>\n';
-		
+
 		// Bottom table with username and date
-		html += '<table id="printlistbottom">'
+		html += '<table id="k-printlistbottom">'
 		+ '<tr>'
 		+ '<td>' + _('Printed by: ') +'{fullname:htmlEncode}</td>'
-		// # TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
-		+ '<td class="right">' + _('Printed on: ') + '{currenttime:date("' + _("l jS F Y G:i") + '")}</td>'
+		// # TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
+		+ '<td class="right">' + _('Printed on: ') + '{currenttime:formatDefaultTimeString("' + _("l jS F Y {0}") + '")}</td>'
 		+ '</tr>'
 		+ '</table>\n';
 		return html;

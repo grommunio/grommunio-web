@@ -15,34 +15,34 @@ Zarafa.common.recurrence.data.RecurrenceType = Zarafa.core.Enum.create({
 	 * @property
 	 * @type Number
 	 */
-	NONE : 0,
-    /**
+	NONE: 0,
+  /**
 	 * Daily recurrence
 	 *
 	 * @property
 	 * @type Number
 	 */
-	DAILY : 10,
-    /**
+	DAILY: 10,
+  /**
 	 * Weekly recurrence
 	 *
 	 * @property
 	 * @type Number
 	 */
-	WEEKLY : 11,
-    /**
+	WEEKLY: 11,
+  /**
 	 * Monthly recurrence
 	 *
 	 * @property
 	 * @type Number
 	 */
-	MONTHLY : 12,
-    /**
+	MONTHLY: 12,
+  /**
 	 * Yearly recurrence
 	 *
 	 * @property
 	 * @type Number
 	 */
-	YEARLY : 13
+	YEARLY: 13
 });
 

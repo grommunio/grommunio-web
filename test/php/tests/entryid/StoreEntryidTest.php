@@ -9,7 +9,7 @@ require_once('classes/KopanoTest.php');
 class StoreEntryidTest extends KopanoTest {
 
 	/**
-	 * psuedo url as server name
+	 * pseudo url as server name
 	 */
 	private $strEntryId1 = '0000000038a1bb1005e5101aa1bb08002b2a56c200007a617261666136636c69656e742e646c6c000000000009744defbbcf4305a3e90425083491080100000001000000231e8f3353914e6fbe75a7df49f9a4a870736575646f3a2f2f5a617261666100';
 	/**

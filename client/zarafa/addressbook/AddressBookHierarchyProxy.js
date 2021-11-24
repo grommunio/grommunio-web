@@ -3,7 +3,7 @@ Ext.namespace('Zarafa.addressbook');
 /**
  * @class Zarafa.addressbook.AddressBookHierarchyProxy
  * @extends Zarafa.core.data.IPMProxy
- * 
+ *
  * proxy object which will communicate between store and server side code
  */
 Zarafa.addressbook.AddressBookHierarchyProxy = Ext.extend(Zarafa.core.data.IPMProxy, {
@@ -11,15 +11,15 @@ Zarafa.addressbook.AddressBookHierarchyProxy = Ext.extend(Zarafa.core.data.IPMPr
 	 * @constructor
 	 * @param config Configuration structure
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		config = config || {};
 
 		var module = Zarafa.core.ModuleNames.getModule('addressbook');
 
 		Ext.applyIf(config, {
-			listModuleName : module.list,
-			itemModuleName : module.item
+			listModuleName: module.list,
+			itemModuleName: module.item
 		});
 
 		Zarafa.addressbook.AddressBookHierarchyProxy.superclass.constructor.call(this, config);
@@ -43,7 +43,7 @@ Zarafa.addressbook.AddressBookHierarchyProxy = Ext.extend(Zarafa.core.data.IPMPr
 	 * which should be used for this request.
 	 * @private
 	 */
-	getResponseHandlerForRequest : function(modulename, serverAction, action, records, parameters, reader, callback, scope, args)
+	getResponseHandlerForRequest: function(modulename, serverAction, action, records, parameters, reader, callback, scope, args)
 	{
 		return new Zarafa.addressbook.AddressBookResponseHandler({
 			proxy: this,

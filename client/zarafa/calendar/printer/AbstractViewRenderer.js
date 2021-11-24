@@ -20,7 +20,7 @@ Zarafa.calendar.printer.AbstractViewRenderer = Ext.extend(Zarafa.common.printer.
 	 * @cfg {String} timeStyle The style attribute which must be applied to  the
 	 * &lt;td&gt; element containing the timestamp for the appointment
 	 */
-	timeStyle : '',
+	timeStyle: '',
 
 	/**
 	 * Add additional rendering into the newly created dom tree containing the processed template
@@ -44,55 +44,18 @@ Zarafa.calendar.printer.AbstractViewRenderer = Ext.extend(Zarafa.common.printer.
 		}
 
 		/*
-		 * Particularly in IE, Nodes are not allowed to be inserted into another document
-		 * from the one in which they were created.
-		 * Actually, Here we are trying to create element in printing document, using our original document which is not possible.
-		 * As a solution, we are creating/rendering date picker into the body and than copies the html structure
-		 * of date picker into the printing document.
+		 * Create the left and right date picker
 		 */
-		var leftDP, rightDP;
-		if (Ext.isIE11){
-			leftDP = new Ext.DatePicker({
-				renderTo: Ext.getBody(),
-				hidden : true,
-				width : '200px',
-				value: left,
-				showToday: false
-			});
+		new Zarafa.calendar.ui.DatePicker({
+			renderTo: printDOM.getElementById('datepicker_left'),
+			value: left,
+			showToday: false
+		});
 
-			rightDP = new Ext.DatePicker({
-				renderTo: Ext.getBody(),
-				hidden : true,
-				width : '200px',
-				value: right,
-				showToday: false
-			});
-
-			var leftPrintDomDP = printDOM.getElementById('datepicker_left');
-			if (leftPrintDomDP) {
-				leftPrintDomDP.innerHTML = leftDP.el.dom.innerHTML;
-			}
-
-			var rightPrintDomDP = printDOM.getElementById('datepicker_right');
-			if (rightPrintDomDP) {
-				rightPrintDomDP.innerHTML = rightDP.el.dom.innerHTML;
-			}
-
-			// Destroys date picker component with its element from the DOM.
-			leftDP.destroy();
-			rightDP.destroy();
-		} else {
-			leftDP = new Zarafa.calendar.ui.DatePicker({
-				renderTo: printDOM.getElementById('datepicker_left'),
-				value: left,
-				showToday: false
-			});
-
-			rightDP = new Zarafa.calendar.ui.DatePicker({
-				renderTo: printDOM.getElementById('datepicker_right'),
-				value: right,
-				showToday: false
-			});
-		}
+		new Zarafa.calendar.ui.DatePicker({
+			renderTo: printDOM.getElementById('datepicker_right'),
+			value: right,
+			showToday: false
+		});
 	}
 });

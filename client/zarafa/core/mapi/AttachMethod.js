@@ -3,7 +3,7 @@ Ext.namespace('Zarafa.core.mapi');
 /**
  * @class Zarafa.core.mapi.AttachMethod
  * @extends Zarafa.core.Enum
- * 
+ *
  * @singleton
  */
 Zarafa.core.mapi.AttachMethod = Zarafa.core.Enum.create({
@@ -12,14 +12,14 @@ Zarafa.core.mapi.AttachMethod = Zarafa.core.Enum.create({
 	 * @property
 	 * @type Number
 	 */
-	NO_ATTACHMENT : 0,
+	NO_ATTACHMENT: 0,
 
 	/**
 	 * Denotes that the PR_ATTACH_DATA_BIN (PidTagAttachDataBinary) property contains the attachment data.
 	 * @property
 	 * @type Number
 	 */
-	ATTACH_BY_VALUE : 1,
+	ATTACH_BY_VALUE: 1,
 
 	/**
 	 * Denotes that the PR_ATTACH_PATHNAME (PidTagAttachPathname) or PR_ATTACH_LONG_PATHNAME (PidTagAttachLongPathname)
@@ -28,7 +28,7 @@ Zarafa.core.mapi.AttachMethod = Zarafa.core.Enum.create({
 	 * @property
 	 * @type Number
 	 */
-	ATTACH_BY_REFERENCE : 2,
+	ATTACH_BY_REFERENCE: 2,
 
 	/**
 	 * Denotes that the PR_ATTACH_PATHNAME or PR_ATTACH_LONG_PATHNAME property contains
@@ -36,7 +36,7 @@ Zarafa.core.mapi.AttachMethod = Zarafa.core.Enum.create({
 	 * @property
 	 * @type Number
 	 */
-	ATTACH_BY_REF_RESOLVE : 3,
+	ATTACH_BY_REF_RESOLVE: 3,
 
 	/**
 	 * Denotes that the PR_ATTACH_PATHNAME or PR_ATTACH_LONG_PATHNAME property contains
@@ -44,7 +44,7 @@ Zarafa.core.mapi.AttachMethod = Zarafa.core.Enum.create({
 	 * @property
 	 * @type Number
 	 */
-	ATTACH_BY_REF_ONLY : 4,
+	ATTACH_BY_REF_ONLY: 4,
 
 	/**
 	 * Denotes that the PR_ATTACH_DATA_OBJ (PidTagAttachDataObject) property contains an
@@ -52,12 +52,12 @@ Zarafa.core.mapi.AttachMethod = Zarafa.core.Enum.create({
 	 * @property
 	 * @type Number
 	 */
-	ATTACH_EMBEDDED_MSG : 5,
+	ATTACH_EMBEDDED_MSG: 5,
 
 	/**
 	 * Denotes that the attachment is an embedded OLE object.
 	 * @property
 	 * @type Number
 	 */
-	ATTACH_OLE : 6
+	ATTACH_OLE: 6
 });

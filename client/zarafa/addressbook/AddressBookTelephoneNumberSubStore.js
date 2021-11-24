@@ -10,7 +10,7 @@ Zarafa.addressbook.AddressBookTelephoneNumberSubStore = Ext.extend(Zarafa.core.d
 	 * @constructor
 	 * @param config Configuration object
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		config = config || {};
 
@@ -20,13 +20,13 @@ Zarafa.addressbook.AddressBookTelephoneNumberSubStore = Ext.extend(Zarafa.core.d
 
 		Ext.applyIf(config, {
 			// provide a default reader
-			reader : new Zarafa.core.data.JsonReader({
-				root : 'item',
-				id : 'number',
-				idProperty : 'number'
+			reader: new Zarafa.core.data.JsonReader({
+				root: 'item',
+				id: 'number',
+				idProperty: 'number'
 			}, recordType)
 		});
-		
+
 		Zarafa.addressbook.AddressBookTelephoneNumberSubStore.superclass.constructor.call(this, config);
 	}
 });

@@ -17,7 +17,7 @@ Zarafa.core.data.PresenceCache = Ext.extend(Object, {
 	 * @property
 	 * @private
 	 */
-	cache : {},
+	cache: {},
 
 	/**
 	 * Returns the entry of the user in the {#cache presence cache} for the passed user, or
@@ -30,7 +30,7 @@ Zarafa.core.data.PresenceCache = Ext.extend(Object, {
 	 * @return {Object|undefined}
 	 * @private
 	 */
-	getUser : function(user, noSync) {
+	getUser: function(user, noSync) {
 		if (!user.hasOwnProperty('entryid')) {
 			return;
 		}
@@ -52,7 +52,7 @@ Zarafa.core.data.PresenceCache = Ext.extend(Object, {
 	 * with the cached users.
 	 * @return {Zarafa.core.data.UserIdObject[]}
 	 */
-	syncUsers : function(users) {
+	syncUsers: function(users) {
 		Ext.each( users, function(user, index){
 			var syncedUser = this.getUser(user, true);
 			if (Ext.isDefined(syncedUser)) {
@@ -63,7 +63,7 @@ Zarafa.core.data.PresenceCache = Ext.extend(Object, {
 				// Add the new user to the cache, so it will be updated during polling
 				this.cache[user.entryid] = {
 					user: user,
-					statusByPlugin : {},
+					statusByPlugin: {},
 					status: Zarafa.core.data.PresenceStatus.UNKNOWN
 				};
 				syncedUser = this.cache[user.entryid].user;
@@ -84,7 +84,7 @@ Zarafa.core.data.PresenceCache = Ext.extend(Object, {
 	 * requested.
 	 * @return {Zarafa.core.data.PresenceStatus|undefined}
 	 */
-	getStatusForUser : function(userInfo) {
+	getStatusForUser: function(userInfo) {
 		// Distlists don't have userInfos but will send null
 		if ( !userInfo ){
 			return Zarafa.core.data.PresenceStatus.UNKNOWN;
@@ -101,7 +101,7 @@ Zarafa.core.data.PresenceCache = Ext.extend(Object, {
 	 * @param {Zarafa.core.data.PresenceStatus} status The status for the given user according to the
 	 * given plugin
 	 */
-	addStatusForUser : function(pluginName, user, status){
+	addStatusForUser: function(pluginName, user, status){
 		// First see if we already have a cached status for this user
 		var cacheUser = this.getUser(user);
 
@@ -113,7 +113,7 @@ Zarafa.core.data.PresenceCache = Ext.extend(Object, {
 			statusByPlugin[pluginName] = status;
 			this.cache[user.entryid] = {
 				user: user,
-				statusByPlugin : statusByPlugin
+				statusByPlugin: statusByPlugin
 			};
 		}
 
@@ -131,7 +131,7 @@ Zarafa.core.data.PresenceCache = Ext.extend(Object, {
 	 * Returns a list of {Zarafa.core.data.UserIdObject} objects in the cache.
 	 * @return {Array} of {@link Zarafa.core.data.UserIdObject UserIdObjects}
 	 */
-	getUserInfoList : function() {
+	getUserInfoList: function() {
 		return Object.keys(this).map(function(key) {
 			return this.cache[key].user;
 		}, this);

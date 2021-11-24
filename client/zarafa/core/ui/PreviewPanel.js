@@ -27,7 +27,7 @@ Zarafa.core.ui.PreviewPanel = Ext.extend(Ext.Panel, {
 	 * @cfg {Zarafa.core.ContextModel} model The model for which this
 	 * PreviewPanel is being loaded.
 	 */
-	model : undefined,
+	model: undefined,
 
 	/**
 	 * Reference to the {@link Zarafa.core.plugins.RecordComponentPlugin RecordComponent} plugin
@@ -38,24 +38,24 @@ Zarafa.core.ui.PreviewPanel = Ext.extend(Ext.Panel, {
 	 * @property
 	 * @type Zarafa.core.plugins.RecordComponentPlugin
 	 */
-	recordComponentPlugin : undefined,
+	recordComponentPlugin: undefined,
 
 	/**
 	 * @cfg {Object} Configuration object which will be used
 	 * to instantiate the {@link Zarafa.core.plugins.RecordComponentPlugin RecordComponent}.
 	 * See the plugin for the available configuration options.
 	 */
-	recordComponentPluginConfig : undefined,
+	recordComponentPluginConfig: undefined,
 
 	/**
 	 * @cfg {Zarafa.core.data.IPMRecord} record (See {@link Zarafa.core.plugins.RecordComponentPlugin#record}).
 	 */
-	record : undefined,
+	record: undefined,
 
 	/**
 	 * @cfg {Boolean} isLoadMaskShown true if load mask should be shown else false.
 	 */
-	isLoadMaskShown : false,
+	isLoadMaskShown: false,
 
 	/**
 	 * The LoadMask object which will be shown when the {@link #record} is being opened, and
@@ -64,51 +64,51 @@ Zarafa.core.ui.PreviewPanel = Ext.extend(Ext.Panel, {
 	 * @property
 	 * @type Zarafa.common.ui.LoadMask
 	 */
-	loadMask : undefined,
+	loadMask: undefined,
 
 	/**
 	 * @constructor
 	 * @param {Object} config configuration object.
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		config = config || {};
 
 		config = Ext.applyIf(config, {
-			layout : 'fit',
-			stateful : true,
-			minWidth : 200,
-			minHeight : 200,
-			xtype : 'zarafa.previewpanel'
+			layout: 'fit',
+			stateful: true,
+			minWidth: 200,
+			minHeight: 200,
+			xtype: 'zarafa.previewpanel'
 		});
 
 		config.tbar = Ext.applyIf(config.tbar || {}, {
 			cls: 'zarafa-previewpanel-toolbar',
-			xtype : 'zarafa.toolbar',
-			hidden : true,
-			items : []
+			xtype: 'zarafa.toolbar',
+			hidden: true,
+			items: []
 		});
 
 		var tbarItems = [
 			container.populateInsertionPoint('previewpanel.toolbar.left', this, config.model),
+			config.tbar.items, // Default items in toolbar should be left aligned.
 			{xtype: 'tbfill'},
-			container.populateInsertionPoint('previewpanel.toolbar.right.first', {scope : this, model : config.model}),
-			config.tbar.items, // Default items in toolbar should be right aligned.
-			container.populateInsertionPoint('previewpanel.toolbar.right', {scope : this, model : config.model})
+			container.populateInsertionPoint('previewpanel.toolbar.right.first', {scope: this, model: config.model}),
+			container.populateInsertionPoint('previewpanel.toolbar.right', {scope: this, model: config.model})
 		];
 
 		config.tbar.items = Ext.flatten(tbarItems);
 		config.plugins = Ext.value(config.plugins, []);
 		config.plugins.push(Ext.applyIf(config.recordComponentPluginConfig || {}, {
 			ptype: 'zarafa.recordcomponentplugin',
-			useShadowStore : true,
-			allowWrite : false
+			useShadowStore: true,
+			allowWrite: false
 		}));
 
 		config.plugins.push({
 			ptype: 'zarafa.recordcomponentupdaterplugin'
 		}, {
-			ptype : 'zarafa.enablefocusplugin'
+			ptype: 'zarafa.enablefocusplugin'
 		});
 
 		if (container.getSettingsModel().get('zarafa/v1/contexts/mail/readflag_time_enable') === true) {
@@ -124,12 +124,12 @@ Zarafa.core.ui.PreviewPanel = Ext.extend(Ext.Panel, {
 		}
 
 		this.on({
-			'beforeloadrecord' : this.onBeforeLoadRecord,
-			'loadrecord' : this.onLoadRecord,
-			'exceptionrecord' : this.onExceptionRecord,
-			'show' : this.onPreviewPanelShow,
-			'expand' : this.onPreviewPanelShow,
-			'scope' : this
+			'beforeloadrecord': this.onBeforeLoadRecord,
+			'loadrecord': this.onLoadRecord,
+			'exceptionrecord': this.onExceptionRecord,
+			'show': this.onPreviewPanelShow,
+			'expand': this.onPreviewPanelShow,
+			'scope': this
 		});
 	},
 
@@ -167,7 +167,7 @@ Zarafa.core.ui.PreviewPanel = Ext.extend(Ext.Panel, {
 	 *
 	 * @param {Zarafa.core.data.MAPIRecord} record The record to set
 	 */
-	setRecord : function(record)
+	setRecord: function(record)
 	{
 		for (var i = 0; i < this.toolbars.length; i++) {
 			this.toolbars[i].setVisible(!!record);
@@ -194,7 +194,7 @@ Zarafa.core.ui.PreviewPanel = Ext.extend(Ext.Panel, {
 	 * that is shown in the preview panel
 	 * @param {Zarafa.core.data.IPMRecord} record The Record that was updated
 	 */
-	updatePreviewPanel : function(store, record)
+	updatePreviewPanel: function(store, record)
 	{
 		// Only update when we are showing a record in the preview panel
 		if ( this.record && record.equals(this.record) ){
@@ -209,7 +209,7 @@ Zarafa.core.ui.PreviewPanel = Ext.extend(Ext.Panel, {
 	 * @param {Zarafa.core.data.MAPIRecord} record The record to update in this component
 	 * @param {Boolean} contentReset force the component to perform a full update of the data.
 	 */
-	update : function(record, contentReset)
+	update: function(record, contentReset)
 	{
 		this.record = record;
 	},
@@ -219,7 +219,7 @@ Zarafa.core.ui.PreviewPanel = Ext.extend(Ext.Panel, {
 	 * @param {Zarafa.core.data.MAPIRecord} record
 	 * @private
 	 */
-	showRecordInPanel : function(record)
+	showRecordInPanel: function(record)
 	{
 		var panelConstructor;
 
@@ -234,6 +234,8 @@ Zarafa.core.ui.PreviewPanel = Ext.extend(Ext.Panel, {
 		}
 
 		if (Ext.isDefined(record)) {
+			// TODO: Find a proper way to suppress exception popup
+			record.suppressException();
 			panelConstructor = container.getSharedComponent(Zarafa.core.data.SharedComponentType['common.preview'], record);
 			if (panelConstructor && this.get(0) instanceof panelConstructor) {
 				if(this.isLoadMaskShown){
@@ -264,7 +266,7 @@ Zarafa.core.ui.PreviewPanel = Ext.extend(Ext.Panel, {
 	 * Defaults to the value of this Container's {@link #autoDestroy} config.
 	 * @return {Array} Array of the destroyed components
 	 */
-	removeAll : function(autoDestroy)
+	removeAll: function(autoDestroy)
 	{
 		// remove toolbar items first
 		var destroyedItems = [];
@@ -290,7 +292,7 @@ Zarafa.core.ui.PreviewPanel = Ext.extend(Ext.Panel, {
 	 * @param {Ext.data.Record} record The record which is selected for preview.
 	 * @private
 	 */
-	onPreviewRecordChange : function(contextModel, record)
+	onPreviewRecordChange: function(contextModel, record)
 	{
 		// Load record in preview panel
 		if(this.isVisible()) {
@@ -304,9 +306,9 @@ Zarafa.core.ui.PreviewPanel = Ext.extend(Ext.Panel, {
 	 * @param {Boolean} errorMask True to show an error mask instead of the loading mask.
 	 * @protected
 	 */
-	showLoadMask : function(errorMask)
+	showLoadMask: function(errorMask)
 	{
-		if (this.isLoadMaskShown === true) {
+		if (this.isLoadMaskShown && !errorMask) {
 			return;
 		}
 		if (!this.loadMask) {
@@ -327,7 +329,7 @@ Zarafa.core.ui.PreviewPanel = Ext.extend(Ext.Panel, {
 	 * loadMask.
 	 * @protected
 	 */
-	hideLoadMask : function()
+	hideLoadMask: function()
 	{
 		if (this.isLoadMaskShown === false) {
 			return;
@@ -347,7 +349,7 @@ Zarafa.core.ui.PreviewPanel = Ext.extend(Ext.Panel, {
 	 * @param {Zarafa.core.data.IPMRecord} record The record which was updated
 	 * @private
 	 */
-	onBeforeLoadRecord : function(panel, record)
+	onBeforeLoadRecord: function(panel, record)
 	{
 		this.showLoadMask();
 	},
@@ -360,7 +362,7 @@ Zarafa.core.ui.PreviewPanel = Ext.extend(Ext.Panel, {
 	 * @param {Zarafa.core.data.IPMRecord} record The record which was updated
 	 * @private
 	 */
-	onLoadRecord : function(panel, record)
+	onLoadRecord: function(panel, record)
 	{
 		this.hideLoadMask();
 	},
@@ -381,7 +383,7 @@ Zarafa.core.ui.PreviewPanel = Ext.extend(Ext.Panel, {
 	 * that encountered an exception.
 	 * @param {String} error (Optional) Passed when a thrown JS Exception or JS Error is
 	 */
-	onExceptionRecord : function(type, action, options, response, record)
+	onExceptionRecord: function(type, action, options, response, record)
 	{
 		this.showLoadMask(true);
 	},
@@ -390,7 +392,7 @@ Zarafa.core.ui.PreviewPanel = Ext.extend(Ext.Panel, {
 	 * Event handler which is fired when this panel has been set to visible. Fetches previewRecord from
 	 * the {@link Zarafa.core.ContextModel ContextModel} and displays into panel.
 	 */
-	onPreviewPanelShow : function()
+	onPreviewPanelShow: function()
 	{
 		if (Ext.isDefined(this.model)) {
 			var record = this.model.getPreviewRecord();
@@ -407,7 +409,7 @@ Zarafa.core.ui.PreviewPanel = Ext.extend(Ext.Panel, {
 	 * a custom name.
 	 * @return {String} The unique name for this component by which the {@link #getState state} must be saved.
 	 */
-	getStateName : function()
+	getStateName: function()
 	{
 		return 'preview/' + Zarafa.core.ui.PreviewPanel.superclass.getStateName.call(this);
 	}

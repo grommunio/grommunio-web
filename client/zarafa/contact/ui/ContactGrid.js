@@ -11,27 +11,27 @@ Zarafa.contact.ui.ContactGrid = Ext.extend(Zarafa.common.ui.grid.MapiMessageGrid
 	/**
 	 * @cfg {Zarafa.contact.ContactContext} context The context to which this panel belongs
 	 */
-	context : undefined,
+	context: undefined,
 
 	/**
 	 * The {@link Zarafa.contact.ContactContextModel} which is obtained from the {@link #context}.
 	 * @property
 	 * @type Zarafa.contact.ContactContextModel
 	 */
-	model : undefined,
+	model: undefined,
 
 	/**
 	 * The {@link Zarafa.contact.ContactStore} which is obtained from the {@link #model}.
 	 * @property
 	 * @type Zarafa.contact.ContactStore
 	 */
-	store : undefined,
+	store: undefined,
 
 	/**
 	 * @constructor
 	 * @param {Object} config Configuration structure
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		config = config || {};
 
@@ -44,18 +44,18 @@ Zarafa.contact.ui.ContactGrid = Ext.extend(Zarafa.common.ui.grid.MapiMessageGrid
 		config.store = Ext.StoreMgr.lookup(config.store);
 
 		Ext.applyIf(config, {
-			xtype : 'zarafa.contactgrid',
-			border : false,
-			stateful : true,
-			statefulRelativeDimensions : false,
-			autoExpandColumn : 'fileas',
+			xtype: 'zarafa.contactgrid',
+			border: false,
+			stateful: true,
+			statefulRelativeDimensions: false,
+			autoExpandColumn: 'fileas',
 
-			loadMask : this.initLoadMask(),
-			viewConfig : this.initViewConfig(),
-			selModel : this.initSelectionModel(),
-			colModel : this.initColumnModel(),
-			enableDragDrop : true,
-			ddGroup : 'dd.mapiitem'
+			loadMask: this.initLoadMask(),
+			viewConfig: this.initViewConfig(),
+			selModel: this.initSelectionModel(),
+			colModel: this.initColumnModel(),
+			enableDragDrop: true,
+			ddGroup: 'dd.mapiitem'
 		});
 
 		Zarafa.contact.ui.ContactGrid.superclass.constructor.call(this, config);
@@ -65,7 +65,7 @@ Zarafa.contact.ui.ContactGrid = Ext.extend(Zarafa.common.ui.grid.MapiMessageGrid
 	 * @return {Object} view config object
 	 * @private
 	 */
-	initViewConfig : function()
+	initViewConfig: function()
 	{
 		return {
 		};
@@ -75,10 +75,10 @@ Zarafa.contact.ui.ContactGrid = Ext.extend(Zarafa.common.ui.grid.MapiMessageGrid
 	 * @return {Object} loas mask config object
 	 * @private
 	 */
-	initLoadMask : function()
+	initLoadMask: function()
 	{
 		return {
-			msg : _('Loading contacts') + '...'
+			msg: _('Loading contacts') + '...'
 		};
 	},
 
@@ -87,7 +87,7 @@ Zarafa.contact.ui.ContactGrid = Ext.extend(Zarafa.common.ui.grid.MapiMessageGrid
 	 * @return {Ext.grid.ColumnModel} column model object
 	 * @private
 	 */
-	initColumnModel : function()
+	initColumnModel: function()
 	{
 		return new Zarafa.contact.ui.ContactGridColumnModel();
 	},
@@ -97,13 +97,13 @@ Zarafa.contact.ui.ContactGrid = Ext.extend(Zarafa.common.ui.grid.MapiMessageGrid
 	 * @return {Ext.grid.RowSelectionModel} selection model object
 	 * @private
 	 */
-	initSelectionModel : function()
+	initSelectionModel: function()
 	{
 		return new Ext.grid.RowSelectionModel({
-			singleSelect : false,
-			listeners : {
-				scope : this,
-				selectionchange : this.onSelectionChange
+			singleSelect: false,
+			listeners: {
+				scope: this,
+				selectionchange: this.onSelectionChange
 			}
 		});
 	},
@@ -112,7 +112,7 @@ Zarafa.contact.ui.ContactGrid = Ext.extend(Zarafa.common.ui.grid.MapiMessageGrid
 	 * Returns {@link Zarafa.contact.ui.ContactMainPanel ContactMainPanel} object which instantiated all the views
 	 * @return {Zarafa.contact.ui.ContactMainPanel} contact main panel
 	 */
-	getMainPanel : function()
+	getMainPanel: function()
 	{
 		return this.ownerCt;
 	},
@@ -121,7 +121,7 @@ Zarafa.contact.ui.ContactGrid = Ext.extend(Zarafa.common.ui.grid.MapiMessageGrid
 	 * initialize events for the grid panel
 	 * @private
 	 */
-	initEvents : function()
+	initEvents: function()
 	{
 		Zarafa.contact.ui.ContactGrid.superclass.initEvents.apply(this, arguments);
 
@@ -135,7 +135,7 @@ Zarafa.contact.ui.ContactGrid = Ext.extend(Zarafa.common.ui.grid.MapiMessageGrid
 	 * @param {Ext.event} eventObj object of the event
 	 * @private
 	 */
-	onRowDblClick : function(grid, rowIndex, eventObj)
+	onRowDblClick: function(grid, rowIndex, eventObj)
 	{
 		Zarafa.contact.Actions.openDialog(grid.getSelectionModel().getSelections());
 	},
@@ -148,7 +148,7 @@ Zarafa.contact.ui.ContactGrid = Ext.extend(Zarafa.common.ui.grid.MapiMessageGrid
 	 * @param {Ext.grid.RowSelectionModel} selectionModel The selection model used by the grid.
 	 * @private
 	 */
-	onSelectionChange : function(selectionModel)
+	onSelectionChange: function(selectionModel)
 	{
 		this.model.setSelectedRecords(selectionModel.getSelections());
 	}

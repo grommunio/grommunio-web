@@ -152,7 +152,7 @@ Zarafa.advancesearch.ui.SearchGridRenderers = {
 			}
 		});
 
-		if (phoneNumberProps) {
+		if (phoneNumberProp) {
 			return Ext.util.Format.htmlEncode(record.get(phoneNumberProp));
 		} else {
 			return '';

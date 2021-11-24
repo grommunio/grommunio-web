@@ -16,7 +16,7 @@ Zarafa.common.recipientfield.data.SuggestionListResponseHandler = Ext.extend(Zar
 	 * @return {Boolean} False when action could not be handled successfully. This will
 	 * not cancel the transaction itself, but rather causes the 'success' argument for the
 	 */
-	doList : function(response)
+	doList: function(response)
 	{
 		var results = response.results || [];
 

@@ -50,7 +50,7 @@ Zarafa.common.ui.BoxField = Ext.extend(Ext.form.ComboBox, {
 	 * When this is true, all required fields from the {@link Ext.from.ComboBox Ext.form.ComboBox}
 	 * must be configured.
 	 */
-	enableComboBox : true,
+	enableComboBox: true,
 	/**
 	 * The {@link Zarafa.common.ui.Box box} which currently has the userfocus.
 	 * @property
@@ -65,13 +65,13 @@ Zarafa.common.ui.BoxField = Ext.extend(Ext.form.ComboBox, {
 	 * @property
 	 * @type Ext.Element
 	 */
-	boxFocusEl : undefined,
+	boxFocusEl: undefined,
 	/**
 	 * The 'ul' element which contains all rendered {@link #items} and the {@link #inputEl}.
 	 * @property
 	 * @type Ext.Element
 	 */
-	wrapBoxesEl : undefined,
+	wrapBoxesEl: undefined,
 	/**
 	 * The 'li' element which has been wrapped around {@link #el}, and is to make sure the
 	 * input element is positioned correctly within the list. This should always be the
@@ -79,7 +79,7 @@ Zarafa.common.ui.BoxField = Ext.extend(Ext.form.ComboBox, {
 	 * @property
 	 * @type Ext.Element
 	 */
-	inputEl : undefined,
+	inputEl: undefined,
 	/**
 	 * The {@link Ext.KeyMap} which is used on the {@link #boxFocusEl} to add keyboard
 	 * control over the current {@link #items box} selection. This will only be enabled
@@ -88,7 +88,7 @@ Zarafa.common.ui.BoxField = Ext.extend(Ext.form.ComboBox, {
 	 * @property
 	 * @type Ext.KeyMap
 	 */
-	boxKeyMap : undefined,
+	boxKeyMap: undefined,
 
 	/**
 	 * The {@link Ext.KeyMap} which is used on the {@link #el} to add keyboard
@@ -102,7 +102,7 @@ Zarafa.common.ui.BoxField = Ext.extend(Ext.form.ComboBox, {
 	 * @property
 	 * @type Ext.KeyMap
 	 */
-	inputKeyMap : undefined,
+	inputKeyMap: undefined,
 
 	/**
 	 * The {@link Ext.KeyMap} which is used on the {@link #el} to add keyboard
@@ -116,7 +116,7 @@ Zarafa.common.ui.BoxField = Ext.extend(Ext.form.ComboBox, {
 	 * @property
 	 * @type Ext.KeyMap
 	 */
-	specialInputKeyMap : undefined,
+	specialInputKeyMap: undefined,
 
 	/**
 	 * The {@link Ext.KeyMap} which is used on the {@link #el} to add keyboard control
@@ -125,14 +125,14 @@ Zarafa.common.ui.BoxField = Ext.extend(Ext.form.ComboBox, {
 	 * @property
 	 * @type Ext.KeyMap
 	 */
-	listKeyMap : undefined,
+	listKeyMap: undefined,
 
 	/**
 	 * @cfg {Number} minInputFieldWidth The minimum number of pixels which must be available
 	 * for the {@link #el input field}, to type in the text. The number of pixels should be
 	 * sufficient to at least contain 1 character (in any characterset).
 	 */
-	minInputFieldWidth : 25,
+	minInputFieldWidth: 25,
 
 	/**
 	 * @cfg {Number} inputFieldHeight The default height for the {@link #el input field}.
@@ -143,12 +143,12 @@ Zarafa.common.ui.BoxField = Ext.extend(Ext.form.ComboBox, {
 	 * @cfg {Boolean} enableAnim Enable special {@link Ext.Fx FX} effects for
 	 * this this field and all container {@link #items boxes}.
 	 */
-	enableAnim : true,
+	enableAnim: true,
 
 	/**
 	 * @cfg {String} wrapCls The CSS classes which must be applied to the {@link #wrap} element.
 	 */
-	wrapCls : 'x-form-text x-zarafa-boxfield',
+	wrapCls: 'x-form-text x-zarafa-boxfield',
 
 	/**
 	 * Instance of the {@link Ext.util.TextMetrics TextMetrics} which is bound to the {@link #innerList}.
@@ -157,7 +157,7 @@ Zarafa.common.ui.BoxField = Ext.extend(Ext.form.ComboBox, {
 	 * @property
 	 * @type Ext.util.TextMetrics
 	 */
-	listTextMetric : undefined,
+	listTextMetric: undefined,
 
 	/**
 	 * Instance of the {@link Ext.util.TextMetrics TextMetrics} which is bound to the {@link #el}.
@@ -166,33 +166,33 @@ Zarafa.common.ui.BoxField = Ext.extend(Ext.form.ComboBox, {
 	 * @property
 	 * @type Ext.util.TextMetrics
 	 */
-	inputTextMetric : undefined,
+	inputTextMetric: undefined,
 
 	/**
 	 * @cfg {Boolean} listMode True to show all boxes in a list rather then side-by-side.
 	 * When enabled, all boxes (and input field) will get the full width of the component.
 	 */
-	listMode : false,
+	listMode: false,
 
 	/**
 	 * @cfg {Number} boxLimit If set, this number will limit the number of boxes which will
 	 * be rendered into the field. It will also disable the {@link #inputEl} when the limit
 	 * has been reached.
 	 */
-	boxLimit : undefined,
+	boxLimit: undefined,
 
 	/**
 	 * @cfg {String}
 	 * A simple CSS selector (e.g. div.some-class or span:first-child) that will be used to
 	 * determine what extra nodes are required to be added into each of the dropdown-list item.
 	 */
-	extraItemSelector : undefined,
+	extraItemSelector: undefined,
 
 	/**
 	 * @constructor
 	 * @param config Configuration object
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		config = config || {};
 
@@ -202,20 +202,20 @@ Zarafa.common.ui.BoxField = Ext.extend(Ext.form.ComboBox, {
 
 		Ext.applyIf(config, {
 			// Override from Ext.Component
-			xtype : 'zarafa.boxfield',
-			cls : 'x-zarafa-boxfield-input',
-			hideTrigger : true,
+			xtype: 'zarafa.boxfield',
+			cls: 'x-zarafa-boxfield-input',
+			hideTrigger: true,
 
 			autoHeight: true,
 			autoScroll: true,
-			
+
 			/*
 			 * Override value of Ext.form.TriggerField
 			 * Because we don't want TAB-key to blur the element
 			 */
 			monitorTab: false
 		});
-		config.wrapCls = config.wrapCls ? config.wrapCls + ' '  + this.wrapCls : this.wrapCls;
+		config.wrapCls = config.wrapCls ? config.wrapCls + ' ' + this.wrapCls : this.wrapCls;
 
 		this.addEvents(
 			/**
@@ -286,7 +286,7 @@ Zarafa.common.ui.BoxField = Ext.extend(Ext.form.ComboBox, {
 	 * Called by the superclass to initialize the component
 	 * @private
 	 */
-	initComponent : function()
+	initComponent: function()
 	{
 		Zarafa.common.ui.BoxField.superclass.initComponent.call(this);
 		this.items = new Ext.util.MixedCollection();
@@ -295,7 +295,7 @@ Zarafa.common.ui.BoxField = Ext.extend(Ext.form.ComboBox, {
 		if (Ext.isString(this.handleInputKey)) {
 			this.handleInputKey = this.handleInputKey.charCodeAt(0);
 		}
-		
+
 		this.previousHeight = this.height;
 	},
 
@@ -304,11 +304,11 @@ Zarafa.common.ui.BoxField = Ext.extend(Ext.form.ComboBox, {
 	 * This is called on {@link #afterrender}.
 	 * @private
 	 */
-	initEvents : function()
+	initEvents: function()
 	{
 		this.mon(this.el, {
-			keydown : this.onKeyDownHandler,
-			scope   : this
+			keydown: this.onKeyDownHandler,
+			scope : this
 		});
 
 		this.mon(this.getContentTarget(), 'click', this.onContainerClick, this);
@@ -336,7 +336,7 @@ Zarafa.common.ui.BoxField = Ext.extend(Ext.form.ComboBox, {
 
 		// Register event handler when listMode is enabled,
 		// this will force the boxes to be resized when the parent
-		// has been layed out.
+		// has been laid out.
 		if (this.listMode === true) {
 			this.mon(this.ownerCt, 'afterlayout', this.onParentLayout, this);
 		}
@@ -352,7 +352,7 @@ Zarafa.common.ui.BoxField = Ext.extend(Ext.form.ComboBox, {
 	 * and start listening to the {@link Ext.DataView#extraitemclick}, {@link Ext.DataView#mouseenter}
 	 * and {@link Ext.DataView#mouseleave} event.
 	 */
-	initList : function()
+	initList: function()
 	{
 		Zarafa.common.ui.BoxField.superclass.initList.call(this);
 
@@ -417,7 +417,7 @@ Zarafa.common.ui.BoxField = Ext.extend(Ext.form.ComboBox, {
 	 * @return {Ext.util.TextMetrics} The textmetrics for {@link #innerList}.
 	 * @private
 	 */
-	getListTextMetric : function()
+	getListTextMetric: function()
 	{
 		if (!this.listTextMetric) {
 			this.listTextMetric = Ext.util.TextMetrics.createInstance(this.innerList);
@@ -431,7 +431,7 @@ Zarafa.common.ui.BoxField = Ext.extend(Ext.form.ComboBox, {
 	 * @return {Ext.util.TextMetrics} The textmetrics for {@link #el}.
 	 * @private
 	 */
-	getInputTextMetric : function()
+	getInputTextMetric: function()
 	{
 		if (!this.inputTextMetric) {
 			this.inputTextMetric = Ext.util.TextMetrics.createInstance(this.el);
@@ -448,7 +448,7 @@ Zarafa.common.ui.BoxField = Ext.extend(Ext.form.ComboBox, {
 	 * @param {EventObject} e
 	 * @private
 	 */
-	onTriggerClick : function()
+	onTriggerClick: function()
 	{
 		if (this.enableComboBox === true) {
 			Zarafa.common.ui.BoxField.superclass.onTriggerClick.apply(this, arguments);
@@ -456,18 +456,18 @@ Zarafa.common.ui.BoxField = Ext.extend(Ext.form.ComboBox, {
 	},
 
 	/**
-	 * Execute a query to filter the dropdown list.  Fires the {@link #beforequery} event prior to performing the
+	 * Execute a query to filter the dropdown list. Fires the {@link #beforequery} event prior to performing the
 	 * query allowing the query action to be canceled if needed.
 	 *
 	 * This method is disabled if {@link #enableComboBox} is set to false.
 	 *
 	 * @param {String} query The SQL query to execute
 	 * @param {Boolean} forceAll <tt>true</tt> to force the query to execute even if there are currently fewer
-	 * characters in the field than the minimum specified by the <tt>{@link #minChars}</tt> config option.  It
+	 * characters in the field than the minimum specified by the <tt>{@link #minChars}</tt> config option. It
 	 * also clears any filter previously saved in the current store (defaults to <tt>false</tt>)
 	 * @private
 	 */
-	doQuery : function()
+	doQuery: function()
 	{
 		if (this.enableComboBox === true) {
 			Zarafa.common.ui.BoxField.superclass.doQuery.apply(this, arguments);
@@ -481,7 +481,7 @@ Zarafa.common.ui.BoxField = Ext.extend(Ext.form.ComboBox, {
 	 *
 	 * @private
 	 */
-	assertValue : function()
+	assertValue: function()
 	{
 		if (this.enableComboBox === true) {
 			Zarafa.common.ui.BoxField.superclass.assertValue.apply(this, arguments);
@@ -527,7 +527,7 @@ Zarafa.common.ui.BoxField = Ext.extend(Ext.form.ComboBox, {
 	 *
 	 * @private
 	 */
-	getDesiredListWidth : function()
+	getDesiredListWidth: function()
 	{
 		var metric = this.getListTextMetric();
 		var desiredWidth = 0;
@@ -553,12 +553,12 @@ Zarafa.common.ui.BoxField = Ext.extend(Ext.form.ComboBox, {
 	 * This will show a {@link #loadingText} in the {@link #list.
 	 *
 	 * We make sure that we resize our {@link #list} here using {@link #getDesiredListWidth}
-	 * to guarentee that our {@link #loadingText} and loading image receive sufficient
+	 * to guarantee that our {@link #loadingText} and loading image receive sufficient
 	 * space.
 	 *
 	 * @private
 	 */
-	onBeforeLoad : function()
+	onBeforeLoad: function()
 	{
 		Zarafa.common.ui.BoxField.superclass.onBeforeLoad.apply(this, arguments);
 
@@ -579,7 +579,7 @@ Zarafa.common.ui.BoxField = Ext.extend(Ext.form.ComboBox, {
 	 * @param {Object} options The options object which were provided during load
 	 * @private
 	 */
-	onLoad : function(store, records, options)
+	onLoad: function(store, records, options)
 	{
 		if (this.hasFocus && (this.store.getCount() > 0 || this.listEmptyText)) {
 			var desiredWidth = this.getDesiredListWidth();
@@ -614,7 +614,7 @@ Zarafa.common.ui.BoxField = Ext.extend(Ext.form.ComboBox, {
 	 * @param {Number} width The desired width of the list
 	 * @private
 	 */
-	restrictWidth : function(width)
+	restrictWidth: function(width)
 	{
 		var target = this.getEl();
 		var container = this.getResizeEl();
@@ -674,7 +674,7 @@ Zarafa.common.ui.BoxField = Ext.extend(Ext.form.ComboBox, {
 	 * @param {NUmber} position The position within the container where the component will be rendered.
 	 * @private
 	 */
-	onRender : function(ct, position)
+	onRender: function(ct, position)
 	{
 		Zarafa.common.ui.BoxField.superclass.onRender.call(this, ct, position);
 
@@ -689,14 +689,14 @@ Zarafa.common.ui.BoxField = Ext.extend(Ext.form.ComboBox, {
 			if(Ext.isDefined(this.height)) {
 				this.wrap.setHeight(this.height);
 			}
-		}else{
+		} else {
 			 this.wrap.applyStyles('height: auto;');
 		}
 
 		// Create a focus element which is used for focussing a box.
 		this.boxFocusEl = this.wrap.createChild({
-			tag : 'a',
-			href : '#',
+			tag: 'a',
+			href: '#',
 			// Disable tab-index, and position it somewhere where it cannot be seen
 			// by the user. This will make the element completely invisible for the
 			// user while we can benefit from the focus capabilities.
@@ -732,7 +732,7 @@ Zarafa.common.ui.BoxField = Ext.extend(Ext.form.ComboBox, {
 	 * {@link Zarafa.common.ui.Box#editable} state on there.
 	 * @private
 	 */
-	updateEditState : function()
+	updateEditState: function()
 	{
 		Zarafa.common.ui.BoxField.superclass.updateEditState.apply(this, arguments);
 
@@ -749,7 +749,7 @@ Zarafa.common.ui.BoxField = Ext.extend(Ext.form.ComboBox, {
 	 * @return {Ext.Element} The content element
 	 * @private
 	 */
-	getContentTarget : function()
+	getContentTarget: function()
 	{
 		return this.wrap;
 	},
@@ -781,7 +781,7 @@ Zarafa.common.ui.BoxField = Ext.extend(Ext.form.ComboBox, {
 	 *
 	 * @private
 	 */
-	sizeContainer : function()
+	sizeContainer: function()
 	{
 		if (!this.rendered || this.autoHeight === false) {
 			return false;
@@ -794,7 +794,7 @@ Zarafa.common.ui.BoxField = Ext.extend(Ext.form.ComboBox, {
 			// this element was removed. (See Zarafa.common.ui.Box.doDestroy())
 			return;
 		}
-		
+
 		var outerHeight = target.getHeight();
 		var innerHeight = target.dom.scrollHeight;
 		var doLayout = false;
@@ -802,7 +802,7 @@ Zarafa.common.ui.BoxField = Ext.extend(Ext.form.ComboBox, {
 		if ( this.previousOuterHeight !== outerHeight ) {
 			doLayout = true;
 		}
-		
+
 		if (outerHeight > this.boxMaxHeight) {
 			// The height of the box exceeds the maximim height,
 			// enable the scrollbar and scroll to the bottom.
@@ -833,12 +833,12 @@ Zarafa.common.ui.BoxField = Ext.extend(Ext.form.ComboBox, {
 	},
 
 	/**
-	 * Called when the {@link #ownerCt owner} has been layed out, this
+	 * Called when the {@link #ownerCt owner} has been laid out, this
 	 * will obtain the new desired {@link #getDesiredBoxWidth boxWidth}
 	 * and applies them to all available {@link #items boxes}.
 	 * @private
 	 */
-	onParentLayout : function()
+	onParentLayout: function()
 	{
 		var width = this.getDesiredBoxWidth();
 		if (Ext.isDefined(width)) {
@@ -853,7 +853,7 @@ Zarafa.common.ui.BoxField = Ext.extend(Ext.form.ComboBox, {
 	 * @return {Number} The desired width for all boxes
 	 * @private
 	 */
-	getDesiredBoxWidth : function()
+	getDesiredBoxWidth: function()
 	{
 		if (this.listMode === true) {
 			var target = this.getResizeEl();
@@ -927,7 +927,7 @@ Zarafa.common.ui.BoxField = Ext.extend(Ext.form.ComboBox, {
 	 * @param {String} value The value from the input field
 	 * @protected
 	 */
-	handleInput : Ext.emptyFn,
+	handleInput: Ext.emptyFn,
 
 	/**
 	 * Called to handle a selection from the dropdown list. This function needs to
@@ -937,14 +937,14 @@ Zarafa.common.ui.BoxField = Ext.extend(Ext.form.ComboBox, {
 	 * @param {Ext.data.Record} record The record which was selected from {@link #store}
 	 * @protected
 	 */
-	handleSelection : Ext.emptyFn,
+	handleSelection: Ext.emptyFn,
 
 	/**
 	 * Check {@link #el} for input and call {@link #handleInput} to convert
 	 * the input into a new {@link Zarafa.common.ui.Box Box}.
 	 * @private
 	 */
-	convertInputToBox : function()
+	convertInputToBox: function()
 	{
 		var value = this.el.getValue();
 
@@ -986,7 +986,7 @@ Zarafa.common.ui.BoxField = Ext.extend(Ext.form.ComboBox, {
 	 * @return {Boolean} True if the record should be visible, false otherwise
 	 * @protected
 	 */
-	filterRecord : function(record)
+	filterRecord: function(record)
 	{
 		return true;
 	},
@@ -996,9 +996,9 @@ Zarafa.common.ui.BoxField = Ext.extend(Ext.form.ComboBox, {
 	 * @param {Ext.data.Record} record The record for which the box is searched
 	 * @return {Zarafa.common.ui.Box} The box which belongs to the given record
 	 */
-	getBoxForRecord : function(record)
+	getBoxForRecord: function(record)
 	{
-		return this.items.find(function(box) { return box.record === record;  });
+		return this.items.find(function(box) { return box.record === record; });
 	},
 
 	/**
@@ -1007,7 +1007,7 @@ Zarafa.common.ui.BoxField = Ext.extend(Ext.form.ComboBox, {
 	 *
 	 * @private
 	 */
-	beforeBlur : function()
+	beforeBlur: function()
 	{
 		Zarafa.common.ui.BoxField.superclass.beforeBlur.apply(this, arguments);
 		this.convertInputToBox();
@@ -1022,7 +1022,7 @@ Zarafa.common.ui.BoxField = Ext.extend(Ext.form.ComboBox, {
 	 * @param {Zarafa.common.ui.Box} box The box to put the focus on
 	 * @private
 	 */
-	boxFocus : function(box)
+	boxFocus: function(box)
 	{
 		if (this.currentFocus) {
 			this.currentFocus.blur();
@@ -1041,7 +1041,7 @@ Zarafa.common.ui.BoxField = Ext.extend(Ext.form.ComboBox, {
 	 * reset {@link #currentFocus}.
 	 * @private
 	 */
-	boxBlur : function()
+	boxBlur: function()
 	{
 		if (this.currentFocus) {
 			this.currentFocus.blur();
@@ -1056,7 +1056,7 @@ Zarafa.common.ui.BoxField = Ext.extend(Ext.form.ComboBox, {
 	 * @param {Boolean/Number} delay (optional) Delay the focus this number of milliseconds (true for 10 milliseconds)
 	 * @return {Ext.Component} this
 	 */
-	focus : function(selectText, delay)
+	focus: function(selectText, delay)
 	{
 		if (delay) {
 			this.focusTask = new Ext.util.DelayedTask(this.focus, this, [selectText, false]);
@@ -1078,7 +1078,7 @@ Zarafa.common.ui.BoxField = Ext.extend(Ext.form.ComboBox, {
 	 * @param {Number} caretPos (optional) The desired caret position
 	 * @private
 	 */
-	inputFocus : function(caretPos, selectText)
+	inputFocus: function(caretPos, selectText)
 	{
 		this.boxBlur();
 		this.el.focus();
@@ -1094,7 +1094,7 @@ Zarafa.common.ui.BoxField = Ext.extend(Ext.form.ComboBox, {
 	 * Remove the focus from the {@link #el} element.
 	 * @private
 	 */
-	inputBlur : function()
+	inputBlur: function()
 	{
 		this.el.blur();
 	},
@@ -1105,7 +1105,7 @@ Zarafa.common.ui.BoxField = Ext.extend(Ext.form.ComboBox, {
 	 * In this case, we redirect our focus to the input element.
 	 * @private
 	 */
-	onContainerClick : function(e, element)
+	onContainerClick: function(e, element)
 	{
 		this.collapse();
 		if (this.editable) {
@@ -1131,7 +1131,7 @@ Zarafa.common.ui.BoxField = Ext.extend(Ext.form.ComboBox, {
 	 * @return {Ext.KeyMap} The keymap for the focus element.
 	 * @private
 	 */
-	createBoxKeyMap : function(focusEl)
+	createBoxKeyMap: function(focusEl)
 	{
 		var bindings = [{
 			key: [
@@ -1215,7 +1215,7 @@ Zarafa.common.ui.BoxField = Ext.extend(Ext.form.ComboBox, {
 	 * Event handler for the keydown event of the {@link Ext.KeyMap KeyMap}
 	 * when the user wants to copy email address of resolved recipient.
 	 */
-	onBoxKeyCopy : function ()
+	onBoxKeyCopy: function ()
 	{
 		Zarafa.common.Actions.copyEmailAddress(this.currentFocus.record);
 	},
@@ -1230,7 +1230,7 @@ Zarafa.common.ui.BoxField = Ext.extend(Ext.form.ComboBox, {
 	 * @param {Ext.EventObject} e The event object which fired the event
 	 * @private
 	 */
-	onBoxKeyEnter : function(key, e)
+	onBoxKeyEnter: function(key, e)
 	{
 		e.stopEvent();
 
@@ -1249,7 +1249,7 @@ Zarafa.common.ui.BoxField = Ext.extend(Ext.form.ComboBox, {
 	 * @param {Ext.EventObject} e The event object which fired the event
 	 * @private
 	 */
-	onBoxKeyUp : function(key, e)
+	onBoxKeyUp: function(key, e)
 	{
 		this.onBoxKeyLeft(key, e);
 	},
@@ -1266,7 +1266,7 @@ Zarafa.common.ui.BoxField = Ext.extend(Ext.form.ComboBox, {
 	 * @param {Ext.EventObject} e The event object which fired the event
 	 * @private
 	 */
-	onBoxKeyDown : function(key, e)
+	onBoxKeyDown: function(key, e)
 	{
 		this.onBoxKeyRight(key, e);
 	},
@@ -1283,7 +1283,7 @@ Zarafa.common.ui.BoxField = Ext.extend(Ext.form.ComboBox, {
 	 * @param {Ext.EventObject} e The event object which fired the event
 	 * @private
 	 */
-	onBoxKeyLeft : function(key, e)
+	onBoxKeyLeft: function(key, e)
 	{
 		e.stopEvent();
 
@@ -1305,7 +1305,7 @@ Zarafa.common.ui.BoxField = Ext.extend(Ext.form.ComboBox, {
 	 * @param {Ext.EventObject} e The event object which fired the event
 	 * @private
 	 */
-	onBoxKeyRight : function(key, e)
+	onBoxKeyRight: function(key, e)
 	{
 		e.stopEvent();
 
@@ -1327,7 +1327,7 @@ Zarafa.common.ui.BoxField = Ext.extend(Ext.form.ComboBox, {
 	 * @param {Ext.EventObject} e The event object which fired the event
 	 * @private
 	 */
-	onBoxKeyHome : function(key, e)
+	onBoxKeyHome: function(key, e)
 	{
 		e.stopEvent();
 
@@ -1347,7 +1347,7 @@ Zarafa.common.ui.BoxField = Ext.extend(Ext.form.ComboBox, {
 	 * @param {Ext.EventObject} e The event object which fired the event
 	 * @private
 	 */
-	onBoxKeyEnd : function(key, e)
+	onBoxKeyEnd: function(key, e)
 	{
 		e.stopEvent();
 
@@ -1370,7 +1370,7 @@ Zarafa.common.ui.BoxField = Ext.extend(Ext.form.ComboBox, {
 	 * @param {Ext.EventObject} e The event object which fired the event
 	 * @private
 	 */
-	onBoxKeyBackspace : function(key, e)
+	onBoxKeyBackspace: function(key, e)
 	{
 		e.stopEvent();
 
@@ -1400,7 +1400,7 @@ Zarafa.common.ui.BoxField = Ext.extend(Ext.form.ComboBox, {
 	 * @param {Ext.EventObject} e The event object which fired the event
 	 * @private
 	 */
-	onBoxKeyDelete : function(key, e)
+	onBoxKeyDelete: function(key, e)
 	{
 		e.stopEvent();
 
@@ -1427,7 +1427,7 @@ Zarafa.common.ui.BoxField = Ext.extend(Ext.form.ComboBox, {
 	 * @return {Ext.KeyMap} The keymap for the focus element.
 	 * @private
 	 */
-	createInputKeyMap : function(focusEl)
+	createInputKeyMap: function(focusEl)
 	{
 		return new Ext.KeyMap(focusEl, [{
 			key: [
@@ -1449,7 +1449,7 @@ Zarafa.common.ui.BoxField = Ext.extend(Ext.form.ComboBox, {
 	 * @return {Ext.KeyMap} The keymap for the {@link Zarafa.common.ui.BoxField#el combo box} element.
 	 * @private
 	 */
-	createListKeyMap : function(element)
+	createListKeyMap: function(element)
 	{
 		// Listen to DELETE key event which remove record from suggestion list.
 		return new Ext.KeyMap(element, {
@@ -1472,7 +1472,7 @@ Zarafa.common.ui.BoxField = Ext.extend(Ext.form.ComboBox, {
 	 * @return {Ext.KeyMap} The keymap for the focus element.
 	 * @private
 	 */
-	createSpecialInputKeyMap : function(focusEl)
+	createSpecialInputKeyMap: function(focusEl)
 	{
 		var bindings = [{
 			key: [
@@ -1563,14 +1563,14 @@ Zarafa.common.ui.BoxField = Ext.extend(Ext.form.ComboBox, {
 	 * Key handler for the {@link #handleInputKey} event
 	 * for the {@link #el input element}.
 	 *
-	 * This will clear  the {@link #el} element, and send the
+	 * This will clear the {@link #el} element, and send the
 	 * old value to {@link #handleInput} to create a new {@link #items box}.
 	 *
 	 * @param {Number} key The key which was pressed
 	 * @param {Ext.EventObject} e The event object which fired the event
 	 * @private
 	 */
-	onInputKey : function(key, e)
+	onInputKey: function(key, e)
 	{
 		e.stopEvent();
 		this.convertInputToBox();
@@ -1580,14 +1580,14 @@ Zarafa.common.ui.BoxField = Ext.extend(Ext.form.ComboBox, {
 	 * Key handler for the {@link Ext.EventObject.ENTER} event
 	 * for the {@link #el input element}.
 	 *
-	 * This will clear  the {@link #el} element, and send the
+	 * This will clear the {@link #el} element, and send the
 	 * old value to {@link #handleInput} to create a new {@link #items box}.
 	 *
 	 * @param {Number} key The key which was pressed
 	 * @param {Ext.EventObject} e The event object which fired the event
 	 * @private
 	 */
-	onInputKeyEnter : function(key, e)
+	onInputKeyEnter: function(key, e)
 	{
 		// Make sure we are not expanded, because in that
 		// case the ENTER command is reserved for selecting
@@ -1606,16 +1606,16 @@ Zarafa.common.ui.BoxField = Ext.extend(Ext.form.ComboBox, {
 	 * @param {Ext.EventObject} e The event object which fired the event
 	 * @private
 	 */
-	onInputKeyTab : function(key, e)
+	onInputKeyTab: function(key, e)
 	{
 		//If the user entered something, we should prevent default tab behavior
 		if (!Ext.isEmpty(this.getValue())) {
 			e.stopEvent();
 
 			if (!(this.isExpanded() && this.store.getCount() > 0)){
-			    this.convertInputToBox();
+			  this.convertInputToBox();
 			}
-		}else{
+		} else {
 			//Trigger a blur to remove the focus class from the element
 			this.triggerBlur();
 		}
@@ -1632,7 +1632,7 @@ Zarafa.common.ui.BoxField = Ext.extend(Ext.form.ComboBox, {
 	 * @param {Ext.EventObject} e The event object which fired the event
 	 * @private
 	 */
-	onInputKeyUp : function(key, e)
+	onInputKeyUp: function(key, e)
 	{
 		this.onInputKeyLeft(key, e);
 	},
@@ -1648,7 +1648,7 @@ Zarafa.common.ui.BoxField = Ext.extend(Ext.form.ComboBox, {
 	 * @param {Ext.EventObject} e The event object which fired the event
 	 * @private
 	 */
-	onInputKeyLeft : function(key, e)
+	onInputKeyLeft: function(key, e)
 	{
 		var caret = Zarafa.core.Util.getSelectionRange(this.el);
 		if (caret.start === 0 && caret.end === 0 && this.items.getCount() > 0) {
@@ -1668,7 +1668,7 @@ Zarafa.common.ui.BoxField = Ext.extend(Ext.form.ComboBox, {
 	 * @param {Ext.EventObject} e The event object which fired the event
 	 * @private
 	 */
-	onInputKeyHome : function(key, e)
+	onInputKeyHome: function(key, e)
 	{
 		var caret = Zarafa.core.Util.getSelectionRange(this.el);
 		if (caret.start === 0 && caret.end === 0 && this.items.getCount() > 0) {
@@ -1689,7 +1689,7 @@ Zarafa.common.ui.BoxField = Ext.extend(Ext.form.ComboBox, {
 	 * @param {Ext.EventObject} e The event object which fired the event
 	 * @private
 	 */
-	onInputKeyBackspace : function(key, e)
+	onInputKeyBackspace: function(key, e)
 	{
 		var caret = Zarafa.core.Util.getSelectionRange(this.el);
 		if (caret.start === 0 && caret.end === 0 && this.items.getCount() > 0) {
@@ -1709,7 +1709,7 @@ Zarafa.common.ui.BoxField = Ext.extend(Ext.form.ComboBox, {
 	 * @param {Ext.EventObject} e The event object which fired the event
 	 * @private
 	 */
-	onListKeyDelete : function(key, e)
+	onListKeyDelete: function(key, e)
 	{
 		var store = this.getStore();
 
@@ -1720,7 +1720,7 @@ Zarafa.common.ui.BoxField = Ext.extend(Ext.form.ComboBox, {
 			store.removeAt(this.selectedIndex);
 
 			// If deleted item is the last one in the list than previous item of the deleted item will be selected.
-			if (store.getCount() ==  this.selectedIndex) {
+			if (store.getCount() == this.selectedIndex) {
 				this.selectPrev();
 			} else {
 				this.select(this.selectedIndex);
@@ -1739,7 +1739,7 @@ Zarafa.common.ui.BoxField = Ext.extend(Ext.form.ComboBox, {
 	 * @param {Ext.EventObject} e The raw event object
 	 * @private
 	 */
-	onExtraItemClick : function(dataView, index, extraItem, e)
+	onExtraItemClick: function(dataView, index, extraItem, e)
 	{
 		this.onListKeyDelete(false, e);
 	},
@@ -1751,7 +1751,7 @@ Zarafa.common.ui.BoxField = Ext.extend(Ext.form.ComboBox, {
 	 * new contents.
 	 * @private
 	 */
-	onPaste : function()
+	onPaste: function()
 	{
 		this.sizeInputfield();
 	},
@@ -1762,7 +1762,7 @@ Zarafa.common.ui.BoxField = Ext.extend(Ext.form.ComboBox, {
 	 * @param {Ext.data.Store} store The store which fired the event
 	 * @private
 	 */
-	onBoxStoreDataChanged : function(store)
+	onBoxStoreDataChanged: function(store)
 	{
 		this.clearBoxes();
 		this.loadBoxes(store);
@@ -1773,7 +1773,7 @@ Zarafa.common.ui.BoxField = Ext.extend(Ext.form.ComboBox, {
 	 * This will {@link #clearBoxes clear all boxes}.
 	 * @private
 	 */
-	onBoxStoreClear : function()
+	onBoxStoreClear: function()
 	{
 		this.clearBoxes();
 	},
@@ -1859,7 +1859,7 @@ Zarafa.common.ui.BoxField = Ext.extend(Ext.form.ComboBox, {
 	 * {@link #boxdblclick} event.
 	 * @param {Zarafa.common.ui.Box} box The box which called this function
 	 */
-	doBoxDblClick : function(box)
+	doBoxDblClick: function(box)
 	{
 		this.fireEvent('boxdblclick', this, box, box.record);
 	},
@@ -1870,7 +1870,7 @@ Zarafa.common.ui.BoxField = Ext.extend(Ext.form.ComboBox, {
 	 * {@link #boxFocus focus the box}, and fire the {@link #boxcontextmenu} event.
 	 * @param {Zarafa.common.ui.Box} box The box which called this function
 	 */
-	doBoxContextMenu : function(box)
+	doBoxContextMenu: function(box)
 	{
 		this.boxFocus(box);
 
@@ -1884,7 +1884,7 @@ Zarafa.common.ui.BoxField = Ext.extend(Ext.form.ComboBox, {
 	 * the {@link #boxfocus} event.
 	 * @param {Zarafa.common.ui.Box} box The box which called this function
 	 */
-	doBoxFocus : function(box)
+	doBoxFocus: function(box)
 	{
 		// It could happen a box is being focussed without
 		// the field being focussed.
@@ -1904,7 +1904,7 @@ Zarafa.common.ui.BoxField = Ext.extend(Ext.form.ComboBox, {
 	 * and will fire the {@link #boxblur} event.
 	 * @param {Zarafa.common.ui.Box} box The box which called this function
 	 */
-	doBoxBlur : function(box)
+	doBoxBlur: function(box)
 	{
 		this.boxFocusEl.blur();
 
@@ -1952,7 +1952,7 @@ Zarafa.common.ui.BoxField = Ext.extend(Ext.form.ComboBox, {
 	 * @param {Ext.data.Record} record The record which belongs to the given box
 	 * @private
 	 */
-	onBoxAdd : function(field, box, record)
+	onBoxAdd: function(field, box, record)
 	{
 		if (this.boxStore.getCount() >= this.boxLimit) {
 			this.setReadOnly(true);
@@ -1975,11 +1975,11 @@ Zarafa.common.ui.BoxField = Ext.extend(Ext.form.ComboBox, {
 		 */
 		var configObj = {};
 		Ext.apply(configObj, {
-			xtype : this.boxType,
-			parent : this,
-			record : record,
-			editable : this.editable,
-			width : this.getDesiredBoxWidth()
+			xtype: this.boxType,
+			parent: this,
+			record: record,
+			editable: this.editable,
+			width: this.getDesiredBoxWidth()
 		}, this.boxConfig);
 
 		var box = Ext.create(configObj);
@@ -1997,7 +1997,7 @@ Zarafa.common.ui.BoxField = Ext.extend(Ext.form.ComboBox, {
 	 * @param {Ext.data.Record} record The record which belongs to the box which must be removed.
 	 * @private
 	 */
-	removeBox : function(record)
+	removeBox: function(record)
 	{
 		var box = this.getBoxForRecord(record);
 		if (!box) {
@@ -2028,7 +2028,7 @@ Zarafa.common.ui.BoxField = Ext.extend(Ext.form.ComboBox, {
 	 * @param {Ext.data.Store} store
 	 * @private
 	 */
-	loadBoxes : function(store)
+	loadBoxes: function(store)
 	{
 		var records = this.filterRecords(store, store.getRange());
 
@@ -2040,6 +2040,7 @@ Zarafa.common.ui.BoxField = Ext.extend(Ext.form.ComboBox, {
 	/**
 	 * This will clear all {@link #items boxes}. Each box will be
 	 * {@link Zarafa.common.ui.Box#destroy destroyed}, and then removed from {@link #items}
+	 * and will reset size of this BoxField.
 	 * @private
 	 */
 	clearBoxes: function()
@@ -2049,13 +2050,14 @@ Zarafa.common.ui.BoxField = Ext.extend(Ext.form.ComboBox, {
 		});
 
 		this.items.clear();
+		this.sizeContainer();
 	},
 
 	/**
 	 * Called when the component is being destroyed
 	 * @private
 	 */
-	onDestroy : function()
+	onDestroy: function()
 	{
 		Zarafa.common.ui.BoxField.superclass.onDestroy.apply(this, arguments);
 

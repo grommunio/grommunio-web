@@ -10,7 +10,7 @@
 		 * @param {Number/String} size The numeric value to format
 		 * @return {String} The formatted file size
 		 */
-		fileSize : function(size)
+		fileSize: function(size)
 		{
 			if (!Ext.isNumber(size)) {
 				size = 0;
@@ -59,7 +59,7 @@
 		 * @param {Number} decimals When rounding, how many decimals should be used
 		 * @return {String} The formatted duration
 		 */
-		duration : function(value, decimals)
+		duration: function(value, decimals)
 		{
 			decimals = Ext.isDefined(decimals) ? decimals : 0;
 
@@ -94,7 +94,7 @@
 		 * @param {Number} size (optional) The number of spaces per tab which should be generated
 		 * @return {String} A string containing multiple '&nbsp' strings
 		 */
-		indent : function(value, size)
+		indent: function(value, size)
 		{
 			var spaces = (Ext.isDefined(value) ? value : 1) * (Ext.isDefined(size) ? size : 4);
 			var indent = '';
@@ -116,7 +116,7 @@
 		 * @param {Boolean} doubleDots True to add ellipsis ('..') otherwise add ellipsis ('...') after truncation
 		 * @return {String} The converted/truncated text
 		 */
-		elide : function(value, startLength, endLength, doubleDots)
+		elide: function(value, startLength, endLength, doubleDots)
 		{
 			var ellipsis = doubleDots ? '..' : '...';
 			startLength = startLength || 0;
@@ -137,7 +137,7 @@
 		 * @param {String} value The string to encode
 		 * @return {String} The htmlEncoded text
 		 */
-		htmlEncodeUndef : function(value)
+		htmlEncodeUndef: function(value)
 		{
 			return this.htmlEncode(this.undef.apply(this, arguments));
 		},
@@ -148,7 +148,7 @@
 		 * and then it will be encoded.
 		 * @return {String} The htmlEncoded text.
 		 */
-		htmlEncodeDefaultValue : function(value, defaultValue)
+		htmlEncodeDefaultValue: function(value, defaultValue)
 		{
 			return this.htmlEncode(this.defaultValue.apply(this, arguments));
 		},
@@ -161,7 +161,7 @@
 		 * @param {Boolean} doubleDots True to add ellipsis ('..') otherwise add ellipsis ('...') after truncation
 		 * @return {String} The htmlEncoded and truncated text
 		 */
-		htmlEncodeElide : function(value, startLength, endLength, doubleDots)
+		htmlEncodeElide: function(value, startLength, endLength, doubleDots)
 		{
 			return this.htmlEncode(this.elide.apply(this, arguments));
 		},
@@ -173,7 +173,7 @@
 		 * @param {Boolean} word True to try to find a common work break
 		 * @return {String} The converted text
 		 */
-		htmlEncodeEllipsis : function(value, len, word)
+		htmlEncodeEllipsis: function(value, len, word)
 		{
 			return this.htmlEncode(this.ellipsis.apply(this, arguments));
 		},
@@ -184,7 +184,7 @@
 		 * @param {String} value The filename for which the basename is requested
 		 * @return {String} The basename
 		 */
-		basename : function(value)
+		basename: function(value)
 		{
 			return value.split('\\').pop();
 		},
@@ -194,7 +194,7 @@
 		 * @param {String} value The filename for which the basename is requested
 		 * @return {String} The htmlEncoded basename
 		 */
-		htmlEncodeBasename : function(value)
+		htmlEncodeBasename: function(value)
 		{
 			return this.htmlEncode(this.basename.apply(this, arguments));
 		},
@@ -257,6 +257,36 @@
 		busyStatusString: function(value)
 		{
 			return Zarafa.core.mapi.BusyStatus.getDisplayName(value);
+		},
+
+		/**
+		 * Function returns a formatted date string with the specified time format.
+		 *
+		 * @param {Ext.Date} value The Date object to be formatted
+		 * @param {String} formatString The time format string
+		 * @return {String} The formatted date/time string
+		 */
+		formatDefaultTimeString: function(value, formatString)
+		{
+			if (value) {
+				return value.formatDefaultTime(formatString);
+			}
+		},
+
+		/**
+		 * Returns the date in a 'nicely' formatted string.
+		 *
+		 * @param {Ext.Date} value The Date object to be formatted
+		 * @param {Boolean} includeTime The time will be added to the nicely
+		 * formatted string when true, or omitted otherwise. Default is true.
+		 *
+		 * @return {String} The nicely formatted date string.
+		 */
+		getNiceFormat: function(value, includeTime)
+		{
+			if (value){
+				return value.getNiceFormat(includeTime)
+			}
 		}
 	});
 })();

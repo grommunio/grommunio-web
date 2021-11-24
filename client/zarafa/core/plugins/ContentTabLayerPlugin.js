@@ -15,7 +15,7 @@ Zarafa.core.plugins.ContentTabLayerPlugin = Ext.extend(Zarafa.core.plugins.Conte
 	 *
 	 * @protected
 	 */
-	focus : function()
+	focus: function()
 	{
 		container.getTabPanel().setActiveTab(this.field);
 	}

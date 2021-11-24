@@ -7,17 +7,17 @@ Ext.namespace('Zarafa.core.ui.notifier');
 Zarafa.core.ui.notifier.Notifier = Ext.extend(Object, {
 	/**
 	 * The key-value list of all available plugins which
-	 * might be used to send notify messages to. 
-	 * @property 
+	 * might be used to send notify messages to.
+	 * @property
 	 * @type Object
 	 */
-	availablePlugins : undefined,
+	availablePlugins: undefined,
 
 	/**
 	 * @constructor
 	 * @param {Object} config Configuration object
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		Ext.apply(this, config);
 
@@ -33,7 +33,7 @@ Zarafa.core.ui.notifier.Notifier = Ext.extend(Object, {
 	 * @param {String} name The name how the plugin must be registered.
 	 * @param {Zarafa.core.ui.notifier.NotifyPlugin} plugin The plugin which must be registered.
 	 */
-	registerPlugin : function(name, plugin)
+	registerPlugin: function(name, plugin)
 	{
 		if (!Ext.isDefined(this.availablePlugins[name])) {
 			this.availablePlugins[name] = plugin;
@@ -54,7 +54,7 @@ Zarafa.core.ui.notifier.Notifier = Ext.extend(Object, {
 	 * @param {String} category The category for which the plugin is searched for.
 	 * @return {Zarafa.core.ui.notifier.NotifyPlugin} The plugin.
 	 */
-	getPlugin : function(category)
+	getPlugin: function(category)
 	{
 		var setting = 'zarafa/v1/main/notifier/' + category.replace(/\./g, '/') + (category != 'default' ? '/value' : '');
 		var pluginName = container.getSettingsModel().get(setting);
@@ -94,7 +94,7 @@ Zarafa.core.ui.notifier.Notifier = Ext.extend(Object, {
 	 * @return {Mixed} A reference to the message which was created, this can be used
 	 * as value for 'reference' in the config argument.
 	 */
-	notify : function(category, title, message, config)
+	notify: function(category, title, message, config)
 	{
 		var categoryName = category.toLowerCase();
 		var plugin = this.getPlugin(categoryName);

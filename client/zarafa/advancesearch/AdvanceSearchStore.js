@@ -16,23 +16,23 @@ Zarafa.advancesearch.AdvanceSearchStore = Ext.extend(Zarafa.core.data.ListModule
 	 * @property
 	 * @type HexString
 	 */
-	searchFolderEntryId : undefined,
+	searchFolderEntryId: undefined,
 
 	/**
 	 * Read-only. store entryId where search folder is belongs.
 	 * @property
 	 * @type HexString
 	 */
-	searchStoreEntryId : undefined,
+	searchStoreEntryId: undefined,
 
 	/**
-	 * searchStoreUniqueId is represent the unique id of {@link Zarafa.advancesearch.AdvanceSearchStore  AdvanceSearchStore}.
+	 * searchStoreUniqueId is represent the unique id of {@link Zarafa.advancesearch.AdvanceSearchStore AdvanceSearchStore}.
 	 * searchStoreUniqueId and {@link Zarafa.advancesearch.dialogs.SearchContentPanel SearchContentPanel} name
 	 * are similar, so we can easily map or manage the {@link Zarafa.advancesearch.AdvanceSearchStore AdvanceSearchStore}.
 	 * @type Mixed
 	 * @private
 	 */
-	searchStoreUniqueId : undefined,
+	searchStoreUniqueId: undefined,
 
 	/**
 	 * True if the model is currently busy searching. This is updated during
@@ -42,7 +42,7 @@ Zarafa.advancesearch.AdvanceSearchStore = Ext.extend(Zarafa.core.data.ListModule
 	 * @type Boolean
 	 * @private
 	 */
-	isBusySearching : false,
+	isBusySearching: false,
 
 	/**
 	 * The search suggestion if one was given by the search engine.
@@ -54,19 +54,19 @@ Zarafa.advancesearch.AdvanceSearchStore = Ext.extend(Zarafa.core.data.ListModule
 	/**
 	 *
 	 */
-	searchFolder : {},
+	searchFolder: {},
 
 	/**
 	 * @constructor
 	 * @param {Object} config configuration params that should be used to create instance of this store.
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		config = config || {};
 
 		// Apply default settings.
 		Ext.applyIf(config, {
-			preferredMessageClass : 'IPM.Search'
+			preferredMessageClass: 'IPM.Search'
 		});
 
 		Zarafa.advancesearch.AdvanceSearchStore.superclass.constructor.call(this, config);
@@ -76,7 +76,7 @@ Zarafa.advancesearch.AdvanceSearchStore = Ext.extend(Zarafa.core.data.ListModule
 	 * Initialize all events which this {#Zarafa.advancesearch.AdvanceSearchStore AdvanceSearchStore} will listen to.
 	 * @private
 	 */
-	initEvents : function()
+	initEvents: function()
 	{
 		this.on('load', this.onLoad, this);
 	},
@@ -85,7 +85,7 @@ Zarafa.advancesearch.AdvanceSearchStore = Ext.extend(Zarafa.core.data.ListModule
 	 * Getter function which used to get the {@link #searchStoreUniqueId}.
 	 * @return {String} return {@link #searchStoreUniqueId}
 	 */
-	getSearchStoreUniqueId : function()
+	getSearchStoreUniqueId: function()
 	{
 		return this.searchStoreUniqueId;
 	},
@@ -97,7 +97,7 @@ Zarafa.advancesearch.AdvanceSearchStore = Ext.extend(Zarafa.core.data.ListModule
 	 * @param {Boolean} success success status of request.
 	 * @param {Object} metaData extra information that is received with response data.
 	 */
-	loadRecords : function(data, options, success, metaData)
+	loadRecords: function(data, options, success, metaData)
 	{
 		// Only update the suggestion for the search action, not for the updatesearch action
 		// because the suggestion is not send with that response
@@ -119,7 +119,7 @@ Zarafa.advancesearch.AdvanceSearchStore = Ext.extend(Zarafa.core.data.ListModule
 	 * @param {Object} options the options (parameters) with which the load was invoked.
 	 * @private
 	 */
-	onLoad : function(store, records, options)
+	onLoad: function(store, records, options)
 	{
 		// Set the searchdate field for each record, so Ext can use it for local sorting
 		Ext.each(records, function(record){
@@ -130,6 +130,7 @@ Zarafa.advancesearch.AdvanceSearchStore = Ext.extend(Zarafa.core.data.ListModule
 				case 'IPM.Note.SMIME.SignedEncrypt':
 				case 'IPM.Note.SMIME':
 					searchDate = record.get('message_delivery_time') || record.get('last_modification_time');
+					record.data['duedate'] = record.get('task_duedate');
 					break;
 				case 'IPM.Task':
 					searchDate = record.get('task_duedate');
@@ -171,7 +172,7 @@ Zarafa.advancesearch.AdvanceSearchStore = Ext.extend(Zarafa.core.data.ListModule
 	 * Function will set entryid of search folder.
 	 * @param {HexString} searchFolderEntryId entry id of search folder.
 	 */
-	setSearchEntryId : function(searchFolderEntryId)
+	setSearchEntryId: function(searchFolderEntryId)
 	{
 		this.searchFolderEntryId = searchFolderEntryId;
 	},
@@ -181,7 +182,7 @@ Zarafa.advancesearch.AdvanceSearchStore = Ext.extend(Zarafa.core.data.ListModule
 	 *
 	 * @param {HexString} searchStoreEntryId entryId of store where search folder is belongs.
 	 */
-	setSearchStoreEntryId : function(searchStoreEntryId)
+	setSearchStoreEntryId: function(searchStoreEntryId)
 	{
 		this.searchStoreEntryId = searchStoreEntryId;
 	},
@@ -194,7 +195,7 @@ Zarafa.advancesearch.AdvanceSearchStore = Ext.extend(Zarafa.core.data.ListModule
 	 *
 	 * @param {Object} options options object that must contain restriction to apply for search.
 	 */
-	search : function(options)
+	search: function(options)
 	{
 		// When doing a new search we will have sorting done by the backend
 		this.remoteSort = true;
@@ -206,7 +207,7 @@ Zarafa.advancesearch.AdvanceSearchStore = Ext.extend(Zarafa.core.data.ListModule
 			this.proxy.cancelRequests(Zarafa.core.Actions['search']);
 		}
 
-		this.hasSearchResults  = false;
+		this.hasSearchResults = false;
 
 		/**
 		 * userSearchFolder is only true if folder is not Public folder, shred folder or Favorite folder.

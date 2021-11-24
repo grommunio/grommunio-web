@@ -13,7 +13,7 @@ Zarafa.core.plugins.ComponentTooltipPlugin = Ext.extend(Object,{
 	 * @constructor
 	 * @param {Object} config Configuration object
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		config = config || {};
 		Ext.apply(this, config);
@@ -23,7 +23,7 @@ Zarafa.core.plugins.ComponentTooltipPlugin = Ext.extend(Object,{
 	 * Initializes the {@link Ext.Component Component} to which this plugin has been hooked.
 	 * @param {Ext.menu.Item} field The field on which the plugin is installed.
 	 */
-	init : function(field)
+	init: function(field)
 	{
 		this.field = field;
 	}

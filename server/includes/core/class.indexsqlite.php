@@ -1,12 +1,12 @@
 <?php
 
-define('PRIVATE_FID_ROOT', 						0x1);
+define('PRIVATE_FID_ROOT',				0x1);
 
-define('PR_FOLDER_ID',							0x67480014);
-define('PR_MID',								0x674A0014);
-define('PR_CHANGE_NUMBER',						0x67A40014);
+define('PR_FOLDER_ID',					0x67480014);
+define('PR_MID',					0x674A0014);
+define('PR_CHANGE_NUMBER',				0x67A40014);
 
-define('MAX_FTS_RESULT_ITEMS',					300);
+define('MAX_FTS_RESULT_ITEMS',				300);
 
 class IndexSqlite extends SQLite3
 {
@@ -274,19 +274,19 @@ class IndexSqlite extends SQLite3
 	private function refresh() {
 		$mapping = array(
 			"categories"		=> "PT_MV_STRING8:PS_PUBLIC_STRINGS:Keywords",
-			"fileas"			=> "PT_STRING8:PSETID_Address:0x8005",
-			"location"			=> "PT_STRING8:PSETID_Appointment:0x8208",
-			"email1"			=> "PT_STRING8:PSETID_Address:0x8083",
+			"fileas"		=> "PT_STRING8:PSETID_Address:0x8005",
+			"location"		=> "PT_STRING8:PSETID_Appointment:0x8208",
+			"email1"		=> "PT_STRING8:PSETID_Address:0x8083",
 			"emai1_name"		=> "PT_STRING8:PSETID_Address:0x8080",
-			"email2"			=> "PT_STRING8:PSETID_Address:0x8093",
+			"email2"		=> "PT_STRING8:PSETID_Address:0x8093",
 			"email2_name"		=> "PT_STRING8:PSETID_Address:0x8090",
-			"email3"			=> "PT_STRING8:PSETID_Address:0x80a3",
+			"email3"		=> "PT_STRING8:PSETID_Address:0x80a3",
 			"email3_name"		=> "PT_STRING8:PSETID_Address:0x80a0",
 			"home_address"		=> "PT_STRING8:PSETID_Address:0x801a",
 			"other_address"		=> "PT_STRING8:PSETID_Address:0x801c",
 			"work_address"		=> "PT_STRING8:PSETID_Address:0x801b",
 			"task_owner"		=> "PT_STRING8:PSETID_Task:0x811f",
-			"companies"			=> "PT_MV_STRING8:PSETID_Common:0x8539"
+			"companies"		=> "PT_MV_STRING8:PSETID_Common:0x8539"
 		);
 		$properties = getPropIdsFromStrings($this->store, $mapping);
 		$store_props = mapi_getprops($this->store, array(PR_IPM_SUBTREE_ENTRYID));

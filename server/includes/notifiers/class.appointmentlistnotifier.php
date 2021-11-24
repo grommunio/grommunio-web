@@ -50,7 +50,7 @@
 							// this can happen when we copy or move a message. Just tell the javascript that
 							// this folder has a new object.
 							// Alternatively the recurrence could have been changed, this means that we should send a notification to the client
-							// to inform the possibility that a different number of occurences might be inside his view now.
+							// to inform the possibility that a different number of occurrences might be inside his view now.
 							$folder = mapi_msgstore_openentry($store, $props[PR_PARENT_ENTRYID]);
 							$folderProps = mapi_getprops($folder, array(PR_ENTRYID, PR_PARENT_ENTRYID, PR_STORE_ENTRYID, PR_CONTENT_COUNT, PR_CONTENT_UNREAD, PR_DISPLAY_NAME));
 	

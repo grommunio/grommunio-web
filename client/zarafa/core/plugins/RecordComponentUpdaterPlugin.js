@@ -27,24 +27,24 @@ Zarafa.core.plugins.RecordComponentUpdaterPlugin = Ext.extend(Object, {
 	 * @property
 	 * @type Ext.Container
 	 */
-	field : undefined,
+	field: undefined,
 	/**
 	 * True when the {@link #field} is {@link #onReadyComponent ready}.
 	 * @property
 	 * @type Boolean
 	 */
-	isReady : false,
+	isReady: false,
 	/**
 	 * The record which is currently displayed in {@link #field}.
 	 * @property
 	 * @type Zarafa.core.data.IPMRecord
 	 */
-	record : undefined,
+	record: undefined,
 	/**
 	 * @constructor
 	 * @param {Object} config Configuration object
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		Ext.apply(this, config);
 	},
@@ -53,7 +53,7 @@ Zarafa.core.plugins.RecordComponentUpdaterPlugin = Ext.extend(Object, {
 	 * Initializes the {@link Ext.Component Component} to which this plugin has been hooked.
 	 * @param {Ext.Component} The parent field to which this component is connected
 	 */
-	init : function(field)
+	init: function(field)
 	{
 		this.field = field;
 		field.recordComponentUpdaterPlugin = this;
@@ -71,11 +71,11 @@ Zarafa.core.plugins.RecordComponentUpdaterPlugin = Ext.extend(Object, {
 		}
 
 		// If a layout is present on the component, then we must wait until the component
-		// has been layed out. Otherwise rendering will be sufficient.
+		// has been laid out. Otherwise rendering will be sufficient.
 		if (Ext.isDefined(this.field.layout)) {
-			this.field.on('afterlayout', this.onReadyComponent, this, { single : true });
+			this.field.on('afterlayout', this.onReadyComponent, this, { single: true });
 		} else if (this.field.rendered !== true) {
-			this.field.on('afterrender', this.onReadyComponent, this, { single : true });
+			this.field.on('afterrender', this.onReadyComponent, this, { single: true });
 		} else {
 			this.onReadyComponent(this.field);
 		}
@@ -89,7 +89,7 @@ Zarafa.core.plugins.RecordComponentUpdaterPlugin = Ext.extend(Object, {
 	 * @param {Ext.Container} root The root container on which we must hook our events.
 	 * @private
 	 */
-	hookToRootContainer : function(root)
+	hookToRootContainer: function(root)
 	{
 		this.rootContainer = root;
 
@@ -109,7 +109,7 @@ Zarafa.core.plugins.RecordComponentUpdaterPlugin = Ext.extend(Object, {
 			'beforesendrecord': this.onBeforeSendRecord,
 			'beforeclose': this.onBeforeClose,
 			'deactivate': this.onDeactivate,
-			scope : this
+			scope: this
 		});
 	},
 
@@ -121,7 +121,7 @@ Zarafa.core.plugins.RecordComponentUpdaterPlugin = Ext.extend(Object, {
 	 *
 	 * @private
 	 */
-	onFirstBeforeRender : function()
+	onFirstBeforeRender: function()
 	{
 		var root = this.field;
 
@@ -147,7 +147,7 @@ Zarafa.core.plugins.RecordComponentUpdaterPlugin = Ext.extend(Object, {
 	 * @param {Ext.Component} component This component
 	 * @private
 	 */
-	onReadyComponent : function(component)
+	onReadyComponent: function(component)
 	{
 		if (this.record) {
 			this.field.update(this.record, true);
@@ -164,7 +164,7 @@ Zarafa.core.plugins.RecordComponentUpdaterPlugin = Ext.extend(Object, {
 	 * @param {Ext.Panel} panel The panel which was activated
 	 * @private
 	 */
-	onActivateRoot : function(panel)
+	onActivateRoot: function(panel)
 	{
 		if (this.record && this.isReady === true && this.field.isDestroyed !== true) {
 			this.field.update(this.record, true);
@@ -181,7 +181,7 @@ Zarafa.core.plugins.RecordComponentUpdaterPlugin = Ext.extend(Object, {
 	 * @param {Zarafa.core.data.IPMRecord} oldrecord The oldrecord which was previously set
 	 * @private
 	 */
-	onSetRecord : function(panel, record, oldrecord)
+	onSetRecord: function(panel, record, oldrecord)
 	{
 		this.record = record;
 		if (this.isReady === true) {
@@ -198,7 +198,7 @@ Zarafa.core.plugins.RecordComponentUpdaterPlugin = Ext.extend(Object, {
 	 * @param {Zarafa.core.data.IPMRecord} record The record which was updated
 	 * @private
 	 */
-	onLoadRecord : function(panel, record)
+	onLoadRecord: function(panel, record)
 	{
 		if (this.isReady === true && this.field.isDestroyed !== true) {
 			this.field.update(record, true);
@@ -211,13 +211,13 @@ Zarafa.core.plugins.RecordComponentUpdaterPlugin = Ext.extend(Object, {
 	 * to update the {@link #field} to which this plugin is attached
 	 *
 	 * @param {Ext.Container} panel The panel to which the record belongs
-	 * @param {String} action write Action that ocurred. Can be one of
+	 * @param {String} action write Action that occurred. Can be one of
 	 * {@link Ext.data.Record.EDIT EDIT}, {@link Ext.data.Record.REJECT REJECT} or
 	 * {@link Ext.data.Record.COMMIT COMMIT}
 	 * @param {Zarafa.core.data.IPMRecord} record The record which was updated
 	 * @private
 	 */
-	onUpdateRecord : function(panel, action, record)
+	onUpdateRecord: function(panel, action, record)
 	{
 		if (this.isReady === true && this.field.isDestroyed !== true) {
 			this.field.update(record, false);
@@ -242,7 +242,7 @@ Zarafa.core.plugins.RecordComponentUpdaterPlugin = Ext.extend(Object, {
 	 * available.
 	 * @private
 	 */
-	onExceptionRecord : function(type, action, options, response, record, error)
+	onExceptionRecord: function(type, action, options, response, record, error)
 	{
 		if (this.isReady === true && this.field.isDestroyed !== true) {
 			if (Ext.isFunction(this.field.doException)){
@@ -261,7 +261,7 @@ Zarafa.core.plugins.RecordComponentUpdaterPlugin = Ext.extend(Object, {
 	 * @return {Boolean} false if the operation failed, and the save action must be aborted.
 	 * @private
 	 */
-	onBeforeSaveRecord : function(panel, record)
+	onBeforeSaveRecord: function(panel, record)
 	{
 		if (this.isReady === true && this.field.isDestroyed !== true) {
 			if (Ext.isFunction(this.field.updateRecord)) {
@@ -281,7 +281,7 @@ Zarafa.core.plugins.RecordComponentUpdaterPlugin = Ext.extend(Object, {
 	 * @return {Boolean} false if the operation failed, and the save action must be aborted.
 	 * @private
 	 */
-	onBeforeSendRecord : function(panel, record)
+	onBeforeSendRecord: function(panel, record)
 	{
 		if (this.isReady === true && this.field.isDestroyed !== true) {
 			if (Ext.isFunction(this.field.updateRecord)) {
@@ -299,7 +299,7 @@ Zarafa.core.plugins.RecordComponentUpdaterPlugin = Ext.extend(Object, {
 	 * @param {Ext.Container} panel The panel to which the record belongs.
 	 * @private
 	 */
-	onBeforeClose : function(panel)
+	onBeforeClose: function(panel)
 	{
 		if (this.isReady === true && this.field.isDestroyed !== true) {
 			if (this.record && Ext.isFunction(this.field.updateRecord)) {
@@ -317,7 +317,7 @@ Zarafa.core.plugins.RecordComponentUpdaterPlugin = Ext.extend(Object, {
 	 * @param {Ext.Container} panel The panel to which the record belongs.
 	 * @private
 	 */
-	onDeactivate : function(panel)
+	onDeactivate: function(panel)
 	{
 		if (this.isReady === true && this.field.isDestroyed !== true) {
 			if (this.record && Ext.isFunction(this.field.updateRecord)) {

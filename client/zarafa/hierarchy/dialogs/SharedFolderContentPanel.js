@@ -12,19 +12,19 @@ Zarafa.hierarchy.dialogs.SharedFolderContentPanel = Ext.extend(Zarafa.core.ui.Co
 	/**
 	 * @cfg {Zarafa.hierarchy.data.SharedFolderTypes} defaultSelectedFolderType Default selected folder in combolist.
 	 */
-	defaultSelectedFolderType : Zarafa.hierarchy.data.SharedFolderTypes['ALL'],
+	defaultSelectedFolderType: Zarafa.hierarchy.data.SharedFolderTypes['ALL'],
 
 	/**
 	 * @cfg {Zarafa.core.data.IPMRecipientStore} store The store in which the user is stored which
 	 * will contain the user whose store we wish to open.
 	 */
-	store : undefined,
+	store: undefined,
 
 	/**
 	 * @constructor
 	 * @param config Configuration structure
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		config = config || {};
 
@@ -51,7 +51,7 @@ Zarafa.hierarchy.dialogs.SharedFolderContentPanel = Ext.extend(Zarafa.core.ui.Co
 					text: _('Open'),
 					handler: this.onOpen,
 					scope: this
-				},{ 
+				},{
 					text: _('Cancel'),
 					handler: this.onCancel,
 					scope: this
@@ -69,7 +69,7 @@ Zarafa.hierarchy.dialogs.SharedFolderContentPanel = Ext.extend(Zarafa.core.ui.Co
 	 * and will close the panel.
 	 * @private
 	 */
-	onOpen : function()
+	onOpen: function()
 	{
 		if (this.store && this.store.getCount() > 0) {
 			var recipient = this.store.getAt(0);
@@ -77,7 +77,7 @@ Zarafa.hierarchy.dialogs.SharedFolderContentPanel = Ext.extend(Zarafa.core.ui.Co
 			// If the recipient has not yet been resolved, then we should
 			// wait until the store has correctly resolved the user.
 			if (!recipient.isResolved() && !recipient.attemptedToResolve()) {
-				this.mon(this.store, 'resolved', this.onOpen, this, { single: true }); 
+				this.mon(this.store, 'resolved', this.onOpen, this, { single: true });
 				return;
 			}
 
@@ -137,7 +137,7 @@ Zarafa.hierarchy.dialogs.SharedFolderContentPanel = Ext.extend(Zarafa.core.ui.Co
 	 * This will close the panel without saving
 	 * @private
 	 */
-	onCancel : function()
+	onCancel: function()
 	{
 		this.close();
 	}

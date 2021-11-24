@@ -1,18 +1,18 @@
 <?php
 /**
- * Function to make a MAPIGUID from a php string. 
- * The C++ definition for the GUID is: 
- *  typedef struct _GUID 
- *  { 
- *   unsigned long        Data1; 
- *   unsigned short       Data2; 
- *   unsigned short       Data3; 
- *   unsigned char        Data4[8]; 
+ * Function to make a MAPIGUID from a php string.
+ * The C++ definition for the GUID is:
+ *  typedef struct _GUID
+ *  {
+ *   unsigned long        Data1;
+ *   unsigned short       Data2;
+ *   unsigned short       Data3;
+ *   unsigned char        Data4[8];
  *  } GUID;
  *
- * A GUID is normally represented in the following form: 
+ * A GUID is normally represented in the following form:
  * 	{00062008-0000-0000-C000-000000000046}
- * 
+ *
  * @param String GUID
  */
 function makeGuid($guid)
@@ -31,7 +31,7 @@ function get_mapi_error_name($errcode=null)
 	if ($errcode === null){
 		$errcode = mapi_last_hresult();
 	}
-	
+
 	if ($errcode !== 0) {
 		// Retrieve constants categories, MAPI error names are defined
 		// in the 'user' category, since the WebApp code defines it in mapicode.php.
@@ -97,7 +97,7 @@ function getPropIdsFromStrings($store, $mapping)
 					$guids[$split[1]] = makeguid($split[1]);
 				}
 				$guid = $guids[$split[1]];
-			}else{
+			} else {
 				$guid = constant($split[1]);
 			}
 
@@ -107,12 +107,12 @@ function getPropIdsFromStrings($store, $mapping)
 			$ids["guid"][$num] = $guid;
 			$ids["type"][$num] = $split[0];
 			$num++;
-		}else{
+		} else {
 			// not a named property
 			$props[$name] = $val;
 		}
 	}
-	
+
 	if (empty($ids["id"])){
 		return $props;
 	}
@@ -132,7 +132,7 @@ function getPropIdsFromStrings($store, $mapping)
  * if a property value can not be fetched then it changes type of property tag as PT_ERROR
  * and returns error for that particular property, probable errors
  * that can be returned as value can be MAPI_E_NOT_FOUND, MAPI_E_NOT_ENOUGH_MEMORY
- * 
+ *
  * @param long $property Property to check for error
  * @param Array $propArray An array of properties
  * @return mixed Gives back false when there is no error, if there is, gives the error
@@ -195,13 +195,13 @@ function getCalendarItems($store, $calendar, $viewstart, $viewend, $propsrequest
 											   "timezone_data" => "PT_BINARY:PSETID_Appointment:0x8233",
 											   "label" => "PT_LONG:PSETID_Appointment:0x8214"
 												));
-												
+
 	// Create a restriction that will discard rows of appointments that are definitely not in our
 	// requested time frame
-	
+
 	$table = mapi_folder_getcontentstable($calendar);
-	
-	$restriction = 
+
+	$restriction =
 		// OR
 		Array(RES_OR,
 				 Array(
@@ -234,34 +234,34 @@ function getCalendarItems($store, $calendar, $viewstart, $viewend, $propsrequest
 	// Get requested properties, plus whatever we need
 	$proplist = array(PR_ENTRYID, $properties["recurring"], $properties["recurring_data"], $properties["timezone_data"]);
 	$proplist = array_merge($proplist, $propsrequested);
-	
+
 	$rows = mapi_table_queryallrows($table, $proplist, $restriction);
-	
+
 	// $rows now contains all the items that MAY be in the window; a recurring item needs expansion before including in the output.
-	
+
 	foreach($rows as $row) {
 		$items = array();
-		
+
 		if(isset($row[$properties["recurring"]]) && $row[$properties["recurring"]]) {
 			// Recurring item
 			$rec = new Recurrence($store, $row);
 
-			// GetItems guarantees that the item overlaps the interval <$viewstart, $viewend>                    
+			// GetItems guarantees that the item overlaps the interval <$viewstart, $viewend>
 			$occurrences = $rec->getItems($viewstart, $viewend);
 			foreach($occurrences as $occurrence) {
 				// The occurrence takes all properties from the main row, but overrides some properties (like start and end obviously)
 				$item = $occurrence + $row;
 				array_push($items, $item);
 			}
-			
+
 		} else {
 			// Normal item, it matched the search criteria and therefore overlaps the interval <$viewstart, $viewend>
 			array_push($items, $row);
 		}
-		
+
 		$result = array_merge($result,$items);
 	}
-	
+
 	// All items are guaranteed to overlap the interval <$viewstart, $viewend>. Note that we may be returning a few extra
 	// properties that the caller did not request (recurring, etc). This shouldn't be a problem though.
 	return $result;

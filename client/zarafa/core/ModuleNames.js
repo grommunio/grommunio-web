@@ -6,26 +6,26 @@ Ext.namespace('Zarafa.core');
  * for instance will allow 'list' actions.
  * @singleton
  */
-Zarafa.core.ModuleNames = 
+Zarafa.core.ModuleNames =
 {
 	/**
-	 * Module information for the Address book.  
+	 * Module information for the Address book.
 	 * @property
 	 * @type Mixed
 	 */
-	'ADDRESSBOOK' : {
-		list : 'addressbooklistmodule',
-		item : 'addressbookitemmodule'
+	'ADDRESSBOOK': {
+		list: 'addressbooklistmodule',
+		item: 'addressbookitemmodule'
 	},
-	
+
 	/**
 	 * Module information for IPM.Appointment
 	 * @property
 	 * @type Mixed
 	 */
-	'IPM.APPOINTMENT' : {
-		list : 'appointmentlistmodule',
-		item : 'appointmentitemmodule'
+	'IPM.APPOINTMENT': {
+		list: 'appointmentlistmodule',
+		item: 'appointmentitemmodule'
 	},
 
 	/**
@@ -33,9 +33,9 @@ Zarafa.core.ModuleNames =
 	 * @property
 	 * @type Mixed
 	 */
-	'IPM.OLE.CLASS.{00061055-0000-0000-C000-000000000046}' : {
-		list : 'appointmentlistmodule',
-		item : 'appointmentitemmodule'
+	'IPM.OLE.CLASS.{00061055-0000-0000-C000-000000000046}': {
+		list: 'appointmentlistmodule',
+		item: 'appointmentitemmodule'
 	},
 
 	/**
@@ -43,9 +43,9 @@ Zarafa.core.ModuleNames =
 	 * @property
 	 * @type Mixed
 	 */
-	'IPM.TASK' : {
-		list : 'tasklistmodule',
-		item : 'taskitemmodule'
+	'IPM.TASK': {
+		list: 'tasklistmodule',
+		item: 'taskitemmodule'
 	},
 
 	/**
@@ -53,19 +53,19 @@ Zarafa.core.ModuleNames =
 	 * @property
 	 * @type Mixed
 	 */
-	'IPM.TASKREQUEST' : {
-		list : 'tasklistmodule',
-		item : 'taskitemmodule'
+	'IPM.TASKREQUEST': {
+		list: 'tasklistmodule',
+		item: 'taskitemmodule'
 	},
 
 	/**
-	 * contact list module.  
+	 * contact list module.
 	 * @property
 	 * @type Mixed
 	 */
-	'IPM.CONTACT' : {
-		list : 'contactlistmodule',
-		item : 'contactitemmodule'
+	'IPM.CONTACT': {
+		list: 'contactlistmodule',
+		item: 'contactitemmodule'
 	},
 
 	/**
@@ -74,31 +74,31 @@ Zarafa.core.ModuleNames =
 	 * @property
 	 * @type Mixed
 	 */
-	'IPM.DISTLIST' : {
-		list : 'contactlistmodule',
-		item : 'contactitemmodule'
-	},
-	
-	/**
-	 * Module information for hierarchy.
-	 * The hierarchy is the set of stores a user can see, and the folders within those
-	 * stores.   
-	 * @property
-	 * @type Mixed
-	 */
-	'HIERARCHY' : {
-		list : 'hierarchymodule',
-		item : 'hierarchymodule'
+	'IPM.DISTLIST': {
+		list: 'contactlistmodule',
+		item: 'contactitemmodule'
 	},
 
 	/**
-	 * Module information for settings. 
-	 * stores.   
+	 * Module information for hierarchy.
+	 * The hierarchy is the set of stores a user can see, and the folders within those
+	 * stores.
 	 * @property
 	 * @type Mixed
 	 */
-	'SETTINGS' : {
-		list : 'settingsmodule'
+	'HIERARCHY': {
+		list: 'hierarchymodule',
+		item: 'hierarchymodule'
+	},
+
+	/**
+	 * Module information for settings.
+	 * stores.
+	 * @property
+	 * @type Mixed
+	 */
+	'SETTINGS': {
+		list: 'settingsmodule'
 	},
 
 	/**
@@ -106,9 +106,9 @@ Zarafa.core.ModuleNames =
 	 * @property
 	 * @type Mixed
 	 */
-	'IPM.NOTE' : {
-		list : 'maillistmodule',
-		item : 'createmailitemmodule'
+	'IPM.NOTE': {
+		list: 'maillistmodule',
+		item: 'createmailitemmodule'
 	},
 
 	/**
@@ -116,9 +116,9 @@ Zarafa.core.ModuleNames =
 	 * @property
 	 * @type Mixed
 	 */
-	'IPM.STICKYNOTE' : {
-		list : 'stickynotelistmodule',
-		item : 'stickynoteitemmodule'
+	'IPM.STICKYNOTE': {
+		list: 'stickynotelistmodule',
+		item: 'stickynoteitemmodule'
 	},
 
 	/**
@@ -126,8 +126,8 @@ Zarafa.core.ModuleNames =
 	 * @property
 	 * @type Mixed
 	 */
-	'FREEBUSY' : {
-		list : 'freebusymodule'
+	'FREEBUSY': {
+		list: 'freebusymodule'
 	},
 
 	/**
@@ -135,8 +135,8 @@ Zarafa.core.ModuleNames =
 	 * @property
 	 * @type Mixed
 	 */
-	 'BUSYTIME' : {
-		 list : 'busytimelistmodule'
+	 'BUSYTIME': {
+		 list: 'busytimelistmodule'
 	 },
 
 	/**
@@ -144,19 +144,19 @@ Zarafa.core.ModuleNames =
 	 * @property
 	 * @type Mixed
 	 */
-	'SUGGESTEMAILADDRESS' : {
-		list : 'suggestemailaddressmodule',
-		item : 'suggestemailaddressmodule'
+	'SUGGESTEMAILADDRESS': {
+		list: 'suggestemailaddressmodule',
+		item: 'suggestemailaddressmodule'
 	},
-	
+
 	/**
 	 * Module information for reminder
 	 * @property
 	 * @type Mixed
 	 */
-	'REMINDER' : {
-		list : 'reminderlistmodule',
-		item : 'reminderitemmodule'
+	'REMINDER': {
+		list: 'reminderlistmodule',
+		item: 'reminderitemmodule'
 	},
 
 	/**
@@ -164,9 +164,9 @@ Zarafa.core.ModuleNames =
 	 * @property
 	 * @type Mixed
 	 */
-	'DELEGATES' : {
-		list : 'delegatesmodule',
-		item : 'delegatesmodule'
+	'DELEGATES': {
+		list: 'delegatesmodule',
+		item: 'delegatesmodule'
 	},
 
 	/**
@@ -174,9 +174,19 @@ Zarafa.core.ModuleNames =
 	 * @property
 	 * @type Mixed
 	 */
-	'RULES' : {
-		list : 'rulesmodule',
-		item : 'rulesmodule'
+	'RULES': {
+		list: 'rulesmodule',
+		item: 'rulesmodule'
+	},
+
+	/**
+	 * Module information for Out of office settings
+	 * @property
+	 * @type Mixed
+	 */
+	'OUTOFOFFICESETTINGS': {
+		list: 'outofofficesettingsmodule',
+		item: 'outofofficesettingsmodule'
 	},
 
 	/**
@@ -184,9 +194,9 @@ Zarafa.core.ModuleNames =
 	 * @property
 	 * @type Mixed
 	 */
-	'RESTOREITEMS' : {
-		list : 'restoreitemslistmodule',
-		item : 'restoreitemslistmodule'
+	'RESTOREITEMS': {
+		list: 'restoreitemslistmodule',
+		item: 'restoreitemslistmodule'
 	},
 
 	/**
@@ -194,9 +204,9 @@ Zarafa.core.ModuleNames =
 	 * @property
 	 * @type Mixed
 	 */
-	'IPM.SEARCH' : {
-		list : 'advancedsearchlistmodule',
-		item : 'createmailitemmodule'
+	'IPM.SEARCH': {
+		list: 'advancedsearchlistmodule',
+		item: 'createmailitemmodule'
 	},
 
 	/**
@@ -210,7 +220,7 @@ Zarafa.core.ModuleNames =
 	 * @return {Object} An object containing a 'list' and 'item' key,
 	 * for the moduleNames for the 'list' and 'item' module respectively.
 	 */
-	getModule : function(key, baseOnly)
+	getModule: function(key, baseOnly)
 	{
 		key = key.toUpperCase();
 
@@ -230,14 +240,14 @@ Zarafa.core.ModuleNames =
 	 * Obtain the moduleName for the Item module for the appropriate key.
 	 * This uses {@link #getModule} to obtain the module, and returns the
 	 * itemModulename from the result.
-	 * 
+	 *
 	 * @param {String} key The key for which the module must be found
 	 * @param {Boolean} baseOnly (optional) When the the key is not exactly
 	 * matched againsts a moduleName, remove everything after the last '.',
 	 * defaults to false.
 	 * @return {String} The item moduleName for the requested module
 	 */
-	getItemName : function(key, baseOnly)
+	getItemName: function(key, baseOnly)
 	{
 		var module = this.getModule(key, baseOnly);
 		if (module) {
@@ -249,14 +259,14 @@ Zarafa.core.ModuleNames =
 	 * Obtain the moduleName for the List module for the appropriate key.
 	 * This uses {@link #getModule} to obtain the module, and returns the
 	 * listModulename from the result.
-	 * 
+	 *
 	 * @param {String} key The key for which the module must be found
 	 * @param {Boolean} baseOnly (optional) When the the key is not exactly
 	 * matched againsts a moduleName, remove everything after the last '.',
 	 * defaults to false.
 	 * @return {String} The list moduleName for the requested module
 	 */
-	getListName : function(key, baseOnly)
+	getListName: function(key, baseOnly)
 	{
 		var module = this.getModule(key, baseOnly);
 		if (module) {

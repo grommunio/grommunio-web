@@ -41,7 +41,7 @@ Zarafa.advancesearch.dialogs.SearchCategoriesContentPanel = Ext.extend(Zarafa.co
 				xtype: 'zarafa.categoriespanel',
 				record: config.record,
 				ref: 'categoriesPanel',
-				hideActionButtons : true,
+				hideActionButtons: true,
 				buttons: [{
 					text: _('Apply'),
 					handler: this.onApply,

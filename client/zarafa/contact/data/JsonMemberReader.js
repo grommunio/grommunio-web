@@ -13,7 +13,7 @@ Zarafa.contact.data.JsonMemberReader = Ext.extend(Zarafa.core.data.JsonReader, {
 	 * which represents the {@link Ext.data.Record records} which should be created using
 	 * {@link Zarafa.core.data.RecordFactory#createRecordObjectByCustomType}.
 	 */
-	customObjectType : Zarafa.core.data.RecordCustomObjectType.ZARAFA_DISTLIST_MEMBER,
+	customObjectType: Zarafa.core.data.RecordCustomObjectType.ZARAFA_DISTLIST_MEMBER,
 
 	/**
 	 * @constructor
@@ -22,10 +22,10 @@ Zarafa.contact.data.JsonMemberReader = Ext.extend(Zarafa.core.data.JsonReader, {
 	 * which must be read from response. If no type is given, it will use the
 	 * record type for the {@link Zarafa.core.data.RecordCustomObjectType#ZARAFA_DISTLIST_MEMBER}.
 	 */
-	constructor : function(meta, recordType)
+	constructor: function(meta, recordType)
 	{
 		meta = Ext.applyIf(meta || {}, {
-			dynamicRecord : false
+			dynamicRecord: false
 		});
 
 		// If no recordType is provided, force the type to be a Distlist Member

@@ -13,16 +13,16 @@ Zarafa.common.recipientfield.ui.RecipientList = Ext.extend(Zarafa.common.recipie
 	 * @constructor
 	 * @param {Object} config Configuration object
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		config = config || {};
 
 		Ext.applyIf(config, {
-			boxType : 'zarafa.recipientbox',
-			boxConfig : {
-				height : config.inputFieldHeight || this.inputFieldHeight
+			boxType: 'zarafa.recipientbox',
+			boxConfig: {
+				height: config.inputFieldHeight || this.inputFieldHeight
 			},
-			listMode : true,
+			listMode: true,
 			autoHeight: true,
 			autoScroll: false
 		});

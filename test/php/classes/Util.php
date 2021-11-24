@@ -45,9 +45,9 @@ class Util {
 	{
 		foreach ($arr as $index => $item) {
 			if (isset($item[$key]) && $item[$key] == $value) {
-				if($skip === 0){
+				if($skip === 0) {
 					return $item;
-				}else{
+				} else {
 					$skip--;
 				}
 			}
@@ -67,9 +67,9 @@ class Util {
 	{
 		foreach ($arr as $index => $item) {
 			if (isset($item[$key]) && $item[$key] == $value) {
-				if($skip === 0){
+				if($skip === 0) {
 					return $index;
-				}else{
+				} else {
 					$skip--;
 				}
 			}

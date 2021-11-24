@@ -14,7 +14,7 @@ Zarafa.core.Container = Ext.extend(Ext.util.Observable, {
 	 * @private
 	 * @type Array
 	 */
-	contexts : undefined,
+	contexts: undefined,
 
 	/**
 	 * The Meta Data for all registered {@link #contexts}. This is an array
@@ -23,7 +23,7 @@ Zarafa.core.Container = Ext.extend(Ext.util.Observable, {
 	 * @private
 	 * @type Array
 	 */
-	contextsMetaData : undefined,
+	contextsMetaData: undefined,
 
 	/**
 	 * List of registered {@link Zarafa.core.Plugin plugin instances}
@@ -32,7 +32,7 @@ Zarafa.core.Container = Ext.extend(Ext.util.Observable, {
 	 * @private
 	 * @type Array
 	 */
-	plugins : undefined,
+	plugins: undefined,
 
 	/**
 	 * The Meta Data for all registered {@link #plugins}. This is an array
@@ -41,7 +41,7 @@ Zarafa.core.Container = Ext.extend(Ext.util.Observable, {
 	 * @private
 	 * @type Array
 	 */
-	pluginsMetaData : undefined,
+	pluginsMetaData: undefined,
 
 	/**
 	 * The Meta Data for all registered {@link Zarafa.core.ui.widget.Widget widgets}. This is an array
@@ -50,12 +50,12 @@ Zarafa.core.Container = Ext.extend(Ext.util.Observable, {
 	 * @private
 	 * @type Array
 	 */
-	widgetsMetaData : undefined,
+	widgetsMetaData: undefined,
 
 	/**
 	 * @constructor
 	 */
-	constructor : function()
+	constructor: function()
 	{
 		this.addEvents([
 			/**
@@ -105,7 +105,13 @@ Zarafa.core.Container = Ext.extend(Ext.util.Observable, {
 			 * Fires when the user logs out from the webapp.
 			 * @event logout
 			 */
-			'logout'
+			'logout',
+			/**
+			 * Fires when the {@link Zarafa.core.ui.MainContentTabPanel MainContentTabPanel} rendered successfully.
+			 * @event afterrendercontentpanel
+			 * @param {Zarafa.core.ui.MainContentTabPanel} MainContentTabPanel The main content tab panel.
+			 */
+			'afterrendercontentpanel'
 		]);
 
 		Zarafa.core.Container.superclass.constructor.call(this);
@@ -126,11 +132,11 @@ Zarafa.core.Container = Ext.extend(Ext.util.Observable, {
 	 * @param {Boolean} preserveSession True to preserve the existing session
 	 * on the server and only redirect the user to the logon page.
 	 */
-	logout : function(preserveUser, preserveSession)
+	logout: function(preserveUser, preserveSession, reauthenticate)
 	{
 		if (this.fireEvent('beforelogout') !== false) {
 			this.fireEvent('logout');
-			this.doLogout(preserveUser, preserveSession);
+			this.doLogout(preserveUser, preserveSession, reauthenticate);
 		}
 	},
 
@@ -143,12 +149,12 @@ Zarafa.core.Container = Ext.extend(Ext.util.Observable, {
 	 * on the server and only redirect the user to the logon page.
 	 * @protected
 	 */
-	doLogout : function(preserveUser, preserveSession)
+	doLogout: function(preserveUser, preserveSession, reauthenticate)
 	{
-		var user = ((preserveUser === true) ? ('&user=' + this.getUser().getUserName())  : '');
+		var user = ((preserveUser === true) ? ('&user=' + this.getUser().getUserName()) : '');
 
 		Zarafa.core.Util.disableLeaveRequester();
-		
+		// OIDC is enabled, signout via oidc-client.
 		if (preserveSession !== true) {
 			window.location = 'index.php?logout' + user;
 		} else {
@@ -160,7 +166,7 @@ Zarafa.core.Container = Ext.extend(Ext.util.Observable, {
 	 * Obtain the server configuration data
 	 * @return {Zarafa.core.data.ServerConfig} The server configuration data
 	 */
-	getServerConfig : function()
+	getServerConfig: function()
 	{
 		return this.serverConfigRecord;
 	},
@@ -169,7 +175,7 @@ Zarafa.core.Container = Ext.extend(Ext.util.Observable, {
 	 * Set the server configuration data
 	 * @param {Object} serverData The server configuration data.
 	 */
-	setServerConfig : function(serverData)
+	setServerConfig: function(serverData)
 	{
 		this.serverConfigRecord = new Zarafa.core.data.ServerConfig(serverData);
 	},
@@ -178,7 +184,7 @@ Zarafa.core.Container = Ext.extend(Ext.util.Observable, {
 	 * Obtain the user data for the currently logged in user.
 	 * @return {Zarafa.core.data.User} The user data of the currently logged in user.
 	 */
-	getUser : function()
+	getUser: function()
 	{
 		return this.userRecord;
 	},
@@ -187,7 +193,7 @@ Zarafa.core.Container = Ext.extend(Ext.util.Observable, {
 	 * Set the user data for the currently logged in user.
 	 * @param {Object} userData The user data of the currently logged in user.
 	 */
-	setUser : function(userData)
+	setUser: function(userData)
 	{
 		this.userRecord = new Zarafa.core.data.User(userData);
 	},
@@ -196,7 +202,7 @@ Zarafa.core.Container = Ext.extend(Ext.util.Observable, {
 	 * Obtain the versioning data for the WebApp environment
 	 * @return {Zarafa.core.data.Version} The version data of the WebApp environment
 	 */
-	getVersion : function()
+	getVersion: function()
 	{
 		return this.versionRecord;
 	},
@@ -205,7 +211,7 @@ Zarafa.core.Container = Ext.extend(Ext.util.Observable, {
 	 * Set the version data for the WebApp environment
 	 * @param {Object} versionData The version data of the WebApp environment
 	 */
-	setVersion : function(versionData)
+	setVersion: function(versionData)
 	{
 		this.versionRecord = new Zarafa.core.data.Version(versionData);
 	},
@@ -216,7 +222,7 @@ Zarafa.core.Container = Ext.extend(Ext.util.Observable, {
 	 * (e.g. en_GB), and the second key is 'name' which is the display name.
 	 * @return {Array} The array of available languages
 	 */
-	getLanguages : function()
+	getLanguages: function()
 	{
 		return this.languages;
 	},
@@ -225,7 +231,7 @@ Zarafa.core.Container = Ext.extend(Ext.util.Observable, {
 	 * Set the languages which are available to the user
 	 * @param {Array} languages The available languages
 	 */
-	setLanguages : function(languages)
+	setLanguages: function(languages)
 	{
 		this.languages = languages;
 	},
@@ -234,7 +240,7 @@ Zarafa.core.Container = Ext.extend(Ext.util.Observable, {
 	 * Returns the currently active {@link Zarafa.core.Context context}.
 	 * @return {Zarafa.core.Context} the currently active context.
 	 */
-	getCurrentContext : function()
+	getCurrentContext: function()
 	{
 		return this.currentContext || this.getContextByName('default');
 	},
@@ -245,7 +251,7 @@ Zarafa.core.Container = Ext.extend(Ext.util.Observable, {
 	 *
 	 * @return {Zarafa.core.Request} the global {@link Zarafa.core.Request Request} instance.
 	 */
-	getRequest : function()
+	getRequest: function()
 	{
 		return this.request || (this.request = new Zarafa.core.Request({ url:"grommunio.php" }));
 	},
@@ -256,7 +262,7 @@ Zarafa.core.Container = Ext.extend(Ext.util.Observable, {
 	 *
 	 * @return {Zarafa.core.ResponseRouter} the global {@link Zarafa.core.ResponseRouter ResponseRouter} instance.
 	 */
-	getResponseRouter : function()
+	getResponseRouter: function()
 	{
 		return this.responseRouter || (this.responseRouter = new Zarafa.core.ResponseRouter());
 	},
@@ -269,7 +275,7 @@ Zarafa.core.Container = Ext.extend(Ext.util.Observable, {
 	 *
 	 * @return {Zarafa.core.data.NotificationResolver} the global {@link Zarafa.core.data.NotificationResolver NotificationResolver} instance.
 	 */
-	getNotificationResolver : function()
+	getNotificationResolver: function()
 	{
 		return this.notificationResolver || (this.notificationResolver = new Zarafa.core.data.NotificationResolver());
 	},
@@ -278,16 +284,25 @@ Zarafa.core.Container = Ext.extend(Ext.util.Observable, {
 	 * Returns the global {@link Zarafa.hierarchy.data.HierarchyStore HierarchyStore} instance.
 	 * @return {Zarafa.hierarchy.data.HierarchyStore} the global {@link Zarafa.hierarchy.data.HierarchyStore HierarchyStore} instance.
 	 */
-	getHierarchyStore : function()
+	getHierarchyStore: function()
 	{
 		return this.hierarchyStore || (this.hierarchyStore = new Zarafa.hierarchy.data.HierarchyStore());
+	},
+
+	/**
+	 * Returns the global {@link Zarafa.common.outofoffice.data.OofStore OofStore} instance.
+	 * @return {Zarafa.common.outofoffice.data.OofStore} the global {@link Zarafa.common.outofoffice.data.OofStore} instance.
+	 */
+	getOutOfOfficeStore: function()
+	{
+		return this.outOfOfficeStore || (this.outOfOfficeStore = new Zarafa.common.outofoffice.data.OofStore());
 	},
 
 	/**
 	 * Returns the global {@link Zarafa.settings.SettingsModel SettingsModel} instance.
 	 * @return {Zarafa.settings.SettingsModel} the global {@link Zarafa.settings.SettingsModel SettingsModel} instance.
 	 */
-	getSettingsModel : function()
+	getSettingsModel: function()
 	{
 		return this.settingsModel || (this.settingsModel = new Zarafa.settings.SettingsModel());
 	},
@@ -297,7 +312,7 @@ Zarafa.core.Container = Ext.extend(Ext.util.Observable, {
 	 * @return {Zarafa.settings.PersistentSettingsModel} the global
 	 * {@link Zarafa.settings.PersistentSettingsModel PersistentSettingsModel} instance.
 	 */
-	getPersistentSettingsModel : function()
+	getPersistentSettingsModel: function()
 	{
 		return this.persistentSettingsModel || (this.persistentSettingsModel = new Zarafa.settings.PersistentSettingsModel());
 	},
@@ -306,7 +321,7 @@ Zarafa.core.Container = Ext.extend(Ext.util.Observable, {
 	 * Returns the {@link Zarafa.core.data.ShadowStore ShadowStore} instance.
 	 * @return {Zarafa.core.data.ShadowStore} the {@link Zarafa.core.data.ShadowStore ShadowStore} instance.
 	 */
-	getShadowStore : function()
+	getShadowStore: function()
 	{
 		return this.shadowStore || (this.shadowStore = new Zarafa.core.data.ShadowStore());
 	},
@@ -316,7 +331,7 @@ Zarafa.core.Container = Ext.extend(Ext.util.Observable, {
 	 * for sending notifications to the user.
 	 * @return {Zarafa.core.ui.notifier.Notifier} The notifier for User notifications
 	 */
-	getNotifier : function()
+	getNotifier: function()
 	{
 		return this.notifier || (this.notifier = new Zarafa.core.ui.notifier.Notifier());
 	},
@@ -325,7 +340,7 @@ Zarafa.core.Container = Ext.extend(Ext.util.Observable, {
 	 * Returns the application main panel.
 	 * @return {Zarafa.core.ui.MainViewport} the application main panel.
 	 */
-	getMainPanel : function()
+	getMainPanel: function()
 	{
 		return this.mainPanel || (this.mainPanel = new Zarafa.core.ui.MainViewport());
 	},
@@ -334,7 +349,7 @@ Zarafa.core.Container = Ext.extend(Ext.util.Observable, {
 	 * Resturns the applications main toolbar
 	 * @return {Zarafa.core.ui.MainToolbar} then application main tool bar
 	 */
-	getMainToolbar : function()
+	getMainToolbar: function()
 	{
 		return this.getMainPanel().mainToolbar;
 	},
@@ -343,7 +358,7 @@ Zarafa.core.Container = Ext.extend(Ext.util.Observable, {
 	 * Returns the application welcome panel.
 	 * @return {Zarafa.core.ui.WelcomeViewport} the application welcome panel.
 	 */
-	getWelcomePanel : function()
+	getWelcomePanel: function()
 	{
 		return this.welcomePanel || (this.welcomePanel = new Zarafa.core.ui.WelcomeViewport());
 	},
@@ -352,7 +367,7 @@ Zarafa.core.Container = Ext.extend(Ext.util.Observable, {
 	 * Returns the application tab panel
 	 * @return {Zarafa.core.ui.ContextContainer} The application tab panel
 	 */
-	getTabPanel : function()
+	getTabPanel: function()
 	{
 		return this.getMainPanel().getContentPanel();
 	},
@@ -361,7 +376,7 @@ Zarafa.core.Container = Ext.extend(Ext.util.Observable, {
 	 * Returns the application content panel
 	 * @return {Zarafa.common.ui.ContextMainPanel} the application content panel.
 	 */
-	getContentPanel : function()
+	getContentPanel: function()
 	{
 		return this.getTabPanel().get(0).getActiveItem();
 	},
@@ -370,7 +385,7 @@ Zarafa.core.Container = Ext.extend(Ext.util.Observable, {
 	 * Returns the application navigation sidebar.
 	 * @return {Zarafa.core.ui.NavigationPanel} the navigation sidebar
 	 */
-	getNavigationBar : function()
+	getNavigationBar: function()
 	{
 		return this.getMainPanel().getNavigationPanel();
 	},
@@ -379,7 +394,7 @@ Zarafa.core.Container = Ext.extend(Ext.util.Observable, {
 	 * Returns the application widget sidebar.
 	 * @return {Zarafa.core.ui.widget.WidgetPanel} the application widget sidebar.
 	 */
-	getWidgetSideBar : function()
+	getWidgetSideBar: function()
 	{
 		return this.getMainPanel().getWidgetPanel();
 	},
@@ -388,7 +403,7 @@ Zarafa.core.Container = Ext.extend(Ext.util.Observable, {
 	 * Returns an array of all registered {@link Zarafa.core.Plugin plugins}.
 	 * @return {Array} plugins
 	 */
-	getPlugins : function()
+	getPlugins: function()
 	{
 		return this.plugins;
 	},
@@ -397,7 +412,7 @@ Zarafa.core.Container = Ext.extend(Ext.util.Observable, {
 	 * Returns the Meta Data for {@link #pluginsMetaData all registered} {@link Zarafa.core.Plugin plugins}.
 	 * @return {Array} The plugins meta data
 	 */
-	getPluginsMetaData : function()
+	getPluginsMetaData: function()
 	{
 		return this.pluginsMetaData;
 	},
@@ -406,7 +421,7 @@ Zarafa.core.Container = Ext.extend(Ext.util.Observable, {
 	 * Returns an array of all registered {@link Zarafa.core.Context contexts}.
 	 * @return {Array} Contexts
 	 */
-	getContexts : function()
+	getContexts: function()
 	{
 		return this.contexts;
 	},
@@ -415,7 +430,7 @@ Zarafa.core.Container = Ext.extend(Ext.util.Observable, {
 	 * Returns the Meta Data for {@link #contextsMetaData all registered} {@link Zarafa.core.Context contexts}.
 	 * @return {Array} The contexts meta data
 	 */
-	getContextsMetaData : function()
+	getContextsMetaData: function()
 	{
 		return this.contextsMetaData;
 	},
@@ -424,7 +439,7 @@ Zarafa.core.Container = Ext.extend(Ext.util.Observable, {
 	 * Returns the Meta Data for {@link #widgetsMetaData all registered} {@link Zarafa.core.ui.widget.Widget widgets}.
 	 * @return {Array} The widgets meta data
 	 */
-	getWidgetsMetaData : function()
+	getWidgetsMetaData: function()
 	{
 		return this.widgetsMetaData;
 	},
@@ -434,7 +449,7 @@ Zarafa.core.Container = Ext.extend(Ext.util.Observable, {
 	 * @param {String} name The name of the context which is requested
 	 * @return {Zarafa.core.Context} matching context or <code>undefined</code> if not found.
 	 */
-	getContextByName : function(name)
+	getContextByName: function(name)
 	{
 		var contexts = this.getContexts();
 
@@ -450,7 +465,7 @@ Zarafa.core.Container = Ext.extend(Ext.util.Observable, {
 	 * @param {String} name The name of the context for which the meta data is requested
 	 * @return {Zarafa.core.ContextMetaData} The Meta Data for the context or <code>undefined</code> if not found.
 	 */
-	getContextMetaDataByName : function(name)
+	getContextMetaDataByName: function(name)
 	{
 		var contexts = this.getContextsMetaData();
 
@@ -466,7 +481,7 @@ Zarafa.core.Container = Ext.extend(Ext.util.Observable, {
 	 * @param {String} name The name of the plugin which is requested
 	 * @return {Zarafa.core.Plugin} matching plug-in or <code>undefined</code> if not found.
 	 */
-	getPluginByName : function(name)
+	getPluginByName: function(name)
 	{
 		var plugins = this.getPlugins();
 
@@ -482,7 +497,7 @@ Zarafa.core.Container = Ext.extend(Ext.util.Observable, {
 	 * @param {String} name The name of the plugin for which the meta data is requested
 	 * @return {Zarafa.core.PluginMetaData} The Meta Data for the plugin or <code>undefined</code> if not found.
 	 */
-	getPluginMetaDataByName : function(name)
+	getPluginMetaDataByName: function(name)
 	{
 		var plugins = this.getPluginsMetaData();
 
@@ -498,7 +513,7 @@ Zarafa.core.Container = Ext.extend(Ext.util.Observable, {
 	 * @param {String} name The name of the widget for which the meta data is requested
 	 * @return {Zarafa.core.ui.widget.WidgetMetaData} The Meta Data for the widget or <code>undefined</code> if not found.
 	 */
-	getWidgetMetaDataByName : function(name)
+	getWidgetMetaDataByName: function(name)
 	{
 		var widgets = this.getWidgetsMetaData();
 
@@ -515,7 +530,7 @@ Zarafa.core.Container = Ext.extend(Ext.util.Observable, {
 	 * @param {Object} args (optional) optional arguments such as scope
 	 * @return {Ext.Component[]} an array of components
 	 */
-	populateInsertionPoint : function(insertionPoint)
+	populateInsertionPoint: function(insertionPoint)
 	{
 		var plugins = this.getPlugins();
 		var items = [];
@@ -544,7 +559,7 @@ Zarafa.core.Container = Ext.extend(Ext.util.Observable, {
 	 * Registers a Context Meta Data instance with the container.
 	 * @param {Zarafa.core.ContextMetaData} info context to register
 	 */
-	registerContext : function(info)
+	registerContext: function(info)
 	{
 		this.getContextsMetaData().push(info);
 		if (info.isEnabled()) {
@@ -560,7 +575,7 @@ Zarafa.core.Container = Ext.extend(Ext.util.Observable, {
 	 * Registers a Plugin Meta Data instance with the container.
 	 * @param {Zarafa.core.PluginMetaData} info plugin info to register
 	 */
-	registerPlugin : function(info)
+	registerPlugin: function(info)
 	{
 		// Get the list of plugins that are always enabled
 		var alwaysEnabledPlugins = this.getServerConfig().getAlwaysEnabledPluginsList().split(';');
@@ -576,10 +591,10 @@ Zarafa.core.Container = Ext.extend(Ext.util.Observable, {
 	},
 
 	/**
-	 * Registers a Widget Meta Data instance  with the container.
+	 * Registers a Widget Meta Data instance with the container.
 	 * @param {Zarafa.core.ui.widget.WidgetMetaData} info widget meta data to register
 	 */
-	registerWidget : function(info)
+	registerWidget: function(info)
 	{
 		this.getWidgetsMetaData().push(info);
 	},
@@ -592,7 +607,7 @@ Zarafa.core.Container = Ext.extend(Ext.util.Observable, {
 	 * {@link Zarafa.core.Context context} should be enabled {@link Zarafa.core.ContextModel#suspendLoading suspended}.
 	 * @private
 	 */
-	switchContext : function(context, folder, suspended)
+	switchContext: function(context, folder, suspended)
 	{
 		var oldContext = this.getCurrentContext();
 
@@ -631,7 +646,7 @@ Zarafa.core.Container = Ext.extend(Ext.util.Observable, {
 	 * @param {Zarafa.hierarchy.data.MAPIFolderRecord} folder folder for which we need to find corresponding context.
 	 * @return {Zarafa.core.Context} context that should be used to load data from {@link Zarafa.hierarchy.data.MAPIFolderRecord MAPIFolder}.
 	 */
-	getContextByFolder : function(folder)
+	getContextByFolder: function(folder)
 	{
 		// walk over the context list and select the one that provides the highest bid
 		var selectedContext;
@@ -657,11 +672,12 @@ Zarafa.core.Container = Ext.extend(Ext.util.Observable, {
 	 * Select a specific folder in the UI. The container will start a bidding round to determine which context should be chosen to
 	 * display the given folder. The current context is then disabled and switched out, and the newly chosen context is enabled and
 	 * switched in. Fires the 'folderselect' event.
-	 * @param {Zarafa.hierarchy.data.MAPIFolderRecord} folder folder to select.
+	 * @param {Zarafa.hierarchy.data.MAPIFolderRecord[]} folder folder to select either as an array of
+	 * {@link Zarafa.hierarchy.data.MAPIFolderRecord MAPIFolder} objects or a single object.
 	 */
-	selectFolder : function(folder)
+	selectFolder: function(folder)
 	{
-		var selectedContext = this.getContextByFolder(folder);
+		var selectedContext = this.getContextByFolder(Ext.isArray(folder) ? folder[0] : folder);
 
 		// Check if a new context has been selected, if we can
 		// stay with the current context, then simply update
@@ -681,7 +697,7 @@ Zarafa.core.Container = Ext.extend(Ext.util.Observable, {
 	 * then re-enables context all of its folders.
 	 * @param {Zarafa.hierarchy.data.MAPIFolderRecord} folder which is changed
 	 */
-	reloadContext : function(folder)
+	reloadContext: function(folder)
 	{
 		var currentContext = this.getCurrentContext();
 		var contextModel = currentContext.getModel();
@@ -707,7 +723,7 @@ Zarafa.core.Container = Ext.extend(Ext.util.Observable, {
 	 * currently selected
 	 * @private
 	 */
-	onContextFolderChange : function(model, folders)
+	onContextFolderChange: function(model, folders)
 	{
 		this.fireEvent('folderselect', folders);
 	},
@@ -753,7 +769,7 @@ Zarafa.core.Container = Ext.extend(Ext.util.Observable, {
 	 * Returns the global {@link Zarafa.common.reminder.data.ReminderStore RemimderStore} instance.
 	 * @return {Zarafa.common.reminder.data.ReminderStore} instance.
 	 */
-	getReminderStore : function()
+	getReminderStore: function()
 	{
 		return this.reminderStore || (this.reminderStore = new Zarafa.common.reminder.data.ReminderStore());
 	},
@@ -762,7 +778,7 @@ Zarafa.core.Container = Ext.extend(Ext.util.Observable, {
 	 * Returns base url of webapp without trailing slash, which can be used to request resources from server.
 	 * @return {String} base url of webapp.
 	 */
-	getBaseURL : function()
+	getBaseURL: function()
 	{
 		var loc = window.location;
 		var url = loc.protocol + '//' + loc.host + loc.pathname;
@@ -780,10 +796,31 @@ Zarafa.core.Container = Ext.extend(Ext.util.Observable, {
 	 * Returns base path of webapp with trailing slash, which can be used to request resources from server.
 	 * @return {String} base path of webapp.
 	 */
-	getBasePath : function()
+	getBasePath: function()
 	{
 		var baseURL = container.getBaseURL();
 
 		return baseURL.substring(0, baseURL.lastIndexOf('index.php'));
+	},
+
+	/**
+	 * Returns instance of factory registered with {@link Zarafa.common.data.AbstractRulesFactory} factory
+	 * depending on factoryType given in the parameter.
+	 *
+	 * @param {Zarafa.common.data.RulesFactoryType} factoryType type of the required factory.
+	 * @return {Object} factory instance based on factoryType.
+	 */
+	getRulesFactoryByType: function(factoryType)
+	{
+		return Zarafa.common.data.AbstractRulesFactory.getFactoryById(factoryType);
+	},
+
+	/**
+	 * Helper function which used to check the conversation view is enabled or not.
+	 * @return {Boolean} True if conversation view is enabled else false.
+	 */
+	isEnabledConversation: function ()
+	{
+		return this.getSettingsModel().get("zarafa/v1/contexts/mail/enable_conversation_view", false);
 	}
 });

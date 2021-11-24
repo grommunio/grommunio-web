@@ -12,27 +12,27 @@ Ext.namespace('Zarafa.common.ui');
  */
 Zarafa.common.ui.ColorPicker = Ext.extend(Ext.form.Field, {
 	/**
-     * @cfg {String} value The default value of the color picker.
+   * @cfg {String} value The default value of the color picker.
 	 */
 	value: 'BDC3C7',
 
 	/**
-     * @cfg {Boolean} border True to display a border around the colorpicker box
-     * Can be useful if you want to use white.
+   * @cfg {Boolean} border True to display a border around the colorpicker box
+   * Can be useful if you want to use white.
 	 */
 	border: true,
 
-    /**
-     * @cfg {String} fieldClass The default CSS class for the field (defaults to 'x-form-field k-colorpicker')
-     */
-    fieldClass : 'x-form-field k-colorpicker',
+  /**
+   * @cfg {String} fieldClass The default CSS class for the field (defaults to 'x-form-field k-colorpicker')
+   */
+  fieldClass: 'x-form-field k-colorpicker',
 
 	/**
-     * @cfg {String[]} colors The colors that will be used for the colorpicker. Colors
-     * should be in RGB hex format without the #. E.g. 'AA0000' for red. Defaults to
-     * the default calendar colors used by the WebApp.
+   * @cfg {String[]} colors The colors that will be used for the colorpicker. Colors
+   * should be in RGB hex format without the #. E.g. 'AA0000' for red. Defaults to
+   * the default calendar colors used by the WebApp.
 	 */
-	colors : [
+	colors: [
 		'E30022', // cadmium red
 		'F89406', // california
 		'F7CA18', // yellow
@@ -48,7 +48,7 @@ Zarafa.common.ui.ColorPicker = Ext.extend(Ext.form.Field, {
 		'0F70BD', // blue
 		'00B3F0', // Kopano blue
 		'86CFF5', // baby blue
-		'BDC3C7'  // silver sand
+		'BDC3C7' // silver sand
 	],
 
 	/**
@@ -57,22 +57,22 @@ Zarafa.common.ui.ColorPicker = Ext.extend(Ext.form.Field, {
 	 * @type Ext.Element
 	 * @property
 	 */
-	box : null,
+	box: null,
 
 	/**
 	 * The contextmenu with the palette
-     * @property
-     * @type {Ext.menu.ColorMenu}
+   * @property
+   * @type {Ext.menu.ColorMenu}
 	 */
-    menu : null,
+  menu: null,
 
 	/**
 	 * @constructor
 	 * @param {Object} config Configuration object
 	 */
-    constructor : function(config)
-    {
-    	this.addEvents(
+  constructor: function(config)
+  {
+  	this.addEvents(
 			/**
 			 * @event show
 			 * Fired when the menu is shown.
@@ -99,52 +99,52 @@ Zarafa.common.ui.ColorPicker = Ext.extend(Ext.form.Field, {
 			 * @param {String} color The color that was picked (hex rgb code)
 			 */
 			'select'
-    	);
+  	);
 
-    	config = config || {};
-    	Ext.applyIf(config, {
-    		// setting defaultAutoCreate to true to have a simple div as element
-    		// and not have Ext.form.Field create an input.
-   			defaultAutoCreate : true
-    	});
+  	config = config || {};
+  	Ext.applyIf(config, {
+  		// setting defaultAutoCreate to true to have a simple div as element
+  		// and not have Ext.form.Field create an input.
+  			defaultAutoCreate: true
+  	});
 
-        Zarafa.common.ui.ColorPicker.superclass.constructor.call(this, config);
-    },
+    Zarafa.common.ui.ColorPicker.superclass.constructor.call(this, config);
+  },
 
 	/**
 	 * Renders the color picker.
 	 */
-	onRender : function()
+	onRender: function()
 	{
-        if(!this.el){
-            var cfg = this.getAutoCreate();
+    if(!this.el){
+      var cfg = this.getAutoCreate();
 
-            if(!cfg.name){
-                cfg.name = this.name || this.id;
-            }
-            this.autoEl = cfg;
-        }
-        Zarafa.common.ui.ColorPicker.superclass.onRender.apply(this, arguments);
+      if(!cfg.name){
+        cfg.name = this.name || this.id;
+      }
+      this.autoEl = cfg;
+    }
+    Zarafa.common.ui.ColorPicker.superclass.onRender.apply(this, arguments);
 
-        if ( this.border ){
-        	this.cls = (this.cls || '') + ' zarafa-border';
-        }
+    if ( this.border ){
+    	this.cls = (this.cls || '') + ' zarafa-border';
+    }
 
-        this.el.addClass([this.fieldClass, this.cls]);
+    this.el.addClass([this.fieldClass, this.cls]);
 
 		// Create the clickable box. It is created inside the colorpicker div
 		// to be able to use padding for better positioning
-        this.box = Ext.get(Ext.DomHelper.createDom({tag: 'div', cls: 'k-colorpicker-box'}));
-        this.el.appendChild(this.box);
+    this.box = Ext.get(Ext.DomHelper.createDom({tag: 'div', cls: 'k-colorpicker-box'}));
+    this.el.appendChild(this.box);
 
 		// Create the menu with the color palette
-        this.createMenu();
+    this.createMenu();
 	},
 
 	/**
 	 * Creates the menu with the color palette.
 	 */
-	createMenu : function()
+	createMenu: function()
 	{
 		this.menu = new Ext.menu.ColorMenu({
 			cls: 'k-colorpicker-menu',
@@ -160,15 +160,15 @@ Zarafa.common.ui.ColorPicker = Ext.extend(Ext.form.Field, {
 		this.relayEvents(this.menu, ['show', 'hide']);
 	},
 
-    /**
-     * Initializes event handlers. Adds a handler for the click event
-     * on {#box the colored box}
-     */
-    initEvents : function(){
-        Zarafa.common.ui.ColorPicker.superclass.initEvents.call(this);
+  /**
+   * Initializes event handlers. Adds a handler for the click event
+   * on {#box the colored box}
+   */
+  initEvents: function(){
+    Zarafa.common.ui.ColorPicker.superclass.initEvents.call(this);
 
-        this.mon(this.box, 'click', this.onClick, this);
-    },
+    this.mon(this.box, 'click', this.onClick, this);
+  },
 
 	/**
 	 * Sets a value for this field
@@ -177,22 +177,22 @@ Zarafa.common.ui.ColorPicker = Ext.extend(Ext.form.Field, {
 	 * (# will be stripped if included)
 	 * @return {Zarafa.common.ui.ColorPicker} this
 	 */
-	setValue : function(value) {
-        if ( !Ext.isEmpty(value) ){
-        	this.value = value.startsWith('#') ? value.replace('#', '') : value;
-        }
+	setValue: function(value) {
+    if ( !Ext.isEmpty(value) ){
+    	this.value = value.startsWith('#') ? value.replace('#', '') : value;
+    }
 
-        if(this.rendered){
-            this.box.setStyle('background-color', '#' + this.value);
-        }
-        return this;
+    if(this.rendered){
+      this.box.setStyle('background-color', '#' + this.value);
+    }
+    return this;
 	},
 
 	/**
 	 * Returns the value of the field.
 	 * @return {String} The RGB code of the color that has been picked
 	 */
-	getValue : function() {
+	getValue: function() {
 		return this.value;
 	},
 
@@ -201,7 +201,7 @@ Zarafa.common.ui.ColorPicker = Ext.extend(Ext.form.Field, {
 	 * with the color palette.
 	 * @param {Ext.EventObject} event The normalized click event object
 	 */
-	onClick : function(event) {
+	onClick: function(event) {
 		this.menu.showAt(event.getXY());
 
 		var value = this.value.toUpperCase();

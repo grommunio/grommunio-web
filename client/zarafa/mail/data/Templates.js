@@ -28,8 +28,8 @@ Zarafa.mail.data.Templates =
 			'</tpl>' + '\n' +
 		'</tpl>' +
 		'<tpl if="Ext.isDate(values.message_delivery_time)">' +
-			// # TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
-			'> ' + _('Sent') + ': {message_delivery_time:date(_("l jS F Y G:i"))}\n' +
+			// # TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
+			'> ' + _('Sent') + ': {message_delivery_time:formatDefaultTimeString("' + _("l jS F Y {0}") + '")}\n' +
 		'</tpl>' +
 		'<tpl if="!Ext.isEmpty(values.display_to)">' +
 			'> ' + _('To') + ': {display_to}\n' +
@@ -48,7 +48,7 @@ Zarafa.mail.data.Templates =
 	 * @property
 	 * @type String
 	 */
-	htmlQuotedTemplate : new Ext.XTemplate(
+	htmlQuotedTemplate: new Ext.XTemplate(
 		'<tpl if="!Ext.isEmpty(values.signatureData)">' +
 			'{signatureData}' +
 		'</tpl>' +
@@ -66,8 +66,8 @@ Zarafa.mail.data.Templates =
 				'</tpl>' +
 				'<tpl if="Ext.isDate(values.message_delivery_time)">' +
 					'<span>' +
-					// # TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
-					'<strong>' + _('Sent') + ':</strong> {message_delivery_time:date(_("l jS F Y G:i"))}</span><br />' +
+					// # TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
+					'<strong>' + _('Sent') + ':</strong> {message_delivery_time:formatDefaultTimeString("' + _("l jS F Y {0}") + '")}</span><br />' +
 				'</tpl>' +
 				'<tpl if="!Ext.isEmpty(values.display_to)">' +
 					'<span>' +

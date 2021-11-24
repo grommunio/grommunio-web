@@ -23,27 +23,27 @@ Zarafa.core.ui.ToolbarButton = Ext.extend(Ext.Button, {
 	 * @cfg {Boolean} emptySelectOnly This button must only be enabled
 	 * if no record is selected
 	 */
-	emptySelectOnly : false,
+	emptySelectOnly: false,
 	/**
 	 * @cfg {Boolean} nonEmptySelectOnly This button must only be enabled
 	 * if one or more records are selected.
 	 */
-	nonEmptySelectOnly : false,
+	nonEmptySelectOnly: false,
 	/**
 	 * @cfg {Boolean} singleSelectOnly This button must only be enabled
 	 * if a single record is selected
 	 */
-	singleSelectOnly : false,
+	singleSelectOnly: false,
 	/**
 	 * @cfg {Boolean} multiSelectOnly This button must only be enabled
 	 * if multiple records are selected.
 	 */
-	multiSelectOnly : false,
+	multiSelectOnly: false,
 	/**
 	 * @constructor
 	 * @param {Object} config Configuration object
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		config = config || {};
 
@@ -70,7 +70,7 @@ Zarafa.core.ui.ToolbarButton = Ext.extend(Ext.Button, {
 	 * @param {Zarafa.core.ContextModel} model this model.
 	 * @param {Zarafa.core.data.Record[]} records The selected records
 	 */
-	onRecordSelectionChange : function(model, records)
+	onRecordSelectionChange: function(model, records)
 	{
 		if (this.emptySelectOnly) {
 			if (Ext.isDefined(records) && (!Array.isArray(records) || records.length > 0)) {

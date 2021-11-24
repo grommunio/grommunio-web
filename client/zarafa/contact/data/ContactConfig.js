@@ -9,7 +9,7 @@ Zarafa.contact.data.config = {
 	 * prefix options for the display name.
 	 * @type Array
 	 */
-	Prefix : [
+	Prefix: [
 		[''],
 		[_('Dr.')],
 		[_('Miss')],
@@ -23,7 +23,7 @@ Zarafa.contact.data.config = {
 	 * suffix options for the display name.
 	 * @type Array
 	 */
-	Suffix : [
+	Suffix: [
 		[''],
 		['I'],
 		['II'],
@@ -36,29 +36,29 @@ Zarafa.contact.data.config = {
 	 * Carriage return (\r) value in UTF-8 hex format
 	 * @type HexString
 	 */
-	CR : '\x0D',
+	CR: '\x0D',
 
 	/**
 	 * Line feed (\n) value in UTF-8 hex format
 	 * @type HexString
 	 */
-	LF : '\x0A',
+	LF: '\x0A',
 
 	/**
 	 * Carriage return line feed (\r\n) value in UTF-8 hex format
 	 * @type HexString
 	 */
-	CRLF : '\x0D\x0A',
+	CRLF: '\x0D\x0A',
 
 	/**
 	 * space value in UTF-8 hex format
 	 * @type HexString
 	 */
-	SP : '\x20',
+	SP: '\x20',
 
 	/**
 	 * non breaking space value in UTF-8 hex format
 	 * @type HexString
 	 */
-	NBSP : '\xA0'
+	NBSP: '\xA0'
 };

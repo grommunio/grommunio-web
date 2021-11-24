@@ -13,7 +13,7 @@ Zarafa.task.dialogs.TaskDetailTab = Ext.extend(Ext.form.FormPanel, {
 	 * @constructor
 	 * @param {Object} config configuration object.
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		config = config || {};
 
@@ -21,16 +21,16 @@ Zarafa.task.dialogs.TaskDetailTab = Ext.extend(Ext.form.FormPanel, {
 		config.plugins.push('zarafa.recordcomponentupdaterplugin');
 
 		Ext.applyIf(config, {
-			xtype : 'zarafa.taskdetailtab',
+			xtype: 'zarafa.taskdetailtab',
 			cls: 'k-taskdetailtab',
-			title : _('Details'),
-			border : false,
+			title: _('Details'),
+			border: false,
 			labelAlign: 'left',
-			defaults : {
-				border : false,
-				xtype : 'panel'
+			defaults: {
+				border: false,
+				xtype: 'panel'
 			},
-			items : [
+			items: [
 				this.createTaskInfoPanel(),
 				this.createDatePanel(),
 				this.createWorkPanel(),
@@ -50,12 +50,12 @@ Zarafa.task.dialogs.TaskDetailTab = Ext.extend(Ext.form.FormPanel, {
 	 * @return {Object} Configuration object for the panel containing the fields
 	 * @private
 	 */
-	createTaskInfoPanel : function ()
+	createTaskInfoPanel: function ()
 	{
 		return {
 			xtype: 'zarafa.taskinfo',
-			ref : 'taskInfoPanel',
-			hidden : true
+			ref: 'taskInfoPanel',
+			hidden: true
 		};
 	},
 
@@ -65,22 +65,22 @@ Zarafa.task.dialogs.TaskDetailTab = Ext.extend(Ext.form.FormPanel, {
 	 * @return {Object} Configuration object for the panel containing the fields
 	 * @private
 	 */
-	createDatePanel : function()
+	createDatePanel: function()
 	{
 		return{
-			layout : 'form',
-			ref : 'datePanel',
-			cls : 'k-datepanel',
-			items : [{
-				xtype : 'datefield',
-				// # TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
-				format : ('d/m/Y'),
-				fieldLabel :_('Date Complete'),
-				anchor : '35%',
-				name : 'date_completed',
-				listeners :{
-					'change' : this.onCompleteDateChange,
-					scope : this
+			layout: 'form',
+			ref: 'datePanel',
+			cls: 'k-datepanel',
+			items: [{
+				xtype: 'datefield',
+				// # TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
+				format: ('d/m/Y'),
+				fieldLabel:_('Date Complete'),
+				anchor: '35%',
+				name: 'date_completed',
+				listeners:{
+					'change': this.onCompleteDateChange,
+					scope: this
 				}
 			}]
 		};
@@ -92,10 +92,10 @@ Zarafa.task.dialogs.TaskDetailTab = Ext.extend(Ext.form.FormPanel, {
 	 * @return {Object} Configuration object for the panel containing the fields
 	 * @private
 	 */
-	createWorkPanel : function()
+	createWorkPanel: function()
 	{
 		return{
-			layout : 'column',
+			layout: 'column',
 			ref: 'workPanel',
 			cls: 'k-workpanel',
 			defaults:{
@@ -103,8 +103,8 @@ Zarafa.task.dialogs.TaskDetailTab = Ext.extend(Ext.form.FormPanel, {
 					border:false,
 					xtype:'panel'
 			},
-			items : [{//1 col
-				columnWidth : 0.35,
+			items: [{//1 col
+				columnWidth: 0.35,
 				cls: 'k-col0',
 				defaults:{
 					anchor:'100%'
@@ -113,41 +113,41 @@ Zarafa.task.dialogs.TaskDetailTab = Ext.extend(Ext.form.FormPanel, {
 					xtype: 'zarafa.durationfield',
 					fieldLabel:_('Total Work'),
 					name: 'totalwork',
-					listeners :{
-						'change' : this.onPropertyChange,
-						scope : this
+					listeners:{
+						'change': this.onPropertyChange,
+						scope: this
 					}
 				},{
-					xtype : 'zarafa.durationfield',
+					xtype: 'zarafa.durationfield',
 					fieldLabel:_('Actual Work'),
-					name : 'actualwork',
-					listeners :{
-						'change' : this.onPropertyChange,
-						scope : this
+					name: 'actualwork',
+					listeners:{
+						'change': this.onPropertyChange,
+						scope: this
 					}
 				}]
 			},{//2 col
-				columnWidth : 0.65,
+				columnWidth: 0.65,
 				cls: 'k-col1',
 				labelWidth: 150,
 				defaults:{
 					anchor:'100%'
 				},
-				items : [{
+				items: [{
 					xtype: 'textfield',
 					fieldLabel:_('Mileage'),
-					name : 'mileage',
-					listeners :{
-						'change' : this.onPropertyChange,
-						scope : this
+					name: 'mileage',
+					listeners:{
+						'change': this.onPropertyChange,
+						scope: this
 					}
 				},{
-					xtype : 'textfield',
+					xtype: 'textfield',
 					fieldLabel:_('Billing Information'),
-					name : 'billing_information',
-					listeners :{
-						'change' : this.onPropertyChange,
-						scope : this
+					name: 'billing_information',
+					listeners:{
+						'change': this.onPropertyChange,
+						scope: this
 					}
 				}]
 			}]
@@ -160,7 +160,7 @@ Zarafa.task.dialogs.TaskDetailTab = Ext.extend(Ext.form.FormPanel, {
 	 * @return {Object} Configuration object for the panel containing the fields
 	 * @private
 	 */
-	createCompanyPanel : function()
+	createCompanyPanel: function()
 	{
 		return {
 			layout: 'form',
@@ -170,13 +170,53 @@ Zarafa.task.dialogs.TaskDetailTab = Ext.extend(Ext.form.FormPanel, {
 				xtype: 'textfield',
 				fieldLabel: _('Companies'),
 				anchor: '100%',
+				emptyText : _('Multiple companies name must be separated by') + ' \';\'.',
 				name: 'companies',
+				beforeBlur: this.onBeforeBlurCompanies,
+				scope: this,
 				listeners: {
-					'change' : this.onPropertyChange,
-					scope : this
+					'change': this.onPropertyChange,
+					scope: this
 				}
 			}]
 		};
+	},
+
+	/**
+	 * Function called before the 'blur' event triggred. It will process the companies name
+	 * to '; ' separated and set the value to {@link Ext.form.Filed companies} text field.
+	 */
+	onBeforeBlurCompanies : function()
+	{
+		/**
+		 * Helper function which process the companies names.
+		 *
+		 * @param {String} value The companies names.
+		 * @return {String} return the companies names by '; ' separated.
+		 */
+		function processCompaniesValue(value) {
+			value = value.trim();
+
+			if (Ext.isEmpty(value)) {
+				return value;
+			}
+
+			if (/;/.test(value.slice(-1)) === false){
+				value +=";";
+			}
+
+			var result = value.split(";").reduce(function(acc, item, index){
+				if (index == 0) {
+					acc = item.trim() + "; ";
+				} else if (Ext.isEmpty(item) === false) {
+					acc += item.trim() + "; ";
+				}
+				return acc;
+			},"");
+			return result;
+		}
+
+		this.setValue(processCompaniesValue(this.getValue()));
 	},
 
 	/**
@@ -185,7 +225,7 @@ Zarafa.task.dialogs.TaskDetailTab = Ext.extend(Ext.form.FormPanel, {
 	 * @return {Object} Configuration object for the panel containing the fields
 	 * @private
 	 */
-	createUpdateListPanel : function()
+	createUpdateListPanel: function()
 	{
 		return {
 			layout: 'form',
@@ -215,7 +255,7 @@ Zarafa.task.dialogs.TaskDetailTab = Ext.extend(Ext.form.FormPanel, {
 	 * @param {Boolean} contentReset force the component to perform a full update of the data.
 	 * @private
 	 */
-	updateUI : function(record, contentReset)
+	updateUI: function(record, contentReset)
 	{
 		var isTaskAssignerCopy = (record.get('taskhistory') === Zarafa.core.mapi.TaskHistory.DECLINED || record.isTaskAssigned() || record.isTaskOrganized());
 
@@ -249,7 +289,7 @@ Zarafa.task.dialogs.TaskDetailTab = Ext.extend(Ext.form.FormPanel, {
 	 * @param {Boolean} contentReset force the component to perform a full update of the data.
 	 * @private
 	 */
-	update : function(record, contentReset)
+	update: function(record, contentReset)
 	{
 		this.record = record;
 		this.updateUI(record, contentReset);
@@ -261,7 +301,7 @@ Zarafa.task.dialogs.TaskDetailTab = Ext.extend(Ext.form.FormPanel, {
 	 * an updated {@link Zarafa.core.data.IPMRecord record} is received
 	 * @param {Zarafa.core.data.IPMRecord} record The record update the panel with.
 	 */
-	updateRecord : function(record)
+	updateRecord: function(record)
 	{
 		this.getForm().updateRecord(record);
 	},
@@ -272,7 +312,7 @@ Zarafa.task.dialogs.TaskDetailTab = Ext.extend(Ext.form.FormPanel, {
 	 *
 	 * @param {Ext.button} button The button which has been pressed
 	 */
-	onCreateUnassignedCopy : function (button)
+	onCreateUnassignedCopy: function (button)
 	{
 		var hierarchyStore = container.getHierarchyStore();
 		var folder = hierarchyStore.getFolder(this.record.get('parent_entryid'));
@@ -316,7 +356,7 @@ Zarafa.task.dialogs.TaskDetailTab = Ext.extend(Ext.form.FormPanel, {
 	 * @param {Mixed} oldValue The old value
 	 * @private
 	 */
-	onCompleteDateChange : function(field, newValue, oldValue)
+	onCompleteDateChange: function(field, newValue, oldValue)
 	{
 		this.record.beginEdit();
 		if (Ext.isDate(newValue)) {
@@ -342,7 +382,7 @@ Zarafa.task.dialogs.TaskDetailTab = Ext.extend(Ext.form.FormPanel, {
 	 * @param {Mixed} oldValue The old value
 	 * @private
 	 */
-	onPropertyChange : function(field, newValue, oldValue)
+	onPropertyChange: function(field, newValue, oldValue)
 	{
 		if (!Ext.isEmpty(field.name) && field.validateValue(field.processValue(newValue))) {
 			var record = this.record;

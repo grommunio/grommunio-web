@@ -20,12 +20,12 @@ Zarafa.common.attachment.ui.AttachmentField = Ext.extend(Zarafa.common.ui.BoxFie
 	 * @constructor
 	 * @param config Configuration object
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		config = config || {};
 
 		Ext.applyIf(config, {
-			boxType : 'zarafa.attachmentbox',
+			boxType: 'zarafa.attachmentbox',
 			enableComboBox: false,
 			height: 25,
 			boxMinHeight: 25,
@@ -45,7 +45,7 @@ Zarafa.common.attachment.ui.AttachmentField = Ext.extend(Zarafa.common.ui.BoxFie
 	 * @param {Number} position The position of the component in the container
 	 * @private
 	 */
-	onRender : function(ct, position)
+	onRender: function(ct, position)
 	{
 		Zarafa.common.attachment.ui.AttachmentField.superclass.onRender.apply(this, arguments);
 
@@ -65,7 +65,7 @@ Zarafa.common.attachment.ui.AttachmentField = Ext.extend(Zarafa.common.ui.BoxFie
 	 * @param {Ext.EventObject} event The event object
 	 * @private
 	 */
-	onBrowserDragOver : function(event)
+	onBrowserDragOver: function(event)
 	{
 		if(!this.editable) {
 			// if field is non editable then we should block drag & drop also
@@ -84,7 +84,7 @@ Zarafa.common.attachment.ui.AttachmentField = Ext.extend(Zarafa.common.ui.BoxFie
 	 * @param {Ext.EventObject} event The event object
 	 * @private
 	 */
-	onBrowserDragLeave : function(event)
+	onBrowserDragLeave: function(event)
 	{
 		if(!this.editable) {
 			// if field is non editable then we should block drag & drop also
@@ -103,7 +103,7 @@ Zarafa.common.attachment.ui.AttachmentField = Ext.extend(Zarafa.common.ui.BoxFie
 	 * @param {Ext.EventObject} event The event object
 	 * @private
 	 */
-	onBrowserDrop : function(event)
+	onBrowserDrop: function(event)
 	{
 		if(!this.editable) {
 			// if field is non editable then we should block drag & drop also
@@ -118,7 +118,7 @@ Zarafa.common.attachment.ui.AttachmentField = Ext.extend(Zarafa.common.ui.BoxFie
 		var files = event.browserEvent.target.files || event.browserEvent.dataTransfer.files;
 
 		// Test if the files can be uploaded, upload them if possible
-		if (this.boxStore.canUploadFiles(files, { container : this.recordComponentUpdaterPlugin.rootContainer.getEl() })) {
+		if (this.boxStore.canUploadFiles(files, { container: this.recordComponentUpdaterPlugin.rootContainer.getEl() })) {
 			this.boxStore.uploadFiles(files);
 		}
 	},
@@ -147,7 +147,7 @@ Zarafa.common.attachment.ui.AttachmentField = Ext.extend(Zarafa.common.ui.BoxFie
 	 * @param {Zarafa.core.data.MAPIRecord} record The record to update in this component
 	 * @param {Boolean} contentReset force the component to perform a full update of the data.
 	 */
-	update : function(record, contentReset)
+	update: function(record, contentReset)
 	{
 		if (record && record instanceof Zarafa.core.data.MAPIRecord) {
 			// In case the recordcomponentupdaterplugin is installed
@@ -171,7 +171,7 @@ Zarafa.common.attachment.ui.AttachmentField = Ext.extend(Zarafa.common.ui.BoxFie
 	 * @return {Boolean} True if the record should be visible, false otherwise
 	 * @protected
 	 */
-	filterRecord : function(record)
+	filterRecord: function(record)
 	{
 		return record.get('hidden') !== true;
 	},
@@ -195,10 +195,10 @@ Zarafa.common.attachment.ui.AttachmentField = Ext.extend(Zarafa.common.ui.BoxFie
 	 * @param {Zarafa.core.data.IPMAttachmentRecord} record The record which is attached to the box
 	 * @private
 	 */
-	onBoxContextMenu : function(field, box, record)
+	onBoxContextMenu: function(field, box, record)
 	{
 		Zarafa.core.data.UIFactory.openDefaultContextMenu(record, {
-			position : box.getEl().getXY()
+			position: box.getEl().getXY()
 		});
 	},
 
@@ -212,7 +212,7 @@ Zarafa.common.attachment.ui.AttachmentField = Ext.extend(Zarafa.common.ui.BoxFie
 	 * @param {Ext.data.Record} record The record which belongs to the given box
 	 * @private
 	 */
-	onBoxRemove : function(field, box, record)
+	onBoxRemove: function(field, box, record)
 	{
 		// If uploading is going on then abort the request first.
 		if (!record.isUploaded() && record.requestId) {

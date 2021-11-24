@@ -137,7 +137,7 @@ class SearchNotesTest extends KopanoTest {
 			if ($updateResult['updatesearch']['search_meta']['results'] > 0) {
 				break;
 			}
-			sleep(1);
+			sleep(0.1);
 		}
 
 		$this->assertCount(0, $searchResult['search']['item'], 'Test that initially there are no results');

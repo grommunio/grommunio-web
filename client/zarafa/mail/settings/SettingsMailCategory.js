@@ -22,30 +22,31 @@ Zarafa.mail.settings.SettingsMailCategory = Ext.extend(Zarafa.settings.ui.Settin
 	 * @constructor
 	 * @param {Object} config Configuration object
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		config = config || {};
-		
+
 		var items = [{
-				xtype : 'zarafa.settingsmailwidget'
+				xtype: 'zarafa.settingsmailwidget'
 			},{
-				xtype : 'zarafa.settingscomposewidget',
-				settingsContext : config.settingsContext
+				xtype: 'zarafa.settingscomposewidget',
+				settingsContext: config.settingsContext
 			},
 			container.populateInsertionPoint('context.settings.category.mail.aftercomposesettings', this),
 			{
-				xtype : 'zarafa.settingsincomingmailwidget'
+				xtype: 'zarafa.settingsincomingmailwidget'
 			},{
-				xtype : 'zarafa.settingssignatureswidget'
+				xtype: 'zarafa.settingssignatureswidget',
+				settingsMailCategory: this
 			},
 			container.populateInsertionPoint('context.settings.category.mail', this)
 		];
 
 		Ext.applyIf(config, {
-			title : _('Mail'),
-			categoryIndex : 1,
-			iconCls : 'zarafa-settings-category-mail',
-			items : items
+			title: _('Mail'),
+			categoryIndex: 1,
+			iconCls: 'zarafa-settings-category-mail',
+			items: items
 		});
 
 		Zarafa.mail.settings.SettingsMailCategory.superclass.constructor.call(this, config);

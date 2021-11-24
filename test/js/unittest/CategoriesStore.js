@@ -59,7 +59,7 @@ describe('CategoriesStore', function() {
 	});
 
     describe('addCategoriesFromMapiRecords', function() {
-        it('should add categories from the passed MapiRecords to the store', function(){
+        it('should add categories from the passed MapiRecords to the store', function() {
             // Don't take the record with the "Red" category
             const records = createRecords(4).slice(1);
             categoriesStore.addCategoriesFromMapiRecords(records);
@@ -67,14 +67,14 @@ describe('CategoriesStore', function() {
             expect(categoriesStore.getRange().length).toEqual(4);
         });
 
-        it('should not add existing categories from the passed MapiRecords to the store', function(){
+        it('should not add existing categories from the passed MapiRecords to the store', function() {
             const records = createRecords(1);
             categoriesStore.addCategoriesFromMapiRecords(records);
 
             expect(categoriesStore.getRange().length).toEqual(1);
         });
 
-        it('should handle case-sensitivity when adding categories from the passed MapiRecords to the store', function(){
+        it('should handle case-sensitivity when adding categories from the passed MapiRecords to the store', function() {
             const records = createRecords(1);
             records[0].set('categories', 'rEd');
             categoriesStore.addCategoriesFromMapiRecords(records);
@@ -84,7 +84,7 @@ describe('CategoriesStore', function() {
     });
 
     describe('addCategory', function() {
-        it('should add a category to the store', function(){
+        it('should add a category to the store', function() {
             categoriesStore.addCategory('MyTestCategory', '000000', true);
 
             expect(categoriesStore.getRange().length).toEqual(2);
@@ -94,7 +94,7 @@ describe('CategoriesStore', function() {
             expect(categoriesStore.getAt(1).get('stored')).toEqual(true);
         });
 
-        it('should set default values for color and quickAccess when not given', function(){
+        it('should set default values for color and quickAccess when not given', function() {
             categoriesStore.addCategory('MyTestCategory');
             const defaultColor = Zarafa.common.categories.Util.defaultCategoryColor;
 
@@ -106,7 +106,7 @@ describe('CategoriesStore', function() {
     });
 
     describe('save', function() {
-        it('should save categories into the persistent settings', function(){
+        it('should save categories into the persistent settings', function() {
             categoriesStore.addCategory('MyTestCategory', '000000', true);
             categoriesStore.save();
             const categories = container.getPersistentSettingsModel().get('kopano/main/categories');
@@ -117,7 +117,7 @@ describe('CategoriesStore', function() {
             expect(categories[1].quickAccess).toEqual(true);
         });
 
-        it('should not save categories into the persistent settings that were not stored before and do not have quickAccess', function(){
+        it('should not save categories into the persistent settings that were not stored before and do not have quickAccess', function() {
             const records = createRecords(3);
             categoriesStore.addCategoriesFromMapiRecords(records);
             categoriesStore.save();
@@ -128,21 +128,21 @@ describe('CategoriesStore', function() {
     });
 
     describe('findExactCaseInsensitive', function() {
-        it('should find a match for categories with the same name', function(){
+        it('should find a match for categories with the same name', function() {
             const records = createRecords(5);
             categoriesStore.addCategoriesFromMapiRecords(records);
 
             expect(categoriesStore.findExactCaseInsensitive('category', 'Blue')).toEqual(1);
         });
 
-        it('should find a match for categories with the same name but different case', function(){
+        it('should find a match for categories with the same name but different case', function() {
             const records = createRecords(5);
             categoriesStore.addCategoriesFromMapiRecords(records);
 
             expect(categoriesStore.findExactCaseInsensitive('category', 'bLuE')).toEqual(1);
         });
 
-        it('should return -1 when a matching category is not found', function(){
+        it('should return -1 when a matching category is not found', function() {
             const records = createRecords(5);
             categoriesStore.addCategoriesFromMapiRecords(records);
 

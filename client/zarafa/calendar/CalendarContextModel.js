@@ -3,13 +3,13 @@ Ext.namespace('Zarafa.calendar');
 /**
  * @class Zarafa.calendar.CalendarContextModel
  * @extends Zarafa.core.MultiFolderContextModel
- * 
+ *
  * Model class that keeps track of data in the calendar context that is being modified and read by various sources.
- * This includes the current selected date, visible date range (start, due), mode (day, work week, week, month) and 
- * selected folder list. 
+ * This includes the current selected date, visible date range (start, due), mode (day, work week, week, month) and
+ * selected folder list.
  * <p>
  * The date range is recalculated when the active date is set. For instance, when the mode is set to 'week' and the
- * active date is changed to 17th of July, 2009 the range will be set to 13-19 July, 2009. 
+ * active date is changed to 17th of July, 2009 the range will be set to 13-19 July, 2009.
  */
 Zarafa.calendar.CalendarContextModel = Ext.extend(Zarafa.core.MultiFolderContextModel, {
 	/**
@@ -23,7 +23,7 @@ Zarafa.calendar.CalendarContextModel = Ext.extend(Zarafa.core.MultiFolderContext
 	 * @property
 	 * @type Zarafa.core.DateRange
 	 */
-	dateRange : undefined,
+	dateRange: undefined,
 
 	/**
 	 * True if the {@link #dateRange} will not be needed during {@link #load}. This means that the loaded
@@ -31,7 +31,7 @@ Zarafa.calendar.CalendarContextModel = Ext.extend(Zarafa.core.MultiFolderContext
 	 * @property
 	 * @type Boolean
 	 */
-	ignoreDateRange : false,
+	ignoreDateRange: false,
 
 	/**
 	 * The {@link Date date} which has been selected by the user. This is used as base date
@@ -41,7 +41,7 @@ Zarafa.calendar.CalendarContextModel = Ext.extend(Zarafa.core.MultiFolderContext
 	 * @property
 	 * @type Date
 	 */
-	date : undefined,
+	date: undefined,
 
 	/**
 	 * When searching, this property marks the {@link Zarafa.core.ContextModel#getCurrentDataMode datamode}
@@ -51,22 +51,22 @@ Zarafa.calendar.CalendarContextModel = Ext.extend(Zarafa.core.MultiFolderContext
 	 * @type Mixed
 	 * @private
 	 */
-	oldDataMode : undefined,
+	oldDataMode: undefined,
 
 	/**
 	 * The activeDateRange which contains the start and due date of selected month.For example,
 	 * if the user clicked on November 27 2013, then the activeDateRange will be November 1 to November 30 2013.
-	 * 
+	 *
 	 * @property
 	 * @type Zarafa.core.DateRange
 	 */
-	activeDateRange : undefined,
+	activeDateRange: undefined,
 
 	/**
 	 * @constructor
 	 * @param {Object} config Configuration object
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		config = config || {};
 
@@ -75,19 +75,19 @@ Zarafa.calendar.CalendarContextModel = Ext.extend(Zarafa.core.MultiFolderContext
 		}
 
 		Ext.applyIf(config, {
-			statefulRecordSelection : true,
+			statefulRecordSelection: true,
 			colorScheme: Zarafa.core.ColorSchemes.getColorSchemes(),
-			current_data_mode : Zarafa.calendar.data.DataModes.WORKWEEK
+			current_data_mode: Zarafa.calendar.data.DataModes.WORKWEEK
 		});
 
 		this.date = new Date().clearTime(true);
 		this.dateRange = new Zarafa.core.DateRange();
-		
+
 		this.addEvents([
 			/**
 			 * @event datechange
 			 * Fires when the selected date is changed.
-			 * @param {Zarafa.calendar.CalandarContextModel} model this calendar context model.   
+			 * @param {Zarafa.calendar.CalandarContextModel} model this calendar context model.
 			 * @param {Date} date New configured date.
 			 * @param {Date} oldDate Previously configured date
 			 */
@@ -95,7 +95,7 @@ Zarafa.calendar.CalendarContextModel = Ext.extend(Zarafa.core.MultiFolderContext
 			/**
 			 * @event daterangechange
 			 * Fires when the date range is changed.
-			 * @param {Zarafa.calendar.CalandarContextModel} model this calendar context model.   
+			 * @param {Zarafa.calendar.CalandarContextModel} model this calendar context model.
 			 * @param {Zarafa.core.DateRange} newDateRange new date range.
 			 * @param {Zarafa.core.DateRange} oldDateRange old date range.
 			 */
@@ -113,9 +113,9 @@ Zarafa.calendar.CalendarContextModel = Ext.extend(Zarafa.core.MultiFolderContext
 		Zarafa.calendar.CalendarContextModel.superclass.constructor.call(this, config);
 
 		this.on({
-			'searchstart' : this.onSearchStart,
-			'searchstop' : this.onSearchStop,
-			scope : this
+			'searchstart': this.onSearchStart,
+			'searchstop': this.onSearchStop,
+			scope: this
 		});
 
 		this.calculateDateRange(this.date);
@@ -126,7 +126,7 @@ Zarafa.calendar.CalendarContextModel = Ext.extend(Zarafa.core.MultiFolderContext
 	 * @param {Zarafa.hierarchy.data.MAPIFolderRecord} folder folder to bid on.
 	 * @param {Boolean} suspended True to enable the ContextModel {@link #suspendLoading suspended}
 	 */
-	enable : function(folder, suspended)
+	enable: function(folder, suspended)
 	{
 		this.default_merge_state = container.getSettingsModel().get('zarafa/v1/contexts/calendar/default_merge_state');
 
@@ -151,7 +151,7 @@ Zarafa.calendar.CalendarContextModel = Ext.extend(Zarafa.core.MultiFolderContext
 	 * @param {Zarafa.core.DateRange} dateRange The {@link Zarafa.core.DateRange DateRange} object
 	 * @return {Boolean} true if user has enough permissions, false otherwise.
 	 */
-	checkCreateRights : function(callback, folder, dateRange)
+	checkCreateRights: function(callback, folder, dateRange)
 	{
 		if (folder.get('rights') & Zarafa.core.mapi.Rights.RIGHTS_CREATE) {
 			return true;
@@ -159,18 +159,17 @@ Zarafa.calendar.CalendarContextModel = Ext.extend(Zarafa.core.MultiFolderContext
 			Zarafa.common.dialogs.MessageBox.addCustomButtons({
 				width: 400,
 				title: _('Create in other calendar'),
-				msg : _('The selected calendar has \"read-only\" permissions. Instead you can create an item in your own calendar.') + '<br><br>' + _('What would you like?'),
-				icon: Ext.MessageBox.QUESTION,
-				fn : function(buttonName){
+				msg: _('The selected calendar has \"read-only\" permissions. Instead you can create an item in your own calendar.') + '<br><br>' + _('What would you like?'),
+				fn: function(buttonName){
 					if ( buttonName === 'own' ){
 						this.createRecord(callback, this.defaultFolder, dateRange);
 					}
 				},
 				customButton: [{
-					name : 'own',
+					name: 'own',
 					text: _('Own calendar')
 				}, {
-					name : 'cancel',
+					name: 'cancel',
 					text: _('Cancel')
 				}],
 				scope: this
@@ -191,7 +190,7 @@ Zarafa.calendar.CalendarContextModel = Ext.extend(Zarafa.core.MultiFolderContext
 	 * that should be used to get start and due dates for the appointment.
 	 * @return {Zarafa.core.data.IPMRecord} record  which is associated to this context.
 	 */
-	createRecord : function(callback, folder, dateRange)
+	createRecord: function(callback, folder, dateRange)
 	{
 		folder = folder || this.getDefaultFolder();
 
@@ -228,21 +227,21 @@ Zarafa.calendar.CalendarContextModel = Ext.extend(Zarafa.core.MultiFolderContext
 
 			if(dateRange.isAllDay()) {
 				allDay = true;
-				busyStatus = Zarafa.core.mapi.BusyStatus.FREE;
+				busyStatus = container.getSettingsModel().get('zarafa/v1/contexts/calendar/default_allday_busy_status');
 			}
 		}
 
 		var record = Zarafa.core.data.RecordFactory.createRecordObjectByMessageClass('IPM.Appointment', {
-			store_entryid : store.get('store_entryid'),
-			parent_entryid : folder.get('entryid'),
-			busystatus : busyStatus,
-			startdate : startDate,
-			duedate : dueDate,
-			commonstart : startDate,
-			commonend : dueDate,
+			store_entryid: store.get('store_entryid'),
+			parent_entryid: folder.get('entryid'),
+			busystatus: busyStatus,
+			startdate: startDate,
+			duedate: dueDate,
+			commonstart: startDate,
+			commonend: dueDate,
 			// Duration is in minutes, not seconds or millis.
-			duration : duration,
-			alldayevent : allDay
+			duration: duration,
+			alldayevent: allDay
 		});
 
 		// call callback if provided, return newly created record otherwise
@@ -256,42 +255,42 @@ Zarafa.calendar.CalendarContextModel = Ext.extend(Zarafa.core.MultiFolderContext
 	/**
 	 * Loads the store with new data, based on the list of currently selected folders and selected date range.
 	 */
-	load : function()
+	load: function()
 	{
 		if (this.ignoreDateRange) {
 			Zarafa.calendar.CalendarContextModel.superclass.load.call(this);
 		} else {
 			Zarafa.calendar.CalendarContextModel.superclass.load.call(this, {
 				params: {
-					restriction : {
-						startdate : this.dateRange.getStartTime() / 1000,
-						duedate : this.dateRange.getDueTime() / 1000
+					restriction: {
+						startdate: this.dateRange.getStartTime() / 1000,
+						duedate: this.dateRange.getDueTime() / 1000
 					}
 				}
 			});
 		}
 	},
-	
+
 	/**
 	 * Converts a date to a date range. The calendar context model has a mode that indicates the range
 	 * type (day, workweek, week, month). This method calculates the appropriate date range to go with
 	 * each mode. For example, if the mode is set to 'week', the range produced from a date is the range
 	 * that starts on the first day of the week the input date is in, en ends on the first day of the next.
-	 * 
+	 *
 	 * This method is used in conjunction with date pickers. When a user selects a date from the date picker
 	 * control, depending on the mode, the calendar should navigate to either the day, workweek, week, or month
 	 * that date is in.
-	 * 
+	 *
 	 * If the newly calculated date range is different from the previous one, the store is automatically reloaded and
 	 * the 'daterangechange' event is fired.
-	 * 
+	 *
 	 * TODO this method reloads the store automatically when needed. This behavior is different from adding/removing
-	 * selected folders. 
-	 * 
+	 * selected folders.
+	 *
 	 * @param {Date} date date to set.
-	 * @private 
+	 * @private
 	 */
-	calculateDateRange : function(date)
+	calculateDateRange: function(date)
 	{
 		var oldRange = this.dateRange.clone();
 		var oldIgnore = this.ignoreDateRange;
@@ -367,14 +366,14 @@ Zarafa.calendar.CalendarContextModel = Ext.extend(Zarafa.core.MultiFolderContext
 
 				// get the visible date range of selected month.
 				var visibleStartDate = startDate.getPreviousWeekDay(weekStart);
-				var visibleDueDate = dueDate.getNextWeekDay(weekStart); 
+				var visibleDueDate = dueDate.getNextWeekDay(weekStart);
 
 				this.dateRange.set(visibleStartDate, visibleDueDate);
 				this.ignoreDateRange = false;
 				break;
 		}
-		
-		
+
+
 		if (!oldRange.equals(this.dateRange) || oldIgnore !== this.ignoreDateRange) {
 			this.load();
 			this.fireEvent('daterangechange', this, this.dateRange, oldRange);
@@ -387,7 +386,7 @@ Zarafa.calendar.CalendarContextModel = Ext.extend(Zarafa.core.MultiFolderContext
 	 *
 	 * @param {Date} date date that has been selected by the user
 	 */
-	setWeekView : function(date) 
+	setWeekView: function(date)
 	{
 		// get the first working day of the week.
 		var weekStart = container.getSettingsModel().get('zarafa/v1/main/week_start');
@@ -398,11 +397,11 @@ Zarafa.calendar.CalendarContextModel = Ext.extend(Zarafa.core.MultiFolderContext
 
 	/**
 	 * It will set start and due date of selected month.
-	 * 
+	 *
 	 * @param {Date} start the range's start date.
 	 * @param {Date} due the range's due date.
 	 */
-	setActiveDateRange : function(start, due)
+	setActiveDateRange: function(start, due)
 	{
 		if(!Ext.isObject(this.activeDateRange)) {
 			this.activeDateRange = new Zarafa.core.DateRange();
@@ -412,12 +411,12 @@ Zarafa.calendar.CalendarContextModel = Ext.extend(Zarafa.core.MultiFolderContext
 
 	/**
 	 * It will return activeDateRange if is set else return dateRange.
-	 * Here activeDateRange contains start date of month to last date of selected month as date range and 
+	 * Here activeDateRange contains start date of month to last date of selected month as date range and
 	 * dateRange contains all visible days in month view as date range.
-	 * 
+	 *
 	 * @return {Zarafa.core.DateRange} will return if activeDateRange is set, otherwise will return visibleDateRange.
 	 */
-	getActiveDateRange : function()
+	getActiveDateRange: function()
 	{
 		if(Ext.isDefined(this.activeDateRange)) {
 			return this.activeDateRange;
@@ -431,7 +430,7 @@ Zarafa.calendar.CalendarContextModel = Ext.extend(Zarafa.core.MultiFolderContext
 	 * week, or month selected will contain the given date.
 	 * @param {Boolean} init True if this function is called during {@link #enable}
 	 */
-	setDate : function(date, init)
+	setDate: function(date, init)
 	{
 		var oldDate = this.date;
 
@@ -448,13 +447,13 @@ Zarafa.calendar.CalendarContextModel = Ext.extend(Zarafa.core.MultiFolderContext
 
 		this.calculateDateRange(this.date);
 	},
-	
+
 	/**
-	 * Moves the start date forwards or backwards by n days, weeks, or months depending on the current mode. 
-	 * Causes the 'datechange' event to be fired.  
+	 * Moves the start date forwards or backwards by n days, weeks, or months depending on the current mode.
+	 * Causes the 'datechange' event to be fired.
 	 * @param {Number} direction if set to -1 the date will be moved backwards in time, if set to 1 the date will move forwards.
 	 */
-	moveDate : function(direction)
+	moveDate: function(direction)
 	{
 		var date = this.date.clone();
 
@@ -478,21 +477,21 @@ Zarafa.calendar.CalendarContextModel = Ext.extend(Zarafa.core.MultiFolderContext
 
 		this.setDate(date.clearTime());
 	},
-	
+
 	/**
 	 * Moves the current date range to the 'next date', which can be the next day, week, or month depending on the current mode.
-	 * Causes the 'datechange' event to be fired.  
+	 * Causes the 'datechange' event to be fired.
 	 */
-	nextDate : function()
+	nextDate: function()
 	{
 		this.moveDate(1);
 	},
-	
+
 	/**
 	 * Moves the current date range to the 'previous date', which can be the previous day, week, or month depending on the current mode.
-	 * Causes the 'datechange' event to be fired.  
+	 * Causes the 'datechange' event to be fired.
 	 */
-	previousDate : function()
+	previousDate: function()
 	{
 		this.moveDate(-1);
 	},
@@ -508,7 +507,7 @@ Zarafa.calendar.CalendarContextModel = Ext.extend(Zarafa.core.MultiFolderContext
 	 * @param {Zarafa.calendar.data.DataModes} oldMode The previously selected DataMode.
 	 * @private
 	 */
-	onDataModeChange : function(model, newMode, oldMode) 
+	onDataModeChange: function(model, newMode, oldMode)
 	{
 		Zarafa.calendar.CalendarContextModel.superclass.onDataModeChange.call(this, model, newMode, oldMode);
 
@@ -531,50 +530,50 @@ Zarafa.calendar.CalendarContextModel = Ext.extend(Zarafa.core.MultiFolderContext
 		}
 
 	},
-	
+
 	/**
 	 * Sets the current mode (one of {@link Zarafa.calendar.data.DataModes DataModes}) and date. This switches between view
 	 * types (days, week, month) and sets the start date. The due date is calculated automatically.
-	 * 
+	 *
 	 * Fires the {@link #datamodechange} event (but not the {@link #datechange} event).
 	 *
 	 * @param {Zarafa.calendar.data.DataModes} mode view mode (days, week, month).
-	 * @param {Data} date start date. 
+	 * @param {Data} date start date.
 	 */
-	setModeAndDate : function(mode, date)
+	setModeAndDate: function(mode, date)
 	{
 		this.date = date.clearTime(true);
 		this.setDataMode(mode, true);
 	},
-	
+
 	/**
 	 * See getDateRangeText()
 	 * @private
 	 */
-	getMonthRangeText : function()
+	getMonthRangeText: function()
 	{
 		var startDate = this.date.getFirstDateOfMonth();
 		return startDate.format(_('F Y'));
 	},
-	
+
 	/**
 	 * Formats the current visible date range as human-readable text. When in day mode a simple date format is used,
 	 * i.e. '19 September 2009'. When in month mode the returned text will show the month and year, i.e. 'September 2009'.
 	 * <p>
 	 * When showing a 'free' date range the formatter looks at which components the start and due dates have in common.
-	 * For instance, the first and last days of a week range might lie in the same month (i.e. '13 - 19 July 2009'), 
+	 * For instance, the first and last days of a week range might lie in the same month (i.e. '13 - 19 July 2009'),
 	 * or they might not (i.e. '28 September - 2 November 2009'). Finally a range may have the start and end dates
-	 * in different years, i.e. '28 December 2009 - 1 January 2010'. 
-	 *   
-	 * @return {String} the current date range as text. 
+	 * in different years, i.e. '28 December 2009 - 1 January 2010'.
+	 *
+	 * @return {String} the current date range as text.
 	 */
-	getDateRangeText : function()
+	getDateRangeText: function()
 	{
 		switch (this.current_data_mode) {
 			case Zarafa.calendar.data.DataModes.MONTH:
 				return this.getMonthRangeText();
 			case Zarafa.calendar.data.DataModes.DAY:
-				// For day view we add the current day and date. Ref KW-2818. 
+				// For day view we add the current day and date. Ref KW-2818.
 				return this.date.format(_('l')) + ' '+ this.dateRange.format();
 			default:
 				return this.dateRange.format();
@@ -589,7 +588,7 @@ Zarafa.calendar.CalendarContextModel = Ext.extend(Zarafa.core.MultiFolderContext
 	 * @param {Zarafa.core.ContextModel} model The model which fired the event
 	 * @private
 	 */
-	onSearchStart : function(model)
+	onSearchStart: function(model)
 	{
 		if(this.getCurrentDataMode() != Zarafa.calendar.data.DataModes.SEARCH){
 			this.oldDataMode = this.getCurrentDataMode();
@@ -603,7 +602,7 @@ Zarafa.calendar.CalendarContextModel = Ext.extend(Zarafa.core.MultiFolderContext
 	 * @param {Zarafa.core.ContextModel} model The model which fired the event
 	 * @private
 	 */
-	onSearchStop : function(model)
+	onSearchStop: function(model)
 	{
 		if (this.getCurrentDataMode() === Zarafa.calendar.data.DataModes.SEARCH) {
 			this.setDataMode(this.oldDataMode);
@@ -616,7 +615,7 @@ Zarafa.calendar.CalendarContextModel = Ext.extend(Zarafa.core.MultiFolderContext
 	 * And will mark the given folder as {@link Zarafa.hierarchy.ui.Tree#selectFolderInTree selected}.
 	 * @param {Zarafa.hierarchy.data.MAPIFolderRecord[]} folder which will mark as selected
 	 */
-	setActiveFolder : function(folder)
+	setActiveFolder: function(folder)
 	{
 		this.fireEvent('activate', folder, this);
 	}

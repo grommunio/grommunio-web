@@ -1,10 +1,10 @@
 <?php
 
 /**
- * This class will check the server configuration and it stops the 
+ * This class will check the server configuration and it stops the
  * webapp from working until this is fixed
  */
-class ConfigCheck 
+class ConfigCheck
 {
 	public $result;
 
@@ -12,7 +12,7 @@ class ConfigCheck
 	{
 		$this->haltOnError = $haltOnError;
 
-		$this->result = true;	
+		$this->result = true;
 
 		// here we check our settings, changes to the config and
 		// additional checks must be added/changed here
@@ -49,14 +49,14 @@ class ConfigCheck
 	}
 
 	/**
-	 * This function throws all the errors, make sure that the check-function 
+	 * This function throws all the errors, make sure that the check-function
 	 * will call this in case of an error.
 	 */
 	function error($string, $help)
 	{
 		if ($this->haltOnError) {
 			printf("<div style=\"color: #f00;\">%s</div><div style=\"font-size: smaller; margin-left: 20px;\">%s</div>\n",$string, $help);
-		}else{
+		} else {
 			trigger_error(strip_tags($string), E_USER_NOTICE);
 		}
 		$this->result = false;
@@ -139,7 +139,7 @@ class ConfigCheck
 		}
 
 		$result = "php.ini";
-	
+
 		ob_start();
 		phpinfo(INFO_GENERAL);
 		$phpinfo = ob_get_contents();
@@ -154,7 +154,7 @@ class ConfigCheck
 	}
 
 	/**********************************************************\
-	*  Check functions                                         *
+	*  Check functions					   *
 	\**********************************************************/
 
 
@@ -182,7 +182,7 @@ class ConfigCheck
 				$this->error_version("PHP ".$name." extension",phpversion($name), $version, $help_msg);
 				$result = false;
 			}
-		}else{
+		} else {
 			$this->error_notfound("PHP ".$name." extension", $help_msg);
 			$result = false;
 		}
@@ -201,9 +201,9 @@ class ConfigCheck
 		}
 		return $result;
 	}
-	
+
 	/**
-	 * This function checks if a specific php setting (php.ini) is set to a 
+	 * This function checks if a specific php setting (php.ini) is set to a
 	 * value we need, for example register_globals
 	 */
 	function checkPHPsetting($setting,$value_needed, $help_msg=""){
@@ -234,7 +234,7 @@ class ConfigCheck
 	}
 
 	/**
-	 * This function checks if a specific php setting (php.ini) is set to a 
+	 * This function checks if a specific php setting (php.ini) is set to a
 	 * value we need, for example register_globals
 	 */
 	function checkPHPsecurity($setting,$value_needed, $help_msg=""){
@@ -269,8 +269,8 @@ class ConfigCheck
 	 * this directory is readable/writable specified with the $states parameter
 	 *
 	 * $states is a string which can contain these chars:
-	 *      r  - check if directory is readable
-	 *      w  - check if directory is writable
+	 *	r  - check if directory is readable
+	 *	w  - check if directory is writable
 	 */
 	function checkDirectory($dir, $states="r", $help_msg="")
 	{
@@ -294,7 +294,7 @@ class ConfigCheck
 					$result = false;
 				}
 			}
-		}else{
+		} else {
 			$this->error_directory($dir, "doesn't exist", $help_msg);
 			$result = false;
 		}

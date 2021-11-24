@@ -120,11 +120,11 @@
 			// make user readable string
 			if ($value > (1024 * 1024 * 1024)){
 				$value = round($value / (1024 * 1024 * 1024), 1) ." ". Language::getstring("GB");
-			}else if ($value > (1024 * 1024)){
+			} else if ($value > (1024 * 1024)){
 				$value = round($value / (1024 * 1024), 1) ." ". Language::getstring("MB");
-			}else if ($value > 1024){
+			} else if ($value > 1024){
 				$value = round($value / 1024, 1) ." ". Language::getstring("KB");
-			}else{
+			} else {
 				$value = $value ." ". Language::getstring("B");
 			}
 		}
@@ -284,6 +284,7 @@
 	 */
 	function browserDependingHTTPHeaderEncode($input)
 	{
+		$input = preg_replace("/\r|\n/", "", $input);
 		if(!isIE11() && !isEdge()) {
 			return $input;
 		} else {
@@ -509,15 +510,15 @@
 			// this is a encrypted message. decode it.
 			$attachTable = mapi_message_getattachmenttable($message);
 
-			$rows = mapi_table_queryallrows($attachTable, Array(PR_ATTACH_MIME_TAG, PR_ATTACH_NUM));
+			$rows = mapi_table_queryallrows($attachTable, Array(PR_ATTACH_MIME_TAG, PR_ATTACH_NUM, PR_ATTACH_LONG_FILENAME));
 			$attnum = false;
-
 			foreach($rows as $row) {
 				if(isset($row[PR_ATTACH_MIME_TAG]) && in_array($row[PR_ATTACH_MIME_TAG],array('application/x-pkcs7-mime','application/pkcs7-mime')) ) {
 					$attnum = $row[PR_ATTACH_NUM];
 				}
 			}
-			if($attnum !== false){
+
+			if($attnum !== false) {
 				$att = mapi_message_openattach($message, $attnum);
 				$data = mapi_openproperty($att, PR_ATTACH_DATA_BIN);
 
@@ -527,11 +528,22 @@
 					'props' => $props,
 					'message' => &$message,
 					'data' => &$data
-					));
+				));
 
-				mapi_message_deleteattach($message, $attnum);
+				if (isSmimePluginEnabled()) {
+					mapi_message_deleteattach($message, $attnum);
+				}
 			}
 		}
+	}
+
+	/**
+	 * Helper function which used to check smime plugin is enabled.
+	 * 
+	 * @return Boolean true if smime plugin is enabled else false.
+	 */
+	function isSmimePluginEnabled() {
+		return $GLOBALS['settings']->get("zarafa/v1/plugins/smime/enable", false);
 	}
 
 	/**
@@ -731,15 +743,15 @@
 	/**
 	 * Helper function which defines that webapp has to use secure cookies
 	 * or not. by default webapp always use secure cookies whether or not
-	 * 'INSECURE_COOKIES' defined. webapp only use insecure cookies
-	 * where a user has explicitly set true to 'INSECURE_COOKIES' configuration.
+	 * 'SECURE_COOKIES' defined. webapp only use insecure cookies
+	 * where a user has explicitly set 'SECURE_COOKIES' to false.
 	 *
 	 * @return Boolean return false only when a user has explicitly set
-	 * 'INSECURE_COOKIES' to true else returns true.
+	 * 'SECURE_COOKIES' to false else returns true.
 	 */
 	function useSecureCookies()
 	{
-		return !defined('INSECURE_COOKIES') || INSECURE_COOKIES !== true;
+		return !defined('SECURE_COOKIES') || SECURE_COOKIES !== false;
 	}
 
 	/**
@@ -763,5 +775,61 @@
 		}
 
 		return true;
+	}
+
+	/**
+	 * Function returns the IP address of the client.
+	 *
+	 * @return String The IP address of the client.
+	 */
+	function getClientIPAddress() {
+		// Here, there is a scenario where the server is behind a proxy, when that
+		// happens, 'REMOTE_ADDR' will not return the real IP, there is another variable
+		// 'HTTP_X_FORWARDED_FOR' which is set by a proxy server. But the risk in using that
+		// is that it can be easily forged. 'REMOTE_ADDR' is the only reliable thing
+		// as it is nearly impossible to be altered.
+		return $_SERVER['REMOTE_ADDR'];
+	}
+
+	/**
+	 * Helper function which return the webapp version.
+	 *
+	 * @returns String webapp version.
+	 */
+	function getWebappVersion()
+	{
+		return trim(file_get_contents('version'));
+	}
+
+	/**
+	 * function which remove double quotes or PREF from vcf stream
+	 * if it has.
+	 *
+	 * @param {String} $attachmentStream The attachment stream.
+	 */
+	function processVCFStream(&$attachmentStream)
+	{
+		/**
+		 * https://github.com/libical/libical/issues/488
+		 * https://github.com/libical/libical/issues/490
+		 *
+		 * Because of above issues we need to remove
+		 * double qoutes or PREF from vcf stream if
+		 * it exists in vcf stream.
+		 */
+		if (preg_match('/"/', $attachmentStream) > 0) {
+			$attachmentStream = str_replace('"', '', $attachmentStream);
+		}
+
+		if (preg_match('/EMAIL;PREF=/', $attachmentStream) > 0) {
+			$rows = explode("\n", $attachmentStream);
+			foreach($rows as $key => $row) {
+				if(preg_match("/EMAIL;PREF=/", $row)) {
+					unset($rows[$key]);
+				}
+			}
+
+			$attachmentStream = join("\n", $rows);
+		}
 	}
 ?>

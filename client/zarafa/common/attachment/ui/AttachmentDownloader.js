@@ -18,14 +18,14 @@ Zarafa.common.attachment.ui.AttachmentDownloader = Ext.extend(Ext.Component, {
 	 * @constructor
 	 * @param {Object} config Configuration structure
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		config = config || {};
 
 		Ext.applyIf(config, {
-			xtype : 'zarafa.attachmentdownloader',
-			renderTo : Ext.getBody(),
-			hidden : true,
+			xtype: 'zarafa.attachmentdownloader',
+			renderTo: Ext.getBody(),
+			hidden: true,
 			autoEl: {
 				tag: 'iframe',
 				src: Ext.SSL_SECURE_URL
@@ -41,11 +41,11 @@ Zarafa.common.attachment.ui.AttachmentDownloader = Ext.extend(Ext.Component, {
 
 	/**
 	 * Will get iframe element and set its src property to the supplied url.
-	 * After successfull response, iframe will pops up and ask user to start/cancel
+	 * After successful response, iframe will pops up and ask user to start/cancel
 	 * downloading of that particular message/attachment as file.
 	 * @param {String} url The url to download message/attachment, containing necessary parameters.
 	 */
-	downloadItem : function(url)
+	downloadItem: function(url)
 	{
 		var iframeElement = Ext.getDom(this.getEl());
 
@@ -59,10 +59,10 @@ Zarafa.common.attachment.ui.AttachmentDownloader = Ext.extend(Ext.Component, {
 	 * Will get iframe element and create a form element dynamically.
 	 * Create input elements for every entryid we need to send into post request,
 	 * and append those dynamically created input elements into form.
-	 * 
+	 *
 	 * @param {Zarafa.core.data.IPMRecord} records The records which user want to save in eml format as ZIP.
 	 */
-	downloadMessageAsZip : function(records)
+	downloadMessageAsZip: function(records)
 	{
 		// Get the total size of all the messages which is requested to be included in ZIP
 		var totalSize = 0;
@@ -78,11 +78,11 @@ Zarafa.common.attachment.ui.AttachmentDownloader = Ext.extend(Ext.Component, {
 			var url = records[0].getDownloadMessageUrl(true);
 
 			var iframeBody = Ext.getDom(this.getEl()).contentDocument.body;
-			var form = Ext.DomHelper.append( iframeBody || Ext.getBody(), {tag : 'form', action : url, method : 'POST'}, true);
+			var form = Ext.DomHelper.append( iframeBody || Ext.getBody(), {tag: 'form', action: url, method: 'POST'}, true);
 
 			// Create and append input elements containing entryid as its value
 			for (var i = 0; i < records.length; i++) {
-				Ext.DomHelper.append(form, {tag : 'input', type : 'hidden', name : 'entryids[]', value : records[i].get('entryid')});
+				Ext.DomHelper.append(form, {tag: 'input', type: 'hidden', name: 'entryids[]', value: records[i].get('entryid')});
 			}
 
 			// Submit the form to send a POST request
@@ -103,7 +103,7 @@ Zarafa.common.attachment.ui.AttachmentDownloader = Ext.extend(Ext.Component, {
 	 * to decode (parse) a JSON string to an object.
 	 * @private
 	 */
-	onIframeLoad : function()
+	onIframeLoad: function()
 	{
 		var contentDocument;
 		var responseText;
@@ -123,11 +123,11 @@ Zarafa.common.attachment.ui.AttachmentDownloader = Ext.extend(Ext.Component, {
 	/**
 	 * Raise a warning dialog to inform user that there is some embedded attachments which can not be included in ZIP.
 	 * otherwise continue with creating ZIP for normal attachments.
-	 * 
+	 *
 	 * @param {Zarafa.core.data.IPMAttachmentRecord} records The record of the file to be downloaded
 	 * @param {Boolean} allAsZip (optional) True to downloading all the attachments as ZIP
 	 */
-	checkForEmbeddedAttachments : function(record, allAsZip)
+	checkForEmbeddedAttachments: function(record, allAsZip)
 	{
 		var containsEmbedded = false;
 		var attachmentStore = record.store;
@@ -151,7 +151,7 @@ Zarafa.common.attachment.ui.AttachmentDownloader = Ext.extend(Ext.Component, {
 
 		// Embedded attachment(s) found, raise warning dialog
 		if(containsEmbedded) {
-			this.openMixAttachmentsDialog(attachmentStore.getRange(), {'allAsZip' : allAsZip});
+			this.openMixAttachmentsDialog(attachmentStore.getRange(), {'allAsZip': allAsZip});
 		} else {
 			this.downloadItem(record.getAttachmentUrl(allAsZip));
 		}
@@ -161,19 +161,19 @@ Zarafa.common.attachment.ui.AttachmentDownloader = Ext.extend(Ext.Component, {
 	 * Opens a {@link Zarafa.common.attachment.dialogs.MixAttachItemContentPanel MixAttachItemContentPanel} for informing
 	 * user that there is some embedded attachments are requested to be included in ZIP, which is not possible.
 	 *
-	 * @param {Zarafa.core.data.IPMRecord} records The record, or records for which the attachments are 
+	 * @param {Zarafa.core.data.IPMRecord} records The record, or records for which the attachments are
 	 * requested to be downloaded as ZIP
 	 * @param {Object} config (optional) Configuration object for creating the ContentPanel
 	 */
-	openMixAttachmentsDialog : function(records, config)
+	openMixAttachmentsDialog: function(records, config)
 	{
 		if (!Array.isArray(records)) {
 			records = [ records ];
 		}
 
 		config = Ext.applyIf(config || {}, {
-			modal : true,
-			downloadItem : this.downloadItem.createDelegate(this, [ records[0].getAttachmentUrl(config.allAsZip) ], 1)
+			modal: true,
+			downloadItem: this.downloadItem.createDelegate(this, [ records[0].getAttachmentUrl(config.allAsZip) ], 1)
 		});
 
 		var componentType = Zarafa.core.data.SharedComponentType['common.attachment.dialog.mixattachitem'];
@@ -186,7 +186,7 @@ Zarafa.common.attachment.ui.AttachmentDownloader = Ext.extend(Ext.Component, {
 	 * @param {Object} responseObject Object contained the exception details.
 	 * @private
 	 */
-	displaySaveEmailException : function(responseObject)
+	displaySaveEmailException: function(responseObject)
 	{
 		Ext.MessageBox.show({
 			title: _('Unable to download'),

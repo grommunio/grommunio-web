@@ -62,7 +62,7 @@ describe('Zarafa.common.categories.Util', function() {
 
     var categoriesStore;
 
-    beforeEach(function(){
+    beforeEach(function() {
 		container = new Zarafa.core.Container();
 		container.setServerConfig({});
         initializePersistentSettings();
@@ -76,8 +76,8 @@ describe('Zarafa.common.categories.Util', function() {
 		categoriesStore.destroy();
 	});
 
-    describe('loadCategoriesStore', function(){
-        it('should update the categoriesStore', function(){
+    describe('loadCategoriesStore', function() {
+        it('should update the categoriesStore', function() {
             Zarafa.common.categories.Util.loadCategoriesStore();
             expect(Zarafa.common.categories.Util.categoriesStore.getRange().length).toEqual(3);
 
@@ -89,8 +89,8 @@ describe('Zarafa.common.categories.Util', function() {
         });
     });
 
-    describe('getCategories', function(){
-        it('should return all categories on a record as an array', function(){
+    describe('getCategories', function() {
+        it('should return all categories on a record as an array', function() {
             const record = createRecords(1)[0];
             record.set('categories', 'Red; Blue; Green; Some random category;');
             const categories = Zarafa.common.categories.Util.getCategories(record);
@@ -99,7 +99,7 @@ describe('Zarafa.common.categories.Util', function() {
             expect(categories.length).toEqual(4);
         });
 
-        it('should have no problem when there the categories value does not end with a semi-colon', function(){
+        it('should have no problem when there the categories value does not end with a semi-colon', function() {
             const record = createRecords(1)[0];
             record.set('categories', 'Red; Blue; Green; Some random category');
             const categories = Zarafa.common.categories.Util.getCategories(record);
@@ -108,7 +108,7 @@ describe('Zarafa.common.categories.Util', function() {
             expect(categories.length).toEqual(4);
         });
 
-        it('should return an empty array when the record has no categories', function(){
+        it('should return an empty array when the record has no categories', function() {
             const record = createRecords(1)[0];
             record.set('categories', undefined);
             const categories = Zarafa.common.categories.Util.getCategories(record);
@@ -117,7 +117,7 @@ describe('Zarafa.common.categories.Util', function() {
             expect(categories.length).toEqual(0);
         });
 
-        it('should add an old style flag to the category list', function(){
+        it('should add an old style flag to the category list', function() {
             const record = createRecords(1)[0];
             record.set('flag_status', Zarafa.core.mapi.FlagStatus.flagged);
             record.set('flag_icon', Zarafa.core.mapi.FlagIcon.orange);
@@ -128,7 +128,7 @@ describe('Zarafa.common.categories.Util', function() {
             expect(categories.some(c => c==='Orange')).toBeTruthy();
         });
 
-        it('should not add an Follow-up flag to the category list', function(){
+        it('should not add an Follow-up flag to the category list', function() {
             const record = createRecords(1)[0];
             record.set('flag_status', Zarafa.core.mapi.FlagStatus.flagged);
             record.set('flag_request', 'Follow up');
@@ -140,7 +140,7 @@ describe('Zarafa.common.categories.Util', function() {
             expect(categories.some(c => c==='Orange')).toBeFalsy();
         });
 
-        it('should add old style labels to the category list', function(){
+        it('should add old style labels to the category list', function() {
             const record = createRecords(1)[0];
             record.set('label', Zarafa.core.mapi.AppointmentLabels.TRAVEL_REQUIRED);
             const categories = Zarafa.common.categories.Util.getCategories(record);
@@ -150,7 +150,7 @@ describe('Zarafa.common.categories.Util', function() {
             expect(categories.some(c => c.toLowerCase() ==='travel required')).toBeTruthy();
         });
 
-        it('should use names from the category list to avoid case-sensitivity issues', function(){
+        it('should use names from the category list to avoid case-sensitivity issues', function() {
             const record = createRecords(1)[0];
             record.set('categories', 'reD; oRaNgE;');
             const categories = Zarafa.common.categories.Util.getCategories(record);
@@ -164,8 +164,8 @@ describe('Zarafa.common.categories.Util', function() {
         });
     });
 
-    describe('setCategories', function(){
-        it('should set all given categories on the given records', function(){
+    describe('setCategories', function() {
+        it('should set all given categories on the given records', function() {
             const records = createRecords(2);
             Zarafa.common.categories.Util.setCategories(records, ['Green', 'Yellow']);
 
@@ -177,7 +177,7 @@ describe('Zarafa.common.categories.Util', function() {
             });
         });
 
-        it('should save the store once when asked', function(){
+        it('should save the store once when asked', function() {
             const shadowStore =  container.getShadowStore();
             const records = createRecords(2);
             shadowStore.add(records);
@@ -192,8 +192,8 @@ describe('Zarafa.common.categories.Util', function() {
         });
     });
 
-    describe('addCategory', function(){
-        it('should add the given category to the given records', function(){
+    describe('addCategory', function() {
+        it('should add the given category to the given records', function() {
             const records = createRecords(2);
             Zarafa.common.categories.Util.addCategory(records, 'Green');
 
@@ -204,7 +204,7 @@ describe('Zarafa.common.categories.Util', function() {
             });
         });
 
-        it('should convert labels to categories when adding the given category to the given records', function(){
+        it('should convert labels to categories when adding the given category to the given records', function() {
             const records = createRecords(2);
             records.forEach(r => r.set('label', Zarafa.core.mapi.AppointmentLabels.TRAVEL_REQUIRED));
             Zarafa.common.categories.Util.addCategory(records, 'Green');
@@ -217,7 +217,7 @@ describe('Zarafa.common.categories.Util', function() {
             });
         });
 
-        it('should save the store when asked', function(){
+        it('should save the store when asked', function() {
             const shadowStore =  container.getShadowStore();
             const records = createRecords(2);
             shadowStore.add(records);
@@ -232,8 +232,8 @@ describe('Zarafa.common.categories.Util', function() {
         });
     });
 
-    describe('getCommonCategories', function(){
-        it('should return an empty array when the records have no categories in common', function(){
+    describe('getCommonCategories', function() {
+        it('should return an empty array when the records have no categories in common', function() {
             const records = createRecords(3);
             const categories = Zarafa.common.categories.Util.getCommonCategories(records);
 
@@ -241,7 +241,7 @@ describe('Zarafa.common.categories.Util', function() {
             expect(categories.length).toEqual(0);
         });
 
-        it('should return the common categories of multiple records in an array', function(){
+        it('should return the common categories of multiple records in an array', function() {
             const records = createRecords(3);
             Zarafa.common.categories.Util.addCategory(records, 'Green');
             Zarafa.common.categories.Util.addCategory(records, 'Orange');
@@ -255,8 +255,8 @@ describe('Zarafa.common.categories.Util', function() {
         });
     });
 
-    describe('getAllCategories', function(){
-        it('should return all categories that are set on the given records', function(){
+    describe('getAllCategories', function() {
+        it('should return all categories that are set on the given records', function() {
             const records = createRecords(2);
             const categories = Zarafa.common.categories.Util.getAllCategories(records);
 
@@ -266,7 +266,7 @@ describe('Zarafa.common.categories.Util', function() {
             expect(categories.some(c => c==='Blue')).toBeTruthy();
         });
 
-        it('should return all categories that are set on the given records without duplicates', function(){
+        it('should return all categories that are set on the given records without duplicates', function() {
             const records = createRecords(2);
             Zarafa.common.categories.Util.addCategory([records[1]], 'Red');
             const categories = Zarafa.common.categories.Util.getAllCategories(records);
@@ -278,8 +278,8 @@ describe('Zarafa.common.categories.Util', function() {
         });
     });
 
-    describe('removeCategory', function(){
-        it('should remove the given category from all given records', function(){
+    describe('removeCategory', function() {
+        it('should remove the given category from all given records', function() {
             const records = createRecords(3);
             Zarafa.common.categories.Util.addCategory([records[1]], 'Red');
             Zarafa.common.categories.Util.removeCategory(records, 'Red');
@@ -292,7 +292,7 @@ describe('Zarafa.common.categories.Util', function() {
             });
         });
 
-        it('should update an old style flag to a no-date follow-up flag when the corresponding category is removed', function(){
+        it('should update an old style flag to a no-date follow-up flag when the corresponding category is removed', function() {
             const records = createRecords(1);
             records[0].set('flag_status', Zarafa.core.mapi.FlagStatus.flagged);
             records[0].set('flag_icon', Zarafa.core.mapi.FlagIcon.orange);
@@ -316,7 +316,7 @@ describe('Zarafa.common.categories.Util', function() {
             expect(records[0].get('duedate')).toEqual(null);
         });
 
-        it('should remove an old style label when the corresponding category is removed', function(){
+        it('should remove an old style label when the corresponding category is removed', function() {
             const records = createRecords(1);
             records[0].set('label', Zarafa.core.mapi.AppointmentLabels.TRAVEL_REQUIRED);
             let categories = Zarafa.common.categories.Util.getAllCategories(records);
@@ -337,7 +337,7 @@ describe('Zarafa.common.categories.Util', function() {
             expect(records[0].get('label')).toEqual(Zarafa.core.mapi.AppointmentLabels.NONE);
         });
 
-        it('should save the store when asked', function(){
+        it('should save the store when asked', function() {
             const shadowStore =  container.getShadowStore();
             const records = createRecords(2);
             shadowStore.add(records);
@@ -352,39 +352,39 @@ describe('Zarafa.common.categories.Util', function() {
         });
     });
 
-    describe('getCategoryNameByFlagColor', function(){
-        it('should return the correct category name', function(){
+    describe('getCategoryNameByFlagColor', function() {
+        it('should return the correct category name', function() {
 			const color = Zarafa.common.categories.Util.getCategoryNameByFlagColor(Zarafa.core.mapi.FlagIcon.red);
 			expect(color).toEqual('Red');
         });
 
-        it('should return the correct category name for a merged category', function(){
+        it('should return the correct category name for a merged category', function() {
 			const color = Zarafa.common.categories.Util.getCategoryNameByFlagColor(Zarafa.core.mapi.FlagIcon.yellow);
 			// Note: Yellow is merged to Orange here.
 			expect(color).toEqual('Orange');
         });
 	});
 
-    describe('getCategoryColor', function(){
-        it('should return the correct color for an existing category', function(){
+    describe('getCategoryColor', function() {
+        it('should return the correct color for an existing category', function() {
 			const color = Zarafa.common.categories.Util.getCategoryColor('Red');
 			expect(color).toEqual('#e40023');
         });
 
-        it('should return the correct color for a merged category', function(){
+        it('should return the correct color for a merged category', function() {
 			const color = Zarafa.common.categories.Util.getCategoryColor("Orange");
 			// Note: Yellow is merged to Orange here.
 			expect(color).toEqual('#f99406');
         });
 
-        it('should return the default color for an unknown category', function(){
+        it('should return the default color for an unknown category', function() {
 			const color = Zarafa.common.categories.Util.getCategoryColor("Some random category");
 			expect(color).toEqual(Zarafa.common.categories.Util.defaultCategoryColor);
         });
 	});
 
-    describe('getCategoryFromHtmlEncoded', function(){
-        it('should return the correct category for an htmlEncoded category', function(){
+    describe('getCategoryFromHtmlEncoded', function() {
+        it('should return the correct category for an htmlEncoded category', function() {
             const records = createRecords(1);
 			Zarafa.common.categories.Util.addCategory(records, 'Black & Blue');
 			const category = Zarafa.common.categories.Util.getCategoryFromHtmlEncoded(Ext.util.Format.htmlEncode('Black & Blue'), records);
@@ -392,7 +392,7 @@ describe('Zarafa.common.categories.Util', function() {
         });
 	});
 
-    describe('updateStoresAfterCategoryUpdate', function(){
+    describe('updateStoresAfterCategoryUpdate', function() {
 		beforeEach( () => {
 			// Jasmine has troubles with closures in double describe blocks,
 			// so we'll abuse the window object for this
@@ -400,7 +400,7 @@ describe('Zarafa.common.categories.Util', function() {
 			spyOn(window.h, 'onStoreUpdate');
 		});
 
-        it('should make stores with records with categories send an update event', function(){
+        it('should make stores with records with categories send an update event', function() {
 			const store = new Zarafa.core.data.IPMStore();
 			store.on('update', window.h.onStoreUpdate);
             const record = createRecords(1)[0];

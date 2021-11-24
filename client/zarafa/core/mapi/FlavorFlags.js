@@ -17,7 +17,7 @@ Zarafa.core.mapi.FlavorFlags = Zarafa.core.Enum.create({
 	 * @property
 	 * @type Number
 	 */
-	FWD_PRESERVE_SENDER : 1,
+	FWD_PRESERVE_SENDER: 1,
 
 	/**
 	 * Flavor for {@link Zarafa.core.mapi.RuleActions#OP_FORWARD OP_FORWARD}.
@@ -25,7 +25,7 @@ Zarafa.core.mapi.FlavorFlags = Zarafa.core.Enum.create({
 	 * @property
 	 * @type Number
 	 */
-	FWD_DO_NOT_MUNGE_MSG : 2,
+	FWD_DO_NOT_MUNGE_MSG: 2,
 
 	/**
 	 * Flavor for {@link Zarafa.core.mapi.RuleActions#OP_FORWARD OP_FORWARD}
@@ -33,5 +33,5 @@ Zarafa.core.mapi.FlavorFlags = Zarafa.core.Enum.create({
 	 * @property
 	 * @type Number
 	 */
-	FWD_AS_ATTACHMENT : 4
+	FWD_AS_ATTACHMENT: 4
 });

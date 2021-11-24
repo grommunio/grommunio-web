@@ -14,7 +14,7 @@ Zarafa.core.data.CompositeResponseHandler = Ext.extend(Zarafa.core.data.Abstract
 	 * @cfg {Zarafa.core.data.AbstractResponseHandler[]} handlers The array of notification handlers
 	 * which have been wrapped by this composite handler.
 	 */
-	handlers : undefined,
+	handlers: undefined,
 
 	/**
 	 * Array of objects containing the {@link Zarafa.core.data.AbstractResponseHandler ResponseHandlers} which
@@ -24,7 +24,7 @@ Zarafa.core.data.CompositeResponseHandler = Ext.extend(Zarafa.core.data.Abstract
 	 * @property
 	 * @type Array
 	 */
-	activeHandlers : undefined,
+	activeHandlers: undefined,
 
 	/**
 	 * The main handler to begin a Response processing transaction.
@@ -35,14 +35,14 @@ Zarafa.core.data.CompositeResponseHandler = Ext.extend(Zarafa.core.data.Abstract
 	 * @return {Boolean} False when the given data object cannot be handled by this response handler,
 	 * and the transaction must be canceled.
 	 */
-	start : function(moduleName, moduleId, data, timestamp)
+	start: function(moduleName, moduleId, data, timestamp)
 	{
 		this.activeHandlers = [];
 
 		for (var i = 0, len = this.handlers.length; i < len; i++) {
 			var handler = this.handlers[i];
 			if (handler.start(moduleName, moduleId, data, timestamp) !== false) {
-				this.activeHandlers.push({ handler : handler, success : true });
+				this.activeHandlers.push({ handler: handler, success: true });
 			}
 		}
 
@@ -57,7 +57,7 @@ Zarafa.core.data.CompositeResponseHandler = Ext.extend(Zarafa.core.data.Abstract
 	 * not cancel the transaction itself, but rather causes the 'success' argument for the
 	 * {@link #done} function to be false.
 	 */
-	handle : function(action, data)
+	handle: function(action, data)
 	{
 		for (var i = 0, len = this.activeHandlers.length; i < len; i++) {
 			var handler = this.activeHandlers[i];
@@ -69,7 +69,7 @@ Zarafa.core.data.CompositeResponseHandler = Ext.extend(Zarafa.core.data.Abstract
 	 * The main handler to complete a Response processing transaction.
 	 * @param {Boolean} success True if no errors were returned from the PHP-side.
 	 */
-	done : function(success)
+	done: function(success)
 	{
 		for (var i = 0, len = this.activeHandlers.length; i < len; i++) {
 			var handler = this.activeHandlers[i];

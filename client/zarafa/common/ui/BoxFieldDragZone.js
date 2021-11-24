@@ -13,31 +13,31 @@ Zarafa.common.ui.BoxFieldDragZone = Ext.extend(Ext.dd.DragZone, {
 	/**
 	 * @cfg {Zarafa.common.ui.BoxFieldField} field The field on which this drag zone is installed
 	 */
-	field : undefined,
+	field: undefined,
 
 	/**
 	 * Returns the data object associated with this drag source
 	 * Here it contains:
 	 * 	- ddel - a drag proxy that follows the mouse
-	 *  - sourceEl - original dragged element
-	 *  - repairXY - {Number[]} an array of [x, y] coordinates for repairing on illegal drop
-	 *  - draggedRecord - the {Zarafa.core.data.IPMRecord} record for the box that is being dragged
-	 * 
+	 * - sourceEl - original dragged element
+	 * - repairXY - {Number[]} an array of [x, y] coordinates for repairing on illegal drop
+	 * - draggedRecord - the {Zarafa.core.data.IPMRecord} record for the box that is being dragged
+	 *
 	 * @param {Ext.EventObject} e The mouse event
 	 * @return {Object} data An object containing arbitrary data
 	 */
-	getDragData : function(e)
+	getDragData: function(e)
 	{
 		var sourceEl = e.getTarget('.x-zarafa-boxfield-item');
 		if (sourceEl) {
 
 			// create box element but in a div instead of li
 			var d = Ext.DomHelper.createDom({
-				tag : 'div',
-				html : sourceEl.innerHTML,
-				id : Ext.id(),
-				cls : sourceEl.className,
-				style : 'display : inline-block'
+				tag: 'div',
+				html: sourceEl.innerHTML,
+				id: Ext.id(),
+				cls: sourceEl.className,
+				style: 'display: inline-block'
 			});
 
 			// ensure that child nodes have unique ids
@@ -48,10 +48,10 @@ Zarafa.common.ui.BoxFieldDragZone = Ext.extend(Ext.dd.DragZone, {
 			}
 
 			return {
-				ddel : d,
-				sourceEl : sourceEl,
-				repairXY : Ext.fly(sourceEl).getXY(),
-				draggedRecord : this.field.items.get(sourceEl.id).record
+				ddel: d,
+				sourceEl: sourceEl,
+				repairXY: Ext.fly(sourceEl).getXY(),
+				draggedRecord: this.field.items.get(sourceEl.id).record
 			};
 		}
 	},
@@ -62,7 +62,7 @@ Zarafa.common.ui.BoxFieldDragZone = Ext.extend(Ext.dd.DragZone, {
 	 * @param {EventObject} e The mouse up event
 	 * @return {Array} The xy location (e.g. [100, 200])
 	 */
-	getRepairXY : function()
+	getRepairXY: function()
 	{
 		return this.dragData.repairXY;
 	}

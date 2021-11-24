@@ -14,69 +14,70 @@ Zarafa.mail.settings.SettingsIncomingMailWidget = Ext.extend(Zarafa.settings.ui.
 	 * @constructor
 	 * @param {Object} config Configuration object
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		config = config || {};
 
 		Ext.applyIf(config, {
-			title : _('Incoming mail'),
-			layout : 'form',
-			items : [{
-				xtype : 'displayfield',
-				hideLabel : true,
-				value : _('How to respond to requests for read receipts')
+			title: _('Incoming mail'),
+			layout: 'form',
+			items: [{
+				xtype: 'displayfield',
+				hideLabel: true,
+				value: _('How to respond to requests for read receipts')
 			},{
-				xtype : 'radiogroup',
-				name : 'zarafa/v1/contexts/mail/readreceipt_handling',
-				ref : 'readReceiptGroup',
-				columns : 1,
-				hideLabel : true,
-				items : [{
-					xtype : 'radio',
-					name : 'receiptHandling',
-					inputValue : 'always',
-					boxLabel : _('Always send a response')
+				xtype: 'radiogroup',
+				name: 'zarafa/v1/contexts/mail/readreceipt_handling',
+				ref: 'readReceiptGroup',
+				columns: 1,
+				hideLabel: true,
+				items: [{
+					xtype: 'radio',
+					name: 'receiptHandling',
+					inputValue: 'always',
+					boxLabel: _('Always send a response')
 				},{
-					xtype : 'radio',
-					name : 'receiptHandling',
-					inputValue : 'never',
-					boxLabel : _('Never send a response')
+					xtype: 'radio',
+					name: 'receiptHandling',
+					inputValue: 'never',
+					boxLabel: _('Never send a response')
 				},{
-					xtype : 'radio',
-					name : 'receiptHandling',
-					inputValue : 'ask',
-					boxLabel : _('Ask me before sending a response')
+					xtype: 'radio',
+					name: 'receiptHandling',
+					inputValue: 'ask',
+					boxLabel: _('Ask me before sending a response')
 				}],
-				listeners : {
-					change : this.onRadioChange,
-					scope : this
+				listeners: {
+					change: this.onRadioChange,
+					scope: this
 				}
 			},{
 				xtype: 'zarafa.compositefield',
+				defaultMargins: '0 0 0 0',
 				plugins: [ 'zarafa.splitfieldlabeler' ],
 				// # TRANSLATORS: The {A} _must_ always be at the start of the translation
 				// # The '{B}' represents the number of seconds which the user will type in.
 				fieldLabel: _('{A}Automatically mark mail as read after {B} second(s)'),
 				labelWidth: 250,
 				items: [{
-					xtype : 'checkbox',
+					xtype: 'checkbox',
 					labelSplitter: '{A}',
-					name : 'zarafa/v1/contexts/mail/readflag_time_enable',
-					ref : '../readFlagTimeCheckbox',
-					boxLabel : '',
-					hideLabel : true,
-					listeners : {
-						check : this.onCheckboxChange,
-						scope : this
+					name: 'zarafa/v1/contexts/mail/readflag_time_enable',
+					ref: '../readFlagTimeCheckbox',
+					boxLabel: '',
+					hideLabel: true,
+					listeners: {
+						check: this.onCheckboxChange,
+						scope: this
 					}
 				},{
 					xtype: 'zarafa.spinnerfield',
 					labelSplitter: '{B}',
-					name : 'zarafa/v1/contexts/mail/readflag_time',
-					ref : '../readFlagTimeSpinner',
+					name: 'zarafa/v1/contexts/mail/readflag_time',
+					ref: '../readFlagTimeSpinner',
 					incrementValue: 1,
 					defaultValue: 0,
-					minValue : 0,
+					minValue: 0,
 					listeners: {
 						'change': this.onFieldChange,
 						scope: this
@@ -98,7 +99,7 @@ Zarafa.mail.settings.SettingsIncomingMailWidget = Ext.extend(Zarafa.settings.ui.
 	 * {@link Zarafa.settings.SettingsModel} into the UI of this category.
 	 * @param {Zarafa.settings.SettingsModel} settingsModel The settings to load
 	 */
-	update : function(settingsModel)
+	update: function(settingsModel)
 	{
 		this.model = settingsModel;
 
@@ -117,7 +118,7 @@ Zarafa.mail.settings.SettingsIncomingMailWidget = Ext.extend(Zarafa.settings.ui.
 	 * This is used to update the settings from the UI into the {@link Zarafa.settings.SettingsModel settings model}.
 	 * @param {Zarafa.settings.SettingsModel} settingsModel The settings to update
 	 */
-	updateSettings : function(settingsModel)
+	updateSettings: function(settingsModel)
 	{
 		settingsModel.beginEdit();
 		settingsModel.set(this.readReceiptGroup.name, this.readReceiptGroup.getValue().inputValue);
@@ -134,7 +135,7 @@ Zarafa.mail.settings.SettingsIncomingMailWidget = Ext.extend(Zarafa.settings.ui.
 	 * @param {Ext.form.Radio} radio The radio which was enabled
 	 * @private
 	 */
-	onRadioChange : function(group, radio)
+	onRadioChange: function(group, radio)
 	{
 		if (this.model) {
 			// FIXME: The settings model should be able to detect if
@@ -151,7 +152,7 @@ Zarafa.mail.settings.SettingsIncomingMailWidget = Ext.extend(Zarafa.settings.ui.
 	 * @param {Mixed} value The updated value.
 	 * @private
 	 */
-	onFieldChange : function(field, value) {
+	onFieldChange: function(field, value) {
 		if (this.model) {
 			// FIXME: The settings model should be able to detect if
 			// a change was applied
@@ -167,7 +168,7 @@ Zarafa.mail.settings.SettingsIncomingMailWidget = Ext.extend(Zarafa.settings.ui.
 	 * @param {Boolean} check True if the checkbox is currently checked
 	 * @private
 	 */
-	onCheckboxChange : function(checkbox, check) {
+	onCheckboxChange: function(checkbox, check) {
 		this.onFieldChange(checkbox, check);
 		this.readFlagTimeSpinner.setDisabled(!check);
 	}

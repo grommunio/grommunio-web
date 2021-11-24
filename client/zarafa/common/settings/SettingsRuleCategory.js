@@ -21,19 +21,19 @@ Zarafa.common.settings.SettingsRuleCategory = Ext.extend(Zarafa.settings.ui.Sett
 	 * @constructor
 	 * @param {Object} config Configuration object
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		config = config || {};
 
 		Ext.applyIf(config, {
-			title : _('Rules'),
-			categoryIndex : 3,
-			xtype : 'zarafa.settingsrulecategory',
-			iconCls : 'zarafa-settings-category-rules',
+			title: _('Rules'),
+			categoryIndex: 3,
+			xtype: 'zarafa.settingsrulecategory',
+			iconCls: 'zarafa-settings-category-rules',
 			layout: 'fit',
-			items : [{
-					xtype : 'zarafa.settingsrulewidget',
-					settingsContext : config.settingsContext
+			items: [{
+					xtype: 'zarafa.settingsrulewidget',
+					settingsContext: config.settingsContext
 				},
 				container.populateInsertionPoint('context.settings.category.rules', this)
 			]
@@ -47,7 +47,7 @@ Zarafa.common.settings.SettingsRuleCategory = Ext.extend(Zarafa.settings.ui.Sett
 	 * this will unregister the {@link #onBeforeSaveRules} event handler.
 	 * @private
 	 */
-	onHide : function()
+	onHide: function()
 	{
 		Zarafa.common.settings.SettingsRuleCategory.superclass.onHide.apply(this, arguments);
 
@@ -64,10 +64,10 @@ Zarafa.common.settings.SettingsRuleCategory = Ext.extend(Zarafa.settings.ui.Sett
 	 * event. It will register the 'beforesave' event on {@link Zarafa.common.rules.data.RulesStore Rules Store}.
 	 * @private
 	 */
-	onBeforeSaveSettingsModel : function()
+	onBeforeSaveSettingsModel: function()
 	{
 		var store = this.get(0).getRulesStore();
-		this.mon(store, 'beforesave', this.onBeforeSaveRules, this, { single : true });
+		this.mon(store, 'beforesave', this.onBeforeSaveRules, this, { single: true });
 	},
 
 	/**
@@ -76,7 +76,7 @@ Zarafa.common.settings.SettingsRuleCategory = Ext.extend(Zarafa.settings.ui.Sett
 	 * event handlers for the completion of the save.
 	 * @private
 	 */
-	onBeforeSaveRules : function()
+	onBeforeSaveRules: function()
 	{
 		this.displaySavingMask();
 
@@ -87,11 +87,11 @@ Zarafa.common.settings.SettingsRuleCategory = Ext.extend(Zarafa.settings.ui.Sett
 
 	/**
 	 * Event handler which is fired when the {@link Zarafa.common.rules.data.RulesStore Rules Store}
-	 * fires the 'save' event indicating the successfull save of the rules. This will
+	 * fires the 'save' event indicating the successful save of the rules. This will
 	 * {@link #hideSavingMask hide the notification}.
 	 * @private
 	 */
-	onRulesSave : function()
+	onRulesSave: function()
 	{
 		this.hideSavingMask(true);
 
@@ -106,7 +106,7 @@ Zarafa.common.settings.SettingsRuleCategory = Ext.extend(Zarafa.settings.ui.Sett
 	 * {@link #hideSavingMask hide the notification}.
 	 * @private
 	 */
-	onRulesException : function()
+	onRulesException: function()
 	{
 		this.hideSavingMask(false);
 

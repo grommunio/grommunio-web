@@ -11,91 +11,91 @@ Zarafa.common.rules.data.ConditionFlags = Zarafa.core.Enum.create({
 	 * @property
 	 * @type Number
 	 */
-	UNKNOWN : -1,
+	UNKNOWN: -1,
 
 	/**
 	 * Indicates that the condition checks whom has sent it
 	 * @property
 	 * @type Number
 	 */
-	RECEIVED_FROM : 1,
+	RECEIVED_FROM: 1,
 
 	/**
 	 * Indicates that the condition checks to whom it was sent
 	 * @property
 	 * @type Number
 	 */
-	SENT_TO : 2,
+	SENT_TO: 2,
 
 	/**
 	 * Indicates that the condition checks which words are in the subject
 	 * @property
 	 * @type Number
 	 */
-	SUBJECT_WORDS : 3,
+	SUBJECT_WORDS: 3,
 
 	/**
 	 * Indicates that the condition checks which words are in the body
 	 * @property
 	 * @type Number
 	 */
-	BODY_WORDS : 4,
+	BODY_WORDS: 4,
 
 	/**
 	 * Indicates that the condition checks which words are in the sender
 	 * @property
 	 * @type Number
 	 */
-	SENDER_WORDS : 5,
+	SENDER_WORDS: 5,
 
 	/**
 	 * Indicates that the condition checks if the user is in the To or CC field
 	 * @property
 	 * @type Number
 	 */
-	NAME_TO_CC : 6,
+	NAME_TO_CC: 6,
 
 	/**
 	 * Indicates that the condition checks if the message was sent with a certain importance
 	 * @property
 	 * @type Number
 	 */
-	IMPORTANCE : 7,
+	IMPORTANCE: 7,
 
 	/**
 	 * Indicates that the condition checks if the message was sent only to the user
 	 * @property
 	 * @type Number
 	 */
-	SENT_TO_ME_ONLY : 8,
+	SENT_TO_ME_ONLY: 8,
 
 	/**
 	 * Indicates that the condition checks if the message has an attachment
 	 * @property
 	 * @type Number
 	 */
-	ATTACHMENT : 9,
+	ATTACHMENT: 9,
 
 	/**
 	 * Indicates that the condition checks if the message was sent with a certain sensitivity
 	 * @property
 	 * @type Number
 	 */
-	SENSITIVITY : 10,
+	SENSITIVITY: 10,
 
 	/**
 	 * Indicates that the condition checks if the user is in the To field
 	 * @property
 	 * @type Number
 	 */
-	SENT_TO_ME : 11,
+	SENT_TO_ME: 11,
 
 	/**
 	 * Indicates that the condition checks if the message has my name in the Cc field
 	 * @property
 	 * @type Number
 	 */
-	SENT_CC_ME : 12,
+	SENT_CC_ME: 12,
 
 	/**
 	 * Indicates that the condition checks if the message was received before a certain date range
@@ -137,7 +137,7 @@ Zarafa.common.rules.data.ConditionFlags = Zarafa.core.Enum.create({
 	 * @property
 	 * @type Number
 	 */
-	NAME_BCC  : 18,
+	NAME_BCC: 18,
 
 	/** Indicates that the condition checks that message size should be equal to or more than given size in this condition.
 	 * @property

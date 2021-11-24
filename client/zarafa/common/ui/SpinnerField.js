@@ -37,13 +37,13 @@ Zarafa.common.ui.SpinnerField = Ext.extend(Ext.form.TextField, {
 	/**
 	 * @cfg {String} The text that appears beside the SpinnerField.
 	 */
-	boxLabel : '',
+	boxLabel: '',
 
 	/**
 	 * @cfg {Function} onBlur
 	 */
 	onBlur: function(){
-		
+
 		this.beforeBlur();
 		if(this.focusClass){
 			this.el.removeClass(this.focusClass);
@@ -57,7 +57,7 @@ Zarafa.common.ui.SpinnerField = Ext.extend(Ext.form.TextField, {
 						comp.validate();
 					}
 				},this);
-			}else{
+			} else {
 				this.validate();
 			}
 		}
@@ -80,11 +80,11 @@ Zarafa.common.ui.SpinnerField = Ext.extend(Ext.form.TextField, {
 	/**
 	 * @cfg {Object} minValue The minimum value which can be used.
 	 */
-	minValue : undefined,
+	minValue: undefined,
 	/**
 	 * @cfg {Object} maxValue The maximum value which can be used.
 	 */
-	maxValue : undefined,
+	maxValue: undefined,
 	/**
 	 * @cfg {String} incrementValue The value which must be used to increment
 	 * the {@link #incrementField} field with when the normal increment/decrement

@@ -13,31 +13,31 @@ Zarafa.common.ui.ContextMainPanelToolbar = Ext.extend(Ext.Toolbar, {
 	 * @cfg {Zarafa.core.Context} context The context to which this toolbar belongs
 	 */
 	context: undefined,
-	
+
 	/**
 	 * The {@link Zarafa.core.ContextModel} which is obtained from the {@link #context}.
 	 * @property
 	 * @type Zarafa.mail.MailContextModel
 	 */
-	model : undefined,
+	model: undefined,
 
 	/**
 	 * @cfg {Array} paging Configuration objects of pagination toolbars which should
 	 * be added. This can be used if the default pagination toolbar is not sufficient,
 	 * and in some situations should be swapped with a different paging toolbar.
 	 */
-	paging : undefined,
+	paging: undefined,
 
 	/**
 	 * @cfg {String} defaultTitle The title for the {@link Ext.Panel} Panel
 	 */
 	defaultTitle: _('grommunio web'),
-	
+
 	/**
 	 * @constructor
 	 * @param {Object} config Configuration object
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		config = config || {};
 
@@ -49,10 +49,10 @@ Zarafa.common.ui.ContextMainPanelToolbar = Ext.extend(Ext.Toolbar, {
 		var items = [];
 
 		items = items.concat({
-			xtype : 'zarafa.searchfieldcontainer',
+			xtype: 'zarafa.searchfieldcontainer',
 			boxMinWidth: 100,
-			ref : 'searchFieldContainer',
-			model : config.model
+			ref: 'searchFieldContainer',
+			model: config.model
 		});
 
 		if (!Ext.isEmpty(config.paging)) {
@@ -65,23 +65,23 @@ Zarafa.common.ui.ContextMainPanelToolbar = Ext.extend(Ext.Toolbar, {
 			container.populateInsertionPoint('context.mainpaneltoolbar.item', config.context),
 		{
 			xtype: 'zarafa.toolbarbutton',
-			overflowText : _('Copy/Move'),
+			overflowText: _('Copy/Move'),
 			tooltip: _('Copy/Move') + ' (Ctrl + M)',
 			iconCls: 'icon_copy',
-			ref : 'copyButton',
+			ref: 'copyButton',
 			nonEmptySelectOnly: true,
 			handler: this.onCopyMove,
-			model : config.model,
+			model: config.model,
 			scope: this
 		},{
 			xtype: 'zarafa.toolbarbutton',
 			overflowText: _('Delete'),
 			tooltip: _('Delete'),
-			ref : 'deleteButton',
+			ref: 'deleteButton',
 			iconCls: 'icon_delete',
 			nonEmptySelectOnly: true,
 			handler: this.onDelete,
-			model : config.model,
+			model: config.model,
 			scope: this
 		}]);
 
@@ -96,10 +96,10 @@ Zarafa.common.ui.ContextMainPanelToolbar = Ext.extend(Ext.Toolbar, {
 
 		// Update configuration
 		Ext.applyIf(config, {
-			xtype : 'zarafa.contextmainpaneltoolbar',
-			ref : 'contextMainPanelToolbar',
-			items : items,
-			enableOverflow : true
+			xtype: 'zarafa.contextmainpaneltoolbar',
+			ref: 'contextMainPanelToolbar',
+			items: items,
+			enableOverflow: true
 		});
 
 		Zarafa.common.ui.ContextMainPanelToolbar.superclass.constructor.call(this, config);
@@ -109,9 +109,9 @@ Zarafa.common.ui.ContextMainPanelToolbar = Ext.extend(Ext.Toolbar, {
 	/**
 	 * Initialize Events
 	 */
-	initEvent : function()
+	initEvent: function()
 	{
-		this.on('afterlayout', this.resizeSearchField, this, {delay : 2, single : true});
+		this.on('afterlayout', this.resizeSearchField, this, {delay: 2, single: true});
 	},
 
 	/**
@@ -119,7 +119,7 @@ Zarafa.common.ui.ContextMainPanelToolbar = Ext.extend(Ext.Toolbar, {
 	 * or moving the currently selected folders.
 	 * @private
 	 */
-	onCopyMove : function()
+	onCopyMove: function()
 	{
 		Zarafa.common.Actions.openCopyMoveContent(this.model.getSelectedRecords());
 	},
@@ -130,7 +130,7 @@ Zarafa.common.ui.ContextMainPanelToolbar = Ext.extend(Ext.Toolbar, {
 	 * to select between the recurring and single appointment.
 	 * @private
 	 */
-	onDelete : function()
+	onDelete: function()
 	{
 		Zarafa.common.Actions.deleteRecords(this.model.getSelectedRecords());
 	},
@@ -139,7 +139,7 @@ Zarafa.common.ui.ContextMainPanelToolbar = Ext.extend(Ext.Toolbar, {
 	 * Open the Print dialog
 	 * @private
 	 */
-	onPrint : function()
+	onPrint: function()
 	{
 		Zarafa.common.Actions.openPrintDialog(this.model.getSelectedRecords());
 	},
@@ -153,7 +153,7 @@ Zarafa.common.ui.ContextMainPanelToolbar = Ext.extend(Ext.Toolbar, {
 	 * @param {Number} rawHeight The height that was originally specified
 	 * @private
 	 **/
-	onResize : function(adjWidth, adjHeight, rawWidth, rawHeight)
+	onResize: function(adjWidth, adjHeight, rawWidth, rawHeight)
 	{
 		Zarafa.common.ui.ContextMainPanelToolbar.superclass.onResize.apply(this, arguments);
 
@@ -169,7 +169,7 @@ Zarafa.common.ui.ContextMainPanelToolbar = Ext.extend(Ext.Toolbar, {
 	 * Function is used to resize the {@link #searchTextField}. also it will show the
 	 * hidden tool bar items if tool bar container has enough size to show.
 	 */
-	resizeSearchField : function()
+	resizeSearchField: function()
 	{
 		// Get the width of the container without the padding
 		var containerWidth = this.el.getStyleSize().width;

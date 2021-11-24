@@ -171,14 +171,14 @@ class WebAppAuthentication
 				WebAppAuthentication::_storeMAPISession(WebAppAuthentication::$_mapiSession->getSession());
 				$tmp = explode('@', $username);
 				if (2 == count($tmp)) {
-					setcookie('domainname', $tmp[1], time()+31536000, '/');
+					setcookie('domainname', $tmp[1], time()+31536000, '/', '', getRequestProtocol() === 'https');
 				}
 				$wa_title = WebAppAuthentication::$_mapiSession->getFullName();
 				$companyname = WebAppAuthentication::$_mapiSession->getCompanyName();
 				if (isset($companyname) && strlen($companyname) != 0)
 					$wa_title .= " ($companyname)";
 				if (strlen($wa_title) != 0)
-					 setcookie('webapp_title', $wa_title, time() + 31536000, '/');
+					 setcookie('webapp_title', $wa_title, time()+31536000, '/', '', getRequestProtocol() === 'https');
 			} elseif ( WebAppAuthentication::$_errorCode == MAPI_E_LOGON_FAILED || WebAppAuthentication::$_errorCode == MAPI_E_UNCONFIGURED ) {
 				error_log('grommunio web user: ' . $username . ': authentication failure at MAPI');
 			}
@@ -209,11 +209,11 @@ class WebAppAuthentication
 	/**
 	 * Restore a MAPISession from the serialized with kc_session_restore.
 	 *
-	 * @return boolean true if session has been restored succesfully
+	 * @return boolean true if session has been restored successfully
 	 */
 	private static function _restoreMAPISession() {
 		$encryptionStore = EncryptionStore::getInstance();
-		
+
 		if (!WebAppAuthentication::$_sessionSaveSupport || $encryptionStore->get('savedsession') === null) {
 			return false;
 		}
@@ -300,7 +300,7 @@ class WebAppAuthentication
 	/**
 	 * Logs the user in with a given username and token in $_POST and logs
 	 * in with the special flag for token authentication enabled. If $new
-	 * is true it's assumed that a session does not exists and there wille
+	 * is true it's assumed that a session does not exists and there will
 	 * be a new one generated and fingerprint stored in session which is
 	 * later compared after logon. After successful logon the session is stored.
 	 *

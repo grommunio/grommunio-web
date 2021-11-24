@@ -13,7 +13,7 @@ Zarafa.task.dialogs.TaskGeneralTab = Ext.extend(Ext.form.FormPanel, {
 	 * @constructor
 	 * @param {Object} config configuration object.
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		config = config || {};
 
@@ -21,15 +21,15 @@ Zarafa.task.dialogs.TaskGeneralTab = Ext.extend(Ext.form.FormPanel, {
 		config.plugins.push('zarafa.recordcomponentupdaterplugin');
 
 		Ext.applyIf(config, {
-			xtype : 'zarafa.taskgeneraltab',
+			xtype: 'zarafa.taskgeneraltab',
 			cls: 'k-taskgeneraltab',
-			title : _('Task'),
+			title: _('Task'),
 			layout: {
 				type: 'vbox',
 				align: 'stretch'
 			},
 			border: false,
-			items : [
+			items: [
 				this.createExtraInfoPanel(),
 				this.createTaskInfoPanel(),
 				this.createAttachmentInfoPanel(),
@@ -52,16 +52,16 @@ Zarafa.task.dialogs.TaskGeneralTab = Ext.extend(Ext.form.FormPanel, {
 	 * @return {Object} Configuration object for the panel containing the fields
 	 * @private
 	 */
-	createExtraInfoPanel : function()
+	createExtraInfoPanel: function()
 	{
 		return {
-			xtype : 'container',
-			cls : 'k-extrainfopanel',
-			hidden : true,
-			ref : 'taskExtraInfo',
+			xtype: 'container',
+			cls: 'k-extrainfopanel',
+			hidden: true,
+			ref: 'taskExtraInfo',
 			autoHeight: true,
-			items : [{
-				xtype :'zarafa.extrainfolinks'
+			items: [{
+				xtype:'zarafa.extrainfolinks'
 			}]
 		};
 	},
@@ -73,14 +73,14 @@ Zarafa.task.dialogs.TaskGeneralTab = Ext.extend(Ext.form.FormPanel, {
 	 * @return {Object} Configuration object for the panel containing the fields
 	 * @private
 	 */
-	createTaskInfoPanel : function ()
+	createTaskInfoPanel: function ()
 	{
 		return {
 			xtype: 'zarafa.taskinfo',
-			cls : 'k-taskinfopanel',
-			ref : 'taskInfoPanel',
+			cls: 'k-taskinfopanel',
+			ref: 'taskInfoPanel',
 			autoHeight: true,
-			hidden : true
+			hidden: true
 		};
 	},
 
@@ -91,19 +91,19 @@ Zarafa.task.dialogs.TaskGeneralTab = Ext.extend(Ext.form.FormPanel, {
 	 * @return {Object} Configuration object for the panel containing the fields
 	 * @private
 	 */
-	createAttachmentInfoPanel : function ()
+	createAttachmentInfoPanel: function ()
 	{
 		return {
-			xtype : 'panel',
-			autoScroll : true,
-			cls : 'k-task-attachment-info-panel',
-			anchor : '100%',
-			border : false,
-			hidden : true,
-			autoHeight : true,
-			ref : 'taskAttachInfo',
-			items : [{
-				xtype : 'zarafa.attachmentlinks'
+			xtype: 'panel',
+			autoScroll: true,
+			cls: 'k-task-attachment-info-panel',
+			anchor: '100%',
+			border: false,
+			hidden: true,
+			autoHeight: true,
+			ref: 'taskAttachInfo',
+			items: [{
+				xtype: 'zarafa.attachmentlinks'
 			}]
 		};
 	},
@@ -114,13 +114,13 @@ Zarafa.task.dialogs.TaskGeneralTab = Ext.extend(Ext.form.FormPanel, {
 	 * @return {Object} Configuration object for the panel containing the composite field
 	 * @private
 	 */
-	createRecipientPanel : function()
+	createRecipientPanel: function()
 	{
 		return {
-			xtype : 'zarafa.resizablecompositefield',
-			cls : 'k-field-to',
+			xtype: 'zarafa.resizablecompositefield',
+			cls: 'k-field-to',
 			ref: 'recipientPanel',
-			anchor : '100%',
+			anchor: '100%',
 			autoHeight: false,
 			items: [{
 				xtype: 'button',
@@ -128,13 +128,13 @@ Zarafa.task.dialogs.TaskGeneralTab = Ext.extend(Ext.form.FormPanel, {
 				text: _('To') + ':',
 				handler: function() {
 					Zarafa.task.Actions.openRecipientSelectionContent(this.record, {
-						defaultRecipientType : Zarafa.core.mapi.RecipientType.MAPI_TO
+						defaultRecipientType: Zarafa.core.mapi.RecipientType.MAPI_TO
 					});
 				},
 				scope: this
 			},{
 				xtype: 'zarafa.recipientfield',
-				plugins : [ 'zarafa.recordcomponentupdaterplugin' ],
+				plugins: [ 'zarafa.recordcomponentupdaterplugin' ],
 				flex: 1
 			}]
 
@@ -147,24 +147,24 @@ Zarafa.task.dialogs.TaskGeneralTab = Ext.extend(Ext.form.FormPanel, {
 	 * @return {Object} Configuration object for the panel containing the fields
 	 * @private
 	 */
-	createSubjectPanel : function()
+	createSubjectPanel: function()
 	{
 		return {
 			xtype: 'panel',
 			cls: 'k-subject-panel',
 			layout: 'form',
-			ref : 'subjectPanel',
+			ref: 'subjectPanel',
 			labelWidth: 85,
 			labelAlign: 'left',
 			border: false,
-			items : [{
+			items: [{
 				xtype: 'textfield',
-				fieldLabel : _('Subject'),
-				anchor : '100%',
-				name : 'subject',
-				listeners :{
-					'change' : this.onPropertyChange,
-					scope : this
+				fieldLabel: _('Subject'),
+				anchor: '100%',
+				name: 'subject',
+				listeners:{
+					'change': this.onPropertyChange,
+					scope: this
 				}
 			}]
 		};
@@ -177,7 +177,7 @@ Zarafa.task.dialogs.TaskGeneralTab = Ext.extend(Ext.form.FormPanel, {
 	 * @return {Object} Configuration object for the panel containing the fields
 	 * @private
 	 */
-	createDateTimePanel : function()
+	createDateTimePanel: function()
 	{
 		return {
 			xtype: 'panel',
@@ -189,7 +189,7 @@ Zarafa.task.dialogs.TaskGeneralTab = Ext.extend(Ext.form.FormPanel, {
 				type: 'table',
 				columns: 2
 			},
-			items : [
+			items: [
 				this.createDatePanel(),
 				this.createStatusPanel(),
 
@@ -205,7 +205,7 @@ Zarafa.task.dialogs.TaskGeneralTab = Ext.extend(Ext.form.FormPanel, {
 	 * @return {Object} Configuration object for the panel with time selection fields
 	 * @private
 	 */
-	createDatePanel : function()
+	createDatePanel: function()
 	{
 		return {
 			xtype: 'panel',
@@ -217,7 +217,7 @@ Zarafa.task.dialogs.TaskGeneralTab = Ext.extend(Ext.form.FormPanel, {
 			items: [{
 				xtype: 'zarafa.dateperiodfield',
 				ref: '../../dateField',
-				allowBlank : true,
+				allowBlank: true,
 				defaultPeriod: container.getSettingsModel().get('zarafa/v1/contexts/task/default_task_period'),
 				width: 450,
 				layout: 'hbox',
@@ -247,12 +247,12 @@ Zarafa.task.dialogs.TaskGeneralTab = Ext.extend(Ext.form.FormPanel, {
 	 * @return {Object} Configuration object for the panel
 	 * @private
 	 */
-	createStatusPanel : function()
+	createStatusPanel: function()
 	{
 		var statusStore = {
 			xtype: 'jsonstore',
 			fields: ['name', 'value'],
-			data : Zarafa.task.data.TaskStatus.status
+			data: Zarafa.task.data.TaskStatus.status
 		};
 
 		return {
@@ -263,22 +263,22 @@ Zarafa.task.dialogs.TaskGeneralTab = Ext.extend(Ext.form.FormPanel, {
 			border: false,
 			labelAlign: 'left',
 			items: [{
-				xtype : 'combo',
+				xtype: 'combo',
 				width: 285,
 				fieldLabel:_('Status'),
-				editable : false,
-				mode : 'local',
-				triggerAction : 'all',
-				autoSelect : true,
-				store : statusStore,
-				displayField : 'name',
-				valueField : 'value',
+				editable: false,
+				mode: 'local',
+				triggerAction: 'all',
+				autoSelect: true,
+				store: statusStore,
+				displayField: 'name',
+				valueField: 'value',
 				value: statusStore.data[0].value,
 				lazyInit: false,
-				name : 'status',
-				listeners : {
-					scope : this,
-					'select' : this.onStatusSelect
+				name: 'status',
+				listeners: {
+					scope: this,
+					'select': this.onStatusSelect
 				}
 			}]
 		};
@@ -290,12 +290,12 @@ Zarafa.task.dialogs.TaskGeneralTab = Ext.extend(Ext.form.FormPanel, {
 	 * @return {Object} Configuration object for the panel
 	 * @private
 	 */
-	createPriorityCompletePanel : function()
+	createPriorityCompletePanel: function()
 	{
 		var importanceStore = {
 			xtype: 'jsonstore',
 			fields: ['name', 'value'],
-			data : Zarafa.common.data.ImportanceFlags.flags
+			data: Zarafa.common.data.ImportanceFlags.flags
 		};
 
 		return {
@@ -305,23 +305,23 @@ Zarafa.task.dialogs.TaskGeneralTab = Ext.extend(Ext.form.FormPanel, {
 			anchor: '100%',
 			border: false,
 			items: [{
-				xtype : 'combo',
-				plugins : [ 'zarafa.fieldlabeler' ],
-				fieldLabel :_('Priority'),
+				xtype: 'combo',
+				plugins: [ 'zarafa.fieldlabeler' ],
+				fieldLabel:_('Priority'),
 				labelAlign: 'left',
-				width : 100,
-				editable : false,
-				mode : 'local',
-				triggerAction : 'all',
-				autoSelect : true,
-				store : importanceStore,
-				displayField : 'name',
-				valueField : 'value',
-				value : importanceStore.data[1].value,
-				name : 'importance',
-				listeners :{
-					select : this.onImportanceSelect,
-					scope : this
+				width: 100,
+				editable: false,
+				mode: 'local',
+				triggerAction: 'all',
+				autoSelect: true,
+				store: importanceStore,
+				displayField: 'name',
+				valueField: 'value',
+				value: importanceStore.data[1].value,
+				name: 'importance',
+				listeners:{
+					select: this.onImportanceSelect,
+					scope: this
 				}
 			},{
 				xtype: 'spacer',
@@ -332,14 +332,15 @@ Zarafa.task.dialogs.TaskGeneralTab = Ext.extend(Ext.form.FormPanel, {
 				fieldLabel: _('% Complete'),
 				labelWidth: 100,
 				name: 'percent_complete',
-				width : 70,
-				minValue : 0,
-				defaultValue : 0,
-				incrementValue : 0.25,
-				maxValue : 1,
-				listeners :{
-					spin : this.onCompleteSpin,
-					scope : this
+				width: 70,
+				minValue: 0,
+				defaultValue: 0,
+				incrementValue: 0.25,
+				maxValue: 1,
+				listeners:{
+					spin: this.onCompleteSpin,
+					change: this.onCompleteSpin,
+					scope: this
 				}
 			}]
 		};
@@ -351,35 +352,35 @@ Zarafa.task.dialogs.TaskGeneralTab = Ext.extend(Ext.form.FormPanel, {
 	 * @return {Object} Configuration object for the panel with reminder fields
 	 * @private
 	 */
-	createReminderPanel : function()
+	createReminderPanel: function()
 	{
 		return {
 			xtype: 'panel',
 			cls: 'k-reminder-panel',
-			ref : '../reminderPanel',
+			ref: '../reminderPanel',
 			autoHeight: true,
 			border: false,
 			items: [{
 				xtype: 'zarafa.compositefield',
 				autoHeight: true,
 				items: [{
-					xtype : 'checkbox',
-					name : 'reminder',
-					width : 79,
-					boxLabel : _('Reminder') + ':',
-					handler : this.onToggleReminder,
-					scope : this
+					xtype: 'checkbox',
+					name: 'reminder',
+					width: 79,
+					boxLabel: _('Reminder') + ':',
+					handler: this.onToggleReminder,
+					scope: this
 				},{
-					xtype :'zarafa.datetimefield',
-					name : 'reminder_time',
-					width : 217,
+					xtype:'zarafa.datetimefield',
+					name: 'reminder_time',
+					width: 217,
 					timeIncrement: container.getSettingsModel().get('zarafa/v1/contexts/task/reminder_time_stepping'),
-					listeners :{
-						'change' : this.onPropertyChange,
-						scope : this
+					listeners:{
+						'change': this.onPropertyChange,
+						scope: this
 					},
-					dateFieldConfig : {
-						flex : 0
+					dateFieldConfig: {
+						flex: 0
 					}
 				}]
 			}]
@@ -392,41 +393,41 @@ Zarafa.task.dialogs.TaskGeneralTab = Ext.extend(Ext.form.FormPanel, {
 	 * @return {Object} Configuration object for the panel
 	 * @private
 	 */
-	createTaskRequestSettingPanel : function()
+	createTaskRequestSettingPanel: function()
 	{
 		return{
 			xtype: 'panel',
-			layout : 'hbox',
+			layout: 'hbox',
 			border: false,
-			ref : 'taskRequestSettingPanel',
-			cls : 'k-taskrequestsettings',
+			ref: 'taskRequestSettingPanel',
+			cls: 'k-taskrequestsettings',
 			autoHeight: true,
-			items : [{
-				xtype : 'checkbox',
-				boxLabel : _('Track progress'),
-				tooltip : _('Keep updated copy of task and receive automated status reports'),
-				plugins : 'zarafa.formfieldtooltipplugin',
-				name : 'taskupdates',
+			items: [{
+				xtype: 'checkbox',
+				boxLabel: _('Track progress'),
+				tooltip: _('Keep updated copy of task and receive automated status reports'),
+				plugins: 'zarafa.formfieldtooltipplugin',
+				name: 'taskupdates',
 				width: 125,
-				listeners :{
-					'change' : this.onPropertyChange,
-					scope : this
+				listeners:{
+					'change': this.onPropertyChange,
+					scope: this
 				}
 			}, {
 				hideLabel: true,
-				xtype : 'textfield',
+				xtype: 'textfield',
 				cls: 'k-ownerfield',
 				ref: '../ownerField',
 				plugins: [ 'zarafa.fieldlabeler' ],
-				fieldLabel : _('Owner'),
+				fieldLabel: _('Owner'),
 				labelWidth: 78,
 				autoWidth: true,
 				readOnly: true,
 				flex: 1,
-				name : 'owner',
-				listeners :{
-					'change' : this.onPropertyChange,
-					scope : this
+				name: 'owner',
+				listeners:{
+					'change': this.onPropertyChange,
+					scope: this
 				}
 			}]
 		};
@@ -437,7 +438,7 @@ Zarafa.task.dialogs.TaskGeneralTab = Ext.extend(Ext.form.FormPanel, {
 	 * @return {Object} configuration object for the panel containing the attachment fields
 	 * @private
 	 */
-	createAttachmentPanel : function()
+	createAttachmentPanel: function()
 	{
 		return {
 			xtype: 'zarafa.resizablecompositefield',
@@ -445,16 +446,16 @@ Zarafa.task.dialogs.TaskGeneralTab = Ext.extend(Ext.form.FormPanel, {
 			anchor: '100%',
 			cls: 'k-field-attachments',
 			autoHeight: true,
-			ref : 'attachmentPanel',
+			ref: 'attachmentPanel',
 			items: [{
 				xtype: 'zarafa.attachmentbutton',
-				plugins : [ 'zarafa.recordcomponentupdaterplugin' ],
+				plugins: [ 'zarafa.recordcomponentupdaterplugin' ],
 				width: 100,
 				text: _('Attachments') + ':',
 				autoHeight: true
 			},{
 				xtype: 'zarafa.attachmentfield',
-				plugins : [ 'zarafa.recordcomponentupdaterplugin' ],
+				plugins: [ 'zarafa.recordcomponentupdaterplugin' ],
 				flex: 1,
 				hideLabel: true
 			}]
@@ -467,7 +468,7 @@ Zarafa.task.dialogs.TaskGeneralTab = Ext.extend(Ext.form.FormPanel, {
 	 * @return {Object} Configuration object containing the HtmlEditor
 	 * @private
 	 */
-	createBodyPanel : function()
+	createBodyPanel: function()
 	{
 		return {
 			xtype: 'panel',
@@ -482,8 +483,8 @@ Zarafa.task.dialogs.TaskGeneralTab = Ext.extend(Ext.form.FormPanel, {
 				flex: 1,
 				useHtml: false,
 				listeners: {
-					change : this.onBodyChange,
-					scope : this
+					change: this.onBodyChange,
+					scope: this
 				}
 			}]
 		};
@@ -496,7 +497,7 @@ Zarafa.task.dialogs.TaskGeneralTab = Ext.extend(Ext.form.FormPanel, {
 	 * @param {Boolean} contentReset force the component to perform a full update of the data.
 	 * @private
 	 */
-	updateUI : function(record, contentReset)
+	updateUI: function(record, contentReset)
 	{
 		var taskHistory = record.get('taskhistory');
 		var taskState = record.get('taskstate');
@@ -594,7 +595,7 @@ Zarafa.task.dialogs.TaskGeneralTab = Ext.extend(Ext.form.FormPanel, {
 	 * @param {Zarafa.core.data.IPMRecord} record The record update the panel with.
 	 * @param {Boolean} contentReset force the component to perform a full update of the data.
 	 */
-	update : function(record, contentReset)
+	update: function(record, contentReset)
 	{
 		this.record = record;
 		this.updateUI(record, contentReset);
@@ -616,7 +617,7 @@ Zarafa.task.dialogs.TaskGeneralTab = Ext.extend(Ext.form.FormPanel, {
 	 * an updated {@link Zarafa.core.data.IPMRecord record} is received.
 	 * @param {Zarafa.core.data.IPMRecord} record The record update the panel with.
 	 */
-	updateRecord : function(record)
+	updateRecord: function(record)
 	{
 		var taskHistory = record.get('taskhistory');
 		if (taskHistory === Zarafa.core.mapi.TaskHistory.ASSIGNED ||
@@ -656,7 +657,7 @@ Zarafa.task.dialogs.TaskGeneralTab = Ext.extend(Ext.form.FormPanel, {
 	 * @param {Mixed} oldValue The old value
 	 * @private
 	 */
-	onPropertyChange : function(field, newValue, oldValue)
+	onPropertyChange: function(field, newValue, oldValue)
 	{
 		if (!Ext.isEmpty(field.name) && field.validateValue(field.processValue(newValue))) {
 			this.record.set(field.name, newValue);
@@ -672,7 +673,7 @@ Zarafa.task.dialogs.TaskGeneralTab = Ext.extend(Ext.form.FormPanel, {
 	 * @param {Number} index The index of the selected item in the dropdown list
 	 * @private
 	 */
-	onImportanceSelect : function(field, record, selectedIndex)
+	onImportanceSelect: function(field, record, selectedIndex)
 	{
 		var newValue = record.get(field.valueField);
 		if (!Ext.isEmpty(field.name) && field.validateValue(field.processValue(newValue))) {
@@ -689,7 +690,7 @@ Zarafa.task.dialogs.TaskGeneralTab = Ext.extend(Ext.form.FormPanel, {
 	 * @param {Mixed} oldValue The old value
 	 * @private
 	 */
-	onBodyChange : function(field, newValue, oldValue)
+	onBodyChange: function(field, newValue, oldValue)
 	{
 		var record = this.record;
 
@@ -705,7 +706,7 @@ Zarafa.task.dialogs.TaskGeneralTab = Ext.extend(Ext.form.FormPanel, {
 	 * @param {Boolean} checked The new checked state of the checkbox.
 	 * @private
 	 */
-	onToggleReminder : function(checkbox, checked)
+	onToggleReminder: function(checkbox, checked)
 	{
 		this.record.beginEdit();
 		this.record.set('reminder', checked);
@@ -735,7 +736,7 @@ Zarafa.task.dialogs.TaskGeneralTab = Ext.extend(Ext.form.FormPanel, {
 	 * @param {Number} index The index of the selected item in the dropdown list
 	 * @private
 	 */
-	onStatusSelect : function(field, record, number)
+	onStatusSelect: function(field, record, number)
 	{
 		var newValue = record.get(field.valueField);
 
@@ -779,7 +780,7 @@ Zarafa.task.dialogs.TaskGeneralTab = Ext.extend(Ext.form.FormPanel, {
 	 * @param {Ext.form.Field} field The {@link Ext.form.Field field} which was spinned.
 	 * @private
 	 */
-	onCompleteSpin : function(field)
+	onCompleteSpin: function(field)
 	{
 		var newValue = field.getValue();
 
@@ -789,18 +790,18 @@ Zarafa.task.dialogs.TaskGeneralTab = Ext.extend(Ext.form.FormPanel, {
 			this.record.set('complete', false);
 			this.record.set('percent_complete', newValue);
 			this.record.set('date_completed', null);
-		}else if(newValue >= 0.1 && newValue < 1){
+		} else if(newValue >= 0.1 && newValue < 1){
 			this.record.set('status', Zarafa.core.mapi.TaskStatus.IN_PROGRESS);
 			this.record.set('complete', false);
 			this.record.set('percent_complete', newValue);
 			this.record.set('date_completed', null);
-		}else if(newValue === 1){
+		} else if(newValue === 1 || newValue > 1){
 			this.record.set('status', Zarafa.core.mapi.TaskStatus.COMPLETE);
 			this.record.set('complete', true);
-			this.record.set('percent_complete', newValue);
+			this.record.set('percent_complete', 1); // 100%
 			this.record.set('date_completed', new Date());
 		}
-		this.setFlagsProperties(newValue === 1);
+		this.setFlagsProperties(newValue === 1 || newValue > 1);
 		this.record.endEdit();
 	},
 
@@ -810,7 +811,7 @@ Zarafa.task.dialogs.TaskGeneralTab = Ext.extend(Ext.form.FormPanel, {
 	 *
 	 * @param {Boolean} complete true if selected record marked as a completed.
 	 */
-	setFlagsProperties : function (complete)
+	setFlagsProperties: function (complete)
 	{
 		this.record.set('flag_icon', complete ? Zarafa.core.mapi.FlagIcon.clear : Zarafa.core.mapi.FlagIcon.red);
 		this.record.set('flag_complete_time', complete ? new Date() : null);
@@ -826,7 +827,7 @@ Zarafa.task.dialogs.TaskGeneralTab = Ext.extend(Ext.form.FormPanel, {
 	 * @param {Mixed} oldValue The original value for the field
 	 * @private
 	 */
-	onDateRangeFieldChange : function(field, newRange, oldRange)
+	onDateRangeFieldChange: function(field, newRange, oldRange)
 	{
 		this.updateStartDueDate(this.record, newRange);
 	},
@@ -838,7 +839,7 @@ Zarafa.task.dialogs.TaskGeneralTab = Ext.extend(Ext.form.FormPanel, {
 	 * @param {Zarafa.core.DateRange} daterange the Daterange to apply
 	 * @private
 	 */
-	updateStartDueDate : function(record, daterange)
+	updateStartDueDate: function(record, daterange)
 	{
 		var startDate = daterange.getStartDate();
 		var dueDate = daterange.getDueDate();

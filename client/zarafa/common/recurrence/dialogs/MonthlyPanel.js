@@ -12,14 +12,14 @@ Zarafa.common.recurrence.dialogs.MonthlyPanel = Ext.extend(Zarafa.common.recurre
 	 * @constructor
 	 * @param {Object} config Configuration object
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		config = config || {};
 
 		Ext.applyIf(config, {
 			xtype: 'zarafa.recurrencemonthlypanel',
-			recurrenceType : Zarafa.common.recurrence.data.RecurrenceType.MONTHLY,
-			recurrenceSubtypes : [
+			recurrenceType: Zarafa.common.recurrence.data.RecurrenceType.MONTHLY,
+			recurrenceSubtypes: [
 				Zarafa.common.recurrence.data.RecurrenceSubtype.MONTHLY_N_DAY_OF_MONTH,
 				Zarafa.common.recurrence.data.RecurrenceSubtype.MONTHLY_N_WEEKDAY_OF_MONTH,
 				Zarafa.common.recurrence.data.RecurrenceSubtype.MONTHLY_REGENERATE
@@ -46,7 +46,7 @@ Zarafa.common.recurrence.dialogs.MonthlyPanel = Ext.extend(Zarafa.common.recurre
 	 * @return {Object} Configuration object for the panel
 	 * @private
 	 */
-	createEveryNDayOfMonthPanel : function()
+	createEveryNDayOfMonthPanel: function()
 	{
 		return {
 			xtype: 'panel',
@@ -67,7 +67,7 @@ Zarafa.common.recurrence.dialogs.MonthlyPanel = Ext.extend(Zarafa.common.recurre
 				fieldLabel: _('Day {A} of every {B} month(s)'),
 				labelWidth: 250,
 				columnWidth: 1,
-				items : [{
+				items: [{
 					xtype: 'zarafa.spinnerfield',
 					plugins: [ 'zarafa.numberspinner' ],
 					ref: '../../nthDaySpinner',
@@ -77,7 +77,7 @@ Zarafa.common.recurrence.dialogs.MonthlyPanel = Ext.extend(Zarafa.common.recurre
 					minValue: 1,
 					maxValue: 31,
 					width: 50,
-					listeners : {
+					listeners: {
 						change: this.onMonthlyNDayOfMonthChange,
 						scope: this
 					}
@@ -90,7 +90,7 @@ Zarafa.common.recurrence.dialogs.MonthlyPanel = Ext.extend(Zarafa.common.recurre
 					allowNegative: false,
 					minValue: 1,
 					width: 50,
-					listeners : {
+					listeners: {
 						change: this.onMonthlyNDayOfMonthChange,
 						scope: this
 					}
@@ -106,7 +106,7 @@ Zarafa.common.recurrence.dialogs.MonthlyPanel = Ext.extend(Zarafa.common.recurre
 	 * @return {Object} Configuration object for the panel
 	 * @private
 	 */
-	createEveryNWeekDayOfMonthPanel : function()
+	createEveryNWeekDayOfMonthPanel: function()
 	{
 		return {
 			xtype: 'panel',
@@ -136,7 +136,7 @@ Zarafa.common.recurrence.dialogs.MonthlyPanel = Ext.extend(Zarafa.common.recurre
 					store: {
 						xtype: 'jsonstore',
 						fields: ['name', 'value'],
-						data : Zarafa.common.recurrence.data.DayRankData
+						data: Zarafa.common.recurrence.data.DayRankData
 					},
 					mode: 'local',
 					triggerAction: 'all',
@@ -146,7 +146,7 @@ Zarafa.common.recurrence.dialogs.MonthlyPanel = Ext.extend(Zarafa.common.recurre
 					forceSelection: true,
 					editable: false,
 					autoSelect: true,
-					listeners : {
+					listeners: {
 						change: this.onMonthlyNWeekdayOfMonthChange,
 						scope: this
 					}
@@ -159,7 +159,7 @@ Zarafa.common.recurrence.dialogs.MonthlyPanel = Ext.extend(Zarafa.common.recurre
 					store: {
 						xtype: 'jsonstore',
 						fields: ['name', 'value'],
-						data : Zarafa.common.recurrence.data.DayData
+						data: Zarafa.common.recurrence.data.DayData
 					},
 					mode: 'local',
 					triggerAction: 'all',
@@ -169,7 +169,7 @@ Zarafa.common.recurrence.dialogs.MonthlyPanel = Ext.extend(Zarafa.common.recurre
 					forceSelection: true,
 					editable: false,
 					autoSelect: true,
-					listeners : {
+					listeners: {
 						change: this.onMonthlyNWeekdayOfMonthChange,
 						scope: this
 					}
@@ -182,7 +182,7 @@ Zarafa.common.recurrence.dialogs.MonthlyPanel = Ext.extend(Zarafa.common.recurre
 					allowNegative: false,
 					minValue: 1,
 					width: 50,
-					listeners : {
+					listeners: {
 						change: this.onMonthlyNWeekdayOfMonthChange,
 						scope: this
 					}
@@ -199,7 +199,7 @@ Zarafa.common.recurrence.dialogs.MonthlyPanel = Ext.extend(Zarafa.common.recurre
 	 * @return {Object} Configuration object for the panel
 	 * @private
 	 */
-	createRegeneratePanel : function()
+	createRegeneratePanel: function()
 	{
 		return {
 			xtype: 'panel',
@@ -230,7 +230,7 @@ Zarafa.common.recurrence.dialogs.MonthlyPanel = Ext.extend(Zarafa.common.recurre
 					allowNegative: false,
 					minValue: 1,
 					width: 50,
-					listeners : {
+					listeners: {
 						change: this.onMonthlyRegenerateChange,
 						scope: this
 					}
@@ -247,7 +247,7 @@ Zarafa.common.recurrence.dialogs.MonthlyPanel = Ext.extend(Zarafa.common.recurre
 	 * @param {Mixed} value The new value of the field
 	 * @private
 	 */
-	onMonthlyNDayOfMonthChange : function(field, value)
+	onMonthlyNDayOfMonthChange: function(field, value)
 	{
 		this.onSubtypePropertyChange(Zarafa.common.recurrence.data.RecurrenceSubtype.MONTHLY_N_DAY_OF_MONTH, field, value);
 	},
@@ -260,7 +260,7 @@ Zarafa.common.recurrence.dialogs.MonthlyPanel = Ext.extend(Zarafa.common.recurre
 	 * @param {Mixed} value The new value of the field
 	 * @private
 	 */
-	onMonthlyNWeekdayOfMonthChange : function(field, value)
+	onMonthlyNWeekdayOfMonthChange: function(field, value)
 	{
 		this.onSubtypePropertyChange(Zarafa.common.recurrence.data.RecurrenceSubtype.MONTHLY_N_WEEKDAY_OF_MONTH, field, value);
 	},
@@ -273,7 +273,7 @@ Zarafa.common.recurrence.dialogs.MonthlyPanel = Ext.extend(Zarafa.common.recurre
 	 * @param {Mixed} value The new value of the field
 	 * @private
 	 */
-	onMonthlyRegenerateChange : function(field, value)
+	onMonthlyRegenerateChange: function(field, value)
 	{
 		this.onSubtypePropertyChange(Zarafa.common.recurrence.data.RecurrenceSubtype.MONTHLY_REGENERATE, field, value);
 	},
@@ -286,11 +286,11 @@ Zarafa.common.recurrence.dialogs.MonthlyPanel = Ext.extend(Zarafa.common.recurre
 	 * data from the Record.
 	 * @private
 	 */
-	updateEveryNDayOfMonthValues : function(record, useDefaultValues)
+	updateEveryNDayOfMonthValues: function(record, useDefaultValues)
 	{
 		var startdate = record.get('startdate') || new Date();
 		var monthday = useDefaultValues ? startdate.getDate() : record.get('recurrence_monthday');
-		var everyn = useDefaultValues ? 1 : record.get('recurrence_everyn');
+		var everyn = useDefaultValues ? 1: record.get('recurrence_everyn');
 
 		this.nthDaySpinner.setValue(monthday);
 		this.everyNMonthsSpinner.setValue(everyn);
@@ -304,7 +304,7 @@ Zarafa.common.recurrence.dialogs.MonthlyPanel = Ext.extend(Zarafa.common.recurre
 	 * data from the Record.
 	 * @private
 	 */
-	updateEveryNWeekDayOfMonthValues : function(record, useDefaultValues)
+	updateEveryNWeekDayOfMonthValues: function(record, useDefaultValues)
 	{
 		var dayRank;
 		var weekday;
@@ -335,10 +335,10 @@ Zarafa.common.recurrence.dialogs.MonthlyPanel = Ext.extend(Zarafa.common.recurre
 	 * data from the Record.
 	 * @private
 	 */
-	updateRegenerateValues : function(record, useDefaultValues)
+	updateRegenerateValues: function(record, useDefaultValues)
 	{
 		// Convert everyn value from minutes, to months
-		var everyn = useDefaultValues ? 1 : record.get('recurrence_everyn');
+		var everyn = useDefaultValues ? 1: record.get('recurrence_everyn');
 		this.regenNMonthsSpinner.setValue(everyn);
 	},
 
@@ -349,7 +349,7 @@ Zarafa.common.recurrence.dialogs.MonthlyPanel = Ext.extend(Zarafa.common.recurre
 	 * @param {Boolean} contentReset force the component to perform a full update of the data.
 	 * @private
 	 */
-	updateUI : function(record, contentReset)
+	updateUI: function(record, contentReset)
 	{
 		var layout = false;
 
@@ -378,7 +378,7 @@ Zarafa.common.recurrence.dialogs.MonthlyPanel = Ext.extend(Zarafa.common.recurre
 	 * the given record.
 	 * @protected
 	 */
-	updateSubtype : function(record, pattern, useDefaultValues)
+	updateSubtype: function(record, pattern, useDefaultValues)
 	{
 		var subTypes = Zarafa.common.recurrence.data.RecurrenceSubtype;
 
@@ -400,7 +400,7 @@ Zarafa.common.recurrence.dialogs.MonthlyPanel = Ext.extend(Zarafa.common.recurre
 	 * currently enabled. Only the components for this subtype must be used to update the record.
 	 * @protected
 	 */
-	updateRecordSubType : function(record, pattern)
+	updateRecordSubType: function(record, pattern)
 	{
 		var subTypes = Zarafa.common.recurrence.data.RecurrenceSubtype;
 

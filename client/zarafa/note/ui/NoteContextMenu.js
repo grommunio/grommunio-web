@@ -27,7 +27,7 @@ Zarafa.note.ui.NoteContextMenu = Ext.extend(Zarafa.core.ui.menu.ConditionalMenu,
 	 * @constructor
 	 * @param {Object} config Configuration object
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		config = config || {};
 
@@ -38,16 +38,16 @@ Zarafa.note.ui.NoteContextMenu = Ext.extend(Zarafa.core.ui.menu.ConditionalMenu,
 		}
 
 		Ext.applyIf(config, {
-			items : [
+			items: [
 				this.createContextActionItems(config.records),
-				{ xtype : 'menuseparator' },
+				{ xtype: 'menuseparator' },
 				container.populateInsertionPoint('context.note.contextmenu.actions', this),
-				{ xtype : 'menuseparator' },
+				{ xtype: 'menuseparator' },
 				container.populateInsertionPoint('context.note.contextmenu.options', this)
 			],
-			defaults : {
+			defaults: {
 				xtype: 'zarafa.conditionalitem',
-				hideOnDisabled : false
+				hideOnDisabled: false
 			}
 		});
 
@@ -60,31 +60,31 @@ Zarafa.note.ui.NoteContextMenu = Ext.extend(Zarafa.core.ui.menu.ConditionalMenu,
 	 * @return {Zarafa.core.ui.menu.ConditionalItem[]} The list of Action context menu items
 	 * @private
 	 */
-	createContextActionItems : function(records)
+	createContextActionItems: function(records)
 	{
 		return [{
-			text : _('Open'),
-			iconCls : 'icon_open',
-			scope : this,
-			handler : this.onContextItemOpen,
-			singleSelectOnly : true
+			text: _('Open'),
+			iconCls: 'icon_open',
+			scope: this,
+			handler: this.onContextItemOpen,
+			singleSelectOnly: true
 		}, {
-			text : _('Copy/Move'),
-			iconCls : 'icon_copy',
-			scope : this,
-			handler : this.onCopyMove
+			text: _('Copy/Move'),
+			iconCls: 'icon_copy',
+			scope: this,
+			handler: this.onCopyMove
 		}, {
-			text : _('Print'),
-			iconCls : 'icon_print',
-			scope : this,
-			handler : this.onContextItemPrint,
-			singleSelectOnly : true
+			text: _('Print'),
+			iconCls: 'icon_print',
+			scope: this,
+			handler: this.onContextItemPrint,
+			singleSelectOnly: true
 		}, {
 			xtype: 'menuseparator'
 		}, {
-			text : _('Categories'),
+			text: _('Categories'),
 			cls: 'k-unclickable',
-			iconCls : 'icon_categories',
+			iconCls: 'icon_categories',
 			hideOnClick: false,
 			menu: {
 				xtype: 'zarafa.categoriescontextmenu',
@@ -93,10 +93,10 @@ Zarafa.note.ui.NoteContextMenu = Ext.extend(Zarafa.core.ui.menu.ConditionalMenu,
 		}, {
 			xtype: 'menuseparator'
 		}, {
-			text : _('Delete'),
-			iconCls : 'icon_delete',
-			scope : this,
-			handler : this.onContextItemDelete
+			text: _('Delete'),
+			iconCls: 'icon_delete',
+			scope: this,
+			handler: this.onContextItemDelete
 		}];
 	},
 
@@ -105,7 +105,7 @@ Zarafa.note.ui.NoteContextMenu = Ext.extend(Zarafa.core.ui.menu.ConditionalMenu,
 	 * or moving the currently selected notes.
 	 * @private
 	 */
-	onCopyMove : function()
+	onCopyMove: function()
 	{
 		Zarafa.common.Actions.openCopyMoveContent(this.records);
 	},
@@ -115,7 +115,7 @@ Zarafa.note.ui.NoteContextMenu = Ext.extend(Zarafa.core.ui.menu.ConditionalMenu,
 	 * item in the context menu. This will open the item in a new dialog.
 	 * @private
 	 */
-	onContextItemOpen : function()
+	onContextItemOpen: function()
 	{
 		Zarafa.note.Actions.openNoteContent(this.records);
 	},
@@ -125,7 +125,7 @@ Zarafa.note.ui.NoteContextMenu = Ext.extend(Zarafa.core.ui.menu.ConditionalMenu,
 	 * item in the context menu. This will open a new mail dialog.
 	 * @private
 	 */
-	onContextItemEmail : function()
+	onContextItemEmail: function()
 	{
 		Zarafa.note.Actions.openNoteEmailContent(this.records);
 	},
@@ -135,7 +135,7 @@ Zarafa.note.ui.NoteContextMenu = Ext.extend(Zarafa.core.ui.menu.ConditionalMenu,
 	 * item in the context menu. This will open {@link Zarafa.common.categories.dialogs.CategoriesContentPanel CategoriesContentPanel}.
 	 * @private
 	 */
-	onContextItemCategories : function()
+	onContextItemCategories: function()
 	{
 		Zarafa.common.Actions.openCategoriesContent(this.records);
 	},
@@ -145,7 +145,7 @@ Zarafa.note.ui.NoteContextMenu = Ext.extend(Zarafa.core.ui.menu.ConditionalMenu,
 	 * item in the context menu. This will open {@link Zarafa.common.dialogs.CategoriesContentPanel CategoriesContentPanel}.
 	 * @private
 	 */
-	onContextItemPrint : function()
+	onContextItemPrint: function()
 	{
 		Zarafa.common.Actions.openPrintDialog(this.records);
 	},
@@ -155,11 +155,9 @@ Zarafa.note.ui.NoteContextMenu = Ext.extend(Zarafa.core.ui.menu.ConditionalMenu,
 	 * item in the context menu. This will delete selected notes from view.
 	 * @private
 	 */
-	onContextItemDelete : function()
+	onContextItemDelete: function()
 	{
-		var store = this.records[0].getStore();
-		store.remove(this.records);
-		store.save();
+		Zarafa.common.Actions.deleteRecords(this.records);
 	}
 });
 

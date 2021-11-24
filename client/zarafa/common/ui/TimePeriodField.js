@@ -13,24 +13,26 @@ Zarafa.common.ui.TimePeriodField = Ext.extend(Zarafa.common.ui.DateRangeField, {
 	 * @cfg {String} timeFormat The format in which the time appears in the
 	 * time {@link Zarafa.common.ui.SpinnerField Spinner}.
 	 */
-	timeFormat : _('G:i'),
+	timeFormat: _('G:i'),
 	/**
 	 * @cfg {Number} timeIncrement The number of minutes to increase/decrease
 	 * when the time {@link Zarafa.common.ui.SpinnerField Spinner} is used.
 	 */
-	timeIncrement : 30,
+	timeIncrement: 30,
 	/**
 	 * @cfg {Object} pluginCfg Configuration object which should be applied
 	 * by default on the {@link Zarafa.common.plugins.TimeSpinner TimeSpinner} plugin.
 	 */
-	pluginCfg : undefined,
+	pluginCfg: undefined,
 	/**
 	 * @constructor
 	 * @param {Object} Configuration object
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		config = config || {};
+
+		this.timeFormat = config.timeFormat || container.settingsModel.get('zarafa/v1/main/datetime_time_format');
 
 		config.startFieldConfig = config.startFieldConfig || {};
 		config.startFieldConfig.plugins = Ext.value(config.startFieldConfig.plugins, []);
@@ -47,8 +49,8 @@ Zarafa.common.ui.TimePeriodField = Ext.extend(Zarafa.common.ui.DateRangeField, {
 
 		Ext.applyIf(config.startFieldConfig, {
 			xtype: 'zarafa.spinnerfield',
-			fieldLabel : _('Start time'),
-			width : 190,
+			fieldLabel: _('Start time'),
+			width: 190,
 			minValue: config.minValue || this.minValue,
 			maxValue: config.maxValue || this.maxValue,
 			incrementValue: config.timeIncrement || this.timeIncrement,
@@ -70,8 +72,8 @@ Zarafa.common.ui.TimePeriodField = Ext.extend(Zarafa.common.ui.DateRangeField, {
 
 		config.endFieldConfig = Ext.applyIf(config.endFieldConfig || {}, {
 			xtype: 'zarafa.spinnerfield',
-			fieldLabel : _('End time'),
-			width : 190,
+			fieldLabel: _('End time'),
+			width: 190,
 			minValue: config.minValue || this.minValue,
 			maxValue: config.maxValue || this.maxValue,
 			incrementValue: config.timeIncrement || this.timeIncrement,
@@ -88,7 +90,7 @@ Zarafa.common.ui.TimePeriodField = Ext.extend(Zarafa.common.ui.DateRangeField, {
 	 * @param {Zarafa.common.plugins.TimeSpinner} spinner The spinner which fired the event
 	 * @private
 	 */
-	onStartSpin : function(spinner)
+	onStartSpin: function(spinner)
 	{
 		this.onStartChange(spinner.field, spinner.field.getValue(), spinner.field.startValue);
 	},
@@ -100,7 +102,7 @@ Zarafa.common.ui.TimePeriodField = Ext.extend(Zarafa.common.ui.DateRangeField, {
 	 * @param {Zarafa.common.plugins.TimeSpinner} spinner The spinner which fired the event
 	 * @private
 	 */
-	onEndSpin : function(spinner)
+	onEndSpin: function(spinner)
 	{
 		this.onEndChange(spinner.field, spinner.field.getValue(), spinner.field.startValue);
 	}

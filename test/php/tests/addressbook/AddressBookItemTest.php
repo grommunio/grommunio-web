@@ -55,7 +55,7 @@ class AddressBookItemTest extends KopanoTest {
 
 		$this->assertArrayHasKey('ems_ab_proxy_addresses', $item, 'Test that the returned object contains the \'ems_ab_proxy_addresses\' substore');
 		$this->assertArrayHasKey('item', $item['ems_ab_proxy_addresses'], 'Test that the \'ems_ab_proxy_addresses\' substore contains the \'item\' array');
-		$this->assertCount(1, $item['ems_ab_proxy_addresses']['item'], 'Test that there are items inside the \'ems_ab_proxy_addresses\' substore');
+		$this->assertCount(3, $item['ems_ab_proxy_addresses']['item'], 'Test that there are items inside the \'ems_ab_proxy_addresses\' substore');
 		$this->assertEquals('SMTP:' . KOPANO_USER1_EMAIL_ADDRESS, $item['ems_ab_proxy_addresses']['item'][0]['address'], 'Test that the email address is correctly listed');
 	}
 
@@ -80,8 +80,8 @@ class AddressBookItemTest extends KopanoTest {
 
 		$this->assertArrayHasKey('props', $item, 'Test that the returned object contains the \'props\' object');
 		$this->assertEquals(MAPI_DISTLIST, $item['props']['object_type'], 'Test that the \'object_type\' is MAPI_DISTLIST');
-		$this->assertEquals(KOPANO_GROUP1_NAME, $item['props']['account'], 'Test that the \'account\' property is correctly set');
-		$this->assertEquals(KOPANO_GROUP1_DISPLAY_NAME, $item['props']['display_name'], 'Test that the \'display_name\' is correctly set');
+		$this->assertEquals(GROMMUNIO_GROUP1_NAME, $item['props']['account'], 'Test that the \'account\' property is correctly set');
+		$this->assertEquals(GROMMUNIO_GROUP1_DISPLAY_NAME, $item['props']['display_name'], 'Test that the \'display_name\' is correctly set');
 
 		$this->assertArrayHasKey('members', $item, 'Test that the returned object contains the \'members\' substore');
 		$this->assertArrayHasKey('item', $item['members'], 'Test that the \'members\' substore contains the \'item\' array');

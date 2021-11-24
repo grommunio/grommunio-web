@@ -12,20 +12,20 @@ Zarafa.addressbook.AddressBookStore = Ext.extend(Zarafa.core.data.ListModuleStor
 	 * @constructor
 	 * @param {Object} config Configuration object
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		config = config || {};
 
 		var recordType = Zarafa.core.data.RecordFactory.getRecordClassByObjectType(Zarafa.core.mapi.ObjectType.MAPI_MAILUSER);
 
 		Ext.applyIf(config, {
-			preferredMessageClass : 'addressbook',
-			standalone:  true,
-			sortInfo : {
-				field : 'full_name',
-				direction : 'desc'
+			preferredMessageClass: 'addressbook',
+			standalone: true,
+			sortInfo: {
+				field: 'full_name',
+				direction: 'desc'
 			},
-			reader : new Zarafa.core.data.JsonReader({}, recordType)
+			reader: new Zarafa.core.data.JsonReader({}, recordType)
 		});
 
 		Zarafa.addressbook.AddressBookStore.superclass.constructor.call(this, config);
@@ -39,7 +39,7 @@ Zarafa.addressbook.AddressBookStore = Ext.extend(Zarafa.core.data.ListModuleStor
 	 * @param {String} b The second id to compare
 	 * @protected
 	 */
-	idComparison : function(a, b)
+	idComparison: function(a, b)
 	{
 		return Zarafa.core.EntryId.compareABEntryIds(a, b);
 	},
@@ -53,7 +53,7 @@ Zarafa.addressbook.AddressBookStore = Ext.extend(Zarafa.core.data.ListModuleStor
 	 * @return {String} The key by which the record must be saved into the {@link Ext.util.MixedCollection}.
 	 * @protected
 	 */
-	getRecordKey : function(o)
+	getRecordKey: function(o)
 	{
 		if (o.get('email_index') && o.get('email_index') !== -1) {
 			return o.id + '_' + o.get('email_index');

@@ -12,7 +12,7 @@ Zarafa.core.plugins.ComboAutoWidth = Ext.extend(Ext.util.Observable, {
 	 * Initialize the plugin for the given {@link Ext.form.Field field}
 	 * @param {Ext.form.ComboBox} comboBox on which the plugin is placed
 	 */
-	init : function(combo)
+	init: function(combo)
 	{
 		this.container = combo;
 
@@ -26,7 +26,7 @@ Zarafa.core.plugins.ComboAutoWidth = Ext.extend(Ext.util.Observable, {
 	 * @param {Zarafa.core.data.IPMStore} store store that fired the event.
 	 * @private
 	 */
-	resizeToFitContent : function()
+	resizeToFitContent: function()
 	{
 		var combo = this.container;
 		var store = combo.getStore();
@@ -43,7 +43,7 @@ Zarafa.core.plugins.ComboAutoWidth = Ext.extend(Ext.util.Observable, {
 		if (listWidth > 0) {
 			listWidth = Math.max(combo.minListWidth, listWidth);
 
-			listWidth += combo.getTriggerWidth(); // to accomodate combo's down arrow.
+			listWidth += combo.getTriggerWidth(); // to accommodate combo's down arrow.
 			if (combo.getWidth() < listWidth) {
 				if (!combo.list) {
 					combo.listWidth = listWidth;

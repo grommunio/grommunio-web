@@ -16,7 +16,7 @@ Zarafa.common.rules.dialogs.AttachmentLink = Ext.extend(Zarafa.common.rules.dial
 	 * Obtain the condition as configured by the user
 	 * @return {Object} The condition
 	 */
-	getCondition : function()
+	getCondition: function()
 	{
 		if (this.isModified !== true) {
 			return this.condition;
@@ -27,9 +27,9 @@ Zarafa.common.rules.dialogs.AttachmentLink = Ext.extend(Zarafa.common.rules.dial
 			return false;
 		}
 
-		return Zarafa.core.data.RestrictionFactory.dataResBitmask('PR_MESSAGE_FLAGS',
-			Zarafa.core.mapi.Restrictions.BMR_NEZ,
-			Zarafa.core.mapi.MessageFlags.MSGFLAG_HASATTACH);
+		var conditionFactory = container.getRulesFactoryByType(Zarafa.common.data.RulesFactoryType.CONDITION);
+		var conditionDefinition = conditionFactory.getConditionById(this.conditionFlag);
+		return conditionDefinition();
 	}
 });
 

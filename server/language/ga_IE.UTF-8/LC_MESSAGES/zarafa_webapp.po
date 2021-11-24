@@ -1,16 +1,12 @@
-# grommunio-web Irish (Gabun) translation.
-# Copyright (C) 2017
-# This file is distributed under the same license as the kopano-webapp package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# grommunio Web Irish (Gabun) translation.
+# Copyright (C) 2021
 msgid ""
 msgstr ""
-"Project-Id-Version: grommunio-web Irish (Gabun)\n"
+"Project-Id-Version: grommunio Web Irish (Gabun)\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-07-31 17:06+0200\n"
 "PO-Revision-Date: \n"
-"Last-Translator: \n"
-"Language-Team: Irish (GA) <http://translate.kopano.io/projects/kopano/kopano-"
-"webapp/de/>\n"
+"Last-Translator: import\n"
 "Language: ga_GA\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1549,7 +1545,7 @@ msgstr ""
 msgid "Copy"
 msgstr ""
 
-msgid "grommunio-web"
+msgid "grommunio Web"
 msgstr ""
 
 msgid ""
@@ -2244,7 +2240,7 @@ msgstr ""
 msgid "Duplicate recipients"
 msgstr ""
 
-msgid "grommunio-web print"
+msgid "grommunio Web print"
 msgstr ""
 
 msgid "Display name"
@@ -2828,7 +2824,7 @@ msgstr ""
 
 msgctxt "mail.previewpanel"
 msgid ""
-"Click here to download pictures. To help protect your privacy, WebApp "
+"Click here to download pictures. To help protect your privacy, grommunio Web "
 "prevented automatic download of some pictures in this message."
 msgstr ""
 
@@ -3457,7 +3453,7 @@ msgstr ""
 
 msgid ""
 "Your browser seems to have blocked one or more pop-ups. Please change your "
-"browser's settings to always allow pop-ups from WebApp."
+"browser's settings to always allow pop-ups from grommunio Web."
 msgstr ""
 
 msgid "Untitled"
@@ -3673,7 +3669,7 @@ msgid ""
 "You will lose all unsaved work. Are you sure you want to close this window?"
 msgstr ""
 
-msgid "Kopano Content Panel"
+msgid "grommunio Content Panel"
 msgstr ""
 
 msgid "Delete item"
@@ -3685,10 +3681,10 @@ msgstr ""
 msgid "Unsaved changes"
 msgstr ""
 
-msgid "Welcome to grommunio-web"
+msgid "Welcome to grommunio Web"
 msgstr ""
 
-msgid "This is the first time you are using WebApp. "
+msgid "This is the first time you are using grommunio Web. "
 msgstr ""
 
 msgid "Please check the following settings before continuing."
@@ -4301,7 +4297,7 @@ msgstr ""
 msgid "Open or compose a mail item in a"
 msgstr ""
 
-msgid "WebApp tab"
+msgid "grommunio Web tab"
 msgstr ""
 
 msgid "Browser window"
@@ -4459,11 +4455,11 @@ msgid "Loading notes"
 msgstr ""
 
 msgid ""
-"You must reload WebApp for the changes to take effect. Unsaved changes will "
+"You must reload grommunio Web for the changes to take effect. Unsaved changes will "
 "be lost."
 msgstr ""
 
-msgid "Reload WebApp"
+msgid "Reload grommunio Web"
 msgstr ""
 
 msgid "Settings"
@@ -4538,14 +4534,14 @@ msgstr ""
 msgid "Infinite Scroll"
 msgstr ""
 
-msgid "WebApp automatically loads additional items when you scroll down"
+msgid "grommunio Web automatically loads additional items when you scroll down"
 msgstr ""
 
 msgid "Pagination"
 msgstr ""
 
 msgid ""
-"WebApp displays items on pages and you can use navigation controls to "
+"grommunio Web displays items on pages and you can use navigation controls to "
 "navigate"
 msgstr ""
 
@@ -4570,7 +4566,7 @@ msgstr ""
 msgid "All keyboard shortcuts on"
 msgstr ""
 
-msgid "This change requires a reload of the WebApp"
+msgid "This change requires a reload of the grommunio Web"
 msgstr ""
 
 msgid "Discard"
@@ -4583,9 +4579,9 @@ msgid "Available plugins"
 msgstr ""
 
 msgid ""
-"The following plugins are available in the WebApp. It is possible to select "
+"The following plugins are available in the grommunio Web. It is possible to select "
 "and/or deselect different plugins to indicate which plugins should be "
-"enabled. When any plugin is enabled or disabled, the WebApp must be reloaded "
+"enabled. When any plugin is enabled or disabled, the grommunio Web must be reloaded "
 "in order for the changes to take effect."
 msgstr ""
 
@@ -4639,7 +4635,7 @@ msgid ""
 msgstr ""
 
 msgid ""
-"WebApp will automatically reload in order for these changes to take effect"
+"grommunio Web will automatically reload in order for these changes to take effect"
 msgstr ""
 
 msgid "Reset"
@@ -4657,7 +4653,7 @@ msgstr ""
 msgid "Version information"
 msgstr ""
 
-msgid "WebApp"
+msgid "grommunio Web"
 msgstr ""
 
 msgid "Gromox"
@@ -4914,7 +4910,7 @@ msgstr ""
 
 msgid ""
 "Calendar, contact and mail items can be imported and exported from and to "
-"WebApp."
+"grommunio Web."
 msgstr ""
 
 msgid ""
@@ -5009,7 +5005,7 @@ msgid "The default store is missing from the hierarchy."
 msgstr ""
 
 msgid ""
-"Not all functionality of WebApp might be working properly because of this."
+"Not all functionality of grommunio Web might be working properly because of this."
 msgstr ""
 
 msgctxt "hierarchy.foldername"
@@ -5197,7 +5193,7 @@ msgstr ""
 msgid "Help"
 msgstr ""
 
-msgid "WebApp Manual"
+msgid "grommunio Web Manual"
 msgstr ""
 
 msgid "INSERT"
@@ -5230,7 +5226,7 @@ msgstr ""
 msgid "Pearl aqua"
 msgstr ""
 
-msgid "Kopano blue"
+msgid "grommunio blue"
 msgstr ""
 
 msgid "Baby blue"
@@ -5291,7 +5287,7 @@ msgid "You have been automatically logged out"
 msgstr ""
 
 msgid ""
-"Sorry, access to WebApp is not available with this user account. Please "
+"Sorry, access to grommunio Web is not available with this user account. Please "
 "contact your system administrator."
 msgstr ""
 

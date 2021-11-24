@@ -16,13 +16,13 @@ Zarafa.settings.ui.SettingsContextMenu = Ext.extend(Zarafa.core.ui.menu.Conditio
 	 * @cfg {Zarafa.settings.SettingsModel} settingsModel The settingsModel on which
 	 * to work with the settings.
 	 */
-	settingsModel : undefined,
+	settingsModel: undefined,
 
 	/**
 	 * @constructor
 	 * @param {Object} config Configuration object
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		config = config || {};
 
@@ -38,23 +38,23 @@ Zarafa.settings.ui.SettingsContextMenu = Ext.extend(Zarafa.core.ui.menu.Conditio
 		}
 
 		Ext.applyIf(config, {
-			settingsModel : container.getSettingsModel(),
-			items : [{
+			settingsModel: container.getSettingsModel(),
+			items: [{
 				xtype: 'zarafa.conditionalitem',
 				text: _('Edit setting'),
-				hidden : isRoot || !isEditable,
+				hidden: isRoot || !isEditable,
 				handler: this.onEditSetting,
 				scope: this
 			},{
 				xtype: 'zarafa.conditionalitem',
 				text: _('Restore to defaults'),
-				hidden : isRoot,
+				hidden: isRoot,
 				handler: this.onRestoreSettings,
 				scope: this
 			},{
 				xtype: 'zarafa.conditionalitem',
 				text: _('Delete settings'),
-				hidden : isRoot,
+				hidden: isRoot,
 				handler: this.onDeleteSettings,
 				scope: this
 			},{
@@ -72,7 +72,7 @@ Zarafa.settings.ui.SettingsContextMenu = Ext.extend(Zarafa.core.ui.menu.Conditio
 	 * This will enable the {@link Zarafa.settings.ui.SettingsTreeNode#startEdit editor}.
 	 * @private
 	 */
-	onEditSetting : function()
+	onEditSetting: function()
 	{
 		this.records.startEdit();
 	},
@@ -82,7 +82,7 @@ Zarafa.settings.ui.SettingsContextMenu = Ext.extend(Zarafa.core.ui.menu.Conditio
 	 * This will {@link Zarafa.settings.SettingsModel#restore restore the default values} of the settings.
 	 * @private
 	 */
-	onRestoreSettings : function()
+	onRestoreSettings: function()
 	{
 		this.settingsModel.restore(this.records.id);
 	},
@@ -92,7 +92,7 @@ Zarafa.settings.ui.SettingsContextMenu = Ext.extend(Zarafa.core.ui.menu.Conditio
 	 * This will {@link Zarafa.settings.SettingsModel#remove remove} settings.
 	 * @private
 	 */
-	onDeleteSettings : function()
+	onDeleteSettings: function()
 	{
 		this.settingsModel.remove(this.records.id);
 	}

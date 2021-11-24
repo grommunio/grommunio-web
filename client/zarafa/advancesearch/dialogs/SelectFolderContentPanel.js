@@ -14,20 +14,20 @@ Zarafa.advancesearch.dialogs.SelectFolderContentPanel = Ext.extend(Zarafa.core.u
 	 * @constructor
 	 * @param config Configuration structure
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		config = config || {};
 
 		Ext.applyIf(config, {
-			xtype : 'zarafa.selectfoldercontentpanel',
+			xtype: 'zarafa.selectfoldercontentpanel',
 			layout: 'fit',
-			title : _('Select Folder'),
+			title: _('Select Folder'),
 			width: 300,
 			height: 350,
 			items: [{
 				xtype: 'zarafa.selectfolderpanel',
-				model : config.model,
-				searchFolderCombo : config.searchFolderCombo
+				model: config.model,
+				searchFolderCombo: config.searchFolderCombo
 			}]
 		});
 

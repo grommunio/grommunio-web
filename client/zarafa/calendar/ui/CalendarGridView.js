@@ -11,7 +11,7 @@ Zarafa.calendar.ui.CalendarGridView = Ext.extend(Zarafa.common.ui.grid.MapiMessa
 	/**
 	 * @cfg {Zarafa.calendar.CalendarContext} context The context to which this panel belongs
 	 */
-	context : undefined,
+	context: undefined,
 
 	/**
 	 * The {@link Zarafa.calendar.CalendarContextModel} which is obtained from
@@ -20,13 +20,13 @@ Zarafa.calendar.ui.CalendarGridView = Ext.extend(Zarafa.common.ui.grid.MapiMessa
 	 * @property
 	 * @type Zarafa.calendar.CalendarContextModel
 	 */
-	model : undefined,
+	model: undefined,
 
 	/**
 	 * @constructor
 	 * @param {Object} config Configuration structure
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		config = config || {};
 
@@ -39,17 +39,17 @@ Zarafa.calendar.ui.CalendarGridView = Ext.extend(Zarafa.common.ui.grid.MapiMessa
 		config.store = Ext.StoreMgr.lookup(config.store);
 
 		config = Ext.applyIf(config, {
-			xtype : 'zarafa.calendargrid',
+			xtype: 'zarafa.calendargrid',
 			overCls: 'zarafa-calendar-grid-row-over',
-			border : false,
-			stateful : true,
-			statefulRelativeDimensions : false,
-			loadMask : this.initLoadMask(),
-			viewConfig : this.initViewConfig(),
-			selModel : this.initSelectionModel(),
-			colModel : this.initColumnModel(),
-			enableDragDrop : true,
-			ddGroup : 'dd.mapiitem'
+			border: false,
+			stateful: true,
+			statefulRelativeDimensions: false,
+			loadMask: this.initLoadMask(),
+			viewConfig: this.initViewConfig(),
+			selModel: this.initSelectionModel(),
+			colModel: this.initColumnModel(),
+			enableDragDrop: true,
+			ddGroup: 'dd.mapiitem'
 		});
 
 		Zarafa.calendar.ui.CalendarGridView.superclass.constructor.call(this, config);
@@ -59,10 +59,10 @@ Zarafa.calendar.ui.CalendarGridView = Ext.extend(Zarafa.common.ui.grid.MapiMessa
 	 * @return {Object} view config object
 	 * @private
 	 */
-	initViewConfig : function()
+	initViewConfig: function()
 	{
 		return {
-			forceFit : false,
+			forceFit: false,
 			getRowClass: this.getRowClass.createDelegate(this)
 		};
 	},
@@ -71,10 +71,10 @@ Zarafa.calendar.ui.CalendarGridView = Ext.extend(Zarafa.common.ui.grid.MapiMessa
 	 * @return {Object} loas mask config object
 	 * @private
 	 */
-	initLoadMask : function()
+	initLoadMask: function()
 	{
 		return {
-			msg : _('Loading appointments') + '...'
+			msg: _('Loading appointments') + '...'
 		};
 	},
 
@@ -83,7 +83,7 @@ Zarafa.calendar.ui.CalendarGridView = Ext.extend(Zarafa.common.ui.grid.MapiMessa
 	 * @return {Ext.grid.ColumnModel} column model object
 	 * @private
 	 */
-	initColumnModel : function()
+	initColumnModel: function()
 	{
 		return new Zarafa.calendar.ui.CalendarGridColumnModel();
 	},
@@ -93,10 +93,10 @@ Zarafa.calendar.ui.CalendarGridView = Ext.extend(Zarafa.common.ui.grid.MapiMessa
 	 * @return {Ext.grid.RowSelectionModel} selection model object
 	 * @private
 	 */
-	initSelectionModel : function()
+	initSelectionModel: function()
 	{
 		return new Ext.grid.RowSelectionModel({
-			singleSelect : false
+			singleSelect: false
 		});
 	},
 
@@ -104,7 +104,7 @@ Zarafa.calendar.ui.CalendarGridView = Ext.extend(Zarafa.common.ui.grid.MapiMessa
 	 * initialize events for the grid panel
 	 * @private
 	 */
-	initEvents : function()
+	initEvents: function()
 	{
 		Zarafa.calendar.ui.CalendarGridView.superclass.initEvents.call(this);
 
@@ -121,7 +121,7 @@ Zarafa.calendar.ui.CalendarGridView = Ext.extend(Zarafa.common.ui.grid.MapiMessa
 	 * @param {Zarafa.core.ContextModel} model The model which raised the event
 	 * @param {Boolean} mergeState The current merge state
 	 */
-	onFolderMergestateChanged : function(model, mergeState)
+	onFolderMergestateChanged: function(model, mergeState)
 	{
 		if (mergeState) {
 			model.clearGrouping();
@@ -137,7 +137,7 @@ Zarafa.calendar.ui.CalendarGridView = Ext.extend(Zarafa.common.ui.grid.MapiMessa
 	 * @param {Ext.event} eventObj object of the event
 	 * @private
 	 */
-	onRowDblClick : function(grid, rowIndex, eventObj)
+	onRowDblClick: function(grid, rowIndex, eventObj)
 	{
 		Zarafa.calendar.Actions.openAppointmentContent(grid.getSelectionModel().getSelections());
 	},
@@ -150,7 +150,7 @@ Zarafa.calendar.ui.CalendarGridView = Ext.extend(Zarafa.common.ui.grid.MapiMessa
 	 * @param {Ext.grid.RowSelectionModel} selectionModel The selection model used by the grid.
 	 * @private
 	 */
-	onSelectionChange : function(selectionModel)
+	onSelectionChange: function(selectionModel)
 	{
 		this.model.setSelectedRecords(selectionModel.getSelections());
 	},

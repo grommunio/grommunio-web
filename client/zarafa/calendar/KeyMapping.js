@@ -24,9 +24,9 @@ Zarafa.calendar.KeyMapping = Ext.extend(Object, {
 			stopEvent: true,
 			handler: this.onNewAppointment,
 			scope: this,
-			settingsCfg : {
-				description : _('New appointment'),
-				category : _('Creating an item')
+			settingsCfg: {
+				description: _('New appointment'),
+				category: _('Creating an item')
 			}
 		},{
 			key: Ext.EventObject.V,
@@ -36,9 +36,9 @@ Zarafa.calendar.KeyMapping = Ext.extend(Object, {
 			stopEvent: true,
 			handler: this.onNewMeetingRequest,
 			scope: this,
-			settingsCfg : {
-				description : _('New meeting request'),
-				category : _('Creating an item')
+			settingsCfg: {
+				description: _('New meeting request'),
+				category: _('Creating an item')
 			}
 		},{
 			key: [Ext.EventObject.LEFT, Ext.EventObject.RIGHT],
@@ -48,9 +48,9 @@ Zarafa.calendar.KeyMapping = Ext.extend(Object, {
 			stopEvent: true,
 			handler: this.onSwitchRange,
 			scope: this,
-			settingsCfg : {
-				description : _('Switch calendar range back and forth'),
-				category : _('Calendar')
+			settingsCfg: {
+				description: _('Switch calendar range back and forth'),
+				category: _('Calendar')
 			}
 		}];
 
@@ -60,10 +60,10 @@ Zarafa.calendar.KeyMapping = Ext.extend(Object, {
 			alt: false,
 			shift: false,
 			stopEvent: true,
-			enableGlobally : true,
-			settingsCfg : {
-				description : _('Copy selected item'),
-				category : _('Calendar')
+			enableGlobally: true,
+			settingsCfg: {
+				description: _('Copy selected item'),
+				category: _('Calendar')
 			},
 			handler:this.onCopyItem,
 			scope: this,
@@ -74,10 +74,10 @@ Zarafa.calendar.KeyMapping = Ext.extend(Object, {
 			alt: false,
 			shift: false,
 			stopEvent: true,
-			enableGlobally : true,
-			settingsCfg : {
-				description : _('Paste selected item'),
-				category : _('Calendar')
+			enableGlobally: true,
+			settingsCfg: {
+				description: _('Paste selected item'),
+				category: _('Calendar')
 			},
 			handler:this.onPaste,
 			scope: this,
@@ -89,7 +89,7 @@ Zarafa.calendar.KeyMapping = Ext.extend(Object, {
 	},
 
 	/**
-	 * Event handler for the keydown event of the {@link Zarafa.core.KeyMap KeyMap} when the user wants to 
+	 * Event handler for the keydown event of the {@link Zarafa.core.KeyMap KeyMap} when the user wants to
 	 * create a new appointment.
 	 * @param {Number} key Key code
 	 * @param {Ext.EventObject} event The event
@@ -101,7 +101,7 @@ Zarafa.calendar.KeyMapping = Ext.extend(Object, {
 	},
 
 	/**
-	 * Event handler for the keydown event of the {@link Zarafa.core.KeyMap KeyMap} when the user wants to 
+	 * Event handler for the keydown event of the {@link Zarafa.core.KeyMap KeyMap} when the user wants to
 	 * create a new meeting request.
 	 * @param {Number} key Key code
 	 * @param {Ext.EventObject} event The event
@@ -136,7 +136,7 @@ Zarafa.calendar.KeyMapping = Ext.extend(Object, {
 	 * @param {Ext.EventObject} event The event
 	 * @param {Ext.Component} component The component on which key event is fired.
 	 */
-	onCopyItem : function (key, event, component)
+	onCopyItem: function (key, event, component)
 	{
 		var records = Zarafa.common.KeyMapping.getSelectedRecords(component);
 		if (!Ext.isEmpty(records)) {
@@ -152,7 +152,7 @@ Zarafa.calendar.KeyMapping = Ext.extend(Object, {
 	 * @param {Zarafa.core.data.IPMRecord} record A selected calender item in calender view.
 	 * @private
 	 */
-	openRecord : function (component, record)
+	openRecord: function (component, record)
 	{
 		var store = container.getShadowStore();
 		store.add(record);
@@ -177,7 +177,7 @@ Zarafa.calendar.KeyMapping = Ext.extend(Object, {
 	 * @param {Ext.Component} component The component on which key event is fired.
 	 * @private
 	 */
-	onPaste : function (key, event, component)
+	onPaste: function (key, event, component)
 	{
 		if(Ext.isEmpty(component.clipBoardData)) {
 			return;
@@ -185,8 +185,8 @@ Zarafa.calendar.KeyMapping = Ext.extend(Object, {
 		var record = component.clipBoardData.copy();
 		if (component.isClipBoardDataRecurring) {
 			var config = {
-				component : component,
-				scope : this
+				component: component,
+				scope: this
 			};
 			Zarafa.calendar.Actions.copyRecurringItemContent(record, config);
 		} else if(!record.isOpened()) {

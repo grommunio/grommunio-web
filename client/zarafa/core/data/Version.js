@@ -17,13 +17,13 @@ Zarafa.core.data.Version = Ext.extend(Object, {
 	 * @property
 	 * @type Object
 	 */
-	meta : undefined,
+	meta: undefined,
 
 	/**
 	 * @constructor
 	 * @param {Object} config Configuration object
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		this.meta = config;
 	},
@@ -31,7 +31,7 @@ Zarafa.core.data.Version = Ext.extend(Object, {
 	/**
 	 * @return {String} Return the WebApp version number
 	 */
-	getWebApp : function()
+	getWebApp: function()
 	{
 		return this.meta.webapp;
 	},
@@ -39,7 +39,7 @@ Zarafa.core.data.Version = Ext.extend(Object, {
 	/**
 	 * @return {String} Return the Gromox version number
 	 */
-	getZCP : function()
+	getZCP: function()
 	{
 		return this.meta.zcp;
 	},
@@ -47,19 +47,27 @@ Zarafa.core.data.Version = Ext.extend(Object, {
 	/**
 	 * @return {String} Return the current Git branch
 	 */
-	getGit : function()
+	getGit: function()
 	{
 		return this.meta.git;
 	},
-	
+
+	/**
+	 * @return {String} Return the cache buster string
+	 */
+	getCachebuster: function()
+	{
+		return this.meta.cachebuster;
+	},
+
 	/**
 	 * Compares two version strings.
-	 * @param {String} version1 The first version string for the comparision
-	 * @param {String} version2 The second version string for the comparision
-	 * @return {Integer} -1 if version1 is lower than version2, 
+	 * @param {String} version1 The first version string for the comparison
+	 * @param {String} version2 The second version string for the comparison
+	 * @return {Integer} -1 if version1 is lower than version2,
 	 * 1 if version2 is lower, 0 if the versions are equal.
 	 */
-	versionCompare : function(version1, version2)
+	versionCompare: function(version1, version2)
 	{
 		// First remove unnecessary parts
 		if ( version1.indexOf('-') > -1 ){
@@ -68,7 +76,7 @@ Zarafa.core.data.Version = Ext.extend(Object, {
 		if ( version2.indexOf('-') > -1 ){
 			version2 = version2.split('-')[0];
 		}
-		
+
 		version1 = version1.split('.');
 		version2 = version2.split('.');
 
@@ -80,26 +88,26 @@ Zarafa.core.data.Version = Ext.extend(Object, {
 		if (version2.length > 3) {
 			version2 = version2.splice(0,3);
 		}
-		
+
 		for ( var i=0; i<version1.length; i++ ){
 			if ( !Ext.isDefined(version2[i]) ){
 				return 1;
 			}
-			
+
 			var v1 = parseInt(version1[i], 10);
 			var v2 = parseInt(version2[i], 10);
-			
+
 			if ( v1 < v2 ){
 				return -1;
-			}else if ( v1 > v2 ){
+			} else if ( v1 > v2 ){
 				return 1;
 			}
 		}
-		
+
 		if ( version2[version1.length] ){
 			return -1;
 		}
-		
+
 		// When we get here the versions are considered the same
 		return 0;
 	}

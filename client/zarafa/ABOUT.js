@@ -9,7 +9,7 @@ Ext.namespace('Zarafa');
 
 Zarafa.ABOUT = ""
 	+ "<style>div.atxt h1{font-weight:inherit;font-style:italic;}</style><div class=\"atxt\">"
-	+ "<p>Copyright 2020 grommunio GmbH</p>"
+	+ "<p>Copyright 2020-2021 grommunio GmbH</p>"
 
 	+ "<p>This program is free software: you can redistribute it and/or modify "
 	+ "it under the terms of the GNU Affero General Public License as "
@@ -18,11 +18,11 @@ Zarafa.ABOUT = ""
 
 	+ "<p>This program is distributed in the hope that it will be useful, "
 	+ "but WITHOUT ANY WARRANTY; without even the implied warranty of "
-	+ "MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the "
+	+ "MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the "
 	+ "GNU Affero General Public License for more details.</p>"
 
 	+ "<p>You should have received a copy of the GNU Affero General Public License "
-	+ "along with this program.  If not, see <a href=\"https://www.gnu.org/licenses/\" target=\"_blank\">https://www.gnu.org/licenses/</a>.</p>"
+	+ "along with this program. If not, see <a href=\"https://www.gnu.org/licenses/\" target=\"_blank\">https://www.gnu.org/licenses/</a>.</p>"
 
 	+ "<hr />"
 
@@ -115,7 +115,7 @@ Zarafa.ABOUT = ""
 
 	+ "<h1>Tokenizr -- String Tokenization Library</h1>"
 
-	+ "<p>Copyright (c) 2015-2018 Ralf S. Engelschall  <a href=\"mailto:rse@engelschall.com\">rse@engelschall.com</a></p>"
+	+ "<p>Copyright (c) 2015-2018 Ralf S. Engelschall <a href=\"mailto:rse@engelschall.com\">rse@engelschall.com</a></p>"
 
 	+ "Permission is hereby granted, free of charge, to any person obtaining"
 	+ "a copy of this software and associated documentation files (the"

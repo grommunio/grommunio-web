@@ -15,24 +15,24 @@ Zarafa.advancesearch.dialogs.SelectFolderPanel = Ext.extend(Ext.Panel, {
 	 * @type Object
 	 * @property searchFolderCombo
 	 */
-	searchFolderCombo : undefined,
+	searchFolderCombo: undefined,
 
 	/**
 	 * @constructor
 	 * @param {Object} config Configuration structure
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		config = config || {};
 
 		Ext.applyIf(config, {
-			xtype : 'zarafa.selectfolderpanel',
+			xtype: 'zarafa.selectfolderpanel',
 			layout: {
 				type: 'fit',
 				align: 'stretch'
 			},
 			border: false,
-			searchFolderCombo : config.searchFolderCombo,
+			searchFolderCombo: config.searchFolderCombo,
 			header: false,
 			items: [
 				this.createTreePanel()
@@ -61,7 +61,7 @@ Zarafa.advancesearch.dialogs.SelectFolderPanel = Ext.extend(Ext.Panel, {
 	 * Initialize events
 	 * @private
 	 */
-	initEvents : function ()
+	initEvents: function ()
 	{
 		Zarafa.advancesearch.dialogs.SelectFolderPanel.superclass.initEvents.apply(this, arguments);
 		this.mon(this.hierarchyTree, 'load', this.onTreeNodeLoad, this);
@@ -75,7 +75,7 @@ Zarafa.advancesearch.dialogs.SelectFolderPanel = Ext.extend(Ext.Panel, {
 	 * @return {Object} Configuration object for the tree panel.
 	 * @private
 	 */
-	createTreePanel : function()
+	createTreePanel: function()
 	{
 		return {
 			xtype: 'panel',
@@ -84,7 +84,7 @@ Zarafa.advancesearch.dialogs.SelectFolderPanel = Ext.extend(Ext.Panel, {
 				align: 'stretch'
 			},
 			defaults: {
-				margins : "0 0 5 0"
+				margins: "0 0 5 0"
 			},
 			border: false,
 			flex: 1,
@@ -94,15 +94,15 @@ Zarafa.advancesearch.dialogs.SelectFolderPanel = Ext.extend(Ext.Panel, {
 				flex: 1,
 				border: true,
 				treeSorter: true,
-				hideFavorites : true,
-				enableDD : false,
+				hideFavorites: true,
+				enableDD: false,
 				anchor: '100% 90%',
 				ref: '../hierarchyTree'
 			},{
-				xtype : "checkbox",
-				hideLabel : true,
-				ref : '../includeSubFolder',
-				boxLabel : _('Include subfolders')
+				xtype: "checkbox",
+				hideLabel: true,
+				ref: '../includeSubFolder',
+				boxLabel: _('Include subfolders')
 			}]
 		};
 	},
@@ -116,7 +116,7 @@ Zarafa.advancesearch.dialogs.SelectFolderPanel = Ext.extend(Ext.Panel, {
 	 * @param {TreeNode} node The selected tree node
 	 * @private
 	 */
-	onSelectionChange : function(selectionModel, node)
+	onSelectionChange: function(selectionModel, node)
 	{
 		if (!Ext.isDefined(node) || (node.getFolder().isIPMSubTree() && this.objectType == Zarafa.core.mapi.ObjectType.MAPI_MESSAGE)) {
 			this.okButton.disable();
@@ -137,7 +137,7 @@ Zarafa.advancesearch.dialogs.SelectFolderPanel = Ext.extend(Ext.Panel, {
 	 *
 	 * @param {Ext.tree.TreeNode} node The selected tree node
 	 */
-	updateIncludeSubFolderCheckBox : function(node)
+	updateIncludeSubFolderCheckBox: function(node)
 	{
 		var supportSearchFolder = this.model.supportsSearchFolder(node.getFolder());
 		this.includeSubFolder.setVisible(supportSearchFolder);
@@ -169,12 +169,12 @@ Zarafa.advancesearch.dialogs.SelectFolderPanel = Ext.extend(Ext.Panel, {
 	/**
 	 * Fired when the {@link Zarafa.hierarchy.ui.Tree Tree} fires the {@link Zarafa.hierarchy.ui.Tree#load load}
 	 * event. This function will try to select the {@link Ext.tree.TreeNode TreeNode} in
-	 * {@link Zarafa.hierarchy.ui.Tree Tree} intially. When the given node is not loaded yet, it will try again
+	 * {@link Zarafa.hierarchy.ui.Tree Tree} initially. When the given node is not loaded yet, it will try again
 	 * later when the event is fired again.
 	 *
 	 * @private
 	 */
-	onTreeNodeLoad : function()
+	onTreeNodeLoad: function()
 	{
 		// Select folder in hierarchy tree.
 		var folder = container.getHierarchyStore().getFolder(this.searchFolderCombo.getValue());
@@ -195,7 +195,7 @@ Zarafa.advancesearch.dialogs.SelectFolderPanel = Ext.extend(Ext.Panel, {
 	 *
 	 * @private
 	 */
-	onOk : function ()
+	onOk: function ()
 	{
 		var folder = this.hierarchyTree.getSelectionModel().getSelectedNode().getFolder();
 
@@ -211,9 +211,9 @@ Zarafa.advancesearch.dialogs.SelectFolderPanel = Ext.extend(Ext.Panel, {
 				store.removeAt(0);
 			}
 			record = new Ext.data.Record({
-				'name' : folder.get('display_name'),
-				'value' : folder.get('entryid'),
-				'flag' : importedFolderFlag,
+				'name': folder.get('display_name'),
+				'value': folder.get('entryid'),
+				'flag': importedFolderFlag,
 				'include_subfolder': includeSubFolder
 			});
 			store.insert(0, record);
@@ -231,7 +231,7 @@ Zarafa.advancesearch.dialogs.SelectFolderPanel = Ext.extend(Ext.Panel, {
 	 * without adding any {@link Ext.data.Record records} in search combo box.
 	 * @private
 	 */
-	onCancel : function()
+	onCancel: function()
 	{
 		this.dialog.close();
 	}

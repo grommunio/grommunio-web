@@ -13,9 +13,9 @@
 		 */
 		function __construct($id, $data)
 		{
-			$this->properties = $GLOBALS['properties']->getMailProperties();
-
 			parent::__construct($id, $data);
+
+			$this->properties = $GLOBALS['properties']->getMailProperties();
 		}
 
 		/**
@@ -177,7 +177,7 @@
 							$action["recipients"]["remove"] = $members["remove"];
 						}
 
-						$result = $GLOBALS['operations']->submitMessage($store, $entryid, Conversion::mapXML2MAPI($this->properties, $action['props']), $messageProps, isset($action['recipients']) ? $action['recipients'] : array(), isset($action['attachments']) ? $action['attachments'] : array(), $copyFromMessage, $copyAttachments, false, $copyInlineAttachmentsOnly);
+						$result = $GLOBALS['operations']->submitMessage($store, $entryid, Conversion::mapXML2MAPI($this->properties, $action['props']), $messageProps, isset($action['recipients']) ? $action['recipients'] : array(), isset($action['attachments']) ? $action['attachments'] : array(), $copyFromMessage, $copyAttachments, false, $copyInlineAttachmentsOnly, isset($action['props']['isHTML']) ? !$action['props']['isHTML'] : false );
 
 						// If draft is sent from the drafts folder, delete notification
 						if($result) {
@@ -270,6 +270,7 @@
 				$this->sendFeedback($result ? true : false, array(), true);
 			}
 		}
+
 
 		/**
 		 * Function which is used to get the source message information, which contains the information of 

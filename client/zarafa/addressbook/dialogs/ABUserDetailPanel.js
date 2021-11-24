@@ -18,30 +18,30 @@ Zarafa.addressbook.dialogs.ABUserDetailPanel = Ext.extend(Ext.TabPanel,{
 	 * @constructor
 	 * @param {Object} config configuration object.
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		config = config || {};
 
 		Ext.applyIf(config, {
-			xtype : 'zarafa.abuserdetailpanel',
-			border : false,
-			activeTab : 0,
-			items : [{
-				xtype : 'zarafa.abusergeneraltab'
+			xtype: 'zarafa.abuserdetailpanel',
+			border: false,
+			activeTab: 0,
+			items: [{
+				xtype: 'zarafa.abusergeneraltab'
 			}, {
-				xtype : 'zarafa.abuserorganizationtab'
+				xtype: 'zarafa.abuserorganizationtab'
 			},{
-				xtype : 'zarafa.abuserphonetab'
+				xtype: 'zarafa.abuserphonetab'
 			}, {
-				xtype : 'zarafa.abmemberoftab'
+				xtype: 'zarafa.abmemberoftab'
 			},{
-				xtype : 'zarafa.abemailaddresstab'
+				xtype: 'zarafa.abemailaddresstab'
 			},
 			// Add insertion point
 			container.populateInsertionPoint('context.addressbook.abuserdetailcontentpanel.tabs', this)
 			]
 		});
-		
+
 		Zarafa.addressbook.dialogs.ABUserDetailPanel.superclass.constructor.call(this, config);
 	}
 });

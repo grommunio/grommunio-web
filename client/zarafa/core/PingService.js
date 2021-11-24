@@ -14,32 +14,32 @@ Zarafa.core.PingService = Ext.extend(Ext.util.Observable, {
 	 * @cfg {String} url
 	 * The url used to send the requests to. defaults to grommunio.php.
 	 */
-	url : 'grommunio.php',
+	url: 'grommunio.php',
 
 	/**
 	 * @cfg {String} cmd
 	 * The GET attribute to send to the server. defaults to 'ping'
 	 */
-	cmd : 'ping',
+	cmd: 'ping',
 
 	/**
 	 * @cfg {Object} headers
 	 * The default headers to be applied to the request. defaults to
-	 *      'Content-Type' => 'application/json; charset=utf-8;'
+	 *   'Content-Type' => 'application/json; charset=utf-8;'
 	 */
-	headers : undefined,
+	headers: undefined,
 
 	/**
 	 * @cfg {Number} timeout The initial timeout value for the call
 	 * to {@link #sendPing}. This will be incremented by {@link #getNextTimeout}.
 	 */
-	timeout : 1000,
+	timeout: 1000,
 
 	/**
 	 * @cfg {Number} maxTimeout The maximum timeout value which can be used
 	 * and returned by {@link #getNextTimeout}.
 	 */
-	maxTimeout : 300000,
+	maxTimeout: 300000,
 
 	/**
 	 * The DelayedTask which will be used to defer the {@link #sendPing}
@@ -48,7 +48,7 @@ Zarafa.core.PingService = Ext.extend(Ext.util.Observable, {
 	 * @type Ext.util.DelayedTask
 	 * @private
 	 */
-	pingTask : undefined,
+	pingTask: undefined,
 
 	/**
 	 * The current timeout value for the {@link #pingTask}.
@@ -57,7 +57,7 @@ Zarafa.core.PingService = Ext.extend(Ext.util.Observable, {
 	 * @type Number
 	 * @private
 	 */
-	currentTimeout : undefined,
+	currentTimeout: undefined,
 
 	/**
 	 * True if the Ping has been send to the server, and the PingService
@@ -66,21 +66,21 @@ Zarafa.core.PingService = Ext.extend(Ext.util.Observable, {
 	 * @type Boolean
 	 * @private
 	 */
-	pingPending : false,
+	pingPending: false,
 
 	/**
 	 * @constructor
 	 * @param {Object} config Configuration object
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		config = config || {};
 
 		Ext.apply(config, {
 			// Apply here instead of class prototype, to prevent
 			// accidental sharing of object between all instances.
-			headers : {
-				'Content-Type' : 'application/json; charset=utf-8;'
+			headers: {
+				'Content-Type': 'application/json; charset=utf-8;'
 			}
 		});
 
@@ -141,7 +141,7 @@ Zarafa.core.PingService = Ext.extend(Ext.util.Observable, {
 	/**
 	 * Start the Ping Service and schedule the first run of {@link #pingTask}.
 	 */
-	start : function()
+	start: function()
 	{
 		// reset the current timeout
 		delete this.currentTimeout;
@@ -155,7 +155,7 @@ Zarafa.core.PingService = Ext.extend(Ext.util.Observable, {
 	/**
 	 * Stop the Ping Service and cancel the {@link #pingTask}.
 	 */
-	stop : function()
+	stop: function()
 	{
 		this.pingTask.cancel();
 		this.fireEvent('stop', this);
@@ -165,7 +165,7 @@ Zarafa.core.PingService = Ext.extend(Ext.util.Observable, {
 	 * Interrupt the current timeout for {@link #pingTask} and manually
 	 * invoke {@link #sendPing} causing a new request to be send out right now.
 	 */
-	retry : function()
+	retry: function()
 	{
 		this.pingTask.cancel();
 		this.sendPing();
@@ -178,7 +178,7 @@ Zarafa.core.PingService = Ext.extend(Ext.util.Observable, {
 	 * @return {Number} The timeout for the {@link #pingTask}
 	 * @private
 	 */
-	getNextTimeout : function()
+	getNextTimeout: function()
 	{
 		this.currentTimeout = this.currentTimeout ? (2 * this.currentTimeout) : this.timeout;
 		this.currentTimeout = Math.min(this.maxTimeout, this.currentTimeout);
@@ -190,7 +190,7 @@ Zarafa.core.PingService = Ext.extend(Ext.util.Observable, {
 	 * {@link #onStateChange} will handle the response as received from the server.
 	 * @private
 	 */
-	sendPing : function()
+	sendPing: function()
 	{
 		// A Ping request was already send,
 		// we will not send another one simultaneously.
@@ -228,16 +228,16 @@ Zarafa.core.PingService = Ext.extend(Ext.util.Observable, {
 	 * @param {XMLHttpRequest} xmlHttpRequest The request object
 	 * @private
 	 */
-	onStateChange : function(xmlHttpRequest)
+	onStateChange: function(xmlHttpRequest)
 	{
 		var response;
 
 		// The readyState can be 4 values:
-		//  0 - Object is created, but not initialized
-		//  1 - Request has been opened, but send() has not been called yet
-		//  2 - send() has been called, no data available yet
-		//  3 - Some data has been received, responseText nor responseBody are available
-		//  4 - All data has been received
+		// 0 - Object is created, but not initialized
+		// 1 - Request has been opened, but send() has not been called yet
+		// 2 - send() has been called, no data available yet
+		// 3 - Some data has been received, responseText nor responseBody are available
+		// 4 - All data has been received
 		//
 		// readyState 0 - 3 can be completely ignored by us, as they are only updates
 		// about the current progress. Only on readyState 4, should we continue and
@@ -281,7 +281,7 @@ Zarafa.core.PingService = Ext.extend(Ext.util.Observable, {
 	 * @param {Object} response The response as received by the server
 	 * @private
 	 */
-	restored : function(response)
+	restored: function(response)
 	{
 		this.fireEvent('restored', this, response);
 	},
@@ -292,7 +292,7 @@ Zarafa.core.PingService = Ext.extend(Ext.util.Observable, {
 	 * @param {Object} response The response, if any, as received by the server
 	 * @private
 	 */
-	failure : function(response)
+	failure: function(response)
 	{
 		var timeout = this.getNextTimeout();
 		this.fireEvent('retry', this, response, timeout);

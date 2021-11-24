@@ -68,7 +68,11 @@ class Iconsets {
 
 		// First check if a iconset was set by this user in his settings
 		if ( WebAppAuthentication::isAuthenticated() ) {
-			$iconset = $GLOBALS['settings']->get('zarafa/v1/main/active_iconset');
+			if (ENABLE_ICONSETS === false) {
+				$iconset = ICONSET !== "" ? ICONSET : 'breeze';
+			} else {
+				$iconset = $GLOBALS['settings']->get('zarafa/v1/main/active_iconset');
+			}
 
 			if ( !isset($iconset) || empty($iconset) || !array_key_exists($iconset, $installedIconsets) ){
 				$iconset = false;

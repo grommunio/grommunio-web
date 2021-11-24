@@ -9,6 +9,6 @@
 	     * See <tt>{@link Ext.Component#autoEl autoEl}</tt> for details.  Defaults to:</p>
 	     * <pre><code>{tag: 'input', type: 'text', size: '20', autocomplete: 'off', spellcheck: 'true'}</code></pre>
 	     */
-    	defaultAutoCreate : {tag: 'input', type: 'text', size: '20', autocomplete: 'off', spellcheck: 'true'}
+    	defaultAutoCreate: {tag: 'input', type: 'text', size: '20', autocomplete: 'off', spellcheck: 'true'}
 	});
 })();

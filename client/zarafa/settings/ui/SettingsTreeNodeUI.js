@@ -13,20 +13,20 @@ Zarafa.settings.ui.SettingsTreeNodeUI = Ext.extend(Ext.ux.tree.TreeGridNodeUI, {
 	 * @property
 	 * @type Ext.Element
 	 */
-	textNode : undefined,
+	textNode: undefined,
 
 	/**
 	 * The {@link Ext.Element} which contains the value (or setting value).
 	 * @property
 	 * @type Ext.Element
 	 */
-	valueNode : undefined,
+	valueNode: undefined,
 
 	/**
 	 * Main renderer for the different elements within the node
 	 * @private
 	 */
-	renderElements : function()
+	renderElements: function()
 	{
 		Zarafa.settings.ui.SettingsTreeNodeUI.superclass.renderElements.apply(this, arguments);
 
@@ -39,7 +39,7 @@ Zarafa.settings.ui.SettingsTreeNodeUI = Ext.extend(Ext.ux.tree.TreeGridNodeUI, {
 	 * @param {Mixed} value The new value which must be applied to the node
 	 * @param {Mixed} oldValue The old value which was previously on the node
 	 */
-	onValueChange : function(node, value, oldValue)
+	onValueChange: function(node, value, oldValue)
 	{
 		if (this.rendered) {
 			this.valueNode.innerHTML = Ext.util.Format.htmlEncode(value);

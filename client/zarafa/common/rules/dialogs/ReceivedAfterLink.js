@@ -14,18 +14,18 @@ Zarafa.common.rules.dialogs.ReceivedAfterLink = Ext.extend(Zarafa.common.rules.d
 	 * @constructor
 	 * @param {Object} config Configuration object
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		config = config || {};
 
 		Ext.applyIf(config, {
-			items : [{
-				xtype : 'datefield',
+			items: [{
+				xtype: 'datefield',
 				width: 120,
-				ref : 'receivedDate',
-				listeners : {
-					select : function() { this.isModified = true; },
-					scope : this
+				ref: 'receivedDate',
+				listeners: {
+					select: function() { this.isModified = true; },
+					scope: this
 				}
 			}]
 		});
@@ -40,7 +40,7 @@ Zarafa.common.rules.dialogs.ReceivedAfterLink = Ext.extend(Zarafa.common.rules.d
 	 * which identifies the exact type of the condition.
 	 * @param {Object} condition The condition to apply
 	 */
-	setCondition : function(conditionFlag, condition)
+	setCondition: function(conditionFlag, condition)
 	{
 		if (condition) {
 			var date = condition[1][Zarafa.core.mapi.Restrictions.VALUE]['PR_MESSAGE_DELIVERY_TIME'];
@@ -49,28 +49,28 @@ Zarafa.common.rules.dialogs.ReceivedAfterLink = Ext.extend(Zarafa.common.rules.d
 			this.receivedDate.setValue(new Date());
 		}
 
-		Zarafa.common.rules.dialogs.ReceivedAfterLink.superclass.setCondition.call(this, arguments);
+		Zarafa.common.rules.dialogs.ReceivedAfterLink.superclass.setCondition.apply(this, arguments);
 	},
 
 	/**
 	 * Obtain the condition as configured by the user
 	 * @return {Object} The condition
 	 */
-	getCondition : function()
+	getCondition: function()
 	{
 		if (this.isModified !== true) {
 			return this.condition;
 		}
 
-		var RestrictionFactory = Zarafa.core.data.RestrictionFactory;
-		var Restrictions = Zarafa.core.mapi.Restrictions;
 		var date = this.receivedDate.getValue();
 		date.setHours(23);
 		date.setMinutes(59);
 		date.setSeconds(59);
 		var value = date.getTime() / 1000;
 
-		return RestrictionFactory.dataResProperty('PR_MESSAGE_DELIVERY_TIME', Restrictions.RELOP_GT, value);
+		var conditionFactory = container.getRulesFactoryByType(Zarafa.common.data.RulesFactoryType.CONDITION);
+		var conditionDefinition = conditionFactory.getConditionById(this.conditionFlag);
+		return conditionDefinition({value: value});
 	}
 });
 

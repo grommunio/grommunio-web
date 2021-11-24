@@ -1,6 +1,6 @@
 const customMatchers = {
 	toHaveBeenCalledWithFirstArgument: function() {
-		return { 
+		return {
 			compare: function(actual, expected) {
 				const result = {pass: false};
 				for (var i = 0; i < actual.calls.count(); i++) {
@@ -13,7 +13,7 @@ const customMatchers = {
 			}
 		};
 	},
-	toBeEmpty :  function() {
+	toBeEmpty:  function() {
 		return {
                        compare: function(actual) {
                                return {
@@ -22,7 +22,7 @@ const customMatchers = {
                        }
                };
         },
-	toContainClass : function()
+	toContainClass: function()
 	{
 		return {
 			compare: function(actual, expected) {
@@ -30,7 +30,7 @@ const customMatchers = {
 			}
 		};
 	},
-	toBeVisible : function()
+	toBeVisible: function()
 	{
 		return {
 			compare: function(actual) {
@@ -47,7 +47,7 @@ const customMatchers = {
 	 * for the given eventName. If a scope is also provided, it will check if one of the listeners
 	 * on the eventName was registered with the given Scope.
 	 */
-        toHaveRegisteredEventHandler : function() {
+        toHaveRegisteredEventHandler: function() {
 		return {
 			compare: function(actual, eventname, scope) {
 				if (!(actual instanceof Ext.util.Observable)) {
@@ -77,7 +77,7 @@ const customMatchers = {
 			}
 		};
 	}
-};	
+};
 
 // Override send, so requests aren't made to the server.
 XMLHttpRequest.prototype.send = function() {};

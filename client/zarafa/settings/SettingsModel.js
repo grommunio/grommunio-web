@@ -3,7 +3,7 @@ Ext.namespace('Zarafa.settings');
 /**
  * @class Zarafa.settings.SettingsModel
  * @extends Ext.util.Observable
- * 
+ *
  * The SettingsModel class contains information about stores and folders the user has access to.
  * The settings are built up in a hierarchical way, where each node in the path is separated using
  * the {@link #pathSeparator}.
@@ -13,19 +13,19 @@ Zarafa.settings.SettingsModel = Ext.extend(Ext.util.Observable, {
 	 * @cfg {String} pathSeparator The separator used in settings names to separate the
 	 * hierarchy keys.
 	 */
-	pathSeparator : '/',
+	pathSeparator: '/',
 
 	/**
 	 * @cfg {Boolean} autoSave True when the settings should be saved to the server
 	 * as soon as editing is {@link #afterEdit completed}.
 	 */
-	autoSave : true,
+	autoSave: true,
 
 	/**
 	 * @cfg {Object} defaults Javascript object containing the full hierarchy of the default settings.
 	 * Defaults to {@link Zarafa.settings.data.SettingsDefaultValue}.
 	 */
-	defaults : undefined,
+	defaults: undefined,
 
 	/**
 	 * Javascript object containing the full hierarchy of the currently
@@ -33,7 +33,7 @@ Zarafa.settings.SettingsModel = Ext.extend(Ext.util.Observable, {
 	 * @property
 	 * @type Object
 	 */
-	settings : undefined,
+	settings: undefined,
 
 	/**
 	 * Flag which indicating if {@link #beginEdit} has been used to begin a transaction,
@@ -41,7 +41,7 @@ Zarafa.settings.SettingsModel = Ext.extend(Ext.util.Observable, {
 	 * @property
 	 * @type Boolean
 	 */
-	editing : false,
+	editing: false,
 
 	/**
 	 * The number of editors working on this model. The {@link #beginEdit} and {@link #endEdit}
@@ -51,7 +51,7 @@ Zarafa.settings.SettingsModel = Ext.extend(Ext.util.Observable, {
 	 * @type Number
 	 * @private
 	 */
-	editingCount : 0,
+	editingCount: 0,
 
 	/**
 	 * The list of properties which have been modified during a {@link #editing transaction}.
@@ -59,7 +59,7 @@ Zarafa.settings.SettingsModel = Ext.extend(Ext.util.Observable, {
 	 * @property
 	 * @type Array
 	 */
-	modified : undefined,
+	modified: undefined,
 
 	/**
 	 * The list of properties which have been restored during a {@link #editing transaction}.
@@ -67,7 +67,7 @@ Zarafa.settings.SettingsModel = Ext.extend(Ext.util.Observable, {
 	 * @property
 	 * @type Array
 	 */
-	restored : undefined,
+	restored: undefined,
 
 	/**
 	 * The list of properties which have been deleted during a {@link #editing transaction}.
@@ -75,53 +75,53 @@ Zarafa.settings.SettingsModel = Ext.extend(Ext.util.Observable, {
 	 * @property
 	 * @type Array
 	 */
-	deleted : undefined,
+	deleted: undefined,
 
 	/**
 	 * The list of properties which have been reset from server.
 	 * @property
 	 * @type Array
 	 */
-	resetSettings : undefined,
-	
+	resetSettings: undefined,
+
 	/**
 	 * The property which decide that webapp requires to reload.
 	 * @property
 	 * @type Boolean
 	 */
-	requiresReload : false,
+	requiresReload: false,
 
 	/**
 	 * @constructor
 	 * @param config Configuration structure
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		config = config || {};
 
 		this.addEvents(
 			/**
 			 * @event set
-			 * Fires when a property is assigned a new value.  
-			 * @param {Zarafa.settings.SettingsModel} settingsModel   
+			 * Fires when a property is assigned a new value.
+			 * @param {Zarafa.settings.SettingsModel} settingsModel
 			 * @param {Object/Array} setting The setting which was modified. The object contains a 'path' and 'value'
 			 * indicating the path and the value for the modified setting respectively.
 			 */
 			'set',
 			/**
 			 * @event remove
-			 * Fires when a property is removed.  
-			 * @param {Zarafa.settings.SettingsModel} settingsModel   
+			 * Fires when a property is removed.
+			 * @param {Zarafa.settings.SettingsModel} settingsModel
 			 * @param {String/Array} path The key to delete. When multiple settings are removed simulataneously, then the
 			 * array of Strings is provided.
 			 */
 			'remove',
 			/**
 			 * @event exception
-			 * Fires when a server-side error occured during updating the settings in the server.
+			 * Fires when a server-side error occurred during updating the settings in the server.
 			 * (See {@link Ext.data.DataStore#exception} for better exception argument documentation).
 			 * @param {Zarafa.settings.SettingsModel} model The model which fired the event.
-			 * @param {String} type The value of this parameter will be either 'response' or 'remote'. 
+			 * @param {String} type The value of this parameter will be either 'response' or 'remote'.
 			 * @param {String} action Name of the action (see {@link Ext.data.Api#actions}).
 			 * @param {Object} options The object containing a 'path' and 'value' field indicating
 			 * respectively the Setting and corresponding value for the setting which was being saved.
@@ -172,7 +172,7 @@ Zarafa.settings.SettingsModel = Ext.extend(Ext.util.Observable, {
 	 *
 	 * @param {Object} obj a JSON object hierarchy representing a tree of key/value pairs.
 	 */
-	initialize : function(obj)
+	initialize: function(obj)
 	{
 		this.settings = Zarafa.core.Util.applyRecursive({}, obj, this.defaults);
 	},
@@ -183,7 +183,7 @@ Zarafa.settings.SettingsModel = Ext.extend(Ext.util.Observable, {
 	 *
 	 * This functions supports nested calls by using {@link #editingCount}.
 	 */
-	beginEdit : function()
+	beginEdit: function()
 	{
 		// Increase editing counter, if it is a negative value, it means that
 		// it has been corrupted and we must force it to something valid.
@@ -207,7 +207,7 @@ Zarafa.settings.SettingsModel = Ext.extend(Ext.util.Observable, {
 	 *
 	 * This functions supports nested calls by using {@link #editingCount}.
 	 */
-	endEdit : function()
+	endEdit: function()
 	{
 		// Increase editing counter, if it is a negative value, it means that
 		// it has been corrupted and we must force it to something valid.
@@ -231,7 +231,7 @@ Zarafa.settings.SettingsModel = Ext.extend(Ext.util.Observable, {
 	 * when no transaction is being used. This will call {@link #save} to send all changes to the server.
 	 * @private
 	 */
-	afterEdit : function()
+	afterEdit: function()
 	{
 		var needsSave = false;
 
@@ -261,11 +261,11 @@ Zarafa.settings.SettingsModel = Ext.extend(Ext.util.Observable, {
 	 * in the {@link #modified}, {@link #deleted} and {@link #restored}
 	 * arrays.
 	 * @param {Object/String|Array} list The list which must be filtered
-	 * @param {String|Array} filter The list of paths which must be filterd
+	 * @param {String|Array} filter The list of paths which must be filtered
 	 * out of the list
 	 * @private
 	 */
-	filterDuplicates : function(list, filter)
+	filterDuplicates: function(list, filter)
 	{
 		for (var i = 0, len = filter.length; i < len; i++) {
 			var path = filter[i];
@@ -294,7 +294,7 @@ Zarafa.settings.SettingsModel = Ext.extend(Ext.util.Observable, {
 	 * from the settings.
 	 * @private
 	 */
-	removeSettings : function(path)
+	removeSettings: function(path)
 	{
 		if (!Array.isArray(path)) {
 			path = [ path ];
@@ -320,7 +320,7 @@ Zarafa.settings.SettingsModel = Ext.extend(Ext.util.Observable, {
 	 * of the settings which are being updated.
 	 * @private
 	 */
-	restoreSettings : function(settings)
+	restoreSettings: function(settings)
 	{
 		if (!Array.isArray(settings)) {
 			settings = [ settings ];
@@ -347,7 +347,7 @@ Zarafa.settings.SettingsModel = Ext.extend(Ext.util.Observable, {
 	 * of the settings which are being updated.
 	 * @private
 	 */
-	setSettings : function(settings)
+	setSettings: function(settings)
 	{
 		if (!Array.isArray(settings)) {
 			settings = [ settings ];
@@ -372,7 +372,7 @@ Zarafa.settings.SettingsModel = Ext.extend(Ext.util.Observable, {
 	 * the different {@link Zarafa.core.Actions actions} which are supposed
 	 * to be executed on the server.
 	 */
-	save : function()
+	save: function()
 	{
 		if (!Ext.isEmpty(this.deleted)) {
 			this.execute(Zarafa.core.Actions['delete'], this.deleted);
@@ -393,20 +393,20 @@ Zarafa.settings.SettingsModel = Ext.extend(Ext.util.Observable, {
 	 * @param {Object} parameters The action parameters which must be send to the server.
 	 * @private
 	 */
-	execute : function(action, parameters)
+	execute: function(action, parameters)
 	{
-		if (this.fireEvent('beforesave', this, { action : parameters}) !== false) {
+		if (this.fireEvent('beforesave', this, { action: parameters}) !== false) {
 			// FIXME: Perhaps this needs to be moved into a Ext.data.DataProxy
 			container.getRequest().singleRequest(
 				Zarafa.core.ModuleNames.getListName('settings'),
 				action,
-				{ 'setting' : parameters},
+				{ 'setting': parameters},
 				new Zarafa.core.data.ProxyResponseHandler({
 					proxy: this,
 					action: Ext.data.Api.actions['update'],
-					options: {action : action, parameters : parameters,'requiresReload' : this.requiresReload },
+					options: {action: action, parameters: parameters,'requiresReload': this.requiresReload },
 					callback:  this.onExecuteComplete,
-					scope : this
+					scope: this
 				})
 			);
 		}
@@ -420,7 +420,7 @@ Zarafa.settings.SettingsModel = Ext.extend(Ext.util.Observable, {
 	 * @param {Boolean} success True if the save was successful
 	 * @private
 	 */
-	onExecuteComplete : function(action, parameters, success)
+	onExecuteComplete: function(action, parameters, success)
 	{
 		if (success) {
 			this.fireEvent('save', this, parameters);
@@ -433,7 +433,7 @@ Zarafa.settings.SettingsModel = Ext.extend(Ext.util.Observable, {
 	 * and {@link #modified} arrays (which held all changes since the previous
 	 * call to {@link #commit}.
 	 */
-	commit : function()
+	commit: function()
 	{
 		this.deleted = [];
 		this.modified = [];
@@ -451,7 +451,7 @@ Zarafa.settings.SettingsModel = Ext.extend(Ext.util.Observable, {
 	 * @return {Object} The settings object containing all settings from the given key position at the specified path.
 	 * @private
 	 */
-	getSettingsObject : function(path, settings)
+	getSettingsObject: function(path, settings)
 	{
 		var pieces = path.split(this.pathSeparator);
 		var obj = settings || this.settings;
@@ -461,7 +461,7 @@ Zarafa.settings.SettingsModel = Ext.extend(Ext.util.Observable, {
 			if (Ext.isEmpty(piece)) {
 				break;
 			}
-	
+
 			obj = obj[pieces[i]];
 			if (Ext.isEmpty(obj)) {
 				break;
@@ -481,7 +481,7 @@ Zarafa.settings.SettingsModel = Ext.extend(Ext.util.Observable, {
 	 * @return {Array} The list of flat setting names which have been deleted from the hierarchy.
 	 * @private
 	 */
-	removeSettingsObject : function(path, settings)
+	removeSettingsObject: function(path, settings)
 	{
 		var lastIndex = path.lastIndexOf(this.pathSeparator);
 		var parentPath = path.substring(0, lastIndex);
@@ -518,12 +518,12 @@ Zarafa.settings.SettingsModel = Ext.extend(Ext.util.Observable, {
 	 * @return {Array} The list of flat setting names which have been added to the hierarchy.
 	 * @private
 	 */
-	applySettingsObject : function(path, obj, settings)
+	applySettingsObject: function(path, obj, settings)
 	{
 		var flatSettings = [];
 
 		if (Ext.isObject(obj)) {
-			flatSettings.push({ path : path });
+			flatSettings.push({ path: path });
 
 			for (var key in obj) {
 				flatSettings = flatSettings.concat(this.applySettingsObject(path + this.pathSeparator + key, obj[key], settings));
@@ -557,7 +557,7 @@ Zarafa.settings.SettingsModel = Ext.extend(Ext.util.Observable, {
 				pos[settingName] = obj;
 			}
 
-			flatSettings.push({ path: path, value : obj });
+			flatSettings.push({ path: path, value: obj });
 		}
 
 		return flatSettings;
@@ -571,7 +571,7 @@ Zarafa.settings.SettingsModel = Ext.extend(Ext.util.Observable, {
 	 * @return {String} The converted path
 	 * @private
 	 */
-	getPath : function(path)
+	getPath: function(path)
 	{
 		if (!Ext.isString(path)) {
 			return '';
@@ -588,7 +588,7 @@ Zarafa.settings.SettingsModel = Ext.extend(Ext.util.Observable, {
 	 * @param {String} value value to set.
 	 * @return {String} the value of the requested path, or undefined if it doesn't exist.
 	 */
-	set : function(path, value)
+	set: function(path, value)
 	{
 		path = this.getPath(path);
 
@@ -620,8 +620,9 @@ Zarafa.settings.SettingsModel = Ext.extend(Ext.util.Observable, {
 	 * and a request is sent out to the server to delete the key remotely. If deleting
 	 * the setting from the server failed, the {@link #exception} event will be fired.
 	 * @param {String} path the key path of the value.
+	 * @param {Object} logInfo object containing information like type and message which needs to be printed in console.
 	 */
-	remove : function(path)
+	remove: function(path, logInfo)
 	{
 		path = this.getPath(path);
 
@@ -636,14 +637,22 @@ Zarafa.settings.SettingsModel = Ext.extend(Ext.util.Observable, {
 		if (this.editing === false) {
 			this.afterEdit();
 		}
+
+		if (Ext.isObject(logInfo)) {
+			var prefixMsg = logInfo.message;
+			if (!Ext.isDefined(prefixMsg)) {
+				prefixMsg = logInfo.type === 'deprecated' ? 'Removed deprecated setting: ' : 'Removed setting: ';
+			}
+			console.info(prefixMsg, path);
+		}
 	},
 
 	/**
 	 * Here it will set the path of settings in {@link #resetSettings} which is needs to be reset.
-	 * 
+	 *
 	 * @param {String} path the key path of the value.
 	 */
-	reset : function(path)
+	reset: function(path)
 	{
 		if (!Array.isArray(path)) {
 			path = [ path ];
@@ -660,7 +669,7 @@ Zarafa.settings.SettingsModel = Ext.extend(Ext.util.Observable, {
 	 * again. But this will not be saved to the server.
 	 * @param {String} path the key path of the value
 	 */
-	restore : function(path)
+	restore: function(path)
 	{
 		path = this.getPath(path);
 
@@ -687,12 +696,12 @@ Zarafa.settings.SettingsModel = Ext.extend(Ext.util.Observable, {
 	 * Gets a value. This getter only gets a <b>local</b> copy of the setting, meaning that this method does not initiate
 	 * communication with the server. There is currently no way to get an 'up-to-date' value.
 	 * @param {String} path the key path of the value.
-	 * @param {Boolean} raw True to return if the pathname is only partial and the underlying JS object 
+	 * @param {Boolean} raw True to return if the pathname is only partial and the underlying JS object
 	 * @param {Boolean} [returnDefaults] True to return the default value, else the set value
 	 * (containing all underlying settings) must be returned. Defaults to false.
 	 * @return {String} the value of the requested path, or undefined if it doesn't exist.
 	 */
-	get : function(path, raw, returnDefaults)
+	get: function(path, raw, returnDefaults)
 	{
 		path = this.getPath(path);
 
@@ -706,5 +715,19 @@ Zarafa.settings.SettingsModel = Ext.extend(Ext.util.Observable, {
 		} else {
 			return value;
 		}
+	},
+
+	/**
+	 * This function will get a <b>local</b> copy of the setting for given path.
+	 * If primary path setting not available then it will return secondary path setting.
+	 *
+	 * @param {String} pathPrimary the key path of the value with higher preference.
+	 * @param {String} pathSecondary the key path of the value with lower preference.
+	 * @return {String} the value of the requested path, or undefined if it doesn't exist.
+	 */
+	getOneOf: function(pathPrimary, pathSecondary)
+	{
+		var value = this.get(pathPrimary);
+		return Ext.isDefined(value) ? value : this.get(pathSecondary);
 	}
 });

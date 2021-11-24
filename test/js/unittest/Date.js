@@ -159,7 +159,7 @@ describe('Date', function() {
 		 * Test switching from winter to summer time.
 		 */
 		describe('Change to Summer Time', function() {
-			it('can substract milliseconds from a date', function() {
+			it('can subtract milliseconds from a date', function() {
 				// The Dutch date on which we start daylight saving in 2017
 				var value = new Date('Mar 26 2017 04:00:00');
 
@@ -171,7 +171,7 @@ describe('Date', function() {
 				expect(value.add(Date.MILLI, -180 * 60 * 1000).format(format)).toEqual('Sun Mar 26 2017 00:00:00 GMT+0100');
 			});
 
-			it('can substract seconds from a date', function() {
+			it('can subtract seconds from a date', function() {
 				// The Dutch date on which we start daylight saving in 2017
 				var value = new Date('Mar 26 2017 04:00:00');
 
@@ -183,7 +183,7 @@ describe('Date', function() {
 				expect(value.add(Date.SECOND, -180 * 60).format(format)).toEqual('Sun Mar 26 2017 00:00:00 GMT+0100');
 			});
 
-			it('can substract minutes from a date', function() {
+			it('can subtract minutes from a date', function() {
 				// The Dutch date on which we start daylight saving in 2017
 				var value = new Date('Mar 26 2017 04:00:00');
 
@@ -195,7 +195,7 @@ describe('Date', function() {
 				expect(value.add(Date.MINUTE, -180).format(format)).toEqual('Sun Mar 26 2017 00:00:00 GMT+0100');
 			});
 
-			it('can substract hours from a date', function() {
+			it('can subtract hours from a date', function() {
 				var value = new Date('Mar 26 2017 04:00:00');
 
 				expect(value.add(Date.HOUR, -1).format(format)).toEqual('Sun Mar 26 2017 03:00:00 GMT+0200');
@@ -203,7 +203,7 @@ describe('Date', function() {
 				expect(value.add(Date.HOUR, -3).format(format)).toEqual('Sun Mar 26 2017 00:00:00 GMT+0100');
 			});
 
-			xit('can substract days from a date', function() {
+			xit('can subtract days from a date', function() {
 				var value = new Date('Mar 27 2017 02:00:00');
 
 				// First value is technically incorrect, but see Date::add() documentation for acceptance
@@ -211,7 +211,7 @@ describe('Date', function() {
 				expect(value.add(Date.DAY, -2).format(format)).toEqual('Sat Mar 25 2017 02:00:00 GMT+0100');
 			});
 
-			xit('can substract months from a date', function() {
+			xit('can subtract months from a date', function() {
 				var value = new Date('Apr 27 2017 02:00:00');
 
 				// First value is technically incorrect, but see Date::add() documentation for acceptance
@@ -219,7 +219,7 @@ describe('Date', function() {
 				expect(value.add(Date.MONTH, -2).format(format)).toEqual('Sun Feb 27 2017 02:00:00 GMT+0100');
 			});
 
-			xit('can substract a year from a date', function() {
+			xit('can subtract a year from a date', function() {
 				var value = new Date('Mar 27 2018 02:00:00');
 
 				// First value is technically incorrect, but see Date::add() documentation for acceptance
@@ -233,7 +233,7 @@ describe('Date', function() {
 		 */
 		describe('Change to Winter Time', function() {
 
-			it('can substract milliseconds from a date', function() {
+			it('can subtract milliseconds from a date', function() {
 				// The Dutch date on which we end daylight saving in 2017
 				var value = new Date('Oct 29 2017 04:00:00');
 
@@ -245,7 +245,7 @@ describe('Date', function() {
 				expect(value.add(Date.MILLI, -180 * 60 * 1000).format(format)).toEqual('Sun Oct 29 2017 02:00:00 GMT+0200');
 			});
 
-			it('can substract seconds from a date', function() {
+			it('can subtract seconds from a date', function() {
 				// The Dutch date on which we end daylight saving in 2017
 				var value = new Date('Oct 29 2017 04:00:00');
 
@@ -257,7 +257,7 @@ describe('Date', function() {
 				expect(value.add(Date.SECOND, -180 * 60).format(format)).toEqual('Sun Oct 29 2017 02:00:00 GMT+0200');
 			});
 
-			it('can substract minutes from a date', function() {
+			it('can subtract minutes from a date', function() {
 				// The Dutch date on which we end daylight saving in 2017
 				var value = new Date('Oct 29 2017 04:00:00');
 
@@ -269,7 +269,7 @@ describe('Date', function() {
 				expect(value.add(Date.MINUTE, -180).format(format)).toEqual('Sun Oct 29 2017 02:00:00 GMT+0200');
 			});
 
-			it('can substract hours from a date', function() {
+			it('can subtract hours from a date', function() {
 				// The Dutch date on which we end daylight saving in 2017
 				var value = new Date('Oct 29 2017 04:00:00');
 
@@ -287,7 +287,7 @@ describe('Date', function() {
 				expect(value.add(Date.DAY, -2).format(format)).toEqual('Sat Oct 28 2017 03:00:00 GMT+0200');
 			});
 
-			it('can substract months from a date', function() {
+			it('can subtract months from a date', function() {
 				var value = new Date('Nov 30 2017 02:00:00');
 
 				// First value is technically incorrect, but see Date::add() documentation for acceptance
@@ -295,7 +295,7 @@ describe('Date', function() {
 				expect(value.add(Date.MONTH, -2).format(format)).toEqual('Sat Sep 30 2017 02:00:00 GMT+0200');
 			});
 
-			it('can substract a year from a date', function() {
+			it('can subtract a year from a date', function() {
 				var value = new Date('Mar 27 2017 02:00:00');
 
 				// First value is technically incorrect, but see Date::add() documentation for acceptance
@@ -504,7 +504,7 @@ describe('Date', function() {
 			// Compensate for potential DST switch
 			b = b.add(Date.MILLI, Date.getDSTDiff(a, b));
 
-			// Substract or add dst changes
+			// Subtract or add dst changes
 			expect(Date.diff(Date.MINUTE, b, a)).toEqual((65 * 60) + (Date.getDSTDiff(a, b) / 1000 / 60));
 		});
 
@@ -640,4 +640,55 @@ describe('Date', function() {
 			});
 		});
 	});
+
+	/*
+	 * Test the formatDefaultTime() function of Date.
+	 */
+	describe('Time format', function() {
+
+		var date;
+		container = new Zarafa.core.Container();
+
+		beforeEach(function() {
+			settingsModel = container.getSettingsModel();
+			settingsModel.initialize({});
+			date = new Date('Mar 26 2017 01:00:00');
+		});
+
+		// The default 24h time format, without any additional format
+		it ('Should show time in \' 24 hour \' format', function() {
+			var timeFormat = settingsModel.get('zarafa/v1/main/datetime_time_format');
+
+			expect(timeFormat).toEqual(Zarafa.common.data.TimeFormat.TWENTYFOURHOUR);
+			expect(date.formatDefaultTime()).toEqual('1:00');
+		});
+
+		// The 12h time format, without any additional format
+		it ('Should show time in \' 12 hour \' format', function() {
+			settingsModel.set('zarafa/v1/main/datetime_time_format', Zarafa.common.data.TimeFormat.TWELVEHOUR);
+			var timeFormat = settingsModel.get('zarafa/v1/main/datetime_time_format');
+
+			expect(timeFormat).toEqual(Zarafa.common.data.TimeFormat.TWELVEHOUR);
+			expect(date.formatDefaultTime()).toEqual('1:00 AM');
+		});
+
+		// The 24h hour format with added to the specified 'l jS F Y' format
+		it ('Should show time in \' 24 hour \' format with specified format', function() {
+			var timeFormat = settingsModel.get('zarafa/v1/main/datetime_time_format');
+
+			expect(timeFormat).toEqual(Zarafa.common.data.TimeFormat.TWENTYFOURHOUR);
+			expect(date.formatDefaultTime('l jS F Y {0}')).toEqual('Sunday 26th March 2017 1:00');
+		});
+
+		// The 12h hour format with added to the specified 'j-m-Y' format
+		it ('Should show time in \' 12 hour \' format with specified format', function() {
+			settingsModel.set('zarafa/v1/main/datetime_time_format', Zarafa.common.data.TimeFormat.TWELVEHOUR);
+			var timeFormat = settingsModel.get('zarafa/v1/main/datetime_time_format');
+
+			expect(timeFormat).toEqual(Zarafa.common.data.TimeFormat.TWELVEHOUR);
+			expect(date.formatDefaultTime('j-m-Y {0}')).toEqual('26-03-2017 1:00 AM');
+		});
+	});
+
+
 });

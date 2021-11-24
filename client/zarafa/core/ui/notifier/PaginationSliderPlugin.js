@@ -13,28 +13,28 @@ Zarafa.core.ui.notifier.PaginationSliderPlugin = Ext.extend(Zarafa.core.ui.notif
 	 * @cfg {Boolean} pagingEnabled
 	 * The pagingEnabled is true only when pagination is enabled.(Default to true)
 	 */
-	pagingEnabled : true,
+	pagingEnabled: true,
 
 	/**
 	 * @cfg {Number} sliderDuration
 	 * A specified time duration after that slide gets hide/remove the slide
 	 * from DOM (defaults to <code>5</code> seconds).
 	 */
-	sliderDuration : 2000,
+	sliderDuration: 2000,
 
 	/**
 	 * @constructor
 	 * @param {Object} config Configuration object
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		config = config || {};
 
 		Ext.applyIf(config, {
 			// Position the container at the bottom-center
-			sliderContainerPosition : 'b',
-			pagingEnabled : true,
-			sliderDuration : 2000
+			sliderContainerPosition: 'b',
+			pagingEnabled: true,
+			sliderDuration: 2000
 		});
 
 		Zarafa.core.ui.notifier.PaginationSliderPlugin.superclass.constructor.call(this, config);
@@ -55,12 +55,12 @@ Zarafa.core.ui.notifier.PaginationSliderPlugin = Ext.extend(Zarafa.core.ui.notif
 	 * - slider: The slider container.
 	 * @return {Ext.Element} The slider element which was created
 	 */
-	notify : function(category, title, message, config)
+	notify: function(category, title, message, config)
 	{
 		if (!config.destroy) {
-			var total = config.model.getStore().totalLength;
+			var total = config.store.totalLength;
 			var pageSize = container.getSettingsModel().get('zarafa/v1/main/page_size');
-			var pages = total < pageSize ? 1 : Math.ceil(total / pageSize);
+			var pages = total < pageSize ? 1: Math.ceil(total / pageSize);
 			if (pages == 1) {
 				return;
 			}

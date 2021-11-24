@@ -12,24 +12,24 @@ Zarafa.common.categories.ui.CategoryContextMenu = Ext.extend(Ext.menu.Menu, {
 	 * @cfg {Zarafa.core.data.IPMRecord[]} The records to which the actions in
 	 * this context menu will apply
 	 */
-	records : [],
+	records: [],
 
 	/**
 	 * @cfg {String} The category for which the context menu is shown
 	 */
-	category : '',
+	category: '',
 
 	/**
 	 * @cfg {Zarafa.core.data.MAPIStore} store contains {@link #records} on which
 	 * categories is going to apply.
 	 */
-	store : undefined,
+	store: undefined,
 
 	/**
 	 * @constructor
 	 * @param {Object} config Configuration object
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		config = config || {};
 
@@ -44,8 +44,8 @@ Zarafa.common.categories.ui.CategoryContextMenu = Ext.extend(Ext.menu.Menu, {
 							Ext.util.Format.htmlEncode(config.category) +
 							'</span>"',
 					category: config.category,
-					iconCls : 'icon_remove',
-					handler : this.onRemoveCategory,
+					iconCls: 'icon_remove',
+					handler: this.onRemoveCategory,
 					scope: this,
 					listeners: {
 						afterrender: this.onAfterRenderRemoveCategoryItem,
@@ -72,7 +72,7 @@ Zarafa.common.categories.ui.CategoryContextMenu = Ext.extend(Ext.menu.Menu, {
 	 * Event handler for the click event of the "remove category" menu item
 	 * @param {Ext.menu.Item} item The menu item that has been clicked
 	 */
-	onRemoveCategory : function(item)
+	onRemoveCategory: function(item)
 	{
 		var category = Zarafa.common.categories.Util.getCategoryFromHtmlEncoded(item.category, this.records);
 		Zarafa.common.categories.Util.removeCategory(this.records, category, true, this.store);
@@ -84,7 +84,7 @@ Zarafa.common.categories.ui.CategoryContextMenu = Ext.extend(Ext.menu.Menu, {
 	 * truncated.
 	 * @param {Ext.menu.Item} item The menu item that has been rendered.
 	 */
-	onAfterRenderRemoveCategoryItem : function(item)
+	onAfterRenderRemoveCategoryItem: function(item)
 	{
 		new Zarafa.common.categories.ui.Tooltip({
 			target: item.el,

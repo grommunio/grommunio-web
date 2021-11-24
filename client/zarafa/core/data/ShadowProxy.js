@@ -18,13 +18,13 @@ Zarafa.core.data.ShadowProxy = Ext.extend(Zarafa.core.data.MAPIProxy, {
 	 * @constructor
 	 * @param {Object} config Configuration object
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		config = config || {};
 
 		Ext.applyIf(config, {
-			listModuleName : Zarafa.core.ModuleNames.getListName('IPM.Note', true),
-			itemModuleName : Zarafa.core.ModuleNames.getItemName('IPM.Note', true)
+			listModuleName: Zarafa.core.ModuleNames.getListName('IPM.Note', true),
+			itemModuleName: Zarafa.core.ModuleNames.getItemName('IPM.Note', true)
 		});
 
 		Zarafa.core.data.ShadowProxy.superclass.constructor.call(this, config);
@@ -47,8 +47,8 @@ Zarafa.core.data.ShadowProxy = Ext.extend(Zarafa.core.data.MAPIProxy, {
 	 * which should be used for this request.
 	 * @private
 	 */
-	getResponseHandlerForRequest : function(modulename, serverAction, action, records, parameters, reader, callback, scope, args)
-	{   
+	getResponseHandlerForRequest: function(modulename, serverAction, action, records, parameters, reader, callback, scope, args)
+	{
 		var objectType;
 		var ResponseHandler;
 
@@ -92,7 +92,7 @@ Zarafa.core.data.ShadowProxy = Ext.extend(Zarafa.core.data.MAPIProxy, {
 	 * @return {String} the listModuleName
 	 * @private
 	 */
-	getListModuleName : function(record)
+	getListModuleName: function(record)
 	{
 		var objectType = record.get('object_type');
 		var moduleName;
@@ -126,7 +126,7 @@ Zarafa.core.data.ShadowProxy = Ext.extend(Zarafa.core.data.MAPIProxy, {
 	 * @return {String} the itemModuleName
 	 * @private
 	 */
-	getItemModuleName : function(record)
+	getItemModuleName: function(record)
 	{
 		var objectType = record.get('object_type');
 		var moduleName;

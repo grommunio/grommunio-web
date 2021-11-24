@@ -14,13 +14,13 @@ Zarafa.core.ContextMetaData = Ext.extend(Zarafa.core.PluginMetaData, {
 	 * @constructor
 	 * @param {Object} config Configuration object
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		config = config || {};
 
 		Ext.applyIf(config, {
 			// By default Contexts cannot be disabled
-			allowUserDisable : false
+			allowUserDisable: false
 		});
 
 		Zarafa.core.ContextMetaData.superclass.constructor.call(this, config);

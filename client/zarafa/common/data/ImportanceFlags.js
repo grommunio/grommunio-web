@@ -9,7 +9,7 @@ Ext.namespace('Zarafa.common.data');
  * This class can be used by any context to set the important/priority of the items
  */
 Zarafa.common.data.ImportanceFlags = {
-	flags : [{
+	flags: [{
 		value: Zarafa.core.mapi.Importance['NONURGENT'],
 		name: Zarafa.core.mapi.Importance.getDisplayName(Zarafa.core.mapi.Importance['NONURGENT']),
 		iconCls: Zarafa.core.mapi.Importance.getClassName(Zarafa.core.mapi.Importance['NONURGENT'])

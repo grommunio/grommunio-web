@@ -14,27 +14,21 @@ Zarafa.common.settings.SettingsSendAsWidget = Ext.extend(Zarafa.settings.ui.Sett
 	 * @constructor
 	 * @param {Object} config Configuration object
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		config = config || {};
 
-		var store = new Zarafa.core.data.IPMRecipientStore({
-			autoResolve : false,
-			autoDestroy : true
-		});
-
 		Ext.applyIf(config, {
-			height : 400,
-			title : _('From Addresses settings'),
-			xtype : 'zarafa.settingssendaswidget',
-			layout : {
+			height: 400,
+			title: _('From Addresses settings'),
+			xtype: 'zarafa.settingssendaswidget',
+			layout: {
 				// override from SettingsWidget
-				type : 'fit'
+				type: 'fit'
 			},
-			items : [{
-				xtype : 'zarafa.sendaspanel',
-				store : store,
-				ref : 'sendasPanel'
+			items: [{
+				xtype: 'zarafa.sendaspanel',
+				ref: 'sendasPanel'
 			}]
 		});
 
@@ -46,24 +40,24 @@ Zarafa.common.settings.SettingsSendAsWidget = Ext.extend(Zarafa.settings.ui.Sett
 	 * with this panel.
 	 * @return {Zarafa.core.data.IPMRecipientStore} The store
 	 */
-	getStore : function()
+	getStore: function()
 	{
-		return this.sendasPanel.store;
+		return this.sendasPanel.getStore();
 	},
 
 	/**
 	 * Initialize events for the panel.
 	 * @private
 	 */
-	initEvents : function()
+	initEvents: function()
 	{
 		Zarafa.common.settings.SettingsSendAsWidget.superclass.initEvents.call(this);
 
 		this.mon(this.getStore(), {
-			'remove' : this.doStoreRemove,
-			'update' : this.doStoreUpdate,
-			'add' : this.doStoreAdd,
-			scope : this
+			'remove': this.doStoreRemove,
+			'update': this.doStoreUpdate,
+			'add': this.doStoreAdd,
+			scope: this
 		});
 	},
 
@@ -74,16 +68,16 @@ Zarafa.common.settings.SettingsSendAsWidget = Ext.extend(Zarafa.settings.ui.Sett
 	 * {@link Zarafa.settings.SettingsModel} into the UI of this category.
 	 * @param {Zarafa.settings.SettingsModel} settingsModel The settings to load
 	 */
-	update : function(settingsModel)
+	update: function(settingsModel)
 	{
 		this.model = settingsModel;
 
 		// Convert the send as into Store data
 		var addresses = settingsModel.get('zarafa/v1/contexts/mail/sendas', true);
 
-		var addressData = {'item' : []};
+		var addressData = {'item': []};
 		Ext.each(addresses, function(address, index) {
-			addressData.item.push({props : address});
+			addressData.item.push({props: address});
 		});
 
 		// Load all addresses into the Store
@@ -96,7 +90,7 @@ Zarafa.common.settings.SettingsSendAsWidget = Ext.extend(Zarafa.settings.ui.Sett
 	 * This is used to update the settings from the UI into the {@link Zarafa.settings.SettingsModel settings model}.
 	 * @param {Zarafa.settings.SettingsModel} settingsModel The settings to update
 	 */
-	updateSettings : function(settingsModel)
+	updateSettings: function(settingsModel)
 	{
 		// Start reading the Grid store and convert the contents back into
 		// an object which can be pushed to the settings.
@@ -128,7 +122,7 @@ Zarafa.common.settings.SettingsSendAsWidget = Ext.extend(Zarafa.settings.ui.Sett
 	 * @param {Number} index index of the record in store which is removed
 	 * @private
 	 */
-	doStoreRemove : function(store, record, index)
+	doStoreRemove: function(store, record, index)
 	{
 		if(!record.phantom) {
 			this.settingsContext.getModel().setDirty();
@@ -146,7 +140,7 @@ Zarafa.common.settings.SettingsSendAsWidget = Ext.extend(Zarafa.settings.ui.Sett
 	 * @param {Number} index index of the record in store which is removed
 	 * @private
 	 */
-	doStoreAdd : function(store, records, index)
+	doStoreAdd: function(store, records, index)
 	{
 		/*
 		 * In case of externally added send as, we will configure oneoff entryid
@@ -171,7 +165,7 @@ Zarafa.common.settings.SettingsSendAsWidget = Ext.extend(Zarafa.settings.ui.Sett
 	 * @param {String} operation The update operation being performed.
 	 * @private
 	 */
-	doStoreUpdate : function(store, record, operation)
+	doStoreUpdate: function(store, record, operation)
 	{
 		if (operation !== Ext.data.Record.COMMIT) {
 			this.settingsContext.getModel().setDirty();

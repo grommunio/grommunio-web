@@ -57,12 +57,12 @@
 					document.getElementById("username").focus();
 				} else if (document.getElementById("password").value == "") {
 					document.getElementById("password").focus();
-				} else {
+							} else {
 					document.getElementById("submitbutton").focus();
 				}
 			}
 			window.onload = onLoad;
-
+			
 			// Show a spinner when submitting
 			var form = document.getElementsByTagName('form')[0];
 			// Some browsers need some time to draw the spinner (MS Edge!),

@@ -17,7 +17,7 @@ Zarafa.core.data.ListModuleStore = Ext.extend(Zarafa.core.data.IPMStore, {
 	 * @property
 	 * @type Boolean
 	 */
-	hasSearchResults  : false,
+	hasSearchResults: false,
 
 	/**
 	 * used in search to indicate that we should use search folder or not.
@@ -25,40 +25,40 @@ Zarafa.core.data.ListModuleStore = Ext.extend(Zarafa.core.data.IPMStore, {
 	 * @property
 	 * @type Boolean
 	 */
-	useSearchFolder : false,
+	useSearchFolder: false,
 
 	/**
 	 * @cfg {String} actionType type of action that should be used to send request to server,
 	 * valid action types are defined in {@link Zarafa.core.Actions Actions}, default value is 'list'.
 	 */
-	actionType : undefined,
+	actionType: undefined,
 
 	/**
 	 * @cfg {Boolean} subfolders specifies subfolders should be included in search or not.
 	 */
-	subfolders : false,
+	subfolders: false,
 
 	/**
 	 * @cfg {HexString} entryId entry id of the folder.
 	 */
-	entryId : undefined,
+	entryId: undefined,
 
 	/**
 	 * @cfg {HexString} storeEntryId entry id of store.
 	 */
-	storeEntryId : undefined,
+	storeEntryId: undefined,
 
 	/**
 	 * @cfg {Zarafa.hierarchy.data.MAPIFolderRecord} folder instead of passing entryId and storeEntryId,
 	 * we can pass folder also from which this store will load data.
 	 */
-	folder : undefined,
+	folder: undefined,
 
 	/**
 	 * Used to indicate that filter is already applied in store.
 	 * @property
 	 */
-	hasFilterApplied : false,
+	hasFilterApplied: false,
 
 	/**
 	 * used in synchronizing {@link Zarafa.core.data.ListModuleStore store} which indicate true after deleting {@link Zarafa.core.data.IPMRecords[] records}
@@ -66,12 +66,12 @@ Zarafa.core.data.ListModuleStore = Ext.extend(Zarafa.core.data.IPMStore, {
 	 * @property
 	 * @type Boolean
 	 */
-	syncStore : false,
+	syncStore: false,
 
 	/**
 	 * @cfg {Number} which is hold number of records loaded in {@link Zarafa.core.data.ListModuleStore store}
 	 */
-	totalLoadedRecord : undefined,
+	totalLoadedRecord: undefined,
 
 	/**
 	 * The LoadMask object which will be shown when the {@link Zarafa.core.data.ListModuleStore store}
@@ -79,19 +79,19 @@ Zarafa.core.data.ListModuleStore = Ext.extend(Zarafa.core.data.IPMStore, {
 	 * @property
 	 * @type Zarafa.common.ui.LoadMask
 	 */
-	loadMask : undefined,
+	loadMask: undefined,
 
 	/**
 	 * @cfg {String} preferredMessageClass message class that will be used to derive module name
 	 * that should be used when requesting data using {@link Zarafa.core.data.IPMProxy IPMProxy).
 	 */
-	preferredMessageClass : 'IPM.Note',
+	preferredMessageClass: 'IPM.Note',
 
 	/**
-	 * @cfg {Object} defaultSortInfo When no sorting is explicitely provided by the user.
+	 * @cfg {Object} defaultSortInfo When no sorting is explicitly provided by the user.
 	 * See {@link #sortInfo}.
 	 */
-	defaultSortInfo : undefined,
+	defaultSortInfo: undefined,
 
 	/**
 	 * Timer function that will be used to update search results after specified interval.
@@ -100,13 +100,13 @@ Zarafa.core.data.ListModuleStore = Ext.extend(Zarafa.core.data.IPMStore, {
 	 * @property
 	 * @type Function
 	 */
-	searchUpdateTimer : undefined,
+	searchUpdateTimer: undefined,
 
 	/**
 	 * @constructor
 	 * @param config Configuration structure
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		config = config || {};
 
@@ -128,20 +128,20 @@ Zarafa.core.data.ListModuleStore = Ext.extend(Zarafa.core.data.IPMStore, {
 
 		// Apply default settings.
 		Ext.applyIf(config, {
-			remoteSort : true,
+			remoteSort: true,
 
-			actionType : Zarafa.core.Actions['list'],
+			actionType: Zarafa.core.Actions['list'],
 
 			// default writer.
-			writer : new Zarafa.core.data.JsonWriter(),
+			writer: new Zarafa.core.data.JsonWriter(),
 
 			// default reader
-			reader : new Zarafa.core.data.JsonReader({}, recordType),
+			reader: new Zarafa.core.data.JsonReader({}, recordType),
 
 			// default proxy
-			proxy : new Zarafa.core.data.IPMProxy({
-				listModuleName : module.list,
-				itemModuleName : module.item
+			proxy: new Zarafa.core.data.IPMProxy({
+				listModuleName: module.list,
+				itemModuleName: module.item
 			})
 		});
 
@@ -198,7 +198,7 @@ Zarafa.core.data.ListModuleStore = Ext.extend(Zarafa.core.data.IPMStore, {
 	 * @param {String} b The second id to compare
 	 * @protected
 	 */
-	idComparison : function(a, b)
+	idComparison: function(a, b)
 	{
 		return Zarafa.core.EntryId.compareEntryIds(a, b);
 	},
@@ -208,7 +208,7 @@ Zarafa.core.data.ListModuleStore = Ext.extend(Zarafa.core.data.IPMStore, {
 	 * @param {String} actionType action type that will be used for sending request to server,
 	 * valid values are defined in {@link Zarafa.core.Actions Actions}.
 	 */
-	setActionType : function(actionType)
+	setActionType: function(actionType)
 	{
 		this.actionType = actionType;
 	},
@@ -217,7 +217,7 @@ Zarafa.core.data.ListModuleStore = Ext.extend(Zarafa.core.data.IPMStore, {
 	 * Function will set folder entryid and store entryid.
 	 * @param {Zarafa.hierarchy.data.MAPIFolderRecord[]} mapiFolder mapi folder that should be used to load data.
 	 */
-	setFolder : function(mapiFolder)
+	setFolder: function(mapiFolder)
 	{
 		Ext.each(mapiFolder, function(folder, index) {
 			this.setEntryId(folder.get('entryid'), index !== 0);
@@ -230,7 +230,7 @@ Zarafa.core.data.ListModuleStore = Ext.extend(Zarafa.core.data.IPMStore, {
 	 * @param {HexString} entryId entry id of mapi folder.
 	 * @param {Boolean} add append entryids instead of overwriting it.
 	 */
-	setEntryId : function(entryId, add)
+	setEntryId: function(entryId, add)
 	{
 		if(!Ext.isEmpty(add) && add) {
 			// multiple entryids
@@ -253,7 +253,7 @@ Zarafa.core.data.ListModuleStore = Ext.extend(Zarafa.core.data.IPMStore, {
 	 * Function will get the folder entryid
 	 * @return {HexString[]} The entryid/entryids of the mapi folder.
 	 */
-	getEntryId : function()
+	getEntryId: function()
 	{
 		return this.entryId;
 	},
@@ -263,7 +263,7 @@ Zarafa.core.data.ListModuleStore = Ext.extend(Zarafa.core.data.IPMStore, {
 	 * @param {HexString} storeEntryId entry id of mapi store.
  	 * @param {Boolean} add append store entryids instead of overwriting it.
 	 */
-	setStoreEntryId : function(storeEntryId, add)
+	setStoreEntryId: function(storeEntryId, add)
 	{
 		if(!Ext.isEmpty(add) && add) {
 			// multiple entryids
@@ -286,7 +286,7 @@ Zarafa.core.data.ListModuleStore = Ext.extend(Zarafa.core.data.IPMStore, {
 	 * Function will get the entryid of mapi store.
 	 * @return {HexString} The entryid of the mapi store
 	 */
-	getStoreEntryId : function()
+	getStoreEntryId: function()
 	{
 		return this.storeEntryId;
 	},
@@ -295,7 +295,7 @@ Zarafa.core.data.ListModuleStore = Ext.extend(Zarafa.core.data.IPMStore, {
 	 * Function will set restriction that should be used in consecutive requests.
 	 * @param {Object} restriction restriction object that will contain paging info.
 	 */
-	setRestriction : function(restriction)
+	setRestriction: function(restriction)
 	{
 		this.restriction = restriction;
 	},
@@ -304,11 +304,11 @@ Zarafa.core.data.ListModuleStore = Ext.extend(Zarafa.core.data.IPMStore, {
 	 * Function will set restriction to use in searching.
 	 * @param {Object} searchRestriction restriction for search.
 	 */
-	setSearchRestriction : function(searchRestriction)
+	setSearchRestriction: function(searchRestriction)
 	{
 		if(!Ext.isEmpty(searchRestriction)) {
 			this.restriction = Ext.apply(this.restriction || {}, {
-				search : searchRestriction
+				search: searchRestriction
 			});
 		} else {
 			// remove blank search restriction
@@ -320,7 +320,7 @@ Zarafa.core.data.ListModuleStore = Ext.extend(Zarafa.core.data.IPMStore, {
 	 * Function will set boolean to use subfolders in search or not.
 	 * @param {Boolean} subfolders true if subfolders should be used else false.
 	 */
-	setSubfolders : function(subfolders)
+	setSubfolders: function(subfolders)
 	{
 		this.subfolders = subfolders;
 	},
@@ -329,7 +329,7 @@ Zarafa.core.data.ListModuleStore = Ext.extend(Zarafa.core.data.IPMStore, {
 	 * Function will set boolean to use search folders or not.
 	 * @param {Boolean} useSearchFolder true if search folder should be used else false.
 	 */
-	setUseSearchFolder : function(useSearchFolder)
+	setUseSearchFolder: function(useSearchFolder)
 	{
 		this.useSearchFolder = useSearchFolder;
 	},
@@ -348,24 +348,24 @@ Zarafa.core.data.ListModuleStore = Ext.extend(Zarafa.core.data.IPMStore, {
 	 * <code>{@link #paramNames}</code>.</li>
 	 * </ul></div>
 	 * @param {Object} options An object containing properties which control loading options:<ul>
-	 * <li><b><tt>params</tt></b> :Object<div class="sub-desc"><p>An object containing properties to pass as HTTP
+	 * <li><b><tt>params</tt></b>:Object<div class="sub-desc"><p>An object containing properties to pass as HTTP
 	 * parameters to a remote data source. <b>Note</b>: <code>params</code> will override any
 	 * <code>{@link #baseParams}</code> of the same name.</p>
 	 * <p>Parameters are encoded as standard HTTP parameters using {@link Ext#urlEncode}.</p></div></li>
-	 * <li><b>callback</b> : Function<div class="sub-desc"><p>A function to be called after the Records
+	 * <li><b>callback</b>: Function<div class="sub-desc"><p>A function to be called after the Records
 	 * have been loaded. The callback is called after the load event is fired, and is passed the following arguments:<ul>
-	 * <li>r : Ext.data.Record[] An Array of Records loaded.</li>
-	 * <li>options : Options object from the load call.</li>
-	 * <li>success : Boolean success indicator.</li></ul></p></div></li>
-	 * <li><b>scope</b> : Object<div class="sub-desc"><p>Scope with which to call the callback (defaults
+	 * <li>r: Ext.data.Record[] An Array of Records loaded.</li>
+	 * <li>options: Options object from the load call.</li>
+	 * <li>success: Boolean success indicator.</li></ul></p></div></li>
+	 * <li><b>scope</b>: Object<div class="sub-desc"><p>Scope with which to call the callback (defaults
 	 * to the Store object)</p></div></li>
-	 * <li><b>add</b> : Boolean<div class="sub-desc"><p>Indicator to append loaded records rather than
-	 * replace the current cache.  <b>Note</b>: see note for <tt>{@link #loadData}</tt></p></div></li>
+	 * <li><b>add</b>: Boolean<div class="sub-desc"><p>Indicator to append loaded records rather than
+	 * replace the current cache. <b>Note</b>: see note for <tt>{@link #loadData}</tt></p></div></li>
 	 * </ul>
 	 * @return {Boolean} If the <i>developer</i> provided <tt>{@link #beforeload}</tt> event handler returns
 	 * <tt>false</tt>, the load call will abort and will return <tt>false</tt>; otherwise will return <tt>true</tt>.
 	 */
-	load : function(options)
+	load: function(options)
 	{
 		if (!Ext.isObject(options)) {
 			options = {};
@@ -394,9 +394,9 @@ Zarafa.core.data.ListModuleStore = Ext.extend(Zarafa.core.data.IPMStore, {
 
 		// Override the given entryid and store entryid.
 		Ext.apply(options.params, {
-			entryid : this.entryId,
-			search_folder_entryid : this.searchFolderEntryId,
-			store_entryid : this.storeEntryId
+			entryid: this.entryId,
+			search_folder_entryid: this.searchFolderEntryId,
+			store_entryid: this.storeEntryId
 		});
 
 		/*
@@ -408,11 +408,11 @@ Zarafa.core.data.ListModuleStore = Ext.extend(Zarafa.core.data.IPMStore, {
 		 * you have to call setter methods to actually set these options.
 		 */
 		Ext.applyIf(options, {
-			actionType : this.actionType
+			actionType: this.actionType
 		});
 
 		Ext.applyIf(options.params, {
-			restriction : this.restriction
+			restriction: this.restriction
 		});
 
 		// Apply the search restriction only when search is performed, remove otherwise, if any
@@ -421,7 +421,7 @@ Zarafa.core.data.ListModuleStore = Ext.extend(Zarafa.core.data.IPMStore, {
 				delete options.params.restriction.search;
 			} else {
 				options.params.restriction = Ext.apply(options.params.restriction || {}, {
-					search : this.restriction.search
+					search: this.restriction.search
 				});
 			}
 		}
@@ -433,9 +433,9 @@ Zarafa.core.data.ListModuleStore = Ext.extend(Zarafa.core.data.IPMStore, {
 			 * then we have to add its default values
 			 */
 			Ext.applyIf(options.params, {
-				use_searchfolder : this.useSearchFolder,
-				subfolders : this.subfolders,
-				forceCreateSearchFolder : options.forceCreateSearchFolder
+				use_searchfolder: this.useSearchFolder,
+				subfolders: this.subfolders,
+				forceCreateSearchFolder: options.forceCreateSearchFolder
 			});
 		}
 
@@ -474,12 +474,12 @@ Zarafa.core.data.ListModuleStore = Ext.extend(Zarafa.core.data.IPMStore, {
 	 * <br><p>To add new params to the existing params:</p><pre><code>
 lastOptions = myStore.lastOptions;
 Ext.apply(lastOptions.params, {
-    myNewParam: true
+  myNewParam: true
 });
 myStore.reload(lastOptions);
 	 * </code></pre>
 	 */
-	reload : function(options)
+	reload: function(options)
 	{
 		if (this.hasSearchResults ) {
 			// The superclass for reload will apply this.lastOptions,
@@ -492,9 +492,9 @@ myStore.reload(lastOptions);
 
 	/**
 	 * Helper function to detect if {@link #this} is the {@link Zarafa.advancesearch.AdvanceSearchStore AdvanceSearchStore} or not.
-	 * @return {Boolean} True if this is refered to an instance of {@link Zarafa.advancesearch.AdvanceSearchStore AdvanceSearchStore}, false otherwise.
+	 * @return {Boolean} True if this is referred to an instance of {@link Zarafa.advancesearch.AdvanceSearchStore AdvanceSearchStore}, false otherwise.
 	 */
-	isAdvanceSearchStore : function()
+	isAdvanceSearchStore: function()
 	{
 		return this.preferredMessageClass === "IPM.Search";
 	},
@@ -504,7 +504,7 @@ myStore.reload(lastOptions);
 	 * this will internally call {@link #load} method but with some different options.
 	 * @param {Object} options options object that must contain restriction to apply for live scroll.
 	 */
-	liveScroll : function(options)
+	liveScroll: function(options)
 	{
 		if (!Ext.isObject(options)) {
 			options = {};
@@ -520,7 +520,7 @@ myStore.reload(lastOptions);
 		}
 
 		Ext.apply(options, {
-			actionType : Zarafa.core.Actions['updatelist']
+			actionType: Zarafa.core.Actions['updatelist']
 		});
 
 		/*
@@ -538,7 +538,7 @@ myStore.reload(lastOptions);
 	/**
 	 * Function will be used to reset the {@Ext.data.store#lastOptions}.
 	 */
-	stopLiveScroll : function()
+	stopLiveScroll: function()
 	{
 		var restriction = this.lastOptions.params.restriction;
 
@@ -550,11 +550,11 @@ myStore.reload(lastOptions);
 		// reset the action type in the last options, because
 		// consecutive requests should use list action type
 		Ext.apply(this.lastOptions, {
-			actionType : Zarafa.core.Actions['list']
+			actionType: Zarafa.core.Actions['list']
 		});
 
 		Ext.apply(restriction, {
-			start : 0
+			start: 0
 		});
 
 		if(Ext.isDefined(restriction)){
@@ -568,7 +568,7 @@ myStore.reload(lastOptions);
 	 * this will internally call {@link #load} method but with some different options.
 	 * @param {Object} options options object that must contain restriction to apply for search.
 	 */
-	search : function(options)
+	search: function(options)
 	{
 		if (!Ext.isObject(options)) {
 			options = {};
@@ -596,7 +596,7 @@ myStore.reload(lastOptions);
 
 		if(this.useSearchFolder) {
 			Ext.apply(options, {
-				actionType : Zarafa.core.Actions['search']
+				actionType: Zarafa.core.Actions['search']
 			});
 		}
 
@@ -605,7 +605,7 @@ myStore.reload(lastOptions);
 		// set the flag to indicate that store contains search results
 		// this should be only used when using search folders
 		if(this.useSearchFolder) {
-			this.hasSearchResults  = true;
+			this.hasSearchResults = true;
 		}
 
 		this.fireEvent('search', this, options);
@@ -616,7 +616,7 @@ myStore.reload(lastOptions);
 	 * this will internally call {@link #load} method but with some different options.
 	 * @param {Object} options options object that must contain entryid of search folder.
 	 */
-	updateSearch : function(options)
+	updateSearch: function(options)
 	{
 		// We are not searching...
 		if (!this.hasSearchResults ) {
@@ -628,7 +628,7 @@ myStore.reload(lastOptions);
 		}
 
 		Ext.apply(options, {
-			actionType : Zarafa.core.Actions['updatesearch']
+			actionType: Zarafa.core.Actions['updatesearch']
 		});
 
 		this.load(options);
@@ -638,7 +638,7 @@ myStore.reload(lastOptions);
 		// reset the action type in the last options, because updatesearch is not persistent action type
 		// and consecutive requests should use search action type, if its not specifically done using updateSearch method
 		Ext.apply(this.lastOptions, {
-			actionType : Zarafa.core.Actions['search'],
+			actionType: Zarafa.core.Actions['search'],
 			// Add a property to see that this was originally an updatesearch action
 			originalActionType: Zarafa.core.Actions.updatesearch
 		});
@@ -649,7 +649,7 @@ myStore.reload(lastOptions);
 	 * this will internally call {@link #load} method but with some different options.
 	 * @param {Object} options options object that must contain entryid of search folder.
 	 */
-	stopSearch : function(options)
+	stopSearch: function(options)
 	{
 		// remove search restriction
 		this.setSearchRestriction({});
@@ -681,12 +681,12 @@ myStore.reload(lastOptions);
 		}
 
 		Ext.apply(options, {
-			actionType : Zarafa.core.Actions['stopsearch']
+			actionType: Zarafa.core.Actions['stopsearch']
 		});
 
 		Ext.apply(options.params, {
-			store_entryid : this.storeEntryId,
-			search_folder_entryid : this.searchFolderEntryId
+			store_entryid: this.storeEntryId,
+			search_folder_entryid: this.searchFolderEntryId
 		});
 
 		// Send a destroy request -- we are destroying the search folder on the server
@@ -694,19 +694,19 @@ myStore.reload(lastOptions);
 
 		// Clear the search data
 		this.setSearchEntryId(undefined);
-		this.hasSearchResults  = false;
+		this.hasSearchResults = false;
 
 		this.fireEvent('stopsearch', this, options);
 
 		// reset the action type in the last options, because stopsearch is not persistent action type
 		// and consecutive requests should use list action type, if its not specifically done using search method
 		Ext.apply(this.lastOptions, {
-			actionType : Zarafa.core.Actions['list']
+			actionType: Zarafa.core.Actions['list']
 		});
 	},
 
 	/**
-	 * Function is used as a callback for 'read' action, we have overriden it to
+	 * Function is used as a callback for 'read' action, we have overridden it to
 	 * support search also using same 'read' action instead of creating new action.
 	 * this will check that if action type is list then will do normal processing and
 	 * add {@link Zarafa.core.data.IPMRecords[] records} to {@link Zarafa.core.data.ListModuleStore store}
@@ -717,7 +717,7 @@ myStore.reload(lastOptions);
 	 * @param {Boolean} success success status of request.
 	 * @param {Object} metaData extra information that is received with response data.
 	 */
-	loadRecords : function(data, options, success, metaData)
+	loadRecords: function(data, options, success, metaData)
 	{
 		if(success !== false) {
 			var restriction;
@@ -761,6 +761,16 @@ myStore.reload(lastOptions);
 						folder.set('content_count', metaData.folder.content_count);
 					}
 				}
+
+				// If the response contained an error, set it on the store
+				// Note: This is not a PHP error. The response was a normal status 200
+				// But the request could not be fulfilled and an error message was
+				// sent with the response (listexceed error).
+				if (metaData.error) {
+					this.error = metaData.error;
+				} else {
+					this.error = false;
+				}
 			}
 		}
 
@@ -778,23 +788,23 @@ myStore.reload(lastOptions);
 	 * @param {Object} searchResponse Object will contain search folder's entryid and its status of search.
 	 * @param {Object} page Object will contain information for pagination.
 	 */
-	updateSearchInfo : function(searchResponse, page)
+	updateSearchInfo: function(searchResponse, page)
 	{
 
 		// do some data conversion on received data
 		var searchData = {
-			entryId : searchResponse.searchfolder_entryid,
-			searchState : parseInt(searchResponse.searchstate, 10),
-			results : parseInt(searchResponse.results, 10)
+			entryId: searchResponse.searchfolder_entryid,
+			searchState: parseInt(searchResponse.searchstate, 10),
+			results: parseInt(searchResponse.results, 10)
 		};
 
 		// paging info is not always returned
 		if(!Ext.isEmpty(page)) {
 			Ext.apply(searchData, {
-				page : {
-					start : parseInt(page.start, 10),
-					rowCount : parseInt(page.rowcount, 10),
-					totalRowCount : parseInt(page.totalrowcount, 10)
+				page: {
+					start: parseInt(page.start, 10),
+					rowCount: parseInt(page.rowcount, 10),
+					totalRowCount: parseInt(page.totalrowcount, 10)
 				}
 			});
 		}
@@ -815,41 +825,6 @@ myStore.reload(lastOptions);
 	},
 
 	/**
-	 * Function which provide the restriction based on the given {@link Zarafa.common.data.Filters.UNREAD Filter}
-	 *
-	 * @param {Zarafa.common.data.Filters} filterType The filterType which needs to perform on store.
-	 * @return {Array|false} RES_BITMASK restriction else false.
-	 */
-	getFilterRestriction : function(filterType)
-	{
-		if (filterType === Zarafa.common.data.Filters.UNREAD) {
-			var unreadFilterRestriction = Zarafa.core.data.RestrictionFactory.dataResBitmask(
-				'PR_MESSAGE_FLAGS',
-				Zarafa.core.mapi.Restrictions.BMR_EQZ,
-				Zarafa.core.mapi.MessageFlags.MSGFLAG_READ);
-
-			var model = container.getCurrentContext().getModel();
-			var previewedRecord = model.getPreviewRecord();
-
-			// Add preview record in filter restriction so we can
-			// make it remains preview in preview panel.
-			if(!Ext.isEmpty(previewedRecord) && this.hasFilterApplied) {
-				return Zarafa.core.data.RestrictionFactory.createResOr([
-					Zarafa.core.data.RestrictionFactory.dataResProperty(
-						'entryid',
-						Zarafa.core.mapi.Restrictions.RELOP_EQ,
-						previewedRecord.get('entryid')
-					),
-					unreadFilterRestriction
-				]);
-			}
-
-			return unreadFilterRestriction;
-		}
-		return false;
-	},
-
-	/**
 	 * Clear the {#hasFilterApplied} flag which used to indicate that filter in
 	 * enabled or not.
 	 */
@@ -862,7 +837,7 @@ myStore.reload(lastOptions);
 	 * If {@link #loadMask} is not undefined, this function will display the {@link #loadMask}.
 	 * @protected
 	 */
-	showLoadMask : function ()
+	showLoadMask: function ()
 	{
 		if (!this.loadMask) {
 			var contentPanel = container.getContentPanel();
@@ -872,8 +847,24 @@ myStore.reload(lastOptions);
 				this.loadMask.show();
 			}
 		}
-	}
+	},
 
+	/**
+	 * This will provide the restriction based on the given {@link Zarafa.common.data.Filters.UNREAD Filter} or
+	 * {@link Zarafa.task.data.DataModes datemode}.
+	 */
+	getFilterRestriction: Ext.emptyFn,
+
+	/**
+	 * Helper function which used to get the total number of records are loaded
+	 * currently in Ext cache.
+	 *
+	 * @return {Number} The number of items in {@link Ext.data.Store Store}.
+	 */
+	getStoreLength: function()
+	{
+		return this.getRange().length;
+	}
 });
 
 Ext.reg('zarafa.listmodulestore', Zarafa.core.data.ListModuleStore);

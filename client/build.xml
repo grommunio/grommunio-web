@@ -50,11 +50,6 @@
 	<property name="fingerprint-debugfile" value="fingerprint-debug.js"/>
 	<property name="fingerprint-file" value="fingerprint.js"/>
 
-	<!-- The resize script -->
-	<property name="resize-folder" value=""/>
-	<property name="resize-debugfile" value="resize-debug.js"/>
-	<property name="resize-file" value="resize.js"/>
-
 	<!-- Third-party plugins CSS files -->
 	<property name="thirdparty-css-folder" value="${thirdparty-folder}/resources/css"/>
 	<property name="thirdparty-css-file" value="ux-thirdparty.css"/>
@@ -173,6 +168,7 @@
 		</copy>
         <copy file="${fingerprint-file}" tofile="${target-folder}/${fingerprint-folder}/${fingerprint-debugfile}"></copy>
         <copy file="${resize-file}" tofile="${target-folder}/${resize-folder}/${resize-debugfile}"></copy>
+
         <copy todir="${target-folder}/${tinymce-folder}">
             <fileset dir="${tinymce-folder}">
                 <include name="**/*.*"/>
@@ -236,7 +232,6 @@
 				var dgettext = function(domain, msgid) {};
 				var dngettext = function(domain, msgid, msgid_plural, count) {};
 				var dnpgettext = function(domain, msgctxt, msgid, msgid_plural, count) {};
-				var dpgettext = function(domain, msgctxt, msgid) {};
 				var ngettext = function(msgid, msgid_plural, count) {};
 				var npgettext = function(msgctxt, msgid, msgid_plural, count) {};
 				var pgettext = function(msgctxt, msgid) {};
@@ -289,12 +284,12 @@
 				var dgettext = function(domain, msgid) {};
 				var dngettext = function(domain, msgid, msgid_plural, count) {};
 				var dnpgettext = function(domain, msgctxt, msgid, msgid_plural, count) {};
-				var dpgettext = function(domain, msgctxt, msgid) {};
 				var ngettext = function(msgid, msgid_plural, count) {};
 				var npgettext = function(msgctxt, msgid, msgid_plural, count) {};
 				var pgettext = function(msgctxt, msgid) {};
 				var resizeLoginBox = function() {};
 				var userManager = {};
+				var DOMPurify = {};
                 var tinymce = {};
 				var Tokenizr = {};
 			</externs>

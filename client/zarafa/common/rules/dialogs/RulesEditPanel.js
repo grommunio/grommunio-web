@@ -12,7 +12,7 @@ Zarafa.common.rules.dialogs.RulesEditPanel = Ext.extend(Ext.form.FormPanel, {
 	 * @constructor
 	 * @param config Configuration structure
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		config = config || {};
 
@@ -21,10 +21,10 @@ Zarafa.common.rules.dialogs.RulesEditPanel = Ext.extend(Ext.form.FormPanel, {
 
 		Ext.applyIf(config, {
 			// Override from Ext.Component
-			xtype : 'zarafa.ruleseditpanel',
-			layout : 'anchor',
-			autoScroll : true,
-			items : this.createPanelItems(config)
+			xtype: 'zarafa.ruleseditpanel',
+			layout: 'anchor',
+			autoScroll: true,
+			items: this.createPanelItems(config)
 		});
 
 		Zarafa.common.rules.dialogs.RulesEditPanel.superclass.constructor.call(this, config);
@@ -36,67 +36,67 @@ Zarafa.common.rules.dialogs.RulesEditPanel = Ext.extend(Ext.form.FormPanel, {
 	 * @return {Array} array of items that should be added to panel.
 	 * @private
 	 */
-	createPanelItems : function(config)
+	createPanelItems: function(config)
 	{
 		return [{
-			xtype : 'displayfield',
-			value : _('Rule name'),
-			height : 20
+			xtype: 'displayfield',
+			value: _('Rule name'),
+			height: 20
 		}, {
-			xtype : 'textfield',
-			name : 'rule_name',
-			width : 250,
-			listeners : {
-				change : this.onChange,
-				scope : this
+			xtype: 'textfield',
+			name: 'rule_name',
+			width: 250,
+			listeners: {
+				change: this.onChange,
+				scope: this
 			}
 		}, {
-			xtype : 'spacer',
-			height : 15
+			xtype: 'spacer',
+			height: 15
 		}, {
-			xtype : 'displayfield',
-			value : _('When the message') + '...',
-			height : 20
+			xtype: 'displayfield',
+			value: _('When the message') + '...',
+			height: 20
 		}, {
-			xtype : 'zarafa.rulesconditioncontainer',
-			anchor : '100%'
+			xtype: 'zarafa.rulesconditioncontainer',
+			anchor: '100%'
 		}, {
-			xtype : 'spacer',
-			height : 15
+			xtype: 'spacer',
+			height: 15
 		}, {
-			xtype : 'displayfield',
-			value : _('Do the following') + '...',
-			height : 20
+			xtype: 'displayfield',
+			value: _('Do the following') + '...',
+			height: 20
 		}, {
-			xtype : 'zarafa.rulesactionscontainer',
-			anchor : '100%',
-			storeEntryId : config.storeEntryId
+			xtype: 'zarafa.rulesactionscontainer',
+			anchor: '100%',
+			storeEntryId: config.storeEntryId
 		}, {
-			xtype : 'spacer',
-			height : 15
+			xtype: 'spacer',
+			height: 15
 		},	{
-			xtype : 'displayfield',
-			value : _('Exceptions'),
-			height : 20
+			xtype: 'displayfield',
+			value: _('Exceptions'),
+			height: 20
 		},	{
 			xtype: 'zarafa.rulesexceptionscontainer',
 			anchor: '100%'
 		},	{
-			xtype : 'spacer',
-			height : 15
+			xtype: 'spacer',
+			height: 15
 		}, {
-			xtype : 'checkbox',
-			ref : 'onlyIfOOFCheckbox',
-			hidden : this.hideCheckBox(),
-			boxLabel : _('Apply only when Out of Office is active'),
-			handler : this.onToggleIfOOF,
-			scope : this
+			xtype: 'checkbox',
+			ref: 'onlyIfOOFCheckbox',
+			hidden: this.hideCheckBox(),
+			boxLabel: _('Apply only when Out of Office is active'),
+			handler: this.onToggleIfOOF,
+			scope: this
 		}, {
-			xtype : 'checkbox',
-			ref : 'stopProcessingCheckbox',
-			boxLabel : _('Stop processing more rules'),
-			handler : this.onToggleStopProcessing,
-			scope : this
+			xtype: 'checkbox',
+			ref: 'stopProcessingCheckbox',
+			boxLabel: _('Stop processing more rules'),
+			handler: this.onToggleStopProcessing,
+			scope: this
 		}];
 	},
 
@@ -106,7 +106,7 @@ Zarafa.common.rules.dialogs.RulesEditPanel = Ext.extend(Ext.form.FormPanel, {
 	 * @param {Object} value The value of the field updated
 	 * @private
 	 */
-	onChange : function(field, value)
+	onChange: function(field, value)
 	{
 		this.record.set(field.name, value);
 	},
@@ -115,7 +115,7 @@ Zarafa.common.rules.dialogs.RulesEditPanel = Ext.extend(Ext.form.FormPanel, {
 	 * Function will hide the "Apply only when..." check box when
 	 * ZCP version is less than 5.6.
 	 */
-	hideCheckBox : function(){
+	hideCheckBox: function(){
 		var version = container.getVersion();
 		var mapiVersion = version.getZCP();
 		return version.versionCompare(mapiVersion, '5.6') === -1 ? true : false;
@@ -128,7 +128,7 @@ Zarafa.common.rules.dialogs.RulesEditPanel = Ext.extend(Ext.form.FormPanel, {
 	 * @param {Boolean} checked The new checked state of the checkbox.
 	 * @private
 	 */
-	onToggleStopProcessing : function(checkbox, checked)
+	onToggleStopProcessing: function(checkbox, checked)
 	{
 		var state = this.record.get('rule_state');
 
@@ -149,7 +149,7 @@ Zarafa.common.rules.dialogs.RulesEditPanel = Ext.extend(Ext.form.FormPanel, {
 	 * @param {Boolean} checked The new checked state of the checkbox.
 	 * @private
 	 */
-	onToggleIfOOF : function(checkbox, checked)
+	onToggleIfOOF: function(checkbox, checked)
 	{
 		var state = this.record.get('rule_state');
 		if (checked) {
@@ -165,7 +165,7 @@ Zarafa.common.rules.dialogs.RulesEditPanel = Ext.extend(Ext.form.FormPanel, {
 	 * @param {Zarafa.rules.delegates.data.RulesRecord} record The record update the panel with.
 	 * @param {Boolean} contentReset force the component to perform a full update of the data.
 	 */
-	update : function(record, contentReset)
+	update: function(record, contentReset)
 	{
 		this.record = record;
 
@@ -183,7 +183,7 @@ Zarafa.common.rules.dialogs.RulesEditPanel = Ext.extend(Ext.form.FormPanel, {
 	 * the values from this {@link Ext.Panel panel}.
 	 * @param {Zarafa.core.data.IPMRecord} record The record to update
 	 */
-	updateRecord : function(record)
+	updateRecord: function(record)
 	{
 		record.beginEdit();
 

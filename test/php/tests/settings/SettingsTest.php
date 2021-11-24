@@ -31,24 +31,7 @@ class SettingsTest extends KopanoTest {
 	public function testRetrieveSettingResults()
 	{
 		$settings = $this->user->retrieveSettings();
-
-		$this->assertArrayHasKey('retrieveAll', $settings, 'Test that the object contains the \'retrieveAll\' property');
-		$this->assertArrayHasKey('zarafa', $settings['retrieveAll'], 'Test that the object contains the \'zarafa\' property');
-		$this->assertArrayHasKey('v1', $settings['retrieveAll']['zarafa'], 'Test that the object contains the \'v1\' property');
-	}
-
-	/**
-	 * Test that the settings still have the Out-Of-Office settings after saving
-	 */
-	public function testSaveSettings()
-	{
-		$settings = $this->user->retrieveSettings();
-
-		$GLOBALS["settings"]->retrieveSettings();
-		$GLOBALS["settings"]->saveSettings();
-		$settings = $GLOBALS["settings"]->get('zarafa/v1/contexts/mail');
-
-		$this->assertArrayHasKey('outofoffice', $settings, 'Test that the object contains the outofoffice settings after saving');
+                $this->assertEmpty($settings['retrieveAll']);
 	}
 
 	/**

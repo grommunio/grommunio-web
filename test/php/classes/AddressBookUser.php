@@ -135,8 +135,8 @@ class AddressBookUser extends IPMUser {
 		$hierarchy = $this->loadHierarchy();
 
 		$hierarchyItems = $hierarchy['list']['item'];
-		for($i=0,$len=count($hierarchyItems);$i<$len;$i++){
-			if($hierarchyItems[$i]['props']['display_name'] == 'Contacts'){
+		for($i=0,$len=count($hierarchyItems);$i<$len;$i++) {
+			if($hierarchyItems[$i]['props']['display_name'] == 'Contacts') {
 				$entryid = $hierarchyItems[$i]['props']['entryid'];
 				break;
 			}

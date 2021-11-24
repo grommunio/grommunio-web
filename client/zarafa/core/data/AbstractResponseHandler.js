@@ -5,7 +5,7 @@ Ext.namespace('Zarafa.core.data');
  * @extends Object
  *
  * The main interface used by the {@link Zarafa.core.ResponseRouter ResponseRouter}
- * for handling responses recieved by the PHP-side.
+ * for handling responses received by the PHP-side.
  *
  * This class is used as 'scoped' object, containing all information for handling
  * a specific server-response or server-notification.
@@ -45,7 +45,7 @@ Zarafa.core.data.AbstractResponseHandler = Ext.extend(Object, {
 	 * @param {Object} args (optional) A Javascript error object if the response could not
 	 * have been parsed by a {@link Ext.data.DataReader DataReader}.
 	 */
-	responseFailure : Ext.emptyFn,
+	responseFailure: Ext.emptyFn,
 
 	/**
 	 * The main handler to begin a Response processing transaction.
@@ -56,7 +56,7 @@ Zarafa.core.data.AbstractResponseHandler = Ext.extend(Object, {
 	 * @return {Boolean} False when the given data object cannot be handled by this response handler,
 	 * and the transaction must be canceled.
 	 */
-	start : Ext.emptyFn,
+	start: Ext.emptyFn,
 
 	/**
 	 * The handler for handling the given command from a Response.
@@ -66,7 +66,7 @@ Zarafa.core.data.AbstractResponseHandler = Ext.extend(Object, {
 	 * not cancel the transaction itself, but rather causes the 'success' argument for the
 	 * {@link #done} function to be false.
 	 */
-	handle : function(action, data)
+	handle: function(action, data)
 	{
 		var handler = this['do' + Ext.util.Format.capitalize(action)];
 		if (Ext.isFunction(handler)) {
@@ -78,5 +78,5 @@ Zarafa.core.data.AbstractResponseHandler = Ext.extend(Object, {
 	 * The main handler to complete a Response processing transaction.
 	 * @param {Boolean} success True if no errors were returned from the PHP-side.
 	 */
-	done : Ext.emptyFn
+	done: Ext.emptyFn
 });

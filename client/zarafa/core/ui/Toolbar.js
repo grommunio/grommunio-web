@@ -14,7 +14,7 @@ Zarafa.core.ui.Toolbar = Ext.extend(Ext.Toolbar, {
 	 * @constructor
 	 * @param config
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		Ext.apply(this, config, {
 			// Override from Ext.Component
@@ -40,7 +40,7 @@ Zarafa.core.ui.Toolbar = Ext.extend(Ext.Toolbar, {
 	 * {@link Ext.ButtonGroup} elements.
 	 * @protected
 	 */
-	addItems : function(buttons, insertion)
+	addItems: function(buttons, insertion)
 	{
 		var items = [];
 
@@ -64,7 +64,7 @@ Zarafa.core.ui.Toolbar = Ext.extend(Ext.Toolbar, {
 	},
 
 	/**
-	 * When the toolbar is layed out the sizes for the different buttongroups may differ. When the
+	 * When the toolbar is laid out the sizes for the different buttongroups may differ. When the
 	 * afterlayout event is fired the heights are corrected to have all the buttongroups match in
 	 * height. This is only done the first time the toolbar is shown.
 	 * @private
@@ -92,8 +92,8 @@ Zarafa.core.ui.Toolbar = Ext.extend(Ext.Toolbar, {
 			}
 		}
 	},
-	
-	onAddItem : function(toolbar, item, index)
+
+	onAddItem: function(toolbar, item, index)
 	{
 		if ( item.isXType('menuitem') && Ext.isDefined(item.recordComponentUpdaterPlugin) ){
 			// The plugin has called the update function of the item, but (for overflown toolbars)

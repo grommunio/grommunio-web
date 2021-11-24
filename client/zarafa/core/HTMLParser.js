@@ -15,7 +15,7 @@ Zarafa.core.HTMLParser = (function() {
 	var stripScriptsRe = /<script[^>]*>[\s\S]*?<\/script[^>]*>/gim;
 
 	// regular expression to convert <br /> tags to newlines
-	var br2nlRe = /<br\s*?\/*?>/gim;
+	var br2nlRe = /<br\s*[^<>]*?\/*>/igm;
 
 	// regular expression to convert \r\n, \n or \r tags to <br />
 	var nl2brRe = /\r\n|\n|\r/gim;
@@ -32,9 +32,9 @@ Zarafa.core.HTMLParser = (function() {
 		 * @param {Mixed} value The text from which to strip style tags
 		 * @return {String} The stripped text
 		 */
-		stripStyles : function(v)
+		stripStyles: function(v)
 		{
-			return !v ? v : String(v).replace(stripStylesRe, '');
+			return !v ? v: String(v).replace(stripStylesRe, '');
 		},
 
 		/**
@@ -42,9 +42,9 @@ Zarafa.core.HTMLParser = (function() {
 		 * @param {Mixed} value The text from which to strip script tags
 		 * @return {String} The stripped text
 		 */
-		stripScripts : function(v)
+		stripScripts: function(v)
 		{
-			return !v ? v : String(v).replace(stripScriptsRe, '');
+			return !v ? v: String(v).replace(stripScriptsRe, '');
 		},
 
 		/**
@@ -52,7 +52,7 @@ Zarafa.core.HTMLParser = (function() {
 		 * @param {String} The string value to format.
 		 * @return {String} The string with embedded \n tags in place of <br />.
 		 */
-		br2nl : function(v)
+		br2nl: function(v)
 		{
 			return Ext.isEmpty(v) ? '' : v.replace(br2nlRe, '\n');
 		},
@@ -62,7 +62,7 @@ Zarafa.core.HTMLParser = (function() {
 		 * @param {String} The string value to format.
 		 * @return {String} The string with embedded <br /> tags in place of \n.
 		 */
-		nl2br : function(v)
+		nl2br: function(v)
 		{
 			return Ext.isEmpty(v) ? '' : v.replace(nl2brRe, '<br>');
 		},
@@ -72,7 +72,7 @@ Zarafa.core.HTMLParser = (function() {
 		 * @param {String} The string value to format.
 		 * @return {String} The string with embedded \n in place of \r\n or \r.
 		 */
-		rlnl2nl : function(v)
+		rlnl2nl: function(v)
 		{
 			return Ext.isEmpty(v) ? '' : v.replace(/\r\n|\r/gim, '\n');
 		},
@@ -85,7 +85,7 @@ Zarafa.core.HTMLParser = (function() {
 		 * @param {String} content The plain-text contents to be formatted
 		 * @return {String} The HTML representation of the content
 		 */
-		convertPlainToHTML : function(content)
+		convertPlainToHTML: function(content)
 		{
 			if(Ext.isEmpty(content)) {
 				return content;
@@ -112,7 +112,7 @@ Zarafa.core.HTMLParser = (function() {
 		 * @param {String} content The HTML contents to be formatted
 		 * @return {String} The plain-text representation of the content
 		 */
-		convertHTMLToPlain : function(content)
+		convertHTMLToPlain: function(content)
 		{
 			if(Ext.isEmpty(content)) {
 				return content;
@@ -149,7 +149,7 @@ Zarafa.core.HTMLParser = (function() {
 			// remove comments
 			content = content.replace(/<!--[\s\S]*?-->/gim, '');
 
-			// we have processed tags which are usefull for plain text conversion so now remove all remaining tags
+			// we have processed tags which are useful for plain text conversion so now remove all remaining tags
 			content = Zarafa.core.HTMLParser.stripUnwantedTags(content, ['br']);
 
 			// decode html entities
@@ -184,7 +184,7 @@ Zarafa.core.HTMLParser = (function() {
 		 * @param {Array} allowedTags tags that should not be removed from the content.
 		 * @return {String} content after removing unwanted tags.
 		 */
-		stripUnwantedTags : function (content, allowedTags)
+		stripUnwantedTags: function (content, allowedTags)
 		{
 			// Match all HTML tags
 			var matches = content.match(/(<\/?[^>]+>)/gi);
@@ -246,7 +246,7 @@ Zarafa.core.HTMLParser = (function() {
 		 * @param {String} data data that should be checked for external content.
 		 * @return {Boolean} true if data contains external content else false.
 		 */
-		hasExternalContent : function(data)
+		hasExternalContent: function(data)
 		{
 			if(Ext.isEmpty(data)) {
 				return false;
@@ -271,7 +271,7 @@ Zarafa.core.HTMLParser = (function() {
 		 * @param {String} data raw data.
 		 * @return {String} filtered data.
 		 */
-		blockExternalContent : function(data)
+		blockExternalContent: function(data)
 		{
 			if(Ext.isEmpty(data)) {
 				return data;
@@ -295,7 +295,7 @@ Zarafa.core.HTMLParser = (function() {
 		 * @param {String} quoteStyle options are ENT_COMPAT, ENT_NOQUOTES or ENT_QUOTES.
 		 * @return {Object} table for translation of HTML entities
 		 */
-		getHTMLTranslationTable : function(tableType, quoteStyle)
+		getHTMLTranslationTable: function(tableType, quoteStyle)
 		{
 			if(!tableType) {
 				tableType = 'HTML_SPECIALCHARS';
@@ -602,7 +602,7 @@ Zarafa.core.HTMLParser = (function() {
 				entities['9824'] = '&spades;';	// Black (filled) spade suit
 				entities['9827'] = '&clubs;';	// Black (filled) club suit. Also known as shamrock
 				entities['9829'] = '&hearts;';	// Black (filled) heart suit. Also known as shamrock
-				entities['9830'] = '&diams;';   // Black (filled) diamond suit
+				entities['9830'] = '&diams;';  // Black (filled) diamond suit
 			}
 
 			if (quoteStyle !== 'ENT_NOQUOTES') {
@@ -632,7 +632,7 @@ Zarafa.core.HTMLParser = (function() {
 		 * @param {String} quoteStyle options are ENT_COMPAT, ENT_NOQUOTES or ENT_QUOTES.
 		 * @return {String} decoded string.
 		 */
-		entityDecode : function(content, quoteStyle)
+		entityDecode: function(content, quoteStyle)
 		{
 			var hashMap = Zarafa.core.HTMLParser.getHTMLTranslationTable('HTML_ENTITIES', quoteStyle);
 			var symbol = '';
@@ -642,7 +642,11 @@ Zarafa.core.HTMLParser = (function() {
 				entity = hashMap[symbol];
 				content = content.split(entity).join(symbol);
 			}
-			content = content.split('&#039;').join('\'');
+
+			// Convert HTML entities like &#224;
+			content = content.replace(/&#(\d+);/g, function(match, dec) {
+				return String.fromCharCode(dec);
+			});
 
 			return content;
 		},
@@ -653,7 +657,7 @@ Zarafa.core.HTMLParser = (function() {
 		 * @param {String} quoteStyle options are ENT_COMPAT, ENT_NOQUOTES or ENT_QUOTES.
 		 * @return {String} decoded string.
 		 */
-		entityEncode : function(content, quoteStyle)
+		entityEncode: function(content, quoteStyle)
 		{
 			var hashMap = Zarafa.core.HTMLParser.getHTMLTranslationTable('HTML_ENTITIES', quoteStyle);
 			var symbol = '';
@@ -681,7 +685,7 @@ Zarafa.core.HTMLParser = (function() {
 		 * second attachment of first embedded message.
 		 * @return {String} the modified HTML body
 		 */
-		inlineImgOutlookToZarafa : function(body, storeEntryId, entryId, attachNum)
+		inlineImgOutlookToZarafa: function(body, storeEntryId, entryId, attachNum)
 		{
 			var cidToUrl = function(match, srcStart, imgCid, srcEnd, offset, str) {
 				if(imgCid) {
@@ -716,7 +720,7 @@ Zarafa.core.HTMLParser = (function() {
 		 * @param {String} body the message body to be modified
 		 * @return {String} the modified html body
 		 */
-		inlineImgZarafaToOutlook : function(body)
+		inlineImgZarafaToOutlook: function(body)
 		{
 			if(!Ext.isDefined(body)){
 				return;
@@ -725,7 +729,7 @@ Zarafa.core.HTMLParser = (function() {
 			var urlToCid = function(match, srcStart, imgCid, srcEnd, offset, str) {
 				if(imgCid) {
 					// return img src with just cid: tag
-					return srcStart + 'cid:' + imgCid +  srcEnd;
+					return srcStart + 'cid:' + imgCid + srcEnd;
 				}
 
 				// return match as it is but in a real world this is not going to happen

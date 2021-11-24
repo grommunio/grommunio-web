@@ -5,7 +5,7 @@ Ext.namespace('Zarafa.calendar.ui');
  * @extends Zarafa.calendar.ui.AbstractCalendarView
  *
  * The DaysView is used to display one or more days in columns next to eachother. This is usually limited to 7 days,
- * altough more days are supported. For an overview of a large number of days, the {@link Zarafa.calendar.ui.AbstractCalendarBoxView BoxView}
+ * although more days are supported. For an overview of a large number of days, the {@link Zarafa.calendar.ui.AbstractCalendarBoxView BoxView}
  * is however more recommended
  */
 Zarafa.calendar.ui.AbstractCalendarDaysView = Ext.extend(Zarafa.calendar.ui.AbstractCalendarView, {
@@ -14,7 +14,7 @@ Zarafa.calendar.ui.AbstractCalendarDaysView = Ext.extend(Zarafa.calendar.ui.Abst
 	 * @property
 	 * @type Array
 	 */
-	dayLayoutPositions : [],
+	dayLayoutPositions: [],
 
 	/**
 	 * The number of rows which are needed to display all all-day appointments
@@ -24,7 +24,7 @@ Zarafa.calendar.ui.AbstractCalendarDaysView = Ext.extend(Zarafa.calendar.ui.Abst
 	 * @property
 	 * @type Number
 	 */
-	rowCount : 1,
+	rowCount: 1,
 
 	/**
 	 * The format which must be passed to the {@link Date#format} function when
@@ -34,8 +34,8 @@ Zarafa.calendar.ui.AbstractCalendarDaysView = Ext.extend(Zarafa.calendar.ui.Abst
 	 * @property
 	 * @type String
 	 */
-	// # TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
-	shortDayHeaderFormat : _('jS'),
+	// # TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
+	shortDayHeaderFormat: _('jS'),
 
 	/**
 	 * The format which must be passed to the {@link Date#format} function when
@@ -45,21 +45,38 @@ Zarafa.calendar.ui.AbstractCalendarDaysView = Ext.extend(Zarafa.calendar.ui.Abst
 	 * @property
 	 * @type String
 	 */
-	// # TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
-	longDayHeaderFormat : _('l jS F'),
+	// # TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
+	longDayHeaderFormat: _('l jS F'),
+
+	/**
+	 * It will apply a right margin to the appointment box to prevent them from filling up the entire width of a day box.
+	 * default is 10px.
+	 * @property
+	 * @type Number
+	 */
+	appointmentBodyRightMargin: 10,
+
+	/**
+	 * It will apply the left margin to the appointment box to prevents the appointment to overlap with the border.
+	 *
+	 * @property
+	 * @type Number
+	 */
+	appointmentBodyLeftMargin: 1,
 
 	/**
 	 * @constructor
 	 * @param {Object} config Configuration object
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		config = config || {};
 
 		Ext.applyIf(config, {
 			// Add 1 pixel to the left margin, this prevents the appointment
 			// to overlap with the border.
-			appointmentBodyLeftMargin : 1
+			appointmentBodyLeftMargin: config.appointmentBodyLeftMargin || this.appointmentBodyLeftMargin,
+			appointmentBodyRightMargin: config.appointmentBodyRightMargin || this.appointmentBodyRightMargin
 		});
 
 		Zarafa.calendar.ui.AbstractCalendarDaysView.superclass.constructor.call(this, config);
@@ -70,7 +87,7 @@ Zarafa.calendar.ui.AbstractCalendarDaysView = Ext.extend(Zarafa.calendar.ui.Abst
 	 * resizes when its child views require more space.
 	 * @return {Number} height in pixels the calendar view needs to properly lay out its header.
 	 */
-	getDesiredHeaderHeight : function()
+	getDesiredHeaderHeight: function()
 	{
 		// this.rowCount has been calculated in onBeforeLayout, so by the time this function is called it
 		// should be up to date
@@ -81,7 +98,7 @@ Zarafa.calendar.ui.AbstractCalendarDaysView = Ext.extend(Zarafa.calendar.ui.Abst
 	 * Determines the height of the calendar header in which appointments can be positioned.
 	 * @return {Number} height in pixels of the appointment header area
 	 */
-	getAppointmentHeaderheight : function()
+	getAppointmentHeaderheight: function()
 	{
 		return this.header.getHeight() - this.parentView.headerTextHeight;
 	},
@@ -90,7 +107,7 @@ Zarafa.calendar.ui.AbstractCalendarDaysView = Ext.extend(Zarafa.calendar.ui.Abst
 	 * Tests if the date range should be laid out in the header, which is when a range spans 24 hours or more.
 	 * @return {Boolean} true if the date range represents 24 hours or more, false otherwise.
 	 */
-	isHeaderRange : function(dateRange)
+	isHeaderRange: function(dateRange)
 	{
 		return dateRange.getDuration(Date.DAY) >= 1;
 	},
@@ -105,7 +122,7 @@ Zarafa.calendar.ui.AbstractCalendarDaysView = Ext.extend(Zarafa.calendar.ui.Abst
 	 * @param {Number} width The available width for the header
 	 * @private
 	 */
-	getDayHeaderTitle : function(date, width)
+	getDayHeaderTitle: function(date, width)
 	{
 		var dateFormat;
 
@@ -124,7 +141,7 @@ Zarafa.calendar.ui.AbstractCalendarDaysView = Ext.extend(Zarafa.calendar.ui.Abst
 	 * @return {Array} The array of {@link Zarafa.calendar.data.DayLayoutPosition dayLayoutPositions}
 	 * @private
 	 */
-	calculateDayLayoutPositions : function()
+	calculateDayLayoutPositions: function()
 	{
 		var todayTime = (new Date()).clearTime().getTime();
 		var firstDay = this.getDateRange().getStartDate();
@@ -144,11 +161,11 @@ Zarafa.calendar.ui.AbstractCalendarDaysView = Ext.extend(Zarafa.calendar.ui.Abst
 			var workingDay = (this.parentView.workingDays.indexOf(date.getDay()) >= 0);
 
 			this.dayLayoutPositions.push(new Zarafa.calendar.data.DayLayoutPosition({
-				left : Math.round(i * headerWidth),
-				right : Math.round((i+1) * headerWidth) + 1,
+				left: Math.round(i * headerWidth),
+				right: Math.round((i+1) * headerWidth) + 1,
 				date: date, // Make sure we select the start of the day
-				today : (todayTime == date.getTime()),
-				workingDay : workingDay
+				today: (todayTime == date.getTime()),
+				workingDay: workingDay
 			}));
 		}
 
@@ -165,7 +182,7 @@ Zarafa.calendar.ui.AbstractCalendarDaysView = Ext.extend(Zarafa.calendar.ui.Abst
 	 * @return {Date} a Date object that corresponds to the given location
 	 * @private
 	 */
-	locationToDate : function(x, y)
+	locationToDate: function(x, y)
 	{
 		var numDays = this.getDateRange().getNumDays();
 		var stripHeight = this.parentView.numHours * this.parentView.getHourHeight();
@@ -217,7 +234,7 @@ Zarafa.calendar.ui.AbstractCalendarDaysView = Ext.extend(Zarafa.calendar.ui.Abst
 	 * @param {Number} y vertical component of the location
 	 * @return {Date} a Date object that corresponds to the given location
 	 */
-	screenLocationToDate : function(x, y)
+	screenLocationToDate: function(x, y)
 	{
 		// get height / width of header's parent as that container is scrollable and
 		// will give proper viewable height / width for comparison
@@ -234,7 +251,7 @@ Zarafa.calendar.ui.AbstractCalendarDaysView = Ext.extend(Zarafa.calendar.ui.Abst
 	 * @param {Number} y vertical component of the location
 	 * @return {Zarafa.core.DateRange} A DateRange object that corresponds to the given location
 	 */
-	screenLocationToDateRange : function(x, y)
+	screenLocationToDateRange: function(x, y)
 	{
 		// get height / width of header's parent as that container is scrollable and
 		// will give proper viewable height / width for comparison
@@ -248,13 +265,13 @@ Zarafa.calendar.ui.AbstractCalendarDaysView = Ext.extend(Zarafa.calendar.ui.Abst
 			dueDate.setHours(12);
 			dueDate = dueDate.add(Date.DAY, 1).clearTime();
 
-			return new Zarafa.core.DateRange({ startDate : date, dueDate : dueDate });
+			return new Zarafa.core.DateRange({ startDate: date, dueDate: dueDate });
 		} else {
 			date = this.locationToDate(x - this.body.getX(), y - this.body.getY());
 			var snapSize = this.getZoomLevel() * 60 * 1000;
 			var snap = date.getTime() - (date.getTime() % snapSize);
 
-			return new Zarafa.core.DateRange({ startDate : new Date(snap), dueDate : new Date(snap + snapSize) });
+			return new Zarafa.core.DateRange({ startDate: new Date(snap), dueDate: new Date(snap + snapSize) });
 		}
 	},
 
@@ -265,7 +282,7 @@ Zarafa.calendar.ui.AbstractCalendarDaysView = Ext.extend(Zarafa.calendar.ui.Abst
 	 * @param {Number} The day number in this view.
 	 * @private
 	 */
-	getDayColumn : function(date)
+	getDayColumn: function(date)
 	{
 		var start = this.getDateRange().getStartDate();
 
@@ -283,7 +300,7 @@ Zarafa.calendar.ui.AbstractCalendarDaysView = Ext.extend(Zarafa.calendar.ui.Abst
 	 * @param {Date} date The date to calculate
 	 * @private
 	 */
-	getDateVerticalPosition : function(date)
+	getDateVerticalPosition: function(date)
 	{
 		var timeZoneOffset = date.getTimezoneOffset() * 60 * 1000;
 		return ((date.getTime() - timeZoneOffset) % Date.dayInMillis) / Date.dayInMillis;
@@ -294,7 +311,7 @@ Zarafa.calendar.ui.AbstractCalendarDaysView = Ext.extend(Zarafa.calendar.ui.Abst
 	 * @param {Number} time The duration
 	 * @private
 	 */
-	getRangeVerticalHeight : function(daterange)
+	getRangeVerticalHeight: function(daterange)
 	{
 		// This is DST safe, as we render 24 hours regardless of the DST which might
 		// occur on this particular day.
@@ -315,7 +332,7 @@ Zarafa.calendar.ui.AbstractCalendarDaysView = Ext.extend(Zarafa.calendar.ui.Abst
 	 * @return {Array} Array of {@link Zarafa.calendar.data.AppointmentBounds Bounds} which are used
 	 * to position all the body elements.
 	 */
-	dateRangeToBodyBounds : function(dateRange, column, columnCount, useMargin)
+	dateRangeToBodyBounds: function(dateRange, column, columnCount, useMargin)
 	{
 		var ret = [];
 		var numDays = this.dayLayoutPositions.length;
@@ -378,12 +395,12 @@ Zarafa.calendar.ui.AbstractCalendarDaysView = Ext.extend(Zarafa.calendar.ui.Abst
 			var left = this.dayLayoutPositions[startDay].left + (columnWidth * column) + leftMargin + 1;
 
 			ret.push(new Zarafa.calendar.data.AppointmentBounds({
-				left : Math.round(left),
-				right : Math.round(left + columnWidth),
-				top : startDatePos,
-				bottom : dueDatePos,
-				firstBox : true,
-				lastBox : true
+				left: Math.round(left),
+				right: Math.round(left + columnWidth),
+				top: startDatePos,
+				bottom: dueDatePos,
+				firstBox: true,
+				lastBox: true
 			}));
 		} else {
 			// add a bounds object for the first day.
@@ -391,11 +408,11 @@ Zarafa.calendar.ui.AbstractCalendarDaysView = Ext.extend(Zarafa.calendar.ui.Abst
 				columnWidth = (this.dayLayoutPositions[startDay].right - this.dayLayoutPositions[startDay].left - 1 - rightMargin - leftMargin) / columnCount;
 				left = this.dayLayoutPositions[startDay].left + (columnWidth * column) + leftMargin;
 				ret.push(new Zarafa.calendar.data.AppointmentBounds({
-					left : Math.round(left),
-					right : Math.round(left + columnWidth),
-					top : startDatePos,
-					bottom : stripHeight,
-					firstBox : true
+					left: Math.round(left),
+					right: Math.round(left + columnWidth),
+					top: startDatePos,
+					bottom: stripHeight,
+					firstBox: true
 				}));
 			}
 
@@ -405,10 +422,10 @@ Zarafa.calendar.ui.AbstractCalendarDaysView = Ext.extend(Zarafa.calendar.ui.Abst
 				columnWidth = (this.dayLayoutPositions[i].right - this.dayLayoutPositions[i].left - 1 - rightMargin - leftMargin) / columnCount;
 				left = this.dayLayoutPositions[i].left + (columnWidth * column) + leftMargin;
 				ret.push(new Zarafa.calendar.data.AppointmentBounds({
-					left : Math.round(left),
-					right : Math.round(left + columnWidth),
-					top : -1,
-					bottom : stripHeight
+					left: Math.round(left),
+					right: Math.round(left + columnWidth),
+					top: -1,
+					bottom: stripHeight
 				}));
 			}
 
@@ -425,11 +442,11 @@ Zarafa.calendar.ui.AbstractCalendarDaysView = Ext.extend(Zarafa.calendar.ui.Abst
 				// case since the appointments due date might fall _after_ the last visible
 				// date in our view.
 				ret.push(new Zarafa.calendar.data.AppointmentBounds({
-					left : Math.round(left),
-					right : Math.round(left + columnWidth),
-					top : -1,
-					bottom : dueDatePos,
-					lastBox : true
+					left: Math.round(left),
+					right: Math.round(left + columnWidth),
+					top: -1,
+					bottom: dueDatePos,
+					lastBox: true
 				}));
 			}
 
@@ -450,11 +467,11 @@ Zarafa.calendar.ui.AbstractCalendarDaysView = Ext.extend(Zarafa.calendar.ui.Abst
 	 * @return {Array} Array of {@link Zarafa.calendar.data.AppointmentBounds Bounds} which are used
 	 * to position the header element.
 	 */
-	dateRangeToHeaderBounds : function(dateRange, row, rowCount, useMargin)
+	dateRangeToHeaderBounds: function(dateRange, row, rowCount, useMargin)
 	{
 		var numDays = this.dayLayoutPositions.length;
-		var leftMargin = useMargin ? this.appointmentHeaderLeftMargin :0;
-		var rightMargin = useMargin ? this.appointmentHeaderRightMargin :0;
+		var leftMargin = useMargin ? this.appointmentHeaderLeftMargin : 0;
+		var rightMargin = useMargin ? this.appointmentHeaderRightMargin : 0;
 		var top = this.parentView.headerTextHeight;
 
 		var startDate = dateRange.getStartDate();
@@ -499,10 +516,10 @@ Zarafa.calendar.ui.AbstractCalendarDaysView = Ext.extend(Zarafa.calendar.ui.Abst
 			// most-right position (the last dayColumn). This will ensure that the appointment will stretch
 			// the entire length of all columns.
 			return new Zarafa.calendar.data.AppointmentBounds({
-				left : this.dayLayoutPositions[0].left,
-				right : this.dayLayoutPositions[numDays - 1].right,
-				top : top + row * this.parentView.headerItemHeight,
-				bottom : top + (row + rowCount) * this.parentView.headerItemHeight
+				left: this.dayLayoutPositions[0].left,
+				right: this.dayLayoutPositions[numDays - 1].right,
+				top: top + row * this.parentView.headerItemHeight,
+				bottom: top + (row + rowCount) * this.parentView.headerItemHeight
 			});
 		} else if (startDay < 0) {
 			// case (1)
@@ -510,11 +527,11 @@ Zarafa.calendar.ui.AbstractCalendarDaysView = Ext.extend(Zarafa.calendar.ui.Abst
 			// Our left position is the most-left position (the first dayColumn). This will ensure that
 			// the appointment will stretch from the first visible day until the due date.
 			return new Zarafa.calendar.data.AppointmentBounds({
-				left : this.dayLayoutPositions[0].left,
-				right : this.dayLayoutPositions[dueDay].right - rightMargin,
-				top : top + row * this.parentView.headerItemHeight,
-				bottom : top + (row + rowCount) * this.parentView.headerItemHeight,
-				lastBox : true
+				left: this.dayLayoutPositions[0].left,
+				right: this.dayLayoutPositions[dueDay].right - rightMargin,
+				top: top + row * this.parentView.headerItemHeight,
+				bottom: top + (row + rowCount) * this.parentView.headerItemHeight,
+				lastBox: true
 			});
 		} else if (dueDay >= numDays) {
 			// case (3)
@@ -522,11 +539,11 @@ Zarafa.calendar.ui.AbstractCalendarDaysView = Ext.extend(Zarafa.calendar.ui.Abst
 			// Our right position is the most-right position (the last dayColumn). This will ensure that
 			// the appointment will stretch from the start date to the last visible day.
 			return new Zarafa.calendar.data.AppointmentBounds({
-				left : this.dayLayoutPositions[startDay].left + leftMargin,
-				right : this.dayLayoutPositions[numDays - 1].right,
-				top : top + row * this.parentView.headerItemHeight,
-				bottom : top + (row + rowCount) * this.parentView.headerItemHeight,
-				firstBox : true
+				left: this.dayLayoutPositions[startDay].left + leftMargin,
+				right: this.dayLayoutPositions[numDays - 1].right,
+				top: top + row * this.parentView.headerItemHeight,
+				bottom: top + (row + rowCount) * this.parentView.headerItemHeight,
+				firstBox: true
 			});
 		} else {
 			// case (2)
@@ -534,12 +551,12 @@ Zarafa.calendar.ui.AbstractCalendarDaysView = Ext.extend(Zarafa.calendar.ui.Abst
 			// The left and right position is read from the positions from the correct dayColumns
 			// with padding applied.
 			return new Zarafa.calendar.data.AppointmentBounds({
-				left : this.dayLayoutPositions[startDay].left + leftMargin,
-				right : this.dayLayoutPositions[dueDay].right - rightMargin,
-				top : top + row * this.parentView.headerItemHeight,
-				bottom : top + (row + rowCount) * this.parentView.headerItemHeight,
-				firstBox : true,
-				lastBox : true
+				left: this.dayLayoutPositions[startDay].left + leftMargin,
+				right: this.dayLayoutPositions[dueDay].right - rightMargin,
+				top: top + row * this.parentView.headerItemHeight,
+				bottom: top + (row + rowCount) * this.parentView.headerItemHeight,
+				firstBox: true,
+				lastBox: true
 			});
 		}
 	},
@@ -549,7 +566,7 @@ Zarafa.calendar.ui.AbstractCalendarDaysView = Ext.extend(Zarafa.calendar.ui.Abst
 	 * @param {Zarafa.calendar.ui.Appointment|Array} appointment The appointment list
 	 * @return {Zarafa.calendar.ui.Appointment|Array} clusters The matrix of appointments
 	 */
-	getAppointmentClusters : function(appointments)
+	getAppointmentClusters: function(appointments)
 	{
 		// sort appointments by start date
 		appointments.sort(this.appointmentCompare);
@@ -595,7 +612,7 @@ Zarafa.calendar.ui.AbstractCalendarDaysView = Ext.extend(Zarafa.calendar.ui.Abst
 	 * @return {Number} the number of appointment rows needed to accommodate all appointments
 	 * @private
 	 */
-	calculateBodyOverlaps : function()
+	calculateBodyOverlaps: function()
 	{
 		// Make a list of appointments that are displayed on the calendar body
 		var bodyAppointments = [];
@@ -618,7 +635,7 @@ Zarafa.calendar.ui.AbstractCalendarDaysView = Ext.extend(Zarafa.calendar.ui.Abst
 	 * coloring algorithm is used as in calculateBodyOverlaps().
 	 * @private
 	 */
-	calculateHeaderOverlaps : function()
+	calculateHeaderOverlaps: function()
 	{
 		// Make a list of appointments that are displayed in the calendar header area
 		var headerAppointments = [];
@@ -642,7 +659,7 @@ Zarafa.calendar.ui.AbstractCalendarDaysView = Ext.extend(Zarafa.calendar.ui.Abst
 	 * @param {Zarafa.core.data.IPMRecord[]} records loaded record set
 	 * @param {Object} options the options (parameters) with which the load was invoked.
 	 */
-	onAppointmentsLoad : function(store, records, options)
+	onAppointmentsLoad: function(store, records, options)
 	{
 		Zarafa.calendar.ui.AbstractCalendarDaysView.superclass.onAppointmentsLoad.apply(this, arguments);
 
@@ -659,7 +676,7 @@ Zarafa.calendar.ui.AbstractCalendarDaysView = Ext.extend(Zarafa.calendar.ui.Abst
 	 * @param {Boolean} layout (optional) if true layout() will be called after the appointment was added. Defaults to true.
 	 * @return {Boolean} True if an appointment was added, false otherwise.
 	 */
-	addAppointment : function(record, layout)
+	addAppointment: function(record, layout)
 	{
 		var added = Zarafa.calendar.ui.AbstractCalendarDaysView.superclass.addAppointment.apply(this, arguments);
 		if ( !added ){
@@ -683,7 +700,7 @@ Zarafa.calendar.ui.AbstractCalendarDaysView = Ext.extend(Zarafa.calendar.ui.Abst
 	 * @param {Boolean} layout (optional) if true layout() will be called after the appointment was added. Defaults to true.
 	 * @return {Boolean} true if an appointment was removed, false otherwise (the appointment was not found in this view)
 	 */
-	removeAppointment : function(record, layout)
+	removeAppointment: function(record, layout)
 	{
 		Zarafa.calendar.ui.AbstractCalendarDaysView.superclass.removeAppointment.apply(this, arguments);
 		if (record.get('alldayevent')) {
@@ -694,11 +711,11 @@ Zarafa.calendar.ui.AbstractCalendarDaysView = Ext.extend(Zarafa.calendar.ui.Abst
 	},
 
 	/**
-	 * Called before the calendar will be layed out.
+	 * Called before the calendar will be laid out.
 	 * This will recalculate the {@link #calculateBodyOverlaps body} and {@link #calculateHeaderOverlaps header overlaps}.
 	 * @protected.
 	 */
-	onBeforeLayout : function()
+	onBeforeLayout: function()
 	{
 		Zarafa.calendar.ui.AbstractCalendarDaysView.superclass.onBeforeLayout.apply(this, arguments);
 

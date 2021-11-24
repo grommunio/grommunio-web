@@ -4,7 +4,7 @@ Ext.namespace('Zarafa.calendar.dialogs');
  * @class Zarafa.calendar.dialogs.AppointmentPanel
  * @extends Ext.Panel
  * @xtype zarafa.appointmentpanel
- * 
+ *
  * Panel that is used to create Appointments and Meeting Requests.
  */
 Zarafa.calendar.dialogs.AppointmentPanel = Ext.extend(Ext.Panel, {
@@ -21,7 +21,7 @@ Zarafa.calendar.dialogs.AppointmentPanel = Ext.extend(Ext.Panel, {
 	 * 1 opens Freebusy tab{@link Zarafa.calendar.dialogs.FreebusyTab}, we want this tab to be opened when we view all propsed time from Attendees
 	 * 2 opens Tracking tab{@link Zarafa.calendar.dialogs.TrackingTab}
 	 */
-	activeTab : undefined,
+	activeTab: undefined,
 
 	/**
 	 * True by default to display the information while switching between tab.
@@ -30,18 +30,18 @@ Zarafa.calendar.dialogs.AppointmentPanel = Ext.extend(Ext.Panel, {
 	 * @property
 	 * @type Boolean
 	 */
-	enableNotifier : true,
+	enableNotifier: true,
 
 	/**
 	 * @constructor
 	 * @param {Object} config configuration object.
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		config = config || {};
-		
+
 		if (Ext.isDefined(config.activeTab)) {
-			this.activeTab = config.activeTab;	
+			this.activeTab = config.activeTab;
 		}
 
 		config = Ext.applyIf(config, {
@@ -59,29 +59,29 @@ Zarafa.calendar.dialogs.AppointmentPanel = Ext.extend(Ext.Panel, {
 	 * @return {Object} Configuration object for the form panel
 	 * @private
 	 */
-	createTabPanel : function(activeTab)
+	createTabPanel: function(activeTab)
 	{
 		return [{
-			xtype : 'tabpanel',
-			ref : 'tabPanel',
-			activeTab : activeTab || 0,
-			border : false,
-			layoutOnTabChange : true,
-			plugins : [ 'zarafa.recordcomponentupdaterplugin' ],
-			update : this.onTabPanelUpdate.createDelegate(this),
-			listeners : {
-				render : this.onTabPanelRender,
-				tabchange : this.onTabPanelChange,
-				scope : this
+			xtype: 'tabpanel',
+			ref: 'tabPanel',
+			activeTab: activeTab || 0,
+			border: false,
+			layoutOnTabChange: true,
+			plugins: [ 'zarafa.recordcomponentupdaterplugin' ],
+			update: this.onTabPanelUpdate.createDelegate(this),
+			listeners: {
+				render: this.onTabPanelRender,
+				tabchange: this.onTabPanelChange,
+				scope: this
 			},
-			items : [{
+			items: [{
 				xtype: 'zarafa.appointmenttab',
 				title: _('Appointment'),
-				ref : '../appointmentTab'
+				ref: '../appointmentTab'
 			},{
 				xtype: 'zarafa.freebusytab',
 				title: _('Scheduling'),
-				ref : '../schedulingTab'
+				ref: '../schedulingTab'
 			},{
 				xtype: 'zarafa.trackingtab',
 				title: _('Tracking'),
@@ -99,7 +99,7 @@ Zarafa.calendar.dialogs.AppointmentPanel = Ext.extend(Ext.Panel, {
 	 * @param {Zarafa.core.data.MAPIRecord} record The record to update in this component
 	 * @param {Boolean} contentReset force the component to perform a full update of the data.
 	 */
-	onTabPanelUpdate : function(record, contentReset)
+	onTabPanelUpdate: function(record, contentReset)
 	{
 		// When the 'meeting' flag has been changed, and it is no longer a meeting request,
 		// then force the user to the appointmentTab.
@@ -120,11 +120,11 @@ Zarafa.calendar.dialogs.AppointmentPanel = Ext.extend(Ext.Panel, {
 	 * @param {Ext.TabPanel} tabpanel The tabpanel which has been rendered
 	 * @private
 	 */
-	onTabPanelRender : function(tabpanel)
+	onTabPanelRender: function(tabpanel)
 	{
 		this.tabPanel.hideTabStripItem(this.trackingTab);
 	},
-	
+
 	/**
 	 * Event handler which is fired when the TabPanel is being changed, this will
 	 * display/notify useful information to the user while switching between the tab
@@ -132,9 +132,9 @@ Zarafa.calendar.dialogs.AppointmentPanel = Ext.extend(Ext.Panel, {
 	 * @param {Ext.FormPanel} activeTab The new active tab
 	 * @private
 	 */
-	onTabPanelChange : function(tabPanel, activeTab)
+	onTabPanelChange: function(tabPanel, activeTab)
 	{
-		if(activeTab && activeTab.record){	
+		if(activeTab && activeTab.record){
 			var recipientStore = activeTab.record.getRecipientStore();
 			if(recipientStore && recipientStore.getCount() > 0){
 				this.mon(recipientStore, 'update', this.onRecipientsChange, this);
@@ -145,12 +145,12 @@ Zarafa.calendar.dialogs.AppointmentPanel = Ext.extend(Ext.Panel, {
 				if (this.enableNotifier){
 					var unresolved = recipientStore.getUnresolvedRecipients();
 					var invalid = recipientStore.getInvalidRecipients();
-					
+
 					// If there are unresolved recipients, then it should shown an information message to user
 					if (!Ext.isEmpty(invalid) || !Ext.isEmpty(unresolved)){
 						container.getNotifier().notify('info.unresolved_recipients', '', pgettext('calendar.dialog', 'Not all attendees could be resolved.'), {
-							container : this.getEl(),
-							persistent : true
+							container: this.getEl(),
+							persistent: true
 						});
 						this.enableNotifier = false;
 					}
@@ -160,11 +160,11 @@ Zarafa.calendar.dialogs.AppointmentPanel = Ext.extend(Ext.Panel, {
 	},
 
 	/**
-	 * Event handler which is fired when data in {@link Zarafa.core.data.IPMRecipientStore} has changed. 
+	 * Event handler which is fired when data in {@link Zarafa.core.data.IPMRecipientStore} has changed.
 	 * This will reset the flag {@link Zarafa.calendar.dialogs.AppointmentPanel enableNotifier}
 	 * @private
 	 */
-	onRecipientsChange : function()
+	onRecipientsChange: function()
 	{
 		this.enableNotifier = true;
 	}

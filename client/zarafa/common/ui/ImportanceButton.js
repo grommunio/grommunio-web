@@ -17,7 +17,7 @@ Zarafa.common.ui.ImportanceButton = Ext.extend(Zarafa.core.ui.menu.ConditionalIt
 	 * @constructor
 	 * @param {Object} config Configuration object
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		config = config || {};
 
@@ -38,7 +38,7 @@ Zarafa.common.ui.ImportanceButton = Ext.extend(Zarafa.core.ui.menu.ConditionalIt
 	 *
 	 * @param {Zarafa.core.data.IPMRecord} records The records to which the flags must be applied
 	 */
-	applyFlag : function(records)
+	applyFlag: function(records)
 	{
 		if (Ext.isEmpty(records)) {
 			return;

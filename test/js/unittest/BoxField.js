@@ -140,43 +140,43 @@ describe('BoxField', function() {
 			box = field.items.first();
 		});
 
-		it('updates the box when the record is changed', function(){
+		it('updates the box when the record is changed', function() {
 			spyOn(box, 'update');
 			box.record.set('display_name', 'MORE nonsense');
 			expect(box.update).toHaveBeenCalled();
 		});
 
-		it('notifies the field when the box is focussed', function(){
+		it('notifies the field when the box is focussed', function() {
 			spyOn(field, 'doBoxFocus');
 			box.focus();
 			expect(field.doBoxFocus).toHaveBeenCalled();
 		});
 
-		it('notifies the field when the box is blurred', function(){
+		it('notifies the field when the box is blurred', function() {
 			spyOn(field, 'doBoxBlur');
 			box.blur();
 			expect(field.doBoxBlur).toHaveBeenCalled();
 		});
 
-		it('notifies the field when the box is removed', function(){
+		it('notifies the field when the box is removed', function() {
 			spyOn(field, 'doBoxRemove');
 			box.onClickRemove(Ext.EventObject);
 			expect(field.doBoxRemove).toHaveBeenCalled();
 		});
 
-		it('notifies the field when the box is clicked', function(){
+		it('notifies the field when the box is clicked', function() {
 			spyOn(field, 'doBoxClick');
 			box.onClick(Ext.EventObject);
 			expect(field.doBoxClick).toHaveBeenCalled();
 		});
 
-		it('notifies the field when a contextmenu event is triggered on the box', function(){
+		it('notifies the field when a contextmenu event is triggered on the box', function() {
 			spyOn(field, 'doBoxContextMenu');
 			box.onContextMenu(Ext.EventObject);
 			expect(field.doBoxContextMenu).toHaveBeenCalled();
 		});
 
-		it('notifies the field when the box is double clicked', function(){
+		it('notifies the field when the box is double clicked', function() {
 			spyOn(field, 'doBoxDblClick');
 			box.onDblClick(Ext.EventObject);
 			expect(field.doBoxDblClick).toHaveBeenCalled();
@@ -186,7 +186,7 @@ describe('BoxField', function() {
 
 	/*
 	 * Test if the function that are called to add boxes or refresh the boxField
-	 * are using the filter function to filter out records that should not be 
+	 * are using the filter function to filter out records that should not be
 	 * displayed by this BoxField.
 	 */
 	describe('Record filter', function() {
@@ -307,9 +307,9 @@ describe('BoxField', function() {
 				expect(field.handleInput).toHaveBeenCalledWith('input');
 			});
 
-			it('will move the focus to the next focusable element when the user presses the TAB key with empty field', function(){
+			it('will move the focus to the next focusable element when the user presses the TAB key with empty field', function() {
 				spyOn(field, 'triggerBlur').and.callThrough();
-				
+
 				field.setValue('');
 				field.onFocus();
 				expect(field.hasFocus).toBeTruthy();
@@ -490,7 +490,7 @@ describe('BoxField', function() {
 				var lastBox = field.items.items[field.items.items.length - 1];
 
 				spyOn(firstBox, 'focus');
-	
+
 				lastBox.getEl().dom.click();
 
 				field.boxKeyMap.handleKeyDown(getKeyEvent(Ext.EventObject.HOME));
@@ -503,7 +503,7 @@ describe('BoxField', function() {
 				var lastBox = field.items.items[field.items.items.length - 1];
 
 				spyOn(lastBox, 'focus');
-	
+
 				firstBox.getEl().dom.click();
 
 				field.boxKeyMap.handleKeyDown(getKeyEvent(Ext.EventObject.END));

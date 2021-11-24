@@ -54,16 +54,16 @@ class TestData {
 		$membersData = array(
 			1 => array(
 				'distlist_type' => DL_USER_AB,
-				'display_name' => KOPANO_USER1_DISPLAY_NAME,
+				'display_name' => GROMMUNIO_USER1_DISPLAY_NAME,
 				'address_type' => 'EX',
-				'email_address' => KOPANO_USER1_NAME,
+				'email_address' => GROMMUNIO_USER1_NAME,
                 'entryid' => '00000000ac21a95040d3ee48b319fba7533044250100000006000000110000004d5441314d673d3d00000000'
 			),
 			2 => array(
 				'distlist_type' => DL_DIST_AB,
-				'display_name' => KOPANO_GROUP1_DISPLAY_NAME,
+				'display_name' => GROMMUNIO_GROUP1_DISPLAY_NAME,
 				'address_type' => 'EX',
-				'email_address' => KOPANO_GROUP1_NAME,
+				'email_address' => GROMMUNIO_GROUP1_NAME,
 				'entryid' => '00000000ac21a95040d3ee48b319fba753304425010000'
 			),
 			3 => array(
@@ -155,7 +155,7 @@ class TestData {
 	/**
 	 * Returns the properties for a meeting request which will
 	 * start in 1 hour and has a duration of 30minutes. The meeting will
-	 * recur weekly every day for 10 occurences.
+	 * recur weekly every day for 10 occurrences.
 	 * @param Array $props The properties to be merged into the defaults
 	 * @return Array The Meeting request properties.
 	 */
@@ -206,7 +206,7 @@ class TestData {
 			'regen' => 0,
 			'weekdays' => pow(2, (int) date('w', $start)), // this weekday
 			'term' => 34, // End after
-			'numoccur' => 10, // 10 occurences
+			'numoccur' => 10, // 10 occurrences
 			'numexcept' => '',
 			'numexceptmod' => '',
 			'start' => $startRecur,
@@ -262,7 +262,7 @@ class TestData {
 	/**
 	 * Returns the properties for a recurring appointment which will start
 	 * start in 1 hour and has a duration of 30 minutes.  The appointment will
-	 * recur weekly every day for 10 occurences.
+	 * recur weekly every day for 10 occurrences.
 	 * @param Array $props The properties to be merged into the defaults
 	 * @return Array The appointment properties
 	 */
@@ -305,7 +305,7 @@ class TestData {
 			'regen' => 0,
 			'weekdays' => pow(2, (int) date('w', $start)), // this weekday
 			'term' => 34, // End after
-			'numoccur' => 10, // 10 occurences
+			'numoccur' => 10, // 10 occurrences
 			'numexcept' => '',
 			'numexceptmod' => '',
 			'start' => $startRecur,

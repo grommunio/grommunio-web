@@ -6,7 +6,7 @@ Ext.namespace('Zarafa.common.ui.htmleditor');
  * @singleton
  */
 Zarafa.common.ui.htmleditor.LanguageMap = {
-	fileMapping : {
+	fileMapping: {
 		bg_BG: 'bg_BG',
 		cs_CZ: 'cs_CZ',
 		da_DK: 'da',

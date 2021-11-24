@@ -10,12 +10,12 @@ Ext.namespace('Zarafa.calendar.ui.html');
  * interested in redrawing the complete calendar and all appointments in it (This would become a performance
  * issue for calendars with many appointments). So with 2 layers we can create the following setup:
  *
- *  - Layer 1 : The calendar
+ *  - Layer 1: The calendar
  *    This contains the calendar background. For the header this means the background color, and the
  *    name of the date which is being displayed in the color (optionally additional markup is applied
  *    in case the rendered date is 'today'). For the body this means that all timestrips are rendered
  *    into the calendar (using the correct theme color).
- *  - Layer 2 : The appointments
+ *  - Layer 2: The appointments
  *    This contains all the appointments which are available in the calendar. None of the appointments
  *    are allowed to overlap with another appointment (The time can obviously overlap, but
  *    the appointments are placed under each other until the maxium number of appointment that can be
@@ -31,7 +31,7 @@ Zarafa.calendar.ui.html.CalendarBoxView = Ext.extend(Zarafa.calendar.ui.Abstract
 	 * @property
 	 * @type Ext.Element
 	 */
-	headerBackgroundLayer : undefined,
+	headerBackgroundLayer: undefined,
 
 	/**
 	 * The element for the body in the calendar which contains the
@@ -40,7 +40,7 @@ Zarafa.calendar.ui.html.CalendarBoxView = Ext.extend(Zarafa.calendar.ui.Abstract
 	 * @property
 	 * @type Ext.Element
 	 */
-	bodyBackgroundLayer : undefined,
+	bodyBackgroundLayer: undefined,
 
 	/**
 	 * The element for the body in the calendar which contains the
@@ -49,25 +49,25 @@ Zarafa.calendar.ui.html.CalendarBoxView = Ext.extend(Zarafa.calendar.ui.Abstract
 	 * @property
 	 * @type Ext.Element
 	 */
-	bodyAppointmentLayer : undefined,
+	bodyAppointmentLayer: undefined,
 
 	/**
 	 * @constructor
 	 * @param {Object} config configuration object.
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		config = config || {};
 
 		Ext.applyIf(config, {
-			baseCls : 'zarafa-calendar',
-			enableDD : true,
-			ddGroup : 'dd.mapiitem',
-			bodyDropConfig : {
-				ddGroup : 'dd.mapiitem',
-				headerMode : false,
-				selectingSnapMode : Zarafa.calendar.data.SnapModes.DAY,
-				draggingSnapMode : Zarafa.calendar.data.SnapModes.NONE
+			baseCls: 'zarafa-calendar',
+			enableDD: true,
+			ddGroup: 'dd.mapiitem',
+			bodyDropConfig: {
+				ddGroup: 'dd.mapiitem',
+				headerMode: false,
+				selectingSnapMode: Zarafa.calendar.data.SnapModes.DAY,
+				draggingSnapMode: Zarafa.calendar.data.SnapModes.NONE
 			}
 		});
 
@@ -80,7 +80,7 @@ Zarafa.calendar.ui.html.CalendarBoxView = Ext.extend(Zarafa.calendar.ui.Abstract
 	 * @private
 	 * @override
 	 */
-	render : function(container)
+	render: function(container)
 	{
 		Zarafa.calendar.ui.html.CalendarBoxView.superclass.render.call(this, container);
 
@@ -101,12 +101,12 @@ Zarafa.calendar.ui.html.CalendarBoxView = Ext.extend(Zarafa.calendar.ui.Abstract
 	 * must be created.
 	 * @private
 	 */
-	createAppointment : function(record)
+	createAppointment: function(record)
 	{
 		return new Zarafa.calendar.ui.html.AppointmentBoxView({
 			parentView: this,
-			record : record,
-			calendarColorScheme : this.calendarColorScheme
+			record: record,
+			calendarColorScheme: this.calendarColorScheme
 		});
 	},
 
@@ -116,9 +116,9 @@ Zarafa.calendar.ui.html.CalendarBoxView = Ext.extend(Zarafa.calendar.ui.Abstract
 	 * @return Zarafa.calendar.ui.AbstractDateRangeView
 	 * @protected
 	 */
-	createAppointmentProxy : function()
+	createAppointmentProxy: function()
 	{
-		return new Zarafa.calendar.ui.html.AppointmentProxy({ showTime : false });
+		return new Zarafa.calendar.ui.html.AppointmentProxy({ showTime: false });
 	},
 
 	/**
@@ -126,7 +126,7 @@ Zarafa.calendar.ui.html.CalendarBoxView = Ext.extend(Zarafa.calendar.ui.Abstract
 	 * {@link #getDayHeaderTitle} function.
 	 * @private
 	 */
-	drawDayHeaders : function()
+	drawDayHeaders: function()
 	{
 		var width = this.header.getWidth();
 		var height = this.header.getHeight();
@@ -182,7 +182,7 @@ Zarafa.calendar.ui.html.CalendarBoxView = Ext.extend(Zarafa.calendar.ui.Abstract
 	 * Draws the boxes that represent the days in the box view.
 	 * @private
 	 */
-	drawDays : function()
+	drawDays: function()
 	{
 		// Clear all the contents of the body
 		this.bodyBackgroundLayer.dom.innerHTML = '';
@@ -302,7 +302,7 @@ Zarafa.calendar.ui.html.CalendarBoxView = Ext.extend(Zarafa.calendar.ui.Abstract
 	 * @param {Ext.EventObject} event ExtJS event object
 	 * @private
 	 */
-	onBodyContextMenu : function(event)
+	onBodyContextMenu: function(event)
 	{
 		var xy = event.getXY();
 		var range = this.screenLocationToDateRange(xy[0], xy[1]);
@@ -321,7 +321,7 @@ Zarafa.calendar.ui.html.CalendarBoxView = Ext.extend(Zarafa.calendar.ui.Abstract
 	 * @private
 	 * @override
 	 */
-	onAppointmentDeselect : function(selectionModel, record)
+	onAppointmentDeselect: function(selectionModel, record)
 	{
 		Zarafa.calendar.ui.html.CalendarBoxView.superclass.onAppointmentDeselect.call(this, selectionModel, record);
 
@@ -338,7 +338,7 @@ Zarafa.calendar.ui.html.CalendarBoxView = Ext.extend(Zarafa.calendar.ui.Abstract
 	 * the new changes.
 	 * @protected
 	 */
-	onLayout : function()
+	onLayout: function()
 	{
 		// Perform greedy coloring on the appointments. This calculates how overlapping appointments are laid out
 		// in rows on the view.

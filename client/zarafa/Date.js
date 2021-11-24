@@ -137,7 +137,7 @@ Ext.apply(Date.prototype, {
 	 * @param {Number} value The amount to add to the current date.
 	 * @return {Date} The new Date instance.
 	 */
-	add : function(interval, value)
+	add: function(interval, value)
 	{
 		var d = this.clone();
 		if (!interval || value === 0) {
@@ -209,11 +209,11 @@ Ext.apply(Date.prototype, {
 	 *
 	 * @return {Date} The UTC date
 	 */
-	toUTC : function()
+	toUTC: function()
 	{
 		var utc = new Date(this.getTime() + (this.getTimezoneOffset() * 60000));
 
-		// Obtain the DST difference which might have occured during conversion,
+		// Obtain the DST difference which might have occurred during conversion,
 		// if there was a difference it must be applied to the utc date accordingly.
 		utc.setMilliseconds(utc.getMilliseconds() + Date.getDSTDiff(utc, this));
 
@@ -228,7 +228,7 @@ Ext.apply(Date.prototype, {
 	 *
 	 * @return {Date} The local-time date
 	 */
-	fromUTC : function()
+	fromUTC: function()
 	{
 		return new Date(this.getTime() - (this.getTimezoneOffset() * 60000));
 	},
@@ -240,7 +240,7 @@ Ext.apply(Date.prototype, {
 	 * not given, tomorrow will be returned.
 	 * @return {Date} this or the clone
 	 */
-	getNextWeekDay : function(weekday)
+	getNextWeekDay: function(weekday)
 	{
 		var currentday = this.getDay();
 
@@ -260,7 +260,7 @@ Ext.apply(Date.prototype, {
 	 * not given, yesterday will be returned.
 	 * @return {Date} this or the clone
 	 */
-	getPreviousWeekDay : function(weekday)
+	getPreviousWeekDay: function(weekday)
 	{
 		var currentday = this.getDay();
 
@@ -279,7 +279,7 @@ Ext.apply(Date.prototype, {
 	 * @param {Date} currentDate (Optional) The date for which next working day should be returned
 	 * @return {Date} Date fall on the next working day or false if no working days are defined
 	 */
-	getNextWorkWeekDay : function(currentDate)
+	getNextWorkWeekDay: function(currentDate)
 	{
 		currentDate = currentDate || new Date();
 		var nextDate = currentDate.getNextWeekDay();
@@ -301,7 +301,7 @@ Ext.apply(Date.prototype, {
 	 * @param {Boolean} clone true to create a clone of this date, clear the time and return it (defaults to false).
 	 * @return {Date} this or the clone.
 	 */
-	clearSeconds : function(clone)
+	clearSeconds: function(clone)
 	{
 		if (clone) {
 			return this.clone().clearSeconds();
@@ -318,7 +318,7 @@ Ext.apply(Date.prototype, {
 	 * Sets the time of the date to 12:00 am.
 	 * @return {Date} this
 	 */
-	setToNoon : function()
+	setToNoon: function()
 	{
 		this.clearTime().setHours(12);
 
@@ -330,7 +330,7 @@ Ext.apply(Date.prototype, {
 	 * @param {Date} date The date to compare
 	 * @return {Boolean} true if the date is in the same week as this date, false otherwise.
 	 */
-	inSameWeekAs : function(date)
+	inSameWeekAs: function(date)
 	{
 		var clone = this.clone().setToNoon();
 		clone = clone.add(Date.DAY, -1*clone.getDay());
@@ -345,7 +345,7 @@ Ext.apply(Date.prototype, {
 	 * @param {Date} date The date to compare
 	 * @return {Boolean} true if the date is in the next week from this date, false otherwise.
 	 */
-	inNextWeek : function(date)
+	inNextWeek: function(date)
 	{
 		return this.add(Date.DAY, 7).inSameWeekAs(date);
 	},
@@ -362,7 +362,7 @@ Ext.apply(Date.prototype, {
 	 * @param {Number} roundTimeValue The number of minutes to round the time to.
 	 * @return {Date} this date
 	 */
-	round : function(field, roundTimeValue)
+	round: function(field, roundTimeValue)
 	{
 		// For each field we have a slightly different approach.
 		// In all cases, if the field-value is already rounded,
@@ -423,7 +423,7 @@ Ext.apply(Date.prototype, {
 	 *			1hr/60min	ceil-10.00
 	 *
 	 */
-	ceil : function(field, ceilTimeValue)
+	ceil: function(field, ceilTimeValue)
 	{
 		// For each field we have a slightly different approach.
 		// In all cases, if the field-value is already rounded to the
@@ -482,7 +482,7 @@ Ext.apply(Date.prototype, {
 	 *			1hr/60min	floor-9.00
 	 *
 	 */
-	floor : function(field, floorTimeValue)
+	floor: function(field, floorTimeValue)
 	{
 		// For each field we have a slightly different approach.
 		// In all cases, if the field-value is already rounded to the
@@ -529,7 +529,7 @@ Ext.apply(Date.prototype, {
 	/**
 	 * Get the week number of the month (1 to 5)
 	*/
-	getWeekOfMonth : function()
+	getWeekOfMonth: function()
 	{
 		// get current week number in year
 		var currentWeek = this.getWeekOfYear();
@@ -548,7 +548,7 @@ Ext.apply(Date.prototype, {
 	 *
 	 * @return {String} The nicely formatted date string.
 	 */
-	getNiceFormat : function(includeTime)
+	getNiceFormat: function(includeTime)
 	{
 		includeTime = includeTime !== false;
 
@@ -558,7 +558,7 @@ Ext.apply(Date.prototype, {
 		// Check for today. We'll only use time then.
 		if ( d.getTime() === now.getTime() ){
 			if ( includeTime ){
-				return this.format(_('G:i'));
+				return this.formatDefaultTime();
 			} else {
 				return _('Today');
 			}
@@ -567,7 +567,7 @@ Ext.apply(Date.prototype, {
 		// Check for tomorrow.
 		if ( d.add(Date.DAY, -1).getTime() === now.getTime() ){
 			if ( includeTime ){
-				return _('Tomorrow') + ' ' + this.format(_('G:i'));
+				return _('Tomorrow') + ' ' + this.formatDefaultTime();
 			} else {
 				return _('Tomorrow');
 			}
@@ -581,7 +581,7 @@ Ext.apply(Date.prototype, {
 		// Check for past week. We'll use day (name) + time then.
 		if ( d.add(Date.DAY, 6) >= now ){
 			if ( includeTime ){
-				return this.format(_('D G:i'));
+				return this.formatDefaultTime(_('D {0}'));
 			} else {
 				return this.format(_('D d-m'));
 			}
@@ -594,6 +594,25 @@ Ext.apply(Date.prototype, {
 
 		// For anything older than two weeks ago, we'll show the date
 		return this.format(_('d-m-Y'));
+	},
+
+	/**
+	* Function returns a formatted date string with the specified time format.
+	*
+	* @param {String} formatString The time format string
+	* @return {String} The formatted date/time string
+	*/
+	formatDefaultTime: function(formatString)
+	{
+		var timeFormat = container.settingsModel.get('zarafa/v1/main/datetime_time_format');
+		var newFormat;
+
+		if (Ext.isDefined(formatString)) {
+			newFormat = String.format(formatString, timeFormat);
+		} else {
+			newFormat = timeFormat;
+		}
+		return this.format(newFormat);
 	}
 });
 
@@ -605,7 +624,7 @@ Ext.apply(Date, {
      * @return {String} The short day name.
      * @static
      */
-    getShortDayName : function(day) {
+    getShortDayName: function(day) {
 		// Let's first check if the short days have been translated.
 		// If not, we'll fall back to using the first 3 letters of
 		// the full day.
@@ -641,7 +660,7 @@ Ext.apply(Date, {
 	 * @param {Date} date The base date from where the DST is calculated.
 	 * @return {Number} milliseconds The DST difference in milliseconds
 	 */
-	getDSTDiff : function(a, b)
+	getDSTDiff: function(a, b)
 	{
 		return (a.getTimezoneOffset() - b.getTimezoneOffset()) * 60 * 1000;
 	},
@@ -659,7 +678,7 @@ Ext.apply(Date, {
 	 * @param {Date} b The date object
 	 * @return {Number} The difference between the 2 given dates
 	 */
-	diff : function(field, a, b)
+	diff: function(field, a, b)
 	{
 		var ta = a.getTime();
 		var tb = b.getTime();
@@ -715,7 +734,7 @@ Ext.apply(Date, {
 	 * http://webexhibits.org/daylightsaving/g.html
 	 * @static
 	 */
-	getTimezoneStruct : function()
+	getTimezoneStruct: function()
 	{
 		var tzswitch = [],
 			switchCount = 0,

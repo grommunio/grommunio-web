@@ -54,7 +54,7 @@ class LoadDistlistsTest extends KopanoTest {
 	 * given restriction.
 	 *
 	 * The test functions using this provider should accept 4 arguments. Where the first
-	 * argument is the restriction whihc must be applied to the load of the distlists.
+	 * argument is the restriction which must be applied to the load of the distlists.
 	 * The second argument is the properties array which must be applied on the message which
 	 * should be loaded. The third argument is the expected distlist count which should be
 	 * returned by the load command, and the fourth argument is the message that should be

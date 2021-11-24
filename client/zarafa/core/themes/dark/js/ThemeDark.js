@@ -8,10 +8,10 @@ Zarafa.core.themes.ThemeDark = Ext.extend(Zarafa.core.ThemePlugin, {});
 
 Zarafa.onReady(function() {
 	container.registerPlugin(new Zarafa.core.PluginMetaData({
-		name : 'dark',
-		displayName : _('Dark'),
-		allowUserDisable : false,
-		allowUserVisible : false,
-		pluginConstructor : Zarafa.core.themes.ThemeDark
+		name: 'dark',
+		displayName: _('Dark'),
+		allowUserDisable: false,
+		allowUserVisible: false,
+		pluginConstructor: Zarafa.core.themes.ThemeDark
 	}));
 });

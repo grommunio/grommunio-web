@@ -111,11 +111,11 @@
 	* @constructor
 	* @param {Ext.Element/String/Object} config The configuration options may be specified as either:
 	* <div class="mdetail-params"><ul>
-	* <li><b>an element</b> :
+	* <li><b>an element</b>:
 	* <p class="sub-desc">it is set as the internal element and its id used as the component id</p></li>
-	* <li><b>a string</b> :
+	* <li><b>a string</b>:
 	* <p class="sub-desc">it is assumed to be the id of an existing element and is used as the component id</p></li>
-	* <li><b>anything else</b> :
+	* <li><b>anything else</b>:
 	* <p class="sub-desc">it is assumed to be a standard config object and is applied to the component</p></li>
 	* </ul></div>
 	*/
@@ -125,7 +125,7 @@
 		// By default stateful is 'undefined' however a component
 		// is stateful when this property !== false. Hence we have
 		// to force-disable the statefulness of components.
-		stateful : false,
+		stateful: false,
 
 		/**
 		 * @cfg {Boolean} statefulRelativeDimensions True if the 'width' and 'height' of the {@link #field} must be
@@ -134,7 +134,7 @@
 		 * This option is only used when the {@link Zarafa.core.data.SettingsStateProvider SettingsStateProvider} is
 		 * used in the {@link Ext.state.Manager}.
 		 */
-		statefulRelativeDimensions : true,
+		statefulRelativeDimensions: true,
 
 		/**
 		 * @cfg {String} statefulName The unique name for this component by which the {@link #getState state}
@@ -142,10 +142,10 @@
 		 * This option is only used when the {@link Zarafa.core.data.SettingsStateProvider SettingsStateProvider} is
 		 * used in the {@link Ext.state.Manager}.
 		 */
-		statefulName : undefined,
+		statefulName: undefined,
 
 		// Override to generate a stateId and register the Component to the Ext.state.Manager
-		initComponent : function()
+		initComponent: function()
 		{
 			if (this.stateful !== false) {
 				if (!this.stateId) {
@@ -163,9 +163,9 @@
 		 * This option is only used when the {@link Zarafa.core.data.SettingsStateProvider SettingsStateProvider} is
 		 * used in the {@link Ext.state.Manager}. This returns {@link #statefulName} if provided, or else generates
 		 * a custom name.
-		 * @return {String} The unique name for this component by which the {@link #getState state} must be saved. 
+		 * @return {String} The unique name for this component by which the {@link #getState state} must be saved.
 		 */
-		getStateName : function()
+		getStateName: function()
 		{
 			var name = this.statefulName;
 			if (!name) {
@@ -181,7 +181,7 @@
 		// need to be properly destroyed when the component is
 		// destroyed. Otherwise references to the plugin will
 		// remain and will still refer to the destroyed field.
-		destroy : function()
+		destroy: function()
 		{
 			if (this.plugins) {
 				for (var key in this.plugins) {

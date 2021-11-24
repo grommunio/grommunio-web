@@ -22,7 +22,7 @@ Zarafa.core.MessageClass = {
 	 * will return true when the actual message_class is 'IPM.Note'). Defaults to false.
 	 * @return {Boolean} True when the className matches.
 	 */
-	isClass : function(className, expectedClass, baseOnly)
+	isClass: function(className, expectedClass, baseOnly)
 	{
 		if (Ext.isEmpty(className)) {
 			return false;
@@ -68,7 +68,7 @@ Zarafa.core.MessageClass = {
 	 * @param {String} containerClass The Container Class to compare
 	 * @return {Boolean} True when the messageClass is compatible with the given containerClass
 	 */
-	isContainerClassCompatible : function(messageClass, containerClass)
+	isContainerClassCompatible: function(messageClass, containerClass)
 	{
 		messageClass = messageClass.toUpperCase();
 		containerClass = containerClass.toUpperCase();
@@ -113,11 +113,11 @@ Zarafa.core.MessageClass = {
 	/**
 	 * Function will return default foldertype from the hierarchy
 	 * for the supplied message_class to the function.
-	 * 
+	 *
 	 * @param {String} messageClass The message_class of the mapi record.
 	 * @return {String} The foldertype of the default folder for the supplied message_class
 	 */
-	getDefaultFolderTypeFromMessageClass : function(messageClass)
+	getDefaultFolderTypeFromMessageClass: function(messageClass)
 	{
 		messageClass = messageClass.toUpperCase();
 

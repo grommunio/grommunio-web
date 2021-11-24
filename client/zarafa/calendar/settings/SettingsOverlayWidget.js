@@ -14,42 +14,42 @@ Zarafa.calendar.settings.SettingsOverlayWidget = Ext.extend(Zarafa.settings.ui.S
 	 * @constructor
 	 * @param {Object} config Configuration object
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		config = config || {};
 
 		var overlayStore = {
-			xtype : 'jsonstore',
-			fields : [ 'name', 'value' ],
-			data : [{
-				name : _('Side-by-side mode'),
-				value : 'separate'
+			xtype: 'jsonstore',
+			fields: [ 'name', 'value' ],
+			data: [{
+				name: _('Side-by-side mode'),
+				value: 'separate'
 			},{
-				name : _('Overlay mode'),
-				value : 'merge'
+				name: _('Overlay mode'),
+				value: 'merge'
 			}]
 		};
 
 		Ext.applyIf(config, {
-			title : _('Calendar view settings'),
-			layout : 'form',
-			items : [{
-				xtype : 'combo',
-				ref : 'overlayCombo',
-				fieldLabel : _('View multiple calendars in'),
-				name : 'zarafa/v1/contexts/calendar/default_merge_state',
-				store : overlayStore,
+			title: _('Calendar view settings'),
+			layout: 'form',
+			items: [{
+				xtype: 'combo',
+				ref: 'overlayCombo',
+				fieldLabel: _('View multiple calendars in'),
+				name: 'zarafa/v1/contexts/calendar/default_merge_state',
+				store: overlayStore,
 				mode: 'local',
 				triggerAction: 'all',
 				displayField: 'name',
 				valueField: 'value',
 				lazyInit: false,
-				autoSelect : true,
+				autoSelect: true,
 				forceSelection: true,
 				editable: false,
-				listeners : {
-					select : this.onOpenMethodSelect,
-					scope : this
+				listeners: {
+					select: this.onOpenMethodSelect,
+					scope: this
 				}
 			}]
 		});
@@ -64,7 +64,7 @@ Zarafa.calendar.settings.SettingsOverlayWidget = Ext.extend(Zarafa.settings.ui.S
 	 * {@link Zarafa.settings.SettingsModel} into the UI of this category.
 	 * @param {Zarafa.settings.SettingsModel} settingsModel The settings to load
 	 */
-	update : function(settingsModel)
+	update: function(settingsModel)
 	{
 		this.model = settingsModel;
 
@@ -78,7 +78,7 @@ Zarafa.calendar.settings.SettingsOverlayWidget = Ext.extend(Zarafa.settings.ui.S
 	 * This is used to update the settings from the UI into the {@link Zarafa.settings.SettingsModel settings model}.
 	 * @param {Zarafa.settings.SettingsModel} settingsModel The settings to update
 	 */
-	updateSettings : function(settingsModel)
+	updateSettings: function(settingsModel)
 	{
 		settingsModel.set(this.overlayCombo.name, this.overlayCombo.getValue() === 'merge');
 	},
@@ -90,7 +90,7 @@ Zarafa.calendar.settings.SettingsOverlayWidget = Ext.extend(Zarafa.settings.ui.S
 	 * @param {Ext.data.Record} record The selected record
 	 * @private
 	 */
-	onOpenMethodSelect : function(field, record)
+	onOpenMethodSelect: function(field, record)
 	{
 		if (this.model) {
 			var set = record.get(field.valueField);

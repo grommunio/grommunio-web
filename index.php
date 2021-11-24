@@ -45,7 +45,7 @@
 	// If the user wants to logout (and is not using single-signon)
 	// then destroy the session and redirect to this page, so the login page
 	// will be shown
-	if ( isset($_GET['logout']) ){
+	if ( isset($_GET['logout']) ) {
 
 		// GET variable user will be set when the user was logged out because of session timeout
 		// or because he logged out in another window.
@@ -65,7 +65,7 @@
 	}
 
 	// Check if the continue parameter was set. This will be set e.g. when someone
-	// uses the WebApp to login to another application with OpenID Connect.
+	// uses the grommunio Web to login to another application with OpenID Connect.
 	if ( isset($_GET['continue']) && !empty($_GET['continue']) && !isset($_GET['wacontinue']) ) {
 		$_SESSION['continue'] = $_GET['continue'];
 	}
@@ -78,7 +78,7 @@
 		$webappTitle .= " – ".$_COOKIE['webapp_title'];
 
 	// If we could not authenticate the user, we will show the login page
-	if ( !WebAppAuthentication::isAuthenticated() ){
+	if ( !WebAppAuthentication::isAuthenticated() ) {
 
 		// Get language from the cookie, or from the language that is set by the admin
 		$Language = new Language();
@@ -94,19 +94,19 @@
 
 		// Set some template variables for the login page
 		$branch = DEBUG_LOADER===LOAD_SOURCE ? gitversion() : '';
-		$version = 'WebApp ' . trim(file_get_contents('version'));
+		$version = 'grommunio Web ' . trim(file_get_contents('version'));
 		$user = sanitizeGetValue('user', '', USERNAME_REGEX);
 
 		$url = '?logon';
 
-		if ( isset($_GET["logout"]) && $_GET["logout"]=="auto" ){
+		if ( isset($_GET["logout"]) && $_GET["logout"]=="auto" ) {
 			$error = _("You have been automatically logged out");
 		} else {
 			$error = WebAppAuthentication::getErrorMessage();
 			if(empty($error) && useSecureCookies() && getRequestProtocol() == 'http') {
 				header("HTTP/1.0 400 Bad Request");
 				include(BASE_PATH . 'server/includes/templates/BadRequest.php');
-				error_log("Rejected insecure request as configuration for 'INSECURE_COOKIES' is false.");
+				error_log("Rejected insecure request as configuration for 'SECURE_COOKIES' is true.");
 				die();
 			}
 		}
@@ -116,7 +116,7 @@
 		$user = isset($_GET['user']) ? htmlentities($_GET['user']) : '';
 
 		// Lets add a header when login failed (DeskApp needs it to identify failed login attempts)
-		if ( WebAppAuthentication::getErrorCode() !== NOERROR ){
+		if ( WebAppAuthentication::getErrorCode() !== NOERROR ) {
 			header("X-Zarafa-Hresult: " . get_mapi_error_name(WebAppAuthentication::getErrorCode()));
 		}
 
@@ -133,7 +133,7 @@
 	// we will redirect to make sure that a browser refresh will not post
 	// the credentials again, and that the url data is taken away from the
 	// url in the address bar (so a browser refresh will not pass them again)
-	if ( WebAppAuthentication::isUsingLoginForm() || isset($_GET['action']) && !empty($_GET['action']) ){
+	if ( WebAppAuthentication::isUsingLoginForm() || isset($_GET['action']) && !empty($_GET['action']) ) {
 		$location =  rtrim(dirname($_SERVER['PHP_SELF']), '/').'/';
 		header('Location: ' . $location , true, 303);
 		die();
@@ -172,7 +172,7 @@
 	if($GLOBALS['mapisession']->isWebappDisableAsFeature()) {
 		header("X-Zarafa-Hresult: " . get_mapi_error_name(MAPI_E_WEBAPP_FEATURE_DISABLED));
 
-		$error = _("Sorry, access to WebApp is not available with this user account. Please contact your system administrator.");
+		$error = _("Sorry, access to grommunio Web is not available with this user account. Please contact your system administrator.");
 		// Set some template variables for the login page
 		$user = sanitizeGetValue('user', '', USERNAME_REGEX);
 
@@ -189,7 +189,7 @@
 	$Language = new Language();
 
 	// Set session settings (language & style)
-	foreach($GLOBALS["settings"]->getSessionSettings($Language) as $key=>$value){
+	foreach($GLOBALS["settings"]->getSessionSettings($Language) as $key=>$value) {
 		$_SESSION[$key] = $value;
 	}
 
@@ -219,7 +219,7 @@
 	$favicon = getFavicon(Theming::getActiveTheme());
 	$hideFavorites = $GLOBALS["settings"]->get("zarafa/v1/contexts/hierarchy/hide_favorites") ? 'hideFavorites' : '';
 	$scrollFavorites = $GLOBALS["settings"]->get("zarafa/v1/contexts/hierarchy/scroll_favorites") ? 'scrollFavorites' : '';
-	$unreadBorders = $GLOBALS["settings"]->get("zarafa/v1/main/unread_borders") ? 'k-unreadborders' : '';
+	$unreadBorders = $GLOBALS["settings"]->get("zarafa/v1/main/unread_borders") === false ? '' : 'k-unreadborders';
 
 	// If GET parameter 'load' is defined, we defer handling to the load.php script
 	if ( isset($_GET['load']) ) {
@@ -227,7 +227,7 @@
 		die();
 	}
 
-	if (!DISABLE_WELCOME_SCREEN && $GLOBALS["settings"]->get("zarafa/v1/main/show_welcome") !== false) {
+	if (ENABLE_WELCOME_SCREEN && $GLOBALS["settings"]->get("zarafa/v1/main/show_welcome") !== false) {
 
 		// These hooks are defined twice (also when there is a "load" argument supplied)
 		$GLOBALS['PluginManager']->triggerHook("server.index.load.welcome.before");
@@ -235,9 +235,9 @@
 		$GLOBALS['PluginManager']->triggerHook("server.index.load.welcome.after");
 	} else {
 
-		// Set the show_welcome to true, so that when the admin is changing the
-		// DISABLE_WELCOME_SCREEN option to false after some time, the users who are already
-		// using the WebApp are not bothered with the Welcome Screen.
+		// Set the show_welcome to false, so that when the admin is changing the
+		// ENABLE_WELCOME_SCREEN option to false after some time, the users who are already
+		// using grommunio Web are not bothered with the Welcome Screen.
 		$GLOBALS["settings"]->set("zarafa/v1/main/show_welcome", false);
 
 		// Clean up old state files in tmp/session/

@@ -3,12 +3,12 @@
 
 	header('Expires: '.gmdate('D, d M Y H:i:s',time() + EXPIRES_TIME).' GMT');
 	header('Cache-Control: max-age=' . EXPIRES_TIME . ',must-revalidate');
-	
+
 	// Pragma: cache doesn't really exist. But since session_start() automatically
 	// outputs a Pragma: no-cache, the only way to override that is to output something else
 	// in that header. So that's what we do here. It might as well have read 'Pragma: foo'.
 	header('Pragma: cache');
-	
+
 	// compress output
 	ob_start("ob_gzhandler");
 
@@ -26,7 +26,7 @@ function changeTranslationCharsetToUTF8($source, $charset){
 		for($i=0;$i<count($source);$i++){
 			$source[$i] = iconv($charset, 'UTF-8//TRANSLIT', $source[$i]);
 		}
-	}elseif(is_string($source)){
+	} elseif(is_string($source)){
 		$source = iconv($charset, 'UTF-8//TRANSLIT', $source);
 	}
 	return $source;
@@ -71,7 +71,7 @@ foreach($translations as $domain => $translation_list){
 ?>
 	this.setPluralFormFunc('<?php echo $domain ?>', '<?php echo $pluralForms?>');
 <?php
-	}else{
+	} else {
 ?>
 	this.setPluralFormFunc('<?php echo $domain ?>');
 <?php
@@ -98,7 +98,7 @@ foreach($translations as $domain => $translation_list){
 			$context = str_replace("\n","\\n", addslashes($translation['msgctxt']));
 			// We cannot do it in PHP as this will cause an issue with the backslash
 			$context = '"'.$context.'\004"+';
-		}else{
+		} else {
 			$context = '';
 		}
 
@@ -109,7 +109,7 @@ foreach($translations as $domain => $translation_list){
 ?>
 	this.translations["<?php echo $domain ?>"][<?php echo $context ?>"<?php echo $msgid ?>"] = "<?php echo $msgstr ?>";
 <?php
-		}else{
+		} else {
 ?>
 	this.translations["<?php echo $domain?>"][<?php echo $context?>"<?php echo $msgid?>"] = new Array();
 <?php
@@ -127,45 +127,45 @@ foreach($translations as $domain => $translation_list){
 }
 
 /**
- * Function which sets the plural forms function in this.pluralFormFunc. This 
+ * Function which sets the plural forms function in this.pluralFormFunc. This
  * function is used to get the correct translations from the available plural
- * forms by supplying the count. Each translations file (read: domain) can have 
+ * forms by supplying the count. Each translations file (read: domain) can have
  * it's own plural function.
  * @param domain {string} The Domain the plural forms string belongs to
  * @param pluralForm {string} Optional The plural forms string from the translations file.
  */
 Translations.prototype.setPluralFormFunc = function(domain, pluralForm)
 {
-	if(typeof(pluralForm) != 'undefined' && typeof(this.pluralFormFunc[domain]) == 'undefined') { 
-		// untaint data 
-		var plural_forms = pluralForm; 
-		var pf_re = new RegExp('^(\\s*nplurals\\s*=\\s*[0-9]+\\s*;\\s*plural\\s*=\\s*(?:\\s|[-\\?\\|&=!<>+*/%:;a-zA-Z0-9_\(\)])+)', 'm'); 
-		if (pf_re.test(plural_forms)) { 
-			//ex english: "Plural-Forms: nplurals=2; plural=(n != 1);\n" 
-			//pf = "nplurals=2; plural=(n != 1);"; 
-			//ex russian: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10< =4 && (n%100<10 or n%100>=20) ? 1 : 2) 
-			//pf = "nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2)"; 
+	if(typeof(pluralForm) != 'undefined' && typeof(this.pluralFormFunc[domain]) == 'undefined') {
+		// untaint data
+		var plural_forms = pluralForm;
+		var pf_re = new RegExp('^(\\s*nplurals\\s*=\\s*[0-9]+\\s*;\\s*plural\\s*=\\s*(?:\\s|[-\\?\\|&=!<>+*/%:;a-zA-Z0-9_\(\)])+)', 'm');
+		if (pf_re.test(plural_forms)) {
+			//ex english: "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+			//pf = "nplurals=2; plural=(n != 1);";
+			//ex russian: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10< =4 && (n%100<10 or n%100>=20) ? 1 : 2)
+			//pf = "nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2)";
 
-			var pf = pluralForm; 
-			if (! /;\s*$/.test(pf)) pf = pf.concat(';'); 
-			/* We used to use eval, but it seems IE has issues with it. 
-			 * We now use "new Function", though it carries a slightly 
-			 * bigger performance hit. 
-			var code = 'function (n) { var plural; var nplurals; '+pf+' return { "nplural" : nplurals, "plural" : (plural === true ? 1 : plural ? plural : 0) }; };'; 
-			pluralFormFunc = eval("("+code+")"); 
-			*/ 
-			var code = 'var plural; var nplurals; '+pf+' return { "nplural" : nplurals, "plural" : (plural === true ? 1 : plural ? plural : 0) };'; 
-			this.pluralFormFunc[domain] = new Function("n", code); 
+			var pf = pluralForm;
+			if (! /;\s*$/.test(pf)) pf = pf.concat(';');
+			/* We used to use eval, but it seems IE has issues with it.
+			 * We now use "new Function", though it carries a slightly
+			 * bigger performance hit.
+			var code = 'function (n) { var plural; var nplurals; '+pf+' return { "nplural" : nplurals, "plural" : (plural === true ? 1 : plural ? plural : 0) }; };';
+			pluralFormFunc = eval("("+code+")");
+			*/
+			var code = 'var plural; var nplurals; '+pf+' return { "nplural" : nplurals, "plural" : (plural === true ? 1 : plural ? plural : 0) };';
+			this.pluralFormFunc[domain] = new Function("n", code);
 		}
 	}
 
-	// default to english plural form 
-	if (typeof(this.pluralFormFunc[domain]) == 'undefined') { 
-		this.pluralFormFunc[domain] = function (n) { 
-			var p = (n != 1) ? 1 : 0; 
-			return { 'nplural' : 2, 'plural' : p }; 
-			}; 
-	} // else, plural_func already created 
+	// default to english plural form
+	if (typeof(this.pluralFormFunc[domain]) == 'undefined') {
+		this.pluralFormFunc[domain] = function (n) {
+			var p = (n != 1) ? 1 : 0;
+			return { 'nplural' : 2, 'plural' : p };
+			};
+	} // else, plural_func already created
 }
 
 /**
@@ -188,7 +188,7 @@ Translations.prototype.getTranslation = function(domain, msgctxt, msgid, msgid_p
 		// Glue context to msgid
 		if(typeof msgctxt == "string"){
 			msgidcontext = msgctxt + "\004" + msgid;
-		}else{
+		} else {
 			msgidcontext = msgid;
 		}
 

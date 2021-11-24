@@ -21,47 +21,47 @@ Zarafa.advancesearch.dialogs.SearchCenterPanel = Ext.extend(Ext.Panel, {
 		}
 
 		Ext.applyIf(config, {
-			xtype : 'zarafa.searchcenterpanel',
-			cls : 'k-searchcenterpanel',
-			region : 'center',
-			layout : 'fit',
-			ref : 'centerRegion',
-			unstyled : true,
-			items : [{
-				xtype : 'panel',
-				layout : 'zarafa.switchborder',
-				ref : 'switchBorder',
-				border : false,
-				unstyled : true,
-				items : [{
-					layout : 'fit',
-					cls : 'zarafa-context-mainpanel',
-					collapsible : false,
-					region : 'center',
-					items : [{
-						xtype : 'zarafa.switchviewcontentcontainer',
-						ref : '../viewPanel',
-						layout : 'card',
-						activeItem : 0,
-						items : [{
-							xtype : 'zarafa.searchgrid',
-							flex : 1,
-							id : 'search-grid' + (++Ext.Component.AUTO_ID),
-							searchTabId : config.searchTabId,
-							anchor : '100%',
-							searchContext : config.searchContext,
-							ref : '../../searchGrid',
-							searchCenterPanel : this
+			xtype: 'zarafa.searchcenterpanel',
+			cls: 'k-searchcenterpanel',
+			region: 'center',
+			layout: 'fit',
+			ref: 'centerRegion',
+			unstyled: true,
+			items: [{
+				xtype: 'panel',
+				layout: 'zarafa.switchborder',
+				ref: 'switchBorder',
+				border: false,
+				unstyled: true,
+				items: [{
+					layout: 'fit',
+					cls: 'zarafa-context-mainpanel',
+					collapsible: false,
+					region: 'center',
+					items: [{
+						xtype: 'zarafa.switchviewcontentcontainer',
+						ref: '../viewPanel',
+						layout: 'card',
+						activeItem: 0,
+						items: [{
+							xtype: 'zarafa.searchgrid',
+							flex: 1,
+							id: 'search-grid' + (++Ext.Component.AUTO_ID),
+							searchTabId: config.searchTabId,
+							anchor: '100%',
+							searchContext: config.searchContext,
+							ref: '../../searchGrid',
+							searchCenterPanel: this
 						}]
 					}]
 				},{
-					region : 'south',
-					xtype : 'zarafa.searchresultpreviewpanel',
-					ref : '../searchResultPreviewPanel',
-					split : true,
-					width : 400,
-					height : 400,
-					searchContext : config.searchContext
+					region: 'south',
+					xtype: 'zarafa.searchresultpreviewpanel',
+					ref: '../searchResultPreviewPanel',
+					split: true,
+					width: 400,
+					height: 400,
+					searchContext: config.searchContext
 				}]
 			}]
 		});
@@ -78,9 +78,9 @@ Zarafa.advancesearch.dialogs.SearchCenterPanel = Ext.extend(Ext.Panel, {
 	{
 		if (Ext.isDefined(this.searchContext)) {
 			this.switchBorder.mon(this.searchContext,{
-				viewchange : this.onViewChange,
-				viewmodechange : this.onViewModeChange,
-				scope : this
+				viewchange: this.onViewChange,
+				viewmodechange: this.onViewModeChange,
+				scope: this
 			});
 
 			this.switchBorder.on('afterlayout', this.onAfterLayout, this, {single: true});

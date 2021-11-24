@@ -1,7 +1,7 @@
 /*
  * Test the ContactParser.
  */
-describe('ContactParser', function(){
+describe('ContactParser', function() {
 	var parser;
 	const crlf = Zarafa.contact.data.config.CR + Zarafa.contact.data.config.LF;
 	const nbsp = Zarafa.contact.data.config.NBSP;
@@ -30,15 +30,15 @@ describe('ContactParser', function(){
 		});
 	});
 
-	/* 
+	/*
 	 * Tests that contact names are properely parsed
 	 */
-	describe('Parse Name',function(){
+	describe('Parse Name',function() {
 
 		/*
 		 * check name is properly segmented into give_name,middle_name etc
 		 */
-		it('can parse \'Mr. John Andy Doe Jr.\' correctly', function(){
+		it('can parse \'Mr. John Andy Doe Jr.\' correctly', function() {
 			const nameParts = parser.parseInfo('name', 'Mr. John Andy Doe Jr.');
 			expect(nameParts['display_name_prefix']).toEqual('Mr.');
 			expect(nameParts['given_name']).toEqual('John');
@@ -47,7 +47,7 @@ describe('ContactParser', function(){
 			expect(nameParts['generation']).toEqual('Jr.');
 		});
 
-		it('can parse \'Jane John Andy Doe Dean\' correctly', function(){
+		it('can parse \'Jane John Andy Doe Dean\' correctly', function() {
 			const nameParts = parser.parseInfo('name', 'Jane John Andy Doe Dean');
 			expect(nameParts['display_name_prefix']).toEqual('');
 			expect(nameParts['given_name']).toEqual('Jane');
@@ -56,7 +56,7 @@ describe('ContactParser', function(){
 			expect(nameParts['generation']).toEqual('');
 		});
 
-		it('can parse \'Mr. John Andy Doe\' correctly', function(){
+		it('can parse \'Mr. John Andy Doe\' correctly', function() {
 			const nameParts = parser.parseInfo('name', 'Mr. John Andy Doe');
 			expect(nameParts['display_name_prefix']).toEqual('Mr.');
 			expect(nameParts['given_name']).toEqual('John');
@@ -65,7 +65,7 @@ describe('ContactParser', function(){
 			expect(nameParts['generation']).toEqual('');
 		});
 
-		it('can parse \'Mr. John Doe\' correctly', function(){
+		it('can parse \'Mr. John Doe\' correctly', function() {
 			const nameParts = parser.parseInfo('name', 'Mr. John Doe');
 			expect(nameParts['display_name_prefix']).toEqual('Mr.');
 			expect(nameParts['given_name']).toEqual('John');
@@ -74,7 +74,7 @@ describe('ContactParser', function(){
 			expect(nameParts['generation']).toEqual('');
 		});
 
-		it('can parse \'John Andy Doe\' correctly', function(){
+		it('can parse \'John Andy Doe\' correctly', function() {
 			const nameParts = parser.parseInfo('name', 'John Andy Doe');
 			expect(nameParts['display_name_prefix']).toEqual('');
 			expect(nameParts['given_name']).toEqual('John');
@@ -142,14 +142,14 @@ describe('ContactParser', function(){
 		});
 	});
 
-	/* 
+	/*
 	 * Tests that contact names can be properly formatted
 	 */
 	describe('Combine Name', function() {
 		/*
-		 * check name parts can be combined 
+		 * check name parts can be combined
 		 */
-		it('can combine valid name parts',function(){
+		it('can combine valid name parts',function() {
 			const nameParts = {
 				'display_name_prefix' : 'Mr.',
 				'given_name' : 'John',
@@ -157,18 +157,18 @@ describe('ContactParser', function(){
 				'surname' : 'Doe',
 				'generation' : ''
 			};
-			
+
 			const displayName = parser.combineInfo('name', nameParts);
 			expect(displayName).toEqual('Mr.' + nbsp +'John' + nbsp + 'Andy' + nbsp + 'Doe');
 		});
-		
-		it('returns null when trying to combine non-valid name parts', function(){
+
+		it('returns null when trying to combine non-valid name parts', function() {
 			const displayName = parser.combineInfo('name', '');
 			expect(displayName).toBeNull();
 		});
 	});
 
-	/* 
+	/*
 	 * Tests that contact telephone number are properely parsed
 	 */
 	describe('Parse telephone number', function() {
@@ -458,32 +458,32 @@ describe('ContactParser', function(){
 		});
 	});
 
-	/* 
+	/*
 	 * Tests that phone numbers can be properly formatted
 	 */
 	describe('Combine Telephone number', function() {
 		/*
-		 * check number parts can be combined 
+		 * check number parts can be combined
 		 */
-		it('can combine valid phone parts',function(){
+		it('can combine valid phone parts',function() {
 			const phoneParts = {
 				'country_code' : '+91',
 				'city_code' : '0265',
 				'local_number' : '1234567',
 				'extension' : '12'
 			};
-			
+
 			const  phoneNumber = parser.combineInfo('phone', phoneParts);
 			expect(phoneNumber).toEqual('+91' + nbsp + '(0265)' + nbsp + '1234567' + nbsp + '-' + nbsp + '12');
 		});
-		
-		it('returns null when trying to combine non-valid phone parts', function(){
+
+		it('returns null when trying to combine non-valid phone parts', function() {
 			const  phoneNumber = parser.combineInfo('phone', '');
 			expect(phoneNumber).toBeNull();
 		});
 	});
 
-	/* 
+	/*
 	 * Tests that contact telephone number are properely parsed
 	 */
 	describe('Parse addresses', function() {
@@ -593,14 +593,14 @@ describe('ContactParser', function(){
 		});
 	});
 
-	/* 
+	/*
 	 * Tests that addresses can be properly formatted
 	 */
 	describe('Combine address', function() {
 		/*
-		 * check address parts can be combined 
+		 * check address parts can be combined
 		 */
-		it('can combine valid addressparts',function(){
+		it('can combine valid addressparts',function() {
 			const addressParts = {
 				'street' : 'MainStreet 15' + crlf + 'Extra information',
 				'country' : 'MyCountry',
@@ -608,12 +608,12 @@ describe('ContactParser', function(){
 				'city' : 'LocalCity',
 				'state' : 'BigState'
 			};
-			
+
 			const address = parser.combineInfo('address', addressParts);
 			expect(address).toEqual('MainStreet 15' + crlf + 'Extra information' + crlf + 'LocalCity' + nbsp + 'BigState' + nbsp + '123AB' + crlf + 'MyCountry');
 		});
-		
-		it('returns null when trying to combine non-valid address parts', function(){
+
+		it('returns null when trying to combine non-valid address parts', function() {
 			const address = parser.combineInfo('address', '');
 			expect(address).toBeNull();
 		});

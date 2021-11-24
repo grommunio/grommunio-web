@@ -22,7 +22,7 @@ Zarafa.contact.dialogs.DistlistContentPanelToolbar = Ext.extend(Zarafa.core.ui.C
 	 * @constructor
 	 * @param config Configuration structure
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		config = config || {};
 
@@ -46,33 +46,33 @@ Zarafa.contact.dialogs.DistlistContentPanelToolbar = Ext.extend(Zarafa.core.ui.C
 	 * added in the Action section of the {@link Ext.Toolbar Toolbar}.
 	 * @private
 	 */
-	createActionButtons : function()
+	createActionButtons: function()
 	{
 		return [{
-			xtype : 'button',
-			text : _('Save')+' & '+_('Close'),
-			overflowText : _('Save')+' & '+_('Close'),
+			xtype: 'button',
+			text: _('Save')+' & '+_('Close'),
+			overflowText: _('Save')+' & '+_('Close'),
 			tooltip: _('Save')+' & '+_('Close') + ' (Ctrl + S)',
-			cls : 'zarafa-action',
-			iconCls : 'icon_save_white',
-			handler : this.onSave,
-			scope : this,
-			ref : 'saveCloseBtn'
+			cls: 'zarafa-action',
+			iconCls: 'icon_save_white',
+			handler: this.onSave,
+			scope: this,
+			ref: 'saveCloseBtn'
 		}, {
-			xtype : 'button',
-			ref : 'deleteBtn',
-			overflowText : _('Delete'),
-			tooltip : _('Delete'),
-			iconCls : 'icon_delete',
-			handler : this.onDelete,
-			scope : this
+			xtype: 'button',
+			ref: 'deleteBtn',
+			overflowText: _('Delete'),
+			tooltip: _('Delete'),
+			iconCls: 'icon_delete',
+			handler: this.onDelete,
+			scope: this
 		}, {
-			xtype : 'button',
-			overflowText : _('Print'),
-			tooltip : _('Print') + ' (Ctrl + P)',
-			iconCls : 'icon_print',
-			handler : this.onPrint,
-			scope : this
+			xtype: 'button',
+			overflowText: _('Print'),
+			tooltip: _('Print') + ' (Ctrl + P)',
+			iconCls: 'icon_print',
+			handler: this.onPrint,
+			scope: this
 		}];
 	},
 
@@ -84,28 +84,28 @@ Zarafa.contact.dialogs.DistlistContentPanelToolbar = Ext.extend(Zarafa.core.ui.C
 	 * added in the Options section of the {@link Ext.Toolbar Toolbar}.
 	 * @private
 	 */
-	createOptionButtons : function()
+	createOptionButtons: function()
 	{
 		return [{
-			xtype : 'button',
-			overflowText : _('Categories'),
-			tooltip : {
-				text : _('Open the categories dialog')
+			xtype: 'button',
+			overflowText: _('Categories'),
+			tooltip: {
+				text: _('Open the categories dialog')
 			},
-			iconCls : 'icon_categories',
-			handler : this.onCategories,
-			scope : this
+			iconCls: 'icon_categories',
+			handler: this.onCategories,
+			scope: this
 		}, {
-			xtype : 'button',
-			overflowText : _('Private'),
-			tooltip : {
-				text : _('Mark this Distribution list as private')
+			xtype: 'button',
+			overflowText: _('Private'),
+			tooltip: {
+				text: _('Mark this Distribution list as private')
 			},
-			iconCls : 'icon_private',
-			ref : 'setPrivate',
-			toggleGroup : 'privateGroup',
-			handler : this.onPrivateGroupToggle,
-			scope : this
+			iconCls: 'icon_private',
+			ref: 'setPrivate',
+			toggleGroup: 'privateGroup',
+			handler: this.onPrivateGroupToggle,
+			scope: this
 		}];
 	},
 
@@ -115,7 +115,7 @@ Zarafa.contact.dialogs.DistlistContentPanelToolbar = Ext.extend(Zarafa.core.ui.C
 	 * will close {@link Zarafa.contact.dialogs.DistlistContentPanel DistlistEditContentPanel}.
 	 * @private
 	 */
-	onSave : function()
+	onSave: function()
 	{
 		this.dialog.saveRecord();
 	},
@@ -125,7 +125,7 @@ Zarafa.contact.dialogs.DistlistContentPanelToolbar = Ext.extend(Zarafa.core.ui.C
 	 * This will delete the {@link Zarafa.core.data.IPMRecord IPMRecord}.
 	 * @private
 	 */
-	onDelete : function()
+	onDelete: function()
 	{
 		this.dialog.deleteRecord();
 	},
@@ -134,7 +134,7 @@ Zarafa.contact.dialogs.DistlistContentPanelToolbar = Ext.extend(Zarafa.core.ui.C
 	 * This will print the {@link Zarafa.core.data.IPMRecord IPMRecord}.
 	 * @private
 	 */
-	onPrint : function()
+	onPrint: function()
 	{
 		Zarafa.common.Actions.openPrintDialog(this.record);
 	},
@@ -143,9 +143,9 @@ Zarafa.contact.dialogs.DistlistContentPanelToolbar = Ext.extend(Zarafa.core.ui.C
 	 * This will open the {@link Zarafa.common.categories.dialogs.CategoriesContentPanel CategoriesContentPanel}.
 	 * @private
 	 */
-	onCategories : function()
+	onCategories: function()
 	{
-		Zarafa.common.Actions.openCategoriesContent(this.record, {autoSave : false});
+		Zarafa.common.Actions.openCategoriesContent(this.record, {autoSave: false});
 	},
 
 	/**
@@ -155,7 +155,7 @@ Zarafa.contact.dialogs.DistlistContentPanelToolbar = Ext.extend(Zarafa.core.ui.C
 	 * @param {Ext.Button} button The button which was toggled
 	 * @private
 	 */
-	onPrivateGroupToggle : function(button)
+	onPrivateGroupToggle: function(button)
 	{
 		this.record.set('private', button.pressed);
 
@@ -173,7 +173,7 @@ Zarafa.contact.dialogs.DistlistContentPanelToolbar = Ext.extend(Zarafa.core.ui.C
 	 * @param {Zarafa.core.data.IPMRecord} record The record update the panel with.
 	 * @param {Boolean} contentReset force the component to perform a full update of the data.
 	 */
-	update : function(record, contentReset)
+	update: function(record, contentReset)
 	{
 		this.record = record;
 

@@ -3,8 +3,8 @@ Ext.namespace('Zarafa.core.data');
 /**
  * @class Zarafa.core.data.IPMProxy
  * @extends Zarafa.core.data.MAPIProxy
- * 
- * The IPMProxy communicates directly with a ListModule on server. It supports listing items, 
+ *
+ * The IPMProxy communicates directly with a ListModule on server. It supports listing items,
  * pagination, etc, and is supposed to work in conjunction with a list store and JSON reader.
  * <p>
  * Each instance of IPMProxy corresponds to a single MAPI folder and needs to be created with
@@ -29,7 +29,7 @@ Zarafa.core.data.IPMProxy = Ext.extend(Zarafa.core.data.MAPIProxy, {
 	 * which should be used for this request.
 	 * @private
 	 */
-	getResponseHandlerForRequest : function(modulename, serverAction, action, records, parameters, reader, callback, scope, args)
+	getResponseHandlerForRequest: function(modulename, serverAction, action, records, parameters, reader, callback, scope, args)
 	{
 		return new Zarafa.core.data.IPMResponseHandler({
 			proxy: this,
@@ -53,7 +53,7 @@ Zarafa.core.data.IPMProxy = Ext.extend(Zarafa.core.data.MAPIProxy, {
 	 * @param {Object} args arguments object. This will be passed to the call back function on successful read.
 	 * @private
 	 */
-	readAction : function(action, records, parameters, reader, callback, scope, args)
+	readAction: function(action, records, parameters, reader, callback, scope, args)
 	{
 		// Extjs puts the pagination into the parameters, move it into the restriction
 		if (Ext.isDefined(parameters.start)) {
@@ -73,8 +73,8 @@ Zarafa.core.data.IPMProxy = Ext.extend(Zarafa.core.data.MAPIProxy, {
 		// Sorting must be an array
 		if (Ext.isDefined(parameters.sort) && !Array.isArray(parameters.sort)) {
 			parameters.sort = [{
-				field : parameters.sort,
-				direction : parameters.dir
+				field: parameters.sort,
+				direction: parameters.dir
 			}];
 			delete parameters.dir;
 		}

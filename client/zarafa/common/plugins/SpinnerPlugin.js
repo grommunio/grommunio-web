@@ -29,13 +29,13 @@ Zarafa.common.plugins.SpinnerPlugin = Ext.extend(Ext.ux.Spinner, {
 
 	/**
 	 * Handle the click event on {@link Ext.form.TriggerField TriggerField}.
-	 * This function is overriden to fix problem when trigger is clicked directly without gaining
+	 * This function is overridden to fix problem when trigger is clicked directly without gaining
 	 * focus on the {@link Zarafa.common.ui.SpinnerField SpinnerField} then we should shift the
 	 * focus to {@link Zarafa.common.ui.SpinnerField SpinnerField} and then execute this event.
 	 * @param {Event} event The event object for this event
 	 */
 	onTriggerClick: function(event)
-	{	   
+	{
 		if (this.disabled || this.el.dom.readOnly) {
 			return;
 		}

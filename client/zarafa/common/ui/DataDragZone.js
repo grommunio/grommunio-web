@@ -16,7 +16,7 @@ Zarafa.common.ui.DataDragZone = Ext.extend(Ext.dd.DragZone, {
 	 * @type Ext.DataView
 	 * @private
 	 */
-	view : undefined,
+	view: undefined,
 
 	/**
 	 * The special Element which is displayed when dragging data
@@ -25,21 +25,21 @@ Zarafa.common.ui.DataDragZone = Ext.extend(Ext.dd.DragZone, {
 	 * @type Ext.Element
 	 * @private
 	 */
-	ddel : undefined,
+	ddel: undefined,
 
 	/**
 	 * @constructor
 	 * @param {Ext.DataView} view The view on which the DragZone is installed
 	 * @param {Object} config Configuration object
 	 */
-	constructor : function(view, config)
+	constructor: function(view, config)
 	{
 		config = config || {};
 
 		this.view = view;
 
 		Ext.applyIf(config, {
-			ddGroup : 'DataDD'
+			ddGroup: 'DataDD'
 		});
 
 		Zarafa.common.ui.DataDragZone.superclass.constructor.call(this, view.getEl(), config);
@@ -53,14 +53,14 @@ Zarafa.common.ui.DataDragZone = Ext.extend(Ext.dd.DragZone, {
 	 * <p>This data is available for processing in the {@link Ext.dd.DropZone#onNodeEnter onNodeEnter}, {@link Ext.dd.DropZone#onNodeOver onNodeOver},
 	 * {@link Ext.dd.DropZone#onNodeOut onNodeOut} and {@link Ext.dd.DropZone#onNodeDrop onNodeDrop} methods of a cooperating {@link Ext.dd.DropZone DropZone}.</p>
 	 * <p>The data object contains the following properties:<ul>
-	 * <li><b>view</b> : Ext.DataView<div class="sub-desc">The DataView from which the data is being dragged.</div></li>
-	 * <li><b>ddel</b> : htmlElement<div class="sub-desc">An htmlElement which provides the "picture" of the data being dragged.</div></li>
-	 * <li><b>rowIndex</b> : Number<div class="sub-desc">The index of the row which receieved the mousedown gesture which triggered the drag.</div></li>
-	 * <li><b>selections</b> : Array<div class="sub-desc">An Array of the selected Records which are being dragged from the DataView.</div></li>
+	 * <li><b>view</b>: Ext.DataView<div class="sub-desc">The DataView from which the data is being dragged.</div></li>
+	 * <li><b>ddel</b>: htmlElement<div class="sub-desc">An htmlElement which provides the "picture" of the data being dragged.</div></li>
+	 * <li><b>rowIndex</b>: Number<div class="sub-desc">The index of the row which receieved the mousedown gesture which triggered the drag.</div></li>
+	 * <li><b>selections</b>: Array<div class="sub-desc">An Array of the selected Records which are being dragged from the DataView.</div></li>
 	 * </ul></p>
 	 * @private
 	 */
-	getDragData : function(e)
+	getDragData: function(e)
 	{
 		var node = this.view.findItemFromChild(Ext.lib.Event.getTarget(e));
 		if (!node) {
@@ -79,7 +79,7 @@ Zarafa.common.ui.DataDragZone = Ext.extend(Ext.dd.DragZone, {
 				ddel: this.ddel,
 				index: index,
 				selections: this.view.getSelectedRecords(),
-				origEvent : origEvent
+				origEvent: origEvent
 			};
 		}
 
@@ -94,7 +94,7 @@ Zarafa.common.ui.DataDragZone = Ext.extend(Ext.dd.DragZone, {
 	 * @param {Number} y The y coordinate from where the dragging started
 	 * @private
 	 */
-	onInitDrag : function(x, e)
+	onInitDrag: function(x, e)
 	{
 		// Check if the dragData contains a origEvent (as initialized by getDragData).
 		// If this is present, we have to manually call the onItemClick event handler
@@ -125,7 +125,7 @@ Zarafa.common.ui.DataDragZone = Ext.extend(Ext.dd.DragZone, {
 	 * the selected rows to show that they have not been dragged.
 	 * @private
 	 */
-	afterRepair : function()
+	afterRepair: function()
 	{
 		this.dragging = false;
 	},
@@ -137,7 +137,7 @@ Zarafa.common.ui.DataDragZone = Ext.extend(Ext.dd.DragZone, {
 	 * @return {Array} The xy location (e.g. [100, 200])
 	 * @private
 	 */
-	getRepairXY : function(e, data)
+	getRepairXY: function(e, data)
 	{
 		return false;
 	},
@@ -148,7 +148,7 @@ Zarafa.common.ui.DataDragZone = Ext.extend(Ext.dd.DragZone, {
 	 * @param {Ext.EventObject} e The event object
 	 * @private
 	 */
-	onEndDrag : function(data, e)
+	onEndDrag: function(data, e)
 	{
 		// fire end drag?
 	},
@@ -160,7 +160,7 @@ Zarafa.common.ui.DataDragZone = Ext.extend(Ext.dd.DragZone, {
 	 * @param {String} id The id of the Ext.Element where the item was dropped
 	 * @private
 	 */
-	onValidDrop : function(dd, e, id)
+	onValidDrop: function(dd, e, id)
 	{
 		// fire drag drop?
 		this.hideProxy();
@@ -172,7 +172,7 @@ Zarafa.common.ui.DataDragZone = Ext.extend(Ext.dd.DragZone, {
 	 * @param {String} id The id of the Ext.Element where the item was dropped
 	 * @private
 	 */
-	beforeInvalidDrop : function(e, id)
+	beforeInvalidDrop: function(e, id)
 	{
 	}
 });

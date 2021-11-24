@@ -13,7 +13,7 @@ Zarafa.settings.ui.SettingsAddressBookWidget = Ext.extend(Zarafa.settings.ui.Set
 	 * @constructor
 	 * @param {Object} config Configuration object
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		config = config || {};
 
@@ -24,33 +24,33 @@ Zarafa.settings.ui.SettingsAddressBookWidget = Ext.extend(Zarafa.settings.ui.Set
 				'</div>',
 			'</tpl>',
 			{
-				compiled : true
+				compiled: true
 			}
 		);
 
 		Ext.applyIf(config, {
-			xtype : 'zarafa.settingsaddressbookwidget',
-			title : _('Address Book'),
-			layout : 'form',
-			items : [{
-				xtype : 'combo',
-				fieldLabel : _('Select Default Folder'),
-				name : 'zarafa/v1/main/default_addressbook',
-				ref : 'defaultABCombo',
-				width : 200,
-				store : Zarafa.addressbook.AddressBookHierarchyStore,
+			xtype: 'zarafa.settingsaddressbookwidget',
+			title: _('Address Book'),
+			layout: 'form',
+			items: [{
+				xtype: 'combo',
+				fieldLabel: _('Select Default Folder'),
+				name: 'zarafa/v1/main/default_addressbook',
+				ref: 'defaultABCombo',
+				width: 200,
+				store: Zarafa.addressbook.AddressBookHierarchyStore,
 				mode: 'local',
 				triggerAction: 'all',
-				displayField : 'display_name',
-				valueField : 'entryid',
-				tpl : hierarchyTpl,
+				displayField: 'display_name',
+				valueField: 'entryid',
+				tpl: hierarchyTpl,
 				lazyInit: false,
 				forceSelection: true,
 				editable: false,
-				listeners : {
+				listeners: {
 					beforeselect: this.onBeforeDefaultABSelect,
-					select : this.onDefaultABSelect,
-					scope : this
+					select: this.onDefaultABSelect,
+					scope: this
 				}
 			}]
 		});
@@ -66,7 +66,7 @@ Zarafa.settings.ui.SettingsAddressBookWidget = Ext.extend(Zarafa.settings.ui.Set
 	 * @param {Zarafa.core.data.IPMRecord IPMRecord} record The selected Address Book record
 	 * @param {Number} index The index of the selected record in the combo
 	 */
-	onBeforeDefaultABSelect : function(combo, record, index)
+	onBeforeDefaultABSelect: function(combo, record, index)
 	{
 		return !record.get('group_header');
 	},
@@ -79,7 +79,7 @@ Zarafa.settings.ui.SettingsAddressBookWidget = Ext.extend(Zarafa.settings.ui.Set
 	 * @param {Number} index The selected index in the store
 	 * @private
 	 */
-	onDefaultABSelect : function(combo, record, index)
+	onDefaultABSelect: function(combo, record, index)
 	{
 		var value = record.get(combo.valueField);
 		if (this.model) {
@@ -93,7 +93,7 @@ Zarafa.settings.ui.SettingsAddressBookWidget = Ext.extend(Zarafa.settings.ui.Set
 	 * {@link Zarafa.settings.SettingsModel} into the UI of this category.
 	 * @param {Zarafa.settings.SettingsModel} settingsModel The settings to load
 	 */
-	update : function(settingsModel)
+	update: function(settingsModel)
 	{
 		Zarafa.settings.ui.SettingsAddressBookWidget.superclass.update.apply(this, arguments);
 		this.model = settingsModel;
@@ -126,7 +126,7 @@ Zarafa.settings.ui.SettingsAddressBookWidget = Ext.extend(Zarafa.settings.ui.Set
 	 * to update the settings from the UI into the {@link Zarafa.settings.SettingsModel settings model}.
 	 * @param {Zarafa.settings.SettingsModel} settingsModel The settings to update
 	 */
-	updateSettings : function(settingsModel)
+	updateSettings: function(settingsModel)
 	{
 		Zarafa.settings.ui.SettingsAddressBookWidget.superclass.updateSettings.apply(this, arguments);
 		settingsModel.set(this.defaultABCombo.name, this.defaultABCombo.getValue());

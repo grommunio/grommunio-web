@@ -15,42 +15,42 @@ Zarafa.common.data.FolderContentTypes = Zarafa.core.Enum.create({
 	 * @property
 	 * @type String
 	 */
-	mail : 'IPF.NOTE',
+	mail: 'IPF.NOTE',
 	/**
 	 * For calendar items
 	 *
 	 * @property
 	 * @type String
 	 */
-	appointment : 'IPF.APPOINTMENT',
+	appointment: 'IPF.APPOINTMENT',
 	/**
 	 * For contact items
 	 *
 	 * @property
 	 * @type String
 	 */
-	contact : 'IPF.CONTACT',
+	contact: 'IPF.CONTACT',
 	/**
 	 * For journal items
 	 *
 	 * @property
 	 * @type String
 	 */
-	journal : 'IPF.JOURNAL',
+	journal: 'IPF.JOURNAL',
 	/**
 	 * For notes
 	 *
 	 * @property
 	 * @type String
 	 */
-	note : 'IPF.STICKYNOTE',
+	note: 'IPF.STICKYNOTE',
 	/**
 	 * For task items
 	 *
 	 * @property
 	 * @type String
 	 */
-	task : 'IPF.TASK',
+	task: 'IPF.TASK',
 
 	/**
 	 * For IPM subtree
@@ -58,14 +58,14 @@ Zarafa.common.data.FolderContentTypes = Zarafa.core.Enum.create({
 	 * @property
 	 * @type String
 	 */
-	ipmsubtree : 'IPM.SUBTREE',
+	ipmsubtree: 'IPM.SUBTREE',
 
 	/**
 	 * Return the display name for the given content type
 	 * @param String container_class container class of the folder
 	 * @return {String} The display name of content type
 	 */
-	getContentName : function(container_class)
+	getContentName: function(container_class)
 	{
 		switch (container_class.toUpperCase()) {
 			case Zarafa.common.data.FolderContentTypes.mail:
@@ -90,7 +90,7 @@ Zarafa.common.data.FolderContentTypes = Zarafa.core.Enum.create({
 	 * @param String container_class container class of the folder
 	 * @return {String} The display name of Folder
 	 */
-	getFolderName : function(container_class)
+	getFolderName: function(container_class)
 	{
 		switch (container_class.toUpperCase()) {
 			case Zarafa.common.data.FolderContentTypes.mail:

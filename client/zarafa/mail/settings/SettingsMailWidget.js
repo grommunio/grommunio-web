@@ -14,100 +14,102 @@ Zarafa.mail.settings.SettingsMailWidget = Ext.extend(Zarafa.settings.ui.Settings
 	 * @constructor
 	 * @param {Object} config Configuration object
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		config = config || {};
 
 		var previewStore = {
-			xtype : 'jsonstore',
-			autoDestroy : true,
-			fields : ['name', 'value'],
-			data : [{
-				'name' : _('Off'),
-				'value' : Zarafa.mail.data.ViewModes.NO_PREVIEW
+			xtype: 'jsonstore',
+			autoDestroy: true,
+			fields: ['name', 'value'],
+			data: [{
+				'name': _('Off'),
+				'value': Zarafa.mail.data.ViewModes.NO_PREVIEW
 			},{
-				'name' : _('Right'),
-				'value' : Zarafa.mail.data.ViewModes.RIGHT_PREVIEW
+				'name': _('Right'),
+				'value': Zarafa.mail.data.ViewModes.RIGHT_PREVIEW
 			},{
-				'name' : _('Bottom'),
-				'value' : Zarafa.mail.data.ViewModes.BOTTOM_PREVIEW
+				'name': _('Bottom'),
+				'value': Zarafa.mail.data.ViewModes.BOTTOM_PREVIEW
 			}]
 		};
 
+		var items = [{
+			xtype: 'combo',
+			name: 'zarafa/v1/state/contexts/mail/current_view_mode',
+			ref: 'previewCombo',
+			fieldLabel: _('Location of preview pane'),
+			width: 200,
+			store: previewStore,
+			mode: 'local',
+			triggerAction: 'all',
+			displayField: 'name',
+			valueField: 'value',
+			lazyInit: false,
+			forceSelection: true,
+			editable: false,
+			autoSelect: true,
+			listeners: {
+				select: this.onPreviewSelect,
+				scope: this
+			}
+		},{
+			xtype: 'checkbox',
+			name: 'zarafa/v1/contexts/mail/use_english_abbreviations',
+			ref: 'englishAbb',
+			boxLabel: _('Use English abbreviations for forward (FW:) and reply (RE:)'),
+			hideLabel: true,
+			lazyInit: false,
+			hidden: Zarafa.core.Util.inArray(['en_GB', 'en_GB.UTF-8', 'en_US.UTF-8'], container.getSettingsModel().get('zarafa/v1/main/language'), false, false),
+			listeners: {
+				check: this.onCheck,
+				scope: this
+			}
+		},{
+			xtype: 'checkbox',
+			name: 'zarafa/v1/contexts/mail/close_on_respond',
+			ref: 'closeCheck',
+			boxLabel: _('Close original message on reply or forward'),
+			hideLabel: true,
+			lazyInit: false,
+			listeners: {
+				check: this.onCheck,
+				scope: this
+			}
+		}];
+
 		Ext.applyIf(config, {
-			title : _('General mail settings'),
-			layout : 'form',
-			items : [{
-				xtype : 'combo',
-				name : 'zarafa/v1/state/contexts/mail/current_view_mode',
-				ref : 'previewCombo',
-				fieldLabel : _('Location of preview pane'),
-				width : 200,
-				store : previewStore,
-				mode: 'local',
-				triggerAction: 'all',
-				displayField: 'name',
-				valueField: 'value',
-				lazyInit: false,
-				forceSelection: true,
-				editable: false,
-				autoSelect: true,
-				listeners : {
-					select : this.onPreviewSelect,
-					scope : this
-				}
-			},{
-				xtype : 'checkbox',
-				name : 'zarafa/v1/contexts/mail/use_english_abbreviations',
-				ref : 'englishAbb',
-				boxLabel : _('Use English abbreviations for forward (FW:) and reply (RE:)'),
-				hideLabel : true,
-				lazyInit : false,
-				hidden: Zarafa.core.Util.inArray(['en_GB', 'en_GB.UTF-8', 'en_US.UTF-8'], container.getSettingsModel().get('zarafa/v1/main/language'), false, false),
-				listeners : {
-					check : this.onCheck,
-					scope : this
-				}
-			},{
-				xtype : 'checkbox',
-				name : 'zarafa/v1/contexts/mail/close_on_respond',
-				ref : 'closeCheck',
-				boxLabel : _('Close original message on reply or forward'),
-				hideLabel : true,
-				lazyInit : false,
-				listeners : {
-					check : this.onCheck,
-					scope : this
-				}
-			}]
+			title: _('General mail settings'),
+			layout: 'form',
+			items: items
 		});
 
 		// Display the popout settings only if supported.
 		if (Zarafa.supportsPopOut()) {
 			config.items.splice(1, 0, {
-				xtype : 'displayfield',
-				hideLabel : true,
-				value : _('Open or compose a mail item in a') + ':'
+				xtype: 'displayfield',
+				hideLabel: true,
+				value: _('Open or compose a mail item in a') + ':'
 			},{
-				xtype : 'radiogroup',
-				name : 'zarafa/v1/main/base_content_layer',
-				ref : 'openingMailField',
-				columns : 1,
-				hideLabel : true,
-				items : [{
-					xtype : 'radio',
-					name : 'openingMail',
-					inputValue : 'tabs',
-					boxLabel : _('WebApp tab')
+				xtype: 'radiogroup',
+				name: 'zarafa/v1/main/base_content_layer',
+				ref: 'openingMailField',
+				columns: 1,
+				hideLabel: true,
+				items: [{
+					xtype: 'radio',
+					name: 'openingMail',
+					inputValue: 'tabs',
+					boxLabel: _('grommunio Web tab')
 				},{
-					xtype : 'radio',
-					name : 'openingMail',
-					inputValue : 'separateWindows',
-					boxLabel : _('Browser window')
+					xtype: 'radio',
+					name: 'openingMail',
+					inputValue: 'separateWindows',
+					boxLabel: _('Browser window')
 				}],
-				listeners : {
-					change : this.onRadioChange,
-					scope : this
+				listeners: {
+					change: this.onRadioChange,
+					scope: this
 				}
 			});
 		}
@@ -122,7 +124,7 @@ Zarafa.mail.settings.SettingsMailWidget = Ext.extend(Zarafa.settings.ui.Settings
 	 * {@link Zarafa.settings.SettingsModel} into the UI of this category.
 	 * @param {Zarafa.settings.SettingsModel} settingsModel The settings to load
 	 */
-	update : function(settingsModel)
+	update: function(settingsModel)
 	{
 		this.model = settingsModel;
 
@@ -134,7 +136,6 @@ Zarafa.mail.settings.SettingsMailWidget = Ext.extend(Zarafa.settings.ui.Settings
 		this.closeCheck.setValue(settingsModel.get(this.closeCheck.name));
 		this.englishAbb.setValue(settingsModel.get(this.englishAbb.name));
 
-		// There is popout settings only if supported.
 		if (Zarafa.supportsPopOut()) {
 			this.openingMailField.setValue(settingsModel.get(this.openingMailField.name));
 		}
@@ -146,12 +147,11 @@ Zarafa.mail.settings.SettingsMailWidget = Ext.extend(Zarafa.settings.ui.Settings
 	 * This is used to update the settings from the UI into the {@link Zarafa.settings.SettingsModel settings model}.
 	 * @param {Zarafa.settings.SettingsModel} settingsModel The settings to update
 	 */
-	updateSettings : function(settingsModel)
+	updateSettings: function(settingsModel)
 	{
 		settingsModel.set(this.previewCombo.name, this.previewCombo.getValue());
 		settingsModel.set(this.closeCheck.name, this.closeCheck.getValue());
 
-		// There is popout settings only if supported.
 		if (Zarafa.supportsPopOut()) {
 			settingsModel.set(this.openingMailField.name, this.openingMailField.getValue().inputValue);
 		}
@@ -163,7 +163,7 @@ Zarafa.mail.settings.SettingsMailWidget = Ext.extend(Zarafa.settings.ui.Settings
 	 * @param {Ext.form.ComboBox} field The field which fired the event
 	 * @param {Ext.data.Record} record The selected record
 	 */
-	onPreviewSelect : function(field, record)
+	onPreviewSelect: function(field, record)
 	{
 		if (this.model) {
 			var set = record.get(field.valueField);
@@ -183,7 +183,7 @@ Zarafa.mail.settings.SettingsMailWidget = Ext.extend(Zarafa.settings.ui.Settings
 	 * @param {Boolean} checked State of the checkbox
 	 * @private
 	 */
-	onCheck : function(checkbox, checked)
+	onCheck: function(checkbox, checked)
 	{
 		if(this.model) {
 			// FIXME: The settings model should be able to detect if
@@ -202,7 +202,7 @@ Zarafa.mail.settings.SettingsMailWidget = Ext.extend(Zarafa.settings.ui.Settings
 	 * @param {Ext.form.Radio} radio The radio which was enabled
 	 * @private
 	 */
-	onRadioChange : function(group, radio)
+	onRadioChange: function(group, radio)
 	{
 		if (this.model && (this.model.get(group.name) !== radio.inputValue)) {
 			this.model.set(group.name, radio.inputValue);

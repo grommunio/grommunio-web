@@ -36,7 +36,6 @@ class TaskUser extends IPMUser {
 	 */
 	public function saveTask($message, $open = true)
 	{
-		$this->logon();
 		return $this->saveItem($message, $open);
 	}
 
@@ -49,7 +48,6 @@ class TaskUser extends IPMUser {
 	 */
 	public function openTask($entryid, $extraProps = array())
 	{
-		$this->logon();
 		return $this->openItem($entryid, $extraProps);
 	}
 
@@ -62,7 +60,6 @@ class TaskUser extends IPMUser {
 	 */
 	public function deleteTask($entryid, $extraProps = array())
 	{
-		$this->logon();
 		return $this->deleteItem($entryid, $extraProps);
 	}
 
@@ -76,7 +73,6 @@ class TaskUser extends IPMUser {
 	 */
 	public function copyTask($entryid, $extraProps = array(), $move = false)
 	{
-		$this->logon();
 		return $this->copyItem($entryid, $extraProps, $move);
 	}
 
@@ -88,7 +84,6 @@ class TaskUser extends IPMUser {
 	 */
 	public function loadTasks($open = true)
 	{
-		$this->logon();
 		return $this->loadItems(array(), $open);
 	}
 
@@ -101,7 +96,6 @@ class TaskUser extends IPMUser {
 	 */
 	public function getTask($entryid, $open = true)
 	{
-		$this->logon();
 		$items = $this->getItems(Restriction::ResProperty(PR_ENTRYID, $entryid, RELOP_EQ), $open);
 		return array_shift($items);
 	}
@@ -115,7 +109,6 @@ class TaskUser extends IPMUser {
 	 */
 	public function getDeletedTask($entryid, $open = true)
 	{
-		$this->logon();
 		$items = $this->getDeletedItems(Restriction::ResProperty(PR_ENTRYID, $entryid, RELOP_EQ), $open);
 		return array_shift($items);
 	}
@@ -128,7 +121,6 @@ class TaskUser extends IPMUser {
 	 */
 	public function getAllDeletedTasks($open = true)
 	{
-		$this->logon();
 		return $this->getDeletedItems(Restriction::ResContent(PR_MESSAGE_CLASS, 'IPM.Task', FL_SUBSTRING | FL_IGNORECASE), $open);
 	}
 
@@ -140,7 +132,6 @@ class TaskUser extends IPMUser {
 	 */
 	public function getTaskProps($items, $tags = array())
 	{
-		$this->logon();
 		return $this->getItemProps($items, $tags);
 	}
 }

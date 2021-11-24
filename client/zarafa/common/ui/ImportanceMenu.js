@@ -14,7 +14,7 @@ Zarafa.common.ui.ImportanceMenu = Ext.extend(Zarafa.core.ui.menu.ConditionalMenu
 	 * @constructor
 	 * @param {Object} config Configuration object
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		config = config || {};
 
@@ -30,7 +30,7 @@ Zarafa.common.ui.ImportanceMenu = Ext.extend(Zarafa.core.ui.menu.ConditionalMenu
 	 * @return {Zarafa.core.ui.menu.ConditionalItem[]} The list of Option context menu items
 	 * @private
 	 */
-	createContextImportanceItems : function()
+	createContextImportanceItems: function()
 	{
 		var buttons = [];
 

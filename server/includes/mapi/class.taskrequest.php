@@ -1119,7 +1119,7 @@
 		 *
 		 * If it is a task update, then only recipient type MAPI_CC are taken from the task message.
 		 *
-		 * If it is accept/decline response, then PR_SENT_REPRESENTATING_XXXX are taken as recipient.
+		 * If it is accept/decline response, then PR_SENT_REPRESENTATION_XXXX are taken as recipient.
 		 *
 		 *@param $outgoing MAPI_message outgoing mapi message 
 		 *@param $responseType String response type

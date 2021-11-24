@@ -2,18 +2,29 @@
 /**
  * This file is used to set configuration options to a default value that have
  * not been set in the config.php.Each definition of a configuration value must
- * be preceeded by "if(!defined('KEY'))"
+ * be preceeded by 'if(!defined("KEY"))'
  */
 
 require_once(__DIR__ . '/server/includes/core/constants.php');
 
-if(!defined('CONFIG_CHECK')) define('CONFIG_CHECK', TRUE);
-if(!defined('CONFIG_CHECK_COOKIES_HTTP')) define('CONFIG_CHECK_COOKIES_HTTP', FALSE);
-if(!defined('CONFIG_CHECK_COOKIES_SSL')) define('CONFIG_CHECK_COOKIES_SSL', FALSE);
+if(!defined("CONFIG_CHECK")) define("CONFIG_CHECK", TRUE);
+if(!defined("CONFIG_CHECK_COOKIES_HTTP")) define("CONFIG_CHECK_COOKIES_HTTP", FALSE);
+if(!defined("CONFIG_CHECK_COOKIES_SSL")) define("CONFIG_CHECK_COOKIES_SSL", FALSE);
 
-if(!defined('STATE_FILE_MAX_LIFETIME')) define('STATE_FILE_MAX_LIFETIME', 28*60*60);
-if(!defined('UPLOADED_ATTACHMENT_MAX_LIFETIME')) define('UPLOADED_ATTACHMENT_MAX_LIFETIME', 6*60*60);
-if(!defined('ENABLE_PUBLIC_FOLDERS')) define('ENABLE_PUBLIC_FOLDERS', true);
+if(!defined("STATE_FILE_MAX_LIFETIME")) define("STATE_FILE_MAX_LIFETIME", 28*60*60);
+if(!defined("UPLOADED_ATTACHMENT_MAX_LIFETIME")) define("UPLOADED_ATTACHMENT_MAX_LIFETIME", 6*60*60);
+if(!defined("ENABLE_PUBLIC_FOLDERS")) define("ENABLE_PUBLIC_FOLDERS", true);
+
+/**
+ * Set to true to give users the option to enable file previewer in their settings
+ * Set to false to hide the setting and disable file previewer for all users
+ */
+if(!defined("ENABLE_FILE_PREVIEWER")) define("ENABLE_FILE_PREVIEWER", true);
+
+/**
+ * Enable iconsets.
+ */
+if(!defined("ENABLE_ICONSETS")) define("ENABLE_ICONSETS", true);
 
 /**
  * Set to true to give users the possiblity to edit and create mail filters on the store
@@ -22,12 +33,12 @@ if(!defined('ENABLE_PUBLIC_FOLDERS')) define('ENABLE_PUBLIC_FOLDERS', true);
  * SECURITY NOTE: This makes it possible for a user to create a filter on a folder for which
  * he does not have read permissions to forward e-mail to his own mailbox and read it anyway.
  */
-if(!defined('ENABLE_SHARED_RULES')) define('ENABLE_SHARED_RULES', false);
+if(!defined("ENABLE_SHARED_RULES")) define("ENABLE_SHARED_RULES", false);
 
 /**
  * When set to true, we enable GZIP
  */
-if(!defined('ENABLE_RESPONSE_COMPRESSION')) define('ENABLE_RESPONSE_COMPRESSION', true);
+if(!defined("ENABLE_RESPONSE_COMPRESSION")) define("ENABLE_RESPONSE_COMPRESSION", true);
 
 /**
  * When set to true this enable the fitlering of the HTML body using DOMPurify.
@@ -35,51 +46,61 @@ if(!defined('ENABLE_RESPONSE_COMPRESSION')) define('ENABLE_RESPONSE_COMPRESSION'
 if(!defined("ENABLE_DOMPURIFY_FILTER")) define("ENABLE_DOMPURIFY_FILTER", true);
 
 /**
- * Set to true to disable login with Single Sign-On (SSO) on SSO environments.
+ * Set to false to enable login with Single Sign-On (SSO) on SSO environments.
  */
-if(!defined('DISABLE_REMOTE_USER_LOGIN')) define('DISABLE_REMOTE_USER_LOGIN', false);
+if(!defined("ENABLE_REMOTE_USER_LOGIN")) define("ENABLE_REMOTE_USER_LOGIN", true);
 
 /**
- * When set to true this disables the welcome screen to be shown for first time users.
+ * When set to false this disables the welcome screen shown to new users.
  */
-if(!defined('DISABLE_WELCOME_SCREEN')) define('DISABLE_WELCOME_SCREEN', false);
+if(!defined("ENABLE_WELCOME_SCREEN")) define("ENABLE_WELCOME_SCREEN", true);
 
 /**
  * Set to true to disable the "What's new dialog" that will be shown to users to introduce new features.
  */
-if(!defined('DISABLE_WHATS_NEW_DIALOG')) define('DISABLE_WHATS_NEW_DIALOG', false);
+if(!defined("ENABLE_WHATS_NEW_DIALOG")) define("ENABLE_WHATS_NEW_DIALOG", true);
 
 /**
  * By default we won't disable the FULL GAB, as it is a performance option
  * which, when enabled, prevents the full GAB to be loaded'
  */
-if(!defined('DISABLE_FULL_GAB')) define('DISABLE_FULL_GAB', false);
+if(!defined("ENABLE_FULL_GAB")) define("ENABLE_FULL_GAB", true);
 
 /**
- * By default we disable the public contact folders, as it is a performance option
- * which, when enabled, may cause delay in loading of address-book
+ * Set a maximum number of (search) results for the addressbook
+ * When more results are found no results will be displayed in the client.
+ * Set to 0 to disable this feature and show all results.
  */
-if(!defined('DISABLE_PUBLIC_CONTACT_FOLDERS')) define('DISABLE_PUBLIC_CONTACT_FOLDERS', true);
+if(!defined("MAX_GAB_RESULTS")) define("MAX_GAB_RESULTS", 0);
+
+/**
+ * By default we disable the public contact folders,
+ * as it may increase address-book loading time.
+ */
+if(!defined("ENABLE_PUBLIC_CONTACT_FOLDERS")) define("ENABLE_PUBLIC_CONTACT_FOLDERS", false);
 
 /**
  * By default we disable the shared contact folders, as it is a performance option
  * which, when enabled, may cause delay in loading of address-book
  */
-if(!defined('DISABLE_SHARED_CONTACT_FOLDERS')) define('DISABLE_SHARED_CONTACT_FOLDERS', true);
+if(!defined("ENABLE_SHARED_CONTACT_FOLDERS")) define("ENABLE_SHARED_CONTACT_FOLDERS", false);
 
 /**
  * Limit the amount of members shown in the addressbook details dialog for a distlist. If the list
  * is too great the browser will hang loading and rendereing all the items. By default set to 0
  * which means it loads all members.
  */
-if(!defined('ABITEMDETAILS_MAX_NUM_DISTLIST_MEMBERS')) define('ABITEMDETAILS_MAX_NUM_DISTLIST_MEMBERS', 0);
+if(!defined("ABITEMDETAILS_MAX_NUM_DISTLIST_MEMBERS")) define("ABITEMDETAILS_MAX_NUM_DISTLIST_MEMBERS", 0);
 
 /**
  * Use direct booking by default (books resources directly in the calendar instead of sending a meeting
  * request)
  */
-if(!defined('ENABLE_DIRECT_BOOKING')) define('ENABLE_DIRECT_BOOKING', true);
+if(!defined("ENABLE_DIRECT_BOOKING")) define("ENABLE_DIRECT_BOOKING", true);
 
+/**
+ * Defines enabled languages
+ */
 if (!defined('ENABLED_LANGUAGES')) define("ENABLED_LANGUAGES",
 	"af_ZA;am_ET;ar_SA;as_IN;az_AZ;".
 	"be_BY;bg_BG;bn_BD;bn_IN;bs_BA;".
@@ -106,54 +127,86 @@ if (!defined('ENABLED_LANGUAGES')) define("ENABLED_LANGUAGES",
 );
 
 /**
+ * Defines the base URL where the User Manual for WebApp can be found
+ */
+if(!defined("PLUGIN_WEBAPPMANUAL_URL")) define("PLUGIN_WEBAPPMANUAL_URL", "https://docs.grommunio.com/web");
+
+/**
  * Defines the domains to which redirection after login is allowed. The redirect url will be read from
  * the GET-parameter 'continue'.
  */
-if(!defined('REDIRECT_ALLOWED_DOMAINS')) define('REDIRECT_ALLOWED_DOMAINS', '');
+if(!defined("REDIRECT_ALLOWED_DOMAINS")) define("REDIRECT_ALLOWED_DOMAINS", '');
 
-if(!defined('ENABLE_PLUGINS')) define('ENABLE_PLUGINS', true);
-if(!defined('PATH_PLUGIN_CONFIG_DIR')) define('PATH_PLUGIN_CONFIG_DIR', PATH_PLUGIN_DIR);
+/**
+ * Enable plugins
+ */
+if(!defined("ENABLE_PLUGINS")) define("ENABLE_PLUGINS", true);
+
+/**
+ * Defines the plugin directory
+ */
+if(!defined("PATH_PLUGIN_CONFIG_DIR")) define("PATH_PLUGIN_CONFIG_DIR", PATH_PLUGIN_DIR);
+
+/**
+ * Enable widgets/today context.
+ */
+if(!defined("ENABLE_WIDGETS")) define("ENABLE_WIDGETS", true);
 
 /**
  * Defines a list of plugins that cannot be disabled by users.
  */
-if(!defined('ALWAYS_ENABLED_PLUGINS_LIST')) define('ALWAYS_ENABLED_PLUGINS_LIST', '');
+if(!defined("ALWAYS_ENABLED_PLUGINS_LIST")) define("ALWAYS_ENABLED_PLUGINS_LIST", "");
+
+/**
+ * Enable themes.
+ */
+if(!defined("ENABLE_THEMES")) define("ENABLE_THEMES", true);
 
 /**
  * A theme. When this is not defined or empty or 'default', the default Kopano theme will be loaded.
  * The theme should the (directory)name of a installed theme plugin.
  */
-if(!defined('THEME')) define('THEME', '');
+if(!defined("THEME")) define("THEME", "");
 
 /**
- * Set to true to give users the ability to chose a personal theme that will be shown
- * when they are logged in.
+ * Use the classic icons as default iconset
  */
-if(!defined('PERSONAL_THEMES_ENABLED')) define('PERSONAL_THEMES_ENABLED', false);
+if(!defined("ICONSET")) define("ICONSET", "breeze");
 
-// Use the classic icons as default iconset
-if(!defined('ICONSET')) define('ICONSET', 'breeze');
+/**
+ * Disable/enabled advanced settings
+ */
+if(!defined("ENABLE_ADVANCED_SETTINGS")) define("ENABLE_ADVANCED_SETTINGS", false);
 
-// Disable/enabled advanced settings
-if(!defined('ENABLE_ADVANCED_SETTINGS')) define('ENABLE_ADVANCED_SETTINGS', false);
+/**
+ * Freebusy start offset that will be used to load freebusy data in appointments, number is subtracted from current time
+ */
+if(!defined("FREEBUSY_LOAD_START_OFFSET")) define("FREEBUSY_LOAD_START_OFFSET", 7);
 
-// Freebusy start offset that will be used to load freebusy data in appointments, number is subtracted from current time
-if(!defined('FREEBUSY_LOAD_START_OFFSET')) define('FREEBUSY_LOAD_START_OFFSET', 7);
+/** 
+ * Freebusy end offset that will be used to load freebusy data in appointments, number is added to current time
+ */
+if(!defined("FREEBUSY_LOAD_END_OFFSET")) define("FREEBUSY_LOAD_END_OFFSET", 90);
 
-// Freebusy end offset that will be used to load freebusy data in appointments, number is added to current time
-if(!defined('FREEBUSY_LOAD_END_OFFSET')) define('FREEBUSY_LOAD_END_OFFSET', 90);
+/**
+ * Maximum eml files to be included in a single ZIP archive
+ */
+if(!defined("MAX_EML_FILES_IN_ZIP")) define("MAX_EML_FILES_IN_ZIP", 50);
 
-// Maximum eml files to be included in a single ZIP archive
-if(!defined('MAX_EML_FILES_IN_ZIP')) define('MAX_EML_FILES_IN_ZIP', 50);
+/**
+ * CONTACT_PREFIX used for contact name
+ */
+if (!defined("CONTACT_PREFIX")) define("CONTACT_PREFIX", false);
 
-// CONTACT_PREFIX used for contact name
-if (!defined('CONTACT_PREFIX')) define('CONTACT_PREFIX', false);
+/**
+ * CONTACT_SUFFIX used for contact name
+ */
+if (!defined("CONTACT_SUFFIX")) define("CONTACT_SUFFIX", false);
 
-// CONTACT_SUFFIX used for contact name
-if (!defined('CONTACT_SUFFIX')) define('CONTACT_SUFFIX', false);
-
-// Color schemes used for the calendars
-if (!defined('COLOR_SCHEMES')) define('COLOR_SCHEMES', json_encode(array(
+/**
+ * Color schemes used for the calendars
+ */
+if (!defined("COLOR_SCHEMES")) define("COLOR_SCHEMES", json_encode(array(
 	array(
 		'name' => 'pink',
 		'displayName' => _('Pink'),
@@ -236,7 +289,7 @@ if (!defined('COLOR_SCHEMES')) define('COLOR_SCHEMES', json_encode(array(
 	)
 )));
 
-/*
+/**
  * Predefined categories. Categories should have at least a name and a color. The
  * quickAccess property can be set to true to 'pin' the category to the menu. (i.e. it
  * will be shown in the categories menu). The sortIndex property can be used to support
@@ -246,7 +299,7 @@ if (!defined('COLOR_SCHEMES')) define('COLOR_SCHEMES', json_encode(array(
  * these categories to the colored flag that could have been set on an item. These
  * flags will be shown as categories in the WebApp.
  */
-if (!defined('DEFAULT_CATEGORIES')) define('DEFAULT_CATEGORIES', json_encode(array(
+if (!defined("DEFAULT_CATEGORIES")) define("DEFAULT_CATEGORIES", json_encode(array(
 	array(
 		'name' => _('Red'),
 		'color' => '#e40023',
@@ -409,40 +462,50 @@ if (!defined('DEFAULT_CATEGORIES')) define('DEFAULT_CATEGORIES', json_encode(arr
 	)
 )));
 
-// Maximum reminder items we can show on client side.
-if(!defined('MAX_NUM_REMINDERS')) define('MAX_NUM_REMINDERS', 99);
+/**
+ * Maximum reminder items we can show on client side.
+ */
+if(!defined("MAX_NUM_REMINDERS")) define("MAX_NUM_REMINDERS", 99);
 
-// Set true to default soft delete the shared store items
-if(!defined('ENABLE_DEFAULT_SOFT_DELETE')) define('ENABLE_DEFAULT_SOFT_DELETE', false);
+/**
+ * Set true to default soft delete the shared store items
+ */
+if(!defined("ENABLE_DEFAULT_SOFT_DELETE")) define("ENABLE_DEFAULT_SOFT_DELETE", false);
 
-// Shared store polling timer in minutes
-if(!defined('SHARED_STORE_POLLING_INTERVAL')) define('SHARED_STORE_POLLING_INTERVAL', 15);
+/**
+ * Shared store polling timer in minutes
+ */
+if(!defined("SHARED_STORE_POLLING_INTERVAL")) define("SHARED_STORE_POLLING_INTERVAL", 15);
 
-// Prefetch email count
-if(!defined('PREFETCH_EMAIL_COUNT')) define('PREFETCH_EMAIL_COUNT', 10);
-if(!defined('PREFETCH_EMAIL_INTERVAL')) define('PREFETCH_EMAIL_INTERVAL', 30);
+/**
+ * Prefetch email count
+ */
+if(!defined("PREFETCH_EMAIL_COUNT")) define("PREFETCH_EMAIL_COUNT", 10);
+if(!defined("PREFETCH_EMAIL_INTERVAL")) define("PREFETCH_EMAIL_INTERVAL", 30);
 
-// Defaults for powerpaste
-if(!defined('POWERPASTE_WORD_IMPORT')) define('POWERPASTE_WORD_IMPORT', 'merge');
-if(!defined('POWERPASTE_HTML_IMPORT')) define('POWERPASTE_HTML_IMPORT', 'merge');
-if(!defined('POWERPASTE_ALLOW_LOCAL_IMAGES')) define('POWERPASTE_ALLOW_LOCAL_IMAGES', true);
+/**
+ * Defaults for powerpaste
+ */
+if(!defined("POWERPASTE_WORD_IMPORT")) define("POWERPASTE_WORD_IMPORT", "merge");
+if(!defined("POWERPASTE_HTML_IMPORT")) define("POWERPASTE_HTML_IMPORT", "merge");
+if(!defined("POWERPASTE_ALLOW_LOCAL_IMAGES")) define("POWERPASTE_ALLOW_LOCAL_IMAGES", true);
 
-/*
+/**
  * The following options are taken from the debug.php
  */
-if(!defined('DEBUG_LOADER')) define('DEBUG_LOADER', LOAD_RELEASE);
-if(!defined('DEBUG_JSONOUT')) define('DEBUG_JSONOUT', false);
-if(!defined('DEBUG_JSONOUT_DIR')) define('DEBUG_JSONOUT_DIR', 'debug_json/');
-if(!defined('DEBUG_JSONOUT_GZIP')) define('DEBUG_JSONOUT_GZIP', false);
-if(!defined('DEBUG_PLUGINS')) define('DEBUG_PLUGINS', false);
-if(!defined('DEBUG_PLUGINS_DISABLE_CACHE')) define('DEBUG_PLUGINS_DISABLE_CACHE', false);
-if(!defined('DEBUG_DUMP_FILE')) define('DEBUG_DUMP_FILE', 'debug.txt');
+if(!defined("DEBUG_LOADER")) define("DEBUG_LOADER", LOAD_RELEASE);
+if(!defined("DEBUG_JSONOUT")) define("DEBUG_JSONOUT", false);
+if(!defined("DEBUG_JSONOUT_DIR")) define("DEBUG_JSONOUT_DIR", 'debug_json/');
+if(!defined("DEBUG_JSONOUT_GZIP")) define("DEBUG_JSONOUT_GZIP", false);
+if(!defined("DEBUG_PLUGINS")) define("DEBUG_PLUGINS", false);
+if(!defined("DEBUG_PLUGINS_DISABLE_CACHE")) define("DEBUG_PLUGINS_DISABLE_CACHE", false);
+if(!defined("DEBUG_DUMP_FILE")) define("DEBUG_DUMP_FILE", "debug.txt");
 
-// Defaults for Logger
-if(!defined('LOG_USER_LEVEL')) define('LOG_USER_LEVEL', LOGLEVEL_OFF);
-if(!defined('LOG_USERS')) define('LOG_USERS', '');
-if(!defined('LOG_FILE_DIR')) define('LOG_FILE_DIR', '');
-
-// The grommunio admin API status endpoint
-if (!defined('ADMIN_API_STATUS_ENDPOINT')) define('ADMIN_API_STATUS_ENDPOINT', 'http://[::1]:8080/api/v1/status');
+/**
+ * Defaults for Logger
+ */
+if(!defined("LOG_USER_LEVEL")) define("LOG_USER_LEVEL", LOGLEVEL_OFF);
+if(!defined("LOG_USERS")) define("LOG_USERS", "");
+if(!defined("LOG_FILE_DIR")) define("LOG_FILE_DIR", "");
+if(!defined("LOG_SUCCESSFUL_LOGINS")) define("LOG_SUCCESSFUL_LOGINS", false);
 ?>

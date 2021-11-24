@@ -4,7 +4,7 @@ Ext.namespace('Zarafa.common.freebusy.data');
  * @class Zarafa.common.freebusy.data.TimelineSelector
  * @extends Ext.util.Observable
  */
-Zarafa.common.freebusy.data.TimelineSelector = Ext.extend(Ext.util.Observable, 
+Zarafa.common.freebusy.data.TimelineSelector = Ext.extend(Ext.util.Observable,
 {
 	// Private
 	// Properties used to identify the mouse position.
@@ -27,8 +27,8 @@ Zarafa.common.freebusy.data.TimelineSelector = Ext.extend(Ext.util.Observable,
 
 	/**
 	 * @cfg {Number} dragSelectionEdgeArea
-	 * The number of pixels from the edge the cursor snaps to the edge of the selection and drags 
-	 * either the start date or end date. If the cursor is further away from the either egdge than 
+	 * The number of pixels from the edge the cursor snaps to the edge of the selection and drags
+	 * either the start date or end date. If the cursor is further away from the either egdge than
 	 * the supplied number than the a click will create a whole new selection (defaults to 10).
 	 */
 	dragSelectionEdgeArea: 10,
@@ -54,7 +54,7 @@ Zarafa.common.freebusy.data.TimelineSelector = Ext.extend(Ext.util.Observable,
 			'<div class="x-freebusy-selector">',
 			'</div>',
 			{
-				// Format functions like capitalize in the Ext.util.Format are not 
+				// Format functions like capitalize in the Ext.util.Format are not
 				// used in this template anyways. Speeds up the apply time.
 				disableFormats: true
 			}
@@ -62,9 +62,9 @@ Zarafa.common.freebusy.data.TimelineSelector = Ext.extend(Ext.util.Observable,
 
 		/**
 		 * We can only render the selector when the TimelineView has been rendered. The TimelineView
-		 * can also rerender the timeline to show/hide the non-working hours. In that case the 
+		 * can also rerender the timeline to show/hide the non-working hours. In that case the
 		 * render event is not called, but the rendertimeline event is always called when rendering
-		 * the timeline HTML. 
+		 * the timeline HTML.
 		 */
 		this.parent.on("rendertimeline", this.onParentRenderTimeline, this);
 		this.parent.on("timelinemousedown", this.onParentTimelineMouseDown, this);
@@ -95,7 +95,7 @@ Zarafa.common.freebusy.data.TimelineSelector = Ext.extend(Ext.util.Observable,
 	},
 
 	/**
-	 * Renders the HTML needed for the selector and positions it. The parent is accessed to get the 
+	 * Renders the HTML needed for the selector and positions it. The parent is accessed to get the
 	 * HTML Element to render the selector in.
 	 */
 	render: function(){
@@ -115,7 +115,7 @@ Zarafa.common.freebusy.data.TimelineSelector = Ext.extend(Ext.util.Observable,
 
 	/**
 	 * @todo Perhaps this function does not need that argument any more?
-	 * Position the selector on the start and end dates. When the selector indicates a daterange 
+	 * Position the selector on the start and end dates. When the selector indicates a daterange
 	 * that is not visible on the timeline, the selector will be hidden.
 	 * @param {Zarafa.core.DateRange} selectorRange Daterange for the new position of the selector.
 	 */
@@ -134,7 +134,7 @@ Zarafa.common.freebusy.data.TimelineSelector = Ext.extend(Ext.util.Observable,
 			var pixelOffset = this.parent.findBlockPixelOffset(end, false);
 			this.selectorElem.setWidth( pixelOffset - pixelOffsetLeft );
 			this.selectorElem.setVisible(true);
-		}else{
+		} else {
 			// Hide the element when it is outside the visible period
 			this.selectorElem.setVisible(false);
 		}
@@ -148,7 +148,7 @@ Zarafa.common.freebusy.data.TimelineSelector = Ext.extend(Ext.util.Observable,
 	},
 
 	/**
-	 * Fired when the selector daterange is modified. When the daterange is changed the selector 
+	 * Fired when the selector daterange is modified. When the daterange is changed the selector
 	 * needs to update UI component to visualize the change.
 	 * @param {Zarafa.core.DateRange} selectorRange Changed daterange.
 	 */
@@ -236,7 +236,7 @@ Zarafa.common.freebusy.data.TimelineSelector = Ext.extend(Ext.util.Observable,
 			endDate.round(Date.MINUTE, 30);
 			this.selectionEnd = endDate.getTime() / 1000;
 
-			// Check if the range does not have a duration of zero 
+			// Check if the range does not have a duration of zero
 			if(this.selectionStart !== this.selectionEnd){
 				var selectorStartDate, selectorEndDate;
 
@@ -244,7 +244,7 @@ Zarafa.common.freebusy.data.TimelineSelector = Ext.extend(Ext.util.Observable,
 				if(this.selectionStart <= this.selectionEnd){
 					selectorStartDate = new Date(this.selectionStart*1000);
 					selectorEndDate = endDate;
-				}else{
+				} else {
 					selectorStartDate = endDate;
 					selectorEndDate = new Date(this.selectionStart*1000);
 				}
@@ -296,15 +296,15 @@ Zarafa.common.freebusy.data.TimelineSelector = Ext.extend(Ext.util.Observable,
 
 		if(Math.abs(clickX - selectorX) < this.dragSelectionEdgeArea){
 			return this.MOUSE_ON_EDGE_LEFT;
-		}else if(Math.abs(rightSelectorY - clickX) < this.dragSelectionEdgeArea){
+		} else if(Math.abs(rightSelectorY - clickX) < this.dragSelectionEdgeArea){
 			return this.MOUSE_ON_EDGE_RIGHT;
-		}else{
+		} else {
 			return this.MOUSE_ON_EDGE_CENTER;
 		}
 	},
 
 	/**
-	 * Checks whether the mouse event takes place on a scrollbar or whether it takes place inside 
+	 * Checks whether the mouse event takes place on a scrollbar or whether it takes place inside
 	 * the element. Returns true if it takes plae on the scrollbar.
 	 * @param {Ext.EventObject} evt The {@link Ext.EventObject} encapsulating the DOM event.
 	 * @param {HtmlElement} target The target of the event.
@@ -315,13 +315,13 @@ Zarafa.common.freebusy.data.TimelineSelector = Ext.extend(Ext.util.Observable,
 		// Get the bodyElem of the TimelineView because this is the element that contains the scrollbars
 		var scrollContainer = this.parent.bodyElem.dom;
 		// Prevent the selector from making a selection when you are only dragging the scrollbar.
-		if(evt && evt.browserEvent && scrollContainer){ 
-			var topleft = Ext.get(scrollContainer).getXY(); 
-			if(evt.browserEvent.clientX-topleft[0] > scrollContainer.clientWidth || evt.browserEvent.clientY-topleft[1] > scrollContainer.clientHeight) { 
-				// Clicking outside viewable area -> must be a click in the scrollbar, allow default action. 
-				return true; 
-			} 
-		} 
+		if(evt && evt.browserEvent && scrollContainer){
+			var topleft = Ext.get(scrollContainer).getXY();
+			if(evt.browserEvent.clientX-topleft[0] > scrollContainer.clientWidth || evt.browserEvent.clientY-topleft[1] > scrollContainer.clientHeight) {
+				// Clicking outside viewable area -> must be a click in the scrollbar, allow default action.
+				return true;
+			}
+		}
 		return false;
 	}
 });

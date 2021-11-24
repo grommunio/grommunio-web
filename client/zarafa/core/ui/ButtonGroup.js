@@ -10,7 +10,7 @@ Zarafa.core.ui.ButtonGroup = Ext.extend(Ext.ButtonGroup, {
 	 * @constructor
 	 * @param config
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		Ext.apply(this, config, {
 			xtype: 'zarafa.buttongroup'
@@ -25,7 +25,7 @@ Zarafa.core.ui.ButtonGroup = Ext.extend(Ext.ButtonGroup, {
 	 * @return {Boolean} function will return true if buttonGroups has any visible items,
 	 * It will return false if buttonGroup is empty or buttonGroup has all hidden buttons.
 	 */
-	hasVisibleButtons : function()
+	hasVisibleButtons: function()
 	{
 		var buttonsArray = this.items.getRange();
 		if(!Ext.isEmpty(buttonsArray)){

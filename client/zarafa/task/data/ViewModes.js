@@ -4,8 +4,8 @@ Ext.namespace('Zarafa.task.data');
  * @class Zarafa.task.data.ViewModes
  * @extends Zarafa.core.Enum
  *
- * Enum containing the different viewing modes of the task context. 
- * 
+ * Enum containing the different viewing modes of the task context.
+ *
  * @singleton
  */
 Zarafa.task.data.ViewModes = Zarafa.core.Enum.create({
@@ -15,14 +15,14 @@ Zarafa.task.data.ViewModes = Zarafa.core.Enum.create({
 	 * @property
 	 * @type Number
 	 */
-	SIMPLE : 0,
+	SIMPLE: 0,
 	/**
 	 * View all found task items from the selected folder(s).
 	 *
 	 * @property
 	 * @type Number
 	 */
-	SEARCH : 1,
+	SEARCH: 1,
 	/**
 	 * View all task items from the selected folder(s) with all default columns, user may
 	 * show/hide columns, if required.
@@ -30,5 +30,5 @@ Zarafa.task.data.ViewModes = Zarafa.core.Enum.create({
 	 * @property
 	 * @type Number
 	 */
-	DETAILED : 2
+	DETAILED: 2
 });

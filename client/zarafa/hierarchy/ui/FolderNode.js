@@ -10,24 +10,24 @@ Zarafa.hierarchy.ui.FolderNode = Ext.extend(Ext.tree.AsyncTreeNode, {
 	/**
 	 * @cfg {Zarafa.core.data.IPFRecord} folder the folder for which this tree node will be created
 	 */
-	folder : undefined,
+	folder: undefined,
 
 	/**
 	 * @cfg {Boolean} isNodeSelected the isNodeSelected is true when the folder is selected or checked, false otherwise.
 	 */
-	isNodeSelected : false,
+	isNodeSelected: false,
 
 	/**
 	 * @cfg {String/Ext.XTemplate} tpl The template which must be applied on the {@link #text} for
 	 * rendering into the {@link Ext.tree.TreePanel tree}.
 	 */
-	tpl : new Ext.XTemplate('{text:htmlEncode}', { compiled : true }),
-	
+	tpl: new Ext.XTemplate('{text:htmlEncode}', { compiled: true }),
+
 	/*
 	 * @constructor
 	 * @param {Object} config configuration object
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		config = config || {};
 
@@ -37,19 +37,19 @@ Zarafa.hierarchy.ui.FolderNode = Ext.extend(Ext.tree.AsyncTreeNode, {
 		// apply some extra defaults.
 		if (Ext.isDefined(folder)) {
 			Ext.applyIf(config, {
-				id :folder.get('entryid')
+				id:folder.get('entryid')
 			});
 		}
 
 		Ext.applyIf(config, {
-			containerCls : 'zarafa-tree-container',
+			containerCls: 'zarafa-tree-container',
 			cls: 'zarafa-tree-node'
 		});
 
 		Zarafa.hierarchy.ui.FolderNode.superclass.constructor.call(this, config);
 
 		if (Ext.isString(this.tpl)) {
-			this.tpl = new Ext.XTemplate(this.tpl, { compiled : true });
+			this.tpl = new Ext.XTemplate(this.tpl, { compiled: true });
 		}
 
 		if (folder) {
@@ -60,7 +60,7 @@ Zarafa.hierarchy.ui.FolderNode = Ext.extend(Ext.tree.AsyncTreeNode, {
 	/**
 	 * @return {Zarafa.core.data.IPFRecord} The folder which is represented by this node
 	 */
-	getFolder : function()
+	getFolder: function()
 	{
 		return this.attributes.folder;
 	},
@@ -69,7 +69,7 @@ Zarafa.hierarchy.ui.FolderNode = Ext.extend(Ext.tree.AsyncTreeNode, {
 	 * Sets checked status to the passed value
 	 * @param {Boolean} checked if true, set checked else uncheck
 	 */
-	setChecked : function(checked)
+	setChecked: function(checked)
 	{
 		if (this.rendered) {
 			this.getUI().toggleCheck(checked);
@@ -79,7 +79,7 @@ Zarafa.hierarchy.ui.FolderNode = Ext.extend(Ext.tree.AsyncTreeNode, {
 	/**
 	 * @return {Boolean} true, if {@link Zarafa.hierarchy.ui.FolderNode folderNode} is checked else false
 	 */
-	isChecked : function()
+	isChecked: function()
 	{
 		var ui = this.getUI();
 		return ui.checkbox && ui.checkbox.checked;
@@ -89,7 +89,7 @@ Zarafa.hierarchy.ui.FolderNode = Ext.extend(Ext.tree.AsyncTreeNode, {
 	 * Updates UI of node
 	 * @param {Zarafa.hierarchy.data.MAPIFolderRecord} folder
 	 */
-	updateUI : function(folder)
+	updateUI: function(folder)
 	{
 		// Update attributes
 		this.attributes.folder = folder;
@@ -104,7 +104,7 @@ Zarafa.hierarchy.ui.FolderNode = Ext.extend(Ext.tree.AsyncTreeNode, {
 		if ( !this.ui.getIconEl() || this.ui.getIconEl().tagName !== 'svg' ){
 			// pass the icon through the icon renderer
 			this.setIcon(this.getIconFromFolder(folder));
-			
+
 			// pass the class through to the renderer
 			this.setContainerCls(this.attributes.containerCls);
 		}
@@ -118,7 +118,7 @@ Zarafa.hierarchy.ui.FolderNode = Ext.extend(Ext.tree.AsyncTreeNode, {
 	 * Sets the icon for this node
 	 * @param {String} iconCls
 	 */
-	setIcon : function(iconCls)
+	setIcon: function(iconCls)
 	{
 		var oldIconCls = this.iconCls;
 		this.iconCls = this.attributes.iconCls = iconCls;
@@ -127,12 +127,12 @@ Zarafa.hierarchy.ui.FolderNode = Ext.extend(Ext.tree.AsyncTreeNode, {
 			this.getUI().onIconChange(this, iconCls, oldIconCls);
 		}
 	},
-	
+
 	/**
 	 * Sets the class for this node's container
 	 * @param {String} cls
 	 */
-	setContainerCls : function(cls)
+	setContainerCls: function(cls)
 	{
 		var oldCls = this.containerCls;
 		this.containerCls = this.attributes.containerCls = cls;
@@ -147,7 +147,7 @@ Zarafa.hierarchy.ui.FolderNode = Ext.extend(Ext.tree.AsyncTreeNode, {
 	 * @param {Zarafa.hierarchy.data.MAPIFolderRecord} folder
 	 * @private
 	 */
-	updateCounterNode : function(folder)
+	updateCounterNode: function(folder)
 	{
 		if (this.rendered === true) {
 			this.getUI().updateCounter(this);
@@ -162,7 +162,7 @@ Zarafa.hierarchy.ui.FolderNode = Ext.extend(Ext.tree.AsyncTreeNode, {
 	 * @return {String} The iconclass for this folder
 	 * @protected
 	 */
-	getIconFromFolder : function(folder)
+	getIconFromFolder: function(folder)
 	{
 		return Zarafa.common.ui.IconClass.getIconClass(folder);
 	},
@@ -173,7 +173,7 @@ Zarafa.hierarchy.ui.FolderNode = Ext.extend(Ext.tree.AsyncTreeNode, {
 	 * @return {String} The name of the folder which must be shown.
 	 * @protected
 	 */
-	getTextFromFolder : function(folder)
+	getTextFromFolder: function(folder)
 	{
 		return folder.getDisplayName();
 	},
@@ -183,7 +183,7 @@ Zarafa.hierarchy.ui.FolderNode = Ext.extend(Ext.tree.AsyncTreeNode, {
 	 * @param {Boolean} deep True to call {@link #update} on all
 	 * {@link #childNodes}.
 	 */
-	update : function(deep)
+	update: function(deep)
 	{
 		var folder;
 
@@ -200,6 +200,40 @@ Zarafa.hierarchy.ui.FolderNode = Ext.extend(Ext.tree.AsyncTreeNode, {
 		if (deep) {
 			for(var i = 0, len = this.childNodes.length; i < len; i++) {
 				this.childNodes[i].update(deep);
+			}
+		}
+	},
+
+	/**
+	 * Cascades down the tree from this node, calling the specified function with each node. 
+	 * The arguments to the function will be the args provided or the current node. 
+	 * If the function returns false at any point, the cascade is stopped on that branch.
+	 * 
+	 * @param {Function} fn function to call on every node. 
+	 * @param {Object} scope scope of the function.
+	 * @param {Array} args arguments to call the function with
+	 */
+	cascade: function(fn, scope, args)
+	{	
+		if(fn.apply(scope || this, args || [this]) !== false) {
+			var cs = this.childNodes;
+			var cascadechildren =  function(cs) {
+				cs.forEach(function(child) {
+					child.cascade(fn, scope, args);
+				});
+			};
+		
+			// If children are available then focefully expand this node to get the data.
+			if(this.hasChildNodes() && Ext.isEmpty(cs)) {
+				// Collapse the node which was forcefully expanded.
+				var expandCallback = function(node) {
+					cs = this.childNodes;
+					cascadechildren(cs);
+					node.collapse(false, false);
+				};				
+				this.expand(false, false, expandCallback, this);
+			} else {
+				cascadechildren(cs);
 			}
 		}
 	}

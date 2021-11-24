@@ -4,8 +4,8 @@ Ext.namespace('Zarafa.task.data');
  * @class Zarafa.task.data.Views
  * @extends Zarafa.core.Enum
  *
- * Enum containing the different views of the task context. 
- * 
+ * Enum containing the different views of the task context.
+ *
  * @singleton
  */
 Zarafa.task.data.Views = Zarafa.core.Enum.create({
@@ -15,12 +15,12 @@ Zarafa.task.data.Views = Zarafa.core.Enum.create({
 	 * @property
 	 * @type Number
 	 */
-	LIST : 0,
+	LIST: 0,
 	/**
 	 * View all found task items from the selected folder(s).
 	 *
 	 * @property
 	 * @type Number
 	 */
-	SEARCH : 1
+	SEARCH: 1
 });

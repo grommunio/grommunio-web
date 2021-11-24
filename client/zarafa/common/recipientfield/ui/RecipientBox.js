@@ -14,16 +14,16 @@ Zarafa.common.recipientfield.ui.RecipientBox = Ext.extend(Zarafa.common.ui.Box, 
 	 * @cfg {String} validCls The CSS class which must be applied on {@link #el}
 	 * when the recipient is {@link #isValidRecord}.
 	 */
-	validCls : 'x-zarafa-boxfield-recipient-item-resolved',
+	validCls: 'x-zarafa-boxfield-recipient-item-resolved',
 
 	/**
 	 * @cfg {String} ambiguousCls The CSS class which must be applied on {@link #el}
 	 * when the recipient is ambiguous
 	 */
-	ambiguousCls : 'x-zarafa-boxfield-recipient-item-ambiguous',
+	ambiguousCls: 'x-zarafa-boxfield-recipient-item-ambiguous',
 
 	/**
-	 * @cfg {String} pendingCls The CSS clas which must be applied on {@link #el}
+	 * @cfg {String} pendingCls The CSS class which must be applied on {@link #el}
 	 * when the recipient is pending resolving.
 	 */
 	pendingCls: 'x-zarafa-boxfield-recipient-item-pending',
@@ -39,31 +39,31 @@ Zarafa.common.recipientfield.ui.RecipientBox = Ext.extend(Zarafa.common.ui.Box, 
 	 * @property
 	 * @type Ext.Element
 	 */
-	expandBtnEl : undefined,
+	expandBtnEl: undefined,
 
 	/**
 	 * @cfg {String} expandBtnCls The CSS class which will be applied to the {@link #expandBtnEl} when
 	 * the component is rendered.
 	 */
-	expandBtnCls : 'x-zarafa-boxfield-item-expand',
+	expandBtnCls: 'x-zarafa-boxfield-item-expand',
 
 	/**
 	 * @cfg {String} expandBtnHoverCls The CSS class which will be applied to the {@link #expandBtnEl} when
 	 * the cursor is hovering over the button.
 	 */
-	expandBtnHoverCls : 'x-zarafa-boxfield-item-expand-hover',
+	expandBtnHoverCls: 'x-zarafa-boxfield-item-expand-hover',
 
 	/**
 	 * @constructor
 	 * @param config Configuration object
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		config = config || {};
 
 		Ext.applyIf(config, {
 			cls: 'x-zarafa-boxfield-recipient-item',
-			textTpl :
+			textTpl:
 				'<tpl if="!Ext.isEmpty(values.display_name)">' +
 					'{display_name:htmlEncodeElide(this.ellipsisStringStartLength, this.ellipsisStringEndLength)}' +
 				'</tpl>'
@@ -95,7 +95,7 @@ Zarafa.common.recipientfield.ui.RecipientBox = Ext.extend(Zarafa.common.ui.Box, 
 	 * @override
 	 * @private
 	 */
-	afterRender : function(ct)
+	afterRender: function(ct)
 	{
 		Zarafa.common.recipientfield.ui.RecipientBox.superclass.afterRender.call(this, ct);
 
@@ -103,13 +103,13 @@ Zarafa.common.recipientfield.ui.RecipientBox = Ext.extend(Zarafa.common.ui.Box, 
 			this.expandBtnEl.setVisible(this.editable);
 		}
 	},
-	
+
 	/**
 	 * Set the {@link #editable} flag, making the box editable or non-editable.
 	 * @param {Boolean} value The new editable status.
 	 * @override
 	 */
-	setEditable : function(value)
+	setEditable: function(value)
 	{
 		Zarafa.common.recipientfield.ui.RecipientBox.superclass.setEditable.call(this, value);
 
@@ -118,15 +118,15 @@ Zarafa.common.recipientfield.ui.RecipientBox = Ext.extend(Zarafa.common.ui.Box, 
 		}
 	},
 
-	/** 
+	/**
 	 * Create expand button and sets event listeners on that expand button of the box.
 	 * @private
 	 */
 	renderExpandButton: function()
 	{
 		this.expandBtnEl = this.el.insertFirst({
-			tag : 'span',
-			cls : this.expandBtnCls
+			tag: 'span',
+			cls: this.expandBtnCls
 		});
 
 		this.expandBtnEl.addClassOnOver(this.expandBtnHoverCls);
@@ -156,7 +156,7 @@ Zarafa.common.recipientfield.ui.RecipientBox = Ext.extend(Zarafa.common.ui.Box, 
 	 * @param {String} text Value of the input field, not useful here
 	 * @private
 	 */
-	doExpand : function(buttonClicked, text)
+	doExpand: function(buttonClicked, text)
 	{
 		if (buttonClicked == 'ok') {
 			var store = this.parent.getBoxStore();
@@ -168,7 +168,7 @@ Zarafa.common.recipientfield.ui.RecipientBox = Ext.extend(Zarafa.common.ui.Box, 
 	},
 
 	/**
-	 * Function which can be overriden to provide custom formatting for the given {@link Ext.data.Record}
+	 * Function which can be overridden to provide custom formatting for the given {@link Ext.data.Record}
 	 * to the {@link #update} function. The data object returned here is used by the {@link #textTpl template}
 	 * to render the contents of the box.
 	 * @param {Ext.data.Record} record The record which is going to be rendered
@@ -188,14 +188,14 @@ Zarafa.common.recipientfield.ui.RecipientBox = Ext.extend(Zarafa.common.ui.Box, 
 	},
 
 	/**
-	 * Function which can be overriden to provide custom icon rendering for the given {@link Ext.data.Record}
+	 * Function which can be overridden to provide custom icon rendering for the given {@link Ext.data.Record}
 	 * to the {@link #iconEl} element. The string returned here is the CSS class which will be set on the
 	 * {@link #iconEl}.
 	 * @param {Ext.data.Record} record The record which is going to be rendered
 	 * @return {String} The CSS class which must be applied to the {@link #iconEl}.
 	 * @private
 	 */
-	prepareIcon : function(record)
+	prepareIcon: function(record)
 	{
 		if (record.isResolved() || (record.attemptedToResolve() && record.isValidSMTP())) {
 			return Zarafa.common.recipientfield.ui.RecipientBox.superclass.prepareIcon.apply(this, arguments);
@@ -213,7 +213,7 @@ Zarafa.common.recipientfield.ui.RecipientBox = Ext.extend(Zarafa.common.ui.Box, 
 	 * @return {Boolean} True if the record is valid
 	 * @protected
 	 */
-	isValidRecord : function(record)
+	isValidRecord: function(record)
 	{
 		return record.isResolved() || record.attemptedToResolve() && record.isValidSMTP();
 	},

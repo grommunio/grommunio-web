@@ -15,7 +15,7 @@ Zarafa.common.searchfield.ui.SearchTextField = Ext.extend(Ext.form.TextField, {
 	 * @cfg {String} searchIndicatorClass The CSS class which must be applied to the {@link #el}
 	 * during {@link #updateEditState} to indicate that the field is busy searching.
 	 */
-	searchIndicatorClass : 'zarafa-tbar-loading',
+	searchIndicatorClass: 'zarafa-tbar-loading',
 
 	/**
 	 * @cfg {Boolean} searchPanelRendered The searchPanelRendered indicates that
@@ -23,20 +23,20 @@ Zarafa.common.searchfield.ui.SearchTextField = Ext.extend(Ext.form.TextField, {
 	 * was rendered or not. it will gets true if {@link Zarafa.advancesearch.dialogs.SearchContentPanel search content panel}
 	 * renders else false.
 	 */
-	searchPanelRendered : false,
+	searchPanelRendered: false,
 
 	/**
 	 * @constructor
 	 * @param {Object} config Configuration object
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		Ext.apply(config, {
-			validationEvent : false,
-			validateOnBlur : false,
+			validationEvent: false,
+			validateOnBlur: false,
 			cls: 'zarafa-searchfield',
 			boxMaxWidth: 450,
-			ref : 'searchTextField',
+			ref: 'searchTextField',
 			listeners: {
 				afterrender: function(searchField){
 					searchField.getEl().set({
@@ -91,7 +91,7 @@ Zarafa.common.searchfield.ui.SearchTextField = Ext.extend(Ext.form.TextField, {
 	 * This will listen to some special key events registered on the Trigger Field
 	 * @protected
 	 */
-	initComponent : function()
+	initComponent: function()
 	{
 		Zarafa.common.searchfield.ui.SearchTextField.superclass.initComponent.call(this);
 
@@ -107,7 +107,7 @@ Zarafa.common.searchfield.ui.SearchTextField = Ext.extend(Ext.form.TextField, {
 	 * @param {Ext.EventObject} e The event for this event
 	 * @private
 	 */
-	onTriggerSpecialKey : function(field, e)
+	onTriggerSpecialKey: function(field, e)
 	{
 		if (e.getKey() == e.ENTER) {
 			var textValue = this.getValue();
@@ -126,7 +126,7 @@ Zarafa.common.searchfield.ui.SearchTextField = Ext.extend(Ext.form.TextField, {
 	 * {@link #beforestop} event.
 	 * @protected
 	 */
-	stopSearch : function()
+	stopSearch: function()
 	{
 		if (this.fireEvent('beforestop', this) !== false) {
 			this.hideMask();
@@ -141,7 +141,7 @@ Zarafa.common.searchfield.ui.SearchTextField = Ext.extend(Ext.form.TextField, {
 	 * {@link #beforestart} event.
 	 * @protected
 	 */
-	onTriggerClick : function()
+	onTriggerClick: function()
 	{
 		if (this.fireEvent('beforestart', this) !== false) {
 			if(Ext.isEmpty(this.getValue())) {
@@ -164,9 +164,9 @@ Zarafa.common.searchfield.ui.SearchTextField = Ext.extend(Ext.form.TextField, {
 			if(!this.searchPanelRendered) {
 				var componentType = Zarafa.core.data.SharedComponentType['common.search'];
 				Zarafa.core.data.UIFactory.openLayerComponent(componentType, [], {
-					'searchText' : this.getValue(),
-					'parentSearchField' : this,
-					'parentSearchFolderCombo' : this.searchContainer.searchFolderCombo
+					'searchText': this.getValue(),
+					'parentSearchField': this,
+					'parentSearchFolderCombo': this.searchContainer.searchFolderCombo
 				});
 			}
 
@@ -178,7 +178,7 @@ Zarafa.common.searchfield.ui.SearchTextField = Ext.extend(Ext.form.TextField, {
 	/**
 	 * Function is used to hide the spinner field from search text field.
 	 */
-	hideMask : function()
+	hideMask: function()
 	{
 		this.el.removeClass([this.searchIndicatorClass]);
 	}

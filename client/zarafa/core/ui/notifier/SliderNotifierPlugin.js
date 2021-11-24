@@ -20,7 +20,7 @@ Zarafa.core.ui.notifier.SliderNotifierPlugin = Ext.extend(Zarafa.core.ui.notifie
 	 * - 'title': The title which must be shown (See the title argument for {@link #notify}).
 	 * - 'message': The message which must be shown (See the message argument for {@link #notify}).
 	 */
-	msgTemplate : new Ext.XTemplate(
+	msgTemplate: new Ext.XTemplate(
 		'<div class="{categorycls} {basecls}">' +
 			'<div class="left">'+
 				'<div class="icon" ></div>' +
@@ -39,17 +39,17 @@ Zarafa.core.ui.notifier.SliderNotifierPlugin = Ext.extend(Zarafa.core.ui.notifie
 	/**
 	 * @cfg {String} itemCls The base CSS class to be applied to {@link #msgTemplate}
 	 */
-	itemCls : 'zarafa-slide-notifier',
+	itemCls: 'zarafa-slide-notifier',
 
 	/**
 	 * @cfg {String} categoryCls The base CSS class for the categorycls to be applied to {@link #msgTemplate}
 	 */
-	categoryCls : 'zarafa-slide-notifier',
+	categoryCls: 'zarafa-slide-notifier',
 
 	/**
 	 * @cfg {Number} msgLifetime The amount of seconds of which non-persistent messages should be displayed.
 	 */
-	msgLifetime : 5,
+	msgLifetime: 5,
 
 	/**
 	 * @cfg {String} sliderContainerPosition The position of the container
@@ -64,23 +64,23 @@ Zarafa.core.ui.notifier.SliderNotifierPlugin = Ext.extend(Zarafa.core.ui.notifie
 	 * - 'b': The center of the bottom edge
 	 * - 'br': The bottom right corner
 	 */
-	sliderContainerPosition : 't',
+	sliderContainerPosition: 't',
 
 	/**
 	 * @constructor
 	 * @param {Object} config Configuration object
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		Zarafa.core.ui.notifier.SliderNotifierPlugin.superclass.constructor.call(this, config);
 
 		if (Ext.isString(this.msgTemplate)) {
-			this.msgTemplate = new Ext.XTemplate(this.msgTemplate, { compiled : true });
+			this.msgTemplate = new Ext.XTemplate(this.msgTemplate, { compiled: true });
 		}
 	},
 
 	/**
-	 * Obtain a {@link Zarafa.core.ui.notifier.SliderContainer SliderContainer} from 
+	 * Obtain a {@link Zarafa.core.ui.notifier.SliderContainer SliderContainer} from
 	 * {@lin #slideContainers} or instantiate a new one. This container can be used
 	 * to show new notifications.
 	 * @param {Ext.Element} parentCt The parent element in which the container should
@@ -89,7 +89,7 @@ Zarafa.core.ui.notifier.SliderNotifierPlugin = Ext.extend(Zarafa.core.ui.notifie
 	 * @return {Zarafa.core.ui.notifier.SliderContainer} The slider container
 	 * @private
 	 */
-	getSliderContainer : function(parentCt, position)
+	getSliderContainer: function(parentCt, position)
 	{
 		parentCt = parentCt || Ext.getBody();
 
@@ -99,12 +99,12 @@ Zarafa.core.ui.notifier.SliderNotifierPlugin = Ext.extend(Zarafa.core.ui.notifie
 		// Check if the container exists in the DOM, otherwise create a new one
 		if (!containers[containerid] || !Ext.get(containers[containerid].container.id) ) {
 			containers[containerid] = new Zarafa.core.ui.notifier.SliderContainer({
-				parentContainer : parentCt,
-				containerPosition : position,
-				slideinDirection : position[0],
-				slideoutDirection : position[0]
+				parentContainer: parentCt,
+				containerPosition: position,
+				slideinDirection: position[0],
+				slideoutDirection: position[0]
 			});
-		}else{
+		} else {
 			// The parent component could be removed from the DOM and rendered again later.
 			// If we set it again we are sure we have the DOM oject
 			containers[containerid].parentContainer = parentCt;
@@ -116,7 +116,7 @@ Zarafa.core.ui.notifier.SliderNotifierPlugin = Ext.extend(Zarafa.core.ui.notifie
 	/**
 	 * Notify the user with a message.
 	 *
-	 * The category can be either  "error", "warning", "info" or "debug", or a subtype thereof (e.g. "info.newmail").
+	 * The category can be either "error", "warning", "info" or "debug", or a subtype thereof (e.g. "info.newmail").
 	 *
 	 * @param {String} category The category which applies to the notification.
 	 * @param {String} title The title which must be shown in the message.
@@ -131,7 +131,7 @@ Zarafa.core.ui.notifier.SliderNotifierPlugin = Ext.extend(Zarafa.core.ui.notifie
 	 * - listeners: Event handlers which must be registered on the element
 	 * @return {Ext.Element} The slider element which was created
 	 */
-	notify : function(category, title, message, config)
+	notify: function(category, title, message, config)
 	{
 		// Enable default config if none was provided
 		config = config || {};
@@ -141,7 +141,7 @@ Zarafa.core.ui.notifier.SliderNotifierPlugin = Ext.extend(Zarafa.core.ui.notifie
 		var categorycls = this.categoryCls + '-' + category.split('.')[0] + ' ' + this.categoryCls + '-' + category.replace(/\./g, '-');
 
 		// Create the HTML string which we want to generate
-		var html = this.msgTemplate.apply({ title : title, message : message, basecls : basecls, categorycls : categorycls });
+		var html = this.msgTemplate.apply({ title: title, message: message, basecls: basecls, categorycls: categorycls });
 		var slider = this.getSliderContainer(config.container, this.sliderContainerPosition);
 
 		if (config.reference) {
@@ -178,11 +178,11 @@ Zarafa.core.ui.notifier.SliderNotifierPlugin = Ext.extend(Zarafa.core.ui.notifie
 	 * @param {String} category The category which applies to the notification.
 	 * @param {Ext.EventObject} event The event object
 	 */
-	onNotifierClick : function (notification, category, event) {
+	onNotifierClick: function (notification, category, event) {
 		container.getNotifier().notify(category, null, null, {
-			container : notification.slider.parentContainer,
-			destroy : true,
-			reference : notification
+			container: notification.slider.parentContainer,
+			destroy: true,
+			reference: notification
 		});
 	},
 
@@ -192,7 +192,7 @@ Zarafa.core.ui.notifier.SliderNotifierPlugin = Ext.extend(Zarafa.core.ui.notifie
 	 * @param {Object} listeners The object of event handlers to register
 	 * @private
 	 */
-	addMessageListeners : function(reference, listeners)
+	addMessageListeners: function(reference, listeners)
 	{
 		for (var key in listeners) {
 			var fn = listeners[key];

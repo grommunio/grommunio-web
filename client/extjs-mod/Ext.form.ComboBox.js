@@ -5,12 +5,12 @@
 
 	Ext.override(Ext.form.ComboBox, {
 		// private
-		defaultAutoCreate : {tag: "input", type: "text", size: "24", autocomplete: "off", spellcheck: 'true'},
+		defaultAutoCreate: {tag: "input", type: "text", size: "24", autocomplete: "off", spellcheck: 'true'},
 
 		/*
 		 * Overridden to add 'beforeexpand' event.
 		 */
-		initComponent : function()
+		initComponent: function()
 		{
 			orig_initComponent.apply(this, arguments);
 
@@ -30,7 +30,7 @@
 		 * combobox accepts data directly from a store this can be dangerous and it is
 		 * better to htmlEncode the data by default.
 		 */
-		initList : function()
+		initList: function()
 		{
 			if (!this.tpl) {
 				this.tpl = '<tpl for="."><div class="x-combo-list-item">{' + this.displayField + ':htmlEncode}</div></tpl>';
@@ -41,13 +41,13 @@
 		/*
 		 * Overridden to provide facility to fire 'beforeexpand' event.
 		 */
-		expand : function()
+		expand: function()
 		{
-			if(this.isExpanded() || !this.hasFocus){
+			if(this.isExpanded() || !this.hasFocus) {
 				return;
 			}
 
-			if(this.fireEvent('beforeexpand', this) !== false){
+			if(this.fireEvent('beforeexpand', this) !== false) {
 				orig_expand.apply(this, arguments);
 			}
 		},
@@ -56,14 +56,26 @@
 		 * Override getListParent to return the body element of the owner document which owns the list element.
 		 * @return {HTMLElement} The body of owner document of list element.
 		 */
-		getListParent : function()
+		getListParent: function()
 		{
 			var elOwnerDocument = this.getEl() ? this.getEl().dom.ownerDocument : undefined;
 
-			if(elOwnerDocument){
+			if(elOwnerDocument) {
 				return elOwnerDocument.body;
 			} else {
 				return document.body;
+			}
+		},
+
+		/**
+		 * Function disables/enables the label of a combobox
+		 * 
+		 * @param {Boolean} disabled true to disable the label
+		 */
+		disableLabel: function(disabled)
+		{
+			if (this.label) {
+				this.label.toggleClass('x-item-disabled');
 			}
 		}
 	});

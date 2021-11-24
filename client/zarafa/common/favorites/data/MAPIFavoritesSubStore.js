@@ -12,7 +12,7 @@ Zarafa.common.favorites.data.MAPIFavoritesSubStore = Ext.extend(Zarafa.hierarchy
 	 * @constructor
 	 * @param {Object} config Configuration object
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		config = config || {};
 

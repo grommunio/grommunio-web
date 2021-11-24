@@ -13,7 +13,7 @@ Zarafa.common.freebusy.ui.SuggestionListPanel = Ext.extend(Ext.Panel, {
 	 * @constructor
 	 * @param {Object} config Configuration object
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		config = config || {};
 
@@ -29,19 +29,19 @@ Zarafa.common.freebusy.ui.SuggestionListPanel = Ext.extend(Ext.Panel, {
 				autoHeight: true,
 				items: [{
 					xtype: 'container',
-					border : false,
-					height : 195,
+					border: false,
+					height: 195,
 					width: 195,
-					layout : 'fit',
-					items : [{
+					layout: 'fit',
+					items: [{
 						xtype: 'datepicker',
 						ref: '../../suggestionDate',
-						showToday : false,
-						minDate : config.model ? config.model.getDateRange().getStartDate() : null,
+						showToday: false,
+						minDate: config.model ? config.model.getDateRange().getStartDate() : null,
 						minText: _('No freebusy information available for this date'),
-						maxDate : config.model ? config.model.getDateRange().getDueDate() : null,
+						maxDate: config.model ? config.model.getDateRange().getDueDate() : null,
 						maxText: _('No freebusy information available for this date'),
-						style : 'border : none',
+						style: 'border: none',
 						listeners: {
 							select: this.onDateSelect,
 							scope: this
@@ -65,7 +65,7 @@ Zarafa.common.freebusy.ui.SuggestionListPanel = Ext.extend(Ext.Panel, {
 				}]
 			}]
 		});
-		
+
 		this.addEvents([
 			/**
 			 * @event dateselect
@@ -108,7 +108,7 @@ Zarafa.common.freebusy.ui.SuggestionListPanel = Ext.extend(Ext.Panel, {
 	 * @param {Object} event The event object
 	 * @private
 	 */
-	onSuggestionClick : function(view, index, el, event)
+	onSuggestionClick: function(view, index, el, event)
 	{
 		var record = view.getStore().getAt(index);
 		this.fireEvent('select', this, record);
@@ -116,13 +116,13 @@ Zarafa.common.freebusy.ui.SuggestionListPanel = Ext.extend(Ext.Panel, {
 
 	/**
 	 * Event handler which is raised when a date has been selected from the {@link Ext.DatePicker DatePicker}.
-	 * This will update the suggestionlist to show the suggestions for the given {@link Ext.Date date}. It 
+	 * This will update the suggestionlist to show the suggestions for the given {@link Ext.Date date}. It
 	 * will also fire the {@link #dateselect} event.
 	 * @param {Ext.DatePicker} datepicker The datepicker object which raised the event
 	 * @param {Ext.Date} date The selected date
 	 * @private
 	 */
-	onDateSelect : function(datepicker, date)
+	onDateSelect: function(datepicker, date)
 	{
 		this.model.setSuggestionDate(date);
 
@@ -137,7 +137,7 @@ Zarafa.common.freebusy.ui.SuggestionListPanel = Ext.extend(Ext.Panel, {
 	 * @param {Zarafa.core.DateRange} oldRange The old DateRange
 	 * @private
 	 */
-	onDateRangeUpdate : function(newRange, oldRange)
+	onDateRangeUpdate: function(newRange, oldRange)
 	{
 		this.suggestionDate.setMinDate(newRange.getStartDate());
 		this.suggestionDate.setmaxDate(newRange.getDueDate());
@@ -150,7 +150,7 @@ Zarafa.common.freebusy.ui.SuggestionListPanel = Ext.extend(Ext.Panel, {
 	 * @param {Zarafa.core.DateRange} oldRange The old DateRange
 	 * @private
 	 */
-	onSuggestionRangeUpdate : function(newRange, oldRange)
+	onSuggestionRangeUpdate: function(newRange, oldRange)
 	{
 		this.suggestionDate.setValue(newRange.getStartDate());
 	}

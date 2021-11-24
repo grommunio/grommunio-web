@@ -13,35 +13,35 @@ Zarafa.common.delegates.dialogs.DelegatePermissionContentPanel = Ext.extend(Zara
 	 * @constructor
 	 * @param config Configuration structure
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		config = config || {};
 
 		// Add in some standard configuration data.
 		Ext.applyIf(config, {
 			// Override from Ext.Component
-			xtype : 'zarafa.delegatepermissioncontentpanel',
+			xtype: 'zarafa.delegatepermissioncontentpanel',
 			// Override from Ext.Component
-			layout : 'fit',
-			modal : true,
-			recordComponentPluginConfig : Ext.applyIf(config.recordComponentPluginConfig || {}, {
-				allowWrite : true,
-				useShadowStore : true
+			layout: 'fit',
+			modal: true,
+			recordComponentPluginConfig: Ext.applyIf(config.recordComponentPluginConfig || {}, {
+				allowWrite: true,
+				useShadowStore: true
 			}),
-			autoSave : false,
-			width : 500,
-			height : 325,
-			title : _('Delegate Permissions'),
-			items : [{
-				xtype : 'zarafa.delegatepermissionpanel',
-				buttons : [{
-					text : _('Ok'),
-					handler : this.onOk,
-					scope : this
+			autoSave: false,
+			width: 500,
+			height: 325,
+			title: _('Delegate Permissions'),
+			items: [{
+				xtype: 'zarafa.delegatepermissionpanel',
+				buttons: [{
+					text: _('Ok'),
+					handler: this.onOk,
+					scope: this
 				},{
-					text : _('Cancel'),
-					handler : this.onCancel,
-					scope : this
+					text: _('Cancel'),
+					handler: this.onCancel,
+					scope: this
 				}]
 			}]
 		});

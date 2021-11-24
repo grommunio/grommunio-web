@@ -3,18 +3,18 @@ Ext.namespace('Zarafa.core');
 /**
  * @class Zarafa.core.Enum
  * @extends Object
- * 
- * Base class for Enumerations, which are defined as <String, Number> hash maps. 
+ *
+ * Base class for Enumerations, which are defined as <String, Number> hash maps.
  * Provides a set of get methods for getting properties or property names by value.
  */
 Zarafa.core.Enum = Ext.extend(Object, {
-	
+
 	/**
-	 * Get a property by value. 
+	 * Get a property by value.
 	 * @param {Number} value
-	 * @return the property value (equal to the input) iff a property with the given value exists. Returns undefined otherwise.   
+	 * @return the property value (equal to the input) iff a property with the given value exists. Returns undefined otherwise.
 	 */
-	get : function(value)
+	get: function(value)
 	{
 		value = parseInt(value, 10);
 		for (var key in this) {
@@ -23,13 +23,13 @@ Zarafa.core.Enum = Ext.extend(Object, {
 			}
 		}
 	},
-	
+
 	/**
 	 * Gets a property name by value.
 	 * @param {Number} value
-	 * @return the property name iff a property with the given value exists. Returns undefined otherwise.   
+	 * @return the property name iff a property with the given value exists. Returns undefined otherwise.
 	 */
-	getName : function(value)
+	getName: function(value)
 	{
 		value = parseInt(value, 10);
 		for (var key in this) {
@@ -44,7 +44,7 @@ Zarafa.core.Enum = Ext.extend(Object, {
 	 * @param {String} key key of the <String, Number> hashmap
 	 * @return {Number} the property value corresponding to string key
 	 */
-	getValue : function(key)
+	getValue: function(key)
 	{
 		var value = this[key];
 
@@ -76,12 +76,12 @@ Zarafa.core.Enum = Ext.extend(Object, {
 			}
 		}
 
-		// Take the highest value, increase it by one and set it as value for the new property 
+		// Take the highest value, increase it by one and set it as value for the new property
 		highestValue++;
 		this[propKey] = highestValue;
 
 		return highestValue;
-		
+
 	}
 });
 

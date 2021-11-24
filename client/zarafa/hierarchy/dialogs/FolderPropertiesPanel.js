@@ -20,27 +20,27 @@ Zarafa.hierarchy.dialogs.FolderPropertiesPanel = Ext.extend(Ext.Panel, {
 	 * @constructor
 	 * @param {Object} config configuration object.
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		config = config || {};
 
 		Ext.applyIf(config, {
-			xtype : 'zarafa.folderpropertiespanel',
-			cls : 'zarafa-folderproperties tabpanel-container',
-			border : false,
-			layout : 'fit',
-			deferredRender : false,
+			xtype: 'zarafa.folderpropertiespanel',
+			cls: 'zarafa-folderproperties tabpanel-container',
+			border: false,
+			layout: 'fit',
+			deferredRender: false,
 			items: [{
-				xtype : 'tabpanel',
-				border : false,
-				activeTab : config.activeTab,
-				layoutOnTabChange : true,
-				items : [{
-					xtype : 'zarafa.folderpropertiesgeneraltab',
+				xtype: 'tabpanel',
+				border: false,
+				activeTab: config.activeTab,
+				layoutOnTabChange: true,
+				items: [{
+					xtype: 'zarafa.folderpropertiesgeneraltab',
 					title: _('General')
 				},{
-					xtype : 'zarafa.folderpropertiespermissiontab',
-					emptyText : config.emptyText,
+					xtype: 'zarafa.folderpropertiespermissiontab',
+					emptyText: config.emptyText,
 					title: _('Permissions')
 				},
 				container.populateInsertionPoint('folderpropertiescontentpanel.tabs', this)

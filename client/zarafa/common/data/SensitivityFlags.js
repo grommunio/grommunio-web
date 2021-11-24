@@ -9,7 +9,7 @@ Ext.namespace('Zarafa.common.data');
  * This class is used by rules to display the sensitivity.
  */
 Zarafa.common.data.SensitivityFlags = {
-	flags : [{
+	flags: [{
 		value: Zarafa.core.mapi.Sensitivity['NONE'],
 		name: Zarafa.core.mapi.Sensitivity.getDisplayName(Zarafa.core.mapi.Sensitivity['NONE'])
 	},{

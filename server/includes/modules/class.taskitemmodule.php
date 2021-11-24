@@ -16,9 +16,9 @@
 		 */
 		function __construct($id, $data)
 		{
-			$this->properties = $GLOBALS["properties"]->getTaskProperties();
-			
 			parent::__construct($id, $data);
+		
+			$this->properties = $GLOBALS["properties"]->getTaskProperties();
 
 			$this->plaintext = true;
 		}
@@ -239,6 +239,7 @@
 		function saveTask($store, $parententryid, $entryid, $action)
 		{
 			$properties = $this->properties;
+			$messageProps = array();
 			$send = isset($action["message_action"]["send"]) ? $action["message_action"]["send"] : false;
 
 			if($store && $parententryid) {
@@ -249,7 +250,6 @@
 					}
 
 					$props = $action["props"];
-					$messageProps = array();
 					$recips = array();
 					if(isset($action["recipients"]) && is_array($action["recipients"])) {
 						$recips = $action["recipients"];
@@ -298,7 +298,7 @@
 							$copyFromMessage = $GLOBALS['operations']->openMessage($copyFromStore, $copyFromMessage);
 						}
 
-						$message = $GLOBALS["operations"]->saveMessage($store, $entryid, $parententryid, $messageProps, $messageProps, $recips, isset($action['attachments']) ? $action['attachments'] : array(), array(), $copyFromMessage, $copyAttachments);
+						$message = $GLOBALS["operations"]->saveMessage($store, $entryid, $parententryid, $messageProps, $messageProps, $recips, isset($action['attachments']) ? $action['attachments'] : array(), array(), $copyFromMessage, $copyAttachments, false, false, false);
 
 						// Set recurrence
 						if (isset($action['props']['recurring']) && $action['props']['recurring'] == 1) {
@@ -320,10 +320,10 @@
 							}
 						}
 					}
+
+					mapi_savechanges($message);
 				}
 			}
-
-			mapi_savechanges($message);
 
 			// Return message properties that can be sent to the bus to notify changes
 			return $messageProps;

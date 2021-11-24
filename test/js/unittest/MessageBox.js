@@ -1,12 +1,11 @@
 /**
- * Test the custom Message box functionality 
+ * Test the custom Message box functionality
  */
 describe('Custom Message Box', function() {
 	var customMessageBox;
 	var config = {
 		title : 'Custom Message Box',
 		msg : 'this is Custom Message Box',
-		icon: Ext.MessageBox.QUESTION,
 		fn : function() {},
 		customButton : [{
 			text : 'buttonOne',
@@ -35,7 +34,7 @@ describe('Custom Message Box', function() {
 		expect(action).not.toThrow();
 	});
 
-	it('Should visible the custom message box properly', function(){
+	it('Should visible the custom message box properly', function() {
 		openMessageBox(config);
 		expect(customMessageBox.isVisible()).toBeTruthy();
 	});
@@ -46,20 +45,20 @@ describe('Custom Message Box', function() {
 		expect(Ext.isEmpty(customButton)).toEqual(false);
 	});
 
-	it('can call it\'s handler properly.', function(){
+	it('can call it\'s handler properly.', function() {
 		spyOn(Ext.MessageBox, 'show').and.callThrough();
 		openMessageBox(config);
 		expect(Ext.MessageBox.show).toHaveBeenCalled();
 	});
 
-	it('Should hide message box after clicking button', function(){
+	it('Should hide message box after clicking button', function() {
 		openMessageBox(config);
 		var customButton = customMessageBox.getFooterToolbar().find('text', 'buttonOne')[0];
 		document.getElementById(customButton.id).click();
 		expect(customMessageBox.isVisible()).toBeFalsy();
 	});
 
-	it('Should remove the custom buttons when custom message box gets hide', function(){
+	it('Should remove the custom buttons when custom message box gets hide', function() {
 		openMessageBox(config);
 		var customButton = customMessageBox.getFooterToolbar().find('text', 'buttonOne')[0];
 		document.getElementById(customButton.id).click();

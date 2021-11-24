@@ -45,7 +45,7 @@ Zarafa.addressbook.dialogs.ABUserDetailContentPanel = Ext.extend(Zarafa.core.ui.
 	/**
 	 * Update this panel's icon class from the record that it contains
 	 * First obtains the icon class from a mapping, then calls {@link #setIcon}
-	 * 
+	 *
 	 * @param {Zarafa.core.data.MAPIRecord} record The record bound to this component
 	 * @private
 	 */
@@ -55,9 +55,9 @@ Zarafa.addressbook.dialogs.ABUserDetailContentPanel = Ext.extend(Zarafa.core.ui.
 		var iconCls = Zarafa.common.ui.IconClass.getIconClass(record);
 		this.setIcon(iconCls);
 	},
-	
+
 	/**
-	 * When record has been updated, title also has to be - for instance if we have the subject 
+	 * When record has been updated, title also has to be - for instance if we have the subject
 	 * in the title and the subject changes
 	 * Calls {@link #setTitle} this.setTitle in order to update
 	 * @param {Zarafa.core.data.MAPIRecord} record The record that has been updated

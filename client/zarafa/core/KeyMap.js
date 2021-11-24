@@ -3,7 +3,7 @@ Ext.namespace('Zarafa.core');
 /**
  * @class Zarafa.core.KeyMap
  * @extends Ext.KeyMap
- * 
+ *
  * This class extends {@link Ext.KeyMap KeyMap} to assign component with key events
  * so we can pass component as a parameter while calling callback function, to make
  * key event handling easier.
@@ -12,7 +12,7 @@ Zarafa.core.KeyMap = Ext.extend(Ext.KeyMap, {
 	/**
 	 * @cfg {Ext.Component} component The component on which key event is registered.
 	 */
-	component : undefined,
+	component: undefined,
 
 	/**
 	 * @constructor
@@ -22,7 +22,7 @@ Zarafa.core.KeyMap = Ext.extend(Ext.KeyMap, {
 	 * @param {Ext.Element} element {optional} The element on which this keymap will be bound.
 	 * @param {String} eventName (optional) The event to bind to (defaults to "keydown")
 	 */
-	constructor : function(component, config, element, eventName)
+	constructor: function(component, config, element, eventName)
 	{
 		if(component) {
 			// store reference of component in keymap that will be passed with call to handlers
@@ -48,15 +48,15 @@ Zarafa.core.KeyMap = Ext.extend(Ext.KeyMap, {
 	 * for more info - http://www.sencha.com/forum/showthread.php?265199-Ext.KeyMap-problems-with-stopEvent-flag <br>
 	 * 3) additionally this can accept some more config options which is used in {@link Zarafa.core.KeyMapMgr KeyMapMgr},
 	 * <pre>
-Property           Type        Description
-----------         ---------   ----------------------------------------------------------------------
-enableGlobally     Boolean     A flag to indicate the key binding should also be registered with the body of webapp so that key combination can globally be disabled
-settingsCfg        Object      Object containing two keys:
-                                    1) description - description of the key combination to show in keyboard settings widget
-                                    2) category - name of the category in which this key combination will be added
+Property      Type    Description
+----------     ---------  ----------------------------------------------------------------------
+enableGlobally   Boolean   A flag to indicate the key binding should also be registered with the body of webapp so that key combination can globally be disabled
+settingsCfg    Object   Object containing two keys:
+                  1) description - description of the key combination to show in keyboard settings widget
+                  2) category - name of the category in which this key combination will be added
 </pre>
 	 */
-	addBinding : function(config)
+	addBinding: function(config)
 	{
 		if(Array.isArray(config)){
 			Ext.each(config, function(c){
@@ -82,7 +82,7 @@ settingsCfg        Object      Object containing two keys:
 			keyCode = ks;
 		}
 		var keyArray = Array.isArray(keyCode);
-		
+
 		var handler = function(e){
 			if(this.checkModifiers(config, e)){
 				var k = e.getKey();
@@ -97,7 +97,7 @@ settingsCfg        Object      Object containing two keys:
 							return;
 						}
 					}
-				}else{
+				} else {
 					if(k == keyCode){
 						if(stopEvent){
 							e.stopEvent();

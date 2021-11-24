@@ -16,7 +16,7 @@ Zarafa.core.ui.MainViewSidebar = Ext.extend(Ext.Panel, {
 	 * @property
 	 * @type String
 	 */
-	collapseQuickTip : undefined,
+	collapseQuickTip: undefined,
 
 	/**
 	 * {@link Ext.QuickTips tooltip} message for {@link Zarafa.core.ui.MainViewSidebar panel}
@@ -24,7 +24,7 @@ Zarafa.core.ui.MainViewSidebar = Ext.extend(Ext.Panel, {
 	 * @property
 	 * @type String
 	 */
-	expandQuickTip : undefined,
+	expandQuickTip: undefined,
 
 	/**
 
@@ -32,20 +32,20 @@ Zarafa.core.ui.MainViewSidebar = Ext.extend(Ext.Panel, {
 	 * @constructor
 	 * @param {Object} config Configuration object
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		config = config || {};
 
 		config.plugins = Ext.value(config.plugins, []);
 
 		Ext.applyIf(config, {
-			cls : 'zarafa-context-mainpanel',
-			border : false,
-			collapsible : true,
-			collapsed : false,
-			split : true,
-			width : 242,
-			minSize : 150
+			cls: 'zarafa-context-mainpanel',
+			border: false,
+			collapsible: true,
+			collapsed: false,
+			split: true,
+			width: 242,
+			minSize: 150
 		});
 
 		Zarafa.core.ui.MainViewSidebar.superclass.constructor.call(this, config);
@@ -96,9 +96,9 @@ Zarafa.core.ui.MainViewSidebar = Ext.extend(Ext.Panel, {
 	 * This option is only used when the {@link Zarafa.core.data.SettingsStateProvider SettingsStateProvider} is
 	 * used in the {@link Ext.state.Manager}. This returns {@link #statefulName} if provided, or else generates
 	 * a custom name.
-	 * @return {String} The unique name for this component by which the {@link #getState state} must be saved. 
+	 * @return {String} The unique name for this component by which the {@link #getState state} must be saved.
 	 */
-	getStateName : function()
+	getStateName: function()
 	{
 		return 'sidebars/' + Zarafa.core.ui.MainViewSidebar.superclass.getStateName.call(this);
 	}

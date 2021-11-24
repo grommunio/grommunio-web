@@ -27,7 +27,7 @@ Zarafa.mail.dialogs.MailCreateToolbar = Ext.extend(Zarafa.core.ui.ContentPanelTo
 	 * @constructor
 	 * @param config Configuration structure
 	 */
-	constructor : function (config)
+	constructor: function (config)
 	{
 		config = config || {};
 
@@ -35,12 +35,12 @@ Zarafa.mail.dialogs.MailCreateToolbar = Ext.extend(Zarafa.core.ui.ContentPanelTo
 		config.plugins.push('zarafa.recordcomponentupdaterplugin');
 
 		Ext.applyIf(config, {
-			xtype : 'zarafa.mailcreatetoolbar',
-			insertionPointBase : 'context.mail.mailcreatecontentpanel',
+			xtype: 'zarafa.mailcreatetoolbar',
+			insertionPointBase: 'context.mail.mailcreatecontentpanel',
 
-			actionItems : this.createActionButtons(),
-			optionItems : this.createOptionButtons(),
-			rightAlignedItems : this.createRightAlignedOptionButtons()
+			actionItems: this.createActionButtons(),
+			optionItems: this.createOptionButtons(),
+			rightAlignedItems: this.createRightAlignedOptionButtons()
 		});
 
 		Zarafa.mail.dialogs.MailCreateToolbar.superclass.constructor.call(this, config);
@@ -51,7 +51,7 @@ Zarafa.mail.dialogs.MailCreateToolbar = Ext.extend(Zarafa.core.ui.ContentPanelTo
 	 * is being rendered. This will add a listener to to the {@link Zarafa.mail.dialogs.MailCreateContentPanel#bcctoggle} button.
 	 * @private
 	 */
-	onRender : function ()
+	onRender: function ()
 	{
 		Zarafa.mail.dialogs.MailCreateToolbar.superclass.onRender.apply(this, arguments);
 
@@ -76,23 +76,23 @@ Zarafa.mail.dialogs.MailCreateToolbar = Ext.extend(Zarafa.core.ui.ContentPanelTo
 	 * @return {Array} The {@link Ext.Button Button} elements which should be added in the Actions section of the {@link Ext.Toolbar}.
 	 * @private
 	 */
-	createActionButtons : function ()
+	createActionButtons: function ()
 	{
 		return [{
-			xtype : 'splitbutton',
-			text : _('Send'),
-			overflowText : _('Send'),
-			ref : 'sendButton',
-			tooltip : _('Send') + ' (Ctrl + Enter)',
+			xtype: 'splitbutton',
+			text: _('Send'),
+			overflowText: _('Send'),
+			ref: 'sendButton',
+			tooltip: _('Send') + ' (Ctrl + Enter)',
 			menu: {
-				defaults : {
-					plugins : 'zarafa.menuitemtooltipplugin'
+				defaults: {
+					plugins: 'zarafa.menuitemtooltipplugin'
 				},
 				items: [{
 					text: _('Send'),
 					iconCls: 'icon_send_black',
 					handler: this.onSendButton,
-					tooltip : _('Send') + ' (Ctrl + Enter)',
+					tooltip: _('Send') + ' (Ctrl + Enter)',
 					scope: this
 				}, {
 					text: _('Send Later'),
@@ -102,55 +102,66 @@ Zarafa.mail.dialogs.MailCreateToolbar = Ext.extend(Zarafa.core.ui.ContentPanelTo
 					scope: this
 				}]
 			},
-			cls : 'zarafa-action',
-			iconCls : 'icon_send_white',
-			handler : this.onSendButton,
-			scope : this
+			cls: 'zarafa-action',
+			iconCls: 'icon_send_white',
+			handler: this.onSendButton,
+			scope: this
 		}, {
-			xtype : 'button',
-			ref : 'saveBtn',
-			overflowText : _('Save'),
-			tooltip : _('Save') + ' (Ctrl + S)',
-			iconCls : 'icon_floppy',
-			handler : this.onSaveButton,
-			scope : this
+			xtype: 'button',
+			ref: 'saveBtn',
+			overflowText: _('Save'),
+			tooltip: _('Save') + ' (Ctrl + S)',
+			iconCls: 'icon_floppy',
+			handler: this.onSaveButton,
+			scope: this
 		},{
-			xtype : 'button',
-			ref : 'deleteBtn',
-			overflowText : _('Delete'),
-			tooltip : _('Delete'),
-			iconCls : 'icon_delete',
-			handler : this.onDeleteButton,
-			scope : this
+			xtype: 'button',
+			ref: 'deleteBtn',
+			overflowText: _('Delete'),
+			tooltip: _('Delete'),
+			iconCls: 'icon_delete',
+			handler: this.onDeleteButton,
+			scope: this
 		},{
-			xtype : 'zarafa.attachmentbutton',
-			plugins : ['zarafa.recordcomponentupdaterplugin'],
-			overflowText : _('Add attachment'),
-			tooltip : _('Add attachments to this email'),
-			iconCls : 'icon_paperclip',
-			ref : 'attachmentButton',
+			xtype: 'zarafa.attachmentbutton',
+			plugins: ['zarafa.recordcomponentupdaterplugin'],
+			overflowText: _('Add attachment'),
+			tooltip: _('Add attachments to this email'),
+			iconCls: 'icon_paperclip',
+			ref: 'attachmentButton',
 			// Add a listener to the component added event to set use the correct update function when the toolbar overflows
 			// (i.e. is too wide for the panel) and Ext moves the button to a menuitem.
-			listeners : {
-				added : this.onAttachmentButtonAdded,
-				scope : this
+			listeners: {
+				added: this.onAttachmentButtonAdded,
+				scope: this
 			}
 		},{
-			xtype : 'tbseparator'
+			xtype: 'tbseparator'
 		},{
-			xtype : 'button',
-			overflowText : _('Check names'),
-			tooltip : _('Check names'),
-			iconCls : 'icon_checknames',
-			handler : this.onCheckNamesButton,
-			scope : this
+			xtype: 'button',
+			overflowText: _('Check names'),
+			tooltip: _('Check names'),
+			iconCls: 'icon_checknames',
+			handler: this.onCheckNamesButton,
+			scope: this
 		},{
-			xtype : 'button',
-			overflowText : _('Add signature'),
-			tooltip : _('Add signature'),
-			iconCls : 'icon_signature',
-			ref : 'signatureButton',
-			scope : this
+			xtype: 'button',
+			overflowText: _('Addressbook'),
+			tooltip: _('Open addressbook'),
+			iconCls: 'icon_small_addressbook',
+			handler: function() {
+					Zarafa.mail.Actions.openRecipientSelectionContent(this.record, {
+						defaultRecipientType: Zarafa.core.mapi.RecipientType.MAPI_TO
+					});
+			},
+			scope: this
+		},{
+			xtype: 'button',
+			overflowText: _('Add signature'),
+			tooltip: _('Add signature'),
+			iconCls: 'icon_signature',
+			ref: 'signatureButton',
+			scope: this
 		}];
 	},
 
@@ -162,7 +173,7 @@ Zarafa.mail.dialogs.MailCreateToolbar = Ext.extend(Zarafa.core.ui.ContentPanelTo
 	 * @param {Ext.Component} item The item that was added. This can be a {@link Zarafa.common.attachment.ui.AttachmentButton}
 	 * or a {@link Ext.menu.Item}
 	 */
-	onAttachmentButtonAdded : function(item)
+	onAttachmentButtonAdded: function(item)
 	{
 		if ( item.isXType('menuitem') ){
 			// Set the update function to the update function of the original button
@@ -178,71 +189,71 @@ Zarafa.mail.dialogs.MailCreateToolbar = Ext.extend(Zarafa.core.ui.ContentPanelTo
 	 * @return {Array} The {@link Ext.Button Button} elements which should be added in the Options section of the {@link Ext.Toolbar}.
 	 * @private
 	 */
-	createOptionButtons : function ()
+	createOptionButtons: function ()
 	{
 		return [{
-			xtype : 'button',
-			overflowText : _('Options'),
+			xtype: 'button',
+			overflowText: _('Options'),
 			tooltip: _('Open options dialog'),
-			iconCls : 'icon_cogwheel',
-			handler : this.onMailOptionsButton,
-			scope : this
+			iconCls: 'icon_cogwheel',
+			handler: this.onMailOptionsButton,
+			scope: this
 		},{
-			xtype : 'button',
-			overflowText : _('Set flag'),
-			tooltip : _('Set flag on this email'),
-			iconCls : 'icon_flag_red',
-			handler : this.onSetFlagButton,
-			scope : this
+			xtype: 'button',
+			overflowText: _('Set flag'),
+			tooltip: _('Set flag on this email'),
+			iconCls: 'icon_flag_red',
+			handler: this.onSetFlagButton,
+			scope: this
 		},{
-			xtype : 'button',
-			overflowText : _('High priority'),
-			tooltip : _('Mark this mail as high priority'),
-			iconCls : 'icon_priority_high',
-			ref : 'highPriority',
-			toggleGroup : 'priorityGroup',
-			importance : Zarafa.core.mapi.Importance.URGENT,
-			enableToggle : true,
-			toggleHandler : this.onPriorityGroupToggle,
-			scope : this
+			xtype: 'button',
+			overflowText: _('High priority'),
+			tooltip: _('Mark this mail as high priority'),
+			iconCls: 'icon_priority_high',
+			ref: 'highPriority',
+			toggleGroup: 'priorityGroup',
+			importance: Zarafa.core.mapi.Importance.URGENT,
+			enableToggle: true,
+			toggleHandler: this.onPriorityGroupToggle,
+			scope: this
 		},{
-			xtype : 'button',
-			overflowText : _('Low priority'),
-			tooltip : _('Mark this mail as low priority'),
-			iconCls : 'icon_priority_low',
-			ref : 'lowPriority',
-			toggleGroup : 'priorityGroup',
-			importance : Zarafa.core.mapi.Importance.NONURGENT,
-			enableToggle : true,
-			toggleHandler : this.onPriorityGroupToggle,
-			scope : this
+			xtype: 'button',
+			overflowText: _('Low priority'),
+			tooltip: _('Mark this mail as low priority'),
+			iconCls: 'icon_priority_low',
+			ref: 'lowPriority',
+			toggleGroup: 'priorityGroup',
+			importance: Zarafa.core.mapi.Importance.NONURGENT,
+			enableToggle: true,
+			toggleHandler: this.onPriorityGroupToggle,
+			scope: this
 		},{
-			xtype : 'button',
-			overflowText : _('Set read receipt'),
-			tooltip : _('Request read receipt from recipients'),
-			iconCls : 'icon_read_receipt',
-			enableToggle : true,
-			ref : 'readReceiptField',
-			toggleHandler : this.onReadReceiptToggle,
-			scope : this
+			xtype: 'button',
+			overflowText: _('Set read receipt'),
+			tooltip: _('Request read receipt from recipients'),
+			iconCls: 'icon_read_receipt',
+			enableToggle: true,
+			ref: 'readReceiptField',
+			toggleHandler: this.onReadReceiptToggle,
+			scope: this
 		},{
-			xtype : 'button',
-			overflowText : _('Show Bcc'),
-			tooltip : _('Show Bcc field'),
-			iconCls : 'icon_showbcc',
-			ref : 'showBcc',
-			enableToggle : true,
-			toggleHandler : this.onBccMenuToggle,
-			scope : this
+			xtype: 'button',
+			overflowText: _('Show Bcc'),
+			tooltip: _('Show Bcc field'),
+			iconCls: 'icon_showbcc',
+			ref: 'showBcc',
+			enableToggle: true,
+			toggleHandler: this.onBccMenuToggle,
+			scope: this
 		},{
-			xtype : 'button',
-			overflowText : _('Show From field'),
-			tooltip : _('Show From field'),
-			iconCls : 'icon_showfrom',
-			ref : 'showFrom',
-			enableToggle : true,
-			toggleHandler : this.onFromMenuToggle,
-			scope : this
+			xtype: 'button',
+			overflowText: _('Show From field'),
+			tooltip: _('Show From field'),
+			iconCls: 'icon_showfrom',
+			ref: 'showFrom',
+			enableToggle: true,
+			toggleHandler: this.onFromMenuToggle,
+			scope: this
 		}];
 	},
 
@@ -252,7 +263,7 @@ Zarafa.mail.dialogs.MailCreateToolbar = Ext.extend(Zarafa.core.ui.ContentPanelTo
 	 *
 	 * @return {Array} The {@link Ext.Button} elements which should be added in the Right Options section of the {@link Ext.Toolbar}.
 	 */
-	createRightAlignedOptionButtons : function()
+	createRightAlignedOptionButtons: function()
 	{
 		// Display the popout button if supported.
 		if (Zarafa.supportsPopOut() && Zarafa.core.BrowserWindowMgr.isMainWindowActive()) {
@@ -273,7 +284,7 @@ Zarafa.mail.dialogs.MailCreateToolbar = Ext.extend(Zarafa.core.ui.ContentPanelTo
 	 * @param {Zarafa.settings.SettingsModel} settingsModel The settings which contains signature information
 	 * @param {Object} changedSettings The object of changed settings
 	 */
-	onSettingsChange : function (settingsModel, changedSettings)
+	onSettingsChange: function (settingsModel, changedSettings)
 	{
 		var changeSignatures = true;
 		if (!Ext.isEmpty(changedSettings)) {
@@ -294,41 +305,53 @@ Zarafa.mail.dialogs.MailCreateToolbar = Ext.extend(Zarafa.core.ui.ContentPanelTo
 		// generate menu for signature button
 		var signatures = settingsModel.get('zarafa/v1/contexts/mail/signatures/all', true);
 
-		if (!Ext.isEmpty(signatures)) {
-			var sigItems = [];
-
-			for (var key in signatures) {
-				sigItems.push({
-					text : Ext.util.Format.htmlEncode(signatures[key].name),
-					signatureId : parseInt(key, 10)
-				});
-			}
-			// If no signatures are configured we add a dummy button
-			if (sigItems.length === 0) {
-				sigItems.push({
-					text : _('No signatures configured'),
-					signatureId : false
-				});
-			}
-
-			if (this.signatureButton.menu) {
-				// Remove list of old signatures and add all the signatures again
-				var signatureMenu = this.signatureButton.menu;
-				signatureMenu.removeAll();
-				signatureMenu.add(sigItems);
-			} else {
-				// Create menu for the first time.
-				// instance creation of menu will be handled by MenuMgr
-				this.signatureButton.menu = Ext.menu.MenuMgr.get({
-					xtype : 'menu',
-					listeners : {
-						click : this.onSignatureSelect,
-						scope : this
-					},
-					items : sigItems
-				});
-			}
+		var sigItems = [];
+		for (var key in signatures) {
+			sigItems.push({
+				text: Ext.util.Format.htmlEncode(signatures[key].name),
+				iconCls: 'icon_signature',
+				signatureId: parseInt(key, 10)
+			});
 		}
+
+		if (!Ext.isEmpty(sigItems)){
+			sigItems.push({
+				xtype: 'menuseparator'
+			});
+		}
+		sigItems.push({
+			text: _('Add signature'),
+			iconCls: 'plus',
+			handler: this.onClickAddSignatureHandler,
+			signatureId: false
+		});
+
+		if (this.signatureButton.menu) {
+			// Remove list of old signatures and add all the signatures again
+			var signatureMenu = this.signatureButton.menu;
+			signatureMenu.removeAll();
+			signatureMenu.add(sigItems);
+		} else {
+			// Create menu for the first time.
+			// instance creation of menu will be handled by MenuMgr
+			this.signatureButton.menu = Ext.menu.MenuMgr.get({
+				xtype: 'menu',
+				listeners: {
+					click: this.onSignatureSelect,
+					scope: this
+				},
+				items: sigItems
+			});
+		}
+	},
+
+	/**
+	 * Handler which triggered when 'Add signature' button clicked.
+	 * This will call the {@link Zarafa.mail.Actions#redirectToSignatureWidget}.
+	 */
+	onClickAddSignatureHandler: function()
+	{
+		Zarafa.mail.Actions.redirectToSignatureWidget();
 	},
 
 	/**
@@ -338,7 +361,7 @@ Zarafa.mail.dialogs.MailCreateToolbar = Ext.extend(Zarafa.core.ui.ContentPanelTo
 	 * @param {Ext.EventObject} EventObjectt event object
 	 * @private
 	 */
-	onSignatureSelect : function (menu, menuItem, eventObj)
+	onSignatureSelect: function (menu, menuItem, eventObj)
 	{
 		if (Ext.isNumber(menuItem.signatureId)) {
 			// Place the signature in editor.
@@ -353,13 +376,13 @@ Zarafa.mail.dialogs.MailCreateToolbar = Ext.extend(Zarafa.core.ui.ContentPanelTo
 	 * @param {Ext.Button} button The button which has been pressed
 	 * @private
 	 */
-	onSendButton : function (button)
+	onSendButton: function (button)
 	{
-        if (this.record.get('deferred_send_time') !== null) {
-            // If the mail is scheduled mail(in outbox) and user try to directly send it this will not send
-            // Because of it has 'deferred_send_time' ,So by setting null into 'deferred_send_time' we can send the mail
-            this.record.set('deferred_send_time', null);
-        }
+    if (this.record.get('deferred_send_time') !== null) {
+      // If the mail is scheduled mail(in outbox) and user try to directly send it this will not send
+      // Because of it has 'deferred_send_time' ,So by setting null into 'deferred_send_time' we can send the mail
+      this.record.set('deferred_send_time', null);
+    }
 		this.dialog.sendRecord();
 	},
 
@@ -380,7 +403,7 @@ Zarafa.mail.dialogs.MailCreateToolbar = Ext.extend(Zarafa.core.ui.ContentPanelTo
 	 * @param {Ext.Button} button The button which has been pressed
 	 * @private
 	 */
-	onSaveButton : function (button)
+	onSaveButton: function (button)
 	{
 		this.dialog.saveRecord();
 	},
@@ -392,7 +415,7 @@ Zarafa.mail.dialogs.MailCreateToolbar = Ext.extend(Zarafa.core.ui.ContentPanelTo
 	 * @param {Ext.Button} button The button which has been pressed
 	 * @private
 	 */
-	onDeleteButton : function (button)
+	onDeleteButton: function (button)
 	{
 		this.dialog.deleteRecord();
 	},
@@ -404,9 +427,9 @@ Zarafa.mail.dialogs.MailCreateToolbar = Ext.extend(Zarafa.core.ui.ContentPanelTo
 	 * @param {Ext.Button} button The button which has been pressed
 	 * @private
 	 */
-	onCheckNamesButton : function (button)
+	onCheckNamesButton: function (button)
 	{
-		this.record.getRecipientStore().resolve(undefined, { cancelPreviousRequest : true });
+		this.record.getRecipientStore().resolve(undefined, { cancelPreviousRequest: true });
 	},
 
 	/**
@@ -416,10 +439,10 @@ Zarafa.mail.dialogs.MailCreateToolbar = Ext.extend(Zarafa.core.ui.ContentPanelTo
 	 * @param {Ext.Button} button The button which has been pressed
 	 * @private
 	 */
-	onMailOptionsButton : function (button)
+	onMailOptionsButton: function (button)
 	{
 		Zarafa.mail.Actions.openMailOptionsContent(this.record, {
-			autoSave : false
+			autoSave: false
 		});
 	},
 
@@ -431,7 +454,7 @@ Zarafa.mail.dialogs.MailCreateToolbar = Ext.extend(Zarafa.core.ui.ContentPanelTo
 	 * @param {Ext.EventObject} eventObject event object
 	 * @private
 	 */
-	onSetFlagButton : function (button, eventObject)
+	onSetFlagButton: function (button, eventObject)
 	{
 		Zarafa.common.Actions.openFlagsMenu(this.record, eventObject.getXY(), false);
 	},
@@ -447,7 +470,7 @@ Zarafa.mail.dialogs.MailCreateToolbar = Ext.extend(Zarafa.core.ui.ContentPanelTo
 	 * @param {Boolean} pressed true if the button pressed, false otherwise.
 	 * @private
 	 */
-	onPriorityGroupToggle : function (button,pressed)
+	onPriorityGroupToggle: function (button,pressed)
 	{
 		if (pressed) {
 			this.record.set('importance', button.importance);
@@ -459,13 +482,13 @@ Zarafa.mail.dialogs.MailCreateToolbar = Ext.extend(Zarafa.core.ui.ContentPanelTo
 	/**
 	 * Event handler which is called when show Bcc recipientfield buttons have been
 	 * toggled. If this is the case, the Bcc recipeint field is visible in dialog
-	 * if the button is untoggled, then  showBcc buttons is untoggled and
+	 * if the button is untoggled, then showBcc buttons is untoggled and
 	 * the bcc field is hidden from the dailog.
 	 * @param {Ext.Button} button showBcc recipient button is pressed
 	 * @param {Boolean} state The state in which the button currently is.
 	 * @private
 	 */
-	onBccMenuToggle : function (button, state)
+	onBccMenuToggle: function (button, state)
 	{
 		this.dialog.toggleBccState(state);
 	},
@@ -473,13 +496,13 @@ Zarafa.mail.dialogs.MailCreateToolbar = Ext.extend(Zarafa.core.ui.ContentPanelTo
 	/**
 	 * Event handler which is called when show Bcc recipientfield buttons have been
 	 * toggled. If this is the case, the Bcc recipeint field is visible in dialog
-	 * if the button is untoggled, then  showBcc buttons is untoggled and
+	 * if the button is untoggled, then showBcc buttons is untoggled and
 	 * the bcc field is hidden from the dailog.
 	 * @param {Ext.Button} button showBcc recipient button is pressed
 	 * @param {Boolean} state The state in which the button currently is.
 	 * @private
 	 */
-	onFromMenuToggle : function (button, state)
+	onFromMenuToggle: function (button, state)
 	{
 		this.dialog.toggleFromState(state);
 	},
@@ -491,7 +514,7 @@ Zarafa.mail.dialogs.MailCreateToolbar = Ext.extend(Zarafa.core.ui.ContentPanelTo
 	 * @param {Boolean} enabled true if the the BCC field should be shown
 	 * @private
 	 */
-	onContentPanelBccToggle : function (contentpanel, pressed)
+	onContentPanelBccToggle: function (contentpanel, pressed)
 	{
 		this.showBcc.toggle(pressed, true);
 	},
@@ -503,7 +526,7 @@ Zarafa.mail.dialogs.MailCreateToolbar = Ext.extend(Zarafa.core.ui.ContentPanelTo
 	 * @param {Boolean} enabled true if the the From field should be shown
 	 * @private
 	 */
-	onContentPanelFromToggle : function (contentpanel, pressed)
+	onContentPanelFromToggle: function (contentpanel, pressed)
 	{
 		this.showFrom.toggle(pressed, true);
 	},
@@ -515,7 +538,7 @@ Zarafa.mail.dialogs.MailCreateToolbar = Ext.extend(Zarafa.core.ui.ContentPanelTo
 	 * @param {Ext.Button} button The button which was pressed
 	 * @private
 	 */
-	onReadReceiptToggle : function (button)
+	onReadReceiptToggle: function (button)
 	{
 		this.record.set('read_receipt_requested', button.pressed);
 	},
@@ -526,7 +549,7 @@ Zarafa.mail.dialogs.MailCreateToolbar = Ext.extend(Zarafa.core.ui.ContentPanelTo
 	 * @param {Zarafa.core.data.IPMRecord} record The record to load
 	 * @param {Boolean} contentReset force the component to perform a full update of the data.
 	 */
-	update : function (record, contentReset)
+	update: function (record, contentReset)
 	{
 		// Add event listener when record is available with this toolbar.
 		if (!Ext.isDefined(this.record) && Ext.isDefined(record)) {
@@ -534,10 +557,10 @@ Zarafa.mail.dialogs.MailCreateToolbar = Ext.extend(Zarafa.core.ui.ContentPanelTo
 			var attachmentStore = record.getAttachmentStore();
 			if (attachmentStore) {
 				this.mon(attachmentStore, {
-					'update' : this.onAttachmentChange,
-					'add' : this.onAttachmentChange,
-					'remove' : this.onAttachmentChange,
-					scope : this
+					'update': this.onAttachmentChange,
+					'add': this.onAttachmentChange,
+					'remove': this.onAttachmentChange,
+					scope: this
 				});
 			}
 		}
@@ -578,7 +601,7 @@ Zarafa.mail.dialogs.MailCreateToolbar = Ext.extend(Zarafa.core.ui.ContentPanelTo
 	 * @param {Ext.data.Record} record The record which was updated
 	 * @private
 	 */
-	onAttachmentChange : function(attachmentStore, record)
+	onAttachmentChange: function(attachmentStore, record)
 	{
 		var isAllAttachUploaded = true;
 
@@ -611,7 +634,7 @@ Zarafa.mail.dialogs.MailCreateToolbar = Ext.extend(Zarafa.core.ui.ContentPanelTo
 	 * @param {Ext.Button} button The button which has been pressed
 	 * @private
 	 */
-	onPopoutButton : function(button)
+	onPopoutButton: function(button)
 	{
 		Zarafa.mail.Actions.popoutMailContent(this.record, this.dialog);
 	}

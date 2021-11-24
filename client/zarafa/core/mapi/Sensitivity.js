@@ -3,7 +3,7 @@ Ext.namespace('Zarafa.core.mapi');
 /**
  * @class Zarafa.core.mapi.Sensitivity
  * @extends Zarafa.core.Enum
- * 
+ *
  * @singleton
  */
 Zarafa.core.mapi.Sensitivity = Zarafa.core.Enum.create({
@@ -12,35 +12,35 @@ Zarafa.core.mapi.Sensitivity = Zarafa.core.Enum.create({
 	 * @property
 	 * @type Number
 	 */
-	'NONE' : 0x00000000,
-	
+	'NONE': 0x00000000,
+
 	/**
 	 * Denotes that the message is personal.
 	 * @property
 	 * @type Number
 	 */
-	'PERSONAL' : 0x00000001,
-	
+	'PERSONAL': 0x00000001,
+
 	/**
 	 * Denotes that the message is private.
 	 * @property
 	 * @type Number
 	 */
-	'PRIVATE' : 0x00000002,
+	'PRIVATE': 0x00000002,
 
 	/**
 	 * Denotes that the message is designated company confidential.
 	 * @property
 	 * @type Number
 	 */
-	'COMPANY_CONFIDENTIAL' : 0x00000003,
+	'COMPANY_CONFIDENTIAL': 0x00000003,
 
 	/**
 	 * Return the display name for the given sensitivity
 	 * @param {Zarafa.core.mapi.Sensitivity} sensitivity The given sensitivity
 	 * @return {String} The display name for the sensitivity
 	 */
-	getDisplayName : function(sensitivity)
+	getDisplayName: function(sensitivity)
 	{
 		switch (sensitivity) {
 			case Zarafa.core.mapi.Sensitivity.NONE:

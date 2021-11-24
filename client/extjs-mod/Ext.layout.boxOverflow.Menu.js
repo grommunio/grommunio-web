@@ -8,9 +8,9 @@
 		 * state should be ignored because the toolbar has hidden the item.
 		 * However the items below are added regardless of their 'hidden' status.
 		 * This fix will not only check for xtbHidden, but also for the normal
-		 * 'hidden' flag before deciding to render the item into the menu. 
+		 * 'hidden' flag before deciding to render the item into the menu.
 		 */
-		addComponentToMenu : function(menu, component)
+		addComponentToMenu: function(menu, component)
 		{
 			if (component.xtbHidden === true || component.hidden !== true) {
 				orig_addComponentToMenu.apply(this, arguments);

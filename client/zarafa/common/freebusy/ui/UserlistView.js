@@ -17,13 +17,13 @@ Zarafa.common.freebusy.ui.UserListView = Ext.extend(Zarafa.common.recipientfield
 	 * @constructor
 	 * @param {Object} config Configuration object
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		config = config || {};
 
 		Ext.applyIf(config, {
-			boxType : 'zarafa.userlistbox',
-			wrapCls : 'x-form-text x-zarafa-boxfield x-freebusy-userlist-container',
+			boxType: 'zarafa.userlistbox',
+			wrapCls: 'x-form-text x-zarafa-boxfield x-freebusy-userlist-container',
 			border: true
 		});
 
@@ -42,19 +42,19 @@ Zarafa.common.freebusy.ui.UserListView = Ext.extend(Zarafa.common.recipientfield
 	 * @param {Zarafa.core.data.RecipientStore} newStore The new userstore
 	 * @private
 	 */
-	onUserStoreChange : function(newStore)
+	onUserStoreChange: function(newStore)
 	{
 		this.setRecipientStore(newStore);
 	},
 
 	/**
-	 * Called to filter out records before they are added to this field. Can be overwritten to 
+	 * Called to filter out records before they are added to this field. Can be overwritten to
 	 * implement such a filter. By default it will allow all records.
 	 * @param {Zarafa.core.data.IPMRecipientStore} store RecipientStore
 	 * @param {Zarafa.core.data.IPMRecipientRecord[]} records The records to be filtered
 	 * @return {Zarafa.core.data.IPMRecipientRecord[]} Filtered records
 	 */
-	filterRecords : function(store, records)
+	filterRecords: function(store, records)
 	{
 		var ret = [];
 
@@ -89,9 +89,9 @@ Zarafa.common.freebusy.ui.UserListView = Ext.extend(Zarafa.common.recipientfield
 	 * @param {Zarafa.core.data.IPMRecipientRecord} record The record which is attached to the box
 	 * @private
 	 */
-	onBoxContextMenu : function(field, box, record)
+	onBoxContextMenu: function(field, box, record)
 	{
-		Zarafa.core.data.UIFactory.openContextMenu(Zarafa.core.data.SharedComponentType['common.contextmenu.freebusy'], record, { position : box.getEl().getXY(), editable : box.editable});
+		Zarafa.core.data.UIFactory.openContextMenu(Zarafa.core.data.SharedComponentType['common.contextmenu.freebusy'], record, { position: box.getEl().getXY(), editable: box.editable});
 	}
 });
 

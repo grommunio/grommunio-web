@@ -12,7 +12,7 @@ Zarafa.note.attachitem.AttachNoteRenderer = Ext.extend(Zarafa.common.attachment.
 	 * This will generate template for the html format only.
 	 * @return {String} The HTML for the XTemplate to use
 	 */
-	generateHTMLTemplate : function()
+	generateHTMLTemplate: function()
 	{
 		var html = '';
 
@@ -27,7 +27,7 @@ Zarafa.note.attachitem.AttachNoteRenderer = Ext.extend(Zarafa.common.attachment.
 	 * This will generate template for the plain text format only.
 	 * @return {String} The HTML for the XTemplate to use
 	 */
-	generatePlainTemplate : function()
+	generatePlainTemplate: function()
 	{
 		var html = '';
 

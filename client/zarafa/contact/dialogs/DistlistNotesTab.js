@@ -12,7 +12,7 @@ Zarafa.contact.dialogs.DistlistNotesTab = Ext.extend(Ext.form.FormPanel, {
 	 * @constructor
 	 * @param {Object} config configuration object.
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		config = config || {};
 
@@ -20,24 +20,24 @@ Zarafa.contact.dialogs.DistlistNotesTab = Ext.extend(Ext.form.FormPanel, {
 		config.plugins.push('zarafa.recordcomponentupdaterplugin');
 
 		Ext.applyIf(config, {
-			xtype : 'zarafa.distlistnotestab',
+			xtype: 'zarafa.distlistnotestab',
 			// Note Tab
-			title : _('Notes'),
-			layout : 'fit',
-			items : [{
-				xtype : 'zarafa.editorfield',
-				useHtml : false,
+			title: _('Notes'),
+			layout: 'fit',
+			items: [{
+				xtype: 'zarafa.editorfield',
+				useHtml: false,
 				ref: 'editorField',
-				plaintextName : 'body',
-				listeners : {
+				plaintextName: 'body',
+				listeners: {
 					// Use the afterlayout event to place the placeholder attribute
 					afterlayout: function(){
 						this.editorField.getEditor().getEl().set({
 							placeholder: _('Type your note here...')
 						});
 					},
-					change : this.onPropertyChange,
-					scope : this
+					change: this.onPropertyChange,
+					scope: this
 				}
 			}]
 		});
@@ -51,7 +51,7 @@ Zarafa.contact.dialogs.DistlistNotesTab = Ext.extend(Ext.form.FormPanel, {
 	 * @param {Zarafa.core.data.IPMRecord} record The record to load
 	 * @param {Boolean} contentReset force the component to perform a full update of the data.
 	 */
-	update : function(record, contentReset)
+	update: function(record, contentReset)
 	{
 		if(Ext.isEmpty(record)) {
 			return;
@@ -68,7 +68,7 @@ Zarafa.contact.dialogs.DistlistNotesTab = Ext.extend(Ext.form.FormPanel, {
 	 * @param {Zarafa.core.data.IPMRecord} record The record to update
 	 * @private
 	 */
-	updateRecord : function(record)
+	updateRecord: function(record)
 	{
 		this.getForm().updateRecord(record);
 	},
@@ -82,7 +82,7 @@ Zarafa.contact.dialogs.DistlistNotesTab = Ext.extend(Ext.form.FormPanel, {
 	 * @param {Mixed} oldValue The old value
 	 * @private
 	 */
-	onPropertyChange : function(field, newValue, oldValue)
+	onPropertyChange: function(field, newValue, oldValue)
 	{
 		this.record.set(field.getName(), newValue);
 	}

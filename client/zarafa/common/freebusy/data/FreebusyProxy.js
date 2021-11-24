@@ -10,12 +10,12 @@ Zarafa.common.freebusy.data.FreebusyProxy = Ext.extend(Zarafa.core.data.MAPIProx
 	 * @constructor
 	 * @param {Object} config Configuration object
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		config = config || {};
 
 		Ext.applyIf(config, {
-			listModuleName : Zarafa.core.ModuleNames.getListName('freebusy')
+			listModuleName: Zarafa.core.ModuleNames.getListName('freebusy')
 		});
 
 		Zarafa.common.freebusy.data.FreebusyProxy.superclass.constructor.call(this, config);
@@ -39,7 +39,7 @@ Zarafa.common.freebusy.data.FreebusyProxy = Ext.extend(Zarafa.core.data.MAPIProx
 	 * which should be used for this request.
 	 * @private
 	 */
-	getResponseHandlerForRequest : function(modulename, serverAction, action, records, parameters, reader, callback, scope, args)
+	getResponseHandlerForRequest: function(modulename, serverAction, action, records, parameters, reader, callback, scope, args)
 	{
 		return new Zarafa.common.freebusy.data.FreebusyResponseHandler({
 			proxy: this,

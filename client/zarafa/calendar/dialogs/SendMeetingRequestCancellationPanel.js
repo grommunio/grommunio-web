@@ -12,28 +12,28 @@ Zarafa.calendar.dialogs.SendMeetingRequestCancellationPanel = Ext.extend(Ext.for
 	 * @property
 	 * @type String
 	 */
-	cancellationInfoString : _('This meeting will be cancelled. Do you want to include comments with your cancellation?'),
+	cancellationInfoString: _('This meeting will be cancelled. Do you want to include comments with your cancellation?'),
 
 	/**
 	 * @constructor
 	 * @param config Configuration structure
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		config = config || {};
 
 		Ext.applyIf(config, {
 			// Override from Ext.Component
-			xtype : 'zarafa.sendmeetingrequestcancellationpanel',
+			xtype: 'zarafa.sendmeetingrequestcancellationpanel',
 			layout: {
 				type: 'vbox',
 				align: 'stretch'
 			},
 			border: false,
-			hideLabels : true,
+			hideLabels: true,
 			items: [{
 				xtype: 'displayfield',
-				value : this.cancellationInfoString,
+				value: this.cancellationInfoString,
 				autoHeight: true,
 				style: 'padding-bottom: 10px;'
 			},{
@@ -41,9 +41,9 @@ Zarafa.calendar.dialogs.SendMeetingRequestCancellationPanel = Ext.extend(Ext.for
 				boxLabel: _('Edit the cancellation before Sending.'),
 				name: 'sendmrcancellation',
 				autoHeight: true,
-				listeners : {
-					check : this.onEditCancellationChecked,
-					scope : this
+				listeners: {
+					check: this.onEditCancellationChecked,
+					scope: this
 				}
 			},{
 				xtype: 'textarea',
@@ -70,7 +70,7 @@ Zarafa.calendar.dialogs.SendMeetingRequestCancellationPanel = Ext.extend(Ext.for
 	 * @param {Boolean} checked True if the radio button was checked
 	 * @private
 	 */
-	onEditCancellationChecked : function(rb, checked)
+	onEditCancellationChecked: function(rb, checked)
 	{
 		this.cancellationTextField.setDisabled(!checked);
 	},
@@ -81,7 +81,7 @@ Zarafa.calendar.dialogs.SendMeetingRequestCancellationPanel = Ext.extend(Ext.for
 	 * @param {Zarafa.core.data.IPMRecord} record The record which is being
 	 * accepted or declined.
 	 */
-	updateRecord : function(record)
+	updateRecord: function(record)
 	{
 		var values = this.getForm().getFieldValues();
 
@@ -93,7 +93,7 @@ Zarafa.calendar.dialogs.SendMeetingRequestCancellationPanel = Ext.extend(Ext.for
 	 * the heights of all fields inside the panel.
 	 * @private
 	 */
-	onResize : function()
+	onResize: function()
 	{
 		Zarafa.calendar.dialogs.SendMeetingRequestCancellationPanel.superclass.onResize.apply(this, arguments);
 		this.doLayout();

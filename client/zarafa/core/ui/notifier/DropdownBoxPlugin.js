@@ -14,14 +14,14 @@ Zarafa.core.ui.notifier.DropdownBoxPlugin = Ext.extend(Zarafa.core.ui.notifier.S
 	 * @constructor
 	 * @param {Object} config Configuration object
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		config = config || {};
 
 		Ext.applyIf(config, {
-			itemCls : 'zarafa-notifier-dropdown-item',
+			itemCls: 'zarafa-notifier-dropdown-item',
 			// Position the container at the top-center
-			sliderContainerPosition : 't'
+			sliderContainerPosition: 't'
 		});
 
 		Zarafa.core.ui.notifier.DropdownBoxPlugin.superclass.constructor.call(this, config);

@@ -38,6 +38,11 @@
 		private $store = false;
 
 		/**
+		 * MAPI Message Store objects.
+		 */
+		private $stores = [];
+
+		/**
 		 * The PR_MAPPING_SIGNATURE for the current store
 		 */
 		private $storeMapping = false;
@@ -54,8 +59,6 @@
 		 */
 		private $mapping = array();
 
-		function __construct(){}
-
 		/**
 		 * Initialize the class by opening the default message store. This is done only once.
 		 */
@@ -63,20 +66,20 @@
 		{
 			if ($this->init) {
 				return;
-			} else {
-				$this->store = $GLOBALS["mapisession"]->getDefaultMessageStore();
-				if (!$this->storeMapping) {
-					$this->storeMapping = mapi_getprops($this->store, array(PR_MAPPING_SIGNATURE));
-					$this->storeMapping = isset($this->storeMapping[PR_MAPPING_SIGNATURE]) ? bin2hex($this->storeMapping[PR_MAPPING_SIGNATURE]) : '0';
-
-					// Ensure the mapping exists
-					if (!isset($this->mapping[$this->storeMapping])) {
-						$this->mapping[$this->storeMapping] = array();
-					}
-				}
-
-				$this->init = true;
 			}
+			
+			$this->store = $this->getStore();
+			$storeMapping = $this->getStoreMappingSignature($this->store);
+			
+			if ($this->storeMapping !== $storeMapping) {
+				$this->storeMapping = $storeMapping;
+				// Ensure the mapping exists
+				if (!isset($this->mapping[$this->storeMapping])) {
+					$this->mapping[$this->storeMapping] = array();
+				}
+			}
+
+			$this->init = true;
 		}
 
 		/**
@@ -91,6 +94,72 @@
 		{
 			$this->init = false;
 			$this->store = false;
+			$this->stores = [];
+		}
+
+		/**
+		 * Setter function which set the store.
+		 *
+		 * @param object|array|boolean MAPI Message Store Object or array of MAPI Message Store Objects, false if storeid is not found in the request.
+		 */
+		function setStore($store = false)
+		{
+			$stores = [];
+			if ($store === false) {
+				$this->stores = $stores;
+				return;
+			}
+
+			if (is_array($store)) {
+				$stores = $store;
+			} else {
+				$stores = array($store);
+				$this->store = $store;
+			}
+
+			foreach($stores as $key => $store) {
+				$storeMapping = $this->getStoreMappingSignature($store);
+				if ($this->storeMapping !== $storeMapping) {
+					$this->stores[$storeMapping] = $store;
+
+				}
+			}
+		}
+
+		/**
+		 * Getter function which get the store.
+		 *
+		 * @return object MAPI Message Store Object
+		 */
+		function getStore()
+		{
+			return $this->store !== false ? $this->store : $GLOBALS["mapisession"]->getDefaultMessageStore();
+		}
+
+		/**
+		 * Function which used to get the PR_MAPPING_SIGNATURE value from given store.
+		 *
+		 * @param object MAPI Message Store Object
+		 * @return string PR_MAPPING_SIGNATURE of the given MAPI Message Store if exists else 0.
+		 */
+		private function getStoreMappingSignature($store)
+		{
+			$storeMapping = mapi_getprops($store, array(PR_MAPPING_SIGNATURE));
+			return isset($storeMapping[PR_MAPPING_SIGNATURE]) ? bin2hex($storeMapping[PR_MAPPING_SIGNATURE]) : '0';
+		}
+
+		/**
+		 * Helper function which set the store as a active store and storeMapping.
+		 *
+		 * @param object MAPI Message Store Object
+		 */
+		function setActiveStore($store)
+		{
+			$storeMapping = $this->getStoreMappingSignature($store);
+			if ($this->storeMapping !== $storeMapping) {
+				$this->store = $store;
+				$this->storeMapping = $storeMapping;
+			}
 		}
 
 		/**
@@ -127,6 +196,32 @@
 			}
 
 			return $this->mapping[$this->storeMapping]['recipient'];
+		}
+
+		/**
+		 * Returns the properties for Out of office settings in a message
+		 * @return array properties for Out of office settings.
+		 */
+		function getOutOfOfficeProperties()
+		{
+			$this->Init();
+
+			if (!isset($this->mapping[$this->storeMapping]['oofsettings'])) {
+				$properties["set"] = PR_EC_OUTOFOFFICE_STATE;
+				$properties["entryid"] = PR_MAILBOX_OWNER_ENTRYID;
+				$properties["store_entryid"] = PR_ENTRYID;
+				$properties["internal_reply"] = PR_EC_OUTOFOFFICE_INTERNALREPLY;
+				$properties["internal_subject"] = PR_EC_OUTOFOFFICE_INTERNALSUBJECT;
+				$properties["from"] = PR_EC_OUTOFOFFICE_BEGIN;
+				$properties["until"] = PR_EC_OUTOFOFFICE_END;
+				$properties["allow_external"] = PR_EC_OUTOFOFFICE_ALLOWEXTERNAL;
+				$properties["external_audience"] = PR_EC_OUTOFOFFICE_EXTERNALAUDIENCE;
+				$properties["external_reply"] = PR_EC_OUTOFOFFICE_EXTERNALREPLY;
+				$properties["external_subject"] = PR_EC_OUTOFOFFICE_EXTERNALSUBJECT;
+				$this->mapping[$this->storeMapping]['oofsettings'] = getPropIdsFromStrings($this->store, $properties);
+			}
+
+			return $this->mapping[$this->storeMapping]['oofsettings'];
 		}
 
 		/**
@@ -275,6 +370,8 @@
 				$properties["updatecounter"] = "PT_LONG:PSETID_Appointment:0x8201";
 				$properties["reply_time"] = "PT_SYSTIME:PSETID_Appointment:0x8220";
 				$properties["reply_name"] = "PT_STRING8:PSETID_Appointment:0x8230";
+
+				$properties["onlinemeetingurl"] = "PT_STRING8:PS_PUBLIC_STRINGS:OnlineMeetingExternalLink";
 
 				$this->mapping[$this->storeMapping]['appointment'] = getPropIdsFromStrings($this->store, $properties);
 			}
@@ -689,6 +786,8 @@
 				$properties["display_type_ex"] = PR_DISPLAY_TYPE_EX;
 				$properties["account"] = PR_ACCOUNT;
 				$properties["address_type"] = PR_ADDRTYPE;
+				$properties["title"] = PR_TITLE;
+				$properties["company_name"] = PR_COMPANY_NAME;
 				$properties["object_type"] = PR_OBJECT_TYPE;
 				$properties["search_key"] = PR_SEARCH_KEY;
 				$properties["office_telephone_number"] = PR_OFFICE_TELEPHONE_NUMBER;
@@ -700,6 +799,7 @@
 				$properties["department_name"] = PR_DEPARTMENT_NAME;
 				$properties["normalized_subject"] = PR_NORMALIZED_SUBJECT;
 				$properties["original_display_name"] = PR_ORIGINAL_DISPLAY_NAME;
+				$properties["private"] = "PT_BOOLEAN:PSETID_Common:0x8506";
 
 				$this->mapping[$this->storeMapping]['addressbook'] = getPropIdsFromStrings($this->store, $properties);
 			}
@@ -841,6 +941,7 @@
 				$properties["entryid"] = PR_ENTRYID;
 				$properties["store_entryid"] = PR_STORE_ENTRYID;
 				$properties["parent_entryid"] = PR_PARENT_ENTRYID;
+				$properties['body'] = PR_BODY;
 				$properties["access"] = PR_ACCESS;
 				$properties["message_class"] = PR_MESSAGE_CLASS;
 				$properties["object_type"] = PR_OBJECT_TYPE;
@@ -951,7 +1052,7 @@
 		function getMailListProperties()
 		{
 			$properties = $this->getMailProperties();
-
+			
 			unset($properties['transport_message_headers']);
 			unset($properties['appointment_startdate']);
 			unset($properties['appointment_duedate']);
@@ -968,7 +1069,6 @@
 			unset($properties['meetingtype']);
 			unset($properties['goid']);
 			unset($properties['goid2']);
-
 			return $properties;
 		}
 
@@ -1100,7 +1200,6 @@
 				$properties["task_acceptance_state"] = "PT_LONG:PSETID_Task:0x812a";
 				$properties["task_assigner"] = "PT_STRING8:PSETID_Task:0x8121";
 
-				$properties["conversation_topic"] = PR_CONVERSATION_TOPIC;
 				$properties["display_cc"] = PR_DISPLAY_CC;
 				$properties["display_to"] = PR_DISPLAY_TO;
 
@@ -1259,6 +1358,8 @@
 				$properties["rule_user_flags"] = PR_RULE_USER_FLAGS;
 				$properties["rule_msg_atleast_size_unit"] = PR_RULE_ATLEAST_MESSAGE_SIZEUNIT;
 				$properties["rule_msg_atmost_size_unit"] = PR_RULE_ATMOST_MESSAGE_SIZEUNIT;
+				$properties["rule_exception_atleast_size_unit"] = PR_RULE_EXCEPTION_ATLEAST_MESSAGE_SIZEUNIT;
+				$properties["rule_exception_atmost_size_unit"] = PR_RULE_EXCEPTION_ATMOST_MESSAGE_SIZEUNIT;
 				$this->mapping[$this->storeMapping]['rules'] = $properties;
 			}
 

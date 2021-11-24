@@ -27,17 +27,17 @@ Zarafa.core.ContainerClass = {
 	 * @return {Boolean} True when the className matches.
 	 */
 	// Implementation is exactly that of the Zarafa.core.MessageClass...
-	isClass : Zarafa.core.MessageClass.isClass,
+	isClass: Zarafa.core.MessageClass.isClass,
 
 	/**
 	 * Test if the containerClass is compatible with the give messageClass.
 	 * An IPF.Note is for example compatible with IPM.Note messageClass.
 	 *
-	 * @param {String} containerClass The Container Class to compare 
+	 * @param {String} containerClass The Container Class to compare
 	 * @param {String} messageClass The Message Class to compare
 	 * @return {Boolean} True when the containerClass is compatible with the given messsageClass
 	 */
-	isMessageClassCompatible : function(containerClass, messageClass)
+	isMessageClassCompatible: function(containerClass, messageClass)
 	{
 		// Implementation is exact inverse of Zarafa.core.MessageClass, so simply swap arguments.
 		return Zarafa.core.MessageClass.isContainerClassCompatible(messageClass, containerClass);
@@ -46,11 +46,11 @@ Zarafa.core.ContainerClass = {
 	/**
 	 * Function will return default folder type from the hierarchy
 	 * for the supplied container_class to the function.
-	 * 
+	 *
 	 * @param {String} containerClass The container_class of the mapi record.
 	 * @return {String} The foldertype of the default folder for the supplied message_class
 	 */
-	getDefaultFolderTypeFromContainerClass : function(containerClass)
+	getDefaultFolderTypeFromContainerClass: function(containerClass)
 	{
 		containerClass = containerClass.toUpperCase();
 
@@ -75,7 +75,7 @@ Zarafa.core.ContainerClass = {
 			containerClass = containerClass.substr(0, index);
 			return this.getDefaultFolderTypeFromContainerClass(containerClass);
 		}
-		
+
 		return '';
 	}
 };

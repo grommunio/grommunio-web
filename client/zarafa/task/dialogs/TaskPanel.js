@@ -20,15 +20,15 @@ Zarafa.task.dialogs.TaskPanel = Ext.extend(Ext.Panel, {
 	 * @constructor
 	 * @param {Object} config configuration object.
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		config = config || {};
 
 		config = Ext.applyIf(config, {
-			xtype : 'zarafa.taskpanel',
+			xtype: 'zarafa.taskpanel',
 			bodyStyle: 'background-color: inherit;',
-			border : false,
-			layout : 'fit',
+			border: false,
+			layout: 'fit',
 			items: this.createTabPanel()
 		});
 
@@ -40,17 +40,17 @@ Zarafa.task.dialogs.TaskPanel = Ext.extend(Ext.Panel, {
 	 * @return {Object} Configuration object for the form panel
 	 * @private
 	 */
-	createTabPanel : function()
+	createTabPanel: function()
 	{
 		return [{
-			xtype : 'tabpanel',
-			activeTab : 0,
-			layoutOnTabChange : true,
-			border : false,
-			items : [{
-				xtype : 'zarafa.taskgeneraltab'
+			xtype: 'tabpanel',
+			activeTab: 0,
+			layoutOnTabChange: true,
+			border: false,
+			items: [{
+				xtype: 'zarafa.taskgeneraltab'
 			},{
-				xtype : 'zarafa.taskdetailtab'
+				xtype: 'zarafa.taskdetailtab'
 			},
 			container.populateInsertionPoint('context.task.taskcontentpanel.tabs', this)
 			]

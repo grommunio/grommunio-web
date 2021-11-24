@@ -98,7 +98,7 @@
 				$this->delegateProps = mapi_getprops($localFreeBusyMessage, array(PR_DELEGATES_SEE_PRIVATE, PR_SCHDINFO_DELEGATE_ENTRYIDS, PR_SCHDINFO_DELEGATE_NAMES));
 
 				// check if properties exists or not, if not then initialize with default values
-				// this way in caller functions we don't need to check for non-existant properties
+				// this way in caller functions we don't need to check for non-existent properties
 				if(!isset($this->delegateProps[PR_DELEGATES_SEE_PRIVATE])) {
 					$this->delegateProps[PR_DELEGATES_SEE_PRIVATE] = array();
 				}
@@ -168,7 +168,7 @@
 				return false;
 			}
 		}
-		
+
 		/**
 		 * Function will return resource of the default store of the current logged in user.
 		 * @return {MAPIStore} current user's store.
@@ -574,7 +574,7 @@
 			$inbox = mapi_msgstore_getreceivefolder($this->getDefaultStore());
 			mapi_folder_modifyrules($inbox, $rows);
 		}
-		
+
 		function modifyDelegateMeetingRule($delegateMeetingRule, $users)
 		{
 			$inbox = mapi_msgstore_getreceivefolder($this->getDefaultStore());

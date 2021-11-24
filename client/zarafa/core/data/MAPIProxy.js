@@ -8,11 +8,11 @@ Zarafa.core.data.MAPIProxy = Ext.extend(Ext.data.DataProxy, {
 	/**
 	 * @cfg {String} listModuleName Name of the listModule on the server.
 	 */
-	listModuleName : undefined,
+	listModuleName: undefined,
 	/**
 	 * @cfg {String} itemModuleName Name of the itemModule on the server.
 	 */
-	itemModuleName : undefined,
+	itemModuleName: undefined,
 
 	/**
 	 * Currently active requests for {@link Zarafa.core.data.MAPIProxy MAPIProxy} mapped by the
@@ -22,7 +22,7 @@ Zarafa.core.data.MAPIProxy = Ext.extend(Ext.data.DataProxy, {
 	 * @type Object
 	 * @private
 	 */
-	activeRequestMapping : undefined,
+	activeRequestMapping: undefined,
 
 	/**
 	 * The {@link Date#getTime timestamps} for the last time a response was received for
@@ -31,13 +31,13 @@ Zarafa.core.data.MAPIProxy = Ext.extend(Ext.data.DataProxy, {
 	 * @type Object
 	 * @private
 	 */
-	lastResponseTime : undefined,
+	lastResponseTime: undefined,
 
 	/**
 	 * @constructor
 	 * @param {Object} config Configuration object
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		Ext.apply(this, config);
 		Zarafa.core.data.MAPIProxy.superclass.constructor.call(this, config);
@@ -54,7 +54,7 @@ Zarafa.core.data.MAPIProxy = Ext.extend(Ext.data.DataProxy, {
 	 * @param {Zarafa.core.Action} action The action which is to be checked.
 	 * @return {Boolean} True if the given action has registered requestIds.
 	 */
-	isExecuting : function(action)
+	isExecuting: function(action)
 	{
 		if (Ext.isEmpty(action)) {
 			return !Ext.isEmpty(Object.keys(this.activeRequestMapping));
@@ -70,7 +70,7 @@ Zarafa.core.data.MAPIProxy = Ext.extend(Ext.data.DataProxy, {
 	 * @param {Zarafa.core.Actions} action The action for which this request id was generated
 	 * @param {String} requestId The unique id which was given to the request
 	 */
-	addRequestId : function(action, requestId)
+	addRequestId: function(action, requestId)
 	{
 		if (!Ext.isDefined(this.activeRequestMapping[action])) {
 			this.activeRequestMapping[action] = [ requestId ];
@@ -84,7 +84,7 @@ Zarafa.core.data.MAPIProxy = Ext.extend(Ext.data.DataProxy, {
 	 * to remove the requestId from the given action.
 	 * @param {Zarafa.core.Actions} requestId The unique id which was given to the request.
 	 */
-	deleteRequestId : function(requestId)
+	deleteRequestId: function(requestId)
 	{
 		for (var key in this.activeRequestMapping) {
 			if (Array.isArray(this.activeRequestMapping[key])) {
@@ -104,7 +104,7 @@ Zarafa.core.data.MAPIProxy = Ext.extend(Ext.data.DataProxy, {
 	 * @param {Zarafa.core.Actions} action The action
 	 * @protected
 	 */
-	cancelRequests : function(action)
+	cancelRequests: function(action)
 	{
 		if (this.activeRequestMapping[action]) {
 			var requests = this.activeRequestMapping[action];
@@ -123,7 +123,7 @@ Zarafa.core.data.MAPIProxy = Ext.extend(Ext.data.DataProxy, {
 	 * @param {Zarafa.core.Actions} action The action
 	 * @param {Number} timestamp The timestamp
 	 */
-	updateExecutionTimestamp : function(action, timestamp)
+	updateExecutionTimestamp: function(action, timestamp)
 	{
 		this.lastResponseTime[action] = timestamp;
 	},
@@ -136,7 +136,7 @@ Zarafa.core.data.MAPIProxy = Ext.extend(Ext.data.DataProxy, {
 	 * @param {Zarafa.core.Actions} action The action
 	 * @return {Number} The timestamp of the last action
 	 */
-	lastExecutionTime : function(action)
+	lastExecutionTime: function(action)
 	{
 		return this.lastResponseTime[action] || 0;
 	},
@@ -147,7 +147,7 @@ Zarafa.core.data.MAPIProxy = Ext.extend(Ext.data.DataProxy, {
 	 * @return {String} The name of the listModule.
 	 * @private
 	 */
-	getListModuleName : function(record)
+	getListModuleName: function(record)
 	{
 		return this.listModuleName;
 	},
@@ -158,7 +158,7 @@ Zarafa.core.data.MAPIProxy = Ext.extend(Ext.data.DataProxy, {
 	 * @return {String} The name of the itemModule.
 	 * @private
 	 */
-	getItemModuleName : function(record)
+	getItemModuleName: function(record)
 	{
 		return this.itemModuleName;
 	},
@@ -181,10 +181,10 @@ Zarafa.core.data.MAPIProxy = Ext.extend(Ext.data.DataProxy, {
 	 * which should be used for this request.
 	 * @private
 	 */
-	getResponseHandlerForRequest : Ext.emptyFn,
+	getResponseHandlerForRequest: Ext.emptyFn,
 
 	/**
-	 * Performs a request for a store. This single entry point carries out all CRUD requests. 
+	 * Performs a request for a store. This single entry point carries out all CRUD requests.
 	 * @param {Ext.data.Api.action} action name of the action to perform. One of 'create', 'destroy', 'update', and 'read'.
 	 * @param {Ext.data.Record[]} records list of records to operate on. In case of 'read' this will be ignored.
 	 * @param {Object} parameters object containing user parameters such as range (pagination) information, sorting information, etc.
@@ -193,7 +193,7 @@ Zarafa.core.data.MAPIProxy = Ext.extend(Ext.data.DataProxy, {
 	 * @param {Object} scope scope for the call back function.
 	 * @param {Object} args arguments object. This will be passed to the call back function on successful read.
 	 */
-	request : function(action, records, parameters, reader, callback, scope, args)
+	request: function(action, records, parameters, reader, callback, scope, args)
 	{
 		switch (action)
 		{
@@ -215,7 +215,7 @@ Zarafa.core.data.MAPIProxy = Ext.extend(Ext.data.DataProxy, {
 				break;
 		}
 	},
-	
+
 	/**
 	 * @param {Ext.data.Api.action} action name of the action to perform. Either 'create' or 'update'.
 	 * @param {Ext.data.Record[]} records list of records to operate on.
@@ -226,7 +226,7 @@ Zarafa.core.data.MAPIProxy = Ext.extend(Ext.data.DataProxy, {
 	 * @param {Object} args arguments object. This will be passed to the call back function on successful read.
 	 * @private
 	 */
-	createUpdateAction : function(action, records, parameters, reader, callback, scope, args)
+	createUpdateAction: function(action, records, parameters, reader, callback, scope, args)
 	{
 		this.doRequests(args.actionType || Zarafa.core.Actions['save'], action, records, parameters, reader, callback, scope, args);
 	},
@@ -242,11 +242,11 @@ Zarafa.core.data.MAPIProxy = Ext.extend(Ext.data.DataProxy, {
 	 * @param {Object} args arguments object. This will be passed to the call back function on successful read.
 	 * @private
 	 */
-	destroyAction : function(action, records, parameters, reader, callback, scope, args)
+	destroyAction: function(action, records, parameters, reader, callback, scope, args)
 	{
 		this.doRequests(args.actionType || Zarafa.core.Actions['delete'], action, records, parameters, reader, callback, scope, args);
 	},
-	
+
 	/**
 	 * Performs a read action on one or more records.
 	 * @param {Ext.data.Api.action} action name of the action to perform. Always 'open'.
@@ -258,7 +258,7 @@ Zarafa.core.data.MAPIProxy = Ext.extend(Ext.data.DataProxy, {
 	 * @param {Object} args arguments object. This will be passed to the call back function on successful read.
 	 * @private
 	 */
-	openAction : function(action, records, parameters, reader, callback, scope, args)
+	openAction: function(action, records, parameters, reader, callback, scope, args)
 	{
 		this.doRequests(args.actionType || Zarafa.core.Actions['open'], action, records, parameters, reader, callback, scope, args);
 	},
@@ -274,7 +274,7 @@ Zarafa.core.data.MAPIProxy = Ext.extend(Ext.data.DataProxy, {
 	 * @param {Object} args arguments object. This will be passed to the call back function on successful read.
 	 * @private
 	 */
-	importAction : function(action, records, parameters, reader, callback, scope, args)
+	importAction: function(action, records, parameters, reader, callback, scope, args)
 	{
 		this.doRequests(args.actionType || Zarafa.core.Actions['import'], action, records, parameters, reader, callback, scope, args);
 	},
@@ -290,7 +290,7 @@ Zarafa.core.data.MAPIProxy = Ext.extend(Ext.data.DataProxy, {
 	 * @param {Object} args arguments object. This will be passed to the call back function on successful read.
 	 * @private
 	 */
-	readAction : function(action, records, parameters, reader, callback, scope, args)
+	readAction: function(action, records, parameters, reader, callback, scope, args)
 	{
 		this.doRequests(args.actionType || Zarafa.core.Actions['list'], action, records, parameters, reader, callback, scope, args);
 	},
@@ -309,14 +309,14 @@ Zarafa.core.data.MAPIProxy = Ext.extend(Ext.data.DataProxy, {
 	 * @param {Object} args arguments object. This will be passed to the call back function on successful read.
 	 * @private
 	 */
-	doRequests : function(serverAction, action, records, parameters, reader, callback, scope, args)
+	doRequests: function(serverAction, action, records, parameters, reader, callback, scope, args)
 	{
 		// Check if the previous request needs to be cancelled.
 		if (args.cancelPreviousRequest === true) {
 			this.cancelRequests(serverAction);
 		}
 
-		// reset the request object, starts a new composite request 
+		// reset the request object, starts a new composite request
 		container.getRequest().reset();
 
 		// If records are provided, we must perform a 'itemmodule' action on each of the given records
@@ -343,7 +343,7 @@ Zarafa.core.data.MAPIProxy = Ext.extend(Ext.data.DataProxy, {
 				var requestId = container.getRequest().addRequest(module, serverAction, data, handler);
 
 				// store reference of transaction id to active request mapping
-				this.addRequestId(serverAction, requestId); 
+				this.addRequestId(serverAction, requestId);
 			}
 		} else {
 			// No records were provided, we must perform a 'listmodule' action
@@ -354,7 +354,7 @@ Zarafa.core.data.MAPIProxy = Ext.extend(Ext.data.DataProxy, {
 			var requestId = container.getRequest().addRequest(module, serverAction, parameters, handler);
 
 			// store reference of transaction id to active request mapping
-			this.addRequestId(serverAction, requestId); 
+			this.addRequestId(serverAction, requestId);
 		}
 
 		// send out the request

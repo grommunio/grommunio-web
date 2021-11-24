@@ -28,7 +28,7 @@ Zarafa.note.NoteContext = Ext.extend(Zarafa.core.Context, {
 	 * @type Mixed
 	 * @private
 	 */
-	oldView : undefined,
+	oldView: undefined,
 
 	/**
 	 * When searching, this property marks the {@link Zarafa.core.Context#getCurrentViewMode viewmode}
@@ -38,19 +38,19 @@ Zarafa.note.NoteContext = Ext.extend(Zarafa.core.Context, {
 	 * @type Mixed
 	 * @private
 	 */
-	oldViewMode : undefined,
+	oldViewMode: undefined,
 
 	/**
 	 * @constructor
 	 * @param {Object} config configuration object
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		config = config || {};
 
 		Ext.applyIf(config, {
-			current_view : Zarafa.note.data.Views.ICON,
-			current_view_mode : Zarafa.note.data.ViewModes.NORMAL
+			current_view: Zarafa.note.data.Views.ICON,
+			current_view_mode: Zarafa.note.data.ViewModes.NORMAL
 		});
 
 		// The tab in the top tabbar
@@ -69,14 +69,14 @@ Zarafa.note.NoteContext = Ext.extend(Zarafa.core.Context, {
 	/**
 	 * @return {Zarafa.note.NoteContextModel} the notet context model
 	 */
-	getModel : function()
+	getModel: function()
 	{
 		if (!Ext.isDefined(this.model)) {
 			this.model = new Zarafa.note.NoteContextModel();
 			this.model.on({
-				'searchstart' : this.onModelSearchStart,
-				'searchstop' : this.onModelSearchStop,
-				scope : this
+				'searchstart': this.onModelSearchStart,
+				'searchstop': this.onModelSearchStop,
+				scope: this
 			});
 		}
 		return this.model;
@@ -90,7 +90,7 @@ Zarafa.note.NoteContext = Ext.extend(Zarafa.core.Context, {
 	 * @param {Zarafa.core.ContextModel} model The model which fired the event
 	 * @private
 	 */
-	onModelSearchStart : function(model)
+	onModelSearchStart: function(model)
 	{
 		if(this.getCurrentView() !== Zarafa.note.data.Views.SEARCH && this.getCurrentViewMode() !== Zarafa.note.data.ViewModes.SEARCH){
 			this.oldView = this.getCurrentView();
@@ -105,7 +105,7 @@ Zarafa.note.NoteContext = Ext.extend(Zarafa.core.Context, {
 	 * @param {Zarafa.core.ContextModel} model The model which fired the event
 	 * @private
 	 */
-	onModelSearchStop : function(model)
+	onModelSearchStop: function(model)
 	{
 		this.switchView(this.oldView, this.oldViewMode);
 		delete this.oldView;
@@ -115,7 +115,7 @@ Zarafa.note.NoteContext = Ext.extend(Zarafa.core.Context, {
 	/**
 	 * bid to get selected on Mapi folder selection
 	 */
-	bid : function(folder)
+	bid: function(folder)
 	{
 		// Bid 1 when the folder is of the IPF.StickyNote type.
 		if (folder.isContainerClass('IPF.StickyNote', true)) {
@@ -212,28 +212,28 @@ Zarafa.note.NoteContext = Ext.extend(Zarafa.core.Context, {
 	 * button panel. It shows a tree of available note folders that can be checked and unchecked.
 	 * @private
 	 */
-	createNoteNavigationPanel : function()
+	createNoteNavigationPanel: function()
 	{
 		return {
-			xtype : 'zarafa.contextnavigation',
-			context : this,
-			items : [{
-				xtype : 'panel',
+			xtype: 'zarafa.contextnavigation',
+			context: this,
+			items: [{
+				xtype: 'panel',
 				id: 'zarafa-navigationpanel-notes-navigation',
 				cls: 'zarafa-context-navigation-block',
 				layout: 'fit',
-				items : [{
-					xtype : 'zarafa.hierarchytreepanel',
+				items: [{
+					xtype: 'zarafa.hierarchytreepanel',
 					id: 'zarafa-navigationpanel-notes-navigation-tree',
 					model: this.getModel(),
 					IPMFilter: 'IPF.StickyNote',
-					hideDeletedFolders : true,
-					enableDD : true,
-					enableItemDrop : true,
-					deferredLoading : true,
+					hideDeletedFolders: true,
+					enableDD: true,
+					enableItemDrop: true,
+					deferredLoading: true,
 					bbarConfig: {
 						defaultSelectedSharedFolderType: Zarafa.hierarchy.data.SharedFolderTypes['NOTE'],
-						buttonText : _('Open Shared Notes')
+						buttonText: _('Open Shared Notes')
 					}
 				}]
 			}]
@@ -248,9 +248,9 @@ Zarafa.note.NoteContext = Ext.extend(Zarafa.core.Context, {
 	createContentPanel: function()
 	{
 		return {
-			xtype : 'zarafa.notemainpanel',
+			xtype: 'zarafa.notemainpanel',
 			id: 'zarafa-mainpanel-contentpanel-notes',
-			context : this
+			context: this
 		};
 	},
 
@@ -287,7 +287,7 @@ Zarafa.note.NoteContext = Ext.extend(Zarafa.core.Context, {
 	 *
 	 * @return {Ext.Component[]} an array of components
 	 */
-	getMainToolbarPrintButtons : function()
+	getMainToolbarPrintButtons: function()
 	{
 		var items = container.populateInsertionPoint('main.toolbar.print.note', this) || [];
 
@@ -301,26 +301,11 @@ Zarafa.note.NoteContext = Ext.extend(Zarafa.core.Context, {
 			text: _('Print selected note'),
 			hideOnDisabled: false,
 			singleSelectOnly: true,
-			handler: this.onPrintSelected,
+			handler: this.onPrintSelected.createDelegate(this, [_('No note selected')], 2),
 			scope: this
 		}];
 
 		return defaultItems.concat(items);
-	},
-
-	/**
-	 * Handler for printing the selected {@link Zarafa.core.data.MAPIRecord} record. Menu item is disabled if there is no record selected.
-	 * Calls {@link Zarafa.common.Actions.openPrintDialog} openPrintDialog with the selected record.
-	 * @private
-	 */
-	onPrintSelected : function()
-	{
-		var records = this.getModel().getSelectedRecords();
-		if (Ext.isEmpty(records)) {
-			Ext.MessageBox.alert(_('Print'), _('No note selected'));
-			return;
-		}
-		Zarafa.common.Actions.openPrintDialog(records);
 	},
 
 	/**
@@ -329,7 +314,7 @@ Zarafa.note.NoteContext = Ext.extend(Zarafa.core.Context, {
 	 *
 	 * @return {Ext.Component[]} an array of components
 	 */
-	getMainToolbarViewButtons : function()
+	getMainToolbarViewButtons: function()
 	{
 		var items = container.populateInsertionPoint('main.maintoolbar.view.note', this) || [];
 
@@ -338,31 +323,31 @@ Zarafa.note.NoteContext = Ext.extend(Zarafa.core.Context, {
 			text: _('Icons'),
 			overflowText: _('Icons'),
 			iconCls: 'icon_note_icon_view',
-			valueView : Zarafa.note.data.Views.ICON,
-			valueViewMode : Zarafa.note.data.ViewModes.NORMAL,
-			valueDataMode : Zarafa.note.data.DataModes.ALL,
-			handler : this.onContextSelectView,
-			scope : this
+			valueView: Zarafa.note.data.Views.ICON,
+			valueViewMode: Zarafa.note.data.ViewModes.NORMAL,
+			valueDataMode: Zarafa.note.data.DataModes.ALL,
+			handler: this.onContextSelectView,
+			scope: this
 		},{
 			id: 'zarafa-maintoolbar-view-notes-list',
 			text: _('List view'),
 			overflowText: _('List view'),
 			iconCls: 'icon_contact_list',
-			valueView : Zarafa.note.data.Views.LIST,
-			valueViewMode : Zarafa.note.data.ViewModes.NORMAL,
-			valueDataMode : Zarafa.note.data.DataModes.ALL,
-			handler : this.onContextSelectView,
-			scope : this
+			valueView: Zarafa.note.data.Views.LIST,
+			valueViewMode: Zarafa.note.data.ViewModes.NORMAL,
+			valueDataMode: Zarafa.note.data.DataModes.ALL,
+			handler: this.onContextSelectView,
+			scope: this
 		},{
 			id: 'zarafa-maintoolbar-view-notes-listlastsevendays',
 			text: _('List Last Seven Days'),
 			overflowText: _('List Last Seven Days'),
 			iconCls: 'icon_task_seven_days',
-			valueView : Zarafa.note.data.Views.LIST,
-			valueViewMode : Zarafa.note.data.ViewModes.NORMAL,
-			valueDataMode : Zarafa.note.data.DataModes.LAST_7_DAYS,
-			handler : this.onContextSelectView,
-			scope : this
+			valueView: Zarafa.note.data.Views.LIST,
+			valueViewMode: Zarafa.note.data.ViewModes.NORMAL,
+			valueDataMode: Zarafa.note.data.DataModes.LAST_7_DAYS,
+			handler: this.onContextSelectView,
+			scope: this
 		}];
 
 		return defaultItems.concat(items);
@@ -375,7 +360,7 @@ Zarafa.note.NoteContext = Ext.extend(Zarafa.core.Context, {
 	 * @param {Ext.Button} button The button which was pressed
 	 * @private
 	 */
-	onContextSelectView : function(button)
+	onContextSelectView: function(button)
 	{
 		this.getModel().setDataMode(button.valueDataMode);
 		this.switchView(button.valueView, button.valueViewMode);
@@ -407,7 +392,7 @@ Zarafa.note.NoteContext = Ext.extend(Zarafa.core.Context, {
 	 * @param {Mixed} oldViewMode The previously selected View Mode.
 	 * @private
 	 */
-	onViewModeChange : function(context, newViewMode, oldViewMode)
+	onViewModeChange: function(context, newViewMode, oldViewMode)
 	{
 		var model = this.getModel();
 
@@ -428,9 +413,9 @@ Zarafa.note.NoteContext = Ext.extend(Zarafa.core.Context, {
 
 Zarafa.onReady(function() {
 	container.registerContext(new Zarafa.core.ContextMetaData({
-		name : 'note',
+		name: 'note',
 		displayName: _('Notes'),
-		allowUserVisible : false,
-		pluginConstructor : Zarafa.note.NoteContext
+		allowUserVisible: false,
+		pluginConstructor: Zarafa.note.NoteContext
 	}));
 });

@@ -17,28 +17,28 @@ Zarafa.core.plugins.ContentLayerPlugin = Ext.extend(Object, {
 	 * @type Zarafa.core.ui.ContentPanel
 	 * @protected
 	 */
-	field : undefined,
+	field: undefined,
 
 	/**
 	 * @constructor
 	 * @param {Object} config Configuration object
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		Ext.apply(this, config);
 	},
-	
+
 	/**
 	 * Initialize the plugin with the corresponding field.
 	 * @param {Zarafa.core.ui.ContentPanel} field The panel on which the plugin is installed
 	 */
-	init : function(field)
+	init: function(field)
 	{
 		this.field = field;
 
 		// Listen for the moment the field was added to the parent container,
 		// at that moment we can continue initializing.
-		this.field.on('added', this.onAdded, this, { single : true });
+		this.field.on('added', this.onAdded, this, { single: true });
 	},
 
 	/**
@@ -49,7 +49,7 @@ Zarafa.core.plugins.ContentLayerPlugin = Ext.extend(Object, {
 	 *
 	 * @protected
 	 */
-	initPlugin : function()
+	initPlugin: function()
 	{
 		this.focus();
 
@@ -69,7 +69,7 @@ Zarafa.core.plugins.ContentLayerPlugin = Ext.extend(Object, {
 	 * @param {Ext.Container} container The container on which the item was placed
 	 * @private
 	 */
-	onAdded : function(item, container)
+	onAdded: function(item, container)
 	{
 		container.on('add', this.onContainerAdd, this);
 	},
@@ -81,7 +81,7 @@ Zarafa.core.plugins.ContentLayerPlugin = Ext.extend(Object, {
 	 * @param {Ext.Component} component The component which was added
 	 * @private
 	 */
-	onContainerAdd : function(container, item)
+	onContainerAdd: function(container, item)
 	{
 		if (this.field === item) {
 			container.un('add', this.onContainerAdd, this);
@@ -117,7 +117,7 @@ Zarafa.core.plugins.ContentLayerPlugin = Ext.extend(Object, {
 	 * Event handler for the 'hide' event
 	 * @private
 	 */
-	onHide : function()
+	onHide: function()
 	{
 		this.hide();
 	},
@@ -139,7 +139,7 @@ Zarafa.core.plugins.ContentLayerPlugin = Ext.extend(Object, {
 	 * @param {String} title The title to apply
 	 * @protected
 	 */
-	setTitle : Ext.emptyFn,
+	setTitle: Ext.emptyFn,
 
 	/**
 	 * This will apply the required Icon Class onto the {@link #field}
@@ -149,7 +149,7 @@ Zarafa.core.plugins.ContentLayerPlugin = Ext.extend(Object, {
 	 * @param {String} iconCls The Icon Class to apply
 	 * @protected
 	 */
-	setIconClass : Ext.emptyFn,
+	setIconClass: Ext.emptyFn,
 
 	/**
 	 * This will hide panel containing the {@link #field}
@@ -158,7 +158,7 @@ Zarafa.core.plugins.ContentLayerPlugin = Ext.extend(Object, {
 	 *
 	 * @protected
 	 */
-	hide : Ext.emptyFn,
+	hide: Ext.emptyFn,
 
 	/**
 	 * This will close panel containing the {@link #field}
@@ -167,7 +167,7 @@ Zarafa.core.plugins.ContentLayerPlugin = Ext.extend(Object, {
 	 *
 	 * @protected
 	 */
-	close : Ext.emptyFn,
+	close: Ext.emptyFn,
 
 	/**
 	 * This will bring focus to the Container by bringing it
@@ -177,7 +177,7 @@ Zarafa.core.plugins.ContentLayerPlugin = Ext.extend(Object, {
 	 *
 	 * @protected
 	 */
-	focus : Ext.emptyFn
+	focus: Ext.emptyFn
 });
 
 Ext.preg('zarafa.contentlayerplugin', Zarafa.core.plugins.ContentLayerPlugin);

@@ -1987,7 +1987,6 @@ Note: Does not work in IE11 */
 .preview-header-attachments .preview-attachment-title {
   float: left; }
 
-.preview-header-sentinfo .preview-timestamp-title,
 .preview-header-recipients .preview-recipient-title,
 .preview-header-attachments .preview-attachment-title,
 .preview-header-meeting .preview-when .preview-when-title,
@@ -1995,11 +1994,8 @@ Note: Does not work in IE11 */
 .preview-header-meeting .preview-location .preview-location-title {
   display: inline-block;
   min-width: 36px;
-  font-weight: normal;
+  font-weight: bold;
   padding-right: 6px; }
-
-.preview-recipient-data {
-  line-height: 16px; }
 
 .preview-body {
   padding: 0; }
@@ -2036,6 +2032,39 @@ span.zarafa-emailaddress-link {
 span.zarafa-emailaddress-link:hover {
   color: #0000FF;
   text-decoration: underline; }
+  
+.preview-header-sentinfo .preview-timestamp {
+  font-size:13px;
+  color:#4c4c4c }
+  
+span.preview-header-sender-initial {
+  border:1px solid;
+  color:#0f70bd;
+  border-radius:50%;
+  -moz-border-radius:50%;
+  display:inline-block;
+  line-height:40px;
+  margin-right:7px;
+  text-align:center;
+  width:40px;
+  height:40px;
+  font-family:arial, tahoma, helvetica, sans-serif;
+  font-size:18px;
+  float:left;
+  user-select:none }
+
+span.preview-header-sender-image {
+  background-size:cover;
+  background-position:center;
+  background-repeat:no-repeat;
+  border-radius:50%;
+  -moz-border-radius:50%;
+  display:inline-block;
+  min-height:40px;
+  margin-right:7px;
+  text-align:center;
+  width:40px;
+  float:left }
 
 .preview-title-hr {
   margin: 2px 0; }
@@ -2798,6 +2827,16 @@ div.zarafa-contact-cardview-selected {
   border-top: 1px solid #e6e6e6; }
 .k-recipient-card-view .x-panel-btns {
   padding: 0px !important; }
+
+.k-recipient-card-view .preview-header-sender-initial {
+  width:55px;
+  height:55px;
+  line-height:55px;
+  font-size:24px }
+
+.k-recipient-card-view .preview-header-sender-image {
+  min-height:55px;
+  width:55px }
 
 .contact-characterstrip .x-btn-pressed .x-btn-small {
   background-color: #d5e8f7; }

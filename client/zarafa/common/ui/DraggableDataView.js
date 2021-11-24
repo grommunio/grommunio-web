@@ -9,46 +9,46 @@ Zarafa.common.ui.DraggableDataView = Ext.extend(Ext.DataView, {
 	/**
 	 * @cfg {String} ddGroup The DD group this DataView belongs to. Defaults to 'DataDD' if not specified.
 	 */
-	ddGroup : undefined,
+	ddGroup: undefined,
 
 	/**
 	 * @cfg {Boolean} enableDragDrop Enables dragging of the selected utems of the DataView. Defaults to false.
 	 */
-	enableDragDrop : false,
+	enableDragDrop: false,
 
 	/**
 	 * @cfg {Boolean} enableDrop true to enable just drag
 	 */
-	enableDrop : false,
+	enableDrop: false,
 
 	/**
 	 * The dropZone used by this tree if drop is enabled (see {@link #enableDrop})
 	 * @property
 	 * @type Ext.dd.DropZone
 	 */
-	dropZone : undefined,
+	dropZone: undefined,
 
 	/**
 	 * @cfg {Object} dropConfig Custom config to pass to the {@link Ext.dd.DropZone} instance
 	 */
-	dropConfig : undefined,
+	dropConfig: undefined,
 
 	/**
 	 * @cfg {Boolean} enableDrop true to enable just drag
 	 */
-	enableDrag : false,
+	enableDrag: false,
 
 	/**
 	 * The dragZone used by this tree if drag is enabled (see {@link #enableDrag})
 	 * @property
 	 * @type Ext.dd.DragZone
 	 */
-	dragZone : undefined,
+	dragZone: undefined,
 
 	/**
 	 * @cfg {Object} dragConfig Custom config to pass to the {@link Ext.dd.DragZone} instance
 	 */
-	dragConfig : undefined,
+	dragConfig: undefined,
 
 	/**
 	 * We are creating this element as div element, to render template within this element.
@@ -56,19 +56,19 @@ Zarafa.common.ui.DraggableDataView = Ext.extend(Ext.DataView, {
 	 * @type Ext.Element
 	 * @private
 	 */
-	templateEl : undefined,
+	templateEl: undefined,
 
 	/**
 	 * @constructor
 	 * @param {Object} config configuration object.
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		config = config || {};
 
 		config.plugins = Ext.value(config.plugins, []);
 		config.plugins.push({
-			ptype : 'zarafa.enablefocusplugin'
+			ptype: 'zarafa.enablefocusplugin'
 		});
 
 		Zarafa.common.ui.DraggableDataView.superclass.constructor.call(this, config);
@@ -76,28 +76,28 @@ Zarafa.common.ui.DraggableDataView = Ext.extend(Ext.DataView, {
 
 	/**
 	 * Called during rendering of the DataView. When {@link #enableDD Drag & Drop} has
-	 * been enabled. This will initalize the {@link #dropZone} and {@link #dragZone}
+	 * been enabled. This will initialize the {@link #dropZone} and {@link #dragZone}
 	 * to enable drag & drop for this view.
 	 * @private
 	 */
-	onRender : function()
+	onRender: function()
 	{
 		Zarafa.common.ui.DraggableDataView.superclass.onRender.apply(this, arguments);
 
-		/* 
+		/*
 		 * We are using 'zarafa.enablefocusplugin' plugin with this view, the plugin adds
 		 * anchor element within component's {@link #el element}, Dataview also renders its
-		 * template inside {@link #el element}. So whenever data is changed, dataview 
+		 * template inside {@link #el element}. So whenever data is changed, dataview
 		 * recreates the {@link #el element} so anchor tag added by the plugin will be removeed,
 		 * so here we are creating new templateEl inside {@link #el element} as a child in which
 		 * data view will render its template.
 		 */
 		var element = this.getEl();
-		this.templateEl = element.createChild({ tag : this.autoEl });
+		this.templateEl = element.createChild({ tag: this.autoEl });
 
 		if ((this.enableDragDrop || this.enableDrop) && !this.dropZone) {
 			this.dropZone = new Ext.dd.DropZone(this.getEl(), this.dropConfig || {
-				ddGroup : this.ddGroup || 'DataDD'
+				ddGroup: this.ddGroup || 'DataDD'
 			});
 		}
 
@@ -105,7 +105,7 @@ Zarafa.common.ui.DraggableDataView = Ext.extend(Ext.DataView, {
 		// from a DataView into the hierarchy.
 		if ((this.enableDragDrop || this.enableDrag) && !this.dragZone) {
 			this.dragZone = new Zarafa.common.ui.DataDragZone(this, this.dragConfig || {
-				ddGroup : this.ddGroup || 'DataDD'
+				ddGroup: this.ddGroup || 'DataDD'
 			});
 		}
 	},
@@ -143,7 +143,7 @@ Zarafa.common.ui.DraggableDataView = Ext.extend(Ext.DataView, {
 	 * This will use 'ngettext' to return a properly formatted plural sentence.
 	 * @return {String} The text
 	 */
-	getDragDropText : function()
+	getDragDropText: function()
 	{
 		var count = this.getSelectionCount();
 		return String.format(ngettext('{0} selected item', '{0} selected items', count), count);
@@ -158,11 +158,12 @@ Zarafa.common.ui.DraggableDataView = Ext.extend(Ext.DataView, {
 	 * @param {Ext.EventObject} eventObj The raw event object
 	 * @param {Ext.Element} parentCt The element on which paging slider should show.
 	 */
-	onMouseEnter : function(EventObjImpl, node, eventObj ,parentCt)
+	onMouseEnter: function(EventObjImpl, node, eventObj ,parentCt)
 	{
 		container.getNotifier().notify('pagination.paging', undefined, undefined,{
-			parentEl : !Ext.isEmpty(parentCt) ? parentCt : this.getEl(),
-			model : this.model
+			parentEl: !Ext.isEmpty(parentCt) ? parentCt : this.getEl(),
+			model: this.model,
+			store: this.store
 		});
 	},
 
@@ -170,10 +171,10 @@ Zarafa.common.ui.DraggableDataView = Ext.extend(Ext.DataView, {
 	 * Event handler which triggered when mouse leaves the {@link Ext.DataView}
 	 * It will destroy the slider from bottom-center of {@link Ext.DataView}.
 	 */
-	onMouseLeave : function()
+	onMouseLeave: function()
 	{
 		container.getNotifier().notify('pagination.paging', undefined, undefined,{
-			destroy : true
+			destroy: true
 		});
 	}
 });

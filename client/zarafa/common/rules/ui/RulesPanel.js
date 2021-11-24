@@ -10,13 +10,13 @@ Zarafa.common.rules.ui.RulesPanel = Ext.extend(Ext.Container, {
 	/**
 	 * @cfg {Zarafa.common.rules.data.RulesStore} store store to use for loading rules
 	 */
-	store : undefined,
+	store: undefined,
 
 	/**
 	 * @constructor
 	 * @param config Configuration structure
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		config = config || {};
 
@@ -28,10 +28,10 @@ Zarafa.common.rules.ui.RulesPanel = Ext.extend(Ext.Container, {
 
 		Ext.applyIf(config, {
 			// Override from Ext.Component
-			xtype : 'zarafa.rulespanel',
-			border : false,
-			layout : 'fit',
-			items : this.createPanelItems(config)
+			xtype: 'zarafa.rulespanel',
+			border: false,
+			layout: 'fit',
+			items: this.createPanelItems(config)
 		});
 
 		Zarafa.common.rules.ui.RulesPanel.superclass.constructor.call(this, config);
@@ -43,7 +43,7 @@ Zarafa.common.rules.ui.RulesPanel = Ext.extend(Ext.Container, {
 	 * @return {Object} array which contains the jsonstore.
 	 * @private
 	 */
-	createComboboxStore : function()
+	createComboboxStore: function()
 	{
 		var hierarchyStore = container.getHierarchyStore();
 		var data = [{name: _('myself'), value: hierarchyStore.getDefaultStore().get('store_entryid') }];
@@ -87,7 +87,7 @@ Zarafa.common.rules.ui.RulesPanel = Ext.extend(Ext.Container, {
 	 * @return {Array} array of items that should be added to panel.
 	 * @private
 	 */
-	createPanelItems : function(config)
+	createPanelItems: function(config)
 	{
 		var items = [];
 		// Only create the combolist when the setting is enabled in config.php
@@ -122,20 +122,20 @@ Zarafa.common.rules.ui.RulesPanel = Ext.extend(Ext.Container, {
 		}
 
 		items.push({
-			xtype : 'zarafa.rulesgrid',
-			ref : '../rulesGrid',
-			flex : 1,
-			store : config.store
+			xtype: 'zarafa.rulesgrid',
+			ref: '../rulesGrid',
+			flex: 1,
+			store: config.store
 		});
 
 		return [{
-			xtype : 'container',
-			layout : {
-				type : 'vbox',
-				align : 'stretch',
-				pack  : 'start'
+			xtype: 'container',
+			layout: {
+				type: 'vbox',
+				align: 'stretch',
+				pack: 'start'
 			},
-			items : items
+			items: items
 		}];
 	},
 
@@ -153,7 +153,7 @@ Zarafa.common.rules.ui.RulesPanel = Ext.extend(Ext.Container, {
 	 * @return {Mixed} False if there are pending changes. The selecting will then be
 	 * handled by {#applyChanges}. Undefined otherwise.
 	 */
-	onBeforeUserSelect : function(field, record, index)
+	onBeforeUserSelect: function(field, record, index)
 	{
 		var context = container.getContextByName('settings');
 		var model = context.getModel();
@@ -177,7 +177,7 @@ Zarafa.common.rules.ui.RulesPanel = Ext.extend(Ext.Container, {
 	 *
 	 * @param {Ext.form.ComboBox} field The combobox which was selected
 	 */
-	onUserSelect : function(field)
+	onUserSelect: function(field)
 	{
 		this.loadUserStore(field.getValue());
 	},
@@ -190,7 +190,7 @@ Zarafa.common.rules.ui.RulesPanel = Ext.extend(Ext.Container, {
 	 * @param {Zarafa.settings.SettingsContextModel} model the settings model
 	 * @param {Ext.form.ComboBox} field the user selection combobox.
 	 */
-	applyChanges : function(btn, model, field, record)
+	applyChanges: function(btn, model, field, record)
 	{
 		// The user cancels the switch to a different category
 		if (btn === 'cancel') {
@@ -216,7 +216,7 @@ Zarafa.common.rules.ui.RulesPanel = Ext.extend(Ext.Container, {
 	 *
 	 * @param {String} entryId the netryid of the store to be used for reading and writing the rules.
 	 */
-	loadUserStore : function(entryId)
+	loadUserStore: function(entryId)
 	{
 		this.store.storeEntryId = entryId;
 		this.store.load();
@@ -225,7 +225,7 @@ Zarafa.common.rules.ui.RulesPanel = Ext.extend(Ext.Container, {
 	/**
 	 * Function will be used to reload data in the {@link Zarafa.common.rules.data.RulesStore RulesStore}.
 	 */
-	discardChanges : function()
+	discardChanges: function()
 	{
 		this.store.load();
 	},
@@ -233,7 +233,7 @@ Zarafa.common.rules.ui.RulesPanel = Ext.extend(Ext.Container, {
 	/**
 	 * Function will be used to save changes in the {@link Zarafa.common.rules.data.RulesStore RulesStore}.
 	 */
-	saveChanges : function()
+	saveChanges: function()
 	{
 		this.store.save();
 	}

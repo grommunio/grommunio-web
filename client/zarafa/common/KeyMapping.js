@@ -39,9 +39,9 @@ Zarafa.common.KeyMapping = Ext.extend(Object, {
 			stopEvent: true,
 			handler: this.onSwitchContexts,
 			scope: this,
-			settingsCfg : {
-				description : _('Switch between different contexts e.g. inbox, calendar, etc.'),
-				category : _('Basic navigation')
+			settingsCfg: {
+				description: _('Switch between different contexts e.g. inbox, calendar, etc.'),
+				category: _('Basic navigation')
 			}
 		}];
 
@@ -53,9 +53,9 @@ Zarafa.common.KeyMapping = Ext.extend(Object, {
 			stopEvent: true,
 			handler: this.onSwitchViews,
 			scope: this,
-			settingsCfg : {
-				description : _('Switch between different views'),
-				category : _('Basic navigation')
+			settingsCfg: {
+				description: _('Switch between different views'),
+				category: _('Basic navigation')
 			}
 		},{
 			key: Ext.EventObject.N,
@@ -65,9 +65,9 @@ Zarafa.common.KeyMapping = Ext.extend(Object, {
 			stopEvent: true,
 			handler: this.onNewItem,
 			scope: this,
-			settingsCfg : {
-				description : _('New item'),
-				category : _('Creating an item')
+			settingsCfg: {
+				description: _('New item'),
+				category: _('Creating an item')
 			}
 		},{
 			key: Ext.EventObject.F5,
@@ -77,9 +77,9 @@ Zarafa.common.KeyMapping = Ext.extend(Object, {
 			stopEvent: true,
 			handler: this.onRefresh,
 			scope: this,
-			settingsCfg : {
-				description : _('Refresh'),
-				category : _('All views')
+			settingsCfg: {
+				description: _('Refresh'),
+				category: _('All views')
 			},
 			basic: true
 		}];
@@ -92,9 +92,9 @@ Zarafa.common.KeyMapping = Ext.extend(Object, {
 			stopEvent: true,
 			handler: this.onCloseCurrentMainContentTab,
 			scope: this,
-			settingsCfg : {
-				description : _('Close tab'),
-				category : _('Basic navigation')
+			settingsCfg: {
+				description: _('Close tab'),
+				category: _('Basic navigation')
 			}
 		}];
 
@@ -107,9 +107,9 @@ Zarafa.common.KeyMapping = Ext.extend(Object, {
 			stopEvent: true,
 			handler: this.onPrintItem,
 			scope: this,
-			settingsCfg : {
-				description : _('Print item'),
-				category : _('Items')
+			settingsCfg: {
+				description: _('Print item'),
+				category: _('Items')
 			},
 			basic: true
 		}];
@@ -123,9 +123,9 @@ Zarafa.common.KeyMapping = Ext.extend(Object, {
 			stopEvent: true,
 			handler: this.onSaveTabItem,
 			scope: this,
-			settingsCfg : {
-				description : _('Save an item e.g. mail, contact, etc.'),
-				category : _('Items')
+			settingsCfg: {
+				description: _('Save an item e.g. mail, contact, etc.'),
+				category: _('Items')
 			},
 			basic: true
 		}];
@@ -138,9 +138,9 @@ Zarafa.common.KeyMapping = Ext.extend(Object, {
 			stopEvent: true,
 			handler: this.onSendTabItem,
 			scope: this,
-			settingsCfg : {
-				description : _('Send an item e.g. mail, meeting request, etc.'),
-				category : _('Items')
+			settingsCfg: {
+				description: _('Send an item e.g. mail, meeting request, etc.'),
+				category: _('Items')
 			},
 			basic: true
 		}];
@@ -154,12 +154,12 @@ Zarafa.common.KeyMapping = Ext.extend(Object, {
 			stopEvent: true,
 			// enable this key combination globally because we will be having a different
 			// key binding to disable ctrl + a in global scope
-			enableGlobally : true,
+			enableGlobally: true,
 			handler: this.onSelectAll,
 			scope: this,
-			settingsCfg : {
-				description : _('Select all items'),
-				category : _('All views')
+			settingsCfg: {
+				description: _('Select all items'),
+				category: _('All views')
 			},
 			basic: true
 		},{
@@ -169,9 +169,9 @@ Zarafa.common.KeyMapping = Ext.extend(Object, {
 			shift: true,
 			handler: this.onSelectUpDown,
 			scope: this,
-			settingsCfg : {
-				description : _('Extend the selection to the first item in the list'),
-				category : _('All views')
+			settingsCfg: {
+				description: _('Extend the selection to the first item in the list'),
+				category: _('All views')
 			}
 		},{
 			key: Ext.EventObject.END,
@@ -180,9 +180,9 @@ Zarafa.common.KeyMapping = Ext.extend(Object, {
 			shift: true,
 			handler: this.onSelectUpDown,
 			scope: this,
-			settingsCfg : {
-				description : _('Extend the selection to the last item in the list'),
-				category : _('All views')
+			settingsCfg: {
+				description: _('Extend the selection to the last item in the list'),
+				category: _('All views')
 			}
 		}];
 
@@ -192,12 +192,12 @@ Zarafa.common.KeyMapping = Ext.extend(Object, {
 			alt: false,
 			shift: false,
 			stopEvent: true,
-			enableGlobally : true,
+			enableGlobally: true,
 			handler: this.onOpenItem,
 			scope: this,
-			settingsCfg : {
-				description : _('Open selected item'),
-				category : _('All views')
+			settingsCfg: {
+				description: _('Open selected item'),
+				category: _('All views')
 			},
 			basic: true
 		},{
@@ -208,9 +208,9 @@ Zarafa.common.KeyMapping = Ext.extend(Object, {
 			stopEvent: true,
 			handler: this.onCategorize,
 			scope: this,
-			settingsCfg : {
-				description : _('Open dialog to categorize selected item'),
-				category : _('All views')
+			settingsCfg: {
+				description: _('Open dialog to categorize selected item'),
+				category: _('All views')
 			}
 		},{
 			key: Ext.EventObject.P,
@@ -221,9 +221,9 @@ Zarafa.common.KeyMapping = Ext.extend(Object, {
 			stopEvent: true,
 			handler: this.onPrintList,
 			scope: this,
-			settingsCfg : {
-				description : _('Print list'),
-				category : _('All views')
+			settingsCfg: {
+				description: _('Print list'),
+				category: _('All views')
 			}
 		},{
 			key: Ext.EventObject.P,
@@ -234,9 +234,9 @@ Zarafa.common.KeyMapping = Ext.extend(Object, {
 			stopEvent: true,
 			handler: this.onPrintListItem,
 			scope: this,
-			settingsCfg : {
-				description : _('Print selected item'),
-				category : _('All views')
+			settingsCfg: {
+				description: _('Print selected item'),
+				category: _('All views')
 			},
 			basic: true
 		},{
@@ -247,9 +247,9 @@ Zarafa.common.KeyMapping = Ext.extend(Object, {
 			stopEvent: true,
 			handler: this.onMoveItem,
 			scope: this,
-			settingsCfg : {
-				description : _('Open copy/move dialog'),
-				category : _('All views')
+			settingsCfg: {
+				description: _('Open copy/move dialog'),
+				category: _('All views')
 			}
 		},{
 			key: Ext.EventObject.DELETE,
@@ -257,12 +257,12 @@ Zarafa.common.KeyMapping = Ext.extend(Object, {
 			alt: false,
 			shift: false,
 			stopEvent: true,
-			enableGlobally : true,
+			enableGlobally: true,
 			handler: this.onDeleteItem,
 			scope: this,
-			settingsCfg : {
-				description : _('Delete selected item'),
-				category : _('All views')
+			settingsCfg: {
+				description: _('Delete selected item'),
+				category: _('All views')
 			},
 			basic: true
 		},{
@@ -271,12 +271,12 @@ Zarafa.common.KeyMapping = Ext.extend(Object, {
 			alt: false,
 			shift: true,
 			stopEvent: true,
-			enableGlobally : true,
+			enableGlobally: true,
 			handler: this.onSoftDeleteItem,
 			scope: this,
-			settingsCfg : {
-				description : _('Delete selected item without moving it to the Deleted Items folder. The deleted item can still be restored.'),
-				category : _('All views')
+			settingsCfg: {
+				description: _('Delete selected item without moving it to the Deleted Items folder. The deleted item can still be restored.'),
+				category: _('All views')
 			},
 			basic: true
 		}];
@@ -356,7 +356,7 @@ Zarafa.common.KeyMapping = Ext.extend(Object, {
 		var mainTabBar = container.getMainPanel().mainTabBar;
 		var item, items = mainTabBar.find('type', 'button');
 		item = items[itemNumber];
-		
+
 		if(item && item.handler && item.handler !== mainTabBar.onLogoutButton){
 			item.handler.call(item.scope || item);
 		}
@@ -416,7 +416,7 @@ Zarafa.common.KeyMapping = Ext.extend(Object, {
 	},
 
 	/**
-	 * Event handler for the keydown event of the {@link Zarafa.core.KeyMap KeyMap} 
+	 * Event handler for the keydown event of the {@link Zarafa.core.KeyMap KeyMap}
 	 * when the user wants to save the item that is open in the
 	 * {@link Zarafa.core.ui.RecordContentPanel RecordContentPanel}.
 	 * @param {Number} key Key code
@@ -468,7 +468,7 @@ Zarafa.common.KeyMapping = Ext.extend(Object, {
 	 * @return {Ext.data.Record[]} The records which are selected int the view.
 	 * @private
 	 */
-	getSelectedRecords : function (component)
+	getSelectedRecords: function (component)
 	{
 		if(Ext.isFunction(component.getSelectedRecords)) {
 			return component.getSelectedRecords();

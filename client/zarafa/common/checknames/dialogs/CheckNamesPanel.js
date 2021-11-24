@@ -11,33 +11,33 @@ Zarafa.common.checknames.dialogs.CheckNamesPanel = Ext.extend(Ext.Panel, {
 	 * @property
 	 * @type Ext.list.ListView
 	 */
-	checkNamesList : undefined,
+	checkNamesList: undefined,
 
 	/**
 	 * @cfg {Ext.data.JsonStore} store The store containing all suggestions
 	 */
-	store : undefined,
+	store: undefined,
 
 	/**
 	 * @constructor
 	 * @param config Configuration structure
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		config = config || {};
 
 		// Prepare the suggestion store
 		if (!Ext.isDefined(config.store)) {
 			config.store = new Ext.data.JsonStore({
-				autoDestroy : true,
-				idProperty : 'smtp_address',
-				fields : Zarafa.core.data.IPMRecipientResolveRecord,
-				data : []
+				autoDestroy: true,
+				idProperty: 'smtp_address',
+				fields: Zarafa.core.data.IPMRecipientResolveRecord,
+				data: []
 			});
 		}
 
 		Ext.applyIf(config, {
-			xtype : 'zarafa.checknamespanel',
+			xtype: 'zarafa.checknamespanel',
 			layout: {
 				type: 'vbox',
 				align: 'stretch'
@@ -47,31 +47,31 @@ Zarafa.common.checknames.dialogs.CheckNamesPanel = Ext.extend(Ext.Panel, {
 			items: [{
 				xtype: 'displayfield',
 				value: _('Select an address to use') + ':',
-				hideLabel : true
+				hideLabel: true
 			},{
-				xtype : 'grid',
-				ref : 'checkNamesList',
+				xtype: 'grid',
+				ref: 'checkNamesList',
 				flex: 1,
-				store : config.store,
-				viewConfig : {
-					forceFit : true
+				store: config.store,
+				viewConfig: {
+					forceFit: true
 				},
 				columns: [{
 					dataIndex: 'display_name',
 					header: _('Name'),
-					renderer : Ext.util.Format.htmlEncode
+					renderer: Ext.util.Format.htmlEncode
 				},{
 					dataIndex: 'smtp_address',
 					header: _('Email'),
-					renderer : Ext.util.Format.htmlEncode
+					renderer: Ext.util.Format.htmlEncode
 				}],
-				listeners : {
-					scope : this,
-					viewready : this.onViewReady,
-					dblclick : this.onDblClick
+				listeners: {
+					scope: this,
+					viewready: this.onViewReady,
+					dblclick: this.onDblClick
 				},
-				selModel : new Ext.grid.RowSelectionModel({
-					singleSelect : true
+				selModel: new Ext.grid.RowSelectionModel({
+					singleSelect: true
 				}),
 				cls: 'zarafa-checknames-dialog-filelist'
 			}]
@@ -88,7 +88,7 @@ Zarafa.common.checknames.dialogs.CheckNamesPanel = Ext.extend(Ext.Panel, {
 	 * @param {Array} data The {@link Zarafa.core.data.IPMRecipientResolveRecord ChecknamesRecord suggestions}
 	 * which exist for the given record.
 	 */
-	update : function(record, data)
+	update: function(record, data)
 	{
 		this.setTitle(String.format(_('More than one \'{0}\' found.'), Ext.util.Format.htmlEncode(record.get('display_name'))));
 		this.store.add(data || []);
@@ -111,14 +111,14 @@ Zarafa.common.checknames.dialogs.CheckNamesPanel = Ext.extend(Ext.Panel, {
 	 * @param Zarafa.core.data.IPMRecipientRecord} record The record which must be updated
 	 * @return {Boolean} False if the record could not be updated.
 	 */
-	updateRecord : function(record)
+	updateRecord: function(record)
 	{
 		var selection = this.checkNamesList.getSelectionModel().getSelected();
 
 		if (Ext.isEmpty(selection)) {
 			Ext.Msg.alert(_('Alert'), _('Please select a recipient'));
 			return false;
-		} else {	
+		} else {
 			record.applyResolveRecord(selection);
 		}
 	},
@@ -128,7 +128,7 @@ Zarafa.common.checknames.dialogs.CheckNamesPanel = Ext.extend(Ext.Panel, {
 	 * has been double-clicked.
 	 * @private
 	 */
-	onDblClick : function()
+	onDblClick: function()
 	{
 		this.dialog.onOk();
 	}

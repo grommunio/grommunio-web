@@ -27,7 +27,7 @@ Zarafa.contact.ui.ContactContextMenu = Ext.extend(Zarafa.core.ui.menu.Conditiona
 	 * @constructor
 	 * @param {Object} config Configuration object
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		config = config || {};
 
@@ -36,17 +36,17 @@ Zarafa.contact.ui.ContactContextMenu = Ext.extend(Zarafa.core.ui.menu.Conditiona
 		}
 
 		Ext.applyIf(config, {
-			items : [
+			items: [
 				this.createContextActionItems(config.records),
-				{ xtype : 'menuseparator' },
+				{ xtype: 'menuseparator' },
 				container.populateInsertionPoint('context.contact.contextmenu.actions', this),
 				this.createContextExportItems(config),
-				{ xtype : 'menuseparator' },
+				{ xtype: 'menuseparator' },
 				container.populateInsertionPoint('context.contact.contextmenu.options', this)
 			],
-			defaults : {
+			defaults: {
 				xtype: 'zarafa.conditionalitem',
-				hideOnDisabled : false
+				hideOnDisabled: false
 			}
 		});
 
@@ -59,31 +59,31 @@ Zarafa.contact.ui.ContactContextMenu = Ext.extend(Zarafa.core.ui.menu.Conditiona
 	 * @return {Zarafa.core.ui.menu.ConditionalItem[]} The list of Action context menu items
 	 * @private
 	 */
-	createContextActionItems : function(records)
+	createContextActionItems: function(records)
 	{
 		return [{
-			text : _('Open'),
-			iconCls : 'icon_open',
-			scope : this,
-			handler : this.onContextItemOpen,
-			singleSelectOnly : true
+			text: _('Open'),
+			iconCls: 'icon_open',
+			scope: this,
+			handler: this.onContextItemOpen,
+			singleSelectOnly: true
 		}, {
-			text : _('Copy/Move'),
-			iconCls : 'icon_copy',
-			scope : this,
-			handler : this.onCopyMove
+			text: _('Copy/Move'),
+			iconCls: 'icon_copy',
+			scope: this,
+			handler: this.onCopyMove
 		}, {
-			text : _('Print'),
-			iconCls : 'icon_print',
-			scope : this,
-			handler : this.onContextItemPrint,
-			singleSelectOnly : true
+			text: _('Print'),
+			iconCls: 'icon_print',
+			scope: this,
+			handler: this.onContextItemPrint,
+			singleSelectOnly: true
 		}, {
 			xtype: 'menuseparator'
 		}, {
-			text : _('Categories'),
+			text: _('Categories'),
 			cls: 'k-unclickable',
-			iconCls : 'icon_categories',
+			iconCls: 'icon_categories',
 			hideOnClick: false,
 			menu: {
 				xtype: 'zarafa.categoriescontextmenu',
@@ -92,10 +92,10 @@ Zarafa.contact.ui.ContactContextMenu = Ext.extend(Zarafa.core.ui.menu.Conditiona
 		}, {
 			xtype: 'menuseparator'
 		}, {
-			text : _('Delete'),
-			iconCls : 'icon_delete',
-			scope : this,
-			handler : this.onContextItemDelete
+			text: _('Delete'),
+			iconCls: 'icon_delete',
+			scope: this,
+			handler: this.onContextItemDelete
 		}];
 	},
 
@@ -104,7 +104,7 @@ Zarafa.contact.ui.ContactContextMenu = Ext.extend(Zarafa.core.ui.menu.Conditiona
 	 * @param {Object} config Configuration object
 	 * @return {Object} The Export context menu item
 	 */
-	createContextExportItems : function(config)
+	createContextExportItems: function(config)
 	{
 		return [{
 			text: _('Export as'),
@@ -123,7 +123,7 @@ Zarafa.contact.ui.ContactContextMenu = Ext.extend(Zarafa.core.ui.menu.Conditiona
 	 * or moving the currently selected contacts.
 	 * @private
 	 */
-	onCopyMove : function()
+	onCopyMove: function()
 	{
 		Zarafa.common.Actions.openCopyMoveContent(this.records);
 	},
@@ -133,7 +133,7 @@ Zarafa.contact.ui.ContactContextMenu = Ext.extend(Zarafa.core.ui.menu.Conditiona
 	 * item in the context menu. This will open the item in a new dialog.
 	 * @private
 	 */
-	onContextItemOpen : function()
+	onContextItemOpen: function()
 	{
 		Zarafa.contact.Actions.openDialog(this.records);
 	},
@@ -143,7 +143,7 @@ Zarafa.contact.ui.ContactContextMenu = Ext.extend(Zarafa.core.ui.menu.Conditiona
 	 * item in the context menu. This will open the print dialog.
 	 * @private
 	 */
-	onContextItemPrint : function()
+	onContextItemPrint: function()
 	{
 		Zarafa.common.Actions.openPrintDialog(this.records);
 	},
@@ -153,7 +153,7 @@ Zarafa.contact.ui.ContactContextMenu = Ext.extend(Zarafa.core.ui.menu.Conditiona
 	 * item in the context menu. This will open {@link Zarafa.common.categories.dialogs.CategoriesContentPanel CategoriesContentPanel}.
 	 * @private
 	 */
-	onContextItemCategories : function()
+	onContextItemCategories: function()
 	{
 		Zarafa.common.Actions.openCategoriesContent(this.records);
 	},
@@ -163,16 +163,9 @@ Zarafa.contact.ui.ContactContextMenu = Ext.extend(Zarafa.core.ui.menu.Conditiona
 	 * item in the context menu. This will delete selected contacts from view.
 	 * @private
 	 */
-	onContextItemDelete : function()
+	onContextItemDelete: function()
 	{
-		var store;
-
-		Ext.each(this.records, function(record) {
-			store = record.store;
-			store.remove(record);
-		});
-
-		store.save(this.records);
+		Zarafa.common.Actions.deleteRecords(this.records);
 	}
 });
 

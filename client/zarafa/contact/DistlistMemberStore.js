@@ -15,22 +15,22 @@ Zarafa.contact.DistlistMemberStore = Ext.extend(Zarafa.core.data.MAPISubStore, {
 	 * which represents the {@link Ext.data.Record records} which should be created using
 	 * {@link Zarafa.core.data.RecordFactory#createRecordObjectByCustomType}.
 	 */
-	customObjectType : Zarafa.core.data.RecordCustomObjectType.ZARAFA_DISTLIST_MEMBER,
+	customObjectType: Zarafa.core.data.RecordCustomObjectType.ZARAFA_DISTLIST_MEMBER,
 
 	/**
 	 * @constructor
 	 * @param config Configuration object
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		config = config || {};
 
 		Ext.applyIf(config, {
 			// provide a default writer
-			writer : new Zarafa.contact.data.JsonMemberWriter(),
+			writer: new Zarafa.contact.data.JsonMemberWriter(),
 			// provide a default reader
-			reader : new Zarafa.contact.data.JsonMemberReader({
-				customObjectType : config.customObjectType || this.customObjectType	
+			reader: new Zarafa.contact.data.JsonMemberReader({
+				customObjectType: config.customObjectType || this.customObjectType
 			})
 		});
 
@@ -42,7 +42,7 @@ Zarafa.contact.DistlistMemberStore = Ext.extend(Zarafa.core.data.MAPISubStore, {
 	 * @param {String} str The string to parse
 	 * @return {Zarafa.contact.DistlistMemberRecord} The created member
 	 */
-	parseMember : function(str)
+	parseMember: function(str)
 	{
 		var member = Zarafa.core.data.RecordFactory.createRecordObjectByCustomType(this.customObjectType);
 		var mailStart = str.indexOf('<');

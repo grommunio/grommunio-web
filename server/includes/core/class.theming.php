@@ -52,7 +52,7 @@ class Theming
 
 		return $themes;
 	}
-	
+
 	/**
 	 * Returns the name of the active theme if one was found, and false otherwise.
 	 * The active theme can be set by the admin in the config.php, or by
@@ -65,23 +65,24 @@ class Theming
 
 		// First check if a theme was set by this user in his settings
 		if ( WebAppAuthentication::isAuthenticated() ){
-			$theme = $GLOBALS['settings']->get('zarafa/v1/main/active_theme');
-
+			if (ENABLE_THEMES === false) {
+				$theme = THEME !== "" ? THEME : 'basic';
+			} else {
+				$theme = $GLOBALS['settings']->get('zarafa/v1/main/active_theme');
+			}
+						
 			// If a theme was found, check if the theme is still installed
 			// Remember that 'basic' is not a real theme, but the name for the default look of WebApp
-			// 'custom' theme is a theme defined by domain admin
 			// Note 1: We will first try to find the a core theme with this name, only
 			// when we don't find one, we will try to find a theme plugin.
 			// Note 2: we do not use the pluginExists method of the PluginManager, because that
 			// would not find packs with multiple plugins in it. So instead we just check if
 			// the directory exists.
-			if ((!$theme || $theme === 'custom') && isset($_COOKIE['domainname']) &&
-				is_dir(BASE_PATH  . APPDATA_DIR . '/' .$_COOKIE['domainname'] . '/kopano-webapp/theme')) {
-				return 'custom';
-			}
-			if (isset($theme) && !empty($theme) && $theme!=='basic'
+			if (
+				isset($theme) && !empty($theme) && $theme!=='basic'
 				&& !is_dir($themePath . '/' . $theme)
-				&& !is_dir(BASE_PATH . PATH_PLUGIN_DIR . '/' . $theme)) {
+				&& !is_dir(BASE_PATH . PATH_PLUGIN_DIR . '/' . $theme)
+			){
 				$theme = false;
 			}
 		}
@@ -100,14 +101,7 @@ class Theming
 
 		return $theme;
 	}
-	
-	public static function getCustomTheme() {
-		if (isset($_COOKIE['domainname']) && is_dir(BASE_PATH . APPDATA_DIR . '/' .$_COOKIE['domainname'] . '/kopano-webapp/theme')) {
-			return true;
-		}
-		return false;
-	}
-	
+
 	/**
 	 * Returns the path to the favicon if included with the theme. If found the
 	 * path to it will be returned. Otherwise false.
@@ -116,11 +110,6 @@ class Theming
 	 * 	 * @return String|Boolean
 	 */
 	public static function getFavicon($theme) {
-		if ((empty($theme) || $theme === 'custom') && isset($_COOKIE['domainname']) &&
-			is_file(BASE_PATH . APPDATA_DIR . '/' . $_COOKIE['domainname'] . '/' . CUSTOM_THEME_SUBDIR . '/favicon.ico')) {
-			return APPDATA_DIR . '/' . $_COOKIE['domainname'] . '/' . CUSTOM_THEME_SUBDIR . '/favicon.ico';
-		}
-		
 		$themePath = constant('THEME_PATH_' . DEBUG_LOADER);
 
 		// First check if we can find a core theme with this name
@@ -149,7 +138,7 @@ class Theming
 	public static function getCss($theme) {
 		$themePathCoreThemes = BASE_PATH . constant('THEME_PATH_' . DEBUG_LOADER);
 		$cssFiles = array();
-		
+
 		// First check if this is a core theme, and if it isn't, check if it is a theme plugin
 		if ( $theme && is_dir($themePathCoreThemes . '/' . $theme) ){
 			$themePath = $themePathCoreThemes . '/' . $theme;
@@ -328,15 +317,6 @@ class Theming
 	 */
 	public static function getStyles($theme) {
 		$styles = '';
-		if ((empty($theme) || $theme === 'custom') && isset($_COOKIE['domainname']) &&
-			is_file(BASE_PATH . APPDATA_DIR . '/' . $_COOKIE['domainname'] . '/' . CUSTOM_THEME_SUBDIR . '/css/theme.css')) {
-			$styles .= '<link rel="stylesheet" type="text/css" href="' . APPDATA_DIR . '/' .
-				$_COOKIE['domainname'] . '/' . CUSTOM_THEME_SUBDIR . '/css/theme.css' . '" />' . "\n";
-			if ($theme === 'custom') {
-				return $styles;
-			}
-		}
-		
 		if ( !Theming::isJsonTheme($theme) ) {
 			$css = Theming::getCss($theme);
 			foreach ( $css as $file ){
@@ -559,9 +539,10 @@ class Theming
 			.x-window .x-window-footer .x-toolbar-right-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-over.x-btn-click:not(.zarafa-normal) .x-btn-small,
 			.x-window .x-window-footer .x-toolbar-right-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-over.x-btn-click:not(.zarafa-normal) .x-btn-medium,
 			.x-window .x-window-footer .x-toolbar-right-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-over.x-btn-click:not(.zarafa-normal) .x-btn-large,
-			/* Current day in the calendar */
-			.zarafa-calendar-container-header .zarafa-canvas-header-background .zarafa-styling-element-active,
-			.zarafa-calendar-container-header .zarafa-canvas-header-background .zarafa-styling-element-current-day,
+			/* action button in reminder popout */
+			.k-reminderpanel .x-panel-footer .x-toolbar-right-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn:not(.zarafa-normal) .x-btn-small,
+			.k-reminderpanel .x-panel-footer .x-toolbar-right-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-click:not(.zarafa-normal) .x-btn-small,
+			.k-reminderpanel .x-panel-footer .x-toolbar-right-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-over.x-btn-click:not(.zarafa-normal) .x-btn-small,
 			/* Current day in the calendar */
 			.zarafa-freebusy-panel .x-freebusy-timeline-container .x-freebusy-header .x-freebusy-header-body .x-freebusy-timeline-day.x-freebusy-timeline-day-current,
 			.zarafa-freebusy-panel .x-freebusy-timeline-container .x-freebusy-header .x-freebusy-header-body .x-freebusy-timeline-day.x-freebusy-timeline-day-current table,
@@ -616,6 +597,8 @@ class Theming
 			.x-window .x-window-footer .x-toolbar-right-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-over:not(.zarafa-normal) .x-btn-small,
 			.x-window .x-window-footer .x-toolbar-right-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-over:not(.zarafa-normal) .x-btn-medium,
 			.x-window .x-window-footer .x-toolbar-right-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-over:not(.zarafa-normal) .x-btn-large,
+			/* action button in reminder popout */
+			.k-reminderpanel .x-panel-footer .x-toolbar-right-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-over:not(.zarafa-normal) .x-btn-small,
 			/* The date pickers */
 			.x-date-picker .x-date-mp table tr.x-date-mp-btns td button.x-date-mp-ok:hover {
 				background: {{action-color:hover}} !important;

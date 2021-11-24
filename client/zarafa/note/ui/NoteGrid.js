@@ -15,7 +15,7 @@ Zarafa.note.ui.NoteGrid = Ext.extend(Zarafa.common.ui.grid.MapiMessageGrid, {
 	/**
 	 * @cfg {Zarafa.note.NoteContext} context The context to which this panel belongs
 	 */
-	context : undefined,
+	context: undefined,
 
 	/**
 	 * The {@link Zarafa.note.NoteContextModel} which is obtained from
@@ -24,13 +24,13 @@ Zarafa.note.ui.NoteGrid = Ext.extend(Zarafa.common.ui.grid.MapiMessageGrid, {
 	 * @property
 	 * @type Zarafa.note.NoteContextModel
 	 */
-	model : undefined,
+	model: undefined,
 
 	/**
 	 * @constructor
 	 * @param {Object} config Configuration structure
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		config = config || {};
 
@@ -43,17 +43,17 @@ Zarafa.note.ui.NoteGrid = Ext.extend(Zarafa.common.ui.grid.MapiMessageGrid, {
 		config.store = Ext.StoreMgr.lookup(config.store);
 
 		Ext.applyIf(config, {
-			id			: 'note-gridview',
-			border		: false,
-			autoExpandColumn : 'subject',
-			stateful        : true,
-			statefulRelativeDimensions : false,
-			loadMask	: this.initLoadMask(),
-			viewConfig	: this.initViewConfig(),
-			selModel	: this.initSelectionModel(),
-			colModel	: this.initColumnModel(),
-			enableDragDrop : true,
-			ddGroup : 'dd.mapiitem'
+			id: 'note-gridview',
+			border: false,
+			autoExpandColumn: 'subject',
+			stateful: true,
+			statefulRelativeDimensions: false,
+			loadMask: this.initLoadMask(),
+			viewConfig: this.initViewConfig(),
+			selModel: this.initSelectionModel(),
+			colModel: this.initColumnModel(),
+			enableDragDrop: true,
+			ddGroup: 'dd.mapiitem'
 		});
 
 		Zarafa.note.ui.NoteGrid.superclass.constructor.call(this, config);
@@ -63,7 +63,7 @@ Zarafa.note.ui.NoteGrid = Ext.extend(Zarafa.common.ui.grid.MapiMessageGrid, {
 	 * @return {Object} view config object
 	 * @private
 	 */
-	initViewConfig : function()
+	initViewConfig: function()
 	{
 		return {
 		};
@@ -74,13 +74,13 @@ Zarafa.note.ui.NoteGrid = Ext.extend(Zarafa.common.ui.grid.MapiMessageGrid, {
 	 * @return {Ext.grid.RowSelectionModel} selection model object
 	 * @private
 	 */
-	initSelectionModel : function()
+	initSelectionModel: function()
 	{
 		return new Ext.grid.RowSelectionModel({
-			singleSelect : false,
-			listeners : {
-				scope : this,
-				selectionchange : this.onSelectionChange
+			singleSelect: false,
+			listeners: {
+				scope: this,
+				selectionchange: this.onSelectionChange
 			}
 		});
 	},
@@ -90,7 +90,7 @@ Zarafa.note.ui.NoteGrid = Ext.extend(Zarafa.common.ui.grid.MapiMessageGrid, {
 	 * @return {Ext.grid.ColumnModel} column model object
 	 * @private
 	 */
-	initColumnModel : function()
+	initColumnModel: function()
 	{
 		return new Zarafa.note.ui.NoteGridColumnModel();
 	},
@@ -99,10 +99,10 @@ Zarafa.note.ui.NoteGrid = Ext.extend(Zarafa.common.ui.grid.MapiMessageGrid, {
 	 * @return {Object} loas mask config object
 	 * @private
 	 */
-	initLoadMask : function()
+	initLoadMask: function()
 	{
 		return {
-			msg : _('Loading Notes') + '...'
+			msg: _('Loading Notes') + '...'
 		};
 	},
 
@@ -110,13 +110,13 @@ Zarafa.note.ui.NoteGrid = Ext.extend(Zarafa.common.ui.grid.MapiMessageGrid, {
 	 * initialize events for the grid panel
 	 * @private
 	 */
-	initEvents : function()
+	initEvents: function()
 	{
 		Zarafa.note.ui.NoteGrid.superclass.initEvents.call(this);
 
 		this.on({
 			'rowdblclick': this.onNoteRowDblClick,
-			scope : this
+			scope: this
 		});
 	},
 
@@ -140,7 +140,7 @@ Zarafa.note.ui.NoteGrid = Ext.extend(Zarafa.common.ui.grid.MapiMessageGrid, {
 	 * @param {Ext.grid.RowSelectionModel} selectionModel The selection model used by the grid.
 	 * @private
 	 */
-	onSelectionChange : function(selectionModel)
+	onSelectionChange: function(selectionModel)
 	{
 		this.model.setSelectedRecords(selectionModel.getSelections());
 	}

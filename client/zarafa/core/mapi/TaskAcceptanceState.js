@@ -13,14 +13,14 @@ Zarafa.core.mapi.TaskAcceptanceState = Zarafa.core.Enum.create({
 	 * @property
 	 * @type Number
 	 */
-	'NOT_DELEGATED' : 0 ,
+	'NOT_DELEGATED': 0 ,
 
 	/**
 	 * Denotes that the Task object's acceptance status is unknown.
 	 * @property
 	 * @type Number
 	 */
-	'DELEGATION_UNKNOWN' : 1,
+	'DELEGATION_UNKNOWN': 1,
 
 	/**
 	 * Denotes that the task assignee has accepted the Task object.
@@ -28,7 +28,7 @@ Zarafa.core.mapi.TaskAcceptanceState = Zarafa.core.Enum.create({
 	 * @property
 	 * @type Number
 	 */
-	'DELEGATION_ACCEPTED' : 2,
+	'DELEGATION_ACCEPTED': 2,
 
 	/**
 	 * Denotes that The task assignee has rejected the Task object.
@@ -36,5 +36,5 @@ Zarafa.core.mapi.TaskAcceptanceState = Zarafa.core.Enum.create({
 	 * @property
 	 * @type Number
 	 */
-	'DELEGATION_DECLINED' : 3
+	'DELEGATION_DECLINED': 3
 });

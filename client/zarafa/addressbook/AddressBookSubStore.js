@@ -15,7 +15,7 @@ Zarafa.addressbook.AddressBookSubStore = Ext.extend(Zarafa.addressbook.AddressBo
 	 */
 	parentRecord: null,
 
-	constructor : function(config)
+	constructor: function(config)
 	{
 		config = config || {};
 
@@ -23,8 +23,8 @@ Zarafa.addressbook.AddressBookSubStore = Ext.extend(Zarafa.addressbook.AddressBo
 
 		Ext.applyIf(config, {
 			// provide a default reader
-			reader : new Zarafa.core.data.JsonReader({
-				root : 'item'
+			reader: new Zarafa.core.data.JsonReader({
+				root: 'item'
 			}, recordType)
 		});
 
@@ -35,8 +35,8 @@ Zarafa.addressbook.AddressBookSubStore = Ext.extend(Zarafa.addressbook.AddressBo
 	 * Get the {@link Zarafa.core.data.IPFRecord IPFRecord} that is the parent of this store.
 	 * @return {Zarafa.core.data.IPFRecord} The parent IPFRecord.
 	 */
-	getParentRecord : function()
-	{   
+	getParentRecord: function()
+	{
 		return this.parentRecord;
 	},
 
@@ -44,7 +44,7 @@ Zarafa.addressbook.AddressBookSubStore = Ext.extend(Zarafa.addressbook.AddressBo
 	 * Set the {@link Zarafa.core.data.IPFRecord IPFRecord} that is the parent of this store.
 	 * @param {Zarafa.core.data.IPFRecord} record The parent IPFRecord.
 	 */
-	setParentRecord : function(record)
+	setParentRecord: function(record)
 	{
 		this.parentRecord = record;
 	}

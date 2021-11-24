@@ -34,7 +34,7 @@ $normal-button-bgcolor-hover	: $grey2;
 				display: inline-block;
 			}
 
-			button{
+			button {
 				background-color: transparent;
 				box-sizing: border-box;
 				/* override .x-btn button from ExtJs */
@@ -293,7 +293,7 @@ $normal-button-bgcolor-hover	: $grey2;
 				}
 			}
 		}
-    }
+	}
 
 	/* Drag & Drop icon override, select mail drag to folder hiearchy. */
 	.x-tree-drop-ok-append .x-dd-drop-icon,
@@ -364,6 +364,7 @@ $normal-button-bgcolor-hover	: $grey2;
 
 	.k-hover-card-email-text {
 		padding-right: $padding-medium !important;
+		margin-top: 2px;
 	}
 }
 

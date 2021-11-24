@@ -16,7 +16,7 @@ Zarafa.core.Events = {
 	 * @type Object
 	 * @private
 	 */
-	listeners : {},
+	listeners: {},
 
 	/**
 	 * Register a {@link Ext.util.Observable} instance for the given
@@ -27,7 +27,7 @@ Zarafa.core.Events = {
 	 * @param {Ext.util.Observable} observable The observable to register
 	 * @private
 	 */
-	registerListener : function(field, el, observable)
+	registerListener: function(field, el, observable)
 	{
 		var observables = Zarafa.core.Events.listeners[field.id];
 		if (observables) {
@@ -44,7 +44,7 @@ Zarafa.core.Events = {
 	 * @param {Ext.Element} el The element to which the observable belongs
 	 * @private
 	 */
-	unregisterListener : function(field, el)
+	unregisterListener: function(field, el)
 	{
 		var observables = Zarafa.core.Events.listeners[field.id];
 		if (observables) {
@@ -67,7 +67,7 @@ Zarafa.core.Events = {
 	 * @param {Ext.Element} el The element to which the observable belongs
 	 * @private
 	 */
-	getListener : function(field, el)
+	getListener: function(field, el)
 	{
 		var observables = Zarafa.core.Events.listeners[field.id];
 		if (!observables) {
@@ -102,7 +102,7 @@ Zarafa.core.Events = {
 	 * @param {Object} scope The scope in which the functon will be called (See {@link Ext.util.Observable#on}).
 	 * @param {Object} obj (optional) Additional options (See {@link Ext.util.Observable#on}).
 	 */
-	addPasteEventHandler : function(field, el, fn, scope, obj)
+	addPasteEventHandler: function(field, el, fn, scope, obj)
 	{
 		// Check if this field has already been used to register
 		// an event handler for pasting. If that is not the case
@@ -155,7 +155,7 @@ Zarafa.core.Events = {
 	 * @param {Function} fn The function to unregister
 	 * @param {Object} scope The scope for the function.
 	 */
-	removePasteEventHandler : function(field, el, fn, scope)
+	removePasteEventHandler: function(field, el, fn, scope)
 	{
 		var observable = Zarafa.core.Events.getListener(field, el);
 		if (Ext.isDefined(observable)) {
@@ -179,7 +179,7 @@ Zarafa.core.Events = {
 	 * @param {Ext.EventObject} e The event object which fired the event
 	 * @private
 	 */
-	onPasteKeyUp : function(key, e)
+	onPasteKeyUp: function(key, e)
 	{
 		// There are references online which indicate that Opera doesn't detect
 		// the Ctrl key properly and the keyCode is 0. But Opera 11 seems to
@@ -198,7 +198,7 @@ Zarafa.core.Events = {
 	 *
 	 * @private
 	 */
-	onPaste : function()
+	onPaste: function()
 	{
 		Zarafa.core.Events.onPastePoll.call(this, this.field, this.field.getValue(), 5);
 	},
@@ -217,7 +217,7 @@ Zarafa.core.Events = {
 	 * @param {Number} limit The number of polling tries left
 	 * @private
 	 */
-	onPastePoll : function(field, oldValue, limit)
+	onPastePoll: function(field, oldValue, limit)
 	{
 		if (limit === 0) {
 			return;
@@ -240,7 +240,7 @@ Zarafa.core.Events = {
 	 *
 	 * @private
 	 */
-	onPasteMouseOver : function()
+	onPasteMouseOver: function()
 	{
 		if (this.hasFocus === false) {
 			if (this.originalValue !== this.field.getValue()) {
@@ -260,7 +260,7 @@ Zarafa.core.Events = {
 	 * check if text has been dropped into the editor.
 	 * @private
 	 */
-	onPasteBlur : function()
+	onPasteBlur: function()
 	{
 		this.hasFocus = false;
 		this.originalValue = this.field.getValue();

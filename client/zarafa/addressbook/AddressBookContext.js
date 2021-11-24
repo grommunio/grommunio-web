@@ -9,13 +9,13 @@ Zarafa.addressbook.AddressBookContext = Ext.extend(Zarafa.core.Context, {
 	 * @constructor
 	 * @param config
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		config = config || {};
 
 		Ext.applyIf(config, {
-			hasToolbar : false,
-			hasContentPanel : false
+			hasToolbar: false,
+			hasContentPanel: false
 		});
 
 		Zarafa.addressbook.AddressBookContext.superclass.constructor.call(this, config);
@@ -28,7 +28,7 @@ Zarafa.addressbook.AddressBookContext = Ext.extend(Zarafa.core.Context, {
 
 	/**
 	 * Bid for the type of shared component and the given record.
-	 * This will bid on a dialog.crate or dialog.view for a record with a 
+	 * This will bid on a dialog.crate or dialog.view for a record with a
 	 * message class set to IPM or IPM.Note.
 	 * @param {Zarafa.core.data.SharedComponentType} type Type of component a context can bid for.
 	 * @param {Ext.data.Record} record Optionally passed record.
@@ -57,7 +57,7 @@ Zarafa.addressbook.AddressBookContext = Ext.extend(Zarafa.core.Context, {
 				if (record instanceof Zarafa.addressbook.AddressBookRecord) {
 					var objType = record.get('object_type');
 					var biddableObjectTypes = [
-						Zarafa.core.mapi.ObjectType.MAPI_MAILUSER, 
+						Zarafa.core.mapi.ObjectType.MAPI_MAILUSER,
 						Zarafa.core.mapi.ObjectType.MAPI_DISTLIST,
 						Zarafa.core.mapi.ObjectType.MAPI_ABCONT
 					];
@@ -115,8 +115,8 @@ Zarafa.addressbook.AddressBookContext = Ext.extend(Zarafa.core.Context, {
 
 Zarafa.onReady(function() {
 	container.registerContext(new Zarafa.core.ContextMetaData({
-		name : 'addressbook',
-		allowUserVisible : false,
-		pluginConstructor : Zarafa.addressbook.AddressBookContext
+		name: 'addressbook',
+		allowUserVisible: false,
+		pluginConstructor: Zarafa.addressbook.AddressBookContext
 	}));
 });

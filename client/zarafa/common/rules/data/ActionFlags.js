@@ -11,54 +11,54 @@ Zarafa.common.rules.data.ActionFlags = Zarafa.core.Enum.create({
 	 * @property
 	 * @type Number
 	 */
-	UNKNOWN : -1,
+	UNKNOWN: -1,
 
 	/**
 	 * Indicates that the "Move Message To" action is selected
 	 * @property
 	 * @type Number
 	 */
-	MOVE : 1,
+	MOVE: 1,
 
 	/**
 	 * Indicates that the "Copy Message To" action is selected
 	 * @property
 	 * @type Number
 	 */
-	COPY : 2,
+	COPY: 2,
 
 	/**
 	 * Indicates that the "Move Message to Deleted Items" action is selected
 	 * @property
 	 * @type Number
 	 */
-	DELETE : 3,
+	DELETE: 3,
 
 	/**
 	 * Indicates that the "Redirect Message To" action is selected
 	 * @property
 	 * @type Number
 	 */
-	REDIRECT : 4,
+	REDIRECT: 4,
 
 	/**
 	 * Indicates that the "Forward Message To" action is selected
 	 * @property
 	 * @type Number
 	 */
-	FORWARD : 5,
+	FORWARD: 5,
 
 	/**
 	 * Indicates that the "Forward Message as Attachment To" action is selected
 	 * @property
 	 * @type Number
 	 */
-	FORWARD_ATTACH : 6,
+	FORWARD_ATTACH: 6,
 
 	/**
 	 * Indicates that the "Mark As Read" action is selected
 	 * @property
 	 * @type Number
 	 * */
-	MARK_AS_READ : 7
+	MARK_AS_READ: 7
 });

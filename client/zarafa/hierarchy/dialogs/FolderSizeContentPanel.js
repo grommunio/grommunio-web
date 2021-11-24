@@ -13,27 +13,27 @@ Zarafa.hierarchy.dialogs.FolderSizeContentPanel = Ext.extend(Zarafa.core.ui.Reco
 	 * @constructor
 	 * @param config Configuration structure
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		config = config || {};
 
 		Ext.applyIf(config, {
 			// Override from Ext.Component
-			xtype : 'zarafa.foldersizecontentpanel',
+			xtype: 'zarafa.foldersizecontentpanel',
 			layout: 'fit',
-			title : _('Folder Size'),
-			recordComponentPluginConfig : Ext.applyIf(config.recordComponentPluginConfig || {}, {
-				allowWrite : true,
-				useShadowStore : true
+			title: _('Folder Size'),
+			recordComponentPluginConfig: Ext.applyIf(config.recordComponentPluginConfig || {}, {
+				allowWrite: true,
+				useShadowStore: true
 			}),
-			closeOnSave : true,
+			closeOnSave: true,
 			width: 360,
 			height: 360,
 			items: [{
 				xtype: 'zarafa.foldersizepanel',
-				buttons : [{
-					text : _('Close'),
-					handler : this.close,
+				buttons: [{
+					text: _('Close'),
+					handler: this.close,
 					scope: this
 				}]
 			}]

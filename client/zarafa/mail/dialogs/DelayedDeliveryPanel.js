@@ -25,10 +25,10 @@ Zarafa.mail.dialogs.DelayedDeliveryPanel = Ext.extend(Ext.Panel, {
         config = Ext.applyIf(config, {
             xtype: 'zarafa.delayeddeliverypanel',
             border: false,
-			cls : 'zarafa-delayeddeliverypanel',
+			cls: 'zarafa-delayeddeliverypanel',
             items: [{
                 xtype: 'zarafa.radiospinnerfield',
-				cls : 'zarafa-delayeddeliverypanel-radiospinnerfield',
+				cls: 'zarafa-delayeddeliverypanel-radiospinnerfield',
                 type: 'hours',
                 value: _('hour(s)'),
                 listeners: {
@@ -39,7 +39,7 @@ Zarafa.mail.dialogs.DelayedDeliveryPanel = Ext.extend(Ext.Panel, {
             }, {
                 xtype: 'zarafa.radiospinnerfield',
                 type: 'days',
-				cls : 'zarafa-delayeddeliverypanel-radiospinnerfield',
+				cls: 'zarafa-delayeddeliverypanel-radiospinnerfield',
                 value: _('day(s)'),
                 listeners: {
                     focus: this.onFieldFocus,
@@ -49,7 +49,7 @@ Zarafa.mail.dialogs.DelayedDeliveryPanel = Ext.extend(Ext.Panel, {
             }, {
                 xtype: 'zarafa.radiospinnerfield',
                 type: 'months',
-				cls : 'zarafa-delayeddeliverypanel-radiospinnerfield',
+				cls: 'zarafa-delayeddeliverypanel-radiospinnerfield',
                 value: _('month(s)'),
                 listeners: {
                     focus: this.onFieldFocus,
@@ -63,7 +63,7 @@ Zarafa.mail.dialogs.DelayedDeliveryPanel = Ext.extend(Ext.Panel, {
             }, {
                 xtype: 'zarafa.radiodatetimefield',
                 ref: 'delayedDeliveryDateTimeField',
-				cls :'zarafa-delayeddeliverypanel-radiodatetimefield',
+				cls:'zarafa-delayeddeliverypanel-radiodatetimefield',
                 listeners: {
                     focus: this.onFieldFocus,
                     change: this.onFieldChange,
@@ -71,7 +71,7 @@ Zarafa.mail.dialogs.DelayedDeliveryPanel = Ext.extend(Ext.Panel, {
                 }
             }, {
                 xtype: 'displayfield',
-				cls : 'zarafa-delayeddeliverypanel-fields',
+				cls: 'zarafa-delayeddeliverypanel-fields',
                 ref: 'timeInfofield'
             }],
             listeners: {

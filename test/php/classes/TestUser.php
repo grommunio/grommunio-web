@@ -307,7 +307,7 @@ class TestUser {
 
 		$storeProps = mapi_getprops($store, array(PR_IPM_SUBTREE_ENTRYID));
 		$root = mapi_msgstore_openentry($store, $storeProps[PR_IPM_SUBTREE_ENTRYID]);
-		$hierarchy = mapi_folder_gethierarchytable($root, CONVENIENT_DEPTH);
+		$hierarchy = mapi_folder_gethierarchytable($root, CONVENIENT_DEPTH | MAPI_DEFERRED_ERRORS);
 		$props = array(PR_CONTENT_COUNT, PR_ENTRYID, PR_SUBFOLDERS);
 		$rows = mapi_table_queryallrows($hierarchy, $props);
 

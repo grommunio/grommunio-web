@@ -13,7 +13,7 @@
 	var orig_onDragDrop = Ext.dd.DragSource.prototype.onDragDrop;
 
 	Ext.override(Ext.dd.DragSource, {
-		onDragEnter : function(e, id)
+		onDragEnter: function(e, id)
 		{
 			// If we still have a cached target, then we still have
 			// a connection with a DropZone which we should now force
@@ -27,7 +27,7 @@
 			}
 
 			var target;
-			if (this.ddGroup) {       
+			if (this.ddGroup) {
 				target = Ext.dd.DragDropMgr.getGroupDDById(this.ddGroup, id);
 			} else {
 				// backwards compatible for components which didn't use
@@ -53,7 +53,7 @@
 			}
 		},
 
-		onDragOver : function(e, id)
+		onDragOver: function(e, id)
 		{
 			// If we don't have a cached target, then we haven't got a connection
 			// with a DropZone. This can happen when 2 DropZones are hovering over
@@ -61,7 +61,7 @@
 			// unhooked the first DropZone. But since we are now hovering over it
 			// again, we seem to have exited the top DropZone and we are back at
 			// the first. So we force the connection again using onDragEnter().
-			if (!this.cachedTarget){
+			if (!this.cachedTarget) {
 				this.onDragEnter(e, id);
 			}
 
@@ -69,20 +69,20 @@
 			return orig_onDragOver.apply(this, arguments);
 		},
 
-		onDragOut : function(e, id)
+		onDragOut: function(e, id)
 		{
 			// If we haven't cached our target, then apparently we aren't hovering over
 			// this DropZone. So no point in informing the onDragOut then.
-			if (this.cachedTarget){
+			if (this.cachedTarget) {
 				return orig_onDragOut.apply(this, arguments);
 			}
 		},
 
-		onDragDrop : function(e, id)
+		onDragDrop: function(e, id)
 		{
 			// If we haven't cached our target, then apparently we aren't hovering over
 			// this DropZone. So no point in informing the onDragDrop then.
-			if (this.cachedTarget){
+			if (this.cachedTarget) {
 				return orig_onDragDrop.apply(this, arguments);
 			}
 		}

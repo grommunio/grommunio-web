@@ -21,18 +21,18 @@ Zarafa.core.data.IPFStoreMgr = Ext.extend(Ext.util.Observable, {
 		 * @property
 		 * @type Ext.util.MixedCollection
 		 */
-		IPFStores : undefined,
+		IPFStores: undefined,
 		/**
 		 * @constructor
 		 */
-		constructor : function()
+		constructor: function()
 		{
 			this.IPFStores = new Ext.util.MixedCollection();
 			this.addEvents([
 				/**
 				 * @event storeexception
 				 * Fires when the {@link Zarafa.core.data.IPFStore IPFStore} fired an {@link Zarafa.core.data.IPFStore#exception exception}.
-				 * @param {Zarafa.core.data.IPFStore} store The store on which the exception occured
+				 * @param {Zarafa.core.data.IPFStore} store The store on which the exception occurred
 				 * @param {Ext.data.DataProxy} proxy The proxy from where the exception event originated
 				 * @param {String} type The value of this parameter will be either 'response' or 'remote'.
 				 * @param {String} action Name of the action.
@@ -49,7 +49,7 @@ Zarafa.core.data.IPFStoreMgr = Ext.extend(Ext.util.Observable, {
 				 * {@link Zarafa.core.data.IPFRecord record} is located while being saved.
 				 * @param {Object} data An object containing the data that is to be saved.
 				 * The object will contain a key for each appropriate action, with an array
-				 * of updated data for each record.				 
+				 * of updated data for each record.
 				 */
 				'beforerecordsave',
 				/**
@@ -67,7 +67,7 @@ Zarafa.core.data.IPFStoreMgr = Ext.extend(Ext.util.Observable, {
 				 * @param {Zarafa.core.data.IPFStore} store The {@link Zarafa.core.data.IPFStore store} to which the
 				 * {@link Zarafa.core.data.IPFRecord record} belongs.
 				 * @param {Zarafa.core.data.IPFrecord} record The most recent version which came from the server.
-				 * @param {String} operation  The update operation being performed. 
+				 * @param {String} operation The update operation being performed.
 				 * ({@link Ext.data.Record#EDIT}, {@link Ext.data.Record#REJECT}, {@link Ext.data.Record#COMMIT}).
 				 */
 				'afterrecordupdate',
@@ -90,7 +90,7 @@ Zarafa.core.data.IPFStoreMgr = Ext.extend(Ext.util.Observable, {
 				 * @param {Ext.Direct.Transaction} res
 				 * @param {Zarafa.core.data.IPFrecord[]} records The most recent version of the records
 				 * which came from the server.
-				 */				
+				 */
 				'afterrecordwrite'
 			]);
 
@@ -103,7 +103,7 @@ Zarafa.core.data.IPFStoreMgr = Ext.extend(Ext.util.Observable, {
 		 * @param {Boolean} serverOnly True to register the {@link Zarafa.core.data.IPFStore IPFStore} only for
 		 * events originating directly from the server.
 		 */
-		register : function(IPFStore, serverOnly)
+		register: function(IPFStore, serverOnly)
 		{
 			if (!serverOnly) {
 				IPFStore.on('beforesave', this.onBeforeSave, this);
@@ -123,7 +123,7 @@ Zarafa.core.data.IPFStoreMgr = Ext.extend(Ext.util.Observable, {
 		 * @param {Boolean} serverOnly True if the {@link Zarafa.core.data.IPFStore IPFStore} was {@link #register registered}
 		 * with the serverOnly argument.
 		 */
-		unregister : function(IPFStore, serverOnly)
+		unregister: function(IPFStore, serverOnly)
 		{
 			if (!serverOnly) {
 				IPFStore.un('beforesave', this.onBeforeSave, this);
@@ -141,20 +141,20 @@ Zarafa.core.data.IPFStoreMgr = Ext.extend(Ext.util.Observable, {
 		 * Filter the list of {@link Zarafa.core.data.IPFRecord records} to contain
 		 * only those which can be {@link Zarafa.core.data.IPFRecord#eventPropagation propagated}
 		 * over a new event to other {@link Zarafa.core.data.IPFStore stores}.
-		 * 
+		 *
 		 * @param {Zarafa.core.data.IPFRecord/Array} records The record or records to filter
 		 * out the non-propagatable records.
 		 * @return {Zarafa.core.data.IPFRecord/Array} All propagatable records
 		 * @private
 		 */
-		getPropagatableRecords : function(records)
+		getPropagatableRecords: function(records)
 		{
 			var propagateRecords = [];
 
 			if (!Array.isArray(records)) {
 				records = [ records ];
 			}
-	
+
 			for (var i = 0, len = records.length; i < len; i++) {
 				var record = records[i];
 
@@ -178,9 +178,9 @@ Zarafa.core.data.IPFStoreMgr = Ext.extend(Ext.util.Observable, {
 		 * of updated data for each record.
 		 * @private
 		 */
-		onBeforeSave : function(IPFStore, data)
+		onBeforeSave: function(IPFStore, data)
 		{
-			var propagateData = {}; 
+			var propagateData = {};
 
 			for (var key in data) {
 				var propagateRecords = this.getPropagatableRecords(data[key]);
@@ -205,7 +205,7 @@ Zarafa.core.data.IPFStoreMgr = Ext.extend(Ext.util.Observable, {
 		 * of updated data for each record.
 		 * @private
 		 */
-		onSave : function(IPFStore, batch, data)
+		onSave: function(IPFStore, batch, data)
 		{
 			this.fireEvent('afterrecordsave', IPFStore, data);
 		},
@@ -217,11 +217,11 @@ Zarafa.core.data.IPFStoreMgr = Ext.extend(Ext.util.Observable, {
 		 *
 		 * @param {Zarafa.core.data.IPFStore} IPFStore
 		 * @param {Zarafa.core.data.IPFRecord} record The Record which has been updated
-		 * @param {String} operation  The update operation being performed. 
+		 * @param {String} operation The update operation being performed.
 		 * ({@link Ext.data.Record#EDIT}, {@link Ext.data.Record#REJECT}, {@link Ext.data.Record#COMMIT}).
 		 * @private
 		 */
-		onUpdate : function(IPFStore, record, operation)
+		onUpdate: function(IPFStore, record, operation)
 		{
 			if (record.hasEventPropagation()) {
 				this.fireEvent('afterrecordupdate', IPFStore, record, operation);
@@ -238,7 +238,7 @@ Zarafa.core.data.IPFStoreMgr = Ext.extend(Ext.util.Observable, {
 		 * @param {String} The index at which the record was removed
 		 * @private
 		 */
-		onRemove : function(IPFStore, record, index)
+		onRemove: function(IPFStore, record, index)
 		{
 			if (record.hasEventPropagation()) {
 				this.fireEvent('recordremove', IPFStore, record);
@@ -246,7 +246,7 @@ Zarafa.core.data.IPFStoreMgr = Ext.extend(Ext.util.Observable, {
 		},
 
 		/**
-		 * Event handler will be called on successfull completion of any CRUD operation,
+		 * Event handler will be called on successful completion of any CRUD operation,
 		 * the difference between this event and {@link #save} event is that {@link #save}
 		 * event will pass only data set that is modified not the record that is modified.
 		 * so this event removes burden of finding record from the record set.
@@ -260,7 +260,7 @@ Zarafa.core.data.IPFStoreMgr = Ext.extend(Ext.util.Observable, {
 		 * which came from the server.
 		 * @private
 		 */
-		onWrite : function(IPFStore, action, data, transaction, records)
+		onWrite: function(IPFStore, action, data, transaction, records)
 		{
 			var propagateRecords = this.getPropagatableRecords(records);
 			if (!Ext.isEmpty(propagateRecords)) {
@@ -280,7 +280,7 @@ Zarafa.core.data.IPFStoreMgr = Ext.extend(Ext.util.Observable, {
 		 * @param {Mixed} arg (optional) Additional arguments for the exception
 		 * @private
 		 */
-		onException : function(proxy, type, action, options, response, arg)
+		onException: function(proxy, type, action, options, response, arg)
 		{
 			var proxies = Ext.pluck(this.IPFStores.items, 'proxy');
 			if (!Ext.isEmpty(proxies)) {
@@ -293,16 +293,16 @@ Zarafa.core.data.IPFStoreMgr = Ext.extend(Ext.util.Observable, {
 		 * Executes the specified function once for every {@link Zarafa.core.data.IPFStore store} in the collection,
 		 * passing the following arguments:
 		 * <div class="mdetail-params"><ul>
-		 * <li><b>item</b> : Zarafa.core.data.IPFStore<p class="sub-desc">The collection item</p></li>
-		 * <li><b>index</b> : Number<p class="sub-desc">The item's index</p></li>
-		 * <li><b>length</b> : Number<p class="sub-desc">The total number of items in the collection</p></li>
+		 * <li><b>item</b>: Zarafa.core.data.IPFStore<p class="sub-desc">The collection item</p></li>
+		 * <li><b>index</b>: Number<p class="sub-desc">The item's index</p></li>
+		 * <li><b>length</b>: Number<p class="sub-desc">The total number of items in the collection</p></li>
 		 * </ul></div>
 		 * The function should return a boolean value. Returning false from the function will stop the iteration.
 		 * @param {Function} fn The function to execute for each item.
 		 * @param {Object} scope (optional) The scope (<code>this</code> reference) in which the function is executed.
 		 * Defaults to the current item in the iteration.
 		 */
-		each : function(fn, scope)
+		each: function(fn, scope)
 		{
 			this.IPFStores.each.apply(this, arguments);
 		},
@@ -317,7 +317,7 @@ Zarafa.core.data.IPFStoreMgr = Ext.extend(Ext.util.Observable, {
 		 * @return {Array} The array of {@link Zarafa.core.data.IPFStore stores} which have the
 		 * one or more of the requested stores loaded.
 		 */
-		getStoresForStores : function(folders)
+		getStoresForStores: function(folders)
 		{
 			var stores = [];
 

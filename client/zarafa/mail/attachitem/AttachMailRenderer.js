@@ -11,12 +11,12 @@ Zarafa.mail.attachitem.AttachMailRenderer = Ext.extend(Zarafa.common.attachment.
 	 * Constructor will intialize default properties
 	 * @param {Object} config configuration object
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		Zarafa.mail.attachitem.AttachMailRenderer.superclass.constructor.call(this, config);
 
 		Ext.apply(this.labels, {
-			'message_delivery_time' : _('Sent')
+			'message_delivery_time': _('Sent')
 		});
 	},
 
@@ -25,24 +25,24 @@ Zarafa.mail.attachitem.AttachMailRenderer = Ext.extend(Zarafa.common.attachment.
 	 * This will generate template for the html format only.
 	 * @return {String} The HTML for the XTemplate to use
 	 */
-	generateHTMLTemplate : function()
+	generateHTMLTemplate: function()
 	{
 		var html = '';
 
 		html += this.addHTMLRowGroup({
-			'from' : '{from:htmlEncode}',
-			// # TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
-			'message_delivery_time' : '{message_delivery_time:date("' + _("l jS F Y G:i") + '")}',
-			'display_to' : '{display_to:htmlEncode}',
-			'display_cc' : '{display_cc:htmlEncode}',
-			'display_bcc' : '{display_bcc:htmlEncode}',
-			'subject' : '{subject:htmlEncode}',
-			'attachment_names' : '{attachment_names:htmlEncode}'
+			'from': '{from:htmlEncode}',
+			// # TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
+			'message_delivery_time': '{message_delivery_time:formatDefaultTimeString("' + _("l jS F Y {0}") + '")}',
+			'display_to': '{display_to:htmlEncode}',
+			'display_cc': '{display_cc:htmlEncode}',
+			'display_bcc': '{display_bcc:htmlEncode}',
+			'subject': '{subject:htmlEncode}',
+			'attachment_names': '{attachment_names:htmlEncode}'
 		});
 
 		html += this.addHTMLRowGroup({
-			'sensitivity' : '{sensitivity:sensitivityString}',
-			'importance' : '{importance:importanceString}'
+			'sensitivity': '{sensitivity:sensitivityString}',
+			'importance': '{importance:importanceString}'
 		});
 
 		html += this.addHTMLRow('categories', '{categories:htmlEncode}');
@@ -56,24 +56,24 @@ Zarafa.mail.attachitem.AttachMailRenderer = Ext.extend(Zarafa.common.attachment.
 	 * This will generate template for the plain text format only.
 	 * @return {String} The HTML for the XTemplate to use
 	 */
-	generatePlainTemplate : function()
+	generatePlainTemplate: function()
 	{
 		var html = '';
 
 		html += this.addPlainRowGroup({
-			'from' : '{from}',
-			// # TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
-			'message_delivery_time' : '{message_delivery_time:date("' + _("l jS F Y G:i") + '")}',
-			'display_to' : '{display_to}',
-			'display_cc' : '{display_cc}',
-			'display_bcc' : '{display_bcc}',
-			'subject' : '{subject}',
-			'attachment_names' : '{attachment_names}'
+			'from': '{from}',
+			// # TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
+			'message_delivery_time': '{message_delivery_time:formatDefaultTimeString("' + _("l jS F Y {0}") + '")}',
+			'display_to': '{display_to}',
+			'display_cc': '{display_cc}',
+			'display_bcc': '{display_bcc}',
+			'subject': '{subject}',
+			'attachment_names': '{attachment_names}'
 		});
 
 		html += this.addPlainRowGroup({
-			'sensitivity' : '{sensitivity:sensitivityString}',
-			'importance' : '{importance:importanceString}'
+			'sensitivity': '{sensitivity:sensitivityString}',
+			'importance': '{importance:importanceString}'
 		});
 
 		html += this.addPlainRow('categories', '{categories}');

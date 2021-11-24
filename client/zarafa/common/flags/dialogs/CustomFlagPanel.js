@@ -11,25 +11,25 @@ Zarafa.common.flags.dialogs.CustomFlagPanel = Ext.extend(Ext.form.FormPanel, {
 	/**
 	 *
 	 */
-	reminderTime : null,
+	reminderTime: null,
 
 	/**
 	 * @constructor
 	 * @param config Configuration structure
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		config = config || {};
 		config = Ext.applyIf(config, {
-			xtype : 'zarafa.customflagpanel',
-			cls : 'k-custom-flag-panel',
+			xtype: 'zarafa.customflagpanel',
+			cls: 'k-custom-flag-panel',
 			layout: {
 				type: 'vbox',
 				align: 'stretch'
 			},
 			border: false,
-			labelAlign : 'left',
-			items : [
+			labelAlign: 'left',
+			items: [
 				this.createDatePanel(),
 				this.createReminderPanel()
 			]
@@ -43,7 +43,7 @@ Zarafa.common.flags.dialogs.CustomFlagPanel = Ext.extend(Ext.form.FormPanel, {
 	 * @return {Object} Configuration object for the panel with time selection fields
 	 * @private
 	 */
-	createDatePanel : function()
+	createDatePanel: function()
 	{
 		return {
 			xtype: 'panel',
@@ -52,7 +52,7 @@ Zarafa.common.flags.dialogs.CustomFlagPanel = Ext.extend(Ext.form.FormPanel, {
 			items: [{
 				xtype: 'zarafa.dateperiodfield',
 				ref: '../dateField',
-				allowBlank : true,
+				allowBlank: true,
 				defaultPeriod: container.getSettingsModel().get('zarafa/v1/contexts/task/default_task_period'),
 				listeners: {
 					change: this.onDateRangeFieldChange,
@@ -80,34 +80,34 @@ Zarafa.common.flags.dialogs.CustomFlagPanel = Ext.extend(Ext.form.FormPanel, {
 	 * @return {Object} Configuration object for the panel with reminder fields
 	 * @private
 	 */
-	createReminderPanel : function()
+	createReminderPanel: function()
 	{
 		return {
 			xtype: 'panel',
-			cls : 'k-custom-reminder-panel',
+			cls: 'k-custom-reminder-panel',
 			autoHeight: true,
 			items: [{
 				xtype: 'zarafa.compositefield',
 				autoHeight: true,
 				items: [{
-					xtype : 'checkbox',
-					name : 'reminder',
+					xtype: 'checkbox',
+					name: 'reminder',
 					ref:'../../reminderCheckbox',
-					width : 100,
-					boxLabel : _('Reminder') + ':',
-					handler : this.onToggleReminder,
-					scope : this
+					width: 100,
+					boxLabel: _('Reminder') + ':',
+					handler: this.onToggleReminder,
+					scope: this
 				},{
-					xtype :'zarafa.datetimefield',
-					name : 'reminder_time',
-					width : 220,
+					xtype:'zarafa.datetimefield',
+					name: 'reminder_time',
+					width: 220,
 					timeIncrement: container.getSettingsModel().get('zarafa/v1/contexts/task/reminder_time_stepping'),
-					listeners :{
-						change : this.onReminderFieldChange,
-						scope : this
+					listeners:{
+						change: this.onReminderFieldChange,
+						scope: this
 					},
-					dateFieldConfig : {
-						flex : 0
+					dateFieldConfig: {
+						flex: 0
 					}
 				}]
 			}]
@@ -119,7 +119,7 @@ Zarafa.common.flags.dialogs.CustomFlagPanel = Ext.extend(Ext.form.FormPanel, {
 	 * is being rendered.
 	 * @private
 	 */
-	onRender : function ()
+	onRender: function ()
 	{
 		Zarafa.common.flags.dialogs.CustomFlagPanel.superclass.onRender.apply(this, arguments);
 		if (this.records.length === 1) {
@@ -140,7 +140,7 @@ Zarafa.common.flags.dialogs.CustomFlagPanel = Ext.extend(Ext.form.FormPanel, {
 	 * @param {Mixed} oldValue The original value for the field
 	 * @private
 	 */
-	onDateRangeFieldChange : function(field, newRange, oldRange)
+	onDateRangeFieldChange: function(field, newRange, oldRange)
 	{
 		var startDate = newRange.getStartDate();
 		var dueDate = newRange.getDueDate();
@@ -172,10 +172,11 @@ Zarafa.common.flags.dialogs.CustomFlagPanel = Ext.extend(Ext.form.FormPanel, {
 	 * @param {Mixed} oldValue The old value
 	 * @private
 	 */
-	onReminderFieldChange : function(field, newValue, oldValue)
+	onReminderFieldChange: function(field, newValue, oldValue)
 	{
 		this.records.forEach(function (record) {
 			record.set(field.getName(), newValue);
+			record.set('flag_due_by', newValue);
 		},this);
 		this.getForm().loadRecord(this.records[0]);
 	},
@@ -187,7 +188,7 @@ Zarafa.common.flags.dialogs.CustomFlagPanel = Ext.extend(Ext.form.FormPanel, {
 	 * @param {Boolean} checked The new checked state of the checkbox.
 	 * @private
 	 */
-	onToggleReminder : function(checkbox, checked)
+	onToggleReminder: function(checkbox, checked)
 	{
 		this.records.forEach(function (record) {
 			record.beginEdit();

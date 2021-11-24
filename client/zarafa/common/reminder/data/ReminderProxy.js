@@ -9,7 +9,7 @@ Zarafa.common.reminder.data.ReminderProxy = Ext.extend(Zarafa.core.data.MAPIProx
 	 * @constructor
 	 * @param {Object} config Configuration object
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		config = config || {};
 
@@ -22,7 +22,7 @@ Zarafa.common.reminder.data.ReminderProxy = Ext.extend(Zarafa.core.data.MAPIProx
 
 		Zarafa.common.reminder.data.ReminderProxy.superclass.constructor.call(this, config);
 	},
-	
+
 	/**
 	 * This will create a {@linkZarafa.core.data.IPMResponseHandler IPMResponseHandler} object
 	 * which will be used by the {@link Zarafa.core.data.ResponseRouter ResponseRouter} when the
@@ -41,7 +41,7 @@ Zarafa.common.reminder.data.ReminderProxy = Ext.extend(Zarafa.core.data.MAPIProx
 	 * which should be used for this request.
 	 * @private
 	 */
-	getResponseHandlerForRequest : function(modulename, serverAction, action, records, parameters, reader, callback, scope, args)
+	getResponseHandlerForRequest: function(modulename, serverAction, action, records, parameters, reader, callback, scope, args)
 	{
 		return new Zarafa.core.data.IPMResponseHandler({
 			proxy: this,

@@ -14,10 +14,10 @@ Zarafa.advancesearch.Actions = {
 	 *
 	 * @param {Object} config (optional) Configuration object to create the ContentPanel
 	 */
-	openSelectSearchFolderDialog : function(config)
+	openSelectSearchFolderDialog: function(config)
 	{
 		config = Ext.applyIf(config || {}, {
-			modal : true
+			modal: true
 		});
 		var componentType = Zarafa.core.data.SharedComponentType['search.dialog.selectfolder'];
 		Zarafa.core.data.UIFactory.openLayerComponent(componentType, [], config);
@@ -31,15 +31,15 @@ Zarafa.advancesearch.Actions = {
 	 * to {@link Zarafa.advancesearch.AdvanceSearchContextModel#createSearchFolderRecord create} the search folder.
 	 * @param {Object} config configuration options for {@link Zarafa.advancesearch.dialogs.CreateSearchFolderContentPanel CreateSearchFolderContentPanel}.
 	 */
-	openCreateSearchFolderContentPanel : function(model, config)
+	openCreateSearchFolderContentPanel: function(model, config)
 	{
 		config = Ext.apply(config||{}, {
-			modal : true,
-			manager : Ext.WindowMgr,
-			iconCls : 'icon_favorites',
-			closable : false,
-			resizable : false,
-			showModalWithoutParent : true
+			modal: true,
+			manager: Ext.WindowMgr,
+			iconCls: 'icon_favorites',
+			closable: false,
+			resizable: false,
+			showModalWithoutParent: true
 		});
 
 		var record = model.createSearchFolderRecord(config.searchText);

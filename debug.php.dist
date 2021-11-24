@@ -5,7 +5,7 @@
 */
 
 /**
-* Set this to let grommunio.php export JSON
+* Set this to let grommunio.php exports the JSON
 * but please note that you must create the DEBUG_JSONOUT_DIR directory and that
 * it is writable by PHP
 */
@@ -16,7 +16,7 @@ define("DEBUG_PLUGINS", true);
 define("DEBUG_PLUGINS_DISABLE_CACHE", false);
 
 // dump file, must be writable
-define("DEBUG_DUMP_FILE", BASE_PATH . 'debug.txt');
+define("DEBUG_DUMP_FILE", TMP_PATH . "/debug.txt");
 
 // The different value types for the DEBUG_LOADER config option
 // This can be any of the following values:
@@ -68,30 +68,30 @@ function dump($variable, $title="", $backtrace=false, $resource=false)
 		fwrite($file, ("[" . $date . " " . $time . "] " . $title. " - " . var_export($variable, true) . "\r\n"));
 	}
 
-	if ($backtrace){
+	if ($backtrace) {
 		dump(_debug_backtrace(false));
 	}
 }
 
 // use this function when you want to dump an array of MAPI properties
-function dump_props($variable,$title=""){
+function dump_props($variable,$title="") {
 	global $_debug_propList;
-	if ($_debug_propList===false){
+	if ($_debug_propList===false) {
 		// caching
-		foreach(get_defined_constants() as $key=>$value){
-			if (substr($key,0,3)=='PR_'){
+		foreach(get_defined_constants() as $key=>$value) {
+			if (substr($key,0,3)=='PR_') {
 				$_debug_propList[$key] = $value;
 			}
 		}
 	}
 
-	foreach($variable as $key=>$value){
+	foreach($variable as $key=>$value) {
 		$prop = array_keys($_debug_propList,$key);
-		if (count($prop)>0){
-			foreach($prop as $k=>$v){
+		if (count($prop)>0) {
+			foreach($prop as $k=>$v) {
 				$variable["0x".str_pad(strtoupper(dechex($key)),8, '0', STR_PAD_LEFT).' '.$v] = $value;
 			}
-		}else{
+		} else {
 			$variable["0x".str_pad(strtoupper(dechex($key)),8, '0', STR_PAD_LEFT)] = $value;
 		}
 		unset($variable[$key]);
@@ -103,7 +103,7 @@ $_debug_propList = false;
 /**
  * This function is used for the in/output by grommunio.php to store the JSON to disk
  */
-function dump_json($json, $prefix){
+function dump_json($json, $prefix) {
 	global $debug_json_id;
 
 	if (DEBUG_JSONOUT && is_dir(DEBUG_JSONOUT_DIR)) {
@@ -123,10 +123,10 @@ function dump_json($json, $prefix){
 /**
 * internal function to generate a backtrace
 */
-function _debug_backtrace($html=true){
+function _debug_backtrace($html=true) {
   $output = $html?"<br/>\n":"\n";
-  foreach(debug_backtrace() as $t){
-    if (isset($t['file']) && $t['file']!=__FILE__){
+  foreach(debug_backtrace() as $t) {
+    if (isset($t['file']) && $t['file']!=__FILE__) {
       $output .= $html?'<strong>@</strong> ':'@ ';
       if(isset($t['file'])) {
         $output .= basename($t['file']) . ':' . $t['line'];
@@ -163,11 +163,11 @@ function dump_restriction($restriction) {
  * This function is used to covert all constants of restriction into a human readable strings
  */
 function simplify_restriction($restriction) {
-	if (!is_array($restriction)){
+	if (!is_array($restriction)) {
 		return $restriction;
 	}
 
-	switch($restriction[0]){
+	switch($restriction[0]) {
 		case RES_AND:
 			$restriction[0] = "RES_AND";
 			if(isset($restriction[1][0]) && is_array($restriction[1][0])) {
@@ -262,16 +262,16 @@ function simplify_restriction($restriction) {
 				$levels[] = "FL_PREFIX";
 			else
 				$levels[] = "FL_FULLSTRING";
-						
+
 			if (($fuzzyLevel & FL_IGNORECASE) == FL_IGNORECASE)
 				$levels[] = "FL_IGNORECASE";
-						
+
 			if (($fuzzyLevel & FL_IGNORENONSPACE) == FL_IGNORENONSPACE)
 				$levels[] = "FL_IGNORENONSPACE";
-			
+
 			if (($fuzzyLevel & FL_LOOSE) == FL_LOOSE)
 				$levels[] = "FL_LOOSE";
-			
+
 			$fuzzyLevelFlags = implode(" | ", $levels);
 
 			$restriction[1]["FUZZYLEVEL"] = $fuzzyLevelFlags;

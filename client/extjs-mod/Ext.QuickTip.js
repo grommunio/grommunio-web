@@ -11,10 +11,10 @@
 		/**
 		 * Here it will encode title and text of tooltip when component is initialized time.
 		 * It is used to prevent HTML Injection.
-		 * 
+		 *
 		 * @param {Object} config Configuration object
 		 */
-		register : function(config)
+		register: function(config)
 		{
 			config.title = Ext.util.Format.htmlEncode(config.title);
 			config.text = Ext.util.Format.htmlEncode(config.text);
@@ -24,7 +24,7 @@
 		/**
 		 * Here it will encode tooltip's text when hover the cursor on component.
 		 * It is used to prevent HTML Injection.
-		 * 
+		 *
 		 * @param {Ext.EventObject} e The mouse event object
 		 * @return {String} The encoded text of tooltip.
 		 */

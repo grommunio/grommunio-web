@@ -32,7 +32,6 @@ class HierarchyUser extends PermissionUser {
 	 */
 	public function sendKeepAlive()
 	{
-		$this->logon();
 		return $this->execute($this->defaultListModule, array(
 			'keepalive' => array()
 		));
@@ -44,7 +43,6 @@ class HierarchyUser extends PermissionUser {
 	 */
 	public function loadHierarchy()
 	{
-		$this->logon();
 		return $this->execute($this->defaultListModule, array( "list" => array() ));
 	}
 
@@ -55,7 +53,6 @@ class HierarchyUser extends PermissionUser {
 	 */
 	public function openFolder($entryid = false)
 	{
-		$this->logon();
 
 		return $this->execute($this->defaultItemModule, array(
 			'open' => array(
@@ -73,8 +70,6 @@ class HierarchyUser extends PermissionUser {
 	 */
 	public function getFolderSize($entryid = false)
 	{
-		$this->logon();
-
 		return $this->execute($this->defaultItemModule, array(
 			'foldersize' => array(
 				'entryid' => $entryid ? bin2hex($entryid) : bin2hex($this->defaultFolderEntryId),
@@ -93,8 +88,6 @@ class HierarchyUser extends PermissionUser {
 	 */
 	public function saveFolder($message, $open = true)
 	{
-		$this->logon();
-
 		return $this->saveItem($message, $open);
 	}
 
@@ -106,7 +99,6 @@ class HierarchyUser extends PermissionUser {
 	 */
 	public function copyFolder($entryid, $target_parent)
 	{
-		$this->logon();
 		return $this->saveItem(array(
 			'entryid' => bin2hex($entryid),
 			'message_action' => array(
@@ -125,7 +117,6 @@ class HierarchyUser extends PermissionUser {
 	 */
 	public function moveFolder($entryid, $target_parent)
 	{
-		$this->logon();
 		return $this->saveItem(array(
 			'entryid' => bin2hex($entryid),
 			'message_action' => array(
@@ -145,7 +136,6 @@ class HierarchyUser extends PermissionUser {
 	 */
 	public function deleteFolder($entryid, $extraProps = array())
 	{
-		$this->logon();
 		return $this->deleteItem($entryid, $extraProps);
 	}
 
@@ -187,7 +177,6 @@ class HierarchyUser extends PermissionUser {
 	 */
 	public function openSharedFolder($props)
 	{
-		$this->logon();
 		return $this->execute($this->defaultListModule, array('opensharedfolder' => $props));
 	}
 
@@ -199,7 +188,6 @@ class HierarchyUser extends PermissionUser {
 	 */
 	public function closeSharedFolder($props)
 	{
-		$this->logon();
 		return $this->execute($this->defaultListModule, array('closesharedfolder' => $props));
 	}
 
@@ -211,7 +199,6 @@ class HierarchyUser extends PermissionUser {
 	 */
 	public function getFolderProps($items, $tags = false)
 	{
-		$this->logon();
 		return $this->getItemProps($items, $tags);
 	}
 
@@ -224,8 +211,6 @@ class HierarchyUser extends PermissionUser {
 	 */
 	public function getFolders($restriction, $open = true)
 	{
-		$this->logon();
-
 		$store = $this->getDefaultMessageStore();
 		$folder = $this->getDefaultFolder(PR_IPM_SUBTREE_ENTRYID);
 

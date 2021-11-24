@@ -14,19 +14,19 @@ Zarafa.common.ui.DurationField = Ext.extend(Ext.form.NumberField, {
 	 * @cfg {RegExp} stripCharsRe
 	 * @hide
 	 */
-	stripCharsRe : /[^0-9]+/,
+	stripCharsRe: /[^0-9]+/,
 
 	/**
 	 * @cfg {Boolean} allowDecimals
 	 * @hide
 	 */
-	allowDecimals : false,
+	allowDecimals: false,
 
 	/**
 	 * @cfg {Boolean} allowNegative
 	 * @hide
 	 */
-	allowNegative : false,
+	allowNegative: false,
 
 	/**
 	 * Prepare a raw value or validation (see {@link #validate} and {@link #isValid}).
@@ -34,7 +34,7 @@ Zarafa.common.ui.DurationField = Ext.extend(Ext.form.NumberField, {
 	 * @param {Mixed} value
 	 * @return {Mixed} The string containing only number
 	 */
-	processValue : function(value){
+	processValue: function(value){
 		if (Ext.isString(value) && this.stripCharsRe) {
 			return value.replace(this.stripCharsRe, '');
 		}
@@ -48,7 +48,7 @@ Zarafa.common.ui.DurationField = Ext.extend(Ext.form.NumberField, {
 	 * @param {Mixed} value The value to set
 	 * @return {Ext.form.Field} this
 	 */
-	setValue : function(value)
+	setValue: function(value)
 	{
 		value = this.parseValue(value);
 

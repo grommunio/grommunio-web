@@ -16,19 +16,19 @@ Zarafa.core.ui.RecordContentPanel = Ext.extend(Zarafa.core.ui.ContentPanel, {
 	 * {@link Zarafa.core.data.IPMRecord IPMRecord} to the
 	 * {@link Zarafa.core.data.IPMStore IPMStore}.
 	 */
-	autoSave : true,
+	autoSave: true,
 
 	/**
 	 * @cfg {Object} Configuration object which will be used
 	 * to instantiate the {@link Zarafa.core.plugins.RecordComponentPlugin RecordComponent}.
 	 * See the plugin for the available configuration options.
 	 */
-	recordComponentPluginConfig : undefined,
+	recordComponentPluginConfig: undefined,
 
 	/**
 	 * @cfg {Zarafa.core.data.MAPIRecord} record (See {@link Zarafa.core.plugins.RecordComponentPlugin#record}).
 	 */
-	record : undefined,
+	record: undefined,
 
 	/**
 	 * When this panel is {@link Zarafa.core.ui.ContentPanel#isModal modal} then this property will contain the
@@ -38,7 +38,7 @@ Zarafa.core.ui.RecordContentPanel = Ext.extend(Zarafa.core.ui.ContentPanel, {
 	 * @property
 	 * @type Zarafa.core.data.MAPIRecord
 	 */
-	modalRecord : undefined,
+	modalRecord: undefined,
 
 	/**
 	 * Reference to the {@link Zarafa.core.plugins.RecordComponentPlugin RecordComponent} plugin
@@ -49,12 +49,12 @@ Zarafa.core.ui.RecordContentPanel = Ext.extend(Zarafa.core.ui.ContentPanel, {
 	 * @property
 	 * @type Zarafa.core.plugins.RecordComponentPlugin
 	 */
-	recordComponentPlugin : undefined,
+	recordComponentPlugin: undefined,
 
 	/**
 	 * @cfg {Boolean} showLoadMask true if load mask should be shown else false.
 	 */
-	showLoadMask : true,
+	showLoadMask: true,
 
 	/**
 	 * The LoadMask object which will be shown when the {@link #record} is being opened, and
@@ -63,44 +63,44 @@ Zarafa.core.ui.RecordContentPanel = Ext.extend(Zarafa.core.ui.ContentPanel, {
 	 * @property
 	 * @type Zarafa.common.ui.LoadMask
 	 */
-	loadMask : undefined,
+	loadMask: undefined,
 
 	/**
 	 * @cfg {Boolean} showMaskMask true if a message should be shown to indicating if the
 	 * message is being saved.
 	 */
-	showInfoMask : true,
+	showInfoMask: true,
 
 	/**
 	 * @cfg {String/Object} savingText When {@link #showInfoMask} is true, then this text
 	 * will be shown when the message is being saved. When an object is provided which contains
 	 * the 'msg' and 'title' fields respectively.
 	 */
-	savingText : { msg : _('Saving') + '...' },
+	savingText: { msg: _('Saving') + '...' },
 
 	/**
 	 * @cfg {String/Object} savingDoneText When {@link #showInfoMask} is true, then this text
 	 * will be shown when the message has been saved. When an object is provided which contains
 	 * the 'msg' and 'title' fields respectively.
 	 */
-	savingDoneText :{ title: _('Saved'), msg :  _('Saved successfully') },
+	savingDoneText:{ title: _('Saved'), msg: _('Saved successfully') },
 
 	/**
 	 * When {@link #showInfoMask} is true, then we should check if any save request
 	 * is fired internally and we should not show {@link #savingText} and {@link #savingDoneText}. This is handled by
-	 * maintaing an array of {@link Zarafa.core.data.MAPIRecord#actions message actions} that will be matched with message action
+	 * maintaining an array of {@link Zarafa.core.data.MAPIRecord#actions message actions} that will be matched with message action
 	 * actually set on record to show or not show info mask.
 	 * @property
 	 * @type Array
 	 */
-	internalActions : undefined,
+	internalActions: undefined,
 
 	/**
 	 * Indicates if the panel is currently busy saving data to the server.
 	 * @property
 	 * @type Boolean
 	 */
-	isSaving : false,
+	isSaving: false,
 
 	/**
 	 * The reference as returned by {@link Zarafa.core.ui.notifier.Notifier#notify} to reference the
@@ -109,33 +109,33 @@ Zarafa.core.ui.RecordContentPanel = Ext.extend(Zarafa.core.ui.ContentPanel, {
 	 * @type Ext.Element
 	 * @private
 	 */
-	savingEl : undefined,
+	savingEl: undefined,
 
 	/**
-	 * @cfg {Boolean} closeOnSave Config option to close the panel when client recieves confirmation of message is saved.
+	 * @cfg {Boolean} closeOnSave Config option to close the panel when client receives confirmation of message is saved.
 	 */
-	closeOnSave : false,
+	closeOnSave: false,
 
 	/**
 	 * @cfg {Boolean} confirmClose Option to launch a confirmation dialog when closing this panel with an unsaved record.
 	 * This option is only used when the {@link Zarafa.settings.SettingsModel setting} 'zarafa/v1/main/confirm_close_dialog'
 	 * is enabled.
 	 */
-	confirmClose : false,
+	confirmClose: false,
 
 	/**
 	 * @cfg {Boolean} removeRecordOnCancel config to remove modal record from
 	 * {@link Zarafa.core.data.MAPIStore MAPIStore} when user has not changed anything and closed
 	 * the {@link Zarafa.core.data.UIFactoryLayer UIFactoryLayer}.
 	 */
-	removeRecordOnCancel : false,
+	removeRecordOnCancel: false,
 
 	/**
-	 * If set to true when the component is layed out, the loading mask will be displayed
+	 * If set to true when the component is laid out, the loading mask will be displayed
 	 * @property
 	 * @type Boolean
 	 */
-	showLoadMaskOnStart : false,
+	showLoadMaskOnStart: false,
 
 	/**
 	 * @cfg {Boolean} showModalWithoutParent Config option set to true when the dialog is modal dialog and
@@ -143,24 +143,24 @@ Zarafa.core.ui.RecordContentPanel = Ext.extend(Zarafa.core.ui.ContentPanel, {
 	 * @property
 	 * @type Boolean
 	 */
-	showModalWithoutParent : false,
+	showModalWithoutParent: false,
 
 	/**
 	 * @cfg {String} unSaveWarningMessage When {@link #record} has any unsaved changes
 	 * And user trying to close separate window or tab if that is the case, then confirm dialog will show with this text
 	 */
-	unSaveWarningMessage : _('You will lose all unsaved work. Are you sure you want to close this window?'),
+	unSaveWarningMessage: _('You will lose all unsaved work. Are you sure you want to close this window?'),
 
 	/**
 	 * @constructor
 	 * @param config Configuration structure
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		config = config || {};
 
 		Ext.applyIf(config, {
-			title : _('Kopano Content Panel')
+			title: _('Kopano Content Panel')
 		});
 
 		// Modal dialogs that will edit the record must work inside the shadowStore.
@@ -218,10 +218,10 @@ Zarafa.core.ui.RecordContentPanel = Ext.extend(Zarafa.core.ui.ContentPanel, {
 		Zarafa.core.ui.RecordContentPanel.superclass.constructor.call(this, config);
 
 		if (Ext.isString(this.savingText)) {
-			this.savingText = { title : '', msg : this.savingText };
+			this.savingText = { title: '', msg: this.savingText };
 		}
 		if (Ext.isString(this.savingDoneText)) {
-			this.savingDoneText = { title : '', msg : this.savingDoneText };
+			this.savingDoneText = { title: '', msg: this.savingDoneText };
 		}
 
 		this.initEvents();
@@ -236,17 +236,17 @@ Zarafa.core.ui.RecordContentPanel = Ext.extend(Zarafa.core.ui.ContentPanel, {
 	 * for this {@link Zarafa.core.ui.RecordContentPanel contentpanel}.
 	 * @private
 	 */
-	initEvents : function()
+	initEvents: function()
 	{
 		this.mon(this, {
-			'setrecord' : this.onSetRecord,
-			'beforeloadrecord' : this.onBeforeLoadRecord,
-			'loadrecord' : this.onLoadRecord,
-			'updaterecord' : this.onUpdateRecord,
-			'writerecord' : this.onWriteRecord,
-			'exceptionrecord' : this.onExceptionRecord,
-			'afterlayout' : this.onAfterLayout,
-			'scope' : this
+			'setrecord': this.onSetRecord,
+			'beforeloadrecord': this.onBeforeLoadRecord,
+			'loadrecord': this.onLoadRecord,
+			'updaterecord': this.onUpdateRecord,
+			'writerecord': this.onWriteRecord,
+			'exceptionrecord': this.onExceptionRecord,
+			'afterlayout': this.onAfterLayout,
+			'scope': this
 		});
 	},
 
@@ -256,7 +256,7 @@ Zarafa.core.ui.RecordContentPanel = Ext.extend(Zarafa.core.ui.ContentPanel, {
 	 * @param {Boolean} errorMask True to show an error mask instead of the loading mask.
 	 * @protected
 	 */
-	displayLoadMask : function(errorMask)
+	displayLoadMask: function(errorMask)
 	{
 		if (this.showLoadMask === false) {
 			return;
@@ -279,7 +279,7 @@ Zarafa.core.ui.RecordContentPanel = Ext.extend(Zarafa.core.ui.ContentPanel, {
 	 * loadMask.
 	 * @protected
 	 */
-	hideLoadMask : function()
+	hideLoadMask: function()
 	{
 		if (this.showLoadMask === false) {
 			return;
@@ -294,7 +294,7 @@ Zarafa.core.ui.RecordContentPanel = Ext.extend(Zarafa.core.ui.ContentPanel, {
 	 * If {@link showInfoMask} is enabled, this will display the {@link #savingText} to the user.
 	 * @protected
 	 */
-	displayInfoMask : function()
+	displayInfoMask: function()
 	{
 		if (this.showInfoMask === false) {
 			return;
@@ -311,18 +311,18 @@ Zarafa.core.ui.RecordContentPanel = Ext.extend(Zarafa.core.ui.ContentPanel, {
 		}
 
 		this.savingEl = container.getNotifier().notify('info.saving', this.savingText.title, this.savingText.msg, {
-			container : this.getEl()
+			container: this.getEl()
 		});
 	},
 
 	/**
 	 * If {@link #showInfoMask} is enabled, and {@link #displayInfoMask} has been called, this
-	 * will remove the notification again. When saving has been successfull, a new notification
+	 * will remove the notification again. When saving has been successful, a new notification
 	 * will be shown to display the {@link #savingDoneText}.
 	 * @param {Boolean} success false to disable the display of {@link #savingDoneText}.
 	 * @protected
 	 */
-	hideInfoMask : function(success)
+	hideInfoMask: function(success)
 	{
 		if (this.showInfoMask === false) {
 			return;
@@ -330,9 +330,9 @@ Zarafa.core.ui.RecordContentPanel = Ext.extend(Zarafa.core.ui.ContentPanel, {
 
 		if (this.savingEl) {
 			container.getNotifier().notify('info.saving', null, null, {
-				container : this.getEl(),
-				destroy : true,
-				reference : this.savingEl
+				container: this.getEl(),
+				destroy: true,
+				reference: this.savingEl
 			});
 			delete this.savingEl;
 
@@ -347,7 +347,7 @@ Zarafa.core.ui.RecordContentPanel = Ext.extend(Zarafa.core.ui.ContentPanel, {
 	 *
 	 * @param {Zarafa.core.data.MAPIRecord} record The record to set
 	 */
-	setRecord : function(record)
+	setRecord: function(record)
 	{
 		var cheapCopy; // Default value
 
@@ -372,10 +372,10 @@ Zarafa.core.ui.RecordContentPanel = Ext.extend(Zarafa.core.ui.ContentPanel, {
 				// (The store_entryid must be checked because the jasmine tests create filled in phantom records
 				// that are not being saved. But these records don't have a store_entryid)
 				if ( record.phantom === true && Ext.isDefined(record.store) && record.store.isSaving ){
-					// Show a loading mask either immediately or when the panel has been layed out)
+					// Show a loading mask either immediately or when the panel has been laid out)
 					if ( this.el ){
 						this.displayLoadMask();
-					}else {
+					} else {
 						this.showLoadMaskOnStart = true;
 					}
 					record.store.on('save', Ext.createDelegate(this.onStoreSave, this, [record]), this, {single: true});
@@ -386,6 +386,12 @@ Zarafa.core.ui.RecordContentPanel = Ext.extend(Zarafa.core.ui.ContentPanel, {
 				if (this.isModal() && !this.showModalWithoutParent) {
 
 					this.modalRecord = record;
+
+					var store = record.getStore();
+					if (Ext.isDefined(store)) {
+						this.mon(store, 'datachanged', this.modalRecord.onDataChange, this);
+					}
+
 					record = record.copy('modal-' + record.id);
 					record.isModalDialogRecord = true;
 
@@ -406,7 +412,7 @@ Zarafa.core.ui.RecordContentPanel = Ext.extend(Zarafa.core.ui.ContentPanel, {
 
 	 * @param {Zarafa.core.data.MAPIRecord} record The record that is being saved
 	 */
-	onStoreSave : function(record)
+	onStoreSave: function(record)
 	{
 		// Hide the loading mask (or make sure we don't show it)
 		this.showLoadMaskOnStart = false;
@@ -423,7 +429,7 @@ Zarafa.core.ui.RecordContentPanel = Ext.extend(Zarafa.core.ui.ContentPanel, {
 	 * @return {Boolean} false if the record could not be saved
 	 * @protected
 	 */
-	saveRecord : function(storeSave)
+	saveRecord: function(storeSave)
 	{
 		// Check if saving is allowed, and if by chance we aren't
 		// saving already.
@@ -478,7 +484,7 @@ Zarafa.core.ui.RecordContentPanel = Ext.extend(Zarafa.core.ui.ContentPanel, {
 	 * has been deleted, the dialog will be automatically closed.
 	 * @protected
 	 */
-	deleteRecord : function()
+	deleteRecord: function()
 	{
 		if (this.recordComponentPlugin.allowWrite === false) {
 			return;
@@ -504,7 +510,7 @@ Zarafa.core.ui.RecordContentPanel = Ext.extend(Zarafa.core.ui.ContentPanel, {
 	 * @param {String} btn The text of the button on which the user clicked
 	 * @private
 	 */
-	onConfirmDelete : function(btn)
+	onConfirmDelete: function(btn)
 	{
 		if (btn === 'yes') {
 			Zarafa.common.Actions.deleteRecords(this.modalRecord || this.record);
@@ -515,7 +521,7 @@ Zarafa.core.ui.RecordContentPanel = Ext.extend(Zarafa.core.ui.ContentPanel, {
 	 * Event handler that will make sure that the loadmask is shown when the panel is rendered
 	 * and the {#link showLoadMaskOnStart} property has been set to true.
 	 */
-	onAfterLayout : function()
+	onAfterLayout: function()
 	{
 		if ( this.showLoadMaskOnStart === true ) {
 			this.displayLoadMask();
@@ -530,7 +536,7 @@ Zarafa.core.ui.RecordContentPanel = Ext.extend(Zarafa.core.ui.ContentPanel, {
 	 * @param {Zarafa.core.data.MAPIRecord} record The record which was set
 	 * @param {Zarafa.core.data.MAPIRecord} oldrecord The oldrecord which was previously set
 	 */
-	onSetRecord : function(panel, record, oldrecord)
+	onSetRecord: function(panel, record, oldrecord)
 	{
 		if (!record) {
 			return;
@@ -554,7 +560,7 @@ Zarafa.core.ui.RecordContentPanel = Ext.extend(Zarafa.core.ui.ContentPanel, {
 	 * @param {Zarafa.core.data.MAPIRecord} record The record which was updated
 	 * @private
 	 */
-	onBeforeLoadRecord : function(panel, record)
+	onBeforeLoadRecord: function(panel, record)
 	{
 		this.displayLoadMask();
 	},
@@ -567,7 +573,7 @@ Zarafa.core.ui.RecordContentPanel = Ext.extend(Zarafa.core.ui.ContentPanel, {
 	 * @param {Zarafa.core.data.MAPIRecord} record The record which was updated
 	 * @private
 	 */
-	onLoadRecord : function(panel, record)
+	onLoadRecord: function(panel, record)
 	{
 		this.hideLoadMask();
 	},
@@ -580,7 +586,7 @@ Zarafa.core.ui.RecordContentPanel = Ext.extend(Zarafa.core.ui.ContentPanel, {
 	 * @param {Object} data The object data which is being saved to the server
 	 * @private
 	 */
-	onBeforeSaveRecord : function(store, data)
+	onBeforeSaveRecord: function(store, data)
 	{
 		var record = this.record.isModalDialogRecord ? this.modalRecord : this.record;
 		if (data &&
@@ -599,13 +605,13 @@ Zarafa.core.ui.RecordContentPanel = Ext.extend(Zarafa.core.ui.ContentPanel, {
 	 * this will display the {@link #savingText} to indicate the saving is in progress.
 	 *
 	 * @param {Zarafa.core.ui.RecordContentPanel} contentpanel The record which fired the event
-	 * @param {String} action write Action that ocurred. Can be one of
+	 * @param {String} action write Action that occurred. Can be one of
 	 * {@link Ext.data.Record.EDIT EDIT}, {@link Ext.data.Record.REJECT REJECT} or
 	 * {@link Ext.data.Record.COMMIT COMMIT}
 	 * @param {Zarafa.core.data.IPMRecord} record The record which was updated
 	 * @private
 	 */
-	onUpdateRecord : function(contentpanel, action, record)
+	onUpdateRecord: function(contentpanel, action, record)
 	{
 		if (this.isSaving === true && action == Ext.data.Record.COMMIT) {
 
@@ -641,7 +647,7 @@ Zarafa.core.ui.RecordContentPanel = Ext.extend(Zarafa.core.ui.ContentPanel, {
 	 * @param {String} error (Optional) Passed when a thrown JS Exception or JS Error is
 	 * @private
 	 */
-	onExceptionRecord : function(proxy, type, action, options, response, args)
+	onExceptionRecord: function(proxy, type, action, options, response, args)
 	{
 		if (!this.hasInternalAction()) {
 			if (type === "open") {
@@ -657,7 +663,7 @@ Zarafa.core.ui.RecordContentPanel = Ext.extend(Zarafa.core.ui.ContentPanel, {
 	 * Action handler when the user presses the "Ok" button.
 	 * This will call {@link #saveRecord} with the {@link #autoSave} argument.
 	 */
-	onOk : function()
+	onOk: function()
 	{
 		if (this.saveRecord(this.autoSave) !== false) {
 			if (this.closeOnSave !== true) {
@@ -670,7 +676,7 @@ Zarafa.core.ui.RecordContentPanel = Ext.extend(Zarafa.core.ui.ContentPanel, {
 	 * Action handler when the user presses the "Cancel" button.
 	 * This will close the panel without saving.
 	 */
-	onCancel : function()
+	onCancel: function()
 	{
 		this.removePhantomRecord();
 
@@ -681,7 +687,7 @@ Zarafa.core.ui.RecordContentPanel = Ext.extend(Zarafa.core.ui.ContentPanel, {
 	 * Function will be called when user clicks on close tool on the {@link Ext.Window}
 	 * and should remove phantom record if needed.
 	 */
-	closeWrap : function()
+	closeWrap: function()
 	{
 		this.removePhantomRecord();
 
@@ -694,7 +700,7 @@ Zarafa.core.ui.RecordContentPanel = Ext.extend(Zarafa.core.ui.ContentPanel, {
 	 * is true and user has closed the dialog without saving it.
 	 * @protected
 	 */
-	removePhantomRecord : function()
+	removePhantomRecord: function()
 	{
 		// check we should remove record on cancel or not
 		if(!this.removeRecordOnCancel) {
@@ -726,7 +732,7 @@ Zarafa.core.ui.RecordContentPanel = Ext.extend(Zarafa.core.ui.ContentPanel, {
 	 * @param {Zarafa.core.data.IPMRecord} record Store's record, on which write event is fired
 	 * @protected
 	 */
-	onWriteRecord : function(store, action, result, res, record)
+	onWriteRecord: function(store, action, result, res, record)
 	{
 		if(action == Ext.data.Api.actions.destroy) {
 			this.close();
@@ -742,7 +748,7 @@ Zarafa.core.ui.RecordContentPanel = Ext.extend(Zarafa.core.ui.ContentPanel, {
 	 * @private
 	 * @override
 	 */
-	doClose : function()
+	doClose: function()
 	{
 		// If a confirmation is requested before closing, check if the record has a store,
 		// if it doesn't the record is deleted and there are no unsaved changes. Otherwise
@@ -766,7 +772,7 @@ Zarafa.core.ui.RecordContentPanel = Ext.extend(Zarafa.core.ui.ContentPanel, {
 	 * @param {String} btn The text of the button on which the user clicked
 	 * @private
 	 */
-	onConfirmClose : function(btn)
+	onConfirmClose: function(btn)
 	{
 		if (btn === 'yes') {
 			this.record.reject();
@@ -781,14 +787,14 @@ Zarafa.core.ui.RecordContentPanel = Ext.extend(Zarafa.core.ui.ContentPanel, {
 	 * @param {Zarafa.core.data.MAPIRecord} record The record to update in this component
 	 * @param {Boolean} contentReset force the component to perform a full update of the data.
 	 */
-	update : Ext.emptyFn,
+	update: Ext.emptyFn,
 
 	/**
 	 * Function will add sub action type to list of {@link internalActions} that will be used when
 	 * showing info mask.
 	 * @param {String} name name of the sub action type.
 	 */
-	addInternalAction : function(name)
+	addInternalAction: function(name)
 	{
 		this.internalActions.push(name);
 	},
@@ -798,7 +804,7 @@ Zarafa.core.ui.RecordContentPanel = Ext.extend(Zarafa.core.ui.ContentPanel, {
 	 * showing info mask.
 	 * @param {String} name name of the sub action type.
 	 */
-	deleteInternalAction : function(name)
+	deleteInternalAction: function(name)
 	{
 		this.internalActions.splice(this.internalActions.indexOf(name), 1);
 	},
@@ -807,7 +813,7 @@ Zarafa.core.ui.RecordContentPanel = Ext.extend(Zarafa.core.ui.ContentPanel, {
 	 * Function will return list of sub action types that will be used when showing info mask.
 	 * @return {Array} array of all internal actions.
 	 */
-	getInternalActions : function()
+	getInternalActions: function()
 	{
 		return this.internalActions;
 	},
@@ -817,7 +823,7 @@ Zarafa.core.ui.RecordContentPanel = Ext.extend(Zarafa.core.ui.ContentPanel, {
 	 * so this function will return boolean value to indicate that show mask should be shown or not.
 	 * @return {Boolean} boolean to indicate that we are performing save on internal action or not.
 	 */
-	hasInternalAction : function()
+	hasInternalAction: function()
 	{
 		var isInternalAction = false;
 		var messageActions = this.record.getMessageActions();
@@ -841,7 +847,7 @@ Zarafa.core.ui.RecordContentPanel = Ext.extend(Zarafa.core.ui.ContentPanel, {
 	 * will show a confirmation dialog warning the user that he will lose all changes.
 	 * @return {String} warning message which will show in the leave requester dialog.
 	 */
-	onBeforeUnload : function()
+	onBeforeUnload: function()
 	{
 		if (this.fireEvent('beforeclose', this) !== false) {
 			if(this.recordComponentPlugin.isChangedByUser && this.record.dirty){

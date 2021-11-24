@@ -269,7 +269,7 @@ if(Ext.isIE || Ext.isEdge) {
 				}
 				function h(e) {
 					// prevent errors while unload occurring
-					if (!Ext) {// !window[xname]){  ==> can't we do this?
+					if (!Ext) {// !window[xname]) {  ==> can't we do this?
 						return;
 					}
 					e = Ext.EventObject.setEvent(e);
@@ -323,26 +323,26 @@ if(Ext.isIE || Ext.isEdge) {
 				 * @param {String} eventName The name of the event to listen for.
 				 * @param {Function} handler The handler function the event invokes. This function is passed
 				 * the following parameters:<ul>
-				 * <li>evt : EventObject<div class="sub-desc">The {@link Ext.EventObject EventObject} describing the event.</div></li>
-				 * <li>t : Element<div class="sub-desc">The {@link Ext.Element Element} which was the target of the event.
+				 * <li>evt: EventObject<div class="sub-desc">The {@link Ext.EventObject EventObject} describing the event.</div></li>
+				 * <li>t: Element<div class="sub-desc">The {@link Ext.Element Element} which was the target of the event.
 				 * Note that this may be filtered by using the <tt>delegate</tt> option.</div></li>
-				 * <li>o : Object<div class="sub-desc">The options object from the addListener call.</div></li>
+				 * <li>o: Object<div class="sub-desc">The options object from the addListener call.</div></li>
 				 * </ul>
 				 * @param {Object} scope (optional) The scope (<b><code>this</code></b> reference) in which the handler function is executed. <b>Defaults to the Element</b>.
 				 * @param {Object} options (optional) An object containing handler configuration properties.
 				 * This may contain any of the following properties:<ul>
-				 * <li>scope : Object<div class="sub-desc">The scope (<b><code>this</code></b> reference) in which the handler function is executed. <b>Defaults to the Element</b>.</div></li>
-				 * <li>delegate : String<div class="sub-desc">A simple selector to filter the target or look for a descendant of the target</div></li>
-				 * <li>stopEvent : Boolean<div class="sub-desc">True to stop the event. That is stop propagation, and prevent the default action.</div></li>
-				 * <li>preventDefault : Boolean<div class="sub-desc">True to prevent the default action</div></li>
-				 * <li>stopPropagation : Boolean<div class="sub-desc">True to prevent event propagation</div></li>
-				 * <li>normalized : Boolean<div class="sub-desc">False to pass a browser event to the handler function instead of an Ext.EventObject</div></li>
-				 * <li>delay : Number<div class="sub-desc">The number of milliseconds to delay the invocation of the handler after te event fires.</div></li>
-				 * <li>single : Boolean<div class="sub-desc">True to add a handler to handle just the next firing of the event, and then remove itself.</div></li>
-				 * <li>buffer : Number<div class="sub-desc">Causes the handler to be scheduled to run in an {@link Ext.util.DelayedTask} delayed
+				 * <li>scope: Object<div class="sub-desc">The scope (<b><code>this</code></b> reference) in which the handler function is executed. <b>Defaults to the Element</b>.</div></li>
+				 * <li>delegate: String<div class="sub-desc">A simple selector to filter the target or look for a descendant of the target</div></li>
+				 * <li>stopEvent: Boolean<div class="sub-desc">True to stop the event. That is stop propagation, and prevent the default action.</div></li>
+				 * <li>preventDefault: Boolean<div class="sub-desc">True to prevent the default action</div></li>
+				 * <li>stopPropagation: Boolean<div class="sub-desc">True to prevent event propagation</div></li>
+				 * <li>normalized: Boolean<div class="sub-desc">False to pass a browser event to the handler function instead of an Ext.EventObject</div></li>
+				 * <li>delay: Number<div class="sub-desc">The number of milliseconds to delay the invocation of the handler after te event fires.</div></li>
+				 * <li>single: Boolean<div class="sub-desc">True to add a handler to handle just the next firing of the event, and then remove itself.</div></li>
+				 * <li>buffer: Number<div class="sub-desc">Causes the handler to be scheduled to run in an {@link Ext.util.DelayedTask} delayed
 				 * by the specified number of milliseconds. If the event fires again within that time, the original
 				 * handler is <em>not</em> invoked, but the new handler is scheduled in its place.</div></li>
-				 * <li>target : Element<div class="sub-desc">Only call the handler if the event was fired on the target Element, <i>not</i> if the event was bubbled up from a child node.</div></li>
+				 * <li>target: Element<div class="sub-desc">Only call the handler if the event was fired on the target Element, <i>not</i> if the event was bubbled up from a child node.</div></li>
 				 * </ul><br>
 				 * <p>See {@link Ext.Element#addListener} for examples of how to use these options.</p>
 				 */

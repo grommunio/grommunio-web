@@ -10,12 +10,12 @@ Zarafa.calendar.data.busytime.BusyTimeProxy = Ext.extend(Zarafa.core.data.MAPIPr
 	 * @constructor
 	 * @param {Object} config Configuration object
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		config = config || {};
 
 		Ext.applyIf(config, {
-			listModuleName : Zarafa.core.ModuleNames.getListName('busytime')
+			listModuleName: Zarafa.core.ModuleNames.getListName('busytime')
 		});
 
 		Zarafa.calendar.data.busytime.BusyTimeProxy.superclass.constructor.call(this, config);
@@ -39,7 +39,7 @@ Zarafa.calendar.data.busytime.BusyTimeProxy = Ext.extend(Zarafa.core.data.MAPIPr
 	 * which should be used for this request.
 	 * @private
 	 */
-	getResponseHandlerForRequest : function(modulename, serverAction, action, records, parameters, reader, callback, scope, args)
+	getResponseHandlerForRequest: function(modulename, serverAction, action, records, parameters, reader, callback, scope, args)
 	{
 		return new Zarafa.calendar.data.busytime.BusyTimeResponseHandler({
 			proxy: this,

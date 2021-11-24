@@ -9,21 +9,21 @@ Zarafa.contact.dialogs.ContactPhonePanel = Ext.extend(Ext.form.FormPanel, {
 	/**
 	 * @cfg {Zarafa.contact.data.ContactDetailsParser} parser parser object that will be used to parse information
 	 */
-	parser : null,
+	parser: null,
 	/**
 	 * @cfg {Zarafa.contact.dialogs.parsedNameRecord} parsedData if data is already parsed then it can be passed here,
 	 * so no need to prase same data again
 	 */
-	parsedData : null,
+	parsedData: null,
 	/**
 	 * @cfg {String} property property that will be modified
 	 */
-	property : null,
+	property: null,
 	/**
 	 * @constructor
 	 * @param {Object} config Configuration object
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		config = config || {};
 
@@ -32,9 +32,9 @@ Zarafa.contact.dialogs.ContactPhonePanel = Ext.extend(Ext.form.FormPanel, {
 
 		config = Ext.applyIf(config, {
 			xtype: 'zarafa.contactphonepanel',
-			border : false,
-			frame : true,
-			padding : 5,
+			border: false,
+			frame: true,
+			padding: 5,
 			items: this.createFormItems()
 		});
 
@@ -45,28 +45,28 @@ Zarafa.contact.dialogs.ContactPhonePanel = Ext.extend(Ext.form.FormPanel, {
 	 * Create the form in which the phone specifications can be written
 	 * @return {Object} Configuration object for the form
 	 */
-	createFormItems : function()
+	createFormItems: function()
 	{
 		return [{
-			xtype : 'textfield',
-			anchor : '100%',
-			fieldLabel : _('Country/Region code'),
-			name : 'country_code'
+			xtype: 'textfield',
+			anchor: '100%',
+			fieldLabel: _('Country/Region code'),
+			name: 'country_code'
 		}, {
-			xtype : 'textfield',
-			anchor : '100%',
-			fieldLabel : _('City/Area code'),
-			name : 'city_code'
+			xtype: 'textfield',
+			anchor: '100%',
+			fieldLabel: _('City/Area code'),
+			name: 'city_code'
 		}, {
-			xtype : 'textfield',
-			anchor : '100%',
-			fieldLabel : _('Local number'),
-			name : 'local_number'
+			xtype: 'textfield',
+			anchor: '100%',
+			fieldLabel: _('Local number'),
+			name: 'local_number'
 		}, {
-			xtype : 'textfield',
-			anchor : '100%',
-			fieldLabel : _('Extension'),
-			name : 'extension'
+			xtype: 'textfield',
+			anchor: '100%',
+			fieldLabel: _('Extension'),
+			name: 'extension'
 		}];
 	},
 
@@ -76,7 +76,7 @@ Zarafa.contact.dialogs.ContactPhonePanel = Ext.extend(Ext.form.FormPanel, {
 	 * @param {Zarafa.core.data.IPMRecord} record The record to load
 	 * @param {Boolean} contentReset force the component to perform a full update of the data.
 	 */
-	update : function(record, contentReset)
+	update: function(record, contentReset)
 	{
 		if (!Ext.isDefined(record)) {
 			return;
@@ -101,7 +101,7 @@ Zarafa.contact.dialogs.ContactPhonePanel = Ext.extend(Ext.form.FormPanel, {
 	 * @param {Zarafa.core.data.IPMRecord} record The record to update
 	 * @private
 	 */
-	updateRecord : function(record)
+	updateRecord: function(record)
 	{
 		var form = this.getForm();
 

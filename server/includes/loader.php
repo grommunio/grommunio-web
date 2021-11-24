@@ -265,7 +265,7 @@ class FileLoader {
 				if(is_file($filepath) && $info == $ext){
 					$files[] = $filepath;
 				// Subdirectories will be scanned as well
-				}elseif($recursive && is_dir($filepath)){
+				} elseif($recursive && is_dir($filepath)){
 					$subDirFiles = array_merge($subDirFiles, $this->getListOfFiles($ext, $filepath, $recursive, $excludeFiles));
 				}
 			}
@@ -375,7 +375,7 @@ class FileLoader {
 						if($dependencyFilename != $filename){
 							$fileDependencies[ $filename ]['depends'][] = $dependencyFilename;
 						}
-					}else{
+					} else {
 						trigger_error('Unable to find @extends dependency "'.$fileData['extends'][$i].'" for file "'.$filename.'"');
 					}
 				}
@@ -390,7 +390,7 @@ class FileLoader {
 					if($dependencyFilename != $filename){
 						$fileDependencies[ $filename ]['depends'][] = $dependencyFilename;
 					}
-				}else{
+				} else {
 					trigger_error('Unable to find file #dependsFile dependency "'.$fileData['dependsFile'][$i].'" for file "'.$filename.'"');
 				}
 			}
@@ -442,7 +442,7 @@ class FileLoader {
 							if(!isset($fileDepths[ $dependencies[$i] ])){
 								$parentsDepthAssigned = false;
 								break;
-							}else{
+							} else {
 								// We should only take the highest depth
 								$highestParentDepth = max($highestParentDepth, $fileDepths[ $dependencies[$i] ]);
 							}
@@ -453,7 +453,7 @@ class FileLoader {
 							$changed = true;
 						}
 					// The node does not have any dependecies so its a root node.
-					}else{
+					} else {
 						$fileDepths[ $file ] = 0;
 						$changed = true;
 					}
@@ -478,7 +478,7 @@ class FileLoader {
 				if(!$dependencyData['core']){
 					$weight++;
 				}
-			}else{
+			} else {
 				// Make up a weight to put it at the end
 				$weight = count($fileData);
 			}

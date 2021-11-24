@@ -9,20 +9,20 @@ Zarafa.common.ui.ContextMainPanel = Ext.extend(Ext.Panel, {
 	/**
 	 * @cfg {Zarafa.mail.MailContext} context The context to which this panel belongs
 	 */
-	context : undefined,
+	context: undefined,
 
 	/**
 	 * The {@link Zarafa.mail.MailContextModel} which is obtained from the {@link #context}.
 	 * @property
 	 * @type Zarafa.mail.MailContextModel
 	 */
-	model : undefined,
+	model: undefined,
 
 	/**
 	 * @constructor
 	 * @param config Configuration structure
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		config = config || {};
 
@@ -31,8 +31,8 @@ Zarafa.common.ui.ContextMainPanel = Ext.extend(Ext.Panel, {
 		}
 
 		Ext.applyIf(config, {
-			xtype : 'zarafa.contextmainpanel',
-			border : false,
+			xtype: 'zarafa.contextmainpanel',
+			border: false,
 			cls: 'zarafa-panel'
 		});
 

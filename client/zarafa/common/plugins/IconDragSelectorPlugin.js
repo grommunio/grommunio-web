@@ -19,7 +19,7 @@ Zarafa.common.plugins.IconDragSelectorPlugin = Ext.extend(Object, {
 	 * @property
 	 * @type Ext.DataView
 	 */
-	view : undefined,
+	view: undefined,
 
 	/**
 	 * Array of {@link Ext.lib.Region} objects which belong to each {@link Ext.DataView#all}.
@@ -27,28 +27,28 @@ Zarafa.common.plugins.IconDragSelectorPlugin = Ext.extend(Object, {
 	 * @property
 	 * @type Array
 	 */
-	itemRegions : undefined,
+	itemRegions: undefined,
 
 	/**
 	 * The {@link Ext.lib.Region} of the {@link #view}.
 	 * @property
 	 * @type Ext.lib.Region
 	 */
-	bodyRegion : undefined,
+	bodyRegion: undefined,
 
 	/**
 	 * The proxy element which marks the selected area
 	 * @property
 	 * @type Ext.Element
 	 */
-	proxy : undefined,
+	proxy: undefined,
 
 	/**
 	 * The Drag Tracker
 	 * @property
 	 * @type Ext.dd.DragTracker
 	 */
-	tracker : undefined,
+	tracker: undefined,
 
 	/**
 	 * The Region which is currently contains the
@@ -56,13 +56,13 @@ Zarafa.common.plugins.IconDragSelectorPlugin = Ext.extend(Object, {
 	 * @property
 	 * @type Ext.lib.Region
 	 */
-	dragRegion : undefined,
+	dragRegion: undefined,
 
 	/**
 	 * @constructor
 	 * @param {Object} config Configuration object
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		Ext.apply(this, config);
 
@@ -73,7 +73,7 @@ Zarafa.common.plugins.IconDragSelectorPlugin = Ext.extend(Object, {
 	 * Initializes the {@link Ext.DataView view} to which this plugin has been hooked.
 	 * @param {Ext.DataView} view The component on which the plugin is installed
 	 */
-	init : function(view)
+	init: function(view)
 	{
 		this.view = view;
 
@@ -85,7 +85,7 @@ Zarafa.common.plugins.IconDragSelectorPlugin = Ext.extend(Object, {
 	 * {@link Ext.Element#getRegion} for all involved elements.
 	 * @private
 	 */
-	fillRegions : function()
+	fillRegions: function()
 	{
 		this.itemRegions = [];
 
@@ -102,7 +102,7 @@ Zarafa.common.plugins.IconDragSelectorPlugin = Ext.extend(Object, {
 	 * @return {Boolean} false To cancel the event
 	 * @private
 	 */
-	cancelClick : function()
+	cancelClick: function()
 	{
 		return false;
 	},
@@ -113,7 +113,7 @@ Zarafa.common.plugins.IconDragSelectorPlugin = Ext.extend(Object, {
 	 * @return {Boolean} False when the event must be ignored
 	 * @private
 	 */
-	onBeforeStart : function(e)
+	onBeforeStart: function(e)
 	{
 		return this.view.getEl().contains(e.target) && !Ext.dd.DragDropMgr.dragCurrent; // FIXME
 	},
@@ -123,9 +123,9 @@ Zarafa.common.plugins.IconDragSelectorPlugin = Ext.extend(Object, {
 	 * @param {Ext.EventObject} e The event object
 	 * @private
 	 */
-  	onStart : function(e)
+ 	onStart: function(e)
 	{
-		this.view.on('containerclick', this.cancelClick, this, { single : true });
+		this.view.on('containerclick', this.cancelClick, this, { single: true });
 		if (!this.proxy) {
 			this.proxy = this.view.el.createChild({
 				cls:'x-view-selector'
@@ -146,7 +146,7 @@ Zarafa.common.plugins.IconDragSelectorPlugin = Ext.extend(Object, {
 	 * @param {Ext.EventObject} e The event object
 	 * @private
 	 */
-	onDrag : function(e)
+	onDrag: function(e)
 	{
 		var startXY = this.tracker.startXY;
 		var xy = this.tracker.getXY();
@@ -182,10 +182,10 @@ Zarafa.common.plugins.IconDragSelectorPlugin = Ext.extend(Object, {
 	 * @param {Ext.EventObject} e The event object
 	 * @private
 	 */
-	onEnd : function(e)
+	onEnd: function(e)
 	{
 		if (!Ext.isIE) {
-			this.view.un('containerclick', this.cancelClick, this, { single : true });
+			this.view.un('containerclick', this.cancelClick, this, { single: true });
 		}
 		if (this.proxy) {
 			this.proxy.setDisplayed(false);
@@ -197,7 +197,7 @@ Zarafa.common.plugins.IconDragSelectorPlugin = Ext.extend(Object, {
 	 * @param {Ext.DataView} view The view which has been rendered
 	 * @private
 	 */
-	onRender : function(view)
+	onRender: function(view)
 	{
 		this.dragRegion = new Ext.lib.Region(0, 0, 0, 0);
 

@@ -21,8 +21,8 @@ Zarafa.core.data.MessageRecordFields = [
 	{name: 'received_representing_entryid'},
 	{name: 'received_representing_search_key'},
 	{name: 'delegated_by_rule', type: 'boolean', defaultValue: false},
-	{name: 'message_delivery_time', type:'date', dateFormat:'timestamp', defaultValue: null, sortDir : 'DESC'},
-	{name: 'client_submit_time', type:'date', dateFormat:'timestamp', defaultValue: null, sortDir : 'DESC'},
+	{name: 'message_delivery_time', type:'date', dateFormat:'timestamp', defaultValue: null, sortDir: 'DESC'},
+	{name: 'client_submit_time', type:'date', dateFormat:'timestamp', defaultValue: null, sortDir: 'DESC'},
 	{name: 'transport_message_headers'},
 	{name: 'hide_attachments', type: 'boolean', defaultValue: false},
 ];
@@ -43,7 +43,7 @@ Zarafa.core.data.MessageRecord = Ext.extend(Zarafa.core.data.IPMRecord, {
 	 * @property
 	 * @type Boolean
 	 */
-	externalContent : false,
+	externalContent: false,
 
 	/**
 	 * Function will check if {@link Zarafa.core.data.IPMRecord IPMRecord} contains external content
@@ -51,7 +51,7 @@ Zarafa.core.data.MessageRecord = Ext.extend(Zarafa.core.data.IPMRecord, {
 	 * @param {String} body (optional) contents of body property of {@link Zarafa.core.data.IPMRecord IPMRecord}.
 	 * @return {Boolean} true if {@link Zarafa.core.data.IPMRecord IPMRecord} contains external content else false.
 	 */
-	hasExternalContent : function(body)
+	hasExternalContent: function(body)
 	{
 		body = Ext.isDefined(body) ? body : this.getBody();
 
@@ -76,7 +76,7 @@ Zarafa.core.data.MessageRecord = Ext.extend(Zarafa.core.data.IPMRecord, {
 	 * body should be returned.
 	 * @return {String} filtered contents of body property of {@link Zarafa.core.data.IPMRecord IPMRecord}.
 	 */
-	getBody : function(preferHTML)
+	getBody: function(preferHTML)
 	{
 		var isHTML = this.get('isHTML');
 		var actualBody = Zarafa.core.data.MessageRecord.superclass.getBody.call(this, preferHTML);
@@ -96,12 +96,102 @@ Zarafa.core.data.MessageRecord = Ext.extend(Zarafa.core.data.IPMRecord, {
 	},
 
 	/**
+	 * Removes some weird styling that Outlook adds to html mails.
+	 *
+	 * @param {String} body The text that should be cleaned up
+	 * @return {String} The cleaned up text
+	 */
+	cleanupOutlookStyles: function(body) {
+		// clean up some weird Outlook styling
+		const el = document.createElement('div');
+		el.innerHTML = body;
+		const paragraphs = el.querySelectorAll('p');
+		for (let i=0; i<paragraphs.length; i++) {
+			const p = Ext.fly(paragraphs[i]);
+
+			// First check for MsoListParagraph and MsoListNumber elements created by Outlook
+			if (p.hasClass('MsoListParagraph') || p.hasClass('MsoListNumber')) {
+
+				// Outlook uses negative indents for lists.
+				// WebApp displays the CSS correctly, but results in cut of text for users.
+				// If the paragraph has a negative text-indent, we replace it by a positive text-indent.
+				// If there is no negative text-indent, we set it to 0.
+				// We exclude items that have 'margin-left' and negative text-indent,
+				// as those items are indentified with multi-indent items
+				// and we can still use that CSS.
+				// Ref KW-3437
+				if (Ext.isEmpty(p.getStyle('margin-left'))) {
+					var textIndent = p.getStyle('text-indent').replace('-', '');
+					var newTextIndent = !Ext.isEmpty(textIndent) ? textIndent : 0;
+
+					p.setStyle({
+						'text-indent': newTextIndent
+					});
+				}
+
+				// Remove generic browser margins from paragraphs,
+				// but leave 'margin-left' as is.
+				p.setStyle({
+					'margin-right': 0,
+					'margin-top': 0,
+					'margin-bottom': 0
+				});
+			}
+
+			// Remove generic browser margins from paragraphs, exclude 'MsoListParagraph' and 'MsoListNumber'
+			if (!p.getStyle('margin') && !p.hasClass('MsoListParagraph') && !p.hasClass('MsoListNumber')) {
+				p.setStyle({
+					margin: 0
+				});
+			}
+
+			// Try to find and remove the 'non-breaking spaces' that Outlook
+			// adds after the numbers and bullets of lists
+			var all = paragraphs[i].querySelectorAll('*');
+			for (let j=0; j<all.length; j++) {
+				// Prevent unnecessary innerHtml over writing when node has child nodes.
+				if (all[j].innerText && all[j].innerText.trim() === '' && !all[j].hasChildNodes()) {
+					all[j].innerHTML = '&nbsp;';
+				}
+
+				if ((/^\d+\.(&nbsp;)+$/).test(all[j].innerHTML)) {
+					all[j].innerHTML = all[j].innerHTML.replace(/(&nbsp;)+/, '&nbsp;');
+				}
+			}
+
+			var font = paragraphs[i].querySelector('font[face="Symbol"]');
+			if (font) {
+				font = font.querySelectorAll('font');
+				for (let j=0; j<font.length; j++) {
+					if (font[j].innerText.trim() === '') {
+						font[j].innerHTML = '&nbsp;';
+					}
+				}
+			}
+		}
+
+		// Remove strange margin on tables
+		const tables = el.querySelectorAll('table.MsoNormalTable');
+		for (let i=0; i<tables.length; i++) {
+			const t = Ext.fly(tables[i]);
+
+			if (parseFloat(t.getStyle('margin-left')) < 0) {
+				t.setStyle({
+					'margin-left': null
+				});
+			}
+		}
+
+		return el.innerHTML;
+	},
+
+	/**
 	 * Function is used to convert a mail record to task record.
 	 * @param {Zarafa.core.IPMFolder} folder The target folder in which the new record must be
 	 * created.
 	 * @return {Zarafa.core.data.IPMRecord} record The newly created task.
 	 */
-	convertToTask : function(folder)
+	convertToTask: function(folder)
 	{
 		return this.convertRecord(folder, 'IPM.Task');
 	},
@@ -112,7 +202,7 @@ Zarafa.core.data.MessageRecord = Ext.extend(Zarafa.core.data.IPMRecord, {
 	* created.
 	* @return {Zarafa.core.data.IPMRecord} record The newly created appointment.
 	*/
-	convertToAppointment : function(folder)
+	convertToAppointment: function(folder)
 	{
 		return this.convertRecord(folder, 'IPM.Appointment');
 	},
@@ -125,18 +215,18 @@ Zarafa.core.data.MessageRecord = Ext.extend(Zarafa.core.data.IPMRecord, {
 	 * @return {Zarafa.core.data.IPMRecord} record The newly created appointment.
 	 * @private
 	 */
-	convertRecord : function(folder, messageClass)
+	convertRecord: function(folder, messageClass)
 	{
 		var defaultStore = folder.getMAPIStore();
 
 		var newRecord = Zarafa.core.data.RecordFactory.createRecordObjectByMessageClass(messageClass, {
-			store_entryid : folder.get('store_entryid'),
-			parent_entryid : folder.get('entryid'),
-			subject : this.get('subject'),
-			body : this.getBody(false),
-			importance : this.get('importance'),
-			categories : this.get('categories'),
-			owner : defaultStore.isPublicStore() ? container.getUser().getFullName() : defaultStore.get('mailbox_owner_name')
+			store_entryid: folder.get('store_entryid'),
+			parent_entryid: folder.get('entryid'),
+			subject: this.get('subject'),
+			body: this.getBody(false),
+			importance: this.get('importance'),
+			categories: this.get('categories'),
+			owner: defaultStore.isPublicStore() ? container.getUser().getFullName() : defaultStore.get('mailbox_owner_name')
 		});
 
 		// Set icon based on messageClass
@@ -165,12 +255,12 @@ Zarafa.core.data.MessageRecord = Ext.extend(Zarafa.core.data.IPMRecord, {
 	 * @param {String} body (optional) contents of body property of {@link Zarafa.core.data.IPMRecord IPMRecord}.
 	 * @return {String} filtered contents of body property of {@link Zarafa.core.data.IPMRecord IPMRecord}.
 	 */
-	isExternalContentBlocked : function(body)
+	isExternalContentBlocked: function(body)
 	{
 		body = Ext.isDefined(body) ? body : this.getBody();
 
 		if(Ext.isEmpty(body)) {
-			// no point of continueing with empty body
+			// no point of continuing with empty body
 			return false;
 		}
 
@@ -220,7 +310,7 @@ Zarafa.core.data.MessageRecord = Ext.extend(Zarafa.core.data.IPMRecord, {
 	 * should be shown.
 	 * @return {Boolean} returns true if external content should be blocked else false
 	 */
-	checkBlockStatus : function()
+	checkBlockStatus: function()
 	{
 		if (this.senderIsUser()) {
 			return true;
@@ -239,7 +329,7 @@ Zarafa.core.data.MessageRecord = Ext.extend(Zarafa.core.data.IPMRecord, {
 	 * http://msdn.microsoft.com/en-us/library/ee219242(v=EXCHG.80).aspx.
 	 * @return {Number} calculated value of block status property.
 	 */
-	calculateBlockStatus : function()
+	calculateBlockStatus: function()
 	{
 		if(!Ext.isDate(this.get('message_delivery_time'))) {
 			return 0;
@@ -266,7 +356,7 @@ Zarafa.core.data.MessageRecord = Ext.extend(Zarafa.core.data.IPMRecord, {
 	 * @FIXME when sentItems folder is selected, propertes 'received_by_entryid' and 'received_by_email_address' are not set.
 	 * @return {Boolean} true if sender and receiver is same user else false.
 	 */
-	senderIsReceiver : function()
+	senderIsReceiver: function()
 	{
 		var senderEntryId = this.get('sent_representing_entryid') || this.get('sender_entryid');
 		var receiverEntryId = this.get('received_by_entryid');
@@ -291,7 +381,7 @@ Zarafa.core.data.MessageRecord = Ext.extend(Zarafa.core.data.IPMRecord, {
 	 * Function is used to check if the sender in the message and user logged-in is same or different.
 	 * @return {Boolean} true if sender and user logged-in is same user else false.
 	 */
-	senderIsUser : function()
+	senderIsUser: function()
 	{
 		var senderEntryId = this.get('sent_representing_entryid') || this.get('sender_entryid');
 		var userEntryId = container.getUser().getEntryId();
@@ -307,7 +397,7 @@ Zarafa.core.data.MessageRecord = Ext.extend(Zarafa.core.data.IPMRecord, {
 	 * Function is used to check if the sender in the message and user message sender is same or different.
 	 * @return {Boolean} true if sender and user logged-in is same user else false.
 	 */
-	senderIsStoreOwner : function()
+	senderIsStoreOwner: function()
 	{
 		var senderEntryId = this.get('sent_representing_entryid') || this.get('sender_entryid');
 
@@ -327,7 +417,7 @@ Zarafa.core.data.MessageRecord = Ext.extend(Zarafa.core.data.IPMRecord, {
 	 * Function is used to check if the sender in the message and user logged-in is same or different.
 	 * @return {Boolean} true if store owner and user logged-in is same user else false.
 	 */
-	userIsStoreOwner : function()
+	userIsStoreOwner: function()
 	{
 		var userEntryId = container.getUser().getEntryId();
 		var storeRecord = container.getHierarchyStore().getById(this.get('store_entryid'));
@@ -344,13 +434,13 @@ Zarafa.core.data.MessageRecord = Ext.extend(Zarafa.core.data.IPMRecord, {
 	},
 
 	/**
-	 * Function sets delegator infromation on the record.
+	 * Function sets delegator information on the record.
 	 * Function checks whether message record is in logged-in user's store or other store,
 	 * if it is in other's store then it sent sent_representing_* properties.
 	 * @param {Ext.data.Record} delegatorStore The delegator user store's record which we are looking for
 	 * @param {Boolean} force forcefully save the changes to server even if its not changed
 	 */
-	setDelegatorInfo : function(delegatorStore, force)
+	setDelegatorInfo: function(delegatorStore, force)
 	{
 		if(delegatorStore) {
 			force = force || false;
@@ -368,7 +458,7 @@ Zarafa.core.data.MessageRecord = Ext.extend(Zarafa.core.data.IPMRecord, {
 	 * If sender_entryid is not present, return false
 	 * @return {Zarafa.core.data.IPMRecipientRecord}
 	 */
-	getSender : function()
+	getSender: function()
 	{
 		if(!this.get('sender_entryid')){
 			return false;
@@ -379,7 +469,8 @@ Zarafa.core.data.MessageRecord = Ext.extend(Zarafa.core.data.IPMRecord, {
 			display_name : this.get('sender_name'),
 			address_type : this.get('sender_address_type'),
 			entryid : this.get('sender_entryid'),
-			search_key : this.get('sender_search_key')
+			search_key : this.get('sender_search_key'),
+			user_image : this.get('user_image')
 		});
 
 		return sender;
@@ -391,7 +482,7 @@ Zarafa.core.data.MessageRecord = Ext.extend(Zarafa.core.data.IPMRecord, {
 	 * If sent_representing_entryid is not present, return false
 	 * @return {Zarafa.core.data.IPMRecipientRecord}
 	 */
-	getSentRepresenting : function()
+	getSentRepresenting: function()
 	{
 		if(!this.get('sent_representing_entryid')){
 			return false;
@@ -402,21 +493,105 @@ Zarafa.core.data.MessageRecord = Ext.extend(Zarafa.core.data.IPMRecord, {
 			display_name : this.get('sent_representing_name'),
 			address_type : this.get('sent_representing_address_type'),
 			entryid : this.get('sent_representing_entryid'),
-			search_key : this.get('sent_representing_search_key')
+			search_key : this.get('sent_representing_search_key'),
+			user_image : this.get('user_image')
 		});
 
 		return sender;
 	},
 
 	/**
+	 * Function will use 'sendas' data and set the default recipient in the from field, with respective action type value from
+	 * {@link Zarafa.mail.data.ActionTypes ActionTypes} of {@link Zarafa.core.data.IPMRecord record}.
+	 * It will not set anything if the 'sendas' data is empty or no default recipient has been set for that action type
+	 * in 'sendas' settings widget.
+	 * @private
+	 */
+	 setDefaultFromRecipeint: function()
+	 {
+		 var actionType = this.getMessageAction('action_type');
+		 var isCreateAction = !this.hasMessageAction('action_type') && this.phantom;
+		 var isReplyAction = actionType === Zarafa.mail.data.ActionTypes.REPLY || actionType === Zarafa.mail.data.ActionTypes.REPLYALL;
+		 var isForwarsAction = actionType === Zarafa.mail.data.ActionTypes.FORWARD;
+ 
+		 // return if mail is not reply, new or forward mail.
+		 if (isCreateAction === false && isReplyAction === false && isForwarsAction === false) {
+			 return;
+		 }
+ 
+		 var settingsModel = container.getSettingsModel();
+		 var defaultFromRecipients = settingsModel.get('zarafa/v1/contexts/mail/sendas', []);
+		 if (!Ext.isEmpty(defaultFromRecipients)) {
+			 for (var i = 0; i < defaultFromRecipients.length; i++) {
+				 var recipient = defaultFromRecipients[i];
+				 if (isCreateAction && recipient['new_mail'] || isReplyAction && recipient['reply_mail'] || isForwarsAction && recipient['forward_mail']) {
+					 this.set('sent_representing_name', recipient['display_name']);
+					 this.set('sent_representing_email_address', recipient['email_address'] || recipient['smtp_address']);
+					 this.set('sent_representing_address_type', recipient['address_type']);
+					 this.set('sent_representing_entryid', recipient['entryid']);
+					 this.set('sent_representing_search_key', recipient['search_key']);
+					 break;
+				 }
+			 }
+		 }
+	 },
+
+	/**
+	 * Function will use 'sendas' data and return the default {@link Zarafa.core.data.IPMRecipientRecord recipient} for the from field.
+	 * If not found then it will create {@link Zarafa.core.data.IPMRecipientRecord recipient} using sent_representing_* properties if available.
+	 * It will return false if no default from recipient has been set.
+	 * 
+	 * @return {Zarafa.core.data.IPMRecipientRecord}
+	 * @private
+	 */
+	getDefaultFromRecipeint: function ()
+	{
+		var settingsModel = container.getSettingsModel();
+		var defaultFromRecipients = settingsModel.get('zarafa/v1/contexts/mail/sendas');
+		
+		if (Ext.isEmpty(this.get('sent_representing_email_address'))) {
+			return false;
+		}
+
+		// Default config to create recipient record.
+		var recipeintConfig = {
+			display_name: this.get('sent_representing_name'),
+			email_address: this.get('sent_representing_email_address'),
+			address_type: this.get('sent_representing_address_type'),
+			entryid: this.get('sent_representing_entryid')
+		};
+		
+		// Check whether the sent_representing_* properties had been set by 'from addresses' functionality.
+		// If so then get that recipient details from the 'sendas' settings and create config object accordingly.
+		var recipient = defaultFromRecipients.find(function (recipient) {
+			var sentRepresentingEmail = this.get('sent_representing_email_address');
+			return sentRepresentingEmail === recipient['email_address'] || sentRepresentingEmail === recipient['smtp_address'];
+		}, this);
+
+		if (Ext.isDefined(recipient)) {
+			Ext.apply(recipeintConfig, {
+				display_name: recipient['display_name'],
+				email_address: recipient['email_address'] || recipient['smtp_address'],
+				address_type: recipient['address_type'],
+				entryid: recipient['entryid'],
+				object_type: recipient['object_type'],
+				display_type: recipient['display_type'],
+				display_type_ex: recipient['display_type_ex']
+			});
+		}
+
+		return Zarafa.core.data.RecordFactory.createRecordObjectByCustomType(Zarafa.core.data.RecordCustomObjectType.ZARAFA_RECIPIENT, recipeintConfig);
+	},
+
+	/**
 	 * Function is used to set the default Cc recipient in New or Reply mail as per the user
 	 * configured in settings.
 	 */
-	setDefaultCcRecipients : function ()
+	setDefaultCcRecipients: function ()
 	{
 		var actionType = this.getMessageAction('action_type');
 		var isCreateAction = !this.hasMessageAction('action_type') && this.phantom;
-		var isReplyAction = actionType === Zarafa.mail.data.ActionTypes.REPLY;
+		var isReplyAction = actionType === Zarafa.mail.data.ActionTypes.REPLY || actionType === Zarafa.mail.data.ActionTypes.REPLYALL;
 
 		// return if mail is not reply or new mail.
 		if (isCreateAction === false && isReplyAction === false) {
@@ -424,7 +599,7 @@ Zarafa.core.data.MessageRecord = Ext.extend(Zarafa.core.data.IPMRecord, {
 		}
 
 		var settingsModel = container.getSettingsModel();
-		var defaultCcRecipients  = settingsModel.get('zarafa/v1/contexts/mail/cc_recipients', []);
+		var defaultCcRecipients = settingsModel.get('zarafa/v1/contexts/mail/cc_recipients');
 		var recipientStore = this.getRecipientStore();
 
 		for (var i = 0; i < defaultCcRecipients.length; i++) {
@@ -444,7 +619,7 @@ Zarafa.core.data.MessageRecord = Ext.extend(Zarafa.core.data.IPMRecord, {
 
 			recipientStore.add(record);
 		}
-	}
+	},
 });
 
 /**

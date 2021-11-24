@@ -14,7 +14,7 @@ Zarafa.common.dialogs.CopyMoveContentPanel = Ext.extend(Zarafa.core.ui.ContentPa
 	 * @cfg {Zarafa.core.data.MAPIRecord} record The record(s) which are being
 	 * copied or moved through this panel
 	 */
-	record : undefined,
+	record: undefined,
 
 	/**
 	 * The MAPIFolder which was selected the last time this panel was opened.
@@ -22,13 +22,13 @@ Zarafa.common.dialogs.CopyMoveContentPanel = Ext.extend(Zarafa.core.ui.ContentPa
 	 * @property
 	 * @type Zarafa.hierarchy.data.MAPIFolderRecord
 	 */
-	last_selected_folder : undefined,
+	last_selected_folder: undefined,
 
 	/**
 	 * @constructor
 	 * @param config Configuration structure
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		config = config || {};
 
@@ -54,20 +54,20 @@ Zarafa.common.dialogs.CopyMoveContentPanel = Ext.extend(Zarafa.core.ui.ContentPa
 
 		Ext.applyIf(config, {
 			// Override from Ext.Component
-			xtype : 'zarafa.copymovecontentpanel',
+			xtype: 'zarafa.copymovecontentpanel',
 			// We don't need the autofocus plugin since we want the focus on the
 			// selected tree node.
 			useInputAutoFocusPlugin: false,
 			layout: 'fit',
-			title : title,
+			title: title,
 			width: 400,
 			height: 350,
 			cls: 'copymove-panel',
 			items: [{
 				xtype: 'zarafa.copymovepanel',
 				ref: 'copyMovePanel',
-				record : config.record,
-				objectType : objectType
+				record: config.record,
+				objectType: objectType
 			}]
 		});
 
@@ -93,7 +93,7 @@ Zarafa.common.dialogs.CopyMoveContentPanel = Ext.extend(Zarafa.core.ui.ContentPa
 	 * {@link Zarafa.core.Container#getHierarchyStore hierarchy}.
 	 * @return {Zarafa.hierarchy.data.MAPIFolderRecord} The default selected folder
 	 */
-	getSelectedFolder : function()
+	getSelectedFolder: function()
 	{
 		if (!this.last_selected_folder && !Ext.isEmpty(this.record)) {
 			var hierarchy = container.getHierarchyStore();
@@ -114,7 +114,7 @@ Zarafa.common.dialogs.CopyMoveContentPanel = Ext.extend(Zarafa.core.ui.ContentPa
 	 * and will call {@link #saveState} if this panel is {@link #stateful}.
 	 * @param {Zarafa.hierarchy.data.MAPIFolderRecord} folder The selected folder
 	 */
-	selectFolder : function(folder)
+	selectFolder: function(folder)
 	{
 		this.last_selected_folder = folder;
 		if (this.stateful !== false) {
@@ -128,7 +128,7 @@ Zarafa.common.dialogs.CopyMoveContentPanel = Ext.extend(Zarafa.core.ui.ContentPa
 	 * @return {Object} The state object
 	 * @protected
 	 */
-	getState : function()
+	getState: function()
 	{
 		var state = Zarafa.common.dialogs.CopyMoveContentPanel.superclass.getState.call(this);
 
@@ -145,7 +145,7 @@ Zarafa.common.dialogs.CopyMoveContentPanel = Ext.extend(Zarafa.core.ui.ContentPa
 	 * @param {Object} state The state object
 	 * @protected
 	 */
-	applyState : function(state)
+	applyState: function(state)
 	{
 		if (state && state.last_selected_folder) {
 			this.last_selected_folder = container.getHierarchyStore().getFolder(state.last_selected_folder);

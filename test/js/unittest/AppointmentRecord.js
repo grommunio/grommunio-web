@@ -14,6 +14,9 @@ describe('AppointmentRecord', function() {
 		shadowStore = new Zarafa.core.data.ShadowStore();
 		shadowStore.add(record);
 		record.store = shadowStore;
+
+		settingsModel = container.getSettingsModel();
+      	settingsModel.initialize({});
 	});
 
 	afterEach(function() {
@@ -24,9 +27,9 @@ describe('AppointmentRecord', function() {
 	describe('isMeetingReceived', function() {
 		it('can generate meeting time info', function() {
 			expect(record.generateMeetingTimeInfo()).toContain('When: ' + 
-				startDate.format(_('l jS F Y G:i')) +
+				startDate.formatDefaultTime(_('l jS F Y {0}')) +
 				' - '  +
-				endDate.format(_('l jS F Y G:i')));
+				endDate.formatDefaultTime(_('l jS F Y {0}')));
 		});
 
 		it('can display location', function() {
@@ -56,7 +59,7 @@ describe('AppointmentRecord', function() {
 			expect(result).toContain('Please reschedule');
 			expect(result).toContain('New Meeting Time Proposed');
 			expect(result).toContain('New Meeting Time Proposed');
-			expect(result).toContain(startDate.format(_('l jS F Y G:i')) + ' - '  + endDate.format(_('l jS F Y G:i')));
+			expect(result).toContain(startDate.formatDefaultTime(_('l jS F Y {0}')) + ' - '  + endDate.formatDefaultTime(_('l jS F Y {0}')));
 		});
 	});
 

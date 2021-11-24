@@ -20,13 +20,13 @@ Zarafa.common.ui.messagepanel.CategoryLinks = Ext.extend(Ext.Container, {
 	 * @property
 	 * @type {Zarafa.common.categories.ui.Tooltip}
 	 */
-	tooltip : null,
+	tooltip: null,
 
 	/**
 	 * @constructor
 	 * @param {Object} config configuration object.
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		config = config || {};
 
@@ -35,9 +35,9 @@ Zarafa.common.ui.messagepanel.CategoryLinks = Ext.extend(Ext.Container, {
 
 		Ext.applyIf(config,{
 			xtype: 'zarafa.categorylinks',
-			border : false,
-			anchor : '100%',
-			cls : 'k-preview-header-categories',
+			border: false,
+			anchor: '100%',
+			cls: 'k-preview-header-categories',
 			listeners: {
 				render: this.onRenderCategoryLinks,
 				scope: this
@@ -53,7 +53,7 @@ Zarafa.common.ui.messagepanel.CategoryLinks = Ext.extend(Ext.Container, {
 	 * be used to display truncated categories. And adds a listener for
 	 * the contextmenu event.
 	 */
-	onRenderCategoryLinks : function()
+	onRenderCategoryLinks: function()
 	{
 		// Create a tooltip for truncated categories
 		this.tooltip = new Zarafa.common.categories.ui.Tooltip({
@@ -70,13 +70,13 @@ Zarafa.common.ui.messagepanel.CategoryLinks = Ext.extend(Ext.Container, {
 	 * @param {Ext.EventObject} event The event object
 	 * @param {HtmlElement} targetElement The element on which the click happened
 	 */
-	onContextMenu : function(event, targetElement)
+	onContextMenu: function(event, targetElement)
 	{
 		targetElement = Ext.get(targetElement);
 		if ( targetElement.hasClass('k-category-block') ){
 			Zarafa.core.data.UIFactory.openContextMenu(Zarafa.core.data.SharedComponentType['common.contextmenu.category'], [this.record], {
 				category: targetElement.dom.textContent,
-				position : event.getXY()
+				position: event.getXY()
 			});
 		}
 	},
@@ -92,7 +92,7 @@ Zarafa.common.ui.messagepanel.CategoryLinks = Ext.extend(Ext.Container, {
 	{
 		this.record = record;
 
-		if ( this.el ){
+		if ( this.el && this.el.dom ){
 			// Render the categories
 			var categories = Zarafa.common.categories.Util.getCategories(record);
 			var html = Zarafa.common.categories.Util.getCategoriesHtml(categories);

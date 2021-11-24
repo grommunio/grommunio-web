@@ -17,16 +17,17 @@ Zarafa.calendar.printer.MeetingRenderer = Ext.extend(Zarafa.common.printer.rende
 	 */
 	generateBodyTemplate: function(record) {
 		var html = '';
+
 		html += '<b>{fullname}</b>\n';
 		html += '<hr>\n';
 		html += '<table>\n';
 		html += this.addRow(_('Subject'), '{subject}');
 		html += this.optionalRow(_('Location'), 'location', '{location}');
 		html += this.addRow('', '');   // separator
-		// # TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
-		html += this.addRow(_('Start'), '{startdate:date("' + _('l jS F Y G:i') + '")}');
-		// # TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
-		html += this.addRow(_('End'), '{enddate:date("' + _('l jS F Y G:i') + '")}');
+		// # TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
+		html += this.addRow(_('Start'), '{startdate:formatDefaultTimeString("' + _("l jS F Y {0}") + '")}');
+		// # TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
+		html += this.addRow(_('End'), '{enddate:formatDefaultTimeString("' + _("l jS F Y {0}") + '")}');
 		// this.optionalRow(_('Show Time As', record, '?');
 		html += this.addRow('', '');   // separator
 		// outlook always prints Recurrence: (none) .. no clue what it means, and why.

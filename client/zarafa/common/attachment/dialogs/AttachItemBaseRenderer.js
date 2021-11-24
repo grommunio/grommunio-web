@@ -8,12 +8,12 @@ Ext.namespace('Zarafa.common.attachment.dialogs');
  */
 Zarafa.common.attachment.dialogs.AttachItemBaseRenderer = Ext.extend(Object, {
 	/**
-	 * Will store labels for corresponsing record properties that will be used by {@link #addPlainRow} and {@link #addHTMLRow}
+	 * Will store labels for corresponding record properties that will be used by {@link #addPlainRow} and {@link #addHTMLRow}
 	 * to show labels in the data.
 	 * @property labels
 	 * @type Array
 	 */
-	labels : undefined,
+	labels: undefined,
 
 	/**
 	 * Will store object of {@link Ext.XTemplate XTemplate} that is created by {@link #generateText} for html data,
@@ -21,7 +21,7 @@ Zarafa.common.attachment.dialogs.AttachItemBaseRenderer = Ext.extend(Object, {
 	 * @property htmlTemplate
 	 * @type Ext.XTemplate
 	 */
-	htmlTemplate : undefined,
+	htmlTemplate: undefined,
 
 	/**
 	 * Will store object of {@link Ext.XTemplate XTemplate} that is created by {@link #generateText} for plain text data,
@@ -29,24 +29,24 @@ Zarafa.common.attachment.dialogs.AttachItemBaseRenderer = Ext.extend(Object, {
 	 * @property plainTemplate
 	 * @type Ext.XTemplate
 	 */
-	plainTemplate : undefined,
+	plainTemplate: undefined,
 
 	/**
 	 * Constructor will intialize default properties
 	 * @param {Object} config configuration object
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		this.labels = Ext.apply({}, {
-			subject : _('Subject'),
-			display_to : _('To'),
-			display_cc : _('Cc'),
-			display_bcc : _('Bcc'),
-			from : _('From'),
-			categories : _('Categories'),
-			sensitivity : _('Sensitivity'),
-			importance : _('Importance'),
-			attachment_names : _('Attachments')
+			subject: _('Subject'),
+			display_to: _('To'),
+			display_cc: _('Cc'),
+			display_bcc: _('Bcc'),
+			from: _('From'),
+			categories: _('Categories'),
+			sensitivity: _('Sensitivity'),
+			importance: _('Importance'),
+			attachment_names: _('Attachments')
 		});
 	},
 
@@ -57,13 +57,13 @@ Zarafa.common.attachment.dialogs.AttachItemBaseRenderer = Ext.extend(Object, {
 	 * @return {String} data that can be put in the record's body property.
 	 * @public
 	 */
-	generateText : function(record, htmlFormat)
+	generateText: function(record, htmlFormat)
 	{
 		var template;
 
 		if(htmlFormat) {
 			if(!this.htmlTemplate) {
-				this.htmlTemplate =  new Ext.XTemplate(
+				this.htmlTemplate = new Ext.XTemplate(
 					this.cleanTemplate(
 						this.generateHTMLTemplate()
 					)
@@ -73,7 +73,7 @@ Zarafa.common.attachment.dialogs.AttachItemBaseRenderer = Ext.extend(Object, {
 			template = this.htmlTemplate;
 		} else {
 			if(!this.plainTemplate) {
-				this.plainTemplate =  new Ext.XTemplate(
+				this.plainTemplate = new Ext.XTemplate(
 					this.generatePlainTemplate()
 				);
 			}
@@ -86,7 +86,7 @@ Zarafa.common.attachment.dialogs.AttachItemBaseRenderer = Ext.extend(Object, {
 
 		// below processing is only needed when we have some data to return
 		if(!Ext.isEmpty(text.trim()) && htmlFormat) {
-			// Remove extra line seperator from end of text
+			// Remove extra line separator from end of text
 			text = text.replace(/(<hr width=\'100%\'>)*$/gi, '');
 
 			// add a blockquote for styling purposes
@@ -101,13 +101,13 @@ Zarafa.common.attachment.dialogs.AttachItemBaseRenderer = Ext.extend(Object, {
 	},
 
 	/**
-	 * Helper function to add group of rows to template. This will also add conditional seperator after group rows.
+	 * Helper function to add group of rows to template. This will also add conditional separator after group rows.
 	 * @param {Object} group (optional) key value pair of tag and format that will be checked
-	 * and if any one field is not empty then add the seperator otherwise don't add seperator. The tags can also contain another objects
+	 * and if any one field is not empty then add the separator otherwise don't add separator. The tags can also contain another objects
 	 * which will be recursively checked.
 	 * @return {String} data template string for group of rows.
 	 */
-	addPlainRowGroup : function(group)
+	addPlainRowGroup: function(group)
 	{
 		var html = '';
 		// add rows
@@ -122,7 +122,7 @@ Zarafa.common.attachment.dialogs.AttachItemBaseRenderer = Ext.extend(Object, {
 			}
 		}, this);
 
-		// add conditional seperator
+		// add conditional separator
 		html += this.addPlainSeperator(group);
 
 		return html;
@@ -135,43 +135,43 @@ Zarafa.common.attachment.dialogs.AttachItemBaseRenderer = Ext.extend(Object, {
 	 * @return {String} data template string for a row.
 	 * @protected
 	 */
-	addPlainRow : function(tag, format)
+	addPlainRow: function(tag, format)
 	{
 		var html = '';
 
 		html += '<tpl if="!Ext.isEmpty(values.' + tag + ')">';
-		html += this.getLabel(tag) + ' : \t' + format + '\n';
+		html += this.getLabel(tag) + '\t' + format + '\n';
 		html += '</tpl>';
 
 		return html;
 	},
 
 	/**
-	 * Helper function to add plain text seperator row to template.
+	 * Helper function to add plain text separator row to template.
 	 * @param {Object} group (optional) key value pair of tag and format that will be checked
-	 * and if any one field is not empty then add the seperator otherwise don't add seperator. The tags can also contain another objects
+	 * and if any one field is not empty then add the separator otherwise don't add separator. The tags can also contain another objects
 	 * which will be recursively checked.
 	 * @return {String} data template string for a row.
 	 * @protected
 	 */
-	addPlainSeperator : function(group)
+	addPlainSeperator: function(group)
 	{
 		if(group) {
-			// if group is provided then create condition which checks if seperator should be added or not
+			// if group is provided then create condition which checks if separator should be added or not
 			var condition = '';
-			var seperator = ' || ';
+			var separator = ' || ';
 			var skip = false;
 
 			Ext.iterate(group, function(tag, format) {
 				if(Ext.isObject(format)) {
-					// we have got a sub group, for which we will not add seperator
+					// we have got a sub group, for which we will not add separator
 					// that will be added when this same function will be called with the sub group
 					skip = true;
 
 					// break looping
 					return false;
 				} else {
-					condition += ( Ext.isEmpty(condition) ? '' : seperator ) + '!Ext.isEmpty(values.' + tag + ')';
+					condition += ( Ext.isEmpty(condition) ? '' : separator ) + '!Ext.isEmpty(values.' + tag + ')';
 				}
 			});
 
@@ -186,18 +186,18 @@ Zarafa.common.attachment.dialogs.AttachItemBaseRenderer = Ext.extend(Object, {
 			return html;
 		}
 
-		// if no group is provided then directly add seperator
+		// if no group is provided then directly add separator
 		return '\n';
 	},
 
 	/**
-	 * Helper function to add group of rows to template. This will also add conditional seperator after group rows.
+	 * Helper function to add group of rows to template. This will also add conditional separator after group rows.
 	 * @param {Object} group (optional) key value pair of tag and format that will be checked
-	 * and if any one field is not empty then add the seperator otherwise don't add seperator. The tags can also contain another objects
+	 * and if any one field is not empty then add the separator otherwise don't add separator. The tags can also contain another objects
 	 * which will be recursively checked.
 	 * @return {String} data template string for group of rows.
 	 */
-	addHTMLRowGroup : function(group)
+	addHTMLRowGroup: function(group)
 	{
 		var html = '';
 		// add rows
@@ -225,43 +225,43 @@ Zarafa.common.attachment.dialogs.AttachItemBaseRenderer = Ext.extend(Object, {
 	 * @return {String} data template string for a row.
 	 * @protected
 	 */
-	addHTMLRow : function(tag, format)
+	addHTMLRow: function(tag, format)
 	{
 		var html = '';
 
 		html += '<tpl if="!Ext.isEmpty(values.' + tag + ')">';
-		html += '<div width=\'100%\'><div style="display: inline-block; width: 20%;"><strong>' + this.getLabel(tag) + ' :</strong></div><div style="display: inline-block; width: 80%">' + format + '</div></div>';
+		html += '<div width=\'100%\'><div style="display: inline-block; width: 20%;"><strong>' + this.getLabel(tag) + ':</strong></div><div style="display: inline-block; width: 80%">' + format + '</div></div>';
 		html += '</tpl>';
 
 		return html;
 	},
 
 	/**
-	 * Helper function to add html seperator row to template.
+	 * Helper function to add html separator row to template.
 	 * @param {Object} group (optional) key value pair of tag and format that will be checked
-	 * and if any one field is not empty then add the seperator otherwise don't add seperator. The tags can also contain another objects
+	 * and if any one field is not empty then add the separator otherwise don't add separator. The tags can also contain another objects
 	 * which will be recursively checked.
 	 * @return {String} data template string for a row.
 	 * @protected
 	 */
-	addHTMLSeperator : function(group)
+	addHTMLSeperator: function(group)
 	{
 		if(group) {
-			// if group is provided then create condition which checks if seperator should be added or not
+			// if group is provided then create condition which checks if separator should be added or not
 			var condition = '';
-			var seperator = ' || ';
+			var separator = ' || ';
 			var skip = false;
 
 			Ext.iterate(group, function(tag, format) {
 				if(Ext.isObject(format)) {
-					// we have got a sub group, for which we will not add seperator
+					// we have got a sub group, for which we will not add separator
 					// that will be added when this same function will be called with the sub group
 					skip = true;
 
 					// break looping
 					return false;
 				} else {
-					condition += ( Ext.isEmpty(condition) ? '' : seperator ) + '!Ext.isEmpty(values.' + tag + ')';
+					condition += ( Ext.isEmpty(condition) ? '' : separator ) + '!Ext.isEmpty(values.' + tag + ')';
 				}
 			});
 
@@ -276,7 +276,7 @@ Zarafa.common.attachment.dialogs.AttachItemBaseRenderer = Ext.extend(Object, {
 			return html;
 		}
 
-		// if no group is provided then directly add seperator
+		// if no group is provided then directly add separator
 		return '<hr width=\'100%\'>';
 	},
 
@@ -286,7 +286,7 @@ Zarafa.common.attachment.dialogs.AttachItemBaseRenderer = Ext.extend(Object, {
 	 * @return {String} The clean template
 	 * @private
 	 */
-	cleanTemplate : function(template)
+	cleanTemplate: function(template)
 	{
 		// Conversions:
 		// - \r is an illegal character which cannot be present in a string
@@ -299,32 +299,32 @@ Zarafa.common.attachment.dialogs.AttachItemBaseRenderer = Ext.extend(Object, {
 	 * This will generate template for the html format only.
 	 * @return {String} The HTML for the XTemplate to use
 	 */
-	generateHTMLTemplate : Ext.emptyFn,
+	generateHTMLTemplate: Ext.emptyFn,
 
 	/**
 	 * Function should be used to generate template which can be used by {@link #generateText} to add data into template and return the string that is generated.
 	 * This will generate template for the plain text format only.
 	 * @return {String} The HTML for the XTemplate to use
 	 */
-	generatePlainTemplate : Ext.emptyFn,
+	generatePlainTemplate: Ext.emptyFn,
 
 	/**
 	 * Function should be used to get row label based on record property. Function will be used by {@link #addPlainRow} and {@link #addHTMLRow}.
 	 * @param {String} tag field name or property from the record.
 	 * @return {String} The label to use for showing particular data from record.
 	 */
-	getLabel : function(tag)
+	getLabel: function(tag)
 	{
 		return this.labels[tag];
 	},
 
 	/**
 	 * Prepares data suitable for use in an XTemplate from the record.
-	 * @param {Zarafa.core.data.IPMRecord} record The record to aquire data from.
+	 * @param {Zarafa.core.data.IPMRecord} record The record to acquire data from.
 	 * @param {Boolean} htmlFormat decide if html or plain data is requested, this will depend on the user settings.
 	 * @return {Array} An array of data which is customized for our purpose.
 	 */
-	prepareData : function(record, htmlFormat)
+	prepareData: function(record, htmlFormat)
 	{
 		// copy all properties
 		var data = Ext.apply({}, record.data);

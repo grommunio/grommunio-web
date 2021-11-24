@@ -13,14 +13,14 @@ Zarafa.hierarchy.data.MAPIFolderSubStore = Ext.extend(Zarafa.core.data.MAPISubSt
 	 * @constructor
 	 * @param {Object} config Configuration object
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		config = config || {};
 
 		var recordType = Zarafa.core.data.RecordFactory.getRecordClassByObjectType(Zarafa.core.mapi.ObjectType.MAPI_FOLDER);
 
 		Ext.applyIf(config, {
-			reader : new Zarafa.core.data.JsonReader({ dynamicRecord : false }, recordType)
+			reader: new Zarafa.core.data.JsonReader({ dynamicRecord: false }, recordType)
 		});
 
 		Zarafa.hierarchy.data.MAPIFolderSubStore.superclass.constructor.call(this, config);

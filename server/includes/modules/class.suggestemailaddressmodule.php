@@ -1,7 +1,7 @@
 <?php
 /**
  * suggestEmailAddressModule
- * 
+ *
  * Class is used to store/retrieve suggestion list entries from a mapi property PR_EC_RECIPIENT_HISTORY_JSON
  * on default store. The format of recipient history that is stored in this proeprty is shown below
  * {
@@ -64,9 +64,9 @@ class suggestEmailAddressModule extends Module
 	static function cmpSortResultList($a, $b){
 		if($a['count'] < $b['count']){
 			return 1;
-		}elseif($a['count'] > $b['count']){
+		} elseif($a['count'] > $b['count']){
 			return -1;
-		}else{
+		} else {
 			$l_iReturnVal = strnatcasecmp($a['display_name'], $b['display_name']);
 			if($l_iReturnVal == 0){
 				$l_iReturnVal = strnatcasecmp($a['smtp_address'], $b['smtp_address']);
@@ -78,16 +78,16 @@ class suggestEmailAddressModule extends Module
 	/**
 	 * Function is used to delete a recipient entry from already stored recipient history
 	 * in mapi property. it searches for deleteRecipients key in the action array which will
-	 * contain email addresses of recipients that should be deleted in semicolon seperated format.
+	 * contain email addresses of recipients that should be deleted in semicolon separated format.
 	 * @param {Array} $action action data in associative array format.
-	 * @param {Array} $recipient_history recipient history stored in mapi proeprty.
+	 * @param {Array} $recipient_history recipient history stored in mapi property.
 	 */
 	function deleteRecipient($action, $recipient_history) {
 		if(isset($action)  && !empty($recipient_history) && !empty($recipient_history['recipients'])) {
 			/**
 			 * A foreach is used instead of a normal for-loop to
 			 * prevent the loop from finishing before the end of
-			 * the array, because of the unsetting of elements 
+			 * the array, because of the unsetting of elements
 			 * in that array.
 			 **/
 			foreach($recipient_history['recipients'] as $index => $recipient){
@@ -97,7 +97,7 @@ class suggestEmailAddressModule extends Module
 			}
 			// Re-indexing recipients' array to adjust index of deleted recipients
 			$recipient_history['recipients'] = array_values($recipient_history['recipients']);
-			
+
 			// Write new recipient history to property
 			$l_sNewRecipientHistoryJSON = json_encode($recipient_history);
 
@@ -153,7 +153,7 @@ class suggestEmailAddressModule extends Module
 							'object_type' => $recipient_history['recipients'][$i]['object_type'],
 						));
 					// Does not match from start of a word, but start in the middle
-					}else{
+					} else {
 						array_push($l_aResult[1], Array(
 							'display_name' => $recipient_history['recipients'][$i]['display_name'],
 							'smtp_address' => $recipient_history['recipients'][$i]['smtp_address'],
@@ -170,21 +170,21 @@ class suggestEmailAddressModule extends Module
 			// Prevent the displaying of the exact match of the whole email address when only one item is found.
 			if(count($l_aResult[0]) == 1 && empty($l_aResult[1]) && $l_sSearchString == strtolower($l_aResult[0][0]['smtp_address'])){
 				$recipientList = Array();
-			}else{
+			} else {
 				/**
 				 * Sort lists
 				 *
-				 * This block of code sorts the two lists and creates one final list. 
-				 * The first list holds the matches based on whole words or words 
-				 * beginning with the search string and the second list contains the 
-				 * partial matches that start in the middle of the words. 
-				 * The first list is sorted on count (the number of emails sent to this 
-				 * email address), name and finally on the email address. This is done 
-				 * by a natural sort. When this first list already contains the maximum 
-				 * number of returned items the second list needs no sorting. If it has 
-				 * less, then the second list is sorted and included in the first list 
+				 * This block of code sorts the two lists and creates one final list.
+				 * The first list holds the matches based on whole words or words
+				 * beginning with the search string and the second list contains the
+				 * partial matches that start in the middle of the words.
+				 * The first list is sorted on count (the number of emails sent to this
+				 * email address), name and finally on the email address. This is done
+				 * by a natural sort. When this first list already contains the maximum
+				 * number of returned items the second list needs no sorting. If it has
+				 * less, then the second list is sorted and included in the first list
 				 * as well. At the end the final list is sorted on name and email again.
-				 * 
+				 *
 				 */
 				$l_iMaxNumListItems = 10;
 				$l_aSortedList = Array();

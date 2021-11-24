@@ -4,7 +4,7 @@ Ext.namespace('Zarafa.calendar.dialogs');
  * @class Zarafa.calendar.dialogs.TrackingTab
  * @extends Ext.Panel
  * @xtype zarafa.trackingtab
- * 
+ *
  * TrackingTab tab in the {@link Zarafa.calendar.dialogs.AppointmentPanel}
  * that is used to keep track of responses from attendees for Meeting Requests.
  */
@@ -13,7 +13,7 @@ Zarafa.calendar.dialogs.TrackingTab = Ext.extend(Ext.Panel, {
 	 * @constructor
 	 * @param {Object} config
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		config = config || {};
 
@@ -26,25 +26,25 @@ Zarafa.calendar.dialogs.TrackingTab = Ext.extend(Ext.Panel, {
 				type: 'vbox',
 				align: 'stretch'
 			},
-			cls : 'k-trackingtab',
+			cls: 'k-trackingtab',
 			border: false,
 			items: [{
 				xtype: 'displayfield',
-				height : 36,
+				height: 36,
 				value: _('The following responses for this meeting have been received') + ':',
-				hideLabel : true
+				hideLabel: true
 			},{
-				xtype : 'grid',
-				ref : 'responseTrackList',
+				xtype: 'grid',
+				ref: 'responseTrackList',
 				flex: 1,
 				store: new Zarafa.core.data.IPMRecipientStore(),
-				viewConfig : {
-					forceFit : true
+				viewConfig: {
+					forceFit: true
 				},
 				columns: [{
 					dataIndex: 'display_name',
 					header: _('Name'),
-					renderer : Ext.util.Format.htmlEncode,
+					renderer: Ext.util.Format.htmlEncode,
 					sortable: true
 				},{
 					dataIndex: 'recipient_type',
@@ -69,8 +69,8 @@ Zarafa.calendar.dialogs.TrackingTab = Ext.extend(Ext.Panel, {
 	 * @param {Zarafa.core.data.IPMRecord} record The record to update the panel with
 	 * @param {Boolean} contentReset force the component to perform a full update of the data.
 	 */
-	update : function(record, contentReset)
-	{	
+	update: function(record, contentReset)
+	{
 		var recipientStore = record.getSubStore('recipients');
 
 		if (recipientStore && this.responseTrackList.getStore() !== recipientStore) {

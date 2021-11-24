@@ -5,7 +5,7 @@
 	 * focus has been shifted to the {@link Ext.form.TriggerField TriggerField}
 	 */
 	Ext.override(Ext.ux.Spinner, {
-		doRender: function(ct, position){
+		doRender: function(ct, position) {
 			var el = this.el = this.field.getEl();
 			var f = this.field;
 
@@ -34,7 +34,7 @@
 			});
 			this.splitter.setRight((Ext.isIE) ? 1 : 2).setTop(10).show();
 
-			if(!Ext.isEmpty(f.boxLabel)){
+			if(!Ext.isEmpty(f.boxLabel)) {
 				this.wrap.createChild({tag: 'label', htmlFor: this.el.id, cls: 'x-form-cb-label', html: f.boxLabel});
 			}
 
@@ -50,7 +50,7 @@
 			this.initTrigger();
 			this.initSpinner();
 		},
-		initSpinner: function(){
+		initSpinner: function() {
 			this.field.addEvents({
 				'spin': true,
 				'spinup': true,
@@ -58,22 +58,22 @@
 			});
 
 			this.keyNav = new Ext.KeyNav(this.el, {
-				"up": function(e){
+				"up": function(e) {
 					e.preventDefault();
 					this.onSpinUp();
 				},
 
-				"down": function(e){
+				"down": function(e) {
 					e.preventDefault();
 					this.onSpinDown();
 				},
 
-				"pageUp": function(e){
+				"pageUp": function(e) {
 					e.preventDefault();
 					this.onSpinUpAlternate();
 				},
 
-				"pageDown": function(e){
+				"pageDown": function(e) {
 					e.preventDefault();
 					this.onSpinDownAlternate();
 				},

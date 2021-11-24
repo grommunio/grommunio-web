@@ -49,25 +49,25 @@ Zarafa.common.dialogs.CustomMessageBox = Ext.extend(Ext.Window, {
 	 * A string that will replace the existing message box body text
 	 * @type String
 	 */
-	msg : '&#160;',
+	msg: '&#160;',
 
 	/**
 	 * Body element of the dialog.
 	 * @type Ext.Element
 	 */
-	bodyEl : undefined,
+	bodyEl: undefined,
 
 	/**
 	 * Body icon for the dialog.
 	 * @type Ext.Element
 	 */
-	iconEl : undefined,
+	iconEl: undefined,
 
 	/**
 	 * Body message element of the dialog.
 	 * @type Ext.Element
 	 */
-	msgEl : undefined,
+	msgEl: undefined,
 
 	/**
 	 * @constructor

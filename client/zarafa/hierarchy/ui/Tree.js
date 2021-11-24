@@ -5,80 +5,86 @@ Ext.namespace('Zarafa.hierarchy.ui');
  * @extends Ext.tree.TreePanel
  * @xtype zarafa.hierarchytree
  *
- * TreePanel for Hierachy List
+ * TreePanel for Hierarchy List
  */
 Zarafa.hierarchy.ui.Tree = Ext.extend(Ext.tree.TreePanel, {
 	/**
 	 * @cfg {Zarafa.core.ContextModel} model The model which is used to control the
 	 * current folder selection from this hierarchy tree.
 	 */
-	model : undefined,
+	model: undefined,
 
 	/**
 	 * @cfg {Zarafa.core.data.HierarchyStore} store store which will be used to get data for hierarchy.
 	 */
-	store : undefined,
+	store: undefined,
 
 	/**
 	 * @cfg {String} IPMFilter The IPM String on which the hierarchy must be filtered
 	 */
-	IPMFilter : undefined,
+	IPMFilter: undefined,
 
 	/**
 	 * @cfg {Number} permissionFilter The {@link Zarafa.core.mapi.Rights} on which the hierarchy must be filtered
 	 */
-	permissionFilter : undefined,
+	permissionFilter: undefined,
 
 	/**
 	 * @cfg {Boolean} hideDeletedFolders True to hide the subfolders of "Deleted Items".
 	 */
-	hideDeletedFolders : false,
+	hideDeletedFolders: false,
 
 	/**
 	 * @cfg {Boolean} hideTodoList True to hide the To-do list.
 	 */
-	hideTodoList : false,
+	hideTodoList: false,
 
 	/**
 	 * @cfg {Boolean} hideFavorites True to hide the favorites folder in hierarchy.
 	 */
-	hideFavorites : false,
+	hideFavorites: false,
 
 	/**
 	 * @cfg {Boolean} hideSearchFolders True to hide the search folder in hierarchy.
 	 */
-	hideSearchFolders : false,
+	hideSearchFolders: false,
+
+	/**
+	 @cfg {String} store_entryid of {Zarafa.hierarchy.data.MAPIStoreRecord MAPIStoreRecord} which needs to be shown in hierarchy.
+	 * All stores except the Public store and the store which is given in this config will be hidden.
+	 */
+	IPMSubTreeFilter: undefined,
 
 	/**
 	 * @cfg {Object} config option for {@link Zarafa.hierarchy.ui.FolderNode foldernode}
 	 */
-	nodeConfig : undefined,
+	nodeConfig: undefined,
 
 	/**
 	 * @cfg {Boolean} deferredLoading True to defer updating the Hierarchy when the panel
 	 * is currently not visible.
 	 */
-	deferredLoading : false,
+	deferredLoading: false,
 
 	/**
 	 * The editor which is used for editing a field inside this tree.
 	 * @property
 	 * @type Zarafa.hierarchy.ui.TreeEditor
 	 */
-	treeEditor : undefined,
+	treeEditor: undefined,
 
 	/**
 	 * @cfg {Object} loadMask An {@link Zarafa.common.ui.LoadMask} config or true to mask the {@link Zarafa.hierarchy.ui.Tree Tree} while
 	 * loading. Defaults to <code>false</code>.
 	 */
-	loadMask : false,
+	loadMask: false,
 
 	/**
 	 * @cfg {Object} treeSorter a {@link Ext.Ext.tree.TreeSorter} config or {@link Boolean}
 	 * to sort the {@link Zarafa.hierarchy.ui.Tree Tree}
 	 * Defaults to <code>false</code>.
 	 */
-	treeSorter : false,
+	treeSorter: false,
 
 	/**
 	 * @cfg {Boolean} ddAutoScrollContainer Autodetect a valid container to
@@ -89,7 +95,7 @@ Zarafa.hierarchy.ui.Tree = Ext.extend(Ext.tree.TreePanel, {
 	 * and register that panel to the {@link Ext.dd.ScrollManager}.
 	 * Alternatively {@link #ddScrollContainer} can be used to set a certain panel specifically.
 	 */
-	ddAutoScrollContainer : false,
+	ddAutoScrollContainer: false,
 
 	/**
 	 * @cfg {Ext.Element/Ext.Container} ddScrollContainer A valid container to
@@ -99,19 +105,19 @@ Zarafa.hierarchy.ui.Tree = Ext.extend(Ext.tree.TreePanel, {
 	 * setting a component or element to this option will register it to the {@link Ext.dd.ScrollManager}.
 	 * Alternatively {@link #ddAutoScrollContainer} can be used to have the container be detected automatically.
 	 */
-	ddScrollContainer : undefined,
+	ddScrollContainer: undefined,
 
 	/**
 	 * @cfg {Boolean} defaultOpen Used by {@link #isFolderOpened} to determine if the folder should be opened
 	 * by default or not.
 	 */
-	defaultOpen : false,
+	defaultOpen: false,
 
 	/**
 	 * @constructor
 	 * @param {Object} config Configuration object
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		config = config || {};
 
@@ -121,14 +127,14 @@ Zarafa.hierarchy.ui.Tree = Ext.extend(Ext.tree.TreePanel, {
 
 		// Configure root node for this component
 		Ext.applyIf(config, {
-			rootVisible : false,
-			autoScroll : true,
-			animate : false,
-			border : false,
+			rootVisible: false,
+			autoScroll: true,
+			animate: false,
+			border: false,
 			// The rootnode is the parent node under which all Stores will be visualized,
 			// because it is not part of the actual hierarchy but more of a helper node,
 			// this node is invisible by default.
-			root : new Zarafa.hierarchy.ui.HierarchyRootNode()
+			root: new Zarafa.hierarchy.ui.HierarchyRootNode()
 		});
 
 		Zarafa.hierarchy.ui.Tree.superclass.constructor.call(this, config);
@@ -137,6 +143,11 @@ Zarafa.hierarchy.ui.Tree = Ext.extend(Ext.tree.TreePanel, {
 		if(this.treeSorter && !(this.treeSorter instanceof Ext.tree.TreeSorter)) {
 			this.treeSorter = new Zarafa.hierarchy.ui.TreeSorter(this, Ext.apply({}, this.treeSorter));
 		}
+
+		// filter tree on search querry.
+		if (this.treeFilter && !(this.treeFilter instanceof Ext.tree.TreeFilter)) {
+			this.treeFilter = new Zarafa.hierarchy.ui.HierarchyTreeFilter(this, {autoClear: true});
+		}
 	},
 
 	/**
@@ -144,15 +155,15 @@ Zarafa.hierarchy.ui.Tree = Ext.extend(Ext.tree.TreePanel, {
 	 * {@link Zarafa.common.ui.LoadMask} if {@link Zarafa.hierarchy.ui.Tree Tree} is intantiated as full tree.
 	 * @protected
 	 */
-	initComponent : function()
+	initComponent: function()
 	{
 		// Intialize the loader
 		if (!this.loader) {
 			this.loader = new Zarafa.hierarchy.data.HierarchyTreeLoader({
-				tree : this,
-				store : this.store,
-				nodeConfig : this.nodeConfig,
-				deferredLoading : this.deferredLoading
+				tree: this,
+				store: this.store,
+				nodeConfig: this.nodeConfig,
+				deferredLoading: this.deferredLoading
 			});
 		}
 
@@ -182,7 +193,7 @@ Zarafa.hierarchy.ui.Tree = Ext.extend(Ext.tree.TreePanel, {
 	 * will then be used for {@link #registerScrollContainer}.
 	 * @private
 	 */
-	autodetectScrollContainer : function()
+	autodetectScrollContainer: function()
 	{
 		var ct = this.ownerCt;
 		while (ct && ct.autoScroll !== true) {
@@ -202,7 +213,7 @@ Zarafa.hierarchy.ui.Tree = Ext.extend(Ext.tree.TreePanel, {
 	 * @param {Ext.Element} el The element to register to the scrollmanager
 	 * @private
 	 */
-	registerScrollContainer : function(el)
+	registerScrollContainer: function(el)
 	{
 		// Apply some extra configuration options
 		// which are used by the ScrollManager.
@@ -221,7 +232,7 @@ Zarafa.hierarchy.ui.Tree = Ext.extend(Ext.tree.TreePanel, {
 	 * when loading the {@link Zarafa.hierarchy.ui.Tree Tree}.
 	 * @private
 	 */
-	createLoadMask : function()
+	createLoadMask: function()
 	{
 		this.loadMask = new Zarafa.common.ui.LoadMask(this.getEl(), Ext.apply({store: this.store}, this.loadMask));
 	},
@@ -229,7 +240,7 @@ Zarafa.hierarchy.ui.Tree = Ext.extend(Ext.tree.TreePanel, {
 	/**
 	 * @return True when this tree has an {@link #IPMFilter} applied
 	 */
-	hasFilter : function()
+	hasFilter: function()
 	{
 		return !Ext.isEmpty(this.IPMFilter);
 	},
@@ -240,7 +251,7 @@ Zarafa.hierarchy.ui.Tree = Ext.extend(Ext.tree.TreePanel, {
 	 * @param {Object} folder the folder to filter
 	 * @return {Boolean} true to accept the folder
 	 */
-	nodeFilter : function(folder)
+	nodeFilter: function(folder)
 	{
 		var hide = false;
 
@@ -278,10 +289,31 @@ Zarafa.hierarchy.ui.Tree = Ext.extend(Ext.tree.TreePanel, {
 	},
 
 	/**
+	 * The filter which is applied for filtering IPMSubTree nodes from the
+	 * {@link Zarafa.hierarchy.ui.Tree HierarchyTree}.
+	 * @param {Object} folder the IPM_SUBTREE folder to filter
+	 * @return {Boolean} true to accept the folder
+	 */
+	IPMSubTreeNodeFilter: function(folder)
+	{
+		var hide = false;
+
+		// Chek if folder does not belong to public store or the given store then hide it.
+		if (Ext.isDefined(this.IPMSubTreeFilter)) {
+			var mapiStore = this.store.getById(this.IPMSubTreeFilter);
+			if (mapiStore) {
+				hide = !folder.getMAPIStore().isPublicStore() && !mapiStore.getFolder(folder.get('entryid'));
+			}
+		}
+
+		return !hide;
+	},
+
+	/**
 	 * @return {Array} list of all childnodes
 	 * @private
 	 */
-	getAllNodes : function()
+	getAllNodes: function()
 	{
 		return this.getRootNode().childNodes;
 	},
@@ -294,7 +326,7 @@ Zarafa.hierarchy.ui.Tree = Ext.extend(Ext.tree.TreePanel, {
 	 * @param {Boolean} ensureVisibility True to make given folder visible in screen moving scroll bar.
 	 * @return {Boolean} True when the TreeNode for the given folder existed, and could be selected.
 	 */
-	selectFolderInTree : function(folder, ensureVisibility)
+	selectFolderInTree: function(folder, ensureVisibility)
 	{
 		var treeNode;
 
@@ -321,7 +353,7 @@ Zarafa.hierarchy.ui.Tree = Ext.extend(Ext.tree.TreePanel, {
 	 * @return {Zarafa.hierarchy.ui.FolderNode} The node which was made visible,
 	 * false if the folder was not found in the hierarchy.
 	 */
-	ensureFolderVisible : function(folder)
+	ensureFolderVisible: function(folder)
 	{
 		var treeNode = this.getTreeNode(folder);
 
@@ -366,7 +398,7 @@ Zarafa.hierarchy.ui.Tree = Ext.extend(Ext.tree.TreePanel, {
 	 * @return {Boolean} True if the folder should be expanded by default
 	 * @private
 	 */
-	isFolderOpened : function(folder)
+	isFolderOpened: function(folder)
 	{
 		return folder.isIPMSubTree() || folder.isFavoritesRootFolder() || this.defaultOpen;
 	},
@@ -376,7 +408,7 @@ Zarafa.hierarchy.ui.Tree = Ext.extend(Ext.tree.TreePanel, {
 	 * on {@link #getAllNodes all nodes}.
 	 * @protected
 	 */
-	updateAll : function()
+	updateAll: function()
 	{
 		var nodes = this.getAllNodes();
 		for (var i = 0; i < nodes.length; i++) {
@@ -388,7 +420,7 @@ Zarafa.hierarchy.ui.Tree = Ext.extend(Ext.tree.TreePanel, {
 	 * Function will destroy load mask and calls parent class' beforeDestroy.
 	 * @private
 	 */
-	beforeDestroy : function()
+	beforeDestroy: function()
 	{
 		if (this.rendered && this.loadMask) {
 			Ext.destroy(this.loadMask);

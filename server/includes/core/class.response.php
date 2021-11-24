@@ -49,7 +49,7 @@
 
 			if ( gettype($allowedDomains) !== 'string' ){
 				// Misconfigured. Don't add any CORS headers.
-				$webAppTitle = defined('WEBAPP_TITLE') && WEBAPP_TITLE ? WEBAPP_TITLE : 'grommunio web';
+				$webAppTitle = defined('WEBAPP_TITLE') && WEBAPP_TITLE ? WEBAPP_TITLE : 'grommunio Web';
 				error_log($webAppTitle . ': CROSS_DOMAIN_AUTHENTICATION_ALLOWED_DOMAINS misconfigured');
 				return;
 			}

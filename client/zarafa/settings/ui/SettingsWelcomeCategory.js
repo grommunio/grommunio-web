@@ -22,20 +22,20 @@ Zarafa.settings.ui.SettingsWelcomeCategory = Ext.extend(Zarafa.settings.ui.Setti
 	 * @constructor
 	 * @param {Object} config Configuration object
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		config = config || {};
 
 		Ext.applyIf(config, {
-			categoryIndex : 0,
-			iconCls : 'zarafa-settings-category-welcome',
-			defaults : {
-				cls : 'zarafa-settings-widget-welcome'
+			categoryIndex: 0,
+			iconCls: 'zarafa-settings-category-welcome',
+			defaults: {
+				cls: 'zarafa-settings-widget-welcome'
 			},
-			items : [{
-				xtype : 'zarafa.settingsaccountwidget'
+			items: [{
+				xtype: 'zarafa.settingsaccountwidget'
 			},{
-				xtype : 'zarafa.settingscalendarwidget'
+				xtype: 'zarafa.settingscalendarwidget'
 			},
 			container.populateInsertionPoint('context.settings.category.welcome', this)
 			]
@@ -50,7 +50,7 @@ Zarafa.settings.ui.SettingsWelcomeCategory = Ext.extend(Zarafa.settings.ui.Setti
 	 * to the 'zarafa/v1/contexts/calendar/datepicker_show_busy' setting.
 	 * @protected
 	 */
-	onRender : function()
+	onRender: function()
 	{
 		Zarafa.settings.ui.SettingsWelcomeCategory.superclass.onRender.apply(this, arguments);
 

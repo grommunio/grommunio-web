@@ -120,7 +120,7 @@ class DownloadMessage extends DownloadBase
 	/**
 	 * Function will obtain stream from the message, For email messages it will open email as
 	 * inet object and get the stream content as eml format, when user has IMAP enabled.
-	 * The below mentioned properties are configured with the whole message as a stream in it, while IMAP is enabled :
+	 * The below mentioned properties are configured with the whole message as a stream in it, while IMAP is enabled:
 	 * PR_EC_IMAP_EMAIL
 	 * PR_EC_IMAP_EMAIL_SIZE
 	 * PR_EC_IMAP_BODY

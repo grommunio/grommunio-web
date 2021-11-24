@@ -13,7 +13,7 @@ Zarafa.mail.MailContextModel = Ext.extend(Zarafa.core.ContextModel, {
 	 * @type Mixed
 	 * @private
 	 */
-	oldDataMode : undefined,
+	oldDataMode: undefined,
 
 	/**
 	 * Amount of items to load per batch.
@@ -43,7 +43,7 @@ Zarafa.mail.MailContextModel = Ext.extend(Zarafa.core.ContextModel, {
 	 * @constructor
 	 * @param {Object} config Configuration object
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		config = config || {};
 
@@ -53,15 +53,15 @@ Zarafa.mail.MailContextModel = Ext.extend(Zarafa.core.ContextModel, {
 
 		Ext.applyIf(config, {
 			statefulRecordSelection: true,
-			current_data_mode : Zarafa.mail.data.DataModes.ALL
+			current_data_mode: Zarafa.mail.data.DataModes.ALL
 		});
 
 		Zarafa.mail.MailContextModel.superclass.constructor.call(this, config);
 
 		this.on({
-			'searchstart' : this.onSearchStart,
-			'searchstop' : this.onSearchStop,
-			scope : this
+			'searchstart': this.onSearchStart,
+			'searchstop': this.onSearchStop,
+			scope: this
 		});
 
 		if (container.getServerConfig().getPrefetchTotalCount() > 0) {
@@ -76,7 +76,7 @@ Zarafa.mail.MailContextModel = Ext.extend(Zarafa.core.ContextModel, {
 	 * @param {Zarafa.core.data.MAPIFolder} folder folder in which new record should be created.
 	 * @return {Zarafa.core.data.IPMRecord} The new {@link Zarafa.core.data.IPMRecord IPMRecord}.
 	 */
-	createRecord : function(folder)
+	createRecord: function(folder)
 	{
 		folder = folder || container.getHierarchyStore().getDefaultFolder('drafts');
 
@@ -86,8 +86,8 @@ Zarafa.mail.MailContextModel = Ext.extend(Zarafa.core.ContextModel, {
 			store_entryid: folder.get('store_entryid'),
 			parent_entryid: folder.get('entryid'),
 			body: this.getSignatureData(false, signatureId),
-			html_body : this.getSignatureData(true, signatureId),
-			isHTML : container.getSettingsModel().get('zarafa/v1/contexts/mail/dialogs/mailcreate/use_html_editor')
+			html_body: this.getSignatureData(true, signatureId),
+			isHTML: container.getSettingsModel().get('zarafa/v1/contexts/mail/dialogs/mailcreate/use_html_editor')
 			// @todo should set From properties differently if replying for someone else's store
 		});
 
@@ -95,7 +95,7 @@ Zarafa.mail.MailContextModel = Ext.extend(Zarafa.core.ContextModel, {
 	},
 
 	/**
-	 * Function will create a new {@link Zarafa.core.data.IPMRecord IPMRecord} for responsing to an original
+	 * Function will create a new {@link Zarafa.core.data.IPMRecord IPMRecord} for responding to an original
 	 * {@link Zarafa.core.data.IPMRecord IPMRecord}. This will also set subject, body, attachment, recipient
 	 * properties based on {@link Zarafa.mail.data.ActionTypes ActionType} provided.
 	 *
@@ -106,7 +106,7 @@ Zarafa.mail.MailContextModel = Ext.extend(Zarafa.core.ContextModel, {
 	 * @param {Object} (Optional) config The optional configuration.
 	 * @private
 	 */
-	createResponseRecord : function(record, actionType, responseRecord, config)
+	createResponseRecord: function(record, actionType, responseRecord, config)
 	{
 		// FIXME: Error message?
 		if (Ext.isEmpty(actionType) || !record) {
@@ -188,7 +188,7 @@ Zarafa.mail.MailContextModel = Ext.extend(Zarafa.core.ContextModel, {
 	 * @param {Zarafa.core.data.IPMRecord} responseRecord The new {@link Zarafa.core.data.IPMRecord IPMRecord}.
 	 * Can be any of the values of {@link Zarafa.mail.data.ActionTypes ActionTypes}.
 	 */
-	setSourceMessageInfo : function(record, actionType, responseRecord)
+	setSourceMessageInfo: function(record, actionType, responseRecord)
 	{
 		// Hack alert !
 		// we are not able to identify the 0x85CE named property, So here we hardcode first 24byte
@@ -225,7 +225,7 @@ Zarafa.mail.MailContextModel = Ext.extend(Zarafa.core.ContextModel, {
 	 * for this response.
 	 * @private
 	 */
-	initRecordSubject : function(record, origRecord, actionType)
+	initRecordSubject: function(record, origRecord, actionType)
 	{
 		var subjectPrefix;
 		var english_abb = container.getSettingsModel().get('zarafa/v1/contexts/mail/use_english_abbreviations');
@@ -257,8 +257,9 @@ Zarafa.mail.MailContextModel = Ext.extend(Zarafa.core.ContextModel, {
 				break;
 		}
 
-		record.set('subject', subjectPrefix + origRecord.get('normalized_subject'));
-		record.set('normalized_subject', origRecord.get('normalized_subject'));
+		var normalizedSubject = origRecord.get('normalized_subject');
+		record.set('subject', subjectPrefix + normalizedSubject);
+		record.set('normalized_subject', normalizedSubject);
 	},
 
 	/**
@@ -273,7 +274,7 @@ Zarafa.mail.MailContextModel = Ext.extend(Zarafa.core.ContextModel, {
 	 * for this response.
 	 * @private
 	 */
-	initRecordBody : function(record, origRecord, actionType)
+	initRecordBody: function(record, origRecord, actionType)
 	{
 		var signatureId = this.getSignatureId(actionType);
 
@@ -294,10 +295,10 @@ Zarafa.mail.MailContextModel = Ext.extend(Zarafa.core.ContextModel, {
 			if (recipientStore.getCount() > 0) {
 				recipientStore.each(function(recipient) {
 					switch(recipient.get('recipient_type')){
-						case Zarafa.core.mapi.RecipientType.MAPI_TO :
+						case Zarafa.core.mapi.RecipientType.MAPI_TO:
 							to.push(recipient.formatRecipient());
 							break;
-						case Zarafa.core.mapi.RecipientType.MAPI_CC :
+						case Zarafa.core.mapi.RecipientType.MAPI_CC:
 							cc.push(recipient.formatRecipient());
 							break;
 					}
@@ -309,7 +310,7 @@ Zarafa.mail.MailContextModel = Ext.extend(Zarafa.core.ContextModel, {
 		}
 
 		// Initialize HTML body
-		respondData.body = origRecord.getBody(true);
+		respondData.body = origRecord.cleanupOutlookStyles(origRecord.getBody(true));
 		respondData.signatureData = this.getSignatureData(true, signatureId);
 		respondData.fontFamily = container.getSettingsModel().get('zarafa/v1/main/default_font');
 		respondData.fontSize = Zarafa.common.ui.htmleditor.Fonts.getDefaultFontSize();
@@ -352,7 +353,7 @@ Zarafa.mail.MailContextModel = Ext.extend(Zarafa.core.ContextModel, {
 	 * @param {Boolean} isSentFolder it should be true if {@link Zarafa.core.data.IPMRecord record} belong in sent folder.
 	 * @private
 	 */
-	initRecordRecipients : function(record, origRecord, actionType, isSentFolder)
+	initRecordRecipients: function(record, origRecord, actionType, isSentFolder)
 	{
 		// When forwarding, we don't need to copy any recipients
 		if (actionType === Zarafa.mail.data.ActionTypes.FORWARD || actionType === Zarafa.mail.data.ActionTypes.FORWARD_ATTACH) {
@@ -466,7 +467,7 @@ Zarafa.mail.MailContextModel = Ext.extend(Zarafa.core.ContextModel, {
 	 * @param {Zarafa.core.data.IPMRecord} origRecord The original record
 	 * @private
 	 */
-	copyRecordBody : function(record, origRecord)
+	copyRecordBody: function(record, origRecord)
 	{
 		// We can simply copy the contents of the plain text body
 		record.set('body', origRecord.getBody(false));
@@ -491,7 +492,7 @@ Zarafa.mail.MailContextModel = Ext.extend(Zarafa.core.ContextModel, {
 	 * to which the respond is created
 	 * @private
 	 */
-	copyRecordRecipients : function(record, origRecord)
+	copyRecordRecipients: function(record, origRecord)
 	{
 		var recipientStore = record.getRecipientStore();
 		var origRecipientStore = origRecord.getRecipientStore();
@@ -512,7 +513,7 @@ Zarafa.mail.MailContextModel = Ext.extend(Zarafa.core.ContextModel, {
 
 	/**
 	 * Initialize the {@link Zarafa.core.data.IPMRecord record} with attachments
-	 * in case of foward it the attachments will be copied to the  record.
+	 * in case of forward it the attachments will be copied to the  record.
 	 * For reply it will be added if it is a inline image.
 	 *
 	 * @param {Zarafa.core.data.IPMRecord} record The record to initialize
@@ -553,7 +554,7 @@ Zarafa.mail.MailContextModel = Ext.extend(Zarafa.core.ContextModel, {
 	 * @param {Zarafa.mail.data.ActionTypes} actionType one of 'reply', 'forward', 'replyall'.
 	 * @return {Number} signature of signature that should be added to the body.
 	 */
-	getSignatureId : function(actionType)
+	getSignatureId: function(actionType)
 	{
 		var signatureId;
 
@@ -575,14 +576,14 @@ Zarafa.mail.MailContextModel = Ext.extend(Zarafa.core.ContextModel, {
 
 	/**
 	 * Function is used to get signature data based on passed signature id
-	 * from {@link Zarafa.settings.SettingsModel SettingsModel}. It also does convertion of signature data
+	 * from {@link Zarafa.settings.SettingsModel SettingsModel}. It also does conversion of signature data
 	 * when it needs to be converted from plain to html or vice versa.
 	 * @param {Boolean} preferHTML True if the signature should be returned in HTML format else in plain format.
 	 * @param {Number} signatureId id of the signature to get the data, this id can be get using {@link #getSignatureId}.
 	 * @param {Boolean} withEmptyLines True (default) to add empty lines before the signature, false otherwise.
 	 * @return {String} signature data that should be added to body of the {@link Zarafa.core.data.IPMRecord IPMRecord}.
 	 */
-	getSignatureData : function(preferHtml, signatureId, withEmptyLines)
+	getSignatureData: function(preferHtml, signatureId, withEmptyLines)
 	{
 		if(!signatureId) {
 			return '';
@@ -621,12 +622,7 @@ Zarafa.mail.MailContextModel = Ext.extend(Zarafa.core.ContextModel, {
 
 			// Prefix the signature with two newlines
 			if ( withEmptyLines !== false ) {
-				var fontFamily = container.getSettingsModel().get('zarafa/v1/main/default_font');
-				var fontSize = Zarafa.common.ui.htmleditor.Fonts.getDefaultFontSize();
-				sigDetails['content'] =
-					'<p style="font-family:'+fontFamily+'; font-size:'+fontSize+'; padding: 0; margin: 0;"><br/></p>' +
-					'<p style="font-family:'+fontFamily+'; font-size:'+fontSize+'; padding: 0; margin: 0;"><br/></p>' +
-					sigDetails['content'];
+				sigDetails['content'] = this.wrapSignature(sigDetails['content']);
 			}
 		}
 
@@ -637,12 +633,29 @@ Zarafa.mail.MailContextModel = Ext.extend(Zarafa.core.ContextModel, {
 	},
 
 	/**
+	 * Function is used to wrap the signature with div 'signature' which again wrapped wtith 'signatureContainer'
+	 * alogn with two empty lines.
+	 *
+	 * @param {String} signature The signature which is going to wrapped.
+	 * @return {String} Wrapped signature.
+	 */
+	wrapSignature: function(signature)
+	{
+		var fontFamily = container.getSettingsModel().get('zarafa/v1/main/default_font');
+		var fontSize = Zarafa.common.ui.htmleditor.Fonts.getDefaultFontSize();
+
+		return '<p style="font-family:'+fontFamily+'; font-size:'+fontSize+'; padding: 0; margin: 0;"><br/></p>' +
+			'<p style="font-family:'+fontFamily+'; font-size:'+fontSize+'; padding: 0; margin: 0;"><br/></p>' +
+			'<div class="signatureContainer"><div class="signature">'+signature+'</div></div>';
+	},
+
+	/**
 	 * Replaces the templates in a signature
 	 * @param {String} signatureContent The text of the signature (can be html or plain text)
 	 * @param {Boolean} preferHTML True if the signature should be returned in HTML format else in plain format.
 	 * @return {String} The text of the signature with template holders replaced by their value
 	 */
-	replaceSignatureTemplates : function(signatureContent, preferHtml)
+	replaceSignatureTemplates: function(signatureContent, preferHtml)
 	{
 		// First check if there are template holders in the signature
 		// otherwise we can return immediately
@@ -705,26 +718,53 @@ Zarafa.mail.MailContextModel = Ext.extend(Zarafa.core.ContextModel, {
 	 * @param {Object} options The options object to load the store with
 	 * @private
 	 */
-	load : function(options)
+	load: function(options)
 	{
 		var store = this.getStore();
 		// suspended is only true when context is going to switch
 		// on context witch if filter is enabled then clear the filter.
 		if (this.suspended && store.hasFilterApplied) {
 			store.stopFilter();
-		} else if(store.hasFilterApplied) {
-			// If user switch folder within the context we have to
-			// persist the filter so, set the filter restriction
+		} else {
+			// If user switch folder within the context and Datamode is {@link Zarafa.mail.data.DataModes.UNREAD UNREAD}
+			// then we have to persist the filter so, set the filter restriction
 			// in restriction/params object.
-			options = Ext.apply(options || {}, {
-				params : {
+			options = Ext.applyIf(options || {}, {
+				params: {
 					restriction: {
-						filter: store.getFilterRestriction(Zarafa.common.data.Filters.UNREAD)
+						filter: this.getFilterRestriction(this.getFilterTypeFromDataMode())
 					}
 				}
 			});
 		}
 		Zarafa.mail.MailContextModel.superclass.load.call(this, options);
+	},
+
+	/**
+	 * Function will provide the filter type based on the {@link #this.current_data_mode current_data_mode}
+	 * when {@link #this.current_data_mode current_data_mode} is available.
+	 *
+	 * @return {Zarafa.common.data.Filters} filterType to get the restriction.
+	 */
+	getFilterTypeFromDataMode: function()
+	{
+		if (Ext.isDefined(this.current_data_mode)) {
+			if (this.current_data_mode === Zarafa.mail.data.DataModes.UNREAD) {
+				return Zarafa.common.data.Filters.UNREAD;
+			}
+		}
+	},
+
+	/**
+	 * Function which provide the restriction based on the given {@link Zarafa.common.data.Filters.UNREAD Filter}
+	 *
+	 * @param {Zarafa.common.data.Filters} filterType The filterType which needs to perform on store.
+	 * @return {Array|false} RES_BITMASK restriction else false.
+	 */
+	getFilterRestriction: function(filterType)
+	{
+		var store = this.getStore();
+		return store.getFilterRestriction(filterType);
 	},
 
 	/**
@@ -737,7 +777,7 @@ Zarafa.mail.MailContextModel = Ext.extend(Zarafa.core.ContextModel, {
 	 * @param {Zarafa.contact.data.DataModes} oldMode The previously selected DataMode.
 	 * @private
 	 */
-	onDataModeChange : function(model, newMode, oldMode)
+	onDataModeChange: function(model, newMode, oldMode)
 	{
 		Zarafa.mail.MailContextModel.superclass.onDataModeChange.call(this, model, newMode, oldMode);
 
@@ -746,7 +786,6 @@ Zarafa.mail.MailContextModel = Ext.extend(Zarafa.core.ContextModel, {
 			// stop the live scroll after the search gets stopped.
 			this.stopLiveScroll();
 		}
-
 		switch (newMode) {
 			case Zarafa.mail.data.DataModes.SEARCH:
 			case Zarafa.mail.data.DataModes.LIVESCROLL:
@@ -754,6 +793,16 @@ Zarafa.mail.MailContextModel = Ext.extend(Zarafa.core.ContextModel, {
 			case Zarafa.mail.data.DataModes.ALL:
 				this.load();
 				break;
+			case Zarafa.mail.data.DataModes.UNREAD:
+				this.load({
+					params: {
+						restriction: {
+							filter: this.getFilterRestriction(Zarafa.common.data.Filters.UNREAD)
+						}
+					}
+				});
+				break;
+			default: break;
 		}
 	},
 
@@ -767,7 +816,7 @@ Zarafa.mail.MailContextModel = Ext.extend(Zarafa.core.ContextModel, {
 	 * @param {Array} folders selected folders as an array of {@link Zarafa.hierarchy.data.MAPIFolderRecord Folder} objects.
 	 * @private
 	 */
-	onFolderChange : function(model, folders)
+	onFolderChange: function(model, folders)
 	{
 		this.resetLazyLoadMail();
 
@@ -796,7 +845,7 @@ Zarafa.mail.MailContextModel = Ext.extend(Zarafa.core.ContextModel, {
 	 * @param {Zarafa.core.ContextModel} model The model which fired the event
 	 * @private
 	 */
-	onSearchStart : function(model)
+	onSearchStart: function(model)
 	{
 		if(this.getCurrentDataMode() != Zarafa.mail.data.DataModes.SEARCH){
 			this.oldDataMode = this.getCurrentDataMode();
@@ -810,7 +859,7 @@ Zarafa.mail.MailContextModel = Ext.extend(Zarafa.core.ContextModel, {
 	 * @param {Zarafa.core.ContextModel} model The model which fired the event
 	 * @private
 	 */
-	onSearchStop : function(model)
+	onSearchStop: function(model)
 	{
 		if (this.getCurrentDataMode() === Zarafa.mail.data.DataModes.SEARCH) {
 			this.setDataMode(this.oldDataMode);
@@ -881,7 +930,7 @@ Zarafa.mail.MailContextModel = Ext.extend(Zarafa.core.ContextModel, {
 	* @param {Zarafa.core.Context} oldContext context that was switched out
 	* @param {Zarafa.core.Context} newContext new context that was switched
 	*/
-	onContextSwitch : function(folder, oldContext, newContext)
+	onContextSwitch: function(folder, oldContext, newContext)
 	{
 		if ( newContext.getName() !== 'mail' ) {
 			this.resetLazyLoadMail();

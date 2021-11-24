@@ -10,7 +10,7 @@ Zarafa.common.recipientfield.data.SuggestionListProxy = Ext.extend(Zarafa.core.d
 	 * @constructor
 	 * @param {Object} config Configuration object
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		config = config || {};
 
@@ -42,7 +42,7 @@ Zarafa.common.recipientfield.data.SuggestionListProxy = Ext.extend(Zarafa.core.d
 	 * which should be used for this request.
 	 * @private
 	 */
-	getResponseHandlerForRequest : function(modulename, serverAction, action, records, parameters, reader, callback, scope, args)
+	getResponseHandlerForRequest: function(modulename, serverAction, action, records, parameters, reader, callback, scope, args)
 	{
 		return new Zarafa.common.recipientfield.data.SuggestionListResponseHandler({
 			proxy: this,

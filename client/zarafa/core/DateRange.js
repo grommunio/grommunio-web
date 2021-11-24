@@ -3,7 +3,7 @@ Ext.namespace('Zarafa.core');
 /**
  * @class Zarafa.core.DateRange
  * @extends Ext.util.Observable
- * 
+ *
  * Represents a date range defined by a start and due date. The start date is inclusive, while the due date is exclusive. For example,
  * to denote an appointment that lasts all day on July 1st, 2010 one would write this as (00:00 July 1st 2010, 00:00 July 2nd 2010).
  * In sort, the range is defined as [startDate, dueDate>.
@@ -15,32 +15,32 @@ Zarafa.core.DateRange = Ext.extend(Ext.util.Observable, {
 	 * @cfg {Date} startDate start date for this {@link Zarafa.core.DateRange DateRange}.
 	 * use {@link #getStartDate} and {@link #setStartDate} to modify this value.
 	 */
-	startDate : null,
+	startDate: null,
 
 	/**
 	 * @cfg {Date} dueDate due date for this {@link Zarafa.core.DateRange DateRange}.
 	 * use {@link #getDueDate} and {@link #setDueDate} to modify this value.
 	 */
-	dueDate : null,
+	dueDate: null,
 
 	/**
 	 * @cfg {Boolean} allowBlank Specifies empty dates are accepted by this {@link Zarafa.core.DateRange DateRange},
 	 * if {@link #allowBlank} is true then only we can use empty start/due dates in {@link Zarafa.core.DateRange DateRange}.
 	 * otherwise {@link #startDate} and {@link #dueDate} will be initialized with current dates.
 	 */
-	allowBlank : false,
+	allowBlank: false,
 
 	/**
 	 * @constructor
 	 * @param {Date} startDate (optional) start date
 	 * @param {Date} dueDate (optional) due date
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		config = config || {};
 
 		Ext.applyIf(config, {
-			allowBlank : this.allowBlank
+			allowBlank: this.allowBlank
 		});
 
 		if(config.allowBlank) {
@@ -49,14 +49,14 @@ Zarafa.core.DateRange = Ext.extend(Ext.util.Observable, {
 			// there is a restriction that start date can not exist without due date, so we will be initializing due date
 			// same as start date if only start date is provided
 			Ext.applyIf(config, {
-				startDate : null,
-				dueDate : config.startDate ? config.startDate.clone() : null
+				startDate: null,
+				dueDate: config.startDate ? config.startDate.clone() : null
 			});
 		} else {
 			// if allowBlank is false then we should initialize start / due date with current dates
 			Ext.applyIf(config, {
-				startDate : new Date(),
-				dueDate : config.startDate ? config.startDate.clone() : new Date()
+				startDate: new Date(),
+				dueDate: config.startDate ? config.startDate.clone() : new Date()
 			});
 		}
 
@@ -80,23 +80,23 @@ Zarafa.core.DateRange = Ext.extend(Ext.util.Observable, {
 
 		Zarafa.core.DateRange.superclass.constructor.call(this);
 	},
-	
+
 	/**
 	 * @return {Date} the range's start date.
 	 */
-	getStartDate : function()
+	getStartDate: function()
 	{
 		return this.startDate;
 	},
-	
+
 	/**
 	 * @return {Date} the range's due date.
 	 */
-	getDueDate : function()
+	getDueDate: function()
 	{
 		return this.dueDate;
 	},
-	
+
 	/**
 	 * Sets the range start date.
 	 * @param {Date} startDate the range's start date.
@@ -104,7 +104,7 @@ Zarafa.core.DateRange = Ext.extend(Ext.util.Observable, {
 	 * @param {Boolean} ignoreUpdate When set to true it will not fire the update event.
 	 * @return {Zarafa.core.DateRange} this date range
 	 */
-	setStartDate : function(startDate, silence, ignoreUpdate)
+	setStartDate: function(startDate, silence, ignoreUpdate)
 	{
 		var original = null;
 
@@ -133,7 +133,7 @@ Zarafa.core.DateRange = Ext.extend(Ext.util.Observable, {
 
 		return this;
 	},
-	
+
 	/**
 	 * Sets the range due date.
 	 * @param {Date} dueDate the range's due date.
@@ -141,7 +141,7 @@ Zarafa.core.DateRange = Ext.extend(Ext.util.Observable, {
 	 * @param {Boolean} ignoreUpdate When set to true it will not fire the update event.
 	 * @return {Zarafa.core.DateRange} this date range
 	 */
-	setDueDate : function(dueDate, silence, ignoreUpdate)
+	setDueDate: function(dueDate, silence, ignoreUpdate)
 	{
 		var original = null;
 
@@ -170,7 +170,7 @@ Zarafa.core.DateRange = Ext.extend(Ext.util.Observable, {
 
 		return this;
 	},
-	
+
 	/**
 	 * Sets the start and due dates.
 	 * @param {Date} startDate the range's start date.
@@ -179,7 +179,7 @@ Zarafa.core.DateRange = Ext.extend(Ext.util.Observable, {
 	 * @param {Boolean} ignoreUpdate When set to true it will not fire the update event.
 	 * @return {Zarafa.core.DateRange} this date range
 	 */
-	set : function(startDate, dueDate, silence, ignoreUpdate)
+	set: function(startDate, dueDate, silence, ignoreUpdate)
 	{
 		var original = null;
 
@@ -220,15 +220,15 @@ Zarafa.core.DateRange = Ext.extend(Ext.util.Observable, {
 	/**
 	 * @return {Number} the range's start time in milliseconds since epoch, GMT.
 	 */
-	getStartTime : function()
+	getStartTime: function()
 	{
 		return (Ext.isDate(this.startDate) && this.startDate.getTime()) || this.startDate;
 	},
-	
+
 	/**
 	 * @return {Number} the range's due time in milliseconds since epoch, GMT.
 	 */
-	getDueTime : function()
+	getDueTime: function()
 	{
 		return (Ext.isDate(this.dueDate) && this.dueDate.getTime()) || this.dueDate;
 	},
@@ -240,7 +240,7 @@ Zarafa.core.DateRange = Ext.extend(Ext.util.Observable, {
 	 * @param {Boolean} ignoreUpdate When set to true it will not fire the update event.
 	 * @return {Zarafa.core.DateRange} this date range
 	 */
-	setStartTime : function(startTime, silence, ignoreUpdate)
+	setStartTime: function(startTime, silence, ignoreUpdate)
 	{
 		var original = null;
 
@@ -278,7 +278,7 @@ Zarafa.core.DateRange = Ext.extend(Ext.util.Observable, {
 	 * @param {Boolean} ignoreUpdate When set to true it will not fire the update event.
 	 * @return {Zarafa.core.DateRange} this date range
 	 */
-	setDueTime : function(dueTime, silence, ignoreUpdate)
+	setDueTime: function(dueTime, silence, ignoreUpdate)
 	{
 		var original = null;
 
@@ -317,7 +317,7 @@ Zarafa.core.DateRange = Ext.extend(Ext.util.Observable, {
 	 * @param {Boolean} ignoreUpdate When set to true it will not fire the update event.
 	 * @return {Zarafa.core.DateRange} this date range
 	 */
-	setTime : function(startTime, dueTime, silence, ignoreUpdate)
+	setTime: function(startTime, dueTime, silence, ignoreUpdate)
 	{
 		var original = null;
 
@@ -354,7 +354,7 @@ Zarafa.core.DateRange = Ext.extend(Ext.util.Observable, {
 	 * @param {String} interval (optional) A valid date interval enum value.
 	 * @return {Number} the range's duration in milliseconds
 	 */
-	getDuration : function(interval)
+	getDuration: function(interval)
 	{
 		if (Ext.isDate(this.dueDate) && Ext.isDate(this.startDate)) {
 			return Date.diff(interval || Date.MILLI, this.dueDate, this.startDate);
@@ -368,7 +368,7 @@ Zarafa.core.DateRange = Ext.extend(Ext.util.Observable, {
 	 * @param {Boolean} ignoreUpdate When set to true it will not fire the update event.
 	 * @return {Zarafa.core.DateRange} this date range
 	 */
-	setDuration : function(duration, ignoreUpdate)
+	setDuration: function(duration, ignoreUpdate)
 	{
 		var original = null;
 
@@ -392,15 +392,15 @@ Zarafa.core.DateRange = Ext.extend(Ext.util.Observable, {
 
 		return this;
 	},
-	
+
 	/**
 	 * Calculates the number of days spanned by this appointment, rounded to whole days. The function
 	 * assumes that the range is an all day range. Even so, the rounding is still required to deal with
 	 * date ranges that start and end in different time zones.
-	 * 
-	 * @return {Number} the number of days spanned by this appointment, rounded to whole days. 
+	 *
+	 * @return {Number} the number of days spanned by this appointment, rounded to whole days.
 	 */
-	getNumDays : function()
+	getNumDays: function()
 	{
 		var duration = this.getDuration(Date.DAY);
 		if (Ext.isDefined(duration)) {
@@ -409,21 +409,21 @@ Zarafa.core.DateRange = Ext.extend(Ext.util.Observable, {
 			return 0;
 		}
 	},
-	
+
 	/**
 	 * Expands the range so that both the start and due times are multiples of the 'timeSlice' parameter. The start
 	 * date is moved back, the due date is moved forward. Since this method does not care about time zones the value
 	 * of 'timeSlice' is assumed to be <= 60 minutes.
-	 * 
+	 *
 	 * @param {Number} timeSlice the time slice to 'snap' to.
 	 * @return {Zarafa.core.DateRange} this date range
 	 */
-	expand : function(timeSlice)
+	expand: function(timeSlice)
 	{
 		var original = this.clone();
 
 		if(Ext.isDate(this.startDate)) {
-			this.startDate = new Date(this.getStartTime() - this.getStartTime() % timeSlice); 
+			this.startDate = new Date(this.getStartTime() - this.getStartTime() % timeSlice);
 		}
 
 		if(Ext.isDate(this.dueDate)) {
@@ -437,17 +437,17 @@ Zarafa.core.DateRange = Ext.extend(Ext.util.Observable, {
 
 		return this;
 	},
-	
+
 	/**
 	 * Deep-clones the date range.
 	 * @return {Zarafa.core.DateRange} a clone of this date range.
 	 */
-	clone : function()
+	clone: function()
 	{
 		return new Zarafa.core.DateRange({
-			startDate : Ext.isDate(this.startDate) ? new Date(this.getStartTime()) : undefined,
-			dueDate : Ext.isDate(this.dueDate) ? new Date(this.getDueTime()) : undefined,
-			allowBlank : this.allowBlank
+			startDate: Ext.isDate(this.startDate) ? new Date(this.getStartTime()) : undefined,
+			dueDate: Ext.isDate(this.dueDate) ? new Date(this.getDueTime()) : undefined,
+			allowBlank: this.allowBlank
 		});
 	},
 
@@ -456,7 +456,7 @@ Zarafa.core.DateRange = Ext.extend(Ext.util.Observable, {
 	 * @param {Zarafa.core.DateRange} otherRange a date range to compare with.
 	 * @return {Boolean} true if this range equals the given other range.
 	 */
-	equals : function(otherRange)
+	equals: function(otherRange)
 	{
 		if (!otherRange) {
 			return false;
@@ -475,30 +475,30 @@ Zarafa.core.DateRange = Ext.extend(Ext.util.Observable, {
 		// both start/due dates matches
 		return true;
 	},
-	
+
 	/**
 	 * Compares two date ranges for order. If range A comes before B, the function returns -1. If B comes before
 	 * A, the function returns 1. If both are equal, this function returns 0. This functionality is equivalent
 	 * to Java's Comparable interface.
-	 * 
+	 *
 	 * Comparison is based on the range start. If the start dates are equal, further distinction is made by
 	 * due date, with earlier due dates coming first.
-	 * 
+	 *
 	 * Undefined dates will be considered as zero and compared.
-	 * 
+	 *
 	 * @param {Zarafa.core.DateRange} otherRange Date range to compare with.
-	 * @return {Number} If this range 'comes before' otherRange, the funtion returns -1. If this range 'comes
+	 * @return {Number} If this range 'comes before' otherRange, the function returns -1. If this range 'comes
 	 * after' otherRange, return 1. Otherwise return 0.
-	 *   
+	 *
 	 */
-	compare : function(otherRange)
+	compare: function(otherRange)
 	{
 		// Compare start times.
 		var aStartTime = this.getStartTime() || 0;
 		var bStartTime = otherRange.getStartTime() || 0;
 
 		if (aStartTime !== bStartTime) {
-			return aStartTime > bStartTime ? 1 : -1;
+			return aStartTime > bStartTime ? 1: -1;
 		}
 
 		// If start times are equal, compare due times.
@@ -506,19 +506,19 @@ Zarafa.core.DateRange = Ext.extend(Ext.util.Observable, {
 		var bDueTime = otherRange.getDueTime() || 0;
 
 		if (aDueTime !== bDueTime) {
-			return aDueTime > bDueTime ? 1 : -1;
+			return aDueTime > bDueTime ? 1: -1;
 		}
-		
+
 		// If ranges are equal, return 0.
 		return 0;
 	},
-	
+
 	/**
 	 * Tests whether the date range is a so-called 'all day' range,
 	 * meaning that start and due date duration time is more then one day(24 hours).
 	 * @return {Boolean} true if the range is an all day range.
 	 */
-	isAllDay : function()
+	isAllDay: function()
 	{
 		if(Ext.isDate(this.startDate) && Ext.isDate(this.dueDate) && !this.isZeroMinuteRange()) {
 			return (this.startDate.clearTime(true).getTime() === this.getStartTime())
@@ -532,7 +532,7 @@ Zarafa.core.DateRange = Ext.extend(Ext.util.Observable, {
 	 * Tests whether the date range is a 0 minute.
 	 * @return {Boolean} true if the range duration is 0 minute.
 	 */
-	isZeroMinuteRange : function()
+	isZeroMinuteRange: function()
 	{
 		return (this.dueDate.getTime() === this.startDate.getTime());
 	},
@@ -540,21 +540,21 @@ Zarafa.core.DateRange = Ext.extend(Ext.util.Observable, {
 	/**
 	 * @return {Boolean} true if this date range overlaps with the other date range.
 	 */
-	overlaps : function(other)
+	overlaps: function(other)
 	{
-		var start1 = this.getStartTime(); 
-		var due1 = this.getDueTime(); 
+		var start1 = this.getStartTime();
+		var due1 = this.getDueTime();
 		var start2 = other.getStartTime();
 		var due2 = other.getDueTime();
 
 		return (start1 >= start2 && start1 < due2) || (start2 >= start1 && start2 < due1);
 	},
-	
+
 	/**
 	 * @param {Zarafa.core.DateRange} range date range to check against.
 	 * @return {Boolean} true if this date range is inside the given date range.
 	 */
-	inside : function(range)
+	inside: function(range)
 	{
 		if(this.getStartTime() && range.getStartTime() && this.getDueTime() && range.getDueTime()) {
 			return this.getStartTime() >= range.getStartTime() && this.getDueTime() <= range.getDueTime();
@@ -562,26 +562,26 @@ Zarafa.core.DateRange = Ext.extend(Ext.util.Observable, {
 
 		return false;
 	},
-	
+
 	/**
 	 * @param {Date} date the date to test.
 	 * @return {Boolean} true if the give date is inside this date range.
 	 */
-	containsDate : function(date)
+	containsDate: function(date)
 	{
 		return this.getStartTime() <= date.getTime() && this.getDueTime() > date.getTime();
 	},
-	
+
 	/**
 	 * Formats the current visible date range as human-readable text. The formatter looks at which components the
 	 * start and due dates have in common.
-	 * For instance, the first and last days of a week range might lie in the same month (i.e. '13 - 19 July 2009'), 
+	 * For instance, the first and last days of a week range might lie in the same month (i.e. '13 - 19 July 2009'),
 	 * or they might not (i.e. '28 September - 2 November 2009'). Finally a range may have the start and end dates
-	 * in different years, i.e. '28 December 2009 - 1 January 2010'. 
-	 *   
-	 * @return {String} the current date range as text. 
+	 * in different years, i.e. '28 December 2009 - 1 January 2010'.
+	 *
+	 * @return {String} the current date range as text.
 	 */
-	format : function()
+	format: function()
 	{
 		var startDate = this.startDate;
 		var dueDate = this.dueDate;
@@ -610,27 +610,27 @@ Zarafa.core.DateRange = Ext.extend(Ext.util.Observable, {
 		// The startDate and duedate are in completely different years.
 		// Format the full date strings for both dates.
 		if (startDate.getYear() != dueDate.getYear()) {
-			// # TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
+			// # TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 			return String.format('{0} - {1}', startDate.format(_('jS F Y')), dueDate.format(_('jS F Y')));
 		}
 
 		// The startDate and dueDate are in different months.
 		// Format the date strings with the year in common.
 		if (startDate.getMonth() != dueDate.getMonth()) {
-			// # TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
+			// # TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 			return String.format('{0} - {1} {2}', startDate.format(_('jS F')), dueDate.format(_('jS F')), startDate.format(_('Y')));
 		}
 
 		// The startDate and dueDate are on different days.
 		// Format the date strings with the month and year in common.
 		if (startDate.getDate() != dueDate.getDate()) {
-			// # TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
+			// # TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 			return String.format('{0} - {1} {2}', startDate.format(_('jS')), dueDate.format(_('jS')), startDate.format(_('F Y')));
 		}
 
 		// The startDate and dueDate are on the same day.
 		// Format the date string with everything in common.
-		// # TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
+		// # TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 		return startDate.format(_('jS F Y'));
 	}
 });

@@ -23,6 +23,7 @@ Zarafa.core.data.IPMRecipientRecordFields = [
 	{name: 'display_type', type: 'int', defaultValue: Zarafa.core.mapi.DisplayType.DT_MAILUSER},
 	{name: 'display_type_ex', type: 'int', defaultValue: Zarafa.core.mapi.DisplayType.DT_MAILUSER},
 	{name: 'email_address'},
+	{name: 'user_image', type: 'string'},
 	{name: 'smtp_address'},
 	{name: 'address_type', type: 'string', defaultValue: 'SMTP'},
 	{name: 'presence_status', type: 'int'}, // Note: this field will not be filled by the back-end
@@ -47,7 +48,7 @@ Zarafa.core.data.IPMRecipientRecord = Ext.extend(Ext.data.Record, {
 	 * @property
 	 * @type Boolean
 	 */
-	resolveAttempted : false,
+	resolveAttempted: false,
 
 	/**
 	 * Indicates whether it has been attempted to resolve this record,
@@ -57,14 +58,14 @@ Zarafa.core.data.IPMRecipientRecord = Ext.extend(Ext.data.Record, {
 	 * @property
 	 * @type Boolean
 	 */
-	resolveAttemptAmbiguous : false,
+	resolveAttemptAmbiguous: false,
 
 	/**
 	 * Copy the {@link Zarafa.core.data.IPMRecipientRecord Record} to a new instance
 	 * @param {String} newId (optional) A new Record id, defaults to the id of the record being copied. See id.
 	 * @return {Zarafa.core.data.IPMRecipientRecord} The copy of the record.
 	 */
-	copy : function(newId)
+	copy: function(newId)
 	{
 		var copy = Zarafa.core.data.RecordFactory.createRecordObjectByCustomType(Zarafa.core.data.RecordCustomObjectType.ZARAFA_RECIPIENT, this.data, newId || this.id);
 
@@ -76,11 +77,11 @@ Zarafa.core.data.IPMRecipientRecord = Ext.extend(Ext.data.Record, {
 	/**
 	 * Applies all data from an {@link Zarafa.core.data.IPMRecipientRecord IPMRecipientRecord}
 	 * to this instance. This will update all data.
-	 * 
+	 *
 	 * @param {Zarafa.core.data.IPMRecipientRecord} record The record to apply to this
 	 * @return {Zarafa.core.data.IPMRecipientRecord} this
 	 */
-	applyData : function(record)
+	applyData: function(record)
 	{
 		this.beginEdit();
 
@@ -90,7 +91,7 @@ Zarafa.core.data.IPMRecipientRecord = Ext.extend(Ext.data.Record, {
 		this.resolveAttempted = record.resolveAttempted;
 		this.resolveAttemptAmbiguous = record.resolveAttemptAmbiguous;
 		this.dirty = record.dirty;
-		
+
 		this.endEdit(false);
 
 		return this;
@@ -101,7 +102,7 @@ Zarafa.core.data.IPMRecipientRecord = Ext.extend(Ext.data.Record, {
 	 * invalid to prevent them to be saved to the server.
 	 * @return {Boolean} False if this this is the meeting organizer recipient.
 	 */
-	isValid : function()
+	isValid: function()
 	{
 		if (this.isMeetingOrganizer()) {
 			return false;
@@ -113,7 +114,7 @@ Zarafa.core.data.IPMRecipientRecord = Ext.extend(Ext.data.Record, {
 	/**
 	 * Resolve recipient.
 	 */
-	resolve : function()
+	resolve: function()
 	{
 		if (this.store) {
 			this.store.resolve(this);
@@ -121,12 +122,22 @@ Zarafa.core.data.IPMRecipientRecord = Ext.extend(Ext.data.Record, {
 	},
 
 	/**
-	 * A recipient is resolved when an entryid has been set.
+	 * A recipient has been resolved when an entryid has been set that is not a one-off.
+	 * When a one-off entryid has been set, the email address will be tested with a regexp
+	 * to check its validity.
 	 * @return {Boolean} True if this recipient has been resolved.
 	 */
-	isResolved : function()
+	isResolved: function()
 	{
-		return !Ext.isEmpty(this.get('entryid'));
+		if (Ext.isEmpty(this.get('entryid'))) {
+			return false;
+		}
+		if (!this.isOneOff()) {
+			return true;
+		}
+
+		var smtp = this.get('smtp_address');
+		return Zarafa.reSingleEmailAddress.test(smtp);
 	},
 
 	/**
@@ -134,7 +145,7 @@ Zarafa.core.data.IPMRecipientRecord = Ext.extend(Ext.data.Record, {
 	 * which is a recipient which is not inside the addressbook.
 	 * @return {Boolean} True if this recipient has an OneOff entryid.
 	 */
-	isOneOff : function()
+	isOneOff: function()
 	{
 		return Zarafa.core.EntryId.isOneOffEntryId(this.get('entryid'));
 	},
@@ -151,7 +162,7 @@ Zarafa.core.data.IPMRecipientRecord = Ext.extend(Ext.data.Record, {
 	 * @return {Boolean} True if this recipient has been {@link #attemptedToResolve attempted to resolve},
 	 * but turned out to be ambiguous.
 	 */
-	isAmbiguous : function()
+	isAmbiguous: function()
 	{
 		return this.resolveAttempted && this.resolveAttemptAmbiguous;
 	},
@@ -204,7 +215,7 @@ Zarafa.core.data.IPMRecipientRecord = Ext.extend(Ext.data.Record, {
 	 * @param {Zarafa.core.data.IPMRecipientRecord} record The IPMRecipientRecord to compare with
 	 * @return {Boolean} True if the records are the same.
 	 */
-	equals : function(record)
+	equals: function(record)
 	{
 		var equalStrA = this.get('smtp_address');
 		var equalStrB = record.get('smtp_address');
@@ -233,7 +244,7 @@ Zarafa.core.data.IPMRecipientRecord = Ext.extend(Ext.data.Record, {
 	 * @return {Zarafa.core.data.MAPIRecord} The addressbook record which
 	 * is represented by this recipient.
 	 */
-	convertToABRecord : function()
+	convertToABRecord: function()
 	{
 		var objectType = Zarafa.core.mapi.ObjectType.MAPI_MAILUSER;
 
@@ -262,9 +273,9 @@ Zarafa.core.data.IPMRecipientRecord = Ext.extend(Ext.data.Record, {
 
 		return Zarafa.core.data.RecordFactory.createRecordObjectByObjectType(objectType, {
 			entryid: entryid,
-			display_type : displayType,
-			display_name : this.get('display_name'),
-			display_type_ex : this.get('display_type_ex')
+			display_type: displayType,
+			display_name: this.get('display_name'),
+			display_type_ex: this.get('display_type_ex')
 		}, entryid);
 	},
 
@@ -275,7 +286,7 @@ Zarafa.core.data.IPMRecipientRecord = Ext.extend(Ext.data.Record, {
 	 * @return {Zarafa.core.data.IPMRecord} The addressbook record which
 	 * is represented by this recipient.
 	 */
-	convertToContactRecord : function()
+	convertToContactRecord: function()
 	{
 		// Entryids of personal contacts are suffixed with email id (1, 2, 3), so remove that id
 		// this is done in php to ensure that we will always have unique entryids
@@ -293,11 +304,11 @@ Zarafa.core.data.IPMRecipientRecord = Ext.extend(Ext.data.Record, {
 		}
 
 		return Zarafa.core.data.RecordFactory.createRecordObjectByMessageClass('IPM.Contact', {
-			entryid : entryid,
-			message_class : 'IPM.Contact',
-			object_type : Zarafa.core.mapi.ObjectType.MAPI_MESSAGE,
-			store_entryid : this.get('store_entryid'),
-			parent_entryid : this.get('parent_entryid')
+			entryid: entryid,
+			message_class: 'IPM.Contact',
+			object_type: Zarafa.core.mapi.ObjectType.MAPI_MESSAGE,
+			store_entryid: this.get('store_entryid'),
+			parent_entryid: this.get('parent_entryid')
 		}, entryid);
 	},
 
@@ -308,7 +319,7 @@ Zarafa.core.data.IPMRecipientRecord = Ext.extend(Ext.data.Record, {
 	 * @return {Zarafa.core.data.IPMRecord} The addressbook record which
 	 * is represented by this recipient.
 	 */
-	convertToDistListRecord : function()
+	convertToDistListRecord: function()
 	{
 		// Entryids of personal contacts are suffixed with email id (1, 2, 3), so remove that id
 		// this is done in php to ensure that we will always have unique entryids
@@ -326,11 +337,11 @@ Zarafa.core.data.IPMRecipientRecord = Ext.extend(Ext.data.Record, {
 		}
 
 		return Zarafa.core.data.RecordFactory.createRecordObjectByMessageClass('IPM.DistList', {
-			entryid : entryid,
-			message_class : 'IPM.DistList',
-			object_type : Zarafa.core.mapi.ObjectType.MAPI_MESSAGE,
-			store_entryid : this.get('store_entryid'),
-			parent_entryid : this.get('parent_entryid')
+			entryid: entryid,
+			message_class: 'IPM.DistList',
+			object_type: Zarafa.core.mapi.ObjectType.MAPI_MESSAGE,
+			store_entryid: this.get('store_entryid'),
+			parent_entryid: this.get('parent_entryid')
 		}, entryid);
 	},
 
@@ -348,7 +359,7 @@ Zarafa.core.data.IPMRecipientRecord = Ext.extend(Ext.data.Record, {
 		this.set('display_name', record.get('display_name'));
 		this.set('smtp_address', record.get('smtp_address'));
 		this.set('email_address', record.get('email_address'));
-		this.set('object_type',  record.get('object_type'));
+		this.set('object_type', record.get('object_type'));
 		this.set('display_type', record.get('display_type'));
 		this.set('display_type_ex', record.get('display_type_ex'));
 		this.set('address_type', record.get('address_type'));
@@ -364,10 +375,10 @@ Zarafa.core.data.IPMRecipientRecord = Ext.extend(Ext.data.Record, {
 	/**
 	 * Convinience method to get {@link Zarafa.core.mapi.DisplayType} or {@link Zarafa.core.mapi.DisplayTypeEx}
 	 * property value from {@link Zarafa.core.data.IPMRecipientRecord}.
-	 * 
+	 *
 	 * @return {Zarafa.core.mapi.DisplayType|Zarafa.core.mapi.DisplayTypeEx} The display type value.
 	 */
-	getDisplayType : function()
+	getDisplayType: function()
 	{
 		var displayType = this.get('display_type');
 		var displayTypeEx = this.get('display_type_ex');
@@ -391,7 +402,7 @@ Zarafa.core.data.IPMRecipientRecord = Ext.extend(Ext.data.Record, {
 	 * @param {Boolean} useHtmlEncode True if the record should use {@link Ext.util.Format#htmlEncode}
 	 * @return {String} The formatted string
 	 */
-	formatRecipient : function(useHtmlEncode)
+	formatRecipient: function(useHtmlEncode)
 	{
 		var value = [];
 		var name = this.get('display_name');
@@ -419,7 +430,7 @@ Zarafa.core.data.IPMRecipientRecord = Ext.extend(Ext.data.Record, {
 	 * This will call {@link Zarafa.core.EntryId#createOneOffEntryId} with required parameters
 	 * from which oneoff entryid will be generated.
 	 */
-	generateOneOffEntryId : function()
+	generateOneOffEntryId: function()
 	{
 		var displayName = this.get('display_name');
 		var addrType = this.get('address_type');
@@ -434,7 +445,7 @@ Zarafa.core.data.IPMRecipientRecord = Ext.extend(Ext.data.Record, {
 	 * @param {Boolean} clearResolveAttempt (optional) false to prevent the {@link #resolveAttempted}
 	 * to be cleared.
 	 */
-	endEdit : function(clearResolveAttempt)
+	endEdit: function(clearResolveAttempt)
 	{
 		this.editing = false;
 		if (clearResolveAttempt !== false) {

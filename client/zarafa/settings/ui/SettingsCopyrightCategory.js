@@ -23,7 +23,7 @@ Zarafa.settings.ui.SettingsCopyrightCategory = Ext.extend(Zarafa.settings.ui.Set
 	 * @constructor
 	 * @param {Object} config Configuration object
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		config = config || {};
 
@@ -32,20 +32,20 @@ Zarafa.settings.ui.SettingsCopyrightCategory = Ext.extend(Zarafa.settings.ui.Set
 		var iconsetAboutWidgets = [];
 		for ( var iconset in iconsetAbout ) {
 			iconsetAboutWidgets.push({
-				xtype : 'zarafa.settingscopyrightwidget',
+				xtype: 'zarafa.settingscopyrightwidget',
 				title: String.format(_('{0} Iconset'), iconsetAbout[iconset]['displayName']),
-				about : iconsetAbout[iconset]['about']
+				about: iconsetAbout[iconset]['about']
 			});
 		}
 
 		Ext.applyIf(config, {
-			title : _('About'),
-			categoryIndex : 10000,
-			iconCls : 'zarafa-settings-category-copyright',
-			items : [
+			title: _('About'),
+			categoryIndex: 10000,
+			iconCls: 'zarafa-settings-category-copyright',
+			items: [
 				{
-					xtype : 'zarafa.settingscopyrightwidget',
-					about : Zarafa.ABOUT
+					xtype: 'zarafa.settingscopyrightwidget',
+					about: Zarafa.ABOUT
 				},
 				container.populateInsertionPoint('context.settings.category.copyright', this)
 			].concat(iconsetAboutWidgets)

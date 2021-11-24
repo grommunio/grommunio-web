@@ -13,9 +13,9 @@
 		 */
 		function __construct($id, $data)
 		{
-			$this->properties = $GLOBALS["properties"]->getTaskListProperties();
-
 			parent::__construct($id, $data);
+
+			$this->properties = $GLOBALS["properties"]->getTaskListProperties();
 
 			$this->start = 0;
 		}

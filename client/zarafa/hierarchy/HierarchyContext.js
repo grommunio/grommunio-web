@@ -9,13 +9,13 @@ Zarafa.hierarchy.HierarchyContext = Ext.extend(Zarafa.core.Context, {
 	 * @constructor
 	 * @param config
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		config = config || {};
 
 		Ext.applyIf(config, {
-			hasToolbar : false,
-			hasContentPanel : false
+			hasToolbar: false,
+			hasContentPanel: false
 		});
 
 		Zarafa.hierarchy.HierarchyContext.superclass.constructor.call(this, config);
@@ -30,7 +30,7 @@ Zarafa.hierarchy.HierarchyContext = Ext.extend(Zarafa.core.Context, {
 
 	/**
 	 * Bid for the type of shared component and the given record.
-	 * This will bid on a dialog.crate or dialog.view for a record with a 
+	 * This will bid on a dialog.crate or dialog.view for a record with a
 	 * message class set to IPM or IPM.Note.
 	 * @param {Zarafa.core.data.SharedComponentType} type Type of component a context can bid for.
 	 * @param {Ext.data.Record} record Optionally passed record.
@@ -99,8 +99,8 @@ Zarafa.hierarchy.HierarchyContext = Ext.extend(Zarafa.core.Context, {
 
 Zarafa.onReady(function() {
 	container.registerContext(new Zarafa.core.ContextMetaData({
-		name : 'hierarchy',
-		allowUserVisible : false,
-		pluginConstructor : Zarafa.hierarchy.HierarchyContext
+		name: 'hierarchy',
+		allowUserVisible: false,
+		pluginConstructor: Zarafa.hierarchy.HierarchyContext
 	}));
 });

@@ -20,7 +20,7 @@ Zarafa.core.HtmlEditorPlugin = Ext.extend(Zarafa.core.Plugin, {
 	 * @param {Mixed} value The value to set
 	 * @return {Ext.form.Field} this
 	 */
-	setRawValue : Ext.emptyFn,
+	setRawValue: Ext.emptyFn,
 
 	/**
 	 * Sets a data value into the field and validates it.
@@ -28,21 +28,21 @@ Zarafa.core.HtmlEditorPlugin = Ext.extend(Zarafa.core.Plugin, {
 	 * @param {Mixed} value The value to set
 	 * @return {Ext.form.Field} this
 	 */
-	setValue : Ext.emptyFn,
+	setValue: Ext.emptyFn,
 
 	/**
 	 * Returns the raw data value which may or may not be a valid, defined value.
 	 * To return a normalized value see {@link #getValue}.
 	 * @return {Mixed} value The field value
 	 */
-	getRawValue : Ext.emptyFn,
+	getRawValue: Ext.emptyFn,
 
 	/**
 	 * Returns the normalized data value (undefined or emptyText will be returned as '').
 	 * To return the raw value see {@link #getRawValue}.
 	 * @return {Mixed} value The field value
 	 */
-	getValue : Ext.emptyFn,
+	getValue: Ext.emptyFn,
 
 	/**
 	 * Try to focus this component.
@@ -50,22 +50,30 @@ Zarafa.core.HtmlEditorPlugin = Ext.extend(Zarafa.core.Plugin, {
 	 * @param {Boolean/Number} delay (optional) Delay the focus this number of milliseconds (true for 10 milliseconds)
 	 * @return {Ext.Component} this
 	 */
-	focus : Ext.emptyFn,
+	focus: Ext.emptyFn,
 
 	/**
 	 * Resets the current field value to the originally loaded value and clears any validation messages.
 	 * See {@link Ext.form.BasicForm}.{@link Ext.form.BasicForm#trackResetOnLoad trackResetOnLoad}
 	 */
-	reset : Ext.emptyFn,
+	reset: Ext.emptyFn,
 
 	/**
 	 * Function sets the cursor position to the start of the text
 	 */
-	setCursorLocation : Ext.emptyFn,
+	setCursorLocation: Ext.emptyFn,
 
 	/**
 	 * Function inserts HTML text into the editor field where cursor is positioned.
 	 * @param {String} value The text which must be inserted at the cursor position
 	 */
-	insertAtCursor : Ext.emptyFn,
+	insertAtCursor: Ext.emptyFn,
+
+	/**
+	 * Function select the text in editor by given selector.
+	 *
+	 * @param {String} selector The selector query which used to select the text in editor.
+	 * @return {boolean} return true if text is selected in editor else false.
+	 */
+	selectBySelector: Ext.emptyFn,
 });

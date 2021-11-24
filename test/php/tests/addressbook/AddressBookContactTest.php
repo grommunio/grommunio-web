@@ -97,7 +97,7 @@ class AddressBookContactTest extends KopanoTest {
 	}
 
 	/**
-	 * Test if the contact addressbook returns valid objects for mutliple email addresses
+	 * Test if the contact addressbook returns valid objects for multiple email addresses
 	 */
 	public function testLoadingMultipleContactAddressBookResults()
 	{

@@ -11,43 +11,43 @@ Zarafa.core.data.IPMAttachmentStore = Ext.extend(Zarafa.core.data.MAPISubStore, 
 	/**
 	 * @cfg {String} id ID to communicate with the server for the location of the cached attachments.
 	 */
-	id : null,
+	id: null,
 
 	/**
 	 * @cfg {Zarafa.core.ObjectType} attachmentRecordType to create a custom {Zarafa.core.data.IPMAttachmentRecord}
 	 */
-	attachmentRecordType : Zarafa.core.mapi.ObjectType.MAPI_ATTACH,
+	attachmentRecordType: Zarafa.core.mapi.ObjectType.MAPI_ATTACH,
 
 	/**
 	 * @constructor
 	 * @param config Configuration object
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		config = config || {};
 
 		Ext.applyIf(config, {
-			id : Zarafa.generateId(32),
+			id: Zarafa.generateId(32),
 			// provide a default proxy
-			proxy : new Zarafa.core.data.IPMAttachmentProxy({
-				listModuleName : 'attachments',
-				itemModuleName : 'attachments'
+			proxy: new Zarafa.core.data.IPMAttachmentProxy({
+				listModuleName: 'attachments',
+				itemModuleName: 'attachments'
 			}),
 			// provide a default writer
-			writer : new Zarafa.core.data.JsonAttachmentWriter(),
+			writer: new Zarafa.core.data.JsonAttachmentWriter(),
 			// provide a default reader
-			reader : new Zarafa.core.data.JsonAttachmentReader({}, Zarafa.core.data.RecordFactory.getRecordClassByCustomType(this.attachmentRecordType))
+			reader: new Zarafa.core.data.JsonAttachmentReader({}, Zarafa.core.data.RecordFactory.getRecordClassByCustomType(this.attachmentRecordType))
 		});
 
 		Zarafa.core.data.IPMAttachmentStore.superclass.constructor.call(this, config);
 
 		// Update the 'hasattach' property whenever the store changes
 		this.on({
-			'update' : this.onAttachmentsChange,
-			'add' : this.onAttachmentsChange,
-			'remove' : this.onAttachmentsChange,
-			'datachanged' : this.onAttachmentsChange,
-			'scope' : this
+			'update': this.onAttachmentsChange,
+			'add': this.onAttachmentsChange,
+			'remove': this.onAttachmentsChange,
+			'datachanged': this.onAttachmentsChange,
+			'scope': this
 		});
 
 		// add the custom events of the Attachmentstore to the EventDispatcher
@@ -72,7 +72,7 @@ Zarafa.core.data.IPMAttachmentStore = Ext.extend(Zarafa.core.data.MAPISubStore, 
 	 * @param {Number} index
 	 * @private
 	 */
-	onAttachmentsChange : function()
+	onAttachmentsChange: function()
 	{
 		if(this.getParentRecord()){
 			if(this.getCount() > 0) {
@@ -88,7 +88,7 @@ Zarafa.core.data.IPMAttachmentStore = Ext.extend(Zarafa.core.data.MAPISubStore, 
 	 * server for the location of cached attachments
 	 * @return {String} The ID of the server attachment location
 	 */
-	getId : function()
+	getId: function()
 	{
 		return this.id;
 	},
@@ -98,7 +98,7 @@ Zarafa.core.data.IPMAttachmentStore = Ext.extend(Zarafa.core.data.MAPISubStore, 
 	 * for the location of cached attachments
 	 * @param {String} id The ID of the server attachment location
 	 */
-	setId : function(id)
+	setId: function(id)
 	{
 		this.id = id;
 	},
@@ -109,7 +109,7 @@ Zarafa.core.data.IPMAttachmentStore = Ext.extend(Zarafa.core.data.MAPISubStore, 
 	 * @param {Zarafa.core.data.IPMAttachmentRecord} attachmentRecord Attachment record.
 	 * @return {String} URL for downloading inline images.
 	 */
-	getInlineImageUrl : function(attachmentRecord)
+	getInlineImageUrl: function(attachmentRecord)
 	{
 		var url = this.getDownloadAttachmentUrl(attachmentRecord);
 		return Ext.urlAppend(url, 'contentDispositionType=inline');
@@ -122,7 +122,7 @@ Zarafa.core.data.IPMAttachmentStore = Ext.extend(Zarafa.core.data.MAPISubStore, 
 	 * @param {Boolean} allAsZip (optional) True to downloading all the attachments as ZIP
 	 * @return {String} URL for downloading attachment.
 	 */
-	getAttachmentUrl : function(attachmentRecord, allAsZip)
+	getAttachmentUrl: function(attachmentRecord, allAsZip)
 	{
 		var url = this.getDownloadAttachmentUrl(attachmentRecord, allAsZip);
 		return Ext.urlAppend(url, 'contentDispositionType=attachment');
@@ -135,7 +135,7 @@ Zarafa.core.data.IPMAttachmentStore = Ext.extend(Zarafa.core.data.MAPISubStore, 
 	 * @param {Boolean} allAsZip (optional) True to downloading all the attachments as ZIP
 	 * @return {String} URL for downloading attachments.
 	 */
-	getDownloadAttachmentUrl : function(attachmentRecord, allAsZip)
+	getDownloadAttachmentUrl: function(attachmentRecord, allAsZip)
 	{
 		var parentRecord = this.getParentRecord();
 		var isSubMessage = parentRecord.isSubMessage();
@@ -191,16 +191,17 @@ Zarafa.core.data.IPMAttachmentStore = Ext.extend(Zarafa.core.data.MAPISubStore, 
 	 * @return {Object} The object which container parent/source message entry id and store entryid.
 	 * @private
 	 */
-	getAttachmentParentRecordIds : function()
+	getAttachmentParentRecordIds: function()
 	{
 		var parentRecord = this.getParentRecord();
 		var entryID = parentRecord.get('entryid') || '';
-		var storeEntryId =  parentRecord.get('store_entryid') || '';
+		var storeEntryId = parentRecord.get('store_entryid') || '';
 		var messageAction = parentRecord.getMessageActions();
 
 		if (Ext.isEmpty(entryID) && messageAction) {
 			switch(messageAction.action_type) {
 				case 'forward':
+				case 'edit_as_new':
 					entryID = messageAction.source_entryid;
 					storeEntryId = messageAction.source_store_entryid;
 					break;
@@ -212,8 +213,8 @@ Zarafa.core.data.IPMAttachmentStore = Ext.extend(Zarafa.core.data.MAPISubStore, 
 		}
 
 		return {
-			'entryid' : entryID,
-			'store_entryid' : storeEntryId
+			'entryid': entryID,
+			'store_entryid': storeEntryId
 		};
 	},
 
@@ -222,7 +223,7 @@ Zarafa.core.data.IPMAttachmentStore = Ext.extend(Zarafa.core.data.MAPISubStore, 
 	 * @return {String} entryid parent record entryid.
 	 * @private
 	 */
-	getAttachmentParentRecordEntryId : function()
+	getAttachmentParentRecordEntryId: function()
 	{
 		// Function is used by the Files plugin.
 		return this.getAttachmentParentRecordIds().entryid;
@@ -233,7 +234,7 @@ Zarafa.core.data.IPMAttachmentStore = Ext.extend(Zarafa.core.data.MAPISubStore, 
 	 * @return {String} URL for attachments
 	 * @private
 	 */
-	getAttachmentBaseUrl : function()
+	getAttachmentBaseUrl: function()
 	{
 		var url = container.getBaseURL();
 		var source = this.getAttachmentParentRecordIds();
@@ -248,7 +249,7 @@ Zarafa.core.data.IPMAttachmentStore = Ext.extend(Zarafa.core.data.MAPISubStore, 
 	 * @return {String} URL for uploading attachments
 	 * @private
 	 */
-	getUploadAttachmentUrl : function()
+	getUploadAttachmentUrl: function()
 	{
 		return Ext.urlAppend(this.getAttachmentBaseUrl(), 'load=upload_attachment');
 	},
@@ -260,7 +261,7 @@ Zarafa.core.data.IPMAttachmentStore = Ext.extend(Zarafa.core.data.MAPISubStore, 
 	 * @return {String} URL for importing attachments to respective folder
 	 * @private
 	 */
-	getImportAttachmentUrl : function(attachmentRecord, folder)
+	getImportAttachmentUrl: function(attachmentRecord, folder)
 	{
 		var url = this.getDownloadAttachmentUrl(attachmentRecord);
 		var isEmbedded = attachmentRecord.isEmbeddedMessage();
@@ -286,7 +287,7 @@ Zarafa.core.data.IPMAttachmentStore = Ext.extend(Zarafa.core.data.MAPISubStore, 
 	 * @return {Boolean} True if the files can be uploaded, false otherwise
 	 * @private
 	 */
-	canUploadFiles : function(files, options)
+	canUploadFiles: function(files, options)
 	{
 		// If there are no files we can exit. Ext.isEmpty()
 		// checks if files is null or undefined. If files is
@@ -433,7 +434,7 @@ Zarafa.core.data.IPMAttachmentStore = Ext.extend(Zarafa.core.data.MAPISubStore, 
 	 * @param {Object} params (optional) the params which contains source type of the attachment,
 	 * i.e 'contactphoto', 'embedded' attachment or file attachment 'default'
 	 */
-	uploadFiles : function(files, form, isHidden, params)
+	uploadFiles: function(files, form, isHidden, params)
 	{
 		var attachments = [];
 		var uploadFiles = [];
@@ -471,19 +472,19 @@ Zarafa.core.data.IPMAttachmentStore = Ext.extend(Zarafa.core.data.MAPISubStore, 
 
 				// Create an attachment record, with all the passed data, use record factory so default values will be applied
 				attach = Zarafa.core.data.RecordFactory.createRecordObjectByCustomType(this.attachmentRecordType, {
-					'name' : originalName,
-					'size' : file['size'],
-					'filetype' : file['type'],
-					'hidden' : Ext.isDefined(isHidden) ? isHidden : false,
-					'attach_method' : Zarafa.core.mapi.AttachMethod.ATTACH_BY_VALUE,
-					'attach_id' : file['attach_id']
+					'name': originalName,
+					'size': file['size'],
+					'filetype': file['type'],
+					'hidden': Ext.isDefined(isHidden) ? isHidden : false,
+					'attach_method': Zarafa.core.mapi.AttachMethod.ATTACH_BY_VALUE,
+					'attach_id': file['attach_id']
 				});
 			} else {
 				// If the file is a String, it is the file name including a fake path
 				// ('C:\fakepath\<filename>') which must be stripped of its silly path.
 				attach = Zarafa.core.data.RecordFactory.createRecordObjectByCustomType(this.attachmentRecordType, {
-					'name' : Ext.util.Format.basename(file),
-					'hidden' : Ext.isDefined(isHidden) ? isHidden : false
+					'name': Ext.util.Format.basename(file),
+					'hidden': Ext.isDefined(isHidden) ? isHidden : false
 				});
 			}
 
@@ -509,9 +510,9 @@ Zarafa.core.data.IPMAttachmentStore = Ext.extend(Zarafa.core.data.MAPISubStore, 
 		}
 
 		var options = {
-			'params' : data,
-			'requestUrl' : this.getUploadAttachmentUrl(),
-			'requestForm' : form
+			'params': data,
+			'requestUrl': this.getUploadAttachmentUrl(),
+			'requestForm': form
 		};
 
 		if (this.batch) {
@@ -532,13 +533,13 @@ Zarafa.core.data.IPMAttachmentStore = Ext.extend(Zarafa.core.data.MAPISubStore, 
 	 * @param {File} record File which needs to be cloned to pass uid postfixed to filename
 	 * @return {File} Cloned file.
 	 */
-	cloneFile : function(file)
+	cloneFile: function(file)
 	{
 		var postfixId = Zarafa.generateId(8);
 		// create a Blob object from existing file
 		var blob = [file.slice(0, file.size, file.type)];
 		var postfixedName = file.name + postfixId;
-		var clonedFile = new File(blob, postfixedName, {type : file.type});
+		var clonedFile = new File(blob, postfixedName, {type: file.type});
 		clonedFile.attach_id = postfixId;
 
 		return clonedFile;
@@ -551,7 +552,7 @@ Zarafa.core.data.IPMAttachmentStore = Ext.extend(Zarafa.core.data.MAPISubStore, 
 	 * @param {Zarafa.core.data.IPMRecord} record The record which needs to be added as an attachment into store.
 	 * @param {Object} config (optional) The configuration object
 	 */
-	addAsAttachment : function(record, config)
+	addAsAttachment: function(record, config)
 	{
 		var data = [];
 		if(Ext.isDefined(config) && config.attachAsIcs) {
@@ -567,8 +568,8 @@ Zarafa.core.data.IPMAttachmentStore = Ext.extend(Zarafa.core.data.MAPISubStore, 
 		this.add(attach);
 
 		var options = {
-			'params' : attach.data,
-			'requestUrl' : this.getUploadAttachmentUrl()
+			'params': attach.data,
+			'requestUrl': this.getUploadAttachmentUrl()
 		};
 
 		var action = Ext.data.Api.actions['create'];
@@ -585,14 +586,14 @@ Zarafa.core.data.IPMAttachmentStore = Ext.extend(Zarafa.core.data.MAPISubStore, 
 	 *
 	 * @return data object which is used to create attachment record.
 	 */
-	addIcsAsAttachment : function(record)
+	addIcsAsAttachment: function(record)
 	{
 		var data = {
-			'entryid' : record.get('entryid'),
-			'store_entryid' : record.get('store_entryid'),
+			'entryid': record.get('entryid'),
+			'store_entryid': record.get('store_entryid'),
 			// attach method to indicate this is an embedded attachment
-			'attach_method' : Zarafa.core.mapi.AttachMethod.ATTACH_BY_VALUE,
-			'attach_id' : Zarafa.generateId(8)
+			'attach_method': Zarafa.core.mapi.AttachMethod.ATTACH_BY_VALUE,
+			'attach_id': Zarafa.generateId(8)
 		};
 
 		// Some optional data which should be present only if it is not empty
@@ -621,14 +622,14 @@ Zarafa.core.data.IPMAttachmentStore = Ext.extend(Zarafa.core.data.MAPISubStore, 
 	 *
 	 * @return data object which is used to create attachment record.
 	 */
-	addEmbeddedAttachment : function(record)
+	addEmbeddedAttachment: function(record)
 	{
 		var data = {
-			'entryid' : record.get('entryid'),
-			'store_entryid' : record.get('store_entryid'),
+			'entryid': record.get('entryid'),
+			'store_entryid': record.get('store_entryid'),
 			// attach method to indicate this is an embedded attachment
-			'attach_method' : Zarafa.core.mapi.AttachMethod.ATTACH_EMBEDDED_MSG,
-			'attach_id' : Zarafa.generateId(8)
+			'attach_method': Zarafa.core.mapi.AttachMethod.ATTACH_EMBEDDED_MSG,
+			'attach_id': Zarafa.generateId(8)
 		};
 
 		// Some optional data which should be present only if it is not empty
@@ -654,7 +655,7 @@ Zarafa.core.data.IPMAttachmentStore = Ext.extend(Zarafa.core.data.MAPISubStore, 
 	 * @param {Number} index
 	 * @private
 	 */
-	destroyRecord : function(store, record, index)
+	destroyRecord: function(store, record, index)
 	{
 		Zarafa.core.data.IPMAttachmentStore.superclass.destroyRecord.apply(this, arguments);
 
@@ -672,8 +673,8 @@ Zarafa.core.data.IPMAttachmentStore = Ext.extend(Zarafa.core.data.MAPISubStore, 
 		}
 
 		var options = {
-			'params' : data,
-			'requestUrl' : this.getUploadAttachmentUrl()
+			'params': data,
+			'requestUrl': this.getUploadAttachmentUrl()
 		};
 
 		// fire the 'attachmentstorebeforedestroyrecord' event that can change the event options.
@@ -694,11 +695,11 @@ Zarafa.core.data.IPMAttachmentStore = Ext.extend(Zarafa.core.data.MAPISubStore, 
 	 * @param {Zarafa.hierarchy.data.MAPIFolderRecord} folder The selected folder
 	 * @private
 	 */
-	importRecord : function(attachmentRecord, message, folder)
+	importRecord: function(attachmentRecord, message, folder)
 	{
 		var options = {
-			'params' : {},
-			'requestUrl' : this.getImportAttachmentUrl(attachmentRecord, folder)
+			'params': {},
+			'requestUrl': this.getImportAttachmentUrl(attachmentRecord, folder)
 		};
 
 		var action = 'import';
@@ -711,7 +712,7 @@ Zarafa.core.data.IPMAttachmentStore = Ext.extend(Zarafa.core.data.MAPISubStore, 
 	 * See {@link Ext.data.Store}.
 	 * @protected
 	 */
-	handleException : Ext.data.Store.prototype.handleException,
+	handleException: Ext.data.Store.prototype.handleException,
 
 	/**
 	 * callback-handler for remote CRUD actions.
@@ -719,7 +720,7 @@ Zarafa.core.data.IPMAttachmentStore = Ext.extend(Zarafa.core.data.MAPISubStore, 
 	 * See {@link Ext.data.Store}.
 	 * @private
 	 */
-	createCallback : Ext.data.Store.prototype.createCallback,
+	createCallback: Ext.data.Store.prototype.createCallback,
 
 	/**
 	 * Proxy callback for create action.
@@ -727,7 +728,7 @@ Zarafa.core.data.IPMAttachmentStore = Ext.extend(Zarafa.core.data.MAPISubStore, 
 	 * See {@link Ext.data.Store}.
 	 * @protected
 	 */
-	onCreateRecords : Ext.data.Store.prototype.onCreateRecords,
+	onCreateRecords: Ext.data.Store.prototype.onCreateRecords,
 
 	/**
 	 * Proxy callback for destroy action
@@ -735,28 +736,28 @@ Zarafa.core.data.IPMAttachmentStore = Ext.extend(Zarafa.core.data.MAPISubStore, 
 	 * See {@link Ext.data.Store}.
 	 * @protected
 	 */
-	onDestroyRecords : Ext.data.Store.prototype.onDestroyRecords,
+	onDestroyRecords: Ext.data.Store.prototype.onDestroyRecords,
 
 	/**
 	 * remap record ids in MixedCollection after records have been realized. See {@link Ext.dataStore#onCreateRecords}, and
 	 * {@link Ext.data.DataReader#realize}
 	 * @private
 	 */
-	reMap : Ext.data.Store.prototype.reMap,
+	reMap: Ext.data.Store.prototype.reMap,
 
 	/**
 	 * Add request to batch
 	 * See {@link Ext.data.Store}.
 	 * @private
 	 */
-	addToBatch : Ext.emptyFn,
+	addToBatch: Ext.emptyFn,
 
 	/**
 	 * Remove request from batch
 	 * See {@link Ext.data.Store}.
 	 * @private
 	 */
-	removeFromBatch : Ext.emptyFn,
+	removeFromBatch: Ext.emptyFn,
 
 	/**
 	 * Proxy callback for import action
@@ -764,7 +765,7 @@ Zarafa.core.data.IPMAttachmentStore = Ext.extend(Zarafa.core.data.MAPISubStore, 
 	 * See {@link Ext.data.Store}.
 	 * @protected
 	 */
-	onImportRecords : function(success, rs, data)
+	onImportRecords: function(success, rs, data)
 	{
 		if (success === true) {
 			container.getNotifier().notify('info.import', _('Import'), String.format(_('Successfully imported item(s) to {0}'), rs.getFullyQualifiedDisplayName()));

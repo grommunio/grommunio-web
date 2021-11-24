@@ -3,9 +3,9 @@ Ext.namespace('Zarafa.core.mapi');
 /**
  * @class Zarafa.core.mapi.Rights
  * @extends Zarafa.core.Enum
- * 
+ *
  * Enumerates the different rights
- * 
+ *
  * @singleton
  */
 Zarafa.core.mapi.Rights = Zarafa.core.Enum.create({
@@ -85,7 +85,7 @@ Zarafa.core.mapi.Rights.RIGHTS_NO_RIGHTS		= Zarafa.core.mapi.Rights.RIGHTS_FOLDE
  * @type Number
  */
 Zarafa.core.mapi.Rights.RIGHTS_READONLY			= Zarafa.core.mapi.Rights.RIGHTS_NO_RIGHTS |
-												  Zarafa.core.mapi.Rights.RIGHTS_READ_ANY;
+												 Zarafa.core.mapi.Rights.RIGHTS_READ_ANY;
 
 /**
  * Denotes that secretary rights are granted, this extends {@link #RIGHTS_READONLY} with some extra
@@ -95,11 +95,11 @@ Zarafa.core.mapi.Rights.RIGHTS_READONLY			= Zarafa.core.mapi.Rights.RIGHTS_NO_RI
  * @type Number
  */
 Zarafa.core.mapi.Rights.RIGHTS_SECRETARY		= Zarafa.core.mapi.Rights.RIGHTS_READONLY |
-												  Zarafa.core.mapi.Rights.RIGHTS_CREATE |
-												  Zarafa.core.mapi.Rights.RIGHTS_EDIT_OWNED |
-												  Zarafa.core.mapi.Rights.RIGHTS_DELETE_OWNED |
-												  Zarafa.core.mapi.Rights.RIGHTS_EDIT_ANY |
-												  Zarafa.core.mapi.Rights.RIGHTS_DELETE_ANY;
+												 Zarafa.core.mapi.Rights.RIGHTS_CREATE |
+												 Zarafa.core.mapi.Rights.RIGHTS_EDIT_OWNED |
+												 Zarafa.core.mapi.Rights.RIGHTS_DELETE_OWNED |
+												 Zarafa.core.mapi.Rights.RIGHTS_EDIT_ANY |
+												 Zarafa.core.mapi.Rights.RIGHTS_DELETE_ANY;
 
 /**
  * Denotes that full control rights are granted, this extends {@link #RIGHTS_SECRETARY} with the
@@ -108,7 +108,7 @@ Zarafa.core.mapi.Rights.RIGHTS_SECRETARY		= Zarafa.core.mapi.Rights.RIGHTS_READO
  * @type Number
  */
 Zarafa.core.mapi.Rights.RIGHTS_FULL_CONTROL		= Zarafa.core.mapi.Rights.RIGHTS_SECRETARY |
-												  Zarafa.core.mapi.Rights.RIGHTS_CREATE_SUBFOLDER;
+												 Zarafa.core.mapi.Rights.RIGHTS_CREATE_SUBFOLDER;
 
 /**
  * Denotes that ownership rights are granted, this extends {@link #RIGHTS_FULL_CONTROL} with
@@ -117,4 +117,4 @@ Zarafa.core.mapi.Rights.RIGHTS_FULL_CONTROL		= Zarafa.core.mapi.Rights.RIGHTS_SE
  * @type Number
  */
 Zarafa.core.mapi.Rights.RIGHTS_OWNER			= Zarafa.core.mapi.Rights.RIGHTS_FULL_CONTROL |
-												  Zarafa.core.mapi.Rights.RIGHTS_FOLDER_ACCESS;
+												 Zarafa.core.mapi.Rights.RIGHTS_FOLDER_ACCESS;

@@ -11,13 +11,13 @@ Zarafa.task.ui.TaskGridView = Ext.extend(Zarafa.common.ui.grid.MapiMessageGrid, 
 	/**
 	 * @cfg {Zarafa.task.TaskContextModel} model data handling part of context
 	 */
-	model : undefined,
+	model: undefined,
 
 	/**
 	 * @constructor
 	 * @param {Object} config Configuration structure
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		config = config || {};
 
@@ -31,16 +31,16 @@ Zarafa.task.ui.TaskGridView = Ext.extend(Zarafa.common.ui.grid.MapiMessageGrid, 
 		config.store = Ext.StoreMgr.lookup(config.store);
 
 		Ext.applyIf(config, {
-			xtype : 'zarafa.taskgrid',
-			border : false,
-			stateful : true,
-			statefulRelativeDimensions : false,
-			loadMask : this.initLoadMask(),
-			viewConfig : this.initViewConfig(),
-			selModel : this.initSelectionModel(),
-			colModel : this.initColumnModel(config.model),
-			enableDragDrop : true,
-			ddGroup : 'dd.mapiitem'
+			xtype: 'zarafa.taskgrid',
+			border: false,
+			stateful: true,
+			statefulRelativeDimensions: false,
+			loadMask: this.initLoadMask(),
+			viewConfig: this.initViewConfig(),
+			selModel: this.initSelectionModel(),
+			colModel: this.initColumnModel(config.model),
+			enableDragDrop: true,
+			ddGroup: 'dd.mapiitem'
 		});
 
 		Zarafa.task.ui.TaskGridView.superclass.constructor.call(this, config);
@@ -50,12 +50,12 @@ Zarafa.task.ui.TaskGridView = Ext.extend(Zarafa.common.ui.grid.MapiMessageGrid, 
 	 * @return {Object} view config object
 	 * @private
 	 */
-	initViewConfig : function()
+	initViewConfig: function()
 	{
 		return {
-			autoExpandColumn : 'subject',
-			enableRowBody : false,
-			getRowClass : this.viewConfigGetRowClass
+			autoExpandColumn: 'subject',
+			enableRowBody: false,
+			getRowClass: this.viewConfigGetRowClass
 		};
 	},
 
@@ -63,10 +63,10 @@ Zarafa.task.ui.TaskGridView = Ext.extend(Zarafa.common.ui.grid.MapiMessageGrid, 
 	 * @return {Object} loas mask config object
 	 * @private
 	 */
-	initLoadMask : function()
+	initLoadMask: function()
 	{
 		return {
-			msg : _('Loading tasks') + '...'
+			msg: _('Loading tasks') + '...'
 		};
 	},
 
@@ -77,9 +77,9 @@ Zarafa.task.ui.TaskGridView = Ext.extend(Zarafa.common.ui.grid.MapiMessageGrid, 
 	 * @return {Ext.grid.ColumnModel} column model object
 	 * @private
 	 */
-	initColumnModel : function(model)
+	initColumnModel: function(model)
 	{
-		return new Zarafa.task.ui.TaskGridColumnModel({model : model});
+		return new Zarafa.task.ui.TaskGridColumnModel({model: model});
 	},
 
 	/**
@@ -87,13 +87,13 @@ Zarafa.task.ui.TaskGridView = Ext.extend(Zarafa.common.ui.grid.MapiMessageGrid, 
 	 * @return {Ext.grid.RowSelectionModel} selection model object
 	 * @private
 	 */
-	initSelectionModel : function()
+	initSelectionModel: function()
 	{
 		return new Ext.grid.RowSelectionModel({
-			singleSelect : false,
-			listeners : {
-				scope : this,
-				selectionchange : this.onSelectionChange
+			singleSelect: false,
+			listeners: {
+				scope: this,
+				selectionchange: this.onSelectionChange
 			}
 		});
 	},
@@ -102,7 +102,7 @@ Zarafa.task.ui.TaskGridView = Ext.extend(Zarafa.common.ui.grid.MapiMessageGrid, 
 	 * initialize events for the grid panel
 	 * @private
 	 */
-	initEvents : function()
+	initEvents: function()
 	{
 		Zarafa.task.ui.TaskGridView.superclass.initEvents.call(this);
 
@@ -134,7 +134,7 @@ Zarafa.task.ui.TaskGridView = Ext.extend(Zarafa.common.ui.grid.MapiMessageGrid, 
 	 * @param {Ext.EventObject} event The event object
 	 * @private
 	 */
-	onCellClick : function(grid, rowIndex, columnIndex, e)
+	onCellClick: function(grid, rowIndex, columnIndex, e)
 	{
 		var record = this.store.getAt(rowIndex);
 		if (!Ext.isDefined(record)) {
@@ -147,7 +147,7 @@ Zarafa.task.ui.TaskGridView = Ext.extend(Zarafa.common.ui.grid.MapiMessageGrid, 
 		var disabled = record.isMessageClass('IPM.Task', true) && (record.isTaskOrganized() || record.isTaskNotResponded());
 		if(column.dataIndex === 'flag_due_by' && !disabled) {
 			Zarafa.task.Actions.openFlagsMenu(record, {
-				position : e.getXY()
+				position: e.getXY()
 			});
 		}
 	},
@@ -159,19 +159,19 @@ Zarafa.task.ui.TaskGridView = Ext.extend(Zarafa.common.ui.grid.MapiMessageGrid, 
 	 * @param {Ext.event} eventObj object of the event
 	 * @private
 	 */
-	onRowDblClick : function(grid, rowIndex, eventObj)
+	onRowDblClick: function(grid, rowIndex, eventObj)
 	{
 		Zarafa.common.Actions.openMessageContent(this.getSelectionModel().getSelected());
 	},
 
 	/**
 	 * Event handler for the update event of the store of the grid. Will reload the store (and thus update
-	 * the view) when  the flag status of a record has been changed.
-	 * @param  {Zarafa.core.data.IPMStore} store The store with the data that is being displayed in the grid
-	 * @param  {Zarafa.core.data.IPMRecord} record The Record that was updated
+	 * the view) when the flag status of a record has been changed.
+	 * @param {Zarafa.core.data.IPMStore} store The store with the data that is being displayed in the grid
+	 * @param {Zarafa.core.data.IPMRecord} record The Record that was updated
 	 * @private
 	 */
-	onStoreUpdate : function(store, record)
+	onStoreUpdate: function(store, record)
 	{
 		var todoListEntryId = container.getHierarchyStore().getDefaultFolder('todolist').get('entryid');
 		if ( !Zarafa.core.EntryId.compareEntryIds(todoListEntryId, store.entryId) ){
@@ -192,7 +192,7 @@ Zarafa.task.ui.TaskGridView = Ext.extend(Zarafa.common.ui.grid.MapiMessageGrid, 
 	 * @param {Ext.grid.RowSelectionModel} selectionModel The selection model used by the grid.
 	 * @private
 	 */
-	onSelectionChange : function(selectionModel)
+	onSelectionChange: function(selectionModel)
 	{
 		this.model.setSelectedRecords(selectionModel.getSelections());
 	},
@@ -211,7 +211,7 @@ Zarafa.task.ui.TaskGridView = Ext.extend(Zarafa.common.ui.grid.MapiMessageGrid, 
 	 * @return {String} a CSS class name to add to the row
 	 * @private
 	 */
-	viewConfigGetRowClass : function(record, rowIndex, rowParams, store)
+	viewConfigGetRowClass: function(record, rowIndex, rowParams, store)
 	{
 		var cssClass = '';
 		var complete;
@@ -248,13 +248,13 @@ Zarafa.task.ui.TaskGridView = Ext.extend(Zarafa.common.ui.grid.MapiMessageGrid, 
 	 * @param {Zarafa.mail.data.ViewModes} oldViewMode The previous mode
 	 * @private
 	 */
-	onContextViewModeChange : function(context, newViewMode, oldViewMode)
+	onContextViewModeChange: function(context, newViewMode, oldViewMode)
 	{
 		switch(newViewMode){
-			case Zarafa.task.data.ViewModes.SIMPLE :
+			case Zarafa.task.data.ViewModes.SIMPLE:
 				this.getColumnModel().setSimpleView(true);
 				break;
-			case Zarafa.task.data.ViewModes.DETAILED :
+			case Zarafa.task.data.ViewModes.DETAILED:
 				this.getColumnModel().setSimpleView(false);
 				break;
 		}

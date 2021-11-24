@@ -18,13 +18,13 @@ Zarafa.advancesearch.AdvanceSearchContextModel = Ext.extend(Zarafa.core.ContextM
 	 * model using {@link #setActiveStore} so model can use that store for performing operation on that tab.
 	 * @Private
 	 */
-	stores : {},
+	stores: {},
 
 	/**
 	 * @constructor
 	 * @param {Object} config Configuration object
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		config = config || {};
 
@@ -34,7 +34,7 @@ Zarafa.advancesearch.AdvanceSearchContextModel = Ext.extend(Zarafa.core.ContextM
 
 		Ext.applyIf(config, {
 			statefulRecordSelection: true,
-			current_data_mode : Zarafa.common.data.DataModes.ALL,
+			current_data_mode: Zarafa.common.data.DataModes.ALL,
 			stateful: false
 		});
 
@@ -49,7 +49,7 @@ Zarafa.advancesearch.AdvanceSearchContextModel = Ext.extend(Zarafa.core.ContextM
 	 * @param {String} folderName display name of folder which we are going to create.
 	 * @return {Zarafa.core.data.IPFRecord} The new {@link Zarafa.core.data.IPFRecord IPFRecord}.
 	 */
-	createSearchFolderRecord : function (folderName)
+	createSearchFolderRecord: function (folderName)
 	{
 		var hierarchyStore = container.getHierarchyStore();
 		var defaultStore = hierarchyStore.getDefaultStore();
@@ -60,10 +60,10 @@ Zarafa.advancesearch.AdvanceSearchContextModel = Ext.extend(Zarafa.core.ContextM
 		}
 		var record = Zarafa.core.data.RecordFactory.createRecordObjectByObjectType(Zarafa.core.mapi.ObjectType.MAPI_FOLDER, {
 			entryid: entryId,
-			parent_entryid : folder.get('entryid'),
-			store_entryid : folder.get('store_entryid'),
-			display_name : folderName,
-			folder_type : Zarafa.core.mapi.MAPIFolderType.FOLDER_SEARCH
+			parent_entryid: folder.get('entryid'),
+			store_entryid: folder.get('store_entryid'),
+			display_name: folderName,
+			folder_type: Zarafa.core.mapi.MAPIFolderType.FOLDER_SEARCH
 		});
 
 		return record;
@@ -73,7 +73,7 @@ Zarafa.advancesearch.AdvanceSearchContextModel = Ext.extend(Zarafa.core.ContextM
 	 * Set given {@link Zarafa.advancesearch.AdvanceSearchStore AdvanceSearchStore} instance to active store for the model.
 	 * @param {Zarafa.advancesearch.AdvanceSearchStore} store the newly created store.
 	 */
-	setActiveStore : function(store)
+	setActiveStore: function(store)
 	{
 		this.store = store;
 	},
@@ -83,7 +83,7 @@ Zarafa.advancesearch.AdvanceSearchContextModel = Ext.extend(Zarafa.core.ContextM
 	 * @return {Zarafa.advancesearch.AdvanceSearchStore} return active {@link Zarafa.advancesearch.AdvanceSearchStore AdvanceSearchStore}
 	 * if found from {@link #stores} object else return undefined.
 	 */
-	getActiveStore : function()
+	getActiveStore: function()
 	{
 		return this.store;
 	},
@@ -94,7 +94,7 @@ Zarafa.advancesearch.AdvanceSearchContextModel = Ext.extend(Zarafa.core.ContextM
 	 * @param {String} searchTabId the newly created {@link Zarafa.advancesearch.dialogs.SearchContentPanel SearchContentPanel} name.
 	 * @param {Zarafa.advancesearch.AdvanceSearchStore} store the newly created {@link Zarafa.advancesearch.AdvanceSearchStore AdvanceSearchStore}.
 	 */
-	pushStore : function(searchTabId, store)
+	pushStore: function(searchTabId, store)
 	{
 		this.stores[searchTabId] = store;
 	},
@@ -105,7 +105,7 @@ Zarafa.advancesearch.AdvanceSearchContextModel = Ext.extend(Zarafa.core.ContextM
 	 * @param {String} searchTabId is {@link Zarafa.advancesearch.dialogs.SearchContentPanel search content panel} name,
 	 * which is used to find the mapped {@link Zarafa.advancesearch.AdvanceSearchStore search store} from {@link #stores} object.
 	 */
-	discardStore : function(searchTabId)
+	discardStore: function(searchTabId)
 	{
 		delete this.stores[searchTabId];
 	},
@@ -118,10 +118,10 @@ Zarafa.advancesearch.AdvanceSearchContextModel = Ext.extend(Zarafa.core.ContextM
 	 * @param {object} config the configuration object for the {@link Zarafa.advancesearch.AdvanceSearchStore AdvanceSearchStore}
 	 * @return {Zarafa.advancesearch.AdvanceSearchStore} return {@link Zarafa.advancesearch.AdvanceSearchStore AdvanceSearchStore}
 	 */
-	createNewSearchStore : function (config)
+	createNewSearchStore: function (config)
 	{
 		var store = new Zarafa.advancesearch.AdvanceSearchStore({
-			searchStoreUniqueId : config.searchTabId
+			searchStoreUniqueId: config.searchTabId
 		});
 		this.setActiveStore(store);
 		this.pushStore(config.searchTabId , store);
@@ -129,11 +129,11 @@ Zarafa.advancesearch.AdvanceSearchContextModel = Ext.extend(Zarafa.core.ContextM
 	},
 
 	/**
-	 * Function is call the {@link Zarafa.mail.MailContextModel#createResponseRecord} to create 
-	 * a new {@link Zarafa.core.data.IPMRecord IPMRecord} for responsing to an original
+	 * Function is call the {@link Zarafa.mail.MailContextModel#createResponseRecord} to create
+	 * a new {@link Zarafa.core.data.IPMRecord IPMRecord} for responding to an original
 	 * {@link Zarafa.core.data.IPMRecord IPMRecord}. This will also set subject, body, attachment, recipient
 	 * properties based on {@link Zarafa.mail.data.ActionTypes ActionType} provided.
-	 * 
+	 *
 	 * @param {Zarafa.core.data.IPMRecord} record The original {@link Zarafa.core.data.IPMRecord IPMRecord}.
 	 * @param {String} actionType The action type for the given {@link Zarafa.core.data.IPMRecord record}.
 	 * Can be any of the values of {@link Zarafa.mail.data.ActionTypes ActionTypes}.
@@ -141,7 +141,7 @@ Zarafa.advancesearch.AdvanceSearchContextModel = Ext.extend(Zarafa.core.ContextM
 	 * @return {Zarafa.core.data.IPMRecord} return the response record.
 	 * @private
 	 */
-	createResponseRecord : function(record, actionType, responseRecord)
+	createResponseRecord: function(record, actionType, responseRecord)
 	{
 		var mailContextModel = container.getContextByName('mail').getModel();
 		return mailContextModel.createResponseRecord(record, actionType, responseRecord);
@@ -154,12 +154,12 @@ Zarafa.advancesearch.AdvanceSearchContextModel = Ext.extend(Zarafa.core.ContextM
 	 *
 	 * @param {Zarafa.core.data.IPFRecord} folders.
 	 */
-	onFolderSelect : function(folders)
+	onFolderSelect: function(folders)
 	{
 		var folder;
 		if(Array.isArray(folders)) {
 			folder = folders[0];
-		} else{
+		} else {
 			folder = folders;
 		}
 
@@ -187,7 +187,7 @@ Zarafa.advancesearch.AdvanceSearchContextModel = Ext.extend(Zarafa.core.ContextM
 	 * @param {Zarafa.hierarchy.data.MAPIFolderRecord} folder which was deleted from hierarchy.
 	 * @private
 	 */
-	onHierarchyRemoveFolder : function (store, mapiStore, folder)
+	onHierarchyRemoveFolder: function (store, mapiStore, folder)
 	{
 		if (folder.isSearchFolder()) {
 			container.getSettingsModel().remove('zarafa/v1/contexts/search/search_criteria/'+folder.get('entryid'));

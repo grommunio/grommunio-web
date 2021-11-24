@@ -13,7 +13,7 @@ Zarafa.addressbook.dialogs.ABGroupDetailContentPanel = Ext.extend(Zarafa.core.ui
 	 * @constructor
 	 * @param {Object} config Configuration structure
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		config = config || {};
 
@@ -21,7 +21,7 @@ Zarafa.addressbook.dialogs.ABGroupDetailContentPanel = Ext.extend(Zarafa.core.ui
 			xtype	: 'zarafa.abgroupdetailcontentpanel',
 			layout	: 'fit',
 			border	: false,
-			title : _('Group details'),
+			title: _('Group details'),
 			items: [{
 				xtype: 'zarafa.abgroupdetailpanel'
 			}]
@@ -35,18 +35,18 @@ Zarafa.addressbook.dialogs.ABGroupDetailContentPanel = Ext.extend(Zarafa.core.ui
 	 * @param {Zarafa.core.data.IPMRecord} record The record to update the panel with
 	 * @param {Boolean} contentReset force the component to perform a full update of the data.
 	 */
-	update : function(record, contentReset)
+	update: function(record, contentReset)
 	{
 		this.updateTitleFromRecord(this.record);
 	},
-	
+
 	/**
-	 * When record has been updated, title also has to be - for instance if we have the subject 
+	 * When record has been updated, title also has to be - for instance if we have the subject
 	 * in the title and the subject changes
 	 * Calls {@link #setTitle} this.setTitle in order to update
 	 * @param {Zarafa.core.data.MAPIRecord} record The record that has been updated
 	 */
-	updateTitleFromRecord : function(record)
+	updateTitleFromRecord: function(record)
 	{
 		var display_name = record.get('display_name');
 		if(!Ext.isEmpty(display_name)){

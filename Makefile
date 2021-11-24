@@ -35,7 +35,7 @@ POS = $(wildcard server/language/*/LC_MESSAGES/zarafa_webapp.po)
 MOS = $(patsubst %.po,$(DESTDIR)/%.mo,$(POS))
 INCLUDES = $(shell find server/includes -name '*.php')
 PHPFILES = $(filter-out $(DESTDIR)/config.php, $(filter-out $(DESTDIR)/debug.php, $(patsubst %.php,$(DESTDIR)/%.php,$(wildcard *.php) $(INCLUDES))))
-SERVERROOTFILES = $(addprefix $(DESTDIR)/, server/manifest.dtd)
+IS_SUPPORTED_BUILD ?= $(if $(filter 1, $(SUPPORTED_BUILD)), supported validate-supported)
 
 # Client files
 
@@ -88,6 +88,7 @@ js: $(JSDEPLOY)/fingerprint.js $(JSDEPLOY)/resize.js $(TEMPATEJSDEST) $(JSDEPLOY
 	cp -r client/tinymce-languages $(DESTDIR)/client/
 	cp -r client/tinymce-plugins $(DESTDIR)/client/
 	cp -r client/extjs $(DESTDIR)/client/
+	cp -r client/filepreviewer $(DESTDIR)/client/
 	rm $(DESTDIR)/client/extjs/ext-base.js
 	rm $(DESTDIR)/client/extjs/ext-all.js
 	rm $(DESTDIR)/client/extjs/resources/css/reset-min.css

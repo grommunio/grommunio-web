@@ -1,4 +1,4 @@
-# grommunio web JavaScript tests
+# Kopano WebApp JavaScript tests
 
 This document describes how to setup the JavaScript test system, run tests and
 writing new tests. The tests use Jasmine as testframework and Karma as test

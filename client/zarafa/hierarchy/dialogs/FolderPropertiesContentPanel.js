@@ -13,33 +13,33 @@ Zarafa.hierarchy.dialogs.FolderPropertiesContentPanel = Ext.extend(Zarafa.core.u
 	 * @constructor
 	 * @param config Configuration structure
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		config = config || {};
 
 		Ext.applyIf(config, {
 			// Override from Ext.Component
-			xtype : 'zarafa.folderpropertiescontentpanel',
+			xtype: 'zarafa.folderpropertiescontentpanel',
 			layout: 'fit',
-			title : Ext.isDefined(config.title)? config.title : _('Properties'),
-			recordComponentPluginConfig : Ext.applyIf(config.recordComponentPluginConfig || {}, {
-				allowWrite : true,
-				useShadowStore : true
+			title: Ext.isDefined(config.title) ? config.title : _('Properties'),
+			recordComponentPluginConfig: Ext.applyIf(config.recordComponentPluginConfig || {}, {
+				allowWrite: true,
+				useShadowStore: true
 			}),
-			closeOnSave : true,
+			closeOnSave: true,
 			width: 425,
 			height: 450,
 			items: [{
 				xtype: 'zarafa.folderpropertiespanel',
-				activeTab : Ext.isDefined(config.activeTab) ? config.activeTab : 0,
-				emptyText : config.emptyText,
-				buttons : [{
-					text : _('Ok'),
-					handler : this.onOk,
+				activeTab: Ext.isDefined(config.activeTab) ? config.activeTab : 0,
+				emptyText: config.emptyText,
+				buttons: [{
+					text: _('Ok'),
+					handler: this.onOk,
 					scope: this
 				},{
-					text : _('Cancel'),
-					handler : this.onCancel,
+					text: _('Cancel'),
+					handler: this.onCancel,
 					scope: this
 				}]
 			}]

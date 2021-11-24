@@ -15,7 +15,7 @@ Zarafa.core.data.IPMNotificationResponseHandler = Ext.extend(Zarafa.core.data.Ab
 	 * @param {Object} data The entire response object which will be processed during this transaction.
 	 * @private
 	 */
-	doUpdate : function(response)
+	doUpdate: function(response)
 	{
 		var responseObj = this.reader.readResponse(Ext.data.Api.actions.read, response);
 		if (responseObj) {
@@ -40,7 +40,7 @@ Zarafa.core.data.IPMNotificationResponseHandler = Ext.extend(Zarafa.core.data.Ab
 	 * @param {Object} data The entire response object which will be processed during this transaction.
 	 * @private
 	 */
-	doDelete : function(response)
+	doDelete: function(response)
 	{
 		var items = response.item;
 
@@ -65,7 +65,7 @@ Zarafa.core.data.IPMNotificationResponseHandler = Ext.extend(Zarafa.core.data.Ab
 	 * @param {Object} data The entire response object which will be processed during this transaction.
 	 * @private
 	 */
-	doNewobject : function(data)
+	doNewobject: function(data)
 	{
 		var folderEntryids = Ext.pluck(data.item, 'entryid');
 		var folderStores = Zarafa.core.data.IPMStoreMgr.getStoresForFolders(folderEntryids);

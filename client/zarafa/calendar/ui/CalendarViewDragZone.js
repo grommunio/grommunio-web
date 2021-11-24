@@ -16,7 +16,7 @@ Zarafa.calendar.ui.CalendarViewDragZone = Ext.extend(Ext.dd.DragZone, {
 	 * @type Zarafa.calendar.ui.AbstractCalendarView
 	 * @private
 	 */
-	calendar : undefined,
+	calendar: undefined,
 
 	/**
 	 * The special Element which is displayed when dragging data
@@ -25,21 +25,21 @@ Zarafa.calendar.ui.CalendarViewDragZone = Ext.extend(Ext.dd.DragZone, {
 	 * @type Ext.Element
 	 * @private
 	 */
-	ddel : undefined,
+	ddel: undefined,
 
 	/**
 	 * @cfg {Boolean} headerMode True of this DropZone is installed on the header of
 	 * the calendar, or in the body. This determines if the {@link Zarafa.calendar.ui.AbstractCalendarView#header}
 	 * or {@link Zarafa.calendar.ui.AbstractCalendarView#body} will be used to connect the event handlers.
 	 */
-	headerMode : false,
+	headerMode: false,
 
 	/**
 	 * @constructor
 	 * @param {Zarafa.calendar.ui.AbstractCalendarView} calendar The calendar on which this Dragzone is installed
 	 * @param {Object} config Configuration object
 	 */
-	constructor : function(calendar, config)
+	constructor: function(calendar, config)
 	{
 		config = config || {};
 
@@ -51,7 +51,7 @@ Zarafa.calendar.ui.CalendarViewDragZone = Ext.extend(Ext.dd.DragZone, {
 		}
 
 		Ext.applyIf(config, {
-			ddGroup : 'AppointmentDD'
+			ddGroup: 'AppointmentDD'
 		});
 
 		Zarafa.calendar.ui.CalendarViewDragZone.superclass.constructor.call(this, element, config);
@@ -65,14 +65,14 @@ Zarafa.calendar.ui.CalendarViewDragZone = Ext.extend(Ext.dd.DragZone, {
 	 * <p>This data is available for processing in the {@link Ext.dd.DropZone#onNodeEnter onNodeEnter}, {@link Ext.dd.DropZone#onNodeOver onNodeOver},
 	 * {@link Ext.dd.DropZone#onNodeOut onNodeOut} and {@link Ext.dd.DropZone#onNodeDrop onNodeDrop} methods of a cooperating {@link Ext.dd.DropZone DropZone}.</p>
 	 * <p>The data object contains the following properties:<ul>
-	 * <li><b>calendar</b> : Zarafa.calendar.ui.AbstractCalendarView<div class="sub-desc">The CalendarView from which the data is being dragged.</div></li>
-	 * <li><b>ddel</b> : htmlElement<div class="sub-desc">An htmlElement which provides the "picture" of the data being dragged.</div></li>
-	 * <li><b>selections</b> : Array<div class="sub-desc">An Array of the selected Records which are being dragged from the DataView.</div></li>
-	 * <li><b>target</b : Zarafa.calendar.ui.AppointmentView<div class="sub-desc">The appointment on which the drag action started.</div></li>
+	 * <li><b>calendar</b>: Zarafa.calendar.ui.AbstractCalendarView<div class="sub-desc">The CalendarView from which the data is being dragged.</div></li>
+	 * <li><b>ddel</b>: htmlElement<div class="sub-desc">An htmlElement which provides the "picture" of the data being dragged.</div></li>
+	 * <li><b>selections</b>: Array<div class="sub-desc">An Array of the selected Records which are being dragged from the DataView.</div></li>
+	 * <li><b>target</b: Zarafa.calendar.ui.AppointmentView<div class="sub-desc">The appointment on which the drag action started.</div></li>
 	 * </ul></p>
 	 * @private
 	 */
-	getDragData : function(e)
+	getDragData: function(e)
 	{
 		var sm = this.calendar.selectionModel;
 		var origEvent = new Ext.EventObjectImpl(e);
@@ -80,12 +80,12 @@ Zarafa.calendar.ui.CalendarViewDragZone = Ext.extend(Ext.dd.DragZone, {
 		var state = this.getDragStateFromEvent(e, appointment);
 
 		return {
-			calendar : this.calendar,
-			ddel : this.ddel,
-			selections : sm.getSelections(),
-			target : appointment,
-			state : state,
-			origEvent : origEvent
+			calendar: this.calendar,
+			ddel: this.ddel,
+			selections: sm.getSelections(),
+			target: appointment,
+			state: state,
+			origEvent: origEvent
 		};
 	},
 
@@ -97,7 +97,7 @@ Zarafa.calendar.ui.CalendarViewDragZone = Ext.extend(Ext.dd.DragZone, {
 	 * @return {Boolean} isValid True if the drag event is valid, else false to cancel
 	 * @protected
 	 */
-	onBeforeDrag : function(data, e)
+	onBeforeDrag: function(data, e)
 	{
 		var selectedAppointment = data.target;
 
@@ -115,7 +115,7 @@ Zarafa.calendar.ui.CalendarViewDragZone = Ext.extend(Ext.dd.DragZone, {
 	 * @param {Number} y The y coordinate from where the dragging started
 	 * @private
 	 */
-	b4StartDrag : function(x, y)
+	b4StartDrag: function(x, y)
 	{
 		Zarafa.calendar.ui.CalendarViewDragZone.superclass.b4StartDrag.apply(this, arguments);
 
@@ -133,7 +133,7 @@ Zarafa.calendar.ui.CalendarViewDragZone = Ext.extend(Ext.dd.DragZone, {
 	 * @param {Number} y The y coordinate from where the dragging started
 	 * @private
 	 */
-	startDrag : function(x, y)
+	startDrag: function(x, y)
 	{
 		Zarafa.calendar.ui.CalendarViewDragZone.superclass.startDrag.apply(this, arguments);
 
@@ -154,7 +154,7 @@ Zarafa.calendar.ui.CalendarViewDragZone = Ext.extend(Ext.dd.DragZone, {
 	 * @return {Boolean} true to continue the drag, false to cancel
 	 * @private
 	 */
-	onInitDrag : function(x, e)
+	onInitDrag: function(x, e)
 	{
 		var data = this.dragData;
 
@@ -195,7 +195,7 @@ Zarafa.calendar.ui.CalendarViewDragZone = Ext.extend(Ext.dd.DragZone, {
 	 * @param {String} id The id of the dragged element
 	 * @return {Boolean} isValid True if the drag event is valid, else false to cancel
 	 */
-	beforeDragOut : function(target, e, id)
+	beforeDragOut: function(target, e, id)
 	{
 		// If we are selecting a range, we want to preserve our drag action,
 		// this allows the user to shortly exit the browser while dragging while
@@ -213,7 +213,7 @@ Zarafa.calendar.ui.CalendarViewDragZone = Ext.extend(Ext.dd.DragZone, {
 	 *
 	 * @param {Event} e the mouseup event
 	 */
-	onMouseUp : function(e)
+	onMouseUp: function(e)
 	{
 		var data = this.dragData;
 
@@ -234,7 +234,7 @@ Zarafa.calendar.ui.CalendarViewDragZone = Ext.extend(Ext.dd.DragZone, {
 	 * the selected rows to show that they have not been dragged.
 	 * @private
 	 */
-	afterRepair : function()
+	afterRepair: function()
 	{
 		this.dragging = false;
 	},
@@ -246,7 +246,7 @@ Zarafa.calendar.ui.CalendarViewDragZone = Ext.extend(Ext.dd.DragZone, {
 	 * @return {Array} The xy location (e.g. [100, 200])
 	 * @private
 	 */
-	getRepairXY : function(e, data)
+	getRepairXY: function(e, data)
 	{
 		return false;
 	},
@@ -260,7 +260,7 @@ Zarafa.calendar.ui.CalendarViewDragZone = Ext.extend(Ext.dd.DragZone, {
 	 * @param {Ext.EventObject} e The event object
 	 * @private
 	 */
-	onEndDrag : function(data, e)
+	onEndDrag: function(data, e)
 	{
 		var appointment = data.target;
 		this.calendar.onEndDrag(e, appointment);
@@ -274,7 +274,7 @@ Zarafa.calendar.ui.CalendarViewDragZone = Ext.extend(Ext.dd.DragZone, {
 	 * @param {String} id The id of the Ext.Element where the item was dropped
 	 * @private
 	 */
-	onValidDrop : function(dd, e, id)
+	onValidDrop: function(dd, e, id)
 	{
 		// fire drag drop?
 		this.hideProxy();
@@ -286,7 +286,7 @@ Zarafa.calendar.ui.CalendarViewDragZone = Ext.extend(Ext.dd.DragZone, {
 	 * @param {String} id The id of the Ext.Element where the item was dropped
 	 * @private
 	 */
-	beforeInvalidDrop : function(e, id)
+	beforeInvalidDrop: function(e, id)
 	{
 	},
 
@@ -299,7 +299,7 @@ Zarafa.calendar.ui.CalendarViewDragZone = Ext.extend(Ext.dd.DragZone, {
 	 * @return {Zarafa.calendar.ui.AppointmentView} The appointment on which the event occurred
 	 * @private
 	 */
-	getAppointmentFromEvent : function(e)
+	getAppointmentFromEvent: function(e)
 	{
 		var appointments = this.calendar.appointments;
 
@@ -328,7 +328,7 @@ Zarafa.calendar.ui.CalendarViewDragZone = Ext.extend(Ext.dd.DragZone, {
 	 * @return {Zarafa.calendar.data.DragStates} The Drag State for the current action
 	 * @private
 	 */
-	getDragStateFromEvent : function(e, appointment)
+	getDragStateFromEvent: function(e, appointment)
 	{
 		if (this.headerMode !== true) {
 			if (!Ext.isDefined(appointment)) {

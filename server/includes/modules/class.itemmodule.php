@@ -1,7 +1,7 @@
 <?php
 	/**
 	 * ItemModule
-	 * Module which openes, creates, saves and deletes an item. It
+	 * Module which opens, creates, saves and deletes an item. It
 	 * extends the Module class.
 	 */
 	class ItemModule extends Module
@@ -262,7 +262,7 @@
                                         break;
 
 									default:
-										// Deleting an occurence means that we have to save the message to
+										// Deleting an occurrence means that we have to save the message to
 										// generate an exception. So when the basedate is provided, we actually
 										// perform a save rather then delete.
 										if (isset($action['basedate']) && !empty($action['basedate'])) {
@@ -305,8 +305,12 @@
 							$e->setDisplayMessage(Language::getstring("You have insufficient privileges to open this message."));
 						} elseif($e->getCode() == MAPI_E_NOT_FOUND) {
 							$e->setDisplayMessage(Language::getstring("Could not find message, either it has been moved or deleted or you don't have access to open this message."));
+							// Show error in console instead of a pop-up
+							if (isset($action["message_action"]['suppress_exception']) && $action["message_action"]['suppress_exception'] === true) {
+								$e->setNotificationType('console');
+							}
 						} else {
-							$e->setDisplayMessage(Language::getstring("Could not open message."));
+							$e->setDisplayMessage(_("Could not open message."));
 							$e->allowToShowDetailsMessage = true;
 						}
 						break;
@@ -317,27 +321,27 @@
 								switch($action["message_action"]["action_type"])
 								{
 									case "declineMeetingRequest":
-										$e->setDisplayMessage(Language::getstring("You have insufficient privileges to decline this Meeting Request") . ".");
+										$e->setDisplayMessage(_("You have insufficient privileges to decline this Meeting Request") . ".");
 										break;
 									case "acceptMeetingRequest":
-										$e->setDisplayMessage(Language::getstring("You have insufficient privileges to accept this Meeting Request") . ".");
+										$e->setDisplayMessage(_("You have insufficient privileges to accept this Meeting Request") . ".");
 										break;
 									case "copy":
-										$e->setDisplayMessage(Language::getstring("Could not copy message") . ".");
+										$e->setDisplayMessage(_("Could not copy message") . ".");
 										break;
 									case "move":
-										$e->setDisplayMessage(Language::getstring("Could not move message") . ".");
+										$e->setDisplayMessage(_("Could not move message") . ".");
 										break;
 								}
 							}
 
 							if(empty($e->displayMessage)) {
-								$e->setDisplayMessage(Language::getstring("You have insufficient privileges to save items in this folder") . ".");
+								$e->setDisplayMessage(_("You have insufficient privileges to save items in this folder") . ".");
 							}
 						} else if($e->getCode() == MAPI_E_STORE_FULL) {
 							$e->setDisplayMessage($this->getOverQuotaMessage($store));
 						} else {
-							$e->setDisplayMessage(Language::getstring("Could not save message") . ".");
+							$e->setDisplayMessage(_("Could not save message") . ".");
 							$e->allowToShowDetailsMessage = true;
 						}
 						break;
@@ -349,49 +353,49 @@
 									switch($action['message_action']['action_type'])
 									{
 										case 'removeFromCalendar':
-											$e->setDisplayMessage(Language::getstring('You have insufficient privileges to remove item from the calendar.'));
+											$e->setDisplayMessage(_('You have insufficient privileges to remove item from the calendar.'));
 											break;
 									}
 								}
 								break;
 							case MAPI_E_NOT_IN_QUEUE:
-								$e->setDisplayMessage(Language::getstring('Message is no longer in the outgoing queue, typically because it has already been sent.'));
+								$e->setDisplayMessage(_('Message is no longer in the outgoing queue, typically because it has already been sent.'));
 								break;
 							case MAPI_E_UNABLE_TO_ABORT:
-								$e->setDisplayMessage(Language::getstring('Message cannot be aborted'));
+								$e->setDisplayMessage(_('Message cannot be aborted'));
 								break;
 						}
 						if(empty($e->displayMessage)) {
-							$e->setDisplayMessage(Language::getstring("You have insufficient privileges to delete items in this folder") . ".");
+							$e->setDisplayMessage(_("You have insufficient privileges to delete items in this folder") . ".");
 						}
 						break;
 
 					case "attach_items":
 						if($e->getCode() == MAPI_E_NO_ACCESS)
-							$e->setDisplayMessage(Language::getstring("You have insufficient privileges to attach item as an attachment."));
+							$e->setDisplayMessage(_("You have insufficient privileges to attach item as an attachment."));
 						else
-							$e->setDisplayMessage(Language::getstring("Could not attach item as an attachment."));
+							$e->setDisplayMessage(_("Could not attach item as an attachment."));
 						break;
 
 					case "reclaimownership":
 						if($e->getCode() == MAPI_E_NO_ACCESS)
-							$e->setDisplayMessage(Language::getstring("You have insufficient privileges to reclaim the ownership for the Task Request."));
+							$e->setDisplayMessage(_("You have insufficient privileges to reclaim the ownership for the Task Request."));
 						else
-							$e->setDisplayMessage(Language::getstring("Could not reclaim the ownership for the Task Request."));
+							$e->setDisplayMessage(_("Could not reclaim the ownership for the Task Request."));
 						break;
 
 					case "acceptTaskRequest":
 						if($e->getCode() == MAPI_E_NO_ACCESS)
-							$e->setDisplayMessage(Language::getstring("You have insufficient privileges to accept this Task Request."));
+							$e->setDisplayMessage(_("You have insufficient privileges to accept this Task Request."));
 						else
-							$e->setDisplayMessage(Language::getstring("Could not accept Task Request."));
+							$e->setDisplayMessage(_("Could not accept Task Request."));
 						break;
 
 					case "declineTaskRequest":
 						if($e->getCode() == MAPI_E_NO_ACCESS)
-							$e->setDisplayMessage(Language::getstring("You have insufficient privileges to decline this Task Request."));
+							$e->setDisplayMessage(_("You have insufficient privileges to decline this Task Request."));
 						else
-							$e->setDisplayMessage(Language::getstring("Could not decline Task Request."));
+							$e->setDisplayMessage(_("Could not decline Task Request."));
 						break;
 				}
 				Log::Write(
@@ -414,6 +418,7 @@
 		 */
 		function open($store, $entryid, $action)
 		{
+error_log("open email item");
 			$data = array();
 
 			if($entryid) {
@@ -450,7 +455,6 @@
 			} else {
 				// get message props of the message
 				$data['item'] = $GLOBALS['operations']->getMessageProps($store, $message, $this->properties, $this->plaintext);
-
 				$messageClass = !empty($data['item']['props']['message_class']) ? $data['item']['props']['message_class'] : '';
 
 				// Check for meeting request, do processing if necessary
@@ -490,7 +494,7 @@
 								 */
 								if($meetingConflicts !== false) {
 									if ($meetingConflicts === true) {
-										$data['item']['props']['conflictinfo'] = Language::getstring('Conflicts with another appointment.');
+										$data['item']['props']['conflictinfo'] = _('Conflicts with another appointment.');
 									} else {
 										$data['item']['props']['conflictinfo'] = sprintf(ngettext('%s occurrence of this recurring appointment conflicts with other appointment.', '%s occurrences of this recurring appointment conflicts with other appointments.', $meetingConflicts), $meetingConflicts);
 									}
@@ -520,6 +524,18 @@
 					$data['item']['props']['isHTML'] = false;
 					$data['item']['props']['body'] = $this->getNDRbody($message);
 				}
+			}
+			
+			$userEntryId = '';
+			if (isset($data['item']['props']['sent_representing_entryid'])) {
+				$userEntryId = hex2bin($data['item']['props']['sent_representing_entryid']);
+			} else if (isset($data['item']['props']['sender_entryid'])) {
+				$userEntryId = hex2bin($data['item']['props']['sender_entryid']);
+			}
+			
+			// get user image saved in LDAP.
+			if (!empty($userEntryId)) {
+				$data['item']['props']['user_image'] = $GLOBALS['operations']->getCompressedUserImage($userEntryId);
 			}
 
 			// Allowing to hook in just before the data sent away to be sent to the client
@@ -685,14 +701,6 @@
 					$moveMessages = true;
 				}
 
-				// drag & drop from a public store to other store should always be copy instead of move
-				$destStoreProps = mapi_getprops($dest_store, array(PR_MDB_PROVIDER));
-				$storeProps = mapi_getprops($store, array(PR_MDB_PROVIDER));
-
-				if($storeProps[PR_MDB_PROVIDER] == ZARAFA_STORE_PUBLIC_GUID && $destStoreProps[PR_MDB_PROVIDER] != ZARAFA_STORE_PUBLIC_GUID) {
-					$moveMessages = false;
-				}
-
 				// if item has some set of props that need to be saved into the newly copied/moved item
 				$copyProps = array();
 				if (isset($action["message_action"]["dropmodifications"])) {
@@ -700,7 +708,7 @@
 				}
 
 				// if item has some changes made before choosing different calendar from create-in dropdown
-				if (isset($action["props"])) {
+				if (isset($action["props"]) && !empty($action["props"])) {
 					$copyProps = Conversion::mapXML2MAPI($this->properties, $action["props"]);
 				}
 
@@ -711,7 +719,17 @@
 				$storeprops = mapi_getprops($store, array(PR_ENTRYID));
 				$props[PR_STORE_ENTRYID] = $storeprops[PR_ENTRYID];
 
-				$result = $GLOBALS["operations"]->copyMessages($store, $parententryid, $dest_store, $dest_folderentryid, $entryids, $moveMessages ? array() : $this->skipCopyProperties, $moveMessages, $copyProps);
+				$skipCopyProperties = array();
+				if (isset($action["message_action"]["unset_Private"])) {
+					if ($moveMessages) {
+						array_push($skipCopyProperties, $this->properties["private"], $this->properties["sensitivity"]);
+					} else {
+						array_push($this->skipCopyProperties, $this->properties["private"], $this->properties["sensitivity"]);
+					}
+				}
+					
+									
+				$result = $GLOBALS["operations"]->copyMessages($store, $parententryid, $dest_store, $dest_folderentryid, $entryids, $moveMessages ? $skipCopyProperties : $this->skipCopyProperties, $moveMessages, $copyProps);
 
 				if($result) {
 					if($moveMessages) {
@@ -799,10 +817,10 @@
 			}
 
 			if (empty($body)) {
-				$body = Language::getstring("Your message did not reach some or all of the intended recipients")."\n\n";
-				$body .= "\t".Language::getstring("Subject").": ".$message_props[PR_ORIGINAL_SUBJECT]."\n";
-				$body .= "\t".Language::getstring("Sent").":    ".strftime("%a %x %X",$message_props[PR_ORIGINAL_SUBMIT_TIME])."\n\n";
-				$body .= Language::getstring("The following recipient(s) could not be reached").":\n";
+				$body = _("Your message did not reach some or all of the intended recipients")."\n\n";
+				$body .= "\t"._("Subject").": ".$message_props[PR_ORIGINAL_SUBJECT]."\n";
+				$body .= "\t"._("Sent").":    ".strftime("%a %x %X",$message_props[PR_ORIGINAL_SUBMIT_TIME])."\n\n";
+				$body .= _("The following recipient(s) could not be reached").":\n";
 
 				$recipienttable = mapi_message_getrecipienttable($message);
 				$recipientrows = mapi_table_queryallrows($recipienttable,array(PR_DISPLAY_NAME,PR_REPORT_TIME,PR_REPORT_TEXT));

@@ -3,7 +3,7 @@ Ext.namespace('Zarafa.core.mapi');
 /**
  * @class Zarafa.core.mapi.ResponseStatus
  * @extends Zarafa.core.Enum
- * 
+ *
  * @singleton
  */
 Zarafa.core.mapi.ResponseStatus = Zarafa.core.Enum.create({
@@ -53,7 +53,7 @@ Zarafa.core.mapi.ResponseStatus = Zarafa.core.Enum.create({
 	 * @param {Zarafa.core.mapi.ResponseStatus} responsestatus The given response status
 	 * @return {String} The display name for the response status
 	 */
-	getDisplayName : function(responsestatus)
+	getDisplayName: function(responsestatus)
 	{
 		switch (responsestatus) {
 			case Zarafa.core.mapi.ResponseStatus.RESPONSE_ORGANIZED:

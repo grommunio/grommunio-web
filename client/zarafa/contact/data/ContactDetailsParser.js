@@ -14,43 +14,43 @@ Zarafa.contact.data.ContactDetailsParser = Ext.extend(Object, {
 	/**
 	 * @cfg {Array} prefixOptions prefix options array in the form of [[displayText]]
 	 */
-	prefixOptions : undefined,
+	prefixOptions: undefined,
 
 	/**
 	 * @cfg {Array} suffixOptions suffix options array in the form of [[displayText]]
 	 */
-	suffixOptions : undefined,
+	suffixOptions: undefined,
 
 	/**
 	 * @cfg {HexValue} CR carriage return value in form of 8-bit hex value
 	 */
-	CR : Zarafa.contact.data.config.CR,
+	CR: Zarafa.contact.data.config.CR,
 
 	/**
 	 * @cfg {HexValue} LF line feed value in form of 8-bit hex value
 	 */
-	LF : Zarafa.contact.data.config.LF,
+	LF: Zarafa.contact.data.config.LF,
 
 	/**
 	 * @cfg {HexValue} CRLF carriage return + line feed in form of 8-bit hex value
 	 */
-	CRLF : Zarafa.contact.data.config.CRLF,
+	CRLF: Zarafa.contact.data.config.CRLF,
 
 	/**
 	 * @cfg {HexValue} SP space value in form of 8-bit hex value
 	 */
-	SP : Zarafa.contact.data.config.SP,
+	SP: Zarafa.contact.data.config.SP,
 
 	/**
 	 * @cfg {HexValue} LF non-breaking space value in form of 8-bit hex value
 	 */
-	NBSP : Zarafa.contact.data.config.NBSP,
+	NBSP: Zarafa.contact.data.config.NBSP,
 
 	/**
 	 * @constructor
 	 * @param {Object} configuration object.
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		config = config || {};
 		this.prefixOptions = Zarafa.contact.data.config.Prefix;
@@ -65,7 +65,7 @@ Zarafa.contact.data.ContactDetailsParser = Ext.extend(Object, {
 	 * @param {String} data data string that will be parsed
 	 * @return {Object} object that contains parsed data
 	 */
-	parseInfo : function(infoType, data)
+	parseInfo: function(infoType, data)
 	{
 		// invalid data
 		if(!Ext.isString(data)) {
@@ -89,30 +89,30 @@ Zarafa.contact.data.ContactDetailsParser = Ext.extend(Object, {
 	 * prefix, given_name, middle_name, surname, generation
 	 *
 	 * assumptions that is used for parsing full name in this function
-	 * value              | prefix | given_name | middle_name | surname | generation
-	 * John               |        | John       |             |         |
-	 * John Doe           |        | John       |             | Doe     |
-	 * John A Doe         |        | John       | A           | Doe     |
-	 * John Doe Jr.       |        | John       |             | Doe     | Jr.
-	 * Mr. John           | Mr.    | John       |             |         |
-	 * Mr. John Doe       | Mr.    | John       |             | Doe     |
-	 * Mr. John A Doe     | Mr.    | John       | A           | Doe     |
-	 * Mr. John A Doe Jr. | Mr.    | John       | A           | Doe     | Jr.
-	 * Doe Jr.            |        |            |             | Doe     | Jr.
+	 * value       | prefix | given_name | middle_name | surname | generation
+	 * John        |    | John    |       |     |
+	 * John Doe      |    | John    |       | Doe   |
+	 * John A Doe     |    | John    | A      | Doe   |
+	 * John Doe Jr.    |    | John    |       | Doe   | Jr.
+	 * Mr. John      | Mr.  | John    |       |     |
+	 * Mr. John Doe    | Mr.  | John    |       | Doe   |
+	 * Mr. John A Doe   | Mr.  | John    | A      | Doe   |
+	 * Mr. John A Doe Jr. | Mr.  | John    | A      | Doe   | Jr.
+	 * Doe Jr.      |    |      |       | Doe   | Jr.
 	 *
 	 * @param {String} data data string that will be parsed
 	 * @return {Object} object that contains parsed data
 	 * @private
 	 */
-	parseNameInfo : function(data)
+	parseNameInfo: function(data)
 	{
 		var result = {
-			'display_name_prefix' : '',
-			'given_name' : '',
-			'middle_name' : '',
-			'surname' : '',
-			'generation' : '',
-			'incomplete_info' : false
+			'display_name_prefix': '',
+			'given_name': '',
+			'middle_name': '',
+			'surname': '',
+			'generation': '',
+			'incomplete_info': false
 		};
 
 		// split display name
@@ -206,27 +206,27 @@ Zarafa.contact.data.ContactDetailsParser = Ext.extend(Object, {
 	 * countr_code, city_code, local_number, extension
 	 *
 	 * assumptions that is used for parsing phone numbers in this function
-	 * value                        | country_code | city_code | local_number | extension
-	 * 1234567                      |              |           | 1234567      |
-	 * 1234567 x 123                |              |           | 1234567      | 123
-	 * +91 1234567 x 123            | +91          |           | 1234567      | 123
-	 * +91 1234567                  | +91          |           | 1234567      |
-	 * +91 (0265) 1234567           | +91          | 0265      | 1234567      |
-	 * +91 (0265) 1234567 x 123     | +91          | 0265      | 1234567      | 123
-	 * +91 (0265) 1234567/123       | +91          | 0265      | 1234567      | 123
-	 * (0265) 1234567               |              | 0265      | 1234567      |
+	 * value            | country_code | city_code | local_number | extension
+	 * 1234567           |       |      | 1234567   |
+	 * 1234567 x 123        |       |      | 1234567   | 123
+	 * +91 1234567 x 123      | +91     |      | 1234567   | 123
+	 * +91 1234567         | +91     |      | 1234567   |
+	 * +91 (0265) 1234567      | +91     | 0265   | 1234567   |
+	 * +91 (0265) 1234567 x 123   | +91     | 0265   | 1234567   | 123
+	 * +91 (0265) 1234567/123    | +91     | 0265   | 1234567   | 123
+	 * (0265) 1234567        |       | 0265   | 1234567   |
 	 *
 	 * @param {String} data data string that will be parsed
 	 * @return {Object} object that contains parsed data
 	 * @private
 	 */
-	parsePhoneInfo : function(data)
+	parsePhoneInfo: function(data)
 	{
 		var result = {
-			'country_code' : '',
-			'city_code' : '',
-			'local_number' : '',
-			'extension' : ''
+			'country_code': '',
+			'city_code': '',
+			'local_number': '',
+			'extension': ''
 		};
 
 		// Search for extensions
@@ -240,7 +240,7 @@ Zarafa.contact.data.ContactDetailsParser = Ext.extend(Object, {
 				// remove extension from phone number
 				data = data.replace(result['extension'], '');
 
-				// remove seperator character from extension
+				// remove separator character from extension
 				result['extension'] = result['extension'].replace(ext, '').trim();
 
 				// Only one extension can be allowed
@@ -307,27 +307,27 @@ Zarafa.contact.data.ContactDetailsParser = Ext.extend(Object, {
 	 * street, country, postal_code, state, city
 	 *
 	 * assumptions that is used for parsing address in this function
-	 * value                                  | street      | city       |	state	| postal_code | country
-	 * first                                  |             | first      |          |             |
-	 * first second                           |             | first      | second   |             |
-	 * first(\n)second                        | first       | second     |          |             |
-	 * first(\n)second third(\n)fourth        | first       | second     | third    |             | fourth
-	 * first(\n)second third fourth(\n)fourth | first       | second     | third    | fourth      | fourth
+	 * value                 | street   | city    |	state	| postal_code | country
+	 * first                 |       | first   |     |       |
+	 * first second              |       | first   | second  |       |
+	 * first(\n)second            | first    | second   |     |       |
+	 * first(\n)second third(\n)fourth    | first    | second   | third  |       | fourth
+	 * first(\n)second third fourth(\n)fourth | first    | second   | third  | fourth   | fourth
 	 *
 	 * @param {String} data data string that will be parsed
 	 * @return {Object} object that contains parsed data
 	 * @private
 	 */
-	parseAddressInfo : function(data)
+	parseAddressInfo: function(data)
 	{
 		var singleLine = false;
 		var result = {
-			'street' : '',
-			'country' : '',
-			'postal_code' : '',
-			'city' : '',
-			'state' : '',
-			'incomplete_info' : false
+			'street': '',
+			'country': '',
+			'postal_code': '',
+			'city': '',
+			'state': '',
+			'incomplete_info': false
 		};
 
 		// split address based on newline characters
@@ -419,7 +419,7 @@ Zarafa.contact.data.ContactDetailsParser = Ext.extend(Object, {
 	 * @param {Object} data data object that will be combined
 	 * @return {String} object that contains combined string data
 	 */
-	combineInfo : function(infoType, data)
+	combineInfo: function(infoType, data)
 	{
 		// invalid data
 		if(!Ext.isObject(data)) {
@@ -444,7 +444,7 @@ Zarafa.contact.data.ContactDetailsParser = Ext.extend(Object, {
 	 * @return {String} string that contains combined data
 	 * @private
 	 */
-	combineNameInfo : function(data)
+	combineNameInfo: function(data)
 	{
 		var nameString = !Ext.isEmpty(data['display_name_prefix']) ? (data['display_name_prefix'] + this.NBSP) : '';
 		nameString += !Ext.isEmpty(data['given_name']) ? (data['given_name'] + this.NBSP) : '';
@@ -461,7 +461,7 @@ Zarafa.contact.data.ContactDetailsParser = Ext.extend(Object, {
 	 * @return {String} string that contains combined data
 	 * @private
 	 */
-	combinePhoneInfo : function(data)
+	combinePhoneInfo: function(data)
 	{
 		var phoneString = '';
 		// Check country code is available if yes then
@@ -488,7 +488,7 @@ Zarafa.contact.data.ContactDetailsParser = Ext.extend(Object, {
 	 * @return {String} string that contains combined data
 	 * @private
 	 */
-	combineAddressInfo : function(data)
+	combineAddressInfo: function(data)
 	{
 		var addressString = '';
 

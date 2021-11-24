@@ -12,15 +12,15 @@ Zarafa.core.data.UIFactoryTabLayer = Ext.extend(Zarafa.core.data.UIFactoryLayer,
 	 * @constructor
 	 * @param {Object} config Configuration object
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		config = config || {};
 
 		Ext.applyIf(config, {
-			type : 'tabs',
-			index : 1,
-			allowModal : false,
-			plugins : [ 'zarafa.contenttablayerplugin' ]
+			type: 'tabs',
+			index: 1,
+			allowModal: false,
+			plugins: [ 'zarafa.contenttablayerplugin' ]
 		});
 
 		Zarafa.core.data.UIFactoryTabLayer.superclass.constructor.call(this, config);
@@ -34,7 +34,7 @@ Zarafa.core.data.UIFactoryTabLayer = Ext.extend(Zarafa.core.data.UIFactoryLayer,
 	 * passed to the constructor when creating the component
 	 * @protected
 	 */
-	create : function(component, config)
+	create: function(component, config)
 	{
 		config = config || {};
 

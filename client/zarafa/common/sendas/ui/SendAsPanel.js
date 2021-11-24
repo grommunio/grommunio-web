@@ -11,36 +11,35 @@ Zarafa.common.sendas.ui.SendAsPanel = Ext.extend(Ext.Panel, {
 	 * @constructor
 	 * @param config Configuration structure
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		config = config || {};
 
 		Ext.applyIf(config, {
 			// Override from Ext.Component
-			xtype : 'zarafa.sendaspanel',
-			border : false,
-			layout : {
-				type : 'vbox',
-				align : 'stretch',
-				pack  : 'start'
+			xtype: 'zarafa.sendaspanel',
+			border: false,
+			layout: {
+				type: 'vbox',
+				align: 'stretch',
+				pack: 'start'
 			},
-			items : this.createPanelItems(config.store)
+			items: this.createPanelItems()
 		});
 
 		Zarafa.common.sendas.ui.SendAsPanel.superclass.constructor.call(this, config);
 	},
-	
+
 	/**
 	 * Function will create panel items for {@link Zarafa.common.sendas.ui.SendAsPanel SendAsPanel}
-	 * @param {Zarafa.core.data.IPMRecipientStore} store store which configured in the grid
 	 * @return {Array} array of items that should be added to panel.
 	 * @private
 	 */
-	createPanelItems : function(store)
+	createPanelItems: function()
 	{
 		return [{
 			xtype: 'displayfield',
-			value: _('Manage the email addresses you can use as sender address when sending an email.'),
+			value: _("Manage the recipients used in the 'From' field"),
 			fieldClass: 'x-form-display-field zarafa-settings-widget-extrainfo'
 		}, {
 			xtype: 'container',
@@ -53,7 +52,6 @@ Zarafa.common.sendas.ui.SendAsPanel = Ext.extend(Ext.Panel, {
 			items: [{
 				xtype: 'zarafa.sendasgrid',
 				ref: '../sendasGrid',
-				store: store,
 				flex: 1
 			}, {
 				xtype: 'container',
@@ -115,7 +113,7 @@ Zarafa.common.sendas.ui.SendAsPanel = Ext.extend(Ext.Panel, {
 	 * initialize events for the panel.
 	 * @private
 	 */
-	initEvents : function()
+	initEvents: function()
 	{
 		Zarafa.common.sendas.ui.SendAsPanel.superclass.initEvents.call(this);
 
@@ -124,24 +122,35 @@ Zarafa.common.sendas.ui.SendAsPanel = Ext.extend(Ext.Panel, {
 	},
 
 	/**
+	 * Returns the {@link Zarafa.core.data.IPMRecipientStore IPMRecipientStore} associated
+	 * with this panel.
+	 * @return {Zarafa.core.data.IPMRecipientStore} The store
+	 */
+	getStore: function()
+	{
+		return this.sendasGrid.getStore();
+	},
+
+	/**
 	 * Handler function will be called when user clicks on 'Add' button,
 	 * this will show addressbook dialog to select sendas user.
 	 * @private
 	 */
-	onSendAsAdd : function()
+	onSendAsAdd: function()
 	{
 		// find rowid value
-		var data = Ext.pluck(this.store.getRange(), 'data');
+		var store = this.getStore();
+		var data = Ext.pluck(store.getRange(), 'data');
 		var rowId = Ext.max(Ext.pluck(data, 'rowid')) || 0;
 
-		var record = Zarafa.core.data.RecordFactory.createRecordObjectByCustomType(Zarafa.core.data.RecordCustomObjectType.ZARAFA_RECIPIENT, {
+		var record = Zarafa.core.data.RecordFactory.createRecordObjectByCustomType(Zarafa.core.data.RecordCustomObjectType.ZARAFA_FROM_RECIPIENT, {
 			// rowid is the {@link Ext.data.JsonReader#idProperty} in {@link Zarafa.core.data.IPMRecipientStore IPMRecipientStore}
 			// so we must have to configure the rowid properly.
-			rowid : rowId + 1,
-			display_type : Zarafa.core.mapi.DisplayType.DT_REMOTE_MAILUSER
+			rowid: rowId + 1,
+			display_type: Zarafa.core.mapi.DisplayType.DT_REMOTE_MAILUSER
 		});
-		
-		this.store.add(record);
+
+		store.add(record);
 
 		this.sendasGrid.editSendAsRecipient(record, true);
 	},
@@ -151,7 +160,7 @@ Zarafa.common.sendas.ui.SendAsPanel = Ext.extend(Ext.Panel, {
 	 * has been changed.
 	 * @param {Ext.grid.RowSelectionModel} selectionModel selection model that fired the event
 	 */
-	onGridSelectionChange : function(selectionModel)
+	onGridSelectionChange: function(selectionModel)
 	{
 		var record = selectionModel.getSelected();
 
@@ -159,13 +168,13 @@ Zarafa.common.sendas.ui.SendAsPanel = Ext.extend(Ext.Panel, {
 		var hasSelection = selectionModel.hasSelection();
 
 		// +----------------------------------------------------+
-		// |             | Enable / Disable (Edit, View, Remove)|
+		// |       | Enable / Disable (Edit, View, Remove)|
 		// +----------------------------------------------------+
-		// |             | Selection | Operation | isOneOff     |
+		// |       | Selection | Operation | isOneOff   |
 		// +----------------------------------------------------+
-		// |Edit Button  | !(true)   | OR        | !(true)      |
-		// |View Button  | !(true)   | OR        | true         |
-		// |Remove Button| !(true)   | Null      | Null         |
+		// |Edit Button | !(true)  | OR    | !(true)   |
+		// |View Button | !(true)  | OR    | true     |
+		// |Remove Button| !(true)  | Null   | Null     |
 		// +----------------------------------------------------+
 		// Here is toggle the view and edit button as per the contact type
 		// and if there is no selection in sendAsGrid, all three (Edit, View, Remove) buttons are disable.
@@ -179,7 +188,7 @@ Zarafa.common.sendas.ui.SendAsPanel = Ext.extend(Ext.Panel, {
 	 * this will remove currently selected sendas from sendass list.
 	 * @private
 	 */
-	onSendAsRemove : function()
+	onSendAsRemove: function()
 	{
 		this.sendasGrid.removeSendAs();
 	},
@@ -189,7 +198,7 @@ Zarafa.common.sendas.ui.SendAsPanel = Ext.extend(Ext.Panel, {
 	 * @return {Ext.data.Record} The record which is selected from {@link Zarafa.common.ui.SendAsGrid SendAsGrid}.
 	 * @private
 	 */
-	getSendAsRecord : function()
+	getSendAsRecord: function()
 	{
 		var sendasRecord = this.sendasGrid.getSelectionModel().getSelected();
 
@@ -206,7 +215,7 @@ Zarafa.common.sendas.ui.SendAsPanel = Ext.extend(Ext.Panel, {
 	 * this will edit currently selected contact from sendas list.
 	 * @private
 	 */
-	onSendAsEdit : function()
+	onSendAsEdit: function()
 	{
 		var sendasRecord = this.getSendAsRecord();
 
@@ -218,7 +227,7 @@ Zarafa.common.sendas.ui.SendAsPanel = Ext.extend(Ext.Panel, {
 	 * this will open currently selected address book contact from sendas list.
 	 * @private
 	 */
-	onSendAsView : function()
+	onSendAsView: function()
 	{
 		var sendasRecord = this.getSendAsRecord();
 
@@ -230,38 +239,17 @@ Zarafa.common.sendas.ui.SendAsPanel = Ext.extend(Ext.Panel, {
 	 * this will open an Address Book and one can select sendas from any of the address book contact list.
 	 * @private
 	 */
-	onSendAsAddressBook : function()
+	onSendAsAddressBook: function()
 	{
 		Zarafa.common.Actions.openABUserSelectionContent({
-			callback : this.abCallBack,
-			scope : this,
-			singleSelect : false,
-			listRestriction : {
-				hide_users : ['system', 'everyone'],
-				hide_companies : true
+			callback: Zarafa.common.Actions.abCallBack,
+			scope: this,
+			singleSelect: false,
+			listRestriction: {
+				hide_users: ['system', 'everyone'],
+				hide_companies: true
 			}
 		});
-	},
-
-	/**
-	 * Callback function for {@link Zarafa.addressbook.dialogs.ABUserSelectionContent AddressBook}
-	 * @param {Ext.data.Record} record user selected from AddressBook
-	 * @private
-	 */
-	abCallBack : function(records)
-	{
-		// find rowid value
-		var data = Ext.pluck(this.store.getRange(), 'data');
-		var rowId = Ext.max(Ext.pluck(data, 'rowid')) || 0;
-
-		for (var i = 0; i < records.length; i++) {
-			var record = records[i];
-
-			record = record.convertToRecipient();
-			record.set('rowid', ++rowId);
-
-			this.store.add(record);
-		}
 	}
 });
 

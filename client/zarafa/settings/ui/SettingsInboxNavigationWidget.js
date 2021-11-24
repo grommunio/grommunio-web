@@ -13,39 +13,39 @@ Zarafa.settings.ui.SettingsInboxNavigationWidget = Ext.extend(Zarafa.settings.ui
 	 * @constructor
 	 * @param {Object} config Configuration object
 	 */
-	constructor : function (config)
+	constructor: function (config)
 	{
 		config = config || {};
 
 		Ext.applyIf(config, {
-			xtype : 'zarafa.settingsinboxnavigationwidget',
-			title : _('Inbox navigation'),
-			layout : 'form',
-			items : [{
-				xtype : 'displayfield',
-				hideLabel : true,
-				value : _('I want to navigate through my items by using.')
+			xtype: 'zarafa.settingsinboxnavigationwidget',
+			title: _('Inbox navigation'),
+			layout: 'form',
+			items: [{
+				xtype: 'displayfield',
+				hideLabel: true,
+				value: _('I want to navigate through my items by using.')
 			},{
-				xtype : 'radiogroup',
-				name : 'zarafa/v1/contexts/mail/enable_live_scroll',
-				ref : 'liveScroll',
-				hideLabel : true,
-				columns : 1,
-				style : { marginBottom : '10px'},
-				items : [{
-					xtype : 'radio',
-					name : 'enablescroll',
-					inputValue : 'true',
-					boxLabel : _('Infinite Scroll') + '<span class="k-settings-label-minor">(' + _('WebApp automatically loads additional items when you scroll down') + ')</span>'
+				xtype: 'radiogroup',
+				name: 'zarafa/v1/contexts/mail/enable_live_scroll',
+				ref: 'liveScroll',
+				hideLabel: true,
+				columns: 1,
+				style: { marginBottom: '10px'},
+				items: [{
+					xtype: 'radio',
+					name: 'enablescroll',
+					inputValue: 'true',
+					boxLabel: _('Infinite Scroll') + '<span class="k-settings-label-minor">(' + _('grommunio Web automatically loads additional items when you scroll down') + ')</span>'
 				},{
-					xtype : 'radio',
-					name : 'enablescroll',
-					inputValue : 'false',
-					boxLabel : _('Pagination') + '<span class="k-settings-label-minor">(' + _('WebApp displays items on pages and you can use navigation controls to navigate') + ')</span>'
+					xtype: 'radio',
+					name: 'enablescroll',
+					inputValue: 'false',
+					boxLabel: _('Pagination') + '<span class="k-settings-label-minor">(' + _('grommunio Web displays items on pages and you can use navigation controls to navigate') + ')</span>'
 				}],
-				listeners : {
-					change : this.onRadioChange,
-					scope : this
+				listeners: {
+					change: this.onRadioChange,
+					scope: this
 				}
 			},
 			this.createPageSizeField()]
@@ -59,52 +59,52 @@ Zarafa.settings.ui.SettingsInboxNavigationWidget = Ext.extend(Zarafa.settings.ui
 	 * on whether the user has set to use infinite scroll or pagination.
 	 * @return {Zarafa.common.ui.CompositeField}
 	 */
-	createPageSizeField : function()
+	createPageSizeField: function()
 	{
 		var enableScroll = Ext.isDefined(this.liveScroll) ? this.liveScroll.getValue().getRawValue() === 'true' : true;
-		var fieldLabel = enableScroll ?	_('Load items in blocks of {A}') : _('Load {A} items per page.');
+		var fieldLabel = enableScroll ?	_('Load items in blocks of {A}'): _('Load {A} items per page.');
 
 		var pageSizeStore = {
-			xtype : 'jsonstore',
-			autoDestroy : true,
-			fields : ['size'],
-			data : [{
-				'size' : 50
+			xtype: 'jsonstore',
+			autoDestroy: true,
+			fields: ['size'],
+			data: [{
+				'size': 50
 			},{
-				'size' : 100
+				'size': 100
 			},{
-				'size' : 150
+				'size': 150
 			},{
-				'size' : 200
+				'size': 200
 			},{
 				'size' : 1000
 			}]
 		};
 
 		return new Zarafa.common.ui.CompositeField({
-				xtype : 'zarafa.compositefield',
-				plugins : ['zarafa.splitfieldlabeler'],
+				xtype: 'zarafa.compositefield',
+				plugins: ['zarafa.splitfieldlabeler'],
 				ref: 'pageSizeContainer',
-				fieldLabel : fieldLabel,
-				items : [{
-					labelSplitter : '{A}',
-					xtype : 'combo',
-					name : 'zarafa/v1/main/page_size',
-					ref : 'pageSize',
-					width : 55,
-					hideLabel : true,
-					store : pageSizeStore,
-					mode : 'local',
-					triggerAction : 'all',
-					displayField : 'size',
-					valueField : 'size',
-					lazyInit : false,
-					forceSelection : true,
-					editable : false,
-					autoSelect : true,
-					listeners : {
-						select : this.onPageSizeSelect,
-						scope : this
+				fieldLabel: fieldLabel,
+				items: [{
+					labelSplitter: '{A}',
+					xtype: 'combo',
+					name: 'zarafa/v1/main/page_size',
+					ref: 'pageSize',
+					width: 55,
+					hideLabel: true,
+					store: pageSizeStore,
+					mode: 'local',
+					triggerAction: 'all',
+					displayField: 'size',
+					valueField: 'size',
+					lazyInit: false,
+					forceSelection: true,
+					editable: false,
+					autoSelect: true,
+					listeners: {
+						select: this.onPageSizeSelect,
+						scope: this
 					}
 				}]
 			});
@@ -117,7 +117,7 @@ Zarafa.settings.ui.SettingsInboxNavigationWidget = Ext.extend(Zarafa.settings.ui
 	 * {@link Zarafa.settings.SettingsModel} into the UI of this category.
 	 * @param {Zarafa.settings.SettingsModel} settingsModel The settings to load
 	 */
-	update : function (settingsModel)
+	update: function (settingsModel)
 	{
 		this.model = settingsModel;
 		this.liveScroll.setValue(settingsModel.get(this.liveScroll.name));
@@ -130,7 +130,7 @@ Zarafa.settings.ui.SettingsInboxNavigationWidget = Ext.extend(Zarafa.settings.ui
 	 * This is used to update the settings from the UI into the {@link Zarafa.settings.SettingsModel settings model}.
 	 * @param {Zarafa.settings.SettingsModel} settingsModel The settings to update
 	 */
-	updateSettings : function (settingsModel)
+	updateSettings: function (settingsModel)
 	{
 
 		var enableScroll = this.liveScroll.getValue().inputValue === 'true';
@@ -147,7 +147,7 @@ Zarafa.settings.ui.SettingsInboxNavigationWidget = Ext.extend(Zarafa.settings.ui
 	 * @param {Ext.form.Radio} radio The radio which was enabled
 	 * @private
 	 */
-	onRadioChange : function (field, radio)
+	onRadioChange: function (field, radio)
 	{
 		var enableScroll = radio.inputValue === 'true';
 
@@ -177,7 +177,7 @@ Zarafa.settings.ui.SettingsInboxNavigationWidget = Ext.extend(Zarafa.settings.ui
 	 * @param {Ext.form.ComboBox} field The field which fired the event
 	 * @param {Ext.data.Record} record The selected record
 	 */
-	onPageSizeSelect : function (field, record)
+	onPageSizeSelect: function (field, record)
 	{
 		if (this.model) {
 			if (this.model.get(field.name) !== field.getValue()) {

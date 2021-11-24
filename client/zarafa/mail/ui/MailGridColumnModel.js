@@ -24,12 +24,12 @@ Zarafa.mail.ui.MailGridColumnModel = Ext.extend(Zarafa.common.ui.grid.ColumnMode
 	 * used by default. Otherwise the default column model will be used which
 	 * contains all possible columns.
 	 */
-	useCompactView : false,
+	useCompactView: false,
 	/**
 	 * @constructor
 	 * @param config Configuration structure
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		config = config || {};
 
@@ -63,102 +63,104 @@ Zarafa.mail.ui.MailGridColumnModel = Ext.extend(Zarafa.common.ui.grid.ColumnMode
 	 * @return {Ext.grid.Column[]} The array of columns
 	 * @private
 	 */
-	createDefaultColumns : function()
+	createDefaultColumns: function()
 	{
 		return [{
-			header : '<p class="icon_importance">&nbsp;<span class="title">' + _('Importance') + '</span></p>',
-			headerCls: 'zarafa-icon-column importance',
-			dataIndex : 'importance',
-			width: 24,
-			renderer : Zarafa.common.ui.grid.Renderers.importance,
-			fixed : true,
-			tooltip : _('Sort by: Importance')
-		},{
-			id : 'column_icon',
-			header : '<p class="icon_index">&nbsp;<span class="title">' + _('Icon') + '</span></p>',
+			id: 'column_icon',
+			header: '<p class="icon_index">&nbsp;<span class="title">' + _('Icon') + '</span></p>',
 			headerCls: 'zarafa-icon-column icon',
-			dataIndex : 'icon_index',
-			width : 24,
-			renderer : Zarafa.common.ui.grid.Renderers.icon,
-			fixed : true,
-			tooltip : _('Sort by: Icon'),
-			preventRowSelection : true
-		},{
-			header : '<p class="icon_paperclip">&nbsp;<span class="title">' + _('Attachment') + '</span></p>',
-			headerCls: 'zarafa-icon-column attachment',
-			dataIndex : 'hasattach',
+			dataIndex: 'icon_index',
 			width: 24,
-			renderer : Zarafa.common.ui.grid.Renderers.attachment,
-			fixed : true,
-			tooltip : _('Sort by: Attachment')
+			hideable: !container.isEnabledConversation(),
+			renderer: Zarafa.common.ui.grid.Renderers.icon,
+			fixed: true,
+			preventColSwitch: container.isEnabledConversation(),
+			tooltip: _('Sort by: Icon'),
+			preventRowSelection: true
 		},{
-			header : _('From'),
-			dataIndex : 'sent_representing_name',
-			width : 100,
-			renderer : Zarafa.common.ui.grid.Renderers.sender,
-			tooltip : _('Sort by: From'),
+			header: '<p class="icon_importance">&nbsp;<span class="title">' + _('Importance') + '</span></p>',
+			headerCls: 'zarafa-icon-column importance',
+			dataIndex: 'importance',
+			width: 24,
+			renderer: Zarafa.common.ui.grid.Renderers.importance,
+			fixed: true,
+			tooltip: _('Sort by: Importance')
+		},{
+			header: '<p class="icon_paperclip">&nbsp;<span class="title">' + _('Attachment') + '</span></p>',
+			headerCls: 'zarafa-icon-column attachment',
+			dataIndex: 'hasattach',
+			width: 24,
+			renderer: Zarafa.common.ui.grid.Renderers.attachment,
+			fixed: true,
+			tooltip: _('Sort by: Attachment')
+		},{
+			header: _('From'),
+			dataIndex: 'sent_representing_name',
+			width: 100,
+			renderer: Zarafa.common.ui.grid.Renderers.sender,
+			tooltip: _('Sort by: From'),
 			groupRenderer:this.groupHeaderBySender
 		},{
-			header : _('To'),
-			dataIndex : 'display_to',
-			width : 320,
-			renderer : Zarafa.common.ui.grid.Renderers.to,
-			tooltip : _('Sort by: To')
+			header: _('To'),
+			dataIndex: 'display_to',
+			width: 320,
+			renderer: Zarafa.common.ui.grid.Renderers.to,
+			tooltip: _('Sort by: To')
 		},{
-			header : _('Subject'),
-			dataIndex : 'subject',
+			header: _('Subject'),
+			dataIndex: 'subject',
 			width: 400,
-			renderer : Zarafa.common.ui.grid.Renderers.subject,
-			tooltip : _('Sort by: Subject')
+			renderer: Zarafa.common.ui.grid.Renderers.subject,
+			tooltip: _('Sort by: Subject')
 		},{
-			header : _('Categories'),
-			dataIndex : 'categories',
-			width : 160,
+			header: _('Categories'),
+			dataIndex: 'categories',
+			width: 160,
 			renderer: Zarafa.common.ui.grid.Renderers.categories,
-			tooltip : _('Sort by: Categories')
+			tooltip: _('Sort by: Categories')
 		},{
-			header : _('Received'),
-			dataIndex : 'message_delivery_time',
-			width : 160,
+			header: _('Received'),
+			dataIndex: 'message_delivery_time',
+			width: 160,
 			// Setting the renderer with createDelegate to be able to pass a meta object to the renderer.
 			// This way we can add a css-class to the element (used by Selenium tests)
-			renderer : Zarafa.common.ui.grid.Renderers.datetime.createDelegate(null, [{css: 'mail-received'}], true),
-			tooltip : _('Sort by: Received'),
-			groupRenderer : this.groupHeaderByDate
+			renderer: Zarafa.common.ui.grid.Renderers.datetime.createDelegate(null, [{css: 'mail-received'}], true),
+			tooltip: _('Sort by: Received'),
+			groupRenderer: this.groupHeaderByDate.createDelegate(this, ['message_delivery_time'], 0)
 		},{
-			header : _('Sent'),
-			dataIndex : 'client_submit_time',
-			width : 160,
+			header: _('Sent'),
+			dataIndex: 'client_submit_time',
+			width: 160,
 			// Setting the renderer with createDelegate to be able to pass a meta object to the renderer.
 			// This way we can add a css-class to the element (used by Selenium tests)
-			renderer : Zarafa.common.ui.grid.Renderers.datetime.createDelegate(null, [{css: 'mail-sent'}], true),
-			tooltip : _('Sort by: Sent'),
-			groupRenderer  : this.groupHeaderByDate
+			renderer: Zarafa.common.ui.grid.Renderers.datetime.createDelegate(null, [{css: 'mail-sent'}], true),
+			tooltip: _('Sort by: Sent'),
+			groupRenderer : this.groupHeaderByDate.createDelegate(this, ['client_submit_time'], 0)
 		},{
-			header : _('Modified'),
-			dataIndex : 'last_modification_time',
-			width : 160,
+			header: _('Modified'),
+			dataIndex: 'last_modification_time',
+			width: 160,
 			// Setting the renderer with createDelegate to be able to pass a meta object to the renderer.
 			// This way we can add a css-class to the element (used by Selenium tests)
-			renderer : Zarafa.common.ui.grid.Renderers.datetime.createDelegate(null, [{css: 'mail-modified'}], true),
+			renderer: Zarafa.common.ui.grid.Renderers.datetime.createDelegate(null, [{css: 'mail-modified'}], true),
 			hidden: true,
-			tooltip : _('Sort by: Modified'),
-			groupRenderer  : this.groupHeaderByDate
+			tooltip: _('Sort by: Modified'),
+			groupRenderer : this.groupHeaderByDate.createDelegate(this, ['last_modification_time'], 0)
 		},{
-			header : _('Size'),
-			dataIndex : 'message_size',
-			width : 80,
-			renderer : Zarafa.common.ui.grid.Renderers.size,
-			tooltip : _('Sort by: Size'),
-			groupRenderer : this.groupHeaderBySize
+			header: _('Size'),
+			dataIndex: 'message_size',
+			width: 80,
+			renderer: Zarafa.common.ui.grid.Renderers.size,
+			tooltip: _('Sort by: Size'),
+			groupRenderer: this.groupHeaderBySize
 		},{
-			header : '<p class="icon_flag">&nbsp;<span class="title">' + _('Flag') + '</span></p>',
+			header: '<p class="icon_flag">&nbsp;<span class="title">' + _('Flag') + '</span></p>',
 			headerCls: 'zarafa-icon-column flag',
-			dataIndex : 'flag_due_by',
+			dataIndex: 'flag_due_by',
 			width: 24,
-			renderer : Zarafa.common.ui.grid.Renderers.flag,
-			fixed : true,
-			tooltip : _('Sort by: flag')
+			renderer: Zarafa.common.ui.grid.Renderers.flag,
+			fixed: true,
+			tooltip: _('Sort by: flag')
 		}];
 	},
 
@@ -169,90 +171,92 @@ Zarafa.mail.ui.MailGridColumnModel = Ext.extend(Zarafa.common.ui.grid.ColumnMode
 	 * @return {Ext.grid.Column[]} The array of columns
 	 * @private
 	 */
-	createCompactColumns : function()
+	createCompactColumns: function()
 	{
 		return [{
-			header : '<p class="icon_index">&nbsp;<span class="title">' + _('Icon') + '</span></p>',
-			dataIndex : 'icon_index',
+			header: '<p class="icon_index">&nbsp;<span class="title">' + _('Icon') + '</span></p>',
+			dataIndex: 'icon_index',
 			headerCls: 'zarafa-icon-column icon',
-			width : 24,
-			renderer : Zarafa.common.ui.grid.Renderers.icon,
-			fixed : true,
-			tooltip : _('Sort by: Icon'),
-			preventRowSelection : true
+			width: 24,
+			renderer: Zarafa.common.ui.grid.Renderers.icon,
+			fixed: true,
+			hideable: !container.isEnabledConversation(),
+			preventColSwitch: container.isEnabledConversation(),
+			tooltip: _('Sort by: Icon'),
+			preventRowSelection: true
 		},{
-			header : _('From'),
-			dataIndex : 'sent_representing_name',
-			width : 160,
-			renderer : Zarafa.common.ui.grid.Renderers.sender,
-			tooltip : _('Sort by: From'),
+			header: _('From'),
+			dataIndex: 'sent_representing_name',
+			width: 160,
+			renderer: Zarafa.common.ui.grid.Renderers.sender,
+			tooltip: _('Sort by: From'),
 			groupRenderer:this.groupHeaderBySender
 		},{
-			header : _('To'),
-			dataIndex : 'display_to',
-			width : 160,
-			renderer : Zarafa.common.ui.grid.Renderers.to,
-			tooltip : _('Sort by: To')
+			header: _('To'),
+			dataIndex: 'display_to',
+			width: 160,
+			renderer: Zarafa.common.ui.grid.Renderers.to,
+			tooltip: _('Sort by: To')
 		},{
-			header : _('Received'),
-			dataIndex : 'message_delivery_time',
-			width : 160,
+			header: _('Received'),
+			dataIndex: 'message_delivery_time',
+			width: 160,
 			// Setting the renderer with createDelegate to be able to pass a meta object to the renderer.
 			// This way we can add a css-class to the element (used by Selenium tests)
-			renderer : Zarafa.common.ui.grid.Renderers.datetime.createDelegate(null, [{css: 'mail-received'}], true),
-			tooltip : _('Sort by: Received'),
-			groupRenderer : this.groupHeaderByDate
+			renderer: Zarafa.common.ui.grid.Renderers.datetime.createDelegate(null, [{css: 'mail-received'}], true),
+			tooltip: _('Sort by: Received'),
+			groupRenderer: this.groupHeaderByDate.createDelegate(this, ['message_delivery_time'], 0)
 		},{
-			header : _('Sent'),
-			dataIndex : 'client_submit_time',
-			width : 160,
+			header: _('Sent'),
+			dataIndex: 'client_submit_time',
+			width: 160,
 			// Setting the renderer with createDelegate to be able to pass a meta object to the renderer.
 			// This way we can add a css-class to the element (used by Selenium tests)
-			renderer : Zarafa.common.ui.grid.Renderers.datetime.createDelegate(null, [{css: 'mail-sent'}], true),
-			tooltip : _('Sort by: Sent'),
-			groupRenderer : this.groupHeaderByDate
+			renderer: Zarafa.common.ui.grid.Renderers.datetime.createDelegate(null, [{css: 'mail-sent'}], true),
+			tooltip: _('Sort by: Sent'),
+			groupRenderer: this.groupHeaderByDate.createDelegate(this, ['client_submit_time'], 0)
 		},{
-			header : _('Modified'),
-			dataIndex : 'last_modification_time',
-			width : 160,
-			sortable : true,
+			header: _('Modified'),
+			dataIndex: 'last_modification_time',
+			width: 160,
+			sortable: true,
 			// Setting the renderer with createDelegate to be able to pass a meta object to the renderer.
 			// This way we can add a css-class to the element (used by Selenium tests)
-			renderer : Zarafa.common.ui.grid.Renderers.datetime.createDelegate(null, [{css: 'mail-modified'}], true),
-			tooltip : _('Sort by: Modified'),
-			groupRenderer : this.groupHeaderByDate
+			renderer: Zarafa.common.ui.grid.Renderers.datetime.createDelegate(null, [{css: 'mail-modified'}], true),
+			tooltip: _('Sort by: Modified'),
+			groupRenderer: this.groupHeaderByDate.createDelegate(this, ['last_modification_time'], 0)
 		},{
-			header : _('Size'),
-			dataIndex : 'message_size',
-			width : 80,
+			header: _('Size'),
+			dataIndex: 'message_size',
+			width: 80,
 			hidden: true,
-			renderer : Zarafa.common.ui.grid.Renderers.size,
-			tooltip : _('Sort by: Size'),
-			groupRenderer : this.groupHeaderBySize
+			renderer: Zarafa.common.ui.grid.Renderers.size,
+			tooltip: _('Sort by: Size'),
+			groupRenderer: this.groupHeaderBySize
 		},{
-			header : '<p class="icon_importance">&nbsp;<span class="title">' + _('Importance') + '</span></p>',
+			header: '<p class="icon_importance">&nbsp;<span class="title">' + _('Importance') + '</span></p>',
 			headerCls: 'zarafa-icon-column importance',
-			dataIndex : 'importance',
+			dataIndex: 'importance',
 			width: 24,
-			renderer : Zarafa.common.ui.grid.Renderers.importance,
-			fixed : true,
-			tooltip : _('Sort by: Importance')
+			renderer: Zarafa.common.ui.grid.Renderers.importance,
+			fixed: true,
+			tooltip: _('Sort by: Importance')
 		},{
-			header : '<p class="icon_paperclip">&nbsp;<span class="title">' + _('Attachment') + '</span></p>',
+			header: '<p class="icon_paperclip">&nbsp;<span class="title">' + _('Attachment') + '</span></p>',
 			headerCls: 'zarafa-icon-column attachment',
-			dataIndex : 'hasattach',
+			dataIndex: 'hasattach',
 			width: 24,
-			renderer : Zarafa.common.ui.grid.Renderers.attachment,
-			fixed : true,
-			tooltip : _('Sort by: Attachment')
+			renderer: Zarafa.common.ui.grid.Renderers.attachment,
+			fixed: true,
+			tooltip: _('Sort by: Attachment')
 		},{
-			header : '<p class="icon_flag">&nbsp;<span class="title">' + _('Flag') + '</span></p>',
+			header: '<p class="icon_flag">&nbsp;<span class="title">' + _('Flag') + '</span></p>',
 			headerCls: 'zarafa-icon-column flag',
-			dataIndex : 'flag_due_by',
+			dataIndex: 'flag_due_by',
 			width: 24,
-			renderer : Zarafa.common.ui.grid.Renderers.flag,
-			fixed : true,
-			tooltip : _('Sort by: flag')
+			renderer: Zarafa.common.ui.grid.Renderers.flag,
+			fixed: true,
+			tooltip: _('Sort by: flag')
 		}];
 	},
 
@@ -262,26 +266,52 @@ Zarafa.mail.ui.MailGridColumnModel = Ext.extend(Zarafa.common.ui.grid.ColumnMode
 	 *
 	 * @param {Boolean} compact True to enable the compact view
 	 */
-	setCompactView : function(compact)
+	setCompactView: function(compact)
 	{
-		if (this.useCompactView !== compact) {
+		var name;
+		var isEnabledConversation = container.isEnabledConversation();
+		if(compact) {
+			name = isEnabledConversation ? 'conversation_compact' : 'compact';
+		} else {
+			name = isEnabledConversation ? 'conversation_default' : 'default';
+		}
+
+		if (this.useCompactView !== compact || this.name !== name) {
 			this.useCompactView = compact;
 
 			if (compact) {
-				this.name = 'compact';
 				// Extjs will store the this.columns into this.config after it has constructed
 				// all the columns. At that point this.columns consists of the configuration objects,
 				// while this.columns consists of all the allocated columns.
-				this.defaultColumns = this.config;
+				if (this.name !== "conversation_compact" && this.name !== 'compact') {
+					this.defaultColumns = this.config;
+				}
 				this.columns = this.compactColumns;
 			} else {
-				this.name = 'default';
-				this.compactColumns = this.config;
+				if (this.name !== "conversation_default" && this.name !== 'default') {
+					this.compactColumns = this.config;
+				}
 				this.columns = this.defaultColumns;
 			}
 
+			this.name = name;
 			this.setConfig(this.columns, false);
-		}
+
+			if (!compact && isEnabledConversation) {
+        this.updateRenderer('subject', Zarafa.common.ui.grid.Renderers.body);
+      }
+    }
+	},
+
+	/**
+	 * Function which will change a renderer for the given column dataIndex.
+	 * @param {String} dataIndex dataIndex of column whose renderer needs to be changed.
+	 * @param {Zarafa.common.ui.grid.Renderers} renderer which should be applied on column.
+	 */
+	updateRenderer: function (dataIndex, renderer)
+	{
+		var colIndex = this.findColumnIndex(dataIndex);
+		this.setRenderer(colIndex, renderer);
 	},
 
 	/**
@@ -296,10 +326,14 @@ Zarafa.mail.ui.MailGridColumnModel = Ext.extend(Zarafa.common.ui.grid.ColumnMode
 
 	/**
 	 * Function which prepare the title for the grouping header based on the given date.
+	 *
+	 * @param {String} type The index property for the column
 	 * @param {Ext.Date} date The date which is used to format the header.
+	 * @param {undefined} unused Unused argument (weirdness by ExtJS)
+	 * @param {Zarafa.core.data.MAPIRecord} record The record for which the group header is requested
 	 * @return {String} formatted title for the grouping headers.
 	 */
-	groupHeaderByDate: function (date)
+	groupHeaderByDate: function (type, date, unused, record)
 	{
 		if (!Ext.isDate(date)) {
 			return _('Older');
@@ -363,7 +397,7 @@ Zarafa.mail.ui.MailGridColumnModel = Ext.extend(Zarafa.common.ui.grid.ColumnMode
 	 * @param {Number} size The size of mail which is used to format the header.
 	 * @return {String} formatted title for grouping headers.
 	 */
-	groupHeaderBySize : function (size)
+	groupHeaderBySize: function (size)
 	{
 		if (size <= 1024 * 50) {
 			return _('Small') + ' - 50kb';
@@ -373,8 +407,8 @@ Zarafa.mail.ui.MailGridColumnModel = Ext.extend(Zarafa.common.ui.grid.ColumnMode
 			return _('Large') + ' 500kb - 5mb';
 		} else if (size >= 1024 * 5120 && size <= 1024 * 20480) {
 			return _('Very large') + ' 5mb - 20mb';
-		} else {
-			return _('Huge') + ' + 20mb';
 		}
+
+		return _('Huge') + ' + 20mb';
 	}
 });

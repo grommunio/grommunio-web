@@ -13,7 +13,7 @@ Zarafa.calendar.ui.CalendarMainPanel = Ext.extend(Zarafa.common.ui.ContextMainPa
 	 * @insert context.calendar.toolbar.item
 	 *
 	 * Insertion point for populating calendar context's toolbar.
-	 * This item is only visible when this context is active. 
+	 * This item is only visible when this context is active.
 	 * @param {Zarafa.calendar.CalendarMainPanel} panel This panel
 	 */
 	/**
@@ -41,32 +41,32 @@ Zarafa.calendar.ui.CalendarMainPanel = Ext.extend(Zarafa.common.ui.ContextMainPa
 	 * @property
 	 * @type Zarafa.core.ui.SwitchViewContentContainer
 	 */
-	viewPanel : undefined,
+	viewPanel: undefined,
 
 	/**
 	 * @constructor
 	 * @param {Object} config Configuration object
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		config = config || {};
 
 		config = Ext.applyIf(config, {
-			xtype : 'zarafa.calendarmainpanel',
+			xtype: 'zarafa.calendarmainpanel',
 			layout: 'fit',
 			items: [{
 				xtype: 'zarafa.switchviewcontentcontainer',
 				ref: 'viewPanel',
-				layout : 'card',
-				lazyItems : this.initViews(config.context)
+				layout: 'card',
+				lazyItems: this.initViews(config.context)
 			}],
-			tbar : {
+			tbar: {
 				xtype: 'zarafa.calendarpaneltoolbar',
-				defaultTitle : _('Calendar'),
-				paging : container.populateInsertionPoint('context.calendar.toolbar.paging', this),
-				items : container.populateInsertionPoint('context.calendar.toolbar.item', this),
-				context : config.context,
-				model : config.context.getModel()
+				defaultTitle: _('Calendar'),
+				paging: container.populateInsertionPoint('context.calendar.toolbar.paging', this),
+				items: container.populateInsertionPoint('context.calendar.toolbar.item', this),
+				context: config.context,
+				model: config.context.getModel()
 			}
 		});
 
@@ -80,17 +80,17 @@ Zarafa.calendar.ui.CalendarMainPanel = Ext.extend(Zarafa.common.ui.ContextMainPa
 	 * @return {Array} array of config objects of different views
 	 * @private
 	 */
-	initViews : function(context)
+	initViews: function(context)
 	{
 		// add the standard available views
 		var allViews = [{
-			xtype : 'zarafa.calendarblockpanel',
-			id    : 'calendar_blocks',
-			context : context
+			xtype: 'zarafa.calendarblockpanel',
+			id   : 'calendar_blocks',
+			context: context
 		},{
-			xtype : 'zarafa.calendargrid',
-			id    : 'calendar_grid',
-			context : context
+			xtype: 'zarafa.calendargrid',
+			id   : 'calendar_grid',
+			context: context
 		}];
 
 		var additionalViewItems = container.populateInsertionPoint('context.calendar.views', this, context);
@@ -104,7 +104,7 @@ Zarafa.calendar.ui.CalendarMainPanel = Ext.extend(Zarafa.common.ui.ContextMainPa
 	 * At this time all events can be registered.
 	 * @private
 	 */
-	initEvents : function()
+	initEvents: function()
 	{
 		if (Ext.isDefined(this.context)) {
 			this.mon(this.context, 'viewchange', this.onViewChange, this);
@@ -123,7 +123,7 @@ Zarafa.calendar.ui.CalendarMainPanel = Ext.extend(Zarafa.common.ui.ContextMainPa
 	 * @param {Zarafa.calendar.data.Views} viewId The ID of the selected view
 	 * @private
 	 */
-	onViewChange : function(context, viewId)
+	onViewChange: function(context, viewId)
 	{
 		switch (viewId) {
 			case Zarafa.calendar.data.Views.BLOCKS:

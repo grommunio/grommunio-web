@@ -13,13 +13,20 @@ Zarafa.common.delegates.dialogs.DelegatePermissionPanel = Ext.extend(Ext.form.Fo
 	 * @cfg {Array} folderTypes array of folder type that will be used
 	 * generate permissions combo box field
 	 */
-	folderTypes : ['calendar','tasks', 'inbox', 'contacts', 'notes','journal'],
+	folderTypes: {
+		'calendar': _('Calendar'),
+		'tasks': _('Tasks'),
+		'inbox': _('Inbox'),
+		'contacts': _('Contacts'),
+		'notes': _('Notes'),
+		'journal':_('Journal')
+	},
 
 	/**
 	 * @constructor
 	 * @param config Configuration structure
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		config = config || {};
 
@@ -28,9 +35,9 @@ Zarafa.common.delegates.dialogs.DelegatePermissionPanel = Ext.extend(Ext.form.Fo
 
 		Ext.applyIf(config, {
 			// Override from Ext.Component
-			xtype : 'zarafa.delegatepermissionpanel',
-			labelAlign : 'left',
-			items : this.createPanelItems()
+			xtype: 'zarafa.delegatepermissionpanel',
+			labelAlign: 'left',
+			items: this.createPanelItems()
 		});
 
 		Zarafa.common.delegates.dialogs.DelegatePermissionPanel.superclass.constructor.call(this, config);
@@ -41,31 +48,31 @@ Zarafa.common.delegates.dialogs.DelegatePermissionPanel = Ext.extend(Ext.form.Fo
 	 * @return {Array} array of items that should be added to panel.
 	 * @private
 	 */
-	createPanelItems : function()
+	createPanelItems: function()
 	{
 		return [{
-			xtype : 'fieldset',
-			style : {
-				margin : '10px',
-				padding : '10px'
+			xtype: 'fieldset',
+			style: {
+				margin: '10px',
+				padding: '10px'
 			},
-			title : _('This delegate has the following permissions'),
-			autoHeight : true,
-			autoWidth : true,
-			cls : 'zarafa-fieldset',
-			labelAlign : 'left',
-			items : this.createFieldItems(this.folderTypes)
+			title: _('This delegate has the following permissions'),
+			autoHeight: true,
+			autoWidth: true,
+			cls: 'zarafa-fieldset',
+			labelAlign: 'left',
+			items: this.createFieldItems(this.folderTypes)
 		}, {
-			xtype : 'checkbox',
-			boxLabel : _('Delegate can see my private items.'),
-			style: 'margin-left : 10px;',
-			ref : 'delegatePrivateCheck',
-			name : 'can_see_private',
-			hideLabel : true,
-			checked : false,
-			listeners : {
-				check : this.onPrivateCheck,
-				scope : this
+			xtype: 'checkbox',
+			boxLabel: _('Delegate can see my private items.'),
+			style: 'margin-left: 10px;',
+			ref: 'delegatePrivateCheck',
+			name: 'can_see_private',
+			hideLabel: true,
+			checked: false,
+			listeners: {
+				check: this.onPrivateCheck,
+				scope: this
 			}
 		}];
 	},
@@ -74,18 +81,18 @@ Zarafa.common.delegates.dialogs.DelegatePermissionPanel = Ext.extend(Ext.form.Fo
 	 * Generic function to create check box for delegate meeting rules check box.
 	 * @return {Obect} config object to create {@link Ext.form.CheckBox CheckBox}.
 	 */
-	createDelegateMeetingRuleCheck : function()
+	createDelegateMeetingRuleCheck: function()
 	{
 		return{
-			xtype : 'checkbox',
-			boxLabel : _('Delegate receives copies of meeting-related messages sent to me.'),
-			ref : '../delegateMeetingRuleCheck',
-			name : 'has_meeting_rule',
-			hideLabel : true,
-			checked : false,
-			listeners : {
-				check : this.onDelegateRuleCheck,
-				scope : this
+			xtype: 'checkbox',
+			boxLabel: _('Delegate receives copies of meeting-related messages sent to me.'),
+			ref: '../delegateMeetingRuleCheck',
+			name: 'has_meeting_rule',
+			hideLabel: true,
+			checked: false,
+			listeners: {
+				check: this.onDelegateRuleCheck,
+				scope: this
 			}
 		};
 	},
@@ -97,47 +104,47 @@ Zarafa.common.delegates.dialogs.DelegatePermissionPanel = Ext.extend(Ext.form.Fo
 	 * @return {Array} items array to create a {@link Ext.form.ComboBox ComboBox}.
 	 * @private
 	 */
-	createFieldItems : function(folderTypes)
+	createFieldItems: function(folderTypes)
 	{
 		var items = [];
-		for(var i =0; i < folderTypes.length; i++) {
 
+		Ext.iterate(folderTypes, function(key, value){
 			var profileStore = {
-				xtype : 'jsonstore',
-				fields : ['name', 'value'],
-				data : Zarafa.common.delegates.data.DelegatePermissionProfiles
+				xtype: 'jsonstore',
+				fields: ['name', 'value'],
+				data: Zarafa.common.delegates.data.DelegatePermissionProfiles
 			};
 
 			var item = {
-				xtype : 'combo',
-				name : 'rights_' + folderTypes[i],
-				boxMinWidth : 200,
-				anchor : '100%',
-				fieldLabel : Ext.util.Format.capitalize(folderTypes[i]),
-				store : profileStore,
-				mode : 'local',
-				triggerAction : 'all',
-				displayField : 'name',
-				valueField : 'value',
-				lazyInit : false,
+				xtype: 'combo',
+				name: 'rights_' + key,
+				boxMinWidth: 200,
+				anchor: '100%',
+				fieldLabel: value,
+				store: profileStore,
+				mode: 'local',
+				triggerAction: 'all',
+				displayField: 'name',
+				valueField: 'value',
+				lazyInit: false,
 				// "Full Control", "No Rights" etc. folder permissions are not supported
 				// by the delegate so we just show the "Other" as text in combo box.
-				valueNotFoundText : _('Other'),
-				forceSelection : true,
-				editable : false,
-				value : Zarafa.core.mapi.Rights.RIGHTS_NONE,
-				listeners : {
-					select : this.onProfileSelect,
-					scope : this
+				valueNotFoundText: _('Other'),
+				forceSelection: true,
+				editable: false,
+				value: Zarafa.core.mapi.Rights.RIGHTS_NONE,
+				listeners: {
+					select: this.onProfileSelect,
+					scope: this
 				}
 			};
 			items.push(item);
 
-			if(folderTypes[i] === 'calendar') {
+			if(key === 'calendar') {
 				items.push(this.createDelegateMeetingRuleCheck());
 			}
-			
-		}
+		}, this);
+
 		return items;
 	},
 
@@ -146,7 +153,7 @@ Zarafa.common.delegates.dialogs.DelegatePermissionPanel = Ext.extend(Ext.form.Fo
 	 * @param {Zarafa.common.delegates.data.DelegateRecord} record The record update the panel with.
 	 * @param {Boolean} contentReset force the component to perform a full update of the data.
 	 */
-	update : function(record, contentReset)
+	update: function(record, contentReset)
 	{
 		this.record = record;
 
@@ -160,7 +167,7 @@ Zarafa.common.delegates.dialogs.DelegatePermissionPanel = Ext.extend(Ext.form.Fo
 	 * @param {Zarafa.common.delegates.data.DelegateRecord} record The record update the panel with.
 	 * @param {Boolean} contentReset force the component to perform a full update of the data.
 	 */
-	updateUI : function(record, contentReset)
+	updateUI: function(record, contentReset)
 	{
 		if(contentReset || record.isModifiedSinceLastUpdate('rights_calendar')) {
 			var calendarRights = record.get('rights_calendar');
@@ -177,7 +184,7 @@ Zarafa.common.delegates.dialogs.DelegatePermissionPanel = Ext.extend(Ext.form.Fo
 	 * the values from this {@link Ext.Panel panel}.
 	 * @param {Zarafa.core.data.IPMRecord} record The record to update
 	 */
-	updateRecord : function(record)
+	updateRecord: function(record)
 	{
 		this.getForm().updateRecord(record);
 	},
@@ -190,7 +197,7 @@ Zarafa.common.delegates.dialogs.DelegatePermissionPanel = Ext.extend(Ext.form.Fo
 	 * @param {Number} index index of the currently selected record in combobox
 	 * @private
 	 */
-	onProfileSelect : function(comboBox, record, index)
+	onProfileSelect: function(comboBox, record, index)
 	{
 		var type = comboBox.name;
 
@@ -219,7 +226,7 @@ Zarafa.common.delegates.dialogs.DelegatePermissionPanel = Ext.extend(Ext.form.Fo
 	 * @param {Boolean} checked current state of the checkbox.
 	 * @private
 	 */
-	onDelegateRuleCheck : function(checkBox, checked)
+	onDelegateRuleCheck: function(checkBox, checked)
 	{
 		this.record.set('has_meeting_rule', checked);
 	},
@@ -231,7 +238,7 @@ Zarafa.common.delegates.dialogs.DelegatePermissionPanel = Ext.extend(Ext.form.Fo
 	 * @param {Boolean} checked current state of the checkbox.
 	 * @private
 	 */
-	onPrivateCheck : function(checkBox, checked)
+	onPrivateCheck: function(checkBox, checked)
 	{
 		this.record.set('can_see_private', checked);
 	}

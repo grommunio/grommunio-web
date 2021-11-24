@@ -243,7 +243,7 @@
 													sleep(1);
 													$this->createLinkedSearchFolder($newSearchFolder);
 												}
-											}else {
+											} else {
 												$this->addFolder($store, $parententryid, $action["props"]["display_name"], $action["props"]["container_class"]);
 											}
 										if($action["props"]["container_class"] === "IPF.Contact"){
@@ -268,7 +268,10 @@
 								} else {
 									// We're closing a Shared Store, simply remove it from the session.
 									$entryid = $GLOBALS["mapisession"]->removeUserStore($action["user_name"]);
-									$this->removeFromFavorite(hex2bin($action["store_entryid"]), $store, PR_WLINK_STORE_ENTRYID, false);
+
+									if (isset($action["remove_favorites"]) && $action["remove_favorites"]) {
+										$this->removeFromFavorite(hex2bin($action["store_entryid"]), $store, PR_WLINK_STORE_ENTRYID, false);
+									}
 								}
 
 								$data = array();
@@ -835,10 +838,10 @@
 			if (!empty($store)) {
 				$props = mapi_getprops($store, array(PR_FINDER_ENTRYID));
 				try {
-					$finderFolder = mapi_msgstore_openentry($store, $props[PR_FINDER_ENTRYID]);
-					$hierarchyTable = mapi_folder_gethierarchytable($finderFolder, MAPI_DEFERRED_ERRORS);
-					$finderHierarchyTables[$props[PR_FINDER_ENTRYID]] = $hierarchyTable;
-				}
+				$finderFolder = mapi_msgstore_openentry($store, $props[PR_FINDER_ENTRYID]);
+				$hierarchyTable = mapi_folder_gethierarchytable($finderFolder, MAPI_DEFERRED_ERRORS);
+				$finderHierarchyTables[$props[PR_FINDER_ENTRYID]] = $hierarchyTable;
+			}
 				catch(Exception $e) {
 				}
 			}

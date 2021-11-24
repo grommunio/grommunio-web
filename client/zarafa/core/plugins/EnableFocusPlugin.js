@@ -21,13 +21,13 @@ Zarafa.core.plugins.EnableFocusPlugin = Ext.extend(Object, {
 	 * @property
 	 * @type Ext.Element
 	 */
-	focusEl : undefined,
+	focusEl: undefined,
 
 	/**
 	 * @constructor
 	 * @param {Object} config Configuration object
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		Ext.apply(this, config);
 	},
@@ -36,7 +36,7 @@ Zarafa.core.plugins.EnableFocusPlugin = Ext.extend(Object, {
 	 * Initializes the {@link Ext.Component Component} to which this plugin has been hooked.
 	 * @param {Ext.Component} field The component on which the plugin is installed
 	 */
-	init : function(field)
+	init: function(field)
 	{
 		this.field = field;
 		field.enableFocusPlugin = this;
@@ -58,7 +58,7 @@ Zarafa.core.plugins.EnableFocusPlugin = Ext.extend(Object, {
 	 * This return value is only used when this function is called as interceptor function.
 	 * @private
 	 */
-	focus : function()
+	focus: function()
 	{
 		if(this.field.rendered && !this.field.isDestroyed) {
 			if(this.focusEl) {
@@ -98,27 +98,27 @@ Zarafa.core.plugins.EnableFocusPlugin = Ext.extend(Object, {
 	 * on {@link #focusEl}, so once focus is set on {@link #focusEl} keyboard events can be
 	 * listened by the components which register this plugin.
 	 */
-	onRender : function()
+	onRender: function()
 	{
 		if(this.field) {
 			var element = this.field.getEl();
 
 			// this element allows the panel to be focused for keyboard events
 			this.focusEl = element.createChild({
-				tag : 'a',
-				href : '#',
+				tag: 'a',
+				href: '#',
 				// Disable tab-index, and position it somewhere where it cannot be seen
 				// by the user. This will make the element completely invisible for the
 				// user while we can benefit from the focus capabilities.
-				tabindex : -1,
-				style : 'position: absolute; left:-10000px; top:-10000px;'
+				tabindex: -1,
+				style: 'position: absolute; left:-10000px; top:-10000px;'
 			});
 
 			this.focusEl.swallowEvent('click', true);
 
 			this.field.mon(element, {
-				click : this.onFieldClick,
-				scope : this
+				click: this.onFieldClick,
+				scope: this
 			});
 		}
 	},
@@ -131,7 +131,7 @@ Zarafa.core.plugins.EnableFocusPlugin = Ext.extend(Object, {
 	 * @param {Object} opt The options configuration passed to the event call.
 	 * @private
 	 */
-	onFieldClick : function(eventObj, element, opt)
+	onFieldClick: function(eventObj, element, opt)
 	{
 		var focusedElement = Ext.get(document.activeElement);
 		var clickedElement = Ext.get(element);

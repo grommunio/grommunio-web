@@ -13,20 +13,20 @@ Zarafa.settings.ui.SettingsCategoryTab = Ext.extend(Ext.Container, {
 	 * @cfg {Zarafa.settings.SettingsContext} context The settings context
 	 * for which these tabs are shown.
 	 */
-	context : undefined,
+	context: undefined,
 
 	/**
 	 * @cfg {String} title The title of the category, this string
 	 * will be displayed in the left panel of the
 	 * {@link Zarafa.settings.ui.SettingsMainPanel}.
 	 */
-	title : '',
+	title: '',
 
 	/**
 	 * @cfg {Number} categoryIndex The index of the category
 	 * in the {@link Zarafa.settings.ui.SettingsCategoryPanel category list}
 	 */
-	categoryIndex : 100,
+	categoryIndex: 100,
 
 	/**
 	 * @cfg {Zarafa.settings.ui.SettingsCategory} category The category
@@ -34,31 +34,31 @@ Zarafa.settings.ui.SettingsCategoryTab = Ext.extend(Ext.Container, {
 	 * that category will be activated through
 	 * {@link Zarafa.settings.SettingsContext#setView}
 	 */
-	category : undefined,
+	category: undefined,
 
 	/**
 	 * @cfg {String} iconCls The CSS classname which should be
 	 * applied to the tab to display an icon next to the {@link #title}.
 	 */
-	iconCls : 'zarafa-settings-category-tab-icon',
+	iconCls: 'zarafa-settings-category-tab-icon',
 
 	/**
 	 * @cfg {String} activeCls The CSS classname which should be
 	 * applied to the tab when it has been marked {@link #setActive active}.
 	 */
-	activeCls : 'zarafa-settings-category-tab-active',
+	activeCls: 'zarafa-settings-category-tab-active',
 
 	/**
 	 * @constructor
 	 * @param {Object} config Configuration object
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		config = config || {};
 
 		Ext.applyIf(config, {
-			cls : 'zarafa-settings-category-tab',
-			html : config.title || this.title,
+			cls: 'zarafa-settings-category-tab',
+			html: config.title || this.title,
 			listeners: {
 				afterrender: this.onAfterRender,
 				scope: this
@@ -74,7 +74,7 @@ Zarafa.settings.ui.SettingsCategoryTab = Ext.extend(Ext.Container, {
 	 * @param {String} id The ID to check
 	 * @return {Boolean} True if the given ID is handled by this tab
 	 */
-	isTabForId : function(id)
+	isTabForId: function(id)
 	{
 		return (this.category && this.category.getId() === id);
 	},
@@ -83,7 +83,7 @@ Zarafa.settings.ui.SettingsCategoryTab = Ext.extend(Ext.Container, {
 	 * Activate the tab by applying the {@link #activeCls} to the {@link #getEl element}
 	 * @param {Boolean} active False to deactivate the tab
 	 */
-	setActive : function(active)
+	setActive: function(active)
 	{
 		if (active !== false) {
 			this.getEl().addClass(this.activeCls);
@@ -97,7 +97,7 @@ Zarafa.settings.ui.SettingsCategoryTab = Ext.extend(Ext.Container, {
 	 * {@link Ext.Element#addClassOnFocus} and {@link Ext.Element#addClassOnOver} for the {@link #el mail element}.
 	 * @private
 	 */
-	onRender : function()
+	onRender: function()
 	{
 		Zarafa.settings.ui.SettingsCategoryTab.superclass.onRender.apply(this, arguments);
 
@@ -116,7 +116,7 @@ Zarafa.settings.ui.SettingsCategoryTab = Ext.extend(Ext.Container, {
 	 * Called after the Tab has been rendered, this will add the icon
 	 * @private
 	 */
-	onAfterRender : function()
+	onAfterRender: function()
 	{
 		var el = this.getEl();
 
@@ -140,7 +140,7 @@ Zarafa.settings.ui.SettingsCategoryTab = Ext.extend(Ext.Container, {
 	 * this will call the {@link #handler} function.
 	 * @private
 	 */
-	onClick : function()
+	onClick: function()
 	{
 		if (this.context && this.category) {
 			this.context.setView(this.category.id);

@@ -9,18 +9,18 @@ Zarafa.hierarchy.data.MAPIFolderPermissionsSubStore = Ext.extend(Zarafa.core.dat
 	 * @constructor
 	 * @param {Object} config Configuration object
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		config = config || {};
 
 		var recordType = Zarafa.core.data.RecordFactory.getRecordClassByCustomType(Zarafa.core.data.RecordCustomObjectType.ZARAFA_USER_PERMISSION);
 
 		Ext.applyIf(config, {
-			writer : new Zarafa.hierarchy.data.JsonPermissionsWriter(),
+			writer: new Zarafa.hierarchy.data.JsonPermissionsWriter(),
 			// provide a default reader
-			reader : new Zarafa.core.data.JsonReader({
-				root : 'item',
-				dynamicRecord : false
+			reader: new Zarafa.core.data.JsonReader({
+				root: 'item',
+				dynamicRecord: false
 			}, recordType)
 		});
 

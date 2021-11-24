@@ -12,27 +12,27 @@ Zarafa.calendar.ui.AppointmentView = Ext.extend(Zarafa.calendar.ui.AbstractDateR
 	 * @cfg {String} timeFormat The time format which must be applied to appointments
 	 * when displaying the time period (see {@link Date.format format}).
 	 */
-	// # TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
-	timeFormat : _('G:i'),
+	// # TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
+	timeFormat: _('G:i'),
 
 	/**
 	 * @cfg {Boolean} stripVisible Enables the BusyStatus strip on the left side of
 	 * the appointment. The &lt;div&gt; which is being rendered for this strip contains
 	 * the styling to correctly mark the appointment with the given BusyStatus.
 	 */
-	stripVisible : true,
+	stripVisible: true,
 
 	/**
 	 * @cfg {Number} stripWidth The width of the strip which contains the CSS styling for
 	 * marking an appointment with a particular BusyStatus (free, tentative, out of office).
 	 * This width is only applied when {@link #stripVisible} is true.
 	 */
-	stripWidth : 6,
+	stripWidth: 6,
 
 	/**
 	 * @cfg {Zarafa.core.data.IPMRecord} The record which is being displayed by this {@link Zarafa.core.ui.View view}.
 	 */
-	record : undefined,
+	record: undefined,
 
 	/**
 	 * Indicates if the this appointment has been selected by the user. This can be
@@ -40,7 +40,7 @@ Zarafa.calendar.ui.AppointmentView = Ext.extend(Zarafa.calendar.ui.AbstractDateR
 	 * @property
 	 * @type Boolean
 	 */
-	selected : false,
+	selected: false,
 
 	/**
 	 * Indicates if the folder in which this appointment lives has been selected by the
@@ -50,7 +50,7 @@ Zarafa.calendar.ui.AppointmentView = Ext.extend(Zarafa.calendar.ui.AbstractDateR
 	 * @property
 	 * @type Boolean
 	 */
-	active : false,
+	active: false,
 
 	/**
 	 * The adjusted daterange object. This is an alternative to the {@link #dateRange} object.
@@ -62,7 +62,7 @@ Zarafa.calendar.ui.AppointmentView = Ext.extend(Zarafa.calendar.ui.AbstractDateR
 	 * @property
 	 * @type Zarafa.core.DateRange
 	 */
-	adjustedDateRange : undefined,
+	adjustedDateRange: undefined,
 
 	/**
 	 * The color scheme set by the {@link Zarafa.calendar.ui.AbstractCalendarView parent calendar View}.
@@ -77,15 +77,16 @@ Zarafa.calendar.ui.AppointmentView = Ext.extend(Zarafa.calendar.ui.AbstractDateR
 	 * @property
 	 * @type Ext.Element
 	 */
-	focusEl : undefined,
+	focusEl: undefined,
 
 	/**
 	 * Initialises the AppointmentView.
 	 */
-	init : function()
+	init: function()
 	{
 		Zarafa.calendar.ui.AppointmentView.superclass.init.call(this);
 
+		this.timeFormat = container.settingsModel.get('zarafa/v1/main/datetime_time_format');
 		if (this.record) {
 			this.updateDateRange(this.record);
 		}
@@ -95,26 +96,26 @@ Zarafa.calendar.ui.AppointmentView = Ext.extend(Zarafa.calendar.ui.AbstractDateR
 	 * Renders the view.
 	 * @param {Ext.Element} container The Ext.Element into which the view must be rendered.
 	 */
-	render : function(container)
+	render: function(container)
 	{
 		Zarafa.calendar.ui.AppointmentView.superclass.render.apply(this, arguments);
 
 		// Create the focusElement and relay the important events to this.
 		this.create({
-			tag : 'a',
-			href : '#',
+			tag: 'a',
+			href: '#',
 			// Disable tab-index, and position it somewhere where it cannot be seen
 			// by the user. This will make the element completely invisible for the
 			// user while we can benefit from the focus capabilities.
-			tabindex : -1,
-			style : 'position: absolute; left:-10000px; top:-10000px;'
+			tabindex: -1,
+			style: 'position: absolute; left:-10000px; top:-10000px;'
 		}, this.container, 'focusEl');
 	},
 
 	/**
 	 * Focuses on the {@link #focusEl}.
 	 */
-	focus : function()
+	focus: function()
 	{
 		if(this.focusEl) {
 			this.focusEl.focus();
@@ -127,7 +128,7 @@ Zarafa.calendar.ui.AppointmentView = Ext.extend(Zarafa.calendar.ui.AbstractDateR
 	 * This must be called whenever the {@link #record} has been updated.
 	 * @param {Zarafa.core.data.IPMRecord} record The record which must be used to update the {@link #dateRange}.
 	 */
-	updateDateRange : function(record)
+	updateDateRange: function(record)
 	{
 		var range = this.getDateRange();
 		var adjustedRange = this.getAdjustedDateRange();
@@ -138,7 +139,7 @@ Zarafa.calendar.ui.AppointmentView = Ext.extend(Zarafa.calendar.ui.AbstractDateR
 		if (range) {
 			range.set(start, end);
 		} else {
-			range = new Zarafa.core.DateRange({ startDate : start, dueDate : end });
+			range = new Zarafa.core.DateRange({ startDate: start, dueDate: end });
 			this.setDateRange(range);
 		}
 
@@ -148,7 +149,7 @@ Zarafa.calendar.ui.AppointmentView = Ext.extend(Zarafa.calendar.ui.AbstractDateR
 		if (adjustedRange) {
 			adjustedRange.set(start, end);
 		} else {
-			adjustedRange = new Zarafa.core.DateRange({ startDate : start, dueDate : end });
+			adjustedRange = new Zarafa.core.DateRange({ startDate: start, dueDate: end });
 			this.setAdjustedDateRange(adjustedRange);
 		}
 	},
@@ -157,7 +158,7 @@ Zarafa.calendar.ui.AppointmentView = Ext.extend(Zarafa.calendar.ui.AbstractDateR
 	 * Sets {@link #adjustedDateRange}. This method does not auto-update.
 	 * @param {Zarafa.core.DateRange} dateRange
 	 */
-	setAdjustedDateRange : function(dateRange)
+	setAdjustedDateRange: function(dateRange)
 	{
 		this.adjustedDateRange = dateRange;
 	},
@@ -166,7 +167,7 @@ Zarafa.calendar.ui.AppointmentView = Ext.extend(Zarafa.calendar.ui.AbstractDateR
 	 * Returns the current {@link #adjustedDateRange}.
 	 * @return {Zarafa.core.DateRange} dateRange
 	 */
-	getAdjustedDateRange : function()
+	getAdjustedDateRange: function()
 	{
 		return this.adjustedDateRange;
 	},
@@ -177,7 +178,7 @@ Zarafa.calendar.ui.AppointmentView = Ext.extend(Zarafa.calendar.ui.AbstractDateR
 	 * this value.
 	 * @param {Boolean} selected true iff the appointment is selected.
 	 */
-	setSelected : function(selected)
+	setSelected: function(selected)
 	{
 		this.selected = selected;
 	},
@@ -185,7 +186,7 @@ Zarafa.calendar.ui.AppointmentView = Ext.extend(Zarafa.calendar.ui.AbstractDateR
 	/**
 	 * @return {Boolean} true iff the appointment is selected.
 	 */
-	isSelected : function()
+	isSelected: function()
 	{
 		return this.selected;
 	},
@@ -196,7 +197,7 @@ Zarafa.calendar.ui.AppointmentView = Ext.extend(Zarafa.calendar.ui.AbstractDateR
 	 * Appointments from that folder are rendered differently to show the distinction.
 	 * @param {Boolean} parentFolderSelected true iff the appointment parent folder is selected.
 	 */
-	setActive : function(active)
+	setActive: function(active)
 	{
 		this.active = active;
 	},
@@ -204,7 +205,7 @@ Zarafa.calendar.ui.AppointmentView = Ext.extend(Zarafa.calendar.ui.AbstractDateR
 	/**
 	 * @return {Boolean} true iff the appointment is active (parent folder is selected).
 	 */
-	isActive : function()
+	isActive: function()
 	{
 		return this.active;
 	},
@@ -216,7 +217,7 @@ Zarafa.calendar.ui.AppointmentView = Ext.extend(Zarafa.calendar.ui.AbstractDateR
 	 * @return {Array} The array of strings containing the CSS names for the icons
 	 * @private
 	 */
-	iconRenderer : function()
+	iconRenderer: function()
 	{
 		var record = this.getRecord();
 		var icons = [];
@@ -243,7 +244,7 @@ Zarafa.calendar.ui.AppointmentView = Ext.extend(Zarafa.calendar.ui.AbstractDateR
 	 * @return {String} The body-header text
 	 * @private
 	 */
-	mainTextRenderer : function()
+	mainTextRenderer: function()
 	{
 		return Ext.util.Format.htmlEncode(this.record.get('subject'));
 	},
@@ -255,7 +256,7 @@ Zarafa.calendar.ui.AppointmentView = Ext.extend(Zarafa.calendar.ui.AbstractDateR
 	 * @return {String} The body text
 	 * @private
 	 */
-	subTextRenderer : function()
+	subTextRenderer: function()
 	{
 		var location = this.record.get('location');
 		if(!Ext.isEmpty(location)) {
@@ -268,7 +269,7 @@ Zarafa.calendar.ui.AppointmentView = Ext.extend(Zarafa.calendar.ui.AbstractDateR
 	/**
 	 * @return {String} returns the appointment ID.
 	 */
-	getId : function()
+	getId: function()
 	{
 		return this.record.id;
 	},
@@ -276,7 +277,7 @@ Zarafa.calendar.ui.AppointmentView = Ext.extend(Zarafa.calendar.ui.AbstractDateR
 	/**
 	 * @return {Ext.data.Record} the appointment record this view presents.
 	 */
-	getRecord : function()
+	getRecord: function()
 	{
 		return this.record;
 	},
@@ -286,7 +287,7 @@ Zarafa.calendar.ui.AppointmentView = Ext.extend(Zarafa.calendar.ui.AbstractDateR
 	 * enumeration to indicate the status as free, tentative, busy, and out of office respectively.
 	 * @return {Zarafa.core.mapi.BusyStatus} the busy status of the appointment.
 	 */
-	getBusyStatus : function()
+	getBusyStatus: function()
 	{
 		return this.record.get('busystatus');
 	},
@@ -297,7 +298,7 @@ Zarafa.calendar.ui.AppointmentView = Ext.extend(Zarafa.calendar.ui.AbstractDateR
 	 * @return {String} The lowercase string of the busystatus
 	 *
 	 */
-	getBusyStatusName : function()
+	getBusyStatusName: function()
 	{
 		return Zarafa.core.mapi.BusyStatus.getName(this.getBusyStatus()).toLowerCase();
 	},
@@ -306,7 +307,7 @@ Zarafa.calendar.ui.AppointmentView = Ext.extend(Zarafa.calendar.ui.AbstractDateR
 	 * Gets the label of the appointment.
 	 * @return {String} the label of the appointment.
 	 */
-	getLabel : function()
+	getLabel: function()
 	{
 		return this.record.get('label');
 	},
@@ -315,7 +316,7 @@ Zarafa.calendar.ui.AppointmentView = Ext.extend(Zarafa.calendar.ui.AbstractDateR
 	 * Indicates if this appointment is an all-day event
 	 * @return {Boolean} True if this is an allday event
 	 */
-	isAllDay : function()
+	isAllDay: function()
 	{
 		return this.getDateRange().isAllDay();
 	},
@@ -325,7 +326,7 @@ Zarafa.calendar.ui.AppointmentView = Ext.extend(Zarafa.calendar.ui.AbstractDateR
 	 * {@link #stripVisible} and {@link #stripWidth} values.
 	 * @return {Number} The width of the strip
 	 */
-	getStripWidth : function()
+	getStripWidth: function()
 	{
 		return (this.stripVisible) ? this.stripWidth : 0;
 	},

@@ -12,40 +12,40 @@ Zarafa.common.categories.dialogs.RenameCategoryPanel = Ext.extend(Zarafa.core.ui
 	 * @cfg {Zarafa.common.categories.data.CategoriesStore} store categories store which
 	 * contains the categories. default is null.
 	 */
-	store : null,
+	store: null,
 
 	/**
 	 * @cfg {Boolean} isCategoryGrid When this dialog is created from a
 	 * {@link Zarafa.common.categories.dialogs.CategoriesContentPanel} this property will be true
 	 * else false.
 	 */
-	isCategoryGrid : false,
+	isCategoryGrid: false,
 
 	/**
 	 * @cfg {String} color Default color which requires to show in
 	 * {@link Zarafa.common.ui.ColorPicker ColorPicker} when
 	 * this dialog is instantiated.
 	 */
-	color : undefined,
+	color: undefined,
 
 	/**
 	 * @cfg {String} categoryName Default category name which requires to show in text field
 	 * when this dialog is instantiated.
 	 */
-	categoryName : undefined,
+	categoryName: undefined,
 
 	/**
 	 * @cfg {Zarafa.core.data.IPMStore} recordStore store which
 	 * contains the {@link Zarafa.core.data.MAPIRecord record} on which
 	 * category is going to apply. default is undefined.
 	 */
-	recordStore : undefined,
+	recordStore: undefined,
 
 	/**
 	 * @constructor
 	 * @param {Object} config Configuration object
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		config = config || {};
 
@@ -55,7 +55,7 @@ Zarafa.common.categories.dialogs.RenameCategoryPanel = Ext.extend(Zarafa.core.ui
 
 		Ext.applyIf(config, {
 			xtype: 'zarafa.renamecategorypanel',
-			title : _('Rename Category'),
+			title: _('Rename Category'),
 			cls: 'k-renamecategorypanel',
 			width: 369,
 			height: 120,
@@ -66,9 +66,9 @@ Zarafa.common.categories.dialogs.RenameCategoryPanel = Ext.extend(Zarafa.core.ui
 				ref: 'formPanel',
 				items: [{
 					xtype: 'displayfield',
-					html : this.getDisplayText(config.categoryName),
-					htmlEncode : true,
-					hideLabel : true
+					html: this.getDisplayText(config.categoryName),
+					htmlEncode: true,
+					hideLabel: true
 				},{
 					xtype: 'zarafa.compositefield',
 					hideLabel: true,
@@ -78,16 +78,16 @@ Zarafa.common.categories.dialogs.RenameCategoryPanel = Ext.extend(Zarafa.core.ui
 						name: 'color',
 						ref: '../color',
 						border: false,
-						value : config.color
+						value: config.color
 					},{
 						xtype: 'textfield',
 						name: 'name',
 						ref: '../name',
 						hideLabel: true,
 						anchor: '100%',
-						selectOnFocus : true,
+						selectOnFocus: true,
 						flex: 1,
-						value : config.categoryName,
+						value: config.categoryName,
 						enableKeyEvents: true,
 						listeners: {
 							specialkey: this.onSpecialKey,
@@ -117,7 +117,7 @@ Zarafa.common.categories.dialogs.RenameCategoryPanel = Ext.extend(Zarafa.core.ui
 	 * @param {String} category category name which is used in message composition.
 	 * @returns {String} return message for the rename dialog.
 	 */
-	getDisplayText : function (category)
+	getDisplayText: function (category)
 	{
 		var message = String.format(_('This is the first time you have used "{0}" category.'), category);
 		message += '<BR/>';
@@ -133,7 +133,7 @@ Zarafa.common.categories.dialogs.RenameCategoryPanel = Ext.extend(Zarafa.core.ui
 	 * @param {Ext.form.TextField} field The textfield for the name of the new category
 	 * @param {Ext.EventObject} event Object with event data
 	 */
-	onSpecialKey : function(field, event)
+	onSpecialKey: function(field, event)
 	{
 		if ( event.getKey() === event.ENTER ){
 			event.preventDefault();
@@ -148,7 +148,7 @@ Zarafa.common.categories.dialogs.RenameCategoryPanel = Ext.extend(Zarafa.core.ui
 	 * @param {Ext.form.TextField} field The textfield for the name of the new category
 	 * @param {Ext.EventObject} event Object with event data
 	 */
-	onKeyDown : function(field, event)
+	onKeyDown: function(field, event)
 	{
 		var key = event.browserEvent.key;
 		if ( key === ';' || key === ',' ){
@@ -164,7 +164,7 @@ Zarafa.common.categories.dialogs.RenameCategoryPanel = Ext.extend(Zarafa.core.ui
 	 * from {@link Zarafa.common.categories.data.CategoriesStore CategoriesStore}.
 	 * @return {Object} return if found then return categories object else undefined.
 	 */
-	findCategory : function(categoryName) {
+	findCategory: function(categoryName) {
 		var categoryIndex = this.store.findExactCaseInsensitive('category', categoryName);
 		return this.store.getAt(categoryIndex);
 	},
@@ -174,7 +174,7 @@ Zarafa.common.categories.dialogs.RenameCategoryPanel = Ext.extend(Zarafa.core.ui
 	 * category by calling {@link #doRenameCategory} and also it Will
 	 * show the {@link #showWarningMessage message box} if category already exist yet.
 	 */
-	onRename : function()
+	onRename: function()
 	{
 		var categoryName = this.formPanel.name.getValue().trim();
 		// Don't allow empty category names
@@ -199,7 +199,7 @@ Zarafa.common.categories.dialogs.RenameCategoryPanel = Ext.extend(Zarafa.core.ui
 	/**
 	 * Event handler for the click event of the No button. Closes the dialog.
 	 */
-	onClickNo : function()
+	onClickNo: function()
 	{
 		var category = this.findCategory(this.categoryName);
 		category.set('used', true);
@@ -213,25 +213,24 @@ Zarafa.common.categories.dialogs.RenameCategoryPanel = Ext.extend(Zarafa.core.ui
 	 * Shows a warning message to the user.
 	 * @param {String} msg The warning message that will be shown
 	 */
-	showWarningMessage : function(msg)
+	showWarningMessage: function(msg)
 	{
 		Zarafa.common.dialogs.MessageBox.addCustomButtons({
-			title : _('Categories'),
-			msg : msg,
-			icon: Ext.MessageBox.QUESTION,
-			fn : function(button) {
+			title: _('Categories'),
+			msg: msg,
+			fn: function(button) {
 				if (button === 'merge') {
 					this.onMergeCategory();
 				} else {
 					this.formPanel.name.focus();
 				}
 			},
-			customButton : [{
-				text : _('Merge'),
-				name : 'merge'
+			customButton: [{
+				text: _('Merge'),
+				name: 'merge'
 			}, {
-				text : _('No'),
-				name : 'no'
+				text: _('No'),
+				name: 'no'
 			}],
 			scope: this
 		});
@@ -240,7 +239,7 @@ Zarafa.common.categories.dialogs.RenameCategoryPanel = Ext.extend(Zarafa.core.ui
 	/**
 	 * Function which is used to merge the categories.
 	 */
-	onMergeCategory : function()
+	onMergeCategory: function()
 	{
 		var newCategoryName = this.formPanel.name.getValue().trim();
 		var category = this.findCategory(newCategoryName);
@@ -263,7 +262,7 @@ Zarafa.common.categories.dialogs.RenameCategoryPanel = Ext.extend(Zarafa.core.ui
 	 * @param {Ext.data.Record} categoryRecord record which is going to rename.
 	 * @param {String} categoryName new name which is apply to selected category.
 	 */
-	doRenameCategory : function (categoryRecord, categoryName)
+	doRenameCategory: function (categoryRecord, categoryName)
 	{
 		categoryRecord.set('category', categoryName);
 		categoryRecord.set('used', true);

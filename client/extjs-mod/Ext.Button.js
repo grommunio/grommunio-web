@@ -8,7 +8,7 @@
 		 * on some browsers (at least Firefox), while other browsers (Chrome)
 		 * are safe.
 		 */
-		onClick : function(e)
+		onClick: function(e)
 		{
 			// Copy the original event, during focus() and blur() the
 			// 'e' will be changed to the input element that is being

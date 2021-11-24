@@ -19,7 +19,7 @@ Zarafa.common.ui.layout.SwitchBorderLayout.SwitchRegion = Ext.extend(Ext.layout.
 	 * @property
 	 * @type Boolean
 	 */
-	hidden : undefined,
+	hidden: undefined,
 
 	/**
 	 * The old {@link Ext.Component#getWidth width} or {@link Ext.Component#getHeight height}
@@ -29,7 +29,7 @@ Zarafa.common.ui.layout.SwitchBorderLayout.SwitchRegion = Ext.extend(Ext.layout.
 	 * @property
 	 * @type Number
 	 */
-	oldSize : undefined,
+	oldSize: undefined,
 
 	/**
 	 * Enables the visibility of the region (not the {@link #panel}!).
@@ -40,7 +40,7 @@ Zarafa.common.ui.layout.SwitchBorderLayout.SwitchRegion = Ext.extend(Ext.layout.
 	 *
 	 * @param {Boolean} visible False to mark the region as hidden
 	 */
-	setVisible : function(visible)
+	setVisible: function(visible)
 	{
 		var oldHidden = this.hidden;
 
@@ -71,7 +71,7 @@ Zarafa.common.ui.layout.SwitchBorderLayout.SwitchRegion = Ext.extend(Ext.layout.
 	 * is undefined, it will check the visibility of the {@link #panel}.
 	 * @return {Boolean} True when the region is visible
 	 */
-	isVisible : function()
+	isVisible: function()
 	{
 		return Ext.isDefined(this.hidden) ? !this.hidden : !this.panel.hidden;
 	},
@@ -81,7 +81,7 @@ Zarafa.common.ui.layout.SwitchBorderLayout.SwitchRegion = Ext.extend(Ext.layout.
 	 * to restrict the values to the allowed boundaries.
 	 * @return {Object} size The size for the region
 	 */
-	getSize : function()
+	getSize: function()
 	{
 		var size = Zarafa.common.ui.layout.SwitchBorderLayout.SwitchRegion.superclass.getSize.call(this);
 		return this.restrictSize(size);
@@ -94,7 +94,7 @@ Zarafa.common.ui.layout.SwitchBorderLayout.SwitchRegion = Ext.extend(Ext.layout.
 	 * @return {Object} The restricted size
 	 * @private
 	 */
-	restrictSize : function(size)
+	restrictSize: function(size)
 	{
 		var panel = this.panel;
 		var center = this.layout.center.panel;
@@ -102,7 +102,7 @@ Zarafa.common.ui.layout.SwitchBorderLayout.SwitchRegion = Ext.extend(Ext.layout.
 		var splitEl = this.splitEl;
 
 		if (this.position === 'north' || this.position === 'south') {
-			// Check if the given height is larger then the target 
+			// Check if the given height is larger then the target
 			if (size.height >= targetEl.getHeight()) {
 				if (panel.height) {
 					// If the panel was initially configured with an height,
@@ -118,7 +118,7 @@ Zarafa.common.ui.layout.SwitchBorderLayout.SwitchRegion = Ext.extend(Ext.layout.
 				size.height -= splitEl.dom.offsetHeight;
 			}
 		} else {
-			// Check if the given width is larger then the target 
+			// Check if the given width is larger then the target
 			if (size.width >= targetEl.getWidth()) {
 				if (panel.width) {
 					// If the panel was initially configured with an width,

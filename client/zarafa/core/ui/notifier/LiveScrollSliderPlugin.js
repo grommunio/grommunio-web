@@ -12,21 +12,21 @@ Zarafa.core.ui.notifier.LiveScrollSliderPlugin = Ext.extend(Zarafa.core.ui.notif
 	 * @cfg {Boolean} pagingEnabled
 	 * The pagingEnabled is true only when pagination is enabled.(Default to false)
 	 */
-	pagingEnabled : false,
+	pagingEnabled: false,
 
 	/**
 	 * @constructor
 	 * @param {Object} config Configuration object
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		config = config || {};
 
 		Ext.applyIf(config, {
 			// Position the container at the bottom-center
-			sliderContainerPosition : 'b',
-			pagingEnabled : false,
-			sliderDuration : 5000
+			sliderContainerPosition: 'b',
+			pagingEnabled: false,
+			sliderDuration: 5000
 		});
 
 		Zarafa.core.ui.notifier.LiveScrollSliderPlugin.superclass.constructor.call(this, config);

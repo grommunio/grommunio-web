@@ -8,13 +8,13 @@
 	var orig_removeChild = Ext.data.Node.prototype.removeChild;
 
 	Ext.override(Ext.data.Node, {
-		appendChild : function(node)
+		appendChild: function(node)
 		{
 			this.leaf = false;
 			return orig_appendChild.apply(this, arguments);
 		},
 
-		removeChild : function(node, destroy)
+		removeChild: function(node, destroy)
 		{
 			var ret = orig_removeChild.apply(this, arguments);
 			if (!this.hasChildNodes()) {

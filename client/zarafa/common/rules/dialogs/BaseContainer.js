@@ -14,239 +14,238 @@ Ext.namespace('Zarafa.common.rules.dialogs');
  * the rules_condition property of a {@link Zarafa.common.rules.data.RulesRecord rule}.
  */
 Zarafa.common.rules.dialogs.BaseContainer = Ext.extend(Ext.Container, {
-    /**
-     * The current number of combo boxes containers  which are present in the container.
-     * This number is changed by {@link #addComboBoxContainer} and {@link #removeComboBoxContainer}.
-     * @property
-     * @type Number
-     * @private
-     */
-    boxContainerCount : 0,
+  /**
+   * The current number of combo boxes containers which are present in the container.
+   * This number is changed by {@link #addComboBoxContainer} and {@link #removeComboBoxContainer}.
+   * @property
+   * @type Number
+   * @private
+   */
+  boxContainerCount: 0,
 
-    /**
-     * @constructor
-     * @param {Object} config Configuration object
-     */
-    constructor : function(config)
-    {
-        var addBtnTxt = config.addBtnName;
-        var removeBtnTxt = config.removeBtnName;
+  /**
+   * @constructor
+   * @param {Object} config Configuration object
+   */
+  constructor: function(config)
+  {
+    var addBtnTxt = config.addBtnName;
+    var removeBtnTxt = config.removeBtnName;
 
-        config = config || {};
-        config.plugins = Ext.value(config.plugins, []);
-        config.plugins.push('zarafa.recordcomponentupdaterplugin');
+    config = config || {};
+    config.plugins = Ext.value(config.plugins, []);
+    config.plugins.push('zarafa.recordcomponentupdaterplugin');
 
-        Ext.applyIf(config, {
-            layout : 'form',
-            id : 'rule-condition-container',
-            autoHeight: true,
-            items : [{
-                xtype : 'zarafa.compositefield',
-                hideLabel : true,
-                items : [{
-                    xtype : 'button',
-                    ref : '../addBtn',
-                    text : addBtnTxt,
-                    handler : this.addComboBoxContainer,
-                    scope : this
-                },{
-                    xtype : 'button',
-                    ref : '../removeBtn',
-                    text : removeBtnTxt,
-                    handler : this.removeComboBoxContainer,
-                    scope : this
-                }]
-            }]
-        });
+    Ext.applyIf(config, {
+      layout: 'form',
+      id: 'rule-condition-container',
+      autoHeight: true,
+      items: [{
+        xtype: 'zarafa.compositefield',
+        hideLabel: true,
+        items: [{
+          xtype: 'button',
+          ref: '../addBtn',
+          text: addBtnTxt,
+          handler: this.addComboBoxContainer,
+          scope: this
+        },{
+          xtype: 'button',
+          ref: '../removeBtn',
+          text: removeBtnTxt,
+          handler: this.removeComboBoxContainer,
+          scope: this
+        }]
+      }]
+    });
 
-        Zarafa.common.rules.dialogs.BaseContainer.superclass.constructor.call(this, config);
-    },
+    Zarafa.common.rules.dialogs.BaseContainer.superclass.constructor.call(this, config);
+  },
 
-    /**
-     * Generic function to create containers in which a condition or exception is represented. This consists of
-     * two components, the first one is the combobox in which the condition type or exception type is selected, and the
-     * second in which special option for the given condition/exception can be configured.
-     * @param {String} id for the new container.
-     * @param {Ext.data.JsonStore} profileStore store of the Conditions or Exceptions for combo box.
-     * @return {Object} config object to create a {@link Ext.Container Container}.
-     * @private
-     */
-    createComboBoxContainer : function(id, profileStore)
-    {
-        return {
-            xtype : 'container',
-            id : id,
-            flex : 1,
-            height : 25,
-            layout : {
-                type : 'hbox',
-                align : 'stretch',
-                defaultMargins : '0 5 0 0'
-            },
-            items : [{
-                xtype : 'combo',
-                width : 300,
-                store : profileStore,
-                mode : 'local',
-                triggerAction : 'all',
-                displayField : 'name',
-                valueField : 'value',
-                lazyInit : false,
-                forceSelection : true,
-                editable : false,
-                value : _('Select one...'),
-                listeners : {
-                    'select' : this.onComboSelect,
-                    'scope' : this
-                }
-            }, {
-                xtype : 'container',
-                flex : 1,
-                layout : 'card',
-                activeItem : 0,
-                items : this.createContentPanels(id)
-            }]
-        };
-    },
-
-    /**
-     * Create a set of ContentPanels which are used to configure the various condition/exception type.
-     * The array which is returned contains should be applied on a {@link Ext.Container} with
-     * a {@link Ext.layout.CardLayout CardLayout} to ensure only one container is visible
-     * at a time.
-     * In each container the user is able to set various configuration options for the
-     * condition/exception type as selected in the combobox.
-     * @param {String} baseId The baseId which is used to create the id for the individual containers.
-     * @return {Array} Array of config objects to create a {@link Ext.Container}.
-     * @private
-     */
-    createContentPanels : function(baseId)
-    {
-        return [{
-            xtype : 'container',
-            id : baseId + '-empty'
-        },{
-            xtype : 'zarafa.userselectionlink',
-            id : baseId + '-from'
-        },{
-            xtype : 'zarafa.wordselectionlink',
-            id : baseId + '-senderwords'
-        },{
-            xtype : 'zarafa.wordselectionlink',
-            id : baseId + '-recipientwords'
-        },{
-            xtype : 'zarafa.wordselectionlink',
-            id : baseId + '-words'
-        },{
-            xtype : 'zarafa.wordselectionlink',
-            id : baseId + '-bodywords'
-        },{
-            xtype : 'zarafa.wordselectionlink',
-            id : baseId + '-headerwords'
-        },{
-            xtype : 'zarafa.importancelink',
-            id : baseId + '-importance'
-        },{
-            xtype : 'zarafa.userselectionlink',
-            id : baseId + '-to'
-        },{
-            xtype : 'zarafa.senttomelink',
-            id : baseId + '-to-me-only'
-        },{
-            xtype : 'zarafa.senttolink',
-            id : baseId + '-to-me'
-        },{
-            xtype : 'zarafa.attachmentlink',
-            id : baseId + '-attachment'
-        },{
-            xtype : 'zarafa.atleatsizelink',
-            id : baseId + '-atleastsize'
-        },{
-            xtype : 'zarafa.atmostsizelink',
-            id : baseId + '-atmostsize'
-        },{
-            xtype : 'zarafa.sentccmelink',
-            id : baseId + '-cc-me'
-        },{
-            xtype : 'zarafa.namebcclink',
-            id : baseId + '-name-to-bcc'
-        },{
-            xtype : 'zarafa.nametocclink',
-            id : baseId + '-name-to-cc'
-        },{
-            xtype : 'zarafa.sensitivitylink',
-            id : baseId + '-sensitivity'
-        },{
-            xtype : 'zarafa.receivedafterlink',
-            id : baseId + '-received-after'
-        },{
-            xtype : 'zarafa.receivedbeforelink',
-            id : baseId + '-received-before'
-        },{
-            xtype : 'zarafa.nonelink',
-            id : baseId + '-no-condition'
-        }];
-    },
-
-    /**
-     * Function that can be used to add more combobox containers in a rule container.
-     * @return {Ext.Container} The combobox container which was inserted
-     * @private
-     */
-    addComboBoxContainer : function()
-    {
-        this.boxContainerCount++;
-
-        var container = this.createComboBoxContainer(this.boxContainerCount);
-        container = this.insert(this.items.getCount() - 1, container);
-
-        // Toggle the removeConditionBtn
-        this.removeBtn.setDisabled(this.boxContainerCount <= 1);
-
-        this.doLayout();
-
-        return container;
-    },
-
-    /**
-     * Function that can be used to remove a combobox containers from a rule container.
-     * This will always remove the last combobox container.
-     * @private
-     */
-    removeComboBoxContainer : function()
-    {
-        if (this.boxContainerCount > 1) {
-            // Don't remove the last item, as that is the container
-            // to add and remove conditions.
-            this.remove(this.get(this.items.getCount() - 2));
-            this.boxContainerCount--;
-
-            // Toggle the removeConditionBtn
-            this.removeBtn.setDisabled(this.boxContainerCount <= 1);
-
-            this.doLayout();
+  /**
+   * Generic function to create containers in which a condition or exception is represented. This consists of
+   * two components, the first one is the combobox in which the condition type or exception type is selected, and the
+   * second in which special option for the given condition/exception can be configured.
+   * @param {String} id for the new container.
+   * @param {Ext.data.JsonStore} profileStore store of the Conditions or Exceptions for combo box.
+   * @return {Object} config object to create a {@link Ext.Container Container}.
+   * @private
+   */
+  createComboBoxContainer: function(id, profileStore)
+  {
+    return {
+      xtype: 'container',
+      id: id,
+      flex: 1,
+      height: 25,
+      layout: {
+        type: 'hbox',
+        align: 'stretch',
+        defaultMargins: '0 5 0 0'
+      },
+      items: [{
+        xtype: 'combo',
+        width: 300,
+        store: profileStore,
+        mode: 'local',
+        triggerAction: 'all',
+        displayField: 'name',
+        valueField: 'value',
+        lazyInit: false,
+        forceSelection: true,
+        editable: false,
+        value: _('Select one...'),
+        listeners: {
+          'select': this.onComboSelect,
+          'scope': this
         }
-    },
+      }, {
+        xtype: 'container',
+        flex: 1,
+        layout: 'card',
+        activeItem: 0,
+        items: this.createContentPanels(id)
+      }]
+    };
+  },
 
-    /**
-     * {@link #addComboBoxContainer add} or {@link #removeComboBoxContainer remove}
-     * combobox containers for a rule, until the {@link #boxContainerCount} reaches
-     * the given count.
-     * @param {Number} count The desired number of combobox containers
-     * @private
-     */
-    setBoxContainerCount : function(count)
-    {
-        while (count < this.boxContainerCount) {
-            this.removeComboBoxContainer();
-        }
-        while (count > this.boxContainerCount) {
-            this.addComboBoxContainer();
-        }
-    },
+  /**
+   * Create a set of ContentPanels which are used to configure the various condition/exception type.
+   * The array which is returned contains should be applied on a {@link Ext.Container} with
+   * a {@link Ext.layout.CardLayout CardLayout} to ensure only one container is visible
+   * at a time.
+   * In each container the user is able to set various configuration options for the
+   * condition/exception type as selected in the combobox.
+   * @param {String} baseId The baseId which is used to create the id for the individual containers.
+   * @return {Array} Array of config objects to create a {@link Ext.Container}.
+   * @private
+   */
+  createContentPanels: function(baseId) {
+    return [{
+      xtype: 'container',
+      id: baseId + '-empty'
+    }, {
+      xtype: 'zarafa.userselectionlink',
+      id: baseId + '-from'
+    }, {
+      xtype: 'zarafa.wordselectionlink',
+      id: baseId + '-senderwords'
+    }, {
+      xtype: 'zarafa.wordselectionlink',
+      id: baseId + '-recipientwords'
+    }, {
+      xtype: 'zarafa.wordselectionlink',
+      id: baseId + '-words'
+    }, {
+      xtype: 'zarafa.wordselectionlink',
+      id: baseId + '-bodywords'
+    }, {
+      xtype: 'zarafa.wordselectionlink',
+      id: baseId + '-headerwords'
+    }, {
+      xtype: 'zarafa.importancelink',
+      id: baseId + '-importance',
+    }, {
+      xtype: 'zarafa.userselectionlink',
+      id: baseId + '-to'
+    }, {
+      xtype: 'zarafa.senttomelink',
+      id: baseId + '-to-me-only'
+    }, {
+      xtype: 'zarafa.senttolink',
+      id: baseId + '-to-me'
+    }, {
+      xtype: 'zarafa.attachmentlink',
+      id: baseId + '-attachment'
+    }, {
+      xtype: 'zarafa.atleatsizelink',
+      id: baseId + '-atleastsize'
+    }, {
+      xtype: 'zarafa.atmostsizelink',
+      id: baseId + '-atmostsize'
+    }, {
+      xtype: 'zarafa.sentccmelink',
+      id: baseId + '-cc-me'
+    }, {
+      xtype: 'zarafa.namebcclink',
+      id: baseId + '-name-to-bcc'
+    }, {
+      xtype: 'zarafa.nametocclink',
+      id: baseId + '-name-to-cc'
+    }, {
+      xtype: 'zarafa.sensitivitylink',
+      id: baseId + '-sensitivity'
+    }, {
+      xtype: 'zarafa.receivedafterlink',
+      id: baseId + '-received-after'
+    }, {
+      xtype: 'zarafa.receivedbeforelink',
+      id: baseId + '-received-before'
+    }, {
+      xtype: 'zarafa.nonelink',
+      id: baseId + '-no-condition'
+    }];
+  },
 
-    /**
-     * This function will update 'rule_condition' property of {@link Zarafa.core.data.IPMRecord record}.
+  /**
+   * Function that can be used to add more combobox containers in a rule container.
+   * @return {Ext.Container} The combobox container which was inserted
+   * @private
+   */
+  addComboBoxContainer: function()
+  {
+    this.boxContainerCount++;
+
+    var container = this.createComboBoxContainer(this.boxContainerCount);
+    container = this.insert(this.items.getCount() - 1, container);
+
+    // Toggle the removeConditionBtn
+    this.removeBtn.setDisabled(this.boxContainerCount <= 1);
+
+    this.doLayout();
+
+    return container;
+  },
+
+  /**
+   * Function that can be used to remove a combobox containers from a rule container.
+   * This will always remove the last combobox container.
+   * @private
+   */
+  removeComboBoxContainer: function()
+  {
+    if (this.boxContainerCount > 1) {
+      // Don't remove the last item, as that is the container
+      // to add and remove conditions.
+      this.remove(this.get(this.items.getCount() - 2));
+      this.boxContainerCount--;
+
+      // Toggle the removeConditionBtn
+      this.removeBtn.setDisabled(this.boxContainerCount <= 1);
+
+      this.doLayout();
+    }
+  },
+
+  /**
+   * {@link #addComboBoxContainer add} or {@link #removeComboBoxContainer remove}
+   * combobox containers for a rule, until the {@link #boxContainerCount} reaches
+   * the given count.
+   * @param {Number} count The desired number of combobox containers
+   * @private
+   */
+  setBoxContainerCount: function(count)
+  {
+    while (count < this.boxContainerCount) {
+      this.removeComboBoxContainer();
+    }
+    while (count > this.boxContainerCount) {
+      this.addComboBoxContainer();
+    }
+  },
+
+  /**
+   * This function will update 'rule_condition' property of {@link Zarafa.core.data.IPMRecord record}.
      * This function will handle adding, removing exceptions/conditions in conditions from conditions.
      * This is common function to update Exception/Condition in Record.
      * @param {Zarafa.core.data.IPMRecord} record which needs to be updated.
@@ -254,7 +253,7 @@ Zarafa.common.rules.dialogs.BaseContainer = Ext.extend(Ext.Container, {
      * @param {Boolean} isException True if given conditionsToSet should be treated as Exceptions else false.
      * @private
      */
-    updateConditionsInRecord : function(record, conditionsToSet, isException)
+    updateConditionsInRecord: function(record, conditionsToSet, isException)
     {
         // If Exceptions are needed to be set in record.
         if (isException) {
@@ -303,7 +302,7 @@ Zarafa.common.rules.dialogs.BaseContainer = Ext.extend(Ext.Container, {
      * @return {Array} The array of conditions
      * @private
      */
-    getConditionsArray : function(conditions)
+    getConditionsArray: function(conditions)
     {
         // Check the conditions, if the RES property indicates a AND
         // restriction we have to check the contents, as we need to determine
@@ -364,9 +363,10 @@ Zarafa.common.rules.dialogs.BaseContainer = Ext.extend(Ext.Container, {
      * onto the {@link Ext.Container} which was created by {@link #addComboBoxContainer}.
      * @param {Ext.Container} panel The container on which the condition will be loaded
      * @param {Object} condition The condition which should be loaded
+     * @param {Zarafa.common.data.SizeUnits} sizeUnit selected size unit for the atleast and atmost size condition components.
      * @private
      */
-    applyCondition : function(panel, condition, sizeUnit)
+    applyCondition: function(panel, condition, sizeUnit)
     {
         var conditionFlag = this.getConditionFlagFromCondition(condition);
         var combo = panel.get(0);
@@ -424,7 +424,7 @@ Zarafa.common.rules.dialogs.BaseContainer = Ext.extend(Ext.Container, {
      * @return {Zarafa.common.rules.data.ConditionFlags} The Condition Flag
      * @private
      */
-    getConditionFlagFromCondition : function(condition)
+    getConditionFlagFromCondition: function(condition)
     {
         var Restrictions = Zarafa.core.mapi.Restrictions;
 
@@ -573,7 +573,7 @@ Zarafa.common.rules.dialogs.BaseContainer = Ext.extend(Ext.Container, {
      * @param {Number} index The selected index from the combobox list
      * @private
      */
-    onComboSelect : function(combo, record, index)
+    onComboSelect: function(combo, record, index)
     {
         var panel = combo.ownerCt;
         var content = panel.get(1);

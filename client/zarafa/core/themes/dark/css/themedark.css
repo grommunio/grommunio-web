@@ -427,8 +427,8 @@ Main panel, content (lists etc.)
 
 /* Main panel content, list item border (disable because default is left side only) */
 #zarafa-mainpanel .x-grid3-row table {
-	border-width: 0px !important;
-	border-color: inherit !important;
+/*	border-width: 0px !important;
+	border-color: inherit !important;*/
 }
 
 /* Main panel content, list items first line text colour */
@@ -1912,4 +1912,32 @@ grommunio overrides
 .zarafa-hierarchy-treepanel-footer-opensharedfolder > .x-btn-small .x-btn-text {
   background: var(--button-primary-background) !important;
 }
+
+/*****************************
+ * Unread items border styling
+ *****************************/
+
+/* Unread items */
+.k-unreadborders .x-grid3-row.x-grid3-row-collapsed.mail_unread > table,
+.k-unreadborders .x-grid3-row.x-grid3-row-expanded.mail_unread > table {
+    border-left: 4px solid #2b90d9 !important;
+}
+
+/* Selected mail item */
+.x-grid3-row.x-grid3-row-expanded.mail_read.x-grid3-row-selected > table {
+    border-left: 4px solid var(--primary-paper-background) !important;
+}
+
+/* Hover selected item */
+.x-grid3-row.x-grid3-row-expanded.mail_read.x-grid3-row-selected.x-grid3-row-over > table,
+.x-grid3-row.x-grid3-row-collapsed.mail_read.x-grid3-row-selected > table {
+    border-left: 4px solid var(--primary-paper-background) !important;
+}
+
+.preview-header-sender-initial {
+ color: #282c37;
+}
+
+.x-grid3-row.x-grid3-row-expanded.mail_read > table, .x-grid3-row.x-grid3-row-collapsed.mail_read > table {
+    border-left: 4px solid var(--primary-paper-background) !important; }
 

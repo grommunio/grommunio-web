@@ -19,14 +19,14 @@ Zarafa.core.ui.MainTab = Ext.extend( Ext.Button, {
 	 * @constructor
 	 * @param config Configuration structure
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		config = config || {};
 
 		Ext.applyIf(config, {
 			// Override from Ext.Component
 			xtype: 'zarafa.maintab',
-			cls : 'zarafa-maintab',
+			cls: 'zarafa-maintab',
 			buttonActiveCls: 'zarafa-maintabbar-maintab-active',
 			handler: this.selectContext
 		});
@@ -66,7 +66,7 @@ Zarafa.core.ui.MainTab = Ext.extend( Ext.Button, {
 	{
 		if(this.context == currentContext.getName()){
 			this.addClass(this.buttonActiveCls);
-		}else{
+		} else {
 			this.removeClass(this.buttonActiveCls);
 		}
 	},

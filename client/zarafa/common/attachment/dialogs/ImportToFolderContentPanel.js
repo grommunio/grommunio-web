@@ -14,7 +14,7 @@ Zarafa.common.attachment.dialogs.ImportToFolderContentPanel = Ext.extend(Zarafa.
 	 * @constructor
 	 * @param {Object} config Configuration structure
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		config = config || {};
 
@@ -24,13 +24,13 @@ Zarafa.common.attachment.dialogs.ImportToFolderContentPanel = Ext.extend(Zarafa.
 
 		Ext.applyIf(config, {
 			// Override from Ext.Component
-			xtype : 'zarafa.importtofoldercontentpanel',
-			title : _('Import to'),
+			xtype: 'zarafa.importtofoldercontentpanel',
+			title: _('Import to'),
 			items: [{
 				xtype: 'zarafa.importtofolderpanel',
 				// A bit ugly, but the Zarafa.common.dialogs.CopyMoveContentPanel uses this ref
 				ref: 'copyMovePanel',
-				record : config.record
+				record: config.record
 			}]
 		});
 

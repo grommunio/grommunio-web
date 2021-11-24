@@ -11,7 +11,7 @@ Zarafa.common.printer.renderers.BaseRenderer = Ext.extend(Object, {
 	 * @constructor
 	 * @param {Object} config Configuration object
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		Ext.apply(this, config);
 	},
@@ -28,12 +28,14 @@ Zarafa.common.printer.renderers.BaseRenderer = Ext.extend(Object, {
 		// we will open a new window in which we will create our print. This window will
 		// also function as a print preview
 		if ( Ext.isWebKit ) {
+
 			// Needed for popouts
 			var activeWindow = Zarafa.core.BrowserWindowMgr.getActive();
 			var activeDocument = activeWindow.document;
 			var printFrame = activeDocument.createElement('iframe');
 			printFrame.style.cssText = "height: 0px; width: 0px; position: absolute;";
 			activeDocument.body.appendChild(printFrame);
+
 			printFrame.onload = function () {
 				// Remove the iframe after printing.
 				printFrame.contentWindow.onafterprint = function() {
@@ -46,6 +48,8 @@ Zarafa.common.printer.renderers.BaseRenderer = Ext.extend(Object, {
 			printDocument.write(this.generateHTML(objectToPrint));
 			printDocument.close();
 			this.postRender(printDocument, objectToPrint);
+
+
 		} else {
 			var win = window.open('', 'name'+(new Date().getTime()));
 			if (win) {
@@ -69,6 +73,7 @@ Zarafa.common.printer.renderers.BaseRenderer = Ext.extend(Object, {
 	 * @return {String} An HTML fragment to be placed inside the print window
 	 */
 	generateHTML: function(objectToPrint) {
+
 		return new Ext.XTemplate(
 			this.cleanTemplate(
 				// no doctype, quicks mode works better for printing, especially in chrome.
@@ -94,7 +99,7 @@ Zarafa.common.printer.renderers.BaseRenderer = Ext.extend(Object, {
 	 * @return {String} The clean template
 	 * @private
 	 */
-	cleanTemplate : function(template)
+	cleanTemplate: function(template)
 	{
 		// Conversions:
 		// - \r is an illegal character which cannot be present in a string

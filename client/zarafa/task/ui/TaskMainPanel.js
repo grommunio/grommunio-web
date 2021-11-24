@@ -43,31 +43,31 @@ Zarafa.task.ui.TaskMainPanel = Ext.extend(Zarafa.common.ui.ContextMainPanel, {
 	 * @property
 	 * @type Zarafa.core.ui.SwitchViewContentContainer
 	 */
-	viewPanel : undefined,
+	viewPanel: undefined,
 
 	/**
 	 * @constructor
 	 * @param taskcontext
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		config = config || {};
 
 		Ext.applyIf(config, {
-			xtype : 'zarafa.taskmainpanel',
+			xtype: 'zarafa.taskmainpanel',
 			layout: 'fit',
-			items : [{
+			items: [{
 				xtype: 'zarafa.switchviewcontentcontainer',
 				ref: 'viewPanel',
-				layout : 'card',
-				lazyItems : this.initViews(config.context)
+				layout: 'card',
+				lazyItems: this.initViews(config.context)
 			}],
-			tbar : {
+			tbar: {
 				xtype: 'zarafa.contextmainpaneltoolbar',
-				defaultTitle : _('Tasks'),
-				paging : container.populateInsertionPoint('context.task.toolbar.paging', this),
-				items : container.populateInsertionPoint('context.task.toolbar.item', this),
-				context : config.context
+				defaultTitle: _('Tasks'),
+				paging: container.populateInsertionPoint('context.task.toolbar.paging', this),
+				items: container.populateInsertionPoint('context.task.toolbar.item', this),
+				context: config.context
 			}
 		});
 
@@ -81,13 +81,13 @@ Zarafa.task.ui.TaskMainPanel = Ext.extend(Zarafa.common.ui.ContextMainPanel, {
 	 * @return {Array} array of config objects of different views
 	 * @private
 	 */
-	initViews : function(context)
+	initViews: function(context)
 	{
 		// add the standard available views
 		var allViews = [{
-			xtype : 'zarafa.taskgrid',
-			id    : 'task-grid',
-			context : context
+			xtype: 'zarafa.taskgrid',
+			id  : 'task-grid',
+			context: context
 		}];
 
 		var additionalViewItems = container.populateInsertionPoint('context.task.views', this, context);
@@ -101,7 +101,7 @@ Zarafa.task.ui.TaskMainPanel = Ext.extend(Zarafa.common.ui.ContextMainPanel, {
 	 * At this time all events can be registered.
 	 * @private
 	 */
-	initEvents : function()
+	initEvents: function()
 	{
 		if (Ext.isDefined(this.context)) {
 			this.mon(this.context, 'viewchange', this.onViewChange, this);
@@ -120,7 +120,7 @@ Zarafa.task.ui.TaskMainPanel = Ext.extend(Zarafa.common.ui.ContextMainPanel, {
 	 * @param {Zarafa.task.data.Views} newView The ID of the selected view.
 	 * @param {Zarafa.task.data.Views} oldView The ID of the previously selected view.
 	 */
-	onViewChange : function(context, newView, oldView)
+	onViewChange: function(context, newView, oldView)
 	{
 		switch (newView) {
 			case Zarafa.task.data.Views.SEARCH:

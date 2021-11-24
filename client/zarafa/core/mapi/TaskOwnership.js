@@ -13,20 +13,20 @@ Zarafa.core.mapi.TaskOwnership = Zarafa.core.Enum.create({
 	 * @property
 	 * @type Number
 	 */
-	'NEWTASK' : 0,
+	'NEWTASK': 0,
 
 	/**
 	 * Denotes that the task object is the task assigner's copy of the Task object.
 	 * @property
 	 * @type Number
 	 */
-	'DELEGATEDTASK' : 1,
+	'DELEGATEDTASK': 1,
 
 	/**
 	 * Denotes that the task object is the task assignee's copy of the Task object.
 	 * @property
 	 * @type Number
 	 */
-	'OWNTASK' : 2
+	'OWNTASK': 2
 });
 

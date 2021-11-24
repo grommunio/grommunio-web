@@ -75,7 +75,6 @@ const fingerprint = (function(){
 			'Book Antiqua',
 			'Palatino Linotype',
 			'Segoe UI',
-			'Gill Sans MT',
 			'Candara',
 			'Calibri',
 			'Franklin Gothic Medium',
@@ -90,7 +89,6 @@ const fingerprint = (function(){
 			'Didot',
 			'Optima',
 			'Futura',
-			'Gill Sans',
 			'Trebuchet MS',
 			'Helvetica',
 			

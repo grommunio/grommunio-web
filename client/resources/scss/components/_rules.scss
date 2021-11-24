@@ -6,16 +6,6 @@
 
 	.k-store-picker {
 		padding: 0 $padding-medium $padding-medium;
-		border-bottom: 1px solid $grey;
-
-		.x-form-item {
-			margin-bottom: 0;
-		}
-
-		label {
-			width: auto;
-			border: 1px solid transparent; /* to align the text with the text in the combo */
-		}
 	}
 }
 

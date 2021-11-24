@@ -10,18 +10,13 @@ Zarafa.common.restoreitem.dialogs.RestoreItemContentPanel = Ext.extend(Zarafa.co
 	/**
 	 * @cfg {Zarafa.hierarchy.data.MAPIFolderRecord} folder default folder for the contextModel.
 	 */
-	folder : undefined,
-
-	/**
-	 * @cfg {Zarafa.common.restoreitem.data.RestoreItemStore} store which can be used to restore item.
-	 */
-	store : undefined,
+	folder: undefined,
 
 	/**
 	 * @constructor
 	 * @param {Object} config Configuration structure
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		config = config || {};
 
@@ -43,8 +38,7 @@ Zarafa.common.restoreitem.dialogs.RestoreItemContentPanel = Ext.extend(Zarafa.co
 			title: title,
 			items: [{
 				xtype: 'zarafa.restoreitempanel',
-				folder: folder,
-				store : config.store
+				folder: folder
 			}]
 		});
 

@@ -13,16 +13,16 @@ Zarafa.hierarchy.dialogs.BrokenFilesContentPanel = Ext.extend(Zarafa.core.ui.Con
 	 * @constructor
 	 * @param {Object} config Configuration object
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		config = config || {};
 
 		Ext.applyIf(config, {
-			xtype : 'zarafa.brokenfilescontentpanel',
+			xtype: 'zarafa.brokenfilescontentpanel',
 			layout: 'fit',
 			border: false,
-			title : _('Import error'),
-			width : 400,
+			title: _('Import error'),
+			width: 400,
 			height: 250,
 			items: [{
 				xtype: 'zarafa.brokenfilespanel',

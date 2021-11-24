@@ -34,15 +34,15 @@ Zarafa.core.ui.MainToolbar = Ext.extend(Zarafa.core.ui.Toolbar, {
 	 * @constructor
 	 * @param config Configuration structure
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		config = config || {};
 
 		Ext.applyIf(config, {
 			// Override from Ext.Component
 			xtype: 'zarafa.maintoolbar',
-			id : 'zarafa-maintoolbar',
-			cls : 'zarafa-maintoolbar'
+			id: 'zarafa-maintoolbar',
+			cls: 'zarafa-maintoolbar'
 		});
 
 		Zarafa.core.ui.MainToolbar.superclass.constructor.call(this, config);
@@ -54,7 +54,7 @@ Zarafa.core.ui.MainToolbar = Ext.extend(Zarafa.core.ui.Toolbar, {
 	 * Add default button groups to toolbar
 	 * @private
 	 */
-	initButtonGroups : function()
+	initButtonGroups: function()
 	{
 		// Initialize the items list with all default buttons, and add buttons which were
 		// registered through insertion points.
@@ -64,6 +64,7 @@ Zarafa.core.ui.MainToolbar = Ext.extend(Zarafa.core.ui.Toolbar, {
 		this.addPrintButton();
 		this.addViewItems();
 		this.addItems([], 'main.toolbar.actions.last');
+		this.addItems([{xtype: 'tbfill'}], 'main.toolbar.actions.right');
 	},
 
 	/**
@@ -83,7 +84,7 @@ Zarafa.core.ui.MainToolbar = Ext.extend(Zarafa.core.ui.Toolbar, {
 	 * done when the contexts are switched by the {@link Zarafa.core.Container Container}.
 	 * @private
 	 */
-	addNewItems : function()
+	addNewItems: function()
 	{
 		var menu = [];
 		var itemMenu = container.populateInsertionPoint('main.maintoolbar.new.item', this) || [];
@@ -104,13 +105,13 @@ Zarafa.core.ui.MainToolbar = Ext.extend(Zarafa.core.ui.Toolbar, {
 			menu.push({
 				xtype: 'menuitem',
 				id: 'zarafa-maintoolbar-newitem-defaultbutton',
-				tooltip : itemMenu[0].tooltip,
-				plugins : 'zarafa.menuitemtooltipplugin',
+				tooltip: itemMenu[0].tooltip,
+				plugins: 'zarafa.menuitemtooltipplugin',
 				// The following config properties copy the first item for the default button.
 				iconCls: itemMenu[0].iconCls,
 				text: itemMenu[0].text,
-				handler : itemMenu[0].handler,
-				scope : itemMenu[0].scope
+				handler: itemMenu[0].handler,
+				scope: itemMenu[0].scope
 			},
 			'-');
 		}
@@ -135,8 +136,8 @@ Zarafa.core.ui.MainToolbar = Ext.extend(Zarafa.core.ui.Toolbar, {
 			// The following config properties set the first item (that is now item number
 			// three in the menu) as the button in the toolbar.
 			iconCls: itemMenu[0] ? itemMenu[0].iconCls : undefined,
-			handler : itemMenu[0] ? itemMenu[0].handler : undefined,
-			scope : itemMenu[0] ? itemMenu[0].scope : undefined
+			handler: itemMenu[0] ? itemMenu[0].handler : undefined,
+			scope: itemMenu[0] ? itemMenu[0].scope : undefined
 		});
 	},
 
@@ -148,8 +149,8 @@ Zarafa.core.ui.MainToolbar = Ext.extend(Zarafa.core.ui.Toolbar, {
 	 * active context. This event handler is called within the scope of the SplitButton.
 	 * It will loop through all the menu items in the last part of the menu and based on the
 	 * activate context it will hide or show the menu items. If the button is marked to belong to
-	 * the active context it will be hidden and the dummy button  will be changed so it will look
-	 * like the button has moved to the top. All other buttons will  remain visible.
+	 * the active context it will be hidden and the dummy button will be changed so it will look
+	 * like the button has moved to the top. All other buttons will remain visible.
 	 * If no button is marked to belong to the active context the first button in the list, after
 	 * the dummy button and the separator, will become the new default button.
 	 * @param {Ext.Component} cmp The SplitButton
@@ -168,7 +169,7 @@ Zarafa.core.ui.MainToolbar = Ext.extend(Zarafa.core.ui.Toolbar, {
 	 * @param {Zarafa.core.Context} newContext new context that was switched
 	 * @private
 	 */
-	onNewButtonContextSwitch : function(parameters, oldContext, newContext)
+	onNewButtonContextSwitch: function(parameters, oldContext, newContext)
 	{
 		var menu = this.newButton.menu;
 
@@ -197,7 +198,7 @@ Zarafa.core.ui.MainToolbar = Ext.extend(Zarafa.core.ui.Toolbar, {
 					button = item;
 				// Hide the found button of the active context to prevent doubles
 					item.setVisible(false);
-				}else{
+				} else {
 					// Enable all other buttons
 					item.setVisible(true);
 				}
@@ -232,7 +233,7 @@ Zarafa.core.ui.MainToolbar = Ext.extend(Zarafa.core.ui.Toolbar, {
 	 * properties like iconCls and handler to the {@link Ext.SplitButton SplitButton}.
 	 * @private
 	 */
-	addViewItems : function()
+	addViewItems: function()
 	{
 		var menu, menuItems = [];
 		var contexts = container.getContexts();
@@ -250,20 +251,20 @@ Zarafa.core.ui.MainToolbar = Ext.extend(Zarafa.core.ui.Toolbar, {
 						hidden: true,
 						contextName: context.getName(),
 						menu: Zarafa.core.Util.uniqueArray(menu, 'text'),
-						listeners : {
-							render : this.onRenderViewButton,
-							menuhide : this.onSwitchViewMenuHide,
-							menushow : this.onSwitchViewMenuShow.createDelegate(this,[context], true),
-							scope : this
+						listeners: {
+							render: this.onRenderViewButton,
+							menuhide: this.onSwitchViewMenuHide,
+							menushow: this.onSwitchViewMenuShow.createDelegate(this,[context], true),
+							scope: this
 						}
 					});
 				} else {
 					for (var j = 0, jlen = menu.length; j < jlen; j++) {
 						var item = Ext.apply({}, menu[j], {
-							xtype : 'button',
-							scale : 'large',
-							hidden : true,
-							contextName : context.getName()
+							xtype: 'button',
+							scale: 'large',
+							hidden: true,
+							contextName: context.getName()
 						});
 
 						// Move the 'text' property to the tooltip
@@ -272,7 +273,7 @@ Zarafa.core.ui.MainToolbar = Ext.extend(Zarafa.core.ui.Toolbar, {
 						delete item.text;
 
 						item.listeners = Zarafa.core.Util.mergeListeners(item.listeners, {
-							render : this.onRenderViewButton
+							render: this.onRenderViewButton
 						});
 
 						menuItems.push(item);
@@ -292,7 +293,7 @@ Zarafa.core.ui.MainToolbar = Ext.extend(Zarafa.core.ui.Toolbar, {
 	 * @param {Ext.SplitButton} splitBtn split button which contains highlighted menu item.
 	 * @param {Ext.menu.Menu} menu menu contains highlighted menu item.
 	 */
-	onSwitchViewMenuHide : function (splitBtn, menu)
+	onSwitchViewMenuHide: function (splitBtn, menu)
 	{
 		menu.find().forEach(function(item){
 			var hasClass = item.getEl().hasClass('x-menu-item-selected');
@@ -314,7 +315,7 @@ Zarafa.core.ui.MainToolbar = Ext.extend(Zarafa.core.ui.Toolbar, {
 	 * @param {Ext.menu.Menu} menu menu contains the menu item which is going to highlight
 	 * @param {Zarafa.core.Context} context which contains the switch view split button.
 	 */
-	onSwitchViewMenuShow : function(splitBtn, menu, context)
+	onSwitchViewMenuShow: function(splitBtn, menu, context)
 	{
 		if(context.getName() !== 'note') {
 			var menuItem = menu.find('valueViewMode', context.getCurrentViewMode())[0];
@@ -368,7 +369,7 @@ Zarafa.core.ui.MainToolbar = Ext.extend(Zarafa.core.ui.Toolbar, {
 	 * This differs for each context, and is populated with
 	 * main.toolbar.view.[context].
 	 */
-	 addPrintButton : function()
+	 addPrintButton: function()
 	 {
 		 var menu, menuItems = [];
 		 var contexts = container.getContexts();
@@ -379,6 +380,7 @@ Zarafa.core.ui.MainToolbar = Ext.extend(Zarafa.core.ui.Toolbar, {
 				menuItems.push({
 					xtype: 'splitbutton',
 					id: 'zarafa-maintoolbar-print-'+context.getName(),
+					name: 'defaultPrintBtn',
 					scale: 'large',
 					iconCls: 'icon_large_print',
 					tooltip: _('Print') + ' (Ctrl + P)',
@@ -387,22 +389,22 @@ Zarafa.core.ui.MainToolbar = Ext.extend(Zarafa.core.ui.Toolbar, {
 					hidden: true,
 					contextName: context.getName(),
 					menu: {
-						xtype : 'zarafa.conditionalmenu',
-						defaults : {
-							context : context,
+						xtype: 'zarafa.conditionalmenu',
+						defaults: {
+							context: context,
 
 							// Override getRecords to obtain the
 							// records from the current selected records
-							getRecords : function() {
+							getRecords: function() {
 								return this.context.getModel().getSelectedRecords();
 							}
 						},
-						items : Zarafa.core.Util.uniqueArray(menu, 'text'),
+						items: Zarafa.core.Util.uniqueArray(menu, 'text'),
 						// Override this function so the menu will not be destroyed when hidden.
 						onMenuHide: Ext.emptyFn
 					},
-					listeners : {
-						render : this.onRenderPrintButton
+					listeners: {
+						render: this.onRenderPrintButton
 					}
 				});
 			}
@@ -433,7 +435,7 @@ Zarafa.core.ui.MainToolbar = Ext.extend(Zarafa.core.ui.Toolbar, {
 	 * insertion point.
 	 * @private
 	 */
-	addActionItems : function()
+	addActionItems: function()
 	{
 		var menuItems = [{
 			xtype: 'button',
@@ -442,7 +444,7 @@ Zarafa.core.ui.MainToolbar = Ext.extend(Zarafa.core.ui.Toolbar, {
 			overflowText: _('Address Book'),
 			tooltip: _('Address Book'),
 			iconCls: 'icon_large_addressbook',
-			handler : this.onAddressBook,
+			handler: this.onAddressBook,
 			scope: this
 		},{
 			xtype: 'button',
@@ -452,7 +454,7 @@ Zarafa.core.ui.MainToolbar = Ext.extend(Zarafa.core.ui.Toolbar, {
 			overflowText: _('Refresh'),
 			tooltip: _('Refresh') + ' (F5)',
 			iconCls: 'icon_large_refresh',
-			handler : this.onRefresh,
+			handler: this.onRefresh,
 			ref: 'refreshButton',
 			scope: this,
 			listeners: {
@@ -469,7 +471,7 @@ Zarafa.core.ui.MainToolbar = Ext.extend(Zarafa.core.ui.Toolbar, {
 	 * Open the {@link Zarafa.addressbook.dialogs.AddressBookContentPanel AddressBookContentPanel}
 	 * @private
 	 */
-	onAddressBook : function()
+	onAddressBook: function()
 	{
 		Zarafa.addressbook.Actions.openAddressBook();
 	},
@@ -478,7 +480,7 @@ Zarafa.core.ui.MainToolbar = Ext.extend(Zarafa.core.ui.Toolbar, {
 	 * This will Refresh the view and fire {@link Zarafa.core.data.ListModuleStore#reload}
 	 * @private
 	 */
-	onRefresh : function()
+	onRefresh: function()
 	{
 		var model = container.getCurrentContext().getModel();
 		if (model) {
@@ -490,7 +492,7 @@ Zarafa.core.ui.MainToolbar = Ext.extend(Zarafa.core.ui.Toolbar, {
 	 * This will print the current view
 	 * @private
 	 */
-	onPrint : function()
+	onPrint: function()
 	{
 		var context = container.getCurrentContext();
 		if (context) {
@@ -505,7 +507,7 @@ Zarafa.core.ui.MainToolbar = Ext.extend(Zarafa.core.ui.Toolbar, {
 	 * called within the scope of the Refresh Button.
 	 * @param {Ext.Component} cmp The {@link #refreshButton}
 	 */
-	onRenderRefreshButton : function(cmp)
+	onRenderRefreshButton: function(cmp)
 	{
 		var context = container.getCurrentContext();
 		cmp.mon(container, 'contextswitch', function(parameters, oldContext, newContext) {

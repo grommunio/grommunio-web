@@ -14,21 +14,21 @@ Zarafa.common.settings.SettingsDelegateWidget = Ext.extend(Zarafa.settings.ui.Se
 	 * @constructor
 	 * @param {Object} config Configuration object
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		config = config || {};
 
 		Ext.applyIf(config, {
-			height : 400,
-			title : _('Delegate settings'),
-			xtype : 'zarafa.settingsdelegatewidget',
-			layout : {
+			height: 400,
+			title: _('Delegate settings'),
+			xtype: 'zarafa.settingsdelegatewidget',
+			layout: {
 				// override from SettingsWidget
-				type : 'fit'
+				type: 'fit'
 			},
-			items : [{
-				xtype : 'zarafa.delegatespanel',
-				ref : 'delegatesPanel'
+			items: [{
+				xtype: 'zarafa.delegatespanel',
+				ref: 'delegatesPanel'
 			}]
 		});
 
@@ -38,7 +38,7 @@ Zarafa.common.settings.SettingsDelegateWidget = Ext.extend(Zarafa.settings.ui.Se
 	/**
 	 * @return {Zarafa.common.delegates.data.DelegateStore} The store which is holds all delegates
 	 */
-	getDelegateStore : function()
+	getDelegateStore: function()
 	{
 		return this.delegatesPanel.store;
 	},
@@ -47,7 +47,7 @@ Zarafa.common.settings.SettingsDelegateWidget = Ext.extend(Zarafa.settings.ui.Se
 	 * initialize events for the {@link Zarafa.common.settings.SettingsDelegateWidget SettingsDelegateWidget}.
 	 * @private
 	 */
-	initEvents : function()
+	initEvents: function()
 	{
 		Zarafa.common.settings.SettingsDelegateWidget.superclass.initEvents.call(this);
 
@@ -58,9 +58,9 @@ Zarafa.common.settings.SettingsDelegateWidget = Ext.extend(Zarafa.settings.ui.Se
 		this.mon(contextModel, 'discardsettings', this.onDiscardSettings, this);
 
 		this.mon(this.getDelegateStore(), {
-			'remove' : this.doStoreRemove,
-			'update' : this.doStoreUpdate,
-			scope : this
+			'remove': this.doStoreRemove,
+			'update': this.doStoreUpdate,
+			scope: this
 		});
 	},
 
@@ -73,7 +73,7 @@ Zarafa.common.settings.SettingsDelegateWidget = Ext.extend(Zarafa.settings.ui.Se
 	 * @param {Ext.data.Record} record The record which was updated
 	 * @private
 	 */
-	doStoreRemove : function(store, record)
+	doStoreRemove: function(store, record)
 	{
 		if(!record.phantom) {
 			this.settingsContext.getModel().setDirty();
@@ -90,7 +90,7 @@ Zarafa.common.settings.SettingsDelegateWidget = Ext.extend(Zarafa.settings.ui.Se
 	 * @param {String} operation The update operation being performed.
 	 * @private
 	 */
-	doStoreUpdate : function(store, record, operation)
+	doStoreUpdate: function(store, record, operation)
 	{
 		if (operation !== Ext.data.Record.COMMIT) {
 			this.settingsContext.getModel().setDirty();
@@ -103,7 +103,7 @@ Zarafa.common.settings.SettingsDelegateWidget = Ext.extend(Zarafa.settings.ui.Se
 	 * save delegation data.
 	 * @private
 	 */
-	onSaveSettings : function()
+	onSaveSettings: function()
 	{
 		this.delegatesPanel.saveChanges();
 	},
@@ -114,7 +114,7 @@ Zarafa.common.settings.SettingsDelegateWidget = Ext.extend(Zarafa.settings.ui.Se
 	 * discard current changes and reload delegation data from server.
 	 * @private
 	 */
-	onDiscardSettings : function()
+	onDiscardSettings: function()
 	{
 		this.delegatesPanel.discardChanges();
 	}

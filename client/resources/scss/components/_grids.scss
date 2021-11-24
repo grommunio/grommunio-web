@@ -133,22 +133,22 @@ td.x-grid3-hd-menu-open .x-grid3-hd-inner {
 	}
 }
 
-	/****************************************************************************
-	 * Icons in the 'Show columns' menu
-	 ****************************************************************************/
-	.x-menu{
-		.x-menu-check-item {
-			/* check/uncheck images are 14 px wide */
-			padding-left: $padding-small + 14px + $padding-medium;
+/****************************************************************************
+* Icons in the 'Show columns' menu
+****************************************************************************/
+.x-menu{
+	.x-menu-check-item {
+		/* check/uncheck images are 14 px wide */
+		padding-left: $padding-small + 14px + $padding-medium;
 
-			.x-menu-item-text {
-				p {
-					padding-left: 20px;
-					background-position: 2px center !important;
-				}
+		.x-menu-item-text {
+			p {
+				padding-left: 20px;
+				background-position: 2px center !important;
 			}
 		}
 	}
+}
 
 /******************************************************************************
  * Empty text
@@ -185,11 +185,11 @@ td.x-grid3-hd-menu-open .x-grid3-hd-inner {
 	border-top: none;
 	border-left: none;
 	border-color: $grey;
-	.x-grid3-cell-inner {
-		line-height: 100%;
-		padding: $padding-large ($padding-medium + 1px);
-		position: relative;
-	}
+		.x-grid3-cell-inner {
+			line-height: 100%;
+			padding: $padding-large ($padding-medium + 1px);
+			position: relative;
+		}
 
 	/*
 	 * exception for the categories column which has labels that will be truncated when too long
@@ -249,7 +249,6 @@ td.x-grid3-hd-menu-open .x-grid3-hd-inner {
 		padding-bottom: $padding-large - $padding-small;
 	}
 }
-
 
 .x-grid3-row-over {
 	background: $grid-hover-color;

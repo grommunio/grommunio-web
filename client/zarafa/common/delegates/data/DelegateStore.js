@@ -11,37 +11,37 @@ Zarafa.common.delegates.data.DelegateStore = Ext.extend(Zarafa.core.data.MAPISto
 	 * @cfg {String} actionType type of action that should be used to send request to server,
 	 * valid action types are defined in {@link Zarafa.core.Actions Actions}, default value is 'list'.
 	 */
-	actionType : undefined,
+	actionType: undefined,
 
 	/**
 	 * @constructor
 	 * @param config Configuration structure
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		config = config || {};
 
 		// Apply default settings.
 		Ext.applyIf(config, {
 			// load data whenever instance of store is created
-			autoLoad : true,
-			batch : false,
+			autoLoad: true,
+			batch: false,
 
-			actionType : Zarafa.core.Actions['list'],
+			actionType: Zarafa.core.Actions['list'],
 
-			writer : new Zarafa.core.data.JsonWriter(),
-			reader : new Zarafa.common.delegates.data.JsonDelegateReader(),
+			writer: new Zarafa.core.data.JsonWriter(),
+			reader: new Zarafa.common.delegates.data.JsonDelegateReader(),
 
-			proxy : new Zarafa.core.data.IPMProxy({
-				listModuleName : Zarafa.core.ModuleNames.getListName('DELEGATES'),
-				itemModuleName : Zarafa.core.ModuleNames.getItemName('DELEGATES')
+			proxy: new Zarafa.core.data.IPMProxy({
+				listModuleName: Zarafa.core.ModuleNames.getListName('DELEGATES'),
+				itemModuleName: Zarafa.core.ModuleNames.getItemName('DELEGATES')
 			})
 		});
 
 		Zarafa.common.delegates.data.DelegateStore.superclass.constructor.call(this, config);
 	},
 
-	load : function(options)
+	load: function(options)
 	{
 		if (!Ext.isObject(options)) {
 			options = {};
@@ -57,7 +57,7 @@ Zarafa.common.delegates.data.DelegateStore = Ext.extend(Zarafa.core.data.MAPISto
 		}
 
 		Ext.applyIf(options, {
-			actionType : this.actionType
+			actionType: this.actionType
 		});
 
 		return Zarafa.common.delegates.data.DelegateStore.superclass.load.call(this, options);

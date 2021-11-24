@@ -2772,7 +2772,6 @@ Note: Does not work in IE11 */
 }
 
 /* line 118, ../scss/components/_preview_panel.scss */
-.preview-header-sentinfo .preview-timestamp-title,
 .preview-header-recipients .preview-recipient-title,
 .preview-header-attachments .preview-attachment-title,
 .preview-header-meeting .preview-when .preview-when-title,
@@ -2780,13 +2779,8 @@ Note: Does not work in IE11 */
 .preview-header-meeting .preview-location .preview-location-title {
   display: inline-block;
   min-width: 36px;
-  font-weight: normal;
+  font-weight: bold;
   padding-right: 6px;
-}
-
-/* line 130, ../scss/components/_preview_panel.scss */
-.preview-recipient-data {
-  line-height: 16px;
 }
 
 /* line 134, ../scss/components/_preview_panel.scss */

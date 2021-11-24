@@ -1,10 +1,4 @@
 <?php
-require_once("server/includes/mapi/mapi.util.php");
-require_once("server/includes/mapi/mapidefs.php");
-require_once("server/includes/mapi/mapitags.php");
-require_once("server/includes/mapi/mapicode.php");
-require_once("server/includes/mapi/mapiguid.php");
-
 require_once("config.php");
 
 for($i = 1; $i < 6; $i++) {

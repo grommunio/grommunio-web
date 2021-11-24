@@ -24,9 +24,9 @@ Zarafa.note.KeyMapping = Ext.extend(Object, {
 			stopEvent: true,
 			handler: this.onNewNote,
 			scope: this,
-			settingsCfg : {
-				description : _('New note'),
-				category : _('Creating an item')
+			settingsCfg: {
+				description: _('New note'),
+				category: _('Creating an item')
 			}
 		}];
 
@@ -34,7 +34,7 @@ Zarafa.note.KeyMapping = Ext.extend(Object, {
 	},
 
 	/**
-	 * Event handler for the keydown event of the {@link Zarafa.core.KeyMap KeyMap} when the user wants to 
+	 * Event handler for the keydown event of the {@link Zarafa.core.KeyMap KeyMap} when the user wants to
 	 * create a new Sticky Note.
 	 * @param {Number} key Key code
 	 * @param {Ext.EventObject} event The event

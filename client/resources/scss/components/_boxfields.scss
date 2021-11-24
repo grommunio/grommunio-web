@@ -172,7 +172,7 @@
 .zarafa-compositefield > .x-box-inner {
 	/* this is necessary because otherwise the shadows of the buttons in the new design (2015) will be cut off */
 	overflow: visible;
-}
+	} 
 .zarafa-resizable-compositefield {
 	padding-bottom: $padding-medium;
 }

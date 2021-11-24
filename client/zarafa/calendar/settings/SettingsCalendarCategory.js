@@ -17,27 +17,27 @@ Zarafa.calendar.settings.SettingsCalendarCategory = Ext.extend(Zarafa.settings.u
 	 * @param {Zarafa.calendar.settings.SettingsCalendarCategory} category The mail
 	 * category to which the widgets will be added.
 	 */
-		
+
 	/**
 	 * @constructor
 	 * @param {Object} config Configuration object
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		config = config || {};
 
 		Ext.applyIf(config, {
-			title : _('Calendar'),
-			categoryIndex : 4,
-			iconCls : 'zarafa-settings-category-calendar',
-			items : [{
-				xtype : 'zarafa.settingscalendarwidget'
+			title: _('Calendar'),
+			categoryIndex: 4,
+			iconCls: 'zarafa-settings-category-calendar',
+			items: [{
+				xtype: 'zarafa.settingscalendarwidget'
 			},{
-				xtype : 'zarafa.settingsfreebusywidget'
+				xtype: 'zarafa.settingsfreebusywidget'
 			},{
-				xtype : 'zarafa.settingsoverlaywidget'
+				xtype: 'zarafa.settingsoverlaywidget'
 			},{
-				xtype : 'zarafa.settingsreminderwidget'
+				xtype: 'zarafa.settingsreminderwidget'
 			},
 			container.populateInsertionPoint('context.settings.category.calendar', this)
 			]

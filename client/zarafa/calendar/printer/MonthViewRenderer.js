@@ -10,15 +10,10 @@ Ext.namespace('Zarafa.calendar.printer');
 Zarafa.calendar.printer.MonthViewRenderer = Ext.extend(Zarafa.calendar.printer.AbstractViewRenderer, {
 
 	/**
-	 * @cfg {String} folderColor The color of the selected calendar folder.
-	 */
-	folderColor : '#FFF',
-
-	/**
 	 * @constructor
 	 * @param {Object} config Configuration object
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		config = config || {};
 		Zarafa.calendar.printer.MonthViewRenderer.superclass.constructor.call(this, config);
@@ -39,8 +34,20 @@ Zarafa.calendar.printer.MonthViewRenderer = Ext.extend(Zarafa.calendar.printer.A
 		var numDays = dateRange.getDuration(Date.DAY);
 		var startDate = dateRange.getStartDate().clone();
 
-		var colorScheme = model.getColorScheme(model.getDefaultFolder().id);
-		this.folderColor = colorScheme.base;
+		// Obtain the calendar name
+		var folders = model.getFolders();
+		var foldersData = [];
+		var folderColor;
+		for (var i = 0; i < folders.length; i++) {
+			folderColor = model.getColorScheme(folders[i].get('entryid')).base;
+			if (folders[i].getMAPIStore().get('display_name') === container.getUser().getDisplayName()) {
+				foldersData.push({folderName : folders[i].get('display_name'), folderColor : folderColor});
+			} else {
+				foldersData.push({folderName : folders[i].get('display_name') + ' ' + _('of') + ' ' + folders[i].getMAPIStore().get('display_name'), folderColor : folderColor});
+			}
+		}
+		data['folderList'] = foldersData;
+
 		var days = [];
 		for (var i = 0; i < 7; i++) {
 			days.push({"day": startDate.add(Date.DAY,i).format("l")});
@@ -61,7 +68,7 @@ Zarafa.calendar.printer.MonthViewRenderer = Ext.extend(Zarafa.calendar.printer.A
 	 * @param {Zarafa.calendar.CalendarContextModel} model The {@link Zarafa.calendar.CalendarContextModel CalendarContextModel}.
 	 * @return {Array} nested array which contains the weeks and days information.
 	 */
-	prepareCalendarDays : function(startDate, numDays, model)
+	prepareCalendarDays: function(startDate, numDays, model)
 	{
 		var weeks = [];
 		var appointments = this.prepareAppointments(model);
@@ -75,9 +82,8 @@ Zarafa.calendar.printer.MonthViewRenderer = Ext.extend(Zarafa.calendar.printer.A
 				// push day into week array.
 				week.push({
 					"date": this.getFormattedDate(date, startDate),
-					"appointments" : result.items,
-					"overflowAppointment" : result.overflowAppointment,
-					"color" : this.folderColor
+					"appointments": result.items,
+					"overflowAppointment": result.overflowAppointment
 				});
 			}
 
@@ -94,30 +100,35 @@ Zarafa.calendar.printer.MonthViewRenderer = Ext.extend(Zarafa.calendar.printer.A
 	 * @param {Zarafa.calendar.CalendarContextModel} model The {@link Zarafa.calendar.CalendarContextModel CalendarContextModel}.
 	 * @return {Array} an appointments of selected month.
 	 */
-	prepareAppointments : function(model)
+	prepareAppointments: function(model)
 	{
 		var appointments = [];
 		var dateRange = new Zarafa.core.DateRange();
 		var records = model.getStore().getRange();
+
 		records.forEach(function (record) {
 			var startDate = record.get('startdate').clone();
 			var status = record.get('busystatus');
 
 			dateRange = dateRange.set( startDate,  record.get('duedate').clone(), true, true);
-			var text = dateRange.isAllDay() ? record.get("subject") : record.get('startdate').format( _('G:i')) + " " + record.get("subject");
+			var text = dateRange.isAllDay() ? record.get("subject") : record.get('startdate').formatDefaultTime() + " " + record.get("subject");
 
 			var location = record.get('location');
 			if (!Ext.isEmpty(location)) {
 				text += " (" + location + ")";
 			}
 
+			var entryID = record.get('parent_entryid');
+			var colorScheme = model.getColorScheme(entryID);
+			var folderColor = colorScheme.base;
+
 			if(dateRange.getNumDays() > 1) {
 				for(var i = 0; i < dateRange.getNumDays(); i++) {
 					var date = startDate.add(Date.DAY, i).clearTime(true).getTime();
-					appointments.push({startDate : date, text: text, busyStatus: status});
+					appointments.push({startDate: date, color: folderColor, text: text, busyStatus: status});
 				}
 			} else {
-				appointments.push({startDate : startDate.clearTime(true).getTime(), text:text, busyStatus: status});
+				appointments.push({startDate: startDate.clearTime(true).getTime(), color: folderColor, text: text, busyStatus: status});
 			}
 		}, this);
 
@@ -133,44 +144,38 @@ Zarafa.calendar.printer.MonthViewRenderer = Ext.extend(Zarafa.calendar.printer.A
 	 * @param {Date} date The Date of the month for which we have to prepare the appointment bounds.
 	 * @return {Object} an object contains an appointment bounds which belongs to selected date.
 	 */
-	findAppointmentsByDate : function(records, date)
+	findAppointmentsByDate: function(records, date)
 	{
 		var items = [];
-		var overflowAppointment = false;
-
 		var appointments = records.filter(function (record) {
 			return record.startDate === date.getTime();
 		}, this);
 
 		if (!Ext.isEmpty(appointments)) {
-			var bottomPosition = 25;
-			var maxAppointment = 3;
-			var marginBottom = 10;
-			overflowAppointment = appointments.length > maxAppointment;
+			var topPosition = 25;
+			var maxAppointment = 50;
 
-			for(var i = 0; i < appointments.length; i++) {
+			for (var i = 0; i < appointments.length; i++) {
+
+				// Stop the loop when maximum amount of appointments is reached.
+				// In practice this will never be the case, due to high maximum and resizable print output.
 				if (i > maxAppointment - 1) {
 					break;
 				}
 
-				var bottom = bottomPosition;
-				if (overflowAppointment) {
-					bottom = i === 0 ? marginBottom : (bottomPosition * i) + marginBottom;
-				} else {
-					bottom = bottomPosition * i;
-				}
+				var top = topPosition * i;
 
 				var item = {};
 				item["appointment"] = {
-					text : appointments[i].text,
-					bottom: bottom,
-					color : this.folderColor,
-					busyStatus : this.getAppointmentStatus(appointments[i].busyStatus)
+					text: appointments[i].text,
+					top: top,
+					color: appointments[i].color,
+					busyStatus: this.getAppointmentStatus(appointments[i].busyStatus)
 				};
 				items.push(item);
 			}
 		}
-		return {"items" : items, "overflowAppointment": overflowAppointment};
+		return {"items": items};
 	},
 
 	/**
@@ -179,30 +184,29 @@ Zarafa.calendar.printer.MonthViewRenderer = Ext.extend(Zarafa.calendar.printer.A
 	 * @param {Zarafa.core.mapi.BusyStatus} busyStatus the {@link Zarafa.core.mapi.BusyStatus busyStatus} of an appointment.
 	 * @return {String} return the svg icon which used to indicate the status of an appointment.
 	 */
-	getAppointmentStatus : function(busyStatus)
+	getAppointmentStatus: function(busyStatus)
 	{
 		switch (busyStatus) {
 			case Zarafa.core.mapi.BusyStatus.FREE:
 				return '<svg width="7" height="20" class="k-appointment-status">'
-					+ '<rect x="0" y="0" rx="1" ry="1" width="7" height="20" style="fill:none; stroke:' + this.folderColor + '; stroke-width:1; opacity:0.5;" /> ' +
+					+ '<rect x="0" y="0" rx="1" ry="1" width="7" height="20" style="fill:none; stroke:#FFF; stroke-width:1;" /> ' +
 					+'</svg>';
 			case Zarafa.core.mapi.BusyStatus.BUSY:
 				return '<svg width="7" height="20" class="k-appointment-status">'
-					+ '<rect x="0" y="0" rx="5" ry="1" width="7" height="20" style="fill:' + this.folderColor + '; stroke:' + this.folderColor + '; stroke-width:1;opacity:0.5;" /> ' +
+					+ '<rect x="0" y="0" rx="5" ry="1" width="7" height="20" style="fill:#0000FF; stroke:#0000FF; stroke-width:1;" /> ' +
 					+'</svg>';
 			case Zarafa.core.mapi.BusyStatus.OUTOFOFFICE:
 				return '<svg width="7" height="20" class="k-appointment-status">'
-					+ '<rect x="0" y="0" rx="5" ry="1" width="7" height="20" style="fill:#912787; stroke:#912787; stroke-width:0; opacity:0.5" /> ' +
+					+ '<rect x="0" y="0" rx="5" ry="1" width="7" height="20" style="fill:#912787; stroke:#912787; stroke-width:0;" /> ' +
 					+'</svg>';
 			case Zarafa.core.mapi.BusyStatus.TENTATIVE:
 				return '<svg width="7" height="20" class="k-appointment-status">'
 					+ '<defs>'
-					+   '<pattern id="tentative" patternUnits="userSpaceOnUse" width="10" height="10">'
-					+       '<rect width="10" height="10" fill="white" style="stroke-width:0; opacity:0.5"/>'
-					+       '<path d="M-1,1 l2,-2 M0,10 l10,-10 M9,11 l2,-2" stroke=' + this.folderColor + ' stroke-width="2"/>'
+					+   '<pattern id="tentative" patternUnits="userSpaceOnUse" width="3" height="1" patternTransform="rotate(30)">'
+					+	'<rect width="1" height="20" fill="#0000FF" style="stroke-width:0;"/>'
 					+   '</pattern>'
 					+ '</defs>'
-					+ '<rect style="fill: url(#tentative)' + this.folderColor + ';" x="0" y="0" rx="1" ry="1" width="7" height="20" ></rect>'
+					+ '<rect style="fill: url(#tentative);" x="0" y="0" rx="1" ry="1" width="7" height="20" ></rect>'
 					+ '</svg>';
 		}
 	},
@@ -214,7 +218,7 @@ Zarafa.calendar.printer.MonthViewRenderer = Ext.extend(Zarafa.calendar.printer.A
 	 * @param {Date} startDate The start date of date range.
 	 * @return {String} return formatted date.
 	 */
-	getFormattedDate : function(date, startDate)
+	getFormattedDate: function(date, startDate)
 	{
 		if (date.getTime() === startDate.getTime() || date.getTime() === date.getFirstDateOfMonth().getTime()) {
 			return date.format(_('M j'));
@@ -226,57 +230,65 @@ Zarafa.calendar.printer.MonthViewRenderer = Ext.extend(Zarafa.calendar.printer.A
 	 * Returns the HTML that will be placed into the <body> part of the print window.
 	 * @return {String} The HTML fragment to place inside the print window's <body> element
 	 */
-	generateBodyTemplate : function()
+	generateBodyTemplate: function()
 	{
-		var html = '<table class="k-calendar-header" cellpadding=0 cellspacing=0>\n';
+		var html = '<div id="print-calendar">'
 
-		html += '<tr ><td><table id="top">\n';
+			// Top div
+			+ '<div id="top">'
+			+ 	'<div id="top-calendar-info">'
+			+		'<table>'
+			+			'<tr><td align="left" style="font-size: large;">{current_month}</td>'
+			+			'<tr> <td>'+ _('An overview of') + ': '
+			+ 					'<tpl for="folderList">'
+			+						'<span class="circle" style="background-color: {values.folderColor};"></span>'
+			+						'<span>{values.folderName}</span>'
+			+					'</tpl>'
+			+			'</td> </tr>'
+			+		'</table>'
+			+	'</div>'
+				// Datepicker_left is current month. Datepicker_right is next month.
+			+	'<div id="top-calendar-datepicker">'
+			+		'<tr align="right"><td><div id="datepicker_left"></div></td></tr>'
+			+		'<tr align="right"><td><div id="datepicker_right"></div></td></tr>'
+			+ 	'</div>'
+			+ '</div>'
 
-		html += '<tr><td align="left" style="font-size: large;">{current_month}</td>'
-			+ '<td align="center" valign="top" width="10%" rowspan=3><div id="datepicker_left"></div></td>'
-			+ '<td align="center" valign="top" width="10%" rowspan=3><div id="datepicker_right"></div></td></tr>\n';
-		html += '</table></td></tr></table>\n';
-
-		html += '<table class="k-calendar-days">'
-			+ '<tr style="height:5px;">'
-			// # TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
-			+   '<tpl for="days"><th class="date-header-days">{values.day}</th></tpl>'
-			+ '</tr>'
-			+ '<tpl for="weeks">'
-			+	'<tr height="100">'
-			+		'<tpl for="values.week">'
-			+			'<td style="position: relative;">'
-			+				'<span>'
-			+					'{values.date}'
-			+				'</span>'
-			+               '<tpl for="values.appointments">'
-			+                   '<div class = "k-appointment" style="bottom:{values.appointment.bottom}px; border:1px solid {values.appointment.color}; ">'
-			+                       '{values.appointment.busyStatus}'
-			+                       '<p style="padding-left: 10px; text-overflow: ellipsis; white-space: nowrap; overflow: hidden; ">'
-			+                           '{values.appointment.text}'
-			+                       '</p>'
-			+                   '</div>'
+			// Middle table row
+			+ '<div id="middle">'
+			+	'<table class="k-calendar-days">'
+			+ 		'<tr>'
+			+			'<tpl for="days"><th class="date-header-days">{values.day}</th></tpl>'
+			+	 	'</tr>'
+			+		'<tpl for="weeks">'
+			+			'<tr class="k-appointment-block">'
+			+				'<tpl for="values.week">'
+			+					'<td style="position: relative;">'
+			+						'<span class="k-day">'
+			+							'{values.date}'
+			+						'</span>'
+			+						'<tpl for="values.appointments">'
+			+							'<div class="k-appointment" style="border:1px solid {values.appointment.color}; ">'
+			+								'{values.appointment.busyStatus}'
+			+								'<p>'
+			+									'{values.appointment.text}'
+			+								'</p>'
+			+							'</div>'
+			+						'</tpl>'
+			+					'</td>'
 			+				'</tpl>'
-			+               '<tpl if="values.overflowAppointment">'
-			+                   '<div class = "k-overflow-indicator" style="color : {values.color};" >'
-			+                       '&#x25BC;'
-			+                    '</div>'
-			+               '</tpl>'
-			+			'</td>'
-			+		'</tpl>'
-			+	'</tr>'
-			+ '</tpl>'
-			+ '</table>\n';
+			+			'</tr>'
+			+ 		'</tpl>'
+			+ 	'</table>'
+			+'</div>'
 
-		// skipping page nr for now
-		html += '<table id="bottom">'
-			+ '<tr>'
-			+ '<td class="nowrap" align="left">{fullname}</td>'
-			// # TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
-			+ '<td class="nowrap" align="right">{currenttime:date("' + _("l jS F Y G:i") + '")}</td>'
-			+ '</tr>'
-			+ '</table>\n';
-
+			// Bottom name and print date
+			+ '<table class="bottom">'
+			+	 '<tr>'
+					// # TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
+			+ 		'<td align="left">'+_('Printed by') + ' ' + '{fullname}' + ' '+_('at') + ' ' + '{currenttime:formatDefaultTimeString("' + _("l jS F Y {0}") + '")}</td>'
+			+ 	'</tr>'
+			+ '</table>';
 		return html;
 	}
 });

@@ -15,31 +15,31 @@ Zarafa.contact.dialogs.ContactNameContentPanel = Ext.extend(Zarafa.core.ui.Recor
 	/**
 	 * @cfg {Zarafa.contact.data.ContactDetailsParser} parser parser object that will be used to parse information
 	 */
-	parser : null,
+	parser: null,
 
 	/**
 	 * @cfg {Zarafa.contact.dialogs.parsedNameRecord} parsedData if data is already parsed then it can be passed here,
 	 * so no need to prase same data again
 	 */
-	parsedData : null,
+	parsedData: null,
 
 	/**
 	 * @constructor
 	 * @param {Object} config Configuration structure
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		config = config || {};
 
 		Ext.applyIf(config, {
-			xtype : 'zarafa.contactnamecontentpanel',
-			layout : 'fit',
+			xtype: 'zarafa.contactnamecontentpanel',
+			layout: 'fit',
 			border: false,
-			title : _('Check full name'),
-			recordComponentPluginConfig : Ext.applyIf(config.recordComponentPluginConfig || {}, {
-				allowWrite : true
+			title: _('Check full name'),
+			recordComponentPluginConfig: Ext.applyIf(config.recordComponentPluginConfig || {}, {
+				allowWrite: true
 			}),
-			autoSave : false,
+			autoSave: false,
 			width: 400,
 			height: 250,
 			items: [{
@@ -47,14 +47,14 @@ Zarafa.contact.dialogs.ContactNameContentPanel = Ext.extend(Zarafa.core.ui.Recor
 				ref: 'mainPanel',
 				parser: config.parser,
 				parsedData: config.parsedData,
-				buttons : [{
-					text : _('Ok'),
-					handler : this.onOk,
-					scope : this
+				buttons: [{
+					text: _('Ok'),
+					handler: this.onOk,
+					scope: this
 				},{
-					text : _('Cancel'),
-					scope : this,
-					handler : this.onCancel
+					text: _('Cancel'),
+					scope: this,
+					handler: this.onCancel
 				}]
 			}]
 		});

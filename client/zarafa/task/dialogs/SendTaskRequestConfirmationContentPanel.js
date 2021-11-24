@@ -10,18 +10,18 @@ Zarafa.task.dialogs.SendTaskRequestConfirmationContentPanel = Ext.extend(Zarafa.
 	 * @cfg {Zarafa.core.ui.IPMRecord} record The record for which the
 	 * send task request confirmation content panel is opened.
 	 */
-	record : undefined,
+	record: undefined,
 
 	/**
 	 * @cfg {Zarafa.core.mapi.ResponseStatus} responseType The response type value selected by user.
 	 */
-	responseType : undefined,
+	responseType: undefined,
 
 	/**
 	 * @constructor
 	 * @param {Object} config Configuration object
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		config = config || {};
 
@@ -30,10 +30,10 @@ Zarafa.task.dialogs.SendTaskRequestConfirmationContentPanel = Ext.extend(Zarafa.
 			title = _('Declining Task');
 		}
 		config = Ext.applyIf(config, {
-			xtype : 'zarafa.sendtaskrequestconfirmcontentpanel',
+			xtype: 'zarafa.sendtaskrequestconfirmcontentpanel',
 			layout: 'fit',
-			title : title,
-			modal : true,
+			title: title,
+			modal: true,
 			width: 350,
 			height: 250,
 			items: [{
@@ -60,7 +60,7 @@ Zarafa.task.dialogs.SendTaskRequestConfirmationContentPanel = Ext.extend(Zarafa.
 	 * Event handler which is raised when the user clicks the "Ok" {@link Ext.Button button}
 	 * @private
 	 */
-	onOk : function()
+	onOk: function()
 	{
 		this.sendTaskConfirmationPanel.updateRecord(this.record);
 		this.close();
@@ -72,7 +72,7 @@ Zarafa.task.dialogs.SendTaskRequestConfirmationContentPanel = Ext.extend(Zarafa.
 	 * This will close the panel.
 	 * @private
 	 */
-	onCancel : function()
+	onCancel: function()
 	{
 		this.close();
 	}

@@ -12,13 +12,13 @@ Zarafa.mail.dialogs.MailCreateOptionsPanel = Ext.extend(Ext.Panel, {
 	 * @constructor
 	 * @param config Configuration structure
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		config = config || {};
 
 		config = Ext.applyIf(config, {
 			// Override from Ext.Component
-			xtype : 'zarafa.mailcreateoptionspanel',
+			xtype: 'zarafa.mailcreateoptionspanel',
 			layout: {
 				type: 'vbox',
 				align: 'stretch'

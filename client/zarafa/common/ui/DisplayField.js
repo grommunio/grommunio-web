@@ -14,7 +14,7 @@ Zarafa.common.ui.DisplayField = Ext.extend(Ext.form.DisplayField, {
 	 * @cfg {Function} renderer A special renderer functions which
 	 * can be used to apply special formatting to the displayed value
 	 */
-	renderer : function(value) { return value; },
+	renderer: function(value) { return value; },
 
 	/**
 	 * The raw value which was set to {@link #setRawValue}, this is
@@ -23,7 +23,7 @@ Zarafa.common.ui.DisplayField = Ext.extend(Ext.form.DisplayField, {
 	 * @property
 	 * @type Mixed
 	 */
-	rawValue : undefined,
+	rawValue: undefined,
 
 	/**
 	 * Sets the underlying DOM field's value directly, bypassing validation. To set the value with validation see {@link #setValue}.
@@ -31,7 +31,7 @@ Zarafa.common.ui.DisplayField = Ext.extend(Ext.form.DisplayField, {
 	 * @param {Mixed} The value to set
 	 * @return {Mixed} The field value that is set
 	 */
-	setRawValue : function(value)
+	setRawValue: function(value)
 	{
 		this.rawValue = value;
 		return Zarafa.common.ui.DisplayField.superclass.setRawValue.call(this, this.renderer(value));
@@ -41,7 +41,7 @@ Zarafa.common.ui.DisplayField = Ext.extend(Ext.form.DisplayField, {
 	 * Returns the raw data value which may or may not be a valid, defined value. To return a normalized value see {@link #getValue}.
 	 * @return {Mixed} The field value
 	 */
-	getRawValue : function()
+	getRawValue: function()
 	{
 		return this.rawValue;
 	}

@@ -11,14 +11,14 @@ Zarafa.core.data.JsonRecipientWriter = Ext.extend(Zarafa.core.data.JsonWriter, {
 	 * Convert recipients into a hash. Recipients exists as
 	 * {@link Zarafa.core.data.IPMRecipientRecord IPMRecipientRecord} within
 	 * a {@link Zarafa.core.data.IPMRecord IPMRecord} and thus must be serialized
-	 * seperately into the hash object.
+	 * separately into the hash object.
 	 *
 	 * @param {Ext.data.Record} record The record to hash
 	 * @return {Object} The hashed object
 	 * @override
 	 * @private
 	 */
-	toPropHash : function(record)
+	toPropHash: function(record)
 	{
 		var recipientStore = record.getRecipientStore();
 		var hash = {};

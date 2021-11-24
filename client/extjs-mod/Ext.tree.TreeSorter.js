@@ -5,7 +5,7 @@
 	 * could have been destroyed before the function is being called...
 	 */
 	Ext.override(Ext.tree.TreeSorter, {
-		doSort : function(node)
+		doSort: function(node)
 		{
 			// Check if the node has children which
 			// can be sorted.

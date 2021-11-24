@@ -14,7 +14,7 @@ Zarafa.settings.PersistentSettingsModel = Ext.extend(Zarafa.settings.SettingsMod
 	 * @constructor
 	 * @param config Configuration structure
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		config = config || {};
         if (!Ext.isObject(config.defaults)) {
@@ -30,14 +30,14 @@ Zarafa.settings.PersistentSettingsModel = Ext.extend(Zarafa.settings.SettingsMod
 	 * @param {Object} parameters The action parameters which must be send to the server.
 	 * @private
 	 */
-	execute : function(action, parameters)
+	execute: function(action, parameters)
 	{
-		if (this.fireEvent('beforesave', this, { action : parameters}) !== false) {
+		if (this.fireEvent('beforesave', this, { action: parameters}) !== false) {
 			container.getRequest().singleRequest(
 				Zarafa.core.ModuleNames.getListName('settings'),
 				action,
 				{
-					'persistentSetting' : parameters
+					'persistentSetting': parameters
 				},
 				new Zarafa.core.data.ProxyResponseHandler({
 					proxy: this,
@@ -47,7 +47,7 @@ Zarafa.settings.PersistentSettingsModel = Ext.extend(Zarafa.settings.SettingsMod
 						parameters 	: parameters
 					},
 					callback:  this.onExecuteComplete,
-					scope : this
+					scope: this
 				})
 			);
 		}

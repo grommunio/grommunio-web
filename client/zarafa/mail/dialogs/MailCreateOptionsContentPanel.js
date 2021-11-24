@@ -12,20 +12,20 @@ Zarafa.mail.dialogs.MailCreateOptionsContentPanel = Ext.extend(Zarafa.core.ui.Re
 	 * @constructor
 	 * @param config Configuration structure
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		config = config || {};
 
 		config = Ext.applyIf(config, {
 			// Override from Ext.Component
-			xtype : 'zarafa.mailcreateoptionscontentpanel',
+			xtype: 'zarafa.mailcreateoptionscontentpanel',
 			// Override from Ext.Component
-			layout : 'fit',
-			title : _('Message Options'),
-			recordComponentPluginConfig : Ext.applyIf(config.recordComponentPluginConfig || {}, {
-				allowWrite : true
+			layout: 'fit',
+			title: _('Message Options'),
+			recordComponentPluginConfig: Ext.applyIf(config.recordComponentPluginConfig || {}, {
+				allowWrite: true
 			}),
-			autoSave : config.modal ? false : true,
+			autoSave: config.modal ? false : true,
 			width: 320,
 			height: 220,
 			items: [{

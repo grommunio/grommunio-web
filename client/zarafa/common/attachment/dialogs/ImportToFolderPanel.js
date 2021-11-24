@@ -14,13 +14,13 @@ Zarafa.common.attachment.dialogs.ImportToFolderPanel = Ext.extend(Zarafa.common.
 	 * @constructor
 	 * @param {Object} config Configuration structure
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		config = config || {};
 
 		Ext.applyIf(config, {
 			// Override from Ext.Component
-			xtype : 'zarafa.importtofolderpanel',
+			xtype: 'zarafa.importtofolderpanel',
 			permissionFilter: Zarafa.core.mapi.Rights.RIGHTS_CREATE,
 			buttons: [{
 				text: _('Import'),
@@ -56,7 +56,7 @@ Zarafa.common.attachment.dialogs.ImportToFolderPanel = Ext.extend(Zarafa.common.
 	* @param {TreeNode} node The selected tree node
 	* @private
 	*/
-	onSelectionChange : function(selectionModel, node)
+	onSelectionChange: function(selectionModel, node)
 	{
 		if (!Ext.isDefined(node) || (node.getFolder().isIPMSubTree() && this.objectType == Zarafa.core.mapi.ObjectType.MAPI_MESSAGE)) {
 			this.importButton.disable();
@@ -73,7 +73,7 @@ Zarafa.common.attachment.dialogs.ImportToFolderPanel = Ext.extend(Zarafa.common.
 	 * and will close the dialog when it is done.
 	 * @private
 	 */
-	onImport : function()
+	onImport: function()
 	{
 		var folder = this.hierarchyTree.getSelectionModel().getSelectedNode().getFolder();
 		var records = this.record;
@@ -98,9 +98,9 @@ Zarafa.common.attachment.dialogs.ImportToFolderPanel = Ext.extend(Zarafa.common.
 	 * @return {String} The content type, undefined if no match available
 	 * @private
 	 */
-	getIPMFilter : function(record)
+	getIPMFilter: function(record)
 	{
-		let extension = record.get('extension');
+		let extension = record.get('extension').toLowerCase();
 
 		if(record.isEmbeddedMessage()) {
 			let messageClass = record.get('attach_message_class');

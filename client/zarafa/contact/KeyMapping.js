@@ -24,9 +24,9 @@ Zarafa.contact.KeyMapping = Ext.extend(Object, {
 			stopEvent: true,
 			handler: this.onNewContact,
 			scope: this,
-			settingsCfg : {
-				description : _('New contact'),
-				category : _('Creating an item')
+			settingsCfg: {
+				description: _('New contact'),
+				category: _('Creating an item')
 			}
 		},{
 			key: Ext.EventObject.D,
@@ -36,9 +36,9 @@ Zarafa.contact.KeyMapping = Ext.extend(Object, {
 			stopEvent: true,
 			handler: this.onNewDistributionList,
 			scope: this,
-			settingsCfg : {
-				description : _('New distribution list'),
-				category : _('Creating an item')
+			settingsCfg: {
+				description: _('New distribution list'),
+				category: _('Creating an item')
 			}
 		}];
 
@@ -46,7 +46,7 @@ Zarafa.contact.KeyMapping = Ext.extend(Object, {
 	},
 
 	/**
-	 * Event handler for the keydown event of the {@link Zarafa.core.KeyMap KeyMap} when the user wants to 
+	 * Event handler for the keydown event of the {@link Zarafa.core.KeyMap KeyMap} when the user wants to
 	 * create a new contact.
 	 * @param {Number} key Key code
 	 * @param {Ext.EventObject} event The event
@@ -58,7 +58,7 @@ Zarafa.contact.KeyMapping = Ext.extend(Object, {
 	},
 
 	/**
-	 * Event handler for the keydown event of the {@link Zarafa.core.KeyMap KeyMap} when the user wants to 
+	 * Event handler for the keydown event of the {@link Zarafa.core.KeyMap KeyMap} when the user wants to
 	 * create a new distribution list.
 	 * @param {Number} key Key code
 	 * @param {Ext.EventObject} event The event

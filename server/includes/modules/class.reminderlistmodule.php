@@ -14,19 +14,18 @@
 		*/
 		function __construct($id, $data)
 		{
-			$this->properties = $GLOBALS["properties"]->getReminderProperties();
-
 			parent::__construct($id, $data);
 
-			$store = $GLOBALS["mapisession"]->getDefaultMessageStore();
-			$this->reminderEntryId = $this->getReminderFolderEntryId($store);
+			$this->properties = $GLOBALS["properties"]->getReminderProperties();		
 		}
 
 		function execute()
 		{
-			$store = $GLOBALS["mapisession"]->getDefaultMessageStore();
 			foreach($this->data as $actionType => $action)
 			{
+				$store = $GLOBALS["mapisession"]->getDefaultMessageStore();
+				$this->reminderEntryId = $this->getReminderFolderEntryId($store);
+
 				if(isset($actionType)) {
 					try {
 						switch($actionType)

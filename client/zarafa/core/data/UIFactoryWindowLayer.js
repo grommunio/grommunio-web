@@ -12,16 +12,16 @@ Zarafa.core.data.UIFactoryWindowLayer = Ext.extend(Zarafa.core.data.UIFactoryLay
 	 * @constructor
 	 * @param {Object} config Configuration object
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		config = config || {};
 
 		Ext.applyIf(config, {
-			type : 'dialogs',
-			index : 10,
-			allowModal : true,
-			manager : Ext.WindowMgr,
-			plugins : [ 'zarafa.contentwindowlayerplugin' ]
+			type: 'dialogs',
+			index: 10,
+			allowModal: true,
+			manager: Ext.WindowMgr,
+			plugins: [ 'zarafa.contentwindowlayerplugin' ]
 		});
 
 		Zarafa.core.data.UIFactoryWindowLayer.superclass.constructor.call(this, config);
@@ -35,7 +35,7 @@ Zarafa.core.data.UIFactoryWindowLayer = Ext.extend(Zarafa.core.data.UIFactoryLay
 	 * passed to the constructor when creating the component
 	 * @protected
 	 */
-	create : function(component, config)
+	create: function(component, config)
 	{
 		Ext.applyIf(config, {
 			statefulRelativeDimensions: false
@@ -55,32 +55,32 @@ Zarafa.core.data.UIFactoryWindowLayer = Ext.extend(Zarafa.core.data.UIFactoryLay
 		}
 
 		var windowCfg = {
-			modal : panel.modal,
-			manager : panel.manager,
-			iconCls : Ext.isDefined(config.iconCls) ? config.iconCls : '',
-			constrainHeader : true,
-			resizable : Ext.isDefined(panel.resizable)? panel.resizable : true,
+			modal: panel.modal,
+			manager: panel.manager,
+			iconCls: Ext.isDefined(config.iconCls) ? config.iconCls : '',
+			constrainHeader: true,
+			resizable: Ext.isDefined(panel.resizable)? panel.resizable : true,
 			minimizable: Ext.isDefined(panel.minimizable)? panel.minimizable : false,
-			closable : config.closable,
-			headerCfg : {
-				tag : 'div',
-				cls : 'zarafa-window-header x-window-header x-unselectable x-window-draggable'
+			closable: config.closable,
+			headerCfg: {
+				tag: 'div',
+				cls: 'zarafa-window-header x-window-header x-unselectable x-window-draggable'
 			},
-			layout : 'fit',
-			items : [
+			layout: 'fit',
+			items: [
 				panel
 			],
 
-			listeners : {
+			listeners: {
 				// We want to give fade effect when subjecttext is longer than window width
 				// NOTE: Removing this breaks logon when webmeetings is enabled
-				'afterrender' : function(win) {
+				'afterrender': function(win) {
 					if (Ext.isDefined(win.header) && Ext.isElement(win.header.dom)) {
 						Ext.DomHelper.append(win.header.dom, "<span class='fade'>&nbsp;</span>");
 					}
 				}
 			},
-			title : panel.title
+			title: panel.title
 		};
 
 		// If the component has listeners defined add them to the containing window
@@ -112,8 +112,8 @@ Zarafa.core.data.UIFactoryWindowLayer = Ext.extend(Zarafa.core.data.UIFactoryLay
 	 * Event handler for the close event of the {@link Ext.Window}
 	 * It will set the focus on element which was previously focused before window open
 	 * @param {Ext.Element} activeElement which was previously focused
-     */
-	onWindowClose : function(activeElement)
+   */
+	onWindowClose: function(activeElement)
 	{
 		if (activeElement) {
 			activeElement.focus();

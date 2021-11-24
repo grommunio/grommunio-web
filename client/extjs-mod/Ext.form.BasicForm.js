@@ -11,13 +11,13 @@
 	Ext.override(Ext.form.BasicForm, {
 
 		// updateRecord overridden to check for the 'isSingleValued' property.
-		updateRecord : function(record)
+		updateRecord: function(record)
 		{
 			record.beginEdit();
 			var fs = record.fields,
 				 field,
 				 value;
-			fs.each(function(f){
+			fs.each(function(f) {
 				field = this.findField(f.name);
 				if (field) {
 					value = field.getValue();
@@ -31,44 +31,44 @@
 						// has been added (defined in Zarafa.common.ui.CompositeField).
 					} else if (field.isSingleValued !== true && field.eachItem) {
 						value = [];
-						field.eachItem(function(item){
+						field.eachItem(function(item) {
 							value.push(item.getValue());
 						});
 					}
 					record.set(f.name, value);
 				}
 			}, this);
-			record.endEdit();
+			record.endEdit(this.isValid());
 			return this;
 		},
 
 		// setValues overridden to add the checks:
 		//   if (!field.hasFocus || (field.originalValue == field.el.dom.value)) {
 		//   }
-		setValues : function(values)
+		setValues: function(values)
 		{
-			if(Ext.isArray(values)){ // array of objects
-				for(var i = 0, len = values.length; i < len; i++){
+			if(Ext.isArray(values)) { // array of objects
+				for(var i = 0, len = values.length; i < len; i++) {
 					var v = values[i];
 					var f = this.findField(v.id);
-					if(f){
+					if(f) {
 						// Don't update an input field which the user is working in
 						if (!f.hasFocus || (f.originalValue == f.el.dom.value)) {
 							f.setValue(v.value);
-							if(this.trackResetOnLoad){
+							if(this.trackResetOnLoad) {
 								f.originalValue = f.getValue();
 							}
 						}
 					}
 				}
-			}else{ // object hash
+			} else { // object hash
 				var field, id;
-				for(id in values){
+				for(id in values) {
 					if(!Ext.isFunction(values[id]) && (field = this.findField(id))) {
 						// Don't update an input field which the user is working in
 						if (!field.hasFocus || (field.originalValue == field.el.dom.value)) {
 							field.setValue(values[id]);
-							if(this.trackResetOnLoad){
+							if(this.trackResetOnLoad) {
 								field.originalValue = field.getValue();
 							}
 						}

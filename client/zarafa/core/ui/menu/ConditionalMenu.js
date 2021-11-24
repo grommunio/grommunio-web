@@ -5,24 +5,24 @@ Ext.namespace('Zarafa.core.ui.menu');
  * @extends Ext.menu.Menu
  * @xtype zarafa.conditionalmenu
  *
- * Extends the {@link Ext.menu.Menu} class and allows menu options to determine whether to display themselfs.
+ * Extends the {@link Ext.menu.Menu} class and allows menu options to determine whether to display themselves.
  */
 Zarafa.core.ui.menu.ConditionalMenu = Ext.extend(Ext.menu.Menu, {
 	/**
 	 * @cfg {Zarafa.core.data.IPMRecord[]} records The records on which this contextmenu was requested
 	 */
-	records : undefined,
+	records: undefined,
 
 	/**
 	 * @constructor
 	 * @param {Object} config Configuration object
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		config = config || {};
 
 		Ext.applyIf(config, {
-			xtype : 'zarafa.conditionalmenu',
+			xtype: 'zarafa.conditionalmenu',
 			shadow: false
 		});
 
@@ -42,7 +42,7 @@ Zarafa.core.ui.menu.ConditionalMenu = Ext.extend(Ext.menu.Menu, {
 	 * @param {Zarafa.core.ui.menu.ConditionalMenu} menu The menu which is being opened.
 	 * @private
 	 */
-	onMenuBeforeShow : function(menu)
+	onMenuBeforeShow: function(menu)
 	{
 		var records = this.records;
 		var allowSeparator = false;
@@ -65,7 +65,7 @@ Zarafa.core.ui.menu.ConditionalMenu = Ext.extend(Ext.menu.Menu, {
 				item.setVisible(allowSeparator === true);
 				allowSeparator = false;
 			} else {
-				// If the non-seperator item is visible,
+				// If the non-separator item is visible,
 				// we are allowed to display a separator when requested.
 				if (item.hidden === false) {
 					allowSeparator = true;

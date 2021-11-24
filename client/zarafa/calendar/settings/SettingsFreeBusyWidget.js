@@ -14,18 +14,18 @@ Zarafa.calendar.settings.SettingsFreeBusyWidget = Ext.extend(Zarafa.settings.ui.
 	 * @constructor
 	 * @param {Object} config Configuration object
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		config = config || {};
 
 		var message = _('Free/Busy information is used by people sending meeting requests, to determine when you are available for meetings.');
 
 		Ext.applyIf(config, {
-			title : _('Free/Busy publishing'),
-			items : [{
-				xtype : 'displayfield',
-				hideLabel : true,
-				value : message
+			title: _('Free/Busy publishing'),
+			items: [{
+				xtype: 'displayfield',
+				hideLabel: true,
+				value: message
 			},{
 				xtype: 'zarafa.compositefield',
 				plugins: [ 'zarafa.splitfieldlabeler' ],
@@ -33,24 +33,24 @@ Zarafa.calendar.settings.SettingsFreeBusyWidget = Ext.extend(Zarafa.settings.ui.
 				items: [{
 					xtype: 'numberfield',
 					cls: 'k-centeredtext',
-					width : 30,
-					name : 'zarafa/v1/contexts/calendar/free_busy_range',
+					width: 30,
+					name: 'zarafa/v1/contexts/calendar/free_busy_range',
 					labelSplitter: '{A}',
-					ref : '../freeBusyMonth',
-					minValue : 0,
-					maxValue : 36,
+					ref: '../freeBusyMonth',
+					minValue: 0,
+					maxValue: 36,
 					allowBlank: false,
-					allowDecimals : false,
-					allowNegative : false,
-					listeners : {
-						change : this.onFieldChange,
-						scope : this
+					allowDecimals: false,
+					allowNegative: false,
+					listeners: {
+						change: this.onFieldChange,
+						scope: this
 					}
 				}]
 			},{
-				xtype : 'displayfield',
-				hideLabel : true,
-				value : _('You can only publish a Free/Busy period from 0 to 36 months. 0 means Free/Busy information is not published.')
+				xtype: 'displayfield',
+				hideLabel: true,
+				value: _('You can only publish a Free/Busy period from 0 to 36 months. 0 means Free/Busy information is not published.')
 			}]
 		});
 
@@ -64,7 +64,7 @@ Zarafa.calendar.settings.SettingsFreeBusyWidget = Ext.extend(Zarafa.settings.ui.
 	 * {@link Zarafa.settings.SettingsModel} into the UI of this category.
 	 * @param {Zarafa.settings.SettingsModel} settingsModel The settings to load
 	 */
-	update : function(settingsModel)
+	update: function(settingsModel)
 	{
 		this.model = settingsModel;
 
@@ -78,7 +78,7 @@ Zarafa.calendar.settings.SettingsFreeBusyWidget = Ext.extend(Zarafa.settings.ui.
 	 * This is used to update the settings from the UI into the {@link Zarafa.settings.SettingsModel settings model}.
 	 * @param {Zarafa.settings.SettingsModel} settingsModel The settings to update
 	 */
-	updateSettings : function(settingsModel)
+	updateSettings: function(settingsModel)
 	{
 		var freeBusyMonth = this.freeBusyMonth.isValid() ? this.freeBusyMonth.getValue() : settingsModel.get(this.freeBusyMonth.name, false, true);
 
@@ -95,7 +95,7 @@ Zarafa.calendar.settings.SettingsFreeBusyWidget = Ext.extend(Zarafa.settings.ui.
 	 * @param {number} oldValue The newValue is contains the old months range.
 	 * @private
 	 */
-	onFieldChange : function(field, newValue, oldValue)
+	onFieldChange: function(field, newValue, oldValue)
 	{
 		if (this.model) {
 

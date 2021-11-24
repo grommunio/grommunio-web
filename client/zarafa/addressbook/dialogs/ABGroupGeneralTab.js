@@ -4,16 +4,16 @@ Ext.namespace('Zarafa.addressbook.dialogs');
  * @class Zarafa.addressbook.dialogs.ABGroupGeneralTab
  * @extends Ext.form.FormPanel
  * @xtype zarafa.abgroupgeneraltab
- * 
+ *
  * This class is used to create layout of general tab in tab panel.
  */
 Zarafa.addressbook.dialogs.ABGroupGeneralTab = Ext.extend(Ext.form.FormPanel, {
-	
+
 	/**
 	 * @constructor
 	 * @param {Object} config configuration object.
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		config = config || {};
 
@@ -21,11 +21,11 @@ Zarafa.addressbook.dialogs.ABGroupGeneralTab = Ext.extend(Ext.form.FormPanel, {
 		config.plugins.push('zarafa.recordcomponentupdaterplugin');
 
 		Ext.applyIf(config, {
-			xtype : 'zarafa.abgroupgeneraltab',
-			title : _('General'),
+			xtype: 'zarafa.abgroupgeneraltab',
+			title: _('General'),
 			layout: 'column',
-			autoScroll : true,
-			items : [
+			autoScroll: true,
+			items: [
 				this.createNameFieldset(),
 				this.createMembersFieldset()
 			]
@@ -39,51 +39,51 @@ Zarafa.addressbook.dialogs.ABGroupGeneralTab = Ext.extend(Ext.form.FormPanel, {
 	 * @return {Object} config object for creating {@link Ext.form.FieldSet FieldSet}.
 	 * @private
 	 */
-	createNameFieldset : function()
+	createNameFieldset: function()
 	{
 		return {
-			xtype : 'fieldset',
-			columnWidth : 0.5,
-			border : false,
+			xtype: 'fieldset',
+			columnWidth: 0.5,
+			border: false,
 			cls: 'zarafa-fieldset',
 			autoHeight: true,
-			items : [{
-				xtype : 'textfield',
-				fieldLabel : _('Display Name'),
-				name : 'display_name',
-				anchor : '100%',
-				border : false,
-				readOnly : true
+			items: [{
+				xtype: 'textfield',
+				fieldLabel: _('Display Name'),
+				name: 'display_name',
+				anchor: '100%',
+				border: false,
+				readOnly: true
 			},{
-				xtype : 'textfield',
-				fieldLabel : _('Alias'),
-				name : 'account',
-				anchor : '100%',
-				border : false,
-				readOnly : true
+				xtype: 'textfield',
+				fieldLabel: _('Alias'),
+				name: 'account',
+				anchor: '100%',
+				border: false,
+				readOnly: true
 			},{
-				xtype : 'displayfield',
-				value : _('Owner') + ':',
-				hideLabel : true
+				xtype: 'displayfield',
+				value: _('Owner') + ':',
+				hideLabel: true
 			},{
-				xtype : 'zarafa.abitemgrid',
-				ref : '../ownerList',
-				anchor : '100%',
-				bwrapStyle : 'width: 100%',
-				autoHeight : true,
+				xtype: 'zarafa.abitemgrid',
+				ref: '../ownerList',
+				anchor: '100%',
+				bwrapStyle: 'width: 100%',
+				autoHeight: true,
 				border: false
 			},{
-				xtype : 'displayfield',
-				value : _('Notes') + ':',
-				hideLabel : true
+				xtype: 'displayfield',
+				value: _('Notes') + ':',
+				hideLabel: true
 			},{
-				xtype : 'textarea',
-				hideLabel : true,
-				name : 'comment',
+				xtype: 'textarea',
+				hideLabel: true,
+				name: 'comment',
 				flex: 1,
-				anchor : '100%',
-				border : false,
-				readOnly : true
+				anchor: '100%',
+				border: false,
+				readOnly: true
 			}]
 		};
 	},
@@ -93,23 +93,23 @@ Zarafa.addressbook.dialogs.ABGroupGeneralTab = Ext.extend(Ext.form.FormPanel, {
 	 * @return {Object} config object for creating {@link Ext.form.FieldSet FieldSet}.
 	 * @private
 	 */
-	createMembersFieldset : function()
+	createMembersFieldset: function()
 	{
 		return {
-			xtype : 'fieldset',
-			columnWidth : 0.5,
-			border : true,
-			title : _('Members'),
+			xtype: 'fieldset',
+			columnWidth: 0.5,
+			border: true,
+			title: _('Members'),
 			cls: 'zarafa-fieldset',
 			autoHeight: true,
-			items : [{
-				xtype : 'zarafa.abitemgrid',
-				autoWidth : true,
-				border : true,
-				height : 225,
-				ref : '../groupMembersList',
+			items: [{
+				xtype: 'zarafa.abitemgrid',
+				autoWidth: true,
+				border: true,
+				height: 225,
+				ref: '../groupMembersList',
 				flex: 1,
-				readOnly : true
+				readOnly: true
 			}]
 		};
 	},
@@ -121,7 +121,7 @@ Zarafa.addressbook.dialogs.ABGroupGeneralTab = Ext.extend(Ext.form.FormPanel, {
 	 * @param {Boolean} contentReset force the component to perform a full update of the data.
 	 * @private
 	 */
-	update : function(record, contentReset)
+	update: function(record, contentReset)
 	{
 		this.getForm().loadRecord(record);
 

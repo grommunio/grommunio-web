@@ -5,7 +5,7 @@ Ext.namespace('Zarafa.contact.data');
  * @extends Zarafa.core.Enum
  *
  * Enum containing the different views of the contact context.
- * 
+ *
  * @singleton
  */
 Zarafa.contact.data.Views = Zarafa.core.Enum.create({
@@ -15,7 +15,7 @@ Zarafa.contact.data.Views = Zarafa.core.Enum.create({
 	 * @property
 	 * @type Number
 	 */
-	ICON : 0,
+	ICON: 0,
 
 	/**
 	 * View all contact items from the selected folder(s) in the 'list' view.
@@ -23,7 +23,7 @@ Zarafa.contact.data.Views = Zarafa.core.Enum.create({
 	 * @property
 	 * @type Number
 	 */
-	LIST : 1,
+	LIST: 1,
 
 	/**
 	 * View the found contact items from the selected folder(s) in the 'list' view.
@@ -31,5 +31,5 @@ Zarafa.contact.data.Views = Zarafa.core.Enum.create({
 	 * @property
 	 * @type Number
 	 */
-	SEARCH  : 2
+	SEARCH : 2
 });

@@ -4,7 +4,7 @@ Ext.namespace('Zarafa.mail.ui');
  * @class Zarafa.mail.ui.MailViewPanel
  * @extends Ext.Panel
  * @xtype zarafa.mailviewpanel
- * 
+ *
  * Panel that shows the contents of mail messages.
  */
 Zarafa.mail.ui.MailViewPanel = Ext.extend(Ext.Panel, {
@@ -12,19 +12,19 @@ Zarafa.mail.ui.MailViewPanel = Ext.extend(Ext.Panel, {
 	 * @constructor
 	 * @param {Object} config configuration object.
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		config = config || {};
 
 		Ext.applyIf(config, {
 			xtype: 'zarafa.mailviewpanel',
-			border : false,
+			border: false,
 			cls: 'zarafa-mailviewpanel',
 			layout: 'zarafa.collapsible',
-			items : [{
+			items: [{
 				xtype: 'zarafa.messageheader'
 			},{
-				xtype : 'zarafa.messagebody'
+				xtype: 'zarafa.messagebody'
 			}]
 		});
 

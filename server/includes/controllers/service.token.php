@@ -2,9 +2,9 @@
 
 	/*
 	 * 	This controller handles the following request:
-	 * 
+	 *
 	 *  update token (login)
-	 * 		
+	 *
 	 * 		Method: POST
 	 * 		GET Parameters:
 	 * 			service=authenticate
@@ -12,25 +12,25 @@
 	 * 			username=username
 	 * 			token=token
 	 * 			new=new
-	 * 		Response: 
+	 * 		Response:
 	 * 			200 Ok
 	 * 			JSON
 	 * 				{
-	 * 					'authenticated' : 'true',
-	 * 					'username' : '<username>'
+	 * 					'authenticated': 'true',
+	 * 					'username': '<username>'
 	 * 				}
-	 * 
+	 *
 	 * 			401 Unauthorized
 	 * 			JSON
 	 * 				{
-	 * 					'error' : {
-	 * 						'code' : <nr>
-	 * 						'message : '<error message>'
+	 * 					'error': {
+	 * 						'code': <nr>
+	 * 						'message: '<error message>'
 	 * 					}
 	 * 				}
-	 * 
+	 *
 	 */
-	 
+
 	require_once(BASE_PATH . 'server/includes/core/class.response.php');
 	require_once( BASE_PATH . 'server/includes/core/class.webappauthentication.php');
 
@@ -38,7 +38,7 @@
 	 * Decode an JWT access token which contains of a header, payload and
 	 * verify signature separated by a dot.
 	 * @param string $accessToken the accessToken to extract the user entryid from
-	 * @return string empty string when entryid is not found 
+	 * @return string empty string when entryid is not found
 	 */
 	function extractUserEntryId($accessToken) {
 		$parts = explode(".", $accessToken);
@@ -99,7 +99,7 @@
 	if ( !WebAppAuthentication::isAuthenticated() || WebAppAuthentication::getErrorCode() !== NOERROR ){
 		header('HTTP/1.1 401 Unauthorized');
 	}
-	
+
 	// Send the response and stop the script
 	echo json_encode($response);
 	die();

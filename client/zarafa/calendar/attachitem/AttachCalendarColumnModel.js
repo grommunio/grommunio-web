@@ -16,14 +16,14 @@ Zarafa.calendar.attachitem.AttachCalendarColumnModel = Ext.extend(Zarafa.common.
 	 * @constructor
 	 * @param {Object} config Configuration structure
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		config = config || {};
 
 		Ext.applyIf(config, {
-			columns : this.getColumns(),
-			defaults : {
-				sortable : true
+			columns: this.getColumns(),
+			defaults: {
+				sortable: true
 			}
 		});
 
@@ -37,49 +37,49 @@ Zarafa.calendar.attachitem.AttachCalendarColumnModel = Ext.extend(Zarafa.common.
 	 * @return {Ext.grid.Column[]} The array of columns
 	 * @private
 	 */
-	getColumns : function()
+	getColumns: function()
 	{
 		return [{
-			header : '<p class=\'icon_index\'>&nbsp;</p>',
+			header: '<p class=\'icon_index\'>&nbsp;</p>',
 			headerCls: 'zarafa-icon-column',
-			dataIndex : 'icon_index',
-			tooltip : _('Sort by: Icon'),
-			width : 24,
-			fixed : true,
-			renderer : Zarafa.common.ui.grid.Renderers.icon
+			dataIndex: 'icon_index',
+			tooltip: _('Sort by: Icon'),
+			width: 24,
+			fixed: true,
+			renderer: Zarafa.common.ui.grid.Renderers.icon
 		}, {
-			header : '<p class=\'icon_paperclip\'>&nbsp;</p>',
+			header: '<p class=\'icon_paperclip\'>&nbsp;</p>',
 			headerCls: 'zarafa-icon-column',
-			dataIndex : 'hasattach',
-			width : 24,
-			fixed : true,
-			renderer : Zarafa.common.ui.grid.Renderers.attachment,
-			tooltip : _('Sort by: Attachment')
+			dataIndex: 'hasattach',
+			width: 24,
+			fixed: true,
+			renderer: Zarafa.common.ui.grid.Renderers.attachment,
+			tooltip: _('Sort by: Attachment')
 		}, {
-			header : '<p class=\'icon_recurrence\'>&nbsp;</p>',
+			header: '<p class=\'icon_recurrence\'>&nbsp;</p>',
 			headerCls: 'zarafa-icon-column',
 			dataIndex: 'recurring',
-			tooltip : _('Sort by: Recurring'),
-			width : 24,
-			renderer : Zarafa.common.ui.grid.Renderers.recurrence,
-			fixed : true
+			tooltip: _('Sort by: Recurring'),
+			width: 24,
+			renderer: Zarafa.common.ui.grid.Renderers.recurrence,
+			fixed: true
 		}, {
-			header : _('Subject'),
-			dataIndex : 'subject',
-			tooltip : _('Sort by: Subject'),
-			renderer : Zarafa.common.ui.grid.Renderers.subject
+			header: _('Subject'),
+			dataIndex: 'subject',
+			tooltip: _('Sort by: Subject'),
+			renderer: Zarafa.common.ui.grid.Renderers.subject
 		}, {
-			header : _('Startdate'),
-			dataIndex : 'startdate',
-			tooltip : _('Sort by: Startdate'),
-			width : 180,
-			renderer : Zarafa.common.ui.grid.Renderers.datetime
+			header: _('Start Date'),
+			dataIndex: 'startdate',
+			tooltip: _('Sort by: Start Date'),
+			width: 180,
+			renderer: Zarafa.common.ui.grid.Renderers.datetime
 		}, {
-			header : _('Enddate'),
+			header: _('End Date'),
 			dataIndex: 'duedate',
-			tooltip : _('Sort by: Enddate'),
-			width : 180,
-			renderer : Zarafa.common.ui.grid.Renderers.datetime
+			tooltip: _('Sort by: End Date'),
+			width: 180,
+			renderer: Zarafa.common.ui.grid.Renderers.datetime
 		}];
 	}
 });

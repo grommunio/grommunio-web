@@ -12,37 +12,37 @@ Zarafa.common.rules.dialogs.RulesEditContentPanel = Ext.extend(Zarafa.core.ui.Re
 	 * @constructor
 	 * @param config Configuration structure
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		config = config || {};
 
 		// Add in some standard configuration data.
 		Ext.applyIf(config, {
 			// Override from Ext.Component
-			xtype : 'zarafa.ruleseditcontentpanel',
+			xtype: 'zarafa.ruleseditcontentpanel',
 			// Override from Ext.Component
-			layout : 'fit',
-			modal : true,
+			layout: 'fit',
+			modal: true,
 			cls: 'k-ruleseditpanel',
-			recordComponentPluginConfig : Ext.applyIf(config.recordComponentPluginConfig || {}, {
-				allowWrite : true,
-				useShadowStore : true
+			recordComponentPluginConfig: Ext.applyIf(config.recordComponentPluginConfig || {}, {
+				allowWrite: true,
+				useShadowStore: true
 			}),
-			autoSave : false,
-			width : 600,
-			height : 457,
-			title : _('Inbox Rule'),
-			items : [{
-				xtype : 'zarafa.ruleseditpanel',
+			autoSave: false,
+			width: 600,
+			height: 457,
+			title: _('Inbox Rule'),
+			items: [{
+				xtype: 'zarafa.ruleseditpanel',
 				storeEntryId: config.record.getStore().storeEntryId,
-				buttons : [{
-					text : _('Save'),
-					handler : this.onOk,
-					scope : this
+				buttons: [{
+					text: _('Save'),
+					handler: this.onOk,
+					scope: this
 				},{
-					text : _('Cancel'),
-					handler : this.onCancel,
-					scope : this
+					text: _('Cancel'),
+					handler: this.onCancel,
+					scope: this
 				}]
 			}]
 		});

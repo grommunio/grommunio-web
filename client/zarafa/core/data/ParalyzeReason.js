@@ -14,7 +14,7 @@ Zarafa.core.data.ParalyzeReason = Zarafa.core.Enum.create({
 	 * @property
 	 * @type Number
 	 */
-	BROWSER_RELOADING : 0,
+	BROWSER_RELOADING: 0,
 
 	/**
 	 * Denotes that the WebApp is paralyzed because the session
@@ -22,7 +22,7 @@ Zarafa.core.data.ParalyzeReason = Zarafa.core.Enum.create({
 	 * @property
 	 * @type Number
 	 */
-	SESSION_EXPIRED : 1,
+	SESSION_EXPIRED: 1,
 
 	/**
 	 * Denotes that the WebApp is paralyzed because the session
@@ -30,5 +30,5 @@ Zarafa.core.data.ParalyzeReason = Zarafa.core.Enum.create({
 	 * @property
 	 * @type Number
 	 */
-	SESSION_INVALID : 2
+	SESSION_INVALID: 2
 });

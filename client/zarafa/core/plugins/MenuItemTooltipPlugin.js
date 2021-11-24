@@ -14,7 +14,7 @@ Zarafa.core.plugins.MenuItemTooltipPlugin = Ext.extend(Zarafa.core.plugins.Compo
 	 * @constructor
 	 * @param {Object} config Configuration object
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		config = config || {};
 		Ext.apply(this, config);
@@ -26,7 +26,7 @@ Zarafa.core.plugins.MenuItemTooltipPlugin = Ext.extend(Zarafa.core.plugins.Compo
 	 * Initializes the {@link Ext.Component Component} to which this plugin has been hooked.
 	 * @param {Ext.menu.Item} field The field on which the plugin is installed.
 	 */
-	init : function(field)
+	init: function(field)
 	{
 		Zarafa.core.plugins.MenuItemTooltipPlugin.superclass.init.apply(this, arguments);
 		// Add event listener for the 'activate' event, if we are move the cursor on menu item then the
@@ -38,7 +38,7 @@ Zarafa.core.plugins.MenuItemTooltipPlugin = Ext.extend(Zarafa.core.plugins.Compo
 	 * Used to apply the tooltip on {@link Ext.menu.Item menuitem} of {@link Ext.SplitBtton SplitBtton}
 	 * @param {Ext.menu.Item} itemMenu The menu item of {@link Ext.SplitButton splitbutton}
 	 */
-	applyTooltip : function(itemMenu)
+	applyTooltip: function(itemMenu)
 	{
 		if(Ext.isDefined(itemMenu.tooltip)){
 			Ext.QuickTips.unregister(itemMenu.getEl());

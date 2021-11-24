@@ -6,7 +6,7 @@
 	 * to be useful, it must be initialized with a provider when your application initializes. Example usage:
 	 <pre><code>
 	 // in your initialization function
-	init : function(){
+	init: function() {
 	    Ext.state.Manager.setProvider(new Ext.state.CookieProvider());
 	    var win = new Window(...);
 	    win.restoreState();
@@ -25,7 +25,7 @@
 		 * @type Ext.util.MixedCollection
 		 * @private
 		 */
-		components : new Ext.util.MixedCollection(false, function(item) {
+		components: new Ext.util.MixedCollection(false, function(item) {
 			return item.getStateId();
 		}),
 
@@ -34,7 +34,7 @@
 		 * to the {@link #components} list.
 		 * @param {Ext.Component} component The component to register
 		 */
-		register : function(component)
+		register: function(component)
 		{
 			this.components.add(component);
 		},
@@ -44,7 +44,7 @@
 		 * from the {@link #components}.
 		 * @param {Ext.Component} component The component to unregister
 		 */
-		unregister : function(component)
+		unregister: function(component)
 		{
 			this.components.remove(component);
 		},
@@ -55,7 +55,7 @@
 		 * @param {String} stateId The stateId for the component
 		 * @return {Ext.Component} The registered component
 		 */
-		getComponent : function(stateId)
+		getComponent: function(stateId)
 		{
 			return this.components.get(stateId);
 		}

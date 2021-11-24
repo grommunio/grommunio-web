@@ -4,18 +4,18 @@ Ext.namespace('Zarafa.core.plugins');
  * @class Zarafa.core.plugins.TabCloseMenuPlugin
  * @extends Ext.ux.TabCloseMenu
  * @ptype zarafa.tabclosemenuplugin
- * 
+ *
  * Extended so that the context menu would call the tab's close() method instead of directly destroying it
  * This class is intended to be used with {@link Zarafa.core.ui.MainContentTabPanel}
  * TODO: handle closing multiple tabs better
  */
 Zarafa.core.plugins.TabCloseMenuPlugin = Ext.extend(Ext.ux.TabCloseMenu, {
 	/**
-	 * Overriden to add menu items from an insertion point
+	 * Overridden to add menu items from an insertion point
 	 * @override
 	 * @private
 	 */
-	createMenu : function(){
+	createMenu: function(){
 		if(!this.menu){
 			var items = [{
 				itemId: 'close',
@@ -49,23 +49,23 @@ Zarafa.core.plugins.TabCloseMenuPlugin = Ext.extend(Ext.ux.TabCloseMenu, {
 	},
 
 	/**
-	 * Overriden, because the original function calls remove() directly
+	 * Overridden, because the original function calls remove() directly
 	 * item.close() is better because it fires an event that notifies other components that the tab wants to close
 	 * @override
 	 * @private
 	 */
-	onClose : function(){
+	onClose: function(){
 		this.active.close();
 	},
 
 	/**
-	 * Overriden, because the original function calls remove() directly
+	 * Overridden, because the original function calls remove() directly
 	 * item.close() is better because it fires an event that notifies other components that the tab wants to close
 	 * @param {Boolean} excludeActive Flag for whether to close all tabs but preserve the currently active one
 	 * @override
 	 * @private
 	 */
-	doClose : function(excludeActive){
+	doClose: function(excludeActive){
 		this.tabs.items.each(function(item){
 			if(item.closable){
 				if(!excludeActive || item != this.active){

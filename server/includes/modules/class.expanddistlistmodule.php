@@ -9,8 +9,9 @@
 		 */
 		function __construct($id, $data)
 		{
-			$this->properties = $GLOBALS["properties"]->getRecipientProperties();
 			parent::__construct($id, $data);
+	
+			$this->properties = $GLOBALS["properties"]->getRecipientProperties();
 		}
 
 		/**

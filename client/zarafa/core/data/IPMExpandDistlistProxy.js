@@ -3,7 +3,7 @@ Ext.namespace('Zarafa.core.data');
 /**
  * @class Zarafa.core.data.IPMExpandDistlistProxy
  * @extends Zarafa.core.data.MAPIProxy
- * 
+ *
  * The IPMExpandDistlistProxy communicates directly with a ExpandDistlistModule on server.
  * It supports listing member items of a DistList, and is supposed to work in conjunction
  * with a {@link Zarafa.core.data.IPMRecipientStore IPMRecipientStore} and JSON reader.
@@ -12,7 +12,7 @@ Zarafa.core.data.IPMExpandDistlistProxy = Ext.extend(Zarafa.core.data.MAPIProxy,
 	/**
 	 * @cfg {String} listModuleName Name of the listModule on the server.
 	 */
-	listModuleName : 'expanddistlistmodule',
+	listModuleName: 'expanddistlistmodule',
 
 	/**
 	 * This will create a {@link Zarafa.core.data.ProxyResponseHandler ProxyResponseHandler} object
@@ -32,7 +32,7 @@ Zarafa.core.data.IPMExpandDistlistProxy = Ext.extend(Zarafa.core.data.MAPIProxy,
 	 * which should be used for this request.
 	 * @private
 	 */
-	getResponseHandlerForRequest : function(modulename, serverAction, action, records, parameters, reader, callback, scope, args)
+	getResponseHandlerForRequest: function(modulename, serverAction, action, records, parameters, reader, callback, scope, args)
 	{
 
 		return new Zarafa.core.data.IPMExpandDistlistResponseHandler({
@@ -56,7 +56,7 @@ Zarafa.core.data.IPMExpandDistlistProxy = Ext.extend(Zarafa.core.data.MAPIProxy,
 	 * @param {Object} scope scope for the call back function.
 	 * @param {Object} args arguments object. This will be passed to the call back function on successful read.
 	 */
-	request : function(action, records, parameters, reader, callback, scope, args)
+	request: function(action, records, parameters, reader, callback, scope, args)
 	{
 		switch (action)
 		{

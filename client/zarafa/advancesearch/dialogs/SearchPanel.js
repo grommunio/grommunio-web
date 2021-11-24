@@ -11,13 +11,13 @@ Zarafa.advancesearch.dialogs.SearchPanel = Ext.extend(Ext.Panel, {
 	/**
 	 * @cfg{Object} searchContentPanel which contains {@link Zarafa.advancesearch.dialogs.SearchPanel searchPanel}
 	 */
-	searchContentPanel : undefined,
+	searchContentPanel: undefined,
 
 	/**
 	 * @constructor
 	 * @param {Object} config configuration object.
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		config = config || {};
 
@@ -32,29 +32,29 @@ Zarafa.advancesearch.dialogs.SearchPanel = Ext.extend(Ext.Panel, {
 		}
 
 		Ext.applyIf(config, {
-			xtype : 'zarafa.searchpanel',
-			layout : 'border',
-			border : false,
-			items : [{
-				xtype : 'zarafa.searchtoolboxpanel',
-				searchContext : searchContext,
-				searchTabId : config.searchTabId,
-				collapsed : Ext.isDefined(config.searchFolder),
-				region :'west',
-				scope : this
+			xtype: 'zarafa.searchpanel',
+			layout: 'border',
+			border: false,
+			items: [{
+				xtype: 'zarafa.searchtoolboxpanel',
+				searchContext: searchContext,
+				searchTabId: config.searchTabId,
+				collapsed: Ext.isDefined(config.searchFolder),
+				region:'west',
+				scope: this
 			},{
-				xtype : 'zarafa.searchcenterpanel',
-				searchContext : searchContext,
-				searchTabId : config.searchTabId,
-				region : 'center',
+				xtype: 'zarafa.searchcenterpanel',
+				searchContext: searchContext,
+				searchTabId: config.searchTabId,
+				region: 'center',
 				searchPanel: this,
-				scope : this
+				scope: this
 			},{
-				xtype : 'zarafa.searchtoolbarpanel',
-				searchContext : searchContext,
-				searchText : config.searchText,
-				region : 'north',
-				scope : this
+				xtype: 'zarafa.searchtoolbarpanel',
+				searchContext: searchContext,
+				searchText: config.searchText,
+				region: 'north',
+				scope: this
 			}]
 		});
 
@@ -66,68 +66,68 @@ Zarafa.advancesearch.dialogs.SearchPanel = Ext.extend(Ext.Panel, {
 	 * At this time all events can be registered.
 	 * @private
 	 */
-	initEvents : function()
+	initEvents: function()
 	{
 		this.mon(this.centerRegion.getSearchResultPreviewPanel(),{
-			afterupdatesearchpreviewpanel : this.onAfterUpdateSearchPreviewPanel,
-			scope : this
+			afterupdatesearchpreviewpanel: this.onAfterUpdateSearchPreviewPanel,
+			scope: this
 		});
 
 		this.mon(this.searchContentPanel,{
-			beforeclose : this.onBeforeCloseContentPanel,
-			scope : this
+			beforeclose: this.onBeforeCloseContentPanel,
+			scope: this
 		});
 
 		// Events registered on Search grid.
 		this.mon(this.centerRegion.switchBorder.searchGrid,{
-			resize : this.onSearchGridResize,
-			scope : this
+			resize: this.onSearchGridResize,
+			scope: this
 		});
 
 		this.mon(this.searchToolBox,{
-			afterupdaterestriction : this.onAfterUpdateRestriction,
-			scope : this
+			afterupdaterestriction: this.onAfterUpdateRestriction,
+			scope: this
 		});
 
 		this.mon(this.searchToolBox, 'afterlayout',this.onAfterRenderSearchToolBox, this, {single: true});
 
 		this.mon(this.model, {
-			searchfinished : this.onModelSearchFinished,
-			searchexception :  this.onModelSearchException,
-			scope : this
+			searchfinished: this.onModelSearchFinished,
+			searchexception: this.onModelSearchException,
+			scope: this
 		});
 
 		this.mon(this.searchToolBox.includeSubFolderFieldSet, {
-			beforerender : this.onBeforeRenderSubFolderFieldSet,
-			scope : this
+			beforerender: this.onBeforeRenderSubFolderFieldSet,
+			scope: this
 		});
 
 		this.mon(this.searchToolBox.includeSubFolder, {
-			check : this.onCheckIncludeSubFolder,
-			render : this.onRenderSubFolderCheckbox,
-			scope : this
+			check: this.onCheckIncludeSubFolder,
+			render: this.onRenderSubFolderCheckbox,
+			scope: this
 		});
 
 		// Events registered on Advance Search field.
 		this.searchToolbar.mon(this.searchToolbar.getAdvanceSearchField(),{
-			render : this.onRenderSearchTextField,
-			valid : this.onValidSearchTextField,
-			change : this.onChangeSearchTextField,
-			start : this.onSearchStart,
-			stop : this.onSearchStop,
-			scope : this
+			render: this.onRenderSearchTextField,
+			valid: this.onValidSearchTextField,
+			change: this.onChangeSearchTextField,
+			start: this.onSearchStart,
+			stop: this.onSearchStop,
+			scope: this
 		});
 
 		this.searchToolbar.mon(this.searchToolbar.getSearchFolderCombo(),{
-			render : this.onRenderSearchFolderCombo,
-			select : this.onSelectSearchFolderComboValue,
-			beforeselect : this.onBeforeSelectSearchFolder,
-			scope : this
+			render: this.onRenderSearchFolderCombo,
+			select: this.onSelectSearchFolderComboValue,
+			beforeselect: this.onBeforeSelectSearchFolder,
+			scope: this
 		});
 
 		this.mon(container,{
-			 'aftercontextswitch' : this.onAfterContextSwitch,
-			 scope : this
+			 'aftercontextswitch': this.onAfterContextSwitch,
+			 scope: this
 		});
 
 		this.mon(container.getHierarchyStore(), 'addFolder', this.onHierarchyAddFolder, this);
@@ -143,7 +143,7 @@ Zarafa.advancesearch.dialogs.SearchPanel = Ext.extend(Ext.Panel, {
 	 * @param {Zarafa.hierarchy.data.MAPIFolderRecord/Zarafa.hierarchy.data.MAPIFolderRecord[]} record folder record(s) which are added in hierarchy.
 	 * @private
 	 */
-	onHierarchyAddFolder : function(store, mapiStore, record)
+	onHierarchyAddFolder: function(store, mapiStore, record)
 	{
 		if (Ext.isArray(record)) {
 			record.forEach(function (record) {
@@ -186,8 +186,8 @@ Zarafa.advancesearch.dialogs.SearchPanel = Ext.extend(Ext.Panel, {
 			if (dateRangeDropdown.getValue() === 'custom_date') {
 				obj["date_range"] = {};
 				Ext.apply(obj["date_range"], {
-					start : searchToolBox.dateField.getValue().getStartDate().getTime(),
-					due  : searchToolBox.dateField.getValue().getDueDate().getTime()
+					start: searchToolBox.dateField.getValue().getStartDate().getTime(),
+					due: searchToolBox.dateField.getValue().getDueDate().getTime()
 				});
 			} else {
 				obj["date_range"] = dateRangeDropdown.getValue();
@@ -237,7 +237,7 @@ Zarafa.advancesearch.dialogs.SearchPanel = Ext.extend(Ext.Panel, {
 	 * @param {Context} oldParentContext previously selected context
 	 * @param {Context} newParentContext selected context
 	 */
-	onAfterContextSwitch : function(folders, oldParentContext, newParentContext)
+	onAfterContextSwitch: function(folders, oldParentContext, newParentContext)
 	{
 		var activeItem = container.getTabPanel().getActiveTab().getActiveItem();
 		var topToolbar = activeItem.getTopToolbar();
@@ -255,7 +255,7 @@ Zarafa.advancesearch.dialogs.SearchPanel = Ext.extend(Ext.Panel, {
 	 * gets close. it will call the {#onSearchStop} which stop the search.
 	 * @param {Zarafa.advancesearch.dialogs.SearchContentPanel} contentPanel which gets the close
 	 */
-	onBeforeCloseContentPanel : function(contentPanel)
+	onBeforeCloseContentPanel: function(contentPanel)
 	{
 		this.resetParentSearchField();
 		var parentSearchField = this.searchContentPanel.getParentSearchField();
@@ -308,7 +308,7 @@ Zarafa.advancesearch.dialogs.SearchPanel = Ext.extend(Ext.Panel, {
 	 * @param {Zarafa.core.ContextModel} model The model which fired the event
 	 * @private
 	 */
-	onModelSearchFinished : function(model)
+	onModelSearchFinished: function(model)
 	{
 		this.resetParentSearchField();
 		this.searchToolbar.getAdvanceSearchField().hideMask();
@@ -318,7 +318,7 @@ Zarafa.advancesearch.dialogs.SearchPanel = Ext.extend(Ext.Panel, {
 	 * Function is reset the {@link Zarafa.common.searchfield.ui.SearchTextField SearchTextField}
 	 * if parent context has.
 	 */
-	resetParentSearchField : function()
+	resetParentSearchField: function()
 	{
 		var parentSearchField = this.searchContentPanel.getParentSearchField();
 		if (Ext.isDefined(parentSearchField)) {
@@ -343,7 +343,7 @@ Zarafa.advancesearch.dialogs.SearchPanel = Ext.extend(Ext.Panel, {
 	 * @param {Mixed} args
 	 * @private
 	 */
-	onModelSearchException : function(model, proxy, type, action, options, response, args)
+	onModelSearchException: function(model, proxy, type, action, options, response, args)
 	{
 		var searchTextfield = this.searchToolbar.getAdvanceSearchField();
 		searchTextfield.hideMask();
@@ -358,7 +358,7 @@ Zarafa.advancesearch.dialogs.SearchPanel = Ext.extend(Ext.Panel, {
 	 * performs the search.
 	 * @private
 	 */
-	onSearchStart : function(advanceSearchField)
+	onSearchStart: function(advanceSearchField)
 	{
 		var searchText = advanceSearchField.getValue();
 		this.searchContentPanel.searchText = searchText;
@@ -376,7 +376,7 @@ Zarafa.advancesearch.dialogs.SearchPanel = Ext.extend(Ext.Panel, {
 		var record = searchFolderCombo.findRecord('value', searchFolderCombo.getValue());
 		var includeSubFolders = record.get('include_subfolder');
 
-		this.model.startSearch(restriction , includeSubFolders, {'folder' : folder});
+		this.model.startSearch(restriction , includeSubFolders, {'folder': folder});
 
 		// if search is performed from the parent search field then, it will set the search tab
 		// to active tab.
@@ -389,7 +389,7 @@ Zarafa.advancesearch.dialogs.SearchPanel = Ext.extend(Ext.Panel, {
 	 * it will also unregister event on store to for getting updates of search status.
 	 * @private
 	 */
-	onSearchStop : function()
+	onSearchStop: function()
 	{
 		var store = this.model.getActiveStore();
 		if (!Ext.isDefined(store.searchFolder[store.searchStoreUniqueId])) {
@@ -415,7 +415,7 @@ Zarafa.advancesearch.dialogs.SearchPanel = Ext.extend(Ext.Panel, {
 	 * layout was rendered also it will start the search.
 	 * @param {Zarafa.advancesearch.dialogs.SearchToolBoxPanel} searchToolBox The search tool box panel.
 	 */
-	onAfterRenderSearchToolBox : function()
+	onAfterRenderSearchToolBox: function()
 	{
 		var searchField = this.searchToolbar.getAdvanceSearchField();
 		searchField.searchPanelRendered = this.rendered;
@@ -426,7 +426,7 @@ Zarafa.advancesearch.dialogs.SearchPanel = Ext.extend(Ext.Panel, {
 
 			// Load a new set of folders from the store.
 			var data = Ext.applyIf({}, {
-				'folder' : folder
+				'folder': folder
 			});
 
 			store.load(data);
@@ -441,7 +441,7 @@ Zarafa.advancesearch.dialogs.SearchPanel = Ext.extend(Ext.Panel, {
 	 * Event handler triggers when {@link Zarafa.advancesearch.dialogs.SearchToolBoxPanel#searchCriteria}
 	 * gets update. it will trigger the advance search.
 	 */
-	onAfterUpdateRestriction : function()
+	onAfterUpdateRestriction: function()
 	{
 		this.searchToolbar.getAdvanceSearchField().onTriggerClick();
 	},
@@ -453,7 +453,7 @@ Zarafa.advancesearch.dialogs.SearchPanel = Ext.extend(Ext.Panel, {
 	 * @param {Zarafa.common.searchfield.ui.SearchTextField} searchTextField the search text field which
 	 * contains the search string.
 	 */
-	onRenderSearchTextField : function(searchTextField)
+	onRenderSearchTextField: function(searchTextField)
 	{
 		var searchFolderSettingObj = this.searchToolBox.getSearchFolderSettings();
 		if (searchFolderSettingObj) {
@@ -470,7 +470,7 @@ Zarafa.advancesearch.dialogs.SearchPanel = Ext.extend(Ext.Panel, {
 	 * @param {Zarafa.common.searchfield.ui.SearchTextField} searchTextField search text field which contains
 	 * search text.
 	 */
-	onValidSearchTextField : function(searchTextField)
+	onValidSearchTextField: function(searchTextField)
 	{
 		this.searchText = searchTextField.getValue();
 	},
@@ -482,7 +482,7 @@ Zarafa.advancesearch.dialogs.SearchPanel = Ext.extend(Ext.Panel, {
 	 * @param {String} newValue new value of search text field.
 	 * @param {String} oldValue old value of search text field.
 	 */
-	onChangeSearchTextField : function(searchTextField, newValue, oldValue)
+	onChangeSearchTextField: function(searchTextField, newValue, oldValue)
 	{
 		this.searchText = newValue;
 	},
@@ -495,7 +495,7 @@ Zarafa.advancesearch.dialogs.SearchPanel = Ext.extend(Ext.Panel, {
 	 * @param {Zarafa.common.searchfield.ui.SearchTextField} searchTextField the search text field which
 	 * contains the search string.
 	 */
-	onRenderSearchFolderCombo : function(searchFolderCombo)
+	onRenderSearchFolderCombo: function(searchFolderCombo)
 	{
 		var searchFolderSettingObj = this.searchToolBox.getSearchFolderSettings();
 		if (searchFolderSettingObj) {
@@ -515,9 +515,9 @@ Zarafa.advancesearch.dialogs.SearchPanel = Ext.extend(Ext.Panel, {
 					store.removeAt(index);
 				}
 				var folder = new Ext.data.Record({
-					'name' : searchComboSettingObj['folder_name'],
-					'value' : searchComboSettingObj['folder_entryid'],
-					'flag' : searchComboSettingObj['folder_type'],
+					'name': searchComboSettingObj['folder_name'],
+					'value': searchComboSettingObj['folder_entryid'],
+					'flag': searchComboSettingObj['folder_type'],
 					'include_subfolder': searchComboSettingObj['include_subfolder']
 				});
 				store.insert(index, folder);
@@ -546,7 +546,7 @@ Zarafa.advancesearch.dialogs.SearchPanel = Ext.extend(Ext.Panel, {
 	 * @param {Ext.data.Record} record The data record returned from the underlying store
 	 * @param {number} index The index of the selected item in the drop down list
 	 */
-	onSelectSearchFolderComboValue : function(combo, record, index)
+	onSelectSearchFolderComboValue: function(combo, record, index)
 	{
 		var subFolderCheckBox = this.searchToolBox.includeSubFolder;
 		subFolderCheckBox.setValue(record.get('include_subfolder'));
@@ -560,7 +560,7 @@ Zarafa.advancesearch.dialogs.SearchPanel = Ext.extend(Ext.Panel, {
 	 *
 	 * @param {Ext.form.FieldSet} fieldSet field set which fire this event.
 	 */
-	onBeforeRenderSubFolderFieldSet : function (fieldSet)
+	onBeforeRenderSubFolderFieldSet: function (fieldSet)
 	{
 		var searchFolderCombo = this.searchToolbar.getSearchFolderCombo();
 		var folder = container.getHierarchyStore().getFolder(searchFolderCombo.getValue());
@@ -570,14 +570,14 @@ Zarafa.advancesearch.dialogs.SearchPanel = Ext.extend(Ext.Panel, {
 	/**
 	 * Event handler triggered when "Include sub folder" checkbox which belongs to
 	 * {@link Zarafa.advancesearch.dialogs.SearchToolBoxPanel SearchToolBox}
-	 *  was checked/un-checked. it will also update the "include_subfolder" property of
+	 * was checked/un-checked. it will also update the "include_subfolder" property of
 	 * {@link Ext.data.Record searchFolder} record of search folder combo box.
 	 *
 	 * @param {Ext.form.Checkbox} checkbox The checkbox which fired the event
 	 * @param {Boolean} check True if the checkbox is currently checked
 	 * @private
 	 */
-	onCheckIncludeSubFolder : function (checkBox, checked)
+	onCheckIncludeSubFolder: function (checkBox, checked)
 	{
 		var searchFolderCombo = this.searchToolbar.getSearchFolderCombo();
 		var record = searchFolderCombo.findRecord('value', searchFolderCombo.getValue());
@@ -599,7 +599,7 @@ Zarafa.advancesearch.dialogs.SearchPanel = Ext.extend(Ext.Panel, {
 	 *
 	 * @param {Ext.form.Checkbox} checkBox The checkbox which was rendered.
 	 */
-	onRenderSubFolderCheckbox : function (checkBox)
+	onRenderSubFolderCheckbox: function (checkBox)
 	{
 		var searchFolderCombo = this.searchToolbar.getSearchFolderCombo();
 		var record = searchFolderCombo.findRecord('value', searchFolderCombo.getValue());
@@ -630,13 +630,13 @@ Zarafa.advancesearch.dialogs.SearchPanel = Ext.extend(Ext.Panel, {
 	 * @param {number} index The index of the selected item in the dropdown list
 	 * @return {boolean} true if selected record is not 'Other...' else false.
 	 */
-	onBeforeSelectSearchFolder : function (combo, record, index)
+	onBeforeSelectSearchFolder: function (combo, record, index)
 	{
 		if(record.get('value') === 'other') {
 			combo.collapse();
 			Zarafa.advancesearch.Actions.openSelectSearchFolderDialog({
-				searchFolderCombo : combo,
-				model : this.model
+				searchFolderCombo: combo,
+				model: this.model
 			});
 			return false;
 		} else {
@@ -658,7 +658,7 @@ Zarafa.advancesearch.dialogs.SearchPanel = Ext.extend(Ext.Panel, {
 	 * @param {Number} rawWidth The width that was originally specified
 	 * @param {Number} rawHeight The height that was originally specified
 	 */
-	onSearchGridResize : function(grid, adjWidth, adjHeight, rawWidth, rawHeight )
+	onSearchGridResize: function(grid, adjWidth, adjHeight, rawWidth, rawHeight )
 	{
 		var leftToolbar = this.searchToolbar.contextMainPanelToolbar;
 		var rightToolbar = this.searchToolbar.getRightSearchToolbar();
@@ -682,7 +682,7 @@ Zarafa.advancesearch.dialogs.SearchPanel = Ext.extend(Ext.Panel, {
 	 * @param {Zarafa.core.data.MAPIRecord} record The record to update in this component
 	 * @param {Boolean} contentReset force the component to perform a full update of the data.
 	 */
-	onAfterUpdateSearchPreviewPanel : function(SearchResultPreviewPanel,record, contentReset)
+	onAfterUpdateSearchPreviewPanel: function(SearchResultPreviewPanel,record, contentReset)
 	{
 		var rightToolbar = this.searchToolbar.getRightSearchToolbar();
 		rightToolbar.setVisible(!!record);

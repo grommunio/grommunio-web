@@ -14,7 +14,7 @@ Zarafa.calendar.ui.ToolTip = Ext.extend(Ext.ToolTip, {
 	 * @cfg {Zarafa.calendar.ui.CalendarMultiView} view The view for which
 	 * this tooltip is used
 	 */
-	view : undefined,
+	view: undefined,
 
 	/**
 	 * An id that identifies the appointment for which the
@@ -24,7 +24,7 @@ Zarafa.calendar.ui.ToolTip = Ext.extend(Ext.ToolTip, {
 	 * @type String
 	 * @private
 	 */
-	appointmentId : undefined,
+	appointmentId: undefined,
 
 	/**
 	 * A delayed task that is used to hide the tooltip with
@@ -34,13 +34,13 @@ Zarafa.calendar.ui.ToolTip = Ext.extend(Ext.ToolTip, {
 	 * @type Ext.util.DelayedTask
 	 * @private
 	 */
-	hideTask : undefined,
+	hideTask: undefined,
 
 	/**
 	 * @constructor
 	 * @param {Object} config Configuration object.
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		config = config || {};
 
@@ -68,7 +68,7 @@ Zarafa.calendar.ui.ToolTip = Ext.extend(Ext.ToolTip, {
 	 * either a 'title' or 'text' property.
 	 * @param {Ext.EventObject} event The event object
 	 */
-	show : function(id, config, event)
+	show: function(id, config, event)
 	{
 		// We only show a tooltip when we hover over an appointment, but since
 		// the calender view is a canvas element the appointments aren't html elements
@@ -129,7 +129,7 @@ Zarafa.calendar.ui.ToolTip = Ext.extend(Ext.ToolTip, {
 	 * Hides the tooltip with the given delay or 500ms if none is given.
 	 * @param {Number} delay The delay for hiding the tooltip in milliseconds.
 	 */
-	hide : function(delay)
+	hide: function(delay)
 	{
 		if ( !Ext.isDefined(this.hideTask) ){
 			this.hideTask = new Ext.util.DelayedTask(function(){
@@ -146,7 +146,7 @@ Zarafa.calendar.ui.ToolTip = Ext.extend(Ext.ToolTip, {
 	 * handler to the tooltip's underlying element that will close the tooltip
 	 * so users can click on the tooltip to close it if it gets in the way.
 	 */
-	onAfterRender : function()
+	onAfterRender: function()
 	{
 		this.el.on('mouseover', function(){
 			if ( Ext.isDefined(this.hideTask) ){

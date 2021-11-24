@@ -16,7 +16,7 @@ Zarafa.core.data.UserIdObjectFactory = {
 	 * userIdObject is taken.
 	 * @return {Zarafa.core.data.UserIdObject|null}
 	 */
-	createFromRecord : function(record)
+	createFromRecord: function(record)
 	{
 		// Return null for distlists
 		if ( !Ext.isFunction(record.get) || !Ext.isEmpty(record.get('object_type')) && record.get('object_type') === Zarafa.core.mapi.ObjectType.MAPI_DISTLIST ) {
@@ -81,7 +81,7 @@ Zarafa.core.data.UserIdObjectFactory = {
 	 * @return {Zarafa.core.data.UserIdObject[]} An array with userInfo
 	 * objects.
 	 */
-	createFromStore : function(store)
+	createFromStore: function(store)
 	{
 		if ( !store.data ) {
 			return [];

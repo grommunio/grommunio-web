@@ -23,44 +23,46 @@ Zarafa.common.ui.DateTimeField = Ext.extend(Zarafa.common.ui.CompositeField, {
 	/**
 	 * @cfg {Date/String} minValue The minimum value which can be used.
 	 */
-	minValue : undefined,
+	minValue: undefined,
 	/**
 	 * @cfg {Date/String} maxValue The maximum value which can be used.
 	 */
-	maxValue : undefined,
+	maxValue: undefined,
 	/**
 	 * @cfg {String} dateFormat The format in which the date appears in the
 	 * {@link Ext.form.DateField DateField}.
 	 */
-	// # TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
-	dateFormat : _('d/m/Y'),
+	// # TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
+	dateFormat: _('d/m/Y'),
 	/**
 	 * @cfg {String} timeFormat The format in which the time appears in the
 	 * time {@link Ext.ux.form.Spinner Spinner}.
 	 */
-	timeFormat : _('G:i'),
+	timeFormat: _('G:i'),
 	/**
 	 * @cfg {Number} timeIncrement The number of minutes to increase/decrease
 	 * when the time {@link Ext.ux.form.Spinner Spinner} is used.
 	 */
-	timeIncrement : 15,
+	timeIncrement: 15,
 	/**
 	 * @cfg {Object} dateFieldConfig The way by which one can pass the configuration options of {@link Ext.form.DateField}.
 	 */
-	dateFieldConfig : {},
+	dateFieldConfig: {},
 	/**
 	 * @cfg {Object} timeFieldConfig The way by which one can pass the configuration options of {@link #this.TimeField}.
 	 */
-	timeFieldConfig : {},
+	timeFieldConfig: {},
 	/**
 	 * @constructor
 	 * @param {Object} Configuration object
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		config = config || {};
 
 		Ext.apply(this, config);
+
+		this.timeFormat = config.timeFormat || container.settingsModel.get('zarafa/v1/main/datetime_time_format');
 
 		if (Ext.isDefined(this.defaultValue) && !Ext.isDate(this.defaultValue)) {
 			this.defaultValue = Date.parseDate(this.defaultValue, this.dateFormat + ' ' + this.timeFormat);
@@ -80,8 +82,8 @@ Zarafa.common.ui.DateTimeField = Ext.extend(Zarafa.common.ui.CompositeField, {
 		if ( !config.hideLabel && config.fieldLabel && this.ownerCt.layout!=='form' ){
 			var labelConfig = config.labelConfig || {};
 			labelConfig = Ext.applyIf(labelConfig, {
-				xtype : 'label',
-				text : config.fieldLabel + (config.labelSeparator || ':')  || ''
+				xtype: 'label',
+				text: config.fieldLabel + (config.labelSeparator || ':') || ''
 			});
 			if ( config.labelWidth ){
 				labelConfig.width = config.labelWidth;
@@ -98,7 +100,7 @@ Zarafa.common.ui.DateTimeField = Ext.extend(Zarafa.common.ui.CompositeField, {
 				ref: 'dateField',
 				flex: 1,
 				format: this.dateFormat,
-				value : this.defaultValue,
+				value: this.defaultValue,
 				minValue: this.minValue,
 				maxValue: this.maxValue,
 				listeners: {
@@ -106,14 +108,14 @@ Zarafa.common.ui.DateTimeField = Ext.extend(Zarafa.common.ui.CompositeField, {
 					select: this.onDateSelect,
 					scope: this
 				},
-				hideLabel : true,
-				hideLabels : true
+				hideLabel: true,
+				hideLabels: true
 			}, this.dateFieldConfig ),
 			Ext.apply({
 				xtype: 'zarafa.spinnerfield',
 				ref: 'timeField',
 				width: 85,
-				defaultValue : this.defaultValue,
+				defaultValue: this.defaultValue,
 				minValue: this.minValue,
 				maxValue: this.maxValue,
 				incrementValue: this.timeIncrement,
@@ -131,8 +133,8 @@ Zarafa.common.ui.DateTimeField = Ext.extend(Zarafa.common.ui.CompositeField, {
 		]);
 
 		config = Ext.applyIf(config, {
-			isSingleValued : true,
-			hideLabels : true,
+			isSingleValued: true,
+			hideLabels: true,
 			items: items
 		});
 
@@ -149,7 +151,7 @@ Zarafa.common.ui.DateTimeField = Ext.extend(Zarafa.common.ui.CompositeField, {
 	 * @param {Date} oldValue The old Date from the DateField
 	 * @private
 	 */
-	doDateChange : function(newValue, oldValue)
+	doDateChange: function(newValue, oldValue)
 	{
 		var oldDate;
 		var newDate;
@@ -191,7 +193,7 @@ Zarafa.common.ui.DateTimeField = Ext.extend(Zarafa.common.ui.CompositeField, {
 	 * @param {Date} oldValue The old Date from the SpinnerField
 	 * @private
 	 */
-	doTimeChange : function(newValue, oldValue) {
+	doTimeChange: function(newValue, oldValue) {
 		// While spinning the date could have changed,
 		// update the dateField with the new date.
 		this.dateField.setValue(newValue);
@@ -208,7 +210,7 @@ Zarafa.common.ui.DateTimeField = Ext.extend(Zarafa.common.ui.CompositeField, {
 	 * @param {Date} oldValue The old Date from the DateField
 	 * @private
 	 */
-	onDateChange : function(field, newValue, oldValue)
+	onDateChange: function(field, newValue, oldValue)
 	{
 		this.doDateChange(newValue, oldValue);
 	},
@@ -221,7 +223,7 @@ Zarafa.common.ui.DateTimeField = Ext.extend(Zarafa.common.ui.CompositeField, {
 	 * @param {Date} date The new value for the field
 	 * @pivate
 	 */
-	onDateSelect : function(field, date)
+	onDateSelect: function(field, date)
 	{
 		var oldValue = field.startValue;
 		var newValue = date;
@@ -238,7 +240,7 @@ Zarafa.common.ui.DateTimeField = Ext.extend(Zarafa.common.ui.CompositeField, {
 	 * @param {Date} oldValue The old Date from the SpinnerField
 	 * @private
 	 */
-	onTimeChange : function(field, newValue, oldValue)
+	onTimeChange: function(field, newValue, oldValue)
 	{
 		this.doTimeChange(newValue, oldValue);
 	},
@@ -250,7 +252,7 @@ Zarafa.common.ui.DateTimeField = Ext.extend(Zarafa.common.ui.CompositeField, {
 	 * @param {Zarafa.common.plugins.TimeSpinner} spinner The spinner plugin
 	 * @private
 	 */
-	onTimeSpin : function(spinner)
+	onTimeSpin: function(spinner)
 	{
 		var oldValue = spinner.field.startValue;
 		var newValue = spinner.field.getValue();
@@ -263,7 +265,7 @@ Zarafa.common.ui.DateTimeField = Ext.extend(Zarafa.common.ui.CompositeField, {
 	 * without validation see {@link #setRawValue}.
 	 * @param {Date} The value to set
 	 */
-	setValue : function(value)
+	setValue: function(value)
 	{
 		this.dateField.setValue(value);
 		if (this.enableTimeSelection) {
@@ -275,7 +277,7 @@ Zarafa.common.ui.DateTimeField = Ext.extend(Zarafa.common.ui.CompositeField, {
 	 * Sets the underlying DOM field's value directly, bypassing validation.
 	 * To set the value with validation see {@link #setValue}.
 	 */
-	setRawValue : function(value)
+	setRawValue: function(value)
 	{
 		this.dateField.setRawValue(value);
 		if (this.enableTimeSelection) {
@@ -288,7 +290,7 @@ Zarafa.common.ui.DateTimeField = Ext.extend(Zarafa.common.ui.CompositeField, {
 	 * To return the raw value see {@link #getRawValue}.
 	 * @return {Date} The date object
 	 */
-	getValue : function()
+	getValue: function()
 	{
 		if (this.enableTimeSelection) {
 			return this.timeField.getValue();
@@ -302,7 +304,7 @@ Zarafa.common.ui.DateTimeField = Ext.extend(Zarafa.common.ui.CompositeField, {
 	 * To return a normalized value see {@link #getValue}.
 	 * @return {Date} The date object
 	 */
-	getRawValue : function()
+	getRawValue: function()
 	{
 		if (this.enableTimeSelection) {
 			return this.timeField.getRawValue();
@@ -319,7 +321,7 @@ Zarafa.common.ui.DateTimeField = Ext.extend(Zarafa.common.ui.CompositeField, {
 	 * @param {Date/String} timeObject The object containing the time
 	 * @return {Date} The date object
 	 */
-	combineDateAndTime : function(dateObject, timeObject)
+	combineDateAndTime: function(dateObject, timeObject)
 	{
 		// A bit silly, but dateField returns the Date object,
 		// but to add the time information we must convert it
@@ -344,7 +346,7 @@ Zarafa.common.ui.DateTimeField = Ext.extend(Zarafa.common.ui.CompositeField, {
 	 * for setting the time.
 	 * @param {Boolean} enabled True to enable the selection of time
 	 */
-	setEnabledTimeSelection : function(enabled)
+	setEnabledTimeSelection: function(enabled)
 	{
 		this.enableTimeSelection = enabled;
 		if (this.rendered) {
@@ -353,25 +355,25 @@ Zarafa.common.ui.DateTimeField = Ext.extend(Zarafa.common.ui.CompositeField, {
 		}
 	},
 
-    /**
-     * Function add css class to the  {@link Zarafa.common.ui.DateTimeField dateTimeField}
-     * @param {String} cls CSS class name
-     */
-    addClass: function (cls)
-    {
-        this.timeField.addClass(cls);
-        this.dateField.addClass(cls);
-    },
+  /**
+   * Function add css class to the {@link Zarafa.common.ui.DateTimeField dateTimeField}
+   * @param {String} cls CSS class name
+   */
+  addClass: function (cls)
+  {
+    this.timeField.addClass(cls);
+    this.dateField.addClass(cls);
+  },
 
-    /**
-     * Function remove css class to the  {@link Zarafa.common.ui.DateTimeField dateTimeField}
-     * @param {String} cls CSS class name
-     */
-    removeClass: function (cls)
-    {
-        this.timeField.removeClass(cls);
-        this.dateField.removeClass(cls);
-    }
+  /**
+   * Function remove css class to the {@link Zarafa.common.ui.DateTimeField dateTimeField}
+   * @param {String} cls CSS class name
+   */
+  removeClass: function (cls)
+  {
+    this.timeField.removeClass(cls);
+    this.dateField.removeClass(cls);
+  }
 });
 
 Ext.reg('zarafa.datetimefield', Zarafa.common.ui.DateTimeField);

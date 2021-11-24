@@ -8,7 +8,7 @@ Ext.namespace('Zarafa.common.recipientfield.data');
  * @extends Ext.data.Record
  *
  * Contains a description of what a single RecipientField Suggestion item looks like.
- * Is used by the JSON  reader in the {@link Zarafa.common.recipientfield.ui.SuggestionListProxy proxy}.
+ * Is used by the JSON reader in the {@link Zarafa.common.recipientfield.ui.SuggestionListProxy proxy}.
  */
 Zarafa.common.recipientfield.data.SuggestionListRecord = Ext.data.Record.create([
 	{ name: 'display_name' },
@@ -29,15 +29,15 @@ Zarafa.common.recipientfield.data.SuggestionListRecord = Ext.extend(Zarafa.commo
 	 * be applied to this recipient. Defaults to {@link Zarafa.core.mapi.RecipientType#MAPI_TO}.
 	 * @return {Zarafa.core.data.IPMRecipientRecord} The recipientRecord for this addressbook item
 	 */
-	convertToRecipient : function(recipientType)
+	convertToRecipient: function(recipientType)
 	{
 		var recipientRecord = Zarafa.core.data.RecordFactory.createRecordObjectByCustomType(Zarafa.core.data.RecordCustomObjectType.ZARAFA_RECIPIENT, {
-			object_type : this.get('object_type'),
-			display_name : this.get('display_name'),
-			email_address : this.get('email_address'),
-			smtp_address : this.get('smtp_address'),
-			address_type : this.get('address_type'),
-			recipient_type : recipientType || Zarafa.core.mapi.RecipientType.MAPI_TO
+			object_type: this.get('object_type'),
+			display_name: this.get('display_name'),
+			email_address: this.get('email_address'),
+			smtp_address: this.get('smtp_address'),
+			address_type: this.get('address_type'),
+			recipient_type: recipientType || Zarafa.core.mapi.RecipientType.MAPI_TO
 		});
 
 		return recipientRecord;

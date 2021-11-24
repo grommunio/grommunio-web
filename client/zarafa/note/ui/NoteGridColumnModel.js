@@ -12,14 +12,14 @@ Zarafa.note.ui.NoteGridColumnModel = Ext.extend(Zarafa.common.ui.grid.ColumnMode
 	 * @constructor
 	 * @param config Configuration structure
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		config = config || {};
 
 		Ext.applyIf(config, {
-			columns : this.createColumns(),
-			defaults : {
-				sortable : true
+			columns: this.createColumns(),
+			defaults: {
+				sortable: true
 			}
 		});
 
@@ -32,7 +32,7 @@ Zarafa.note.ui.NoteGridColumnModel = Ext.extend(Zarafa.common.ui.grid.ColumnMode
 	 * @return {Ext.grid.Column[]} The array of columns
 	 * @private
 	 */
-	createColumns : function()
+	createColumns: function()
 	{
 		return [{
 			dataIndex	: 'icon_index',

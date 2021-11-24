@@ -35,7 +35,7 @@ Zarafa.common.restoreitem.data.RestoreItemRecord = Ext.extend(Zarafa.core.data.M
 	 * This function will always return false to make sure that icon class will properly
 	 * work with restore records.
 	 */
-	getDefaultFolderKey : function()
+	getDefaultFolderKey: function()
 	{
 		return undefined;
 	},
@@ -44,7 +44,7 @@ Zarafa.common.restoreitem.data.RestoreItemRecord = Ext.extend(Zarafa.core.data.M
 	 * Returns a {@link Zarafa.hierarchy.data.MAPIStoreRecord MAPIStoreRecord}
 	 * @return {Zarafa.hierarchy.data.MAPIStoreRecord} MAPIStoreRecord
 	 */
-	getMAPIStore : function()
+	getMAPIStore: function()
 	{
 		var store = container.getHierarchyStore();
 		return store.getById(this.get('store_entryid'));
@@ -56,7 +56,7 @@ Zarafa.common.restoreitem.data.RestoreItemRecord = Ext.extend(Zarafa.core.data.M
 	 * and make this record behave properly with the iconclass
 	 * @return {Boolean} false by default.
 	 */
-	isIPMSubTree : function()
+	isIPMSubTree: function()
 	{
 		return false;
 	},
@@ -65,7 +65,7 @@ Zarafa.common.restoreitem.data.RestoreItemRecord = Ext.extend(Zarafa.core.data.M
 	 * Convenience method for determining if the message has been read or not.
 	 * @return {Boolean} True if this item has been read.
 	 */
-	isRead : function()
+	isRead: function()
 	{
 		if (Ext.isDefined(this.get('message_flags'))) {
 			return (this.get('message_flags') & Zarafa.core.mapi.MessageFlags.MSGFLAG_READ) > 0;

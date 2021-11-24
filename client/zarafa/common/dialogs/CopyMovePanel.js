@@ -6,20 +6,20 @@ Ext.namespace('Zarafa.common.dialogs');
  * @xtype zarafa.copymovepanel
  *
  * Panel for users to copy or move the given {@link Zarafa.core.data.IPMRecord[] records}
- * to a differnt {@link Zarafa.hierarchy.data.MAPIFolderRecord folder}.
+ * to a different {@link Zarafa.hierarchy.data.MAPIFolderRecord folder}.
  */
 Zarafa.common.dialogs.CopyMovePanel = Ext.extend(Ext.Panel, {
 	/**
 	 * @cfg {Zarafa.core.data.IPMRecord} record The record(s) which are being
 	 * copied or moved through this panel
 	 */
-	record : undefined,
+	record: undefined,
 	/**
 	 * @cfg {Zarafa.core.mapi.ObjectType} objectType The Objecttype of the
 	 * {@link #record} which have been set on this panel. This is needed
 	 * to determine if we are copy/moving folders or messages.
 	 */
-	objectType : undefined,
+	objectType: undefined,
 
 	/**
 	 * {Zarafa.mail.MailStore} store or {Zarafa.hierarchy.data.IPFSubStore} store
@@ -27,7 +27,7 @@ Zarafa.common.dialogs.CopyMovePanel = Ext.extend(Ext.Panel, {
 	 * This store is cached in the panel, because the store of a record is removed
 	 * when a user receives new email.
 	 */
-	store : undefined,
+	store: undefined,
 
 	/**
 	 * A boolean that will be used to know if this dialog is focused for the first
@@ -36,13 +36,13 @@ Zarafa.common.dialogs.CopyMovePanel = Ext.extend(Ext.Panel, {
 	 * @property
 	 * @private
 	 */
-	firstFocus : true,
+	firstFocus: true,
 
 	/**
 	 * @constructor
 	 * @param {Object} config Configuration structure
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		config = config || {};
 
@@ -61,7 +61,7 @@ Zarafa.common.dialogs.CopyMovePanel = Ext.extend(Ext.Panel, {
 
 		Ext.applyIf(config, {
 			// Override from Ext.Component
-			xtype : 'zarafa.copymovepanel',
+			xtype: 'zarafa.copymovepanel',
 			layout: {
 				type: 'vbox',
 				align: 'stretch'
@@ -74,13 +74,15 @@ Zarafa.common.dialogs.CopyMovePanel = Ext.extend(Ext.Panel, {
 			buttonAlign: 'left',
 			buttons: [{
 				text: _('Move'),
-				handler: this.onMove,
+				handler: this.onClickHandler,
+				name: 'move',
 				scope: this,
 				ref: '../moveButton',
 				disabled: true
 			},{
 				text: _('Copy'),
-				handler: this.onCopy,
+				name: 'copy',
+				handler: this.onClickHandler,
 				scope: this,
 				ref: '../copyButton',
 				disabled: true
@@ -98,7 +100,7 @@ Zarafa.common.dialogs.CopyMovePanel = Ext.extend(Ext.Panel, {
 				cls: 'zarafa-normal',
 				scope: this
 			}],
-			listeners : {
+			listeners: {
 				render: function() {
 					// Add a listener for the focus event of the dialog window
 					// to move the focus back to the selected node of the tree.
@@ -120,7 +122,7 @@ Zarafa.common.dialogs.CopyMovePanel = Ext.extend(Ext.Panel, {
 	 * Event handler for the focus event of the dialog window. Will put the focus
 	 * on the selected folder.
 	 */
-	onDialogFocussed : function(){
+	onDialogFocussed: function(){
 		var folder = this.dialog.getSelectedFolder();
 		var treeNode;
 		var visible = true;
@@ -169,7 +171,7 @@ Zarafa.common.dialogs.CopyMovePanel = Ext.extend(Ext.Panel, {
 	 * @return {Object} Configuration object for the tree panel.
 	 * @private
 	 */
-	createTreePanel : function(config)
+	createTreePanel: function(config)
 	{
 		var record = Ext.isDefined(config.record) ? config.record[0] : undefined;
 		var permission = config.permissionFilter ? config.permissionFilter : undefined;
@@ -189,7 +191,7 @@ Zarafa.common.dialogs.CopyMovePanel = Ext.extend(Ext.Panel, {
 				items: [{
 					xtype: 'displayfield',
 					value: _('Destination folder') + ':',
-					hideLabel : true,
+					hideLabel: true,
 					cls: 'tree-header',
 					ref: '../displayfield'
 				}],
@@ -201,13 +203,13 @@ Zarafa.common.dialogs.CopyMovePanel = Ext.extend(Ext.Panel, {
 				treeSorter: true,
 				hideTodoList: true,
 				hideSearchFolders: true,
-				enableDD : false,
+				enableDD: false,
 				permissionFilter: permission,
-				IPMFilter : this.getIPMFilter(record),
+				IPMFilter: this.getIPMFilter(record),
 				anchor: '100% 90%',
 				ref: '../hierarchyTree'
 			}],
-			listeners : {
+			listeners: {
 				// autoheight does not work well for the vbox, so we set the height of the container manually
 				// This way we can use css to determine the height
 				'afterlayout': function(){
@@ -220,7 +222,7 @@ Zarafa.common.dialogs.CopyMovePanel = Ext.extend(Ext.Panel, {
 	/**
 	 * Allows any sub class to provide IPMFilter value if requires.
 	 */
-	getIPMFilter : Ext.emptyFn,
+	getIPMFilter: Ext.emptyFn,
 
 	/**
 	 * Function which is called automatically by ExtJs when the {@link Ext.Panel panel}
@@ -230,7 +232,7 @@ Zarafa.common.dialogs.CopyMovePanel = Ext.extend(Ext.Panel, {
 	 * @param {Number} position The position of this panel inside its parent
 	 * @private
 	 */
-	onRender : function(ct, position)
+	onRender: function(ct, position)
 	{
 		Zarafa.common.dialogs.CopyMovePanel.superclass.onRender.call(this, ct, position);
 
@@ -245,7 +247,7 @@ Zarafa.common.dialogs.CopyMovePanel = Ext.extend(Ext.Panel, {
 	 * Initialize the event handlers
 	 * @protected
 	 */
-	initEvents : function()
+	initEvents: function()
 	{
 		Zarafa.common.dialogs.CopyMovePanel.superclass.initEvents.apply(this, arguments);
 
@@ -261,12 +263,12 @@ Zarafa.common.dialogs.CopyMovePanel = Ext.extend(Ext.Panel, {
 	/**
 	 * Fired when the {@link Zarafa.hierarchy.ui.Tree Tree} fires the {@link Zarafa.hierarchy.ui.Tree#load load}
 	 * event. This function will try to select the {@link Ext.tree.TreeNode TreeNode} in
-	 * {@link Zarafa.hierarchy.ui.Tree Tree} intially. When the given node is not loaded yet, it will try again
+	 * {@link Zarafa.hierarchy.ui.Tree Tree} initially. When the given node is not loaded yet, it will try again
 	 * later when the event is fired again.
 	 *
 	 * @private
 	 */
-	onTreeNodeLoad : function() {
+	onTreeNodeLoad: function() {
 		// Select folder in hierarchy tree.
 		var folder = this.dialog.getSelectedFolder();
 
@@ -285,7 +287,7 @@ Zarafa.common.dialogs.CopyMovePanel = Ext.extend(Ext.Panel, {
 	 * @param {TreeNode} node The selected tree node
 	 * @private
 	 */
-	onSelectionChange : function(selectionModel, node)
+	onSelectionChange: function(selectionModel, node)
 	{
 		if (!Ext.isDefined(node) || (node.getFolder().isIPMSubTree() && this.objectType == Zarafa.core.mapi.ObjectType.MAPI_MESSAGE)) {
 			this.copyButton.disable();
@@ -303,7 +305,7 @@ Zarafa.common.dialogs.CopyMovePanel = Ext.extend(Ext.Panel, {
 	 * This will call {@link Zarafa.hierachy.actions.openCreateFolderContent} with the selected {@link Zarafa.hierarchy.data.MAPIFolderRecord folder}.
 	 * @private
 	 */
-	onCreateFolder : function()
+	onCreateFolder: function()
 	{
 		var folder = this.hierarchyTree.getSelectionModel().getSelectedNode().getFolder();
 		Zarafa.hierarchy.Actions.openCreateFolderContent(folder);
@@ -330,13 +332,17 @@ Zarafa.common.dialogs.CopyMovePanel = Ext.extend(Ext.Panel, {
 	},
 
 	/**
-	 * Event handler which is triggered when the user presses the Copy
-	 * {@link Ext.Button button}. This will copy all {@link Zarafa.core.data.IPMRecord records}
-	 * and will close the {@link Zarafa.common.dialogs.CopyMovePanel dialog} when it is done.
+	 * Event handler which is triggered when the user presses the Copy or Move
+	 * {@link Ext.Button button}. It will check necessary {@link Zarafa.core.mapi.Rights Rights} and
+	 * {@link Zarafa.core.mapi.Access Access} of folder.
+	 *
+	 * @param {Ext.Button} item The button which is clicked.
 	 * @private
 	 */
-	onCopy : function()
+	onClickHandler: function(item)
 	{
+		var isMoveAction = item.name === 'move';
+
 		var folder = this.hierarchyTree.getSelectionModel().getSelectedNode().getFolder();
 		var records = this.record;
 
@@ -348,15 +354,63 @@ Zarafa.common.dialogs.CopyMovePanel = Ext.extend(Ext.Panel, {
 			return;
 		}
 
+		if (records[0] instanceof Zarafa.core.data.IPFRecord) {
+			var access = folder.get('access') & Zarafa.core.mapi.Access.ACCESS_CREATE_HIERARCHY;
+			if (!access) {
+				var msg = isMoveAction ? _("You have insufficient privileges to move this folder. Ask the folder owner to grant you permissions or contact your system administrator.") :
+					_("You have insufficient privileges to copy this folder. Ask the folder owner to grant you permissions or contact your system administrator.");
+				container.getNotifier().notify('error', _("Insufficient privileges"), msg);
+				return false;
+			}
+		} else if (!folder.hasCreateRights()) {
+			// Check folder has create item rights.
+			var msg = isMoveAction ? _("You have insufficient privileges to move and copy this item. Ask the folder owner to grant you permissions or contact your system administrator.") :
+					_("You have insufficient privileges to copy this item. Ask the folder owner to grant you permissions or contact your system administrator.");
+			container.getNotifier().notify('error', _("Insufficient privileges"), msg);
+			return false;
+		}
 
+		if (isMoveAction) {
+			this.onMove(records, folder);
+		} else {
+			this.onCopy(records, folder);
+		}
+
+	},
+
+	/**
+	 * Function will copy all {@link Zarafa.core.data.IPMRecord records}
+	 * and will close the {@link Zarafa.common.dialogs.CopyMovePanel dialog} when it is done.
+	 * @private
+	 */
+	onCopy: function(records, folder)
+	{
+		var isCalendarFolder = folder.isCalendarFolder();
+		var showPrivateWarning = false;
 		Ext.each(records, function(record, index) {
 			// When we have this panel open and we receive a new email, the records store is
 			// not accessible anymore, so we need to get a new record by the entryid of the old record.
-			if(this.objectType === Zarafa.core.mapi.ObjectType.MAPI_MESSAGE && !record.getStore()) {
-				record = records[index] = this.store.getById(record.id);
+			if (this.objectType === Zarafa.core.mapi.ObjectType.MAPI_MESSAGE) {
+				if (!record.getStore()) {
+					record = records[index] = this.store.getById(record.id);	
+				}
+
+				if (isCalendarFolder && record.isPrivate()) {
+					record.unsetPrivate();
+					showPrivateWarning = true;
+				}	
 			}
 			record.copyTo(folder);
 		}, this);
+
+		if (showPrivateWarning) {
+			var msg = _("Copying this appointment will unset it as private. Are you sure you want to continue?");
+			Zarafa.common.Actions.showMessageBox(records, folder, this.store, msg, this, undefined, {
+				title: _('Private item'),
+				actionBtn : _('Copy')
+			});
+			return;
+		}
 
 		this.dialog.selectFolder(folder);
 
@@ -366,37 +420,92 @@ Zarafa.common.dialogs.CopyMovePanel = Ext.extend(Ext.Panel, {
 	},
 
 	/**
-	 * Event handler which is triggered when the user presses the Move
-	 * {@link Ext.Button button}. This will move all {@link Zarafa.core.data.IPMRecord records}
+	 * Function will move all {@link Zarafa.core.data.IPMRecord records}
 	 * and will close the {@link Zarafa.common.dialogs.CopyMovePanel dialog} when it is done.
+	 *
+	 * @param {Zarafa.core.data.IPMRecord[]} records The array of {@link Zarafa.core.data.IPMRecord records} which are
+	 * going to move the selected {@link Zarafa.core.data.IPFRecord folder}.
+	 * @param {Zarafa.core.data.IPFRecord} folder The {@link Zarafa.core.data.IPFRecord folder } in which selected
+	 * {@link Zarafa.core.data.IPMRecord records} are going to move.
 	 * @private
 	 */
-	onMove : function()
+	onMove: function(records, folder)
 	{
-		var folder = this.hierarchyTree.getSelectionModel().getSelectedNode().getFolder();
-		var records = this.record;
-
-		if (!Ext.isDefined(folder)) {
-			return;
+		var isCalendarFolder = folder.isCalendarFolder();
+		var showPrivateWaring = false;
+		var sourceFolder = container.getHierarchyStore().getFolder(records[0].get('parent_entryid'));
+		// If targetFolder has create item rights and source folder does not have delete item rights,
+		// in that case move operation is not possible, therefore show message box which indicate that
+		// move operation is not possible and ask user to copy the item.
+		if (folder.hasCreateRights() && !sourceFolder.hasDeleteOwnRights()) {
+			Zarafa.common.Actions.showMessageBox(records, folder, this.store,undefined, this);
+			return false;
 		}
 
-		if (Ext.isEmpty(this.record)) {
-			return;
-		}
-
-
+		var noAccessRecord = [];
 		Ext.each(records, function(record, index) {
 			// When we have this panel open and we receive a new email, the records store is
 			// not accessible anymore, so we need to get a new record by the entryid of the old record.
-			if(this.objectType === Zarafa.core.mapi.ObjectType.MAPI_MESSAGE && !record.getStore()) {
-				record = records[index] = this.store.getById(record.id);
+			if(this.objectType === Zarafa.core.mapi.ObjectType.MAPI_MESSAGE) {
+				if (!record.getStore()) {
+					record = records[index] = this.store.getById(record.id);
+				}
+
+				if (isCalendarFolder && record.isPrivate()) {
+					record.unsetPrivate();
+					showPrivateWaring = true;
+				}
 			}
-			record.moveTo(folder);
+
+			// Check record access. If record has no delete access (record not belongs to user)
+			// user can't move this item.
+			if (!record.hasDeleteAccess()) {
+				noAccessRecord.push({
+					record: record,
+					index:index
+				});
+			} else {
+				record.moveTo(folder);
+			}
 		}, this);
+
+		// Show detailed warning message when record have no access to delete
+		// ask user to copy that records.
+		if (!Ext.isEmpty(noAccessRecord)) {
+			var msg = undefined;
+			if (noAccessRecord.length > 1) {
+				msg = _("You have insufficient privileges to move following items.");
+				msg += "<br/><br/>";
+				noAccessRecord.forEach(function (item) {
+					records.splice(item.index, 1);
+					var subject = item.record.get('subject');
+					subject = !Ext.isEmpty(subject) ? subject : _("None");
+					msg += "<b>" +_("Subject:") + "</b> " + subject ;
+					msg += "<br/>";
+				}, this);
+				msg += "<br/>" + _("Would you like to copy instead?");
+			}
+			var noAccessRecords = Ext.pluck(noAccessRecord, "record");
+
+			Zarafa.common.Actions.showMessageBox(noAccessRecords, folder, this.store, msg, this);
+			return;
+		}
+
+		// Show warning message when user try to move private calendar items.
+		if (showPrivateWaring) {
+			var msg = _("Moving this appointment will unset it as private. Are you sure you want to continue?");
+			Zarafa.common.Actions.showMessageBox(records, folder, this.store, msg, this, undefined, {
+				title: _('Private item'),
+				actionBtn : _('Move')
+			});
+			return;
+		}
 
 		this.dialog.selectFolder(folder);
 
-		this.store.save(records);
+		if(!Ext.isEmpty(records)) {
+			this.store.save(records);
+		}
 
 		this.dialog.close();
 	},
@@ -407,7 +516,7 @@ Zarafa.common.dialogs.CopyMovePanel = Ext.extend(Ext.Panel, {
 	 * without copying or moving any {@link Zarafa.core.data.IPMRecord records}.
 	 * @private
 	 */
-	onCancel : function()
+	onCancel: function()
 	{
 		this.dialog.close();
 	}

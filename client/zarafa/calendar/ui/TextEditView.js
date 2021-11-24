@@ -17,23 +17,23 @@ Zarafa.calendar.ui.TextEditView = Ext.extend(Zarafa.core.ui.View, {
 	 * @property
 	 * @type Zarafa.core.DateRange
 	 */
-	dateRange : undefined,
+	dateRange: undefined,
 
 	/**
 	 * @cfg {Number} minimumHeight The minimum height for this view.
 	 */
-	minimumHeight : 20,
+	minimumHeight: 20,
 
 	/**
 	 * @cfg {String} inputText The text which was entered into the view.
 	 */
-	inputText : '',
+	inputText: '',
 
 	/**
 	 * @constructor
 	 * @param {Object} config configuration object
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		config = config || {};
 
@@ -65,7 +65,7 @@ Zarafa.calendar.ui.TextEditView = Ext.extend(Zarafa.core.ui.View, {
 	 * Sets date range. This method does not auto-update.
 	 * @param {Zarafa.core.DateRange} dateRange
 	 */
-	setDateRange : function(dateRange)
+	setDateRange: function(dateRange)
 	{
 		this.dateRange = dateRange;
 	},
@@ -74,7 +74,7 @@ Zarafa.calendar.ui.TextEditView = Ext.extend(Zarafa.core.ui.View, {
 	 * Returns the current date range.
 	 * @return {Zarafa.core.DateRange} dateRange
 	 */
-	getDateRange : function()
+	getDateRange: function()
 	{
 		return this.dateRange;
 	},
@@ -82,7 +82,7 @@ Zarafa.calendar.ui.TextEditView = Ext.extend(Zarafa.core.ui.View, {
 	/**
 	 * @return {Boolean} true iff the text edit area is visible.
 	 */
-	isVisible : function()
+	isVisible: function()
 	{
 		return this.visible;
 	},
@@ -91,7 +91,7 @@ Zarafa.calendar.ui.TextEditView = Ext.extend(Zarafa.core.ui.View, {
 	 * Renders the view.
 	 * @param {Ext.Element} container The Ext.Element into which the view must be rendered.
 	 */
-	render : function(container)
+	render: function(container)
 	{
 		this.create('textarea', this.parentView.getCalendarBody(), 'body', this.getClassName('body'));
 		this.create('textarea', this.parentView.getCalendarHeader(), 'header', this.getClassName('header'));
@@ -117,7 +117,7 @@ Zarafa.calendar.ui.TextEditView = Ext.extend(Zarafa.core.ui.View, {
 	 * @param {Boolean} visible whether to show or hide the elements.
 	 * @private
 	 */
-	makeElementsVisible : function(elements, visible)
+	makeElementsVisible: function(elements, visible)
 	{
 		Ext.each(elements, function(element) {
 			element.setVisible(visible);
@@ -127,7 +127,7 @@ Zarafa.calendar.ui.TextEditView = Ext.extend(Zarafa.core.ui.View, {
 	/**
 	 * Hides the view.
 	 */
-	hide : function()
+	hide: function()
 	{
 		if (!this.rendered) {
 			return;
@@ -142,7 +142,7 @@ Zarafa.calendar.ui.TextEditView = Ext.extend(Zarafa.core.ui.View, {
 	 * Makes the view visible. The proper order is to first set the date range, then call show() which will
 	 * automatically lay out the appropriate TextArea component.
 	 */
-	show : function()
+	show: function()
 	{
 		if (!this.rendered) {
 			return;
@@ -158,7 +158,7 @@ Zarafa.calendar.ui.TextEditView = Ext.extend(Zarafa.core.ui.View, {
 	 * @param {Ext.EventObject} event ExtJS event object.
 	 * @private
 	 */
-	onKeyPress : function(event)
+	onKeyPress: function(event)
 	{
 
 		// Escape pressed. Blur.
@@ -196,7 +196,7 @@ Zarafa.calendar.ui.TextEditView = Ext.extend(Zarafa.core.ui.View, {
 	 * @param {Ext.EventObject} event ExtJS event object.
 	 * @private
 	 */
-	onBlur : function(event)
+	onBlur: function(event)
 	{
 		var isHeaderRange = this.parentView.isHeaderRange(this.getDateRange());
 
@@ -210,7 +210,7 @@ Zarafa.calendar.ui.TextEditView = Ext.extend(Zarafa.core.ui.View, {
 	 * Lays out the body of the view.
 	 * @private
 	 */
-	layoutInBody : function()
+	layoutInBody: function()
 	{
 		this.makeElementsVisible(this.header, false);
 
@@ -231,7 +231,7 @@ Zarafa.calendar.ui.TextEditView = Ext.extend(Zarafa.core.ui.View, {
 	 * Lays out the header of the view.
 	 * @private
 	 */
-	layoutInHeader : function()
+	layoutInHeader: function()
 	{
 		this.makeElementsVisible(this.body, false);
 
@@ -247,7 +247,7 @@ Zarafa.calendar.ui.TextEditView = Ext.extend(Zarafa.core.ui.View, {
 	 * Lays out the view.
 	 * @protected
 	 */
-	onLayout : function()
+	onLayout: function()
 	{
 		if (!this.rendered) {
 			return;
@@ -277,7 +277,7 @@ Zarafa.calendar.ui.TextEditView = Ext.extend(Zarafa.core.ui.View, {
 	 * Makes the view visible (set the date range first) and sets the appropriate text area control selected - focus is moved
 	 * to the text area and the user can immediately start typing.
 	 */
-	select : function()
+	select: function()
 	{
 		if (!this.rendered) {
 			return;

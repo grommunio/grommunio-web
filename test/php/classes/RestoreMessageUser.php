@@ -71,7 +71,7 @@ class RestoreMessageUser extends IPMUser {
 			)
 		);
 
-		foreach($entryids as $entryid){
+		foreach($entryids as $entryid) {
 			$response[] = parent::deleteItem($entryid, $props);
 		}
 
@@ -94,7 +94,7 @@ class RestoreMessageUser extends IPMUser {
 			)
 		);
 
-		foreach($entryids as $entryid){
+		foreach($entryids as $entryid) {
 			$response[] = parent::deleteItem($entryid, $props);
 		}
 

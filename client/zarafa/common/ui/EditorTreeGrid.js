@@ -21,26 +21,26 @@ Zarafa.common.ui.EditorTreeGrid = Ext.extend(Zarafa.common.ui.TreeGrid, {
 	 * @property
 	 * @type Ext.grid.GridEditor
 	 */
-	activeEditor : undefined,
+	activeEditor: undefined,
 
 	/**
 	 * True when a cell is currently being edited by the user.
 	 * @property
 	 * @type Boolean
 	 */
-	editing : false,
+	editing: false,
 
 	/**
 	 * @cfg {Boolean} autoEncode
 	 * True to automatically HTML encode and decode values pre and post edit (defaults to false)
 	 */
-	autoEncode : false,
+	autoEncode: false,
 
 	/**
 	 * @constructor
 	 * @param {Object} config Configuration object
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		this.addEvents(
 			/**
@@ -81,7 +81,7 @@ Zarafa.common.ui.EditorTreeGrid = Ext.extend(Zarafa.common.ui.TreeGrid, {
 	 * {@link #dblclick} event (depending on the {@link #clicksToEdit} configuration option.
 	 * @private
 	 */
-	initEvents : function()
+	initEvents: function()
 	{
 		Zarafa.common.ui.EditorTreeGrid.superclass.initEvents.call(this);
 
@@ -107,7 +107,7 @@ Zarafa.common.ui.EditorTreeGrid = Ext.extend(Zarafa.common.ui.TreeGrid, {
 	 * @param {Ext.EventObject} event The event object
 	 * @private
 	 */
-	onClickEdit : function(node, event)
+	onClickEdit: function(node, event)
 	{
 		if (node.leaf) {
 			var td = Ext.get(event.target);
@@ -130,7 +130,7 @@ Zarafa.common.ui.EditorTreeGrid = Ext.extend(Zarafa.common.ui.TreeGrid, {
 	 * @param {Number} column The column index in which the editing will start
 	 * @private
 	 */
-	startEdit : function(node, column)
+	startEdit: function(node, column)
 	{
 		this.stopEdit();
 
@@ -153,8 +153,8 @@ Zarafa.common.ui.EditorTreeGrid = Ext.extend(Zarafa.common.ui.TreeGrid, {
 				}
 
 				Ext.apply(editor, {
-					node : node,
-					column : column
+					node: node,
+					column: column
 				});
 
 				this.activeEditor = editor;
@@ -172,7 +172,7 @@ Zarafa.common.ui.EditorTreeGrid = Ext.extend(Zarafa.common.ui.TreeGrid, {
 	 * @param {Ext.grid.GridEditor} editor The editor which is being rendered
 	 * @private
 	 */
-	onEditRender : function(editor)
+	onEditRender: function(editor)
 	{
 		// When rendering, we need to directly place the focus on the editor
 		editor.field.focus();
@@ -200,7 +200,7 @@ Zarafa.common.ui.EditorTreeGrid = Ext.extend(Zarafa.common.ui.TreeGrid, {
 	 * changes should not be saved.
 	 * @private
 	 */
-	stopEdit : function(cancel)
+	stopEdit: function(cancel)
 	{
 		if (this.editing === true) {
 			var editor = this.activeEditor;
@@ -220,7 +220,7 @@ Zarafa.common.ui.EditorTreeGrid = Ext.extend(Zarafa.common.ui.TreeGrid, {
 	 * @param {Mixed} oldValue The previous value which was applied to the cell
 	 * @private
 	 */
-	onEditComplete : function(editor, value, oldValue)
+	onEditComplete: function(editor, value, oldValue)
 	{
 		var node = editor.node;
 		var column = editor.column;
@@ -260,7 +260,7 @@ Zarafa.common.ui.EditorTreeGrid = Ext.extend(Zarafa.common.ui.TreeGrid, {
 	 * @return {Mixed} value The value which will be placed in the editor component
 	 * @private
 	 */
-	preEditValue : function(node, column)
+	preEditValue: function(node, column)
 	{
 		var value = node.attributes[this.getColumn(column).dataIndex];
 		return this.autoEncode && Ext.isString(value) ? Ext.util.Format.htmlDecode(value) : value;
@@ -275,7 +275,7 @@ Zarafa.common.ui.EditorTreeGrid = Ext.extend(Zarafa.common.ui.TreeGrid, {
 	 * @param {Mixed} oldValue The old value which was inside the editor
 	 * @private
 	 */
-	postEditValue : function(node, column, value, oldValue)
+	postEditValue: function(node, column, value, oldValue)
 	{
 		return this.autoEncode && Ext.isString(value) ? Ext.util.Format.htmlEncode(value) : value;
 	},
@@ -286,7 +286,7 @@ Zarafa.common.ui.EditorTreeGrid = Ext.extend(Zarafa.common.ui.TreeGrid, {
 	 * @param {Number} column The column which is going to be edited
 	 * @return {Boolean} True when the given cell is editable
 	 */
-	isCellEditable : function(node, column)
+	isCellEditable: function(node, column)
 	{
 		return this.getColumn(column).editable === true;
 	},
@@ -296,7 +296,7 @@ Zarafa.common.ui.EditorTreeGrid = Ext.extend(Zarafa.common.ui.TreeGrid, {
 	 * @param {Number} column The index number of the column which is requested
 	 * @return {Ext.grid.Column} The column which belongs to the given index
 	 */
-	getColumn : function(column)
+	getColumn: function(column)
 	{
 		return this.columns[column];
 	},
@@ -307,7 +307,7 @@ Zarafa.common.ui.EditorTreeGrid = Ext.extend(Zarafa.common.ui.TreeGrid, {
 	 * @param {Number} column The index number of the column for which we are looking up the cell
 	 * @return {Ext.Element} The element which represents the cell
 	 */
-	getCell : function(node, column)
+	getCell: function(node, column)
 	{
 		return node.ui.elNode.childNodes[column].firstChild;
 	},
@@ -319,7 +319,7 @@ Zarafa.common.ui.EditorTreeGrid = Ext.extend(Zarafa.common.ui.TreeGrid, {
 	 * @param {Number} column The column index for which the editor is looked up
 	 * @return {Ext.form.Field} The editor used to edit the given cell
 	 */
-	getEditor : function(node, column)
+	getEditor: function(node, column)
 	{
 		return this.columns[column].editor;
 	},
@@ -331,7 +331,7 @@ Zarafa.common.ui.EditorTreeGrid = Ext.extend(Zarafa.common.ui.TreeGrid, {
 	 * @param {Number} column The column index for which the editor is looked up
 	 * @return {Ext.grid.GridEditor} The grid editor which wraps the editor from {@link #getEditor}.
 	 */
-	getCellEditor : function(node, column)
+	getCellEditor: function(node, column)
 	{
 		var editor = this.getEditor(node, column);
 		if (editor) {

@@ -9,20 +9,20 @@ Ext.namespace('Zarafa.contact.dialogs');
  *
  * The {@link Zarafa.contact.dialogs.DistlistMemberGridColumnModel DistlistMemberGridColumnModel}
  * is the default {@link Ext.grid.ColumnModel ColumnModel} for the Distlist Member grid
-  */
+ */
 Zarafa.contact.dialogs.DistlistMemberGridColumnModel = Ext.extend(Ext.grid.ColumnModel, {
 	/**
 	 * @constructor
 	 * @param config Configuration structure
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		config = config || {};
 
 		Ext.applyIf(config, {
-			columns : this.createColumns(),
-			defaults : {
-				sortable : true
+			columns: this.createColumns(),
+			defaults: {
+				sortable: true
 			}
 		});
 
@@ -36,27 +36,27 @@ Zarafa.contact.dialogs.DistlistMemberGridColumnModel = Ext.extend(Ext.grid.Colum
 	 * @return {Ext.grid.Column[]} The array of columns
 	 * @private
 	 */
-	createColumns : function()
+	createColumns: function()
 	{
 		return [{
-					dataIndex : 'icon_index',
+					dataIndex: 'icon_index',
 					headerCls: 'zarafa-icon-column',
-					header : '<p class="icon_index">&nbsp;</p>',
-					tooltip : _('Sort by: Icon'),
-					width : 24,
-					renderer : Zarafa.common.ui.grid.Renderers.icon
+					header: '<p class="icon_index">&nbsp;</p>',
+					tooltip: _('Sort by: Icon'),
+					width: 24,
+					renderer: Zarafa.common.ui.grid.Renderers.icon
 				},{
-					dataIndex : 'display_name',
-					id : 'display_name',
-					header : _('Name'),
-					tooltip : _('Sort by: Name'),
-					renderer : Zarafa.common.ui.grid.Renderers.text
+					dataIndex: 'display_name',
+					id: 'display_name',
+					header: _('Name'),
+					tooltip: _('Sort by: Name'),
+					renderer: Zarafa.common.ui.grid.Renderers.text
 				},{
-					dataIndex : 'smtp_address',
-					header : _('Email Address'),
-					tooltip : _('Sort by: Email Address'),
-					width : 350,
-					renderer : Zarafa.common.ui.grid.Renderers.text
+					dataIndex: 'smtp_address',
+					header: _('Email Address'),
+					tooltip: _('Sort by: Email Address'),
+					width: 350,
+					renderer: Zarafa.common.ui.grid.Renderers.text
 				}];
 	}
 });

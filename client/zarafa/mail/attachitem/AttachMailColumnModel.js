@@ -16,14 +16,14 @@ Zarafa.mail.attachitem.AttachMailColumnModel = Ext.extend(Zarafa.common.ui.grid.
 	 * @constructor
 	 * @param config Configuration structure
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		config = config || {};
 
 		Ext.applyIf(config, {
-			columns : this.getColumns(),
-			defaults : {
-				sortable : true
+			columns: this.getColumns(),
+			defaults: {
+				sortable: true
 			}
 		});
 
@@ -37,61 +37,61 @@ Zarafa.mail.attachitem.AttachMailColumnModel = Ext.extend(Zarafa.common.ui.grid.
 	 * @return {Ext.grid.Column[]} The array of columns
 	 * @private
 	 */
-	getColumns : function()
+	getColumns: function()
 	{
 		return [{
-			header : '<p class=\'icon_importance\'>&nbsp;</p>',
+			header: '<p class=\'icon_importance\'>&nbsp;</p>',
 			headerCls: 'zarafa-icon-column',
-			dataIndex : 'importance',
-			width : 24,
-			fixed : true,
-			renderer : Zarafa.common.ui.grid.Renderers.importance,
-			tooltip : _('Sort by: Importance')
+			dataIndex: 'importance',
+			width: 24,
+			fixed: true,
+			renderer: Zarafa.common.ui.grid.Renderers.importance,
+			tooltip: _('Sort by: Importance')
 		}, {
-			header : '<p class=\'icon_index\'>&nbsp;</p>',
+			header: '<p class=\'icon_index\'>&nbsp;</p>',
 			headerCls: 'zarafa-icon-column',
-			dataIndex : 'icon_index',
-			width : 24,
-			fixed : true,
-			renderer : Zarafa.common.ui.grid.Renderers.icon,
-			tooltip : _('Sort by: Icon')
+			dataIndex: 'icon_index',
+			width: 24,
+			fixed: true,
+			renderer: Zarafa.common.ui.grid.Renderers.icon,
+			tooltip: _('Sort by: Icon')
 		}, {
-			header : '<p class=\'icon_paperclip\'>&nbsp;</p>',
+			header: '<p class=\'icon_paperclip\'>&nbsp;</p>',
 			headerCls: 'zarafa-icon-column',
-			dataIndex : 'hasattach',
-			width : 24,
-			fixed : true,
-			renderer : Zarafa.common.ui.grid.Renderers.attachment,
-			tooltip : _('Sort by: Attachment')
+			dataIndex: 'hasattach',
+			width: 24,
+			fixed: true,
+			renderer: Zarafa.common.ui.grid.Renderers.attachment,
+			tooltip: _('Sort by: Attachment')
 		}, {
-			header : _('From'),
-			dataIndex : 'sent_representing_name',
-			width : 100,
-			renderer : Zarafa.common.ui.grid.Renderers.sender,
-			tooltip : _('Sort by: From')
+			header: _('From'),
+			dataIndex: 'sent_representing_name',
+			width: 100,
+			renderer: Zarafa.common.ui.grid.Renderers.sender,
+			tooltip: _('Sort by: From')
 		}, {
-			header : _('To'),
-			dataIndex : 'display_to',
-			width : 100,
-			renderer : Zarafa.common.ui.grid.Renderers.to,
-			tooltip : _('Sort by: To')
+			header: _('To'),
+			dataIndex: 'display_to',
+			width: 100,
+			renderer: Zarafa.common.ui.grid.Renderers.to,
+			tooltip: _('Sort by: To')
 		}, {
-			header : _('Subject'),
-			dataIndex : 'subject',
-			renderer : Zarafa.common.ui.grid.Renderers.subject,
-			tooltip : _('Sort by: Subject')
+			header: _('Subject'),
+			dataIndex: 'subject',
+			renderer: Zarafa.common.ui.grid.Renderers.subject,
+			tooltip: _('Sort by: Subject')
 		}, {
-			header : _('Received'),
-			dataIndex : 'message_delivery_time',
-			width : 180,
-			renderer : Zarafa.common.ui.grid.Renderers.datetime,
-			tooltip : _('Sort by: Received')
+			header: _('Received'),
+			dataIndex: 'message_delivery_time',
+			width: 180,
+			renderer: Zarafa.common.ui.grid.Renderers.datetime,
+			tooltip: _('Sort by: Received')
 		}, {
-			header : _('Categories'),
-			dataIndex : 'categories',
-			width : 160,
-			renderer : Zarafa.common.ui.grid.Renderers.text,
-			tooltip : _('Sort by: Categories')
+			header: _('Categories'),
+			dataIndex: 'categories',
+			width: 160,
+			renderer: Zarafa.common.ui.grid.Renderers.text,
+			tooltip: _('Sort by: Categories')
 		}];
 	}
 });

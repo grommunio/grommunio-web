@@ -21,7 +21,7 @@ Zarafa.common.delegates.data.DelegateRecordFields = [
 /**
  * @class Zarafa.common.delegates.data.DelegateRecord
  * @extends Zarafa.core.data.MAPIRecord
- * 
+ *
  * Record will hold information about delegates.
  */
 Zarafa.common.delegates.data.DelegateRecord = Ext.extend(Zarafa.core.data.MAPIRecord, {
@@ -32,14 +32,14 @@ Zarafa.common.delegates.data.DelegateRecord = Ext.extend(Zarafa.core.data.MAPIRe
 	 * @type Array
 	 * @private
 	 */
-	baseIdProperties : [ 'entryid' ],
+	baseIdProperties: [ 'entryid' ],
 
 	/**
 	 * Copy the {@link Zarafa.common.delegates.data.DelegateRecord DelegateRecord} to a new instance
 	 * @param {String} newId (optional) A new Record id, defaults to the id of the record being copied. See id.
 	 * @return {Zarafa.common.delegates.data.DelegateRecord} The copy of the record.
 	 */
-	copy : function(newId)
+	copy: function(newId)
 	{
 		var copy = Zarafa.core.data.RecordFactory.createRecordObjectByCustomType(Zarafa.core.data.RecordCustomObjectType.ZARAFA_DELEGATE, this.data, newId || this.id);
 
@@ -52,11 +52,11 @@ Zarafa.common.delegates.data.DelegateRecord = Ext.extend(Zarafa.core.data.MAPIRe
 	/**
 	 * Applies all data from an {@link Zarafa.common.delegates.data.DelegateRecord DelegateRecord}
 	 * to this instance. This will update all data.
-	 * 
+	 *
 	 * @param {Zarafa.common.delegates.data.DelegateRecord} record The record to apply to this
 	 * @return {Zarafa.common.delegates.data.DelegateRecord} this
 	 */
-	applyData : function(record)
+	applyData: function(record)
 	{
 		this.beginEdit();
 
@@ -73,11 +73,11 @@ Zarafa.common.delegates.data.DelegateRecord = Ext.extend(Zarafa.core.data.MAPIRe
 	/**
 	 * Compare this {@link Zarafa.common.delegates.data.DelegateRecord DelegateRecord} instance
 	 * with another one to see if they are same.
-	 * 
+	 *
 	 * @param {Zarafa.common.delegates.data.DelegateRecord} record The Record to compare with
 	 * @return {Boolean} True if the records are same.
 	 */
-	equals : function(record)
+	equals: function(record)
 	{
 		// Simplest case, do we have the same object...
 		if (this === record) {

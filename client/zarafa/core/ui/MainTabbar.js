@@ -30,7 +30,7 @@ Zarafa.core.ui.MainTabBar = Ext.extend(Ext.Toolbar, {
 	 * @constructor
 	 * @param config Configuration structure
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		config = config || {};
 
@@ -38,7 +38,7 @@ Zarafa.core.ui.MainTabBar = Ext.extend(Ext.Toolbar, {
 			// Override from Ext.Component
 			xtype: 'zarafa.maintabbar',
 			id: 'zarafa-mainmenu',
-			cls : 'zarafa-maintabbar',
+			cls: 'zarafa-maintabbar',
 			defaultType: 'zarafa.maintab'
 		});
 
@@ -54,7 +54,7 @@ Zarafa.core.ui.MainTabBar = Ext.extend(Ext.Toolbar, {
 	 * the list returned by the insertion point.
 	 * @private
 	 */
-	initBar : function()
+	initBar: function()
 	{
 
 		var leftItems = container.populateInsertionPoint('main.maintabbar.left', this) || [];
@@ -77,30 +77,30 @@ Zarafa.core.ui.MainTabBar = Ext.extend(Ext.Toolbar, {
 
 		// Adding reminder button with bell icon.
 		var reminder = {
-			width : 30,
-			id : 'mainmenu-button-reminder',
-			ref : 'reminder',
-			handler : function() {
+			width: 30,
+			id: 'mainmenu-button-reminder',
+			ref: 'reminder',
+			handler: function() {
 				var store = container.getReminderStore();
 				Zarafa.common.Actions.openReminderContent(store.getRange());
 			},
-			listeners : {
-				afterRender : function(reminderBtn) {
+			listeners: {
+				afterRender: function(reminderBtn) {
 					var store = container.getReminderStore();
 					var recordLength = store.getRange().length;
 					reminderBtn.getEl().setStyle('backgroundImage', 'url(\'' + Zarafa.common.ui.IconClass.getReminderSvgIcon( recordLength ) + '\')');
 					var noReminder = recordLength === 0;
 					reminderBtn.setDisabled(noReminder);
-					reminderBtn.setTooltip(noReminder? _('There are no reminders') : '');
+					reminderBtn.setTooltip(noReminder? _('There are no reminders'): '');
 				},
-				scope : this
+				scope: this
 			},
-			style : {
-				backgroundImage : 'url(\'' + Zarafa.common.ui.IconClass.getReminderSvgIcon() + '\')',
+			style: {
+				backgroundImage: 'url(\'' + Zarafa.common.ui.IconClass.getReminderSvgIcon() + '\')',
 				backgroundRepeat: 'no-repeat',
 				backgroundPosition: 'center'
 			},
-			scope : this
+			scope: this
 		};
 
 		this.add(leftItems, {xtype: 'tbfill'}, loginText, reminder, rightItems);
@@ -109,7 +109,7 @@ Zarafa.core.ui.MainTabBar = Ext.extend(Ext.Toolbar, {
 		if ( !container.getServerConfig().usingSSO() || Zarafa.isDeskApp ){
 			var logoutButton = {
 				text: _('Logout'),
-				handler : this.onLogoutButton,
+				handler: this.onLogoutButton,
 				id: 'mainmenu-button-logout'
 			};
 
@@ -122,7 +122,7 @@ Zarafa.core.ui.MainTabBar = Ext.extend(Ext.Toolbar, {
 	 * @param {Array} leftItems The leftItems contains the left context items which are properly sorted by priority.
 	 * @param {Array} rightItems The rightItems contains the right context items.
 	 */
-	addTooltip : function(leftItems, rightItems)
+	addTooltip: function(leftItems, rightItems)
 	{
 		var contextItems = [];
 		contextItems = contextItems.concat(leftItems, rightItems);
@@ -135,7 +135,7 @@ Zarafa.core.ui.MainTabBar = Ext.extend(Ext.Toolbar, {
 	 * Event handler which is called when the user presses the 'logout' button
 	 * @private
 	 */
-	onLogoutButton : function()
+	onLogoutButton: function()
 	{
 		container.logout();
 	}

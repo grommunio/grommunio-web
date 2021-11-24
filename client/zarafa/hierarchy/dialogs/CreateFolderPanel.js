@@ -10,17 +10,17 @@ Zarafa.hierarchy.dialogs.CreateFolderPanel = Ext.extend(Ext.Panel, {
 	 * @cfg {Zarafa.hierarchy.data.MAPIFolderRecord} parentFolder (optional) The parent folder
 	 * underneath the new folder will be created.
 	 */
-	parentFolder : undefined,
+	parentFolder: undefined,
 	/**
 	 * @cfg {String} preferredContainerClass (optional) The preferred container
 	 * class for the newly created Folder.
 	 */
-	preferredContainerClass : undefined,
+	preferredContainerClass: undefined,
 	/**
 	 * @constructor
 	 * @param {Object} config Configuration structure
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		config = config || {};
 
@@ -53,44 +53,44 @@ Zarafa.hierarchy.dialogs.CreateFolderPanel = Ext.extend(Ext.Panel, {
 	 * @return {Object} Configuration object for the tree panel.
 	 * @private
 	 */
-	createPanel : function()
+	createPanel: function()
 	{
 		return {
-			xtype : 'panel',
-			layout : 'form',
-			border : false,
-			flex : 1,
-			bodyStyle : 'background-color: inherit;',
-			defaults : {
-				anchor :'100%',
-				style : 'margin-bottom: 10px;'
+			xtype: 'panel',
+			layout: 'form',
+			border: false,
+			flex: 1,
+			bodyStyle: 'background-color: inherit;',
+			defaults: {
+				anchor:'100%',
+				style: 'margin-bottom: 10px;'
 			},
-			labelAlign : 'top',
+			labelAlign: 'top',
 
-			items : [{
-				xtype : 'textfield',
-				fieldLabel : _('Name'),
+			items: [{
+				xtype: 'textfield',
+				fieldLabel: _('Name'),
 				cls: 'form-field-name',
-				ref : '../newNameField',
-				listeners : {
-					scope : this,
-					specialkey : function(field, e) {
+				ref: '../newNameField',
+				listeners: {
+					scope: this,
+					specialkey: function(field, e) {
 						if (e.getKey() == e.ENTER) {
 							this.onSubmit();
 						}
 					}
 				}
 			},{
-				xtype : 'combo',
-				fieldLabel : _('Folder contains'),
+				xtype: 'combo',
+				fieldLabel: _('Folder contains'),
 				cls: 'form-field-folder-contains',
-				typeAhead : true,
-				triggerAction : 'all',
-				lazyRender : true,
-				mode : 'local',
-				store : new Ext.data.ArrayStore({
-					fields : [ 'value', 'displayText'],
-					data : [
+				typeAhead: true,
+				triggerAction: 'all',
+				lazyRender: true,
+				mode: 'local',
+				store: new Ext.data.ArrayStore({
+					fields: [ 'value', 'displayText'],
+					data: [
 						['IPF.Appointment', _('Calendar Items')],
 						['IPF.Note', _('Mail and Post Items')],
 						['IPF.Contact', _('Contacts Items')],
@@ -99,18 +99,18 @@ Zarafa.hierarchy.dialogs.CreateFolderPanel = Ext.extend(Ext.Panel, {
 					]
 				}),
 				editable: false,
-				valueField : 'value',
-				displayField : 'displayText',
-				ref : '../folderListCombo'
+				valueField: 'value',
+				displayField: 'displayText',
+				ref: '../folderListCombo'
 			},{
-				xtype : 'zarafa.hierarchytree',
-				fieldLabel : _('Select where to place the folder'),
+				xtype: 'zarafa.hierarchytree',
+				fieldLabel: _('Select where to place the folder'),
 				cls: 'form-field-hierarchy',
 				border: true,
-				forceLayout : true,
-				anchor : '100% 65%',
-				ref : '../hierarchyTree',
-				treeSorter : true,
+				forceLayout: true,
+				anchor: '100% 65%',
+				ref: '../hierarchyTree',
+				treeSorter: true,
 				hideTodoList: true,
 				hideFavorites: true
 			}]
@@ -121,7 +121,7 @@ Zarafa.hierarchy.dialogs.CreateFolderPanel = Ext.extend(Ext.Panel, {
 	 * Initialize the event handlers
 	 * @protected
 	 */
-	initEvents : function()
+	initEvents: function()
 	{
 		Zarafa.hierarchy.dialogs.CreateFolderPanel.superclass.initEvents.apply(this, arguments);
 
@@ -136,12 +136,12 @@ Zarafa.hierarchy.dialogs.CreateFolderPanel = Ext.extend(Ext.Panel, {
 	/**
 	 * Fired when the {@link Zarafa.hierarchy.ui.Tree Tree} fires the {@link Zarafa.hierarchy.ui.Tree#load load}
 	 * event. This function will try to select the {@link Ext.tree.TreeNode TreeNode} in
-	 * {@link Zarafa.hierarchy.ui.Tree Tree} intially. When the given node is not loaded yet, it will try again
+	 * {@link Zarafa.hierarchy.ui.Tree Tree} initially. When the given node is not loaded yet, it will try again
 	 * later when the event is fired again.
 	 *
 	 * @private
 	 */
-	onTreeNodeLoad : function()
+	onTreeNodeLoad: function()
 	{
 		// If the folder could be selected, then unregister the event handler.
 		if (this.hierarchyTree.selectFolderInTree(this.parentFolder)) {
@@ -157,7 +157,7 @@ Zarafa.hierarchy.dialogs.CreateFolderPanel = Ext.extend(Ext.Panel, {
 	 * @param {Zarafa.core.data.IPMRecord} record The record update the panel with.
 	 * @param {Boolean} contentReset force the component to perform a full update of the data.
 	 */
-	update : function(record, contentReset)
+	update: function(record, contentReset)
 	{
 		this.record = record;
 	},
@@ -169,7 +169,7 @@ Zarafa.hierarchy.dialogs.CreateFolderPanel = Ext.extend(Ext.Panel, {
 	 *
 	 * @param {Ext.tree.DefaultSelectionModel} model The selection model which was used to select the
 	 */
-	onHierarchyNodeSelect : function(model)
+	onHierarchyNodeSelect: function(model)
 	{
 		var node = model.getSelectedNode();
 		if (node) {
@@ -196,7 +196,7 @@ Zarafa.hierarchy.dialogs.CreateFolderPanel = Ext.extend(Ext.Panel, {
 	 * create new folder.
 	 * @private
 	 */
-	onSubmit : function()
+	onSubmit: function()
 	{
 		if (this.newNameField.getValue().trim().length === 0) {
 			Ext.MessageBox.show({
@@ -235,7 +235,7 @@ Zarafa.hierarchy.dialogs.CreateFolderPanel = Ext.extend(Ext.Panel, {
 	 * Closes {@link Zarafa.core.ui.CreateFolderContentPanel CreateFolderContentPanel} contentpanel
 	 * @private
 	 */
-	onCancel : function()
+	onCancel: function()
 	{
 		this.dialog.close();
 	}

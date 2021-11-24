@@ -20,7 +20,7 @@ Zarafa.calendar.ui.CalendarPanelToolbar = Ext.extend(Zarafa.common.ui.ContextMai
 	 * @constructor
 	 * @param {Object} config Configuration object
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		config = config || {};
 
@@ -28,8 +28,8 @@ Zarafa.calendar.ui.CalendarPanelToolbar = Ext.extend(Zarafa.common.ui.ContextMai
 		config.paging = config.paging || [];
 		config.paging.push({
 			xtype: 'toolbar',
-			ref : 'dateToolbar',
-			items : [{
+			ref: 'dateToolbar',
+			items: [{
 				xtype: 'button',
 				iconCls: 'x-tbar-page-prev',
 				handler: this.onPrevious,
@@ -54,7 +54,7 @@ Zarafa.calendar.ui.CalendarPanelToolbar = Ext.extend(Zarafa.common.ui.ContextMai
 	 * Called automatically by superclass. This will initialize the component.
 	 * @private
 	 */
-	initComponent : function()
+	initComponent: function()
 	{
 		Zarafa.calendar.ui.CalendarPanelToolbar.superclass.initComponent.call(this);
 
@@ -62,7 +62,7 @@ Zarafa.calendar.ui.CalendarPanelToolbar = Ext.extend(Zarafa.common.ui.ContextMai
 			this.mon(this.model, 'daterangechange', this.onDateRangeChange, this);
 			this.mon(this.model, 'datamodechange', this.onDataModeChange, this);
 
-			this.on('afterlayout', this.onAfterFirstLayout, this, { single : true });
+			this.on('afterlayout', this.onAfterFirstLayout, this, { single: true });
 		}
 	},
 
@@ -71,7 +71,7 @@ Zarafa.calendar.ui.CalendarPanelToolbar = Ext.extend(Zarafa.common.ui.ContextMai
 	 * the {@link #model} and will update the {@link #onDataModeChange active datamode}.
 	 * @private
 	 */
-	onAfterFirstLayout : function()
+	onAfterFirstLayout: function()
 	{
 		if (this.model) {
 			this.text.setText(this.model.getDateRangeText());
@@ -89,14 +89,14 @@ Zarafa.calendar.ui.CalendarPanelToolbar = Ext.extend(Zarafa.common.ui.ContextMai
 	 * @param {Zarafa.calendar.data.DataModes} oldMode the old mode which was previously applied
 	 * @private
 	 */
-	onDataModeChange : function(model, mode, oldMode)
+	onDataModeChange: function(model, mode, oldMode)
 	{
 		var hasDataModesAll = mode === Zarafa.calendar.data.DataModes.ALL;
 		this.dateToolbar.setVisible(!hasDataModesAll);
 		if (!hasDataModesAll) {
 			// we have to set the width of tbtext field based on the different views of calendar
-			// because when we navigate the months or days in calendar, text length of month/days 
-			// gets resize the tbtext and due to that copy/delete button gets hide, to overcome this 
+			// because when we navigate the months or days in calendar, text length of month/days
+			// gets resize the tbtext and due to that copy/delete button gets hide, to overcome this
 			// problem we give the fixed width to tbtext as per the calender view
 			switch(mode) {
 				case Zarafa.calendar.data.DataModes.WEEK:
@@ -122,7 +122,7 @@ Zarafa.calendar.ui.CalendarPanelToolbar = Ext.extend(Zarafa.common.ui.ContextMai
 	 * @param {Zarafa.core.data.DateRange} dateRange The new dateRange object
 	 * @private
 	 */
-	onDateRangeChange : function(model, dateRange)
+	onDateRangeChange: function(model, dateRange)
 	{
 		this.text.setText(model.getDateRangeText());
 	},
@@ -132,7 +132,7 @@ Zarafa.calendar.ui.CalendarPanelToolbar = Ext.extend(Zarafa.common.ui.ContextMai
 	 * This will move the model to the next date period.
 	 * @private
 	 */
-	onNext : function()
+	onNext: function()
 	{
 		this.model.nextDate();
 	},
@@ -142,7 +142,7 @@ Zarafa.calendar.ui.CalendarPanelToolbar = Ext.extend(Zarafa.common.ui.ContextMai
 	 * This will move the model to the previous date period.
 	 * @private
 	 */
-	onPrevious : function()
+	onPrevious: function()
 	{
 		this.model.previousDate();
 	}

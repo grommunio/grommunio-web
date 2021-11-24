@@ -35,12 +35,12 @@ Zarafa.addressbook.ui.AddressBookBoxField = Ext.extend(Zarafa.common.recipientfi
 	 * @constructor
 	 * @param config Configuration object
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		config = config || {};
 
 		Ext.applyIf(config, {
-			boxType : 'zarafa.addressbookbox',
+			boxType: 'zarafa.addressbookbox',
 			enableComboBox: false,
 			editable: true,
 			height: 24

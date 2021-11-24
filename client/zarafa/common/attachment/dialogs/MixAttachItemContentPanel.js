@@ -13,15 +13,15 @@ Zarafa.common.attachment.dialogs.MixAttachItemContentPanel = Ext.extend(Zarafa.c
 	 * @constructor
 	 * @param {Object} config Configuration object
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		config = config || {};
 
 		Ext.applyIf(config, {
-			xtype : 'zarafa.mixattachitemcontentpanel',
+			xtype: 'zarafa.mixattachitemcontentpanel',
 			layout: 'fit',
-			title : _('Download as ZIP'),
-			width : 400,
+			title: _('Download as ZIP'),
+			width: 400,
 			height: 250,
 			items: [{
 				xtype: 'zarafa.mixattachitempanel',
@@ -33,7 +33,7 @@ Zarafa.common.attachment.dialogs.MixAttachItemContentPanel = Ext.extend(Zarafa.c
 					scope: this
 				},{
 					text: _('Cancel'),
-					ref : '../../dialogCancelButton',
+					ref: '../../dialogCancelButton',
 					handler: this.onCancel,
 					scope: this
 				}]
@@ -54,7 +54,7 @@ Zarafa.common.attachment.dialogs.MixAttachItemContentPanel = Ext.extend(Zarafa.c
 	 * @param {Function} downloadItemFn The function to be called to make request to download attachments as ZIP.
 	 * @private
 	 */
-	onContinue : function(button, downloadItemFn)
+	onContinue: function(button, downloadItemFn)
 	{
 		if (Ext.isEmpty(this.record)) {
 			this.close();
@@ -72,7 +72,7 @@ Zarafa.common.attachment.dialogs.MixAttachItemContentPanel = Ext.extend(Zarafa.c
 	 * This will close the panel without saving
 	 * @private
 	 */
-	onCancel : function()
+	onCancel: function()
 	{
 		this.close();
 	},
@@ -83,7 +83,7 @@ Zarafa.common.attachment.dialogs.MixAttachItemContentPanel = Ext.extend(Zarafa.c
 	 * @param {Boolean} checked current state of the checkbox.
 	 * @private
 	 */
-	onDontShowCheck : function(checkBox, checked)
+	onDontShowCheck: function(checkBox, checked)
 	{
 		this.dialogCancelButton.setDisabled(checked);
 	},
@@ -94,12 +94,12 @@ Zarafa.common.attachment.dialogs.MixAttachItemContentPanel = Ext.extend(Zarafa.c
 	 * @return {Object} The state object
 	 * @protected
 	 */
-	getState : function()
+	getState: function()
 	{
 		var state = Zarafa.common.attachment.dialogs.MixAttachItemContentPanel.superclass.getState.call(this) || {};
 		var checkboxValue = this.dontShowCheckBox.getValue();
 		return Ext.apply(state, {
-			dontshowagain : checkboxValue
+			dontshowagain: checkboxValue
 		});
 	}
 });

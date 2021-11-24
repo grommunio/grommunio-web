@@ -23,7 +23,7 @@ Zarafa.mail.settings.SettingsSignaturesWidget = Ext.extend(Zarafa.settings.ui.Se
 	 * @type Boolean
 	 * @private
 	 */
-	dirtySelectedSignature : false,
+	dirtySelectedSignature: false,
 
 	/**
 	 * The currently selected record which the user is editing. If {@link #dirtySelectedSignature}
@@ -33,153 +33,159 @@ Zarafa.mail.settings.SettingsSignaturesWidget = Ext.extend(Zarafa.settings.ui.Se
 	 * @type Ext.data.Record
 	 * @private
 	 */
-	selectedSignature : undefined,
+	selectedSignature: undefined,
 
 	/**
 	 * @constructor
 	 * @param {Object} config Configuration object
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		config = config || {};
 
 		var store = {
-			xtype : 'jsonstore',
-			fields : [
-				{ name : 'id', type : 'int' },
-				{ name : 'name' },
-				{ name : 'content' },
-				{ name : 'isHTML', type : 'boolean' }
+			xtype: 'jsonstore',
+			fields: [
+				{ name: 'id', type: 'int' },
+				{ name: 'name' },
+				{ name: 'content' },
+				{ name: 'isHTML', type: 'boolean' }
 			],
-			sortInfo : {
-				field : 'id',
-				direction : 'ASC'
+			sortInfo: {
+				field: 'id',
+				direction: 'ASC'
 			},
-			autoDestroy : true
+			autoDestroy: true
 		};
 
 		Ext.applyIf(config, {
-			title : _('Signatures'),
-			iconCls : 'zarafa-settings-favorite-signatures',
-			items : [{
-				xtype : 'container',
-				layout : 'column',
-				items : [{
-					xtype : 'grid',
-					name : 'zarafa/v1/contexts/mail/signatures/all',
-					ref : '../signaturesGrid',
-					cls :'zarafa-settings-signatures',
-					columnWidth : 0.5,
-					height : 200,
-					store : store,
-					hideHeaders : true,
-					viewConfig : {
-						forceFit : true,
+			title: _('Signatures'),
+			items: [{
+				xtype: 'container',
+				layout: 'column',
+				items: [{
+					xtype: 'grid',
+					name: 'zarafa/v1/contexts/mail/signatures/all',
+					ref: '../signaturesGrid',
+					cls:'zarafa-settings-signatures',
+					columnWidth: 0.5,
+					height: 200,
+					store: store,
+					hideHeaders: true,
+					viewConfig: {
+						forceFit: true,
 						deferEmptyText: false,
 						emptyText: '<div class="emptytext">' + _('No signatures configured') + '</div>'
 					},
-					sm : new Ext.grid.RowSelectionModel({
-						singleSelect : true,
-						listeners : {
-							beforerowselect : this.onSignatureBeforeRowSelect,
-							selectionchange : this.onSignatureSelectionChange,
-							scope : this
+					sm: new Ext.grid.RowSelectionModel({
+						singleSelect: true,
+						listeners: {
+							beforerowselect: this.onSignatureBeforeRowSelect,
+							selectionchange: this.onSignatureSelectionChange,
+							scope: this
 						}
 					}),
-					columns : [{
-						dataIndex : 'name',
-						header : '&#160;',
-						renderer : Ext.util.Format.htmlEncode
+					columns: [{
+						dataIndex: 'name',
+						header: '&#160;',
+						renderer: Ext.util.Format.htmlEncode
 					}],
-					buttons : [{
-						text : _('New'),
-						ref : '../../../newSignatureBtn',
-						handler : this.onAddSignature,
-						scope : this
+					buttons: [{
+						text: _('New'),
+						ref: '../../../newSignatureBtn',
+						handler: this.onAddSignature,
+						scope: this
 					},{
-						text : _('Delete'),
-						ref : '../../../delSignatureBtn',
-						handler : this.onDeleteSignature,
-						scope : this
+						text: _('Delete'),
+						ref: '../../../delSignatureBtn',
+						handler: this.onDeleteSignature,
+						scope: this
 					}]
 				},{
-					xtype : 'container',
-					layout : 'form',
-					columnWidth : 0.5,
-					labelWidth : 200,
-					items : [{
-						xtype : 'combo',
-						ref : '../../newMessageCombo',
-						name : 'zarafa/v1/contexts/mail/signatures/new_message',
-						fieldLabel : _('Signature for new messages'),
-						anchor : '100%',
-						store : store,
+					xtype: 'container',
+					layout: 'form',
+					columnWidth: 0.5,
+					labelWidth: 150,
+					items: [{
+						xtype: 'combo',
+						ref: '../../newMessageCombo',
+						name: 'zarafa/v1/contexts/mail/signatures/new_message',
+						fieldLabel: _('New messages'),
+						anchor: '100%',
+						store: store,
 						mode: 'local',
 						triggerAction: 'all',
 						displayField: 'name',
 						valueField: 'id',
 						lazyInit: false,
-						autoSelect : true,
+						autoSelect: true,
 						forceSelection: true,
 						editable: false,
-						listeners : {
-							select : this.onSignatureComboSelect,
-							scope : this
+						listeners: {
+							select: this.onSignatureComboSelect,
+							scope: this
 						}
 					},{
-						xtype : 'combo',
-						ref : '../../replyMessageCombo',
-						name : 'zarafa/v1/contexts/mail/signatures/replyforward_message',
-						fieldLabel : _('Signature for replies and forwards'),
-						anchor : '100%',
-						store : store,
+						xtype: 'combo',
+						ref: '../../replyMessageCombo',
+						name: 'zarafa/v1/contexts/mail/signatures/replyforward_message',
+						fieldLabel: _('Replies/forwards'),
+						anchor: '100%',
+						store: store,
 						mode: 'local',
 						triggerAction: 'all',
 						displayField: 'name',
 						valueField: 'id',
 						lazyInit: false,
-						autoSelect : true,
+						autoSelect: true,
 						forceSelection: true,
 						editable: false,
-						listeners : {
-							select : this.onSignatureComboSelect,
-							scope : this
+						listeners: {
+							select: this.onSignatureComboSelect,
+							scope: this
 						}
 					}]
 				}]
 			},{
-				xtype : 'textfield',
-				name : 'name',
-				fieldLabel : _('Name'),
-				ref : 'nameField',
-				anchor : '100%',
-				listeners : {
-					change : this.onNameFieldChange,
-					 scope : this
+				xtype: 'textfield',
+				name: 'name',
+				cls: 'k-signature-name',
+				hideLabel: true,
+				ref: 'nameField',
+				anchor: '100%',
+				emptyText: _('Signature name:'),
+				listeners: {
+					change: this.onNameFieldChange,
+					scope: this
 				}
 			},{
-				xtype : 'zarafa.editorfield',
-				cls : 'k-signature-editor',
-				name : 'content',
-				htmlName : 'content',
-				plaintextName : 'content',
-				ref : 'contentField',
-				anchor : '100%',
+				xtype: 'zarafa.editorfield',
+				cls: 'k-signature-editor',
+				name: 'content',
+				htmlName: 'content',
+				plaintextName: 'content',
+				ref: 'contentField',
+				anchor: '100%',
 				height: 300,
-				useHtml : container.getSettingsModel().get('zarafa/v1/contexts/mail/dialogs/mailcreate/use_html_editor'),
+				useHtml: container.getSettingsModel().get('zarafa/v1/contexts/mail/dialogs/mailcreate/use_html_editor'),
 				disableEditor: true,
-				listeners : {
-					change : this.onEditorFieldChange,
-					valuecorrection : this.onValueCorrection,
-					scope : this
+				listeners: {
+					change: this.onEditorFieldChange,
+					valuecorrection: this.onValueCorrection,
+					scope: this
 				}
 			}],
-			buttons : [{
-				text : _('Save Signature'),
-				ref : '../saveSignatureBtn',
-				handler : this.onSaveSignature,
-				scope : this
-			}]
+			buttons: [{
+				text: _('Save Signature'),
+				ref: '../saveSignatureBtn',
+				handler: this.onSaveSignature,
+				scope: this
+			}],
+			listeners:{
+				afterrender:this.onAfterRender,
+				delay:1,
+				scope:this
+			}
 		});
 
 		Zarafa.mail.settings.SettingsSignaturesWidget.superclass.constructor.call(this, config);
@@ -194,7 +200,7 @@ Zarafa.mail.settings.SettingsSignaturesWidget = Ext.extend(Zarafa.settings.ui.Se
 	 * {@link #onGridDelSignature} and {@link #onGridUpdateSignature}.
 	 * @private
 	 */
-	initEvents : function()
+	initEvents: function()
 	{
 		// Connect the store from the grid to the stores inside the comboboxes
 		var source = this.signaturesGrid.getStore();
@@ -202,6 +208,20 @@ Zarafa.mail.settings.SettingsSignaturesWidget = Ext.extend(Zarafa.settings.ui.Se
 		this.mon(source, 'add', this.onGridAddSignature, this);
 		this.mon(source, 'remove', this.onGridDelSignature, this);
 		this.mon(source, 'update', this.onGridUpdateSignature, this);
+	},
+
+	/**
+	 * Event handler triggered after rendering settings signatures widget.
+	 * If {@link Zarafa.mail.settings.SettingsMailCategory SettingsMailCategory} has
+	 * scrollToSignatureWidget to true it will scroll the scroll bar to settings widget.
+	 */
+	onAfterRender: function()
+	{
+		if (this.settingsMailCategory.scrollToSignatureWidget) {
+			var dom = this.settingsMailCategory.getEl().dom;
+			dom.scrollTo('t', dom.scrollHeight);
+			delete this.settingsMailCategory.scrollToSignatureWidget;
+		}
 	},
 
 	/**
@@ -214,7 +234,7 @@ Zarafa.mail.settings.SettingsSignaturesWidget = Ext.extend(Zarafa.settings.ui.Se
 	 * @param {Number} index The where the records were added
 	 * @private
 	 */
-	onGridAddSignature : function(store, records, index)
+	onGridAddSignature: function(store, records, index)
 	{
 		var d1 = this.newMessageCombo.getStore();
 		var d2 = this.replyMessageCombo.getStore();
@@ -259,7 +279,7 @@ Zarafa.mail.settings.SettingsSignaturesWidget = Ext.extend(Zarafa.settings.ui.Se
 	 * @param {Number} index The index from where the records were deleted
 	 * @private
 	 */
-	onGridDelSignature : function(store, records, index)
+	onGridDelSignature: function(store, records, index)
 	{
 		var d1 = this.newMessageCombo.getStore();
 		var d2 = this.replyMessageCombo.getStore();
@@ -298,7 +318,7 @@ Zarafa.mail.settings.SettingsSignaturesWidget = Ext.extend(Zarafa.settings.ui.Se
 	 * @param {Ext.data.Record} records The records which were updated
 	 * @private
 	 */
-	onGridUpdateSignature : function(store, records)
+	onGridUpdateSignature: function(store, records)
 	{
 		var d1 = this.newMessageCombo.getStore();
 		var d2 = this.replyMessageCombo.getStore();
@@ -333,7 +353,7 @@ Zarafa.mail.settings.SettingsSignaturesWidget = Ext.extend(Zarafa.settings.ui.Se
 	 * {@link Zarafa.settings.SettingsModel} into the UI of this category.
 	 * @param {Zarafa.settings.SettingsModel} settingsModel The settings to load
 	 */
-	update : function(settingsModel)
+	update: function(settingsModel)
 	{
 		this.model = settingsModel;
 
@@ -344,7 +364,7 @@ Zarafa.mail.settings.SettingsSignaturesWidget = Ext.extend(Zarafa.settings.ui.Se
 		var signatures = settingsModel.get(this.signaturesGrid.name, true);
 		var signaturesArray = [];
 		for (var key in signatures) {
-			signaturesArray.push(Ext.apply({}, signatures[key], { id : key }));
+			signaturesArray.push(Ext.apply({}, signatures[key], { id: key }));
 		}
 
 		// Load all signatures into the GridPanel
@@ -353,7 +373,7 @@ Zarafa.mail.settings.SettingsSignaturesWidget = Ext.extend(Zarafa.settings.ui.Se
 
 		// For the Signatures selection combo, we must add a fake entry called <None>
 		// to disable the signatures in some situations.
-		var signaturesIdArray = [{ id : 0, name : '<'+ _('None') + '>' }].concat(signaturesArray);
+		var signaturesIdArray = [{ id: 0, name: '<'+ _('None') + '>' }].concat(signaturesArray);
 
 		// Load the signature ids into the New Message, and select the correct value
 		// based on the settings.
@@ -393,7 +413,7 @@ Zarafa.mail.settings.SettingsSignaturesWidget = Ext.extend(Zarafa.settings.ui.Se
 	 * This is used to update the settings from the UI into the {@link Zarafa.settings.SettingsModel settings model}.
 	 * @param {Zarafa.settings.SettingsModel} settingsModel The settings to update
 	 */
-	updateSettings : function(settingsModel)
+	updateSettings: function(settingsModel)
 	{
 		settingsModel.beginEdit();
 
@@ -408,14 +428,14 @@ Zarafa.mail.settings.SettingsSignaturesWidget = Ext.extend(Zarafa.settings.ui.Se
 			var signature = signatures[i];
 
 			signaturesData[signature.get('id')] = {
-				'name' : signature.get('name'),
-				'content' : signature.get('content'),
-				'isHTML' : signature.get('isHTML')
+				'name': signature.get('name'),
+				'content': signature.get('content'),
+				'isHTML': signature.get('isHTML')
 			};
 		}
 
 		// If all signatures are removed, remove the full setting path. Otherwise the empty JavaScript object {}
-		// will be interperted by PHP as an object and cause 4 empty signatures
+		// will be interpreted by PHP as an object and cause 4 empty signatures
 		if (signatures.length !== 0) {
 			settingsModel.set(this.signaturesGrid.name, signaturesData);
 		} else {
@@ -450,7 +470,7 @@ Zarafa.mail.settings.SettingsSignaturesWidget = Ext.extend(Zarafa.settings.ui.Se
 	 * @param {Object|Array} settings The modified settings
 	 * @private
 	 */
-	onSettingsSet : function(settingsModel, settings)
+	onSettingsSet: function(settingsModel, settings)
 	{
 		if (!Array.isArray(settings)) {
 			settings = [ settings ];
@@ -471,7 +491,7 @@ Zarafa.mail.settings.SettingsSignaturesWidget = Ext.extend(Zarafa.settings.ui.Se
 	 * @param {Ext.form.ComboBox} field The field which fired the event
 	 * @param {Ext.data.Record} record The selected record
 	 */
-	onSignatureComboSelect : function(field, record)
+	onSignatureComboSelect: function(field, record)
 	{
 		if (this.model) {
 			var set = record.get(field.valueField);
@@ -501,7 +521,7 @@ Zarafa.mail.settings.SettingsSignaturesWidget = Ext.extend(Zarafa.settings.ui.Se
 	 * @param {Ext.data.Record} record The selected record
 	 * @private
 	 */
-	onSignatureBeforeRowSelect : function(selectionModel, rowIndex, keepExisting, record)
+	onSignatureBeforeRowSelect: function(selectionModel, rowIndex, keepExisting, record)
 	{
 		// Change focus, this should trigger a change event in the
 		// textfield if we currently had our focus there...
@@ -532,7 +552,7 @@ Zarafa.mail.settings.SettingsSignaturesWidget = Ext.extend(Zarafa.settings.ui.Se
 	 * @param {Ext.data.Record} record The record which should be selected
 	 * @private
 	 */
-	onSignatureBeforeRowSelectConfirm : function(btn, selectionModel, rowIndex, keepExisting, record)
+	onSignatureBeforeRowSelectConfirm: function(btn, selectionModel, rowIndex, keepExisting, record)
 	{
 		if (btn === 'cancel') {
 			return;
@@ -555,7 +575,7 @@ Zarafa.mail.settings.SettingsSignaturesWidget = Ext.extend(Zarafa.settings.ui.Se
 	 * @param {Ext.grid.RowSelectionModel} selectionModel The selectionModel which fired the event
 	 * @private
 	 */
-	onSignatureSelectionChange : function(selectionModel)
+	onSignatureSelectionChange: function(selectionModel)
 	{
 		var record = selectionModel.getSelected();
 		this.doSelectSignature(record);
@@ -572,7 +592,7 @@ Zarafa.mail.settings.SettingsSignaturesWidget = Ext.extend(Zarafa.settings.ui.Se
 	 * @param {Ext.data.Record} record The record which is selected
 	 * @private
 	 */
-	doSelectSignature : function(record)
+	doSelectSignature: function(record)
 	{
 		if (!Ext.isEmpty(record)) {
 			this.selectedSignature = record;
@@ -616,7 +636,7 @@ Zarafa.mail.settings.SettingsSignaturesWidget = Ext.extend(Zarafa.settings.ui.Se
 	 * If nothing needs to be saved, {@link #doAddSignature} will be called.
 	 * @private
 	 */
-	onAddSignature : function()
+	onAddSignature: function()
 	{
 		// Change focus, this should trigger a change event in the
 		// textfield if we currently had our focus there...
@@ -646,7 +666,7 @@ Zarafa.mail.settings.SettingsSignaturesWidget = Ext.extend(Zarafa.settings.ui.Se
 	 * @param {String} btn The button string which the user selected
 	 * @private
 	 */
-	onAddSignatureConfirm : function(btn)
+	onAddSignatureConfirm: function(btn)
 	{
 		if (btn === 'cancel') {
 			return;
@@ -667,14 +687,14 @@ Zarafa.mail.settings.SettingsSignaturesWidget = Ext.extend(Zarafa.settings.ui.Se
 	 * will be {@link #doSelectSignature loaded into the UI}.
 	 * @private
 	 */
-	doAddSignature : function()
+	doAddSignature: function()
 	{
 		var isHtmlEditor = this.contentField.isHtmlEditor();
 		var store = this.signaturesGrid.getStore();
 		var record = new store.recordType({
-			id : new Date().getTime(),
-			name : _('New signature'),
-			isHTML : isHtmlEditor
+			id: new Date().getTime(),
+			name: _('New signature'),
+			isHTML: isHtmlEditor
 		});
 
 		store.add(record);
@@ -682,9 +702,9 @@ Zarafa.mail.settings.SettingsSignaturesWidget = Ext.extend(Zarafa.settings.ui.Se
 		// Add the signature to the settings
 		if (this.model) {
 			this.model.set(this.signaturesGrid.name + '/' + record.get('id'), {
-				'name' : record.get('name'),
-				'content' : record.get('content'),
-				'isHTML' : record.get('isHTML')
+				'name': record.get('name'),
+				'content': record.get('content'),
+				'isHTML': record.get('isHTML')
 			});
 		}
 
@@ -709,7 +729,7 @@ Zarafa.mail.settings.SettingsSignaturesWidget = Ext.extend(Zarafa.settings.ui.Se
 	 * and {@link Ext.data.Store#remove remove} it.
 	 * @private
 	 */
-	onDeleteSignature : function()
+	onDeleteSignature: function()
 	{
 		// Remove the signature from the settings
 		if (this.model) {
@@ -742,7 +762,7 @@ Zarafa.mail.settings.SettingsSignaturesWidget = Ext.extend(Zarafa.settings.ui.Se
 	 * {@link #selectedSignature selected} {@link Ext.data.Record record}.
 	 * @private
 	 */
-	onSaveSignature : function()
+	onSaveSignature: function()
 	{
 		var record = this.selectedSignature;
 		if (record) {
@@ -762,7 +782,7 @@ Zarafa.mail.settings.SettingsSignaturesWidget = Ext.extend(Zarafa.settings.ui.Se
 	 * the [@link Ext.form.Field fields} and reset {@link #dirtySelectedSignature}.
 	 * @private
 	 */
-	onRejectSignature : function()
+	onRejectSignature: function()
 	{
 		var record = this.selectedSignature;
 		if (record) {
@@ -785,7 +805,7 @@ Zarafa.mail.settings.SettingsSignaturesWidget = Ext.extend(Zarafa.settings.ui.Se
 	 * @param {String} value The new value
 	 * @private
 	 */
-	onNameFieldChange : function(field, value)
+	onNameFieldChange: function(field, value)
 	{
 		if (this.selectedSignature) {
 			if (this.selectedSignature.get(field.name) !== value) {
@@ -801,7 +821,7 @@ Zarafa.mail.settings.SettingsSignaturesWidget = Ext.extend(Zarafa.settings.ui.Se
 	 * @param {String} value The new value
 	 * @private
 	 */
-	onEditorFieldChange : function(field, value)
+	onEditorFieldChange: function(field, value)
 	{
 		if (this.selectedSignature) {
 			if (this.selectedSignature.get(field.name) !== this.contentField.getValue()) {
@@ -815,7 +835,7 @@ Zarafa.mail.settings.SettingsSignaturesWidget = Ext.extend(Zarafa.settings.ui.Se
 	 * made to the {@link #selectedSignatuer selected signature} or if any of the
 	 * form fields still have pending changes.
 	 */
-	hasDirtySignature : function()
+	hasDirtySignature: function()
 	{
 		if (this.selectedSignature) {
 			// If the dirty flag is already enabled, then no
@@ -842,7 +862,7 @@ Zarafa.mail.settings.SettingsSignaturesWidget = Ext.extend(Zarafa.settings.ui.Se
 	 * @param {String} oldValue the original value which was applied.
 	 * @private
 	 */
-	onValueCorrection : function(field, value, oldValue)
+	onValueCorrection: function(field, value, oldValue)
 	{
 		if ( this.selectedSignature ) {
 			this.selectedSignature.data.content = value;

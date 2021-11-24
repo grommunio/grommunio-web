@@ -149,7 +149,7 @@
 				$user_props = array(PR_DISPLAY_NAME, PR_SMTP_ADDRESS, PR_EMAIL_ADDRESS, PR_SEARCH_KEY, PR_EMS_AB_THUMBNAIL_PHOTO,
 					PR_TITLE, PR_COMPANY_NAME, PR_DEPARTMENT_NAME, PR_OFFICE_LOCATION, PR_HOME_ADDRESS_STREET, PR_MOBILE_TELEPHONE_NUMBER,
 					PR_PRIMARY_TELEPHONE_NUMBER, PR_BUSINESS_TELEPHONE_NUMBER);
-
+				
 				$user_props = mapi_getprops($user, $user_props);
 
 				if (is_array($user_props) && isset($user_props[PR_DISPLAY_NAME]) && isset($user_props[PR_SMTP_ADDRESS])){
@@ -159,7 +159,7 @@
 					$this->session_info["emailaddress"] = $user_props[PR_EMAIL_ADDRESS];
 					$this->session_info["searchkey"] = $user_props[PR_SEARCH_KEY];
 					$this->session_info["userimage"] = isset($user_props[PR_EMS_AB_THUMBNAIL_PHOTO]) ? "data:image/jpeg;base64," . base64_encode($user_props[PR_EMS_AB_THUMBNAIL_PHOTO]) : "";
-
+					
 					$this->session_info["given_name"] = isset($user_props[PR_GIVEN_NAME]) ? $user_props[PR_GIVEN_NAME] : '';
 					$this->session_info["initials"] = isset($user_props[PR_INITIALS]) ? $user_props[PR_INITIALS] : '';
 					$this->session_info["surname"] = isset($user_props[PR_SURNAME]) ? $user_props[PR_SURNAME] : '';
@@ -299,7 +299,7 @@
 		function getUserName()
 		{
 			$encryptionStore = EncryptionStore::getInstance();
-			return $encryptionStore->get('username') ? $encryptionStore->get('username'): '';
+			return $encryptionStore->get('username') ? $encryptionStore->get('username') : '';
 		}
 
 		/**
@@ -343,148 +343,148 @@
 		{
 			$this->retrieveUserData();
 
-			return array_key_exists("userimage",$this->session_info)? $this->session_info["userimage"]:false;
+			return array_key_exists("userimage",$this->session_info)? $this->session_info["userimage"] : false;
 		}
-
+		
 		function setUserImage($user_image)
 		{
 			if ($this->userDataRetrieved && is_array($this->session_info)) {
 				$this->session_info["userimage"] = $user_image;
 			}
 		}
-
+		
 		function getGivenName()
 		{
 			//TODO
 			return "";
 		}
-
+		
 		function getInitials()
 		{
 			//TODO
 			return "";
 		}
-
+		
 		function getSurname()
 		{
 			//TODO
 			return "";
 		}
-
+		
 		function getStreetAddress()
 		{
 			//TODO
 			return "";
 		}
-
+		
 		function getLocality()
 		{
 			//TODO
 			return "";
 		}
-
+		
 		function getStateOrProvince()
 		{
 			//TODO
 			return "";
 		}
-
+		
 		function getPostalCode()
 		{
 			//TODO
 			return "";
 		}
-
+		
 		function getCountry()
 		{
 			//TODO
 			return "";
 		}
-
+		
 		function getTitle()
 		{
 			$this->retrieveUserData();
 			return array_key_exists("title",$this->session_info)? $this->session_info["title"]:false;
 		}
-
+		
 		function getCompanyName()
 		{
 			$this->retrieveUserData();
 			return array_key_exists("company_name",$this->session_info)? $this->session_info["company_name"]:false;
 		}
-
+		
 		function getDepartmentName()
 		{
 			$this->retrieveUserData();
 			return array_key_exists("department_name",$this->session_info)? $this->session_info["department_name"]:false;
 		}
-
+		
 		function getOfficeLocation()
 		{
 			//TODO
 			return "";
 		}
-
+		
 		function getAssistant()
 		{
 			//TODO
 			return "";
 		}
-
+		
 		function getAssistantTelephoneNumber()
 		{
 			//TODO
 			return "";
 		}
-
+		
 		function getOfficeTelephoneNumber()
 		{
 			//TODO
 			return "";
 		}
-
+		
 		function getBusinessTelephoneNumber()
 		{
 			//TODO
 			return "";
 		}
-
+		
 		function getBusiness2TelephoneNumber()
 		{
 			//TODO
 			return "";
 		}
-
+		
 		function getPrimaryFaxNumber()
 		{
 			//TODO
 			return "";
 		}
-
+		
 		function getHomeTelephoneNumber()
 		{
 			//TODO
 			return "";
 		}
-
+		
 		function getHome2TelephoneNumber()
 		{
 			//TODO
 			return "";
 		}
-
+		
 		function getMobileTelephoneNumber()
 		{
 			//TODO
 			return "";
 		}
-
+		
 		function getPagerTelephoneNumber()
 		{
 			//TODO
 			return "";
 		}
-
+		
 		/**
 		 * Get currently disabled features for the user
 		 * @return array An disabled features list.
@@ -723,13 +723,13 @@
 				$this->stores[$entryid] = $store;
 				$this->userstores[$name] = $entryid;
 			} catch (MAPIException $e) {
-				error_log('Failed to open store with entryid ' . bin2hex($entryid) . ($name ? " ($name)":''));
+				error_log('Failed to open store with entryid ' . bin2hex($entryid) . ($name ? " ($name)" : ''));
 				error_log($e);
 				return $e->getCode();
 			} catch (Exception $e ) {
 				// mapi_openmsgstore seems to throw another exception than MAPIException
 				// sometimes, so we add a safety net.
-				error_log('Failed to open store with entryid ' . bin2hex($entryid) . ($name ? " ($name)":''));
+				error_log('Failed to open store with entryid ' . bin2hex($entryid) . ($name ? " ($name)" : ''));
 				error_log($e);
 				return $e->getCode();
 			}
@@ -801,6 +801,8 @@
 		function getOtherUserStore()
 		{
 			$otherusers = $this->retrieveOtherUsersFromSettings();
+			$otheUsersStores = Array();
+			
 			foreach($otherusers as $username=>$folder) {
 				if (isset($this->userstores[$username])) {
 					continue;
@@ -810,7 +812,11 @@
 					try {
 						$user_entryid = mapi_msgstore_createentryid($this->getDefaultMessageStore(), $username);
 
-						$this->openMessageStore($user_entryid, $username);
+						$sharedStore =  $this->openMessageStore($user_entryid, $username);
+						if ($sharedStore !== false) {
+							array_push($otheUsersStores, $sharedStore);
+						}
+
 						$this->userstores[$username] = $user_entryid;
 
 						// Check if an entire store will be loaded, if so load the archive store as well
@@ -832,6 +838,7 @@
 					}
 				}
 			}
+			return $otheUsersStores;
 		}
 
 		/**
@@ -991,8 +998,8 @@
 				$defaultStore = $this->getDefaultMessageStore();
 				$contactFolders = $this->getContactFoldersForABContactProvider($defaultStore);
 
-				// include shared contact folders in addressbook if shared contact folders are not disabled
-				if (!DISABLE_SHARED_CONTACT_FOLDERS && $loadSharedContactsProvider) {
+				// include shared contact folders in addressbook if shared contact folders are enabled
+				if (ENABLE_SHARED_CONTACT_FOLDERS && $loadSharedContactsProvider) {
 					if (empty($this->userstores)) {
 						$this->getOtherUserStore();
 					}
@@ -1044,8 +1051,8 @@
 					}
 				}
 
-				// include public contact folders in addressbook if public folders are enabled, and Public contact folders is not disabled
-				if (!DISABLE_PUBLIC_CONTACT_FOLDERS && ENABLE_PUBLIC_FOLDERS) {
+				// Include public contact folders in addressbook if public folders and public contacts folders are enabled
+				if (ENABLE_PUBLIC_CONTACT_FOLDERS && ENABLE_PUBLIC_FOLDERS) {
 					$publicStore = $this->getPublicMessageStore();
 					if($publicStore !== false) {
 						$contactFolders = array_merge($contactFolders, $this->getContactFoldersForABContactProvider($publicStore));
@@ -1090,7 +1097,7 @@
 			// PR_IPM_SUBTREE_ENTRYID that can be used on your own and delegate stores.
 			if($storeProps[PR_MDB_PROVIDER] == ZARAFA_STORE_PUBLIC_GUID){
 				$subtreeEntryid = $storeProps[PR_IPM_PUBLIC_FOLDERS_ENTRYID];
-			}else{
+			} else {
 				$subtreeEntryid = $storeProps[PR_IPM_SUBTREE_ENTRYID];
 			}
 

@@ -34,7 +34,7 @@ Zarafa.plugins.mdm.MDM = Ext.extend(Zarafa.core.Plugin, {
 	initPlugin : function()
 	{
 		this.registerInsertionPoint('context.settings.categories', this.createSettingCategory, this);
-		this.registerInsertionPoint('settings.versioninformation', this.createVersionInfo, this);
+		// this.registerInsertionPoint('settings.versioninformation', this.createVersionInfo, this);
 		Zarafa.core.data.SharedComponentType.addProperty('mdm.dialog.mdmdevicecontentpanel');
 		Zarafa.core.data.SharedComponentType.addProperty('mdm.dialog.mdmmanagesharedfoldercontentpanel');
 		Zarafa.plugins.mdm.MDM.superclass.initPlugin.apply(this, arguments);
@@ -100,6 +100,7 @@ Zarafa.plugins.mdm.MDM = Ext.extend(Zarafa.core.Plugin, {
 			value : version
 		};
 	}
+        
 });
 
 Zarafa.onReady(function() {

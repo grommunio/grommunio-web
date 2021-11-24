@@ -18,8 +18,8 @@ Zarafa.common.rules.data.RulesRecordFields = [
 
 	{name: 'rule_sequence', type: 'number'},
 	{name: 'rule_state', type: 'number', defaultValue: Zarafa.core.mapi.RuleStates.ST_ENABLED},
-	{name: 'rule_condition', allowBlank : false},
-	{name: 'rule_actions', allowBlank : false},
+	{name: 'rule_condition', allowBlank: false},
+	{name: 'rule_actions', allowBlank: false},
 	{name: 'rule_msg_atleast_size_unit', type: 'string'},
 	{name: 'rule_msg_atmost_size_unit', type: 'string'}
 ];
@@ -27,7 +27,7 @@ Zarafa.common.rules.data.RulesRecordFields = [
 /**
  * @class Zarafa.common.rules.data.RulesRecord
  * @extends Zarafa.core.data.MAPIRecord
- * 
+ *
  * Record will hold information about delegates.
  */
 Zarafa.common.rules.data.RulesRecord = Ext.extend(Zarafa.core.data.MAPIRecord, {
@@ -38,7 +38,7 @@ Zarafa.common.rules.data.RulesRecord = Ext.extend(Zarafa.core.data.MAPIRecord, {
 	 * @type Array
 	 * @private
 	 */
-	baseIdProperties : [ 'rule_id' ],
+	baseIdProperties: [ 'rule_id' ],
 
 	/**
 	 * Indicates that the 'rules_condition' property is valid, and is allowed
@@ -47,7 +47,7 @@ Zarafa.common.rules.data.RulesRecord = Ext.extend(Zarafa.core.data.MAPIRecord, {
 	 * @property
 	 * @type Boolean
 	 */
-	conditionsValid : true,
+	conditionsValid: true,
 
 	/**
 	 * Indicates that the 'rules_actions' property is valid, and is allowed
@@ -56,14 +56,14 @@ Zarafa.common.rules.data.RulesRecord = Ext.extend(Zarafa.core.data.MAPIRecord, {
 	 * @property
 	 * @type Boolean
 	 */
-	actionsValid : true,
+	actionsValid: true,
 
 	/**
 	 * Copy the {@link Zarafa.common.rules.data.RuleRecord RuleRecord} to a new instance
 	 * @param {String} newId (optional) A new Record id, defaults to the id of the record being copied. See id.
 	 * @return {Zarafa.common.rules.data.RuleRecord} The copy of the record.
 	 */
-	copy : function(newId)
+	copy: function(newId)
 	{
 		var copy = Zarafa.core.data.RecordFactory.createRecordObjectByCustomType(Zarafa.core.data.RecordCustomObjectType.ZARAFA_RULE, this.data, newId || this.id);
 
@@ -76,11 +76,11 @@ Zarafa.common.rules.data.RulesRecord = Ext.extend(Zarafa.core.data.MAPIRecord, {
 	/**
 	 * Applies all data from an {@link Zarafa.common.rules.data.RuleRecord RuleRecord}
 	 * to this instance. This will update all data.
-	 * 
+	 *
 	 * @param {Zarafa.common.rules.data.RuleRecord} record The record to apply to this
 	 * @return {Zarafa.common.rules.data.RuleRecord} this
 	 */
-	applyData : function(record)
+	applyData: function(record)
 	{
 		this.beginEdit();
 
@@ -97,11 +97,11 @@ Zarafa.common.rules.data.RulesRecord = Ext.extend(Zarafa.core.data.MAPIRecord, {
 	/**
 	 * Compare this {@link Zarafa.common.rules.data.RulesRecord RulesRecord} instance
 	 * with another one to see if they are same.
-	 * 
+	 *
 	 * @param {Zarafa.common.rules.data.RulesRecord} record The Record to compare with
 	 * @return {Boolean} True if the records are same.
 	 */
-	equals : function(record)
+	equals: function(record)
 	{
 		// Simplest case, do we have the same object...
 		if (this === record) {
@@ -115,7 +115,7 @@ Zarafa.common.rules.data.RulesRecord = Ext.extend(Zarafa.core.data.MAPIRecord, {
 	 * @return {Boolean} always returns true because we don't need to get extra information
 	 * about this record from server.
 	 */
-	isOpened : function()
+	isOpened: function()
 	{
 		return true;
 	},
@@ -127,7 +127,7 @@ Zarafa.common.rules.data.RulesRecord = Ext.extend(Zarafa.core.data.MAPIRecord, {
 	 * Additionally this checks for {@link #conditionsValid} and {@link #actionsValid}.
 	 * @return {Boolean}
 	 */
-	isValid : function()
+	isValid: function()
 	{
 		return this.conditionsValid && this.actionsValid && Zarafa.common.rules.data.RulesRecord.superclass.isValid.apply(this, arguments);
 	},
@@ -138,7 +138,7 @@ Zarafa.common.rules.data.RulesRecord = Ext.extend(Zarafa.core.data.MAPIRecord, {
 	 * will return false as well, preventing the rule from being saved.
 	 * @param {Boolean} valid True if the 'rules_condition' property is valid
 	 */
-	setConditionsValid : function(valid)
+	setConditionsValid: function(valid)
 	{
 		this.conditionsValid = valid;
 	},
@@ -149,7 +149,7 @@ Zarafa.common.rules.data.RulesRecord = Ext.extend(Zarafa.core.data.MAPIRecord, {
 	 * will return false as well, preventing the rule from being saved.
 	 * @param {Boolean} valid True if the 'rules_actions' property is valid
 	 */
-	setActionsValid : function(valid)
+	setActionsValid: function(valid)
 	{
 		this.actionsValid = valid;
 	},
@@ -164,7 +164,7 @@ Zarafa.common.rules.data.RulesRecord = Ext.extend(Zarafa.core.data.MAPIRecord, {
 	 * Which contain {@link #getConditionsArray} method to get conditions in array.
 	 * @return {Array} returns array of conditions.
 	 */
-	getConditions : function(container)
+	getConditions: function(container)
 	{
 		var conditions = this.get('rule_condition');
 
@@ -202,7 +202,7 @@ Zarafa.common.rules.data.RulesRecord = Ext.extend(Zarafa.core.data.MAPIRecord, {
 	 * Which contains {@link #getConditionsArray} method to get conditions in array.
 	 * @return {Array} returns array of exceptions.
 	 */
-	getExceptions : function(container)
+	getExceptions: function(container)
 	{
 		var conditions = this.get('rule_condition');
 		if (conditions)  {

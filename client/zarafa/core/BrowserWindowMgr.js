@@ -16,7 +16,7 @@ Zarafa.core.BrowserWindowMgr = Ext.extend(Ext.util.Observable, {
 	 * @type Ext.util.MixedCollection
 	 * @private
 	 */
-	browserWindows : undefined,
+	browserWindows: undefined,
 
 	/**
 	 * The key of registered browser window which is active currently.
@@ -24,7 +24,7 @@ Zarafa.core.BrowserWindowMgr = Ext.extend(Ext.util.Observable, {
 	 * @type String
 	 * @private
 	 */
-	activeBrowserWindow : undefined,
+	activeBrowserWindow: undefined,
 
 	/**
 	 * The list of registered browser window with the object which contain,
@@ -34,7 +34,7 @@ Zarafa.core.BrowserWindowMgr = Ext.extend(Ext.util.Observable, {
 	 * @type Ext.util.MixedCollection
 	 * @private
 	 */
-	browserWindowComponents : undefined,
+	browserWindowComponents: undefined,
 
 	/**
 	 * Denotes that the multiple popups are blocked by the browser or not.
@@ -42,7 +42,7 @@ Zarafa.core.BrowserWindowMgr = Ext.extend(Ext.util.Observable, {
 	 * @type Boolean
 	 * @private
 	 */
-	isPopupsBlocked : false,
+	isPopupsBlocked: false,
 
 	/**
 	 * An array which contain, component The constructor of the component which has to be created in the container layer and
@@ -52,12 +52,12 @@ Zarafa.core.BrowserWindowMgr = Ext.extend(Ext.util.Observable, {
 	 * @type Array
 	 * @private
 	 */
-	blockedPopupsContent : [],
+	blockedPopupsContent: [],
 
 	/**
 	 * @constructor
 	 */
-	constructor : function()
+	constructor: function()
 	{
 		this.browserWindows = new Ext.util.MixedCollection();
 
@@ -97,7 +97,7 @@ Zarafa.core.BrowserWindowMgr = Ext.extend(Ext.util.Observable, {
 	 * @param {Ext.Container} mainContainer The container which is the parent most container of separate window.
 	 * @private
 	 */
-	initEvents : function(browserWindowObject, componentInstance, mainContainer)
+	initEvents: function(browserWindowObject, componentInstance, mainContainer)
 	{
 		// Initialize ext doc classes on separate window.
 		this.initExtCss(browserWindowObject);
@@ -119,7 +119,7 @@ Zarafa.core.BrowserWindowMgr = Ext.extend(Ext.util.Observable, {
 		browserWindowObject.addEventListener("focus", this.onSeparateWindowFocus.createDelegate(this, [ browserWindowObject.name ]));
 		browserWindowObject.addEventListener("unload", this.onSeparateWindowUnload.createDelegate(this, [ browserWindowObject, componentInstance, mainContainer ]));
 
-		// Disable contextmenu globaly in the separate browser window.
+		// Disable contextmenu globally in the separate browser window.
 		Ext.getBody().on('contextmenu', this.onBodyContextMenu, this);
 
 		browserWindowObject.onkeydown = this.preventWindowReload.createDelegate(this);
@@ -136,14 +136,14 @@ Zarafa.core.BrowserWindowMgr = Ext.extend(Ext.util.Observable, {
 	 * Function which used to prevent to reload popout window by F5 and Ctrl + R keys.
 	 * @param {Object} event The event object
 	 */
-	preventWindowReload : function (event)
+	preventWindowReload: function (event)
 	{
 		switch (event.keyCode) {
-			case 116 : //F5 button
+			case 116: //F5 button
 				event.returnValue = false;
 				event.keyCode = 0;
 				return false;
-			case 82 : //R button
+			case 82: //R button
 				if (event.ctrlKey) {
 					event.returnValue = false;
 					event.keyCode = 0;
@@ -163,7 +163,7 @@ Zarafa.core.BrowserWindowMgr = Ext.extend(Ext.util.Observable, {
 	 * @param {Ext.Component} componentInstance component which gets rendered into the separate browser window.
 	 * @private
 	 */
-	onComponentUserupdateRecord : function(field, record, isChangedByUser, componentInstance)
+	onComponentUserupdateRecord: function(field, record, isChangedByUser, componentInstance)
 	{
 		// Check the record has unsaved user changes before popout
 		// If true then update the record component plugin value
@@ -188,14 +188,14 @@ Zarafa.core.BrowserWindowMgr = Ext.extend(Ext.util.Observable, {
 	 * @param {Object} config The configuration object which must be
 
 	 */
-	register : function(browserWindowObject,component,config)
+	register: function(browserWindowObject, component, config)
 	{
 		var uniqueWindowName = browserWindowObject.name;
 		if (uniqueWindowName != 'mainBrowserWindow') {
 			this.initComponent(uniqueWindowName, component, config);
 
 			// add entryid along with the window object to identify browser window of particular record.
-			var entryid = this.getEntryId(config.record);
+			var entryid = this.getWindowId(config.record);
 			if (!Ext.isEmpty(entryid)) {
 				browserWindowObject.entryid = entryid;
 			}
@@ -208,14 +208,14 @@ Zarafa.core.BrowserWindowMgr = Ext.extend(Ext.util.Observable, {
 	 * De-register an already registered browser-window object from the {@link Zarafa.core.BrowserWindowMgr BrowserWindowMgr}.
 	 * @param {String} uniqueWindowName The unique name of the browser window.
 	 */
-	unRegister : function(uniqueWindowName)
+	unRegister: function(uniqueWindowName)
 	{
 		this.browserWindows.removeKey(uniqueWindowName);
 		Ext.MessageBox.removeBrowserWindowMessageBox(uniqueWindowName);
 		// As the window which was closed is also the active one, we are not able to decide which window should be considered
 		// as an active one. So assign 'undefined' to the activeBrowserWindow which will later on replaced while other
 		// available window receive focus.
-		if(this.activeBrowserWindow === uniqueWindowName){
+		if(this.activeBrowserWindow === uniqueWindowName) {
 			this.activeBrowserWindow = undefined;
 		}
 	},
@@ -226,7 +226,7 @@ Zarafa.core.BrowserWindowMgr = Ext.extend(Ext.util.Observable, {
 	 * @param {Object} separateWindowInstance Browser window object.
 	 * @protected
 	 */
-	createUI : function(separateWindowInstance)
+	createUI: function(separateWindowInstance)
 	{
 		// Enable tooltips
 		Ext.QuickTips.init();
@@ -252,8 +252,8 @@ Zarafa.core.BrowserWindowMgr = Ext.extend(Ext.util.Observable, {
 
 		//The configuration object
 		var config = {
-			plugins : [ 'zarafa.contentlayerplugin' ],
-			confirmClose : false
+			plugins: [ 'zarafa.contentlayerplugin' ],
+			confirmClose: false
 		};
 		config = Ext.applyIf(config,browserWindowComponent.config);
 
@@ -261,18 +261,18 @@ Zarafa.core.BrowserWindowMgr = Ext.extend(Ext.util.Observable, {
 		var componentInstance = new component(config);
 
 		var mainContainer = Ext.create({
-			xtype : 'panel',
-			height : separateWindowInstance.innerHeight,
-			width : separateWindowInstance.innerWidth,
-			renderTo : Ext.get(separateWindowInstance.document.body),
-			layout : 'fit',
-			items : [componentInstance]
+			xtype: 'panel',
+			height: separateWindowInstance.innerHeight,
+			width: separateWindowInstance.innerWidth,
+			renderTo: Ext.get(separateWindowInstance.document.body),
+			layout: 'fit',
+			items: [componentInstance]
 		});
 
 		// Check the record has unsaved user changes before popout
 
 		// If true then update the record component plugin value
-		if(config.isRecordChangeByUser){
+		if(config.isRecordChangeByUser) {
 			componentInstance.recordComponentPlugin.isChangedByUser = config.isRecordChangeByUser;
 		}
 		this.initEvents(separateWindowInstance, componentInstance, mainContainer);
@@ -304,7 +304,7 @@ Zarafa.core.BrowserWindowMgr = Ext.extend(Ext.util.Observable, {
 	 * Assign the provided window name to {@link #activeBrowserWindow}.
 	 * @param {String} uniqueWindowName The unique name of the browser window.
 	 */
-	setActive : function(uniqueWindowName)
+	setActive: function(uniqueWindowName)
 	{
 		this.activeBrowserWindow = uniqueWindowName;
 
@@ -325,7 +325,7 @@ Zarafa.core.BrowserWindowMgr = Ext.extend(Ext.util.Observable, {
 	 * assigned into {@link #activeBrowserWindow} is 'mainBrowserWindow'.
 	 * @return {Boolean} True if the active window is webapp-main-window, false otherwise.
 	 */
-	isMainWindowActive : function()
+	isMainWindowActive: function()
 	{
 		return this.activeBrowserWindow === 'mainBrowserWindow';
 	},
@@ -337,7 +337,7 @@ Zarafa.core.BrowserWindowMgr = Ext.extend(Ext.util.Observable, {
 	 *
 	 * @return {Boolean} true if the owner is main webapp window, false otherwise
 	 */
-	isOwnedByMainWindow : function(component)
+	isOwnedByMainWindow: function(component)
 	{
 		var ownerWindow = this.getOwnerWindow(component);
 		return ownerWindow ? ownerWindow.name === 'mainBrowserWindow' : false;
@@ -350,21 +350,21 @@ Zarafa.core.BrowserWindowMgr = Ext.extend(Ext.util.Observable, {
 	 * @return {Object} Browser window object
 	 * @private
 	 */
-	getOwnerWindow : function(component)
+	getOwnerWindow: function(component)
 	{
-		if(!Ext.isDefined(component)){
+		if(!Ext.isDefined(component)) {
 			return undefined;
 		}
 
 		// Incase we receive Ext.Component as parameter then we have to get underlying Ext.Element
-		if(Ext.isFunction(component.getEl)){
+		if(Ext.isFunction(component.getEl)) {
 			component = component.getEl();
 		}
 
 		var componentDom = component.dom ? component.dom : component;
 		var ownerDocument = componentDom ? componentDom.ownerDocument : undefined;
 		var defaultView = ownerDocument ? ownerDocument.defaultView : undefined;
-		return defaultView ? defaultView :  this.browserWindows.get('mainBrowserWindow');
+		return defaultView ? defaultView : this.browserWindows.get('mainBrowserWindow');
 	},
 
 	/**
@@ -374,7 +374,7 @@ Zarafa.core.BrowserWindowMgr = Ext.extend(Ext.util.Observable, {
 	 * @param {Object} browserWindowId The newly created window object id which must be registered.
 	 * @private
 	 */
-	onSeparateWindowFocus : function(browserWindowId)
+	onSeparateWindowFocus: function(browserWindowId)
 	{
 		this.setActive(browserWindowId);
 	},
@@ -390,9 +390,13 @@ Zarafa.core.BrowserWindowMgr = Ext.extend(Ext.util.Observable, {
 	 * @param {Ext.Container} mainContainer The container which is the parent most container of separate window.
 	 * @private
 	 */
-	onSeparateWindowUnload : function(browserWindowObject, componentInstance, mainContainer)
+	onSeparateWindowUnload: function(browserWindowObject, componentInstance, mainContainer)
 	{
-		Ext.defer(this.onWindowRefreshOrClose, 50, this, [browserWindowObject,componentInstance,browserWindowObject.name]);
+		Ext.defer(this.onWindowRefreshOrClose, 50, this, [browserWindowObject, componentInstance, browserWindowObject.name]);
+
+		// Remove the panel from the ContentPanelMgr
+		Zarafa.core.data.ContentPanelMgr.unregister(componentInstance);
+
 		mainContainer.destroy();
 	},
 
@@ -464,7 +468,7 @@ Zarafa.core.BrowserWindowMgr = Ext.extend(Ext.util.Observable, {
 	 *
 	 * @private
 	 */
-	onSeparateWindowClose : function(browserWindowObject)
+	onSeparateWindowClose: function(browserWindowObject)
 	{
 		browserWindowObject.close();
 	},
@@ -479,7 +483,7 @@ Zarafa.core.BrowserWindowMgr = Ext.extend(Ext.util.Observable, {
 	 * @param {Ext.Container} mainContainer The container which needs to be resized according to the size of browser window.
 	 * @private
 	 */
-	onSeparateWindowResize : function(browserWindowObject, mainContainer)
+	onSeparateWindowResize: function(browserWindowObject, mainContainer)
 	{
 		var resizeTask = new Ext.util.DelayedTask(
 			this.doSeparateWindowResize,
@@ -498,13 +502,13 @@ Zarafa.core.BrowserWindowMgr = Ext.extend(Ext.util.Observable, {
 	 * @param {Ext.Container} mainContainer The container which needs to be resized according to the size of browser window.
 	 * @private
 	 */
-	doSeparateWindowResize : function(browserWindowObject, mainContainer)
+	doSeparateWindowResize: function(browserWindowObject, mainContainer)
 	{
 		var width = browserWindowObject.innerWidth || Ext.lib.Dom.getViewWidth();
 		var height = browserWindowObject.innerHeight || Ext.lib.Dom.getViewHeight();
 		mainContainer.setSize(width, height);
 
-		this.fireEvent('separatewindowresize', browserWindowObject, width. height);
+		this.fireEvent('separatewindowresize', browserWindowObject, width, height);
 	},
 
 	/**
@@ -515,7 +519,7 @@ Zarafa.core.BrowserWindowMgr = Ext.extend(Ext.util.Observable, {
 	 * @param {Ext.Element} el The element on which the contextmenu was requested
 	 * @private
 	 */
-	onBodyContextMenu : function(event, el)
+	onBodyContextMenu: function(event, el)
 	{
 		el = Ext.get(el);
 
@@ -528,7 +532,7 @@ Zarafa.core.BrowserWindowMgr = Ext.extend(Ext.util.Observable, {
 
 		// Don't disable the browser contextmenu for regular
 		// text inputs.
-		if ( el.dom.tagName.toUpperCase() === 'INPUT' ){
+		if ( el.dom.tagName.toUpperCase() === 'INPUT' ) {
 			var type = el.getAttribute('type') || '';
 			var readonly = !Ext.isEmpty(el.dom.attributes.readonly);
 			if ( type.toUpperCase() === 'TEXT' && !readonly ) {
@@ -542,11 +546,11 @@ Zarafa.core.BrowserWindowMgr = Ext.extend(Ext.util.Observable, {
 	/**
 	 * Function which is used to close all browser windows except main window
 	 */
-	closeAllBrowserWindow : function()
+	closeAllBrowserWindow: function()
 	{
 		var browserWindows = Zarafa.core.BrowserWindowMgr.browserWindows.items;
-		Ext.each(browserWindows,function(windowObject){
-			if(windowObject.name !== 'mainBrowserWindow'){
+		Ext.each(browserWindows,function(windowObject) {
+			if(windowObject.name !== 'mainBrowserWindow') {
 				windowObject.close();
 			}
 		});
@@ -631,7 +635,7 @@ Zarafa.core.BrowserWindowMgr = Ext.extend(Ext.util.Observable, {
 			}
 		}
 		// Forced border box model class applied to all elements. Bypassing javascript based box model adjustments
-		// in favor of css.  This is for non-IE browsers.
+		// in favor of css. This is for non-IE browsers.
 		if (Ext.enableForcedBoxModel && !Ext.isIE) {
 			Ext.isForcedBorderBox = true;
 			cls.push("ext-forced-border-box");
@@ -644,14 +648,14 @@ Zarafa.core.BrowserWindowMgr = Ext.extend(Ext.util.Observable, {
 	/**
 	 * Function which is used to display warning message while browser blocks popups
 	 */
-	displayBlockedPopupWarning : function() {
+	displayBlockedPopupWarning: function() {
 		if(Zarafa.core.BrowserWindowMgr.isPopupsBlocked) {
 			// We completed with the internal UI of single-allowed popup, Inform user that popup is blocked
 			Ext.MessageBox.show({
-				title : _("Open in new browser window"),
-				msg : _("Your browser seems to have blocked one or more pop-ups. Please change your browser's settings to always allow pop-ups from WebApp."),
+				title: _("Open in new browser window"),
+				msg: _("Your browser seems to have blocked one or more pop-ups. Please change your browser's settings to always allow pop-ups from grommunio Web."),
 				buttons: Ext.Msg.OK,
-				icon: Ext.MessageBox.WARNING
+				cls: Ext.MessageBox.WARNING_CLS
 			});
 
 			Zarafa.core.BrowserWindowMgr.isPopupsBlocked = false;
@@ -681,8 +685,9 @@ Zarafa.core.BrowserWindowMgr = Ext.extend(Ext.util.Observable, {
 	 */
 	getOpenedWindow: function (record)
 	{
+		var entryid = this.getWindowId(record);
+
 		return this.browserWindows.find(function (browserWindow) {
-			var entryid = this.getEntryId(record);
 			return Zarafa.core.EntryId.compareEntryIds(browserWindow.entryid, entryid);
 		}, this);
 	},
@@ -694,16 +699,24 @@ Zarafa.core.BrowserWindowMgr = Ext.extend(Ext.util.Observable, {
 	 * @param {Zarafa.core.data.MAPIRecord} record The mapi record.
 	 * @returns {String} entryid Return entryid of record.
 	 */
-	getEntryId: function (record)
+	getWindowId: function (record)
 	{
+		// When we have more than one record (e.g. for the reminder dialog), we
+		// will concatenate the entryids to generate an id
+		if (Array.isArray(record)) {
+			return record.map(function(r) {
+				return r.get('entryid') || r.get('id');
+			}).sort().join('-');
+		}
+
 		return Array.isArray(record.get('attach_num')) ? record.id : record.get('entryid');
 	},
 
 	/**
 	 * Helper function which return main browser window body.
-	 * @returns {Object} body of  main browser window.
+	 * @returns {Object} body of main browser window.
 	 */
-	getMainBrowserWindowBody : function ()
+	getMainBrowserWindowBody: function ()
 	{
 		var activeBrowserWindow = this.browserWindows.get('mainBrowserWindow');
 		var documentObject = Ext.isDefined(activeBrowserWindow) ? activeBrowserWindow.document : document;

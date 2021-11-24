@@ -10,10 +10,10 @@ Ext.namespace('Zarafa.hierarchy.ui');
  */
 Zarafa.hierarchy.ui.HierarchyTreeDropZone = Ext.extend(Ext.tree.TreeDropZone, {
 	/**
-	 * @cfg {String} The CSS class returned to the drag source when drop is allowed 
+	 * @cfg {String} The CSS class returned to the drag source when drop is allowed
 	 * while the user has the Ctrl-key pressed (defaults to "x-dd-drop-ok-add").
 	 */
-	dropAllowedAdd : 'x-dd-drop-ok-add',
+	dropAllowedAdd: 'x-dd-drop-ok-add',
 
 	/**
 	 * Called when the DropZone determines that a {@link Ext.dd.DragSource} has entered a drop node
@@ -25,13 +25,13 @@ Zarafa.hierarchy.ui.HierarchyTreeDropZone = Ext.extend(Ext.tree.TreeDropZone, {
 	 * @param {Object} data An object containing arbitrary data supplied by the drag source
 	 * @protected
 	 */
-	onNodeEnter : function(target, dd, e, data)
+	onNodeEnter: function(target, dd, e, data)
 	{
 		// Change the function from the prototype to update the scope of the function.
 		// This is needed to ensure we can call removeEventListener again with the correct
 		// function reference later.
-		this.onDragKeyDown = Zarafa.hierarchy.ui.HierarchyTreeDropZone.prototype.onDragKeyDown.createDelegate({ dd : dd, dz : this });
-		this.onDragKeyUp = Zarafa.hierarchy.ui.HierarchyTreeDropZone.prototype.onDragKeyUp.createDelegate({ dd : dd, dz : this });
+		this.onDragKeyDown = Zarafa.hierarchy.ui.HierarchyTreeDropZone.prototype.onDragKeyDown.createDelegate({ dd: dd, dz: this });
+		this.onDragKeyUp = Zarafa.hierarchy.ui.HierarchyTreeDropZone.prototype.onDragKeyUp.createDelegate({ dd: dd, dz: this });
 
 		// During dragging (onNodeOver) we either apply dropAllowed or dropAllowedAdd based on the Ctrl-key,
 		// if the user didn't drag but just presses the button we must also update the icon. For that we
@@ -52,7 +52,7 @@ Zarafa.hierarchy.ui.HierarchyTreeDropZone = Ext.extend(Ext.tree.TreeDropZone, {
 	 * underlying {@link Ext.dd.StatusProxy} can be updated
 	 * @protected
 	 */
-	onContainerOver : function(dd, e, data)
+	onContainerOver: function(dd, e, data)
 	{
 		var ret = Zarafa.hierarchy.ui.HierarchyTreeDropZone.superclass.onContainerOver.apply(this, arguments);
 
@@ -62,7 +62,7 @@ Zarafa.hierarchy.ui.HierarchyTreeDropZone = Ext.extend(Ext.tree.TreeDropZone, {
 		if (ret === this.dropAllowed && e.ctrlKey) {
 			ret = this.dropAllowedAdd;
 		}
-		
+
 		return ret;
 	},
 
@@ -75,7 +75,7 @@ Zarafa.hierarchy.ui.HierarchyTreeDropZone = Ext.extend(Ext.tree.TreeDropZone, {
 	 * @param {Object} data An object containing arbitrary data supplied by the drag source
 	 * @protected
 	 */
-	onNodeOver : function(n, dd, e, data)
+	onNodeOver: function(n, dd, e, data)
 	{
 		var ret = Zarafa.hierarchy.ui.HierarchyTreeDropZone.superclass.onNodeOver.apply(this, arguments);
 
@@ -94,7 +94,7 @@ Zarafa.hierarchy.ui.HierarchyTreeDropZone = Ext.extend(Ext.tree.TreeDropZone, {
 			}
 		}
 
-		// TODO : After implementing functionality mark folder to favorite using
+		// TODO: After implementing functionality mark folder to favorite using
 		// drag and drop, This check is get's remove.
 		if(n.node.getFolder().isFavoritesRootFolder() || n.node.getFolder().isSearchFolder()) {
 			ret = undefined;
@@ -112,7 +112,7 @@ Zarafa.hierarchy.ui.HierarchyTreeDropZone = Ext.extend(Ext.tree.TreeDropZone, {
 	 * @param {Object} data An object containing arbitrary data supplied by the drag source
 	 * @protected
 	 */
-	onNodeOut : function(target, dd, e, data)
+	onNodeOut: function(target, dd, e, data)
 	{
 		// Clear event handlers again
 		Ext.EventManager.un(Ext.getDoc(), 'keydown', this.onDragKeyDown, this);
@@ -134,7 +134,7 @@ Zarafa.hierarchy.ui.HierarchyTreeDropZone = Ext.extend(Ext.tree.TreeDropZone, {
 	 * @param {Ext.EventObject} e The event
 	 * @private
 	 */
-	onDragKeyDown : function(e)
+	onDragKeyDown: function(e)
 	{
 		if (e.ctrlKey || e.keyCode === Ext.EventObject.CONTROL) {
 			if (this.dd.proxy.dropStatus === this.dz.dropAllowed) {
@@ -164,7 +164,7 @@ Zarafa.hierarchy.ui.HierarchyTreeDropZone = Ext.extend(Ext.tree.TreeDropZone, {
 	 * @param {Ext.EventObject} e The event
 	 * @private
 	 */
-	onDragKeyUp : function(e)
+	onDragKeyUp: function(e)
 	{
 		if (e.ctrlKey || e.keyCode === Ext.EventObject.CONTROL) {
 			if (this.dd.proxy.dropStatus === this.dz.dropAllowedAdd) {

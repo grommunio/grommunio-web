@@ -12,27 +12,27 @@ Zarafa.hierarchy.dialogs.SharedFolderPanel = Ext.extend(Ext.Panel, {
 	/**
 	 * @cfg {Zarafa.hierarchy.data.SharedFolderTypes} defaultSelectedFolderType Default selected folder in combolist.
 	 */
-	defaultSelectedFolderType : Zarafa.hierarchy.data.SharedFolderTypes['ALL'],
+	defaultSelectedFolderType: Zarafa.hierarchy.data.SharedFolderTypes['ALL'],
 
 	/**
 	 * @cfg {Zarafa.core.data.IPMRecipientStore} store The store in which the user is stored which
 	 * will contain the user whose store we wish to open.
 	 */
-	store : undefined,
+	store: undefined,
 
 	/**
 	 * @constructor
 	 * @param {Object} config Configuration structure
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		config = config || {};
 
 		Ext.applyIf(config, {
 			layout: 'form',
 			border: false,
-			labelWidth : 87,
-			flex : 1,
+			labelWidth: 87,
+			flex: 1,
 			items: [
 				this.createRecipientField(config.store),
 				this.createFolderTypeCombo(config.defaultSelectedFolderType),
@@ -49,13 +49,13 @@ Zarafa.hierarchy.dialogs.SharedFolderPanel = Ext.extend(Ext.Panel, {
 	 * @return {Object} config object for creating recipient selection field.
 	 * @private
 	 */
-	createRecipientField : function(store)
+	createRecipientField: function(store)
 	{
 		return {
 			xtype: 'zarafa.compositefield',
 			hideLabel: true,
-			style : 'margin-top: 10px; margin-bottom: 10px;',
-			anchor :'100%',
+			style: 'margin-top: 10px; margin-bottom: 10px;',
+			anchor:'100%',
 			items: [{
 				xtype: 'button',
 				anchor: '100%',
@@ -65,11 +65,11 @@ Zarafa.hierarchy.dialogs.SharedFolderPanel = Ext.extend(Ext.Panel, {
 			},{
 				xtype: 'zarafa.addressbookboxfield',
 				ref: '../userField',
-				boxStore : store,
+				boxStore: store,
 				flex: 1,
-				boxLimit : 1,
-				boxConfig : {
-					validDisplayType : Zarafa.core.mapi.DisplayType.DT_MAILUSER
+				boxLimit: 1,
+				boxConfig: {
+					validDisplayType: Zarafa.core.mapi.DisplayType.DT_MAILUSER
 				}
 			}]
 		};
@@ -83,29 +83,29 @@ Zarafa.hierarchy.dialogs.SharedFolderPanel = Ext.extend(Ext.Panel, {
 	 * @return {Object} config object for creating folder type selection combo.
 	 * @private
 	 */
-	createFolderTypeCombo : function(defaultSelectedFolderType)
+	createFolderTypeCombo: function(defaultSelectedFolderType)
 	{
 		return {
-			xtype : 'combo',
-			fieldLabel : _('Folder type'),
-			typeAhead : true,
-			triggerAction : 'all',
-			lazyRender : true,
-			mode : 'local',
-			style : 'margin-bottom: 10px;',
-			anchor :'100%',
-			value : defaultSelectedFolderType,
-			store : new Ext.data.JsonStore({
+			xtype: 'combo',
+			fieldLabel: _('Folder type'),
+			typeAhead: true,
+			triggerAction: 'all',
+			lazyRender: true,
+			mode: 'local',
+			style: 'margin-bottom: 10px;',
+			anchor:'100%',
+			value: defaultSelectedFolderType,
+			store: new Ext.data.JsonStore({
 				fields: ['value', 'name'],
-				data : Zarafa.hierarchy.data.SharedFolderTypes.folders
+				data: Zarafa.hierarchy.data.SharedFolderTypes.folders
 			}),
 			lazyInit: false,
 			editable: false,
 			displayField: 'name',
 			valueField: 'value',
-			ref : 'folderTypeCombo',
-			listeners : {
-				select : this.onFolderTypeSelect,
+			ref: 'folderTypeCombo',
+			listeners: {
+				select: this.onFolderTypeSelect,
 				scope: this
 			}
 		};
@@ -117,13 +117,13 @@ Zarafa.hierarchy.dialogs.SharedFolderPanel = Ext.extend(Ext.Panel, {
 	 * @return {Object} config object for subfolder selection checkbox.
 	 * @private
 	 */
-	createSubfolderSelection : function()
+	createSubfolderSelection: function()
 	{
 		return {
-			xtype : 'checkbox',
+			xtype: 'checkbox',
 			ref: 'checkSubFolders',
-			boxLabel : _('Show subfolders'),
-			anchor :'100%'
+			boxLabel: _('Show subfolders'),
+			anchor:'100%'
 		};
 	},
 
@@ -132,7 +132,7 @@ Zarafa.hierarchy.dialogs.SharedFolderPanel = Ext.extend(Ext.Panel, {
 	 * {@link #updateSubFolderCheckBox} to initialize the dialog.
 	 * @private
 	 */
-	onRender : function()
+	onRender: function()
 	{
 		Zarafa.hierarchy.dialogs.SharedFolderPanel.superclass.onRender.apply(this, arguments);
 		this.updateSubFolderCheckBox();
@@ -143,16 +143,16 @@ Zarafa.hierarchy.dialogs.SharedFolderPanel = Ext.extend(Ext.Panel, {
 	 * This will open the Address Book User Selection Dialog to select a user.
 	 * @private
 	 */
-	onSelectUser : function()
+	onSelectUser: function()
 	{
 		Zarafa.common.Actions.openABUserSelectionContent({
-			callback : this.abCallBack,
-			scope : this,
-			hideContactsFolders : true,
-			listRestriction : {
-				hide_users : [ 'contact', 'system' ],
-				hide_groups : true,
-				hide_companies : true
+			callback: this.abCallBack,
+			scope: this,
+			hideContactsFolders: true,
+			listRestriction: {
+				hide_users: [ 'contact', 'system' ],
+				hide_groups: true,
+				hide_companies: true
 			}
 		});
 	},
@@ -162,7 +162,7 @@ Zarafa.hierarchy.dialogs.SharedFolderPanel = Ext.extend(Ext.Panel, {
 	 * @param {Ext.data.Record} record user selected from AddressBook
 	 * @private
 	 */
-	abCallBack : function(record)
+	abCallBack: function(record)
 	{
 		this.store.removeAll();
 		this.store.add(record.convertToRecipient());
@@ -175,7 +175,7 @@ Zarafa.hierarchy.dialogs.SharedFolderPanel = Ext.extend(Ext.Panel, {
 	 * @param {Mixed} newValue The new value which was selected
 	 * @private
 	 */
-	onFolderTypeSelect : function(field, newValue)
+	onFolderTypeSelect: function(field, newValue)
 	{
 		this.updateSubFolderCheckBox();
 	},
@@ -185,7 +185,7 @@ Zarafa.hierarchy.dialogs.SharedFolderPanel = Ext.extend(Ext.Panel, {
 	 * Folder Type selection is for the {@link Zarafa.common.data.FolderContentTypes#ipmsubtree} or not.
 	 * @private
 	 */
-	updateSubFolderCheckBox : function()
+	updateSubFolderCheckBox: function()
 	{
 		var enabled = this.folderTypeCombo.getValue() !== Zarafa.hierarchy.data.SharedFolderTypes['ALL'];
 		this.checkSubFolders.setDisabled(!enabled);
@@ -195,11 +195,11 @@ Zarafa.hierarchy.dialogs.SharedFolderPanel = Ext.extend(Ext.Panel, {
 	 * Obtain the options which are currently selected in the form.
 	 * @return {Object} The Shared Folder options which were selected
 	 */
-	getFolderOptions : function()
+	getFolderOptions: function()
 	{
 		return {
-			type : this.folderTypeCombo.getValue(),
-			subfolders : this.checkSubFolders.getValue()
+			type: this.folderTypeCombo.getValue(),
+			subfolders: this.checkSubFolders.getValue()
 		};
 	}
 });

@@ -13,7 +13,7 @@ Zarafa.calendar.data.DayBoxConfiguration = Ext.extend(Object, {
 	 * @constructor
 	 * @param {Object} config Configrution object
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		Ext.apply(this, config);
 	},
@@ -24,7 +24,7 @@ Zarafa.calendar.data.DayBoxConfiguration = Ext.extend(Object, {
 	 * @property
 	 * @type Number
 	 */
-	left : 0,
+	left: 0,
 
 	/**
 	 * The right offset for the DayBox from the right-side of the container
@@ -32,7 +32,7 @@ Zarafa.calendar.data.DayBoxConfiguration = Ext.extend(Object, {
 	 * @property
 	 * @type Number
 	 */
-	right : 0,
+	right: 0,
 
 	/**
 	 * The top offset for the DayBox from the top-side of the container
@@ -40,7 +40,7 @@ Zarafa.calendar.data.DayBoxConfiguration = Ext.extend(Object, {
 	 * @property
 	 * @type Number
 	 */
-	top : 0,
+	top: 0,
 
 	/**
 	 * The bottom offset for the DayBox from the bottom-side of the container
@@ -48,28 +48,28 @@ Zarafa.calendar.data.DayBoxConfiguration = Ext.extend(Object, {
 	 * @property
 	 * @type Number
 	 */
-	bottom : 0,
+	bottom: 0,
 
 	/**
 	 * The date which is being displayed within this DayBox.
 	 * @property
 	 * @type Date
 	 */
-	date : undefined,
+	date: undefined,
 
 	/**
 	 * Indicates if {@link #date} is today.
 	 * @property
 	 * @type Boolean
 	 */
-	today : false,
+	today: false,
 
 	/**
 	 * Indicates if the {@link #date} is a working day.
 	 * @property
 	 * @type Boolean
 	 */
-	workingDay : false,
+	workingDay: false,
 
 	/**
 	 * The {@link Zarafa.core.mapi.BusyStatus BusyStatus} which is active on this day.
@@ -77,14 +77,14 @@ Zarafa.calendar.data.DayBoxConfiguration = Ext.extend(Object, {
 	 * @property
 	 * @type Zarafa.core.mapi.BusyStatus
 	 */
-	busyStatus : undefined,
+	busyStatus: undefined,
 
 	/**
 	 * True if there are more appointments then which can be rendered into this DayBox.
 	 * @property
 	 * @type Boolean
 	 */
-	overflow : false,
+	overflow: false,
 
 	/**
 	 * True if this DayBox must be rendered as active. And non-active DayBox means that
@@ -97,5 +97,5 @@ Zarafa.calendar.data.DayBoxConfiguration = Ext.extend(Object, {
 	 * @property
 	 * @type Boolean
 	 */
-	active : false
+	active: false
 });

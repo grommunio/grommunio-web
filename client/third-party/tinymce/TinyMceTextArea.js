@@ -300,6 +300,38 @@ Ext.ux.form.TinyMCETextArea = Ext.extend(Ext.form.TextArea, {
 	},
 
 	/**
+	 * Function select the text in editor by given selector.
+	 *
+	 * @param {String} selector The selector query which used to select the text in editor.
+	 * @return {boolean} return true if text is selected in editor else false.
+	 */
+	selectBySelector: function(selector)
+	{
+		var ed = this.getEditor();
+		var selection = ed.getDoc().querySelector(selector);
+		if (selection) {
+			// FF specific fix. we need to manually select the 
+			// signature elemets. 
+			if (Ext.isGecko) {
+				var dom = ed.selection.dom;
+				var range = dom.createRng();
+				var idx = dom.nodeIndex(selection.firstChild);
+				range.setStart(selection.firstChild, idx);
+				if (selection.firstChild !== selection.lastChild) {
+					range.setEnd(selection.lastChild, idx + (selection.childElementCount-1));
+				} else {
+					range.setEnd(selection.lastChild, selection.lastChild.childNodes.length);
+				}
+				ed.selection.setRng(range);	
+			} else {
+				ed.execCommand('mceSelectNode', false, selection);	
+			}
+			return true;
+		}
+		return false;
+	},
+
+	/**
 	 * Initialized the editor.
 	 * Assign necessary {@link #tinyMCEConfig} options and register necessary events to handle content
 	 * and height of editor.

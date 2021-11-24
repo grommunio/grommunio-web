@@ -12,13 +12,13 @@ Zarafa.advancesearch.dialogs.CreateSearchFolderContentPanel = Ext.extend(Zarafa.
 	/**
 	 * @cfg {String} searchStoreEntryId Entryid of the store to which the search folder belongs.
 	 */
-	searchStoreEntryId : undefined,
+	searchStoreEntryId: undefined,
 
 	/**
 	 * @constructor
 	 * @param {Object} config Configuration object
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		config = config || {};
 
@@ -26,27 +26,27 @@ Zarafa.advancesearch.dialogs.CreateSearchFolderContentPanel = Ext.extend(Zarafa.
 		config.plugins.push('zarafa.recordcomponentupdaterplugin');
 
 		Ext.applyIf(config, {
-			xtype : 'zarafa.createsearchfoldercontentpanel',
-			title : _('Add to favorites'),
-			recordComponentPluginConfig : Ext.applyIf(config.recordComponentPluginConfig || {}, {
-				allowWrite : true,
-				enableOpenLoadTask : false
+			xtype: 'zarafa.createsearchfoldercontentpanel',
+			title: _('Add to favorites'),
+			recordComponentPluginConfig: Ext.applyIf(config.recordComponentPluginConfig || {}, {
+				allowWrite: true,
+				enableOpenLoadTask: false
 			}),
-			layout : 'fit',
-			width : 250,
-			height : 150,
-			stateful : false,
-			items : [{
-				xtype : 'zarafa.createsearchfolderpanel',
-				searchText : config.searchText,
-				buttons : [{
-					text : _('Add'),
-					handler : this.onAddFolder,
-					scope : this
+			layout: 'fit',
+			width: 250,
+			height: 150,
+			stateful: false,
+			items: [{
+				xtype: 'zarafa.createsearchfolderpanel',
+				searchText: config.searchText,
+				buttons: [{
+					text: _('Add'),
+					handler: this.onAddFolder,
+					scope: this
 				},{
-					text : _('Cancel'),
-					handler : this.onCancel,
-					scope : this
+					text: _('Cancel'),
+					handler: this.onCancel,
+					scope: this
 				}]
 			}]
 		});
@@ -60,7 +60,7 @@ Zarafa.advancesearch.dialogs.CreateSearchFolderContentPanel = Ext.extend(Zarafa.
 	 *
 	 * @param {Zarafa.core.data.IPFRecord} record The record to update
 	 */
-	updateRecord : function(record)
+	updateRecord: function(record)
 	{
 		record.beginEdit();
 		record.set('display_name', this.searchFolderTextField.getValue());
@@ -73,7 +73,7 @@ Zarafa.advancesearch.dialogs.CreateSearchFolderContentPanel = Ext.extend(Zarafa.
 	 * @param {Zarafa.core.data.IPFRecord} record The record to update in this component
 	 * @param {Boolean} contentReset force the component to perform a full update of the data.
 	 */
-	update : function(record, contentReset)
+	update: function(record, contentReset)
 	{
 		this.searchFolderTextField.setValue(record.get('display_name'));
 	},
@@ -82,7 +82,7 @@ Zarafa.advancesearch.dialogs.CreateSearchFolderContentPanel = Ext.extend(Zarafa.
 	 * Event handler triggers when add button is press. function is add
 	 * the respective message actions which used to create search folder.
 	 */
-	onAddFolder : function()
+	onAddFolder: function()
 	{
 		var newFolderName = this.searchFolderTextField.getValue().trim();
 		if (Ext.isEmpty(newFolderName)) {

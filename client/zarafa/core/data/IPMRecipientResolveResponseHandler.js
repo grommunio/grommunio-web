@@ -6,14 +6,14 @@ Ext.namespace('Zarafa.core.data');
  */
 Zarafa.core.data.IPMRecipientResolveResponseHandler = Ext.extend(Zarafa.core.data.ProxyResponseHandler, {
 	/**
-	 * Handles the 'checknames' response. Gathers the resolved recipient information from the 
+	 * Handles the 'checknames' response. Gathers the resolved recipient information from the
 	 * response data, this will simply check the 'resolveresponse' field in the response
 	 * and pushes them into the {@link #receivedRecords records list}.
 	 * @param {Object} data The response object belonging to the given command.
 	 * @return {Boolean} False when action could not be handled successfully. This will
 	 * not cancel the transaction itself, but rather causes the 'success' argument for the
 	 */
-	doChecknames : function(response) {
+	doChecknames: function(response) {
 		this.receivedRecords = [];
 		if (Ext.isDefined(response.resolveresponse)) {
 			for(var i=0;i<response.resolveresponse.length;i++){
@@ -27,7 +27,7 @@ Zarafa.core.data.IPMRecipientResolveResponseHandler = Ext.extend(Zarafa.core.dat
 
 	/**
 	 * Reads all {@link Zarafa.core.data.MAPIRecord records} from the response data from the server.
-	 * @param {Object} response The reponse data from the server containing the
+	 * @param {Object} response The response data from the server containing the
 	 * {@link Zarafa.core.data.MAPIRecord records}
 	 * @param {String} field The fieldname of the array of items in the Response object which
 	 * must be converted into {@link Zarafa.core.data.MAPIRecord records}.
@@ -35,7 +35,7 @@ Zarafa.core.data.IPMRecipientResolveResponseHandler = Ext.extend(Zarafa.core.dat
 	 * read from the server response.
 	 * @private
 	 */
-	readRecordsFromResponse : function(response, field)
+	readRecordsFromResponse: function(response, field)
 	{
 		var items = response[field] || [];
 		if (!Array.isArray(items)) {

@@ -13,25 +13,25 @@ Zarafa.settings.ui.SettingsCopyrightWidget = Ext.extend(Zarafa.settings.ui.Setti
 	 * @cfg {String} about The Copyright notice which must be displayed by this widget.
 	 * Defaults to {@link Zarafa#ABOUT}
 	 */
-	about : Zarafa.ABOUT,
+	about: Zarafa.ABOUT,
 
 	/**
 	 * @constructor
 	 * @param {Object} config Configuration object
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		config = config || {};
 
 		Ext.applyIf(config, {
 			title : _('grommunio web'),
-			layout : 'form',
-			items : [{
-				xtype : 'displayfield',
-				cls : 'zarafa-settings-about-text',
-				value : config.about || this.about,
-				hideLabel : true,
-				htmlEncode : false
+			layout: 'form',
+			items: [{
+				xtype: 'displayfield',
+				cls: 'zarafa-settings-about-text',
+				value: config.about || this.about,
+				hideLabel: true,
+				htmlEncode: false
 			}]
 		});
 

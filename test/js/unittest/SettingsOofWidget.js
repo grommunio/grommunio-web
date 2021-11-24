@@ -1,7 +1,7 @@
 /*
  * Test SettingsOofWidget.
  */
-describe('SettingsOofWidget', function() {
+xdescribe('SettingsOofWidget', function() {
 	var widget;
 	var settingsModel;
 	const fieldSetValue = function(field, value) {

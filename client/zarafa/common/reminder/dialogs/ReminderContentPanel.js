@@ -9,13 +9,13 @@ Zarafa.common.reminder.dialogs.ReminderContentPanel = Ext.extend(Zarafa.core.ui.
 	/**
 	 * @cfg {Zarafa.common.reminder.data.ReminderStore} store store that will be used to get reminder information.
 	 */
-	store : undefined,
+	store: undefined,
 
 	/**
 	 * @constructor
 	 * @param config Configuration structure
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		config = config || {};
 
@@ -24,17 +24,18 @@ Zarafa.common.reminder.dialogs.ReminderContentPanel = Ext.extend(Zarafa.core.ui.
 		}
 
 		config = Ext.applyIf(config, {
-			xtype : 'zarafa.remindercontentpanel',
+			xtype: 'zarafa.remindercontentpanel',
 			layout: 'fit',
-			title : _('Reminders'),
+			title: _('Reminders'),
 			border: false,
 			width: 350,
 			minWidth: 350,
 			maxWidth: 350,
 			height: 300,
+			useInputAutoFocusPlugin: false,
 			forceFullyOpenInMainWindow: true,
-			items : [{
-				xtype : 'zarafa.reminderpanel',
+			items: [{
+				xtype: 'zarafa.reminderpanel',
 				store: config.store
 			}]
 		});

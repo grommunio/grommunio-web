@@ -14,14 +14,11 @@ Zarafa.common.rules.dialogs.SentCcMeLink = Ext.extend(Zarafa.common.rules.dialog
 	 * Obtain the condition as configured by the user
 	 * @return {Object} The condition
 	 */
-	getCondition : function()
+	getCondition: function()
 	{
 		if (this.isModified !== true) {
 			return this.condition;
 		}
-
-		var RestrictionFactory = Zarafa.core.data.RestrictionFactory;
-		var Restrictions = Zarafa.core.mapi.Restrictions;
 
 		// Invalid conditionFlag
 		if (this.conditionFlag !== Zarafa.common.rules.data.ConditionFlags.SENT_CC_ME) {
@@ -29,11 +26,9 @@ Zarafa.common.rules.dialogs.SentCcMeLink = Ext.extend(Zarafa.common.rules.dialog
 		}
 
 		// Create a restriction
-		return RestrictionFactory.createResAnd([
-			RestrictionFactory.dataResProperty('PR_MESSAGE_CC_ME', Restrictions.RELOP_EQ, true),
-			RestrictionFactory.dataResProperty('PR_MESSAGE_RECIP_ME', Restrictions.RELOP_EQ, true),
-			RestrictionFactory.dataResProperty('PR_MESSAGE_TO_ME', Restrictions.RELOP_EQ, false)
-		]);
+		var conditionFactory = container.getRulesFactoryByType(Zarafa.common.data.RulesFactoryType.CONDITION);
+		var conditionDefinition = conditionFactory.getConditionById(this.conditionFlag);
+		return conditionDefinition();
 	}
 });
 

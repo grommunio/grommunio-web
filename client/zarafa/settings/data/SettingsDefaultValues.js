@@ -12,59 +12,59 @@ Zarafa.settings.data.SettingsDefaultValue = function(){
 		 * @public
 		 * @return {Array} The array of default values
 		 */
-		getDefaultValues : function() {
+		getDefaultValues: function() {
 			return {
-				'zarafa' : {
-					'v1' : {
-						'main' : {
+				'zarafa': {
+					'v1': {
+						'main': {
 							/**
 							 * zarafa/v1/main/default_context
 							 * @property
 							 * @type String
 							 */
-							'default_context' : 'mail',
+							'default_context': 'mail',
 							/**
 							 * zarafa/v1/main/language
 							 * @property
 							 * @type String
 							 */
-							'language' : 'en_GB',
+							'language': 'en_GB',
 							/**
 							 * zarafa/v1/main/base_content_layer
 							 * @property
 							 * @type String
 							 */
-							'base_content_layer' : 'tabs',
+							'base_content_layer': 'tabs',
 							/**
 							 * zarafa/v1/main/confirm_close_dialog
 							 * @property
 							 * @type Boolean
 							 */
-							'confirm_close_dialog' : true,
+							'confirm_close_dialog': true,
 							/**
 							 * zarafa/v1/main/week_start
 							 * @property
 							 * @type Number
 							 */
-							'week_start' : 1,
+							'week_start': 1,
 							/**
 							 * zarafa/v1/main/working_days
 							 * @property
 							 * @type Number[]
 							 */
-							'working_days' : [ 1, 2, 3, 4, 5 ],
+							'working_days': [ 1, 2, 3, 4, 5 ],
 							/**
 							 * zarafa/v1/main/start_working_hour 9
 							 * @property
 							 * @type Boolean
 							 */
-							'start_working_hour' : 9 * 60,
+							'start_working_hour': 9 * 60,
 							/**
 							 * zarafa/v1/main/end_working_hour
 							 * @property
 							 * @type Boolean
 							 */
-							'end_working_hour' : 17 * 60,
+							'end_working_hour': 17 * 60,
 
 							/**
 							 * zarafa/v1/main/datetime_display_format
@@ -73,7 +73,16 @@ Zarafa.settings.data.SettingsDefaultValue = function(){
 							 * @property
 							 * @type String
 							 */
-							'datetime_display_format' : 'short',
+							'datetime_display_format': 'short',
+
+							/**
+							 * zarafa/v1/main/datetime_time_format
+							 * Format to use when displaying time in a grid.
+							 * Can be 'g:i A' or 'G:i'
+							 * @property
+							 * @type String
+							 */
+							'datetime_time_format': 'G:i',
 
 							/**
 							 * zarafa/v1/main/default_font
@@ -81,7 +90,7 @@ Zarafa.settings.data.SettingsDefaultValue = function(){
 							 * @property
 							 * @type String
 							 */
-							'default_font' : 'tahoma,arial,helvetica,sans-serif',
+							'default_font': 'tahoma,arial,helvetica,sans-serif',
 
 							/**
 							 * zarafa/v1/main/default_font_size
@@ -90,7 +99,7 @@ Zarafa.settings.data.SettingsDefaultValue = function(){
 							 * @property
 							 * @type Number
 							 */
-							'default_font_size' : 2,
+							'default_font_size': '2.1',
 
 							/**
 							 * zarafa/v1/main/keycontrols
@@ -107,7 +116,7 @@ Zarafa.settings.data.SettingsDefaultValue = function(){
 							 * @property
 							 * @type Number
 							 */
-							'page_size' : 50,
+							'page_size': 50,
 
 							/**
 							 * zarafa/v1/main/unread_borders
@@ -115,26 +124,26 @@ Zarafa.settings.data.SettingsDefaultValue = function(){
 							 * @property
 							 * @type Boolean
 							 */
-							'unread_borders' : false,
+							'unread_borders': true,
 
-							'notifier' : {
+							'notifier': {
 								/**
 								 * zarafa/v1/main/notifier/default
 								 * Default plugin for user notifications without a plugin configured
 								 * @property
 								 * @type String
 								 */
-								'default' : 'messagebox',
+								'default': 'messagebox',
 
-								'pagination' : {
+								'pagination': {
 									/**
 									 * zarafa/v1/main/notifier/pagination/paging/value
 									 * Default plugin for the {@link Zarafa.common.ui.PagingToolbar PagingToolbar} slider.
 									 * @property
 									 * @type String
 									 */
-									'paging' : {
-										'value' : 'pagingslider'
+									'paging': {
+										'value': 'pagingslider'
 									},
 
 									/**
@@ -143,245 +152,378 @@ Zarafa.settings.data.SettingsDefaultValue = function(){
 									 * @property
 									 * @type String
 									 */
-									'livescroll' : {
-										'value' : 'livescrollslider'
+									'livescroll': {
+										'value': 'livescrollslider'
 									}
 
 								},
 
-								'error' : {
+								'error': {
 									/**
 									 * zarafa/v1/main/notifier/error/value
 									 * Default plugin for the "Error" user notifications
 									 * @property
 									 * @type String
 									 */
-									'value' : 'messagebox',
+									'value': 'messagebox',
 
-									'connection' : {
+									'connection': {
 										/**
 										 * zarafa/v1/main/notifier/error/connection/value
 										 * Default plugin for the "Connection loss" user notifications
 										 * @property
 										 * @type String
 										 */
-										'value' : 'dropdown'
+										'value': 'dropdown'
 									},
 
-									'hierarchy' : {
+									'license': {
+										/**
+										 * zarafa/v1/main/notifier/eror/license/value
+										 * Default plugin for the "Expired or over used license" user notifications
+										 * @property
+										 * @type String
+										 */
+										'value': 'dropdown'
+									},
 
-										'defaultfolder' : {
+									'hierarchy': {
+
+										'defaultfolder': {
 											/**
 											 * zarafa/v1/main/notifier/eror/hierarchy/defaultfolder/value
 											 * Default plugin for the "Missing Default folder" user notifications
 											 * @property
 											 * @type String
 											 */
-											'value' : 'dropdown'
-										}
+											'value': 'dropdown'
+										},
+									},
+
+									'proxy': {
+										/**
+										 * zarafa/v1/main/notifier/error/value
+										 * Default plugin for the "Error" user notifications
+										 * @property
+										 * @type String
+										 */
+										'value': 'messagebox'
 									}
 								},
 
-								'warning' : {
+								'warning': {
 									/**
 									 * zarafa/v1/main/notifier/warning/value
 									 * Default plugin for the "Warning" user notifications
 									 * @property
 									 * @type String
 									 */
-									'value' : 'messagebox'
+									'value': 'messagebox',
+
+									'console': {
+										/**
+										 * zarafa/v1/main/notifier/warning/console/value
+										 * Default plugin for the "Warning" console notifications
+										 * @property
+										 * @type String
+										 */
+										'value': 'console'
+									},
 								},
 
-								'info' : {
+								'info': {
 									/**
 									 * zarafa/v1/main/notifier/info/value
 									 * Default plugin for the "Info" user notifications
 									 * @property
 									 * @type String
 									 */
-									'value' : 'popup',
+									'value': 'popup',
 
-									'reminder' : {
+									'reminder': {
 										/**
 										 * zarafa/v1/main/notifier/info/reminder/value
 										 * Default plugin for the "Reminder" user notifications
 										 * @property
 										 * @type String
 										 */
-										'value' : 'none'
+										'value': 'none'
 									},
 
-									'newmail' : {
+									'newmail': {
 										/**
 										 * zarafa/v1/main/notifier/info/newmail/value
 										 * Default plugin for the "New Mail" user notifications
 										 * @property
 										 * @type String
 										 */
-										'value' : 'popup'
+										'value': 'popup'
 									},
 
-									'import' : {
+									'import': {
 										/**
 										 * zarafa/v1/main/notifier/info/import/value
 										 * Default plugin for the "Import" user notifications
 										 * @property
 										 * @type String
 										 */
-										'value' : 'dropdown'
+										'value': 'dropdown'
 									},
 
-									'sent' : {
+									'sent': {
 										/**
 										 * zarafa/v1/main/notifier/info/sent/value
 										 * Default plugin for the "Sent" user notifications
 										 * @property
 										 * @type String
 										 */
-										'value' : 'dropdown'
+										'value': 'dropdown'
 									},
-									'saved' : {
+									'saved': {
 										/**
 										 * zarafa/v1/main/notifier/info/saved/value
 										 * Default plugin for the "Saved" user notifications
 										 * @property
 										 * @type String
 										 */
-										'value' : 'dropdown'
+										'value': 'dropdown'
 									},
-									'mailsaved' : {
+									'mailsaved': {
 										/**
 										 * zarafa/v1/main/notifier/info/mailsaved/value
 										 * Default plugin for the "Saved Mail" user notifications
 										 * @property
 										 * @type String
 										 */
-										'value' : 'toolbarnotifierplugin'
+										'value': 'toolbarnotifierplugin'
 									},
-									'sending' : {
+									'sending': {
 										/**
 										 * zarafa/v1/main/notifier/info/sending/value
 										 * Default plugin for the "sending" user notifications in dialog
 										 * @property
 										 * @type String
 										 */
-										'value' : 'dropdown'
+										'value': 'dropdown'
 									},
 
-									'saving' : {
+									'saving': {
 										/**
 										 * zarafa/v1/main/notifier/info/saving/value
 										 * Default plugin for the "saving" user notifications in dialog
 										 * @property
 										 * @type String
 										 */
-										'value' : 'dropdown'
+										'value': 'dropdown'
 									},
 
-									'mailsaving' : {
+									'mailsaving': {
 										/**
 										 * zarafa/v1/main/notifier/info/mailsaving/value
 										 * Default plugin for the "Saving Mail" user notifications in dialog
 										 * @property
 										 * @type String
 										 */
-										'value' : 'toolbarnotifierplugin'
+										'value': 'toolbarnotifierplugin'
 									},
 
-									'unresolved_recipients' : {
+									'unresolved_recipients': {
 										/**
 										 * zarafa/v1/main/notifier/info/unresolved_recipients/value
 										 * Default plugin for the "unresolved_recipients" user notifications in dialog
 										 * @property
 										 * @type String
 										 */
-										'value' : 'dropdown'
+										'value': 'dropdown'
 									},
 
-									'meeting' : {
+									'meeting': {
 										/**
 										 * zarafa/v1/main/notifier/info/meeting/value
 										 * Default plugin for the "meeting" user notifications
 										 * @property
 										 * @type String
 										 */
-										'value' : 'dropdown'
+										'value': 'dropdown'
 									}
 
 								}
 							},
 
-							'reminder' : {
+							'reminder': {
 								/**
 								 * zarafa/v1/main/reminder/polling_interval
 								 * (in seconds)
 								 * @property
 								 * @type Number
 								 */
-								'polling_interval' : 30,
+								'polling_interval': 30,
 								/**
 								 * zarafa/v1/main/reminder/default_snooze_time
 								 * (in minutes)
 								 * @property
 								 * @type Number
 								 */
-								'default_snooze_time' : 5
+								'default_snooze_time': 5
 							},
 
-							'new_features_dialog' : {
+							'new_features_dialog': {
 								/**
 								 * zarafa/v1/main/new_features_dialog/show
 								 * Whether or not the dialog with new feature info should be shown
 								 * @property
 								 * @type Boolean
 								 */
-								'show' : true,
+								'show': true,
 
-								'last_version' : {
+								'last_version': {
 									/**
 									 * zarafa/v1/main/last_version/webapp
 									 * The version of WebApp for which the What's new dialog was shown last time
 									 * @property
 									 * @type String
 									 */
-									'webapp' : '0'
+									'webapp': '0'
 								}
+							},
+
+							/**
+							 * zarafa/v1/main/kdeveloper_tool
+							 */
+							'kdeveloper_tool': {
+								/**
+								 * zarafa/v1/main/kdeveloper_tool/kdeveloper
+								 */
+								'kdeveloper': false,
+
+								/**
+								 * zarafa/v1/main/kdeveloper_tool/itemdata
+								 */
+								'itemdata': false
+							},
+
+							/**
+							 * zarafa/v1/main/help_manual
+							 */
+							'help_manual': {
+								/**
+								 * zarafa/v1/main/help_manual/show
+								 * Whether or not the 'help' button in top-right corner should be shown
+								 * @property
+								 * @type Boolean
+								 */
+								show: true
+							},
+
+							/**
+							 * zarafa/v1/main/title_counter
+							 */
+							'title_counter': {
+								/**
+								 * zarafa/v1/main/title_counter/show
+								 * Whether or not the unread mail counter in application title should be shown
+								 * @property
+								 * @type Boolean
+								 */
+								show: true
+							},
+
+							/**
+							 * zarafa/v1/main/desktop_notification
+							 */
+							'desktop_notification': {
+									/**
+									 * zarafa/v1/main/desktop_notification/autohide_enable
+									 * Whether or not desktop notification should hide after some time.
+									 * @property
+									 * @type Boolean
+									 */
+								'autohide_enable': false,
+
+									/**
+									 * zarafa/v1/main/desktop_notification/autohide_time
+									 * Time after which desktop notification should be hidden.
+									 * @property
+									 * @type Number
+									 */
+								'autohide_time': 5,
+
+									/**
+									 * zarafa/v1/main/desktop_notification/disable_sound
+									 * Whether or not sound for the desktop notification should be disable.
+									 * @property
+									 * @type Boolean
+									 */
+								'disable_sound': false
+							},
+
+							/**
+							 * zarafa/v1/main/file_previewer
+							 *
+							 */
+							'file_previewer': {
+								/**
+								 * zarafa/v1/main/file_previewer/enable
+								 *
+								 * @property
+								 * @type Boolean
+								 */
+								'enable': true,
+
+								/**
+								 * zarafa/v1/main/file_previewer/pdf_zoom
+								 * Default zoom mode for PDF documents. (default: page-width) [Allowed: "auto", "page-actual", "page-width"]
+								 */
+								'pdf_zoom': 'page-width',
+
+								/**
+								 * zarafa/v1/main/file_previewer/odf_zoom
+								 * Default zoom mode for ODF documents. (default: auto) [Allowed: "auto", "page-actual", "page-width"]
+								 */
+								'odf_zoom': 'page-width'
 							}
 						},
 
-						'contexts' : {
-							'hierarchy' : {
+						'contexts': {
+							'hierarchy': {
 								/**
 								 * zarafa/v1/contexts/hierarchy/polling_interval
 								 * (in seconds)
 								 * @property
 								 * @type Number
 								 */
-								'polling_interval' : 60 * 5,
-								
+								'polling_interval': 60 * 5,
+
 								/**
 								 * zarafa/v1/contexts/hierarchy/hide_favorites
 								 * @property
 								 * @type Boolean
 								 */
-								'hide_favorites' : false,
-								
+								'hide_favorites': false,
+
 								/**
 								 * zarafa/v1/contexts/hierarchy/scroll_favorites
 								 * @property
 								 * @type Boolean
 								 */
-								'scroll_favorites' : false
+								'scroll_favorites': false,
+
+								/**
+								 * zarafa/v1/contexts/hierarchy/show_searchbar
+								 * @property
+								 * @type Boolean
+								 */
+								'show_searchbar': true
 							},
 
-							'search' : {
+							'search': {
 								/**
 								 * zarafa/v1/contexts/search/updatesearch_timeout (in ms)
 								 * defer timeout to triggered update search if searching is running.
 								 * @property
 								 * @type Number
 								 */
-								'updatesearch_timeout' : 500,
+								'updatesearch_timeout': 500,
 
 								/**
 								 * zarafa/v1/contexts/search/search_criteria
@@ -390,105 +532,120 @@ Zarafa.settings.data.SettingsDefaultValue = function(){
 								 * @property
 								 * @type Object
 								 */
-								'search_criteria' : {}
+								'search_criteria': {}
 							},
 
-							'calendar' : {
+							'calendar': {
 								/**
 								 * zarafa/v1/contexts/calendar/default_merge_state
 								 * True when the folders should be merged together
 								 * @property
 								 * @type Boolean
 								 */
-								'default_merge_state' : false,
+								'default_merge_state': false,
 								/**
 								 * zarafa/v1/contexts/calendar/default_zoom_level
 								 * The default zoom level (in minutes) to be used in the calendar,
 								 * should be either 5, 6, 10, 15, 30 or 60.
 								 */
-								'default_zoom_level' : 30,
+								'default_zoom_level': 30,
 								/**
 								 * zarafa/v1/contexts/calendar/default_appointment_period
 								 * @property
 								 * @type Number
 								 */
-								'default_appointment_period' : 30,
+								'default_appointment_period': 30,
+								/**
+								 * zarafa/v1/contexts/calendar/default_allday_busy_status
+								 * The default busy status to be used while creating new all day events.
+								 * default value is {@link Zarafa.core.mapi.BusyStatus#FREE}.
+								 *
+								 * @property
+								 * @type Number
+								 */
+								'default_allday_busy_status': 0,
 								/**
 								 * zarafa/v1/contexts/calendar/default_reminder
 								 * @property
 								 * @type Boolean
 								 */
-								'default_reminder' : true,
+								'default_reminder': true,
 								/**
 								 * zarafa/v1/contexts/calendar/default_reminder_time
 								 * @property
 								 * @type Number
 								 */
-								'default_reminder_time' : 15,
+								'default_reminder_time': 15,
 								/**
 								 * zarafa/v1/contexts/calendar/default_allday_reminder_time
 								 * @property
 								 * @type Number
 								 */
-								'default_allday_reminder_time' : 18 * 60,
+								'default_allday_reminder_time': 18 * 60,
 								/**
 								 * zarafa/v1/contexts/calendar/datepicker_show_busy
 								 * @property
 								 * @type Boolean
 								 */
-								 'datepicker_show_busy' : true,
+								 'datepicker_show_busy': true,
 								/**
 								 * zarafa/v1/contexts/calendar/free_busy_range
 								 * @property
 								 * @type Number
 								 */
-								 'free_busy_range' : 2
+								 'free_busy_range': 2
 							},
 
-							'contact' : {
+							'contact': {
 								/**
 								 * zarafa/v1/contexts/contact/show_name_dialog
 								 * @property
 								 * @type Boolean
 								 */
-								'show_name_dialog' : true,
+								'show_name_dialog': true,
 								/**
 								 * zarafa/v1/contexts/contact/show_address_dialog
 								 * @property
 								 * @type Boolean
 								 */
-								'show_address_dialog' : true
+								'show_address_dialog': true
 							},
 
-							'mail' : {
+							'mail': {
+								/**
+								 * zarafa/v1/contexts/mail/sendas
+								 * @property
+								 * @type Array
+								 */
+								'sendas': [],
 
 								/**
 								 * zarafa/v1/contexts/mail/enable_live_scroll
 								 * @property
 								 * @type Boolean
 								 */
-								'enable_live_scroll' : true,
+								'enable_live_scroll': true,
 
 								/**
 								 * zarafa/v1/contexts/mail/readreceipt_handling
 								 * @property
 								 * @type Number
 								 */
-								'readreceipt_handling' : 'ask',
+								'readreceipt_handling': 'ask',
 
 								/**
 								 * zarafa/v1/contexts/mail/always_request_readreceipt
 								 * @property
 								 * @type Boolean
 								 */
-								'always_request_readreceipt' : false,
+								'always_request_readreceipt': false,
 
 								/**
 								 * zarafa/v1/contexts/mail/autosave_enable
 								 * @property
 								 * @type Boolean
 								 */
-								'autosave_enable' : true,
+								'autosave_enable': true,
 
 								/**
 								 * zarafa/v1/contexts/mail/autosave_time
@@ -496,14 +653,14 @@ Zarafa.settings.data.SettingsDefaultValue = function(){
 								 * @property
 								 * @type Number
 								 */
-								'autosave_time' : 60,
+								'autosave_time': 60,
 
 								/**
 								 * zarafa/v1/contexts/mail/readflag_time_enable
 								 * @property
 								 * @type Boolean
 								 */
-								'readflag_time_enable' : true,
+								'readflag_time_enable': true,
 
 
 								/**
@@ -513,61 +670,61 @@ Zarafa.settings.data.SettingsDefaultValue = function(){
 								 * @property
 								 * @type Number
 								 */
-								'readflag_time' : 0,
+								'readflag_time': 0,
 
 								/**
 								 * zarafa/v1/contexts/mail/from_address_list
 								 * @property
 								 * @type Array
 								 */
-								'from_address_list' : [],
+								'from_address_list': [],
 
 								/**
 								 * zarafa/v1/contexts/mail/block_external_content
 								 * @property
 								 * @type Boolean
 								 */
-								'block_external_content' : true,
+								'block_external_content': true,
 
 								/**
 								 * zarafa/v1/contexts/mail/safe_senders_list
 								 * @property
 								 * @type Array
 								 */
-								'safe_senders_list' : [],
+								'safe_senders_list': [],
 
 								/**
 								 * zarafa/v1/context/mail/use_english_abbreviations
 								 * @property
 								 * @type Boolean
 								 */
-								'use_english_abbreviations' : false,
+								'use_english_abbreviations': false,
 
 								/**
 								 * zarafa/v1/contexts/mail/close_on_respond
 								 * @property
 								 * @type Boolean
 								 */
-								'close_on_respond' : true,
+								'close_on_respond': true,
 
 								/**
 								 * zarafa/v1/contexts/mail/enable_grouping
 								 * @property
 								 * @type Boolean
 								 */
-								'enable_grouping' : false,
+								'enable_grouping': false,
 
 								/**
 								 * zarafa/v1/contexts/mail/html_editor
 								 * @property
 								 * @type string
 								 */
-								'html_editor' : 'full_tinymce',
+								'html_editor': 'full_tinymce',
 
 								// Small hack, the server determines these defaults
 								// but we copy them here so the user can press
 								// 'revert to defaults' safely.
-								'outofoffice' : {
+								'outofoffice': {
 									/**
 									 * zarafa/v1/contexts/mail/outofoffice/set
 									 * @property
@@ -609,7 +766,7 @@ Zarafa.settings.data.SettingsDefaultValue = function(){
 									 * @property
 									 * @type String
 									 */
-									'from' : '',
+									'from': '',
 									/**
 									 * zarafa/v1/contexts/mail/outofoffice/until
 									 * @property
@@ -636,7 +793,7 @@ Zarafa.settings.data.SettingsDefaultValue = function(){
 								 * @property
 								 * @type Object
 								 */
-								'signatures' : {
+								'signatures': {
 									/**
 									 * zarafa/v1/contexts/mail/signatures/all
 									 * This is an object of all signatures with unique ids as its keys. For each key
@@ -649,7 +806,7 @@ Zarafa.settings.data.SettingsDefaultValue = function(){
 									 * @property
 									 * @type Object
 									 */
-									'all' : {},
+									'all': {},
 
 									/**
 									 * zarafa/v1/contexts/mail/signatures/new_message
@@ -657,7 +814,7 @@ Zarafa.settings.data.SettingsDefaultValue = function(){
 									 * @property
 									 * @type Number
 									 */
-									'new_message' : undefined,
+									'new_message': undefined,
 
 									/**
 									 * zarafa/v1/contexts/mail/signatures/replyforward_message
@@ -665,17 +822,17 @@ Zarafa.settings.data.SettingsDefaultValue = function(){
 									 * @property
 									 * @type Number
 									 */
-									'replyforward_message' : undefined
+									'replyforward_message': undefined
 								},
 
-								'dialogs' : {
-									'mailcreate' : {
+								'dialogs': {
+									'mailcreate': {
 										/**
 										 * zarafa/v1/contexts/mail/dialogs/mailcreate/use_html_editor
 										 * @property
 										 * @type Boolean
 										 */
-										'use_html_editor' : true
+										'use_html_editor': true
 									}
 								},
 
@@ -687,25 +844,25 @@ Zarafa.settings.data.SettingsDefaultValue = function(){
 								'cc_recipients':[]
 							},
 
-							'task' : {
+							'task': {
 								/**
 								 * zarafa/v1/contexts/task/default_task_period
 								 * @property
 								 * @type Number
 								 */
-								'default_task_period' : 0,
+								'default_task_period': 0,
 								/**
 								 * zarafa/v1/contexts/task/default_reminder
 								 * @property
 								 * @type Boolean
 								 */
-								'default_reminder' : false,
+								'default_reminder': false,
 								/**
 								 * zarafa/v1/contexts/task/default_reminder_time
 								 * @property
 								 * @type Number
 								 */
-								'default_reminder_time' : 9 * 60,
+								'default_reminder_time': 9 * 60,
 								/**
 								 * zarafa/v1/contexts/task/reminder_time_stepping
 								 * incrementor or decrementor value in minutes for
@@ -713,16 +870,28 @@ Zarafa.settings.data.SettingsDefaultValue = function(){
 								 * @property
 								 * @type Number
 								 */
-								'reminder_time_stepping' : 30
+								'reminder_time_stepping': 30
 							},
 
-							'today' : {
+							'today': {
 								/**
 								 * zarafa/v1/contexts/today/num_columns
 								 * @property
 								 * @type Number
 								 */
-								'num_columns' : 3
+								'num_columns': 3
+							},
+						},
+
+						'widgets': {
+
+							'sidebar': {
+								/**
+								 * zarafa/v1/widgets/sidebar/hide_widgetpanel
+								 * @property
+								 * @type Boolean
+								 */
+								'hide_widgetpanel': false
 							}
 						}
 					}

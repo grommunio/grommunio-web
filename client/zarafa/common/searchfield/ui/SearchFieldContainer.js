@@ -16,23 +16,23 @@ Zarafa.common.searchfield.ui.SearchFieldContainer = Ext.extend(Ext.Container, {
 	 * @constructor
 	 * @param {Object} config Configuration object
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		Ext.apply(config, {
-			xtype : 'zarafa.searchfieldcontainer',
-			cls : 'search_container',
-			items :[{
-				xtype : 'zarafa.searchtextfield',
-				searchContainer : this
+			xtype: 'zarafa.searchfieldcontainer',
+			cls: 'search_container',
+			items:[{
+				xtype: 'zarafa.searchtextfield',
+				searchContainer: this
 			},{
-				xtype : 'zarafa.searchfoldercombo',
-				model : config.model,
-				searchFieldContainer : this
+				xtype: 'zarafa.searchfoldercombo',
+				model: config.model,
+				searchFieldContainer: this
 			},{
-				xtype : 'button',
-				ref : 'searchBtn',
-				iconCls : 'icon_magnifier',
-				scope : this
+				xtype: 'button',
+				ref: 'searchBtn',
+				iconCls: 'icon_magnifier',
+				scope: this
 			}]
 		});
 

@@ -23,15 +23,15 @@ Zarafa.contact.dialogs.ContactPanel = Ext.extend(Ext.Panel, {
 	 * @constructor
 	 * @param {Object} config configuration object.
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		config = config || {};
 
 		Ext.applyIf(config, {
-			xtype : 'zarafa.contactpanel',
-			cls : 'zarafa-contactcreatepanel',
-			border : false,
-			layout : 'fit',
+			xtype: 'zarafa.contactpanel',
+			cls: 'zarafa-contactcreatepanel',
+			border: false,
+			layout: 'fit',
 			items: this.createTabPanel()
 		});
 
@@ -43,21 +43,21 @@ Zarafa.contact.dialogs.ContactPanel = Ext.extend(Ext.Panel, {
 	 * @return {Object} Configuration object for the form panel
 	 * @private
 	 */
-	createTabPanel : function()
+	createTabPanel: function()
 	{
 		return [{
-			xtype : 'tabpanel',
-			activeTab : 0,
-			border : false,
+			xtype: 'tabpanel',
+			activeTab: 0,
+			border: false,
 			defaults: {
-				layout : 'column',
-				autoHeight : false		// autoScroll won't work if height is auto
+				layout: 'column',
+				autoHeight: false		// autoScroll won't work if height is auto
 			},
-			items : [
+			items: [
 				{
-					xtype : 'zarafa.contactgeneraltab'
+					xtype: 'zarafa.contactgeneraltab'
 				}, {
-					xtype : 'zarafa.contactdetailtab'
+					xtype: 'zarafa.contactdetailtab'
 				},
 				// Add insertion point
 				container.populateInsertionPoint('context.contact.contactcontentpanel.tabs', this)

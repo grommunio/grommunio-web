@@ -30,20 +30,20 @@ Zarafa.contact.ui.MemberBoxField = Ext.extend(Zarafa.common.recipientfield.ui.Re
 	 * @constructor
 	 * @param config Configuration object
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		config = config || {};
 
 		Ext.applyIf(config, {
-			boxType : 'zarafa.memberbox',
+			boxType: 'zarafa.memberbox',
 			enableComboBox: false,
 			editable: true,
 			height: 30
 		});
 
 		Ext.apply(config, {
-			defaultRecipientType : undefined,
-			filterRecipientType : undefined
+			defaultRecipientType: undefined,
+			filterRecipientType: undefined
 		});
 
 		Zarafa.contact.ui.MemberBoxField.superclass.constructor.call(this, config);
@@ -73,7 +73,7 @@ Zarafa.contact.ui.MemberBoxField = Ext.extend(Zarafa.common.recipientfield.ui.Re
 	 * @param {Zarafa.core.data.MAPIRecord} record The record to update in this component
 	 * @param {Boolean} contentReset force the component to perform a full update of the data.
 	 */
-	update : function(record, contentReset)
+	update: function(record, contentReset)
 	{
 		if (record && record instanceof Zarafa.core.data.MAPIRecord) {
 			// In case the recordcomponentupdaterplugin is installed
@@ -99,18 +99,18 @@ Zarafa.contact.ui.MemberBoxField = Ext.extend(Zarafa.common.recipientfield.ui.Re
 	 * @return {Boolean} True if the record should be visible, false otherwise
 	 * @protected
 	 */
-	filterRecord : function(record)
+	filterRecord: function(record)
 	{
 		return true;
 	},
 
 	/**
-	 * Called to handle the input when the user presses the handleInputKey or another trigger makes 
-	 * this component need to handle the input. Has to be overwritten to implement the desired 
+	 * Called to handle the input when the user presses the handleInputKey or another trigger makes
+	 * this component need to handle the input. Has to be overwritten to implement the desired
 	 * behavior and the creation of the correct type of record.
 	 * @param {String} value The value from the input field
-	 */ 
-	handleInput : function(value)
+	 */
+	handleInput: function(value)
 	{
 		// FIXME: Disallow typing in HTML formatting...
 		var splitted = value.split(this.delimiterCharacter);
@@ -136,7 +136,7 @@ Zarafa.contact.ui.MemberBoxField = Ext.extend(Zarafa.common.recipientfield.ui.Re
 	 * @param {Zarafa.core.data.IPMRecipientRecord} record The record which is attached to the box
 	 * @private
 	 */
-	onBoxDblClick : function(field, box, record)
+	onBoxDblClick: function(field, box, record)
 	{
 		if (box.isValidRecord(record)) {
 			Zarafa.contact.Actions.openDistlistMember(record);
@@ -150,7 +150,7 @@ Zarafa.contact.ui.MemberBoxField = Ext.extend(Zarafa.common.recipientfield.ui.Re
 	 * @param {Zarafa.core.data.IPMRecipientRecord} record The record which is attached to the box
 	 * @private
 	 */
-	onBoxContextMenu : Ext.emptyFn
+	onBoxContextMenu: Ext.emptyFn
 });
 
 Ext.reg('zarafa.memberboxfield', Zarafa.contact.ui.MemberBoxField);

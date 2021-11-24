@@ -224,13 +224,13 @@ describe("DateTimeField", function() {
 			expect(field.getValue()).toEqual(field.maxValue);
 		});
 
-		it('is limited to the minumum value while changing the date', function() {
+		it('is limited to the minimum value while changing the date', function() {
 			var initValue = field.minValue.clone();
 			// set time to something later then the maximum time from the maxValue.
 			// We must prevent a wrap to a different day!
 			initValue = initValue.add(Date.HOUR, - (initValue.getHours() / 2));
 			initValue = initValue.add(Date.MINUTE, - (initValue.getMinutes() / 2));
-			// set the Day to something later then the minumum day from the the minValue
+			// set the Day to something later then the minimum day from the the minValue
 			initValue = initValue.add(Date.DAY, 1);
 			field.setValue(initValue);
 			// Select the Date to equal minValue. This will trigger a time & date combination
@@ -278,13 +278,13 @@ describe("DateTimeField", function() {
 				expect(field.getValue()).toEqual(field.maxValue);
 			});
 
-			it('is limited to the minumum value while changing the date', function() {
+			it('is limited to the minimum value while changing the date', function() {
 				var initValue = field.minValue.clone();
 				// set time to something later then the maximum time from the maxValue.
 				// We must prevent a wrap to a different day!
 				initValue = initValue.add(Date.HOUR, - (initValue.getHours() / 2));
 				initValue = initValue.add(Date.MINUTE, - (initValue.getMinutes() / 2));
-				// set the Day to something later then the minumum day from the the minValue
+				// set the Day to something later then the minimum day from the the minValue
 				initValue = initValue.add(Date.DAY, 1);
 				field.setValue(initValue);
 				// Select the Date to equal minValue. This will trigger a time & date combination
@@ -325,13 +325,13 @@ describe("DateTimeField", function() {
 				expect(field.getValue()).toEqual(field.maxValue);
 			});
 
-			it('is limited to the minumum value while changing the date', function() {
+			it('is limited to the minimum value while changing the date', function() {
 				var initValue = field.minValue.clone();
 				// set time to something later then the maximum time from the maxValue.
 				// We must prevent a wrap to a different day!
 				initValue = initValue.add(Date.HOUR, - (initValue.getHours() / 2));
 				initValue = initValue.add(Date.MINUTE, - (initValue.getMinutes() / 2));
-				// set the Day to something later then the minumum day from the the minValue
+				// set the Day to something later then the minimum day from the the minValue
 				initValue = initValue.add(Date.DAY, 1);
 				field.setValue(initValue);
 				// Select the Date to equal minValue. This will trigger a time & date combination
