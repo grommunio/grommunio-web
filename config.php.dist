@@ -1,5 +1,5 @@
 <?php
-	// The config file for the webapp.
+	// The config file for grommunio Web.
 	// All possible web client settings can be set in this file. Some settings
 	// (language) can also be set per user or logon.
 
@@ -105,7 +105,7 @@
 	// The title that will be shown in the title bar of the browser
 	define("WEBAPP_TITLE", "grommunio Web");
 
-	// The base URL where the User Manual for WebApp can be found
+	// The base URL where the User Manual for grommunio Web can be found
 	define("PLUGIN_WEBAPPMANUAL_URL", "https://docs.grommunio.com/web/");
 
 	// When set to false, GAB does not show any user, unless searched for.
