@@ -173,15 +173,16 @@ Zarafa.calendar.printer.DaysViewRenderer = Ext.extend(Zarafa.calendar.printer.Ab
 	 */
 	generateBodyTemplate: function()
 	{
-		var html = '';
-
-		/* +--------------------------------------------+
-		 * | grommunio web     |                        |
-		 * | Calendar : [name] |      date pick         |
-		 * | start time        |      this month        |
+		/*
+		 * Top:
+		 * +--------------------------------------------+
+		 * |                   |      datpicker         |
+		 * | Calendar: [name]  |                        |
+		 * |                   |                        |
 		 * |                   |                        |
 		 * +--------------------------------------------+
 		 *
+		 * Middle:
 		 * +--------------------------------------------+
 		 * |                     day                    |
 		 * +--------------------------------------------+
