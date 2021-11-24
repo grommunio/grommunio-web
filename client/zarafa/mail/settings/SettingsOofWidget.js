@@ -86,7 +86,7 @@ Zarafa.mail.settings.SettingsOofWidget = Ext.extend(Zarafa.settings.ui.SettingsW
 		backDate = backDate.clearTime().add(Date.MINUTE, container.getSettingsModel().get('zarafa/v1/main/start_working_hour'));
 		var comboStore = this.createComboboxStore();
 		var items = [];
-		
+
 		// Show user combo box only when shared stores with 'owner' permission available.
 		if (comboStore.getCount() > 1) {
 			items.push({
@@ -455,7 +455,7 @@ Zarafa.mail.settings.SettingsOofWidget = Ext.extend(Zarafa.settings.ui.SettingsW
 	{
 		checkbox.wrap.addClass('zarafa-settings-oof-table-cellalign');
 	},
-	
+
 	/**
 	 * Handler for the event fired after the {@link Ext.form.Checkbox checkbox} markup is rendered.
 	 * We are aligning the check box to the right of its cell.
@@ -499,8 +499,8 @@ Zarafa.mail.settings.SettingsOofWidget = Ext.extend(Zarafa.settings.ui.SettingsW
 		}
 		var record = this.record;
 		var isOofSet = record.get('set');
-		this.inOfficeField.setValue(!isOofSet);
-		this.outOfOfficeRadio.setValue(isOofSet);
+		this.inOfficeField.setValue(isOofSet ? 'false' : 'true');
+		this.outOfOfficeRadio.setValue(isOofSet ? 'true' : 'false') ;
 
 		if (isOofSet) {
 			var configuredFromSetting = record.get('from');
@@ -520,6 +520,7 @@ Zarafa.mail.settings.SettingsOofWidget = Ext.extend(Zarafa.settings.ui.SettingsW
 				this.backDateTimeField.setValue(this.backDateTimeField.defaultValue);
 				this.willBeBackCheckBox.setValue(false);
 			}
+
 		} else {
 			// Reset Date fields
 			this.outOfOfficeDateTimeField.setValue(this.outOfOfficeDateTimeField.defaultValue);
@@ -570,7 +571,7 @@ Zarafa.mail.settings.SettingsOofWidget = Ext.extend(Zarafa.settings.ui.SettingsW
 		if (this.extBodyLoaded) {
 			var extbody = this.extBodyField.getValue() || this.extBodyField.emptyText;
 		}
-		
+
 		this.record.beginEdit();
 		this.record.set(this.intSubjectField.name, intsubject);
 		this.record.set(this.extSubjectField.name, extsubject);
@@ -590,7 +591,7 @@ Zarafa.mail.settings.SettingsOofWidget = Ext.extend(Zarafa.settings.ui.SettingsW
 				this.record.set(this.backDateTimeField.name, 0);
 			}
 		}
-		
+
 		if (true == this.extBodyLoaded) {
 			this.record.set(this.externalCheckBox.name, this.externalCheckBox.checked);
 			this.record.set(this.contactsOnlyField.name, this.contactsOnlyField.checked);
@@ -598,7 +599,7 @@ Zarafa.mail.settings.SettingsOofWidget = Ext.extend(Zarafa.settings.ui.SettingsW
 
 		this.record.endEdit();
 	},
-	
+
 	onTabChange: function(tabPanel, newCard)
 	{
 		if (newCard.itemId === "external") {
@@ -612,6 +613,9 @@ Zarafa.mail.settings.SettingsOofWidget = Ext.extend(Zarafa.settings.ui.SettingsW
 				this.extBodyField.setValue(extbody);
 				if (enableExternal) {
 					this.extBodyField.enable();
+					var external_audience = this.record.get('external_audience');
+					this.contactsOnlyField.setValue(external_audience ? 'false' : 'true');
+					this.anyoneField.setValue(external_audience ? 'true' : 'false');
 				} else {
 					this.extBodyField.disable();
 				}
@@ -688,7 +692,7 @@ Zarafa.mail.settings.SettingsOofWidget = Ext.extend(Zarafa.settings.ui.SettingsW
 			this.reviseWarningStatus();
 		}
 	},
-	
+
 	onExternalChecked: function(checkbox, checked)
 	{
 		this.anyoneField.setDisabled(!checked);

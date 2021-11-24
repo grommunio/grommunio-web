@@ -771,14 +771,14 @@ define('PR_RECIPIENT_TRACKSTATUS_TIME'                ,mapi_prop_tag(PT_SYSTIME,
 
 define('PR_EC_BASE'                                   ,  0x6700);
 define('PR_EC_OUTOFOFFICE_STATE'                      ,mapi_prop_tag(PT_LONG,        PR_EC_BASE+0x60));
-define('PR_EC_OUTOFOFFICE_INTERNALREPLY'              ,mapi_prop_tag(PT_UNICODE,     PR_EC_BASE+0x61));
-define('PR_EC_OUTOFOFFICE_INTERNALSUBJECT'            ,mapi_prop_tag(PT_UNICODE,     PR_EC_BASE+0x62));
+define('PR_EC_OUTOFOFFICE_INTERNALREPLY'              ,mapi_prop_tag(PT_STRING8,     PR_EC_BASE+0x61));
+define('PR_EC_OUTOFOFFICE_INTERNALSUBJECT'            ,mapi_prop_tag(PT_STRING8,     PR_EC_BASE+0x62));
 define('PR_EC_OUTOFOFFICE_BEGIN'                      ,mapi_prop_tag(PT_SYSTIME,     PR_EC_BASE+0x63));
 define('PR_EC_OUTOFOFFICE_END'                        ,mapi_prop_tag(PT_SYSTIME,     PR_EC_BASE+0x64));
 define('PR_EC_OUTOFOFFICE_ALLOWEXTERNAL'              ,mapi_prop_tag(PT_BOOLEAN,     PR_EC_BASE+0x65));
 define('PR_EC_OUTOFOFFICE_EXTERNALAUDIENCE'           ,mapi_prop_tag(PT_BOOLEAN,     PR_EC_BASE+0x66));
-define('PR_EC_OUTOFOFFICE_EXTERNALREPLY'              ,mapi_prop_tag(PT_UNICODE,     PR_EC_BASE+0x67));
-define('PR_EC_OUTOFOFFICE_EXTERNALSUBJECT'            ,mapi_prop_tag(PT_UNICODE,     PR_EC_BASE+0x68));
+define('PR_EC_OUTOFOFFICE_EXTERNALREPLY'              ,mapi_prop_tag(PT_STRING8,     PR_EC_BASE+0x67));
+define('PR_EC_OUTOFOFFICE_EXTERNALSUBJECT'            ,mapi_prop_tag(PT_STRING8,     PR_EC_BASE+0x68));
 
 /* Server version */
 define('PR_EC_SERVER_VERSION'                        ,mapi_prop_tag(PT_STRING8,     PR_EC_BASE+0x16));
