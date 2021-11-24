@@ -1902,7 +1902,7 @@ Zarafa.common.Actions = {
 			this.audioTag = Ext.getBody().createChild({
 				tag: 'audio',
 				type: 'audio/ogg',
-				src: 'client/resources/audio/desktop_notification_audio.ogg',
+				src: 'plugins/desktopnotifications/resources/audio.ogg',
 				autoplay: true
 			});
 
