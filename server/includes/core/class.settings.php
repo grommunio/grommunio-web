@@ -468,6 +468,43 @@
 					mapi_setprops($this->store, [PR_EC_USER_LANGUAGE => $this->settings['zarafa']['v1']['main']['language']]);
 				}
 
+				if (isset($this->settings['zarafa']['v1']['main']['thumbnail_photo'])) {
+					$thumbnail_photo = $this->settings['zarafa']['v1']['main']['thumbnail_photo'];
+					unset($this->settings['zarafa']['v1']['main']['thumbnail_photo']);
+					if (preg_match('/^data:image\/(?<extension>(?:png|gif|jpg|jpeg));base64,(?<image>.+)$/', $thumbnail_photo, $matchings)) {
+						$imageData = base64_decode($matchings['image']);
+						$extension = $matchings['extension'];
+						$tmp_file = "/tmp/thumbnail-" . time() . "." . $extension;
+						if (file_put_contents($tmp_file, $imageData)) {
+							if (0 == strcasecmp($extension, "gif")) {
+								$im = imagecreatefromgif($tmp_file);
+							} else if (0 == strcasecmp($extension, "jpeg")
+								|| 0 == strcasecmp($extension, "jpg")) {
+								$im = imagecreatefromjpeg($tmp_file);
+							} else if (0 == strcasecmp($extension, "png")) {
+								$im = imagecreatefrompng($tmp_file);
+							} else {
+								$im = null;
+							}
+							if ($im) {
+								$n_width = 144;
+								$n_height = 144;
+								$width = imagesx($im);
+								$height = imagesy($im);
+								$n_height = ($n_width/$width) * $height;
+								$newimage = imagecreatetruecolor($n_width, $n_height);
+								imagecopyresized($newimage, $im, 0, 0, 0, 0,
+									$n_width, $n_height, $width, $height);
+								imagejpeg($newimage, $tmp_file, 100);
+								$thumbnail_photo = file_get_contents($tmp_file);
+								mapi_setprops($this->store, [PR_EMS_AB_THUMBNAIL_PHOTO => $thumbnail_photo]);
+								$GLOBALS['mapisession']->setUserImage("data:image/jpeg;base64," . base64_encode($thumbnail_photo));
+							}
+						}
+						unlink($tmp_file);
+					}
+				}
+
 				$stream = mapi_openproperty($this->store, PR_EC_WEBACCESS_SETTINGS_JSON, IID_IStream, STGM_TRANSACTED, MAPI_CREATE | MAPI_MODIFY);
 				mapi_stream_setsize($stream, strlen($settings));
 				mapi_stream_write($stream, $settings);
