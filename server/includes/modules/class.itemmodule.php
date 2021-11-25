@@ -132,7 +132,7 @@
 												 */
 												$messageProps = mapi_getprops($message, array(PR_ENTRYID, PR_STORE_ENTRYID, PR_PARENT_ENTRYID));
 
-												// if opened appointment is exception then it will add 
+												// if opened appointment is exception then it will add
 												// the attach_num and basedate in messageProps.
 												if(isset($attach_num)) {
 													$messageProps[PR_ATTACH_NUM] = array($attach_num);
@@ -418,7 +418,6 @@
 		 */
 		function open($store, $entryid, $action)
 		{
-error_log("open email item");
 			$data = array();
 
 			if($entryid) {
@@ -525,14 +524,14 @@ error_log("open email item");
 					$data['item']['props']['body'] = $this->getNDRbody($message);
 				}
 			}
-			
+
 			$userEntryId = '';
 			if (isset($data['item']['props']['sent_representing_entryid'])) {
 				$userEntryId = hex2bin($data['item']['props']['sent_representing_entryid']);
 			} else if (isset($data['item']['props']['sender_entryid'])) {
 				$userEntryId = hex2bin($data['item']['props']['sender_entryid']);
 			}
-			
+
 			// get user image saved in LDAP.
 			if (!empty($userEntryId)) {
 				$data['item']['props']['user_image'] = $GLOBALS['operations']->getCompressedUserImage($userEntryId);
@@ -727,8 +726,8 @@ error_log("open email item");
 						array_push($this->skipCopyProperties, $this->properties["private"], $this->properties["sensitivity"]);
 					}
 				}
-					
-									
+
+
 				$result = $GLOBALS["operations"]->copyMessages($store, $parententryid, $dest_store, $dest_folderentryid, $entryids, $moveMessages ? $skipCopyProperties : $this->skipCopyProperties, $moveMessages, $copyProps);
 
 				if($result) {
