@@ -144,6 +144,42 @@ $(JSDEPLOY)/resize.js: client/resize.js
 	cat client/resize.js > $(JSDEPLOY)/resize-debug.js
 	$(JSCOMPILER) --js $(@:.js=-debug.js) --js_output_file $@
 
+$(JSDEPLOY)/filepreviewer/pdfjs/build/pdf.worker.js: client/filepreviewer/pdfjs/build/pdf.worker.js
+	mkdir -p $(JSDEPLOY)
+	cat $^ > $(@:.js=-debug.js)
+	$(JSCOMPILER) --js $(@:.js=-debug.js) --js_output_file $@ \
+		--source_map_location_mapping=$(JSDEPLOY)/\| \
+		--output_wrapper="%output%//# sourceMappingURL=$(shell basename $@.map)" \
+		--create_source_map $@.map \
+		$(JSOPTIONS) --jscomp_off=checkVars
+
+$(JSDEPLOY)/filepreviewer/pdfjs/build/pdf.js: client/filepreviewer/pdfjs/build/pdf.js
+	mkdir -p $(JSDEPLOY)
+	cat $^ > $(@:.js=-debug.js)
+	$(JSCOMPILER) --js $(@:.js=-debug.js) --js_output_file $@ \
+		--source_map_location_mapping=$(JSDEPLOY)/\| \
+		--output_wrapper="%output%//# sourceMappingURL=$(shell basename $@.map)" \
+		--create_source_map $@.map \
+		$(JSOPTIONS) --jscomp_off=checkVars
+
+$(JSDEPLOY)/filepreviewer/pdfjs/web/viewer.js: client/filepreviewer/pdfjs/web/viewer.js
+	mkdir -p $(JSDEPLOY)
+	cat $^ > $(@:.js=-debug.js)
+	$(JSCOMPILER) --js $(@:.js=-debug.js) --js_output_file $@ \
+		--source_map_location_mapping=$(JSDEPLOY)/\| \
+		--output_wrapper="%output%//# sourceMappingURL=$(shell basename $@.map)" \
+		--create_source_map $@.map \
+		$(JSOPTIONS) --jscomp_off=checkVars
+
+$(JSDEPLOY)/filepreviewer/pdfjs/web/debugger.js: client/filepreviewer/pdfjs/web/debugger.js
+	mkdir -p $(JSDEPLOY)
+	cat $^ > $(@:.js=-debug.js)
+	$(JSCOMPILER) --js $(@:.js=-debug.js) --js_output_file $@ \
+		--source_map_location_mapping=$(JSDEPLOY)/\| \
+		--output_wrapper="%output%//# sourceMappingURL=$(shell basename $@.map)" \
+		--create_source_map $@.map \
+		$(JSOPTIONS) --jscomp_off=checkVars
+
 $(DEPLOYPURIFYJS): $(PURIFYJS)
 	mkdir -p $(DEPLOYPURIFY)
 	# concatenate using cat
