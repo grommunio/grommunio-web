@@ -1,19 +1,21 @@
 (function(f){if(typeof exports==="object"&&typeof module!=="undefined"){module.exports=f()}else if(typeof define==="function"&&define.amd){define([],f)}else{var g;if(typeof window!=="undefined"){g=window}else if(typeof global!=="undefined"){g=global}else if(typeof self!=="undefined"){g=self}else{g=this}g.Tokenizr = f()}})(function(){var define,module,exports;return (function(){function r(e,n,t){function o(i,f){if(!n[i]){if(!e[i]){var c="function"==typeof require&&require;if(!f&&c)return c(i,!0);if(u)return u(i,!0);var a=new Error("Cannot find module '"+i+"'");throw a.code="MODULE_NOT_FOUND",a}var p=n[i]={exports:{}};e[i][0].call(p.exports,function(r){var n=e[i][1][r];return o(n||r)},p,p.exports,r,e,n,t)}return n[i].exports}for(var u="function"==typeof require&&require,i=0;i<t.length;i++)o(t[i]);return o}return r})()({1:[function(_dereq_,module,exports){
 "use strict";
 
-function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
-
-function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
-
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } else if (call !== void 0) { throw new TypeError("Derived constructors may only return object or undefined"); } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
 function _wrapNativeSuper(Class) { var _cache = typeof Map === "function" ? new Map() : undefined; _wrapNativeSuper = function _wrapNativeSuper(Class) { if (Class === null || !_isNativeFunction(Class)) return Class; if (typeof Class !== "function") { throw new TypeError("Super expression must either be null or a function"); } if (typeof _cache !== "undefined") { if (_cache.has(Class)) return _cache.get(Class); _cache.set(Class, Wrapper); } function Wrapper() { return _construct(Class, arguments, _getPrototypeOf(this).constructor); } Wrapper.prototype = Object.create(Class.prototype, { constructor: { value: Wrapper, enumerable: false, writable: true, configurable: true } }); return _setPrototypeOf(Wrapper, Class); }; return _wrapNativeSuper(Class); }
 
-function isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
+function _construct(Parent, args, Class) { if (_isNativeReflectConstruct()) { _construct = Reflect.construct; } else { _construct = function _construct(Parent, args, Class) { var a = [null]; a.push.apply(a, args); var Constructor = Function.bind.apply(Parent, a); var instance = new Constructor(); if (Class) _setPrototypeOf(instance, Class.prototype); return instance; }; } return _construct.apply(null, arguments); }
 
-function _construct(Parent, args, Class) { if (isNativeReflectConstruct()) { _construct = Reflect.construct; } else { _construct = function _construct(Parent, args, Class) { var a = [null]; a.push.apply(a, args); var Constructor = Function.bind.apply(Parent, a); var instance = new Constructor(); if (Class) _setPrototypeOf(instance, Class.prototype); return instance; }; } return _construct.apply(null, arguments); }
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
 
 function _isNativeFunction(fn) { return Function.toString.call(fn).indexOf("[native code]") !== -1; }
 
@@ -29,7 +31,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
 /*
 **  Tokenizr -- String Tokenization Library
-**  Copyright (c) 2015-2019 Dr. Ralf S. Engelschall <rse@engelschall.com>
+**  Copyright (c) 2015-2021 Dr. Ralf S. Engelschall <rse@engelschall.com>
 **
 **  Permission is hereby granted, free of charge, to any person obtaining
 **  a copy of this software and associated documentation files (the
@@ -86,9 +88,7 @@ var excerpt = function excerpt(txt, o) {
 /*  internal helper class for token representation  */
 
 
-var Token =
-/*#__PURE__*/
-function () {
+var Token = /*#__PURE__*/function () {
   function Token(type, value, text) {
     var pos = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : 0;
     var line = arguments.length > 4 && arguments[4] !== undefined ? arguments[4] : 0;
@@ -107,7 +107,10 @@ function () {
   _createClass(Token, [{
     key: "toString",
     value: function toString() {
-      return "<type: ".concat(this.type, ", ") + "value: ".concat(JSON.stringify(this.value), ", ") + "text: ".concat(JSON.stringify(this.text), ", ") + "pos: ".concat(this.pos, ", ") + "line: ".concat(this.line, ", ") + "column: ".concat(this.column, ">");
+      var colorize = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : function (type, text) {
+        return text;
+      };
+      return "".concat(colorize("type", this.type), " ") + "(value: ".concat(colorize("value", JSON.stringify(this.value)), ", ") + "text: ".concat(colorize("text", JSON.stringify(this.text)), ", ") + "pos: ".concat(colorize("pos", this.pos), ", ") + "line: ".concat(colorize("line", this.line), ", ") + "column: ".concat(colorize("column", this.column), ")");
     }
   }, {
     key: "isA",
@@ -123,10 +126,10 @@ function () {
 /*  internal helper class for tokenization error reporting  */
 
 
-var ParsingError =
-/*#__PURE__*/
-function (_Error) {
+var ParsingError = /*#__PURE__*/function (_Error) {
   _inherits(ParsingError, _Error);
+
+  var _super = _createSuper(ParsingError);
 
   /*  construct and initialize object  */
   function ParsingError(message, pos, line, column, input) {
@@ -134,7 +137,7 @@ function (_Error) {
 
     _classCallCheck(this, ParsingError);
 
-    _this = _possibleConstructorReturn(this, _getPrototypeOf(ParsingError).call(this, message));
+    _this = _super.call(this, message);
     _this.name = "ParsingError";
     _this.message = message;
     _this.pos = pos;
@@ -163,13 +166,11 @@ function (_Error) {
   }]);
 
   return ParsingError;
-}(_wrapNativeSuper(Error));
+}( /*#__PURE__*/_wrapNativeSuper(Error));
 /*  internal helper class for action context  */
 
 
-var ActionContext =
-/*#__PURE__*/
-function () {
+var ActionContext = /*#__PURE__*/function () {
   /*  construct and initialize the object  */
   function ActionContext(tokenizr) {
     _classCallCheck(this, ActionContext);
@@ -317,9 +318,7 @@ function () {
 /*  external API class  */
 
 
-var Tokenizr =
-/*#__PURE__*/
-function () {
+var Tokenizr = /*#__PURE__*/function () {
   /*  construct and initialize the object  */
   function Tokenizr() {
     _classCallCheck(this, Tokenizr);
@@ -850,8 +849,13 @@ function () {
     key: "commit",
     value: function commit() {
       if (this._transaction.length === 0) throw new Error("cannot commit transaction -- no active transaction");
+      /*  remove current transaction  */
 
-      this._transaction.shift();
+      var committed = this._transaction.shift();
+      /*  in case we were a nested transaction, still remember the tokens  */
+
+
+      if (this._transaction.length > 0) this._transaction[0] = this._transaction[0].concat(committed);
 
       this._log("COMMIT: level ".concat(this._transaction.length));
 
@@ -863,9 +867,13 @@ function () {
     key: "rollback",
     value: function rollback() {
       if (this._transaction.length === 0) throw new Error("cannot rollback transaction -- no active transaction");
-      this._pending = this._transaction[0].concat(this._pending);
+      /*  remove current transaction  */
 
-      this._transaction.shift();
+      var rolledback = this._transaction.shift();
+      /*  make the tokens available again, as new pending tokens  */
+
+
+      this._pending = rolledback.concat(this._pending);
 
       this._log("ROLLBACK: level ".concat(this._transaction.length));
 
