@@ -464,6 +464,10 @@
 					$GLOBALS["operations"]->publishFreeBusy($this->store);
 				}
 
+				if (isset($this->settings['zarafa']['v1']['main']['language'])) {
+					mapi_setprops($this->store, [PR_EC_USER_LANGUAGE => $this->settings['zarafa']['v1']['main']['language']]);
+				}
+
 				$stream = mapi_openproperty($this->store, PR_EC_WEBACCESS_SETTINGS_JSON, IID_IStream, STGM_TRANSACTED, MAPI_CREATE | MAPI_MODIFY);
 				mapi_stream_setsize($stream, strlen($settings));
 				mapi_stream_write($stream, $settings);
