@@ -16,6 +16,7 @@ JSDEPLOY = $(DESTDIR)/client
 DEPLOYPURIFY = $(JSDEPLOY)/dompurify
 
 JSCOMPILER ?= $(JAVA) -jar tools/lib/compiler.jar
+CSSCOMPILER ?= $(JAVA) -jar tools/lib/yuicompressor-2.4.8.jar
 
 JSOPTIONS = --externs client/externs.js \
 	--compilation_level SIMPLE --warning_level VERBOSE --jscomp_off=es5Strict --strict_mode_input=false \
@@ -83,6 +84,9 @@ client: $(CSSDEST) $(ICONSETSDEST) $(IMAGESDEST) js
 	rm -rf $(DESTDIR)/client/themes/*/js
 	cp -r client/resources/scss $(DESTDIR)/client/resources/scss
 	# TODO use separate targets
+
+css:
+	find client/ -name "*.css" -exec $(CSSCOMPILER) -o $(DESTDIR)/{} {} \;
 
 js: $(JSDEPLOY)/fingerprint.js $(JSDEPLOY)/resize.js $(TEMPATEJSDEST) $(JSDEPLOY)/kopano.js $(JSDEPLOY)/extjs-mod/extjs-mod.js $(JSDEPLOY)/extjs/ext-base-all.js $(DESTDIR)/client/third-party/ux-thirdparty.js $(DEPLOYPURIFYJS) $(JSDEPLOY)/filepreviewer/pdfjs/build/pdf.worker.js $(JSDEPLOY)/filepreviewer/pdfjs/build/pdf.js $(JSDEPLOY)/filepreviewer/pdfjs/web/viewer.js
 	cp -r client/tinymce $(DESTDIR)/client/
