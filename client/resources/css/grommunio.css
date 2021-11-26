@@ -4286,6 +4286,7 @@ body .k-category-block {
 
 /* loading mask  */
 .x-mask-loading {
+  background-image: none !important;
   background-color: transparent;
   border: none !important;
   z-index: 9 !important;
