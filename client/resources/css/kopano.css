@@ -4286,9 +4286,23 @@ body .k-category-block {
 
 /* loading mask  */
 .x-mask-loading {
-  background-image: none;
-  background-color: #ebeaeb;
-  border-color: #d3d2d2; }
+  background-color: transparent;
+  border: none !important;
+  z-index: 9 !important;
+}
+
+.x-mask-loading div{
+  background-color: transparent;
+  background-image: url(../images/load.gif);
+  background-size: 64px 64px;
+  width: 64px;
+  height: 64px;
+  background-position: center center;
+  text-indent: 200%;
+  white-space: nowrap;
+  overflow: hidden;
+  border: 0;
+}
 
 .x-mask-row {
   background-color: #ffffff; }
