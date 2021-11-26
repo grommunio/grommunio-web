@@ -84,7 +84,7 @@ client: $(CSSDEST) $(ICONSETSDEST) $(IMAGESDEST) js
 	cp -r client/resources/scss $(DESTDIR)/client/resources/scss
 	# TODO use separate targets
 
-js: $(JSDEPLOY)/fingerprint.js $(JSDEPLOY)/resize.js $(TEMPATEJSDEST) $(JSDEPLOY)/kopano.js $(JSDEPLOY)/extjs-mod/extjs-mod.js $(JSDEPLOY)/extjs/ext-base-all.js $(DESTDIR)/client/third-party/ux-thirdparty.js $(DEPLOYPURIFYJS)
+js: $(JSDEPLOY)/fingerprint.js $(JSDEPLOY)/resize.js $(TEMPATEJSDEST) $(JSDEPLOY)/kopano.js $(JSDEPLOY)/extjs-mod/extjs-mod.js $(JSDEPLOY)/extjs/ext-base-all.js $(DESTDIR)/client/third-party/ux-thirdparty.js $(DEPLOYPURIFYJS) $(JSDEPLOY)/filepreviewer/pdfjs/build/pdf.worker.js $(JSDEPLOY)/filepreviewer/pdfjs/build/pdf.js $(JSDEPLOY)/filepreviewer/pdfjs/web/viewer.js
 	cp -r client/tinymce $(DESTDIR)/client/
 	cp -r client/tinymce-languages $(DESTDIR)/client/
 	cp -r client/tinymce-plugins $(DESTDIR)/client/
@@ -145,7 +145,7 @@ $(JSDEPLOY)/resize.js: client/resize.js
 	$(JSCOMPILER) --js $(@:.js=-debug.js) --js_output_file $@
 
 $(JSDEPLOY)/filepreviewer/pdfjs/build/pdf.worker.js: client/filepreviewer/pdfjs/build/pdf.worker.js
-	mkdir -p $(JSDEPLOY)
+	mkdir -p $(JSDEPLOY)/filepreviewer/pdfjs/build
 	cat $^ > $(@:.js=-debug.js)
 	$(JSCOMPILER) --js $(@:.js=-debug.js) --js_output_file $@ \
 		--source_map_location_mapping=$(JSDEPLOY)/\| \
@@ -154,7 +154,7 @@ $(JSDEPLOY)/filepreviewer/pdfjs/build/pdf.worker.js: client/filepreviewer/pdfjs/
 		$(JSOPTIONS) --jscomp_off=checkVars
 
 $(JSDEPLOY)/filepreviewer/pdfjs/build/pdf.js: client/filepreviewer/pdfjs/build/pdf.js
-	mkdir -p $(JSDEPLOY)
+	mkdir -p $(JSDEPLOY)/filepreviewer/pdfjs/build
 	cat $^ > $(@:.js=-debug.js)
 	$(JSCOMPILER) --js $(@:.js=-debug.js) --js_output_file $@ \
 		--source_map_location_mapping=$(JSDEPLOY)/\| \
@@ -163,16 +163,7 @@ $(JSDEPLOY)/filepreviewer/pdfjs/build/pdf.js: client/filepreviewer/pdfjs/build/p
 		$(JSOPTIONS) --jscomp_off=checkVars
 
 $(JSDEPLOY)/filepreviewer/pdfjs/web/viewer.js: client/filepreviewer/pdfjs/web/viewer.js
-	mkdir -p $(JSDEPLOY)
-	cat $^ > $(@:.js=-debug.js)
-	$(JSCOMPILER) --js $(@:.js=-debug.js) --js_output_file $@ \
-		--source_map_location_mapping=$(JSDEPLOY)/\| \
-		--output_wrapper="%output%//# sourceMappingURL=$(shell basename $@.map)" \
-		--create_source_map $@.map \
-		$(JSOPTIONS) --jscomp_off=checkVars
-
-$(JSDEPLOY)/filepreviewer/pdfjs/web/debugger.js: client/filepreviewer/pdfjs/web/debugger.js
-	mkdir -p $(JSDEPLOY)
+	mkdir -p $(JSDEPLOY)/filepreviewer/pdfjs/web
 	cat $^ > $(@:.js=-debug.js)
 	$(JSCOMPILER) --js $(@:.js=-debug.js) --js_output_file $@ \
 		--source_map_location_mapping=$(JSDEPLOY)/\| \
