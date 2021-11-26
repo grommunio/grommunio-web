@@ -77,7 +77,7 @@ Zarafa.plugins.intranet.ui.Panel = Ext.extend(Ext.Panel, {
 			// For DeskApp: copy cookies to the main context so files can be downloaded
 			if (this.tag === 'webview') {
 				var intraUrl = this.url;
-				chrome.cookies.getAll(
+				window.chrome.cookies.getAll(
 					{
 						url: intraUrl,
 						storeId: iframe.getCookieStoreId()
