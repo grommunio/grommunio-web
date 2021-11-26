@@ -1,6 +1,6 @@
-ARG docker_repo=kopano
-ARG kopano_core_version=latest
-FROM ${docker_repo}/kopano_core:${kopano_core_version}
+ARG docker_repo=grommunio
+ARG grommunio_core_version=latest
+FROM ${docker_repo}/grommunio_core:${grommunio_core_version}
 
 WORKDIR /workspace/
 

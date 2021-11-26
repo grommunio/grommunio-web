@@ -1,9 +1,9 @@
 <?php
-require_once('classes/KopanoUser.php');
+require_once('classes/grommunioUser.php');
 require_once('classes/AddressBookUser.php');
 require_once('classes/HierarchyUser.php');
 require_once('classes/TestData.php');
-require_once('classes/KopanoTest.php');
+require_once('classes/grommunioTest.php');
 require_once('classes/Util.php');
 
 /**
@@ -11,7 +11,7 @@ require_once('classes/Util.php');
  *
  * Tests loading the Address Book Hierarchy
  */
-class AddressBookHierarchyTest extends KopanoTest {
+class AddressBookHierarchyTest extends grommunioTest {
 
 	/**
 	 * The user for which we will open the addressbook
@@ -35,11 +35,11 @@ class AddressBookHierarchyTest extends KopanoTest {
 	{
 		parent::setUp();
 
-		$this->user = $this->addUser(new AddressBookUser(new KopanoUser(KOPANO_USER1_NAME, KOPANO_USER1_PASSWORD)));
-		$this->hierarchyUser = $this->addUser(new HierarchyUser(new KopanoUser(KOPANO_USER1_NAME, KOPANO_USER1_PASSWORD)));
+		$this->user = $this->addUser(new AddressBookUser(new grommunioUser(GROMMUNIO_USER1_NAME, GROMMUNIO_USER1_PASSWORD)));
+		$this->hierarchyUser = $this->addUser(new HierarchyUser(new grommunioUser(GROMMUNIO_USER1_NAME, GROMMUNIO_USER1_PASSWORD)));
 
 		// Add some permissions to USER1 so it is allowed to open the store of user 2.
-		$storeUser = $this->addUser(new HierarchyUser(new KopanoUser(KOPANO_USER3_NAME, KOPANO_USER3_PASSWORD)));
+		$storeUser = $this->addUser(new HierarchyUser(new grommunioUser(GROMMUNIO_USER3_NAME, GROMMUNIO_USER3_PASSWORD)));
 		$entryid = $storeUser->getDefaultFolderEntryID(PR_IPM_SUBTREE_ENTRYID);
 		$storeUser->addPermissions($this->user, ecRightsFullControl, $entryid);
 	}
@@ -68,8 +68,8 @@ class AddressBookHierarchyTest extends KopanoTest {
 		$this->assertEquals(MAPI_ABCONT, $gab['object_type'], 'Test that the Address Lists folder has the correct \'object_type\' property set');
 		$this->assertEquals('gab', $gab['type'], 'Test that the Address Lists folder has the correct \'type\' property set');
 
-		$contacts = Util::searchInArray($folderProps, 'display_name', 'Contacts - ' . KOPANO_USER1_DISPLAY_NAME);
-		$this->assertEmpty($contacts, 'Test that the \'Contacts - ' . KOPANO_USER1_DISPLAY_NAME . '\' folder does not exist');
+		$contacts = Util::searchInArray($folderProps, 'display_name', 'Contacts - ' . GROMMUNIO_USER1_DISPLAY_NAME);
+		$this->assertEmpty($contacts, 'Test that the \'Contacts - ' . GROMMUNIO_USER1_DISPLAY_NAME . '\' folder does not exist');
 	}
 
 	/**
@@ -154,12 +154,12 @@ class AddressBookHierarchyTest extends KopanoTest {
 	 */
 	public function testLoadingAddressBookHierarchyWithSharedContactsResults()
 	{
-		$this->hierarchyUser->setSetting('zarafa/v1/contexts/hierarchy/shared_stores/' . KOPANO_USER3_NAME . '/all', array(
+		$this->hierarchyUser->setSetting('zarafa/v1/contexts/hierarchy/shared_stores/' . GROMMUNIO_USER3_NAME . '/all', array(
 			'folder_type' => 'all',
 			'show_subfolders' => false
 		));
 		$this->hierarchyUser->openSharedFolder(array(
-			'user_name' => KOPANO_USER3_NAME,
+			'user_name' => GROMMUNIO_USER3_NAME,
 			'folder_type' => 'all',
 			'show_subfolders' => false
 		));
@@ -189,7 +189,7 @@ class AddressBookHierarchyTest extends KopanoTest {
 		$this->assertEquals(MAPI_ABCONT, $contacts['object_type'], 'Test that the Personal Contacts folder has the correct \'display_type\' property set');
 		$this->assertEquals('contacts', $contacts['type'], 'Test that the Personal Contacts folder has the correct \'type\' property set');
 
-		$contacts = Util::searchInArray($folderProps, 'display_name', 'Contacts - '. KOPANO_USER3_DISPLAY_NAME);
+		$contacts = Util::searchInArray($folderProps, 'display_name', 'Contacts - '. GROMMUNIO_USER3_DISPLAY_NAME);
 		$this->assertNotEmpty($contacts, 'Test that the \'Contacts\' folder exists');
 		$this->assertEquals(1, $contacts['depth'], 'Test that the Shared Contacts folder has the correct \'depth\' property set');
 		$this->assertEquals(MAPI_ABCONT, $contacts['object_type'], 'Test that the Shared Contacts folder has the correct \'display_type\' property set');

@@ -26,10 +26,10 @@ config.php: config.ldap.php.dist
 test: config.php debug.php
 	touch debug.txt
 	$(DOCKERCOMPOSE) up -d $(DOCKERCOMPOSE_UP_ARGS)
-	$(DOCKERCOMPOSE) run $(DOCKERCOMPOSE_EXEC_ARGS) kopano_webapp_test /workspace/test/php/starttest.sh
+	$(DOCKERCOMPOSE) run $(DOCKERCOMPOSE_EXEC_ARGS) grommunio_webapp_test /workspace/test/php/starttest.sh
 
-.PHONY:  test-kopano-ci-clean
-test-kopano-ci-clean:
+.PHONY:  test-grommunio-ci-clean
+test-grommunio-ci-clean:
 	$(DOCKERCOMPOSE) down -v --rmi local || true
 
 .PHONY: clean

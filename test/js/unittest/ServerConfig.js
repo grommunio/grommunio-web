@@ -2,7 +2,7 @@ describe('ServerConfig', function() {
   var serverConfig;
   const data = {
     base_url: 'foo',
-    webapp_title: 'Kopano WebApp',
+    webapp_title: 'grommunio WebApp',
     disable_full_gab: true,
     enable_shared_rules: true,
     using_sso: true,

@@ -20,7 +20,7 @@ Zarafa.common.categories.data.CategoriesStore = Ext.extend(Ext.data.ArrayStore, 
 	 * @type {String}
 	 * @private
 	 */
-	settingsKey: 'kopano/main/categories',
+	settingsKey: 'grommunio/main/categories',
 
 	/**
 	 * @constructor

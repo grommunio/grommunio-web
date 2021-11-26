@@ -1,15 +1,15 @@
 <?php
-require_once('classes/KopanoUser.php');
+require_once('classes/grommunioUser.php');
 require_once('classes/NoteUser.php');
 require_once('classes/TestData.php');
-require_once('classes/KopanoTest.php');
+require_once('classes/grommunioTest.php');
 
 /**
  * LoadNoteTest
  *
  * Tests all possible cases for loading Sticky Notes
  */
-class LoadNoteTest extends KopanoTest {
+class LoadNoteTest extends grommunioTest {
 	/**
 	 * The default user
 	 */
@@ -27,7 +27,7 @@ class LoadNoteTest extends KopanoTest {
 	{
 		parent::setUp();
 
-		$this->user = $this->addUser(new NoteUser(new KopanoUser(KOPANO_USER1_NAME, KOPANO_USER1_PASSWORD)));
+		$this->user = $this->addUser(new NoteUser(new grommunioUser(GROMMUNIO_USER1_NAME, GROMMUNIO_USER1_PASSWORD)));
 
 		$this->message = array(
 			'props' => TestData::getNote(),

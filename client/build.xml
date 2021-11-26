@@ -54,25 +54,25 @@
 	<property name="thirdparty-css-folder" value="${thirdparty-folder}/resources/css"/>
 	<property name="thirdparty-css-file" value="ux-thirdparty.css"/>
 
-	<!-- The Kopano distribution files -->
-	<property name="kopano-folder" value=""/>
-	<property name="kopano-debugfile" value="kopano-debug.js"/>
-	<property name="kopano-file" value="kopano.js"/>
+	<!-- The Grommunio distribution files -->
+	<property name="grommunio-folder" value=""/>
+	<property name="grommunio-debugfile" value="grommunio-debug.js"/>
+	<property name="grommunio-file" value="grommunio.js"/>
 
-	<!-- The Kopano CSS files -->
-	<property name="kopano-css-folder" value="resources/css"/>
-	<property name="kopano-scss-folder" value="resources/scss"/>
+	<!-- The Grommunio CSS files -->
+	<property name="grommunio-css-folder" value="resources/css"/>
+	<property name="grommunio-scss-folder" value="resources/scss"/>
 
-	<!-- The Kopano images -->
-	<property name="kopano-images-folder" value="resources/images"/>
+	<!-- The Grommunio images -->
+	<property name="grommunio-images-folder" value="resources/images"/>
 
-	<!-- The Kopano themes -->
-	<property name="kopano-themes-folder" value="zarafa/core/themes"/>
-	<property name="kopano-themes-target-folder" value="themes"/>
+	<!-- The Grommunio themes -->
+	<property name="grommunio-themes-folder" value="zarafa/core/themes"/>
+	<property name="grommunio-themes-target-folder" value="themes"/>
 
-	<!-- The Kopano iconsets -->
-	<property name="kopano-iconsets-folder" value="resources/iconsets"/>
-	<property name="kopano-iconsets-target-folder" value="resources/iconsets"/>
+	<!-- The Grommunio iconsets -->
+	<property name="grommunio-iconsets-folder" value="resources/iconsets"/>
+	<property name="grommunio-iconsets-target-folder" value="resources/iconsets"/>
 
 	<!-- Meta target -->
 	<target name="all" depends="prepare, concat, compress"/>
@@ -130,16 +130,16 @@
 				<include name="${thirdparty-file}"/>
 				<include name="${thirdparty-debugfile}"/>
 			</fileset>
-			<!-- Delete the Kopano files -->
-			<fileset dir="${target-folder}/${kopano-folder}">
-				<include name="${kopano-file}"/>
-				<include name="${kopano-debugfile}"/>
+			<!-- Delete the grommunio files -->
+			<fileset dir="${target-folder}/${grommunio-folder}">
+				<include name="${grommunio-file}"/>
+				<include name="${grommunio-debugfile}"/>
 			</fileset>
 		</delete>
 
-		<!-- Delete the Kopano themes and iconsets -->
-		<delete dir="${target-folder}/${kopano-themes-target-folder}"/>
-		<delete dir="${target-folder}/${kopano-iconsets-target-folder}"/>
+		<!-- Delete the Grommunio themes and iconsets -->
+		<delete dir="${target-folder}/${grommunio-themes-target-folder}"/>
+		<delete dir="${target-folder}/${grommunio-iconsets-target-folder}"/>
 	</target>
 
 	<!-- Prepare build, copy ExtJs files to target folder -->
@@ -207,9 +207,9 @@
 		</zConcat>
 
 		<!-- Concatenate zarafa file -->
-		<mkdir dir="${target-folder}/${kopano-folder}"/>
-		<echo message="Concatenating: ${kopano-debugfile}"/>
-		<zConcat outputFolder="${target-folder}/${kopano-folder}" outputFile="${kopano-debugfile}" prioritize="\w+, Zarafa.core.*, Zarafa.common.*, Zarafa.*">
+		<mkdir dir="${target-folder}/${grommunio-folder}"/>
+		<echo message="Concatenating: ${grommunio-debugfile}"/>
+		<zConcat outputFolder="${target-folder}/${grommunio-folder}" outputFile="${grommunio-debugfile}" prioritize="\w+, Zarafa.core.*, Zarafa.common.*, Zarafa.*">
 			<concatfiles>
 				<fileset dir="zarafa" includes="**/*.js" />
 			</concatfiles>
@@ -223,7 +223,7 @@
 			<externs>
 				var Ext = {};
 				<!-- Zarafa is added as runtime dependency only,
-				     extjs-mod is not allowed to have a #dependsFile for Kopano files
+				     extjs-mod is not allowed to have a #dependsFile for grommunio files
 				     but within functions it is allowed to call Zarafa
 				-->
 				var Zarafa = {};
@@ -266,8 +266,8 @@
 			</externs>
 		</zCompile>
 
-		<echo message="Compiling: ${kopano-file}" />
-		<zCompile inputFolder="${target-folder}/${kopano-folder}" inputFile="${kopano-debugfile}" outputFolder="${target-folder}/${kopano-folder}" outputFile="${kopano-file}" checkRegExp="off">
+		<echo message="Compiling: ${grommunio-file}" />
+		<zCompile inputFolder="${target-folder}/${grommunio-folder}" inputFile="${grommunio-debugfile}" outputFolder="${target-folder}/${grommunio-folder}" outputFile="${grommunio-file}" checkRegExp="off">
 			<externs>
 				var FormData = {};
 				var Ext = {};
@@ -321,23 +321,23 @@
 		</copy>
 
 		<!-- copy css files (including sourcemaps) -->
-		<copy todir="${target-folder}/${kopano-css-folder}">
-			<fileset dir="${kopano-css-folder}">
+		<copy todir="${target-folder}/${grommunio-css-folder}">
+			<fileset dir="${grommunio-css-folder}">
 				<include name="**/*" />
 			</fileset>
 		</copy>
 
 		<!-- copy scss files (used by the sourcemaps) -->
-		<copy todir="${target-folder}/${kopano-scss-folder}">
-			<fileset dir="${kopano-scss-folder}">
+		<copy todir="${target-folder}/${grommunio-scss-folder}">
+			<fileset dir="${grommunio-scss-folder}">
 				<include name="**/*" />
 			</fileset>
 		</copy>
 
 		<!-- Copy the images -->
-		<echo message="Copying ${kopano-images-folder}"/>
-		<copy todir="${target-folder}/${kopano-images-folder}" includeEmptyDirs="false">
-			<fileset dir="${kopano-images-folder}">
+		<echo message="Copying ${grommunio-images-folder}"/>
+		<copy todir="${target-folder}/${grommunio-images-folder}" includeEmptyDirs="false">
+			<fileset dir="${grommunio-images-folder}">
 				<include name="**/*"/>
 				<exclude name="app-icons/"/>
 				<exclude name="app-icons.extensions.json"/>
@@ -345,17 +345,17 @@
 		</copy>
 
 		<!-- Copy the themes -->
-		<echo message="Copying ${kopano-themes-folder} to ${target-folder}/${kopano-themes-target-folder}"/>
-		<copy todir="${target-folder}/${kopano-themes-target-folder}" includeEmptyDirs="false">
-			<fileset dir="${kopano-themes-folder}">
+		<echo message="Copying ${grommunio-themes-folder} to ${target-folder}/${grommunio-themes-target-folder}"/>
+		<copy todir="${target-folder}/${grommunio-themes-target-folder}" includeEmptyDirs="false">
+			<fileset dir="${grommunio-themes-folder}">
 				<exclude name="**/*.js"/>
 			</fileset>
 		</copy>
 
 		<!-- Copy the iconsets -->
-		<echo message="Copying ${kopano-iconsets-folder} to ${target-folder}/${kopano-iconsets-target-folder}"/>
-		<copy todir="${target-folder}/${kopano-iconsets-target-folder}" includeEmptyDirs="false">
-			<fileset dir="${kopano-iconsets-folder}">
+		<echo message="Copying ${grommunio-iconsets-folder} to ${target-folder}/${grommunio-iconsets-target-folder}"/>
+		<copy todir="${target-folder}/${grommunio-iconsets-target-folder}" includeEmptyDirs="false">
+			<fileset dir="${grommunio-iconsets-folder}">
 				<exclude name="extensions.json"/>
 				<exclude name="breeze/extensions-breeze.json"/>
 				<exclude name="**/src/**/*"/>

@@ -1,16 +1,16 @@
 <?php
-require_once('classes/KopanoUser.php');
+require_once('classes/grommunioUser.php');
 require_once('classes/BusytimeUser.php');
 require_once('classes/CalendarUser.php');
 require_once('classes/TestData.php');
-require_once('classes/KopanoTest.php');
+require_once('classes/grommunioTest.php');
 
 /**
  * BusytimeTest
  *
  * Tests all cases for loading the busytimes
  */
-class BusytimeTest extends KopanoTest {
+class BusytimeTest extends grommunioTest {
 
 	/**
 	 * The default user which is creating the appointments
@@ -39,8 +39,8 @@ class BusytimeTest extends KopanoTest {
 	{
 		parent::setUp();
 
-		$this->user = $this->addUser(new BusytimeUser(new KopanoUser(KOPANO_USER1_NAME, KOPANO_USER1_PASSWORD)));
-		$this->calendarUser = $this->addUser(new CalendarUser(new KopanoUser(KOPANO_USER1_NAME, KOPANO_USER1_PASSWORD)));
+		$this->user = $this->addUser(new BusytimeUser(new grommunioUser(GROMMUNIO_USER1_NAME, GROMMUNIO_USER1_PASSWORD)));
+		$this->calendarUser = $this->addUser(new CalendarUser(new grommunioUser(GROMMUNIO_USER1_NAME, GROMMUNIO_USER1_PASSWORD)));
 
 		$this->startDate = mktime(0, 0, 0, date("n") + 1, 1, date("Y"));
 		$this->dueDate = mktime(0, 0, 0, date("n") + 2, 1, date("Y"));

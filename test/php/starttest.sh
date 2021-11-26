@@ -2,18 +2,18 @@
 
 set -eu
 
-KOPANO_SOCKET=${KOPANO_SOCKET:-file:///run/kopano/server.sock}
+GROMMUNIO_SOCKET=${GROMMUNIO_SOCKET:-file:///run/grommunio/server.sock}
 
 if [ "$CI" -eq "1" ]; then
 	if [ -x "$(command -v dockerize)" ]; then
-		dockerize -wait $KOPANO_SOCKET -timeout 60s
+		dockerize -wait $GROMMUNIO_SOCKET -timeout 60s
 	fi
 fi
 
 echo "Sync users"
 count=0
 while true; do
-	if kopano-admin --sync; then
+	if grommunio-admin --sync; then
 		break
 	fi
 
@@ -25,10 +25,10 @@ while true; do
 	sleep 1
 done
 
-kopano-admin -l
+grommunio-admin -l
 
 # Create public store
-kopano-storeadm -h default: -P
+grommunio-storeadm -h default: -P
 
 echo 'Deploy WebApp'
 

@@ -273,7 +273,7 @@ describe('JsonReader', function() {
 				"body": "b",
 				"sent_representing_entryid": "00000000AC21A95040D3EE48B319FBA753304425010000000600000000000000000000000000000000000001EID",
 				"sent_representing_name": "jane",
-				"sent_representing_email_address": "jane@kopano.local",
+				"sent_representing_email_address": "jane@grommunio.local",
 				"sent_representing_address_type": "EX",
 				"isHTML": false
 			    },
@@ -284,7 +284,7 @@ describe('JsonReader', function() {
 					"props": {
 					    "display_name": "John Doe",
 					    "email_address": "john",
-					    "smtp_address": "john@kopano.local",
+					    "smtp_address": "john@grommunio.local",
 					    "address_type": "EX",
 					    "object_type": 6,
 					    "recipient_type": 1,
@@ -299,7 +299,7 @@ describe('JsonReader', function() {
 					"props": {
 					    "display_name": "Jane Doe",
 					    "email_address": "jane",
-					    "smtp_address": "jane@kopano.local",
+					    "smtp_address": "jane@grommunio.local",
 					    "address_type": "EX",
 					    "object_type": 6,
 					    "recipient_type": 2,

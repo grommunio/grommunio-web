@@ -1,12 +1,12 @@
 <?php
-require_once('classes/KopanoTest.php');
+require_once('classes/grommunioTest.php');
 
 /**
  * SettingsFilterTest
  *
  * Tests the logic behind the filtering settings.
  */
-class SettingsFilterTest extends KopanoTest {
+class SettingsFilterTest extends grommunioTest {
 
 	protected static $settings;
 

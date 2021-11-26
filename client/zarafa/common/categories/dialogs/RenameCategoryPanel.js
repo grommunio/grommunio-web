@@ -248,7 +248,7 @@ Zarafa.common.categories.dialogs.RenameCategoryPanel = Ext.extend(Zarafa.core.ui
 		// If merging category is standard category then
 		// save it into merged_categories object of persistent setting model.
 		if(!Ext.isEmpty(category.get('standardIndex'))) {
-			container.getPersistentSettingsModel().set('kopano/main/merged_categories/'+category.get('standardIndex'), category.get('category'));
+			container.getPersistentSettingsModel().set('grommunio/main/merged_categories/'+category.get('standardIndex'), category.get('category'));
 		}
 		var categoryRecord = this.findCategory(this.categoryName);
 		this.doRenameCategory(categoryRecord, category.get('category'));

@@ -1,15 +1,15 @@
 <?php
-require_once('classes/KopanoUser.php');
+require_once('classes/grommunioUser.php');
 require_once('classes/TaskUser.php');
 require_once('classes/TestData.php');
-require_once('classes/KopanoTest.php');
+require_once('classes/grommunioTest.php');
 
 /**
  * SearchTasksTest
  *
  * Tests all possible cases for searching Tasks
  */
-class SearchTasksTest extends KopanoTest {
+class SearchTasksTest extends grommunioTest {
 	/**
 	 * The default user
 	 */
@@ -27,7 +27,7 @@ class SearchTasksTest extends KopanoTest {
 	{
 		parent::setUp();
 
-		$this->user = $this->addUser(new TaskUser(new KopanoUser(KOPANO_USER1_NAME, KOPANO_USER1_PASSWORD)));
+		$this->user = $this->addUser(new TaskUser(new grommunioUser(GROMMUNIO_USER1_NAME, GROMMUNIO_USER1_PASSWORD)));
 
 		$this->message = array(
 			'props' => TestData::getTask(),

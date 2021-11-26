@@ -104,7 +104,7 @@ pipeline {
 			}
 			post {
 				always {
-					 sh 'make -C test/php test-kopano-ci-clean'
+					 sh 'make -C test/php test-grommunio-ci-clean'
 				}
 			}
 		}

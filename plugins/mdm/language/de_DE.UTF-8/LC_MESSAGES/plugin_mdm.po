@@ -4,8 +4,6 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-07-05 14:37+0200\n"
 "PO-Revision-Date: 2020-08-04 08:36+0000\n"
-"Last-Translator: Mathias <m.kuemmerle@kopano.com>\n"
-"Language-Team: German <http://translate.kopano.io/projects/kopano/mdm/de/>\n"
 "Language: de_DE\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -75,9 +73,6 @@ msgstr "Kurze Ordner IDs"
 
 msgid "Policy name"
 msgstr "Richtlinien Name"
-
-msgid "Kopano Outlook Extension"
-msgstr "Kopano Outlook Extension"
 
 msgid "Version"
 msgstr "Version"

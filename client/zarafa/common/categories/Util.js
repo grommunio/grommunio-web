@@ -333,7 +333,7 @@ Zarafa.common.categories.Util = {
 	getCategoryNameByFlagColor: function(flagColorIndex)
 	{
 		var settingsModel = container.getPersistentSettingsModel();
-		var categories = settingsModel.get('kopano/main/categories', true);
+		var categories = settingsModel.get('grommunio/main/categories', true);
 		var retVal = '';
 		Ext.iterate(categories, function(category){
 			if ( category.standardIndex === flagColorIndex ){
@@ -343,7 +343,7 @@ Zarafa.common.categories.Util = {
 		});
 
 		if (!Ext.isEmpty(flagColorIndex)) {
-			var mergedCategory = settingsModel.get('kopano/main/merged_categories/'+flagColorIndex, true);
+			var mergedCategory = settingsModel.get('grommunio/main/merged_categories/'+flagColorIndex, true);
 			if(mergedCategory) {
 				retVal = mergedCategory;
 			}

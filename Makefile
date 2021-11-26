@@ -89,7 +89,7 @@ css:
 	find $(DESTDIR)/client -name "*.css" -exec $(CSSCOMPILER) -o {}.min {} \; -exec mv {}.min {} \;
 	find $(DESTDIR)/plugins -name "*.css" -exec $(CSSCOMPILER) -o {}.min {} \; -exec mv {}.min {} \;
 
-js: $(JSDEPLOY)/fingerprint.js $(JSDEPLOY)/resize.js $(TEMPATEJSDEST) $(JSDEPLOY)/kopano.js $(JSDEPLOY)/extjs-mod/extjs-mod.js $(JSDEPLOY)/extjs/ext-base-all.js $(DESTDIR)/client/third-party/ux-thirdparty.js $(DEPLOYPURIFYJS) $(JSDEPLOY)/filepreviewer/pdfjs/build/pdf.worker.js $(JSDEPLOY)/filepreviewer/pdfjs/build/pdf.js $(JSDEPLOY)/filepreviewer/pdfjs/web/viewer.js
+js: $(JSDEPLOY)/fingerprint.js $(JSDEPLOY)/resize.js $(TEMPATEJSDEST) $(JSDEPLOY)/grommunio.js $(JSDEPLOY)/extjs-mod/extjs-mod.js $(JSDEPLOY)/extjs/ext-base-all.js $(DESTDIR)/client/third-party/ux-thirdparty.js $(DEPLOYPURIFYJS) $(JSDEPLOY)/filepreviewer/pdfjs/build/pdf.worker.js $(JSDEPLOY)/filepreviewer/pdfjs/build/pdf.js $(JSDEPLOY)/filepreviewer/pdfjs/web/viewer.js
 	cp -r client/tinymce $(DESTDIR)/client/
 	cp -r client/tinymce-languages $(DESTDIR)/client/
 	cp -r client/tinymce-plugins $(DESTDIR)/client/
@@ -128,8 +128,8 @@ $(JSDEPLOY)/fingerprint.js: client/fingerprint.js
 	cat client/fingerprint.js > $(JSDEPLOY)/fingerprint-debug.js
 	$(JSCOMPILER) --js $< --js_output_file $@ $(JSOPTIONS)
 
-$(JSDEPLOY)/kopano.js: $(JSFILES)
-	$(PHP) tools/loadorder.php kopano $(@:.js=-debug.js)
+$(JSDEPLOY)/grommunio.js: $(JSFILES)
+	$(PHP) tools/loadorder.php grommunio $(@:.js=-debug.js)
 	$(JSCOMPILER) --js $(@:.js=-debug.js) --js_output_file $@ \
 		--source_map_location_mapping=$(JSDEPLOY)/\| \
 		--output_wrapper="%output%//# sourceMappingURL=$(shell basename $@.map)" \

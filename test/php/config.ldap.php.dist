@@ -9,7 +9,7 @@ if (!class_exists('\PHPUnit_Framework_TestCase') && class_exists('\PHPUnit\Frame
 // BLOCK_SIZE (in bytes) is used for attachments by mapi_stream_read/mapi_stream_write
 define('BLOCK_SIZE', 1048576);
 
-// Default Kopano server to connect to.
+// Default grommunio server to connect to.
 define("DEFAULT_SERVER",	"default:");
 
 // Load the defines for the webapp.
@@ -62,28 +62,28 @@ $_SERVER['HTTP_USER_AGENT'] = 'phpunit';
 define('GROMMUNIO_USER1_NAME', 'user1');
 define('GROMMUNIO_USER1_PASSWORD', 'user1');
 define('GROMMUNIO_USER1_DISPLAY_NAME', 'Jonas Brekke');
-define('GROMMUNIO_USER1_EMAIL_ADDRESS', 'user1@kopano.demo');
+define('GROMMUNIO_USER1_EMAIL_ADDRESS', 'user1@grommunio.demo');
 define('GROMMUNIO_USER2_NAME', 'user2');
 define('GROMMUNIO_USER2_PASSWORD', 'user2');
 define('GROMMUNIO_USER2_DISPLAY_NAME', 'Timmothy Schöwalter');
-define('GROMMUNIO_USER2_EMAIL_ADDRESS', 'user2@kopano.demo');
+define('GROMMUNIO_USER2_EMAIL_ADDRESS', 'user2@grommunio.demo');
 define('GROMMUNIO_USER3_NAME', 'user3');
 define('GROMMUNIO_USER3_PASSWORD', 'user3');
 define('GROMMUNIO_USER3_DISPLAY_NAME', 'Marijn Peters');
-define('GROMMUNIO_USER3_EMAIL_ADDRESS', 'user3@kopano.demo');
+define('GROMMUNIO_USER3_EMAIL_ADDRESS', 'user3@grommunio.demo');
 define('GROMMUNIO_USER4_NAME', 'user4');
 define('GROMMUNIO_USER4_PASSWORD', 'user4');
 define('GROMMUNIO_USER4_DISPLAY_NAME', 'Henk de Vries');
-define('GROMMUNIO_USER4_EMAIL_ADDRESS', 'user4@kopano.demo');
+define('GROMMUNIO_USER4_EMAIL_ADDRESS', 'user4@grommunio.demo');
 define('GROMMUNIO_USER5_NAME', 'user5');
 define('GROMMUNIO_USER5_PASSWORD', 'user5');
 define('GROMMUNIO_USER5_DISPLAY_NAME', 'Joep Goderts');
-define('GROMMUNIO_USER5_EMAIL_ADDRESS', 'user5@kopano.demo');
+define('GROMMUNIO_USER5_EMAIL_ADDRESS', 'user5@grommunio.demo');
 
 # Groups
 define('GROMMUNIO_GROUP1_NAME', 'sales');
 define('GROMMUNIO_GROUP1_DISPLAY_NAME', 'sales');
-define('GROMMUNIO_GROUP1_EMAIL_ADDRESS', 'sales@kopano.demo');
+define('GROMMUNIO_GROUP1_EMAIL_ADDRESS', 'sales@grommunio.demo');
 
 # Resolve stuff
 define('GROMMUNIO_RESOLVE_CHARACTER', 'j');

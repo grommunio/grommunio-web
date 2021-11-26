@@ -1,14 +1,14 @@
 <?php
-require_once('classes/KopanoUser.php');
+require_once('classes/grommunioUser.php');
 require_once('classes/TestUser.php');
-require_once('classes/KopanoTest.php');
+require_once('classes/grommunioTest.php');
 
 /**
  * SettingsTest
  *
  * Tests the logic behind the saving and deleting of settings.
  */
-class SettingsTest extends KopanoTest {
+class SettingsTest extends grommunioTest {
 	/**
 	 * The user which is saving the settings
 	 */
@@ -22,7 +22,7 @@ class SettingsTest extends KopanoTest {
 		$this->cleanFolders = false;
 		parent::setUp();
 
-		$this->user = $this->addUser(new TestUser(new KopanoUser(KOPANO_USER1_NAME, KOPANO_USER1_PASSWORD)));
+		$this->user = $this->addUser(new TestUser(new grommunioUser(GROMMUNIO_USER1_NAME, GROMMUNIO_USER1_PASSWORD)));
 	}
 
 	/**

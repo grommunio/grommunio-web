@@ -1,12 +1,12 @@
 <?php
-require_once('classes/KopanoTest.php');
+require_once('classes/grommunioTest.php');
 
 /**
  * ABEntryidTest
  *
  * Tests comparing entryids
  */
-class ABEntryidTest extends KopanoTest {
+class ABEntryidTest extends grommunioTest {
 
 	// Addressbook entryid
 	private $abEntryId1 = '00000000AC21A95040D3EE48B319FBA7533044250100000006000000390400004D6A41334D5449774E7A453D00000000';

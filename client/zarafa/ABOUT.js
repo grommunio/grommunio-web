@@ -4,7 +4,7 @@ Ext.namespace('Zarafa');
  * @class Zarafa.ABOUT
  * @extends String
  *
- * The copyright string holding the copyright notice for the WebApp.
+ * The copyright string holding the copyright notice for grommunio Web.
  */
 
 Zarafa.ABOUT = ""

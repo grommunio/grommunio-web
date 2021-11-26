@@ -79,7 +79,7 @@ Zarafa.core.ColorSchemes = {
 	 * Converts a hexadecimal RGB color value into an object with
 	 * red, green, and blue fields
 	 * @param {String} hexColor A hexadecimal RGB color value
-	 * (e.g. '#0067AC for Kopano Blue)
+	 * (e.g. '#0067AC for grommunio Blue)
 	 * @return {Object} An object with decimal red, green, and blue values
 	 * @private
 	 */
@@ -187,7 +187,7 @@ Zarafa.core.ColorSchemes = {
 	 * will be used if a name for the color scheme must be shown
 	 * to the user.
 	 * @param {String} baseColor an RGB hexadecimal color value
-	 * (e.g. '#0067AC for Kopano Blue)
+	 * (e.g. '#0067AC for grommunio Blue)
 	 */
 	createColorScheme: function(name, displayName, baseColor)
 	{

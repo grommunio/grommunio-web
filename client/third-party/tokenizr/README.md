@@ -1,4 +1,4 @@
-# Tokenizr in Kopano WebApp
+# Tokenizr in grommunio Web
 
 The tokenizr library can be found at https://github.com/rse/tokenizr
 

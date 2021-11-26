@@ -79,7 +79,7 @@ if ( defined('ADDITIONAL_CATEGORIES') ){
 			echo Theming::getStyles($theme);
 			$iconsetStylesheet = Iconsets::getActiveStylesheet();
 		?>
-		<link id="kopano-iconset-stylesheet" rel="stylesheet" href="<?php echo $iconsetStylesheet; ?>" >
+		<link id="grommunio-iconset-stylesheet" rel="stylesheet" href="<?php echo $iconsetStylesheet; ?>" >
 	</head>
 
 	<body class="zarafa-webclient theme-<?php echo strtolower($theme ? $theme : 'basic'); echo ' '. $hideFavorites; echo ' '. $scrollFavorites; echo ' '. $unreadBorders ?>">

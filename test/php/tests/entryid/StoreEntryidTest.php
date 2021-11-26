@@ -1,12 +1,12 @@
 <?php
-require_once('classes/KopanoTest.php');
+require_once('classes/grommunioTest.php');
 
 /**
  * StoreEntryidTest
  *
  * Tests comparing store entryids
  */
-class StoreEntryidTest extends KopanoTest {
+class StoreEntryidTest extends grommunioTest {
 
 	/**
 	 * pseudo url as server name

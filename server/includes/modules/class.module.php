@@ -264,7 +264,7 @@
 
 				} else if($exception instanceof ZarafaException) {
 					$exception->setHandled();
-					$kopanoError = array(
+					$grommunioError = array(
 						"type" => ERROR_ZARAFA,
 						"info" => array(
 							"file" => $exception->getFileLine(),
@@ -273,7 +273,7 @@
 							"original_message" => $exception->getMessage()
 						)
 					);
-					return $kopanoError;
+					return $grommunioError;
 				}
 			}
 

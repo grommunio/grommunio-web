@@ -38,7 +38,7 @@ describe('AppointmentRecord', function() {
 		});
 
 		it('can take optional argument', function() {
-			expect(record.generateMeetingTimeInfo('Kopano is great')).toContain('Kopano is great');
+			expect(record.generateMeetingTimeInfo('grommunio is great')).toContain('grommunio is great');
 		});
 	});
 

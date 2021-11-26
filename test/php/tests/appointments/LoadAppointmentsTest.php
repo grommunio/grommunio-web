@@ -1,16 +1,16 @@
 <?php
-require_once('classes/KopanoUser.php');
+require_once('classes/grommunioUser.php');
 require_once('classes/CalendarUser.php');
 require_once('classes/HierarchyUser.php');
 require_once('classes/TestData.php');
-require_once('classes/KopanoTest.php');
+require_once('classes/grommunioTest.php');
 
 /**
  * LoadingAppointmentsTest
  *
  * Tests all possible cases for loading Appointments
  */
-class LoadAppointmentsTest extends KopanoTest {
+class LoadAppointmentsTest extends grommunioTest {
 	/**
 	 * The default user which is creating the appointments
 	 */
@@ -33,8 +33,8 @@ class LoadAppointmentsTest extends KopanoTest {
 	{
 		parent::setUp();
 
-		$this->user = $this->addUser(new CalendarUser(new KopanoUser(KOPANO_USER1_NAME, KOPANO_USER1_PASSWORD)));
-		$this->hierarchyUser = $this->addUser(new HierarchyUser(new KopanoUser(KOPANO_USER1_NAME, KOPANO_USER1_PASSWORD)));
+		$this->user = $this->addUser(new CalendarUser(new grommunioUser(GROMMUNIO_USER1_NAME, GROMMUNIO_USER1_PASSWORD)));
+		$this->hierarchyUser = $this->addUser(new HierarchyUser(new grommunioUser(GROMMUNIO_USER1_NAME, GROMMUNIO_USER1_PASSWORD)));
 
 		$this->appointment = array(
 			'props' => TestData::getAppointment()

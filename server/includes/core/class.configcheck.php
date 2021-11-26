@@ -114,7 +114,7 @@ class ConfigCheck
 		}
 
 		// This is not 100% accurate, so it needs to be improved a bit.
-		$result = "sites-enabled" . DIRECTORY_SEPARATOR . "kopano-webapp";
+		$result = "sites-enabled" . DIRECTORY_SEPARATOR . "grommunio-web";
 
 		ob_start();
 		phpinfo(INFO_MODULES);
@@ -311,7 +311,7 @@ class ConfigCheck
 
 		switch ($loader) {
 		case LOAD_RELEASE:
-			if (!is_file(BASE_PATH . '/client/kopano.js')) {
+			if (!is_file(BASE_PATH . '/client/grommunio.js')) {
 				$this->error('<strong>LOAD_RELEASE configured, but no release files found</strong>', $help_msg);
 				$result = false;
 			} else if (is_dir(BASE_PATH . '/client/zarafa')) {
@@ -332,7 +332,7 @@ class ConfigCheck
 			if (!is_dir(BASE_PATH . '/client/zarafa')) {
 				$this->error('<strong>LOAD_SOURCE configured, but no source files found</strong>', $help_msg);
 				$result = false;
-			} else if (is_file(BASE_PATH . '/client/kopano.js') || is_file(BASE_PATH . '/client/zarafa-debug.js')) {
+			} else if (is_file(BASE_PATH . '/client/grommunio.js') || is_file(BASE_PATH . '/client/zarafa-debug.js')) {
 				$this->error('<strong>LOAD_SOURCE configured, but release & debug file were found</strong>', $help_msg);
 				$result = false;
 			}

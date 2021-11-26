@@ -677,7 +677,7 @@
 			try {
 				$searchRootFolder = mapi_msgstore_openentry($store, $storeProps[PR_FINDER_ENTRYID]);
 			} catch (MAPIException $e) {
-				$msg ="Unable to open FINDER_ROOT for store: %s. Run kopano-search-upgrade-findroots.py to resolve the permission issue";
+				$msg ="Unable to open FINDER_ROOT for store: %s.";
 				error_log(sprintf($msg, $storeProps[PR_DISPLAY_NAME]));
 				// don't propagate the event to higher level exception handlers
 				$e->setHandled();

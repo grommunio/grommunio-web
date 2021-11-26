@@ -1,17 +1,17 @@
 <?php
-require_once('classes/KopanoUser.php');
+require_once('classes/grommunioUser.php');
 require_once('classes/ReminderUser.php');
 require_once('classes/CalendarUser.php');
 require_once('classes/TaskUser.php');
 require_once('classes/TestData.php');
-require_once('classes/KopanoTest.php');
+require_once('classes/grommunioTest.php');
 
 /**
  * LoadReminderTest
  *
  * Tests all possible cases for loading reminders
  */
-class LoadReminderTest extends KopanoTest {
+class LoadReminderTest extends grommunioTest {
 	/**
 	 * The default user
 	 */
@@ -24,13 +24,13 @@ class LoadReminderTest extends KopanoTest {
 	{
 		parent::setUp();
 
-		$this->user = $this->addUser(new ReminderUser(new KopanoUser(KOPANO_USER1_NAME, KOPANO_USER1_PASSWORD)));
+		$this->user = $this->addUser(new ReminderUser(new grommunioUser(GROMMUNIO_USER1_NAME, GROMMUNIO_USER1_PASSWORD)));
 
 		$this->message = array(
 			'props' => TestData::getMail(),
 			'recipients' => array(
 				'add' => array(
-					TestData::getSMTPRecipient(KOPANO_USER2_DISPLAY_NAME, KOPANO_USER2_EMAIL_ADDRESS)
+					TestData::getSMTPRecipient(GROMMUNIO_USER2_DISPLAY_NAME, GROMMUNIO_USER2_EMAIL_ADDRESS)
 				)
 			)
 		);
@@ -77,7 +77,7 @@ class LoadReminderTest extends KopanoTest {
 		$end = mktime(date('H'), date('i') + 39, date('s') + 10);
 		$flag = mktime(date('H'), date('i'), date('s') + 0.8);
 
-		$calendarUser = $this->addUser(new CalendarUser(new KopanoUser(KOPANO_USER1_NAME, KOPANO_USER1_PASSWORD)));
+		$calendarUser = $this->addUser(new CalendarUser(new grommunioUser(GROMMUNIO_USER1_NAME, GROMMUNIO_USER1_PASSWORD)));
 		$appointment = $calendarUser->saveAppointment(array(
 			'props' => TestData::getAppointment(array(
 				'startdate' => $start,
@@ -122,7 +122,7 @@ class LoadReminderTest extends KopanoTest {
 			$end = mktime(date('H'), date('i') + 40, date('s') + 10);
 			$flag = mktime(date('H'), date('i'), date('s') + 1);
 
-			$calendarUser = $this->addUser(new CalendarUser(new KopanoUser(KOPANO_USER1_NAME, KOPANO_USER1_PASSWORD)));
+			$calendarUser = $this->addUser(new CalendarUser(new grommunioUser(GROMMUNIO_USER1_NAME, GROMMUNIO_USER1_PASSWORD)));
 			$appointment = $calendarUser->saveAppointment(array(
 				'props' => TestData::getAppointment(array(
 					'startdate' => $start,
@@ -163,7 +163,7 @@ class LoadReminderTest extends KopanoTest {
 		$end = mktime(date('H'), date('i') + 40, date('s') + 10);
 		$flag = mktime(date('H'), date('i'), date('s') + 1);
 
-		$calendarUser = $this->addUser(new CalendarUser(new KopanoUser(KOPANO_USER1_NAME, KOPANO_USER1_PASSWORD)));
+		$calendarUser = $this->addUser(new CalendarUser(new grommunioUser(GROMMUNIO_USER1_NAME, GROMMUNIO_USER1_PASSWORD)));
 		$appointment = $calendarUser->saveAppointment(array(
 			'props' => TestData::getAppointment(array(
 				'startdate' => $start,
@@ -224,7 +224,7 @@ class LoadReminderTest extends KopanoTest {
 			$end = mktime(date('H'), date('i') + 40, date('s') + 10);
 			$flag = mktime(date('H'), date('i'), date('s') + 1);
 
-			$calendarUser = $this->addUser(new CalendarUser(new KopanoUser(KOPANO_USER1_NAME, KOPANO_USER1_PASSWORD)));
+			$calendarUser = $this->addUser(new CalendarUser(new grommunioUser(GROMMUNIO_USER1_NAME, GROMMUNIO_USER1_PASSWORD)));
 			$appointment = $calendarUser->saveAppointment(array(
 				'props' => TestData::getAppointment(array(
 					'startdate' => $start,
@@ -266,7 +266,7 @@ class LoadReminderTest extends KopanoTest {
 		$end = mktime(date('H'), date('i') + 40, date('s') + 10);
 		$flag = mktime(date('H'), date('i'), date('s') + 1);
 
-		$calendarUser = $this->addUser(new CalendarUser(new KopanoUser(KOPANO_USER1_NAME, KOPANO_USER1_PASSWORD)));
+		$calendarUser = $this->addUser(new CalendarUser(new grommunioUser(GROMMUNIO_USER1_NAME, GROMMUNIO_USER1_PASSWORD)));
 		$appointment = $calendarUser->saveAppointment(array(
 			'props' => TestData::getAppointment(array(
 				'startdate' => $start,
@@ -314,7 +314,7 @@ class LoadReminderTest extends KopanoTest {
 		// Set the flag time 5 seconds in the future
 		$flag = mktime(date('H'), date('i'), date('s') + 1);
 
-		$taskUser = $this->addUser(new TaskUser(new KopanoUser(KOPANO_USER1_NAME, KOPANO_USER1_PASSWORD)));
+		$taskUser = $this->addUser(new TaskUser(new grommunioUser(GROMMUNIO_USER1_NAME, GROMMUNIO_USER1_PASSWORD)));
 		$task = $taskUser->saveTask(array(
 			'props' => TestData::getTask(array(
 				'reminder' => true,
@@ -351,7 +351,7 @@ class LoadReminderTest extends KopanoTest {
 			// Set the flag time 5 seconds in the future
 			$flag = mktime(date('H'), date('i'), date('s') + 1);
 
-			$taskUser = $this->addUser(new TaskUser(new KopanoUser(KOPANO_USER1_NAME, KOPANO_USER1_PASSWORD)));
+			$taskUser = $this->addUser(new TaskUser(new grommunioUser(GROMMUNIO_USER1_NAME, GROMMUNIO_USER1_PASSWORD)));
 			$taskUser->saveTask(array(
 				'props' => TestData::getTask(array(
 					'reminder' => true,
@@ -386,7 +386,7 @@ class LoadReminderTest extends KopanoTest {
 		// Set the flag time 1 seconds in the future
 		$flag = mktime(date('H'), date('i'), date('s') + 1);
 
-		$taskUser = $this->addUser(new TaskUser(new KopanoUser(KOPANO_USER1_NAME, KOPANO_USER1_PASSWORD)));
+		$taskUser = $this->addUser(new TaskUser(new grommunioUser(GROMMUNIO_USER1_NAME, GROMMUNIO_USER1_PASSWORD)));
 		$task = $taskUser->saveTask(array(
 			'props' => TestData::getTask(array(
 				'reminder' => true,
@@ -440,7 +440,7 @@ class LoadReminderTest extends KopanoTest {
 			// Set the flag time 2 seconds in the future
 			$flag = mktime(date('H'), date('i'), date('s') + 1);
 
-			$taskUser = $this->addUser(new TaskUser(new KopanoUser(KOPANO_USER1_NAME, KOPANO_USER1_PASSWORD)));
+			$taskUser = $this->addUser(new TaskUser(new grommunioUser(GROMMUNIO_USER1_NAME, GROMMUNIO_USER1_PASSWORD)));
 			$taskUser->saveTask(array(
 				'props' => TestData::getTask(array(
 					'reminder' => true,
@@ -475,7 +475,7 @@ class LoadReminderTest extends KopanoTest {
 		// Set the flag time 5 seconds in the future
 		$flag = mktime(date('H'), date('i'), date('s') + 1);
 
-		$taskUser = $this->addUser(new TaskUser(new KopanoUser(KOPANO_USER1_NAME, KOPANO_USER1_PASSWORD)));
+		$taskUser = $this->addUser(new TaskUser(new grommunioUser(GROMMUNIO_USER1_NAME, GROMMUNIO_USER1_PASSWORD)));
 		$taskUser->saveTask(array(
 			'props' => TestData::getTask(array(
 				'reminder' => true,

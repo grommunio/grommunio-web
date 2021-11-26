@@ -1,10 +1,10 @@
 <?php
-require_once('classes/KopanoTest.php');
+require_once('classes/grommunioTest.php');
 
 /**
  * json_decode_data test
  */
-class JsonDecodeDataTest extends KopanoTest {
+class JsonDecodeDataTest extends grommunioTest {
 	/**
 	 * @expectedException JSONException
 	 * @expectedExceptionMessage JSON Error: - Syntax error

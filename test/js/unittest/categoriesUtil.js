@@ -18,7 +18,7 @@
 describe('Zarafa.common.categories.Util', function() {
     const initializePersistentSettings = () => {
         container.getPersistentSettingsModel().initialize({
-    		kopano : {
+		grommunio : {
     			main : {
     				categories : [{
     					'name' : 'Red',

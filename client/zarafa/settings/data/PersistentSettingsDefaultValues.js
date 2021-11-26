@@ -22,10 +22,10 @@ Zarafa.settings.data.PersistentSettingsDefaultValue = function(){
 			}
 
 			return {
-				'kopano': {
+				'grommunio': {
 					'main': {
 						/**
-						 * kopano/main/merged_categories
+						 * grommunio/main/merged_categories
 						 * merged_categories object holds new name of standard category
 						 * followed by standard category index.
 						 * e.g. {6:VIP,..} where 6 is standard_index of Red category.
@@ -35,7 +35,7 @@ Zarafa.settings.data.PersistentSettingsDefaultValue = function(){
 						'merged_categories': {},
 
 						/**
-						 * kopano/main/categories
+						 * grommunio/main/categories
 						 * @property
 						 * @type String[]
 						 */

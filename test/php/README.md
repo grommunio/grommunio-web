@@ -18,7 +18,7 @@ The following steps are required to run the tests:
 * Settings are cleaned on every tests, causing a performance penalty. (TestUser->deleteSetting)
 * cleanSearchFolders is called often and causes a lot of mapi_folder_deletefolder, which is slow and
   not needed. This saves 3 seconds for DistlistTest.php for example.
-* Search tests fail when kopano-search is running, unknown why.
+* Search tests fail when grommunio-search is running, unknown why.
 * Fix commented out tests in tests/restore (search for 'xtest')
 * Fix testLoadAppointmentReminders which randomly fails
 * Fix PermissionsTest on the store, cleanFolders does not clean up the PR_IPM_SUBTREE_ENTRYID permissions.

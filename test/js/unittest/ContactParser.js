@@ -429,27 +429,27 @@ describe('ContactParser', function() {
 			expect(phoneParts['extension']).toEqual('');
 		});
 
-		it('can parse \'0900KOPANO\' correctly', function() {
-			const phoneParts = parser.parseInfo('phone', '0900KOPANO');
+		it('can parse \'0900GROMMUNIO\' correctly', function() {
+			const phoneParts = parser.parseInfo('phone', '0900GROMMUNIO');
 			expect(phoneParts['country_code']).toEqual('');
 			expect(phoneParts['city_code']).toEqual('');
-			expect(phoneParts['local_number']).toEqual('0900KOPANO');
+			expect(phoneParts['local_number']).toEqual('0900GROMMUNIO');
 			expect(phoneParts['extension']).toEqual('');
 		});
 
-		it('can parse \'0900 KOPANO\' correctly', function() {
-			const phoneParts = parser.parseInfo('phone', '0900 KOPANO');
+		it('can parse \'0900 GROMMUNIO\' correctly', function() {
+			const phoneParts = parser.parseInfo('phone', '0900 GROMMUNIO');
 			expect(phoneParts['country_code']).toEqual('');
 			expect(phoneParts['city_code']).toEqual('0900');
-			expect(phoneParts['local_number']).toEqual('KOPANO');
+			expect(phoneParts['local_number']).toEqual('GROMMUNIO');
 			expect(phoneParts['extension']).toEqual('');
 		});
 
-		it('can parse \'0900 KOPANO\' correctly', function() {
-			const phoneParts = parser.parseInfo('phone', '0900 KOPANO');
+		it('can parse \'0900 GROMMUNIO\' correctly', function() {
+			const phoneParts = parser.parseInfo('phone', '0900 GROMMUNIO');
 			expect(phoneParts['country_code']).toEqual('');
 			expect(phoneParts['city_code']).toEqual('0900');
-			expect(phoneParts['local_number']).toEqual('KOPANO');
+			expect(phoneParts['local_number']).toEqual('GROMMUNIO');
 			expect(phoneParts['extension']).toEqual('');
 		});
 

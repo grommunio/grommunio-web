@@ -12,7 +12,7 @@ class EnsureLicense
 	 * User agent which used in ensuing license.
 	 * @var string
 	 */
-	static $productUserAgent = "Kopano Webapp/v-";
+	static $productUserAgent = "grommunio Web/v-";
 
 	/**
 	 * The flag true to indicate it is supported build and it needs to check/validate the license.
@@ -42,7 +42,7 @@ class EnsureLicense
 			kustomer_ensure_ok($beginEnsure, $productName);
 			kustomer_end_ensure($beginEnsure);
 
-			// Validated license by KC
+			// Validated license
 			$store = $GLOBALS["mapisession"]->getDefaultMessageStore();
 			$properties = getPropIdsFromStrings($store, array("license" => "PT_TSTRING:PSETID_KC:0x2"));
 			$props = mapi_getprops($store, array($properties["license"]));

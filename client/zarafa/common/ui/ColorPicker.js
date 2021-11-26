@@ -46,7 +46,7 @@ Zarafa.common.ui.ColorPicker = Ext.extend(Ext.form.Field, {
 		'FF0099', // pink
 		'F17DAA', // charm pink
 		'0F70BD', // blue
-		'00B3F0', // Kopano blue
+		'00B3F0', // grommunio blue
 		'86CFF5', // baby blue
 		'BDC3C7' // silver sand
 	],

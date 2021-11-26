@@ -2,7 +2,7 @@ version: "3.5"
 
 services:
   ldap:
-    image: ${docker_repo:-zokradonh}/kopano_ldap_demo:${LDAP_VERSION:-latest}
+    image: ${docker_repo:-zokradonh}/grommunio_ldap_demo:${LDAP_VERSION:-latest}
     environment:
       - LDAP_ORGANISATION=${LDAP_ORGANISATION}
       - LDAP_DOMAIN=${LDAP_DOMAIN}
@@ -33,30 +33,30 @@ services:
       timeout: 10s
       retries: 4
     networks:
-      - kopano-net
+      - grommunio-net
     tmpfs:
       - /tmp
 
-  kopano_ssl:
-    image: ${docker_repo:-zokradonh}/kopano_ssl
+  grommunio_ssl:
+    image: ${docker_repo:-zokradonh}/grommunio_ssl
     environment:
       - FQDN=${FQDN}
       - PKI_COUNTRY=NL
     read_only: true
     volumes:
-      - kopanossl:/kopano/ssl
+      - grommuniossl:/grommunio/ssl
     tmpfs:
       - /tmp
-      - /kopano/easypki/
+      - /grommunio/easypki/
 
-  kopano_server:
-    image: ${docker_repo:-zokradonh}/kopano_core:${CORE_VERSION:-latest}
+  grommunio_server:
+    image: ${docker_repo:-zokradonh}/grommunio_core:${CORE_VERSION:-latest}
     read_only: false
-    hostname: kopano_server
+    hostname: grommunio_server
     depends_on:
       - db
       - ldap
-      - kopano_ssl
+      - grommunio_ssl
     environment:
       - SERVICE_TO_START=server
       - TZ=${TZ}
@@ -67,13 +67,13 @@ services:
       - KCCONF_SERVER_MYSQL_DATABASE=${MYSQL_DATABASE}
       - KCCONF_SERVER_MYSQL_USER=${MYSQL_USER}
       - KCCONF_SERVER_MYSQL_PASSWORD=${MYSQL_PASSWORD}
-      - KCCONF_SERVER_SERVER_SSL_KEY_FILE=/kopano/ssl/kopano_server.pem
-      - KCCONF_SERVER_SERVER_SSL_CA_FILE=/kopano/ssl/ca.pem
-      - KCCONF_SERVER_SERVER_NAME=Kopano
-      - KCCONF_SERVER_SSLKEYS_PATH=/kopano/ssl/clients
+      - KCCONF_SERVER_SERVER_SSL_KEY_FILE=/grommunio/ssl/grommunio_server.pem
+      - KCCONF_SERVER_SERVER_SSL_CA_FILE=/grommunio/ssl/ca.pem
+      - KCCONF_SERVER_SERVER_NAME=grommunio
+      - KCCONF_SERVER_SSLKEYS_PATH=/grommunio/ssl/clients
       - KCCONF_SERVER_SYSTEM_EMAIL_ADDRESS=${POSTMASTER_ADDRESS}
       - KCCONF_SERVER_SYNC_GAB_REALTIME=no
-      - KCCONF_SERVER_LOCAL_ADMIN_USERS=root kopano testrunner
+      - KCCONF_SERVER_LOCAL_ADMIN_USERS=root grommunio testrunner
       - KCCONF_LDAP_LDAP_URI=${LDAP_SERVER}
       - KCCONF_LDAP_LDAP_BIND_USER=${LDAP_BIND_DN}
       - KCCONF_LDAP_LDAP_BIND_PASSWD=${LDAP_BIND_PW}
@@ -82,40 +82,40 @@ services:
       - KCCOMMENT_LDAP_1=${KCCOMMENT_LDAP_1}
       - EXTRA_LOCAL_ADMIN_USER=${EXTRA_LOCAL_ADMIN_USER}
     networks:
-      - kopano-net
+      - grommunio-net
       - ldap-net
     volumes:
       - /etc/machine-id:/etc/machine-id:ro
       - /var/lib/dbus/machine-id:/var/lib/dbus/machine-id:ro
-      - kopanodata/:/kopano/data
-      - kopanossl/:/kopano/ssl
-      - kopanosocket/:/run/kopano
+      - grommuniodata/:/grommunio/data
+      - grommuniossl/:/grommunio/ssl
+      - grommuniosocket/:/run/grommunio
       - ./prepare-and-start-service.sh:/prepare-and-start-service.sh:ro
     entrypoint: /prepare-and-start-service.sh
     tmpfs:
       - /tmp
 
-  kopano_webapp_test:
+  grommunio_webapp_test:
     build:
       context: .
       dockerfile: Dockerfile
       args:
-        - docker_repo=${docker_repo:-kopano}
-        - kopano_core_version=${CORE_VERSION:-latest}
-    hostname: kopano_test
+        - docker_repo=${docker_repo:-grommunio}
+        - grommunio_core_version=${CORE_VERSION:-latest}
+    hostname: grommunio_test
     depends_on:
       - db
-      - kopano_ssl
-      - kopano_server
+      - grommunio_ssl
+      - grommunio_server
     environment:
       - CI=1
     networks:
-      - kopano-net
+      - grommunio-net
     volumes:
       - /etc/machine-id:/etc/machine-id:ro
       - /var/lib/dbus/machine-id:/var/lib/dbus/machine-id:ro
-      - kopanossl:/kopano/ssl:ro
-      - kopanosocket:/run/kopano
+      - grommuniossl:/grommunio/ssl:ro
+      - grommuniosocket:/run/grommunio
       - ../..:/workspace
     tmpfs:
       - /tmp
@@ -124,12 +124,12 @@ volumes:
   ldap:
   slapd:
   mysql:
-  kopanodata:
-  kopanossl:
-  kopanosocket:
+  grommuniodata:
+  grommuniossl:
+  grommuniosocket:
 
 networks:
-  kopano-net:
+  grommunio-net:
     driver: bridge
   ldap-net:
     driver: bridge

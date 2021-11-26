@@ -4,7 +4,7 @@ Ext.namespace('Zarafa.plugins.desktopnotifications');
  * @class Zarafa.plugins.desktopnotifications.ABOUT
  * @extends String
  *
- * The copyright string holding the copyright notice for the Kopano Desktop Notifications Plugin.
+ * The copyright string holding the copyright notice for the desktop notifications plugin.
  */
 Zarafa.plugins.desktopnotifications.ABOUT = ""
 	+ "<p>Copyright (C) 2021 grommunio GmbH<br>"

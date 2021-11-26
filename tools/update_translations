@@ -86,8 +86,8 @@ POT_FILE=webapp.pot
 # Otherwise xgettext complains
 touch $POT_FILE
 
-# WebApp case
-if [ -f "kopano-webapp.conf" ]; then
+# Web case
+if [ -f "grommunio-web.conf" ]; then
   create_potfile "client/zarafa client/extjs-mod plugins"
 
   if [ -n "${newlang}" ]; then

@@ -6,21 +6,21 @@ Ext.namespace('Zarafa.core');
  * Class for decoding entryids and for comparison between two entryids
  * we have basically two types of entryids object and store entryids.
  *
- * object entryids uses structure EID for entryids created using Kopano Core > 6
+ * object entryids uses structure EID for entryids created
  * and for older entryids it uses structure EID_V0. Store entryids are generally wrapped
  * with some extra information (like guid for provider, dll name) which should be removed
  * before comparing two store entryids, after removing this wrapping the unwrapped entryid
  * uses the format same as object entryids (EID or EID_V0).
  *
- * version flag in EID and EID_V0 are Kopano specific flag and indicates which structure is used
+ * version flag in EID and EID_V0 are specific flags and indicate which structure is used
  * to create that entryid, EID always contains version as '01000000' and EID_V0 always contains
  * '00000000' as version flag.
  *
  * server part of EID and EID_V0 indicates server name and it can be variable length, padding can be
  * upto 3 bytes so it can be anything between 0 to 3 bytes.
  *
- * in public store public root folder, ipm_subtree and favorites folder are custom folders of Kopano
- * so it has static uniqueids.
+ * in public store public root folder, ipm_subtree and favorites folder are custom folders
+ * so they have static uniqueids.
  *
  * @singleton
  */
@@ -128,7 +128,7 @@ Zarafa.core.EntryId = (function()
 		}
 	});
 
-	// The entryid from the begin of Kopano till 5.20
+	// The entryid from the begin
 	var EID_V0 = Ext.extend(BASE_EID, {
 		abFlags: '',      // BYTE[4],  4 bytes, 8 hex characters
 		guid: '',       // GUID,   16 bytes, 32 hex characters
@@ -175,7 +175,7 @@ Zarafa.core.EntryId = (function()
 		providerUID: '',    // GUID,    16 bytes, 32 hex characters
 		version: '',      // ULONG,    1 bytes, 2 hex characters	// zero
 		type: '',       // ULONG,    1 bytes, 2 hex characters	// zero
-		DLLFileName: '',    // BYTE,    variable length				// kopano6client.dll
+		DLLFileName: '',    // BYTE,    variable length
 		terminationChar: '',  // BYTE[1],   1 bytes, 2 hex characters	// zero
 		unWrappedEntryId: '', // EID/EID_V0, variable length because it contains server name
 

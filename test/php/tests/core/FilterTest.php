@@ -1,12 +1,12 @@
 <?php
-require_once('classes/KopanoTest.php');
+require_once('classes/grommunioTest.php');
 
 /**
  * Filter test
  *
  * Tests on the result of the HTML filter safeHTML in the Filter object
  */
-class FilterTest extends KopanoTest {
+class FilterTest extends grommunioTest {
 
 	/**
 	 * The reference to the Filter object
@@ -132,12 +132,12 @@ class FilterTest extends KopanoTest {
 	 */
 	public function testXSSFilterBasePromoteToTop()
 	{
-		$xssString = '<div id="testsafehtml"><base href="kopano.local"></div>';
+		$xssString = '<div id="testsafehtml"><base href="grommunio.local"></div>';
 
 		$result = $this->filter->safeHTML($xssString);
 
 		// stripos returns the index of the found string.
-		$this->assertEquals(0, stripos($result, '<base href="kopano.local" target="_blank" title="This external link will open in a new window" />'), 'Test that the XSS filter promotes base tag to first line');
+		$this->assertEquals(0, stripos($result, '<base href="grommunio.local" target="_blank" title="This external link will open in a new window" />'), 'Test that the XSS filter promotes base tag to first line');
 	}
 
 	/**

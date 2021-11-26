@@ -160,7 +160,7 @@ Zarafa.core.ui.RecordContentPanel = Ext.extend(Zarafa.core.ui.ContentPanel, {
 		config = config || {};
 
 		Ext.applyIf(config, {
-			title: _('Kopano Content Panel')
+			title: _('grommunio Content Panel')
 		});
 
 		// Modal dialogs that will edit the record must work inside the shadowStore.

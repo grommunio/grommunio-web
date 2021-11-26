@@ -163,7 +163,7 @@ if(!defined("ALWAYS_ENABLED_PLUGINS_LIST")) define("ALWAYS_ENABLED_PLUGINS_LIST"
 if(!defined("ENABLE_THEMES")) define("ENABLE_THEMES", true);
 
 /**
- * A theme. When this is not defined or empty or 'default', the default Kopano theme will be loaded.
+ * A theme. When this is not defined or empty or 'default', the default theme will be loaded.
  * The theme should the (directory)name of a installed theme plugin.
  */
 if(!defined("THEME")) define("THEME", "");
@@ -258,8 +258,8 @@ if (!defined("COLOR_SCHEMES")) define("COLOR_SCHEMES", json_encode(array(
 		'base' => '#88d8c0'
 	),
 	array(
-		'name' => 'kopanoblue',
-		'displayName' => _('Kopano blue'),
+		'name' => 'grommunioblue',
+		'displayName' => _('Grommunio blue'),
 		'base' => '#00b3f0'
 	),
 	array(

@@ -658,7 +658,7 @@
 					$props = mapi_getprops($store, array(PR_DISPLAY_NAME));
 					switch($e->getCode()) {
 					case MAPI_E_NO_ACCESS:
-						$msg = "Unable to open FINDER_ROOT for store: %s. Run kopano-search-upgrade-findroots.py to resolve the permission issue";
+						$msg = "Unable to open FINDER_ROOT for store: %s.";
 						error_log(sprintf($msg, $props[PR_DISPLAY_NAME]));
 						break;
 					case MAPI_E_NOT_FOUND:

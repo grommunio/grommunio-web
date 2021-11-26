@@ -1,16 +1,16 @@
 <?php
-require_once('classes/KopanoUser.php');
+require_once('classes/grommunioUser.php');
 require_once('classes/HierarchyUser.php');
 require_once('classes/MailUser.php');
 require_once('classes/TestData.php');
-require_once('classes/KopanoTest.php');
+require_once('classes/grommunioTest.php');
 
 /**
  * FolderContentsTest
  *
  * Tests for updating (empty, mark all as read) folders
  */
-class FolderContentsTest extends KopanoTest {
+class FolderContentsTest extends grommunioTest {
 
 	/**
 	 * The user for which we will open the hierarchy
@@ -34,8 +34,8 @@ class FolderContentsTest extends KopanoTest {
 	{
 		parent::setUp();
 
-		$this->user = $this->addUser(new HierarchyUser(new KopanoUser(KOPANO_USER1_NAME, KOPANO_USER1_PASSWORD)));
-		$this->mailUser = $this->addUser(new MailUser(new KopanoUser(KOPANO_USER1_NAME, KOPANO_USER1_PASSWORD)));
+		$this->user = $this->addUser(new HierarchyUser(new grommunioUser(GROMMUNIO_USER1_NAME, GROMMUNIO_USER1_PASSWORD)));
+		$this->mailUser = $this->addUser(new MailUser(new grommunioUser(GROMMUNIO_USER1_NAME, GROMMUNIO_USER1_PASSWORD)));
 
 		$this->message = array(
 			'props' => TestData::getMail(),

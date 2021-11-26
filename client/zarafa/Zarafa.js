@@ -1039,7 +1039,7 @@ Ext.apply(Zarafa, {
 
 		// Get the stylesheet element that contains the icons as background images
 		// and check all rules in it for SVG icons we can recolor
-		var sheet = document.getElementById('kopano-iconset-stylesheet');
+		var sheet = document.getElementById('grommunio-iconset-stylesheet');
 		for ( var i=0; i<sheet.sheet.cssRules.length; i++ ) {
 			var rule = sheet.sheet.cssRules[i];
 

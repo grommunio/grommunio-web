@@ -3,13 +3,13 @@
 /**
  * TestGroup
  *
- * A wrapper around the KopanoUser which adds utility functions.
- * This wrapper allows us to use KOPANO group, e.g. mail to it
+ * A wrapper around the grommunioUser which adds utility functions.
+ * This wrapper allows us to use GROMMUNIO group, e.g. mail to it
  */
 class TestGroup {
 
 	/**
-	 * The KopanoUser object, this is the oject used to logon
+	 * The grommunioUser object, this is the oject used to logon
 	 * to the server with, and will access the group in the address book
 	 */
 	private $user;
@@ -22,7 +22,7 @@ class TestGroup {
 	/**
 	 * Constructor
 	 * @param String $name The name of the group
-	 * @param KopanoUser $user The user to login with
+	 * @param grommunioUser $user The user to login with
 	 */
 	public function __construct($name, $user)
 	{

@@ -1,11 +1,11 @@
 <?php
-require_once('classes/KopanoUser.php');
+require_once('classes/grommunioUser.php');
 require_once('classes/HierarchyUser.php');
 require_once('classes/TestData.php');
-require_once('classes/KopanoTest.php');
+require_once('classes/grommunioTest.php');
 require_once('classes/RestoreFolderUser.php');
 
-class DeleteSoftDeletedFolders extends KopanoTest {
+class DeleteSoftDeletedFolders extends grommunioTest {
 	/**
 	 * The default user which will be sending request to retrieve soft deleted folders
 	 */
@@ -33,8 +33,8 @@ class DeleteSoftDeletedFolders extends KopanoTest {
 	{
 		parent::setUp();
 
-		$this->restoreUser = $this->addUser(new RestoreFolderUser(new KopanoUser(KOPANO_USER1_NAME, KOPANO_USER1_PASSWORD)));
-		$this->hierarchyUser = $this->addUser(new HierarchyUser(new KopanoUser(KOPANO_USER1_NAME, KOPANO_USER1_PASSWORD)));
+		$this->restoreUser = $this->addUser(new RestoreFolderUser(new grommunioUser(GROMMUNIO_USER1_NAME, GROMMUNIO_USER1_PASSWORD)));
+		$this->hierarchyUser = $this->addUser(new HierarchyUser(new grommunioUser(GROMMUNIO_USER1_NAME, GROMMUNIO_USER1_PASSWORD)));
 
 		$this->folder = array(
 			'props' => TestData::getFolder()

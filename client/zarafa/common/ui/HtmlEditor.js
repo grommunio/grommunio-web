@@ -54,11 +54,11 @@ Zarafa.common.ui.HtmlEditor = Ext.extend(Ext.ux.form.TinyMCETextArea, {
 			webdingsStyle =
 				"@font-face {" +
 					"font-family: 'Wingdings';" +
-					"src: url('"+baseUrl+"client/resources/fonts/kopanowebappdings.eot');" +
-					"src: url('"+baseUrl+"client/resources/fonts/kopanowebappdings.eot?#iefix') format('embedded-opentype')," +
-						"url('"+baseUrl+"client/resources/fonts/kopanowebappdings.woff2') format('woff2')," +
-						"url('"+baseUrl+"client/resources/fonts/kopanowebappdings.woff') format('woff')," +
-						"url('"+baseUrl+"client/resources/fonts/kopanowebappdings.ttf') format('truetype');" +
+					"src: url('"+baseUrl+"client/resources/fonts/webappdings.eot');" +
+					"src: url('"+baseUrl+"client/resources/fonts/webappdings.eot?#iefix') format('embedded-opentype')," +
+						"url('"+baseUrl+"client/resources/fonts/webappdings.woff2') format('woff2')," +
+						"url('"+baseUrl+"client/resources/fonts/webappdings.woff') format('woff')," +
+						"url('"+baseUrl+"client/resources/fonts/webappdings.ttf') format('truetype');" +
 					"font-weight: normal;" +
 					"font-style: normal;" +
 				"}";

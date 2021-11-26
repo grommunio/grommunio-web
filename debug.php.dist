@@ -36,13 +36,13 @@ ini_set("log_errors", true);
 
 //	This PHP error handler, only dumps the error to our dump file, including mapi_last_hresult
 error_reporting(E_ALL | E_STRICT);
-set_error_handler("kopano_error_handler");
+set_error_handler("grommunio_error_handler");
 
 /**
 * Custom error handler, here we check to see if it is a MAPI error and dump all info
 * to the dump file, and finally we redirect the error back to PHP
 */
-function kopano_error_handler($errno, $errstr, $errfile, $errline, $errorContext)
+function grommunio_error_handler($errno, $errstr, $errfile, $errline, $errorContext)
 {
 	$error = array("msg"=>$errstr, "file"=>$errfile.":".$errline);
 

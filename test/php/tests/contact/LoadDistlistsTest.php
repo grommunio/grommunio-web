@@ -1,8 +1,8 @@
 <?php
-require_once('classes/KopanoUser.php');
+require_once('classes/grommunioUser.php');
 require_once('classes/DistlistUser.php');
 require_once('classes/TestData.php');
-require_once('classes/KopanoTest.php');
+require_once('classes/grommunioTest.php');
 
 /**
  * LoadingDistlistTest
@@ -10,7 +10,7 @@ require_once('classes/KopanoTest.php');
  * Tests all possible cases for loading Distlists
  * @group distlist
  */
-class LoadDistlistsTest extends KopanoTest {
+class LoadDistlistsTest extends grommunioTest {
 	/**
 	 * The default user which is creating the distlists
 	 */
@@ -28,7 +28,7 @@ class LoadDistlistsTest extends KopanoTest {
 	{
 		parent::setUp();
 
-		$this->user = $this->addUser(new DistlistUser(new KopanoUser(KOPANO_USER1_NAME, KOPANO_USER1_PASSWORD)));
+		$this->user = $this->addUser(new DistlistUser(new grommunioUser(GROMMUNIO_USER1_NAME, GROMMUNIO_USER1_PASSWORD)));
 
 		$this->message = array(
 			'props' => TestData::getDistlist(),

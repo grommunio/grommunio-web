@@ -1,16 +1,16 @@
 <?php
-require_once('classes/KopanoUser.php');
+require_once('classes/grommunioUser.php');
 require_once('classes/CalendarUser.php');
 require_once('classes/FreebusyUser.php');
 require_once('classes/TestData.php');
-require_once('classes/KopanoTest.php');
+require_once('classes/grommunioTest.php');
 
 /**
  * LoadFreebusyTest
  *
  * Tests all possible cases for loading Freebusy data
  */
-class LoadFreebusyTest extends KopanoTest {
+class LoadFreebusyTest extends grommunioTest {
 	/**
 	 * The default user
 	 */
@@ -50,9 +50,9 @@ class LoadFreebusyTest extends KopanoTest {
 	{
 		parent::setUp();
 
-		$this->user = $this->addUser(new FreebusyUser(new KopanoUser(KOPANO_USER1_NAME, KOPANO_USER1_PASSWORD)));
-		$this->calendarUserA = $this->addUser(new CalendarUser(new KopanoUser(KOPANO_USER1_NAME, KOPANO_USER1_PASSWORD)));
-		$this->calendarUserB = $this->addUser(new CalendarUser(new KopanoUser(KOPANO_USER2_NAME, KOPANO_USER2_PASSWORD)));
+		$this->user = $this->addUser(new FreebusyUser(new grommunioUser(GROMMUNIO_USER1_NAME, GROMMUNIO_USER1_PASSWORD)));
+		$this->calendarUserA = $this->addUser(new CalendarUser(new grommunioUser(GROMMUNIO_USER1_NAME, GROMMUNIO_USER1_PASSWORD)));
+		$this->calendarUserB = $this->addUser(new CalendarUser(new grommunioUser(GROMMUNIO_USER2_NAME, GROMMUNIO_USER2_PASSWORD)));
 
 		// FIXME: missing 'organizer'
 		$this->freebusyUsers = array();

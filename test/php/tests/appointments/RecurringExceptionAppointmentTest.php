@@ -1,15 +1,15 @@
 <?php
-require_once('classes/KopanoUser.php');
+require_once('classes/grommunioUser.php');
 require_once('classes/CalendarUser.php');
 require_once('classes/TestData.php');
-require_once('classes/KopanoTest.php');
+require_once('classes/grommunioTest.php');
 
 /**
  * RecurringExceptionAppointmentTest
  *
  * Tests creation of exceptions and create/delete/modify operations on that
  */
-class RecurringExceptionAppointmentTest extends KopanoTest {
+class RecurringExceptionAppointmentTest extends grommunioTest {
 	/**
 	 * The default user
 	 */
@@ -27,7 +27,7 @@ class RecurringExceptionAppointmentTest extends KopanoTest {
 	{
 		parent::setUp();
 
-		$this->user = $this->addUser(new CalendarUser(new KopanoUser(KOPANO_USER1_NAME, KOPANO_USER1_PASSWORD)));
+		$this->user = $this->addUser(new CalendarUser(new grommunioUser(GROMMUNIO_USER1_NAME, GROMMUNIO_USER1_PASSWORD)));
 
 		$this->appointment = array(
 			'props' => TestData::getRecurringAppointment()

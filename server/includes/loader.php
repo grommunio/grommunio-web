@@ -90,9 +90,9 @@ class FileLoader {
 		$jsLoadingSequence = array();
 
 		if ($load == LOAD_RELEASE) {
-			$jsLoadingSequence[] = "client/kopano.js";
+			$jsLoadingSequence[] = "client/grommunio.js";
 		} else if ($load == LOAD_DEBUG) {
-			$jsLoadingSequence[] = "client/kopano-debug.js";
+			$jsLoadingSequence[] = "client/grommunio-debug.js";
 		} else {
 			$jsLoadingSequence = array_merge(
 				$jsLoadingSequence,
@@ -579,7 +579,7 @@ class FileLoader {
 		$this->printFiles($extjsFiles, $cssTemplate);
 
 		// Since we only have one css file, we can add that directly
-		$this->printFiles(array("client/resources/css/kopano.css"), $cssTemplate);
+		$this->printFiles(array("client/resources/css/grommunio.css"), $cssTemplate);
 
 		$pluginFiles = $this->getPluginCSSFiles(DEBUG_LOADER);
 		$this->printFiles($pluginFiles, $cssTemplate);

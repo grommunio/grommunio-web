@@ -31,7 +31,7 @@ $loader = new FileLoader();
                 }
 			$loader->printFiles($extjsFiles, $jsTemplate);
 		?>
-		<link id="kopano-iconset-stylesheet" rel="stylesheet" href="<?php echo $iconsetStylesheet; ?>" >
+		<link id="grommunio-iconset-stylesheet" rel="stylesheet" href="<?php echo $iconsetStylesheet; ?>" >
 		<script>
 
 			/**

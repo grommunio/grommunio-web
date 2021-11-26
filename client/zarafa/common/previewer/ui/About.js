@@ -4,9 +4,10 @@ Ext.namespace('Zarafa.common.previewer.ui');
  * @class Zarafa.common.previewer.ui.ABOUT
  * @extends String
  *
- * The copyright string holding the copyright notice for the Kopano Webapp FileViewer.
+ * The copyright string holding the copyright notice for the grommunio Web FileViewer.
  */
 Zarafa.common.previewer.ui.ABOUT = ""
+  + "<p>Copyright (C) 2021 grommunio</p>"
   + "<p>Copyright (C) 2016 Zarafa B.V. <info@zarafa.com></p>"
   + "<p>Copyright (C) 2016 Kopano and its licensors</p>"
 

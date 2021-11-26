@@ -2,18 +2,18 @@
 require_once("config.php");
 
 for($i = 1; $i < 6; $i++) {
-	$user = constant("KOPANO_USER${i}_NAME");
-	$pass = constant("KOPANO_USER${i}_PASSWORD");
+	$user = constant("GROMMUNIO_USER${i}_NAME");
+	$pass = constant("GROMMUNIO_USER${i}_PASSWORD");
 
-	$email_address = constant("KOPANO_USER${i}_EMAIL_ADDRESS");
-	$display_name = constant("KOPANO_USER${i}_DISPLAY_NAME");
+	$email_address = constant("GROMMUNIO_USER${i}_EMAIL_ADDRESS");
+	$display_name = constant("GROMMUNIO_USER${i}_DISPLAY_NAME");
 
-	shell_exec("kopano-admin -c $user -p $pass -e $email_address -f '$display_name'");
+	shell_exec("grommunio-admin -c $user -p $pass -e $email_address -f '$display_name'");
 }
 
 # Public store
-shell_exec("kopano-admin -s");
+shell_exec("grommunio-admin -s");
 
-shell_exec("kopano-admin -g " . KOPANO_GROUP1_NAME . " -e " . KOPANO_GROUP1_EMAIL_ADDRESS);
-shell_exec("kopano-admin -b " . KOPANO_USER5_NAME . " -i " . KOPANO_GROUP1_NAME);
+shell_exec("grommunio-admin -g " . GROMMUNIO_GROUP1_NAME . " -e " . GROMMUNIO_GROUP1_EMAIL_ADDRESS);
+shell_exec("grommunio-admin -b " . GROMMUNIO_USER5_NAME . " -i " . GROMMUNIO_GROUP1_NAME);
 ?>

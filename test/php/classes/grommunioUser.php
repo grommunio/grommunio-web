@@ -7,7 +7,7 @@
  */
 class grommunioUser {
 	/**
-	 * The Reference to the KopanoUser which is currently logged in.
+	 * The Reference to the grommunioUser which is currently logged in.
 	 */
 	private static $currentUser;
 

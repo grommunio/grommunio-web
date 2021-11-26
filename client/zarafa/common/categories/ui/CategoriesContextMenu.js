@@ -161,7 +161,7 @@ Zarafa.common.categories.ui.CategoriesContextMenu = Ext.extend(Ext.menu.Menu, {
 			// Remove this category from all records
 			Zarafa.common.categories.Util.removeCategory(this.records, item.plainText, true);
 		} else {
-			var categories = container.getPersistentSettingsModel().get('kopano/main/categories');
+			var categories = container.getPersistentSettingsModel().get('grommunio/main/categories');
 			var category = categories.find(function (category) {
 				if(!Ext.isEmpty(category.standardIndex) && (category.name === item.plainText)){
 					return category;

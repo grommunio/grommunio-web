@@ -289,7 +289,7 @@
 		function getData()
 		{
 			if(empty($this->responseData)) {
-				// Helps to avoid unnecessary bus error message on client side when kopano server is stopped.
+				// Helps to avoid unnecessary bus error message on client side when gromox is stopped.
 				// we just error_log and send empty zarafa array on client side
 				error_log(Language::getstring("Response data requested from bus but it doesn't have any data."));
 				return json_encode(array("zarafa" => array()));

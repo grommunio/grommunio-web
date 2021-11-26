@@ -41,7 +41,7 @@
 		 * Function which checks the names, sent by the client. This function is used
 		 * when a user wants to sent an email and want to check the names filled in
 		 * by the user in the to, cc and bcc field. This function uses the global
-		 * user list of Kopano to check if the names are correct.
+		 * user list to check if the names are correct.
 		 * @param array $action the action data, sent by the client
 		 * @return boolean true on success or false on failure
 		 */
@@ -217,7 +217,7 @@
 			 * IAddrBook
 			 *  - Root Container
 			 *     - HIERARCHY TABLE
-			 *        - Kopano Contacts Folders    (Contact Container)
+			 *        - Contacts Folders    (Contact Container)
 			 *           - HIERARCHY TABLE         (Contact Container Hierarchy)
 			 *              - Contact folder 1
 			 *              - Contact folder 2
@@ -228,11 +228,11 @@
 			// Open the AB Root Container by not supplying an entryid
 			$abRootContainer = mapi_ab_openentry($ab);
 
-			// Get the 'Kopano Contact Folders'
+			// Get the 'Contact Folders'
 			$hierarchyTable = mapi_folder_gethierarchytable($abRootContainer, MAPI_DEFERRED_ERRORS);
 			$abHierarchyRows = mapi_table_queryallrows($hierarchyTable, array(PR_AB_PROVIDER_ID, PR_ENTRYID));
 
-			// Look for the 'Kopano Contacts Folders'
+			// Look for the 'Contacts Folders'
 			for($i=0,$len=count($abHierarchyRows);$i<$len;$i++){
 				// Check if the folder matches the Contact Provider GUID
 				if($abHierarchyRows[$i][PR_AB_PROVIDER_ID] == MUIDZCSAB){
@@ -241,14 +241,14 @@
 				}
 			}
 
-			// Next go into the 'Kopano Contacts Folders' and look in the hierarchy table for the Contact folders.
+			// Next go into the 'Contacts Folders' and look in the hierarchy table for the Contact folders.
 			if($abContactContainerEntryid){
-				// Get the rows from hierarchy table of the 'Kopano Contacts Folders'
+				// Get the rows from hierarchy table of the 'Contacts Folders'
 				$abContactContainer = mapi_ab_openentry($ab, $abContactContainerEntryid);
 				$abContactContainerHierarchyTable = mapi_folder_gethierarchytable($abContactContainer, MAPI_DEFERRED_ERRORS);
 				$abContactContainerHierarchyRows = mapi_table_queryallrows($abContactContainerHierarchyTable, array(PR_DISPLAY_NAME, PR_OBJECT_TYPE, PR_ENTRYID));
 
-				// Loop through all the contact folders found under the 'Kopano Contacts Folders' hierarchy
+				// Loop through all the contact folders found under the 'Contacts Folders' hierarchy
 				for($j=0,$len=count($abContactContainerHierarchyRows);$j<$len;$j++){
 
 					// Open, get contents table, restrict, sort and then merge the result in the list of $rows

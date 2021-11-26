@@ -11,7 +11,7 @@
 describe('CategoriesStore', function() {
     const initializePersistentSettings = () => {
         container.getPersistentSettingsModel().initialize({
-    		kopano : {
+		grommunio : {
     			main : {
     				categories : [{
     					'name' : 'Red',
@@ -109,7 +109,7 @@ describe('CategoriesStore', function() {
         it('should save categories into the persistent settings', function() {
             categoriesStore.addCategory('MyTestCategory', '000000', true);
             categoriesStore.save();
-            const categories = container.getPersistentSettingsModel().get('kopano/main/categories');
+            const categories = container.getPersistentSettingsModel().get('grommunio/main/categories');
 
             expect(categories.length).toEqual(2);
             expect(categories[1].name).toEqual('MyTestCategory');
@@ -121,7 +121,7 @@ describe('CategoriesStore', function() {
             const records = createRecords(3);
             categoriesStore.addCategoriesFromMapiRecords(records);
             categoriesStore.save();
-            const categories = container.getPersistentSettingsModel().get('kopano/main/categories');
+            const categories = container.getPersistentSettingsModel().get('grommunio/main/categories');
 
             expect(categories.length).toEqual(1);
         });

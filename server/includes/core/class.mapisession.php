@@ -69,9 +69,9 @@
 		}
 
 		/**
-		 * Logon to Kopano's MAPI system via php MAPI extension
+		 * Logon to Gromox' MAPI system via php MAPI extension
 		 *
-		 * Logs on to Kopano with the specified username and password. If the server is not specified,
+		 * Logs on to Gromox with the specified username and password. If the server is not specified,
 		 * it will logon to the local server.
 		 *
 		 * @param string $username the username of the user
@@ -1074,7 +1074,7 @@
 				}
 
 				if(!empty($contact_store_entryids)){
-					// add the defaults contacts folder in the addressbook hierarchy under 'Kopano Contacts Folders'
+					// add the defaults contacts folder in the addressbook hierarchy under 'Contacts Folders'
 					mapi_setprops($profsect, Array(PR_ZC_CONTACT_STORE_ENTRYIDS => $contact_store_entryids,
 												   PR_ZC_CONTACT_FOLDER_ENTRYIDS =>	$contact_folder_entryids,
 												   PR_ZC_CONTACT_FOLDER_NAMES => $contact_folder_names));

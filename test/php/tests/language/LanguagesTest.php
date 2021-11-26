@@ -1,12 +1,12 @@
 <?php
-require_once('classes/KopanoTest.php');
+require_once('classes/grommunioTest.php');
 
 /**
  * LanguagesTest
  *
  * Test the Language class for detecting and enabling languages
  */
-class LanguagesTest extends KopanoTest {
+class LanguagesTest extends grommunioTest {
 	/**
 	 * Test that languages can be loaded
 	 */
