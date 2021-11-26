@@ -45,7 +45,6 @@ body.theme-dark.zarafa-welcome:after {
 	right: 0;
 	margin: 0;
 	padding: 0;
-	/** background: url(../../images/background.svg); removed by ivar **/
 	background-size: cover;
 	z-index: -1;
 }
@@ -194,11 +193,4 @@ body.login > #form-container {
 	#submitbutton:focus {
 		box-shadow: 0 0 0 1px $white inset;
 	}
-}
-
-/* IE10 and IE11 don't support filters, so we load a blurred copy of the background image
- * and use that  */
-body.login.MSIE10 #bg,
-body.login.MSIE11 #bg{
-	background-image: url(../../images/loginbg_daybreak_blurred.jpg);
 }

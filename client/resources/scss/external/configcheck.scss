@@ -16,7 +16,7 @@ a {
 }
 
 body {
-	background: url('../../images/loginbg_daybreak.jpg') no-repeat center center / cover;
+	background: url(../../images/bootback.svg) no-repeat center center;
 
 	:after {
 		content: '';
@@ -27,7 +27,6 @@ body {
 		right: 0;
 		margin: 0;
 		padding: 0;
-		background: url('../../images/background.svg') center/cover no-repeat;
 		z-index: -1;
 	}
 
