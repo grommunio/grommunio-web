@@ -270,7 +270,7 @@ Zarafa.common.previewer.ui.ViewerContainer = Ext.extend(Zarafa.core.ui.ContentPa
 	{
 		var iframeCookieStoreId = this.iframeComponent.el.dom.getCookieStoreId();
 		var cookieCounter = 0;
-		chrome.cookies.getAll({url: location.href}, function(cookies) {
+		window.chrome.cookies.getAll({url: location.href}, function(cookies) {
 			cookies.forEach( function(c) {
 				var cookie = {
 					url: location.href,
@@ -282,7 +282,7 @@ Zarafa.common.previewer.ui.ViewerContainer = Ext.extend(Zarafa.core.ui.ContentPa
 					sameSite: c.sameSite,
 					storeId: iframeCookieStoreId
 				};
-				chrome.cookies.set(cookie, function() {
+				window.chrome.cookies.set(cookie, function() {
 					if ( ++cookieCounter === cookies.length ) {
 						this.iframeComponent.el.dom.src = this.viewerSrc;
 					}
