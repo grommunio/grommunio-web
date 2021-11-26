@@ -16,7 +16,7 @@ body.login,
 #bg,
 /* Background image of the Welcome screen */
 body.zarafa-welcome {
-  background: url(../../images/bootback.svg) no-repeat center center;
+  background: url(../../../resources/images/bootback.svg) no-repeat center center;
   background-size: cover;
 }
 
