@@ -84,7 +84,7 @@ Zarafa.plugins.intranet.ui.Panel = Ext.extend(Ext.Panel, {
 					},
 					function(cookies) {
 						for (var cookie of cookies) {
-							chrome.cookies.set({
+							window.chrome.cookies.set({
 								url: intraUrl,
 								domain: cookie.domain,
 								expirationDate: cookie.expirationDate,
