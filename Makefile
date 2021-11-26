@@ -71,14 +71,14 @@ JSFILES = $(shell find client/zarafa -name '*.js')
 
 all: deploy
 
-deploy: server client plugins
+deploy: server client plugins css
 
 build: node_modules deploy
 test: jstest
 
 server: $(MOS) $(LANGTXTDEST) $(PHPFILES) $(DISTFILES) $(ROBOTS) $(DESTDIR)/version $(DESTDIR)/cachebuster $(SERVERROOTFILES)
 
-client: $(CSSDEST) $(ICONSETSDEST) $(IMAGESDEST) css js
+client: $(CSSDEST) $(ICONSETSDEST) $(IMAGESDEST) js
 	cp -r client/resources/fonts $(DESTDIR)/client/resources/
 	cp -r client/zarafa/core/themes $(DESTDIR)/client/
 	rm -rf $(DESTDIR)/client/themes/*/js
@@ -86,10 +86,8 @@ client: $(CSSDEST) $(ICONSETSDEST) $(IMAGESDEST) css js
 	# TODO use separate targets
 
 css:
-	find client -type d -exec mkdir -p $(DESTDIR)/{} \;
-	find client -name "*.css" -exec $(CSSCOMPILER) -o $(DESTDIR)/{} {} \;
-	find plugins -type d -exec mkdir -p $(DESTDIR)/{} \;
-	find plugins -name "*.css" -exec $(CSSCOMPILER) -o $(DESTDIR)/{} {} \;
+	find $(DESTDIR)/client -name "*.css" -exec $(CSSCOMPILER) -o {}.min {} \; -exec mv {}.min {} \;
+	find $(DESTDIR)/plugins -name "*.css" -exec $(CSSCOMPILER) -o {}.min {} \; -exec mv {}.min {} \;
 
 js: $(JSDEPLOY)/fingerprint.js $(JSDEPLOY)/resize.js $(TEMPATEJSDEST) $(JSDEPLOY)/kopano.js $(JSDEPLOY)/extjs-mod/extjs-mod.js $(JSDEPLOY)/extjs/ext-base-all.js $(DESTDIR)/client/third-party/ux-thirdparty.js $(DEPLOYPURIFYJS) $(JSDEPLOY)/filepreviewer/pdfjs/build/pdf.worker.js $(JSDEPLOY)/filepreviewer/pdfjs/build/pdf.js $(JSDEPLOY)/filepreviewer/pdfjs/web/viewer.js
 	cp -r client/tinymce $(DESTDIR)/client/
