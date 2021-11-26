@@ -1706,7 +1706,7 @@ ul.x-tab-strip li {
 }
 
 /* Tab panel bottom border colour */
-.x-tab-panel-header ul.x-tab-strip-top {
+.x-tab-panel-header .x-tab-panel-body ul.x-tab-strip-top {
 	border-bottom-width: 1px;
 	border-bottom-style: solid;
 	border-bottom-color: var(--primary-background-color);
