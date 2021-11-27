@@ -2704,19 +2704,6 @@ Note: Does not work in IE11 */
   border-radius: 2px;
 }
 
-/***************************************
- *  scrollbars for IE
- ***************************************/
-/* line 58, ../scss/components/_preview_panel.scss */
-.preview-header {
-  scrollbar-base-color: #ffffff;
-  scrollbar-arrow-color: #333;
-  scrollbar-shadow-color: #ffffff;
-  scrollbar-darkshadow-color: #ffffff;
-  scrollbar-highlight-color: #ffffff;
-  scrollbar-3dlight-color: #ffffff;
-}
-
 /* the expand/collapse button */
 /* line 74, ../scss/components/_preview_panel.scss */
 .preview-header-collapse {
@@ -3323,7 +3310,7 @@ span.zarafa-emailaddress-link:hover {
 /* line 8, ../scss/components/_calendar.scss */
 .zarafa-calendar-verticalline {
   position: absolute;
-  overfow: hidden;
+  overflow: hidden;
   background-color: black;
 }
 
@@ -3889,8 +3876,8 @@ div.zarafa-contact-cardview-selected {
 
 /* line 44, ../scss/components/_contacts.scss */
 .zarafa-contact-cardview-card .x-panel-header {
-  background-color: none;
-  border-color: none;
+  background-color: transparent;
+  border-color: transparent;
 }
 
 /* line 49, ../scss/components/_contacts.scss */

@@ -208,7 +208,7 @@ body #zarafa-mainmenu.zarafa-maintabbar > .x-toolbar-ct .zarafa-maintabbar-maint
 #zarafa-navigationpanel .x-panel-header,
 .zarafa-widgetpanel .x-panel-header {
 	background-color: #facfac;
-	border-color: 1px solid #facfac;
+	border: 1px solid #facfac;
 }
 
 /*********************************************************************

@@ -194,7 +194,7 @@ body.login>#form-container #submitbutton:hover {
   cursor: pointer;
 }
 
-body.login>#form-container #submitbutton:click {
+body.login>#form-container #submitbutton:active {
   background-color:#065fa5
 }
 

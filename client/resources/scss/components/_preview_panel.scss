@@ -81,18 +81,6 @@
 	border-radius: 2px;
 }
 
-/***************************************
- *  scrollbars for IE
- ***************************************/
-.preview-header {
-	scrollbar-base-color: $background-color-main;
-	scrollbar-arrow-color: #333;
-	scrollbar-shadow-color: $background-color-main;
-	scrollbar-darkshadow-color: $background-color-main;
-	scrollbar-highlight-color: $background-color-main;
-	scrollbar-3dlight-color: $background-color-main;
-}
-
 
 /* the expand/collapse button */
 $preview-header-collapse-button-width	: $font-line-height-large;

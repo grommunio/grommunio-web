@@ -1936,17 +1936,6 @@ Note: Does not work in IE11 */
   border: none;
   border-radius: 2px; }
 
-/***************************************
- *  scrollbars for IE
- ***************************************/
-.preview-header {
-  scrollbar-base-color: #ffffff;
-  scrollbar-arrow-color: #333;
-  scrollbar-shadow-color: #ffffff;
-  scrollbar-darkshadow-color: #ffffff;
-  scrollbar-highlight-color: #ffffff;
-  scrollbar-3dlight-color: #ffffff; }
-
 /* the expand/collapse button */
 .preview-header-collapse {
   float: right;
@@ -2403,7 +2392,7 @@ span.preview-header-sender-image {
 
 .zarafa-calendar-verticalline {
   position: absolute;
-  overfow: hidden;
+  overflow: hidden;
   background-color: black; }
 
 .zarafa-calendar-column {
@@ -2803,8 +2792,8 @@ div.zarafa-contact-cardview-selected {
   float: left; }
 
 .zarafa-contact-cardview-card .x-panel-header {
-  background-color: none;
-  border-color: none; }
+  background-color: transparent;
+  border-color: transparent; }
 
 .zarafa-contact-cardview-card .x-panel-header-text {
   font-size: 1.1em; }

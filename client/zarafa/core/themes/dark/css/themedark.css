@@ -147,7 +147,7 @@ Top toolbar (does not include dropdown menu on split buttons)
 #zarafa-maintoolbar .x-btn.zarafa-action.x-btn-over .x-btn-small button,
 #zarafa-maintoolbar .x-btn.zarafa-action.x-btn-over .x-btn-medium button,
 #zarafa-maintoolbar .x-btn.zarafa-action.x-btn-over .x-btn-large button {
-    background-color: var() !important;
+    background-color: var(--primary-item-hover) !important;
 }
 
 /* Toolbar, hovered and clicked button background colour */

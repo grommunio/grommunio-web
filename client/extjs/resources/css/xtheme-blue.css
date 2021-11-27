@@ -98,7 +98,6 @@ Build date: 2013-04-03 15:07:25
 	background-color: #deecfd;
 	border-color:#8db2e3;
     overflow:hidden;
-    zoom:1;
 }
 
 .x-tab-panel-header, .x-tab-panel-footer {
@@ -770,10 +769,6 @@ td.grid-hd-group-cell {
 
 .x-grid3-check-col-on {
 	background-image:url(../images/default/menu/checked.gif);
-}
-
-.x-grid-group, .x-grid-group-body, .x-grid-group-hd {
-    zoom:1;
 }
 
 .x-grid-group-hd {
