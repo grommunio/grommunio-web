@@ -280,12 +280,12 @@ window.checkfont = (function() {
   function initModule() {
     var containerB = setupContainer();
     containerB.style.fontFamily = "monospace";
-    monospaceHeight = containerB.offsetHeight;
-    monospaceWidth = containerB.offsetWidth;
+    //monospaceHeight = containerB.offsetHeight;
+    //monospaceWidth = containerB.offsetWidth;
 
     containerB.style.fontFamily = "Arial";
-    arialWidth = containerB.offsetWidth;
-    arialHeight = containerB.offsetHeight;
+    //arialWidth = containerB.offsetWidth;
+    //arialHeight = containerB.offsetHeight;
 
     containerB.parentNode.removeChild(containerB);
   }
