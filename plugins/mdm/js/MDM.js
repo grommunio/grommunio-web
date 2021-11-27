@@ -1,6 +1,6 @@
 Ext.namespace('Zarafa.plugins.mdm');
 
-console.log('MDM.js');
+//console.log('MDM.js');
 
 /**
  * @class Zarafa.plugins.mdm.MDM
