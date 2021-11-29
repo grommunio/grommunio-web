@@ -1727,9 +1727,11 @@ msgid ""
 "Copying this appointment will unset it as private. Are you sure you want to "
 "continue?"
 msgstr ""
+"Kopieren des Termins wird den Termin nicht mehr Privat setzen. Sind Sie "
+"sicher, dass Sie fortfahren möchten?"
 
 msgid "Private item"
-msgstr ""
+msgstr "Privates Objekt"
 
 msgid "Copy"
 msgstr "Kopieren"
@@ -1738,6 +1740,8 @@ msgid ""
 "Moving this appointment will unset it as private. Are you sure you want to "
 "continue?"
 msgstr ""
+"Verschieben des Termins wird den Termin nicht mehr Privat setzen. Sind Sie "
+"sicher, dass Sie fortfahren möchten?"
 
 msgid "Move"
 msgstr "Verschieben"
@@ -2558,16 +2562,16 @@ msgid "Add/Edit Cc recipient"
 msgstr "Cc Empfänger Hinzufügen/bearbeiten"
 
 msgid "Disable for new mail"
-msgstr ""
+msgstr "Deaktivieren für neue Mail"
 
 msgid "Enable for new mail"
-msgstr ""
+msgstr "Aktivieren für neue Mail"
 
 msgid "Disable for replies"
-msgstr ""
+msgstr "Deaktivieren für Antworten"
 
 msgid "Enable for replies"
-msgstr ""
+msgstr "Aktivieren für Antworten"
 
 msgid "No Cc recipient configured"
 msgstr "Kein Cc Empfänger konfiguriert"
@@ -2601,7 +2605,7 @@ msgid "Help"
 msgstr "Hilfe"
 
 msgid "Web Manual"
-msgstr ""
+msgstr "Web Handbuch"
 
 msgid "Item data"
 msgstr "Daten des Elements"
@@ -4236,7 +4240,7 @@ msgid "Unsaved changes"
 msgstr "Ungespeicherte Änderungen"
 
 msgid "Welcome to grommunio Web"
-msgstr "Willkommen bei grommunio Web"
+msgstr ""
 
 msgid "This is the first time you are using grommunio Web. "
 msgstr "Sie verwenden grommunio Web zum ersten Mal. "
@@ -4329,25 +4333,25 @@ msgstr[0] "Im Ordner {1} befindet sich {0} ungelesene Nachricht"
 msgstr[1] "Im Ordner {1} befinden sich {0} ungelesene Nachrichten"
 
 msgid "Publishing Editor"
-msgstr ""
+msgstr "Veröffentlichender Bearbeiter"
 
 msgid "Editor"
-msgstr "Editor"
+msgstr "Bearbeiter"
 
 msgid "Publishing Author"
-msgstr ""
+msgstr "Veröffentlichender Autor"
 
 msgid "Author"
-msgstr ""
+msgstr "Autor"
 
 msgid "Nonediting Author"
-msgstr ""
+msgstr "Nicht bearbeitender Autor"
 
 msgid "Reviewer"
-msgstr ""
+msgstr "Überarbeiter"
 
 msgid "Contributor"
-msgstr ""
+msgstr "Mitwirkender"
 
 msgid "Unable to import:"
 msgstr "Import nicht möglich:"
@@ -4401,7 +4405,7 @@ msgid "EntryID"
 msgstr "EntryID"
 
 msgid "Parent EID"
-msgstr ""
+msgstr "Übergeordnete EID"
 
 msgid "Folder size"
 msgstr "Ordnergröße"
@@ -4419,13 +4423,13 @@ msgid "Profile"
 msgstr "Profil"
 
 msgid "Read"
-msgstr ""
+msgstr "Lesen"
 
 msgid "Full Details"
-msgstr ""
+msgstr "Alle Details"
 
 msgid "Write"
-msgstr ""
+msgstr "Schreiben"
 
 msgid "Create items"
 msgstr "Einträge anlegen"
@@ -4434,10 +4438,10 @@ msgid "Create subfolders"
 msgstr "Unterordner erstellen"
 
 msgid "Edit own"
-msgstr ""
+msgstr "Eigene bearbeiten"
 
 msgid "Edit all"
-msgstr ""
+msgstr "Alle bearbeiten"
 
 msgid "Delete items"
 msgstr "Einträge löschen"
@@ -4449,10 +4453,10 @@ msgid "All"
 msgstr "Alle"
 
 msgid "Folder owner"
-msgstr ""
+msgstr "Eigentümer des Ordners"
 
 msgid "Folder contact"
-msgstr ""
+msgstr "Ordnerkontakt"
 
 msgid "Folder visible"
 msgstr "Ordner anzeigen"
@@ -4975,19 +4979,19 @@ msgid "Automatically reply once per day, per sender with the following text"
 msgstr "Jedem Absender nur einmal automatisch mit dem folgenden Text antworten"
 
 msgid "Inside My Organization"
-msgstr ""
+msgstr "Innerhalb meiner Organisation"
 
 msgid "Outside My Organization"
-msgstr ""
+msgstr "Außerhalb meiner Organisation"
 
 msgid "Auto-reply to people outside my organization"
-msgstr ""
+msgstr "Auto-Reply zu Personen außerhalb meiner Organisation"
 
 msgid "My contacts only"
-msgstr ""
+msgstr "Nur eigene Kontakte"
 
 msgid "Anyone outside my organization"
-msgstr ""
+msgstr "Jedem ausserhalb meiner Organisation"
 
 msgid ""
 "The time you entered is before the out of office date. Please reschedule."
@@ -5195,10 +5199,10 @@ msgid "Basic"
 msgstr "Basis"
 
 msgid "Account information - {0}"
-msgstr ""
+msgstr "Kontoinformation - {0}"
 
 msgid "Profile Picture"
-msgstr ""
+msgstr "Profilbild"
 
 msgid "Language"
 msgstr "Sprache"
@@ -5354,7 +5358,7 @@ msgid "All keyboard shortcuts on"
 msgstr "Alle Tastenkombinationen nutzen"
 
 msgid "This change requires a reload of grommunio Web"
-msgstr ""
+msgstr "Diese Anpassung erfordert es, grommunio Web neu zu laden"
 
 msgid "Plugins"
 msgstr "Plugins"
@@ -5860,10 +5864,10 @@ msgstr "Die Verbindung zum Server wurde wiederhergestellt"
 
 #. TRANSLATORS: Example: HTTP 404
 msgid "HTTP {0}"
-msgstr ""
+msgstr "HTTP {0}"
 
 msgid "Invalid data received from the server"
-msgstr ""
+msgstr "Ungültige Daten vom Server erhalten"
 
 msgid "Missing store"
 msgstr "Fehlender Store"
@@ -5945,152 +5949,157 @@ msgstr ""
 "Abwesenheitsnotiz ist momentan eingeschaltet. Möchten Sie diese abschalten?"
 
 msgid "Open Chat at start"
-msgstr ""
+msgstr "Chat beim Start öffnen"
 
 msgid "Desktop Notifications Plugin"
-msgstr ""
+msgstr "Desktopbenachrichtigungs-Plugin"
 
 msgid "Desktop Notifications"
-msgstr ""
+msgstr "Desktopbenachrichtigungen"
 
 msgid "{A} Autohide desktop notification after second(s) {B}"
-msgstr ""
+msgstr "{A} Desktopbenachrichtigung automatisch nach Sekunde(n) verstecken {B}"
 
 msgid "Intranet"
-msgstr ""
+msgstr "Intranet"
 
 msgid "Email Details"
-msgstr ""
+msgstr "Email Details"
 
 msgid "Item Data"
-msgstr ""
+msgstr "Element-Daten"
 
 msgid "Mobile Device Manager"
-msgstr ""
+msgstr "Mobile Device Manager"
 
 msgid "Wiping device"
-msgstr ""
+msgstr "Gerät löschen"
 
 msgid "Password incorrect"
-msgstr ""
+msgstr "Falsches Passwort"
 
 msgid "Full resync in progress"
-msgstr ""
+msgstr "Volle Resynchronization in Arbeit"
 
 msgid "Username or password incorrect"
-msgstr ""
+msgstr "Benutzername oder Passwort falsch"
 
 msgid "Not Applicable"
-msgstr ""
+msgstr "Nicht anwendbar"
 
 msgid "Wipe Pending"
-msgstr ""
+msgstr "Löschung in Arbeit"
 
 msgid "Wipe Requested"
-msgstr ""
+msgstr "Löschung angefragt"
 
 msgid "Wipe Executed"
-msgstr ""
+msgstr "Löschung ausgeführt"
 
 msgid "Not Available"
-msgstr ""
+msgstr "Nicht verfügbar"
 
 msgid "Device"
-msgstr ""
+msgstr "Gerät"
 
 msgid "Operating System"
-msgstr ""
+msgstr "Betriebssystem"
 
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 msgid "User Agent"
-msgstr ""
+msgstr "User Agent"
 
 msgid "MDM Plugin"
-msgstr ""
+msgstr "MGM Plugin"
 
 msgid "Active Sync Version"
-msgstr ""
+msgstr "ActiveSync Version"
 
 msgid "grommunio-sync Version"
-msgstr ""
+msgstr "grommunio-sync Version"
 
 msgid "Policy name"
-msgstr ""
+msgstr "Name Richtlinie"
 
 msgid "Outlook Extension"
-msgstr ""
+msgstr "Outlook Erweiterung"
 
 msgid "Build"
-msgstr ""
+msgstr "Build"
 
 msgid "Last updated"
-msgstr ""
+msgstr "Zuletzt aktualisiert"
 
 msgid "d F Y, H:i"
-msgstr ""
+msgstr "d. F Y, H:i"
 
 msgid "Connected since"
-msgstr ""
+msgstr "Verbunden seit"
 
 msgid "d F Y"
-msgstr ""
+msgstr "d. F Y"
 
 msgid "Synchronize"
-msgstr ""
+msgstr "Synchronisiere"
 
 msgid "Manage Shared Folders"
-msgstr ""
+msgstr "Geteilte Ordner verwalten"
 
 msgid ""
 "Select folders to sync to your device from the list below. To add additional "
 "mailboxes to the list, open them in WebApp first."
 msgstr ""
+"Wählen Sie Ordner zur Synchronization mit Ihrem Gerät aus der Liste aus. Um "
+"weitere Mailboxen zur Liste hinzuzufügen, öffnen Sie diese zuerst in "
+"grommunio Web."
 
 msgid "grommunio-sync"
-msgstr ""
+msgstr "grommunio-sync"
 
 msgid "Mobile device management"
-msgstr ""
+msgstr "Mobile device management"
 
 msgid "Mobile Devices"
-msgstr ""
+msgstr "Mobile Geräte"
 
 msgid ""
 "Unable to connect to the grommunio-sync server. Click {0} to enter your "
 "credentials"
 msgstr ""
+"Konnte keine Verbindung zum grommunio-sync server herstellen. Klicken Sie "
+"{0} um Ihre Zugangsdaten einzugeben"
 
 msgid "Devices"
-msgstr ""
+msgstr "Geräte"
 
 msgid "No devices connected to your account"
-msgstr ""
+msgstr "Keine Geräte mit Ihrem Konto verbunden"
 
 msgid "Last Update"
-msgstr ""
+msgstr "Letzte Aktualisierung"
 
 msgid "Device ID"
-msgstr ""
+msgstr "Geräte ID"
 
 msgid "Device OS"
-msgstr ""
+msgstr "Geräte Betriebssystem"
 
 msgid "Device Info"
-msgstr ""
+msgstr "Geräte Info"
 
 msgid "First Sync time"
-msgstr ""
+msgstr "Erste Sync-Zeit"
 
 msgid "Full resync"
-msgstr ""
+msgstr "Volle Resynchronisierung"
 
 msgid "Remove device"
-msgstr ""
+msgstr "Gerät entfernen"
 
 msgid "Please enter your username and password"
-msgstr ""
+msgstr "Bitte geben Sie Benutzername und Passwort ein"
 
 msgid "Password"
 msgstr "Passwort"
@@ -6104,94 +6113,102 @@ msgid ""
 msgstr ""
 
 msgid "Add meeting"
-msgstr ""
+msgstr "Meeting hinzufügen"
 
 msgid "Room name:"
-msgstr ""
+msgstr "Raum Name:"
 
 msgid "Room URL:"
-msgstr ""
+msgstr "Raum URL:"
 
 msgid "Shift-click for advanced settings"
-msgstr ""
+msgstr "Shift-click für weitere Einstellungen"
 
 msgid "Join webmeeting"
-msgstr ""
+msgstr "Webmeeting beitreten"
 
 msgid "Open meeting in:"
-msgstr ""
+msgstr "Meeting öffnen in:"
 
 msgid "Web tab"
-msgstr ""
+msgstr "Web Tab"
 
 msgid "Hide the button in the main toolbar"
-msgstr ""
+msgstr "Schaltfläche in Hauptmenü verstecken"
 
 msgid "Add the subject to the room name"
-msgstr ""
+msgstr "Betreff zum Raumnamen hinzufügen"
 
 msgid "Add the organizer name to the room name"
-msgstr ""
+msgstr "Organisator zum Raumnamen hinzufügen"
 
 msgid "Add the URL to the meeting location rather than overwriting it"
-msgstr ""
+msgstr "URL zum Meeting-Standort hinzufügen anstatt die URL zu überschreiben"
 
 msgid ""
 "Prevent the URL in the meeting location from being overridden automatically "
 "(ex: when adding a meetingroom)"
 msgstr ""
+"Verhindern, dass die URL automatisch überschrieben wird. (z.B. durch "
+"hinzufügen eines Meetingraums)"
 
 msgid "If you have problems when creating meetings, try disabling this setting"
 msgstr ""
+"Falls Sie Probleme beim Erstellen von Meetings haben, versuchen Sie diese "
+"Option zu deaktivieren."
 
 msgid "Add an invitation to the appointment description"
-msgstr ""
+msgstr "Einladung an die Terminbeschreibung hinzufügen"
 
 msgid "Invitation text"
-msgstr ""
+msgstr "Einladungstext"
 
 msgid ""
 "must contain %url% as a placeholder for the meeting link, empty the textbox "
 "to reset to default"
 msgstr ""
+"muss den Parameter %url% als Platzhalter für den Meeting-Link enthalten, "
+"leeren Sie die Input-Box um Inhalt zurückzusetzen"
 
 msgid "An unknown error occurred while changing password."
-msgstr ""
+msgstr "Ein unbekannter Fehler ist mit Änderung des Passwortes aufgetreten."
 
 msgid "Password is changed successfully."
-msgstr ""
+msgstr "Password wurde erfolgreich gesetzt."
 
 msgid "Success"
-msgstr ""
+msgstr "Erfolg"
 
 msgid "Change Password"
-msgstr ""
+msgstr "Passwort ändern"
 
 msgid "Current password"
-msgstr ""
+msgstr "Aktuelles Passwort"
 
 msgid "New password"
-msgstr ""
+msgstr "Neues Passwort"
 
 msgid "Retype new password"
-msgstr ""
+msgstr "Neues Passwort wiederholen"
 
 msgid "New passwords do not match."
-msgstr ""
+msgstr "Die neuen Passwörter stimmen nicht überein."
 
 msgid "Current password is empty."
-msgstr ""
+msgstr "Aktuelles Passwort ist leer."
 
 msgid "New password is empty."
-msgstr ""
+msgstr "Neues Passwort ist leer."
 
 msgid "One or more fields does contain errors."
-msgstr ""
+msgstr "Ein oder mehrere Felder enthalten Fehler."
 
 msgid ""
 "Password is weak. Password should contain capital, non-capital letters and "
 "numbers. Password should have 8 to 20 characters."
 msgstr ""
+"Passwort ist schwach. Das Passwort sollte Klein- und Großbuchstaben sowie "
+"Zahlen enthalten. Passwort sollte zwischen 8 und 20 Zeichen enthalten."
 
 msgid "Charm pink"
 msgstr "Rosa"
@@ -6282,13 +6299,15 @@ msgstr ""
 "Bitte wenden Sie sich an Ihren Administrator."
 
 msgid "Mobile device management plugin"
-msgstr ""
+msgstr "Mobile device management Plug-In"
 
 #, php-format
 msgid ""
 "Unexpected error occurred. Please contact your system administrator. Error "
 "code: %s"
 msgstr ""
+"Unerwarteter Fehler aufgetreten. Bitte kontaktieren Sie Ihren "
+"Systemadministrator. Fehlercode: %s"
 
 # 93%
 msgid "Logon failed. Please verify your credentials and try again."
