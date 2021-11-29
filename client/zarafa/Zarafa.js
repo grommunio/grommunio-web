@@ -837,7 +837,7 @@ Ext.apply(Zarafa, {
 
 			// Register if required
 			if (register) {
-				navigator.registerProtocolHandler('mailto', url, 'grommunio web');
+				navigator.registerProtocolHandler('mailto', url, 'grommunio Web');
 			}
 		}
 	},

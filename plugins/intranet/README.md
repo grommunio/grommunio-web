@@ -1,7 +1,7 @@
 # Intranet Plugin
 
 ## Introduction
-This plugin adds one or more buttons in the top menu bar which can be used to open a webpage inside grommunio web.
+This plugin adds one or more buttons in the top menu bar which can be used to open a webpage inside grommunio Web.
 
 
 ## Configuration

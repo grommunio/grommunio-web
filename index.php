@@ -73,7 +73,7 @@
 	// Try to authenticate the user
 	WebAppAuthentication::authenticate();
 
-	$webappTitle = defined('WEBAPP_TITLE') && WEBAPP_TITLE ? WEBAPP_TITLE : 'grommunio web';
+	$webappTitle = defined('WEBAPP_TITLE') && WEBAPP_TITLE ? WEBAPP_TITLE : 'grommunio Web';
 	if (isset($_COOKIE['webapp_title']))
 		$webappTitle .= " – ".$_COOKIE['webapp_title'];
 

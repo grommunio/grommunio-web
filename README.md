@@ -1,4 +1,4 @@
-# grommunio web
+# grommunio Web
 
 grommunio Web provides all the familiar email, advanced calendaring and contacts
 features you need to be productive. It helps you by providing an overview of

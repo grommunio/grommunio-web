@@ -1,4 +1,4 @@
-grommunio web Desktop Notifications Plugin
+grommunio Web Desktop Notifications Plugin
 Copyright (C) 2021 grommunio GmbH
 Copyright (C) 2016 Kopano and its licensors
 Copyright (C) 2013 Saket Patel silentsakky@gmail.com

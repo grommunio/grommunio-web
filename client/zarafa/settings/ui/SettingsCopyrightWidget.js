@@ -24,7 +24,7 @@ Zarafa.settings.ui.SettingsCopyrightWidget = Ext.extend(Zarafa.settings.ui.Setti
 		config = config || {};
 
 		Ext.applyIf(config, {
-			title : _('grommunio web'),
+			title : _('grommunio Web'),
 			layout: 'form',
 			items: [{
 				xtype: 'displayfield',

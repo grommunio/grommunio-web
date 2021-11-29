@@ -49,7 +49,7 @@ Zarafa.core.ui.WelcomeViewport = Ext.extend(Ext.Viewport, {
 					items: [{
 						xtype: 'displayfield',
 						cls: 'zarafa-welcome-title',
-						value : _('Welcome to grommunio web')
+						value : _('Welcome to grommunio Web')
 					},{
 						xtype: 'displayfield',
 						cls: 'zarafa-welcome-message',
