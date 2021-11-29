@@ -86,7 +86,7 @@ Zarafa.plugins.meet.SettingsWidget = Ext.extend(Zarafa.settings.ui.SettingsWidge
         },{
           xtype: 'checkbox',
           ref: 'locationFixCheckbox',
-          boxLabel: _('Prevent the URL in the meeting location from being ﻿overridden automatically (ex: when adding a meetingroom)', 'plugin_meet') + '<span class="k-settings-label-minor">(' + _('If you have problems when creating meetings, try disabling this setting', 'plugin_meet') + ')</span>',
+          boxLabel: _('Prevent the URL in the meeting location from being overridden automatically (ex: when adding a meetingroom)', 'plugin_meet') + '<span class="k-settings-label-minor">(' + _('If you have problems when creating meetings, try disabling this setting', 'plugin_meet') + ')</span>',
           checked: true,
           hideLabel : true,
           style: 'margin-top: 5px',
