@@ -8,21 +8,33 @@ Ext.namespace('Zarafa.hierarchy.data');
  * @singleton
  */
 Zarafa.hierarchy.data.PermissionProfiles = [{
-	value: Zarafa.core.mapi.Rights.RIGHTS_FULL_CONTROL,
-	name: _('Full control')
-},{
 	value: Zarafa.core.mapi.Rights.RIGHTS_OWNER,
 	name: _('Owner')
 },{
-	value: Zarafa.core.mapi.Rights.RIGHTS_SECRETARY,
-	name: _('Secretary')
+	value: Zarafa.core.mapi.Rights.RIGHTS_PUBLISHINGEDITOR,
+	name: _('Publishing Editor')
 },{
-	value: Zarafa.core.mapi.Rights.RIGHTS_READONLY,
-	name: _('Only read')
+	value: Zarafa.core.mapi.Rights.RIGHTS_EDITOR,
+	name: _('Editor')
+},{
+	value: Zarafa.core.mapi.Rights.RIGHTS_PUBLISHINGAUTHOR,
+	name: _('Publishing Author')
+},{
+	value: Zarafa.core.mapi.Rights.RIGHTS_AUTHOR,
+	name: _('Author')
+},{
+	value: Zarafa.core.mapi.Rights.RIGHTS_NONEDITINGAUTHOR,
+	name: _('Nonediting Author')
+},{
+	value: Zarafa.core.mapi.Rights.RIGHTS_REVIEWER,
+	name: _('Reviewer')
+},{
+	value: Zarafa.core.mapi.Rights.RIGHTS_CONTRIBUTOR,
+	name: _('Contributor')
 },{
 	value: Zarafa.core.mapi.Rights.RIGHTS_NO_RIGHTS,
-	name: _('No rights')
+	name: _('None')
 },{
 	value: null,
-	name: _('Other')
+	name: _('Custom')
 }];

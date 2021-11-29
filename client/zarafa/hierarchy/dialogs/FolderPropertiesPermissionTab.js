@@ -138,7 +138,7 @@ Zarafa.hierarchy.dialogs.FolderPropertiesPermissionTab = Ext.extend(Ext.Panel, {
 					},{
 						xtype: 'combo',
 						ref: '../../../profileCombo',
-						width: 122,
+						width: 200,
 						flex: 1,
 						id: 'profile-combo',
 						fieldLabel: _('Profile'),
@@ -188,75 +188,26 @@ Zarafa.hierarchy.dialogs.FolderPropertiesPermissionTab = Ext.extend(Ext.Panel, {
 					xtype: 'container',
 					layout: 'column',
 					items: [{
-						xtype: 'checkboxgroup',
-						columnWidth: 0.5,
-						style: 'margin-right: 2px;',
-						hideLabel: true,
-						columns: 1,
-						items: [{
-							xtype: 'checkbox',
-							boxLabel: _('Create items'),
-							rightsValue: Zarafa.core.mapi.Rights.RIGHTS_CREATE
-						},{
-							xtype: 'checkbox',
-							boxLabel: _('Read items'),
-							rightsValue: Zarafa.core.mapi.Rights.RIGHTS_READ_ANY
-						},{
-							xtype: 'checkbox',
-							boxLabel: _('Create subfolders'),
-							rightsValue: Zarafa.core.mapi.Rights.RIGHTS_CREATE_SUBFOLDER
-						}],
-						listeners: {
-							change: this.onPermissionChecked,
-							scope: this
-						}
-					},{
-						xtype: 'checkboxgroup',
-						columnWidth: 0.5,
-						style: 'margin-left: 2px;',
-						hideLabel: true,
-						columns: 1,
-						items: [{
-							xtype: 'checkbox',
-							boxLabel: _('Folder permissions'),
-							rightsValue: Zarafa.core.mapi.Rights.RIGHTS_FOLDER_ACCESS
-						},{
-							xtype: 'checkbox',
-							boxLabel: _('Folder visible'),
-							rightsValue: Zarafa.core.mapi.Rights.RIGHTS_FOLDER_VISIBLE
-						}],
-						listeners: {
-							change: this.onPermissionChecked,
-							scope: this
-						}
-					}]
-				},{
-					xtype: 'container',
-					layout: 'column',
-					items: [{
 						xtype: 'fieldset',
 						columnWidth: 0.5,
 						cls: 'zarafa-fieldset',
-						title: _('Edit items'),
+						title: _('Read'),
 						items: [{
 							xtype: 'radiogroup',
-							columns: 1,
+							columnWidth: 0.5,
+							style: 'margin-right: 2px;',
 							hideLabel: true,
+							columns: 1,
 							items: [{
-								name: 'allowedit',
+								name: 'allowread',
 								boxLabel: _('None'),
 								hideLabel: true,
-								rightsValue: Zarafa.core.mapi.Rights.RIGHTS_NONE
+								rightsValue: Zarafa.core.mapi.Rights.RIGHTS_NO_RIGHTS
 							},{
-								name: 'allowedit',
-								boxLabel: _('Own'),
+								name: 'allowread',
+								boxLabel: _('Full Details'),
 								hideLabel: true,
-								rightsValue: Zarafa.core.mapi.Rights.RIGHTS_EDIT_OWNED
-							},{
-								name: 'allowedit',
-								boxLabel: _('All'),
-								hideLabel: true,
-								rightsValue: Zarafa.core.mapi.Rights.RIGHTS_EDIT_ANY | Zarafa.core.mapi.Rights.RIGHTS_EDIT_OWNED
+								rightsValue: Zarafa.core.mapi.Rights.RIGHTS_READ_ANY | Zarafa.core.mapi.Rights.RIGHTS_FOLDER_VISIBLE
 							}],
 							listeners: {
 								change: this.onPermissionChecked,
@@ -264,6 +215,44 @@ Zarafa.hierarchy.dialogs.FolderPropertiesPermissionTab = Ext.extend(Ext.Panel, {
 							}
 						}]
 					},{
+						xtype: 'fieldset',
+						columnWidth: 0.5,
+						cls: 'zarafa-fieldset',
+						title: _('Write'),
+						items: [{
+							xtype: 'checkboxgroup',
+							columnWidth: 0.5,
+							style: 'margin-left: 2px;',
+							hideLabel: true,
+							columns: 1,
+							items: [{
+								xtype: 'checkbox',
+								boxLabel: _('Create items'),
+								rightsValue: Zarafa.core.mapi.Rights.RIGHTS_CREATE
+							},{
+								xtype: 'checkbox',
+								boxLabel: _('Create subfolders'),
+								rightsValue: Zarafa.core.mapi.Rights.RIGHTS_CREATE_SUBFOLDER
+							},{
+								xtype: 'checkbox',
+								boxLabel: _('Edit own'),
+								rightsValue: Zarafa.core.mapi.Rights.RIGHTS_EDIT_OWNED
+							},{
+								xtype: 'checkbox',
+								boxLabel: _('Edit all'),
+								rightsValue: Zarafa.core.mapi.Rights.RIGHTS_EDIT_OWNED | Zarafa.core.mapi.Rights.RIGHTS_EDIT_ANY
+							}],
+							listeners: {
+								change: this.onPermissionChecked,
+								scope: this
+							}
+						}]
+					}]
+				},{
+					xtype: 'container',
+					style: 'margin-top: 2px;',
+					layout: 'column',
+					items: [{
 						xtype: 'fieldset',
 						columnWidth: 0.5,
 						cls: 'zarafa-fieldset',
@@ -287,6 +276,35 @@ Zarafa.hierarchy.dialogs.FolderPropertiesPermissionTab = Ext.extend(Ext.Panel, {
 								boxLabel: _('All'),
 								hideLabel: true,
 								rightsValue: Zarafa.core.mapi.Rights.RIGHTS_DELETE_ANY | Zarafa.core.mapi.Rights.RIGHTS_DELETE_OWNED
+							}],
+							listeners: {
+								change: this.onPermissionChecked,
+								scope: this
+							}
+						}]
+					},{
+						xtype: 'fieldset',
+						columnWidth: 0.5,
+						cls: 'zarafa-fieldset',
+						title: _('Other'),
+						items: [{
+							xtype: 'checkboxgroup',
+							columnWidth: 0.5,
+							style: 'margin-left: 2px;',
+							hideLabel: true,
+							columns: 1,
+							items: [{
+								xtype: 'checkbox',
+								boxLabel: _('Folder owner'),
+								rightsValue: Zarafa.core.mapi.Rights.RIGHTS_CREATE_FOLDER | Zarafa.core.mapi.Rights.RIGHTS_FOLDER_CONTACT | Zarafa.core.mapi.Rights.RIGHTS_FOLDER_VISIBLE
+							},{
+								xtype: 'checkbox',
+								boxLabel: _('Folder contact'),
+								rightsValue: Zarafa.core.mapi.Rights.RIGHTS_FOLDER_CONTACT
+							},{
+								xtype: 'checkbox',
+								boxLabel: _('Folder visible'),
+								rightsValue: Zarafa.core.mapi.Rights.RIGHTS_FOLDER_VISIBLE
 							}],
 							listeners: {
 								change: this.onPermissionChecked,
@@ -398,22 +416,35 @@ Zarafa.hierarchy.dialogs.FolderPropertiesPermissionTab = Ext.extend(Ext.Panel, {
 
 		group.suspendEvents(false);
 		if (group instanceof Ext.form.RadioGroup) {
-			var none = items.get(0);
-			var own = items.get(1);
-			var all = items.get(2);
+			if(items.get(2)){
+				var none = items.get(0);
+				var own = items.get(1);
+				var all = items.get(2);
 
-			if ((permissions & all.rightsValue) === all.rightsValue) {
-				none.setValue(false);
-				own.setValue(false);
-				all.setValue(true);
-			} else if ((permissions & own.rightsValue) === own.rightsValue) {
-				none.setValue(false);
-				all.setValue(false);
-				own.setValue(true);
+				if ((permissions & all.rightsValue) === all.rightsValue) {
+					none.setValue(false);
+					own.setValue(false);
+					all.setValue(true);
+				} else if ((permissions & own.rightsValue) === own.rightsValue) {
+					none.setValue(false);
+					all.setValue(false);
+					own.setValue(true);
+				} else {
+					own.setValue(false);
+					all.setValue(false);
+					none.setValue(true);
+				}
 			} else {
-				own.setValue(false);
-				all.setValue(false);
-				none.setValue(true);
+				var none = items.get(0);
+				var all = items.get(1);
+
+				if ((permissions & all.rightsValue) === all.rightsValue) {
+					none.setValue(false);
+					all.setValue(true);
+				} else {
+					all.setValue(false);
+					none.setValue(true);
+				}
 			}
 		} else {
 			for (var i = 0, len = items.getCount(); i < len; i++) {
