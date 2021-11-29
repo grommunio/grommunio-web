@@ -87,7 +87,7 @@ POT_FILE=webapp.pot
 touch $POT_FILE
 
 # Web case
-if [ -f "grommunio-web.conf" ]; then
+if [ -f "cachebuster" ]; then
   create_potfile "client/zarafa client/extjs-mod plugins"
 
   if [ -n "${newlang}" ]; then
