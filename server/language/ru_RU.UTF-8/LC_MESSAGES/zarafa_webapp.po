@@ -1690,6 +1690,25 @@ msgstr ""
 msgid "Insufficient privileges"
 msgstr "Недостаточно прав"
 
+msgid ""
+"Copying this appointment will unset it as private. Are you sure you want to "
+"continue?"
+msgstr ""
+
+msgid "Private item"
+msgstr ""
+
+msgid "Copy"
+msgstr "Копировать"
+
+msgid ""
+"Moving this appointment will unset it as private. Are you sure you want to "
+"continue?"
+msgstr ""
+
+msgid "Move"
+msgstr "Переместить"
+
 #, fuzzy
 msgid "Update recipients"
 msgstr "Изменить получателя"
@@ -1703,9 +1722,6 @@ msgstr "Сохранить изменения и отправить обновл
 msgid "Open meeting request with changes"
 msgstr "Открыть измененное приглашение на собрание"
 
-msgid "Copy"
-msgstr "Копировать"
-
 msgid "grommunio Web"
 msgstr "grommunio Web"
 
@@ -1716,9 +1732,6 @@ msgid ""
 msgstr ""
 "Обратите внимание, что любые изменения, которые вы делаете, будут "
 "перезаписаны, если это собрание будет обновлено организатором"
-
-msgid "Move"
-msgstr "Переместить"
 
 #, fuzzy
 msgid "Don't move"
@@ -2113,17 +2126,15 @@ msgstr "Скачать всё как ZIP"
 msgid "Import to folder"
 msgstr "Импортировать в папку"
 
-#, fuzzy
 msgid ""
-"In order to use the vCard import feature, upgrade your Gromox to version 8.3 "
+"In order to use the vCard import feature, upgrade your Gromox to version 0 "
 "or higher."
-msgstr "Чтобы использовать импорт vCard, обновите Gromox до версии 8.3+"
+msgstr ""
 
-#, fuzzy
 msgid ""
 "In order to use the ICS / VCS import feature, upgrade your Gromox to version "
-"8.3 or higher."
-msgstr "Чтобы использовать импорт vCard, обновите Gromox до версии 8.3+"
+"0 or higher."
+msgstr ""
 
 msgid "Attachment error"
 msgstr "Ошибка вложения"
@@ -2507,6 +2518,18 @@ msgstr ""
 msgid "Add/Edit Cc recipient"
 msgstr "Изменить получателя"
 
+msgid "Disable for new mail"
+msgstr ""
+
+msgid "Enable for new mail"
+msgstr ""
+
+msgid "Disable for replies"
+msgstr ""
+
+msgid "Enable for replies"
+msgstr ""
+
 #, fuzzy
 msgid "No Cc recipient configured"
 msgstr "Подписи не настроены"
@@ -2540,8 +2563,8 @@ msgstr ""
 msgid "Help"
 msgstr "Помощь"
 
-msgid "grommunio Web Manual"
-msgstr "Руководство grommunio Web"
+msgid "Web Manual"
+msgstr ""
 
 msgid "Item data"
 msgstr ""
@@ -2553,6 +2576,9 @@ msgid "Sort by: context.mail.griddefaultcolumn"
 msgstr ""
 
 msgid "ZDeveloper"
+msgstr ""
+
+msgid "grommunio Web print"
 msgstr ""
 
 msgid "Display name"
@@ -3168,14 +3194,8 @@ msgstr "Напоминание установлено на: {0}, {1}"
 msgid "d-m-Y"
 msgstr "d-m-Y"
 
-msgid "Original message"
-msgstr "Оригинальное сообщение"
-
 msgid "l d/m/Y"
 msgstr "l d/m/Y"
-
-msgid "Sent Items"
-msgstr ""
 
 msgid "l d/m/Y {0}"
 msgstr ""
@@ -3231,11 +3251,9 @@ msgstr "Рассматривайте это как {0}."
 
 msgctxt "mail.previewpanel"
 msgid ""
-"Click here to download pictures. To help protect your privacy, grommunio Web "
+"Click here to download pictures. To help protect your privacy, WebApp "
 "prevented automatic download of some pictures in this message."
 msgstr ""
-"Нажмите для загрузки изображений. Для защиты ваших данных grommunio Web "
-"остановил автоматическую загрузку некоторых изображений в этом сообщении."
 
 msgctxt "mail.previewpanel"
 msgid ""
@@ -4152,7 +4170,7 @@ msgid "Unsaved changes"
 msgstr ""
 
 msgid "Welcome to grommunio Web"
-msgstr "Добро пожаловать в grommunio Web!"
+msgstr ""
 
 msgid "This is the first time you are using grommunio Web. "
 msgstr "Вы впервые используете grommunio Web. "
@@ -4254,19 +4272,26 @@ msgstr[0] "{0} непрочитанное сообщение в каталоге
 msgstr[1] "{0} непрочитанных сообщения в каталоге {1}"
 msgstr[2] "{0} непрочитанных сообщений в каталоге {1}"
 
-msgid "License error"
+msgid "Publishing Editor"
 msgstr ""
 
-msgid ""
-"The installed license key(s) have expired or are being over used. Please "
-"contact your system administrator for further information."
+msgid "Editor"
+msgstr "Редактор"
+
+msgid "Publishing Author"
 msgstr ""
 
-msgid "Full control"
-msgstr "Полный контроль"
+msgid "Author"
+msgstr ""
 
-msgid "No rights"
-msgstr "Нет прав"
+msgid "Nonediting Author"
+msgstr ""
+
+msgid "Reviewer"
+msgstr ""
+
+msgid "Contributor"
+msgstr ""
 
 msgid "Unable to import:"
 msgstr "Не удалось импортировать:"
@@ -4318,6 +4343,12 @@ msgstr "Тип"
 msgid "Description"
 msgstr "Описание"
 
+msgid "EntryID"
+msgstr ""
+
+msgid "Parent EID"
+msgstr ""
+
 msgid "Folder size"
 msgstr "Размер каталога"
 
@@ -4333,23 +4364,29 @@ msgstr "Права не предоставлены"
 msgid "Profile"
 msgstr "Профиль"
 
+msgid "Read"
+msgstr ""
+
+msgid "Full Details"
+msgstr ""
+
+msgid "Write"
+msgstr ""
+
 msgid "Create items"
 msgstr "Создание документов"
-
-msgid "Read items"
-msgstr "Чтение документов"
 
 msgid "Create subfolders"
 msgstr "Создание каталогов"
 
-msgid "Folder permissions"
-msgstr "Разрешения для каталога"
+msgid "Edit own"
+msgstr ""
 
-msgid "Folder visible"
-msgstr "Просмотр каталога"
+msgid "Edit all"
+msgstr ""
 
-msgid "Edit items"
-msgstr "Правка элементов"
+msgid "Delete items"
+msgstr "Удаление документов"
 
 msgid "Own"
 msgstr "Владелец"
@@ -4357,8 +4394,14 @@ msgstr "Владелец"
 msgid "All"
 msgstr "Все"
 
-msgid "Delete items"
-msgstr "Удаление документов"
+msgid "Folder owner"
+msgstr ""
+
+msgid "Folder contact"
+msgstr ""
+
+msgid "Folder visible"
+msgstr "Просмотр каталога"
 
 msgid "User already exists"
 msgstr "Пользователь уже существует"
@@ -4573,6 +4616,9 @@ msgstr "Отправлено"
 msgid "Red"
 msgstr "Красный"
 
+msgid "Original message"
+msgstr "Оригинальное сообщение"
+
 msgid "Schedule mail to be sent out"
 msgstr "Запланировать время отправки"
 
@@ -4684,9 +4730,6 @@ msgstr "Остальные параметры"
 msgid "Internet Headers"
 msgstr "Интернет-заголовки"
 
-msgid "EntryID"
-msgstr ""
-
 msgid "Message Settings"
 msgstr "Настройки сообщения"
 
@@ -4729,9 +4772,6 @@ msgstr "Переключатель Прочитано/Не прочитано"
 
 msgid "Toggle red/complete flag"
 msgstr "Переключатель флага красный/завершено"
-
-msgid "Close a conversation"
-msgstr ""
 
 # 78%
 # 76%
@@ -4781,9 +4821,6 @@ msgstr "Настройки написания письма"
 
 msgid "Compose mail in this format"
 msgstr "Написать письмо в этом формате"
-
-msgid "Editor"
-msgstr "Редактор"
 
 msgid "Default font"
 msgstr "Основной шрифт"
@@ -4872,17 +4909,24 @@ msgstr "Статус «Нет в офисе» установлен"
 msgid "I will be back on"
 msgstr "Я вернусь"
 
-msgid "I am out of office"
-msgstr ""
-
 msgid "Automatically reply once per day, per sender with the following text"
 msgstr ""
 "Автоматически отвечать раз в день каждому отправителю со следующим тектом"
 
-msgid "User is currently out of office."
+msgid "Inside My Organization"
 msgstr ""
-"У пользователя в данный момент установлен статус «Нет в офисе»(Out of "
-"Office)."
+
+msgid "Outside My Organization"
+msgstr ""
+
+msgid "Auto-reply to people outside my organization"
+msgstr ""
+
+msgid "My contacts only"
+msgstr ""
+
+msgid "Anyone outside my organization"
+msgstr ""
 
 msgid ""
 "The time you entered is before the out of office date. Please reschedule."
@@ -5079,7 +5123,10 @@ msgstr "Настройки"
 msgid "Basic"
 msgstr "Основные"
 
-msgid "Account information"
+msgid "Account information - {0}"
+msgstr ""
+
+msgid "Profile Picture"
 msgstr ""
 
 msgid "Language"
@@ -5233,8 +5280,8 @@ msgstr "Включить базовые сочетания клавиш"
 msgid "All keyboard shortcuts on"
 msgstr "Включить все сочетания клавиш"
 
-msgid "This change requires a reload of the grommunio Web"
-msgstr "Перезагрузите grommunio Web для принятия этого изменения"
+msgid "This change requires a reload of grommunio Web"
+msgstr ""
 
 msgid "Plugins"
 msgstr "Расширения"
@@ -5718,17 +5765,11 @@ msgstr "Соединение воостановлено."
 msgid "Connection with server has been restored"
 msgstr "Соединение с сервером восстановлено."
 
-msgid "Please contact your administrator if this problem persists."
-msgstr ""
-
 #. TRANSLATORS: Example: HTTP 404
-msgid "Error HTTP {0}"
+msgid "HTTP {0}"
 msgstr ""
 
-msgid "HTTP status text is: "
-msgstr ""
-
-msgid "Invalid data received from the server. HTTP status text is: "
+msgid "Invalid data received from the server"
 msgstr ""
 
 msgid "Missing store"
@@ -5810,45 +5851,254 @@ msgstr "Произошла ошибка при загрузке модели с 
 msgid "Out of Office is currently activated. Would you like to turn it off?"
 msgstr "Статус «Нет в офисе» включён. Хотите выключить?"
 
-msgid "Out of office off"
-msgstr "Выключить статус «Нет в офисе»."
-
-msgid "Out of office has been turned off"
-msgstr "Статус «Нет в офисе» выключен."
-
-msgid "Send Fax"
-msgstr "Отправить факс"
-
-msgid "Contact Fax"
-msgstr "Факс"
-
-msgid "Google Maps"
-msgstr "Карты Google"
-
-#. TRANSLATORS: The map of earth
-msgid "Map"
-msgstr "Карта"
-
-msgid "Move currently selected message(s) to {0}"
-msgstr "Переместить выбранные письма в {0}"
-
-msgid "Move to {0}"
-msgstr "Переместить в {0}"
-
-msgid "Move current message to {0}"
-msgstr "Переместить это письмо в {0}"
-
-msgid "Personal Inbox Manager"
+msgid "Open Chat at start"
 msgstr ""
 
-msgid "Personal Inbox Management Settings"
+msgid "Desktop Notifications Plugin"
 msgstr ""
 
-msgid "Select another folder"
-msgstr "Выберите другой каталог"
+msgid "Desktop Notifications"
+msgstr ""
 
-msgid "E-mails are moved to {0}"
-msgstr "Письма перемещены в {0}"
+msgid "{A} Autohide desktop notification after second(s) {B}"
+msgstr ""
+
+msgid "Intranet"
+msgstr ""
+
+msgid "Email Details"
+msgstr ""
+
+msgid "Item Data"
+msgstr ""
+
+msgid "Mobile Device Manager"
+msgstr ""
+
+msgid "Wiping device"
+msgstr ""
+
+msgid "Password incorrect"
+msgstr ""
+
+msgid "Full resync in progress"
+msgstr ""
+
+msgid "Username or password incorrect"
+msgstr ""
+
+msgid "Not Applicable"
+msgstr ""
+
+msgid "Wipe Pending"
+msgstr ""
+
+msgid "Wipe Requested"
+msgstr ""
+
+msgid "Wipe Executed"
+msgstr ""
+
+msgid "Not Available"
+msgstr ""
+
+msgid "Device"
+msgstr ""
+
+msgid "Operating System"
+msgstr ""
+
+msgid "ID"
+msgstr ""
+
+msgid "User Agent"
+msgstr ""
+
+msgid "MDM Plugin"
+msgstr ""
+
+msgid "Active Sync Version"
+msgstr ""
+
+msgid "grommunio-sync Version"
+msgstr ""
+
+msgid "Policy name"
+msgstr ""
+
+msgid "Outlook Extension"
+msgstr ""
+
+msgid "Build"
+msgstr ""
+
+msgid "Last updated"
+msgstr ""
+
+msgid "d F Y, H:i"
+msgstr ""
+
+msgid "Connected since"
+msgstr ""
+
+msgid "d F Y"
+msgstr ""
+
+msgid "Synchronize"
+msgstr ""
+
+msgid "Manage Shared Folders"
+msgstr ""
+
+msgid ""
+"Select folders to sync to your device from the list below. To add additional "
+"mailboxes to the list, open them in WebApp first."
+msgstr ""
+
+msgid "grommunio-sync"
+msgstr ""
+
+msgid "Mobile device management"
+msgstr ""
+
+msgid "Mobile Devices"
+msgstr ""
+
+msgid ""
+"Unable to connect to the grommunio-sync server. Click {0} to enter your "
+"credentials"
+msgstr ""
+
+msgid "Devices"
+msgstr ""
+
+msgid "No devices connected to your account"
+msgstr ""
+
+msgid "Last Update"
+msgstr ""
+
+msgid "Device ID"
+msgstr ""
+
+msgid "Device OS"
+msgstr ""
+
+msgid "Device Info"
+msgstr ""
+
+msgid "First Sync time"
+msgstr ""
+
+msgid "Full resync"
+msgstr ""
+
+msgid "Remove device"
+msgstr ""
+
+msgid "Please enter your username and password"
+msgstr ""
+
+msgid "Password"
+msgstr ""
+
+msgid "Username"
+msgstr ""
+
+msgid ""
+"Do you really want to wipe your device?\n"
+" Enter your password to confirm."
+msgstr ""
+
+msgid "Add meeting"
+msgstr ""
+
+msgid "Room name:"
+msgstr ""
+
+msgid "Room URL:"
+msgstr ""
+
+msgid "Shift-click for advanced settings"
+msgstr ""
+
+msgid "Join webmeeting"
+msgstr ""
+
+msgid "Open meeting in:"
+msgstr ""
+
+msgid "Web tab"
+msgstr ""
+
+msgid "Hide the button in the main toolbar"
+msgstr ""
+
+msgid "Add the subject to the room name"
+msgstr ""
+
+msgid "Add the organizer name to the room name"
+msgstr ""
+
+msgid "Add the URL to the meeting location rather than overwriting it"
+msgstr ""
+
+msgid ""
+"Prevent the URL in the meeting location from being overridden automatically "
+"(ex: when adding a meetingroom)"
+msgstr ""
+
+msgid "If you have problems when creating meetings, try disabling this setting"
+msgstr ""
+
+msgid "Add an invitation to the appointment description"
+msgstr ""
+
+msgid "Invitation text"
+msgstr ""
+
+msgid ""
+"must contain %url% as a placeholder for the meeting link, empty the textbox "
+"to reset to default"
+msgstr ""
+
+msgid "An unknown error occurred while changing password."
+msgstr ""
+
+msgid "Password is changed successfully."
+msgstr ""
+
+msgid "Success"
+msgstr ""
+
+msgid "Change Password"
+msgstr ""
+
+msgid "Current password"
+msgstr ""
+
+msgid "New password"
+msgstr ""
+
+msgid "Retype new password"
+msgstr ""
+
+msgid "New passwords do not match."
+msgstr ""
+
+msgid "Current password is empty."
+msgstr ""
+
+msgid "New password is empty."
+msgstr ""
+
+msgid "One or more fields does contain errors."
+msgstr ""
+
+msgid ""
+"Password is weak. Password should contain capital, non-capital letters and "
+"numbers. Password should have 8 to 20 characters."
+msgstr ""
 
 msgid "Charm pink"
 msgstr ""
@@ -5871,7 +6121,7 @@ msgstr ""
 msgid "Pearl aqua"
 msgstr ""
 
-msgid "grommunio blue"
+msgid "Grommunio blue"
 msgstr ""
 
 msgid "Baby blue"
@@ -5936,47 +6186,13 @@ msgid ""
 "Please contact your system administrator."
 msgstr ""
 
-msgid "Can't add data to bus, same action type is present in bus"
+msgid "Mobile device management plugin"
 msgstr ""
-"Не удалось добавить данные в шину, такой тип операции в шине уже представлен"
-
-msgid "Response data requested from bus but it doesn't have any data."
-msgstr ""
-"Было запрошено получение информации с шины, но последний на запрос не "
-"ответил."
 
 #, php-format
-msgid "Unknown module '%s' with id '%s'"
-msgstr "Неизвестный модуль «%s» с id «%s»"
-
 msgid ""
-"We encountered a problem. This might be caused by upgrading a plugin. Please "
-"re-login to resolve the issue."
-msgstr ""
-
-#, php-format
-msgid "Unknown notifier '%s'"
-msgstr "Неизвестное уведовление «%s»"
-
-msgid "An unexpected error has occurred"
-msgstr "Произошла непредвиденная ошибка"
-
-#, fuzzy
-msgid "To-Do List"
-msgstr "Телефонный справочник"
-
-#. TRANSLATORS: This indicates that the opened folder belongs to a particular user,
-#. * for example: 'Calendar of Holiday', in this case %1$s is 'Calendar' (the foldername)
-#. * and %2$s is 'Holiday' (the username).
-#.
-#, php-format
-msgid "%1$s of %2$s"
-msgstr "%1$s из %2$s"
-
-msgid "Error retrieving existing settings"
-msgstr "Ошибка получения текущих настроек"
-
-msgid "Error retrieving existing persistent settings"
+"Unexpected error occurred. Please contact your system administrator. Error "
+"code: %s"
 msgstr ""
 
 # 93%
@@ -5996,81 +6212,6 @@ msgstr ""
 #, fuzzy
 msgid "Unknown MAPI Error"
 msgstr "Неизвестная ошибка MAPI: %s"
-
-msgid "This external link will open in a new window"
-msgstr "Эта внешняя ссылка откроется в новом окне"
-
-#, fuzzy
-msgid "Destination folder not found."
-msgstr "Каталог назначения"
-
-msgid "Eml is corrupted"
-msgstr ""
-
-msgid "The eml Attachment is not imported successfully"
-msgstr ""
-
-msgid "The vcf attachment is not imported successfully"
-msgstr ""
-
-#, php-format
-msgid "Unable to import '%s' to '%s'. "
-msgstr ""
-
-#, fuzzy
-msgid "There is no appointment found in this file."
-msgstr "Эта встреча произошла в прошлом."
-
-msgid "The file is corrupt."
-msgstr ""
-
-#, fuzzy
-msgid "The file is invalid."
-msgstr "Время {0} неправильное"
-
-#, php-format
-msgid "Unable to import '%s'. "
-msgstr ""
-
-msgid "Please contact your system administrator if the problem persists."
-msgstr ""
-
-msgid "Attachment is not imported successfully"
-msgstr ""
-
-#, fuzzy
-msgid "Embedded attachment not found."
-msgstr "Вложить файлы в этот контакт."
-
-msgid "ZIP is not created successfully"
-msgstr ""
-
-msgid "Attachments can not be downloaded"
-msgstr ""
-
-# 82%
-# 100%
-#, fuzzy
-msgid "Could not find attachment."
-msgstr "Не удалось загрузить вложение."
-
-msgid "Operation failed"
-msgstr "Операция не удалась"
-
-# 90%
-# 100%
-#, fuzzy
-msgid "Sticky Note"
-msgstr "Заметка"
-
-# 92%
-# 100%
-#, fuzzy
-msgid "Task Request"
-msgstr "Поручение:"
-
-msgid "Could not find message, either it has been moved or deleted."
-msgstr ""
 
 msgid "Request is not available."
 msgstr ""
@@ -6103,9 +6244,6 @@ msgstr "Операция не удалась: недостаточно памя�
 #, php-format
 msgid "Unknown MAPI Error: %s"
 msgstr "Неизвестная ошибка MAPI: %s"
-
-msgid "Action is not performed correctly."
-msgstr "Операция выполнилась некорректно."
 
 msgid "Tentatively accepted"
 msgstr "Предварительно принято."
@@ -6185,228 +6323,6 @@ msgstr "Occurs every {0} effective {1} until {2}."
 #, fuzzy, php-format
 msgid "Occurs every %s %s effective %s until %s."
 msgstr "Occurs every {0} effective {1} until {2}."
-
-msgid "Task Accepted:"
-msgstr "Задача принята:"
-
-msgid "Task Declined:"
-msgstr "Задача отклонена:"
-
-msgid "Task Updated:"
-msgstr "Задача обновлена:"
-
-msgid "Task Completed:"
-msgstr "Задача выполнена:"
-
-msgid "Contact not found"
-msgstr ""
-
-msgid ""
-"Contact information could not be displayed because the server had trouble "
-"retrieving the information."
-msgstr ""
-
-msgid "Could not handle this type of object."
-msgstr "Невозможно работать с этим типом объекта."
-
-msgid "Could not open this object."
-msgstr "Невозможно открыть этот объект."
-
-msgid "Could not open occurrence."
-msgstr "Событие открыть не удалось."
-
-msgid "Could not open occurrence, specific occurrence is probably deleted."
-msgstr "Событие открыть не удалось. Возможно, событие было удалено."
-
-# 89%
-# 100%
-# 84%
-msgid "a meeting request"
-msgstr "приглашение на собрание"
-
-# 93%
-# 100%
-# 80%
-msgid "an appointment"
-msgstr "встреча"
-
-# 79%
-# 100%
-msgid "You have insufficient privileges to move "
-msgstr "У вас недостаточно прав для перемещения "
-
-msgid ""
-"Cannot set a reminder to appear before the previous occurrence. Reset "
-"reminder to save the change"
-msgstr ""
-"Невозможно установить оповещение перед предыдущим событием. Сбросьте "
-"оповещение для сохранения изменений."
-
-msgid "Two occurrences cannot occur on the same day"
-msgstr "Два события не могут произойти в один и тот же день"
-
-#, php-format
-msgid ""
-"You marked '%s' as a resource. You cannot schedule a meeting with '%s' "
-"because you do not have the appropriate permissions for that account. Either "
-"enter the name as a required or optional attendee or talk to your "
-"administrator about giving you permission to schedule '%s'."
-msgstr ""
-
-#, php-format
-msgid ""
-"'%s' has declined your meeting because '%s' does not automatically accept "
-"meeting requests."
-msgstr ""
-"'%s' отклонил ваше приглашение на собрание, потому что '%s' не принимает "
-"автоматические приглашения."
-
-#, php-format
-msgid ""
-"'%s' has declined your meeting because it is recurring. You must book each "
-"meeting separately with this resource."
-msgstr ""
-"«%s» отклонил ваше собрание из-за его повторяемости. Вы должны организовать "
-"каждую встречу с этим ресурсом отдельно."
-
-#, php-format
-msgid ""
-"'%s' is already booked for this specified time. You must use another time or "
-"find another resource."
-msgstr ""
-"«%s» уже организован в указанное время.  Вы должны указать другое время или "
-"найти другой ресурс."
-
-msgid "Meeting was not scheduled."
-msgstr "Встреча не была запланирована."
-
-msgid "Meeting could not be sent."
-msgstr "Не удалось отправить приглашение."
-
-msgid "Meeting could not be saved."
-msgstr "Не удалось сохранить приглашение."
-
-msgid "Private Appointment"
-msgstr "Частная встреча"
-
-#, php-format
-msgid "%s's Birthday"
-msgstr "День рождения: %s"
-
-#, php-format
-msgid "%s's Anniversary"
-msgstr "Годовщина: %s"
-
-msgid "Unknown user/group"
-msgstr "Неизвестный пользователь/группа"
-
-msgid "Could not save delegate information."
-msgstr "Не удалось сохранить информацию о делегате."
-
-# 80%
-msgid "Could not delete delegate."
-msgstr "Не удалось удалить делегата."
-
-msgid "Can not get list of delegates."
-msgstr "Не удалось получить список делегатов."
-
-# 86%
-msgid "Could not load the hierarchy."
-msgstr "Не удалось загрузить дерево."
-
-msgid "Could not load folder properties."
-msgstr "Не удалось загрузить параметры каталога."
-
-#, fuzzy
-msgid "Could not remove folder from favorites."
-msgstr "Не удалось добавить каталог в «Избранные»."
-
-msgid "You have insufficient privileges to delete folder."
-msgstr "Недостаточно прав для удаления каталога."
-
-msgid "Could not delete folder."
-msgstr "Не удалось удалить каталог."
-
-msgid "You have insufficient privileges to copy folder."
-msgstr "Недостаточно прав для копирования каталога."
-
-msgid "Could not copy folder."
-msgstr "Не удалось скопировать каталог."
-
-msgid "You have insufficient privileges to move this folder."
-msgstr "Недостаточно прав для перемещения каталога."
-
-msgid "Could not move folder."
-msgstr "Не удалось переместить каталог."
-
-msgid "You have insufficient privileges to delete items."
-msgstr "Недостаточно прав для удаления элементов."
-
-msgid "Could not empty folder."
-msgstr "Не удалось очистить каталог."
-
-msgid "Could not perform action correctly."
-msgstr "Не удалось корректно выполнить операцию."
-
-msgid ""
-"A favorite folder with this name already exists, please use another name."
-msgstr ""
-
-msgid "Could not add folder to favorites."
-msgstr "Не удалось добавить каталог в «Избранные»."
-
-msgid "You have insufficient privileges to set permissions for this folder."
-msgstr "У Вас недостаточно прав для изменения разрешений для этого каталога."
-
-msgid "Could not set folder permissions."
-msgstr "Не удалось изменить разрешения для каталога."
-
-msgid "You have insufficient privileges to rename this folder."
-msgstr "Недостаточно прав для переименования каталога."
-
-msgid "A folder with this name already exists. Use another name."
-msgstr "Каталог с таким именем уже существует. Воспользуйтесь другим именем."
-
-msgid "Could not rename folder."
-msgstr "Не удалось переименовать каталог."
-
-msgid "You have insufficient privileges to create this folder."
-msgstr "Недостаточно прав для создания этого каталога."
-
-msgid "Could not create folder."
-msgstr "Не удалось создать каталог."
-
-msgid "Could not close shared folder."
-msgstr "Не удалось закрыть общий каталог."
-
-msgid "User could not be resolved."
-msgstr "Невозможно обнаружить пользователя."
-
-#, php-format
-msgid ""
-"You have insufficient privileges to open this %1$s folder. The folder owner "
-"can set these using the 'permissions'-tab of the folder properties (right "
-"click the %1$s folder > properties > permissions)."
-msgstr ""
-
-msgid "unknown"
-msgstr "неизвестный"
-
-# 95%
-msgid "Could not move folder"
-msgstr "Не удалось переместить каталог."
-
-# 95%
-msgid "Could not copy folder"
-msgstr "Не удалось скопировать каталог."
-
-msgid "You have insufficient privileges to open this message."
-msgstr "Недостаточно прав для открытия этого сообщения."
-
-msgid ""
-"Could not find message, either it has been moved or deleted or you don't "
-"have access to open this message."
-msgstr ""
 
 msgid "Could not open message."
 msgstr "Не удалось открыть сообщение."
@@ -6505,203 +6421,35 @@ msgstr ""
 msgid "The following recipient(s) could not be reached"
 msgstr "Не удалось обнаружить следующих получателей"
 
-# 80%
-msgid "You have insufficient privileges to see the contents of this folder."
-msgstr "Недостаточно прав для просмотра элементов этого каталога."
-
-msgid "Could not load the contents of this folder."
-msgstr "Не удалось загрузить содержимое этого каталога."
-
-msgid "Error in search, please try again"
-msgstr "Ошибка в поиске, попробуйте снова"
-
-msgid "Unable to perform search query, no permissions to create search folder."
-msgstr ""
-
-msgid "Unable to perform search query, search folder not found."
-msgstr ""
-
-msgid "Unable to perform search query, store might not support searching."
-msgstr ""
-
-msgid "Error in creating search folder."
-msgstr ""
-
-msgid ""
-"You have insufficient privileges to perform search operation in this folder."
-msgstr "Недостаточно прав для поиска в этом каталоге."
-
-msgid "Could not update search results."
-msgstr "Не удалось обновить результаты поиска."
-
-msgid "Could not stop search operation."
-msgstr "Не удалось остановить поиск."
-
-msgid "You have insufficient privileges to save this message."
-msgstr "Недостаточно прав для сохранения этого письма."
-
-msgid "Could not save message."
-msgstr "Не удалось сохранить письмо."
-
-msgid "You have insufficient privileges to delete this message."
-msgstr "Недостаточно прав для удаления этого письма."
-
-msgid "Could not delete message."
-msgstr "Не удалось удалить письмо."
-
-msgid "You have insufficient privileges to cancel this Meeting Request."
-msgstr "Недостаточно прав для отмены приглашения на собрание."
-
-msgid "Could not cancel Meeting Request."
-msgstr "Не удалось отменить приглашение на собрание."
-
-msgid "You have insufficient privileges to decline this Meeting Request."
-msgstr "Недостаточно прав для отклонения приглашения на собрание."
-
-msgid "Could not decline Meeting Request."
-msgstr "Не удалось отклонить приглашение на собрание."
-
-msgid "You have insufficient privileges to accept this Meeting Request."
-msgstr "Недостаточно прав для принятия приглашения на собрание."
-
-msgid "Could not accept Meeting Request."
-msgstr "Не удалось принять приглашение на собрание."
-
-msgid "You have insufficient privileges to cancel Meeting Request invitation."
-msgstr "Недостаточно прав для отмены приглашения на собрание."
-
-msgid "Could not cancel Meeting Request invitations."
-msgstr "Не удалось отменить приглашения на собрания."
-
-msgid "You can not continue search operation on this folder."
-msgstr "Вы не можете продолжить поиск в этой папке."
-
-msgid "Error in search, please try again."
-msgstr "Ошибка в поиске, попробуйте снова."
-
-msgid "Error in distribution list expansion."
-msgstr ""
-
-msgid "The message store has exceeded its hard quota limit."
-msgstr "Превышен размер жесткой квоты для хранилища сообщений."
-
-msgid ""
-"To reduce the amount of data in this message store, select some items that "
-"you no longer need, delete them and cleanup your Deleted Items folder."
-msgstr ""
-
-msgid "The message store has exceeded its soft quota limit."
-msgstr "Размер хранилища сообщений превысил размер мягкой квоты."
-
-msgid "Could not process request data properly."
-msgstr "Не удается обработать запрос данных должным образом."
-
 #, php-format
-msgid "Unknown action type specified - %s"
-msgstr "Неизвестный тип операции: %s"
-
-msgid "Cannot snooze the reminder. You may be reminded again."
+msgid "Unable to import '%s' to '%s'. "
 msgstr ""
-
-msgid "Cannot dismiss the reminder. You may be reminded again."
-msgstr ""
-
-msgid "You have insufficient privileges to perform this action."
-msgstr "Недостаточно прав для выполнения этой операции."
-
-msgid "Could not resolve user."
-msgstr "Пользователь не найден."
-
-msgid "Setting mail filters on the stores of other users is not allowed."
-msgstr ""
-
-msgid "Untitled rule"
-msgstr "Безымянное правило фильтрации"
-
-# 83%
-# 77%
-# 76%
-msgid "Could not load rules."
-msgstr "Не удалось загрузить правила фильтрации."
-
-# 83%
-# 77%
-# 95%
-msgid "Could not save rules."
-msgstr "Не удалось сохранить правила фильтрации."
-
-msgid "Task Request:"
-msgstr "Поручение:"
-
-msgid "Welcome"
-msgstr "Добро пожаловать"
-
-msgid "Username"
-msgstr "Имя пользователя"
-
-msgid "Password"
-msgstr "Пароль"
-
-msgid "Sign in"
-msgstr "Вход"
-
-msgid "Caps lock is on"
-msgstr ""
-
-# 94%
-#, fuzzy
-msgid "File is not imported successfully"
-msgstr "Успешно отправлено"
 
 msgid "There is no contact found in this file."
+msgstr ""
+
+msgid "The file is corrupt."
+msgstr ""
+
+#, fuzzy
+msgid "The file is invalid."
+msgstr "Время {0} неправильное"
+
+#, php-format
+msgid "Unable to import '%s'. "
+msgstr ""
+
+msgid "Please contact your system administrator if the problem persists."
 msgstr ""
 
 msgid ""
 "grommunio Web does not support importing multiple VCF with this version."
 msgstr ""
 
+#, fuzzy
+msgid "There is no appointment found in this file."
+msgstr "Эта встреча произошла в прошлом."
+
 msgid ""
 "grommunio Web does not support importing multiple ICS with this version."
 msgstr ""
-
-#, php-format
-msgid "Unable to import '%s'"
-msgstr ""
-
-#, fuzzy
-msgid "The EML is not valid"
-msgstr "Время {0} неправильное"
-
-msgid "GB"
-msgstr "ГиБ"
-
-msgid "MB"
-msgstr "МиБ"
-
-msgid "KB"
-msgstr "кБ"
-
-msgid "B"
-msgstr "Б"
-
-msgid "The maximum stack depth has been exceeded"
-msgstr "Достигнута максимальная глубина стека"
-
-msgid "Control character error, possibly incorrectly encoded"
-msgstr ""
-"Обнаружен недопустимый символ, возможно, по причине неправильного кодирования"
-
-msgid "Invalid or malformed JSON"
-msgstr "Некорректный JSON"
-
-msgid "Syntax error"
-msgstr "Синтаксическая ошибка"
-
-#, fuzzy
-msgid "Malformed UTF-8 characters, possibly incorrectly encoded"
-msgstr ""
-"Обнаружен недопустимый символ, возможно, по причине неправильного кодирования"
-
-#, php-format
-msgid "JSON Error: - %s"
-msgstr "Ошибка JSON: %s"

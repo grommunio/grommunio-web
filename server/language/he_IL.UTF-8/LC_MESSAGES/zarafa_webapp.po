@@ -1732,6 +1732,25 @@ msgstr ""
 msgid "Insufficient privileges"
 msgstr ""
 
+msgid ""
+"Copying this appointment will unset it as private. Are you sure you want to "
+"continue?"
+msgstr ""
+
+msgid "Private item"
+msgstr ""
+
+msgid "Copy"
+msgstr "העתק"
+
+msgid ""
+"Moving this appointment will unset it as private. Are you sure you want to "
+"continue?"
+msgstr ""
+
+msgid "Move"
+msgstr "העבר"
+
 #, fuzzy
 msgid "Update recipients"
 msgstr "ערוך נמען"
@@ -1745,9 +1764,6 @@ msgstr ""
 msgid "Open meeting request with changes"
 msgstr ""
 
-msgid "Copy"
-msgstr "העתק"
-
 msgid "grommunio Web"
 msgstr "הווב אפ של זראפה"
 
@@ -1755,9 +1771,6 @@ msgid ""
 "Please note that any changes you make will be overwritten when this meeting "
 "request is updated by the organizer. Would you like to move this meeting?"
 msgstr ""
-
-msgid "Move"
-msgstr "העבר"
 
 msgid "Don't move"
 msgstr ""
@@ -2133,13 +2146,13 @@ msgid "Import to folder"
 msgstr "תיקיה ריקה"
 
 msgid ""
-"In order to use the vCard import feature, upgrade your Gromox to version 8.3 "
+"In order to use the vCard import feature, upgrade your Gromox to version 0 "
 "or higher."
 msgstr ""
 
 msgid ""
 "In order to use the ICS / VCS import feature, upgrade your Gromox to version "
-"8.3 or higher."
+"0 or higher."
 msgstr ""
 
 msgid "Attachment error"
@@ -2527,6 +2540,18 @@ msgstr ""
 msgid "Add/Edit Cc recipient"
 msgstr "ערוך נמען"
 
+msgid "Disable for new mail"
+msgstr ""
+
+msgid "Enable for new mail"
+msgstr ""
+
+msgid "Disable for replies"
+msgstr ""
+
+msgid "Enable for replies"
+msgstr ""
+
 #, fuzzy
 msgid "No Cc recipient configured"
 msgstr "לא ניתן היה להגיע לכל הנמענים"
@@ -2561,7 +2586,7 @@ msgstr ""
 msgid "Help"
 msgstr ""
 
-msgid "grommunio Web Manual"
+msgid "Web Manual"
 msgstr ""
 
 msgid "Item data"
@@ -2574,6 +2599,9 @@ msgid "Sort by: context.mail.griddefaultcolumn"
 msgstr ""
 
 msgid "ZDeveloper"
+msgstr ""
+
+msgid "grommunio Web print"
 msgstr ""
 
 # 91%
@@ -3176,13 +3204,7 @@ msgstr ""
 msgid "d-m-Y"
 msgstr "ש-ח-י"
 
-msgid "Original message"
-msgstr "הודעה מקורית"
-
 msgid "l d/m/Y"
-msgstr ""
-
-msgid "Sent Items"
 msgstr ""
 
 msgid "l d/m/Y {0}"
@@ -3240,11 +3262,9 @@ msgstr "אנא התייחס לזה כ{0}"
 
 msgctxt "mail.previewpanel"
 msgid ""
-"Click here to download pictures. To help protect your privacy, grommunio Web "
+"Click here to download pictures. To help protect your privacy, WebApp "
 "prevented automatic download of some pictures in this message."
 msgstr ""
-"לחט כאן כדי להוריד תמונות. על מנת לעזור לשמור על פרטיותך, grommunio Web מנעה "
-"אוטומטית הורדה של תמונות מסוימות בהודעה זו."
 
 msgctxt "mail.previewpanel"
 msgid ""
@@ -4296,18 +4316,25 @@ msgid_plural "There are {0} unread messages in the folder {1}"
 msgstr[0] "ישנה הודעה {0} שלא נקראה בתיקיה {1}"
 msgstr[1] "ישנן {0} הודעות שלא נקראו בתיקיה {1}"
 
-msgid "License error"
+msgid "Publishing Editor"
 msgstr ""
 
-msgid ""
-"The installed license key(s) have expired or are being over used. Please "
-"contact your system administrator for further information."
+msgid "Editor"
 msgstr ""
 
-msgid "Full control"
+msgid "Publishing Author"
 msgstr ""
 
-msgid "No rights"
+msgid "Author"
+msgstr ""
+
+msgid "Nonediting Author"
+msgstr ""
+
+msgid "Reviewer"
+msgstr ""
+
+msgid "Contributor"
 msgstr ""
 
 msgid "Unable to import:"
@@ -4362,6 +4389,12 @@ msgstr "סוג"
 msgid "Description"
 msgstr "תיאור"
 
+msgid "EntryID"
+msgstr ""
+
+msgid "Parent EID"
+msgstr ""
+
 msgid "Folder size"
 msgstr "גודל התיקיה"
 
@@ -4377,23 +4410,29 @@ msgstr ""
 msgid "Profile"
 msgstr "פרופיל"
 
+msgid "Read"
+msgstr ""
+
+msgid "Full Details"
+msgstr ""
+
+msgid "Write"
+msgstr ""
+
 msgid "Create items"
 msgstr "צור פריטים"
-
-msgid "Read items"
-msgstr "פריטים שנקראו"
 
 msgid "Create subfolders"
 msgstr "צור תיקיות משנה"
 
-msgid "Folder permissions"
-msgstr "הרשאות תיקיה"
+msgid "Edit own"
+msgstr ""
 
-msgid "Folder visible"
-msgstr "תיקיה נראית"
+msgid "Edit all"
+msgstr ""
 
-msgid "Edit items"
-msgstr "ערוך פריטים"
+msgid "Delete items"
+msgstr "מחק פריטים"
 
 msgid "Own"
 msgstr "היה בעלים"
@@ -4401,8 +4440,14 @@ msgstr "היה בעלים"
 msgid "All"
 msgstr "הכל"
 
-msgid "Delete items"
-msgstr "מחק פריטים"
+msgid "Folder owner"
+msgstr ""
+
+msgid "Folder contact"
+msgstr ""
+
+msgid "Folder visible"
+msgstr "תיקיה נראית"
 
 msgid "User already exists"
 msgstr ""
@@ -4628,6 +4673,9 @@ msgstr "נשלח"
 msgid "Red"
 msgstr "אדום"
 
+msgid "Original message"
+msgstr "הודעה מקורית"
+
 msgid "Schedule mail to be sent out"
 msgstr ""
 
@@ -4738,9 +4786,6 @@ msgstr "אפשרויות שונות"
 msgid "Internet Headers"
 msgstr "כותרות אינטרנט"
 
-msgid "EntryID"
-msgstr ""
-
 msgid "Message Settings"
 msgstr "הגדרות הודעה"
 
@@ -4784,9 +4829,6 @@ msgid "Toggle read/unread"
 msgstr ""
 
 msgid "Toggle red/complete flag"
-msgstr ""
-
-msgid "Close a conversation"
 msgstr ""
 
 # 86%
@@ -4844,9 +4886,6 @@ msgid "Compose mail settings"
 msgstr ""
 
 msgid "Compose mail in this format"
-msgstr ""
-
-msgid "Editor"
 msgstr ""
 
 msgid "Default font"
@@ -4935,13 +4974,22 @@ msgstr ""
 msgid "I will be back on"
 msgstr ""
 
-msgid "I am out of office"
-msgstr ""
-
 msgid "Automatically reply once per day, per sender with the following text"
 msgstr ""
 
-msgid "User is currently out of office."
+msgid "Inside My Organization"
+msgstr ""
+
+msgid "Outside My Organization"
+msgstr ""
+
+msgid "Auto-reply to people outside my organization"
+msgstr ""
+
+msgid "My contacts only"
+msgstr ""
+
+msgid "Anyone outside my organization"
 msgstr ""
 
 msgid ""
@@ -5149,7 +5197,10 @@ msgstr ""
 msgid "Basic"
 msgstr ""
 
-msgid "Account information"
+msgid "Account information - {0}"
+msgstr ""
+
+msgid "Profile Picture"
 msgstr ""
 
 msgid "Language"
@@ -5302,7 +5353,7 @@ msgstr ""
 msgid "All keyboard shortcuts on"
 msgstr ""
 
-msgid "This change requires a reload of the grommunio Web"
+msgid "This change requires a reload of grommunio Web"
 msgstr ""
 
 msgid "Plugins"
@@ -5807,17 +5858,11 @@ msgstr ""
 msgid "Connection with server has been restored"
 msgstr ""
 
-msgid "Please contact your administrator if this problem persists."
-msgstr ""
-
 #. TRANSLATORS: Example: HTTP 404
-msgid "Error HTTP {0}"
+msgid "HTTP {0}"
 msgstr ""
 
-msgid "HTTP status text is: "
-msgstr ""
-
-msgid "Invalid data received from the server. HTTP status text is: "
+msgid "Invalid data received from the server"
 msgstr ""
 
 msgid "Missing store"
@@ -5898,44 +5943,253 @@ msgstr "טעינת מודל מן השרת נכשלה"
 msgid "Out of Office is currently activated. Would you like to turn it off?"
 msgstr ""
 
-msgid "Out of office off"
+msgid "Open Chat at start"
 msgstr ""
 
-msgid "Out of office has been turned off"
+msgid "Desktop Notifications Plugin"
 msgstr ""
 
-msgid "Send Fax"
+msgid "Desktop Notifications"
 msgstr ""
 
-msgid "Contact Fax"
+msgid "{A} Autohide desktop notification after second(s) {B}"
 msgstr ""
 
-msgid "Google Maps"
+msgid "Intranet"
 msgstr ""
 
-#. TRANSLATORS: The map of earth
-msgid "Map"
+msgid "Email Details"
 msgstr ""
 
-msgid "Move currently selected message(s) to {0}"
+msgid "Item Data"
 msgstr ""
 
-msgid "Move to {0}"
+msgid "Mobile Device Manager"
 msgstr ""
 
-msgid "Move current message to {0}"
+msgid "Wiping device"
 msgstr ""
 
-msgid "Personal Inbox Manager"
+msgid "Password incorrect"
 msgstr ""
 
-msgid "Personal Inbox Management Settings"
+msgid "Full resync in progress"
 msgstr ""
 
-msgid "Select another folder"
+msgid "Username or password incorrect"
 msgstr ""
 
-msgid "E-mails are moved to {0}"
+msgid "Not Applicable"
+msgstr ""
+
+msgid "Wipe Pending"
+msgstr ""
+
+msgid "Wipe Requested"
+msgstr ""
+
+msgid "Wipe Executed"
+msgstr ""
+
+msgid "Not Available"
+msgstr ""
+
+msgid "Device"
+msgstr ""
+
+msgid "Operating System"
+msgstr ""
+
+msgid "ID"
+msgstr ""
+
+msgid "User Agent"
+msgstr ""
+
+msgid "MDM Plugin"
+msgstr ""
+
+msgid "Active Sync Version"
+msgstr ""
+
+msgid "grommunio-sync Version"
+msgstr ""
+
+msgid "Policy name"
+msgstr ""
+
+msgid "Outlook Extension"
+msgstr ""
+
+msgid "Build"
+msgstr ""
+
+msgid "Last updated"
+msgstr ""
+
+msgid "d F Y, H:i"
+msgstr ""
+
+msgid "Connected since"
+msgstr ""
+
+msgid "d F Y"
+msgstr ""
+
+msgid "Synchronize"
+msgstr ""
+
+msgid "Manage Shared Folders"
+msgstr ""
+
+msgid ""
+"Select folders to sync to your device from the list below. To add additional "
+"mailboxes to the list, open them in WebApp first."
+msgstr ""
+
+msgid "grommunio-sync"
+msgstr ""
+
+msgid "Mobile device management"
+msgstr ""
+
+msgid "Mobile Devices"
+msgstr ""
+
+msgid ""
+"Unable to connect to the grommunio-sync server. Click {0} to enter your "
+"credentials"
+msgstr ""
+
+msgid "Devices"
+msgstr ""
+
+msgid "No devices connected to your account"
+msgstr ""
+
+msgid "Last Update"
+msgstr ""
+
+msgid "Device ID"
+msgstr ""
+
+msgid "Device OS"
+msgstr ""
+
+msgid "Device Info"
+msgstr ""
+
+msgid "First Sync time"
+msgstr ""
+
+msgid "Full resync"
+msgstr ""
+
+msgid "Remove device"
+msgstr ""
+
+msgid "Please enter your username and password"
+msgstr ""
+
+msgid "Password"
+msgstr ""
+
+msgid "Username"
+msgstr ""
+
+msgid ""
+"Do you really want to wipe your device?\n"
+" Enter your password to confirm."
+msgstr ""
+
+msgid "Add meeting"
+msgstr ""
+
+msgid "Room name:"
+msgstr ""
+
+msgid "Room URL:"
+msgstr ""
+
+msgid "Shift-click for advanced settings"
+msgstr ""
+
+msgid "Join webmeeting"
+msgstr ""
+
+msgid "Open meeting in:"
+msgstr ""
+
+msgid "Web tab"
+msgstr ""
+
+msgid "Hide the button in the main toolbar"
+msgstr ""
+
+msgid "Add the subject to the room name"
+msgstr ""
+
+msgid "Add the organizer name to the room name"
+msgstr ""
+
+msgid "Add the URL to the meeting location rather than overwriting it"
+msgstr ""
+
+msgid ""
+"Prevent the URL in the meeting location from being overridden automatically "
+"(ex: when adding a meetingroom)"
+msgstr ""
+
+msgid "If you have problems when creating meetings, try disabling this setting"
+msgstr ""
+
+msgid "Add an invitation to the appointment description"
+msgstr ""
+
+msgid "Invitation text"
+msgstr ""
+
+msgid ""
+"must contain %url% as a placeholder for the meeting link, empty the textbox "
+"to reset to default"
+msgstr ""
+
+msgid "An unknown error occurred while changing password."
+msgstr ""
+
+msgid "Password is changed successfully."
+msgstr ""
+
+msgid "Success"
+msgstr ""
+
+msgid "Change Password"
+msgstr ""
+
+msgid "Current password"
+msgstr ""
+
+msgid "New password"
+msgstr ""
+
+msgid "Retype new password"
+msgstr ""
+
+msgid "New passwords do not match."
+msgstr ""
+
+msgid "Current password is empty."
+msgstr ""
+
+msgid "New password is empty."
+msgstr ""
+
+msgid "One or more fields does contain errors."
+msgstr ""
+
+msgid ""
+"Password is weak. Password should contain capital, non-capital letters and "
+"numbers. Password should have 8 to 20 characters."
 msgstr ""
 
 msgid "Charm pink"
@@ -5959,7 +6213,7 @@ msgstr ""
 msgid "Pearl aqua"
 msgstr ""
 
-msgid "grommunio blue"
+msgid "Grommunio blue"
 msgstr ""
 
 msgid "Baby blue"
@@ -6024,44 +6278,13 @@ msgid ""
 "Please contact your system administrator."
 msgstr ""
 
-msgid "Can't add data to bus, same action type is present in bus"
-msgstr "לא ניתן להוסיף מידע"
-
-msgid "Response data requested from bus but it doesn't have any data."
-msgstr "לא ניתן לקבל מידע"
+msgid "Mobile device management plugin"
+msgstr ""
 
 #, php-format
-msgid "Unknown module '%s' with id '%s'"
-msgstr "Unknown module '%s' with id '%s'"
-
 msgid ""
-"We encountered a problem. This might be caused by upgrading a plugin. Please "
-"re-login to resolve the issue."
-msgstr ""
-
-#, php-format
-msgid "Unknown notifier '%s'"
-msgstr ""
-
-msgid "An unexpected error has occurred"
-msgstr ""
-
-#, fuzzy
-msgid "To-Do List"
-msgstr "רישמת טלפונים"
-
-#. TRANSLATORS: This indicates that the opened folder belongs to a particular user,
-#. * for example: 'Calendar of Holiday', in this case %1$s is 'Calendar' (the foldername)
-#. * and %2$s is 'Holiday' (the username).
-#.
-#, php-format
-msgid "%1$s of %2$s"
-msgstr ""
-
-msgid "Error retrieving existing settings"
-msgstr "שגיאה בעת קבלת הגדרות קיימות"
-
-msgid "Error retrieving existing persistent settings"
+"Unexpected error occurred. Please contact your system administrator. Error "
+"code: %s"
 msgstr ""
 
 # 93%
@@ -6082,78 +6305,6 @@ msgstr ""
 #, fuzzy
 msgid "Unknown MAPI Error"
 msgstr "שם משתמש/קבוצה לא ידוע"
-
-msgid "This external link will open in a new window"
-msgstr "הקישור החיצוני ייפתח בחלון חדש"
-
-msgid "Destination folder not found."
-msgstr ""
-
-msgid "Eml is corrupted"
-msgstr ""
-
-msgid "The eml Attachment is not imported successfully"
-msgstr ""
-
-msgid "The vcf attachment is not imported successfully"
-msgstr ""
-
-#, php-format
-msgid "Unable to import '%s' to '%s'. "
-msgstr ""
-
-#, fuzzy
-msgid "There is no appointment found in this file."
-msgstr "פגישה זו מתרחשת בעבר"
-
-msgid "The file is corrupt."
-msgstr ""
-
-#, fuzzy
-msgid "The file is invalid."
-msgstr "{0} אינו זמן תקף"
-
-#, php-format
-msgid "Unable to import '%s'. "
-msgstr ""
-
-msgid "Please contact your system administrator if the problem persists."
-msgstr ""
-
-msgid "Attachment is not imported successfully"
-msgstr ""
-
-# 81%
-#, fuzzy
-msgid "Embedded attachment not found."
-msgstr "הוסף קבצים מצורפים עבור איש קשר זה."
-
-msgid "ZIP is not created successfully"
-msgstr ""
-
-msgid "Attachments can not be downloaded"
-msgstr ""
-
-# 82%
-# 100%
-#, fuzzy
-msgid "Could not find attachment."
-msgstr "לא ניתן להעלות את הקובץ המצורף."
-
-msgid "Operation failed"
-msgstr ""
-
-msgid "Sticky Note"
-msgstr ""
-
-# 92%
-# 100%
-#, fuzzy
-msgid "Task Request"
-msgstr "בקשת משימה:"
-
-msgid "Could not find message, either it has been moved or deleted."
-msgstr ""
 
 msgid "Request is not available."
 msgstr ""
@@ -6189,9 +6340,6 @@ msgstr ""
 #, php-format
 msgid "Unknown MAPI Error: %s"
 msgstr ""
-
-msgid "Action is not performed correctly."
-msgstr "הפעולה לא מבוצעת כהלכה."
 
 msgid "Tentatively accepted"
 msgstr ""
@@ -6267,228 +6415,6 @@ msgstr "מופיע כל {0} החל מ{1} עד {2}."
 #, fuzzy, php-format
 msgid "Occurs every %s %s effective %s until %s."
 msgstr "מופיע כל {0} החל מ{1} עד {2}."
-
-msgid "Task Accepted:"
-msgstr "משימה התקבלה:"
-
-msgid "Task Declined:"
-msgstr "משימה סורבה:"
-
-msgid "Task Updated:"
-msgstr "משימה עודכנה:"
-
-msgid "Task Completed:"
-msgstr "משימה הושלמה: "
-
-msgid "Contact not found"
-msgstr ""
-
-msgid ""
-"Contact information could not be displayed because the server had trouble "
-"retrieving the information."
-msgstr ""
-
-msgid "Could not handle this type of object."
-msgstr "לא ניתן לטפל בסוג זה של אובייקט."
-
-msgid "Could not open this object."
-msgstr "לא ניתן פלתוח את אובייקט זה."
-
-msgid "Could not open occurrence."
-msgstr ""
-
-msgid "Could not open occurrence, specific occurrence is probably deleted."
-msgstr ""
-
-# 89%
-# 100%
-# 84%
-#, fuzzy
-msgid "a meeting request"
-msgstr "בקשה לפגישה חדשה"
-
-# 93%
-# 100%
-# 80%
-#, fuzzy
-msgid "an appointment"
-msgstr "פגישה חדשה"
-
-# 79%
-# 100%
-#, fuzzy
-msgid "You have insufficient privileges to move "
-msgstr "אין ברשותך הרשאות מספקות בכדי להעתיק תיקיה."
-
-msgid ""
-"Cannot set a reminder to appear before the previous occurrence. Reset "
-"reminder to save the change"
-msgstr ""
-
-msgid "Two occurrences cannot occur on the same day"
-msgstr "שני מופעים לא יכולים להופיע באותו היום."
-
-#, php-format
-msgid ""
-"You marked '%s' as a resource. You cannot schedule a meeting with '%s' "
-"because you do not have the appropriate permissions for that account. Either "
-"enter the name as a required or optional attendee or talk to your "
-"administrator about giving you permission to schedule '%s'."
-msgstr ""
-
-#, php-format
-msgid ""
-"'%s' has declined your meeting because '%s' does not automatically accept "
-"meeting requests."
-msgstr ""
-
-#, php-format
-msgid ""
-"'%s' has declined your meeting because it is recurring. You must book each "
-"meeting separately with this resource."
-msgstr ""
-
-#, php-format
-msgid ""
-"'%s' is already booked for this specified time. You must use another time or "
-"find another resource."
-msgstr ""
-
-msgid "Meeting was not scheduled."
-msgstr "הפגישה לא נקבעה בלוח הזמנים"
-
-msgid "Meeting could not be sent."
-msgstr "לא ניתן לשלוח את הפגישה."
-
-msgid "Meeting could not be saved."
-msgstr "לא ניתן לשמור את הפגישה."
-
-msgid "Private Appointment"
-msgstr "פגישה פרטית"
-
-#, php-format
-msgid "%s's Birthday"
-msgstr "יום ההולדת של %s"
-
-#, php-format
-msgid "%s's Anniversary"
-msgstr "יום הנישואין של %s"
-
-msgid "Unknown user/group"
-msgstr "שם משתמש/קבוצה לא ידוע"
-
-msgid "Could not save delegate information."
-msgstr ""
-
-# 80%
-#, fuzzy
-msgid "Could not delete delegate."
-msgstr "לא ניתן למחוק את הודעה זו."
-
-msgid "Can not get list of delegates."
-msgstr ""
-
-# 86%
-#, fuzzy
-msgid "Could not load the hierarchy."
-msgstr "לא ניתן לטעון את ההיררכיה."
-
-msgid "Could not load folder properties."
-msgstr "לא ניתן לטעון את מאפייני התיקיה."
-
-#, fuzzy
-msgid "Could not remove folder from favorites."
-msgstr "לא ניתן להוסיף את התיקיה למועדפים."
-
-msgid "You have insufficient privileges to delete folder."
-msgstr "אין ברשותך הרשאות מספקות בכדי למחוק תיקיה."
-
-msgid "Could not delete folder."
-msgstr "לא ניתן למחוק את התיקיה."
-
-msgid "You have insufficient privileges to copy folder."
-msgstr "אין ברשותך הרשאות מספקות בכדי להעתיק תיקיה."
-
-msgid "Could not copy folder."
-msgstr "לא ניתן להעתיק את התיקיה."
-
-msgid "You have insufficient privileges to move this folder."
-msgstr "אין ברשותך הרשאות מספקות בכדי להעביר תיקיה."
-
-msgid "Could not move folder."
-msgstr "לא ניתן להעביר את התיקיה."
-
-msgid "You have insufficient privileges to delete items."
-msgstr "אין ברשותך הרשאות מספקות בכדי למחוק פריטים."
-
-msgid "Could not empty folder."
-msgstr "לא ניתן לרוקן את התיקיה"
-
-msgid "Could not perform action correctly."
-msgstr "לא ניתן לבצע את הפעולה כהלכה."
-
-msgid ""
-"A favorite folder with this name already exists, please use another name."
-msgstr ""
-
-msgid "Could not add folder to favorites."
-msgstr "לא ניתן להוסיף את התיקיה למועדפים."
-
-msgid "You have insufficient privileges to set permissions for this folder."
-msgstr "אין ברשותך הרשאות מספקות בכדי לקבוע הרשאות עבור תיקיה זו."
-
-msgid "Could not set folder permissions."
-msgstr "לא ניתן להגדיר הרשאות עובר התיקיה."
-
-msgid "You have insufficient privileges to rename this folder."
-msgstr "אין ברשותך הרשאות מספקות בכדי לקבוע שם חדש עבור התיקיה."
-
-msgid "A folder with this name already exists. Use another name."
-msgstr "תיקיה עם שם זה כבר קיימת. השתמש בשם אחר."
-
-msgid "Could not rename folder."
-msgstr "לא ניתן לקבוע מחדש שם לתיקיה."
-
-msgid "You have insufficient privileges to create this folder."
-msgstr "אין ברשותך הרשאות מספקות בכדי ליצור את תיקיה זו."
-
-msgid "Could not create folder."
-msgstr "לא ניתן ליצור את התיקיה."
-
-msgid "Could not close shared folder."
-msgstr "לא ניתן לסגור את התיקיה המשותפת."
-
-msgid "User could not be resolved."
-msgstr "לא ניתן לאתר את המשתמש."
-
-#, php-format
-msgid ""
-"You have insufficient privileges to open this %1$s folder. The folder owner "
-"can set these using the 'permissions'-tab of the folder properties (right "
-"click the %1$s folder > properties > permissions)."
-msgstr ""
-
-# 85%
-msgid "unknown"
-msgstr "לא ידוע"
-
-# 95%
-#, fuzzy
-msgid "Could not move folder"
-msgstr "לא ניתן להעביר את התיקיה."
-
-# 95%
-#, fuzzy
-msgid "Could not copy folder"
-msgstr "לא ניתן להעתיק את התיקיה."
-
-msgid "You have insufficient privileges to open this message."
-msgstr "אין ברשותך הרשאות מספקות בכדי לפתוח את ההודעה."
-
-msgid ""
-"Could not find message, either it has been moved or deleted or you don't "
-"have access to open this message."
-msgstr ""
 
 # 78%
 msgid "Could not open message."
@@ -6582,205 +6508,35 @@ msgstr "הודעתך לא הגיע לחלק או לכל המיועדים שלה.
 msgid "The following recipient(s) could not be reached"
 msgstr "לא ניתן היה להגיע אל המיועדים הבאים:"
 
-# 80%
-#, fuzzy
-msgid "You have insufficient privileges to see the contents of this folder."
-msgstr "אין ברשותך הרשאות מספקות בכדי לשמור פריטים בתיקיה זו"
-
-msgid "Could not load the contents of this folder."
+#, php-format
+msgid "Unable to import '%s' to '%s'. "
 msgstr ""
-
-msgid "Error in search, please try again"
-msgstr "שגיאה בחיפוש, אנא נסה שוב"
-
-msgid "Unable to perform search query, no permissions to create search folder."
-msgstr ""
-
-msgid "Unable to perform search query, search folder not found."
-msgstr ""
-
-msgid "Unable to perform search query, store might not support searching."
-msgstr ""
-
-msgid "Error in creating search folder."
-msgstr ""
-
-msgid ""
-"You have insufficient privileges to perform search operation in this folder."
-msgstr "אין ברשותך הרשאות מספקות בכדי לבצע פעולת חיפוש בתיקיה זו."
-
-msgid "Could not update search results."
-msgstr "לא ניתן לעדכן את תוצאות החיפוש."
-
-msgid "Could not stop search operation."
-msgstr "לא ניתן להפסיק את פעולת החיפוש."
-
-msgid "You have insufficient privileges to save this message."
-msgstr "אין ברשותך הרשאות מספקות בכדי לשמור הודעה זו."
-
-msgid "Could not save message."
-msgstr "לא ניתן לשמור את הודעה זו."
-
-msgid "You have insufficient privileges to delete this message."
-msgstr "אין ברשותך הרשאות מספקות בכדי למחוק את הודעה זו."
-
-msgid "Could not delete message."
-msgstr "לא ניתן למחוק את הודעה זו."
-
-msgid "You have insufficient privileges to cancel this Meeting Request."
-msgstr "אין ברשותך הרשאות מספקות בכדי לבטל את בקשת הפגישה הזו."
-
-msgid "Could not cancel Meeting Request."
-msgstr "לא ניתן לבטל את בקשת הפגישה הזו."
-
-msgid "You have insufficient privileges to decline this Meeting Request."
-msgstr "אין ברשותך הרשאות מספקות בכדי לסרב לבקשת הפגישה הזו."
-
-msgid "Could not decline Meeting Request."
-msgstr "לא ניתן לסרב לבקשת פגישה זו."
-
-msgid "You have insufficient privileges to accept this Meeting Request."
-msgstr "אין ברשותך הרשאות מספקות בכדי לקבל את בקשת הפגישה הזו."
-
-msgid "Could not accept Meeting Request."
-msgstr "לא ניתן לקבל את בקשת הפגישה."
-
-msgid "You have insufficient privileges to cancel Meeting Request invitation."
-msgstr "אין ברשותך הרשאות מספקות בכדי לבטל את ההזמנה לבקשה לפגישה הזו."
-
-msgid "Could not cancel Meeting Request invitations."
-msgstr "לא ניתן לבטל את הזמנות לבקשה לפגישה."
-
-msgid "You can not continue search operation on this folder."
-msgstr ""
-
-msgid "Error in search, please try again."
-msgstr "שגיאה בחיפוש, אנא נסה שוב."
-
-msgid "Error in distribution list expansion."
-msgstr ""
-
-msgid "The message store has exceeded its hard quota limit."
-msgstr "גודל התיבה חורג מהמכסה המותרת"
-
-msgid ""
-"To reduce the amount of data in this message store, select some items that "
-"you no longer need, delete them and cleanup your Deleted Items folder."
-msgstr ""
-
-msgid "The message store has exceeded its soft quota limit."
-msgstr "גודל התיבה חורג מהמכסה המותרת"
-
-msgid "Could not process request data properly."
-msgstr "לא ניתן לעבד בקשת נתונים כהלכה."
-
-# 94%
-#, fuzzy, php-format
-msgid "Unknown action type specified - %s"
-msgstr "צוין סוג בקשה לא ידוע - s%"
-
-msgid "Cannot snooze the reminder. You may be reminded again."
-msgstr ""
-
-msgid "Cannot dismiss the reminder. You may be reminded again."
-msgstr ""
-
-msgid "You have insufficient privileges to perform this action."
-msgstr "אין ברשותך הרשאות מספקות בכדי לבצע פעולה זו."
-
-msgid "Could not resolve user."
-msgstr ""
-
-msgid "Setting mail filters on the stores of other users is not allowed."
-msgstr ""
-
-msgid "Untitled rule"
-msgstr "כלל לא מוגדר"
-
-# 83%
-# 77%
-# 76%
-#, fuzzy
-msgid "Could not load rules."
-msgstr "לא ניתן למחוק את התיקיה."
-
-# 83%
-# 77%
-# 95%
-#, fuzzy
-msgid "Could not save rules."
-msgstr "לא ניתן למחוק את התיקיה."
-
-msgid "Task Request:"
-msgstr "בקשת משימה:"
-
-msgid "Welcome"
-msgstr ""
-
-msgid "Username"
-msgstr ""
-
-msgid "Password"
-msgstr ""
-
-msgid "Sign in"
-msgstr ""
-
-msgid "Caps lock is on"
-msgstr ""
-
-# 94%
-#, fuzzy
-msgid "File is not imported successfully"
-msgstr "נשלח בהצלחה"
 
 msgid "There is no contact found in this file."
+msgstr ""
+
+msgid "The file is corrupt."
+msgstr ""
+
+#, fuzzy
+msgid "The file is invalid."
+msgstr "{0} אינו זמן תקף"
+
+#, php-format
+msgid "Unable to import '%s'. "
+msgstr ""
+
+msgid "Please contact your system administrator if the problem persists."
 msgstr ""
 
 msgid ""
 "grommunio Web does not support importing multiple VCF with this version."
 msgstr ""
 
+#, fuzzy
+msgid "There is no appointment found in this file."
+msgstr "פגישה זו מתרחשת בעבר"
+
 msgid ""
 "grommunio Web does not support importing multiple ICS with this version."
 msgstr ""
-
-#, php-format
-msgid "Unable to import '%s'"
-msgstr ""
-
-#, fuzzy
-msgid "The EML is not valid"
-msgstr "{0} אינו זמן תקף"
-
-msgid "GB"
-msgstr "ג'יגה בייט"
-
-msgid "MB"
-msgstr "מגה בייט"
-
-msgid "KB"
-msgstr "קילו בייט"
-
-msgid "B"
-msgstr "בייט"
-
-msgid "The maximum stack depth has been exceeded"
-msgstr "ישנה חריגה מן העומק המקסימלי"
-
-msgid "Control character error, possibly incorrectly encoded"
-msgstr "שגיאת בקרה, ייתכן שקודד באופן לא נכון"
-
-msgid "Invalid or malformed JSON"
-msgstr "JSON לא חוקי או פגום"
-
-msgid "Syntax error"
-msgstr "שגיאת תחביר"
-
-#, fuzzy
-msgid "Malformed UTF-8 characters, possibly incorrectly encoded"
-msgstr "שגיאת בקרה, ייתכן שקודד באופן לא נכון"
-
-#, php-format
-msgid "JSON Error: - %s"
-msgstr "שגיאת JSON: - %s"

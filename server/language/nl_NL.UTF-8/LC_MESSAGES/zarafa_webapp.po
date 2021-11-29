@@ -1736,6 +1736,25 @@ msgstr ""
 msgid "Insufficient privileges"
 msgstr "Onvoldoende rechten"
 
+msgid ""
+"Copying this appointment will unset it as private. Are you sure you want to "
+"continue?"
+msgstr ""
+
+msgid "Private item"
+msgstr ""
+
+msgid "Copy"
+msgstr "Kopiëren"
+
+msgid ""
+"Moving this appointment will unset it as private. Are you sure you want to "
+"continue?"
+msgstr ""
+
+msgid "Move"
+msgstr "Verplaatsen"
+
 msgid "Update recipients"
 msgstr "Update genodigden"
 
@@ -1748,9 +1767,6 @@ msgstr "Bewaar wijzigingen en verstuur een update naar alle genodigden"
 msgid "Open meeting request with changes"
 msgstr "Open het vergaderverzoek met wijzigingen"
 
-msgid "Copy"
-msgstr "Kopiëren"
-
 msgid "grommunio Web"
 msgstr "grommunio Web"
 
@@ -1760,9 +1776,6 @@ msgid ""
 msgstr ""
 "Alle gemaakte wijzigingen zullen worden overschreven wanneer deze afspraak "
 "wordt bijgewerkt door de organisator. Wil je deze afspraak verplaatsen?"
-
-msgid "Move"
-msgstr "Verplaatsen"
 
 msgid "Don't move"
 msgstr "Niet verplaatsen"
@@ -2151,18 +2164,14 @@ msgid "Import to folder"
 msgstr "Importeren naar map"
 
 msgid ""
-"In order to use the vCard import feature, upgrade your Gromox to version 8.3 "
+"In order to use the vCard import feature, upgrade your Gromox to version 0 "
 "or higher."
 msgstr ""
-"Om de vCard import functionaliteit te gebruiken, moet Gromox worden "
-"bijgewerkt naar versie 8.3+."
 
 msgid ""
 "In order to use the ICS / VCS import feature, upgrade your Gromox to version "
-"8.3 or higher."
+"0 or higher."
 msgstr ""
-"Om de ICS/VCS import functionaliteit te gebruiken, moet uw Gromox worden "
-"bijgewerkt naar versie 8.3+."
 
 msgid "Attachment error"
 msgstr "Bijlagefout"
@@ -2556,6 +2565,18 @@ msgstr ""
 msgid "Add/Edit Cc recipient"
 msgstr "Toevoegen/Wijzigen Cc ontvanger"
 
+msgid "Disable for new mail"
+msgstr ""
+
+msgid "Enable for new mail"
+msgstr ""
+
+msgid "Disable for replies"
+msgstr ""
+
+msgid "Enable for replies"
+msgstr ""
+
 msgid "No Cc recipient configured"
 msgstr "Geen Cc ontvanger geconfigureerd"
 
@@ -2587,8 +2608,8 @@ msgstr ""
 msgid "Help"
 msgstr "Hulp"
 
-msgid "grommunio Web Manual"
-msgstr "grommunio Web handleiding"
+msgid "Web Manual"
+msgstr ""
 
 msgid "Item data"
 msgstr "Item gegevens"
@@ -2601,6 +2622,9 @@ msgstr "Sorteren op: context.mail.griddefaultcolumn"
 
 msgid "ZDeveloper"
 msgstr "ZDeveloper"
+
+msgid "grommunio Web print"
+msgstr ""
 
 # 91%
 msgid "Display name"
@@ -3196,14 +3220,8 @@ msgstr "Herinnering ingesteld voor: {0}, {1}"
 msgid "d-m-Y"
 msgstr "d-m-Y"
 
-msgid "Original message"
-msgstr "Oorspronkelijk bericht"
-
 msgid "l d/m/Y"
 msgstr "l d-m-Y"
-
-msgid "Sent Items"
-msgstr "Verzonden items"
 
 msgid "l d/m/Y {0}"
 msgstr "l d/m/Y {0}"
@@ -3261,12 +3279,9 @@ msgstr "Behandel deze tekst als {0}."
 
 msgctxt "mail.previewpanel"
 msgid ""
-"Click here to download pictures. To help protect your privacy, grommunio Web "
+"Click here to download pictures. To help protect your privacy, WebApp "
 "prevented automatic download of some pictures in this message."
 msgstr ""
-"Klik hier om de afbeeldingen te downloaden. Om uw privacy te beschermen, "
-"heeft grommunio Web het automatisch ophalen van enkele afbeeldingen in dit "
-"bericht geblokkeerd."
 
 msgctxt "mail.previewpanel"
 msgid ""
@@ -4257,7 +4272,7 @@ msgid "Unsaved changes"
 msgstr "Niet-opgeslagen aanpassingen"
 
 msgid "Welcome to grommunio Web"
-msgstr "Welkom bij grommunio Web"
+msgstr ""
 
 msgid "This is the first time you are using grommunio Web. "
 msgstr "Dit is de eerste keer dat je grommunio Web gebruikt. "
@@ -4349,21 +4364,26 @@ msgid_plural "There are {0} unread messages in the folder {1}"
 msgstr[0] "Er is {0} ongelezen bericht in de map {1}"
 msgstr[1] "Er zijn {0} ongelezen berichten in de map {1}"
 
-msgid "License error"
-msgstr "Licentie fout"
-
-msgid ""
-"The installed license key(s) have expired or are being over used. Please "
-"contact your system administrator for further information."
+msgid "Publishing Editor"
 msgstr ""
-"De geïnstalleerde licentie sleutel(s) zijn verlopen of worden meerderen "
-"keren gebruikt. Neem contact op met de systeembeheerder voor meer informatie."
 
-msgid "Full control"
-msgstr "Volledig beheer"
+msgid "Editor"
+msgstr "Editor"
 
-msgid "No rights"
-msgstr "Geen rechten"
+msgid "Publishing Author"
+msgstr ""
+
+msgid "Author"
+msgstr ""
+
+msgid "Nonediting Author"
+msgstr ""
+
+msgid "Reviewer"
+msgstr ""
+
+msgid "Contributor"
+msgstr ""
 
 msgid "Unable to import:"
 msgstr "Kan de volgende bestanden niet importeren:"
@@ -4413,6 +4433,12 @@ msgstr "Type"
 msgid "Description"
 msgstr "Omschrijving"
 
+msgid "EntryID"
+msgstr "EntryID"
+
+msgid "Parent EID"
+msgstr ""
+
 msgid "Folder size"
 msgstr "Mapgrootte"
 
@@ -4428,23 +4454,29 @@ msgstr "Geen permissies toegekend"
 msgid "Profile"
 msgstr "Profiel"
 
+msgid "Read"
+msgstr ""
+
+msgid "Full Details"
+msgstr ""
+
+msgid "Write"
+msgstr ""
+
 msgid "Create items"
 msgstr "Items aanmaken"
-
-msgid "Read items"
-msgstr "Items lezen"
 
 msgid "Create subfolders"
 msgstr "Submappen maken"
 
-msgid "Folder permissions"
-msgstr "Map-permissies"
+msgid "Edit own"
+msgstr ""
 
-msgid "Folder visible"
-msgstr "Map zichtbaar"
+msgid "Edit all"
+msgstr ""
 
-msgid "Edit items"
-msgstr "Items bewerken"
+msgid "Delete items"
+msgstr "Items verwijderen"
 
 msgid "Own"
 msgstr "Eigen"
@@ -4452,8 +4484,14 @@ msgstr "Eigen"
 msgid "All"
 msgstr "Alle"
 
-msgid "Delete items"
-msgstr "Items verwijderen"
+msgid "Folder owner"
+msgstr ""
+
+msgid "Folder contact"
+msgstr ""
+
+msgid "Folder visible"
+msgstr "Map zichtbaar"
 
 msgid "User already exists"
 msgstr "Gebruiker bestaat al"
@@ -4667,6 +4705,9 @@ msgstr "Verstuurd"
 msgid "Red"
 msgstr "Rood"
 
+msgid "Original message"
+msgstr "Oorspronkelijk bericht"
+
 msgid "Schedule mail to be sent out"
 msgstr "Plan het versturen van een bericht"
 
@@ -4777,9 +4818,6 @@ msgstr "Overige Opties"
 msgid "Internet Headers"
 msgstr "Internetkopregels"
 
-msgid "EntryID"
-msgstr "EntryID"
-
 msgid "Message Settings"
 msgstr "Berichtinstellingen"
 
@@ -4822,9 +4860,6 @@ msgstr "Gelezen/ongelezen wisselen"
 
 msgid "Toggle red/complete flag"
 msgstr "Markering rood/voltooid wisselen"
-
-msgid "Close a conversation"
-msgstr "Sluit een gesprek"
 
 # 80%
 # 85%
@@ -4873,9 +4908,6 @@ msgstr "Instellingen voor nieuwe e-mail"
 
 msgid "Compose mail in this format"
 msgstr "Mail in dit formaat opstellen"
-
-msgid "Editor"
-msgstr "Editor"
 
 msgid "Default font"
 msgstr "Standaardlettertype"
@@ -4965,15 +4997,24 @@ msgstr "Ik ben niet aanwezig van"
 msgid "I will be back on"
 msgstr "Ik ben terug op"
 
-msgid "I am out of office"
-msgstr "Ik ben niet op kantoor"
-
 msgid "Automatically reply once per day, per sender with the following text"
 msgstr ""
 "Antwoord automatisch eenmaal per dag naar elke afzender met de volgende tekst"
 
-msgid "User is currently out of office."
-msgstr "Gebruiker is nu niet aanwezig."
+msgid "Inside My Organization"
+msgstr ""
+
+msgid "Outside My Organization"
+msgstr ""
+
+msgid "Auto-reply to people outside my organization"
+msgstr ""
+
+msgid "My contacts only"
+msgstr ""
+
+msgid "Anyone outside my organization"
+msgstr ""
 
 msgid ""
 "The time you entered is before the out of office date. Please reschedule."
@@ -5177,8 +5218,11 @@ msgstr "Opties"
 msgid "Basic"
 msgstr "Basis"
 
-msgid "Account information"
-msgstr "Account informatie"
+msgid "Account information - {0}"
+msgstr ""
+
+msgid "Profile Picture"
+msgstr ""
 
 msgid "Language"
 msgstr "Taal"
@@ -5333,8 +5377,8 @@ msgstr "Basis sneltoetsen ingeschakeld"
 msgid "All keyboard shortcuts on"
 msgstr "Alle sneltoetsen ingeschakeld"
 
-msgid "This change requires a reload of the grommunio Web"
-msgstr "Deze wijziging wordt effectief door grommunio Web opnieuw te laden"
+msgid "This change requires a reload of grommunio Web"
+msgstr ""
 
 msgid "Plugins"
 msgstr "Plugins"
@@ -5834,20 +5878,12 @@ msgstr "Verbinding is terug"
 msgid "Connection with server has been restored"
 msgstr "De verbinding met de server is terug"
 
-msgid "Please contact your administrator if this problem persists."
-msgstr ""
-"Neem contact op met je systeembeheerder als het probleem zich blijft "
-"voordoen."
-
 #. TRANSLATORS: Example: HTTP 404
-msgid "Error HTTP {0}"
-msgstr "Foutmelding HTTP {0}"
+msgid "HTTP {0}"
+msgstr ""
 
-msgid "HTTP status text is: "
-msgstr "HTTP status tekst is: "
-
-msgid "Invalid data received from the server. HTTP status text is: "
-msgstr "Invalide data gekregen van de server. HTTP status tekst is: "
+msgid "Invalid data received from the server"
+msgstr ""
 
 msgid "Missing store"
 msgstr "Ontbrekende store"
@@ -5926,45 +5962,254 @@ msgstr "Het laden van het model van de server is mislukt"
 msgid "Out of Office is currently activated. Would you like to turn it off?"
 msgstr "De Afwezigheidsassistent is ingeschakeld. Wilt u deze uitschakelen?"
 
-msgid "Out of office off"
-msgstr "Niet Aanwezig uitgeschakeld"
+msgid "Open Chat at start"
+msgstr ""
 
-msgid "Out of office has been turned off"
-msgstr "Niet Aanwezig is uitgeschakeld"
+msgid "Desktop Notifications Plugin"
+msgstr ""
 
-msgid "Send Fax"
-msgstr "Fax Verzenden"
+msgid "Desktop Notifications"
+msgstr ""
 
-msgid "Contact Fax"
-msgstr "Contact Fax"
+msgid "{A} Autohide desktop notification after second(s) {B}"
+msgstr ""
 
-msgid "Google Maps"
-msgstr "Google Maps"
+msgid "Intranet"
+msgstr ""
 
-#. TRANSLATORS: The map of earth
-msgid "Map"
-msgstr "Kaart"
+msgid "Email Details"
+msgstr ""
 
-msgid "Move currently selected message(s) to {0}"
-msgstr "Verplaats de geselecteerde bericht(en) naar {0}"
+msgid "Item Data"
+msgstr ""
 
-msgid "Move to {0}"
-msgstr "Verplaats naar {0}"
+msgid "Mobile Device Manager"
+msgstr ""
 
-msgid "Move current message to {0}"
-msgstr "Verplaats huidig bericht naar {0}"
+msgid "Wiping device"
+msgstr ""
 
-msgid "Personal Inbox Manager"
-msgstr "Persoonlijke Postvak IN Beheerder"
+msgid "Password incorrect"
+msgstr ""
 
-msgid "Personal Inbox Management Settings"
-msgstr "Persoonlijke Postvak In-Management Instellingen"
+msgid "Full resync in progress"
+msgstr ""
 
-msgid "Select another folder"
-msgstr "Selecteer een andere folder"
+msgid "Username or password incorrect"
+msgstr ""
 
-msgid "E-mails are moved to {0}"
-msgstr "E-mails worden verplaatst naar {0}"
+msgid "Not Applicable"
+msgstr ""
+
+msgid "Wipe Pending"
+msgstr ""
+
+msgid "Wipe Requested"
+msgstr ""
+
+msgid "Wipe Executed"
+msgstr ""
+
+msgid "Not Available"
+msgstr ""
+
+msgid "Device"
+msgstr ""
+
+msgid "Operating System"
+msgstr ""
+
+msgid "ID"
+msgstr ""
+
+msgid "User Agent"
+msgstr ""
+
+msgid "MDM Plugin"
+msgstr ""
+
+msgid "Active Sync Version"
+msgstr ""
+
+msgid "grommunio-sync Version"
+msgstr ""
+
+msgid "Policy name"
+msgstr ""
+
+msgid "Outlook Extension"
+msgstr ""
+
+msgid "Build"
+msgstr ""
+
+msgid "Last updated"
+msgstr ""
+
+msgid "d F Y, H:i"
+msgstr ""
+
+msgid "Connected since"
+msgstr ""
+
+msgid "d F Y"
+msgstr ""
+
+msgid "Synchronize"
+msgstr ""
+
+msgid "Manage Shared Folders"
+msgstr ""
+
+msgid ""
+"Select folders to sync to your device from the list below. To add additional "
+"mailboxes to the list, open them in WebApp first."
+msgstr ""
+
+msgid "grommunio-sync"
+msgstr ""
+
+msgid "Mobile device management"
+msgstr ""
+
+msgid "Mobile Devices"
+msgstr ""
+
+msgid ""
+"Unable to connect to the grommunio-sync server. Click {0} to enter your "
+"credentials"
+msgstr ""
+
+msgid "Devices"
+msgstr ""
+
+msgid "No devices connected to your account"
+msgstr ""
+
+msgid "Last Update"
+msgstr ""
+
+msgid "Device ID"
+msgstr ""
+
+msgid "Device OS"
+msgstr ""
+
+msgid "Device Info"
+msgstr ""
+
+msgid "First Sync time"
+msgstr ""
+
+msgid "Full resync"
+msgstr ""
+
+msgid "Remove device"
+msgstr ""
+
+msgid "Please enter your username and password"
+msgstr ""
+
+msgid "Password"
+msgstr ""
+
+msgid "Username"
+msgstr ""
+
+msgid ""
+"Do you really want to wipe your device?\n"
+" Enter your password to confirm."
+msgstr ""
+
+msgid "Add meeting"
+msgstr ""
+
+msgid "Room name:"
+msgstr ""
+
+msgid "Room URL:"
+msgstr ""
+
+msgid "Shift-click for advanced settings"
+msgstr ""
+
+msgid "Join webmeeting"
+msgstr ""
+
+msgid "Open meeting in:"
+msgstr ""
+
+msgid "Web tab"
+msgstr ""
+
+msgid "Hide the button in the main toolbar"
+msgstr ""
+
+msgid "Add the subject to the room name"
+msgstr ""
+
+msgid "Add the organizer name to the room name"
+msgstr ""
+
+msgid "Add the URL to the meeting location rather than overwriting it"
+msgstr ""
+
+msgid ""
+"Prevent the URL in the meeting location from being overridden automatically "
+"(ex: when adding a meetingroom)"
+msgstr ""
+
+msgid "If you have problems when creating meetings, try disabling this setting"
+msgstr ""
+
+msgid "Add an invitation to the appointment description"
+msgstr ""
+
+msgid "Invitation text"
+msgstr ""
+
+msgid ""
+"must contain %url% as a placeholder for the meeting link, empty the textbox "
+"to reset to default"
+msgstr ""
+
+msgid "An unknown error occurred while changing password."
+msgstr ""
+
+msgid "Password is changed successfully."
+msgstr ""
+
+msgid "Success"
+msgstr ""
+
+msgid "Change Password"
+msgstr ""
+
+msgid "Current password"
+msgstr ""
+
+msgid "New password"
+msgstr ""
+
+msgid "Retype new password"
+msgstr ""
+
+msgid "New passwords do not match."
+msgstr ""
+
+msgid "Current password is empty."
+msgstr ""
+
+msgid "New password is empty."
+msgstr ""
+
+msgid "One or more fields does contain errors."
+msgstr ""
+
+msgid ""
+"Password is weak. Password should contain capital, non-capital letters and "
+"numbers. Password should have 8 to 20 characters."
+msgstr ""
 
 msgid "Charm pink"
 msgstr "Charm roze"
@@ -5987,8 +6232,8 @@ msgstr "Munt"
 msgid "Pearl aqua"
 msgstr "Parel aqua"
 
-msgid "grommunio blue"
-msgstr "grommunio blauw"
+msgid "Grommunio blue"
+msgstr ""
 
 msgid "Baby blue"
 msgstr "Baby blauw"
@@ -6055,47 +6300,14 @@ msgstr ""
 "Sorry, toegang tot grommunio Web is niet mogelijk met dit account. Neem "
 "contact op met je systeembeheerder."
 
-msgid "Can't add data to bus, same action type is present in bus"
+msgid "Mobile device management plugin"
 msgstr ""
-"Kan data niet toevoegen aan bus, hetzelfde actietype is al aanwezig in bus"
-
-msgid "Response data requested from bus but it doesn't have any data."
-msgstr "Antwoorddata opgevraagd bij bus maar hij bevat geen data."
 
 #, php-format
-msgid "Unknown module '%s' with id '%s'"
-msgstr "Onbekende module '%s' met id '%s'"
-
 msgid ""
-"We encountered a problem. This might be caused by upgrading a plugin. Please "
-"re-login to resolve the issue."
+"Unexpected error occurred. Please contact your system administrator. Error "
+"code: %s"
 msgstr ""
-"Er is een fout opgetreden. Dit zou kunnen zijn doordat er een plugin is "
-"geüpgraded. Loguit en login om het probleem te verhelpen."
-
-#, php-format
-msgid "Unknown notifier '%s'"
-msgstr "Onbekende notificatie '%s'"
-
-msgid "An unexpected error has occurred"
-msgstr "Een onverwachte fout is opgetreden"
-
-msgid "To-Do List"
-msgstr "Takenlijst"
-
-#. TRANSLATORS: This indicates that the opened folder belongs to a particular user,
-#. * for example: 'Calendar of Holiday', in this case %1$s is 'Calendar' (the foldername)
-#. * and %2$s is 'Holiday' (the username).
-#.
-#, php-format
-msgid "%1$s of %2$s"
-msgstr "%1$s van %2$s"
-
-msgid "Error retrieving existing settings"
-msgstr "Fout bij ophalen van bestaande instellingen"
-
-msgid "Error retrieving existing persistent settings"
-msgstr "Fout bij het ophalen van bestaande aanhoudende instellingen"
 
 # 93%
 msgid "Logon failed. Please verify your credentials and try again."
@@ -6115,77 +6327,6 @@ msgstr ""
 
 msgid "Unknown MAPI Error"
 msgstr "Onbekende MAPI-Fout"
-
-msgid "This external link will open in a new window"
-msgstr "Deze externe koppeling wordt in een nieuw venster geopend"
-
-msgid "Destination folder not found."
-msgstr "Bestemmingsmap niet gevonden."
-
-msgid "Eml is corrupted"
-msgstr "Eml is corrupt"
-
-msgid "The eml Attachment is not imported successfully"
-msgstr "De EML bijlage kon niet succesvol worden geimporteerd"
-
-msgid "The vcf attachment is not imported successfully"
-msgstr "De vcf bijlage kon niet succesvol worden geimporteerd"
-
-#, php-format
-msgid "Unable to import '%s' to '%s'. "
-msgstr "Kan '%s' naar '%s' niet importeren. "
-
-msgid "There is no appointment found in this file."
-msgstr "Er is geen afspraak gevonden in dit bestand."
-
-msgid "The file is corrupt."
-msgstr "Dit bestand is corrupt."
-
-msgid "The file is invalid."
-msgstr "De bestanden zijn niet geldig."
-
-#, php-format
-msgid "Unable to import '%s'. "
-msgstr "'%s' kan niet worden geïmporteerd. "
-
-msgid "Please contact your system administrator if the problem persists."
-msgstr ""
-"Neem contact op met uw systeem administrator als het probleem zich blijft "
-"voortdoen."
-
-msgid "Attachment is not imported successfully"
-msgstr "Bijlage kon niet succesvol worden geimporteerd"
-
-# 81%
-msgid "Embedded attachment not found."
-msgstr "Ingesloten bijlage niet gevonden."
-
-msgid "ZIP is not created successfully"
-msgstr "ZIP bestand kon niet worden aangemaakt"
-
-msgid "Attachments can not be downloaded"
-msgstr "Bijlagen kunnen niet worden gedownload"
-
-# 82%
-# 100%
-msgid "Could not find attachment."
-msgstr "Kon bijlage niet vinden."
-
-msgid "Operation failed"
-msgstr "Activiteit mislukt"
-
-# 90%
-# 100%
-msgid "Sticky Note"
-msgstr "Post-it"
-
-# 92%
-# 100%
-msgid "Task Request"
-msgstr "Taakverzoek"
-
-msgid "Could not find message, either it has been moved or deleted."
-msgstr "Bericht kon niet worden gevonden, het is verplaatst of verwijderd."
 
 msgid "Request is not available."
 msgstr "Request is niet beschikbaar."
@@ -6219,9 +6360,6 @@ msgstr "Operatie mislukt: Server heeft onvoldoende beschikbaar geheugen."
 #, php-format
 msgid "Unknown MAPI Error: %s"
 msgstr "Onbekende MAPI-Fout: %s"
-
-msgid "Action is not performed correctly."
-msgstr "Handeling is verkeerd uitgevoerd."
 
 msgid "Tentatively accepted"
 msgstr "Voorlopig geaccepteerd"
@@ -6299,257 +6437,6 @@ msgstr "Vind elke %s plaats vanaf %s tot %s."
 #, php-format
 msgid "Occurs every %s %s effective %s until %s."
 msgstr "Elke %s %s met ingang van %s tot %s."
-
-msgid "Task Accepted:"
-msgstr "Taak geaccepteerd:"
-
-msgid "Task Declined:"
-msgstr "Taak geweigerd:"
-
-msgid "Task Updated:"
-msgstr "Taak is bijgewerkt:"
-
-msgid "Task Completed:"
-msgstr "Taak is Voltooid:"
-
-msgid "Contact not found"
-msgstr "Contact niet gevonden"
-
-msgid ""
-"Contact information could not be displayed because the server had trouble "
-"retrieving the information."
-msgstr ""
-"Contact informatie kan niet worden getoond, omdat de server problemen heeft "
-"met het ophalen van de informatie."
-
-msgid "Could not handle this type of object."
-msgstr "Kon dit type object niet behandelen."
-
-msgid "Could not open this object."
-msgstr "Kon dit object niet openen."
-
-msgid "Could not open occurrence."
-msgstr "Kon herhaling niet openen."
-
-msgid "Could not open occurrence, specific occurrence is probably deleted."
-msgstr ""
-"Kon herhaling niet openen, deze specifieke herhaling is waarschijnlijk "
-"verwijderd."
-
-# 89%
-# 100%
-# 84%
-msgid "a meeting request"
-msgstr "een vergaderverzoek"
-
-# 93%
-# 100%
-# 80%
-msgid "an appointment"
-msgstr "een afspraak"
-
-# 88%
-# 79%
-# 100%
-msgid "You have insufficient privileges to move "
-msgstr "U heeft onvoldoende permissie om deze map te verplaatsen: "
-
-msgid ""
-"Cannot set a reminder to appear before the previous occurrence. Reset "
-"reminder to save the change"
-msgstr ""
-"Kan geen herinnering instellen voor de vorige herhaling. Stel herinnering "
-"opnieuw in om de wijzigingen op te slaan"
-
-msgid "Two occurrences cannot occur on the same day"
-msgstr "Twee herhalingen kunnen niet op dezelfde dag worden gegeven"
-
-#, php-format
-msgid ""
-"You marked '%s' as a resource. You cannot schedule a meeting with '%s' "
-"because you do not have the appropriate permissions for that account. Either "
-"enter the name as a required or optional attendee or talk to your "
-"administrator about giving you permission to schedule '%s'."
-msgstr ""
-"U heeft '%s' als resource aangemerkt. U kunt geen vergadering met '%s' "
-"plannen omdat u niet de benodigde toegangsrechten voor dat account heeft. "
-"Voeg de deelnemer toe als vereiste of optionele deelnemer, of vraag aan uw "
-"systeembeheerder om voldoende rechten om '%s' in te plannen."
-
-#, php-format
-msgid ""
-"'%s' has declined your meeting because '%s' does not automatically accept "
-"meeting requests."
-msgstr ""
-"'%s' heeft uw vergaderverzoek afgewezen omdat '%s' niet automatisch "
-"verzoeken accepteert."
-
-#, php-format
-msgid ""
-"'%s' has declined your meeting because it is recurring. You must book each "
-"meeting separately with this resource."
-msgstr ""
-"'%s' heeft uw vergaderverzoek afgewezen omdat het herhalend is. U moet "
-"iedere vergadering afzonderlijk boeken bij deze resource."
-
-#, php-format
-msgid ""
-"'%s' is already booked for this specified time. You must use another time or "
-"find another resource."
-msgstr ""
-"'%s' is al geboekt voor de opgegeven tijd. U moet een andere tijd of andere "
-"resource gebruiken."
-
-msgid "Meeting was not scheduled."
-msgstr "Vergadering was niet ingepland."
-
-msgid "Meeting could not be sent."
-msgstr "Vergaderverzoek kon niet worden verstuurd."
-
-msgid "Meeting could not be saved."
-msgstr "Vergadering kon niet worden bewaard."
-
-msgid "Private Appointment"
-msgstr "Privé-afspraak"
-
-#, php-format
-msgid "%s's Birthday"
-msgstr "Verjaardag van %s"
-
-#, php-format
-msgid "%s's Anniversary"
-msgstr "Jubileum van %s"
-
-msgid "Unknown user/group"
-msgstr "Onbekende gebruiker/groep"
-
-msgid "Could not save delegate information."
-msgstr "Opslaan gemachtigden informatie niet gelukt."
-
-# 78%
-# 80%
-msgid "Could not delete delegate."
-msgstr "Kon gemachtigde niet verwijderen."
-
-msgid "Can not get list of delegates."
-msgstr "Kan de lijst met gemachtigden niet ophalen."
-
-# 86%
-msgid "Could not load the hierarchy."
-msgstr "Kan de hiërarchie niet laden."
-
-msgid "Could not load folder properties."
-msgstr "Kan de mapeigenschappen niet laden."
-
-msgid "Could not remove folder from favorites."
-msgstr "Kon de map niet verwijderen uit favorieten."
-
-msgid "You have insufficient privileges to delete folder."
-msgstr "U heeft niet voldoende permissies om map te verwijderen."
-
-msgid "Could not delete folder."
-msgstr "Kon map niet verwijderen."
-
-# 88%
-msgid "You have insufficient privileges to copy folder."
-msgstr "U heeft niet voldoende permissies om map te kopiëren."
-
-# 75%
-msgid "Could not copy folder."
-msgstr "Kon map niet kopiëren."
-
-# 86%
-msgid "You have insufficient privileges to move this folder."
-msgstr "U heeft niet voldoende permissies om map te verplaatsen."
-
-# 79%
-msgid "Could not move folder."
-msgstr "Kon map niet verplaatsen."
-
-# 88%
-msgid "You have insufficient privileges to delete items."
-msgstr "U heeft niet voldoende permissies om items te verwijderen."
-
-# 83%
-msgid "Could not empty folder."
-msgstr "Kon map niet legen."
-
-msgid "Could not perform action correctly."
-msgstr "Kon de actie niet correct uitvoeren."
-
-msgid ""
-"A favorite folder with this name already exists, please use another name."
-msgstr ""
-"Een 'favoriete' folder met deze naam bestaat al, gebruik een andere naam."
-
-msgid "Could not add folder to favorites."
-msgstr "Kon de map niet toevoegen aan favorieten."
-
-msgid "You have insufficient privileges to set permissions for this folder."
-msgstr ""
-"U heeft niet voldoende permissies om permissies op deze map in te stellen."
-
-msgid "Could not set folder permissions."
-msgstr "Kon map-permissies niet instellen."
-
-# 85%
-msgid "You have insufficient privileges to rename this folder."
-msgstr "U heeft niet voldoende permissies om de naam van deze map te wijzigen."
-
-msgid "A folder with this name already exists. Use another name."
-msgstr "Een folder met deze naam bestaat al. Gebruik een andere naam."
-
-# 83%
-msgid "Could not rename folder."
-msgstr "Kon map niet hernoemen."
-
-# 85%
-msgid "You have insufficient privileges to create this folder."
-msgstr "U heeft niet voldoende permissies om deze map aan te maken."
-
-# 83%
-msgid "Could not create folder."
-msgstr "Kon map niet aanmaken."
-
-msgid "Could not close shared folder."
-msgstr "Kon gedeelde map niet sluiten."
-
-msgid "User could not be resolved."
-msgstr "Gebruiker kon niet gevonden worden."
-
-#, php-format
-msgid ""
-"You have insufficient privileges to open this %1$s folder. The folder owner "
-"can set these using the 'permissions'-tab of the folder properties (right "
-"click the %1$s folder > properties > permissions)."
-msgstr ""
-"U heeft onvoldoende rechten om de map %1$s te openen. De eigenaar van de map "
-"kan deze rechten instellen via het tabblad 'permissies' van de map-"
-"eigenschappen (klik rechts op map %1$s > eigenschappen > permissies)."
-
-msgid "unknown"
-msgstr "onbekend"
-
-# 79%
-# 95%
-msgid "Could not move folder"
-msgstr "Kon map niet verplaatsen"
-
-# 75%
-# 95%
-msgid "Could not copy folder"
-msgstr "Kon map niet kopiëren"
-
-# 92%
-msgid "You have insufficient privileges to open this message."
-msgstr "U heeft niet voldoende permissies om dit bericht te openen."
-
-msgid ""
-"Could not find message, either it has been moved or deleted or you don't "
-"have access to open this message."
-msgstr ""
-"Bericht kon niet worden gevonden, het is verplaatst, verwijderd of u heeft "
-"geen toegang tot dit bericht."
 
 # 78%
 msgid "Could not open message."
@@ -6654,171 +6541,27 @@ msgstr "Uw bericht is niet ontvangen door een of meerdere geadresseerden"
 msgid "The following recipient(s) could not be reached"
 msgstr "De volgende geadresseerde(n) kon(den) niet worden bereikt"
 
-# 80%
-msgid "You have insufficient privileges to see the contents of this folder."
-msgstr "U heeft niet voldoende permissies om items in deze map op te slaan."
-
-msgid "Could not load the contents of this folder."
-msgstr "Kon de inhoud van deze map niet laden."
-
-msgid "Error in search, please try again"
-msgstr "Fout bij zoeken, probeer opnieuw"
-
-msgid "Unable to perform search query, no permissions to create search folder."
-msgstr ""
-"Niet in staat om de zoekopdracht uit te voeren, geen permissies om de "
-"zoekfolder te creëren."
-
-msgid "Unable to perform search query, search folder not found."
-msgstr ""
-"Niet mogelijk om de zoekopdracht uit te voeren, de zoekfolder kan niet "
-"gevonden worden."
-
-msgid "Unable to perform search query, store might not support searching."
-msgstr ""
-"Niet mogelijk om zoekopdracht uit te voeren, de store ondersteunt mogelijk "
-"geen zoeken."
-
-msgid "Error in creating search folder."
-msgstr "Fout in het creëren van een zoekfolder."
-
-msgid ""
-"You have insufficient privileges to perform search operation in this folder."
-msgstr "U heeft niet voldoende permissies om in deze map te zoeken."
-
-msgid "Could not update search results."
-msgstr "Kon zoekresultaten niet bijwerken."
-
-msgid "Could not stop search operation."
-msgstr "Kon zoekopdracht niet stoppen."
-
-msgid "You have insufficient privileges to save this message."
-msgstr "U heeft niet voldoende permissies om dit bericht op te slaan."
-
-# 78%
-# 82%
-msgid "Could not save message."
-msgstr "Kon bericht niet opslaan."
-
-# 80%
-msgid "You have insufficient privileges to delete this message."
-msgstr "U heeft niet voldoende permissies om dit bericht te verwijderen."
-
-# 78%
-# 80%
-msgid "Could not delete message."
-msgstr "Kon bericht niet verwijderen."
-
-msgid "You have insufficient privileges to cancel this Meeting Request."
-msgstr "U heeft onvoldoende permissies om dit Vergaderverzoek te annuleren."
-
-msgid "Could not cancel Meeting Request."
-msgstr "Kon Vergaderverzoek niet annuleren."
-
-msgid "You have insufficient privileges to decline this Meeting Request."
-msgstr "U heeft niet voldoende permissies om dit Vergaderverzoek af te wijzen."
-
-msgid "Could not decline Meeting Request."
-msgstr "Kon Vergaderverzoek niet afwijzen."
-
-msgid "You have insufficient privileges to accept this Meeting Request."
-msgstr ""
-"U heeft niet voldoende permissies om dit Vergaderverzoek te accepteren."
-
-msgid "Could not accept Meeting Request."
-msgstr "Kon Vergaderverzoek niet accepteren."
-
-msgid "You have insufficient privileges to cancel Meeting Request invitation."
-msgstr "U heeft niet voldoende permissies om Vergaderverzoek in te trekken."
-
-msgid "Could not cancel Meeting Request invitations."
-msgstr "Kon Vergaderverzoek niet intrekken."
-
-msgid "You can not continue search operation on this folder."
-msgstr "U kunt de zoekopdracht in deze map niet voortzetten."
-
-msgid "Error in search, please try again."
-msgstr "Fout bij zoeken, probeer opnieuw."
-
-msgid "Error in distribution list expansion."
-msgstr "Fout bij uitvouwen distributielijst."
-
-msgid "The message store has exceeded its hard quota limit."
-msgstr "De berichtenstore heeft de harde quotalimiet bereikt."
-
-msgid ""
-"To reduce the amount of data in this message store, select some items that "
-"you no longer need, delete them and cleanup your Deleted Items folder."
-msgstr ""
-"Om de hoeveelheid gegevens in deze berichtenstore te verminderen, kunt u "
-"enkele items selecteren die u niet meer nodig heeft, hen verwijderen en de "
-"Verwijderde Items-map leegmaken."
-
-msgid "The message store has exceeded its soft quota limit."
-msgstr "Deze berichtenstore heeft de zachte quotalimiet bereikt."
-
-msgid "Could not process request data properly."
-msgstr "Kon verzoekdata niet goed verwerken."
-
-# sepcified = typo
-# 94%
 #, php-format
-msgid "Unknown action type specified - %s"
-msgstr "Onbekend actietype gespecificeerd - %s"
-
-msgid "Cannot snooze the reminder. You may be reminded again."
-msgstr ""
-"Kan de herinnering niet uitstellen. U wordt wellicht opnieuw herinnerd."
-
-msgid "Cannot dismiss the reminder. You may be reminded again."
-msgstr ""
-"Kan de herinnering niet verwijderen. U wordt wellicht opnieuw herinnerd."
-
-msgid "You have insufficient privileges to perform this action."
-msgstr "U heeft niet voldoende permissies voor deze actie."
-
-msgid "Could not resolve user."
-msgstr "Kon gebruiker niet vinden."
-
-msgid "Setting mail filters on the stores of other users is not allowed."
-msgstr ""
-"Het bewerken van regels van de stores van andere gebruikers is niet "
-"toegestaan."
-
-msgid "Untitled rule"
-msgstr "Naamloze regel"
-
-# 76%
-msgid "Could not load rules."
-msgstr "Kon regels niet laden."
-
-# 95%
-msgid "Could not save rules."
-msgstr "Kon regels niet bewaren."
-
-msgid "Task Request:"
-msgstr "Taakverzoek:"
-
-msgid "Welcome"
-msgstr "Welkom"
-
-msgid "Username"
-msgstr "Gebruikersnaam"
-
-msgid "Password"
-msgstr "Wachtwoord"
-
-msgid "Sign in"
-msgstr "Inloggen"
-
-msgid "Caps lock is on"
-msgstr "Caps lock is ingeschakeld"
-
-msgid "File is not imported successfully"
-msgstr "Bijlage kon niet succesvol worden geïmporteerd"
+msgid "Unable to import '%s' to '%s'. "
+msgstr "Kan '%s' naar '%s' niet importeren. "
 
 msgid "There is no contact found in this file."
 msgstr "Geen contact gevonden in dit bestand."
+
+msgid "The file is corrupt."
+msgstr "Dit bestand is corrupt."
+
+msgid "The file is invalid."
+msgstr "De bestanden zijn niet geldig."
+
+#, php-format
+msgid "Unable to import '%s'. "
+msgstr "'%s' kan niet worden geïmporteerd. "
+
+msgid "Please contact your system administrator if the problem persists."
+msgstr ""
+"Neem contact op met uw systeem administrator als het probleem zich blijft "
+"voortdoen."
 
 msgid ""
 "grommunio Web does not support importing multiple VCF with this version."
@@ -6826,46 +6569,11 @@ msgstr ""
 "grommunio Web ondersteunt het importeren van meerdere VCF bestanden niet in "
 "deze versie."
 
+msgid "There is no appointment found in this file."
+msgstr "Er is geen afspraak gevonden in dit bestand."
+
 msgid ""
 "grommunio Web does not support importing multiple ICS with this version."
 msgstr ""
 "grommunio Web ondersteunt het importeren van meerdere ICS in één bestand "
 "niet in deze versie."
-
-#, php-format
-msgid "Unable to import '%s'"
-msgstr "'%s' kon niet worden geïmporteerd"
-
-msgid "The EML is not valid"
-msgstr "De EML is niet valide"
-
-msgid "GB"
-msgstr "GB"
-
-msgid "MB"
-msgstr "MB"
-
-msgid "KB"
-msgstr "KB"
-
-msgid "B"
-msgstr "b"
-
-msgid "The maximum stack depth has been exceeded"
-msgstr "De maximale stackdiepte is overschreden"
-
-msgid "Control character error, possibly incorrectly encoded"
-msgstr "Fout in besturingskarakter, mogelijk door foutieve codering"
-
-msgid "Invalid or malformed JSON"
-msgstr "Ongeldige of misvormde JSON"
-
-msgid "Syntax error"
-msgstr "Syntax fout"
-
-msgid "Malformed UTF-8 characters, possibly incorrectly encoded"
-msgstr "Fout in besturingskarakter, mogelijk door foutieve codering"
-
-#, php-format
-msgid "JSON Error: - %s"
-msgstr "JSON-fout: - %s"

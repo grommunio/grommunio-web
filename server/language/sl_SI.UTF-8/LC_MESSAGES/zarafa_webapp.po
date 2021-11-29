@@ -1734,6 +1734,25 @@ msgstr ""
 msgid "Insufficient privileges"
 msgstr ""
 
+msgid ""
+"Copying this appointment will unset it as private. Are you sure you want to "
+"continue?"
+msgstr ""
+
+msgid "Private item"
+msgstr ""
+
+msgid "Copy"
+msgstr "Kopiraj"
+
+msgid ""
+"Moving this appointment will unset it as private. Are you sure you want to "
+"continue?"
+msgstr ""
+
+msgid "Move"
+msgstr "Premakni"
+
 #, fuzzy
 msgid "Update recipients"
 msgstr "Uredi prejemnika"
@@ -1747,9 +1766,6 @@ msgstr "Shrani spremembe in pošlji posodobitev vsem prejemnikom"
 msgid "Open meeting request with changes"
 msgstr "Odpri zahtevo za sestanek s spremembami"
 
-msgid "Copy"
-msgstr "Kopiraj"
-
 #, fuzzy
 msgid "grommunio Web"
 msgstr ""
@@ -1762,9 +1778,6 @@ msgid ""
 "Please note that any changes you make will be overwritten when this meeting "
 "request is updated by the organizer. Would you like to move this meeting?"
 msgstr ""
-
-msgid "Move"
-msgstr "Premakni"
 
 #, fuzzy
 msgid "Don't move"
@@ -2162,13 +2175,13 @@ msgid "Import to folder"
 msgstr "Izprazni mapo"
 
 msgid ""
-"In order to use the vCard import feature, upgrade your Gromox to version 8.3 "
+"In order to use the vCard import feature, upgrade your Gromox to version 0 "
 "or higher."
 msgstr ""
 
 msgid ""
 "In order to use the ICS / VCS import feature, upgrade your Gromox to version "
-"8.3 or higher."
+"0 or higher."
 msgstr ""
 
 msgid "Attachment error"
@@ -2556,6 +2569,18 @@ msgstr ""
 msgid "Add/Edit Cc recipient"
 msgstr "Uredi prejemnika"
 
+msgid "Disable for new mail"
+msgstr ""
+
+msgid "Enable for new mail"
+msgstr ""
+
+msgid "Disable for replies"
+msgstr ""
+
+msgid "Enable for replies"
+msgstr ""
+
 #, fuzzy
 msgid "No Cc recipient configured"
 msgstr "Ni nastavljenih podpisov"
@@ -2590,8 +2615,8 @@ msgstr ""
 msgid "Help"
 msgstr "Pomoč"
 
-msgid "grommunio Web Manual"
-msgstr "Navodila za Web aplikacijo"
+msgid "Web Manual"
+msgstr ""
 
 msgid "Item data"
 msgstr ""
@@ -2604,6 +2629,9 @@ msgstr "Razvrsti po: context.mail.griddefaultcolumn"
 
 msgid "ZDeveloper"
 msgstr "ZRazvijalec"
+
+msgid "grommunio Web print"
+msgstr ""
 
 # 91%
 msgid "Display name"
@@ -3230,14 +3258,8 @@ msgstr ""
 msgid "d-m-Y"
 msgstr "d-m-Y"
 
-msgid "Original message"
-msgstr "Originalno sporočilo"
-
 msgid "l d/m/Y"
 msgstr "1 d/m/L"
-
-msgid "Sent Items"
-msgstr ""
 
 msgid "l d/m/Y {0}"
 msgstr ""
@@ -3295,12 +3317,9 @@ msgstr "Prosim obravnavajte to kot {0}."
 
 msgctxt "mail.previewpanel"
 msgid ""
-"Click here to download pictures. To help protect your privacy, grommunio Web "
+"Click here to download pictures. To help protect your privacy, WebApp "
 "prevented automatic download of some pictures in this message."
 msgstr ""
-"Kliknite tukaj za nalaganje slik. Zaradi zaščite vaše zasebnosti, je "
-"grommunio Web preprečila avtomatično nalaganje nekaterih slik v tem "
-"sporočilu."
 
 msgctxt "mail.previewpanel"
 msgid ""
@@ -4267,7 +4286,7 @@ msgid "Unsaved changes"
 msgstr ""
 
 msgid "Welcome to grommunio Web"
-msgstr "Dobrodošli v spletni aplikaciji grommunio"
+msgstr ""
 
 #, fuzzy
 msgid "This is the first time you are using grommunio Web. "
@@ -4377,19 +4396,27 @@ msgstr[1] "Imate {0} neprebranih sporočil v mapi {0}"
 msgstr[2] "Imate {0} neprebranih sporočil v mapi {0}"
 msgstr[3] "Imate {0} neprebranih sporočil v mapi {0}"
 
-msgid "License error"
+msgid "Publishing Editor"
 msgstr ""
 
-msgid ""
-"The installed license key(s) have expired or are being over used. Please "
-"contact your system administrator for further information."
+#, fuzzy
+msgid "Editor"
+msgstr "Uredi"
+
+msgid "Publishing Author"
 msgstr ""
 
-msgid "Full control"
-msgstr "Popolni nadzor"
+msgid "Author"
+msgstr ""
 
-msgid "No rights"
-msgstr "Ni pravic"
+msgid "Nonediting Author"
+msgstr ""
+
+msgid "Reviewer"
+msgstr ""
+
+msgid "Contributor"
+msgstr ""
 
 msgid "Unable to import:"
 msgstr ""
@@ -4442,6 +4469,12 @@ msgstr "Tip"
 msgid "Description"
 msgstr "Opis"
 
+msgid "EntryID"
+msgstr ""
+
+msgid "Parent EID"
+msgstr ""
+
 msgid "Folder size"
 msgstr "Velikost mape"
 
@@ -4457,23 +4490,30 @@ msgstr "Ni odobrenih dovoljenj"
 msgid "Profile"
 msgstr "Profil"
 
+msgid "Read"
+msgstr ""
+
+msgid "Full Details"
+msgstr ""
+
+msgid "Write"
+msgstr ""
+
 msgid "Create items"
 msgstr "Ustvari predmete"
-
-msgid "Read items"
-msgstr "Preberi predmete"
 
 msgid "Create subfolders"
 msgstr "Ustvari podmape"
 
-msgid "Folder permissions"
-msgstr "Dovoljenja mape"
+msgid "Edit own"
+msgstr ""
 
-msgid "Folder visible"
-msgstr "Vidna mapa"
+msgid "Edit all"
+msgstr ""
 
-msgid "Edit items"
-msgstr "Uredi predmete"
+# 92%
+msgid "Delete items"
+msgstr "Izbriši predmete"
 
 msgid "Own"
 msgstr "Lastne"
@@ -4481,9 +4521,14 @@ msgstr "Lastne"
 msgid "All"
 msgstr "Vse"
 
-# 92%
-msgid "Delete items"
-msgstr "Izbriši predmete"
+msgid "Folder owner"
+msgstr ""
+
+msgid "Folder contact"
+msgstr ""
+
+msgid "Folder visible"
+msgstr "Vidna mapa"
 
 msgid "User already exists"
 msgstr "Uporabnik že obstaja"
@@ -4705,6 +4750,9 @@ msgstr "Poslano"
 msgid "Red"
 msgstr "Beri"
 
+msgid "Original message"
+msgstr "Originalno sporočilo"
+
 msgid "Schedule mail to be sent out"
 msgstr ""
 
@@ -4819,9 +4867,6 @@ msgstr "Razne možnosti"
 msgid "Internet Headers"
 msgstr "Internetne glave"
 
-msgid "EntryID"
-msgstr ""
-
 msgid "Message Settings"
 msgstr "Nastavitve sporočila"
 
@@ -4866,9 +4911,6 @@ msgstr "Menjaj med prebrano/neprebrano"
 
 msgid "Toggle red/complete flag"
 msgstr "Nastavi zasledovanje"
-
-msgid "Close a conversation"
-msgstr ""
 
 # 82%
 msgid "Open Shared Mails"
@@ -4918,10 +4960,6 @@ msgstr "Sestavi nastavitve sporočila"
 
 msgid "Compose mail in this format"
 msgstr "Sestavi sporočilo v tem formatu"
-
-#, fuzzy
-msgid "Editor"
-msgstr "Uredi"
 
 msgid "Default font"
 msgstr "Privzeta pisava"
@@ -5016,15 +5054,24 @@ msgstr "Trenutno sem odsoten-a"
 msgid "I will be back on"
 msgstr ""
 
-msgid "I am out of office"
-msgstr ""
-
 #, fuzzy
 msgid "Automatically reply once per day, per sender with the following text"
 msgstr "Samodejni odgovor enkrat vsakemu pošiljatelju z naslednjim sporočilom"
 
-msgid "User is currently out of office."
-msgstr "Uporabnik je trenutno odsoten."
+msgid "Inside My Organization"
+msgstr ""
+
+msgid "Outside My Organization"
+msgstr ""
+
+msgid "Auto-reply to people outside my organization"
+msgstr ""
+
+msgid "My contacts only"
+msgstr ""
+
+msgid "Anyone outside my organization"
+msgstr ""
 
 msgid ""
 "The time you entered is before the out of office date. Please reschedule."
@@ -5224,7 +5271,10 @@ msgstr "Nastavitve"
 msgid "Basic"
 msgstr ""
 
-msgid "Account information"
+msgid "Account information - {0}"
+msgstr ""
+
+msgid "Profile Picture"
 msgstr ""
 
 msgid "Language"
@@ -5382,8 +5432,8 @@ msgstr "Bližnjice na tipkovnici"
 msgid "All keyboard shortcuts on"
 msgstr "Bližnjice na tipkovnici"
 
-msgid "This change requires a reload of the grommunio Web"
-msgstr "Ta sprememba zahteva ponovno naložitev spletne aplikacije"
+msgid "This change requires a reload of grommunio Web"
+msgstr ""
 
 msgid "Plugins"
 msgstr "Vstavki"
@@ -5876,17 +5926,11 @@ msgstr "Povezava obnovljena"
 msgid "Connection with server has been restored"
 msgstr "Povezava s serverjem je bila obnovljena"
 
-msgid "Please contact your administrator if this problem persists."
-msgstr ""
-
 #. TRANSLATORS: Example: HTTP 404
-msgid "Error HTTP {0}"
+msgid "HTTP {0}"
 msgstr ""
 
-msgid "HTTP status text is: "
-msgstr ""
-
-msgid "Invalid data received from the server. HTTP status text is: "
+msgid "Invalid data received from the server"
 msgstr ""
 
 msgid "Missing store"
@@ -5964,45 +6008,254 @@ msgstr "Nalaganje vzorca iz serverja je spodletelo"
 msgid "Out of Office is currently activated. Would you like to turn it off?"
 msgstr "Odsotnost je vključena. Ali jo želite izključiti?"
 
-msgid "Out of office off"
-msgstr "Odsotnost izključena"
+msgid "Open Chat at start"
+msgstr ""
 
-msgid "Out of office has been turned off"
-msgstr "Odsotnost je bila izključena"
+msgid "Desktop Notifications Plugin"
+msgstr ""
 
-msgid "Send Fax"
-msgstr "Pošlji faks"
+msgid "Desktop Notifications"
+msgstr ""
 
-msgid "Contact Fax"
-msgstr "Kontakt faksa"
+msgid "{A} Autohide desktop notification after second(s) {B}"
+msgstr ""
 
-msgid "Google Maps"
-msgstr "Google Maps"
+msgid "Intranet"
+msgstr ""
 
-#. TRANSLATORS: The map of earth
-msgid "Map"
-msgstr "Zemljevid"
+msgid "Email Details"
+msgstr ""
 
-msgid "Move currently selected message(s) to {0}"
-msgstr "Premakni trenutno izbrano-a sporočilo-a v {0}"
+msgid "Item Data"
+msgstr ""
 
-msgid "Move to {0}"
-msgstr "Premakni v {0}"
+msgid "Mobile Device Manager"
+msgstr ""
 
-msgid "Move current message to {0}"
-msgstr "Premakni trenutno sporočilo v {0}"
+msgid "Wiping device"
+msgstr ""
 
-msgid "Personal Inbox Manager"
-msgstr "Osebni upravljalec s prejetimi sporočili"
+msgid "Password incorrect"
+msgstr ""
 
-msgid "Personal Inbox Management Settings"
-msgstr "Osebne nastavitve upravljanja prejete pošte"
+msgid "Full resync in progress"
+msgstr ""
 
-msgid "Select another folder"
-msgstr "Izberi drugo mapo"
+msgid "Username or password incorrect"
+msgstr ""
 
-msgid "E-mails are moved to {0}"
-msgstr "Elektronska sporočila so prestavljena v {0}"
+msgid "Not Applicable"
+msgstr ""
+
+msgid "Wipe Pending"
+msgstr ""
+
+msgid "Wipe Requested"
+msgstr ""
+
+msgid "Wipe Executed"
+msgstr ""
+
+msgid "Not Available"
+msgstr ""
+
+msgid "Device"
+msgstr ""
+
+msgid "Operating System"
+msgstr ""
+
+msgid "ID"
+msgstr ""
+
+msgid "User Agent"
+msgstr ""
+
+msgid "MDM Plugin"
+msgstr ""
+
+msgid "Active Sync Version"
+msgstr ""
+
+msgid "grommunio-sync Version"
+msgstr ""
+
+msgid "Policy name"
+msgstr ""
+
+msgid "Outlook Extension"
+msgstr ""
+
+msgid "Build"
+msgstr ""
+
+msgid "Last updated"
+msgstr ""
+
+msgid "d F Y, H:i"
+msgstr ""
+
+msgid "Connected since"
+msgstr ""
+
+msgid "d F Y"
+msgstr ""
+
+msgid "Synchronize"
+msgstr ""
+
+msgid "Manage Shared Folders"
+msgstr ""
+
+msgid ""
+"Select folders to sync to your device from the list below. To add additional "
+"mailboxes to the list, open them in WebApp first."
+msgstr ""
+
+msgid "grommunio-sync"
+msgstr ""
+
+msgid "Mobile device management"
+msgstr ""
+
+msgid "Mobile Devices"
+msgstr ""
+
+msgid ""
+"Unable to connect to the grommunio-sync server. Click {0} to enter your "
+"credentials"
+msgstr ""
+
+msgid "Devices"
+msgstr ""
+
+msgid "No devices connected to your account"
+msgstr ""
+
+msgid "Last Update"
+msgstr ""
+
+msgid "Device ID"
+msgstr ""
+
+msgid "Device OS"
+msgstr ""
+
+msgid "Device Info"
+msgstr ""
+
+msgid "First Sync time"
+msgstr ""
+
+msgid "Full resync"
+msgstr ""
+
+msgid "Remove device"
+msgstr ""
+
+msgid "Please enter your username and password"
+msgstr ""
+
+msgid "Password"
+msgstr ""
+
+msgid "Username"
+msgstr ""
+
+msgid ""
+"Do you really want to wipe your device?\n"
+" Enter your password to confirm."
+msgstr ""
+
+msgid "Add meeting"
+msgstr ""
+
+msgid "Room name:"
+msgstr ""
+
+msgid "Room URL:"
+msgstr ""
+
+msgid "Shift-click for advanced settings"
+msgstr ""
+
+msgid "Join webmeeting"
+msgstr ""
+
+msgid "Open meeting in:"
+msgstr ""
+
+msgid "Web tab"
+msgstr ""
+
+msgid "Hide the button in the main toolbar"
+msgstr ""
+
+msgid "Add the subject to the room name"
+msgstr ""
+
+msgid "Add the organizer name to the room name"
+msgstr ""
+
+msgid "Add the URL to the meeting location rather than overwriting it"
+msgstr ""
+
+msgid ""
+"Prevent the URL in the meeting location from being overridden automatically "
+"(ex: when adding a meetingroom)"
+msgstr ""
+
+msgid "If you have problems when creating meetings, try disabling this setting"
+msgstr ""
+
+msgid "Add an invitation to the appointment description"
+msgstr ""
+
+msgid "Invitation text"
+msgstr ""
+
+msgid ""
+"must contain %url% as a placeholder for the meeting link, empty the textbox "
+"to reset to default"
+msgstr ""
+
+msgid "An unknown error occurred while changing password."
+msgstr ""
+
+msgid "Password is changed successfully."
+msgstr ""
+
+msgid "Success"
+msgstr ""
+
+msgid "Change Password"
+msgstr ""
+
+msgid "Current password"
+msgstr ""
+
+msgid "New password"
+msgstr ""
+
+msgid "Retype new password"
+msgstr ""
+
+msgid "New passwords do not match."
+msgstr ""
+
+msgid "Current password is empty."
+msgstr ""
+
+msgid "New password is empty."
+msgstr ""
+
+msgid "One or more fields does contain errors."
+msgstr ""
+
+msgid ""
+"Password is weak. Password should contain capital, non-capital letters and "
+"numbers. Password should have 8 to 20 characters."
+msgstr ""
 
 msgid "Charm pink"
 msgstr ""
@@ -6025,7 +6278,7 @@ msgstr ""
 msgid "Pearl aqua"
 msgstr ""
 
-msgid "grommunio blue"
+msgid "Grommunio blue"
 msgstr ""
 
 msgid "Baby blue"
@@ -6090,44 +6343,13 @@ msgid ""
 "Please contact your system administrator."
 msgstr ""
 
-msgid "Can't add data to bus, same action type is present in bus"
-msgstr "Ne morem dodati podatkov v bus, enak tip ukrepa je prisoten v bus"
-
-msgid "Response data requested from bus but it doesn't have any data."
-msgstr "Zahtevan odziv podatkov iz bus ampak ne vsebuje nobenih podatkov."
-
-#, php-format
-msgid "Unknown module '%s' with id '%s'"
-msgstr "Neznan modul '%s' z id '%s'"
-
-msgid ""
-"We encountered a problem. This might be caused by upgrading a plugin. Please "
-"re-login to resolve the issue."
+msgid "Mobile device management plugin"
 msgstr ""
 
 #, php-format
-msgid "Unknown notifier '%s'"
-msgstr "Neznano obvestilo '%s'"
-
-msgid "An unexpected error has occurred"
-msgstr "Pojavila se je nepričakovana napaka"
-
-#, fuzzy
-msgid "To-Do List"
-msgstr "Seznam telefonskih številk"
-
-#. TRANSLATORS: This indicates that the opened folder belongs to a particular user,
-#. * for example: 'Calendar of Holiday', in this case %1$s is 'Calendar' (the foldername)
-#. * and %2$s is 'Holiday' (the username).
-#.
-#, php-format
-msgid "%1$s of %2$s"
-msgstr "%1$s od %2$s"
-
-msgid "Error retrieving existing settings"
-msgstr "Napaka pri pridobivanju obstoječih nastavitev"
-
-msgid "Error retrieving existing persistent settings"
+msgid ""
+"Unexpected error occurred. Please contact your system administrator. Error "
+"code: %s"
 msgstr ""
 
 #, fuzzy
@@ -6146,82 +6368,6 @@ msgstr ""
 #, fuzzy
 msgid "Unknown MAPI Error"
 msgstr "Neznana MAPI napaka: %s"
-
-msgid "This external link will open in a new window"
-msgstr "Ta zunanji link se bo odprl v novem oknu"
-
-#, fuzzy
-msgid "Destination folder not found."
-msgstr "Ciljna mapa"
-
-msgid "Eml is corrupted"
-msgstr ""
-
-msgid "The eml Attachment is not imported successfully"
-msgstr ""
-
-msgid "The vcf attachment is not imported successfully"
-msgstr ""
-
-#, php-format
-msgid "Unable to import '%s' to '%s'. "
-msgstr ""
-
-#, fuzzy
-msgid "There is no appointment found in this file."
-msgstr "Ta sestanek se pojavlja v preteklosti."
-
-msgid "The file is corrupt."
-msgstr ""
-
-#, fuzzy
-msgid "The file is invalid."
-msgstr "Priložene datoteke še niso bile naložene."
-
-#, php-format
-msgid "Unable to import '%s'. "
-msgstr ""
-
-msgid "Please contact your system administrator if the problem persists."
-msgstr ""
-
-msgid "Attachment is not imported successfully"
-msgstr ""
-
-# 81%
-#, fuzzy
-msgid "Embedded attachment not found."
-msgstr "Dodaj priloge k tem kontaktu."
-
-msgid "ZIP is not created successfully"
-msgstr ""
-
-msgid "Attachments can not be downloaded"
-msgstr ""
-
-# 82%
-# 100%
-#, fuzzy
-msgid "Could not find attachment."
-msgstr "Ne morem naložiti priloge."
-
-msgid "Operation failed"
-msgstr ""
-
-# 90%
-# 100%
-#, fuzzy
-msgid "Sticky Note"
-msgstr "Lepljive opombe"
-
-# 92%
-# 100%
-#, fuzzy
-msgid "Task Request"
-msgstr "Zahtevek za nalogo:"
-
-msgid "Could not find message, either it has been moved or deleted."
-msgstr ""
 
 msgid "Request is not available."
 msgstr ""
@@ -6251,9 +6397,6 @@ msgstr ""
 #, php-format
 msgid "Unknown MAPI Error: %s"
 msgstr "Neznana MAPI napaka: %s"
-
-msgid "Action is not performed correctly."
-msgstr "Dejanje ni bilo pravilno narejeno."
 
 msgid "Tentatively accepted"
 msgstr "Pogojno sprejeto"
@@ -6337,241 +6480,6 @@ msgstr "Pojavi se vsakih %s efektivno %s dokler %s."
 #, php-format
 msgid "Occurs every %s %s effective %s until %s."
 msgstr "Pojavi se vsakih %s %s efektivno %s dokler %s."
-
-msgid "Task Accepted:"
-msgstr "Naloga sprejeta:"
-
-msgid "Task Declined:"
-msgstr "Naloga zavrnjena:"
-
-msgid "Task Updated:"
-msgstr "Naloga posodobljena:"
-
-msgid "Task Completed:"
-msgstr "Naloga dokončana:"
-
-msgid "Contact not found"
-msgstr ""
-
-msgid ""
-"Contact information could not be displayed because the server had trouble "
-"retrieving the information."
-msgstr ""
-
-msgid "Could not handle this type of object."
-msgstr "Te vrste predmeta ni bilo mogoče prenesti."
-
-msgid "Could not open this object."
-msgstr "Tega predmeta ni bilo mogoče odpreti."
-
-msgid "Could not open occurrence."
-msgstr "Pojavljanja ni bilo mogoče odpreti."
-
-msgid "Could not open occurrence, specific occurrence is probably deleted."
-msgstr ""
-"Pojavljanja ni bilo mogoče odpreti, dotično pojavljanje je najverjetneje "
-"izbrisano."
-
-# 89%
-# 100%
-# 84%
-#, fuzzy
-msgid "a meeting request"
-msgstr "Nova zahteva za sestanek"
-
-# 93%
-# 100%
-# 80%
-#, fuzzy
-msgid "an appointment"
-msgstr "Novi sestanek"
-
-# 77%
-# 79%
-# 100%
-#, fuzzy
-msgid "You have insufficient privileges to move "
-msgstr "Nimate dovolj dovoljenj za kopiranje te mape."
-
-msgid ""
-"Cannot set a reminder to appear before the previous occurrence. Reset "
-"reminder to save the change"
-msgstr ""
-"Opomnika ne morem nastaviti, da bi se pojavil pred prejšnjim pojavljanjem. "
-"Resetirajte opomnik za shranjevanje sprememb"
-
-msgid "Two occurrences cannot occur on the same day"
-msgstr "Dve pojavljanji se ne moreta pojaviti na isti dan"
-
-#, php-format
-msgid ""
-"You marked '%s' as a resource. You cannot schedule a meeting with '%s' "
-"because you do not have the appropriate permissions for that account. Either "
-"enter the name as a required or optional attendee or talk to your "
-"administrator about giving you permission to schedule '%s'."
-msgstr ""
-
-#, php-format
-msgid ""
-"'%s' has declined your meeting because '%s' does not automatically accept "
-"meeting requests."
-msgstr ""
-"'%s' je zavrnil vaš sestanek ker '%s ne prejema zahtevkov za sestanke "
-"avtomatično."
-
-#, php-format
-msgid ""
-"'%s' has declined your meeting because it is recurring. You must book each "
-"meeting separately with this resource."
-msgstr ""
-"'%s'je zavrnil vaš sestanek zato ker se ponavlja. Pri tem viru morate "
-"rezervirati vsak sestanek posebej."
-
-#, php-format
-msgid ""
-"'%s' is already booked for this specified time. You must use another time or "
-"find another resource."
-msgstr ""
-"'%s' je že rezerviran za ta čas. Uporabite drugo uro ali najdite drug vir."
-
-msgid "Meeting was not scheduled."
-msgstr "Sestanek ni bil načrtovan."
-
-msgid "Meeting could not be sent."
-msgstr "Sestanek ni bil poslan."
-
-msgid "Meeting could not be saved."
-msgstr "Sestanek ni bil shranjen."
-
-msgid "Private Appointment"
-msgstr "Zasebni sestanek"
-
-#, php-format
-msgid "%s's Birthday"
-msgstr "%s's rojstni dan"
-
-#, php-format
-msgid "%s's Anniversary"
-msgstr "%s obletnica"
-
-msgid "Unknown user/group"
-msgstr "Neznan uporabnik/skupina"
-
-msgid "Could not save delegate information."
-msgstr "Informacij o članu ni bilo mogoče shraniti."
-
-# 78%
-# 80%
-msgid "Could not delete delegate."
-msgstr "Ne morem ibrisati člana."
-
-msgid "Can not get list of delegates."
-msgstr "Ne morem pridobiti liste članov."
-
-msgid "Could not load the hierarchy."
-msgstr "Nalaganje hierarhije je bilo neuspešno."
-
-msgid "Could not load folder properties."
-msgstr "Nalaganje lastnosti mape je bilo neuspešno."
-
-#, fuzzy
-msgid "Could not remove folder from favorites."
-msgstr "Mape ni bilo mogoče dodati pod najljubše."
-
-# 77%
-msgid "You have insufficient privileges to delete folder."
-msgstr "Nimate dovolj dovoljenj za odpiranje te mape."
-
-msgid "Could not delete folder."
-msgstr "Ne morem izbrisati mape."
-
-# 77%
-msgid "You have insufficient privileges to copy folder."
-msgstr "Nimate dovolj dovoljenj za kopiranje te mape."
-
-msgid "Could not copy folder."
-msgstr "Ne morem kopirati mape."
-
-# 84%
-msgid "You have insufficient privileges to move this folder."
-msgstr "Nimate dovolj dovoljenj za premikanje te mape."
-
-msgid "Could not move folder."
-msgstr "Ne morem premakniti mape."
-
-# 77%
-msgid "You have insufficient privileges to delete items."
-msgstr "Nimate dovolj dovoljenj za brisanje predmetov."
-
-msgid "Could not empty folder."
-msgstr "Ne morem izprazniti mape."
-
-msgid "Could not perform action correctly."
-msgstr "Dejanja ni bilo mogoče izpeljati pravilno.."
-
-msgid ""
-"A favorite folder with this name already exists, please use another name."
-msgstr ""
-
-msgid "Could not add folder to favorites."
-msgstr "Mape ni bilo mogoče dodati pod najljubše."
-
-# 90%
-# 76%
-msgid "You have insufficient privileges to set permissions for this folder."
-msgstr "Nimate dovolj dovoljenj za nastavljanje dovoljenj za to mapo."
-
-msgid "Could not set folder permissions."
-msgstr "Dovoljenj za to mapo ni bilo mogoče nastaviti."
-
-# 81%
-msgid "You have insufficient privileges to rename this folder."
-msgstr "Nimate dovolj dovoljenj preimenovanje te mape."
-
-msgid "A folder with this name already exists. Use another name."
-msgstr "Mapa s tem imenom že obstaja. Uporabite drugo ime."
-
-msgid "Could not rename folder."
-msgstr "Mape ni bilo mogoče preimenovati."
-
-# 81%
-msgid "You have insufficient privileges to create this folder."
-msgstr "Nimate dovolj dovoljenj za ustvarjanje te mape.."
-
-msgid "Could not create folder."
-msgstr "Mape ni bilo mogoče ustvariti."
-
-msgid "Could not close shared folder."
-msgstr "Mape v skupni rabi ni bilo mogoče zapreti."
-
-msgid "User could not be resolved."
-msgstr "Uporabnika ni bilo mogoče rešiti."
-
-#, php-format
-msgid ""
-"You have insufficient privileges to open this %1$s folder. The folder owner "
-"can set these using the 'permissions'-tab of the folder properties (right "
-"click the %1$s folder > properties > permissions)."
-msgstr ""
-
-# 85%
-msgid "unknown"
-msgstr "neznan"
-
-msgid "Could not move folder"
-msgstr "Mape ni bilo mogoče premakniti"
-
-msgid "Could not copy folder"
-msgstr "Mape ni bilo mogoče kopirati"
-
-# 87%
-msgid "You have insufficient privileges to open this message."
-msgstr "Nimate dovolj dovoljenj za odpiranje tega sporočila."
-
-msgid ""
-"Could not find message, either it has been moved or deleted or you don't "
-"have access to open this message."
-msgstr ""
 
 # 78%
 msgid "Could not open message."
@@ -6677,215 +6585,35 @@ msgstr "Vaše sporočilo ni doseglo nekaterih ali vseh nameravanih prejemnikov"
 msgid "The following recipient(s) could not be reached"
 msgstr "Naslednji prejemnik (ki) niso bili doseženi"
 
-# 90%
-# 76%
-msgid "You have insufficient privileges to see the contents of this folder."
-msgstr "Nimate dovolj dovoljenj za pregledovanje vsebine te mape."
-
-msgid "Could not load the contents of this folder."
-msgstr "Vsebine te mape ni bilo mogoče naložiti."
-
-msgid "Error in search, please try again"
-msgstr "Napaka pri iskanju, prosim poizkusite ponovno"
-
-msgid "Unable to perform search query, no permissions to create search folder."
-msgstr ""
-
-msgid "Unable to perform search query, search folder not found."
-msgstr ""
-
-msgid "Unable to perform search query, store might not support searching."
-msgstr ""
-
-msgid "Error in creating search folder."
-msgstr ""
-
-msgid ""
-"You have insufficient privileges to perform search operation in this folder."
-msgstr "Nimate dovolj dovoljenj za izvedbo postopka iskanja v tej mapi."
-
-msgid "Could not update search results."
-msgstr "Posodobitev rezultatov iskanja ni bila mogoča."
-
-msgid "Could not stop search operation."
-msgstr "Operacije iskanja ni bilo mogoče ustaviti."
-
-# 79%
-msgid "You have insufficient privileges to save this message."
-msgstr "Nimate dovolj dovoljenj za shranjevanje tega sporočila."
-
-# 78%
-# 82%
-msgid "Could not save message."
-msgstr "Ne morem shraniti sporočila."
-
-# 78%
-msgid "You have insufficient privileges to delete this message."
-msgstr "Nimate dovolj dovoljenj za brisanje tega sporočila."
-
-# 78%
-# 80%
-msgid "Could not delete message."
-msgstr "Ne morem izbrisati sporočila."
-
-# 75%
-# 82%
-msgid "You have insufficient privileges to cancel this Meeting Request."
-msgstr "Nimate dovolj dovoljenj za preklic tega zahtevka za sestanek."
-
-msgid "Could not cancel Meeting Request."
-msgstr "Zahtevka za sestanek ni bilo mogoče preklicati."
-
-# 75%
-# 80%
-msgid "You have insufficient privileges to decline this Meeting Request."
-msgstr "Nimate dovolj dovoljenj za zavrnitev tega zahtevka za sestanek."
-
-msgid "Could not decline Meeting Request."
-msgstr "Zahtevka za sestanek ni bilo mogoče zavrniti."
-
-# 75%
-# 89%
-msgid "You have insufficient privileges to accept this Meeting Request."
-msgstr "Nimate dovolj dovoljenj za sprejetje tega zahtevka za sestanek."
-
-msgid "Could not accept Meeting Request."
-msgstr "Zahtevka za sestanek ni bilo mogoče sprejeti."
-
-# 75%
-# 82%
-# 77%
-msgid "You have insufficient privileges to cancel Meeting Request invitation."
-msgstr "Nimate dovolj dovoljenj za preklic povabila zahtevka za sestanek."
-
-msgid "Could not cancel Meeting Request invitations."
-msgstr "Povabila zahtevka za sestanek ni bilo mogoče preklicati."
-
-msgid "You can not continue search operation on this folder."
-msgstr "V tej mapi ne morete nadaljevati operacije iskanja."
-
-msgid "Error in search, please try again."
-msgstr "Napaka v iskanju, prosim poskusite ponovno."
-
-msgid "Error in distribution list expansion."
-msgstr ""
-
-msgid "The message store has exceeded its hard quota limit."
-msgstr "Hramba sporočil je presegla limit trde kvote."
-
-msgid ""
-"To reduce the amount of data in this message store, select some items that "
-"you no longer need, delete them and cleanup your Deleted Items folder."
-msgstr ""
-"Za zmanjšanje količine podatkov v tej hrambi sporočil izberite nekaj "
-"predmetov, ki jih ne potrebujete, jih izbrišite in izpraznite mapo Izbrisani "
-"elementi."
-
-msgid "The message store has exceeded its soft quota limit."
-msgstr "Hramba sporočil je presegla limit mehke kvote."
-
-msgid "Could not process request data properly."
-msgstr "Zahtevka za obdelavo podatkov ni bilo mogoče izvesti pravilno."
-
 #, php-format
-msgid "Unknown action type specified - %s"
-msgstr "Neznan tip ukrepa je bil specificiran - %s"
-
-msgid "Cannot snooze the reminder. You may be reminded again."
-msgstr "Opomnika ne morem dati v dremež. Verjetno boste še enkrat opomnjeni."
-
-msgid "Cannot dismiss the reminder. You may be reminded again."
-msgstr ""
-"Opomnika ni bilo mogoče opustiti. Najverjetneje boste še enkrat opomnjeni."
-
-# 78%
-msgid "You have insufficient privileges to perform this action."
-msgstr "Nimate dovolj dovoljenj za ivedbo tega dejanja."
-
-msgid "Could not resolve user."
-msgstr "Uporabnika ni bilo mogoče rešiti."
-
-msgid "Setting mail filters on the stores of other users is not allowed."
+msgid "Unable to import '%s' to '%s'. "
 msgstr ""
 
-msgid "Untitled rule"
-msgstr "Neimenovano pravilo"
-
-msgid "Could not load rules."
-msgstr "Pravil ni bilo mogoče naložiti."
-
-msgid "Could not save rules."
-msgstr "Pravil ni bilo mogoče shraniti."
-
-msgid "Task Request:"
-msgstr "Zahtevek za nalogo:"
-
-msgid "Welcome"
+msgid "There is no contact found in this file."
 msgstr ""
 
-msgid "Username"
-msgstr "Uporabniško ime"
-
-msgid "Password"
-msgstr ""
-
-msgid "Sign in"
-msgstr ""
-
-msgid "Caps lock is on"
+msgid "The file is corrupt."
 msgstr ""
 
 #, fuzzy
-msgid "File is not imported successfully"
-msgstr "Pošiljanje uspešno"
+msgid "The file is invalid."
+msgstr "Priložene datoteke še niso bile naložene."
 
-msgid "There is no contact found in this file."
+#, php-format
+msgid "Unable to import '%s'. "
+msgstr ""
+
+msgid "Please contact your system administrator if the problem persists."
 msgstr ""
 
 msgid ""
 "grommunio Web does not support importing multiple VCF with this version."
 msgstr ""
 
+#, fuzzy
+msgid "There is no appointment found in this file."
+msgstr "Ta sestanek se pojavlja v preteklosti."
+
 msgid ""
 "grommunio Web does not support importing multiple ICS with this version."
 msgstr ""
-
-#, php-format
-msgid "Unable to import '%s'"
-msgstr ""
-
-#, fuzzy
-msgid "The EML is not valid"
-msgstr "{0} ni veljaven čas"
-
-msgid "GB"
-msgstr "GB"
-
-msgid "MB"
-msgstr "MB"
-
-msgid "KB"
-msgstr "KB"
-
-msgid "B"
-msgstr "B"
-
-msgid "The maximum stack depth has been exceeded"
-msgstr "Presežena je bila maksimalna globina nalaganja"
-
-msgid "Control character error, possibly incorrectly encoded"
-msgstr "Napaka kontrolnega znaka,najverjetneje nepravilno kodiranje"
-
-msgid "Invalid or malformed JSON"
-msgstr "Neveljaven ali nepravilen JSON"
-
-msgid "Syntax error"
-msgstr "Napaka v sintaksi"
-
-#, fuzzy
-msgid "Malformed UTF-8 characters, possibly incorrectly encoded"
-msgstr "Napaka kontrolnega znaka,najverjetneje nepravilno kodiranje"
-
-#, php-format
-msgid "JSON Error: - %s"
-msgstr "JSON napaka: - %s"

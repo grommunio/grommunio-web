@@ -1682,6 +1682,25 @@ msgstr ""
 msgid "Insufficient privileges"
 msgstr ""
 
+msgid ""
+"Copying this appointment will unset it as private. Are you sure you want to "
+"continue?"
+msgstr ""
+
+msgid "Private item"
+msgstr ""
+
+msgid "Copy"
+msgstr ""
+
+msgid ""
+"Moving this appointment will unset it as private. Are you sure you want to "
+"continue?"
+msgstr ""
+
+msgid "Move"
+msgstr ""
+
 msgid "Update recipients"
 msgstr ""
 
@@ -1694,18 +1713,12 @@ msgstr ""
 msgid "Open meeting request with changes"
 msgstr ""
 
-msgid "Copy"
-msgstr ""
-
 msgid "grommunio Web"
 msgstr "grommunio veebirakendus"
 
 msgid ""
 "Please note that any changes you make will be overwritten when this meeting "
 "request is updated by the organizer. Would you like to move this meeting?"
-msgstr ""
-
-msgid "Move"
 msgstr ""
 
 msgid "Don't move"
@@ -2066,13 +2079,13 @@ msgid "Import to folder"
 msgstr ""
 
 msgid ""
-"In order to use the vCard import feature, upgrade your Gromox to version 8.3 "
+"In order to use the vCard import feature, upgrade your Gromox to version 0 "
 "or higher."
 msgstr ""
 
 msgid ""
 "In order to use the ICS / VCS import feature, upgrade your Gromox to version "
-"8.3 or higher."
+"0 or higher."
 msgstr ""
 
 msgid "Attachment error"
@@ -2454,6 +2467,18 @@ msgstr ""
 msgid "Add/Edit Cc recipient"
 msgstr "Vastus puudub"
 
+msgid "Disable for new mail"
+msgstr ""
+
+msgid "Enable for new mail"
+msgstr ""
+
+msgid "Disable for replies"
+msgstr ""
+
+msgid "Enable for replies"
+msgstr ""
+
 #, fuzzy
 msgid "No Cc recipient configured"
 msgstr "Kõiki saajaid ei suudetud tuvastada"
@@ -2486,7 +2511,7 @@ msgstr ""
 msgid "Help"
 msgstr ""
 
-msgid "grommunio Web Manual"
+msgid "Web Manual"
 msgstr ""
 
 msgid "Item data"
@@ -2499,6 +2524,9 @@ msgid "Sort by: context.mail.griddefaultcolumn"
 msgstr ""
 
 msgid "ZDeveloper"
+msgstr ""
+
+msgid "grommunio Web print"
 msgstr ""
 
 # 91%
@@ -3106,13 +3134,7 @@ msgstr ""
 msgid "d-m-Y"
 msgstr ""
 
-msgid "Original message"
-msgstr ""
-
 msgid "l d/m/Y"
-msgstr ""
-
-msgid "Sent Items"
 msgstr ""
 
 msgid "l d/m/Y {0}"
@@ -3171,7 +3193,7 @@ msgstr ""
 
 msgctxt "mail.previewpanel"
 msgid ""
-"Click here to download pictures. To help protect your privacy, grommunio Web "
+"Click here to download pictures. To help protect your privacy, WebApp "
 "prevented automatic download of some pictures in this message."
 msgstr ""
 
@@ -4239,18 +4261,25 @@ msgid_plural "There are {0} unread messages in the folder {1}"
 msgstr[0] ""
 msgstr[1] ""
 
-msgid "License error"
+msgid "Publishing Editor"
 msgstr ""
 
-msgid ""
-"The installed license key(s) have expired or are being over used. Please "
-"contact your system administrator for further information."
+msgid "Editor"
 msgstr ""
 
-msgid "Full control"
+msgid "Publishing Author"
 msgstr ""
 
-msgid "No rights"
+msgid "Author"
+msgstr ""
+
+msgid "Nonediting Author"
+msgstr ""
+
+msgid "Reviewer"
+msgstr ""
+
+msgid "Contributor"
 msgstr ""
 
 msgid "Unable to import:"
@@ -4301,6 +4330,12 @@ msgstr ""
 msgid "Description"
 msgstr ""
 
+msgid "EntryID"
+msgstr ""
+
+msgid "Parent EID"
+msgstr ""
+
 msgid "Folder size"
 msgstr ""
 
@@ -4316,28 +4351,25 @@ msgstr ""
 msgid "Profile"
 msgstr ""
 
-msgid "Create items"
+msgid "Read"
 msgstr ""
 
-msgid "Read items"
+msgid "Full Details"
+msgstr ""
+
+msgid "Write"
+msgstr ""
+
+msgid "Create items"
 msgstr ""
 
 msgid "Create subfolders"
 msgstr ""
 
-msgid "Folder permissions"
+msgid "Edit own"
 msgstr ""
 
-msgid "Folder visible"
-msgstr ""
-
-msgid "Edit items"
-msgstr ""
-
-msgid "Own"
-msgstr ""
-
-msgid "All"
+msgid "Edit all"
 msgstr ""
 
 # 92%
@@ -4345,6 +4377,21 @@ msgstr ""
 #, fuzzy
 msgid "Delete items"
 msgstr "Kustutatud"
+
+msgid "Own"
+msgstr ""
+
+msgid "All"
+msgstr ""
+
+msgid "Folder owner"
+msgstr ""
+
+msgid "Folder contact"
+msgstr ""
+
+msgid "Folder visible"
+msgstr ""
 
 msgid "User already exists"
 msgstr ""
@@ -4552,6 +4599,9 @@ msgstr "Saadetud"
 msgid "Red"
 msgstr ""
 
+msgid "Original message"
+msgstr ""
+
 msgid "Schedule mail to be sent out"
 msgstr ""
 
@@ -4666,9 +4716,6 @@ msgstr ""
 msgid "Internet Headers"
 msgstr ""
 
-msgid "EntryID"
-msgstr ""
-
 msgid "Message Settings"
 msgstr ""
 
@@ -4710,9 +4757,6 @@ msgid "Toggle read/unread"
 msgstr ""
 
 msgid "Toggle red/complete flag"
-msgstr ""
-
-msgid "Close a conversation"
 msgstr ""
 
 # 76%
@@ -4768,9 +4812,6 @@ msgid "Compose mail settings"
 msgstr ""
 
 msgid "Compose mail in this format"
-msgstr ""
-
-msgid "Editor"
 msgstr ""
 
 msgid "Default font"
@@ -4859,13 +4900,22 @@ msgstr "Kontorist väljas on välja lülitatud"
 msgid "I will be back on"
 msgstr ""
 
-msgid "I am out of office"
-msgstr ""
-
 msgid "Automatically reply once per day, per sender with the following text"
 msgstr ""
 
-msgid "User is currently out of office."
+msgid "Inside My Organization"
+msgstr ""
+
+msgid "Outside My Organization"
+msgstr ""
+
+msgid "Auto-reply to people outside my organization"
+msgstr ""
+
+msgid "My contacts only"
+msgstr ""
+
+msgid "Anyone outside my organization"
 msgstr ""
 
 msgid ""
@@ -5067,7 +5117,10 @@ msgstr ""
 msgid "Basic"
 msgstr ""
 
-msgid "Account information"
+msgid "Account information - {0}"
+msgstr ""
+
+msgid "Profile Picture"
 msgstr ""
 
 msgid "Language"
@@ -5219,7 +5272,7 @@ msgstr ""
 msgid "All keyboard shortcuts on"
 msgstr ""
 
-msgid "This change requires a reload of the grommunio Web"
+msgid "This change requires a reload of grommunio Web"
 msgstr ""
 
 msgid "Plugins"
@@ -5704,17 +5757,11 @@ msgstr "Ühendus taastatud"
 msgid "Connection with server has been restored"
 msgstr "Ühendus serveriga on taastatud"
 
-msgid "Please contact your administrator if this problem persists."
-msgstr ""
-
 #. TRANSLATORS: Example: HTTP 404
-msgid "Error HTTP {0}"
+msgid "HTTP {0}"
 msgstr ""
 
-msgid "HTTP status text is: "
-msgstr ""
-
-msgid "Invalid data received from the server. HTTP status text is: "
+msgid "Invalid data received from the server"
 msgstr ""
 
 msgid "Missing store"
@@ -5790,44 +5837,253 @@ msgid "Out of Office is currently activated. Would you like to turn it off?"
 msgstr ""
 "Kontorist väljas on hetkel sisse lülitatud. Kas soovite välja lülitada?"
 
-msgid "Out of office off"
-msgstr "Kontorist väljas on välja lülitatud"
-
-msgid "Out of office has been turned off"
-msgstr "Kontorist väljas on välja lülitatud"
-
-msgid "Send Fax"
+msgid "Open Chat at start"
 msgstr ""
 
-msgid "Contact Fax"
+msgid "Desktop Notifications Plugin"
 msgstr ""
 
-msgid "Google Maps"
+msgid "Desktop Notifications"
 msgstr ""
 
-#. TRANSLATORS: The map of earth
-msgid "Map"
+msgid "{A} Autohide desktop notification after second(s) {B}"
 msgstr ""
 
-msgid "Move currently selected message(s) to {0}"
+msgid "Intranet"
 msgstr ""
 
-msgid "Move to {0}"
+msgid "Email Details"
 msgstr ""
 
-msgid "Move current message to {0}"
+msgid "Item Data"
 msgstr ""
 
-msgid "Personal Inbox Manager"
+msgid "Mobile Device Manager"
 msgstr ""
 
-msgid "Personal Inbox Management Settings"
+msgid "Wiping device"
 msgstr ""
 
-msgid "Select another folder"
+msgid "Password incorrect"
 msgstr ""
 
-msgid "E-mails are moved to {0}"
+msgid "Full resync in progress"
+msgstr ""
+
+msgid "Username or password incorrect"
+msgstr ""
+
+msgid "Not Applicable"
+msgstr ""
+
+msgid "Wipe Pending"
+msgstr ""
+
+msgid "Wipe Requested"
+msgstr ""
+
+msgid "Wipe Executed"
+msgstr ""
+
+msgid "Not Available"
+msgstr ""
+
+msgid "Device"
+msgstr ""
+
+msgid "Operating System"
+msgstr ""
+
+msgid "ID"
+msgstr ""
+
+msgid "User Agent"
+msgstr ""
+
+msgid "MDM Plugin"
+msgstr ""
+
+msgid "Active Sync Version"
+msgstr ""
+
+msgid "grommunio-sync Version"
+msgstr ""
+
+msgid "Policy name"
+msgstr ""
+
+msgid "Outlook Extension"
+msgstr ""
+
+msgid "Build"
+msgstr ""
+
+msgid "Last updated"
+msgstr ""
+
+msgid "d F Y, H:i"
+msgstr ""
+
+msgid "Connected since"
+msgstr ""
+
+msgid "d F Y"
+msgstr ""
+
+msgid "Synchronize"
+msgstr ""
+
+msgid "Manage Shared Folders"
+msgstr ""
+
+msgid ""
+"Select folders to sync to your device from the list below. To add additional "
+"mailboxes to the list, open them in WebApp first."
+msgstr ""
+
+msgid "grommunio-sync"
+msgstr ""
+
+msgid "Mobile device management"
+msgstr ""
+
+msgid "Mobile Devices"
+msgstr ""
+
+msgid ""
+"Unable to connect to the grommunio-sync server. Click {0} to enter your "
+"credentials"
+msgstr ""
+
+msgid "Devices"
+msgstr ""
+
+msgid "No devices connected to your account"
+msgstr ""
+
+msgid "Last Update"
+msgstr ""
+
+msgid "Device ID"
+msgstr ""
+
+msgid "Device OS"
+msgstr ""
+
+msgid "Device Info"
+msgstr ""
+
+msgid "First Sync time"
+msgstr ""
+
+msgid "Full resync"
+msgstr ""
+
+msgid "Remove device"
+msgstr ""
+
+msgid "Please enter your username and password"
+msgstr ""
+
+msgid "Password"
+msgstr ""
+
+msgid "Username"
+msgstr ""
+
+msgid ""
+"Do you really want to wipe your device?\n"
+" Enter your password to confirm."
+msgstr ""
+
+msgid "Add meeting"
+msgstr ""
+
+msgid "Room name:"
+msgstr ""
+
+msgid "Room URL:"
+msgstr ""
+
+msgid "Shift-click for advanced settings"
+msgstr ""
+
+msgid "Join webmeeting"
+msgstr ""
+
+msgid "Open meeting in:"
+msgstr ""
+
+msgid "Web tab"
+msgstr ""
+
+msgid "Hide the button in the main toolbar"
+msgstr ""
+
+msgid "Add the subject to the room name"
+msgstr ""
+
+msgid "Add the organizer name to the room name"
+msgstr ""
+
+msgid "Add the URL to the meeting location rather than overwriting it"
+msgstr ""
+
+msgid ""
+"Prevent the URL in the meeting location from being overridden automatically "
+"(ex: when adding a meetingroom)"
+msgstr ""
+
+msgid "If you have problems when creating meetings, try disabling this setting"
+msgstr ""
+
+msgid "Add an invitation to the appointment description"
+msgstr ""
+
+msgid "Invitation text"
+msgstr ""
+
+msgid ""
+"must contain %url% as a placeholder for the meeting link, empty the textbox "
+"to reset to default"
+msgstr ""
+
+msgid "An unknown error occurred while changing password."
+msgstr ""
+
+msgid "Password is changed successfully."
+msgstr ""
+
+msgid "Success"
+msgstr ""
+
+msgid "Change Password"
+msgstr ""
+
+msgid "Current password"
+msgstr ""
+
+msgid "New password"
+msgstr ""
+
+msgid "Retype new password"
+msgstr ""
+
+msgid "New passwords do not match."
+msgstr ""
+
+msgid "Current password is empty."
+msgstr ""
+
+msgid "New password is empty."
+msgstr ""
+
+msgid "One or more fields does contain errors."
+msgstr ""
+
+msgid ""
+"Password is weak. Password should contain capital, non-capital letters and "
+"numbers. Password should have 8 to 20 characters."
 msgstr ""
 
 msgid "Charm pink"
@@ -5851,7 +6107,7 @@ msgstr ""
 msgid "Pearl aqua"
 msgstr ""
 
-msgid "grommunio blue"
+msgid "Grommunio blue"
 msgstr ""
 
 msgid "Baby blue"
@@ -5919,43 +6175,13 @@ msgid ""
 "Please contact your system administrator."
 msgstr ""
 
-msgid "Can't add data to bus, same action type is present in bus"
-msgstr ""
-
-msgid "Response data requested from bus but it doesn't have any data."
+msgid "Mobile device management plugin"
 msgstr ""
 
 #, php-format
-msgid "Unknown module '%s' with id '%s'"
-msgstr ""
-
 msgid ""
-"We encountered a problem. This might be caused by upgrading a plugin. Please "
-"re-login to resolve the issue."
-msgstr ""
-
-#, php-format
-msgid "Unknown notifier '%s'"
-msgstr ""
-
-msgid "An unexpected error has occurred"
-msgstr ""
-
-msgid "To-Do List"
-msgstr ""
-
-#. TRANSLATORS: This indicates that the opened folder belongs to a particular user,
-#. * for example: 'Calendar of Holiday', in this case %1$s is 'Calendar' (the foldername)
-#. * and %2$s is 'Holiday' (the username).
-#.
-#, php-format
-msgid "%1$s of %2$s"
-msgstr ""
-
-msgid "Error retrieving existing settings"
-msgstr ""
-
-msgid "Error retrieving existing persistent settings"
+"Unexpected error occurred. Please contact your system administrator. Error "
+"code: %s"
 msgstr ""
 
 # 93%
@@ -5978,73 +6204,6 @@ msgstr ""
 #, fuzzy
 msgid "Unknown MAPI Error"
 msgstr "Tundmatu MAPI viga: %s"
-
-msgid "This external link will open in a new window"
-msgstr ""
-
-msgid "Destination folder not found."
-msgstr ""
-
-msgid "Eml is corrupted"
-msgstr ""
-
-msgid "The eml Attachment is not imported successfully"
-msgstr ""
-
-msgid "The vcf attachment is not imported successfully"
-msgstr ""
-
-#, php-format
-msgid "Unable to import '%s' to '%s'. "
-msgstr ""
-
-#, fuzzy
-msgid "There is no appointment found in this file."
-msgstr "Selles vaates pole hetkel kirjeid kuvamiseks"
-
-msgid "The file is corrupt."
-msgstr ""
-
-#, fuzzy
-msgid "The file is invalid."
-msgstr "{0} ei ole kehtiv aeg"
-
-#, php-format
-msgid "Unable to import '%s'. "
-msgstr ""
-
-msgid "Please contact your system administrator if the problem persists."
-msgstr ""
-
-msgid "Attachment is not imported successfully"
-msgstr ""
-
-msgid "Embedded attachment not found."
-msgstr ""
-
-msgid "ZIP is not created successfully"
-msgstr ""
-
-msgid "Attachments can not be downloaded"
-msgstr ""
-
-msgid "Could not find attachment."
-msgstr ""
-
-msgid "Operation failed"
-msgstr ""
-
-# 90%
-# 100%
-#, fuzzy
-msgid "Sticky Note"
-msgstr "Kleepmärkus"
-
-msgid "Task Request"
-msgstr ""
-
-msgid "Could not find message, either it has been moved or deleted."
-msgstr ""
 
 msgid "Request is not available."
 msgstr ""
@@ -6079,9 +6238,6 @@ msgstr ""
 #, php-format
 msgid "Unknown MAPI Error: %s"
 msgstr "Tundmatu MAPI viga: %s"
-
-msgid "Action is not performed correctly."
-msgstr ""
 
 msgid "Tentatively accepted"
 msgstr ""
@@ -6143,209 +6299,6 @@ msgstr ""
 
 #, php-format
 msgid "Occurs every %s %s effective %s until %s."
-msgstr ""
-
-msgid "Task Accepted:"
-msgstr ""
-
-msgid "Task Declined:"
-msgstr ""
-
-msgid "Task Updated:"
-msgstr ""
-
-msgid "Task Completed:"
-msgstr ""
-
-msgid "Contact not found"
-msgstr ""
-
-msgid ""
-"Contact information could not be displayed because the server had trouble "
-"retrieving the information."
-msgstr ""
-
-msgid "Could not handle this type of object."
-msgstr ""
-
-msgid "Could not open this object."
-msgstr ""
-
-msgid "Could not open occurrence."
-msgstr ""
-
-msgid "Could not open occurrence, specific occurrence is probably deleted."
-msgstr ""
-
-msgid "a meeting request"
-msgstr ""
-
-msgid "an appointment"
-msgstr ""
-
-msgid "You have insufficient privileges to move "
-msgstr ""
-
-msgid ""
-"Cannot set a reminder to appear before the previous occurrence. Reset "
-"reminder to save the change"
-msgstr ""
-
-msgid "Two occurrences cannot occur on the same day"
-msgstr ""
-
-#, php-format
-msgid ""
-"You marked '%s' as a resource. You cannot schedule a meeting with '%s' "
-"because you do not have the appropriate permissions for that account. Either "
-"enter the name as a required or optional attendee or talk to your "
-"administrator about giving you permission to schedule '%s'."
-msgstr ""
-
-#, php-format
-msgid ""
-"'%s' has declined your meeting because '%s' does not automatically accept "
-"meeting requests."
-msgstr ""
-
-#, php-format
-msgid ""
-"'%s' has declined your meeting because it is recurring. You must book each "
-"meeting separately with this resource."
-msgstr ""
-
-#, php-format
-msgid ""
-"'%s' is already booked for this specified time. You must use another time or "
-"find another resource."
-msgstr ""
-
-msgid "Meeting was not scheduled."
-msgstr ""
-
-msgid "Meeting could not be sent."
-msgstr ""
-
-msgid "Meeting could not be saved."
-msgstr ""
-
-msgid "Private Appointment"
-msgstr ""
-
-#, php-format
-msgid "%s's Birthday"
-msgstr ""
-
-#, php-format
-msgid "%s's Anniversary"
-msgstr ""
-
-msgid "Unknown user/group"
-msgstr ""
-
-msgid "Could not save delegate information."
-msgstr ""
-
-msgid "Could not delete delegate."
-msgstr ""
-
-msgid "Can not get list of delegates."
-msgstr ""
-
-msgid "Could not load the hierarchy."
-msgstr ""
-
-msgid "Could not load folder properties."
-msgstr ""
-
-msgid "Could not remove folder from favorites."
-msgstr ""
-
-msgid "You have insufficient privileges to delete folder."
-msgstr ""
-
-msgid "Could not delete folder."
-msgstr ""
-
-msgid "You have insufficient privileges to copy folder."
-msgstr ""
-
-msgid "Could not copy folder."
-msgstr ""
-
-msgid "You have insufficient privileges to move this folder."
-msgstr ""
-
-msgid "Could not move folder."
-msgstr ""
-
-msgid "You have insufficient privileges to delete items."
-msgstr ""
-
-msgid "Could not empty folder."
-msgstr ""
-
-msgid "Could not perform action correctly."
-msgstr ""
-
-msgid ""
-"A favorite folder with this name already exists, please use another name."
-msgstr ""
-
-msgid "Could not add folder to favorites."
-msgstr ""
-
-msgid "You have insufficient privileges to set permissions for this folder."
-msgstr ""
-
-msgid "Could not set folder permissions."
-msgstr ""
-
-msgid "You have insufficient privileges to rename this folder."
-msgstr ""
-
-msgid "A folder with this name already exists. Use another name."
-msgstr ""
-
-msgid "Could not rename folder."
-msgstr ""
-
-msgid "You have insufficient privileges to create this folder."
-msgstr ""
-
-msgid "Could not create folder."
-msgstr ""
-
-msgid "Could not close shared folder."
-msgstr ""
-
-msgid "User could not be resolved."
-msgstr ""
-
-#, php-format
-msgid ""
-"You have insufficient privileges to open this %1$s folder. The folder owner "
-"can set these using the 'permissions'-tab of the folder properties (right "
-"click the %1$s folder > properties > permissions)."
-msgstr ""
-
-# 85%
-#, fuzzy
-msgid "unknown"
-msgstr "Tundmatu"
-
-msgid "Could not move folder"
-msgstr ""
-
-msgid "Could not copy folder"
-msgstr ""
-
-msgid "You have insufficient privileges to open this message."
-msgstr ""
-
-msgid ""
-"Could not find message, either it has been moved or deleted or you don't "
-"have access to open this message."
 msgstr ""
 
 msgid "Could not open message."
@@ -6427,192 +6380,35 @@ msgstr ""
 msgid "The following recipient(s) could not be reached"
 msgstr ""
 
-msgid "You have insufficient privileges to see the contents of this folder."
-msgstr ""
-
-msgid "Could not load the contents of this folder."
-msgstr ""
-
-msgid "Error in search, please try again"
-msgstr ""
-
-msgid "Unable to perform search query, no permissions to create search folder."
-msgstr ""
-
-msgid "Unable to perform search query, search folder not found."
-msgstr ""
-
-msgid "Unable to perform search query, store might not support searching."
-msgstr ""
-
-msgid "Error in creating search folder."
-msgstr ""
-
-msgid ""
-"You have insufficient privileges to perform search operation in this folder."
-msgstr ""
-
-msgid "Could not update search results."
-msgstr ""
-
-msgid "Could not stop search operation."
-msgstr ""
-
-msgid "You have insufficient privileges to save this message."
-msgstr ""
-
-msgid "Could not save message."
-msgstr ""
-
-msgid "You have insufficient privileges to delete this message."
-msgstr ""
-
-msgid "Could not delete message."
-msgstr ""
-
-msgid "You have insufficient privileges to cancel this Meeting Request."
-msgstr ""
-
-msgid "Could not cancel Meeting Request."
-msgstr ""
-
-msgid "You have insufficient privileges to decline this Meeting Request."
-msgstr ""
-
-msgid "Could not decline Meeting Request."
-msgstr ""
-
-msgid "You have insufficient privileges to accept this Meeting Request."
-msgstr ""
-
-msgid "Could not accept Meeting Request."
-msgstr ""
-
-msgid "You have insufficient privileges to cancel Meeting Request invitation."
-msgstr ""
-
-msgid "Could not cancel Meeting Request invitations."
-msgstr ""
-
-msgid "You can not continue search operation on this folder."
-msgstr ""
-
-msgid "Error in search, please try again."
-msgstr ""
-
-msgid "Error in distribution list expansion."
-msgstr ""
-
-msgid "The message store has exceeded its hard quota limit."
-msgstr ""
-
-msgid ""
-"To reduce the amount of data in this message store, select some items that "
-"you no longer need, delete them and cleanup your Deleted Items folder."
-msgstr ""
-
-msgid "The message store has exceeded its soft quota limit."
-msgstr ""
-
-msgid "Could not process request data properly."
-msgstr ""
-
 #, php-format
-msgid "Unknown action type specified - %s"
+msgid "Unable to import '%s' to '%s'. "
 msgstr ""
 
-msgid "Cannot snooze the reminder. You may be reminded again."
+msgid "There is no contact found in this file."
 msgstr ""
 
-msgid "Cannot dismiss the reminder. You may be reminded again."
-msgstr ""
-
-msgid "You have insufficient privileges to perform this action."
-msgstr ""
-
-msgid "Could not resolve user."
-msgstr ""
-
-msgid "Setting mail filters on the stores of other users is not allowed."
-msgstr ""
-
-msgid "Untitled rule"
-msgstr ""
-
-msgid "Could not load rules."
-msgstr ""
-
-msgid "Could not save rules."
-msgstr ""
-
-msgid "Task Request:"
-msgstr ""
-
-msgid "Welcome"
-msgstr ""
-
-msgid "Username"
-msgstr "Kasutaja"
-
-msgid "Password"
-msgstr ""
-
-msgid "Sign in"
-msgstr ""
-
-msgid "Caps lock is on"
+msgid "The file is corrupt."
 msgstr ""
 
 #, fuzzy
-msgid "File is not imported successfully"
-msgstr "Edukalt saadetud"
+msgid "The file is invalid."
+msgstr "{0} ei ole kehtiv aeg"
 
-msgid "There is no contact found in this file."
+#, php-format
+msgid "Unable to import '%s'. "
+msgstr ""
+
+msgid "Please contact your system administrator if the problem persists."
 msgstr ""
 
 msgid ""
 "grommunio Web does not support importing multiple VCF with this version."
 msgstr ""
 
+#, fuzzy
+msgid "There is no appointment found in this file."
+msgstr "Selles vaates pole hetkel kirjeid kuvamiseks"
+
 msgid ""
 "grommunio Web does not support importing multiple ICS with this version."
-msgstr ""
-
-#, php-format
-msgid "Unable to import '%s'"
-msgstr ""
-
-#, fuzzy
-msgid "The EML is not valid"
-msgstr "{0} ei ole kehtiv aeg"
-
-msgid "GB"
-msgstr "GB"
-
-msgid "MB"
-msgstr "MB"
-
-msgid "KB"
-msgstr "KB"
-
-msgid "B"
-msgstr "B"
-
-msgid "The maximum stack depth has been exceeded"
-msgstr ""
-
-msgid "Control character error, possibly incorrectly encoded"
-msgstr ""
-
-msgid "Invalid or malformed JSON"
-msgstr ""
-
-msgid "Syntax error"
-msgstr ""
-
-msgid "Malformed UTF-8 characters, possibly incorrectly encoded"
-msgstr ""
-
-#, php-format
-msgid "JSON Error: - %s"
 msgstr ""

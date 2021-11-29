@@ -1619,6 +1619,25 @@ msgstr ""
 msgid "Insufficient privileges"
 msgstr "Ónæg réttindi"
 
+msgid ""
+"Copying this appointment will unset it as private. Are you sure you want to "
+"continue?"
+msgstr ""
+
+msgid "Private item"
+msgstr ""
+
+msgid "Copy"
+msgstr "Afrita"
+
+msgid ""
+"Moving this appointment will unset it as private. Are you sure you want to "
+"continue?"
+msgstr ""
+
+msgid "Move"
+msgstr "Færa"
+
 msgid "Update recipients"
 msgstr "Uppfæra viðtakendur"
 
@@ -1631,9 +1650,6 @@ msgstr "Vista breytingar og senda uppfærslu til allra viðtakenda"
 msgid "Open meeting request with changes"
 msgstr "Opna fundarboð með breytingum"
 
-msgid "Copy"
-msgstr "Afrita"
-
 msgid "grommunio Web"
 msgstr "grommunio vefviðmót"
 
@@ -1643,9 +1659,6 @@ msgid ""
 msgstr ""
 "Vinsamlegast athugið að breytingar sem þú gerir verða yfirskrifaðar þegar "
 "fundarboðið er uppfært af skipuleggjanda. Viltu færa þennan fund?"
-
-msgid "Move"
-msgstr "Færa"
 
 msgid "Don't move"
 msgstr "Ekki færa"
@@ -2019,16 +2032,14 @@ msgid "Import to folder"
 msgstr "Lesa inn í möppu"
 
 msgid ""
-"In order to use the vCard import feature, upgrade your Gromox to version 8.3 "
+"In order to use the vCard import feature, upgrade your Gromox to version 0 "
 "or higher."
 msgstr ""
-"Til að nota vCard innlestur þarf að uppfæra í Gromox útgáfu 8.3 eða nýrri."
 
 msgid ""
 "In order to use the ICS / VCS import feature, upgrade your Gromox to version "
-"8.3 or higher."
+"0 or higher."
 msgstr ""
-"Til að nota ICS/VCS innlestur þarf að uppfæra í Gromox útgáfu 8.3 eða nýrri."
 
 msgid "Attachment error"
 msgstr "Viðhengisvilla"
@@ -2401,6 +2412,18 @@ msgstr ""
 msgid "Add/Edit Cc recipient"
 msgstr "Bæta við/breyta viðtakanda afrits"
 
+msgid "Disable for new mail"
+msgstr ""
+
+msgid "Enable for new mail"
+msgstr ""
+
+msgid "Disable for replies"
+msgstr ""
+
+msgid "Enable for replies"
+msgstr ""
+
 msgid "No Cc recipient configured"
 msgstr "Engin viðtakandi afrits skráður"
 
@@ -2429,8 +2452,8 @@ msgstr ""
 msgid "Help"
 msgstr "Hjálp"
 
-msgid "grommunio Web Manual"
-msgstr "Leiðbeiningar grommunio vefviðmóts"
+msgid "Web Manual"
+msgstr ""
 
 msgid "Item data"
 msgstr ""
@@ -2443,6 +2466,9 @@ msgstr "Raða eftir context.mail.griddefaultcolumn"
 
 msgid "ZDeveloper"
 msgstr "ZForritari"
+
+msgid "grommunio Web print"
+msgstr ""
 
 msgid "Display name"
 msgstr "Þekkjanlegt nafn"
@@ -3001,14 +3027,8 @@ msgstr "Áminning er stillt á: {0}, {1}"
 msgid "d-m-Y"
 msgstr "d-m-Y"
 
-msgid "Original message"
-msgstr "Upprunaleg skilaboð"
-
 msgid "l d/m/Y"
 msgstr "l d/m/Y"
-
-msgid "Sent Items"
-msgstr ""
 
 msgid "l d/m/Y {0}"
 msgstr ""
@@ -3064,12 +3084,9 @@ msgstr "Vinsamlegast meðhöndlaðu þetta sem {0}."
 
 msgctxt "mail.previewpanel"
 msgid ""
-"Click here to download pictures. To help protect your privacy, grommunio Web "
+"Click here to download pictures. To help protect your privacy, WebApp "
 "prevented automatic download of some pictures in this message."
 msgstr ""
-"Smelltu hér til að hala niður myndum. Til að auka persónuvernd, kemur "
-"grommunio vefviðmótið í veg fyrir sjálfvirkt niðurhal mynda í þessum "
-"skilaboðum."
 
 msgctxt "mail.previewpanel"
 msgid ""
@@ -3949,7 +3966,7 @@ msgid "Unsaved changes"
 msgstr "Óvistaðar breytingar"
 
 msgid "Welcome to grommunio Web"
-msgstr "Verið öll velkomin í grommunio vefviðmótið"
+msgstr ""
 
 msgid "This is the first time you are using grommunio Web. "
 msgstr "Þetta er í fyrsta skiptið sem þú notar grommunio vefviðmótið. "
@@ -4041,19 +4058,26 @@ msgid_plural "There are {0} unread messages in the folder {1}"
 msgstr[0] "Það eru {0} ólesin skilaboð í möppunni {1}"
 msgstr[1] "Það eru {0} ólesin skilaboð í möppunni {1}"
 
-msgid "License error"
+msgid "Publishing Editor"
 msgstr ""
 
-msgid ""
-"The installed license key(s) have expired or are being over used. Please "
-"contact your system administrator for further information."
+msgid "Editor"
+msgstr "Ritill"
+
+msgid "Publishing Author"
 msgstr ""
 
-msgid "Full control"
-msgstr "Algjör stjórn"
+msgid "Author"
+msgstr ""
 
-msgid "No rights"
-msgstr "Engin réttindi"
+msgid "Nonediting Author"
+msgstr ""
+
+msgid "Reviewer"
+msgstr ""
+
+msgid "Contributor"
+msgstr ""
 
 msgid "Unable to import:"
 msgstr "Gat ekki flutt inn:"
@@ -4103,6 +4127,12 @@ msgstr "Gerð"
 msgid "Description"
 msgstr "Lýsing"
 
+msgid "EntryID"
+msgstr "Færsluauðkenni"
+
+msgid "Parent EID"
+msgstr ""
+
 msgid "Folder size"
 msgstr "Möppustærð"
 
@@ -4118,23 +4148,29 @@ msgstr "Engum réttindum úthlutað"
 msgid "Profile"
 msgstr "Kenniskrá"
 
+msgid "Read"
+msgstr ""
+
+msgid "Full Details"
+msgstr ""
+
+msgid "Write"
+msgstr ""
+
 msgid "Create items"
 msgstr "Búa til atriði"
-
-msgid "Read items"
-msgstr "Lesa atriði"
 
 msgid "Create subfolders"
 msgstr "Búa til undirmöppur"
 
-msgid "Folder permissions"
-msgstr "Möppuréttindi"
+msgid "Edit own"
+msgstr ""
 
-msgid "Folder visible"
-msgstr "Mappa sýnileg"
+msgid "Edit all"
+msgstr ""
 
-msgid "Edit items"
-msgstr "Breyta atriðum"
+msgid "Delete items"
+msgstr "Eyða möppum"
 
 msgid "Own"
 msgstr "Eigandi"
@@ -4142,8 +4178,14 @@ msgstr "Eigandi"
 msgid "All"
 msgstr "Allt"
 
-msgid "Delete items"
-msgstr "Eyða möppum"
+msgid "Folder owner"
+msgstr ""
+
+msgid "Folder contact"
+msgstr ""
+
+msgid "Folder visible"
+msgstr "Mappa sýnileg"
 
 msgid "User already exists"
 msgstr "Notandi er nú þegar til"
@@ -4342,6 +4384,9 @@ msgstr "Send"
 msgid "Red"
 msgstr "Rautt"
 
+msgid "Original message"
+msgstr "Upprunaleg skilaboð"
+
 msgid "Schedule mail to be sent out"
 msgstr "Tímasetja sendingu pósts"
 
@@ -4452,9 +4497,6 @@ msgstr "Ýmsir valmöguleikar"
 msgid "Internet Headers"
 msgstr "Nethausar"
 
-msgid "EntryID"
-msgstr "Færsluauðkenni"
-
 msgid "Message Settings"
 msgstr "Stillingar skilaboða"
 
@@ -4493,9 +4535,6 @@ msgstr "Skipta milli lesið/ólesið"
 
 msgid "Toggle red/complete flag"
 msgstr "Skipta milli rautt/klárað merki"
-
-msgid "Close a conversation"
-msgstr ""
 
 msgid "Open Shared Mails"
 msgstr "Opna sameiginlega pósta"
@@ -4541,9 +4580,6 @@ msgstr "Stillingar póstritils"
 
 msgid "Compose mail in this format"
 msgstr "Semja póst á þessu sniði"
-
-msgid "Editor"
-msgstr "Ritill"
 
 msgid "Default font"
 msgstr "Sjálfgefin leturgerð"
@@ -4630,15 +4666,24 @@ msgstr "Ég er ekki í vinnunni frá"
 msgid "I will be back on"
 msgstr "Ég kem til baka"
 
-msgid "I am out of office"
-msgstr ""
-
 msgid "Automatically reply once per day, per sender with the following text"
 msgstr ""
 "Sjálfkrafa svara hverjum sendanda, einu sinni á dag, með eftirfarandi texta"
 
-msgid "User is currently out of office."
-msgstr "Notandi er fjarverandi frá vinnustað."
+msgid "Inside My Organization"
+msgstr ""
+
+msgid "Outside My Organization"
+msgstr ""
+
+msgid "Auto-reply to people outside my organization"
+msgstr ""
+
+msgid "My contacts only"
+msgstr ""
+
+msgid "Anyone outside my organization"
+msgstr ""
 
 msgid ""
 "The time you entered is before the out of office date. Please reschedule."
@@ -4824,7 +4869,10 @@ msgstr "Stillingar"
 msgid "Basic"
 msgstr "Grunnur"
 
-msgid "Account information"
+msgid "Account information - {0}"
+msgstr ""
+
+msgid "Profile Picture"
 msgstr ""
 
 msgid "Language"
@@ -4976,8 +5024,8 @@ msgstr "Grunnflýtilyklar virkjaðir"
 msgid "All keyboard shortcuts on"
 msgstr "Allir flýtilyklar virkjaðir"
 
-msgid "This change requires a reload of the grommunio Web"
-msgstr "Þessi breyting krefst þess að þú endurhlaðir grommunio vefviðmótinu"
+msgid "This change requires a reload of grommunio Web"
+msgstr ""
 
 msgid "Plugins"
 msgstr "Íbætur"
@@ -5438,17 +5486,11 @@ msgstr "Tengingu komið á að nýju"
 msgid "Connection with server has been restored"
 msgstr "Tengingin við netþjóninn hefur verið endurheimt"
 
-msgid "Please contact your administrator if this problem persists."
-msgstr ""
-
 #. TRANSLATORS: Example: HTTP 404
-msgid "Error HTTP {0}"
+msgid "HTTP {0}"
 msgstr ""
 
-msgid "HTTP status text is: "
-msgstr ""
-
-msgid "Invalid data received from the server. HTTP status text is: "
+msgid "Invalid data received from the server"
 msgstr ""
 
 msgid "Missing store"
@@ -5522,45 +5564,254 @@ msgstr "Mistókst að hlaða líkani frá netþjóni"
 msgid "Out of Office is currently activated. Would you like to turn it off?"
 msgstr "Þú hefur stillt þig sem fjarverandi. Viltu afvirkja stillinguna?"
 
-msgid "Out of office off"
-msgstr "Stilling sem fjarverandi afvirkjuð"
+msgid "Open Chat at start"
+msgstr ""
 
-msgid "Out of office has been turned off"
-msgstr "Stilling sem fjarverandi hefur verið afvirkjuð"
+msgid "Desktop Notifications Plugin"
+msgstr ""
 
-msgid "Send Fax"
-msgstr "Senda bréfsíma"
+msgid "Desktop Notifications"
+msgstr ""
 
-msgid "Contact Fax"
-msgstr "Bréfsímanúmer tengiliðs"
+msgid "{A} Autohide desktop notification after second(s) {B}"
+msgstr ""
 
-msgid "Google Maps"
-msgstr "Kort frá Google"
+msgid "Intranet"
+msgstr ""
 
-#. TRANSLATORS: The map of earth
-msgid "Map"
-msgstr "Kort"
+msgid "Email Details"
+msgstr ""
 
-msgid "Move currently selected message(s) to {0}"
-msgstr "Færa valin skilaboð til {0}"
+msgid "Item Data"
+msgstr ""
 
-msgid "Move to {0}"
-msgstr "Færa til {0}"
+msgid "Mobile Device Manager"
+msgstr ""
 
-msgid "Move current message to {0}"
-msgstr "Færa núverandi skilaboð til {0}"
+msgid "Wiping device"
+msgstr ""
 
-msgid "Personal Inbox Manager"
-msgstr "Persónulegur innhólfsstjórnandi"
+msgid "Password incorrect"
+msgstr ""
 
-msgid "Personal Inbox Management Settings"
-msgstr "Stillingar fyrir persónulegan innhólfsstjórnanda"
+msgid "Full resync in progress"
+msgstr ""
 
-msgid "Select another folder"
-msgstr "Velja aðra möppu"
+msgid "Username or password incorrect"
+msgstr ""
 
-msgid "E-mails are moved to {0}"
-msgstr "Tölvupóstar eru færðir til {0}"
+msgid "Not Applicable"
+msgstr ""
+
+msgid "Wipe Pending"
+msgstr ""
+
+msgid "Wipe Requested"
+msgstr ""
+
+msgid "Wipe Executed"
+msgstr ""
+
+msgid "Not Available"
+msgstr ""
+
+msgid "Device"
+msgstr ""
+
+msgid "Operating System"
+msgstr ""
+
+msgid "ID"
+msgstr ""
+
+msgid "User Agent"
+msgstr ""
+
+msgid "MDM Plugin"
+msgstr ""
+
+msgid "Active Sync Version"
+msgstr ""
+
+msgid "grommunio-sync Version"
+msgstr ""
+
+msgid "Policy name"
+msgstr ""
+
+msgid "Outlook Extension"
+msgstr ""
+
+msgid "Build"
+msgstr ""
+
+msgid "Last updated"
+msgstr ""
+
+msgid "d F Y, H:i"
+msgstr ""
+
+msgid "Connected since"
+msgstr ""
+
+msgid "d F Y"
+msgstr ""
+
+msgid "Synchronize"
+msgstr ""
+
+msgid "Manage Shared Folders"
+msgstr ""
+
+msgid ""
+"Select folders to sync to your device from the list below. To add additional "
+"mailboxes to the list, open them in WebApp first."
+msgstr ""
+
+msgid "grommunio-sync"
+msgstr ""
+
+msgid "Mobile device management"
+msgstr ""
+
+msgid "Mobile Devices"
+msgstr ""
+
+msgid ""
+"Unable to connect to the grommunio-sync server. Click {0} to enter your "
+"credentials"
+msgstr ""
+
+msgid "Devices"
+msgstr ""
+
+msgid "No devices connected to your account"
+msgstr ""
+
+msgid "Last Update"
+msgstr ""
+
+msgid "Device ID"
+msgstr ""
+
+msgid "Device OS"
+msgstr ""
+
+msgid "Device Info"
+msgstr ""
+
+msgid "First Sync time"
+msgstr ""
+
+msgid "Full resync"
+msgstr ""
+
+msgid "Remove device"
+msgstr ""
+
+msgid "Please enter your username and password"
+msgstr ""
+
+msgid "Password"
+msgstr ""
+
+msgid "Username"
+msgstr ""
+
+msgid ""
+"Do you really want to wipe your device?\n"
+" Enter your password to confirm."
+msgstr ""
+
+msgid "Add meeting"
+msgstr ""
+
+msgid "Room name:"
+msgstr ""
+
+msgid "Room URL:"
+msgstr ""
+
+msgid "Shift-click for advanced settings"
+msgstr ""
+
+msgid "Join webmeeting"
+msgstr ""
+
+msgid "Open meeting in:"
+msgstr ""
+
+msgid "Web tab"
+msgstr ""
+
+msgid "Hide the button in the main toolbar"
+msgstr ""
+
+msgid "Add the subject to the room name"
+msgstr ""
+
+msgid "Add the organizer name to the room name"
+msgstr ""
+
+msgid "Add the URL to the meeting location rather than overwriting it"
+msgstr ""
+
+msgid ""
+"Prevent the URL in the meeting location from being overridden automatically "
+"(ex: when adding a meetingroom)"
+msgstr ""
+
+msgid "If you have problems when creating meetings, try disabling this setting"
+msgstr ""
+
+msgid "Add an invitation to the appointment description"
+msgstr ""
+
+msgid "Invitation text"
+msgstr ""
+
+msgid ""
+"must contain %url% as a placeholder for the meeting link, empty the textbox "
+"to reset to default"
+msgstr ""
+
+msgid "An unknown error occurred while changing password."
+msgstr ""
+
+msgid "Password is changed successfully."
+msgstr ""
+
+msgid "Success"
+msgstr ""
+
+msgid "Change Password"
+msgstr ""
+
+msgid "Current password"
+msgstr ""
+
+msgid "New password"
+msgstr ""
+
+msgid "Retype new password"
+msgstr ""
+
+msgid "New passwords do not match."
+msgstr ""
+
+msgid "Current password is empty."
+msgstr ""
+
+msgid "New password is empty."
+msgstr ""
+
+msgid "One or more fields does contain errors."
+msgstr ""
+
+msgid ""
+"Password is weak. Password should contain capital, non-capital letters and "
+"numbers. Password should have 8 to 20 characters."
+msgstr ""
 
 msgid "Charm pink"
 msgstr "Sjarmerandi bleikt"
@@ -5583,8 +5834,8 @@ msgstr "Mynta"
 msgid "Pearl aqua"
 msgstr "Perlusjór"
 
-msgid "grommunio blue"
-msgstr "grommunio-blátt"
+msgid "Grommunio blue"
+msgstr ""
 
 msgid "Baby blue"
 msgstr "Barnablátt"
@@ -5650,44 +5901,14 @@ msgstr ""
 "Því miður er aðgangur að grommunio vefviðmóti ekki til fyrir þennan "
 "notandaaðgang. Vinsamlegast ræddu við kerfisstjórn."
 
-msgid "Can't add data to bus, same action type is present in bus"
-msgstr "Get ekki bætt gögnum á brautina, samagerð aðgerðar er til á brautinni"
-
-msgid "Response data requested from bus but it doesn't have any data."
-msgstr "Svargögn umbeðin frá braut en hún hefur engin gögn."
-
-#, php-format
-msgid "Unknown module '%s' with id '%s'"
-msgstr "Óþekkt forritseining '%s' með auðkenni '%s'"
-
-msgid ""
-"We encountered a problem. This might be caused by upgrading a plugin. Please "
-"re-login to resolve the issue."
+msgid "Mobile device management plugin"
 msgstr ""
 
 #, php-format
-msgid "Unknown notifier '%s'"
-msgstr "Óþekktur tilkynnandi '%s'"
-
-msgid "An unexpected error has occurred"
-msgstr "Óþekkt villa kom upp"
-
-msgid "To-Do List"
-msgstr "Aðgerðalisti"
-
-#. TRANSLATORS: This indicates that the opened folder belongs to a particular user,
-#. * for example: 'Calendar of Holiday', in this case %1$s is 'Calendar' (the foldername)
-#. * and %2$s is 'Holiday' (the username).
-#.
-#, php-format
-msgid "%1$s of %2$s"
-msgstr "%1$s sem %2$s á"
-
-msgid "Error retrieving existing settings"
-msgstr "Villa við að sækja núverandi stillingar"
-
-msgid "Error retrieving existing persistent settings"
-msgstr "Villa við að sækja fastar stillingar"
+msgid ""
+"Unexpected error occurred. Please contact your system administrator. Error "
+"code: %s"
+msgstr ""
 
 msgid "Logon failed. Please verify your credentials and try again."
 msgstr ""
@@ -5705,68 +5926,6 @@ msgstr ""
 
 msgid "Unknown MAPI Error"
 msgstr "Óþekkt MAPI-villa"
-
-msgid "This external link will open in a new window"
-msgstr "Þessi ytri tengill mun opnast í nýjum glugga"
-
-msgid "Destination folder not found."
-msgstr "Móttökumappan fannst ekki."
-
-msgid "Eml is corrupted"
-msgstr "Eml-skrá er gölluð"
-
-msgid "The eml Attachment is not imported successfully"
-msgstr "Mistókst að flytja inn Eml-viðhengi"
-
-msgid "The vcf attachment is not imported successfully"
-msgstr "Mistókst að flytja inn vcf-viðhengi"
-
-#, php-format
-msgid "Unable to import '%s' to '%s'. "
-msgstr "Gat ekki flutt inn '%s' í '%s'. "
-
-msgid "There is no appointment found in this file."
-msgstr "Það fannst engin tímabókun í þessari skrá."
-
-msgid "The file is corrupt."
-msgstr "Skráin er gölluð."
-
-msgid "The file is invalid."
-msgstr "Skráin er ógild."
-
-#, php-format
-msgid "Unable to import '%s'. "
-msgstr "Gat ekki flutt inn '%s'. "
-
-msgid "Please contact your system administrator if the problem persists."
-msgstr "Láttu kerfisstjórn vita ef vandamálið heldur áfram."
-
-msgid "Attachment is not imported successfully"
-msgstr "Mistókst að flytja inn viðhengi"
-
-msgid "Embedded attachment not found."
-msgstr "Ílagsviðhengi fannst ekki."
-
-msgid "ZIP is not created successfully"
-msgstr "Mistókst að útbúa Zip-skrá"
-
-msgid "Attachments can not be downloaded"
-msgstr "Viðhengjum getur ekki verið halað niður"
-
-msgid "Could not find attachment."
-msgstr "Viðhengi fannst ekki."
-
-msgid "Operation failed"
-msgstr "Aðgerð mistókst"
-
-msgid "Sticky Note"
-msgstr "Klístrað minnisatriði"
-
-msgid "Task Request"
-msgstr "Verkbeiðni"
-
-msgid "Could not find message, either it has been moved or deleted."
-msgstr "Fann ekki skilaboð, þau hafa annaðhvort verið flutt eða þeim eytt."
 
 msgid "Request is not available."
 msgstr ""
@@ -5795,9 +5954,6 @@ msgstr "Aðgerð mistókst: Netþjónninn hefur ekki nægilegt minni."
 #, php-format
 msgid "Unknown MAPI Error: %s"
 msgstr "Óþekkt MAPI-villa: %s"
-
-msgid "Action is not performed correctly."
-msgstr "Framkvæmdi aðgerðina ekki rétt."
 
 msgid "Tentatively accepted"
 msgstr "Kannski"
@@ -5860,223 +6016,6 @@ msgstr "Endurtekið á %s fresti með upphaf %s og lýkur %s."
 #, php-format
 msgid "Occurs every %s %s effective %s until %s."
 msgstr "Endurtekið á %s %s fresti með upphaf %s og lýkur %s."
-
-msgid "Task Accepted:"
-msgstr "Verk samþykkt:"
-
-msgid "Task Declined:"
-msgstr "Verki hafnað:"
-
-msgid "Task Updated:"
-msgstr "Verk uppfært:"
-
-msgid "Task Completed:"
-msgstr "Verk klárað:"
-
-msgid "Contact not found"
-msgstr "Tengiliður fannst ekki"
-
-msgid ""
-"Contact information could not be displayed because the server had trouble "
-"retrieving the information."
-msgstr ""
-"Get ekki sýnt tengiliðaupplýsingar því netþjónninn getur ekki náð í "
-"upplýsingarnar."
-
-msgid "Could not handle this type of object."
-msgstr "Gat ekki meðhöndlað þessa gerð af einingu."
-
-msgid "Could not open this object."
-msgstr "Gat ekki opnað þessa einingu."
-
-msgid "Could not open occurrence."
-msgstr "Gat ekki opnað tilvikið."
-
-msgid "Could not open occurrence, specific occurrence is probably deleted."
-msgstr ""
-"Gat ekki opnað tilvikið, tilgreinda tilvikinu hefur örugglega verið eytt."
-
-msgid "a meeting request"
-msgstr "fundarboð"
-
-msgid "an appointment"
-msgstr "tímabókun"
-
-msgid "You have insufficient privileges to move "
-msgstr "Þú hefur ekki næg réttindi til að færa "
-
-msgid ""
-"Cannot set a reminder to appear before the previous occurrence. Reset "
-"reminder to save the change"
-msgstr ""
-"Get ekki stillt áminningu sem á að birtast fyrir fyrri tilvik. Endurstilltu "
-"áminningu til að vista breytingar"
-
-msgid "Two occurrences cannot occur on the same day"
-msgstr "Tvær endurtekningar geta ekki átt sér stað sama daginn"
-
-#, php-format
-msgid ""
-"You marked '%s' as a resource. You cannot schedule a meeting with '%s' "
-"because you do not have the appropriate permissions for that account. Either "
-"enter the name as a required or optional attendee or talk to your "
-"administrator about giving you permission to schedule '%s'."
-msgstr ""
-
-#, php-format
-msgid ""
-"'%s' has declined your meeting because '%s' does not automatically accept "
-"meeting requests."
-msgstr ""
-"'%s' hefur hafnað fundarboðinu því '%s' samþykkir ekki sjálfvirkt fundarboð."
-
-#, php-format
-msgid ""
-"'%s' has declined your meeting because it is recurring. You must book each "
-"meeting separately with this resource."
-msgstr ""
-"'%s' hefur hafnað fundarboðinu þínum því það endurtekur sig. Þú verður að "
-"bóka hvern fund fyrir sig með þessum aðföngum."
-
-#, php-format
-msgid ""
-"'%s' is already booked for this specified time. You must use another time or "
-"find another resource."
-msgstr ""
-"'%s' er nú þegar bókað á þessum tíma. Þú verður að velja annan tíma eða "
-"finna önnur aðföng."
-
-msgid "Meeting was not scheduled."
-msgstr "Fundurinn er ekki bókaður."
-
-msgid "Meeting could not be sent."
-msgstr "Gat ekki sent fund."
-
-msgid "Meeting could not be saved."
-msgstr "Gat ekki vistað fundinn."
-
-msgid "Private Appointment"
-msgstr "Einkatímabókun"
-
-#, php-format
-msgid "%s's Birthday"
-msgstr "Afmælisdagur %s"
-
-#, php-format
-msgid "%s's Anniversary"
-msgstr "Afmæli %s"
-
-msgid "Unknown user/group"
-msgstr "Óþekktur notandi/hópur"
-
-msgid "Could not save delegate information."
-msgstr "Gat ekki vistað rétthafaupplýsingar."
-
-msgid "Could not delete delegate."
-msgstr "Gat ekki eytt rétthafa."
-
-msgid "Can not get list of delegates."
-msgstr "Gat ekki sótt rétthafalista."
-
-msgid "Could not load the hierarchy."
-msgstr "Gat ekki hlaðið stigveldinu."
-
-msgid "Could not load folder properties."
-msgstr "Gat ekki hlaðið möppueigindum."
-
-msgid "Could not remove folder from favorites."
-msgstr "Gat ekki tekið möppu úr uppáhaldi."
-
-msgid "You have insufficient privileges to delete folder."
-msgstr "Þú ert ekki með réttindi til að eyða möppu."
-
-msgid "Could not delete folder."
-msgstr "Gat ekki eytt möppu."
-
-msgid "You have insufficient privileges to copy folder."
-msgstr "Þú ert ekki með réttindi til að afrita möppu."
-
-msgid "Could not copy folder."
-msgstr "Gat ekki afritað möppu."
-
-msgid "You have insufficient privileges to move this folder."
-msgstr "Þú ert ekki með réttindi til að færa möppu."
-
-msgid "Could not move folder."
-msgstr "Gat ekki fært möppu."
-
-msgid "You have insufficient privileges to delete items."
-msgstr "Þú ert ekki með réttindi til að eyða atriðum."
-
-msgid "Could not empty folder."
-msgstr "Gat ekki tæmt möppu."
-
-msgid "Could not perform action correctly."
-msgstr "Gat ekki framkvæmt aðgerðina rétt."
-
-msgid ""
-"A favorite folder with this name already exists, please use another name."
-msgstr ""
-"Uppáhaldsmappa með sama nafni er nú þegar til, vinsamlegast veldu annað nafn."
-
-msgid "Could not add folder to favorites."
-msgstr "Gat ekki sett möppu í uppáhald."
-
-msgid "You have insufficient privileges to set permissions for this folder."
-msgstr "Þú ert ekki með réttindi til að stilla réttindi á þessa möppu."
-
-msgid "Could not set folder permissions."
-msgstr "Gat ekki stillt möppuréttindi."
-
-msgid "You have insufficient privileges to rename this folder."
-msgstr "Þú ert ekki með réttindi til að endurnefna möppuna."
-
-msgid "A folder with this name already exists. Use another name."
-msgstr "Mappa með þessu nafni er nú þegar til. Vinsamlegast veldu annað nafn."
-
-msgid "Could not rename folder."
-msgstr "Gat ekki endurnefnt möppu."
-
-msgid "You have insufficient privileges to create this folder."
-msgstr "Þú ert ekki með réttindi til að búa til þessa möppu."
-
-msgid "Could not create folder."
-msgstr "Gat ekki búið til möppu."
-
-msgid "Could not close shared folder."
-msgstr "Gat ekki lokað sameiginlegri möppu."
-
-msgid "User could not be resolved."
-msgstr "Notandi er óskýr."
-
-#, php-format
-msgid ""
-"You have insufficient privileges to open this %1$s folder. The folder owner "
-"can set these using the 'permissions'-tab of the folder properties (right "
-"click the %1$s folder > properties > permissions)."
-msgstr ""
-"Þú ert ekki með réttindi til að opna þessa %1$s möppu. Eigandi möppunnar "
-"getur stillt þetta í réttindaflipanum í eigindum möppunnar (hægrismellur á "
-"%1$s möppuna > eigindi > réttindi)."
-
-msgid "unknown"
-msgstr "óþekkt"
-
-msgid "Could not move folder"
-msgstr "Gat ekki fært möppu"
-
-msgid "Could not copy folder"
-msgstr "Gat ekki afritað möppu"
-
-msgid "You have insufficient privileges to open this message."
-msgstr "Þú hefur ekki réttindi til að opna þessi skilaboð."
-
-msgid ""
-"Could not find message, either it has been moved or deleted or you don't "
-"have access to open this message."
-msgstr ""
-"Fann ekki skilaboð, þau gætu hafa verið færð, þeim eytt eða að þú hefur ekki "
-"réttindi til að opna skilaboðin."
 
 msgid "Could not open message."
 msgstr "Gat ekki opnað skilaboð."
@@ -6161,192 +6100,33 @@ msgstr "Skilaboðin náðu ekki til einhverra eða allra viðtakenda"
 msgid "The following recipient(s) could not be reached"
 msgstr "Ekki náðist í eftirfarandi viðtakanda/viðtakendur"
 
-msgid "You have insufficient privileges to see the contents of this folder."
-msgstr "Þú ert ekki með réttindi til að sjá innihaldið í þessari möppu."
-
-msgid "Could not load the contents of this folder."
-msgstr "Gat ekki hlaðið innihaldi möppunnar."
-
-msgid "Error in search, please try again"
-msgstr "Villa í leit, vinsamlegast reyndu aftur"
-
-msgid "Unable to perform search query, no permissions to create search folder."
-msgstr "Gat ekki leitað, engin réttindi til að búa til leitarmöppu."
-
-msgid "Unable to perform search query, search folder not found."
-msgstr "Gat ekki leitað, leitarmappa fannst ekki."
-
-msgid "Unable to perform search query, store might not support searching."
-msgstr "Gat ekki leitað, geymslan leyfir kannski ekki leit."
-
-msgid "Error in creating search folder."
-msgstr "Villa við að búa til leitarmöppu."
-
-msgid ""
-"You have insufficient privileges to perform search operation in this folder."
-msgstr "Þú ert ekki með réttindi til að leita í þessari möppu."
-
-msgid "Could not update search results."
-msgstr "Gat ekki uppfært leitarniðurstöður."
-
-msgid "Could not stop search operation."
-msgstr "Gat ekki stöðvað leit."
-
-msgid "You have insufficient privileges to save this message."
-msgstr "Þú ert ekki með réttindi til að vista þessi skilaboð."
-
-msgid "Could not save message."
-msgstr "Gat ekki vistað skilaboð."
-
-msgid "You have insufficient privileges to delete this message."
-msgstr "Þú ert ekki með réttindi til að eyða þessum skilaboðum."
-
-msgid "Could not delete message."
-msgstr "Gat ekki eytt skilaboðum."
-
-msgid "You have insufficient privileges to cancel this Meeting Request."
-msgstr "Þú ert ekki með réttindi til að afboða fundinn."
-
-msgid "Could not cancel Meeting Request."
-msgstr "Gat ekki afboðað fund."
-
-msgid "You have insufficient privileges to decline this Meeting Request."
-msgstr "Þú ert ekki með réttindi til að hafna þessu fundarboði."
-
-msgid "Could not decline Meeting Request."
-msgstr "Gat ekki hafnað fundarboði."
-
-msgid "You have insufficient privileges to accept this Meeting Request."
-msgstr "Þú ert ekki með réttindi til að samþykkja þetta fundarboð."
-
-msgid "Could not accept Meeting Request."
-msgstr "Gat ekki samþykkt fundarboð."
-
-msgid "You have insufficient privileges to cancel Meeting Request invitation."
-msgstr "Þú ert ekki með réttindi til að hætta við fundarboðið."
-
-msgid "Could not cancel Meeting Request invitations."
-msgstr "Gat ekki hætt við fundarboð."
-
-msgid "You can not continue search operation on this folder."
-msgstr "Þú getur ekki haldið áfram með leitina í þessari möppu."
-
-msgid "Error in search, please try again."
-msgstr "Villa við leit, vinsamlegast reyndu aftur."
-
-msgid "Error in distribution list expansion."
-msgstr "Villa við víkkun póstlista."
-
-msgid "The message store has exceeded its hard quota limit."
-msgstr "Þessi skilaboðageymsla hefur náð algjörri hámarksstærð."
-
-msgid ""
-"To reduce the amount of data in this message store, select some items that "
-"you no longer need, delete them and cleanup your Deleted Items folder."
-msgstr ""
-"Til að minnka gagnamagnið í geymslunni, veldu nokkur atriði sem þú þarft "
-"ekki lengur, eyddu þeim eða hreinsaðu ruslakörfuna þína."
-
-msgid "The message store has exceeded its soft quota limit."
-msgstr "Þessi skilaboðageymsla hefur náð hámarksstærð."
-
-msgid "Could not process request data properly."
-msgstr "Gat ekki meðhöndlað gagnabeiðnina almennilega."
-
 #, php-format
-msgid "Unknown action type specified - %s"
-msgstr "Óþekkt gerð aðgerðar tilgreind - %s"
-
-msgid "Cannot snooze the reminder. You may be reminded again."
-msgstr "Get ekki svæft áminningu. Þú færð aðra áminningu."
-
-msgid "Cannot dismiss the reminder. You may be reminded again."
-msgstr "Gat ekki hunsað áminningu. Þú færð aðra áminningu."
-
-msgid "You have insufficient privileges to perform this action."
-msgstr "Þú hefur ekki réttindi til að framkvæma þessa aðgerð."
-
-msgid "Could not resolve user."
-msgstr "Notandinn er óskýr."
-
-msgid "Setting mail filters on the stores of other users is not allowed."
-msgstr "Það má ekki stilla póstsíur í geymslum annarra notenda."
-
-msgid "Untitled rule"
-msgstr "Ónefnd regla"
-
-msgid "Could not load rules."
-msgstr "Gat ekki hlaðið reglum."
-
-msgid "Could not save rules."
-msgstr "Gat ekki vistað reglur."
-
-msgid "Task Request:"
-msgstr "Verkbeiðni:"
-
-msgid "Welcome"
-msgstr "Gaman að sjá þig"
-
-msgid "Username"
-msgstr "Notandanafn"
-
-msgid "Password"
-msgstr "Lykilorð"
-
-msgid "Sign in"
-msgstr "Innskrá"
-
-msgid "Caps lock is on"
-msgstr ""
-
-msgid "File is not imported successfully"
-msgstr "Tókst ekki að flytja inn skrá"
+msgid "Unable to import '%s' to '%s'. "
+msgstr "Gat ekki flutt inn '%s' í '%s'. "
 
 msgid "There is no contact found in this file."
 msgstr "Það fannst enginn tengiliður í þessari skrá."
+
+msgid "The file is corrupt."
+msgstr "Skráin er gölluð."
+
+msgid "The file is invalid."
+msgstr "Skráin er ógild."
+
+#, php-format
+msgid "Unable to import '%s'. "
+msgstr "Gat ekki flutt inn '%s'. "
+
+msgid "Please contact your system administrator if the problem persists."
+msgstr "Láttu kerfisstjórn vita ef vandamálið heldur áfram."
 
 msgid ""
 "grommunio Web does not support importing multiple VCF with this version."
 msgstr ""
 
+msgid "There is no appointment found in this file."
+msgstr "Það fannst engin tímabókun í þessari skrá."
+
 msgid ""
 "grommunio Web does not support importing multiple ICS with this version."
 msgstr ""
-
-#, php-format
-msgid "Unable to import '%s'"
-msgstr "Gat ekki flutt inn '%s'"
-
-msgid "The EML is not valid"
-msgstr "Eml-skrá er ekki gild"
-
-msgid "GB"
-msgstr "GB"
-
-msgid "MB"
-msgstr "MB"
-
-msgid "KB"
-msgstr "KB"
-
-msgid "B"
-msgstr "B"
-
-msgid "The maximum stack depth has been exceeded"
-msgstr "Hámarksstafladýpt er náð"
-
-msgid "Control character error, possibly incorrectly encoded"
-msgstr "Stjórnstafsvilla, líklegast ekki rétt kótað"
-
-msgid "Invalid or malformed JSON"
-msgstr "Ógilt eða gallað JSON"
-
-msgid "Syntax error"
-msgstr "Villa í málskipan"
-
-msgid "Malformed UTF-8 characters, possibly incorrectly encoded"
-msgstr "Gallaðir UTF-8 stafir, líklegast ekki rétt kótaðir"
-
-#, php-format
-msgid "JSON Error: - %s"
-msgstr "JSON-villa: - %s"

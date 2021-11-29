@@ -1703,6 +1703,25 @@ msgstr ""
 msgid "Insufficient privileges"
 msgstr "Permessi insufficienti"
 
+msgid ""
+"Copying this appointment will unset it as private. Are you sure you want to "
+"continue?"
+msgstr ""
+
+msgid "Private item"
+msgstr ""
+
+msgid "Copy"
+msgstr "Copia"
+
+msgid ""
+"Moving this appointment will unset it as private. Are you sure you want to "
+"continue?"
+msgstr ""
+
+msgid "Move"
+msgstr "Sposta"
+
 msgid "Update recipients"
 msgstr "Aggiorna destinatari"
 
@@ -1715,9 +1734,6 @@ msgstr "Salva le modifiche e invia un aggiornamento a tutti i destinatari"
 msgid "Open meeting request with changes"
 msgstr "Apri richiesta di appuntamento modificata"
 
-msgid "Copy"
-msgstr "Copia"
-
 msgid "grommunio Web"
 msgstr "grommunio Web"
 
@@ -1728,9 +1744,6 @@ msgstr ""
 "Si prega di notare che tutte le modifiche apportate verranno sovrascritte "
 "quando questa richiesta di riunione viene aggiornata dall'organizzatore. "
 "Vuoi spostare questo appuntamento?"
-
-msgid "Move"
-msgstr "Sposta"
 
 msgid "Don't move"
 msgstr "Non spostare"
@@ -2116,18 +2129,14 @@ msgid "Import to folder"
 msgstr "Importa nella cartella"
 
 msgid ""
-"In order to use the vCard import feature, upgrade your Gromox to version 8.3 "
+"In order to use the vCard import feature, upgrade your Gromox to version 0 "
 "or higher."
 msgstr ""
-"Per utilizzare la funzione di importazione vCard, aggiorna il tuo grommunio "
-"Core alla versione 8.3 o successiva."
 
 msgid ""
 "In order to use the ICS / VCS import feature, upgrade your Gromox to version "
-"8.3 or higher."
+"0 or higher."
 msgstr ""
-"Per utilizzare la funzione di importazione ICS/VCS, aggiorna il tuo "
-"grommunio Core alla versione 8.3 o successiva."
 
 msgid "Attachment error"
 msgstr "Errore allegato"
@@ -2521,6 +2530,18 @@ msgstr ""
 msgid "Add/Edit Cc recipient"
 msgstr "Aggiungi/Modifica destinatario Cc"
 
+msgid "Disable for new mail"
+msgstr ""
+
+msgid "Enable for new mail"
+msgstr ""
+
+msgid "Disable for replies"
+msgstr ""
+
+msgid "Enable for replies"
+msgstr ""
+
 msgid "No Cc recipient configured"
 msgstr "Nessun destinatario Cc configurato"
 
@@ -2552,8 +2573,8 @@ msgstr ""
 msgid "Help"
 msgstr "Aiuto"
 
-msgid "grommunio Web Manual"
-msgstr "Manuale grommunio Web"
+msgid "Web Manual"
+msgstr ""
 
 msgid "Item data"
 msgstr "Dati"
@@ -2566,6 +2587,9 @@ msgstr "Ordina per: context.mail.griddefaultcolumn"
 
 msgid "ZDeveloper"
 msgstr "Sviluppatore Z"
+
+msgid "grommunio Web print"
+msgstr ""
 
 msgid "Display name"
 msgstr "Nome visualizzato"
@@ -3155,14 +3179,8 @@ msgstr "Il promemoria e` impostato a: {0}.{1}"
 msgid "d-m-Y"
 msgstr "d-m-Y"
 
-msgid "Original message"
-msgstr "Messaggio originale"
-
 msgid "l d/m/Y"
 msgstr "l d/m/Y"
-
-msgid "Sent Items"
-msgstr "Posta inviata"
 
 msgid "l d/m/Y {0}"
 msgstr ""
@@ -3220,11 +3238,9 @@ msgstr "Si prega di considerare questo messaggio come {0}."
 
 msgctxt "mail.previewpanel"
 msgid ""
-"Click here to download pictures. To help protect your privacy, grommunio Web "
+"Click here to download pictures. To help protect your privacy, WebApp "
 "prevented automatic download of some pictures in this message."
 msgstr ""
-"Fai click qui per scaricare le immagini. Per motivi di privacy, il download "
-"automatico di alcune immagini del messaggio non è stato eseguito."
 
 msgctxt "mail.previewpanel"
 msgid ""
@@ -4163,7 +4179,7 @@ msgid "Unsaved changes"
 msgstr "Modifiche non salvate"
 
 msgid "Welcome to grommunio Web"
-msgstr "Benvenuto su grommunio Web"
+msgstr ""
 
 msgid "This is the first time you are using grommunio Web. "
 msgstr "Questa è la prima volta che utilizzi grommunio Web. "
@@ -4255,22 +4271,26 @@ msgid_plural "There are {0} unread messages in the folder {1}"
 msgstr[0] "E' presente {0} messaggio non letto nella cartella {1}"
 msgstr[1] "Sono presenti {0} messaggi non letti nella cartella {1}"
 
-msgid "License error"
-msgstr "Errore di licenza"
-
-msgid ""
-"The installed license key(s) have expired or are being over used. Please "
-"contact your system administrator for further information."
+msgid "Publishing Editor"
 msgstr ""
-"Le chiavi di licenza installate sono scadute o sono state sovra utilizzate. "
-"Si prega di contattare l'amministratore di sistema per ulteriori "
-"informazioni."
 
-msgid "Full control"
-msgstr "Controllo completo"
+msgid "Editor"
+msgstr ""
 
-msgid "No rights"
-msgstr "Nessun permesso"
+msgid "Publishing Author"
+msgstr ""
+
+msgid "Author"
+msgstr ""
+
+msgid "Nonediting Author"
+msgstr ""
+
+msgid "Reviewer"
+msgstr ""
+
+msgid "Contributor"
+msgstr ""
 
 msgid "Unable to import:"
 msgstr "Impossibile importare:"
@@ -4320,6 +4340,12 @@ msgstr "Tipo"
 msgid "Description"
 msgstr "Descrizione"
 
+msgid "EntryID"
+msgstr ""
+
+msgid "Parent EID"
+msgstr ""
+
 msgid "Folder size"
 msgstr "Dimensione cartella"
 
@@ -4335,23 +4361,29 @@ msgstr "Nessun permesso"
 msgid "Profile"
 msgstr "Profilo"
 
+msgid "Read"
+msgstr ""
+
+msgid "Full Details"
+msgstr ""
+
+msgid "Write"
+msgstr ""
+
 msgid "Create items"
 msgstr "Crea elementi"
-
-msgid "Read items"
-msgstr "Leggi elementi"
 
 msgid "Create subfolders"
 msgstr "Crea sottocartelle"
 
-msgid "Folder permissions"
-msgstr "Permessi cartelle"
+msgid "Edit own"
+msgstr ""
 
-msgid "Folder visible"
-msgstr "Cartella visibile"
+msgid "Edit all"
+msgstr ""
 
-msgid "Edit items"
-msgstr "Modifica elementi"
+msgid "Delete items"
+msgstr "Elimina elementi"
 
 msgid "Own"
 msgstr "Proprio"
@@ -4359,8 +4391,14 @@ msgstr "Proprio"
 msgid "All"
 msgstr "Tutti"
 
-msgid "Delete items"
-msgstr "Elimina elementi"
+msgid "Folder owner"
+msgstr ""
+
+msgid "Folder contact"
+msgstr ""
+
+msgid "Folder visible"
+msgstr "Cartella visibile"
 
 msgid "User already exists"
 msgstr "L'utente esiste già"
@@ -4570,6 +4608,9 @@ msgstr "Inviato"
 msgid "Red"
 msgstr "Rosso"
 
+msgid "Original message"
+msgstr "Messaggio originale"
+
 msgid "Schedule mail to be sent out"
 msgstr "Programma l'invio dell'email"
 
@@ -4682,9 +4723,6 @@ msgstr "Opzioni varie"
 msgid "Internet Headers"
 msgstr "Intestazioni"
 
-msgid "EntryID"
-msgstr ""
-
 msgid "Message Settings"
 msgstr "Impostazioni messaggio"
 
@@ -4727,9 +4765,6 @@ msgstr "Segna come letto/non letto"
 
 msgid "Toggle red/complete flag"
 msgstr "Imposta bandierina/completato"
-
-msgid "Close a conversation"
-msgstr "Chiudi la conversazione"
 
 # 86%
 # 78%
@@ -4779,9 +4814,6 @@ msgstr "Composizione email"
 
 msgid "Compose mail in this format"
 msgstr "Scrivi email in questo formato"
-
-msgid "Editor"
-msgstr ""
 
 msgid "Default font"
 msgstr "Carattere predefinito"
@@ -4871,15 +4903,24 @@ msgstr "Sarò fuori ufficio dal"
 msgid "I will be back on"
 msgstr "Rientrerò il"
 
-msgid "I am out of office"
-msgstr "Sono fuori ufficio"
-
 msgid "Automatically reply once per day, per sender with the following text"
 msgstr ""
 "Rispondi automaticamente ad ogni mittente una sola volta con questo testo"
 
-msgid "User is currently out of office."
-msgstr "Sono fuori ufficio."
+msgid "Inside My Organization"
+msgstr ""
+
+msgid "Outside My Organization"
+msgstr ""
+
+msgid "Auto-reply to people outside my organization"
+msgstr ""
+
+msgid "My contacts only"
+msgstr ""
+
+msgid "Anyone outside my organization"
+msgstr ""
 
 msgid ""
 "The time you entered is before the out of office date. Please reschedule."
@@ -5078,8 +5119,11 @@ msgstr "Impostazioni"
 msgid "Basic"
 msgstr "Base"
 
-msgid "Account information"
-msgstr "Informazioni account"
+msgid "Account information - {0}"
+msgstr ""
+
+msgid "Profile Picture"
+msgstr ""
 
 msgid "Language"
 msgstr "Lingua"
@@ -5232,8 +5276,8 @@ msgstr "Attiva tutte le scorciatoie da tastiera"
 msgid "All keyboard shortcuts on"
 msgstr "Tutte le scorciatoie da tastiera abilitate"
 
-msgid "This change requires a reload of the grommunio Web"
-msgstr "Questa modifica richiede di ricaricare la grommunio Web"
+msgid "This change requires a reload of grommunio Web"
+msgstr ""
 
 msgid "Plugins"
 msgstr "Plugins"
@@ -5721,18 +5765,12 @@ msgstr "Connessione ripristinata"
 msgid "Connection with server has been restored"
 msgstr "La connessione con il server è stata ripristinata"
 
-msgid "Please contact your administrator if this problem persists."
-msgstr "Contatta l'amministratore se il problema persiste."
-
 #. TRANSLATORS: Example: HTTP 404
-msgid "Error HTTP {0}"
-msgstr "Errore HTTP {0}"
+msgid "HTTP {0}"
+msgstr ""
 
-msgid "HTTP status text is: "
-msgstr "Lo stato HTTP è: "
-
-msgid "Invalid data received from the server. HTTP status text is: "
-msgstr "Dati non validi ricevuti dal server. Lo stato HTTP è: "
+msgid "Invalid data received from the server"
+msgstr ""
 
 msgid "Missing store"
 msgstr "Store non trovato"
@@ -5814,45 +5852,254 @@ msgstr "Impossibile caricare il modello dal server"
 msgid "Out of Office is currently activated. Would you like to turn it off?"
 msgstr "Il risponditore automatico fuori ufficio è attivo. Vuoi disattivarlo?"
 
-msgid "Out of office off"
-msgstr "Risponditore automatico fuori sede non attivo"
-
-msgid "Out of office has been turned off"
-msgstr "Il risponditore automatico fuori sede è stato disattivato"
-
-msgid "Send Fax"
-msgstr "Invia fax"
-
-msgid "Contact Fax"
-msgstr "Contatto fax"
-
-msgid "Google Maps"
+msgid "Open Chat at start"
 msgstr ""
 
-#. TRANSLATORS: The map of earth
-msgid "Map"
-msgstr "Mappa"
+msgid "Desktop Notifications Plugin"
+msgstr ""
 
-msgid "Move currently selected message(s) to {0}"
-msgstr "Sposta i messaggi selezionati in {0}"
+msgid "Desktop Notifications"
+msgstr ""
 
-msgid "Move to {0}"
-msgstr "Sposta in {0}"
+msgid "{A} Autohide desktop notification after second(s) {B}"
+msgstr ""
 
-msgid "Move current message to {0}"
-msgstr "Sposta il messaggio corrente in {0}"
+msgid "Intranet"
+msgstr ""
 
-msgid "Personal Inbox Manager"
-msgstr "Gestore casella personale"
+msgid "Email Details"
+msgstr ""
 
-msgid "Personal Inbox Management Settings"
-msgstr "Impostazioni gestore posta"
+msgid "Item Data"
+msgstr ""
 
-msgid "Select another folder"
-msgstr "Seleziona cartella differente"
+msgid "Mobile Device Manager"
+msgstr ""
 
-msgid "E-mails are moved to {0}"
-msgstr "I messaggi verranno spostati in {0}"
+msgid "Wiping device"
+msgstr ""
+
+msgid "Password incorrect"
+msgstr ""
+
+msgid "Full resync in progress"
+msgstr ""
+
+msgid "Username or password incorrect"
+msgstr ""
+
+msgid "Not Applicable"
+msgstr ""
+
+msgid "Wipe Pending"
+msgstr ""
+
+msgid "Wipe Requested"
+msgstr ""
+
+msgid "Wipe Executed"
+msgstr ""
+
+msgid "Not Available"
+msgstr ""
+
+msgid "Device"
+msgstr ""
+
+msgid "Operating System"
+msgstr ""
+
+msgid "ID"
+msgstr ""
+
+msgid "User Agent"
+msgstr ""
+
+msgid "MDM Plugin"
+msgstr ""
+
+msgid "Active Sync Version"
+msgstr ""
+
+msgid "grommunio-sync Version"
+msgstr ""
+
+msgid "Policy name"
+msgstr ""
+
+msgid "Outlook Extension"
+msgstr ""
+
+msgid "Build"
+msgstr ""
+
+msgid "Last updated"
+msgstr ""
+
+msgid "d F Y, H:i"
+msgstr ""
+
+msgid "Connected since"
+msgstr ""
+
+msgid "d F Y"
+msgstr ""
+
+msgid "Synchronize"
+msgstr ""
+
+msgid "Manage Shared Folders"
+msgstr ""
+
+msgid ""
+"Select folders to sync to your device from the list below. To add additional "
+"mailboxes to the list, open them in WebApp first."
+msgstr ""
+
+msgid "grommunio-sync"
+msgstr ""
+
+msgid "Mobile device management"
+msgstr ""
+
+msgid "Mobile Devices"
+msgstr ""
+
+msgid ""
+"Unable to connect to the grommunio-sync server. Click {0} to enter your "
+"credentials"
+msgstr ""
+
+msgid "Devices"
+msgstr ""
+
+msgid "No devices connected to your account"
+msgstr ""
+
+msgid "Last Update"
+msgstr ""
+
+msgid "Device ID"
+msgstr ""
+
+msgid "Device OS"
+msgstr ""
+
+msgid "Device Info"
+msgstr ""
+
+msgid "First Sync time"
+msgstr ""
+
+msgid "Full resync"
+msgstr ""
+
+msgid "Remove device"
+msgstr ""
+
+msgid "Please enter your username and password"
+msgstr ""
+
+msgid "Password"
+msgstr ""
+
+msgid "Username"
+msgstr ""
+
+msgid ""
+"Do you really want to wipe your device?\n"
+" Enter your password to confirm."
+msgstr ""
+
+msgid "Add meeting"
+msgstr ""
+
+msgid "Room name:"
+msgstr ""
+
+msgid "Room URL:"
+msgstr ""
+
+msgid "Shift-click for advanced settings"
+msgstr ""
+
+msgid "Join webmeeting"
+msgstr ""
+
+msgid "Open meeting in:"
+msgstr ""
+
+msgid "Web tab"
+msgstr ""
+
+msgid "Hide the button in the main toolbar"
+msgstr ""
+
+msgid "Add the subject to the room name"
+msgstr ""
+
+msgid "Add the organizer name to the room name"
+msgstr ""
+
+msgid "Add the URL to the meeting location rather than overwriting it"
+msgstr ""
+
+msgid ""
+"Prevent the URL in the meeting location from being overridden automatically "
+"(ex: when adding a meetingroom)"
+msgstr ""
+
+msgid "If you have problems when creating meetings, try disabling this setting"
+msgstr ""
+
+msgid "Add an invitation to the appointment description"
+msgstr ""
+
+msgid "Invitation text"
+msgstr ""
+
+msgid ""
+"must contain %url% as a placeholder for the meeting link, empty the textbox "
+"to reset to default"
+msgstr ""
+
+msgid "An unknown error occurred while changing password."
+msgstr ""
+
+msgid "Password is changed successfully."
+msgstr ""
+
+msgid "Success"
+msgstr ""
+
+msgid "Change Password"
+msgstr ""
+
+msgid "Current password"
+msgstr ""
+
+msgid "New password"
+msgstr ""
+
+msgid "Retype new password"
+msgstr ""
+
+msgid "New passwords do not match."
+msgstr ""
+
+msgid "Current password is empty."
+msgstr ""
+
+msgid "New password is empty."
+msgstr ""
+
+msgid "One or more fields does contain errors."
+msgstr ""
+
+msgid ""
+"Password is weak. Password should contain capital, non-capital letters and "
+"numbers. Password should have 8 to 20 characters."
+msgstr ""
 
 msgid "Charm pink"
 msgstr "Fascino rosa"
@@ -5875,8 +6122,8 @@ msgstr "Menta"
 msgid "Pearl aqua"
 msgstr "Azzurro chiaro"
 
-msgid "grommunio blue"
-msgstr "Blu grommunio"
+msgid "Grommunio blue"
+msgstr ""
 
 msgid "Baby blue"
 msgstr "Blu bimbo"
@@ -5942,49 +6189,14 @@ msgstr ""
 "Spiacenti, l'accesso a grommunio Web non è disponibile con questo utente. Si "
 "prega di contattare l'amministratore di sistema."
 
-msgid "Can't add data to bus, same action type is present in bus"
+msgid "Mobile device management plugin"
 msgstr ""
-"Impossibile aggiungere dati al bus perché la tipologia di azione è già "
-"presente"
-
-msgid "Response data requested from bus but it doesn't have any data."
-msgstr "Risposta richiesta, ma nel bus non sono presenti dati."
 
 #, php-format
-msgid "Unknown module '%s' with id '%s'"
-msgstr "Modulo sconosciuto '%s' con id '%s'"
-
 msgid ""
-"We encountered a problem. This might be caused by upgrading a plugin. Please "
-"re-login to resolve the issue."
+"Unexpected error occurred. Please contact your system administrator. Error "
+"code: %s"
 msgstr ""
-"Abbiamo riscontrato un problema. Ciò potrebbe essere causato "
-"dall'aggiornamento di un plugin. Effettua nuovamente il login per risolvere "
-"il problema."
-
-#, php-format
-msgid "Unknown notifier '%s'"
-msgstr "Notificatore sconosciuto '%s'"
-
-msgid "An unexpected error has occurred"
-msgstr "Si è verificato un errore inatteso"
-
-msgid "To-Do List"
-msgstr "Da fare"
-
-#. TRANSLATORS: This indicates that the opened folder belongs to a particular user,
-#. * for example: 'Calendar of Holiday', in this case %1$s is 'Calendar' (the foldername)
-#. * and %2$s is 'Holiday' (the username).
-#.
-#, php-format
-msgid "%1$s of %2$s"
-msgstr "%1$s di %2$s"
-
-msgid "Error retrieving existing settings"
-msgstr "Errore durante il recupero delle impostazioni esistenti"
-
-msgid "Error retrieving existing persistent settings"
-msgstr "Errore durante il recupero delle impostazioni"
 
 msgid "Logon failed. Please verify your credentials and try again."
 msgstr "Accesso non riuscito. Verifica le tue credenziali e prova di nuovo."
@@ -6001,74 +6213,6 @@ msgstr ""
 
 msgid "Unknown MAPI Error"
 msgstr "Errore MAPI sconosciuto"
-
-msgid "This external link will open in a new window"
-msgstr "Questo collegamento esterno verrà aperto in una nuova finestra"
-
-msgid "Destination folder not found."
-msgstr "Cartella di destinazione non trovata."
-
-msgid "Eml is corrupted"
-msgstr "Eml corrotto"
-
-msgid "The eml Attachment is not imported successfully"
-msgstr "Il file Eml non è stato importato correttamente"
-
-msgid "The vcf attachment is not imported successfully"
-msgstr "Il file Vcf non è stato importato correttamente"
-
-#, php-format
-msgid "Unable to import '%s' to '%s'. "
-msgstr ""
-"Non e` stato possibile importare l'elemento / gli elementi da '%s' a '%s'. "
-
-msgid "There is no appointment found in this file."
-msgstr "Nessun appuntamento trovato in questo file."
-
-msgid "The file is corrupt."
-msgstr "Il file è corrotto."
-
-msgid "The file is invalid."
-msgstr "Il file non è valido."
-
-#, php-format
-msgid "Unable to import '%s'. "
-msgstr "Impossibile importare '%s'. "
-
-msgid "Please contact your system administrator if the problem persists."
-msgstr ""
-"Si prega di contattare l'amministratore di sistema se il problema persiste."
-
-msgid "Attachment is not imported successfully"
-msgstr "Il file ZIP non è stato importato correttamente"
-
-# 81%
-msgid "Embedded attachment not found."
-msgstr "Allegato incorporato non trovato."
-
-msgid "ZIP is not created successfully"
-msgstr "Il file ZIP non è stato creato correttamente"
-
-msgid "Attachments can not be downloaded"
-msgstr "Impossibile scaricare gli allegati"
-
-msgid "Could not find attachment."
-msgstr "Impossibile recuperare l'allegato."
-
-msgid "Operation failed"
-msgstr "Operazione fallita"
-
-# 90%
-# 100%
-msgid "Sticky Note"
-msgstr "Nota"
-
-msgid "Task Request"
-msgstr "Richiesta attività"
-
-msgid "Could not find message, either it has been moved or deleted."
-msgstr ""
-"Impossibile trovare il messaggio. Potrebbe essere stato spostato o rimosso."
 
 msgid "Request is not available."
 msgstr "La richiesta non è disponibile."
@@ -6098,9 +6242,6 @@ msgstr "Operazione fallita: memoria server insufficiente."
 #, php-format
 msgid "Unknown MAPI Error: %s"
 msgstr "Errore MAPI sconosciuto: %s"
-
-msgid "Action is not performed correctly."
-msgstr "L'azione non è stata eseguita correttamente."
 
 msgid "Tentatively accepted"
 msgstr "Accettato provvisoriamente"
@@ -6176,278 +6317,6 @@ msgstr "Si verifica ogni %s dal giorno %s fino al %s."
 #, php-format
 msgid "Occurs every %s %s effective %s until %s."
 msgstr "Si verifica ogni %s %s, dal %s fino al %s."
-
-msgid "Task Accepted:"
-msgstr "Attività accettata:"
-
-msgid "Task Declined:"
-msgstr "Attività rifiutata:"
-
-msgid "Task Updated:"
-msgstr "Attività aggiornata:"
-
-msgid "Task Completed:"
-msgstr "Attività completata:"
-
-msgid "Contact not found"
-msgstr "Contatto non trovato"
-
-msgid ""
-"Contact information could not be displayed because the server had trouble "
-"retrieving the information."
-msgstr ""
-"Non è stato possibile visualizzare le informazioni di contatto perché il "
-"server ha avuto problemi a recuperare le informazioni."
-
-msgid "Could not handle this type of object."
-msgstr "Impossibile gestire questo tipo di oggetto."
-
-msgid "Could not open this object."
-msgstr "Impossibile aprire questo oggetto."
-
-msgid "Could not open occurrence."
-msgstr "Impossibile aprire questa occorrenza."
-
-msgid "Could not open occurrence, specific occurrence is probably deleted."
-msgstr "Impossibile aprire questa occorrenza: probabilmente è stata eliminata."
-
-# 89%
-# 100%
-# 84%
-msgid "a meeting request"
-msgstr "una richiesta di appuntamento"
-
-# 93%
-# 100%
-# 80%
-msgid "an appointment"
-msgstr "un appuntamento"
-
-msgid "You have insufficient privileges to move "
-msgstr "Non disponi di permessi sufficienti per spostare "
-
-msgid ""
-"Cannot set a reminder to appear before the previous occurrence. Reset "
-"reminder to save the change"
-msgstr ""
-"Impossibile impostare un promemoria prima della precedente occorrenza. "
-"Ripristinare il promemoria per salvare la modifica"
-
-msgid "Two occurrences cannot occur on the same day"
-msgstr "Due occorrenze non possono capitare nello stesso giorno"
-
-#, php-format
-msgid ""
-"You marked '%s' as a resource. You cannot schedule a meeting with '%s' "
-"because you do not have the appropriate permissions for that account. Either "
-"enter the name as a required or optional attendee or talk to your "
-"administrator about giving you permission to schedule '%s'."
-msgstr ""
-"Hai contrassegnato '%s' come risorsa. Non puoi pianificare una riunione con "
-"'%s' perché non disponi delle autorizzazioni appropriate per quell'account. "
-"Inserisci il nome come partecipante obbligatorio o facoltativo oppure chiedi "
-"al tuo amministratore di concederti il permesso di programmare '%s'."
-
-#, php-format
-msgid ""
-"'%s' has declined your meeting because '%s' does not automatically accept "
-"meeting requests."
-msgstr ""
-"'%s' ha rifiutato la tua richiesta di appuntamento perché '%s' non accetta "
-"automaticamente le richieste di appuntamento."
-
-#, php-format
-msgid ""
-"'%s' has declined your meeting because it is recurring. You must book each "
-"meeting separately with this resource."
-msgstr ""
-"'%s' ha rifiutato la tua richiesta di appuntamento perché è ricorrente. "
-"Dovrai richiedere singolarmente ogni appuntamento."
-
-#, php-format
-msgid ""
-"'%s' is already booked for this specified time. You must use another time or "
-"find another resource."
-msgstr ""
-"'%s' è già stato prenotato per il periodo selezionato. Modifica l'orario o "
-"seleziona una risorsa differente."
-
-msgid "Meeting was not scheduled."
-msgstr "L'appuntamento non è stato fissato."
-
-msgid "Meeting could not be sent."
-msgstr "Impossibile inviare la richiesta di appuntamento."
-
-msgid "Meeting could not be saved."
-msgstr "Impossibile salvare l'appuntamento."
-
-msgid "Private Appointment"
-msgstr "Appuntamento privato"
-
-#, php-format
-msgid "%s's Birthday"
-msgstr "Compleanno di %s"
-
-#, php-format
-msgid "%s's Anniversary"
-msgstr "Anniversario di %s"
-
-msgid "Unknown user/group"
-msgstr "Utente o gruppo sconosciuto"
-
-msgid "Could not save delegate information."
-msgstr "Impossibile salvare le informazioni relative ai delegati."
-
-# 78%
-# 80%
-msgid "Could not delete delegate."
-msgstr "Impossibile eliminare il delegato."
-
-msgid "Can not get list of delegates."
-msgstr "Impossibile ottenere la lista dei delegati."
-
-msgid "Could not load the hierarchy."
-msgstr "Impossibile caricare la gerarchia."
-
-msgid "Could not load folder properties."
-msgstr "Impossibile caricare le proprietà della cartella."
-
-# 78%
-# 80%
-# 76%
-# 83%
-# 79%
-msgid "Could not remove folder from favorites."
-msgstr "Impossibile rimuovere la cartella dai Preferiti."
-
-msgid "You have insufficient privileges to delete folder."
-msgstr "Non hai i permessi sufficienti per eliminare la cartella."
-
-# 78%
-# 80%
-# 76%
-# 83%
-msgid "Could not delete folder."
-msgstr "Impossibile eliminare la cartella."
-
-msgid "You have insufficient privileges to copy folder."
-msgstr "Non hai i permessi sufficienti per copiare la cartella."
-
-# 78%
-# 80%
-# 76%
-# 83%
-# 75%
-msgid "Could not copy folder."
-msgstr "Impossibile copiare la cartella."
-
-msgid "You have insufficient privileges to move this folder."
-msgstr "Non hai i permessi sufficienti per spostare la cartella."
-
-# 78%
-# 80%
-# 76%
-# 83%
-# 79%
-msgid "Could not move folder."
-msgstr "Impossibile spostare la cartella."
-
-msgid "You have insufficient privileges to delete items."
-msgstr "Non hai i permessi sufficienti per eliminare gli elementi."
-
-# 78%
-# 80%
-# 76%
-# 83%
-msgid "Could not empty folder."
-msgstr "Impossibile svuotare la cartella."
-
-msgid "Could not perform action correctly."
-msgstr "Impossibile completare l'operazione."
-
-msgid ""
-"A favorite folder with this name already exists, please use another name."
-msgstr "Esiste già una cartella preferita con questo nome, usa un altro nome."
-
-msgid "Could not add folder to favorites."
-msgstr "Impossibile aggiungere la cartella ai Preferiti."
-
-msgid "You have insufficient privileges to set permissions for this folder."
-msgstr ""
-"Non hai privilegi sufficienti per impostare permessi su questa cartella."
-
-msgid "Could not set folder permissions."
-msgstr "Impossibile impostare permessi su questa cartella."
-
-msgid "You have insufficient privileges to rename this folder."
-msgstr "Non hai permessi sufficienti per rinominare questa cartella."
-
-msgid "A folder with this name already exists. Use another name."
-msgstr "Esiste già una cartella con lo stesso nome. Utilizza un altro nome."
-
-# 78%
-# 80%
-# 76%
-# 83%
-msgid "Could not rename folder."
-msgstr "Impossibile rinominare la cartella."
-
-msgid "You have insufficient privileges to create this folder."
-msgstr "Non hai permessi sufficiente per creare la cartella."
-
-# 78%
-# 80%
-# 76%
-# 83%
-msgid "Could not create folder."
-msgstr "Impossibile creare la cartella."
-
-msgid "Could not close shared folder."
-msgstr "Impossibile chiudere la cartella condivisa."
-
-msgid "User could not be resolved."
-msgstr "Utente non riconosciuto."
-
-#, php-format
-msgid ""
-"You have insufficient privileges to open this %1$s folder. The folder owner "
-"can set these using the 'permissions'-tab of the folder properties (right "
-"click the %1$s folder > properties > permissions)."
-msgstr ""
-"Non hai permessi sufficienti per aprire la cartella %1$s. Il proprietario "
-"può impostarli utilizzando la scheda Permessi nella finestra proprietà di "
-"questa cartella (tasto destro sulla cartella %1$s > Proprietà > Permessi)."
-
-# 85%
-msgid "unknown"
-msgstr "sconosciuto"
-
-# 78%
-# 80%
-# 76%
-# 83%
-# 75%
-msgid "Could not move folder"
-msgstr "Impossibile spostare la cartella"
-
-# 78%
-# 80%
-# 76%
-# 83%
-# 75%
-# 95%
-msgid "Could not copy folder"
-msgstr "Impossibile copiare la cartella"
-
-msgid "You have insufficient privileges to open this message."
-msgstr "Non hai permessi sufficienti per aprire questo messaggio."
-
-msgid ""
-"Could not find message, either it has been moved or deleted or you don't "
-"have access to open this message."
-msgstr ""
-"Impossibile trovare il messaggio. È possibile che sia stato spostato, "
-"rimosso oppure non hai i permessi per aprirlo."
 
 # 78%
 msgid "Could not open message."
@@ -6549,174 +6418,27 @@ msgstr "Non è stato possibile recapitare il messaggio a tutti i destinatari"
 msgid "The following recipient(s) could not be reached"
 msgstr "Impossibile contattare i seguenti destinatari"
 
-msgid "You have insufficient privileges to see the contents of this folder."
-msgstr ""
-"Non hai privilegi sufficienti per vedere il contenuto di questa cartella."
-
-msgid "Could not load the contents of this folder."
-msgstr "Impossibile caricare il contenuto di questa cartella."
-
-msgid "Error in search, please try again"
-msgstr "Errore nella ricerca, per favore riprova"
-
-msgid "Unable to perform search query, no permissions to create search folder."
-msgstr ""
-"Impossibile eseguire la query di ricerca, permessi insufficienti per creare "
-"la cartella di ricerca."
-
-msgid "Unable to perform search query, search folder not found."
-msgstr ""
-"Impossibile eseguire la query di ricerca, cartella di ricerca non trovata."
-
-msgid "Unable to perform search query, store might not support searching."
-msgstr ""
-"Impossibile eseguire la query di ricerca, la cassetta postale potrebbe non "
-"supportare la ricerca."
-
-msgid "Error in creating search folder."
-msgstr "Errore nella creazione della cartella di ricerca."
-
-msgid ""
-"You have insufficient privileges to perform search operation in this folder."
-msgstr ""
-"Non hai privilegi sufficienti per eseguire una ricerca in questa cartella."
-
-msgid "Could not update search results."
-msgstr "Impossibile aggiornare i risultati della ricerca."
-
-msgid "Could not stop search operation."
-msgstr "Impossibile fermare l'operazione di ricerca."
-
-msgid "You have insufficient privileges to save this message."
-msgstr "Non hai privilegi sufficienti per salvare il messaggio."
-
-# 78%
-# 82%
-msgid "Could not save message."
-msgstr "Impossibile salvare il messaggio."
-
-msgid "You have insufficient privileges to delete this message."
-msgstr "Non hai privilegi sufficienti per cancellare il messaggio."
-
-# 78%
-# 80%
-msgid "Could not delete message."
-msgstr "Impossibile cancellare il messaggio."
-
-msgid "You have insufficient privileges to cancel this Meeting Request."
-msgstr ""
-"Non hai privilegi sufficienti per cancellare questa richiesta di incontro."
-
-msgid "Could not cancel Meeting Request."
-msgstr "Impossibile cancellare la richiesta di incontro."
-
-msgid "You have insufficient privileges to decline this Meeting Request."
-msgstr ""
-"Non hai sufficienti privilegi per rifiutare questa richiesta di incontro."
-
-msgid "Could not decline Meeting Request."
-msgstr "Impossibile rifiutare questa richiesta di incontro."
-
-msgid "You have insufficient privileges to accept this Meeting Request."
-msgstr ""
-"Non hai sufficienti privilegi per accettare questa richiesta di incontro."
-
-msgid "Could not accept Meeting Request."
-msgstr "Impossibile accettare questa richiesta di incontro."
-
-msgid "You have insufficient privileges to cancel Meeting Request invitation."
-msgstr ""
-"Non hai sufficienti privilegi per annullare questa richiesta di incontro."
-
-msgid "Could not cancel Meeting Request invitations."
-msgstr "Impossibile annullare questa richiesta di incontro."
-
-msgid "You can not continue search operation on this folder."
-msgstr "Non puoi continuare l'operazione di ricerca in questa cartella."
-
-msgid "Error in search, please try again."
-msgstr "Errore nella ricerca, riprova."
-
-msgid "Error in distribution list expansion."
-msgstr "Errore nell'espansione della lista di distribuzione."
-
-msgid "The message store has exceeded its hard quota limit."
-msgstr "La casella ha superato il limite massimo."
-
-msgid ""
-"To reduce the amount of data in this message store, select some items that "
-"you no longer need, delete them and cleanup your Deleted Items folder."
-msgstr ""
-"Per ridurre la quantità di dati in questa casella, seleziona alcuni elementi "
-"che non servono più, eliminali e ripulisci la cartella Posta eliminata."
-
-msgid "The message store has exceeded its soft quota limit."
-msgstr "La casella ha superato la soft quota."
-
-msgid "Could not process request data properly."
-msgstr "Impossibile elaborare correttamente la richiesta di dati."
-
 #, php-format
-msgid "Unknown action type specified - %s"
-msgstr "Tipo di azione sconosciuto - %s"
-
-msgid "Cannot snooze the reminder. You may be reminded again."
-msgstr "Impossibile rimandare il promemoria. Potrebbe ricomparire."
-
-msgid "Cannot dismiss the reminder. You may be reminded again."
-msgstr "Impossibile cancellare il promemoria. Potrebbe ricomparire."
-
-msgid "You have insufficient privileges to perform this action."
-msgstr "Non hai privilegi sufficienti per eseguire questa azione."
-
-msgid "Could not resolve user."
-msgstr "Impossibile risolvere l'utente."
-
-msgid "Setting mail filters on the stores of other users is not allowed."
+msgid "Unable to import '%s' to '%s'. "
 msgstr ""
-"Non è consentito impostare filtri sulle cassette di posta di altri utenti."
-
-msgid "Untitled rule"
-msgstr "Regola senza titolo"
-
-# 78%
-# 80%
-# 76%
-# 77%
-msgid "Could not load rules."
-msgstr "Impossibile caricare le regole."
-
-# 78%
-# 80%
-# 76%
-# 77%
-# 95%
-msgid "Could not save rules."
-msgstr "Impossibile salvare le regole."
-
-msgid "Task Request:"
-msgstr "Richiesta attività:"
-
-msgid "Welcome"
-msgstr "Benvenuto"
-
-msgid "Username"
-msgstr "Nome utente"
-
-msgid "Password"
-msgstr "Password"
-
-msgid "Sign in"
-msgstr "Entra"
-
-msgid "Caps lock is on"
-msgstr "Blocco maiuscolo attivo"
-
-msgid "File is not imported successfully"
-msgstr "File non importato correttamente"
+"Non e` stato possibile importare l'elemento / gli elementi da '%s' a '%s'. "
 
 msgid "There is no contact found in this file."
 msgstr "Nessun contatto trovato in questo file."
+
+msgid "The file is corrupt."
+msgstr "Il file è corrotto."
+
+msgid "The file is invalid."
+msgstr "Il file non è valido."
+
+#, php-format
+msgid "Unable to import '%s'. "
+msgstr "Impossibile importare '%s'. "
+
+msgid "Please contact your system administrator if the problem persists."
+msgstr ""
+"Si prega di contattare l'amministratore di sistema se il problema persiste."
 
 msgid ""
 "grommunio Web does not support importing multiple VCF with this version."
@@ -6724,46 +6446,11 @@ msgstr ""
 "grommunio Web non supporta l'importazione multipla di VCF con questa "
 "versione."
 
+msgid "There is no appointment found in this file."
+msgstr "Nessun appuntamento trovato in questo file."
+
 msgid ""
 "grommunio Web does not support importing multiple ICS with this version."
 msgstr ""
 "grommunio Web non supporta l'importazione multipla di ICS con questa "
 "versione."
-
-#, php-format
-msgid "Unable to import '%s'"
-msgstr "Impossibile importare '%s'"
-
-msgid "The EML is not valid"
-msgstr "EML non valido"
-
-msgid "GB"
-msgstr "GB"
-
-msgid "MB"
-msgstr "MB"
-
-msgid "KB"
-msgstr "KB"
-
-msgid "B"
-msgstr "B"
-
-msgid "The maximum stack depth has been exceeded"
-msgstr "La massima profondità di stack è stata superata"
-
-msgid "Control character error, possibly incorrectly encoded"
-msgstr "Errore di carattere di controllo, probabile encoding errato"
-
-msgid "Invalid or malformed JSON"
-msgstr "JSON non valido o corrotto"
-
-msgid "Syntax error"
-msgstr "Errore di sintassi"
-
-msgid "Malformed UTF-8 characters, possibly incorrectly encoded"
-msgstr "Carattere UTF-8 malformato, probabile encoding errato"
-
-#, php-format
-msgid "JSON Error: - %s"
-msgstr "Errore JSON: - %s"

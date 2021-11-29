@@ -1610,6 +1610,25 @@ msgstr ""
 msgid "Insufficient privileges"
 msgstr "权限不足"
 
+msgid ""
+"Copying this appointment will unset it as private. Are you sure you want to "
+"continue?"
+msgstr ""
+
+msgid "Private item"
+msgstr ""
+
+msgid "Copy"
+msgstr "复制"
+
+msgid ""
+"Moving this appointment will unset it as private. Are you sure you want to "
+"continue?"
+msgstr ""
+
+msgid "Move"
+msgstr "移动"
+
 msgid "Update recipients"
 msgstr "更新收件人"
 
@@ -1622,9 +1641,6 @@ msgstr "保存更改并将更新发送给所有收件人"
 msgid "Open meeting request with changes"
 msgstr "打开包含更改的会议请求"
 
-msgid "Copy"
-msgstr "复制"
-
 msgid "grommunio Web"
 msgstr "grommunio Web"
 
@@ -1634,9 +1650,6 @@ msgid ""
 msgstr ""
 "请注意，组织者更新此会议请求后，您所做的任何更改都将被覆盖。您是否欲移动此会"
 "议？"
-
-msgid "Move"
-msgstr "移动"
 
 msgid "Don't move"
 msgstr "不移动"
@@ -1985,14 +1998,14 @@ msgid "Import to folder"
 msgstr "导入至文件夹"
 
 msgid ""
-"In order to use the vCard import feature, upgrade your Gromox to version 8.3 "
+"In order to use the vCard import feature, upgrade your Gromox to version 0 "
 "or higher."
-msgstr "为使用vCard导入功能，请将您的Gromox升级至8.3或更高版本。"
+msgstr ""
 
 msgid ""
 "In order to use the ICS / VCS import feature, upgrade your Gromox to version "
-"8.3 or higher."
-msgstr "为使用ICS/VCS导入功能，请将您的Gromox升级至8.3或更高版本。"
+"0 or higher."
+msgstr ""
 
 msgid "Attachment error"
 msgstr "附件错误"
@@ -2361,6 +2374,18 @@ msgstr "删除所选项目，而不将其移至“已删除项目”文件夹中
 msgid "Add/Edit Cc recipient"
 msgstr "添加/编辑抄送对象联系人"
 
+msgid "Disable for new mail"
+msgstr ""
+
+msgid "Enable for new mail"
+msgstr ""
+
+msgid "Disable for replies"
+msgstr ""
+
+msgid "Enable for replies"
+msgstr ""
+
 msgid "No Cc recipient configured"
 msgstr "无法配置作为抄送对象的收件人"
 
@@ -2390,8 +2415,8 @@ msgstr ""
 msgid "Help"
 msgstr "帮助"
 
-msgid "grommunio Web Manual"
-msgstr "grommunio Web手册"
+msgid "Web Manual"
+msgstr ""
 
 msgid "Item data"
 msgstr ""
@@ -2404,6 +2429,9 @@ msgstr "排序方式：context.mail.griddefaultcolumn"
 
 msgid "ZDeveloper"
 msgstr "Z开发者"
+
+msgid "grommunio Web print"
+msgstr ""
 
 msgid "Display name"
 msgstr "显示名称"
@@ -2961,14 +2989,8 @@ msgstr "提醒设置日期：{0}, {1}"
 msgid "d-m-Y"
 msgstr "d-m-Y"
 
-msgid "Original message"
-msgstr "原始消息"
-
 msgid "l d/m/Y"
 msgstr "l 日/月/年"
-
-msgid "Sent Items"
-msgstr "已发送的项目"
 
 msgid "l d/m/Y {0}"
 msgstr "l 日/月/年 {0}"
@@ -3024,11 +3046,9 @@ msgstr "请将此视为{0}。"
 
 msgctxt "mail.previewpanel"
 msgid ""
-"Click here to download pictures. To help protect your privacy, grommunio Web "
+"Click here to download pictures. To help protect your privacy, WebApp "
 "prevented automatic download of some pictures in this message."
 msgstr ""
-"点击此处下载图片。为帮助您保护您的隐私，grommunio Web禁止自动下载此消息中的某"
-"些图片。"
 
 msgctxt "mail.previewpanel"
 msgid ""
@@ -3917,7 +3937,7 @@ msgid "Unsaved changes"
 msgstr "未保存的更改"
 
 msgid "Welcome to grommunio Web"
-msgstr "欢迎使用grommunio Web"
+msgstr ""
 
 msgid "This is the first time you are using grommunio Web. "
 msgstr "这是您首次使用grommunio Web。 "
@@ -4003,19 +4023,26 @@ msgid "There is {0} unread message in the folder {1}"
 msgid_plural "There are {0} unread messages in the folder {1}"
 msgstr[0] "文件夹{1}中有{0}条未读消息"
 
-msgid "License error"
+msgid "Publishing Editor"
 msgstr ""
 
-msgid ""
-"The installed license key(s) have expired or are being over used. Please "
-"contact your system administrator for further information."
+msgid "Editor"
+msgstr "编辑器"
+
+msgid "Publishing Author"
 msgstr ""
 
-msgid "Full control"
-msgstr "完全控制"
+msgid "Author"
+msgstr ""
 
-msgid "No rights"
-msgstr "无权利"
+msgid "Nonediting Author"
+msgstr ""
+
+msgid "Reviewer"
+msgstr ""
+
+msgid "Contributor"
+msgstr ""
 
 msgid "Unable to import:"
 msgstr "无法导入："
@@ -4065,6 +4092,12 @@ msgstr "类型"
 msgid "Description"
 msgstr "说明"
 
+msgid "EntryID"
+msgstr "条目ID"
+
+msgid "Parent EID"
+msgstr ""
+
 msgid "Folder size"
 msgstr "文件夹大小"
 
@@ -4080,23 +4113,29 @@ msgstr "未授予任何权限"
 msgid "Profile"
 msgstr "配置文件"
 
+msgid "Read"
+msgstr ""
+
+msgid "Full Details"
+msgstr ""
+
+msgid "Write"
+msgstr ""
+
 msgid "Create items"
 msgstr "创建项目"
-
-msgid "Read items"
-msgstr "读取项目"
 
 msgid "Create subfolders"
 msgstr "创建子文件夹"
 
-msgid "Folder permissions"
-msgstr "文件夹权限"
+msgid "Edit own"
+msgstr ""
 
-msgid "Folder visible"
-msgstr "文件夹可见"
+msgid "Edit all"
+msgstr ""
 
-msgid "Edit items"
-msgstr "编辑项目"
+msgid "Delete items"
+msgstr "删除项目"
 
 msgid "Own"
 msgstr "自有"
@@ -4104,8 +4143,14 @@ msgstr "自有"
 msgid "All"
 msgstr "全部"
 
-msgid "Delete items"
-msgstr "删除项目"
+msgid "Folder owner"
+msgstr ""
+
+msgid "Folder contact"
+msgstr ""
+
+msgid "Folder visible"
+msgstr "文件夹可见"
 
 msgid "User already exists"
 msgstr "用户已存在"
@@ -4300,6 +4345,9 @@ msgstr "已发送"
 msgid "Red"
 msgstr "红色"
 
+msgid "Original message"
+msgstr "原始消息"
+
 msgid "Schedule mail to be sent out"
 msgstr "安排待发出的邮件"
 
@@ -4409,9 +4457,6 @@ msgstr "其它各种选项"
 msgid "Internet Headers"
 msgstr "因特网报头"
 
-msgid "EntryID"
-msgstr "条目ID"
-
 msgid "Message Settings"
 msgstr "消息设置"
 
@@ -4450,9 +4495,6 @@ msgstr "切换器(Toggle)已读/未读"
 
 msgid "Toggle red/complete flag"
 msgstr "切换器(Toggle)红色/完成标志"
-
-msgid "Close a conversation"
-msgstr "结束对话"
 
 msgid "Open Shared Mails"
 msgstr "开放的共享邮件"
@@ -4498,9 +4540,6 @@ msgstr "撰写邮件设置"
 
 msgid "Compose mail in this format"
 msgstr "按此格式撰写邮件"
-
-msgid "Editor"
-msgstr "编辑器"
 
 msgid "Default font"
 msgstr "默认字体"
@@ -4587,14 +4626,23 @@ msgstr "我自...时起不在公司"
 msgid "I will be back on"
 msgstr "我将在...时回来"
 
-msgid "I am out of office"
-msgstr "我现在不在公司"
-
 msgid "Automatically reply once per day, per sender with the following text"
 msgstr "每个发件人每天自动回复一次，内容如下"
 
-msgid "User is currently out of office."
-msgstr "用户当前不在公司。"
+msgid "Inside My Organization"
+msgstr ""
+
+msgid "Outside My Organization"
+msgstr ""
+
+msgid "Auto-reply to people outside my organization"
+msgstr ""
+
+msgid "My contacts only"
+msgstr ""
+
+msgid "Anyone outside my organization"
+msgstr ""
 
 msgid ""
 "The time you entered is before the out of office date. Please reschedule."
@@ -4781,8 +4829,11 @@ msgstr "设置"
 msgid "Basic"
 msgstr "基本"
 
-msgid "Account information"
-msgstr "账户信息"
+msgid "Account information - {0}"
+msgstr ""
+
+msgid "Profile Picture"
+msgstr ""
 
 msgid "Language"
 msgstr "语言"
@@ -4930,8 +4981,8 @@ msgstr "开启基本的键盘快捷键"
 msgid "All keyboard shortcuts on"
 msgstr "开启所有键盘快捷键"
 
-msgid "This change requires a reload of the grommunio Web"
-msgstr "此更改需重新加载grommunio Web"
+msgid "This change requires a reload of grommunio Web"
+msgstr ""
 
 msgid "Plugins"
 msgstr "插件"
@@ -5381,18 +5432,12 @@ msgstr "连接已恢复"
 msgid "Connection with server has been restored"
 msgstr "与服务器的连接已恢复"
 
-msgid "Please contact your administrator if this problem persists."
-msgstr "如果此问题仍然存在，请与您的管理员联系。"
-
 #. TRANSLATORS: Example: HTTP 404
-msgid "Error HTTP {0}"
-msgstr "错误HTTP {0}"
+msgid "HTTP {0}"
+msgstr ""
 
-msgid "HTTP status text is: "
-msgstr "HTTP状态文本为： "
-
-msgid "Invalid data received from the server. HTTP status text is: "
-msgstr "从服务器接收到无效数据。HTTP状态文本为： "
+msgid "Invalid data received from the server"
+msgstr ""
 
 msgid "Missing store"
 msgstr "缺少存储器"
@@ -5467,45 +5512,254 @@ msgstr "从服务器加载模块失败"
 msgid "Out of Office is currently activated. Would you like to turn it off?"
 msgstr "外出状态当前已激活。您是否需将其关闭？"
 
-msgid "Out of office off"
-msgstr "外出"
+msgid "Open Chat at start"
+msgstr ""
 
-msgid "Out of office has been turned off"
-msgstr "外出状态已关闭"
+msgid "Desktop Notifications Plugin"
+msgstr ""
 
-msgid "Send Fax"
-msgstr "发送传真"
+msgid "Desktop Notifications"
+msgstr ""
 
-msgid "Contact Fax"
-msgstr "联系人传真"
+msgid "{A} Autohide desktop notification after second(s) {B}"
+msgstr ""
 
-msgid "Google Maps"
-msgstr "谷歌地图"
+msgid "Intranet"
+msgstr ""
 
-#. TRANSLATORS: The map of earth
-msgid "Map"
-msgstr "地图"
+msgid "Email Details"
+msgstr ""
 
-msgid "Move currently selected message(s) to {0}"
-msgstr "将当前选定的消息移至{0}"
+msgid "Item Data"
+msgstr ""
 
-msgid "Move to {0}"
-msgstr "移至{0}"
+msgid "Mobile Device Manager"
+msgstr ""
 
-msgid "Move current message to {0}"
-msgstr "将当前消息移至{0}"
+msgid "Wiping device"
+msgstr ""
 
-msgid "Personal Inbox Manager"
-msgstr "个人收件箱管理系统"
+msgid "Password incorrect"
+msgstr ""
 
-msgid "Personal Inbox Management Settings"
-msgstr "个人收件箱管理设置"
+msgid "Full resync in progress"
+msgstr ""
 
-msgid "Select another folder"
-msgstr "选择另一个文件夹"
+msgid "Username or password incorrect"
+msgstr ""
 
-msgid "E-mails are moved to {0}"
-msgstr "电子邮件已移至{0}"
+msgid "Not Applicable"
+msgstr ""
+
+msgid "Wipe Pending"
+msgstr ""
+
+msgid "Wipe Requested"
+msgstr ""
+
+msgid "Wipe Executed"
+msgstr ""
+
+msgid "Not Available"
+msgstr ""
+
+msgid "Device"
+msgstr ""
+
+msgid "Operating System"
+msgstr ""
+
+msgid "ID"
+msgstr ""
+
+msgid "User Agent"
+msgstr ""
+
+msgid "MDM Plugin"
+msgstr ""
+
+msgid "Active Sync Version"
+msgstr ""
+
+msgid "grommunio-sync Version"
+msgstr ""
+
+msgid "Policy name"
+msgstr ""
+
+msgid "Outlook Extension"
+msgstr ""
+
+msgid "Build"
+msgstr ""
+
+msgid "Last updated"
+msgstr ""
+
+msgid "d F Y, H:i"
+msgstr ""
+
+msgid "Connected since"
+msgstr ""
+
+msgid "d F Y"
+msgstr ""
+
+msgid "Synchronize"
+msgstr ""
+
+msgid "Manage Shared Folders"
+msgstr ""
+
+msgid ""
+"Select folders to sync to your device from the list below. To add additional "
+"mailboxes to the list, open them in WebApp first."
+msgstr ""
+
+msgid "grommunio-sync"
+msgstr ""
+
+msgid "Mobile device management"
+msgstr ""
+
+msgid "Mobile Devices"
+msgstr ""
+
+msgid ""
+"Unable to connect to the grommunio-sync server. Click {0} to enter your "
+"credentials"
+msgstr ""
+
+msgid "Devices"
+msgstr ""
+
+msgid "No devices connected to your account"
+msgstr ""
+
+msgid "Last Update"
+msgstr ""
+
+msgid "Device ID"
+msgstr ""
+
+msgid "Device OS"
+msgstr ""
+
+msgid "Device Info"
+msgstr ""
+
+msgid "First Sync time"
+msgstr ""
+
+msgid "Full resync"
+msgstr ""
+
+msgid "Remove device"
+msgstr ""
+
+msgid "Please enter your username and password"
+msgstr ""
+
+msgid "Password"
+msgstr ""
+
+msgid "Username"
+msgstr ""
+
+msgid ""
+"Do you really want to wipe your device?\n"
+" Enter your password to confirm."
+msgstr ""
+
+msgid "Add meeting"
+msgstr ""
+
+msgid "Room name:"
+msgstr ""
+
+msgid "Room URL:"
+msgstr ""
+
+msgid "Shift-click for advanced settings"
+msgstr ""
+
+msgid "Join webmeeting"
+msgstr ""
+
+msgid "Open meeting in:"
+msgstr ""
+
+msgid "Web tab"
+msgstr ""
+
+msgid "Hide the button in the main toolbar"
+msgstr ""
+
+msgid "Add the subject to the room name"
+msgstr ""
+
+msgid "Add the organizer name to the room name"
+msgstr ""
+
+msgid "Add the URL to the meeting location rather than overwriting it"
+msgstr ""
+
+msgid ""
+"Prevent the URL in the meeting location from being overridden automatically "
+"(ex: when adding a meetingroom)"
+msgstr ""
+
+msgid "If you have problems when creating meetings, try disabling this setting"
+msgstr ""
+
+msgid "Add an invitation to the appointment description"
+msgstr ""
+
+msgid "Invitation text"
+msgstr ""
+
+msgid ""
+"must contain %url% as a placeholder for the meeting link, empty the textbox "
+"to reset to default"
+msgstr ""
+
+msgid "An unknown error occurred while changing password."
+msgstr ""
+
+msgid "Password is changed successfully."
+msgstr ""
+
+msgid "Success"
+msgstr ""
+
+msgid "Change Password"
+msgstr ""
+
+msgid "Current password"
+msgstr ""
+
+msgid "New password"
+msgstr ""
+
+msgid "Retype new password"
+msgstr ""
+
+msgid "New passwords do not match."
+msgstr ""
+
+msgid "Current password is empty."
+msgstr ""
+
+msgid "New password is empty."
+msgstr ""
+
+msgid "One or more fields does contain errors."
+msgstr ""
+
+msgid ""
+"Password is weak. Password should contain capital, non-capital letters and "
+"numbers. Password should have 8 to 20 characters."
+msgstr ""
 
 msgid "Charm pink"
 msgstr "魅力粉"
@@ -5528,8 +5782,8 @@ msgstr "薄荷色"
 msgid "Pearl aqua"
 msgstr "水凝珍珠白"
 
-msgid "grommunio blue"
-msgstr "grommunio蓝"
+msgid "Grommunio blue"
+msgstr ""
 
 msgid "Baby blue"
 msgstr "淡蓝色"
@@ -5593,44 +5847,14 @@ msgid ""
 "Please contact your system administrator."
 msgstr "抱歉，此用户账户无法访问grommunio Web。请与您的系统管理员联系。"
 
-msgid "Can't add data to bus, same action type is present in bus"
-msgstr "无法将数据添加至总线，总线中存在相同操作类型"
-
-msgid "Response data requested from bus but it doesn't have any data."
-msgstr "从总线请求了响应数据，但无任何数据。"
+msgid "Mobile device management plugin"
+msgstr ""
 
 #, php-format
-msgid "Unknown module '%s' with id '%s'"
-msgstr "包含ID为‘%s’的未知模块‘%s’"
-
 msgid ""
-"We encountered a problem. This might be caused by upgrading a plugin. Please "
-"re-login to resolve the issue."
-msgstr "我们遇到了一个问题。这可能是由升级插件引起的。请重新登录以解决此问题。"
-
-#, php-format
-msgid "Unknown notifier '%s'"
-msgstr "未知的通知人‘%s’"
-
-msgid "An unexpected error has occurred"
-msgstr "发生了意外错误。"
-
-msgid "To-Do List"
-msgstr "待办事项列表"
-
-#. TRANSLATORS: This indicates that the opened folder belongs to a particular user,
-#. * for example: 'Calendar of Holiday', in this case %1$s is 'Calendar' (the foldername)
-#. * and %2$s is 'Holiday' (the username).
-#.
-#, php-format
-msgid "%1$s of %2$s"
-msgstr "%1$s / %2$s"
-
-msgid "Error retrieving existing settings"
-msgstr "检索现有设置时出错"
-
-msgid "Error retrieving existing persistent settings"
-msgstr "检索现有的持久设置时出错"
+"Unexpected error occurred. Please contact your system administrator. Error "
+"code: %s"
+msgstr ""
 
 msgid "Logon failed. Please verify your credentials and try again."
 msgstr "登录失败。请验证您的凭证并重试。"
@@ -5645,73 +5869,6 @@ msgstr "由于会话重复，登录功能无法正常运行。该问题已自动
 
 msgid "Unknown MAPI Error"
 msgstr "未知的应用程序编程接口（MAPI）错误"
-
-msgid "This external link will open in a new window"
-msgstr "此外部链接将在新窗口中打开"
-
-msgid "Destination folder not found."
-msgstr "找不到目标文件夹。"
-
-msgid "Eml is corrupted"
-msgstr "EML已损坏"
-
-# 94%
-msgid "The eml Attachment is not imported successfully"
-msgstr "未成功导入eml附件"
-
-# 94%
-msgid "The vcf attachment is not imported successfully"
-msgstr "未成功导入vcf附件"
-
-#, php-format
-msgid "Unable to import '%s' to '%s'. "
-msgstr "无法将‘%s’导入至‘%s’。 "
-
-msgid "There is no appointment found in this file."
-msgstr "未能在此文件中找到任何预约。"
-
-msgid "The file is corrupt."
-msgstr "该文件已损坏。"
-
-msgid "The file is invalid."
-msgstr "该文件无效。"
-
-#, php-format
-msgid "Unable to import '%s'. "
-msgstr "无法导入‘%s’。 "
-
-msgid "Please contact your system administrator if the problem persists."
-msgstr "如果该问题仍然存在，请联系您的系统管理员。"
-
-# 94%
-msgid "Attachment is not imported successfully"
-msgstr "未能成功导入附件"
-
-# 81%
-msgid "Embedded attachment not found."
-msgstr "未找到嵌入附件。"
-
-# 94%
-msgid "ZIP is not created successfully"
-msgstr "未能成功创建ZIP"
-
-msgid "Attachments can not be downloaded"
-msgstr "无法下载附件"
-
-msgid "Could not find attachment."
-msgstr "未能找到附件。"
-
-msgid "Operation failed"
-msgstr "操作失败"
-
-msgid "Sticky Note"
-msgstr "便签"
-
-msgid "Task Request"
-msgstr "任务请求"
-
-msgid "Could not find message, either it has been moved or deleted."
-msgstr "找不到消息，其已被移动或删除。"
 
 msgid "Request is not available."
 msgstr "请求不可用。"
@@ -5740,9 +5897,6 @@ msgstr "操作失败：服务器无足够内存。"
 #, php-format
 msgid "Unknown MAPI Error: %s"
 msgstr "未知的邮件应用程序编程接口（MAPI）错误：%s"
-
-msgid "Action is not performed correctly."
-msgstr "操作不正确。"
 
 msgid "Tentatively accepted"
 msgstr "已暂时接受"
@@ -5801,211 +5955,6 @@ msgstr "每个%s有效的%s均发生，直至%s。"
 #, php-format
 msgid "Occurs every %s %s effective %s until %s."
 msgstr "每个%s%s有效的%s均发生，直至%s。"
-
-msgid "Task Accepted:"
-msgstr "任务已接受："
-
-msgid "Task Declined:"
-msgstr "任务已被拒："
-
-msgid "Task Updated:"
-msgstr "任务已更新："
-
-msgid "Task Completed:"
-msgstr "任务已完成："
-
-msgid "Contact not found"
-msgstr "找不到联系人"
-
-msgid ""
-"Contact information could not be displayed because the server had trouble "
-"retrieving the information."
-msgstr "由于服务器无法检索联系人信息，因此无法显示联系人信息。"
-
-msgid "Could not handle this type of object."
-msgstr "无法处理此类对象。"
-
-msgid "Could not open this object."
-msgstr "无法打开此对象。"
-
-msgid "Could not open occurrence."
-msgstr "无法打开事件。"
-
-msgid "Could not open occurrence, specific occurrence is probably deleted."
-msgstr "无法打开事件，特定事件可能已删除。"
-
-msgid "a meeting request"
-msgstr "一个会议请求"
-
-msgid "an appointment"
-msgstr "一项预约"
-
-msgid "You have insufficient privileges to move "
-msgstr "您无足够的权限移动 "
-
-msgid ""
-"Cannot set a reminder to appear before the previous occurrence. Reset "
-"reminder to save the change"
-msgstr "无法设置提醒在上一次事件之前出现。重置提醒以保存更改"
-
-msgid "Two occurrences cannot occur on the same day"
-msgstr "不能在同一天发生两次事件"
-
-#, php-format
-msgid ""
-"You marked '%s' as a resource. You cannot schedule a meeting with '%s' "
-"because you do not have the appropriate permissions for that account. Either "
-"enter the name as a required or optional attendee or talk to your "
-"administrator about giving you permission to schedule '%s'."
-msgstr ""
-
-#, php-format
-msgid ""
-"'%s' has declined your meeting because '%s' does not automatically accept "
-"meeting requests."
-msgstr "‘%s’已拒绝您的会议，因为‘%s’未自动接受会议请求。"
-
-#, php-format
-msgid ""
-"'%s' has declined your meeting because it is recurring. You must book each "
-"meeting separately with this resource."
-msgstr ""
-"‘%s’已拒绝您的会议，因为该会议已重复。您必须利用该资源单独预订每次会议。"
-
-#, php-format
-msgid ""
-"'%s' is already booked for this specified time. You must use another time or "
-"find another resource."
-msgstr "已预订了该指定时间的‘%s’。您必须改时间或查找另一种资源。"
-
-msgid "Meeting was not scheduled."
-msgstr "尚未安排会议。"
-
-msgid "Meeting could not be sent."
-msgstr "无法发送会议。"
-
-msgid "Meeting could not be saved."
-msgstr "无法保存会议。"
-
-msgid "Private Appointment"
-msgstr "私人预约"
-
-#, php-format
-msgid "%s's Birthday"
-msgstr "%s的生日"
-
-#, php-format
-msgid "%s's Anniversary"
-msgstr "%s的周年纪念日"
-
-msgid "Unknown user/group"
-msgstr "未知的用户/群组"
-
-msgid "Could not save delegate information."
-msgstr "无法保存代表信息。"
-
-msgid "Could not delete delegate."
-msgstr "无法删除代表。"
-
-msgid "Can not get list of delegates."
-msgstr "无法获取代表列表。"
-
-msgid "Could not load the hierarchy."
-msgstr "无法加载层次结构。"
-
-msgid "Could not load folder properties."
-msgstr "无法加载文件夹属性。"
-
-msgid "Could not remove folder from favorites."
-msgstr "无法从收藏夹中删除文件夹。"
-
-msgid "You have insufficient privileges to delete folder."
-msgstr "您无足够的权限删除文件夹。"
-
-msgid "Could not delete folder."
-msgstr "无法删除文件夹。"
-
-msgid "You have insufficient privileges to copy folder."
-msgstr "您无足够的权限复制文件夹。"
-
-msgid "Could not copy folder."
-msgstr "无法复制文件夹。"
-
-msgid "You have insufficient privileges to move this folder."
-msgstr "您无足够的权限移动此文件夹。"
-
-msgid "Could not move folder."
-msgstr "无法移动文件夹。"
-
-msgid "You have insufficient privileges to delete items."
-msgstr "您无足够的权限删除项目。"
-
-msgid "Could not empty folder."
-msgstr "无法清空文件夹。"
-
-msgid "Could not perform action correctly."
-msgstr "无法正确执行操作。"
-
-msgid ""
-"A favorite folder with this name already exists, please use another name."
-msgstr "具有此名称的收藏夹已存在，请使用另一个名称。"
-
-msgid "Could not add folder to favorites."
-msgstr "无法将文件夹添加至收藏夹。"
-
-msgid "You have insufficient privileges to set permissions for this folder."
-msgstr "您无足够的权限设置此文件夹的权限。"
-
-msgid "Could not set folder permissions."
-msgstr "无法设置文件夹权限。"
-
-msgid "You have insufficient privileges to rename this folder."
-msgstr "您无足够的权限重命名此文件夹。"
-
-msgid "A folder with this name already exists. Use another name."
-msgstr "具有该名称的文件夹已存在。请使用另一个名称。"
-
-msgid "Could not rename folder."
-msgstr "无法重命名文件夹。"
-
-msgid "You have insufficient privileges to create this folder."
-msgstr "您无足够的权限创建此文件夹。"
-
-msgid "Could not create folder."
-msgstr "无法创建文件夹。"
-
-msgid "Could not close shared folder."
-msgstr "无法关闭共享文件夹。"
-
-msgid "User could not be resolved."
-msgstr "无法解析用户。"
-
-#, php-format
-msgid ""
-"You have insufficient privileges to open this %1$s folder. The folder owner "
-"can set these using the 'permissions'-tab of the folder properties (right "
-"click the %1$s folder > properties > permissions)."
-msgstr ""
-"您无足够权限打开此%1$s文件夹。该文件夹所有者可使用文件夹属性的“权限”选项卡进"
-"行设置（右键单击%1$s文件夹>属性>权限）。"
-
-# 85%
-msgid "unknown"
-msgstr "未知"
-
-msgid "Could not move folder"
-msgstr "无法移动文件夹"
-
-msgid "Could not copy folder"
-msgstr "无法复制文件夹"
-
-msgid "You have insufficient privileges to open this message."
-msgstr "您无足够的权限打开此消息。"
-
-msgid ""
-"Could not find message, either it has been moved or deleted or you don't "
-"have access to open this message."
-msgstr "无法找到消息，其已被移动或删除，或者您无权打开此消息。"
 
 msgid "Could not open message."
 msgstr "无法打开消息。"
@@ -6085,193 +6034,33 @@ msgstr "您的消息未送达部分或全部预期收件人"
 msgid "The following recipient(s) could not be reached"
 msgstr "无法联系以下收件人"
 
-msgid "You have insufficient privileges to see the contents of this folder."
-msgstr "您无足够的权查看此文件夹的内容。"
-
-msgid "Could not load the contents of this folder."
-msgstr "无法加载此文件夹的内容。"
-
-msgid "Error in search, please try again"
-msgstr "搜索时出错，请重试"
-
-msgid "Unable to perform search query, no permissions to create search folder."
-msgstr "无法执行搜索查询，无创建搜索文件夹的权限。"
-
-msgid "Unable to perform search query, search folder not found."
-msgstr "无法执行搜索查询，未找到搜索文件夹。"
-
-msgid "Unable to perform search query, store might not support searching."
-msgstr "无法执行搜索查询，存储器可能不支持搜索。"
-
-msgid "Error in creating search folder."
-msgstr "创建搜索文件夹时出错。"
-
-msgid ""
-"You have insufficient privileges to perform search operation in this folder."
-msgstr "您无足够的权限在此文件夹中执行搜索操作。"
-
-msgid "Could not update search results."
-msgstr "无法更新搜索结果。"
-
-msgid "Could not stop search operation."
-msgstr "无法停止搜索操作。"
-
-msgid "You have insufficient privileges to save this message."
-msgstr "您无足够的权限保存此消息。"
-
-msgid "Could not save message."
-msgstr "无法保存消息。"
-
-msgid "You have insufficient privileges to delete this message."
-msgstr "您无足够的权限删除此消息。"
-
-msgid "Could not delete message."
-msgstr "无法删除消息。"
-
-msgid "You have insufficient privileges to cancel this Meeting Request."
-msgstr "您无足够的权限取消此会议请求。"
-
-msgid "Could not cancel Meeting Request."
-msgstr "无法取消会议请求。"
-
-msgid "You have insufficient privileges to decline this Meeting Request."
-msgstr "您无足够的权限拒绝此会议请求。"
-
-msgid "Could not decline Meeting Request."
-msgstr "无法拒绝会议请求。"
-
-msgid "You have insufficient privileges to accept this Meeting Request."
-msgstr "您无足够的权限接受此会议请求。"
-
-msgid "Could not accept Meeting Request."
-msgstr "无法接受会议请求。"
-
-msgid "You have insufficient privileges to cancel Meeting Request invitation."
-msgstr "您无足够的权限取消会议请求邀请。"
-
-msgid "Could not cancel Meeting Request invitations."
-msgstr "无法取消会议请求邀请。"
-
-msgid "You can not continue search operation on this folder."
-msgstr "您无法在该文件夹上继续搜索操作。"
-
-msgid "Error in search, please try again."
-msgstr "搜索时出错，请重试。"
-
-msgid "Error in distribution list expansion."
-msgstr "群发列表展开时出错。"
-
-msgid "The message store has exceeded its hard quota limit."
-msgstr "消息存储器已超出其硬配额限制。"
-
-msgid ""
-"To reduce the amount of data in this message store, select some items that "
-"you no longer need, delete them and cleanup your Deleted Items folder."
-msgstr ""
-"为减少此消息存储器中的数据量，请选择一些您不再需要的项目，将其删除并清理“已删"
-"除项目”文件夹。"
-
-msgid "The message store has exceeded its soft quota limit."
-msgstr "消息存储器已超出其软配额限制。"
-
-msgid "Could not process request data properly."
-msgstr "无法正确处理请求数据。"
-
 #, php-format
-msgid "Unknown action type specified - %s"
-msgstr "指定的未知操作类型 - %s"
-
-msgid "Cannot snooze the reminder. You may be reminded again."
-msgstr "无法暂停提醒。可能会再次提醒您。"
-
-msgid "Cannot dismiss the reminder. You may be reminded again."
-msgstr "无法取消提醒。可能会再次提醒您。"
-
-msgid "You have insufficient privileges to perform this action."
-msgstr "您无足够的权限执行此操作。"
-
-msgid "Could not resolve user."
-msgstr "无法解析用户。"
-
-msgid "Setting mail filters on the stores of other users is not allowed."
-msgstr "不允许在其他用户的存储器上设置邮件筛选器。"
-
-msgid "Untitled rule"
-msgstr "无标题规则"
-
-msgid "Could not load rules."
-msgstr "无法加载规则。"
-
-msgid "Could not save rules."
-msgstr "无法保存规则。"
-
-msgid "Task Request:"
-msgstr "任务请求："
-
-msgid "Welcome"
-msgstr "欢迎"
-
-msgid "Username"
-msgstr "用户名"
-
-msgid "Password"
-msgstr "密码"
-
-msgid "Sign in"
-msgstr "登录"
-
-msgid "Caps lock is on"
-msgstr ""
-
-# 94%
-msgid "File is not imported successfully"
-msgstr "未能成功导入文件"
+msgid "Unable to import '%s' to '%s'. "
+msgstr "无法将‘%s’导入至‘%s’。 "
 
 msgid "There is no contact found in this file."
 msgstr "未能在此文件中找到任何联系人。"
+
+msgid "The file is corrupt."
+msgstr "该文件已损坏。"
+
+msgid "The file is invalid."
+msgstr "该文件无效。"
+
+#, php-format
+msgid "Unable to import '%s'. "
+msgstr "无法导入‘%s’。 "
+
+msgid "Please contact your system administrator if the problem persists."
+msgstr "如果该问题仍然存在，请联系您的系统管理员。"
 
 msgid ""
 "grommunio Web does not support importing multiple VCF with this version."
 msgstr "grommunio Web不支持使用此版本导入多个VCF。"
 
+msgid "There is no appointment found in this file."
+msgstr "未能在此文件中找到任何预约。"
+
 msgid ""
 "grommunio Web does not support importing multiple ICS with this version."
 msgstr ""
-
-#, php-format
-msgid "Unable to import '%s'"
-msgstr "无法导入‘%s’"
-
-msgid "The EML is not valid"
-msgstr "此EML无效"
-
-msgid "GB"
-msgstr "GB"
-
-msgid "MB"
-msgstr "MB"
-
-msgid "KB"
-msgstr "KB"
-
-msgid "B"
-msgstr "B"
-
-msgid "The maximum stack depth has been exceeded"
-msgstr "已超过最大堆栈深度"
-
-msgid "Control character error, possibly incorrectly encoded"
-msgstr "控制字符错误，编码可能错误"
-
-msgid "Invalid or malformed JSON"
-msgstr "JSON无效或格式错误"
-
-msgid "Syntax error"
-msgstr "语法错误"
-
-msgid "Malformed UTF-8 characters, possibly incorrectly encoded"
-msgstr "格式错误的UTF-8字符，编码可能错误"
-
-#, php-format
-msgid "JSON Error: - %s"
-msgstr "JSON错误：- %s"

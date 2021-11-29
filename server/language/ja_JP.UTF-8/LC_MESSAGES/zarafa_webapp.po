@@ -1668,6 +1668,25 @@ msgstr ""
 msgid "Insufficient privileges"
 msgstr ""
 
+msgid ""
+"Copying this appointment will unset it as private. Are you sure you want to "
+"continue?"
+msgstr ""
+
+msgid "Private item"
+msgstr ""
+
+msgid "Copy"
+msgstr "コピー"
+
+msgid ""
+"Moving this appointment will unset it as private. Are you sure you want to "
+"continue?"
+msgstr ""
+
+msgid "Move"
+msgstr "移動"
+
 #, fuzzy
 msgid "Update recipients"
 msgstr "受信者を編集します。"
@@ -1681,9 +1700,6 @@ msgstr "変更を保存して全受信者に更新を送信する。"
 msgid "Open meeting request with changes"
 msgstr "会議の変更依頼を開く。"
 
-msgid "Copy"
-msgstr "コピー"
-
 msgid "grommunio Web"
 msgstr "grommunio Web"
 
@@ -1691,9 +1707,6 @@ msgid ""
 "Please note that any changes you make will be overwritten when this meeting "
 "request is updated by the organizer. Would you like to move this meeting?"
 msgstr ""
-
-msgid "Move"
-msgstr "移動"
 
 msgid "Don't move"
 msgstr ""
@@ -2086,13 +2099,13 @@ msgid "Import to folder"
 msgstr "フォルダを空にする"
 
 msgid ""
-"In order to use the vCard import feature, upgrade your Gromox to version 8.3 "
+"In order to use the vCard import feature, upgrade your Gromox to version 0 "
 "or higher."
 msgstr ""
 
 msgid ""
 "In order to use the ICS / VCS import feature, upgrade your Gromox to version "
-"8.3 or higher."
+"0 or higher."
 msgstr ""
 
 msgid "Attachment error"
@@ -2470,6 +2483,18 @@ msgstr ""
 msgid "Add/Edit Cc recipient"
 msgstr "受信者を編集します。"
 
+msgid "Disable for new mail"
+msgstr ""
+
+msgid "Enable for new mail"
+msgstr ""
+
+msgid "Disable for replies"
+msgstr ""
+
+msgid "Enable for replies"
+msgstr ""
+
 #, fuzzy
 msgid "No Cc recipient configured"
 msgstr "署名が設定されていません。"
@@ -2504,8 +2529,8 @@ msgstr ""
 msgid "Help"
 msgstr "ヘルプ"
 
-msgid "grommunio Web Manual"
-msgstr "grommunio Webマニュアル"
+msgid "Web Manual"
+msgstr ""
 
 msgid "Item data"
 msgstr ""
@@ -2518,6 +2543,9 @@ msgstr ""
 
 msgid "ZDeveloper"
 msgstr "ZDeveloper"
+
+msgid "grommunio Web print"
+msgstr ""
 
 # 91%
 msgid "Display name"
@@ -3138,14 +3166,8 @@ msgstr ""
 msgid "d-m-Y"
 msgstr "Y/m/d"
 
-msgid "Original message"
-msgstr "オリジナル本文"
-
 msgid "l d/m/Y"
 msgstr "Y/m/d l"
-
-msgid "Sent Items"
-msgstr ""
 
 msgid "l d/m/Y {0}"
 msgstr ""
@@ -3203,12 +3225,9 @@ msgstr "{0}として扱う"
 
 msgctxt "mail.previewpanel"
 msgid ""
-"Click here to download pictures. To help protect your privacy, grommunio Web "
+"Click here to download pictures. To help protect your privacy, WebApp "
 "prevented automatic download of some pictures in this message."
 msgstr ""
-"写真をダウンロードするにはここをクリックして下さい。また、プライバシーを保護"
-"するために、grommunio Webではこのメッセージにより写真の自動ダウンロードをさせ"
-"ないようにしています。"
 
 msgctxt "mail.previewpanel"
 msgid ""
@@ -4147,7 +4166,7 @@ msgid "Unsaved changes"
 msgstr ""
 
 msgid "Welcome to grommunio Web"
-msgstr "grommunio Webへようこそ"
+msgstr ""
 
 msgid "This is the first time you are using grommunio Web. "
 msgstr ""
@@ -4245,19 +4264,27 @@ msgid "There is {0} unread message in the folder {1}"
 msgid_plural "There are {0} unread messages in the folder {1}"
 msgstr[0] "{0}件の未読メッセージが{1}フォルダにあります。"
 
-msgid "License error"
+msgid "Publishing Editor"
 msgstr ""
 
-msgid ""
-"The installed license key(s) have expired or are being over used. Please "
-"contact your system administrator for further information."
+#, fuzzy
+msgid "Editor"
+msgstr "編集"
+
+msgid "Publishing Author"
 msgstr ""
 
-msgid "Full control"
-msgstr "フルコントロール"
+msgid "Author"
+msgstr ""
 
-msgid "No rights"
-msgstr "権限がありません"
+msgid "Nonediting Author"
+msgstr ""
+
+msgid "Reviewer"
+msgstr ""
+
+msgid "Contributor"
+msgstr ""
 
 msgid "Unable to import:"
 msgstr ""
@@ -4309,6 +4336,12 @@ msgstr "タイプ"
 msgid "Description"
 msgstr "説明"
 
+msgid "EntryID"
+msgstr ""
+
+msgid "Parent EID"
+msgstr ""
+
 msgid "Folder size"
 msgstr "フォルダサイズ"
 
@@ -4324,23 +4357,29 @@ msgstr "権限がありません。"
 msgid "Profile"
 msgstr "プロファイル"
 
+msgid "Read"
+msgstr ""
+
+msgid "Full Details"
+msgstr ""
+
+msgid "Write"
+msgstr ""
+
 msgid "Create items"
 msgstr "アイテムを作成する。"
-
-msgid "Read items"
-msgstr "アイテムを読む"
 
 msgid "Create subfolders"
 msgstr "サブフォルダを作成する。"
 
-msgid "Folder permissions"
-msgstr "フォルダ アクセス権"
+msgid "Edit own"
+msgstr ""
 
-msgid "Folder visible"
-msgstr "フォルダ表示"
+msgid "Edit all"
+msgstr ""
 
-msgid "Edit items"
-msgstr "項目編集"
+msgid "Delete items"
+msgstr "アイテム削除"
 
 msgid "Own"
 msgstr "自分の"
@@ -4348,8 +4387,14 @@ msgstr "自分の"
 msgid "All"
 msgstr "全て"
 
-msgid "Delete items"
-msgstr "アイテム削除"
+msgid "Folder owner"
+msgstr ""
+
+msgid "Folder contact"
+msgstr ""
+
+msgid "Folder visible"
+msgstr "フォルダ表示"
 
 msgid "User already exists"
 msgstr "ユーザーは既に登録されています。"
@@ -4567,6 +4612,9 @@ msgstr "送信"
 msgid "Red"
 msgstr "赤"
 
+msgid "Original message"
+msgstr "オリジナル本文"
+
 msgid "Schedule mail to be sent out"
 msgstr "送信される予定されたメール"
 
@@ -4683,9 +4731,6 @@ msgstr "その他オプション"
 msgid "Internet Headers"
 msgstr "インターネットヘッダー"
 
-msgid "EntryID"
-msgstr ""
-
 msgid "Message Settings"
 msgstr "メッセージ設定"
 
@@ -4727,9 +4772,6 @@ msgid "Toggle read/unread"
 msgstr ""
 
 msgid "Toggle red/complete flag"
-msgstr ""
-
-msgid "Close a conversation"
 msgstr ""
 
 # 82%
@@ -4780,10 +4822,6 @@ msgstr "メール設定"
 
 msgid "Compose mail in this format"
 msgstr "この形式でメールを構成する。"
-
-#, fuzzy
-msgid "Editor"
-msgstr "編集"
 
 msgid "Default font"
 msgstr "デフォルトフォント"
@@ -4873,15 +4911,24 @@ msgstr "次の時間より外出中"
 msgid "I will be back on"
 msgstr ""
 
-msgid "I am out of office"
-msgstr ""
-
 #, fuzzy
 msgid "Automatically reply once per day, per sender with the following text"
 msgstr "送信者へ一度だけ下記のテキストを自動的に送信します。"
 
-msgid "User is currently out of office."
-msgstr "ユーザーは現在外出中です。"
+msgid "Inside My Organization"
+msgstr ""
+
+msgid "Outside My Organization"
+msgstr ""
+
+msgid "Auto-reply to people outside my organization"
+msgstr ""
+
+msgid "My contacts only"
+msgstr ""
+
+msgid "Anyone outside my organization"
+msgstr ""
 
 msgid ""
 "The time you entered is before the out of office date. Please reschedule."
@@ -5081,7 +5128,10 @@ msgstr "設定"
 msgid "Basic"
 msgstr ""
 
-msgid "Account information"
+msgid "Account information - {0}"
+msgstr ""
+
+msgid "Profile Picture"
 msgstr ""
 
 msgid "Language"
@@ -5235,8 +5285,8 @@ msgstr ""
 msgid "All keyboard shortcuts on"
 msgstr ""
 
-msgid "This change requires a reload of the grommunio Web"
-msgstr "この変更を反映するにはgrommunio Webの再表示が必要となります。"
+msgid "This change requires a reload of grommunio Web"
+msgstr ""
 
 msgid "Plugins"
 msgstr "プラグイン"
@@ -5730,17 +5780,11 @@ msgstr "接続が回復しました。"
 msgid "Connection with server has been restored"
 msgstr "サーバーとの接続が回復しました。"
 
-msgid "Please contact your administrator if this problem persists."
-msgstr ""
-
 #. TRANSLATORS: Example: HTTP 404
-msgid "Error HTTP {0}"
+msgid "HTTP {0}"
 msgstr ""
 
-msgid "HTTP status text is: "
-msgstr ""
-
-msgid "Invalid data received from the server. HTTP status text is: "
+msgid "Invalid data received from the server"
 msgstr ""
 
 msgid "Missing store"
@@ -5819,45 +5863,254 @@ msgstr "Loading model from server failed"
 msgid "Out of Office is currently activated. Would you like to turn it off?"
 msgstr "離籍モードです。解除しますか？"
 
-msgid "Out of office off"
-msgstr "離籍モード解除"
+msgid "Open Chat at start"
+msgstr ""
 
-msgid "Out of office has been turned off"
-msgstr "離籍モードが解除されました。"
+msgid "Desktop Notifications Plugin"
+msgstr ""
 
-msgid "Send Fax"
-msgstr "Fax送信"
+msgid "Desktop Notifications"
+msgstr ""
 
-msgid "Contact Fax"
-msgstr "Fax"
+msgid "{A} Autohide desktop notification after second(s) {B}"
+msgstr ""
 
-msgid "Google Maps"
-msgstr "Googleマップ"
+msgid "Intranet"
+msgstr ""
 
-#. TRANSLATORS: The map of earth
-msgid "Map"
-msgstr "地図"
+msgid "Email Details"
+msgstr ""
 
-msgid "Move currently selected message(s) to {0}"
-msgstr "現在選択しているメッセージを{0}に移動する。"
+msgid "Item Data"
+msgstr ""
 
-msgid "Move to {0}"
-msgstr "{0}に移動する"
+msgid "Mobile Device Manager"
+msgstr ""
 
-msgid "Move current message to {0}"
-msgstr "現在のメッセージを{0}に移動する"
+msgid "Wiping device"
+msgstr ""
 
-msgid "Personal Inbox Manager"
-msgstr "自分の受信箱管理"
+msgid "Password incorrect"
+msgstr ""
 
-msgid "Personal Inbox Management Settings"
-msgstr "個人受信箱の設定"
+msgid "Full resync in progress"
+msgstr ""
 
-msgid "Select another folder"
-msgstr "他のフォルダを選択"
+msgid "Username or password incorrect"
+msgstr ""
 
-msgid "E-mails are moved to {0}"
-msgstr "メールを{0}に移動しました。"
+msgid "Not Applicable"
+msgstr ""
+
+msgid "Wipe Pending"
+msgstr ""
+
+msgid "Wipe Requested"
+msgstr ""
+
+msgid "Wipe Executed"
+msgstr ""
+
+msgid "Not Available"
+msgstr ""
+
+msgid "Device"
+msgstr ""
+
+msgid "Operating System"
+msgstr ""
+
+msgid "ID"
+msgstr ""
+
+msgid "User Agent"
+msgstr ""
+
+msgid "MDM Plugin"
+msgstr ""
+
+msgid "Active Sync Version"
+msgstr ""
+
+msgid "grommunio-sync Version"
+msgstr ""
+
+msgid "Policy name"
+msgstr ""
+
+msgid "Outlook Extension"
+msgstr ""
+
+msgid "Build"
+msgstr ""
+
+msgid "Last updated"
+msgstr ""
+
+msgid "d F Y, H:i"
+msgstr ""
+
+msgid "Connected since"
+msgstr ""
+
+msgid "d F Y"
+msgstr ""
+
+msgid "Synchronize"
+msgstr ""
+
+msgid "Manage Shared Folders"
+msgstr ""
+
+msgid ""
+"Select folders to sync to your device from the list below. To add additional "
+"mailboxes to the list, open them in WebApp first."
+msgstr ""
+
+msgid "grommunio-sync"
+msgstr ""
+
+msgid "Mobile device management"
+msgstr ""
+
+msgid "Mobile Devices"
+msgstr ""
+
+msgid ""
+"Unable to connect to the grommunio-sync server. Click {0} to enter your "
+"credentials"
+msgstr ""
+
+msgid "Devices"
+msgstr ""
+
+msgid "No devices connected to your account"
+msgstr ""
+
+msgid "Last Update"
+msgstr ""
+
+msgid "Device ID"
+msgstr ""
+
+msgid "Device OS"
+msgstr ""
+
+msgid "Device Info"
+msgstr ""
+
+msgid "First Sync time"
+msgstr ""
+
+msgid "Full resync"
+msgstr ""
+
+msgid "Remove device"
+msgstr ""
+
+msgid "Please enter your username and password"
+msgstr ""
+
+msgid "Password"
+msgstr ""
+
+msgid "Username"
+msgstr ""
+
+msgid ""
+"Do you really want to wipe your device?\n"
+" Enter your password to confirm."
+msgstr ""
+
+msgid "Add meeting"
+msgstr ""
+
+msgid "Room name:"
+msgstr ""
+
+msgid "Room URL:"
+msgstr ""
+
+msgid "Shift-click for advanced settings"
+msgstr ""
+
+msgid "Join webmeeting"
+msgstr ""
+
+msgid "Open meeting in:"
+msgstr ""
+
+msgid "Web tab"
+msgstr ""
+
+msgid "Hide the button in the main toolbar"
+msgstr ""
+
+msgid "Add the subject to the room name"
+msgstr ""
+
+msgid "Add the organizer name to the room name"
+msgstr ""
+
+msgid "Add the URL to the meeting location rather than overwriting it"
+msgstr ""
+
+msgid ""
+"Prevent the URL in the meeting location from being overridden automatically "
+"(ex: when adding a meetingroom)"
+msgstr ""
+
+msgid "If you have problems when creating meetings, try disabling this setting"
+msgstr ""
+
+msgid "Add an invitation to the appointment description"
+msgstr ""
+
+msgid "Invitation text"
+msgstr ""
+
+msgid ""
+"must contain %url% as a placeholder for the meeting link, empty the textbox "
+"to reset to default"
+msgstr ""
+
+msgid "An unknown error occurred while changing password."
+msgstr ""
+
+msgid "Password is changed successfully."
+msgstr ""
+
+msgid "Success"
+msgstr ""
+
+msgid "Change Password"
+msgstr ""
+
+msgid "Current password"
+msgstr ""
+
+msgid "New password"
+msgstr ""
+
+msgid "Retype new password"
+msgstr ""
+
+msgid "New passwords do not match."
+msgstr ""
+
+msgid "Current password is empty."
+msgstr ""
+
+msgid "New password is empty."
+msgstr ""
+
+msgid "One or more fields does contain errors."
+msgstr ""
+
+msgid ""
+"Password is weak. Password should contain capital, non-capital letters and "
+"numbers. Password should have 8 to 20 characters."
+msgstr ""
 
 msgid "Charm pink"
 msgstr ""
@@ -5880,7 +6133,7 @@ msgstr ""
 msgid "Pearl aqua"
 msgstr ""
 
-msgid "grommunio blue"
+msgid "Grommunio blue"
 msgstr ""
 
 msgid "Baby blue"
@@ -5945,45 +6198,13 @@ msgid ""
 "Please contact your system administrator."
 msgstr ""
 
-msgid "Can't add data to bus, same action type is present in bus"
-msgstr "Can't add data to bus, same action type is present in bus"
-
-msgid "Response data requested from bus but it doesn't have any data."
+msgid "Mobile device management plugin"
 msgstr ""
-"データが含まれていないため、バスから要求されたデータを返すことができません。"
 
 #, php-format
-msgid "Unknown module '%s' with id '%s'"
-msgstr "Id '%s'の不明なモジュール'%s'"
-
 msgid ""
-"We encountered a problem. This might be caused by upgrading a plugin. Please "
-"re-login to resolve the issue."
-msgstr ""
-
-#, php-format
-msgid "Unknown notifier '%s'"
-msgstr "不明な通知'%s'"
-
-msgid "An unexpected error has occurred"
-msgstr "予期しないエラーが発生しました。"
-
-#, fuzzy
-msgid "To-Do List"
-msgstr "電話帳"
-
-#. TRANSLATORS: This indicates that the opened folder belongs to a particular user,
-#. * for example: 'Calendar of Holiday', in this case %1$s is 'Calendar' (the foldername)
-#. * and %2$s is 'Holiday' (the username).
-#.
-#, php-format
-msgid "%1$s of %2$s"
-msgstr "%1$s の %2$s　"
-
-msgid "Error retrieving existing settings"
-msgstr "既存の設定を取得する際にエラーが発生しました。"
-
-msgid "Error retrieving existing persistent settings"
+"Unexpected error occurred. Please contact your system administrator. Error "
+"code: %s"
 msgstr ""
 
 # 93%
@@ -6005,82 +6226,6 @@ msgstr ""
 #, fuzzy
 msgid "Unknown MAPI Error"
 msgstr "不明なMAPIエラー:%s"
-
-msgid "This external link will open in a new window"
-msgstr "この外部リンクは新しいウィンドウで開きます。"
-
-#, fuzzy
-msgid "Destination folder not found."
-msgstr "移動先フォルダ"
-
-msgid "Eml is corrupted"
-msgstr ""
-
-msgid "The eml Attachment is not imported successfully"
-msgstr ""
-
-msgid "The vcf attachment is not imported successfully"
-msgstr ""
-
-#, php-format
-msgid "Unable to import '%s' to '%s'. "
-msgstr ""
-
-#, fuzzy
-msgid "There is no appointment found in this file."
-msgstr "この予定はすでに終了しました。"
-
-msgid "The file is corrupt."
-msgstr ""
-
-#, fuzzy
-msgid "The file is invalid."
-msgstr "{0}は有効な時間ではありません。"
-
-#, php-format
-msgid "Unable to import '%s'. "
-msgstr ""
-
-msgid "Please contact your system administrator if the problem persists."
-msgstr ""
-
-msgid "Attachment is not imported successfully"
-msgstr ""
-
-# 81%
-#, fuzzy
-msgid "Embedded attachment not found."
-msgstr "このコンタクトに添付ファイルを追加する"
-
-msgid "ZIP is not created successfully"
-msgstr ""
-
-msgid "Attachments can not be downloaded"
-msgstr ""
-
-# 82%
-# 100%
-#, fuzzy
-msgid "Could not find attachment."
-msgstr "添付ファイルをアップロードできませんでした。"
-
-msgid "Operation failed"
-msgstr ""
-
-# 90%
-# 100%
-#, fuzzy
-msgid "Sticky Note"
-msgstr "付箋"
-
-# 92%
-# 100%
-#, fuzzy
-msgid "Task Request"
-msgstr "タスク依頼:"
-
-msgid "Could not find message, either it has been moved or deleted."
-msgstr ""
 
 msgid "Request is not available."
 msgstr ""
@@ -6114,9 +6259,6 @@ msgstr ""
 #, php-format
 msgid "Unknown MAPI Error: %s"
 msgstr "不明なMAPIエラー:%s"
-
-msgid "Action is not performed correctly."
-msgstr "操作は正常に実行されません。"
 
 msgid "Tentatively accepted"
 msgstr "仮承諾"
@@ -6191,226 +6333,6 @@ msgstr "Occurs every %s effective %s until %s."
 #, php-format
 msgid "Occurs every %s %s effective %s until %s."
 msgstr "Occurs every %s %s effective %s until %s."
-
-msgid "Task Accepted:"
-msgstr "タスクの承諾:"
-
-msgid "Task Declined:"
-msgstr "タスクの辞退:"
-
-msgid "Task Updated:"
-msgstr "更新タスク:"
-
-msgid "Task Completed:"
-msgstr "完了したタスク:"
-
-msgid "Contact not found"
-msgstr ""
-
-msgid ""
-"Contact information could not be displayed because the server had trouble "
-"retrieving the information."
-msgstr ""
-
-msgid "Could not handle this type of object."
-msgstr "Could not handle this type of object."
-
-msgid "Could not open this object."
-msgstr "Could not open this object."
-
-msgid "Could not open occurrence."
-msgstr "定期的な予定を開くことができません。"
-
-msgid "Could not open occurrence, specific occurrence is probably deleted."
-msgstr "この定期的な予定はおそらく削除されたため開くことができません。"
-
-# 89%
-# 100%
-# 84%
-msgid "a meeting request"
-msgstr "会議出席依頼"
-
-# 93%
-# 100%
-# 80%
-msgid "an appointment"
-msgstr "予定"
-
-# 79%
-# 100%
-msgid "You have insufficient privileges to move "
-msgstr "フォルダをコピーするための十分な権限がありません。 "
-
-msgid ""
-"Cannot set a reminder to appear before the previous occurrence. Reset "
-"reminder to save the change"
-msgstr ""
-"以前の定期的な予定のリマインダを設定することはできません。変更を保存するため"
-"にリマインダをリセットして下さい。"
-
-msgid "Two occurrences cannot occur on the same day"
-msgstr "定期的な予定は同日に実施することはできません。"
-
-#, php-format
-msgid ""
-"You marked '%s' as a resource. You cannot schedule a meeting with '%s' "
-"because you do not have the appropriate permissions for that account. Either "
-"enter the name as a required or optional attendee or talk to your "
-"administrator about giving you permission to schedule '%s'."
-msgstr ""
-
-#, php-format
-msgid ""
-"'%s' has declined your meeting because '%s' does not automatically accept "
-"meeting requests."
-msgstr ""
-
-#, php-format
-msgid ""
-"'%s' has declined your meeting because it is recurring. You must book each "
-"meeting separately with this resource."
-msgstr ""
-"'%s'は会議が定期的に開催される会議のため辞退しました。このリソースに対しては"
-"別に個別に会議予約を行う必要があります。"
-
-#, php-format
-msgid ""
-"'%s' is already booked for this specified time. You must use another time or "
-"find another resource."
-msgstr ""
-"'%s'は既にこの時間に予約が入っています。他の時間にするか、他のリソースを探し"
-"て下さい。"
-
-msgid "Meeting was not scheduled."
-msgstr "会議はスケジュールされていません。"
-
-msgid "Meeting could not be sent."
-msgstr "会議出席依頼は送信できませんでした。"
-
-msgid "Meeting could not be saved."
-msgstr "会議出席依頼は保存できませんでした。"
-
-msgid "Private Appointment"
-msgstr "個人的な予定"
-
-#, php-format
-msgid "%s's Birthday"
-msgstr "%sの誕生日"
-
-#, php-format
-msgid "%s's Anniversary"
-msgstr "%sの記念日"
-
-msgid "Unknown user/group"
-msgstr "不明なユーザ/グループ"
-
-msgid "Could not save delegate information."
-msgstr "デリゲート（委譲）に関する情報を保存することができませんでした。"
-
-# 78%
-# 80%
-msgid "Could not delete delegate."
-msgstr "デリゲート（委譲）の設定を削除できません"
-
-msgid "Can not get list of delegates."
-msgstr "デリゲートの一覧を得られませんでした。"
-
-msgid "Could not load the hierarchy."
-msgstr "階層情報を読み込めませんでした。"
-
-msgid "Could not load folder properties."
-msgstr "フォルダプロパティを読み込めませんでした。"
-
-#, fuzzy
-msgid "Could not remove folder from favorites."
-msgstr "お気に入りにフォルダを追加できませんでした。"
-
-msgid "You have insufficient privileges to delete folder."
-msgstr "フォルダを削除するための十分な権限がありません。"
-
-msgid "Could not delete folder."
-msgstr "フォルダ削除ができませんでした。"
-
-msgid "You have insufficient privileges to copy folder."
-msgstr "フォルダをコピーするための十分な権限がありません。"
-
-msgid "Could not copy folder."
-msgstr "フォルダのコピーができませんでした。"
-
-msgid "You have insufficient privileges to move this folder."
-msgstr "フォルダを移動するための十分な権限がありません。"
-
-msgid "Could not move folder."
-msgstr "フォルダの移動ができませんでした。"
-
-msgid "You have insufficient privileges to delete items."
-msgstr "アイテムを削除するための十分な権限がありません。"
-
-msgid "Could not empty folder."
-msgstr "フォルダを空にできませんでした。"
-
-msgid "Could not perform action correctly."
-msgstr "正常に動作できませんでした。"
-
-msgid ""
-"A favorite folder with this name already exists, please use another name."
-msgstr ""
-
-msgid "Could not add folder to favorites."
-msgstr "お気に入りにフォルダを追加できませんでした。"
-
-msgid "You have insufficient privileges to set permissions for this folder."
-msgstr "このフォルダーに権限を設定するための十分な権限がありません。"
-
-msgid "Could not set folder permissions."
-msgstr "フォルダ権限を設定できませんでした。"
-
-msgid "You have insufficient privileges to rename this folder."
-msgstr "このフォルダ名を変更するための十分な権限がありません。"
-
-msgid "A folder with this name already exists. Use another name."
-msgstr "同じ名前のフォルダが既に存在しています。他の名前を指定して下さい。"
-
-msgid "Could not rename folder."
-msgstr "フォルダ名の変更ができませんでした。"
-
-msgid "You have insufficient privileges to create this folder."
-msgstr "フォルダを作成するための十分な権限がありません。"
-
-msgid "Could not create folder."
-msgstr "フォルダの作成ができませんでした。"
-
-msgid "Could not close shared folder."
-msgstr "共有フォルダを閉じることができませんでした。"
-
-msgid "User could not be resolved."
-msgstr "ユーザは解決できませんでした。"
-
-#, php-format
-msgid ""
-"You have insufficient privileges to open this %1$s folder. The folder owner "
-"can set these using the 'permissions'-tab of the folder properties (right "
-"click the %1$s folder > properties > permissions)."
-msgstr ""
-
-# 85%
-msgid "unknown"
-msgstr "不明な"
-
-msgid "Could not move folder"
-msgstr "フォルダの移動ができませんでした。"
-
-msgid "Could not copy folder"
-msgstr "フォルダのコピーができませんでした。"
-
-# 92%
-msgid "You have insufficient privileges to open this message."
-msgstr "このメッセージを開くための充分な権限がありません。"
-
-msgid ""
-"Could not find message, either it has been moved or deleted or you don't "
-"have access to open this message."
-msgstr ""
 
 # 78%
 msgid "Could not open message."
@@ -6507,204 +6429,35 @@ msgstr "あなたのメッセージは一部もしくは全ての受信者に届
 msgid "The following recipient(s) could not be reached"
 msgstr "次の受信者に送信することができませんでした。"
 
-msgid "You have insufficient privileges to see the contents of this folder."
-msgstr "このフォルダ内の内容を表示するための十分な権限がありません。"
-
-msgid "Could not load the contents of this folder."
-msgstr "このフォルダ内の内容を読み込めませんでした。"
-
-msgid "Error in search, please try again"
-msgstr "検索でエラーが発生しました。もう一度実行して下さい。"
-
-msgid "Unable to perform search query, no permissions to create search folder."
-msgstr ""
-
-msgid "Unable to perform search query, search folder not found."
-msgstr ""
-
-msgid "Unable to perform search query, store might not support searching."
-msgstr ""
-
-msgid "Error in creating search folder."
-msgstr ""
-
-msgid ""
-"You have insufficient privileges to perform search operation in this folder."
-msgstr "このフォルダを検索するための十分な権限がありません。"
-
-msgid "Could not update search results."
-msgstr "検索結果をアップロードできませんでした。"
-
-msgid "Could not stop search operation."
-msgstr "検索を中止することができませんでした。"
-
-msgid "You have insufficient privileges to save this message."
-msgstr "このメッセージを保存するための充分な権限がありません。"
-
-# 78%
-# 82%
-msgid "Could not save message."
-msgstr "メッセージを保存することができませんでした。"
-
-msgid "You have insufficient privileges to delete this message."
-msgstr "このメッセージを削除するための充分な権限がありません。"
-
-# 78%
-# 80%
-msgid "Could not delete message."
-msgstr "メッセージを削除することができませんでした。"
-
-msgid "You have insufficient privileges to cancel this Meeting Request."
-msgstr "この会議出席依頼をキャンセルするための充分な権限がありません。"
-
-msgid "Could not cancel Meeting Request."
-msgstr "会議出席依頼をキャンセルできませんでした。"
-
-msgid "You have insufficient privileges to decline this Meeting Request."
-msgstr "この会議出席依頼を辞退するための充分な権限がありません。"
-
-msgid "Could not decline Meeting Request."
-msgstr "会議出席依頼を辞退できませんでした。"
-
-msgid "You have insufficient privileges to accept this Meeting Request."
-msgstr "この会議出席依頼を承諾するための充分な権限がありません。"
-
-msgid "Could not accept Meeting Request."
-msgstr "会議出席依頼を承諾できませんでした。"
-
-# 77%
-msgid "You have insufficient privileges to cancel Meeting Request invitation."
-msgstr "この会議出席依頼をキャンセルするための充分な権限がありません。"
-
-msgid "Could not cancel Meeting Request invitations."
-msgstr "会議出席依頼をキャンセルできませんでした。"
-
-msgid "You can not continue search operation on this folder."
-msgstr "このフォルダを検索し続けることができません。"
-
-# 97%
-msgid "Error in search, please try again."
-msgstr "検索でエラーが発生しました。もう一度実行して下さい。"
-
-msgid "Error in distribution list expansion."
-msgstr ""
-
-msgid "The message store has exceeded its hard quota limit."
-msgstr "メッセージのデータディスク容量制限を上回りました。"
-
-msgid ""
-"To reduce the amount of data in this message store, select some items that "
-"you no longer need, delete them and cleanup your Deleted Items folder."
-msgstr ""
-"メッセージのハードリミット（容量）を減らすために、いくつかの不要なアイテムを"
-"選択し削除し、削除済みフォルダを整理して下さい。"
-
-msgid "The message store has exceeded its soft quota limit."
-msgstr "メッセージのソフトリミット（容量）を上回りました。"
-
-msgid "Could not process request data properly."
-msgstr "適切にデータを要求することができませんでした。"
-
 #, php-format
-msgid "Unknown action type specified - %s"
-msgstr "Unknown action type specified - %s"
-
-msgid "Cannot snooze the reminder. You may be reminded again."
-msgstr ""
-"リマインダーを停止できませんでした。もう一度リマインドされるかもしれません。"
-
-msgid "Cannot dismiss the reminder. You may be reminded again."
-msgstr ""
-"リマインダーを解除できませんでした。もう一度リマインドされるかもしれません。"
-
-# 80%
-msgid "You have insufficient privileges to perform this action."
-msgstr "これを実行するための十分な権限がありません。"
-
-msgid "Could not resolve user."
-msgstr "Could not resolve user."
-
-msgid "Setting mail filters on the stores of other users is not allowed."
+msgid "Unable to import '%s' to '%s'. "
 msgstr ""
 
-msgid "Untitled rule"
-msgstr "タイトルなしの仕訳ルール"
-
-msgid "Could not load rules."
-msgstr "仕訳ルールを読み込めませんでした。"
-
-msgid "Could not save rules."
-msgstr "仕訳ルールを保存できませんでした。"
-
-msgid "Task Request:"
-msgstr "タスク依頼:"
-
-msgid "Welcome"
+msgid "There is no contact found in this file."
 msgstr ""
 
-msgid "Username"
-msgstr "ユーザ名"
-
-msgid "Password"
-msgstr ""
-
-msgid "Sign in"
-msgstr ""
-
-msgid "Caps lock is on"
+msgid "The file is corrupt."
 msgstr ""
 
 #, fuzzy
-msgid "File is not imported successfully"
-msgstr "送信成功"
+msgid "The file is invalid."
+msgstr "{0}は有効な時間ではありません。"
 
-msgid "There is no contact found in this file."
+#, php-format
+msgid "Unable to import '%s'. "
+msgstr ""
+
+msgid "Please contact your system administrator if the problem persists."
 msgstr ""
 
 msgid ""
 "grommunio Web does not support importing multiple VCF with this version."
 msgstr ""
 
+#, fuzzy
+msgid "There is no appointment found in this file."
+msgstr "この予定はすでに終了しました。"
+
 msgid ""
 "grommunio Web does not support importing multiple ICS with this version."
 msgstr ""
-
-#, php-format
-msgid "Unable to import '%s'"
-msgstr ""
-
-#, fuzzy
-msgid "The EML is not valid"
-msgstr "{0}は有効な時間ではありません。"
-
-msgid "GB"
-msgstr "GB"
-
-msgid "MB"
-msgstr "MB"
-
-msgid "KB"
-msgstr "KB"
-
-msgid "B"
-msgstr "B"
-
-msgid "The maximum stack depth has been exceeded"
-msgstr "maximum stack depthが制限を超えました。"
-
-msgid "Control character error, possibly incorrectly encoded"
-msgstr "文字エラーはおそらく不正なエンコードのためですので調整して下さい。"
-
-msgid "Invalid or malformed JSON"
-msgstr "無効か不正なJSON"
-
-msgid "Syntax error"
-msgstr "構文エラー"
-
-#, fuzzy
-msgid "Malformed UTF-8 characters, possibly incorrectly encoded"
-msgstr "文字エラーはおそらく不正なエンコードのためですので調整して下さい。"
-
-#, php-format
-msgid "JSON Error: - %s"
-msgstr "JSONエラー: - %s"

@@ -1709,6 +1709,25 @@ msgstr ""
 msgid "Insufficient privileges"
 msgstr ""
 
+msgid ""
+"Copying this appointment will unset it as private. Are you sure you want to "
+"continue?"
+msgstr ""
+
+msgid "Private item"
+msgstr ""
+
+msgid "Copy"
+msgstr "Kopioi"
+
+msgid ""
+"Moving this appointment will unset it as private. Are you sure you want to "
+"continue?"
+msgstr ""
+
+msgid "Move"
+msgstr "Siirrä"
+
 #, fuzzy
 msgid "Update recipients"
 msgstr "Muokkaa vastaanottajia"
@@ -1722,9 +1741,6 @@ msgstr "Tallenna muutokset ja lähetä päivitys kaikille vastaanottajille"
 msgid "Open meeting request with changes"
 msgstr "Avaa kokouskutsu muutoksilla"
 
-msgid "Copy"
-msgstr "Kopioi"
-
 msgid "grommunio Web"
 msgstr "grommunio Web"
 
@@ -1732,9 +1748,6 @@ msgid ""
 "Please note that any changes you make will be overwritten when this meeting "
 "request is updated by the organizer. Would you like to move this meeting?"
 msgstr ""
-
-msgid "Move"
-msgstr "Siirrä"
 
 msgid "Don't move"
 msgstr ""
@@ -2128,13 +2141,13 @@ msgid "Import to folder"
 msgstr "Tyhjennä kansio"
 
 msgid ""
-"In order to use the vCard import feature, upgrade your Gromox to version 8.3 "
+"In order to use the vCard import feature, upgrade your Gromox to version 0 "
 "or higher."
 msgstr ""
 
 msgid ""
 "In order to use the ICS / VCS import feature, upgrade your Gromox to version "
-"8.3 or higher."
+"0 or higher."
 msgstr ""
 
 msgid "Attachment error"
@@ -2516,6 +2529,18 @@ msgstr ""
 msgid "Add/Edit Cc recipient"
 msgstr "Muokkaa vastaanottajia"
 
+msgid "Disable for new mail"
+msgstr ""
+
+msgid "Enable for new mail"
+msgstr ""
+
+msgid "Disable for replies"
+msgstr ""
+
+msgid "Enable for replies"
+msgstr ""
+
 #, fuzzy
 msgid "No Cc recipient configured"
 msgstr "Allekirjoituksia ei asetettu"
@@ -2550,8 +2575,8 @@ msgstr ""
 msgid "Help"
 msgstr "Ohje"
 
-msgid "grommunio Web Manual"
-msgstr "grommunio Web-opas"
+msgid "Web Manual"
+msgstr ""
 
 msgid "Item data"
 msgstr ""
@@ -2564,6 +2589,9 @@ msgstr ""
 
 msgid "ZDeveloper"
 msgstr "ZDeveloper"
+
+msgid "grommunio Web print"
+msgstr ""
 
 # 91%
 msgid "Display name"
@@ -3184,14 +3212,8 @@ msgstr ""
 msgid "d-m-Y"
 msgstr "d-m-Y"
 
-msgid "Original message"
-msgstr "Alkuperäinen viesti"
-
 msgid "l d/m/Y"
 msgstr "l d/m/Y"
-
-msgid "Sent Items"
-msgstr ""
 
 msgid "l d/m/Y {0}"
 msgstr ""
@@ -3249,11 +3271,9 @@ msgstr "Käsittele tätä ominaisuudella: {0}."
 
 msgctxt "mail.previewpanel"
 msgid ""
-"Click here to download pictures. To help protect your privacy, grommunio Web "
+"Click here to download pictures. To help protect your privacy, WebApp "
 "prevented automatic download of some pictures in this message."
 msgstr ""
-"Klikkaa tästä ladataksesi kuvia. Tietoturvan vuoksi grommunio Web esti "
-"automaattisesti joidenkin viestin kuvien latauksen."
 
 msgctxt "mail.previewpanel"
 msgid ""
@@ -4189,7 +4209,7 @@ msgid "Unsaved changes"
 msgstr ""
 
 msgid "Welcome to grommunio Web"
-msgstr "Tervetuloa käyttämään grommunion grommunio Web-sovellusta"
+msgstr ""
 
 msgid "This is the first time you are using grommunio Web. "
 msgstr ""
@@ -4289,19 +4309,27 @@ msgid_plural "There are {0} unread messages in the folder {1}"
 msgstr[0] "Kansiossa {1} on {0} lukematon viesti"
 msgstr[1] "Kansiossa {1} on {0} lukematonta viestiä"
 
-msgid "License error"
+msgid "Publishing Editor"
 msgstr ""
 
-msgid ""
-"The installed license key(s) have expired or are being over used. Please "
-"contact your system administrator for further information."
+#, fuzzy
+msgid "Editor"
+msgstr "Muokkaa"
+
+msgid "Publishing Author"
 msgstr ""
 
-msgid "Full control"
-msgstr "Täysi hallinta"
+msgid "Author"
+msgstr ""
 
-msgid "No rights"
-msgstr "Ei oikeuksia"
+msgid "Nonediting Author"
+msgstr ""
+
+msgid "Reviewer"
+msgstr ""
+
+msgid "Contributor"
+msgstr ""
 
 msgid "Unable to import:"
 msgstr ""
@@ -4353,6 +4381,12 @@ msgstr "Kirjoita"
 msgid "Description"
 msgstr "Kuvaus"
 
+msgid "EntryID"
+msgstr ""
+
+msgid "Parent EID"
+msgstr ""
+
 msgid "Folder size"
 msgstr "Kansion koko"
 
@@ -4368,23 +4402,29 @@ msgstr "Oikeuksia ei ole myönnetty"
 msgid "Profile"
 msgstr "Profiili"
 
+msgid "Read"
+msgstr ""
+
+msgid "Full Details"
+msgstr ""
+
+msgid "Write"
+msgstr ""
+
 msgid "Create items"
 msgstr "Luo kohteita"
-
-msgid "Read items"
-msgstr "Tarkastele kohteita"
 
 msgid "Create subfolders"
 msgstr "Luo alikansioita"
 
-msgid "Folder permissions"
-msgstr "Kansion oikeudet"
+msgid "Edit own"
+msgstr ""
 
-msgid "Folder visible"
-msgstr "Kansio näkyvissä"
+msgid "Edit all"
+msgstr ""
 
-msgid "Edit items"
-msgstr "Muokkaa kohteita"
+msgid "Delete items"
+msgstr "Poista kohteita"
 
 msgid "Own"
 msgstr "Omat"
@@ -4392,8 +4432,14 @@ msgstr "Omat"
 msgid "All"
 msgstr "Kaikki"
 
-msgid "Delete items"
-msgstr "Poista kohteita"
+msgid "Folder owner"
+msgstr ""
+
+msgid "Folder contact"
+msgstr ""
+
+msgid "Folder visible"
+msgstr "Kansio näkyvissä"
 
 msgid "User already exists"
 msgstr "Käyttäjä on jo olemassa"
@@ -4616,6 +4662,9 @@ msgstr "Lähetetty"
 msgid "Red"
 msgstr "Punainen"
 
+msgid "Original message"
+msgstr "Alkuperäinen viesti"
+
 msgid "Schedule mail to be sent out"
 msgstr ""
 
@@ -4730,9 +4779,6 @@ msgstr "Sekalaiset valinnat"
 msgid "Internet Headers"
 msgstr "Internet-otsikot"
 
-msgid "EntryID"
-msgstr ""
-
 msgid "Message Settings"
 msgstr "Viestiasetukset"
 
@@ -4776,9 +4822,6 @@ msgid "Toggle read/unread"
 msgstr ""
 
 msgid "Toggle red/complete flag"
-msgstr ""
-
-msgid "Close a conversation"
 msgstr ""
 
 # 82%
@@ -4829,10 +4872,6 @@ msgstr "Postin kirjoitusasetukset"
 
 msgid "Compose mail in this format"
 msgstr "Kirjoita viesti tässä muodossa"
-
-#, fuzzy
-msgid "Editor"
-msgstr "Muokkaa"
 
 msgid "Default font"
 msgstr "Oletusfontti"
@@ -4925,17 +4964,26 @@ msgstr "Olen poissa toimistolta"
 msgid "I will be back on"
 msgstr ""
 
-msgid "I am out of office"
-msgstr ""
-
 #, fuzzy
 msgid "Automatically reply once per day, per sender with the following text"
 msgstr ""
 "Automaattivastaus seuraavalla tekstillä lähetetään vain kerran kullekin "
 "lähettäjälle"
 
-msgid "User is currently out of office."
-msgstr "Käyttäjä on parhaillaan poissa toimistolta."
+msgid "Inside My Organization"
+msgstr ""
+
+msgid "Outside My Organization"
+msgstr ""
+
+msgid "Auto-reply to people outside my organization"
+msgstr ""
+
+msgid "My contacts only"
+msgstr ""
+
+msgid "Anyone outside my organization"
+msgstr ""
 
 msgid ""
 "The time you entered is before the out of office date. Please reschedule."
@@ -5135,7 +5183,10 @@ msgstr "Asetukset"
 msgid "Basic"
 msgstr ""
 
-msgid "Account information"
+msgid "Account information - {0}"
+msgstr ""
+
+msgid "Profile Picture"
 msgstr ""
 
 msgid "Language"
@@ -5289,8 +5340,8 @@ msgstr ""
 msgid "All keyboard shortcuts on"
 msgstr ""
 
-msgid "This change requires a reload of the grommunio Web"
-msgstr "Tämä muutos vaatii grommunio Web:n uudelleenlatauksen"
+msgid "This change requires a reload of grommunio Web"
+msgstr ""
 
 msgid "Plugins"
 msgstr "Pluginit"
@@ -5779,17 +5830,11 @@ msgstr "Yhteys palautettu"
 msgid "Connection with server has been restored"
 msgstr "Yhteys palvelimeen palautettu"
 
-msgid "Please contact your administrator if this problem persists."
-msgstr ""
-
 #. TRANSLATORS: Example: HTTP 404
-msgid "Error HTTP {0}"
+msgid "HTTP {0}"
 msgstr ""
 
-msgid "HTTP status text is: "
-msgstr ""
-
-msgid "Invalid data received from the server. HTTP status text is: "
+msgid "Invalid data received from the server"
 msgstr ""
 
 msgid "Missing store"
@@ -5871,45 +5916,254 @@ msgstr "Mallin lataaminen palvelimelta epäonnistui"
 msgid "Out of Office is currently activated. Would you like to turn it off?"
 msgstr "Poissaolovastaus on päällä. Haluatko kytkeä sen pois päältä?"
 
-msgid "Out of office off"
-msgstr "Poissaolovastaus ei ole päällä"
+msgid "Open Chat at start"
+msgstr ""
 
-msgid "Out of office has been turned off"
-msgstr "Poissaolovastaus on kytketty pois päältä"
+msgid "Desktop Notifications Plugin"
+msgstr ""
 
-msgid "Send Fax"
-msgstr "Lähetä faksi"
+msgid "Desktop Notifications"
+msgstr ""
 
-msgid "Contact Fax"
-msgstr "Yhteystiedon faksi"
+msgid "{A} Autohide desktop notification after second(s) {B}"
+msgstr ""
 
-msgid "Google Maps"
-msgstr "Google Maps"
+msgid "Intranet"
+msgstr ""
 
-#. TRANSLATORS: The map of earth
-msgid "Map"
-msgstr "Kartta"
+msgid "Email Details"
+msgstr ""
 
-msgid "Move currently selected message(s) to {0}"
-msgstr "Siirrä valitut viestit kohteeseen {0}"
+msgid "Item Data"
+msgstr ""
 
-msgid "Move to {0}"
-msgstr "Siirrä kohteeseen {0}"
+msgid "Mobile Device Manager"
+msgstr ""
 
-msgid "Move current message to {0}"
-msgstr "Siirrä viesti kohteeseen {0}"
+msgid "Wiping device"
+msgstr ""
 
-msgid "Personal Inbox Manager"
-msgstr "Saapuneiden viestien hallinta"
+msgid "Password incorrect"
+msgstr ""
 
-msgid "Personal Inbox Management Settings"
-msgstr "Omat Saapuneiden viestien hallinta-asetukset"
+msgid "Full resync in progress"
+msgstr ""
 
-msgid "Select another folder"
-msgstr "Valitse toinen kansio"
+msgid "Username or password incorrect"
+msgstr ""
 
-msgid "E-mails are moved to {0}"
-msgstr "Sähköpostit siirretty kohteeseen {0}"
+msgid "Not Applicable"
+msgstr ""
+
+msgid "Wipe Pending"
+msgstr ""
+
+msgid "Wipe Requested"
+msgstr ""
+
+msgid "Wipe Executed"
+msgstr ""
+
+msgid "Not Available"
+msgstr ""
+
+msgid "Device"
+msgstr ""
+
+msgid "Operating System"
+msgstr ""
+
+msgid "ID"
+msgstr ""
+
+msgid "User Agent"
+msgstr ""
+
+msgid "MDM Plugin"
+msgstr ""
+
+msgid "Active Sync Version"
+msgstr ""
+
+msgid "grommunio-sync Version"
+msgstr ""
+
+msgid "Policy name"
+msgstr ""
+
+msgid "Outlook Extension"
+msgstr ""
+
+msgid "Build"
+msgstr ""
+
+msgid "Last updated"
+msgstr ""
+
+msgid "d F Y, H:i"
+msgstr ""
+
+msgid "Connected since"
+msgstr ""
+
+msgid "d F Y"
+msgstr ""
+
+msgid "Synchronize"
+msgstr ""
+
+msgid "Manage Shared Folders"
+msgstr ""
+
+msgid ""
+"Select folders to sync to your device from the list below. To add additional "
+"mailboxes to the list, open them in WebApp first."
+msgstr ""
+
+msgid "grommunio-sync"
+msgstr ""
+
+msgid "Mobile device management"
+msgstr ""
+
+msgid "Mobile Devices"
+msgstr ""
+
+msgid ""
+"Unable to connect to the grommunio-sync server. Click {0} to enter your "
+"credentials"
+msgstr ""
+
+msgid "Devices"
+msgstr ""
+
+msgid "No devices connected to your account"
+msgstr ""
+
+msgid "Last Update"
+msgstr ""
+
+msgid "Device ID"
+msgstr ""
+
+msgid "Device OS"
+msgstr ""
+
+msgid "Device Info"
+msgstr ""
+
+msgid "First Sync time"
+msgstr ""
+
+msgid "Full resync"
+msgstr ""
+
+msgid "Remove device"
+msgstr ""
+
+msgid "Please enter your username and password"
+msgstr ""
+
+msgid "Password"
+msgstr ""
+
+msgid "Username"
+msgstr ""
+
+msgid ""
+"Do you really want to wipe your device?\n"
+" Enter your password to confirm."
+msgstr ""
+
+msgid "Add meeting"
+msgstr ""
+
+msgid "Room name:"
+msgstr ""
+
+msgid "Room URL:"
+msgstr ""
+
+msgid "Shift-click for advanced settings"
+msgstr ""
+
+msgid "Join webmeeting"
+msgstr ""
+
+msgid "Open meeting in:"
+msgstr ""
+
+msgid "Web tab"
+msgstr ""
+
+msgid "Hide the button in the main toolbar"
+msgstr ""
+
+msgid "Add the subject to the room name"
+msgstr ""
+
+msgid "Add the organizer name to the room name"
+msgstr ""
+
+msgid "Add the URL to the meeting location rather than overwriting it"
+msgstr ""
+
+msgid ""
+"Prevent the URL in the meeting location from being overridden automatically "
+"(ex: when adding a meetingroom)"
+msgstr ""
+
+msgid "If you have problems when creating meetings, try disabling this setting"
+msgstr ""
+
+msgid "Add an invitation to the appointment description"
+msgstr ""
+
+msgid "Invitation text"
+msgstr ""
+
+msgid ""
+"must contain %url% as a placeholder for the meeting link, empty the textbox "
+"to reset to default"
+msgstr ""
+
+msgid "An unknown error occurred while changing password."
+msgstr ""
+
+msgid "Password is changed successfully."
+msgstr ""
+
+msgid "Success"
+msgstr ""
+
+msgid "Change Password"
+msgstr ""
+
+msgid "Current password"
+msgstr ""
+
+msgid "New password"
+msgstr ""
+
+msgid "Retype new password"
+msgstr ""
+
+msgid "New passwords do not match."
+msgstr ""
+
+msgid "Current password is empty."
+msgstr ""
+
+msgid "New password is empty."
+msgstr ""
+
+msgid "One or more fields does contain errors."
+msgstr ""
+
+msgid ""
+"Password is weak. Password should contain capital, non-capital letters and "
+"numbers. Password should have 8 to 20 characters."
+msgstr ""
 
 msgid "Charm pink"
 msgstr ""
@@ -5932,7 +6186,7 @@ msgstr ""
 msgid "Pearl aqua"
 msgstr ""
 
-msgid "grommunio blue"
+msgid "Grommunio blue"
 msgstr ""
 
 msgid "Baby blue"
@@ -5997,47 +6251,13 @@ msgid ""
 "Please contact your system administrator."
 msgstr ""
 
-msgid "Can't add data to bus, same action type is present in bus"
+msgid "Mobile device management plugin"
 msgstr ""
-"Data ei voida lisätä bus-väylään, sana toimintotyyppi on olemassa bus-"
-"väylässä"
-
-msgid "Response data requested from bus but it doesn't have any data."
-msgstr ""
-"Vastausdataa pyydetty bus-väylästä, mutta se ei sisällä dataa lainkaan."
 
 #, php-format
-msgid "Unknown module '%s' with id '%s'"
-msgstr "Tuntematon mpduuli '%s' ID:llä '%s'"
-
 msgid ""
-"We encountered a problem. This might be caused by upgrading a plugin. Please "
-"re-login to resolve the issue."
-msgstr ""
-
-#, php-format
-msgid "Unknown notifier '%s'"
-msgstr "Tuntematon ilmoittaja '%s'"
-
-msgid "An unexpected error has occurred"
-msgstr "Tapahtui odottamaton virhe"
-
-#, fuzzy
-msgid "To-Do List"
-msgstr "Puhelinluettelo"
-
-#. TRANSLATORS: This indicates that the opened folder belongs to a particular user,
-#. * for example: 'Calendar of Holiday', in this case %1$s is 'Calendar' (the foldername)
-#. * and %2$s is 'Holiday' (the username).
-#.
-#, php-format
-msgid "%1$s of %2$s"
-msgstr "%1$s %2$s:sta"
-
-msgid "Error retrieving existing settings"
-msgstr "Virhe haettaessa nykyisiä asetuksia"
-
-msgid "Error retrieving existing persistent settings"
+"Unexpected error occurred. Please contact your system administrator. Error "
+"code: %s"
 msgstr ""
 
 #, fuzzy
@@ -6056,82 +6276,6 @@ msgstr ""
 #, fuzzy
 msgid "Unknown MAPI Error"
 msgstr "Tuntematon MAPI-virhe: %s"
-
-msgid "This external link will open in a new window"
-msgstr "Ulkopuolinen linkki avataan uudessa ikkunassa"
-
-#, fuzzy
-msgid "Destination folder not found."
-msgstr "Kohdekansio"
-
-msgid "Eml is corrupted"
-msgstr ""
-
-msgid "The eml Attachment is not imported successfully"
-msgstr ""
-
-msgid "The vcf attachment is not imported successfully"
-msgstr ""
-
-#, php-format
-msgid "Unable to import '%s' to '%s'. "
-msgstr ""
-
-#, fuzzy
-msgid "There is no appointment found in this file."
-msgstr "Tapaaminen sijoittuu menneisyyteen."
-
-msgid "The file is corrupt."
-msgstr ""
-
-#, fuzzy
-msgid "The file is invalid."
-msgstr "{0} ei ole saliittu aika"
-
-#, php-format
-msgid "Unable to import '%s'. "
-msgstr ""
-
-msgid "Please contact your system administrator if the problem persists."
-msgstr ""
-
-msgid "Attachment is not imported successfully"
-msgstr ""
-
-# 81%
-#, fuzzy
-msgid "Embedded attachment not found."
-msgstr "Lisää liitetiedostoja yhteystietoon."
-
-msgid "ZIP is not created successfully"
-msgstr ""
-
-msgid "Attachments can not be downloaded"
-msgstr ""
-
-# 82%
-# 100%
-#, fuzzy
-msgid "Could not find attachment."
-msgstr "Liitettä ei voitu ladata."
-
-msgid "Operation failed"
-msgstr ""
-
-# 90%
-# 100%
-#, fuzzy
-msgid "Sticky Note"
-msgstr "Muistilappu"
-
-# 92%
-# 100%
-#, fuzzy
-msgid "Task Request"
-msgstr "Tehtäväpyyntö:"
-
-msgid "Could not find message, either it has been moved or deleted."
-msgstr ""
 
 msgid "Request is not available."
 msgstr ""
@@ -6161,9 +6305,6 @@ msgstr ""
 #, php-format
 msgid "Unknown MAPI Error: %s"
 msgstr "Tuntematon MAPI-virhe: %s"
-
-msgid "Action is not performed correctly."
-msgstr "Toimintoa ei suoritettu oikein."
 
 msgid "Tentatively accepted"
 msgstr "Hyväksyi alustavasti"
@@ -6249,269 +6390,6 @@ msgstr "Tapahtuu joka %s voimassa %s päättyen %s."
 #, php-format
 msgid "Occurs every %s %s effective %s until %s."
 msgstr "Tapahtuu joka %s %s voimassa %s päättyen %s."
-
-msgid "Task Accepted:"
-msgstr "Tehtävä hyväksytty:"
-
-msgid "Task Declined:"
-msgstr "Tehtävä hylätty:"
-
-msgid "Task Updated:"
-msgstr "Tehtävä päivitetty:"
-
-msgid "Task Completed:"
-msgstr "Tehtävä suoritettu:"
-
-msgid "Contact not found"
-msgstr ""
-
-msgid ""
-"Contact information could not be displayed because the server had trouble "
-"retrieving the information."
-msgstr ""
-
-msgid "Could not handle this type of object."
-msgstr "Tämäntyyppistä kohdetta ei voitu käsitellä."
-
-msgid "Could not open this object."
-msgstr "Kohdetta ei voitu avata."
-
-msgid "Could not open occurrence."
-msgstr "Toistuvuutta ei voitu avata."
-
-msgid "Could not open occurrence, specific occurrence is probably deleted."
-msgstr ""
-"Toistuvuutta ei voitu avata, yksittäinen toistuminen on todennäköisesti "
-"poistettu."
-
-# 89%
-# 100%
-# 84%
-#, fuzzy
-msgid "a meeting request"
-msgstr "Uusi kokouskutsu"
-
-# 93%
-# 100%
-# 80%
-#, fuzzy
-msgid "an appointment"
-msgstr "Uusi tapaaminen"
-
-# 79%
-# 100%
-#, fuzzy
-msgid "You have insufficient privileges to move "
-msgstr "Sinulla ei ole tarpeeksi oikeuksia kansion kopioimiseen."
-
-msgid ""
-"Cannot set a reminder to appear before the previous occurrence. Reset "
-"reminder to save the change"
-msgstr ""
-"Muistutusta ei voida asettaa ilmestymään ennen edellistä toistumista. Nollaa "
-"muistutus, jotta muutos tallentuu"
-
-msgid "Two occurrences cannot occur on the same day"
-msgstr "Kaksi toistumista ei voi tapahtua samana päivänä"
-
-#, php-format
-msgid ""
-"You marked '%s' as a resource. You cannot schedule a meeting with '%s' "
-"because you do not have the appropriate permissions for that account. Either "
-"enter the name as a required or optional attendee or talk to your "
-"administrator about giving you permission to schedule '%s'."
-msgstr ""
-
-#, php-format
-msgid ""
-"'%s' has declined your meeting because '%s' does not automatically accept "
-"meeting requests."
-msgstr ""
-"'%s' kieltäytyi kokouksestasi, koska '%s' ei hyväksy kokouskutsuja "
-"automaattisesti."
-
-#, php-format
-msgid ""
-"'%s' has declined your meeting because it is recurring. You must book each "
-"meeting separately with this resource."
-msgstr ""
-"'%s' kieltäytyi kokouksestasi, koska se on toistuva tapahtuma. Jokainen "
-"kokous tulee varata erikseen tämän resurssin kanssa."
-
-#, php-format
-msgid ""
-"'%s' is already booked for this specified time. You must use another time or "
-"find another resource."
-msgstr ""
-"'%s' on varattu kyseisenä ajankohtana. Sinun tulee valita toinen ajankohta "
-"tai etsiä toinen resurssi."
-
-msgid "Meeting was not scheduled."
-msgstr "Kokousta ei varattu."
-
-msgid "Meeting could not be sent."
-msgstr "Kokousta ei voitu lähettää."
-
-msgid "Meeting could not be saved."
-msgstr "Kokousta ei voitu tallentaa."
-
-msgid "Private Appointment"
-msgstr "Yksityinen tapaaminen"
-
-#, php-format
-msgid "%s's Birthday"
-msgstr "%s:n syntymäpäivä"
-
-#, php-format
-msgid "%s's Anniversary"
-msgstr "%s:n vuosipäivä"
-
-msgid "Unknown user/group"
-msgstr "Tuntematon käyttäjä/ryhmä"
-
-msgid "Could not save delegate information."
-msgstr "Edustajatietoa ei voitu tallentaa."
-
-# 78%
-# 80%
-msgid "Could not delete delegate."
-msgstr "Edustajaa ei voitu poistaa."
-
-msgid "Can not get list of delegates."
-msgstr "Listaa edustajista ei saatu."
-
-msgid "Could not load the hierarchy."
-msgstr "Hierarkiaa ei voitu ladata."
-
-msgid "Could not load folder properties."
-msgstr "Kansion ominaisuuksia ei voitu ladata."
-
-#, fuzzy
-msgid "Could not remove folder from favorites."
-msgstr "Kansiota ei voitu lisätä suosikeihin."
-
-msgid "You have insufficient privileges to delete folder."
-msgstr "Sinulla ei ole tarpeeksi oikeuksia kansion poistamiseen."
-
-# 78%
-# 80%
-# 76%
-# 83%
-msgid "Could not delete folder."
-msgstr "Kansiota ei voitu poistaa."
-
-msgid "You have insufficient privileges to copy folder."
-msgstr "Sinulla ei ole tarpeeksi oikeuksia kansion kopioimiseen."
-
-# 78%
-# 80%
-# 76%
-# 83%
-# 75%
-msgid "Could not copy folder."
-msgstr "Kansiota ei voitu kopioida."
-
-msgid "You have insufficient privileges to move this folder."
-msgstr "Sinulla ei ole tarpeeksi oikeuksia kansion siirtämiseen."
-
-# 78%
-# 80%
-# 76%
-# 83%
-# 79%
-msgid "Could not move folder."
-msgstr "Kansiota ei voitu siirtää."
-
-msgid "You have insufficient privileges to delete items."
-msgstr "Sinulla ei ole tarpeeksi oikeuksia kohteiden poistamiseen."
-
-# 78%
-# 80%
-# 76%
-# 83%
-msgid "Could not empty folder."
-msgstr "Kansiota ei voitu tyhjentää."
-
-msgid "Could not perform action correctly."
-msgstr "Toimintoa ei voitu suorittaa asianmukaisesti."
-
-msgid ""
-"A favorite folder with this name already exists, please use another name."
-msgstr ""
-
-msgid "Could not add folder to favorites."
-msgstr "Kansiota ei voitu lisätä suosikeihin."
-
-msgid "You have insufficient privileges to set permissions for this folder."
-msgstr "Sinulla ei ole tarpeeksi oikeuksia kansion oikeuksien asettamiseen."
-
-msgid "Could not set folder permissions."
-msgstr "Kansion oikeuksia ei voitu asettaa."
-
-msgid "You have insufficient privileges to rename this folder."
-msgstr "Sinulla ei ole tarpeeksi oikeuksia kansion uudelleennimeämiseen."
-
-msgid "A folder with this name already exists. Use another name."
-msgstr "Tämänniminen kansio on jo olemassa. Käytä toista nimeä."
-
-# 78%
-# 80%
-# 76%
-# 83%
-msgid "Could not rename folder."
-msgstr "Kansiota ei voitu nimetä uudelleen."
-
-msgid "You have insufficient privileges to create this folder."
-msgstr "Sinulla ei ole tarpeeksi oikeuksia kansion luomiseen."
-
-# 78%
-# 80%
-# 76%
-# 83%
-msgid "Could not create folder."
-msgstr "Kansiota ei voitu luoda."
-
-msgid "Could not close shared folder."
-msgstr "Jaettua kansiota ei voitu sulkea."
-
-msgid "User could not be resolved."
-msgstr "Käyttäjää ei voitu selvittää."
-
-#, php-format
-msgid ""
-"You have insufficient privileges to open this %1$s folder. The folder owner "
-"can set these using the 'permissions'-tab of the folder properties (right "
-"click the %1$s folder > properties > permissions)."
-msgstr ""
-
-# 85%
-msgid "unknown"
-msgstr "tuntematon"
-
-# 78%
-# 80%
-# 76%
-# 83%
-# 75%
-msgid "Could not move folder"
-msgstr "Kansiota ei voitu siirtää"
-
-# 78%
-# 80%
-# 76%
-# 83%
-# 75%
-# 95%
-msgid "Could not copy folder"
-msgstr "Kansiota ei voitu kopioida"
-
-msgid "You have insufficient privileges to open this message."
-msgstr "Sinulla ei ole tarpeeksi oikeuksia viestin avaamiseen."
-
-msgid ""
-"Could not find message, either it has been moved or deleted or you don't "
-"have access to open this message."
-msgstr ""
 
 # 78%
 msgid "Could not open message."
@@ -6605,208 +6483,35 @@ msgstr ""
 msgid "The following recipient(s) could not be reached"
 msgstr "Seuraavia vastaanottajia ei tavoitettu"
 
-msgid "You have insufficient privileges to see the contents of this folder."
-msgstr "Sinulla ei ole tarpeeksi oikeuksia kansion sisällön tarkastelemiseen."
-
-msgid "Could not load the contents of this folder."
-msgstr "Kansion sisältöä ei voitu ladata."
-
-msgid "Error in search, please try again"
-msgstr "Virhe haussa, yritä uudelleen"
-
-msgid "Unable to perform search query, no permissions to create search folder."
-msgstr ""
-
-msgid "Unable to perform search query, search folder not found."
-msgstr ""
-
-msgid "Unable to perform search query, store might not support searching."
-msgstr ""
-
-msgid "Error in creating search folder."
-msgstr ""
-
-msgid ""
-"You have insufficient privileges to perform search operation in this folder."
-msgstr "Sinulla ei ole tarpeeksi oikeuksia suorittaa hakua kansiossa."
-
-msgid "Could not update search results."
-msgstr "Hakutuloksia ei voitu päivittää."
-
-msgid "Could not stop search operation."
-msgstr "Hakutoimintoa ei voitu pysäyttää."
-
-msgid "You have insufficient privileges to save this message."
-msgstr "Sinulla ei ole tarpeeksi oikeuksia viestin tallentamiseen."
-
-# 78%
-# 82%
-msgid "Could not save message."
-msgstr "Viestiä ei voitu tallentaa."
-
-msgid "You have insufficient privileges to delete this message."
-msgstr "Sinulla ei ole tarpeeksi oikeuksia viestin poistamiseen."
-
-# 78%
-# 80%
-msgid "Could not delete message."
-msgstr "Viestiä ei voitu poistaa."
-
-msgid "You have insufficient privileges to cancel this Meeting Request."
-msgstr "Sinulla ei ole tarpeeksi oikeuksia perua kokouskutsua."
-
-msgid "Could not cancel Meeting Request."
-msgstr "Kokouskutsua ei voitu perua."
-
-msgid "You have insufficient privileges to decline this Meeting Request."
-msgstr "Sinulla ei ole tarpeeksi oikeuksia kieltäytyä kokouskutsusta."
-
-msgid "Could not decline Meeting Request."
-msgstr "Kokouskutsusta ei voitu kieltäytyä."
-
-msgid "You have insufficient privileges to accept this Meeting Request."
-msgstr "Sinulla ei ole tarpeeksi oikeuksia hyväksyä kokouskutsua."
-
-msgid "Could not accept Meeting Request."
-msgstr "Kokouskutsua ei voitu hyväksyä."
-
-msgid "You have insufficient privileges to cancel Meeting Request invitation."
-msgstr "Sinulla ei ole tarpeeksi oikeuksia perua kokouskutsua."
-
-msgid "Could not cancel Meeting Request invitations."
-msgstr "Kokouskutsua ei voitu perua."
-
-msgid "You can not continue search operation on this folder."
-msgstr "Hakutoimintoa kansiossa ei voida jatkaa."
-
-msgid "Error in search, please try again."
-msgstr "Virhe haussa, yritä uudelleen."
-
-msgid "Error in distribution list expansion."
-msgstr ""
-
-msgid "The message store has exceeded its hard quota limit."
-msgstr "Viestivarasto on ylittänyt ehdottoman enimmäiskokonsa."
-
-msgid ""
-"To reduce the amount of data in this message store, select some items that "
-"you no longer need, delete them and cleanup your Deleted Items folder."
-msgstr ""
-"Pienentääksesi viestivaraston kokoa, valitse kohteita joita et enää "
-"tarvitse, poista ne ja tyhjennä Poistetut kohteet -kansiosi."
-
-msgid "The message store has exceeded its soft quota limit."
-msgstr "Viestivarasto on ylittänyt kiintiönsä."
-
-msgid "Could not process request data properly."
-msgstr "Tietoja ei voitu käsitellä asianmukaisesti."
-
 #, php-format
-msgid "Unknown action type specified - %s"
-msgstr "Tuntematon toimintotyyppi määritelty - %s"
-
-msgid "Cannot snooze the reminder. You may be reminded again."
-msgstr "Muistutusta ei voi torkuttaa. Sinua saatetaan muistuttaa uudelleen."
-
-msgid "Cannot dismiss the reminder. You may be reminded again."
-msgstr "Muistutusta ei voi hylätä. Sinua saatetaan muistuttaa uudelleen."
-
-msgid "You have insufficient privileges to perform this action."
-msgstr "Sinulla ei ole tarpeeksi oikeuksia toiminnon suorittamiseen."
-
-msgid "Could not resolve user."
-msgstr "Käyttäjää ei voitu selvittää."
-
-msgid "Setting mail filters on the stores of other users is not allowed."
+msgid "Unable to import '%s' to '%s'. "
 msgstr ""
 
-msgid "Untitled rule"
-msgstr "Otsikoimaton sääntö"
-
-# 78%
-# 80%
-# 76%
-# 77%
-msgid "Could not load rules."
-msgstr "Sääntöjä ei voitu ladata."
-
-# 78%
-# 80%
-# 76%
-# 77%
-# 95%
-msgid "Could not save rules."
-msgstr "Sääntöjä ei voitu tallentaa."
-
-msgid "Task Request:"
-msgstr "Tehtäväpyyntö:"
-
-msgid "Welcome"
+msgid "There is no contact found in this file."
 msgstr ""
 
-msgid "Username"
-msgstr "Käyttäjänimi"
-
-msgid "Password"
-msgstr ""
-
-msgid "Sign in"
-msgstr ""
-
-msgid "Caps lock is on"
+msgid "The file is corrupt."
 msgstr ""
 
 #, fuzzy
-msgid "File is not imported successfully"
-msgstr "Lähetetty onnistuneesti"
+msgid "The file is invalid."
+msgstr "{0} ei ole saliittu aika"
 
-msgid "There is no contact found in this file."
+#, php-format
+msgid "Unable to import '%s'. "
+msgstr ""
+
+msgid "Please contact your system administrator if the problem persists."
 msgstr ""
 
 msgid ""
 "grommunio Web does not support importing multiple VCF with this version."
 msgstr ""
 
+#, fuzzy
+msgid "There is no appointment found in this file."
+msgstr "Tapaaminen sijoittuu menneisyyteen."
+
 msgid ""
 "grommunio Web does not support importing multiple ICS with this version."
 msgstr ""
-
-#, php-format
-msgid "Unable to import '%s'"
-msgstr ""
-
-#, fuzzy
-msgid "The EML is not valid"
-msgstr "{0} ei ole saliittu aika"
-
-msgid "GB"
-msgstr "GtT"
-
-msgid "MB"
-msgstr "Mt"
-
-msgid "KB"
-msgstr "Kt"
-
-msgid "B"
-msgstr "t"
-
-msgid "The maximum stack depth has been exceeded"
-msgstr "Pinon enimmäissyvyys on ylitetty"
-
-msgid "Control character error, possibly incorrectly encoded"
-msgstr "Kontrollimerkkivirhe, mahdollisesti väärin koodattu"
-
-msgid "Invalid or malformed JSON"
-msgstr "Epäkelpo tai väärin muodostettu JSON"
-
-msgid "Syntax error"
-msgstr "Syntaksivirhe"
-
-#, fuzzy
-msgid "Malformed UTF-8 characters, possibly incorrectly encoded"
-msgstr "Kontrollimerkkivirhe, mahdollisesti väärin koodattu"
-
-#, php-format
-msgid "JSON Error: - %s"
-msgstr "JSON-virhe: - %s"

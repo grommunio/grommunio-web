@@ -1688,6 +1688,25 @@ msgstr ""
 msgid "Insufficient privileges"
 msgstr "Ikke tilstrekkelige rettigheter"
 
+msgid ""
+"Copying this appointment will unset it as private. Are you sure you want to "
+"continue?"
+msgstr ""
+
+msgid "Private item"
+msgstr ""
+
+msgid "Copy"
+msgstr "Kopier"
+
+msgid ""
+"Moving this appointment will unset it as private. Are you sure you want to "
+"continue?"
+msgstr ""
+
+msgid "Move"
+msgstr "Flytt"
+
 msgid "Update recipients"
 msgstr "Oppdater mottaker"
 
@@ -1700,9 +1719,6 @@ msgstr "Lagre endringer og send en oppdatering til alle mottakere"
 msgid "Open meeting request with changes"
 msgstr "Åpne møteinvitasjonen med endringene"
 
-msgid "Copy"
-msgstr "Kopier"
-
 msgid "grommunio Web"
 msgstr "grommunio Web"
 
@@ -1712,9 +1728,6 @@ msgid ""
 msgstr ""
 "Vennligst merk at alle endringer du gjør vil bli overskrevet når denne "
 "møteinnkallelsen blir oppdatert av møtearrangøren. Vil du flytte dette møte?"
-
-msgid "Move"
-msgstr "Flytt"
 
 msgid "Don't move"
 msgstr "Ikke flytt"
@@ -2092,18 +2105,14 @@ msgid "Import to folder"
 msgstr "Importer til mappe"
 
 msgid ""
-"In order to use the vCard import feature, upgrade your Gromox to version 8.3 "
+"In order to use the vCard import feature, upgrade your Gromox to version 0 "
 "or higher."
 msgstr ""
-"For å kunne bruke vCard import funksjonen, så må du oppgradere Gromox til "
-"versjon 8.3 eller høyere."
 
 msgid ""
 "In order to use the ICS / VCS import feature, upgrade your Gromox to version "
-"8.3 or higher."
+"0 or higher."
 msgstr ""
-"For å kunne bruke ICS/VCS  import funksjonen, så må du oppgradere grommunio "
-"Core til versjon 8.3 eller høyere."
 
 # 93%
 msgid "Attachment error"
@@ -2492,6 +2501,18 @@ msgstr ""
 msgid "Add/Edit Cc recipient"
 msgstr "Legg til/Rediger kopi-mottaker"
 
+msgid "Disable for new mail"
+msgstr ""
+
+msgid "Enable for new mail"
+msgstr ""
+
+msgid "Disable for replies"
+msgstr ""
+
+msgid "Enable for replies"
+msgstr ""
+
 msgid "No Cc recipient configured"
 msgstr "Ingen kopi-mottakere er konfigurert"
 
@@ -2521,8 +2542,8 @@ msgstr ""
 msgid "Help"
 msgstr "Hjelp"
 
-msgid "grommunio Web Manual"
-msgstr "grommunio Web håndbok"
+msgid "Web Manual"
+msgstr ""
 
 msgid "Item data"
 msgstr ""
@@ -2535,6 +2556,9 @@ msgstr "Sorter på: context.mail.griddefaultcolumn"
 
 msgid "ZDeveloper"
 msgstr "ZDeveloper"
+
+msgid "grommunio Web print"
+msgstr ""
 
 msgid "Display name"
 msgstr "Visningsnavn"
@@ -3099,14 +3123,8 @@ msgstr "Påminnelser er satt på {0}, {1}"
 msgid "d-m-Y"
 msgstr "d.m.Y"
 
-msgid "Original message"
-msgstr "Opprinnelig melding"
-
 msgid "l d/m/Y"
 msgstr "l, d.m.Y"
-
-msgid "Sent Items"
-msgstr "Sendte elementer"
 
 msgid "l d/m/Y {0}"
 msgstr "l d.m.Y {0}"
@@ -3163,12 +3181,9 @@ msgstr "Behandle dette som {0}."
 
 msgctxt "mail.previewpanel"
 msgid ""
-"Click here to download pictures. To help protect your privacy, grommunio Web "
+"Click here to download pictures. To help protect your privacy, WebApp "
 "prevented automatic download of some pictures in this message."
 msgstr ""
-"Klikk her for å laste ned bilder. For å beskytte ditt privatliv, så har "
-"grommunio Web som standard hindret automatisk nedlasting av enkelte bilder i "
-"denne meldingen."
 
 msgctxt "mail.previewpanel"
 msgid ""
@@ -4088,7 +4103,7 @@ msgid "Unsaved changes"
 msgstr "Ulagrede endringer"
 
 msgid "Welcome to grommunio Web"
-msgstr "Velkommen til grommunio Web"
+msgstr ""
 
 msgid "This is the first time you are using grommunio Web. "
 msgstr "Dette er første gangen du bruker grommunio Web. "
@@ -4180,19 +4195,26 @@ msgid_plural "There are {0} unread messages in the folder {1}"
 msgstr[0] "Det er {0} ulest melding i mappen {1}"
 msgstr[1] "Det er {0} uleste meldinger i mappen {1}"
 
-msgid "License error"
-msgstr "Lisensfeil"
-
-msgid ""
-"The installed license key(s) have expired or are being over used. Please "
-"contact your system administrator for further information."
+msgid "Publishing Editor"
 msgstr ""
 
-msgid "Full control"
-msgstr "Full kontroll"
+msgid "Editor"
+msgstr "Redigeringsprogram"
 
-msgid "No rights"
-msgstr "Ingen rettigheter"
+msgid "Publishing Author"
+msgstr ""
+
+msgid "Author"
+msgstr ""
+
+msgid "Nonediting Author"
+msgstr ""
+
+msgid "Reviewer"
+msgstr ""
+
+msgid "Contributor"
+msgstr ""
 
 msgid "Unable to import:"
 msgstr "Kunne ikke importere:"
@@ -4242,6 +4264,12 @@ msgstr "Type"
 msgid "Description"
 msgstr "Beskrivelse"
 
+msgid "EntryID"
+msgstr "EntryID"
+
+msgid "Parent EID"
+msgstr ""
+
 # 90%
 msgid "Folder size"
 msgstr "Mappestørrelse"
@@ -4259,23 +4287,30 @@ msgstr "Ingen tillatelser er gitt"
 msgid "Profile"
 msgstr "Profil"
 
+msgid "Read"
+msgstr ""
+
+msgid "Full Details"
+msgstr ""
+
+msgid "Write"
+msgstr ""
+
 msgid "Create items"
 msgstr "Lage elementer"
-
-msgid "Read items"
-msgstr "Lese elementer"
 
 msgid "Create subfolders"
 msgstr "Lage undermapper"
 
-msgid "Folder permissions"
-msgstr "Tillatelser for mapper"
+msgid "Edit own"
+msgstr ""
 
-msgid "Folder visible"
-msgstr "Vise mapper"
+msgid "Edit all"
+msgstr ""
 
-msgid "Edit items"
-msgstr "Redigere elementer"
+# 92%
+msgid "Delete items"
+msgstr "Slette elementer"
 
 msgid "Own"
 msgstr "Egne"
@@ -4283,9 +4318,14 @@ msgstr "Egne"
 msgid "All"
 msgstr "Alle"
 
-# 92%
-msgid "Delete items"
-msgstr "Slette elementer"
+msgid "Folder owner"
+msgstr ""
+
+msgid "Folder contact"
+msgstr ""
+
+msgid "Folder visible"
+msgstr "Vise mapper"
 
 msgid "User already exists"
 msgstr "Bruker finnes allerede"
@@ -4489,6 +4529,9 @@ msgstr "Sendt"
 msgid "Red"
 msgstr "Rød"
 
+msgid "Original message"
+msgstr "Opprinnelig melding"
+
 msgid "Schedule mail to be sent out"
 msgstr "Planlegg å sende e-post"
 
@@ -4599,9 +4642,6 @@ msgstr "Diverse alternativer"
 msgid "Internet Headers"
 msgstr "Internett meldingshoder"
 
-msgid "EntryID"
-msgstr "EntryID"
-
 msgid "Message Settings"
 msgstr "Meldingsalternativer"
 
@@ -4640,9 +4680,6 @@ msgstr "Veksle mellom lest/ulest"
 
 msgid "Toggle red/complete flag"
 msgstr "Veksle mellom rødt/fullført flagg"
-
-msgid "Close a conversation"
-msgstr ""
 
 msgid "Open Shared Mails"
 msgstr "Åpne delt e-post"
@@ -4690,9 +4727,6 @@ msgstr "Innstilling for redigering av e-post"
 
 msgid "Compose mail in this format"
 msgstr "Skriv e-post med denne formateringen"
-
-msgid "Editor"
-msgstr "Redigeringsprogram"
 
 msgid "Default font"
 msgstr "Standardskrift"
@@ -4779,15 +4813,24 @@ msgstr "Jeg er fraværende"
 msgid "I will be back on"
 msgstr "Jeg er tilbake på"
 
-msgid "I am out of office"
-msgstr "Jeg er ikke på kontoret"
-
 msgid "Automatically reply once per day, per sender with the following text"
 msgstr ""
 "Automatisk svar hver sender, men bare en gang per dag, med denne teksten"
 
-msgid "User is currently out of office."
-msgstr "Jeg er ikke på kontoret."
+msgid "Inside My Organization"
+msgstr ""
+
+msgid "Outside My Organization"
+msgstr ""
+
+msgid "Auto-reply to people outside my organization"
+msgstr ""
+
+msgid "My contacts only"
+msgstr ""
+
+msgid "Anyone outside my organization"
+msgstr ""
 
 msgid ""
 "The time you entered is before the out of office date. Please reschedule."
@@ -4977,8 +5020,11 @@ msgstr "Innstillinger"
 msgid "Basic"
 msgstr "Standard"
 
-msgid "Account information"
-msgstr "Kontoinformasjon"
+msgid "Account information - {0}"
+msgstr ""
+
+msgid "Profile Picture"
+msgstr ""
 
 msgid "Language"
 msgstr "Språk"
@@ -5130,8 +5176,8 @@ msgstr "Standard-hurtigtaster skrudd på"
 msgid "All keyboard shortcuts on"
 msgstr "Alle hurtigtaster skrudd på"
 
-msgid "This change requires a reload of the grommunio Web"
-msgstr "Denne endringen krever at grommunio lastes inn på nytt"
+msgid "This change requires a reload of grommunio Web"
+msgstr ""
 
 msgid "Plugins"
 msgstr "Plugins"
@@ -5606,17 +5652,11 @@ msgstr "Forbindelse gjenopptatt"
 msgid "Connection with server has been restored"
 msgstr "Forbindelse til server har blitt gjenopptatt"
 
-msgid "Please contact your administrator if this problem persists."
-msgstr "Kontakt systemansvarlig om dette problemet vedvarer."
-
 #. TRANSLATORS: Example: HTTP 404
-msgid "Error HTTP {0}"
-msgstr "Error HTTP {0}"
+msgid "HTTP {0}"
+msgstr ""
 
-msgid "HTTP status text is: "
-msgstr "HTTP status tekst er: "
-
-msgid "Invalid data received from the server. HTTP status text is: "
+msgid "Invalid data received from the server"
 msgstr ""
 
 msgid "Missing store"
@@ -5691,45 +5731,254 @@ msgstr "Lasting av modulen fra server feilet"
 msgid "Out of Office is currently activated. Would you like to turn it off?"
 msgstr "Fraværendenotis er skrudd på. Vil du skru den av?"
 
-msgid "Out of office off"
-msgstr "Fraværendenotis er skrudd av"
+msgid "Open Chat at start"
+msgstr ""
 
-msgid "Out of office has been turned off"
-msgstr "Fraværendenotis har blitt skrudd av"
+msgid "Desktop Notifications Plugin"
+msgstr ""
 
-msgid "Send Fax"
-msgstr "Send faks"
+msgid "Desktop Notifications"
+msgstr ""
 
-msgid "Contact Fax"
-msgstr "Kontaktfaks"
+msgid "{A} Autohide desktop notification after second(s) {B}"
+msgstr ""
 
-msgid "Google Maps"
-msgstr "Google Maps"
+msgid "Intranet"
+msgstr ""
 
-#. TRANSLATORS: The map of earth
-msgid "Map"
-msgstr "Kart"
+msgid "Email Details"
+msgstr ""
 
-msgid "Move currently selected message(s) to {0}"
-msgstr "Flytt merkede meldinger til {0}"
+msgid "Item Data"
+msgstr ""
 
-msgid "Move to {0}"
-msgstr "Flytt til {0}"
+msgid "Mobile Device Manager"
+msgstr ""
 
-msgid "Move current message to {0}"
-msgstr "Flytt meldingen til {0}"
+msgid "Wiping device"
+msgstr ""
 
-msgid "Personal Inbox Manager"
-msgstr "Personlig innboks manager"
+msgid "Password incorrect"
+msgstr ""
 
-msgid "Personal Inbox Management Settings"
-msgstr "Personlig innboks manager innstillinger"
+msgid "Full resync in progress"
+msgstr ""
 
-msgid "Select another folder"
-msgstr "Velg en annen mappe"
+msgid "Username or password incorrect"
+msgstr ""
 
-msgid "E-mails are moved to {0}"
-msgstr "E-post er flyttet til {0}"
+msgid "Not Applicable"
+msgstr ""
+
+msgid "Wipe Pending"
+msgstr ""
+
+msgid "Wipe Requested"
+msgstr ""
+
+msgid "Wipe Executed"
+msgstr ""
+
+msgid "Not Available"
+msgstr ""
+
+msgid "Device"
+msgstr ""
+
+msgid "Operating System"
+msgstr ""
+
+msgid "ID"
+msgstr ""
+
+msgid "User Agent"
+msgstr ""
+
+msgid "MDM Plugin"
+msgstr ""
+
+msgid "Active Sync Version"
+msgstr ""
+
+msgid "grommunio-sync Version"
+msgstr ""
+
+msgid "Policy name"
+msgstr ""
+
+msgid "Outlook Extension"
+msgstr ""
+
+msgid "Build"
+msgstr ""
+
+msgid "Last updated"
+msgstr ""
+
+msgid "d F Y, H:i"
+msgstr ""
+
+msgid "Connected since"
+msgstr ""
+
+msgid "d F Y"
+msgstr ""
+
+msgid "Synchronize"
+msgstr ""
+
+msgid "Manage Shared Folders"
+msgstr ""
+
+msgid ""
+"Select folders to sync to your device from the list below. To add additional "
+"mailboxes to the list, open them in WebApp first."
+msgstr ""
+
+msgid "grommunio-sync"
+msgstr ""
+
+msgid "Mobile device management"
+msgstr ""
+
+msgid "Mobile Devices"
+msgstr ""
+
+msgid ""
+"Unable to connect to the grommunio-sync server. Click {0} to enter your "
+"credentials"
+msgstr ""
+
+msgid "Devices"
+msgstr ""
+
+msgid "No devices connected to your account"
+msgstr ""
+
+msgid "Last Update"
+msgstr ""
+
+msgid "Device ID"
+msgstr ""
+
+msgid "Device OS"
+msgstr ""
+
+msgid "Device Info"
+msgstr ""
+
+msgid "First Sync time"
+msgstr ""
+
+msgid "Full resync"
+msgstr ""
+
+msgid "Remove device"
+msgstr ""
+
+msgid "Please enter your username and password"
+msgstr ""
+
+msgid "Password"
+msgstr ""
+
+msgid "Username"
+msgstr ""
+
+msgid ""
+"Do you really want to wipe your device?\n"
+" Enter your password to confirm."
+msgstr ""
+
+msgid "Add meeting"
+msgstr ""
+
+msgid "Room name:"
+msgstr ""
+
+msgid "Room URL:"
+msgstr ""
+
+msgid "Shift-click for advanced settings"
+msgstr ""
+
+msgid "Join webmeeting"
+msgstr ""
+
+msgid "Open meeting in:"
+msgstr ""
+
+msgid "Web tab"
+msgstr ""
+
+msgid "Hide the button in the main toolbar"
+msgstr ""
+
+msgid "Add the subject to the room name"
+msgstr ""
+
+msgid "Add the organizer name to the room name"
+msgstr ""
+
+msgid "Add the URL to the meeting location rather than overwriting it"
+msgstr ""
+
+msgid ""
+"Prevent the URL in the meeting location from being overridden automatically "
+"(ex: when adding a meetingroom)"
+msgstr ""
+
+msgid "If you have problems when creating meetings, try disabling this setting"
+msgstr ""
+
+msgid "Add an invitation to the appointment description"
+msgstr ""
+
+msgid "Invitation text"
+msgstr ""
+
+msgid ""
+"must contain %url% as a placeholder for the meeting link, empty the textbox "
+"to reset to default"
+msgstr ""
+
+msgid "An unknown error occurred while changing password."
+msgstr ""
+
+msgid "Password is changed successfully."
+msgstr ""
+
+msgid "Success"
+msgstr ""
+
+msgid "Change Password"
+msgstr ""
+
+msgid "Current password"
+msgstr ""
+
+msgid "New password"
+msgstr ""
+
+msgid "Retype new password"
+msgstr ""
+
+msgid "New passwords do not match."
+msgstr ""
+
+msgid "Current password is empty."
+msgstr ""
+
+msgid "New password is empty."
+msgstr ""
+
+msgid "One or more fields does contain errors."
+msgstr ""
+
+msgid ""
+"Password is weak. Password should contain capital, non-capital letters and "
+"numbers. Password should have 8 to 20 characters."
+msgstr ""
 
 msgid "Charm pink"
 msgstr "Rosa"
@@ -5752,8 +6001,8 @@ msgstr "Mynte"
 msgid "Pearl aqua"
 msgstr "Lyseblå"
 
-msgid "grommunio blue"
-msgstr "grommunioblå"
+msgid "Grommunio blue"
+msgstr ""
 
 msgid "Baby blue"
 msgstr "Babyblå"
@@ -5820,46 +6069,14 @@ msgstr ""
 "Beklager, tilgang til grommunio Web er ikke mulig for denne brukeren. Ta "
 "kontakt med din systemadministrator."
 
-msgid "Can't add data to bus, same action type is present in bus"
+msgid "Mobile device management plugin"
 msgstr ""
-"Kan ikke legge til data på bus, samme handlingstype er allerede tilstede på "
-"busen"
-
-msgid "Response data requested from bus but it doesn't have any data."
-msgstr "Svardata forespurt fra bus, men den har ingen data."
 
 #, php-format
-msgid "Unknown module '%s' with id '%s'"
-msgstr "Ukjent modul '%s' med id '%s'"
-
 msgid ""
-"We encountered a problem. This might be caused by upgrading a plugin. Please "
-"re-login to resolve the issue."
+"Unexpected error occurred. Please contact your system administrator. Error "
+"code: %s"
 msgstr ""
-
-#, php-format
-msgid "Unknown notifier '%s'"
-msgstr "Ukjent Notifier '%s'"
-
-msgid "An unexpected error has occurred"
-msgstr "En uventet feil har oppstått"
-
-msgid "To-Do List"
-msgstr "To-Do Liste"
-
-#. TRANSLATORS: This indicates that the opened folder belongs to a particular user,
-#. * for example: 'Calendar of Holiday', in this case %1$s is 'Calendar' (the foldername)
-#. * and %2$s is 'Holiday' (the username).
-#.
-#, php-format
-msgid "%1$s of %2$s"
-msgstr "%1$s til %2$s"
-
-msgid "Error retrieving existing settings"
-msgstr "Feil ved henting av eksisterende innstillinger"
-
-msgid "Error retrieving existing persistent settings"
-msgstr "Feil ved lasting av eksisterende innstillinger"
 
 msgid "Logon failed. Please verify your credentials and try again."
 msgstr "Pålogging mislyktes. Vennligst sjekk ditt brukernavn/passord."
@@ -5877,73 +6094,6 @@ msgstr ""
 
 msgid "Unknown MAPI Error"
 msgstr "Ukjent MAPI feil"
-
-msgid "This external link will open in a new window"
-msgstr "Denne eksterne lenken vil bli åpnet i et nytt vindu"
-
-msgid "Destination folder not found."
-msgstr "Målmappe ikke funnet."
-
-msgid "Eml is corrupted"
-msgstr "EML er skadet"
-
-msgid "The eml Attachment is not imported successfully"
-msgstr "Eml-vedlegget ble ikke vellykket importert"
-
-msgid "The vcf attachment is not imported successfully"
-msgstr "vcf-vedlegget ble ikke vellykket importert"
-
-#, php-format
-msgid "Unable to import '%s' to '%s'. "
-msgstr "Kunne ikke importere '%s' til '%s'. "
-
-# 100%
-msgid "There is no appointment found in this file."
-msgstr "Fant ingen avtaler i denne filen."
-
-msgid "The file is corrupt."
-msgstr "Filen er skadet."
-
-msgid "The file is invalid."
-msgstr "Filen er ikke gyldig."
-
-#, php-format
-msgid "Unable to import '%s'. "
-msgstr "Kunne ikke importere  '%s'. "
-
-msgid "Please contact your system administrator if the problem persists."
-msgstr "Ta kontakt med din systemadministrator om dette problemet vedvarer."
-
-msgid "Attachment is not imported successfully"
-msgstr "Vedlegget ble ikke vellykket importert"
-
-# 81%
-msgid "Embedded attachment not found."
-msgstr "Inkludert vedlegg ikke funnet."
-
-msgid "ZIP is not created successfully"
-msgstr "ZIP-filen kunne ikke lages"
-
-msgid "Attachments can not be downloaded"
-msgstr "Vedlegg kunne ikke bli lastet ned"
-
-msgid "Could not find attachment."
-msgstr "Kunne ikke finne vedlegg."
-
-msgid "Operation failed"
-msgstr "Operasjonen mislyktes"
-
-# 90%
-msgid "Sticky Note"
-msgstr "Klistrelapp"
-
-msgid "Task Request"
-msgstr "Oppgaveforespørsel"
-
-msgid "Could not find message, either it has been moved or deleted."
-msgstr ""
-"Kunne ikke finne meldingen, enten så har den blitt flyttet er så har den "
-"blitt slettet."
 
 msgid "Request is not available."
 msgstr "Forespørselen er ikke tilgjengelig."
@@ -5974,9 +6124,6 @@ msgstr "Operasjon feilet: Serveren har ikke nok minne."
 #, php-format
 msgid "Unknown MAPI Error: %s"
 msgstr "Ukjent MAPI feil: %s"
-
-msgid "Action is not performed correctly."
-msgstr "Handlingen ble ikke korrekt utført."
 
 msgid "Tentatively accepted"
 msgstr "Foreløpig godta"
@@ -6039,243 +6186,6 @@ msgstr "Inntreffer hver %s med start fra %s til %s."
 #, php-format
 msgid "Occurs every %s %s effective %s until %s."
 msgstr "Inntreffer hver %s %s med start fra %s til %s."
-
-msgid "Task Accepted:"
-msgstr "Oppgave godtatt:"
-
-msgid "Task Declined:"
-msgstr "Oppgave avslått:"
-
-msgid "Task Updated:"
-msgstr "Oppgave oppdatert:"
-
-msgid "Task Completed:"
-msgstr "Oppgave fullført:"
-
-msgid "Contact not found"
-msgstr "Kunne ikke finne kontakten"
-
-msgid ""
-"Contact information could not be displayed because the server had trouble "
-"retrieving the information."
-msgstr ""
-"Kunne ikke vise kontaktinformasjonen fordi serveren hadde problemer med å "
-"hente denne."
-
-msgid "Could not handle this type of object."
-msgstr "Kunne ikke håndtere denne typen objekt."
-
-msgid "Could not open this object."
-msgstr "Kunne ikke åpne dette objektet."
-
-msgid "Could not open occurrence."
-msgstr "Kunne ikke åpne forekomstserien."
-
-msgid "Could not open occurrence, specific occurrence is probably deleted."
-msgstr ""
-"Kunne ikke åpne forekomstserien, den aktuelle forekomstserien er trolig "
-"slettet."
-
-# 84%
-msgid "a meeting request"
-msgstr "en møteinvitasjon"
-
-msgid "an appointment"
-msgstr "en avtale"
-
-# 75%
-# 77%
-msgid "You have insufficient privileges to move "
-msgstr "Du har ikke tilstrekkelige rettigheter til å flytte "
-
-msgid ""
-"Cannot set a reminder to appear before the previous occurrence. Reset "
-"reminder to save the change"
-msgstr ""
-"Kan ikke sette at påminnelsen skal komme før den forrige forekomsten. "
-"Nullstill påminnelsen for å lagre endringen"
-
-msgid "Two occurrences cannot occur on the same day"
-msgstr "To forekomster kan ikke skje på samme dag"
-
-#, php-format
-msgid ""
-"You marked '%s' as a resource. You cannot schedule a meeting with '%s' "
-"because you do not have the appropriate permissions for that account. Either "
-"enter the name as a required or optional attendee or talk to your "
-"administrator about giving you permission to schedule '%s'."
-msgstr ""
-
-#, php-format
-msgid ""
-"'%s' has declined your meeting because '%s' does not automatically accept "
-"meeting requests."
-msgstr ""
-"'%s' har avslått din møteinvitasjon fordi '%s' ikke automatisk godtar "
-"møteinvitasjoner."
-
-#, php-format
-msgid ""
-"'%s' has declined your meeting because it is recurring. You must book each "
-"meeting separately with this resource."
-msgstr ""
-"'%s' har avslått din møteinvitasjon fordi den er regelmessig. Du må bestille "
-"hvert møte separat med denne ressursen."
-
-#, php-format
-msgid ""
-"'%s' is already booked for this specified time. You must use another time or "
-"find another resource."
-msgstr ""
-"'%s' er allerede reservert for dette tidspunktet. Du må oppgi et annet "
-"tidspunkt eller finne en annen ressurs."
-
-msgid "Meeting was not scheduled."
-msgstr "Møte ble ikke planlagt."
-
-msgid "Meeting could not be sent."
-msgstr "Møteinnkallelsen kunne ikke sendes."
-
-msgid "Meeting could not be saved."
-msgstr "Møteinnkallelsen kunne ikke lagres."
-
-msgid "Private Appointment"
-msgstr "Privat avtale"
-
-#, php-format
-msgid "%s's Birthday"
-msgstr "Fødselsdagen til %s"
-
-#, php-format
-msgid "%s's Anniversary"
-msgstr "Merkedagen til %s"
-
-msgid "Unknown user/group"
-msgstr "Ukjent bruker/gruppe"
-
-msgid "Could not save delegate information."
-msgstr "Kunne ikke lagre informasjon om representanter."
-
-# 80%
-msgid "Could not delete delegate."
-msgstr "Kunne ikke slette representant."
-
-msgid "Can not get list of delegates."
-msgstr "Kunne ikke hente liste med representanter."
-
-msgid "Could not load the hierarchy."
-msgstr "Kunne ikke laste hierarkiet."
-
-msgid "Could not load folder properties."
-msgstr "Kunne ikke laste inn mappeegenskaper."
-
-msgid "Could not remove folder from favorites."
-msgstr "Kunne ikke fjerne mappen fra Favoritter."
-
-# 75%
-# 88%
-msgid "You have insufficient privileges to delete folder."
-msgstr "Du har ikke tilstrekkelige rettigheter til å slette mappen."
-
-msgid "Could not delete folder."
-msgstr "Kunne ikke slette mappe."
-
-# 81%
-# 84%
-msgid "You have insufficient privileges to copy folder."
-msgstr "Du har ikke tilstrekkelige rettigheter til å kopiere mappen."
-
-msgid "Could not copy folder."
-msgstr "Kunne ikke kopiere mappe."
-
-# 81%
-msgid "You have insufficient privileges to move this folder."
-msgstr "Du har ikke tilstrekkelige rettigheter til å flytte denne mappen."
-
-msgid "Could not move folder."
-msgstr "Kunne ikke flytte mappe."
-
-# 75%
-msgid "You have insufficient privileges to delete items."
-msgstr "Du har ikke tilstrekkelige rettigheter til å slette disse elementene."
-
-msgid "Could not empty folder."
-msgstr "Kunne ikke tømme mappe."
-
-msgid "Could not perform action correctly."
-msgstr "Kunne ikke utføre handlingen korrekt."
-
-msgid ""
-"A favorite folder with this name already exists, please use another name."
-msgstr ""
-"En favoritt-mappe ved dette navnet finnes allerede, bruk et annet navn."
-
-msgid "Could not add folder to favorites."
-msgstr "Kunne ikke legge mappen til dine Favoritter."
-
-# 77%
-msgid "You have insufficient privileges to set permissions for this folder."
-msgstr ""
-"Du har ikke tilstrekkelige rettigheter til å endre rettigheter for denne "
-"mappen."
-
-msgid "Could not set folder permissions."
-msgstr "Kunne ikke sette mapperettigheter."
-
-# 80%
-msgid "You have insufficient privileges to rename this folder."
-msgstr ""
-"Du har ikke tilstrekkelige rettigheter til å gi nytt navn på denne mappen."
-
-msgid "A folder with this name already exists. Use another name."
-msgstr "En mappe med dette navnet finnes allerede. Bruk et annet navn."
-
-# 83%
-msgid "Could not rename folder."
-msgstr "Kunne ikke gi nytt navn på mappe."
-
-# 81%
-msgid "You have insufficient privileges to create this folder."
-msgstr "Du har ikke tilstrekkelige rettigheter til å opprette denne mappen."
-
-# 83%
-msgid "Could not create folder."
-msgstr "Kunne ikke opprette mappe."
-
-msgid "Could not close shared folder."
-msgstr "Kunne ikke lukke delt mappe."
-
-msgid "User could not be resolved."
-msgstr "Kunne ikke finne bruker."
-
-#, php-format
-msgid ""
-"You have insufficient privileges to open this %1$s folder. The folder owner "
-"can set these using the 'permissions'-tab of the folder properties (right "
-"click the %1$s folder > properties > permissions)."
-msgstr ""
-"Du har ikke tilstrekkelige rettigheter til å åpne denne %1$s mappe. Eieren "
-"til mappen kan sette disse rettighetene ved å gå på arkfanen 'Rettigheter' "
-"til mappen (høyreklikk på %1$s mappen > Egenskaper -> Rettigheter)."
-
-msgid "unknown"
-msgstr "ukjent"
-
-msgid "Could not move folder"
-msgstr "Kunne ikke flytte mappe"
-
-msgid "Could not copy folder"
-msgstr "Kunne ikke kopiere mappe"
-
-msgid "You have insufficient privileges to open this message."
-msgstr "Du har ikke tilstrekkelige rettigheter til å åpne denne meldingen."
-
-msgid ""
-"Could not find message, either it has been moved or deleted or you don't "
-"have access to open this message."
-msgstr ""
-"Kunne ikke finne meldingen, enten så har den blitt flyttet eller slettet, "
-"eller så har du ikke tillatelse til å åpne meldingen."
 
 msgid "Could not open message."
 msgstr "Kunne ikke åpne meldingen."
@@ -6382,216 +6292,34 @@ msgstr "Din melding kom ikke frem til en eller alle mottakere"
 msgid "The following recipient(s) could not be reached"
 msgstr "De følgende mottakere kunne ikke nåes"
 
-# 80%
-msgid "You have insufficient privileges to see the contents of this folder."
-msgstr ""
-"Du har ikke tilstrekkelige rettigheter til å se innholdet i denne mappen."
-
-msgid "Could not load the contents of this folder."
-msgstr "Kunne ikke laste inn innholdet i denne mappen."
-
-msgid "Error in search, please try again"
-msgstr "Feil ved søk, forsøk igjen"
-
-msgid "Unable to perform search query, no permissions to create search folder."
-msgstr ""
-"Kunne ikke utføre søk, fordi du ikke har rettigheter til å opprette en Søke-"
-"mappe."
-
-msgid "Unable to perform search query, search folder not found."
-msgstr "Kunne ikke utføre søk, da Søke-mappen ikke ble funnet."
-
-msgid "Unable to perform search query, store might not support searching."
-msgstr "Kunne ikke utføre søk, kontoen støtter muligens ikke søk."
-
-msgid "Error in creating search folder."
-msgstr "Feil ved oppretting av søke-mappe."
-
-msgid ""
-"You have insufficient privileges to perform search operation in this folder."
-msgstr ""
-"Du har ikke tilstrekkelige rettigheter til å kunne søke i denne mappen."
-
-msgid "Could not update search results."
-msgstr "Kunne ikke oppdatere søkeresultatene."
-
-msgid "Could not stop search operation."
-msgstr "Kunne ikke stoppe søkeoperasjon."
-
-# 92%
-msgid "You have insufficient privileges to save this message."
-msgstr "Du har ikke tilstrekkelige rettigheter til å lagre denne meldingen."
-
-# 95%
-msgid "Could not save message."
-msgstr "Kunne ikke lagre meldingen."
-
-# 91%
-msgid "You have insufficient privileges to delete this message."
-msgstr "Du har ikke tilstrekkelige rettigheter til å slette denne meldingen."
-
-# 80%
-msgid "Could not delete message."
-msgstr "Kunne ikke slette meldingen."
-
-# 92%
-msgid "You have insufficient privileges to cancel this Meeting Request."
-msgstr ""
-"Du har ikke tilstrekkelige rettigheter til å avbryte denne møteinvitasjonen."
-
-msgid "Could not cancel Meeting Request."
-msgstr "Kunne ikke avbryte møteinvitasjonen."
-
-# 98%
-msgid "You have insufficient privileges to decline this Meeting Request."
-msgstr ""
-"Du har ikke tilstrekkelige rettigheter til å kunne avslå denne "
-"møteinvitasjonen."
-
-msgid "Could not decline Meeting Request."
-msgstr "Kunne ikke avslå møteinvitasjonen."
-
-# 98%
-msgid "You have insufficient privileges to accept this Meeting Request."
-msgstr ""
-"Du har ikke tilstrekkelige rettigheter til å kunne godta denne "
-"møteinvitasjonen."
-
-# 87%
-msgid "Could not accept Meeting Request."
-msgstr "Kunne ikke godta møteinvitasjonen."
-
-# 92%
-# 77%
-msgid "You have insufficient privileges to cancel Meeting Request invitation."
-msgstr ""
-"Du har ikke tilstrekkelige rettigheter til å avbryte denne møteinvitasjonen."
-
-msgid "Could not cancel Meeting Request invitations."
-msgstr "Kunne ikke avbryte møteinvitasjonene."
-
-msgid "You can not continue search operation on this folder."
-msgstr "Du kan ikke fortsette å søke i denne mappen."
-
-# 97%
-msgid "Error in search, please try again."
-msgstr "Feil ved søk, forsøk igjen."
-
-msgid "Error in distribution list expansion."
-msgstr "Feil ved distribusjonslisteutvidelse."
-
-msgid "The message store has exceeded its hard quota limit."
-msgstr "E-postboksen har oversteget hard-kvotegrensen."
-
-msgid ""
-"To reduce the amount of data in this message store, select some items that "
-"you no longer need, delete them and cleanup your Deleted Items folder."
-msgstr ""
-"For å redusere mengden data i denne e-postboksen, velg noen elementer som du "
-"ikke lenger trenger, slett dem, og tøm deretter din Slettede Elementer mappe."
-
-msgid "The message store has exceeded its soft quota limit."
-msgstr "E-postboksen har oversteget myk-kvotegrensen."
-
-msgid "Could not process request data properly."
-msgstr "Kunne ikke behandle forespørselen skikkelig."
-
 #, php-format
-msgid "Unknown action type specified - %s"
-msgstr "Ukjent handlingstype oppgitt - %s"
-
-msgid "Cannot snooze the reminder. You may be reminded again."
-msgstr "Kan ikke utsette påminnelsen. Du kan bli påminnet igjen."
-
-msgid "Cannot dismiss the reminder. You may be reminded again."
-msgstr "Kan ikke lukke påminnelsen. Du kan bli påminnet igjen."
-
-# 76%
-msgid "You have insufficient privileges to perform this action."
-msgstr "Du har ikke tilstrekkelige rettigheter til å utføre denne handlingen."
-
-msgid "Could not resolve user."
-msgstr "Kunne ikke finne bruker."
-
-msgid "Setting mail filters on the stores of other users is not allowed."
-msgstr ""
-"Det er ikke mulig å sette e-postfilter på e-postboksen til andre brukere."
-
-msgid "Untitled rule"
-msgstr "Navnløs regel"
-
-msgid "Could not load rules."
-msgstr "Kunne ikke laste regler."
-
-msgid "Could not save rules."
-msgstr "Kunne ikke lagre regler."
-
-msgid "Task Request:"
-msgstr "Oppgaveforespørsel:"
-
-msgid "Welcome"
-msgstr "Velkommen"
-
-msgid "Username"
-msgstr "Brukernavn"
-
-msgid "Password"
-msgstr "Passord"
-
-msgid "Sign in"
-msgstr "Logg inn"
-
-msgid "Caps lock is on"
-msgstr "Caps Lock er på"
-
-msgid "File is not imported successfully"
-msgstr "Filen ble ikke vellykket importert"
+msgid "Unable to import '%s' to '%s'. "
+msgstr "Kunne ikke importere '%s' til '%s'. "
 
 msgid "There is no contact found in this file."
 msgstr "Fant ingen kontakter i denne filen."
+
+msgid "The file is corrupt."
+msgstr "Filen er skadet."
+
+msgid "The file is invalid."
+msgstr "Filen er ikke gyldig."
+
+#, php-format
+msgid "Unable to import '%s'. "
+msgstr "Kunne ikke importere  '%s'. "
+
+msgid "Please contact your system administrator if the problem persists."
+msgstr "Ta kontakt med din systemadministrator om dette problemet vedvarer."
 
 msgid ""
 "grommunio Web does not support importing multiple VCF with this version."
 msgstr ""
 
+# 100%
+msgid "There is no appointment found in this file."
+msgstr "Fant ingen avtaler i denne filen."
+
 msgid ""
 "grommunio Web does not support importing multiple ICS with this version."
 msgstr ""
-
-#, php-format
-msgid "Unable to import '%s'"
-msgstr "Kunne ikke importere  '%s'"
-
-msgid "The EML is not valid"
-msgstr "EML-fila er ikke gyldig"
-
-msgid "GB"
-msgstr "GB"
-
-msgid "MB"
-msgstr "MB"
-
-msgid "KB"
-msgstr "KB"
-
-msgid "B"
-msgstr "B"
-
-msgid "The maximum stack depth has been exceeded"
-msgstr "Den maksimale stakkdybden har blitt oversteget"
-
-msgid "Control character error, possibly incorrectly encoded"
-msgstr "Kontrolltegnfeil, trolig feil omkoding"
-
-msgid "Invalid or malformed JSON"
-msgstr "Ugyldig eller korrupt JSON"
-
-msgid "Syntax error"
-msgstr "Syntax feil"
-
-msgid "Malformed UTF-8 characters, possibly incorrectly encoded"
-msgstr "Feilformatert UTF-8 tegn, muligens feilkodet"
-
-#, php-format
-msgid "JSON Error: - %s"
-msgstr "JSON feil: - %s"

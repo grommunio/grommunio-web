@@ -1716,6 +1716,25 @@ msgstr ""
 msgid "Insufficient privileges"
 msgstr "yetersiz yetki"
 
+msgid ""
+"Copying this appointment will unset it as private. Are you sure you want to "
+"continue?"
+msgstr ""
+
+msgid "Private item"
+msgstr ""
+
+msgid "Copy"
+msgstr "Kopyala"
+
+msgid ""
+"Moving this appointment will unset it as private. Are you sure you want to "
+"continue?"
+msgstr ""
+
+msgid "Move"
+msgstr "Kaydır"
+
 #, fuzzy
 msgid "Update recipients"
 msgstr "Alıcı düzenle"
@@ -1729,9 +1748,6 @@ msgstr "Değişiklikleri kaydet ve tüm alıcılara güncelleme gönder"
 msgid "Open meeting request with changes"
 msgstr "değişiklik yapılan toplantı isteğini aç"
 
-msgid "Copy"
-msgstr "Kopyala"
-
 msgid "grommunio Web"
 msgstr "grommunio Web"
 
@@ -1742,9 +1758,6 @@ msgid ""
 msgstr ""
 "Toplantı isteği düzenleyen tarafından güncellendiğinde yapacağınız "
 "değişikliklerin üzerine yazılacaktır"
-
-msgid "Move"
-msgstr "Kaydır"
 
 #, fuzzy
 msgid "Don't move"
@@ -2138,13 +2151,13 @@ msgid "Import to folder"
 msgstr "Klasörü boşalt"
 
 msgid ""
-"In order to use the vCard import feature, upgrade your Gromox to version 8.3 "
+"In order to use the vCard import feature, upgrade your Gromox to version 0 "
 "or higher."
 msgstr ""
 
 msgid ""
 "In order to use the ICS / VCS import feature, upgrade your Gromox to version "
-"8.3 or higher."
+"0 or higher."
 msgstr ""
 
 msgid "Attachment error"
@@ -2528,6 +2541,18 @@ msgstr ""
 msgid "Add/Edit Cc recipient"
 msgstr "Alıcı düzenle"
 
+msgid "Disable for new mail"
+msgstr ""
+
+msgid "Enable for new mail"
+msgstr ""
+
+msgid "Disable for replies"
+msgstr ""
+
+msgid "Enable for replies"
+msgstr ""
+
 #, fuzzy
 msgid "No Cc recipient configured"
 msgstr "Yapılandırılmış imzalar yok"
@@ -2562,8 +2587,8 @@ msgstr ""
 msgid "Help"
 msgstr "yardım"
 
-msgid "grommunio Web Manual"
-msgstr "grommunio Web kılavuzu"
+msgid "Web Manual"
+msgstr ""
 
 msgid "Item data"
 msgstr ""
@@ -2576,6 +2601,9 @@ msgstr "Sıralama: context.mail.griddefaultcolumn"
 
 msgid "ZDeveloper"
 msgstr "zdeveloper"
+
+msgid "grommunio Web print"
+msgstr ""
 
 # 91%
 msgid "Display name"
@@ -3202,14 +3230,8 @@ msgstr ""
 msgid "d-m-Y"
 msgstr "d-m-Y"
 
-msgid "Original message"
-msgstr "Orijinal mesaj"
-
 msgid "l d/m/Y"
 msgstr "l d-m-Y"
-
-msgid "Sent Items"
-msgstr ""
 
 msgid "l d/m/Y {0}"
 msgstr ""
@@ -3267,12 +3289,9 @@ msgstr "{0} olarak bu metni davranın."
 
 msgctxt "mail.previewpanel"
 msgid ""
-"Click here to download pictures. To help protect your privacy, grommunio Web "
+"Click here to download pictures. To help protect your privacy, WebApp "
 "prevented automatic download of some pictures in this message."
 msgstr ""
-"Resimleri yüklemek için burayı tıklayınız. Gizliliğinizi korunmasına "
-"yardımcı olmak için, grommunio Web bu iletideki bazı resimlerin otomatik "
-"olarak yüklenmesini engelledi ."
 
 msgctxt "mail.previewpanel"
 msgid ""
@@ -4226,7 +4245,7 @@ msgid "Unsaved changes"
 msgstr ""
 
 msgid "Welcome to grommunio Web"
-msgstr "grommunio Web'e hoşgeldiniz"
+msgstr ""
 
 #, fuzzy
 msgid "This is the first time you are using grommunio Web. "
@@ -4332,19 +4351,27 @@ msgid_plural "There are {0} unread messages in the folder {1}"
 msgstr[0] "Okunmamış {0} mesaj {1} klasörde bulunmaktadır"
 msgstr[1] "Okunmamış {0} mesaj {1} klasörde bulunmaktadır"
 
-msgid "License error"
+msgid "Publishing Editor"
 msgstr ""
 
-msgid ""
-"The installed license key(s) have expired or are being over used. Please "
-"contact your system administrator for further information."
+#, fuzzy
+msgid "Editor"
+msgstr "düzenle"
+
+msgid "Publishing Author"
 msgstr ""
 
-msgid "Full control"
-msgstr "Tam Denetim"
+msgid "Author"
+msgstr ""
 
-msgid "No rights"
-msgstr "Hiçbir hak"
+msgid "Nonediting Author"
+msgstr ""
+
+msgid "Reviewer"
+msgstr ""
+
+msgid "Contributor"
+msgstr ""
 
 msgid "Unable to import:"
 msgstr ""
@@ -4397,6 +4424,12 @@ msgstr "Tür"
 msgid "Description"
 msgstr "Açıklama"
 
+msgid "EntryID"
+msgstr ""
+
+msgid "Parent EID"
+msgstr ""
+
 msgid "Folder size"
 msgstr "Klasör boyutu"
 
@@ -4412,23 +4445,29 @@ msgstr "Verilen İzin yok"
 msgid "Profile"
 msgstr "Profil"
 
+msgid "Read"
+msgstr ""
+
+msgid "Full Details"
+msgstr ""
+
+msgid "Write"
+msgstr ""
+
 msgid "Create items"
 msgstr "Öğe oluştur"
-
-msgid "Read items"
-msgstr "Öğeleri oku"
 
 msgid "Create subfolders"
 msgstr "Alt klasörler oluştur"
 
-msgid "Folder permissions"
-msgstr "Klasör Izin düzeyleri"
+msgid "Edit own"
+msgstr ""
 
-msgid "Folder visible"
-msgstr "Klasör görülebilir"
+msgid "Edit all"
+msgstr ""
 
-msgid "Edit items"
-msgstr "Öğeleri düzenleme"
+msgid "Delete items"
+msgstr "Öğeleri sil"
 
 msgid "Own"
 msgstr "Kendi"
@@ -4436,8 +4475,14 @@ msgstr "Kendi"
 msgid "All"
 msgstr "Hepsi"
 
-msgid "Delete items"
-msgstr "Öğeleri sil"
+msgid "Folder owner"
+msgstr ""
+
+msgid "Folder contact"
+msgstr ""
+
+msgid "Folder visible"
+msgstr "Klasör görülebilir"
 
 msgid "User already exists"
 msgstr "Kullanıcı zaten var"
@@ -4660,6 +4705,9 @@ msgstr "Gönderildi"
 msgid "Red"
 msgstr "Kırmızı"
 
+msgid "Original message"
+msgstr "Orijinal mesaj"
+
 msgid "Schedule mail to be sent out"
 msgstr ""
 
@@ -4774,9 +4822,6 @@ msgstr "Diyer ayarlar"
 msgid "Internet Headers"
 msgstr "İnternet Başlıkları"
 
-msgid "EntryID"
-msgstr ""
-
 msgid "Message Settings"
 msgstr "Mesaj ayarları"
 
@@ -4819,9 +4864,6 @@ msgstr "okundu/okunmadı arasında geçiş yap"
 
 msgid "Toggle red/complete flag"
 msgstr "kırmızı/tamamlandı işareti arasında geçiş yap"
-
-msgid "Close a conversation"
-msgstr ""
 
 # 76%
 msgid "Open Shared Mails"
@@ -4872,10 +4914,6 @@ msgstr "Posta ayarlarını düzenleyin"
 
 msgid "Compose mail in this format"
 msgstr "Bu biçimde posta oluştur"
-
-#, fuzzy
-msgid "Editor"
-msgstr "düzenle"
 
 msgid "Default font"
 msgstr "Varsayılan yazı tipi"
@@ -4965,15 +5003,24 @@ msgstr "...itibariyle ofis dışındayım"
 msgid "I will be back on"
 msgstr "...geri döneceğim"
 
-msgid "I am out of office"
-msgstr ""
-
 #, fuzzy
 msgid "Automatically reply once per day, per sender with the following text"
 msgstr "Her gönderene bir kere otomatik metin yanıtla"
 
-msgid "User is currently out of office."
-msgstr "Kullanıcı şu anda ofis dışında"
+msgid "Inside My Organization"
+msgstr ""
+
+msgid "Outside My Organization"
+msgstr ""
+
+msgid "Auto-reply to people outside my organization"
+msgstr ""
+
+msgid "My contacts only"
+msgstr ""
+
+msgid "Anyone outside my organization"
+msgstr ""
 
 msgid ""
 "The time you entered is before the out of office date. Please reschedule."
@@ -5175,7 +5222,10 @@ msgstr "Ayarlar"
 msgid "Basic"
 msgstr "temel"
 
-msgid "Account information"
+msgid "Account information - {0}"
+msgstr ""
+
+msgid "Profile Picture"
 msgstr ""
 
 msgid "Language"
@@ -5330,8 +5380,8 @@ msgstr "temel klavye kısayolları açık"
 msgid "All keyboard shortcuts on"
 msgstr "Tüm klavye kısayolları açık"
 
-msgid "This change requires a reload of the grommunio Web"
-msgstr "Bu değişiklik grommunio Web yeniden açarsan etkili olur"
+msgid "This change requires a reload of grommunio Web"
+msgstr ""
 
 msgid "Plugins"
 msgstr "Eklentiler"
@@ -5830,17 +5880,11 @@ msgstr "bağlantı yeniden sağlandı"
 msgid "Connection with server has been restored"
 msgstr "Sunucu ile bağlantı yeniden sağlandı"
 
-msgid "Please contact your administrator if this problem persists."
-msgstr ""
-
 #. TRANSLATORS: Example: HTTP 404
-msgid "Error HTTP {0}"
+msgid "HTTP {0}"
 msgstr ""
 
-msgid "HTTP status text is: "
-msgstr ""
-
-msgid "Invalid data received from the server. HTTP status text is: "
+msgid "Invalid data received from the server"
 msgstr ""
 
 #, fuzzy
@@ -5923,45 +5967,254 @@ msgstr "Sunucudan model yüklenmesi başarısız"
 msgid "Out of Office is currently activated. Would you like to turn it off?"
 msgstr "Ofis dışı bildirimi aktif. Kapatmak ister misiniz?"
 
-msgid "Out of office off"
-msgstr "ofis dışı bildirimi kapalı"
+msgid "Open Chat at start"
+msgstr ""
 
-msgid "Out of office has been turned off"
-msgstr "ofis dışı bildirimi kapatılmıştır"
+msgid "Desktop Notifications Plugin"
+msgstr ""
 
-msgid "Send Fax"
-msgstr "faks gönder"
+msgid "Desktop Notifications"
+msgstr ""
 
-msgid "Contact Fax"
-msgstr "kişi faksı"
+msgid "{A} Autohide desktop notification after second(s) {B}"
+msgstr ""
 
-msgid "Google Maps"
-msgstr "google maps"
+msgid "Intranet"
+msgstr ""
 
-#. TRANSLATORS: The map of earth
-msgid "Map"
-msgstr "harita"
+msgid "Email Details"
+msgstr ""
 
-msgid "Move currently selected message(s) to {0}"
-msgstr "Seçili olan mesajları {0} taşı"
+msgid "Item Data"
+msgstr ""
 
-msgid "Move to {0}"
-msgstr "{0}'a taşı"
+msgid "Mobile Device Manager"
+msgstr ""
 
-msgid "Move current message to {0}"
-msgstr "Seçili olan mesajı {0}'a taşı"
+msgid "Wiping device"
+msgstr ""
 
-msgid "Personal Inbox Manager"
-msgstr "kişisel 'gelen kutusu' yöneticisi"
+msgid "Password incorrect"
+msgstr ""
 
-msgid "Personal Inbox Management Settings"
-msgstr "kişisel 'gelen kutusu' yönetim ayarları"
+msgid "Full resync in progress"
+msgstr ""
 
-msgid "Select another folder"
-msgstr "Başka bir klasör seçin"
+msgid "Username or password incorrect"
+msgstr ""
 
-msgid "E-mails are moved to {0}"
-msgstr "E-postalar {0}'a taşınıyor"
+msgid "Not Applicable"
+msgstr ""
+
+msgid "Wipe Pending"
+msgstr ""
+
+msgid "Wipe Requested"
+msgstr ""
+
+msgid "Wipe Executed"
+msgstr ""
+
+msgid "Not Available"
+msgstr ""
+
+msgid "Device"
+msgstr ""
+
+msgid "Operating System"
+msgstr ""
+
+msgid "ID"
+msgstr ""
+
+msgid "User Agent"
+msgstr ""
+
+msgid "MDM Plugin"
+msgstr ""
+
+msgid "Active Sync Version"
+msgstr ""
+
+msgid "grommunio-sync Version"
+msgstr ""
+
+msgid "Policy name"
+msgstr ""
+
+msgid "Outlook Extension"
+msgstr ""
+
+msgid "Build"
+msgstr ""
+
+msgid "Last updated"
+msgstr ""
+
+msgid "d F Y, H:i"
+msgstr ""
+
+msgid "Connected since"
+msgstr ""
+
+msgid "d F Y"
+msgstr ""
+
+msgid "Synchronize"
+msgstr ""
+
+msgid "Manage Shared Folders"
+msgstr ""
+
+msgid ""
+"Select folders to sync to your device from the list below. To add additional "
+"mailboxes to the list, open them in WebApp first."
+msgstr ""
+
+msgid "grommunio-sync"
+msgstr ""
+
+msgid "Mobile device management"
+msgstr ""
+
+msgid "Mobile Devices"
+msgstr ""
+
+msgid ""
+"Unable to connect to the grommunio-sync server. Click {0} to enter your "
+"credentials"
+msgstr ""
+
+msgid "Devices"
+msgstr ""
+
+msgid "No devices connected to your account"
+msgstr ""
+
+msgid "Last Update"
+msgstr ""
+
+msgid "Device ID"
+msgstr ""
+
+msgid "Device OS"
+msgstr ""
+
+msgid "Device Info"
+msgstr ""
+
+msgid "First Sync time"
+msgstr ""
+
+msgid "Full resync"
+msgstr ""
+
+msgid "Remove device"
+msgstr ""
+
+msgid "Please enter your username and password"
+msgstr ""
+
+msgid "Password"
+msgstr ""
+
+msgid "Username"
+msgstr ""
+
+msgid ""
+"Do you really want to wipe your device?\n"
+" Enter your password to confirm."
+msgstr ""
+
+msgid "Add meeting"
+msgstr ""
+
+msgid "Room name:"
+msgstr ""
+
+msgid "Room URL:"
+msgstr ""
+
+msgid "Shift-click for advanced settings"
+msgstr ""
+
+msgid "Join webmeeting"
+msgstr ""
+
+msgid "Open meeting in:"
+msgstr ""
+
+msgid "Web tab"
+msgstr ""
+
+msgid "Hide the button in the main toolbar"
+msgstr ""
+
+msgid "Add the subject to the room name"
+msgstr ""
+
+msgid "Add the organizer name to the room name"
+msgstr ""
+
+msgid "Add the URL to the meeting location rather than overwriting it"
+msgstr ""
+
+msgid ""
+"Prevent the URL in the meeting location from being overridden automatically "
+"(ex: when adding a meetingroom)"
+msgstr ""
+
+msgid "If you have problems when creating meetings, try disabling this setting"
+msgstr ""
+
+msgid "Add an invitation to the appointment description"
+msgstr ""
+
+msgid "Invitation text"
+msgstr ""
+
+msgid ""
+"must contain %url% as a placeholder for the meeting link, empty the textbox "
+"to reset to default"
+msgstr ""
+
+msgid "An unknown error occurred while changing password."
+msgstr ""
+
+msgid "Password is changed successfully."
+msgstr ""
+
+msgid "Success"
+msgstr ""
+
+msgid "Change Password"
+msgstr ""
+
+msgid "Current password"
+msgstr ""
+
+msgid "New password"
+msgstr ""
+
+msgid "Retype new password"
+msgstr ""
+
+msgid "New passwords do not match."
+msgstr ""
+
+msgid "Current password is empty."
+msgstr ""
+
+msgid "New password is empty."
+msgstr ""
+
+msgid "One or more fields does contain errors."
+msgstr ""
+
+msgid ""
+"Password is weak. Password should contain capital, non-capital letters and "
+"numbers. Password should have 8 to 20 characters."
+msgstr ""
 
 msgid "Charm pink"
 msgstr "Cazibeli pembe"
@@ -5984,8 +6237,8 @@ msgstr "Nane"
 msgid "Pearl aqua"
 msgstr "inci su"
 
-msgid "grommunio blue"
-msgstr "grommunio mavisi"
+msgid "Grommunio blue"
+msgstr ""
 
 msgid "Baby blue"
 msgstr "bebek mavisi"
@@ -6049,44 +6302,13 @@ msgid ""
 "Please contact your system administrator."
 msgstr ""
 
-msgid "Can't add data to bus, same action type is present in bus"
-msgstr "Otobüs veri eklemek değil, aynı eylem türü otobüs mevcuttur"
-
-msgid "Response data requested from bus but it doesn't have any data."
-msgstr "Yanıt verileri istendi ancak herhangi bir veri yoktur."
-
-#, php-format
-msgid "Unknown module '%s' with id '%s'"
-msgstr "Bilinmeyen modülü '% s' id '% s'"
-
-msgid ""
-"We encountered a problem. This might be caused by upgrading a plugin. Please "
-"re-login to resolve the issue."
+msgid "Mobile device management plugin"
 msgstr ""
 
 #, php-format
-msgid "Unknown notifier '%s'"
-msgstr "Bilinmeyen bildirici '%s'"
-
-msgid "An unexpected error has occurred"
-msgstr "Beklenmeyen bir hata oluştu"
-
-#, fuzzy
-msgid "To-Do List"
-msgstr "Telefon listesi"
-
-#. TRANSLATORS: This indicates that the opened folder belongs to a particular user,
-#. * for example: 'Calendar of Holiday', in this case %1$s is 'Calendar' (the foldername)
-#. * and %2$s is 'Holiday' (the username).
-#.
-#, php-format
-msgid "%1$s of %2$s"
-msgstr "%1$s of %2$s"
-
-msgid "Error retrieving existing settings"
-msgstr "Varolan ayarları alırken hata"
-
-msgid "Error retrieving existing persistent settings"
+msgid ""
+"Unexpected error occurred. Please contact your system administrator. Error "
+"code: %s"
 msgstr ""
 
 # 93%
@@ -6105,82 +6327,6 @@ msgstr ""
 
 msgid "Unknown MAPI Error"
 msgstr "Bilinmeyen MAPI hatası"
-
-msgid "This external link will open in a new window"
-msgstr "Bu dış bağlantı yeni bir pencerede açılacaktır"
-
-#, fuzzy
-msgid "Destination folder not found."
-msgstr "Hedef klasör"
-
-msgid "Eml is corrupted"
-msgstr ""
-
-#, fuzzy
-msgid "The eml Attachment is not imported successfully"
-msgstr "ZIP oluşturma başarısız"
-
-#, fuzzy
-msgid "The vcf attachment is not imported successfully"
-msgstr "ZIP oluşturma başarısız"
-
-#, php-format
-msgid "Unable to import '%s' to '%s'. "
-msgstr ""
-
-#, fuzzy
-msgid "There is no appointment found in this file."
-msgstr "Bu toplantı geçmişte."
-
-msgid "The file is corrupt."
-msgstr ""
-
-#, fuzzy
-msgid "The file is invalid."
-msgstr "Eklenen dosyalar henüz yüklenmedi."
-
-#, php-format
-msgid "Unable to import '%s'. "
-msgstr ""
-
-msgid "Please contact your system administrator if the problem persists."
-msgstr ""
-
-#, fuzzy
-msgid "Attachment is not imported successfully"
-msgstr "ZIP oluşturma başarısız"
-
-# 81%
-#, fuzzy
-msgid "Embedded attachment not found."
-msgstr "Bu kişiye eklentiler ekleyin"
-
-msgid "ZIP is not created successfully"
-msgstr "ZIP oluşturma başarısız"
-
-msgid "Attachments can not be downloaded"
-msgstr "Ekler indirilemiyor"
-
-# 82%
-# 100%
-msgid "Could not find attachment."
-msgstr "Eklenti bulunamadı."
-
-msgid "Operation failed"
-msgstr "işlem başarısız"
-
-# 90%
-# 100%
-msgid "Sticky Note"
-msgstr "Not kağıtı"
-
-# 92%
-# 100%
-msgid "Task Request"
-msgstr "Görev isteği"
-
-msgid "Could not find message, either it has been moved or deleted."
-msgstr "İleti bulunamadı, taşındı veya silindi."
 
 msgid "Request is not available."
 msgstr ""
@@ -6212,9 +6358,6 @@ msgstr "İşlem başarısız: Sunucuda yeterli bellek yok."
 #, php-format
 msgid "Unknown MAPI Error: %s"
 msgstr "Bilinmeyen MAPI hatası: %s"
-
-msgid "Action is not performed correctly."
-msgstr "Eylem doğru yapılmaz."
 
 msgid "Tentatively accepted"
 msgstr "Geçici olarak kabul edildi"
@@ -6294,238 +6437,6 @@ msgstr "Her {0} gerçekleşir, başlangıç: {1}, bitiş: {2}."
 #, fuzzy, php-format
 msgid "Occurs every %s %s effective %s until %s."
 msgstr "Her {0} gerçekleşir, başlangıç: {1}, bitiş: {2}."
-
-msgid "Task Accepted:"
-msgstr "Görev Kabul:"
-
-msgid "Task Declined:"
-msgstr "Görev Reddedildi:"
-
-msgid "Task Updated:"
-msgstr "Görev güncellendi"
-
-msgid "Task Completed:"
-msgstr "Görev tamamlandı"
-
-msgid "Contact not found"
-msgstr ""
-
-msgid ""
-"Contact information could not be displayed because the server had trouble "
-"retrieving the information."
-msgstr ""
-
-msgid "Could not handle this type of object."
-msgstr "Bu nesne türü halledilmiyor"
-
-msgid "Could not open this object."
-msgstr "Bu nesne açılamadı."
-
-msgid "Could not open occurrence."
-msgstr "Olay açılamadı."
-
-msgid "Could not open occurrence, specific occurrence is probably deleted."
-msgstr "Olay açılamadı, bu spesifik olay muhtemelen silindi."
-
-# 89%
-# 100%
-# 84%
-msgid "a meeting request"
-msgstr "bir toplantı isteği"
-
-# 93%
-# 100%
-# 80%
-msgid "an appointment"
-msgstr "bir randevu"
-
-# 79%
-# 100%
-msgid "You have insufficient privileges to move "
-msgstr "taşımak için yeterli yetkiye sahip değilsiniz "
-
-msgid ""
-"Cannot set a reminder to appear before the previous occurrence. Reset "
-"reminder to save the change"
-msgstr ""
-"Hatırlatma ayarlanamıyor olaydan önce. Değişikleri kaydetmek için "
-"hatırlatmayı sıfırla"
-
-msgid "Two occurrences cannot occur on the same day"
-msgstr "İki oluşumlar aynı gün oluşamaz"
-
-#, php-format
-msgid ""
-"You marked '%s' as a resource. You cannot schedule a meeting with '%s' "
-"because you do not have the appropriate permissions for that account. Either "
-"enter the name as a required or optional attendee or talk to your "
-"administrator about giving you permission to schedule '%s'."
-msgstr ""
-
-#, php-format
-msgid ""
-"'%s' has declined your meeting because '%s' does not automatically accept "
-"meeting requests."
-msgstr ""
-"'% s' toplantı isteklerini kabul etmedi, çünkü '% s' otomatik toplantı "
-"isteğini kabul etmiyor."
-
-#, php-format
-msgid ""
-"'%s' has declined your meeting because it is recurring. You must book each "
-"meeting separately with this resource."
-msgstr ""
-"'% s' toplantı isteklerini kabul etmedi, çünkü tekrarlanıyor. Bu kaynakta "
-"her toplantıya ayrı rezervasyon gerekir."
-
-#, php-format
-msgid ""
-"'%s' is already booked for this specified time. You must use another time or "
-"find another resource."
-msgstr ""
-"'%s' belirtilen süre iҫin rezervasyon doldu. Başka bir saat veya başka bir "
-"kaynak bulmak gerekir"
-
-msgid "Meeting was not scheduled."
-msgstr "Toplantı planlanmış değildi."
-
-msgid "Meeting could not be sent."
-msgstr "Toplantı gönderilemedi."
-
-msgid "Meeting could not be saved."
-msgstr "Toplantı kaydedilemedi"
-
-msgid "Private Appointment"
-msgstr "Özel Randevu"
-
-#, php-format
-msgid "%s's Birthday"
-msgstr "% s Doğum günü"
-
-#, php-format
-msgid "%s's Anniversary"
-msgstr "% s Yıldönümü"
-
-msgid "Unknown user/group"
-msgstr "Bilinmeyen kullanıcı / grup"
-
-msgid "Could not save delegate information."
-msgstr "Temsilci bilgileri kaydedilemedi."
-
-# 78%
-# 80%
-#, fuzzy
-msgid "Could not delete delegate."
-msgstr "Mesaj silinmiyor"
-
-# 78%
-# 80%
-msgid "Can not get list of delegates."
-msgstr "Temsilci listesi alınamadı."
-
-msgid "Could not load the hierarchy."
-msgstr "Hiyerarşi yüklenemedi."
-
-msgid "Could not load folder properties."
-msgstr "Klasör özellikleri yüklenemedi."
-
-msgid "Could not remove folder from favorites."
-msgstr "Klasör favorilerden silinemiyor."
-
-msgid "You have insufficient privileges to delete folder."
-msgstr "Bu klasörü silmek için yeterli ayrıcalıklara sahip deyilsiniz."
-
-msgid "Could not delete folder."
-msgstr "Klasör silinemedi."
-
-msgid "You have insufficient privileges to copy folder."
-msgstr "Bu klasöre kopyalamak için yeterli ayrıcalıklara sahip deyilsiniz"
-
-msgid "Could not copy folder."
-msgstr "Klasör kopyalanmadı"
-
-msgid "You have insufficient privileges to move this folder."
-msgstr "Bu klasöre taşımak için yeterli ayrıcalıklara sahip deyilsiniz"
-
-msgid "Could not move folder."
-msgstr "Klasör kaydırılmıyor"
-
-msgid "You have insufficient privileges to delete items."
-msgstr "Bu öğeleri silmek için yeterli ayrıcalıklara sahip deyilsiniz."
-
-msgid "Could not empty folder."
-msgstr "Klasör boşaltılmıyor"
-
-msgid "Could not perform action correctly."
-msgstr "Doğru eylemi gerçekleştiremedi."
-
-msgid ""
-"A favorite folder with this name already exists, please use another name."
-msgstr ""
-
-msgid "Could not add folder to favorites."
-msgstr "Klasör favorilere eklenilmiyor"
-
-msgid "You have insufficient privileges to set permissions for this folder."
-msgstr ""
-"Bu klasörün izinlerini ayarlamak için yeterli ayrıcalıklara sahip deyilsiniz."
-
-msgid "Could not set folder permissions."
-msgstr "Klasör izinleri ayarlanmıyor"
-
-msgid "You have insufficient privileges to rename this folder."
-msgstr ""
-"Bu klasörü yeniden adlandırmak için yeterli ayrıcalıklara sahip deyilsiniz"
-
-msgid "A folder with this name already exists. Use another name."
-msgstr "Bu isimde bir klasör zaten var. Başka bir isim kullanın."
-
-msgid "Could not rename folder."
-msgstr "Klasörü yeniden adlandırılmıyor"
-
-msgid "You have insufficient privileges to create this folder."
-msgstr "Bu klasörü oluşturmak için yeterli ayrıcalıklara sahip deyilsiniz."
-
-msgid "Could not create folder."
-msgstr "Klasör oluşturulamadı."
-
-msgid "Could not close shared folder."
-msgstr "Paylaşılan klasör kapatılamadı."
-
-msgid "User could not be resolved."
-msgstr "Kullanıcı çözülemedi."
-
-#, php-format
-msgid ""
-"You have insufficient privileges to open this %1$s folder. The folder owner "
-"can set these using the 'permissions'-tab of the folder properties (right "
-"click the %1$s folder > properties > permissions)."
-msgstr ""
-"%1$s klasörünü açmak için yeterli yetkiye sahip değilsiniz. Klasör sahibi, "
-"bunları klasör özelliklerinin 'izinler' sekmesini kullanarak (%1$s klasörü "
-"sağ tıklayın > özellikler > izinler) ayarlayabilir."
-
-# 85%
-msgid "unknown"
-msgstr "Bilinmeyen"
-
-# 95%
-msgid "Could not move folder"
-msgstr "Klasör taşınamıyor"
-
-# 95%
-msgid "Could not copy folder"
-msgstr "Klasör kopyalanamadı"
-
-# 92%
-msgid "You have insufficient privileges to open this message."
-msgstr "Bu mesaji açmak için yeterli ayrıcalıklara sahip deyilsiniz."
-
-msgid ""
-"Could not find message, either it has been moved or deleted or you don't "
-"have access to open this message."
-msgstr ""
-"İleti bulunamadı. Taşındı,silindi veya bu iletiyi açmak için erişiminiz yok."
 
 # 78%
 msgid "Could not open message."
@@ -6627,215 +6538,35 @@ msgstr "İletiniz, belirtilen alıcıların bazılarına veya tümüne ulaşmad�
 msgid "The following recipient(s) could not be reached"
 msgstr "Aşağıdaki alıcı (lar) ulaşılamadı"
 
-msgid "You have insufficient privileges to see the contents of this folder."
-msgstr ""
-"Bu klasörün içeriğini görmek için yeterli ayrıcalıklara sahip deyilsiniz."
-
-msgid "Could not load the contents of this folder."
-msgstr "Bu klasörün içeriğini yükleyemedi"
-
-msgid "Error in search, please try again"
-msgstr "Arama hatası, lütfen tekrar deneyin"
-
-msgid "Unable to perform search query, no permissions to create search folder."
-msgstr ""
-
-msgid "Unable to perform search query, search folder not found."
-msgstr ""
-
-msgid "Unable to perform search query, store might not support searching."
-msgstr ""
-
-msgid "Error in creating search folder."
-msgstr ""
-
-msgid ""
-"You have insufficient privileges to perform search operation in this folder."
-msgstr ""
-"Bu klasörde arama işlemi gerçekleştirmek için yeterli ayrıcalıklara sahip "
-"deyilsiniz"
-
-msgid "Could not update search results."
-msgstr "Arama sonuçları güncelleştirilemedi."
-
-msgid "Could not stop search operation."
-msgstr "Arama işlemi tutamadı."
-
-msgid "You have insufficient privileges to save this message."
-msgstr "Bu iletiyi kaydetmek için yeterli ayrıcalıklara sahip deyilsiniz."
-
-# 78%
-# 82%
-msgid "Could not save message."
-msgstr "Mesaj kaydedilmiyor."
-
-msgid "You have insufficient privileges to delete this message."
-msgstr "Bu mesajı silmek için yeterli ayrıcalıklara sahip deyilsiniz."
-
-# 78%
-# 80%
-msgid "Could not delete message."
-msgstr "Mesaj silinmiyor"
-
-msgid "You have insufficient privileges to cancel this Meeting Request."
-msgstr ""
-"Bu Toplantı İsteği iptal etmek için yeterli ayrıcalıklara sahip deyilsiniz."
-
-msgid "Could not cancel Meeting Request."
-msgstr "Toplantı İsteği iptal edilemedi."
-
-msgid "You have insufficient privileges to decline this Meeting Request."
-msgstr ""
-"Bu Toplantı isteği reddetmek için yeterli ayrıcalıklara sahip deyilsiniz"
-
-msgid "Could not decline Meeting Request."
-msgstr "Toplantı isteği reddettilmiyor"
-
-msgid "You have insufficient privileges to accept this Meeting Request."
-msgstr ""
-"Bu Toplantı İsteğini kabul etmek için yeterli ayrıcalıklara sahip deyilsiniz."
-
-msgid "Could not accept Meeting Request."
-msgstr "Toplantı İsteği kabul edilmiyor"
-
-msgid "You have insufficient privileges to cancel Meeting Request invitation."
-msgstr ""
-"Toplantı İsteği daveti iptal etmek için yeterli ayrıcalıklara sahip "
-"deyilsiniz."
-
-msgid "Could not cancel Meeting Request invitations."
-msgstr "Toplanti isteği iptal edilemedi"
-
-msgid "You can not continue search operation on this folder."
-msgstr "Klasörde arama işlemi devam edilemedi"
-
-# 97%
-msgid "Error in search, please try again."
-msgstr "Arama hatası, lütfen tekrar deneyin"
-
-msgid "Error in distribution list expansion."
-msgstr "Dağıtım listesi genişletme hatası."
-
-msgid "The message store has exceeded its hard quota limit."
-msgstr "İleti deposu sabit kota sınırını aştı."
-
-msgid ""
-"To reduce the amount of data in this message store, select some items that "
-"you no longer need, delete them and cleanup your Deleted Items folder."
-msgstr ""
-"Bu ileti deposundaki veri miktarını azaltmak için artık gereksinim "
-"duymadığınız bazı öğeleri seçin, bunları silin ve Silinmiş Öğeler "
-"klasörünüzü temizleyin."
-
-msgid "The message store has exceeded its soft quota limit."
-msgstr "Ileti deposu yumuşak kota sınırını aştı."
-
-msgid "Could not process request data properly."
-msgstr "Istek iyi işlenmedi"
-
 #, php-format
-msgid "Unknown action type specified - %s"
-msgstr "Bilinmeyen eylem tipi -% s"
-
-msgid "Cannot snooze the reminder. You may be reminded again."
-msgstr "Hatırlatıcıyı erteleyemezsiniz. Yeniden hatırlatılabilirsiniz."
-
-msgid "Cannot dismiss the reminder. You may be reminded again."
-msgstr "Hatırlatıcıyı kapatamazsınız. Yeniden hatırlatılabilirsiniz."
-
-# 80%
-msgid "You have insufficient privileges to perform this action."
-msgstr "Bu mağazayı açmak için yeterli ayrıcalıklara sahip deyilsiniz."
-
-msgid "Could not resolve user."
-msgstr "Kullanıcı çözümlenemedi."
-
-msgid "Setting mail filters on the stores of other users is not allowed."
+msgid "Unable to import '%s' to '%s'. "
 msgstr ""
 
-msgid "Untitled rule"
-msgstr "Başlıksız kural"
+msgid "There is no contact found in this file."
+msgstr ""
 
-# 83%
-# 77%
-# 76%
-msgid "Could not load rules."
-msgstr "kurallar yüklenemedi."
-
-# 83%
-# 77%
-# 95%
-msgid "Could not save rules."
-msgstr "kurallar kaydedilemedi."
-
-msgid "Task Request:"
-msgstr "Görev isteği"
-
-msgid "Welcome"
-msgstr "Hoşgeldiniz"
-
-msgid "Username"
-msgstr "kullanıcı adı"
-
-msgid "Password"
-msgstr "Şifre"
-
-msgid "Sign in"
-msgstr "oturum aç"
-
-msgid "Caps lock is on"
+msgid "The file is corrupt."
 msgstr ""
 
 #, fuzzy
-msgid "File is not imported successfully"
-msgstr "ZIP oluşturma başarısız"
+msgid "The file is invalid."
+msgstr "Eklenen dosyalar henüz yüklenmedi."
 
-msgid "There is no contact found in this file."
+#, php-format
+msgid "Unable to import '%s'. "
+msgstr ""
+
+msgid "Please contact your system administrator if the problem persists."
 msgstr ""
 
 msgid ""
 "grommunio Web does not support importing multiple VCF with this version."
 msgstr ""
 
+#, fuzzy
+msgid "There is no appointment found in this file."
+msgstr "Bu toplantı geçmişte."
+
 msgid ""
 "grommunio Web does not support importing multiple ICS with this version."
 msgstr ""
-
-#, php-format
-msgid "Unable to import '%s'"
-msgstr ""
-
-#, fuzzy
-msgid "The EML is not valid"
-msgstr "{0} geçerli bir zaman değil"
-
-msgid "GB"
-msgstr "GB"
-
-msgid "MB"
-msgstr "MB"
-
-msgid "KB"
-msgstr "KB"
-
-msgid "B"
-msgstr "B"
-
-msgid "The maximum stack depth has been exceeded"
-msgstr "Azami yığın boyutu aşıldı"
-
-msgid "Control character error, possibly incorrectly encoded"
-msgstr "Kontrol karakter hatası, muhtemelen yanlış kodlandı"
-
-msgid "Invalid or malformed JSON"
-msgstr "Geçersiz veya hatalı JSON"
-
-msgid "Syntax error"
-msgstr "Sözdizimi hatası"
-
-msgid "Malformed UTF-8 characters, possibly incorrectly encoded"
-msgstr "Kontrol karakter hatası, muhtemelen yanlış kodlandı"
-
-#, php-format
-msgid "JSON Error: - %s"
-msgstr "JSON-Hata: - %s"
