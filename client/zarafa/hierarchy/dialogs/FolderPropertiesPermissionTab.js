@@ -138,7 +138,7 @@ Zarafa.hierarchy.dialogs.FolderPropertiesPermissionTab = Ext.extend(Ext.Panel, {
 					},{
 						xtype: 'combo',
 						ref: '../../../profileCombo',
-						width: 200,
+						width: 250,
 						flex: 1,
 						id: 'profile-combo',
 						fieldLabel: _('Profile'),
