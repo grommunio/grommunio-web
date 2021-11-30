@@ -65,7 +65,6 @@ const fingerprint = (function(){
 			'Aparajita',
 			'Arabic Typesetting',
 			'Arial Black',
-			'Arial Narrow',
 			'Bodoni MT',
 			'Baskerville Old Face',
 			'Goudy Old Style',
