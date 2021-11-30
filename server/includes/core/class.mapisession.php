@@ -69,7 +69,7 @@
 		}
 
 		/**
-		 * Logon to Gromox' MAPI system via php MAPI extension
+		 * Logon to via php_mapi extension
 		 *
 		 * Logs on to Gromox with the specified username and password. If the server is not specified,
 		 * it will logon to the local server.
@@ -723,13 +723,15 @@
 				$this->stores[$entryid] = $store;
 				$this->userstores[$name] = $entryid;
 			} catch (MAPIException $e) {
-				error_log('Failed to open store with entryid ' . bin2hex($entryid) . ($name ? " ($name)" : ''));
+				error_log('Failed to open store. ' . $this->session_info["username"] .
+				          ' requested ' . bin2hex($entryid) . ($name ? " ($name)" : ''));
 				error_log($e);
 				return $e->getCode();
 			} catch (Exception $e ) {
 				// mapi_openmsgstore seems to throw another exception than MAPIException
 				// sometimes, so we add a safety net.
-				error_log('Failed to open store with entryid ' . bin2hex($entryid) . ($name ? " ($name)" : ''));
+				error_log('Failed to open store. ' . $this->session_info["username"] .
+				          ' requested ' . bin2hex($entryid) . ($name ? " ($name)" : ''));
 				error_log($e);
 				return $e->getCode();
 			}
