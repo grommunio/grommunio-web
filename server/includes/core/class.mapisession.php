@@ -801,7 +801,7 @@
 		function getOtherUserStore()
 		{
 			$otherusers = $this->retrieveOtherUsersFromSettings();
-			$otheUsersStores = Array();
+			$otherUsersStores = Array();
 			
 			foreach($otherusers as $username=>$folder) {
 				if (isset($this->userstores[$username])) {
@@ -814,7 +814,7 @@
 
 						$sharedStore =  $this->openMessageStore($user_entryid, $username);
 						if ($sharedStore !== false) {
-							array_push($otheUsersStores, $sharedStore);
+							array_push($otherUsersStores, $sharedStore);
 						}
 
 						$this->userstores[$username] = $user_entryid;
@@ -838,7 +838,7 @@
 					}
 				}
 			}
-			return $otheUsersStores;
+			return $otherUsersStores;
 		}
 
 		/**
