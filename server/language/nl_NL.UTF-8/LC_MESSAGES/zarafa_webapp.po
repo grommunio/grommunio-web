@@ -2,17 +2,62 @@
 # Copyright (C) 2021
 msgid ""
 msgstr ""
+"Content-Transfer-Encoding: 8bit\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Language: nl_NL\n"
+"Last-Translator: import\n"
+"MIME-Version: 1.0\n"
+"PO-Revision-Date: 2021-04-16 08:20+0000\n"
+"POT-Creation-Date: 2019-09-25 14:32+0200\n"
 "Project-Id-Version: grommunio Web Dutch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-09-25 14:32+0200\n"
-"PO-Revision-Date: 2021-04-16 08:20+0000\n"
-"Last-Translator: import\n"
-"Language: nl_NL\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 2.4\n"
+
+msgid "Password"
+msgstr "Wachtwoord"
+
+msgid "Username"
+msgstr "Gebruikersnaam"
+
+msgid "Publishing Editor"
+msgstr "Publicerende redacteur"
+
+msgid "Publishing Author"
+msgstr "Publicerende auteur"
+
+msgid "Author"
+msgstr "Auteur"
+
+msgid "Nonediting Author"
+msgstr "Niet-redacterende auteur"
+
+msgid "Reviewer"
+msgstr "Tweede lezer"
+
+msgid "Contributor"
+msgstr "Bijdrager"
+
+msgid "Read"
+msgstr "Lezen"
+
+msgid "Full Details"
+msgstr "Volledige details"
+
+msgid "Write"
+msgstr "Schrijven"
+
+msgid "Edit own"
+msgstr "Eigen bewerken"
+
+msgid "Edit all"
+msgstr "Alles bewerken"
+
+msgid "Folder owner"
+msgstr "Mapeigenaar"
+
+msgid "Folder contact"
+msgstr "Mapcontact"
 
 #. TRANSLATORS: This message is used as label for the column which indicates the week number of the month in date picker. and 'Wk' stands for week
 msgid "Wk"
@@ -4364,26 +4409,8 @@ msgid_plural "There are {0} unread messages in the folder {1}"
 msgstr[0] "Er is {0} ongelezen bericht in de map {1}"
 msgstr[1] "Er zijn {0} ongelezen berichten in de map {1}"
 
-msgid "Publishing Editor"
-msgstr ""
-
 msgid "Editor"
 msgstr "Editor"
-
-msgid "Publishing Author"
-msgstr ""
-
-msgid "Author"
-msgstr ""
-
-msgid "Nonediting Author"
-msgstr ""
-
-msgid "Reviewer"
-msgstr ""
-
-msgid "Contributor"
-msgstr ""
 
 msgid "Unable to import:"
 msgstr "Kan de volgende bestanden niet importeren:"
@@ -4454,26 +4481,11 @@ msgstr "Geen permissies toegekend"
 msgid "Profile"
 msgstr "Profiel"
 
-msgid "Read"
-msgstr ""
-
-msgid "Full Details"
-msgstr ""
-
-msgid "Write"
-msgstr ""
-
 msgid "Create items"
 msgstr "Items aanmaken"
 
 msgid "Create subfolders"
 msgstr "Submappen maken"
-
-msgid "Edit own"
-msgstr ""
-
-msgid "Edit all"
-msgstr ""
 
 msgid "Delete items"
 msgstr "Items verwijderen"
@@ -4483,12 +4495,6 @@ msgstr "Eigen"
 
 msgid "All"
 msgstr "Alle"
-
-msgid "Folder owner"
-msgstr ""
-
-msgid "Folder contact"
-msgstr ""
 
 msgid "Folder visible"
 msgstr "Map zichtbaar"
@@ -6108,12 +6114,6 @@ msgid "Remove device"
 msgstr ""
 
 msgid "Please enter your username and password"
-msgstr ""
-
-msgid "Password"
-msgstr ""
-
-msgid "Username"
 msgstr ""
 
 msgid ""

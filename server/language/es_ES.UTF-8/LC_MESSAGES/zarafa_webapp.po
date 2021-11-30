@@ -2,17 +2,65 @@
 # Copyright (C) 2021
 msgid ""
 msgstr ""
+"Content-Transfer-Encoding: 8bit\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Language: es_ES\n"
+"Last-Translator: import\n"
+"MIME-Version: 1.0\n"
+"PO-Revision-Date: 2017-06-12 15:20+0000\n"
+"POT-Creation-Date: 2019-09-25 14:32+0200\n"
 "Project-Id-Version: grommunio Web Spanish (Spain)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-09-25 14:32+0200\n"
-"PO-Revision-Date: 2017-06-12 15:20+0000\n"
-"Last-Translator: import\n"
-"Language: es_ES\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 2.4\n"
+
+msgid "Password"
+msgstr "Contraseña"
+
+msgid "Full name"
+msgstr "Nombre completo"
+
+msgid "Username"
+msgstr "Nombre de usuario"
+
+msgid "Publishing Editor"
+msgstr "Editor publicador"
+
+msgid "Publishing Author"
+msgstr "Autor publicador"
+
+msgid "Author"
+msgstr "Autor"
+
+msgid "Nonediting Author"
+msgstr "Autor sin edición"
+
+msgid "Reviewer"
+msgstr "Revisor"
+
+msgid "Contributor"
+msgstr "Contribuidor"
+
+msgid "Read"
+msgstr "Lectura"
+
+msgid "Full Details"
+msgstr "Todos los detalles"
+
+msgid "Write"
+msgstr "Escritura"
+
+msgid "Edit own"
+msgstr "Editar propietario"
+
+msgid "Edit all"
+msgstr "Editar todo"
+
+msgid "Folder owner"
+msgstr "Propietario de la carpeta"
+
+msgid "Folder contact"
+msgstr "Carpeta de contacto"
 
 #. TRANSLATORS: This message is used as label for the column which indicates the week number of the month in date picker. and 'Wk' stands for week
 msgid "Wk"
@@ -3211,9 +3259,6 @@ msgstr ""
 msgid "From Addresses settings"
 msgstr ""
 
-msgid "Full name"
-msgstr ""
-
 # 92%
 msgid "Phone Numbers"
 msgstr "Números de Teléfono"
@@ -4389,27 +4434,9 @@ msgid_plural "There are {0} unread messages in the folder {1}"
 msgstr[0] "Hay {0} mensaje no leido en la carpeta {1}"
 msgstr[1] "Hay {0} mensajes no leidos en la carpeta {1}"
 
-msgid "Publishing Editor"
-msgstr ""
-
 #, fuzzy
 msgid "Editor"
 msgstr "Editar"
-
-msgid "Publishing Author"
-msgstr ""
-
-msgid "Author"
-msgstr ""
-
-msgid "Nonediting Author"
-msgstr ""
-
-msgid "Reviewer"
-msgstr ""
-
-msgid "Contributor"
-msgstr ""
 
 msgid "Unable to import:"
 msgstr ""
@@ -4483,26 +4510,11 @@ msgstr "Permisos no concedidos."
 msgid "Profile"
 msgstr "Perfil"
 
-msgid "Read"
-msgstr ""
-
-msgid "Full Details"
-msgstr ""
-
-msgid "Write"
-msgstr ""
-
 msgid "Create items"
 msgstr "Crear elementos"
 
 msgid "Create subfolders"
 msgstr "Crear subcarpetas"
-
-msgid "Edit own"
-msgstr ""
-
-msgid "Edit all"
-msgstr ""
 
 msgid "Delete items"
 msgstr "Elementos eliminados"
@@ -4512,12 +4524,6 @@ msgstr "Propio"
 
 msgid "All"
 msgstr "Todo"
-
-msgid "Folder owner"
-msgstr ""
-
-msgid "Folder contact"
-msgstr ""
 
 msgid "Folder visible"
 msgstr "Carpeta visible"
@@ -6155,12 +6161,6 @@ msgid "Remove device"
 msgstr ""
 
 msgid "Please enter your username and password"
-msgstr ""
-
-msgid "Password"
-msgstr ""
-
-msgid "Username"
 msgstr ""
 
 msgid ""

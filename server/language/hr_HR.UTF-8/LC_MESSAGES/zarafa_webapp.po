@@ -2,18 +2,130 @@
 # Copyright (C) 2021
 msgid ""
 msgstr ""
+"Content-Transfer-Encoding: 8bit\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Language: hr_HR\n"
+"Last-Translator: import\n"
+"MIME-Version: 1.0\n"
+"PO-Revision-Date: 2017-10-05 20:01+0200\n"
+"POT-Creation-Date: 2019-09-25 14:32+0200\n"
 "Project-Id-Version: grommunio Web Croatian (Croatia)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-09-25 14:32+0200\n"
-"PO-Revision-Date: 2017-10-05 20:01+0200\n"
-"Last-Translator: import\n"
-"Language: hr_HR\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
 "%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
-"X-Generator: Poedit 2.0.4\n"
+"X-Generator: Weblate 2.4\n"
+
+msgid "Options"
+msgstr "Mogućnosti"
+
+msgid "Password"
+msgstr "Lozinka"
+
+msgid "Favorites"
+msgstr "Omiljeno"
+
+msgid "Full name"
+msgstr "Ime i prezime"
+
+msgid "Username"
+msgstr "Korisničko ime"
+
+msgid "Size"
+msgstr "Veličina"
+
+msgid "Folder Size"
+msgstr "Veličina mape"
+
+msgid "Owner"
+msgstr "Vlasnik"
+
+msgid "Publishing Editor"
+msgstr "Urednik objavljivanja"
+
+msgid "Editor"
+msgstr "Urednik"
+
+msgid "Publishing Author"
+msgstr "Autor objavljivanja"
+
+msgid "Author"
+msgstr "Autor"
+
+msgid "Nonediting Author"
+msgstr "Autor koji ne uređuje"
+
+msgid "Reviewer"
+msgstr "Recezent"
+
+msgid "Contributor"
+msgstr "Doprinositelj"
+
+msgid "Custom"
+msgstr "Prilagođena"
+
+msgid "Unknown"
+msgstr "Nepoznato"
+
+msgid "Name"
+msgstr "Ime"
+
+msgid "Permissions"
+msgstr "Dozvole"
+
+msgid "Read"
+msgstr "Čitanje"
+
+msgid "Full Details"
+msgstr "Potpune pojedinosti"
+
+msgid "Write"
+msgstr "Zapisivanje"
+
+msgid "Create items"
+msgstr "Stvaranje stavke"
+
+msgid "Create subfolders"
+msgstr "Stvaranje podmapa"
+
+msgid "Edit own"
+msgstr "Uređivanje vlastitoga"
+
+msgid "Edit all"
+msgstr "Uređivanje svega"
+
+msgid "Delete items"
+msgstr "Brisanje stavki"
+
+msgid "Own"
+msgstr "Svoje"
+
+msgid "All"
+msgstr "Sve"
+
+msgid "Other"
+msgstr "Ostalo"
+
+msgid "Folder owner"
+msgstr "Vlasnik mape"
+
+msgid "Folder contact"
+msgstr "Kontakt mape"
+
+msgid "Folder visible"
+msgstr "Mapa je vidljiva"
+
+#. convert well-known names to their non-localized form
+msgid "Inbox"
+msgstr "Pristigla pošta"
+
+msgid "Contacts"
+msgstr "Kontakti"
+
+msgid "Calendar"
+msgstr "Kalendar"
+
+msgid "Tasks"
+msgstr "Zadaci"
 
 #. TRANSLATORS: This message is used as label for the column which indicates the week number of the month in date picker. and 'Wk' stands for week
 msgid "Wk"
@@ -303,9 +415,6 @@ msgstr ""
 msgid "G:i"
 msgstr ""
 
-msgid "Name"
-msgstr ""
-
 msgid "Value"
 msgstr ""
 
@@ -344,9 +453,6 @@ msgid "Display Name"
 msgstr ""
 
 msgid "Alias"
-msgstr ""
-
-msgid "Owner"
 msgstr ""
 
 msgid "Notes"
@@ -671,12 +777,6 @@ msgstr ""
 msgid "Appointments"
 msgstr ""
 
-msgid "Contacts"
-msgstr ""
-
-msgid "Tasks"
-msgstr ""
-
 msgid "Filter.."
 msgstr ""
 
@@ -714,9 +814,6 @@ msgid "Subject"
 msgstr ""
 
 msgid "Body & Attachments"
-msgstr ""
-
-msgid "Favorites"
 msgstr ""
 
 msgid "Add a folder to favorites based on this search query"
@@ -993,9 +1090,6 @@ msgid "Print overview"
 msgstr ""
 
 msgid "Create Appointment"
-msgstr ""
-
-msgid "Calendar"
 msgstr ""
 
 msgid "Create in other calendar"
@@ -2112,9 +2206,6 @@ msgstr ""
 msgid "Task"
 msgstr ""
 
-msgid "Inbox"
-msgstr ""
-
 msgid "Entire Inbox"
 msgstr ""
 
@@ -2134,9 +2225,6 @@ msgid "Delegate can see my private items."
 msgstr ""
 
 msgid "Delegate receives copies of meeting-related messages sent to me."
-msgstr ""
-
-msgid "Other"
 msgstr ""
 
 msgid "No delegates configured"
@@ -2224,9 +2312,6 @@ msgid "This week"
 msgstr ""
 
 msgid "Next week"
-msgstr ""
-
-msgid "Custom"
 msgstr ""
 
 msgid "Set reminder"
@@ -2651,9 +2736,6 @@ msgstr ""
 msgid "Sort by: Received"
 msgstr ""
 
-msgid "Size"
-msgstr ""
-
 msgid "Sort by: Size"
 msgstr ""
 
@@ -2938,9 +3020,6 @@ msgstr ""
 msgid "From Addresses settings"
 msgstr ""
 
-msgid "Full name"
-msgstr ""
-
 msgid "Phone Numbers"
 msgstr ""
 
@@ -2975,9 +3054,6 @@ msgid "l d/m/Y {0}"
 msgstr ""
 
 msgid "d-m-Y {0}"
-msgstr ""
-
-msgid "Unknown"
 msgstr ""
 
 msgid "Meeting Organizer"
@@ -3980,27 +4056,6 @@ msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
 
-msgid "Publishing Editor"
-msgstr ""
-
-msgid "Editor"
-msgstr ""
-
-msgid "Publishing Author"
-msgstr ""
-
-msgid "Author"
-msgstr ""
-
-msgid "Nonediting Author"
-msgstr ""
-
-msgid "Reviewer"
-msgstr ""
-
-msgid "Contributor"
-msgstr ""
-
 msgid "Unable to import:"
 msgstr ""
 
@@ -4061,61 +4116,16 @@ msgstr ""
 msgid "Folder containing {0} Items"
 msgstr ""
 
-msgid "Permissions"
-msgstr ""
-
 msgid "No permissions granted"
 msgstr ""
 
 msgid "Profile"
 msgstr ""
 
-msgid "Read"
-msgstr ""
-
-msgid "Full Details"
-msgstr ""
-
-msgid "Write"
-msgstr ""
-
-msgid "Create items"
-msgstr ""
-
-msgid "Create subfolders"
-msgstr ""
-
-msgid "Edit own"
-msgstr ""
-
-msgid "Edit all"
-msgstr ""
-
-msgid "Delete items"
-msgstr ""
-
-msgid "Own"
-msgstr ""
-
-msgid "All"
-msgstr ""
-
-msgid "Folder owner"
-msgstr ""
-
-msgid "Folder contact"
-msgstr ""
-
-msgid "Folder visible"
-msgstr ""
-
 msgid "User already exists"
 msgstr ""
 
 msgid "Group already exists"
-msgstr ""
-
-msgid "Folder Size"
 msgstr ""
 
 msgid "Folder Name"
@@ -4369,9 +4379,6 @@ msgid "Add attachments to this email"
 msgstr ""
 
 msgid "Add signature"
-msgstr ""
-
-msgid "Options"
 msgstr ""
 
 msgid "Open options dialog"
@@ -5596,12 +5603,6 @@ msgid "Remove device"
 msgstr ""
 
 msgid "Please enter your username and password"
-msgstr ""
-
-msgid "Password"
-msgstr ""
-
-msgid "Username"
 msgstr ""
 
 msgid ""

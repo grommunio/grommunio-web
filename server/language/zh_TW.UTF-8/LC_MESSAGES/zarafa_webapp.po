@@ -2,17 +2,26 @@
 # Copyright (C) 2021
 msgid ""
 msgstr ""
+"Content-Transfer-Encoding: 8bit\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Language: zh_TW\n"
+"Last-Translator: import\n"
+"MIME-Version: 1.0\n"
+"PO-Revision-Date: 2017-10-05 20:40+0200\n"
+"POT-Creation-Date: 2019-09-25 14:32+0200\n"
 "Project-Id-Version: grommunio Web Chinese (Taiwan)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-09-25 14:32+0200\n"
-"PO-Revision-Date: 2017-10-05 20:40+0200\n"
-"Last-Translator: import\n"
-"Language: zh_TW\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Poedit 2.0.4\n"
+"X-Generator: Weblate 2.4\n"
+
+msgid "Full name"
+msgstr "全名"
+
+msgid "Username"
+msgstr "使用者名稱"
+
+msgid "Password"
+msgstr "密碼"
 
 #. TRANSLATORS: This message is used as label for the column which indicates the week number of the month in date picker. and 'Wk' stands for week
 msgid "Wk"
@@ -3104,9 +3113,6 @@ msgstr ""
 msgid "From Addresses settings"
 msgstr ""
 
-msgid "Full name"
-msgstr ""
-
 msgid "Phone Numbers"
 msgstr "電話號碼"
 
@@ -5931,12 +5937,6 @@ msgid "Remove device"
 msgstr ""
 
 msgid "Please enter your username and password"
-msgstr ""
-
-msgid "Password"
-msgstr ""
-
-msgid "Username"
 msgstr ""
 
 msgid ""

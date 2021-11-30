@@ -2,17 +2,62 @@
 # Copyright (C) 2021
 msgid ""
 msgstr ""
+"Content-Transfer-Encoding: 8bit\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Language: tr_TR\n"
+"Last-Translator: import\n"
+"MIME-Version: 1.0\n"
+"PO-Revision-Date: 2017-10-03 21:34+0200\n"
+"POT-Creation-Date: 2019-09-25 14:32+0200\n"
 "Project-Id-Version: grommunio Web Turkish\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-09-25 14:32+0200\n"
-"PO-Revision-Date: 2017-10-03 21:34+0200\n"
-"Last-Translator: import\n"
-"Language: tr_TR\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 2.0.4\n"
+"X-Generator: Weblate 2.4\n"
+
+msgid "Password"
+msgstr "Parola"
+
+msgid "Username"
+msgstr "Kullanıcı adı"
+
+msgid "Publishing Editor"
+msgstr "Yayın Editorü"
+
+msgid "Publishing Author"
+msgstr "Yayın Yazarı"
+
+msgid "Author"
+msgstr "Yazar"
+
+msgid "Nonediting Author"
+msgstr "Düzenlenmeyen Yazar"
+
+msgid "Reviewer"
+msgstr "Gözden geçiren"
+
+msgid "Contributor"
+msgstr "Katkıda bulunan"
+
+msgid "Read"
+msgstr "Okuma"
+
+msgid "Full Details"
+msgstr "Tüm Ayrıntılar"
+
+msgid "Write"
+msgstr "Yazma"
+
+msgid "Edit own"
+msgstr "Kendini düzenle"
+
+msgid "Edit all"
+msgstr "Tümünü düzenle"
+
+msgid "Folder owner"
+msgstr "Klasör sahibi"
+
+msgid "Folder contact"
+msgstr "Klasör bağlantısı"
 
 #. TRANSLATORS: This message is used as label for the column which indicates the week number of the month in date picker. and 'Wk' stands for week
 msgid "Wk"
@@ -4351,27 +4396,9 @@ msgid_plural "There are {0} unread messages in the folder {1}"
 msgstr[0] "Okunmamış {0} mesaj {1} klasörde bulunmaktadır"
 msgstr[1] "Okunmamış {0} mesaj {1} klasörde bulunmaktadır"
 
-msgid "Publishing Editor"
-msgstr ""
-
 #, fuzzy
 msgid "Editor"
 msgstr "düzenle"
-
-msgid "Publishing Author"
-msgstr ""
-
-msgid "Author"
-msgstr ""
-
-msgid "Nonediting Author"
-msgstr ""
-
-msgid "Reviewer"
-msgstr ""
-
-msgid "Contributor"
-msgstr ""
 
 msgid "Unable to import:"
 msgstr ""
@@ -4445,26 +4472,11 @@ msgstr "Verilen İzin yok"
 msgid "Profile"
 msgstr "Profil"
 
-msgid "Read"
-msgstr ""
-
-msgid "Full Details"
-msgstr ""
-
-msgid "Write"
-msgstr ""
-
 msgid "Create items"
 msgstr "Öğe oluştur"
 
 msgid "Create subfolders"
 msgstr "Alt klasörler oluştur"
-
-msgid "Edit own"
-msgstr ""
-
-msgid "Edit all"
-msgstr ""
 
 msgid "Delete items"
 msgstr "Öğeleri sil"
@@ -4474,12 +4486,6 @@ msgstr "Kendi"
 
 msgid "All"
 msgstr "Hepsi"
-
-msgid "Folder owner"
-msgstr ""
-
-msgid "Folder contact"
-msgstr ""
 
 msgid "Folder visible"
 msgstr "Klasör görülebilir"
@@ -6113,12 +6119,6 @@ msgid "Remove device"
 msgstr ""
 
 msgid "Please enter your username and password"
-msgstr ""
-
-msgid "Password"
-msgstr ""
-
-msgid "Username"
 msgstr ""
 
 msgid ""

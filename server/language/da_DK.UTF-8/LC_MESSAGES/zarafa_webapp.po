@@ -2,17 +2,62 @@
 # Copyright (C) 2021
 msgid ""
 msgstr ""
+"Content-Transfer-Encoding: 8bit\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Language: da_DK\n"
+"Last-Translator: import\n"
+"MIME-Version: 1.0\n"
+"PO-Revision-Date: 2018-02-06 18:03+0000\n"
+"POT-Creation-Date: 2019-09-25 14:32+0200\n"
 "Project-Id-Version: grommunio Web Danish (Denmark)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-09-25 14:32+0200\n"
-"PO-Revision-Date: 2018-02-06 18:03+0000\n"
-"Last-Translator: import\n"
-"Language: da_DK\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 2.4\n"
+
+msgid "Password"
+msgstr "Adgangskode"
+
+msgid "Username"
+msgstr "Brugernavn"
+
+msgid "Publishing Editor"
+msgstr "Ansvarshavende redaktør"
+
+msgid "Publishing Author"
+msgstr "Ansvarshavende forfatter"
+
+msgid "Author"
+msgstr "Forfatter"
+
+msgid "Nonediting Author"
+msgstr "Ikkeredigerende forfatter"
+
+msgid "Reviewer"
+msgstr "Korrekturlæser"
+
+msgid "Contributor"
+msgstr "Bidragyder"
+
+msgid "Read"
+msgstr "Læs"
+
+msgid "Full Details"
+msgstr "Alle detaljer"
+
+msgid "Write"
+msgstr "Skriv"
+
+msgid "Edit own"
+msgstr "Rediger egne"
+
+msgid "Edit all"
+msgstr "Rediger alle"
+
+msgid "Folder owner"
+msgstr "Mappeejer"
+
+msgid "Folder contact"
+msgstr "Mappekontakt"
 
 #. TRANSLATORS: This message is used as label for the column which indicates the week number of the month in date picker. and 'Wk' stands for week
 msgid "Wk"
@@ -4171,27 +4216,9 @@ msgid_plural "There are {0} unread messages in the folder {1}"
 msgstr[0] "Der er {0} ulæst meddelelse i mappen {1}"
 msgstr[1] "Der er {0} ulæste meddelelser i mappen {1}"
 
-msgid "Publishing Editor"
-msgstr ""
-
 #, fuzzy
 msgid "Editor"
 msgstr "Ret"
-
-msgid "Publishing Author"
-msgstr ""
-
-msgid "Author"
-msgstr ""
-
-msgid "Nonediting Author"
-msgstr ""
-
-msgid "Reviewer"
-msgstr ""
-
-msgid "Contributor"
-msgstr ""
 
 msgid "Unable to import:"
 msgstr ""
@@ -4265,26 +4292,11 @@ msgstr "Ingen tilladelser er givet"
 msgid "Profile"
 msgstr "Profil"
 
-msgid "Read"
-msgstr ""
-
-msgid "Full Details"
-msgstr ""
-
-msgid "Write"
-msgstr ""
-
 msgid "Create items"
 msgstr "Opret elementer"
 
 msgid "Create subfolders"
 msgstr "Opret undermapper"
-
-msgid "Edit own"
-msgstr ""
-
-msgid "Edit all"
-msgstr ""
 
 msgid "Delete items"
 msgstr "Slet elementer"
@@ -4294,12 +4306,6 @@ msgstr "Ejer"
 
 msgid "All"
 msgstr "Alle"
-
-msgid "Folder owner"
-msgstr ""
-
-msgid "Folder contact"
-msgstr ""
 
 msgid "Folder visible"
 msgstr "Folder synlig"
@@ -5862,12 +5868,6 @@ msgid "Remove device"
 msgstr ""
 
 msgid "Please enter your username and password"
-msgstr ""
-
-msgid "Password"
-msgstr ""
-
-msgid "Username"
 msgstr ""
 
 msgid ""

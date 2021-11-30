@@ -2,16 +2,65 @@
 # Copyright (C) 2021
 msgid ""
 msgstr ""
+"Content-Transfer-Encoding: 8bit\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Language: pt_BR\n"
+"Last-Translator: import\n"
+"MIME-Version: 1.0\n"
+"PO-Revision-Date: 2017-10-03 21:54+0200\n"
+"POT-Creation-Date: 2019-09-25 14:32+0200\n"
 "Project-Id-Version: grommunio Web Portuguese (Brazil)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-09-25 14:32+0200\n"
-"PO-Revision-Date: 2017-10-03 21:54+0200\n"
-"Language: pt_BR\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Poedit 2.0.4\n"
+"X-Generator: Weblate 2.4\n"
+
+msgid "Password"
+msgstr "Senha"
+
+msgid "Full name"
+msgstr "Nome completo"
+
+msgid "Username"
+msgstr "Nome de usuário"
+
+msgid "Publishing Editor"
+msgstr "Editor publicador"
+
+msgid "Publishing Author"
+msgstr "Autor publicador"
+
+msgid "Author"
+msgstr "Autor"
+
+msgid "Nonediting Author"
+msgstr "Ator não-editor"
+
+msgid "Reviewer"
+msgstr "Revisor"
+
+msgid "Contributor"
+msgstr "Colaborador"
+
+msgid "Read"
+msgstr "Leitura"
+
+msgid "Full Details"
+msgstr "Todos os detalhes"
+
+msgid "Write"
+msgstr "Gravação"
+
+msgid "Edit own"
+msgstr "Editar criados"
+
+msgid "Edit all"
+msgstr "Editar todos"
+
+msgid "Folder owner"
+msgstr "Proprietário da pasta"
+
+msgid "Folder contact"
+msgstr "Contato da pasta"
 
 #. TRANSLATORS: This message is used as label for the column which indicates the week number of the month in date picker. and 'Wk' stands for week
 msgid "Wk"
@@ -3168,9 +3217,6 @@ msgstr ""
 msgid "From Addresses settings"
 msgstr ""
 
-msgid "Full name"
-msgstr ""
-
 msgid "Phone Numbers"
 msgstr "Números de Telefone"
 
@@ -4284,27 +4330,9 @@ msgid_plural "There are {0} unread messages in the folder {1}"
 msgstr[0] "Existe {0} mensagem não lida na pasta {1}"
 msgstr[1] "Existem {0} mensagens não lidas na pasta {1}"
 
-msgid "Publishing Editor"
-msgstr ""
-
 #, fuzzy
 msgid "Editor"
 msgstr "Editar"
-
-msgid "Publishing Author"
-msgstr ""
-
-msgid "Author"
-msgstr ""
-
-msgid "Nonediting Author"
-msgstr ""
-
-msgid "Reviewer"
-msgstr ""
-
-msgid "Contributor"
-msgstr ""
 
 msgid "Unable to import:"
 msgstr ""
@@ -4377,26 +4405,11 @@ msgstr "Nenhuma permissão concedida"
 msgid "Profile"
 msgstr "Perfil"
 
-msgid "Read"
-msgstr ""
-
-msgid "Full Details"
-msgstr ""
-
-msgid "Write"
-msgstr ""
-
 msgid "Create items"
 msgstr "Criar itens"
 
 msgid "Create subfolders"
 msgstr "Criar subpastas"
-
-msgid "Edit own"
-msgstr ""
-
-msgid "Edit all"
-msgstr ""
 
 msgid "Delete items"
 msgstr "Excluir itens"
@@ -4406,12 +4419,6 @@ msgstr "Próprio"
 
 msgid "All"
 msgstr "Todas"
-
-msgid "Folder owner"
-msgstr ""
-
-msgid "Folder contact"
-msgstr ""
 
 msgid "Folder visible"
 msgstr "Pasta visível"
@@ -6034,12 +6041,6 @@ msgid "Remove device"
 msgstr ""
 
 msgid "Please enter your username and password"
-msgstr ""
-
-msgid "Password"
-msgstr ""
-
-msgid "Username"
 msgstr ""
 
 msgid ""

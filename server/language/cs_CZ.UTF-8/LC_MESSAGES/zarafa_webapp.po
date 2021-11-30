@@ -2,17 +2,62 @@
 # Copyright (C) 2021
 msgid ""
 msgstr ""
+"Content-Transfer-Encoding: 8bit\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Language: cs_CZ\n"
+"Last-Translator: import\n"
+"MIME-Version: 1.0\n"
+"PO-Revision-Date: 2019-01-16 14:37+0000\n"
+"POT-Creation-Date: 2019-09-25 14:32+0200\n"
 "Project-Id-Version: grommunio Web Czech\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-09-25 14:32+0200\n"
-"PO-Revision-Date: 2019-01-16 14:37+0000\n"
-"Last-Translator: import\n"
-"Language: cs_CZ\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 "X-Generator: Weblate 2.4\n"
+
+msgid "Password"
+msgstr "Heslo"
+
+msgid "Username"
+msgstr "Jméno uživatele"
+
+msgid "Publishing Editor"
+msgstr "Šéfredaktor - vydavatel"
+
+msgid "Publishing Author"
+msgstr "Redaktor - vydavatel"
+
+msgid "Author"
+msgstr "Autor"
+
+msgid "Nonediting Author"
+msgstr "Redaktor – konzultant"
+
+msgid "Reviewer"
+msgstr "Recenzent"
+
+msgid "Contributor"
+msgstr "Přispěvatel"
+
+msgid "Read"
+msgstr "Čtení"
+
+msgid "Full Details"
+msgstr "Úplné podrobnosti"
+
+msgid "Write"
+msgstr "Zápis"
+
+msgid "Edit own"
+msgstr "Upravit vlastní"
+
+msgid "Edit all"
+msgstr "Upravit všechny"
+
+msgid "Folder owner"
+msgstr "Vlastník složky"
+
+msgid "Folder contact"
+msgstr "Kontakt složky"
 
 #. TRANSLATORS: This message is used as label for the column which indicates the week number of the month in date picker. and 'Wk' stands for week
 msgid "Wk"
@@ -1733,9 +1778,7 @@ msgstr "Otevřít změněnu žádost o schůzku"
 #, fuzzy
 msgid "grommunio Web"
 msgstr ""
-"#-#-#-#-#  zarafa_webapp.po (grommunio Web Czech)  #-#-#-#-#\n"
 "grommunio WebbApp\n"
-"#-#-#-#-#  zarafa_webapp.po (grommunio Web Czech)  #-#-#-#-#\n"
 "grommunio Web"
 
 #, fuzzy
@@ -4327,27 +4370,9 @@ msgstr[0] "Ve složce {1} je {0} nepřečtená zpráva"
 msgstr[1] "Ve složce {1} jsou {0} nepřečtené zprávy"
 msgstr[2] "Ve složce {1} je {0} nepřečtených zpráv"
 
-msgid "Publishing Editor"
-msgstr ""
-
 #, fuzzy
 msgid "Editor"
 msgstr "Upravit"
-
-msgid "Publishing Author"
-msgstr ""
-
-msgid "Author"
-msgstr ""
-
-msgid "Nonediting Author"
-msgstr ""
-
-msgid "Reviewer"
-msgstr ""
-
-msgid "Contributor"
-msgstr ""
 
 msgid "Unable to import:"
 msgstr ""
@@ -4420,26 +4445,11 @@ msgstr "Není poskytnuto oprávnění"
 msgid "Profile"
 msgstr "Profil"
 
-msgid "Read"
-msgstr ""
-
-msgid "Full Details"
-msgstr ""
-
-msgid "Write"
-msgstr ""
-
 msgid "Create items"
 msgstr "Vytvořit položky"
 
 msgid "Create subfolders"
 msgstr "Vytvořit podsložky"
-
-msgid "Edit own"
-msgstr ""
-
-msgid "Edit all"
-msgstr ""
 
 msgid "Delete items"
 msgstr "Odstranit položky"
@@ -4449,12 +4459,6 @@ msgstr "Vlastní"
 
 msgid "All"
 msgstr "Všechny"
-
-msgid "Folder owner"
-msgstr ""
-
-msgid "Folder contact"
-msgstr ""
 
 msgid "Folder visible"
 msgstr "Viditelná složka"
@@ -6075,12 +6079,6 @@ msgid "Remove device"
 msgstr ""
 
 msgid "Please enter your username and password"
-msgstr ""
-
-msgid "Password"
-msgstr ""
-
-msgid "Username"
 msgstr ""
 
 msgid ""

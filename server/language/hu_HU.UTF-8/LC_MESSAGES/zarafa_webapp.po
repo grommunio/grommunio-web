@@ -2,17 +2,62 @@
 # Copyright (C) 2021
 msgid ""
 msgstr ""
+"Content-Transfer-Encoding: 8bit\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Language: hu_HU\n"
+"Last-Translator: import\n"
+"MIME-Version: 1.0\n"
+"PO-Revision-Date: 2018-03-19 16:32+0000\n"
+"POT-Creation-Date: 2019-09-25 14:32+0200\n"
 "Project-Id-Version: grommunio Web Hungarian\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-09-25 14:32+0200\n"
-"PO-Revision-Date: 2018-03-19 16:32+0000\n"
-"Last-Translator: import\n"
-"Language: hu_HU\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 2.0.4\n"
+"X-Generator: Weblate 2.4\n"
+
+msgid "Password"
+msgstr "Jelszó"
+
+msgid "Username"
+msgstr "Felhasználónév"
+
+msgid "Publishing Editor"
+msgstr "Kiadványszerkesztő"
+
+msgid "Publishing Author"
+msgstr "Kiadványszerző"
+
+msgid "Author"
+msgstr "Szerző"
+
+msgid "Nonediting Author"
+msgstr "Nem szerkesztő szerző"
+
+msgid "Reviewer"
+msgstr "Véleményező"
+
+msgid "Contributor"
+msgstr "Hozzájáruló"
+
+msgid "Read"
+msgstr "Olvasás"
+
+msgid "Full Details"
+msgstr "Minden részlet"
+
+msgid "Write"
+msgstr "Írás"
+
+msgid "Edit own"
+msgstr "Saját szerkesztése"
+
+msgid "Edit all"
+msgstr "Összes szerkesztése"
+
+msgid "Folder owner"
+msgstr "Mappa tulajdonosa"
+
+msgid "Folder contact"
+msgstr "Mappakapcsolat"
 
 #. TRANSLATORS: This message is used as label for the column which indicates the week number of the month in date picker. and 'Wk' stands for week
 msgid "Wk"
@@ -4351,27 +4396,9 @@ msgid_plural "There are {0} unread messages in the folder {1}"
 msgstr[0] "{0} olvasatlan üzenete van a {1} mappában"
 msgstr[1] "{0} olvasatlan üzenete van a {1} mappában"
 
-msgid "Publishing Editor"
-msgstr ""
-
 #, fuzzy
 msgid "Editor"
 msgstr "Szerkesztés"
-
-msgid "Publishing Author"
-msgstr ""
-
-msgid "Author"
-msgstr ""
-
-msgid "Nonediting Author"
-msgstr ""
-
-msgid "Reviewer"
-msgstr ""
-
-msgid "Contributor"
-msgstr ""
 
 msgid "Unable to import:"
 msgstr ""
@@ -4446,26 +4473,11 @@ msgstr "Nincs engedélyezett hozzáférés"
 msgid "Profile"
 msgstr "Profil"
 
-msgid "Read"
-msgstr ""
-
-msgid "Full Details"
-msgstr ""
-
-msgid "Write"
-msgstr ""
-
 msgid "Create items"
 msgstr "Elemek létrehozása"
 
 msgid "Create subfolders"
 msgstr "Almappák létrehozása"
-
-msgid "Edit own"
-msgstr ""
-
-msgid "Edit all"
-msgstr ""
 
 msgid "Delete items"
 msgstr "Elemek törlése"
@@ -4475,12 +4487,6 @@ msgstr "Saját"
 
 msgid "All"
 msgstr "Mind"
-
-msgid "Folder owner"
-msgstr ""
-
-msgid "Folder contact"
-msgstr ""
 
 msgid "Folder visible"
 msgstr "Mappa láthatóság"
@@ -6088,12 +6094,6 @@ msgid "Remove device"
 msgstr ""
 
 msgid "Please enter your username and password"
-msgstr ""
-
-msgid "Password"
-msgstr ""
-
-msgid "Username"
 msgstr ""
 
 msgid ""
