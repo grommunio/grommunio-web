@@ -433,8 +433,8 @@
 			$storeEntryId = bin2hex($rootProps[PR_STORE_ENTRYID]);
 
 			$actionProps = $action['props'];
-			$subject = !empty($actionProps['subject']) ? $actionProps['subject'] : Language::getstring('Untitled');
-			$subject = ($type === 'birthday' ? sprintf(Language::getstring('%s\'s Birthday'), $subject) : sprintf(Language::getstring('%s\'s Anniversary'), $subject));
+			$subject = !empty($actionProps['subject']) ? $actionProps['subject'] : _('Untitled');
+			$subject = ($type === 'birthday' ? sprintf(_('%s\'s Birthday'), $subject) : sprintf(_('%s\'s Anniversary'), $subject));
 
 			// UTC time
 			$startDateUTC = $actionProps[$type];

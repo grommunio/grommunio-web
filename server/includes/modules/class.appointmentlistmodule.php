@@ -371,7 +371,7 @@
 		{
 			if($this->startdate && $this->enddate) {
 				if($this->checkPrivateItem($item)) {
-					$item['props']['subject'] = Language::getstring('Private Appointment');
+					$item['props']['subject'] = _('Private Appointment');
 					$item['props']['location'] = '';
 					$item['props']['reminder'] = 0;
 					$item['props']['access'] = 0;

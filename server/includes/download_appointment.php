@@ -28,7 +28,7 @@ class DownloadAppointment extends DownloadBase
 			// Read the appointment as RFC2445-formatted ics stream.
 			$appointmentStream = mapi_mapitoical($GLOBALS['mapisession']->getSession(), $addrBook, $this->message, array());
 
-			$filename = (!empty($messageProps[PR_SUBJECT])) ? $messageProps[PR_SUBJECT] : Language::getstring('Untitled');
+			$filename = (!empty($messageProps[PR_SUBJECT])) ? $messageProps[PR_SUBJECT] : _('Untitled');
 			$filename .= '.ics';
 
 			$this->setNecessaryHeaders($filename, strlen($appointmentStream));

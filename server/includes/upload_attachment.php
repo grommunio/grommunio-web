@@ -210,7 +210,7 @@ class UploadAttachment
 				if ($importStatus !== false) {
 					$this->sendImportResponse($importStatus);
 				} else {
-					throw new ZarafaException(Language::getstring("File is not imported successfully"));
+					throw new ZarafaException(_("File is not imported successfully"));
 				}
 			} else {
 				$return = Array(
@@ -567,7 +567,7 @@ class UploadAttachment
 	function importEMLFile($attachmentStream, $filename)
 	{
 		if (isBrokenEml($attachmentStream)) {
-			throw new ZarafaException(sprintf(Language::getstring("Unable to import '%s'"), $filename) . ". ". Language::getstring("The EML is not valid"));
+			throw new ZarafaException(sprintf(_("Unable to import '%s'"), $filename) . ". ". _("The EML is not valid"));
 		}
 
 		$this->destinationFolder = $this->getDestinationFolder();
@@ -779,7 +779,7 @@ class UploadAttachment
 		// MAPI_E_NOT_FOUND exception contains generalize exception message.
 		// Set proper exception message as display message should be user understandable.
 		if($exception->getCode() == MAPI_E_NOT_FOUND) {
-			$exception->setDisplayMessage(Language::getstring('Could not find message, either it has been moved or deleted.'));
+			$exception->setDisplayMessage(_('Could not find message, either it has been moved or deleted.'));
 		}
 
 		// Set the headers

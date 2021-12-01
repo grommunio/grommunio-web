@@ -129,8 +129,8 @@
 								array(
 									'type' => ERROR_ZARAFA,
 									'info' => array(
-										'original_message' => Language::getstring('Could not open occurrence.'),
-										'display_message' => Language::getstring('Could not open occurrence, specific occurrence is probably deleted.')
+										'original_message' => _('Could not open occurrence.'),
+										'display_message' => _('Could not open occurrence, specific occurrence is probably deleted.')
 									)
 								)
 							);
@@ -203,11 +203,11 @@
 							$messageProps = mapi_getprops($message, array(PR_MESSAGE_CLASS, PR_ENTRYID, PR_PARENT_ENTRYID, PR_STORE_ENTRYID));
 							$messageClass = $messageProps[PR_MESSAGE_CLASS];
 
-							$text = $messageClass !== "IPM.Appointment" ? Language::getstring('a meeting request') : Language::getstring('an appointment');
-							$msg = Language::getstring('You have insufficient privileges to move ' . $text .' in this calendar. The calendar owner can set these using the \'permissions\'-tab of the folder properties (right click the calendar folder > properties > permissions)');
+							$text = $messageClass !== "IPM.Appointment" ? _('a meeting request') : _('an appointment');
+							$msg = _('You have insufficient privileges to move ' . $text .' in this calendar. The calendar owner can set these using the \'permissions\'-tab of the folder properties (right click the calendar folder > properties > permissions)');
 
 							$e->setDisplayMessage($msg);
-							$e->setTitle(Language::getstring('Insufficient privileges'));
+							$e->setTitle(_('Insufficient privileges'));
 
 							// Need this notification to refresh the calender.
 							$GLOBALS['bus']->notify(bin2hex($parententryid), TABLE_DELETE, $messageProps);
@@ -244,25 +244,25 @@
 
 			$errorMsg = false;
 			if(!$result && isset($messageProps['remindertimeerror']) && !$messageProps['remindertimeerror']){
-				$errorMsg = Language::getstring('Cannot set a reminder to appear before the previous occurrence. Reset reminder to save the change');
+				$errorMsg = _('Cannot set a reminder to appear before the previous occurrence. Reset reminder to save the change');
 			} else if (isset($messageProps['isexceptionallowed']) && $messageProps['isexceptionallowed'] === false){
-				$errorMsg = Language::getstring('Two occurrences cannot occur on the same day');
+				$errorMsg = _('Two occurrences cannot occur on the same day');
 			} elseif(is_array($messageProps) && isset($messageProps['error'])){
 				switch($messageProps['error']){
 					case 1:
-						$errorMsg = sprintf(Language::getstring('You marked \'%s\' as a resource. You cannot schedule a meeting with \'%s\' because you do not have the appropiate permissions for that account. Either enter the name as a required or optional attendee or talk to your administrator about giving you permission to schedule \'%s\'.'), $messageProps['displayname'], $messageProps['displayname'], $messageProps['displayname']);
+						$errorMsg = sprintf(_('You marked \'%s\' as a resource. You cannot schedule a meeting with \'%s\' because you do not have the appropiate permissions for that account. Either enter the name as a required or optional attendee or talk to your administrator about giving you permission to schedule \'%s\'.'), $messageProps['displayname'], $messageProps['displayname'], $messageProps['displayname']);
 						break;
 					case 2:
-						$errorMsg = sprintf(Language::getstring('\'%s\' has declined your meeting because \'%s\' does not automatically accept meeting requests.'), $messageProps['displayname'], $messageProps['displayname']);
+						$errorMsg = sprintf(_('\'%s\' has declined your meeting because \'%s\' does not automatically accept meeting requests.'), $messageProps['displayname'], $messageProps['displayname']);
 						break;
 					case 3:
-						$errorMsg = sprintf(Language::getstring('\'%s\' has declined your meeting because it is recurring. You must book each meeting separately with this resource.'), $messageProps['displayname']);
+						$errorMsg = sprintf(_('\'%s\' has declined your meeting because it is recurring. You must book each meeting separately with this resource.'), $messageProps['displayname']);
 						break;
 					case 4:
-						$errorMsg = sprintf(Language::getstring('\'%s\' is already booked for this specified time. You must use another time or find another resource.'), $messageProps['displayname']);
+						$errorMsg = sprintf(_('\'%s\' is already booked for this specified time. You must use another time or find another resource.'), $messageProps['displayname']);
 						break;
 					default:
-						$errorMsg = Language::getstring('Meeting was not scheduled.');
+						$errorMsg = _('Meeting was not scheduled.');
 						break;
 				}
 			} else {
@@ -304,9 +304,9 @@
 
 				} else {
 					if(!empty($action['message_action']['send'])){
-						$errorMsg = Language::getstring('Meeting could not be sent.');
+						$errorMsg = _('Meeting could not be sent.');
 					} else {
-						$errorMsg = Language::getstring('Meeting could not be saved.');
+						$errorMsg = _('Meeting could not be saved.');
 					}
 				}
 			}

@@ -88,7 +88,7 @@ class DownloadAttachment extends DownloadBase
 		$this->contentDispositionType = 'attachment';
 		$this->attachNum = array();
 		$this->attachCid = false;
-		$this->zipFileName = Language::getstring('Attachments').'%s.zip';
+		$this->zipFileName = _('Attachments').'%s.zip';
 		$this->messageSubject = '';
 		$this->isSubMessage = false;
 		$this->destinationFolderId = false;
@@ -187,7 +187,7 @@ class DownloadAttachment extends DownloadBase
 					} else {
 						$this->destinationFolder = mapi_msgstore_openentry($GLOBALS["mapisession"]->getPublicMessageStore(), hex2bin($this->destinationFolderId));
 						if (!$this->destinationFolder) {
-							throw new ZarafaException(Language::getstring("Destination folder not found."));
+							throw new ZarafaException(_("Destination folder not found."));
 						}
 					}
 				}
@@ -484,7 +484,7 @@ class DownloadAttachment extends DownloadBase
 			// Read the appointment as RFC2445-formatted ics stream.
 			$appointmentStream = mapi_mapitoical($GLOBALS['mapisession']->getSession(), $addrBook, $message, array());
 
-			$filename = (!empty($messageProps[PR_SUBJECT])) ? $messageProps[PR_SUBJECT] : Language::getstring('Untitled');
+			$filename = (!empty($messageProps[PR_SUBJECT])) ? $messageProps[PR_SUBJECT] : _('Untitled');
 			$filename .= '.ics';
 			// Set the headers
 			header('Pragma: public');
@@ -543,13 +543,13 @@ class DownloadAttachment extends DownloadBase
 		{
 			case 'eml':
 				if (isBrokenEml($attachmentStream)) {
-					throw new ZarafaException(Language::getstring("Eml is corrupted"));
+					throw new ZarafaException(_("Eml is corrupted"));
 				} else {
 					try {
 						// Convert an RFC822-formatted e-mail to a MAPI Message
 						$ok = mapi_inetmapi_imtomapi($GLOBALS['mapisession']->getSession(), $this->store, $addrBook, $newMessage, $attachmentStream, array());
 					} catch(Exception $e) {
-						throw new ZarafaException(Language::getstring("The eml Attachment is not imported successfully"));
+						throw new ZarafaException(_("The eml Attachment is not imported successfully"));
 					}
 				}
 				break;
@@ -559,7 +559,7 @@ class DownloadAttachment extends DownloadBase
 					// Convert an RFC6350-formatted vCard to a MAPI Contact
 					$ok = mapi_vcftomapi($GLOBALS['mapisession']->getSession(), $this->store, $newMessage, $attachmentStream);
 				} catch(Exception $e) {
-					throw new ZarafaException(Language::getstring("The vcf attachment is not imported successfully"));
+					throw new ZarafaException(_("The vcf attachment is not imported successfully"));
 				}
 				break;
 			case 'vcs':
@@ -579,19 +579,19 @@ class DownloadAttachment extends DownloadBase
 						$fullyQualifiedFolderName .= " - " . $sharedStoreOwnerName[PR_MAILBOX_OWNER_NAME];
 					}
 
-					$message = sprintf(Language::getstring("Unable to import '%s' to '%s'. "), $attachmentProps[PR_ATTACH_LONG_FILENAME], $fullyQualifiedFolderName);
+					$message = sprintf(_("Unable to import '%s' to '%s'. "), $attachmentProps[PR_ATTACH_LONG_FILENAME], $fullyQualifiedFolderName);
 					if ($e->getCode() === MAPI_E_TABLE_EMPTY) {
-						$message .= Language::getstring("There is no appointment found in this file.");
+						$message .= _("There is no appointment found in this file.");
 					} else if ($e->getCode() === MAPI_E_CORRUPT_DATA) {
-						$message .= Language::getstring("The file is corrupt.");
+						$message .= _("The file is corrupt.");
 					} else if ($e->getCode() === MAPI_E_INVALID_PARAMETER) {
-						$message .= Language::getstring("The file is invalid.");
+						$message .= _("The file is invalid.");
 					} else {
-						$message = sprintf(Language::getstring("Unable to import '%s'. "), $attachmentProps[PR_ATTACH_LONG_FILENAME]) . Language::getstring("Please contact your system administrator if the problem persists.");
+						$message = sprintf(_("Unable to import '%s'. "), $attachmentProps[PR_ATTACH_LONG_FILENAME]) . _("Please contact your system administrator if the problem persists.");
 					}
 
 					$e = new ZarafaException($message);
-					$e->setTitle(Language::getstring("Import error"));
+					$e->setTitle(_("Import error"));
 					throw $e;
 				}
 				break;
@@ -650,7 +650,7 @@ class DownloadAttachment extends DownloadBase
 
 			echo json_encode($return);
 		} else {
-			throw new ZarafaException(Language::getstring("Attachment is not imported successfully"));
+			throw new ZarafaException(_("Attachment is not imported successfully"));
 		}
 	}
 
@@ -663,7 +663,7 @@ class DownloadAttachment extends DownloadBase
 		$copyFromMessage = $GLOBALS['operations']->openMessage($this->store, hex2bin($this->entryId), $this->attachNum, true);
 
 		if(empty($copyFromMessage)) {
-			throw new ZarafaException(Language::getstring("Embedded attachment not found."));
+			throw new ZarafaException(_("Embedded attachment not found."));
 		}
 
 		$newMessage = mapi_folder_createmessage($this->destinationFolder);
@@ -771,7 +771,7 @@ class DownloadAttachment extends DownloadBase
 				}
 			} else {
 				// Throw exception if ZIP is not created successfully
-				throw new ZarafaException(Language::getstring("ZIP is not created successfully"));
+				throw new ZarafaException(_("ZIP is not created successfully"));
 			}
 
 			$zip->close();
@@ -819,7 +819,7 @@ class DownloadAttachment extends DownloadBase
 				$this->downloadSavedAttachment($attachment);
 			}
 		} else {
-			throw new ZarafaException(Language::getstring("Attachments can not be downloaded"));
+			throw new ZarafaException(_("Attachments can not be downloaded"));
 		}
 	}
 
@@ -836,7 +836,7 @@ class DownloadAttachment extends DownloadBase
 		// MAPI_E_NOT_FOUND exception contains generalize exception message.
 		// Set proper exception message as display message should be user understandable.
 		if($exception->getCode() == MAPI_E_NOT_FOUND) {
-			$exception->setDisplayMessage(Language::getstring('Could not find attachment.'));
+			$exception->setDisplayMessage(_('Could not find attachment.'));
 		}
 
 		// Set the headers
@@ -899,7 +899,7 @@ class DownloadAttachment extends DownloadBase
 					'error' => array(
 						'type' => ERROR_GENERAL,
 						'info' => array(
-							'display_message' => Language::getstring('Operation failed'),
+							'display_message' => _('Operation failed'),
 							'original_message' => $exception->getMessage()
 						)
 					)

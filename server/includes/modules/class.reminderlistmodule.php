@@ -141,7 +141,7 @@
 					)
 				);
 
-			$folder = mapi_folder_createfolder($root, Language::getstring("Reminders"), "", OPEN_IF_EXISTS, FOLDER_SEARCH);
+			$folder = mapi_folder_createfolder($root, _("Reminders"), "", OPEN_IF_EXISTS, FOLDER_SEARCH);
 			mapi_setprops($folder, array(PR_CONTAINER_CLASS	=>	"Outlook.Reminder"));
 			mapi_savechanges($folder);
 

@@ -119,13 +119,13 @@
 		if ($as_string){
 			// make user readable string
 			if ($value > (1024 * 1024 * 1024)){
-				$value = round($value / (1024 * 1024 * 1024), 1) ." ". Language::getstring("GB");
+				$value = round($value / (1024 * 1024 * 1024), 1) ." ". _("GB");
 			} else if ($value > (1024 * 1024)){
-				$value = round($value / (1024 * 1024), 1) ." ". Language::getstring("MB");
+				$value = round($value / (1024 * 1024), 1) ." ". _("MB");
 			} else if ($value > 1024){
-				$value = round($value / 1024, 1) ." ". Language::getstring("KB");
+				$value = round($value / 1024, 1) ." ". _("KB");
 			} else {
-				$value = $value ." ". Language::getstring("B");
+				$value = $value ." ". _("B");
 			}
 		}
 
@@ -583,24 +583,24 @@
 		switch(json_last_error())
 		{
 			case JSON_ERROR_DEPTH:
-				$errorString = Language::getstring("The maximum stack depth has been exceeded");
+				$errorString = _("The maximum stack depth has been exceeded");
 				break;
 			case JSON_ERROR_CTRL_CHAR:
-				$errorString = Language::getstring("Control character error, possibly incorrectly encoded");
+				$errorString = _("Control character error, possibly incorrectly encoded");
 				break;
 			case JSON_ERROR_STATE_MISMATCH:
-				$errorString = Language::getstring("Invalid or malformed JSON");
+				$errorString = _("Invalid or malformed JSON");
 				break;
 			case JSON_ERROR_SYNTAX:
-				$errorString = Language::getstring("Syntax error");
+				$errorString = _("Syntax error");
 				break;
 			case JSON_ERROR_UTF8:
-				$errorString = Language::getstring("Malformed UTF-8 characters, possibly incorrectly encoded");
+				$errorString = _("Malformed UTF-8 characters, possibly incorrectly encoded");
 				break;
 		}
 
 		if(!empty($errorString)) {
-			throw new JSONException(sprintf(Language::getstring("JSON Error: - %s") , $errorString), json_last_error(), null, Language::getstring("Some problem encountered when encoding/decoding JSON data."));
+			throw new JSONException(sprintf(_("JSON Error: - %s") , $errorString), json_last_error(), null, _("Some problem encountered when encoding/decoding JSON data."));
 		}
 
 		return $data;

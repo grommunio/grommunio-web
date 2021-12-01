@@ -310,7 +310,7 @@
 					if ($message) {
 						$tr = new TaskRequest($store, $message, $GLOBALS["mapisession"]->getSession());
 						if ($send) {
-							$tr->sendTaskRequest(Language::getstring("Task Request:") . " ");
+							$tr->sendTaskRequest(_("Task Request:") . " ");
 						} else if (isset($action["message_action"]["response_type"]) && $action["message_action"]["response_type"] === tdmtTaskUpd) {
 							$tr->doUpdate();
 						} else if (isset($action["message_action"]["action_type"]) && $action["message_action"]["action_type"] === "restoreToTaskList") {

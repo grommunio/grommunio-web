@@ -191,7 +191,7 @@
 		{
 			// default return stuff
 			$result = array(
-				'display_name' => Language::getstring('Unknown user/group'),
+				'display_name' => _('Unknown user/group'),
 				'entryid' => null
 			);
 
@@ -749,13 +749,13 @@
 		{
 			switch($actionType) {
 				case 'save':
-					$e->setDisplayMessage(Language::getstring('Could not save delegate information.'));
+					$e->setDisplayMessage(_('Could not save delegate information.'));
 					break;
 				case 'delete':
-					$e->setDisplayMessage(Language::getstring('Could not delete delegate.'));
+					$e->setDisplayMessage(_('Could not delete delegate.'));
 					break;
 				case 'list':
-					$e->setDisplayMessage(Language::getstring('Can not get list of delegates.'));
+					$e->setDisplayMessage(_('Can not get list of delegates.'));
 					break;
 			}
 

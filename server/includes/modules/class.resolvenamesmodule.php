@@ -351,9 +351,9 @@
 				{
 					case 'checknames':
 						if($e->getCode() == MAPI_E_NO_ACCESS) {
-							$e->setDisplayMessage(Language::getstring('You have insufficient privileges to perform this action.'));
+							$e->setDisplayMessage(_('You have insufficient privileges to perform this action.'));
 						} else {
-							$e->setDisplayMessage(Language::getstring('Could not resolve user.'));
+							$e->setDisplayMessage(_('Could not resolve user.'));
 						}
 						break;
 				}

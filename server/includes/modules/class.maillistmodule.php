@@ -184,24 +184,24 @@
 				{
 					case "list":
 						if($e->getCode() == MAPI_E_NO_ACCESS)
-							$e->setDisplayMessage(Language::getstring("You have insufficient privileges to see the contents of this folder."));
+							$e->setDisplayMessage(_("You have insufficient privileges to see the contents of this folder."));
 						else
-							$e->setDisplayMessage(Language::getstring("Could not load the contents of this folder."));
+							$e->setDisplayMessage(_("Could not load the contents of this folder."));
 						break;
 
 					case "search":
 						if($e->getCode() == MAPI_E_NO_ACCESS)
-							$e->setDisplayMessage(Language::getstring("You have insufficient privileges to perform search operation in this folder."));
+							$e->setDisplayMessage(_("You have insufficient privileges to perform search operation in this folder."));
 						else
-							$e->setDisplayMessage(Language::getstring("Error in search, please try again"));
+							$e->setDisplayMessage(_("Error in search, please try again"));
 						break;
 
 					case "updatesearch":
-						$e->setDisplayMessage(Language::getstring("Could not update search results."));
+						$e->setDisplayMessage(_("Could not update search results."));
 						break;
 
 					case "stopsearch":
-						$e->setDisplayMessage(Language::getstring("Could not stop search operation."));
+						$e->setDisplayMessage(_("Could not stop search operation."));
 						break;
 				}
 			}

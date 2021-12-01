@@ -119,9 +119,9 @@
 				switch($actionType) {
 					case "list":
 						if ($e->getCode() == MAPI_E_NO_ACCESS) {
-							$e->setDisplayMessage(Language::getstring("You have insufficient privileges to see the contents of this folder."));
+							$e->setDisplayMessage(_("You have insufficient privileges to see the contents of this folder."));
 						} else {
-							$e->setDisplayMessage(Language::getstring("Could not load the contents of this folder."));
+							$e->setDisplayMessage(_("Could not load the contents of this folder."));
 						}
 						break;
 				}
@@ -228,7 +228,7 @@
 			if($this->restriction == false) {
 				// if error in creating restriction then send error to client
 				$errorInfo = array();
-				$errorInfo["error_message"] = Language::getstring("Error in search, please try again") . ".";
+				$errorInfo["error_message"] = _("Error in search, please try again") . ".";
 				$errorInfo["original_error_message"] = "Error in parsing restrictions.";
 
 				return $this->sendSearchErrorToClient($store, $entryid, $action, $errorInfo);
@@ -268,16 +268,16 @@
 				$errorInfo = array();
 				switch(mapi_last_hresult()) {
 				case MAPI_E_NO_ACCESS:
-					$errorInfo["error_message"] = Language::getstring("Unable to perform search query, no permissions to create search folder.");
+					$errorInfo["error_message"] = _("Unable to perform search query, no permissions to create search folder.");
 					break;
 				case MAPI_E_NOT_FOUND:
-					$errorInfo["error_message"] = Language::getstring("Unable to perform search query, search folder not found.");
+					$errorInfo["error_message"] = _("Unable to perform search query, search folder not found.");
 					break;
 				default:
-					$errorInfo["error_message"] = Language::getstring("Unable to perform search query, store might not support searching.");
+					$errorInfo["error_message"] = _("Unable to perform search query, store might not support searching.");
 				}
 
-				$errorInfo["original_error_message"] = Language::getstring("Error in creating search folder.");
+				$errorInfo["original_error_message"] = _("Error in creating search folder.");
 
 				return $this->sendSearchErrorToClient($store, $entryid, $action, $errorInfo);
 			}

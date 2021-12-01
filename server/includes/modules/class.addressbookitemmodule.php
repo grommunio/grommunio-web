@@ -51,9 +51,9 @@
 
 							error_log(sprintf($msg, $action["message_action"]["username"]));
 
-							$e->setTitle(Language::getstring('Contact not found'));
-							$e->setDisplayMessage(Language::getstring("Contact information could not be displayed because the server had trouble retrieving the information.") .
-							Language::getstring("Please contact your system administrator if the problem persists."));
+							$e->setTitle(_('Contact not found'));
+							$e->setDisplayMessage(_("Contact information could not be displayed because the server had trouble retrieving the information.") .
+							_("Please contact your system administrator if the problem persists."));
 							throw $e;
 							return false;
 						}
@@ -196,7 +196,7 @@
 					} else {
 						// Handling error: not able to handle this type of object
 						$data["error"] = array();
-						$data["error"]["message"] = Language::getstring("Could not handle this type of object.");
+						$data["error"]["message"] = _("Could not handle this type of object.");
 						$this->addActionData("error", $data);
 					}
 				} else {
@@ -204,7 +204,7 @@
 					$data["error"] = array();
 					$data["error"]["hresult"] = mapi_last_hresult();
 					$data["error"]["hresult_name"] = get_mapi_error_name(mapi_last_hresult());
-					$data["error"]["message"] = Language::getstring("Could not open this object.");
+					$data["error"]["message"] = _("Could not open this object.");
 					$this->addActionData("error", $data);
 				}
 

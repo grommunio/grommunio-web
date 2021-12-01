@@ -12,7 +12,7 @@ if (!function_exists('pgettext')) {
 	 */
 	function pgettext($msgctxt, $msgid) {
 		$contextString = "{$msgctxt}\004{$msgid}";
-		$translation = Language::getstring($contextString);
+		$translation = _($contextString);
 		if($translation == $contextString){
 			return $msgid;
 		} else {

@@ -293,7 +293,7 @@
 											// Change the parent so the folder will be shown in the hierarchy
 											$todoSearchFolderProps[PR_PARENT_ENTRYID] = $subtreeFolderEntryID;
 											// Change the display name of the folder
-											$todoSearchFolderProps[PR_DISPLAY_NAME] = Language::getstring('To-Do List');
+											$todoSearchFolderProps[PR_DISPLAY_NAME] = _('To-Do List');
 											// Never show unread content for the To-do list
 											$todoSearchFolderProps[PR_CONTENT_UNREAD] = 0;
 											$todoSearchFolderProps[PR_CONTENT_COUNT] = 0;
@@ -1025,23 +1025,23 @@
 					$containerClass = "IPF.Note";
 					break;
 				case "calendar":
-					$folderName = Language::getstring("Calendar");
+					$folderName = _("Calendar");
 					$containerClass = "IPF.Appointment";
 					break;
 				case "contact":
-					$folderName = Language::getstring("Contacts");
+					$folderName = _("Contacts");
 					$containerClass = "IPF.Contact";
 					break;
 				case "inbox":
-					$folderName = Language::getstring("Inbox");
+					$folderName = _("Inbox");
 					$containerClass = "IPF.Note";
 					break;
 				case "note":
-					$folderName = Language::getstring("Notes");
+					$folderName = _("Notes");
 					$containerClass = "IPF.StickyNote";
 					break;
 				case "task":
-					$folderName = Language::getstring("Tasks");
+					$folderName = _("Tasks");
 					$containerClass = "IPF.Task";
 					break;
 			}
@@ -1070,7 +1070,7 @@
 			 * for example: 'Calendar of Holiday', in this case %1$s is 'Calendar' (the foldername)
 			 * and %2$s is 'Holiday' (the username).
 			 */
-			$storeData["props"]["display_name"] = ($folderType === "all") ? $storeData["props"]["display_name"] : sprintf(Language::getstring('%1$s of %2$s'), $folderName, $storeData["props"]["mailbox_owner_name"]);
+			$storeData["props"]["display_name"] = ($folderType === "all") ? $storeData["props"]["display_name"] : sprintf(_('%1$s of %2$s'), $folderName, $storeData["props"]["mailbox_owner_name"]);
 			$storeData["props"]["subtree_entryid"] = $tempFolderProps["parent_entryid"];
 			$storeData["props"]["folder_type"] = $folderType;
 		}
@@ -3203,7 +3203,7 @@
 						$props = array();
 						$props[PR_EC_WA_ATTACHMENT_ID] = $fileinfo['attach_id'];
 						$props[PR_ATTACH_METHOD] = ATTACH_EMBEDDED_MSG;
-						$props[PR_DISPLAY_NAME] = !empty($msgProps[PR_SUBJECT]) ? $msgProps[PR_SUBJECT] : Language::getstring('Untitled');
+						$props[PR_DISPLAY_NAME] = !empty($msgProps[PR_SUBJECT]) ? $msgProps[PR_SUBJECT] : _('Untitled');
 
 						// Create new attachment.
 						$attachment = mapi_message_createattach($message);
@@ -3230,7 +3230,7 @@
 						// Read the appointment as RFC2445-formatted ics stream.
 						$appointmentStream = mapi_mapitoical($GLOBALS['mapisession']->getSession(), $addrBook, $copyFrom, array());
 
-						$filename = (!empty($messageProps[PR_SUBJECT])) ? $messageProps[PR_SUBJECT] : Language::getstring('Untitled');
+						$filename = (!empty($messageProps[PR_SUBJECT])) ? $messageProps[PR_SUBJECT] : _('Untitled');
 						$filename .= '.ics';
 
 						$props = Array(

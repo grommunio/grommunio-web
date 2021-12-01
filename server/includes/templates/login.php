@@ -37,14 +37,14 @@
 				</div>
 				<div class="right">
 					<form action="<?php echo $url ?>" method="post">
-						<input type="text" name="username" id="username" value="<?php echo $user; ?>" placeholder="<?php echo Language::getstring("Username"); ?>" required>
-						<input type="password" name="password" id="password" placeholder="<?php echo Language::getstring("Password"); ?>" required>
+						<input type="text" name="username" id="username" value="<?php echo $user; ?>" placeholder="<?php echo _("Username"); ?>" required>
+						<input type="password" name="password" id="password" placeholder="<?php echo _("Password"); ?>" required>
 
 						<?php if ( isset($error) ) { ?>
 						<div id="error"><?php echo $error; ?></div>
 						<?php } ?>
 
-						<input id="submitbutton" class="button" type="submit" value="<?php echo Language::getstring("Sign in"); ?>">
+						<input id="submitbutton" class="button" type="submit" value="<?php echo _("Sign in"); ?>">
 					</form>
 				</div>
 			</div>

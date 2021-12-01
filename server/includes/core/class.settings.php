@@ -326,7 +326,7 @@
 				if(!empty($this->settings_string)) {
 					$settings = json_decode_data($this->settings_string, true);
 					if (empty($settings) || empty($settings['settings'])) {
-						throw new SettingsException(Language::getstring('Error retrieving existing settings'));
+						throw new SettingsException(_('Error retrieving existing settings'));
 					}
 				}
 				if (isset($storeProps[PR_EC_USER_LANGUAGE])) {
@@ -384,7 +384,7 @@
 					} catch(Exception $e){}
 
 					if ( empty($persistentSettings) || empty($persistentSettings['settings']) ) {
-						throw new SettingsException(Language::getstring('Error retrieving existing persistent settings'));
+						throw new SettingsException(_('Error retrieving existing persistent settings'));
 					}
 
 					$this->persistentSettings =$persistentSettings['settings'];

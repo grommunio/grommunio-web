@@ -119,58 +119,58 @@
 				{
 					case "save":
 						if($e->getCode() == MAPI_E_NO_ACCESS)
-							$e->setDisplayMessage(Language::getstring("You have insufficient privileges to save this message."));
+							$e->setDisplayMessage(_("You have insufficient privileges to save this message."));
 						else
-							$e->setDisplayMessage(Language::getstring("Could not save message."));
+							$e->setDisplayMessage(_("Could not save message."));
 							$e->allowToShowDetailMessage = true;
 						break;
 
 					case "delete":
 						if($e->getCode() == MAPI_E_NO_ACCESS)
-							$e->setDisplayMessage(Language::getstring("You have insufficient privileges to delete this message."));
+							$e->setDisplayMessage(_("You have insufficient privileges to delete this message."));
 						else
-							$e->setDisplayMessage(Language::getstring("Could not delete message."));
+							$e->setDisplayMessage(_("Could not delete message."));
 						break;
 
 					case "cancelMeetingRequest":
 						if($e->getCode() == MAPI_E_NO_ACCESS)
-							$e->setDisplayMessage(Language::getstring("You have insufficient privileges to cancel this Meeting Request."));
+							$e->setDisplayMessage(_("You have insufficient privileges to cancel this Meeting Request."));
 						else
-							$e->setDisplayMessage(Language::getstring("Could not cancel Meeting Request."));
+							$e->setDisplayMessage(_("Could not cancel Meeting Request."));
 						break;
 
 					case "declineMeetingRequest":
 						if($e->getCode() == MAPI_E_NO_ACCESS)
-							$e->setDisplayMessage(Language::getstring("You have insufficient privileges to decline this Meeting Request."));
+							$e->setDisplayMessage(_("You have insufficient privileges to decline this Meeting Request."));
 						else
-							$e->setDisplayMessage(Language::getstring("Could not decline Meeting Request."));
+							$e->setDisplayMessage(_("Could not decline Meeting Request."));
 						break;
 
 					case "acceptMeetingRequest":
 						if($e->getCode() == MAPI_E_NO_ACCESS)
-							$e->setDisplayMessage(Language::getstring("You have insufficient privileges to accept this Meeting Request."));
+							$e->setDisplayMessage(_("You have insufficient privileges to accept this Meeting Request."));
 						else
-							$e->setDisplayMessage(Language::getstring("Could not accept Meeting Request."));
+							$e->setDisplayMessage(_("Could not accept Meeting Request."));
 						break;
 
 					case "cancelInvitation":
 						if($e->getCode() == MAPI_E_NO_ACCESS)
-							$e->setDisplayMessage(Language::getstring("You have insufficient privileges to cancel Meeting Request invitation."));
+							$e->setDisplayMessage(_("You have insufficient privileges to cancel Meeting Request invitation."));
 						else
-							$e->setDisplayMessage(Language::getstring("Could not cancel Meeting Request invitations."));
+							$e->setDisplayMessage(_("Could not cancel Meeting Request invitations."));
 						break;
 
 					case "updatesearch":
 					case "stopsearch":
 					case "search":
 						if($e->getCode() == MAPI_E_NOT_INITIALIZED)
-							$e->setDisplayMessage(Language::getstring("You can not continue search operation on this folder."));
+							$e->setDisplayMessage(_("You can not continue search operation on this folder."));
 						else
-							$e->setDisplayMessage(Language::getstring("Error in search, please try again."));
+							$e->setDisplayMessage(_("Error in search, please try again."));
 						break;
 
 					case "expand":
-						$e->setDisplayMessage(Language::getstring("Error in distribution list expansion."));
+						$e->setDisplayMessage(_("Error in distribution list expansion."));
 						break;
 				}
 				Log::Write(
@@ -207,14 +207,14 @@
 			);
 
 			if($quotaDetails['quota_hard'] !== 0 && $quotaDetails['store_size'] > $quotaDetails['quota_hard']) {
-				return Language::getstring('The message store has exceeded its hard quota limit.') . '<br/>' .
-						Language::getstring('To reduce the amount of data in this message store, select some items that you no longer need, delete them and cleanup your Deleted Items folder.');
+				return _('The message store has exceeded its hard quota limit.') . '<br/>' .
+						_('To reduce the amount of data in this message store, select some items that you no longer need, delete them and cleanup your Deleted Items folder.');
 			}
 
 			// if hard quota limit doesn't restrict the operation then check for soft qouta limit
 			if($quotaDetails['quota_soft'] !== 0 && $quotaDetails['store_size'] > $quotaDetails['quota_soft']) {
-				return Language::getstring('The message store has exceeded its soft quota limit.') . '<br/> '.
-						Language::getstring('To reduce the amount of data in this message store, select some items that you no longer need, delete them and cleanup your Deleted Items folder.');
+				return _('The message store has exceeded its soft quota limit.') . '<br/> '.
+						_('To reduce the amount of data in this message store, select some items that you no longer need, delete them and cleanup your Deleted Items folder.');
 			}
 
 			return '';
@@ -462,15 +462,15 @@
 				array(
 					"type" => ERROR_ZARAFA,
 						"info" => array(
-							"display_message" => Language::getstring("Could not process request data properly."),
-							"original_message" => sprintf(Language::getstring("Unknown action type specified - %s"), $actionType)
+							"display_message" => _("Could not process request data properly."),
+							"original_message" => sprintf(_("Unknown action type specified - %s"), $actionType)
 						)
 				)
 			);
 			Log::Write(
 				LOGLEVEL_ERROR,
-				"Module::handleUnknownActionType(): ERROR_ZARAFA : " . Language::getstring("Could not process request data properly."),
-				sprintf(Language::getstring("Unknown action type specified - %s"), $actionType)
+				"Module::handleUnknownActionType(): ERROR_ZARAFA : " . _("Could not process request data properly."),
+				sprintf(_("Unknown action type specified - %s"), $actionType)
 			);
 		}
 

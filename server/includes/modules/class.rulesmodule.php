@@ -47,7 +47,7 @@
 					if ( ENABLE_SHARED_RULES !== true && !$GLOBALS['entryid']->compareStoreEntryIds($storeEntryid, $ownStoreEntryId) ){
 						// When the admin does not allow a user to set rules on the store of other users, but somehow
 						// the user still tries this (probably hacking) we will not allow this
-						throw new MAPIException(Language::getstring('Setting mail filters on the stores of other users is not allowed.'));
+						throw new MAPIException(_('Setting mail filters on the stores of other users is not allowed.'));
 					} else {
 						$store = $GLOBALS['mapisession']->openMessageStore(hex2bin($storeEntryid));
 					}
@@ -235,7 +235,7 @@
 				}
 
 				if (empty($rule[PR_RULE_NAME])) {
-					$rule[PR_RULE_NAME] = Language::getstring('Untitled rule');
+					$rule[PR_RULE_NAME] = _('Untitled rule');
 				}
 
 				// generate rule provider data
@@ -314,10 +314,10 @@
 				switch ($actionType)
 				{
 					case 'list':
-						$e->setDisplayMessage(Language::getstring('Could not load rules.'));
+						$e->setDisplayMessage(_('Could not load rules.'));
 						break;
 					case 'save':
-						$e->setDisplayMessage(Language::getstring('Could not save rules.'));
+						$e->setDisplayMessage(_('Could not save rules.'));
 						break;
 				}
 			}

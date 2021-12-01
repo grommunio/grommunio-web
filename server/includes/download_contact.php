@@ -28,7 +28,7 @@ class DownloadContact extends DownloadBase
 			// Read the contact as RFC6350-formatted vCard stream.
 			$contactStream = mapi_mapitovcf($GLOBALS['mapisession']->getSession(), $addrBook, $this->message, array());
 
-			$filename = (!empty($messageProps[PR_DISPLAY_NAME])) ? $messageProps[PR_DISPLAY_NAME] : Language::getstring('Untitled');
+			$filename = (!empty($messageProps[PR_DISPLAY_NAME])) ? $messageProps[PR_DISPLAY_NAME] : _('Untitled');
 			$filename .= '.vcf';
 
 			$this->setNecessaryHeaders($filename, strlen($contactStream));

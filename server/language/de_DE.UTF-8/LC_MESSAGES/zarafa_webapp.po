@@ -2,15 +2,15 @@
 # Copyright (C) 2021
 msgid ""
 msgstr ""
-"Content-Transfer-Encoding: 8bit\n"
-"Content-Type: text/plain; charset=UTF-8\n"
-"Language: de_DE\n"
-"Last-Translator: import\n"
-"MIME-Version: 1.0\n"
-"PO-Revision-Date: 2021-04-16 08:22+0000\n"
-"POT-Creation-Date: 2019-09-25 14:32+0200\n"
 "Project-Id-Version: grommunio Web German (Germany)\n"
 "Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-09-25 14:32+0200\n"
+"PO-Revision-Date: 2021-04-16 08:22+0000\n"
+"Last-Translator: import\n"
+"Language: de_DE\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 2.4\n"
 
@@ -6309,6 +6309,68 @@ msgstr ""
 "Unerwarteter Fehler aufgetreten. Bitte kontaktieren Sie Ihren "
 "Systemadministrator. Fehlercode: %s"
 
+msgid "No data received."
+msgstr "Keine Daten erhalten."
+
+msgid "Account is empty."
+msgstr "Konto ist leer."
+
+msgid "Current password does not match."
+msgstr "Aktuelle Passwörter stimmen nicht überein."
+
+msgid ""
+"Your password is wrong or you have insufficent permission to change password"
+msgstr ""
+"Das Passwort ist falsch oder Sie haben nicht genügend Berechtigung um Passwörter zu ändern"
+
+msgid "Password is not changed."
+msgstr "Passwort ist unverändert."
+
+msgid "Error changing password. Please contact the system administrator."
+msgstr "Fehler beim Ändern des Passwortes. Bitte kontaktieren Sie Ihren Systemadministrator."
+
+msgid "Password has been changed successfully."
+msgstr "Passwort wurde erfolgreich geändert."
+
+msgid "Can't add data to bus, same action type is present in bus"
+msgstr "Konnte Daten nicht zum Bus hinzufügen, selbe Aktion ist auf dem Bus vorhanden."
+
+msgid "Response data requested from bus but it doesn't have any data."
+msgstr "Antwortdaten vom Bus angefragt aber es enthält keine Daten."
+
+#, php-format
+msgid "Unknown module '%s' with id '%s'"
+msgstr "Unbekanntes Modul '%s' mit id '%s'"
+
+msgid ""
+"Server encountered some problem, so it was not able to handle the request."
+msgstr ""
+"Server ist auf ein Problem gestoßen, damit konnte die Anfrage nicht verarbeitet werden."
+
+#, php-format
+msgid "Unknown notifier '%s'"
+msgstr "Unbekannter Identifikator '%s'"
+
+msgid "An unexpected error has occurred"
+msgstr "Ein unbekannter Fehler ist aufgetreten"
+
+msgid "To-Do List"
+msgstr "To-Do Liste"
+
+#. TRANSLATORS: This indicates that the opened folder belongs to a particular user,
+#. * for example: 'Calendar of Holiday', in this case %1$s is 'Calendar' (the foldername)
+#. * and %2$s is 'Holiday' (the username).
+#.
+#, php-format
+msgid "%1$s of %2$s"
+msgstr "%1$s von %2$s"
+
+msgid "Error retrieving existing settings"
+msgstr "Fehler bei Abruf vorhandener Einstellungen"
+
+msgid "Error retrieving existing persistent settings"
+msgstr "Fehler bei Abrug vorhandener dauerhafter Einstellungen"
+
 # 93%
 msgid "Logon failed. Please verify your credentials and try again."
 msgstr ""
@@ -6328,6 +6390,70 @@ msgstr ""
 
 msgid "Unknown MAPI Error"
 msgstr "Unbekannter MAPI-Fehler"
+
+msgid "This external link will open in a new window"
+msgstr "Dieser externe Link wird in einem separaten Fenster geöffnet"
+
+msgid "Destination folder not found."
+msgstr "Zielverzeichnis nicht gefunden."
+
+msgid "Eml is corrupted"
+msgstr "Eml ist korrupt"
+
+msgid "The eml Attachment is not imported successfully"
+msgstr "Der eml-Anhang wurde nicht erfolgreich importiert"
+
+msgid "The vcf attachment is not imported successfully"
+msgstr "Der vcf-Anhang wurde nicht erfolgreich importiert"
+
+#, php-format
+msgid "Unable to import '%s' to '%s'. "
+msgstr "Konnte '%s' nicht nach '%s' importieren. "
+
+msgid "There is no appointment found in this file."
+msgstr "Es gibt keine Termine in dieser Datei."
+
+msgid "The file is corrupt."
+msgstr "Die Datei ist beschädigt."
+
+msgid "The file is invalid."
+msgstr "Die Datei ist ungültig."
+
+#, php-format
+msgid "Unable to import '%s'. "
+msgstr "Konnte '%s' nicht importieren. "
+
+msgid "Please contact your system administrator if the problem persists."
+msgstr ""
+"Bitte kontaktieren Sie Ihren lokalen Administrator falls das Problem "
+"wiederholt auftritt."
+
+msgid "Attachment is not imported successfully"
+msgstr "Anhang wurde nicht erfolgreich importiert"
+
+msgid "Embedded attachment not found."
+msgstr "Eingebetteter Anhang nicht gefunden."
+
+msgid "ZIP is not created successfully"
+msgstr "ZIP wurde nicht erfolgreich erstellt"
+
+msgid "Attachments can not be downloaded"
+msgstr "Anhänge können nicht heruntergeladen werden"
+
+msgid "Could not find attachment."
+msgstr "Konnte Anhang nicht finden."
+
+msgid "Operation failed"
+msgstr "Operation fehlgeschlagen"
+
+msgid "Sticky Note"
+msgstr "Haftnotiz"
+
+msgid "Task Request"
+msgstr "Aufgabenanfrage"
+
+msgid "Could not find message, either it has been moved or deleted."
+msgstr "Konnte Nachricht nicht finden, entweder wurde Sie verschoben oder gelöscht."
 
 msgid "Request is not available."
 msgstr "Anfrage ist nicht verfügbar."
@@ -6360,6 +6486,9 @@ msgstr "Operation fehlgeschlagen: Server besitzt nicht genügend Speicher."
 #, php-format
 msgid "Unknown MAPI Error: %s"
 msgstr "Unbekannter MAPI-Fehler: %s"
+
+msgid "Action is not performed correctly."
+msgstr ""
 
 msgid "Tentatively accepted"
 msgstr "Unter Vorbehalt"
@@ -6444,6 +6573,239 @@ msgstr "Findet jeden %s statt, beginnend am %s bis %s."
 #, php-format
 msgid "Occurs every %s %s effective %s until %s."
 msgstr "Findet jeden %s %s statt, beginnend am %s bis %s."
+
+msgid "Task Accepted:"
+msgstr "Aufgabe akzeptiert:"
+
+msgid "Task Declined:"
+msgstr "Aufgabe abgelehnt:"
+
+msgid "Task Updated:"
+msgstr "Aufgabe aktualisiert:"
+
+msgid "Task Completed:"
+msgstr "Aufgabe abgeschlossen:"
+
+msgid "Contact not found"
+msgstr "Kontakt nicht gefunden"
+
+msgid ""
+"Contact information could not be displayed because the server had trouble "
+"retrieving the information."
+msgstr ""
+"Kontaktinformation konnte nicht dargestellt werden da der Server Probleme hatte, "
+"die Information einzuholen."
+
+msgid "Could not handle this type of object."
+msgstr "Konnte diese Form des Objekts nicht verarbeiten."
+
+msgid "Could not open this object."
+msgstr "Konnte diese Objekt nicht öffnen."
+
+msgid "Error in search, please try again"
+msgstr "Fehler in der Suche, bitte versuchen Sie es erneut"
+
+msgid "Unable to perform search query, no permissions to create search folder."
+msgstr "Fehler die Suchanfrage durchzuführen, keine Berechtigungen um Suchverzeichnisse anzulegen."
+
+msgid "Unable to perform search query, search folder not found."
+msgstr "Fehler die Suchanfrage durchzuführen, Suchverzeichnis nicht gefunden."
+
+msgid "Unable to perform search query, store might not support searching."
+msgstr "Fehler die Suchanfrage durchzuführen, Speicher könnte Suche nicht unterstützen."
+
+msgid "Error in creating search folder."
+msgstr "Fehler in der Erstellung des Suchverzeichnisses."
+
+msgid "Could not open occurrence."
+msgstr "Konnte Ereignis nicht öffnen."
+
+msgid "Could not open occurrence, specific occurrence is probably deleted."
+msgstr "Konnte Eregnis nicht öffnen, spezifisches Ereignis wurde vermutlich gelöscht."
+
+msgid "a meeting request"
+msgstr "eine Terminanfrage"
+
+msgid "an appointment"
+msgstr "ein Termin"
+
+msgid "You have insufficient privileges to move "
+msgstr "Sie haben nicht genügend Berechtigungen zum Verschieben von "
+
+msgid ""
+"Cannot set a reminder to appear before the previous occurrence. Reset "
+"reminder to save the change"
+msgstr ""
+
+msgid "Two occurrences cannot occur on the same day"
+msgstr "Zwei Ergegnisse können nicht am selben Tag stattfinden"
+
+#, php-format
+msgid ""
+"You marked '%s' as a resource. You cannot schedule a meeting with '%s' "
+"because you do not have the appropiate permissions for that account. Either "
+"enter the name as a required or optional attendee or talk to your "
+"administrator about giving you permission to schedule '%s'."
+msgstr ""
+"Sie haben '%S' als Ressource markiert. Sie können keinen Termin mit '%' "
+"erstellen, da Sie nicht die notwendigen Berechtigungen für das Konto besitzen. Entweder"
+"fügen Sie den Namen als erforderlichen oder optionalen Teilnehmer hinzu oder sprechen "
+"mit Ihrem Administrator um die Erteilung der Berechtigung '%s' zu planen."
+
+#, php-format
+msgid ""
+"'%s' has declined your meeting because '%s' does not automatically accept "
+"meeting requests."
+msgstr ""
+"'%s' hat Ihre Terminanfrage abgelehnt da '%s' nicht automatisch Terminanfragen "
+"akzeptiert."
+
+#, php-format
+msgid ""
+"'%s' has declined your meeting because it is recurring. You must book each "
+"meeting separately with this resource."
+msgstr ""
+"'%s' hat Ihre Terminanfrage abgelehnt da es ein wiederholender Termin ist. Sie müssen jede Terminanfrage "
+"mit dieser Ressource separat buchen."
+
+#, php-format
+msgid ""
+"'%s' is already booked for this specified time. You must use another time or "
+"find another resource."
+msgstr ""
+"'%s' ist bereits gebucht zu der spezifizierten Zeit. Sie müssen entweder eine andere Zeit oder "
+"eine andere Ressource aufsuchen."
+
+msgid "Meeting was not scheduled."
+msgstr "Termin wurde nicht geplant."
+
+msgid "Meeting could not be sent."
+msgstr "Termin konnte nicht versendet werden."
+
+msgid "Meeting could not be saved."
+msgstr "Termin konnte nicht gespeichert werden."
+
+msgid "Private Appointment"
+msgstr "Privater Termin"
+
+#, php-format
+msgid "%s's Birthday"
+msgstr "%'s Geburtstag"
+
+#, php-format
+msgid "%s's Anniversary"
+msgstr "%s's Jahrestag"
+
+msgid "Unknown user/group"
+msgstr "Unbekannter Benutzer/Gruppe"
+
+msgid "Could not save delegate information."
+msgstr "Konnte Stellvertreterinformation nicht speichern."
+
+msgid "Could not delete delegate."
+msgstr "Konnte Stellvertreter nicht löschen."
+
+msgid "Can not get list of delegates."
+msgstr "Konnte keine Liste von Stellvertreter einholen."
+
+msgid "Could not load the hierarchy."
+msgstr "Konnte die Hierarchie nicht laden."
+
+msgid "Could not load folder properties."
+msgstr "Konnte die Verzeichniseigenschaften nicht laden."
+
+msgid "Could not remove folder from favorites."
+msgstr "Konnte das Verzeichnis nicht von den Favoriten entfernen."
+
+msgid "You have insufficient privileges to delete folder."
+msgstr "Sie haben nicht genügend Berechtigungen um das Verzeichnis zu löschen."
+
+msgid "Could not delete folder."
+msgstr "Konnte Verzeichnis nicht löschen."
+
+msgid "You have insufficient privileges to copy folder."
+msgstr "Sie haben nicht genügend Berechtigungen um das Verzeichnis zu kopieren."
+
+msgid "Could not copy folder."
+msgstr "Konnte Verzeichnis nicht kopieren."
+
+msgid "You have insufficient privileges to move this folder."
+msgstr "Sie haben nicht genügend Berechtigungen um das Verzeichnis zu verschieben."
+
+msgid "Could not move folder."
+msgstr "Konnte Verzeichnis nicht verschieben."
+
+msgid "You have insufficient privileges to delete items."
+msgstr "Sie haben nicht genügend Berechtigungen um Elemente zu löschen."
+
+msgid "Could not empty folder."
+msgstr "Konnte Verzeichnis nicht leeren."
+
+msgid "Could not perform action correctly."
+msgstr "Konnte die Aktion nicht korrekt ausführen."
+
+msgid ""
+"A favorite folder with this name already exists, please use another name."
+msgstr ""
+"Ein Verzeichnis mit diesem Namen existiert bereits, bitte verwenden Sie einen anderen Namen."
+
+msgid "Could not add folder to favorites."
+msgstr "Konnte Verzeichnis nicht zu Favoriten hinzufügen."
+
+msgid "You have insufficient privileges to set permissions for this folder."
+msgstr "Sie haben nicht genügend Berechtigungen um Berechtigungen auf dieses Verzeichnis zu setzen."
+
+msgid "Could not set folder permissions."
+msgstr "Konnte Verzeichnisberechtigungen nicht setzen."
+
+msgid "You have insufficient privileges to rename this folder."
+msgstr "Sie haben nicht genügend Berechtigungen um das Verzeichnis umzubenennen."
+
+msgid "A folder with this name already exists. Use another name."
+msgstr "Ein Verzeichnis mit diesem Namen existiert bereits. Verwenden Sie einen anderen Namen."
+
+msgid "Could not rename folder."
+msgstr "Konnte Verzeichnis nicht umbenennen."
+
+msgid "You have insufficient privileges to create this folder."
+msgstr "Sie haben nicht genügend Berechtigungen um das Verzeichnis zu erstellen."
+
+msgid "Could not create folder."
+msgstr "Konnte Verzeichnis nicht erstellen"
+
+msgid "Could not close shared folder."
+msgstr "Konnte geteiltes Verzeichnis nicht schließen."
+
+msgid "User could not be resolved."
+msgstr "Benutzer konnte nicht aufgelöst werden."
+
+#, php-format
+msgid ""
+"You have insufficient privileges to open this %1$s folder. The folder owner "
+"can set these using the 'permissions'-tab of the folder properties (right "
+"click the %1$s folder > properties > permissions)."
+msgstr ""
+"Sie haben nciht genügend Berechtigungen um dieses %1$s Verzeichnis zu öffnen. "
+"Der Eigentümer kann diese innerhalb des "Berechtigung"-Tab einstellen (Rechtsklick auf %1$s Verzeichnis -> Eigenschaften -> Berechtigung)."
+
+msgid "unknown"
+msgstr "unbekannt"
+
+msgid "Could not move folder"
+msgstr "Konnte Verzeichnis nicht verschieben"
+
+msgid "Could not copy folder"
+msgstr "Konnte Verzeichnis nicht kopieren"
+
+msgid "You have insufficient privileges to open this message."
+msgstr "Sie haben nicht genügend Berechtigungen um diese Nachricht zu öffnen."
+
+msgid ""
+"Could not find message, either it has been moved or deleted or you don't "
+"have access to open this message."
+msgstr ""
+"Konnte die Nachricht nicht finden, entweder wurde Sie verschoben, gelöscht oder Sie"
+"haben nicht das Recht, diese Nachricht zu öffnen."
 
 # 78%
 msgid "Could not open message."
@@ -6540,7 +6902,7 @@ msgstr "Der Aufgabenanfrage konnte nicht akzeptiert werden."
 # 90%
 msgid "You have insufficient privileges to decline this Task Request."
 msgstr ""
-"Sie haben nicht genügend Berechtigungen, um die Aufgabenanfrage abzulehnen."
+"Sie haben nicht genügend Berechtigungen um die Aufgabenanfrage abzulehnen."
 
 # 79%
 msgid "Could not decline Task Request."
@@ -6567,27 +6929,121 @@ msgstr "Die Nachricht hat einen oder mehrere Empfänger nicht erreicht"
 msgid "The following recipient(s) could not be reached"
 msgstr "Der/die folgenden Empfänger konnten nicht erreicht werden"
 
+msgid "You have insufficient privileges to see the contents of this folder."
+msgstr "Sie haben nicht genügend Berechtigungen um die Inhalte diesen Verzeichnisses anzuzeigen."
+
+msgid "Could not load the contents of this folder."
+msgstr "Konnte den Inhalt des Ordners nicht laden."
+
+msgid ""
+"You have insufficient privileges to perform search operation in this folder."
+msgstr ""
+"Sie haben nicht genügend Berechtigungen um Suchanfragen in diesem Verzeichnis auszuführen."
+
+msgid "Could not update search results."
+msgstr "Konnte Suchergebnisse nicht aktualisieren."
+
+msgid "Could not stop search operation."
+msgstr "Konnte Suchoperation nicht anhalten."
+
+msgid "You have insufficient privileges to save this message."
+msgstr "Sie haben nicht genügend Berechtigungen um diese Nachricht zu speichern."
+
+msgid "Could not save message."
+msgstr "Konnte Nachricht nicht speichern."
+
+msgid "You have insufficient privileges to delete this message."
+msgstr "Sie haben nicht genügend Berechtigungen um diese Nachricht zu löschen."
+
+msgid "Could not delete message."
+msgstr "Konnte Nachricht nicht löschen."
+
+msgid "You have insufficient privileges to cancel this Meeting Request."
+msgstr "Sie haben nicht genügend Berechtigungen um diese Terminanfrage abzusagen."
+
+msgid "Could not cancel Meeting Request."
+msgstr "Konnte Terminanfrage nicht absagen."
+
+msgid "You have insufficient privileges to decline this Meeting Request."
+msgstr "Sie haben nicht genügend Berechtigungen um diese Terminanfrage abzulehnen."
+
+msgid "Could not decline Meeting Request."
+msgstr "Konnte Terminanfrage nicht ablehnen."
+
+msgid "You have insufficient privileges to accept this Meeting Request."
+msgstr "Sie haben nicht genügend Berechtigungen um diese Terminanfrage zuzusagen."
+
+msgid "Could not accept Meeting Request."
+msgstr "Konnte Terminanfrage nicht akzeptieren."
+
+msgid "You have insufficient privileges to cancel Meeting Request invitation."
+msgstr "Sie haben nicht genügend Berechtigungen um diese Termineinladung abbrechen."
+
+msgid "Could not cancel Meeting Request invitations."
+msgstr "Konnte Termineinladung nicht abbrechen."
+
+msgid "You can not continue search operation on this folder."
+msgstr "Sie können keine weiteren Suchoperationen auf diesem Verzeichnis durchführen."
+
+msgid "Error in search, please try again."
+msgstr "Fehler in der Suche, bitte versuchen Sie es erneut."
+
+msgid "Error in distribution list expansion."
+msgstr "Fehler in der Auflösung der Verteilerliste."
+
+msgid "The message store has exceeded its hard quota limit."
+msgstr "Der Nachrichtenspeicher hat das harte Speicherplatzquota überschritten."
+
+msgid ""
+"To reduce the amount of data in this message store, select some items that "
+"you no longer need, delete them and cleanup your Deleted Items folder."
+msgstr ""
+
+msgid "The message store has exceeded its soft quota limit."
+msgstr "Der Nachrichtenspeicher hat das weiche Speicherplatzquota überschritten."
+
+msgid "Could not process request data properly."
+msgstr "Konnte die Abfragedaten nicht verarbeiten."
+
 #, php-format
-msgid "Unable to import '%s' to '%s'. "
-msgstr "Konnte '%s' nicht nach '%s' importieren. "
+msgid "Unknown action type specified - %s"
+msgstr "Unbekannter Aktionstyp spezifiziert - %s"
+
+msgid "Cannot snooze the reminder. You may be reminded again."
+msgstr "Konnte die Erinnerungen nicht schließen. Sie könnten erneut erinnert werden."
+
+msgid "Cannot dismiss the reminder. You may be reminded again."
+msgstr "Konnte die Erinnerungen nicht verwerfen. Sie könnten erneut erinnert werden."
+
+msgid "You have insufficient privileges to perform this action."
+msgstr "Sie haben nicht genügend Berechtigungen um diese Aktion auszuführen."
+
+msgid "Could not resolve user."
+msgstr "Konnte Benutzer nicht auflösen."
+
+msgid "Setting mail filters on the stores of other users is not allowed."
+msgstr "Das setzen von Mailfilter auf andere Benutzerspeicher ist nicht erlaubt."
+
+msgid "Untitled rule"
+msgstr "Regel ohne Titel"
+
+msgid "Could not load rules."
+msgstr "Konnte Regeln nicht laden."
+
+msgid "Could not save rules."
+msgstr "Konnte Regeln nicht speichern."
+
+msgid "Task Request:"
+msgstr "Aufgabenanfrage:"
+
+msgid "Sign in"
+msgstr "Anmelden"
+
+msgid "File is not imported successfully"
+msgstr "Datei wurde nicht erfolgreich importiert"
 
 msgid "There is no contact found in this file."
 msgstr "In der Datei wurde kein Kontakt gefunden."
-
-msgid "The file is corrupt."
-msgstr "Die Datei ist beschädigt."
-
-msgid "The file is invalid."
-msgstr "Die Datei ist ungültig."
-
-#, php-format
-msgid "Unable to import '%s'. "
-msgstr "Konnte '%s' nicht importieren. "
-
-msgid "Please contact your system administrator if the problem persists."
-msgstr ""
-"Bitte kontaktieren Sie Ihren lokalen Administrator falls das Problem "
-"wiederholt auftritt."
 
 msgid ""
 "grommunio Web does not support importing multiple VCF with this version."
@@ -6595,10 +7051,48 @@ msgstr ""
 "grommunio Web unterstützt das Importieren mehrerer VCF mit dieser Version "
 "nicht."
 
-msgid "There is no appointment found in this file."
-msgstr "Es gibt keine Termine in dieser Datei."
-
 msgid ""
 "grommunio Web does not support importing multiple ICS with this version."
 msgstr ""
 "grommunio Web unterstützt derzeit nicht den Import von mehreren ICS Dateien."
+
+#, php-format
+msgid "Unable to import '%s'"
+msgstr "Konnte '%s' nicht importieren"
+
+msgid "The EML is not valid"
+msgstr "Die EML ist nicht zulässig"
+
+msgid "GB"
+msgstr "GB"
+
+msgid "MB"
+msgstr "MB"
+
+msgid "KB"
+msgstr "KB"
+
+msgid "B"
+msgstr "B"
+
+msgid "The maximum stack depth has been exceeded"
+msgstr "Die maximale Stapeltiefe wurde überschritten"
+
+msgid "Control character error, possibly incorrectly encoded"
+msgstr "Kontrollzeichen-Fehler, möglicherweise falsch enkodiert"
+
+msgid "Invalid or malformed JSON"
+msgstr "Invalides oder missgebildetes JSON"
+
+msgid "Syntax error"
+msgstr "Syntaxfehler"
+
+msgid "Malformed UTF-8 characters, possibly incorrectly encoded"
+msgstr "Missgebildete UTF-8 Zeichen, möglicherweise falsch enkodiert"
+
+#, php-format
+msgid "JSON Error: - %s"
+msgstr "JSON Fehler - %s"
+
+msgid "Some problem encountered when encoding/decoding JSON data."
+msgstr "Ein Problem ist bei der En-/Dekodierung von JSON Daten aufgetreten."
