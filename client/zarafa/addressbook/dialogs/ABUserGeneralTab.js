@@ -97,7 +97,8 @@ Zarafa.addressbook.dialogs.ABUserGeneralTab = Ext.extend(Ext.form.FormPanel, {
 		return {
 			border: false,
 			layout: {
-				type: 'hbox'
+				type: 'hbox',
+				flex: 1
 			},
 			items: {
 				xtype: 'box',
@@ -105,6 +106,7 @@ Zarafa.addressbook.dialogs.ABUserGeneralTab = Ext.extend(Ext.form.FormPanel, {
 				ctCls: 'contact_photo_box_ct',
 				autoEl: {
 					tag: 'img',
+					height: 135,
 					src: Ext.BLANK_IMAGE_URL
 				},
 				ref: '../contactPhotoBox'
@@ -124,7 +126,6 @@ Zarafa.addressbook.dialogs.ABUserGeneralTab = Ext.extend(Ext.form.FormPanel, {
 			defaultType: 'textfield',
 			title: _('Addresses'),
 			border: false,
-			columnWidth: 0.5,
 			defaults: {
 				anchor:'100%',
 				readOnly: true
@@ -133,18 +134,23 @@ Zarafa.addressbook.dialogs.ABUserGeneralTab = Ext.extend(Ext.form.FormPanel, {
 				xtype: 'textarea',
 				fieldLabel: _('Address'),
 				name: 'street_address',
-				height: '40px'
+				flex: 1,
+				height: 51
 			},{
 				fieldLabel: _('City'),
+				flex: 1,
 				name: 'locality'
 			},{
 				fieldLabel: _('State'),
+				flex: 1,
 				name: 'state_or_province'
 			},{
 				fieldLabel: _('Zip Code'),
+				flex: 1,
 				name: 'postal_code'
 			},{
 				fieldLabel: _('Country'),
+				flex: 1,
 				name: 'country'
 			}]
 		};
@@ -161,28 +167,33 @@ Zarafa.addressbook.dialogs.ABUserGeneralTab = Ext.extend(Ext.form.FormPanel, {
 			xtype: 'fieldset',
 			defaultType: 'textfield',
 			title: _('Professional'),
-			columnWidth: 0.5,
 			defaults: {
 				anchor: '100%',
 				readOnly: true
 			},
 			items: [{
 				fieldLabel: _('Title'),
+				flex: 1,
 				name: 'title'
 			},{
 				fieldLabel: _('Company'),
+				flex: 1,
 				name: 'company_name'
 			},{
 				fieldLabel: _('Department'),
+				flex: 1,
 				name: 'department_name'
 			},{
 				fieldLabel: _('Office'),
+				flex: 1,
 				name: 'office_location'
 			},{
 				fieldLabel: _('Assistant'),
+				flex: 1,
 				name: 'assistant'
 			},{
 				fieldLabel: _('Phone'),
+				flex: 1,
 				name: 'business_telephone_number'
 			}]
 		};
