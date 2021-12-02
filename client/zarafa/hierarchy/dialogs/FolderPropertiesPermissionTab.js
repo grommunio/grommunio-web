@@ -177,24 +177,26 @@ Zarafa.hierarchy.dialogs.FolderPropertiesPermissionTab = Ext.extend(Ext.Panel, {
 			layout: 'fit',
 			cls: 'permissions-panel',
 			autoHeight: true,
+			columnWidth: 1,
 			border: false,
 			ref: 'permissionsForm',
 			items: [{
 				xtype: 'fieldset',
 				autoHeight: true,
-				autoWidth: true,
+				autoSizeColumn: true,
 				cls: 'zarafa-fieldset',
 				items: [{
 					xtype: 'container',
 					layout: 'column',
+					autoSizeColumn: true,
+					columnWidth: 1,
 					items: [{
 						xtype: 'fieldset',
-						columnWidth: 0.5,
+						columnWidth: 0.49,
 						cls: 'zarafa-fieldset',
 						title: _('Read'),
 						items: [{
 							xtype: 'radiogroup',
-							columnWidth: 0.5,
 							style: 'margin-right: 2px;',
 							hideLabel: true,
 							columns: 1,
@@ -216,12 +218,11 @@ Zarafa.hierarchy.dialogs.FolderPropertiesPermissionTab = Ext.extend(Ext.Panel, {
 						}]
 					},{
 						xtype: 'fieldset',
-						columnWidth: 0.5,
+						columnWidth: 0.49,
 						cls: 'zarafa-fieldset',
 						title: _('Write'),
 						items: [{
 							xtype: 'checkboxgroup',
-							columnWidth: 0.5,
 							style: 'margin-left: 2px;',
 							hideLabel: true,
 							columns: 1,
@@ -251,10 +252,12 @@ Zarafa.hierarchy.dialogs.FolderPropertiesPermissionTab = Ext.extend(Ext.Panel, {
 				},{
 					xtype: 'container',
 					style: 'margin-top: 2px;',
+					columnWidth: 1,
+					autoSizeColumn: true,
 					layout: 'column',
 					items: [{
 						xtype: 'fieldset',
-						columnWidth: 0.5,
+						columnWidth: 0.49,
 						cls: 'zarafa-fieldset',
 						title: _('Delete items'),
 						items: [{
@@ -284,12 +287,11 @@ Zarafa.hierarchy.dialogs.FolderPropertiesPermissionTab = Ext.extend(Ext.Panel, {
 						}]
 					},{
 						xtype: 'fieldset',
-						columnWidth: 0.5,
+						columnWidth: 0.49,
 						cls: 'zarafa-fieldset',
 						title: _('Other'),
 						items: [{
 							xtype: 'checkboxgroup',
-							columnWidth: 0.5,
 							style: 'margin-left: 2px;',
 							hideLabel: true,
 							columns: 1,
