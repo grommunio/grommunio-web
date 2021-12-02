@@ -471,12 +471,25 @@ Zarafa.hierarchy.dialogs.FolderPropertiesPermissionTab = Ext.extend(Ext.Panel, {
 	{
 		var mask = 0;
 		var flag = 0;
+		var items = group.items;
 
-		group.items.each(function(item) {
+		items.each(function(item) {
 			if (Ext.isDefined(item.rightsValue)) {
 				mask |= item.rightsValue;
 				if (item.checked) {
 					flag |= item.rightsValue;
+					// If "Edit all" is checked, check "Edit own"
+					if(item.rightsValue === 40) {
+						var option = items.get(2)
+						option.setValue(true);
+					}
+					// If "Folder owner" is checked, check other folder permissions
+					if(item.rightsValue === 1792) {
+						var option = items.get(1)
+						option.setValue(true);
+						var option = items.get(2)
+						option.setValue(true);
+					}
 				}
 			}
 		});
