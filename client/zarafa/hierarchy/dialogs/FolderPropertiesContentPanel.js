@@ -33,6 +33,7 @@ Zarafa.hierarchy.dialogs.FolderPropertiesContentPanel = Ext.extend(Zarafa.core.u
 				xtype: 'zarafa.folderpropertiespanel',
 				activeTab: Ext.isDefined(config.activeTab) ? config.activeTab : 0,
 				emptyText: config.emptyText,
+				isAppointmentDialog: config.isAppointmentDialog || false,
 				buttons: [{
 					text: _('Ok'),
 					handler: this.onOk,

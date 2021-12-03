@@ -41,6 +41,7 @@ Zarafa.hierarchy.dialogs.FolderPropertiesPanel = Ext.extend(Ext.Panel, {
 				},{
 					xtype: 'zarafa.folderpropertiespermissiontab',
 					emptyText: config.emptyText,
+					isAppointmentDialog: config.isAppointmentDialog,
 					title: _('Permissions')
 				},
 				container.populateInsertionPoint('folderpropertiescontentpanel.tabs', this)

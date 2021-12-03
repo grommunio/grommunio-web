@@ -20,6 +20,7 @@ Zarafa.hierarchy.dialogs.FolderPropertiesPermissionTab = Ext.extend(Ext.Panel, {
 		config.plugins = Ext.value(config.plugins, []);
 		config.plugins.push('zarafa.recordcomponentupdaterplugin');
 		var emptyText = Ext.isDefined(config.emptyText) ? config.emptyText : _('No permissions granted');
+		var isAppointmentDialog = Ext.isDefined(config.isAppointmentDialog) ? config.isAppointmentDialog : false;
 
 		Ext.applyIf(config, {
 			xtype: 'zarafa.folderpropertiespermissiontab',
@@ -31,8 +32,8 @@ Zarafa.hierarchy.dialogs.FolderPropertiesPermissionTab = Ext.extend(Ext.Panel, {
 			border: false,
 			items: [
 				this.createUserListPanel(emptyText),
-				this.createProfilePanel(),
-				this.createPermissionPanel()
+				this.createProfilePanel(isAppointmentDialog),
+				this.createPermissionPanel(isAppointmentDialog)
 			]
 		});
 
@@ -102,12 +103,12 @@ Zarafa.hierarchy.dialogs.FolderPropertiesPermissionTab = Ext.extend(Ext.Panel, {
 	 * @return {Object} Configuration object for the panel for permissions
 	 * @private
 	 */
-	createProfilePanel: function()
+	createProfilePanel: function(isAppointmentDialog)
 	{
 		var profileStore = {
 			xtype: 'jsonstore',
 			fields: ['name', 'value'],
-			data: Zarafa.hierarchy.data.PermissionProfiles
+			data: isAppointmentDialog ? Zarafa.hierarchy.data.PermissionProfilesCalendar : Zarafa.hierarchy.data.PermissionProfiles
 		};
 
 		return {
@@ -170,8 +171,41 @@ Zarafa.hierarchy.dialogs.FolderPropertiesPermissionTab = Ext.extend(Ext.Panel, {
 	 * @return {Object} Configuration object for the panel for permissions
 	 * @private
 	 */
-	createPermissionPanel: function()
+	createPermissionPanel: function(isAppointmentDialog)
 	{
+		const readRadioGroupItems = isAppointmentDialog ? [{
+			name: 'allowread',
+			boxLabel: _('None'),
+			hideLabel: true,
+			disabled: true,
+			rightsValue: Zarafa.core.mapi.Rights.RIGHTS_NO_RIGHTS
+		},{
+			name: 'allowread',
+			boxLabel: _('Free/Busy time'),
+			hideLabel: true,
+			rightsValue: Zarafa.core.mapi.Rights.RIGHTS_NO_RIGHTS | Zarafa.core.mapi.Rights.RIGHTS_CAL_FBSIMPLE
+		},{
+			name: 'allowread',
+			boxLabel: _('Free/Busy time, subject, location'),
+			hideLabel: true,
+			rightsValue: Zarafa.core.mapi.Rights.RIGHTS_NO_RIGHTS | Zarafa.core.mapi.Rights.RIGHTS_CAL_FBSIMPLE | Zarafa.core.mapi.Rights.RIGHTS_CAL_FBDETAILED
+		},{
+			name: 'allowread',
+			boxLabel: _('Full Details'),
+			hideLabel: true,
+			rightsValue: Zarafa.core.mapi.Rights.RIGHTS_READ_ANY | Zarafa.core.mapi.Rights.RIGHTS_CAL_FBSIMPLE | Zarafa.core.mapi.Rights.RIGHTS_CAL_FBDETAILED | Zarafa.core.mapi.Rights.RIGHTS_FOLDER_VISIBLE
+		}] : [{
+				name: 'allowread',
+				boxLabel: _('None'),
+				hideLabel: true,
+				rightsValue: Zarafa.core.mapi.Rights.RIGHTS_NO_RIGHTS
+			},{
+				name: 'allowread',
+				boxLabel: _('Full Details'),
+				hideLabel: true,
+				rightsValue: Zarafa.core.mapi.Rights.RIGHTS_READ_ANY | Zarafa.core.mapi.Rights.RIGHTS_FOLDER_VISIBLE
+			},
+		];
 		return {
 			xtype: 'form',
 			layout: 'fit',
@@ -200,17 +234,7 @@ Zarafa.hierarchy.dialogs.FolderPropertiesPermissionTab = Ext.extend(Ext.Panel, {
 							style: 'margin-right: 2px;',
 							hideLabel: true,
 							columns: 1,
-							items: [{
-								name: 'allowread',
-								boxLabel: _('None'),
-								hideLabel: true,
-								rightsValue: Zarafa.core.mapi.Rights.RIGHTS_NO_RIGHTS
-							},{
-								name: 'allowread',
-								boxLabel: _('Full Details'),
-								hideLabel: true,
-								rightsValue: Zarafa.core.mapi.Rights.RIGHTS_READ_ANY | Zarafa.core.mapi.Rights.RIGHTS_FOLDER_VISIBLE
-							}],
+							items: readRadioGroupItems,
 							listeners: {
 								change: this.onPermissionChecked,
 								scope: this
@@ -418,7 +442,31 @@ Zarafa.hierarchy.dialogs.FolderPropertiesPermissionTab = Ext.extend(Ext.Panel, {
 
 		group.suspendEvents(false);
 		if (group instanceof Ext.form.RadioGroup) {
-			if(items.get(2)){
+			// If in calendar dialog
+			if(items.get(3)){
+				var none = items.get(0);
+				var fb = items.get(1);
+				var fbdetailed = items.get(2);
+				var all = items.get(3);
+
+				if ((permissions & all.rightsValue) === all.rightsValue) {
+					none.setValue(false);
+					fb.setValue(false);
+					fbdetailed.setValue(false);
+					all.setValue(true);
+				} else if ((permissions & fbdetailed.rightsValue) === fbdetailed.rightsValue) {
+					none.setValue(false);
+					fb.setValue(false);
+					all.setValue(false);
+					fbdetailed.setValue(true);
+				} else {
+					fb.setValue(true);
+					all.setValue(false);
+					fbdetailed.setValue(false);
+					none.setValue(false);
+				}
+				// If in other dialog
+			} else if (items.get(2)){
 				var none = items.get(0);
 				var own = items.get(1);
 				var all = items.get(2);
@@ -474,7 +522,6 @@ Zarafa.hierarchy.dialogs.FolderPropertiesPermissionTab = Ext.extend(Ext.Panel, {
 		var mask = 0;
 		var flag = 0;
 		var items = group.items;
-
 		items.each(function(item) {
 			if (Ext.isDefined(item.rightsValue)) {
 				mask |= item.rightsValue;

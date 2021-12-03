@@ -339,6 +339,7 @@ Zarafa.hierarchy.ui.ContextMenu = Ext.extend(Zarafa.core.ui.menu.ConditionalMenu
 		var formattedTitle = '';
 		var emptyText = '';
 		var isIPMSubTree = folder.isIPMSubTree();
+		var isAppointmentDialog = folder.isContainerClass('IPF.Appointment', true)
 
 		if (mapiStore.isDefaultStore() || isIPMSubTree) {
 			var text = isIPMSubTree ? storeName : folderName;
@@ -353,7 +354,8 @@ Zarafa.hierarchy.ui.ContextMenu = Ext.extend(Zarafa.core.ui.menu.ConditionalMenu
 			modal: true,
 			showModalWithoutParent: true,
 			title: formattedTitle,
-			emptyText: emptyText
+			emptyText: emptyText,
+			isAppointmentDialog
 		};
 
 		if (btn.name == 'shareFolder') {
