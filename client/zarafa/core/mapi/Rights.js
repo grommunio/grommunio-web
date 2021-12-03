@@ -211,7 +211,7 @@ Zarafa.core.mapi.Rights.RIGHTS_OWNER			= Zarafa.core.mapi.Rights.RIGHTS_PUBLISHI
  * @property
  * @type Number
  */
-Zarafa.core.mapi.Rights.RIGHTS_CAL_FBSIMPLE		= Zarafa.core.mapi.Rights.RIGHTS_NO_RIGHTS |
+Zarafa.core.mapi.Rights.RIGHTS_CAL_FBSIMPLE		= Zarafa.core.mapi.Rights.RIGHTS_NONE |
 												Zarafa.core.mapi.Rights.RIGHTS_FBSIMPLE;
 
 /**
@@ -220,7 +220,7 @@ Zarafa.core.mapi.Rights.RIGHTS_CAL_FBSIMPLE		= Zarafa.core.mapi.Rights.RIGHTS_NO
  * @property
  * @type Number
  */
-Zarafa.core.mapi.Rights.RIGHTS_CAL_FBDETAILED		= Zarafa.core.mapi.Rights.RIGHTS_NO_RIGHTS |
+Zarafa.core.mapi.Rights.RIGHTS_CAL_FBDETAILED		= Zarafa.core.mapi.Rights.RIGHTS_NONE |
 												Zarafa.core.mapi.Rights.RIGHTS_FBSIMPLE |
 												Zarafa.core.mapi.Rights.RIGHTS_FBDETAILED;
 
