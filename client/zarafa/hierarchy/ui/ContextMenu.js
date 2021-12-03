@@ -214,18 +214,20 @@ Zarafa.hierarchy.ui.ContextMenu = Ext.extend(Zarafa.core.ui.menu.ConditionalMenu
 					item.setDisabled(true);
 				}
 			}
-		}, {
-			text: _('Restore items'),
-			handler: this.onContextItemRestore,
-			iconCls: 'icon_restore',
-			beforeShow: function(item, record) {
-				if (!record.get('access') || record.isTodoListFolder()) {
-					item.setDisabled(true);
-				} else {
-					item.setDisabled(false);
-				}
-			}
-		}, {
+		},
+		// {
+		//	text: _('Restore items'),
+		//	handler: this.onContextItemRestore,
+		//	iconCls: 'icon_restore',
+		//	beforeShow: function(item, record) {
+		//		if (!record.get('access') || record.isTodoListFolder()) {
+		//			item.setDisabled(true);
+		//		} else {
+		//			item.setDisabled(false);
+		//		}
+		//	}
+		//},
+		{
 			text: _('Select color'),
 			iconCls: 'icon-select-color',
 			beforeShow: function(item, record) {
