@@ -178,17 +178,17 @@ Zarafa.hierarchy.dialogs.FolderPropertiesPermissionTab = Ext.extend(Ext.Panel, {
 			boxLabel: _('None'),
 			hideLabel: true,
 			disabled: true,
-			rightsValue: Zarafa.core.mapi.Rights.RIGHTS_NO_RIGHTS
+			rightsValue: Zarafa.core.mapi.Rights.RIGHTS_NONE
 		},{
 			name: 'allowread',
 			boxLabel: _('Free/Busy time'),
 			hideLabel: true,
-			rightsValue: Zarafa.core.mapi.Rights.RIGHTS_NO_RIGHTS | Zarafa.core.mapi.Rights.RIGHTS_CAL_FBSIMPLE
+			rightsValue: Zarafa.core.mapi.Rights.RIGHTS_NONE | Zarafa.core.mapi.Rights.RIGHTS_CAL_FBSIMPLE
 		},{
 			name: 'allowread',
 			boxLabel: _('Free/Busy time, subject, location'),
 			hideLabel: true,
-			rightsValue: Zarafa.core.mapi.Rights.RIGHTS_NO_RIGHTS | Zarafa.core.mapi.Rights.RIGHTS_CAL_FBSIMPLE | Zarafa.core.mapi.Rights.RIGHTS_CAL_FBDETAILED
+			rightsValue: Zarafa.core.mapi.Rights.RIGHTS_NONE | Zarafa.core.mapi.Rights.RIGHTS_CAL_FBSIMPLE | Zarafa.core.mapi.Rights.RIGHTS_CAL_FBDETAILED
 		},{
 			name: 'allowread',
 			boxLabel: _('Full Details'),
