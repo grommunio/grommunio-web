@@ -899,7 +899,7 @@
 
 				$folders[] = array(
 					"props" => array(
-						"display_name"	=> $item[PR_DISPLAY_NAME],
+						"display_name"	=> $item[PR_DISPLAY_NAME] ?? '',
 						"entryid"		=> bin2hex($item[PR_ENTRYID]),
 						"parent_entryid"=> bin2hex($item[PR_PARENT_ENTRYID]),
 						"depth"			=> $item[PR_DEPTH],
