@@ -201,24 +201,24 @@
 				if (empty($cache_table)) {
 					@shm_remove_var($memid, 0);
 					@shm_detach($memid);
-					return Array('zarafa_webapp'=>Array());
+					return Array('grommunio_web'=>Array());
 				}
 				$translation_id = $cache_table[$this->getSelected()];
 				if (empty($translation_id)) {
 					@shm_detach($memid);
-					return Array('zarafa_webapp'=>Array());
+					return Array('grommunio_web'=>Array());
 				}
 				$translations = @shm_get_var($memid, $translation_id);
 				@shm_detach($memid);
 				if (empty($translations)) {
-					return Array('zarafa_webapp'=>Array());
+					return Array('grommunio_web'=>Array());
 				}
 				return $translations;
 			}
 			$handle = opendir(LANGUAGE_DIR);
 			if (false == $handle) {
 				@shm_detach($memid);
-				return Array('zarafa_webapp'=>Array());
+				return Array('grommunio_web'=>Array());
 			}
 			$last_id = 1;
 			$cache_table = Array();
@@ -228,8 +228,8 @@
 					continue;	
 				}
 				$translations = Array();
-				$translations['zarafa_webapp'] = $this->getTranslationsFromFile(LANGUAGE_DIR.$entry.'/LC_MESSAGES/zarafa_webapp.mo');
-				if (!$translations['zarafa_webapp']) {
+				$translations['grommunio_web'] = $this->getTranslationsFromFile(LANGUAGE_DIR.$entry.'/LC_MESSAGES/grommunio_web.mo');
+				if (!$translations['grommunio_web']) {
 					continue;
 				}
 				if (isset($GLOBALS['PluginManager'])) {
@@ -253,7 +253,7 @@
 			@shm_put_var($memid, 0, $cache_table);
 			@shm_detach($memid);
 			if (empty($ret_val)) {
-				return Array('zarafa_webapp'=>Array());
+				return Array('grommunio_web'=>Array());
 			}
 			return $ret_val;
 		}

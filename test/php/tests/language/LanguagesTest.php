@@ -48,12 +48,12 @@ class LanguagesTest extends grommunioTest {
 		$lang->setLanguage('nl_NL.UTF-8');
 		$data = $lang->getTranslations();
 
-		$this->assertArrayHasKey('zarafa_webapp', $data, 'Test that the \'zarafa_webapp\' key is found');
-		$this->assertNotEmpty($data['zarafa_webapp'], 'Test that the \'zarafa_webapp\' array contains items');
-		$this->assertArrayHasKey('msgctxt', $data['zarafa_webapp'][0], 'Test that the translation contains the \'msgctxt\' key.');
-		$this->assertArrayHasKey('msgid_plural', $data['zarafa_webapp'][0], 'Test that the translation contains the \'msgid_plural\' key.');
-		$this->assertArrayHasKey('msgid', $data['zarafa_webapp'][0], 'Test that the translation contains the \'msgid\' key.');
-		$this->assertArrayHasKey('msgstr', $data['zarafa_webapp'][0], 'Test that the translation contains the \'msgstr\' key.');
+		$this->assertArrayHasKey('grommunio_web', $data, 'Test that the \'grommunio_web\' key is found');
+		$this->assertNotEmpty($data['grommunio_web'], 'Test that the \'grommunio_web\' array contains items');
+		$this->assertArrayHasKey('msgctxt', $data['grommunio_web'][0], 'Test that the translation contains the \'msgctxt\' key.');
+		$this->assertArrayHasKey('msgid_plural', $data['grommunio_web'][0], 'Test that the translation contains the \'msgid_plural\' key.');
+		$this->assertArrayHasKey('msgid', $data['grommunio_web'][0], 'Test that the translation contains the \'msgid\' key.');
+		$this->assertArrayHasKey('msgstr', $data['grommunio_web'][0], 'Test that the translation contains the \'msgstr\' key.');
 	}
 }
 

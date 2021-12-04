@@ -181,7 +181,7 @@ Translations.prototype.getTranslation = function(domain, msgctxt, msgid, msgid_p
 {
 		var translation, msgidcontext;
 		if(typeof msgid == "undefined") return '';
-		if(typeof domain != "string") domain = "zarafa_webapp";
+		if(typeof domain != "string") domain = "grommunio_web";
 
 		var plural = (typeof msgid_plural == "string");
 
