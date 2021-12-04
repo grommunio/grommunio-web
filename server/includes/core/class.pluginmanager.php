@@ -182,6 +182,9 @@ class PluginManager
 		// - don't show if the users are in ldap
 		if (isset($this->plugindata['passwd']) && isset($GLOBALS['usersinldap']) && $GLOBALS['usersinldap']) {
 			unset($this->plugindata['passwd']);
+			if (($passwdKey = array_search('passwd', $this->pluginorder)) !== false) {
+				unset($this->pluginorder[$passwdKey]);
+			}
 		}
 
 		// Write the plugindata back to the state
