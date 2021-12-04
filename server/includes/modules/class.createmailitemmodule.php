@@ -347,7 +347,7 @@
 		{
 			$message = false;
 			$sourceMsgInfo = $this->getSourceMsgInfo($action);
-			if($sourceMsgInfo['source_message_info']) {
+			if(isset($sourceMsgInfo['source_message_info']) && $sourceMsgInfo['source_message_info']) {
 				/**
 				 * $sourceMsgInfo['source_message_info'] contains the hex value, where first 24byte contains action type 
 				 * and next 48byte contains entryid of original mail. so we have to extract the action type 
