@@ -6785,7 +6785,7 @@ msgid ""
 "can set these using the 'permissions'-tab of the folder properties (right "
 "click the %1$s folder > properties > permissions)."
 msgstr ""
-"Sie haben nciht genügend Berechtigungen um dieses %1$s Verzeichnis zu öffnen. "
+"Sie haben nicht genügend Berechtigungen um dieses %1$s Verzeichnis zu öffnen. "
 "Der Eigentümer kann diese innerhalb des Berechtigungs-Tab einstellen (Rechtsklick auf %1$s Verzeichnis -> Eigenschaften -> Berechtigung)."
 
 msgid "unknown"
