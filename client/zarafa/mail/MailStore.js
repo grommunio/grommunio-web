@@ -153,17 +153,18 @@ Zarafa.mail.MailStore = Ext.extend(Zarafa.core.data.ListModuleStore, {
 	getStoreLength: function()
 	{
 		// Get all items count when 'Unread' filtered has been applied.
-		if (!this.hasFilterApplied) {
-			var count = 0;
-			var items = this.snapshot ? this.snapshot.items : this.getRange();
-			items.forEach(function(item) {
-				if (item.get('folder_name') === 'inbox') {
-					count++;
-				}
-			});
+		// It looks like the code below is only necessary for conversation view.
+		// if (!this.hasFilterApplied) {
+		// 	var count = 0;
+		// 	var items = this.snapshot ? this.snapshot.items : this.getRange();
+		// 	items.forEach(function(item) {
+		// 		if (item.get('folder_name') === 'inbox') {
+		// 			count++;
+		// 		}
+		// 	});
 
-			return count;
-		}
+		// 	return count;
+		// }
 
 		return Zarafa.mail.MailStore.superclass.getStoreLength.apply(this, arguments);
 	},
