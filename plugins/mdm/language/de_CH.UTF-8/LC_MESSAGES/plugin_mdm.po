@@ -218,6 +218,13 @@ msgstr ""
 "Möchten Sie wirklich Ihre Gerät löschen?\n"
 " Bitte geben Sie Ihr Passwort zur Bestätigung ein."
 
+msgid ""
+"Do you really want to remove your device?\n"
+" Enter your password to confirm."
+msgstr ""
+"Möchten Sie wirklich Ihre Gerät entfernen?\n"
+" Bitte geben Sie Ihr Passwort zur Bestätigung ein."
+
 msgid "version not available"
 msgstr "Version nicht verfügbar"
 

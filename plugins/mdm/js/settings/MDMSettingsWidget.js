@@ -56,11 +56,11 @@ Zarafa.plugins.mdm.settings.MDMSettingsWidget = Ext.extend(Zarafa.settings.ui.Se
 						dataIndex : 'useragent',
 						header : _('User Agent', 'plugin_mdm'),
 						renderer : Ext.util.Format.htmlEncode
-					},/*{
+					},{
 						dataIndex : 'wipestatus',
 						header : _('Provisioning Status', 'plugin_mdm'),
 						renderer : Zarafa.plugins.mdm.ui.Renderers.provisioningStatus
-					},*/{
+					},{
 						dataIndex : 'lastupdatetime',
 						header : _('Last Update', 'plugin_mdm'),
 						renderer : Ext.util.Format.htmlEncode
@@ -84,12 +84,12 @@ Zarafa.plugins.mdm.settings.MDMSettingsWidget = Ext.extend(Zarafa.settings.ui.Se
 						hidden : true,
 						renderer : Ext.util.Format.htmlEncode
 					}],
-					buttons : [/*{
+					buttons : [{
 						text : _('Wipe Device', 'plugin_mdm'),
 						ref : '../../../wipeBtn',
 						handler : this.onWipeBtn,
 						scope : this
-					},*/{
+					},{
 						text : _('Full resync', 'plugin_mdm'),
 						ref : '../../../resyncBtn',
 						handler : this.onFullResync,
@@ -97,7 +97,7 @@ Zarafa.plugins.mdm.settings.MDMSettingsWidget = Ext.extend(Zarafa.settings.ui.Se
 					},{
 						text : _('Remove device', 'plugin_mdm'),
 						ref : '../../../removeBtn',
-						handler : this.onRemoveDevice,
+						handler : this.onRemoveBtn,
 						scope : this
 					},{
 						text : _('Refresh', 'plugin_mdm'),
@@ -334,25 +334,48 @@ Zarafa.plugins.mdm.settings.MDMSettingsWidget = Ext.extend(Zarafa.settings.ui.Se
 			);
 		}
 	},
+	/**
+	 * Function which handles the click event on the "Remove Device" button, displays
+	 * a MessageBox for the user to confirm the remove action. The remove action is
+	 * handled by the onRemoveDevice function.
+	 */
+	onRemoveBtn : function()
+ {
+	 var message = _('Do you really want to remove your device?\n Enter your password to confirm.');
+	 this.showPasswordMessageBox(message, this.onRemoveDevice, 'remove');
+ },
 
 	/**
-	 * Remove all state data for a device, essentially resyncing it.
+	 * Remove all state data for a device, essentially resyncing it. Also resets
+	 * the wipe status of the device to 0.
+	 *
+	 * @param {Ext.Button} button button from the messagebox
 	 */
-	onRemoveDevice : function()
+	onRemoveDevice : function(button)
 	{
-		var selectionModel = this.deviceGrid.getSelectionModel();
-		var record = selectionModel.getSelected();
-		if(record) {
-			container.getRequest().singleRequest(
-				'pluginmdmmodule',
-				'remove',
-				{ 'deviceid' : record.get('entryid') },
-				new Zarafa.plugins.mdm.data.MDMResponseHandler({
-					successCallback : this.removeDone.createDelegate(this, [record], true),
-					failureCallback : this.checkAuthentication,
-					mdmWidgetScope : this
-				})
-			);
+		if (button.name === 'yes') {
+			var inputForm = this.dlgItemContainer.inputForm.getForm();
+			if (!inputForm.isValid()) {
+				return;
+			}
+
+			var inputValues = inputForm.getValues();
+			var mdmWidgetScope = this.mdmWidgetScope;
+			var selectionModel = mdmWidgetScope.deviceGrid.getSelectionModel();
+			var record = selectionModel.getSelected();
+			if (record) {
+				container.getRequest().singleRequest(
+					'pluginmdmmodule',
+					'remove',
+					{ 'deviceid' : record.get('entryid'), 'password': inputValues.passwordField },
+					new Zarafa.plugins.mdm.data.MDMResponseHandler({
+						successCallback : mdmWidgetScope.removeDone.createDelegate(this, [record], true),
+						failureCallback : mdmWidgetScope.checkAuthentication,
+						mdmWidgetScope : mdmWidgetScope
+					})
+				);
+			}
+			this.close();
 		}
 	},
 
