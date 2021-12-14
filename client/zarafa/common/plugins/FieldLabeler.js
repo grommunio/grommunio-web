@@ -9,15 +9,15 @@ Ext.ns('Zarafa.common.plugins');
  * round the Field at render time regardless of the layout of the Container.</p>
  * <p>Usage:</p>
  * <pre><code>
-    {
-        xtype: 'combo',
-        plugins: [{
-            ptype : 'zarafa.fieldlabeler'
-        }],
-        triggerAction: 'all',
-        fieldLabel: 'Select type',
-        store: typeStore
-    }
+  {
+    xtype: 'combo',
+    plugins: [{
+      ptype: 'zarafa.fieldlabeler'
+    }],
+    triggerAction: 'all',
+    fieldLabel: 'Select type',
+    store: typeStore
+  }
  * </code></pre>
  */
 Zarafa.common.plugins.FieldLabeler = Ext.extend(Ext.util.Observable, {
@@ -25,7 +25,7 @@ Zarafa.common.plugins.FieldLabeler = Ext.extend(Ext.util.Observable, {
 	 * Initialize the plugin for the given {@link Ext.form.Field field}
 	 * @param {Ext.form.Field} field The field on which the plugin is placed
 	 */
-	init : function(field)
+	init: function(field)
 	{
 		field.onRender = field.onRender.createSequence(this.onRender);
 		field.onResize = this.onResize;
@@ -37,7 +37,7 @@ Zarafa.common.plugins.FieldLabeler = Ext.extend(Ext.util.Observable, {
 	 * Renders the component
 	 * @private
 	 */
-	onRender : function()
+	onRender: function()
 	{
 		// Do nothing if being rendered by a form layout
 		if (this.ownerCt) {
@@ -46,7 +46,7 @@ Zarafa.common.plugins.FieldLabeler = Ext.extend(Ext.util.Observable, {
 			}
 		}
 
-		//  Pulls a named property down from the first ancestor Container it's found in
+		// Pulls a named property down from the first ancestor Container it's found in
 		const getParentProperty = function(propName) {
 			for (var p = this.ownerCt; p; p = p.ownerCt) {
 				if (p[propName]) {
@@ -126,7 +126,7 @@ Zarafa.common.plugins.FieldLabeler = Ext.extend(Ext.util.Observable, {
 	 * @param {Number} rawHeight The height that was originally specified
 	 * @private
 	 */
-	onResize : function(adjWidth, adjHeight, rawWidth, rawHeight)
+	onResize: function(adjWidth, adjHeight, rawWidth, rawHeight)
 	{
 		var width = adjWidth;
 		var height = adjHeight;
@@ -195,7 +195,7 @@ Zarafa.common.plugins.FieldLabeler = Ext.extend(Ext.util.Observable, {
 	 * @param {Number} y The suggested Y offset for the component
 	 * @private
 	 */
-	adjustPosition : function(x, y)
+	adjustPosition: function(x, y)
 	{
 		if (this.ownerCt.layout instanceof Ext.layout.HBoxLayout) {
 			x = 0;

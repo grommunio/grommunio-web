@@ -8,14 +8,14 @@
 	var orig_fitToTree = Ext.tree.TreeEditor.prototype.fitToTree;
 
 	Ext.override(Ext.tree.TreeEditor, {
-		fitToTree : function()
+		fitToTree: function()
 		{
 			if (this.tree && this.tree.isDestroyed !== true) {
 				orig_fitToTree.apply(this, arguments);
 			}
 		},
 
-		bindScroll : function()
+		bindScroll: function()
 		{
 			if (this.tree && this.tree.isDestroyed !== true) {
 				orig_bindScroll.apply(this, arguments);

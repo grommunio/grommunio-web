@@ -25,7 +25,7 @@ class Pluginzdeveloper extends Plugin {
 	 */
 	function execute($eventID, &$data) {
 		switch($eventID) {
-			case 'server.core.settings.init.before' :
+			case 'server.core.settings.init.before':
 				$this->injectPluginSettings($data);
 				break;
 		}

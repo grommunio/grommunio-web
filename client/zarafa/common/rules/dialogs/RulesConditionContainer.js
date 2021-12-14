@@ -24,12 +24,12 @@ Zarafa.common.rules.dialogs.RulesConditionContainer = Ext.extend(Zarafa.common.r
 	 * @constructor
 	 * @param {Object} config Configuration object
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		config = Ext.apply(config || {},{
-			id : 'rule-condition-container',
-			addBtnName : _('Add condition'),
-			removeBtnName : _('Remove condition')
+			id: 'rule-condition-container',
+			addBtnName: _('Add condition'),
+			removeBtnName: _('Remove condition')
 		});
 
 		Zarafa.common.rules.dialogs.RulesConditionContainer.superclass.constructor.call(this, config);
@@ -43,27 +43,27 @@ Zarafa.common.rules.dialogs.RulesConditionContainer = Ext.extend(Zarafa.common.r
 	 * @return {Object} config object to create a {@link Ext.Container}.
 	 * @private
 	 */
-	createComboBoxContainer : function(index)
+	createComboBoxContainer: function(index)
 	{
-		var id =  'rule-condition-' + String(index);
+		var id = 'rule-condition-' + String(index);
 		var profileStore = {
-			xtype : 'jsonstore',
-			fields : [
-				{ name : 'name' },
-				{ name : 'value', type : 'int' }
+			xtype: 'jsonstore',
+			fields: [
+				{ name: 'name' },
+				{ name: 'value', type: 'int' }
 			],
-			data : Zarafa.common.rules.data.ConditionProfiles
+			data: Zarafa.common.rules.data.ConditionProfiles
 		};
 
 		return Zarafa.common.rules.dialogs.RulesConditionContainer.superclass.createComboBoxContainer.call(this, id, profileStore);
 	},
 
 	/**
-	 * Function that can be used to remove a condition from a rule.
+	 * Function that can be used to remove a condition from a rule dialog.
 	 * This will always remove the last condition.
 	 * @private
 	 */
-	removeComboBoxContainer : function()
+	removeComboBoxContainer: function()
 	{
 		if (this.boxContainerCount > 1) {
 			// if removed condition was atleast / atmost size condition then reset the size unit property in the record accordingly.
@@ -92,7 +92,7 @@ Zarafa.common.rules.dialogs.RulesConditionContainer = Ext.extend(Zarafa.common.r
 	 * @param {Zarafa.common.rules.data.RulesRecord} record The record update the panel with.
 	 * @param {Boolean} contentReset force the component to perform a full update of the data.
 	 */
-	update : function(record, contentReset)
+	update: function(record, contentReset)
 	{
 		this.record = record;
 		var conditions = record.getConditions(this);
@@ -145,20 +145,20 @@ Zarafa.common.rules.dialogs.RulesConditionContainer = Ext.extend(Zarafa.common.r
 	 * the values from this {@link Ext.Panel panel}.
 	 * @param {Zarafa.core.data.IPMRecord} record The record to update
 	 */
-	updateRecord : function(record)
+	updateRecord: function(record)
 	{
 		var conditions = [];
 		var conditionsValid = true;
+
+		// initAtleastCond and initAtmostCond are flags for initial atleast and atmost conditions respectively.
+		var initAtleastCond = true;
+		var initAtmostCond = true;
 
 		for (var i = 0; i < this.boxContainerCount; i++) {
 			var panel = this.get(i);
 			var combo = panel.get(0);
 			var activeItem = panel.get(1).layout.activeItem;
 			var condition = null;
-
-			// initAtleastCond and initAtmostCond are flags for initial atleast and atmost conditions respectively.
-			var initAtleastCond = true;
-			var initAtmostCond = true;
 
 			if (Ext.isFunction(activeItem.getCondition)) {
 				condition = activeItem.getCondition();

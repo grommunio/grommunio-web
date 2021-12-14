@@ -10,13 +10,13 @@ Zarafa.common.ui.PreviewPanelToolbarButtons = Ext.extend(Object, {
 	/**
 	 * @cfg {@link Zarafa.core.ContextModel}
 	 */
-	model : undefined,
+	model: undefined,
 
 	/**
 	 * @constructor
 	 * @param config Configuration structure
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		Ext.apply(this, config);
 	},
@@ -30,7 +30,7 @@ Zarafa.common.ui.PreviewPanelToolbarButtons = Ext.extend(Object, {
 	 * @return {Object} Configuration object containing buttons
 	 * which are added in the {@link Ext.Toolbar Toolbar}.
 	 */
-	getToolbarButtons : function(insertionPoint, options)
+	getToolbarButtons: function(insertionPoint, options)
 	{
 		// Use model that is passed as arguments for these buttons, if any.
 		var model = this.model;
@@ -55,8 +55,8 @@ Zarafa.common.ui.PreviewPanelToolbarButtons = Ext.extend(Object, {
 			iconCls: 'icon_more',
 			nonEmptySelectOnly: true,
 			model: model,
-			splitOnMoreMenu : true,
-			menu : this.moreMenuButtons(model),
+			splitOnMoreMenu: true,
+			menu: this.moreMenuButtons(model),
 			handler: function() {
 				this.showMenu();
 			}
@@ -85,29 +85,29 @@ Zarafa.common.ui.PreviewPanelToolbarButtons = Ext.extend(Object, {
 	 * @param {Zarafa.mail.dialogs.ShowMailToolbar} scope The scope for the menu items
 	 * @return {Ext.menu.Menu} the dropdown menu for the more button
 	 */
-	moreMenuButtons : function(model)
+	moreMenuButtons: function(model)
 	{
 		return {
 			xtype: 'zarafa.conditionalmenu',
 			model: model,
-			autoDestroy : false,
-			items : [{
-				xtype : 'zarafa.conditionalitem',
+			autoDestroy: false,
+			items: [{
+				xtype: 'zarafa.conditionalitem',
 				text: _('Mark as read'),
 				iconCls: 'icon_mail icon_mail_read',
 				model: model,
 				readState: false,
-				beforeShow : this.onReadFlagItemBeforeShow,
+				beforeShow: this.onReadFlagItemBeforeShow,
 				ref: 'markRead',
 				handler: this.onReadFlagMenuItemClicked
 			}, {
-				xtype : 'zarafa.conditionalitem',
+				xtype: 'zarafa.conditionalitem',
 				text: _('Mark as unread'),
 				iconCls: 'icon_mail icon_mail_unread',
 				model: model,
 				readState: true,
 				ref: 'markUnread',
-				beforeShow : this.onReadFlagItemBeforeShow,
+				beforeShow: this.onReadFlagItemBeforeShow,
 				handler: this.onReadFlagMenuItemClicked
 			}, {
 				text: _('Copy/Move'),
@@ -115,10 +115,10 @@ Zarafa.common.ui.PreviewPanelToolbarButtons = Ext.extend(Object, {
 				model: model,
 				handler: this.onCopyMove
 			}, {
-				text : _('Print'),
-				iconCls : 'icon_print',
+				text: _('Print'),
+				iconCls: 'icon_print',
 				model: model,
-				handler : this.onPrintButton
+				handler: this.onPrintButton
 			}, {
 				text: _('Edit as New'),
 				iconCls: 'icon_edit_as_new_mail',
@@ -133,7 +133,7 @@ Zarafa.common.ui.PreviewPanelToolbarButtons = Ext.extend(Object, {
 				handler: this.onDownloadMail
 			}],
 			listeners: {
-				beforeshow : this.onBeforeShowMoreMenu,
+				beforeshow: this.onBeforeShowMoreMenu,
 				scope: this
 			}
 		};
@@ -147,7 +147,7 @@ Zarafa.common.ui.PreviewPanelToolbarButtons = Ext.extend(Object, {
 	 *
 	 * @param {Ext.menu.Menu} menu the dropdown menu for the more button
 	 */
-	onBeforeShowMoreMenu : function (menu)
+	onBeforeShowMoreMenu: function (menu)
 	{
 		var record = menu.model.getPreviewRecord();
 
@@ -166,7 +166,7 @@ Zarafa.common.ui.PreviewPanelToolbarButtons = Ext.extend(Object, {
 	 * @param {Zarafa.core.ui.menu.ConditionalItem} item The item to enable/disable
 	 * @private
 	 */
-	onReadFlagItemBeforeShow : function(item)
+	onReadFlagItemBeforeShow: function(item)
 	{
 		var record = item.model.getPreviewRecord();
 		var defaultFolderType = Zarafa.core.MessageClass.getDefaultFolderTypeFromMessageClass(record.get('message_class'));
@@ -180,7 +180,7 @@ Zarafa.common.ui.PreviewPanelToolbarButtons = Ext.extend(Object, {
 	 * or moving the currently selected records.
 	 * @private
 	 */
-	onCopyMove : function()
+	onCopyMove: function()
 	{
 		Zarafa.common.Actions.openCopyMoveContent(this.model.getSelectedRecords());
 	},
@@ -191,7 +191,7 @@ Zarafa.common.ui.PreviewPanelToolbarButtons = Ext.extend(Object, {
 	 * to select between the recurring and single appointment.
 	 * @private
 	 */
-	onDelete : function()
+	onDelete: function()
 	{
 		Zarafa.common.Actions.deleteRecords(this.model.getSelectedRecords());
 	},
@@ -201,7 +201,7 @@ Zarafa.common.ui.PreviewPanelToolbarButtons = Ext.extend(Object, {
 	 * And if record is opened in {@link Zarafa.core.ui.MainContentTabPanel tab} then close the existing tab.
 	 * @private
 	 */
-	onPopout : function()
+	onPopout: function()
 	{
 		var record = this.model.getPreviewRecord();
 		// If record is already opened in tab panel then close the opened tab.
@@ -210,14 +210,14 @@ Zarafa.common.ui.PreviewPanelToolbarButtons = Ext.extend(Object, {
 		if (openedTab) {
 			tabPanel.getItem(openedTab).close();
 		}
-		Zarafa.common.Actions.openMessageContent(record, {layerType : 'separateWindows'});
+		Zarafa.common.Actions.openMessageContent(record, {layerType: 'separateWindows'});
 	},
 
 	/**
 	 * "Edit as New" menuitem of more button handler
 	 * @private
 	 */
-	onEditAsNewMessage : function()
+	onEditAsNewMessage: function()
 	{
 		Zarafa.mail.Actions.openCreateMailResponseContent(this.model.getSelectedRecords(), this.model, Zarafa.mail.data.ActionTypes.EDIT_AS_NEW);
 	},
@@ -226,7 +226,7 @@ Zarafa.common.ui.PreviewPanelToolbarButtons = Ext.extend(Object, {
 	 * Click handler for the "Download" menu item of the more button
 	 * @private
 	 */
-	onDownloadMail : function()
+	onDownloadMail: function()
 	{
 		Zarafa.common.Actions.openSaveEmlDialog(this.model.getPreviewRecord());
 	},
@@ -237,7 +237,7 @@ Zarafa.common.ui.PreviewPanelToolbarButtons = Ext.extend(Object, {
 	 *
 	 * @private
 	 */
-	onPrintButton : function ()
+	onPrintButton: function ()
 	{
 		Zarafa.common.Actions.openPrintDialog(this.model.getPreviewRecord());
 	},
@@ -249,7 +249,7 @@ Zarafa.common.ui.PreviewPanelToolbarButtons = Ext.extend(Object, {
 	 * @param {Zarafa.core.ui.menu.ConditionalItem} item The item which has been clicked.
 	 * @private
 	 */
-	onReadFlagMenuItemClicked : function (item)
+	onReadFlagMenuItemClicked: function (item)
 	{
 		var record = this.model.getPreviewRecord();
 		Zarafa.common.Actions.markAsRead(record, !item.readState);

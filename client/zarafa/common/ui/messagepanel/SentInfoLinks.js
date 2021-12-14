@@ -9,19 +9,19 @@ Zarafa.common.ui.messagepanel.SentInfoLinks = Ext.extend(Ext.Container, {
 	/**
 	 * @cfg {String} senderCls is the CSS class which should be applied to sender Template
 	 */
-	senderCls : 'preview-header-senderbox',
+	senderCls: 'preview-header-senderbox',
 
 	/**
 	 * @cfg {Number} maximum length of text allowed before truncations,
 	 * truncation will be replaced with ellipsis ('...').
 	 */
-	ellipsisStringStartLength : 30,
+	ellipsisStringStartLength: 30,
 
 	/**
 	 * @cfg {Number} maximum length of text allowed after truncations,
 	 * truncation will be replaced with ellipsis ('...').
 	 */
-	ellipsisStringEndLength : 30,
+	ellipsisStringEndLength: 30,
 	/**
 	 * @cfg {Zarafa.core.data.IPMRecord} record Holds the current record
 	 */
@@ -32,7 +32,7 @@ Zarafa.common.ui.messagepanel.SentInfoLinks = Ext.extend(Ext.Container, {
 	 * {@link Zarafa.core.data.IPMRecord record} has been {@link #update updated}.
 	 * The arguments of this template will be the {@link Zarafa.core.data.IPMRecord#data record.data} field.
 	 */
-	senderTemplate :
+	senderTemplate:
 		'<tpl if="!Ext.isEmpty(values.sender_entryid) && !Ext.isEmpty(values.sent_representing_entryid) && !Zarafa.core.EntryId.compareABEntryIds(values.sent_representing_entryid, values.sender_entryid)">' +
 			'<span class="preview-from">' +
 				'<span class="zarafa-emailaddress-link zarafa-sentinfo-link"> ' +
@@ -43,6 +43,13 @@ Zarafa.common.ui.messagepanel.SentInfoLinks = Ext.extend(Ext.Container, {
 				'</span>' +
 				/* # TRANSLATORS: check if the mail is send by some delegator or not. if then display "on behalf of". */
 				'<span>&nbsp;' + pgettext('mail.previewpanel', 'on behalf of') + '&nbsp;</span>' +
+				/* Display the initials of a sender */
+				'<tpl if="!Ext.isEmpty(values.user_image)">'+
+					'<span class="preview-header-sender-image" style="background-image:url({user_image});"></span>' +
+				'</tpl>'+
+				'<tpl if="Ext.isEmpty(values.user_image)">'+
+					'<span class="preview-header-sender-initial">{sender_initials}</span>' +
+				'</tpl>'+
 				'<span class="zarafa-emailaddress-link zarafa-sentinfo-on-behalf">' +
 					'<span class="zarafa-presence-status {[Zarafa.core.data.PresenceStatus.getCssClass(values.sent_representing_presence_status)]}">'+
 						'<span class="zarafa-presence-status-icon"></span>' +
@@ -57,6 +64,13 @@ Zarafa.common.ui.messagepanel.SentInfoLinks = Ext.extend(Ext.Container, {
 		'<tpl if="Ext.isEmpty(values.sender_entryid) || Ext.isEmpty(values.sent_representing_entryid) || Zarafa.core.EntryId.compareABEntryIds(values.sent_representing_entryid, values.sender_entryid)">' +
 				'<span class="preview-from zarafa-presence-status {[Zarafa.core.data.PresenceStatus.getCssClass(values.sender_presence_status)]}">' +
 				'<span class="zarafa-presence-status-icon"></span>' +
+				/* Display the initials of a sender */
+				'<tpl if="!Ext.isEmpty(values.user_image)">'+
+					'<span class="preview-header-sender-image" style="background-image:url({user_image});"></span>' +
+				'</tpl>'+
+				'<tpl if="Ext.isEmpty(values.user_image)">'+
+					'<span class="preview-header-sender-initial">{sender_initials}</span>' +
+				'</tpl>'+
 				'<span class="zarafa-emailaddress-link zarafa-sentinfo-link">' +
 					'{sender_name:htmlEncodeElide(this.ellipsisStringStartLength, this.ellipsisStringEndLength)}&nbsp;' +
 					'<tpl if="!Ext.isEmpty(values.sender_email_address)">' +
@@ -74,10 +88,15 @@ Zarafa.common.ui.messagepanel.SentInfoLinks = Ext.extend(Ext.Container, {
 		'</tpl>'+
 		'<tpl>'+
 			/* # TRANSLATORS: This message is used as label for the field which indicates the date/time on which the given message was sent. */
-			'<span class="preview-timestamp-title">' + pgettext('mail.previewpanel', 'Sent') + ':</span>' +
+			'<span class="preview-timestamp-title"></span>' +
 				'<tpl if="Ext.isDate(values.client_submit_time)">' +
-					// # TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
-					'{client_submit_time:date(_("l jS F Y G:i"))}' +
+					'<tpl if="this.isShortDateFormat()">'+
+						'{client_submit_time:getNiceFormat()}' +
+					'</tpl>' +
+					// # TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
+					'<tpl if="!this.isShortDateFormat()">'+
+						'{client_submit_time:formatDefaultTimeString("' + _("l d/m/Y {0}") + '")}' +
+					'</tpl>' +
 				'</tpl>' +
 				'<tpl if="!Ext.isDate(values.client_submit_time)">' +
 					/* # TRANSLATORS: This message is used to indicate that no sent date is available for the message (because it has not been sent yet). */
@@ -90,7 +109,7 @@ Zarafa.common.ui.messagepanel.SentInfoLinks = Ext.extend(Ext.Container, {
 	 * @constructor
 	 * @param {Object} config configuration object.
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		config = config || {};
 
@@ -99,10 +118,10 @@ Zarafa.common.ui.messagepanel.SentInfoLinks = Ext.extend(Ext.Container, {
 
 		Ext.applyIf(config,{
 			xtype: 'zarafa.sentinfolinks',
-			border : false,
+			border: false,
 			autoScroll:true,
-			anchor : '100%',
-			cls : 'preview-header-sentinfo'
+			anchor: '100%',
+			cls: 'preview-header-sentinfo'
 		});
 
 		Zarafa.common.ui.messagepanel.SentInfoLinks.superclass.constructor.call(this, config);
@@ -110,8 +129,8 @@ Zarafa.common.ui.messagepanel.SentInfoLinks = Ext.extend(Ext.Container, {
 		if (Ext.isString(this.senderTemplate)) {
 			this.senderTemplate = new Ext.XTemplate(this.senderTemplate, {
 				compiled: true,
-				ellipsisStringStartLength : this.ellipsisStringStartLength,
-				ellipsisStringEndLength : this.ellipsisStringEndLength,
+				ellipsisStringStartLength: this.ellipsisStringStartLength,
+				ellipsisStringEndLength: this.ellipsisStringEndLength,
 				/*
 				 * Template member Function
 				 * This function will check if the passed data in the template is a meeting/scheduled items or not
@@ -119,7 +138,16 @@ Zarafa.common.ui.messagepanel.SentInfoLinks = Ext.extend(Ext.Container, {
 				 */
 				isMeeting: function(messageClass) {
 					return (Zarafa.core.MessageClass.isClass(messageClass, 'ipm.schedule.meeting', true));
-				}
+				},
+
+				/**
+				 * Function is used to check the current datetime display format.
+				 * @private
+				 */
+				isShortDateFormat: function() {
+					var dateFormat = container.settingsModel.get('zarafa/v1/main/datetime_display_format');
+					return (dateFormat === 'short');
+				},
 			});
 		}
 	},
@@ -133,7 +161,7 @@ Zarafa.common.ui.messagepanel.SentInfoLinks = Ext.extend(Ext.Container, {
 		Zarafa.common.ui.messagepanel.SentInfoLinks.superclass.onRender.apply(this, arguments);
 
 		// Setup the HTML structure for the whole recipientLink and get references to the different elements in it
-		this.senderElem  = Ext.DomHelper.append(this.el.dom,{tag:'div', cls:this.senderCls});
+		this.senderElem = Ext.DomHelper.append(this.el.dom,{tag:'div', cls:this.senderCls});
 	},
 
 	/**
@@ -170,6 +198,10 @@ Zarafa.common.ui.messagepanel.SentInfoLinks = Ext.extend(Ext.Container, {
 					user = Zarafa.core.data.UserIdObjectFactory.createFromRecord(record.getSentRepresenting());
 					record.data.sent_representing_presence_status = Zarafa.core.PresenceManager.getPresenceStatusForUser(user);
 				}
+				
+				if (Ext.isFunction(record.getSenderInitials)) {
+					record.data.sender_initials = record.getSenderInitials();
+				}
 
 				this.senderTemplate.overwrite(senderElem, record.data);
 				//bind click events after template has been populated
@@ -197,11 +229,15 @@ Zarafa.common.ui.messagepanel.SentInfoLinks = Ext.extend(Ext.Container, {
 	onSenderRightClick: function (evt, elem, obj)
 	{
 		var recipient = this.convertSenderToRecord(elem);
-		var senderElem = Ext.get(this.senderElem);
-		Zarafa.core.data.UIFactory.openHoverCard(recipient, {
-			position: evt.getXY(),
-			recipientView : senderElem
-		});
+		// Don't show hover card if no recipient (happens when there is no sender_entryid)
+		if(recipient) {
+			var senderElem = Ext.get(this.senderElem);
+			Zarafa.core.data.UIFactory.openHoverCard(recipient, {
+				position: evt.getXY(),
+				recipientView: senderElem,
+				store: this.record.getSubStore('reply-to')
+			});
+		}
 	},
 
 	/**
@@ -212,10 +248,13 @@ Zarafa.common.ui.messagepanel.SentInfoLinks = Ext.extend(Ext.Container, {
 	 * @param {Object} obj The options configuration passed to the {@link Ext.Element#addListener} call
  	 * @private
 	 */
-	onDoubleClick : function(evt, elem, obj)
+	onDoubleClick: function(evt, elem, obj)
 	{
 		var recipient = this.convertSenderToRecord(elem);
-		Zarafa.common.Actions.openViewRecipientContent(recipient);
+		// Don't show hover card if no recipient (happens when there is no sender_entryid)
+		if(recipient) {
+			Zarafa.common.Actions.openViewRecipientContent(recipient);
+		}
 	},
 
 	/**
@@ -224,14 +263,18 @@ Zarafa.common.ui.messagepanel.SentInfoLinks = Ext.extend(Ext.Container, {
 	 * Depending on this check either {@link Zarafa.core.data.MessageRecord#getSender} or {@link Zarafa.core.data.MessageRecord#getSenderRepresenting} is invoked on the current {@link Zarafa.core.data.MessageRecord}.
 	 * @return {Zarafa.core.data.IPMRecipientRecord} or undefined
 	 */
-	convertSenderToRecord : function(elem)
+	convertSenderToRecord: function(elem)
 	{
 		var sender;
+		// Sometimes, the element clicked is the presence status of the user.
+		// We need the email address link to check for the css classes - zarafa-sentinfo-link or zarafa-sentinfo-on-behalf.
+		// Hence we need the parent of zarafa-presence-status i.e. zarafa-emailaddress-link.
+		var element = Ext.get(elem).hasClass('zarafa-presence-status') ? Ext.get(elem.parentElement) : Ext.get(elem);
 
 		//depending on whether the user clicked on sender or 'on behalf of', choose appropriate fields
-		if(Ext.get(elem).hasClass('zarafa-sentinfo-link')) {
+		if(element.hasClass('zarafa-sentinfo-link')) {
 			sender = this.record.getSender();
-		} else if(Ext.get(elem).hasClass('zarafa-sentinfo-on-behalf')) {
+		} else if(element.hasClass('zarafa-sentinfo-on-behalf')) {
 			sender = this.record.getSentRepresenting();
 		}
 		return sender;
@@ -248,11 +291,16 @@ Zarafa.common.ui.messagepanel.SentInfoLinks = Ext.extend(Ext.Container, {
 	{
 		this.timer = setTimeout(function (scope) {
 			var recipient = scope.convertSenderToRecord(node);
-			var senderElem = Ext.get(scope.senderElem);
-			Zarafa.core.data.UIFactory.openHoverCard(recipient, {
-				position: e.getXY(),
-				recipientView : senderElem
-			});
+			// Don't show hover card if no recipient (happens when there is no sender_entryid)
+			if(recipient) {
+				recipient.set('recipient_type', Zarafa.core.mapi.RecipientType.MAPI_TO);
+				var senderElem = Ext.get(scope.senderElem);
+				Zarafa.core.data.UIFactory.openHoverCard(recipient, {
+					position: e.getXY(),
+					recipientView: senderElem,
+					store: scope.record.getSubStore('reply-to')
+				});
+			}
 		}, 700, this);
 	},
 
@@ -261,7 +309,7 @@ Zarafa.common.ui.messagepanel.SentInfoLinks = Ext.extend(Ext.Container, {
 	 * mouse leaves the sender links. it will
 	 * just clear the timeout.
 	 */
-	onMouseLeave : function ()
+	onMouseLeave: function ()
 	{
 		clearTimeout(this.timer);
 	}

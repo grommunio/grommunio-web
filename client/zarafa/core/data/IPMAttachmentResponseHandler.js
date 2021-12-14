@@ -18,7 +18,7 @@ Zarafa.core.data.IPMAttachmentResponseHandler = Ext.extend(Zarafa.core.data.Prox
 	 * not cancel the transaction itself, but rather causes the 'success' argument for the
 	 * {@link #done} function to be false.
 	 */
-	doUpdate : function(response)
+	doUpdate: function(response)
 	{
 		this.receivedRecords = this.receivedRecords.concat(this.correlateRecordFromResponse(response));
 	},
@@ -31,7 +31,7 @@ Zarafa.core.data.IPMAttachmentResponseHandler = Ext.extend(Zarafa.core.data.Prox
 	 * @param {Zarafa.core.data.MAPIRecord} record The record which was send to the server
 	 * @private
 	 */
-	compareResponseDataToRecord : function(data, record)
+	compareResponseDataToRecord: function(data, record)
 	{
 		return data.props.name.localeCompare(record.get('name')) === 0;
 	}

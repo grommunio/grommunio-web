@@ -1,8 +1,8 @@
 <?php
-require_once('classes/KopanoUser.php');
+require_once('classes/grommunioUser.php');
 require_once('classes/NoteUser.php');
 require_once('classes/TestData.php');
-require_once('classes/KopanoTest.php');
+require_once('classes/grommunioTest.php');
 require_once('classes/RestoreMessageUser.php');
 
 /**
@@ -10,7 +10,7 @@ require_once('classes/RestoreMessageUser.php');
  *
  * Tests small Sicky Note operations (create, delete, open).
  */
-class NoteTest extends KopanoTest {
+class NoteTest extends grommunioTest {
 	/**
 	 * The default user
 	 */
@@ -33,8 +33,8 @@ class NoteTest extends KopanoTest {
 	{
 		parent::setUp();
 
-		$this->user = $this->addUser(new NoteUser(new KopanoUser(KOPANO_USER1_NAME, KOPANO_USER1_PASSWORD)));
-		$this->restoreUser = $this->addUser(new RestoreMessageUser(new KopanoUser(KOPANO_USER1_NAME, KOPANO_USER1_PASSWORD)));
+		$this->user = $this->addUser(new NoteUser(new grommunioUser(GROMMUNIO_USER1_NAME, GROMMUNIO_USER1_PASSWORD)));
+		$this->restoreUser = $this->addUser(new RestoreMessageUser(new grommunioUser(GROMMUNIO_USER1_NAME, GROMMUNIO_USER1_PASSWORD)));
 		$this->restoreUser->setDefaultTestFolderEntryId($this->user->getDefaultTestFolderEntryId());
 
 		$this->message = array(

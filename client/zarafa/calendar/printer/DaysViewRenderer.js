@@ -27,12 +27,24 @@ Zarafa.calendar.printer.DaysViewRenderer = Ext.extend(Zarafa.calendar.printer.Ab
 		var startDate = daterange.getStartDate().clone();
 		var dueDate = daterange.getDueDate().clone();
 
+		// Obtain the calendar name
+		var folders = model.getFolders();
+		var foldernames = [];
+		for (var i = 0; i < folders.length; i++) {
+			if (folders[i].getMAPIStore().get('display_name') === container.getUser().getDisplayName()) {
+				foldernames.push(folders[i].get('display_name'));
+			} else {
+				foldernames.push(folders[i].get('display_name') + ' ' + _('of') + ' ' + folders[i].getMAPIStore().get('display_name'));
+			}
+		}
+		data['foldernames'] = foldernames.join(', ');
+
 		// Set the startDate to 12:00 to be able to call Date.add(Date.DAY, ..)
 		// safely for DST switches at 00:00 in Brasil.
 		startDate.setHours(12);
 		dueDate.setHours(12);
 
-		// Obtain the daterange information, substract 1 day from duedate
+		// Obtain the daterange information, subtract 1 day from duedate
 		// as it is set to 00:00 of the day _after_ the duedate.
 		data['currenttime'] = new Date();
 		data['startdate'] = startDate.clearTime();
@@ -45,6 +57,12 @@ Zarafa.calendar.printer.DaysViewRenderer = Ext.extend(Zarafa.calendar.printer.Ab
 		}
 
 		var items = model.getStore().getRange();
+
+		// If there are no items, no point in continuing, so return the data.
+		if (items.length === 0) {
+			return data;
+		}
+
 		var offset = startDate.getDay();
 		for (var i = 0, len = items.length; i < len; i++) {
 			var start = items[i].get('commonstart');
@@ -64,23 +82,27 @@ Zarafa.calendar.printer.DaysViewRenderer = Ext.extend(Zarafa.calendar.printer.Ab
 				showEnd = dueDate.clone();
 			}
 
+			// Obtain the subject
 			var subject = items[i].get('subject');
-			if (!Ext.isString(subject)) {
-				subject = '';
+			subject = Ext.isString(subject) && !Ext.isEmpty(subject) ? subject : ' ';
+
+			// Obtain the folderlocation
+			var folderLocation = '';
+			// If only 1 folder is printed, we do not show the folderlocation
+			// else we do print the location of the item
+			if (foldernames.length > 1) {
+
+				var store = container.getHierarchyStore();
+				var calendarFolder = store.getFolder(items[i].get('parent_entryid')).get('display_name');
+				var storeName = store.getFolder(items[i].get('parent_entryid')).getMAPIStore().get('display_name');
+				if (storeName != container.getUser().getDisplayName()) {
+					folderLocation = '- '+ calendarFolder + ' ' + _('of') + ' ' + storeName;
+				}
 			}
 
+			// Obtain the location of the appointment/meeting
 			var location = items[i].get('location');
 			location = Ext.isString(location) && !Ext.isEmpty(location) ? ' ' + _('Location: ') + location : ' ';
-
-			var timeformat;
-			var showDate = start.getDayOfYear() !== end.getDayOfYear() || start.getYear() !== end.getYear();
-			if (showDate) {
-				// # TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
-				timeformat = _('jS F Y G:i');
-			} else {
-				// # TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
-				timeformat = _('G:i');
-			}
 
 			var showDays = Math.floor(Date.diff(Date.DAY, showEnd, showStart));
 			var allday = items[i].get('alldayevent');
@@ -92,24 +114,56 @@ Zarafa.calendar.printer.DaysViewRenderer = Ext.extend(Zarafa.calendar.printer.Ab
 				}
 			}
 
+			// Set allday or normal class
 			var append = '<tr class="calendar-'+ (allday ? 'allday' : 'normal') + '">';
+
+			// Add the time of the appointment if it's not an all day event
 			if (!allday) {
-				append += '<td class="nowrap" style="' + this.timeStyle + '">'
-					+ start.format(timeformat) + ' - ' + (showDate ? '<br>' : '')
-					+ end.format(timeformat) + '</td>';
+
+				// l = Monday
+				// jS = 1rd
+				// F = January M = Jan
+				// Y
+				// {0] 12/24 hour
+
+				var multiDay = start.getDayOfYear() !== end.getDayOfYear();
+				var multiYear = start.getYear() !== end.getYear();
+
+				// Multi day and multi year format
+				var timeFormat = container.settingsModel.get('zarafa/v1/main/datetime_time_format');
+				var multiTimeFormat;
+
+				// Todo check if multiday can be shown in different days (works for multi year)
+				if (multiDay && !multiYear) {
+					multiTimeFormat = _('j M {0}'); // TODO check correct dateformat for English
+				} else if (multiYear) {
+					multiTimeFormat = _('l jS M Y {0}');
+				} else {
+					multiTimeFormat = timeFormat;
+				}
+
+				append += '<td class="k-calendar-normal-time">'
+					+ start.formatDefaultTime(multiTimeFormat) + ' - ' + end.formatDefaultTime(multiTimeFormat) + '</td>';
+			}
+
+			// Add string before all day appointment
+			// to indicate appointment last an entire day
+			if (allday) {
+				subject = _('All day: ') + subject;
 			}
 			append += '<td class="calendar-item" colspan='+ (allday ? '2' : '1') +'>'
-				+ Ext.util.Format.htmlEncode(subject) + Ext.util.Format.htmlEncode(location) + '</td></tr>';
+				+ Ext.util.Format.htmlEncode(subject) + Ext.util.Format.htmlEncode(location) + '<i class="folder-location">'+Ext.util.Format.htmlEncode(folderLocation) + '</i></td></tr>';
 
 			var startday = showStart.getDay();
-            if (startday < offset) {
-                startday += 7;
-            }
-            startday -= (offset - 1);
+			if (startday < offset) {
+				startday += 7;
+			}
+			startday -= (offset - 1);
 			for (var n = 0; n <= showDays && n < numDays; n++) {
 				data['date' + (startday + n) + '_table_data'] += append;
 			}
 		}
+
 		return data;
 	},
 
@@ -117,17 +171,18 @@ Zarafa.calendar.printer.DaysViewRenderer = Ext.extend(Zarafa.calendar.printer.Ab
 	 * Returns the HTML that will be placed into the <body> part of the print window.
 	 * @return {String} The HTML fragment to place inside the print window's <body> element
 	 */
-	generateBodyTemplate : function()
+	generateBodyTemplate: function()
 	{
-		var html = '';
-
-		/* +--------------------------------------------+
-		 * | grommunio web     |                        |
-		 * | Calendar : [name] |      date pick         |
-		 * | start time        |      this month        |
+		/*
+		 * Top:
+		 * +--------------------------------------------+
+		 * |                   |      datpicker         |
+		 * | Calendar: [name]  |                        |
+		 * |                   |                        |
 		 * |                   |                        |
 		 * +--------------------------------------------+
 		 *
+		 * Middle:
 		 * +--------------------------------------------+
 		 * |                     day                    |
 		 * +--------------------------------------------+
@@ -142,43 +197,55 @@ Zarafa.calendar.printer.DaysViewRenderer = Ext.extend(Zarafa.calendar.printer.Ab
 		 * |                                            |
 		 * +--------------------------------------------+
 		 *
+		 * Bottom:
 		 * +--------------------------------------------+
 		 * |                                            |
-		 * | [name]         [page nr]      [print date] |
+		 * | [name]                        [print date] |
 		 * |                                            |
 		 * +--------------------------------------------+
 		 */
-		html += '<table class="print-calendar" cellpadding=0 cellspacing=0>\n';
+		var html = '<div id="print-calendar">'
 
-		html += '<tr style="height:10%;"><td><table id="top">\n';
+			// Top div
+			+ '<div id="top">'
+			+	'<div id="top-calendar-info">'
+			+		'<table>'
+			+			'<tr><td>' + _('An overview of') + ': ' + '{foldernames} </td><tr>'
+			+		'</table>'
+			+	'</div>'
+				// Datepicker_left is current month. Datepicker_right is next month.
+	        + 	'<div id="top-calendar-datepicker">'
+			+		'<tr align="right">'
+			+			'<td><div id="datepicker_left"></div></td>'
+			+		'</tr>'
+			+ 	'</div>'
+			+ '</div>'
 
-		html += '<tr><td align="left">' + container.getServerConfig().getWebappTitle() + '</td>'
-			 + '<td align="center" valign="top" width="20%" rowspan=3><div id="datepicker_left"></div></td></tr>'
-			 + '<tr><td align="left">' + _('Calendar') + ' : ' + '{fullname} </td></tr>\n';
+			// Middle table row
+			+ '<div id="middle">'
+			+	'<table class="k-day-view">'
+			+ 		'<tr>'
+						// # TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
+			+ 			'<th class="date-header-center">{date1:date("' + _("l jS F") + '")}</th>'
+			+		'</tr>'
+			+		'<tr style="height:90%;">'
+			+			'<td valign="top">'
+			+				'<table id="date1">{date1_table_data}</table>'
+			+			'</td>'
+			+		'</tr>'
+			+	'</table>'
+			+ '</div>'
 
-		// # TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
-		html += '<tr><td align="left" width="80%">{startdate:date("' + _("l jS F Y") + '")}</td></tr>\n';
-		html += '</table></td></tr>\n';
+			// Bottom name and print date
+			+ '<table class="bottom">'
+			+	'<tr>'
+					// # TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
+			+		'<td align="left">'+_('Printed by') + ' ' + '{fullname}' + ' '+_('at') + ' ' + '{currenttime:formatDefaultTimeString("' + _("l jS F Y {0}") + '")}</td>'
+			+	'</tr>'
+			+ '</table>'
 
-		// date format l jS F == Monday 1st January
-		html += ''
-			+ '<tr style="height:30px;">'
-			// # TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
-			+ '  <th class="date-header-center">{date1:date("' + _("l jS F") + '")}</th>'
-			+ '</tr>'
-			+ '<tr style="height:90%;">'
-			+ '  <td valign="top"><table id="date1">{date1_table_data}</table></td>'
-			+ '</tr>'
-			+ '</table>\n';
-
-		// skipping page nr for now
-		html += '<table id="bottom">'
-			+ '<tr>'
-			+ '<td class="nowrap" align="left">{fullname}</td>'
-			// # TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
-			+ '<td class="nowrap" align="right">{currenttime:date("' + _("l jS F Y G:i") + '")}</td>'
-			+ '</tr>'
-			+ '</table>\n';
+		// End of the print-calendar div
+		+ '</div>';
 
 		return html;
 	}

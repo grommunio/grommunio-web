@@ -1,6 +1,6 @@
 <?php
 	require_once(BASE_PATH . 'server/includes/core/class.indexsqlite.php');
-	
+
 	class AdvancedSearchListModule extends ListModule
 	{
 		/**
@@ -10,6 +10,7 @@
 		 */
 		function __construct($id, $data)
 		{
+			parent::__construct($id, $data);
 			// TODO: create a new method in Properties class that will return only the properties we
 			// need for search list (and perhaps for preview???)
 			$this->properties = $GLOBALS["properties"]->getMailListProperties();
@@ -26,7 +27,7 @@
 					"task_duedate" => "PT_SYSTIME:PSETID_Task:0x8105"));
 			$this->properties = getPropIdsFromStrings($GLOBALS["mapisession"]->getDefaultMessageStore(), $this->properties);
 
-			parent::__construct($id, $data);
+			
 		}
 
 		/**
@@ -81,7 +82,7 @@
 				}
 			}
 		}
-		
+
 		/**
 		 * Function which retrieves a list of messages in a folder
 		 * @param object $store MAPI Message Store Object
@@ -254,7 +255,7 @@
 			if($this->restriction == false) {
 				// if error in creating restriction then send error to client
 				$errorInfo = array();
-				$errorInfo["error_message"] = Language::getstring("Error in search, please try again") . ".";
+				$errorInfo["error_message"] = _("Error in search, please try again") . ".";
 				$errorInfo["original_error_message"] = "Error in parsing restrictions.";
 
 				return $this->sendSearchErrorToClient($store, $entryid, $action, $errorInfo);
@@ -276,16 +277,16 @@
 				$errorInfo = array();
 				switch(mapi_last_hresult()) {
 				case MAPI_E_NO_ACCESS:
-					$errorInfo["error_message"] = Language::getstring("Unable to perform search query, no permissions to create search folder.");
+					$errorInfo["error_message"] = _("Unable to perform search query, no permissions to create search folder.");
 					break;
 				case MAPI_E_NOT_FOUND:
-					$errorInfo["error_message"] = Language::getstring("Unable to perform search query, search folder not found.");
+					$errorInfo["error_message"] = _("Unable to perform search query, search folder not found.");
 					break;
 				default:
-					$errorInfo["error_message"] = Language::getstring("Unable to perform search query, store might not support searching.");
+					$errorInfo["error_message"] = _("Unable to perform search query, store might not support searching.");
 				}
 
-				$errorInfo["original_error_message"] = Language::getstring("Error in creating search folder.");
+				$errorInfo["original_error_message"] = _("Error in creating search folder.");
 
 				return $this->sendSearchErrorToClient($store, $entryid, $action, $errorInfo);
 			}
@@ -353,8 +354,8 @@
 			if (!$indexDB->load()) {
 				// if error in creating search folder then send error to client
 				$errorInfo = array();
-				$errorInfo["error_message"] = Language::getstring("Unable to perform search query, store might not support searching.");
-				$errorInfo["original_error_message"] = Language::getstring("Error in creating search folder.");
+				$errorInfo["error_message"] = _("Unable to perform search query, store might not support searching.");
+				$errorInfo["original_error_message"] = _("Error in creating search folder.");
 				return $this->sendSearchErrorToClient($store, $entryid, $action, $errorInfo);
 			}
 			$search_result = $indexDB->search(hex2bin($searchFolderEntryId), $search_patterns['sender'], $search_patterns['from'],
@@ -365,8 +366,8 @@
 			if (false == $search_result) {
 				// if error in creating search folder then send error to client
 				$errorInfo = array();
-				$errorInfo["error_message"] = Language::getstring("Unable to perform search query, search folder not found.");
-				$errorInfo["original_error_message"] = Language::getstring("Error in creating search folder.");
+				$errorInfo["error_message"] = _("Unable to perform search query, search folder not found.");
+				$errorInfo["original_error_message"] = _("Error in creating search folder.");
 				return $this->sendSearchErrorToClient($store, $entryid, $action, $errorInfo);
 			}
 			
@@ -412,8 +413,8 @@
 			$GLOBALS["bus"]->addData($this->getResponseData());
 
 			return true;
-			
+
 		}
-		
+
 	}
 ?>

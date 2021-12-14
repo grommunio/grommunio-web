@@ -23,7 +23,7 @@ Zarafa.core.ui.notifier.ToolbarNotifierPlugin = Ext.extend(Zarafa.core.ui.notifi
 	 * - toolbar: {@link Ext.Toolbar Toolbar} in which notification message will be added,
 	 * notification message will be added at right most of the toolbar.
 	 */
-	notify : function(category, message, config)
+	notify: function(category, message, config)
 	{
 		if(category == 'info.mailsaving' || category == 'info.mailsaved') {
 			if (config.toolbar) {
@@ -31,8 +31,8 @@ Zarafa.core.ui.notifier.ToolbarNotifierPlugin = Ext.extend(Zarafa.core.ui.notifi
 					var addInfoText = [{
 							xtype: 'tbfill'
 						}, {
-							xtype : 'tbtext',
-							autoWidth : true,
+							xtype: 'tbtext',
+							autoWidth: true,
 							ref: 'saveMessageText'
 						}];
 					config.toolbar.add(addInfoText);

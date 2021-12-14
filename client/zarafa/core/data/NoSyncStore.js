@@ -21,7 +21,7 @@ Zarafa.core.data.NoSyncStore = Ext.extend(Ext.util.Observable, {
 	 * @property recordType
 	 * @type Function
 	 */
-	recordType : undefined,
+	recordType: undefined,
 
 	/**
 	 * A {@link Ext.util.MixedCollection MixedCollection} containing the defined {@link Ext.data.Field Field}s
@@ -29,7 +29,7 @@ Zarafa.core.data.NoSyncStore = Ext.extend(Ext.util.Observable, {
 	 * @property fields
 	 * @type Ext.util.MixedCollection
 	 */
-	fields : undefined,
+	fields: undefined,
 
 	/**
 	 * True if this store is currently sorted by more than one field/direction combination.
@@ -43,32 +43,32 @@ Zarafa.core.data.NoSyncStore = Ext.extend(Ext.util.Observable, {
 	 * @property
 	 * @type Object
 	 */
-	sortToggle : undefined,
+	sortToggle: undefined,
 
 	/**
 	 * @cfg {String} sortField
 	 * (optional) Initial column on which to sort.
 	 */
-	sortField : undefined,
+	sortField: undefined,
 
 	/**
 	 * @cfg {String} sortDir
 	 * (Optional) Initial direction to sort (<code>"ASC"</code> or <code>"DESC"</code>). Defaults to
 	 * <code>"ASC"</code>.
 	 */
-	sortDir : 'ASC',
+	sortDir: 'ASC',
 
 	/**
 	 * @cfg {Object} sortInfo A config object to specify the sort order in the request of a Store's load operation.
 	 * Note that for local sorting, the direction property is case-sensitive.
 	 */
-	sortInfo : undefined,
+	sortInfo: undefined,
 
 	/**
 	 * @constructor
 	 * @param config Configuration structure
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		config = config || {};
 
@@ -135,7 +135,7 @@ Zarafa.core.data.NoSyncStore = Ext.extend(Ext.util.Observable, {
 	 * Initialize data structures in which the {@link Ext.data.Record records} are stored.
 	 * @private
 	 */
-	initData : function()
+	initData: function()
 	{
 		this.data = new Ext.util.MixedCollection(false);
 		this.data.getKey = function(o){
@@ -150,7 +150,7 @@ Zarafa.core.data.NoSyncStore = Ext.extend(Ext.util.Observable, {
 	 * Initialize events which can be raised by the {@link Zarafa.core.data.NoSyncStore NoSyncStore}
 	 * @private
 	 */
-	initEvents : function()
+	initEvents: function()
 	{
 		this.on({
 			scope: this,
@@ -163,7 +163,7 @@ Zarafa.core.data.NoSyncStore = Ext.extend(Ext.util.Observable, {
 	/**
 	 * Destroys the store.
 	 */
-	destroy : function()
+	destroy: function()
 	{
 		if (!this.isDestroyed) {
 			this.clearData();
@@ -181,7 +181,7 @@ Zarafa.core.data.NoSyncStore = Ext.extend(Ext.util.Observable, {
 	 * @param {Boolean} silent [false] Defaults to <tt>false</tt>.
 	 * Set <tt>true</tt> to not fire add event.
 	 */
-	add : function(records, silent)
+	add: function(records, silent)
 	{
 		records = [].concat(records);
 		if(records.length < 1) {
@@ -209,7 +209,7 @@ Zarafa.core.data.NoSyncStore = Ext.extend(Ext.util.Observable, {
 	 * @param {Ext.data.Record/Ext.data.Record[]} record The record object or array of records to remove from the cache.
 	 * @param {Boolean} silent [false] Defaults to <tt>false</tt>. Set <tt>true</tt> to not fire remove event.
 	 */
-	remove : function(record, silent)
+	remove: function(record, silent)
 	{
 		if (Array.isArray(record)) {
 			Ext.each(record, function(r){
@@ -238,7 +238,7 @@ Zarafa.core.data.NoSyncStore = Ext.extend(Ext.util.Observable, {
 	 * @param {Number} index The index of the record to remove.
 	 * @param {Boolean} silent [false] Defaults to <tt>false</tt>. Set <tt>true</tt> to not fire remove event.
 	 */
-	removeAt : function(index, silent)
+	removeAt: function(index, silent)
 	{
 		this.remove(this.getAt(index), silent);
 	},
@@ -247,7 +247,7 @@ Zarafa.core.data.NoSyncStore = Ext.extend(Ext.util.Observable, {
 	 * Remove all Records from the Store and fires the {@link #clear} event.
 	 * @param {Boolean} silent [false] Defaults to <tt>false</tt>. Set <tt>true</tt> to not fire clear event.
 	 */
-	removeAll : function(silent)
+	removeAll: function(silent)
 	{
 		var items = [];
 		this.each(function(rec){
@@ -275,7 +275,7 @@ Zarafa.core.data.NoSyncStore = Ext.extend(Ext.util.Observable, {
 	 * as argument.
 	 * @param {Object} scope The scope which must be used for the callback function
 	 */
-	removeIf : function(callback, scope)
+	removeIf: function(callback, scope)
 	{
 		this.each(function(record) {
 			if (callback.call(scope || this, record)) {
@@ -290,7 +290,7 @@ Zarafa.core.data.NoSyncStore = Ext.extend(Ext.util.Observable, {
 	 * @param {Number} index The start index at which to insert the passed Records.
 	 * @param {Ext.data.Record[]} records An Array of Ext.data.Record objects to add to the cache.
 	 */
-	insert : function(index, records)
+	insert: function(index, records)
 	{
 		records = [].concat(records);
 		for (var i = 0, len = records.length; i < len; i++) {
@@ -310,7 +310,7 @@ Zarafa.core.data.NoSyncStore = Ext.extend(Ext.util.Observable, {
 	 * @param {Ext.data.Record} record The Ext.data.Record object to find.
 	 * @return {Number} The index of the passed Record. Returns -1 if not found.
 	 */
-	indexOf : function(record)
+	indexOf: function(record)
 	{
 		return this.data.indexOf(record);
 	},
@@ -320,7 +320,7 @@ Zarafa.core.data.NoSyncStore = Ext.extend(Ext.util.Observable, {
 	 * @param {String} id The id of the Record to find.
 	 * @return {Number} The index of the Record. Returns -1 if not found.
 	 */
-	indexOfId : function(id)
+	indexOfId: function(id)
 	{
 		return this.data.indexOfKey(id);
 	},
@@ -330,7 +330,7 @@ Zarafa.core.data.NoSyncStore = Ext.extend(Ext.util.Observable, {
 	 * @param {Number} index The index of the Record to find.
 	 * @return {Ext.data.Record} The Record at the passed index. Returns undefined if not found.
 	 */
-	getAt : function(index)
+	getAt: function(index)
 	{
 		return this.data.itemAt(index);
 	},
@@ -341,7 +341,7 @@ Zarafa.core.data.NoSyncStore = Ext.extend(Ext.util.Observable, {
 	 * @param {Number} endIndex (optional) The ending index (defaults to the last Record in the Store)
 	 * @return {Ext.data.Record[]} An array of Records
 	 */
-	getRange : function(start, end)
+	getRange: function(start, end)
 	{
 		return this.data.getRange(start, end);
 	},
@@ -350,7 +350,7 @@ Zarafa.core.data.NoSyncStore = Ext.extend(Ext.util.Observable, {
 	 * Gets the number of cached records
 	 * @return {Number} The number of records
 	 */
-	getCount : function()
+	getCount: function()
 	{
 		return this.data.length;
 	},
@@ -359,7 +359,7 @@ Zarafa.core.data.NoSyncStore = Ext.extend(Ext.util.Observable, {
 	 * Gets the total number of records in the dataset.
 	 * @return {Number} The number of records
 	 */
-	getTotalCount : function()
+	getTotalCount: function()
 	{
 		return this.getCount();
 	},
@@ -371,7 +371,7 @@ Zarafa.core.data.NoSyncStore = Ext.extend(Ext.util.Observable, {
 	 * @param {Object} scope (optional) The scope (<code>this</code> reference) in which the function is executed.
 	 * Defaults to the current {@link Ext.data.Record Record} in the iteration.
 	 */
-	each : function(fn, scope)
+	each: function(fn, scope)
 	{
 		this.data.each(fn, scope);
 	},
@@ -384,7 +384,7 @@ Zarafa.core.data.NoSyncStore = Ext.extend(Ext.util.Observable, {
 	 * modifications. To obtain modified fields within a modified record see
 	 *{@link Ext.data.Record}<tt>{@link Ext.data.Record#modified modified}.</tt>.
 	 */
-	getModifiedRecords : function()
+	getModifiedRecords: function()
 	{
 		return this.modified;
 	},
@@ -394,7 +394,7 @@ Zarafa.core.data.NoSyncStore = Ext.extend(Ext.util.Observable, {
 	 * @return {Ext.data.Record[]} An array of {@link Ext.data.Record Records} which have
 	 * been marked as removed.
 	 */
-	getRemovedRecords : function()
+	getRemovedRecords: function()
 	{
 		return this.removed;
 	},
@@ -404,7 +404,7 @@ Zarafa.core.data.NoSyncStore = Ext.extend(Ext.util.Observable, {
 	 * @param {Ext.data.Record} The record which has been edited.
 	 * @private
 	 */
-	afterEdit : function(record)
+	afterEdit: function(record)
 	{
 		if(this.modified.indexOf(record) === -1) {
 			this.modified.push(record);
@@ -417,7 +417,7 @@ Zarafa.core.data.NoSyncStore = Ext.extend(Ext.util.Observable, {
 	 * @param {Ext.data.Record} The record which has been rejected.
 	 * @private
 	 */
-	afterReject : function(record)
+	afterReject: function(record)
 	{
 		this.modified.remove(record);
 		this.fireEvent('update', this, record, Ext.data.Record.REJECT);
@@ -428,7 +428,7 @@ Zarafa.core.data.NoSyncStore = Ext.extend(Ext.util.Observable, {
 	 * @param {Ext.data.Record} The record which has been committed.
 	 * @private
 	 */
-	afterCommit : function(record)
+	afterCommit: function(record)
 	{
 		this.modified.remove(record);
 		this.fireEvent('update', this, record, Ext.data.Record.COMMIT);
@@ -438,7 +438,7 @@ Zarafa.core.data.NoSyncStore = Ext.extend(Ext.util.Observable, {
 	 * 'Commit' outstanding changes. Since {@link Zarafa.core.data.NoSyncStore NoSyncStore}
 	 * has no commit capability, changes are not actually sent, but are only cleared.
 	 */
-	commitChanges : function()
+	commitChanges: function()
 	{
 		var m = this.modified.slice(0);
 		for(var i = 0, len = m.length; i < len; i++){
@@ -468,12 +468,12 @@ Zarafa.core.data.NoSyncStore = Ext.extend(Ext.util.Observable, {
 	 * @param {Object} index
 	 * @private
 	 */
-	createRecords : function(store, rs, index)
+	createRecords: function(store, rs, index)
 	{
 		for (var i = 0, len = rs.length; i < len; i++) {
 			if (rs[i].phantom && rs[i].isValid()) {
-				rs[i].markDirty();  // <-- Mark new records dirty
-				this.modified.push(rs[i]);  // <-- add to modified
+				rs[i].markDirty(); // <-- Mark new records dirty
+				this.modified.push(rs[i]); // <-- add to modified
 			}
 		}
 	},
@@ -481,16 +481,20 @@ Zarafa.core.data.NoSyncStore = Ext.extend(Ext.util.Observable, {
 	/**
 	 * Destroys a record or records. Should not be used directly. It's called by Store#remove automatically
 	 * @param {Store} store
-	 * @param {Ext.data.Record/Ext.data.Record[]} record
+	 * @param {Ext.data.Record} record
 	 * @param {Number} index
 	 * @private
 	 */
-	destroyRecord : function(store, record, index)
+	destroyRecord: function(store, record, index)
 	{
-		if (this.modified.indexOf(record) !== -1) {
-			this.modified.remove(record);
+		var modifiedRecord = this.modified.find(function(item){
+			return item.get("entryid") === record.get("entryid");
+		});
+			 
+		if (Ext.isDefined(modifiedRecord)) {
+			this.modified.remove(modifiedRecord);
 		}
-
+ 
 		if (!record.phantom) {
 			this.removed.push(record);
 		}
@@ -512,20 +516,20 @@ Zarafa.core.data.NoSyncStore = Ext.extend(Ext.util.Observable, {
 	/**
 	 * Returns an object describing the current sort state of this Store.
 	 * @return {Object} The sort state of the Store. An object with two properties:
-	 * field : String The name of the field by which the Records are sorted.
-	 * direction : String The sort order, 'ASC' or 'DESC' (case-sensitive).
+	 * field: String The name of the field by which the Records are sorted.
+	 * direction: String The sort order, 'ASC' or 'DESC' (case-sensitive).
 	 *
 	 * Added for grid support with store, grid's store needs sortinfo.
 	 *
 	 * See <tt>{@link #sortInfo}</tt> for additional details.
 	 */
-	getSortState : Ext.data.Store.prototype.getSortState,
+	getSortState: Ext.data.Store.prototype.getSortState,
 
 	/**
 	 * Invokes sortData if we have sortInfo to sort on and are not sorting remotely
 	 * @private
 	 */
-	applySort : Ext.data.Store.prototype.applySort,
+	applySort: Ext.data.Store.prototype.applySort,
 
 	/**
 	 * Performs the actual sorting of data. This checks to see if we currently have a multi sort or not. It applies
@@ -533,7 +537,7 @@ Zarafa.core.data.NoSyncStore = Ext.extend(Ext.util.Observable, {
 	 * the full dataset
 	 * @private
 	 */
-	sortData : Ext.data.Store.prototype.sortData,
+	sortData: Ext.data.Store.prototype.sortData,
 
 	/**
 	 * Creates and returns a function which sorts an array by the given field and direction
@@ -542,14 +546,14 @@ Zarafa.core.data.NoSyncStore = Ext.extend(Ext.util.Observable, {
 	 * @return {Function} A function which sorts by the field/direction combination provided
 	 * @private
 	 */
-	createSortFunction : Ext.data.Store.prototype.createSortFunction,
+	createSortFunction: Ext.data.Store.prototype.createSortFunction,
 
 	/**
 	 * Sets the default sort column and order to be used by the next {@link #load} operation.
 	 * @param {String} fieldName The name of the field to sort by.
 	 * @param {String} dir (optional) The sort order, 'ASC' or 'DESC' (case-sensitive, defaults to <tt>'ASC'</tt>)
 	 */
-	setDefaultSort : Ext.data.Store.prototype.setDefaultSort,
+	setDefaultSort: Ext.data.Store.prototype.setDefaultSort,
 
 	/**
 	 * Sort the Records.
@@ -561,14 +565,14 @@ Zarafa.core.data.NoSyncStore = Ext.extend(Ext.util.Observable, {
 	 * store.sort('name', 'ASC');
 	 * Multi sort example:
 	 * store.sort([
-	 *   {
-	 *     field    : 'name',
-	 *     direction: 'ASC'
-	 *   },
-	 *   {
-	 *     field    : 'salary',
-	 *     direction: 'DESC'
-	 *   }
+	 *  {
+	 *   field : 'name',
+	 *   direction: 'ASC'
+	 *  },
+	 *  {
+	 *   field : 'salary',
+	 *   direction: 'DESC'
+	 *  }
 	 * ], 'ASC');
 	 * In this second form, the sort configs are applied in order, with later sorters sorting within earlier sorters' results.
 	 * For example, if two records with the same name are present they will also be sorted by salary if given the sort configs
@@ -576,7 +580,7 @@ Zarafa.core.data.NoSyncStore = Ext.extend(Ext.util.Observable, {
 	 * @param {String/Array} fieldName The name of the field to sort by, or an array of ordered sort configs
 	 * @param {String} dir (optional) The sort order, 'ASC' or 'DESC' (case-sensitive, defaults to <tt>'ASC'</tt>)
 	 */
-	sort : Ext.data.Store.prototype.sort,
+	sort: Ext.data.Store.prototype.sort,
 
 	/**
 	 * Sorts the store contents by a single field and direction. This is called internally by {@link sort} and would
@@ -584,7 +588,7 @@ Zarafa.core.data.NoSyncStore = Ext.extend(Ext.util.Observable, {
 	 * @param {String} fieldName The name of the field to sort by.
 	 * @param {String} dir (optional) The sort order, 'ASC' or 'DESC' (case-sensitive, defaults to <tt>'ASC'</tt>)
 	 */
-	singleSort : Ext.data.Store.prototype.singleSort,
+	singleSort: Ext.data.Store.prototype.singleSort,
 
 	/**
 	 * Sorts the contents of this store by multiple field/direction sorters. This is called internally by {@link sort}
@@ -594,7 +598,7 @@ Zarafa.core.data.NoSyncStore = Ext.extend(Ext.util.Observable, {
 	 * @param {Array} sorters Array of sorter objects (field and direction)
 	 * @param {String} direction Overall direction to sort the ordered results by (defaults to "ASC")
 	 */
-	multiSort : Ext.data.Store.prototype.multiSort,
+	multiSort: Ext.data.Store.prototype.multiSort,
 
 	/**
 	 * Sums the value of property for each record between start and end and returns the result
@@ -603,7 +607,7 @@ Zarafa.core.data.NoSyncStore = Ext.extend(Ext.util.Observable, {
 	 * @param {Number} end (optional) The last record index to include (defaults to length - 1)
 	 * @return {Number} The sum
 	 */
-	sum : Ext.data.Store.prototype.sum,
+	sum: Ext.data.Store.prototype.sum,
 
 	/**
 	 * Returns a filter function used to test a the given property's value. Defers most of the work to
@@ -615,7 +619,7 @@ Zarafa.core.data.NoSyncStore = Ext.extend(Ext.util.Observable, {
 	 * @param {Boolean} exactMatch True to force exact match (^ and $ characters added to the regex). Defaults to false. Ignored if anyMatch is true.
 	 * @private
 	 */
-	createFilterFn : Ext.data.Store.prototype.createFilterFn,
+	createFilterFn: Ext.data.Store.prototype.createFilterFn,
 
 	/**
 	 * Filters an array of elements to only include matches of a simple selector (e.g. div.some-class or span:first-child)
@@ -626,7 +630,7 @@ Zarafa.core.data.NoSyncStore = Ext.extend(Ext.util.Observable, {
 	 * @return {Array} An Array of DOM elements which match the selector. If there are
 	 * no matches, and empty Array is returned.
 	 */
-	filter : Ext.data.Store.prototype.filter,
+	filter: Ext.data.Store.prototype.filter,
 
 	/**
 	 * Filter by a function. Returns a <i>new</i> collection that has been filtered.
@@ -636,7 +640,7 @@ Zarafa.core.data.NoSyncStore = Ext.extend(Ext.util.Observable, {
 	 * @param {Object} scope (optional) The scope (<code>this</code> reference) in which the function is executed. Defaults to this MixedCollection.
 	 * @return {MixedCollection} The new filtered collection
 	 */
-	filterBy : Ext.data.Store.prototype.filterBy,
+	filterBy: Ext.data.Store.prototype.filterBy,
 
 	/**
 	 * Query the records by a specified property.
@@ -647,21 +651,21 @@ Zarafa.core.data.NoSyncStore = Ext.extend(Ext.util.Observable, {
 	 * @param {Boolean} caseSensitive (optional) True for case sensitive comparison
 	 * @return {MixedCollection} Returns an Ext.util.MixedCollection of the matched records
 	 */
-	query : Ext.data.Store.prototype.query,
+	query: Ext.data.Store.prototype.query,
 
 	/**
 	 * Query the cached records in this Store using a filtering function. The specified function
 	 * will be called with each record in this Store. If the function returns <tt>true</tt> the record is
 	 * included in the results.
 	 * @param {Function} fn The function to be called. It will be passed the following parameters:<ul>
-	 * <li><b>record</b> : Ext.data.Record<p class="sub-desc">The {@link Ext.data.Record record}
+	 * <li><b>record</b>: Ext.data.Record<p class="sub-desc">The {@link Ext.data.Record record}
 	 * to test for filtering. Access field values using {@link Ext.data.Record#get}.</p></li>
-	 * <li><b>id</b> : Object<p class="sub-desc">The ID of the Record passed.</p></li>
+	 * <li><b>id</b>: Object<p class="sub-desc">The ID of the Record passed.</p></li>
 	 * </ul>
 	 * @param {Object} scope (optional) The scope (<code>this</code> reference) in which the function is executed. Defaults to this Store.
 	 * @return {MixedCollection} Returns an Ext.util.MixedCollection of the matched records
 	 **/
-	queryBy : Ext.data.Store.prototype.queryBy,
+	queryBy: Ext.data.Store.prototype.queryBy,
 
 	/**
 	 * Finds the index of the first matching Record in this store by a specific field value.
@@ -673,7 +677,7 @@ Zarafa.core.data.NoSyncStore = Ext.extend(Ext.util.Observable, {
 	 * @param {Boolean} caseSensitive (optional) True for case sensitive comparison
 	 * @return {Number} The matched index or -1
 	 */
-	find : Ext.data.Store.prototype.find,
+	find: Ext.data.Store.prototype.find,
 
 	/**
 	 * Finds the index of the first matching Record in this store by a specific field value.
@@ -682,41 +686,41 @@ Zarafa.core.data.NoSyncStore = Ext.extend(Ext.util.Observable, {
 	 * @param {Number} startIndex (optional) The index to start searching at
 	 * @return {Number} The matched index or -1
 	 */
-	findExact : Ext.data.Store.prototype.findExact,
+	findExact: Ext.data.Store.prototype.findExact,
 
 	/**
 	 * Find the index of the first matching Record in this Store by a function.
 	 * If the function returns <tt>true</tt> it is considered a match.
 	 * @param {Function} fn The function to be called. It will be passed the following parameters:<ul>
-	 * <li><b>record</b> : Ext.data.Record<p class="sub-desc">The {@link Ext.data.Record record}
+	 * <li><b>record</b>: Ext.data.Record<p class="sub-desc">The {@link Ext.data.Record record}
 	 * to test for filtering. Access field values using {@link Ext.data.Record#get}.</p></li>
-	 * <li><b>id</b> : Object<p class="sub-desc">The ID of the Record passed.</p></li>
+	 * <li><b>id</b>: Object<p class="sub-desc">The ID of the Record passed.</p></li>
 	 * </ul>
 	 * @param {Object} scope (optional) The scope (<code>this</code> reference) in which the function is executed. Defaults to this Store.
 	 * @param {Number} startIndex (optional) The index to start searching at
 	 * @return {Number} The matched index or -1
 	 */
-	findBy : Ext.data.Store.prototype.findBy,
+	findBy: Ext.data.Store.prototype.findBy,
 
 	/**
 	 * Get the Record with the specified id.
 	 * @param {String} id The id of the Record to find.
 	 * @return {Ext.data.Record} The Record with the passed id. Returns undefined if not found.
 	 */
-	getById : Ext.data.Store.prototype.getById,
+	getById: Ext.data.Store.prototype.getById,
 
 	/**
 	 * Revert to a view of the Record cache with no filtering applied.
 	 * @param {Boolean} suppressEvent If <tt>true</tt> the filter is cleared silently without firing the
 	 * {@link #datachanged} event.
 	 */
-	clearFilter : Ext.data.Store.prototype.clearFilter,
+	clearFilter: Ext.data.Store.prototype.clearFilter,
 
 	/**
 	 * Returns true if this store is currently filtered
 	 * @return {Boolean}
 	 */
-	isFiltered : Ext.data.Store.prototype.isFiltered,
+	isFiltered: Ext.data.Store.prototype.isFiltered,
 
 	/**
 	 * Collects unique values for a particular dataIndex from this store.
@@ -725,12 +729,12 @@ Zarafa.core.data.NoSyncStore = Ext.extend(Ext.util.Observable, {
 	 * @param {Boolean} bypassFilter (optional) Pass true to collect from all records, even ones which are filtered
 	 * @return {Array} An array of the unique values
 	 **/
-	collect : Ext.data.Store.prototype.collect,
+	collect: Ext.data.Store.prototype.collect,
 
 	/**
 	 * When store's reader provides new metadata (fields) this function is called.
 	 * @param {Object} meta The JSON metadata
 	 * @private
 	 */
-	onMetaChange : Ext.data.Store.prototype.onMetaChange
+	onMetaChange: Ext.data.Store.prototype.onMetaChange
 });

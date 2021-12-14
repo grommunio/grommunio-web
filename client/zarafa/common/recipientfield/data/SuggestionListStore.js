@@ -13,13 +13,13 @@ Zarafa.common.recipientfield.data.SuggestionListStore = Ext.extend(Ext.data.Stor
 	 * @cfg {String} actionType type of action that should be used to send request to server,
 	 * valid action types are defined in {@link Zarafa.core.Actions Actions}, default value is 'list'.
 	 */
-	actionType : undefined,
+	actionType: undefined,
 
 	/**
 	 * @constructor
 	 * @param {Object} config Configuration object
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		config = config || {};
 
@@ -27,12 +27,12 @@ Zarafa.common.recipientfield.data.SuggestionListStore = Ext.extend(Ext.data.Stor
 			batch: true,
 			autoSave: true,
 			remoteSort: false,
-			actionType : Zarafa.core.Actions['list'],
+			actionType: Zarafa.core.Actions['list'],
 			proxy: new Zarafa.common.recipientfield.data.SuggestionListProxy(),
 			writer: new Zarafa.common.recipientfield.data.SuggestionListJsonWriter(),
 			reader: new Ext.data.JsonReader({
 				root: 'result',
-				id : 'id'
+				id: 'id'
 			}, Zarafa.common.recipientfield.data.SuggestionListRecord)
 		});
 
@@ -43,13 +43,13 @@ Zarafa.common.recipientfield.data.SuggestionListStore = Ext.extend(Ext.data.Stor
 		// so we have to do it here.
 		this.sort([{
 			field: 'display_name',
-			direction : 'ASC'
+			direction: 'ASC'
 		},{
-			field : 'smtp_address',
-			direction : 'ASC'
+			field: 'smtp_address',
+			direction: 'ASC'
 		},{
-			field : 'email_address',
-			direction : 'ASC'
+			field: 'email_address',
+			direction: 'ASC'
 		}]);
 	},
 
@@ -57,7 +57,7 @@ Zarafa.common.recipientfield.data.SuggestionListStore = Ext.extend(Ext.data.Stor
 	 * Load all data from the store
 	 * @param {Object} options Additional options
 	 */
-	load : function(options)
+	load: function(options)
 	{
 		if (!Ext.isObject(options)) {
 			options = {};

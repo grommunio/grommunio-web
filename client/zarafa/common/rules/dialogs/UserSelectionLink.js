@@ -10,19 +10,19 @@ Zarafa.common.rules.dialogs.UserSelectionLink = Ext.extend(Ext.BoxComponent, {
 	 * @cfg {String} fieldLabel The label which must be applied to template
 	 * as a prefix to the list of attachments.
 	 */
-	emptyText :_('Select one...'),
+	emptyText:_('Select one...'),
 
 	/**
 	 * @cfg {String} userStringSeparator The separator which is used to separate list
 	 * of user while displaying them as string.
 	 */
-	userStringSeparator : _('and'),
+	userStringSeparator: _('and'),
 
 	/**
 	 * @cfg {Zarafa.core.data.IPMRecipientStore} store The store in which
 	 * the recipients are stored
 	 */
-	store : undefined,
+	store: undefined,
 
 	/**
 	 * The Action type which is handled by this view
@@ -30,7 +30,7 @@ Zarafa.common.rules.dialogs.UserSelectionLink = Ext.extend(Ext.BoxComponent, {
 	 * @property
 	 * @type Zarafa.common.rules.data.ActionFlags
 	 */
-	actionFlag : undefined,
+	actionFlag: undefined,
 
 	/**
 	 * The action property which was configured during
@@ -38,7 +38,7 @@ Zarafa.common.rules.dialogs.UserSelectionLink = Ext.extend(Ext.BoxComponent, {
 	 * @property
 	 * @type Object
 	 */
-	action : undefined,
+	action: undefined,
 
 	/**
 	 * The Condition type which is handled by this view
@@ -46,7 +46,7 @@ Zarafa.common.rules.dialogs.UserSelectionLink = Ext.extend(Ext.BoxComponent, {
 	 * @property
 	 * @type Zarafa.common.rules.data.ConditionFlags
 	 */
-	conditionFlag : undefined,
+	conditionFlag: undefined,
 
 	/**
 	 * The condition property which was configured during
@@ -54,7 +54,7 @@ Zarafa.common.rules.dialogs.UserSelectionLink = Ext.extend(Ext.BoxComponent, {
 	 * @property
 	 * @type Object
 	 */
-	condition : undefined,
+	condition: undefined,
 
 	/**
 	 * True if the action/condition was modified by the user, if this is false,
@@ -64,7 +64,7 @@ Zarafa.common.rules.dialogs.UserSelectionLink = Ext.extend(Ext.BoxComponent, {
 	 * @property
 	 * @type Boolean
 	 */
-	isModified : false,
+	isModified: false,
 
 	/**
 	 * True if the action/condition is complete and valid,
@@ -75,26 +75,26 @@ Zarafa.common.rules.dialogs.UserSelectionLink = Ext.extend(Ext.BoxComponent, {
 	 * @property
 	 * @type Boolean
 	 */
-	isValid : true,
+	isValid: true,
 
 	/**
 	 * @constructor
 	 * @param {Object} config configuration object.
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		config = config || {};
 
 		Ext.applyIf(config,{
 			xtype: 'zarafa.userselectionlink',
-			border : false,
+			border: false,
 			autoScroll:true,
-			anchor : '100%',
-			multiSelect : false,
-			store : new Zarafa.core.data.IPMRecipientStore(),
-			tpl : new Ext.XTemplate(
+			anchor: '100%',
+			multiSelect: false,
+			store: new Zarafa.core.data.IPMRecipientStore(),
+			tpl: new Ext.XTemplate(
 				'<div class="zarafa-user-link">' +
-					'<tpl for="list">' + 
+					'<tpl for="list">' +
 						'<tpl if="!Ext.isEmpty(values.display_name)">' +
 							'&quot;{display_name:htmlEncode}&quot;' +
 						'</tpl>' +
@@ -107,7 +107,7 @@ Zarafa.common.rules.dialogs.UserSelectionLink = Ext.extend(Ext.BoxComponent, {
 					'</tpl>' +
 				'</div>',
 				{
-					compiled : true
+					compiled: true
 				}
 			)
 		});
@@ -120,7 +120,7 @@ Zarafa.common.rules.dialogs.UserSelectionLink = Ext.extend(Ext.BoxComponent, {
 	 * This will register the {@link #onActivate} and {@link #onClick} event handlers.
 	 * @private
 	 */
-	afterRender : function()
+	afterRender: function()
 	{
 		Zarafa.common.rules.dialogs.UserSelectionLink.superclass.initComponent.apply(this, arguments);
 
@@ -139,7 +139,7 @@ Zarafa.common.rules.dialogs.UserSelectionLink = Ext.extend(Ext.BoxComponent, {
 	 * @param {String} operation The update operation being performed.
 	 * @private
 	 */
-	onRecipientUpdate : function(store, records, operation)
+	onRecipientUpdate: function(store, records, operation)
 	{
 		if (operation !== Ext.data.Record.COMMIT) {
 			// update ui, after store is updated
@@ -153,16 +153,16 @@ Zarafa.common.rules.dialogs.UserSelectionLink = Ext.extend(Ext.BoxComponent, {
 	 * @param {Zarafa.core.data.IPMRecipientRecord} records The records which have been added
 	 * @private
 	 */
-	onRecipientAdd : function(store, records)
+	onRecipientAdd: function(store, records)
 	{
 		var record = records[0];
 		// Only force expanding the distlist when it's a local distlist.
 		if (record.get('object_type') === Zarafa.core.mapi.ObjectType.MAPI_DISTLIST &&
 			record.get('address_type') === 'MAPIPDL') {
 			Ext.MessageBox.show({
-				title: _('Expand distribution list'), 
-				msg: _('Distribution lists are not supported in rules, would you like to replace the distribution list with its members?'), 
-				buttons: Ext.MessageBox.YESNO, 
+				title: _('Expand distribution list'),
+				msg: _('Distribution lists are not supported in rules, would you like to replace the distribution list with its members?'),
+				buttons: Ext.MessageBox.YESNO,
 				fn: this.onExpandDistList.createDelegate(this, [record], 1),
 				scope: this
 			});
@@ -191,7 +191,7 @@ Zarafa.common.rules.dialogs.UserSelectionLink = Ext.extend(Ext.BoxComponent, {
 	 * @param {Ext.EventObject} evt The mouse event
 	 * @protected
 	 */
-	onClick : function(dataView, index, node, evt)
+	onClick: function(dataView, index, node, evt)
 	{
 		var hideGroups = [];
 		if(this.conditionFlag === Zarafa.common.rules.data.ConditionFlags.RECEIVED_FROM) {
@@ -207,25 +207,25 @@ Zarafa.common.rules.dialogs.UserSelectionLink = Ext.extend(Ext.BoxComponent, {
 
 		// Open addressbook dialog for selection of users
 		Zarafa.common.Actions.openABUserMultiSelectionContent({
-			listRestriction : {
-				hide_groups : hideGroups
+			listRestriction: {
+				hide_groups: hideGroups
 			},
-			callback : function(record) {
+			callback: function(record) {
 				this.isModified = true;
 				this.update(this.store);
 			},
-			convert : function(r) {
+			convert: function(r) {
 				return r.convertToRecipient();
 			},
-			scope : this,
-			store : this.store,
-			modal : true,
-			selectionCfg : [{
-				xtype : 'zarafa.recipientfield',
-				fieldLabel : label + ':',
-				height : 50,
-				boxStore : this.store,
-				flex : 1
+			scope: this,
+			store: this.store,
+			modal: true,
+			selectionCfg: [{
+				xtype: 'zarafa.recipientfield',
+				fieldLabel: label + ':',
+				height: 50,
+				boxStore: this.store,
+				flex: 1
 			}]
 		});
 	},
@@ -237,7 +237,7 @@ Zarafa.common.rules.dialogs.UserSelectionLink = Ext.extend(Ext.BoxComponent, {
 	 * which identifies the exact type of the condition.
 	 * @param {Object} condition The condition to apply
 	 */
-	setCondition : function(conditionFlag, condition)
+	setCondition: function(conditionFlag, condition)
 	{
 		this.store.removeAll();
 		this.isValid = false;
@@ -310,13 +310,11 @@ Zarafa.common.rules.dialogs.UserSelectionLink = Ext.extend(Ext.BoxComponent, {
 	 * Obtain the condition as configured by the user
 	 * @return {Object} The condition
 	 */
-	getCondition : function()
+	getCondition: function()
 	{
 		if (this.isModified !== true && this.isValid === true) {
 			return this.condition;
 		}
-
-		var conditions = [];
 
 		// No recipients selected, this means
 		// we can't create a condition.
@@ -324,86 +322,9 @@ Zarafa.common.rules.dialogs.UserSelectionLink = Ext.extend(Ext.BoxComponent, {
 			return false;
 		}
 
-		switch (this.conditionFlag) {
-			case Zarafa.common.rules.data.ConditionFlags.SENT_TO:
-				this.store.each(function(recipient) {
-					if (recipient.isResolved()) {
-						conditions.push(this.createToRestriction(recipient));
-					}
-				}, this);
-				break;
-			case Zarafa.common.rules.data.ConditionFlags.RECEIVED_FROM:
-				this.store.each(function(recipient) {
-					if (recipient.isResolved()) {
-						conditions.push(this.createFromRestriction(recipient));
-					}
-				}, this);
-				break;
-			default:
-				// invalid actionFlag
-				return false;
-		}
-
-		// If there was only 1 recipient, we don't need to convert
-		// it to a OR subrestriction. If we have more then 1 recipient,
-		// then we should create the OR restriction.
-		if (conditions.length === 1) {
-			return conditions[0];
-		} else if (conditions.length > 1) {
-			return Zarafa.core.data.RestrictionFactory.createResOr(conditions);
-		} else {
-			return false;
-		}
-	},
-
-	/**
-	 * Convert a {@link Zarafa.core.data.IPMRecipientRecord Recipient} into
-	 * a Restriction used for the {@link #getCondition}.
-	 * @param {Zarafa.core.data.IPMRecipientRecord} recipient The recipient for which
-	 * the restriction should be created
-	 * @return {Object} The restriction
-	 * @private
-	 */
-	createToRestriction : function(recipient)
-	{
-		var RestrictionFactory = Zarafa.core.data.RestrictionFactory;
-		var Restrictions = Zarafa.core.mapi.Restrictions;
-
-		return RestrictionFactory.createResSubRestriction('PR_MESSAGE_RECIPIENTS',
-			RestrictionFactory.dataResComment(
-				RestrictionFactory.dataResProperty('PR_SEARCH_KEY', Restrictions.RELOP_EQ, recipient.get('search_key'), '0x00010102'),
-				{
-					'0x60000003' : Zarafa.core.mapi.RecipientType.MAPI_TO,
-					'0x00010102' : recipient.get('search_key'),
-					'0x0001001E' : recipient.get('display_name') + ' <' + recipient.get('smtp_address') + '>',
-					'PR_DISPLAY_TYPE' : recipient.get('display_type')
-				}
-			)
-		);
-	},
-
-	/**
-	 * Convert a {@link Zarafa.core.data.IPMRecipientRecord Recipient} into
-	 * a Restriction used for the {@link #getCondition}.
-	 * @param {Zarafa.core.data.IPMRecipientRecord} recipient The recipient for which
-	 * the restriction should be created
-	 * @return {Object} The restriction
-	 * @private
-	 */
-	createFromRestriction : function(recipient)
-	{
-		var RestrictionFactory = Zarafa.core.data.RestrictionFactory;
-		var Restrictions = Zarafa.core.mapi.Restrictions;
-
-		return RestrictionFactory.dataResComment(
-			RestrictionFactory.dataResProperty('PR_SENDER_SEARCH_KEY', Restrictions.RELOP_EQ, recipient.get('search_key'), '0x00010102'),
-			{
-				'0x60000003' : Zarafa.core.mapi.RecipientType.MAPI_TO,
-				'0x00010102' : recipient.get('search_key'),
-				'0x0001001E' : recipient.get('display_name') + ' <' + recipient.get('smtp_address') + '>',
-				'PR_DISPLAY_TYPE' : recipient.get('display_type')
-			}
-		);
+		var conditionFactory = container.getRulesFactoryByType(Zarafa.common.data.RulesFactoryType.CONDITION);
+		var conditionDefinition = conditionFactory.getConditionById(this.conditionFlag);
+		return conditionDefinition({store: this.store});
 	},
 
 	/**
@@ -413,7 +334,7 @@ Zarafa.common.rules.dialogs.UserSelectionLink = Ext.extend(Ext.BoxComponent, {
 	 * which identifies the exact type of the action.
 	 * @param {Object} action The action to apply
 	 */
-	setAction : function(actionFlag, action)
+	setAction: function(actionFlag, action)
 	{
 		this.store.removeAll();
 		this.isValid = false;
@@ -426,15 +347,15 @@ Zarafa.common.rules.dialogs.UserSelectionLink = Ext.extend(Ext.BoxComponent, {
 				this.isValid = true;
 
 				var recipient = RecordFactory.createRecordObjectByCustomType(CustomObjectType.ZARAFA_RECIPIENT, {
-					'entryid' : address['PR_ENTRYID'],
-					'object_type' : address['PR_OBJECT_TYPE'],
-					'display_name' : address['PR_DISPLAY_NAME'],
-					'display_type' : address['PR_DISPLAY_TYPE'],
-					'email_address' : address['PR_EMAIL_ADDRESS'],
-					'smtp_address' : address['PR_SMTP_ADDRESS'],
-					'address_type' : address['PR_ADDRTYPE'],
-					'recipient_type' : address['PR_RECIPIENT_TYPE'],
-					'search_key' : address['PR_SEARCH_KEY']
+					'entryid': address['PR_ENTRYID'],
+					'object_type': address['PR_OBJECT_TYPE'],
+					'display_name': address['PR_DISPLAY_NAME'],
+					'display_type': address['PR_DISPLAY_TYPE'],
+					'email_address': address['PR_EMAIL_ADDRESS'],
+					'smtp_address': address['PR_SMTP_ADDRESS'],
+					'address_type': address['PR_ADDRTYPE'],
+					'recipient_type': address['PR_RECIPIENT_TYPE'],
+					'search_key': address['PR_SEARCH_KEY']
 				});
 				this.store.add(recipient);
 			}
@@ -451,62 +372,15 @@ Zarafa.common.rules.dialogs.UserSelectionLink = Ext.extend(Ext.BoxComponent, {
 	 * Obtain the action as configured by the user
 	 * @return {Object} The action
 	 */
-	getAction : function()
+	getAction: function()
 	{
 		if (this.isModified !== true && this.isValid === true) {
 			return this.action;
 		}
 
-		var action = {};
-
-		// No recipients selected, this means
-		// we can't create an action.
-		if (this.store.getCount() === 0) {
-			return false;
-		}
-
-		// Set the Address list in the action
-		action.adrlist = [];
-		this.store.each(function(recipient) {
-			action.adrlist.push({
-				PR_ENTRYID : recipient.get('entryid'),
-				PR_OBJECT_TYPE : recipient.get('object_type'),
-				PR_DISPLAY_NAME : recipient.get('display_name'),
-				PR_DISPLAY_TYPE : recipient.get('display_type'),
-				PR_EMAIL_ADDRESS : recipient.get('email_address') || recipient.get('smtp_address'),
-				PR_SMTP_ADDRESS : recipient.get('smtp_address'),
-				PR_ADDRTYPE : recipient.get('address_type'),
-				PR_RECIPIENT_TYPE : recipient.get('recipient_type'),
-				PR_SEARCH_KEY : recipient.get('search_key')
-			});
-		}, this);
-
-		// Fill in the additional properties required for the action.
-		var ActionFlags = Zarafa.common.rules.data.ActionFlags;
-		var RuleActions = Zarafa.core.mapi.RuleActions;
-		var FlavorFlags = Zarafa.core.mapi.FlavorFlags;
-		switch (this.actionFlag) {
-			case ActionFlags.REDIRECT:
-				action.action = RuleActions.OP_FORWARD;
-				action.flags = 0;
-				action.flavor = FlavorFlags.FWD_PRESERVE_SENDER | FlavorFlags.FWD_DO_NOT_MUNGE_MSG;
-				break;
-			case ActionFlags.FORWARD:
-				action.action = RuleActions.OP_FORWARD;
-				action.flags = 0;
-				action.flavor = 0;
-				break;
-			case ActionFlags.FORWARD_ATTACH:
-				action.action = RuleActions.OP_FORWARD;
-				action.flags = 0;
-				action.flavor = FlavorFlags.FWD_AS_ATTACHMENT;
-				break;
-			default:
-				// invalid actionFlag
-				return false;
-		}
-
-		return action;
+		var actionFactory = container.getRulesFactoryByType(Zarafa.common.data.RulesFactoryType.ACTION);
+		var actionDefinition = actionFactory.getActionById(this.actionFlag);
+		return actionDefinition({store: this.store});
 	},
 
 	/**
@@ -514,16 +388,16 @@ Zarafa.common.rules.dialogs.UserSelectionLink = Ext.extend(Ext.BoxComponent, {
 	 * the {@link #store}.
 	 * @param {Zarafa.core.data.IPMRecipientStore} store The store to show
 	 */
-	update : function(store)
+	update: function(store)
 	{
 		var data = {
-			seperator : this.userStringSeparator,
-			list : Ext.pluck(store.getRange(), 'data')
+			separator: this.userStringSeparator,
+			list: Ext.pluck(store.getRange(), 'data')
 		};
 
 		if (Ext.isEmpty(data.list)) {
 			data.list = [{
-				display_name : this.emptyText
+				display_name: this.emptyText
 			}];
 		}
 

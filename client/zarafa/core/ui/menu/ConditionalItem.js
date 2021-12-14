@@ -14,63 +14,63 @@ Zarafa.core.ui.menu.ConditionalItem = Ext.extend(Ext.menu.Item, {
 	 * @cfg {Boolean} hideOnDisabled This item must be hidden rather
 	 * then be marked disabled.
 	 */
-	hideOnDisabled : true,
+	hideOnDisabled: true,
 	/**
 	 * @cfg {Boolean} emptySelectOnly This item must only be enabled
 	 * if no record is selected
 	 */
-	emptySelectOnly : false,
+	emptySelectOnly: false,
 	/**
 	 * @cfg {Boolean} nonEmptySelectOnly This item must only be enabled
 	 * if one or more records are selected
 	 */
-	nonEmptySelectOnly : false,
+	nonEmptySelectOnly: false,
 	/**
 	 * @cfg {Boolean} singleSelectOnly This item must only be enabled
 	 * if a single record is selected
 	 */
-	singleSelectOnly : false,
+	singleSelectOnly: false,
 	/**
 	 * @cfg {Boolean} multiSelectOnly This item must only be enabled
 	 * if multiple records are selected.
 	 */
-	multiSelectOnly : false,
+	multiSelectOnly: false,
 	/**
 	 * Override of {@link Ext.menu.Item#itemTpl} to add the possibility of
 	 * styling the icon.
 	 * @property
 	 * @Type Ext.XTemplate
 	 */
-    itemTpl : new Ext.XTemplate(
-        '<a id="{id}" class="{cls} x-unselectable" hidefocus="true" unselectable="on" href="{href}"',
-            '<tpl if="hrefTarget">',
-                ' target="{hrefTarget}"',
-            '</tpl>',
-         '>',
-             '<img alt="{altText}" src="{icon}" class="x-menu-item-icon {iconCls}" {iconStyle}/>',
-             '<span class="x-menu-item-text">{text}</span>',
-         '</a>'
-    ),
-    /**
-     * Override of {@link Ext.menu.Item#getTemplateArgs} to add the possibility of
-     *  styling the icon.
-     * @return {Object}
-     */
-    getTemplateArgs: function() {
-    	// Get the original template arguments from the original function
-    	var templateArgs = Zarafa.core.ui.menu.ConditionalItem.superclass.getTemplateArgs.call(this);
-    	// Add the argument for the icon style
-    	templateArgs.iconStyle = this.iconBG ? 'style="background-color:'+this.iconBG+';"' : '';
+  itemTpl: new Ext.XTemplate(
+    '<a id="{id}" class="{cls} x-unselectable" hidefocus="true" unselectable="on" href="{href}"',
+      '<tpl if="hrefTarget">',
+        ' target="{hrefTarget}"',
+      '</tpl>',
+     '>',
+       '<img alt="{altText}" src="{icon}" class="x-menu-item-icon {iconCls}" {iconStyle}/>',
+       '<span class="x-menu-item-text">{text}</span>',
+     '</a>'
+  ),
+  /**
+   * Override of {@link Ext.menu.Item#getTemplateArgs} to add the possibility of
+   * styling the icon.
+   * @return {Object}
+   */
+  getTemplateArgs: function() {
+  	// Get the original template arguments from the original function
+  	var templateArgs = Zarafa.core.ui.menu.ConditionalItem.superclass.getTemplateArgs.call(this);
+  	// Add the argument for the icon style
+  	templateArgs.iconStyle = this.iconBG ? 'style="background-color:'+this.iconBG+';"' : '';
 		return templateArgs;
 	},
 	/**
 	 * @constructor
 	 * @param {Object} config Configuration object
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		Ext.applyIf(config, {
-			xtype : 'zarafa.conditionalitem'
+			xtype: 'zarafa.conditionalitem'
 		});
 
 		Ext.applyIf(this, config);
@@ -82,7 +82,7 @@ Zarafa.core.ui.menu.ConditionalItem = Ext.extend(Ext.menu.Item, {
 	 * Initialize the component
 	 * @private
 	 */
-	initComponent : function()
+	initComponent: function()
 	{
 		Zarafa.core.ui.menu.ConditionalItem.superclass.initComponent.apply(this, arguments);
 
@@ -100,7 +100,7 @@ Zarafa.core.ui.menu.ConditionalItem = Ext.extend(Ext.menu.Item, {
 	 * or not.
 	 * @private
 	 */
-	applySelectionFilter : function()
+	applySelectionFilter: function()
 	{
 		var records = this.getRecords();
 
@@ -143,7 +143,7 @@ Zarafa.core.ui.menu.ConditionalItem = Ext.extend(Ext.menu.Item, {
 	 * @param {Zarafa.core.ui.menu.ConditionalItem} item The item which is about to be shown.
 	 * @param {Zarafa.core.data.MAPIRecord} record The record which is being shown for this menu
 	 */
-	beforeShow : function(item, record)
+	beforeShow: function(item, record)
 	{
 		item.applySelectionFilter();
 	},
@@ -153,7 +153,7 @@ Zarafa.core.ui.menu.ConditionalItem = Ext.extend(Ext.menu.Item, {
 	 * to which this item belongs.
 	 * @return {Zarafa.core.data.MAPIRecord[]} records
 	 */
-	getRecords : function()
+	getRecords: function()
 	{
 		return this.getRootMenu().records;
 	},
@@ -166,7 +166,7 @@ Zarafa.core.ui.menu.ConditionalItem = Ext.extend(Ext.menu.Item, {
 	 *
 	 * @return {Ext.menu.menu} The Root menu object
 	 */
-	getRootMenu : function()
+	getRootMenu: function()
 	{
 		var menu = this.parentMenu;
 		if (!menu && this.ownerCt instanceof Ext.menu.Menu) {

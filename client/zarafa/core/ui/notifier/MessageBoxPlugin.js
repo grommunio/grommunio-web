@@ -16,7 +16,7 @@ Zarafa.core.ui.notifier.MessageBoxPlugin = Ext.extend(Zarafa.core.ui.notifier.No
 	/**
 	 * Notify the user with a message.
 	 *
-	 * The category can be either  "error", "warning", "info" or "debug", or a subtype thereof (e.g. "info.newmail").
+	 * The category can be either "error", "warning", "info" or "debug", or a subtype thereof (e.g. "info.newmail").
 	 *
 	 * @param {String} category The category which applies to the notification.
 	 * @param {String} title The title which must be shown in the message.
@@ -31,7 +31,7 @@ Zarafa.core.ui.notifier.MessageBoxPlugin = Ext.extend(Zarafa.core.ui.notifier.No
 	 * - listeners: Event handlers which must be registered on the element
 	 * @return {Ext.MessageBox} The message box
 	 */
-	notify : function(category, title, message, config)
+	notify: function(category, title, message, config)
 	{
 		var dialogCls;
 		if (category.indexOf('warning') === 0) {

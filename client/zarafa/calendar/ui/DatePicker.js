@@ -3,7 +3,7 @@ Ext.namespace('Zarafa.calendar.ui');
 * @class Zarafa.calendar.ui.DatePicker
 * @extends Ext.DatePicker
 * @xtype zarafa.datepicker
-* This overriden DatePicker takes the default calendar folder of the user, and displays days in which there are appointments differently.
+* This overridden DatePicker takes the default calendar folder of the user, and displays days in which there are appointments differently.
 * Currently the x-date-busy CSS class is applied to these days.
 */
 Zarafa.calendar.ui.DatePicker = Ext.extend(Ext.DatePicker, {
@@ -35,7 +35,7 @@ Zarafa.calendar.ui.DatePicker = Ext.extend(Ext.DatePicker, {
 	 * constructor
 	 * @param {Object} config Configuration object
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		config = config || {};
 		if(!config.store){
@@ -60,8 +60,8 @@ Zarafa.calendar.ui.DatePicker = Ext.extend(Ext.DatePicker, {
 	{
 		Zarafa.calendar.ui.DatePicker.superclass.afterRender.call(this);
 
-		//attach event handlers
-		//when store has finished loading, apply data from newly loaded appointments
+		// Attach event handlers
+		// When store has finished loading, apply data from newly loaded appointments
 		this.mon(this.store, 'load', this.onLoad, this);
 	},
 
@@ -104,7 +104,7 @@ Zarafa.calendar.ui.DatePicker = Ext.extend(Ext.DatePicker, {
 	 * Event handler which is called when the component is made visible
 	 * @private
 	 */
-	onShow : function()
+	onShow: function()
 	{
 		this.reloadStore(this.cells.first().dom.firstChild.dateValue, this.cells.last().dom.firstChild.dateValue);
 		Zarafa.calendar.ui.DatePicker.superclass.onShow.apply(this, arguments);
@@ -114,7 +114,7 @@ Zarafa.calendar.ui.DatePicker = Ext.extend(Ext.DatePicker, {
 	 * Event handler which is called when the component is hidden
 	 * @private
 	 */
-	onHide : function()
+	onHide: function()
 	{
 		this.store.cancelLoadRequests();
 		Zarafa.calendar.ui.DatePicker.superclass.onHide.apply(this, arguments);
@@ -137,9 +137,9 @@ Zarafa.calendar.ui.DatePicker = Ext.extend(Ext.DatePicker, {
 			this.store.load({
 				actionType: Zarafa.core.Actions['list'],
 				params: {
-					entryid : folder.get('entryid'),
-					store_entryid : folder.get('store_entryid'),
-					restriction : {
+					entryid: folder.get('entryid'),
+					store_entryid: folder.get('store_entryid'),
+					restriction: {
 						startdate: startDate / 1000,
 						duedate: dueDate / 1000
 					}

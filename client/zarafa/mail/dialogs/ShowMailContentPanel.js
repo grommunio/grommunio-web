@@ -12,30 +12,30 @@ Zarafa.mail.dialogs.ShowMailContentPanel = Ext.extend(Zarafa.core.ui.MessageCont
 	 * @property
 	 * @type Zarafa.mail.MailContextModel
 	 */
-	model : undefined,
+	model: undefined,
 
 	/**
  	 * @constructor
 	 * @param config Configuration structure
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		config = config || {};
 
 		// Add in some standard configuration data.
 		Ext.applyIf(config, {
 			// Override from Ext.Component
-			xtype : 'zarafa.showmailcontentpanel',
+			xtype: 'zarafa.showmailcontentpanel',
 			// Override from Ext.Panel
-			layout : 'fit',
-			title : _('no subject'),
-			recordComponentPluginConfig : Ext.applyIf(config.recordComponentPluginConfig || {}, {
-				allowWrite : true
+			layout: 'fit',
+			title: _('no subject'),
+			recordComponentPluginConfig: Ext.applyIf(config.recordComponentPluginConfig || {}, {
+				allowWrite: true
 			}),
-			closeOnSend : true,
+			closeOnSend: true,
 			items: [ this.createPanel() ]
 		});
-		
+
 		// Call parent constructor
 		Zarafa.mail.dialogs.ShowMailContentPanel.superclass.constructor.call(this, config);
 	},
@@ -46,23 +46,23 @@ Zarafa.mail.dialogs.ShowMailContentPanel = Ext.extend(Zarafa.core.ui.MessageCont
 	 * @return {Object} The configuration object for the panel.
 	 * @private
 	 */
-	createPanel : function()
+	createPanel: function()
 	{
 		// Create a new panel and add it.
 		return {
 			xtype: 'zarafa.mailviewpanel',
-			tbar : {
+			tbar: {
 				xtype: 'zarafa.showmailtoolbar'
 			}
 		};
 	},
 
 	/**
-	 * Function gets the {@link Zarafa.mail.MailContextModel MailContextModel} attached to 
+	 * Function gets the {@link Zarafa.mail.MailContextModel MailContextModel} attached to
 	 * {@link Zarafa.mail.MailContext MailContext}.
 	 * @return {Zarafa.mail.MailContextModel} Mail context model
 	 */
-	getContextModel : function()
+	getContextModel: function()
 	{
 		if(!this.model) {
 			var hierarchy = container.getHierarchyStore();
@@ -90,19 +90,19 @@ Zarafa.mail.dialogs.ShowMailContentPanel = Ext.extend(Zarafa.core.ui.MessageCont
 	 * @param {Zarafa.core.data.MAPIRecord} record The record to update in this component
 	 * @param {Boolean} contentReset force the component to perform a full update of the data.
 	 */
-	update : function(record, contentReset)
+	update: function(record, contentReset)
 	{
 		this.updateIconFromRecord(record);
 		this.updateTitleFromRecord(record);
 	},
 
 	/**
-	 * When record has been updated, title also has to be - for instance if we have the subject 
+	 * When record has been updated, title also has to be - for instance if we have the subject
 	 * in the title and the subject changes
 	 * Calls {@link #setTitle} this.setTitle in order to update
 	 * @param {Zarafa.core.data.MAPIRecord} record The record that has been updated
 	 */
-	updateTitleFromRecord : function(record)
+	updateTitleFromRecord: function(record)
 	{
 		var subject = record.get('subject');
 		if(!Ext.isEmpty(subject)){
@@ -115,11 +115,11 @@ Zarafa.mail.dialogs.ShowMailContentPanel = Ext.extend(Zarafa.core.ui.MessageCont
 	/**
 	 * Update this panel's icon class from the record that it contains
 	 * First obtains the icon class from a mapping, then calls {@link #setIcon}
-	 * 
+	 *
 	 * @param {Zarafa.core.data.MAPIRecord} record The record bound to this component
 	 * @private
 	 */
-	updateIconFromRecord : function(record)
+	updateIconFromRecord: function(record)
 	{
 		//TODO: create a new icon mapping for tabs
 		var iconCls = Zarafa.common.ui.IconClass.getIconClass(record);

@@ -1,15 +1,15 @@
 <?php
-require_once('classes/KopanoUser.php');
+require_once('classes/grommunioUser.php');
 require_once('classes/HierarchyUser.php');
 require_once('classes/TestData.php');
-require_once('classes/KopanoTest.php');
+require_once('classes/grommunioTest.php');
 
 /**
  * FolderTest
  *
  * Tests creating/opening and deleting folders
  */
-class FolderTest extends KopanoTest {
+class FolderTest extends grommunioTest {
 
 	/**
 	 * The user for which we will open the hierarchy
@@ -28,7 +28,7 @@ class FolderTest extends KopanoTest {
 	{
 		parent::setUp();
 
-		$this->user = $this->addUser(new HierarchyUser(new KopanoUser(KOPANO_USER1_NAME, KOPANO_USER1_PASSWORD)));
+		$this->user = $this->addUser(new HierarchyUser(new grommunioUser(GROMMUNIO_USER1_NAME, GROMMUNIO_USER1_PASSWORD)));
 
 		$this->folder = array(
 			'props' => TestData::getFolder()
@@ -87,7 +87,7 @@ class FolderTest extends KopanoTest {
 		$props = $folder['item']['props'];
 
 		$this->assertEquals(MAPI_FOLDER, $props['object_type'], 'Test that the \'object_type\' equals MAPI_FOLDER');
-		$this->assertEquals('Inbox - ' . KOPANO_USER1_DISPLAY_NAME, $props['display_name'], 'Test that the display name is correctly set');
+		$this->assertEquals('Inbox - ' . GROMMUNIO_USER1_DISPLAY_NAME, $props['display_name'], 'Test that the display name is correctly set');
 		$this->assertEquals('IPF.Note', $props['container_class'], 'Test that the \'container_class\' is correctly set');
 		$this->assertArrayHasKey('creation_time', $props, 'Test that the \'creation_time\' property has been set');
 		$this->assertEquals(0, $props['content_count'], 'Test that the \'content_count\' is 0');

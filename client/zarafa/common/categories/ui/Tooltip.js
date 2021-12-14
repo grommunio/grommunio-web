@@ -13,13 +13,13 @@ Zarafa.common.categories.ui.Tooltip = Ext.extend(Ext.ToolTip, {
 	 * @constructor
 	 * @param {Object} config Configuration object.
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		config = config || {};
 
 		Ext.applyIf(config, {
 			xtype: 'zarafa.categoriestooltip',
-			target: Ext.get(document.body), // Should be overriden when creating this component
+			target: Ext.get(document.body), // Should be overridden when creating this component
 			delegate: '.k-category-block',
 			dismissDelay: 0,
 			trackMouse: true,
@@ -41,14 +41,14 @@ Zarafa.common.categories.ui.Tooltip = Ext.extend(Ext.ToolTip, {
 	 * @return {Boolean|undefined} False if the tooltip should not be shown,
 	 * undefined otherwise
 	 */
-	onBeforeshow : function(tooltip)
+	onBeforeshow: function(tooltip)
 	{
 		// Don't show the tooltip for categories that aren't truncated
-    	if ( !this.isCategoryNameTruncated(tooltip.triggerElement) ){
-    		return false;
-    	}
+  	if ( !this.isCategoryNameTruncated(tooltip.triggerElement) ){
+  		return false;
+  	}
 
-        tooltip.body.dom.innerHTML = Ext.util.Format.htmlEncode(tooltip.triggerElement.textContent);
+    tooltip.body.dom.innerHTML = Ext.util.Format.htmlEncode(tooltip.triggerElement.textContent);
 	},
 
 	/**
@@ -57,7 +57,7 @@ Zarafa.common.categories.ui.Tooltip = Ext.extend(Ext.ToolTip, {
 	 * for truncation.
 	 * @return {Boolean} True if the category name is truncated, false otherwise
 	 */
-	isCategoryNameTruncated : function(categoryEl)
+	isCategoryNameTruncated: function(categoryEl)
 	{
 		return categoryEl.offsetWidth < categoryEl.scrollWidth;
 	}

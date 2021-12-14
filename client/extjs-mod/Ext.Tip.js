@@ -8,7 +8,7 @@
 		 * Maybe this is caused when we request an element's dimension via offsetWidth or offsetHeight, getBoundingClientRect, etc.
 		 * the browser returns the subpixel width rounded to the nearest pixel.
 		 */
-		doAutoWidth : function()
+		doAutoWidth: function()
 		{
 			orig_doAutoWidth.call(this, Ext.isIE ? 1 : 0);
 		}

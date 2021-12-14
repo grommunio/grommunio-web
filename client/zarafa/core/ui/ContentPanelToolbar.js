@@ -32,17 +32,17 @@ Zarafa.core.ui.ContentPanelToolbar = Ext.extend(Zarafa.core.ui.Toolbar, {
 	 * @cfg {Array} rightAlignedItems The array of {@link Ext.Component} elements which should be added to the options {@link Ext.Button buttons} of the
 	 * {@link Zarafa.core.ui.Toolbar}. These elements can be extended by the main.dialog.[dialog].toolbar.options.right insertion point.
 	 */
-	rightAlignedItems : [],
+	rightAlignedItems: [],
 	/**
 	 * @constructor
 	 * @param config Configuration structure
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		Ext.apply(this, config, {
 			// Override from Ext.Component
 			xtype: 'zarafa.contentpaneltoolbar',
-			cls : 'zarafa-dialogtoolbar'
+			cls: 'zarafa-dialogtoolbar'
 		});
 
 		// Declare events.
@@ -64,7 +64,7 @@ Zarafa.core.ui.ContentPanelToolbar = Ext.extend(Zarafa.core.ui.Toolbar, {
 	 * Add default button groups to toolbar.
 	 * @private
 	 */
-	initButtonGroups : function()
+	initButtonGroups: function()
 	{
 		var namespace = this.insertionPointBase + '.toolbar';
 

@@ -9,29 +9,29 @@ Zarafa.addressbook.ui.ABUserSelectionPanel = Ext.extend(Zarafa.addressbook.ui.Ad
 	/**
 	 * @cfg {Function} callback the callback function to return to after selecting user from AdressBook.
 	 */
-	callback : Ext.emptyFn,
+	callback: Ext.emptyFn,
 
 	/**
 	 * @cfg {Boolean} singleSelect false to allow multiple selections(defaults to true allowing selection of only one row at a time)
 	 */
-	singleSelect : true,
+	singleSelect: true,
 
 	/**
 	 * @cfg {Function} scope the scope in which the {@link #callback} will be called
 	 */
-	scope : undefined,
+	scope: undefined,
 
 	/**
 	 * @constructor
 	 * @param {Object} config Configuration structure
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		config = config || {};
 
 		Ext.applyIf(config, {
-			xtype : 'zarafa.abuserselectionpanel',
-			cls : 'k-abuserselectionpanel',
+			xtype: 'zarafa.abuserselectionpanel',
+			cls: 'k-abuserselectionpanel',
 			buttons: [{
 				text: _('Ok'),
 				handler: this.onSubmit,
@@ -50,9 +50,9 @@ Zarafa.addressbook.ui.ABUserSelectionPanel = Ext.extend(Zarafa.addressbook.ui.Ad
 
 	/**
 	 * Calls callback function
-	 * @return {Boolean} true, if callback was successfull
+	 * @return {Boolean} true, if callback was successful
 	 */
-	doCallBack : function()
+	doCallBack: function()
 	{
 		var grid = this.getGridPanel();
 
@@ -73,7 +73,7 @@ Zarafa.addressbook.ui.ABUserSelectionPanel = Ext.extend(Zarafa.addressbook.ui.Ad
 	 * for the {@link Ext.Panel panel} has been completed.
 	 * @private
 	 */
-	onAfterLayout : function()
+	onAfterLayout: function()
 	{
 		this.mon(this.getGridPanel(), 'rowdblclick', this.onAddressBookRowDblClick, this);
 		this.mon(this.getGridPanel(), 'rowcontextmenu', this.onAddressBookRowContextMenu, this);
@@ -85,7 +85,7 @@ Zarafa.addressbook.ui.ABUserSelectionPanel = Ext.extend(Zarafa.addressbook.ui.Ad
 	 * the selected user or group to the {@link Zarafa.core.ui.RecipientField recipientfield}
 	 * @private
 	 */
-	onAddressBookRowDblClick : function()
+	onAddressBookRowDblClick: function()
 	{
 		if (this.doCallBack() === true) {
 			this.dialog.close();
@@ -102,7 +102,7 @@ Zarafa.addressbook.ui.ABUserSelectionPanel = Ext.extend(Zarafa.addressbook.ui.Ad
 	 * @param {Ext.EventObject} event The event information
 	 * @private
 	 */
-	onAddressBookRowContextMenu : function(grid, rowIndex, event)
+	onAddressBookRowContextMenu: function(grid, rowIndex, event)
 	{
 		var sm = grid.getSelectionModel();
 
@@ -121,8 +121,8 @@ Zarafa.addressbook.ui.ABUserSelectionPanel = Ext.extend(Zarafa.addressbook.ui.Ad
 		}
 
 		Zarafa.core.data.UIFactory.openDefaultContextMenu(sm.getSelections(), {
-			position : event.getXY(),
-			dialog : this.dialog
+			position: event.getXY(),
+			dialog: this.dialog
 		});
 	},
 
@@ -131,7 +131,7 @@ Zarafa.addressbook.ui.ABUserSelectionPanel = Ext.extend(Zarafa.addressbook.ui.Ad
 	 * Function will store changed data in record and close the dialog
 	 * @private
 	 */
-	onSubmit : function()
+	onSubmit: function()
 	{
 		if (this.doCallBack() === true) {
 			this.dialog.close();
@@ -148,7 +148,7 @@ Zarafa.addressbook.ui.ABUserSelectionPanel = Ext.extend(Zarafa.addressbook.ui.Ad
 	 * Closes {@link Zarafa.core.ui.CreateFolderContentPanel CreateFolder} content panel
 	 * @private
 	 */
-	onCancel : function()
+	onCancel: function()
 	{
 		this.dialog.close();
 	}

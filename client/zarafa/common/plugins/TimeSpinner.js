@@ -13,12 +13,12 @@ Zarafa.common.plugins.TimeSpinner = Ext.extend(Zarafa.common.plugins.SpinnerPlug
 	 * @cfg {String} format The string format which is applied for
 	 * displaying the time in the {@link Zarafa.common.ui.SpinnerField SpinnerField}.
 	 */
-	format : _('G:i'),
+	format: _('G:i'),
 	/**
 	 * @cfg {String} alternateIncrementField The Date field which must be incremented
 	 * when the alternate increment/decrement option is used (default: Date.HOUR).
 	 */
-	alternateIncrementField : Date.HOUR,
+	alternateIncrementField: Date.HOUR,
 	/**
 	 * @cfg {String} incrementField The Date field which must be incremented when the
 	 * normal increment/decrement option is used (default: Date.MINUTE).
@@ -28,7 +28,7 @@ Zarafa.common.plugins.TimeSpinner = Ext.extend(Zarafa.common.plugins.SpinnerPlug
 	 * @constructor
 	 * @param {Object} config Configuration object
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		Ext.applyIf(this, config);
 
@@ -40,7 +40,7 @@ Zarafa.common.plugins.TimeSpinner = Ext.extend(Zarafa.common.plugins.SpinnerPlug
 	 * this plugin has been hooked.
 	 * @param {Zarafa.common.ui.SpinnerField} The parent field to which this component is connected
 	 */
-	init : function(field)
+	init: function(field)
 	{
 		Zarafa.common.plugins.TimeSpinner.superclass.init.call(this, field);
 
@@ -76,7 +76,7 @@ Zarafa.common.plugins.TimeSpinner = Ext.extend(Zarafa.common.plugins.SpinnerPlug
 	 * @param {String} value The value to set
 	 * @private
 	 */
-	setStringValue : Ext.emptyFn,
+	setStringValue: Ext.emptyFn,
 
 	/**
 	 * Reference to the original {@link Ext.form.Field#getValue} function
@@ -84,7 +84,7 @@ Zarafa.common.plugins.TimeSpinner = Ext.extend(Zarafa.common.plugins.SpinnerPlug
 	 * @return {String} value The value to set
 	 * @private
 	 */
-	getStringValue : Ext.emptyFn,
+	getStringValue: Ext.emptyFn,
 
 	/**
 	 * Sets a data value into the field and validates it.
@@ -92,7 +92,7 @@ Zarafa.common.plugins.TimeSpinner = Ext.extend(Zarafa.common.plugins.SpinnerPlug
 	 * @param {Date/String} value The value to set
 	 * @private
 	 */
-	setValue : function(value)
+	setValue: function(value)
 	{
 		if (!Ext.isDefined(value) || Ext.isEmpty(value)) {
 			// If no value is provided, we clear the field.
@@ -106,7 +106,7 @@ Zarafa.common.plugins.TimeSpinner = Ext.extend(Zarafa.common.plugins.SpinnerPlug
 			// The value is a String, but the dateValue is a Date.
 			// Use the dateValue to determine the date (Day, Month, Year)
 			// part which must be applied to the value (which only contains hours and minutes).
-			var tmpDate = Date.parseDate(value, this.format);	
+			var tmpDate = Date.parseDate(value, this.format);
 			value = this.dateValue.clone();
 			value.setHours(tmpDate.getHours());
 			value.setMinutes(tmpDate.getMinutes());
@@ -127,8 +127,9 @@ Zarafa.common.plugins.TimeSpinner = Ext.extend(Zarafa.common.plugins.SpinnerPlug
 	 * @return {Date} The selected Date
 	 * @private
 	 */
-	getValue : function()
+	getValue: function()
 	{
+		this.formatTimeString();
 		var stringValue = this.isValidTimeString() ? this.getStringValue() : this.field.value;
 		if (Ext.isEmpty(stringValue) || Ext.isEmpty(this.dateValue)) {
 			return null;
@@ -143,6 +144,82 @@ Zarafa.common.plugins.TimeSpinner = Ext.extend(Zarafa.common.plugins.SpinnerPlug
 	},
 
 	/**
+	 * Function which is used to correct the format of the given time string in the spinner.
+	 */
+	formatTimeString: function()
+	{
+		var currentValue = this.getStringValue();
+		var defaultValue = this.field.value;
+		var hours, minutes, timePeriod;
+
+		if (currentValue === defaultValue) {
+			return;
+		}
+
+		if (Ext.isEmpty(currentValue)) {
+			return null;
+		}
+
+		var regExAmPm = /[AaPp][Mm]/g;
+		var regExSpecialChar = /[^0-9]/g;
+
+		// Check if the current value has 'AM/am' or 'PM/pm'
+		if (regExAmPm.test(currentValue)) {
+			timePeriod = currentValue.match(regExAmPm);
+			currentValue = currentValue.replace(timePeriod,'');
+			timePeriod = timePeriod.toString().toUpperCase();
+		}
+
+		// Remove all special characters used as separators
+		currentValue = currentValue.replace(regExSpecialChar, '');
+
+		switch (currentValue.length) {
+			case 4:
+				break;
+			case 3:
+				// If the string has 3 digits, append '0' at the beginning
+				// For example, 900 -> 0900
+				currentValue = '0' + currentValue;
+				break;
+			case 2:
+				// If the string has 2 digits, append '00' at the end
+				// For example, 12 -> 1200
+				currentValue = currentValue + '00';
+				break;
+			case 1:
+				// If the string has 1 digit, append a '0' to the beginning
+				// and '00' at the end.
+				// For example, 8 -> 0800
+				currentValue = '0' + currentValue + '00';
+				break;
+			default:
+				// The defaultValue might be something like '7:00',
+				// so to extract the hours and minutes, we need to change it
+				// to the desired format.
+				currentValue = defaultValue.replace(regExSpecialChar, '');
+				if (currentValue.length === 3) {
+					currentValue = '0' + currentValue;
+				}
+				break;
+		}
+		hours = currentValue.slice(0,2);
+		minutes = currentValue.slice(2,4);
+
+		var newDate = new Date();
+		// Set the hours and minutes to the new Date object
+		newDate.setHours(hours);
+		newDate.setMinutes(minutes);
+
+		// Format it according to the current format
+		newDate = newDate.format(this.format);
+		// Replace the time period if given in input by the user
+		if (hours <= 12 && timePeriod) {
+			newDate = newDate.replace(regExAmPm, timePeriod);
+		}
+		this.setStringValue(newDate);
+	},
+
+	/**
 	 * The default spin action when the value inside the
 	 * {@link Zarafa.common.ui.SpinnerField SpinnerField} must be changed.
 	 *
@@ -150,7 +227,7 @@ Zarafa.common.plugins.TimeSpinner = Ext.extend(Zarafa.common.plugins.SpinnerPlug
 	 * @param {Boolean} alternate True when the alternate change has been requested
 	 * @private
 	 */
-	spin : function(down, alternate)
+	spin: function(down, alternate)
 	{
 		var oldValue;
 
@@ -194,7 +271,7 @@ Zarafa.common.plugins.TimeSpinner = Ext.extend(Zarafa.common.plugins.SpinnerPlug
 	 * @param {Mixed} value The value to fix
 	 * @private
 	 */
-	fixPrecision : function(value)
+	fixPrecision: function(value)
 	{
 		return value;
 	},
@@ -204,7 +281,7 @@ Zarafa.common.plugins.TimeSpinner = Ext.extend(Zarafa.common.plugins.SpinnerPlug
 	 * It will return true if the value of the field is in a HH:MM format.
 	 * @returns {boolean} True if time string value is valid, false otherwise
 	 */
-	isValidTimeString : function ()
+	isValidTimeString: function ()
 	{
 		var regEx = /^([0-1]?[0-9]|2[0-4]):([0-5][0-9])(:[0-5][0-9])?$/;
 		return regEx.test(this.getStringValue());

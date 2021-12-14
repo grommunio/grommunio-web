@@ -14,19 +14,18 @@
 		*/
 		function __construct($id, $data)
 		{
-			$this->properties = $GLOBALS["properties"]->getReminderProperties();
-
 			parent::__construct($id, $data);
 
-			$store = $GLOBALS["mapisession"]->getDefaultMessageStore();
-			$this->reminderEntryId = $this->getReminderFolderEntryId($store);
+			$this->properties = $GLOBALS["properties"]->getReminderProperties();		
 		}
 
 		function execute()
 		{
-			$store = $GLOBALS["mapisession"]->getDefaultMessageStore();
 			foreach($this->data as $actionType => $action)
 			{
+				$store = $GLOBALS["mapisession"]->getDefaultMessageStore();
+				$this->reminderEntryId = $this->getReminderFolderEntryId($store);
+
 				if(isset($actionType)) {
 					try {
 						switch($actionType)
@@ -142,7 +141,7 @@
 					)
 				);
 
-			$folder = mapi_folder_createfolder($root, Language::getstring("Reminders"), "", OPEN_IF_EXISTS, FOLDER_SEARCH);
+			$folder = mapi_folder_createfolder($root, _("Reminders"), "", OPEN_IF_EXISTS, FOLDER_SEARCH);
 			mapi_setprops($folder, array(PR_CONTAINER_CLASS	=>	"Outlook.Reminder"));
 			mapi_savechanges($folder);
 
@@ -283,7 +282,7 @@
 			$GLOBALS["bus"]->addData($this->getResponseData());
 
 			// Trigger the newmailnotifier
-			$GLOBALS["bus"]->notify(REQUEST_ENTRYID, HIERARCHY_UPDATE);
+			$GLOBALS["bus"]->notify(REQUEST_ENTRYID, HIERARCHY_UPDATE, ['', '']);
 
 			return true;
 		}

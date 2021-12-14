@@ -23,7 +23,7 @@ class DownloadMessage extends DownloadBase
 
 			$stream = $this->getEmlStream($messageProps);
 
-			$filename = (!empty($messageProps[PR_SUBJECT])) ? $messageProps[PR_SUBJECT] : Language::getstring('Untitled');
+			$filename = (!empty($messageProps[PR_SUBJECT])) ? $messageProps[PR_SUBJECT] : _('Untitled');
 			$filename .= '.eml';
 
 			// Set the file length
@@ -78,7 +78,7 @@ class DownloadMessage extends DownloadBase
 						ob_flush();
 					}
 
-					$filename = (!empty($messageProps[PR_SUBJECT])) ? $messageProps[PR_SUBJECT] : Language::getstring('Untitled');
+					$filename = (!empty($messageProps[PR_SUBJECT])) ? $messageProps[PR_SUBJECT] : _('Untitled');
 					$filename .= '.eml';
 
 					$filename = $this->handleDuplicateFileNames($filename);
@@ -95,7 +95,7 @@ class DownloadMessage extends DownloadBase
 				unlink($randomZipName);
 
 				// Throw exception if ZIP is not created successfully
-				throw new ZarafaException(Language::getstring("ZIP is not created successfully"));
+				throw new ZarafaException(_("ZIP is not created successfully"));
 			}
 
 			$zip->close();
@@ -104,7 +104,7 @@ class DownloadMessage extends DownloadBase
 			header('Pragma: public');
 			header('Expires: 0'); // set expiration time
 			header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
-			header('Content-Disposition: attachment; filename="' . addslashes(browserDependingHTTPHeaderEncode(Language::getstring("Messages").date(" d-m-Y").".zip")) . '"');
+			header('Content-Disposition: attachment; filename="' . addslashes(browserDependingHTTPHeaderEncode(_("Messages").date(" d-m-Y").".zip")) . '"');
 			header('Content-Transfer-Encoding: binary');
 			header('Content-Type:  application/zip');
 			header('Content-Length: ' . filesize($randomZipName));
@@ -120,7 +120,7 @@ class DownloadMessage extends DownloadBase
 	/**
 	 * Function will obtain stream from the message, For email messages it will open email as
 	 * inet object and get the stream content as eml format, when user has IMAP enabled.
-	 * The below mentioned properties are configured with the whole message as a stream in it, while IMAP is enabled :
+	 * The below mentioned properties are configured with the whole message as a stream in it, while IMAP is enabled:
 	 * PR_EC_IMAP_EMAIL
 	 * PR_EC_IMAP_EMAIL_SIZE
 	 * PR_EC_IMAP_BODY

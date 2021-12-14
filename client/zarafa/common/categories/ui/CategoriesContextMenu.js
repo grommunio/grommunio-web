@@ -14,19 +14,19 @@ Zarafa.common.categories.ui.CategoriesContextMenu = Ext.extend(Ext.menu.Menu, {
 	 * @cfg {Zarafa.core.data.IPMRecord[]} The records to which the actions in
 	 * this context menu will apply
 	 */
-	records : [],
+	records: [],
 
 	/**
 	 * @cfg {Zarafa.core.data.MAPIStore} store contains {@link #records} on which
 	 * categories is going to apply.
 	 */
-	store : undefined,
+	store: undefined,
 
 	/**
 	 * @constructor
 	 * @param {Object} config Configuration object
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		config = config || {};
 
@@ -55,13 +55,15 @@ Zarafa.common.categories.ui.CategoriesContextMenu = Ext.extend(Ext.menu.Menu, {
 					scope: this
 				}
 			],
-			listeners : {
+			listeners: {
 				afterrender: this.onAfterRenderCategoriesMenu,
 				scope: this
 			}
 		});
 
 		Zarafa.common.categories.ui.CategoriesContextMenu.superclass.constructor.call(this, config);
+
+		this.mon(this.store,'load', this.onLoad, this);
 	},
 
 	/**
@@ -70,7 +72,7 @@ Zarafa.common.categories.ui.CategoriesContextMenu = Ext.extend(Ext.menu.Menu, {
 	 * the categories menu
 	 * @private
 	 */
-	createCategoryItems : function()
+	createCategoryItems: function()
 	{
 		var categoriesStore = new Zarafa.common.categories.data.CategoriesStore();
 		// Add categories that are set on the record(s) but don't exist in the categoryStore
@@ -105,7 +107,7 @@ Zarafa.common.categories.ui.CategoriesContextMenu = Ext.extend(Ext.menu.Menu, {
 	 * truncated.
 	 * @param {Ext.menu.Item} item The menu item that has been rendered.
 	 */
-	onAfterRenderCategoriesMenu : function(item)
+	onAfterRenderCategoriesMenu: function(item)
 	{
 		new Zarafa.common.categories.ui.Tooltip({
 			target: item.el,
@@ -119,7 +121,7 @@ Zarafa.common.categories.ui.CategoriesContextMenu = Ext.extend(Ext.menu.Menu, {
 	 * @param {Ext.menu.Item} item The item of the categories submenu
 	 * that is about to be rendered
 	 */
-	onBeforeRenderCategoriesMenuItem : function(item)
+	onBeforeRenderCategoriesMenuItem: function(item)
 	{
 		var selectedCategories = Zarafa.common.categories.Util.getCommonCategories(this.records);
 		if ( selectedCategories.indexOf(item.plainText)>-1 ){
@@ -137,7 +139,7 @@ Zarafa.common.categories.ui.CategoriesContextMenu = Ext.extend(Ext.menu.Menu, {
 	 * @param {Ext.menu.Item} item The item of the categories submenu
 	 * that was just rendered
 	 */
-	onAfterRenderCategoriesMenuItem : function(item)
+	onAfterRenderCategoriesMenuItem: function(item)
 	{
 		var icon = item.el.down('img');
 		var svgIcon = Zarafa.common.categories.Util.getCategoryIconSVG(item.color);
@@ -153,13 +155,13 @@ Zarafa.common.categories.ui.CategoriesContextMenu = Ext.extend(Ext.menu.Menu, {
 	 * @param {Ext.menu.Item} item The item of the categories submenu
 	 * that was clicked
 	 */
-	onCategoryMenuItemClick : function(item)
+	onCategoryMenuItemClick: function(item)
 	{
 		if ( item.selected ){
 			// Remove this category from all records
 			Zarafa.common.categories.Util.removeCategory(this.records, item.plainText, true);
 		} else {
-			var categories  = container.getPersistentSettingsModel().get('kopano/main/categories');
+			var categories = container.getPersistentSettingsModel().get('grommunio/main/categories');
 			var category = categories.find(function (category) {
 				if(!Ext.isEmpty(category.standardIndex) && (category.name === item.plainText)){
 					return category;
@@ -168,10 +170,10 @@ Zarafa.common.categories.ui.CategoriesContextMenu = Ext.extend(Ext.menu.Menu, {
 
 			if(Ext.isDefined(category) && !category.used) {
 				Zarafa.common.Actions.openRenameCategoryContent({
-					categoryName : category.name,
-					records : this.records,
-					color : item.color,
-					recordStore : this.store
+					categoryName: category.name,
+					records: this.records,
+					color: item.color,
+					recordStore: this.store
 				});
 			} else {
 				// Add this category to all records that don't have it yet'

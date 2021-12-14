@@ -1,5 +1,5 @@
 <?php
-require_once('classes/KopanoTest.php');
+require_once('classes/grommunioTest.php');
 
 define('EXPIRES_TIME', 0);
 // Horrible global required for translations.js.php
@@ -11,7 +11,7 @@ ob_end_clean();
 /**
  * Test the translation.js.php
  */
-class TranslationJSTest extends KopanoTest {
+class TranslationJSTest extends grommunioTest {
 
 	public function testChangeTranslationCharsetToUTF8Str() {
 		$str = "foo";

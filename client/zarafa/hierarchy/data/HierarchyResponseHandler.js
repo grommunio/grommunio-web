@@ -6,7 +6,7 @@ Ext.namespace('Zarafa.hierarchy.data');
  */
 Zarafa.hierarchy.data.HierarchyResponseHandler = Ext.extend(Zarafa.core.data.ProxyResponseHandler, {
 	/**
-	 * Handles the list response. Gathers the stores from the response data, converts each entry 
+	 * Handles the list response. Gathers the stores from the response data, converts each entry
 	 * into a {@link Zarafa.core.MAPIStore MAPIStore} and pushes them into the collectedItems.
 	 * @param {Object} data The response object belonging to the given command.
 	 * @return {Boolean} False when action could not be handled successfully. This will
@@ -56,8 +56,17 @@ Zarafa.hierarchy.data.HierarchyResponseHandler = Ext.extend(Zarafa.core.data.Pro
 	 * not cancel the transaction itself, but rather causes the 'success' argument for the
 	 * {@link #done} function to be false.
 	 */
-	doUpdate : function(response)
+	doUpdate: function(response)
 	{
 		this.receivedRecords = this.receivedRecords.concat(this.correlateRecordFromResponse({ item: response }));
+	},
+
+	/**
+	 * Handles the 'ensure' response.
+	 * @param {Object} response The response object belonging to the given command.
+	 */
+	doEnsure: function (response)
+	{
+		this.receivedRecords = response;
 	}
 });

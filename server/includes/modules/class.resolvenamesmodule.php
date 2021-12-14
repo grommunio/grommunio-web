@@ -36,12 +36,12 @@
 				}
 			}
 		}
-		
+
 		/**
 		 * Function which checks the names, sent by the client. This function is used
 		 * when a user wants to sent an email and want to check the names filled in
 		 * by the user in the to, cc and bcc field. This function uses the global
-		 * user list of Kopano to check if the names are correct.
+		 * user list to check if the names are correct.
 		 * @param array $action the action data, sent by the client
 		 * @return boolean true on success or false on failure
 		 */
@@ -58,7 +58,7 @@
 				}
 
 				// open addressbook
-				// When local contacts need to be excluded we have pass true as the first argument 
+				// When local contacts need to be excluded we have pass true as the first argument
 				// so we will not have any Contact Providers set on the Addressbook resource.
 				$ab = $GLOBALS['mapisession']->getAddressbook($excludeLocalContacts);
 
@@ -89,7 +89,7 @@
 		/**
 		 * This function searches the addressbook specified for users and returns an array with data
 		 * Please note that the returning array must be UTF8
-		 * 
+		 *
 		 * @param {MAPIAddressbook} $ab The addressbook
 		 * @param {MAPIAbContainer} $ab_dir The addressbook container
 		 * @param {String} $query The search query, case is ignored
@@ -98,7 +98,7 @@
 		function searchAddressBook($ab, $ab_dir, $query, $excludeGABGroups)
 		{
 			// Prefer resolving the email_address. This allows the user
-			// to resolve recipients with a display name that matches a ZARAFA
+			// to resolve recipients with a display name that matches a EX
 			// user with an alternative (external) email address.
 			$searchstr = empty($query['email_address']) ? $query['display_name'] : $query['email_address'];
 			// If the address_type is 'EX' then we are resolving something which must be found in
@@ -111,7 +111,7 @@
 				$rows = mapi_ab_resolvename($ab, array ( array(PR_DISPLAY_NAME => $searchstr) ) , $flags);
 			} catch (MAPIException $e) {
 				if ($e->getCode() == MAPI_E_AMBIGUOUS_RECIP) {
-					// Ambiguous, show possiblities:
+					// Ambiguous, show possibilities:
 					$table = mapi_folder_getcontentstable($ab_dir, MAPI_DEFERRED_ERRORS);
 					$restriction = $this->getAmbigiousContactRestriction($searchstr, $excludeGABGroups, PR_ACCOUNT);
 
@@ -167,13 +167,13 @@
 							$item['address_type'] = 'MAPIPDL';
 							// The email_address is empty for DistList, using display name for resolving
 							$item['email_address'] = $item['display_name'];
-							$item['smtp_address'] = isset($item['smtp_address']) ? $item['smtp_address']: '';
-						}else{
+							$item['smtp_address'] = isset($item['smtp_address']) ? $item['smtp_address'] : '';
+						} else {
 							$item['address_type'] = 'EX';
 							if (isset($user_data['address_type']) && $user_data['address_type'] === 'EX') {
 								$item['email_address'] = isset($user_data[PR_EMAIL_ADDRESS]) ? $user_data[PR_EMAIL_ADDRESS] : '';
 							} else {
-								// Fake being an ZARAFA account, since it's actually an SMTP addrtype the email address is in a different property.
+								// Fake being an EX account, since it's actually an SMTP addrtype the email address is in a different property.
 								$item['smtp_address'] = isset($user_data[PR_EMAIL_ADDRESS]) ? $user_data[PR_EMAIL_ADDRESS] : '';
 								// Keep the old scenario happy.
 								$item['email_address'] = isset($user_data[PR_EMAIL_ADDRESS]) ? $user_data[PR_EMAIL_ADDRESS] : '';
@@ -198,13 +198,13 @@
 					array_push($items, $item);
 				}
 			}
-			
+
 			return $items;
 		}
 
 		/**
-		 * Used to find multiple entries from the contact folders in the Addressbook when resolving 
-		 * returned an ambigious result. It will find the Contact folders in the Addressbook and 
+		 * Used to find multiple entries from the contact folders in the Addressbook when resolving
+		 * returned an ambigious result. It will find the Contact folders in the Addressbook and
 		 * apply a restriction to extract the entries.
 		 * @param {MAPIAddressbook} $ab The addressbook
 		 * @param {String} $query The search query, case is ignored
@@ -213,11 +213,11 @@
 		function getAmbigiousContactResolveResults($ab, $query, $excludeGABGroups)
 		{
 			/* We need to look for the Contact folders at the bottom of the following tree.
-			* 
+			*
 			 * IAddrBook
 			 *  - Root Container
 			 *     - HIERARCHY TABLE
-			 *        - Kopano Contacts Folders    (Contact Container)
+			 *        - Contacts Folders    (Contact Container)
 			 *           - HIERARCHY TABLE         (Contact Container Hierarchy)
 			 *              - Contact folder 1
 			 *              - Contact folder 2
@@ -228,11 +228,11 @@
 			// Open the AB Root Container by not supplying an entryid
 			$abRootContainer = mapi_ab_openentry($ab);
 
-			// Get the 'Kopano Contact Folders'
+			// Get the 'Contact Folders'
 			$hierarchyTable = mapi_folder_gethierarchytable($abRootContainer, MAPI_DEFERRED_ERRORS);
 			$abHierarchyRows = mapi_table_queryallrows($hierarchyTable, array(PR_AB_PROVIDER_ID, PR_ENTRYID));
 
-			// Look for the 'Kopano Contacts Folders'
+			// Look for the 'Contacts Folders'
 			for($i=0,$len=count($abHierarchyRows);$i<$len;$i++){
 				// Check if the folder matches the Contact Provider GUID
 				if($abHierarchyRows[$i][PR_AB_PROVIDER_ID] == MUIDZCSAB){
@@ -241,20 +241,20 @@
 				}
 			}
 
-			// Next go into the 'Kopano Contacts Folders' and look in the hierarchy table for the Contact folders.
+			// Next go into the 'Contacts Folders' and look in the hierarchy table for the Contact folders.
 			if($abContactContainerEntryid){
-				// Get the rows from hierarchy table of the 'Kopano Contacts Folders'
+				// Get the rows from hierarchy table of the 'Contacts Folders'
 				$abContactContainer = mapi_ab_openentry($ab, $abContactContainerEntryid);
 				$abContactContainerHierarchyTable = mapi_folder_gethierarchytable($abContactContainer, MAPI_DEFERRED_ERRORS);
 				$abContactContainerHierarchyRows = mapi_table_queryallrows($abContactContainerHierarchyTable, array(PR_DISPLAY_NAME, PR_OBJECT_TYPE, PR_ENTRYID));
 
-				// Loop through all the contact folders found under the 'Kopano Contacts Folders' hierarchy
+				// Loop through all the contact folders found under the 'Contacts Folders' hierarchy
 				for($j=0,$len=count($abContactContainerHierarchyRows);$j<$len;$j++){
-					
+
 					// Open, get contents table, restrict, sort and then merge the result in the list of $rows
 					$abContactFolder = mapi_ab_openentry($ab, $abContactContainerHierarchyRows[$j][PR_ENTRYID]);
 					$abContactFolderTable = mapi_folder_getcontentstable($abContactFolder, MAPI_DEFERRED_ERRORS);
-					
+
 					mapi_table_restrict($abContactFolderTable, $contactFolderRestriction, TBL_BATCH);
 					mapi_table_sort($abContactFolderTable, array(PR_DISPLAY_NAME => TABLE_SORT_ASCEND), TBL_BATCH);
 
@@ -277,7 +277,7 @@
 			// only return users from who the displayName or the username starts with $name
 			// TODO: use PR_ANR for this restriction instead of PR_DISPLAY_NAME and $content.
 			$resAnd = array(
-				array(RES_OR, 
+				array(RES_OR,
 					array(
 						array(RES_CONTENT,
 							array(
@@ -336,7 +336,7 @@
 		 * Function does customization of exception based on module data.
 		 * like, here it will generate display message based on actionType
 		 * for particular exception.
-		 * 
+		 *
 		 * @param object $e Exception object
 		 * @param string $actionType the action type, sent by the client
 		 * @param MAPIobject $store Store object of message.
@@ -351,9 +351,9 @@
 				{
 					case 'checknames':
 						if($e->getCode() == MAPI_E_NO_ACCESS) {
-							$e->setDisplayMessage(Language::getstring('You have insufficient privileges to perform this action.'));
+							$e->setDisplayMessage(_('You have insufficient privileges to perform this action.'));
 						} else {
-							$e->setDisplayMessage(Language::getstring('Could not resolve user.'));
+							$e->setDisplayMessage(_('Could not resolve user.'));
 						}
 						break;
 				}

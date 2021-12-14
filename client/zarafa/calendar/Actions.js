@@ -14,11 +14,11 @@ Zarafa.calendar.Actions = {
 	 * @param {Zarafa.core.data.IPMRecord} records The record, or records to which will be responded.
 	 * @param {Object} config (optional) configuration object used to create the ContentPanel
 	 */
-	openAppointmentContent : function(records, config)
+	openAppointmentContent: function(records, config)
 	{
 		Ext.each(records, function(record) {
 			// If the appointment is a series, then we need to ask the user
-			// if he wants to open the occurence or the series.
+			// if he wants to open the occurrence or the series.
 			if (Ext.isDefined(record.isRecurringOccurence) && record.isRecurringOccurence()) {
 				Zarafa.common.Actions.openRecurringSelectionContent(record, function(button, radio) {
 					// Action cancelled.
@@ -49,7 +49,7 @@ Zarafa.calendar.Actions = {
 	 * @param {Zarafa.calendar.CalendarContextModel} model The context model, which is used to create a new record. The record is blank but contains default values, etc.
 	 * @param {Object} config (optional) Configuration object used to create the ContentPanel
 	 */
-	openCreateAppointmentContent : function(model, config)
+	openCreateAppointmentContent: function(model, config)
 	{
 		model.createRecord(function(record){
 			Zarafa.core.data.UIFactory.openCreateRecord(record, config);
@@ -64,7 +64,7 @@ Zarafa.calendar.Actions = {
 	 * @param {Object} config (optional) Configuration object used to create
 	 * the Content Panel.
 	 */
-	openMeetingRequestContent : function(records, config)
+	openMeetingRequestContent: function(records, config)
 	{
 		// Simple wrapper around openAppointmentContent
 		Zarafa.calendar.Actions.openAppointmentContent(records, config);
@@ -79,7 +79,7 @@ Zarafa.calendar.Actions = {
 	 * @param {Object} config (optional) Configuration object used to create
 	 * the Content Panel.
 	 */
-	openCreateMeetingRequestContent : function(model, config)
+	openCreateMeetingRequestContent: function(model, config)
 	{
 		model.createRecord(function(record){
 			record.convertToMeeting();
@@ -94,7 +94,7 @@ Zarafa.calendar.Actions = {
 	 * @param {Zarafa.core.data.IPMRecord} records The record, or records to which will be responded.
 	 * @param {Object} config (optional) Configuration object used to create the ContentPanel
 	 */
-	openAppointmentContentToAcceptProposal : function(records, config)
+	openAppointmentContentToAcceptProposal: function(records, config)
 	{
 		if (Array.isArray(records)) {
 			records = records[0];
@@ -109,23 +109,23 @@ Zarafa.calendar.Actions = {
 
 		config = Ext.applyIf(config || {}, {
 			useShadowStore: true,
-			activeTab : 0,
+			activeTab: 0,
 
 			/*
 			 * when we are actually accepting a proposal then we need to pass the proposed time data
 			 * to appointment dialog so it can set that data after record is opened and all the data is loaded
 			 * in the record
 			 */
-			newAppointmentProps : {
+			newAppointmentProps: {
 				// Apply the new time and duration
-				'startdate' : records.get('proposed_start_date'),
-				'duedate' : records.get('proposed_end_date'),
-				'commonstart' : records.get('proposed_start_date'),
-				'commonend' : records.get('proposed_end_date'),
-				'duration' : records.get('proposed_duration'),
+				'startdate': records.get('proposed_start_date'),
+				'duedate': records.get('proposed_end_date'),
+				'commonstart': records.get('proposed_start_date'),
+				'commonend': records.get('proposed_end_date'),
+				'duration': records.get('proposed_duration'),
 				// Reset the counter_proposal property to prevent
 				// the "Proposal grid" from appearing inside the dialog.
-				'counter_proposal' : false
+				'counter_proposal': false
 			}
 		});
 
@@ -139,7 +139,7 @@ Zarafa.calendar.Actions = {
 	 * @param {Zarafa.core.data.IPMRecord} records The record, or records to which will be responded.
 	 * @param {Object} config (optional) Configuration object used to create the ContentPanels
 	 */
-	openAppointmentContentToViewAllProposals : function(records, config)
+	openAppointmentContentToViewAllProposals: function(records, config)
 	{
 		if (Array.isArray(records)) {
 			records = records[0];
@@ -155,11 +155,11 @@ Zarafa.calendar.Actions = {
 
 		config = Ext.applyIf(config || {}, {
 			useShadowStore: true,
-			activeTab : 1
+			activeTab: 1
 		});
 		Zarafa.core.data.UIFactory.openCreateRecord(appointmentRecord, config);
 	},
-	
+
 	/**
 	 * Opens a {@link Zarafa.calendar.dialogs.ProposeNewTimeContentPanel ProposeNewTimeContentPanel} for
 	 * proposing new time for Meeting Request.
@@ -168,17 +168,17 @@ Zarafa.calendar.Actions = {
 	 * is going to open.
 	 * @param {Object} config (optional) Configuration object used to create the ContentPanel
 	 */
-	openProposeNewTimeContent : function(record, config)
+	openProposeNewTimeContent: function(record, config)
 	{
-		
+
 		config = Ext.applyIf(config || {}, {
-			autoSave : false,
+			autoSave: false,
 			modal: true
 		});
 		var componentType = Zarafa.core.data.SharedComponentType['calendar.dialogs.proposenewtimecontentpanel'];
 		Zarafa.core.data.UIFactory.openLayerComponent(componentType, record, config);
 	},
-	
+
 	/**
 	 * Opens a {@link Zarafa.addressbook.dialogs.ABMultiUserSelectionContentPanel ABMultiUserSelectionContentPanel}
 	 * for configuring the categories of the given {@link Zarafa.core.data.IPMRecord records}.
@@ -187,7 +187,7 @@ Zarafa.calendar.Actions = {
 	 * must be configured
 	 * @param {Object} config (optional) Configuration object used to create the ContentPanel
 	 */
-	openRecipientSelectionContent : function(records, config)
+	openRecipientSelectionContent: function(records, config)
 	{
 		if (Array.isArray(records) && !Ext.isEmpty(records)) {
 			records = records[0];
@@ -199,51 +199,51 @@ Zarafa.calendar.Actions = {
 		var store = copy.getSubStore('recipients');
 
 		Zarafa.common.Actions.openABUserMultiSelectionContent({
-			callback : function() {
+			callback: function() {
 				records.applyData(copy);
 			},
-			convert : function(user, field) {
+			convert: function(user, field) {
 				return user.convertToRecipient(field ? field.defaultRecipientType : config.defaultRecipientType);
 			},
-			store : store,
-			selectionCfg : [{
-				xtype : 'zarafa.recipientfield',
-				fieldLabel : _('Required') + ':',
-				height : 50,
-				boxStore : store,
+			store: store,
+			selectionCfg: [{
+				xtype: 'zarafa.recipientfield',
+				fieldLabel: _('Required') + ':',
+				height: 50,
+				boxStore: store,
 				filterRecipientType: Zarafa.core.mapi.RecipientType.MAPI_TO,
 				defaultRecipientType: Zarafa.core.mapi.RecipientType.MAPI_TO,
-				flex : 1
+				flex: 1
 			},{
-				xtype : 'zarafa.recipientfield',
-				fieldLabel : _('Optional') + ':',
-				height : 50,
-				boxStore : store,
+				xtype: 'zarafa.recipientfield',
+				fieldLabel: _('Optional') + ':',
+				height: 50,
+				boxStore: store,
 				filterRecipientType: Zarafa.core.mapi.RecipientType.MAPI_CC,
 				defaultRecipientType: Zarafa.core.mapi.RecipientType.MAPI_CC,
-				flex : 1
+				flex: 1
 			},{
-				xtype : 'zarafa.recipientfield',
-				fieldLabel : _('Resource') + ':',
-				height : 50,
-				boxStore : store,
+				xtype: 'zarafa.recipientfield',
+				fieldLabel: _('Resource') + ':',
+				height: 50,
+				boxStore: store,
 				filterRecipientType: Zarafa.core.mapi.RecipientType.MAPI_BCC,
 				defaultRecipientType: Zarafa.core.mapi.RecipientType.MAPI_BCC,
-				flex : 1
+				flex: 1
 			}]
 		});
 	},
-	
+
 	/**
 	 * Opens a {@link Zarafa.calendar.dialogs.SendMeetingRequestConfirmationContentPanel}
 	 * @param {Ext.data.Record} record The record, or records, for which the categories must be configured
 	 * @param {Object} config (optional) Configuration object used to create the ContentPanel
 	 */
-	openSendConfirmationContent : function(record, config)
+	openSendConfirmationContent: function(record, config)
 	{
 		config = Ext.applyIf(config || {}, {
-			record : record,
-			modal : true
+			record: record,
+			modal: true
 		});
 		var componentType = Zarafa.core.data.SharedComponentType['calendar.dialogs.sendmeetingrequestconfirmation'];
 		Zarafa.core.data.UIFactory.openLayerComponent(componentType, record, config);
@@ -254,11 +254,11 @@ Zarafa.calendar.Actions = {
 	 * @param {Ext.data.Record} record
 	 * @param {Object} config (optional) Configuration object used to create the ContentPanel
 	 */
-	openSendCancellationContent : function(record, config)
+	openSendCancellationContent: function(record, config)
 	{
 		config = Ext.applyIf(config || {}, {
-			record : record,
-			modal : true
+			record: record,
+			modal: true
 		});
 		var componentType = Zarafa.core.data.SharedComponentType['calendar.dialogs.sendmeetingrequestcancellation'];
 		Zarafa.core.data.UIFactory.openLayerComponent(componentType, record, config);
@@ -267,12 +267,12 @@ Zarafa.calendar.Actions = {
 	/**
 	 * Function opens default calendar folder in the {@link Zarafa.calendar.CalendarContext CalendarContext}.
 	 * it will also load day view containing the {@link Zarafa.core.data.IPMRecord IPMRecord}.
-	 * 
+	 *
 	 * @param {Zarafa.core.data.IPMRecord} record A Meeting Request record
 	 * which should be shown in calendar in day view.
 	 * @param {Object} config (optional) Configuration object used to create the ContentPanel
 	 */
-	showMeetingInCalendar : function(record, config)
+	showMeetingInCalendar: function(record, config)
 	{
 		var mapiStoreRecord, mapiFolderRecord;
 
@@ -341,18 +341,24 @@ Zarafa.calendar.Actions = {
 		} else {
 			// Create a new group, add it to groupings as an active one
 			model.active_group = Ext.id(null, 'group-');
-			model.groupings[model.active_group] = { folders : [ folderEntryid ], active : folderEntryid };
+			model.groupings[model.active_group] = { folders: [ folderEntryid ], active: folderEntryid };
 		}
 
-		// Enable the context, but keep is suspended to prevent loading data
+		// Enable the context, but keep it suspended to prevent loading data
 		container.switchContext(context, foldersToLoad, true);
 
-		// define which view to load
-		context.switchView(Zarafa.calendar.data.Views.BLOCKS, Zarafa.calendar.data.ViewModes.DAYS);
+		// If the view or viewmode is list, change it to blocks and day
+		if (context.getCurrentView() == Zarafa.calendar.data.Views.LIST || context.getCurrentViewMode() == Zarafa.calendar.data.ViewModes.LIST) {
+			context.switchView(Zarafa.calendar.data.Views.BLOCKS, Zarafa.calendar.data.ViewModes.DAYS);
+		}
 
-		// define which date range to load
+		// Define which date range to load
 		var appointmentDate = record.get('appointment_startdate') || record.get('appointment_basedate');
-		model.setDataMode(Zarafa.calendar.data.DataModes.DAY);
+
+		// If the current data mode is all (list) change to day so the appointment will be visible
+		if (model.getCurrentDataMode() == Zarafa.calendar.data.DataModes.ALL) {
+			model.setDataMode(Zarafa.calendar.data.DataModes.DAY);
+		}
 		model.setDate(appointmentDate);
 
 		// Select the appointment
@@ -374,7 +380,7 @@ Zarafa.calendar.Actions = {
 	 * @param {Object} config Configuration object which contains {@link Ext.Component component}
 	 * on which key event is fired and scope of the {@link Zarafa.calendar.KeyMapping KeyMapping} object.
 	 */
-	copyRecurringItemContent : function(record, config)
+	copyRecurringItemContent: function(record, config)
 	{
 		Zarafa.common.Actions.copyRecurringSelectionContent(record, function (button, radio) {
 			// Action cancelled.
@@ -413,7 +419,7 @@ Zarafa.calendar.Actions = {
 	 * @param {Zarafa.core.data.IPMRecord} records The record which will be converted to an appointment
 	 * @param {Zarafa.calendar.CalendarContextModel} model Used to create a new appointment record
 	 */
-	createAppointmentFromMail : function(records, model)
+	createAppointmentFromMail: function(records, model)
 	{
 		var record;
 
@@ -427,7 +433,7 @@ Zarafa.calendar.Actions = {
 			this.openHandler(record.getStore(), record, model);
 		} else {
 			// If record is not opened, then we need to reopen it to get the body. (For example when the selected records store reloads)
-			record.getStore().on('open', this.openHandler.createDelegate(this, [model], 2), this, {single : true});
+			record.getStore().on('open', this.openHandler.createDelegate(this, [model], 2), this, {single: true});
 			record.open();
 		}
 	},

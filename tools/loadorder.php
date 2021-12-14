@@ -27,12 +27,12 @@ function filter_extjsmod($file) {
 }
 
 if ($argc < 3 ) {
-    exit("Usage: loadorder <extjs|kopano> <filename>\n");
+    exit("Usage: loadorder <extjs|grommunio> <filename>\n");
 }
 
 $arg = $argv[1];
 $filename = $argv[2];
-if ($arg !== "extjs" && $arg !== "kopano") {
+if ($arg !== "extjs" && $arg !== "grommunio") {
 	exit("Invalid argument $arg");
 }
 
@@ -45,7 +45,7 @@ if ($arg === "extjs") {
 	file_put_contents($filename, create_arg($files));
 }
 
-if ($arg === "kopano") {
+if ($arg === "grommunio") {
 	$files = $loader->getZarafaJavascriptFiles(LOAD_SOURCE);
 	file_put_contents($filename, create_arg($files));
 }

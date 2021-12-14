@@ -40,7 +40,8 @@ Zarafa.common.dialogs.CopyMovePanelKeyMapping = Ext.extend(Object, {
 	 */
 	onMoveItems: function(key, event, copyMovePanel)
 	{
-		copyMovePanel.onMove();
+		var folder = copyMovePanel.hierarchyTree.getSelectionModel().getSelectedNode().getFolder();
+		copyMovePanel.onMove(copyMovePanel.record, folder);
 	}
 });
 

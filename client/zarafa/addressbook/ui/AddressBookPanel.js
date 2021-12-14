@@ -11,13 +11,13 @@ Zarafa.addressbook.ui.AddressBookPanel = Ext.extend(Zarafa.addressbook.ui.Addres
 	 * @constructor
 	 * @param {Object} config Configuration structure
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		config = config || {};
 
 		Ext.applyIf(config, {
-			xtype : 'zarafa.addressbookpanel',
-			cls : 'k-addressbookpanel'
+			xtype: 'zarafa.addressbookpanel',
+			cls: 'k-addressbookpanel'
 		});
 
 		// Call parent constructor
@@ -31,7 +31,7 @@ Zarafa.addressbook.ui.AddressBookPanel = Ext.extend(Zarafa.addressbook.ui.Addres
 	 * for the {@link Ext.Panel panel} has been completed.
 	 * @private
 	 */
-	onAfterLayout : function()
+	onAfterLayout: function()
 	{
 		this.mon(this.getGridPanel(), 'rowdblclick', this.onAddressBookRowDblClick, this);
 		this.mon(this.getGridPanel(), 'rowcontextmenu', this.onAddressBookRowContextMenu, this);
@@ -46,7 +46,7 @@ Zarafa.addressbook.ui.AddressBookPanel = Ext.extend(Zarafa.addressbook.ui.Addres
 	 * @param {Ext.EventObject} event The event information
 	 * @private
 	 */
-	onAddressBookRowDblClick : function(grid, rowIndex, event)
+	onAddressBookRowDblClick: function(grid, rowIndex, event)
 	{
 		var records = grid.getStore().getAt(rowIndex);
 		Zarafa.addressbook.Actions.openDetailsContent(records);
@@ -62,7 +62,7 @@ Zarafa.addressbook.ui.AddressBookPanel = Ext.extend(Zarafa.addressbook.ui.Addres
 	 * @param {Ext.EventObject} event The event information
 	 * @private
 	 */
-	onAddressBookRowContextMenu : function(grid, rowIndex, event)
+	onAddressBookRowContextMenu: function(grid, rowIndex, event)
 	{
 		var sm = grid.getSelectionModel();
 
@@ -80,9 +80,11 @@ Zarafa.addressbook.ui.AddressBookPanel = Ext.extend(Zarafa.addressbook.ui.Addres
 			sm.selectRow(rowIndex);
 		}
 
+		var selectedFolder = this.getSelectedFolderRecord();
 		Zarafa.core.data.UIFactory.openDefaultContextMenu(sm.getSelections(), {
-			position : event.getXY(),
-			dialog : this.dialog
+			position: event.getXY(),
+			dialog: this.dialog,
+			selectedFolderType: selectedFolder.get('type')
 		});
 	}
 });

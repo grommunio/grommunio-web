@@ -13,7 +13,7 @@ Zarafa.common.ui.messagepanel.ExtraInfoLinks = Ext.extend(Ext.Container, {
 	 * @property
 	 * @type Zarafa.core.data.IPMRecord
 	 */
-	record : undefined,
+	record: undefined,
 
 	/**
 	 * @cfg {String} importantInfoString string which must be displayed in the {@link #header}
@@ -23,7 +23,7 @@ Zarafa.common.ui.messagepanel.ExtraInfoLinks = Ext.extend(Ext.Container, {
 	// # importance the message was sent. For example:
 	// # 'This message was sent with high importance.'
 	// # 'This message was sent with low importance.'
-	importantInfoString : pgettext('mail.previewpanel', 'This message was sent with {0} importance.'),
+	importantInfoString: pgettext('mail.previewpanel', 'This message was sent with {0} importance.'),
 
 	/**
 	 * @cfg {String} sensitivityInfoString string which must be displayed in the {@link #header}
@@ -34,80 +34,80 @@ Zarafa.common.ui.messagepanel.ExtraInfoLinks = Ext.extend(Ext.Container, {
 	// # 'Please treat this as Personal.'
 	// # 'Please treat this as Private.'
 	// # 'Please treat this as Confidential.'
-	sensitivityInfoString : pgettext('mail.previewpanel', 'Please treat this as {0}.'),
+	sensitivityInfoString: pgettext('mail.previewpanel', 'Please treat this as {0}.'),
 
 	/**
-	 * @cfg {String} blockStatusInfoString string which must be displayed in the {@link #header} 
+	 * @cfg {String} blockStatusInfoString string which must be displayed in the {@link #header}
 	 * if there is any external content blocked in the {@link Zarafa.core.data.IPMRecord record} body.
 	 */
-	blockStatusInfoString : pgettext('mail.previewpanel', 'Click here to download pictures. To help protect your privacy, WebApp prevented automatic download of some pictures in this message.'),
+	blockStatusInfoString: pgettext('mail.previewpanel', 'Click here to download pictures. To help protect your privacy, WebApp prevented automatic download of some pictures in this message.'),
 
 	/**
 	 * @cfg {String} faultyMessageInfoString string which will be displayed in the {@link #header}
 	 * if the current {@link Zarafa.core.data.IPMRecord record} is faulty and we will not be able to
 	 * perform operations on this record.
 	 */
-	faultyMessageInfoString : pgettext('mail.previewpanel', 'This message is corrupt and will not be displayed correctly, Click here to fix it.'),
+	faultyMessageInfoString: pgettext('mail.previewpanel', 'This message is corrupt and will not be displayed correctly, Click here to fix it.'),
 
 	/**
 	 * @cfg {String} acceptInfoString string which must be displayed in the {@link #header}
 	 * if user has accepted the meeting request.
 	 */
-	acceptInfoString : pgettext('mail.previewpanel', '{0} has accepted.'),
+	acceptInfoString: pgettext('mail.previewpanel', '{0} has accepted.'),
 
 	/**
 	 * @cfg {String} acceptDelegateInfoString string which must be displayed in the {@link #header}
 	 * if delegate has accepted the meeting request on behalf of delegator.
 	 */
-	acceptDelegateInfoString : pgettext('mail.previewpanel', '{0} has accepted on behalf of {1}.'),
+	acceptDelegateInfoString: pgettext('mail.previewpanel', '{0} has accepted on behalf of {1}.'),
 
 	/**
 	 * @cfg {String} tentativeInfoString string which must be displayed in the {@link #header}
 	 * if user has tentatively accepted the meeting request.
 	 */
-	tentativeInfoString : pgettext('mail.previewpanel', '{0} has tentatively accepted.'),
+	tentativeInfoString: pgettext('mail.previewpanel', '{0} has tentatively accepted.'),
 
 	/**
 	 * @cfg {String} tentativeDelegateInfoString string which must be displayed in the {@link #header}
 	 * if delegate has tentatively accepted the meeting request on behalf of delegator.
 	 */
-	tentativeDelegateInfoString : pgettext('mail.previewpanel', '{0} has tentatively accepted on behalf of {1}.'),
+	tentativeDelegateInfoString: pgettext('mail.previewpanel', '{0} has tentatively accepted on behalf of {1}.'),
 
 	/**
 	 * @cfg {String} tentativeInfoString string which must be displayed in the {@link #header}
 	 * if user has declined the meeting request.
 	 */
-	declineInfoString : pgettext('mail.previewpanel', '{0} has declined.'),
+	declineInfoString: pgettext('mail.previewpanel', '{0} has declined.'),
 
 	/**
 	 * @cfg {String} declineDelegateInfoString string which must be displayed in the {@link #header}
 	 * if delegate has declined the meeting request on behalf of delegator.
 	 */
-	declineDelegateInfoString : pgettext('mail.previewpanel', '{0} has declined on behalf of {1}.'),
+	declineDelegateInfoString: pgettext('mail.previewpanel', '{0} has declined on behalf of {1}.'),
 
 	/**
 	 * @cfg {String} counterProposalAcceptedString string which must be displayed in the {@link #header}
 	 * if any attendee has tentatively accepted the meeting and proposed a new time for the meeting.
 	 */
-	counterProposalTentativeAcceptedString : pgettext('mail.previewpanel', '{0} tentatively accepted and proposed a new time for this meeting.'),
+	counterProposalTentativeAcceptedString: pgettext('mail.previewpanel', '{0} tentatively accepted and proposed a new time for this meeting.'),
 
 	/**
 	 * @cfg {String} counterProposalTentativeAcceptedDelegateString string which must be displayed in the {@link #header}
 	 * if any delegate has tentatively accepted the meeting and proposed a new time for the meeting on behalf of delegator.
 	 */
-	counterProposalTentativeAcceptedDelegateString : pgettext('mail.previewpanel', '{0} tentatively accepted on behalf of {1} and proposed a new time for this meeting.'),
+	counterProposalTentativeAcceptedDelegateString: pgettext('mail.previewpanel', '{0} tentatively accepted on behalf of {1} and proposed a new time for this meeting.'),
 
 	/**
 	 * @cfg {String} counterProposalDeclinedString string which must be displayed in the {@link #header}
 	 * if any attendee has declined the meeting and proposed a new time for the meeting.
 	 */
-	counterProposalDeclinedString : pgettext('mail.previewpanel', '{0} declined and proposed a new time for this meeting.'),
+	counterProposalDeclinedString: pgettext('mail.previewpanel', '{0} declined and proposed a new time for this meeting.'),
 
 	/**
 	 * @cfg {String} counterProposalDeclinedDelegateString string which must be displayed in the {@link #header}
 	 * if any delegate has declined the meeting and proposed a new time for the meeting on behalf of delegator.
 	 */
-	counterProposalDeclinedDelegateString : pgettext('mail.previewpanel', '{0} declined on behalf of {1} and proposed a new time for this meeting.'),
+	counterProposalDeclinedDelegateString: pgettext('mail.previewpanel', '{0} declined on behalf of {1} and proposed a new time for this meeting.'),
 
 	/**
 	 * @cfg {String} meetingNotFoundInfoString string which must be displayed in the {@link #header}
@@ -117,7 +117,7 @@ Zarafa.common.ui.messagepanel.ExtraInfoLinks = Ext.extend(Ext.Container, {
 
 	/**
 	 * @cfg {String} meetingOutDatedInfoString string which must be displayed in the {@link #header}
-	 * if meeting has occured in the past or expired {@link Zarafa.core.data.IPMRecord record}
+	 * if meeting has occurred in the past or expired {@link Zarafa.core.data.IPMRecord record}
 	 */
 	meetingOutDatedInfoString: pgettext('mail.previewpanel', 'This meeting request was updated after this message was sent. You should open the latest update or open the item from the calendar.'),
 
@@ -125,66 +125,66 @@ Zarafa.common.ui.messagepanel.ExtraInfoLinks = Ext.extend(Ext.Container, {
 	 * @cfg {String} organizerAsAttendeeInfoString string which must be displayed in the {@link #header}
 	 * if change in meeting request is been received by the organizer himself in {@link Zarafa.core.data.IPMRecord record}
 	 */
-	organizerAsAttendeeInfoString : pgettext('mail.previewpanel', 'As the meeting organizer, you do not need to respond to the meeting'),
+	organizerAsAttendeeInfoString: pgettext('mail.previewpanel', 'As the meeting organizer, you do not need to respond to the meeting'),
 
 	/**
 	 * @cfg {String} meetingUpdatedInfoString string which must be displayed in the {@link #header}
 	 * if proposed time for meeting request has been accepted by the organizer himself in {@link Zarafa.core.data.IPMRecord record}
 	 */
-	meetingUpdatedInfoString : pgettext('mail.previewpanel','The meeting was updated after the attendee sent this response'),
+	meetingUpdatedInfoString: pgettext('mail.previewpanel','The meeting was updated after the attendee sent this response'),
 
 	/**
 	 * @cfg {String} elapsedTimeInfoString string which must be displayed in the dialog
 	 * if meeting time set in {@link Zarafa.core.data.IPMRecord record} is already elapsed.
 	 */
-	elapsedTimeInfoString : pgettext('mail.previewpanel', 'This appointment occurs in the past.'),
+	elapsedTimeInfoString: pgettext('mail.previewpanel', 'This appointment occurs in the past.'),
 
 	/**
 	 * @cfg {String} responseRequiredString string which must be displayed in the dialog
 	 * if meeting accepted time set in {@link Zarafa.core.data.IPMRecord record} is empty.
 	 * which means that, meeting request is not responded yet
 	 */
-	responseRequiredString : pgettext('mail.previewpanel', 'Please respond.'),
+	responseRequiredString: pgettext('mail.previewpanel', 'Please respond.'),
 
 	/**
 	 * @cfg {String} meetingUpdatedString string which must be displayed in the dialog if the
 	 * {@link Zarafa.core.data.IPMRecord record} is an update of a previously sent meeting request.
 	 */
-	meetingUpdatedString : pgettext('mail.previewpanel', 'This is an update of a previously sent meeting request.'),
+	meetingUpdatedString: pgettext('mail.previewpanel', 'This is an update of a previously sent meeting request.'),
 
 	/**
 	 * @cfg {String} delegatorInfoString string which must be displayed in the dialog if the
 	 * {@link Zarafa.core.data.IPMRecord record} is received as a delegate.
 	 */
-	delegatorInfoString : pgettext('mail.previewpanel', 'Received for {0}.'),
+	delegatorInfoString: pgettext('mail.previewpanel', 'Received for {0}.'),
 
 	/**
 	 * @cfg {String} repliedString string which must be displayed in the dialog if the
 	 * {@link Zarafa.core.data.IPMRecord record} last_verb_executed property is 102 or 103. Which
 	 * means that the user has replied on the email.
 	 */
-	repliedString : pgettext('mail.previewpanel', 'You replied to this message.'),
+	repliedString: pgettext('mail.previewpanel', 'You replied to this message.'),
 
 	/**
 	 * @cfg {String} forwardString string which must be displayed in the dialog if the
 	 * {@link Zarafa.core.data.IPMRecord record} last_verb_executed property is 104. Which
 	 * means that the user has forwarded this email.
 	 */
-	forwardString : pgettext('mail.previewpanel', 'You forwarded this message.'),
+	forwardString: pgettext('mail.previewpanel', 'You forwarded this message.'),
 
 	/**
 	 * @cfg {String} repliedStringTime string which must be displayed in the dialog if the
 	 * {@link Zarafa.core.data.IPMRecord record} last_verb_executed property is 102 or 103. Which
 	 * means that the user has replied on the email. Including the timestamp.
 	 */
-	repliedStringTime : pgettext('mail.previewpanel', 'You replied to this message on {0}.'),
+	repliedStringTime: pgettext('mail.previewpanel', 'You replied to this message on {0}.'),
 
 	/**
 	 * @cfg {String} forwardStringTime string which must be displayed in the dialog if the
 	 * {@link Zarafa.core.data.IPMRecord record} last_verb_executed property is 104. Which
 	 * means that the user has forwarded this email. Including the timestamp.
 	 */
-	forwardStringTime : pgettext('mail.previewpanel', 'You forwarded this message on {0}.'),
+	forwardStringTime: pgettext('mail.previewpanel', 'You forwarded this message on {0}.'),
 
 	/**
 	 * @cfg {String} receivedTaskRequest string which must be displayed in the dialog if the
@@ -192,7 +192,7 @@ Zarafa.common.ui.messagepanel.ExtraInfoLinks = Ext.extend(Ext.Container, {
 	 * and {@link Zarafa.task.TaskRecord#isTaskReceived task is received}. Which
 	 * means that user has received task request from assigner.
 	 */
-	receivedTaskRequest : _('Assigned by {0} on {1}.'),
+	receivedTaskRequest: _('Assigned by {0} on {1}.'),
 
 	/**
 	 * @cfg {String} sentTaskRequest string which must be displayed in the dialog if the
@@ -200,20 +200,20 @@ Zarafa.common.ui.messagepanel.ExtraInfoLinks = Ext.extend(Ext.Container, {
 	 * and {@link Zarafa.task.TaskRecord#isTaskReceived task is not received}. Which
 	 * means that user has assigned task to assignee.
 	 */
-	sentTaskRequest : _('Waiting for response from recipient'),
+	sentTaskRequest: _('Waiting for response from recipient'),
 
 	/**
 	 * @cfg {String} acceptedTaskRequest string which must be displayed in the dialog if the
 	 * {@link Zarafa.core.data.IPMRecord record} taskhistory property is {@link Zarafa.core.mapi.TaskHistory#ACCEPTED}
 	 * Which means that task is accepted by assignee.
 	 */
-	acceptedTaskRequest : _('Accepted by {0} on {1}.'),
+	acceptedTaskRequest: _('Accepted by {0} on {1}.'),
 
 	/**
 	 * @cfg {String} acceptDelegateTaskRequestInfoString string which must be displayed in the {@link #header}
 	 * if delegate has accepted the task request on behalf of delegator.
 	 */
-	acceptDelegateTaskRequestInfoString : _('{0} has accepted on behalf of {1} {2}.'),
+	acceptDelegateTaskRequestInfoString: _('{0} has accepted on behalf of {1} {2}.'),
 
 	/**
 	 * @cfg {String} declineTaskRequest string which must be displayed in the
@@ -222,13 +222,13 @@ Zarafa.common.ui.messagepanel.ExtraInfoLinks = Ext.extend(Ext.Container, {
 	 * {@link Zarafa.core.mapi.TaskState#ACCEPT}. Which means task is assigner received decline
 	 * task request response from assignee.
 	 */
-	declineAssignerTaskRequest : _('Declined by {0} on {1}.'),
+	declineAssignerTaskRequest: _('Declined by {0} on {1}.'),
 
 	/**
 	 * @cfg {String} acceptDelegateTaskRequestInfoString string which must be displayed in the {@link #header}
 	 * if delegate has declined the task request on behalf of delegator.
 	 */
-	declineDelegateTaskRequestInfoString : _('{0} has declined on behalf of {1} {2}.'),
+	declineDelegateTaskRequestInfoString: _('{0} has declined on behalf of {1} {2}.'),
 
 	/**
 	 * @cfg {String} declineTaskRequest string which must be displayed in the
@@ -237,31 +237,31 @@ Zarafa.common.ui.messagepanel.ExtraInfoLinks = Ext.extend(Ext.Container, {
 	 * {@link Zarafa.task.TaskRecord#isTaskRequest record} is not task request record.
 	 * Which means task is assigner received update task request response from assignee.
 	 */
-	updateTaskRequest : _('Last update sent on {0}.'),
+	updateTaskRequest: _('Last update sent on {0}.'),
 
 	/**
 	 * @cfg {String} acceptDelegateTaskRequestInfoString string which must be displayed in the {@link #header}
 	 * if delegate has updated the task request on behalf of delegator.
 	 */
-	updateDelegateTaskRequestInfoString : _('{0} has updated on behalf of {1} {2}.'),
+	updateDelegateTaskRequestInfoString: _('{0} has updated on behalf of {1} {2}.'),
 
 	/**
 	 * @cfg {String} itemCls css class that will be added to every item of this component.
 	 */
-	itemCls : 'preview-header-extrainfobox-item',
+	itemCls: 'preview-header-extrainfobox-item',
 
 	/**
 	 * @constructor
 	 * @param {Object} config configuration object.
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		config = config || {};
 
 		config.plugins = Ext.value(config.plugins, []);
 		config.plugins.push('zarafa.recordcomponentupdaterplugin');
 
-		config =  Ext.applyIf(config, {
+		config = Ext.applyIf(config, {
 			xtype: 'zarafa.extrainfolinks',
 			cls: 'preview-header-extrainfobox'
 		});
@@ -275,13 +275,14 @@ Zarafa.common.ui.messagepanel.ExtraInfoLinks = Ext.extend(Ext.Container, {
 	 *
 	 * @param {Zarafa.core.data.IPMRecord} record to update the {@link Zarafa.common.ui.messagepanel.ExtraInfoLinks ExtraInfoLinks} with
 	 */
-	update : function(record)
+	update: function(record)
 	{
 		// clear the previous contents
 		var el = this.getEl();
-		if(Ext.isDefined(el.dom)) {
-			el.dom.innerHTML = '';
+		if (!Ext.isDefined(el.dom)) {
+			return;
 		}
+		el.dom.innerHTML = '';
 
 		if(!Ext.isDefined(record)) {
 			this.setVisible(false);
@@ -297,13 +298,13 @@ Zarafa.common.ui.messagepanel.ExtraInfoLinks = Ext.extend(Ext.Container, {
 
 		// 104 is set in createmailitemmodule::setReplyForwardInfo when a message is forwarded.
 		if(lastVerbExecuted === 104) {
-			var text = lastVerbExecutionTime ? String.format(this.forwardStringTime, lastVerbExecutionTime.format('j-m-Y H:i')) :
+			var text = lastVerbExecutionTime ? String.format(this.forwardStringTime, lastVerbExecutionTime.formatDefaultTime('j-m-Y {0}')) :
 				this.forwardString;
 			el.createChild({tag: 'div', html: text, cls: this.itemCls});
 
 			isVisible = true;
 		} else if(lastVerbExecuted === 102 || lastVerbExecuted == 103) { // 102/103 is set when the message is a reply.
-			var text = lastVerbExecutionTime ? String.format(this.repliedStringTime, lastVerbExecutionTime.format('j-m-Y H:i')) :
+			var text = lastVerbExecutionTime ? String.format(this.repliedStringTime, lastVerbExecutionTime.formatDefaultTime('j-m-Y {0}')) :
 				this.repliedString;
 			el.createChild({tag: 'div', html: text, cls: this.itemCls});
 
@@ -375,7 +376,7 @@ Zarafa.common.ui.messagepanel.ExtraInfoLinks = Ext.extend(Ext.Container, {
 	 *
 	 * @return {boolean}
 	 */
-	isShowExtraInfo : function ()
+	isShowExtraInfo: function ()
 	{
 		if (this.record.isMessageClass('IPM.Task')) {
 			// Only show the extra info link if record is task and user is task organizer/assigner
@@ -392,9 +393,9 @@ Zarafa.common.ui.messagepanel.ExtraInfoLinks = Ext.extend(Ext.Container, {
 	 * @param {Ext.EventObject} evtObject
 	 * @private
 	 */
-	onExtraInfoBlockClick : function(evtObject)
+	onExtraInfoBlockClick: function(evtObject)
 	{
-		Zarafa.core.data.UIFactory.openContextMenu(Zarafa.core.data.SharedComponentType['common.contextmenu.previewpanel.extrainfo'], this.record, { position : evtObject.getXY() });
+		Zarafa.core.data.UIFactory.openContextMenu(Zarafa.core.data.SharedComponentType['common.contextmenu.previewpanel.extrainfo'], this.record, { position: evtObject.getXY() });
 	},
 
 	/**
@@ -403,7 +404,7 @@ Zarafa.common.ui.messagepanel.ExtraInfoLinks = Ext.extend(Ext.Container, {
 	 * @param {Ext.EventObject} evtObject
 	 * @private
 	 */
-	onExtraInfoFaultyClick : function(evtObject)
+	onExtraInfoFaultyClick: function(evtObject)
 	{
 		Ext.MessageBox.show({
 			title: _('Fix message'),
@@ -420,7 +421,7 @@ Zarafa.common.ui.messagepanel.ExtraInfoLinks = Ext.extend(Ext.Container, {
 	 * @param {String} button button text which was pressed.
 	 * @private
 	 */
-	onFixFaultyMessage : function(button)
+	onFixFaultyMessage: function(button)
 	{
 		if (button == 'yes') {
 			// if the record is loaded through show mail tab/dialog then
@@ -437,32 +438,33 @@ Zarafa.common.ui.messagepanel.ExtraInfoLinks = Ext.extend(Ext.Container, {
 	/**
 	 * Set task request information from {@link Zarafa.core.data.IPMRecord record} data.
 	 *
-	 * @param {Ext.Element/HTMLElement} el The target element which is being layed out
+	 * @param {Ext.Element/HTMLElement} el The target element which is being laid out
 	 * @return {Boolean} true if function added any info to {@link Zarafa.common.ui.messagepanel.ExtraInfoLinks ExtraInfoLinks}
 	 * and it should be made visible else false.
 	 * @private
 	 */
-	setTaskRequestInfo : function (el)
+	setTaskRequestInfo: function (el)
 	{
 		var isVisible;
 		var taskHistory = this.record.get('taskhistory');
 		var infoMsg = '';
 		var taskLastUser = this.record.get('tasklastuser');
-		var delegateResponse  = false;
+		var delegateResponse = false;
 		// check if delegate has responded
 		var delegateEntryid = this.record.get('sender_entryid');
 		var delegatorEntryid = this.record.get('sent_representing_entryid');
 		var assigneeName = '';
+
 		// check if sender and sent representing entryids are different
 		if(delegatorEntryid && !Zarafa.core.EntryId.compareABEntryIds(delegateEntryid, delegatorEntryid)) {
-			delegateResponse  = true;
+			delegateResponse = true;
 			// get assignee information
 			assigneeName = this.record.get('sent_representing_name') || this.record.get('sent_representing_email_address');
 		}
 		switch (taskHistory) {
 			case Zarafa.core.mapi.TaskHistory.ASSIGNED:
 				if (this.record.isTaskReceived()) {
-					infoMsg = String.format(this.receivedTaskRequest, this.record.get('tasklastuser'), this.record.get('task_assigned_time').format(_('d-m-Y g:i a')));
+					infoMsg = String.format(this.receivedTaskRequest, this.record.get('tasklastuser'), this.record.get('task_assigned_time').formatDefaultTime(_('d-m-Y {0}')));
 				} else {
 					infoMsg = this.sentTaskRequest;
 				}
@@ -470,25 +472,25 @@ Zarafa.common.ui.messagepanel.ExtraInfoLinks = Ext.extend(Ext.Container, {
 				break;
 			case Zarafa.core.mapi.TaskHistory.ACCEPTED:
 				if (delegateResponse ) {
-					infoMsg = String.format(this.acceptDelegateTaskRequestInfoString, taskLastUser, assigneeName, this.record.get('task_assigned_time').format(_('d-m-Y g:i a')));
+					infoMsg = String.format(this.acceptDelegateTaskRequestInfoString, taskLastUser, assigneeName, this.record.get('task_assigned_time').formatDefaultTime(_('d-m-Y {0}')));
 				} else {
-					infoMsg = String.format(this.acceptedTaskRequest, taskLastUser, this.record.get('task_assigned_time').format(_('d-m-Y g:i a')));
+					infoMsg = String.format(this.acceptedTaskRequest, taskLastUser, this.record.get('task_assigned_time').formatDefaultTime(_('d-m-Y {0}')));
 				}
 				isVisible = true;
 				break;
 			case Zarafa.core.mapi.TaskHistory.DECLINED:
 				if (delegateResponse ) {
-					infoMsg = String.format(this.declineDelegateTaskRequestInfoString, taskLastUser, assigneeName, this.record.get('task_assigned_time').format(_('d-m-Y g:i a')));
+					infoMsg = String.format(this.declineDelegateTaskRequestInfoString, taskLastUser, assigneeName, this.record.get('task_assigned_time').formatDefaultTime('d-m-Y {0}'));
 				} else {
-					infoMsg = String.format(this.declineAssignerTaskRequest, taskLastUser, this.record.get('task_assigned_time').format(_('d-m-Y g:i a')));
+					infoMsg = String.format(this.declineAssignerTaskRequest, taskLastUser, this.record.get('task_assigned_time').formatDefaultTime(_('d-m-Y {0}')));
 				}
 				isVisible = true;
 				break;
 			case Zarafa.core.mapi.TaskHistory.UPDATED:
 				if (delegateResponse ) {
-					infoMsg = String.format(this.updateDelegateTaskRequestInfoString, taskLastUser, assigneeName, this.record.get('task_assigned_time').format(_('d-m-Y g:i a')));
+					infoMsg = String.format(this.updateDelegateTaskRequestInfoString, taskLastUser, assigneeName, this.record.get('task_assigned_time').formatDefaultTime(_('d-m-Y {0}')));
 				} else {
-					infoMsg = String.format(this.updateTaskRequest, this.record.get('task_assigned_time').format(_('d-m-Y g:i a')));
+					infoMsg = String.format(this.updateTaskRequest, this.record.get('task_assigned_time').formatDefaultTime(_('d-m-Y {0}')));
 				}
 				isVisible = true;
 				break;
@@ -507,11 +509,11 @@ Zarafa.common.ui.messagepanel.ExtraInfoLinks = Ext.extend(Ext.Container, {
 	 * Set meeting information from {@link Zarafa.core.data.IPMRecord record} data
 	 * and if found will update the panel by loading data from the record data into the template
 	 *
-	 * @param {Ext.Element/HTMLElement} el The target element which is being layed out
+	 * @param {Ext.Element/HTMLElement} el The target element which is being laid out
 	 * @return {Boolean} true if {@link Zarafa.core.data.IPMRecord IPMRecord} contains any meeting info
 	 * @private
 	 */
-	setMeetingInfo : function(el)
+	setMeetingInfo: function(el)
 	{
 		var isVisible = this.setMeetingNotFoundInfo(el);
 
@@ -538,12 +540,12 @@ Zarafa.common.ui.messagepanel.ExtraInfoLinks = Ext.extend(Ext.Container, {
 	/**
 	 * Set delegator info if the meeting request is forwarded by delegate meeting rule,
 	 * get info from {@link Zarafa.core.data.IPMRecord record} data.
-	 * @param {Ext.Element/HTMLElement} el The target element which is being layed out
+	 * @param {Ext.Element/HTMLElement} el The target element which is being laid out
 	 * @return {Boolean} true if function added any info to {@link Zarafa.common.ui.messagepanel.ExtraInfoLinks ExtraInfoLinks}
 	 * and it should be made visible else false.
 	 * @private
 	 */
-	setDelegatorInfo : function(el)
+	setDelegatorInfo: function(el)
 	{
 		var delegatedByRule = this.record.get('delegated_by_rule');
 		var isVisible = false;
@@ -560,12 +562,12 @@ Zarafa.common.ui.messagepanel.ExtraInfoLinks = Ext.extend(Ext.Container, {
 
 	/**
 	 * Set meeting request information from {@link Zarafa.core.data.IPMRecord record} data.
-	 * @param {Ext.Element/HTMLElement} el The target element which is being layed out
+	 * @param {Ext.Element/HTMLElement} el The target element which is being laid out
 	 * @return {Boolean} true if function added any info to {@link Zarafa.common.ui.messagepanel.ExtraInfoLinks ExtraInfoLinks}
 	 * and it should be made visible else false.
 	 * @private
 	 */
-	setMeetingRequestInfo : function(el)
+	setMeetingRequestInfo: function(el)
 	{
 		var meetingConflict = this.record.get('conflictinfo');
 		var outDated = this.record.isMeetingOutOfDate();
@@ -615,12 +617,12 @@ Zarafa.common.ui.messagepanel.ExtraInfoLinks = Ext.extend(Ext.Container, {
 	/**
 	 * Set meeting response information from {@link Zarafa.core.data.IPMRecord record} data
 	 * and if found will update the panel by loading data from the record data into the template
-	 * @param {Ext.Element/HTMLElement} el The target element which is being layed out
+	 * @param {Ext.Element/HTMLElement} el The target element which is being laid out
 	 * @return {Boolean} true if function added any info to {@link Zarafa.common.ui.messagepanel.ExtraInfoLinks ExtraInfoLinks}
 	 * and it should be made visible else false.
 	 * @private
 	 */
-	setMeetingResponseInfo : function(el)
+	setMeetingResponseInfo: function(el)
 	{
 		var isVisible = false;
 
@@ -704,12 +706,12 @@ Zarafa.common.ui.messagepanel.ExtraInfoLinks = Ext.extend(Ext.Container, {
 	/**
 	 * Set meeting not found information if meeting is not found in the calendar,
 	 * get info from {@link Zarafa.core.data.IPMRecord record} data
-	 * @param {Ext.Element/HTMLElement} el The target element which is being layed out
+	 * @param {Ext.Element/HTMLElement} el The target element which is being laid out
 	 * @return {Boolean} true if function added any info to {@link Zarafa.common.ui.messagepanel.ExtraInfoLinks ExtraInfoLinks}
 	 * and it should be made visible else false.
 	 * @private
 	 */
-	setMeetingNotFoundInfo : function(el)
+	setMeetingNotFoundInfo: function(el)
 	{
 		var apptNotFound = this.record.get('appointment_not_found');
 		var isVisible = false;
@@ -724,12 +726,12 @@ Zarafa.common.ui.messagepanel.ExtraInfoLinks = Ext.extend(Ext.Container, {
 
 	/**
 	 * Set recurring meeting request information from {@link Zarafa.core.data.IPMRecord record} data.
-	 * @param {Ext.Element/HTMLElement} el The target element which is being layed out
+	 * @param {Ext.Element/HTMLElement} el The target element which is being laid out
 	 * @return {Boolean} true if function added any info to {@link Zarafa.common.ui.messagepanel.ExtraInfoLinks ExtraInfoLinks}
 	 * and it should be made visible else false.
 	 * @private
 	 */
-	setRecurringMeetingRequestInfo : function(el)
+	setRecurringMeetingRequestInfo: function(el)
 	{
 		var recurringPattern = this.record.get('recurring_pattern');
 		var isVisible = false;

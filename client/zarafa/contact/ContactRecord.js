@@ -115,6 +115,7 @@ Zarafa.contact.ContactRecordFields = [
 	{name: 'nickname'},
 	{name: 'has_picture'},
 	{name: 'hide_attachments'},
+	{name: 'contact_photo_attach_num', defaultValue: -1},
 	{name: 'spouse_name'},
 	{name: 'birthday', type: 'date', dateFormat: 'timestamp', defaultValue: null},
 	{name: 'wedding_anniversary', type: 'date', dateFormat: 'timestamp', defaultValue: null},
@@ -155,7 +156,7 @@ Zarafa.contact.ContactRecordFields = [
 /**
  * @class Zarafa.contact.ContactRecord
  * @extends Zarafa.core.data.IPMRecord
- * 
+ *
  * An extension to the {@link Zarafa.core.data.IPMRecord IPMRecord} specific to records which are
  * used as Contacts
  */
@@ -164,7 +165,7 @@ Zarafa.contact.ContactRecord = Ext.extend(Zarafa.core.data.IPMRecord, {
 	/**
 	 * @return {Boolean} True if this recipient has an email address
 	 */
-	hasEmailAddress : function()
+	hasEmailAddress: function()
 	{
 		return !Ext.isEmpty(this.get('email_address_1')) || !Ext.isEmpty(this.get('email_address_2')) || !Ext.isEmpty(this.get('email_address_3'));
 	},
@@ -180,7 +181,7 @@ Zarafa.contact.ContactRecord = Ext.extend(Zarafa.core.data.IPMRecord, {
 	 * contains multiple email addresses or a single recipient with default email address.
 	 * @return {Zarafa.core.data.IPMRecipientRecord} The recipientRecord for this addressbook item
 	 */
-	convertToRecipient : function(recipientType, multiple)
+	convertToRecipient: function(recipientType, multiple)
 	{
 		// every email address will create a new recipient record
 		var recipientRecords = [];
@@ -189,15 +190,15 @@ Zarafa.contact.ContactRecord = Ext.extend(Zarafa.core.data.IPMRecord, {
 			for(var index = 1; index < 4; index++) {
 				if(!Ext.isEmpty(this.get('email_address_' + index))) {
 					var props = {
-						entryid : Zarafa.core.EntryId.wrapContactProviderEntryId(this.get('entryid'), Zarafa.core.mapi.ObjectType.MAPI_MAILUSER),
-						object_type : Zarafa.core.mapi.ObjectType.MAPI_MAILUSER,
-						display_type : Zarafa.core.mapi.DisplayType.DT_MAILUSER,
-						display_type_ex : Zarafa.core.mapi.DisplayType.DT_MAILUSER,
-						display_name : this.get('email_address_display_name_' + index) || this.get('display_name'),
-						smtp_address : this.get('email_address_' + index),
-						email_address : this.get('email_address_' + index),
-						address_type : this.get('email_address_type_' + index) || 'SMTP',
-						recipient_type : recipientType || Zarafa.core.mapi.RecipientType.MAPI_TO
+						entryid: Zarafa.core.EntryId.wrapContactProviderEntryId(this.get('entryid'), Zarafa.core.mapi.ObjectType.MAPI_MAILUSER),
+						object_type: Zarafa.core.mapi.ObjectType.MAPI_MAILUSER,
+						display_type: Zarafa.core.mapi.DisplayType.DT_MAILUSER,
+						display_type_ex: Zarafa.core.mapi.DisplayType.DT_MAILUSER,
+						display_name: this.get('email_address_display_name_' + index) || this.get('display_name'),
+						smtp_address: this.get('email_address_' + index),
+						email_address: this.get('email_address_' + index),
+						address_type: this.get('email_address_type_' + index) || 'SMTP',
+						recipient_type: recipientType || Zarafa.core.mapi.RecipientType.MAPI_TO
 					};
 
 					recipientRecords.push(Zarafa.core.data.RecordFactory.createRecordObjectByCustomType(Zarafa.core.data.RecordCustomObjectType.ZARAFA_RECIPIENT, props));
@@ -210,15 +211,15 @@ Zarafa.contact.ContactRecord = Ext.extend(Zarafa.core.data.IPMRecord, {
 		// send only single recipient
 		if(!Ext.isEmpty(this.get('email_address'))) {
 			var props = {
-				entryid : Zarafa.core.EntryId.wrapContactProviderEntryId(this.get('entryid'), Zarafa.core.mapi.ObjectType.MAPI_MAILUSER),
-				object_type : Zarafa.core.mapi.ObjectType.MAPI_MAILUSER,
-				display_type : Zarafa.core.mapi.DisplayType.DT_MAILUSER,
-				display_type_ex : Zarafa.core.mapi.DisplayType.DT_MAILUSER,
-				display_name : this.get('email_address_display_name') || this.get('display_name'),
-				smtp_address : this.get('email_address'),
-				email_address : this.get('email_address'),
-				address_type : 'SMTP',
-				recipient_type : recipientType || Zarafa.core.mapi.RecipientType.MAPI_TO
+				entryid: Zarafa.core.EntryId.wrapContactProviderEntryId(this.get('entryid'), Zarafa.core.mapi.ObjectType.MAPI_MAILUSER),
+				object_type: Zarafa.core.mapi.ObjectType.MAPI_MAILUSER,
+				display_type: Zarafa.core.mapi.DisplayType.DT_MAILUSER,
+				display_type_ex: Zarafa.core.mapi.DisplayType.DT_MAILUSER,
+				display_name: this.get('email_address_display_name') || this.get('display_name'),
+				smtp_address: this.get('email_address'),
+				email_address: this.get('email_address'),
+				address_type: 'SMTP',
+				recipient_type: recipientType || Zarafa.core.mapi.RecipientType.MAPI_TO
 			};
 
 			return Zarafa.core.data.RecordFactory.createRecordObjectByCustomType(Zarafa.core.data.RecordCustomObjectType.ZARAFA_RECIPIENT, props);
@@ -230,7 +231,7 @@ Zarafa.contact.ContactRecord = Ext.extend(Zarafa.core.data.IPMRecord, {
 	 * which can be used as record inside {@link Zarafa.contact.DistlistMemberStore}.
 	 * @return {Zarafa.contact.DistlistMemberRecord} The distribution list member for distlist item.
 	 */
-	convertToDistlistMember : function()
+	convertToDistlistMember: function()
 	{
 		/*
 		 * Contacts may have three different email-ids.
@@ -246,11 +247,11 @@ Zarafa.contact.ContactRecord = Ext.extend(Zarafa.core.data.IPMRecord, {
 		}
 
 		return Zarafa.core.data.RecordFactory.createRecordObjectByCustomType(Zarafa.core.data.RecordCustomObjectType.ZARAFA_DISTLIST_MEMBER, {
-			entryid : entryid,
-			address_type : this.get('address_type'),
-			distlist_type : Zarafa.core.mapi.DistlistType.DL_USER,
-			display_name : this.get('display_name'),
-			email_address : this.get('email_address')
+			entryid: entryid,
+			address_type: this.get('address_type'),
+			distlist_type: Zarafa.core.mapi.DistlistType.DL_USER,
+			display_name: this.get('display_name'),
+			email_address: this.get('email_address')
 		});
 	},
 
@@ -259,7 +260,7 @@ Zarafa.contact.ContactRecord = Ext.extend(Zarafa.core.data.IPMRecord, {
 	 * will be initialized according to the timezone information which is currently
 	 * valid for this browser (See {@link Date#getTimezoneStruct}).
 	 */
-	updateTimezoneInformation : function()
+	updateTimezoneInformation: function()
 	{
 		var tz = Date.getTimezoneStruct();
 
@@ -276,12 +277,12 @@ Zarafa.contact.ContactRecord = Ext.extend(Zarafa.core.data.IPMRecord, {
 		this.set('timezone_dststarthour', tz.dststarthour, true);
 		this.endEdit();
 	},
-	
+
 	/**
 	 * Function is used to update subject property on {@link Zarafa.core.data.IPMRecord IPMRecord}
 	 * according to changes in display_name property.
 	 */
-	updateSubject : function()
+	updateSubject: function()
 	{
 		// prefixes/suffixes should be removed when saving subject
 		var prefix = this.get('display_name_prefix');
@@ -323,18 +324,18 @@ Zarafa.contact.ContactRecord = Ext.extend(Zarafa.core.data.IPMRecord, {
 	 * These properties are used by {@link Zarafa.addressbook.dialogs.AddressBookContentPanel AddressBookContentPanel} to show contact items
 	 * in the addressbook.
 	 *
-	 * type of email address        address_book_mv         address_book_long
-	 *	email1                      0                       1 (0x00000001)
-	 *	email2                      1                       2 (0x00000002)
-	 *	email3                      2                       4 (0x00000004)
-	 *	fax2(business fax)          3                       8 (0x00000008)
-	 *	fax3(home fax)              4                       16 (0x00000010)
-	 *	fax1(primary fax)           5                       32 (0x00000020)
+	 * type of email address    address_book_mv     address_book_long
+	 *	email1           0            1 (0x00000001)
+	 *	email2           1            2 (0x00000002)
+	 *	email3           2            4 (0x00000004)
+	 *	fax2(business fax)     3            8 (0x00000008)
+	 *	fax3(home fax)       4            16 (0x00000010)
+	 *	fax1(primary fax)      5            32 (0x00000020)
 	 *
 	 *	address_book_mv is a multivalued property so all the values are passed in array
 	 *	address_book_long stores sum of the flags these both properties should be in sync always.
 	 */
-	updateAddressbookProps : function()
+	updateAddressbookProps: function()
 	{
 		var addressbook_long = 0;
 		var addressbook_mv = [];
@@ -350,7 +351,7 @@ Zarafa.contact.ContactRecord = Ext.extend(Zarafa.core.data.IPMRecord, {
 				}
 				emailDisplayName += '(' + this.get('email_address_' + index) + ')';
 				this.set('email_address_display_name_' + index, emailDisplayName);
-			
+
 				if (!Ext.isEmpty(this.get('email_address_display_name_' + index))) {
 					addressbook_long += Math.pow(2, index - 1);
 					addressbook_mv.push(index - 1);
@@ -430,7 +431,7 @@ Zarafa.contact.ContactRecord = Ext.extend(Zarafa.core.data.IPMRecord, {
 	 *
 	 * @private
 	 */
-	afterOpen : function()
+	afterOpen: function()
 	{
 		if (this.isSubMessage()) {
 			this.beginEdit();
@@ -465,7 +466,7 @@ Zarafa.contact.ContactRecord = Ext.extend(Zarafa.core.data.IPMRecord, {
 	 * @param {Boolean} allAsZip (optional) True to downloading all the attachments as ZIP
 	 * @return {String} URL for downloading message as file.
 	 */
-	getDownloadMessageUrl : function(allAsZip)
+	getDownloadMessageUrl: function(allAsZip)
 	{
 		var url = container.getBaseURL();
 		url = Ext.urlAppend(url, 'load=download_contact');

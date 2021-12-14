@@ -21,18 +21,18 @@ Zarafa.common.settings.SettingsDelegateCategory = Ext.extend(Zarafa.settings.ui.
 	 * @constructor
 	 * @param {Object} config Configuration object
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		config = config || {};
 
 		Ext.applyIf(config, {
-			title : _('Delegates'),
-			categoryIndex : 5,
-			xtype : 'zarafa.settingsdelegatecategory',
-			iconCls : 'zarafa-settings-category-delegate',
-			items : [{
-					xtype : 'zarafa.settingsdelegatewidget',
-					settingsContext : config.settingsContext
+			title: _('Delegates'),
+			categoryIndex: 5,
+			xtype: 'zarafa.settingsdelegatecategory',
+			iconCls: 'zarafa-settings-category-delegate',
+			items: [{
+					xtype: 'zarafa.settingsdelegatewidget',
+					settingsContext: config.settingsContext
 				},
 				container.populateInsertionPoint('context.settings.category.delegate', this)
 			]
@@ -46,7 +46,7 @@ Zarafa.common.settings.SettingsDelegateCategory = Ext.extend(Zarafa.settings.ui.
 	 * this will unregister the {@link #onBeforeSaveRules} event handler.
 	 * @private
 	 */
-	onHide : function()
+	onHide: function()
 	{
 		Zarafa.common.settings.SettingsDelegateCategory.superclass.onHide.apply(this, arguments);
 
@@ -64,12 +64,12 @@ Zarafa.common.settings.SettingsDelegateCategory = Ext.extend(Zarafa.settings.ui.
 	 * {@link Zarafa.settings.SettingsModel#beforesave beforesave} event.
 	 * @private
 	 */
-	onBeforeSaveSettingsModel : function()
+	onBeforeSaveSettingsModel: function()
 	{
 		Zarafa.common.settings.SettingsDelegateCategory.superclass.onBeforeSaveSettingsModel.apply(this, arguments);
 
 		var store = this.get(0).getDelegateStore();
-		this.mon(store, 'beforesave', this.onBeforeSaveDelegate, this, { single : true });
+		this.mon(store, 'beforesave', this.onBeforeSaveDelegate, this, { single: true });
 	},
 
 	/**
@@ -78,7 +78,7 @@ Zarafa.common.settings.SettingsDelegateCategory = Ext.extend(Zarafa.settings.ui.
 	 * event handlers for the completion of the save.
 	 * @private
 	 */
-	onBeforeSaveDelegate : function()
+	onBeforeSaveDelegate: function()
 	{
 		this.displaySavingMask();
 
@@ -89,11 +89,11 @@ Zarafa.common.settings.SettingsDelegateCategory = Ext.extend(Zarafa.settings.ui.
 
 	/**
 	 * Event handler which is fired when the {@link Zarafa.common.delegates.data.DelegateStore Delegate Store}
-	 * fires the 'save' event indicating the successfull save of the delegates. This will
+	 * fires the 'save' event indicating the successful save of the delegates. This will
 	 * {@link #hideSavingMask hide the notification}.
 	 * @private
 	 */
-	onDelegateSave : function()
+	onDelegateSave: function()
 	{
 		this.hideSavingMask(true);
 
@@ -108,7 +108,7 @@ Zarafa.common.settings.SettingsDelegateCategory = Ext.extend(Zarafa.settings.ui.
 	 * {@link #hideSavingMask hide the notification}.
 	 * @private
 	 */
-	onDelegateException : function()
+	onDelegateException: function()
 	{
 		this.hideSavingMask(false);
 

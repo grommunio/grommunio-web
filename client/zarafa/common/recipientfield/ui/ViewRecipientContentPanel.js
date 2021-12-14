@@ -12,26 +12,26 @@ Zarafa.common.recipientfield.ui.ViewRecipientContentPanel = Ext.extend(Zarafa.co
 	 * @cfg {Zarafa.core.data.IPMRecipientRecord} record The recipient which
 	 * is being viewed by this panel.
 	 */
-	record : undefined,
+	record: undefined,
 
 	/**
 	 * The form panel which is loaded inside this panel.
 	 * @property
 	 * @type Ext.form.FormPanel
 	 */
-	formPanel : undefined,
+	formPanel: undefined,
 
 	/**
 	 * @constructor
 	 * @param {Object} config Configuration object
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		config = config || {};
 
 		Ext.applyIf(config, {
-			title : _('View recipient'),
-			layout : 'fit',
+			title: _('View recipient'),
+			layout: 'fit',
 			width: 350,
 			height: 100,
 			items: [{
@@ -45,13 +45,13 @@ Zarafa.common.recipientfield.ui.ViewRecipientContentPanel = Ext.extend(Zarafa.co
 					fieldLabel: _('Display name'),
 					name: 'display_name',
 					anchor: '100%',
-					readOnly : true
+					readOnly: true
 				},{
 					xtype: 'textfield',
 					fieldLabel: _('Email address'),
 					name: 'smtp_address',
 					anchor: '100%',
-					readOnly : true
+					readOnly: true
 				}],
 				buttons: [{
 					text: _('Ok'),
@@ -75,7 +75,7 @@ Zarafa.common.recipientfield.ui.ViewRecipientContentPanel = Ext.extend(Zarafa.co
 	 * This will load the {@link #record} into {@link #formPanel}.
 	 * @private
 	 */
-	onAfterFirstLayout : function()
+	onAfterFirstLayout: function()
 	{
 		this.formPanel.getForm().loadRecord(this.record);
 	},
@@ -84,7 +84,7 @@ Zarafa.common.recipientfield.ui.ViewRecipientContentPanel = Ext.extend(Zarafa.co
 	 * Event handler which is raised when the user clicks the "Ok" {@link Ext.Button button}
 	 * @private
 	 */
-	onOk : function()
+	onOk: function()
 	{
 		this.close();
 	},
@@ -93,7 +93,7 @@ Zarafa.common.recipientfield.ui.ViewRecipientContentPanel = Ext.extend(Zarafa.co
 	 * Event handler which is raised when the user clicks the "Cancel" {@link Ext.Button button}
 	 * @private
 	 */
-	onCancel : function()
+	onCancel: function()
 	{
 		this.close();
 	}

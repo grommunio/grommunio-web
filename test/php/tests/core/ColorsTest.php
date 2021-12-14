@@ -1,11 +1,11 @@
 <?php
-require_once('classes/KopanoTest.php');
+require_once('classes/grommunioTest.php');
 require_once(BASE_PATH . 'server/includes/core/class.colors.php');
 
 /**
  * Test the Colors class
  */
-class ColorsTest extends KopanoTest {
+class ColorsTest extends grommunioTest {
 
 	public function testLighter() {
 		$lighter = Colors::lighter("#ff6347", 20);

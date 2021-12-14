@@ -908,8 +908,6 @@ describe('KQLParser', function() {
 
 			// Now test if the subquery contains the correct tokens
 			var subQueryTokens = tokens[0].value;
-			console.log(JSON.stringify(subQueryTokens));
-			console.log(JSON.stringify(expectedSubQueryTokens));
 			expect(Array.isArray(subQueryTokens)).toBe(true);
 			expect(subQueryTokens.length).toBe(expectedSubQueryTokens.length);
 			expectedSubQueryTokens.forEach(function(expectedSubQueryToken, i) {
@@ -1001,7 +999,5 @@ describe('KQLParser', function() {
 			});
 			expect(tokens[0].negate).toBeUndefined();
 		});
-
-		console.log(JSON.stringify(Zarafa.advancesearch.KQLParser.normalize(Zarafa.advancesearch.KQLParser.tokenize('to=henk AND NOT (to=tous)'))))
 	});
 });

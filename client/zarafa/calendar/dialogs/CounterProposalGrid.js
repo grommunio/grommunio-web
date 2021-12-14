@@ -12,7 +12,7 @@ Zarafa.calendar.dialogs.CounterProposalGrid = Ext.extend(Ext.grid.GridPanel, {
 	 * @constructor
 	 * @param {Object} config Configuration structure
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		config = config || {};
 
@@ -20,18 +20,18 @@ Zarafa.calendar.dialogs.CounterProposalGrid = Ext.extend(Ext.grid.GridPanel, {
 		config.plugins.push('zarafa.recordcomponentupdaterplugin');
 
 		Ext.applyIf(config, {
-			xtype : 'zarafa.counterproposalgrid',
+			xtype: 'zarafa.counterproposalgrid',
 			store: new Ext.data.JsonStore({
 				root: 'proposals',
 				fields: ['startdate', 'duedate', 'duration', 'display_name']
 			}),
 			autoHeight: true,
 			maxHeight: 300,
-			viewConfig : {
-				forceFit : true
+			viewConfig: {
+				forceFit: true
 			},
-			columns : this.initColumnModel(),
-			selModel : this.initSelectionModel()
+			columns: this.initColumnModel(),
+			selModel: this.initSelectionModel()
 		});
 
 		Zarafa.calendar.dialogs.CounterProposalGrid.superclass.constructor.call(this, config);
@@ -42,7 +42,7 @@ Zarafa.calendar.dialogs.CounterProposalGrid = Ext.extend(Ext.grid.GridPanel, {
 	 * @return {Ext.grid.ColumnModel} column model object
 	 * @private
 	 */
-	initColumnModel : function()
+	initColumnModel: function()
 	{
 		return [{
 			dataIndex: 'startdate',
@@ -58,7 +58,7 @@ Zarafa.calendar.dialogs.CounterProposalGrid = Ext.extend(Ext.grid.GridPanel, {
 			dataIndex: 'display_name',
 			header: _('Proposed By'),
 			sortable: true,
-			renderer : Zarafa.common.ui.grid.Renderers.text
+			renderer: Zarafa.common.ui.grid.Renderers.text
 		}
 		//@TODO:this column should show wheather the proposed time is conflicting with any other organizer appointment
 		/*,{
@@ -74,10 +74,10 @@ Zarafa.calendar.dialogs.CounterProposalGrid = Ext.extend(Ext.grid.GridPanel, {
 	 * @return {Ext.grid.RowSelectionModel} selection model object
 	 * @private
 	 */
-	initSelectionModel : function()
+	initSelectionModel: function()
 	{
 		return new Ext.grid.RowSelectionModel({
-			singleSelect : true
+			singleSelect: true
 		});
 	},
 
@@ -85,7 +85,7 @@ Zarafa.calendar.dialogs.CounterProposalGrid = Ext.extend(Ext.grid.GridPanel, {
 	 * initialize events for the grid panel
 	 * @private
 	 */
-	initEvents : function()
+	initEvents: function()
 	{
 		Zarafa.calendar.dialogs.CounterProposalGrid.superclass.initEvents.call(this);
 
@@ -99,7 +99,7 @@ Zarafa.calendar.dialogs.CounterProposalGrid = Ext.extend(Ext.grid.GridPanel, {
 	 * @param {Zarafa.core.data.IPMRecord} record The record to update the panel with
 	 * @param {Boolean} contentReset force the component to perform a full update of the data.
 	 */
-	update : function(record, contentReset)
+	update: function(record, contentReset)
 	{
 		// we need opened record to get recipient store
 		if(!record.isOpened()) {
@@ -130,20 +130,20 @@ Zarafa.calendar.dialogs.CounterProposalGrid = Ext.extend(Ext.grid.GridPanel, {
 				if(recipient.isMeetingOrganizer()) {
 					var duration = record.get('duration') ? record.get('duration') : Date.diff(Date.MINUTE, record.get('duedate'), record.get('startdate'));
 					var organizer = {
-						'display_name' : _('Current Meeting Time'),
-						'startdate' : record.get('startdate'),
-						'duedate' : record.get('duedate'),
-						'duration' : duration
+						'display_name': _('Current Meeting Time'),
+						'startdate': record.get('startdate'),
+						'duedate': record.get('duedate'),
+						'duration': duration
 					};
 
 					items.proposals.push(organizer);
 				} else if(recipient.get('proposednewtime') === true) {
 					var duration = Date.diff(Date.MINUTE, recipient.get('proposednewtime_end'), recipient.get('proposednewtime_start'));
 					var item = {
-						'display_name' : recipient.get('display_name'),
-						'startdate' : recipient.get('proposednewtime_start'),
-						'duedate' : recipient.get('proposednewtime_end'),
-						'duration' : duration
+						'display_name': recipient.get('display_name'),
+						'startdate': recipient.get('proposednewtime_start'),
+						'duedate': recipient.get('proposednewtime_end'),
+						'duration': duration
 					};
 
 					items.proposals.push(item);
@@ -169,7 +169,7 @@ Zarafa.calendar.dialogs.CounterProposalGrid = Ext.extend(Ext.grid.GridPanel, {
 	 * as selected by {@link #update}.
 	 * @private
 	 */
-	onViewReady : function()
+	onViewReady: function()
 	{
 		this.getSelectionModel().selectFirstRow();
 	},
@@ -181,7 +181,7 @@ Zarafa.calendar.dialogs.CounterProposalGrid = Ext.extend(Ext.grid.GridPanel, {
 	 * @param {Ext.grid.RowSelectionModel} selectionModel The selection model used by the grid.
 	 * @private
 	 */
-	onSelectionChange : function(selectionModel)
+	onSelectionChange: function(selectionModel)
 	{
 		var selections = selectionModel.getSelections();
 

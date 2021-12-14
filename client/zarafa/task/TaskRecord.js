@@ -21,8 +21,8 @@ Zarafa.task.TaskRecordFields = [
 	{name: 'commonend', type: 'date', dateFormat: 'timestamp', defaultValue: null},
 	{name: 'taskstate', type: 'int', defaultValue: Zarafa.core.mapi.TaskState.NORMAL},
 	{name: 'taskmode', type: 'int', defaultValue: Zarafa.core.mapi.TaskMode.NOTHING},
-	{name: 'tasksoc',  type: 'boolean', defaultValue: true},
-	{name: 'taskupdates',  type: 'boolean', defaultValue: true},
+	{name: 'tasksoc', type: 'boolean', defaultValue: true},
+	{name: 'taskupdates', type: 'boolean', defaultValue: true},
 	{name: 'reminder', type: 'boolean', defaultValue: false},
 	{name: 'reminderdate', type: 'date', dateFormat: 'timestamp', defaultValue: null},
 	{name: 'owner'},
@@ -52,9 +52,9 @@ Zarafa.task.TaskRecordFields = [
 	{name: 'flag_request'},
 	{name: 'flag_due_by', type:'date', dateFormat:'timestamp', defaultValue: null},
 	{name: 'flag_complete_time', type:'date', dateFormat:'timestamp', defaultValue: null},
-	{name: 'task_acceptance_state', type : 'int', defaultValue:Zarafa.core.mapi.TaskAcceptanceState.NOT_DELEGATED},
-	{name: 'updatecount', type : 'int'},
-	{name: 'task_not_found', type : 'boolean'}
+	{name: 'task_acceptance_state', type: 'int', defaultValue:Zarafa.core.mapi.TaskAcceptanceState.NOT_DELEGATED},
+	{name: 'updatecount', type: 'int'},
+	{name: 'task_not_found', type: 'boolean'}
 ];
 
 Zarafa.core.data.RecordFactory.addFieldToMessageClass('IPM.Task', Zarafa.task.TaskRecordFields);
@@ -90,7 +90,7 @@ Zarafa.task.TaskRecord = Ext.extend(Zarafa.core.data.MessageRecord, {
 	 * @return {Boolean} true if the {@link Zarafa.core.data.TaskRecord TaskRecord} is task request or
 	 * task is not normal task else false.
 	 */
-	isTaskRequest : function()
+	isTaskRequest: function()
 	{
 		return (this.get('taskmode') !== Zarafa.core.mapi.TaskMode.NOTHING) || this.isMessageClass('IPM.TaskRequest');
 	},
@@ -100,7 +100,7 @@ Zarafa.task.TaskRecord = Ext.extend(Zarafa.core.data.MessageRecord, {
 	 *
 	 * @returns {boolean} true if task is assigner copy else false.
 	 */
-	isTaskOrganized : function ()
+	isTaskOrganized: function ()
 	{
 		return this.get('taskstate') === Zarafa.core.mapi.TaskState.ACCEPT ||
 			this.get('taskstate') === Zarafa.core.mapi.TaskState.DECLINE;
@@ -112,9 +112,9 @@ Zarafa.task.TaskRecord = Ext.extend(Zarafa.core.data.MessageRecord, {
 	 *
 	 * @returns {boolean} true if user has assigned task to assignee else false.
 	 */
-	isTaskDelegated : function()
+	isTaskDelegated: function()
 	{
-		return this.get('ownership')  === Zarafa.core.mapi.TaskOwnership.DELEGATEDTASK;
+		return this.get('ownership') === Zarafa.core.mapi.TaskOwnership.DELEGATEDTASK;
 	},
 
 	/**
@@ -122,9 +122,9 @@ Zarafa.task.TaskRecord = Ext.extend(Zarafa.core.data.MessageRecord, {
 	 *
 	 * @returns {boolean} true if user is task owner/assignee of this task else false
 	 */
-	isTaskOwner : function ()
+	isTaskOwner: function ()
 	{
-		return this.get('ownership')  === Zarafa.core.mapi.TaskOwnership.OWNTASK;
+		return this.get('ownership') === Zarafa.core.mapi.TaskOwnership.OWNTASK;
 	},
 
 	/**
@@ -132,7 +132,7 @@ Zarafa.task.TaskRecord = Ext.extend(Zarafa.core.data.MessageRecord, {
 	 *
 	 * @returns {boolean} true if task is received task from assignor else false.
 	 */
-	isTaskReceived : function()
+	isTaskReceived: function()
 	{
 		return this.get('taskstate') === Zarafa.core.mapi.TaskState.OWNER;
 	},
@@ -142,7 +142,7 @@ Zarafa.task.TaskRecord = Ext.extend(Zarafa.core.data.MessageRecord, {
 	 *
 	 * @returns {boolean} true if task is assigned by assigner else false.
 	 */
-	isTaskAssigned : function ()
+	isTaskAssigned: function ()
 	{
 		return this.get('taskhistory') === Zarafa.core.mapi.TaskHistory.ASSIGNED;
 	},
@@ -152,7 +152,7 @@ Zarafa.task.TaskRecord = Ext.extend(Zarafa.core.data.MessageRecord, {
 	 *
 	 * @returns {boolean} true if task is accepted by assignee else false.
 	 */
-	isTaskAccepted : function ()
+	isTaskAccepted: function ()
 	{
 		return this.get('taskhistory') === Zarafa.core.mapi.TaskHistory.ACCEPTED;
 	},
@@ -162,7 +162,7 @@ Zarafa.task.TaskRecord = Ext.extend(Zarafa.core.data.MessageRecord, {
 	 *
 	 * @returns {boolean} true if task is updated by assignee else false.
 	 */
-	isTaskUpdated : function ()
+	isTaskUpdated: function ()
 	{
 		return this.get('taskhistory') === Zarafa.core.mapi.TaskHistory.UPDATED;
 	},
@@ -172,7 +172,7 @@ Zarafa.task.TaskRecord = Ext.extend(Zarafa.core.data.MessageRecord, {
 	 *
 	 * @returns {boolean} true if task is not assigned task else false.
 	 */
-	isNormalTask : function ()
+	isNormalTask: function ()
 	{
 		var taskState = this.get('taskstate');
 
@@ -185,7 +185,7 @@ Zarafa.task.TaskRecord = Ext.extend(Zarafa.core.data.MessageRecord, {
 	 *
 	 * @returns {boolean} true if task is declined task else false.
 	 */
-	isTaskDeclined : function ()
+	isTaskDeclined: function ()
 	{
 		return (this.get('taskstate') === Zarafa.core.mapi.TaskState.DECLINE &&
 			this.get('taskhistory') === Zarafa.core.mapi.TaskHistory.DECLINED);
@@ -197,20 +197,20 @@ Zarafa.task.TaskRecord = Ext.extend(Zarafa.core.data.MessageRecord, {
 	 *
 	 * @returns {boolean} true if task is draft assigned task else false.
 	 */
-	isDraftAssignedTask : function()
+	isDraftAssignedTask: function()
 	{
 		return (this.get('taskstate') === Zarafa.core.mapi.TaskState.OWNER_NEW &&
 				this.get('taskmode') === Zarafa.core.mapi.TaskMode.REQUEST);
 	},
 
 	/**
-	 * Function is used to determine that task in not yet accpeted or declined by
+	 * Function is used to determine that task in not yet accepted or declined by
 	 * assignee.
 	 *
 	 * @return {Boolean} true if user as an assignee yet not accepted or declined task
 	 * else false;
 	 */
-	isTaskNotResponded : function ()
+	isTaskNotResponded: function ()
 	{
 		return (this.isTaskOwner() && this.isTaskReceived() && this.isTaskAssigned());
 	},
@@ -219,7 +219,7 @@ Zarafa.task.TaskRecord = Ext.extend(Zarafa.core.data.MessageRecord, {
 	 * Generates task request response comment information which will be added to task request response body.
 	 * @return {String} generated body message.
 	 */
-	generateTaskCommentsInfo : function (commentText)
+	generateTaskCommentsInfo: function (commentText)
 	{
 		var taskCommentsInfo = commentText || '';
 		if (Ext.isEmpty(this.get('body'))) {
@@ -235,7 +235,7 @@ Zarafa.task.TaskRecord = Ext.extend(Zarafa.core.data.MessageRecord, {
 	 *
 	 * @param {Zarafa.core.mapi.ResponseStatus} responseType accept/decline
 	 */
-	respondToTaskRequest : function(responseType, comments, editResponse)
+	respondToTaskRequest: function(responseType, comments, editResponse)
 	{
 		this.sendTaskRequestResponse(responseType, this.generateTaskCommentsInfo(comments), editResponse);
 	},
@@ -247,7 +247,7 @@ Zarafa.task.TaskRecord = Ext.extend(Zarafa.core.data.MessageRecord, {
 	 * @param {Boolean} editResponse true if no response should be send to organizer else false
 	 * @private
 	 */
-	sendTaskRequestResponse : function(responseType, comments, editResponse)
+	sendTaskRequestResponse: function(responseType, comments, editResponse)
 	{
 		if (Ext.isDefined(responseType)) {
 			switch(responseType)
@@ -278,7 +278,7 @@ Zarafa.task.TaskRecord = Ext.extend(Zarafa.core.data.MessageRecord, {
 	 *
 	 * @param {String} action which is either 'declineAndDelete', 'completeAndDelete' or 'delete'.
 	 */
-	deleteIncompleteTask : function (action)
+	deleteIncompleteTask: function (action)
 	{
 		if (action !== 'delete') {
 			this.addMessageAction('action_type', action);
@@ -292,7 +292,7 @@ Zarafa.task.TaskRecord = Ext.extend(Zarafa.core.data.MessageRecord, {
 	/**
 	 * Update the current task to a task request.
 	 */
-	convertToTaskRequest : function()
+	convertToTaskRequest: function()
 	{
 		this.beginEdit();
 		this.set('taskstate', Zarafa.core.mapi.TaskState.OWNER_NEW);

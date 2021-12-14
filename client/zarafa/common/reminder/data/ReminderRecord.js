@@ -27,7 +27,7 @@ Zarafa.common.reminder.data.ReminderRecordFields = [
 	{name: 'reminder_minutes', type: 'int'},
 	{name: 'reminder_time', type: 'date', dateFormat: 'timestamp', defaultValue: null},
 	{name: 'flagdueby', type: 'date', dateFormat: 'timestamp', defaultValue: null},
-	
+
 	{name: 'task_duedate', type: 'date', dateFormat: 'timestamp', defaultValue: null},
 	{name: 'task_startdate', type: 'date', dateFormat: 'timestamp', defaultValue: null},
 	{name: 'task_resetreminder'},
@@ -50,7 +50,7 @@ Zarafa.common.reminder.data.ReminderRecord = Ext.extend(Zarafa.core.data.MAPIRec
 	 * of appointment/task/mail associated with this {@link Zarafa.common.reminder.data.ReminderRecord ReminderRecord}.
 	 * @return {Zarafa.core.data.IPMRecord} record which can be used to open appointment/task/mail dialogs.
 	 */
-	convertToIPMRecord : function()
+	convertToIPMRecord: function()
 	{
 		var entryId = this.get('entryid');
 		var messageClass = this.get('message_class');
@@ -76,21 +76,21 @@ Zarafa.common.reminder.data.ReminderRecord = Ext.extend(Zarafa.core.data.MAPIRec
 
 		// Copy all common properties
 		Ext.applyIf(props, {
-			entryid : entryId,
-			parent_entryid : this.get('parent_entryid'),
-			store_entryid : this.get('store_entryid'),
-			object_type : this.get('object_type'),
-			message_class : messageClass,
+			entryid: entryId,
+			parent_entryid: this.get('parent_entryid'),
+			store_entryid: this.get('store_entryid'),
+			object_type: this.get('object_type'),
+			message_class: messageClass,
 
-			message_flags : this.get('message_flags'),
-			subject : this.get('subject'),
-			location : this.get('location'),
-			icon_index : this.get('icon_index'),
+			message_flags: this.get('message_flags'),
+			subject: this.get('subject'),
+			location: this.get('location'),
+			icon_index: this.get('icon_index'),
 
-			reminder : this.get('reminder'),
-			reminder_minutes : this.get('reminder_minutes'),
-			reminder_time : this.get('reminder_time'),
-			flagdueby : this.get('flagdueby')
+			reminder: this.get('reminder'),
+			reminder_minutes: this.get('reminder_minutes'),
+			reminder_time: this.get('reminder_time'),
+			flagdueby: this.get('flagdueby')
 		});
 
 		var record = Zarafa.core.data.RecordFactory.createRecordObjectByRecordData(props, entryId);

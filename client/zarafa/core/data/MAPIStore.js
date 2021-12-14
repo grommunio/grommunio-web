@@ -16,7 +16,7 @@ Zarafa.core.data.MAPIStore = Ext.extend(Ext.data.GroupingStore, {
 	 * has been applied on this store should be reapplied when the store
 	 * has been {@link #load loaded}
 	 */
-	persistentFilter : true,
+	persistentFilter: true,
 
 	/**
 	 * The currently active function which was given to {@link #filterBy}.
@@ -24,7 +24,7 @@ Zarafa.core.data.MAPIStore = Ext.extend(Ext.data.GroupingStore, {
 	 * @type Function
 	 * @private
 	 */
-	filterFn : undefined,
+	filterFn: undefined,
 
 	/**
 	 * The currently active {@link #filterFn function} scope which was given to {@link #filterBy}.
@@ -32,30 +32,30 @@ Zarafa.core.data.MAPIStore = Ext.extend(Ext.data.GroupingStore, {
 	 * @type Object
 	 * @private
 	 */
-	filterScope : undefined,
-	
+	filterScope: undefined,
+
 	/**
 	 * Set to true when the {Zarafa.core.data.MAPIStore} starts saving, set to false when done.
 	 * @property
 	 * @type Boolean
 	 * @private
 	 */
-	isSaving : false,
+	isSaving: false,
 
 	/**
 	 * @constructor
 	 * @param config Configuration structure
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		config = config || {};
 
 		Ext.applyIf(config, {
 			// Don't automatically update changes to records to the server.
-			autoSave : false,
+			autoSave: false,
 
 			// When autoSave is false, indicates that CRUD operations are batched into a single request.
-			batch : true
+			batch: true
 		});
 
 		this.addEvents(
@@ -83,7 +83,7 @@ Zarafa.core.data.MAPIStore = Ext.extend(Ext.data.GroupingStore, {
 	 * Initialize all events which Zarafa.core.data.MAPIStore MAPIStore} will listen to.
 	 * @protected
 	 */
-	initEvents : function()
+	initEvents: function()
 	{
 		this.on('beforeload', this.onBeforeLoad, this);
 		this.on('add', this.onAdd, this);
@@ -104,7 +104,7 @@ Zarafa.core.data.MAPIStore = Ext.extend(Ext.data.GroupingStore, {
 	 * @return {String} The key by which the record must be saved into the {@link Ext.util.MixedCollection}.
 	 * @protected
 	 */
-	getRecordKey : Ext.util.MixedCollection.prototype.getKey,
+	getRecordKey: Ext.util.MixedCollection.prototype.getKey,
 
 	/**
 	 * Check if a particular {@link Zarafa.core.Action action} is being executed
@@ -112,9 +112,9 @@ Zarafa.core.data.MAPIStore = Ext.extend(Ext.data.GroupingStore, {
 	 * will check if the proxy is busy with any action.
 	 *
 	 * @param {Zarafa.core.Action} action The action which is being checked
-	 * @return {Boolean} True if the given action is being executed  by the proxy
+	 * @return {Boolean} True if the given action is being executed by the proxy
 	 */
-	isExecuting : function(action)
+	isExecuting: function(action)
 	{
 		return this.proxy.isExecuting(action);
 	},
@@ -124,7 +124,7 @@ Zarafa.core.data.MAPIStore = Ext.extend(Ext.data.GroupingStore, {
 	 * request is still pending. And if so
 	 * {@link Zarafa.core.data.MAPIProxy#cancelRequest cancel} those requests.
 	 */
-	cancelLoadRequests : function()
+	cancelLoadRequests: function()
 	{
 		// If we are loading data, we want to cancel
 		// the request as we don't want the data anymore.
@@ -148,10 +148,10 @@ Zarafa.core.data.MAPIStore = Ext.extend(Ext.data.GroupingStore, {
 	 * @param {Zarafa.core.Action} action The action which is being checked
 	 * @return {Number} The timestamp of the last action time
 	 */
-	lastExecutionTime : function(action)
+	lastExecutionTime: function(action)
 	{
 		return this.proxy.lastExecutionTime(action);
-	},	
+	},
 
 	/**
 	 * <p>Reloads the Record cache from the configured Proxy. See the superclass {@link Ext.data.Store#reload documentation}
@@ -159,9 +159,9 @@ Zarafa.core.data.MAPIStore = Ext.extend(Ext.data.GroupingStore, {
 	 * During reload we add an extra option into the {@link #load} argument which marks the action as a reload
 	 * action.
 	 */
-	reload : function(options)
+	reload: function(options)
 	{
-		options = Ext.applyIf(options || {}, { reload : true });
+		options = Ext.applyIf(options || {}, { reload: true });
 		Zarafa.core.data.MAPIStore.superclass.reload.call(this, options);
 	},
 
@@ -175,7 +175,7 @@ Zarafa.core.data.MAPIStore = Ext.extend(Ext.data.GroupingStore, {
 	 * @return {Number} batch Returns a number to uniquely identify the "batch" of saves occurring. -1 will be returned
 	 * if there are no items to save or the save was cancelled.
 	 */
-	save : function(records) {
+	save: function(records) {
 		// When no records are provided, fall back to the default behavior of the superclass.
 		if (!Ext.isDefined(records)) {
 			return Zarafa.core.data.MAPIStore.superclass.save.call(this);
@@ -202,7 +202,7 @@ Zarafa.core.data.MAPIStore = Ext.extend(Ext.data.GroupingStore, {
 
 			if (this.removed.indexOf(record) >= 0) {
 				// Check for removed records first, a record located in this.removed is
-				// guarenteed to be a non-phantom. See store.remove().
+				// guaranteed to be a non-phantom. See store.remove().
 				destroyed.push(record);
 			} else if (this.modified.indexOf(record) >= 0) {
 				// Only accept valid records.
@@ -251,7 +251,7 @@ Zarafa.core.data.MAPIStore = Ext.extend(Ext.data.GroupingStore, {
 	 * so the opened record has become useless.
 	 * @private
 	 */
-	onBeforeLoad : function()
+	onBeforeLoad: function()
 	{
 		if (this.isExecuting('open')) {
 			this.proxy.cancelRequests('open');
@@ -267,7 +267,7 @@ Zarafa.core.data.MAPIStore = Ext.extend(Ext.data.GroupingStore, {
 	 * @param {Number} index The index at which the record(s) were added
 	 * @private
 	 */
-	onAdd : function(store, records, index)
+	onAdd: function(store, records, index)
 	{
 		this.setRecordsStore(store, records);
 	},
@@ -297,7 +297,7 @@ Zarafa.core.data.MAPIStore = Ext.extend(Ext.data.GroupingStore, {
 	 * @param {Record/Record[]} records The records which were written to the server
 	 * @private
 	 */
-	onWrite : function(store, action, result, res, records)
+	onWrite: function(store, action, result, res, records)
 	{
 		if (!Array.isArray(records)) {
 			records = [ records ];
@@ -319,7 +319,7 @@ Zarafa.core.data.MAPIStore = Ext.extend(Ext.data.GroupingStore, {
 	 * {@link Zarafa.core.data.MAPIRecord records} which must be updated.
 	 * @private
 	 */
-	setRecordsStore : function(store, records)
+	setRecordsStore: function(store, records)
 	{
 		records = Array.isArray(records) ? records : [ records ];
 		Ext.each(records, function(record) { record.join(store); }, this);
@@ -334,7 +334,7 @@ Zarafa.core.data.MAPIStore = Ext.extend(Ext.data.GroupingStore, {
 	 * @param {Object} options Extra options which can be used for opening the records
 	 * @return {Boolean|undefined} false when this.execute fails
 	 */
-	open : function(records, options)
+	open: function(records, options)
 	{
 		try {
 			return this.execute('open', records, options);
@@ -351,7 +351,7 @@ Zarafa.core.data.MAPIStore = Ext.extend(Ext.data.GroupingStore, {
 	 * @param {Zarafa.core.data.MAPIRecord|Zarafa.core.dataMAPIRecord[]} records updated records.
 	 * @param {Object|Array} data properties of records which is received from server (in key/value pair).
 	 */
-	onOpenRecords : function(success, records, data)
+	onOpenRecords: function(success, records, data)
 	{
 		if (success !== true) {
 			return;
@@ -378,10 +378,10 @@ Zarafa.core.data.MAPIStore = Ext.extend(Ext.data.GroupingStore, {
 			try {
 				// call reader to update record data
 				var oldRecord = record;
-				
+
 				this.reader.update(record, data);
 				record.afterOpen();
-				
+
 				this.fireEvent('open', this, record, oldRecord);
 			} catch (e) {
 				this.handleException(e);
@@ -397,7 +397,7 @@ Zarafa.core.data.MAPIStore = Ext.extend(Ext.data.GroupingStore, {
 	 * @param {String} id The id of the Record to find.
 	 * @return {Ext.data.Record} The Record with the passed id. Returns undefined if not found.
 	 */
-	getById : function(id)
+	getById: function(id)
 	{
 		// First use the original implementation
 		var item = Zarafa.core.data.MAPIStore.superclass.getById.call(this, id);
@@ -421,7 +421,7 @@ Zarafa.core.data.MAPIStore = Ext.extend(Ext.data.GroupingStore, {
 	 * @param {String} b The second id to compare
 	 * @protected
 	 */
-	idComparison : function(a, b)
+	idComparison: function(a, b)
 	{
 		return a === b;
 	},
@@ -434,7 +434,7 @@ Zarafa.core.data.MAPIStore = Ext.extend(Ext.data.GroupingStore, {
 	 * @param {Object} scope (optional) The scope (<code>this</code> reference) in which the function is executed. Defaults to this MixedCollection.
 	 * @return {MixedCollection} The new filtered collection
 	 */
-	filterBy : function(fn, scope)
+	filterBy: function(fn, scope)
 	{
 		// Save the function for later usage.
 		this.filterFn = fn;
@@ -448,7 +448,7 @@ Zarafa.core.data.MAPIStore = Ext.extend(Ext.data.GroupingStore, {
 	 * @param {Boolean} suppressEvent If <tt>true</tt> the filter is cleared silently without firing the
 	 * {@link #datachanged} event.
 	 */
-	clearFilter : function()
+	clearFilter: function()
 	{
 		// Reset the filter
 		delete this.filterFn;
@@ -458,7 +458,7 @@ Zarafa.core.data.MAPIStore = Ext.extend(Ext.data.GroupingStore, {
 	},
 
 	/**
-	 * Callback function which will be called when 'read' action is executed 
+	 * Callback function which will be called when 'read' action is executed
 	 * and {@link Zarafa.core.data.JsonReader JsonReader} has deserialized data
 	 * into {@link Zarafa.core.data.MAPIRecord MAPIRecord},
 	 * so the records can be added to the {@link Zarafa.core.data.NoSyncStore NoSyncStore}.
@@ -468,7 +468,7 @@ Zarafa.core.data.MAPIStore = Ext.extend(Ext.data.GroupingStore, {
 	 * to the existing set of cached {@link Zarafa.core.data.MAPIRecord MAPIRecord}.
 	 * @private
 	 */
-	loadRecords : function(o, options, success)
+	loadRecords: function(o, options, success)
 	{
 		Zarafa.core.data.MAPIStore.superclass.loadRecords.apply(this, arguments);
 
@@ -483,7 +483,7 @@ Zarafa.core.data.MAPIStore = Ext.extend(Ext.data.GroupingStore, {
 	 * Clear all data in the store
 	 * @private
 	 */
-	clearData : function()
+	clearData: function()
 	{
 		this.data.each(function(rec) {
 			rec.destroy();
@@ -498,7 +498,7 @@ Zarafa.core.data.MAPIStore = Ext.extend(Ext.data.GroupingStore, {
 	 * @param {String} direction (optional) 'ASC' or 'DESC'. Defaults to 'ASC'.
 	 * @param {Function} fn (optional) Comparison function that defines the sort order. Defaults to sorting by numeric value.
 	 */
-	sortBy : function(direction, fn)
+	sortBy: function(direction, fn)
 	{
 		this.data.sort(direction, fn);
 		if (this.snapshot && this.snapshot != this.data) {
@@ -510,7 +510,7 @@ Zarafa.core.data.MAPIStore = Ext.extend(Ext.data.GroupingStore, {
 	/**
 	 * Clears any existing grouping and refreshes the data using the default sort.
 	 */
-	clearGrouping : function()
+	clearGrouping: function()
 	{
 		// Only clear grouping when
 		// grouping was previously applied
@@ -522,7 +522,7 @@ Zarafa.core.data.MAPIStore = Ext.extend(Ext.data.GroupingStore, {
 	/**
 	 * Destroys the store
 	 */
-	destroy : function()
+	destroy: function()
 	{
 		// Make sure we cancel all load requests
 		// to the server as we are no longer

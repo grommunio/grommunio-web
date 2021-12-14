@@ -1,9 +1,9 @@
 <?php
-require_once('classes/KopanoUser.php');
+require_once('classes/grommunioUser.php');
 require_once('classes/HierarchyUser.php');
 require_once('classes/MailUser.php');
 require_once('classes/TestData.php');
-require_once('classes/KopanoTest.php');
+require_once('classes/grommunioTest.php');
 require_once('classes/Util.php');
 
 /**
@@ -11,7 +11,7 @@ require_once('classes/Util.php');
  *
  * Tests obtaining folder size information
  */
-class FolderPropertiesTest extends KopanoTest {
+class FolderPropertiesTest extends grommunioTest {
 
 	/**
 	 * The user for which we will open the hierarchy
@@ -35,8 +35,8 @@ class FolderPropertiesTest extends KopanoTest {
 	{
 		parent::setUp();
 
-		$this->user = $this->addUser(new HierarchyUser(new KopanoUser(KOPANO_USER1_NAME, KOPANO_USER1_PASSWORD)));
-		$this->mailUser = $this->addUser(new MailUser(new KopanoUser(KOPANO_USER1_NAME, KOPANO_USER1_PASSWORD)));
+		$this->user = $this->addUser(new HierarchyUser(new grommunioUser(GROMMUNIO_USER1_NAME, GROMMUNIO_USER1_PASSWORD)));
+		$this->mailUser = $this->addUser(new MailUser(new grommunioUser(GROMMUNIO_USER1_NAME, GROMMUNIO_USER1_PASSWORD)));
 
 		$this->message = array(
 			'props' => TestData::getMail(),
@@ -94,7 +94,7 @@ class FolderPropertiesTest extends KopanoTest {
 		$this->assertNotEmpty($info['item']['folders']['item'], 'Test that no subfolders are listed for the Inbox');
 
 		$this->assertArrayHasKey('props', $info['item'], 'Test that the response contains the \'props\' key');
-		$this->assertEquals('Inbox - ' . KOPANO_USER1_DISPLAY_NAME, $info['item']['props']['display_name'], 'Test that the folder name is correctly set');
+		$this->assertEquals('Inbox - ' . GROMMUNIO_USER1_DISPLAY_NAME, $info['item']['props']['display_name'], 'Test that the folder name is correctly set');
 		$this->assertNotEquals(0, $info['item']['props']['message_size'], 'Test that the \'message_size\' property is not 0');
 		$this->assertGreaterThanOrEqual($info['item']['props']['message_size'], $info['item']['props']['total_message_size'], 'Test that the \'total_message_size\' property is greater or equal to \'message_size\'');
 		$this->assertNotEquals($info['item']['props']['message_size'], $info['item']['props']['total_message_size'], 'Test that the message size and total message size are equal');

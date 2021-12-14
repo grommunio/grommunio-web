@@ -9,15 +9,15 @@ Zarafa.advancesearch.AdvanceSearchContext = Ext.extend(Zarafa.core.Context, {
 	 * @constructor
 	 * @param config
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		config = config || {};
 
 		Ext.applyIf(config, {
-			hasToolbar : false,
-			hasContentPanel : false,
-			current_view : Zarafa.common.data.Views.LIST,
-			current_view_mode : Zarafa.common.data.ViewModes.RIGHT_PREVIEW
+			hasToolbar: false,
+			hasContentPanel: false,
+			current_view: Zarafa.common.data.Views.LIST,
+			current_view_mode: Zarafa.common.data.ViewModes.RIGHT_PREVIEW
 		});
 
 		Zarafa.advancesearch.AdvanceSearchContext.superclass.constructor.call(this, config);
@@ -27,12 +27,55 @@ Zarafa.advancesearch.AdvanceSearchContext = Ext.extend(Zarafa.core.Context, {
 	},
 
 	/**
+	 * Returns the buttons for the dropdown list of the Print button in the main toolbar.
+	 *
+	 * @return {Ext.Component[]} an array of components
+	 */
+	getMainToolbarPrintButtons: function()
+	{
+		var defaultItems = [{
+			xtype: 'zarafa.conditionalitem',
+			id: 'zarafa-maintoolbar-print-singleitem',
+			overflowText: _('Print single item'),
+			iconCls: 'icon_print',
+			tooltip: _('Print selected item') + ' (Ctrl + P)',
+			plugins: 'zarafa.menuitemtooltipplugin',
+			text: _('Print single item'),
+			hideOnDisabled: false,
+			singleSelectOnly: true,
+			handler: this.onPrintSelected,
+			scope: this
+		}];
+
+		return defaultItems;
+	},
+
+	/**
+	 * Event handler which is fired when the 'print single' item in the dropdown has been pressed
+	 * This calls {@link Zarafa.common.Actions.openPrintDialog} with the previewed {@link Zarafa.core.data.MAPIRecord} record.
+	 *
+	 * @param {Object} button The button which user pressed.
+	 * @param {Ext.EventObject} evt The mouse event
+	 * @private
+	 */
+	onPrintSelected: function (button, evt)
+	{
+		var records = this.getModel().getSelectedRecords();
+		if (Ext.isEmpty(records)) {
+			Ext.MessageBox.alert(_('Print'), _('No item selected'));
+			return;
+		}
+
+		Zarafa.common.Actions.openPrintDialog(records);
+	},
+
+	/**
 	 * Returns the buttons for the dropdown list of the VIEW-button in the main toolbar. It will use the
 	 * main.maintoolbar.view.advancesearch insertion point to allow other plugins to add their items at the end.
 	 *
 	 * @return {Ext.Component[]} an array of components
 	 */
-	getMainToolbarViewButtons : function(){
+	getMainToolbarViewButtons: function(){
 		var items = container.populateInsertionPoint('main.maintoolbar.view.advancesearch') || [];
 
 		var defaultItems = [{
@@ -40,9 +83,9 @@ Zarafa.advancesearch.AdvanceSearchContext = Ext.extend(Zarafa.core.Context, {
 			overflowText: _('No preview'),
 			iconCls: 'icon_previewpanel_off',
 			text: _('No preview'),
-			valueView : Zarafa.common.data.Views.LIST,
-			valueViewMode : Zarafa.common.data.ViewModes.NO_PREVIEW,
-			valueDataMode : Zarafa.common.data.DataModes.ALL,
+			valueView: Zarafa.common.data.Views.LIST,
+			valueViewMode: Zarafa.common.data.ViewModes.NO_PREVIEW,
+			valueDataMode: Zarafa.common.data.DataModes.ALL,
 			handler: this.onContextSelectView,
 			scope: this
 		},{
@@ -50,9 +93,9 @@ Zarafa.advancesearch.AdvanceSearchContext = Ext.extend(Zarafa.core.Context, {
 			overflowText: _('Right preview'),
 			iconCls: 'icon_previewpanel_right',
 			text: _('Right preview'),
-			valueView : Zarafa.common.data.Views.LIST,
-			valueViewMode : Zarafa.common.data.ViewModes.RIGHT_PREVIEW,
-			valueDataMode : Zarafa.common.data.DataModes.ALL,
+			valueView: Zarafa.common.data.Views.LIST,
+			valueViewMode: Zarafa.common.data.ViewModes.RIGHT_PREVIEW,
+			valueDataMode: Zarafa.common.data.DataModes.ALL,
 			handler: this.onContextSelectView,
 			scope: this
 		},{
@@ -60,9 +103,9 @@ Zarafa.advancesearch.AdvanceSearchContext = Ext.extend(Zarafa.core.Context, {
 			overflowText: _('Bottom preview'),
 			iconCls: 'icon_previewpanel_bottom',
 			text: _('Bottom preview'),
-			valueView : Zarafa.common.data.Views.LIST,
-			valueViewMode : Zarafa.common.data.ViewModes.BOTTOM_PREVIEW,
-			valueDataMode : Zarafa.common.data.DataModes.ALL,
+			valueView: Zarafa.common.data.Views.LIST,
+			valueViewMode: Zarafa.common.data.ViewModes.BOTTOM_PREVIEW,
+			valueDataMode: Zarafa.common.data.DataModes.ALL,
 			handler: this.onContextSelectView,
 			scope: this
 		}];
@@ -77,7 +120,7 @@ Zarafa.advancesearch.AdvanceSearchContext = Ext.extend(Zarafa.core.Context, {
 	 * @param {Ext.Button} button The button which was pressed
 	 * @private
 	 */
-	onContextSelectView : function(button)
+	onContextSelectView: function(button)
 	{
 		this.getModel().setDataMode(button.valueDataMode);
 		this.switchView(button.valueView, button.valueViewMode);
@@ -88,7 +131,7 @@ Zarafa.advancesearch.AdvanceSearchContext = Ext.extend(Zarafa.core.Context, {
 	 * @param {Object} config the configuration object which contains the parent context model.
 	 * @return {Zarafa.advancesearch.AdvanceSearchContextModel} the advance search context model
 	 */
-	getModel : function(config)
+	getModel: function(config)
 	{
 		if (!Ext.isDefined(this.model)) {
 			this.model = new Zarafa.advancesearch.AdvanceSearchContextModel();
@@ -174,8 +217,8 @@ Zarafa.advancesearch.AdvanceSearchContext = Ext.extend(Zarafa.core.Context, {
 
 Zarafa.onReady(function() {
 	container.registerContext(new Zarafa.core.ContextMetaData({
-		name : 'advancesearch',
-		allowUserVisible : false,
-		pluginConstructor : Zarafa.advancesearch.AdvanceSearchContext
+		name: 'advancesearch',
+		allowUserVisible: false,
+		pluginConstructor: Zarafa.advancesearch.AdvanceSearchContext
 	}));
 });

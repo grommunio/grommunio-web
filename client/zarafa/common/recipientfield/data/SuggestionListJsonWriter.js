@@ -9,13 +9,13 @@ Zarafa.common.recipientfield.data.SuggestionListJsonWriter = Ext.extend(Ext.data
 	 * @constructor
 	 * @param {Object} config Configuration object
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		config = config || {};
 
 		Ext.applyIf(config, {
-			writeAllFields : true,
-			encode : false
+			writeAllFields: true,
+			encode: false
 		});
 
 		Zarafa.core.data.JsonWriter.superclass.constructor.call(this, config);
@@ -29,7 +29,7 @@ Zarafa.common.recipientfield.data.SuggestionListJsonWriter = Ext.extend(Ext.data
 	 * @override
 	 * @private
 	 */
-	destroyRecord : function(record){
+	destroyRecord: function(record){
 		return this.toHash(record);
 	}
 });

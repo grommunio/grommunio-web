@@ -14,18 +14,18 @@ Zarafa.calendar.ui.AbstractCalendarView = Ext.extend(Zarafa.core.ui.View, {
 	 * @cfg {Zarafa.calendar.ui.DateRangeSelectionModel} rangeSelectionModel The selection model
 	 * used for selecting a particular {@link Zarafa.core.DateRange daterange}.
 	 */
-	rangeSelectionModel : undefined,
+	rangeSelectionModel: undefined,
 
 	/**
 	 * @cfg {Zarafa.calendar.ui.AppointmentSelectionModel} selectionModel The selection model
 	 * used for selecting {@link Zarafa.core.data.IPMRecord records}.
 	 */
-	selectionModel : undefined,
+	selectionModel: undefined,
 
 	/**
 	 * @cfg {Zarafa.calendar.CalendarContextModel} contextModel A reference to the context model of the parent view
 	 */
-	contextModel : undefined,
+	contextModel: undefined,
 
 	/**
 	 * The array of {@link Zarafa.hierarchy.data.MAPIFolderRecord folders} which are opened
@@ -33,7 +33,7 @@ Zarafa.calendar.ui.AbstractCalendarView = Ext.extend(Zarafa.core.ui.View, {
 	 * @property
 	 * @type Array
 	 */
-	folders : undefined,
+	folders: undefined,
 
 	/**
 	 * The currently selected {@link Zarafa.hierarchy.data.MAPIFolderRecord folder} within
@@ -42,7 +42,7 @@ Zarafa.calendar.ui.AbstractCalendarView = Ext.extend(Zarafa.core.ui.View, {
 	 * @property
 	 * @type Zarafa.hierarchy.data.MAPIFolderRecord
 	 */
-	selectedFolder : undefined,
+	selectedFolder: undefined,
 
 	/**
 	 * The array of {@link Zarafa.calendar.ui.CalendarTabView tabs} which
@@ -53,7 +53,7 @@ Zarafa.calendar.ui.AbstractCalendarView = Ext.extend(Zarafa.core.ui.View, {
 	 * @property
 	 * @type Zarafa.calendar.ui.CalendarTabView
 	 */
-	tabs : undefined,
+	tabs: undefined,
 
 	/**
 	 * The {@link Zarafa.calendar.ui.SelectionRangeView view} element which displays
@@ -61,7 +61,7 @@ Zarafa.calendar.ui.AbstractCalendarView = Ext.extend(Zarafa.core.ui.View, {
 	 * @property
 	 * @type Zarafa.calendar.ui.SelectionRangeView
 	 */
-	selectionView : undefined,
+	selectionView: undefined,
 
 	/**
 	 * The {@link Zarafa.calendar.ui.TextEditView view} which is enabled when the
@@ -70,7 +70,7 @@ Zarafa.calendar.ui.AbstractCalendarView = Ext.extend(Zarafa.core.ui.View, {
 	 * @property
 	 * @type Zarafa.calendar.ui.TextEditView
 	 */
-	textEditView : undefined,
+	textEditView: undefined,
 
 	/**
 	 * The array of {@link Zarafa.calendar.ui.AppointmentView appointments} which
@@ -78,7 +78,7 @@ Zarafa.calendar.ui.AbstractCalendarView = Ext.extend(Zarafa.core.ui.View, {
 	 * @property
 	 * @type Array
 	 */
-	appointments : undefined,
+	appointments: undefined,
 
 	/**
 	 * The offset all elements must have from the left side of the {@link #container}. This
@@ -86,7 +86,7 @@ Zarafa.calendar.ui.AbstractCalendarView = Ext.extend(Zarafa.core.ui.View, {
 	 * @property
 	 * @type Number
 	 */
-	leftOffset : 0,
+	leftOffset: 0,
 
 	/**
 	 * The total with for the tab to use. This must at least be the result of {@link #getMinimumWidth}.
@@ -98,31 +98,31 @@ Zarafa.calendar.ui.AbstractCalendarView = Ext.extend(Zarafa.core.ui.View, {
 
 	/**
 	 * @cfg {Number} appointmentBodyLeftMargin The left margin which must be applied to
-	 * the {@link Zarafa.calendar.ui.AppointmentView appointments} which are renderd within this
+	 * the {@link Zarafa.calendar.ui.AppointmentView appointments} which are rendered within this
 	 * calendar when the 'useMargin' argument to {@link #dateRangeToBodyBounds} is true.
 	 */
-	appointmentBodyLeftMargin : 0,
+	appointmentBodyLeftMargin: 0,
 
 	/**
 	 * @cfg {Number} appointmentBodyRightMargin The right margin which must be applied to
 	 * the {@link Zarafa.calendar.ui.AppointmentView appointments} which are rendered within this
 	 * calendar when the 'useMargin' argument to {@link #dateRangeToBodyBounds} is true.
 	 */
-	appointmentBodyRightMargin : 0,
+	appointmentBodyRightMargin: 0,
 
 	/**
 	 * @cfg {Number} appointmentHeaderLeftMargins The left margin which must be applied to
 	 * the {@link Zarafa.calendar.ui.AppointmentView appointments} which are rendered within
 	 * the header of this calendar when the 'useMargin' argument to {@link #dateRangeToHeaderBounds} is true.
 	 */
-	appointmentHeaderLeftMargin : 6,
+	appointmentHeaderLeftMargin: 6,
 
 	/**
 	 * @cfg {Number} appointmentHeaderRightMargins The right margin which must be applied to
 	 * the {@link Zarafa.calendar.ui.AppointmentView appointments} which are rendered within
 	 * the header of this calendar when the 'useMargin' argument to {@link #dateRangeToHeaderBounds} is true.
 	 */
-	appointmentHeaderRightMargin : 6,
+	appointmentHeaderRightMargin: 6,
 
 	/**
 	 * The body part of the calendar. This contains the view in which all {@link #appointments}
@@ -130,7 +130,7 @@ Zarafa.calendar.ui.AbstractCalendarView = Ext.extend(Zarafa.core.ui.View, {
 	 * @property
 	 * @type Ext.Element
 	 */
-	body : undefined,
+	body: undefined,
 
 	/**
 	 * The header part of the calendar. This contains extra information (like the day, or weekday).
@@ -138,7 +138,7 @@ Zarafa.calendar.ui.AbstractCalendarView = Ext.extend(Zarafa.core.ui.View, {
 	 * @property
 	 * @type Ext.Element
 	 */
-	header : undefined,
+	header: undefined,
 
 	/**
 	 * The left border of the {@link #header}.
@@ -146,7 +146,7 @@ Zarafa.calendar.ui.AbstractCalendarView = Ext.extend(Zarafa.core.ui.View, {
 	 * @property
 	 * @type Ext.Element
 	 */
-	headerBorderLeft : undefined,
+	headerBorderLeft: undefined,
 
 	/**
 	 * The right border of the {@link #header}.
@@ -154,7 +154,7 @@ Zarafa.calendar.ui.AbstractCalendarView = Ext.extend(Zarafa.core.ui.View, {
 	 * @property
 	 * @type Ext.Element
 	 */
-	headerBorderRight : undefined,
+	headerBorderRight: undefined,
 
 	/**
 	 * The left border of the {@link #body}.
@@ -162,7 +162,7 @@ Zarafa.calendar.ui.AbstractCalendarView = Ext.extend(Zarafa.core.ui.View, {
 	 * @property
 	 * @type Ext.Element
 	 */
-	borderLeft : undefined,
+	borderLeft: undefined,
 
 	/**
 	 * The right border of the {@link #body}.
@@ -170,7 +170,7 @@ Zarafa.calendar.ui.AbstractCalendarView = Ext.extend(Zarafa.core.ui.View, {
 	 * @property
 	 * @type Ext.Element
 	 */
-	borderRight : undefined,
+	borderRight: undefined,
 
 	/**
 	 * The bottom border of the {@link #body}.
@@ -178,7 +178,7 @@ Zarafa.calendar.ui.AbstractCalendarView = Ext.extend(Zarafa.core.ui.View, {
 	 * @property
 	 * @type Ext.Element
 	 */
-	borderBottom : undefined,
+	borderBottom: undefined,
 
 	/**
 	 * The tab area in which the {@link #tabs} will be rendered.
@@ -186,47 +186,47 @@ Zarafa.calendar.ui.AbstractCalendarView = Ext.extend(Zarafa.core.ui.View, {
 	 * @property
 	 * @type Ext.Element
 	 */
-	tabArea : undefined,
+	tabArea: undefined,
 
 	/**
 	 * @cfg {Boolean} enableDD true to enable drag & drop in both body and header
 	 */
-	enableDD : false,
+	enableDD: false,
 
 	/**
 	 * @cfg {Boolean} enableBodyDD true to enable drag and drop in the body
 	 */
-	enableBodyDD : false,
+	enableBodyDD: false,
 
 	/**
 	 * @cfg {Boolean} enableHeaderDD true to enable drag and drop in the header
 	 */
-	enableHeaderDD : false,
+	enableHeaderDD: false,
 
 	/**
 	 * @cfg {Boolean} enableBodyDrag true to enable just drag in the body
 	 */
-	enableBodyDrag : false,
+	enableBodyDrag: false,
 
 	/**
 	 * @cfg {Boolean} enableHeaderDrag true to enable just drag in the header
 	 */
-	enableHeaderDrag : false,
+	enableHeaderDrag: false,
 
 	/**
 	 * @cfg {Boolean} enableBodyDrop true to enable just drop in the body
 	 */
-	enableBodyDrop : false,
+	enableBodyDrop: false,
 
 	/**
 	 * @cfg {Boolean} enableHeaderDrop true to enable just drop in the body
 	 */
-	enableHeaderDrop : false,
+	enableHeaderDrop: false,
 
 	/**
 	 * @cfg {String} ddGroup The DD group this TreePanel belongs to
 	 */
-	ddGroup : 'AppointmentDD',
+	ddGroup: 'AppointmentDD',
 
 	/**
 	 * The DragZone which will be installed on the {@link #body}. This is initialized
@@ -236,13 +236,13 @@ Zarafa.calendar.ui.AbstractCalendarView = Ext.extend(Zarafa.core.ui.View, {
 	 * @type Zarafa.calendar.ui.CalendarViewDragZone
 	 * @private
 	 */
-	bodyDragZone : undefined,
+	bodyDragZone: undefined,
 
 	/**
 	 * @cfg {Object} bodyDragConfig Configuration object which will be used to initialize
 	 * the {@link #bodyDragZone} when either {@link #enableBodyDD} or {@link #enableBodyDrag} is enabled.
 	 */
-	bodyDragConfig : undefined,
+	bodyDragConfig: undefined,
 
 	/**
 	 * The DropZone which will be installed on the {@link #body}. This is initialized
@@ -252,13 +252,13 @@ Zarafa.calendar.ui.AbstractCalendarView = Ext.extend(Zarafa.core.ui.View, {
 	 * @type Zarafa.calendar.ui.CalendarViewDropZone
 	 * @private
 	 */
-	bodyDropZone : undefined,
+	bodyDropZone: undefined,
 
 	/**
 	 * @cfg {Object} bodyDropConfig Configuration object which will be used to initialize
 	 * the {@link #bodyDropZone} when either {@link #enableBodyDD} or {@link #enableBodyDrop} is enabled.
 	 */
-	bodyDropConfig : undefined,
+	bodyDropConfig: undefined,
 
 	/**
 	 * The DragZone which will be installed on the {@link #header}. This is initialized
@@ -268,13 +268,13 @@ Zarafa.calendar.ui.AbstractCalendarView = Ext.extend(Zarafa.core.ui.View, {
 	 * @type Zarafa.calendar.ui.CalendarViewDragZone
 	 * @private
 	 */
-	headerDragZone : undefined,
+	headerDragZone: undefined,
 
 	/**
 	 * @cfg {Object} headerDragConfig Configuration object which will be used to initialize
 	 * the {@link #headerDragZone} when either {@link #enableHeaderDD} or {@link #enableHeaderDrag} is enabled.
 	 */
-	headerDragConfig : undefined,
+	headerDragConfig: undefined,
 
 	/**
 	 * The DropZone which will be installed on the {@link #header}. This is initialized
@@ -284,25 +284,25 @@ Zarafa.calendar.ui.AbstractCalendarView = Ext.extend(Zarafa.core.ui.View, {
 	 * @type Zarafa.calendar.ui.CalendarViewDropZone
 	 * @private
 	 */
-	headerDropZone : undefined,
+	headerDropZone: undefined,
 
 	/**
 	 * @cfg {Object} headerDropConfig Configuration object which will be used to initialize
 	 * the {@link #headerDropZone} when either {@link #enableHeaderDD} or {@link #enableHeaderDrop} is enabled.
 	 */
-	headerDropConfig : undefined,
+	headerDropConfig: undefined,
 
 	/**
 	 * @cfg {String} groupId The unique identifier for the {@link Zarafa.core.MultiFolderContextModel#getGroupings group}
 	 * which refers to this calendar and the group of {@link #folders}.
 	 */
-	groupId : undefined,
+	groupId: undefined,
 
 	/**
 	 * @cfg {Boolean} active Flag whether this view is the currently active one inside the {@link Zarafa.calenaar.CalendarMultiView}
 	 * There is one active group, but each group has a selected calendar in it
 	 */
-	active : false,
+	active: false,
 
 	/**
 	 * The active tab stroke which will show stroke on top of the active calendar tabs
@@ -310,18 +310,18 @@ Zarafa.calendar.ui.AbstractCalendarView = Ext.extend(Zarafa.core.ui.View, {
 	 * @property
 	 * @type Ext.Element
 	 */
-	activeTabStroke : undefined,
+	activeTabStroke: undefined,
 
 	/**
 	 * @constructor
 	 * @param {Object} config configuration object
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		config = config || {};
 
 		Ext.applyIf(config, {
-			baseCls : 'zarafa-calendar'
+			baseCls: 'zarafa-calendar'
 		});
 
 		// define drag/drop events
@@ -466,7 +466,7 @@ Zarafa.calendar.ui.AbstractCalendarView = Ext.extend(Zarafa.core.ui.View, {
 	 * Initialises the view.
 	 * @protected
 	 */
-	init : function()
+	init: function()
 	{
 		// super.init
 		Zarafa.calendar.ui.AbstractCalendarView.superclass.init.call(this);
@@ -498,7 +498,7 @@ Zarafa.calendar.ui.AbstractCalendarView = Ext.extend(Zarafa.core.ui.View, {
 	 * the tab strip at the top of the view.
 	 * @param {Zarafa.hierarchy.data.MAPIFolderRecord} folder MAPI folder to add to this view.
 	 */
-	addFolder : function(folder)
+	addFolder: function(folder)
 	{
 		// Add the folder to the list.
 		this.folders.push(folder);
@@ -507,7 +507,7 @@ Zarafa.calendar.ui.AbstractCalendarView = Ext.extend(Zarafa.core.ui.View, {
 		// top of the calendar view.
 		var tab = new Zarafa.calendar.ui.CalendarTabView({
 			parentView: this,
-			folder : folder
+			folder: folder
 		});
 
 		// Hook event handlers to the newly created tab view.
@@ -532,7 +532,7 @@ Zarafa.calendar.ui.AbstractCalendarView = Ext.extend(Zarafa.core.ui.View, {
 	 * Removes a MAPI folder from this calendar view. Automatically removes and destroys the associated tab view.
 	 * @param {Zarafa.hierarchy.data.MAPIFolderRecord} folder MAPI folder to remove from this view.
 	 */
-	removeFolder : function(folder)
+	removeFolder: function(folder)
 	{
 		return this.removeFolderById(folder.get('entryid'));
 	},
@@ -541,7 +541,7 @@ Zarafa.calendar.ui.AbstractCalendarView = Ext.extend(Zarafa.core.ui.View, {
 	 * Removes a MAPI folder from this calendar view. Automatically removes and destroys the associated tab view.
 	 * @param {string} id MAPI ID of the folder to remove from this view.
 	 */
-	removeFolderById : function(id)
+	removeFolderById: function(id)
 	{
 		// Remove the folder from the list.
 		this.folders.remove(this.getFolderById(id));
@@ -564,7 +564,7 @@ Zarafa.calendar.ui.AbstractCalendarView = Ext.extend(Zarafa.core.ui.View, {
 	 * Gets a list of MAPI folder IDs currently in this view.
 	 * @return {String}[] MAPI folders IDs currently in this view.
 	 */
-	getFolderIds : function()
+	getFolderIds: function()
 	{
 		var ret = [];
 		for (var i = 0, folder; folder = this.folders[i]; i++) {
@@ -578,7 +578,7 @@ Zarafa.calendar.ui.AbstractCalendarView = Ext.extend(Zarafa.core.ui.View, {
 	 * @param {string} id folder MAPI ID.
 	 * @return {Zarafa.hierarchy.data.MAPIFolderRecord} folder object if the folder was found, or undefined otherwise.
 	 */
-	getFolderById : function(id)
+	getFolderById: function(id)
 	{
 		// Find folder object to go with the folder ID.
 		for (var i=0, folder; folder = this.folders[i]; i++) {
@@ -592,7 +592,7 @@ Zarafa.calendar.ui.AbstractCalendarView = Ext.extend(Zarafa.core.ui.View, {
 	 * Gets a list of MAPI folders currently in this view. Is filled by the onLoad event.
 	 * @return {Zarafa.hierarchy.data.MAPIFolderRecord[]} MAPI folders currently in this view.
 	 */
-	getFolders : function()
+	getFolders: function()
 	{
 		return this.folders;
 	},
@@ -602,7 +602,7 @@ Zarafa.calendar.ui.AbstractCalendarView = Ext.extend(Zarafa.core.ui.View, {
 	 * also {@link #layout relayout} the view.
 	 * @param {Zarafa.hierarchy.data.MAPIFolderRecord} folder The folder which is currently selected
 	 */
-	setSelectedFolder : function(folder)
+	setSelectedFolder: function(folder)
 	{
 		this.selectedFolder = folder;
 		if (this.rendered) {
@@ -614,7 +614,7 @@ Zarafa.calendar.ui.AbstractCalendarView = Ext.extend(Zarafa.core.ui.View, {
 	 * Gets the currently selected folder.
 	 * @return {Zarafa.hierarchy.data.MAPIFolderRecord} currently selected MAPI folder.
 	 */
-	getSelectedFolder : function()
+	getSelectedFolder: function()
 	{
 		// Check if selected folder is available in the folders array. This could be false when
 		// settings haven't been updated properly.
@@ -631,7 +631,7 @@ Zarafa.calendar.ui.AbstractCalendarView = Ext.extend(Zarafa.core.ui.View, {
 	 * @param {Zarafa.hierarchy.data.MAPIFolderRecord} folder MAPI folders currently in this view.
 	 * @return true iff this view contains the given folder.
 	 */
-	containsFolder : function(folder)
+	containsFolder: function(folder)
 	{
 		return this.containsFolderId(folder.get('entryid'));
 	},
@@ -641,7 +641,7 @@ Zarafa.calendar.ui.AbstractCalendarView = Ext.extend(Zarafa.core.ui.View, {
 	 * @param {string} id folder MAPI ID.
 	 * @return true iff this view contains the given folder.
 	 */
-	containsFolderId : function(id)
+	containsFolderId: function(id)
 	{
 		return Ext.isDefined(this.getFolderById(id));
 	},
@@ -651,7 +651,7 @@ Zarafa.calendar.ui.AbstractCalendarView = Ext.extend(Zarafa.core.ui.View, {
 	 * is a superset of the folder list currently active in this view.
 	 * @param {Zarafa.hierarchy.data.MAPIFolderRecord[]} folders Folder list.
 	 */
-	sortFolders : function(folders)
+	sortFolders: function(folders)
 	{
 		var sortedFolders = [];
 		for (var i = 0, folder; folder = folders[i]; i++) {
@@ -668,7 +668,7 @@ Zarafa.calendar.ui.AbstractCalendarView = Ext.extend(Zarafa.core.ui.View, {
 	 * from the parent view.
 	 * @return {Zarafa.core.DateRange} The daterange
 	 */
-	getDateRange : function()
+	getDateRange: function()
 	{
 		return this.parentView.getDateRange();
 	},
@@ -678,7 +678,7 @@ Zarafa.calendar.ui.AbstractCalendarView = Ext.extend(Zarafa.core.ui.View, {
 	 * from the parent view.
 	 * @return {Date} calendar start date.
 	 */
-	getStartDate : function()
+	getStartDate: function()
 	{
 		return this.getDateRange().getStartDate();
 	},
@@ -688,7 +688,7 @@ Zarafa.calendar.ui.AbstractCalendarView = Ext.extend(Zarafa.core.ui.View, {
 	 * from the parent view.
 	 * @return {Date} calendar due date.
 	 */
-	getDueDate : function()
+	getDueDate: function()
 	{
 		return this.getDateRange().getDueDate();
 	},
@@ -699,7 +699,7 @@ Zarafa.calendar.ui.AbstractCalendarView = Ext.extend(Zarafa.core.ui.View, {
 	 * more than 24 hours are laid out in the header.
 	 * @return {Number} height in pixels the calendar view needs to properly lay out its header.
 	 */
-	getDesiredHeaderHeight : function()
+	getDesiredHeaderHeight: function()
 	{
 		return 0;
 	},
@@ -709,7 +709,7 @@ Zarafa.calendar.ui.AbstractCalendarView = Ext.extend(Zarafa.core.ui.View, {
 	 * are multiple calendars open.
 	 * @return {Number} height in pixels of the tab area of the calendar view.
 	 */
-	getTabHeight : function()
+	getTabHeight: function()
 	{
 		return this.parentView.getTabHeight();
 	},
@@ -719,7 +719,7 @@ Zarafa.calendar.ui.AbstractCalendarView = Ext.extend(Zarafa.core.ui.View, {
 	 * @param {Ext.data.Record} record to look for
 	 * @return {Zarafa.calendar.ui.AppointmentView} an appointment view iff found, undefined otherwise
 	 */
-	findAppointment : function(record)
+	findAppointment: function(record)
 	{
 		for (var i=0, appointment; appointment=this.appointments[i]; i++) {
 			if (appointment.getRecord().equals(record)) {
@@ -736,7 +736,7 @@ Zarafa.calendar.ui.AbstractCalendarView = Ext.extend(Zarafa.core.ui.View, {
 	 * @param {Ext.data.Record} record to look for
 	 * @return {Boolean} true iff an appointment view exists that represents the given record.
 	 */
-	containsAppointment : function(record)
+	containsAppointment: function(record)
 	{
 		return Ext.isDefined(this.findAppointment(record));
 	},
@@ -751,7 +751,7 @@ Zarafa.calendar.ui.AbstractCalendarView = Ext.extend(Zarafa.core.ui.View, {
 	 * @return {Zarafa.calendar.ui.AppointmentView} The new appointmentview
 	 * @protected
 	 */
-	createAppointment : Ext.emptyFn,
+	createAppointment: Ext.emptyFn,
 
 	/**
 	 * Create an Appointment Proxy object which can represent the selected text
@@ -759,7 +759,7 @@ Zarafa.calendar.ui.AbstractCalendarView = Ext.extend(Zarafa.core.ui.View, {
 	 * @return Zarafa.calendar.ui.AbstractDateRangeView
 	 * @protected
 	 */
-	createAppointmentProxy : Ext.emptyFn,
+	createAppointmentProxy: Ext.emptyFn,
 
 	/**
 	 * Adds a new appointment to the view.
@@ -767,7 +767,7 @@ Zarafa.calendar.ui.AbstractCalendarView = Ext.extend(Zarafa.core.ui.View, {
 	 * @param {Boolean} layout (optional) if true layout() will be called after the appointment was added. Defaults to true.
 	 * @return {Boolean} True if an appointment was added, false otherwise.
 	 */
-	addAppointment : function(record, layout)
+	addAppointment: function(record, layout)
 	{
 		// Don't add anything that is not an appointment
 		if ( Zarafa.core.MessageClass.getDefaultFolderTypeFromMessageClass(record.get('message_class')) !== 'calendar' ){
@@ -792,7 +792,7 @@ Zarafa.calendar.ui.AbstractCalendarView = Ext.extend(Zarafa.core.ui.View, {
 	 * @param {Boolean} layout (optional) if true layout() will be called after the appointment was added. Defaults to true.
 	 * @return {Boolean} true if an appointment was removed, false otherwise (the appointment was not found in this view)
 	 */
-	removeAppointment : function(record, layout)
+	removeAppointment: function(record, layout)
 	{
 		var appointment;
 		if (appointment = this.findAppointment(record)) {
@@ -814,7 +814,7 @@ Zarafa.calendar.ui.AbstractCalendarView = Ext.extend(Zarafa.core.ui.View, {
 	 * @param {Boolean} layout (optional) if true layout() will be called after the appointment was added. Defaults to true.
 	 * @return {Zarafa.calendar.ui.AppointmentView[]} a list of appointments that were removed.
 	 */
-	clearAppointments : function(destroy, layout)
+	clearAppointments: function(destroy, layout)
 	{
 		for (var i=0, appointment; appointment=this.appointments[i]; i++) {
 			this.removeChildView(appointment, destroy);
@@ -838,7 +838,7 @@ Zarafa.calendar.ui.AbstractCalendarView = Ext.extend(Zarafa.core.ui.View, {
 	 * Gets a list of appointment records currently on the view.
 	 * @return {Zarafa.core.data.IPMRecord[]} records.
 	 */
-	getAppointmentRecords : function()
+	getAppointmentRecords: function()
 	{
 		var ret = [];
 
@@ -859,7 +859,7 @@ Zarafa.calendar.ui.AbstractCalendarView = Ext.extend(Zarafa.core.ui.View, {
 	 * filling up the entire width of a daybox (This applies {@link #appointmentBodyLeftMargin} and
 	 * {@link #appointmentBodyRightMargin}).
 	 */
-	dateRangeToBodyBounds : function(dateRange, column, columnCount, useMargin)
+	dateRangeToBodyBounds: function(dateRange, column, columnCount, useMargin)
 	{
 		return [];
 	},
@@ -874,13 +874,13 @@ Zarafa.calendar.ui.AbstractCalendarView = Ext.extend(Zarafa.core.ui.View, {
 	 * from filling up the entire width of the header (This applies {@link #appointmentHeaderLeftMargin} and
 	 * {@link #appointmentHeaderRightMargin}).
 	 */
-	dateRangeToHeaderBounds : function(dateRange, row, rowCount, useMargin)
+	dateRangeToHeaderBounds: function(dateRange, row, rowCount, useMargin)
 	{
 		return {
-			left : 0,
-			right : 0,
-			top : 0,
-			bottom : 0
+			left: 0,
+			right: 0,
+			top: 0,
+			bottom: 0
 		};
 	},
 
@@ -890,7 +890,7 @@ Zarafa.calendar.ui.AbstractCalendarView = Ext.extend(Zarafa.core.ui.View, {
 	 * appointments on the header.
 	 * @return {Boolean} true iff the date range should be laid out on the calendar header.
 	 */
-	isHeaderRange : function(dateRange)
+	isHeaderRange: function(dateRange)
 	{
 		return false;
 	},
@@ -900,7 +900,7 @@ Zarafa.calendar.ui.AbstractCalendarView = Ext.extend(Zarafa.core.ui.View, {
 	 * {@link Zarafa.calendar.ui.CalendarMultiView CalendarMultiView} before layout.
 	 * @param {Number} left The offset from the left
 	 */
-	setLeftMargin : function(left)
+	setLeftMargin: function(left)
 	{
 		this.leftOffset = left;
 	},
@@ -910,7 +910,7 @@ Zarafa.calendar.ui.AbstractCalendarView = Ext.extend(Zarafa.core.ui.View, {
 	 * {@link Zarafa.calendar.ui.CalendarMultiView CalendarMultiView} before layout.
 	 * @param {Number} width tab width.
 	 */
-	setWidth : function(width)
+	setWidth: function(width)
 	{
 		this.width = width;
 	},
@@ -920,7 +920,7 @@ Zarafa.calendar.ui.AbstractCalendarView = Ext.extend(Zarafa.core.ui.View, {
 	 * parent multiview. This information is used to hide/show the merge icon on the tabs in the view.
 	 * @param {Boolean} canMerge
 	 */
-	setCanMerge : function(canMerge)
+	setCanMerge: function(canMerge)
 	{
 		this.canMerge = canMerge;
 	},
@@ -930,7 +930,7 @@ Zarafa.calendar.ui.AbstractCalendarView = Ext.extend(Zarafa.core.ui.View, {
 	 * parent multiview. This information is used to hide/show the close icon on the tabs in the view.
 	 * @param {Boolean} canClose
 	 */
-	setCanClose : function(canClose)
+	setCanClose: function(canClose)
 	{
 		this.canClose = canClose;
 	},
@@ -941,7 +941,7 @@ Zarafa.calendar.ui.AbstractCalendarView = Ext.extend(Zarafa.core.ui.View, {
 	 * @param {Number} y vertical component of the location
 	 * @return {Date} a Date object that corresponds to the given location
 	 */
-	screenLocationToDate : Ext.emptyFn,
+	screenLocationToDate: Ext.emptyFn,
 
 	/**
 	 * Converts a location in page coordinates to a corresponding daterange.
@@ -949,7 +949,7 @@ Zarafa.calendar.ui.AbstractCalendarView = Ext.extend(Zarafa.core.ui.View, {
 	 * @param {Number} y vertical component of the location
 	 * @return {Zarafa.core.DateRange} A DateRange object that corresponds to the given location
 	 */
-	screenLocationToDateRange : Ext.emptyFn,
+	screenLocationToDateRange: Ext.emptyFn,
 
 	/**
 	 * The border width in pixels. Retrieved from the parent view.
@@ -957,7 +957,7 @@ Zarafa.calendar.ui.AbstractCalendarView = Ext.extend(Zarafa.core.ui.View, {
 	 * @return {Number} border width in pixels
 	 * @private
 	 */
-	getBorderWidth : function()
+	getBorderWidth: function()
 	{
 		return this.parentView.getBorderWidth();
 	},
@@ -967,7 +967,7 @@ Zarafa.calendar.ui.AbstractCalendarView = Ext.extend(Zarafa.core.ui.View, {
 	 * @return {Number} zoom level in minutes.
 	 * @private
 	 */
-	getZoomLevel : function()
+	getZoomLevel: function()
 	{
 		return this.parentView.zoomLevel;
 	},
@@ -975,7 +975,7 @@ Zarafa.calendar.ui.AbstractCalendarView = Ext.extend(Zarafa.core.ui.View, {
 	/**
 	 * @return {Ext.Element} the calendar body element
 	 */
-	getCalendarBody : function()
+	getCalendarBody: function()
 	{
 		return this.body;
 	},
@@ -983,7 +983,7 @@ Zarafa.calendar.ui.AbstractCalendarView = Ext.extend(Zarafa.core.ui.View, {
 	/**
 	 * @return {Ext.Element} the calendar header element
 	 */
-	getCalendarHeader : function()
+	getCalendarHeader: function()
 	{
 		return this.header;
 	},
@@ -999,7 +999,7 @@ Zarafa.calendar.ui.AbstractCalendarView = Ext.extend(Zarafa.core.ui.View, {
 	 * @return {Number} 1 if appointment A starts before appointment B, 0 if they are equal, -1 if appointment A
 	 * starts after appointment B.
 	 */
-	appointmentCompare : function(a, b)
+	appointmentCompare: function(a, b)
 	{
 		var dateComp = a.getDateRange().compare(b.getDateRange());
 		if (dateComp === 0) {
@@ -1019,7 +1019,7 @@ Zarafa.calendar.ui.AbstractCalendarView = Ext.extend(Zarafa.core.ui.View, {
 	 * of the time within that day.
 	 * @param {Boolean} wholeDays if true the overlap test is for whole days rather than time
 	 */
-	doGreedyColoring : function(appointments, wholeDays)
+	doGreedyColoring: function(appointments, wholeDays)
 	{
 		// sort appointments by start date
 		appointments.sort(this.appointmentCompare);
@@ -1033,17 +1033,17 @@ Zarafa.calendar.ui.AbstractCalendarView = Ext.extend(Zarafa.core.ui.View, {
 			Ext.each(appointments, function(appointment) {
 				var calendarStartTime = this.getDateRange().getStartTime();
 				todoList.push({
-					appointment : appointment,
-					start : Math.floor((appointment.getDateRange().getStartTime() - calendarStartTime) / Date.dayInMillis),
-					due : Math.ceil((appointment.getDateRange().getDueTime() - calendarStartTime) / Date.dayInMillis)
+					appointment: appointment,
+					start: Math.floor((appointment.getDateRange().getStartTime() - calendarStartTime) / Date.dayInMillis),
+					due: Math.ceil((appointment.getDateRange().getDueTime() - calendarStartTime) / Date.dayInMillis)
 				});
 			}, this);
 		} else {
 			Ext.each(appointments, function(appointment) {
 				todoList.push({
-					appointment : appointment,
-					start : appointment.getAdjustedDateRange().getStartTime(),
-					due : appointment.getAdjustedDateRange().getDueTime()
+					appointment: appointment,
+					start: appointment.getAdjustedDateRange().getStartTime(),
+					due: appointment.getAdjustedDateRange().getDueTime()
 				});
 			});
 		}
@@ -1089,7 +1089,7 @@ Zarafa.calendar.ui.AbstractCalendarView = Ext.extend(Zarafa.core.ui.View, {
 	 * in the parent view).
 	 * @param {Ext.Element} container The Ext.Element into which the view must be rendered.
 	 */
-	render : function(container)
+	render: function(container)
 	{
 		// FIXME: This should _never_ be true...
 		if (this.rendered) {
@@ -1125,8 +1125,8 @@ Zarafa.calendar.ui.AbstractCalendarView = Ext.extend(Zarafa.core.ui.View, {
 		if (this.enableDD || this.enableBodyDD || this.enableBodyDrag) {
 			if (!this.bodyDragZone && this.body) {
 				this.bodyDragZone = new Zarafa.calendar.ui.CalendarViewDragZone(this, this.bodyDragConfig || {
-					ddGroup : this.ddGroup || 'AppointmentDD',
-					headerMode : false
+					ddGroup: this.ddGroup || 'AppointmentDD',
+					headerMode: false
 				});
 			}
 		}
@@ -1134,8 +1134,8 @@ Zarafa.calendar.ui.AbstractCalendarView = Ext.extend(Zarafa.core.ui.View, {
 		if (this.enableDD || this.enableHeaderDD || this.enableHeaderDrag) {
 			if (!this.headerDragZone && this.header) {
 				this.headerDragZone = new Zarafa.calendar.ui.CalendarViewDragZone(this, this.headerDragConfig || {
-					ddGroup : this.ddGroup || 'AppointmentDD',
-					headerMode : true
+					ddGroup: this.ddGroup || 'AppointmentDD',
+					headerMode: true
 				});
 			}
 		}
@@ -1143,10 +1143,10 @@ Zarafa.calendar.ui.AbstractCalendarView = Ext.extend(Zarafa.core.ui.View, {
 		if (this.enableDD || this.enableBodyDD || this.enableBodyDrop) {
 			if (!this.bodyDropZone && this.body) {
 				this.bodyDropZone = new Zarafa.calendar.ui.CalendarViewDropZone(this, this.bodyDropConfig || {
-					ddGroup : this.ddGroup || 'AppointmentDD',
-					headerMode : false,
-					selectingSnapMode : Zarafa.calendar.data.SnapModes.ZOOMLEVEL,
-					draggingSnapMode : Zarafa.calendar.data.SnapModes.ZOOMLEVEL
+					ddGroup: this.ddGroup || 'AppointmentDD',
+					headerMode: false,
+					selectingSnapMode: Zarafa.calendar.data.SnapModes.ZOOMLEVEL,
+					draggingSnapMode: Zarafa.calendar.data.SnapModes.ZOOMLEVEL
 				});
 				this.bodyDropZone.proxy = this.selectionView;
 			}
@@ -1155,10 +1155,10 @@ Zarafa.calendar.ui.AbstractCalendarView = Ext.extend(Zarafa.core.ui.View, {
 		if (this.enableDD || this.enableHeaderDD || this.enableHeaderDrop) {
 			if (!this.headerDropZone && this.header) {
 				this.headerDropZone = new Zarafa.calendar.ui.CalendarViewDropZone(this, this.headerDropConfig || {
-					ddGroup : this.ddGroup || 'AppointmentDD',
-					headerMode : true,
-					selectingSnapMode : Zarafa.calendar.data.SnapModes.DAY,
-					draggingSnapMode : Zarafa.calendar.data.SnapModes.DAY
+					ddGroup: this.ddGroup || 'AppointmentDD',
+					headerMode: true,
+					selectingSnapMode: Zarafa.calendar.data.SnapModes.DAY,
+					draggingSnapMode: Zarafa.calendar.data.SnapModes.DAY
 				});
 				this.headerDropZone.proxy = this.selectionView;
 			}
@@ -1173,7 +1173,7 @@ Zarafa.calendar.ui.AbstractCalendarView = Ext.extend(Zarafa.core.ui.View, {
 	 * @param {Object} event The event object for this event
 	 * @private
 	 */
-	onKeyPress : function(event)
+	onKeyPress: function(event)
 	{
 		// If the key is not alphanumeric (a-z, A-Z, 0-9) ignore the event
 		if (!Ext.form.VTypes.alphanum(String.fromCharCode(event.getKey()))) {
@@ -1204,7 +1204,7 @@ Zarafa.calendar.ui.AbstractCalendarView = Ext.extend(Zarafa.core.ui.View, {
 	 * @param {String} text The text which was entered into the view.
 	 * @private
 	 */
-	onTextEntered : function(view, text)
+	onTextEntered: function(view, text)
 	{
 		// Don't fire event on empty text
 		if (Ext.isEmpty(text.trim())) {
@@ -1216,34 +1216,32 @@ Zarafa.calendar.ui.AbstractCalendarView = Ext.extend(Zarafa.core.ui.View, {
 
 	/**
 	 * Handles layout of the individual divs that make up the border around the calendar view.
+	 * @param {Object} colorScheme the used colorScheme
 	 * @private
 	 */
-	layoutBorder : function()
+	layoutBorder: function(colorScheme)
 	{
-		var selectedFolder = this.getSelectedFolder();
-		var colorScheme = this.contextModel.getColorScheme(selectedFolder.get('entryid'));
 		if (this.parentView.showBorder) {
 			var borderWidth = this.getBorderWidth();
 
 			// border divs in the header area
 			var headerHeight = this.parentView.getHeaderAreaHeight();
+			const styles = {
+				'background-color': colorScheme.header,
+				'border-color': colorScheme.header
+			};
+
 
 			this.headerBorderLeft.dom.className = this.getClassName('border', 'left');
 			this.headerBorderLeft.setLeftTop(this.leftOffset, 0);
 			this.headerBorderLeft.setSize(borderWidth, headerHeight);
-			this.headerBorderLeft.applyStyles({
-				'background-color' : colorScheme.header,
-				'border-color' : colorScheme.header
-			});
+			this.headerBorderLeft.applyStyles(styles);
 			this.headerBorderLeft.show();
 
 			this.headerBorderRight.dom.className = this.getClassName('border', 'right');
 			this.headerBorderRight.setLeftTop(this.leftOffset + this.width - borderWidth, 0);
 			this.headerBorderRight.setSize(borderWidth, headerHeight);
-			this.headerBorderRight.applyStyles({
-				'background-color' : colorScheme.header,
-				'border-color' : colorScheme.header
-			});
+			this.headerBorderRight.applyStyles(styles);
 			this.headerBorderRight.show();
 
 			// border divs in the body area
@@ -1252,29 +1250,20 @@ Zarafa.calendar.ui.AbstractCalendarView = Ext.extend(Zarafa.core.ui.View, {
 			this.borderLeft.dom.className = this.getClassName('border', 'left');
 			this.borderLeft.setLeftTop(this.leftOffset, 0);
 			this.borderLeft.setSize(borderWidth, bodyHeight);
-			this.borderLeft.applyStyles({
-				'background-color' : colorScheme.header,
-				'border-color' : colorScheme.header
-			});
+			this.borderLeft.applyStyles(styles);
 			this.borderLeft.show();
 
 			this.borderRight.dom.className = this.getClassName('border', 'right');
 			this.borderRight.setLeftTop(this.leftOffset + this.width - borderWidth, 0);
 			this.borderRight.setSize(borderWidth, bodyHeight);
-			this.borderRight.applyStyles({
-				'background-color' : colorScheme.header,
-				'border-color' : colorScheme.header
-			});
+			this.borderRight.applyStyles(styles);
 			this.borderRight.show();
 
 			// border div in the bottom area
 			this.borderBottom.dom.className = this.getClassName('border', 'bottom');
 			this.borderBottom.setLeftTop(this.leftOffset, 0);
 			this.borderBottom.setSize(this.width, borderWidth);
-			this.borderBottom.applyStyles({
-				'background-color' : colorScheme.header,
-				'border-color' : colorScheme.header
-			});
+			this.borderBottom.applyStyles(styles);
 			this.borderBottom.show();
 		} else {
 			this.headerBorderLeft.hide();
@@ -1290,7 +1279,7 @@ Zarafa.calendar.ui.AbstractCalendarView = Ext.extend(Zarafa.core.ui.View, {
 	 * for each individual tab, as to calculate how much width each tab could be assigned with.
 	 * @private
 	 */
-	layoutTabs : function()
+	layoutTabs: function()
 	{
 		var tabs = [];
 		var tabsThatNeedResizing = [];
@@ -1320,7 +1309,7 @@ Zarafa.calendar.ui.AbstractCalendarView = Ext.extend(Zarafa.core.ui.View, {
 			for ( i=0; i<tabs.length; i++ ){
 				if ( (tabs[i].getDesiredWidth() + tabs[i].tabContents.getMargins('lr')) < this.width/tabs.length ){
 					tabsThatNeedNoResizing.push(tabs[i]);
-				}else{
+				} else {
 					tabsThatNeedResizing.push(tabs[i]);
 				}
 			}
@@ -1387,7 +1376,7 @@ Zarafa.calendar.ui.AbstractCalendarView = Ext.extend(Zarafa.core.ui.View, {
 	 * Lays out the view.
 	 * @protected
 	 */
-	onLayout : function()
+	onLayout: function()
 	{
 		var selectedFolder = this.getSelectedFolder();
 
@@ -1403,7 +1392,7 @@ Zarafa.calendar.ui.AbstractCalendarView = Ext.extend(Zarafa.core.ui.View, {
 		}
 
 		// layout border and tab
-		this.layoutBorder();
+		this.layoutBorder(colorScheme);
 
 		// layout body and header containers
 		var dayStripHeight = this.parentView.getHourHeight() * this.parentView.numHours;
@@ -1448,7 +1437,7 @@ Zarafa.calendar.ui.AbstractCalendarView = Ext.extend(Zarafa.core.ui.View, {
 	 * {@link #children}.
 	 * @protected
 	 */
-	onAfterLayout : function()
+	onAfterLayout: function()
 	{
 		this.layoutChildren();
 	},
@@ -1459,7 +1448,7 @@ Zarafa.calendar.ui.AbstractCalendarView = Ext.extend(Zarafa.core.ui.View, {
 	 * @param {Zarafa.core.data.IPMStore} store store that fired the event.
 	 * @param {Object} options the options (parameters) with which the load was invoked.
 	 */
-	beforeAppointmentsLoad : function(store, options)
+	beforeAppointmentsLoad: function(store, options)
 	{
 		// Destroy all appointments.
 		this.clearAppointments(true);
@@ -1472,7 +1461,7 @@ Zarafa.calendar.ui.AbstractCalendarView = Ext.extend(Zarafa.core.ui.View, {
 	 * @param {Zarafa.core.data.IPMRecord[]} records loaded record set
 	 * @param {Object} options the options (parameters) with which the load was invoked.
 	 */
-	onAppointmentsLoad : function(store, records, options)
+	onAppointmentsLoad: function(store, records, options)
 	{
 		// Destroy all appointments.
 		this.clearAppointments(true, false);
@@ -1502,7 +1491,7 @@ Zarafa.calendar.ui.AbstractCalendarView = Ext.extend(Zarafa.core.ui.View, {
 	 * @param {Ext.data.Record} record that was added
 	 * @param {String} operation mutation operation key. Equals 'add'
 	 */
-	onAppointmentAdd : function(store, record, operation)
+	onAppointmentAdd: function(store, record, operation)
 	{
 		if (this.containsFolderId(record.get('parent_entryid')) && !this.containsAppointment(record) && record.isValid()) {
 			this.addAppointment(record);
@@ -1517,7 +1506,7 @@ Zarafa.calendar.ui.AbstractCalendarView = Ext.extend(Zarafa.core.ui.View, {
 	 * @param {Ext.data.Record} record that was added
 	 * @param {String} operation mutation operation key. Equals 'remove'
 	 */
-	onAppointmentRemove : function(store, record, operation)
+	onAppointmentRemove: function(store, record, operation)
 	{
 		if (this.containsAppointment(record)) {
 			this.removeAppointment(record);
@@ -1534,7 +1523,7 @@ Zarafa.calendar.ui.AbstractCalendarView = Ext.extend(Zarafa.core.ui.View, {
 	 * @param {Ext.data.Record} record that was added
 	 * @param {String} operation mutation operation key. Equals 'update'
 	 */
-	onAppointmentUpdate : function(store, record, operation)
+	onAppointmentUpdate: function(store, record, operation)
 	{
 		var appointment = this.findAppointment(record);
 
@@ -1570,7 +1559,7 @@ Zarafa.calendar.ui.AbstractCalendarView = Ext.extend(Zarafa.core.ui.View, {
 	 * @param {Zarafa.core.data.IPMRecord} record The record which was selected.
 	 * @private
 	 */
-	onAppointmentSelect : function(selectionModel, record)
+	onAppointmentSelect: function(selectionModel, record)
 	{
 		var appointment = this.findAppointment(record);
 
@@ -1596,7 +1585,7 @@ Zarafa.calendar.ui.AbstractCalendarView = Ext.extend(Zarafa.core.ui.View, {
 	 * @param {Zarafa.core.data.IPMRecord} record The record which was deselected.
 	 * @private
 	 */
-	onAppointmentDeselect : function(selectionModel, record)
+	onAppointmentDeselect: function(selectionModel, record)
 	{
 		var appointment = this.findAppointment(record);
 
@@ -1619,7 +1608,7 @@ Zarafa.calendar.ui.AbstractCalendarView = Ext.extend(Zarafa.core.ui.View, {
 	 * fired the event.
 	 * @private
 	 */
-	onAppointmentSelectionClear : function(selectionModel)
+	onAppointmentSelectionClear: function(selectionModel)
 	{
 		// If the text edit view is still visible, hide it.
 		if (this.textEditView.isVisible()) {
@@ -1640,7 +1629,7 @@ Zarafa.calendar.ui.AbstractCalendarView = Ext.extend(Zarafa.core.ui.View, {
 	 * @param {Boolean} active true iff the selection is active (set).
 	 * @private
 	 */
-	onRangeSelectionChange : function(selectionModel, dateRange, calendarView, active)
+	onRangeSelectionChange: function(selectionModel, dateRange, calendarView, active)
 	{
 		// Make sure the selection view has been created.
 		if (!this.selectionView) {
@@ -1670,7 +1659,7 @@ Zarafa.calendar.ui.AbstractCalendarView = Ext.extend(Zarafa.core.ui.View, {
 	 * @param {MAPIFolder} folder MAPI folder.
 	 * @private
 	 */
-	onTabMerge : function(folder)
+	onTabMerge: function(folder)
 	{
 		this.fireEvent('merge', this, folder);
 	},
@@ -1681,7 +1670,7 @@ Zarafa.calendar.ui.AbstractCalendarView = Ext.extend(Zarafa.core.ui.View, {
 	 * @param {MAPIFolder} folder MAPI folder.
 	 * @private
 	 */
-	onTabSeparate : function(folder)
+	onTabSeparate: function(folder)
 	{
 		this.fireEvent('separate', this, folder);
 	},
@@ -1692,7 +1681,7 @@ Zarafa.calendar.ui.AbstractCalendarView = Ext.extend(Zarafa.core.ui.View, {
 	 * @param {MAPIFolder} folder MAPI folder.
 	 * @private
 	 */
-	onTabClose : function(folder)
+	onTabClose: function(folder)
 	{
 		this.fireEvent('close', this, folder);
 	},
@@ -1702,7 +1691,7 @@ Zarafa.calendar.ui.AbstractCalendarView = Ext.extend(Zarafa.core.ui.View, {
 	 * @param {MAPIFolder} folder MAPI folder.
 	 * @private
 	 */
-	onTabClick : function(folder)
+	onTabClick: function(folder)
 	{
 		this.setSelectedFolder(folder);
 		this.fireEvent('activate', this, folder);
@@ -1713,7 +1702,7 @@ Zarafa.calendar.ui.AbstractCalendarView = Ext.extend(Zarafa.core.ui.View, {
 	 * of the {@link Zarafa.calendar.ui.AppointmentView appointment} which is being dragged.
 	 * @return {String} The string which must be shown while dragging the appointment
 	 */
-	getDragDropText : function()
+	getDragDropText: function()
 	{
 		var count = this.selectionModel.getCount();
 		return String.format(ngettext('{0} selected item', '{0} selected items', count), count);
@@ -1728,7 +1717,7 @@ Zarafa.calendar.ui.AbstractCalendarView = Ext.extend(Zarafa.core.ui.View, {
 	 * @param {Zarafa.core.DateRange} dateRange The daterange for the appointment
 	 * @private
 	 */
-	onDrop : function(event, calendar, appointment, dateRange)
+	onDrop: function(event, calendar, appointment, dateRange)
 	{
 		//Make sure this view gets the focus by calling the onTabClick event handler
 		this.onTabClick(this.getSelectedFolder());
@@ -1745,7 +1734,7 @@ Zarafa.calendar.ui.AbstractCalendarView = Ext.extend(Zarafa.core.ui.View, {
 	 * @param {Zarafa.core.DateRange} dateRange The daterange for the appointment
 	 * @private
 	 */
-	onMove : function(event, appointment, dateRange)
+	onMove: function(event, appointment, dateRange)
 	{
 		this.fireEvent('appointmentmove', this, appointment.getRecord(), dateRange, event);
 		this.selectionModel.clearSelections();
@@ -1759,7 +1748,7 @@ Zarafa.calendar.ui.AbstractCalendarView = Ext.extend(Zarafa.core.ui.View, {
 	 * @param {Zarafa.core.DateRange} dateRange The daterange for the appointment
 	 * @private
 	 */
-	onResize : function(event, appointment, dateRange)
+	onResize: function(event, appointment, dateRange)
 	{
 		this.fireEvent('appointmentresize', this, appointment.getRecord(), dateRange, event);
 		this.selectionModel.clearSelections();
@@ -1771,7 +1760,7 @@ Zarafa.calendar.ui.AbstractCalendarView = Ext.extend(Zarafa.core.ui.View, {
 	 * the calendar.
 	 * @param {Ext.EventObject} event The event object
 	 */
-	onMouseMove : Ext.emptyFn,
+	onMouseMove: Ext.emptyFn,
 
 	/**
 	 * Event handler for the D&D proxy, which is called when the mousedown event has been fired.
@@ -1781,7 +1770,7 @@ Zarafa.calendar.ui.AbstractCalendarView = Ext.extend(Zarafa.core.ui.View, {
 	 * @param {Zarafa.calendar.ui.AppointmentView} appointment The appointment object
 	 * @private
 	 */
-	onMouseDown : function(event, appointment)
+	onMouseDown: function(event, appointment)
 	{
 		// Make sure this view gets the focus by calling the onTabClick event handler.
 		// Only call onTabClick when we actually change the selected folder group, to
@@ -1824,7 +1813,7 @@ Zarafa.calendar.ui.AbstractCalendarView = Ext.extend(Zarafa.core.ui.View, {
 	 * @param {Zarafa.calendar.ui.AppointmentView} appointment The selected appointment
 	 * @private
 	 */
-	onMouseUp : function(event, appointment)
+	onMouseUp: function(event, appointment)
 	{
 		if (appointment && (appointment.isAllDay() ? appointment.eventOverHeader(event) : appointment.eventOverBody(event))) {
 			this.selectionModel.deselectRecord(appointment.getRecord());
@@ -1838,7 +1827,7 @@ Zarafa.calendar.ui.AbstractCalendarView = Ext.extend(Zarafa.core.ui.View, {
 	 * @param {Zarafa.calendar.ui.AppointmentView} appointment The appointment on which the event occurred
 	 * @private
 	 */
-	onInitDrag : function(event, appointment)
+	onInitDrag: function(event, appointment)
 	{
 		this.fireEvent('appointmentinitdrag', this, event, appointment);
 	},
@@ -1850,7 +1839,7 @@ Zarafa.calendar.ui.AbstractCalendarView = Ext.extend(Zarafa.core.ui.View, {
 	 * @param {Zarafa.calendar.ui.AppointmentView} The appointment on which the event occurred
 	 * @private
 	 */
-	onEndDrag : function(event, appointment)
+	onEndDrag: function(event, appointment)
 	{
 		this.fireEvent('appointmentenddrag', this, event, appointment);
 	},
@@ -1862,7 +1851,7 @@ Zarafa.calendar.ui.AbstractCalendarView = Ext.extend(Zarafa.core.ui.View, {
 	 * @param {Zarafa.core.DateRange} dateRange The dateRange which was selected.
 	 * @private
 	 */
-	onSelect : function(event, dateRange)
+	onSelect: function(event, dateRange)
 	{
 		this.rangeSelectionModel.set(dateRange, this);
 	},
@@ -1872,7 +1861,7 @@ Zarafa.calendar.ui.AbstractCalendarView = Ext.extend(Zarafa.core.ui.View, {
 	 * cleaned up by the superclass.
 	 * @override
 	 */
-	destroy : function()
+	destroy: function()
 	{
 		Ext.destroy(this.bodyDragZone, this.bodyDropZone);
 		Ext.destroy(this.headerDragZone, this.headerDropZone);
@@ -1884,7 +1873,7 @@ Zarafa.calendar.ui.AbstractCalendarView = Ext.extend(Zarafa.core.ui.View, {
 	 * Set this view to the currently active one in the {@link Zarafa.calendar.CalendarMultiView}
 	 * @param {Boolean} active
 	 */
-	setActive : function(active)
+	setActive: function(active)
 	{
 		this.active = active;
 	}

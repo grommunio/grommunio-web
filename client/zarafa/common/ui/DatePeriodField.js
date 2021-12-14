@@ -3,7 +3,7 @@ Ext.ns('Zarafa.common.ui');
 /**
  * @class Zarafa.common.ui.DatePeriodField
  * @extends Zarafa.common.ui.DateRangeField
- * @xtype zarafa.dateperiodfield 
+ * @xtype zarafa.dateperiodfield
  *
  * This class can be used to combine two {@link Ext.form.DateField datefield}
  * objects together to configure a startdate and enddate.
@@ -13,19 +13,19 @@ Zarafa.common.ui.DatePeriodField = Ext.extend(Zarafa.common.ui.DateRangeField, {
 	 * @cfg {String} dateFormat The format in which the date appears in the
 	 * {@link Ext.form.DateField DateField}.
 	 */
-	// # TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
-	dateFormat : _('d/m/Y'),
-	
+	// # TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
+	dateFormat: _('d/m/Y'),
+
 	/**
 	 * @cfg {Boolean} allowBlank Specifies empty dates are accepted or not by {@link Ext.form.DateField DateField}.
 	 */
-	allowBlank : false,
+	allowBlank: false,
 
 	/**
 	 * @constructor
 	 * @param {Object} Configuration object
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		config = config || {};
 
@@ -37,11 +37,11 @@ Zarafa.common.ui.DatePeriodField = Ext.extend(Zarafa.common.ui.DateRangeField, {
 
 		config.startFieldConfig = Ext.applyIf(config.startFieldConfig, {
 			xtype: 'datefield',
-			fieldLabel : _('Start date'),
+			fieldLabel: _('Start date'),
 			labelWidth: this.labelWidth,
-			emptyText : _('None'),
+			emptyText: _('None'),
 			format: this.dateFormat,
-			allowBlank : config.allowBlank || this.allowBlank
+			allowBlank: config.allowBlank || this.allowBlank
 		});
 
 		config.endFieldConfig = config.endFieldConfig || {};
@@ -52,18 +52,18 @@ Zarafa.common.ui.DatePeriodField = Ext.extend(Zarafa.common.ui.DateRangeField, {
 
 		config.endFieldConfig = Ext.applyIf(config.endFieldConfig || {}, {
 			xtype: 'datefield',
-			fieldLabel : _('End date'),
+			fieldLabel: _('End date'),
 			labelWidth: this.labelWidth,
-			emptyText : _('None'),
+			emptyText: _('None'),
 			format: this.dateFormat,
-			allowBlank : config.allowBlank || this.allowBlank
+			allowBlank: config.allowBlank || this.allowBlank
 		});
 
 		if(config.allowBlank && !Ext.isDefined(config.defaultValue)) {
 			Ext.applyIf(config, {
 				// use a daterange which can accept empty dates
-				defaultValue : new Zarafa.core.DateRange({ allowBlank : true }),
-				defaultPeriod : 30
+				defaultValue: new Zarafa.core.DateRange({ allowBlank: true }),
+				defaultPeriod: 30
 			});
 		}
 
@@ -77,7 +77,7 @@ Zarafa.common.ui.DatePeriodField = Ext.extend(Zarafa.common.ui.DateRangeField, {
 	 * @param {Mixed} newValue The new value for the field
 	 * @private
 	 */
-	onStartSelect : function(field, newValue)
+	onStartSelect: function(field, newValue)
 	{
 		this.onStartChange(field, newValue, field.startValue);
 	},
@@ -90,7 +90,7 @@ Zarafa.common.ui.DatePeriodField = Ext.extend(Zarafa.common.ui.DateRangeField, {
 	 * @param {Mixed} newValue The new value for the field
 	 * @private
 	 */
-	onEndSelect : function(field, newValue)
+	onEndSelect: function(field, newValue)
 	{
 		this.onEndChange(field, newValue, field.startValue);
 	},
@@ -105,7 +105,7 @@ Zarafa.common.ui.DatePeriodField = Ext.extend(Zarafa.common.ui.DateRangeField, {
 	 * @param {Mixed} oldValue The old value for the field
 	 * @private
 	 */
-	onStartChange : function(field, newValue, oldValue)
+	onStartChange: function(field, newValue, oldValue)
 	{
 		var range = this.defaultValue;
 		var oldRange = this.defaultValue.clone();
@@ -159,7 +159,7 @@ Zarafa.common.ui.DatePeriodField = Ext.extend(Zarafa.common.ui.DateRangeField, {
 	 * @param {Mixed} oldValue The old value for the field
 	 * @private
 	 */
-	onEndChange : function(field, newValue, oldValue)
+	onEndChange: function(field, newValue, oldValue)
 	{
 		var range = this.defaultValue;
 		var oldRange = this.defaultValue.clone();

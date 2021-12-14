@@ -7,10 +7,10 @@ Ext.apply(Ext.EventObjectImpl.prototype, {
 	 * Function will return Character code for the key event
 	 * Number keys of numpad keys have keycode of 96 to 105, this function will
 	 * convert it to proper ASCII character and return it
-	 * 
+	 *
 	 * @return {String} The trimmed string
 	 */
-	getKeyCharCode : function()
+	getKeyCharCode: function()
 	{
 		var key = this.getCharCode();
 		// Handle numpad keys here

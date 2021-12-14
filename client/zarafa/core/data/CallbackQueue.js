@@ -17,7 +17,7 @@ Zarafa.core.data.CallbackQueue = Ext.extend(Ext.util.Observable, {
 	 * @type Array
 	 * @private
 	 */
-	queue : undefined,
+	queue: undefined,
 
 	/**
 	 * Indicates that {@link #run} has been called, and the various callbacks
@@ -26,7 +26,7 @@ Zarafa.core.data.CallbackQueue = Ext.extend(Ext.util.Observable, {
 	 * @type Boolean
 	 * @private
 	 */
-	running : false,
+	running: false,
 
 	/**
 	 * Internal counter to keep track at which task is currently being executed,
@@ -36,7 +36,7 @@ Zarafa.core.data.CallbackQueue = Ext.extend(Ext.util.Observable, {
 	 * @type Number
 	 * @private
 	 */
-	currentTask : 0,
+	currentTask: 0,
 
 	/**
 	 * The function which is provided to {@link #run} which should be called as
@@ -46,7 +46,7 @@ Zarafa.core.data.CallbackQueue = Ext.extend(Ext.util.Observable, {
 	 * @type Function
 	 * @private
 	 */
-	completionFn : undefined,
+	completionFn: undefined,
 
 	/**
 	 * The scope for the {@link #completionFn} which is provided to {@link #run}.
@@ -54,13 +54,13 @@ Zarafa.core.data.CallbackQueue = Ext.extend(Ext.util.Observable, {
 	 * @type Object
 	 * @private
 	 */
-	completionScope : undefined,
+	completionScope: undefined,
 
 	/**
 	 * @constructor
 	 * @param {Object} config Configuration object
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		config = config || {};
 
@@ -110,9 +110,9 @@ Zarafa.core.data.CallbackQueue = Ext.extend(Ext.util.Observable, {
 	 * @param {Function} fn The function which will be called
 	 * @param {Object} scope The scope in which the function will be called
 	 */
-	add : function(fn, scope)
+	add: function(fn, scope)
 	{
-		this.queue.push({ fn : fn, scope : scope });
+		this.queue.push({ fn: fn, scope: scope });
 	},
 
 	/**
@@ -122,7 +122,7 @@ Zarafa.core.data.CallbackQueue = Ext.extend(Ext.util.Observable, {
 	 * @param {Function} fn The function to remove
 	 * @param {Object} scope The scope of the function
 	 */
-	remove : function(fn, scope)
+	remove: function(fn, scope)
 	{
 		var queue = this.queue;
 
@@ -142,7 +142,7 @@ Zarafa.core.data.CallbackQueue = Ext.extend(Ext.util.Observable, {
 	 * Run all Callback functions in the {@link #queue}. This will fire the {@link #start} event,
 	 * and starts all tasks {@link #currentTask starting with} 0.
 	 */
-	run : function(fn, scope)
+	run: function(fn, scope)
 	{
 		this.running = true;
 		this.currentTask = 0;
@@ -157,7 +157,7 @@ Zarafa.core.data.CallbackQueue = Ext.extend(Ext.util.Observable, {
 	/**
 	 * @returns {Boolean} True if the queue is currently running
 	 */
-	isRunning : function()
+	isRunning: function()
 	{
 		return this.running;
 	},
@@ -169,7 +169,7 @@ Zarafa.core.data.CallbackQueue = Ext.extend(Ext.util.Observable, {
 	 * @param {Number} index The index in the queue of the callback to execute
 	 * @private
 	 */
-	doTask : function(index)
+	doTask: function(index)
 	{
 		var task = this.queue[index];
 		this.fireEvent('starttask', this, task.fn, task.scope);
@@ -186,7 +186,7 @@ Zarafa.core.data.CallbackQueue = Ext.extend(Ext.util.Observable, {
 	 * @param {Object} task The task which was completed successfully
 	 * @private
 	 */
-	onCompleteTask : function(success, task)
+	onCompleteTask: function(success, task)
 	{
 		// If not provided, then assume success
 		success = success !== false;

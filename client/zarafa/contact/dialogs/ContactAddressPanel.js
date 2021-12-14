@@ -9,21 +9,21 @@ Zarafa.contact.dialogs.ContactAddressPanel = Ext.extend(Ext.form.FormPanel, {
 	/**
 	 * @cfg {Zarafa.contact.data.ContactDetailsParser} parser parser object that will be used to parse information
 	 */
-	parser : null,
+	parser: null,
 	/**
 	 * @cfg {String} property property that will be modified
 	 */
-	property : '',
+	property: '',
 	/**
 	 * @cfg {Object} parsedData if data is already parsed then it can be passed here,
 	 * so no need to prase same data again
 	 */
-	parsedData : null,
+	parsedData: null,
 	/**
 	 * @constructor
 	 * @param {Object} config Configuration structure
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		config = config || {};
 
@@ -31,10 +31,10 @@ Zarafa.contact.dialogs.ContactAddressPanel = Ext.extend(Ext.form.FormPanel, {
 		config.plugins.push('zarafa.recordcomponentupdaterplugin');
 
 		Ext.applyIf(config, {
-			xtype : 'zarafa.contactaddresspanel',
+			xtype: 'zarafa.contactaddresspanel',
 			border: false,
-			frame : true,
-			padding : 5,
+			frame: true,
+			padding: 5,
 			items: this.createFormItems(config.property)
 		});
 
@@ -46,39 +46,39 @@ Zarafa.contact.dialogs.ContactAddressPanel = Ext.extend(Ext.form.FormPanel, {
 	 * @param {String} propertyPrefix prefix of the properties that should be used to get values from record.
 	 * @return {Object} Configuration object for the form
 	 */
-	createFormItems : function(propertyPrefix)
+	createFormItems: function(propertyPrefix)
 	{
 		return [{
-			xtype : 'textarea',
-			anchor : '100%',
-			fieldLabel : _('Street'),
-			name : propertyPrefix + '_street'
+			xtype: 'textarea',
+			anchor: '100%',
+			fieldLabel: _('Street'),
+			name: propertyPrefix + '_street'
 		},{
-			xtype : 'textfield',
-			anchor : '100%',
-			fieldLabel : _('City'),
-			name : propertyPrefix + '_city'
+			xtype: 'textfield',
+			anchor: '100%',
+			fieldLabel: _('City'),
+			name: propertyPrefix + '_city'
 		},{
-			xtype : 'textfield',
-			anchor : '100%',
-			fieldLabel : _('State/Province'),
-			name : propertyPrefix + '_state'
+			xtype: 'textfield',
+			anchor: '100%',
+			fieldLabel: _('State/Province'),
+			name: propertyPrefix + '_state'
 		},{
-			xtype : 'textfield',
-			anchor : '100%',
-			fieldLabel : _('Zip/Postal code'),
-			name : propertyPrefix + '_postal_code'
+			xtype: 'textfield',
+			anchor: '100%',
+			fieldLabel: _('Zip/Postal code'),
+			name: propertyPrefix + '_postal_code'
 		},{
-			xtype : 'textfield',
-			anchor : '100%',
-			fieldLabel : _('Country/Region'),
-			name : propertyPrefix + '_country'
+			xtype: 'textfield',
+			anchor: '100%',
+			fieldLabel: _('Country/Region'),
+			name: propertyPrefix + '_country'
 		},{
-			xtype : 'checkbox',
-			boxLabel : _('Show this again when address is incomplete or unclear.'),
-			ref : 'settingCheckField',
-			hideLabel : true,
-			checked : container.getSettingsModel().get('zarafa/v1/contexts/contact/show_address_dialog')
+			xtype: 'checkbox',
+			boxLabel: _('Show this again when address is incomplete or unclear.'),
+			ref: 'settingCheckField',
+			hideLabel: true,
+			checked: container.getSettingsModel().get('zarafa/v1/contexts/contact/show_address_dialog')
 		}];
 	},
 
@@ -88,7 +88,7 @@ Zarafa.contact.dialogs.ContactAddressPanel = Ext.extend(Ext.form.FormPanel, {
 	 * @param {Zarafa.core.data.IPMRecord} record The record to load
 	 * @param {Boolean} contentReset force the component to perform a full update of the data.
 	 */
-	update : function(record, contentReset)
+	update: function(record, contentReset)
 	{
 		if (!Ext.isDefined(record)) {
 			return;
@@ -139,7 +139,7 @@ Zarafa.contact.dialogs.ContactAddressPanel = Ext.extend(Ext.form.FormPanel, {
 	 * @param {Zarafa.core.data.IPMRecord} record The record to update
 	 * @private
 	 */
-	updateRecord : function(record)
+	updateRecord: function(record)
 	{
 		var form = this.getForm();
 

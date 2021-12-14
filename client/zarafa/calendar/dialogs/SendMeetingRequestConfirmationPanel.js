@@ -9,49 +9,49 @@ Zarafa.calendar.dialogs.SendMeetingRequestConfirmationPanel = Ext.extend(Ext.for
 	/**
 	 * @cfg {Zarafa.core.mapi.ResponseStatus} responseType The response type value selected by user.
 	 */
-	responseType : undefined,
+	responseType: undefined,
 
 	/**
 	 * Info string that will be shown for attendee that is going to accept meeting request.
 	 * @property
 	 * @type String
 	 */
-	acceptInfoString : _('This meeting will be accepted and moved to your calendar. Do you want to include comments with your response?'),
+	acceptInfoString: _('This meeting will be accepted and moved to your calendar. Do you want to include comments with your response?'),
 
 	/**
 	 * Info string that will be shown for attendee that is going to tentatively accept meeting request.
 	 * @property
 	 * @type String
 	 */
-	tentativeAcceptInfoString : _('This meeting will be tentatively accepted and moved to your calendar. Do you want to include comments with your response?'),
+	tentativeAcceptInfoString: _('This meeting will be tentatively accepted and moved to your calendar. Do you want to include comments with your response?'),
 
 	/**
 	 * Info string that will be shown for attendee that is going to decline meeting request.
 	 * @property
 	 * @type String
 	 */
-	declineInfoString : _('This meeting will be declined and moved to your Deleted Items folder. Do you want to include comments with your response?'),
+	declineInfoString: _('This meeting will be declined and moved to your Deleted Items folder. Do you want to include comments with your response?'),
 
 	/**
 	 * @constructor
 	 * @param config Configuration structure
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		config = config || {};
 
 		Ext.applyIf(config, {
 			// Override from Ext.Component
-			xtype : 'zarafa.sendmeetingrequestconfirmpanel',
+			xtype: 'zarafa.sendmeetingrequestconfirmpanel',
 			layout: {
 				type: 'vbox',
 				align: 'stretch'
 			},
 			border: false,
-			hideLabels : true,
+			hideLabels: true,
 			items: [{
 				xtype: 'displayfield',
-				value : this.getDisplayText(config.responseType),
+				value: this.getDisplayText(config.responseType),
 				autoHeight: true,
 				style: 'padding-bottom: 10px;'
 			},{
@@ -59,9 +59,9 @@ Zarafa.calendar.dialogs.SendMeetingRequestConfirmationPanel = Ext.extend(Ext.for
 				boxLabel: _('Edit the response before sending'),
 				name: 'sendmrconfirmation',
 				autoHeight: true,
-				listeners : {
-					check : this.onEditResponseChecked,
-					scope : this
+				listeners: {
+					check: this.onEditResponseChecked,
+					scope: this
 				}
 			},{
 				xtype: 'textarea',
@@ -93,7 +93,7 @@ Zarafa.calendar.dialogs.SendMeetingRequestConfirmationPanel = Ext.extend(Ext.for
 	 * @return {String} The display text which should be shown on top of this panel.
 	 * @private
 	 */
-	getDisplayText : function(responseType)
+	getDisplayText: function(responseType)
 	{
 		switch(responseType)
 		{
@@ -115,7 +115,7 @@ Zarafa.calendar.dialogs.SendMeetingRequestConfirmationPanel = Ext.extend(Ext.for
 	 * @param {Boolean} checked True if the radio button was checked
 	 * @private
 	 */
-	onEditResponseChecked : function(rb, checked)
+	onEditResponseChecked: function(rb, checked)
 	{
 		this.responseTextField.setDisabled(!checked);
 	},
@@ -126,7 +126,7 @@ Zarafa.calendar.dialogs.SendMeetingRequestConfirmationPanel = Ext.extend(Ext.for
 	 * @param {Zarafa.core.data.IPMRecord} record The record which is being
 	 * accepted or declined.
 	 */
-	updateRecord : function(record)
+	updateRecord: function(record)
 	{
 		var values = this.getForm().getFieldValues();
 
@@ -141,7 +141,7 @@ Zarafa.calendar.dialogs.SendMeetingRequestConfirmationPanel = Ext.extend(Ext.for
 	 * the heights of all fields inside the panel.
 	 * @private
 	 */
-	onResize : function()
+	onResize: function()
 	{
 		Zarafa.calendar.dialogs.SendMeetingRequestConfirmationPanel.superclass.onResize.apply(this, arguments);
 		this.doLayout();

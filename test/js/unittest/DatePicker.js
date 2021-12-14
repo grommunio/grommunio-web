@@ -15,7 +15,7 @@ describe("DatePicker", function() {
 	};
 
 	/*
-	 * Test if the week number column is layed out correctly in date picker.
+	 * Test if the week number column is laid out correctly in date picker.
 	 */
 	describe('Layout and UI', function() {
 		var datePickerObj;

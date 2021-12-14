@@ -20,18 +20,18 @@ Zarafa.core.ui.ContextContainer = Ext.extend(Zarafa.core.ui.SwitchViewContentCon
 	/**
 	 * @cfg {String} name The name of the context container.
 	 */
-	name : undefined,
+	name: undefined,
 
 	/**
 	 * @cfg {String} title The title of this component. Generally used only by owner container
 	 */
-	title : undefined,
-	
+	title: undefined,
+
 	/**
 	 * @constructor
 	 * @param config configuration object
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		if (config.name) {
 			this.name = config.name;
@@ -59,17 +59,17 @@ Zarafa.core.ui.ContextContainer = Ext.extend(Zarafa.core.ui.SwitchViewContentCon
 
 		// Standard configuration.
 		Ext.applyIf(config, {
-			autoDestroy : true,
-			layout : 'card',
-			deferredRender : 'false',
-			hideMode : 'offsets',
-			size : 'auto',
-			border : false,
-			lazyItems : lazyItems,
-			items : items,
-			activeItem : 0,
+			autoDestroy: true,
+			layout: 'card',
+			deferredRender: 'false',
+			hideMode: 'offsets',
+			size: 'auto',
+			border: false,
+			lazyItems: lazyItems,
+			items: items,
+			activeItem: 0,
 			// Fix for ExtJS 3.1
-			forceLayout : true
+			forceLayout: true
 		});
 
 		this.addEvents(
@@ -94,7 +94,7 @@ Zarafa.core.ui.ContextContainer = Ext.extend(Zarafa.core.ui.SwitchViewContentCon
 			 */
 			 'iconchange'
 		);
-		
+
 		Zarafa.core.ui.ContextContainer.superclass.constructor.call(this, config);
 
 		this.init();
@@ -104,7 +104,7 @@ Zarafa.core.ui.ContextContainer = Ext.extend(Zarafa.core.ui.SwitchViewContentCon
 	 * Initialises the component.
 	 * @private
 	 */
-	init : function()
+	init: function()
 	{
 		this.mon(container, 'contextswitch', this.onContextSwitch, this);
 		this.mon(container, 'folderselect', this.onFolderSelect, this);
@@ -113,7 +113,7 @@ Zarafa.core.ui.ContextContainer = Ext.extend(Zarafa.core.ui.SwitchViewContentCon
 		var model = container.getCurrentContext().getModel(),
 			title, iconCls;
 		if(model){
-			var folder =  model.getDefaultFolder();
+			var folder = model.getDefaultFolder();
 			if(folder){
 				title = folder.getFullyQualifiedDisplayName();
 				iconCls = Zarafa.common.ui.IconClass.getIconClass(folder);
@@ -132,38 +132,38 @@ Zarafa.core.ui.ContextContainer = Ext.extend(Zarafa.core.ui.SwitchViewContentCon
 	 * (for instance a tab panel would want to change the tab title, a window - the window title, etc.)
 	 * @param {String} title The new title to set
 	 */
-	setTitle : function(title)
+	setTitle: function(title)
 	{
 		var oldTitle = this.title;
 		this.title = title;
 
 		this.fireEvent('titlechange', this, title, oldTitle);
 	},
-	
+
 	/**
 	 * Set the icon class for this component
 	 * The event 'iconchange' is fired to notify the owner container of the change
 	 * tab panels, for instance could place an icon in this component's tab
 	 * @param {String} iconCls The new icon class to set
 	 */
-	setIcon : function(iconCls)
+	setIcon: function(iconCls)
 	{
 		var oldIconCls = this.iconCls;
 		this.iconCls = iconCls;
 
 		this.fireEvent('iconchange', this, iconCls, oldIconCls);
 	},
-	
+
 	/**
 	 * Handler for the 'contextswitch' event triggered by the Zarafa.core.Container
 	 * Switches between child items depending on the context they belong to. Switching
 	 * to 'mail' shows the component associated with the mail context and hides all others.
 	 * @param {Object} parameters Parameters passed to the context switch
 	 * @param {String} oldContext name of the context that was last active
-	 * @param String newContext name of the context to be made visible (mail, task, calendar, etc) 
+	 * @param String newContext name of the context to be made visible (mail, task, calendar, etc)
 	 * @private
 	 */
-	onContextSwitch : function(parameters, oldContext, newContext)
+	onContextSwitch: function(parameters, oldContext, newContext)
 	{
 		var oldItem = this.getActiveItem();
 		var newItem = this.findBy(function(item) { return item.context === newContext; });
@@ -179,7 +179,7 @@ Zarafa.core.ui.ContextContainer = Ext.extend(Zarafa.core.ui.SwitchViewContentCon
 		if (this.isVisible() != visible) {
 			this.setVisible(visible);
 		}
-		
+
 		// TODO: We should enable some timeout mechanism which
 		// removes and deletes the oldView after a particular timeout.
 		// This should increase performance when switching between 2
@@ -203,13 +203,13 @@ Zarafa.core.ui.ContextContainer = Ext.extend(Zarafa.core.ui.SwitchViewContentCon
 		this.setTitle(title);
 		this.setIcon(iconCls);
 	},
-	
+
 	/**
 	 * Handler for the 'folderchange' event, triggered by Zarafa.core.Container when a folder is selected in the hierarchy
 	 * @param {Zarafa.core.data.IPFRecord} folders
 	 * @private
 	 */
-	onFolderSelect : function(folders)
+	onFolderSelect: function(folders)
 	{
 		var title, iconCls, folder;
 		if(folders){

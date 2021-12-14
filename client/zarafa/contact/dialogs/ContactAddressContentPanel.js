@@ -12,36 +12,36 @@ Zarafa.contact.dialogs.ContactAddressContentPanel = Ext.extend(Zarafa.core.ui.Re
 	/**
 	 * @cfg {Zarafa.contact.data.ContactDetailsParser} parser parser object that will be used to parse information
 	 */
-	parser : null,
+	parser: null,
 
 	/**
 	 * @cfg {String} property property that will be modified
 	 */
-	property : null,
+	property: null,
 
 	/**
 	 * @cfg {Object} parsedData if data is already parsed then it can be passed here,
 	 * so no need to prase same data again
 	 */
-	parsedData : null,
+	parsedData: null,
 
 	/**
 	 * @constructor
 	 * @param {Object} config Configuration structure
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		config = config || {};
 
 		config = Ext.applyIf(config, {
-			layout : 'fit',
+			layout: 'fit',
 			border: false,
-			xtype : 'zarafa.contactaddresscontentpanel',
+			xtype: 'zarafa.contactaddresscontentpanel',
 			title: _('Check address'),
-			recordComponentPluginConfig : Ext.applyIf(config.recordComponentPluginConfig || {}, {
-				allowWrite : true
+			recordComponentPluginConfig: Ext.applyIf(config.recordComponentPluginConfig || {}, {
+				allowWrite: true
 			}),
-			autoSave : false,
+			autoSave: false,
 			width: 400,
 			height: 300,
 			items: [{
@@ -50,14 +50,14 @@ Zarafa.contact.dialogs.ContactAddressContentPanel = Ext.extend(Zarafa.core.ui.Re
 				parser: config.parser,
 				parsedData: config.parsedData,
 				property: config.property,
-				buttons : [{
-					text : _('Ok'),
-					handler : this.onOk,
-					scope : this
+				buttons: [{
+					text: _('Ok'),
+					handler: this.onOk,
+					scope: this
 				},{
-					text : _('Cancel'),
-					scope : this,
-					handler : this.onCancel
+					text: _('Cancel'),
+					scope: this,
+					handler: this.onCancel
 				}]
 			}]
 		});

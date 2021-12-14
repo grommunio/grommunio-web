@@ -14,13 +14,13 @@ Zarafa.note.NoteContextModel = Ext.extend(Zarafa.core.ContextModel, {
 	 * @type Mixed
 	 * @private
 	 */
-	oldDataMode : undefined,
+	oldDataMode: undefined,
 
 	/**
 	 * @constructor
 	 * @param {Object} config Configuration object
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		config = config || {};
 
@@ -30,31 +30,31 @@ Zarafa.note.NoteContextModel = Ext.extend(Zarafa.core.ContextModel, {
 
 		Ext.applyIf(config, {
 			statefulRecordSelection: true,
-			current_data_mode : Zarafa.note.data.DataModes.ALL
+			current_data_mode: Zarafa.note.data.DataModes.ALL
 		});
 
 		Zarafa.note.NoteContextModel.superclass.constructor.call(this, config);
 
 		this.on({
-			'searchstart' : this.onSearchStart,
-			'searchstop' : this.onSearchStop,
-			scope : this
+			'searchstart': this.onSearchStart,
+			'searchstop': this.onSearchStop,
+			scope: this
 		});
 	},
-	
+
 	/**
 	 * Create a new {@link Zarafa.core.data.IPMRecord record}
 	 * @param {Zarafa.core.IPMFolder} folder (optional) The target folder in which the new record must be
 	 * created. If this is not provided the default folder will be used.
 	 * @return {Zarafa.core.data.IPMRecord} The new {@link Zarafa.core.data.IPMRecord IPMRecord}.
 	 */
-	createRecord : function(folder)
+	createRecord: function(folder)
 	{
 		folder = folder || this.getDefaultFolder();
 
 		return Zarafa.core.data.RecordFactory.createRecordObjectByMessageClass('IPM.StickyNote', {
-			store_entryid : folder.get('store_entryid'),
-			parent_entryid : folder.get('entryid')
+			store_entryid: folder.get('store_entryid'),
+			parent_entryid: folder.get('entryid')
 		});
 	},
 
@@ -68,7 +68,7 @@ Zarafa.note.NoteContextModel = Ext.extend(Zarafa.core.ContextModel, {
 	 * @param {Zarafa.note.data.DataModes} oldMode The previously selected DataMode.
 	 * @private
 	 */
-	onDataModeChange : function(model, newMode, oldMode) 
+	onDataModeChange: function(model, newMode, oldMode)
 	{
 		Zarafa.note.NoteContextModel.superclass.onDataModeChange.call(this, model, newMode, oldMode);
 
@@ -93,9 +93,9 @@ Zarafa.note.NoteContextModel = Ext.extend(Zarafa.core.ContextModel, {
 				var lastSevenDay = (now.add(Date.DAY, -7).clearTime()).getTime() / 1000;
 
 				this.load({
-					params : {
-						restriction : {
-							note : Zarafa.core.data.RestrictionFactory.dataResProperty(
+					params: {
+						restriction: {
+							note: Zarafa.core.data.RestrictionFactory.dataResProperty(
 								'last_modification_time',
 								Zarafa.core.mapi.Restrictions.RELOP_GT,
 								lastSevenDay
@@ -115,7 +115,7 @@ Zarafa.note.NoteContextModel = Ext.extend(Zarafa.core.ContextModel, {
 	 * @param {Zarafa.core.ContextModel} model The model which fired the event
 	 * @private
 	 */
-	onSearchStart : function(model)
+	onSearchStart: function(model)
 	{
 		if(this.getCurrentDataMode() != Zarafa.note.data.DataModes.SEARCH){
 			this.oldDataMode = this.getCurrentDataMode();
@@ -129,7 +129,7 @@ Zarafa.note.NoteContextModel = Ext.extend(Zarafa.core.ContextModel, {
 	 * @param {Zarafa.core.ContextModel} model The model which fired the event
 	 * @private
 	 */
-	onSearchStop : function(model)
+	onSearchStop: function(model)
 	{
 		if (this.getCurrentDataMode() === Zarafa.note.data.DataModes.SEARCH) {
 			this.setDataMode(this.oldDataMode);

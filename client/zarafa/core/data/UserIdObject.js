@@ -12,7 +12,7 @@ Zarafa.core.data.UserIdObject = Ext.extend(Object, {
 	 * The type of this user. Can be ZARAFA or SMTP
 	 * @property
 	 */
-	type : '',
+	type: '',
 
 	/**
 	 * The display name of this user. Only added as a property to make
@@ -20,32 +20,32 @@ Zarafa.core.data.UserIdObject = Ext.extend(Object, {
 	 * identify the user!
 	 * @property
 	 */
-	display_name : '',
+	display_name: '',
 
 	/**
 	 * The email address of this user. Not always available.
 	 * @property
 	 */
-	email_address : '',
+	email_address: '',
 
 	/**
 	 * The username of this user. Only available for ZARAFA type users.
 	 * @property
 	 */
-	username : '',
+	username: '',
 
 	/**
 	 * The entryid of this user. Only available for ZARAFA type users.
 	 * @property
 	 */
-	entryid : '',
+	entryid: '',
 
 	/**
 	 * Constructor.
 	 * @param {Object} idObject An object with properties
 	 * that identify a user.
 	 */
-	constructor : function(idObject)
+	constructor: function(idObject)
 	{
 		if ( idObject.type ) {
 			this.type = idObject.type;
@@ -72,7 +72,7 @@ Zarafa.core.data.UserIdObject = Ext.extend(Object, {
 	 * will be compared to this users id data.
 	 * @return {Boolean}
 	 */
-	equals : function(userIdObject)
+	equals: function(userIdObject)
 	{
 		// First we will compare the entryids if they are set
 		if ( !Ext.isEmpty(this.entryid) && !Ext.isEmpty(userIdObject.entryid) ) {
@@ -80,7 +80,7 @@ Zarafa.core.data.UserIdObject = Ext.extend(Object, {
 		}
 
 		// Second we will compare usernames. If a username is set, then an entryId should also be set,
-		// so this comparison  should not be necessary. However, this makes it possible to request
+		// so this comparison should not be necessary. However, this makes it possible to request
 		// presence status with only a username, so let's include it.
 		if ( !Ext.isEmpty(this.username) && this.username === userIdObject.username ) {
 			return true;
@@ -107,7 +107,7 @@ Zarafa.core.data.UserIdObject = Ext.extend(Object, {
 	 * @param {Zarafa.core.data.UserIdObject} user A user whose id data will be used
 	 * to update the id data of this user if possible.
 	 */
-	syncWithUser : function(user)
+	syncWithUser: function(user)
 	{
 		if ( user.type === 'EX' ){
 			if ( this.type !== 'EX' ){

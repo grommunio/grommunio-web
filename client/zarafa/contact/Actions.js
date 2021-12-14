@@ -18,7 +18,7 @@ Zarafa.contact.Actions = {
 	 * The record/records which will be loaded in content panel for editing.
 	 * @param {Object} config (optional) Configuration object for creating a ContentPanel
 	 */
-	openDialog : function(record, config)
+	openDialog: function(record, config)
 	{
 		if(Array.isArray(record)) {
 			for(var index = 0, len = record.length; index < len; index++) {
@@ -41,7 +41,7 @@ Zarafa.contact.Actions = {
 	 * The record/records which will be loaded in content panel for editing.
 	 * @param {Object} config (optional) Configuration object
 	 */
-	openContactContent : function(record, config)
+	openContactContent: function(record, config)
 	{
 		if(Array.isArray(record)) {
 			for(var index = 0, len = record.length; index < len; index++) {
@@ -62,10 +62,10 @@ Zarafa.contact.Actions = {
 	 * in {@link Zarafa.core.data.IPMStore IPMStore}.
 	 * @param {Object} config (optional) Configuration object
 	 */
-	openCreateContactContent : function(model, config)
+	openCreateContactContent: function(model, config)
 	{
 		var record = model.createRecord(undefined, false);
-		
+
 		Zarafa.contact.Actions.openContactContent(record, config);
 	},
 
@@ -76,7 +76,7 @@ Zarafa.contact.Actions = {
 	 * in {@link Zarafa.core.data.IPMStore IPMStore}.
 	 * @param {Object} config (optional) Configuration object
 	 */
-	openDistlistContent : function(record, config)
+	openDistlistContent: function(record, config)
 	{
 		if(Array.isArray(record)) {
 			for(var index = 0, len = record.length; index < len; index++) {
@@ -115,7 +115,7 @@ Zarafa.contact.Actions = {
 		contactRecord.set('email_address_1', record.get('smtp_address'));
 		contactRecord.set('email_address_type_1', record.get('address_type'));
 		contactRecord.updateAddressbookProps();
-		
+
 		// Use the same logic as the {@link Zarafa.contact.dialogs.ContactDetailTab ContactDetailTab}
 		// to set the given_name and surname.
 		var ContactParser = new Zarafa.contact.data.ContactDetailsParser();
@@ -131,13 +131,13 @@ Zarafa.contact.Actions = {
 	 * model object that will be used to create a new {@link Zarafa.core.data.IPMRecord IPMRecord}
 	 * @param {Object} config (optional) Configuration object
 	 */
-	openCreateDistlistContent : function(model, config)
+	openCreateDistlistContent: function(model, config)
 	{
 		var record = model.createRecord(undefined, true);
 
 		Zarafa.contact.Actions.openDistlistContent(record, config);
 	},
-	
+
 	/**
 	 * Function will open {@link Zarafa.contact.dialogs.ContactNameContentPanel ContactNameContentPanel}.
 	 * @param {Zarafa.core.data.IPMRecord} record record that will be loaded in
@@ -149,12 +149,12 @@ Zarafa.contact.Actions = {
 	 * 	- {@link Object} parsedData a hash map of already parsed data of full name that
 	 * will be loaded in {@link Zarafa.contact.dialogs.ContactNameContentPanel ContactNameContentPanel}.
 	 */
-	openDetailedNameContent : function(record, config)
+	openDetailedNameContent: function(record, config)
 	{
 		if(!Ext.isEmpty(record)) {
 			var componentType = Zarafa.core.data.SharedComponentType['contact.dialog.contact.namedetails'];
 			config = Ext.applyIf(config || {}, {
-				modal : true
+				modal: true
 			});
 
 			Zarafa.core.data.UIFactory.openLayerComponent(componentType, record, config);
@@ -173,14 +173,14 @@ Zarafa.contact.Actions = {
 	 * will be loaded in {@link Zarafa.contact.dialogs.ContactNameContentPanel ContactNameContentPanel}.
 	 * 	- {@link String} property property that will be modified.
 	 */
-	openDetailedAddressContent : function(record, config)
+	openDetailedAddressContent: function(record, config)
 	{
 		if(!Ext.isEmpty(record)) {
 			var componentType = Zarafa.core.data.SharedComponentType['contact.dialog.contact.addressdetails'];
 			config = Ext.applyIf(config || {}, {
-				modal : true
+				modal: true
 			});
-			
+
 			Zarafa.core.data.UIFactory.openLayerComponent(componentType, record, config);
 		}
 	},
@@ -195,14 +195,14 @@ Zarafa.contact.Actions = {
 	 * {@link Zarafa.contact.dialogs.ContactNameContentPanel ContactNameContentPanel}.
 	 * 	- {@link String} property property that will be modified.
 	 */
-	openDetailedPhoneContent : function(record, config)
+	openDetailedPhoneContent: function(record, config)
 	{
 		if(!Ext.isEmpty(record)) {
 			var componentType = Zarafa.core.data.SharedComponentType['contact.dialog.contact.phonedetails'];
 			config = Ext.applyIf(config || {}, {
-				modal : true
+				modal: true
 			});
-			
+
 			Zarafa.core.data.UIFactory.openLayerComponent(componentType, record, config);
 		}
 	},
@@ -215,7 +215,7 @@ Zarafa.contact.Actions = {
 	 * must be configured
 	 * @param {Object} config (optional) Configuration object
 	 */
-	openMembersSelectionContent : function(record, config)
+	openMembersSelectionContent: function(record, config)
 	{
 		if(Array.isArray(record)) {
 			for(var index = 0, len = record.length; index < len; index++) {
@@ -230,19 +230,19 @@ Zarafa.contact.Actions = {
 		var store = copy.getSubStore('members');
 
 		Zarafa.common.Actions.openABUserMultiSelectionContent({
-			callback : function() {
+			callback: function() {
 				record.applyData(copy);
 			},
-			convert : function(user) {
+			convert: function(user) {
 				return user.convertToDistlistMember();
 			},
-			store : store,
-			selectionCfg : [{
-				xtype : 'zarafa.memberboxfield',
-				fieldLabel : _('Members') + ':',
-				height : 50,
-				boxStore : store,
-				flex : 1
+			store: store,
+			selectionCfg: [{
+				xtype: 'zarafa.memberboxfield',
+				fieldLabel: _('Members') + ':',
+				height: 50,
+				boxStore: store,
+				flex: 1
 			}]
 		});
 	},
@@ -255,11 +255,11 @@ Zarafa.contact.Actions = {
 	 * @param {Object} config Configuration object containing
 	 * 	- {@link Zarafa.core.data.IPMRecord} parentRecord The parent distribution list record.
 	 */
-	openDistlistExternalMemberContent : function(record, config)
+	openDistlistExternalMemberContent: function(record, config)
 	{
 		var componentType = Zarafa.core.data.SharedComponentType['contact.dialog.distlist.externalmember'];
 		config = Ext.applyIf(config || {}, {
-			modal : true
+			modal: true
 		});
 
 		Zarafa.core.data.UIFactory.openLayerComponent(componentType, record, config);
@@ -272,12 +272,12 @@ Zarafa.contact.Actions = {
 	 * {Zarafa.addressbook.dialogs.ABUserDetailContentPanel} for addressbook users,
 	 * {Zarafa.addressbook.dialogs.ABGroupDetailContentPanel} for addressbook groups,
 	 * and {Zarafa.contact.dialogs.DistlistExternalMemberContentPanel} for external members.
-	 * 
+	 *
 	 * @param {Zarafa.contact.DistlistMemberRecord} record The distlist member record
-	 * @param {Zarafa.core.data.IPMRecord} parentRecord The distlist record which 
+	 * @param {Zarafa.core.data.IPMRecord} parentRecord The distlist record which
 	 * contains memberStore for distribution list members
 	 */
-	openDistlistMember : function(record, parentRecord)
+	openDistlistMember: function(record, parentRecord)
 	{
 		if (record) {
 			var openRecord;
@@ -299,14 +299,14 @@ Zarafa.contact.Actions = {
 				/* falls through */
 				default:
 					// External/oneoff contacts
-					Zarafa.contact.Actions.openDistlistExternalMemberContent(record, { parentRecord : parentRecord });
+					Zarafa.contact.Actions.openDistlistExternalMemberContent(record, { parentRecord: parentRecord });
 					break;
 			}
 
 			if(openRecord) {
 				// FIXME: We put the abRecord into the ShadowStore to be able
 				// to open it, and obtain all details. However, we also need to
-				// find a point where we can remove it again. 
+				// find a point where we can remove it again.
 				container.getShadowStore().add(openRecord);
 				Zarafa.core.data.UIFactory.openViewRecord(openRecord);
 			}

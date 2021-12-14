@@ -13,7 +13,7 @@ Zarafa.addressbook.AddressBookHierarchyNotificationResponseHandler = Ext.extend(
 	 * Handle the 'addressbook' action.
 	 * This will update the {@link Zarafa.addressbook.AddressBookHierarchyStore store}
 	 */
-	doAddressbook : function ()
+	doAddressbook: function ()
 	{
 		this.addNotification(Zarafa.core.data.Notifications.objectModified, null, null);
 	}

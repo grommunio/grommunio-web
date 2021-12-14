@@ -1,7 +1,7 @@
 Ext.namespace('Zarafa.advancesearch.ui');
 
 /**
- * @class Zarafa.advancesearch.ui.AdvanceSearchRowSelectionModel 
+ * @class Zarafa.advancesearch.ui.AdvanceSearchRowSelectionModel
  * @extends Ext.grid.RowSelectionModel
  *
  * The {@link Zarafa.advancesearch.ui.MailRowSelectionModel MailRowSelectionModel}
@@ -20,11 +20,11 @@ Zarafa.advancesearch.ui.AdvanceSearchRowSelectionModel = Ext.extend(Ext.grid.Row
 	 * @param {Zarafa.advancesearch.ui.SearchGrid} grid The search grid from which the event came
 	 * @param {Number} rowIndex Index of the row that was clicked
 	 * @param {Ext.EventObject} event The mouse event
-	 * 
+	 *
 	 * @override
 	 * @private
 	 */
-	handleMouseDown : function(grid, rowIndex, event)
+	handleMouseDown: function(grid, rowIndex, event)
 	{
 		// boolean to determine what we are going to do
 		var preventRowSelection = false;

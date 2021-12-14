@@ -13,25 +13,25 @@ Zarafa.settings.ui.SettingsVersionWidget = Ext.extend(Zarafa.settings.ui.Setting
 	 * @constructor
 	 * @param {Object} config Configuration object
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		config = config || {};
 
 		var version = container.getVersion();
 
 		Ext.applyIf(config, {
-			title : _('Version information'),
-			layout : 'form',
-			defaults : {
-				xtype : 'displayfield',
-				htmlEncode : true
+			title: _('Version information'),
+			layout: 'form',
+			defaults: {
+				xtype: 'displayfield',
+				htmlEncode: true
 			},
-			items : [{
-				fieldLabel : _('WebApp'),
-				value : version.getWebApp() + (!Ext.isEmpty(version.getGit()) ? ('-' + version.getGit()) : '')
+			items: [{
+				fieldLabel: _('grommunio Web'),
+				value: version.getWebApp() + (!Ext.isEmpty(version.getGit()) ? ('-' + version.getGit()) : '')
 			},{
 				fieldLabel : _('Gromox'),
-				value : version.getZCP()
+				value: version.getZCP()
 			},
 				container.populateInsertionPoint('settings.versioninformation')
 			]

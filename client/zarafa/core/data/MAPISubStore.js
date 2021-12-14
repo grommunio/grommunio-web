@@ -20,7 +20,7 @@ Zarafa.core.data.MAPISubStore = Ext.extend(Zarafa.core.data.NoSyncStore, {
 	 * data object and returns an Array of {@link Zarafa.core.data.MAPIRecord MAPIRecord} objects which are cached keyed by their
 	 * <b><tt>{@link Zarafa.core.data.MAPIRecord#id id}</tt></b> property.
 	 */
-	reader : undefined,
+	reader: undefined,
 
 	/**
 	 * @cfg {Zarafa.core.data.JsonWriter} writer
@@ -30,14 +30,14 @@ Zarafa.core.data.MAPISubStore = Ext.extend(Zarafa.core.data.NoSyncStore, {
 	 * events on the store are monitored in order to remotely {@link #createRecords create records},
 	 * {@link #destroyRecord destroy records}, or {@link #updateRecord update records}.</p>
 	 */
-	writer : undefined,
+	writer: undefined,
 
 	/**
 	 * @cfg {Boolean} persistentFilter True when the {@link #filter} which
 	 * has been applied on this store should be reapplied when the store
 	 * has been {@link #load loaded}
 	 */
-	persistentFilter : true,
+	persistentFilter: true,
 
 	/**
 	 * The currently active function which was given to {@link #filterBy}.
@@ -45,7 +45,7 @@ Zarafa.core.data.MAPISubStore = Ext.extend(Zarafa.core.data.NoSyncStore, {
 	 * @type Function
 	 * @private
 	 */
-	filterFn : undefined,
+	filterFn: undefined,
 
 	/**
 	 * The currently active {@link #filterFn function} scope which was given to {@link #filterBy}.
@@ -53,13 +53,13 @@ Zarafa.core.data.MAPISubStore = Ext.extend(Zarafa.core.data.NoSyncStore, {
 	 * @type Object
 	 * @private
 	 */
-	filterScope : undefined,
+	filterScope: undefined,
 
 	/**
 	 * @constructor
 	 * @param config Configuration structure
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		config = config || {};
 
@@ -100,7 +100,7 @@ Zarafa.core.data.MAPISubStore = Ext.extend(Zarafa.core.data.NoSyncStore, {
 	 * @param {Number} index
 	 * @private
 	 */
-	createRecords : function(store, record, index)
+	createRecords: function(store, record, index)
 	{
 		var parentRecord = this.getParentRecord();
 		if(parentRecord) {
@@ -116,7 +116,7 @@ Zarafa.core.data.MAPISubStore = Ext.extend(Zarafa.core.data.NoSyncStore, {
 	 * Get the {@link Zarafa.core.data.MAPIRecord IPMRecord} that is the parent of this store.
 	 * @return {Zarafa.core.data.MAPIRecord} The parent IPMRecord.
 	 */
-	getParentRecord : function()
+	getParentRecord: function()
 	{
 		return this.parentRecord;
 	},
@@ -125,7 +125,7 @@ Zarafa.core.data.MAPISubStore = Ext.extend(Zarafa.core.data.NoSyncStore, {
 	 * Set the {@link Zarafa.core.data.MAPIRecord IPMRecord} that is the parent of this store.
 	 * @param {Zarafa.core.data.MAPIRecord} record The parent IPMRecord.
 	 */
-	setParentRecord : function(record)
+	setParentRecord: function(record)
 	{
 		this.parentRecord = record;
 	},
@@ -138,7 +138,7 @@ Zarafa.core.data.MAPISubStore = Ext.extend(Zarafa.core.data.NoSyncStore, {
 	 * @param {String} id The id of the Record to find.
 	 * @return {Ext.data.Record} The Record with the passed id. Returns undefined if not found.
 	 */
-	getById : function(id)
+	getById: function(id)
 	{
 		// First use the original implementation
 		var item = Zarafa.core.data.MAPISubStore.superclass.getById.call(this, id);
@@ -170,19 +170,19 @@ Zarafa.core.data.MAPISubStore = Ext.extend(Zarafa.core.data.NoSyncStore, {
 	 * @param {Object} scope (optional) The scope (<code>this</code> reference) in which the function is executed. Defaults to this MixedCollection.
 	 * @return {MixedCollection} The new filtered collection
 	 */
-	filterBy : Zarafa.core.data.MAPIStore.prototype.filterBy,
+	filterBy: Zarafa.core.data.MAPIStore.prototype.filterBy,
 
 	/**
 	 * Revert to a view of the Record cache with no filtering applied.
 	 * @param {Boolean} suppressEvent If <tt>true</tt> the filter is cleared silently without firing the
 	 * {@link #datachanged} event.
 	 */
-	clearFilter : Zarafa.core.data.MAPIStore.prototype.clearFilter,
+	clearFilter: Zarafa.core.data.MAPIStore.prototype.clearFilter,
 
 	/**
 	 * Loads data from a passed data block and fires the {@link #load} event. A {@link Ext.data.Reader Reader}
 	 * which understands the format of the data must have been configured in the constructor.
-	 * @param {Object} data The data block from which to read the Records.  The format of the data expected
+	 * @param {Object} data The data block from which to read the Records. The format of the data expected
 	 * is dependent on the type of {@link Ext.data.Reader Reader} that is configured and should correspond to
 	 * that {@link Ext.data.Reader Reader}'s <tt>{@link Ext.data.Reader#readRecords}</tt> parameter.
 	 * @param {Boolean} append (Optional) <tt>true</tt> to append the new Records rather the default to replace
@@ -191,16 +191,16 @@ Zarafa.core.data.MAPISubStore = Ext.extend(Zarafa.core.data.NoSyncStore, {
 	 * with ids which are already present in the Store will <i>replace</i> existing Records. Only Records with
 	 * new, unique ids will be added.
 	 */
-	loadData : function(o, append)
+	loadData: function(o, append)
 	{
 		if (Ext.isDefined(this.reader)) {
 			var r = this.reader.readRecords(o);
 			this.loadRecords(r, {add: append}, true);
 		}
 	},
- 
+
 	/**
-	 * Callback function which will be called when 'read' action is executed 
+	 * Callback function which will be called when 'read' action is executed
 	 * and {@link Zarafa.core.data.JsonReader JsonReader} has deserialized data
 	 * into {@link Zarafa.core.data.MAPIRecord MAPIRecord},
 	 * so the records can be added to the {@link Zarafa.core.data.NoSyncStore NoSyncStore}.
@@ -210,7 +210,7 @@ Zarafa.core.data.MAPISubStore = Ext.extend(Zarafa.core.data.NoSyncStore, {
 	 * to the existing set of cached {@link Zarafa.core.data.MAPIRecord MAPIRecord}.
 	 * @private
 	 */
-	loadRecords : function(o, options, success)
+	loadRecords: function(o, options, success)
 	{
 		if (this.isDestroyed === true) {
 			return;
@@ -255,7 +255,7 @@ Zarafa.core.data.MAPISubStore = Ext.extend(Zarafa.core.data.NoSyncStore, {
 	 * @param {String} direction (optional) 'ASC' or 'DESC'. Defaults to 'ASC'.
 	 * @param {Function} fn (optional) Comparison function that defines the sort order. Defaults to sorting by numeric value.
 	 */
-	sortBy : function(direction, fn)
+	sortBy: function(direction, fn)
 	{
 		this.data.sort(direction, fn);
 		if (this.snapshot && this.snapshot != this.data) {

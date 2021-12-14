@@ -9,7 +9,7 @@
 			padding: ($settings-category-tab-height - $font-default-line-height)/2 $padding-medium;
 			padding-left: 4px;
 			line-height: $font-default-line-height;
-			cursor:pointer;
+			cursor: pointer;
 			background-position: ($settings-category-tab-icon-strip-width - 16px)/2 center !important;
 		}
 		.zarafa-settings-category-tab.k-with-icon {
@@ -111,13 +111,13 @@
 			}
 
 			a {
-				background: $kopano-blue;
+				background: $grommunio-blue;
 				color: white;
 				padding: $padding-small;
 				text-decoration: none;
 			}
 			a:hover {
-				background: $kopano-blue-hover;
+				background: $grommunio-blue-hover;
 			}
 		}
 
@@ -154,14 +154,14 @@
  	.x-grid3-row {
  		border-top: 1px solid $grey;
  		margin-bottom: -1px;
-	 }
- }
- .k-signature-editor textarea {
+	}
+}
+.k-signature-editor textarea {
 	padding: $padding-extra-large;
 	font-family: monospace !important;
- }
+}
 
-.k-signature-editor{
+.k-signature-editor {
 	.mce-panel.mce-tinymce {
 		width: auto !important;
 	}
@@ -185,15 +185,17 @@
 /* Out of office Category */
 .zarafa-settings-oof-invalid
 {
-	color: $red ;
+	color: $red;
 }
 .zarafa-settings-oof-table-cellalign {
 	text-align: right;
 }
+
 .zarafa-settings-oof-table-cellpadding {
 	padding: $padding-medium $padding-medium $padding-medium 0;
 }
-.zarafa-settings-oof-subject .label-subject{
+
+.zarafa-settings-oof-subject .label-subject {
 	line-height: $button-small-height;
 	padding-right: $padding-medium;
 }
@@ -203,16 +205,16 @@
 }
 
 /* Plugin list */
-.zarafa-settings-pluginavailable {
+	.zarafa-settings-pluginavailable {
 	.zarafa-settings-widget-extrainfo {
 		margin: 0;
-	}
-	.zarafa-settings-pluginavailable-fixed {
-		.x-grid3-col-display_name {
-			span {
-				font-style: italic;
-				color: $grey6;
+		}
+		.zarafa-settings-pluginavailable-fixed {
+			.x-grid3-col-display_name {
+				span {
+					font-style: italic;
+					color: $grey6;
+				}
 			}
 		}
-	}
 }

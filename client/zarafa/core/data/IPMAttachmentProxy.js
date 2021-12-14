@@ -25,7 +25,7 @@ Zarafa.core.data.IPMAttachmentProxy = Ext.extend(Zarafa.core.data.MAPIProxy, {
 	 * which should be used for this request.
 	 * @private
 	 */
-	getResponseHandlerForRequest : function(modulename, serverAction, action, records, parameters, reader, callback, scope, args)
+	getResponseHandlerForRequest: function(modulename, serverAction, action, records, parameters, reader, callback, scope, args)
 	{
 		return new Zarafa.core.data.IPMAttachmentResponseHandler({
 			proxy: this,
@@ -48,7 +48,7 @@ Zarafa.core.data.IPMAttachmentProxy = Ext.extend(Zarafa.core.data.MAPIProxy, {
 	 * @param {Object} args arguments object. This will be passed to the call back function on successful read.
 	 * @private
 	 */
-	createUpdateAction : function(action, records, parameters, reader, callback, scope, args)
+	createUpdateAction: function(action, records, parameters, reader, callback, scope, args)
 	{
 		this.doRequests(args.actionType || Zarafa.core.Actions['upload'], action, records, parameters, reader, callback, scope, args);
 	},
@@ -64,7 +64,7 @@ Zarafa.core.data.IPMAttachmentProxy = Ext.extend(Zarafa.core.data.MAPIProxy, {
 	 * @param {Object} args arguments object. This will be passed to the call back function on successful read.
 	 * @private
 	 */
-	destroyAction : function(action, records, parameters, reader, callback, scope, args)
+	destroyAction: function(action, records, parameters, reader, callback, scope, args)
 	{
 		this.doRequests(args.actionType || Zarafa.core.Actions['delete'], action, records, parameters, reader, callback, scope, args);
 	},
@@ -83,7 +83,7 @@ Zarafa.core.data.IPMAttachmentProxy = Ext.extend(Zarafa.core.data.MAPIProxy, {
 	 * @param {Object} args arguments object. This will be passed to the call back function on successful read.
 	 * @private
 	 */
-	doRequests : function(serverAction, action, records, parameters, reader, callback, scope, args)
+	doRequests: function(serverAction, action, records, parameters, reader, callback, scope, args)
 	{
 		var request = container.getRequest();
 

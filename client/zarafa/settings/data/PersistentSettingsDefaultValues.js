@@ -12,7 +12,7 @@ Zarafa.settings.data.PersistentSettingsDefaultValue = function(){
 		 * @public
 		 * @return {Array} The array of default values for the persistent settings
 		 */
-		getDefaultValues : function() {
+		getDefaultValues: function() {
 			// Default categories are defined in the config.php/defaults.php. After the first change they will be
 			// stored in the persistent settings of the user.
 			var defaultCategories = container.getServerConfig().getDefaultCategories();
@@ -22,24 +22,24 @@ Zarafa.settings.data.PersistentSettingsDefaultValue = function(){
 			}
 
 			return {
-				'kopano' : {
-					'main' : {
+				'grommunio': {
+					'main': {
 						/**
-						 * kopano/main/merged_categories
+						 * grommunio/main/merged_categories
 						 * merged_categories object holds new name of standard category
 						 * followed by standard category index.
 						 * e.g. {6:VIP,..} where 6 is standard_index of Red category.
 						 * @property
 						 * @type Object
 						 */
-						'merged_categories' : {},
+						'merged_categories': {},
 
 						/**
-						 * kopano/main/categories
+						 * grommunio/main/categories
 						 * @property
 						 * @type String[]
 						 */
-						'categories' : defaultCategories
+						'categories': defaultCategories
 					}
 				}
 			};

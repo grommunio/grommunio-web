@@ -11,22 +11,22 @@ Ext.namespace('Zarafa.core.data');
 Zarafa.core.data.StatefulObservable = Ext.extend(Ext.util.Observable, {
 	/**
 	 * @cfg {Boolean} stateful A flag which causes the Component to attempt to restore the state of internal properties
-	 * from a saved state on startup. The component must have a {@link #stateId}  for state to be managed.
+	 * from a saved state on startup. The component must have a {@link #stateId} for state to be managed.
 	 */
-	stateful : false,
+	stateful: false,
 
 	/**
 	 * @cfg {String} stateId The unique id for this component to use for state management purposes
 	 * See {@link #stateful} for an explanation of saving and restoring Component state.
 	 */
-	stateId : undefined,
+	stateId: undefined,
 
 	/**
 	 * @cfg {Array} stateEvents An array of events that, when fired, should trigger this component to save its state
 	 * (defaults to {@link #datamodechange}). stateEvents may be any type of event supported by this component.
 	 * See {@link #stateful} for an explanation of saving and restoring Component state.
 	 */
-	stateEvents : undefined,
+	stateEvents: undefined,
 
 	/**
 	 * @cfg {String} statefulName The unique name for this component by which the {@link #getState state}
@@ -34,13 +34,13 @@ Zarafa.core.data.StatefulObservable = Ext.extend(Ext.util.Observable, {
 	 * This option is only used when the {@link Zarafa.core.data.SettingsStateProvider SettingsStateProvider} is
 	 * used in the {@link Ext.state.Manager}.
 	 */
-	statefulName : undefined,
+	statefulName: undefined,
 
 	/**
 	 * @constructor
 	 * @param {Object} config Configuration object
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		Ext.apply(this, config);
 
@@ -63,9 +63,9 @@ Zarafa.core.data.StatefulObservable = Ext.extend(Ext.util.Observable, {
 	 * This option is only used when the {@link Zarafa.core.data.SettingsStateProvider SettingsStateProvider} is
 	 * used in the {@link Ext.state.Manager}. This returns {@link #statefulName} if provided, or else generates
 	 * a custom name.
-	 * @return {String} The unique name for this component by which the {@link #getState state} must be saved. 
+	 * @return {String} The unique name for this component by which the {@link #getState state} must be saved.
 	 */
-	getStateName : function()
+	getStateName: function()
 	{
 		return this.statefulName;
 	},
@@ -75,7 +75,7 @@ Zarafa.core.data.StatefulObservable = Ext.extend(Ext.util.Observable, {
 	 * @return {String} The state ID
 	 * @private
 	 */
-	getStateId : function()
+	getStateId: function()
 	{
 		return this.stateId || this.id;
 	},
@@ -84,7 +84,7 @@ Zarafa.core.data.StatefulObservable = Ext.extend(Ext.util.Observable, {
 	 * Register the {@link #stateEvents state events} to the {@link #saveState} callback function.
 	 * @protected
 	 */
-	initStateEvents : function()
+	initStateEvents: function()
 	{
 		if (this.stateEvents) {
 			for (var i = 0, e; e = this.stateEvents[i]; i++) {
@@ -98,7 +98,7 @@ Zarafa.core.data.StatefulObservable = Ext.extend(Ext.util.Observable, {
 	 * been {@link Ext.state.Manager#get obtained} from the {@link Ext.state.Manager State Manager}.
 	 * @private
 	 */
-	initState : function()
+	initState: function()
 	{
 		if (Ext.state.Manager) {
 			var id = this.getStateId();
@@ -120,7 +120,7 @@ Zarafa.core.data.StatefulObservable = Ext.extend(Ext.util.Observable, {
 	 * @param {Object} state The state object
 	 * @protected
 	 */
-	applyState : function(state)
+	applyState: function(state)
 	{
 		if (state) {
 			Ext.apply(this, state);
@@ -133,7 +133,7 @@ Zarafa.core.data.StatefulObservable = Ext.extend(Ext.util.Observable, {
 	 * @return {Object} The state object
 	 * @protected
 	 */
-	getState : function()
+	getState: function()
 	{
 		return null;
 	},
@@ -143,7 +143,7 @@ Zarafa.core.data.StatefulObservable = Ext.extend(Ext.util.Observable, {
 	 * to the {@link Ext.state.Manager State Manager}.
 	 * @private
 	 */
-	saveState : function()
+	saveState: function()
 	{
 		if (Ext.state.Manager && this.stateful !== false) {
 			var id = this.getStateId();

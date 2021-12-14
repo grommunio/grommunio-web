@@ -24,7 +24,7 @@ Zarafa.task.TaskRequestRecord = Ext.extend(Zarafa.task.TaskRecord, {
 	 *
 	 * @return {boolean} True to task request is assigned to user by the assigner else false.
 	 */
-	isReceivedTaskRequestFromAssigner : function ()
+	isReceivedTaskRequestFromAssigner: function ()
 	{
 		return (this.isTaskOwner() && this.isTaskAssigned() &&
 		this.get('taskmode') === Zarafa.core.mapi.TaskMode.REQUEST &&

@@ -12,37 +12,37 @@ Ext.namespace('Zarafa.common.ui');
 Zarafa.common.ui.TreeGrid = Ext.extend(Ext.ux.tree.TreeGrid, {
 	/**
 	 * @cfg {Boolean} autoFill
-	 * Defaults to <tt>false</tt>.  Specify <tt>true</tt> to have the column widths re-proportioned
-	 * when the grid is <b>initially rendered</b>.  The
+	 * Defaults to <tt>false</tt>. Specify <tt>true</tt> to have the column widths re-proportioned
+	 * when the grid is <b>initially rendered</b>. The
 	 * {@link Ext.grid.Column#width initially configured width}</tt> of each column will be adjusted
 	 * to fit the grid width and prevent horizontal scrolling. If columns are later resized (manually
 	 * or programmatically), the other columns in the grid will <b>not</b> be resized to fit the grid width.
 	 * See <tt>{@link #forceFit}</tt> also.
-	 */				
-	autoFill : false,
+	 */
+	autoFill: false,
 
 	/**
 	 * @cfg {Boolean} forceFit
-	 * Defaults to <tt>false</tt>.  Specify <tt>true</tt> to have the column widths re-proportioned
-	 * at <b>all times</b>.  The {@link Ext.grid.Column#width initially configured width}</tt> of each
+	 * Defaults to <tt>false</tt>. Specify <tt>true</tt> to have the column widths re-proportioned
+	 * at <b>all times</b>. The {@link Ext.grid.Column#width initially configured width}</tt> of each
 	 * column will be adjusted to fit the grid width and prevent horizontal scrolling. If columns are
 	 * later resized (manually or programmatically), the other columns in the grid <b>will</b> be resized
 	 * to fit the grid width. See <tt>{@link #autoFill}</tt> also.
 	 */
-	forceFit : false,
+	forceFit: false,
 
 	/**
 	 * @cfg {Boolean} unselectable
 	 * Defaults to <tt>true</tt>. Indicate if the {@link #el} must be made {@link Ext.Element#unselectable}
 	 * during {@link #onRender rendering}. This will prevent the user from selecting any text within the tree.
 	 */
-	unselectable : true,
+	unselectable: true,
 
 	/**
 	 * Initialize the component
 	 * @private
 	 */
-	initComponent : function()
+	initComponent: function()
 	{
 		if (this.rootVisible === true) {
 			// By default the Ext.ux.tree.TreeGrid is not capable of displaying
@@ -66,7 +66,7 @@ Zarafa.common.ui.TreeGrid = Ext.extend(Ext.ux.tree.TreeGrid, {
 	 * {@link #autoFitColumns} to start resizing the columns.
 	 * @private
 	 */
-	onRender : function()
+	onRender: function()
 	{
 		Zarafa.common.ui.TreeGrid.superclass.onRender.apply(this, arguments);
 		if (this.autoFill || this.forceFit) {
@@ -95,7 +95,7 @@ Zarafa.common.ui.TreeGrid = Ext.extend(Ext.ux.tree.TreeGrid, {
 	 * divided over all non-{@link Ext.grid.Column#fixed fixed} columns.
 	 * @private
 	 */
-	autoFitColumns : function(fillOnly, skipColumn)
+	autoFitColumns: function(fillOnly, skipColumn)
 	{
 		var availableWidth = this.innerBody.getWidth() - this.getScrollOffset();
 		var autoColumns = [];
@@ -122,7 +122,7 @@ Zarafa.common.ui.TreeGrid = Ext.extend(Ext.ux.tree.TreeGrid, {
 	 * to resize all columns.
 	 * @private
 	 */
-	updateColumnWidths : function()
+	updateColumnWidths: function()
 	{
 		if (this.forceFit) {
 			this.autoFitColumns(false, this.colResizer.hdIndex);

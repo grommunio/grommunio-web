@@ -12,7 +12,7 @@ Ext.QuickTips = Ext.extend(Object, {
 	 * @type Ext.util.MixedCollection
 	 * @private
 	 */
-	browserQuickTips : undefined,
+	browserQuickTips: undefined,
 
 	/**
 	 * The {@link Ext.QuickTip} instance belongs to specific browser window which
@@ -21,7 +21,7 @@ Ext.QuickTips = Ext.extend(Object, {
 	 * @type String
 	 * @private
 	 */
-	tip : undefined,
+	tip: undefined,
 
 	/**
 	 * Render this tip disabled.
@@ -29,12 +29,12 @@ Ext.QuickTips = Ext.extend(Object, {
 	 * @type Boolean
 	 * @private
 	 */
-	disabled : false,
+	disabled: false,
 
 	/**
 	 * @constructor
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		config = config || {};
 
@@ -43,20 +43,20 @@ Ext.QuickTips = Ext.extend(Object, {
 
 	/**
 	 * Initialize the global QuickTips instance and prepare any quick tips.
-	 * @param {Boolean} autoRender True to render the QuickTips container immediately to preload images. (Defaults to true) 
+	 * @param {Boolean} autoRender True to render the QuickTips container immediately to preload images. (Defaults to true)
 	 */
-	init : function(autoRender) {
-		if(!Ext.isReady){
-			Ext.onReady(function(){
+	init: function(autoRender) {
+		if(!Ext.isReady) {
+			Ext.onReady(function() {
 				Ext.QuickTips.init(autoRender);
 			});
 			return;
 		}
 		this.tip = new Ext.QuickTip({
-			elements:'header,body', 
+			elements:'header,body',
 			disabled: this.disabled
 		});
-		if(autoRender !== false){
+		if(autoRender !== false) {
 			this.tip.render(Ext.getBody());
 		}
 
@@ -64,17 +64,17 @@ Ext.QuickTips = Ext.extend(Object, {
 	},
 
 	// Protected method called by the dd classes
-	ddDisable : function(){
+	ddDisable: function() {
 		// don't disable it if we don't need to
-		if(this.tip && !this.disabled){
+		if(this.tip && !this.disabled) {
 			this.tip.disable();
 		}
 	},
-	
+
 	// Protected method called by the dd classes
-	ddEnable : function(){
+	ddEnable: function() {
 		// only enable it if it hasn't been disabled
-		if(this.tip && !this.disabled){
+		if(this.tip && !this.disabled) {
 			this.tip.enable();
 		}
 	},
@@ -82,8 +82,8 @@ Ext.QuickTips = Ext.extend(Object, {
 	/**
 	 * Enable quick tips globally.
 	 */
-	enable : function(){
-		if(this.tip){
+	enable: function() {
+		if(this.tip) {
 			this.tip.enable();
 		}
 		this.disabled = false;
@@ -92,8 +92,8 @@ Ext.QuickTips = Ext.extend(Object, {
 	/**
 	 * Disable quick tips globally.
 	 */
-	disable : function(){
-		if(this.tip){
+	disable: function() {
+		if(this.tip) {
 			this.tip.disable();
 		}
 		this.disabled = true;
@@ -103,7 +103,7 @@ Ext.QuickTips = Ext.extend(Object, {
 	 * Returns true if quick tips are enabled, else false.
 	 * @return {Boolean}
 	 */
-	isEnabled : function(){
+	isEnabled: function() {
 		return this.tip !== undefined && !this.tip.disabled;
 	},
 
@@ -111,7 +111,7 @@ Ext.QuickTips = Ext.extend(Object, {
 	 * Gets the single {@link Ext.QuickTip QuickTip} instance used to show tips from all registered elements.
 	 * @return {Ext.QuickTip}
 	 */
-	getQuickTip : function(){
+	getQuickTip: function() {
 		return this.tip;
 	},
 
@@ -120,7 +120,7 @@ Ext.QuickTips = Ext.extend(Object, {
 	 * {@link Ext.QuickTip#register} for details.
 	 * @param {Object} config The config object
 	 */
-	register : function(){
+	register: function() {
 		this.tip.register.apply(this.tip, arguments);
 	},
 
@@ -128,7 +128,7 @@ Ext.QuickTips = Ext.extend(Object, {
 	 * Removes any registered quick tip from the target element and destroys it.
 	 * @param {String/HTMLElement/Element} el The element from which the quick tip is to be removed.
 	 */
-	unregister : function(){
+	unregister: function() {
 		this.tip.unregister.apply(this.tip, arguments);
 	},
 
@@ -136,7 +136,7 @@ Ext.QuickTips = Ext.extend(Object, {
 	 * Alias of {@link #register}.
 	 * @param {Object} config The config object
 	 */
-	tips : function(){
+	tips: function() {
 		this.tip.register.apply(this.tip, arguments);
 	}
 });

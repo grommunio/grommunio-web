@@ -13,36 +13,38 @@ Zarafa.common.ui.DateTimePeriodField = Ext.extend(Zarafa.common.ui.DateRangeFiel
 	 * @cfg {Boolean} enableTimeSelection Enable the time selection components
 	 * to appear, otherwise the period will only exist between dates.
 	 */
-	enableTimeSelection : true,
+	enableTimeSelection: true,
 	/**
 	 * @cfg {String} dateFormat The format in which the date appears in the
 	 * {@link Ext.form.DateField DateField}.
 	 */
-	// # TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
-	dateFormat : _('d/m/Y'),
+	// # TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
+	dateFormat: _('d/m/Y'),
 	/**
 	 * @cfg {String} timeFormat The format in which the time appears in the
 	 * time {@link Ext.ux.form.Spinner Spinner}.
 	 */
-	timeFormat : _('G:i'),
+	timeFormat: _('G:i'),
 	/**
 	 * @cfg {Number} timeIncrement The number of minutes to increase/decrease
 	 * when the time {@link Ext.ux.form.Spinner Spinner} is used.
 	 */
-	timeIncrement : 30,
+	timeIncrement: 30,
 	/**
 	 * @constructor
 	 * @param {Object} Configuration object
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		config = config || {};
 		config.hideLabels = true;
 		Ext.apply(this, config);
 
+		this.timeFormat = config.timeFormat || container.settingsModel.get('zarafa/v1/main/datetime_time_format');
+
 		config.startFieldConfig = Ext.applyIf(config.startFieldConfig || {}, {
 			xtype: 'zarafa.datetimefield',
-			fieldLabel : _('Start date'),
+			fieldLabel: _('Start date'),
 			enableTimeSelection: this.enableTimeSelection,
 			dateFormat: this.dateFormat,
 			timeFormat: this.timeFormat,
@@ -51,7 +53,7 @@ Zarafa.common.ui.DateTimePeriodField = Ext.extend(Zarafa.common.ui.DateRangeFiel
 
 		config.endFieldConfig = Ext.applyIf(config.endFieldConfig || {}, {
 			xtype: 'zarafa.datetimefield',
-			fieldLabel : _('End date'),
+			fieldLabel: _('End date'),
 			enableTimeSelection: this.enableTimeSelection,
 			dateFormat: this.dateFormat,
 			timeFormat: this.timeFormat,
@@ -66,7 +68,7 @@ Zarafa.common.ui.DateTimePeriodField = Ext.extend(Zarafa.common.ui.DateRangeFiel
 	 * for setting the time.
 	 * @param {Boolean} enabled True to enable the selection of time
 	 */
-	setEnabledTimeSelection : function(enabled)
+	setEnabledTimeSelection: function(enabled)
 	{
 		this.enableTimeSelection = enabled;
 		if (this.rendered) {

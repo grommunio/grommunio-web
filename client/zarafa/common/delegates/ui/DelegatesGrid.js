@@ -13,30 +13,30 @@ Zarafa.common.delegates.ui.DelegatesGrid = Ext.extend(Ext.grid.GridPanel, {
 	 * @constructor
 	 * @param {Object} config Configuration structure
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		config = config || {};
 
 		if(!config.store) {
 			config.store = new Zarafa.common.delegates.data.DelegateStore();
 		}
-	
+
 		Ext.applyIf(config, {
-			xtype : 'zarafa.delegatesgrid',
-			border : true,
-			store : config.store,
-			viewConfig : {
-				forceFit : true,
-				deferEmptyText : false,
-				emptyText : '<div class=\'emptytext\'>' + _('No delegates configured') + '</div>'
+			xtype: 'zarafa.delegatesgrid',
+			border: true,
+			store: config.store,
+			viewConfig: {
+				forceFit: true,
+				deferEmptyText: false,
+				emptyText: '<div class=\'emptytext\'>' + _('No delegates configured') + '</div>'
 			},
-			loadMask : this.initLoadMask(),
-			columns : this.initColumnModel(),
-			selModel : this.initSelectionModel(),
-			listeners : {
-				viewready : this.onViewReady,
-				rowdblclick : this.onRowDblClick,
-				scope : this
+			loadMask: this.initLoadMask(),
+			columns: this.initColumnModel(),
+			selModel: this.initSelectionModel(),
+			listeners: {
+				viewready: this.onViewReady,
+				rowdblclick: this.onRowDblClick,
+				scope: this
 			}
 		});
 
@@ -47,12 +47,12 @@ Zarafa.common.delegates.ui.DelegatesGrid = Ext.extend(Ext.grid.GridPanel, {
 	 * initialize events for the grid panel.
 	 * @private
 	 */
-	initEvents : function()
+	initEvents: function()
 	{
 		Zarafa.common.delegates.ui.DelegatesGrid.superclass.initEvents.call(this);
 
 		// select first delegate when store has finished loading
-		this.mon(this.store, 'load', this.onViewReady, this, {single : true});
+		this.mon(this.store, 'load', this.onViewReady, this, {single: true});
 	},
 
 	/**
@@ -60,12 +60,12 @@ Zarafa.common.delegates.ui.DelegatesGrid = Ext.extend(Ext.grid.GridPanel, {
 	 * @return {Ext.grid.ColumnModel} column model object
 	 * @private
 	 */
-	initColumnModel : function()
+	initColumnModel: function()
 	{
 		return [{
-			dataIndex : 'display_name',
-			header : _('Name'),
-			renderer : Zarafa.common.ui.grid.Renderers.text
+			dataIndex: 'display_name',
+			header: _('Name'),
+			renderer: Zarafa.common.ui.grid.Renderers.text
 		}];
 	},
 
@@ -74,10 +74,10 @@ Zarafa.common.delegates.ui.DelegatesGrid = Ext.extend(Ext.grid.GridPanel, {
 	 * @return {Ext.grid.RowSelectionModel} selection model object
 	 * @private
 	 */
-	initSelectionModel : function()
+	initSelectionModel: function()
 	{
 		return new Ext.grid.RowSelectionModel({
-			singleSelect : true
+			singleSelect: true
 		});
 	},
 
@@ -87,10 +87,10 @@ Zarafa.common.delegates.ui.DelegatesGrid = Ext.extend(Ext.grid.GridPanel, {
 	 * @return {Ext.LoadMask} The configuration object for {@link Ext.LoadMask}
 	 * @private
 	 */
-	initLoadMask : function()
+	initLoadMask: function()
 	{
 		return {
-			msg : _('Loading delegates') + '...'
+			msg: _('Loading delegates') + '...'
 		};
 	},
 
@@ -99,7 +99,7 @@ Zarafa.common.delegates.ui.DelegatesGrid = Ext.extend(Ext.grid.GridPanel, {
 	 * select the first row in the grid.
 	 * @private
 	 */
-	onViewReady : function()
+	onViewReady: function()
 	{
 		this.getSelectionModel().selectFirstRow();
 	},
@@ -109,7 +109,7 @@ Zarafa.common.delegates.ui.DelegatesGrid = Ext.extend(Ext.grid.GridPanel, {
 	 * it will call generic function to handle the functionality.
 	 * @private
 	 */
-	onRowDblClick : function(grid, rowIndex)
+	onRowDblClick: function(grid, rowIndex)
 	{
 		this.openDelegatePermissions(grid.getStore().getAt(rowIndex));
 	},
@@ -121,7 +121,7 @@ Zarafa.common.delegates.ui.DelegatesGrid = Ext.extend(Ext.grid.GridPanel, {
 	 * if not passed then currently selected record will be used.
 	 * @param {Object} config configuration object that should be passed to {@link Zarafa.common.delegates.dialogs.DelegatePermissionContentPanel DelegatePermissionContentPanel}.
 	 */
-	openDelegatePermissions : function(delegateRecord, config)
+	openDelegatePermissions: function(delegateRecord, config)
 	{
 		config = config || {};
 
@@ -132,9 +132,9 @@ Zarafa.common.delegates.ui.DelegatesGrid = Ext.extend(Ext.grid.GridPanel, {
 		}
 
 		Ext.apply(config, {
-			recordComponentPluginConfig : {
+			recordComponentPluginConfig: {
 				// we will open records ourself
-				enableOpenLoadTask : false
+				enableOpenLoadTask: false
 			}
 		});
 
@@ -145,25 +145,30 @@ Zarafa.common.delegates.ui.DelegatesGrid = Ext.extend(Ext.grid.GridPanel, {
 	/**
 	 * Function will be called to remove a delegate.
 	 */
-	removeDelegate : function()
+	removeDelegate: function()
 	{
 		var selectionModel = this.getSelectionModel();
 		var delegateRecord = selectionModel.getSelected();
+		var rowToSelect;
 
 		if(!delegateRecord) {
 			Ext.Msg.alert(_('Alert'), _('Please select a delegate.'));
 			return;
 		}
 
-		// before removing delegate we should select next available delegate,
+		// before removing delegate we should store row index of next available delegate,
 		// because deleting delegate will remove selection
 		if (selectionModel.hasNext()) {
-			selectionModel.selectNext();
+			rowToSelect = selectionModel.last;
 		} else if (selectionModel.hasPrevious()) {
-			selectionModel.selectPrevious();
+			rowToSelect = selectionModel.last-1;
 		}
 
 		this.store.remove(delegateRecord);
+
+		if (Ext.isDefined(rowToSelect)) {
+			selectionModel.selectRow(rowToSelect);
+		}
 	}
 });
 

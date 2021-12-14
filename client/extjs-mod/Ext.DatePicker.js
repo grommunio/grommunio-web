@@ -34,7 +34,7 @@
 		 * @property
 		 * @type Ext.CompositeElementLite
 		 */
-		weekCells : undefined,
+		weekCells: undefined,
 
 		/**
 		 * @cfg {Boolean} showNow True to enable the mechanism which convert 'Today' button into 'Now'
@@ -42,7 +42,7 @@
 		 * original functionality, false otherwise.
 		 * defaults to false.
 		 */
-		showNow : false,
+		showNow: false,
 
 		/**
 		 * overriden to set starting day of the week
@@ -75,7 +75,7 @@
 			orig_onRender.apply(this, arguments);
 
 			var table = this.getEl().down('table');
-			table.applyStyles({ 'width' : this.width });
+			table.applyStyles({ 'width': this.width });
 		},
 
 		/**
@@ -98,9 +98,9 @@
 				var tblHeadObj = datePickerTable.tHead;
 				var headerRow = tblHeadObj.rows[0];
 				var headerElement = {
-					tag : 'th',
+					tag: 'th',
 					/* # TRANSLATORS: This message is used as label for the column which indicates the week number of the month in date picker. and 'Wk' stands for week */
-					html : '<span>' + _('Wk') + '</span>'
+					html: '<span>' + _('Wk') + '</span>'
 				};
 				// Insert an extra table header at first position.
 				Ext.DomHelper.insertFirst(headerRow, headerElement);
@@ -108,9 +108,9 @@
 				// Dynamically create week-number cell in all rows.
 				var tblBodyObj = datePickerTable.tBodies[0];
 				var rowElement = {
-					tag : 'td',
-					cls : 'x-date-weeknumber',
-					html : '<a><em><span></span></em></a>'
+					tag: 'td',
+					cls: 'x-date-weeknumber',
+					html: '<a><em><span></span></em></a>'
 				};
 				// Insert an extra cell at first position of all table rows.
 				for (var i=0; i<tblBodyObj.rows.length; i++) {
@@ -141,7 +141,7 @@
 		 * @private
 		 * @override
 		 */
-		beforeDestroy : function()
+		beforeDestroy: function()
 		{
 			orig_beforeDestroy.apply(this, arguments);
 			if(this.rendered && Ext.isDefined(this.weekCells)) {
@@ -157,7 +157,7 @@
 		 * Overriden to fire 'selectnow' event if {@link #showNow} is set to true.
 		 * @override
 		 */
-		selectToday : function()
+		selectToday: function()
 		{
 			if(this.showNow) {
 				this.fireEvent('selectnow', this, this.value);

@@ -12,19 +12,19 @@ Zarafa.common.manageCc.dialogs.ManageCcEditContentPanel = Ext.extend(Zarafa.comm
 	 * @cfg {Boolean} removeOnCancel Remove the {@link Zarafa.common.manageCc.data.IPMCcRecipientRecord record} from store
 	 * while user press "cancel" button.
 	 */
-	removeOnCancel : true,
+	removeOnCancel: true,
 
 	/**
 	 * @constructor
 	 * @param config Configuration structure
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		config = config || {};
 
 		Ext.applyIf(config, {
-			xtype : 'zarafa.managecceditcontentpanel',
-			title : _('Add/Edit Cc recipient')
+			xtype: 'zarafa.managecceditcontentpanel',
+			title: _('Add/Edit Cc recipient')
 		});
 
 		Zarafa.common.manageCc.dialogs.ManageCcEditContentPanel.superclass.constructor.call(this, config);
@@ -34,7 +34,7 @@ Zarafa.common.manageCc.dialogs.ManageCcEditContentPanel = Ext.extend(Zarafa.comm
 	 * Event handler which is raised when the user clicks the "Ok" {@link Ext.Button button}
 	 * @private
 	 */
-	onOk : function()
+	onOk: function()
 	{
 		var editForm = this.formPanel.getForm();
 
@@ -71,7 +71,7 @@ Zarafa.common.manageCc.dialogs.ManageCcEditContentPanel = Ext.extend(Zarafa.comm
 	 * @param {Zarafa.common.manageCc.data.IPMCcRecipientRecord} record The record exists in {@link Zarafa.core.data.IPMRecipientStore IPMRecipientStore}.
 	 * @returns {Boolean} true if recipient record already exists in {@link Zarafa.core.data.IPMRecipientStore IPMRecipientStore}
 	 */
-	hasDuplicateRecipient : function(record)
+	hasDuplicateRecipient: function(record)
 	{
 		return record.isOneOff() && !record.dirty && record.get('smtp_address') === this.record.get('smtp_address');
 	},
@@ -81,7 +81,7 @@ Zarafa.common.manageCc.dialogs.ManageCcEditContentPanel = Ext.extend(Zarafa.comm
 	 * and should remove phantom record if needed.
 	 * @protected
 	 */
-	closeWrap : function()
+	closeWrap: function()
 	{
 		this.removePhantomRecord();
 		Zarafa.common.manageCc.dialogs.ManageCcEditContentPanel.superclass.closeWrap.apply(this, arguments);
@@ -91,7 +91,7 @@ Zarafa.common.manageCc.dialogs.ManageCcEditContentPanel = Ext.extend(Zarafa.comm
 	 * Event handler which is raised when the user clicks the "Cancel" {@link Ext.Button button}
 	 * @private
 	 */
-	onCancel : function()
+	onCancel: function()
 	{
 		this.removePhantomRecord();
 		Zarafa.common.manageCc.dialogs.ManageCcEditContentPanel.superclass.onCancel.call(this);
@@ -103,7 +103,7 @@ Zarafa.common.manageCc.dialogs.ManageCcEditContentPanel = Ext.extend(Zarafa.comm
 	 * is true and user has closed the dialog without saving it.
 	 * @private
 	 */
-	removePhantomRecord : function()
+	removePhantomRecord: function()
 	{
 		if (this.removeOnCancel === true && this.record.phantom) {
 			this.record.store.remove(this.record);

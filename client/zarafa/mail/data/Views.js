@@ -4,8 +4,8 @@ Ext.namespace('Zarafa.mail.data');
  * @class Zarafa.mail.data.Views
  * @extends Zarafa.core.Enum
  *
- * Enum containing the different views of the mail context. 
- * 
+ * Enum containing the different views of the mail context.
+ *
  * @singleton
  */
 Zarafa.mail.data.Views = Zarafa.core.Enum.create({
@@ -15,7 +15,7 @@ Zarafa.mail.data.Views = Zarafa.core.Enum.create({
 	 * @property
 	 * @type Number
 	 */
-	LIST : 0,
+	LIST: 0,
 
 	/**
 	 * View all found mail items from the selected folder(s) in the 'list' view.
@@ -23,13 +23,13 @@ Zarafa.mail.data.Views = Zarafa.core.Enum.create({
 	 * @property
 	 * @type Number
 	 */
-	SEARCH : 1,
+	SEARCH: 1,
 
 	/**
 	 * View all updated batch of mail items from the selected folder(s) in the 'list' view.
-	 * 
+	 *
 	 * @property
 	 * @type Number
 	 */
-	LIVESCROLL : 2
+	LIVESCROLL: 2
 });

@@ -1,12 +1,12 @@
 <?php
-require_once('classes/KopanoTest.php');
+require_once('classes/grommunioTest.php');
 
 /**
  * Filter test
  *
  * Tests on the result of the HTML filter safeHTML in the Filter object
  */
-class FilterTest extends KopanoTest {
+class FilterTest extends grommunioTest {
 
 	/**
 	 * The reference to the Filter object
@@ -55,7 +55,7 @@ class FilterTest extends KopanoTest {
 	protected function setUp()
 	{
 		parent::setUp();
-		$this->filter = new filter();
+		$this->filter = new filter(true);
 	}
 
 	/**
@@ -75,7 +75,7 @@ class FilterTest extends KopanoTest {
 		$this->assertNotFalse(stripos($result, '<style type="text/css">testCSSStyle { font-family: Arial; }</style>'), 'Test that the custom STYLE-tag is preserved');
 
 		// Only when the HTMLBODY filter is enabled then tags like HTML, HEAD and BODY are filtered out
-		if(!DISABLE_HTMLBODY_FILTER){
+		if(ENABLE_HTMLBODY_FILTER){
 			$this->assertFalse(stripos($result, '<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">'), 'Test that the DOCTYPE is removed');
 
 			$this->assertFalse(stripos($result, '<html>'), 'Test that the HTML-tag is removed');
@@ -132,12 +132,12 @@ class FilterTest extends KopanoTest {
 	 */
 	public function testXSSFilterBasePromoteToTop()
 	{
-		$xssString = '<div id="testsafehtml"><base href="kopano.local"></div>';
+		$xssString = '<div id="testsafehtml"><base href="grommunio.local"></div>';
 
 		$result = $this->filter->safeHTML($xssString);
 
 		// stripos returns the index of the found string.
-		$this->assertEquals(0, stripos($result, '<base href="kopano.local" target="_blank" title="This external link will open in a new window" />'), 'Test that the XSS filter promotes base tag to first line');
+		$this->assertEquals(0, stripos($result, '<base href="grommunio.local" target="_blank" title="This external link will open in a new window" />'), 'Test that the XSS filter promotes base tag to first line');
 	}
 
 	/**
@@ -592,7 +592,7 @@ src="/foo/alt.jpg"
 			// IMG Embedded commands part II, can not be tested
 
 			// Cookie manipulation
-			/* Admittidly this is pretty obscure but I have seen a few examples where <META
+			/* Admittedly this is pretty obscure but I have seen a few examples where <META
 			 * is allowed and you can use it to overwrite cookies. There are other examples
 			 * of sites where instead of fetching the username from a database it is stored
 			 * inside of a cookie to be displayed only to the user who visits the page. With
@@ -643,7 +643,7 @@ src="/foo/alt.jpg"
 			 */
 			Array(
 				'<div id="testsafehtml"><SCRIPT "a=\'>\'" SRC="http://ha.ckers.org/xss.js"></SCRIPT></div>',
-				// Allthough it is not filtered out perfectly it should disable the XSS
+				// Although it is not filtered out perfectly it should disable the XSS
 				'<div id="testsafehtml">\'" SRC="http://ha.ckers.org/xss.js"></div>',
 			),
 			// XSS using HTML quote encapsulation #5

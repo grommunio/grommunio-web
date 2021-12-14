@@ -20,7 +20,7 @@ Zarafa.hierarchy.data.HierarchyStore = Ext.extend(Zarafa.core.data.IPFStore, {
 	 * or {@link Zarafa.core.data.StatefulObservable stateful objects} will {@link #getState get} or
 	 * {@link #applyState apply} the state.
 	 */
-	stateful : true,
+	stateful: true,
 
 	/**
 	 * When {@link #stateful} the interaction object in which the state can be saved or obtained from.
@@ -28,13 +28,13 @@ Zarafa.hierarchy.data.HierarchyStore = Ext.extend(Zarafa.core.data.IPFStore, {
 	 * @property
 	 * @type Zarafa.hierarchy.data.HierarchyState
 	 */
-	state : undefined,
+	state: undefined,
 
 	/**
 	 * @constructor
 	 * @param {Object} config Configuration object
 	 */
-	constructor : function (config)
+	constructor: function (config)
 	{
 		config = config || {};
 
@@ -43,12 +43,12 @@ Zarafa.hierarchy.data.HierarchyStore = Ext.extend(Zarafa.core.data.IPFStore, {
 			// to register itself to the IPFStoreMgr, this because
 			// the contents of the hierarchyStore is a list
 			// of more IPFStores which will register themselves.
-			standalone : true,
+			standalone: true,
 			proxy: new Zarafa.hierarchy.data.HierarchyProxy(),
-			writer : new Zarafa.core.data.JsonWriter(),
+			writer: new Zarafa.core.data.JsonWriter(),
 			reader: new Zarafa.core.data.JsonReader({
-				id : 'store_entryid',
-				idProperty : 'store_entryid'
+				id: 'store_entryid',
+				idProperty: 'store_entryid'
 			})
 		});
 
@@ -56,19 +56,17 @@ Zarafa.hierarchy.data.HierarchyStore = Ext.extend(Zarafa.core.data.IPFStore, {
 			/**
 			 * @event addFolder
 			 * Fires when a folder has been created.
-			 * @param {Zarafa.hierarchy.data.HierarchyStore} store
-			 * @param {Zarafa.hierarchy.data.MAPIStoreRecord} storeRecord
-			 * @param {Zarafa.hierarchy.data.IPFRecord/Zarafa.hierarchy.data.IPFRecord[]}
-			 * folder record that is added to the hierachy store.
+			 * @param {Zarafa.hierarchy.data.HierarchyStore} store The hierarchy store that fired the event
+			 * @param {Zarafa.hierarchy.data.MAPIStoreRecord} storeRecord The MAPI store that contains the folder that was added
+			 * @param {Zarafa.hierarchy.data.IPFRecord/Zarafa.hierarchy.data.IPFRecord[]} folder folder record that is added to the hierarchy store.
 			 */
 			'addFolder',
 			/**
 			 * @event removeFolder
 			 * Fires when a folder has been removed.
-			 * @param {Zarafa.hierarchy.data.HierarchyStore} store
-			 * @param {Zarafa.hierarchy.data.MAPIStoreRecord} storeRecord
-			 * @param {Zarafa.hierarchy.data.IPFRecord}
-			 * folder which is removed from the hierarchy store.
+			 * @param {Zarafa.hierarchy.data.HierarchyStore} store This hierarchy store that fired the event
+			 * @param {Zarafa.hierarchy.data.MAPIStoreRecord} storeRecord The MAPI store that contained the folder that was removed
+			 * @param {Zarafa.hierarchy.data.IPFRecord} folder folder which is removed from the hierarchy store.
 			 */
 			'removeFolder',
 			/**
@@ -90,11 +88,11 @@ Zarafa.hierarchy.data.HierarchyStore = Ext.extend(Zarafa.core.data.IPFStore, {
 		}
 
 		this.on({
-			'beforesave' : this.onBeforeSave,
-			'load' : this.onAfterLoad,
-			'add' : this.onAdd,
-			'remove' : this.onRemove,
-			scope : this
+			'beforesave': this.onBeforeSave,
+			'load': this.onAfterLoad,
+			'add': this.onAdd,
+			'remove': this.onRemove,
+			scope: this
 		});
 	},
 
@@ -106,7 +104,7 @@ Zarafa.hierarchy.data.HierarchyStore = Ext.extend(Zarafa.core.data.IPFStore, {
 	 * @param {String} b The second id to compare
 	 * @protected
 	 */
-	idComparison : function(a, b)
+	idComparison: function(a, b)
 	{
 		return Zarafa.core.EntryId.compareStoreEntryIds(a, b);
 	},
@@ -116,7 +114,7 @@ Zarafa.hierarchy.data.HierarchyStore = Ext.extend(Zarafa.core.data.IPFStore, {
 	 * <br> Function just adds 'list' as actionType in options and calls parent {@link Zarafa.core.data.IPFStore#load} method.
 	 * <br> Check documentation of {@link Ext.data.Store#load} for more information.
 	 */
-	load : function(options)
+	load: function(options)
 	{
 		if (!Ext.isObject(options)) {
 			options = {};
@@ -136,7 +134,7 @@ Zarafa.hierarchy.data.HierarchyStore = Ext.extend(Zarafa.core.data.IPFStore, {
 		 * actionType as 'list' always.
 		 */
 		Ext.applyIf(options, {
-			actionType : Zarafa.core.Actions['list']
+			actionType: Zarafa.core.Actions['list']
 		});
 
 		return Zarafa.hierarchy.data.HierarchyStore.superclass.load.call(this, options);
@@ -149,8 +147,9 @@ Zarafa.hierarchy.data.HierarchyStore = Ext.extend(Zarafa.core.data.IPFStore, {
 	 * from the Hierarchy.
 	 * @param {Zarafa.hierarchy.data.MAPIStore} record The MAPIStore which must be
 	 * removed from the HierarchyStore.
+	 * @param {boolean} removeFavorites false to not remove favoirts folder from hierarchy store. default is true.
 	 */
-	remove : function(record)
+	remove: function(record, removeFavorites)
 	{
 		if (Array.isArray(record)) {
 			Ext.each(record, this.remove, this);
@@ -159,13 +158,15 @@ Zarafa.hierarchy.data.HierarchyStore = Ext.extend(Zarafa.core.data.IPFStore, {
 
 		// Only allow Shared Stores to be removed
 		if (record.isSharedStore()) {
-			// Remove all favorites marked folders which are
-			// belongs to shared user because we are going to
-			// close the shared user hierarchy store.
-			var favoritesStore = record.getFavoritesStore();
-			var records = favoritesStore.query('store_entryid',record.get('store_entryid'));
-			favoritesStore.remove(records.getRange());
-
+			// removeFavorites is true in case when user try to open the entire store
+			// where some of the folders are already opened in that case we don't need to
+			// remove exsiting favoirtes folder else  Remove all favorites marked folders which are
+			// belongs to shared user because we are going to close the shared user hierarchy store.
+			if (removeFavorites !== false){
+				var favoritesStore = record.getFavoritesStore();
+				var records = favoritesStore.query('store_entryid',record.get('store_entryid'));
+				favoritesStore.remove(records.getRange());
+			}
 			Zarafa.hierarchy.data.HierarchyStore.superclass.remove.call(this, record);
 		}
 	},
@@ -179,7 +180,7 @@ Zarafa.hierarchy.data.HierarchyStore = Ext.extend(Zarafa.core.data.IPFStore, {
 	 * @param {Boolean} subfolders True if subfolders must be loaded (when foldertype is not 'all').
 	 * @return {Boolean} False if the substore could not be opened
 	 */
-	open : function(username, foldertype, subfolders)
+	open: function(username, foldertype, subfolders)
 	{
 		// The username must always be lowercase
 		username = username.toLowerCase();
@@ -194,14 +195,14 @@ Zarafa.hierarchy.data.HierarchyStore = Ext.extend(Zarafa.core.data.IPFStore, {
 		}
 
 		var options = Ext.applyIf({
-			params : {
-				user_name : username,
-				folder_type : foldertype,
-				show_subfolders : subfolders
+			params: {
+				user_name: username,
+				folder_type: foldertype,
+				show_subfolders: subfolders
 			},
-			add : true,
-			actionType : 'opensharedfolder',
-			cancelPreviousRequest : false
+			add: true,
+			actionType: 'opensharedfolder',
+			cancelPreviousRequest: false
 		}, this.lastOptions);
 
 		try {
@@ -225,7 +226,7 @@ Zarafa.hierarchy.data.HierarchyStore = Ext.extend(Zarafa.core.data.IPFStore, {
 	 * @param {Boolean} success True if the records were successfully loaded from the store
 	 * @private
 	 */
-	loadRecords : function(o, options, success)
+	loadRecords: function(o, options, success)
 	{
 		if (this.isDestroyed) {
 			return;
@@ -241,10 +242,9 @@ Zarafa.hierarchy.data.HierarchyStore = Ext.extend(Zarafa.core.data.IPFStore, {
 				// us the new folders only. So we obtain the previously loaded folders
 				// and inject them into the response.
 				if (existingStore) {
-					// If we are opening full store of the user then close all the shared folder first.
 					if(options.params.folder_type === 'all') {
-						this.remove(existingStore);
-						this.save(existingStore);
+						this.remove(existingStore, false);
+						this.save(existingStore, false);
 					} else {
 						record.createSubStores();
 
@@ -275,24 +275,24 @@ Zarafa.hierarchy.data.HierarchyStore = Ext.extend(Zarafa.core.data.IPFStore, {
 	 * @param {Zarafa.hierarchy.data.MAPIStoreRecord[]} records The records which are hooked
 	 * @private
 	 */
-	hookStoreRecord : function(records)
+	hookStoreRecord: function(records)
 	{
 		for (var i = 0, len = records.length; i < len; i++) {
 			var folders = records[i].getSubStore('folders');
 			folders.on({
-				'add' : this.onFolderAdd,
-				'remove' : this.onFolderRemove,
-				'update' : this.onFolderUpdate,
-				scope : this
+				'add': this.onFolderAdd,
+				'remove': this.onFolderRemove,
+				'update': this.onFolderUpdate,
+				scope: this
 			});
 
 			var favorites = records[i].getSubStore('favorites');
 			if(Ext.isDefined(favorites)) {
 				favorites.on({
-					'add' : this.onFolderAdd,
-					'remove' : this.onFolderRemove,
-					'update' : this.onFolderUpdate,
-					scope : this
+					'add': this.onFolderAdd,
+					'remove': this.onFolderRemove,
+					'update': this.onFolderUpdate,
+					scope: this
 				});
 			}
 		}
@@ -303,7 +303,7 @@ Zarafa.hierarchy.data.HierarchyStore = Ext.extend(Zarafa.core.data.IPFStore, {
 	 * @param {Zarafa.hierarchy.data.MAPIStoreRecord} record The record to unhook
 	 * @private
 	 */
-	unhookStoreRecord : function(record)
+	unhookStoreRecord: function(record)
 	{
 		var folders = record.getSubStore('folders');
 		folders.un('add', this.onFolderAdd, this);
@@ -334,7 +334,7 @@ Zarafa.hierarchy.data.HierarchyStore = Ext.extend(Zarafa.core.data.IPFStore, {
 	 * @param {Object} options The options which were send with the load request
 	 * @private
 	 */
-	onAfterLoad : function(store, records, options)
+	onAfterLoad: function(store, records, options)
 	{
 		if (options.actionType === 'opensharedfolder') {
 			var settings = container.getSettingsModel();
@@ -350,8 +350,8 @@ Zarafa.hierarchy.data.HierarchyStore = Ext.extend(Zarafa.core.data.IPFStore, {
 			}
 
 			settings.set(settingsBase + '/' + folder_type, {
-				folder_type : folder_type,
-				show_subfolders : subfolders
+				folder_type: folder_type,
+				show_subfolders: subfolders
 			});
 
 			// when user tries to open shared folder, that particular folder will be opened immediately and context will be
@@ -366,39 +366,71 @@ Zarafa.hierarchy.data.HierarchyStore = Ext.extend(Zarafa.core.data.IPFStore, {
 					case 'tasks':
 					case 'notes':
 						break;
-					default :
+					default:
 						folder_type = 'inbox';
 						break;
 				}
 			}
 			var folder = this.getFolder((records[0].get('default_folder_'+folder_type)));
-			if (Ext.isDefined(folder) && folder_type!=='calendar') {
-				Zarafa.hierarchy.Actions.openFolder(folder);
-			}
 
+			if (Ext.isDefined(folder)) {
+				// If a user is trying to open a shared calendar folder, we need to check
+				// whether there was any previously opened calender or not. If yes, we open
+				// that too instead of the previous one getting closed.
+        if (folder_type === "calendar") {
+          var context = container.getContextByFolder(folder);
+          var state = context.getModel().getState();
+          var lastUsedFolders = state.last_used_folders;
+          var foldersToOpen = [folder];
+          if (!Ext.isEmpty(lastUsedFolders)) {
+            for (var storeEntryID in lastUsedFolders) {
+							var lastUsedStore = this.getById(storeEntryID);
+							if (lastUsedStore) {
+								var folders = lastUsedStore.getSubStore('folders');
+								var folderEntryIDs = lastUsedFolders[storeEntryID];
+								for (var i = 0; i < folderEntryIDs.length; i++) {
+									var lastUsedFolder = folders.getById(folderEntryIDs[i]);
+									if (lastUsedFolder && lastUsedFolder.get('access') !== 0) {
+										foldersToOpen.push(lastUsedFolder);
+									}
+								}
+							}
+            }
+          }
+          Zarafa.hierarchy.Actions.openFolder(foldersToOpen);
+        } else {
+					Zarafa.hierarchy.Actions.openFolder(folder);
+				}
+      }
 		}
 
 		// Add event handlers which are registered so we can listen for
 		// the add, remove and update events for the folders.
 		this.hookStoreRecord(records);
+
+		// Set title counter for webapp tab.
+		Zarafa.hierarchy.Actions.setTitleCounter(this);
 	},
 
 	/**
-	 * Saves all pending changes to the store.  If the commensurate Ext.data.Api.actions action is not configured, then
+	 * Saves all pending changes to the store. If the commensurate Ext.data.Api.actions action is not configured, then
 	 * the configured <code>{@link #url}</code> will be used.
 	 * <pre>
-	 * change            url
-	 * ---------------   --------------------
-	 * removed records   Ext.data.Api.actions.destroy
-	 * phantom records   Ext.data.Api.actions.create
-	 * {@link #getModifiedRecords modified records}  Ext.data.Api.actions.update
+	 * change      url
+	 * ---------------  --------------------
+	 * removed records  Ext.data.Api.actions.destroy
+	 * phantom records  Ext.data.Api.actions.create
+	 * {@link #getModifiedRecords modified records} Ext.data.Api.actions.update
 	 * </pre>
-	 * @TODO:  Create extensions of Error class and send associated Record with thrown exceptions.
-	 * e.g.:  Ext.data.DataReader.Error or Ext.data.Error or Ext.data.DataProxy.Error, etc.
+	 * @TODO: Create extensions of Error class and send associated Record with thrown exceptions.
+	 * e.g.: Ext.data.DataReader.Error or Ext.data.Error or Ext.data.DataProxy.Error, etc.
+	 * 
+	 * @param {Zarafa.hierarchy.data.MAPIStore} record The MAPIStore which is going save.
+	 * @param {boolean} removeFavorites false to not remove favoirts folder from server. default is true.
 	 * @return {Number} batch Returns a number to uniquely identify the "batch" of saves occurring. -1 will be returned
 	 * if there are no items to save or the save was cancelled.
 	 */
-	save : function()
+	save: function(record, removeFavorites)
 	{
 		// If stores have been removed we have to provide a special
 		// treatment, as stores can't be deleted, but only 'closed'.
@@ -406,13 +438,21 @@ Zarafa.hierarchy.data.HierarchyStore = Ext.extend(Zarafa.core.data.IPFStore, {
 			var stores = this.removed;
 
 			var data = {
-				'close' : stores
+				'close': stores
 			};
 
 			if (this.fireEvent('beforesave', this, data) !== false) {
 				try {
 					var batch = ++this.batchCounter;
-					this.execute('destroy', data['close'], { actionType : 'closesharedfolder' }, batch);
+					this.execute('destroy', data['close'], {
+						actionType: 'closesharedfolder',
+						params : {
+							// removeFavorites is false when user try to open entire store and some of the folders
+							// are already been open in that case we don't need to remove favorites marks folders as we 
+							// are opening entire store.
+							remove_favorites: Ext.isDefined(removeFavorites) ? removeFavorites : true
+						}
+					}, batch);
 				} catch (e) {
 					this.handleException(e);
 				}
@@ -435,7 +475,7 @@ Zarafa.hierarchy.data.HierarchyStore = Ext.extend(Zarafa.core.data.IPFStore, {
 	 * which will be send to the server
 	 * @private
 	 */
-	onBeforeSave : function(store, data)
+	onBeforeSave: function(store, data)
 	{
 		// The 'close' key is only used for shared stores/folders
 		if (!Ext.isEmpty(data['close'])) {
@@ -472,7 +512,7 @@ Zarafa.hierarchy.data.HierarchyStore = Ext.extend(Zarafa.core.data.IPFStore, {
 	 * @param {Number} index The index from where the record was added
 	 * @private
 	 */
-	onAdd : function(store, records, index)
+	onAdd: function(store, records, index)
 	{
 		this.hookStoreRecord(records);
 	},
@@ -486,7 +526,7 @@ Zarafa.hierarchy.data.HierarchyStore = Ext.extend(Zarafa.core.data.IPFStore, {
 	 * @param {Number} index The index from where the record was removed
 	 * @private
 	 */
-	onRemove : function(store, record, index)
+	onRemove: function(store, record, index)
 	{
 		this.unhookStoreRecord(record);
 	},
@@ -501,7 +541,7 @@ Zarafa.hierarchy.data.HierarchyStore = Ext.extend(Zarafa.core.data.IPFStore, {
 	 * @param {Number} index The index in the substore from where the folder was added
 	 * @private
 	 */
-	onFolderAdd : function(store, records, index)
+	onFolderAdd: function(store, records, index)
 	{
 		this.fireEvent('addFolder', this, store.getParentRecord(), records, index);
 	},
@@ -516,7 +556,7 @@ Zarafa.hierarchy.data.HierarchyStore = Ext.extend(Zarafa.core.data.IPFStore, {
 	 * @param {Number} index The index in the substore from where the folder was removed
 	 * @private
 	 */
-	onFolderRemove : function(store, record, index)
+	onFolderRemove: function(store, record, index)
 	{
 		// If the removed folder is a shared folder and not favorites marked then we have to check
 		// if this is the last shared folder for the store. Because
@@ -561,15 +601,18 @@ Zarafa.hierarchy.data.HierarchyStore = Ext.extend(Zarafa.core.data.IPFStore, {
 	 * {@link Ext.data.Record#EDIT}, {@link Ext.data.Record#REJECT}, {@link Ext.data.Record#COMMIT}.
 	 * @private
 	 */
-	onFolderUpdate : function(store, record, operation)
+	onFolderUpdate: function(store, record, operation)
 	{
 		this.fireEvent('updateFolder', this, store.getParentRecord(), record, operation);
+
+		// Update title counter for webapp tab.
+		Zarafa.hierarchy.Actions.setTitleCounter(this);
 	},
 
 	/**
 	 * @return {Array} list of all {@link Zarafa.hierarchy.data.MAPIStoreRecord Store}
 	 */
-	getStores : function()
+	getStores: function()
 	{
 		return this.getRange();
 	},
@@ -577,7 +620,7 @@ Zarafa.hierarchy.data.HierarchyStore = Ext.extend(Zarafa.core.data.IPFStore, {
 	/**
 	 * @return {Zarafa.hierarchy.data.MAPIStoreRecord} default store
 	 */
-	getDefaultStore : function()
+	getDefaultStore: function()
 	{
 		var index = this.findExact('mdb_provider', Zarafa.core.mapi.MDBProvider.ZARAFA_SERVICE_GUID);
 
@@ -589,7 +632,7 @@ Zarafa.hierarchy.data.HierarchyStore = Ext.extend(Zarafa.core.data.IPFStore, {
 	/**
 	 * @return {Zarafa.hierarchy.data.MAPIStoreRecord} public store
 	 */
-	getPublicStore : function()
+	getPublicStore: function()
 	{
 		var index = this.findExact('mdb_provider', Zarafa.core.mapi.MDBProvider.ZARAFA_STORE_PUBLIC_GUID);
 
@@ -609,7 +652,7 @@ Zarafa.hierarchy.data.HierarchyStore = Ext.extend(Zarafa.core.data.IPFStore, {
 	 * whose default folder we should return, if not passed then it will use default store.
 	 * @return {Zarafa.hierarchy.data.MAPIFolderRecord} a folder if a default folder with the given name was found, or undefined otherwise.
 	 */
-	getDefaultFolder : function(name, mapiStoreRecord)
+	getDefaultFolder: function(name, mapiStoreRecord)
 	{
 		if(!mapiStoreRecord) {
 			mapiStoreRecord = this.getDefaultStore();
@@ -628,7 +671,7 @@ Zarafa.hierarchy.data.HierarchyStore = Ext.extend(Zarafa.core.data.IPFStore, {
 	 * @param {String} ownerEntryId entry id of the owner of the store.
 	 * @return {Zarafa.hierarchy.data.MAPIStoreRecord} store owned by user.
 	 */
-	getStoreByOwnerEntryId : function(ownerEntryId)
+	getStoreByOwnerEntryId: function(ownerEntryId)
 	{
 		for(var i = 0; i < this.getCount(); i++) {
 			var folderStore = this.getAt(i);
@@ -644,7 +687,7 @@ Zarafa.hierarchy.data.HierarchyStore = Ext.extend(Zarafa.core.data.IPFStore, {
 	 * @param {String} id MAPI ID of the folder to search for.
 	 * @return {Zarafa.hierarchy.data.MAPIFolderRecord} a folder matching the given ID, or undefined if not found.
 	 */
-	getFolder : function(id)
+	getFolder: function(id)
 	{
 		for(var i = 0, len = this.getCount(); i < len; i++) {
 			var folderStore = this.getAt(i).getFolderStore();
@@ -666,7 +709,7 @@ Zarafa.hierarchy.data.HierarchyStore = Ext.extend(Zarafa.core.data.IPFStore, {
 	 * @return {Zarafa.hierarchy.data.MAPIFolderRecord} a folder
 	 * default folder for the supplied message_class
 	 */
-	getDefaultFolderFromMessageClass : function(messageClass)
+	getDefaultFolderFromMessageClass: function(messageClass)
 	{
 		var folderType = Zarafa.core.MessageClass.getDefaultFolderTypeFromMessageClass(messageClass);
 		if (!Ext.isEmpty(folderType)) {
@@ -682,7 +725,7 @@ Zarafa.hierarchy.data.HierarchyStore = Ext.extend(Zarafa.core.data.IPFStore, {
 	 * @return {Zarafa.hierarchy.data.MAPIFolderRecord} a folder
 	 * default folder for the supplied message_class
 	 */
-	getDefaultFolderFromContainerClass : function(containerClass)
+	getDefaultFolderFromContainerClass: function(containerClass)
 	{
 		var folderType = Zarafa.core.ContainerClass.getDefaultFolderTypeFromContainerClass(containerClass);
 		if (!Ext.isEmpty(folderType)) {
@@ -694,7 +737,7 @@ Zarafa.hierarchy.data.HierarchyStore = Ext.extend(Zarafa.core.data.IPFStore, {
 	 * Helper method for getSortedFolders.
 	 * @private
 	 */
-	collectFolders : function(arr, match, scope, folder)
+	collectFolders: function(arr, match, scope, folder)
 	{
 		if (!Ext.isFunction(match) || match.call(scope || this, folder)) {
 			arr.push(folder);
@@ -712,7 +755,7 @@ Zarafa.hierarchy.data.HierarchyStore = Ext.extend(Zarafa.core.data.IPFStore, {
 	 * as parameter and should return true if that folder should appear in the output.
 	 * @return {Array} array of matched folders, in the same order as they appear on screen.
 	 */
-	getSortedFolders : function(match, scope)
+	getSortedFolders: function(match, scope)
 	{
 		var allFolders = [];
 
@@ -743,19 +786,19 @@ Zarafa.hierarchy.data.HierarchyStore = Ext.extend(Zarafa.core.data.IPFStore, {
 	/**
 	 * Notification handler called by {@link #onNotify} when
 	 * a {@link Zarafa.core.data.Notifications#newMail newMail}
-	 * notification has been recieved.
+	 * notification has been received.
 	 *
 	 * This will update all stores in which the new mail was delivered.
 	 *
 	 * @param {Zarafa.core.data.Notifications} action The notification action
 	 * @param {Ext.data.Record/Array} records The record or records which have been affected by the notification.
-	 * @param {Object} data The data which has been recieved from the PHP-side which must be applied
+	 * @param {Object} data The data which has been received from the PHP-side which must be applied
 	 * to the given records.
 	 * @param {Number} timestamp The {@link Date#getTime timestamp} on which the notification was received
-	 * @param {Boolean} success The success status, True if the notification was successfully recieved.
+	 * @param {Boolean} success The success status, True if the notification was successfully received.
 	 * @private
 	 */
-	onNotifyNewmail : function(action, records, data, timestamp, success)
+	onNotifyNewmail: function(action, records, data, timestamp, success)
 	{
 		if (!Array.isArray(records)) {
 			records = [ records ];
@@ -766,15 +809,15 @@ Zarafa.hierarchy.data.HierarchyStore = Ext.extend(Zarafa.core.data.IPFStore, {
 			// we already obtained created item, and we don't need to reload.
 			if (!timestamp || records[i].lastExecutionTime(Zarafa.core.Actions['list']) < timestamp) {
 				/*
-				 * If this notification come at the time while user live scorlling
+				 * If this notification come at the time while user live scrolling
 				 * then we have to reload the mail store with all mails(limit should
 				 * be total loaded mails in grid).
 				 */
 				if(records[i].lastOptions.actionType === Zarafa.core.Actions['updatelist']) {
 					delete records[i].lastOptions.add;
 					Ext.apply(records[i].lastOptions.params.restriction,{
-						start : 0,
-						limit : records[i].getCount()
+						start: 0,
+						limit: records[i].getCount()
 					});
 					records[i].reload(records[i].lastOptions);
 				} else {
@@ -838,13 +881,13 @@ Zarafa.hierarchy.data.HierarchyStore = Ext.extend(Zarafa.core.data.IPFStore, {
 	 * {@link Zarafa.core.Request Request} object to reset the counter everytime the clients sends a
 	 * request to the server.
 	 */
-	startKeepAlive : function()
+	startKeepAlive: function()
 	{
 		var interval = container.getSettingsModel().get('zarafa/v1/contexts/hierarchy/polling_interval');
 
 		// add a listener event that will fire automatically after specified interval
 		if (Ext.isNumber(interval) && interval > 0) {
-			container.getRequest().on('aftersend', this.sendKeepAlive, this, { buffer : interval * 1000});
+			container.getRequest().on('aftersend', this.sendKeepAlive, this, { buffer: interval * 1000});
 		}
 	},
 
@@ -852,16 +895,18 @@ Zarafa.hierarchy.data.HierarchyStore = Ext.extend(Zarafa.core.data.IPFStore, {
 	 * Sends a request to the server with only an action type and no other parameters. It will also not
 	 * wait for / handle a response.
 	 * @param {Zarafa.core.Actions} action The action type that will be send to the server
+	 * @param {Function} callback call back function to call when the request has finished successfully.
+	 * @param {Array} params The request params.
 	 */
-	sendSimpleActionToServer : function(action)
+	sendSimpleActionToServer: function(action, callback, params)
 	{
 		var options = {
-			params : {},
-			actionType : action
+			params: Ext.isDefined(params)? params : {},
+			actionType: action
 		};
 
 		// fire request
-		this.proxy.request(Ext.data.Api.actions['read'], null, options.params, this.reader, Ext.emptyFn, this, options);
+		this.proxy.request(Ext.data.Api.actions['read'], null, options.params, this.reader, Ext.isFunction(callback) ? callback : Ext.emptyFn, this, options);
 	},
 
 	/**
@@ -876,7 +921,7 @@ Zarafa.hierarchy.data.HierarchyStore = Ext.extend(Zarafa.core.data.IPFStore, {
 	 * and this way don't interfere with the working of {@link #load} and {@link #reload} functionalities.
 	 * @private
 	 */
-	sendKeepAlive : function()
+	sendKeepAlive: function()
 	{
 		this.sendSimpleActionToServer(Zarafa.core.Actions['keepalive']);
 	},
@@ -886,7 +931,7 @@ Zarafa.hierarchy.data.HierarchyStore = Ext.extend(Zarafa.core.data.IPFStore, {
 	 * in one of the opened shared stores.
 	 * @private
 	 */
-	sendSharedStoreHierarchyUpdate : function()
+	sendSharedStoreHierarchyUpdate: function()
 	{
 		this.sendSimpleActionToServer(Zarafa.core.Actions['sharedstoreupdate']);
 	},
@@ -904,7 +949,7 @@ Zarafa.hierarchy.data.HierarchyStore = Ext.extend(Zarafa.core.data.IPFStore, {
 	 * the working of {@link #load} and {@link #reload} functionalities.
 	 * @private
 	 */
-	sendDestroySession : function()
+	sendDestroySession: function()
 	{
 		this.sendSimpleActionToServer(Zarafa.core.Actions['destroysession']);
 	},
@@ -913,7 +958,7 @@ Zarafa.hierarchy.data.HierarchyStore = Ext.extend(Zarafa.core.data.IPFStore, {
 	 * Intialialize the {@link #state state component}
 	 * @private
 	 */
-	initState : function()
+	initState: function()
 	{
 		if (!this.state) {
 			this.state = new Zarafa.hierarchy.data.HierarchyState();
@@ -930,7 +975,7 @@ Zarafa.hierarchy.data.HierarchyStore = Ext.extend(Zarafa.core.data.IPFStore, {
 	 * @param {String} type The category for the folder for which the statename is requested (e.g. 'list' or 'tree').
 	 * @return {String} The unique name for this component by which the {@link #getState state} must be saved.
 	 */
-	getStateName : function(folder, type)
+	getStateName: function(folder, type)
 	{
 		if (this.stateful !== false) {
 			return this.state.getStateNameForFolder(folder, type);
@@ -945,7 +990,7 @@ Zarafa.hierarchy.data.HierarchyStore = Ext.extend(Zarafa.core.data.IPFStore, {
 	 * @param {String} type The category for the folder for which the state is requested (e.g. 'list' or 'tree').
 	 * @return {Object} The state object
 	 */
-	getState : function(folder, type)
+	getState: function(folder, type)
 	{
 		if (this.stateful !== false) {
 			return this.state.getStateForFolder(folder, type);
@@ -960,7 +1005,7 @@ Zarafa.hierarchy.data.HierarchyStore = Ext.extend(Zarafa.core.data.IPFStore, {
 	 * @param {String} type The category for the folder for which the state is provided (e.g. 'list' or 'tree').
 	 * @param {Object} state The state object
 	 */
-	applyState : function(folder, type, state)
+	applyState: function(folder, type, state)
 	{
 		if (this.stateful !== false) {
 			this.state.applyStateForFolder(folder, type, state);
@@ -970,19 +1015,19 @@ Zarafa.hierarchy.data.HierarchyStore = Ext.extend(Zarafa.core.data.IPFStore, {
 	/**
 	 * Notification handler called by {@link #onNotify} when
 	 * a {@link Zarafa.core.data.Notifications#objectModified objectModified}
-	 * notification has been recieved.
+	 * notification has been received.
 	 *
 	 * This will update the mapistore's information in hierarhcyStore.
 	 *
 	 * @param {Zarafa.core.data.Notifications} action The notification action
 	 * @param {Ext.data.Record/Array} records The record or records which have been affected by the notification.
-	 * @param {Object} data The data which has been recieved from the PHP-side which must be applied
+	 * @param {Object} data The data which has been received from the PHP-side which must be applied
 	 * to the given records.
 	 * @param {Number} timestamp The {@link Date#getTime timestamp} on which the notification was received
-	 * @param {Boolean} success The success status, True if the notification was successfully recieved.
+	 * @param {Boolean} success The success status, True if the notification was successfully received.
 	 * @private
 	 */
-	onNotifyObjectmodified : function(action, records, data, timestamp, success)
+	onNotifyObjectmodified: function(action, records, data, timestamp, success)
 	{
 		if (!Array.isArray(records)) {
 			records = [ records ];
@@ -1016,7 +1061,7 @@ Zarafa.hierarchy.data.HierarchyStore = Ext.extend(Zarafa.core.data.IPFStore, {
 	 * @param {String} containerClass The container_class of the folders.
 	 * @return {Zarafa.core.data.IPFRecord[]} An array of folders
 	 */
-	getByContainerClass : function(containerClass)
+	getByContainerClass: function(containerClass)
 	{
 		var finalResult = [];
 

@@ -16,7 +16,7 @@ Zarafa.common.ui.messagepanel.ExtraInfoContextMenu = Ext.extend(Zarafa.core.ui.m
 	 * @constructor
 	 * @param {Object} config Configuration object
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		config = config || {};
 
@@ -55,7 +55,7 @@ Zarafa.common.ui.messagepanel.ExtraInfoContextMenu = Ext.extend(Zarafa.core.ui.m
 	 * and set it and will save the record to send changes to server
 	 * @private
 	 */
-	showPictures : function()
+	showPictures: function()
 	{
 		var blockStatusValue = this.records.calculateBlockStatus();
 
@@ -70,7 +70,7 @@ Zarafa.common.ui.messagepanel.ExtraInfoContextMenu = Ext.extend(Zarafa.core.ui.m
 	 * so the mails from this user will not be checked for blocking external content.
 	 * @private
 	 */
-	addSenderToSafeList : function()
+	addSenderToSafeList: function()
 	{
 		var smtpAddress = this.records.get('sent_representing_email_address') || this.records.get('sender_email_address');
 		if(Ext.isEmpty(smtpAddress)) {
@@ -96,7 +96,7 @@ Zarafa.common.ui.messagepanel.ExtraInfoContextMenu = Ext.extend(Zarafa.core.ui.m
 	 * so the mails from this domain will not be checked for blocking external content.
 	 * @private
 	 */
-	addDomainToSafeList : function()
+	addDomainToSafeList: function()
 	{
 		var smtpAddress = this.records.get('sent_representing_email_address') || this.records.get('sender_email_address');
 		var domainName = smtpAddress.substr(smtpAddress.indexOf('@') + 1);

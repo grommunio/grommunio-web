@@ -20,7 +20,7 @@ Zarafa.common.categories.data.CategoriesStore = Ext.extend(Ext.data.ArrayStore, 
 	 * @type {String}
 	 * @private
 	 */
-	settingsKey : 'kopano/main/categories',
+	settingsKey: 'grommunio/main/categories',
 
 	/**
 	 * @constructor
@@ -37,7 +37,7 @@ Zarafa.common.categories.data.CategoriesStore = Ext.extend(Ext.data.ArrayStore, 
 		}
 		categories = categories.concat(container.populateInsertionPoint('main.categories'));
 
-		// Add additonal categories defined by the admin. They are already defined by the default
+		// Add additional categories defined by the admin. They are already defined by the default
 		// persistent settings, but the user might have removed/changed them and since KW-2841 we
 		// always want to have those categories available
 		var additionalCategories = container.getServerConfig().getAdditionalDefaultCategories() || [];
@@ -47,7 +47,7 @@ Zarafa.common.categories.data.CategoriesStore = Ext.extend(Ext.data.ArrayStore, 
 			});
 		});
 
-		// Remove stored additional categories that are not present in the configured addtional categories
+		// Remove stored additional categories that are not present in the configured additional categories
 		categories = categories.filter(function(category) {
 			return !category.additional ||
 					additionalCategories.some(function(additionalCategory) {
@@ -74,7 +74,7 @@ Zarafa.common.categories.data.CategoriesStore = Ext.extend(Ext.data.ArrayStore, 
 						});
 
 		Ext.applyIf(config, {
-			fields : ['category', 'color', 'standardIndex', 'additional', 'quickAccess', 'sortIndex', 'stored', 'used'],
+			fields: ['category', 'color', 'standardIndex', 'additional', 'quickAccess', 'sortIndex', 'stored', 'used'],
 			data: categories
 		});
 
@@ -89,7 +89,7 @@ Zarafa.common.categories.data.CategoriesStore = Ext.extend(Ext.data.ArrayStore, 
 	 * @param {Zarafa.core.data.MAPIRecord} mapiRecords The records of which the categories
 	 * will be added to this store.
 	 */
-	addCategoriesFromMapiRecords : function(mapiRecords)
+	addCategoriesFromMapiRecords: function(mapiRecords)
 	{
 		var categories = Zarafa.common.categories.Util.getAllCategories(mapiRecords);
 		categories.forEach(function(category){
@@ -111,7 +111,7 @@ Zarafa.common.categories.data.CategoriesStore = Ext.extend(Ext.data.ArrayStore, 
 	 * @param {String} color The color of the category in RGB Hex format
 	 * @param {Boolean} quickAccess True if the category should be a 'pinned' category
 	 */
-	addCategory : function(category, color, quickAccess)
+	addCategory: function(category, color, quickAccess)
 	{
 		this.add(new this.recordType({
 			category: category,
@@ -124,7 +124,7 @@ Zarafa.common.categories.data.CategoriesStore = Ext.extend(Ext.data.ArrayStore, 
 	/**
 	 * Saves the categories in the store into the settings of the user
 	 */
-	save : function()
+	save: function()
 	{
 		var categories = this.getRange().filter(function(categoryRecord){
 			// Only save categories that were already stored before,
@@ -155,7 +155,7 @@ Zarafa.common.categories.data.CategoriesStore = Ext.extend(Ext.data.ArrayStore, 
 	 *
 	 * @return {Number} The index of the first matching record or -1 if no match was found
 	 */
-	findExactCaseInsensitive : function(fieldName, value)
+	findExactCaseInsensitive: function(fieldName, value)
 	{
 		return this.findBy(function(category, index){
 			return category.get(fieldName).toLowerCase() === value.toLowerCase();

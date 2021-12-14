@@ -13,29 +13,29 @@ Zarafa.common.rules.ui.RulesGrid = Ext.extend(Zarafa.common.ui.grid.GridPanel, {
 	 * @constructor
 	 * @param {Object} config Configuration structure
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		config = config || {};
 
 		Ext.applyIf(config, {
-			xtype : 'zarafa.rulesgrid',
-			cls : 'k-rulesgrid',
-			border : false,
-			enableHdMenu : false,
-			viewConfig : {
-				forceFit : true,
-				emptyText : '<div class=\'emptytext\'>' + _('No rule exists') + '</div>'
+			xtype: 'zarafa.rulesgrid',
+			cls: 'k-rulesgrid',
+			border: false,
+			enableHdMenu: false,
+			viewConfig: {
+				forceFit: true,
+				emptyText: '<div class=\'emptytext\'>' + _('No rule exists') + '</div>'
 			},
-			loadMask : this.initLoadMask(),
-			sm : new Ext.grid.RowSelectionModel({
-				singleSelect : true
+			loadMask: this.initLoadMask(),
+			sm: new Ext.grid.RowSelectionModel({
+				singleSelect: true
 			}),
-			columns : this.initColumnModel(),
-			listeners : {
-				rowdblclick : this.onRowDblClick,
-				scope : this
+			columns: this.initColumnModel(),
+			listeners: {
+				rowdblclick: this.onRowDblClick,
+				scope: this
 			},
-			tbar : this.initToolbar()
+			tbar: this.initToolbar()
 		});
 
 		Zarafa.common.rules.ui.RulesGrid.superclass.constructor.call(this, config);
@@ -45,7 +45,7 @@ Zarafa.common.rules.ui.RulesGrid = Ext.extend(Zarafa.common.ui.grid.GridPanel, {
 	 * initialize events for the grid panel.
 	 * @private
 	 */
-	initEvents : function()
+	initEvents: function()
 	{
 		Zarafa.common.rules.ui.RulesGrid.superclass.initEvents.call(this);
 
@@ -58,42 +58,42 @@ Zarafa.common.rules.ui.RulesGrid = Ext.extend(Zarafa.common.ui.grid.GridPanel, {
 	 * @return {Ext.Toolbar} toolbar config object
 	 * @private
 	 */
-	initToolbar : function()
+	initToolbar: function()
 	{
 		return [{
-			xtype : 'button',
-			text : _('New'),
-			handler : this.onRuleAdd,
-			ref : '../addButton',
-			scope : this
+			xtype: 'button',
+			text: _('New'),
+			handler: this.onRuleAdd,
+			ref: '../addButton',
+			scope: this
 		}, {
-			xtype : 'button',
-			text : _('Delete'),
-			disabled : true,
-			ref : '../removeButton',
-			handler : this.onRuleRemove,
-			scope : this
+			xtype: 'button',
+			text: _('Delete'),
+			disabled: true,
+			ref: '../removeButton',
+			handler: this.onRuleRemove,
+			scope: this
 		}, {
-			xtype : 'button',
-			text : _('Edit'),
-			disabled : true,
-			ref : '../editButton',
-			handler : this.onRuleEdit,
-			scope : this
+			xtype: 'button',
+			text: _('Edit'),
+			disabled: true,
+			ref: '../editButton',
+			handler: this.onRuleEdit,
+			scope: this
 		}, {
-			xtype : 'button',
-			iconCls : 'zarafa-rules-sequence-up',
-			disabled : true,
-			ref : '../upButton',
-			handler : this.onRuleSequenceUp,
-			scope : this
+			xtype: 'button',
+			iconCls: 'zarafa-rules-sequence-up',
+			disabled: true,
+			ref: '../upButton',
+			handler: this.onRuleSequenceUp,
+			scope: this
 		}, {
-			xtype : 'button',
-			iconCls : 'zarafa-rules-sequence-down',
-			disabled : true,
-			ref : '../downButton',
-			handler : this.onRuleSequenceDown,
-			scope : this
+			xtype: 'button',
+			iconCls: 'zarafa-rules-sequence-down',
+			disabled: true,
+			ref: '../downButton',
+			handler: this.onRuleSequenceDown,
+			scope: this
 		},
 			container.populateInsertionPoint('settings.rules.action.last')
 		];
@@ -104,34 +104,34 @@ Zarafa.common.rules.ui.RulesGrid = Ext.extend(Zarafa.common.ui.grid.GridPanel, {
 	 * @return {Ext.grid.ColumnModel} column model object
 	 * @private
 	 */
-	initColumnModel : function()
+	initColumnModel: function()
 	{
 		return [{
-			xtype : 'checkcolumn',
-			dataIndex : 'rule_state',
-			header : _('Active'),
-			fixed : true,
-			width : 60,
+			xtype: 'checkcolumn',
+			dataIndex: 'rule_state',
+			header: _('Active'),
+			fixed: true,
+			width: 60,
 			headerCls: 'k-unsortable',
-			sortable : false,
+			sortable: false,
 			// override renderer to show active state of rule
-			renderer : this.ruleStateRenderer.createDelegate(this),
+			renderer: this.ruleStateRenderer.createDelegate(this),
 			// override processEvent so we can save the change in the record
-			processEvent : this.onRuleStateColumnProcessEvent.createDelegate(this)
+			processEvent: this.onRuleStateColumnProcessEvent.createDelegate(this)
 		}, {
-			dataIndex : 'rule_state',
-			header : _('Out of office'),
+			dataIndex: 'rule_state',
+			header: _('Out of office'),
 			headerCls: 'k-unsortable',
-			sortable : false,
-			fixed : true,
-			width : 100,
-			renderer : this.ruleOutOfOfficeStateRenderer
+			sortable: false,
+			fixed: true,
+			width: 100,
+			renderer: this.ruleOutOfOfficeStateRenderer
 		},{
-			dataIndex : 'rule_name',
-			header : _('Rule'),
+			dataIndex: 'rule_name',
+			header: _('Rule'),
 			headerCls: 'k-unsortable',
-			sortable : false,
-			renderer : Zarafa.common.ui.grid.Renderers.text
+			sortable: false,
+			renderer: Zarafa.common.ui.grid.Renderers.text
 		}];
 	},
 
@@ -144,7 +144,7 @@ Zarafa.common.rules.ui.RulesGrid = Ext.extend(Zarafa.common.ui.grid.GridPanel, {
 	 * @param {Object} p An object with metadata
 	 * @param {Ext.data.record} record The {Ext.data.Record} from which the data was extracted.
 	 */
-	ruleOutOfOfficeStateRenderer : function(value, p, record)
+	ruleOutOfOfficeStateRenderer: function(value, p, record)
 	{
 		var stateOnlyWhenOOF = value & Zarafa.core.mapi.RuleStates.ST_ONLY_WHEN_OOF;
 
@@ -163,7 +163,7 @@ Zarafa.common.rules.ui.RulesGrid = Ext.extend(Zarafa.common.ui.grid.GridPanel, {
 	 * @param {Object} p An object with metadata
 	 * @param {Ext.data.record} record The {Ext.data.Record} from which the data was extracted.
 	 */
-	ruleStateRenderer : function(value, p, record)
+	ruleStateRenderer: function(value, p, record)
 	{
 		value = ((value & Zarafa.core.mapi.RuleStates.ST_ENABLED) === Zarafa.core.mapi.RuleStates.ST_ENABLED);
 
@@ -180,7 +180,7 @@ Zarafa.common.rules.ui.RulesGrid = Ext.extend(Zarafa.common.ui.grid.GridPanel, {
 	 * @param {Number} colIndex index of the column which is toggled
 	 * @private
 	 */
-	onRuleStateColumnProcessEvent : function(name, e, grid, rowIndex, colIndex)
+	onRuleStateColumnProcessEvent: function(name, e, grid, rowIndex, colIndex)
 	{
 		if(name === 'mousedown') {
 			var record = grid.getStore().getAt(rowIndex);
@@ -199,10 +199,10 @@ Zarafa.common.rules.ui.RulesGrid = Ext.extend(Zarafa.common.ui.grid.GridPanel, {
 	 * @return {Ext.LoadMask} The configuration object for {@link Ext.LoadMask}
 	 * @private
 	 */
-	initLoadMask : function()
+	initLoadMask: function()
 	{
 		return {
-			msg : _('Loading rules') + '...'
+			msg: _('Loading rules') + '...'
 		};
 	},
 
@@ -211,7 +211,7 @@ Zarafa.common.rules.ui.RulesGrid = Ext.extend(Zarafa.common.ui.grid.GridPanel, {
 	 * This will {@link Ext.grid.RowSelectionModel#selectFirstRow select the first row} in the grid.
 	 * @private
 	 */
-	onViewReady : function()
+	onViewReady: function()
 	{
 		Zarafa.common.rules.ui.RulesGrid.superclass.onViewReady.apply(this, arguments);
 		this.getSelectionModel().selectFirstRow();
@@ -227,7 +227,7 @@ Zarafa.common.rules.ui.RulesGrid = Ext.extend(Zarafa.common.ui.grid.GridPanel, {
 	 * @param {Object} options The loading options that were specified (see {@link Ext.data.Store#load load} for details)
 	 * @private
 	 */
-	onStoreLoad : function(store, records, options)
+	onStoreLoad: function(store, records, options)
 	{
 		Zarafa.common.rules.ui.RulesGrid.superclass.onStoreLoad.apply(this, arguments);
 		if (!this.getSelectionModel().hasSelection()) {
@@ -239,7 +239,7 @@ Zarafa.common.rules.ui.RulesGrid = Ext.extend(Zarafa.common.ui.grid.GridPanel, {
 	 * Event handler which is fired when the {@link Zarafa.common.rules.ui.RulesGrid RulesGrid} is double clicked.
 	 * @private
 	 */
-	onRowDblClick : function(grid, rowIndex)
+	onRowDblClick: function(grid, rowIndex)
 	{
 		// open rule edit dialog
 		Zarafa.common.Actions.openRulesEditContent(grid.getStore().getAt(rowIndex));
@@ -251,7 +251,7 @@ Zarafa.common.rules.ui.RulesGrid = Ext.extend(Zarafa.common.ui.grid.GridPanel, {
 	 * @param {Ext.grid.RowSelectionModel} selectionModel selection model that fired the event
 	 * @private
 	 */
-	onGridSelectionChange : function(selectionModel)
+	onGridSelectionChange: function(selectionModel)
 	{
 		var noSelection = (selectionModel.hasSelection() === false);
 
@@ -266,20 +266,20 @@ Zarafa.common.rules.ui.RulesGrid = Ext.extend(Zarafa.common.ui.grid.GridPanel, {
 	 * Handler function will be called when user clicks on 'Add' button
 	 * @private
 	 */
-	onRuleAdd : function()
+	onRuleAdd: function()
 	{
 		// open rule edit dialog
 		var ruleRecord = Zarafa.core.data.RecordFactory.createRecordObjectByCustomType(Zarafa.core.data.RecordCustomObjectType.ZARAFA_RULE);
 		this.getStore().add(ruleRecord);
 
-		Zarafa.common.Actions.openRulesEditContent(ruleRecord, { removeRecordOnCancel : true });
+		Zarafa.common.Actions.openRulesEditContent(ruleRecord, { removeRecordOnCancel: true });
 	},
 
 	/**
 	 * Handler function will be called when user clicks on 'Remove' button.
 	 * @private
 	 */
-	onRuleRemove : function()
+	onRuleRemove: function()
 	{
 		var store = this.getStore();
 		var sm = this.getSelectionModel();
@@ -298,7 +298,7 @@ Zarafa.common.rules.ui.RulesGrid = Ext.extend(Zarafa.common.ui.grid.GridPanel, {
 	 * Handler function will be called when user clicks on 'Edit' button.
 	 * @private
 	 */
-	onRuleEdit : function()
+	onRuleEdit: function()
 	{
 		var ruleRecord = this.getSelectionModel().getSelected();
 		if (!ruleRecord) {
@@ -315,7 +315,7 @@ Zarafa.common.rules.ui.RulesGrid = Ext.extend(Zarafa.common.ui.grid.GridPanel, {
 	 * This will determine which rules to swap and call {@link #swapRules}.
 	 * @private
 	 */
-	onRuleSequenceUp : function()
+	onRuleSequenceUp: function()
 	{
 		var store = this.getStore();
 		var sm = this.getSelectionModel();
@@ -334,7 +334,7 @@ Zarafa.common.rules.ui.RulesGrid = Ext.extend(Zarafa.common.ui.grid.GridPanel, {
 		// Start looking for the first sequence number which is lower then
 		// the current sequence number. Note that we want the rule_sequence
 		// which is closest to the current rule_sequence, hence the rule:
-		//    rule.get('rule_sequence') > record.get('rule_sequence') > swapRule.get('rule_sequence')
+		//  rule.get('rule_sequence') > record.get('rule_sequence') > swapRule.get('rule_sequence')
 		var swapRule;
 		store.each(function(record) {
 			if (rule.get('rule_sequence') > record.get('rule_sequence')) {
@@ -352,7 +352,7 @@ Zarafa.common.rules.ui.RulesGrid = Ext.extend(Zarafa.common.ui.grid.GridPanel, {
 	 * This will determine which rules to swap and call {@link #swapRules}.
 	 * @private
 	 */
-	onRuleSequenceDown : function()
+	onRuleSequenceDown: function()
 	{
 		var store = this.getStore();
 		var sm = this.getSelectionModel();
@@ -371,7 +371,7 @@ Zarafa.common.rules.ui.RulesGrid = Ext.extend(Zarafa.common.ui.grid.GridPanel, {
 		// Start looking for the first sequence number which is higher then
 		// the current sequence number. Note that we want the rule_sequence
 		// which is closest to the current rule_sequence, hence the rule:
-		//    rule.get('rule_sequence') < record.get('rule_sequence') < swapRule.get('rule_sequence')
+		//  rule.get('rule_sequence') < record.get('rule_sequence') < swapRule.get('rule_sequence')
 		var swapRule;
 		store.each(function(record) {
 			if (rule.get('rule_sequence') < record.get('rule_sequence')) {
@@ -392,7 +392,7 @@ Zarafa.common.rules.ui.RulesGrid = Ext.extend(Zarafa.common.ui.grid.GridPanel, {
 	 * @param {Zarafa.common.rules.data.RulesRecord} b The second rule
 	 * @private
 	 */
-	swapRules : function(a, b)
+	swapRules: function(a, b)
 	{
 		var aSeq = a.get('rule_sequence');
 		var bSeq = b.get('rule_sequence');

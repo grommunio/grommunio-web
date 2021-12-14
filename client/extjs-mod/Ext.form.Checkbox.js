@@ -39,7 +39,7 @@
 	var orig_onRender = Ext.form.Checkbox.prototype.onRender;
 	Ext.override(Ext.form.Checkbox, {
 
-		onRender : function(ct, position)
+		onRender: function(ct, position)
 		{
 			orig_onRender.apply(this, arguments);
 
@@ -47,7 +47,7 @@
 			this.wrap.addClass('x-form-item');
 
 			// Make the text in the label unselectable
-			if(this.boxLabel && this.el){
+			if(this.boxLabel && this.el) {
 				var lbl = Ext.query('.x-form-cb-label', this.el.parent().dom)[0];
 				if (lbl) {
 					Ext.get(lbl).unselectable();

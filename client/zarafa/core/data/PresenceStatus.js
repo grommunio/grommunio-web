@@ -5,7 +5,7 @@ Ext.namespace('Zarafa.core.data');
  * @extends Zarafa.core.Enum
  * @singleton
  *
- * The various presence statuses that a user can have. 
+ * The various presence statuses that a user can have.
  * {@link Zarafa.core.PresencePlugin PresencePlugins} should return
  * these statuses when requested through the
  * {@link Zarafa.core.PresencePlugin#getPresence getPresence} function.
@@ -16,28 +16,28 @@ Zarafa.core.data.PresenceStatus = Zarafa.core.Enum.create({
 	 * @property
 	 * @type Number
 	 */
-	UNKNOWN : 0,
+	UNKNOWN: 0,
 
 	/**
 	 * Denotes that the user is currently active.
 	 * @property
 	 * @type Number
 	 */
-	OFFLINE : 1,
+	OFFLINE: 1,
 
 	/**
 	 * Denotes that the user has not been active for some time
 	 * @property
 	 * @type Number
 	 */
-	ONLINE : 2,
-	
+	ONLINE: 2,
+
 	/**
 	 * Returns a css class name for the given presence status
 	 * @param {Zarafa.core.data.PresenceStatus} presenceStatus The presence status for
 	 * which a css class name is requested.
 	 */
-	getCssClass : function(presenceStatus)
+	getCssClass: function(presenceStatus)
 	{
 		var name = this.getName(presenceStatus);
 		name = name ? name.toLowerCase() : 'unknown';

@@ -12,18 +12,18 @@ Zarafa.note.dialogs.NoteEditContentPanel = Ext.extend(Zarafa.core.ui.RecordConte
 	 * @constructor
 	 * @param {Object} config Configuration structure
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		config = config || {};
 
 		Ext.applyIf(config, {
 			xtype	: 'zarafa.noteeditcontentpanel',
 			layout	: 'fit',
-			title : _('Note'),
-			recordComponentPluginConfig : Ext.applyIf(config.recordComponentPluginConfig || {}, {
-				allowWrite : true
+			title: _('Note'),
+			recordComponentPluginConfig: Ext.applyIf(config.recordComponentPluginConfig || {}, {
+				allowWrite: true
 			}),
-			confirmClose : true,
+			confirmClose: true,
 			items: [ this.createPanel() ]
 		});
 
@@ -36,14 +36,14 @@ Zarafa.note.dialogs.NoteEditContentPanel = Ext.extend(Zarafa.core.ui.RecordConte
 	 * @return {Object} The configuration object for the main panel.
 	 * @private
 	 */
-	createPanel : function()
+	createPanel: function()
 	{
 		//Add toolbar and text area in window panel
 		return {
 			iconCls		: 'icon_folder_note',
 			border		: false,
 			tbar		: {
-				xtype : 'zarafa.noteedittoolbar'
+				xtype: 'zarafa.noteedittoolbar'
 			},
 			xtype		: 'zarafa.noteeditpanel',
 			layout		: 'fit'
@@ -56,7 +56,7 @@ Zarafa.note.dialogs.NoteEditContentPanel = Ext.extend(Zarafa.core.ui.RecordConte
 	 * @param {Zarafa.core.data.MAPIRecord} record The record to update in this component
 	 * @param {Boolean} contentReset force the component to perform a full update of the data.
 	 */
-	update : function(record, contentReset)
+	update: function(record, contentReset)
 	{
 		if(contentReset === true) {
 			this.inputAutoFocusPlugin.setAutoFocus('zarafa.editorfield');
@@ -68,24 +68,24 @@ Zarafa.note.dialogs.NoteEditContentPanel = Ext.extend(Zarafa.core.ui.RecordConte
 	/**
 	 * Update this panel's icon class from the record that it contains
 	 * First obtains the icon class from a mapping, then calls {@link #setIcon}
-	 * 
+	 *
 	 * @param {Zarafa.core.data.MAPIRecord} record The record bound to this component
 	 * @private
 	 */
-	updateIconFromRecord : function(record)
+	updateIconFromRecord: function(record)
 	{
 		//TODO: create a new icon mapping for tabs
 		var iconCls = Zarafa.common.ui.IconClass.getIconClass(record);
 		this.setIcon(iconCls);
 	},
-	
+
 	/**
-	 * When record has been updated, title also has to be - for instance if we have the subject 
+	 * When record has been updated, title also has to be - for instance if we have the subject
 	 * in the title and the subject changes
 	 * Calls {@link #setTitle} this.setTitle in order to update
 	 * @param {Zarafa.core.data.MAPIRecord} record The record that has been updated
 	 */
-	updateTitleFromRecord : function(record)
+	updateTitleFromRecord: function(record)
 	{
 		var subject = record.get('subject');
 		if(!Ext.isEmpty(subject)){

@@ -5,7 +5,7 @@ Ext.namespace('Zarafa.core.data');
  * @extends Zarafa.core.data.ProxyResponseHandler
  *
  * A special response handler to handle responses of requests that are already cancelled.
- * as a special requirement for cancelling requests we need to ignore the response coming for that 
+ * as a special requirement for cancelling requests we need to ignore the response coming for that
  * request and process notifications properly for that request (like new mail notifications).
  */
 Zarafa.core.data.DummyResponseHandler = Ext.extend(Zarafa.core.data.ProxyResponseHandler, {
@@ -20,7 +20,7 @@ Zarafa.core.data.DummyResponseHandler = Ext.extend(Zarafa.core.data.ProxyRespons
 	 * and the transaction must be canceled.
 	 * @override
 	 */
-	start : function(moduleName, moduleId, data, timestamp)
+	start: function(moduleName, moduleId, data, timestamp)
 	{
 		// Inform the proxy the response for a given request has been returned.
 		if (this.proxy && Ext.isFunction(this.proxy.deleteRequestId)) {

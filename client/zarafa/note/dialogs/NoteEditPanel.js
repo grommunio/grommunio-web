@@ -14,7 +14,7 @@ Zarafa.note.dialogs.NoteEditPanel = Ext.extend(Ext.FormPanel, {
 	 * @property
 	 * @type String
 	 */
-	currentColorCss : undefined,
+	currentColorCss: undefined,
 	/**
 	 * @constructor
 	 * @param {Object} config Configuration structure
@@ -30,14 +30,14 @@ Zarafa.note.dialogs.NoteEditPanel = Ext.extend(Ext.FormPanel, {
 			xtype	: 'zarafa.noteeditpanel',
 			layout	: 'fit',
 			border	: false,
-			items   : [{
-				xtype : 'zarafa.editorfield',
-				useHtml : false,
-				ref : 'noteText',
-				plaintextName : 'body',
-				listeners : {
-					change : this.onTextareaChange,
-					scope : this
+			items : [{
+				xtype: 'zarafa.editorfield',
+				useHtml: false,
+				ref: 'noteText',
+				plaintextName: 'body',
+				listeners: {
+					change: this.onTextareaChange,
+					scope: this
 				}
 			}]
 		});
@@ -46,11 +46,11 @@ Zarafa.note.dialogs.NoteEditPanel = Ext.extend(Ext.FormPanel, {
 	},
 
 	/**
-	 * handler for change event of text area in note dialog 
-	 * @param {Object} textarea object 
+	 * handler for change event of text area in note dialog
+	 * @param {Object} textarea object
 	 * @private
 	 */
-	onTextareaChange :function(textarea)
+	onTextareaChange:function(textarea)
 	{
 		var body = textarea.getValue();
 		this.record.beginEdit();
@@ -66,10 +66,10 @@ Zarafa.note.dialogs.NoteEditPanel = Ext.extend(Ext.FormPanel, {
 	 * @return css class name
 	 * @private
 	 */
-	getTextAreaColor : function(iconIndex)
+	getTextAreaColor: function(iconIndex)
 	{
 		var textAreaCSSClass = "";
-		
+
 		switch(parseInt(iconIndex, 10))
 		{
 			case Zarafa.core.mapi.IconIndex['note_blue']:
@@ -101,7 +101,7 @@ Zarafa.note.dialogs.NoteEditPanel = Ext.extend(Ext.FormPanel, {
 	 * @param {Boolean} contentReset force the component to perform a full update of the data.
 	 * @private
 	 */
-	update : function(record, contentReset)
+	update: function(record, contentReset)
 	{
 		var textArea = this.noteText.getEditor();
 
@@ -128,7 +128,7 @@ Zarafa.note.dialogs.NoteEditPanel = Ext.extend(Ext.FormPanel, {
 	 * @param {Zarafa.core.data.IPMRecord} the record to update
 	 * @private
 	 */
-	updateRecord : function(record)
+	updateRecord: function(record)
 	{
 		var body = this.noteText.getValue();
 		this.record.beginEdit();

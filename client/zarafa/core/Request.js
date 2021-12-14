@@ -3,7 +3,7 @@ Ext.namespace('Zarafa.core');
 /**
  * @class Zarafa.core.Request
  * @extends Ext.util.Observable
- * 
+ *
  * Request object for asynchronous communication with the server. The request object
  * automatically serialises single or multiple action requests into corresponding
  * JSON and provides a callback system to allow asynchronous handling of the
@@ -20,10 +20,10 @@ Ext.namespace('Zarafa.core');
  * <p>
  * The structure of data that will be used for communication will be like
  * <pre><code>
- * zarafa : {
- *	module_name : {
- *		module_id : {
- *			action_type : {
+ * zarafa: {
+ *	module_name: {
+ *		module_id: {
+ *			action_type: {
  *				// data
  *			}
  *		}
@@ -33,7 +33,7 @@ Ext.namespace('Zarafa.core');
  */
 Zarafa.core.Request = Ext.extend(Ext.util.Observable, (function() {
 	/**
-	 * True if the conection has been {@link #paralyze}. This will
+	 * True if the connection has been {@link #paralyze}. This will
 	 * prevent any requests from being send to the server, or any responses
 	 * from being processed.
 	 * @property
@@ -135,14 +135,14 @@ Zarafa.core.Request = Ext.extend(Ext.util.Observable, (function() {
 		 * @cfg {String} defaultUrl
 		 * The url used to send the requests to. defaults to grommunio.php.
 		 */
-		defaultUrl : 'grommunio.php',
+		defaultUrl: 'grommunio.php',
 
 		/**
 		 * @cfg {Object} defaultHeaders
 		 * The default headers to be applied to the request. defaults to
 		 *	'Content-Type' => 'application/json; charset=utf-8;'
 		 */
-		defaultHeaders : undefined,
+		defaultHeaders: undefined,
 
 		/**
 		 * @cfg {String} subSystemPrefix string that will be used to generate session filename which
@@ -150,13 +150,13 @@ Zarafa.core.Request = Ext.extend(Ext.util.Observable, (function() {
 		 * so different tabs opened in same browser will have different session data. So every request object
 		 * corresponds to one unique subSystem string id (accuracy upto miliseconds).
 		 */
-		subSystemPrefix : 'webapp',
+		subSystemPrefix: 'webapp',
 
 		/**
 		 * @cfg {Object} requestHeaders
 		 * Headers that should be sent with every request.
 		 */
-		requestHeaders : undefined,
+		requestHeaders: undefined,
 
 		/**
 		 * @constructor
@@ -169,10 +169,10 @@ Zarafa.core.Request = Ext.extend(Ext.util.Observable, (function() {
 			Ext.apply(config, {
 				// Apply here instead of class prototype, to prevent
 				// accidental sharing of object between all instances.
-				defaultHeaders : {
-					'Content-Type' : 'application/json; charset=utf-8;'
+				defaultHeaders: {
+					'Content-Type': 'application/json; charset=utf-8;'
 				},
-				requestHeaders : {}
+				requestHeaders: {}
 			});
 
 			Ext.apply(this, config);
@@ -182,7 +182,7 @@ Zarafa.core.Request = Ext.extend(Ext.util.Observable, (function() {
 				 * @event connectionparalyzed
 				 * Fired when the window is about to be unloaded. At this moment
 				 * WebApp will shutdown and start dropping all communication with the PHP
-				 * @param {Zarafa.core.Request} request 
+				 * @param {Zarafa.core.Request} request
 				 * @param {Zarafa.core.data.ParalyzeReason} reason The reason to paralyze the WebApp
 				 */
 				'connectionparalyzed',
@@ -191,7 +191,7 @@ Zarafa.core.Request = Ext.extend(Ext.util.Observable, (function() {
 				 * Fired when the connection to the server has been lost, but is likely
 				 * to be restored soon. WebApp will start pausing all communication with
 				 * the PHP until the connection has been restored.
-				 * @param {Zarafa.core.Request} request 
+				 * @param {Zarafa.core.Request} request
 				 * @param {Zarafa.core.PingService} service The ping service which will
 				 * be used to ping for the connection restoration.
 				 */
@@ -201,21 +201,21 @@ Zarafa.core.Request = Ext.extend(Ext.util.Observable, (function() {
 				 * Fired when the connection to the server has been restored. This will
 				 * resend any requests to the PHP which were scheduled while the connection
 				 * was lost.
-				 * @param {Zarafa.core.Request} request 
+				 * @param {Zarafa.core.Request} request
 				 */
 				'connectionrestored',
 				/**
 				 * @event beforesend
 				 * Fires before the XmlHttpRequest sends a request to the server.
 				 * Return false to not send request to server.
-				 * @param {Zarafa.core.Request} request 
+				 * @param {Zarafa.core.Request} request
 				 * @param {window.XMLHttpRequest} xmlHttpRequest XmlHttpRequest object
 				 */
 				'beforesend',
 				/**
 				 * @event aftersend
 				 * Fires after the XmlHttpRequest sent a request to the server.
-				 * @param {Zarafa.core.Request} request 
+				 * @param {Zarafa.core.Request} request
 				 * @param {window.XMLHttpRequest} xmlHttpRequest XmlHttpRequest object
 				 */
 				'aftersend'
@@ -231,7 +231,7 @@ Zarafa.core.Request = Ext.extend(Ext.util.Observable, (function() {
 		 * Initialize all private variables of the Request object
 		 * @private
 		 */
-		initialize : function()
+		initialize: function()
 		{
 			paralyzed = false;
 			interrupted = false;
@@ -250,7 +250,7 @@ Zarafa.core.Request = Ext.extend(Ext.util.Observable, (function() {
 		 * being send out to the server. This will fire the {@link #connectionparalyzed} event.
 		 * @param {Zarafa.core.data.ParalyzeReason} reason The reason to paralyze the WebApp
 		 */
-		paralyze : function(reason)
+		paralyze: function(reason)
 		{
 			if (this.isParalyzed()) {
 				return;
@@ -263,7 +263,7 @@ Zarafa.core.Request = Ext.extend(Ext.util.Observable, (function() {
 		/**
 		 * @return {Boolean} True if the connection is {@link #paralyzed}.
 		 */
-		isParalyzed : function()
+		isParalyzed: function()
 		{
 			return paralyzed;
 		},
@@ -273,7 +273,7 @@ Zarafa.core.Request = Ext.extend(Ext.util.Observable, (function() {
 		 * to the server. These will be send when the connection is {@link #restore restored}.
 		 * @private
 		 */
-		interrupt : function()
+		interrupt: function()
 		{
 			if (this.isInterrupted() || this.isParalyzed()) {
 				return;
@@ -284,8 +284,8 @@ Zarafa.core.Request = Ext.extend(Ext.util.Observable, (function() {
 			// Instantiate the PingService for polling the
 			// server for the recovery of the connection.
 			var service = new Zarafa.core.PingService({
-				url : this.defaultUrl,
-				headers : this.defaultHeaders
+				url: this.defaultUrl,
+				headers: this.defaultHeaders
 			});
 
 			// Add event handler which will restore interaction with
@@ -298,7 +298,7 @@ Zarafa.core.Request = Ext.extend(Ext.util.Observable, (function() {
 			// so we force the 'stop' event from the service to be fired after
 			// all 'restored' event handlers from the service have been handled.
 			this.on('connectionparalyzed', service.stop, service);
-			this.on('connectionrestored', service.stop, service, { delay : 1 });
+			this.on('connectionrestored', service.stop, service, { delay: 1 });
 
 			// Fire the event, allow interested parties to register
 			// for events on the service before we start it.
@@ -315,7 +315,7 @@ Zarafa.core.Request = Ext.extend(Ext.util.Observable, (function() {
 		 * @param {Object} response The response as send by the server
 		 * @private
 		 */
-		restore : function(service, response)
+		restore: function(service, response)
 		{
 			if (!this.isInterrupted()) {
 				return;
@@ -345,7 +345,7 @@ Zarafa.core.Request = Ext.extend(Ext.util.Observable, (function() {
 		/**
 		 * @return {Boolean} True if the connection is {@link #interrupted}.
 		 */
-		isInterrupted : function()
+		isInterrupted: function()
 		{
 			return interrupted;
 		},
@@ -366,14 +366,14 @@ Zarafa.core.Request = Ext.extend(Ext.util.Observable, (function() {
 		 * @param {String} prefix (optional) The prefix for the unique request id.
 		 * @return {String} request ID
 		 */
-		getRequestId : function(prefix)
+		getRequestId: function(prefix)
 		{
 			return (prefix || 'z-gen') + (++requestIdBase);
 		},
 
 		/**
 		 * Function will be used to cancel a previously generated request which is waiting for the server request.
-		 * When doing multiple requests we need to make sure that previous requests are cancelled otherwise data 
+		 * When doing multiple requests we need to make sure that previous requests are cancelled otherwise data
 		 * can be overwritten by previous requests. Special requirement was that we can't do {@link window.XMLHttpRequest#abort}
 		 * as it will abort the whole request and discard data that was added to response by server side, which is not
 		 * good when server has added any notification data to response (like new mail), so we will need to overwrite
@@ -381,7 +381,7 @@ Zarafa.core.Request = Ext.extend(Ext.util.Observable, (function() {
 		 * have empty functions for discarding response came from server and notifications will be handled normally.
 		 * @param {String} requestId The request id.
 		 */
-		cancelActiveRequest : function(requestId)
+		cancelActiveRequest: function(requestId)
 		{
 			var responseRouter = container.getResponseRouter();
 
@@ -458,7 +458,7 @@ Zarafa.core.Request = Ext.extend(Ext.util.Observable, (function() {
 		 * @param {String} The request to be queued
 		 * @private
 		 */
-		queueRequest : function(request)
+		queueRequest: function(request)
 		{
 			queuedRequests.push(request);
 		},
@@ -470,7 +470,7 @@ Zarafa.core.Request = Ext.extend(Ext.util.Observable, (function() {
 		 * @return {Array} The array of previously queued requests
 		 * @private
 		 */
-		dequeueRequests : function()
+		dequeueRequests: function()
 		{
 			var requests = queuedRequests;
 			queuedRequests = [];
@@ -483,7 +483,7 @@ Zarafa.core.Request = Ext.extend(Ext.util.Observable, (function() {
 		 * @param {Array} requests The list of requests to activate.
 		 * @private
 		 */
-		activateRequests : function(requests, xmlHttpRequest)
+		activateRequests: function(requests, xmlHttpRequest)
 		{
 			for (var i = 0; i < requests.length; i++) {
 				activeRequests[requests[i]] = xmlHttpRequest;
@@ -495,7 +495,7 @@ Zarafa.core.Request = Ext.extend(Ext.util.Observable, (function() {
 		 * @param {Array} requests The list of requests to complete
 		 * @private
 		 */
-		completeRequests : function(requests)
+		completeRequests: function(requests)
 		{
 			for (var i = 0, len = requests.length; i < len; i++) {
 				delete activeRequests[requests[i]];
@@ -510,10 +510,10 @@ Zarafa.core.Request = Ext.extend(Ext.util.Observable, (function() {
 		 * @param {Boolean} encoded True of the requestData is encoded, and must be decoded to be used.
 		 * @param {String} url (optional) url to post to. Defaults to {@link #defaultUrl}
 		 * @param {Object} headers (optional) headers to apply to the request. Defaults to {@link #defaultHeaders}
-		 * @return {XMLHttpRequest} The initialized XMLHttpRequest 
+		 * @return {XMLHttpRequest} The initialized XMLHttpRequest
 		 * @private
 		 */
-		prepareHttpRequest : function(requestData, encoded, url, headers)
+		prepareHttpRequest: function(requestData, encoded, url, headers)
 		{
 			var xmlHttpRequest = new XMLHttpRequest();
 
@@ -550,7 +550,7 @@ Zarafa.core.Request = Ext.extend(Ext.util.Observable, (function() {
 		 * @return {XMLHttpRequest} The cloned XMLhttpRequest object
 		 * @private
 		 */
-		cloneRequest : function(xmlHttpRequest)
+		cloneRequest: function(xmlHttpRequest)
 		{
 			var cloneRequest = new XMLHttpRequest();
 			cloneRequest.open('POST', xmlHttpRequest.requestUrl, true);
@@ -576,7 +576,7 @@ Zarafa.core.Request = Ext.extend(Ext.util.Observable, (function() {
 		 * @param {XMLHttpRequest} xmlHttpRequest The request object
 		 * @private
 		 */
-		sendHttpRequest : function(xmlHttpRequest)
+		sendHttpRequest: function(xmlHttpRequest)
 		{
 			var requestData = xmlHttpRequest.requestData;
 			var requests = xmlHttpRequest.queuedRequests;
@@ -610,7 +610,7 @@ Zarafa.core.Request = Ext.extend(Ext.util.Observable, (function() {
 		 * @param {XMLHttpRequest} xmlHttpRequest The request object
 		 * @private
 		 */
-		queueHttpRequest : function(xmlHttpRequest)
+		queueHttpRequest: function(xmlHttpRequest)
 		{
 			queuedInterruptedHttpRequests.push(xmlHttpRequest);
 		},
@@ -620,7 +620,7 @@ Zarafa.core.Request = Ext.extend(Ext.util.Observable, (function() {
 		 * @return {Boolean} True if there are queued HTTP requests
 		 * @private
 		 */
-		hasQueuedHttpRequests : function()
+		hasQueuedHttpRequests: function()
 		{
 			return !Ext.isEmpty(queuedInterruptedHttpRequests);
 		},
@@ -629,7 +629,7 @@ Zarafa.core.Request = Ext.extend(Ext.util.Observable, (function() {
 		 * Dequeue a {@link #queuedInterruptedHttpRequests HTTP request} and {@link #sendHttpRequest send it} to the server
 		 * @private
 		 */
-		dequeueHttpRequest : function()
+		dequeueHttpRequest: function()
 		{
 			var xmlHttpRequest = queuedInterruptedHttpRequests.shift();
 			if (xmlHttpRequest) {
@@ -643,7 +643,7 @@ Zarafa.core.Request = Ext.extend(Ext.util.Observable, (function() {
 		 * @param {Object} xmlHttpRequest The raw HTTP request object that is used for communication.
 		 * @private
 		 */
-		stateChange : function(xmlHttpRequest)
+		stateChange: function(xmlHttpRequest)
 		{
 			var requestIds = xmlHttpRequest.queuedRequests;
 			var responseRouter = container.getResponseRouter();
@@ -656,11 +656,11 @@ Zarafa.core.Request = Ext.extend(Ext.util.Observable, (function() {
 			}
 
 			// The readyState can be 4 values:
-			//  0 - Object is created, but not initialized
-			//  1 - Request has been opened, but send() has not been called yet
-			//  2 - send() has been called, no data available yet
-			//  3 - Some data has been received, responseText nor responseBody are available
-			//  4 - All data has been received
+			// 0 - Object is created, but not initialized
+			// 1 - Request has been opened, but send() has not been called yet
+			// 2 - send() has been called, no data available yet
+			// 3 - Some data has been received, responseText nor responseBody are available
+			// 4 - All data has been received
 			//
 			// readyState 0 - 3 can be completely ignored by us, as they are only updates
 			// about the current progress. Only on readyState 4, should we continue and
@@ -748,7 +748,7 @@ Zarafa.core.Request = Ext.extend(Ext.util.Observable, (function() {
 		 * @param {XMLHttpRequest} xmlHttpRequest The xmlHttpRequest which contains the problem
 		 * @private
 		 */
-		receiveFailure : function(xmlHttpRequest)
+		receiveFailure: function(xmlHttpRequest)
 		{
 			var responseRouter = container.getResponseRouter();
 			var requestData = xmlHttpRequest.requestData;
@@ -757,17 +757,17 @@ Zarafa.core.Request = Ext.extend(Ext.util.Observable, (function() {
 			}
 			responseRouter.receiveFailure(requestData, xmlHttpRequest);
 		},
-	
+
 		/**
 		 * Resets the {@link Zarafa.core.Request Request} object and prepares it for
 		 * accepting new calls to {@link #addRequest} or {@link #singleRequest}.
 		 */
-		reset : function()
+		reset: function()
 		{
 			queuedRequests = [];
 
 			zarafaTag = {
-				'zarafa' : {}
+				'zarafa': {}
 			};
 			hasJson = false;
 			hasData = false;
@@ -779,12 +779,12 @@ Zarafa.core.Request = Ext.extend(Ext.util.Observable, (function() {
 		 * The callbacks are used when the responds for this specific request has returned.
 		 * @param {String} moduleName name of the module to communicate with (i.e. 'addressbooklistmodule')
 		 * @param {String} actionType action to perform (i.e. 'list' or 'globaladdressbook')
-		 * @param {Object} actionData data that will included in the action tag (i.e. { restriction : { name : 'piet' } })
+		 * @param {Object} actionData data that will included in the action tag (i.e. { restriction: { name: 'piet' } })
 		 * @param {Zarafa.core.data.AbstractResponseHandler} responseHandler The response handler which must be
 		 * used for handling the responds for this specific request.
 		 * @return {String} The unique Request ID which was assigned to this request.
 		 */
-		addRequest : function(moduleName, actionType, actionData, responseHandler)
+		addRequest: function(moduleName, actionType, actionData, responseHandler)
 		{
 			if (Ext.isEmpty(zarafaTag)) {
 				throw 'Request object not initialised. Call reset() first';
@@ -832,7 +832,7 @@ Zarafa.core.Request = Ext.extend(Ext.util.Observable, (function() {
 		 * used for handling the responds for this specific request.
 		 * @return {String} The unique Request ID which was assigned to this request.
 		 */
-		addDataRequest : function(moduleName, actionType, actionData, responseHandler)
+		addDataRequest: function(moduleName, actionType, actionData, responseHandler)
 		{
 			if (Ext.isEmpty(zarafaTag)) {
 				throw 'Request object not initialised. Call reset() first';
@@ -866,7 +866,7 @@ Zarafa.core.Request = Ext.extend(Ext.util.Observable, (function() {
 		 * @param {String} url (optional) url to post to. Defaults to {@link #defaultUrl}
 		 * @param {Object} headers (optional) headers to apply to the request. Defaults to {@link #defaultHeaders}
 		 */
-		send : function(url, headers)
+		send: function(url, headers)
 		{
 			if (Ext.isEmpty(zarafaTag)) {
 				throw 'Request object not initialised. Call reset() first';
@@ -897,12 +897,12 @@ Zarafa.core.Request = Ext.extend(Ext.util.Observable, (function() {
 		 * It calls {@link #reset reset()}, {@link #addRequest addRequest()}, and {@link #send send()} in turn.
 		 * @param {String} moduleName name of the module to communicate with (i.e. 'addressbooklistmodule')
 		 * @param {String} actionType action to perform (i.e. 'list' or 'globaladdressbook')
-		 * @param {Object} actionData data that will included in the action tag (i.e. { restriction : { name : 'piet' } })
+		 * @param {Object} actionData data that will included in the action tag (i.e. { restriction: { name: 'piet' } })
 		 * @param {Zarafa.core.data.AbstractResponseHandler} responseHandler The response handler which must be
 		 * used for handling the responds for this specific request.
 		 * @return {String} The unique request ID which was assigned to this transaction object.
 		 */
-		singleRequest : function(moduleName, actionType, actionData, responseHandler)
+		singleRequest: function(moduleName, actionType, actionData, responseHandler)
 		{
 			var requestId;
 
@@ -918,7 +918,7 @@ Zarafa.core.Request = Ext.extend(Ext.util.Observable, (function() {
 		 * added to response by server.
 		 * @param {XMLHttpRequest} xhrObj Object of the request made previously.
 		 */
-		abortRequest : function(xhrObj)
+		abortRequest: function(xhrObj)
 		{
 			xhrObj.preventRetry = true;
 			xhrObj.abort();
@@ -929,7 +929,7 @@ Zarafa.core.Request = Ext.extend(Ext.util.Observable, (function() {
 		 * was used to send the request to server.
 		 * @param {String} requestId Unique identifier of the request made previously.
 		 */
-		getActiveRequest : function(requestId)
+		getActiveRequest: function(requestId)
 		{
 			return activeRequests[requestId];
 		}

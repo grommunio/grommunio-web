@@ -17,24 +17,24 @@ Zarafa.advancesearch.dialogs.SearchContentPanel = Ext.extend(Zarafa.core.ui.Cont
 	{
 		config = config || {};
 
-		var advanceSearchTabName =  'advancesearchtab-' + (++Ext.Component.AUTO_ID);
+		var advanceSearchTabName = 'advancesearchtab-' + (++Ext.Component.AUTO_ID);
 
 		Ext.applyIf(config, {
 			xtype: 'zarafa.searchcontentpanel',
 			layout: 'fit',
-			name : advanceSearchTabName,
+			name: advanceSearchTabName,
 			title: config.searchText,
 			iconCls: 'icon_magnifier',
 			border: false,
-			parentSearchField : config.parentSearchField,
-			parentSearchFolderCombo : config.parentSearchFolderCombo,
+			parentSearchField: config.parentSearchField,
+			parentSearchFolderCombo: config.parentSearchFolderCombo,
 			items: [{
 				xtype: 'zarafa.searchpanel',
-				ref : 'searchPanel',
-				searchTabId : advanceSearchTabName,
-				searchFolder : config.searchFolder,
-				searchText : config.searchText,
-				searchContentPanel : this
+				ref: 'searchPanel',
+				searchTabId: advanceSearchTabName,
+				searchFolder: config.searchFolder,
+				searchText: config.searchText,
+				searchContentPanel: this
 			}]
 		});
 
@@ -45,7 +45,7 @@ Zarafa.advancesearch.dialogs.SearchContentPanel = Ext.extend(Zarafa.core.ui.Cont
 	/**
 	 * Register initial events for the {@link Zarafa.advancesearch.dialogs.SearchContentPanel search content panel}.
 	 */
-	initEvents : function()
+	initEvents: function()
 	{
 		var contentPanel = container.getTabPanel();
 		this.mon(contentPanel, 'tabchange', this.onTabChange, this);
@@ -59,15 +59,25 @@ Zarafa.advancesearch.dialogs.SearchContentPanel = Ext.extend(Zarafa.core.ui.Cont
 	 * @param {Ext.TabPanel} tabPanel the tab panel which contains tabs.
 	 * @param {Ext.Panel} activeTab the activeTab from tab panel
 	 */
-	onTabChange : function(tabPanel, activeTab)
+	onTabChange: function(tabPanel, activeTab)
 	{
 		var mainToolbar = container.getMainToolbar();
 		var isSearchPanel = activeTab.isXType('zarafa.searchcontentpanel');
+		var contextName = container.getCurrentContext().getName();
 
 		// Toggle the search view button.
 		mainToolbar.get('zarafa-maintoolbar-view-advancesearch').setVisible(isSearchPanel);
 
-		var contextName = container.getCurrentContext().getName();
+		var currentContextPrintBtn = mainToolbar.get('zarafa-maintoolbar-print-'+ contextName);
+
+		// Disable Print button of other context and enable Print button of advance search,
+		// if current active tab is searchPanel.
+		// This condition is required for contexts which does not have "Print" button (i.e. Today context).
+		if (!Ext.isEmpty(currentContextPrintBtn)) {
+			currentContextPrintBtn.setVisible(!isSearchPanel);
+		}
+		mainToolbar.get('zarafa-maintoolbar-print-advancesearch').setVisible(isSearchPanel);
+
 		switch(contextName) {
 			case 'calendar':
 				// Toggle calendar context view buttons
@@ -77,7 +87,7 @@ Zarafa.advancesearch.dialogs.SearchContentPanel = Ext.extend(Zarafa.core.ui.Cont
 					viewButton.setVisible(!isSearchPanel);
 				}, this);
 			break;
-			default :
+			default:
 				// Toggle other context view button
 				var viewButton = mainToolbar.get('zarafa-maintoolbar-view-'+contextName);
 				if(Ext.isDefined(viewButton)){
@@ -108,7 +118,7 @@ Zarafa.advancesearch.dialogs.SearchContentPanel = Ext.extend(Zarafa.core.ui.Cont
 	 * Function which used to set the parent {@link Zarafa.common.searchfield.ui.SearchTextField SearchTextField}.
 	 * @param {Zarafa.common.searchfield.ui.SearchTextField} searchField the parent search field.
 	 */
-	setParentSearchField : function(searchField)
+	setParentSearchField: function(searchField)
 	{
 		this.parentSearchField = searchField;
 	},
@@ -117,7 +127,7 @@ Zarafa.advancesearch.dialogs.SearchContentPanel = Ext.extend(Zarafa.core.ui.Cont
 	 * Function is used to get the parent {@link Zarafa.common.searchfield.ui.SearchTextField SearchTextField}.
 	 * @return {Zarafa.common.searchfield.ui.SearchTextField} parent search field.
 	 */
-	getParentSearchField : function()
+	getParentSearchField: function()
 	{
 		return this.parentSearchField;
 	},
@@ -126,7 +136,7 @@ Zarafa.advancesearch.dialogs.SearchContentPanel = Ext.extend(Zarafa.core.ui.Cont
 	 * Function is used to get the parent {@link Zarafa.common.searchfield.ui.SearchFolderCombo SearchFolderCombo}.
 	 * @return {Zarafa.common.searchfield.ui.SearchFolderCombo} parent search folder combo.
 	 */
-	getParentSearchFolderCombo : function()
+	getParentSearchFolderCombo: function()
 	{
 		return this.parentSearchFolderCombo;
 	}

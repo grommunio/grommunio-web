@@ -20,7 +20,7 @@ Zarafa.common.dialogs.MessageBox = Ext.apply({}, {
 	 * @type Array
 	 * @private
 	 */
-	customButton : undefined,
+	customButton: undefined,
 
 	/**
 	 * Initialize the {@link Ext.MessageBox.dlg Dialog}.
@@ -35,7 +35,7 @@ Zarafa.common.dialogs.MessageBox = Ext.apply({}, {
 	 * MessageBox.
 	 * @private
 	 */
-	initDialog : function(items)
+	initDialog: function(items)
 	{
 		var dlg = this.getDialog();
 
@@ -68,39 +68,39 @@ Zarafa.common.dialogs.MessageBox = Ext.apply({}, {
 		}, this, {single: true});
 	},
 
-    /**
-     * Extension of {@link Ext.MessageBox.show} that adds the following configuration options:<ul>
-     * <li><b>checkbox</b> : Boolean<div class="sub-desc">When set to true a checkbox will be added to the bottom
-     * of the MessageBox.</div></li>
-     * <li><b>checkboxLabel</b> : String<div class="sub-desc">The label of the checkbox that will be added when
-     * the checkbox config option is set to true. (defaults to 'Do not show this message again')</div></li>
-     * <li><b>fn</b> : Function<div class="sub-desc">A callback function which is called when the dialog is dismissed either
-     * by clicking on the configured buttons, or on the dialog close button, or by pressing
-     * the return button to enter input.
-     * <p>Progress and wait dialogs will ignore this option since they do not respond to user
-     * actions and can only be closed programmatically, so any required function should be called
-     * by the same code after it closes the dialog. Parameters passed:<ul>
-     * <li><b>buttonId</b> : String<div class="sub-desc">The ID of the button pressed, one of:<div class="sub-desc"><ul>
-     * <li><tt>ok</tt></li>
-     * <li><tt>yes</tt></li>
-     * <li><tt>no</tt></li>
-     * <li><tt>cancel</tt></li>
-     * </ul></div></div></li>
-     * <li><b>text</b> : String<div class="sub-desc">Value of the input field if either <tt><a href="#show-option-prompt" ext:member="show-option-prompt" ext:cls="Ext.MessageBox">prompt</a></tt>
-     * or <tt><a href="#show-option-multiline" ext:member="show-option-multiline" ext:cls="Ext.MessageBox">multiline</a></tt> is true</div></li>
-     * <li><b>checked</b> : Boolean<div class="sub-desc">Value of the checkbox field. (Will only be passed when the
-     * checkbox option was set to true in the config object)</div></li>
-     * <li><b>opt</b> : Object<div class="sub-desc">The config object passed to show.</div></li>
-     * </ul></p></div></li>
-     * </ul>
-     *
-     * @param {Object} config The configuration options of the the MessageBox. See above and {@link Ext.MessageBox.show}
-     * for more information.
-     * @return {Zarafa.common.dialogs.MessageBox} this
-     */
-	show : function(config)
+  /**
+   * Extension of {@link Ext.MessageBox.show} that adds the following configuration options:<ul>
+   * <li><b>checkbox</b>: Boolean<div class="sub-desc">When set to true a checkbox will be added to the bottom
+   * of the MessageBox.</div></li>
+   * <li><b>checkboxLabel</b>: String<div class="sub-desc">The label of the checkbox that will be added when
+   * the checkbox config option is set to true. (defaults to 'Do not show this message again')</div></li>
+   * <li><b>fn</b>: Function<div class="sub-desc">A callback function which is called when the dialog is dismissed either
+   * by clicking on the configured buttons, or on the dialog close button, or by pressing
+   * the return button to enter input.
+   * <p>Progress and wait dialogs will ignore this option since they do not respond to user
+   * actions and can only be closed programmatically, so any required function should be called
+   * by the same code after it closes the dialog. Parameters passed:<ul>
+   * <li><b>buttonId</b>: String<div class="sub-desc">The ID of the button pressed, one of:<div class="sub-desc"><ul>
+   * <li><tt>ok</tt></li>
+   * <li><tt>yes</tt></li>
+   * <li><tt>no</tt></li>
+   * <li><tt>cancel</tt></li>
+   * </ul></div></div></li>
+   * <li><b>text</b>: String<div class="sub-desc">Value of the input field if either <tt><a href="#show-option-prompt" ext:member="show-option-prompt" ext:cls="Ext.MessageBox">prompt</a></tt>
+   * or <tt><a href="#show-option-multiline" ext:member="show-option-multiline" ext:cls="Ext.MessageBox">multiline</a></tt> is true</div></li>
+   * <li><b>checked</b>: Boolean<div class="sub-desc">Value of the checkbox field. (Will only be passed when the
+   * checkbox option was set to true in the config object)</div></li>
+   * <li><b>opt</b>: Object<div class="sub-desc">The config object passed to show.</div></li>
+   * </ul></p></div></li>
+   * </ul>
+   *
+   * @param {Object} config The configuration options of the the MessageBox. See above and {@link Ext.MessageBox.show}
+   * for more information.
+   * @return {Zarafa.common.dialogs.MessageBox} this
+   */
+	show: function(config)
 	{
-		config.title = config.title || _('grommunio web');
+		config.title = config.title || _('grommunio Web');
 
 		if ( config.checkbox !== true ){
 			return Ext.MessageBox.show.call(this, config);
@@ -154,7 +154,7 @@ Zarafa.common.dialogs.MessageBox = Ext.apply({}, {
 	 * @param {String} customButton (optional) buttons which need to show in message box. this buttons contains custom name's.
 	 * @return {Zarafa.common.dialogs.RadioMessageBox} this
 	 */
-	select : function(title, msg, fn, scope, selections, value, customButton)
+	select: function(title, msg, fn, scope, selections, value, customButton)
 	{
 		var radioGroup = Ext.create({
 			xtype: 'radiogroup',
@@ -163,9 +163,9 @@ Zarafa.common.dialogs.MessageBox = Ext.apply({}, {
 			columns: 1,
 			items: selections,
 			value: value,
-			listeners : {
-				change : this.onChange,
-				scope : this
+			listeners: {
+				change: this.onChange,
+				scope: this
 			}
 		});
 		this.initDialog([{
@@ -177,21 +177,21 @@ Zarafa.common.dialogs.MessageBox = Ext.apply({}, {
 		if(!Ext.isEmpty(customButton)) {
 			var config = {};
 			Ext.apply(config, {
-				title : title,
+				title: title,
 				msg: msg + '<br />',
 				minWidth: this.minPromptWidth,
 				maxWidth: 250,
-				scope : scope,
-				fn : fn,
+				scope: scope,
+				fn: fn,
 				prompt: false,
 				value: value,
-				customButton : customButton,
-				radioGroup : radioGroup
+				customButton: customButton,
+				radioGroup: radioGroup
 			});
 			this.addCustomButtons(config);
 		} else {
 			this.show({
-				title : title,
+				title: title,
 				msg: msg + '<br />',
 				buttons: Ext.MessageBox.OKCANCEL,
 				fn: function(button) {
@@ -199,7 +199,7 @@ Zarafa.common.dialogs.MessageBox = Ext.apply({}, {
 				},
 				minWidth: this.minPromptWidth,
 				maxWidth: 250,
-				scope : scope,
+				scope: scope,
 				prompt: false,
 				value: value
 			});
@@ -214,7 +214,7 @@ Zarafa.common.dialogs.MessageBox = Ext.apply({}, {
 	 * @param {Ext.form.RadioGroup} radioGroup the radioGroup which triggers this event.
 	 * @param {Ext.form.Radio} radio the radio which listen the event.
 	 */
-	onChange : function (radioGroup, radio) {
+	onChange: function (radioGroup, radio) {
 		if(radio.hideButtonText) {
 			var fbar = this.getDialog().getFooterToolbar();
 			var btn = fbar.find('name', radio.hideButtonText)[0];
@@ -230,7 +230,7 @@ Zarafa.common.dialogs.MessageBox = Ext.apply({}, {
 	 * @param {Object} config The config contains the configuration
 	 * options of message box as wall as custom buttons.
 	 */
-	addCustomButtons : function(config)
+	addCustomButtons: function(config)
 	{
 		var dlg = this.getDialog();
 		this.customButton = dlg.getFooterToolbar().add(config.customButton);
@@ -247,19 +247,19 @@ Zarafa.common.dialogs.MessageBox = Ext.apply({}, {
 			}, this);
 		}
 
-		dlg.on('hide', this.onDestroy, this, {single : true});
-		dlg.on('destroy', this.onDestroy, this, {single : true});
+		dlg.on('hide', this.onDestroy, this, {single: true});
+		dlg.on('destroy', this.onDestroy, this, {single: true});
 	},
 
 	/**
 	 * Event handler triggered when custom button is clicked.
 	 * it will hide the {@link Ext.MessageBox messagebox}.
-	 * @param {Ext.Button}  button The button which user pressed.
+	 * @param {Ext.Button} button The button which user pressed.
 	 * @param {Ext.EventObject} event the event object
 	 * @parma {Function} callback The callback function to call when button is pressed.
 	 * @parma {Ext.form.RadioGroup} radioGroup The radioGroup contains if message box triggered from {@link #select} message box.
 	 */
-	onButtonClick : function(button, event, callback, radioGroup)
+	onButtonClick: function(button, event, callback, radioGroup)
 	{
 		var buttonName = button.name || 'cancel';
 		Zarafa.common.dialogs.MessageBox.hide();
@@ -275,7 +275,7 @@ Zarafa.common.dialogs.MessageBox = Ext.apply({}, {
 	 * also it will remove all custom buttons from message box.
 	 * @param {Ext.Window} dlg The window
 	 */
-	onDestroy : function(dlg)
+	onDestroy: function(dlg)
 	{
 		if(!Ext.isEmpty(this.customButton)) {
 			for(var i = 0; i < this.customButton.length; i++) {

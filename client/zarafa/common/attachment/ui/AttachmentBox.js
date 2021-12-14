@@ -16,34 +16,34 @@ Zarafa.common.attachment.ui.AttachmentBox = Ext.extend(Zarafa.common.ui.Box, {
 	 * when the attachment has been {@link #isValidRecord uploaded} or is
 	 * otherwise present on the server.
 	 */
-	validCls : 'x-zarafa-boxfield-attachment-item-uploaded',
+	validCls: 'x-zarafa-boxfield-attachment-item-uploaded',
 
 	/**
 	 * @cfg {String} invalidCls The CSS class which must be applied on {@link #el}
 	 * when the attachment has not been {@link #isValidRecord uploaded} and the
 	 * attempt to upload the file has failed.
 	 */
-	invalidCls : 'x-zarafa-boxfield-attachment-item-invalid',
+	invalidCls: 'x-zarafa-boxfield-attachment-item-invalid',
 
 	/**
 	 * @cfg {String} uploadingCls The CSS class which must be applied on {@link #el}
 	 * when the attachment has not yet been uploaded to the server.
 	 */
-	uploadingCls : 'x-zarafa-boxfield-attachment-item-uploading',
+	uploadingCls: 'x-zarafa-boxfield-attachment-item-uploading',
 
 	/**
 	 * @constructor
 	 * @param config Configuration object
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		config = config || {};
 
 		Ext.applyIf(config, {
 			cls: 'x-zarafa-boxfield-attachment-item',
-			ellipsisStringStartLength : 20,
-			ellipsisStringEndLength : 20,
-			textTpl :
+			ellipsisStringStartLength: 20,
+			ellipsisStringEndLength: 20,
+			textTpl:
 				'<tpl if="!Ext.isEmpty(values.name)">' +
 					'{name:htmlEncodeElide(this.ellipsisStringStartLength, this.ellipsisStringEndLength)}' +
 				'</tpl>' +
@@ -66,7 +66,7 @@ Zarafa.common.attachment.ui.AttachmentBox = Ext.extend(Zarafa.common.ui.Box, {
 	 * @return {Boolean} True if the record is valid
 	 * @protected
 	 */
-	isValidRecord : function(record)
+	isValidRecord: function(record)
 	{
 		return record.isUploaded();
 	},
@@ -75,7 +75,7 @@ Zarafa.common.attachment.ui.AttachmentBox = Ext.extend(Zarafa.common.ui.Box, {
 	 * Update the {@link #textEl inner HTML} of this component using the {@link #textTpl template}.
 	 * @param {Ext.data.Record} record The Ext.data.Record which data must be applied to the template
 	 */
-	update : function(record)
+	update: function(record)
 	{
 		Zarafa.common.attachment.ui.AttachmentBox.superclass.update.apply(this, arguments);
 
@@ -98,7 +98,7 @@ Zarafa.common.attachment.ui.AttachmentBox = Ext.extend(Zarafa.common.ui.Box, {
 	 * Called when the user has clicked on the remove button.
 	 * @private
 	 */
-	onClickRemove : function()
+	onClickRemove: function()
 	{
 		// Don't allow user to remove attachment where it is still uploading and
 		// the browser is IE/Edge.

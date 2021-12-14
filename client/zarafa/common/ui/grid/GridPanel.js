@@ -21,7 +21,7 @@ Zarafa.common.ui.grid.GridPanel = Ext.extend(Ext.grid.GridPanel, {
 	 * @property
 	 * @type String
 	 */
-	currentEntryId : undefined,
+	currentEntryId: undefined,
 
 	/**
 	 * The store entryid of the {@link Zarafa.core.data.MAPIFolder folder} which is currently being displayed
@@ -30,35 +30,35 @@ Zarafa.common.ui.grid.GridPanel = Ext.extend(Ext.grid.GridPanel, {
 	 * @property
 	 * @type String
 	 */
-	currentStoreEntryId : undefined,
+	currentStoreEntryId: undefined,
 
 	/**
 	 * The tooltip that will be used to show the full date when hovered over 'short' formatted dates
 	 * @property
 	 * @type {Zarafa.common.ui.grid.DateTooltip}
 	 */
-	dateTooltip : null,
+	dateTooltip: null,
 
 	/**
 	 * @constructor
 	 * @param {Object} config Configuration object
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		config = config || {};
 
 		Ext.applyIf(config, {
-			deferRowRender : false
+			deferRowRender: false
 		});
 
 		if(Ext.isEmpty(config.view)) {
 			config.viewConfig = Ext.applyIf(config.viewConfig || {}, {
-				autoFill : true,
+				autoFill: true,
 				markDirty: false
 			});
 
 			Ext.applyIf(config, {
-				view : new Zarafa.common.ui.grid.GridView(config.viewConfig)
+				view: new Zarafa.common.ui.grid.GridView(config.viewConfig)
 			});
 		}
 
@@ -90,7 +90,7 @@ Zarafa.common.ui.grid.GridPanel = Ext.extend(Ext.grid.GridPanel, {
 		xtypes = 'grid' + xtypes.replace(/grid/g, '');
 		Zarafa.core.KeyMapMgr.activate(this, xtypes);
 
-	    this.dateTooltip = new Zarafa.common.ui.grid.DateTooltip({
+	  this.dateTooltip = new Zarafa.common.ui.grid.DateTooltip({
 			target: this.getEl().dom
 		});
 	},
@@ -112,7 +112,7 @@ Zarafa.common.ui.grid.GridPanel = Ext.extend(Ext.grid.GridPanel, {
 	 * Initialize event handlers
 	 * @private
 	 */
-	initEvents : function()
+	initEvents: function()
 	{
 		// First bind columnModel and then the store. The bindStore() function
 		// will add some initialization which requires the model to be initialized.
@@ -126,7 +126,18 @@ Zarafa.common.ui.grid.GridPanel = Ext.extend(Ext.grid.GridPanel, {
 			// destroy loadmask created by superclass
 			this.loadMask.destroy();
 			this.loadMask = new Zarafa.common.ui.LoadMask(this.bwrap,
-					Ext.apply( { store : this.store }, this.initialConfig.loadMask ) );
+					Ext.apply( { store: this.store }, this.initialConfig.loadMask ) );
+		}
+
+		// Fixme: workaround fix for Firefox on Ubuntu and Firefox on MacOS
+		if (Ext.isGecko && (Ext.isLinux || Ext.isMac)) {
+			this.on('keydown', function (e) {
+				var keyCode = e.keyCode;
+				if (keyCode === Ext.EventObject.DOWN || keyCode === Ext.EventObject.UP) {
+					this.selModel.onKeyPress(e, keyCode === Ext.EventObject.DOWN ? 'down' : 'up');
+					e.preventDefault();
+				}
+			}, this);
 		}
 
 		this.mon(this.store, 'write', this.onWriteRecord, this);
@@ -148,7 +159,7 @@ Zarafa.common.ui.grid.GridPanel = Ext.extend(Ext.grid.GridPanel, {
 	 * @param {Zarafa.core.data.IPMRecord[]} records The selected records
 	 * @private
 	 */
-	onRecordSelectionChange : function(model, records)
+	onRecordSelectionChange: function(model, records)
 	{
 		if (!this.getSelectionModel().hasSelection() && !Ext.isEmpty(records)) {
 			var index = model.getStore().indexOf(records[0]);
@@ -168,7 +179,7 @@ Zarafa.common.ui.grid.GridPanel = Ext.extend(Ext.grid.GridPanel, {
 	 * @param {Object} response as it was received from server.
 	 * @param {Array} recordSet Records that are deleted.
 	 */
-	onWriteRecord : function(store, action, result, response, recordSet)
+	onWriteRecord: function(store, action, result, response, recordSet)
 	{
 		if(action === 'destroy') {
 			if (!store.syncStore) {
@@ -176,8 +187,8 @@ Zarafa.common.ui.grid.GridPanel = Ext.extend(Ext.grid.GridPanel, {
 				if(Ext.isDefined(gridScroller) && !gridScroller.isScrollable()) {
 					if (store.totalLoadedRecord < store.totalLength) {
 						var options = {
-							add : true,
-							actionType : Zarafa.core.Actions['list']
+							add: true,
+							actionType: Zarafa.core.Actions['list']
 						};
 
 						// load store with as many new records as deleted before scrollbar has disappeared
@@ -210,7 +221,7 @@ Zarafa.common.ui.grid.GridPanel = Ext.extend(Ext.grid.GridPanel, {
 	 * @param rowIndex {Number} rowIndex the index of row was deleted from grid.
 	 * @private
 	 */
-	onRowRemoved : function(rowIndex)
+	onRowRemoved: function(rowIndex)
 	{
 		if (container.getShadowStore().isExecuting("open")) {
 			container.getShadowStore().proxy.cancelRequests('open');
@@ -220,6 +231,12 @@ Zarafa.common.ui.grid.GridPanel = Ext.extend(Ext.grid.GridPanel, {
 		var itemCount = this.getStore().getCount();
 		if (itemCount > 0) {
 			var sm = this.getSelectionModel();
+			var selections = sm.getSelections();
+
+			if (!Ext.isEmpty(selections)) {
+				return;
+			}
+
 			// check for the next item in store else select the previous item
 			if(rowIndex < itemCount) {
 				sm.selectRow(rowIndex);
@@ -240,7 +257,7 @@ Zarafa.common.ui.grid.GridPanel = Ext.extend(Ext.grid.GridPanel, {
 	 * @param {Ext.data.Store} store The new {@link Ext.data.Store} object
 	 * @param {Ext.grid.ColumnModel} model The new {@link Ext.grid.ColumnModel} object
 	 */
-	reconfigure : function(store, colModel)
+	reconfigure: function(store, colModel)
 	{
 		// First bind columnModel and then the store. The bindStore() function
 		// will add some initialization which requires the model to be initialized.
@@ -259,7 +276,7 @@ Zarafa.common.ui.grid.GridPanel = Ext.extend(Ext.grid.GridPanel, {
 	 * the panel for the first time.
 	 * @private
 	 */
-	bindColumnModel : function(model, initialize)
+	bindColumnModel: function(model, initialize)
 	{
 		var oldModel = this.getColumnModel();
 
@@ -285,7 +302,7 @@ Zarafa.common.ui.grid.GridPanel = Ext.extend(Ext.grid.GridPanel, {
 	 * the panel for the first time.
 	 * @private
 	 */
-	bindStore : function(store, initialize)
+	bindStore: function(store, initialize)
 	{
 		var oldStore = this.getStore();
 
@@ -314,7 +331,7 @@ Zarafa.common.ui.grid.GridPanel = Ext.extend(Ext.grid.GridPanel, {
 	 * we have to check at this time if the store is loading, and display the loadmask.
 	 * @private
 	 */
-	onViewReady : function()
+	onViewReady: function()
 	{
 		var show = this.store && (this.store.isExecuting(Zarafa.core.Actions['list']) === true
 			|| this.store.isExecuting(Zarafa.core.Actions['search']) === true);
@@ -333,7 +350,7 @@ Zarafa.common.ui.grid.GridPanel = Ext.extend(Ext.grid.GridPanel, {
 	 * @param {Object} options The options used for loading the new data from the store
 	 * @private
 	 */
-	onStoreBeforeLoad : function(store, options)
+	onStoreBeforeLoad: function(store, options)
 	{
 		/*
 		 * if action type is updatelist and grid has no dummy row with warped
@@ -388,7 +405,7 @@ Zarafa.common.ui.grid.GridPanel = Ext.extend(Ext.grid.GridPanel, {
 	 * @param {Object} options The loading options that were specified (see {@link Ext.data.Store#load load} for details)
 	 * @private
 	 */
-	onStoreLoad : function(store, records, options)
+	onStoreLoad: function(store, records, options)
 	{
 		/*
 		 * if action type is updatelist and grid has dummy row which was warped
@@ -412,7 +429,7 @@ Zarafa.common.ui.grid.GridPanel = Ext.extend(Ext.grid.GridPanel, {
 	 * @param {Object} config The configuration object
 	 * @private
 	 */
-	onBeforeConfigChange : Ext.emptyFn,
+	onBeforeConfigChange: Ext.emptyFn,
 
 	/**
 	 * Called when {@link Ext.grid.ColumnModel#setConfig} has completed the configuration changes.
@@ -420,7 +437,7 @@ Zarafa.common.ui.grid.GridPanel = Ext.extend(Ext.grid.GridPanel, {
 	 * @param {Ext.gridColumnModel} columnModel The model which is being configured
 	 * @private
 	 */
-	onConfigChange : Ext.emptyFn,
+	onConfigChange: Ext.emptyFn,
 
 	/**
 	 * Event handler for the selectionchange event of the grid's selectionmodel.
@@ -430,7 +447,7 @@ Zarafa.common.ui.grid.GridPanel = Ext.extend(Ext.grid.GridPanel, {
 	 *
 	 * @param {Ext.grid.RowSelectionModel} selectionModel The selection model of this grid
 	 */
-	onGridSelectionChange : function(selectionModel)
+	onGridSelectionChange: function(selectionModel)
 	{
 		var view = this.getView();
 		var store = this.getStore();
@@ -455,7 +472,7 @@ Zarafa.common.ui.grid.GridPanel = Ext.extend(Ext.grid.GridPanel, {
 	 * but will use 'ngettext' to return a properly formatted plural sentence.
 	 * @return {String} The text
 	 */
-	getDragDropText : function()
+	getDragDropText: function()
 	{
 		var count = this.selModel.getCount();
 		return String.format(ngettext('{0} selected row', '{0} selected rows', count), count);
@@ -468,7 +485,7 @@ Zarafa.common.ui.grid.GridPanel = Ext.extend(Ext.grid.GridPanel, {
 	 * a custom name.
 	 * @return {String} The unique name for this component by which the {@link #getState state} must be saved.
 	 */
-	getStateName : function()
+	getStateName: function()
 	{
 		var options = this.store.lastOptions;
 		var folder;
@@ -490,13 +507,13 @@ Zarafa.common.ui.grid.GridPanel = Ext.extend(Ext.grid.GridPanel, {
 	 * @return {Object} The state object
 	 * @protected
 	 */
-	getState : function()
+	getState: function()
 	{
 		var state = Zarafa.common.ui.grid.GridPanel.superclass.getState.call(this);
 
 		// Sorting is handled by the ContextModel rather the by the grid,
 		// hence we remove the sorting information from this location.
-		var wrap = { sort : state.sort };
+		var wrap = { sort: state.sort };
 		delete state.sort;
 		wrap[this.getColumnModel().name] = state;
 
@@ -509,13 +526,13 @@ Zarafa.common.ui.grid.GridPanel = Ext.extend(Ext.grid.GridPanel, {
 	 * @param {Object} state The state object
 	 * @protected
 	 */
-	applyState : function(state)
+	applyState: function(state)
 	{
 		if (state) {
 			// Sorting is handled by the ContextModel rather then by the grid,
 			// if the unwrap object contains 'sort' then this function would trigger
 			// a reload of the store which is not what we need.
-			var unwrap = { sort : state.sort };
+			var unwrap = { sort: state.sort };
 			delete state.sort;
 			Ext.apply(unwrap, state[this.getColumnModel().name]);
 

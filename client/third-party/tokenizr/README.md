@@ -1,4 +1,4 @@
-# Tokenizr in grommunio web
+# Tokenizr in grommunio Web
 
 The tokenizr library can be found at https://github.com/rse/tokenizr
 

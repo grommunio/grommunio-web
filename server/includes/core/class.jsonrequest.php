@@ -108,7 +108,7 @@
 						"type" => ERROR_GENERAL,
 						"info" => array(
 							"file" => basename($e->getFile()) . ':' . $e->getLine(),
-							"display_message" => Language::getstring('An unexpected error has occurred'),
+							"display_message" => _('An unexpected error has occurred'),
 							"original_message" => $e->getMessage()
 						)
 					)

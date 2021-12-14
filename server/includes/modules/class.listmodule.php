@@ -119,9 +119,9 @@
 				switch($actionType) {
 					case "list":
 						if ($e->getCode() == MAPI_E_NO_ACCESS) {
-							$e->setDisplayMessage(Language::getstring("You have insufficient privileges to see the contents of this folder."));
+							$e->setDisplayMessage(_("You have insufficient privileges to see the contents of this folder."));
 						} else {
-							$e->setDisplayMessage(Language::getstring("Could not load the contents of this folder."));
+							$e->setDisplayMessage(_("Could not load the contents of this folder."));
 						}
 						break;
 				}
@@ -152,6 +152,8 @@
 				$limit = false;
 				if(isset($action['restriction']['limit'])){
 					$limit = $action['restriction']['limit'];
+				} else {
+					$limit = $GLOBALS['settings']->get('zarafa/v1/main/page_size', 50);
 				}
 
 				$isSearchFolder = isset($action['search_folder_entryid']);
@@ -191,6 +193,7 @@
 				// unset will remove the value but will not regenerate array keys, so we need to
 				// do it here
 				$data["item"] = array_values($data["item"]);
+
 				$this->addActionData($actionType, $data);
 				$GLOBALS["bus"]->addData($this->getResponseData());
 			}
@@ -225,7 +228,7 @@
 			if($this->restriction == false) {
 				// if error in creating restriction then send error to client
 				$errorInfo = array();
-				$errorInfo["error_message"] = Language::getstring("Error in search, please try again") . ".";
+				$errorInfo["error_message"] = _("Error in search, please try again") . ".";
 				$errorInfo["original_error_message"] = "Error in parsing restrictions.";
 
 				return $this->sendSearchErrorToClient($store, $entryid, $action, $errorInfo);
@@ -265,16 +268,16 @@
 				$errorInfo = array();
 				switch(mapi_last_hresult()) {
 				case MAPI_E_NO_ACCESS:
-					$errorInfo["error_message"] = Language::getstring("Unable to perform search query, no permissions to create search folder.");
+					$errorInfo["error_message"] = _("Unable to perform search query, no permissions to create search folder.");
 					break;
 				case MAPI_E_NOT_FOUND:
-					$errorInfo["error_message"] = Language::getstring("Unable to perform search query, search folder not found.");
+					$errorInfo["error_message"] = _("Unable to perform search query, search folder not found.");
 					break;
 				default:
-					$errorInfo["error_message"] = Language::getstring("Unable to perform search query, store might not support searching.");
+					$errorInfo["error_message"] = _("Unable to perform search query, store might not support searching.");
 				}
 
-				$errorInfo["original_error_message"] = Language::getstring("Error in creating search folder.");
+				$errorInfo["original_error_message"] = _("Error in creating search folder.");
 
 				return $this->sendSearchErrorToClient($store, $entryid, $action, $errorInfo);
 			}
@@ -334,7 +337,7 @@
 			// Wait until we have some data, no point in returning before we have data. Stop waiting after 10 seconds
 			$start = time();
 			$table = mapi_folder_getcontentstable($searchFolder, MAPI_DEFERRED_ERRORS);
-			
+
 			sleep(1);
 
 			while(time() - $start < 10) {
@@ -396,7 +399,7 @@
 		/**
 		 *	Function will check for the status of the search on server
 		 *	and it will also send intermediate results of search, so we don't have to wait
-		 *	untill search is finished on server to send results
+		 *	until search is finished on server to send results
 		 *	@param		object		$store		MAPI Message Store Object
 		 *	@param		hexString	$entryid	entryid of the folder
 		 *	@param		object		$action		the action data, sent by the client
@@ -604,7 +607,7 @@
 		 */
 		function createSearchFolder($store, $openIfExists = true)
 		{
-			if (isset($this->sessionData['searchFolderEntryId']) && $openIfExists) {
+			if(isset($this->sessionData['searchFolderEntryId']) && $openIfExists) {
 				try {
 					$searchFolder = mapi_msgstore_openentry($store, hex2bin($this->sessionData['searchFolderEntryId']));
 
@@ -647,7 +650,7 @@
 
 				return $searchFolder;
 			} catch (MAPIException $e) {
-				// don't propogate the event to higher level exception handlers
+				// don't propagate the event to higher level exception handlers
 				$e->setHandled();
 			}
 
@@ -674,9 +677,9 @@
 			try {
 				$searchRootFolder = mapi_msgstore_openentry($store, $storeProps[PR_FINDER_ENTRYID]);
 			} catch (MAPIException $e) {
-				$msg ="Unable to open FINDER_ROOT for store: %s. Run kopano-search-upgrade-findroots.py to resolve the permission issue";
+				$msg ="Unable to open FINDER_ROOT for store: %s.";
 				error_log(sprintf($msg, $storeProps[PR_DISPLAY_NAME]));
-				// don't propogate the event to higher level exception handlers
+				// don't propagate the event to higher level exception handlers
 				$e->setHandled();
 			}
 
@@ -684,7 +687,7 @@
 		}
 
 		/**
-		 *	Function will send error message to client if any error has occured in search
+		 *	Function will send error message to client if any error has occurred in search
 		 *	@param		object		$store		MAPI Message Store Object
 		 *	@param		hexString	$entryid	entryid of the folder
 		 *	@param		object		$action		the action data, sent by the client
@@ -859,7 +862,7 @@
 		 * Function will be used to process private items in a list response, modules can
 		 * can decide what to do with the private items, remove the entire row or just
 		 * hide the data. This function will entirely remove the private message but
-		 * if any child class needs different behavior then this can be overriden.
+		 * if any child class needs different behavior then this can be overridden.
 		 * @param {Object} $item item properties
 		 * @return {Object} item properties if its non private item otherwise empty array
 		 */

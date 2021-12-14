@@ -5,7 +5,7 @@ Ext.namespace('Zarafa.calendar.data.busytime');
  * @extends Zarafa.core.data.MAPIStore
  * @xtype zarafa.busytimestore
  */
-Zarafa.calendar.data.busytime.BusyTimeStore = Ext.extend(Zarafa.core.data.MAPIStore, 
+Zarafa.calendar.data.busytime.BusyTimeStore = Ext.extend(Zarafa.core.data.MAPIStore,
 {
 	/**
 	 * @constructor
@@ -31,7 +31,7 @@ Zarafa.calendar.data.busytime.BusyTimeStore = Ext.extend(Zarafa.core.data.MAPISt
 	 * Clear all data in the store
 	 * @private
 	 */
-	clearData : function()
+	clearData: function()
 	{
 		// Skip the superclass implementation.
 		Zarafa.core.data.MAPIStore.superclass.clearData.apply(this, arguments);

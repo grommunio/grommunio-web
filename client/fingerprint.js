@@ -65,7 +65,6 @@ const fingerprint = (function(){
 			'Aparajita',
 			'Arabic Typesetting',
 			'Arial Black',
-			'Arial Narrow',
 			'Bodoni MT',
 			'Baskerville Old Face',
 			'Goudy Old Style',
@@ -75,7 +74,6 @@ const fingerprint = (function(){
 			'Book Antiqua',
 			'Palatino Linotype',
 			'Segoe UI',
-			'Gill Sans MT',
 			'Candara',
 			'Calibri',
 			'Franklin Gothic Medium',
@@ -90,7 +88,6 @@ const fingerprint = (function(){
 			'Didot',
 			'Optima',
 			'Futura',
-			'Gill Sans',
 			'Trebuchet MS',
 			'Helvetica',
 			
@@ -282,12 +279,12 @@ window.checkfont = (function() {
   function initModule() {
     var containerB = setupContainer();
     containerB.style.fontFamily = "monospace";
-    monospaceHeight = containerB.offsetHeight;
-    monospaceWidth = containerB.offsetWidth;
+    //monospaceHeight = containerB.offsetHeight;
+    //monospaceWidth = containerB.offsetWidth;
 
     containerB.style.fontFamily = "Arial";
-    arialWidth = containerB.offsetWidth;
-    arialHeight = containerB.offsetHeight;
+    //arialWidth = containerB.offsetWidth;
+    //arialHeight = containerB.offsetHeight;
 
     containerB.parentNode.removeChild(containerB);
   }

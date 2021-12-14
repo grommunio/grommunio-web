@@ -24,14 +24,14 @@ $loader = new FileLoader();
 	<body class="theme-<?php echo strtolower($theme ? $theme : 'basic') ?>">
 		<?php
 			$jsTemplate = "\t\t<script type=\"text/javascript\" src=\"{file}\"></script>";
-			if (DEBUG_LOADER === LOAD_RELEASE) {
-				$extjsFiles[] = "client/tinymce/tinymce.min.js";
-			} else {
-				$extjsFiles[] = "client/tinymce/tinymce.js";
-			}
+                if (DEBUG_LOADER === LOAD_RELEASE) {
+                    $extjsFiles[] = "client/tinymce/tinymce.min.js";
+                } else {
+                    $extjsFiles[] = "client/tinymce/tinymce.js";
+                }
 			$loader->printFiles($extjsFiles, $jsTemplate);
 		?>
-		<link id="kopano-iconset-stylesheet" rel="stylesheet" href="<?php echo $iconsetStylesheet; ?>" >
+		<link id="grommunio-iconset-stylesheet" rel="stylesheet" href="<?php echo $iconsetStylesheet; ?>" >
 		<script>
 
 			/**

@@ -3,7 +3,7 @@ Ext.namespace('Zarafa.core.data');
 /**
  * @class Zarafa.core.data.SettingsStateProvider
  * @type Ext.state.Provider
- * 
+ *
  * A special {@link Ext.state.Provider} for the {@link Ext.state.Manager}
  * which stores the state of {@link Zarafa.core.ui.ContentPanel content panels}, {@link Ext.Panel panels}
  * and {@link Ext.grid.GridPanel grids} into the {@link Zarafa.settings.SettingsModel settings}.
@@ -15,13 +15,13 @@ Zarafa.core.data.SettingsStateProvider = Ext.extend(Ext.state.Provider, {
 	 * in which all State settings must be saved. The complete name for a settings path is generated
 	 * by {@link #getStatePath}.
 	 */
-	basePath : 'zarafa/v1/state',
+	basePath: 'zarafa/v1/state',
 
 	/**
 	 * @constructor
 	 * @param {Object} config Configuration object
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		Ext.apply(this, config);
 
@@ -35,19 +35,19 @@ Zarafa.core.data.SettingsStateProvider = Ext.extend(Ext.state.Provider, {
 	 * {@link #basePath}.
 	 * @return {String} The Settings path in which the state for the component must be saved.
 	 */
-	getStatePath : function(component)
+	getStatePath: function(component)
 	{
 		return this.basePath + '/' + component.getStateName();
 	},
 
 	/**
-	 * Encodes a value including type information.  Decode with {@link #decodeValue}.
+	 * Encodes a value including type information. Decode with {@link #decodeValue}.
 	 * @param {Mixed} value The value to encode
 	 * @param {String} name The property name (if this function was called recursively) of the property being encoded
 	 * @param {Ext.Component} component The component for which the settings are being encoded
 	 * @return {String} The encoded value
 	 */
-	encodeValue : function(value, name, component)
+	encodeValue: function(value, name, component)
 	{
 		if (Array.isArray(value)) {
 			for (var i = 0, len = value.length; i < len; i++) {
@@ -58,7 +58,7 @@ Zarafa.core.data.SettingsStateProvider = Ext.extend(Ext.state.Provider, {
 				value[key] = this.encodeValue(value[key], key, component);
 			}
 		} else if ((name === 'height' || name === 'width') && component.statefulRelativeDimensions === true) {
-			value = this.scaleSizeToPercentage(component, value, name);	
+			value = this.scaleSizeToPercentage(component, value, name);
 		}
 
 		return value;
@@ -71,7 +71,7 @@ Zarafa.core.data.SettingsStateProvider = Ext.extend(Ext.state.Provider, {
 	 * @param {Ext.Component} component The component for which the settings are being decoded
 	 * @return {Mixed} The decoded value
 	 */
-	decodeValue : function(value, name, component)
+	decodeValue: function(value, name, component)
 	{
 		if (Array.isArray(value)) {
 			for (var i = 0, len = value.length; i < len; i++) {
@@ -98,7 +98,7 @@ Zarafa.core.data.SettingsStateProvider = Ext.extend(Ext.state.Provider, {
 	 * @return {Number} The converted value
 	 * @private
 	 */
-	scaleSizeToPercentage : function(component, value, type)
+	scaleSizeToPercentage: function(component, value, type)
 	{
 		type = Ext.util.Format.capitalize(type);
 
@@ -123,7 +123,7 @@ Zarafa.core.data.SettingsStateProvider = Ext.extend(Ext.state.Provider, {
 	 * @return {Number} The converted value
 	 * @private
 	 */
-	scaleSizeToBody : function(component, value, type)
+	scaleSizeToBody: function(component, value, type)
 	{
 		type = Ext.util.Format.capitalize(type);
 
@@ -151,7 +151,7 @@ Zarafa.core.data.SettingsStateProvider = Ext.extend(Ext.state.Provider, {
 	 * @param {String} name The key name
 	 * @param {Mixed} value The value to set
 	 */
-	set : function(name, value)
+	set: function(name, value)
 	{
 		var component = Ext.state.Manager.getComponent(name);
 		container.getSettingsModel().set(this.getStatePath(component), this.encodeValue(value, undefined, component));
@@ -164,7 +164,7 @@ Zarafa.core.data.SettingsStateProvider = Ext.extend(Ext.state.Provider, {
 	 * @param {Mixed} defaultValue A default value to return if the key's value is not found
 	 * @return {Mixed} The state data
 	 */
-	get : function(name, defaultValue)
+	get: function(name, defaultValue)
 	{
 		var component = Ext.state.Manager.getComponent(name);
 		var value = container.getSettingsModel().get(this.getStatePath(component), true);
@@ -180,7 +180,7 @@ Zarafa.core.data.SettingsStateProvider = Ext.extend(Ext.state.Provider, {
 	 * Clears a value from the state
 	 * @param {String} name The key name
 	 */
-	clear : function(name)
+	clear: function(name)
 	{
 		var component = Ext.state.Manager.getComponent(name);
 		// Call restore rather then remove, to ensure the default values

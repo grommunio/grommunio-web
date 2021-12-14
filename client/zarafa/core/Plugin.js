@@ -3,12 +3,12 @@ Ext.namespace('Zarafa.core');
 /**
  * @class Zarafa.core.Plugin
  * @extends Zarafa.core.data.StatefulObservable
- * 
+ *
  * A pluggable component. It can be used to implement UI plug-ins
  * or content contexts such as the email context, notes context, etc.
  * <p>
  * Each plugin should be registered manually with the global Container object.
- * The container can then be used to enumerate the registered plugins.   
+ * The container can then be used to enumerate the registered plugins.
  * <p>
  * This class was intended to be overridden.
  */
@@ -18,13 +18,13 @@ Zarafa.core.Plugin = Ext.extend(Zarafa.core.data.StatefulObservable, {
 	 * which was used to {@link Zarafa.core.Container#registerPlugin register}
 	 * this Plugin to the {@link Zarafa.core.Container container}.
 	 */
-	info : undefined,
+	info: undefined,
 
 	/**
 	 * @constructor
 	 * @param {Object} config Configuration object
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		Zarafa.core.Plugin.superclass.constructor.call(this, config);
 
@@ -35,7 +35,7 @@ Zarafa.core.Plugin = Ext.extend(Zarafa.core.data.StatefulObservable, {
 	 * Function to be implemented by Plugin subclasses to initialize the plugin.
 	 * @protected
 	 */
-	initPlugin : function()
+	initPlugin: function()
 	{
 		var about = this.info.getAbout();
 
@@ -49,7 +49,7 @@ Zarafa.core.Plugin = Ext.extend(Zarafa.core.data.StatefulObservable, {
 	 * Returns the name of the plugin.
 	 * @return {String} name context name
 	 */
-	getName : function() {
+	getName: function() {
 		return this.info.getName();
 	},
 
@@ -57,7 +57,7 @@ Zarafa.core.Plugin = Ext.extend(Zarafa.core.data.StatefulObservable, {
 	 * Return the display name for this plugin.
 	 * @return {String} Display name as string
 	 */
-	getDisplayName : function()
+	getDisplayName: function()
 	{
 		return this.info.getDisplayName();
 	},
@@ -66,7 +66,7 @@ Zarafa.core.Plugin = Ext.extend(Zarafa.core.data.StatefulObservable, {
 	 * Obtain the CSS classname for this plugin
 	 * @return {String} The CSS classname for this plugin
 	 */
-	getIconCls : function()
+	getIconCls: function()
 	{
 		return this.info.getIconCls();
 	},
@@ -76,7 +76,7 @@ Zarafa.core.Plugin = Ext.extend(Zarafa.core.data.StatefulObservable, {
 	 * for this plugin can be found.
 	 * @return {String} The settings path
 	 */
-	getSettingsBase : function()
+	getSettingsBase: function()
 	{
 		return this.info.getSettingsBase();
 	},
@@ -90,24 +90,24 @@ Zarafa.core.Plugin = Ext.extend(Zarafa.core.data.StatefulObservable, {
 	 * @param {String} text The text which should be shown in the About text (may contain HTML)
 	 * @protected
 	 */
-	registerAboutText : function(title, text)
+	registerAboutText: function(title, text)
 	{
 		this.registerInsertionPoint('context.settings.category.copyright', function() {
 			return {
-				xtype : 'zarafa.settingscopyrightwidget',
-				title : title,
-				about : text
+				xtype: 'zarafa.settingscopyrightwidget',
+				title: title,
+				about: text
 			};
 		});
 	},
 
 	/**
 	 * Registers a function with an insertion point. The function will be called when the insertion point
-	 * is populated using <code>container.populateInsertionPoint</code> and is expected to return one or 
-	 * more instances of {@link Ext.Component Component}. 
+	 * is populated using <code>container.populateInsertionPoint</code> and is expected to return one or
+	 * more instances of {@link Ext.Component Component}.
 	 * <p>
-	 * The 'match' parameter can be either a string denoting the name of the insertion point, or a 
-	 * regular expression if the function should be called for more than one insertion point (i.e. /toolbar.* / 
+	 * The 'match' parameter can be either a string denoting the name of the insertion point, or a
+	 * regular expression if the function should be called for more than one insertion point (i.e. /toolbar.* /
 	 * will match all insertion points starting with 'toolbar').
 	 * <p>
 	 * The function will be called exactly once for each matched insertion point.
@@ -115,29 +115,29 @@ Zarafa.core.Plugin = Ext.extend(Zarafa.core.data.StatefulObservable, {
 	 * @param {Function} createFunction function that creates one or more ExtJS components at the specified insertion point
 	 * @param {Object} scope (optional) scope in which to run the create function (defaults to undefined).
 	 */
-	registerInsertionPoint : function(match, createFunction, scope)
+	registerInsertionPoint: function(match, createFunction, scope)
 	{
 		if (!this.insertionPoints) {
 			this.insertionPoints = [];
 		}
-		
+
 		if (!scope) {
 			scope = this;
 		}
-		
+
 		this.insertionPoints.push({
-			match : match,
-			createFunction : createFunction,
-			scope : scope
+			match: match,
+			createFunction: createFunction,
+			scope: scope
 		});
 	},
-	
+
 	/**
 	 * Returns a set of components for a given insertion point.
 	 * @param {String} insertionPointName the name of the insertion point
-	 * @return {Mixed} either undefined or an array of {Ext.Component} objects. 
+	 * @return {Mixed} either undefined or an array of {Ext.Component} objects.
 	 */
-	getComponents : function(insertionPointName)
+	getComponents: function(insertionPointName)
 	{
 		var ret = [];
 
@@ -165,11 +165,11 @@ Zarafa.core.Plugin = Ext.extend(Zarafa.core.data.StatefulObservable, {
 
 		return ret;
 	},
-	
+
 	/**
-	 * Produces a bid on the shared component. A negative bid (-1) indicates 
-	 * that this plug-in can return a shared component. A positive bid (1) 
-	 * indicates that it can, and a higher bid (>1) can be used to override 
+	 * Produces a bid on the shared component. A negative bid (-1) indicates
+	 * that this plug-in can return a shared component. A positive bid (1)
+	 * indicates that it can, and a higher bid (>1) can be used to override
 	 * default plug-ins. The context that bids the highest is selected to return
 	 * the shared component through the {@link #getSharedComponent} function.
 	 * @param {Zarafa.core.data.SharedComponentType} type Type of component a context can bid for.
@@ -190,7 +190,7 @@ Zarafa.core.Plugin = Ext.extend(Zarafa.core.data.StatefulObservable, {
 	 * @param {Ext.data.Record} record (optional) Passed record.
 	 * @return {Constructor} The class constructor of the Shared Component.
 	 */
-	getSharedComponent : function(type, record)
+	getSharedComponent: function(type, record)
 	{
 		return undefined;
 	}

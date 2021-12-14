@@ -12,14 +12,14 @@ Zarafa.common.categories.dialogs.CategoriesContentPanel = Ext.extend(Zarafa.core
 	 * @cfg {Zarafa.core.ui.IPMRecord[]} record The record(s) for which the
 	 * categories must be configured
 	 */
-	record : undefined,
+	record: undefined,
 
 	/**
 	 * @cfg {Boolean} autoSave Automatically save all changes on the
 	 * {@link Zarafa.core.data.IPMRecord IPMRecord} to the
 	 * {@link Zarafa.core.data.IPMStore IPMStore}.
 	 */
-	autoSave : true,
+	autoSave: true,
 
 	/**
 	 * If the record(s) to which this dialog's actions will be applied, are copied to the
@@ -28,20 +28,20 @@ Zarafa.common.categories.dialogs.CategoriesContentPanel = Ext.extend(Zarafa.core
 	 * @property
 	 * @type {Boolean}
 	 */
-	recordsCopied : false,
+	recordsCopied: false,
 
 	/**
 	 * @cfg {Function} callback the callback function to be called after applying categories to
 	 * record. callback function is not empty function if original selected record or records are
 	 * belongs to {@link Zarafa.advancesearch.AdvanceSearchStore AdvanceSearchStore}
 	 */
-	callback : Ext.emptyFn,
+	callback: Ext.emptyFn,
 
 	/**
 	 * @constructor
 	 * @param {Object} config Configuration structure
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		config = config || {};
 
@@ -64,10 +64,10 @@ Zarafa.common.categories.dialogs.CategoriesContentPanel = Ext.extend(Zarafa.core
 
 		config = Ext.applyIf(config, {
 			// Override from Ext.Component
-			xtype : 'zarafa.categoriescontentpanel',
+			xtype: 'zarafa.categoriescontentpanel',
 			layout: 'fit',
 			title: _('Manage Categories'),
-			width : 400,
+			width: 400,
 			height: 400,
 			items: [{
 				xtype: 'zarafa.categoriespanel',
@@ -87,7 +87,7 @@ Zarafa.common.categories.dialogs.CategoriesContentPanel = Ext.extend(Zarafa.core
 					scope: this
 				}]
 			}],
-			listeners : {
+			listeners: {
 				destroy: this.onDestroyPanel,
 				scope: this
 			}
@@ -103,7 +103,7 @@ Zarafa.common.categories.dialogs.CategoriesContentPanel = Ext.extend(Zarafa.core
 	 * and will close the panel.
 	 * @private
 	 */
-	onApply : function()
+	onApply: function()
 	{
 		var categories = this.categoriesPanel.getSelectedCategories();
 		var categoryString = categories.join('; ');
@@ -162,7 +162,7 @@ Zarafa.common.categories.dialogs.CategoriesContentPanel = Ext.extend(Zarafa.core
 	 * This will close the panel without saving
 	 * @private
 	 */
-	onCancel : function()
+	onCancel: function()
 	{
 		this.close();
 	},
@@ -173,7 +173,7 @@ Zarafa.common.categories.dialogs.CategoriesContentPanel = Ext.extend(Zarafa.core
 	 * This will open the dialog to create a new category
 	 * @private
 	 */
-	onNew : function()
+	onNew: function()
 	{
 		Zarafa.common.Actions.openNewCategoryContent({
 			store: this.categoriesPanel.categoriesGrid.getStore(),
@@ -185,7 +185,7 @@ Zarafa.common.categories.dialogs.CategoriesContentPanel = Ext.extend(Zarafa.core
 	 * Event handler for the destroy event of the panel. Will remove the records that
 	 * were created in the {@link Zarafa.core.data.ShadowStore}
 	 */
-	onDestroyPanel : function()
+	onDestroyPanel: function()
 	{
 		// If we didn't copy the records, then we don't have to remove them
 		if ( !this.recordsCopied ){

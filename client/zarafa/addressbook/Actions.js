@@ -11,10 +11,10 @@ Zarafa.addressbook.Actions = {
 	 * Open the address book
 	 * @param {Object} config (optional) Configuration object used to create the ContentPanel
 	 */
-	openAddressBook : function(config)
+	openAddressBook: function(config)
 	{
 		config = Ext.applyIf(config || {}, {
-			modal : true
+			modal: true
 		});
 
 		var componentType = Zarafa.core.data.SharedComponentType['addressbook.dialog.addressbook'];
@@ -27,7 +27,7 @@ Zarafa.addressbook.Actions = {
 	 * the details {@link Zarafa.core.ui.ContentPanel contentpanel} must be shown
 	 * @param {Object} config (optional) Configuration object used to create the ContentPanel
 	 */
-	openDetailsContent : function(records, config)
+	openDetailsContent: function(records, config)
 	{
 		if (Array.isArray(records) && !Ext.isEmpty(records)) {
 			records = records[0];
@@ -50,9 +50,9 @@ Zarafa.addressbook.Actions = {
 		}
 
 		config = Ext.applyIf(config || {}, {
-			modal : true
+			modal: true
 		});
-		
+
 		Zarafa.core.data.UIFactory.openViewRecord(records, config);
 	}
 };

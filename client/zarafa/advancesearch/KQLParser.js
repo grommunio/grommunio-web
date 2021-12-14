@@ -14,7 +14,7 @@ Zarafa.advancesearch.KQLParser = Ext.extend(Object, {
 	 * See {@link https://github.com/rse/tokenizr}
 	 * @return {Tokenizr} The tokenizer
 	 */
-	getLexer : function() {
+	getLexer: function() {
 		if ( this.lexer ) {
 			return this.lexer;
 		}
@@ -27,6 +27,7 @@ Zarafa.advancesearch.KQLParser = Ext.extend(Object, {
 			'attachment',
 			'subject',
 			'sender',
+			'from',
 			'to',
 			'cc',
 			'bcc',
@@ -100,7 +101,7 @@ Zarafa.advancesearch.KQLParser = Ext.extend(Object, {
 	 *
 	 * @return {RegExp} A regular expression object
 	 */
-	getWordRuleRegExp : function() {
+	getWordRuleRegExp: function() {
 		// Test if we can use unicode regexps. (IE11 does not support it)
 		// Otherwise we will match anything up till white space
 		if ( typeof (/bla/).unicode === 'boolean' ) {
@@ -109,7 +110,7 @@ Zarafa.advancesearch.KQLParser = Ext.extend(Object, {
 			// so we will test for that too.
 			try {
 				// The following lines might look strange, but they written like this to
-				// trick the closure compiler, because we can't seem to surpress the
+				// trick the closure compiler, because we can't seem to suppress the
 				// checkRegExp and suspiousCode warnings.
 				var f = 'ui';
 				f = f.substr(0,1);
@@ -135,7 +136,7 @@ Zarafa.advancesearch.KQLParser = Ext.extend(Object, {
 	 * @param {String} query
 	 * @return {Array|Boolean} An array of token objects or false when no KQL tokens were found
 	 */
-	tokenize : function(query) {
+	tokenize: function(query) {
 		var lexer = this.getLexer();
 
 		lexer.input(query);
@@ -188,7 +189,7 @@ Zarafa.advancesearch.KQLParser = Ext.extend(Object, {
 	 *
 	 * @param {Object[]} Array of token objects
 	 */
-	normalize : function(tokens) {
+	normalize: function(tokens) {
 		// make sure we don't change the original tokens
 		tokens = JSON.parse(JSON.stringify(tokens));
 
@@ -342,13 +343,14 @@ Zarafa.advancesearch.KQLParser = Ext.extend(Object, {
 	 * @param {Array} tokens An array of token objects
 	 * @return {Array} A Restriction array
 	 */
-	createTokenRestriction : function(tokens) {
+	createTokenRestriction: function(tokens) {
 		tokens = this.flatten(this.normalize(tokens));
 
 		var propMap = {
 			subject: ['subject'],
 			body: ['body'],
 			sender: ['sender_name', 'sender_email_address'],
+			from: ['sender_name', 'sender_email_address'],
 			to: [{type:'recipient', recipientType: Zarafa.core.mapi.RecipientType.MAPI_TO}],
 			cc: [{type:'recipient', recipientType: Zarafa.core.mapi.RecipientType.MAPI_CC}],
 			bcc: [{type:'recipient', recipientType: Zarafa.core.mapi.RecipientType.MAPI_BCC}],
@@ -419,7 +421,7 @@ Zarafa.advancesearch.KQLParser = Ext.extend(Object, {
 	 * @param {String} value The value the restriction will search for
 	 * @return {Array} A Restriction array
 	 */
-	createStringRestriction : function(prop, value) {
+	createStringRestriction: function(prop, value) {
 		return Zarafa.core.data.RestrictionFactory.dataResContent(
 			prop,
 			Zarafa.core.mapi.Restrictions.FL_SUBSTRING | Zarafa.core.mapi.Restrictions.FL_IGNORECASE,
@@ -435,7 +437,7 @@ Zarafa.advancesearch.KQLParser = Ext.extend(Object, {
 	 * @param {String} value The value the restriction will search for
 	 * @return {Array} A Restriction array
 	 */
-	createRecipientRestriction : function(recipientType, value) {
+	createRecipientRestriction: function(recipientType, value) {
 		return Zarafa.core.data.RestrictionFactory.createResSubRestriction('PR_MESSAGE_RECIPIENTS',
 			Zarafa.core.data.RestrictionFactory.createResAnd([
 				Zarafa.core.data.RestrictionFactory.dataResProperty('PR_RECIPIENT_TYPE',
@@ -457,7 +459,7 @@ Zarafa.advancesearch.KQLParser = Ext.extend(Object, {
 	 * @param {String} value The value the restriction will search for
 	 * @return {Array} A Restriction array
 	 */
-	createAttachmentRestriction : function(value) {
+	createAttachmentRestriction: function(value) {
 		return Zarafa.core.data.RestrictionFactory.createResSubRestriction('PR_MESSAGE_ATTACHMENTS',
 			this.createStringRestriction('PR_ATTACH_LONG_FILENAME', value)
 		);

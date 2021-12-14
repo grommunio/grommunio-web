@@ -15,7 +15,7 @@ Zarafa.core.mapi.AppointmentAuxiliaryFlags = Zarafa.core.Enum.create({
 	 * @property
 	 * @type Number
 	 */
-	auxApptFlagCopied : 0x00000001,
+	auxApptFlagCopied: 0x00000001,
 
 	/**
 	 * This flag on a meeting request indicates that the client or server should send a
@@ -24,7 +24,7 @@ Zarafa.core.mapi.AppointmentAuxiliaryFlags = Zarafa.core.Enum.create({
 	 * @property
 	 * @type Number
 	 */
-	auxApptFlagForceMtgResponse : 0x00000002,
+	auxApptFlagForceMtgResponse: 0x00000002,
 
 	/**
 	 * This flag on a meeting request indicates that it was forwarded (including being forwarded
@@ -33,5 +33,5 @@ Zarafa.core.mapi.AppointmentAuxiliaryFlags = Zarafa.core.Enum.create({
 	 * @property
 	 * @type Number
 	 */
-	auxApptFlagForwarded : 0x00000004
+	auxApptFlagForwarded: 0x00000004
 });

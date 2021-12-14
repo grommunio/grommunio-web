@@ -20,7 +20,7 @@ Zarafa.core.data.JsonReader = Ext.extend(Ext.data.JsonReader, {
 	 * @type Object
 	 * @private
 	 */
-	efCache : undefined,
+	efCache: undefined,
 
 	/**
 	 * @cfg {Boolean} dynamicRecord Enable dynamic detection of the records
@@ -28,7 +28,7 @@ Zarafa.core.data.JsonReader = Ext.extend(Ext.data.JsonReader, {
 	 * the {@link Zarafa.core.data.RecordFactory} to detect the recordType rather
 	 * then using the {@link #recordType} directly. (defaults to true)
 	 */
-	dynamicRecord : true,
+	dynamicRecord: true,
 
 	/**
 	 * @constructor
@@ -37,13 +37,13 @@ Zarafa.core.data.JsonReader = Ext.extend(Ext.data.JsonReader, {
 	 * which must be read from response. If no type is given, {@link Zarafa.core.data.JsonReader}
 	 * will dynamicly detect the record type based on the response.
 	 */
-	constructor : function(meta, recordType)
+	constructor: function(meta, recordType)
 	{
 		meta = Ext.applyIf(meta || {}, {
-			totalProperty : 'count',
-			root : 'item',
-			id : 'entryid',
-			idProperty : 'entryid'
+			totalProperty: 'count',
+			root: 'item',
+			id: 'entryid',
+			idProperty: 'entryid'
 		});
 
 		// Check if the meta object contained the successProperty.
@@ -59,7 +59,7 @@ Zarafa.core.data.JsonReader = Ext.extend(Ext.data.JsonReader, {
 			recordType = Zarafa.core.data.RecordFactory.getRecordClassByMessageClass('IPM');
 		}
 
-		// Check we dynamic records are disabled. 
+		// Check we dynamic records are disabled.
 		if (Ext.isDefined(meta.dynamicRecord)) {
 			this.dynamicRecord = meta.dynamicRecord;
 		}
@@ -84,7 +84,7 @@ Zarafa.core.data.JsonReader = Ext.extend(Ext.data.JsonReader, {
 	 * functions like {@link #getTotal}, {@link #getSuccess}, {@link #getId}.
 	 * @private
 	 */
-	buildExtractors : function()
+	buildExtractors: function()
 	{
 		var s = this.meta;
 
@@ -115,11 +115,11 @@ Zarafa.core.data.JsonReader = Ext.extend(Ext.data.JsonReader, {
 	 *
 	 * @param {String} key The unique key for this record type (used for caching purposes).
 	 * @param {Array} items The array of {@link Zarafa.core.data.IPMRecord record} items.
-	 * @param {Number} len The length of the items array. 
+	 * @param {Number} len The length of the items array.
 	 * @return {Array} The name/value list of response to {@link Zarafa.core.data.IPMRecord record} fields.
 	 * @private
 	 */
-	getEfMapping : function(key, items, len)
+	getEfMapping: function(key, items, len)
 	{
 		if (Ext.isString(key)) {
 			key = key.toUpperCase();
@@ -130,7 +130,7 @@ Zarafa.core.data.JsonReader = Ext.extend(Ext.data.JsonReader, {
 		if (!Ext.isDefined(ef))
 		{
 			ef = [];
-        	for(var i = 0; i < len; i++){
+    	for(var i = 0; i < len; i++){
 				var f = items[i];
 				var map = (!Ext.isEmpty(f.mapping)) ? f.mapping : f.name;
 				ef.push(this.createAccessor.call(this, map));
@@ -148,10 +148,10 @@ Zarafa.core.data.JsonReader = Ext.extend(Ext.data.JsonReader, {
 	 * @param {Integer} len The length of the items array.
 	 * @private
 	 */
-	extractValues : function(data, items, len)
+	extractValues: function(data, items, len)
 	{
 		var values = {};
-	
+
 		// If the data object is wrapped (it contains objects like 'props', 'attachments',
 		// 'recipients', etc... Then we must call extractValues for each individual subobject.
 		if (Ext.isDefined(data.props)) {
@@ -189,7 +189,7 @@ Zarafa.core.data.JsonReader = Ext.extend(Ext.data.JsonReader, {
 	},
 
 	/**
-	 * Returns extracted, type-cast rows of data.  Iterates to call #extractValues for each row
+	 * Returns extracted, type-cast rows of data. Iterates to call #extractValues for each row
 	 *
 	 * This function is exactly copied from {@link Ext.data.DataReader.extractData} with the only
 	 * difference is using the RecordFactory for record allocation.
@@ -198,14 +198,14 @@ Zarafa.core.data.JsonReader = Ext.extend(Ext.data.JsonReader, {
 	 * @param {Boolean} returnRecords [false] Set true to return instances of {@link Zarafa.core.data.MAPIRecord MAPIRecord}.
 	 * @private
 	 */
-	extractData : function(root, returnRecords)
+	extractData: function(root, returnRecords)
 	{
 		// A bit ugly this, too bad the Record's raw data couldn't be saved in a common property named "raw" or something.
 		var rawName = (this instanceof Ext.data.JsonReader) ? 'json' : 'node';
 
 		var rs = [];
 
-		// Had to add Check for XmlReader, #isData returns true if root is an Xml-object.  Want to check in order to re-factor
+		// Had to add Check for XmlReader, #isData returns true if root is an Xml-object. Want to check in order to re-factor
 		// #extractData into DataReader base, since the implementations are almost identical for JsonReader, XmlReader
 		if (this.isData(root) && !(this instanceof Ext.data.XmlReader)) {
 			root = [root];
@@ -220,7 +220,7 @@ Zarafa.core.data.JsonReader = Ext.extend(Ext.data.JsonReader, {
 
 				// Clear all data from the object which must be deserialized,
 				// we only want the 'object_type' and 'message_class' properties.
-				data = { message_class : data.message_class, object_type : data.object_type };
+				data = { message_class: data.message_class, object_type: data.object_type };
 
 				if (this.dynamicRecord === true) {
 					record = Zarafa.core.data.RecordFactory.createRecordObjectByRecordData(data, id);
@@ -237,7 +237,7 @@ Zarafa.core.data.JsonReader = Ext.extend(Ext.data.JsonReader, {
 					fi		= f.items,
 					fl		= f.length;
 				this.update(record, this.extractValues(n, fi, fl));
-				record[rawName] = n;    // <-- There's implementation of ugly bit, setting the raw record-data.
+				record[rawName] = n;  // <-- There's implementation of ugly bit, setting the raw record-data.
 				rs.push(record);
 			}
 		} else {
@@ -248,7 +248,7 @@ Zarafa.core.data.JsonReader = Ext.extend(Ext.data.JsonReader, {
 				if (this.dynamicRecord === true) {
 					Record = Zarafa.core.data.RecordFactory.getRecordClassByRecordData(n.props || n);
 				}
-				
+
 				// Fall back to specified record type if we can't get the type from the data
 				if (!Record) {
 					Record = this.recordType;
@@ -278,7 +278,7 @@ Zarafa.core.data.JsonReader = Ext.extend(Ext.data.JsonReader, {
 	 * @param {String|Array} idProperties The id properties which should be moved into the properties object.
 	 * @return {Object} The updated data object.
 	 */
-	moveIdProperties : function(data, idProperties)
+	moveIdProperties: function(data, idProperties)
 	{
 		// If there is not data then return no data
 		if (!data) {
@@ -334,7 +334,7 @@ Zarafa.core.data.JsonReader = Ext.extend(Ext.data.JsonReader, {
 	 * @param {Object/Object[]} data The new record data to apply. Must include the primary-key from database defined in idProperty field.
 	 * @private
 	 */
-	realize : function(record, data)
+	realize: function(record, data)
 	{
 		// This function is copy & pasted from Ext.js Ext.data.JsonReader#realize.
 		// Our only difference is the assignment of the record.data field.
@@ -344,13 +344,13 @@ Zarafa.core.data.JsonReader = Ext.extend(Ext.data.JsonReader, {
 				if (Array.isArray(data)) {
 					this.realize(record.splice(i,1).shift(), data.splice(i,1).shift());
 				} else {
-					// weird...record is an array but data isn't??  recurse but just send in the whole invalid data object.
+					// weird...record is an array but data isn't?? recurse but just send in the whole invalid data object.
 					// the else clause below will detect !this.isData and throw exception.
 					this.realize(record.splice(i,1).shift(), data);
 				}
 			}
 		} else {
-			// If records is NOT an array but data IS, see if data contains just 1 record.  If so extract it and carry on.
+			// If records is NOT an array but data IS, see if data contains just 1 record. If so extract it and carry on.
 			if (Array.isArray(data)) {
 				data = data.shift();
 			}
@@ -360,7 +360,7 @@ Zarafa.core.data.JsonReader = Ext.extend(Ext.data.JsonReader, {
 				throw new Ext.data.DataReader.Error('realize', record);
 			}
 			record.phantom = false; // <-- That's what it's all about
-			record._phid = record.id;  // <-- copy phantom-id -> _phid, so we can remap in Store#onCreateRecords
+			record._phid = record.id; // <-- copy phantom-id -> _phid, so we can remap in Store#onCreateRecords
 			record.id = this.getId(data);
 
 			// And now the infamous line for which we copied this entire function.
@@ -373,10 +373,10 @@ Zarafa.core.data.JsonReader = Ext.extend(Ext.data.JsonReader, {
 			//
 			// But for those who have paid attention in the data flow of Extjs, know that this
 			// sounds quite a lot like the function description of Ext.data.JsonReader#update.
-			// 
+			//
 			// So to make everything even simpler, we don'e update the record.data object here,
 			// but instead we simply continue to the Ext.data.JsonReader#update function to
-			// handle the rest of the work. 
+			// handle the rest of the work.
 			//
 			//record.data = data;
 
@@ -402,11 +402,11 @@ Zarafa.core.data.JsonReader = Ext.extend(Ext.data.JsonReader, {
 	 * Will perform a commit as well, un-marking dirty-fields. Store's "update" event
 	 * will be suppressed as the record receives fresh new data-hash
 	 *
-	 * @param {Record/Record[]} record 
+	 * @param {Record/Record[]} record
 	 * @param {Object/Object[]} data
 	 * @private
 	 */
-	update : function(record, data)
+	update: function(record, data)
 	{
 		// Recursively call into update to update each record individually.
 		if (Array.isArray(record)) {
@@ -442,7 +442,7 @@ Zarafa.core.data.JsonReader = Ext.extend(Ext.data.JsonReader, {
 				delete data.action_response;
 			}
 
-			// If the record contains substores to store complex data then we have to first 
+			// If the record contains substores to store complex data then we have to first
 			// serialize those data into its consecutive stores and then we can continue
 			// with normal processing
 			Ext.iterate(data, function(key, value) {

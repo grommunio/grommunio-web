@@ -223,16 +223,16 @@ class ReminderItemModule extends ItemModule
                         switch ($action['message_action']['action_type']) {
                             case 'snooze':
                                 if ($e->getCode() == MAPI_E_STORE_FULL) {
-                                    $e->setDisplayMessage(Language::getstring('Cannot snooze the reminder. You may be reminded again.') . '<br />' . $this->getOverQuotaMessage($store));
+                                    $e->setDisplayMessage(_('Cannot snooze the reminder. You may be reminded again.') . '<br />' . $this->getOverQuotaMessage($store));
                                 } else {
-                                    $e->setDisplayMessage(Language::getstring('Cannot snooze the reminder. You may be reminded again.'));
+                                    $e->setDisplayMessage(_('Cannot snooze the reminder. You may be reminded again.'));
                                 }
                                 break;
                             case 'dismiss':
                                 if ($e->getCode() == MAPI_E_STORE_FULL) {
-                                    $e->setDisplayMessage(Language::getstring('Cannot dismiss the reminder. You may be reminded again.') . '<br />' . $this->getOverQuotaMessage($store));
+                                    $e->setDisplayMessage(_('Cannot dismiss the reminder. You may be reminded again.') . '<br />' . $this->getOverQuotaMessage($store));
                                 } else {
-                                    $e->setDisplayMessage(Language::getstring('Cannot dismiss the reminder. You may be reminded again.'));
+                                    $e->setDisplayMessage(_('Cannot dismiss the reminder. You may be reminded again.'));
                                 }
                                 break;
                         }

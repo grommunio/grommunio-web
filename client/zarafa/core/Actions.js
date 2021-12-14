@@ -7,143 +7,143 @@ Ext.namespace('Zarafa.core');
  * The server then responds with an 'item' action, containing the email data.
  * @singleton
  */
-Zarafa.core.Actions = 
+Zarafa.core.Actions =
 {
 	/**
 	 * The list action retrieves a list of items such as mails, tasks, etc. The server then responds with a list action containing
-	 * a list of items. 
+	 * a list of items.
 	 * @property
 	 * @type String
 	 */
-	list : "list",
+	list: "list",
 
 	/**
-	 * Retrieves a list of entries in the global address book  
+	 * Retrieves a list of entries in the global address book
 	 * @property
 	 * @type String
 	 */
-	globaladdressbook : "globaladdressbook",
+	globaladdressbook: "globaladdressbook",
 
 	/**
 	 * Retrieves the hierarchy, a set of stores and folders within those stores. Used for updating the
-	 * hierarchy tree.  
+	 * hierarchy tree.
 	 * @property
 	 * @type String
 	 */
-	hierarchy : "hierarchy",
+	hierarchy: "hierarchy",
 
 	/**
 	 * Open an item, usually a mail item. The server responds with an item action.
 	 * @property
 	 * @type String
 	 */
-	open : 'open',
+	open: 'open',
 
 	/**
 	 * Can mean different things in different contexts. Can be used to request a single item from the server, and is returned by the
-	 * server to return the contents on a single item.  
+	 * server to return the contents on a single item.
 	 * @property
 	 * @type String
 	 */
-	item : 'item',
+	item: 'item',
 
 	/**
 	 * Update item(s)
 	 * @property
 	 * @type String
 	 */
-	update : 'update',
+	update: 'update',
 
 	/**
-	 * Save an item. 
+	 * Save an item.
 	 * @property
 	 * @type String
 	 */
-	save : 'save',
+	save: 'save',
 
 	/**
-	 * Copy an item. 
+	 * Copy an item.
 	 * @property
 	 * @type String
 	 */
-	copy : 'copy',
+	copy: 'copy',
 
 	/**
-	 * Delete an item. 
+	 * Delete an item.
 	 * @property
 	 * @type String
 	 */
-	'delete' : 'delete',
+	'delete': 'delete',
 
 	/**
-	 * Gets folder details. 
+	 * Gets folder details.
 	 * @property
 	 * @type String
 	 */
-	folder : 'folder',
+	folder: 'folder',
 
 	/**
-	 * Used for setting properties. 
+	 * Used for setting properties.
 	 * @property
 	 * @type String
 	 */
-	set : 'set',
+	set: 'set',
 
 	/**
-	 * Used for getting properties. 
+	 * Used for getting properties.
 	 * @property
 	 * @type String
 	 */
-	get : 'get',
+	get: 'get',
 
 	/**
-	 * Used for reset properties. 
+	 * Used for reset properties.
 	 * @property
 	 * @type String
 	 */
-	reset : 'reset',
+	reset: 'reset',
 
 	/**
-	 * Used for deleting properties/items. 
+	 * Used for deleting properties/items.
 	 * @property
 	 * @type String
 	 */
-	_delete : 'delete',
+	_delete: 'delete',
 
 	/**
 	 * Used for searching on a folder.
 	 * @property
 	 * @type String
 	 */
-	search : 'search',
+	search: 'search',
 
 	/**
 	 * Used for incremental search on folder.
 	 * @property
 	 * @type String
 	 */
-	updatesearch : 'updatesearch',
-	
+	updatesearch: 'updatesearch',
+
 	/**
 	 * Used for live scroll.
 	 * @property
 	 * @type String
 	 */
-	updatelist : 'updatelist',
+	updatelist: 'updatelist',
 
 	/**
 	 * Used for stopping search on folder.
 	 * @property
 	 * @type String
 	 */
-	stopsearch : 'stopsearch',
+	stopsearch: 'stopsearch',
 
 	/**
 	 * Used for requesting contacts from addressbook
 	 * @property
 	 * @type String
-	 */		
-	contacts : 'contacts',
+	 */
+	contacts: 'contacts',
 
 	/**
 	 * Used to send a keepalive to the server
@@ -225,19 +225,26 @@ Zarafa.core.Actions =
 	 * @property
 	 * @type String
 	 */
-	upload : 'upload',
+	upload: 'upload',
 
 	/**
 	 * Used for importing attached item into folder
 	 * @property
 	 * @type String
 	 */
-	import : 'import',
+	import: 'import',
 
 	/**
 	 * Used for shared stores unread mail updates
 	 * @property
 	 * @type String
 	 */
-	sharedstoreupdate: 'sharedstoreupdate'
+	sharedstoreupdate: 'sharedstoreupdate',
+
+	/**
+	 * Used for ensuring license for supported products.
+	 * @property
+	 * @type String
+	 */
+	ensure: 'ensure'
 };

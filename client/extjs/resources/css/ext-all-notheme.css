@@ -35,7 +35,6 @@ html,body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,p,bloc
     filter: alpha(opacity=50);
     width: 100%;
     height: 100%;
-    zoom: 1;
 }
 
 .ext-el-mask-msg {
@@ -96,7 +95,6 @@ html,body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,p,bloc
    width:0px!important;
    visibility:hidden!important;
    border:none!important;
-   zoom:1;
 }
 
 .x-hide-visibility {
@@ -129,7 +127,6 @@ html,body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,p,bloc
 }
 
 .x-repaint {
-    zoom: 1;
     background-color: transparent;
     -moz-outline: none;
     outline: none;
@@ -154,7 +151,6 @@ html,body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,p,bloc
     position: absolute;
     visibility: hidden;
     z-index: 20001;
-    zoom: 1;
     line-height: 1px;
     font-size: 1px;
     overflow: hidden;
@@ -209,7 +205,6 @@ html,body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,p,bloc
     overflow: hidden;
     left:0;
     top:0;
-    zoom:1;
 }
 
 .x-shadow {
@@ -229,7 +224,6 @@ html,body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,p,bloc
     border: 0;
     margin: 0;
     clear: none;
-    zoom: 1;
 }
 
 /* top  bottom */
@@ -312,7 +306,6 @@ html,body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,p,bloc
     left: -1000px;
     top: -1000px;
     visibility: hidden;
-    zoom: 1;
 }
 
 .x-drag-overlay {
@@ -344,7 +337,6 @@ html,body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,p,bloc
     filter: alpha(opacity=50);
     width:0;
     height:0;
-    zoom: 1;
 }
 
 #x-history-frame {
@@ -373,7 +365,6 @@ html,body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,p,bloc
     overflow:hidden;
 	filter:alpha(opacity=0);
 	opacity:0;
-	zoom:1;
 }
 
 .x-resizable-handle-east{
@@ -514,7 +505,6 @@ html,body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,p,bloc
 .x-tab-panel-header, .x-tab-panel-footer {
 	border: 1px solid;
     overflow:hidden;
-    zoom:1;
 }
 
 .x-tab-panel-header {
@@ -531,13 +521,11 @@ html,body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,p,bloc
 	width:100%;
     overflow:hidden;
     position:relative;
-    zoom:1;
 }
 
 ul.x-tab-strip {
 	display:block;
     width:5000px;
-    zoom:1;
 }
 
 ul.x-tab-strip-top{
@@ -609,7 +597,6 @@ ul.x-tab-strip li.x-tab-edge {
     font-size:1px !important;
     line-height:1px !important;
     overflow:hidden;
-    zoom:1;
     background:transparent !important;
     width:1px;
 }
@@ -1044,7 +1031,6 @@ textarea {
     position:relative;
     left:0;top:0;
     text-align: left;
-    zoom:1;
     white-space: nowrap;
 }
 
@@ -1123,7 +1109,6 @@ textarea {
     white-space: -pre-wrap;
     white-space: -o-pre-wrap;
     word-wrap: break-word;
-    zoom:1;
 }
 
 .x-form-grow-sizer p {
@@ -1137,7 +1122,6 @@ textarea {
 .x-form-item {
     display:block;
     margin-bottom:4px;
-    zoom:1;
 }
 
 .x-form-item label.x-form-item-label {
@@ -1292,7 +1276,6 @@ textarea {
     margin:0;
     width:48%;
     overflow:hidden;
-    zoom:1;
 }
 
 /* buttons */
@@ -1423,10 +1406,6 @@ fieldset.x-panel-collapsed .x-fieldset-bwrap {
     top:-1000px;
 }
 
-.ext-ie .x-fieldset-bwrap {
-    zoom:1;
-}
-
 .x-fieldset-noborder {
     border:0px none transparent;
 }
@@ -1478,7 +1457,6 @@ fieldset.x-panel-collapsed .x-fieldset-bwrap {
 
 .x-fieldset-bwrap {
     overflow:hidden;
-    zoom:1;
 }
 
 .x-fieldset-body {
@@ -1845,34 +1823,28 @@ fieldset.x-panel-collapsed .x-fieldset-bwrap {
 .x-btn-group-tl {
 	background: transparent no-repeat 0 0;
 	padding-left:3px;
-    zoom:1;
 }
 
 .x-btn-group-tr {
 	background: transparent no-repeat right 0;
-	zoom:1;
     padding-right:3px;
 }
 
 .x-btn-group-bc {
 	background: transparent repeat-x 0 bottom;
-    zoom:1;
 }
 
 .x-btn-group-bc .x-panel-footer {
-    zoom:1;
 }
 
 .x-btn-group-bl {
 	background: transparent no-repeat 0 bottom;
 	padding-left:3px;
-    zoom:1;
 }
 
 .x-btn-group-br {
 	background: transparent no-repeat right bottom;
 	padding-right:3px;
-    zoom:1;
 }
 
 .x-btn-group-mc {
@@ -1889,13 +1861,11 @@ fieldset.x-panel-collapsed .x-fieldset-bwrap {
 .x-btn-group-ml {
 	background: transparent repeat-y 0 0;
 	padding-left:3px;
-    zoom:1;
 }
 
 .x-btn-group-mr {
 	background: transparent repeat-y right 0;
 	padding-right:3px;
-    zoom:1;
 }
 
 .x-btn-group-bc .x-btn-group-footer {
@@ -1910,12 +1880,10 @@ fieldset.x-panel-collapsed .x-fieldset-bwrap {
 
 .x-btn-group-bwrap {
     overflow:hidden;
-    zoom:1;
 }
 
 .x-btn-group-body {
     overflow:hidden;
-    zoom:1;
 }
 
 .x-btn-group-notitle .x-btn-group-tc {
@@ -1931,7 +1899,6 @@ fieldset.x-panel-collapsed .x-fieldset-bwrap {
     position:relative;
     left:0;
     top:0;
-    zoom:1;
     overflow:hidden;
 }
 
@@ -2097,7 +2064,6 @@ fieldset.x-panel-collapsed .x-fieldset-bwrap {
 
 .x-panel-tbar, .x-panel-bbar, .x-window-tbar, .x-window-bbar, .x-tab-panel-tbar, .x-tab-panel-bbar, .x-plain-tbar, .x-plain-bbar {
     overflow:hidden;
-    zoom:1;
 }
 
 .x-toolbar-more .x-btn-small .x-btn-text{
@@ -2328,7 +2294,6 @@ div.x-toolbar-no-items {
 .x-grid3-header{
 	background: repeat-x 0 bottom;
 	cursor:default;
-    zoom:1;
     padding:1px 0 0 0;
 }
 
@@ -2355,7 +2320,6 @@ div.x-toolbar-no-items {
 
 .x-grid3-header-inner {
     overflow:hidden;
-    zoom:1;
     float:left;
 }
 
@@ -2396,14 +2360,8 @@ td.x-grid3-hd-over .x-grid3-hd-inner, td.sort-desc .x-grid3-hd-inner, td.sort-as
     position:static;
 }
 
-/* Body Styles */
-.x-grid3-body {
-	zoom:1;
-}
-
 .x-grid3-scroller {
 	overflow:auto;
-    zoom:1;
     position:relative;
 }
 
@@ -2481,7 +2439,6 @@ td.x-grid3-hd-over .x-grid3-hd-inner, td.sort-desc .x-grid3-hd-inner, td.sort-as
 .x-grid3-topbar, .x-grid3-bottombar{
     overflow:hidden;
 	display:none;
-	zoom:1;
     position:relative;
 }
 
@@ -2679,11 +2636,6 @@ a.x-grid3-hd-btn:hover {
     background-color:transparent;
 }
 
-/* Grouping classes */
-.x-grid-group, .x-grid-group-body, .x-grid-group-hd {
-    zoom:1;
-}
-
 .x-grid-group-hd {
     border-bottom: 2px solid;
     cursor:pointer;
@@ -2797,7 +2749,7 @@ a.x-grid3-hd-btn:hover {
     vertical-align: middle;
     font-family: tahoma;
     font-size: 11px;
-    padding: auto 1px;
+    padding: 0 1px;
     display: table-cell;
 }
 
@@ -2860,7 +2812,6 @@ a.x-grid3-hd-btn:hover {
 	opacity: .5;
     -moz-opacity: .5;
     filter:alpha(opacity=50);
-    zoom:1;
 }.ext-strict .ext-ie .x-tree .x-panel-bwrap{
     position:relative;
     overflow:hidden;
@@ -2995,7 +2946,6 @@ input.x-tree-node-cb {
 .ext-ie ul.x-tree-node-ct{
     font-size:0;
     line-height:0;
-    zoom:1;
 }
 
 .x-tree-node{
@@ -3069,10 +3019,6 @@ input.x-tree-node-cb {
 	display:none !important;
 }
 
-/* Fix for ie rootVisible:false issue */
-.x-tree-root-ct {
-    zoom:1;
-}
 .x-date-picker {
     border: 1px solid;
     border-top:0 none;
@@ -3193,7 +3139,6 @@ table.x-date-inner {
     display:block;
 	text-decoration:none;
     text-align:right;
-    zoom:1;
 }
 
 .x-date-inner .x-date-active{
@@ -3359,21 +3304,18 @@ td.x-date-mp-sep {
 	background: transparent no-repeat 0 -62px;
 	padding-top:3px;
     overflow:hidden;
-    zoom:1;
 }
 
 .x-tip .x-tip-tl {
 	background: transparent no-repeat 0 0;
 	padding-left:6px;
     overflow:hidden;
-    zoom:1;
 }
 
 .x-tip .x-tip-tr {
 	background: transparent no-repeat right 0;
 	padding-right:6px;
     overflow:hidden;
-    zoom:1;
 }
 
 .x-tip .x-tip-bc {
@@ -3385,13 +3327,11 @@ td.x-date-mp-sep {
 .x-tip .x-tip-bl {
 	background: transparent no-repeat 0 -59px;
 	padding-left:6px;
-    zoom:1;
 }
 
 .x-tip .x-tip-br {
 	background: transparent no-repeat right -59px;
 	padding-right:6px;
-    zoom:1;
 }
 
 .x-tip .x-tip-mc {
@@ -3401,13 +3341,11 @@ td.x-date-mp-sep {
 .x-tip .x-tip-ml {
 	background: no-repeat 0 -124px;
 	padding-left:6px;
-    zoom:1;
 }
 
 .x-tip .x-tip-mr {
 	background: transparent no-repeat right -124px;
 	padding-right:6px;
-    zoom:1;
 }
 
 .ext-ie .x-tip .x-tip-header,.ext-ie .x-tip .x-tip-tc {
@@ -3471,7 +3409,6 @@ td.x-date-mp-sep {
     height: 10px;
     overflow:hidden;
     background: transparent no-repeat 0 0;
-    zoom:1;
 }
 .x-tip-anchor-bottom {
     background-position: -9px 0;
@@ -3485,7 +3422,6 @@ td.x-date-mp-sep {
     width: 10px;
 }.x-menu {
 	z-index: 15000;
-	zoom: 1;
 	background: repeat-y;
 }
 
@@ -3498,7 +3434,6 @@ td.x-date-mp-sep {
 }
 
 .ext-ie .x-menu {
-    zoom:1;
     overflow:hidden;
 }
 
@@ -3735,7 +3670,6 @@ a.x-menu-item {
 
 .x-box-tl {
 	background: transparent no-repeat 0 0;
-    zoom:1;
 }
 
 .x-box-tc {
@@ -3752,7 +3686,6 @@ a.x-menu-item {
 	background: transparent repeat-y 0;
 	padding-left: 4px;
 	overflow: hidden;
-    zoom:1;
 }
 
 .x-box-mc {
@@ -3762,7 +3695,6 @@ a.x-menu-item {
 
 .x-box-mc h3 {
 	margin: 0 0 4px 0;
-    zoom:1;
 }
 
 .x-box-mr {
@@ -3773,7 +3705,6 @@ a.x-menu-item {
 
 .x-box-bl {
 	background: transparent no-repeat 0 -16px;
-    zoom:1;
 }
 
 .x-box-bc {
@@ -3796,14 +3727,12 @@ a.x-menu-item {
 	overflow: hidden;
 }.x-combo-list {
     border:1px solid;
-    zoom:1;
     overflow:hidden;
 }
 
 .x-combo-list-inner {
     overflow:auto;
     position:relative; /* for calculating scroll offsets */
-    zoom:1;
     overflow-x:hidden;
 }
 
@@ -3839,7 +3768,6 @@ a.x-menu-item {
 
 .x-panel-header {
     overflow:hidden;
-    zoom:1;
     padding:5px 3px 4px 5px;
     border:1px solid;
     line-height: 15px;
@@ -3871,7 +3799,6 @@ a.x-menu-item {
 
 .x-panel-header {
     overflow:hidden;
-    zoom:1;
 }
 
 .x-panel-tl .x-panel-header {
@@ -3884,7 +3811,6 @@ a.x-menu-item {
     padding-left:20px !important;
     background-repeat:no-repeat;
     background-position:0 4px;
-    zoom:1;
 }
 
 .x-panel-inline-icon {
@@ -3911,35 +3837,26 @@ a.x-menu-item {
 .x-panel-tl {
 	background: transparent no-repeat 0 0;
 	padding-left:6px;
-    zoom:1;
     border-bottom:1px solid;
 }
 
 .x-panel-tr {
 	background: transparent no-repeat right 0;
-	zoom:1;
     padding-right:6px;
 }
 
 .x-panel-bc {
 	background: transparent repeat-x 0 bottom;
-    zoom:1;
-}
-
-.x-panel-bc .x-panel-footer {
-    zoom:1;
 }
 
 .x-panel-bl {
 	background: transparent no-repeat 0 bottom;
 	padding-left:6px;
-    zoom:1;
 }
 
 .x-panel-br {
 	background: transparent no-repeat right bottom;
 	padding-right:6px;
-    zoom:1;
 }
 
 .x-panel-mc {
@@ -3957,13 +3874,11 @@ a.x-menu-item {
 .x-panel-ml {
 	background: repeat-y 0 0;
 	padding-left:6px;
-    zoom:1;
 }
 
 .x-panel-mr {
 	background: transparent repeat-y right 0;
 	padding-right:6px;
-    zoom:1;
 }
 
 .x-panel-bc .x-panel-footer {
@@ -3978,13 +3893,11 @@ a.x-menu-item {
 
 .x-panel-bwrap {
     overflow:hidden;
-    zoom:1;
     left:0;
     top:0;
 }
 .x-panel-body {
     overflow:hidden;
-    zoom:1;
 }
 
 .x-panel-collapsed .x-resizable-handle{
@@ -4012,7 +3925,6 @@ a.x-menu-item {
 
 .x-plain-bwrap {
     overflow:hidden;
-    zoom:1;
 }
 
 .x-plain {
@@ -4443,9 +4355,6 @@ a.x-menu-item {
 /* Begin bidirectionality settings (do not change) */
 .x-panel-reset .x-panel-body BDO[DIR="ltr"]  { direction: ltr; unicode-bidi: bidi-override }
 .x-panel-reset .x-panel-body BDO[DIR="rtl"]  { direction: rtl; unicode-bidi: bidi-override }
-.x-window {
-    zoom:1;
-}
 
 .x-window .x-window-handle {
     opacity:0;
@@ -4467,13 +4376,11 @@ a.x-menu-item {
 
 .x-window-header {
     overflow:hidden;
-    zoom:1;
 }
 
 .x-window-bwrap {
     z-index:1;
     position:relative;
-    zoom:1;
     left:0;top:0;
 }
 
@@ -4488,13 +4395,11 @@ a.x-menu-item {
 .x-window-tc {
 	background: transparent repeat-x 0 0;
 	overflow:hidden;
-    zoom:1;
 }
 
 .x-window-tl {
 	background: transparent no-repeat 0 0;
 	padding-left:6px;
-    zoom:1;
     z-index:1;
     position:relative;
 }
@@ -4506,12 +4411,10 @@ a.x-menu-item {
 
 .x-window-bc {
 	background: transparent repeat-x 0 bottom;
-    zoom:1;
 }
 
 .x-window-bc .x-window-footer {
     padding-bottom:6px;
-    zoom:1;
     font-size:0;
     line-height:0;
 }
@@ -4519,13 +4422,11 @@ a.x-menu-item {
 .x-window-bl {
 	background: transparent no-repeat 0 bottom;
 	padding-left:6px;
-    zoom:1;
 }
 
 .x-window-br {
 	background: transparent no-repeat right bottom;
 	padding-right:6px;
-    zoom:1;
 }
 
 .x-window-mc {
@@ -4537,13 +4438,11 @@ a.x-menu-item {
 .x-window-ml {
 	background: transparent repeat-y 0 0;
 	padding-left:6px;
-    zoom:1;
 }
 
 .x-window-mr {
 	background: transparent repeat-y right 0;
 	padding-right:6px;
-    zoom:1;
 }
 
 .x-window-body {
@@ -4954,7 +4853,6 @@ body.ext-ie6.x-body-masked .x-window select {
 
 .x-column-layout-ct {
     overflow:hidden;
-    zoom:1;
 }
 
 .x-column {
@@ -4962,12 +4860,10 @@ body.ext-ie6.x-body-masked .x-window select {
     padding:0;
     margin:0;
     overflow:hidden;
-    zoom:1;
 }
 
 .x-column-inner {
     overflow:hidden;
-    zoom:1;
 }
 
 /* mini mode */
@@ -5064,12 +4960,10 @@ body.ext-ie6.x-body-masked .x-window select {
 
 .x-box-layout-ct {
     overflow:hidden;
-    zoom:1;
 }
 
 .x-box-inner {
     overflow:hidden;
-    zoom:1;
     position:relative;
     left:0;
     top:0;
@@ -5122,7 +5016,6 @@ body.ext-ie6.x-body-masked .x-window select {
 .x-list-header{
 	background: repeat-x 0 bottom;
 	cursor:default;
-    zoom:1;
     height:22px;
 }
 
@@ -5149,13 +5042,11 @@ body.ext-ie6.x-body-masked .x-window select {
     overflow:auto;
     overflow-x:hidden;
     overflow-y:auto;
-    zoom:1;
     float: left;
     width: 100%;
 }
 
 .x-list-body dl {
-    zoom:1;
 }
 
 .x-list-body dt {
@@ -5166,7 +5057,6 @@ body.ext-ie6.x-body-masked .x-window select {
 	text-overflow: ellipsis;
     white-space: nowrap;
     cursor:pointer;
-    zoom:1;
 }
 
 .x-list-body dt em {
@@ -5200,16 +5090,11 @@ body.ext-ie6.x-body-masked .x-window select {
 }
 
 /* Shared styles */
-.x-slider {
-    zoom:1;
-}
-
 .x-slider-inner {
     position:relative;
     left:0;
     top:0;
     overflow:visible;
-    zoom:1;
 }
 
 .x-slider-focus {
@@ -5237,7 +5122,6 @@ body.ext-ie6.x-body-masked .x-window select {
 
 .x-slider-horz .x-slider-end {
     padding-right:7px;
-    zoom:1;
     background:transparent no-repeat right -44px;
 }
 
@@ -5272,7 +5156,6 @@ body.ext-ie6.x-body-masked .x-window select {
 
 .x-slider-vert .x-slider-end {
     padding-bottom:7px;
-    zoom:1;
     background:transparent no-repeat -22px bottom;
 }
 
@@ -5337,7 +5220,6 @@ body.ext-ie6.x-body-masked .x-window select {
 }
 
 .x-window-dlg .x-dlg-icon .ext-mb-content{
-    zoom: 1;
     margin-left: 47px;
 }
 

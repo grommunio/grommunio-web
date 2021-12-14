@@ -74,14 +74,14 @@ Zarafa.hierarchy.data.MAPIStoreRecord = Ext.extend(Zarafa.core.data.IPFRecord, {
 	 * @type Array
 	 * @private
 	 */
-	baseIdProperties : [ 'store_entryid', 'user_name' ],
+	baseIdProperties: [ 'store_entryid', 'user_name' ],
 
 	/**
 	 * Retrieves a folder by MAPI id.
 	 * @param {String} entryid the MAPI entry id of the folder.
 	 * @return {Zarafa.hierarchy.data.MAPIFolderRecord} folder object or undefined if not found.
 	 */
-	getFolder : function(entryid)
+	getFolder: function(entryid)
 	{
 		var store = this.getFolderStore();
 
@@ -93,7 +93,7 @@ Zarafa.hierarchy.data.MAPIStoreRecord = Ext.extend(Zarafa.core.data.IPFRecord, {
 	/**
 	 * @return {Boolean} True if this store supports search folders else false.
 	 */
-	hasSearchSupport : function()
+	hasSearchSupport: function()
 	{
 		if (this.get('store_support_mask')) {
 			if(Zarafa.core.mapi.StoreSupportMask.hasSearchSupport(this.get('store_support_mask'))) {
@@ -107,7 +107,7 @@ Zarafa.hierarchy.data.MAPIStoreRecord = Ext.extend(Zarafa.core.data.IPFRecord, {
 	/**
 	 * @return {Boolean} True if this is the public {@link Zarafa.core.MAPIStore store}.
 	 */
-	isPublicStore : function()
+	isPublicStore: function()
 	{
 		return (this.get('mdb_provider') === Zarafa.core.mapi.MDBProvider.ZARAFA_STORE_PUBLIC_GUID);
 	},
@@ -115,7 +115,7 @@ Zarafa.hierarchy.data.MAPIStoreRecord = Ext.extend(Zarafa.core.data.IPFRecord, {
 	/**
 	 * @return {Boolean} True if this is the default {@link Zarafa.core.MAPIStore store}.
 	 */
-	isDefaultStore : function()
+	isDefaultStore: function()
 	{
 		return (this.get('mdb_provider') === Zarafa.core.mapi.MDBProvider.ZARAFA_SERVICE_GUID);
 	},
@@ -123,7 +123,7 @@ Zarafa.hierarchy.data.MAPIStoreRecord = Ext.extend(Zarafa.core.data.IPFRecord, {
 	/**
 	 * @return {Boolean} returns true this is a shared store else false
 	 */
-	isSharedStore : function()
+	isSharedStore: function()
 	{
 		return (this.get('mdb_provider') === Zarafa.core.mapi.MDBProvider.ZARAFA_STORE_DELEGATE_GUID);
 	},
@@ -131,7 +131,7 @@ Zarafa.hierarchy.data.MAPIStoreRecord = Ext.extend(Zarafa.core.data.IPFRecord, {
 	/**
 	 * @return {Boolean} returns true if this is a archive store else false
 	 */
-	isArchiveStore : function()
+	isArchiveStore: function()
 	{
 		return (this.get('mdb_provider') === Zarafa.core.mapi.MDBProvider.ZARAFA_STORE_ARCHIVER_GUID);
 	},
@@ -140,7 +140,7 @@ Zarafa.hierarchy.data.MAPIStoreRecord = Ext.extend(Zarafa.core.data.IPFRecord, {
 	 * @param {String} entryid the MAPI entry id of the folder.
 	 * @return {String} a default folder key ('inbox', 'contacts', etc.) if the folder is a default folder, or undefined if otherwise.
 	 */
-	getDefaultFolderKey : function(entryid)
+	getDefaultFolderKey: function(entryid)
 	{
 		for(var key in this.data) {
 			if (key.indexOf('default_folder_') === 0 && this.get(key) == entryid) {
@@ -156,7 +156,7 @@ Zarafa.hierarchy.data.MAPIStoreRecord = Ext.extend(Zarafa.core.data.IPFRecord, {
 	 * @return {Zarafa.hierarchy.data.MAPIFolderRecord} folder if a default folder
 	 * with the given name was found, or undefined otherwise.
 	 */
-	getDefaultFolder : function(name)
+	getDefaultFolder: function(name)
 	{
 		var defaultFolderID = this.get('default_folder_' + name);
 
@@ -169,7 +169,7 @@ Zarafa.hierarchy.data.MAPIStoreRecord = Ext.extend(Zarafa.core.data.IPFRecord, {
 	 * @param {String} entryid the MAPI entry id of the folder.
 	 * @return {String} a shared folder key ('inbox', 'contacts', etc.) if the folder is a shared folder, or undefined if otherwise.
 	 */
-	getSharedFolderKey : function(entryid)
+	getSharedFolderKey: function(entryid)
 	{
 		for(var key in this.data) {
 			if (key.indexOf('shared_folder_') === 0 && this.get(key) == entryid) {
@@ -185,7 +185,7 @@ Zarafa.hierarchy.data.MAPIStoreRecord = Ext.extend(Zarafa.core.data.IPFRecord, {
 	 * @return {Zarafa.hierarchy.data.MAPIFolderRecord} folder if a shared folder
 	 * with the given name was found, or undefined otherwise.
 	 */
-	getSharedFolder : function(name)
+	getSharedFolder: function(name)
 	{
 		var sharedFolderID = this.get('shared_folder_' + name);
 
@@ -197,7 +197,7 @@ Zarafa.hierarchy.data.MAPIStoreRecord = Ext.extend(Zarafa.core.data.IPFRecord, {
 	/**
 	 * @return {Zarafa.hierarchy.data.MAPIFolderRecord} subtree folder.
 	 */
-	getSubtreeFolder : function()
+	getSubtreeFolder: function()
 	{
 		return this.getFolder(this.get('subtree_entryid'));
 	},
@@ -206,7 +206,7 @@ Zarafa.hierarchy.data.MAPIStoreRecord = Ext.extend(Zarafa.core.data.IPFRecord, {
 	 * Function is used to get the favorites root folder.
 	 * @return {Zarafa.hierarchy.data.MAPIFolderRecord} favorites root folder.
 	 */
-	getFavoritesRootFolder : function ()
+	getFavoritesRootFolder: function ()
 	{
 		var defaultStore = container.getHierarchyStore().getDefaultStore();
 		if(defaultStore) {
@@ -221,7 +221,7 @@ Zarafa.hierarchy.data.MAPIStoreRecord = Ext.extend(Zarafa.core.data.IPFRecord, {
 	 * @return {Mixed} The Message Action list.
 	 * @hide
 	 */
-	getMessageActions : Ext.emptyFn,
+	getMessageActions: Ext.emptyFn,
 
 	/**
 	 * Not to be implemented by {@link Zarafa.hierarchy.data.MAPIStoreRecord MAPIStoreRecord}
@@ -229,7 +229,7 @@ Zarafa.hierarchy.data.MAPIStoreRecord = Ext.extend(Zarafa.core.data.IPFRecord, {
 	 * @param {String} name The action name to add to the list.
 	 * @hide
 	 */
-	addMessageAction : Ext.emptyFn,
+	addMessageAction: Ext.emptyFn,
 
 	/**
 	 * Not to be implemented by {@link Zarafa.hierarchy.data.MAPIStoreRecord MAPIStoreRecord}
@@ -237,14 +237,14 @@ Zarafa.hierarchy.data.MAPIStoreRecord = Ext.extend(Zarafa.core.data.IPFRecord, {
 	 * @param {String} name The action name to delete from the list.
 	 * @hide
 	 */
-	deleteMessageAction : Ext.emptyFn,
+	deleteMessageAction: Ext.emptyFn,
 
 	/**
 	 * Not to be implemented bby {@link Zarafa.hierarchy.data.MAPIStoreRecord MAPIStoreRecord}
 	 * Clear all Message Actions.
 	 * @hide
 	 */
-	clearMessageActions : Ext.emptyFn,
+	clearMessageActions: Ext.emptyFn,
 
 	/**
 	 * Not to be implemented by {@link Zarafa.hierarchy.data.MAPIStoreRecord MAPIStoreRecord}
@@ -252,7 +252,7 @@ Zarafa.hierarchy.data.MAPIStoreRecord = Ext.extend(Zarafa.core.data.IPFRecord, {
 	 * @param {Zarafa.hierarchy.data.MAPIFolderRecord} folder The folder to copy the record to
 	 * @hide
 	 */
-	copyTo : Ext.emptyFn,
+	copyTo: Ext.emptyFn,
 
 	/**
 	 * Not to be implemented by {@link Zarafa.hierarchy.data.MAPIStoreRecord MAPIStoreRecord}
@@ -260,7 +260,7 @@ Zarafa.hierarchy.data.MAPIStoreRecord = Ext.extend(Zarafa.core.data.IPFRecord, {
 	 * @param {Zarafa.hierarchy.data.MAPIFolderRecord} folder The folder to copy the record to
 	 * @hide
 	 */
-	moveTo : Ext.emptyFn,
+	moveTo: Ext.emptyFn,
 
 	/**
 	 * Returns whether the MAPIStoreRecord supports the use of folders or not (See {@link #supportsSubStore}).
@@ -275,7 +275,7 @@ Zarafa.hierarchy.data.MAPIStoreRecord = Ext.extend(Zarafa.core.data.IPFRecord, {
 	 * Creates a Folder store for the {@link Zarafa.hierarchy.data.IPFRecord IPFRecord} (See {@link #createSubStore}).
 	 * @return {Zarafa.hierarchy.data.IPFSubStore} The new Folder store.
 	 */
-	createFolderStore : function()
+	createFolderStore: function()
 	{
 		return this.createSubStore('folders');
 	},
@@ -285,7 +285,7 @@ Zarafa.hierarchy.data.MAPIStoreRecord = Ext.extend(Zarafa.core.data.IPFRecord, {
 	 * @param {Zarafa.hierarchy.data.IPFSubStore} folderStore The Folder store.
 	 * @return {Zarafa.hierarchy.data.IPFSubStore} The Folder store.
 	 */
-	setFolderStore : function(folderStore)
+	setFolderStore: function(folderStore)
 	{
 		return this.setSubStore('folders', folderStore);
 	},
@@ -294,7 +294,7 @@ Zarafa.hierarchy.data.MAPIStoreRecord = Ext.extend(Zarafa.core.data.IPFRecord, {
 	 * Get the Folder store for the {@link Zarafa.core.data.IPFRecord IPFRecord} (See {@link #getSubStore}).
 	 * @return {Zarafa.hierarchy.data.IPFSubStore} The Folder store.
 	 */
-	getFolderStore : function()
+	getFolderStore: function()
 	{
 		return this.getSubStore('folders');
 	},
@@ -303,7 +303,7 @@ Zarafa.hierarchy.data.MAPIStoreRecord = Ext.extend(Zarafa.core.data.IPFRecord, {
 	 * Get the favorites store for the {@link Zarafa.core.data.IPFRecord IPFRecord}.
 	 * @returns {Zarafa.hierarchy.data.IPFSubStore} The Favorites store.
 	 */
-	getFavoritesStore : function ()
+	getFavoritesStore: function ()
 	{
 		var defaultStore = container.getHierarchyStore().getDefaultStore();
 		if(defaultStore) {

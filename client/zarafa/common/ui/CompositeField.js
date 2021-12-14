@@ -13,19 +13,19 @@ Zarafa.common.ui.CompositeField = Ext.extend(Ext.form.CompositeField, {
 	 * doesn't need to loop over {@link #eachItem} to construct an array of values to be stored into the
 	 * {@link Ext.data.Record} property for the {@link #name}.
 	 */
-	isSingleValued : false,
+	isSingleValued: false,
 
 	/**
 	 * @cfg {String} focusClass The CSS class to use when the checkbox receives focus (defaults to undefined)
 	 * this will not apply any focus class from the child elements of composite fields
 	 */
-	focusClass : undefined,
+	focusClass: undefined,
 
 	/**
 	 * @constructor
 	 * @param config Configuration object
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		config = config || {};
 
@@ -54,7 +54,7 @@ Zarafa.common.ui.CompositeField = Ext.extend(Ext.form.CompositeField, {
 	 * allocating them here we can be sure that this field really behaves
 	 * as a container.
 	 */
-	initComponent : function()
+	initComponent: function()
 	{
 		Zarafa.common.ui.CompositeField.superclass.initComponent.call(this);
 
@@ -72,7 +72,7 @@ Zarafa.common.ui.CompositeField = Ext.extend(Ext.form.CompositeField, {
 	},
 
 	/**
-	 * Cascades down the component/container heirarchy from this component (called first), calling the specified function with
+	 * Cascades down the component/container hierarchy from this component (called first), calling the specified function with
 	 * each component. The scope (<i>this</i>) of
 	 * function call will be the scope provided or the current component. The arguments to the function
 	 * will be the args provided or the current component. If the function returns false at any point,
@@ -82,7 +82,7 @@ Zarafa.common.ui.CompositeField = Ext.extend(Ext.form.CompositeField, {
 	 * @param {Array} args (optional) The args to call the function with (defaults to passing the current component)
 	 * @return {Ext.Container} this
 	 */
-	cascade : function(fn, scope, args)
+	cascade: function(fn, scope, args)
 	{
 		if (fn.apply(scope || this, args || [this]) !== false) {
 			if (this.items) {
@@ -123,7 +123,7 @@ Zarafa.common.ui.CompositeField = Ext.extend(Ext.form.CompositeField, {
 	 * @param {String} value
 	 * @return {Array} Array of Ext.Components
 	 */
-	find : Ext.Container.prototype.find,
+	find: Ext.Container.prototype.find,
 
 	/**
 	 * Find a component under this container at any level by a custom function.
@@ -134,7 +134,7 @@ Zarafa.common.ui.CompositeField = Ext.extend(Ext.form.CompositeField, {
 	 * @param {Object} scope (optional) The scope for the function
 	 * @return {Array} Array of Ext.Components
 	 */
-	findBy : Ext.Container.prototype.findBy,
+	findBy: Ext.Container.prototype.findBy,
 
 	/**
 	 * Find a component under this container at any level by xtype or class
@@ -144,7 +144,7 @@ Zarafa.common.ui.CompositeField = Ext.extend(Ext.form.CompositeField, {
 	 * (this is the default), or true to check whether this Component is directly of the specified xtype
 	 * @return {Array} Array of Ext.Components
 	 */
-	findByType : Ext.Container.prototype.findByType
+	findByType: Ext.Container.prototype.findByType
 });
 
 Ext.reg('zarafa.compositefield', Zarafa.common.ui.CompositeField);

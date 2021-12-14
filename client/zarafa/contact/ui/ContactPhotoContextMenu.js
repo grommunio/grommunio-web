@@ -10,22 +10,22 @@ Zarafa.contact.ui.ContactPhotoContextMenu = Ext.extend(Ext.menu.Menu, {
 	 * @constructor
 	 * @param {Object} config Configuration object
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		config = config || {};
 
 		Ext.applyIf(config, {
-			xtype : 'zarafa.contactphotocontextmenu',
-			items : [{
-				text : _('Change Picture') + '...',
-				iconCls : 'icon_change_picture',
-				handler : this.onChangePicture,
-				scope : this
+			xtype: 'zarafa.contactphotocontextmenu',
+			items: [{
+				text: _('Change Picture') + '...',
+				iconCls: 'icon_change_picture',
+				handler: this.onChangePicture,
+				scope: this
 			}, {
-				text : _('Remove Picture'),
-				iconCls : 'icon_delete',
-				handler : this.onRemovePicture,
-				scope : this
+				text: _('Remove Picture'),
+				iconCls: 'icon_delete',
+				handler: this.onRemovePicture,
+				scope: this
 			}]
 		});
 
@@ -35,7 +35,7 @@ Zarafa.contact.ui.ContactPhotoContextMenu = Ext.extend(Ext.menu.Menu, {
 	/**
 	 * Function is open attachment dialog to change the contact picture.
 	 */
-	onChangePicture : function()
+	onChangePicture: function()
 	{
 		var contactGeneralTab = this.parent;
 		contactGeneralTab.uploadContactPhoto();
@@ -44,7 +44,7 @@ Zarafa.contact.ui.ContactPhotoContextMenu = Ext.extend(Ext.menu.Menu, {
 	/**
 	 * Function is remove the contact picture and show default contact .
 	 */
-	onRemovePicture : function()
+	onRemovePicture: function()
 	{
 		var store = this.records.store;
 		var contactGeneralTab = this.parent;

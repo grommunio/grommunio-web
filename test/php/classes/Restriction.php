@@ -117,7 +117,7 @@ class Restriction {
 	/**
 	 * Create a subrestriction which is used for placing a restriction on properties
 	 * that holds object pointers for attachment and recipient tables.
-	 * @param Mixed $property The property wich must be checked
+	 * @param Mixed $property The property which must be checked
 	 * @param Mixed $restriction The subrestriction for the $proptag
 	 * @return Array the RES_SUBRESTRICTION restriction
 	 */

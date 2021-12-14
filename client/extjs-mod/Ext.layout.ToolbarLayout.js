@@ -7,10 +7,10 @@
 	Ext.override(Ext.layout.ToolbarLayout, {
 		// Fix the trigger width, Extjs defines it as 18 which only covers the '>>' button, but not
 		// the padding for the trigger button itself.
-		triggerWidth : 41,
+		triggerWidth: 41,
 
 		// The tabIndex that should be applied to the 'more' button when the toolbar overflows
-		overflowTabIndex : undefined,
+		overflowTabIndex: undefined,
 
 		/*
 		 * Fix that the ToolbarLayout will go over all items in the container
@@ -18,7 +18,7 @@
 		 * well. This ensures that the ToolbarLayout is capable of containing
 		 * other Containers as well.
 		 */
-		onLayout : function(ct, target) 
+		onLayout: function(ct, target)
 		{
 			orig_onLayout.apply(this, arguments);
 			ct.items.each(function(item) {
@@ -39,7 +39,7 @@
 		 * or shown (as this means we have to consider moving items
 		 * into or out of the overflow menu).
 		 */
-		configureItem : function(item)
+		configureItem: function(item)
 		{
 			var ct = this.container;
 			var target = ct.getLayoutTarget();
@@ -65,7 +65,7 @@
 		 * component itself. Because in those cases we want to ensure that the item
 		 * is removed or added into the overflow menu.
 		 */
-		hideItem : function(item)
+		hideItem: function(item)
 		{
 			var layout = this;
 			orig_hideItem.apply(this, arguments);
@@ -95,7 +95,7 @@
 		 * Override the unhideItem function to ensure we restore
 		 * the "show" and "hide" function to the original implementation again.
 		 */
-		unhideItem : function(item)
+		unhideItem: function(item)
 		{
 			item.show = item.xtbOrigShow;
 			delete item.xtbOrigShow;
@@ -123,12 +123,12 @@
 		 * And It will check if the toolbar item has menu and splitOnMoreMenu is set then extract all items of menu and
 		 * add those items into more menu.
 		 */
-		addComponentToMenu : function(menu, component)
+		addComponentToMenu: function(menu, component)
 		{
 			if (component.xtbHidden === true || component.hidden !== true) {
 
 				// Check if component has menu then extract all items of menu and add into more menu
-				if(Ext.isDefined(component.menu) && component.splitOnMoreMenu){
+				if(Ext.isDefined(component.menu) && component.splitOnMoreMenu) {
 					var items = component.menu.items.items;
 					Ext.each(items,function (item) {
 						var config = this.createMenuConfig(item);
@@ -154,7 +154,7 @@
 		 * Creates the expand trigger and menu, adding them to the <tr> at the extreme right of the
 		 * Toolbar table
 		 */
-		initMore : function ()
+		initMore: function ()
 		{
 			if (!this.more) {
 				/**
@@ -165,7 +165,7 @@
 				 * because the Toolbar is currently not wide enough.
 				 */
 				this.moreMenu = new Ext.menu.Menu({
-					ownerCt : this.container,
+					ownerCt: this.container,
 					listeners: {
 						beforeshow: this.onBeforeShowMoreMenu,
 						scope: this
@@ -183,9 +183,9 @@
 					ownerCt: this.container,
 					tooltip: _('More options'),
 					overflowText: _('More options'),
-					listeners : {
-						afterrender : this.afterMoreButtonRender,
-						scope : this
+					listeners: {
+						afterrender: this.afterMoreButtonRender,
+						scope: this
 					}
 				});
 
@@ -198,7 +198,7 @@
 		 * Handler which is use to add menu in more button after the {@link Ext.Button} rendered
 		 * @param button
          */
-		afterMoreButtonRender : function (button)
+		afterMoreButtonRender: function (button)
 		{
 			// Ext will add down arrow button on render time if the button has menu
 			// So, set the menu after the more button rendered successfully
@@ -213,7 +213,7 @@
 		 * @param {Zarafa.core.ui.menu.ConditionalMenu} menu The menu which is being opened.
 		 * @private
 		 */
-		onBeforeShowMoreMenu : function (menu)
+		onBeforeShowMoreMenu: function (menu)
 		{
 			this.beforeMoreShow(menu);
 			// move over the items list and call 'beforeOpen' on each item if that function exists

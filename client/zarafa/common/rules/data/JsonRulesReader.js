@@ -12,14 +12,14 @@ Zarafa.common.rules.data.JsonRulesReader = Ext.extend(Zarafa.core.data.JsonReade
 	 * which must be read from response. If no type is given, it will use the
 	 * record type for the {@link Zarafa.core.data.RecordCustomObjectType#ZARAFA_RULE}.
 	 */
-	constructor : function(meta, recordType)
+	constructor: function(meta, recordType)
 	{
 		meta = meta || {};
 
 		Ext.applyIf(meta, {
-			id : 'rule_id',
-			idProperty : 'rule_id',
-			dynamicRecord : false
+			id: 'rule_id',
+			idProperty: 'rule_id',
+			dynamicRecord: false
 		});
 
 		// If no recordType is provided, force the type to be a rule

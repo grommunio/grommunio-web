@@ -61,9 +61,6 @@ msgstr ""
 msgid "Policy name"
 msgstr ""
 
-msgid "Kopano Outlook Extension"
-msgstr ""
-
 msgid "Version"
 msgstr ""
 

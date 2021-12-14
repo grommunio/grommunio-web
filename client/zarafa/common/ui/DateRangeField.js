@@ -22,7 +22,7 @@ Zarafa.common.ui.DateRangeField = Ext.extend(Ext.Container, {
 	 * function and return {@link Ext.Date Date} in the {@link Ext.form.Field.getValue getValue}
 	 * function.
 	 */
-	startFieldConfig : {},
+	startFieldConfig: {},
 	/**
 	 * @cfg {Object} endFieldConfig The configuration which must be
 	 * applied to the end date {@link Ext.form.Field field}.
@@ -31,18 +31,18 @@ Zarafa.common.ui.DateRangeField = Ext.extend(Ext.Container, {
 	 * function and return {@link Ext.Date Date} in the {@link Ext.form.Field.getValue getValue}
 	 * function.
 	 */
-	endFieldConfig : {},
+	endFieldConfig: {},
 	/**
 	 * @cfg {Object} spacerConfig If this spacerConfig is provided, a {@link Ext.Spacer}
 	 * will be created between the startField and endField. The spacerConfig object will
 	 * be applied to the spacer object.
 	 */
-	spacerConfig : undefined,
+	spacerConfig: undefined,
 	/**
 	 * @cfg {Zarafa.core.DateRange} defaultValue The default {@link Zarafa.core.DateRange daterange}
 	 * object which must be set on this field.
 	 */
-	defaultValue : undefined,
+	defaultValue: undefined,
 	/**
 	 * @cfg {Number} defaultPeriod The default value which must be assumed for
 	 * the {@link Zarafa.core.DateRange daterange}. This value can be in minutes, hours, days, etc...
@@ -60,13 +60,13 @@ Zarafa.common.ui.DateRangeField = Ext.extend(Ext.Container, {
 	 * are allowed to be equal. This will prevent the startdate to be adjusted when the duedate is being
 	 * changed by the user
 	 */
-	allowEqualValue : false,
+	allowEqualValue: false,
 
 	/**
 	 * @constructor
 	 * @param {Object} Configuration object
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		config = config || {};
 
@@ -95,7 +95,7 @@ Zarafa.common.ui.DateRangeField = Ext.extend(Ext.Container, {
 				var start = new Date();
 				var end = start.clone().add(config.defaultPeriodType, config.defaultPeriod);
 
-				config.defaultValue = new Zarafa.core.DateRange({ startDate : start, dueDate : end });
+				config.defaultValue = new Zarafa.core.DateRange({ startDate: start, dueDate: end });
 			}
 		} else if (!Ext.isDefined(config.defaultPeriod)) {
 			// A default value was provided, but no defaultPeriod,
@@ -117,7 +117,7 @@ Zarafa.common.ui.DateRangeField = Ext.extend(Ext.Container, {
 	 * to display the start and end {@link Ext.Date Date} to this container.
 	 * @private
 	 */
-	addFieldItems : function()
+	addFieldItems: function()
 	{
 		if (Ext.isDefined(this.startFieldConfig)) {
 			if (this.layout !== 'form') {
@@ -125,7 +125,7 @@ Zarafa.common.ui.DateRangeField = Ext.extend(Ext.Container, {
 			}
 
 			this.startFieldConfig.listeners = Zarafa.core.Util.mergeListeners(this.startFieldConfig.listeners, {
-				change : this.onStartChange,
+				change: this.onStartChange,
 				scope: this
 			});
 
@@ -153,7 +153,7 @@ Zarafa.common.ui.DateRangeField = Ext.extend(Ext.Container, {
 			}
 
 			this.endFieldConfig.listeners = Zarafa.core.Util.mergeListeners(this.endFieldConfig.listeners, {
-				change : this.onEndChange,
+				change: this.onEndChange,
 				scope: this
 			});
 
@@ -174,7 +174,7 @@ Zarafa.common.ui.DateRangeField = Ext.extend(Ext.Container, {
 	 * @param {Zarafa.core.DateRange} daterange The new DateRange object
 	 * @private
 	 */
-	bindDateRange : function(daterange)
+	bindDateRange: function(daterange)
 	{
 		if (this.defaultValue) {
 			this.mun(this.defaulValue, 'update', this.onDateRangeUpdate, this);
@@ -199,7 +199,7 @@ Zarafa.common.ui.DateRangeField = Ext.extend(Ext.Container, {
 	 * @param {Mixed} oldValue The old value for the field
 	 * @private
 	 */
-	onStartChange : function(field, newValue, oldValue)
+	onStartChange: function(field, newValue, oldValue)
 	{
 		var range = this.defaultValue;
 		var oldRange = this.defaultValue.clone();
@@ -241,7 +241,7 @@ Zarafa.common.ui.DateRangeField = Ext.extend(Ext.Container, {
 	 * @param {Mixed} oldValue The old value for the field
 	 * @private
 	 */
-	onEndChange : function(field, newValue, oldValue)
+	onEndChange: function(field, newValue, oldValue)
 	{
 		var range = this.defaultValue;
 		var oldRange = this.defaultValue.clone();
@@ -276,7 +276,7 @@ Zarafa.common.ui.DateRangeField = Ext.extend(Ext.Container, {
 	 * without validation see {@link #setStartValue}.
 	 * @param {Zarafa.core.DateRange} The value to set
 	 */
-	setValue : function(value)
+	setValue: function(value)
 	{
 		this.bindDateRange(value);
 	},
@@ -286,7 +286,7 @@ Zarafa.common.ui.DateRangeField = Ext.extend(Ext.Container, {
 	 * To set the value with validation see {@link #setValue}.
 	 * @param {Zarafa.core.DateRange} The value to set
 	 */
-	setRawValue : function(value)
+	setRawValue: function(value)
 	{
 		this.bindDateRange(value);
 	},
@@ -296,7 +296,7 @@ Zarafa.common.ui.DateRangeField = Ext.extend(Ext.Container, {
 	 * To return the raw value see {@link #getRawValue}.
 	 * @return {Date} The date object
 	 */
-	getValue : function()
+	getValue: function()
 	{
 		return this.defaultValue;
 	},
@@ -306,7 +306,7 @@ Zarafa.common.ui.DateRangeField = Ext.extend(Ext.Container, {
 	 * To return a normalized value see {@link #getValue}.
 	 * @return {Date} The date object
 	 */
-	getRawValue : function()
+	getRawValue: function()
 	{
 		return this.defaultValue;
 	},
@@ -314,7 +314,7 @@ Zarafa.common.ui.DateRangeField = Ext.extend(Ext.Container, {
 	/**
 	 * Enable this component and fire the 'enable' event.
 	 */
-	enable : function()
+	enable: function()
 	{
 		Zarafa.common.ui.DateRangeField.superclass.enable.call(this);
 		this.startField.enable();
@@ -324,7 +324,7 @@ Zarafa.common.ui.DateRangeField = Ext.extend(Ext.Container, {
 	/**
 	 * Disable this component and fire the 'disable' event.
 	 */
-	disable : function()
+	disable: function()
 	{
 		Zarafa.common.ui.DateRangeField.superclass.disable.call(this);
 		this.startField.disable();
@@ -337,7 +337,7 @@ Zarafa.common.ui.DateRangeField = Ext.extend(Ext.Container, {
 	 * @param {Zarafa.core.DateRange} daterange The daterange which has been update
 	 * @param {Zarafa.core.DateRange} olddaterange The copy of the daterange object containing the old values
 	 */
-	onDateRangeUpdate : function(daterange, olddaterange)
+	onDateRangeUpdate: function(daterange, olddaterange)
 	{
 		if (daterange) {
 			if (this.rendered) {

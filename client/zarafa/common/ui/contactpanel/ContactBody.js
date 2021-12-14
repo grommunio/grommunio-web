@@ -12,7 +12,7 @@ Zarafa.common.ui.contactpanel.ContactBody = Ext.extend(Ext.form.FormPanel, {
 	 * has been {@link #update updated}. The arguments of this template will be the
 	 * {@link Zarafa.core.data.IPMRecord#data record.data} field.
 	 */
-	headerTemplate :
+	headerTemplate:
 		'<div class="preview-header-titlebox">' +
 			'<tpl if="!Ext.isEmpty(values.subject)">' +
 				'<span class="preview-title">{subject:htmlEncode}</span>' +
@@ -23,7 +23,7 @@ Zarafa.common.ui.contactpanel.ContactBody = Ext.extend(Ext.form.FormPanel, {
 	 * @constructor
 	 * @param {Object} config configuration object.
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		config = config || {};
 
@@ -32,80 +32,80 @@ Zarafa.common.ui.contactpanel.ContactBody = Ext.extend(Ext.form.FormPanel, {
 
 		config = Ext.applyIf(config, {
 			xtype: 'zarafa.contactbody',
-			border : false,
-			header :  true,
-			autoScroll : true,
-			unstyled : true,
-			autoWidth : true,
-			headerCfg : {
-				cls : 'preview-header-title'
+			border: false,
+			header: true,
+			autoScroll: true,
+			unstyled: true,
+			autoWidth: true,
+			headerCfg: {
+				cls: 'preview-header-title'
 			},
-			items : [{
+			items: [{
 				xtype:'fieldset',
 				title: _('Name'),
 				defaults: {
-					xtype : 'displayfield'
+					xtype: 'displayfield'
 				},
-				items : [{
-					fieldLabel : _('Full name'),
-					name : 'display_name'
+				items: [{
+					fieldLabel: _('Full name'),
+					name: 'display_name'
 				}, {
-					fieldLabel : _('Company'),
-					name : 'company_name'
+					fieldLabel: _('Company'),
+					name: 'company_name'
 				}, {
-					fieldLabel : _('Job Title'),
-					name : 'title'
+					fieldLabel: _('Job Title'),
+					name: 'title'
 				}, {
-					fieldLabel : _('File as'),
-					name : 'fileas'
+					fieldLabel: _('File as'),
+					name: 'fileas'
 				}]
 			}, {
 				xtype:'fieldset',
 				title: _('Phone Numbers'),
 				defaults: {
-					xtype : 'displayfield'
+					xtype: 'displayfield'
 				},
-				items : [{
-					fieldLabel : _('Business'),
-					name : 'business_telephone_number'
+				items: [{
+					fieldLabel: _('Business'),
+					name: 'business_telephone_number'
 				}, {
-					fieldLabel : _('Home'),
-					name : 'home_telephone_number'
+					fieldLabel: _('Home'),
+					name: 'home_telephone_number'
 				}, {
-					fieldLabel : _('Business Fax'),
-					name : 'business_fax_number'
+					fieldLabel: _('Business Fax'),
+					name: 'business_fax_number'
 				}, {
-					fieldLabel : _('Mobile'),
-					name : 'cellular_telephone_number'
+					fieldLabel: _('Mobile'),
+					name: 'cellular_telephone_number'
 				}]
 			}, {
 				xtype:'fieldset',
 				title: _('Email'),
 				defaults: {
-					xtype : 'displayfield'
+					xtype: 'displayfield'
 				},
-				items : [{
-					fieldLabel : _('Email'),
-					name : 'email_address_1'
+				items: [{
+					fieldLabel: _('Email'),
+					name: 'email_address_1'
 				}, {
-					fieldLabel : _('Display name'),
-					name : 'email_address_display_name_1'
+					fieldLabel: _('Display name'),
+					name: 'email_address_display_name_1'
 				}, {
-					fieldLabel : _('Webpage'),
-					name : 'webpage'
+					fieldLabel: _('Webpage'),
+					name: 'webpage'
 				}, {
-					fieldLabel : _('IM Address'),
-					name : 'im'
+					fieldLabel: _('IM Address'),
+					name: 'im'
 				}]
 			}, {
 				xtype:'fieldset',
 				title: _('Address'),
 				defaults: {
-					xtype : 'displayfield'
+					xtype: 'displayfield'
 				},
-				items : [{
-					fieldLabel : _('Business'),
-					name : 'business_address'
+				items: [{
+					fieldLabel: _('Business'),
+					name: 'business_address'
 				}]
 			}]
 		});

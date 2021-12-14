@@ -12,24 +12,24 @@ Zarafa.common.plugins.NumberSpinner = Ext.extend(Zarafa.common.plugins.SpinnerPl
 	/**
 	 * @cfg {Boolean} allowDecimals False to disallow decimal values (defaults to true)
 	 */
-	allowDecimals : true,
+	allowDecimals: true,
 	/**
 	 * @cfg {String} decimalSeparator Character(s) to allow as the decimal separator (defaults to '.')
 	 */
-	decimalSeparator : '.',
+	decimalSeparator: '.',
 	/**
 	 * @cfg {Number} decimalPrecision The maximum precision to display after the decimal separator (defaults to 2)
 	 */
-	decimalPrecision : 2,
+	decimalPrecision: 2,
 	/**
 	 * @cfg {Boolean} allowNegative False to prevent entering a negative sign (defaults to true)
 	 */
-	allowNegative : true,	
+	allowNegative: true,
 	/**
 	 * @constructor
 	 * @param {Object} config Configuration object
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		Ext.applyIf(this, config);
 
@@ -41,7 +41,7 @@ Zarafa.common.plugins.NumberSpinner = Ext.extend(Zarafa.common.plugins.SpinnerPl
 	 * this plugin has been hooked.
 	 * @param {Zarafa.common.ui.SpinnerField} The parent field to which this component is connected
 	 */
-	init : function(field)
+	init: function(field)
 	{
 		Zarafa.common.plugins.NumberSpinner.superclass.init.call(this, field);
 
@@ -101,7 +101,7 @@ Zarafa.common.plugins.NumberSpinner = Ext.extend(Zarafa.common.plugins.SpinnerPl
 	 * @param {String} value The value to set
 	 * @private
 	 */
-	setStringValue : Ext.emptyFn,
+	setStringValue: Ext.emptyFn,
 
 	/**
 	 * Reference to the original {@link Ext.form.Field#getValue} function
@@ -109,7 +109,7 @@ Zarafa.common.plugins.NumberSpinner = Ext.extend(Zarafa.common.plugins.SpinnerPl
 	 * @return {String} value The value to set
 	 * @private
 	 */
-	getStringValue : Ext.emptyFn,
+	getStringValue: Ext.emptyFn,
 
 	/**
 	 * Convert a String into a Float. This will convert the value from {@link #getStringValue}
@@ -118,7 +118,7 @@ Zarafa.common.plugins.NumberSpinner = Ext.extend(Zarafa.common.plugins.SpinnerPl
 	 * @return {Float} The float value representing the string
 	 * @protected
 	 */
-	stringToFloat : function(value)
+	stringToFloat: function(value)
 	{
 		return parseFloat(value);
 	},
@@ -129,7 +129,7 @@ Zarafa.common.plugins.NumberSpinner = Ext.extend(Zarafa.common.plugins.SpinnerPl
 	 * @return {String} The stringified value represented as percentage
 	 * @private
 	 */
-	floatToString : function(value)
+	floatToString: function(value)
 	{
 		if (Ext.isDefined(value)) {
 			return value.toString();
@@ -142,7 +142,7 @@ Zarafa.common.plugins.NumberSpinner = Ext.extend(Zarafa.common.plugins.SpinnerPl
 	 * @param {Number/String} value The value to set
 	 * @private
 	 */
-	setValue : function(value)
+	setValue: function(value)
 	{
 		this.setStringValue(this.floatToString(this.fixBoundries(value)));
 	},
@@ -153,7 +153,7 @@ Zarafa.common.plugins.NumberSpinner = Ext.extend(Zarafa.common.plugins.SpinnerPl
 	 * @return {Number} The selected number
 	 * @protected
 	 */
-	getValue : function()
+	getValue: function()
 	{
 		var stringValue = this.getStringValue();
 		if (Ext.isEmpty(stringValue)) {
@@ -170,7 +170,7 @@ Zarafa.common.plugins.NumberSpinner = Ext.extend(Zarafa.common.plugins.SpinnerPl
 	 * @param {Boolean} alternate True when the alternate change has been requested
 	 * @private
 	 */
-	spin : function(down, alternate)
+	spin: function(down, alternate)
 	{
 		if (this.field.rendered) {
 			this.field.onFocus();

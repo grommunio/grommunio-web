@@ -15,48 +15,49 @@ Zarafa.common.ui.messagepanel.AttachmentLinks = Ext.extend(Ext.DataView, {
 	 * @cfg {Number} maximum length of text allowed before truncations,
 	 * truncation will be replaced with ellipsis ('...').
 	 */
-	ellipsisStringStartLength : 20,
+	ellipsisStringStartLength: 20,
 
 	/**
 	 * @cfg {Number} maximum length of text allowed after truncations,
 	 * truncation will be replaced with ellipsis ('...').
 	 */
-	ellipsisStringEndLength : 20,
+	ellipsisStringEndLength: 20,
 
 	/**
 	 * @cfg {Number} maxHeight The maximum height the element which holds all
 	 * recipient is allowed to take before a scrollbar will be shown.
 	 */
-	maxHeight : 50,
+	maxHeight: 50,
 
 	/**
 	 * @cfg {String} fieldLabel The label which must be applied to template
 	 * as a prefix to the list of attachments.
 	 */
 	/* # TRANSLATORS: This message is used as label for the field which indicates which attachments are inside the message */
-	fieldLabel : pgettext('mail.previewpanel', 'Attachments'),
+	fieldLabel: pgettext('mail.previewpanel', 'Attachments'),
 
 	/**
 	 * @constructor
 	 * @param {Object} config configuration object.
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		config = config || {};
 
 		config = Ext.applyIf(config, {
 			xtype: 'zarafa.attachmentlinks',
-			plugins : [ 'zarafa.recordcomponentupdaterplugin' ],
-			border : false,
+			plugins: [ 'zarafa.recordcomponentupdaterplugin' ],
+			border: false,
 			autoScroll:true,
-			anchor : '100%',
+			anchor: '100%',
+			iconCls: 'icon_paperclip',
 			cls: 'preview-header-attachments',
-			multiSelect : false,
+			multiSelect: false,
 			overClass: 'zarafa-attachment-link-over',
 			itemSelector: 'span.zarafa-attachment-link',
-			tpl : new Ext.XTemplate(
+			tpl: new Ext.XTemplate(
 				'<div class="preview-header-attachmentbox">' +
-					'<div class="preview-attachment-title">{this.fieldLabel}:</div>' +
+					'<div class="preview-attachment-title icon_paperclip"></div>' +
 					'<div class="preview-attachment-data" style="max-height: {this.maxHeight}px">' +
 						'<tpl for=".">' +
 							'<span class="zarafa-attachment-link x-zarafa-boxfield-item" viewIndex="{viewIndex}">' +
@@ -69,11 +70,10 @@ Zarafa.common.ui.messagepanel.AttachmentLinks = Ext.extend(Ext.DataView, {
 					'</div>' +
 				'</div>',
 				{
-					compiled : true,
-					fieldLabel : config.fieldLabel || this.fieldLabel,
-					maxHeight : config.maxHeight || this.maxHeight,
-					ellipsisStringStartLength : config.ellipsisStringStartLength || this.ellipsisStringStartLength,
-					ellipsisStringEndLength : config.ellipsisStringEndLength || this.ellipsisStringEndLength
+					compiled: true,
+					maxHeight: config.maxHeight || this.maxHeight,
+					ellipsisStringStartLength: config.ellipsisStringStartLength || this.ellipsisStringStartLength,
+					ellipsisStringEndLength: config.ellipsisStringEndLength || this.ellipsisStringEndLength
 				}
 			)
 		});
@@ -90,14 +90,14 @@ Zarafa.common.ui.messagepanel.AttachmentLinks = Ext.extend(Ext.DataView, {
 	 * This will register the {@link #onAttachmentClicked} event handler and the {@link #onNodeContextMenu} event handler.
 	 * @private
 	 */
-	initComponent : function()
+	initComponent: function()
 	{
 		Zarafa.common.ui.messagepanel.AttachmentLinks.superclass.initComponent.call(this);
 
 		this.on({
-			'contextmenu' : this.onNodeContextMenu,
-			'click' : this.onAttachmentClicked,
-			scope : this
+			'contextmenu': this.onNodeContextMenu,
+			'click': this.onAttachmentClicked,
+			scope: this
 		});
 	},
 
@@ -113,7 +113,7 @@ Zarafa.common.ui.messagepanel.AttachmentLinks = Ext.extend(Ext.DataView, {
 	 * @return {Array} An Array of data objects to be processed by a repeating XTemplate. May also
 	 * contain <i>named</i> properties.
 	 */
-	collectData : function(records, startIndex)
+	collectData: function(records, startIndex)
 	{
 		var r = [];
 		for (var i = 0, len = records.length; i < len; i++) {
@@ -131,7 +131,7 @@ Zarafa.common.ui.messagepanel.AttachmentLinks = Ext.extend(Ext.DataView, {
 	 * {@link #bindStore bound} to this view.
 	 * @param {Zarafa.core.data.IPMRecord} record The record to apply
 	 */
-	setRecord : function(record)
+	setRecord: function(record)
 	{
 		if (record && record.get('hasattach') && record.hasVisibleAttachments()) {
 			if (record.isOpened()) {
@@ -145,23 +145,23 @@ Zarafa.common.ui.messagepanel.AttachmentLinks = Ext.extend(Ext.DataView, {
 	},
 
 	/**
-	 * overriden to get the viewIndex from an HTML element's attribute
+	 * overridden to get the viewIndex from an HTML element's attribute
 	 * by default the index is taken from the element's position within the group;
 	 * however if there are more than one groups, the indexes are wrong
 	 * @private
 	 */
-	updateIndexes : function(startIndex, endIndex)
+	updateIndexes: function(startIndex, endIndex)
 	{
 		var ns = this.all.elements;
 		startIndex = startIndex || 0;
-		endIndex = endIndex || ((endIndex === 0) ? 0 : (ns.length - 1));
+		endIndex = endIndex || ((endIndex === 0) ? 0: (ns.length - 1));
 		for(var i = startIndex; i <= endIndex; i++){
 				ns[i].viewIndex = ns[i].getAttribute('viewIndex');
 		}
 	},
 
 	/**
-	 * overriden to provide the correct index to {@link Ext.DataView#getRecord}
+	 * overridden to provide the correct index to {@link Ext.DataView#getRecord}
 	 * otherwise behaviour breaks when there is more than one group in the records (e.g. CC, BCC, etc.)
 	 * @param {Zarafa.core.data.IPMRecipientRecord} data The recipient record to be prepared
 	 * @param {Number} index
@@ -169,7 +169,7 @@ Zarafa.common.ui.messagepanel.AttachmentLinks = Ext.extend(Ext.DataView, {
 	 * @return {Object} new object with index appended
 	 * @private
 	 */
-	prepareData : function(data, index, record)
+	prepareData: function(data, index, record)
 	{
 		return Ext.apply({viewIndex: index}, data);
 	},
@@ -179,7 +179,7 @@ Zarafa.common.ui.messagepanel.AttachmentLinks = Ext.extend(Ext.DataView, {
 	 * @param {Array} nodes The nodes to evaluate
 	 * @return {Array} records The {@link Ext.data.Record} objects
 	 */
-	getRecords : function(nodes)
+	getRecords: function(nodes)
 	{
 		var records = [];
 
@@ -195,7 +195,7 @@ Zarafa.common.ui.messagepanel.AttachmentLinks = Ext.extend(Ext.DataView, {
 	 * @return {Record} record The {@link Ext.data.Record} object
 	 * @override
 	 */
-	getRecord : function(node)
+	getRecord: function(node)
 	{
 		return this.store.getAt(this.store.findExact('attach_num', parseInt(node.viewIndex, 10)));
 	},
@@ -206,8 +206,12 @@ Zarafa.common.ui.messagepanel.AttachmentLinks = Ext.extend(Ext.DataView, {
 	 * @param {Zarafa.core.data.MAPIRecord} record The record to update in this component
 	 * @param {Boolean} contentReset force the component to perform a full update of the data.
 	 */
-	update : function(record, contentReset)
+	update: function(record, contentReset)
 	{
+		if ( !this.getEl().dom ) {
+			return;
+		}
+
 		if (record && record instanceof Zarafa.core.data.MAPIRecord) {
 			// In case the recordcomponentupdaterplugin is installed
 			// we have a special action to update the component.
@@ -251,11 +255,11 @@ Zarafa.common.ui.messagepanel.AttachmentLinks = Ext.extend(Ext.DataView, {
 	 * @param {Ext.EventObject} evt Event object
 	 * @private
 	 */
-	onNodeContextMenu : function(dataView, index, node, evt)
+	onNodeContextMenu: function(dataView, index, node, evt)
 	{
 		Zarafa.core.data.UIFactory.openDefaultContextMenu(dataView.getRecord(node), {
-			position : evt.getXY(),
-			model : this.model
+			position: evt.getXY(),
+			model: this.model
 		});
 	}
 });

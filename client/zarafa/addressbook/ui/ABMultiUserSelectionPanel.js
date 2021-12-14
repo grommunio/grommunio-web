@@ -9,7 +9,7 @@ Zarafa.addressbook.ui.ABMultiUserSelectionPanel = Ext.extend(Ext.Panel, {
 	/**
 	 * @cfg {Function} callback the callback function to return to after selecting user from AdressBook.
 	 */
-	callback : Ext.emptyFn,
+	callback: Ext.emptyFn,
 
 	/**
 	 * @cfg {Function} convert the convert function which converts an
@@ -19,49 +19,49 @@ Zarafa.addressbook.ui.ABMultiUserSelectionPanel = Ext.extend(Ext.Panel, {
 	 * and optionally passes the {@link Ext.Component} which was generated from the
 	 * {@link #selectionCfg} which was used to select the recipient as second argument.
 	 */
-	convert : Ext.emptyFn,
+	convert: Ext.emptyFn,
 
 	/**
 	 * @cfg {Function} scope the scope in which the {@link #callback} will be called
 	 */
-	scope : undefined,
+	scope: undefined,
 
 	/**
 	 * @cfg {Ext.data.Store} store The store in which all records should be placed.
 	 */
-	store : undefined,
+	store: undefined,
 
 	/**
 	 * @cfg {Array} selectionCfg Array of {@link Zarafa.common.ui.BoxField} configuration
 	 * objects which are created below the User list. These will show which users
 	 * the user has selected.
 	 */
-	selectionCfg : undefined,
+	selectionCfg: undefined,
 
 	/**
 	 * @constructor
 	 * @param {Object} config Configuration structure
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		config = config || {};
 
 		var items = [{
-			xtype : 'zarafa.addressbookmainpanel',
-			ref : 'abPanel',
-			flex : 1,
-			hideContactsFolders : config.hideContactsFolders,
-			listRestriction : config.listRestriction
+			xtype: 'zarafa.addressbookmainpanel',
+			ref: 'abPanel',
+			flex: 1,
+			hideContactsFolders: config.hideContactsFolders,
+			listRestriction: config.listRestriction
 		}];
 
 		Ext.each(config.selectionCfg, function(cfg) {
 			var btn = {
-				xtype : 'button',
-				text : cfg.fieldLabel,
-				//width : 100,
+				xtype: 'button',
+				text: cfg.fieldLabel,
+				//width: 100,
 				autoHeight: true,
-				handler : this.onSelectionBtnClick,
-				scope : this
+				handler: this.onSelectionBtnClick,
+				scope: this
 			};
 
 			items.push({
@@ -70,18 +70,18 @@ Zarafa.addressbook.ui.ABMultiUserSelectionPanel = Ext.extend(Ext.Panel, {
 				hideLabel: true,
 				anchor: '100%',
 				autoHeight: false,
-				items : [ btn, cfg ]
+				items: [ btn, cfg ]
 			});
 		}, this);
 
 		Ext.applyIf(config, {
-			xtype : 'zarafa.abmultiuserselectionpanel',
-			cls : 'k-abmultiuserselectionpanel',
-			layout : {
-				type : 'vbox',
+			xtype: 'zarafa.abmultiuserselectionpanel',
+			cls: 'k-abmultiuserselectionpanel',
+			layout: {
+				type: 'vbox',
 				align: 'stretch'
 			},
-			items : items,
+			items: items,
 			buttons: [{
 				text: _('Ok'),
 				handler: this.onSubmit,
@@ -99,7 +99,7 @@ Zarafa.addressbook.ui.ABMultiUserSelectionPanel = Ext.extend(Ext.Panel, {
 	/**
 	 * Calls callback function
 	 */
-	doCallBack : function(){
+	doCallBack: function() {
 		var grid = this.abPanel.getGridPanel();
 		var sm = grid.getSelectionModel();
 		var records = sm.getSelections();
@@ -115,7 +115,7 @@ Zarafa.addressbook.ui.ABMultiUserSelectionPanel = Ext.extend(Ext.Panel, {
 	 * Initialize events
 	 * @private
 	 */
-	initEvents : function()
+	initEvents: function()
 	{
 		Zarafa.addressbook.ui.ABMultiUserSelectionPanel.superclass.initEvents.apply(this, arguments);
 
@@ -129,7 +129,7 @@ Zarafa.addressbook.ui.ABMultiUserSelectionPanel = Ext.extend(Ext.Panel, {
 	 * the selected user or group to the {@link Zarafa.core.ui.RecipientField recipientfield}
 	 * @private
 	 */
-	onAddressBookRowDblClick : function()
+	onAddressBookRowDblClick: function()
 	{
 		this.onSelectionBtnClick();
 	},
@@ -144,7 +144,7 @@ Zarafa.addressbook.ui.ABMultiUserSelectionPanel = Ext.extend(Ext.Panel, {
 	 * @param {Ext.EventObject} event The event information
 	 * @private
 	 */
-	onAddressBookRowContextMenu : function(grid, rowIndex, event)
+	onAddressBookRowContextMenu: function(grid, rowIndex, event)
 	{
 		var sm = grid.getSelectionModel();
 
@@ -163,8 +163,8 @@ Zarafa.addressbook.ui.ABMultiUserSelectionPanel = Ext.extend(Ext.Panel, {
 		}
 
 		Zarafa.core.data.UIFactory.openDefaultContextMenu(sm.getSelections(), {
-			position : event.getXY(),
-			dialog : this.dialog
+			position: event.getXY(),
+			dialog: this.dialog
 		});
 	},
 
@@ -175,7 +175,7 @@ Zarafa.addressbook.ui.ABMultiUserSelectionPanel = Ext.extend(Ext.Panel, {
 	 * @param {Ext.Button} btn The button which was clicked
 	 * @private
 	 */
-	onSelectionBtnClick : function(btn)
+	onSelectionBtnClick: function(btn)
 	{
 		var field = btn ? btn.ownerCt.get(1) : undefined;
 		var grid = this.abPanel.getGridPanel();
@@ -197,7 +197,7 @@ Zarafa.addressbook.ui.ABMultiUserSelectionPanel = Ext.extend(Ext.Panel, {
 	 * Function will store changed data in record and close the dialog
 	 * @private
 	 */
-	onSubmit : function()
+	onSubmit: function()
 	{
 		if (Ext.isFunction(this.callback)) {
 			if (this.callback.call(this.scope || this) !== false) {
@@ -216,7 +216,7 @@ Zarafa.addressbook.ui.ABMultiUserSelectionPanel = Ext.extend(Ext.Panel, {
 	 * Closes {@link Zarafa.core.ui.CreateFolderDialog CreateFolder} dialog
 	 * @private
 	 */
-	onCancel : function()
+	onCancel: function()
 	{
 		this.dialog.close();
 	}

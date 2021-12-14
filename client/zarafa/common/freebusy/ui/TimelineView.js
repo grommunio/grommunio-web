@@ -39,12 +39,12 @@ Zarafa.common.freebusy.ui.TimelineView = Ext.extend(Ext.BoxComponent,
 	 * The daysMap is an array mapping of all the days that the freebusy timeline will show. For
 	 * each day there is an object defined with the following information.
 	 * {
-	 *   label: Label of the day "Tuesday 12 February 2010"(String)
-	 *   currentDay: Indication whether this day is the current day (Boolean)
-	 *   timestamp: Timestamp of the start of the day (Number)
-	 *   displayNodeHeader: HTML node of the element that shows the day in the header, if not displayed set to false (HTML Element|boolean}
-	 *   displayNodeBody: HTML node of the element that shows the day in the body, if not displayed set to false (HTML Element|boolean}
-	 *   leftPos: The pixel offset for this day
+	 *  label: Label of the day "Tuesday 12 February 2010"(String)
+	 *  currentDay: Indication whether this day is the current day (Boolean)
+	 *  timestamp: Timestamp of the start of the day (Number)
+	 *  displayNodeHeader: HTML node of the element that shows the day in the header, if not displayed set to false (HTML Element|boolean}
+	 *  displayNodeBody: HTML node of the element that shows the day in the body, if not displayed set to false (HTML Element|boolean}
+	 *  leftPos: The pixel offset for this day
 	 * }
 	 * This property is set by the buildDayMapping method.
 	 */
@@ -53,9 +53,9 @@ Zarafa.common.freebusy.ui.TimelineView = Ext.extend(Ext.BoxComponent,
 	 * The hoursEachDayMap is an array mapping of the hours that have to be shown for each day. Each
 	 * day has the an object defined with the following information.
 	 * {
-	 *   label: Label of the hour "12:00"(String)
-	 *   startDayOffset: Number of seconds since start of the day (Number)
-	 *   workinghour: Indication whether this hour is a working hour(Boolean)
+	 *  label: Label of the hour "12:00"(String)
+	 *  startDayOffset: Number of seconds since start of the day (Number)
+	 *  workinghour: Indication whether this hour is a working hour(Boolean)
 	 * }
 	 * This property is set by the buildDayMapping method.
 	 */
@@ -80,7 +80,7 @@ Zarafa.common.freebusy.ui.TimelineView = Ext.extend(Ext.BoxComponent,
 	 * @cfg {Number} sumBlockRowHeight
 	 * The height of the sumblock rows (defaults to 10).
 	 */
-	sumBlockRowHeight : 12,
+	sumBlockRowHeight: 12,
 	/**
 	 * @cfg {Number} extraBodyHeight
 	 * Height that is added to the body container to match the height of the userlist body (defaults to 0).
@@ -195,7 +195,7 @@ Zarafa.common.freebusy.ui.TimelineView = Ext.extend(Ext.BoxComponent,
 	 * @type Ext.data.Store
 	 * @private
 	 */
-	blockStore : null,
+	blockStore: null,
 
 	/**
 	 * The sumblock store which contains all the sumblocks which must be rendered at the top of the timeline.
@@ -204,7 +204,7 @@ Zarafa.common.freebusy.ui.TimelineView = Ext.extend(Ext.BoxComponent,
 	 * @type Ext.data.Store
 	 * @private
 	 */
-	sumBlockStore : null,
+	sumBlockStore: null,
 
 	/**
 	 * Id prefix to make freebusy blocks on the timeline unique in combination with the record ID's
@@ -463,7 +463,7 @@ Zarafa.common.freebusy.ui.TimelineView = Ext.extend(Ext.BoxComponent,
 			// Get difference between centerOffset(viewport) and the startOffset(start of selection)
 			snapshot.diffOffset = startOffset - centerOffset;
 
-		}else{
+		} else {
 			// Retrieve the focus to be used after the refreshing has been done
 			snapshot.focusDateRange = this.getFocusDateRange();
 		}
@@ -500,8 +500,8 @@ Zarafa.common.freebusy.ui.TimelineView = Ext.extend(Ext.BoxComponent,
 			var centerTimestamp = this.findTimestampByTimelineXCoord(centerOffset);
 
 			// Create a daterange to be used to focus the viewport on
-			focusDateRange = new Zarafa.core.DateRange({ startDate : new Date(centerTimestamp*1000), dueDate : new Date(centerTimestamp*1000) });
-		}else{
+			focusDateRange = new Zarafa.core.DateRange({ startDate: new Date(centerTimestamp*1000), dueDate: new Date(centerTimestamp*1000) });
+		} else {
 			// Just focus on the center when the selection was not visible
 			focusDateRange = snapshot.focusDateRange;
 		}
@@ -539,7 +539,7 @@ Zarafa.common.freebusy.ui.TimelineView = Ext.extend(Ext.BoxComponent,
 		var focusStartTimestamp = dayMap.timestamp + this.hoursEachDayMap[ hourIndex ].startDayOffset;
 		var focusEndTimestamp = focusStartTimestamp + this.slotDuration;
 
-		return new Zarafa.core.DateRange({ startDate : new Date(focusStartTimestamp*1000), dueDate : new Date(focusEndTimestamp*1000) });
+		return new Zarafa.core.DateRange({ startDate: new Date(focusStartTimestamp*1000), dueDate: new Date(focusEndTimestamp*1000) });
 	},
 
 	/**
@@ -558,7 +558,7 @@ Zarafa.common.freebusy.ui.TimelineView = Ext.extend(Ext.BoxComponent,
 		var startTimestamp = this.findTimestampByTimelineXCoord(leftOffset);
 		var endTimestamp = this.findTimestampByTimelineXCoord(rightOffset);
 
-		return new Zarafa.core.DateRange({ startDate : new Date(startTimestamp*1000), dueDate : new Date(endTimestamp*1000) });
+		return new Zarafa.core.DateRange({ startDate: new Date(startTimestamp*1000), dueDate: new Date(endTimestamp*1000) });
 	},
 
 	/**
@@ -645,11 +645,11 @@ Zarafa.common.freebusy.ui.TimelineView = Ext.extend(Ext.BoxComponent,
 	 * Binding the blockStore and the userStore
 	 * @private
 	 */
-	afterRender : function(){
+	afterRender: function(){
 		Zarafa.common.freebusy.ui.TimelineView.superclass.afterRender.apply(this, arguments);
 
 		if (this.model.getBlockStore()) {
-			this.bindBlockStore(this.model.getBlockStore(), true); 
+			this.bindBlockStore(this.model.getBlockStore(), true);
 		}
 		if (this.model.getSumBlockStore()) {
 			this.bindSumBlockStore(this.model.getSumBlockStore(), true);
@@ -697,7 +697,7 @@ Zarafa.common.freebusy.ui.TimelineView = Ext.extend(Ext.BoxComponent,
 	 * @param {Number} rawHeight The height that was originally specified
 	 * @protected
 	 */
-	onResize : function(adjWidth, adjHeight, rawWidth, rawHeight){
+	onResize: function(adjWidth, adjHeight, rawWidth, rawHeight){
 		this.headerElem.setHeight(this.headerHeight);
 
 		this.bodyElem.setTop(this.headerHeight);
@@ -759,9 +759,9 @@ Zarafa.common.freebusy.ui.TimelineView = Ext.extend(Ext.BoxComponent,
 	 * @param {Object} cfg The options configuration passed to the {@link #addListener} call.
 	 * @private
 	 */
-	onBodyContextMenu : function(evt, target, cfg)
+	onBodyContextMenu: function(evt, target, cfg)
 	{
-		Zarafa.core.data.UIFactory.openContextMenu(Zarafa.core.data.SharedComponentType['common.contextmenu.freebusy.timelinebody'], undefined, { position : evt.getXY(), model : this.model });
+		Zarafa.core.data.UIFactory.openContextMenu(Zarafa.core.data.SharedComponentType['common.contextmenu.freebusy.timelinebody'], undefined, { position: evt.getXY(), model: this.model });
 	},
 
 	/**
@@ -773,17 +773,17 @@ Zarafa.common.freebusy.ui.TimelineView = Ext.extend(Ext.BoxComponent,
 	 */
 	onHeaderContextMenu: function(evt, target, cfg)
 	{
-		Zarafa.core.data.UIFactory.openContextMenu(Zarafa.core.data.SharedComponentType['common.contextmenu.freebusy.timelineheader'], undefined, { position : evt.getXY(), model : this.model });
+		Zarafa.core.data.UIFactory.openContextMenu(Zarafa.core.data.SharedComponentType['common.contextmenu.freebusy.timelineheader'], undefined, { position: evt.getXY(), model: this.model });
 	},
-	
+
 	/**
 	 * Regenerate the background image use for the day blocks
-	 * These are the horizontal lines that border the user blocks in the day blocks 
+	 * These are the horizontal lines that border the user blocks in the day blocks
 	 * Basically we have a background image of a pixel in the color of the border color
 	 * that we repeat in x-direction and we add it as many times as there are users in the userStore
 	 * (CSS multiple backgrounds)
 	 */
-	restyleBodyBackground : function()
+	restyleBodyBackground: function()
 	{
 		var backgroundStyle = 'url(data:image/gif;base64,R0lGODlhAQABAIABAObm5v///yH+EUNyZWF0ZWQgd2l0aCBHSU1QACwAAAAAAQABAAACAkQBADs=) repeat-x left top';
 		for ( var i=0; i<=this.userStore.getCount(); i++ ){
@@ -793,7 +793,7 @@ Zarafa.common.freebusy.ui.TimelineView = Ext.extend(Ext.BoxComponent,
 		for ( i=0; i<dayBlocks.length; i++ ){
 			Ext.get(dayBlocks[i]).setStyle('background', backgroundStyle);
 		}
-		
+
 	},
 
 	/**
@@ -827,7 +827,7 @@ Zarafa.common.freebusy.ui.TimelineView = Ext.extend(Ext.BoxComponent,
 
 		// Always scroll to the bottom of the page...
 		this.bodyElem.scrollTo("top", this.bodyElem.dom.scrollHeight);
-		
+
 		// Reset the background image, because they are the horizontal lines
 		this.restyleBodyBackground();
 	},
@@ -866,7 +866,7 @@ Zarafa.common.freebusy.ui.TimelineView = Ext.extend(Ext.BoxComponent,
 		var endDayIndex = Math.ceil(endOffsetPixels / this.dayWidth);
 
 		// Make sure the indexes do not exceed the number of days available.
-		startDayIndex = (startDayIndex < 0) ? 0 : startDayIndex;
+		startDayIndex = (startDayIndex < 0) ? 0: startDayIndex;
 		endDayIndex = (endDayIndex < this.daysMap.length) ? endDayIndex : (this.daysMap.length - 1);
 
 		// Determine what days need to be loaded extra and what days can be removed.
@@ -880,7 +880,7 @@ Zarafa.common.freebusy.ui.TimelineView = Ext.extend(Ext.BoxComponent,
 					loadDays[ loadDays.length ] = i;
 				}
 			// If day falls outside visual range
-			}else{
+			} else {
 				// If day is marked as displayed it needs to be cleaned up
 				if(this.daysMap[ i ].displayNodeBody){
 					cleanupDays[ cleanupDays.length ] = i;
@@ -986,7 +986,7 @@ Zarafa.common.freebusy.ui.TimelineView = Ext.extend(Ext.BoxComponent,
 		if(date instanceof Date){
 			date = Math.ceil(date.getTime()/1000);
 		// Make a timestamp out of a Daterange
-		}else if(date instanceof Zarafa.core.DateRange){
+		} else if(date instanceof Zarafa.core.DateRange){
 			var start = date.getStartDate().getTime()/1000;
 			var end = date.getDueDate().getTime()/1000;
 			var duration = end - start;
@@ -1027,7 +1027,7 @@ Zarafa.common.freebusy.ui.TimelineView = Ext.extend(Ext.BoxComponent,
 			if (!this.model.showOnlyWorkingHours() || (i >= startHour && i < endHour)) {
 				this.hoursEachDayMap[ this.hoursEachDayMap.length ] = {
 					// Run the hour through a formatter
-					label: Date.parseDate(i, 'G').format(_('G:i')),
+					label: Date.parseDate(i, 'G').formatDefaultTime(),
 					startDayOffset: i * this.slotDuration,
 					workingHour: (i >= startHour && i < endHour) ? true : false
 				};
@@ -1062,7 +1062,7 @@ Zarafa.common.freebusy.ui.TimelineView = Ext.extend(Ext.BoxComponent,
 			if (!this.model.showOnlyWorkingHours() || workDay) {
 				this.daysMap.push({
 					// Run date through formatter
-					// # TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
+					// # TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 					label: date.format(_('l jS F Y')),
 					currentDay: currDayCheck,
 					timestamp: date.getTime() / 1000,
@@ -1083,7 +1083,7 @@ Zarafa.common.freebusy.ui.TimelineView = Ext.extend(Ext.BoxComponent,
 	 * @param {Store} store The store to bind to this view
 	 * @private
 	 */
-	bindBlockStore : function(store, initial)
+	bindBlockStore: function(store, initial)
 	{
 		if(this.blockStore) {
 			this.mun(this.blockStore, 'load', this.onBlockLoad, this);
@@ -1104,7 +1104,7 @@ Zarafa.common.freebusy.ui.TimelineView = Ext.extend(Ext.BoxComponent,
 	 * @param {Store} store The store to bind to this view
 	 * @private
 	 */
-	bindSumBlockStore : function(store, initial)
+	bindSumBlockStore: function(store, initial)
 	{
 		if (this.sumBlockStore) {
 			this.mun(this.sumBlockStore, 'load', this.onSumBlocksLoad, this);
@@ -1126,7 +1126,7 @@ Zarafa.common.freebusy.ui.TimelineView = Ext.extend(Ext.BoxComponent,
 	 * @param {Object} options The options used the load the blocks from the server
 	 * @private
 	 */
-	onBlockLoad : function(ds, records, options){
+	onBlockLoad: function(ds, records, options){
 		if(this.all.getCount() === 0){
 			this.refresh();
 			return;
@@ -1144,7 +1144,7 @@ Zarafa.common.freebusy.ui.TimelineView = Ext.extend(Ext.BoxComponent,
 	 *
 	 * Renders the sum blocks that show the cumulative freebusy information for all the recipients.
 	 * The data from the blocks is combined into cumulative blocks for all recipients. When this
-	 * calculation is done it does it seperately for the different busy statuses. So you will get a
+	 * calculation is done it does it separately for the different busy statuses. So you will get a
 	 * different track for tentative, busy and outofoffice. By displaying them on top of eachother
 	 * the outofoffice is more important than busy and busy more important than tentative.
 	 *
@@ -1153,7 +1153,7 @@ Zarafa.common.freebusy.ui.TimelineView = Ext.extend(Ext.BoxComponent,
 	 * @param {Object} options The options from the load event
 	 * @private
 	 */
-	onSumBlocksLoad : function(store, records, options)
+	onSumBlocksLoad: function(store, records, options)
 	{
 		if (store.getCount() === 0) {
 			// No sum records are available, simply empty the sumBlockTemplate
@@ -1171,7 +1171,7 @@ Zarafa.common.freebusy.ui.TimelineView = Ext.extend(Ext.BoxComponent,
 	 * @param {Number} index Index of the record that has to be removed
 	 * @private
 	 */
-	onRemove : function(ds, record, index){
+	onRemove: function(ds, record, index){
 		var blockId = this.uniqueBlockId+"-"+record.id;
 		this.all.removeElement(blockId, true);
 		if (this.blockStore.getCount() === 0){
@@ -1183,7 +1183,7 @@ Zarafa.common.freebusy.ui.TimelineView = Ext.extend(Ext.BoxComponent,
 	 * Refreshes the view by reloading the data from the store and re-rendering the template.
 	 * @private
 	 */
-	refresh : function(){
+	refresh: function(){
 		// Empty the container of blocks
 		this.bodyBlockContainer.update("");
 		this.all.clear();
@@ -1215,7 +1215,7 @@ Zarafa.common.freebusy.ui.TimelineView = Ext.extend(Ext.BoxComponent,
 	 * @return {Array} List of HTML nodes
 	 * @private
 	 */
-	bufferBlockRender : function(records){
+	bufferBlockRender: function(records){
 		var div = document.createElement('div');
 		this.blockTemplate.overwrite(div, this.collectData(records));
 		var nodes = Ext.query(this.blockSelector, div);
@@ -1230,7 +1230,7 @@ Zarafa.common.freebusy.ui.TimelineView = Ext.extend(Ext.BoxComponent,
 	 * @return {Array} List of data for all records
 	 * @private
 	 */
-	collectData : function(records, startIndex, sumHeader){
+	collectData: function(records, startIndex, sumHeader){
 		var r = [];
 		for(var i = 0, len = records.length; i < len; i++){
 			r[r.length] = this.prepareData(records[i].data, startIndex+i, records[i], sumHeader);
@@ -1259,7 +1259,7 @@ Zarafa.common.freebusy.ui.TimelineView = Ext.extend(Ext.BoxComponent,
 		if(data.status != Zarafa.core.mapi.BusyStatus.UNKNOWN){
 			data.busyStatusName = Zarafa.core.mapi.BusyStatus.getName(data.status) || 'busy';
 			data.busyStatusName = data.busyStatusName.toLowerCase();
-		}else{
+		} else {
 			data.busyStatusName = 'blur';
 
 			if(this.model.showOnlyWorkingHours()) {
@@ -1309,7 +1309,7 @@ Zarafa.common.freebusy.ui.TimelineView = Ext.extend(Ext.BoxComponent,
 
 			if(blockStart < periodStart){
 				data.blockLeft = 0;
-			}else{
+			} else {
 				// Get the leftoffset of the start of the block
 				var pixelOffset = this.findBlockPixelOffset(blockStart, true);
 				data.blockLeft = pixelOffset;
@@ -1318,7 +1318,7 @@ Zarafa.common.freebusy.ui.TimelineView = Ext.extend(Ext.BoxComponent,
 			if(blockEnd > periodEnd){
 				// Run the block until the end of the timeline
 				data.blockWidth = this.bodyBackgroundElem.getWidth() - data.blockLeft;
-			}else{
+			} else {
 				// Get the leftoffset of the end of the block
 				var pixelOffset = this.findBlockPixelOffset(blockEnd, false);
 				// Offset has to be transformed into a width
@@ -1334,7 +1334,7 @@ Zarafa.common.freebusy.ui.TimelineView = Ext.extend(Ext.BoxComponent,
 	 * @return {Ext.data.Record[]} Filtered list of records
 	 * @private
 	 */
-	filterRecords : function(records){
+	filterRecords: function(records){
 		var filteredRecords = [];
 		var periodStart = this.daterange.getStartDate().getTime()/1000;
 		var periodEnd = this.daterange.getDueDate().getTime()/1000;
@@ -1377,11 +1377,11 @@ Zarafa.common.freebusy.ui.TimelineView = Ext.extend(Ext.BoxComponent,
 
 					// Convert the blockStart and blockEnd to seconds since start day
 					var blockStartDate = new Date(blockStart*1000);
-					var blockEndDate   = new Date(blockEnd*1000);
+					var blockEndDate  = new Date(blockEnd*1000);
 					var blockStartSecs = (blockStartDate.getHours()*60*60) +
-					        (blockStartDate.getMinutes()*60) + (blockStartDate.getSeconds());
+					    (blockStartDate.getMinutes()*60) + (blockStartDate.getSeconds());
 					var blockEndSecs = (blockEndDate.getHours()*60*60) +
-					        (blockEndDate.getMinutes()*60) + (blockEndDate.getSeconds());
+					    (blockEndDate.getMinutes()*60) + (blockEndDate.getSeconds());
 
 					// Check to see whether the start or end part of the block will show itself
 					var startBlockShown = (blockStartSecs >= workStart && blockStartSecs < workEnd);
@@ -1398,11 +1398,11 @@ Zarafa.common.freebusy.ui.TimelineView = Ext.extend(Ext.BoxComponent,
 					}
 
 				// Block duration is higher than the hours that are hidden
-				}else{
+				} else {
 					return true;
 				}
 			// No hours are hidden, so all blocks within the period duration are shown
-			}else{
+			} else {
 				return true;
 			}
 		}
@@ -1429,7 +1429,7 @@ Zarafa.common.freebusy.ui.TimelineView = Ext.extend(Ext.BoxComponent,
 		/*
 		 * If there is a difference of time between timestamp and day pointed by dayIndex then probably
 		 * timestamp is lying on next day, this thing occurs for 'showing working hours only' setup.
-		 * 
+		 *
 		 * if we are showing working hours only then appointments on saturday will have dayindex of
 		 * friday so we need to set it's offset to end of the day so directlly settings it's offset
 		 * to most end of the day.
@@ -1456,7 +1456,7 @@ Zarafa.common.freebusy.ui.TimelineView = Ext.extend(Ext.BoxComponent,
 		if(DSTSafeHours === 0 && DSTSafeMinutes === 0 && !inclusive){
 			// Set the pixel offset at the end of the current day
 			startDayPixelOffset = this.dayWidth;
-		}else{
+		} else {
 			var secondsSinceStartOfDay = ( ( DSTSafeHours * 60 ) + DSTSafeMinutes ) * 60;
 			startDayPixelOffset = this.findPixelOffsetStartOfDayBySecs(secondsSinceStartOfDay);
 		}
@@ -1505,7 +1505,7 @@ Zarafa.common.freebusy.ui.TimelineView = Ext.extend(Ext.BoxComponent,
 		var secondsSinceFirstHour = secondsSinceStartDay - firstHourStartDayOffsetSecs;
 		/**
 		 * Use the secondsSinceFirstHour:numVisibleSeconds ratio to turn the number of seconds since
-		 * the start of the first hour into the ammount of pixels since the start of the first hour.
+		 * the start of the first hour into the amount of pixels since the start of the first hour.
 		 */
 		var pixelOffset = (secondsSinceFirstHour / numVisibleSeconds) * this.dayWidth;
 		pixelOffset = Math.round(pixelOffset);
@@ -1554,7 +1554,7 @@ Zarafa.common.freebusy.ui.TimelineView = Ext.extend(Ext.BoxComponent,
 	 * @return {Number} Timestamp
 	 * @private
 	 */
-	findTimestampByTimelineXCoord : function(coordX){
+	findTimestampByTimelineXCoord: function(coordX){
 		var dayIndex = coordX / (this.dayWidth + this.daySpacing);
 		var pixelsPastDayStart = (dayIndex % 1) * (this.dayWidth + this.daySpacing);
 
@@ -1569,12 +1569,12 @@ Zarafa.common.freebusy.ui.TimelineView = Ext.extend(Ext.BoxComponent,
 			 * startDayOffset of the first hour.
 			 */
 			timeSinceStartOfDay = (ratioDay * durationVisHours) + this.hoursEachDayMap[0].startDayOffset;
-		}else{
+		} else {
 			// One slot duration past last shown hour slot
 			timeSinceStartOfDay = this.hoursEachDayMap[ this.hoursEachDayMap.length-1 ].startDayOffset + this.slotDuration;
 		}
 		/* Use timestamp of the start of the day to make an date object that we can add the hour and
-		 * minutes to. We devide the number of seconds since the start of the day to get the hour
+		 * minutes to. We divide the number of seconds since the start of the day to get the hour
 		 * and minutes. This we will add to the Date object by using the setHours and setMinutes
 		 * methods. This will prevent problems after Daylight Saving Time.
 		 */
@@ -1644,7 +1644,7 @@ Zarafa.common.freebusy.ui.TimelineView = Ext.extend(Ext.BoxComponent,
 	 * @param {Ext.data.Store} store The new store
 	 * @private
 	 */
-	onBlockStoreChange : function(store)
+	onBlockStoreChange: function(store)
 	{
 		this.bindBlockStore(store);
 	},
@@ -1654,7 +1654,7 @@ Zarafa.common.freebusy.ui.TimelineView = Ext.extend(Ext.BoxComponent,
 	 * that another sum block store is set.
 	 * @private
 	 */
-	onSumBlockStoreChange : function(store)
+	onSumBlockStoreChange: function(store)
 	{
 		this.bindSumBlockStore(store);
 	},
@@ -1664,7 +1664,7 @@ Zarafa.common.freebusy.ui.TimelineView = Ext.extend(Ext.BoxComponent,
 	 * @param {Boolean} hideNonWorkingHours True to hide the non-working hours
 	 * @private
 	 */
-	onShowWorkingHoursChange : function(hideNonWorkingHours)
+	onShowWorkingHoursChange: function(hideNonWorkingHours)
 	{
 		this.refreshTimeline();
 	},

@@ -46,7 +46,6 @@
 		<attribute name="checkRegExp" default="warning"/>
 		<attribute name="checkVars" default="error"/>
 		<attribute name="deprecated" default="warning"/>
-		<attribute name="fileoverviewTags" default="warning"/>
 		<attribute name="strictModuleDepCheck" default="warning"/>
 		<attribute name="undefinedVars" default="warning"/>
 		<attribute name="unknownDefines" default="warning"/>
@@ -84,7 +83,6 @@
 				<arg line="--jscomp_@{checkRegExp}=checkRegExp" />
 				<arg line="--jscomp_@{checkVars}=checkVars" />
 				<arg line="--jscomp_@{deprecated}=deprecated" />
-				<arg line="--jscomp_@{fileoverviewTags}=fileoverviewTags" />
 				<arg line="--jscomp_@{strictModuleDepCheck}=strictModuleDepCheck" />
 				<arg line="--jscomp_@{undefinedVars}=undefinedVars" />
 				<arg line="--jscomp_@{unknownDefines}=unknownDefines" />

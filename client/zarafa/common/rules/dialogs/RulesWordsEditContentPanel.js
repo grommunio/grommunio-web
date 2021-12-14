@@ -13,37 +13,37 @@ Zarafa.common.rules.dialogs.RulesWordsEditContentPanel = Ext.extend(Zarafa.core.
 	 * @cfg {Ext.data.Store} store The store which contains the words on which
 	 * is being filtered.
 	 */
-	store : undefined,
+	store: undefined,
 
 	/**
 	 * @constructor
 	 * @param config Configuration structure
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		config = config || {};
 
 		// Add in some standard configuration data.
 		Ext.applyIf(config, {
 			// Override from Ext.Component
-			xtype : 'zarafa.ruleswordseditcontentpanel',
+			xtype: 'zarafa.ruleswordseditcontentpanel',
 			// Override from Ext.Component
-			layout : 'fit',
-			width : 500,
-			height : 300,
-			title : _('Specify Words or Phrases'),
-			items : [{
-				xtype : 'zarafa.ruleswordseditpanel',
-				ref : 'rulesWordsEditPanel',
-				store : config.store,
-				buttons : [{
-					text : _('Ok'),
-					handler : this.onOk,
-					scope : this
+			layout: 'fit',
+			width: 500,
+			height: 300,
+			title: _('Specify Words or Phrases'),
+			items: [{
+				xtype: 'zarafa.ruleswordseditpanel',
+				ref: 'rulesWordsEditPanel',
+				store: config.store,
+				buttons: [{
+					text: _('Ok'),
+					handler: this.onOk,
+					scope: this
 				},{
-					text : _('Cancel'),
-					handler : this.onCancel,
-					scope : this
+					text: _('Cancel'),
+					handler: this.onCancel,
+					scope: this
 				}]
 			}]
 		});
@@ -57,7 +57,7 @@ Zarafa.common.rules.dialogs.RulesWordsEditContentPanel = Ext.extend(Zarafa.core.
 	 * the content panel.
 	 * @private
 	 */
-	onOk : function()
+	onOk: function()
 	{
 		// In case word field still contain some word to add.
 		if (this.rulesWordsEditPanel.onWordAdd() !== false) {
@@ -74,7 +74,7 @@ Zarafa.common.rules.dialogs.RulesWordsEditContentPanel = Ext.extend(Zarafa.core.
 	 * the content panel.
 	 * @private
 	 */
-	onCancel : function()
+	onCancel: function()
 	{
 		this.close();
 	}

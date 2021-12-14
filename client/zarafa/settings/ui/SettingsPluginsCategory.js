@@ -6,7 +6,7 @@ Ext.namespace('Zarafa.settings.ui');
  * @xtype zarafa.settingspluginscategory
  *
  * The default available category for users which will
- * load the miscelaneous settings for the plugins. If plugins
+ * load the miscellaneous settings for the plugins. If plugins
  * don't wish to create a separate category, then they can
  * decide to only register a single widget to this common
  * Plugins category.
@@ -25,25 +25,25 @@ Zarafa.settings.ui.SettingsPluginsCategory = Ext.extend(Zarafa.settings.ui.Setti
 	 * @constructor
 	 * @param {Object} config Configuration object
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		config = config || {};
 
 		Ext.applyIf(config, {
-			title : _('Plugins'),
-			categoryIndex : 9998,
-			iconCls : 'zarafa-settings-category-plugins',
+			title: _('Plugins'),
+			categoryIndex: 9998,
+			iconCls: 'zarafa-settings-category-plugins',
 			autoScroll: false,
 			layout: {
 				type: 'vbox',
 				align: 'stretch',
-				pack  : 'start'
+				pack: 'start'
 			},
-			items : [
+			items: [
 				{
-					xtype : 'zarafa.settingspluginswidget',
-					settingsContext : config.settingsContext,
-					flex : 1
+					xtype: 'zarafa.settingspluginswidget',
+					settingsContext: config.settingsContext,
+					flex: 1
 				},
 				container.populateInsertionPoint('context.settings.category.plugins', this)
 			]

@@ -12,7 +12,7 @@ Zarafa.contact.dialogs.ContactDetailTab = Ext.extend(Ext.form.FormPanel, {
 	 * @constructor
 	 * @param {Object} config configuration object.
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		config = config || {};
 
@@ -20,20 +20,20 @@ Zarafa.contact.dialogs.ContactDetailTab = Ext.extend(Ext.form.FormPanel, {
 		config.plugins.push('zarafa.recordcomponentupdaterplugin');
 
 		Ext.applyIf(config, {
-			xtype : 'zarafa.contactdetailtab',
-			cls : 'zarafa-contactdetailtab',
-			title : _('Details'),
-			autoScroll : true,
-			labelWidth : 120,
-			labelAlign : 'left',
-			defaults : {
-				columnWidth : 0.5,
-				height : 120,
-				border : false,
-				header : false,
-				xtype : 'fieldset'
+			xtype: 'zarafa.contactdetailtab',
+			cls: 'zarafa-contactdetailtab',
+			title: _('Details'),
+			autoScroll: true,
+			labelWidth: 120,
+			labelAlign: 'left',
+			defaults: {
+				columnWidth: 0.5,
+				height: 120,
+				border: false,
+				header: false,
+				xtype: 'fieldset'
 			},
-			items : [
+			items: [
 				this.createOfficeFieldset(),
 				this.createOfficeFieldset2(),
 				this.createNameFieldset(),
@@ -49,33 +49,33 @@ Zarafa.contact.dialogs.ContactDetailTab = Ext.extend(Ext.form.FormPanel, {
 	 * @return {Object} config object for creating {@link Ext.form.FieldSet FieldSet}.
 	 * @private
 	 */
-	createOfficeFieldset : function()
+	createOfficeFieldset: function()
 	{
 		return {
-			defaultType : 'textfield',
-			defaults : {
-				anchor : '100%'
+			defaultType: 'textfield',
+			defaults: {
+				anchor: '100%'
 			},
-			items : [{
-				fieldLabel : _('Department'),
-				name : 'department_name',
-				listeners : {
-					scope : this,
-					change : this.onFieldChange
+			items: [{
+				fieldLabel: _('Department'),
+				name: 'department_name',
+				listeners: {
+					scope: this,
+					change: this.onFieldChange
 				}
 			}, {
-				fieldLabel : _('Office location'),
-				name : 'office_location',
-				listeners : {
-					scope : this,
-					change : this.onFieldChange
+				fieldLabel: _('Office location'),
+				name: 'office_location',
+				listeners: {
+					scope: this,
+					change: this.onFieldChange
 				}
 			}, {
-				fieldLabel : _('Profession'),
-				name : 'profession',
-				listeners : {
-					scope : this,
-					change : this.onFieldChange
+				fieldLabel: _('Profession'),
+				name: 'profession',
+				listeners: {
+					scope: this,
+					change: this.onFieldChange
 				}
 			}]
 		};
@@ -86,26 +86,26 @@ Zarafa.contact.dialogs.ContactDetailTab = Ext.extend(Ext.form.FormPanel, {
 	 * @return {Object} config object for creating {@link Ext.form.FieldSet FieldSet}.
 	 * @private
 	 */
-	createOfficeFieldset2 : function()
+	createOfficeFieldset2: function()
 	{
 		return {
-			defaultType : 'textfield',
-			defaults : {
-				anchor : '100%'
+			defaultType: 'textfield',
+			defaults: {
+				anchor: '100%'
 			},
-			items : [{
-				fieldLabel : _('Manager\'s name'),
-				name : 'manager_name',
-				listeners : {
-					scope : this,
-					change : this.onFieldChange
+			items: [{
+				fieldLabel: _('Manager\'s name'),
+				name: 'manager_name',
+				listeners: {
+					scope: this,
+					change: this.onFieldChange
 				}
 			}, {
-				fieldLabel : _('Assistant\'s name'),
-				name : 'assistant',
-				listeners : {
-					scope : this,
-					change : this.onFieldChange
+				fieldLabel: _('Assistant\'s name'),
+				name: 'assistant',
+				listeners: {
+					scope: this,
+					change: this.onFieldChange
 				}
 			}]
 		};
@@ -116,63 +116,63 @@ Zarafa.contact.dialogs.ContactDetailTab = Ext.extend(Ext.form.FormPanel, {
 	 * @return {Object} config object for creating {@link Ext.form.FieldSet FieldSet}.
 	 * @private
 	 */
-	createNameFieldset : function()
+	createNameFieldset: function()
 	{
 		var tplString = '<tpl for="."><div class="x-combo-list-item">{displayText:htmlEncodeDefaultValue(Zarafa.contact.data.config.NBSP)}</div></tpl>';
 
 		return {
-			defaultType : 'textfield',
-			defaults : {
-				anchor : '100%'
+			defaultType: 'textfield',
+			defaults: {
+				anchor: '100%'
 			},
-			items : [{
-				fieldLabel : _('Nickname'),
-				name : 'nickname',
-				listeners : {
-					scope : this,
-					change : this.onFieldChange
+			items: [{
+				fieldLabel: _('Nickname'),
+				name: 'nickname',
+				listeners: {
+					scope: this,
+					change: this.onFieldChange
 				}
 			}, {
-				xtype : 'combo',
-				fieldLabel : _('Title'),
-				editable : false,
-				name : 'display_name_prefix',
-				mode : 'local',
-				triggerAction : 'all',
-				store : {
-					xtype : 'arraystore',
-					fields : ['displayText'],
-					data : Zarafa.contact.data.config.Prefix
+				xtype: 'combo',
+				fieldLabel: _('Title'),
+				editable: false,
+				name: 'display_name_prefix',
+				mode: 'local',
+				triggerAction: 'all',
+				store: {
+					xtype: 'arraystore',
+					fields: ['displayText'],
+					data: Zarafa.contact.data.config.Prefix
 				},
-				tpl : new Ext.XTemplate(tplString, {
-					compiled : true		// compile immediately
+				tpl: new Ext.XTemplate(tplString, {
+					compiled: true		// compile immediately
 				}),
-				displayField : 'displayText',
-				valueField : 'displayText',
-				listeners : {
-					scope : this,
-					change : this.onNameChange
+				displayField: 'displayText',
+				valueField: 'displayText',
+				listeners: {
+					scope: this,
+					change: this.onNameChange
 				}
 			}, {
-				xtype : 'combo',
-				fieldLabel : _('Suffix'),
-				editable : false,
-				name : 'generation',
-				mode : 'local',
-				triggerAction : 'all',
-				store : {
-					xtype : 'arraystore',
-					fields : ['displayText'],
-					data : Zarafa.contact.data.config.Suffix
+				xtype: 'combo',
+				fieldLabel: _('Suffix'),
+				editable: false,
+				name: 'generation',
+				mode: 'local',
+				triggerAction: 'all',
+				store: {
+					xtype: 'arraystore',
+					fields: ['displayText'],
+					data: Zarafa.contact.data.config.Suffix
 				},
-				tpl : new Ext.XTemplate(tplString, {
-					compiled : true		// compile immediately
+				tpl: new Ext.XTemplate(tplString, {
+					compiled: true		// compile immediately
 				}),
-				displayField : 'displayText',
-				valueField : 'displayText',
-				listeners : {
-					scope : this,
-					change : this.onNameChange
+				displayField: 'displayText',
+				valueField: 'displayText',
+				listeners: {
+					scope: this,
+					change: this.onNameChange
 				}
 			}]
 		};
@@ -183,41 +183,41 @@ Zarafa.contact.dialogs.ContactDetailTab = Ext.extend(Ext.form.FormPanel, {
 	 * @return {Object} config object for creating {@link Ext.form.FieldSet FieldSet}.
 	 * @private
 	 */
-	createDateFieldset : function()
+	createDateFieldset: function()
 	{
 		return {
-			defaultType : 'textfield',
-			defaults : {
-				anchor : '100%'
+			defaultType: 'textfield',
+			defaults: {
+				anchor: '100%'
 			},
-			items : [{
-				fieldLabel : _('Spouse/Partner'),
-				name : 'spouse_name',
-				listeners : {
-					scope : this,
-					change : this.onFieldChange
+			items: [{
+				fieldLabel: _('Spouse/Partner'),
+				name: 'spouse_name',
+				listeners: {
+					scope: this,
+					change: this.onFieldChange
 				}
 			}, {
-				xtype : 'datefield',
-				fieldLabel : _('Birthday'),
-				ref : '../birthdayField',
-				name : 'birthday',
-				// # TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
-				format : ('d/m/Y'),
-				listeners : {
-					scope : this,
-					change : this.onDateChange
+				xtype: 'datefield',
+				fieldLabel: _('Birthday'),
+				ref: '../birthdayField',
+				name: 'birthday',
+				// # TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
+				format: ('d/m/Y'),
+				listeners: {
+					scope: this,
+					change: this.onDateChange
 				}
 			}, {
-				xtype : 'datefield',
-				fieldLabel : _('Anniversary'),
-				ref : '../anniversaryField',
-				name : 'wedding_anniversary',
-				// # TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
-				format : ('d/m/Y'),
-				listeners : {
-					scope : this,
-					change : this.onDateChange
+				xtype: 'datefield',
+				fieldLabel: _('Anniversary'),
+				ref: '../anniversaryField',
+				name: 'wedding_anniversary',
+				// # TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
+				format: ('d/m/Y'),
+				listeners: {
+					scope: this,
+					change: this.onDateChange
 				}
 			}]
 		};
@@ -229,7 +229,7 @@ Zarafa.contact.dialogs.ContactDetailTab = Ext.extend(Ext.form.FormPanel, {
 	 * @param {Zarafa.core.data.IPMRecord} record The record update the panel with.
 	 * @param {Boolean} contentReset force the component to perform a full update of the data.
 	 */
-	update : function(record, contentReset)
+	update: function(record, contentReset)
 	{
 		if (Ext.isEmpty(record)) {
 			return;
@@ -244,7 +244,7 @@ Zarafa.contact.dialogs.ContactDetailTab = Ext.extend(Ext.form.FormPanel, {
 	 * Update the {@link Zarafa.core.data.IPMRecord IPMRecord} with the data from the {@link Ext.Panel Panel}.
 	 * @param {Zarafa.core.data.IPMRecord} record The record which has to be updated
 	 */
-	updateRecord : function(record)
+	updateRecord: function(record)
 	{
 		record.beginEdit();
 
@@ -274,10 +274,10 @@ Zarafa.contact.dialogs.ContactDetailTab = Ext.extend(Ext.form.FormPanel, {
 
 		// Regenerate the display name
 		if (record.isModifiedSinceLastUpdate('display_name_prefix') ||
-		    record.isModifiedSinceLastUpdate('given_name') ||
-		    record.isModifiedSinceLastUpdate('middle_name') ||
-		    record.isModifiedSinceLastUpdate('surname') ||
-		    record.isModifiedSinceLastUpdate('generation')) {
+		  record.isModifiedSinceLastUpdate('given_name') ||
+		  record.isModifiedSinceLastUpdate('middle_name') ||
+		  record.isModifiedSinceLastUpdate('surname') ||
+		  record.isModifiedSinceLastUpdate('generation')) {
 			this.generateDisplayName();
 		}
 
@@ -293,7 +293,7 @@ Zarafa.contact.dialogs.ContactDetailTab = Ext.extend(Ext.form.FormPanel, {
 	 * @param {Mixed} oldValue The old value
 	 * @private
 	 */
-	onFieldChange : function(field, newValue, oldValue)
+	onFieldChange: function(field, newValue, oldValue)
 	{
 		if (field.validateValue(field.processValue(newValue))) {
 			this.record.beginEdit();
@@ -311,7 +311,7 @@ Zarafa.contact.dialogs.ContactDetailTab = Ext.extend(Ext.form.FormPanel, {
 	 * @param {String} oldValue THe original value
 	 * @private
 	 */
-	onNameChange : function(field, newValue, oldValue)
+	onNameChange: function(field, newValue, oldValue)
 	{
 		if (field.validateValue(field.processValue(newValue))) {
 			this.record.beginEdit();
@@ -332,7 +332,7 @@ Zarafa.contact.dialogs.ContactDetailTab = Ext.extend(Ext.form.FormPanel, {
 	 * @param {Data} oldValue The original date
 	 * @private
 	 */
-	onDateChange : function(field, newValue, oldValue)
+	onDateChange: function(field, newValue, oldValue)
 	{
 		if (field.validateValue(field.processValue(newValue))) {
 			this.record.beginEdit();
@@ -362,17 +362,17 @@ Zarafa.contact.dialogs.ContactDetailTab = Ext.extend(Ext.form.FormPanel, {
 	 * one of the name properties of the user has been changed.
 	 * @private
 	 */
-	generateDisplayName : function()
+	generateDisplayName: function()
 	{
 		var record = this.record;
 
 		// Regenerate display name value
 		var nameValues = {
-			'display_name_prefix' : record.get('display_name_prefix'),
-			'given_name' : record.get('given_name'),
-			'middle_name' : record.get('middle_name'),
-			'surname' : record.get('surname'),
-			'generation' : record.get('generation')
+			'display_name_prefix': record.get('display_name_prefix'),
+			'given_name': record.get('given_name'),
+			'middle_name': record.get('middle_name'),
+			'surname': record.get('surname'),
+			'generation': record.get('generation')
 		};
 
 		// update record
@@ -384,7 +384,7 @@ Zarafa.contact.dialogs.ContactDetailTab = Ext.extend(Ext.form.FormPanel, {
 	 * @return {Zarafa.contact.data.ContactDetailsParser} contact details parser
 	 * @private
 	 */
-	getContactParser : function()
+	getContactParser: function()
 	{
 		return this.dialog.contactParser;
 	}

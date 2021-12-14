@@ -136,19 +136,19 @@
 						"direction" => $sortingDir
 					),
 				);
-			}
 
-			// Parse incoming sort order
-			$this->parseSortOrder($action, $map, true);
+				// Parse incoming sort order
+				$this->parseSortOrder($action, $map, true);
+			}
 
 			$folderType = $action['folderType'];
 
-			if (($folderType!=='gab' || !DISABLE_FULL_GAB) || !empty($searchstring)) {
+			if (($folderType!=='gab' || ENABLE_FULL_GAB) || !empty($searchstring)) {
 				$ab = $GLOBALS['mapisession']->getAddressbook(false, true);
 
 				if (!empty($action['entryid'])) {
 					$entryid = hex2bin($action['entryid']);
-				}else{
+				} else {
 					$entryid = mapi_ab_getdefaultdir($ab);
 				}
 
@@ -250,37 +250,77 @@
 					$restriction = Array(
 								RES_AND,
 								Array(
-									$tempRestriction, // restriction for search/alphabet bar
-									$userGroupRestriction // restriction for hiding users/groups
+									// restriction for search/alphabet bar
+									$tempRestriction,
+									// restriction for hiding users/groups
+									$userGroupRestriction,
 					));
 				} else if($tempRestriction) {
-					$restriction = $tempRestriction;							// restriction for search/alphabet bar
+					// restriction for search/alphabet bar
+					$restriction = $tempRestriction;
 				} else {
-					$restriction = $userGroupRestriction;						// restriction for hiding users/groups
+					// restriction for hiding users/groups
+					$restriction = $userGroupRestriction;
 				}
 
 				// Only add restriction when it is used
 				if($restriction) {
 					mapi_table_restrict($table, $restriction, TBL_BATCH);
 				}
-				mapi_table_sort($table, $this->sort, TBL_BATCH);
+				// Only sort when asked for
+				if ( !empty($this->sort) ) {
+					mapi_table_sort($table, $this->sort, TBL_BATCH);
+				}
 
-				$rows = mapi_table_queryallrows($table, $this->properties);
+				$rowCount = mapi_table_getrowcount($table);
 
-				for ($i = 0, $len = count($rows); $i < $len; $i++) {
+				if ( is_int(MAX_GAB_RESULTS) && MAX_GAB_RESULTS > 0 && $rowCount > MAX_GAB_RESULTS ) {
+					// Create a response that contains an error message that there are too much results
+					$data['error'] = array('code' => 'listexceederror', 'max_gab_users' => MAX_GAB_RESULTS);
+					$rows = mapi_table_queryrows($table, $this->properties, 0, MAX_GAB_RESULTS);
+					$rowCount = MAX_GAB_RESULTS;
+				} else {
+					$rows = mapi_table_queryallrows($table, $this->properties);
+				}
+
+				$sharedStore = null;
+				if (isset($action["isSharedFolder"]) && $action["isSharedFolder"] === true) {
+					if(isset($action["sharedFolder"]) && !empty($action["sharedFolder"])) {
+						$sharedStoreEntryID = $action["sharedFolder"]["store_entryid"];
+						$sharedStore = $GLOBALS["mapisession"]->openMessageStore(hex2bin($sharedStoreEntryID));
+					}
+				}
+
+				for ($i = 0, $len = $rowCount; $i < $len; $i++) {
+					// Use array_shift to so we won't double memory usage!
 					$user_data = array_shift($rows);
-
 					$item = array();
 					$item['entryid'] = bin2hex($user_data[$this->properties['entryid']]);
-					$item['display_name'] = $user_data[$this->properties['display_name']];
-					$item['object_type'] = $user_data[$this->properties['object_type']];
-					$item['display_type'] = $user_data[PR_DISPLAY_TYPE];
+					$item['display_name'] = isset($user_data[$this->properties['display_name']]) ? $user_data[$this->properties['display_name']] : "";
+					$item['object_type'] = isset($user_data[$this->properties['object_type']]) ? $user_data[$this->properties['object_type']] : "";
+					$item['display_type'] = isset($user_data[PR_DISPLAY_TYPE]) ? $user_data[PR_DISPLAY_TYPE] : "";
+					$item['title'] = isset($user_data[PR_TITLE]) ? $user_data[PR_TITLE] : "";
+					$item['company_name'] = isset($user_data[PR_COMPANY_NAME]) ? $user_data[PR_COMPANY_NAME] : "";
 
 					// Test whether the GUID in the entryid is from the Contact Provider
 					if($GLOBALS['entryid']->hasContactProviderGUID( bin2hex($user_data[$this->properties['entryid']]) )){
 						// Use the original_display_name property to fill in the fileas column
 						$item['fileas'] = $user_data[$this->properties['original_display_name']];
 						$item['address_type'] = isset($user_data[$this->properties['address_type']]) ? $user_data[$this->properties['address_type']] : 'SMTP';
+
+						if (isset($action["isSharedFolder"]) && $action["isSharedFolder"] === true) {
+							if(isset($action["sharedFolder"]) && !empty($action["sharedFolder"])) {
+								$sharedContactEntryID = $GLOBALS['entryid']->unwrapABEntryIdObj(bin2hex($user_data[$this->properties['entryid']]));
+								// Address book record does not have 'private' property so we need to open shared contact to
+								// get the value of 'private'  property.
+								$contact = $GLOBALS['operations']->openMessage($sharedStore, hex2bin($sharedContactEntryID));
+								$sharedContactProps = mapi_getprops($contact, array($this->properties['private']));
+								// Don't show the private contact.
+								if (isset($sharedContactProps[$this->properties['private']]) && $sharedContactProps[$this->properties['private']] === true) {
+									continue;
+								}
+							}
+						}
 
 						switch($user_data[PR_DISPLAY_TYPE]){
 							case DT_PRIVATE_DISTLIST:
@@ -395,13 +435,13 @@
 
 				// todo: fix paging stuff
 				$data['page']['start'] = 0;
-				$data['page']['rowcount'] = mapi_table_getrowcount($table);
+				$data['page']['rowcount'] = $rowCount;
 				$data['page']['totalrowcount'] = $data['page']['rowcount'];
+				$data = array_merge($data, array('item'=>$items));
 			} else {
 				// Provide clue that full GAB is disabled.
-				$data = array_merge($data, array('disable_full_gab' => DISABLE_FULL_GAB));
+				$data = array_merge($data, array('disable_full_gab' => !ENABLE_FULL_GAB));
 			}
-			$data = array_merge($data, array('item'=>$items));
 
 			$this->addActionData('list', $data);
 			$GLOBALS['bus']->addData($this->getResponseData());
@@ -859,7 +899,7 @@
 
 				$folders[] = array(
 					"props" => array(
-						"display_name"	=> $item[PR_DISPLAY_NAME],
+						"display_name"	=> $item[PR_DISPLAY_NAME] ?? '',
 						"entryid"		=> bin2hex($item[PR_ENTRYID]),
 						"parent_entryid"=> bin2hex($item[PR_PARENT_ENTRYID]),
 						"depth"			=> $item[PR_DEPTH],

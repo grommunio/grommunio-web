@@ -16,14 +16,14 @@ Zarafa.common.freebusy.ui.SuggestionListView = Ext.extend(Ext.DataView, {
 	 * @constructor
 	 * @param {Object} config Configuration object
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		config = config || {};
 
 		var suggestionBlockStore = config.model ? config.model.getSuggestionBlockStore() : undefined;
 
 		Ext.applyIf(config, {
-			deferEmptyText : false,
+			deferEmptyText: false,
 			emptyText: '<div class="zarafa-freebusy-suggestionrow emptytext">' + _('No suggestions available') + '</div>',
 			tpl: new Ext.XTemplate(
 				'<tpl for=".">',
@@ -39,10 +39,10 @@ Zarafa.common.freebusy.ui.SuggestionListView = Ext.extend(Ext.DataView, {
 				'</div>',
 				'</tpl>',
 			{
-				formatTime : function(time)
+				formatTime: function(time)
 				{
-					// # TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
-					return new Date(time * 1000).format(_('G:i'));
+					// # TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
+					return new Date(time * 1000).formatDefaultTime();
 				}
 
 			}),
@@ -61,7 +61,7 @@ Zarafa.common.freebusy.ui.SuggestionListView = Ext.extend(Ext.DataView, {
 	 *
 	 * @param {Ext.data.Store} store The new store which has been set
 	 */
-	onSuggestionBlockStoreChange : function(store)
+	onSuggestionBlockStoreChange: function(store)
 	{
 		this.bindStore(store);
 	}

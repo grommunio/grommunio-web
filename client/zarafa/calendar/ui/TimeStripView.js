@@ -3,11 +3,11 @@ Ext.namespace('Zarafa.calendar.ui');
 /**
  * @class Zarafa.calendar.ui.TimeStripView
  * @extends Zarafa.core.ui.View
- * 
+ *
  * Handles drawing of the time strips that appear on the left in the calendar. Multiple time strips can be
  * placed on a single calendar, each representing different time zones. Time strips may have names, which
  * are rendered into the header section of the parent calendar view.
- * 
+ *
  * Also see {@link Zarafa.calendar.ui.CalendarMultiView}
  */
 Zarafa.calendar.ui.TimeStripView = Ext.extend(Zarafa.core.ui.View, {
@@ -16,18 +16,18 @@ Zarafa.calendar.ui.TimeStripView = Ext.extend(Zarafa.core.ui.View, {
 	 * For example if the local time zone is GMT +2:00, and you want to have a strip that shows the time in Mumbai
 	 * (GMT +5:30), the time difference is +3:30, or 3.5 hours.
 	 */
-	timeDifference : 0,
+	timeDifference: 0,
 
 	/**
 	 * @cfg {String} name the name of this time strip, for example 'Mumbai' or 'Zurich'. Will be shown above the
 	 * strip in the header area.
 	 */
-	name : '',
+	name: '',
 
 	/**
 	 * @cfg {String} textTemplate The template to be used for the Hour indications inside the strip.
 	 */
-	textTemplate : '<div>{0}:00</div>',
+	textTemplate: '<div>{0}</div>',
 
 	/**
 	 * The offset all elements must have from the left side of the {@link #container}. This
@@ -35,7 +35,7 @@ Zarafa.calendar.ui.TimeStripView = Ext.extend(Zarafa.core.ui.View, {
 	 * @property
 	 * @type Number
 	 */
-	leftOffset : 0,
+	leftOffset: 0,
 
 	/**
 	 * The total with for the tab to use. This must at least be the result of {@link #getMinimumWidth}.
@@ -43,7 +43,7 @@ Zarafa.calendar.ui.TimeStripView = Ext.extend(Zarafa.core.ui.View, {
 	 * @property
 	 * @type Number
 	 */
-	width : 0,
+	width: 0,
 
 	/**
 	 * The &lt;div&gt; element which is used as the header container for the
@@ -51,7 +51,7 @@ Zarafa.calendar.ui.TimeStripView = Ext.extend(Zarafa.core.ui.View, {
 	 * @property
 	 * @type Ext.Element
 	 */
-	header : undefined,
+	header: undefined,
 
 	/**
 	 * The &lt;div&gt; element which is used as the body container for the
@@ -60,7 +60,7 @@ Zarafa.calendar.ui.TimeStripView = Ext.extend(Zarafa.core.ui.View, {
 	 * @property
 	 * @type Ext.Element
 	 */
-	body : undefined,
+	body: undefined,
 
 	/**
 	 * The &lt;div&gt; elements which indicate the time for the given hour. The contents
@@ -69,7 +69,7 @@ Zarafa.calendar.ui.TimeStripView = Ext.extend(Zarafa.core.ui.View, {
 	 * @property
 	 * @type Array
 	 */
-	bodyElements : undefined,
+	bodyElements: undefined,
 
 	/**
 	 * The &lt;div&gt; elements which are used to separate the different
@@ -78,13 +78,13 @@ Zarafa.calendar.ui.TimeStripView = Ext.extend(Zarafa.core.ui.View, {
 	 * @property
 	 * @type Array
 	 */
-	bodyLines : undefined, 
+	bodyLines: undefined,
 
 	/**
 	 * @constructor
 	 * @param {Object} config
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		config = config || {};
 
@@ -92,7 +92,7 @@ Zarafa.calendar.ui.TimeStripView = Ext.extend(Zarafa.core.ui.View, {
 			baseCls: 'zarafa-calendar',
 			itemCls: 'timestrip'
 		});
-		
+
 		Zarafa.calendar.ui.TimeStripView.superclass.constructor.call(this, config);
 	},
 
@@ -101,7 +101,7 @@ Zarafa.calendar.ui.TimeStripView = Ext.extend(Zarafa.core.ui.View, {
 	 * {@link Zarafa.calendar.ui.AbstractCalendarView AbstractCalendarView} before layout.
 	 * @param {Number} left The offset from the left
 	 */
-	setLeftMargin : function(left)
+	setLeftMargin: function(left)
 	{
 		this.leftOffset = left;
 	},
@@ -111,7 +111,7 @@ Zarafa.calendar.ui.TimeStripView = Ext.extend(Zarafa.core.ui.View, {
 	 * {@link Zarafa.calendar.ui.AbstractCalendarView AbstractCalendarView} before layout.
 	 * @param {Number} width tab width.
 	 */
-	setWidth : function(width)
+	setWidth: function(width)
 	{
 		this.width = width;
 	},
@@ -121,7 +121,7 @@ Zarafa.calendar.ui.TimeStripView = Ext.extend(Zarafa.core.ui.View, {
 	 * as well as the subelements {@link #bodyElements} and {@link #bodyLines}.
 	 * @param {Ext.Element} container The Ext.Element into which the view must be rendered.
 	 */
-	render : function(container)
+	render: function(container)
 	{
 		this.createDiv(this.parentView.scrollable, 'body', this.getClassName('body'));
 
@@ -134,7 +134,7 @@ Zarafa.calendar.ui.TimeStripView = Ext.extend(Zarafa.core.ui.View, {
 			this.createDiv(this.body, 'bodyElements', this.getClassName('element'));
 			this.createDiv(this.body, 'bodyLines', this.getClassName('line'));
 		}
-		
+
 		// create a small header div for the time strip name (if any)
 		this.createDiv(this.parentView.header, 'header',  this.getClassName('header'));
 		this.header.dom.innerHTML = this.name;
@@ -150,50 +150,50 @@ Zarafa.calendar.ui.TimeStripView = Ext.extend(Zarafa.core.ui.View, {
 	 * Mark the elements for this {@link Zarafa.core.ui.View View} visible.
 	 * @param {Boolean} visible
 	 */
-	setVisible : function(visible)
+	setVisible: function(visible)
 	{
 		if (this.rendered) {
 			this.body.setVisible(visible);
 			this.header.setVisible(visible);
 		}
 	},
-	
+
 	/**
 	 * Generates the text for the header element that shows the time strip name.
 	 * This will apply the {@link #textTemplate} to each of the {@link #bodyElements} elements.
 	 * @private
 	 */
-	generateText : function()
+	generateText: function()
 	{
 		if (!this.rendered) {
 			return;
 		}
-		
+
 		// resize each of the hour divs
 		for (var i = 0, len = this.bodyElements.length; i < len; i++) {
 			var hour = (i + Math.floor(this.timeDifference) + 24) % 24;
 			var date = new Date(0, 0, 0, hour);
-			// # TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
-			this.bodyElements[i].dom.innerHTML = String.format(this.textTemplate, date.format(_("G"))); 
+			// # TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
+			this.bodyElements[i].dom.innerHTML = String.format(this.textTemplate, date.formatDefaultTime());
 		}
 	},
-	
+
 	/**
 	 * Lays out the time strip, setting the position and size of the individual DOM elements.
 	 * The desired {@link #leftOffset} and {@link #width} have already been configured by
 	 * the {@link #parentView} using the {@link #setLeftMargin} and {@link #setWidth} respectively.
 	 */
-	onLayout : function()
+	onLayout: function()
 	{
 		if (!this.rendered) {
 			return;
 		}
-		
+
 		this.body.setLeftTop(this.leftOffset, 0);
 		this.body.setSize(this.width, this.parentView.getHourHeight() * this.parentView.numHours);
-		
+
 		var shift = Math.round(this.timeDifference) - this.timeDifference;
-		
+
 		// resize each of the hour divs
 		for (var i = 0, len = this.bodyElements.length; i < len; i++) {
 			this.bodyElements[i].setSize(this.width, this.parentView.getHourHeight());
@@ -205,7 +205,7 @@ Zarafa.calendar.ui.TimeStripView = Ext.extend(Zarafa.core.ui.View, {
 			this.bodyLines[i].setSize(this.width, 1);
 			this.bodyLines[i].setLeftTop(0, this.parentView.getHourHeight() * (i + shift) -1);
 		}
-		
+
 		// layout the header element
 		this.header.setWidth(this.width);
 		this.header.setLeft(this.leftOffset);
@@ -213,25 +213,25 @@ Zarafa.calendar.ui.TimeStripView = Ext.extend(Zarafa.core.ui.View, {
 
 		Zarafa.calendar.ui.TimeStripView.superclass.onLayout.call(this);
 	},
-	
+
 	/**
 	 * Sets the time difference in hours between this strip's time zone and the local time zone.
 	 * For example if the local time zone is GMT +2:00, and you want to have a strip that shows the time in Mumbai
 	 * (GMT +5:30), the time difference is +3:30, or 3.5 hours.
 	 * @param {Number} timeDifference timeDifference difference in hours.
 	 */
-	setTimeDifference : function(timeDifference)
+	setTimeDifference: function(timeDifference)
 	{
 		this.timeDifference = timeDifference;
 		this.generateText();
 		this.layout();
 	},
-	
+
 	/**
 	 * Sets the name of the time strip. Auto-updates the text on screen.
 	 * @param {String} name name of the time strip
 	 */
-	setName : function(name)
+	setName: function(name)
 	{
 		this.name = name;
 		this.generateText();

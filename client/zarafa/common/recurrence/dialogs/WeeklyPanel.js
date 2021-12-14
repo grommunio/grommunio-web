@@ -12,14 +12,14 @@ Zarafa.common.recurrence.dialogs.WeeklyPanel = Ext.extend(Zarafa.common.recurren
 	 * @constructor
 	 * @param {Object} config Configuration object
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		config = config || {};
 
 		Ext.applyIf(config, {
 			xtype: 'zarafa.recurrenceweeklypanel',
-			recurrenceType : Zarafa.common.recurrence.data.RecurrenceType.WEEKLY,
-			recurrenceSubtypes : [
+			recurrenceType: Zarafa.common.recurrence.data.RecurrenceType.WEEKLY,
+			recurrenceSubtypes: [
 				Zarafa.common.recurrence.data.RecurrenceSubtype.WEEKLY_REGENERATE,
 				Zarafa.common.recurrence.data.RecurrenceSubtype.WEEKLY
 			],
@@ -45,7 +45,7 @@ Zarafa.common.recurrence.dialogs.WeeklyPanel = Ext.extend(Zarafa.common.recurren
 	 * @return {Object} Configuration object for the panel
 	 * @private
 	 */
-	createEveryNWeeksPanel : function()
+	createEveryNWeeksPanel: function()
 	{
 		return {
 			xtype: 'panel',
@@ -75,8 +75,8 @@ Zarafa.common.recurrence.dialogs.WeeklyPanel = Ext.extend(Zarafa.common.recurren
 					allowNegative: false,
 					minValue: 1,
 					width: 50,
-					listeners : {
-						change : this.onWeeklyChange,
+					listeners: {
+						change: this.onWeeklyChange,
 						scope: this
 					}
 				}]
@@ -92,7 +92,7 @@ Zarafa.common.recurrence.dialogs.WeeklyPanel = Ext.extend(Zarafa.common.recurren
 	 * @return {Object} Configuration object for the panel
 	 * @private
 	 */
-	createDaySelectionPanel : function()
+	createDaySelectionPanel: function()
 	{
 		var weekStart = container.getSettingsModel().get('zarafa/v1/main/week_start');
 
@@ -116,63 +116,63 @@ Zarafa.common.recurrence.dialogs.WeeklyPanel = Ext.extend(Zarafa.common.recurren
 			items: [{
 				xtype: 'checkbox',
 				boxLabel: Date.dayNames[(weekStart + 0) % 7],
-				dayValue : Math.pow(2, (weekStart + 0) % 7),
+				dayValue: Math.pow(2, (weekStart + 0) % 7),
 				width: 250,
-				listeners : {
+				listeners: {
 					change: this.onWeeklyDayChange,
 					scope: this
 				}
 			},{
 				xtype: 'checkbox',
 				boxLabel: Date.dayNames[(weekStart + 1) % 7],
-				dayValue : Math.pow(2, (weekStart + 1) % 7),
+				dayValue: Math.pow(2, (weekStart + 1) % 7),
 				width: 250,
-				listeners : {
+				listeners: {
 					change: this.onWeeklyDayChange,
 					scope: this
 				}
 			},{
 				xtype: 'checkbox',
 				boxLabel: Date.dayNames[(weekStart + 2) % 7],
-				dayValue : Math.pow(2, (weekStart + 2) % 7),
+				dayValue: Math.pow(2, (weekStart + 2) % 7),
 				width: 250,
-				listeners : {
+				listeners: {
 					change: this.onWeeklyDayChange,
 					scope: this
 				}
 			},{
 				xtype: 'checkbox',
 				boxLabel: Date.dayNames[(weekStart + 3) % 7],
-				dayValue : Math.pow(2, (weekStart + 3) % 7),
+				dayValue: Math.pow(2, (weekStart + 3) % 7),
 				width: 250,
-				listeners : {
+				listeners: {
 					change: this.onWeeklyDayChange,
 					scope: this
 				}
 			},{
 				xtype: 'checkbox',
 				boxLabel: Date.dayNames[(weekStart + 4) % 7],
-				dayValue : Math.pow(2, (weekStart + 4) % 7),
+				dayValue: Math.pow(2, (weekStart + 4) % 7),
 				width: 250,
-				listeners : {
+				listeners: {
 					change: this.onWeeklyDayChange,
 					scope: this
 				}
 			},{
 				xtype: 'checkbox',
 				boxLabel: Date.dayNames[(weekStart + 5) % 7],
-				dayValue : Math.pow(2, (weekStart + 5) % 7),
+				dayValue: Math.pow(2, (weekStart + 5) % 7),
 				width: 250,
-				listeners : {
+				listeners: {
 					change: this.onWeeklyDayChange,
 					scope: this
 				}
 			},{
 				xtype: 'checkbox',
 				boxLabel: Date.dayNames[(weekStart + 6) % 7],
-				dayValue : Math.pow(2, (weekStart + 6) % 7),
+				dayValue: Math.pow(2, (weekStart + 6) % 7),
 				width: 250,
-				listeners : {
+				listeners: {
 					change: this.onWeeklyDayChange,
 					scope: this
 				}
@@ -188,7 +188,7 @@ Zarafa.common.recurrence.dialogs.WeeklyPanel = Ext.extend(Zarafa.common.recurren
 	 * @return {Object} Configuration object for the panel
 	 * @private
 	 */
-	createRegeneratePanel : function()
+	createRegeneratePanel: function()
 	{
 		return {
 			xtype: 'panel',
@@ -204,7 +204,7 @@ Zarafa.common.recurrence.dialogs.WeeklyPanel = Ext.extend(Zarafa.common.recurren
 					check: this.onSubtypeChange,
 					scope: this
 				}
-			},{ 
+			},{
 				xtype: 'zarafa.compositefield',
 				plugins: [ 'zarafa.splitfieldlabeler' ],
 				fieldLabel: _('Regenerate new task {A} week(s) after each task is completed'),
@@ -219,11 +219,11 @@ Zarafa.common.recurrence.dialogs.WeeklyPanel = Ext.extend(Zarafa.common.recurren
 					allowNegative: false,
 					minValue: 1,
 					width: 50,
-					listeners : {
+					listeners: {
 						change: this.onWeeklyRegenerateChange,
 						scope: this
 					}
-				}]  
+				}]
 			}]
 		};
 	},
@@ -236,7 +236,7 @@ Zarafa.common.recurrence.dialogs.WeeklyPanel = Ext.extend(Zarafa.common.recurren
 	 * @param {Mixed} value The new value of the field
 	 * @private
 	 */
-	onWeeklyChange : function(field, value)
+	onWeeklyChange: function(field, value)
 	{
 		this.onSubtypePropertyChange(Zarafa.common.recurrence.data.RecurrenceSubtype.WEEKLY, field, value);
 	},
@@ -249,7 +249,7 @@ Zarafa.common.recurrence.dialogs.WeeklyPanel = Ext.extend(Zarafa.common.recurren
 	 * @param {Mixed} value The new value of the field
 	 * @private
 	 */
-	onWeeklyDayChange : function(field, value)
+	onWeeklyDayChange: function(field, value)
 	{
 		var oldValue = this.record.get(field.name);
 
@@ -270,7 +270,7 @@ Zarafa.common.recurrence.dialogs.WeeklyPanel = Ext.extend(Zarafa.common.recurren
 	 * @param {Mixed} value The new value of the field
 	 * @private
 	 */
-	onWeeklyRegenerateChange : function(field, value)
+	onWeeklyRegenerateChange: function(field, value)
 	{
 		this.onSubtypePropertyChange(Zarafa.common.recurrence.data.RecurrenceSubtype.WEEKLY_REGENERATE, field, value * (7 * 24 * 60));
 	},
@@ -278,28 +278,28 @@ Zarafa.common.recurrence.dialogs.WeeklyPanel = Ext.extend(Zarafa.common.recurren
 	/**
 	 * Apply the values for the "Every N Weeks Panel",
 	 *
-     * @param {Zarafa.core.data.IPMRecord} record The record which is loaded in this panel
+   * @param {Zarafa.core.data.IPMRecord} record The record which is loaded in this panel
 	 * @param {Boolean} useDefaultValues True if defaultValues should be used rather then the
 	 * data from the Record.
 	 * @private
 	 */
-	updateEveryNWeeksValues : function(record, useDefaultValues)
+	updateEveryNWeeksValues: function(record, useDefaultValues)
 	{
-		var everyn = useDefaultValues ? 1 : record.get('recurrence_everyn');
+		var everyn = useDefaultValues ? 1: record.get('recurrence_everyn');
 		this.everyNWeeksSpinner.setValue(everyn);
 	},
 
 	/**
 	 * Apply the values for the "Day Selection Panel",
 	 *
-     * @param {Zarafa.core.data.IPMRecord} record The record which is loaded in this panel
+   * @param {Zarafa.core.data.IPMRecord} record The record which is loaded in this panel
 	 * @param {Boolean} useDefaultValues True if defaultValues should be used rather then the
 	 * data from the Record.
 	 * @private
 	 */
-	updateDaySelectionValues : function(record, useDefaultValues)
+	updateDaySelectionValues: function(record, useDefaultValues)
 	{
-		// Detect the start of the occurence
+		// Detect the start of the occurrence
 		var startdate = record.get('startdate') || new Date();
 		var weekdays = useDefaultValues ? Math.pow(2, startdate.getDay()) : record.get('recurrence_weekdays');
 		this.weeklyDaySelect.items.each(function(radio) {
@@ -310,15 +310,15 @@ Zarafa.common.recurrence.dialogs.WeeklyPanel = Ext.extend(Zarafa.common.recurren
 	/**
 	 * Apply the values for the "Regenerate Panel",
 	 *
-     * @param {Zarafa.core.data.IPMRecord} record The record which is loaded in this panel
+   * @param {Zarafa.core.data.IPMRecord} record The record which is loaded in this panel
 	 * @param {Boolean} useDefaultValues True if defaultValues should be used rather then the
 	 * data from the Record.
 	 * @private
 	 */
-	updateRegenerateValues : function(record, useDefaultValues)
+	updateRegenerateValues: function(record, useDefaultValues)
 	{
 		// Convert everyn value from minutes, to weeks
-		var everyn = useDefaultValues ? 1 : Math.floor(record.get('recurrence_everyn') / (7 * 24 * 60));
+		var everyn = useDefaultValues ? 1: Math.floor(record.get('recurrence_everyn') / (7 * 24 * 60));
 		this.regenNWeeksSpinner.setValue(everyn);
 	},
 
@@ -329,7 +329,7 @@ Zarafa.common.recurrence.dialogs.WeeklyPanel = Ext.extend(Zarafa.common.recurren
 	 * @param {Boolean} contentReset force the component to perform a full update of the data.
 	 * @private
 	 */
-	updateUI : function(record, contentReset)
+	updateUI: function(record, contentReset)
 	{
 		var layout = false;
 
@@ -358,7 +358,7 @@ Zarafa.common.recurrence.dialogs.WeeklyPanel = Ext.extend(Zarafa.common.recurren
 	 * the given record.
 	 * @protected
 	 */
-	updateSubtype : function(record, pattern, useDefaultValues)
+	updateSubtype: function(record, pattern, useDefaultValues)
 	{
 		var subTypes = Zarafa.common.recurrence.data.RecurrenceSubtype;
 
@@ -379,7 +379,7 @@ Zarafa.common.recurrence.dialogs.WeeklyPanel = Ext.extend(Zarafa.common.recurren
 	 * currently enabled. Only the components for this subtype must be used to update the record.
 	 * @protected
 	 */
-	updateRecordSubType : function(record, pattern)
+	updateRecordSubType: function(record, pattern)
 	{
 		var subTypes = Zarafa.common.recurrence.data.RecurrenceSubtype;
 

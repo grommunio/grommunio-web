@@ -5,14 +5,14 @@ require_once('classes/Restriction.php');
 /**
  * TestUser
  *
- * A wrapper around the KopanoUser which adds utility functions.
+ * A wrapper around the grommunioUser which adds utility functions.
  * This wrapper allows us to use a different subclass for the
- * KopanoUser while still being able to combine it with the
+ * grommunioUser while still being able to combine it with the
  * utility functions we wish.
  */
 class TestUser {
 	/**
-	 * The actual KopanoUser object, this is the oject used to logon
+	 * The actual grommunioUser object, this is the oject used to logon
 	 * to the server with.
 	 */
 	private $user;
@@ -29,7 +29,7 @@ class TestUser {
 
 	/**
 	 * Constructor
-	 * @param KopanoUser $user The user to login with
+	 * @param grommunioUser $user The user to login with
 	 */
 	public function __construct($user)
 	{
@@ -307,7 +307,7 @@ class TestUser {
 
 		$storeProps = mapi_getprops($store, array(PR_IPM_SUBTREE_ENTRYID));
 		$root = mapi_msgstore_openentry($store, $storeProps[PR_IPM_SUBTREE_ENTRYID]);
-		$hierarchy = mapi_folder_gethierarchytable($root, CONVENIENT_DEPTH);
+		$hierarchy = mapi_folder_gethierarchytable($root, CONVENIENT_DEPTH | MAPI_DEFERRED_ERRORS);
 		$props = array(PR_CONTENT_COUNT, PR_ENTRYID, PR_SUBFOLDERS);
 		$rows = mapi_table_queryallrows($hierarchy, $props);
 

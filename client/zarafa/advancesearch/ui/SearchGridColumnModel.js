@@ -15,13 +15,13 @@ Zarafa.advancesearch.ui.SearchGridColumnModel = Ext.extend(Zarafa.common.ui.grid
 	 * used by default. Otherwise the default column model will be used which
 	 * contains all possible columns.
 	 */
-	useCompactView : false,
+	useCompactView: false,
 
 	/**
 	 * @constructor
 	 * @param config Configuration structure
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		config = config || {};
 
@@ -142,7 +142,7 @@ Zarafa.advancesearch.ui.SearchGridColumnModel = Ext.extend(Zarafa.common.ui.grid
 	 *
 	 * @param {Boolean} compact True to enable the compact view
 	 */
-	setCompactView : function(compact)
+	setCompactView: function(compact)
 	{
 		if (this.useCompactView !== compact) {
 			this.useCompactView = compact;

@@ -18,14 +18,14 @@ Zarafa.calendar.ui.CalendarViewDropZone = Ext.extend(Ext.dd.DropZone, {
 	 * @cfg {String} The CSS class returned to the drag source when drop is allowed
 	 * while the user has the Ctrl-key pressed (defaults to "x-dd-drop-ok-add").
 	 */
-	dropAllowedAdd : 'x-dd-drop-ok-add',
+	dropAllowedAdd: 'x-dd-drop-ok-add',
 
 	/**
 	 * @cfg {Boolean} headerMode True of this DropZone is installed on the header of
 	 * the calendar, or in the body. This determines if the {@link Zarafa.calendar.ui.AbstractCalendarView#header}
 	 * or {@link Zarafa.calendar.ui.AbstractCalendarView#body} will be used to connect the event handlers.
 	 */
-	headerMode : false,
+	headerMode: false,
 
 	/**
 	 * @cfg {Zarafa.calendar.data.SnapModes} selectingSnapMode The snapmode for selections and resizing.
@@ -34,7 +34,7 @@ Zarafa.calendar.ui.CalendarViewDropZone = Ext.extend(Ext.dd.DropZone, {
 	 * {@link Zarafa.calendar.ui.AbstractCalendarView#getZoomLevel zoomlevel}. When this option is
 	 * {@link Zarafa.calendar.data.SnapModes#DAY} the time is snapped to the entire day.
 	 */
-	selectingSnapMode : Zarafa.calendar.data.SnapModes.ZOOMLEVEL,
+	selectingSnapMode: Zarafa.calendar.data.SnapModes.ZOOMLEVEL,
 
 	/**
 	 * @cfg {Zarafa.calendar.data.SnapModes} draggingSnapMode The snapmode for appointments when dragging.
@@ -43,7 +43,7 @@ Zarafa.calendar.ui.CalendarViewDropZone = Ext.extend(Ext.dd.DropZone, {
 	 * When this option is {@link Zarafa.calendar.data.SnapModes#DAY} the appointments are snapped
 	 * to the entire day.
 	 */
-	draggingSnapMode : Zarafa.calendar.data.SnapModes.ZOOMLEVEL,
+	draggingSnapMode: Zarafa.calendar.data.SnapModes.ZOOMLEVEL,
 
 	/**
 	 * The proxy which must be used to display the selected range.
@@ -51,7 +51,7 @@ Zarafa.calendar.ui.CalendarViewDropZone = Ext.extend(Ext.dd.DropZone, {
 	 * @type Zarafa.calendar.ui.AbstractDateRangeView
 	 * @private
 	 */
-	proxy : undefined,
+	proxy: undefined,
 
 	/**
 	 * The current Drag & Drop State. This influences the way how the dragged appointment
@@ -60,7 +60,7 @@ Zarafa.calendar.ui.CalendarViewDropZone = Ext.extend(Ext.dd.DropZone, {
 	 * @type Zarafa.calendar.data.DragStates
 	 * @private
 	 */
-	state : Zarafa.calendar.data.DragStates.NONE,
+	state: Zarafa.calendar.data.DragStates.NONE,
 
 	/**
 	 * The daterange which reflects the size of the selected range. This equals
@@ -69,7 +69,7 @@ Zarafa.calendar.ui.CalendarViewDropZone = Ext.extend(Ext.dd.DropZone, {
 	 * @type Zarafa.core.DateRange
 	 * @private
 	 */
-	dateRange : undefined,
+	dateRange: undefined,
 
 	/**
 	 * The {@link Date} object which represents the exact start date on which the user
@@ -78,7 +78,7 @@ Zarafa.calendar.ui.CalendarViewDropZone = Ext.extend(Ext.dd.DropZone, {
 	 * @type Date
 	 * @private
 	 */
-	initDate : undefined,
+	initDate: undefined,
 
 	/**
 	 * The {@link Zarafa.core.DateRange DateRange} of the selection area on which the
@@ -87,14 +87,14 @@ Zarafa.calendar.ui.CalendarViewDropZone = Ext.extend(Ext.dd.DropZone, {
 	 * @type Zarafa.core.DateRange
 	 * @private
 	 */
-	initDateRange : undefined,
+	initDateRange: undefined,
 
 	/**
 	 * @constructor
 	 * @param {Zarafa.calendar.ui.AbstractCalendarView} calendar The calendar on which this Dropzone is installed
 	 * @param {Object} config Configuration object
 	 */
-	constructor : function(calendar, config)
+	constructor: function(calendar, config)
 	{
 		config = config || {};
 
@@ -106,7 +106,7 @@ Zarafa.calendar.ui.CalendarViewDropZone = Ext.extend(Ext.dd.DropZone, {
 		}
 
 		Ext.applyIf(config, {
-			ddGroup : 'AppointmentDD'
+			ddGroup: 'AppointmentDD'
 		});
 
 		Zarafa.calendar.ui.CalendarViewDropZone.superclass.constructor.call(this, element, config);
@@ -151,7 +151,7 @@ Zarafa.calendar.ui.CalendarViewDropZone = Ext.extend(Ext.dd.DropZone, {
 	 * @param {Object} data An object containing arbitrary data supplied by the drag source
 	 * @protected
 	 */
-	onNodeEnter : function(target, dd, e, data)
+	onNodeEnter: function(target, dd, e, data)
 	{
 		var appointment = data.selections[0];
 		var DragStates = Zarafa.calendar.data.DragStates;
@@ -177,7 +177,7 @@ Zarafa.calendar.ui.CalendarViewDropZone = Ext.extend(Ext.dd.DropZone, {
 			}
 
 			// The selected range will always be the entire appointment.
-			this.initDateRange = new Zarafa.core.DateRange({ startDate : appointment.get('startdate'), dueDate : appointment.get('duedate') });
+			this.initDateRange = new Zarafa.core.DateRange({ startDate: appointment.get('startdate'), dueDate: appointment.get('duedate') });
 		} else {
 			// We are not working with an appointment, and thus are selecting a daterange.
 			// Determine what the basic selection should be based on the current zoomLevel.
@@ -206,7 +206,7 @@ Zarafa.calendar.ui.CalendarViewDropZone = Ext.extend(Ext.dd.DropZone, {
 				dueDate = startDate.add(Date.MINUTE, zoomLevel);
 			}
 
-			this.initDateRange = new Zarafa.core.DateRange({ startDate : startDate, dueDate : dueDate });
+			this.initDateRange = new Zarafa.core.DateRange({ startDate: startDate, dueDate: dueDate });
 		}
 
 		// Activate the initial range
@@ -215,8 +215,8 @@ Zarafa.calendar.ui.CalendarViewDropZone = Ext.extend(Ext.dd.DropZone, {
 		// Change the function from the prototype to update the scope of the function.
 		// This is needed to ensure we can call removeEventListener again with the correct
 		// function reference later.
-		this.onDragKeyDown = Zarafa.calendar.ui.CalendarViewDropZone.prototype.onDragKeyDown.createDelegate({ dd : dd, dz : this });
-		this.onDragKeyUp = Zarafa.calendar.ui.CalendarViewDropZone.prototype.onDragKeyUp.createDelegate({ dd : dd, dz : this });
+		this.onDragKeyDown = Zarafa.calendar.ui.CalendarViewDropZone.prototype.onDragKeyDown.createDelegate({ dd: dd, dz: this });
+		this.onDragKeyUp = Zarafa.calendar.ui.CalendarViewDropZone.prototype.onDragKeyUp.createDelegate({ dd: dd, dz: this });
 
 		// During dragging (onNodeOver) we either apply dropAllowed or dropAllowedAdd based on the Ctrl-key,
 		// if the user didn't drag but just presses the button we must also update the icon. For that we
@@ -246,7 +246,7 @@ Zarafa.calendar.ui.CalendarViewDropZone = Ext.extend(Ext.dd.DropZone, {
 	 * @param {Object} data An object containing arbitrary data supplied by the drag source
 	 * @protected
 	 */
-	onNodeOver : function(target, dd, e, data)
+	onNodeOver: function(target, dd, e, data)
 	{
 		this.updateProxy(e.getXY(), data.selections);
 
@@ -267,7 +267,7 @@ Zarafa.calendar.ui.CalendarViewDropZone = Ext.extend(Ext.dd.DropZone, {
 	 * @param {Object} data An object containing arbitrary data supplied by the drag source
 	 * @protected
 	 */
-	onNodeOut : function(target, dd, e, data)
+	onNodeOut: function(target, dd, e, data)
 	{
 		// Clear event handlers again
 		Ext.EventManager.un(Ext.getDoc(), 'keydown', this.onDragKeyDown, this);
@@ -293,7 +293,7 @@ Zarafa.calendar.ui.CalendarViewDropZone = Ext.extend(Ext.dd.DropZone, {
 	 * @param {Ext.EventObject} e The event
 	 * @private
 	 */
-	onDragKeyDown : function(e)
+	onDragKeyDown: function(e)
 	{
 		if (e.ctrlKey || e.keyCode === Ext.EventObject.CONTROL) {
 			if (this.dd.proxy.dropStatus === this.dz.dropAllowed) {
@@ -315,7 +315,7 @@ Zarafa.calendar.ui.CalendarViewDropZone = Ext.extend(Ext.dd.DropZone, {
 	 * @param {Ext.EventObject} e The event
 	 * @private
 	 */
-	onDragKeyUp : function(e)
+	onDragKeyUp: function(e)
 	{
 		if (e.ctrlKey || e.keyCode === Ext.EventObject.CONTROL) {
 			if (this.dd.proxy.dropStatus === this.dz.dropAllowedAdd) {
@@ -326,7 +326,7 @@ Zarafa.calendar.ui.CalendarViewDropZone = Ext.extend(Ext.dd.DropZone, {
 
 	/**
 	 * Called when the DropZone determines that a item has been dropped.
-	 * This will determine what action has occured and call the appropriate
+	 * This will determine what action has occurred and call the appropriate
 	 * callback function on the {@link #calendar}.
 	 * @param {Ext.Element} target The custom data associated with the drop node (as returned from {@link #getTargetFromEvent}.
 	 * @param {Ext.dd.DragSource} The drag source that was dragged over this drop zone
@@ -334,7 +334,7 @@ Zarafa.calendar.ui.CalendarViewDropZone = Ext.extend(Ext.dd.DropZone, {
 	 * @param {Object} data An object containing arbitrary data supplied by the drag source
 	 * @protected
 	 */
-	onNodeDrop : function(target, dd, e, data)
+	onNodeDrop: function(target, dd, e, data)
 	{
 		var DragStates = Zarafa.calendar.data.DragStates;
 		switch (data.state) {
@@ -372,15 +372,15 @@ Zarafa.calendar.ui.CalendarViewDropZone = Ext.extend(Ext.dd.DropZone, {
 	 * @param {Zarafa.calendar.ui.AppointmentView} appointment The appointment which was dropped
 	 * @param {String} action The action can be anything from "move", "drop" or "resize".
 	 */
-	showWarningMessageBox : function(event, dd, appointment, action)
+	showWarningMessageBox: function(event, dd, appointment, action)
 	{
 		var dateRange = this.dateRange;
 		Zarafa.common.dialogs.MessageBox.addCustomButtons({
 			width: 400,
-			title: _('grommunio web'),
-			msg : _('Please note that any changes you make will be overwritten when this meeting request is updated by the organizer. Would you like to move this meeting?'),
-			icon: Ext.MessageBox.WARNING,
-			fn : function(buttonName) {
+			title: _('grommunio Web'),
+			msg: _('Please note that any changes you make will be overwritten when this meeting request is updated by the organizer. Would you like to move this meeting?'),
+			cls: Ext.MessageBox.WARNING_CLS,
+			fn: function(buttonName) {
 				if (buttonName === 'move') {
 					switch (action) {
 						case "move":
@@ -396,10 +396,10 @@ Zarafa.calendar.ui.CalendarViewDropZone = Ext.extend(Ext.dd.DropZone, {
 				}
 			},
 			customButton: [{
-				name : 'move',
+				name: 'move',
 				text: _('Move')
 			}, {
-				name : 'cancel',
+				name: 'cancel',
 				text: _('Don\'t move')
 			}],
 			scope: this
@@ -415,7 +415,7 @@ Zarafa.calendar.ui.CalendarViewDropZone = Ext.extend(Ext.dd.DropZone, {
 	 * @param {Zarafa.calendar.AppointmentRecord|Array} The array of currently selected appointments
 	 * @private
 	 */
-	updateProxy : function(xy, selections)
+	updateProxy: function(xy, selections)
 	{
 		var selection = !Ext.isEmpty(selections) ? selections[0] : undefined;
 		var overDate = this.calendar.screenLocationToDate(xy[0], xy[1]);
@@ -518,7 +518,7 @@ Zarafa.calendar.ui.CalendarViewDropZone = Ext.extend(Ext.dd.DropZone, {
 						dueDate = dueDate.add(Date.MINUTE, zoomLevel);
 					}
 				}
-			}else{
+			} else {
 				// Get number of minutes since start of day
 				var minSinceStartOfDay = startDate.getHours()*60 + startDate.getMinutes();
 

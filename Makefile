@@ -16,13 +16,14 @@ JSDEPLOY = $(DESTDIR)/client
 DEPLOYPURIFY = $(JSDEPLOY)/dompurify
 
 JSCOMPILER ?= $(JAVA) -jar tools/lib/compiler.jar
+CSSCOMPILER ?= $(JAVA) -jar tools/lib/yuicompressor-2.4.8.jar
 
 JSOPTIONS = --externs client/externs.js \
 	--compilation_level SIMPLE --warning_level VERBOSE --jscomp_off=es5Strict --strict_mode_input=false \
 	--jscomp_off=globalThis --jscomp_off=misplacedTypeAnnotation --jscomp_off=nonStandardJsDocs \
 	--jscomp_off=missingProperties --jscomp_off=invalidCasts --jscomp_off=checkTypes \
 	--jscomp_warning=visibility --jscomp_warning=unknownDefines --jscomp_warning=undefinedVars \
-	--jscomp_warning=strictModuleDepCheck --jscomp_warning=fileoverviewTags --jscomp_warning=deprecated \
+	--jscomp_warning=strictModuleDepCheck --jscomp_warning=deprecated \
 	--jscomp_error=checkVars --jscomp_warning=checkRegExp --jscomp_warning=accessControls
 
 # Server files
@@ -31,11 +32,12 @@ DISTFILES = $(addprefix $(DESTDIR)/,config.php.dist debug.php.dist)
 ROBOTS = $(addprefix $(DESTDIR)/, robots.txt)
 LANGTXT = $(wildcard server/language/*/language.txt)
 LANGTXTDEST = $(addprefix $(DESTDIR)/, $(LANGTXT))
-POS = $(wildcard server/language/*/LC_MESSAGES/zarafa_webapp.po)
+POS = $(wildcard server/language/*/LC_MESSAGES/grommunio_web.po)
 MOS = $(patsubst %.po,$(DESTDIR)/%.mo,$(POS))
 INCLUDES = $(shell find server/includes -name '*.php')
 PHPFILES = $(filter-out $(DESTDIR)/config.php, $(filter-out $(DESTDIR)/debug.php, $(patsubst %.php,$(DESTDIR)/%.php,$(wildcard *.php) $(INCLUDES))))
-SERVERROOTFILES = $(addprefix $(DESTDIR)/, server/manifest.dtd)
+SERVERROOTFILES = $(addprefix $(DESTDIR)/,server/manifest.dtd)
+IS_SUPPORTED_BUILD ?= $(if $(filter 1, $(SUPPORTED_BUILD)), supported validate-supported)
 
 # Client files
 
@@ -69,12 +71,12 @@ JSFILES = $(shell find client/zarafa -name '*.js')
 
 all: deploy
 
-deploy: server client plugins
+deploy: server client plugins css
 
 build: node_modules deploy
 test: jstest
 
-server: $(MOS) $(LANGTXTDEST) $(PHPFILES) $(DISTFILES) $(ROBOTS) $(DESTDIR)/version $(SERVERROOTFILES)
+server: $(MOS) $(LANGTXTDEST) $(PHPFILES) $(DISTFILES) $(ROBOTS) $(DESTDIR)/version $(DESTDIR)/cachebuster $(SERVERROOTFILES)
 
 client: $(CSSDEST) $(ICONSETSDEST) $(IMAGESDEST) js
 	cp -r client/resources/fonts $(DESTDIR)/client/resources/
@@ -83,11 +85,16 @@ client: $(CSSDEST) $(ICONSETSDEST) $(IMAGESDEST) js
 	cp -r client/resources/scss $(DESTDIR)/client/resources/scss
 	# TODO use separate targets
 
-js: $(JSDEPLOY)/fingerprint.js $(JSDEPLOY)/resize.js $(TEMPATEJSDEST) $(JSDEPLOY)/kopano.js $(JSDEPLOY)/extjs-mod/extjs-mod.js $(JSDEPLOY)/extjs/ext-base-all.js $(DESTDIR)/client/third-party/ux-thirdparty.js $(DEPLOYPURIFYJS)
+css:
+	find $(DESTDIR)/client -name "*.css" -exec $(CSSCOMPILER) -o {}.min {} \; -exec mv {}.min {} \;
+	find $(DESTDIR)/plugins -name "*.css" -exec $(CSSCOMPILER) -o {}.min {} \; -exec mv {}.min {} \;
+
+js: $(JSDEPLOY)/fingerprint.js $(JSDEPLOY)/resize.js $(TEMPATEJSDEST) $(JSDEPLOY)/grommunio.js $(JSDEPLOY)/extjs-mod/extjs-mod.js $(JSDEPLOY)/extjs/ext-base-all.js $(DESTDIR)/client/third-party/ux-thirdparty.js $(DEPLOYPURIFYJS) $(JSDEPLOY)/filepreviewer/pdfjs/build/pdf.worker.js $(JSDEPLOY)/filepreviewer/pdfjs/build/pdf.js $(JSDEPLOY)/filepreviewer/pdfjs/web/viewer.js
 	cp -r client/tinymce $(DESTDIR)/client/
 	cp -r client/tinymce-languages $(DESTDIR)/client/
 	cp -r client/tinymce-plugins $(DESTDIR)/client/
 	cp -r client/extjs $(DESTDIR)/client/
+	cp -r client/filepreviewer $(DESTDIR)/client/
 	rm $(DESTDIR)/client/extjs/ext-base.js
 	rm $(DESTDIR)/client/extjs/ext-all.js
 	rm $(DESTDIR)/client/extjs/resources/css/reset-min.css
@@ -121,8 +128,8 @@ $(JSDEPLOY)/fingerprint.js: client/fingerprint.js
 	cat client/fingerprint.js > $(JSDEPLOY)/fingerprint-debug.js
 	$(JSCOMPILER) --js $< --js_output_file $@ $(JSOPTIONS)
 
-$(JSDEPLOY)/kopano.js: $(JSFILES)
-	$(PHP) tools/loadorder.php kopano $(@:.js=-debug.js)
+$(JSDEPLOY)/grommunio.js: $(JSFILES)
+	$(PHP) tools/loadorder.php grommunio $(@:.js=-debug.js)
 	$(JSCOMPILER) --js $(@:.js=-debug.js) --js_output_file $@ \
 		--source_map_location_mapping=$(JSDEPLOY)/\| \
 		--output_wrapper="%output%//# sourceMappingURL=$(shell basename $@.map)" \
@@ -142,9 +149,42 @@ $(JSDEPLOY)/resize.js: client/resize.js
 	cat client/resize.js > $(JSDEPLOY)/resize-debug.js
 	$(JSCOMPILER) --js $(@:.js=-debug.js) --js_output_file $@
 
+$(JSDEPLOY)/filepreviewer/pdfjs/build/pdf.worker.js: client/filepreviewer/pdfjs/build/pdf.worker.js
+	mkdir -p $(JSDEPLOY)/filepreviewer/pdfjs/build
+	cat $^ > $(@:.js=-debug.js)
+	$(JSCOMPILER) --js $(@:.js=-debug.js) --js_output_file $@ \
+		--source_map_location_mapping=$(JSDEPLOY)/\| \
+		--output_wrapper="%output%//# sourceMappingURL=$(shell basename $@.map)" \
+		--create_source_map $@.map \
+		$(JSOPTIONS) --jscomp_off=checkVars
+
+$(JSDEPLOY)/filepreviewer/pdfjs/build/pdf.js: client/filepreviewer/pdfjs/build/pdf.js
+	mkdir -p $(JSDEPLOY)/filepreviewer/pdfjs/build
+	cat $^ > $(@:.js=-debug.js)
+	$(JSCOMPILER) --js $(@:.js=-debug.js) --js_output_file $@ \
+		--source_map_location_mapping=$(JSDEPLOY)/\| \
+		--output_wrapper="%output%//# sourceMappingURL=$(shell basename $@.map)" \
+		--create_source_map $@.map \
+		$(JSOPTIONS) --jscomp_off=checkVars
+
+$(JSDEPLOY)/filepreviewer/pdfjs/web/viewer.js: client/filepreviewer/pdfjs/web/viewer.js
+	mkdir -p $(JSDEPLOY)/filepreviewer/pdfjs/web
+	cat $^ > $(@:.js=-debug.js)
+	$(JSCOMPILER) --js $(@:.js=-debug.js) --js_output_file $@ \
+		--source_map_location_mapping=$(JSDEPLOY)/\| \
+		--output_wrapper="%output%//# sourceMappingURL=$(shell basename $@.map)" \
+		--create_source_map $@.map \
+		$(JSOPTIONS) --jscomp_off=checkVars
+
 $(DEPLOYPURIFYJS): $(PURIFYJS)
 	mkdir -p $(DEPLOYPURIFY)
-	cp $^ $@
+	# concatenate using cat
+	cat $^ > $(@:.js=-debug.js)
+	$(JSCOMPILER) --js $(@:.js=-debug.js) --js_output_file $@ \
+		--source_map_location_mapping=$(JSDEPLOY)/\| \
+		--output_wrapper="%output%//# sourceMappingURL=$(shell basename $@.map)" \
+		--create_source_map $@.map \
+		$(JSOPTIONS) --jscomp_off=checkVars
 
 $(JSDEPLOY)/third-party/ux-thirdparty.js: $(THIRDPARTY)
 	mkdir -p $(JSDEPLOY)/third-party

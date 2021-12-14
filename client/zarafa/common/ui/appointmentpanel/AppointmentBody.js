@@ -12,7 +12,7 @@ Zarafa.common.ui.appointmentpanel.AppointmentBody = Ext.extend(Ext.form.FormPane
 	 * has been {@link #update updated}. The arguments of this template will be the
 	 * {@link Zarafa.core.data.IPMRecord#data record.data} field.
 	 */
-	headerTemplate :
+	headerTemplate:
 		'<div class="preview-header-titlebox">' +
 			'<tpl if="!Ext.isEmpty(values.subject)">' +
 				'<span class="preview-title">{subject:htmlEncode}</span>' +
@@ -23,7 +23,7 @@ Zarafa.common.ui.appointmentpanel.AppointmentBody = Ext.extend(Ext.form.FormPane
 	 * @constructor
 	 * @param {Object} config configuration object.
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		config = config || {};
 
@@ -32,38 +32,38 @@ Zarafa.common.ui.appointmentpanel.AppointmentBody = Ext.extend(Ext.form.FormPane
 
 		config = Ext.applyIf(config, {
 			xtype: 'zarafa.appointmentbody',
-			border : false,
-			header :  true,
-			autoScroll : true,
-			unstyled : true,
-			autoWidth : true,
-			headerCfg : {
-				cls : 'preview-header-title'
+			border: false,
+			header: true,
+			autoScroll: true,
+			unstyled: true,
+			autoWidth: true,
+			headerCfg: {
+				cls: 'preview-header-title'
 			},
-			items : [{
+			items: [{
 				xtype:'fieldset',
-				title : _('Appointment'),
+				title: _('Appointment'),
 				defaults: {
-					xtype : 'displayfield'
+					xtype: 'displayfield'
 				},
-				items : [{
-					fieldLabel : _('Subject'),
-					name : 'subject'
+				items: [{
+					fieldLabel: _('Subject'),
+					name: 'subject'
 				}, {
-					fieldLabel : _('Location'),
-					name : 'location'
+					fieldLabel: _('Location'),
+					name: 'location'
 				}, {
-					fieldLabel : _('Label'),
-					ref : '../labelPreview'
+					fieldLabel: _('Label'),
+					ref: '../labelPreview'
 				}, {
-					fieldLabel : _('Start Date'),
-					ref : '../startDate'
+					fieldLabel: _('Start Date'),
+					ref: '../startDate'
 				}, {
-					fieldLabel : _('End Date'),
-					ref : '../endDate'
+					fieldLabel: _('End Date'),
+					ref: '../endDate'
 				}, {
-					fieldLabel : _('All Day Event'),
-					name : 'alldayevent'
+					fieldLabel: _('All Day Event'),
+					name: 'alldayevent'
 				}]
 			}]
 		});

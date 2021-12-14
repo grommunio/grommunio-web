@@ -11,7 +11,7 @@ Zarafa.common.ui.htmleditor.Fonts = function(){
 		 * @return {Object} object with fonts, key is the setting in 'zarafa/v1/mail/default_font_size'
 		 * and the value returns the font-size
 		 */
-		getFonts : function()
+		getFonts: function()
 		{
 			// NOTE: Someone thought it would be a good idea to store a key of the
 			// following object as the default font in the settings. This great
@@ -36,7 +36,7 @@ Zarafa.common.ui.htmleditor.Fonts = function(){
 		 * the html editor.
 		 * @return {String} a space separated string of font sizes
 		 */
-		getFontSizeString : function()
+		getFontSizeString: function()
 		{
 			var fontSizes = this.getFonts();
 
@@ -54,7 +54,7 @@ Zarafa.common.ui.htmleditor.Fonts = function(){
 		/**
 		 * @return {String} string with font families
 		 */
-		getFontFamilies : function()
+		getFontFamilies: function()
 		{
 			var fontFamilies = "Arial=arial,helvetica,sans-serif;" +
 				"Courier New=courier new,courier;" +
@@ -69,7 +69,7 @@ Zarafa.common.ui.htmleditor.Fonts = function(){
 		 * Returns the default font-size which the user has selected in compose mail settings
 		 * @return {String} returns the default user font
 		 */
-		getDefaultFontSize : function()
+		getDefaultFontSize: function()
 		{
 			var fonts = this.getFonts();
 			var defaultFontSize = container.getSettingsModel().get('zarafa/v1/main/default_font_size');

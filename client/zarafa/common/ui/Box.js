@@ -7,13 +7,13 @@ Ext.namespace('Zarafa.common.ui');
  *
  * The Box which is used by {@link Zarafa.common.ui.BoxField} components
  * to display the boxes inside itself. This box is dediciated to the BoxField
- * and cannot be used seperately.
+ * and cannot be used separately.
  */
 Zarafa.common.ui.Box = Ext.extend(Ext.BoxComponent, {
 	/**
 	 * @cfg {Ext.data.Record} record The record which is bound to this box.
 	 */
-	record : undefined,
+	record: undefined,
 
 	/**
 	 * @cfg {Zarafa.common.ui.BoxField} parent The boxfield
@@ -27,7 +27,7 @@ Zarafa.common.ui.Box = Ext.extend(Ext.BoxComponent, {
 	 * @property
 	 * @type Ext.Element
 	 */
-	iconEl : undefined,
+	iconEl: undefined,
 
 	/**
 	 * The {@link Ext.Element} which contains the text contents for this box,
@@ -35,75 +35,75 @@ Zarafa.common.ui.Box = Ext.extend(Ext.BoxComponent, {
 	 * @property
 	 * @type Ext.Element
 	 */
-	textEl : undefined,
+	textEl: undefined,
 
 	/**
 	 * The {@link Ext.Element} which contains the delete button for this box.
 	 * @property
 	 * @type Ext.Element
 	 */
-	delBtnEl : undefined,
+	delBtnEl: undefined,
 
 	/**
 	 * @cfg {Boolean} editable False when none of the buttons or user actions is
 	 * allowed to change the record inside this box.
 	 */
-	editable : true,
+	editable: true,
 
 	/**
 	 * @cfg {Boolean} enableButtons True if {@link #renderButtons} should be called
 	 * which will create the buttons inside the box.
 	 */
-	enableButtons : true,
+	enableButtons: true,
 
 	/**
 	 * @cfg {Boolean} enableIcons True if {@link #renderIcons} should be called
 	 * which will create the icon inside the box.
 	 */
-	enableIcons : true,
+	enableIcons: true,
 
 	/**
 	 * @cfg {String} hoverCls The CSS class which will be applied to {@link #el} when
 	 * the cursor is hovering over this component.
 	 */
-	hoverCls : 'x-zarafa-boxfield-item-hover',
+	hoverCls: 'x-zarafa-boxfield-item-hover',
 
 	/**
 	 * @cfg {String} focusCls The CSS class which will be applied to {@link #el} when
 	 * the component has been selected.
 	 */
-	focusCls : 'x-zarafa-boxfield-item-focus',
+	focusCls: 'x-zarafa-boxfield-item-focus',
 
 	/**
 	 * @cfg {String} textCls The CSS class which will be applied to the {@link #textEl} when
 	 * the component is rendered.
 	 */
-	textCls : 'x-zarafa-boxfield-item-text',
+	textCls: 'x-zarafa-boxfield-item-text',
 
 	/**
 	 * @cfg {String} iconCls The CSS class which will be applied to the {@link #iconEl} when
 	 * the component is rendered.
 	 */
-	iconCls : 'x-zarafa-boxfield-item-icon',
+	iconCls: 'x-zarafa-boxfield-item-icon',
 
 	/**
 	 * @cfg {String} btnCls The CSS class which will be applied to the {@link #btnEl} when
 	 * the component is rendered.
 	 */
-	btnCls : 'x-zarafa-boxfield-item-close',
+	btnCls: 'x-zarafa-boxfield-item-close',
 
 	/**
 	 * @cfg {String} btnHoverCls The CSS class which will be applied to the {@link #btnEl} when
 	 * the cursor is hovering over the button.
 	 */
-	btnHoverCls : 'x-zarafa-boxfield-item-close-hover',
+	btnHoverCls: 'x-zarafa-boxfield-item-close-hover',
 
 	/**
 	 * @cfg {String/Ext.XTemplate} textTpl <b>Required.</b> The template or template string
 	 * which must be applied to the {@link #textEl inner span} of the box.
 	 * The template arguments are have been returned by {@link #collectData}.
 	 */
-	textTpl : undefined,
+	textTpl: undefined,
 
 	/**
 	 * Similar to {@link #isDestroying} only this is only set when
@@ -114,36 +114,36 @@ Zarafa.common.ui.Box = Ext.extend(Ext.BoxComponent, {
 	 * @property
 	 * @type Boolean
 	 */
-	isAnimDestroying : false,
+	isAnimDestroying: false,
 
 	/**
 	 * @cfg {Boolean} enableTextSelection Enable text selection in the {@link #el},
 	 * this will prevent {@link Ext.Element#unselectable} to be called on {@link #el}.
 	 */
-	enableTextSelection : false,
+	enableTextSelection: false,
 
 	/**
 	 * @cfg {Number} maximum length of text allowed before truncations,
 	 * truncation will be replaced with ellipsis ('...').
 	 */
-	ellipsisStringStartLength : 30,
+	ellipsisStringStartLength: 30,
 
 	/**
 	 * @cfg {Number} maximum length of text allowed after truncations,
 	 * truncation will be replaced with ellipsis ('...').
 	 */
-	ellipsisStringEndLength : 30,
+	ellipsisStringEndLength: 30,
 
 	/**
 	 * @constructor
 	 * @param config Configuration object
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		config = config || {};
 
 		Ext.applyIf(config, {
-			autoEl : {
+			autoEl: {
 				tag: 'li',
 				cls: 'x-zarafa-boxfield-item'
 			}
@@ -153,9 +153,9 @@ Zarafa.common.ui.Box = Ext.extend(Ext.BoxComponent, {
 
 		if (Ext.isString(this.textTpl)) {
 			this.textTpl = new Ext.XTemplate(this.textTpl, {
-				compiled : true,
-				ellipsisStringStartLength : this.ellipsisStringStartLength,
-				ellipsisStringEndLength : this.ellipsisStringEndLength
+				compiled: true,
+				ellipsisStringStartLength: this.ellipsisStringStartLength,
+				ellipsisStringEndLength: this.ellipsisStringEndLength
 			});
 		}
 	},
@@ -168,7 +168,7 @@ Zarafa.common.ui.Box = Ext.extend(Ext.BoxComponent, {
 	 * @param {NUmber} position The position within the container where the component will be rendered.
 	 * @private
 	 */
-	onRender : function(ct, position)
+	onRender: function(ct, position)
 	{
 		Zarafa.common.ui.Box.superclass.onRender.call(this, ct, position);
 
@@ -203,17 +203,17 @@ Zarafa.common.ui.Box = Ext.extend(Ext.BoxComponent, {
 	 * @param {Ext.Container} ct The container in which the component is being rendered.
 	 * @private.
 	 */
-	afterRender : function(ct)
+	afterRender: function(ct)
 	{
 		Zarafa.common.ui.Box.superclass.afterRender.call(this, ct);
 		this.delBtnEl.setVisible(this.editable);
 	},
-	
+
 	/**
 	 * Set the {@link #editable} flag, making the box non-editable.
 	 * @param {Boolean} value The new editable status.
 	 */
-	setEditable : function(value)
+	setEditable: function(value)
 	{
 		if (this.editable !== value) {
 			this.editable = value;
@@ -227,11 +227,11 @@ Zarafa.common.ui.Box = Ext.extend(Ext.BoxComponent, {
 	 * will only be called when {@link #enableIcons} is true.
 	 * @private
 	 */
-	renderIcons : function()
+	renderIcons: function()
 	{
 		this.iconEl = this.el.createChild({
-			tag : 'span',
-			cls : this.iconCls
+			tag: 'span',
+			cls: this.iconCls
 		});
 	},
 
@@ -241,11 +241,11 @@ Zarafa.common.ui.Box = Ext.extend(Ext.BoxComponent, {
 	 * during {@link #update}.
 	 * @Private
 	 */
-	renderBox : function()
+	renderBox: function()
 	{
 		this.textEl = this.el.createChild({
-			tag : 'span',
-			cls : this.textCls
+			tag: 'span',
+			cls: this.textCls
 		});
 	},
 
@@ -260,16 +260,16 @@ Zarafa.common.ui.Box = Ext.extend(Ext.BoxComponent, {
 		this.renderRemoveButton();
 	},
 
-	/** 
-	 * Sets event listeners on the remove button of the box. This is done in a separate function 
+	/**
+	 * Sets event listeners on the remove button of the box. This is done in a separate function
 	 * than in {@link #initButtons initButtons} so it can easily be overwritten if needed.
 	 * @private
 	 */
 	renderRemoveButton: function()
 	{
 		this.delBtnEl = this.el.createChild({
-			tag : 'span',
-			cls : this.btnCls
+			tag: 'span',
+			cls: this.btnCls
 		});
 
 		this.delBtnEl.addClassOnOver(this.btnHoverCls);
@@ -299,7 +299,7 @@ Zarafa.common.ui.Box = Ext.extend(Ext.BoxComponent, {
 	/**
 	 * @return {Boolean} Returns true if this box currently has focus.
 	 */
-	hasFocus : function()
+	hasFocus: function()
 	{
 		return this.el.hasClass(this.focusCls);
 	},
@@ -335,7 +335,7 @@ Zarafa.common.ui.Box = Ext.extend(Ext.BoxComponent, {
 	 * @param {Ext.EventObject} e The event object
 	 * @private
 	 */
-	onContextMenu : function(e)
+	onContextMenu: function(e)
 	{
 		e.stopEvent();
 		if (!this.isAnimDestroying && !this.isDestroying) {
@@ -348,7 +348,7 @@ Zarafa.common.ui.Box = Ext.extend(Ext.BoxComponent, {
 	 * @param {Ext.EventObject} e The event object
 	 * @private
 	 */
-	onDblClick : function(e)
+	onDblClick: function(e)
 	{
 		e.stopEvent();
 		if (!this.isAnimDestroying && !this.isDestroying) {
@@ -357,7 +357,7 @@ Zarafa.common.ui.Box = Ext.extend(Ext.BoxComponent, {
 	},
 
 	/**
-	 * Function which can be overriden to provide custom formatting for the given {@link Ext.data.Record}
+	 * Function which can be overridden to provide custom formatting for the given {@link Ext.data.Record}
 	 * to the {@link #update} function. The data object returned here is used by the {@link #textTpl template}
 	 * to render the contents of the box.
 	 * @param {Ext.data.Record} record The record which is going to be rendered
@@ -370,14 +370,14 @@ Zarafa.common.ui.Box = Ext.extend(Ext.BoxComponent, {
 	},
 
 	/**
-	 * Function which can be overriden to provide custom icon rendering for the given {@link Ext.data.Record}
+	 * Function which can be overridden to provide custom icon rendering for the given {@link Ext.data.Record}
 	 * to the {@link #iconEl} element. The string returned here is the CSS class which will be set on the
 	 * {@link #iconEl}.
 	 * @param {Ext.data.Record} record The record which is going to be rendered
 	 * @return {String} The CSS class which must be applied to the {@link #iconEl}.
 	 * @private
 	 */
-	prepareIcon : function(record)
+	prepareIcon: function(record)
 	{
 		return Zarafa.common.ui.IconClass.getIconClass(record);
 	},
@@ -396,7 +396,7 @@ Zarafa.common.ui.Box = Ext.extend(Ext.BoxComponent, {
 				this.iconEl.addClass(icon_class);
 			}
 		}
-		
+
 		this.parent.sizeContainer();
 	},
 
@@ -410,7 +410,7 @@ Zarafa.common.ui.Box = Ext.extend(Ext.BoxComponent, {
 	 * @param {Number} rawHeight The height that was originally specified
 	 * @private
 	 */
-	onResize : function(adjWidth, adjHeight, rawWidth, rawHeight)
+	onResize: function(adjWidth, adjHeight, rawWidth, rawHeight)
 	{
 		if (Ext.isNumber(rawWidth)) {
 			if (!Ext.isNumber(adjWidth)) {
@@ -437,13 +437,13 @@ Zarafa.common.ui.Box = Ext.extend(Ext.BoxComponent, {
 	 * @param {Boolean} animate True to enable the animation of the
 	 * box removal.
 	 */
-	doDestroy : function(animate)
+	doDestroy: function(animate)
 	{
 		if (animate === true) {
 			this.isAnimDestroying = true;
 			this.getEl().hide({
 				duration: 0.2,
-				callback: function() { 
+				callback: function() {
 					this.destroy();
 					this.parent.sizeContainer();
 				},

@@ -15,25 +15,25 @@ Zarafa.common.recurrence.dialogs.RecurrenceSubPanel = Ext.extend(Ext.Panel, {
 	 * @property
 	 * @type Zarafa.core.data.MAPIRecord
 	 */
-	record : undefined,
+	record: undefined,
 
 	/**
 	 * @cfg {Zarafa.common.recurrence.data.RecurrenceType} recurrenceType The recurrence type on
 	 * which is panel is operating.
 	 */
-	recurrenceType : undefined,
+	recurrenceType: undefined,
 
 	/**
 	 * @cfg {Zarafa.common.recurrence.data.RecurrenceSubtype|Array} recurrenceSubtypes The possible
 	 * subtypes which are available for the configured {@link #recurrenceType}.
 	 */
-	recurrenceSubtypes : undefined,
+	recurrenceSubtypes: undefined,
 
 	/**
 	 * @constructor
 	 * @param {Object} config Configuration object
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		config = config || {};
 
@@ -51,7 +51,7 @@ Zarafa.common.recurrence.dialogs.RecurrenceSubPanel = Ext.extend(Ext.Panel, {
 	 * objects are equal
 	 * @protected
 	 */
-	isSubtype : function(left, right)
+	isSubtype: function(left, right)
 	{
 		return (left.type === right.type && left.regen === right.regen);
 	},
@@ -64,8 +64,8 @@ Zarafa.common.recurrence.dialogs.RecurrenceSubPanel = Ext.extend(Ext.Panel, {
 	 * @return {Boolean} True when the given record has the same subtype configured as the given pattern
 	 * @protected
 	 */
-	isRecordSubtype : function(record, pattern)
-	{   
+	isRecordSubtype: function(record, pattern)
+	{
 		return (record.get('recurrence_subtype') === pattern.type && record.get('recurrence_regen') === pattern.regen);
 	},
 
@@ -77,7 +77,7 @@ Zarafa.common.recurrence.dialogs.RecurrenceSubPanel = Ext.extend(Ext.Panel, {
 	 * @param {Boolean} value True when the radio was enabled
 	 * @protected
 	 */
-	onSubtypeChange : function(field, value)
+	onSubtypeChange: function(field, value)
 	{
 		if (value) {
 			var pattern = field.patternValue;
@@ -104,7 +104,7 @@ Zarafa.common.recurrence.dialogs.RecurrenceSubPanel = Ext.extend(Ext.Panel, {
 	 * @param {Mixed} value The value which was entered into the field
 	 * @protected
 	 */
-	onSubtypePropertyChange : function(pattern, field, value)
+	onSubtypePropertyChange: function(pattern, field, value)
 	{
 		if (this.isRecordSubtype(this.record, pattern)) {
 			this.record.set(field.name, value);
@@ -118,7 +118,7 @@ Zarafa.common.recurrence.dialogs.RecurrenceSubPanel = Ext.extend(Ext.Panel, {
 	 * @param {Boolean} contentReset force the component to perform a full update of the data.
 	 * @protected
 	 */
-	updateUI : Ext.emptyFn,
+	updateUI: Ext.emptyFn,
 
 	/**
 	 * Update the {@link Ext.Component components} which belong to the given
@@ -130,7 +130,7 @@ Zarafa.common.recurrence.dialogs.RecurrenceSubPanel = Ext.extend(Ext.Panel, {
 	 * the given record.
 	 * @protected
 	 */
-	updateSubtype : Ext.emptyFn,
+	updateSubtype: Ext.emptyFn,
 
 	/**
 	 * Panel updater. This will initialize all UI components inside the panel with
@@ -139,7 +139,7 @@ Zarafa.common.recurrence.dialogs.RecurrenceSubPanel = Ext.extend(Ext.Panel, {
 	 * @param {Zarafa.core.data.MAPIRecord} record The record used to update the panel
 	 * @param {Boolean} contentReset force the component to perform a full update of the data.
 	 */
-	update : function(record, contentReset)
+	update: function(record, contentReset)
 	{
 		this.record = record;
 		this.updateUI(record, contentReset);
@@ -195,7 +195,7 @@ Zarafa.common.recurrence.dialogs.RecurrenceSubPanel = Ext.extend(Ext.Panel, {
 	 * currently enabled. Only the components for this subtype must be used to update the record.
 	 * @protected
 	 */
-	updateRecordSubType : Ext.emptyFn,
+	updateRecordSubType: Ext.emptyFn,
 
 	/**
 	 * Record updater. This will update the record with all data from the UI components
@@ -204,7 +204,7 @@ Zarafa.common.recurrence.dialogs.RecurrenceSubPanel = Ext.extend(Ext.Panel, {
 	 * @param {Zarafa.core.data.MAPIRecord} record The record to update
 	 * @private
 	 */
-	updateRecord : function(record)
+	updateRecord: function(record)
 	{
 		// We are not the active Panel, we have nothing to configure on the record.
 		if (record.get('recurrence_type') !== this.recurrenceType) {
@@ -217,7 +217,7 @@ Zarafa.common.recurrence.dialogs.RecurrenceSubPanel = Ext.extend(Ext.Panel, {
 		Ext.each(this.findByType('radio'), function(radio) {
 			if (radio.getValue()) {
 				var pattern = radio.patternValue;
-				
+
 				record.beginEdit();
 
 				// Update the subtype which was selected

@@ -53,8 +53,8 @@ class PluginMDMModule extends Module
 						$message = mapi_msgstore_openentry($store, $rows[0][PR_ENTRYID]);
 						$state = base64_decode(streamProperty($message, PR_BODY));
 						$unserializedState = json_decode($state);
-						// TODO: fallback - may be removed in the future
-						if (isset($unserializedState->data->devices->$username->data->deviceid)) {
+						// fallback for "old-style" states
+						if (isset($unserializedState->data->devices)) {
 							$devices[$unserializedState->data->devices->$username->data->deviceid] = $unserializedState->data->devices->$username->data;
 						}
 						else {

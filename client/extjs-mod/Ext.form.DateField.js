@@ -9,7 +9,7 @@
 		 * and fire {@link #selectnow} event while 'Now' button will be pressed, false otherwise.
 		 * defaults to false.
 		 */
-		showNow : false,
+		showNow: false,
 		/**
 		 * overriden to set starting day of the week
 		 * @override
@@ -40,15 +40,49 @@
 			}
 		},
 
-		/*
+		/**
 		 * Fix the getValue function for the DateField, normally Extjs would
 		 * return an empty string ("") when no date was provided, but it more
 		 * logically would be to return null.
 		 */
-		getValue : function()
+		getValue: function()
 		{
 			var value = orig_getValue.apply(this, arguments);
 			return Ext.isEmpty(value) ? null : value;
+		},
+
+		/**
+		 * Overridden function to format the date value if incorrect/incomplete.
+		 */
+		beforeBlur: function()
+		{
+			var rawValue = this.getRawValue();
+			if (Ext.isEmpty(rawValue)) {
+				return;
+			}
+
+			var value = Zarafa.core.Util.getDateByLanguageFormat(rawValue, undefined, this.format);
+			var newDate = new Date();
+
+			var day = value[0];
+			var month = value[1];
+			var year = value[2];
+
+			// Since we need to set the date according to the input values, we use the setFullYear to set the day, month and year
+			// at once. Earlier we set it individually in newDate(current date) but that caused an issue with some cases.
+			// Example:
+			// When the newDate's month contains 30 days, but we need to set the day as the 31st, it gets converted to 1st of next month.
+			newDate.setFullYear(year ? year : newDate.getFullYear(), month ? (month - 1) : newDate.getMonth(), day ? day : newDate.getDate());
+
+			// Compare the new date value with the minimum and maximum value, defined for the current date field.
+			if (Ext.isDefined(newDate) && Ext.isDate(newDate)) {
+				if (newDate > this.maxValue) {
+					newDate = this.maxValue;
+				} else if (newDate < this.minValue) {
+					newDate = this.minValue;
+				}
+				this.setValue(newDate);
+			}
 		},
 
 		/**
@@ -60,7 +94,7 @@
 		* @param {Mixed} value
 		* @return {Mixed} value or empty string.
 		*/
-		processValue : function(value)
+		processValue: function(value)
 		{
 			return Ext.isEmpty(value) ? "" : value;
 		},
@@ -70,15 +104,15 @@
 		 * and rename the button from 'Today' to 'Now'.
 		 * @override
 		 */
-		onTriggerClick : function()
+		onTriggerClick: function()
 		{
 			if(this.showNow && this.menu == null) {
 				this.menu = new Ext.menu.DateMenu({
 					hideOnClick: false,
 					focusOnSelect: false,
-					initialConfig : {
-						showNow : true,
-						todayText : _("Now")
+					initialConfig: {
+						showNow: true,
+						todayText: _("Now")
 					}
 				});
 			}
@@ -103,7 +137,7 @@
 		 * @private
 		 * @override
 		 */
-		menuEvents: function(method){
+		menuEvents: function(method) {
 
 			orig_menuEvents.apply(this, arguments);
 
@@ -120,7 +154,7 @@
 		 * @private
 		 * @override
 		 */
-		onSelectnow : function(picker,date){
+		onSelectnow: function(picker,date) {
 			this.fireEvent('selectnow', this, date);
 		}
 	});

@@ -14,7 +14,7 @@ Zarafa.core.PresenceManager = Ext.extend(Ext.util.Observable, {
 	 * @property
 	 * @private
 	 */
-	registeredStores : [],
+	registeredStores: [],
 
 	/**
 	 * An array with userIdObjects for which a presence status
@@ -22,7 +22,7 @@ Zarafa.core.PresenceManager = Ext.extend(Ext.util.Observable, {
 	 * @property
 	 * @private
 	 */
-	requestQueue : [],
+	requestQueue: [],
 
 	/**
 	 * The polling interval in milliseconds. This is the interval with which
@@ -31,12 +31,12 @@ Zarafa.core.PresenceManager = Ext.extend(Ext.util.Observable, {
 	 * @property
 	 * @private
 	 */
-	pollingInterval : 20000,
+	pollingInterval: 20000,
 
 	/**
 	 * The constructor
 	 */
-	constructor : function()
+	constructor: function()
 	{
 		var me = this;
 
@@ -52,7 +52,7 @@ Zarafa.core.PresenceManager = Ext.extend(Ext.util.Observable, {
 	 * {@link Zarafa.core.PresencePlugin PresencePlugins}
 	 * @return {Zarafa.core.PresencePlugin[]}
 	 */
-	getPresencePlugins : function()
+	getPresencePlugins: function()
 	{
 		return container.getPlugins().filter(function(plugin){
 			return plugin instanceof Zarafa.core.PresencePlugin;
@@ -67,7 +67,7 @@ Zarafa.core.PresenceManager = Ext.extend(Ext.util.Observable, {
 	 * {@link Zarafa.core.data.PresenceStatus presence status} for
 	 * each presence plugin
 	 */
-	getPresenceStatusForUsers : function(users)
+	getPresenceStatusForUsers: function(users)
 	{
 		users = [].concat(users);
 
@@ -107,7 +107,7 @@ Zarafa.core.PresenceManager = Ext.extend(Ext.util.Observable, {
 	 * status is requested.
 	 * @return {Zarafa.core.data.PresenceStatus} The squashed presence status
 	 */
-	getPresenceStatusForUser : function(user)
+	getPresenceStatusForUser: function(user)
 	{
 		if ( Ext.isEmpty(user) ){
 			return Zarafa.core.data.PresenceStatus.UNKNOWN;
@@ -131,7 +131,7 @@ Zarafa.core.PresenceManager = Ext.extend(Ext.util.Observable, {
 	 * @param {Zarafa.core.data.UserIdObject} user An object that identifies the user for which
 	 * a presence status will be requested.
 	 */
-	queuePresenceRequest : function(user)
+	queuePresenceRequest: function(user)
 	{
 		// If the user is already in the request queue, we can simply return.
 		var userAlreadyinRequestQueue = false;
@@ -159,7 +159,7 @@ Zarafa.core.PresenceManager = Ext.extend(Ext.util.Observable, {
 	 * {@link Zarafa.core.data.PresenceStatus presence status} for all
 	 * users in the {#requestQueue queue}.
 	 */
-	doQueuedRequests : function()
+	doQueuedRequests: function()
 	{
 		var statuses = this.getPresenceStatusForUsers(this.requestQueue);
 
@@ -185,7 +185,7 @@ Zarafa.core.PresenceManager = Ext.extend(Ext.util.Observable, {
 	 * The arrays contain objects that contain a
 	 * {@link Zarafa.core.data.UserIdObject user} and a status.
 	 */
-	rearangeStatuses : function(users, statuses)
+	rearangeStatuses: function(users, statuses)
 	{
 		var statusesByPlugin = {};
 		Ext.each(statuses, function(statusByPlugin, index){
@@ -194,8 +194,8 @@ Zarafa.core.PresenceManager = Ext.extend(Ext.util.Observable, {
 					statusesByPlugin[pluginName] = [];
 				}
 				statusesByPlugin[pluginName].push({
-					user : users[index],
-					status : statusByPlugin[pluginName]
+					user: users[index],
+					status: statusByPlugin[pluginName]
 				});
 			}, this);
 		}, this);
@@ -212,7 +212,7 @@ Zarafa.core.PresenceManager = Ext.extend(Ext.util.Observable, {
 	 * that will be registered.
 	 * will be added to the records. (e.g.: 'sender')
 	 */
-	registerStore : function(store)
+	registerStore: function(store)
 	{
 		if (this.getPresencePlugins().length === 0) {
 			return;
@@ -245,7 +245,7 @@ Zarafa.core.PresenceManager = Ext.extend(Ext.util.Observable, {
 	 * @param {Zarafa.core.data.MAPIStore|Zarafa.core.data.MAPISubStore} store The store
 	 * that will be unregistered.
 	 */
-	unregisterStore : function(store)
+	unregisterStore: function(store)
 	{
 		for ( var i=0; i<this.registeredStores.length; i++) {
 			if ( this.registeredStores[i].store === store ){
@@ -265,7 +265,7 @@ Zarafa.core.PresenceManager = Ext.extend(Ext.util.Observable, {
 	 * this store.
 	 * @param {Object} options The loading options that were specified
 	 */
-	onStoreLoad : function(store, records, options)
+	onStoreLoad: function(store, records, options)
 	{
 		// Create an array with user info objects to send to the PresenceManager
 		var users = Zarafa.core.data.UserIdObjectFactory.createFromStore(store);
@@ -288,7 +288,7 @@ Zarafa.core.PresenceManager = Ext.extend(Ext.util.Observable, {
 	 * {Zarafa.core.data.UserIdObject UserIdObject} and a
 	 * {@link Zarafa.core.data.PresenceStatus} for that user
 	 */
-	updateStatuses : function(pluginName, updates) {
+	updateStatuses: function(pluginName, updates) {
 		// Make sure we have an array
 		if ( !Array.isArray(updates) ){
 			updates = [updates];
@@ -346,7 +346,7 @@ Zarafa.core.PresenceManager = Ext.extend(Ext.util.Observable, {
 	 * Requests a status from all presence plugins for all users in the
 	 * registered stores.
 	 */
-	pollForUpdates : function()
+	pollForUpdates: function()
 	{
 		var users = Zarafa.core.data.PresenceCache.getUserInfoList();
 		var statuses = this.getPresenceStatusForUsers(users);

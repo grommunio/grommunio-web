@@ -10,7 +10,7 @@ Zarafa.addressbook.dialogs.AddressBookContentPanel = Ext.extend(Zarafa.core.ui.C
 	 * @cfg (Boolean) Set to true to hide contacts folders in the address book
 	 * hierarchy dropdown.
 	 */
-	hideContactsFolders : false,
+	hideContactsFolders: false,
 
 	/**
 	 * @cfg {Object} listRestriction The default restriction which
@@ -18,26 +18,26 @@ Zarafa.addressbook.dialogs.AddressBookContentPanel = Ext.extend(Zarafa.core.ui.C
 	 * from the server. This can be used to restrict the visibility
 	 * of users, groups, companies etc.
 	 */
-	listRestriction : undefined,
+	listRestriction: undefined,
 
 	/**
  	 * @constructor
 	 * @param config Configuration structure
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		config = config || {};
 
 		Ext.applyIf(config, {
-			xtype : 'zarafa.addressbookcontentpanel',
-			layout : 'fit',
+			xtype: 'zarafa.addressbookcontentpanel',
+			layout: 'fit',
 			cls: 'k-addressbookcontentpanel',
-			title : _('Address Book'),
-			width : 1000,
+			title: _('Address Book'),
+			width: 1000,
 			items: [{
 				xtype: 'zarafa.addressbookpanel',
-				hideContactsFolders : config.hideContactsFolders,
-				listRestriction : config.listRestriction
+				hideContactsFolders: config.hideContactsFolders,
+				listRestriction: config.listRestriction
 			}]
 		});
 

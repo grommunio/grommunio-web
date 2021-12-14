@@ -6,39 +6,45 @@ $loader = new FileLoader();
 
 $versionInfo['webapp'] = $loader->getVersion();
 $serverConfig = array_merge($serverConfig, array(
-	'base_url'						=> BASE_URL,
-	'webapp_title'					=> $webappTitle,
-	'using_sso'						=> false,
-	'disable_full_gab'				=> DISABLE_FULL_GAB,
-	'enable_shared_rules'			=> ENABLE_SHARED_RULES,
-	'always_enabled_plugins'		=> $GLOBALS['PluginManager']->expandPluginList(ALWAYS_ENABLED_PLUGINS_LIST),
-	'disable_whats_new_dialog'		=> DISABLE_WHATS_NEW_DIALOG,
-	'enable_advanced_settings'		=> ENABLE_ADVANCED_SETTINGS ? true : false,
-	'post_max_size'					=> getMaxPostRequestSize(),
-	'max_file_uploads'				=> getMaxFileUploads(),
-	'client_timeout' 				=> defined('CLIENT_TIMEOUT') && is_numeric(CLIENT_TIMEOUT) && CLIENT_TIMEOUT>0 ? CLIENT_TIMEOUT : false,
-	'active_theme'					=> Theming::getActiveTheme(),
-	'icons_primary_color'			=> Theming::getPrimaryIconColor(),
-	'icons_secondary_color'			=> Theming::getSecondaryIconColor(),
-	'json_themes'					=> Theming::getJsonThemes(),
-	'iconsets'						=> Iconsets::getIconsets(),
-	'active_iconset'				=> Iconsets::getActiveIconset(),
-	'iconsets_about'				=> Iconsets::getAboutTexts(),
-	'version_info'					=> $GLOBALS['PluginManager']->getPluginsVersion(),
-	'is_vcfimport_supported'		=> function_exists('mapi_vcftomapi'),
-	'is_icsimport_supported'		=> function_exists('mapi_mapitoical'),
-	'color_schemes'					=> json_decode(COLOR_SCHEMES),
-	'default_categories'			=> json_decode(DEFAULT_CATEGORIES),
-	'maximum_eml_files_in_zip'		=> MAX_EML_FILES_IN_ZIP,
-	'powerpaste'					=> array(
-											'powerpaste_word_import' => POWERPASTE_WORD_IMPORT,
-											'powerpaste_html_import' => POWERPASTE_HTML_IMPORT,
-											'powerpaste_allow_local_images' => POWERPASTE_ALLOW_LOCAL_IMAGES,
-										),
-	'shared_store_polling_interval' => SHARED_STORE_POLLING_INTERVAL,
-	'prefetch_email_count' => PREFETCH_EMAIL_COUNT,
-	'prefetch_email_interval' => PREFETCH_EMAIL_INTERVAL,
-	'enable_dompurify' => ENABLE_DOMPURIFY_FILTER
+        'base_url'                              => BASE_URL,
+        'webapp_title'                          => $webappTitle,
+        'using_sso'                             => false,
+        'disable_full_gab'                      => !ENABLE_FULL_GAB,
+        'plugin_webappmanual_url'               => PLUGIN_WEBAPPMANUAL_URL,
+        'enable_shared_rules'                   => ENABLE_SHARED_RULES,
+        'always_enabled_plugins'                => $GLOBALS['PluginManager']->expandPluginList(ALWAYS_ENABLED_PLUGINS_LIST),
+        'enable_whats_new_dialog'               => ENABLE_WHATS_NEW_DIALOG,
+        'enable_advanced_settings'              => ENABLE_ADVANCED_SETTINGS ? true : false,
+        'post_max_size'                         => getMaxPostRequestSize(),
+        'max_file_uploads'                      => getMaxFileUploads(),
+        'client_timeout'                        => defined('CLIENT_TIMEOUT') && is_numeric(CLIENT_TIMEOUT) && CLIENT_TIMEOUT>0 ? CLIENT_TIMEOUT : false,
+        'active_theme'                          => Theming::getActiveTheme(),
+        'icons_primary_color'                   => Theming::getPrimaryIconColor(),
+        'icons_secondary_color'                 => Theming::getSecondaryIconColor(),
+        'json_themes'                           => Theming::getJsonThemes(),
+        'iconsets'                              => Iconsets::getIconsets(),
+        'active_iconset'                        => Iconsets::getActiveIconset(),
+        'iconsets_about'                        => Iconsets::getAboutTexts(),
+        'version_info'                          => $GLOBALS['PluginManager']->getPluginsVersion(),
+        'is_vcfimport_supported'                => function_exists('mapi_vcftomapi'),
+        'is_icsimport_supported'                => function_exists('mapi_mapitoical'),
+        'color_schemes'                         => json_decode(COLOR_SCHEMES),
+        'default_categories'                    => json_decode(DEFAULT_CATEGORIES),
+        'maximum_eml_files_in_zip'              => MAX_EML_FILES_IN_ZIP,
+        'powerpaste'                            => array(
+                                                        'powerpaste_word_import' => POWERPASTE_WORD_IMPORT,
+                                                        'powerpaste_html_import' => POWERPASTE_HTML_IMPORT,
+                                                        'powerpaste_allow_local_images' => POWERPASTE_ALLOW_LOCAL_IMAGES,
+                                                ),
+        'shared_store_polling_interval'         => SHARED_STORE_POLLING_INTERVAL,
+        'prefetch_email_count'                  => PREFETCH_EMAIL_COUNT,
+        'prefetch_email_interval'               => PREFETCH_EMAIL_INTERVAL,
+        'enable_dompurify'                      => ENABLE_DOMPURIFY_FILTER,
+        'enable_file_previewer'                 => ENABLE_FILE_PREVIEWER,
+        'base_url'                              => BASE_URL,
+        'enable_themes'                         => ENABLE_THEMES,
+        'enable_iconsets'                       => ENABLE_ICONSETS,
+        'enable_widgets'                        => ENABLE_WIDGETS
 ));
 if ( CONTACT_PREFIX ){
 	$serverConfig['contact_prefix'] = json_decode(CONTACT_PREFIX);
@@ -73,7 +79,7 @@ if ( defined('ADDITIONAL_CATEGORIES') ){
 			echo Theming::getStyles($theme);
 			$iconsetStylesheet = Iconsets::getActiveStylesheet();
 		?>
-		<link id="kopano-iconset-stylesheet" rel="stylesheet" href="<?php echo $iconsetStylesheet; ?>" >
+		<link id="grommunio-iconset-stylesheet" rel="stylesheet" href="<?php echo $iconsetStylesheet; ?>" >
 	</head>
 
 	<body class="zarafa-webclient theme-<?php echo strtolower($theme ? $theme : 'basic'); echo ' '. $hideFavorites; echo ' '. $scrollFavorites; echo ' '. $unreadBorders ?>">

@@ -13,7 +13,7 @@ Zarafa.hierarchy.dialogs.FolderPropertiesGeneralTab = Ext.extend(Ext.form.FormPa
 	 * @constructor
 	 * @param {Object} config
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		config = config || {};
 
@@ -22,13 +22,13 @@ Zarafa.hierarchy.dialogs.FolderPropertiesGeneralTab = Ext.extend(Ext.form.FormPa
 
 		Ext.applyIf(config, {
 			xtype: 'zarafa.folderpropertiesgeneraltab',
-			cls : 'tab-general',
-			border : false,
-			bodyStyle : 'background-color: inherit;',
+			cls: 'tab-general',
+			border: false,
+			bodyStyle: 'background-color: inherit;',
 			labelAlign: 'left',
 			defaults: {
 				border: false,
-				xtype : 'panel',
+				xtype: 'panel',
 				layout: 'form'
 			},
 
@@ -45,86 +45,86 @@ Zarafa.hierarchy.dialogs.FolderPropertiesGeneralTab = Ext.extend(Ext.form.FormPa
 	 * @return {Object} Configuration object for the panel which shows folders properties
 	 * @private
 	 */
-	createNameInfoPanel : function()
+	createNameInfoPanel: function()
 	{
 		return {
-			style : {
+			style: {
 				borderBottomWidth: '1px',
 				borderBottomStyle: 'solid'
 			},
-			items : [{
-				xtype : 'displayfield',
-				cls : 'display-name',
-				name : 'display_name',
-				htmlEncode : true,
-				ref : 'displayField',
-				hideLabel : true
+			items: [{
+				xtype: 'displayfield',
+				cls: 'display-name',
+				name: 'display_name',
+				htmlEncode: true,
+				ref: 'displayField',
+				hideLabel: true
 			}],
-			ref : 'nameInfoPanel'
+			ref: 'nameInfoPanel'
 		};
 	},
 	/**
 	 * @return {Object} Configuration object for the panel which shows folders properties
 	 * @private
 	 */
-	createDescriptionInfoPanel : function()
+	createDescriptionInfoPanel: function()
 	{
 		return {
-			cls : 'description-panel',
-			style : {
+			cls: 'description-panel',
+			style: {
 				borderBottomWidth: '1px',
 				borderBottomStyle: 'solid'
 			},
-			defaults : {
-				anchor : '100%'
+			defaults: {
+				anchor: '100%'
 			},
-			items : [{
-				xtype : 'displayfield',
-				fieldLabel : _('Type'),
-				htmlEncode : true,
-				ref : 'folderTypeField'
+			items: [{
+				xtype: 'displayfield',
+				fieldLabel: _('Type'),
+				htmlEncode: true,
+				ref: 'folderTypeField'
 			},{
-				xtype : 'displayfield',
-				fieldLabel : _('Location'),
-				ref : 'locationField',
-				htmlEncode : true
+				xtype: 'displayfield',
+				fieldLabel: _('Location'),
+				ref: 'locationField',
+				htmlEncode: true
 			},{
-				xtype : 'textarea',
-				fieldLabel : _('Description'),
-				height : 72,
-				name : 'comment',
-				listeners : {
-					change : this.onFieldChange,
-					scope : this
+				xtype: 'textarea',
+				fieldLabel: _('Description'),
+				height: 72,
+				name: 'comment',
+				listeners: {
+					change: this.onFieldChange,
+					scope: this
 				}
 			}],
-			ref : 'descriptionPanel'
+			ref: 'descriptionPanel'
 		};
 	},
 	/**
 	 * @return {Object} Configuration object for the panel which shows folders properties
 	 * @private
 	 */
-	createContentInfoPanel : function()
+	createContentInfoPanel: function()
 	{
 		return {
-			cls : 'content-info-panel',
-			border : false,
-			items : [{
-				xtype : 'displayfield',
-				fieldLabel : _('Items'),
-				htmlEncode : true,
-				name : 'content_count'
+			cls: 'content-info-panel',
+			border: false,
+			items: [{
+				xtype: 'displayfield',
+				fieldLabel: _('Items'),
+				htmlEncode: true,
+				name: 'content_count'
 			},{
-				xtype : 'displayfield',
-				fieldLabel : _('Unread'),
-				htmlEncode : true,
-				name : 'content_unread'
+				xtype: 'displayfield',
+				fieldLabel: _('Unread'),
+				htmlEncode: true,
+				name: 'content_unread'
 			},{
-				xtype : 'zarafa.displayfield',
-				fieldLabel : _('Size'),
-				renderer : Ext.util.Format.fileSize,
-				name : 'message_size'
+				xtype: 'zarafa.displayfield',
+				fieldLabel: _('Size'),
+				renderer: Ext.util.Format.fileSize,
+				name: 'message_size'
 			},{
 				xtype : 'textfield',
 				fieldLabel : _('EntryID'),
@@ -134,13 +134,13 @@ Zarafa.hierarchy.dialogs.FolderPropertiesGeneralTab = Ext.extend(Ext.form.FormPa
 				fieldLabel : _('Parent EID'),
 				name : 'parent_entryid'
 			}],
-			buttonAlign : 'left',
-			buttons : [{
-				xtype : 'button',
+			buttonAlign: 'left',
+			buttons: [{
+				xtype: 'button',
 				cls: 'zarafa-normal',
-				text : _('Folder size') + '...',
-				handler : this.onFolderSize,
-				scope : this
+				text: _('Folder size') + '...',
+				handler: this.onFolderSize,
+				scope: this
 			}]
 		};
 	},
@@ -152,7 +152,7 @@ Zarafa.hierarchy.dialogs.FolderPropertiesGeneralTab = Ext.extend(Ext.form.FormPa
 	 * @param {Boolean} contentReset force the component to perform a full update of the data.
 	 * @private
 	 */
-	updateUI : function(record, contentReset)
+	updateUI: function(record, contentReset)
 	{
 		var layout = false;
 
@@ -188,7 +188,7 @@ Zarafa.hierarchy.dialogs.FolderPropertiesGeneralTab = Ext.extend(Ext.form.FormPa
 	 * @param {Zarafa.core.data.IPMRecord} record The record to update the panel with
 	 * @param {Boolean} contentReset force the component to perform a full update of the data.
 	 */
-	update : function(record, contentReset)
+	update: function(record, contentReset)
 	{
 		this.record = record;
 		this.updateUI(record, contentReset);
@@ -199,7 +199,7 @@ Zarafa.hierarchy.dialogs.FolderPropertiesGeneralTab = Ext.extend(Ext.form.FormPa
 	 * Update the {@link Zarafa.core.data.IPMRecord IPMRecord} with the data from the {@link Ext.Panel Panel}.
 	 * @param {Zarafa.core.data.IPMRecord} record The record which has to be updated
 	 */
-	updateRecord : function(record)
+	updateRecord: function(record)
 	{
 		this.getForm().updateRecord(record);
 	},
@@ -212,7 +212,7 @@ Zarafa.hierarchy.dialogs.FolderPropertiesGeneralTab = Ext.extend(Ext.form.FormPa
 	 * @param {Mixed} oldValue The original value for the field
 	 * @private
 	 */
-	onFieldChange : function(field, newValue, oldValue)
+	onFieldChange: function(field, newValue, oldValue)
 	{
 		this.record.set(field.getName(), newValue);
 	},
@@ -223,7 +223,7 @@ Zarafa.hierarchy.dialogs.FolderPropertiesGeneralTab = Ext.extend(Ext.form.FormPa
 	 * @param {Ext.Button} btn The button which was pressed
 	 * @private
 	 */
-	onFolderSize : function(btn)
+	onFolderSize: function(btn)
 	{
 		Zarafa.hierarchy.Actions.openFolderSizeContent(this.record);
 	}

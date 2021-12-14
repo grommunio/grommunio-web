@@ -10,29 +10,29 @@ Ext.namespace('Zarafa.calendar.dialogs');
  */
 Zarafa.calendar.dialogs.ProposeNewTimePanel = Ext.extend(Ext.Panel, {
 	/**
-	 * @cfg {Zarafa.core.data.IPMRecord} record The record for which 
+	 * @cfg {Zarafa.core.data.IPMRecord} record The record for which
 	 * propose new time dialog is opened
 	 */
-	record : undefined,
+	record: undefined,
 	/**
 	 * @cfg {Zarafa.core.mapi.ResponseStatus} responseType tentative accept/decline
 	 * As a default accept tentatively and propose new time.
 	 */
-	responseType : Zarafa.core.mapi.ResponseStatus.RESPONSE_TENTATIVE,
+	responseType: Zarafa.core.mapi.ResponseStatus.RESPONSE_TENTATIVE,
 	/**
 	 * @constructor
 	 * @param config Configuration structure
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		config = config || {};
 
 		Ext.applyIf(config, {
 			// Override from Ext.Component
-			xtype : 'zarafa.proposenewtimepanel',
+			xtype: 'zarafa.proposenewtimepanel',
 			layout: {
 				type: 'vbox',
-				align : 'stretch'
+				align: 'stretch'
 			},
 			border: false,
 			defaults: {
@@ -54,7 +54,7 @@ Zarafa.calendar.dialogs.ProposeNewTimePanel = Ext.extend(Ext.Panel, {
 	 * @return {Object} Configuration object for the panel with time selection fields
 	 * @private
 	 */
-	createProposeTimePanel : function()
+	createProposeTimePanel: function()
 	{
 		return [{
 				xtype: 'zarafa.datetimeperiodfield',
@@ -104,7 +104,7 @@ Zarafa.calendar.dialogs.ProposeNewTimePanel = Ext.extend(Ext.Panel, {
 	 * @param {Zarafa.core.data.MAPIRecord} record The record to update in this component
 	 * @param {Boolean} contentReset force the component to perform a full update of the data.
 	 */
-	update : function(record, contentReset)
+	update: function(record, contentReset)
 	{
 		var startDate;
 		var dueDate;
@@ -126,7 +126,7 @@ Zarafa.calendar.dialogs.ProposeNewTimePanel = Ext.extend(Ext.Panel, {
 	 * Update the {@link Zarafa.core.data.IPMRecord IPMRecord} with the data from the {@link Ext.Panel Panel}.
 	 * @param {Zarafa.core.data.IPMRecord} record The record which has to be updated
 	 */
-	updateRecord : function(record)
+	updateRecord: function(record)
 	{
 		record.proposeNewTimeToMeetingRequest(this.responseType, this.comment.getValue(), this.datetimePeriod.getValue().startDate, this.datetimePeriod.getValue().dueDate);
 	}

@@ -11,7 +11,7 @@ Zarafa.calendar.ui.AppointmentSelectionModel = Ext.extend(Ext.grid.AbstractSelec
 	/**
 	 * @cfg {Boolean} singleSelect true to allow selection of only one row at a time (defaults to true disallowing multiple selections)
 	 */
-	singleSelect : true,
+	singleSelect: true,
 
 	/**
 	 * The array of selected record.
@@ -19,13 +19,13 @@ Zarafa.calendar.ui.AppointmentSelectionModel = Ext.extend(Ext.grid.AbstractSelec
 	 * @type Ext.util.MixedCollection
 	 * @private
 	 */
-	selections : undefined,
+	selections: undefined,
 
 	/**
 	 * @constructor
 	 * @param {Object} config configuration object.
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		this.selections = new Ext.util.MixedCollection(false, function(o) {
 			var id = o.id;
@@ -71,7 +71,7 @@ Zarafa.calendar.ui.AppointmentSelectionModel = Ext.extend(Ext.grid.AbstractSelec
 	/**
 	 * Clears all selections if the selection model {@link #isLocked is not locked}.
 	 */
-	clearSelections : function()
+	clearSelections: function()
 	{
 		if (this.isLocked()) {
 			return;
@@ -91,7 +91,7 @@ Zarafa.calendar.ui.AppointmentSelectionModel = Ext.extend(Ext.grid.AbstractSelec
 	 * Gets the number of selected appointments
 	 * @return {Number} The number of selected appointments
 	 */
-	getCount : function()
+	getCount: function()
 	{
 		return this.selections.getCount();
 	},
@@ -100,7 +100,7 @@ Zarafa.calendar.ui.AppointmentSelectionModel = Ext.extend(Ext.grid.AbstractSelec
 	 * Returns the selected records
 	 * @return {Array} Array of selected records
 	 */
-	getSelections : function()
+	getSelections: function()
 	{
 		return [].concat(this.selections.items);
 	},
@@ -109,7 +109,7 @@ Zarafa.calendar.ui.AppointmentSelectionModel = Ext.extend(Ext.grid.AbstractSelec
 	 * Returns the first selected record.
 	 * @return {Zarafa.core.data.IPMRecord}
 	 */
-	getSelected : function()
+	getSelected: function()
 	{
 		return this.selections.itemAt(0);
 	},
@@ -118,7 +118,7 @@ Zarafa.calendar.ui.AppointmentSelectionModel = Ext.extend(Ext.grid.AbstractSelec
 	 * Returns <tt>true</tt> if there is a selection.
 	 * @return {Boolean}
 	 */
-	hasSelection : function()
+	hasSelection: function()
 	{
 		return this.selections.length > 0;
 	},
@@ -128,7 +128,7 @@ Zarafa.calendar.ui.AppointmentSelectionModel = Ext.extend(Ext.grid.AbstractSelec
 	 * @param {Record} record The record to check
 	 * @return {Boolean}
 	 */
-	isSelected : function(record)
+	isSelected: function(record)
 	{
 		return (record && this.selections.key(this.selections.getKey(record)) ? true : false);
 	},
@@ -141,7 +141,7 @@ Zarafa.calendar.ui.AppointmentSelectionModel = Ext.extend(Ext.grid.AbstractSelec
 	 * @param {Zarafa.core.data.IPMRecord} record The record to select
 	 * @param {Boolean} keepExisting (optional) <tt>true</tt> to keep existing selections
 	 */
-	selectRecord : function(record, keepExisting)
+	selectRecord: function(record, keepExisting)
 	{
 		if (this.isLocked() || !Ext.isDefined(record) || (keepExisting && this.isSelected(record))) {
 			return;
@@ -168,7 +168,7 @@ Zarafa.calendar.ui.AppointmentSelectionModel = Ext.extend(Ext.grid.AbstractSelec
 	 * firing the {@link #selectionchange} event.
 	 * @param {Number} row The index of the row to deselect
 	 */
-	deselectRecord : function(record)
+	deselectRecord: function(record)
 	{
 		if (this.isLocked() || !Ext.isDefined(record)) {
 			return;

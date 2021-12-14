@@ -23,9 +23,9 @@
 		 */
 		function __construct($id, $data)
 		{
-			$this->properties = $GLOBALS["properties"]->getAppointmentListProperties();
-
 			parent::__construct($id, $data);
+
+			$this->properties = $GLOBALS["properties"]->getAppointmentListProperties();
 
 			$this->startdate = false;
 			$this->enddate = false;
@@ -73,6 +73,9 @@
 								$this->handleUnknownActionType($actionType);
 						}
 					} catch (MAPIException $e) {
+						if (isset($action['suppress_exception']) && $action['suppress_exception'] === true) {
+							$e->setNotificationType('console');
+						}
 						$this->processException($e, $actionType);
 					}
 				}
@@ -111,6 +114,15 @@
 						$data["item"] = array();
 						for($index = 0, $index2 = count($entryid); $index < $index2; $index++) {
 							$this->getDelegateFolderInfo($store[$index]);
+
+							// Set the active store in properties class and get the props based on active store.
+							// we need to do this because of multi server env where shared store belongs to the different server.
+							// Here name space is different per server. e.g. There is user A and user B and both are belongs to
+							// different server and user B is shared store of user A because of that user A has 'categories' => -2062020578
+							// and user B 'categories' => -2062610402,
+							$GLOBALS["properties"]->setActiveStore($store[$index]);
+							$this->properties = $GLOBALS["properties"]->getAppointmentListProperties();
+
 							$data["item"] = array_merge($data["item"], $this->getCalendarItems($store[$index], $entryid[$index], $this->startdate, $this->enddate));
 						}
 					} else {
@@ -150,7 +162,7 @@
 			$restriction =
 				// OR
 				//  - Either we want all appointments which fall within the given range
-				//	- Or we want all recurring items which we manually check if an occurence
+				//	- Or we want all recurring items which we manually check if an occurrence
 				//	  exists which will fall inside the range
 				Array(RES_OR,
 					Array(
@@ -212,11 +224,11 @@
 						//(item[isRecurring] == true)
 						Array(RES_AND,
 							array(
-								Array(RES_PROPERTY,
-									Array(RELOP => RELOP_EQ,
-										ULPROPTAG => $this->properties["recurring"],
-										VALUE => true
-									),
+						Array(RES_PROPERTY,
+							Array(RELOP => RELOP_EQ,
+								ULPROPTAG => $this->properties["recurring"],
+								VALUE => true
+							),
 								),
 								array(RES_AND,
 									array(
@@ -272,7 +284,7 @@
 					{
 						$item = Conversion::mapMAPI2XML($this->properties, $recuritem);
 
-						// Single occurences are never recurring
+						// Single occurrences are never recurring
 						$item['props']['recurring'] = false;
 
 						if(isset($recuritem["exception"])) {
@@ -344,7 +356,7 @@
 			}
 
 			usort($items, array("AppointmentListModule", "compareCalendarItems"));
-			
+
 			return $items;
 		}
 
@@ -359,7 +371,7 @@
 		{
 			if($this->startdate && $this->enddate) {
 				if($this->checkPrivateItem($item)) {
-					$item['props']['subject'] = Language::getstring('Private Appointment');
+					$item['props']['subject'] = _('Private Appointment');
 					$item['props']['location'] = '';
 					$item['props']['reminder'] = 0;
 					$item['props']['access'] = 0;

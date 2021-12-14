@@ -23,12 +23,12 @@ Ext.namespace('Zarafa.core.data');
 Zarafa.core.data.RecordFactory = {
 	/**
 	 * Key-value map of {@link Zarafa.core.data.RecordDefinition} as registered by
-	 * {@link #createRecordDefinition}. 
+	 * {@link #createRecordDefinition}.
 	 *
 	 * @property
 	 * @type Object
 	 */
-	definitions : {},
+	definitions: {},
 
 	/**
 	 * Obtain the parent messageclass for the given messageclass.
@@ -42,7 +42,7 @@ Zarafa.core.data.RecordFactory = {
 	 * the messageclass has no parent.
 	 * @private
 	 */
-	getMessageClassParent : function(messageClass)
+	getMessageClassParent: function(messageClass)
 	{
 		var lastDot = messageClass.lastIndexOf('.');
 		if (lastDot > 0) {
@@ -57,13 +57,13 @@ Zarafa.core.data.RecordFactory = {
 	 * @return {Zarafa.core.data.RecordDefinition} The parent record definition.
 	 * Undefined if the messageclass does not have a parent.
 	 */
-	getMessageClassParentDefinition : function(messageClass)
+	getMessageClassParentDefinition: function(messageClass)
 	{
 		var messageClassParent = this.getMessageClassParent(messageClass);
 
 		if (Ext.isDefined(messageClassParent)) {
 			return this.getRecordDefinitionByMessageClass(messageClassParent);
-		} 
+		}
 	},
 
 	/**
@@ -78,12 +78,12 @@ Zarafa.core.data.RecordFactory = {
 	 * the record definition.
 	 * @return {Zarafa.core.data.RecordDefinition} The new record definition.
 	 */
-	createRecordDefinition : function(key, parent, defaults)
+	createRecordDefinition: function(key, parent, defaults)
 	{
 		var definition = new Zarafa.core.data.RecordDefinition({
-			base : undefined,
-			parent : parent,
-			createDefaults : defaults
+			base: undefined,
+			parent: parent,
+			createDefaults: defaults
 		});
 
 		this.definitions[key] = definition;
@@ -101,7 +101,7 @@ Zarafa.core.data.RecordFactory = {
 	 * @return {Zarafa.core.data.RecordDefinition} The definition object for the custom type
 	 * @private
 	 */
-	getRecordDefinitionByCustomType : function(customType)
+	getRecordDefinitionByCustomType: function(customType)
 	{
 		var definition = this.definitions[customType];
 		if (Ext.isDefined(definition)) {
@@ -123,7 +123,7 @@ Zarafa.core.data.RecordFactory = {
 	 * @return {Zarafa.core.data.RecordDefinition} The definition object for the object type
 	 * @private
 	 */
-	getRecordDefinitionByObjectType : function(objectType)
+	getRecordDefinitionByObjectType: function(objectType)
 	{
 		var definition = this.definitions[objectType];
 		if (Ext.isDefined(definition)) {
@@ -131,7 +131,7 @@ Zarafa.core.data.RecordFactory = {
 		}
 
 		// Object types don't have any hierarchy...
-		return this.createRecordDefinition(objectType, undefined, {'object_type' : objectType});
+		return this.createRecordDefinition(objectType, undefined, {'object_type': objectType});
 	},
 
 	/**
@@ -142,10 +142,10 @@ Zarafa.core.data.RecordFactory = {
 	 * returned.
 	 *
 	 * @param {String} messageClass The messageclass for which the definition is requested.
-	 * @return {Zarafa.core.data.RecordDefinition} The definition object for the messageclass. 
+	 * @return {Zarafa.core.data.RecordDefinition} The definition object for the messageclass.
 	 * @private
 	 */
-	getRecordDefinitionByMessageClass : function(messageClass)
+	getRecordDefinitionByMessageClass: function(messageClass)
 	{
 		var keyName = messageClass.toUpperCase();
 		var definition = this.definitions[keyName];
@@ -159,7 +159,7 @@ Zarafa.core.data.RecordFactory = {
 		if (!Ext.isDefined(parent)){
 			/* - If record contains message_class which has no IPM as prefix or suffix followed by dot(.)
 			 * like MEMO, REPORT etc, which are not supported by webapp and no fields are available as well (fields
-			  * are not registered by any record in webapp) hence record is treated as faulty message in webapp.
+			 * are not registered by any record in webapp) hence record is treated as faulty message in webapp.
 			 *
 			 * - Webapp can create such records as Ext.data.Record, without throwing any warning or error,
 			 * this particular record not able to use Zarafa.core.data.IPMRecord functions.
@@ -170,7 +170,7 @@ Zarafa.core.data.RecordFactory = {
 			 */
 			parent = this.definitions["IPM"];
 		}
-		return this.createRecordDefinition(keyName, parent, {'message_class' : messageClass});
+		return this.createRecordDefinition(keyName, parent, {'message_class': messageClass});
 	},
 
 	/**
@@ -189,7 +189,7 @@ Zarafa.core.data.RecordFactory = {
 	 * automatically generated id.
 	 * @return {Ext.data.Record} The new record
 	 */
-	createRecordObjectByCustomType : function(customType, data, id)
+	createRecordObjectByCustomType: function(customType, data, id)
 	{
 		var definition = this.getRecordDefinitionByCustomType(customType);
 		return definition.createRecord(data, id);
@@ -211,7 +211,7 @@ Zarafa.core.data.RecordFactory = {
 	 * automatically generated id.
 	 * @return {Ext.data.Record} The new record
 	 */
-	createRecordObjectByObjectType : function(objectType, data, id)
+	createRecordObjectByObjectType: function(objectType, data, id)
 	{
 		var definition = this.getRecordDefinitionByObjectType(objectType);
 		return definition.createRecord(data, id);
@@ -232,7 +232,7 @@ Zarafa.core.data.RecordFactory = {
 	 * automatically generated id.
 	 * @return {Ext.data.Record} The new record
 	 */
-	createRecordObjectByMessageClass : function(messageClass, data, id)
+	createRecordObjectByMessageClass: function(messageClass, data, id)
 	{
 		var definition = this.getRecordDefinitionByMessageClass(messageClass);
 		return definition.createRecord(data, id);
@@ -245,7 +245,7 @@ Zarafa.core.data.RecordFactory = {
 	 * this function will return undefined.
 	 *
 	 * @param {Object} recordData The record data from which the record class must be detected
-	 * it slaos contains the properties of which provide values for the new Record's fields. 
+	 * it slaos contains the properties of which provide values for the new Record's fields.
 	 * @param {Object} id (Optional) The id of the Record. The id is used by the
 	 * {@link Ext.data.Store Store} object which owns the {@link Ext.data.Record}
 	 * to index its collection of Records (therefore this id should be unique within
@@ -253,7 +253,7 @@ Zarafa.core.data.RecordFactory = {
 	 * automatically generated id.
 	 * @return {Class} The record class definition
 	 */
-	createRecordObjectByRecordData : function(recordData, id)
+	createRecordObjectByRecordData: function(recordData, id)
 	{
 		if (!Ext.isEmpty(recordData.message_class)) {
 			return this.createRecordObjectByMessageClass(recordData.message_class, recordData, id);
@@ -271,7 +271,7 @@ Zarafa.core.data.RecordFactory = {
 	 * record class is requested
 	 * @return {Class} The record class definition
 	 */
-	getRecordClassByCustomType : function(customType)
+	getRecordClassByCustomType: function(customType)
 	{
 		var definition = this.getRecordDefinitionByCustomType(customType);
 		return definition.getType();
@@ -286,7 +286,7 @@ Zarafa.core.data.RecordFactory = {
 	 * record class is requested
 	 * @return {Class} The record class definition
 	 */
-	getRecordClassByObjectType : function(objectType)
+	getRecordClassByObjectType: function(objectType)
 	{
 		var definition = this.getRecordDefinitionByObjectType(objectType);
 		return definition.getType();
@@ -300,7 +300,7 @@ Zarafa.core.data.RecordFactory = {
 	 * @param {String} messageClass The messageclass for which the record class is requested
 	 * @return {Class} The record class definition
 	 */
-	getRecordClassByMessageClass : function(messageClass)
+	getRecordClassByMessageClass: function(messageClass)
 	{
 		var definition = this.getRecordDefinitionByMessageClass(messageClass);
 		return definition.getType();
@@ -316,7 +316,7 @@ Zarafa.core.data.RecordFactory = {
 	 * @param {Object} recordData The record data from which the record class must be detected
 	 * @return {Class} The record class definition
 	 */
-	getRecordClassByRecordData : function(recordData)
+	getRecordClassByRecordData: function(recordData)
 	{
 		if (Ext.isDefined(recordData.message_class)) {
 			return this.getRecordClassByMessageClass(recordData.message_class);
@@ -334,7 +334,7 @@ Zarafa.core.data.RecordFactory = {
 	 * the new base class must be set.
 	 * @param {Class} baseClass The new base class to use
 	 */
-	setBaseClassToCustomType : function(customType, baseClass)
+	setBaseClassToCustomType: function(customType, baseClass)
 	{
 		var definition = this.getRecordDefinitionByCustomType(customType);
 		definition.setBaseClass(baseClass);
@@ -349,7 +349,7 @@ Zarafa.core.data.RecordFactory = {
 	 * the new base class must be set.
 	 * @param {Class} baseClass The new base class to use
 	 */
-	setBaseClassToObjectType : function(objectType, baseClass)
+	setBaseClassToObjectType: function(objectType, baseClass)
 	{
 		var definition = this.getRecordDefinitionByObjectType(objectType);
 		definition.setBaseClass(baseClass);
@@ -364,7 +364,7 @@ Zarafa.core.data.RecordFactory = {
 	 * the new base class must be set.
 	 * @param {Class} baseClass The new base class to use
 	 */
-	setBaseClassToMessageClass : function(messageClass, baseClass)
+	setBaseClassToMessageClass: function(messageClass, baseClass)
 	{
 		var definition = this.getRecordDefinitionByMessageClass(messageClass);
 		definition.setBaseClass(baseClass);
@@ -380,7 +380,7 @@ Zarafa.core.data.RecordFactory = {
 	 * @param {String} name The name of the SubStore table
 	 * @param {Constructor} type The SubStore type
 	 */
-	setSubStoreToCustomType : function(customType, name, type)
+	setSubStoreToCustomType: function(customType, name, type)
 	{
 		var definition = this.getRecordDefinitionByCustomType(customType);
 		definition.setSubStore(name, type);
@@ -396,7 +396,7 @@ Zarafa.core.data.RecordFactory = {
 	 * @param {String} name The name of the SubStore table
 	 * @param {Constructor} type The SubStore type
 	 */
-	setSubStoreToObjectType : function(objectType, name, type)
+	setSubStoreToObjectType: function(objectType, name, type)
 	{
 		var definition = this.getRecordDefinitionByObjectType(objectType);
 		definition.setSubStore(name, type);
@@ -411,7 +411,7 @@ Zarafa.core.data.RecordFactory = {
 	 * @param {String} name The name of the SubStore table
 	 * @param {Constructor} type The SubStore type
 	 */
-	setSubStoreToMessageClass : function(messageClass, name, type)
+	setSubStoreToMessageClass: function(messageClass, name, type)
 	{
 		var definition = this.getRecordDefinitionByMessageClass(messageClass);
 		definition.setSubStore(name, type);
@@ -425,7 +425,7 @@ Zarafa.core.data.RecordFactory = {
 	 * should be added.
 	 * @param {String/Ext.data.Field} field The field which must be added.
 	 */
-	addFieldToCustomType : function(customType, field)
+	addFieldToCustomType: function(customType, field)
 	{
 		var definition = this.getRecordDefinitionByCustomType(customType);
 		definition.addField(field);
@@ -439,7 +439,7 @@ Zarafa.core.data.RecordFactory = {
 	 * should be added.
 	 * @param {String/Ext.data.Field} field The field which must be added.
 	 */
-	addFieldToObjectType : function(objectType, field)
+	addFieldToObjectType: function(objectType, field)
 	{
 		var definition = this.getRecordDefinitionByObjectType(objectType);
 		definition.addField(field);
@@ -453,7 +453,7 @@ Zarafa.core.data.RecordFactory = {
 	 * should be added.
 	 * @param {String/Ext.data.Field} field The field which must be added.
 	 */
-	addFieldToMessageClass : function(messageClass, field)
+	addFieldToMessageClass: function(messageClass, field)
 	{
 		var definition = this.getRecordDefinitionByMessageClass(messageClass);
 		definition.addField(field);
@@ -472,7 +472,7 @@ Zarafa.core.data.RecordFactory = {
 	 * value should be applied
 	 * @param {Mixed} defaultValue the default value for the given fieldname
 	 */
-	addDefaultValueToCustomType : function(customType, field, defaultValue)
+	addDefaultValueToCustomType: function(customType, field, defaultValue)
 	{
 		var definition = this.getRecordDefinitionByCustomType(customType);
 		definition.addDefaultValue(field, defaultValue);
@@ -491,7 +491,7 @@ Zarafa.core.data.RecordFactory = {
 	 * value should be applied
 	 * @param {Mixed} defaultValue the default value for the given fieldname
 	 */
-	addDefaultValueToObjectType : function(objectType, field, defaultValue)
+	addDefaultValueToObjectType: function(objectType, field, defaultValue)
 	{
 		var definition = this.getRecordDefinitionByObjectType(objectType);
 		definition.addDefaultValue(field, defaultValue);
@@ -510,7 +510,7 @@ Zarafa.core.data.RecordFactory = {
 	 * value should be applied
 	 * @param {Mixed} defaultValue the default value for the given fieldname
 	 */
-	addDefaultValueToMessageClass : function(messageClass, field, defaultValue)
+	addDefaultValueToMessageClass: function(messageClass, field, defaultValue)
 	{
 		var definition = this.getRecordDefinitionByMessageClass(messageClass);
 		definition.addDefaultValue(field, defaultValue);
@@ -526,7 +526,7 @@ Zarafa.core.data.RecordFactory = {
 	 * If omitted, defaults to the object which fired the event.
 	 * @param {Object} options (optional) An object containing handler configuration properties.
 	 */
-	addListenerToCustomType : function(customType, eventName, handler, scope, options)
+	addListenerToCustomType: function(customType, eventName, handler, scope, options)
 	{
 		var definition = this.getRecordDefinitionByCustomType(customType);
 		definition.on(eventName, handler, scope, options);
@@ -542,7 +542,7 @@ Zarafa.core.data.RecordFactory = {
 	 * If omitted, defaults to the object which fired the event.
 	 * @param {Object} options (optional) An object containing handler configuration properties.
 	 */
-	addListenerToObjectType : function(objectType, eventName, handler, scope, options)
+	addListenerToObjectType: function(objectType, eventName, handler, scope, options)
 	{
 		var definition = this.getRecordDefinitionByObjectType(objectType);
 		definition.on(eventName, handler, scope, options);
@@ -558,7 +558,7 @@ Zarafa.core.data.RecordFactory = {
 	 * If omitted, defaults to the object which fired the event.
 	 * @param {Object} options (optional) An object containing handler configuration properties.
 	 */
-	addListenerToMessageClass : function(messageClass, eventName, handler, scope, options)
+	addListenerToMessageClass: function(messageClass, eventName, handler, scope, options)
 	{
 		var definition = this.getRecordDefinitionByMessageClass(messageClass);
 		definition.on(eventName, handler, scope, options);

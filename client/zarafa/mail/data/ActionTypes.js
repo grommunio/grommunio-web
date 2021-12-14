@@ -2,11 +2,11 @@ Ext.namespace('Zarafa.mail.data');
 
 /**
  * @class Zarafa.mail.data.ActionTypes
- * 
+ *
  * An enum that contains all possible Action types which
  * can be used on a {@link Zarafa.mail.MailRecord MailRecord} which
  * is being send to the server.
- * 
+ *
  * @singleton
  */
 Zarafa.mail.data.ActionTypes =
@@ -51,7 +51,7 @@ Zarafa.mail.data.ActionTypes =
 	 * @param {String} actionType what action type to check.
 	 * @return {Boolean} true if the given action type is one of the types defined in this class.
 	 */
-	isSendOrForward : function(actionType)
+	isSendOrForward: function(actionType)
 	{
 		return actionType === this.REPLY || actionType === this.REPLYALL || actionType === this.FORWARD || actionType === this.FORWARD_ATTACH;
 	}

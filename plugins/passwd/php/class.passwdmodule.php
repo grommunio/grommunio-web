@@ -41,23 +41,23 @@ class PasswdModule extends Module
 
 		// some sanity checks
 		if(empty($data)) {
-			$errorMessage = Language::getstring('No data received.');
+			$errorMessage = _('No data received.');
 		}
 
 		if(empty($data['username'])) {
-			$errorMessage = Language::getstring('Account is empty.');
+			$errorMessage = _('Account is empty.');
 		}
 
 		if(empty($data['current_password'])) {
-			$errorMessage = Language::getstring('Current password is empty.');
+			$errorMessage = _('Current password is empty.');
 		}
 
 		if(empty($data['new_password']) || empty($data['new_password_repeat'])) {
-			$errorMessage = Language::getstring('New password is empty.');
+			$errorMessage = _('New password is empty.');
 		}
 
 		if($data['new_password'] !== $data['new_password_repeat']) {
-			$errorMessage = Language::getstring('New passwords do not match.');
+			$errorMessage = _('New passwords do not match.');
 		}
 
 		if(empty($errorMessage)) {
@@ -98,7 +98,7 @@ class PasswdModule extends Module
 		}
 
 		if ($data['current_password'] !== $sessionPass) {
-			$errorMessage = Language::getstring('Current password does not match.');
+			$errorMessage = _('Current password does not match.');
 		} else if (defined('PLUGIN_PASSWD_USE_ZCORE') && PLUGIN_PASSWD_USE_ZCORE) {
 			try {
 				$result = nsp_setuserpasswd($userName, $sessionPass, $newPassword);
@@ -106,7 +106,7 @@ class PasswdModule extends Module
 				if ($result) {
 					$this->sendFeedback(true, array(
 						'info' => array(
-							'display_message' => Language::getstring('Password is changed successfully.')
+							'display_message' => _('Password is changed successfully.')
 						)
 					));
 					// write new password to session because we don't want user to re-authenticate
@@ -118,11 +118,11 @@ class PasswdModule extends Module
 				}
 			} catch (MAPIException $e) {
 				if (MAPI_E_NO_ACCESS == mapi_last_hresult()) {
-					$errorMessage = Language::getstring('Your password is wrong or you have insufficent permission to change password');
+					$errorMessage = _('Your password is wrong or you have insufficent permission to change password');
 				}
 			}
 			if (empty($errorMessage)) {
-				$errorMessage = Language::getstring('Password is not changed.');
+				$errorMessage = _('Password is not changed.');
 			}
 		} else {
 			$url = (defined('PLUGIN_PASSWD_ADMIN_API_ENDPOINT') && PLUGIN_PASSWD_ADMIN_API_ENDPOINT) ?
@@ -143,12 +143,12 @@ class PasswdModule extends Module
 			]));
 
 			if ($result === false) {
-				$errorMessage = Language::getstring('Error changing password. Please contact the system administrator.');
+				$errorMessage = _('Error changing password. Please contact the system administrator.');
 			}
 			else {
 				$this->sendFeedback(true, array(
 						'info' => array(
-							'display_message' => Language::getstring('Password has been changed successfully.')
+							'display_message' => _('Password has been changed successfully.')
 						)
 				));
 				// write new password to session because we don't want user to re-authenticate
@@ -159,7 +159,7 @@ class PasswdModule extends Module
 				return;
 			}
 			if (empty($errorMessage)) {
-				$errorMessage = Language::getstring('Password is not changed.');
+				$errorMessage = _('Password is not changed.');
 			}
 		}
 

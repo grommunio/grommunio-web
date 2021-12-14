@@ -20,12 +20,14 @@ describe("DateTimePeriodField", function() {
 		// There could be a bug which resets the date back to today.
 
 		daterange = new Zarafa.core.DateRange({ startDate : initDate, dueDate : initDate.add(Date.DAY, 1) });
+		settingsModel = container.getSettingsModel();
+      	settingsModel.initialize({});
 
 		field = new Zarafa.common.ui.DateTimePeriodField({
 			defaultValue: daterange,
 			defaultPeriod: 30,
 			defaultPeriodType: Date.MINUTE,
-			timeIncrement: 60
+			timeIncrement: 60,
 		});
 
 		field.render(Ext.getBody());

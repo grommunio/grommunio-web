@@ -4,7 +4,7 @@
 ## ant-contrib-1.0b3.jar
 ##	The contrib package (http://ant-contrib.sourceforge.net/) adds
 ##	functionalities to ant which are generaly needed by all build.xml
-##	files within grommunio Web
+##	files within the WebApp
 
 # COMPILING
 ## compiler.jar

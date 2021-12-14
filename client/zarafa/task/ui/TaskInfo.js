@@ -15,14 +15,14 @@ Zarafa.task.ui.TaskInfo = Ext.extend(Ext.DataView, {
 	/**
 	 * @cfg {String} taskInfoCls is the CSS class which should be applied to {@link #taskInfoTpl task info} Template
 	 */
-	taskInfoCls : 'preview-header-task',
+	taskInfoCls: 'preview-header-task',
 
 	/**
 	 * @cfg {HTMLElement/Ext.Element} HTML structure for the whole task information
 	 * and get references to the different elements in it.
 	 * @property
 	 */
-	taskInfoElem : undefined,
+	taskInfoElem: undefined,
 
 	/**
 	 * @cfg {Ext.Template/String} taskGeneralTabTpl The template which must be applied
@@ -54,7 +54,7 @@ Zarafa.task.ui.TaskInfo = Ext.extend(Ext.DataView, {
 						_('None') +
 					'</span>'+
 				'</tpl>' +
-				'<span class="label">'+  _('Due date') +': </span>' +
+				'<span class="label">'+ _('Due date') +': </span>' +
 				'<tpl if="Ext.isDate(values.duedate)">' +
 					'<span class="minwidth120">' +
 					'{duedate:date(_("d-m-Y"))}' +
@@ -93,11 +93,11 @@ Zarafa.task.ui.TaskInfo = Ext.extend(Ext.DataView, {
 	 * on {@link Zarafa.task.dialogs.TaskDetailTab TaskDetailTab} when task is assigned task.
 	 * The arguments of this template will be the {@link Zarafa.core.data.IPMRecord#data record.data} field.
 	 */
-	taskDetailsTabTpl :
+	taskDetailsTabTpl:
 		'<div class="preview-from">' +
 			'<div class="task-info-container">' +
 				'<span class="label minwidth120">'+ _('Date completed') +': </span>' +
-				'<span>' + '{date_completed:this.getFormatedDate}' + '</span>'+
+				'<span>' + '{date_completed:this.getFormattedDate}' + '</span>'+
 			'</div>'+
 			'<div class="task-info-container">' +
 				'<span class="label minwidth120">'+ _('Total work') +': </span>' +
@@ -133,9 +133,9 @@ Zarafa.task.ui.TaskInfo = Ext.extend(Ext.DataView, {
 
 		Ext.applyIf(config,{
 			xtype: 'zarafa.taskinfo',
-			border : false,
+			border: false,
 			autoScroll:true,
-			anchor : '100%'
+			anchor: '100%'
 		});
 
 		Zarafa.task.ui.TaskInfo.superclass.constructor.call(this, config);
@@ -143,22 +143,22 @@ Zarafa.task.ui.TaskInfo = Ext.extend(Ext.DataView, {
 		if (Ext.isString(this.taskGeneralTabTpl) && Ext.isString(this.taskDetailsTabTpl)) {
 			this.taskGeneralTabTpl = new Ext.XTemplate(this.taskGeneralTabTpl, {
 				compiled: true,
-				getStatus : function (value)
+				getStatus: function (value)
 				{
 					return Zarafa.core.mapi.TaskStatus.getDisplayName(value);
 				},
-				getPriority : function (value)
+				getPriority: function (value)
 				{
 					return Zarafa.core.mapi.Importance.getDisplayName(value);
 				},
-				getPercentComplete : function (value)
+				getPercentComplete: function (value)
 				{
 					return value * 100 + '%';
 				}
 			});
 			this.taskDetailsTabTpl = new Ext.XTemplate(this.taskDetailsTabTpl, {
 				compiled: true,
-				getFormatedDate : function (value) {
+				getFormattedDate: function (value) {
 					if (Ext.isDate(value)) {
 						return value.format(_("D d-m-Y"));
 					} else {

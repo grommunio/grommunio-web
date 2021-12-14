@@ -15,19 +15,19 @@ Ext.namespace('Zarafa.common.manageCc.data');
  * {@link Zarafa.common.manageCc.data.IPMCcRecipientRecordFields record}.
  */
 Zarafa.common.manageCc.data.IPMCcRecipientRecordFields = [
-    {name: 'entryid'},
-    {name: 'search_key'},
-    {name: 'rowid', type: 'int'},
-    {name: 'object_type', type: 'int', defaultValue: Zarafa.core.mapi.ObjectType.MAPI_MAILUSER},
-    {name: 'display_name'},
-    {name: 'display_type', type: 'int', defaultValue: Zarafa.core.mapi.DisplayType.DT_MAILUSER},
-    {name: 'display_type_ex', type: 'int', defaultValue: Zarafa.core.mapi.DisplayType.DT_MAILUSER},
-    {name: 'email_address'},
-    {name: 'smtp_address'},
-    {name: 'address_type', type: 'string', defaultValue: 'SMTP'},
-    {name: 'recipient_type', type: 'int', defaultValue: Zarafa.core.mapi.RecipientType.MAPI_CC},
-    {name : 'reply_mail', type:'boolean', defaultValue : true},
-    {name : 'new_mail', type:'boolean', defaultValue : true}
+  {name: 'entryid'},
+  {name: 'search_key'},
+  {name: 'rowid', type: 'int'},
+  {name: 'object_type', type: 'int', defaultValue: Zarafa.core.mapi.ObjectType.MAPI_MAILUSER},
+  {name: 'display_name'},
+  {name: 'display_type', type: 'int', defaultValue: Zarafa.core.mapi.DisplayType.DT_MAILUSER},
+  {name: 'display_type_ex', type: 'int', defaultValue: Zarafa.core.mapi.DisplayType.DT_MAILUSER},
+  {name: 'email_address'},
+  {name: 'smtp_address'},
+  {name: 'address_type', type: 'string', defaultValue: 'SMTP'},
+  {name: 'recipient_type', type: 'int', defaultValue: Zarafa.core.mapi.RecipientType.MAPI_CC},
+  {name: 'reply_mail', type:'boolean', defaultValue: true},
+  {name: 'new_mail', type:'boolean', defaultValue: true}
 ];
 
 /**

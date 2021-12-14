@@ -1,7 +1,7 @@
 <?php
 /*
- * Implementation of the missing (context) gettext functionalities in PHP. The 
- * character \004 is used as glue to be able to use contexts in our translations. 
+ * Implementation of the missing (context) gettext functionalities in PHP. The
+ * character \004 is used as glue to be able to use contexts in our translations.
  */
 if (!function_exists('pgettext')) {
 	/**
@@ -12,10 +12,10 @@ if (!function_exists('pgettext')) {
 	 */
 	function pgettext($msgctxt, $msgid) {
 		$contextString = "{$msgctxt}\004{$msgid}";
-		$translation = Language::getstring($contextString);
+		$translation = _($contextString);
 		if($translation == $contextString){
 			return $msgid;
-		}else{
+		} else {
 			return $translation;
 		}
 	}
@@ -33,7 +33,7 @@ if (!function_exists('pgettext')) {
 		$translation = ngettext($contextString, $contextStringPlural, $num);
 		if($translation == $contextString || $translation == $contextStringPlural){
 			return $msgid;
-		}else{
+		} else {
 			return $translation;
 		}
 	}

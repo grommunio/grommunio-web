@@ -3,9 +3,9 @@ Ext.namespace('Zarafa.core.mapi');
 /**
  * @class Zarafa.core.mapi.BusyStatus
  * @extends Zarafa.core.Enum
- * 
- * Enumerates the different busy status types. 
- * 
+ *
+ * Enumerates the different busy status types.
+ *
  * @singleton
  */
 Zarafa.core.mapi.BusyStatus = Zarafa.core.Enum.create({
@@ -15,42 +15,42 @@ Zarafa.core.mapi.BusyStatus = Zarafa.core.Enum.create({
 	 * @property
 	 * @type Number
 	 */
-	UNKNOWN : -1,
+	UNKNOWN: -1,
 
 	/**
-	 * Denotes that the owner/participants is/are free for the duration of the appointment.  
+	 * Denotes that the owner/participants is/are free for the duration of the appointment.
 	 * @property
 	 * @type Number
 	 */
-	FREE : 0,
-	
-	/**
-	 * Denotes that the appointment has been tentatively accepted.  
-	 * @property
-	 * @type Number
-	 */
-	TENTATIVE : 1,
-	
-	/**
-	 * Denotes that the owner/participants is/are busy for the duration of the appointment.  
-	 * @property
-	 * @type Number
-	 */
-	BUSY : 2,
+	FREE: 0,
 
 	/**
-	 * Denotes that the owner/participants is/are out of office for the duration of the appointment.  
+	 * Denotes that the appointment has been tentatively accepted.
 	 * @property
 	 * @type Number
 	 */
-	OUTOFOFFICE : 3,
+	TENTATIVE: 1,
+
+	/**
+	 * Denotes that the owner/participants is/are busy for the duration of the appointment.
+	 * @property
+	 * @type Number
+	 */
+	BUSY: 2,
+
+	/**
+	 * Denotes that the owner/participants is/are out of office for the duration of the appointment.
+	 * @property
+	 * @type Number
+	 */
+	OUTOFOFFICE: 3,
 
 	/**
 	 * Return the display name for the given busy status
 	 * @param {Zarafa.core.mapi.BusyStatus} busystatus The given busy Status
 	 * @return {String} The display name for the busy status
 	 */
-	getDisplayName : function(busystatus)
+	getDisplayName: function(busystatus)
 	{
 		switch (busystatus) {
 			case Zarafa.core.mapi.BusyStatus.UNKNOWN:

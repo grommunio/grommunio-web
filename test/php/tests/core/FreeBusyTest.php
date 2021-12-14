@@ -1,14 +1,14 @@
 <?php
-require_once('classes/KopanoUser.php');
+require_once('classes/grommunioUser.php');
 require_once('classes/FreebusyUser.php');
-require_once('classes/KopanoTest.php');
+require_once('classes/grommunioTest.php');
 
 /**
  * Freebusy test
  *
  * Tests all possible cases for getting freebusy message and folder.
  */
-class FreeBusyTest extends KopanoTest
+class FreeBusyTest extends grommunioTest
 {
 	/**
 	 * Default store
@@ -21,7 +21,7 @@ class FreeBusyTest extends KopanoTest
 	protected function setUp()
 	{
 		parent::setUp();
-		$user = $this->addUser(new FreebusyUser(new KopanoUser(KOPANO_USER1_NAME, KOPANO_USER1_PASSWORD)));
+		$user = $this->addUser(new FreebusyUser(new grommunioUser(GROMMUNIO_USER1_NAME, GROMMUNIO_USER1_PASSWORD)));
 		$this->store = $user->getDefaultMessageStore();
 		$this->cleanFolders = false;
 	}

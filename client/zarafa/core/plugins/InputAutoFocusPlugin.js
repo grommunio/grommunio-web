@@ -11,17 +11,17 @@ Ext.namespace('Zarafa.core.plugins');
 Zarafa.core.plugins.InputAutoFocusPlugin = Ext.extend(Object, {
 	/**
 	 * @cfg {Ext.Component} autoFocus The component which should
-	 * be focused when the {@link #field} has been {@link Ext.Container#afterlayout layed out}
+	 * be focused when the {@link #field} has been {@link Ext.Container#afterlayout laid out}
 	 * or {@link Ext.Container#activate activated}.
 	 */
-	autoFocus : undefined,
+	autoFocus: undefined,
 
 	/**
 	 * The field on which this plugin has been installed
 	 * @property
 	 * @type Ext.Container
 	 */
-	field : undefined,
+	field: undefined,
 
 	/**
 	 * The extra {@link Ext.Element} which is inserted at the start of the {@link #field container},
@@ -30,7 +30,7 @@ Zarafa.core.plugins.InputAutoFocusPlugin = Ext.extend(Object, {
 	 * @property
 	 * @type Ext.Element
 	 */
-	beginFocusEl : undefined,
+	beginFocusEl: undefined,
 
 	/**
 	 * The extra {@link Ext.Element} which is inserted at the end of the {@link #field container},
@@ -39,22 +39,22 @@ Zarafa.core.plugins.InputAutoFocusPlugin = Ext.extend(Object, {
 	 * @property
 	 * @type Ext.Element
 	 */
-	endFocusEl : undefined,
+	endFocusEl: undefined,
 
 	/**
 	 * @constructor
 	 * @param {Object} config Configuration object
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		Ext.apply(this, config);
 	},
 
 	/**
-	 * Called by the {@link Ext.Container} when the plugin is being registerd.
+	 * Called by the {@link Ext.Container} when the plugin is being registered.
 	 * @param {Ext.Container} field The field into which this plugin is installed
 	 */
-	init : function(field)
+	init: function(field)
 	{
 		this.field = field;
 		field.inputAutoFocusPlugin = this;
@@ -70,10 +70,10 @@ Zarafa.core.plugins.InputAutoFocusPlugin = Ext.extend(Object, {
 	 * cyclic focussing.
 	 * @private
 	 */
-	onAfterRender : function()
+	onAfterRender: function()
 	{
 		this.beginFocusEl = Ext.DomHelper.insertBefore(this.field.el, {
-			tag : 'a',
+			tag: 'a',
 			href: '#',
 			style: 'position: absolute; text-decoration: none; font-height: 1px; width: 1px; height: 1px; left:-10000px; top:-10000px;'
 		}, true);
@@ -81,7 +81,7 @@ Zarafa.core.plugins.InputAutoFocusPlugin = Ext.extend(Object, {
 		this.beginFocusEl.on('focus', this.onLimitFocussed, this);
 
 		this.endFocusEl = Ext.DomHelper.insertAfter(this.field.el, {
-			tag : 'a',
+			tag: 'a',
 			href: '#',
 			style: 'position: absolute; text-decoration: none; font-height: 1px; width: 1px; height: 1px; left:-10000px; top:-10000px;'
 		}, true);
@@ -97,13 +97,13 @@ Zarafa.core.plugins.InputAutoFocusPlugin = Ext.extend(Object, {
 	},
 
 	/**
-	 * Event hander which is fired after the {@link #field} has been {@link Ext.Container#afterlayout layed out}.
+	 * Event hander which is fired after the {@link #field} has been {@link Ext.Container#afterlayout laid out}.
 	 * This will check if the {@link #field} is a tab in a {@link Ext.TabPanel} or a normal {@link Ext.Container}.
 	 * When it is a tab, it will wait for the {@link Ext.Container#activate tab-activation}, otherwise it will
 	 * start the {@link #doAutoFocus}.
 	 * @private
 	 */
-	onAfterFirstLayout : function()
+	onAfterFirstLayout: function()
 	{
 		if (Ext.isDefined(this.field.tabEl)) {
 			this.field.on('activate', this.onActivate, this);
@@ -123,7 +123,7 @@ Zarafa.core.plugins.InputAutoFocusPlugin = Ext.extend(Object, {
 	 * This will start the {@link #doAutoFocus}.
 	 * @private
 	 */
-	onActivate : function()
+	onActivate: function()
 	{
 		// Apply a 1ms delay, otherwise we cannot detect which input field
 		// is hidden or not.
@@ -137,7 +137,7 @@ Zarafa.core.plugins.InputAutoFocusPlugin = Ext.extend(Object, {
 	 * @param {HTMLElement} element The element which was focussed
 	 * @private
 	 */
-	onLimitFocussed : function(event, element)
+	onLimitFocussed: function(event, element)
 	{
 		this.doCyclicFocus(this.beginFocusEl.dom === element);
 	},
@@ -147,7 +147,7 @@ Zarafa.core.plugins.InputAutoFocusPlugin = Ext.extend(Object, {
 	 * This will automatically destroy the {@link #beginFocusEl} and {@link #endFocusEl}.
 	 * @private
 	 */
-	onDestroy : function()
+	onDestroy: function()
 	{
 		Ext.destroy(this.beginFocusEl);
 		Ext.destroy(this.endFocusEl);
@@ -158,7 +158,7 @@ Zarafa.core.plugins.InputAutoFocusPlugin = Ext.extend(Object, {
 	 * have the focus {@link #doAutoFocus} updated to this component.
 	 * @param {Mixed} autoFocus The replacement for the {@link #autoFocus} object
 	 */
-	setAutoFocus : function(autoFocus)
+	setAutoFocus: function(autoFocus)
 	{
 		this.autoFocus = autoFocus;
 		this.doAutoFocus();
@@ -170,7 +170,7 @@ Zarafa.core.plugins.InputAutoFocusPlugin = Ext.extend(Object, {
 	 * {@link #isFocusElement focussable element} inside the {@link #field container} (and the sub-containers).
 	 * @private
 	 */
-	doAutoFocus : function()
+	doAutoFocus: function()
 	{
 		var focusCmp;
 
@@ -217,7 +217,7 @@ Zarafa.core.plugins.InputAutoFocusPlugin = Ext.extend(Object, {
 	 * the first.
 	 * @private
 	 */
-	doCyclicFocus : function(inverse)
+	doCyclicFocus: function(inverse)
 	{
 		var focusCmp;
 
@@ -237,7 +237,7 @@ Zarafa.core.plugins.InputAutoFocusPlugin = Ext.extend(Object, {
 	 * @return {Ext.Component} The focussable component which was found in this container
 	 * @private
 	 */
-	findFocusElement : function(container, inverse, allowButton)
+	findFocusElement: function(container, inverse, allowButton)
 	{
 		var objects = [];
 
@@ -280,7 +280,7 @@ Zarafa.core.plugins.InputAutoFocusPlugin = Ext.extend(Object, {
 	 * @return {Boolean} True if the item is a container, false otherwise
 	 * @private
 	 */
-	isContainer : function(item)
+	isContainer: function(item)
 	{
 		return (item instanceof Ext.Container || item instanceof Ext.form.CompositeField);
 	},
@@ -293,7 +293,7 @@ Zarafa.core.plugins.InputAutoFocusPlugin = Ext.extend(Object, {
 	 * @param {Boolean} allowButton Allow a button to be considered an focussable input element
 	 * @return {Boolean} True if the item is focussable, false otherwise
 	 */
-	isFocusElement : function(item, allowButton)
+	isFocusElement: function(item, allowButton)
 	{
 		var el = item.btnEl || item.el;
 
@@ -318,7 +318,7 @@ Zarafa.core.plugins.InputAutoFocusPlugin = Ext.extend(Object, {
 	 * Call this when Ext.JS moves the focus to its own focus element a#x-dlg-focus (see source of {@link Ext.Window#render})
 	 * Call {@link #doAutoFocus} to move focus to the first form field
 	 */
-	onDialogFocussed : function()
+	onDialogFocussed: function()
 	{
 		this.doAutoFocus();
 	}

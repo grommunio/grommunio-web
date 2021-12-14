@@ -5,7 +5,7 @@ Ext.namespace('Zarafa.core.data');
  * List of valid notification types.
  * @singleton
  */
-Zarafa.core.data.Notifications = 
+Zarafa.core.data.Notifications =
 {
 	/**
 	 * The 'New Mail' notification to indicate a new Mail has
@@ -13,7 +13,7 @@ Zarafa.core.data.Notifications =
 	 * @property
 	 * @type String
 	 */
-	newMail : 'newMail',
+	newMail: 'newMail',
 
 	/**
 	 * The 'Object Created' notification to indicate that a new
@@ -22,7 +22,7 @@ Zarafa.core.data.Notifications =
 	 * @property
 	 * @type String
 	 */
-	objectCreated : 'objectCreated',
+	objectCreated: 'objectCreated',
 
 	/**
 	 * The 'Object Deleted' notification to indicate that an
@@ -31,7 +31,7 @@ Zarafa.core.data.Notifications =
 	 * @property
 	 * @type String
 	 */
-	objectDeleted : 'objectDeleted',
+	objectDeleted: 'objectDeleted',
 
 	/**
 	 * The 'Object Modified' notification to indicate that an
@@ -40,5 +40,5 @@ Zarafa.core.data.Notifications =
 	 * @property
 	 * @type String
 	 */
-	objectModified : 'objectModified'
+	objectModified: 'objectModified'
 };

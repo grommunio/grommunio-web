@@ -16,13 +16,13 @@ Zarafa.common.freebusy.data.FreebusyResponseHandler = Ext.extend(Zarafa.core.dat
 	 * not cancel the transaction itself, but rather causes the 'success' argument for the
 	 * {@link #done} function.
 	 */
-	doList : function(response)
+	doList: function(response)
 	{
 		var items = [];
 		Ext.each(response.users, function(userData) {
 			Ext.each(userData.items, function(userItem) {
 				items.push(Ext.applyIf(userItem, {
-					userid : userData.userid
+					userid: userData.userid
 				}));
 			});
 		});

@@ -5,8 +5,8 @@
 		<version>1.0</version>
 		<name>plugin01</name>
 		<title>Plugin 01</title>
-		<author>Kopano</author>
-		<authorURL>http://www.kopano.io</authorURL>
+		<author>grommunio</author>
+		<authorURL>https://grommunio.com</authorURL>
 		<description>Plugin #1</description>
 	</info>
 	<components>

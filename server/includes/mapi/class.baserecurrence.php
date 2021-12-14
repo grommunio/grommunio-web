@@ -10,12 +10,12 @@
 		 * @var object Mapi Message Store (may be null if readonly)
 		 */
 		var $store;
-		
+
 		/**
 		 * @var object Mapi Message (may be null if readonly)
 		 */
 		var $message;
-		
+
 		/**
 		 * @var array Message Properties
 		 */
@@ -107,16 +107,16 @@
 		* Daily:
 		*  everyn	- every [everyn] days in minutes
 		*  regen	- regenerating event (like tasks)
-		* 
+		*
 		* Weekly:
 		*  everyn	- every [everyn] weeks in weeks
 		*  regen	- regenerating event (like tasks)
 		*  weekdays - bitmask of week days, where each bit is one weekday (weekdays & 1 = Sunday, weekdays & 2 = Monday, etc)
-		*  
+		*
 		* Monthly:
 		*  everyn	- every [everyn] months
 		*  regen	- regenerating event (like tasks)
-		*  
+		*
 		*  subtype 2:
 		*	  monthday - on day [monthday] of the month
 		*
@@ -143,28 +143,28 @@
 			if (strlen($rdata) < 10) {
 				return;
 			}
-			
-			$ret["changed_occurences"] = array();
-			$ret["deleted_occurences"] = array();
-			
+
+			$ret["changed_occurrences"] = array();
+			$ret["deleted_occurrences"] = array();
+
 			$data = unpack("Vconst1/Crtype/Cconst2/Vrtype2", $rdata);
-		
+
 			$ret["type"] = $data["rtype"];
 			$ret["subtype"] = $data["rtype2"];
 			$rdata = substr($rdata, 10);
-		
+
 			switch ($data["rtype"])
 			{
-				case 0x0a: 
+				case 0x0a:
 					// Daily
 					if (strlen($rdata) < 12) {
 						return $ret;
 					}
-		
+
 					$data = unpack("Vunknown/Veveryn/Vregen", $rdata);
 					$ret["everyn"] = $data["everyn"];
 					$ret["regen"] = $data["regen"];
-		
+
 					switch($ret["subtype"])
 					{
 						case 0:
@@ -174,15 +174,15 @@
 							$rdata = substr($rdata, 16);
 							break;
 					}
-		
+
 					break;
-		
-				case 0x0b: 
+
+				case 0x0b:
 					// Weekly
 					if (strlen($rdata) < 16) {
 						return $ret;
 					}
-		
+
 					$data = unpack("Vconst1/Veveryn/Vregen", $rdata);
 					$rdata = substr($rdata, 12);
 
@@ -197,72 +197,72 @@
 						$ret["weekdays"] = $data["weekdays"];
 					}
 					break;
-		
-				case 0x0c: 
+
+				case 0x0c:
 					// Monthly
 					if (strlen($rdata) < 16) {
 						return $ret;
 					}
-		
+
 					$data = unpack("Vconst1/Veveryn/Vregen/Vmonthday", $rdata);
 
 					$ret["everyn"] = $data["everyn"];
 					$ret["regen"] = $data["regen"];
-		
+
 					if ($ret["subtype"] == 3) {
 						$ret["weekdays"] = $data["monthday"];
 					} else {
 						$ret["monthday"] = $data["monthday"];
 					}
-		
+
 					$rdata = substr($rdata, 16);
-		
+
 					if ($ret["subtype"] == 3) {
 						$data = unpack("Vnday", $rdata);
 						$ret["nday"] = $data["nday"];
 						$rdata = substr($rdata, 4);
-					} 
+					}
 					break;
-		
-				case 0x0d: 
+
+				case 0x0d:
 					// Yearly
 					if (strlen($rdata) < 16)
 						return $ret;
-		
+
 					$data = unpack("Vmonth/Veveryn/Vregen/Vmonthday", $rdata);
-		
+
 					$ret["month"] = $data["month"];
 					$ret["everyn"] = $data["everyn"];
 					$ret["regen"] = $data["regen"];
-					
+
 					if ($ret["subtype"] == 3) {
 						$ret["weekdays"] = $data["monthday"];
 					} else {
 						$ret["monthday"] = $data["monthday"];
 					}
-					
+
 					$rdata = substr($rdata, 16);
-		
+
 					if ($ret["subtype"] == 3) {
 						$data = unpack("Vnday", $rdata);
 						$ret["nday"] = $data["nday"];
 						$rdata = substr($rdata, 4);
-					} 
+					}
 					break;
-			} 
-		
+			}
+
 			if (strlen($rdata) < 16) {
 				return $ret;
 			}
-			
+
 			$data = unpack("Cterm/C3const1/Vnumoccur/Vconst2/Vnumexcept", $rdata);
-		
+
 			$rdata = substr($rdata, 16);
-		
+
 			$ret["term"] = $data["term"];
 			$ret["numoccur"] = $data["numoccur"];
-			$ret["numexcept"] = $data["numexcept"]; 
-		
+			$ret["numexcept"] = $data["numexcept"];
+
 			// exc_base_dates are *all* the base dates that have been either deleted or modified
 			$exc_base_dates = array();
 			for($i = 0; $i < $ret["numexcept"]; $i++)
@@ -284,9 +284,9 @@
 
 			$data = unpack("Vnumexceptmod", $rdata);
 			$rdata = substr($rdata, 4);
-			
+
 			$ret["numexceptmod"] = $data["numexceptmod"];
-		
+
 			// exc_changed are the base dates of *modified* occurrences. exactly what is modified
 			// is in the attachments *and* in the data further down this function.
 			$exc_changed = array();
@@ -302,7 +302,7 @@
 				$rdata = substr($rdata, 4);
 				$exc_changed[] = $this->recurDataToUnixData($data["startdate"]);
 			}
-		
+
 			if (strlen($rdata) < 8) {
 				return $ret;
 			}
@@ -317,9 +317,9 @@
 			if (strlen($rdata) < 16) {
 				return $ret;
 			}
-			
+
 			$data = unpack("Vreaderversion/Vwriterversion/Vstartmin/Vendmin", $rdata);
-			$rdata = substr($rdata, 16); 
+			$rdata = substr($rdata, 16);
 
 			$ret["startocc"] = $data["startmin"];
 			$ret["endocc"] = $data["endmin"];
@@ -332,7 +332,7 @@
 			$exc_changed_details = array();
 
 			// Parse n modified exceptions
-			for($i=0;$i<$nexceptions;$i++) 
+			for($i=0;$i<$nexceptions;$i++)
 			{
 				$item = array();
 
@@ -463,11 +463,11 @@
 			 */
 
 			// Find deleted occurrences
-			$deleted_occurences = array();
-			
+			$deleted_occurrences = array();
+
 			foreach($exc_base_dates as $base_date) {
 				$found = false;
-				
+
 				foreach($exc_changed_details as $details) {
 					if($details["basedate"] == $base_date) {
 						$found = true;
@@ -476,12 +476,12 @@
 				}
 				if(! $found) {
 					// item was not in exc_changed_details, so it must be deleted
-					$deleted_occurences[] = $base_date;
+					$deleted_occurrences[] = $base_date;
 				}
 			}
 
-			$ret["deleted_occurences"] = $deleted_occurences;
-			$ret["changed_occurences"] = $exc_changed_details;
+			$ret["deleted_occurrences"] = $deleted_occurrences;
+			$ret["changed_occurrences"] = $exc_changed_details;
 
 			// enough data for normal exception (no extended data)
 			if (strlen($rdata) < 16) {
@@ -491,7 +491,7 @@
 			$data = unpack("Vreservedsize", $rdata);
 			$rdata = substr($rdata, 4 + $data["reservedsize"]);
 
-			for($i=0;$i<$nexceptions;$i++) 
+			for($i=0;$i<$nexceptions;$i++)
 			{
 				// subject and location in ucs-2 to utf-8
 				if ($writerversion >= 0x3009) {
@@ -546,14 +546,14 @@
 			}
 
 			// update with extended data
-			$ret["changed_occurences"] = $exc_changed_details;
+			$ret["changed_occurrences"] = $exc_changed_details;
 
 			return $ret;
 		}
 
 		/**
 		 * Saves the recurrence data to the recurrence property
-		 * @param array $properties the recurrence data. 
+		 * @param array $properties the recurrence data.
 		 * @return string binary string
 		 */
 		function saveRecurrence()
@@ -639,10 +639,10 @@
 						if(($dayofweek < $weekstart && $dayskip > 0) || ($dayofweek+$dayskip) > 6)
 							$weekskip = 1;
 
-						// Check if the recurrence ends after a number of occurences, in that case we must calculate the
-						// remaining occurences based on the start of the recurrence.
+						// Check if the recurrence ends after a number of occurrences, in that case we must calculate the
+						// remaining occurrences based on the start of the recurrence.
 						if (((int) $this->recur["term"]) == 0x22) {
-							// $weekskip is the amount of weeks to skip from the startdate before the first occurence
+							// $weekskip is the amount of weeks to skip from the startdate before the first occurrence
 							// $forwardcount is the maximum number of week occurrences we can go ahead after the first occurrence that
 							// is still inside the recurrence. We subtract one to make sure that the last week is never forwarded over
 							// (eg when numoccur = 2, and daycount = 1)
@@ -650,12 +650,12 @@
 
 							// $restocc is the number of occurrences left after $forwardcount whole weeks of occurrences, minus one
 							// for the occurrence on the first day
-							$restocc = ((int) $this->recur["numoccur"]) - ($forwardcount*$daycount) - 1; 
+							$restocc = ((int) $this->recur["numoccur"]) - ($forwardcount*$daycount) - 1;
 
 							// $forwardcount is now the number of weeks we can go forward and still be inside the recurrence
 							$forwardcount *= (int) $this->recur["everyn"];
 						}
-						
+
 						// The real start is start + dayskip + weekskip-1 (since dayskip will already bring us into the next week)
 						$this->recur["start"] = ((int) $this->recur["start"]) + ($dayskip * 24*60*60)+ ($weekskip *(((int) $this->recur["everyn"]) - 1) * 7 * 24*60*60);
 					}
@@ -680,42 +680,42 @@
 					if($term == 0x0D /*yearly*/ && !isset($this->recur["month"])) {
 						return;
 					}
-					
+
 					if($term == 0x0C /*monthly*/) {
 						$everyn = (int) $this->recur["everyn"];
-					}else {
+					} else {
 						$everyn = $this->recur["regen"] ? ((int) $this->recur["everyn"]) * 12 : 12;
 					}
-					
+
 					// Get montday/month/year of original start
 					$curmonthday = gmdate("j", (int) $this->recur["start"] );
 					$curyear = gmdate("Y", (int) $this->recur["start"] );
 					$curmonth = gmdate("n", (int) $this->recur["start"] );
 
-					// Check if the recurrence ends after a number of occurences, in that case we must calculate the
-					// remaining occurences based on the start of the recurrence.
+					// Check if the recurrence ends after a number of occurrences, in that case we must calculate the
+					// remaining occurrences based on the start of the recurrence.
 					if (((int) $this->recur["term"]) == 0x22) {
 						// $forwardcount is the number of occurrences we can skip and still be inside the recurrence range (minus
 						// one to make sure there are always at least one occurrence left)
 						$forwardcount = ((((int) $this->recur["numoccur"])-1) * $everyn );
 					}
-					
+
 					// Get month for yearly on D'th day of month M
 					if($term == 0x0D /*yearly*/) {
 						$selmonth = floor(((int) $this->recur["month"]) / (24 * 60 *29)) + 1; // 1=jan, 2=feb, eg
 					}
-					
+
 					switch((int) $this->recur["subtype"])
 					{
-						// on D day of every M month 
+						// on D day of every M month
 						case 2:
 							if(!isset($this->recur["monthday"])) {
 								return;
 							}
 							// Recalc startdate
-							
+
 							// Set on the right begin day
-							
+
 							// Go the beginning of the month
 							$this->recur["start"] -= ($curmonthday-1) * 24*60*60;
 							// Go the the correct month day
@@ -743,7 +743,7 @@
 								// Forward by $count months. This is done by getting the number of days in that month and forwarding that many days
 								for($i=0; $i < $count; $i++) {
 									$this->recur["start"] += $this->getMonthInSeconds($curyear, $curmonth);
-									
+
 									if($curmonth == 12) {
 										$curyear++;
 										$curmonth = 0;
@@ -751,20 +751,20 @@
 									$curmonth++;
 								}
 							}
-							
+
 							// "start" is now pointing to the first occurrence, except that it will overshoot if the
 							// month in which it occurs has less days than specified as the day of the month. So 31st
 							// of each month will overshoot in february (29 days). We compensate for that by checking
 							// if the day of the month we got is wrong, and then back up to the last day of the previous
 							// month.
-							if(((int) $this->recur["monthday"]) >=28 && ((int) $this->recur["monthday"]) <= 31 && 
+							if(((int) $this->recur["monthday"]) >=28 && ((int) $this->recur["monthday"]) <= 31 &&
 								gmdate("j", ((int) $this->recur["start"])) < ((int) $this->recur["monthday"]))
 							{
 								$this->recur["start"] -= gmdate("j", ((int) $this->recur["start"])) * 24 * 60 *60;
 							}
-							
+
 							// "start" is now the first occurrence
-							
+
 							if($term == 0x0C /*monthly*/) {
 								// Calc first occ
 								$monthIndex = ((((12%$everyn) * ((((int) gmdate("Y", $this->recur["start"])) - 1601)%$everyn)) % $everyn) + (((int) gmdate("n", $this->recur["start"])) - 1))%$everyn;
@@ -773,37 +773,37 @@
 								for($i=0; $i < $monthIndex; $i++) {
 									$firstocc+= $this->getMonthInSeconds(1601 + floor($i/12), ($i%12)+1) / 60;
 								}
-								
+
 								$rdata .= pack("VVVV", $firstocc, $everyn, $this->recur["regen"], (int) $this->recur["monthday"]);
-							} else{
+							} else {
 								// Calc first occ
 								$firstocc = 0;
 								$monthIndex = (int) gmdate("n", $this->recur["start"]);
 								for($i=1; $i < $monthIndex; $i++) {
 									$firstocc+= $this->getMonthInSeconds(1601 + floor($i/12), $i) / 60;
 								}
-								
+
 								$rdata .= pack("VVVV", $firstocc, $everyn, $this->recur["regen"], (int) $this->recur["monthday"]);
 							}
 							break;
-						
+
 						case 3:
 							// monthly: on Nth weekday of every M month
 							// yearly: on Nth weekday of M month
 							if(!isset($this->recur["weekdays"]) && !isset($this->recur["nday"])) {
 								return;
 							}
-							
+
 							$weekdays = (int) $this->recur["weekdays"];
 							$nday = (int) $this->recur["nday"];
-							
+
 							// Calc startdate
 							$monthbegindow = (int) $this->recur["start"];
-							
+
 							if($nday == 5) {
 								// Set date on the last day of the last month
 								$monthbegindow += (gmdate("t", $monthbegindow ) - gmdate("j", $monthbegindow )) * 24 * 60 * 60;
-							}else {
+							} else {
 								// Set on the first day of the month
 								$monthbegindow -= ((gmdate("j", $monthbegindow )-1) * 24 * 60 * 60);
 							}
@@ -814,18 +814,18 @@
 									$tmp = 12 - $curmonth + $selmonth;
 								else
 									$tmp = ($selmonth - $curmonth);
-								
+
 								for($i=0; $i < $tmp; $i++) {
 									$monthbegindow += $this->getMonthInSeconds($curyear, $curmonth);
-									
+
 									if($curmonth == 12) {
 										$curyear++;
 										$curmonth = 0;
 									}
 									$curmonth++;
 								}
-								
-							}else {
+
+							} else {
 								// Check or you exist in the right month
 
 								$dayofweek = gmdate("w", $monthbegindow);
@@ -833,12 +833,12 @@
 									if($nday == 5 && (($dayofweek-$i)%7 >= 0) && (1<<( ($dayofweek-$i)%7) ) & $weekdays) {
 										$day = gmdate("j", $monthbegindow) - $i;
 										break;
-									}else if($nday != 5 && (1<<( ($dayofweek+$i)%7) ) & $weekdays) {
+									} else if($nday != 5 && (1<<( ($dayofweek+$i)%7) ) & $weekdays) {
 										$day = (($nday-1)*7) + ($i+1);
 										break;
 									}
 								}
-								
+
 								// Goto the next X month
 								if(isset($day) && ($day < gmdate("j", (int) $this->recur["start"])) ) {
 									if($nday == 5) {
@@ -849,25 +849,25 @@
 										}
 										$curmonth++;
 									}
-								
+
 									for($i=0; $i < $everyn; $i++) {
 										$monthbegindow += $this->getMonthInSeconds($curyear, $curmonth);
-										
+
 										if($curmonth == 12) {
 											$curyear++;
 											$curmonth = 0;
 										}
 										$curmonth++;
 									}
-									
+
 									if($nday == 5) {
 										$monthbegindow -= 24 * 60 * 60;
 									}
 								}
 							}
-								
+
 							//FIXME: weekstart?
-							
+
 							$day = 0;
 							// Set start on the right day
 							$dayofweek = gmdate("w", $monthbegindow);
@@ -875,7 +875,7 @@
 								if($nday == 5 && (($dayofweek-$i)%7) >= 0&& (1<<(($dayofweek-$i)%7) ) & $weekdays) {
 									$day = $i;
 									break;
-								}else if($nday != 5 && (1<<( ($dayofweek+$i)%7) ) & $weekdays) {
+								} else if($nday != 5 && (1<<( ($dayofweek+$i)%7) ) & $weekdays) {
 									$day = ($nday - 1) * 7 + ($i+1);
 									break;
 								}
@@ -886,42 +886,42 @@
 								$monthbegindow += ($day-1) * 24 * 60 *60;
 
 							$firstocc = 0;
-							
+
 							if($term == 0x0C /*monthly*/) {
 								// Calc first occ
 								$monthIndex = ((((12%$everyn) * (((int) gmdate("Y", $this->recur["start"]) - 1601)%$everyn)) % $everyn) + (((int) gmdate("n", $this->recur["start"])) - 1))%$everyn;
-								
+
 								for($i=0; $i < $monthIndex; $i++) {
 									$firstocc+= $this->getMonthInSeconds(1601 + floor($i/12), ($i%12)+1) / 60;
 								}
-								
+
 								$rdata .= pack("VVVVV", $firstocc, $everyn, 0, $weekdays, $nday);
 							} else {
-								// Calc first occ								
+								// Calc first occ
 								$monthIndex = (int) gmdate("n", $this->recur["start"]);
-								
+
 								for($i=1; $i < $monthIndex; $i++) {
 									$firstocc+= $this->getMonthInSeconds(1601 + floor($i/12), $i) / 60;
 								}
-								
+
 								$rdata .= pack("VVVVV", $firstocc, $everyn, 0, $weekdays, $nday);
 							}
 							break;
 					}
 					break;
-				
+
 
 
 			}
-			
+
 			if(!isset($this->recur["term"])) {
 				return;
 			}
-			
+
 			// Terminate
 			$term = (int) $this->recur["term"];
 			$rdata .= pack("CCCC", $term, 0x20, 0x00, 0x00);
-			
+
 			switch($term)
 			{
 				// After the given enddate
@@ -933,7 +933,7 @@
 					if(!isset($this->recur["numoccur"])) {
 						return;
 					}
-					
+
 					$rdata .= pack("V", (int) $this->recur["numoccur"]);
 					break;
 				// Never ends
@@ -941,37 +941,37 @@
 					$rdata .= pack("V", 0);
 					break;
 			}
-			
+
 			// Strange little thing for the recurrence type "every workday"
 			if(((int) $this->recur["type"]) == 0x0B && ((int) $this->recur["subtype"]) == 1) {
 				$rdata .= pack("V", 1);
 			} else { // Other recurrences
 				$rdata .= pack("V", 0);
 			}
-			
+
 			// Exception data
 
 			// Get all exceptions
-			$deleted_items = $this->recur["deleted_occurences"];
-			$changed_items = $this->recur["changed_occurences"];
-			
+			$deleted_items = $this->recur["deleted_occurrences"];
+			$changed_items = $this->recur["changed_occurrences"];
+
 			// Merge deleted and changed items into one list
 			$items = $deleted_items;
-			
+
 			foreach($changed_items as $changed_item)
 				array_push($items, $changed_item["basedate"]);
 
 			sort($items);
-			
+
 			// Add the merged list in to the rdata
 			$rdata .= pack("V", count($items));
 			foreach($items as $item)
 				$rdata .= pack("V", $this->unixDataToRecurData($item));
-			
+
 			// Loop through the changed exceptions (not deleted)
 			$rdata .= pack("V", count($changed_items));
 			$items = array();
-			
+
 			foreach($changed_items as $changed_item)
 			{
 				$items[] = $this->dayStartOf($changed_item["start"]);
@@ -982,10 +982,10 @@
 			// Add the changed items list int the rdata
 			foreach($items as $item)
 				$rdata .= pack("V", $this->unixDataToRecurData($item));
-			
+
 			// Set start date
 			$rdata .= pack("V", $this->unixDataToRecurData((int) $this->recur["start"]));
-		
+
 			// Set enddate
 			switch($term)
 			{
@@ -997,24 +997,24 @@
 				case 0x22:
 					// @todo: calculate enddate with intval($this->recur["startocc"]) + intval($this->recur["duration"]) > 24 hour
 					$occenddate = (int) $this->recur["start"];
-					
+
 					switch((int) $this->recur["type"]) {
 						case 0x0A: //daily
-														
+
 							if($this->recur["subtype"] == 1) {
 								// Daily every workday
 								$restocc = (int) $this->recur["numoccur"];
-								
+
 								// Get starting weekday
 								$nowtime = $this->gmtime($occenddate);
 								$j = $nowtime["tm_wday"];
-								
+
 								while(1)
 								{
 									if(($j%7) > 0 && ($j%7)<6 ) {
 										$restocc--;
 									}
-									
+
 									$j++;
 
 									if($restocc <= 0)
@@ -1022,7 +1022,7 @@
 
 									$occenddate += 24*60*60;
 								}
-								
+
 							} else {
 								// -1 because the first day already counts (from 1-1-1980 to 1-1-1980 is 1 occurrence)
 								$occenddate += (((int) $this->recur["everyn"]) * 60 * (((int) $this->recur["numoccur"]-1)));
@@ -1032,12 +1032,12 @@
 							// Needed values
 							// $forwardcount - number of weeks we can skip forward
 							// $restocc - number of remaning occurrences after the week skip
-			
+
 							// Add the weeks till the last item
 							$occenddate+=($forwardcount*7*24*60*60);
-							
+
 							$dayofweek = gmdate("w", $occenddate);
-							
+
 							// Loop through the last occurrences until we have had them all
 							for($j = 1; $restocc>0; $j++)
 							{
@@ -1049,15 +1049,15 @@
 								if(((int) $this->recur["weekdays"]) & (1<<(($dayofweek+$j)%7)) ) {
 									$restocc--;
 								}
-								
+
 								// Next day
 								$occenddate += 24*60*60;
 							}
-							
+
 							break;
 						case 0x0C: //monthly
 						case 0x0D: //yearly
-								
+
 							$curyear = gmdate("Y", (int) $this->recur["start"] );
 							$curmonth = gmdate("n", (int) $this->recur["start"] );
 							// $forwardcount = months
@@ -1068,18 +1068,18 @@
 									while($forwardcount > 0)
 									{
 										$occenddate += $this->getMonthInSeconds($curyear, $curmonth);
-										
+
 										if($curmonth >=12) {
 											$curmonth = 1;
 											$curyear++;
-										} else { 
+										} else {
 											$curmonth++;
 										}
 										$forwardcount--;
 									}
-									
+
 									// compensation between 28 and 31
-									if(((int) $this->recur["monthday"]) >=28 && ((int) $this->recur["monthday"]) <= 31 && 
+									if(((int) $this->recur["monthday"]) >=28 && ((int) $this->recur["monthday"]) <= 31 &&
 										gmdate("j", $occenddate) < ((int) $this->recur["monthday"]))
 									{
 										if(gmdate("j", $occenddate) < 28)
@@ -1087,13 +1087,13 @@
 										else
 											$occenddate += (gmdate("t", $occenddate) - gmdate("j", $occenddate)) * 24 * 60 *60;
 									}
-									
-									
+
+
 									break;
 								case 3: // on Nth weekday of every M month
 									$nday = (int) $this->recur["nday"]; //1 tot 5
 									$weekdays = (int) $this->recur["weekdays"];
-									
+
 
 									while($forwardcount > 0)
 									{
@@ -1111,16 +1111,16 @@
 									if($nday == 5) {
 										// Set date on the last day of the last month
 										$occenddate += (gmdate("t", $occenddate ) - gmdate("j", $occenddate )) * 24 * 60 * 60;
-									}else {
+									} else {
 										// Set date on the first day of the last month
 										$occenddate -= (gmdate("j", $occenddate )-1) * 24 * 60 * 60;
 									}
-									
+
 									for($i = 0; $i < 7; $i++) {
 										if( $nday == 5 && (1<<( (gmdate("w", $occenddate)-$i)%7) ) & $weekdays) {
 											$occenddate -= $i * 24 * 60 * 60;
 											break;
-										}else if($nday != 5 && (1<<( (gmdate("w", $occenddate)+$i)%7) ) & $weekdays) {
+										} else if($nday != 5 && (1<<( (gmdate("w", $occenddate)+$i)%7) ) & $weekdays) {
 											$occenddate +=  ($i + (($nday-1) *7)) * 24 * 60 * 60;
 											break;
 										}
@@ -1135,7 +1135,7 @@
 
 					if (defined("PHP_INT_MAX") && $occenddate > PHP_INT_MAX)
 						$occenddate = PHP_INT_MAX;
-					
+
 					$this->recur["end"] = $occenddate;
 
 					$rdata .= pack("V", $this->unixDataToRecurData((int) $this->recur["end"]) );
@@ -1151,11 +1151,11 @@
 			// UTC date
 			$utcstart = $this->toGMT($this->tz, (int) $this->recur["start"]);
 			$utcend = $this->toGMT($this->tz, (int) $this->recur["end"]);
-			
+
 			//utc date+time
 			$utcfirstoccstartdatetime = (isset($this->recur["startocc"])) ? $utcstart + (((int) $this->recur["startocc"])*60) : $utcstart;
 			$utcfirstoccenddatetime = (isset($this->recur["endocc"])) ? $utcstart + (((int) $this->recur["endocc"]) * 60) : $utcstart;
-			
+
 			// update reminder time
 			mapi_setprops($this->message, Array($this->proptags["reminder_time"] => $utcfirstoccstartdatetime ));
 
@@ -1183,10 +1183,10 @@
 
 			// FlagDueBy is datetime of the first reminder occurrence. Outlook gives on this time a reminder popup dialog
 			// Any change of the recurrence (including changing and deleting exceptions) causes the flagdueby to be reset
-			// to the 'next' occurrence; this makes sure that deleting the next ocurrence will correctly set the reminder to
+			// to the 'next' occurrence; this makes sure that deleting the next occurrence will correctly set the reminder to
 			// the occurrence after that. The 'next' occurrence is defined as being the first occurrence that starts at moment X (server time)
 			// with the reminder flag set.
-			$reminderprops = mapi_getprops($this->message, array($this->proptags["reminder_minutes"]) );
+			$reminderprops = mapi_getprops($this->message, array($this->proptags["reminder_minutes"], $this->proptags["flagdueby"]) );
 			if(isset($reminderprops[$this->proptags["reminder_minutes"]]) ) {
 			    $occ = false;
 			    $occurrences = $this->getItems(time(), 0x7ff00000, 3, true);
@@ -1203,30 +1203,34 @@
 			            break;
                     }
 			    }
-			    
+
 			    if($occ) {
-    				mapi_setprops($this->message, Array($this->proptags["flagdueby"] => $occ[$this->proptags["startdate"]] - ($reminderprops[$this->proptags["reminder_minutes"]] * 60) ));
+					if (isset($reminderprops[$this->proptags["flagdueby"]])) {
+						mapi_setprops($this->message, Array($this->proptags["flagdueby"] => $reminderprops[$this->proptags["flagdueby"]]));
+					} else {
+						mapi_setprops($this->message, Array($this->proptags["flagdueby"] => $occ[$this->proptags["startdate"]] - ($reminderprops[$this->proptags["reminder_minutes"]] * 60) ));
+					}
                 } else {
                     // Last reminder passed, no reminders any more.
                     mapi_setprops($this->message, Array($this->proptags["reminder"] => false, $this->proptags["flagdueby"] => 0x7ff00000));
                 }
 			}
-			
+
 			// Default data
-			// Second item (0x08) indicates the Outlook version (see documentation at the bottom of this file for more information) 
+			// Second item (0x08) indicates the Outlook version (see documentation at the bottom of this file for more information)
 			$rdata .= pack("VCCCC", 0x00003006, 0x08, 0x30, 0x00, 0x00);
-		
+
 			if(isset($this->recur["startocc"]) && isset($this->recur["endocc"])) {
 				// Set start and endtime in minutes
 				$rdata .= pack("VV", (int) $this->recur["startocc"], (int) $this->recur["endocc"]);
 			}
 
 			// Detailed exception data
-			
-			$changed_items = $this->recur["changed_occurences"];
-				
+
+			$changed_items = $this->recur["changed_occurrences"];
+
 			$rdata .= pack("v", count($changed_items));
-			
+
 			foreach($changed_items as $changed_item)
 			{
 				// Set start and end time of exception
@@ -1344,8 +1348,8 @@
 				$timezone = "GMT";
 				if ($this->tz["timezone"]!=0){
 					// Create user readable timezone information
-					$timezone = sprintf("(GMT %s%02d:%02d)",	(-$this->tz["timezone"]>0 ? "+" : "-"), 
-															abs($this->tz["timezone"]/60), 
+					$timezone = sprintf("(GMT %s%02d:%02d)",	(-$this->tz["timezone"]>0 ? "+" : "-"),
+															abs($this->tz["timezone"]/60),
 															abs($this->tz["timezone"]%60));
 				}
 				mapi_setprops($this->message, Array($this->proptags["timezone_data"] => $this->getTimezoneData($this->tz),
@@ -1358,7 +1362,7 @@
 		* @author Steve Hardy
 		* @param Int $rdate the date which will be converted
 		* @return Int the converted date
-		*/ 
+		*/
 		function recurDataToUnixData($rdate)
 		{
 			return ($rdate - 194074560) * 60 ;
@@ -1369,7 +1373,7 @@
 		* @author Johnny Biemans
 		* @param Date $date the date which will be converted
 		* @return Int the converted date in minutes
-		*/ 
+		*/
 		function unixDataToRecurData($date)
 		{
 			return ($date / 60) + 194074560;
@@ -1431,7 +1435,7 @@
 		 * @param int $week
 		 * @param int $day
 		 * @param int $hour
-		 * @return returns the timestamp of the given date, timezone-independant
+		 * @return returns the timestamp of the given date, timezone-independent
 		 */
 		function getDateByYearMonthWeekDayHour($year, $month, $week, $day, $hour)
 		{
@@ -1455,7 +1459,7 @@
 			if($gmdate["tm_mon"]+1 != $month)
 				$date -= 7 * 24 * 60 * 60;
 
-			return $date; 
+			return $date;
 		}
 
 		/**
@@ -1503,7 +1507,7 @@
 			return strftime("%W", $date) - strftime("%W", gmmktime($gmdate)) + 1;
 		}
 
-		/** 
+		/**
 		 * parseTimezone parses the timezone as specified in named property 0x8233
 		 * in Outlook calendar messages. Returns the timezone in minutes negative
 		 * offset (GMT +2:00 -> -120)
@@ -1531,7 +1535,7 @@
 		 */
 		function createTimezone($tz)
 		{
-			$data = pack("lxxxxlxxxxlvvxxxxxxxxxxlvvxxxxxx", 
+			$data = pack("lxxxxlxxxxlvvxxxxxxxxxxlvvxxxxxx",
 						$tz["timezone"],
 						array_key_exists("timezonedst",$tz)?$tz["timezonedst"]:0,
 						array_key_exists("dstendmonth",$tz)?$tz["dstendmonth"]:0,
@@ -1576,7 +1580,7 @@
 
 			return gmmktime(0, 0, 0, $time1["tm_mon"] + 1, $time1["tm_mday"], $time1["tm_year"] + 1900);
 		}
-		
+
 		/**
 		 * Function to get timestamp of the beginning of the month of the timestamp given
 		 * @param date $date
@@ -1588,7 +1592,7 @@
 
 			return gmmktime(0, 0, 0, $time1["tm_mon"] + 1, 1, $time1["tm_year"] + 1900);
 		}
-		
+
 		/**
 		 * Function to get timestamp of the beginning of the year of the timestamp given
 		 * @param date $date
@@ -1603,7 +1607,7 @@
 
 
 		/**
-		 * Function which returns the items in a given interval. This included expansion of the recurrence and 
+		 * Function which returns the items in a given interval. This included expansion of the recurrence and
 		 * processing of exceptions (modified and deleted).
 		 *
 		 * @param string $entryid the entryid of the message
@@ -1621,10 +1625,10 @@
 				// exceptions are in range and have a reminder set
 				if($remindersonly && (!isset($this->messageprops[$this->proptags["reminder"]]) || $this->messageprops[$this->proptags["reminder"]] == false)) {
 					// Sort exceptions by start time
-					uasort($this->recur["changed_occurences"], array($this, "sortExceptionStart"));
+					uasort($this->recur["changed_occurrences"], array($this, "sortExceptionStart"));
 
 					// Loop through all changed exceptions
-					foreach($this->recur["changed_occurences"] as $exception) {
+					foreach($this->recur["changed_occurrences"] as $exception) {
 						// Check reminder set
 						if(!isset($exception["reminder"]) || $exception["reminder"] == false)
 							continue;
@@ -1675,7 +1679,7 @@
 					// Daily
 					if($this->recur["everyn"] <= 0)
 						$this->recur["everyn"] = 1440;
-						
+
 					if($this->recur["subtype"] == 0) {
 						// Every Nth day
 						for($now = $daystart; $now <= $dayend && ($limit == 0 || count($items) < $limit); $now += 60 * $this->recur["everyn"]) {
@@ -1734,7 +1738,7 @@
 								$difference = $this->recur["monthday"] - $this->daysInMonth($now, $this->recur["everyn"]) + 1;
 							}
 							$daynow = $now + (($this->recur["monthday"] - $difference) * 24 * 60 * 60);
-							//checks weather the next coming day in recurrence pattern is less than or equal to end day of the recurring item 
+							//checks weather the next coming day in recurrence pattern is less than or equal to end day of the recurring item
 							if ($daynow <= $dayend){
 								$this->processOccurrenceItem($items, $start, $end, $daynow, $this->recur["startocc"], $this->recur["endocc"], $this->tz, $remindersonly);
 							}
@@ -1743,10 +1747,10 @@
 						    // Sanitize input
 						    if($this->recur["weekdays"] == 0)
 						        $this->recur["weekdays"] = 1;
-						        
+
 							// If nday is not set to the last day in the month
 							if ($this->recur["nday"] < 5) {
-								// keep the track of no. of time correct selection pattern(like 2nd weekday, 4th fiday, etc.)is matched 
+								// keep the track of no. of time correct selection pattern(like 2nd weekday, 4th fiday, etc.)is matched
 								$ndaycounter = 0;
 								// Find matching weekday in this month
 								for($day = 0, $total = $this->daysInMonth($now, 1); $day < $total; $day++)
@@ -1765,7 +1769,7 @@
 								}
 								// $firstday is the day of the month on which the asked pattern of nth weekday matches
 								$daynow = $now + $firstday * 60 * 60 * 24;
-							}else{
+							} else {
 								// Find last day in the month ($now is the firstday of the month)
 								$NumDaysInMonth =  $this->daysInMonth($now, 1);
 								$daynow = $now + (($NumDaysInMonth-1) * 24*60*60);
@@ -1777,7 +1781,7 @@
 								}
 							}
 
-							/** 
+							/**
 							 * checks weather the next coming day in recurrence pattern is less than or equal to end day of the			* recurring item.Also check weather the coming day in recurrence pattern is greater than or equal to start * of recurring pattern, so that appointment that fall under the recurrence range are only displayed.
 							 */
 							if ($daynow <= $dayend && $daynow >= $daystart){
@@ -1847,7 +1851,7 @@
 					}
 				}
 				//to get all exception items
-				if (!empty($this->recur['changed_occurences']))
+				if (!empty($this->recur['changed_occurrences']))
 					$this->processExceptionItems($items, $start, $end);
 			}
 
@@ -1868,34 +1872,34 @@
 
 		/**
 		 * daysInMonth
-		 * 
-		 * Returns the number of days in the upcoming number of months. If you specify 1 month as 
+		 *
+		 * Returns the number of days in the upcoming number of months. If you specify 1 month as
 		 * $months it will give you the number of days in the month of $date. If you specify more it
-		 * will also count the days in the upcomming months and add that to the number of days. So 
+		 * will also count the days in the upcoming months and add that to the number of days. So
 		 * if you have a date in march and you specify $months as 2 it will return 61.
-		 * @param Integer $date Specified date as timestamp from which you want to know the number 
+		 * @param Integer $date Specified date as timestamp from which you want to know the number
 		 * of days in the month.
 		 * @param Integer $months Number of months you want to know the number of days in.
 		 * @returns Integer Number of days in the specified amount of months.
 		 */
 		function daysInMonth($date, $months) {
 		    $days = 0;
-		    
+
 		    for($i=0;$i<$months;$i++) {
 		        $days += date("t", $date + $days * 24 * 60 * 60);
 		    }
-		    
+
 		    return $days;
 		}
-		
+
 		// Converts MAPI-style 'minutes' into the month of the year [0..11]
 		function monthOfYear($minutes) {
 		    $d = gmmktime(0,0,0,1,1,2001); // The year 2001 was a non-leap year, and the minutes provided are always in non-leap-year-minutes
-		    
+
 		    $d += $minutes*60;
-		    
+
 		    $dtime = $this->gmtime($d);
-		    
+
 		    return $dtime["tm_mon"];
 		}
 

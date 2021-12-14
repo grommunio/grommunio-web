@@ -11,7 +11,7 @@ Zarafa.hierarchy.ui.TreeEditor = Ext.extend(Ext.tree.TreeEditor, {
 	/**
 	 * Used to lock editing on treenodes
 	 */
-	enableEdit : undefined,
+	enableEdit: undefined,
 
 	/**
 	 * @constructor
@@ -20,28 +20,28 @@ Zarafa.hierarchy.ui.TreeEditor = Ext.extend(Ext.tree.TreeEditor, {
 	 * @param {Object} fc config of {@link Ext.form.Field Field} which can be used for editing {@link Zarafa.hierarchy.ui.FolderNode FolderNode}.
 	 * @param {Object} config Configuration object for {@link Ext.tree.TreeEditor TreeEditor}
 	 */
-	constructor : function(treeObj, fc, config) {
+	constructor: function(treeObj, fc, config) {
 		fc = fc || {};
 		config = config || {};
 
 		fc = Ext.applyIf(fc, {
-			ignoreNoChange : true
+			ignoreNoChange: true
 		});
 
 		config = Ext.applyIf(config, {
-			cancelOnEsc : true,
-			completeOnEnter : true
+			cancelOnEsc: true,
+			completeOnEnter: true
 		});
 
 		Zarafa.hierarchy.ui.TreeEditor.superclass.constructor.call(this, treeObj, fc, config);
 
 		// treeEditor event handlers
 		this.on({
-			'beforenodeclick' : this.onBeforeNodeClick,
-			'beforestartedit' : this.onBeforeStartEdit,
-			'canceledit' : this.onEditCancel,
-			'complete' : this.onEditComplete,
-			scope : this
+			'beforenodeclick': this.onBeforeNodeClick,
+			'beforestartedit': this.onBeforeStartEdit,
+			'canceledit': this.onEditCancel,
+			'complete': this.onEditComplete,
+			scope: this
 		});
 
 	},
@@ -51,7 +51,7 @@ Zarafa.hierarchy.ui.TreeEditor = Ext.extend(Ext.tree.TreeEditor, {
 	 * @return {Boolean} when true it does not enter edit mode on selection of node
 	 * @private
 	 */
-	onBeforeNodeClick : function() {
+	onBeforeNodeClick: function() {
 		return true;
 	},
 
@@ -60,7 +60,7 @@ Zarafa.hierarchy.ui.TreeEditor = Ext.extend(Ext.tree.TreeEditor, {
 	 * @return {Boolean} false if editing should be stopped.
 	 * @private
 	 */
-	onBeforeStartEdit : function() {
+	onBeforeStartEdit: function() {
 		// Editing? Only if its unlocked
 		if (!this.enableEdit) {
 			return false;
@@ -71,7 +71,7 @@ Zarafa.hierarchy.ui.TreeEditor = Ext.extend(Ext.tree.TreeEditor, {
 	 * Fired on cancel of editing treeNode
 	 * @private
 	 */
-	onEditCancel : function() {
+	onEditCancel: function() {
 		// Put edit lock back ON.
 		this.enableEdit = false;
 	},
@@ -83,7 +83,7 @@ Zarafa.hierarchy.ui.TreeEditor = Ext.extend(Ext.tree.TreeEditor, {
 	 * @param {String} oldName old name of node
 	 * @private
 	 */
-	onEditComplete : function(treeNode, newName, oldName) {
+	onEditComplete: function(treeNode, newName, oldName) {
 		this.enableEdit = false;
 
 		var folder = treeNode.editNode.getFolder();
@@ -96,7 +96,7 @@ Zarafa.hierarchy.ui.TreeEditor = Ext.extend(Ext.tree.TreeEditor, {
 	 * Triggers node editing
 	 * @param {Ext.tree.TreeNode} treeNode node to be edited
 	 */
-	startEditingNode : function(treeNode) {
+	startEditingNode: function(treeNode) {
 		// Release edit lock
 		this.enableEdit = true;
 		this.triggerEdit(treeNode);

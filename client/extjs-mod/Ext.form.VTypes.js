@@ -18,7 +18,7 @@
 		 * @return {Boolean} return true if given percentage value matches
 		 * with regular expression else return false.
 		 */
-		percentage : function(perc) {
+		percentage: function(perc) {
 			return checkPerc.test(perc);
 		},
 
@@ -50,7 +50,7 @@
 		 * @param {String} value The email address
 		 * @return {Boolean} true if the RegExp test passed, and false if not.
 		 */
-		'email' : function(v){
+		'email': function(v) {
 		    return email.test(v);
 		}
 	});

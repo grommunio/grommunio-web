@@ -29,28 +29,28 @@ Zarafa.common.attachment.ui.AttachmentButton = Ext.extend(Ext.SplitButton, {
 	 * @constructor
 	 * @param {Object} config Configuration object
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		config = config || {};
 
 		Ext.applyIf(config, {
-			menu : {
-				items : [{
-					text : _('File upload'),
-					handler : this.onFileUpload,
+			menu: {
+				items: [{
+					text: _('File upload'),
+					handler: this.onFileUpload,
 					scope: this,
-					iconCls : 'icon_paperclip'
+					iconCls: 'icon_paperclip'
 				}, {
-					text : _('Attach item'),
-					handler : this.onFileAttach,
+					text: _('Attach item'),
+					handler: this.onFileAttach,
 					scope: this,
-					iconCls : 'icon_embed_attachment'
+					iconCls: 'icon_embed_attachment'
 				},
 				container.populateInsertionPoint('main.attachment.method', this)
 				]
 			},
-			handler : this.onFileUpload,
-			scope : this
+			handler: this.onFileUpload,
+			scope: this
 		});
 
 		Zarafa.common.attachment.ui.AttachmentButton.superclass.constructor.call(this, config);
@@ -63,12 +63,12 @@ Zarafa.common.attachment.ui.AttachmentButton = Ext.extend(Ext.SplitButton, {
 	 * @param {Ext.EventObject} event The event object
 	 * @private
 	 */
-	onFileUpload : function(button, event)
+	onFileUpload: function(button, event)
 	{
 		var attachComponent = new Zarafa.common.attachment.ui.UploadAttachmentComponent({
-			callback : this.uploadAttachmentCallback,
-			multiple : true,
-			scope : this
+			callback: this.uploadAttachmentCallback,
+			multiple: true,
+			scope: this
 		});
 
 		attachComponent.openAttachmentDialog();
@@ -81,7 +81,7 @@ Zarafa.common.attachment.ui.AttachmentButton = Ext.extend(Ext.SplitButton, {
 	 * @param {Object/Array} files The files contains file information.
 	 * @param {Object} form the form is contains {@link Ext.form.BasicForm bacisform} info.
 	 */
-	uploadAttachmentCallback : function(files, form)
+	uploadAttachmentCallback: function(files, form)
 	{
 		var store = this.record.getSubStore('attachments');
 		store.uploadFiles(files, form);
@@ -91,7 +91,7 @@ Zarafa.common.attachment.ui.AttachmentButton = Ext.extend(Ext.SplitButton, {
 	 * Event handler for opening the {@link Zarafa.common.attachment.AttachItemContentPanel AttachItemContentPanel}.
 	 * @private
 	 */
-	onFileAttach : function(field, event)
+	onFileAttach: function(field, event)
 	{
 		// get the parent from which we can find the editorfield
 		var panel = this.findParentByType('zarafa.recordcontentpanel');
@@ -100,7 +100,7 @@ Zarafa.common.attachment.ui.AttachmentButton = Ext.extend(Ext.SplitButton, {
 			editor = editor[0];
 		}
 
-		Zarafa.common.Actions.openAttachItemSelectionContent(this.record, {editor : editor});
+		Zarafa.common.Actions.openAttachItemSelectionContent(this.record, {editor: editor});
 	},
 
 	/**
@@ -108,7 +108,7 @@ Zarafa.common.attachment.ui.AttachmentButton = Ext.extend(Ext.SplitButton, {
 	 * for adding the attachments to the record.
 	 * @param {Zarafa.core.data.IPMRecord} record
 	 */
-	bindRecord : function(record)
+	bindRecord: function(record)
 	{
 		this.record = record;
 	},
@@ -119,7 +119,7 @@ Zarafa.common.attachment.ui.AttachmentButton = Ext.extend(Ext.SplitButton, {
 	 * @param {Zarafa.core.data.MAPIRecord} record The record to update in this component
 	 * @param {Boolean} contentReset force the component to perform a full update of the data.
 	 */
-	update : function(record, contentReset)
+	update: function(record, contentReset)
 	{
 		if (record && record instanceof Zarafa.core.data.MAPIRecord) {
 			// In case the recordcomponentupdaterplugin is installed

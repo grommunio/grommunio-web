@@ -96,3 +96,21 @@
 		}
 	}
 }
+
+/*for Rules widget and Out of office settings widget*/
+#zarafa-mainpanel-contentpanel-settings {
+	.k-store-picker {
+		padding: 0 0 10px;
+		border-bottom: 1px solid $grey;
+		margin-bottom: 10px;
+
+        .x-form-item {
+			margin-bottom: 0;
+		}
+
+		label {
+			width: auto;
+			border: 1px solid transparent; /* to align the text with the text in the combo */
+		}
+	}
+}

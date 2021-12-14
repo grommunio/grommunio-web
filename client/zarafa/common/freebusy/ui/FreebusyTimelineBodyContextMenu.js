@@ -16,18 +16,18 @@ Zarafa.common.freebusy.ui.FreebusyTimelineBodyContextMenu = Ext.extend(Zarafa.co
 	/**
 	 * @cfg {Zarafa.common.freebusy.data.FreebusyModel} model The model which holds all freebusy information.
 	 */
-	model : undefined,
+	model: undefined,
 
 	/**
 	 * @constructor
 	 * @param {Object} config Configuration object
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		config = config || {};
 
 		Ext.applyIf(config, {
-			items : container.populateInsertionPoint('context.freebusy.timelinebody.contextmenu', this)
+			items: container.populateInsertionPoint('context.freebusy.timelinebody.contextmenu', this)
 		});
 
 		Zarafa.common.freebusy.ui.FreebusyTimelineBodyContextMenu.superclass.constructor.call(this, config);

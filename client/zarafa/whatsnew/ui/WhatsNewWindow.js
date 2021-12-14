@@ -18,7 +18,7 @@ Zarafa.whatsnew.ui.WhatsNewWindow = Ext.extend(Ext.Window, {
 	 * 		<li>icon_url: String (optional)</li>
 	 * </ul>
 	 */
-	features : [],
+	features: [],
 
 	/**
 	 * The index of the feature item that is shown in the WhatsNewWindow.
@@ -31,7 +31,7 @@ Zarafa.whatsnew.ui.WhatsNewWindow = Ext.extend(Ext.Window, {
 	 * @constructor
 	 * @param {Object} config configuration object.
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		config = config || {};
 
@@ -70,7 +70,7 @@ Zarafa.whatsnew.ui.WhatsNewWindow = Ext.extend(Ext.Window, {
 	 * @return {Array} Configuration objects for the components in the bottom bar
 	 * @private
 	 */
-	createBottomBar : function()
+	createBottomBar: function()
 	{
 		return [{
 			xtype: 'checkbox',
@@ -95,7 +95,7 @@ Zarafa.whatsnew.ui.WhatsNewWindow = Ext.extend(Ext.Window, {
 	 * @param {Ext.Button} btn The skip button
 	 * @private
 	 */
-	onSkip : function(btn)
+	onSkip: function(btn)
 	{
 		// Check the 'Don't show again' checkbox
 		if ( this.dontShowCheckbox.getValue() ){
@@ -111,7 +111,7 @@ Zarafa.whatsnew.ui.WhatsNewWindow = Ext.extend(Ext.Window, {
 	 * to be able to switch between the features.
 	 * @return {Object} Configuration object for the panel that contains the feature descriptions.
 	 */
-	createFeaturePanels : function()
+	createFeaturePanels: function()
 	{
 		var panels = this.features.map(function(feature){
 			var html =
@@ -131,7 +131,7 @@ Zarafa.whatsnew.ui.WhatsNewWindow = Ext.extend(Ext.Window, {
 					width: 216,
 					autoScroll: true,
 					height: 287,
-					html : html
+					html: html
 				}, {
 					xtype: 'container',
 					cls: 'k-whatsnew-feature-image',
@@ -159,7 +159,7 @@ Zarafa.whatsnew.ui.WhatsNewWindow = Ext.extend(Ext.Window, {
 	 * Creates the toolbar with the navigational buttons.
 	 * @return {Object} Configuration object for the navigational toolbar.
 	 */
-	createNavigationPanel : function()
+	createNavigationPanel: function()
 	{
 		var buttons = [{
 			xtype: 'zarafa.toolbarbutton',
@@ -195,7 +195,7 @@ Zarafa.whatsnew.ui.WhatsNewWindow = Ext.extend(Ext.Window, {
 	 * are used to navigate through the features.
 	 * @param {Number} dir Equals +1 or -1 to denote forward or backward navigation respectively
 	 */
-	onNavigate : function(dir)
+	onNavigate: function(dir)
 	{
 		this.activeItem += dir;
 		if ( this.activeItem >= this.features.length ){

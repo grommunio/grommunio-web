@@ -5,12 +5,12 @@ Ext.namespace('Zarafa.addressbook');
  * @extends Zarafa.core.data.MAPISubStore
  */
 Zarafa.addressbook.AddressBookEmailAddressesSubStore = Ext.extend(Zarafa.core.data.MAPISubStore, {
-	
+
 	/**
 	 * @constructor
 	 * @param config Configuration object
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		config = config || {};
 
@@ -20,12 +20,12 @@ Zarafa.addressbook.AddressBookEmailAddressesSubStore = Ext.extend(Zarafa.core.da
 
 		Ext.applyIf(config, {
 			// provide a default reader
-			reader : new Zarafa.core.data.JsonReader({
-				id : 'address',
-				idProperty : 'address'
+			reader: new Zarafa.core.data.JsonReader({
+				id: 'address',
+				idProperty: 'address'
 			}, recordType)
 		});
-		
+
 		Zarafa.addressbook.AddressBookEmailAddressesSubStore.superclass.constructor.call(this, config);
 	}
 });

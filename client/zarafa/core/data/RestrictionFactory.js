@@ -5,14 +5,14 @@ Ext.namespace('Zarafa.core.data');
 
 /**
  * @class Zarafa.core.data.RestrictionFactory
- * 
+ *
  * Static methods for creating restrictions. Prop tags used for this restrictions
  * are actual constants used in php, eg. for display name property constant in php is PR_DISPLAY_NAME,
  * so we use 'PR_DISPLAY_NAME' as string in restrictions and that string is converted to actual constant
  * in php. for named constants we don't have any constants defined in php so for that we have to use
  * its hex value in string, like '0x80B5001E'. if we somehow dump all the prop tags of mapi to javascript
  * then we can use its hex value directly instead of using its string value.
- * 
+ *
  * @singleton
  */
 Zarafa.core.data.RestrictionFactory = {
@@ -22,7 +22,7 @@ Zarafa.core.data.RestrictionFactory = {
 	 * RES_AND restriction.
 	 * @return {Array} RES_AND restriction.
 	 */
-	createResAnd : function(restrictionsArray) {
+	createResAnd: function(restrictionsArray) {
 		return [
 			Zarafa.core.mapi.Restrictions.RES_AND,
 			restrictionsArray.clone()
@@ -35,7 +35,7 @@ Zarafa.core.data.RestrictionFactory = {
 	 * RES_OR restriction.
 	 * @return {Array} RES_OR restriction.
 	 */
-	createResOr : function(restrictionsArray) {
+	createResOr: function(restrictionsArray) {
 		return [
 			Zarafa.core.mapi.Restrictions.RES_OR,
 			restrictionsArray.clone()
@@ -47,7 +47,7 @@ Zarafa.core.data.RestrictionFactory = {
 	 * @param {Array} subRestriction restriction whose values should be inverted.
 	 * @return {Object} RES_NOT restriction.
 	 */
-	createResNot : function(subRestriction) {
+	createResNot: function(subRestriction) {
 		return [
 			Zarafa.core.mapi.Restrictions.RES_NOT,
 			subRestriction
@@ -60,7 +60,7 @@ Zarafa.core.data.RestrictionFactory = {
 	 * @param {Number} propTag2 property tag of second property that should be compared.
 	 * @return {Array} RES_COMPAREPROPS restriction.
 	 */
-	createResCompareProps : function(propTag1, propTag2) {
+	createResCompareProps: function(propTag1, propTag2) {
 		var res = [],
 			resCondition = Zarafa.core.mapi.Restrictions.RES_COMPAREPROPS,
 			resValues = {};
@@ -81,7 +81,7 @@ Zarafa.core.data.RestrictionFactory = {
 	 * @param {Array} subRestriction sub restriction that will be applied to property of table indicated by propTag.
 	 * @return {Array} RES_SUBRESTRICTION restriction.
 	 */
-	createResSubRestriction : function(propTag, subRestriction) {
+	createResSubRestriction: function(propTag, subRestriction) {
 		var res = [],
 			resCondition = Zarafa.core.mapi.Restrictions.RES_SUBRESTRICTION,
 			resValues = {};
@@ -105,7 +105,7 @@ Zarafa.core.data.RestrictionFactory = {
 	 * @param {String} propTagForValue single valued counter part of multi valued properties.
 	 * @return {Array} property structure.
 	 */
-	createPropertyObject : function(propTag, propValue, propTagForValue) {
+	createPropertyObject: function(propTag, propValue, propTagForValue) {
 		var prop = [];
 
 		if(Ext.isEmpty(propTagForValue)) {
@@ -127,7 +127,7 @@ Zarafa.core.data.RestrictionFactory = {
 	 * @param {Object} propertiesArray array of property list structure created by {@link #createPropertyObject}.
 	 * @return {Array} RES_SUBRESTRICTION restriction.
 	 */
-	dataResComment : function(subRestriction, propertiesArray) {
+	dataResComment: function(subRestriction, propertiesArray) {
 		var res = [];
 		var resCondition = Zarafa.core.mapi.Restrictions.RES_COMMENT;
 		var resValues = {};
@@ -152,7 +152,7 @@ Zarafa.core.data.RestrictionFactory = {
 	 * @param {String} propTagForValue property tag that should be used in value, only for multi valued properties.
 	 * @return {Array} RES_PROPERTY restriction.
 	 */
-	dataResProperty : function(propTag, relOp, propValue, propTagForValue) {
+	dataResProperty: function(propTag, relOp, propValue, propTagForValue) {
 		var res = [],
 			resCondition = Zarafa.core.mapi.Restrictions.RES_PROPERTY,
 			resValues = {};
@@ -173,11 +173,11 @@ Zarafa.core.data.RestrictionFactory = {
 	},
 
 	/**
-	 * creates RES_EXIST restriction which is used to check existance of a property.
-	 * @param {String} propTag property tag of property whose existance should be checked.
+	 * creates RES_EXIST restriction which is used to check existence of a property.
+	 * @param {String} propTag property tag of property whose existence should be checked.
 	 * @return {Array} RES_EXIST restriction.
 	 */
-	dataResExist : function(propTag) {
+	dataResExist: function(propTag) {
 		var res = [],
 			resCondition = Zarafa.core.mapi.Restrictions.RES_EXIST,
 			resValues = {};
@@ -197,8 +197,8 @@ Zarafa.core.data.RestrictionFactory = {
 	 * @param {Number} sizeValue size of value which will be used for comparison.
 	 * @return {Array} RES_SIZE restriction.
 	 */
-	dataResSize : function(propTag, relOp, sizeValue) {
-		var res = [],		
+	dataResSize: function(propTag, relOp, sizeValue) {
+		var res = [],
 			resCondition = Zarafa.core.mapi.Restrictions.RES_SIZE,
 			resValues = {};
 
@@ -219,7 +219,7 @@ Zarafa.core.data.RestrictionFactory = {
 	 * @param {Number} bitMaskValue value that should be compared after applying bitmask to original value.
 	 * @return {Array} RES_BITMASK restriction.
 	 */
-	dataResBitmask : function(propTag, bitMaskType, bitMaskValue) {
+	dataResBitmask: function(propTag, bitMaskType, bitMaskValue) {
 		var res = [],
 			resCondition = Zarafa.core.mapi.Restrictions.RES_BITMASK,
 			resValues = {};
@@ -245,7 +245,7 @@ Zarafa.core.data.RestrictionFactory = {
 	 * @param {String} propTagForValue property tag that should be used in value, only for multi valued properties.
 	 * @return {Array} RES_CONTENT restriction.
 	 */
-	dataResContent : function(propTag, fuzzyLevel, propValue, propTagForValue) {
+	dataResContent: function(propTag, fuzzyLevel, propValue, propTagForValue) {
 		var res = [],
 			resCondition = Zarafa.core.mapi.Restrictions.RES_CONTENT,
 			resValues = {};

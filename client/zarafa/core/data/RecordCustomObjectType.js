@@ -28,5 +28,5 @@ Zarafa.core.data.RecordCustomObjectType = Zarafa.core.Enum.create({
 	 * @property
 	 * @type Number
 	 */
-	BASE_TYPE : 1000
+	BASE_TYPE: 1000
 });

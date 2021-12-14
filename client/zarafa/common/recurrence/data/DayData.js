@@ -26,7 +26,7 @@ Zarafa.common.recurrence.data.DayData = [
 // configuration option, which we need to build the last 7 items from the
 // Zarafa.common.recurrence.data.DayData structure.
 Zarafa.onReady(function() {
-	var weekStart = container.getSettingsModel().get('zarafa/v1/main/week_start');      
+	var weekStart = container.getSettingsModel().get('zarafa/v1/main/week_start');
 
 	for (var i = 3; i < Zarafa.common.recurrence.data.DayData.length; i++) {
 		var index = (weekStart + (i - 3)) % 7;

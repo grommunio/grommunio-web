@@ -12,13 +12,13 @@ Zarafa.common.ui.grid.ColumnModel = Ext.extend(Ext.grid.ColumnModel, {
 	 * This is used by the {@link Zarafa.common.ui.grid.GridPanel GridPanel}
 	 * in the Settings path which is used to obtain the column configuration.
 	 */
-	name : 'default',
+	name: 'default',
 
 	/**
 	 * @constructor
 	 * @param config Configuration structure
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		config = config || {};
 
@@ -29,7 +29,7 @@ Zarafa.common.ui.grid.ColumnModel = Ext.extend(Ext.grid.ColumnModel, {
 			 * the event handler to update the configuration if needed.
 			 *
 			 * @param {Ext.grid.ColumnModel} columnModel The column model which is being reconfigured
-			 * @param {Object} The configruation object which is used to reconfigure the model
+			 * @param {Object} The configurations object which is used to reconfigure the model
 			 * @return (optional) if false the {@link #setConfig} call will be aborted and the column
 			 * model will not be reconfigured.
 			 */
@@ -51,11 +51,11 @@ Zarafa.common.ui.grid.ColumnModel = Ext.extend(Ext.grid.ColumnModel, {
 	 * @param {Boolean} initial True if this is the initial configuration of the columnmodel
 	 * @protected
 	 */
-	setConfig : function(config, initial)
+	setConfig: function(config, initial)
 	{
 		// Make a fresh copy of the configuration array. The 'beforeconfigchange' allows for
 		// modifications on the argument we pass it. So we need a copy to prevent the default
-		// values to be overridden accidentely.
+		// values to be overridden accidently.
 		var newConfig = [];
 		for (var i = 0, len = config.length; i < len; i++) {
 			newConfig.push(Ext.apply({}, config[i]));
@@ -72,7 +72,7 @@ Zarafa.common.ui.grid.ColumnModel = Ext.extend(Ext.grid.ColumnModel, {
 	 * @param {Object} state The state object which should be applied to the column
 	 * @private
 	 */
-	setState : function(col, state)
+	setState: function(col, state)
 	{
 		var column = this.getColumnAt(col);
 		if ( column.fixed === true ){
@@ -81,7 +81,7 @@ Zarafa.common.ui.grid.ColumnModel = Ext.extend(Ext.grid.ColumnModel, {
 			// design was implemented, but the state would restore the old width.
 			state.width = column.width;
 		}
-		
+
 		Zarafa.common.ui.grid.ColumnModel.superclass.setState.apply(this, arguments);
 		// The state has been applied, this means the totalWidth is invalid
 		this.totalWidth = null;

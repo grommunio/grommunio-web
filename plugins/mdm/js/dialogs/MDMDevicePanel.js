@@ -10,7 +10,7 @@ Ext.namespace('Zarafa.plugins.mdm.dialogs');
 Zarafa.plugins.mdm.dialogs.MDMDevicePanel = Ext.extend(Ext.Panel, {
 
 	/**
-	 * @cfg {Boolean} isKoe True if device has Kopano Outlook Extension information.
+	 * @cfg {Boolean} isKoe True if device has Outlook Extension information.
 	 */
 	isKoe : false,
 

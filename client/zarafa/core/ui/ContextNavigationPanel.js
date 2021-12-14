@@ -3,7 +3,7 @@ Ext.namespace('Zarafa.core.ui');
  * @class Zarafa.core.ui.ContextNavigationPanel
  * @extends Ext.Panel
  * @xtype zarafa.contextnavigation
- * 
+ *
  * ContextNavigationPanel provides custom navigation options to context through {@link Zarafa.hierarchy.ui.HierarchyTreePanel}.
  */
 Zarafa.core.ui.ContextNavigationPanel = Ext.extend(Ext.Panel, {
@@ -17,23 +17,23 @@ Zarafa.core.ui.ContextNavigationPanel = Ext.extend(Ext.Panel, {
 	 * @cfg {Boolean} true to avoid to {@link Zarafa.core.ui.NavigationPanel#getAllFoldersPanel show all folders} Panel.
 	 * even if {@link Zarafa.core.ui.NavigationPanel#showFolderList showFolderList} config is true
 	 */
-	restrictToShowAllFolderList : false,
+	restrictToShowAllFolderList: false,
 
 	/**
 	 * @constructor
 	 * @param {Object} config configuration object
 	 */
-	constructor : function (config) {
+	constructor: function (config) {
 		config = config || {};
 
 		// Config options for component itself.
 		Ext.applyIf(config, {
-			border : false,
+			border: false,
 			layout: 'fit',
-			defaults : {
-				border : false,
-				autoScroll : false,
-				defaults : { cls : 'zarafa-context-navigation-item-body' }
+			defaults: {
+				border: false,
+				autoScroll: false,
+				defaults: { cls: 'zarafa-context-navigation-item-body' }
 			}
 		});
 
@@ -43,7 +43,7 @@ Zarafa.core.ui.ContextNavigationPanel = Ext.extend(Ext.Panel, {
 	/**
 	 * @return {Zarafa.core.Context}
 	 */
-	getContext : function() {
+	getContext: function() {
 		return this.context || false;
 	}
 });

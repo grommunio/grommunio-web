@@ -1,15 +1,15 @@
 <?php
-require_once('classes/KopanoUser.php');
+require_once('classes/grommunioUser.php');
 require_once('classes/HierarchyUser.php');
 require_once('classes/TestData.php');
-require_once('classes/KopanoTest.php');
+require_once('classes/grommunioTest.php');
 
 /**
  * PermissionsTest
  *
  * Tests all possible cases for applying permissions on a folder
  */
-class PermissionsTest extends KopanoTest {
+class PermissionsTest extends grommunioTest {
 	/**
 	 * The user for which we will add and close Shared Stores
 	 */
@@ -32,9 +32,9 @@ class PermissionsTest extends KopanoTest {
 	{   
 		parent::setUp();
 
-		$this->user = $this->addUser(new HierarchyUser(new KopanoUser(KOPANO_USER1_NAME, KOPANO_USER1_PASSWORD)));
-		$this->permissionUser = $this->addUser(new HierarchyUser(new KopanoUser(KOPANO_USER2_NAME, KOPANO_USER2_PASSWORD)));
-		$this->permissionUser2 = $this->addUser(new HierarchyUser(new KopanoUser(KOPANO_USER3_NAME, KOPANO_USER3_PASSWORD)));
+		$this->user = $this->addUser(new HierarchyUser(new grommunioUser(GROMMUNIO_USER1_NAME, GROMMUNIO_USER1_PASSWORD)));
+		$this->permissionUser = $this->addUser(new HierarchyUser(new grommunioUser(GROMMUNIO_USER2_NAME, GROMMUNIO_USER2_PASSWORD)));
+		$this->permissionUser2 = $this->addUser(new HierarchyUser(new grommunioUser(GROMMUNIO_USER3_NAME, GROMMUNIO_USER3_PASSWORD)));
 	}
 
 	/**

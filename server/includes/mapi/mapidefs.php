@@ -304,7 +304,7 @@ define('IMPORTANCE_LOW'                          ,0);
 define('IMPORTANCE_NORMAL'                       ,1);
 define('IMPORTANCE_HIGH'                         ,2);
 
-/* Stream interace values */
+/* Stream interface values */
 define('STREAM_SEEK_SET'                         ,0);
 define('STREAM_SEEK_CUR'                         ,1);
 define('STREAM_SEEK_END'                         ,2);
@@ -440,13 +440,13 @@ define('RES_SUBRESTRICTION'                      ,9);
 define('RES_COMMENT'                             ,10);
 
 /* restriction compares */
-define('RELOP_LT'                                ,0);
-define('RELOP_LE'                                ,1);
-define('RELOP_GT'                                ,2);
-define('RELOP_GE'                                ,3);
-define('RELOP_EQ'                                ,4);
-define('RELOP_NE'                                ,5);
-define('RELOP_RE'                                ,6);
+define('RELOP_LT'                                , 0);
+define('RELOP_LE'                                , 1);
+define('RELOP_GT'                                , 2);
+define('RELOP_GE'                                , 3);
+define('RELOP_EQ'                                , 4);
+define('RELOP_NE'                                , 5);
+define('RELOP_RE'                                , 6);
 
 /* string 'fuzzylevel' */
 define('FL_FULLSTRING'                           ,0x00000000);
@@ -461,17 +461,17 @@ define('BMR_EQZ'                                 ,0x00000000);
 define('BMR_NEZ'                                 ,0x00000001);
 
 /* array index values of restrictions -- same values are used in php-ext/main.cpp::PHPArraytoSRestriction() */
-define('VALUE'                                   ,0);        // propval
-define('RELOP'                                   ,1);        // compare method
-define('FUZZYLEVEL'                              ,2);        // string search flags
-define('CB'                                      ,3);        // size restriction
-define('ULTYPE'                                  ,4);        // bit mask restriction type BMR_xxx
-define('ULMASK'                                  ,5);        // bitmask
-define('ULPROPTAG'                               ,6);        // property
-define('ULPROPTAG1'                              ,7);        // RES_COMPAREPROPS 1st property
-define('ULPROPTAG2'                              ,8);        // RES_COMPAREPROPS 2nd property
-define('PROPS'                                   ,9);        // RES_COMMENT properties
-define('RESTRICTION'                             ,10);       // RES_COMMENT and RES_SUBRESTRICTION restriction
+define('VALUE'                                   , 0);        // propval
+define('RELOP'                                   , 1);        // compare method
+define('FUZZYLEVEL'                              , 2);        // string search flags
+define('CB'                                      , 3);        // size restriction
+define('ULTYPE'                                  , 4);        // bit mask restriction type BMR_xxx
+define('ULMASK'                                  , 5);        // bitmask
+define('ULPROPTAG'                               , 6);        // property
+define('ULPROPTAG1'                              , 7);        // RES_COMPAREPROPS 1st property
+define('ULPROPTAG2'                              , 8);        // RES_COMPAREPROPS 2nd property
+define('PROPS'                                   , 9);        // RES_COMMENT properties
+define('RESTRICTION'                             ,10);        // RES_COMMENT and RES_SUBRESTRICTION restriction
 
 /* GUID's for PR_MDB_PROVIDER */
 define("ZARAFA_SERVICE_GUID"                     ,makeGuid("{C0A19454-7F29-1B10-A587-08002B2A2517}"));    // default store
@@ -501,11 +501,19 @@ define('ecRightsEditAny'                         ,0x00000020);
 define('ecRightsDeleteAny'                       ,0x00000040);
 define('ecRightsCreateSubfolder'                 ,0x00000080);
 define('ecRightsFolderAccess'                    ,0x00000100);
-//define('ecrightsContact'                       ,0x00000200);
+define('ecRightsContact'                         ,0x00000200);
 define('ecRightsFolderVisible'                   ,0x00000400);
 
 define('ecRightsAll'                             ,ecRightsReadAny | ecRightsCreate | ecRightsEditOwned | ecRightsDeleteOwned | ecRightsEditAny | ecRightsDeleteAny | ecRightsCreateSubfolder | ecRightsFolderAccess | ecRightsFolderVisible);
+define('ecRightsSecretary'                       ,ecRightsReadAny | ecRightsCreate | ecRightsEditOwned | ecRightsDeleteOwned | ecRightsEditAny | ecRightsDeleteAny | ecRightsFolderVisible);
 define('ecRightsFullControl'                     ,ecRightsReadAny | ecRightsCreate | ecRightsEditOwned | ecRightsDeleteOwned | ecRightsEditAny | ecRightsDeleteAny | ecRightsCreateSubfolder | ecRightsFolderVisible);
+define('ecRightsContributor'                     ,ecRightsFolderVisible | ecRightsCreate);
+define('ecRightsReviewer'                        ,ecRightsReadAny | ecRightsFolderVisible);
+define('ecRightsNonEditingAuthor'                ,ecRightsReadAny | ecRightsFolderVisible | ecRightsCreate | ecRightsDeleteOwned);
+define('ecRightsAuthor'                          ,ecRightsReadAny | ecRightsFolderVisible | ecRightsCreate | ecRightsDeleteOwned | ecRightsEditOwned);
+define('ecRightsPublishingAuthor'                ,ecRightsReadAny | ecRightsFolderVisible | ecRightsCreate | ecRightsDeleteOwned | ecRightsEditOwned | ecRightsCreateSubfolder);
+define('ecRightsEditor'                          ,ecRightsReadAny | ecRightsFolderVisible | ecRightsCreate | ecRightsDeleteOwned | ecRightsEditOwned | ecRightsEditAny | ecRightsDeleteAny);
+define('ecRightsPublishingEditor'                ,ecRightsReadAny | ecRightsFolderVisible | ecRightsCreate | ecRightsDeleteOwned | ecRightsEditOwned | ecRightsEditAny | ecRightsDeleteAny | ecRightsCreateSubfolder);
 define('ecRightsDefault'                         ,ecRightsNone | ecRightsFolderVisible);
 define('ecRightsDefaultPublic'                   ,ecRightsReadAny | ecRightsFolderVisible);
 define('ecRightsAdmin'                           ,0x00001000);
@@ -545,15 +553,15 @@ define('ST_RULE_PARSE_ERROR'                     ,0x0040);
 define('ST_CLEAR_OOF_HIST'                       ,0x80000000);
 
 // action types
-define('OP_MOVE'                                 ,1);
-define('OP_COPY'                                 ,2);
-define('OP_REPLY'                                ,3);
-define('OP_OOF_REPLY'                            ,4);
-define('OP_DEFER_ACTION'                         ,5);
-define('OP_BOUNCE'                               ,6);
-define('OP_FORWARD'                              ,7);
-define('OP_DELEGATE'                             ,8);
-define('OP_TAG'                                  ,9);
+define('OP_MOVE'                                 , 1);
+define('OP_COPY'                                 , 2);
+define('OP_REPLY'                                , 3);
+define('OP_OOF_REPLY'                            , 4);
+define('OP_DEFER_ACTION'                         , 5);
+define('OP_BOUNCE'                               , 6);
+define('OP_FORWARD'                              , 7);
+define('OP_DELEGATE'                             , 8);
+define('OP_TAG'                                  , 9);
 define('OP_DELETE'                               ,10);
 define('OP_MARK_AS_READ'                         ,11);
 

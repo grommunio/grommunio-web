@@ -9,7 +9,7 @@ Ext.namespace('Zarafa.hierarchy.data');
  * or its {@link Zarafa.hierarchy.data.MAPIFolderRecord folders}.
  *
  * This must be used in conjunction with {@link Zarafa.common.ui.grid.GridPanel}
- * which is writing directly into the namespace using the {@link Zarafa.core.data.SettingsStateProvider}. 
+ * which is writing directly into the namespace using the {@link Zarafa.core.data.SettingsStateProvider}.
  */
 Zarafa.hierarchy.data.HierarchyState = Ext.extend(Zarafa.core.data.StatefulObservable, {
 
@@ -17,13 +17,13 @@ Zarafa.hierarchy.data.HierarchyState = Ext.extend(Zarafa.core.data.StatefulObser
 	 * @constructor
 	 * @param {Object} config Configuration object
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		config = config || {};
 
 		Ext.applyIf(config, {
-			stateful : true,
-			statefulName : 'folders'
+			stateful: true,
+			statefulName: 'folders'
 		});
 
 		Zarafa.hierarchy.data.HierarchyState.superclass.constructor.call(this, config);
@@ -36,9 +36,9 @@ Zarafa.hierarchy.data.HierarchyState = Ext.extend(Zarafa.core.data.StatefulObser
 	 *
 	 * @param {Zarafa.hierarchy.data.MAPIFolderRecord} folder The folder for which the statename is requested
 	 * @param {String} type The category for the folder for which the statename is requested (e.g. 'list' or 'tree').
-	 * @return {String} The unique name for this component by which the {@link #getState state} must be saved. 
-	 */	
-	getStateNameForFolder : function(folder, type)
+	 * @return {String} The unique name for this component by which the {@link #getState state} must be saved.
+	 */
+	getStateNameForFolder: function(folder, type)
 	{
 		if (folder) {
 			return 'folders/' + folder.get('entryid') + '/' + type;
@@ -54,7 +54,7 @@ Zarafa.hierarchy.data.HierarchyState = Ext.extend(Zarafa.core.data.StatefulObser
 	 * @param {String} type The category for the folder for which the state is provided (e.g. 'list' or 'tree').
 	 * @param {Object} state The state object
 	 */
-	applyStateForFolder : function(folder, type, state)
+	applyStateForFolder: function(folder, type, state)
 	{
 		this.statefulName = this.getStateNameForFolder(folder, type);
 
@@ -72,7 +72,7 @@ Zarafa.hierarchy.data.HierarchyState = Ext.extend(Zarafa.core.data.StatefulObser
 	 * @param {String} type The category for the folder for which the state is requested (e.g. 'list' or 'tree').
 	 * @return {Object} The state object
 	 */
-	getStateForFolder : function(folder, type)
+	getStateForFolder: function(folder, type)
 	{
 		this.statefulName = this.getStateNameForFolder(folder, type);
 

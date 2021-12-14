@@ -13,14 +13,14 @@ Zarafa.core.PluginMetaData = Ext.extend(Object, {
 	 * @cfg {String} name (required) The unique name for this plugin.
 	 * For a user-friendly name for UI components, see {@link #displayName}
 	 */
-	name : '',
+	name: '',
 
 	/**
 	 * @cfg {String} displayName The display name for this plugin. This
 	 * will be used in places where the plugin is referenced in UI components.
 	 * If not provided, {@link #name} will be used.
 	 */
-	displayName : '',
+	displayName: '',
 
 	/**
 	 * @cfg {String} settingsName Alternative name for the plugin as used
@@ -28,39 +28,39 @@ Zarafa.core.PluginMetaData = Ext.extend(Object, {
 	 * for this {@link Zarafa.core.Plugin plugin} are being saved. If not provided,
 	 * then {@link #name} will be used.
 	 */
-	settingsName : '',
+	settingsName: '',
 
 	/**
 	 * @cfg {String} iconCls The icon to be used in places where the plugin is referenced
 	 * in UI components.
 	 */
-	iconCls : '',
+	iconCls: '',
 
 	/**
 	 * @cfg {String} about The about text. If provided, {@link Zarafa.core.Plugin#registerAboutText}
 	 * will be automatically called during {@link Zarafa.core.Plugin#initPlugin initialization}.
 	 */
-	about : undefined,
+	about: undefined,
 
 	/**
 	 * @cfg {Boolean} allowUserDisable True if the user is allowed to enable/disable
 	 * the plugin through the settings. To obtain the enabled status, the function
 	 * {@link #isEnabled} should always be referenced.
 	 */
-	allowUserDisable : true,
+	allowUserDisable: true,
 
 	/**
 	 * @cfg {Boolean} allowUserVisible True if the user is allowed to see the plugin
 	 * in the settings. To obtain the visibility status, the function
 	 * {@link #isPrivate} should always be referenced.
 	 */
-	allowUserVisible : true,
+	allowUserVisible: true,
 
 	/**
 	 * @cfg {Constructor} pluginConstructor (required) The constructor of the
 	 * {@link Zarafa.core.Plugin} which is described by this PluginMetaData instance.
 	 */
-	pluginConstructor : undefined,
+	pluginConstructor: undefined,
 
 	/**
 	 * The instance of the {@link Zarafa.core.Plugin} (instantiated using the
@@ -70,13 +70,13 @@ Zarafa.core.PluginMetaData = Ext.extend(Object, {
 	 * @type Zarafa.core.Plugin
 	 * @private
 	 */
-	instance : undefined,
+	instance: undefined,
 
 	/**
 	 * @constructor
 	 * @param {Object} config Configuration object
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		config = config || {};
 
@@ -99,7 +99,7 @@ Zarafa.core.PluginMetaData = Ext.extend(Object, {
 	 * Determine if the plugin is enabled.
 	 * @return {Boolean} True if the plugin is enabled
 	 */
-	isEnabled : function()
+	isEnabled: function()
 	{
 		if ( !this.allowUserDisable ){
 			return true;
@@ -112,7 +112,7 @@ Zarafa.core.PluginMetaData = Ext.extend(Object, {
 	 * Determine if the plugin should be considered private.
 	 * @return {Boolean} True if the plugin is private
 	 */
-	isPrivate : function()
+	isPrivate: function()
 	{
 		return this.allowUserVisible === false;
 	},
@@ -121,7 +121,7 @@ Zarafa.core.PluginMetaData = Ext.extend(Object, {
 	 * Obtain the unique name for this plugin
 	 * @return {String} The unique name for this plugin
 	 */
-	getName : function()
+	getName: function()
 	{
 		return this.name;
 	},
@@ -130,7 +130,7 @@ Zarafa.core.PluginMetaData = Ext.extend(Object, {
 	 * Obtain the display name for this plugin
 	 * @return {String} The display name for this plugin
 	 */
-	getDisplayName : function()
+	getDisplayName: function()
 	{
 		return this.displayName;
 	},
@@ -139,7 +139,7 @@ Zarafa.core.PluginMetaData = Ext.extend(Object, {
 	 * Obtain the CSS classname for this plugin
 	 * @return {String} The CSS classname for this plugin
 	 */
-	getIconCls : function()
+	getIconCls: function()
 	{
 		return this.iconCls;
 	},
@@ -148,7 +148,7 @@ Zarafa.core.PluginMetaData = Ext.extend(Object, {
 	 * Obtain the About text containing the copyright and other disclaimers.
 	 * @return {String} The about text for this plugin
 	 */
-	getAbout : function()
+	getAbout: function()
 	{
 		return this.about;
 	},
@@ -159,7 +159,7 @@ Zarafa.core.PluginMetaData = Ext.extend(Object, {
 	 * of the settings.
 	 * @return {String} The settings path
 	 */
-	getSettingsBase : function()
+	getSettingsBase: function()
 	{
 		return 'zarafa/v1/plugins/' + this.settingsName;
 	},
@@ -172,10 +172,10 @@ Zarafa.core.PluginMetaData = Ext.extend(Object, {
 	 * property.
 	 * @return {Zarafa.core.Plugin} The Plugin instance
 	 */
-	getInstance : function()
+	getInstance: function()
 	{
 		if (!this.instance) {
-			this.instance = new this.pluginConstructor({ info : this });
+			this.instance = new this.pluginConstructor({ info: this });
 		}
 		return this.instance;
 	}

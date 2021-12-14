@@ -6,14 +6,14 @@ require_once( BASE_PATH . 'server/includes/core/class.webappsession.php');
  * The EncryptionStore class can be used to store strings in an encrypted
  * way in the PHP session. The initialization vector will be stored in the
  * session, but the encryption key will be stored in a cookie.
- * This way the encrypted strings and the encryption key will not be 
+ * This way the encrypted strings and the encryption key will not be
  * stored on the same computer.
- * 
+ *
  * The class uses the openssl libs to handle the encryption. This means
  * that the openssl libs should be available on the system, and PHP
  * should be compiled with the following option --with-openssl[=DIR]
  * See http://php.net/manual/en/openssl.installation.php for more information.
- * 
+ *
  * @singleton
  */
 class EncryptionStore
@@ -23,7 +23,7 @@ class EncryptionStore
 	 * @property
 	 */
 	private static $_instance = null;
-	
+
 	// TODO: Should this be moved to config.php???
 	const _CIPHER_METHOD = 'aes-256-cbc';
 
@@ -31,7 +31,7 @@ class EncryptionStore
 
 	private static $_initializionVector = '';
 	private static $_encryptionKey = '';
-	
+
 	/**
 	 * Will create a store and an initialization vector in the session
 	 * if that hasn't been done yet.
@@ -60,7 +60,7 @@ class EncryptionStore
 
 		$this->removeExpiredEntries();
 	}
-	
+
 	/**
 	 * Returns the only instance of this class.
 	 * Creates one if it doesn't exist yet.
@@ -70,20 +70,20 @@ class EncryptionStore
 		if ( is_null(EncryptionStore::$_instance) ){
 			EncryptionStore::$_instance = new EncryptionStore();
 		}
-		
+
 		return EncryptionStore::$_instance;
 	}
-	
+
 	/**
 	 * Creates a random initialization vector and stores it in the php session
 	 */
 	private function createInitializationVector() {
 		EncryptionStore::$_initializionVector = openssl_random_pseudo_bytes(openssl_cipher_iv_length(EncryptionStore::_CIPHER_METHOD));
-		
+
 		// Store it in the session
 		$_SESSION['encryption-store-iv'] = bin2hex(EncryptionStore::$_initializionVector);
 	}
-	
+
 	/**
 	 * Returns the initialization vector. If necessary it will try to find the vector
 	 * in the php session.
@@ -96,10 +96,10 @@ class EncryptionStore
 				EncryptionStore::$_initializionVector = hex2bin($_SESSION['encryption-store-iv']);
 			}
 		}
-		
+
 		return EncryptionStore::$_initializionVector;
 	}
-	
+
 	/**
 	 * Creates a random encryption key and stores it in the cookie.
 	 */
@@ -114,11 +114,11 @@ class EncryptionStore
 		$domain = ini_get('session.cookie_domain');
 		setcookie($cookieName, bin2hex(EncryptionStore::$_encryptionKey), 0, $path, $domain, $secure, true);
 	}
-	
+
 	/**
 	 * Returns the encryption key. If necessary it will try to find the key in
 	 * the cookie.
-	 * 
+	 *
 	 * @return {String}
 	 */
 	private function getEncryptionKey() {
@@ -128,7 +128,7 @@ class EncryptionStore
 				EncryptionStore::$_encryptionKey = hex2bin($_COOKIE['encryption-store-key']);
 			}
 		}
-		
+
 		return EncryptionStore::$_encryptionKey;
 	}
 
@@ -147,10 +147,10 @@ class EncryptionStore
 			}
 		}
 	}
-	
+
 	/**
 	 * Adds a key/value combination to the encryption store
-	 * 
+	 *
 	 * @param {String} $key The key that will be added (or overwritten)
 	 * @param {String} $value The value that will be stored for the given $key
 	 * @param {String} $expiration The expiration time in epoch for the given $key
@@ -164,12 +164,12 @@ class EncryptionStore
 		}
 		$this->close_session($session_did_exists);
 	}
-	
+
 	/**
 	 * Returns the value that has been stored for the given $key
-	 * 
+	 *
 	 * @param {String} The key for which the value will be retrieved\
-	 * @return {String|null} 
+	 * @return {String|null}
 	 */
 	public function get($key) {
 		$session_did_exists = $this->open_session();
@@ -180,7 +180,7 @@ class EncryptionStore
 			return null;
 		}
 		$encrypted = $values['val'];
-		
+
 		$value = openssl_decrypt($encrypted, EncryptionStore::_CIPHER_METHOD, EncryptionStore::$_encryptionKey, 0, EncryptionStore::$_initializionVector);
 		$this->close_session($session_did_exists);
 		return $value;

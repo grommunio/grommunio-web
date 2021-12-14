@@ -807,7 +807,7 @@
 							return;
 						}
 
-						// NOTE: This is the only change Kopano made to the plugin
+						// NOTE: This is the only change made to the plugin
 						// Instead of asking the user to prefix, we will do this by default
 						// Is not protocol prefixed
 						if ((assumeExternalTargets === true && !/^\w+:/i.test(href)) ||

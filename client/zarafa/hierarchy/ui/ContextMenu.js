@@ -8,22 +8,22 @@
 Zarafa.hierarchy.ui.ContextMenu = Ext.extend(Zarafa.core.ui.menu.ConditionalMenu, {
 
 	/**
-	 * @cfg contextNode Holds {@link Zarafa.hierarchy.ui.FolderNode foldernode} on which 'contextmenu' event has occured
+	 * @cfg contextNode Holds {@link Zarafa.hierarchy.ui.FolderNode foldernode} on which 'contextmenu' event has occurred
 	 */
-	contextNode : undefined,
+	contextNode: undefined,
 
 	/**
 	 * The tree to which the {@link #contextNode} belongs to. On this tree the actual contextmenu was requested.
 	 * @property
 	 * @type Zarafa.hierarchy.ui.Tree
 	 */
-	contextTree : undefined,
+	contextTree: undefined,
 
 	/**
 	 * @constructor
 	 * @param {Object} config Configuration object
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		config = config || {};
 
@@ -32,12 +32,12 @@ Zarafa.hierarchy.ui.ContextMenu = Ext.extend(Zarafa.core.ui.menu.ConditionalMenu
 		}
 
 		Ext.applyIf(config, {
-			items : [
+			items: [
 				this.createContextMenuItems(config)
 			],
-			defaults : {
+			defaults: {
 				xtype: 'zarafa.conditionalitem',
-				scope : this
+				scope: this
 			}
 		});
 
@@ -52,7 +52,7 @@ Zarafa.hierarchy.ui.ContextMenu = Ext.extend(Zarafa.core.ui.menu.ConditionalMenu
 	 *
 	 * Note: All handlers are called within the scope of {@link Zarafa.hierarchy.ui.ContextMenu HierarchyContextMenu}
 	 */
-	createContextMenuItems : function(config)
+	createContextMenuItems: function(config)
 	{
 		var folderName = _('Empty folder');
 		var record = config.records;
@@ -63,10 +63,10 @@ Zarafa.hierarchy.ui.ContextMenu = Ext.extend(Zarafa.core.ui.menu.ConditionalMenu
 		}
 
 		return [{
-			text : _('Open'),
-			iconCls : 'icon_open',
-			handler : this.onContextItemOpen,
-			beforeShow : function(item, record) {
+			text: _('Open'),
+			iconCls: 'icon_open',
+			handler: this.onContextItemOpen,
+			beforeShow: function(item, record) {
 				var access = record.get('access') & Zarafa.core.mapi.Access.ACCESS_READ;
 				if (!access || (record.isIPMSubTree() && !record.getMAPIStore().isDefaultStore())) {
 					item.setDisabled(true);
@@ -77,48 +77,48 @@ Zarafa.hierarchy.ui.ContextMenu = Ext.extend(Zarafa.core.ui.menu.ConditionalMenu
 		}, {
 			xtype: 'menuseparator'
 		}, {
-			text : _('Copy/Move Folder'),
-			iconCls : 'icon_copy',
-			handler : this.onContextCopyMoveFolder,
-			beforeShow : function(item, record) {
+			text: _('Copy/Move Folder'),
+			iconCls: 'icon_copy',
+			handler: this.onContextCopyMoveFolder,
+			beforeShow: function(item, record) {
 				var access = record.get('access') & Zarafa.core.mapi.Access.ACCESS_READ;
 				if (
-                    !access ||
-                    record.isIPMSubTree() ||
-                    record.isTodoListFolder() ||
-                    record.isRSSFolder() ||
-                    record.isDefaultFolder()
-                ) {
+          !access ||
+          record.isIPMSubTree() ||
+          record.isTodoListFolder() ||
+          record.isRSSFolder() ||
+          record.isDefaultFolder()
+        ) {
 					item.setDisabled(true);
 				} else {
 					item.setDisabled(false);
 				}
 			}
 		}, {
-			text : _('Rename Folder'),
-			iconCls : 'icon_folder_rename',
-			handler : this.onContextItemRenameFolder,
-			beforeShow : function(item, record) {
+			text: _('Rename Folder'),
+			iconCls: 'icon_folder_rename',
+			handler: this.onContextItemRenameFolder,
+			beforeShow: function(item, record) {
 				var access = record.get('access') & Zarafa.core.mapi.Access.ACCESS_MODIFY;
 				if (
-                    !access ||
-                    record.isIPMSubTree() ||
-                    record.isTodoListFolder() ||
-                    record.isRSSFolder() ||
-                    record.isDefaultFolder() ||
-                    !this.contextTree ||
-                    !this.contextNode
-                ) {
+          !access ||
+          record.isIPMSubTree() ||
+          record.isTodoListFolder() ||
+          record.isRSSFolder() ||
+          record.isDefaultFolder() ||
+          !this.contextTree ||
+          !this.contextNode
+        ) {
 					item.setDisabled(true);
 				} else {
 					item.setDisabled(false);
 				}
 			}
 		}, {
-			text : _('New Folder'),
-			iconCls : 'icon_folder_create',
-			handler : this.onContextItemNewFolder,
-			beforeShow : function(item, record) {
+			text: _('New Folder'),
+			iconCls: 'icon_folder_create',
+			handler: this.onContextItemNewFolder,
+			beforeShow: function(item, record) {
 				var access = record.get('access') & Zarafa.core.mapi.Access.ACCESS_CREATE_HIERARCHY;
 				if (!access || record.getMAPIStore().isArchiveStore() || record.isTodoListFolder()) {
 					item.setDisabled(true);
@@ -129,10 +129,10 @@ Zarafa.hierarchy.ui.ContextMenu = Ext.extend(Zarafa.core.ui.menu.ConditionalMenu
 		}, {
 			xtype: 'menuseparator'
 		}, {
-			text : _('Mark All Messages Read'),
-			iconCls : 'icon_mail_read',
-			handler : this.onContextItemReadFlags,
-			beforeShow : function(item, record) {
+			text: _('Mark All Messages Read'),
+			iconCls: 'icon_mail_read',
+			handler: this.onContextItemReadFlags,
+			beforeShow: function(item, record) {
 				// We're not modifying the folder, but the contents. Hence we request the READ access
 				var access = record.get('access') & Zarafa.core.mapi.Access.ACCESS_READ;
 				if (!access || record.isIPMSubTree() ||record.isTodoListFolder()) {
@@ -144,31 +144,31 @@ Zarafa.hierarchy.ui.ContextMenu = Ext.extend(Zarafa.core.ui.menu.ConditionalMenu
 		}, {
 			xtype: 'menuseparator'
 		}, {
-			text : _('Delete Folder'),
-			iconCls : 'icon_folder_delete',
-			handler : this.onContextItemDeleteFolder,
-			beforeShow : function(item, record) {
+			text: _('Delete Folder'),
+			iconCls: 'icon_folder_delete',
+			handler: this.onContextItemDeleteFolder,
+			beforeShow: function(item, record) {
 				var access = record.get('access') & Zarafa.core.mapi.Access.ACCESS_DELETE;
 				if (
-                    !access ||
-                    record.isIPMSubTree() ||
-                    record.isDefaultFolder() ||
-                    record.isTodoListFolder() ||
-                    record.isRSSFolder() ||
-                    record.getMAPIStore().isArchiveStore()) {
+          !access ||
+          record.isIPMSubTree() ||
+          record.isDefaultFolder() ||
+          record.isTodoListFolder() ||
+          record.isRSSFolder() ||
+          record.getMAPIStore().isArchiveStore()) {
 					item.setDisabled(true);
 				} else {
 					item.setDisabled(false);
 				}
 			}
 		}, {
-			text : folderName,
-			iconCls : 'icon_folder_delete',
-			handler : this.onContextItemEmptyFolder,
-			beforeShow : function(item, record) {
+			text: folderName,
+			iconCls: 'icon_folder_delete',
+			handler: this.onContextItemEmptyFolder,
+			beforeShow: function(item, record) {
 				// We're not modifying the folder, but the contents. Hence we request the READ access
 				var access = record.get('access') & Zarafa.core.mapi.Access.ACCESS_READ;
-				if (access && !record.isIPMSubTree() &&  !record.isTodoListFolder()) {
+				if (access && !record.isIPMSubTree() && !record.isTodoListFolder()) {
 					item.setDisabled(false);
 				} else {
 					item.setDisabled(true);
@@ -177,11 +177,11 @@ Zarafa.hierarchy.ui.ContextMenu = Ext.extend(Zarafa.core.ui.menu.ConditionalMenu
 		}, {
 			xtype: 'menuseparator'
 		}, {
-			text : _('Close store'),
-			iconCls : 'icon_store_close',
-			handler : this.onContextItemCloseStore,
-			scope : this,
-			beforeShow : function(item, record) {
+			text: _('Close store'),
+			iconCls: 'icon_store_close',
+			handler: this.onContextItemCloseStore,
+			scope: this,
+			beforeShow: function(item, record) {
 				if (record.isIPMSubTree() && record.getMAPIStore().isSharedStore()) {
 					item.setDisabled(false);
 				} else {
@@ -189,11 +189,11 @@ Zarafa.hierarchy.ui.ContextMenu = Ext.extend(Zarafa.core.ui.menu.ConditionalMenu
 				}
 			}
 		}, {
-			text : _('Close folder'),
-			iconCls : 'icon_folder_close',
-			handler : this.onContextItemCloseFolder,
-			scope : this,
-			beforeShow : function(item, record) {
+			text: _('Close folder'),
+			iconCls: 'icon_folder_close',
+			handler: this.onContextItemCloseFolder,
+			scope: this,
+			beforeShow: function(item, record) {
 				if (!record.isIPMSubTree() && record.isSharedFolder()) {
 					item.setDisabled(false);
 				} else {
@@ -203,32 +203,34 @@ Zarafa.hierarchy.ui.ContextMenu = Ext.extend(Zarafa.core.ui.menu.ConditionalMenu
 		}, {
 			xtype: 'menuseparator'
 		}, {
-			text : _('Reload'),
-			iconCls : 'icon_refresh',
-			handler : this.onContextItemReload,
-			scope : this,
-			beforeShow : function(item, record) {
+			text: _('Reload'),
+			iconCls: 'icon_refresh',
+			handler: this.onContextItemReload,
+			scope: this,
+			beforeShow: function(item, record) {
 				if (record.isOwnRoot()) {
 					item.setDisabled(false);
 				} else {
 					item.setDisabled(true);
 				}
 			}
-		}, {
-			text : _('Restore items'),
-			handler : this.onContextItemRestore,
-			iconCls: 'icon_restore',
-			beforeShow : function(item, record) {
-				if (!record.get('access') || record.isTodoListFolder()) {
-					item.setDisabled(true);
-				} else {
-					item.setDisabled(false);
-				}
-			}
-		}, {
-			text : _('Select color'),
-			iconCls : 'icon-select-color',
-			beforeShow : function(item, record) {
+		},
+		// {
+		//	text: _('Restore items'),
+		//	handler: this.onContextItemRestore,
+		//	iconCls: 'icon_restore',
+		//	beforeShow: function(item, record) {
+		//		if (!record.get('access') || record.isTodoListFolder()) {
+		//			item.setDisabled(true);
+		//		} else {
+		//			item.setDisabled(false);
+		//		}
+		//	}
+		//},
+		{
+			text: _('Select color'),
+			iconCls: 'icon-select-color',
+			beforeShow: function(item, record) {
 				var folderEntryId = this.contextNode.id;
 				var contextModel = this.contextTree.model;
 
@@ -246,12 +248,12 @@ Zarafa.hierarchy.ui.ContextMenu = Ext.extend(Zarafa.core.ui.menu.ConditionalMenu
 					item.setDisabled(true);
 				}
 			},
-			menu : this.createSelectColorSubmenu(config)
+			menu: this.createSelectColorSubmenu(config)
 		},{
-			text : _('Add to Favorites'),
-			iconCls : 'icon_favorites',
-			hidden : true,
-			beforeShow : function(item, record) {
+			text: _('Add to Favorites'),
+			iconCls: 'icon_favorites',
+			hidden: true,
+			beforeShow: function(item, record) {
 				// Hide the button is favorites is hidden
 				if (container.getSettingsModel().get('zarafa/v1/contexts/hierarchy/hide_favorites')) {
 					return item.setVisible(false);
@@ -264,12 +266,12 @@ Zarafa.hierarchy.ui.ContextMenu = Ext.extend(Zarafa.core.ui.menu.ConditionalMenu
 					item.setDisabled(isVisible || record.isTodoListFolder());
 				}
 			},
-			handler : this.onContextItemFavorites
+			handler: this.onContextItemFavorites
 		},{
-			text : _('Remove From Favorites'),
-			hidden : true,
-			iconCls : 'icon_remove_favorites',
-			beforeShow : function(item, record) {
+			text: _('Remove From Favorites'),
+			hidden: true,
+			iconCls: 'icon_remove_favorites',
+			beforeShow: function(item, record) {
 				// Hide the button if favorites is hidden
 				if (container.getSettingsModel().get('zarafa/v1/contexts/hierarchy/hide_favorites')) {
 					return item.setVisible(false);
@@ -278,45 +280,51 @@ Zarafa.hierarchy.ui.ContextMenu = Ext.extend(Zarafa.core.ui.menu.ConditionalMenu
 					item.setDisabled(false);
 				}
 			},
-			handler : this.onContextItemFavoritesRemove
+			handler: this.onContextItemFavoritesRemove
 		},{
-			text : _('Share folder...'),
-			iconCls : 'icon_share',
-			name : 'shareFolder',
-			beforeShow : this.onBeforeContextItem,
-			handler : this.onContextItemSharedFolderAndProperties
+			text: _('Share folder...'),
+			iconCls: 'icon_share',
+			name: 'shareFolder',
+			beforeShow: this.onBeforeContextItem,
+			handler: this.onContextItemSharedFolderAndProperties
 		},{
 			xtype: 'menuseparator'
 		},{
-			text : _('Import emails'),
-			handler : this.onContextImportItem,
+			text: _('Import emails'),
+			handler: this.onContextImportItem,
 			iconCls: 'icon_import_attachment',
-			beforeShow : this.onBeforeShowImportItem
+			beforeShow: this.onBeforeShowImportItem
 		},{
-			text : _('Import appointments'),
-			iconCls : 'icon_import_attachment',
-			name : 'importAppointments',
-			beforeShow : this.onBeforeShowImportItem,
-			handler : this.onContextImportItem
+			text: _('Import appointments'),
+			iconCls: 'icon_import_attachment',
+			name: 'importAppointments',
+			beforeShow: this.onBeforeShowImportItem,
+			handler: this.onContextImportItem
+		},{
+			text: _('Import contacts'),
+			handler: this.onContextImportItem,
+			name: 'importContacts',
+			iconCls: 'icon_import_attachment',
+			beforeShow: this.onBeforeShowImportItem
 		},{
 			xtype: 'menuseparator'
 		},{
-			text : _('Properties'),
-			handler : this.onContextItemSharedFolderAndProperties,
-			iconCls : 'icon_cogwheel',
-			beforeShow : this.onBeforeContextItem
+			text: _('Properties'),
+			handler: this.onContextItemSharedFolderAndProperties,
+			iconCls: 'icon_cogwheel',
+			beforeShow: this.onBeforeContextItem
 		}];
 	},
 
 	/**
-	 * Fires on selecting 'Share folder...'  or 'Properties' menu option from
+	 * Fires on selecting 'Share folder...' or 'Properties' menu option from
 	 * {@link Zarafa.hierarchy.ui.ContextMenu ContextMenu} Opens
 	 * {@link Zarafa.hierarchy.dialogs.FolderPropertiesContent FolderPropertiesContent}
 	 *
 	 * @param {Ext.Button} btn The context menu item which is clicked.
 	 * @private
 	 */
-	onContextItemSharedFolderAndProperties : function(btn)
+	onContextItemSharedFolderAndProperties: function(btn)
 	{
 		var folder = this.records;
 		var mapiStore;
@@ -331,6 +339,7 @@ Zarafa.hierarchy.ui.ContextMenu = Ext.extend(Zarafa.core.ui.menu.ConditionalMenu
 		var formattedTitle = '';
 		var emptyText = '';
 		var isIPMSubTree = folder.isIPMSubTree();
+		var isAppointmentDialog = folder.isContainerClass('IPF.Appointment', true)
 
 		if (mapiStore.isDefaultStore() || isIPMSubTree) {
 			var text = isIPMSubTree ? storeName : folderName;
@@ -344,8 +353,9 @@ Zarafa.hierarchy.ui.ContextMenu = Ext.extend(Zarafa.core.ui.menu.ConditionalMenu
 		var config = {
 			modal: true,
 			showModalWithoutParent: true,
-			title : formattedTitle,
-			emptyText : emptyText
+			title: formattedTitle,
+			emptyText: emptyText,
+			isAppointmentDialog
 		};
 
 		if (btn.name == 'shareFolder') {
@@ -362,7 +372,7 @@ Zarafa.hierarchy.ui.ContextMenu = Ext.extend(Zarafa.core.ui.menu.ConditionalMenu
 	 * @param {Zarafa.core.data.IPFRecord} record The folder record on which
 	 * this context menu item shows.
 	 */
-	onBeforeContextItem : function(item, record)
+	onBeforeContextItem: function(item, record)
 	{
 		if (!record.get('access') || record.isTodoListFolder()) {
 			item.setDisabled(true);
@@ -372,22 +382,27 @@ Zarafa.hierarchy.ui.ContextMenu = Ext.extend(Zarafa.core.ui.menu.ConditionalMenu
 	},
 
 	/**
-	 * Event handler triggered before the 'Import emails' and 'Import appointment'
+	 * Event handler triggered before the 'Import emails', 'Import contacts' and 'Import appointment'
 	 * context menu item show.
 	 *
 	 * @param {Ext.Button} item The item which is going to show.
 	 * @param {Zarafa.core.data.IPFRecord} record The folder record on which
 	 * this context menu item shows.
 	 */
-	onBeforeShowImportItem : function(item, record)
+	onBeforeShowImportItem: function(item, record)
 	{
 		var access = record.get('access') & Zarafa.core.mapi.Access.ACCESS_CREATE_CONTENTS;
 
 		var hasImportSupport;
-		if (item.name === 'importAppointments') {
-			hasImportSupport = record.isCalendarFolder();
-		} else {
-			hasImportSupport = Zarafa.core.ContainerClass.isClass(record.get('container_class'), 'IPF.Note', true);
+		switch (item.name) {
+			case "importAppointments":
+				hasImportSupport = record.isCalendarFolder();
+			break;
+			case "importContacts":
+				hasImportSupport = record.isContactFolder();
+			break;
+			default:
+				hasImportSupport = Zarafa.core.ContainerClass.isClass(record.get('container_class'), 'IPF.Note', true);
 		}
 
 		if (
@@ -414,7 +429,7 @@ Zarafa.hierarchy.ui.ContextMenu = Ext.extend(Zarafa.core.ui.menu.ConditionalMenu
 	 * {@link Zarafa.core.ui.menu.ConditionalItem menu items}
 	 * @private
 	 */
-	createSelectColorSubmenu : function(config)
+	createSelectColorSubmenu: function(config)
 	{
 		var items = [];
 		var contextModel = config.contextTree.model;
@@ -426,12 +441,12 @@ Zarafa.hierarchy.ui.ContextMenu = Ext.extend(Zarafa.core.ui.menu.ConditionalMenu
 		Ext.each(colorSchemes, function(colorScheme){
 			items.push({
 				xtype: 'zarafa.conditionalitem',
-				text : colorScheme.displayName,
-				ctCls : folderNodeColorTheme===colorScheme.name ? 'x-menu-item-selected':'',
-				iconCls : 'icon-select-color color-'+colorScheme.name,
-				colorSchemeName : colorScheme.name,
-				handler : this.onContextItemSelectColor.createDelegate(this),
-				iconBG : colorScheme.header
+				text: colorScheme.displayName,
+				ctCls: folderNodeColorTheme===colorScheme.name ? 'x-menu-item-selected' :'',
+				iconCls: 'icon-select-color color-'+colorScheme.name,
+				colorSchemeName: colorScheme.name,
+				handler: this.onContextItemSelectColor.createDelegate(this),
+				iconBG: colorScheme.header
 			});
 		}, this);
 
@@ -442,7 +457,7 @@ Zarafa.hierarchy.ui.ContextMenu = Ext.extend(Zarafa.core.ui.menu.ConditionalMenu
 	 * Fires on selecting 'Open' menu option from {@link Zarafa.hierarchy.ui.ContextMenu ContextMenu}
 	 * @private
 	 */
-	onContextItemOpen : function()
+	onContextItemOpen: function()
 	{
 		// Select node within tree
 		if (this.contextTree) {
@@ -456,7 +471,7 @@ Zarafa.hierarchy.ui.ContextMenu = Ext.extend(Zarafa.core.ui.menu.ConditionalMenu
 	 * Opens {@link Zarafa.common.dialogs.CopyMoveContent CopyMoveContent} which copies or moves the folder in the Hierarchy
 	 * @private
 	 */
-	onContextCopyMoveFolder : function()
+	onContextCopyMoveFolder: function()
 	{
 		Zarafa.common.Actions.openCopyMoveContent(this.records);
 	},
@@ -466,7 +481,7 @@ Zarafa.hierarchy.ui.ContextMenu = Ext.extend(Zarafa.core.ui.menu.ConditionalMenu
 	 * Opens editor in tree to rename node.
 	 * @private
 	 */
-	onContextItemRenameFolder : function()
+	onContextItemRenameFolder: function()
 	{
 		this.contextTree.startEditingNode(this.contextNode);
 	},
@@ -476,7 +491,7 @@ Zarafa.hierarchy.ui.ContextMenu = Ext.extend(Zarafa.core.ui.menu.ConditionalMenu
 	 * Opens {@link Zarafa.common.dialogs.CreateFolderContent CreateFolderContent} which adds new folder to Hierarchy
 	 * @private
 	 */
-	onContextItemNewFolder : function()
+	onContextItemNewFolder: function()
 	{
 		Zarafa.hierarchy.Actions.openCreateFolderContent(this.records);
 	},
@@ -487,7 +502,7 @@ Zarafa.hierarchy.ui.ContextMenu = Ext.extend(Zarafa.core.ui.menu.ConditionalMenu
 	 * to delete folder.
 	 * @private
 	 */
-	onContextItemDeleteFolder : function()
+	onContextItemDeleteFolder: function()
 	{
 		var isFolderDeleted = this.records.isInDeletedItems() || this.records.getMAPIStore().isPublicStore();
 		var msg;
@@ -497,13 +512,13 @@ Zarafa.hierarchy.ui.ContextMenu = Ext.extend(Zarafa.core.ui.menu.ConditionalMenu
 		} else {
 			msg = String.format(_('Are you sure you want to delete the folder "{0}" and move all of its contents into the Deleted Items folder?'), Ext.util.Format.htmlEncode(this.records.getDisplayName()));
 		}
-		
+
 		Ext.MessageBox.show({
 			title: _('Delete folder'),
 			msg: msg,
 			buttons: Ext.MessageBox.YESNO,
 			fn: function (buttonClicked) {
-				if (buttonClicked == 'yes') {
+				if (buttonClicked === 'yes') {
 					var record = this.records;
 
 					/**
@@ -520,6 +535,12 @@ Zarafa.hierarchy.ui.ContextMenu = Ext.extend(Zarafa.core.ui.menu.ConditionalMenu
 						store.remove(record);
 					} else {
 						record.moveTo(container.getHierarchyStore().getDefaultFolder('wastebasket'));
+						// Set selection to the appropriate folder after the record has been moved.
+						this.setFolderSelection(record);
+
+						// To close the deleted calendar folder from calendar tab we need to remove folder from
+						// context model. which further update the state settings etc.
+						this.contextTree.model.removeFolder(record);
 					}
 
 					store.save(record);
@@ -530,13 +551,43 @@ Zarafa.hierarchy.ui.ContextMenu = Ext.extend(Zarafa.core.ui.menu.ConditionalMenu
 	},
 
 	/**
+	 * The function checks if the folder to be deleted has any siblings.
+	 * If the folder has a sibling folder, the selection is set on that folder,
+	 * else the parent folder is selected.
+	 */
+	setFolderSelection: function(record)
+	{
+		var folderNode = this.contextNode;
+		var folderToSelect;
+
+		// No explicit selection is to be done if a folder is not selected
+		// or if the folder is a Calendar item and 'Show all folders' is not checked, as it is already handled.
+		if (!folderNode.isSelected() || (!this.contextTree.showAllFoldersCheckbox.checked && record.isCalendarFolder())) {
+			return;
+		}
+
+		var previousSiblingNode = folderNode.previousSibling;
+		var nextSiblingNode = folderNode.nextSibling;
+
+		if (previousSiblingNode) {
+			folderToSelect = previousSiblingNode.getFolder();
+		} else if (nextSiblingNode) {
+			folderToSelect = nextSiblingNode.getFolder();
+		} else {
+			folderToSelect = record.getParentFolder();
+		}
+
+		container.selectFolder(folderToSelect);
+	},
+
+	/**
 	 * Fires on selecting 'Emtpy Folder' menu option from {@link Zarafa.hierarchy.ui.ContextMenu ContextMenu}
 	 * Asks user to confirm deletion of all contents of selected folder and if true then calls {@link Zarafa.hierarchy.data.HierarchyStore HierarchyStore}
 	 * to empty that folder.
 	 * @private
 	 */
-	onContextItemEmptyFolder : function()
-	{	
+	onContextItemEmptyFolder: function()
+	{
 		Ext.MessageBox.show({
 			title: _('Empty folder'),
 			msg: String.format(_('Are you sure you want to empty {0}?'), Ext.util.Format.htmlEncode(this.records.getDisplayName())),
@@ -556,7 +607,7 @@ Zarafa.hierarchy.ui.ContextMenu = Ext.extend(Zarafa.core.ui.menu.ConditionalMenu
 	 * Asks {@link Zarafa.hierarchy.data.HierarchyStore HierarchyStore} to mark all messages on the selected folder as read.
 	 * @private
 	 */
-	onContextItemReadFlags : function()
+	onContextItemReadFlags: function()
 	{
 		this.records.seadReadFlags();
 		this.records.save();
@@ -568,7 +619,7 @@ Zarafa.hierarchy.ui.ContextMenu = Ext.extend(Zarafa.core.ui.menu.ConditionalMenu
 	 *
 	 * @param {Zarafa.core.ui.menu.ConditionalItem} item The menu item that was clicked on
 	 */
-	onContextItemSelectColor : function(item)
+	onContextItemSelectColor: function(item)
 	{
 		var contextModel = this.contextTree.model;
 		var folder = item.getRecords();
@@ -603,7 +654,7 @@ Zarafa.hierarchy.ui.ContextMenu = Ext.extend(Zarafa.core.ui.menu.ConditionalMenu
 	 * will remove the shared store from the settings and closes the store on the server.
 	 * @private
 	 */
-	onContextItemCloseStore : function()
+	onContextItemCloseStore: function()
 	{
 		var store = container.getHierarchyStore();
 		var mapistore = this.records.getMAPIStore();
@@ -617,7 +668,7 @@ Zarafa.hierarchy.ui.ContextMenu = Ext.extend(Zarafa.core.ui.menu.ConditionalMenu
 	 * will remove the shared folder from the settings and closes the folder on the server.
 	 * @private
 	 */
-	onContextItemCloseFolder : function()
+	onContextItemCloseFolder: function()
 	{
 		var mapistore = this.records.getMAPIStore();
 		var folderstore = mapistore.getFolderStore();
@@ -631,7 +682,7 @@ Zarafa.hierarchy.ui.ContextMenu = Ext.extend(Zarafa.core.ui.menu.ConditionalMenu
 	 * Reloads {@link Zarafa.hierarchy.data.HierarchyStore HierarchyStore} and populates new data in {@link Zarafa.hierarchy.ui.Tree Tree}.
 	 * @private
 	 */
-	onContextItemReload : function()
+	onContextItemReload: function()
 	{
 		container.getHierarchyStore().reload();
 	},
@@ -640,7 +691,7 @@ Zarafa.hierarchy.ui.ContextMenu = Ext.extend(Zarafa.core.ui.menu.ConditionalMenu
 	 * Open Restore dialog for restoring previously deleted items.
 	 * @private
 	 */
-	onContextItemRestore : function()
+	onContextItemRestore: function()
 	{
 		Zarafa.common.Actions.openRestoreContent(this.records);
 	},
@@ -648,14 +699,24 @@ Zarafa.hierarchy.ui.ContextMenu = Ext.extend(Zarafa.core.ui.menu.ConditionalMenu
 	/**
 	 * Open upload files dialog to import into folder.
 	 *
-	 * @param {Zarafa.core.ui.menu.ConditionalItem} item The menu item that was clicked on
+	 * @param {Zarafa.core.ui.menu.ConditionalItem} button The menu item that was clicked on
 	 * @private
 	 */
-	onContextImportItem : function(button)
+	onContextImportItem: function(button)
 	{
+		var accept = '.eml';
+		switch (button.name) {
+			case 'importContacts':
+				accept = '.vcf';
+				break;
+			case 'importAppointments':
+				accept = '.ics,.vcs';
+				break;
+		}
+
 		var config = Ext.apply({}, {
-			accept : button.name === 'importAppointments' ? '.ics,.vcs' : '.eml',
-			callback : Zarafa.common.Actions.importItemCallback.createDelegate(Zarafa.common.Actions, [ button.getRecords() ], 1)
+			accept: accept,
+			callback: Zarafa.common.Actions.importItemCallback.createDelegate(Zarafa.common.Actions, [ button.getRecords() ], 1)
 		});
 		Zarafa.common.Actions.openImportContent(this.records, config);
 	},
@@ -664,9 +725,9 @@ Zarafa.hierarchy.ui.ContextMenu = Ext.extend(Zarafa.core.ui.menu.ConditionalMenu
 	 * Event handler triggers when 'Add to Favorites' menu option from {@link Zarafa.hierarchy.ui.ContextMenu ContextMenu}
 	 * Add to Favorites mark as Favorites to selected {@link Zarafa.hierarchy.data.MAPIFolderRecord folder}.
 	 */
-	onContextItemFavorites : function()
+	onContextItemFavorites: function()
 	{
-		// Fixme : Rather to create copy of record, create phantom link message and use it.
+		// Fixme: Rather to create copy of record, create phantom link message and use it.
 		var copyRecord = this.records.copy();
 		var shadowStore = container.getShadowStore();
 		copyRecord.phantom = true;
@@ -681,7 +742,7 @@ Zarafa.hierarchy.ui.ContextMenu = Ext.extend(Zarafa.core.ui.menu.ConditionalMenu
 	 * Event handler triggers when 'Remove From Favorites' menu option from {@link Zarafa.hierarchy.ui.ContextMenu ContextMenu}
 	 * Remove From Favorites menu option unmark selected {@link Zarafa.hierarchy.data.MAPIFolderRecord folder} from Favorite list .
 	 */
-	onContextItemFavoritesRemove : function()
+	onContextItemFavoritesRemove: function()
 	{
 		var record = this.records;
 		if(record.existsInFavorites()) {
@@ -700,7 +761,7 @@ Zarafa.hierarchy.ui.ContextMenu = Ext.extend(Zarafa.core.ui.menu.ConditionalMenu
 	 * @param {String} colorSchemeBase The chosen color
 	 * @private
 	 */
-	updateOtherHierarchyTreeNodes : function(folderEntryid, colorSchemeBase)
+	updateOtherHierarchyTreeNodes: function(folderEntryid, colorSchemeBase)
 	{
 		var navigationBar = container.getNavigationBar();
 		var centerPanel = navigationBar.centerPanel;
@@ -722,7 +783,7 @@ Zarafa.hierarchy.ui.ContextMenu = Ext.extend(Zarafa.core.ui.menu.ConditionalMenu
 	 * @param {String} colorSchemeBase The chosen color
 	 * @private
 	 */
-	setSvgIconColor : function(hierarchyTree, folderEntryid, colorSchemeBase)
+	setSvgIconColor: function(hierarchyTree, folderEntryid, colorSchemeBase)
 	{
 		var respectiveNode = hierarchyTree.getNodeById(folderEntryid);
 		if (respectiveNode) {

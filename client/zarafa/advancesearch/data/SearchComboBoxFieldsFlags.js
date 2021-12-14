@@ -16,7 +16,7 @@ Zarafa.advancesearch.data.SearchComboBoxFieldsFlags = Zarafa.core.Enum.create({
 	 * @property
 	 * @type Number
 	 */
-	ALL_FOLDERS : 0,
+	ALL_FOLDERS: 0,
 
 	/**
 	 * Indicate that folder is currently selected in hierarchy.
@@ -24,7 +24,7 @@ Zarafa.advancesearch.data.SearchComboBoxFieldsFlags = Zarafa.core.Enum.create({
 	 * @property
 	 * @type Number
 	 */
-	CURRENT_SELECTED_FOLDER : 1,
+	CURRENT_SELECTED_FOLDER: 1,
 
 	/**
 	 * Indicate that folder is added in search combo box using 'Other...' option in search combo box.
@@ -32,5 +32,5 @@ Zarafa.advancesearch.data.SearchComboBoxFieldsFlags = Zarafa.core.Enum.create({
 	 * @property
 	 * @type Number
 	 */
-	IMPORTED_FOLDER : 2
+	IMPORTED_FOLDER: 2
 });

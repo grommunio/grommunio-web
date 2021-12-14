@@ -16,12 +16,12 @@ Zarafa.core.URLActionMgr = Ext.extend(Ext.util.Observable, {
 	 * @type Object
 	 * @private
 	 */
-	mappings : undefined,
+	mappings: undefined,
 
 	/**
 	 * @constructor
 	 */
-	constructor : function()
+	constructor: function()
 	{
 		this.mappings = {};
 	},
@@ -35,7 +35,7 @@ Zarafa.core.URLActionMgr = Ext.extend(Ext.util.Observable, {
 	 * @param {Object} handlerConfig The config containing handler info for action.
 	 * In this object handler is a required key.
 	 */
-	register : function(action, handlerConfig)
+	register: function(action, handlerConfig)
 	{
 		if(!this.mappings[action]){
 			this.mappings[action] = [];
@@ -51,7 +51,7 @@ Zarafa.core.URLActionMgr = Ext.extend(Ext.util.Observable, {
 	 *
 	 * @param {Object} data The data containing action and action data.
 	 */
-	execute : function(data)
+	execute: function(data)
 	{
 		Ext.iterate(data, function(action, actionData) {
 			// check if we have any handlers registered for this action

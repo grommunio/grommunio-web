@@ -10,12 +10,12 @@ Ext.namespace('Zarafa.calendar.ui.html');
  * interested in redrawing the complete calendar and all appointments in it (This would become a performance
  * issue for calendars with many appointments). So with 2 layers we can create the following setup:
  *
- *  - Layer 1 : The calendar
+ *  - Layer 1: The calendar
  *    This contains the calendar background. For the header this means the background color, and the
  *    name of the date which is being displayed in the color (optionally additional markup is applied
  *    in case the rendered date is 'today'). For the body this means that all timestrips are rendered
  *    into the calendar (using the correct theme color).
- *  - Layer 2 : The appointments
+ *  - Layer 2: The appointments
  *    This contains all the appointments which are available in the calendar. None of the appointments
  *    are allowed to overlap with another appointment (The time can obviously overlap, but in that case
  *    the appointments are placed side-by-side inside the same column). Whenever a single appointment
@@ -30,7 +30,7 @@ Zarafa.calendar.ui.html.CalendarDaysView = Ext.extend(Zarafa.calendar.ui.Abstrac
 	 * @property
 	 * @type Ext.Element
 	 */
-	headerBackgroundLayer : undefined,
+	headerBackgroundLayer: undefined,
 
 	/**
 	 * The element for the top-row in the calendar which contains the
@@ -39,7 +39,7 @@ Zarafa.calendar.ui.html.CalendarDaysView = Ext.extend(Zarafa.calendar.ui.Abstrac
 	 * @property
 	 * @type Ext.Element
 	 */
-	headerAppointmentLayer : undefined,
+	headerAppointmentLayer: undefined,
 
 	/**
 	 * The element for the body in the calendar which contains the
@@ -48,7 +48,7 @@ Zarafa.calendar.ui.html.CalendarDaysView = Ext.extend(Zarafa.calendar.ui.Abstrac
 	 * @property
 	 * @type Ext.Element
 	 */
-	bodyBackground : undefined,
+	bodyBackground: undefined,
 
 	/**
 	 * The element for the body in the calendar which contains the
@@ -57,14 +57,14 @@ Zarafa.calendar.ui.html.CalendarDaysView = Ext.extend(Zarafa.calendar.ui.Abstrac
 	 * @property
 	 * @type Ext.Element
 	 */
-	bodyAppointment : undefined,
+	bodyAppointment: undefined,
 
 	/**
 	 * The Appointment over which the cursor is currently hovering.
 	 * @property
 	 * @type Zarafa.calendar.ui.html.AppointmentDaysView
 	 */
-	appointmentOver : undefined,
+	appointmentOver: undefined,
 
 	/**
 	 * The &lt;img&gt; element which indicate current time on time strip and
@@ -73,7 +73,7 @@ Zarafa.calendar.ui.html.CalendarDaysView = Ext.extend(Zarafa.calendar.ui.Abstrac
 	 * @property
 	 * @type Ext.Element
 	 */
-	indicatorIcon : undefined,
+	indicatorIcon: undefined,
 
 	/**
 	 * The &lt;div&gt; element which is used to draw a line on time strip.
@@ -81,7 +81,7 @@ Zarafa.calendar.ui.html.CalendarDaysView = Ext.extend(Zarafa.calendar.ui.Abstrac
 	 * @property
 	 * @type Ext.Element
 	 */
-	indicatorLine : undefined,
+	indicatorLine: undefined,
 
 	/**
 	 * The task which gets executed every minute in a multi-threaded manner and
@@ -89,20 +89,20 @@ Zarafa.calendar.ui.html.CalendarDaysView = Ext.extend(Zarafa.calendar.ui.Abstrac
 	 * @property
 	 * @type Object
 	 */
-	indicatorTask : undefined,
+	indicatorTask: undefined,
 
 	/**
 	 * @constructor
 	 * @param {Object} config Configuration object
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		config = config || {};
 
 		Ext.applyIf(config, {
-			baseCls : 'zarafa-calendar',
-			enableDD : true,
-			ddGroup : 'dd.mapiitem'
+			baseCls: 'zarafa-calendar',
+			enableDD: true,
+			ddGroup: 'dd.mapiitem'
 		});
 
 		Zarafa.calendar.ui.html.CalendarDaysView.superclass.constructor.call(this, config);
@@ -139,7 +139,7 @@ Zarafa.calendar.ui.html.CalendarDaysView = Ext.extend(Zarafa.calendar.ui.Abstrac
 		});
 
 		// Create current-time indicator, line and icon
-		this.create({tag : 'img', src : Ext.BLANK_IMAGE_URL}, this.parentView.scrollable, 'indicatorIcon', 'icon_indicator_calendar k-calendar-timestrip-indicator-icon');
+		this.create({tag: 'img', src: Ext.BLANK_IMAGE_URL}, this.parentView.scrollable, 'indicatorIcon', 'icon_indicator_calendar k-calendar-timestrip-indicator-icon');
 		this.createDiv(this.parentView.scrollable, 'indicatorLine', 'k-calendar-timestrip-indicator-line');
 	},
 
@@ -150,7 +150,7 @@ Zarafa.calendar.ui.html.CalendarDaysView = Ext.extend(Zarafa.calendar.ui.Abstrac
 	 * must be created.
 	 * @private
 	 */
-	onDestroy : function(component)
+	onDestroy: function(component)
 	{
 		if(this.indicatorTask){
 			Ext.TaskMgr.stop(this.indicatorTask);
@@ -164,12 +164,12 @@ Zarafa.calendar.ui.html.CalendarDaysView = Ext.extend(Zarafa.calendar.ui.Abstrac
 	 * must be created.
 	 * @private
 	 */
-	createAppointment : function(record)
+	createAppointment: function(record)
 	{
 		return new Zarafa.calendar.ui.html.AppointmentDaysView({
 			parentView: this,
-			record : record,
-			calendarColorScheme : this.calendarColorScheme
+			record: record,
+			calendarColorScheme: this.calendarColorScheme
 		});
 	},
 
@@ -179,7 +179,7 @@ Zarafa.calendar.ui.html.CalendarDaysView = Ext.extend(Zarafa.calendar.ui.Abstrac
 	 * @param {Boolean} destroy if true, destroy the child view
 	 * @override
 	 */
-	removeChildView : function(child, destroy)
+	removeChildView: function(child, destroy)
 	{
 		// If the childview was the appointment we are hovering over,
 		// we need to reset the appointmentOver property.
@@ -196,16 +196,16 @@ Zarafa.calendar.ui.html.CalendarDaysView = Ext.extend(Zarafa.calendar.ui.Abstrac
 	 * @return Zarafa.calendar.ui.html.AppointmentProxy
 	 * @protected
 	 */
-	createAppointmentProxy : function()
+	createAppointmentProxy: function()
 	{
-		return new Zarafa.calendar.ui.html.AppointmentProxy({ showTime : true });
+		return new Zarafa.calendar.ui.html.AppointmentProxy({ showTime: true });
 	},
 
 	/**
 	 * Returns the element which must be used to draw Appointments for the body ({@link #bodyAppointment Layer2}).
 	 * @return {Ext.Element} The calendar body element
 	 */
-	getBodyAppointmentLayer : function()
+	getBodyAppointmentLayer: function()
 	{
 		return this.bodyAppointment;
 	},
@@ -214,7 +214,7 @@ Zarafa.calendar.ui.html.CalendarDaysView = Ext.extend(Zarafa.calendar.ui.Abstrac
 	 * Returns the {@link #headerAppointmentLayer element} which must be used to draw Appointments for the header.
 	 * @return {Ext.Element} The calendar header element
 	 */
-	getHeaderAppointmentLayer : function()
+	getHeaderAppointmentLayer: function()
 	{
 		return this.headerAppointmentLayer;
 	},
@@ -280,7 +280,7 @@ Zarafa.calendar.ui.html.CalendarDaysView = Ext.extend(Zarafa.calendar.ui.Abstrac
 	 * @param {Array} dayPositions The array of {@link Zarafa.calendar.data.DayLayoutPosition LayoutPositions} for the various days.
 	 * @private
 	 */
-	drawBody : function(dayPositions)
+	drawBody: function(dayPositions)
 	{
 		//var todayPosition;
 		var width = this.body.getWidth();
@@ -356,7 +356,7 @@ Zarafa.calendar.ui.html.CalendarDaysView = Ext.extend(Zarafa.calendar.ui.Abstrac
 	 * Draws thin line over calendar. The line indicates current-time.
 	 * @private
 	 */
-	drawCurrentTimeIndicator : function()
+	drawCurrentTimeIndicator: function()
 	{
 		if (!this.parentView) {
 			return;
@@ -382,7 +382,7 @@ Zarafa.calendar.ui.html.CalendarDaysView = Ext.extend(Zarafa.calendar.ui.Abstrac
 	 * @return {Boolean} True iff the user clicked on the header area
 	 * @private
 	 */
-	eventInHeader : function(event)
+	eventInHeader: function(event)
 	{
 		// Calculate the x,y position of the mouse relative the the body layer.
 		var element = this.getHeaderActionLayer();
@@ -405,7 +405,7 @@ Zarafa.calendar.ui.html.CalendarDaysView = Ext.extend(Zarafa.calendar.ui.Abstrac
 	 * the event was fired.
 	 * @private
 	 */
-	getRecordForHeaderEvent : function(event)
+	getRecordForHeaderEvent: function(event)
 	{
 		// Check if the mouse is over one of the appointments.
 		for (var i = 0, len = this.appointments.length; i < len; i++) {
@@ -422,7 +422,7 @@ Zarafa.calendar.ui.html.CalendarDaysView = Ext.extend(Zarafa.calendar.ui.Abstrac
 	 * @param {Ext.EventObject} event ExtJS event object
 	 * @private
 	 */
-	onHeaderContextMenu : function(event)
+	onHeaderContextMenu: function(event)
 	{
 		var record = this.getRecordForHeaderEvent(event);
 		var range;
@@ -442,7 +442,7 @@ Zarafa.calendar.ui.html.CalendarDaysView = Ext.extend(Zarafa.calendar.ui.Abstrac
 	 * @param {Ext.EventObject} event ExtJS event object
 	 * @private
 	 */
-	onBodyContextMenu : function(event)
+	onBodyContextMenu: function(event)
 	{
 		var xy = event.getXY();
 		var range = this.screenLocationToDateRange(xy[0], xy[1]);
@@ -460,7 +460,7 @@ Zarafa.calendar.ui.html.CalendarDaysView = Ext.extend(Zarafa.calendar.ui.Abstrac
 	 * @private
 	 * @override
 	 */
-	onAppointmentDeselect : function(selectionModel, record)
+	onAppointmentDeselect: function(selectionModel, record)
 	{
 		Zarafa.calendar.ui.html.CalendarDaysView.superclass.onAppointmentDeselect.call(this, selectionModel, record);
 
@@ -477,7 +477,7 @@ Zarafa.calendar.ui.html.CalendarDaysView = Ext.extend(Zarafa.calendar.ui.Abstrac
 	 * the new changes.
 	 * @protected
 	 */
-	onLayout : function()
+	onLayout: function()
 	{
 		Zarafa.calendar.ui.html.CalendarDaysView.superclass.onLayout.call(this);
 
@@ -500,11 +500,11 @@ Zarafa.calendar.ui.html.CalendarDaysView = Ext.extend(Zarafa.calendar.ui.Abstrac
 
 			if (!Ext.isDefined(this.indicatorTask)) {
 				this.indicatorTask = Ext.TaskMgr.start({
-					run : function(){
+					run: function(){
 						this.drawCurrentTimeIndicator();
 					},
-					scope : this,
-					interval : 60000
+					scope: this,
+					interval: 60000
 				});
 			}
 		} else {
@@ -520,7 +520,7 @@ Zarafa.calendar.ui.html.CalendarDaysView = Ext.extend(Zarafa.calendar.ui.Abstrac
 	 * Hides or shows {@link #indicatorIcon} and {@link #indicatorLine}.
 	 * @param {Boolean} value True to display the element, false otherwise.
 	 */
-	setIndicatorDisplayed : function(value)
+	setIndicatorDisplayed: function(value)
 	{
 		this.indicatorIcon.setDisplayed(value);
 		this.indicatorLine.setDisplayed(value);

@@ -13,9 +13,9 @@
 		 */
 		function __construct($id, $data)
 		{
-			$this->properties = $GLOBALS['properties']->getMailProperties();
-
 			parent::__construct($id, $data);
+
+			$this->properties = $GLOBALS['properties']->getMailProperties();
 		}
 
 		/**
@@ -177,7 +177,7 @@
 							$action["recipients"]["remove"] = $members["remove"];
 						}
 
-						$result = $GLOBALS['operations']->submitMessage($store, $entryid, Conversion::mapXML2MAPI($this->properties, $action['props']), $messageProps, isset($action['recipients']) ? $action['recipients'] : array(), isset($action['attachments']) ? $action['attachments'] : array(), $copyFromMessage, $copyAttachments, false, $copyInlineAttachmentsOnly);
+						$result = $GLOBALS['operations']->submitMessage($store, $entryid, Conversion::mapXML2MAPI($this->properties, $action['props']), $messageProps, isset($action['recipients']) ? $action['recipients'] : array(), isset($action['attachments']) ? $action['attachments'] : array(), $copyFromMessage, $copyAttachments, false, $copyInlineAttachmentsOnly, isset($action['props']['isHTML']) ? !$action['props']['isHTML'] : false );
 
 						// If draft is sent from the drafts folder, delete notification
 						if($result) {
@@ -271,6 +271,7 @@
 			}
 		}
 
+
 		/**
 		 * Function which is used to get the source message information, which contains the information of 
 		 * reply/forward and entry id of original mail, where we have to set the reply/forward arrow when 
@@ -346,7 +347,7 @@
 		{
 			$message = false;
 			$sourceMsgInfo = $this->getSourceMsgInfo($action);
-			if($sourceMsgInfo['source_message_info']) {
+			if(isset($sourceMsgInfo['source_message_info']) && $sourceMsgInfo['source_message_info']) {
 				/**
 				 * $sourceMsgInfo['source_message_info'] contains the hex value, where first 24byte contains action type 
 				 * and next 48byte contains entryid of original mail. so we have to extract the action type 

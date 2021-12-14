@@ -20,7 +20,7 @@ Zarafa.core.data.RecordFactory.addFieldToMessageClass('IPM.StickyNote', Zarafa.n
 /**
  * @class Zarafa.calendar.NoteRecord
  * @extends Zarafa.core.data.IPMRecord
- * 
+ *
  * An extension to the {@link Zarafa.core.data.IPMRecord IPMRecord} specific to Sticky Notes.
  */
 Zarafa.note.NoteRecord = Ext.extend(Zarafa.core.data.IPMRecord, {
@@ -30,7 +30,7 @@ Zarafa.note.NoteRecord = Ext.extend(Zarafa.core.data.IPMRecord, {
 	 * truncation will be replaced with ellipsis ('...').
 	 * @private
 	 */
-	generateSubject : function()
+	generateSubject: function()
 	{
 		var text = this.get('body');
 

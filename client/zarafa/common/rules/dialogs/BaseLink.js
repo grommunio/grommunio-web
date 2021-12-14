@@ -14,7 +14,7 @@ Zarafa.common.rules.dialogs.BaseLink = Ext.extend(Ext.Container, {
 	 * @property
 	 * @type Zarafa.common.rules.data.ConditionFlags
 	 */
-	conditionFlag : undefined,
+	conditionFlag: undefined,
 
 	/**
 	 * The condition property which was configured during
@@ -22,7 +22,7 @@ Zarafa.common.rules.dialogs.BaseLink = Ext.extend(Ext.Container, {
 	 * @property
 	 * @type Object
 	 */
-	condition : undefined,
+	condition: undefined,
 
 	/**
 	 * True if the condition was modified by the user, if this is false,
@@ -31,7 +31,7 @@ Zarafa.common.rules.dialogs.BaseLink = Ext.extend(Ext.Container, {
 	 * @property
 	 * @type Boolean
 	 */
-	isModified : false,
+	isModified: false,
 
 	/**
 	 * Apply an action onto the DataView, this will parse the condition and show
@@ -40,7 +40,7 @@ Zarafa.common.rules.dialogs.BaseLink = Ext.extend(Ext.Container, {
 	 * which identifies the exact type of the condition.
 	 * @param {Object} condition The condition to apply
 	 */
-	setCondition : function(conditionFlag, condition)
+	setCondition: function(conditionFlag, condition)
 	{
 		this.conditionFlag = conditionFlag;
 		this.condition = condition;

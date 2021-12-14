@@ -269,7 +269,7 @@
 								if(isset($this->responseData[$moduleName][$moduleId][$actionType])) {
 									if($this->responseData[$moduleName][$moduleId][$actionType] == $actionData) {
 										// in future we can think something about this but for now we throw exception
-										throw new BusException(Language::getstring("Can't add data to bus, same action type is present in bus"));
+										throw new BusException(_("Can't add data to bus, same action type is present in bus"));
 									}
 								}
 							}
@@ -289,9 +289,9 @@
 		function getData()
 		{
 			if(empty($this->responseData)) {
-				// Helps to avoid unnecessary bus error message on client side when kopano server is stopped.
+				// Helps to avoid unnecessary bus error message on client side when gromox is stopped.
 				// we just error_log and send empty zarafa array on client side
-				error_log(Language::getstring("Response data requested from bus but it doesn't have any data."));
+				error_log(_("Response data requested from bus but it doesn't have any data."));
 				return json_encode(array("zarafa" => array()));
 			} else {
 				return $this->responseData;

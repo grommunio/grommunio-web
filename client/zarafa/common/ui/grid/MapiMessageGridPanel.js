@@ -10,7 +10,7 @@ Ext.namespace('Zarafa.common.ui.grid');
  */
 Zarafa.common.ui.grid.MapiMessageGrid = Ext.extend(Zarafa.common.ui.grid.GridPanel, {
 	/*
-	 * @TODO :
+	 * @TODO:
 	 * This grid is created only to handle keyboard events easily for
 	 * Notes, Mails, Appointments, Tasks, Contacts.
 	 * This allows 'grid.mapimessage' mapid to register common key events on
@@ -24,7 +24,7 @@ Zarafa.common.ui.grid.MapiMessageGrid = Ext.extend(Zarafa.common.ui.grid.GridPan
 	 * @property
 	 * @type {Zarafa.common.categories.ui.Tooltip}
 	 */
-	categoryTooltip : null,
+	categoryTooltip: null,
 
 	/**
 	 * @cfg {String} sliderCls
@@ -32,7 +32,7 @@ Zarafa.common.ui.grid.MapiMessageGrid = Ext.extend(Zarafa.common.ui.grid.GridPan
 	 * <code>'k-slider'</code>).
 	 * @type String
 	 */
-	sliderCls : 'k-slider',
+	sliderCls: 'k-slider',
 
 	/**
 	 * The supportLiveScroll is true if grid supports live scroll facility and
@@ -41,28 +41,13 @@ Zarafa.common.ui.grid.MapiMessageGrid = Ext.extend(Zarafa.common.ui.grid.GridPan
 	 * @property
 	 * @type Boolean
 	 */
-	supportLiveScroll : false,
-
-	/**
-	 * @constructor
-	 * @param config Configuration structure
-	 */
-	constructor : function(config)
-	{
-		config = config || {};
-
-		Ext.applyIf(config, {
-			view: new Zarafa.common.ui.grid.GridView(config.viewConfig)
-		});
-
-		Zarafa.common.ui.grid.MapiMessageGrid.superclass.constructor.call(this, config);
-	},
+	supportLiveScroll: false,
 
 	/**
 	 * Initialize event handlers
 	 * @private
 	 */
-	initEvents : function()
+	initEvents: function()
 	{
 		Zarafa.common.ui.grid.MapiMessageGrid.superclass.initEvents.call(this);
 
@@ -71,13 +56,13 @@ Zarafa.common.ui.grid.MapiMessageGrid = Ext.extend(Zarafa.common.ui.grid.GridPan
 		this.on({
 			'afterrender': this.onRenderGrid,
 			'cellcontextmenu': this.onCellContextMenu,
-			scope : this
+			scope: this
 		});
 
 		this.getEl().on({
-			'mouseenter' :  this.onMouseEnter,
-			'mouseleave' : this.onMouseLeave,
-			scope : this
+			'mouseenter': this.onMouseEnter,
+			'mouseleave': this.onMouseLeave,
+			scope: this
 		});
 
 		// Only add the event listeners that resize the category labels when
@@ -88,7 +73,7 @@ Zarafa.common.ui.grid.MapiMessageGrid = Ext.extend(Zarafa.common.ui.grid.GridPan
 				'viewready': this.resizeCategoryLabels,
 				'resize': this.resizeCategoryLabels,
 				'columnresize': this.resizeCategoryLabels,
-				scope : this
+				scope: this
 			});
 
 			this.mon(this.store, 'load', this.resizeCategoryLabels, this);
@@ -100,12 +85,12 @@ Zarafa.common.ui.grid.MapiMessageGrid = Ext.extend(Zarafa.common.ui.grid.GridPan
 	 * that will be used to show the full name of truncated categories.
 	 * @param (Zarafa.mail.ui.MailGrid) grid this
 	 */
-	onRenderGrid : function(grid)
+	onRenderGrid: function(grid)
 	{
 		// Create a tooltip that will be used for truncated category labels
-	    this.categoryTooltip = new Zarafa.common.categories.ui.Tooltip({
-	        target: grid.getView().mainBody
-	    });
+	  this.categoryTooltip = new Zarafa.common.categories.ui.Tooltip({
+	    target: grid.getView().mainBody
+	  });
 	},
 
 	/**
@@ -125,7 +110,7 @@ Zarafa.common.ui.grid.MapiMessageGrid = Ext.extend(Zarafa.common.ui.grid.GridPan
 	 * @param {Ext.EventObject} event The event structure
 	 * @private
 	 */
-	onCellContextMenu : function(grid, rowIndex, cellIndex, event)
+	onCellContextMenu: function(grid, rowIndex, cellIndex, event)
 	{
 		var selectionModel = this.getSelectionModel();
 		var columnModel = this.getColumnModel();
@@ -140,7 +125,7 @@ Zarafa.common.ui.grid.MapiMessageGrid = Ext.extend(Zarafa.common.ui.grid.GridPan
 
 		switch (dataIndex) {
 			case 'importance':
-				Zarafa.core.data.UIFactory.openContextMenu(Zarafa.core.data.SharedComponentType['common.contextmenu.importance'], records, { position : event.getXY() });
+				Zarafa.core.data.UIFactory.openContextMenu(Zarafa.core.data.SharedComponentType['common.contextmenu.importance'], records, { position: event.getXY() });
 				break;
 			default:
 				// If the click was on a category, we must open the category context menu
@@ -148,15 +133,15 @@ Zarafa.common.ui.grid.MapiMessageGrid = Ext.extend(Zarafa.common.ui.grid.GridPan
 				if ( targetElement.hasClass('k-category-block') ){
 					Zarafa.core.data.UIFactory.openContextMenu(Zarafa.core.data.SharedComponentType['common.contextmenu.category'], records, {
 						category: targetElement.dom.textContent,
-						position : event.getXY()
+						position: event.getXY()
 					});
 					return;
 				}
 
 				Zarafa.core.data.UIFactory.openDefaultContextMenu(records, {
-					position : event.getXY(),
-					context : this.context,
-					actsOnTodoListFolder : this.model.getDefaultFolder().isTodoListFolder()
+					position: event.getXY(),
+					context: this.context,
+					actsOnTodoListFolder: this.model.getDefaultFolder().isTodoListFolder()
 				});
 				break;
 		}
@@ -166,7 +151,7 @@ Zarafa.common.ui.grid.MapiMessageGrid = Ext.extend(Zarafa.common.ui.grid.GridPan
 	 * Event handler for the viewready, resize, and columnresize events. Will
 	 * resize the category labels in the category column (for the non-compact view)
 	 */
-	resizeCategoryLabels : function()
+	resizeCategoryLabels: function()
 	{
 		var columnModel = this.getColumnModel();
 		var categoriesColIndex = columnModel.findColumnIndex('categories');
@@ -200,7 +185,7 @@ Zarafa.common.ui.grid.MapiMessageGrid = Ext.extend(Zarafa.common.ui.grid.GridPan
 	 * @param {Number} colWidth The width of the categories column in pixels
 	 * @private
 	 */
-	resizeCategoryLabelsInRow : function(row, labels, colWidth)
+	resizeCategoryLabelsInRow: function(row, labels, colWidth)
 	{
 		var labelCount = labels.length;
 
@@ -249,12 +234,13 @@ Zarafa.common.ui.grid.MapiMessageGrid = Ext.extend(Zarafa.common.ui.grid.GridPan
 	 * Event handler which triggers when scrollbar is scroll.
 	 * Slider element hide after 5 second of stop scrolling.
 	 */
-	onScroll : function()
+	onScroll: function()
 	{
 		if (!this.isPagingEnabled()) {
 			container.getNotifier().notify('pagination.livescroll', undefined, undefined,{
-				parentEl : this.getEl(),
-				model : this.model
+				parentEl: this.getEl(),
+				model: this.model,
+				store: this.getStore()
 			});
 		}
 	},
@@ -263,7 +249,7 @@ Zarafa.common.ui.grid.MapiMessageGrid = Ext.extend(Zarafa.common.ui.grid.GridPan
 	 * Function used to identify that pagination is enabled or not.
 	 * @return {Boolean} true if pagination is enabled else false.
 	 */
-	isPagingEnabled : function ()
+	isPagingEnabled: function ()
 	{
 		return !container.getSettingsModel().get('zarafa/v1/contexts/mail/enable_live_scroll') || !this.supportLiveScroll;
 	},
@@ -274,16 +260,16 @@ Zarafa.common.ui.grid.MapiMessageGrid = Ext.extend(Zarafa.common.ui.grid.GridPan
 	 *
 	 * @private
 	 */
-	onResize : function()
+	onResize: function()
 	{
 		Zarafa.common.ui.grid.MapiMessageGrid.superclass.onResize.apply(this, arguments);
 
 		var slider = Ext.get(this.id + '-k-slider');
 		if (slider) {
 			container.getNotifier().notify('pagination.livescroll', undefined, undefined,{
-				parentEl : this.getEl(),
-				update : true,
-				slider : slider
+				parentEl: this.getEl(),
+				update: true,
+				slider: slider
 			});
 		}
 	},
@@ -293,15 +279,16 @@ Zarafa.common.ui.grid.MapiMessageGrid = Ext.extend(Zarafa.common.ui.grid.GridPan
 	 * It will also shows the notification/slider at bottom-center of {@link Ext.grid.GridPanel Grid}.
 	 * which contains the {@link Zarafa.common.ui.PagingToolbar PagingToolbar}.
 	 */
-	onMouseEnter : function()
+	onMouseEnter: function()
 	{
 		if (!this.isPagingEnabled()) {
 			return;
 		}
 
 		container.getNotifier().notify('pagination.paging', undefined, undefined,{
-			parentEl : this.getEl(),
-			model : this.model
+			parentEl: this.getEl(),
+			model: this.model,
+			store: this.getStore()
 		});
 	},
 
@@ -309,11 +296,11 @@ Zarafa.common.ui.grid.MapiMessageGrid = Ext.extend(Zarafa.common.ui.grid.GridPan
 	 * Event handler which triggered when mouse leaves the {@link Ext.grid.GridPanel Grid}.
 	 * It will destroy the slider from bottom-center of {@link Ext.grid.GridPanel Grid}.
 	 */
-	onMouseLeave : function()
+	onMouseLeave: function()
 	{
 		if (this.isPagingEnabled()) {
 			container.getNotifier().notify('pagination.paging', undefined, undefined,{
-				destroy : true
+				destroy: true
 			});
 		}
 	}

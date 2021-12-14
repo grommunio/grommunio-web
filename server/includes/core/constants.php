@@ -51,4 +51,7 @@
 	define("LOGLEVEL_WARN",     3);
 	define("LOGLEVEL_INFO",     4);
 	define("LOGLEVEL_DEBUG",    5);
+
+	// Future last time date for out of office "19-01-2038"
+	define("FUTURE_ENDDATE",		0x7fffffff);
 ?>

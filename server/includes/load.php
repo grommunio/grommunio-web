@@ -5,7 +5,7 @@
 	// Return a nice error when we are not authenticated
 	if ( !WebAppAuthentication::isAuthenticated() ){
 		if ( WebAppAuthentication::getErrorCode() === MAPI_E_NETWORK_ERROR) {
-			// The user is not logged in because the kopano-server could not be reached.
+			// The user is not logged in because gromox could not be reached.
 			// Return a HTTP 503 error so the client can act upon this event correctly.
 			header('HTTP/1.1 503 Service unavailable');
 			header("X-Zarafa-Hresult: " . get_mapi_error_name(WebAppAuthentication::getErrorCode()));

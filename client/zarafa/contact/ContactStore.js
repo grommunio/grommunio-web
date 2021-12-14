@@ -12,16 +12,16 @@ Zarafa.contact.ContactStore = Ext.extend(Zarafa.core.data.ListModuleStore, {
 	 * @constructor
 	 * @param {Object} config configuration params that should be used to create instance of this store.
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		config = config || {};
 
 		// Apply default settings.
 		Ext.applyIf(config, {
-			preferredMessageClass : 'IPM.Contact',
-			defaultSortInfo : {
-				field : 'fileas',
-				direction : 'desc'
+			preferredMessageClass: 'IPM.Contact',
+			defaultSortInfo: {
+				field: 'fileas',
+				direction: 'desc'
 			}
 		});
 

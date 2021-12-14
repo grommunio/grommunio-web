@@ -9,35 +9,35 @@ Zarafa.common.attachment.ui.UploadAttachmentComponent = Ext.extend(Ext.Component
 	 * @cfg {Function} callback The callback function which must be called when the
 	 * file has be selected from Browser's file selection dialog.
 	 */
-	callback : Ext.emptyFn,
+	callback: Ext.emptyFn,
 
 	/**
 	 * @cfg {Object} scope The scope for the {@link #callback} function
 	 */
-	scope : undefined,
+	scope: undefined,
 
 	/**
 	 * @cfg {Boolean} multiple The multiple true to allow upload multiple files
 	 * else allow single file only. by default it is false.
 	 */
-	multiple : false,
+	multiple: false,
 
 	/**
 	 * @cfg {String} accept the accept define which type of files allow to
 	 * show in Browser's file selection dialog. i.e image/* to allow all type of images.
 	 */
-	accept : undefined,
+	accept: undefined,
 
 	/**
 	 * @constructor
 	 * @param {Object} config Configuration structure
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		config = config || {};
 
 		Ext.applyIf(config,{
-			xtype : 'zarafa.uploadattachmentcomponent'
+			xtype: 'zarafa.uploadattachmentcomponent'
 		});
 
 		Zarafa.common.attachment.ui.UploadAttachmentComponent.superclass.constructor.call(this, config);
@@ -48,7 +48,7 @@ Zarafa.common.attachment.ui.UploadAttachmentComponent = Ext.extend(Ext.Component
 	 * See {@link #onFileInputChange} for the handling of the selected files.
 	 * @private
 	 */
-	openAttachmentDialog : function()
+	openAttachmentDialog: function()
 	{
 		var attachEl = this.getAttachmentEl();
 
@@ -67,12 +67,12 @@ Zarafa.common.attachment.ui.UploadAttachmentComponent = Ext.extend(Ext.Component
 	 * @return {Ext.Element} The file input element
 	 * @private
 	 */
-	getAttachmentEl : function()
+	getAttachmentEl: function()
 	{
 		var attachEl = Ext.DomHelper.append(Ext.getBody(), {
-			cls : 'x-hidden',
-			tag : 'input',
-			type : 'file'
+			cls: 'x-hidden',
+			tag: 'input',
+			type: 'file'
 		});
 
 		if(Ext.isDefined(this.multiple) && this.multiple) {
@@ -92,7 +92,7 @@ Zarafa.common.attachment.ui.UploadAttachmentComponent = Ext.extend(Ext.Component
 	 * @param {Ext.EventObject} event The event
 	 * @private
 	 */
-	onFileInputChange : function(event)
+	onFileInputChange: function(event)
 	{
 		var browserEvent = event.browserEvent;
 		var attachEl = Ext.get(browserEvent.target);
@@ -121,9 +121,9 @@ Zarafa.common.attachment.ui.UploadAttachmentComponent = Ext.extend(Ext.Component
 	},
 
 	/**
-	 * Function shows the attachment error message when picture formate is not supported by webapp 
+	 * Function shows the attachment error message when picture formate is not supported by webapp
 	 */
-	showAttachmentError : function()
+	showAttachmentError: function()
 	{
 		var message = _('Picture format is not supported. ');
 		message += _('Supported format for contact pictures are');
@@ -131,8 +131,8 @@ Zarafa.common.attachment.ui.UploadAttachmentComponent = Ext.extend(Ext.Component
 		message += 'JPEG, GIF, PNG, BMP';
 		Ext.MessageBox.show({
 			title: _('Attachment Error'),
-			msg : message,
-			icon: Ext.MessageBox.ERROR,
+			msg: message,
+			cls: Ext.MessageBox.ERROR_CLS,
 			buttons: Ext.MessageBox.OK
 		});
 	},
@@ -142,7 +142,7 @@ Zarafa.common.attachment.ui.UploadAttachmentComponent = Ext.extend(Ext.Component
 	 * @param {String} fileType the fileType is defined the mime type of selected file.
 	 * @return {Boolean} return true if selected picture is supported by webapp else false.
 	 */
-	isSupportedImage : function(fileType)
+	isSupportedImage: function(fileType)
 	{
 		var mimeType = ['image/bmp','image/jpg','image/jpeg','image/gif','image/png'];
 		return mimeType.indexOf(fileType.toLowerCase()) >= 0;

@@ -22,7 +22,7 @@ Zarafa.common.recipientfield.ui.RecipientHoverCardButton = Ext.extend(Ext.Button
 	/**
 	 * @cfg {Object} clickHideDelayTimer contain defer time out object.
 	 */
-	clickHideDelayTimer : undefined,
+	clickHideDelayTimer: undefined,
 
 
 	/**
@@ -72,7 +72,7 @@ Zarafa.common.recipientfield.ui.RecipientHoverCardButton = Ext.extend(Ext.Button
 
 	/**
 	 * Sets the function that will handle click events for this item (equivalent to passing in the {@link #handler}
-	 * config property).  If an existing handler is already registered, it will be unregistered for you.
+	 * config property). If an existing handler is already registered, it will be unregistered for you.
 	 * @param {Function} handler The function that should be called on click
 	 * @param {Object} scope The scope (<code>this</code> reference) in which the handler function is executed. Defaults to this menu item.
 	 */

@@ -30,12 +30,12 @@ Zarafa.advancesearch.ui.SearchResultPreviewPanel = Ext.extend(Zarafa.core.ui.Pre
 			width: 600,
 			height: 400,
 			/*
-			 * TODO : make this code common for the Zarafa.advancesearch.ui.SearchResultPreviewPanel,
+			 * TODO: make this code common for the Zarafa.advancesearch.ui.SearchResultPreviewPanel,
 			 * Zarafa.mail.ui.MailPreviewPanel and Zarafa.advancesearch.dialogs.SearchToolbarPanel
 			 */
-			tbar : {
-				height : 33,
-				items : [{
+			tbar: {
+				height: 33,
+				items: [{
 					xtype: 'button',
 					tooltip: _('Reply') + ' (Ctrl + R)',
 					overflowText: _('Reply'),
@@ -43,7 +43,7 @@ Zarafa.advancesearch.ui.SearchResultPreviewPanel = Ext.extend(Zarafa.core.ui.Pre
 					ref: 'replyBtn',
 					responseMode: Zarafa.mail.data.ActionTypes.REPLY,
 					handler: this.onResponse,
-					scope : this
+					scope: this
 				},{
 					xtype: 'button',
 					tooltip: _('Reply All') + ' (Ctrl + Alt + R)',
@@ -52,7 +52,7 @@ Zarafa.advancesearch.ui.SearchResultPreviewPanel = Ext.extend(Zarafa.core.ui.Pre
 					ref: 'replyAllBtn',
 					responseMode: Zarafa.mail.data.ActionTypes.REPLYALL,
 					handler: this.onResponse,
-					scope : this
+					scope: this
 				},{
 					xtype: 'button',
 					tooltip: _('Forward') + ' (Ctrl + F)',
@@ -61,7 +61,7 @@ Zarafa.advancesearch.ui.SearchResultPreviewPanel = Ext.extend(Zarafa.core.ui.Pre
 					ref: 'forwardBtn',
 					responseMode: Zarafa.mail.data.ActionTypes.FORWARD,
 					handler: this.onResponse,
-					scope : this
+					scope: this
 				},{
 					xtype: 'button',
 					tooltip: _('Edit as New') + ' (Ctrl + E)',
@@ -70,7 +70,7 @@ Zarafa.advancesearch.ui.SearchResultPreviewPanel = Ext.extend(Zarafa.core.ui.Pre
 					ref: 'editAsNewBtn',
 					responseMode: Zarafa.mail.data.ActionTypes.EDIT_AS_NEW,
 					handler: this.onResponse,
-					scope : this
+					scope: this
 				}]
 			}
 		});
@@ -141,7 +141,7 @@ Zarafa.advancesearch.ui.SearchResultPreviewPanel = Ext.extend(Zarafa.core.ui.Pre
 	 *
 	 * @param {Zarafa.core.data.MAPIRecord} record The record to set
 	 */
-	setRecord : function(record)
+	setRecord: function(record)
 	{
 		for (var i = 0; i < this.toolbars.length; i++) {
 			if(this.searchContext.getCurrentViewMode() === Zarafa.common.data.ViewModes.RIGHT_PREVIEW) {
@@ -163,7 +163,7 @@ Zarafa.advancesearch.ui.SearchResultPreviewPanel = Ext.extend(Zarafa.core.ui.Pre
 	 * @param {Zarafa.core.data.MAPIRecord} record
 	 * @private
 	 */
-	showRecordInPanel : function(record)
+	showRecordInPanel: function(record)
 	{
 		if(this.model.store.getSearchStoreUniqueId() !== this.dialog.name) {
 			return;
@@ -177,7 +177,7 @@ Zarafa.advancesearch.ui.SearchResultPreviewPanel = Ext.extend(Zarafa.core.ui.Pre
 	 * @param {Ext.Button} button The button which was clicked
 	 * @private
 	 */
-	onResponse : function(button)
+	onResponse: function(button)
 	{
 		var mailContextModel = container.getContextByName('mail').getModel();
 		Zarafa.mail.Actions.openCreateMailResponseContent(this.record, mailContextModel, button.responseMode);

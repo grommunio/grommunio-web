@@ -17,14 +17,14 @@ Zarafa.contact.dialogs.DistlistPanel = Ext.extend(Ext.Panel, {
 	 * @constructor
 	 * @param {Object} config configuration object.
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		config = config || {};
 
 		Ext.applyIf(config, {
-			xtype : 'zarafa.distlistpanel',
-			border : false,
-			layout : 'fit',
+			xtype: 'zarafa.distlistpanel',
+			border: false,
+			layout: 'fit',
 			items: this.createFormPanel()
 		});
 
@@ -35,21 +35,21 @@ Zarafa.contact.dialogs.DistlistPanel = Ext.extend(Ext.Panel, {
 	 * Function will create form panel and will add tabs in view.
 	 * distlistmemberstab and distlistnotestab will be added.
 	 */
-	createFormPanel : function()
+	createFormPanel: function()
 	{
 		return [{
-				xtype : 'tabpanel',
-				activeTab : 0,
-				border : false,
-				defaults : {
-					autoHeight : false,		// autoScroll won't work if height is auto
-					frame : true
+				xtype: 'tabpanel',
+				activeTab: 0,
+				border: false,
+				defaults: {
+					autoHeight: false,		// autoScroll won't work if height is auto
+					frame: true
 				},
-				items :[{
-						xtype : 'zarafa.distlistmemberstab'
+				items:[{
+						xtype: 'zarafa.distlistmemberstab'
 					}, {
-						xtype : 'zarafa.distlistnotestab',
-						autoScroll : false
+						xtype: 'zarafa.distlistnotestab',
+						autoScroll: false
 					},
 					container.populateInsertionPoint('context.contact.distlistcontentpanel.tabs', this)
 				]

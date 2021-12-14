@@ -8,7 +8,7 @@
 		 * @property scroll
 		 * @type boolean
 		 */
-		scroll : false,
+		scroll: false,
 
 		/**
 		 * Remove all drag and drop hooks for this element,

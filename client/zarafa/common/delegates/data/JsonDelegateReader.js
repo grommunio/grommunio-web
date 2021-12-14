@@ -12,14 +12,14 @@ Zarafa.common.delegates.data.JsonDelegateReader = Ext.extend(Zarafa.core.data.Js
 	 * which must be read from response. If no type is given, it will use the
 	 * record type for the {@link Zarafa.core.data.RecordCustomObjectType.ZARAFA_DELEGATE}.
 	 */
-	constructor : function(meta, recordType)
+	constructor: function(meta, recordType)
 	{
 		meta = meta || {};
 
 		Ext.applyIf(meta, {
-			id : 'entryid',
-			idProperty : 'entryid',
-			dynamicRecord : false
+			id: 'entryid',
+			idProperty: 'entryid',
+			dynamicRecord: false
 		});
 
 		// If no recordType is provided, force the type to be a delegate

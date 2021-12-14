@@ -16,29 +16,29 @@ Zarafa.common.freebusy.ui.FreebusyTimelineHeaderContextMenu = Ext.extend(Zarafa.
 	/**
 	 * @cfg {Zarafa.common.freebusy.data.FreebusyModel} model The model which holds all freebusy information.
 	 */
-	model : undefined,
+	model: undefined,
 
 	/**
 	 * @constructor
 	 * @param {Object} config Configuration object
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		config = config || {};
 
 		Ext.applyIf(config, {
-			items : [{
+			items: [{
 				xtype: 'zarafa.conditionalitem',
 				text: _('Show non-working hours'),
-				showNonWorkingHours : true,
-				hidden : config.model ? config.model.showOnlyWorkingHours() === false : false,
+				showNonWorkingHours: true,
+				hidden: config.model ? config.model.showOnlyWorkingHours() === false : false,
 				handler: this.onHeaderContextMenuToggleNonWorkingHours,
 				scope: this
 			},{
 				xtype: 'zarafa.conditionalitem',
 				text: _('Hide non-working hours'),
-				showNonWorkingHours : false,
-				hidden : config.model ? config.model.showOnlyWorkingHours() === true : false,
+				showNonWorkingHours: false,
+				hidden: config.model ? config.model.showOnlyWorkingHours() === true : false,
 				handler: this.onHeaderContextMenuToggleNonWorkingHours,
 				scope: this
 			},

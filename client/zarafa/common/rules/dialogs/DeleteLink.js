@@ -6,7 +6,7 @@ Ext.namespace('Zarafa.common.rules.dialogs');
  * @xtype zarafa.deletelink
  *
  * Extension of the {@link Zarafa.common.rules.dialogs.FolderSelectionLink Folder Selection Link}
- * expecially for the {@link Zarafa.common.rules.data.ActionFlags#DELETE DELETE ActionFlag}.
+ * especially for the {@link Zarafa.common.rules.data.ActionFlags#DELETE DELETE ActionFlag}.
  *
  * This will not show anything to the user, but during {@link #setAction} this will force
  * the {@link #actionFlag} to be {@link Zarafa.common.rules.data.ActionFlags#MOVE MOVE}
@@ -23,7 +23,7 @@ Zarafa.common.rules.dialogs.DeleteLink = Ext.extend(Zarafa.common.rules.dialogs.
 	 * @param {Ext.EventObject} evt The mouse event
 	 * @protected
 	 */
-	onClick : function(dataView, index, node, evt)
+	onClick: function(dataView, index, node, evt)
 	{
 		// Don't perform any action
 	},
@@ -35,7 +35,7 @@ Zarafa.common.rules.dialogs.DeleteLink = Ext.extend(Zarafa.common.rules.dialogs.
 	 * which identifies the exact type of the action.
 	 * @param {Object} action The action to apply
 	 */
-	setAction : function(actionFlag, action)
+	setAction: function(actionFlag, action)
 	{
 		// This component only handles the 'DELETE' action,
 		// that equals the 'MOVE' action in combination
@@ -55,7 +55,7 @@ Zarafa.common.rules.dialogs.DeleteLink = Ext.extend(Zarafa.common.rules.dialogs.
 	 * the {@link #folder}.
 	 * @param {Zarafa.hierarchy.data.MAPIFolderRecord} folder The folder to show
 	 */
-	update : function(folder)
+	update: function(folder)
 	{
 		// Don't show anything
 	}

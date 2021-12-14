@@ -12,32 +12,32 @@ Zarafa.settings.ui.SettingsQuotaInfoWidget = Ext.extend(Zarafa.settings.ui.Setti
 	 * @constructor
 	 * @param {Object} config Configuration object
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		config = config || {};
 
 		Ext.applyIf(config, {
-			xtype : 'zarafa.settingswidget',
-			title : _('Mailbox Usage'),
-			layout : 'form',
-			items : [{
-						xtype : 'zarafa.quotabar',
-						width : 400,
+			xtype: 'zarafa.settingswidget',
+			title: _('Mailbox Usage'),
+			layout: 'form',
+			items: [{
+						xtype: 'zarafa.quotabar',
+						width: 400,
 						hidden: true,
-						ref : 'quotaBar',
-						userStore : container.getHierarchyStore().getDefaultStore()
+						ref: 'quotaBar',
+						userStore: container.getHierarchyStore().getDefaultStore()
 					},{
-						xtype : 'displayfield',
-						width : 400,
-						hideLabel : true,
-						ref : 'unavailableQuotaInfo',
+						xtype: 'displayfield',
+						width: 400,
+						hideLabel: true,
+						ref: 'unavailableQuotaInfo',
 						hidden: true,
-						value : _("Quota information is not set on the user's store.")
+						value: _("A quota is not set on your store.")
 					},{
-						xtype : 'displayfield',
-						hideLabel : true,
-						width : 400,
-						ref : 'quotaInfo'
+						xtype: 'displayfield',
+						hideLabel: true,
+						width: 400,
+						ref: 'quotaInfo'
 					}]
 		});
 
@@ -52,7 +52,7 @@ Zarafa.settings.ui.SettingsQuotaInfoWidget = Ext.extend(Zarafa.settings.ui.Setti
 	 * it updates quota bar and information string aswell.
 	 * @private
 	 */
-	updateQuotaInfo : function()
+	updateQuotaInfo: function()
 	{
 		var defaultMesageStore = container.getHierarchyStore().getDefaultStore();
 		var storeSize = defaultMesageStore.get('store_size');
@@ -92,7 +92,7 @@ Zarafa.settings.ui.SettingsQuotaInfoWidget = Ext.extend(Zarafa.settings.ui.Setti
 	 * @return {String} info/warning message.
 	 * @private
 	 */
-	getQuotaSuggestionString : function(softQuota, hardQuota, storeSize)
+	getQuotaSuggestionString: function(softQuota, hardQuota, storeSize)
 	{
 		if(!Ext.isDefined(storeSize)) {
 			return;
@@ -115,16 +115,16 @@ Zarafa.settings.ui.SettingsQuotaInfoWidget = Ext.extend(Zarafa.settings.ui.Setti
 		 */
 		if (hardQuota && storeSize > hardQuota) {
 			// Case 3,5
-			return _('You have exceeded hard quota, you can not send or recieve mails.');
+			return _('You have exceeded hard quota, you can not send or receive mails.');
 		} else if (softQuota && storeSize < softQuota) {
 			// Case 1,6
 			return String.format(_("At {0} you won't be able to send mails."), Ext.util.Format.fileSize(softQuota * 1024));
 		} else if (softQuota && hardQuota && softQuota < storeSize && storeSize < hardQuota) {
 			// Case 2
-			return String.format(_("You can not send mails as you have exceeded soft quota, at {0} you won't be able to recieve mails."), Ext.util.Format.fileSize(hardQuota * 1024));
+			return String.format(_("You can not send mails as you have exceeded soft quota, at {0} you won't be able to receive mails."), Ext.util.Format.fileSize(hardQuota * 1024));
 		} else if (!softQuota && hardQuota && storeSize < hardQuota) {
 			// Case 4
-			return String.format(_("At {0} you won't be able to send or recieve mails."), Ext.util.Format.fileSize(hardQuota * 1024));
+			return String.format(_("At {0} you won't be able to send or receive mails."), Ext.util.Format.fileSize(hardQuota * 1024));
 		} else if (softQuota && !hardQuota && softQuota < storeSize) {
 			// Case 7
 			return _('You can not send mails as you have exceeded soft quota.');
@@ -139,7 +139,7 @@ Zarafa.settings.ui.SettingsQuotaInfoWidget = Ext.extend(Zarafa.settings.ui.Setti
 	 * @param {String} op, operation string
 	 * @private
 	 */
-	onUpdateHierarchyStore : function(store, storeRecord, op) {
+	onUpdateHierarchyStore: function(store, storeRecord, op) {
 		// Check whether default store is changed or not.
 		if(storeRecord.isDefaultStore()){
 			this.updateQuotaInfo();

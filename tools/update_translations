@@ -21,7 +21,7 @@ create_potfile() {
 
 function update_pos() {
   # Merge PO files and remove obsolete strings
-  for lang in server/language/*.UTF-8/LC_MESSAGES/zarafa_webapp.po; do
+  for lang in server/language/*.UTF-8/LC_MESSAGES/grommunio_web.po; do
     echo $lang
     msgmerge -N -q $lang $POT_FILE | msgattrib --no-obsolete -o $lang.new && mv $lang.new $lang
   done
@@ -33,7 +33,7 @@ function new_lang() {
 
   # Create the server/language/${lang}/LC_MESSAGES/ directory
   langdir="server/language/${lang}.UTF-8"
-  poname='zarafa_webapp.po'
+  poname='grommunio_web.po'
   if [ -n "${pluginname}" ]; then
     langdir=${langdir//server\/}
     poname="plugin_${pluginname}.po"
@@ -86,8 +86,8 @@ POT_FILE=webapp.pot
 # Otherwise xgettext complains
 touch $POT_FILE
 
-# WebApp case
-if [ -f "kopano-webapp.conf" ]; then
+# Web case
+if [ -f "cachebuster" ]; then
   create_potfile "client/zarafa client/extjs-mod plugins"
 
   if [ -n "${newlang}" ]; then

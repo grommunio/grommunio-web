@@ -13,33 +13,38 @@ Zarafa.contact.dialogs.DistlistExternalMemberContentPanel = Ext.extend(Zarafa.co
 	 * @cfg {Zarafa.core.data.IPMRecord} record The distlist record which
 	 * contains memberStore for distribution list members
 	 */
-	parentRecord : undefined,
+	parentRecord: undefined,
 
 	/**
 	 * @cfg {Zarafa.contact.DistlistMemberRecord} memberRecord The distlist member record
 	 * which is being edited by this panel.
 	 */
-	record : undefined,
+	record: undefined,
 
 	/**
 	 * The form panel which is loaded inside this panel.
 	 * @property
 	 * @type Ext.form.FormPanel
 	 */
-	formPanel : undefined,
+	formPanel: undefined,
 
 	/**
 	 * @constructor
 	 * @param {Object} config Configuration object
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
+		// Remove old state settings.
+		if (Ext.isDefined(container.getSettingsModel().get("zarafa/v1/state/dialogs/distlistexternalmembercontentpanel"))) {
+			container.getSettingsModel().remove("zarafa/v1/state/dialogs/distlistexternalmembercontentpanel");
+		}
+
 		config = config || {};
 
 		Ext.applyIf(config, {
 			xtype: 'zarafa.distlistexternalmembercontentpanel',
-			title : _('New email address'),
-			layout : 'form',
+			title: _('New email address'),
+			layout: 'form',
 			width: 350,
 			height: 150,
 			stateful: false,
@@ -55,7 +60,7 @@ Zarafa.contact.dialogs.DistlistExternalMemberContentPanel = Ext.extend(Zarafa.co
 	 * Create the form in which the new email address info can be fetch
 	 * @return {Object} Configuration object for the form
 	 */
-	createFormItems : function()
+	createFormItems: function()
 	{
 		return [{
 			xtype: 'form',
@@ -68,18 +73,18 @@ Zarafa.contact.dialogs.DistlistExternalMemberContentPanel = Ext.extend(Zarafa.co
 				xtype: 'textfield',
 				fieldLabel: _('Name'),
 				name: 'display_name',
-				allowBlank : false,
+				allowBlank: false,
 				blankText: _('This field is required'),
 				anchor: '100%'
 			},{
 				xtype: 'textfield',
 				fieldLabel: _('Email address'),
-				name : 'email_address',
+				name: 'email_address',
 				anchor: '100%',
-				allowBlank : false,
+				allowBlank: false,
 				blankText: _('This field is required'),
 				vtype: 'email',
-				vtypeText : _('Please enter a valid email address')
+				vtypeText: _('Please enter a valid email address')
 			}],
 			buttons: [{
 				text: _('Ok'),
@@ -98,7 +103,7 @@ Zarafa.contact.dialogs.DistlistExternalMemberContentPanel = Ext.extend(Zarafa.co
 	 * This will load the {@link #record} into {@link #formPanel}.
 	 * @private
 	 */
-	onAfterFirstLayout : function()
+	onAfterFirstLayout: function()
 	{
 		if(this.record) {
 			this.formPanel.getForm().loadRecord(this.record);
@@ -110,7 +115,7 @@ Zarafa.contact.dialogs.DistlistExternalMemberContentPanel = Ext.extend(Zarafa.co
 	 * Function will update or create new member record to update in distlist in memberStore.
 	 * @private
 	 */
-	onOk : function()
+	onOk: function()
 	{
 		var form = this.formPanel.getForm();
 
@@ -138,7 +143,7 @@ Zarafa.contact.dialogs.DistlistExternalMemberContentPanel = Ext.extend(Zarafa.co
 	 * Event handler which is raised when the user clicks the "Cancel" {@link Ext.Button button}
 	 * @private
 	 */
-	onCancel : function()
+	onCancel: function()
 	{
 		this.close();
 	}

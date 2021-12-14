@@ -19,25 +19,25 @@ Zarafa.settings.ui.SettingsCategory = Ext.extend(Ext.Container, {
 	 * which should be shown in the center panel of the
 	 * {@link Zarafa.settings.ui.SettingsMainPanel}.
 	 */
-	items : undefined,
+	items: undefined,
 
 	/**
 	 * @cfg {Zarafa.settings.SettingsContext} settingsContext
 	 */
-	settingsContext : undefined,
+	settingsContext: undefined,
 
 	/**
 	 * @cfg {String} title The title of the category, this string
 	 * will be displayed in the left panel of the
 	 * {@link Zarafa.settings.ui.SettingsMainPanel}.
 	 */
-	title : '',
+	title: '',
 
 	/**
 	 * @cfg {Number} categoryIndex The index of the category
 	 * in the {@link Zarafa.settings.ui.SettingsCategoryPanel category list}
 	 */
-	categoryIndex : 100,
+	categoryIndex: 100,
 
 	/**
 	 * The reference as returned by {@link Zarafa.core.ui.notifier.Notifier#notify} to reference the
@@ -46,7 +46,7 @@ Zarafa.settings.ui.SettingsCategory = Ext.extend(Ext.Container, {
 	 * @type Ext.Element
 	 * @private
 	 */
-	savingEl : undefined,
+	savingEl: undefined,
 
 	/**
 	 * Each widget can have different saving methods (saving settings through the {@link Zarafa.settings.SettingsModel settings}
@@ -56,13 +56,13 @@ Zarafa.settings.ui.SettingsCategory = Ext.extend(Ext.Container, {
 	 * @type Number
 	 * @private
 	 */
-	savingElCounter : 0,
+	savingElCounter: 0,
 
 	/**
 	 * @constructor
 	 * @param {Object} config Configuration object
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		config = config || {};
 
@@ -78,7 +78,7 @@ Zarafa.settings.ui.SettingsCategory = Ext.extend(Ext.Container, {
 	 * this will register the {@link #onBeforeSaveSettings} event handler.
 	 * @private
 	 */
-	onShow : function()
+	onShow: function()
 	{
 		Zarafa.settings.ui.SettingsCategory.superclass.onShow.apply(this, arguments);
 
@@ -90,7 +90,7 @@ Zarafa.settings.ui.SettingsCategory = Ext.extend(Ext.Container, {
 	 * this will unregister the {@link #onBeforeSaveSettings} event handler.
 	 * @private
 	 */
-	onHide : function()
+	onHide: function()
 	{
 		Zarafa.settings.ui.SettingsCategory.superclass.onHide.apply(this, arguments);
 
@@ -109,11 +109,11 @@ Zarafa.settings.ui.SettingsCategory = Ext.extend(Ext.Container, {
 	 * {@link Zarafa.settings.SettingsModel#beforesave beforesave} event.
 	 * @private
 	 */
-	onBeforeSaveSettingsModel : function()
+	onBeforeSaveSettingsModel: function()
 	{
 		// Listen to the settings model to determine when the saving mask can be removed.
 		var model = container.getSettingsModel();
-		this.mon(model, 'beforesave', this.onBeforeSettingsSave, this, { single : true });
+		this.mon(model, 'beforesave', this.onBeforeSettingsSave, this, { single: true });
 
 		// We will start saving, however each category can have multiple
 		// saving methods (not just settings). So we keep track of those
@@ -129,7 +129,7 @@ Zarafa.settings.ui.SettingsCategory = Ext.extend(Ext.Container, {
 	 * @param {Zarafa.settings.SettingsModel} model The settings model which fired the event
 	 * @private
 	 */
-	onBeforeSettingsSave : function(model)
+	onBeforeSettingsSave: function(model)
 	{
 		this.displaySavingMask();
 
@@ -149,7 +149,7 @@ Zarafa.settings.ui.SettingsCategory = Ext.extend(Ext.Container, {
 	 * @param {Zarafa.settings.SettingsModel} model The settings model which fired the event
 	 * @private
 	 */
-	onSettingsSave : function(model)
+	onSettingsSave: function(model)
 	{
 		// Remove event handlers
 		this.mun(model, 'save', this.onSettingsSave, this);
@@ -164,7 +164,7 @@ Zarafa.settings.ui.SettingsCategory = Ext.extend(Ext.Container, {
 	 * @param {Zarafa.settings.SettingsModel} model The settings model which fired the event
 	 * @private
 	 */
-	onSettingsException : function(model)
+	onSettingsException: function(model)
 	{
 		// Remove event handlers
 		this.mun(model, 'save', this.onSettingsSave, this);
@@ -180,7 +180,7 @@ Zarafa.settings.ui.SettingsCategory = Ext.extend(Ext.Container, {
 	 * to show the notification.
 	 * @private
 	 */
-	displaySavingMask : function()
+	displaySavingMask: function()
 	{
 		// Increase the counter for savingEl, as we have a new saving method
 		// which will handle saving.
@@ -189,8 +189,8 @@ Zarafa.settings.ui.SettingsCategory = Ext.extend(Ext.Container, {
 		// If we don't have the notifier yet, show it now.
 		if (!this.savingEl) {
 			this.savingEl = container.getNotifier().notify('info.saving', '', _('Saving') + '...', {
-				container : container.getContentPanel().getEl(),
-				persistent : true
+				container: container.getContentPanel().getEl(),
+				persistent: true
 			});
 		}
 	},
@@ -203,7 +203,7 @@ Zarafa.settings.ui.SettingsCategory = Ext.extend(Ext.Container, {
 	 * @param {Boolean} success True if a notification should be shown that the settings were saved.
 	 * @private
 	 */
-	hideSavingMask : function(success)
+	hideSavingMask: function(success)
 	{
 		var contentEl = container.getContentPanel().getEl();
 
@@ -218,16 +218,16 @@ Zarafa.settings.ui.SettingsCategory = Ext.extend(Ext.Container, {
 		if (this.savingElCounter === 0 || !success) {
 			if (this.savingEl) {
 				container.getNotifier().notify('info.saving', null, null, {
-					container : contentEl,
-					destroy : true,
-					reference : this.savingEl
+					container: contentEl,
+					destroy: true,
+					reference: this.savingEl
 				});
 
 				delete this.savingEl;
 
 				if (success) {
 					container.getNotifier().notify('info.saved', _('Saved'), _('Saved successfully'), {
-						container : contentEl
+						container: contentEl
 					});
 				}
 			}
@@ -244,7 +244,7 @@ Zarafa.settings.ui.SettingsCategory = Ext.extend(Ext.Container, {
 	 *
 	 * @param {Zarafa.settings.SettingsModel} settingsModel The settings to load
 	 */
-	update : function(settingsModel)
+	update: function(settingsModel)
 	{
 		var widgets = this.findByType('zarafa.settingswidget');
 		for (var i = 0, len = widgets.length; i < len; i++) {
@@ -261,7 +261,7 @@ Zarafa.settings.ui.SettingsCategory = Ext.extend(Ext.Container, {
 	 *
 	 * @param {Zarafa.settings.SettingsModel} settingsModel The settings to update
 	 */
-	updateSettings : function(settingsModel)
+	updateSettings: function(settingsModel)
 	{
 		var widgets = this.findByType('zarafa.settingswidget');
 		for (var i = 0, len = widgets.length; i < len; i++) {

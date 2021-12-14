@@ -160,22 +160,22 @@ abstract class DownloadBase
 		// Convert message class into human readable format, so user can easily understand the display message.
 		switch ($this->getTrimmedMessageClass($mapiMessageClass)) {
 			case 'Appointment':
-				$messageClass = Language::getstring('Appointment');
+				$messageClass = _('Appointment');
 				break;
 			case 'StickyNote':
-				$messageClass = Language::getstring('Sticky Note');
+				$messageClass = _('Sticky Note');
 				break;
 			case 'Contact':
-				$messageClass = Language::getstring('Contact');
+				$messageClass = _('Contact');
 				break;
 			case 'DistList':
-				$messageClass = Language::getstring('Distribution list');
+				$messageClass = _('Distribution list');
 				break;
 			case 'Task':
-				$messageClass = Language::getstring('Task');
+				$messageClass = _('Task');
 				break;
 			case 'TaskRequest':
-				$messageClass = Language::getstring('Task Request');
+				$messageClass = _('Task Request');
 				break;
 			default:
 				$messageClass = $mapiMessageClass;
@@ -214,7 +214,7 @@ abstract class DownloadBase
 		// MAPI_E_NOT_FOUND exception contains generalize exception message.
 		// Set proper exception message as display message should be user understandable.
 		if($exception->getCode() == MAPI_E_NOT_FOUND) {
-			$exception->setDisplayMessage(Language::getstring('Could not find message, either it has been moved or deleted.'));
+			$exception->setDisplayMessage(_('Could not find message, either it has been moved or deleted.'));
 		}
 
 		// Set the headers
@@ -277,7 +277,7 @@ abstract class DownloadBase
 					'error' => array(
 						'type' => ERROR_GENERAL,
 						'info' => array(
-							'display_message' => Language::getstring('Operation failed'),
+							'display_message' => _('Operation failed'),
 							'original_message' => $exception->getMessage()
 						)
 					)

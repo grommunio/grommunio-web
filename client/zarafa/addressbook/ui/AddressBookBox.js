@@ -16,21 +16,21 @@ Zarafa.addressbook.ui.AddressBookBox = Ext.extend(Zarafa.common.recipientfield.u
 	 * @cfg {Zarafa.core.mapi.DisplayType} validDisplayType The displaytype which is considered
 	 * valid as a box. This can be used to mark a particular AddressBook types as invalid.
 	 */
-	validDisplayType : undefined,
+	validDisplayType: undefined,
 
 
 	/**
 	 * Check if the given {@link Ext.data.Record record} is valid. This function can be
 	 * overridden by the childclasses to indicate if the given record is valid.
 	 *
-	 * This class will check if the given record is  {@link Zarafa.core.data.IPMRecipientRecord#isResolved resolved},
+	 * This class will check if the given record is {@link Zarafa.core.data.IPMRecipientRecord#isResolved resolved},
 	 * and if the display_type is {@link #validDisplayType valid}.
 	 *
 	 * @param {Zarafa.core.data.IPMRecipientRecord} record The record to check
 	 * @return {Boolean} True if the record is valid
 	 * @protected
 	 */
-	isValidRecord : function(record)
+	isValidRecord: function(record)
 	{
 		return record.isResolved() && (!Ext.isDefined(this.validDisplayType) || record.get('display_type') === this.validDisplayType);
 	}

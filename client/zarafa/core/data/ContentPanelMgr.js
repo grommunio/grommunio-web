@@ -20,25 +20,25 @@ Zarafa.core.data.ContentPanelMgr = Ext.extend(Ext.util.Observable, {
 	 * @property
 	 * @type Ext.util.MixedCollection
 	 */
-	contentPanels : undefined,
+	contentPanels: undefined,
 	/**
 	 * @constructor
 	 */
-	constructor : function()
+	constructor: function()
 	{
 		this.contentPanels = new Ext.util.MixedCollection();
 		this.addEvents([
 			/**
 			 * @event createcontentpanel
 			 * Fires when a {@link Zarafa.core.ui.ContentPanel contentPanel} is being created.
-			 * @param {Zarafa.core.ui.ContentPanel} contentPanels The 
+			 * @param {Zarafa.core.ui.ContentPanel} contentPanels The
 			 * {@link Zarafa.core.ui.ContentPanel} which is being created.
 			 */
 			'createcontentpanel',
 			/**
 			 * @event destroycontentpanel
 			 * Fires when a {@link Zarafa.core.ui.ContentPanel contentPanel} is being destroyed.
-			 * @param {Zarafa.core.ui.ContentPanel} contentPanel The 
+			 * @param {Zarafa.core.ui.ContentPanel} contentPanel The
 			 * {@link Zarafa.core.ui.ContentPanel} which is being destroyed.
 			 */
 			'destroycontentpanel'
@@ -51,7 +51,7 @@ Zarafa.core.data.ContentPanelMgr = Ext.extend(Ext.util.Observable, {
 	 * Register a {@link Zarafa.core.ui.ContentPanel contentPanel} with the {@link Zarafa.core.data.ContentPanelMgr ContentPanelMgr}.
 	 * @param {Zarafa.core.ui.ContentPanel} contentPanel the {@link Zarafa.core.ui.ContentPanel contentPanel} which must be registered.
 	 */
-	register : function(contentPanel)
+	register: function(contentPanel)
 	{
 		contentPanel.on('show', this.onContentPanelShow, this);
 		contentPanel.on('close', this.onContentPanelHide, this);
@@ -64,7 +64,7 @@ Zarafa.core.data.ContentPanelMgr = Ext.extend(Ext.util.Observable, {
 	 * UnRegister a {@link Zarafa.core.ui.ContentPanel contentPanel} from the {@link Zarafa.core.data.ContentPanelMgr ContentPanelMgr}.
 	 * @param {Zarafa.core.ui.ContentPanel} contentPanel the {@link Zarafa.core.ui.ContentPanel contentPanel} which must be unregistered.
 	 */
-	unregister : function(contentPanel)
+	unregister: function(contentPanel)
 	{
 		contentPanel.un('show', this.onContentPanelShow, this);
 		contentPanel.un('close', this.onContentPanelHide, this);
@@ -82,7 +82,7 @@ Zarafa.core.data.ContentPanelMgr = Ext.extend(Ext.util.Observable, {
 	 * @param {Ext.Container} contentPanel The contentPanel which is being rendered
 	 * @private
 	 */
-	onContentPanelShow : function(contentPanel)
+	onContentPanelShow: function(contentPanel)
 	{
 		this.fireEvent('createcontentpanel', contentPanel);
 	},
@@ -95,7 +95,7 @@ Zarafa.core.data.ContentPanelMgr = Ext.extend(Ext.util.Observable, {
 	 * @param {Ext.Container} contentPanel The contentPanel which is being destroyed
 	 * @private
 	 */
-	onContentPanelHide : function(contentPanel)
+	onContentPanelHide: function(contentPanel)
 	{
 		this.fireEvent('destroycontentpanel', contentPanel);
 	},
@@ -106,7 +106,7 @@ Zarafa.core.data.ContentPanelMgr = Ext.extend(Ext.util.Observable, {
 	 * @return {Ext.util.MixedCollection} {@link Ext.util.MixedCollection MixedCollection} of contentPanels for specified
 	 * component.
 	 */
-	getContentPanelInstances : function(component)
+	getContentPanelInstances: function(component)
 	{
 		return this.contentPanels.filterBy(function(contentPanel) {
 			return contentPanel instanceof component;

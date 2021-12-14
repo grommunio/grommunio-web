@@ -58,7 +58,7 @@ Zarafa.core.ui.NavigationPanel = Ext.extend(Zarafa.core.ui.MainViewSidebar, {
 	 * @constructor
 	 * @param {Object} config configuration object
 	 */
-	constructor : function (config)
+	constructor: function (config)
 	{
 		this.addEvents([
 			/**
@@ -97,8 +97,8 @@ Zarafa.core.ui.NavigationPanel = Ext.extend(Zarafa.core.ui.MainViewSidebar, {
 				cls: 'zarafa-navigationpanel-centerpanel',
 				flex: 1,
 				layout: {
-					type : 'card',
-					deferredRender : true
+					type: 'card',
+					deferredRender: true
 				},
 				activeItem: 0,
 				items: centerComponents
@@ -111,36 +111,36 @@ Zarafa.core.ui.NavigationPanel = Ext.extend(Zarafa.core.ui.MainViewSidebar, {
 			// Prevent overriding other css classes
 			if(Ext.isEmpty(items[i].cls)){
 				items[i].cls = 'zarafa-navigationpanel-item';
-			}else{
+			} else {
 				items[i].cls += ' zarafa-navigationpanel-item';
 			}
 		}
 
 		Ext.applyIf(config, {
-			border : false,
-			layout : {
+			border: false,
+			layout: {
 				type: 'vbox',
 				align: 'stretch'
 			},
 			id: 'zarafa-navigationpanel',
 			cls: 'zarafa-navigation zarafa-panel zarafa-context-mainpanel',
 
-			north : northComponents,
-			center : centerComponents,
-			south : southComponents,
+			north: northComponents,
+			center: centerComponents,
+			south: southComponents,
 
-			items : items,
+			items: items,
 			collapseQuickTip: _('Collapse hierarchy'),
 			expandQuickTip: _('Expand hierarchy'),
 			animCollapse: false,
-			headerCfg : { cls : 'zarafa-main-header x-panel-header' }
+			headerCfg: { cls: 'zarafa-main-header x-panel-header' }
 		});
 
 		// parent constructor
 		Zarafa.core.ui.NavigationPanel.superclass.constructor.call(this, config);
 
 		// If previous value is there in state to "show all the folders" then simply assign it to respective config
-		// TODO : This is achieved by overriding the applyState in Zarafa.hierarchy.ui.HierarchyTreePanel class.
+		// TODO: This is achieved by overriding the applyState in Zarafa.hierarchy.ui.HierarchyTreePanel class.
 		// But, the instance of Zarafa.core.ui.NavigationPanel is not created when applyState gets executed.
 		var checkBoxState = container.getSettingsModel().get('zarafa/v1/state/sidebars/hierarchytree/showallcheckbox');
 		this.showFolderList = checkBoxState || false;
@@ -150,14 +150,14 @@ Zarafa.core.ui.NavigationPanel = Ext.extend(Zarafa.core.ui.MainViewSidebar, {
 	 * @return {Ext.Container} Container which contains {@link Zarafa.hierarchy.ui.FolderSelectTree HierarchyTree}
 	 * component and {@link Zarafa.hierarchy.ui.OpenSharedStorePanel OpenSharedStorePanel} component.
 	 */
-	getAllFoldersPanel : function()
+	getAllFoldersPanel: function()
 	{
 		return {
-			xtype : 'zarafa.contextnavigation',
+			xtype: 'zarafa.contextnavigation',
 			ownerTitle: _('Folders List'),
 			cls: 'zarafa-navigationpanel-centerpanel-allfolders',
-			ref : 'allFoldersPanel',
-			items : [{
+			ref: 'allFoldersPanel',
+			items: [{
 				layout: 'fit',
 				cls: 'zarafa-context-navigation-block',
 				items: this.getFolderListPanel()
@@ -168,15 +168,15 @@ Zarafa.core.ui.NavigationPanel = Ext.extend(Zarafa.core.ui.MainViewSidebar, {
 	/**
 	 * @return {Zarafa.hierarchy.ui.Tree} Tree component showing folder list
 	 */
-	getFolderListPanel : function()
+	getFolderListPanel: function()
 	{
 		return {
-			xtype : 'zarafa.hierarchytreepanel',
-			enableDD : true,
-			ref : '../allFoldersHierarchyTree',
-			enableItemDrop : true,
-			showAllFoldersDefaultValue : true,
-			deferredLoading : true
+			xtype: 'zarafa.hierarchytreepanel',
+			enableDD: true,
+			ref: '../allFoldersHierarchyTree',
+			enableItemDrop: true,
+			showAllFoldersDefaultValue: true,
+			deferredLoading: true
 		};
 	},
 
@@ -188,11 +188,11 @@ Zarafa.core.ui.NavigationPanel = Ext.extend(Zarafa.core.ui.MainViewSidebar, {
 	 *
 	 * @private
 	 */
-	onContextSwitch : function(parameters, oldContext, newContext)
+	onContextSwitch: function(parameters, oldContext, newContext)
 	{
 		this.activeContext = newContext;
 
-		this.toggleVisibilityNavigationComponents();
+		this.toggleVisibilityNavigationComponents(true);
 
 		var title = newContext.getDisplayName() || _('Folders List');
 		this.setTitle(title);
@@ -203,10 +203,16 @@ Zarafa.core.ui.NavigationPanel = Ext.extend(Zarafa.core.ui.MainViewSidebar, {
 	 * ones. The {@link #centerPanel centerPanel} is always visible and contains a card layout. It
 	 * will switch to the tab that is related to the active Context as well. If no tab is related
 	 * than it will show the {@link #AllFoldersPanel AllFoldersPanel} by default.
+	 * @param {Boolean} isContextSwitched true if the context is switched else false.
+	 * 
 	 * @private
 	 */
-	toggleVisibilityNavigationComponents: function()
+	toggleVisibilityNavigationComponents: function(isContextSwitched)
 	{
+		if (!Ext.isDefined(isContextSwitched)) {
+			isContextSwitched = false;
+		}
+
 		// Loop through all items in the navigation panel and determine whether to hide or show them
 		for (var i = 0, len = this.items.length; i < len; i++){
 			var item = this.items.itemAt(i);
@@ -215,7 +221,7 @@ Zarafa.core.ui.NavigationPanel = Ext.extend(Zarafa.core.ui.MainViewSidebar, {
 				// If no navigationContext property is set always show it, otherwise only for the related Context
 				if(!item.navigationContext || item.navigationContext == this.activeContext){
 					item.setVisible(true);
-				}else{
+				} else {
 					item.setVisible(false);
 				}
 			}
@@ -224,13 +230,14 @@ Zarafa.core.ui.NavigationPanel = Ext.extend(Zarafa.core.ui.MainViewSidebar, {
 		var center = this.centerPanel;
 		var layout = center.getLayout();
 
+		var previousActiveSearchFilter = layout.activeItem && layout.activeItem.filterSearchTextBox;
 		// Use this variable to see if we have to switch to the default one if none is found
 		var contextNavPanelFound = false;
 		// Loop through all items to find the one for the active Context
 		for (var i = 0, len = center.items.length; i < len; i++){
 			var item = center.items.itemAt(i);
 			if(!this.showFolderList || item.restrictToShowAllFolderList === true) {
-				if (item.getContext() == this.activeContext) {
+				if (item.getContext() === this.activeContext && item.plugin.getName() === item.getContext().getName()) {
 					// Switch to the panel belonging to the active Context
 					if (!Ext.isFunction(layout.setActiveItem)) {
 						center.activeItem = i;
@@ -251,8 +258,39 @@ Zarafa.core.ui.NavigationPanel = Ext.extend(Zarafa.core.ui.MainViewSidebar, {
 				layout.setActiveItem(0);
 			}
 		}
-
+		
+		var currentActiveSearchFilter = layout.activeItem && layout.activeItem.filterSearchTextBox;
+		this.setHierarchySearchFilterValue(isContextSwitched, previousActiveSearchFilter, currentActiveSearchFilter);
 		this.doLayout();
+	},
+
+	/**
+	 * Function will conditionally set the value of {@link Ext.form.textfield filterSearchTextBox} resides 
+	 * in {@link Zarafa.hierarchy.ui.HierarchyTreePanel HierarchyTreePanel} of currently active panel in {@link #centerPanel centerPanel}.
+	 * 
+	 * @param {Boolean} isContextSwitched true if the context is switched else false.
+	 * @param {Ext.form.textfield} previousActiveSearchFilter search filter text field of previously active panel in {@link #centerPanel centerPanel}
+	 * @param {Ext.form.textfield} currentActiveSearchFilter search filter text field of currently active panel in {@link #centerPanel centerPanel}
+	 * @private
+	 */
+	setHierarchySearchFilterValue: function(isContextSwitched, previousActiveSearchFilter, currentActiveSearchFilter)
+	{
+		if (Ext.isDefined(currentActiveSearchFilter)) {
+			// If context is switched and "Show All" is not checked then clear currently active hierarchy search text field.
+			if (isContextSwitched && !this.showFolderList) {
+				currentActiveSearchFilter.reset();
+			} else if (!isContextSwitched && Ext.isDefined(previousActiveSearchFilter)) {
+				// If "Show All" toggle occured then pass the previous filterSearchTextBox's value to the current filterSearchTextBox.
+				var currSearchValue = currentActiveSearchFilter.getValue();
+				var prevSearchValue = previousActiveSearchFilter.getValue();
+				
+				// Only change the value of active hierarchy filterSearchTextBox 
+				// when previously active filterSearchTextBox's value is different.
+				if (currSearchValue !== prevSearchValue) {
+					currentActiveSearchFilter.setValue(previousActiveSearchFilter.getValue());
+				}
+			}	
+		}
 	},
 
 	/**
@@ -262,7 +300,7 @@ Zarafa.core.ui.NavigationPanel = Ext.extend(Zarafa.core.ui.MainViewSidebar, {
 	 * state of the {@link #showFolderList} is not changed it will not do anything.
 	 * @param {Boolean} showFolderList True to force the full folder list to be shown
 	 */
-	setShowFolderList : function(showFolderList)
+	setShowFolderList: function(showFolderList)
 	{
 		if (this.showFolderList === showFolderList){
 			return;
@@ -281,7 +319,7 @@ Zarafa.core.ui.NavigationPanel = Ext.extend(Zarafa.core.ui.MainViewSidebar, {
 	 * initialized.
 	 * @private
 	 */
-	initEvents : function()
+	initEvents: function()
 	{
 		this.activeContext = container.getCurrentContext();
 		this.mon(container, 'contextswitch', this.onContextSwitch, this);
@@ -301,7 +339,7 @@ Zarafa.core.ui.NavigationPanel = Ext.extend(Zarafa.core.ui.MainViewSidebar, {
 	 * @param {Number} rawHeight The height that was originally specified
 	 * @private
 	 */
-	onResizePanel : function(adjWidth, adjHeight, rawWidth, rawHeight)
+	onResizePanel: function(adjWidth, adjHeight, rawWidth, rawHeight)
 	{
 		this.doLayout();
 	},
@@ -314,7 +352,7 @@ Zarafa.core.ui.NavigationPanel = Ext.extend(Zarafa.core.ui.MainViewSidebar, {
 	 *
 	 * @private
 	 */
-	saveState : function()
+	saveState: function()
 	{
 		if (container.getCurrentContext().getName() !== "settings") {
 			Zarafa.core.ui.NavigationPanel.superclass.saveState.apply(this);

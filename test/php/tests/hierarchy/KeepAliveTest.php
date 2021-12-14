@@ -1,15 +1,15 @@
 <?php
-require_once('classes/KopanoUser.php');
+require_once('classes/grommunioUser.php');
 require_once('classes/HierarchyUser.php');
 require_once('classes/TestData.php');
-require_once('classes/KopanoTest.php');
+require_once('classes/grommunioTest.php');
 
 /**
  * KeepAliveTest
  *
  * Tests sending keepalive
  */
-class KeepAliveTest extends KopanoTest {
+class KeepAliveTest extends grommunioTest {
 
 	/**
 	 * The user for which we will add and close Shared Stores
@@ -25,7 +25,7 @@ class KeepAliveTest extends KopanoTest {
 		parent::setUp();
 
 		$this->cleanFolders = false;
-		$this->user = $this->addUser(new HierarchyUser(new KopanoUser(KOPANO_USER1_NAME, KOPANO_USER1_PASSWORD)));
+		$this->user = $this->addUser(new HierarchyUser(new grommunioUser(GROMMUNIO_USER1_NAME, GROMMUNIO_USER1_PASSWORD)));
 	}
 
 	/*

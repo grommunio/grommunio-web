@@ -14,10 +14,16 @@ Zarafa.core.data.IPMResponseHandler = Ext.extend(Zarafa.core.data.ProxyResponseH
 	 * not cancel the transaction itself, but rather causes the 'success' argument for the
 	 * {@link #done} function to be false.
 	 */
-	doList : function(response)
+	doList: function(response)
 	{
 		if (response.folder) {
 			this.metaData.folder = Ext.apply({}, response.folder);
+		}
+		if (response.error) {
+			this.metaData.error = response.error;
+		}
+		if (response.page) {
+			this.metaData.page = Ext.apply({}, response.page);
 		}
 		this.receivedRecords = this.readRecordsFromResponse(response, 'item');
 	},
@@ -28,10 +34,13 @@ Zarafa.core.data.IPMResponseHandler = Ext.extend(Zarafa.core.data.ProxyResponseH
 	 * and pushes them into the {@link #receivedRecords records list}.
 	 * @param {Object} response The response object belonging to the given command.
 	 */
-	doUpdatelist : function(response)
+	doUpdatelist: function(response)
 	{
 		if (response.folder) {
 			this.metaData.folder = Ext.apply({}, response.folder);
+		}
+		if (response.page) {
+			this.metaData.page = Ext.apply({}, response.page);
 		}
 		this.receivedRecords = this.readRecordsFromResponse(response, 'item');
 	},
@@ -46,7 +55,7 @@ Zarafa.core.data.IPMResponseHandler = Ext.extend(Zarafa.core.data.ProxyResponseH
 	 * not cancel the transaction itself, but rather causes the 'success' argument for the
 	 * {@link #done} function to be false.
 	 */
-	doItem : function(response)
+	doItem: function(response)
 	{
 		this.receivedRecords = this.receivedRecords.concat(this.correlateRecordFromResponse(response));
 	},
@@ -61,13 +70,13 @@ Zarafa.core.data.IPMResponseHandler = Ext.extend(Zarafa.core.data.ProxyResponseH
 	 * not cancel the transaction itself, but rather causes the 'success' argument for the
 	 * {@link #done} function to be false.
 	 */
-	doUpdate : function(response)
+	doUpdate: function(response)
 	{
 		this.receivedRecords = this.receivedRecords.concat(this.correlateRecordFromResponse(response));
 	},
 
 	/**
-	 * Handles the 'search' response. Gathers the records from the response data, 
+	 * Handles the 'search' response. Gathers the records from the response data,
 	 * converts each entry into a record (using {@link #readRecordsFromResponse})
 	 * and pushes them into the {@link #receivedRecords records list}.
 	 * @param {Object} response The response object belonging to the given command.
@@ -75,7 +84,7 @@ Zarafa.core.data.IPMResponseHandler = Ext.extend(Zarafa.core.data.ProxyResponseH
 	 * not cancel the transaction itself, but rather causes the 'success' argument for the
 	 * {@link #done} function to be false.
 	 */
-	doSearch : function(response)
+	doSearch: function(response)
 	{
 		this.receivedRecords = this.readRecordsFromResponse(response, 'item');
 
@@ -88,7 +97,7 @@ Zarafa.core.data.IPMResponseHandler = Ext.extend(Zarafa.core.data.ProxyResponseH
 	},
 
 	/**
-	 * Handles the 'updatesearch' response. Gathers the records from the response data, 
+	 * Handles the 'updatesearch' response. Gathers the records from the response data,
 	 * converts each entry into a record (using {@link #readRecordsFromResponse})
 	 * and pushes them into the {@link #receivedRecords records list}. This is the same
 	 * as {@link #doSearch} with the exception that the items read from the response will be added to
@@ -98,7 +107,7 @@ Zarafa.core.data.IPMResponseHandler = Ext.extend(Zarafa.core.data.ProxyResponseH
 	 * not cancel the transaction itself, but rather causes the 'success' argument for the
 	 * {@link #done} function to be false.
 	 */
-	doUpdatesearch : function(response)
+	doUpdatesearch: function(response)
 	{
 		this.receivedRecords = this.readRecordsFromResponse(response, 'item');
 
@@ -110,7 +119,7 @@ Zarafa.core.data.IPMResponseHandler = Ext.extend(Zarafa.core.data.ProxyResponseH
 		}, this);
 
 		// Make sure the new results are appended to the previous search results.
-		Ext.apply(this.options, {add : true});
+		Ext.apply(this.options, {add: true});
 	},
 
 	/**
@@ -124,7 +133,7 @@ Zarafa.core.data.IPMResponseHandler = Ext.extend(Zarafa.core.data.ProxyResponseH
 	 * not cancel the transaction itself, but rather causes the 'success' argument for the
 	 * {@link #done} function to be false.
 	 */
-	doStopsearch : function(response)
+	doStopsearch: function(response)
 	{
 		this.receivedRecords = this.readRecordsFromResponse(response, 'item');
 	},
@@ -138,7 +147,7 @@ Zarafa.core.data.IPMResponseHandler = Ext.extend(Zarafa.core.data.ProxyResponseH
 	 * not cancel the transaction itself, but rather causes the 'success' argument for the
 	 * {@link #done} function to be false.
 	 */
-	doSearch_error : function(response)
+	doSearch_error: function(response)
 	{
 		this.doError(response);
 		return false;
@@ -152,7 +161,7 @@ Zarafa.core.data.IPMResponseHandler = Ext.extend(Zarafa.core.data.ProxyResponseH
 	 * @param {Zarafa.core.data.MAPIRecord} record The record which was send to the server
 	 * @protected
 	 */
-	compareResponseDataToRecord : function(data, record)
+	compareResponseDataToRecord: function(data, record)
 	{
 		// special handling if attach_num is present and we are processing response of embedded message
 		if(!record.phantom) {

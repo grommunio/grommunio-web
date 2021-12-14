@@ -20,7 +20,7 @@ Zarafa.hierarchy.data.IPFSubStore = Ext.extend(Zarafa.core.data.IPFStore, {
 	 * @constructor
 	 * @param {Object} config Configuration object
 	 */
-	constructor : function (config)
+	constructor: function (config)
 	{
 		config = config || {};
 
@@ -28,16 +28,16 @@ Zarafa.hierarchy.data.IPFSubStore = Ext.extend(Zarafa.core.data.IPFStore, {
 
 		Ext.applyIf(config, {
 			proxy: new Zarafa.hierarchy.data.HierarchyProxy(),
-			writer : new Zarafa.core.data.JsonWriter(),
+			writer: new Zarafa.core.data.JsonWriter(),
 			reader: new Zarafa.core.data.JsonReader({}, recordType)
 		});
 
 		Zarafa.hierarchy.data.IPFSubStore.superclass.constructor.call(this, config);
 
 		this.on({
-			'beforesave' : this.onBeforeSave,
-			'exception' : this.onException,
-			scope : this
+			'beforesave': this.onBeforeSave,
+			'exception': this.onException,
+			scope: this
 		});
 	},
 
@@ -53,7 +53,7 @@ Zarafa.hierarchy.data.IPFSubStore = Ext.extend(Zarafa.core.data.IPFStore, {
 	 * @param {Number} index
 	 * @private
 	 */
-	createRecords : function(store, record, index)
+	createRecords: function(store, record, index)
 	{
 		var parentRecord = this.getParentRecord();
 		if(parentRecord) {
@@ -73,7 +73,7 @@ Zarafa.hierarchy.data.IPFSubStore = Ext.extend(Zarafa.core.data.IPFStore, {
 	 * @param {Number} index
 	 * @private
 	 */
-	destroyRecord : function(store, record, index)
+	destroyRecord: function(store, record, index)
 	{
 		if(this.getParentRecord()){
 			this.getParentRecord().markDirty();
@@ -85,7 +85,7 @@ Zarafa.hierarchy.data.IPFSubStore = Ext.extend(Zarafa.core.data.IPFStore, {
 	 * Get the {@link Zarafa.core.data.IPFRecord IPFRecord} that is the parent of this store.
 	 * @return {Zarafa.core.data.IPFRecord} The parent IPFRecord.
 	 */
-	getParentRecord : function()
+	getParentRecord: function()
 	{
 		return this.parentRecord;
 	},
@@ -94,24 +94,24 @@ Zarafa.hierarchy.data.IPFSubStore = Ext.extend(Zarafa.core.data.IPFStore, {
 	 * Set the {@link Zarafa.core.data.IPFRecord IPFRecord} that is the parent of this store.
 	 * @param {Zarafa.core.data.IPFRecord} record The parent IPFRecord.
 	 */
-	setParentRecord : function(record)
+	setParentRecord: function(record)
 	{
 		this.parentRecord = record;
 	},
 
 	/**
-	 * Event handler will be called when an error/exception is occured at server side,
+	 * Event handler will be called when an error/exception is occurred at server side,
 	 * and error is returned.
 	 * @param {Zarafa.core.data.MAPIProxy} proxy object that received the error
 	 * and which fired exception event.
-	 * @param {String} type 'request' if an invalid response from server recieved,
+	 * @param {String} type 'request' if an invalid response from server received,
 	 * 'remote' if valid response received from server but with succuessProperty === false.
 	 * @param {String} action Name of the action {@link Ext.data.Api.actions}.
 	 * @param {Object} options The options for the action that were specified in the request.
 	 * @param {Object} response response received from server depends on type.
 	 * @param {Mixed} args
 	 */
-	onException : function(proxy, type, action, options, response, args)
+	onException: function(proxy, type, action, options, response, args)
 	{
 		if (Ext.isDefined(args) && Array.isArray(args.sendRecords)) {
 			Ext.each(args.sendRecords, function(record) {
@@ -151,19 +151,19 @@ Zarafa.hierarchy.data.IPFSubStore = Ext.extend(Zarafa.core.data.IPFStore, {
 	/**
 	 * Notification handler called by {@link #onNotify} when
 	 * a {@link Zarafa.core.data.Notifications#objectDeleted objectDeleted}
-	 * notification has been recieved.
+	 * notification has been received.
 	 *
 	 * This will remove the folder from the store.
 	 *
 	 * @param {Zarafa.core.data.Notifications} action The notification action
 	 * @param {Ext.data.Record/Array} records The record or records which have been affected by the notification.
-	 * @param {Object} data The data which has been recieved from the PHP-side which must be applied
+	 * @param {Object} data The data which has been received from the PHP-side which must be applied
 	 * to the given records.
 	 * @param {Number} timestamp The {@link Date#getTime timestamp} on which the notification was received
-	 * @param {Boolean} success The success status, True if the notification was successfully recieved.
+	 * @param {Boolean} success The success status, True if the notification was successfully received.
 	 * @private
 	 */
-	onNotifyObjectdeleted : function(action, records, data, timestamp, success)
+	onNotifyObjectdeleted: function(action, records, data, timestamp, success)
 	{
 		if (!Array.isArray(records)) {
 			records = [ records ];
@@ -182,19 +182,19 @@ Zarafa.hierarchy.data.IPFSubStore = Ext.extend(Zarafa.core.data.IPFStore, {
 	/**
 	 * Notification handler called by {@link #onNotify} when
 	 * a {@link Zarafa.core.data.Notifications#objectModified objectModified}
-	 * notification has been recieved.
+	 * notification has been received.
 	 *
 	 * This will update the folder in the store.
 	 *
 	 * @param {Zarafa.core.data.Notifications} action The notification action
 	 * @param {Ext.data.Record/Array} records The record or records which have been affected by the notification.
-	 * @param {Object} data The data which has been recieved from the PHP-side which must be applied
+	 * @param {Object} data The data which has been received from the PHP-side which must be applied
 	 * to the given records.
 	 * @param {Number} timestamp The {@link Date#getTime timestamp} on which the notification was received
-	 * @param {Boolean} success The success status, True if the notification was successfully recieved.
+	 * @param {Boolean} success The success status, True if the notification was successfully received.
 	 * @private
 	 */
-	onNotifyObjectmodified : function(action, records, data, timestamp, success)
+	onNotifyObjectmodified: function(action, records, data, timestamp, success)
 	{
 		if (!Array.isArray(records)) {
 			records = [ records ];
@@ -205,7 +205,7 @@ Zarafa.hierarchy.data.IPFSubStore = Ext.extend(Zarafa.core.data.IPFStore, {
 		// bouncing events around.
 		for (var i = 0, len = records.length; i < len; i++) {
 			var record = records[i];
-			var singleData =  (Array.isArray(data)) ? data[i] : data;
+			var singleData = (Array.isArray(data)) ? data[i] : data;
 
 			record.setEventPropagation(false);
 
@@ -225,19 +225,19 @@ Zarafa.hierarchy.data.IPFSubStore = Ext.extend(Zarafa.core.data.IPFStore, {
 	/**
 	 * Notification handler called by {@link #onNotify} when
 	 * a {@link Zarafa.core.data.Notifications#objectCreated objectCreated}
-	 * notification has been recieved.
+	 * notification has been received.
 	 *
 	 * This will add the folder to the store.
 	 *
 	 * @param {Zarafa.core.data.Notifications} action The notification action
 	 * @param {Ext.data.Record/Array} records The record or records which have been affected by the notification.
-	 * @param {Object} data The data which has been recieved from the PHP-side which must be applied
+	 * @param {Object} data The data which has been received from the PHP-side which must be applied
 	 * to the given records.
 	 * @param {Number} timestamp The {@link Date#getTime timestamp} on which the notification was received
-	 * @param {Boolean} success The success status, True if the notification was successfully recieved.
+	 * @param {Boolean} success The success status, True if the notification was successfully received.
 	 * @private
 	 */
-	onNotifyObjectcreated : function(action, records, data, timestamp, success)
+	onNotifyObjectcreated: function(action, records, data, timestamp, success)
 	{
 		if (!Array.isArray(data)) {
 			data = [ data ];
@@ -246,30 +246,30 @@ Zarafa.hierarchy.data.IPFSubStore = Ext.extend(Zarafa.core.data.IPFStore, {
 		var isFavoritesStoreInstance = this instanceof Zarafa.common.favorites.data.MAPIFavoritesSubStore;
 
 		if (data[0] instanceof Ext.data.Record) {
-			this.loadRecords({ records : data }, { add : true });
+			this.loadRecords({ records: data }, { add: true });
 		} else if(!isFavoritesStoreInstance) {
 			// Don't go for loadData if store is MAPIFavoritesSubStore because we are never
 			// send non Ext.data.Record in server side notification.
-			this.loadData({ item : data }, true);
+			this.loadData({ item: data }, true);
 		}
 	},
 
 	/**
-	 * Saves all pending changes to the store.  If the commensurate Ext.data.Api.actions action is not configured, then
+	 * Saves all pending changes to the store. If the commensurate Ext.data.Api.actions action is not configured, then
 	 * the configured <code>{@link #url}</code> will be used.
 	 * <pre>
-	 * change            url
-	 * ---------------   --------------------
-	 * removed records   Ext.data.Api.actions.destroy
-	 * phantom records   Ext.data.Api.actions.create
-	 * {@link #getModifiedRecords modified records}  Ext.data.Api.actions.update
+	 * change      url
+	 * ---------------  --------------------
+	 * removed records  Ext.data.Api.actions.destroy
+	 * phantom records  Ext.data.Api.actions.create
+	 * {@link #getModifiedRecords modified records} Ext.data.Api.actions.update
 	 * </pre>
-	 * @TODO:  Create extensions of Error class and send associated Record with thrown exceptions.
-	 * e.g.:  Ext.data.DataReader.Error or Ext.data.Error or Ext.data.DataProxy.Error, etc.
+	 * @TODO: Create extensions of Error class and send associated Record with thrown exceptions.
+	 * e.g.: Ext.data.DataReader.Error or Ext.data.Error or Ext.data.DataProxy.Error, etc.
 	 * @return {Number} batch Returns a number to uniquely identify the "batch" of saves occurring. -1 will be returned
 	 * if there are no items to save or the save was cancelled.
 	 */
-	save : function()
+	save: function()
 	{
 		// If the removed array is non-empty shared stores are being closed
 		// shared stores get a special treatmeent
@@ -289,13 +289,13 @@ Zarafa.hierarchy.data.IPFSubStore = Ext.extend(Zarafa.core.data.IPFStore, {
 
 			if (!Ext.isEmpty(sharedfolders)) {
 				var data = {
-					'close' : sharedfolders
+					'close': sharedfolders
 				};
 
 				if (this.fireEvent('beforesave', this, data) !== false) {
 					try {
 						var batch = ++this.batchCounter;
-						this.execute('destroy', data['close'], { actionType : 'closesharedfolder' }, batch);
+						this.execute('destroy', data['close'], { actionType: 'closesharedfolder' }, batch);
 					} catch (e) {
 						this.handleException(e);
 					}
@@ -319,7 +319,7 @@ Zarafa.hierarchy.data.IPFSubStore = Ext.extend(Zarafa.core.data.IPFStore, {
 	 * which will be send to the server
 	 * @private
 	 */
-	onBeforeSave : function(store, data)
+	onBeforeSave: function(store, data)
 	{
 		// The 'close' key is only used for shared stores/folders
 		if (!Ext.isEmpty(data['close'])) {

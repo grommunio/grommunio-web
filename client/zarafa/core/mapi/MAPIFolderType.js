@@ -14,14 +14,14 @@ Zarafa.core.mapi.MAPIFolderType = Zarafa.core.Enum.create({
 	 * @property
 	 * @type Number
 	 */
-	FOLDER_ROOT : 0x00000000,
+	FOLDER_ROOT: 0x00000000,
 
 	/**
 	 * A generic folder that contains messages and other folders.
 	 * @property
 	 * @type Number
 	 */
-	FOLDER_GENERIC : 0x00000001,
+	FOLDER_GENERIC: 0x00000001,
 
 	/**
 	 * A folder that contains the results of a search,
@@ -29,5 +29,5 @@ Zarafa.core.mapi.MAPIFolderType = Zarafa.core.Enum.create({
 	 * @property
 	 * @type Number
 	 */
-	FOLDER_SEARCH : 0x00000002
+	FOLDER_SEARCH: 0x00000002
 });

@@ -770,18 +770,18 @@ define('PR_RECIPIENT_FLAGS'                           ,mapi_prop_tag(PT_LONG,   
 define('PR_RECIPIENT_TRACKSTATUS_TIME'                ,mapi_prop_tag(PT_SYSTIME,     0x5FFB));
 
 define('PR_EC_BASE'                                   ,  0x6700);
-define('PR_EC_OOF_STATE'                              ,mapi_prop_tag(PT_LONG,        PR_EC_BASE+0x60));
-define('PR_EC_OOF_INTERNALREPLY'                      ,mapi_prop_tag(PT_STRING8,     PR_EC_BASE+0x61));
-define('PR_EC_OOF_INTERNALSUBJECT'                    ,mapi_prop_tag(PT_STRING8,     PR_EC_BASE+0x62));
-define('PR_EC_OOF_BEGIN'                              ,mapi_prop_tag(PT_SYSTIME,     PR_EC_BASE+0x63));
-define('PR_EC_OOF_END'                                ,mapi_prop_tag(PT_SYSTIME,     PR_EC_BASE+0x64));
-define('PR_EC_OOF_ALLOWEXTERNAL'                      ,mapi_prop_tag(PT_BOOLEAN,     PR_EC_BASE+0x65));
-define('PR_EC_OOF_EXTERNALAUDIENCE'                   ,mapi_prop_tag(PT_BOOLEAN,     PR_EC_BASE+0x66));
-define('PR_EC_OOF_EXTERNALREPLY'                      ,mapi_prop_tag(PT_STRING8,     PR_EC_BASE+0x67));
-define('PR_EC_OOF_EXTERNALSUBJECT'                    ,mapi_prop_tag(PT_STRING8,     PR_EC_BASE+0x68));
+define('PR_EC_OUTOFOFFICE_STATE'                      ,mapi_prop_tag(PT_LONG,        PR_EC_BASE+0x60));
+define('PR_EC_OUTOFOFFICE_INTERNALREPLY'              ,mapi_prop_tag(PT_STRING8,     PR_EC_BASE+0x61));
+define('PR_EC_OUTOFOFFICE_INTERNALSUBJECT'            ,mapi_prop_tag(PT_STRING8,     PR_EC_BASE+0x62));
+define('PR_EC_OUTOFOFFICE_BEGIN'                      ,mapi_prop_tag(PT_SYSTIME,     PR_EC_BASE+0x63));
+define('PR_EC_OUTOFOFFICE_END'                        ,mapi_prop_tag(PT_SYSTIME,     PR_EC_BASE+0x64));
+define('PR_EC_OUTOFOFFICE_ALLOWEXTERNAL'              ,mapi_prop_tag(PT_BOOLEAN,     PR_EC_BASE+0x65));
+define('PR_EC_OUTOFOFFICE_EXTERNALAUDIENCE'           ,mapi_prop_tag(PT_BOOLEAN,     PR_EC_BASE+0x66));
+define('PR_EC_OUTOFOFFICE_EXTERNALREPLY'              ,mapi_prop_tag(PT_STRING8,     PR_EC_BASE+0x67));
+define('PR_EC_OUTOFOFFICE_EXTERNALSUBJECT'            ,mapi_prop_tag(PT_STRING8,     PR_EC_BASE+0x68));
 
 /* Server version */
-define('PR_EC_SERVER_VERSION'                         ,mapi_prop_tag(PT_STRING8,     PR_EC_BASE+0x16));
+define('PR_EC_SERVER_VERSION'                        ,mapi_prop_tag(PT_STRING8,     PR_EC_BASE+0x16));
 
 /* quota support */
 define('PR_QUOTA_WARNING_THRESHOLD'                   ,mapi_prop_tag(PT_LONG,        PR_EC_BASE+0x21));
@@ -796,7 +796,7 @@ define('PR_EC_USER_TIMEZONE'                          ,mapi_prop_tag(PT_STRING8,
 define('PR_EC_WEBACCESS_SETTINGS_JSON'                ,mapi_prop_tag(PT_STRING8,     PR_EC_BASE+0x72));
 define('PR_EC_RECIPIENT_HISTORY_JSON'                 ,mapi_prop_tag(PT_STRING8,     PR_EC_BASE+0x73));
 
-/* The peristent settings are settings that will not be touched when the settings are reset */
+/* The persistent settings are settings that will not be touched when the settings are reset */
 define('PR_EC_WEBAPP_PERSISTENT_SETTINGS_JSON'        ,mapi_prop_tag(PT_STRING8,     PR_EC_BASE+0x74));
 
 /* statistics properties */
@@ -836,6 +836,9 @@ define('PR_RULE_PROVIDER_DATA'                        ,mapi_prop_tag(PT_BINARY, 
 //custom properties to hold size units
 define('PR_RULE_ATLEAST_MESSAGE_SIZEUNIT'             ,mapi_prop_tag(PT_STRING8,     PR_EC_BASE+0x15));
 define('PR_RULE_ATMOST_MESSAGE_SIZEUNIT'              ,mapi_prop_tag(PT_STRING8,     PR_EC_BASE+0x17));
+//custom properties which holds size units for exceptions
+define('PR_RULE_EXCEPTION_ATLEAST_MESSAGE_SIZEUNIT'   ,mapi_prop_tag(PT_STRING8,     PR_EC_BASE+0x18));
+define('PR_RULE_EXCEPTION_ATMOST_MESSAGE_SIZEUNIT'    ,mapi_prop_tag(PT_STRING8,     PR_EC_BASE+0x19));
 
 // edkmdb, ICS properties
 define('PR_SOURCE_KEY'								  ,mapi_prop_tag(PT_BINARY, 	0x65E0+0x00));
@@ -893,12 +896,10 @@ define('PR_EMS_AB_THUMBNAIL_PHOTO'            ,mapi_prop_tag(PT_BINARY,     0x8C
 
 define('PR_EC_ARCHIVE_SERVERS'                ,mapi_prop_tag(PT_MV_TSTRING,	0x67c4));
 
-/* kopano contacts provider properties */
 define('PR_ZC_CONTACT_STORE_ENTRYIDS'         ,mapi_prop_tag(PT_MV_BINARY, PR_EC_BASE+0x11));
 define('PR_ZC_CONTACT_FOLDER_ENTRYIDS'        ,mapi_prop_tag(PT_MV_BINARY, PR_EC_BASE+0x12));
 define('PR_ZC_CONTACT_FOLDER_NAMES'           ,mapi_prop_tag(PT_MV_TSTRING, PR_EC_BASE+0x13));
 
-/* kopano specific properties for optimization of imap functionality */
 define('PR_EC_IMAP_EMAIL'                     ,mapi_prop_tag(PT_BINARY,  PR_EC_BASE+0x8C)); //the complete rfc822 email
 define('PR_EC_IMAP_EMAIL_SIZE'                ,mapi_prop_tag(PT_LONG,    PR_EC_BASE+0x8D));
 define('PR_EC_IMAP_BODY'                      ,mapi_prop_tag(PT_STRING8, PR_EC_BASE+0x8E)); //simplified bodystructure (mostly unused by clients)

@@ -14,28 +14,28 @@
 		 * @type Boolean
 		 * @property
 		 */
-		isIE : isIE,
+		isIE: isIE,
 
 		/**
 		 * True if the detected browser is Internet Explorer 10.
 		 * @type Boolean
 		 * @property
 		 */
-		isIE10 : isIE && ((/msie 10/).test(userAgentString)),
+		isIE10: isIE && ((/msie 10/).test(userAgentString)),
 
 		/**
 		 * True if the detected browser is Internet Explorer 11.
 		 * @type Boolean
 		 * @property
 		 */
-		isIE11 : isIE && ((/rv:11/).test(userAgentString)),
+		isIE11: isIE && ((/rv:11/).test(userAgentString)),
 
 		/**
 		 * True if the detected browser is Microsoft Edge.
 		 * @type Boolean
 		 * @property
 		 */
-		isEdge : (/Edge\/\d./i).test(navigator.userAgent),
+		isEdge: (/Edge\/\d./i).test(navigator.userAgent),
 
 		/**
 		 * Clone almost any type of variable including array, object, DOM nodes and Date without keeping the old reference
@@ -96,11 +96,11 @@
 
 		/*
 		 * Override getDom to consider separate window as well while getting HTMLElement of provided id.
-		 * 
+		 *
 		 * @param {Mixed} el The id string or DOM element
 		 * @return {HTMLElement} HTMLElement
 		 */
-		getDom : function(el) {
+		getDom: function(el) {
 			var getDomResult = null;
 			var activeBrowserWindow = Zarafa.core.BrowserWindowMgr.getActive();
 
@@ -140,7 +140,7 @@
 		 * window from all the available browser windows.
 		 * @return {Ext.Element} The document body of the currently active browser window.
 		 */
-		getBody : function(){
+		getBody: function() {
 			var activeBrowserWindow = Zarafa.core.BrowserWindowMgr.getActive();
 			var documentObject = Ext.isDefined(activeBrowserWindow) ? activeBrowserWindow.document : document;
 			return Ext.get(documentObject.body || documentObject.documentElement);
@@ -150,7 +150,7 @@
 		 * Returns the current HTML document object as an {@link Ext.Element} which belongs to the active browser window.
 		 * @return Ext.Element The document object wrapped as (@link Ext.Element}
 		 */
-		getDoc : function(){
+		getDoc: function() {
 			var activeBrowserWindow = Zarafa.core.BrowserWindowMgr.getActive();
 			var documentObject = Ext.isDefined(activeBrowserWindow) ? activeBrowserWindow.document : document;
 			return Ext.get(documentObject);

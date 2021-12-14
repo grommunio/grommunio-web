@@ -1,15 +1,15 @@
 <?php
-require_once('classes/KopanoUser.php');
+require_once('classes/grommunioUser.php');
 require_once('classes/CalendarUser.php');
 require_once('classes/TestData.php');
-require_once('classes/KopanoTest.php');
+require_once('classes/grommunioTest.php');
 
 /**
  * RecurringAppointmentTest
  *
  * Tests all possible cases for creating and opening recurring appointments.
  */
-class RecurringAppointmentTest extends KopanoTest {
+class RecurringAppointmentTest extends grommunioTest {
 	/**
 	 * The default user which is creating the appointments
 	 */
@@ -37,7 +37,7 @@ class RecurringAppointmentTest extends KopanoTest {
 	{
 		parent::setUp();
 
-		$this->user = $this->addUser(new CalendarUser(new KopanoUser(KOPANO_USER1_NAME, KOPANO_USER1_PASSWORD)));
+		$this->user = $this->addUser(new CalendarUser(new grommunioUser(GROMMUNIO_USER1_NAME, GROMMUNIO_USER1_PASSWORD)));
 
 		$this->appointment = array(
 			'props' => TestData::getAppointment()
@@ -339,7 +339,7 @@ class RecurringAppointmentTest extends KopanoTest {
 			array(array('type' => 13, 'subtype' => 2, 'regen' => 0, 'everyn' => 12, 'month' => 349920, 'monthday' => 17, 'term' => 35), 14),
 
 			// Occur on every August 11 of every year starting from same month, no end limit.
-			// expected occurences are 13 because countEnd configured as August 1st and ocurrence date is August 11th.
+			// expected occurrences are 13 because countEnd configured as August 1st and occurrence date is August 11th.
 			array(array('type' => 13, 'subtype' => 2, 'regen' => 0, 'everyn' => 12, 'month' => 305280, 'monthday' => 11, 'term' => 35), 13),
 
 			// Occur on every August 21 of every year starting from same month, no end limit

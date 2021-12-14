@@ -3,8 +3,8 @@ Ext.namespace('Zarafa.core.data');
 /**
  * @class Zarafa.core.data.IPMRecipientResolveProxy
  * @extends Zarafa.core.data.MAPIProxy
- * 
- * The IPMProxy communicates directly with a ListModule on server. It supports listing items, 
+ *
+ * The IPMProxy communicates directly with a ListModule on server. It supports listing items,
  * pagination, etc, and is supposed to work in conjunction with a list store and JSON reader.
  * <p>
  * Each instance of IPMProxy corresponds to a single MAPI folder and needs to be created with
@@ -14,7 +14,7 @@ Zarafa.core.data.IPMRecipientResolveProxy = Ext.extend(Zarafa.core.data.MAPIProx
 	/**
 	 * @cfg {String} listModuleName Name of the listModule on the server.
 	 */
-	listModuleName : 'resolvenamesmodule',
+	listModuleName: 'resolvenamesmodule',
 
 	/**
 	 * This will create a {@link Zarafa.core.data.ProxyResponseHandler ProxyResponseHandler} object
@@ -34,7 +34,7 @@ Zarafa.core.data.IPMRecipientResolveProxy = Ext.extend(Zarafa.core.data.MAPIProx
 	 * which should be used for this request.
 	 * @private
 	 */
-	getResponseHandlerForRequest : function(modulename, serverAction, action, records, parameters, reader, callback, scope, args)
+	getResponseHandlerForRequest: function(modulename, serverAction, action, records, parameters, reader, callback, scope, args)
 	{
 
 		return new Zarafa.core.data.IPMRecipientResolveResponseHandler({
@@ -58,7 +58,7 @@ Zarafa.core.data.IPMRecipientResolveProxy = Ext.extend(Zarafa.core.data.MAPIProx
 	 * @param {Object} scope scope for the call back function.
 	 * @param {Object} args arguments object. This will be passed to the call back function on successful read.
 	 */
-	request : function(action, records, parameters, reader, callback, scope, args)
+	request: function(action, records, parameters, reader, callback, scope, args)
 	{
 		switch (action)
 		{

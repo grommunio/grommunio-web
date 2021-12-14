@@ -14,19 +14,19 @@ Zarafa.settings.ui.SettingsCategoryWidgetPanel = Ext.extend(Ext.Container, {
 	 * @cfg {Zarafa.settings.SettingsContext} context The context which
 	 * is using this widget panel
 	 */
-	context : undefined,
+	context: undefined,
 
 	/**
 	 * @constructor
 	 * @param {Object} config Configuration object
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		config = config || {};
 
 		Ext.applyIf(config, {
-			layout : 'card',
-			cls : 'zarafa-settings-category-widget-panel'
+			layout: 'card',
+			cls: 'zarafa-settings-category-widget-panel'
 		});
 
 		Zarafa.settings.ui.SettingsCategoryWidgetPanel.superclass.constructor.call(this, config);
@@ -35,32 +35,67 @@ Zarafa.settings.ui.SettingsCategoryWidgetPanel = Ext.extend(Ext.Container, {
 			var model = this.context.getModel();
 
 			this.mon(this.context, {
-				viewchange : this.onViewChange,
-				viewmodechange : this.onViewModeChange,
-				scope : this
+				viewchange: this.onViewChange,
+				viewmodechange: this.onViewModeChange,
+				scope: this
 			});
 
 			this.mon(model, {
-				beforesavesettings : this.onBeforeSaveSettings,
-				savesettings : this.onSaveSettings,
-				discardsettings : this.onDiscardSettings,
-				scope : this
+				beforesavesettings: this.onBeforeSaveSettings,
+				savesettings: this.onSaveSettings,
+				discardsettings: this.onDiscardSettings,
+				scope: this
 			});
 		}
 
-		this.on('afterlayout', this.onAfterFirstLayout, this, { single : true });
+		this.on('afterlayout', this.onAfterFirstLayout, this, { single: true });
+		this.mon(container.getTabPanel(), 'beforetabchange', this.onTabChangeHandler, this);
 	},
 
 	/**
-	 * Event handler fired when this component is being {@link #doLayout layed out} for the
+	 * Event handler fired when this component is being {@link #doLayout laid out} for the
 	 * first time. This will activate the first registered category.
 	 * @private
 	 */
-	onAfterFirstLayout : function()
+	onAfterFirstLayout: function()
 	{
-		var item = this.get(0);
+		var item = this.get(this.getActiveTab());
+
+		// scroll the scroll bar to signature tab.
+		if (Ext.isDefined(this.context.scrollToSignatureWidget)) {
+			item.scrollToSignatureWidget = this.context.scrollToSignatureWidget;
+			delete this.context.scrollToSignatureWidget;
+		}
 
 		this.context.setView(item.id);
+	},
+
+	/**
+	 * Helper function which used to get the index of {@link Zarafa.settings.ui.SettingsCategoryTab activeTab}.
+	 *
+	 * @returns {Number} return the index of active tab.
+	 */
+	getActiveTab: function()
+	{
+		var activeTab = 0;
+		if (Ext.isDefined(this.context.defaultActiveTab)) {
+			activeTab = this.context.defaultActiveTab;
+			delete this.context.defaultActiveTab;
+		}
+		return activeTab;
+	},
+
+	/**
+	 * Event handler triggers when content tab panel is changed,
+	 * It will internally call {@link #onAfterFirstLayout} function.
+	 * Which select the {@link Zarafa.mail.settings.SettingsMailCategory SettingsMailCategory}
+	 * and set the focus on {@link Zarafa.mail.settings.SettingsSignaturesWidget SettingsSignaturesWidget}
+	 */
+	onTabChangeHandler: function()
+	{
+		if (Ext.isDefined(this.context.defaultActiveTab) && Ext.isDefined(this.context.scrollToSignatureWidget)){
+			this.onAfterFirstLayout();
+		}
 	},
 
 	/**
@@ -72,7 +107,7 @@ Zarafa.settings.ui.SettingsCategoryWidgetPanel = Ext.extend(Ext.Container, {
 	 * @param {Mixed} oldViewId the old view which was previously activated
 	 * @private
 	 */
-	onViewChange : function(context, viewId, oldViewId)
+	onViewChange: function(context, viewId, oldViewId)
 	{
 		var layout = this.getLayout();
 
@@ -90,7 +125,7 @@ Zarafa.settings.ui.SettingsCategoryWidgetPanel = Ext.extend(Ext.Container, {
 	 * @param {Mixed} oldViewId The old viewMode
 	 * @private
 	 */
-	onViewModeChange : function(context, viewMode, oldViewMode)
+	onViewModeChange: function(context, viewMode, oldViewMode)
 	{
 		var activeItem = this.getLayout().activeItem;
 		if (activeItem) {
@@ -112,7 +147,7 @@ Zarafa.settings.ui.SettingsCategoryWidgetPanel = Ext.extend(Ext.Container, {
 	 * @param {Zarafa.settings.SettingsModel} settingsModel The settings model which will be saved
 	 * @private
 	 */
-	onBeforeSaveSettings : function(model, settingsModel)
+	onBeforeSaveSettings: function(model, settingsModel)
 	{
 		var layout = this.getLayout();
 
@@ -128,7 +163,7 @@ Zarafa.settings.ui.SettingsCategoryWidgetPanel = Ext.extend(Ext.Container, {
 	 * @param {Zarafa.settings.SettingsModel} settingsModel The settings model which has been saved
 	 * @private
 	 */
-	onSaveSettings : function(model, settingsModel)
+	onSaveSettings: function(model, settingsModel)
 	{
 		var layout = this.getLayout();
 
@@ -144,7 +179,7 @@ Zarafa.settings.ui.SettingsCategoryWidgetPanel = Ext.extend(Ext.Container, {
 	 * @param {Zarafa.settings.SettingsModel} settingsModel The settings model which has been reverted
 	 * @private
 	 */
-	onDiscardSettings : function(model, settingsModel)
+	onDiscardSettings: function(model, settingsModel)
 	{
 		var layout = this.getLayout();
 

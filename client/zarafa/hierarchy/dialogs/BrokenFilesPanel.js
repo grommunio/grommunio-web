@@ -12,18 +12,18 @@ Zarafa.hierarchy.dialogs.BrokenFilesPanel = Ext.extend(Ext.Panel, {
 	 * @cfg {Array} records The {@link Zarafa.core.data.IPMRecord record(s)} which are being
 	 * used in this panel
 	 */
-	records : undefined,
+	records: undefined,
 
 	/**
 	 * @constructor
 	 * @param config Configuration structure
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		config = config || {};
 
 		Ext.applyIf(config, {
-			xtype : 'zarafa.brokenfilespanel',
+			xtype: 'zarafa.brokenfilespanel',
 			layout: {
 				type: 'vbox',
 				align: 'stretch'
@@ -39,27 +39,27 @@ Zarafa.hierarchy.dialogs.BrokenFilesPanel = Ext.extend(Ext.Panel, {
 	 * Prepare all the components of warning dialog.
 	 * @return {Array} Array containing all the required components
 	 */
-	getMixAttachComponents : function()
+	getMixAttachComponents: function()
 	{
 		return [{
 			xtype: 'displayfield',
 			value: _('Unable to import:'),
-			hideLabel : true,
-			htmlEncode : true
+			hideLabel: true,
+			htmlEncode: true
 		}, {
 			xtype: 'textarea',
 			hideLabel: true,
 			flex: 1,
-			readOnly : true,
+			readOnly: true,
 			listeners: {
-				afterrender : this.onAfterRenderTextArea,
+				afterrender: this.onAfterRenderTextArea,
 				scope: this
 			}
 		}, {
 			xtype: 'displayfield',
 			value: _('The files are not valid'),
-			hideLabel : true,
-			htmlEncode : true
+			hideLabel: true,
+			htmlEncode: true
 		}];
 	},
 
@@ -69,7 +69,7 @@ Zarafa.hierarchy.dialogs.BrokenFilesPanel = Ext.extend(Ext.Panel, {
 	 * @param {Ext.form.TextArea} leftoutTextArea The textarea
 	 * @return {String} list of unsupported attachments, separated by escaping sequence
 	 */
-	onAfterRenderTextArea : function(leftOutTextArea)
+	onAfterRenderTextArea: function(leftOutTextArea)
 	{
 		var leftOutList = "";
 

@@ -14,66 +14,66 @@ Zarafa.calendar.settings.SettingsReminderWidget = Ext.extend(Zarafa.settings.ui.
 	 * @constructor
 	 * @param {Object} config Configuration object
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		config = config || {};
 
 		Ext.applyIf(config, {
-			title : _('Reminder settings'),
-			layout : 'form',
-			items : [{
-				xtype : 'checkbox',
-				ref : 'reminderCheck',
-				boxLabel : _('Enable reminder for new appointments'),
-				hideLabel : true,
-				name : 'zarafa/v1/contexts/calendar/default_reminder',
-				listeners : {
-					check : this.onReminderCheck,
-					scope : this
+			title: _('Reminder settings'),
+			layout: 'form',
+			items: [{
+				xtype: 'checkbox',
+				ref: 'reminderCheck',
+				boxLabel: _('Enable reminder for new appointments'),
+				hideLabel: true,
+				name: 'zarafa/v1/contexts/calendar/default_reminder',
+				listeners: {
+					check: this.onReminderCheck,
+					scope: this
 				}
 			},{
-				xtype : 'combo',
-				ref : 'timeCombo',
-				fieldLabel : _('Default reminder time'),
-				name : 'zarafa/v1/contexts/calendar/default_reminder_time',
-				store : {
+				xtype: 'combo',
+				ref: 'timeCombo',
+				fieldLabel: _('Default reminder time'),
+				name: 'zarafa/v1/contexts/calendar/default_reminder_time',
+				store: {
 					xtype: 'jsonstore',
 					fields: ['name', 'value'],
-					data : Zarafa.calendar.data.ReminderPeriods		
+					data: Zarafa.calendar.data.ReminderPeriods
 				},
 				mode: 'local',
 				triggerAction: 'all',
 				displayField: 'name',
 				valueField: 'value',
 				lazyInit: false,
-				autoSelect : true,
+				autoSelect: true,
 				forceSelection: true,
 				editable: false,
-				listeners : {
-					select : this.onFieldSelect,
-					scope : this
+				listeners: {
+					select: this.onFieldSelect,
+					scope: this
 				}
 			},{
-				xtype : 'combo',
-				ref : 'alldayTimeCombo',
-				fieldLabel : _('Default all-day appointment reminder time'),
-				name : 'zarafa/v1/contexts/calendar/default_allday_reminder_time',
-				store : {
+				xtype: 'combo',
+				ref: 'alldayTimeCombo',
+				fieldLabel: _('Default all-day appointment reminder time'),
+				name: 'zarafa/v1/contexts/calendar/default_allday_reminder_time',
+				store: {
 					xtype: 'jsonstore',
 					fields: ['name', 'value'],
-					data : Zarafa.calendar.data.ReminderPeriods		
+					data: Zarafa.calendar.data.ReminderPeriods
 				},
 				mode: 'local',
 				triggerAction: 'all',
 				displayField: 'name',
 				valueField: 'value',
 				lazyInit: false,
-				autoSelect : true,
+				autoSelect: true,
 				forceSelection: true,
 				editable: false,
-				listeners : {
-					select : this.onFieldSelect,
-					scope : this
+				listeners: {
+					select: this.onFieldSelect,
+					scope: this
 				}
 			}]
 		});
@@ -88,7 +88,7 @@ Zarafa.calendar.settings.SettingsReminderWidget = Ext.extend(Zarafa.settings.ui.
 	 * {@link Zarafa.settings.SettingsModel} into the UI of this category.
 	 * @param {Zarafa.settings.SettingsModel} settingsModel The settings to load
 	 */
-	update : function(settingsModel)
+	update: function(settingsModel)
 	{
 		this.model = settingsModel;
 
@@ -98,7 +98,9 @@ Zarafa.calendar.settings.SettingsReminderWidget = Ext.extend(Zarafa.settings.ui.
 		this.alldayTimeCombo.setValue(settingsModel.get(this.alldayTimeCombo.name));
 
 		this.timeCombo.setDisabled(!enabled);
+		this.timeCombo.disableLabel(!enabled);
 		this.alldayTimeCombo.setDisabled(!enabled);
+		this.alldayTimeCombo.disableLabel(!enabled);
 	},
 
 	/**
@@ -107,7 +109,7 @@ Zarafa.calendar.settings.SettingsReminderWidget = Ext.extend(Zarafa.settings.ui.
 	 * This is used to update the settings from the UI into the {@link Zarafa.settings.SettingsModel settings model}.
 	 * @param {Zarafa.settings.SettingsModel} settingsModel The settings to update
 	 */
-	updateSettings : function(settingsModel)
+	updateSettings: function(settingsModel)
 	{
 		settingsModel.beginEdit();
 		settingsModel.set(this.reminderCheck.name, this.reminderCheck.getValue());
@@ -122,7 +124,7 @@ Zarafa.calendar.settings.SettingsReminderWidget = Ext.extend(Zarafa.settings.ui.
 	 * @param {Boolean} check True if the checkbox is currently checked
 	 * @private
 	 */
-	onReminderCheck : function(field, check)
+	onReminderCheck: function(field, check)
 	{
 		if (this.model) {
 			// FIXME: The settings model should be able to detect if
@@ -133,7 +135,9 @@ Zarafa.calendar.settings.SettingsReminderWidget = Ext.extend(Zarafa.settings.ui.
 		}
 
 		this.timeCombo.setDisabled(!check);
+		this.timeCombo.disableLabel(!check);
 		this.alldayTimeCombo.setDisabled(!check);
+		this.alldayTimeCombo.disableLabel(!check);
 	},
 
 	/**
@@ -143,7 +147,7 @@ Zarafa.calendar.settings.SettingsReminderWidget = Ext.extend(Zarafa.settings.ui.
 	 * @param {Ext.data.Record} record The selected record
 	 * @private
 	 */
-	onFieldSelect : function(field, record)
+	onFieldSelect: function(field, record)
 	{
 		if (this.model) {
 			var set = record.get(field.valueField);

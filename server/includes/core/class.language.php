@@ -6,11 +6,11 @@
 	 */
 	class Language {
 
-		private $languages =array("en_GB.UTF-8"=>"English (British)");
-		private $languagetable = array("en_GB"=>"eng_ENG");
+		private $languages = array("en_US.UTF-8" => "English");
+		private $languagetable = array("en_US" => "eng_USA");
 		private $lang;
 		private $loaded = false;
-			
+
 		/**
 		 * Default constructor
 		 *
@@ -21,7 +21,7 @@
 		function __construct()
 		{
 		}
-		
+
 		/**
 		* Loads languages from disk
 		*
@@ -59,7 +59,7 @@
 						$lang_title = fgets($fh);
 						$lang_table = fgets($fh);
 						fclose($fh);
-						$this->languages[$entry] = trim($lang_title);
+						$this->languages[$entry] = "$langcode: ".trim($lang_title);
 						$this->languagetable[$entry] = trim($lang_table);
 					}
 				}
@@ -144,7 +144,7 @@
 			}
 			return json_encode($json);
 		}
-	
+
 		/**
 		* Returns the ID of the currently selected language
 		*
@@ -154,11 +154,11 @@
 		{
 			return $this->lang;
 		}
-	
+
 		/**
 		* Returns if the specified language is valid or not
 		*
-		* @param string $lang 
+		* @param string $lang
 		* @return boolean TRUE if the language is valid
 		*/
 		function is_language($lang)
@@ -167,8 +167,8 @@
 		}
 
 		/**
-		 * Returns the resolved language code, i.e. ending on UTF-8. 
-		 * Examples: 
+		 * Returns the resolved language code, i.e. ending on UTF-8.
+		 * Examples:
 		 *  - en_GB => en.GB.UTF-8
 		 *  - en_GB.utf8 => en_GB.UTF-8
 		 *  - en_GB.UTF-8 => en_GB.UTF-8 (no changes)
@@ -183,7 +183,7 @@
 				// Make sure we will use the format UTF-8 (capitals and hyphen)
 				return $normalizedLang .= '.UTF-8';
 			}
-			
+
 			$normalizedLang = stristr($lang, '.utf8', true);
 			if ( !empty($normalizedLang) && $normalizedLang !== $lang ) {
 				// Make sure we will use the format UTF-8 (capitals and hyphen)
@@ -201,24 +201,24 @@
 				if (empty($cache_table)) {
 					@shm_remove_var($memid, 0);
 					@shm_detach($memid);
-					return Array('zarafa_webapp'=>Array());
+					return Array('grommunio_web'=>Array());
 				}
 				$translation_id = $cache_table[$this->getSelected()];
 				if (empty($translation_id)) {
 					@shm_detach($memid);
-					return Array('zarafa_webapp'=>Array());
+					return Array('grommunio_web'=>Array());
 				}
 				$translations = @shm_get_var($memid, $translation_id);
 				@shm_detach($memid);
 				if (empty($translations)) {
-					return Array('zarafa_webapp'=>Array());
+					return Array('grommunio_web'=>Array());
 				}
 				return $translations;
 			}
 			$handle = opendir(LANGUAGE_DIR);
 			if (false == $handle) {
 				@shm_detach($memid);
-				return Array('zarafa_webapp'=>Array());
+				return Array('grommunio_web'=>Array());
 			}
 			$last_id = 1;
 			$cache_table = Array();
@@ -228,8 +228,8 @@
 					continue;	
 				}
 				$translations = Array();
-				$translations['zarafa_webapp'] = $this->getTranslationsFromFile(LANGUAGE_DIR.$entry.'/LC_MESSAGES/zarafa_webapp.mo');
-				if (!$translations['zarafa_webapp']) {
+				$translations['grommunio_web'] = $this->getTranslationsFromFile(LANGUAGE_DIR.$entry.'/LC_MESSAGES/grommunio_web.mo');
+				if (!$translations['grommunio_web']) {
 					continue;
 				}
 				if (isset($GLOBALS['PluginManager'])) {
@@ -253,19 +253,19 @@
 			@shm_put_var($memid, 0, $cache_table);
 			@shm_detach($memid);
 			if (empty($ret_val)) {
-				return Array('zarafa_webapp'=>Array());
+				return Array('grommunio_web'=>Array());
 			}
 			return $ret_val;
 		}
 
 		/**
 		 * getTranslationsFromFile
-		 * 
+		 *
 		 * This file reads the translations from the binary .mo file and returns
 		 * them in an array containing the original and the translation variant.
 		 * The .mo file format is described on the following URL.
 		 * http://www.gnu.org/software/gettext/manual/gettext.html#MO-Files
-		 * 
+		 *
 		 *          byte
 		 *               +------------------------------------------+
 		 *            0  | magic number = 0x950412de                |
@@ -313,7 +313,7 @@
 		 *                ...                                    ...
 		 *               |                                          |
 		 *               +------------------------------------------+
-		 * 
+		 *
 		 * @param $filename string Name of the .mo file.
 		 * @return array|boolean false when file is missing otherwise array with
 		 *                             translations.
@@ -345,7 +345,7 @@
 			$data_transl_strs = Array();
 
 			/**
-			 * Get the length and offset to the original strings by using the table 
+			 * Get the length and offset to the original strings by using the table
 			 * with original strings
 			 */
 			// Set pointer to start of orig string table
@@ -358,7 +358,7 @@
 			}
 
 			/**
-			 * Get the length and offset to the translation strings by using the table 
+			 * Get the length and offset to the translation strings by using the table
 			 * with translation strings
 			 */
 			// Set pointer to start of translations string table
@@ -401,7 +401,7 @@
 						$translation_data[$i]['msgid'] = $original[0];
 						$translation_data[$i]['msgid_plural'] = $original[1];
 					}
-				}else{
+				} else {
 					$translation_data[$i]['msgid'] = '';
 				}
 			}
@@ -424,7 +424,7 @@
 					if($translation_data[$i]['msgid_plural'] !== false) {
 						$translation_data[$i]['msgstr'] = explode("\0", $translation_data[$i]['msgstr']);
 					}
-				}else{
+				} else {
 					$translation_data[$i]['msgstr'] = '';
 				}
 			}

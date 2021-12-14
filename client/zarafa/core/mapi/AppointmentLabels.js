@@ -3,9 +3,9 @@ Ext.namespace('Zarafa.core.mapi');
 /**
  * @class Zarafa.core.mapi.AppointmentLabels
  * @extends Zarafa.core.Enum
- * 
+ *
  * Enumerates the different appointment labels
- * 
+ *
  * @singleton
  */
 Zarafa.core.mapi.AppointmentLabels = Zarafa.core.Enum.create({
@@ -16,7 +16,7 @@ Zarafa.core.mapi.AppointmentLabels = Zarafa.core.Enum.create({
 	 * @property
 	 * @type Number
 	 */
-	NONE : 0,
+	NONE: 0,
 
 	/**
 	 * Mark appointment as important
@@ -24,7 +24,7 @@ Zarafa.core.mapi.AppointmentLabels = Zarafa.core.Enum.create({
 	 * @property
 	 * @type Number
 	 */
-	IMPORTANT : 1,
+	IMPORTANT: 1,
 
 	/**
 	 * Mark appointment as work
@@ -32,7 +32,7 @@ Zarafa.core.mapi.AppointmentLabels = Zarafa.core.Enum.create({
 	 * @property
 	 * @type Number
 	 */
-	WORK :  2,
+	WORK: 2,
 
 	/**
 	 * Mark appointment as personal
@@ -40,7 +40,7 @@ Zarafa.core.mapi.AppointmentLabels = Zarafa.core.Enum.create({
 	 * @property
 	 * @type Number
 	 */
-	PERSONAL :  3,
+	PERSONAL: 3,
 
 	/**
 	 * Mark appointment as holiday
@@ -48,7 +48,7 @@ Zarafa.core.mapi.AppointmentLabels = Zarafa.core.Enum.create({
 	 * @property
 	 * @type Number
 	 */
-	HOLIDAY : 4,
+	HOLIDAY: 4,
 
 	/**
 	 * Mark appointment as required
@@ -56,7 +56,7 @@ Zarafa.core.mapi.AppointmentLabels = Zarafa.core.Enum.create({
 	 * @property
 	 * @type Number
 	 */
-	REQUIRED : 5,
+	REQUIRED: 5,
 
 	/**
 	 * Mark appointment as travel required
@@ -64,7 +64,7 @@ Zarafa.core.mapi.AppointmentLabels = Zarafa.core.Enum.create({
 	 * @property
 	 * @type Number
 	 */
-	TRAVEL_REQUIRED : 6,
+	TRAVEL_REQUIRED: 6,
 
 	/**
 	 * Mark appointment as prepare required
@@ -72,7 +72,7 @@ Zarafa.core.mapi.AppointmentLabels = Zarafa.core.Enum.create({
 	 * @property
 	 * @type Number
 	 */
-	PREPARATION_REQUIRED : 7,
+	PREPARATION_REQUIRED: 7,
 
 	/**
 	 * Mark appointment as birthday
@@ -80,7 +80,7 @@ Zarafa.core.mapi.AppointmentLabels = Zarafa.core.Enum.create({
 	 * @property
 	 * @type Number
 	 */
-	BIRTHDAY : 8,
+	BIRTHDAY: 8,
 
 	/**
 	 * Mark appointment as special day
@@ -88,7 +88,7 @@ Zarafa.core.mapi.AppointmentLabels = Zarafa.core.Enum.create({
 	 * @property
 	 * @type Number
 	 */
-	SPECIAL_DATE : 9,
+	SPECIAL_DATE: 9,
 
 	/**
 	 * Mark appointment as phone interview
@@ -96,14 +96,14 @@ Zarafa.core.mapi.AppointmentLabels = Zarafa.core.Enum.create({
 	 * @property
 	 * @type Number
 	 */
-	PHONE_INTERVIEW : 10,
+	PHONE_INTERVIEW: 10,
 
 	/**
 	 * Return the display name for the given Appointment label
 	 * @param {Zarafa.core.mapi.AppointmentLabels} label The given appointment label
 	 * @return {String} The display name for the appointment label
 	 */
-	getDisplayName : function(label)
+	getDisplayName: function(label)
 	{
 		switch(label) {
 			case Zarafa.core.mapi.AppointmentLabels.NONE:

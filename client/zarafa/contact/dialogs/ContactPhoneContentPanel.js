@@ -15,30 +15,30 @@ Zarafa.contact.dialogs.ContactPhoneContentPanel = Ext.extend(Zarafa.core.ui.Reco
 	/**
 	 * @cfg {Zarafa.contact.data.ContactDetailsParser} parser parser object that will be used to parse information
 	 */
-	parser : null,
+	parser: null,
 
 	/**
 	 * @cfg {String} property property that will be modified
 	 */
-	property : null,
+	property: null,
 
 	/**
 	 * @constructor
 	 * @param {Object} config Configuration structure
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		config = config || {};
 
 		Ext.applyIf(config, {
-			xtype : 'zarafa.contactphonecontentpanel',
-			layout : 'fit',
+			xtype: 'zarafa.contactphonecontentpanel',
+			layout: 'fit',
 			border: false,
 			title: _('Check phone number'),
-			recordComponentPluginConfig : Ext.applyIf(config.recordComponentPluginConfig || {}, {
-				allowWrite : true
+			recordComponentPluginConfig: Ext.applyIf(config.recordComponentPluginConfig || {}, {
+				allowWrite: true
 			}),
-			autoSave : false,
+			autoSave: false,
 			width: 400,
 			height: 250,
 			items: [{
@@ -47,14 +47,14 @@ Zarafa.contact.dialogs.ContactPhoneContentPanel = Ext.extend(Zarafa.core.ui.Reco
 				parser: config.parser,
 				parsedData: config.parsedData,
 				property: config.property,
-				buttons : [{
-					text : _('Ok'),
-					handler : this.onOk,
-					scope : this
+				buttons: [{
+					text: _('Ok'),
+					handler: this.onOk,
+					scope: this
 				},{
-					text : _('Cancel'),
-					scope : this,
-					handler : this.onCancel
+					text: _('Cancel'),
+					scope: this,
+					handler: this.onCancel
 				}]
 			}]
 		});

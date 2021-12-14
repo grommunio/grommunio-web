@@ -6,13 +6,13 @@ Ext.namespace('Zarafa.whatsnew');
 
 /**
  * This object describes the new features that should be shown to users one time after updating
- * the WebApp.
+ * grommunio Web.
  * NOTE: Plugins can add the same property to their main plugin class to communicate new features.
- * WebApp must use urls relative to the root of the WebApp. Plugins must use urls relative to the
+ * WebApp must use urls relative to the root of grommunio Web. Plugins must use urls relative to the
  * root directory of the plugin.
  */
 Zarafa.whatsnew.Features = {
-	// The features described here will only be shown when the version of the WebApp corresponds to
+	// The features described here will only be shown when the version of grommunio Web corresponds to
 	// the version set here.
 	"version": '3.5.0',
 
@@ -24,7 +24,7 @@ Zarafa.whatsnew.Features = {
 	// 'icon_url': optional
 	"features": [{
 		"title": _('Import / Export'),
-		"description": _('Calendar, contact and mail items can be imported and exported from and to WebApp.') +
+		"description": _('Calendar, contact and mail items can be imported and exported from and to grommunio Web.') +
 		'<br><br>' +
 		_('Right-click a folder and select the import button. Additionally, items can be imported from the attachment context menu.') +
 		_('Exporting can be done from the context menu of an item.'),

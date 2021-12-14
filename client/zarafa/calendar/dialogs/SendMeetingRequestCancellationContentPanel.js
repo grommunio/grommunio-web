@@ -10,23 +10,23 @@ Zarafa.calendar.dialogs.SendMeetingRequestCancellationContentPanel = Ext.extend(
 	 * @cfg {Zarafa.core.ui.IPMRecord} record The record for which the
 	 * cancellation content panel is opened.
 	 */
-	record : undefined,
+	record: undefined,
 
 	/**
 	 * @cfg {Boolean} autoSave Automatically save all changes on the
 	 * {@link Zarafa.core.data.IPMRecord IPMRecord} to the
 	 * {@link Zarafa.core.data.IPMStore IPMStore}.
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		config = config || {};
 
 		config = Ext.applyIf(config, {
 			// Override from Ext.Component
-			xtype : 'zarafa.sendmeetingrequestcancellationcontentpanel',
+			xtype: 'zarafa.sendmeetingrequestcancellationcontentpanel',
 			layout: 'fit',
 			title: _('Send Meeting Request Cancellation'),
-			modal : true,
+			modal: true,
 			width: 350,
 			height: 250,
 			items: [{
@@ -52,7 +52,7 @@ Zarafa.calendar.dialogs.SendMeetingRequestCancellationContentPanel = Ext.extend(
 	 * Event handler which is raised when the user clicks the "Ok" {@link Ext.Button button}
 	 * @private
 	 */
-	onOk : function()
+	onOk: function()
 	{
 		this.sendMRCancellationPanel.updateRecord(this.record);
 		this.close();
@@ -64,7 +64,7 @@ Zarafa.calendar.dialogs.SendMeetingRequestCancellationContentPanel = Ext.extend(
 	 * This will close the panel.
 	 * @private
 	 */
-	onCancel : function()
+	onCancel: function()
 	{
 		this.close();
 	}

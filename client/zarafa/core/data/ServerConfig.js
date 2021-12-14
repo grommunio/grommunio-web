@@ -15,13 +15,13 @@ Zarafa.core.data.ServerConfig = Ext.extend(Object, {
 	 * @property
 	 * @type Object
 	 */
-	meta : undefined,
+	meta: undefined,
 
 	/**
 	 * @constructor
 	 * @param {Object} config Configuration object
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		this.meta = config;
 	},
@@ -29,7 +29,7 @@ Zarafa.core.data.ServerConfig = Ext.extend(Object, {
 	/**
 	 * @return {String} the base url of the WebApp
 	 */
-	getBaseUrl : function()
+	getBaseUrl: function()
 	{
 		return this.meta.base_url;
 	},
@@ -37,7 +37,7 @@ Zarafa.core.data.ServerConfig = Ext.extend(Object, {
 	/**
 	 * @return {String} the title of the WebApp
 	 */
-	getWebappTitle : function()
+	getWebappTitle: function()
 	{
 		return this.meta.webapp_title;
 	},
@@ -45,7 +45,7 @@ Zarafa.core.data.ServerConfig = Ext.extend(Object, {
 	/**
 	 * @return {Boolean} True if the GAB list should only be enabled when searching
 	 */
-	isFullGabDisabled : function()
+	isFullGabDisabled: function()
 	{
 		return this.meta.disable_full_gab === true;
 	},
@@ -54,7 +54,7 @@ Zarafa.core.data.ServerConfig = Ext.extend(Object, {
 	 * @return {Boolean} True if it should be possible to set rules on the store
 	 * of other users.
 	 */
-	isSharedRulesEnabled : function()
+	isSharedRulesEnabled: function()
 	{
 		return this.meta.enable_shared_rules === true;
 	},
@@ -62,7 +62,7 @@ Zarafa.core.data.ServerConfig = Ext.extend(Object, {
 	/**
 	 * @return {Boolean} True if WebApp is using Single Sign-On to login
 	 */
-	usingSSO : function()
+	usingSSO: function()
 	{
 		return this.meta.using_sso;
 	},
@@ -70,7 +70,7 @@ Zarafa.core.data.ServerConfig = Ext.extend(Object, {
 	/**
 	 * @return {Boolean} True if Plugins are enabled
 	 */
-	isPluginsEnabled : function()
+	isPluginsEnabled: function()
 	{
 		return this.meta.enable_plugins;
 	},
@@ -79,7 +79,7 @@ Zarafa.core.data.ServerConfig = Ext.extend(Object, {
 	 * @return {String} A semicolon separated list of plugins that cannot be
 	 * disabled by the user.
 	 */
-	getAlwaysEnabledPluginsList : function()
+	getAlwaysEnabledPluginsList: function()
 	{
 		return this.meta.always_enabled_plugins || '';
 	},
@@ -87,15 +87,15 @@ Zarafa.core.data.ServerConfig = Ext.extend(Object, {
 	/**
 	 * @return {Boolean} True if the What's New dialog is disabled
 	 */
-	isWhatsNewDialogDisabled : function()
+	isWhatsNewDialogDisabled: function()
 	{
-		return this.meta.disable_whats_new_dialog === true;
+		return this.meta.enable_whats_new_dialog === false;
 	},
 
 	/**
 	 * @return {Boolean} True if Advanced Settings are enabled
 	 */
-	isAdvancedSettingsEnabled : function()
+	isAdvancedSettingsEnabled: function()
 	{
 		return this.meta.enable_advanced_settings;
 	},
@@ -103,15 +103,23 @@ Zarafa.core.data.ServerConfig = Ext.extend(Object, {
 	/**
 	 * @return {Number} The maximum number of allowed attachments in a single message
 	 */
-	getMaxAttachments : function()
+	getMaxAttachments: function()
 	{
 		return this.meta.max_attachments;
 	},
 
 	/**
+	 * @return {String} The base url for webapp help manual plugin.
+	 */
+	getWebappManualUrl: function()
+	{
+		return this.meta.plugin_webappmanual_url;
+	},
+
+	/**
 	 * @return {Number} The maximum number of files that can be uploaded via a single request.
 	 */
-	getMaxFileUploads : function()
+	getMaxFileUploads: function()
 	{
 		return this.meta.max_file_uploads;
 	},
@@ -119,7 +127,7 @@ Zarafa.core.data.ServerConfig = Ext.extend(Object, {
 	/**
 	 * @reutn {Number} The maximum attachment size allowed to attach in single request.
 	 */
-	getMaxPostRequestSize : function()
+	getMaxPostRequestSize: function()
 	{
 		return this.meta.post_max_size;
 	},
@@ -127,7 +135,7 @@ Zarafa.core.data.ServerConfig = Ext.extend(Object, {
 	/**
 	 * @return {Number} The maximum size of a single attachment
 	 */
-	getMaxAttachmentSize : function()
+	getMaxAttachmentSize: function()
 	{
 		return this.meta.max_attachment_size;
 	},
@@ -135,7 +143,7 @@ Zarafa.core.data.ServerConfig = Ext.extend(Object, {
 	/**
 	 * @return {Number} The maximum size of all attachments in a single message combined
 	 */
-	getMaxAttachmentTotalSize : function()
+	getMaxAttachmentTotalSize: function()
 	{
 		return this.meta.max_attachment_total_size;
 	},
@@ -143,7 +151,7 @@ Zarafa.core.data.ServerConfig = Ext.extend(Object, {
 	/**
 	 * @return {Number} The start offset to use when loading freebusy data
 	 */
-	getFreebusyLoadStartOffset : function()
+	getFreebusyLoadStartOffset: function()
 	{
 		return this.meta.freebusy_load_start_offset;
 	},
@@ -151,7 +159,7 @@ Zarafa.core.data.ServerConfig = Ext.extend(Object, {
 	/**
 	 * @return {Number} The end offset to use when loading freebusy data
 	 */
-	getFreebusyLoadEndOffset : function()
+	getFreebusyLoadEndOffset: function()
 	{
 		return this.meta.freebusy_load_end_offset;
 	},
@@ -159,7 +167,7 @@ Zarafa.core.data.ServerConfig = Ext.extend(Object, {
 	/**
 	 * @return {Number} The upper limit of the eml files allowed to be included in single ZIP archive
 	 */
-	getMaxEmlFilesInZIP : function()
+	getMaxEmlFilesInZIP: function()
 	{
 		return this.meta.maximum_eml_files_in_zip;
 	},
@@ -167,7 +175,7 @@ Zarafa.core.data.ServerConfig = Ext.extend(Object, {
 	/**
 	 * @return {Mixed} The client timeout time (in seconds) if set or false otherwise.
 	 */
-	getClientTimeout : function()
+	getClientTimeout: function()
 	{
 		return this.meta.client_timeout;
 	},
@@ -175,23 +183,15 @@ Zarafa.core.data.ServerConfig = Ext.extend(Object, {
 	/**
 	 * @return {String} The active theme selected by admin or user.
 	 */
-	getActiveTheme : function()
+	getActiveTheme: function()
 	{
 		return this.meta.active_theme;
 	},
 
 	/**
-	 * @return {Boolean} is custom theme available
-	 */
-	getCustomTheme : function()
-	{
-		return this.meta.custom_theme;
-	},
-
-	/**
 	 * @return {Array} The installed json themes
 	 */
-	getJsonThemes : function()
+	getJsonThemes: function()
 	{
 		return this.meta.json_themes;
 	},
@@ -199,7 +199,7 @@ Zarafa.core.data.ServerConfig = Ext.extend(Object, {
 	/**
 	 * @return {String} The active iconset selected by admin or user.
 	 */
-	getActiveIconset : function()
+	getActiveIconset: function()
 	{
 		return this.meta.active_iconset;
 	},
@@ -207,7 +207,7 @@ Zarafa.core.data.ServerConfig = Ext.extend(Object, {
 	/**
 	 * @return {Array} The installed iconsets
 	 */
-	getIconsets : function()
+	getIconsets: function()
 	{
 		return this.meta.iconsets;
 	},
@@ -216,7 +216,7 @@ Zarafa.core.data.ServerConfig = Ext.extend(Object, {
 	 * @return {String|Boolean} The primary color for SVG icons if defined by the active theme,
 	 * or false otherwise
 	 */
-	getPrimaryIconColor : function()
+	getPrimaryIconColor: function()
 	{
 		return this.meta.icons_primary_color;
 	},
@@ -225,7 +225,7 @@ Zarafa.core.data.ServerConfig = Ext.extend(Object, {
 	 * @return {String|Boolean} The secondary color for SVG icons if defined by the active theme,
 	 * or false otherwise
 	 */
-	getSecondaryIconColor : function()
+	getSecondaryIconColor: function()
 	{
 		return this.meta.icons_secondary_color;
 	},
@@ -233,7 +233,7 @@ Zarafa.core.data.ServerConfig = Ext.extend(Object, {
 	/**
 	 * @return {Object} The about texts of iconsets
 	 */
-	getIconsetAbouts : function()
+	getIconsetAbouts: function()
 	{
 		return this.meta.iconsets_about;
 	},
@@ -241,7 +241,7 @@ Zarafa.core.data.ServerConfig = Ext.extend(Object, {
 	/**
  	 * @return {Array} returns the installed plugins version information array.
 	 */
-	getPluginsVersion : function()
+	getPluginsVersion: function()
 	{
 		return this.meta.version_info;
 	},
@@ -249,7 +249,7 @@ Zarafa.core.data.ServerConfig = Ext.extend(Object, {
 	/**
 	 * @return {Boolean} True if VCF import functionality is supported on backend, false otherwise.
 	 */
-	isVCfImportSupported : function()
+	isVCfImportSupported: function()
 	{
 		return this.meta.is_vcfimport_supported;
 	},
@@ -257,7 +257,7 @@ Zarafa.core.data.ServerConfig = Ext.extend(Object, {
 	/**
 	 * @return {Boolean} True if ICS and VCS import functionality is supported on backend, false otherwise.
 	 */
-	isICSImportSupported : function()
+	isICSImportSupported: function()
 	{
 		return this.meta.is_icsimport_supported;
 	},
@@ -265,7 +265,7 @@ Zarafa.core.data.ServerConfig = Ext.extend(Object, {
 	/**
 	 * @return {Array} returns the color schemes defined in config.php/default.php.
 	 */
-	getColorSchemes : function()
+	getColorSchemes: function()
 	{
 		return this.meta.color_schemes;
 	},
@@ -273,7 +273,7 @@ Zarafa.core.data.ServerConfig = Ext.extend(Object, {
 	/**
 	 * @return {Array} returns the additional color schemes defined in config.php/default.php.
 	 */
-	getAdditionalColorSchemes : function()
+	getAdditionalColorSchemes: function()
 	{
 		return this.meta.additional_color_schemes;
 	},
@@ -281,7 +281,7 @@ Zarafa.core.data.ServerConfig = Ext.extend(Object, {
 	/**
 	 * @return {Array} returns the categories defined in config.php/default.php.
 	 */
-	getDefaultCategories : function()
+	getDefaultCategories: function()
 	{
 		return this.meta.default_categories;
 	},
@@ -289,7 +289,7 @@ Zarafa.core.data.ServerConfig = Ext.extend(Object, {
 	/**
 	 * @return {Array} returns the additional categories defined in config.php/default.php.
 	 */
-	getAdditionalDefaultCategories : function()
+	getAdditionalDefaultCategories: function()
 	{
 		return this.meta.additional_default_categories;
 	},
@@ -321,7 +321,7 @@ Zarafa.core.data.ServerConfig = Ext.extend(Object, {
 	/**
 	 * @return {Number} return the shared stores polling interval in microseconds
 	 */
-	getSharedStorePollingInterval : function()
+	getSharedStorePollingInterval: function()
 	{
 		return this.meta.shared_store_polling_interval * 60000;
 	},
@@ -329,7 +329,7 @@ Zarafa.core.data.ServerConfig = Ext.extend(Object, {
 	/**
 	 * @return {Number} return the amount of emails to load in the background
 	 */
-	getPrefetchTotalCount : function()
+	getPrefetchTotalCount: function()
 	{
 		return this.meta.prefetch_email_count;
 	},
@@ -337,7 +337,7 @@ Zarafa.core.data.ServerConfig = Ext.extend(Object, {
 	/**
 	 * @return {Number} return the interval in microseconds to load new emails in the background.
 	 */
-	getPrefetchInterval : function()
+	getPrefetchInterval: function()
 	{
 		return this.meta.prefetch_email_interval * 1000;
 	},
@@ -348,5 +348,37 @@ Zarafa.core.data.ServerConfig = Ext.extend(Object, {
 	getDOMPurifyEnabled: function ()
 	{
 		return this.meta.enable_dompurify;
+	},
+
+	/**
+	 * @returns {Boolean} True if file previewer is enabled by admin(from config.php) else false.
+	 */
+	isFilePreviewerEnabled: function ()
+	{
+		return this.meta.enable_file_previewer;
+	},
+
+	/**
+	 * @returns {Boolean} True if theming is enabled by admin(from config.php) else false.
+	 */
+	isThemingEnabled: function ()
+	{
+		return this.meta.enable_themes;
+	},
+
+	/**
+	 * @returns {Boolean} True if iconsets are enabled by admin(from config.php) else false.
+	 */
+	isIconSetsEnabled: function ()
+	{
+		return this.meta.enable_iconsets;
+	},
+
+	/**
+	 * @returns {Boolean} True if widgets are enabled by admin(from config.php) else false.
+	 */
+	isWidgetEnabled : function()
+	{
+		return this.meta.enable_widgets;
 	}
 });

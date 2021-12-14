@@ -17,7 +17,7 @@ Zarafa.settings.SettingsContextModel = Ext.extend(Zarafa.core.ContextModel, {
 	 * @type Zarafa.settings.SettingsModel
 	 * @private
 	 */
-	realModel : undefined,
+	realModel: undefined,
 
 	/**
 	 * Copy of {@link #realModel}. This model can be obtained by
@@ -29,7 +29,7 @@ Zarafa.settings.SettingsContextModel = Ext.extend(Zarafa.core.ContextModel, {
 	 * @type Zarafa.settings.SettingsModel
 	 * @private
 	 */
-	editModel : undefined,
+	editModel: undefined,
 
 	/**
 	 * The list of all settings which were changes in the {@link #editModel}.
@@ -40,7 +40,7 @@ Zarafa.settings.SettingsContextModel = Ext.extend(Zarafa.core.ContextModel, {
 	 * @type Array
 	 * @private
 	 */
-	setlist : undefined,
+	setlist: undefined,
 
 	/**
 	 * The list of all settings which were deleted in the {@link #editModel}.
@@ -51,7 +51,7 @@ Zarafa.settings.SettingsContextModel = Ext.extend(Zarafa.core.ContextModel, {
 	 * @type Array
 	 * @private
 	 */
-	dellist : undefined,
+	dellist: undefined,
 
 	/**
 	 * Indicates if any changes are pending. This is updated as soon as
@@ -62,13 +62,13 @@ Zarafa.settings.SettingsContextModel = Ext.extend(Zarafa.core.ContextModel, {
 	 * @type Boolean
 	 * @private
 	 */
-	dirty : false,
+	dirty: false,
 
 	/**
 	 * @constructor
 	 * @param {Object} config Configuration object
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		config = config || {};
 
@@ -77,11 +77,11 @@ Zarafa.settings.SettingsContextModel = Ext.extend(Zarafa.core.ContextModel, {
 
 		// Create an editing model, this is initialized in #enable.
 		this.editModel = new Zarafa.settings.SettingsModel({
-			autoSave : false
+			autoSave: false
 		});
 
 		Ext.applyIf(config, {
-			stateful : false
+			stateful: false
 		});
 
 		this.addEvents(
@@ -122,9 +122,9 @@ Zarafa.settings.SettingsContextModel = Ext.extend(Zarafa.core.ContextModel, {
 		Zarafa.settings.SettingsContextModel.superclass.constructor.call(this, config);
 
 		this.editModel.on({
-			set : this.onSetSetting,
-			remove : this.onRemoveSetting,
-			scope : this
+			set: this.onSetSetting,
+			remove: this.onRemoveSetting,
+			scope: this
 		});
 	},
 
@@ -134,7 +134,7 @@ Zarafa.settings.SettingsContextModel = Ext.extend(Zarafa.core.ContextModel, {
 	 * @param {Zarafa.hierarchy.data.MAPIFolderRecord} folder MAPI folder to show.
 	 * @param {Boolean} suspended True to enable the ContextModel {@link #suspendLoading suspended}
 	 */
-	enable : function(folder, suspended)
+	enable: function(folder, suspended)
 	{
 		Zarafa.settings.SettingsContextModel.superclass.enable.apply(this, arguments);
 
@@ -145,7 +145,7 @@ Zarafa.settings.SettingsContextModel = Ext.extend(Zarafa.core.ContextModel, {
 	/**
 	 * Called during the {@link Zarafa.core.Context#disable disabling} of the {@link Zarafa.core.Context context}.
 	 */
-	disable : Ext.emptyFn,
+	disable: Ext.emptyFn,
 
 	/**
 	 * Obtain the reference to the {@link #editModel} this can be used by
@@ -154,7 +154,7 @@ Zarafa.settings.SettingsContextModel = Ext.extend(Zarafa.core.ContextModel, {
 	 * @return {Zarafa.settings.SettingsModel} The settings model to be
 	 * used for editing.
 	 */
-	getEditableSettingsModel : function()
+	getEditableSettingsModel: function()
 	{
 		return this.editModel;
 	},
@@ -164,7 +164,7 @@ Zarafa.settings.SettingsContextModel = Ext.extend(Zarafa.core.ContextModel, {
 	 * @return {Zarafa.settings.SettingsModel} The settings model to be
 	 * used for saving changes to the server .
 	 */
-	getRealSettingsModel : function()
+	getRealSettingsModel: function()
 	{
 		return this.realModel;
 	},
@@ -173,7 +173,7 @@ Zarafa.settings.SettingsContextModel = Ext.extend(Zarafa.core.ContextModel, {
 	 * True when there are {@link #dirty unsaved changes} pending in the {@link #editModel}
 	 * @return {Boolean} True when there are pending changes.
 	 */
-	hasChanges : function()
+	hasChanges: function()
 	{
 		return this.dirty;
 	},
@@ -183,7 +183,7 @@ Zarafa.settings.SettingsContextModel = Ext.extend(Zarafa.core.ContextModel, {
 	 * This should only be used if the SettingsWidget isn't touching the Settings
 	 * themselves, but does require a forced save from the user.
 	 */
-	setDirty : function()
+	setDirty: function()
 	{
 		this.dirty = true;
 	},
@@ -195,7 +195,7 @@ Zarafa.settings.SettingsContextModel = Ext.extend(Zarafa.core.ContextModel, {
 	 * Calling this function makes only sense when {@link #hasChanges}
 	 * returned true.
 	 */
-	applyChanges : function()
+	applyChanges: function()
 	{
 		if (this.fireEvent('beforesavesettings', this, this.editModel) !== false) {
 			// During the 'beforesavesettings' event handler, the model
@@ -240,12 +240,12 @@ Zarafa.settings.SettingsContextModel = Ext.extend(Zarafa.core.ContextModel, {
 	/**
 	 * Discard any changes made to the {@link #editModel} this will not
 	 * save anything to the server and will reload all settings from
-	 * {@link #realModel} into the {@link #editModel} and clear the 
+	 * {@link #realModel} into the {@link #editModel} and clear the
 	 * {@link #setlist set} and {@link #dellist deleted} lists.
 	 * Calling this function makes only sense when {@link #hasChanges}
 	 * returned true.
 	 */
-	discardChanges : function()
+	discardChanges: function()
 	{
 		var defaults = this.realModel.get(undefined, true);
 		this.editModel.initialize(defaults);
@@ -265,7 +265,7 @@ Zarafa.settings.SettingsContextModel = Ext.extend(Zarafa.core.ContextModel, {
 	 * @param {Zarafa.hierarchy.data.MAPIFolderRecord[]} folders selected folders as an array of
 	 * {@link Zarafa.hierarchy.data.MAPIFolderRecord MAPIFolder} objects.
 	 */
-	setFolders : Ext.emptyFn,
+	setFolders: Ext.emptyFn,
 
 	/**
 	 * Event handler which is fired when the {@link #editModel} fires
@@ -276,7 +276,7 @@ Zarafa.settings.SettingsContextModel = Ext.extend(Zarafa.core.ContextModel, {
 	 * @param {Array} settings The settings which were set
 	 * @private
 	 */
-	onSetSetting : function(model, settings)
+	onSetSetting: function(model, settings)
 	{
 		this.dirty = true;
 		this.setlist = Ext.value(this.setlist, []);
@@ -292,7 +292,7 @@ Zarafa.settings.SettingsContextModel = Ext.extend(Zarafa.core.ContextModel, {
 	 * @param {Array} settings The settings which were deleted
 	 * @private
 	 */
-	onRemoveSetting : function(mode, settings)
+	onRemoveSetting: function(mode, settings)
 	{
 		this.dirty = true;
 		this.dellist = Ext.value(this.dellist, []);

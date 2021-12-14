@@ -15,7 +15,7 @@ Zarafa.note.Actions = {
 	 * @param {Object} config (optional) Configuration object used to create
 	 * the Content Panel.
 	 */
-	openNoteContent : function(records, config)
+	openNoteContent: function(records, config)
 	{
 		Ext.each(records, function(record) {
 			Zarafa.core.data.UIFactory.openViewRecord(record, config);
@@ -31,7 +31,7 @@ Zarafa.note.Actions = {
 	 * @param {Object} config (optional) Configuration object used to create
 	 * the Content Panel.
 	 */
-	openCreateNoteContent : function(model, config)
+	openCreateNoteContent: function(model, config)
 	{
 		var record = model.createRecord();
 		Zarafa.core.data.UIFactory.openCreateRecord(record, config);

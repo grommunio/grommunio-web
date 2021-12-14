@@ -1,15 +1,15 @@
 <?php
-require_once('classes/KopanoUser.php');
+require_once('classes/grommunioUser.php');
 require_once('classes/ContactUser.php');
 require_once('classes/TestData.php');
-require_once('classes/KopanoTest.php');
+require_once('classes/grommunioTest.php');
 
 /**
  * LoadingContactsTest
  *
  * Tests all possible cases for loading Contacts
  */
-class LoadContactsTest extends KopanoTest {
+class LoadContactsTest extends grommunioTest {
 	/**
 	 * The default user which is creating the contacts
 	 */
@@ -27,7 +27,7 @@ class LoadContactsTest extends KopanoTest {
 	{
 		parent::setUp();
 
-		$this->user = $this->addUser(new ContactUser(new KopanoUser(KOPANO_USER1_NAME, KOPANO_USER1_PASSWORD)));
+		$this->user = $this->addUser(new ContactUser(new grommunioUser(GROMMUNIO_USER1_NAME, GROMMUNIO_USER1_PASSWORD)));
 
 		$this->message = array(
 			'props' => TestData::getContact()
@@ -52,7 +52,7 @@ class LoadContactsTest extends KopanoTest {
 	 * given restriction.
 	 *
 	 * The test functions using this provider should accept 4 arguments. Where the first
-	 * argument is the restriction whihc must be applied to the load of the contacts.
+	 * argument is the restriction which must be applied to the load of the contacts.
 	 * The second argument is the properties array which must be applied on the message which
 	 * should be loaded. The third argument is the expected contact count which should be
 	 * returned by the load command, and the fourth argument is the message that should be

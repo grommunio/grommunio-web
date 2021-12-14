@@ -8,11 +8,11 @@ Zarafa.common.rules.data.RulesResponseHandler = Ext.extend(Zarafa.core.data.IPMR
 	/**
 	 * Reads all {@link Zarafa.core.data.MAPIRecord records} from the response data from the server,
 	 * and correlates them to the {@link #sendRecords} list.
-	 * @param {Object} response The reponse data from the server containing the
+	 * @param {Object} response The response data from the server containing the
 	 * {@link Zarafa.core.data.MAPIRecord records}
 	 * @private
 	 */
-	correlateRecordFromResponse : function(response)
+	correlateRecordFromResponse: function(response)
 	{
 		var responseObj = this.reader.readResponse(Ext.data.Api.actions.read, response);
 		var records = [];

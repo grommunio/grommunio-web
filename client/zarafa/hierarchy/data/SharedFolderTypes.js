@@ -14,42 +14,42 @@ Zarafa.hierarchy.data.SharedFolderTypes = {
 	 * @property
 	 * @type String
 	 */
-	'APPOINTMENT' : 'calendar',
+	'APPOINTMENT': 'calendar',
 
 	/**
 	 * Used for opening the Default Contact folder
 	 * @property
 	 * @type String
 	 */
-	'CONTACT' : 'contact',
+	'CONTACT': 'contact',
 
 	/**
 	 * Used for opening the Entire Store
 	 * @property
 	 * @type String
 	 */
-	'ALL' : 'all',
+	'ALL': 'all',
 
 	/**
 	 * Used for opening the Inbox folder
 	 * @property
 	 * @type String
 	 */
-	'MAIL' : 'inbox',
+	'MAIL': 'inbox',
 
 	/**
 	 * Used for opening the StickyNote folder
 	 * @property
 	 * @type String
 	 */
-	'NOTE' : 'note',
+	'NOTE': 'note',
 
 	/**
 	 * Used for opening the Task folder
 	 * @property
 	 * @type String
 	 */
-	'TASK' : 'task',
+	'TASK': 'task',
 
 	/**
 	 * Array containing the {@link Zarafa.hierarchy.data.SharedFolderTypes Shared Folder Types} combined
@@ -57,7 +57,7 @@ Zarafa.hierarchy.data.SharedFolderTypes = {
 	 * @property
 	 * @type Array
 	 */
-	folders : [{
+	folders: [{
 		value: 'calendar',
 		name: Zarafa.common.data.FolderContentTypes.getFolderName(Zarafa.common.data.FolderContentTypes['appointment'])
 	},{

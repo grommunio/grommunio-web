@@ -14,11 +14,11 @@ Zarafa.mail.URLAction = Ext.extend(Object, {
 	/**
 	 * @constructor
 	 */
-	constructor : function()
+	constructor: function()
 	{
 		var handler = {
-			handler : this.handleMailTo,
-			scope : this
+			handler: this.handleMailTo,
+			scope: this
 		};
 
 		Zarafa.core.URLActionMgr.register('mailto', handler);
@@ -31,7 +31,7 @@ Zarafa.mail.URLAction = Ext.extend(Object, {
 	 * @param {href} href The href data using it we can handle the mailto action
 	 * @param {Array|Function} handler handler config that was passed when registering this action
 	 */
-	handleMailTo : function(action, href, handler)
+	handleMailTo: function(action, href, handler)
 	{
 		href = href.replace(/^mailto:/ig, 'to=');
 		href = href.replace(/\?/i, '&');
@@ -60,9 +60,9 @@ Zarafa.mail.URLAction = Ext.extend(Object, {
 		var recipientRecords = [];
 
 		var recipientTypes = {
-			to : Zarafa.core.mapi.RecipientType.MAPI_TO,
-			cc : Zarafa.core.mapi.RecipientType.MAPI_CC,
-			bcc : Zarafa.core.mapi.RecipientType.MAPI_BCC
+			to: Zarafa.core.mapi.RecipientType.MAPI_TO,
+			cc: Zarafa.core.mapi.RecipientType.MAPI_CC,
+			bcc: Zarafa.core.mapi.RecipientType.MAPI_BCC
 		};
 
 		for (var key in recipientTypes) {
@@ -71,10 +71,10 @@ Zarafa.mail.URLAction = Ext.extend(Object, {
 				for (var i=0; i<smtpAddresses.length; i++)
 				{
 					recipientRecords.push(Zarafa.core.data.RecordFactory.createRecordObjectByCustomType(Zarafa.core.data.RecordCustomObjectType.ZARAFA_RECIPIENT, {
-						display_name : smtpAddresses[i],
-						smtp_address : smtpAddresses[i],
-						address_type : 'SMTP',
-						recipient_type : recipientTypes[key]
+						display_name: smtpAddresses[i],
+						smtp_address: smtpAddresses[i],
+						address_type: 'SMTP',
+						recipient_type: recipientTypes[key]
 					}));
 				}
 			}

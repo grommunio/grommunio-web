@@ -21,6 +21,8 @@
  * Currently the subsystem is equal to the module ID. This means that if you have two requests from the same
  * module, they will have to wait for eachother. In practice this should hardly ever happen.
  *
+ * It can also support to create global state which can be access by all PHP request.
+ *
  * @package core
  */
 
@@ -56,9 +58,9 @@ class State {
 	 */
 	public $contents;
 
-	/**
-	 * @param string $subsystem Name of the subsystem
-	 */
+    /**
+     * @param string $subsystem Name of the subsystem
+     */
 	function __construct($subsystem) {
 		$this->basedir = TMP_PATH . DIRECTORY_SEPARATOR . $this->sessiondir;
 		$this->filename = $this->basedir . DIRECTORY_SEPARATOR . session_id() . "." . $subsystem;

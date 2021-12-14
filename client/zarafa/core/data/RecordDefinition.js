@@ -17,7 +17,7 @@ Zarafa.core.data.RecordDefinition = Ext.extend(Ext.util.Observable, {
 	/**
 	 * @cfg {Zarafa.core.data.RecordDefinition} parent The parent record definition for this definition.
 	 */
-	parent : undefined,
+	parent: undefined,
 
 	/**
 	 * The object class definition for the record.
@@ -38,7 +38,7 @@ Zarafa.core.data.RecordDefinition = Ext.extend(Ext.util.Observable, {
 	 * @type Object
 	 * @private
 	 */
-	cfg : undefined,
+	cfg: undefined,
 
 	/**
 	 * @cfg {Object} base The object class definition which must be used as base for the record.
@@ -56,7 +56,7 @@ Zarafa.core.data.RecordDefinition = Ext.extend(Ext.util.Observable, {
 	 * This is applied on the {@link #cfg} object and can be changed as long as no record has been
 	 * created using this definition yet, after that this property can no longer be used.
 	 */
-	subStores : undefined,
+	subStores: undefined,
 
 	/**
 	 * @cfg {Ext.data.Field[]} fields The array of fields which belong to this {@link Ext.data.Record record}.
@@ -85,13 +85,13 @@ Zarafa.core.data.RecordDefinition = Ext.extend(Ext.util.Observable, {
 	 * This is applied on the {@link #cfg} object and can be changed as long as no record has been
 	 * created using this definition yet, after that this property can no longer be used.
 	 */
-	createDefaults : undefined,
+	createDefaults: undefined,
 
 	/**
 	 * @constructor
 	 * @param {Object} config Configuration object
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		this.addEvents([
 			/**
@@ -144,7 +144,7 @@ Zarafa.core.data.RecordDefinition = Ext.extend(Ext.util.Observable, {
 	 * automatically generated id.
 	 * @return {Ext.data.Record} the new record which was created
 	 */
-	createRecord : function(data, id)
+	createRecord: function(data, id)
 	{
 		var RecordClass = this.getType();
 		var applyData = {};
@@ -180,7 +180,7 @@ Zarafa.core.data.RecordDefinition = Ext.extend(Ext.util.Observable, {
 	 * {@link Zarafa.core.data.RecordDefinition#base base}.
 	 * @return {Class} The object class definition for this record definition
 	 */
-	getType : function()
+	getType: function()
 	{
 		if (!Ext.isDefined(this.type)) {
 			var baseClass = this.getBaseClass();
@@ -198,7 +198,7 @@ Zarafa.core.data.RecordDefinition = Ext.extend(Ext.util.Observable, {
 	 *
 	 * @param {Class} baseClass The base class to set.
 	 */
-	setBaseClass : function(baseClass)
+	setBaseClass: function(baseClass)
 	{
 		this.cfg.base = baseClass;
 	},
@@ -211,7 +211,7 @@ Zarafa.core.data.RecordDefinition = Ext.extend(Ext.util.Observable, {
 	 * @return {Class} The base class to be used for creating a new record.
 	 * @private
 	 */
-	getBaseClass : function()
+	getBaseClass: function()
 	{
 		if (!Ext.isDefined(this.base)) {
 			if (this.cfg.base) {
@@ -237,7 +237,7 @@ Zarafa.core.data.RecordDefinition = Ext.extend(Ext.util.Observable, {
 	 * data for this subStore is send through Json).
 	 * @param {Type} type The Object type which must be used to allocate the subStore
 	 */
-	setSubStore : function(name, type)
+	setSubStore: function(name, type)
 	{
 		this.cfg.subStores = Ext.value(this.cfg.subStores, {});
 		this.cfg.subStores[name] = type;
@@ -251,7 +251,7 @@ Zarafa.core.data.RecordDefinition = Ext.extend(Ext.util.Observable, {
 	 * @return {Object} key-value array of all subStore Types
 	 * @private
 	 */
-	getSubStores : function()
+	getSubStores: function()
 	{
 		if (!this.subStores) {
 			this.subStores = {};
@@ -272,7 +272,7 @@ Zarafa.core.data.RecordDefinition = Ext.extend(Ext.util.Observable, {
 	 *
 	 * @param {Ext.data.Field} field The field to add.
 	 */
-	addField : function(field)
+	addField: function(field)
 	{
 		this.cfg.fields = Ext.value(this.cfg.fields, []);
 
@@ -295,7 +295,7 @@ Zarafa.core.data.RecordDefinition = Ext.extend(Ext.util.Observable, {
 	 * this definition.
 	 * @private
 	 */
-	getFields : function()
+	getFields: function()
 	{
 		if (!this.fields) {
 			this.fields = [];
@@ -321,7 +321,7 @@ Zarafa.core.data.RecordDefinition = Ext.extend(Ext.util.Observable, {
 	 * @param {Ext.data.Field} field The field for which the default value applies
 	 * @param {Mixed} value The default value for the field
 	 */
-	addDefaultValue : function(field, value)
+	addDefaultValue: function(field, value)
 	{
 		this.cfg.defaults = Ext.value(this.cfg.defaults, {});
 		var name = Ext.isString(field) ? field : field.name;
@@ -336,7 +336,7 @@ Zarafa.core.data.RecordDefinition = Ext.extend(Ext.util.Observable, {
 	 * all default values from the parents.
 	 * @private
 	 */
-	getDefaultValues : function()
+	getDefaultValues: function()
 	{
 		if (!this.defaults) {
 			this.defaults = {};
@@ -360,7 +360,7 @@ Zarafa.core.data.RecordDefinition = Ext.extend(Ext.util.Observable, {
 	 * {@link Ext.data.Record#phantom phantom} records.
 	 * @private
 	 */
-	getFieldDefaultValues : function()
+	getFieldDefaultValues: function()
 	{
 		if (!this.fieldDefaults) {
 			var fields = this.getFields();
@@ -390,7 +390,7 @@ Zarafa.core.data.RecordDefinition = Ext.extend(Ext.util.Observable, {
 	 * @param {Object...} args The arguments for the event
 	 * @return {Boolean} returns false if any of the handlers return false otherwise it returns true.
 	 */
-	fireEvent : function()
+	fireEvent: function()
 	{
 		if (Ext.isDefined(this.parent)) {
 			this.parent.fireEvent.apply(this.parent, arguments);

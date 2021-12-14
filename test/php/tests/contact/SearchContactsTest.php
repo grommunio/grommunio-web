@@ -1,15 +1,15 @@
 <?php
-require_once('classes/KopanoUser.php');
+require_once('classes/grommunioUser.php');
 require_once('classes/ContactUser.php');
 require_once('classes/TestData.php');
-require_once('classes/KopanoTest.php');
+require_once('classes/grommunioTest.php');
 
 /**
  * SearchContactsTest
  *
  * Tests all possible cases for searching Contacts
  */
-class SearchContactsTest extends KopanoTest {
+class SearchContactsTest extends grommunioTest {
 	/**
 	 * The default user
 	 */
@@ -32,7 +32,7 @@ class SearchContactsTest extends KopanoTest {
 	{
 		parent::setUp();
 
-		$this->user = $this->addUser(new ContactUser(new KopanoUser(KOPANO_USER1_NAME, KOPANO_USER1_PASSWORD)));
+		$this->user = $this->addUser(new ContactUser(new grommunioUser(GROMMUNIO_USER1_NAME, GROMMUNIO_USER1_PASSWORD)));
 
 		$this->userTags = $this->user->getContactPropTags();
 

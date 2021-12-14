@@ -4,6 +4,15 @@
 	 */
 	class MailListModule extends ListModule
 	{
+		// Temporary var to store the inbox entryid of the processed store
+		private $_inboxEntryId;
+
+		private $_inbox = NULL;
+
+		private $_inboxTotal = NULL;
+
+		private $_inboxTotalUnread = NULL;
+
 		/**
 		 * Constructor
 		 * @param int $id unique id.
@@ -11,9 +20,8 @@
 		 */
 		function __construct($id, $data)
 		{
-			$this->properties = $GLOBALS["properties"]->getMailListProperties();
-
 			parent::__construct($id, $data);
+			$this->properties = $GLOBALS["properties"]->getMailListProperties();
 		}
 
 		/**
@@ -38,25 +46,38 @@
 			{
 				if(isset($actionType)) {
 					try {
-						$store = $this->getActionStore($action);
+						$this->store = $this->getActionStore($action);
 						$entryid = $this->getActionEntryID($action);
+
+						// Reset variables
+						$this->_inbox = NULL;
+						$this->_inboxEntryId = NULL;
+						$this->_inboxTotal = NULL;
+						$this->_inboxTotalUnread = NULL;
+
+						$this->currentActionData = array(
+							'store' => $this->store,
+							'entryid' => $entryid,
+							'actionType' => $actionType,
+							'action' => $action,
+						);
 
 						switch($actionType)
 						{
 							case "list":
 							case "updatelist":
-								$this->getDelegateFolderInfo($store);
-								$this->messageList($store, $entryid, $action, $actionType);
+								$this->getDelegateFolderInfo($this->store);
+								$this->messageList($this->store, $entryid, $action, $actionType);
 								break;
 							case "search":
 								// @FIXME add handling for private items
-								$this->search($store, $entryid, $action, $actionType);
+								$this->search($this->store, $entryid, $action, $actionType);
 								break;
 							case "updatesearch":
-								$this->updatesearch($store, $entryid, $action);
+								$this->updatesearch($this->store, $entryid, $action);
 								break;
 							case "stopsearch":
-								$this->stopSearch($store, $entryid, $action);
+								$this->stopSearch($this->store, $entryid, $action);
 								break;
 							default:
 								$this->handleUnknownActionType($actionType);
@@ -69,6 +90,79 @@
 				}
 			}
 			$GLOBALS['PluginManager']->triggerHook("server.module.maillistmodule.execute.after", array('moduleObject' =>& $this));
+		}
+
+		/**
+		 * Returns the Inbox folder of the currently used store if found, NULL otherwise
+		 *
+		 * @return Resource The inbox folder of the currently used store
+		 */
+		function getInbox() {
+			if ($this->_inbox === NULL) {
+				try {
+					$this->_inbox = mapi_msgstore_getreceivefolder($this->store);
+				} catch (MAPIException $e) {
+					// don't propagate this error to parent handlers, if store doesn't support it
+					if($e->getCode() === MAPI_E_NO_SUPPORT) {
+						$e->setHandled();
+						return NULL;
+					}
+				}
+			}
+
+			return $this->_inbox;
+		}
+
+		/**
+		 * Returns the entryid of the Inbox folder of the currently used store if found, false otherwise
+		 *
+		 * @return String hexamdecimal representation of the entryid of the Inbox
+		 */
+		function getInboxEntryId() {
+			if ($this->_inboxEntryId === NULL) {
+				$inbox = $this->getInbox();
+				try {
+					$inboxProps = mapi_getprops($inbox, array(PR_ENTRYID));
+					$this->_inboxEntryId = bin2hex($inboxProps[PR_ENTRYID]);
+				} catch (MAPIException $e) {
+					// don't propagate this error to parent handlers, if store doesn't support it
+					if($e->getCode() === MAPI_E_NO_SUPPORT) {
+						$e->setHandled();
+						return false;
+					}
+				}
+			}
+
+			return $this->_inboxEntryId;
+		}
+
+		/**
+		 * Returns the total number of items in the Inbox of the currently used store
+		 *
+		 * @return Integer the number if items in the Inbox folder
+		 */
+		function getInboxTotal($force = false) {
+			if ($this->_inboxTotal === NULL || $force) {
+				$inbox = $this->getInbox();
+				$contentcount = mapi_getprops($inbox, array(PR_CONTENT_COUNT, PR_CONTENT_UNREAD));
+				$this->_inboxTotal = $contentcount[PR_CONTENT_COUNT];
+				$this->_inboxTotalUnread = $contentcount[PR_CONTENT_UNREAD];
+			}
+
+			return $this->_inboxTotal;
+		}
+
+		/**
+		 * Returns the number of unread items in the Inbox of the currently used store.
+		 *
+		 * @return Integer the numer of unread items in the Inbox folder
+		 */
+		function getInboxTotalUnread($force = false) {
+			if ($this->_inboxTotalUnread === NULL || $force) {
+				$this->getIboxTotal($force);
+			}
+
+			return $this->_inboxTotalUnread;
 		}
 
 		/**
@@ -90,24 +184,24 @@
 				{
 					case "list":
 						if($e->getCode() == MAPI_E_NO_ACCESS)
-							$e->setDisplayMessage(Language::getstring("You have insufficient privileges to see the contents of this folder."));
+							$e->setDisplayMessage(_("You have insufficient privileges to see the contents of this folder."));
 						else
-							$e->setDisplayMessage(Language::getstring("Could not load the contents of this folder."));
+							$e->setDisplayMessage(_("Could not load the contents of this folder."));
 						break;
 
 					case "search":
 						if($e->getCode() == MAPI_E_NO_ACCESS)
-							$e->setDisplayMessage(Language::getstring("You have insufficient privileges to perform search operation in this folder."));
+							$e->setDisplayMessage(_("You have insufficient privileges to perform search operation in this folder."));
 						else
-							$e->setDisplayMessage(Language::getstring("Error in search, please try again"));
+							$e->setDisplayMessage(_("Error in search, please try again"));
 						break;
 
 					case "updatesearch":
-						$e->setDisplayMessage(Language::getstring("Could not update search results."));
+						$e->setDisplayMessage(_("Could not update search results."));
 						break;
 
 					case "stopsearch":
-						$e->setDisplayMessage(Language::getstring("Could not stop search operation."));
+						$e->setDisplayMessage(_("Could not stop search operation."));
 						break;
 				}
 			}

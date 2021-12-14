@@ -70,11 +70,11 @@
 			$this->recur = $recur;
 			$this->action =& $recur;
 
-			if(!isset($this->recur["changed_occurences"]))
-				$this->recur["changed_occurences"] = Array();
+			if(!isset($this->recur["changed_occurrences"]))
+				$this->recur["changed_occurrences"] = Array();
 
-			if(!isset($this->recur["deleted_occurences"]))
-				$this->recur["deleted_occurences"] = Array();
+			if(!isset($this->recur["deleted_occurrences"]))
+				$this->recur["deleted_occurrences"] = Array();
 
 			if (!isset($this->recur['startocc'])) $this->recur['startocc'] = 0;
 			if (!isset($this->recur['endocc'])) $this->recur['endocc'] = 0;
@@ -82,7 +82,7 @@
 			// Save recurrence because we need proper startrecurrdate and endrecurrdate
 			$this->saveRecurrence();
 
-			// Update $this->recur with proper startrecurrdate and endrecurrdate updated after saveing recurrence
+			// Update $this->recur with proper startrecurrdate and endrecurrdate updated after saving recurrence
 			$msgProps = mapi_getprops($this->message, array($this->proptags['recurring_data']));
 			$recurring_data = $this->parseRecurrence($msgProps[$this->proptags['recurring_data']]);
 			foreach($recurring_data as $key => $value) {
@@ -103,7 +103,7 @@
 			// Check if it is already the first occurrence
 			if($this->action['start'] == $this->recur["start"]){
 				return;
-			}else{
+			} else {
 				$items = $this->getNextOccurrence();
 
 				$props = array();
@@ -122,8 +122,8 @@
 		 * existing task to next occurrence.
 		 *
 		 *@param array $recur $action from client
-		 *@return boolean if moving to next occurrence succeed then it returns 
-		 *		properties of either newly created task or existing task ELSE 
+		 *@return boolean if moving to next occurrence succeed then it returns
+		 *		properties of either newly created task or existing task ELSE
 		 *		false because that was last occurrence
 		 */
 		function moveToNextOccurrence()
@@ -299,7 +299,7 @@
 		}
 
 		/**
-		 * processOccurrenceItem, adds an item to a list of occurrences, but only if the 
+		 * processOccurrenceItem, adds an item to a list of occurrences, but only if the
 		 * resulting occurrence starts or ends in the interval <$start, $end>
 		 * @param array $items reference to the array to be added to
 		 * @param date $start start of timeframe in GMT TIME
@@ -312,7 +312,7 @@
 				$newItem = array();
 				$newItem[$this->proptags['startdate']] = $now;
 
-				// If startdate and enddate are set on task, then slide enddate according to duration 
+				// If startdate and enddate are set on task, then slide enddate according to duration
 				if (isset($this->messageprops[$this->proptags["startdate"]]) && isset($this->messageprops[$this->proptags["duedate"]])) {
 					$newItem[$this->proptags['duedate']] = $newItem[$this->proptags['startdate']] + ($this->messageprops[$this->proptags["duedate"]] - $this->messageprops[$this->proptags["startdate"]]);
 				} else {

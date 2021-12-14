@@ -1,8 +1,8 @@
 <?php
-require_once('classes/KopanoUser.php');
+require_once('classes/grommunioUser.php');
 require_once('classes/DistlistUser.php');
 require_once('classes/TestData.php');
-require_once('classes/KopanoTest.php');
+require_once('classes/grommunioTest.php');
 
 /**
  * SearchDistlistsTest
@@ -10,7 +10,7 @@ require_once('classes/KopanoTest.php');
  * Tests all possible cases for searching Distlists
  * @group distlist
  */
-class SearchDistlistsTest extends KopanoTest {
+class SearchDistlistsTest extends grommunioTest {
 	/**
 	 * The default user
 	 */
@@ -33,7 +33,7 @@ class SearchDistlistsTest extends KopanoTest {
 	{
 		parent::setUp();
 
-		$this->user = $this->addUser(new DistlistUser(new KopanoUser(KOPANO_USER1_NAME, KOPANO_USER1_PASSWORD)));
+		$this->user = $this->addUser(new DistlistUser(new grommunioUser(GROMMUNIO_USER1_NAME, GROMMUNIO_USER1_PASSWORD)));
 
 		$this->userTags = $this->user->getDistlistPropTags();
 

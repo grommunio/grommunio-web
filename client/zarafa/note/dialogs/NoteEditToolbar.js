@@ -24,7 +24,7 @@ Zarafa.note.dialogs.NoteEditToolbar = Ext.extend(Zarafa.core.ui.ContentPanelTool
 	 * @constructor
 	 * @param config Configuration structure
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		config = config || {};
 
@@ -45,66 +45,66 @@ Zarafa.note.dialogs.NoteEditToolbar = Ext.extend(Zarafa.core.ui.ContentPanelTool
 	 * attached to zarafa.contentpaneltoolbar
 	 * @return {Array} array consist of buttons for note edit dialog
 	 */
-	createActionButtons : function()
+	createActionButtons: function()
 	{
 		return [{
 			//Save button
-			xtype : 'button',
-			ref : 'saveBtn',
-			text : _('Save'),
-			overflowText : _('Save'),
-			tooltip : _('Save') + ' (Ctrl + S)',
-			cls : 'zarafa-action',
-			iconCls : 'icon_save_white',
-			handler : this.onSaveButton,
-			scope : this
+			xtype: 'button',
+			ref: 'saveBtn',
+			text: _('Save'),
+			overflowText: _('Save'),
+			tooltip: _('Save') + ' (Ctrl + S)',
+			cls: 'zarafa-action',
+			iconCls: 'icon_save_white',
+			handler: this.onSaveButton,
+			scope: this
 		}, {
 			//Delete button
-			xtype : 'button',
-			ref : 'deleteBtn',
-			overflowText : _('Delete'),
-			tooltip : _('Delete'),
-			cls : 'tb-notes-btn-delete',
-			iconCls : 'icon_delete',
-			handler : this.onDeleteButton,
-			scope : this
+			xtype: 'button',
+			ref: 'deleteBtn',
+			overflowText: _('Delete'),
+			tooltip: _('Delete'),
+			cls: 'tb-notes-btn-delete',
+			iconCls: 'icon_delete',
+			handler: this.onDeleteButton,
+			scope: this
 		},{
 			//Categories button
-			xtype : 'button',
+			xtype: 'button',
 			overflowText: _('Set Category'),
-			tooltip : _('Open the categories dialog'),
+			tooltip: _('Open the categories dialog'),
 			cls: 'tb-notes-btn-categories',
-			iconCls : 'icon_categories',
-			handler : this.onOpenCategories,
-			scope : this
+			iconCls: 'icon_categories',
+			handler: this.onOpenCategories,
+			scope: this
 		}, {
-			xtype : 'button',
+			xtype: 'button',
 			overflowText: _('Print'),
 			tooltip: _('Print note'),
 			cls: 'tb-notes-btn-print',
-			iconCls : 'icon_print',
-			handler : this.onPrintRecord,
-			scope : this
+			iconCls: 'icon_print',
+			handler: this.onPrintRecord,
+			scope: this
 		}, {
-			xtype : 'combo',
-			width : 75,
-			fieldLabel : _('Color'),
-			overflowText : _('Color'),
-			ref : 'colorCombo',
+			xtype: 'combo',
+			width: 75,
+			fieldLabel: _('Color'),
+			overflowText: _('Color'),
+			ref: 'colorCombo',
 			cls: 'tb-notes-combo-color',
-			store : {
-				xtype : 'arraystore',
+			store: {
+				xtype: 'arraystore',
 				fields: ['icon_index', 'name'],
 				data: [ [768, _("Blue")],[769, _("Green")],[770, _("Pink")],[771, _("Yellow")],[772, _("White")]]
 			},
-			displayField : 'name',
-			valueField : 'icon_index',
-			mode : 'local',
-			editable : false,
-			triggerAction : 'all',
-			listeners : {
-				select : this.onComboSelect,
-				scope : this
+			displayField: 'name',
+			valueField: 'icon_index',
+			mode: 'local',
+			editable: false,
+			triggerAction: 'all',
+			listeners: {
+				select: this.onComboSelect,
+				scope: this
 			},
 			plugins: [ 'zarafa.fieldlabeler' ]
 		}];
@@ -117,7 +117,7 @@ Zarafa.note.dialogs.NoteEditToolbar = Ext.extend(Zarafa.core.ui.ContentPanelTool
 	 * @param {Ext.Button} button The button which has been pressed
 	 * @private
 	 */
-	onSaveButton : function()
+	onSaveButton: function()
 	{
 		this.dialog.saveRecord();
 	},
@@ -129,7 +129,7 @@ Zarafa.note.dialogs.NoteEditToolbar = Ext.extend(Zarafa.core.ui.ContentPanelTool
 	 * @param {Ext.Button} button The button which has been pressed
 	 * @private
 	 */
-	onDeleteButton : function()
+	onDeleteButton: function()
 	{
 		this.dialog.deleteRecord();
 	},
@@ -141,7 +141,7 @@ Zarafa.note.dialogs.NoteEditToolbar = Ext.extend(Zarafa.core.ui.ContentPanelTool
 	 * @param {Number} selected index of combo box
 	 * @private
 	 */
-	onComboSelect : function(form, record, selectedIndex)
+	onComboSelect: function(form, record, selectedIndex)
 	{
 		// set new icon index value for record
 		this.record.set('icon_index', record.get('icon_index'));
@@ -155,9 +155,9 @@ Zarafa.note.dialogs.NoteEditToolbar = Ext.extend(Zarafa.core.ui.ContentPanelTool
 	 * This will call {@link Zarafa.common.Actions#openCategoriesContent}.
 	 * @private
 	 */
-	onOpenCategories : function()
+	onOpenCategories: function()
 	{
-		Zarafa.common.Actions.openCategoriesContent(this.record, {autoSave : false});
+		Zarafa.common.Actions.openCategoriesContent(this.record, {autoSave: false});
 	},
 
 	/**
@@ -165,7 +165,7 @@ Zarafa.note.dialogs.NoteEditToolbar = Ext.extend(Zarafa.core.ui.ContentPanelTool
 	 * This will call {@link Zarafa.common.Actions#openPrintDialog}.
 	 * @private
 	 */
-	onPrintRecord : function()
+	onPrintRecord: function()
 	{
 		Zarafa.common.Actions.openPrintDialog(this.record);
 	},
@@ -177,7 +177,7 @@ Zarafa.note.dialogs.NoteEditToolbar = Ext.extend(Zarafa.core.ui.ContentPanelTool
 	 * @param {Boolean} contentReset force the component to perform a full update of the data.
 	 * @private
 	 */
-	update : function(record, contentReset)
+	update: function(record, contentReset)
 	{
 		this.record = record;
 
@@ -202,7 +202,7 @@ Zarafa.note.dialogs.NoteEditToolbar = Ext.extend(Zarafa.core.ui.ContentPanelTool
 	 * @param {Zarafa.core.data.IPMRecord} the record to update
 	 * @private
 	 */
-	updateRecord : function(record)
+	updateRecord: function(record)
 	{
 		record.set('icon_index', this.colorCombo.getValue());
 	}

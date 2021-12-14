@@ -18,50 +18,51 @@ Zarafa.core.ui.MainViewport = Ext.extend(Ext.Viewport, {
 	 * @property
 	 * @type Zarafa.core.ui.NavigationPanel
 	 */
-	navigationPanel : undefined,
+	navigationPanel: undefined,
 
 	/**
 	 * The {@link Zarafa.core.ui.widget.WidgetPanel WidgetPanel}
 	 * @property
 	 * @type Zarafa.core.ui.widget.WidgetPanel
 	 */
-	widgetPanel : undefined,
+	widgetPanel: undefined,
 
 	/**
 	 * The {@link Zarafa.core.ui.ContextContainer ContextContainer}
 	 * @property
 	 * @type Zarafa.core.ui.ContextContainer
 	 */
-	contentPanel : undefined,
+	contentPanel: undefined,
 
 	/**
 	 * @constructor
 	 * @param {Object} config Configuration object
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		config = config || {};
 		config = Ext.applyIf(config, {
-			layout : 'fit',
-			items : [{
+			layout: 'fit',
+			items: [{
 				xtype: 'container',
 				id: 'zarafa-mainview',
-				layout : 'border',
-				cls : 'zarafa-panel-body',
-				border : false,
-				items : [
+				layout: 'border',
+				cls: 'zarafa-panel-body',
+				border: false,
+				items: [
 					this.createTopbarContainer(),
 					this.createNavigationPanel(),
+					this.createTodayPanel(),
 					this.createContentContainer()				]
 			}]
 		});
-		
+
 		// initialise the viewport with some pre-defined settings
 		Zarafa.core.ui.MainViewport.superclass.constructor.call(this, config);
 
 		// Activate global key events.
 		Zarafa.core.KeyMapMgr.activate(null, 'global', Ext.getBody());
-		// Don't allow propagation of all other key events which are registerd in KeyMapMgr.
+		// Don't allow propagation of all other key events which are registered in KeyMapMgr.
 		Zarafa.core.KeyMapMgr.activate(null, 'globaldisable', Ext.getBody());
 	},
 
@@ -70,14 +71,14 @@ Zarafa.core.ui.MainViewport = Ext.extend(Ext.Viewport, {
 	 * the west region of the client in which the treePanel can be shown.
 	 * @return {Zarafa.core.ui.NavigationPanel} NavigationPanel.
 	 * @private
-	 */	
-	createNavigationPanel : function()
+	 */
+	createNavigationPanel: function()
 	{
 		this.navigationPanel = new Zarafa.core.ui.NavigationPanel({
-			region : 'west',
-			stateful : true,
-			statefulName : 'hierarchybar',
-			statefulRelativeDimensions : false
+			region: 'west',
+			stateful: true,
+			statefulName: 'hierarchybar',
+			statefulRelativeDimensions: false
 		});
 		return this.navigationPanel;
 	},
@@ -86,10 +87,43 @@ Zarafa.core.ui.MainViewport = Ext.extend(Ext.Viewport, {
 	 * Returns the {@link Zarafa.core.ui.NavigationPanel NavigationPanel} for
 	 * the west region of the client in which the treePanel can be shown.
 	 * @return {Zarafa.core.ui.NavigationPanel} NavigationPanel.
-	 */	
+	 */
 	getNavigationPanel: function()
 	{
 		return this.navigationPanel;
+	},
+
+	/**
+	 * Create the {@link Zarafa.core.ui.widget.WidgetPanel WidgetPanel} for
+	 * the east region of the client in which the Today view can be shown.
+	 * @return {Object} Configuration object for the WidgetPanel.
+	 * @private
+	 */
+	createTodayPanel: function()
+	{
+		var hide = container.getServerConfig().isWidgetEnabled() ? container.getSettingsModel().get('zarafa/v1/widgets/sidebar/hide_widgetpanel', true, false) : true;
+		this.widgetPanel = new Zarafa.core.ui.widget.WidgetPanel({
+			region: 'east',
+			title: _('Widgets'),
+			numColumns: 1,
+			stateful: true,
+			statefulName: 'todaybar',
+			statefulRelativeDimensions: false,
+			settingsPath: 'zarafa/v1/contexts/today/sidebar',
+			hidden: hide,
+			collapsed: true
+		});
+		return this.widgetPanel;
+	},
+
+	/**
+	 * Returns the {@link Zarafa.core.ui.widget.WidgetPanel WidgetPanel} for
+	 * the east region of the client in which the widgets can be shown.
+	 * @return {Zarafa.core.ui.widget.WidgetPanel} widgetPanel
+	 */
+	getWidgetPanel: function()
+	{
+		return this.widgetPanel;
 	},
 
 	/**
@@ -98,25 +132,30 @@ Zarafa.core.ui.MainViewport = Ext.extend(Ext.Viewport, {
 	 * @return {Object} Configuration object for the ContextContainer
 	 * @private
 	 */
-	createContentContainer : function()
+	createContentContainer: function()
 	{
 		var cc = new Zarafa.core.ui.ContextContainer({
-			name : 'main.content',
+			name: 'main.content',
 			id: 'zarafa-mainpanel-content'
 		});
 		//get items from insertion point
 		//TODO: create separate insertion points for front and back of tab strip?
 		var lazyItems = container.populateInsertionPoint('main.content.tabpanel', this);
-		
+
 		this.contentPanel = new Zarafa.core.ui.MainContentTabPanel({
 			id: 'zarafa-mainpanel',
-			activeTab : 0,
-			region : 'center',
-			enableTabScroll : true,
-			layoutOnTabChange : true,
-			items : [ cc ].concat(lazyItems),
-			plugins : [ 'zarafa.tabclosemenuplugin' ],
-			cls : 'zarafa-body-tabbar'
+			activeTab: 0,
+			region: 'center',
+			enableTabScroll: true,
+			layoutOnTabChange: true,
+			items: [ cc ].concat(lazyItems),
+			plugins: [ 'zarafa.tabclosemenuplugin' ],
+			cls: 'zarafa-body-tabbar',
+			listeners: {
+				"afterrender": function() {
+					container.fireEvent('afterrendercontentpanel', this);
+				}
+			}
 		});
 		return this.contentPanel;
 	},
@@ -126,41 +165,41 @@ Zarafa.core.ui.MainViewport = Ext.extend(Ext.Viewport, {
 	 * the center region of the client in which the context will display its contents
 	 * @return {Zarafa.core.ui.ContextContainer} contentPanel
 	 */
-	getContentPanel : function()
+	getContentPanel: function()
 	{
 		return this.contentPanel;
 	},
 
 	/**
-	 * Create a {@link Ext.Container Container} that contains the 
-	 * {@link Zarafa.core.ui.MainTabBar MainTabBar} and the {@link Zarafa.core.ui.MainTab MainTab} 
+	 * Create a {@link Ext.Container Container} that contains the
+	 * {@link Zarafa.core.ui.MainTabBar MainTabBar} and the {@link Zarafa.core.ui.MainTab MainTab}
 	 * at the top of the client.
 	 * @return {Ext.Container} Container holding the MainTabBar and MainTab
 	 * @private
 	 */
-	createTopbarContainer : function()
+	createTopbarContainer: function()
 	{
 		return new Ext.Container({
-			name : 'main.topbar',
+			name: 'main.topbar',
 			region: 'north',
 			layout: 'border',
 			height: 36+54,
 			items: [
 				new Zarafa.core.ui.MainTabBar({
-					name : 'main.maintabbar',
+					name: 'main.maintabbar',
 					region: 'center',
 					height: 36,
 					boxMinHeight: 36,
 					boxMaxHeight: 36,
-					ref : '../../mainTabBar'
+					ref: '../../mainTabBar'
 				}),
 				new Zarafa.core.ui.MainToolbar({
-					name : 'main.toolbar',
+					name: 'main.toolbar',
 					region: 'south',
 					height: 54,
 					boxMinHeight: 54,
 					boxMaxHeight: 54,
-					ref : '../../mainToolbar'
+					ref: '../../mainToolbar'
 				})
 			]
 		});

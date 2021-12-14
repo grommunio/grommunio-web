@@ -3,7 +3,7 @@ Ext.namespace('Zarafa.core.mapi');
 /**
  * @class Zarafa.core.mapi.Priority
  * @extends Zarafa.core.Enum
- * 
+ *
  * @singleton
  */
 Zarafa.core.mapi.Importance = Zarafa.core.Enum.create({
@@ -12,28 +12,28 @@ Zarafa.core.mapi.Importance = Zarafa.core.Enum.create({
 	 * @property
 	 * @type Number
 	 */
-	'NONURGENT' : 0x00000000,
-	
+	'NONURGENT': 0x00000000,
+
 	/**
 	 * Denotes that the message has normal importance.
 	 * @property
 	 * @type Number
 	 */
-	'NORMAL' : 0x00000001,
-	
+	'NORMAL': 0x00000001,
+
 	/**
 	 * Denotes that the message has high importance.
 	 * @property
 	 * @type Number
 	 */
-	'URGENT' : 0x00000002,
+	'URGENT': 0x00000002,
 
 	/**
 	 * Return the display name for the given importance
 	 * @param {Zarafa.core.mapi.Importance} importance The given importance
 	 * @return {String} The display name for the importance
 	 */
-	getDisplayName : function(importance)
+	getDisplayName: function(importance)
 	{
 		switch (importance) {
 			case Zarafa.core.mapi.Importance.NONURGENT:
@@ -52,7 +52,7 @@ Zarafa.core.mapi.Importance = Zarafa.core.Enum.create({
 	 * @param {String} prefix prefix to add before class name
 	 * @return {String} icon class
 	 */
-	getClassName : function(level, prefix)
+	getClassName: function(level, prefix)
 	{
 		if(Ext.isEmpty(prefix)) {
 			prefix = 'icon_importance';

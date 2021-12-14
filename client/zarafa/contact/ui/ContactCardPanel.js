@@ -17,20 +17,20 @@ Zarafa.contact.ui.ContactCardPanel = Ext.extend(Ext.Panel, {
 	/**
 	 * @cfg {Zarafa.contact.ContactContext} context The context to which this panel belongs
 	 */
-	context : undefined,
+	context: undefined,
 
 	/**
 	 * The {@link Zarafa.contact.ContactContextModel} which is obtained from the {@link #context}.
 	 * @property
 	 * @type Zarafa.contact.ContactContextModel
 	 */
-	model : undefined,
+	model: undefined,
 
 	/**
 	 * @constructor
 	 * @param {Object} config Configuration object
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		config = config || {};
 
@@ -39,35 +39,35 @@ Zarafa.contact.ui.ContactCardPanel = Ext.extend(Ext.Panel, {
 		}
 
 		Ext.applyIf(config, {
-			xtype : 'zarafa.contactcardpanel',
-			border : false,
-			layout : 'border',
-			layoutConfig : {
-				targetCls : ''		// hack to remove background from panel
+			xtype: 'zarafa.contactcardpanel',
+			border: false,
+			layout: 'border',
+			layoutConfig: {
+				targetCls: ''		// hack to remove background from panel
 			},
 			/*
 			 * Providing extra container for scrolling. So that mouse events, like mouse up and mouse down, doesn't fire in scrollbar of contact card view.
 			 * Because, IE9 does not fire the 'mouseup' event while clicking on scrollbar which cause an unnecessary drag start and selection.
-			 * For more info : https://connect.microsoft.com/IE/feedback/details/783058/scrollbar-trigger-mousedown-but-not-mouseup
+			 * For more info: https://connect.microsoft.com/IE/feedback/details/783058/scrollbar-trigger-mousedown-but-not-mouseup
 			 */
-			items : [{
-				xtype : 'container',
-				autoScroll : true,
-				region : 'center',
-				items : [{
-					xtype : 'zarafa.contactcardview',
-					context : config.context
+			items: [{
+				xtype: 'container',
+				autoScroll: true,
+				region: 'center',
+				items: [{
+					xtype: 'zarafa.contactcardview',
+					context: config.context
 				}]
 			}, {
-				region : 'east',
-				xtype : 'zarafa.characterstrip',
-				ref : 'characterStrip',
+				region: 'east',
+				xtype: 'zarafa.characterstrip',
+				ref: 'characterStrip',
 				cls: 'contact-characterstrip',
-				selectedChar : config.model.getRestrictionCharacter(),
-				listeners : {
-					selectionchanged : this.onSelectionChanged,
-					selectioncleared : this.onSelectionCleared,
-					scope : this
+				selectedChar: config.model.getRestrictionCharacter(),
+				listeners: {
+					selectionchanged: this.onSelectionChanged,
+					selectioncleared: this.onSelectionCleared,
+					scope: this
 				}
 			}]
 		});
@@ -84,7 +84,7 @@ Zarafa.contact.ui.ContactCardPanel = Ext.extend(Ext.Panel, {
 	 * @param {String} character character that is selected currently
 	 * @private
 	 */
-	onSelectionChanged : function(strip, character)
+	onSelectionChanged: function(strip, character)
 	{
 		this.model.setRestrictionCharacter(character);
 	},
@@ -97,7 +97,7 @@ Zarafa.contact.ui.ContactCardPanel = Ext.extend(Ext.Panel, {
 	 * @param {Zarafa.common.ui.CharacterStrip} strip Instance of {@link Zarafa.common.ui.CharacterStrip}
 	 * @private
 	 */
-	onSelectionCleared : function(strip)
+	onSelectionCleared: function(strip)
 	{
 		this.model.setRestrictionCharacter('');
 	}

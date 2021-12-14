@@ -10,7 +10,7 @@ Zarafa.calendar.dialogs.AppointmentContentPanel = Ext.extend(Zarafa.core.ui.Mess
 	 * @cfg {Object} newAppointmentProps The object containing all properties which must be applied
 	 * to the {@link #record} when it has been opened. These properties will be applied during {@link #update}.
 	 */
-	newAppointmentProps : undefined,
+	newAppointmentProps: undefined,
 
 	/**
 	 * @cfg {Number} activeTab number, the tab which should be active in {Zarafa.calendar.dialogs.AppointmentPanel tabs}
@@ -18,7 +18,7 @@ Zarafa.calendar.dialogs.AppointmentContentPanel = Ext.extend(Zarafa.core.ui.Mess
 	 * 1 opens Freebusy tab{@link Zarafa.calendar.dialogs.FreebusyTab}, we want this tab to be opened when we view all propsed time from Attendees
 	 * 2 opens Tracking tab{@link Zarafa.calendar.dialogs.TrackingTab}
 	 */
-	activeTab : undefined,
+	activeTab: undefined,
 
 	/**
 	 * True if record properties were changed. This is updated in {@link #onUpdateRecord},
@@ -28,7 +28,7 @@ Zarafa.calendar.dialogs.AppointmentContentPanel = Ext.extend(Zarafa.core.ui.Mess
 	 * @type Boolean
 	 * @private
 	 */
-	isPropertyChanged : false,
+	isPropertyChanged: false,
 
 	/**
 	 * True if record attendees were changed. This is updated in {@link #onUpdateRecord},
@@ -38,13 +38,13 @@ Zarafa.calendar.dialogs.AppointmentContentPanel = Ext.extend(Zarafa.core.ui.Mess
 	 * @type Boolean
 	 * @private
 	 */
-	isRecipientChanged : false,
+	isRecipientChanged: false,
 
 	/**
 	 * @constructor
 	 * @param config Configuration structure
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		// Add in some standard configuration data.
 		config = config || {};
@@ -55,19 +55,19 @@ Zarafa.calendar.dialogs.AppointmentContentPanel = Ext.extend(Zarafa.core.ui.Mess
 
 		Ext.applyIf(config, {
 			// Override from Ext.Component
-			xtype : 'zarafa.appointmentcontentpanel',
+			xtype: 'zarafa.appointmentcontentpanel',
 			// Override from Ext.Component
-			layout : 'fit',
+			layout: 'fit',
 			cls: 'k-apptcreatepanel',
-			recordComponentPluginConfig : Ext.applyIf(config.recordComponentPluginConfig || {}, {
-				allowWrite : true
+			recordComponentPluginConfig: Ext.applyIf(config.recordComponentPluginConfig || {}, {
+				allowWrite: true
 			}),
 			// Override from Zarafa.core.ui.RecordContentPanel
-			title : _('Appointment'),
-			confirmClose : true,
+			title: _('Appointment'),
+			confirmClose: true,
 			items: [{
 				xtype: 'zarafa.appointmentpanel',
-				activeTab : this.activeTab,
+				activeTab: this.activeTab,
 				tbar: {
 					xtype: 'zarafa.appointmenttoolbar'
 				}
@@ -83,7 +83,7 @@ Zarafa.calendar.dialogs.AppointmentContentPanel = Ext.extend(Zarafa.core.ui.Mess
 	 * validation steps which must be executed to determine if the message can be send.
 	 * @protected
 	 */
-	createSendValidationQueue : function()
+	createSendValidationQueue: function()
 	{
 		Zarafa.calendar.dialogs.AppointmentContentPanel.superclass.createSendValidationQueue.apply(this, arguments);
 
@@ -103,7 +103,7 @@ Zarafa.calendar.dialogs.AppointmentContentPanel = Ext.extend(Zarafa.core.ui.Mess
 	 * @param {Zarafa.core.data.MAPIRecord} record The record to update in this component
 	 * @param {Boolean} contentReset force the component to perform a full update of the data.
 	 */
-	update : function(record, contentReset)
+	update: function(record, contentReset)
 	{
 		this.updateTitleFromRecord(record, contentReset);
 		if(contentReset){
@@ -172,7 +172,7 @@ Zarafa.calendar.dialogs.AppointmentContentPanel = Ext.extend(Zarafa.core.ui.Mess
 	 * @param {Zarafa.core.data.MAPIRecord} record The record bound to this component
 	 * @private
 	 */
-	updateIconFromRecord : function(record)
+	updateIconFromRecord: function(record)
 	{
 		//TODO: create a new icon mapping for tabs
 		var iconCls = Zarafa.common.ui.IconClass.getIconClass(record);
@@ -185,7 +185,7 @@ Zarafa.calendar.dialogs.AppointmentContentPanel = Ext.extend(Zarafa.core.ui.Mess
 	 * Calls {@link #setTitle} this.setTitle in order to update
 	 * @param {Zarafa.core.data.MAPIRecord} record The record that has been updated
 	 */
-	updateTitleFromRecord : function(record)
+	updateTitleFromRecord: function(record)
 	{
 		var subject = record.get('subject');
 		if(!Ext.isEmpty(subject)){
@@ -207,7 +207,7 @@ Zarafa.calendar.dialogs.AppointmentContentPanel = Ext.extend(Zarafa.core.ui.Mess
 	 * @param {Zarafa.core.data.IPMRecipientStore} store store which fired the 'resolved' event.
 	 * @param {Zarafa.core.data.IPMRecipientRecord[]} records records which are in the response of resolve request.
 	 */
-	setRecipientTypeOnResolve : function(store, records)
+	setRecipientTypeOnResolve: function(store, records)
 	{
 		for(var index = 0; index < records.length; index++) {
 			var record = records[index];
@@ -235,14 +235,14 @@ Zarafa.calendar.dialogs.AppointmentContentPanel = Ext.extend(Zarafa.core.ui.Mess
 	 * this will display the {@link #savingText} to indicate the saving is in progress.
 	 *
 	 * @param {Zarafa.core.ui.RecordContentPanel} contentpanel The record which fired the event
-	 * @param {String} action write Action that ocurred. Can be one of
+	 * @param {String} action write Action that occurred. Can be one of
 	 * {@link Ext.data.Record.EDIT EDIT}, {@link Ext.data.Record.REJECT REJECT} or
 	 * {@link Ext.data.Record.COMMIT COMMIT}
 	 * @param {Zarafa.core.data.IPMRecord} record The record which was updated
 	 * @private
 	 * @overridden
 	 */
-	onUpdateRecord : function(contentpanel, action, record)
+	onUpdateRecord: function(contentpanel, action, record)
 	{
 		if (action === Ext.data.Record.COMMIT) {
 			// If the record is a meeting request that has been sent successfully and contains resources
@@ -294,7 +294,7 @@ Zarafa.calendar.dialogs.AppointmentContentPanel = Ext.extend(Zarafa.core.ui.Mess
 	 * @return {Boolean} false if the record could not be saved
 	 * @protected
 	 */
-	saveRecord : function(storeSave)
+	saveRecord: function(storeSave)
 	{
 		// Before saving a meeting request, check if the attendees were already
 		// invited. If they are, then we _must_ send a meeting update to those
@@ -313,7 +313,7 @@ Zarafa.calendar.dialogs.AppointmentContentPanel = Ext.extend(Zarafa.core.ui.Mess
 				// then no need to send message to all attendees
 				Ext.MessageBox.show({
 					title: _('Send update'),
-					msg: _('An update message will be sent to all recipients, do you wish to continue?'),
+					msg: _('Do you want to send an update to all recipients?'),
 					cls: Ext.MessageBox.WARNING_CLS,
 					fn: this.sendMeetingUpdate,
 					scope: this,
@@ -338,7 +338,7 @@ Zarafa.calendar.dialogs.AppointmentContentPanel = Ext.extend(Zarafa.core.ui.Mess
 	 * Save all changes made to the {@link #record} and send
 	 * the message to the specified recipients.
 	 */
-	sendRecord : function()
+	sendRecord: function()
 	{
 		if(!this.record.isMeeting()) {
 			// can not send a non meeting record
@@ -356,7 +356,7 @@ Zarafa.calendar.dialogs.AppointmentContentPanel = Ext.extend(Zarafa.core.ui.Mess
 	 * @param {String} button button text which was pressed.
 	 * @private
 	 */
-	sendMeetingUpdate : function(button)
+	sendMeetingUpdate: function(button)
 	{
 		if (button == 'yes') {
 			// The user wants to send the record
@@ -374,12 +374,12 @@ Zarafa.calendar.dialogs.AppointmentContentPanel = Ext.extend(Zarafa.core.ui.Mess
 	 * @param {Function} callback The callback to call to continue in the queue
 	 * @private
 	 */
-	validateSendUpdateToRecipients : function(callback)
+	validateSendUpdateToRecipients: function(callback)
 	{
 		if (this.record.get('request_sent') && !this.isPropertyChanged && this.isRecipientChanged) {
 			Zarafa.common.dialogs.MessageBox.select(
 				_('Send update to attendees'),
-				_('You have made changes to the list of attendees, Choose one of the following') + ':',
+				_('You have made changes to the list of attendees. What would you like to do?'),
 				function(button, radio) {
 					if (button === 'ok') {
 						if (radio.id == 'sendModified') {
@@ -394,12 +394,12 @@ Zarafa.calendar.dialogs.AppointmentContentPanel = Ext.extend(Zarafa.core.ui.Mess
 				}, this,
 				[{
 					boxLabel: _('Send updates to only added or deleted attendees.'),
-					id : 'sendModified',
+					id: 'sendModified',
 					name: 'select',
 					checked: true
 				},{
 					boxLabel: _('Send updates to all attendees.'),
-					id : 'sendAll',
+					id: 'sendAll',
 					name: 'select'
 				}]
 			);
@@ -418,7 +418,7 @@ Zarafa.calendar.dialogs.AppointmentContentPanel = Ext.extend(Zarafa.core.ui.Mess
 	 * @param {Function} callback The callback to call to continue in the queue
 	 * @private
 	 */
-	validateBusyRecipients : function(callback)
+	validateBusyRecipients: function(callback)
 	{
 		var freebusyPanel = this.findByType('zarafa.freebusypanel')[0];
 		var record = this.record;

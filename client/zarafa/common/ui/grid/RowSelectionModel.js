@@ -14,7 +14,7 @@ Zarafa.common.ui.grid.RowSelectionModel = Ext.extend(Ext.grid.RowSelectionModel,
 	 * @constructor
 	 * @param {Object} config configuration object.
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		Zarafa.common.ui.grid.RowSelectionModel.superclass.constructor.call(this, config);
 
@@ -34,12 +34,12 @@ Zarafa.common.ui.grid.RowSelectionModel = Ext.extend(Ext.grid.RowSelectionModel,
 
 	/**
 	 * Clears all selections if the selection model {@link Ext.grid.AbstractSelectionModel#isLocked is not locked}.
-	 * This method is overriden to make sure that we don't directly access {@link Zarafa.core.data.MAPIRecord#id}
+	 * This method is overridden to make sure that we don't directly access {@link Zarafa.core.data.MAPIRecord#id}
 	 * instead we get uniqueid using {@link Zarafa.core.data.MAPIStore#getRecordKey}.
 	 * @param {Boolean} fast (optional) <tt>true</tt> to bypass the
 	 * conditional checks and events described in {@link #deselectRow}.
 	 */
-	clearSelections : function(fast)
+	clearSelections: function(fast)
 	{
 		if(this.isLocked()){
 			return;
@@ -62,12 +62,12 @@ Zarafa.common.ui.grid.RowSelectionModel = Ext.extend(Ext.grid.RowSelectionModel,
 
 	/**
 	 * Returns <tt>true</tt> if the specified row is selected.
-	 * This method is overriden to make sure that we don't directly access {@link Zarafa.core.data.MAPIRecord#id}
+	 * This method is overridden to make sure that we don't directly access {@link Zarafa.core.data.MAPIRecord#id}
 	 * instead we get uniqueid using {@link Zarafa.core.data.MAPIStore#getRecordKey}.
 	 * @param {Number/Record} index The record or index of the record to check
 	 * @return {Boolean}
 	 */
-	isSelected : function(index)
+	isSelected: function(index)
 	{
 		var store = this.grid.getStore();
 		var r = Ext.isNumber(index) ? store.getAt(index) : index;

@@ -21,7 +21,7 @@ Zarafa.core.ui.notifier.PagingSliderPlugin = Ext.extend(Zarafa.core.ui.notifier.
 	 * @property
 	 * @type Object
 	 */
-	pagingToolbar : undefined,
+	pagingToolbar: undefined,
 
 	/**
 	 * The {@link Zarafa.core.ContextModel} which is obtained from
@@ -30,21 +30,21 @@ Zarafa.core.ui.notifier.PagingSliderPlugin = Ext.extend(Zarafa.core.ui.notifier.
 	 * @property
 	 * @type Zarafa.core.ContextModel
 	 */
-	model : undefined,
+	model: undefined,
 
 	/**
 	 * The parentEl to which the notifier should be restricted
 	 * @property
 	 * @type Object
 	 */
-	parentEl : undefined,
+	parentEl: undefined,
 
 	/**
 	 * Timer which is used to slide out slider after specified time.
 	 * @property
 	 * @type Number
 	 */
-	timer : undefined,
+	timer: undefined,
 
 	/**
 	 * @cfg {String} sliderContainerPosition The position of the container
@@ -59,29 +59,29 @@ Zarafa.core.ui.notifier.PagingSliderPlugin = Ext.extend(Zarafa.core.ui.notifier.
 	 * - 'b': The center of the bottom edge
 	 * - 'br': The bottom right corner
 	 */
-	sliderContainerPosition : 'b',
+	sliderContainerPosition: 'b',
 
 	/**
 	 * @cfg {Char} slideInDirection the animation slideIn direction for notification
 	 */
-	slideInDirection : 'b',
+	slideInDirection: 'b',
 
 	/**
 	 * @cfg {Char} slideOutDirection the animation slideOut direction for notification
 	 */
-	slideOutDirection : 'b',
+	slideOutDirection: 'b',
 
 	/**
 	 * @constructor
 	 * @param {Object} config Configuration object
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		config = Ext.applyIf(config || {}, {
-			sliderCls : 'k-slider',
-			sliderContainerPosition : 'b',
-			slideInDirection : 'b',
-			slideOutDirection : 'b'
+			sliderCls: 'k-slider',
+			sliderContainerPosition: 'b',
+			slideInDirection: 'b',
+			slideOutDirection: 'b'
 		});
 
 		Zarafa.core.ui.notifier.PagingSliderPlugin.superclass.constructor.call(this, config);
@@ -102,7 +102,7 @@ Zarafa.core.ui.notifier.PagingSliderPlugin = Ext.extend(Zarafa.core.ui.notifier.
 	 * - slider: The slider container.
 	 * @return {Ext.Element} The slider element which was created
 	 */
-	notify : function(category, title, message, config)
+	notify: function(category, title, message, config)
 	{
 		Ext.apply(this, config);
 		if (config.destroy) {
@@ -114,7 +114,10 @@ Zarafa.core.ui.notifier.PagingSliderPlugin = Ext.extend(Zarafa.core.ui.notifier.
 			this.slider = this.getSlider();
 			if (!this.pagingEnabled) {
 				this.setSliderTimeOut();
-			} else {
+			} else if (Ext.isDefined(this.model)){
+				// This check we need to add because sometimes
+				// grid does not have model info or we don't need to update the
+				// pagination slide info on folder change.
 				this.model.on('folderchange', this.onFolderChange, this);
 			}
 		}
@@ -124,7 +127,7 @@ Zarafa.core.ui.notifier.PagingSliderPlugin = Ext.extend(Zarafa.core.ui.notifier.
 	/**
 	 * Event handler clear the timeout of slider.
 	 */
-	clearSliderTimeOut : function()
+	clearSliderTimeOut: function()
 	{
 		clearTimeout(this.timer);
 	},
@@ -138,7 +141,7 @@ Zarafa.core.ui.notifier.PagingSliderPlugin = Ext.extend(Zarafa.core.ui.notifier.
 			if (!Ext.isDefined(slider)) {
 				return;
 			}
-			slider.ghost(this.slideOutDirection, {remove : true});
+			slider.ghost(this.slideOutDirection, {remove: true});
 		}, this.sliderDuration, this.slider);
 	},
 
@@ -147,7 +150,7 @@ Zarafa.core.ui.notifier.PagingSliderPlugin = Ext.extend(Zarafa.core.ui.notifier.
 	 * make {@link Zarafa.common.ui.PagingToolbar#cursor cursor} to 0 which reset
 	 * the pagination tool bar page counter.
 	 */
-	onFolderChange : function()
+	onFolderChange: function()
 	{
 		if (Ext.isDefined(this.pagingToolbar)) {
 			this.pagingToolbar.cursor = 0;
@@ -159,15 +162,15 @@ Zarafa.core.ui.notifier.PagingSliderPlugin = Ext.extend(Zarafa.core.ui.notifier.
 	 * @param {Ext.Element} slider The element in which {@link Zarafa.common.ui.PagingToolbar PagingToolbar}
 	 * should be rendered.
 	 */
-	createPagingToolbar : function(slider)
+	createPagingToolbar: function(slider)
 	{
 		var cursor = !Ext.isEmpty(this.pagingToolbar) ? this.pagingToolbar.cursor : 0;
 		this.pagingToolbar = Ext.create({
 			xtype: 'zarafa.paging',
-			renderTo : slider.dom,
-			pageSize : container.getSettingsModel().get('zarafa/v1/main/page_size'),
-			store : this.model.getStore(),
-			cursor : cursor
+			renderTo: slider.dom,
+			pageSize: container.getSettingsModel().get('zarafa/v1/main/page_size'),
+			store: this.getStore(),
+			cursor: cursor
 		});
 	},
 
@@ -176,15 +179,15 @@ Zarafa.core.ui.notifier.PagingSliderPlugin = Ext.extend(Zarafa.core.ui.notifier.
 	 *
 	 * @return {Ext.Element} slider The element which show current loaded items in grid.
 	 */
-	getSlider : function()
+	getSlider: function()
 	{
 		var sliderCfg = {
-			id : this.parentEl.id + '-' + this.sliderCls,
-			cls : this.sliderCls
+			id: this.parentEl.id + '-' + this.sliderCls,
+			cls: this.sliderCls
 		};
 
 		if (!this.pagingEnabled) {
-			var store = this.model.getStore();
+			var store = this.getStore();
 			sliderCfg.html = this.getUpdatedPaginationText(store);
 		}
 
@@ -196,9 +199,9 @@ Zarafa.core.ui.notifier.PagingSliderPlugin = Ext.extend(Zarafa.core.ui.notifier.
 				this.createPagingToolbar(element);
 			} else {
 				element.on({
-					'mouseenter' : this.clearSliderTimeOut,
-					'mouseleave' : this.setSliderTimeOut,
-					scope : this
+					'mouseenter': this.clearSliderTimeOut,
+					'mouseleave': this.setSliderTimeOut,
+					scope: this
 				});
 				store.on('load', this.onStoreLoad, this);
 			}
@@ -217,7 +220,7 @@ Zarafa.core.ui.notifier.PagingSliderPlugin = Ext.extend(Zarafa.core.ui.notifier.
 	 * @param {Zarafa.core.data.ListModuleStore} store The store which
 	 * fire the load event.
 	 */
-	onStoreLoad : function(store)
+	onStoreLoad: function(store)
 	{
 		this.slider.dom.innerHTML = this.getUpdatedPaginationText(store);
 	},
@@ -228,9 +231,20 @@ Zarafa.core.ui.notifier.PagingSliderPlugin = Ext.extend(Zarafa.core.ui.notifier.
 	 * pagination text.
 	 * @returns {String} return pagination text which shows in livescroll slider.
 	 */
-	getUpdatedPaginationText : function (store)
+	getUpdatedPaginationText: function (store)
 	{
-		var sliderText = String.format(_('Loaded {0} of {1}'), store.getRange().length, store.getTotalCount());
+		var sliderText = String.format(_('Loaded {0} of {1}'), store.getStoreLength(), store.getTotalCount());
 		return String.format('<div>{0}</div>', sliderText);
+	},
+
+	/**
+	 * Function is used to get the store from either store config or
+	 * from give model.
+	 *
+	 * @returns {Ext.data.store} store The data store attached with pagination plugin.
+	 */
+	getStore: function()
+	{
+		return this.store || this.model.getStore();
 	}
 });

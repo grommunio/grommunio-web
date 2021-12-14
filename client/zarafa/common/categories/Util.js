@@ -12,21 +12,21 @@ Zarafa.common.categories.Util = {
 	 * @property
 	 * @type {Zarafa.common.categories.data.CategoriesStore}
 	 */
-	categoriesStore : null,
+	categoriesStore: null,
 
 	/**
 	 * The color that will be used for labels of categories that don't have a color. It is a rbg hex string.
 	 * @property
 	 * @type {String}
 	 */
-	defaultCategoryColor : '#BDC3C7',
+	defaultCategoryColor: '#BDC3C7',
 
 	/**
 	 * The template of the category blocks
 	 * @property
 	 * @type {Ext.Template/String}
 	 */
-	categoriesHtmlTemplate :
+	categoriesHtmlTemplate:
 		'<tpl if="!Ext.isEmpty(values)">' +
 			'<tpl for=".">' +
 				'<span class="k-category-block {colorClass}" '+
@@ -42,7 +42,7 @@ Zarafa.common.categories.Util = {
 	 * If any changes are done to the categories, the code that did the change must
 	 * call this function!
 	 */
-	loadCategoriesStore : function()
+	loadCategoriesStore: function()
 	{
 		this.categoriesStore = new Zarafa.common.categories.data.CategoriesStore();
 	},
@@ -54,7 +54,7 @@ Zarafa.common.categories.Util = {
 	 * @param {Zarafa.core.data.IPMRecord} record
 	 * @return {String[]} An array of strings, one for each category
 	 */
-	getCategories : function(record)
+	getCategories: function(record)
 	{
 		var categories = [];
 		if ( !Ext.isEmpty(record.get('categories')) ){
@@ -79,16 +79,18 @@ Zarafa.common.categories.Util = {
 		// to the categories.
 		if ( record.get('label') ) {
 			var label = Zarafa.core.mapi.AppointmentLabels.getName(record.get('label'));
-			label = label.replace("_", " ");
-			var index = categories.indexOf(label);
-			if ( index > -1 ){
-				// The set label is also set as a category. A label will always
-				// be added as last category (because that defines the color of
-				// an appointment), so we will remove it from the categories first,
-				// and then add it as last.
-				categories.splice(index, 1);
+			if (label) {
+				label = label.replace("_", " ");
+				var index = categories.indexOf(label);
+				if ( index > -1 ){
+					// The set label is also set as a category. A label will always
+					// be added as last category (because that defines the color of
+					// an appointment), so we will remove it from the categories first,
+					// and then add it as last.
+					categories.splice(index, 1);
+				}
+				categories.push(label);
 			}
-			categories.push(label);
 		}
 
 		// Instantiate the category store only once. If any changes are done to the
@@ -121,7 +123,7 @@ Zarafa.common.categories.Util = {
 	 * set on the record(s)
 	 * @param {Boolean} doSave Set to true to save the records to the backend
 	 */
-	setCategories : function(records, categories, doSave)
+	setCategories: function(records, categories, doSave)
 	{
 		// Make sure we have a boolean
 		doSave = doSave === true;
@@ -161,7 +163,7 @@ Zarafa.common.categories.Util = {
 	 * @param {Zarafa.core.data.IPMStore} store (optional) store holding
 	 * records on which categories apply.
 	 */
-	addCategory : function(records, category, doSave, store)
+	addCategory: function(records, category, doSave, store)
 	{
 		// Make sure we have a boolean
 		doSave = doSave === true;
@@ -203,7 +205,7 @@ Zarafa.common.categories.Util = {
 	 * @param {Zarafa.core.data.IPMRecord[]} records
 	 * @return {String[]} An array of strings, one for each category
 	 */
-	getCommonCategories : function(records)
+	getCommonCategories: function(records)
 	{
 		if ( Ext.isEmpty(records) ){
 			return [];
@@ -241,7 +243,7 @@ Zarafa.common.categories.Util = {
 	 * @param {Zarafa.core.data.IPMRecord[]} records
 	 * @return {String[]} An array of strings, one for each category
 	 */
-	getAllCategories : function(records) {
+	getAllCategories: function(records) {
 		if ( !Ext.isArray(records) ){
 			records = [records];
 		}
@@ -264,7 +266,7 @@ Zarafa.common.categories.Util = {
 	 * @param {Zarafa.core.data.IPMStore} store (optional) holding
 	 * records on which category going to remove.
 	 */
-	removeCategory : function(records, category, doSave, store)
+	removeCategory: function(records, category, doSave, store)
 	{
 		if ( !Ext.isArray(records) ){
 			records = [records];
@@ -328,10 +330,10 @@ Zarafa.common.categories.Util = {
 	 * @param {Zarafa.core.mapi.FlagIcon} flagColorIndex The flag color
 	 * @return {String} The matching category name
 	 */
-	getCategoryNameByFlagColor : function(flagColorIndex)
+	getCategoryNameByFlagColor: function(flagColorIndex)
 	{
 		var settingsModel = container.getPersistentSettingsModel();
-		var categories = settingsModel.get('kopano/main/categories', true);
+		var categories = settingsModel.get('grommunio/main/categories', true);
 		var retVal = '';
 		Ext.iterate(categories, function(category){
 			if ( category.standardIndex === flagColorIndex ){
@@ -341,7 +343,7 @@ Zarafa.common.categories.Util = {
 		});
 
 		if (!Ext.isEmpty(flagColorIndex)) {
-			var mergedCategory = settingsModel.get('kopano/main/merged_categories/'+flagColorIndex, true);
+			var mergedCategory = settingsModel.get('grommunio/main/merged_categories/'+flagColorIndex, true);
 			if(mergedCategory) {
 				retVal = mergedCategory;
 			}
@@ -355,7 +357,7 @@ Zarafa.common.categories.Util = {
 	 * @param {String} category The category name
 	 * @return {String} The color of the category (hex code)
 	 */
-	getCategoryColor : function(category)
+	getCategoryColor: function(category)
 	{
 		// Instantiate the category store only once. If any changes are done to the
 		// categories, the code that did the change must call {#loadCategoriesStore}!
@@ -381,7 +383,7 @@ Zarafa.common.categories.Util = {
 	 * on which the category is set.
 	 * @return {String} The unencoded category name
 	 */
-	getCategoryFromHtmlEncoded : function(encodedCategory, records)
+	getCategoryFromHtmlEncoded: function(encodedCategory, records)
 	{
 		var categories = this.getAllCategories(records);
 		var unencoded = encodedCategory;
@@ -402,7 +404,7 @@ Zarafa.common.categories.Util = {
 	 * @param {String} categories The category name
 	 * @return {String} The html of the categories as colored blocks
 	 */
-	getCategoriesHtml : function(categories)
+	getCategoriesHtml: function(categories)
 	{
 		// Compile the template string if not done yet
 		if (Ext.isString(this.categoriesHtmlTemplate)) {
@@ -413,8 +415,8 @@ Zarafa.common.categories.Util = {
 
 		var data = categories.map(function(category){
 			var dataEntry = {
-				name : Ext.util.Format.htmlEncode(category),
-				backgroundColor : this.getCategoryColor(category)
+				name: Ext.util.Format.htmlEncode(category),
+				backgroundColor: this.getCategoryColor(category)
 			};
 			if ( dataEntry.backgroundColor ){
 				dataEntry.colorClass = Zarafa.core.ColorSchemes.getLuma(dataEntry.backgroundColor) < 200 ? 'zarafa-dark' : '';
@@ -431,9 +433,9 @@ Zarafa.common.categories.Util = {
 	 * @param {String} color The CSS color value of the category
 	 * @return {String} The string with the SVG element tag
 	 */
-	getCategoryIconSVG : function(color)
+	getCategoryIconSVG: function(color)
 	{
-		return '<svg width="13" height="13">' +
+		return '<svg width="15" height="13">' +
 					'<g transform="translate(-333.71338,-339.93452)">' +
 						'<path ' +
 							'style="color:'+color+';fill:currentColor;fill-opacity:1;stroke:none;stroke-width:1;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate" ' +
@@ -446,7 +448,7 @@ Zarafa.common.categories.Util = {
 	 * Will check all registered {@link Zarafa.core.data.IPMStore IPMStores} and send 'fake' update events
 	 * to all records that have categories set. This will make sure that the views are updated.
 	 */
-	updateStoresAfterCategoryUpdate : function()
+	updateStoresAfterCategoryUpdate: function()
 	{
 		var IPMStores = Zarafa.core.data.IPMStoreMgr.IPMStores;
 

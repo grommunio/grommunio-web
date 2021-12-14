@@ -3,7 +3,7 @@ Ext.namespace('Zarafa.core.mapi');
 /**
  * @class Zarafa.core.mapi.MeetingStatus
  * @extends Zarafa.core.Enum
- * 
+ *
  * @singleton
  */
 Zarafa.core.mapi.MeetingStatus = Zarafa.core.Enum.create({
@@ -46,7 +46,7 @@ Zarafa.core.mapi.MeetingStatus = Zarafa.core.Enum.create({
 	 * @param {Zarafa.core.mapi.MeetingStatus} meetingstatus The given meeting status
 	 * @return {String} The display name for the meeting status
 	 */
-	getDisplayName : function(meetingstatus)
+	getDisplayName: function(meetingstatus)
 	{
 		switch (meetingstatus) {
 			case Zarafa.core.mapi.MeetingStatus.NONMEETING:

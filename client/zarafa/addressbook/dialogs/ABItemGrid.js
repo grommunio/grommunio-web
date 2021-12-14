@@ -14,39 +14,39 @@ Zarafa.addressbook.dialogs.ABItemGrid = Ext.extend(Ext.grid.GridPanel, {
 	 * @constructor
 	 * @param {Object} config Configuration object
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		config = config || {};
 
 		Ext.applyIf(config, {
-			viewConfig : {
-				forceFit : true
+			viewConfig: {
+				forceFit: true
 			},
-			store : new Zarafa.addressbook.AddressBookSubStore(),
-			colModel : new Ext.grid.ColumnModel({
+			store: new Zarafa.addressbook.AddressBookSubStore(),
+			colModel: new Ext.grid.ColumnModel({
 				columns: [{
-					dataIndex : 'display_type',
-					header : '<p class="icon_index">&nbsp;</p>',
+					dataIndex: 'display_type',
+					header: '<p class="icon_index">&nbsp;</p>',
 					headerCls: 'zarafa-icon-column icon',
-					width : 25,
-					fixed : true,
-					renderer : Zarafa.common.ui.grid.Renderers.icon
+					width: 25,
+					fixed: true,
+					renderer: Zarafa.common.ui.grid.Renderers.icon
 				},{
-					header  : _('Display Name'),
+					header: _('Display Name'),
 					dataIndex: 'display_name',
-					renderer : Ext.util.Format.htmlEncode,
+					renderer: Ext.util.Format.htmlEncode,
 					headerCls: 'k-unsortable',
 					sortable: false
 				},{
-					header  : _('Email Address'),
+					header: _('Email Address'),
 					dataIndex: 'smtp_address',
-					renderer : Ext.util.Format.htmlEncode,
+					renderer: Ext.util.Format.htmlEncode,
 					headerCls: 'k-unsortable',
 					sortable: false
 				},{
-					header  : _('Account'),
+					header: _('Account'),
 					dataIndex: 'account',
-					renderer : Ext.util.Format.htmlEncode,
+					renderer: Ext.util.Format.htmlEncode,
 					headerCls: 'k-unsortable',
 					sortable: false
 				}]
@@ -65,7 +65,7 @@ Zarafa.addressbook.dialogs.ABItemGrid = Ext.extend(Ext.grid.GridPanel, {
 	 * @param {Number} rowIndex The index of the row which was double clicked
 	 * @param {Ext.EventObject} event The event
 	 */
-	onRowDblClick : function(grid, rowIndex, event)
+	onRowDblClick: function(grid, rowIndex, event)
 	{
 		var item = this.getStore().getAt(rowIndex);
 		if (item) {

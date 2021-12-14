@@ -9,24 +9,24 @@ Ext.namespace('Zarafa.addressbook');
  * @xtype zarafa.addressbookhierarchystore
  * this will contain all records {@link Zarafa.addressbook.AddressbookHierchyRecord}
  * fetched from the server side, stores all available addressbooks from all
- * avilable server side MAPI stores
+ * available server side MAPI stores
  */
 Zarafa.addressbook.AddressBookHierarchyStore = Ext.extend(Zarafa.core.data.ListModuleStore, {
 	/**
 	 * @constructor
 	 * @param config Configuration structure
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		config = config || {};
 
 		Ext.applyIf(config, {
-			preferredMessageClass : 'addressbook',
+			preferredMessageClass: 'addressbook',
 			standalone: true,
-			proxy : new Zarafa.addressbook.AddressBookHierarchyProxy(),
-			sortInfo : {
-				field : 'display_name',
-				direction : 'desc'
+			proxy: new Zarafa.addressbook.AddressBookHierarchyProxy(),
+			sortInfo: {
+				field: 'display_name',
+				direction: 'desc'
 			}
 		});
 
@@ -41,7 +41,7 @@ Zarafa.addressbook.AddressBookHierarchyStore = Ext.extend(Zarafa.core.data.ListM
 	 * @param {String} b The second id to compare
 	 * @protected
 	 */
-	idComparison : function(a, b)
+	idComparison: function(a, b)
 	{
 		return Zarafa.core.EntryId.compareABEntryIds(a, b);
 	},
@@ -63,19 +63,19 @@ Zarafa.addressbook.AddressBookHierarchyStore = Ext.extend(Zarafa.core.data.ListM
 	/**
 	 * Notification handler called by {@link #onNotify} when
 	 * a {@link Zarafa.core.data.Notifications#objectModified objectModified}
-	 * notification has been recieved.
+	 * notification has been received.
 	 *
 	 * This will update the address book hierarchy store
 	 *
 	 * @param {Zarafa.core.data.Notifications} action The notification action
 	 * @param {Ext.data.Record/Array} records The record or records which have been affected by the notification.
-	 * @param {Object} data The data which has been recieved from the PHP-side which must be applied
+	 * @param {Object} data The data which has been received from the PHP-side which must be applied
 	 * to the given records.
 	 * @param {Number} timestamp The {@link Date#getTime timestamp} on which the notification was received
-	 * @param {Boolean} success The success status, True if the notification was successfully recieved.
+	 * @param {Boolean} success The success status, True if the notification was successfully received.
 	 * @private
 	 */
-	onNotifyObjectmodified : function(action, records, data, timestamp, success)
+	onNotifyObjectmodified: function(action, records, data, timestamp, success)
 	{
 		this.loadAddressBookHierarchy();
 	}

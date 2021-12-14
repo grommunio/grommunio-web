@@ -1,4 +1,4 @@
-grommunio web password change plugin
+grommunio Web password change plugin
 Copyright (C) 2013 - 2017  Saket Patel <silentsakky@gmail.com>
 Copyright 2020 - grommunio GmbH
 

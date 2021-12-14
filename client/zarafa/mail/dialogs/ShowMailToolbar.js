@@ -27,7 +27,7 @@ Zarafa.mail.dialogs.ShowMailToolbar = Ext.extend(Zarafa.core.ui.ContentPanelTool
 	 * @constructor
 	 * @param config Configuration structure
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		config = config || {};
 
@@ -42,7 +42,7 @@ Zarafa.mail.dialogs.ShowMailToolbar = Ext.extend(Zarafa.core.ui.ContentPanelTool
 
 			actionItems: this.createActionButtons(insertionPointBase),
 			optionItems: this.createOptionButtons(),
-			rightAlignedItems : this.createRightAlignedOptionButtons()
+			rightAlignedItems: this.createRightAlignedOptionButtons()
 		});
 
 		Zarafa.mail.dialogs.ShowMailToolbar.superclass.constructor.call(this, config);
@@ -55,7 +55,7 @@ Zarafa.mail.dialogs.ShowMailToolbar = Ext.extend(Zarafa.core.ui.ContentPanelTool
 	 * @return {Array} The {@link Ext.Button} elements which should be added in the Action section of the {@link Ext.Toolbar}.
 	 * @private
 	 */
-	createActionButtons : function(insertionPointBase)
+	createActionButtons: function(insertionPointBase)
 	{
 		var preActionButtonsInsert = container.populateInsertionPoint(insertionPointBase + '.toolbar.actions.first');
 
@@ -100,7 +100,7 @@ Zarafa.mail.dialogs.ShowMailToolbar = Ext.extend(Zarafa.core.ui.ContentPanelTool
 			ref: 'deleteBtn',
 			overflowText: _('Delete'),
 			tooltip: {
-				text : _('Delete')
+				text: _('Delete')
 			},
 			iconCls: 'icon_delete',
 			handler: this.onDeleteButton,
@@ -114,7 +114,7 @@ Zarafa.mail.dialogs.ShowMailToolbar = Ext.extend(Zarafa.core.ui.ContentPanelTool
 	 * request.
 	 * @param {Ext.Button} btn The reply button
 	 */
-	onBeforeShowReplyButton : function(btn)
+	onBeforeShowReplyButton: function(btn)
 	{
 		var messageClass = this.record.get('message_class');
 		if ( messageClass.substring(0, 20) === 'IPM.Schedule.Meeting' ){
@@ -130,7 +130,7 @@ Zarafa.mail.dialogs.ShowMailToolbar = Ext.extend(Zarafa.core.ui.ContentPanelTool
 	 * @return {Array} The {@link Ext.Button} elements which should be added in the Options section of the {@link Ext.Toolbar}.
 	 * @private
 	 */
-	createOptionButtons : function()
+	createOptionButtons: function()
 	{
 		return [{
 			xtype: 'button',
@@ -139,36 +139,36 @@ Zarafa.mail.dialogs.ShowMailToolbar = Ext.extend(Zarafa.core.ui.ContentPanelTool
 			tooltip: {
 				text: _('Open options dialog')
 			},
-			iconCls : 'icon_cogwheel',
-			handler : this.onMailOptionsButton,
+			iconCls: 'icon_cogwheel',
+			handler: this.onMailOptionsButton,
 			scope: this
 		},{
-			xtype : 'button',
+			xtype: 'button',
 			overflowText: _('Set Category'),
-			tooltip : {
-				text : _('Open the categories dialog')
+			tooltip: {
+				text: _('Open the categories dialog')
 			},
-			iconCls : 'icon_categories',
-			handler : this.onOpenCategories,
-			scope : this
+			iconCls: 'icon_categories',
+			handler: this.onOpenCategories,
+			scope: this
 		},{
-			xtype : 'button',
+			xtype: 'button',
 			ref: 'setFlagBtn',
-			overflowText : _('Set flag'),
-			tooltip : {
-				text : _('Set flag on this email')
+			overflowText: _('Set flag'),
+			tooltip: {
+				text: _('Set flag on this email')
 			},
-			iconCls : 'icon_flag_red',
-			handler : this.onSetFlagButton,
-			scope : this
+			iconCls: 'icon_flag_red',
+			handler: this.onSetFlagButton,
+			scope: this
 		},{
 			xtype: 'splitbutton',
 			cls: 'zarafa-more-options-btn',
 			tooltip: _('More options'),
-			splitOnMoreMenu : true,
+			splitOnMoreMenu: true,
 			overflowText: _('More options'),
 			iconCls: 'icon_more',
-			menu : this.moreMenuButtons(this),
+			menu: this.moreMenuButtons(this),
 			handler: function() {
 				this.showMenu();
 			}
@@ -203,7 +203,7 @@ Zarafa.mail.dialogs.ShowMailToolbar = Ext.extend(Zarafa.core.ui.ContentPanelTool
 	 * @param {Zarafa.core.data.IPMRecord} record The record to load
 	 * @param {Boolean} contentReset force the component to perform a full update of the data.
 	 */
-	update : function(record, contentReset)
+	update: function(record, contentReset)
 	{
 		this.record = record;
 
@@ -231,33 +231,33 @@ Zarafa.mail.dialogs.ShowMailToolbar = Ext.extend(Zarafa.core.ui.ContentPanelTool
 	 * @param {Zarafa.mail.dialogs.ShowMailToolbar} scope The scope for the menu items
 	 * @return {Zarafa.core.ui.menu.ConditionalMenu} the dropdown menu for the more button
 	 */
-	moreMenuButtons : function(scope)
+	moreMenuButtons: function(scope)
 	{
 		return {
 			xtype: 'zarafa.conditionalmenu',
 			items: [{
 				xtype: 'zarafa.conditionalitem',
-				text : _('Mark Read'),
-				iconCls : 'icon_mail icon_mail_read',
-				hideMode : 'offsets',
+				text: _('Mark Read'),
+				iconCls: 'icon_mail icon_mail_read',
+				hideMode: 'offsets',
 				readState: true,
-				beforeShow : this.onBeforeShowMoreMenu,
-				handler : this.onReadFlagMenuItemClicked,
+				beforeShow: this.onBeforeShowMoreMenu,
+				handler: this.onReadFlagMenuItemClicked,
 				scope: scope
 			}, {
 				xtype: 'zarafa.conditionalitem',
-				text : _('Mark Unread'),
-				hideMode : 'offsets',
-				iconCls : 'icon_mail icon_mail_unread',
+				text: _('Mark Unread'),
+				hideMode: 'offsets',
+				iconCls: 'icon_mail icon_mail_unread',
 				readState: false,
-				beforeShow : this.onBeforeShowMoreMenu,
-				handler : this.onReadFlagMenuItemClicked,
-				scope : scope
+				beforeShow: this.onBeforeShowMoreMenu,
+				handler: this.onReadFlagMenuItemClicked,
+				scope: scope
 			}, {
-				text : _('Copy/Move'),
-				iconCls : 'icon_copy',
-				handler : this.onCopyMove,
-				scope : scope
+				text: _('Copy/Move'),
+				iconCls: 'icon_copy',
+				handler: this.onCopyMove,
+				scope: scope
 			}, {
 				text: _('Print'),
 				iconCls: 'icon_print',
@@ -270,9 +270,12 @@ Zarafa.mail.dialogs.ShowMailToolbar = Ext.extend(Zarafa.core.ui.ContentPanelTool
 				handler: this.onMailResponseButton,
 				scope: scope
 			}, {
+				xtype: 'zarafa.conditionalitem',
 				text: _('Download'),
 				iconCls: 'icon_download',
+				hideOnDisabled: false,
 				handler: this.onDownloadMailButton,
+				beforeShow: this.onBeforeShowDownloadButton,
 				scope: scope
 			}]
 		};
@@ -285,7 +288,7 @@ Zarafa.mail.dialogs.ShowMailToolbar = Ext.extend(Zarafa.core.ui.ContentPanelTool
 	 * @param {Zarafa.core.ui.menu.ConditionalItem} item The item to enable/disable
 	 * @private
 	 */
-	onBeforeShowMoreMenu : function (item)
+	onBeforeShowMoreMenu: function (item)
 	{
 		// show and hide the 'Mark Read' and 'Mark Unread' if record read status is unread or read respectively.
 		item.setVisible(this.record.isRead() ? !item.readState : item.readState);
@@ -298,7 +301,7 @@ Zarafa.mail.dialogs.ShowMailToolbar = Ext.extend(Zarafa.core.ui.ContentPanelTool
 	 * @param {Zarafa.core.ui.menu.ConditionalItem} item The item which has been clicked.
 	 * @private
 	 */
-	onReadFlagMenuItemClicked : function (item)
+	onReadFlagMenuItemClicked: function (item)
 	{
 		Zarafa.common.Actions.markAsRead(this.record, item.readState);
 	},
@@ -310,10 +313,10 @@ Zarafa.mail.dialogs.ShowMailToolbar = Ext.extend(Zarafa.core.ui.ContentPanelTool
 	 * @param {Ext.Button} button The button which has been pressed
 	 * @private
 	 */
-	onMailOptionsButton : function(button)
+	onMailOptionsButton: function(button)
 	{
 		Zarafa.mail.Actions.openMailOptionsContent(this.record, {
-			autoSave : true
+			autoSave: true
 		});
 	},
 
@@ -325,7 +328,7 @@ Zarafa.mail.dialogs.ShowMailToolbar = Ext.extend(Zarafa.core.ui.ContentPanelTool
 	 * @param {Ext.EventObject} eventObject event object
 	 * @private
 	 */
-	onSetFlagButton : function (button, eventObject)
+	onSetFlagButton: function (button, eventObject)
 	{
 		Zarafa.common.Actions.openFlagsMenu(this.record, eventObject.getXY(), false);
 	},
@@ -337,7 +340,7 @@ Zarafa.mail.dialogs.ShowMailToolbar = Ext.extend(Zarafa.core.ui.ContentPanelTool
 	 * @param {Ext.Button} button The button which has been pressed
 	 * @private
 	 */
-	onDeleteButton : function(button)
+	onDeleteButton: function(button)
 	{
 		this.dialog.deleteRecord();
 	},
@@ -347,7 +350,7 @@ Zarafa.mail.dialogs.ShowMailToolbar = Ext.extend(Zarafa.core.ui.ContentPanelTool
 	 * This will call {@link Zarafa.common.Actions#openCategoriesContent}.
 	 * @private
 	 */
-	onOpenCategories : function()
+	onOpenCategories: function()
 	{
 		Zarafa.common.Actions.openCategoriesContent(this.record);
 	},
@@ -357,7 +360,7 @@ Zarafa.mail.dialogs.ShowMailToolbar = Ext.extend(Zarafa.core.ui.ContentPanelTool
 	 * or moving the given record.
 	 * @private
 	 */
-	onCopyMove : function()
+	onCopyMove: function()
 	{
 		Zarafa.common.Actions.openCopyMoveContent(this.record);
 	},
@@ -369,7 +372,7 @@ Zarafa.mail.dialogs.ShowMailToolbar = Ext.extend(Zarafa.core.ui.ContentPanelTool
 	 * @param {Ext.Button} button The button which has been pressed
 	 * @private
 	 */
-	onPrintButton : function(button)
+	onPrintButton: function(button)
 	{
 		Zarafa.common.Actions.openPrintDialog(this.record);
 	},
@@ -382,7 +385,7 @@ Zarafa.mail.dialogs.ShowMailToolbar = Ext.extend(Zarafa.core.ui.ContentPanelTool
 	 * @param {Ext.Button} button The button which has been pressed
 	 * @private
 	 */
-	onPopoutButton : function(button)
+	onPopoutButton: function(button)
 	{
 		Zarafa.mail.Actions.popoutMailContent(this.record, this.dialog);
 	},
@@ -394,11 +397,11 @@ Zarafa.mail.dialogs.ShowMailToolbar = Ext.extend(Zarafa.core.ui.ContentPanelTool
 	 * @param {Ext.Button} button The button which has been pressed
 	 * @private
 	 */
-	onMailResponseButton : function(button)
+	onMailResponseButton: function(button)
 	{
 		var model = this.dialog.getContextModel();
 		var isOwnedByMainWindow = Zarafa.core.BrowserWindowMgr.isOwnedByMainWindow(button);
-		var configObject = !isOwnedByMainWindow ? {layerType : 'separateWindows'} : undefined;
+		var configObject = !isOwnedByMainWindow ? {layerType: 'separateWindows'} : undefined;
 
 		Zarafa.mail.Actions.openCreateMailResponseContent(this.record, model, button.actionType, configObject);
 		if (container.getSettingsModel().get('zarafa/v1/contexts/mail/close_on_respond') === true) {
@@ -413,9 +416,22 @@ Zarafa.mail.dialogs.ShowMailToolbar = Ext.extend(Zarafa.core.ui.ContentPanelTool
 	 * @param {Ext.Button} button The button which has been pressed
 	 * @private
 	 */
-	onDownloadMailButton : function(button)
+	onDownloadMailButton: function(button)
 	{
 		Zarafa.common.Actions.openSaveEmlDialog(this.record);
+	},
+
+	/**
+	 * Handler for the beforeshow event of the {@link Zarafa.core.ui.menu.ConditionalItem menuitem}. Will
+	 * disable the menu item if the record is embedded message.
+	 *
+	 * @param {Zarafa.core.ui.menu.ConditionalItem} item The item to enable/disable
+	 * @private
+	 */
+	onBeforeShowDownloadButton: function(item)
+	{
+		// embedded messages can not be downloaded
+		item.setDisabled(this.record.isSubMessage());
 	}
 });
 Ext.reg('zarafa.showmailtoolbar', Zarafa.mail.dialogs.ShowMailToolbar);

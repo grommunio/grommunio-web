@@ -1,10 +1,10 @@
 <?php
-require_once('classes/KopanoTest.php');
+require_once('classes/grommunioTest.php');
 
 /**
  * Test the Conversion class
  */
-class ConversionTest extends KopanoTest {
+class ConversionTest extends grommunioTest {
 	public function testCOleDateTimeToUnixTime() {
 		$time = 1546600770;
 		$olTime = Conversion::UnixTimeToCOleDateTime($time);

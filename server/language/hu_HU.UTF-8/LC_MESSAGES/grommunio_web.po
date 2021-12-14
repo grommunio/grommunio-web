@@ -1,0 +1,7022 @@
+# grommunio Web Hungarian translation.
+# Copyright (C) 2021
+msgid ""
+msgstr ""
+"Project-Id-Version: grommunio Web Hungarian\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-09-25 14:32+0200\n"
+"PO-Revision-Date: 2018-03-19 16:32+0000\n"
+"Last-Translator: import\n"
+"Language: hu_HU\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Weblate 2.4\n"
+
+#. TRANSLATORS: This message is used as label for the column which indicates the week number of the month in date picker. and 'Wk' stands for week
+msgid "Wk"
+msgstr "Hét"
+
+msgid "Now"
+msgstr "Most"
+
+msgid "Value must be between 0% to 100%"
+msgstr "Az értéknek 0% és 100% között kell lennie"
+
+msgid "Number must be higher than zero"
+msgstr "Az értéknek nagyobbnak kell lennie, mint nulla"
+
+msgid "More options"
+msgstr "További lehetőségek"
+
+msgid "{0} byte"
+msgid_plural "{0} bytes"
+msgstr[0] "{0} bájt"
+msgstr[1] "{0} bájt"
+
+msgid "{0} KB"
+msgid_plural "{0} KB"
+msgstr[0] "{0} KB"
+msgstr[1] "{0} KB"
+
+msgid "{0} MB"
+msgid_plural "{0} MB"
+msgstr[0] "{0} MB"
+msgstr[1] "{0} MB"
+
+msgid "{0} GB"
+msgid_plural "{0} GB"
+msgstr[0] "{0} GB"
+msgstr[1] "{0} GB"
+
+msgid "{0} TB"
+msgid_plural "{0} TB"
+msgstr[0] "{0} TB"
+msgstr[1] "{0} TB"
+
+msgid "{0} minute"
+msgid_plural "{0} minutes"
+msgstr[0] "{0} perc"
+msgstr[1] "{0} perc"
+
+msgid "{0} hour"
+msgid_plural "{0} hours"
+msgstr[0] "{0} óra"
+msgstr[1] "{0} óra"
+
+msgid "{0} day"
+msgid_plural "{0} days"
+msgstr[0] "{0} nap"
+msgstr[1] "{0} nap"
+
+msgid "{0} week"
+msgid_plural "{0} weeks"
+msgstr[0] "{0} hét"
+msgstr[1] "{0} hét"
+
+msgid "The quick brown fox jumps over the lazy dog"
+msgstr "Árvíztűrő tükörfúrógép"
+
+msgid "Sunday"
+msgstr "vasárnap"
+
+msgid "Monday"
+msgstr "hétfő"
+
+msgid "Tuesday"
+msgstr "kedd"
+
+msgid "Wednesday"
+msgstr "szerda"
+
+msgid "Thursday"
+msgstr "csütörtök"
+
+msgid "Friday"
+msgstr "péntek"
+
+msgid "Saturday"
+msgstr "szombat"
+
+msgid "Sun"
+msgstr "Vas"
+
+msgid "Mon"
+msgstr "Hét"
+
+msgid "Tue"
+msgstr "kedd"
+
+msgid "Wed"
+msgstr "Szer"
+
+msgid "Thu"
+msgstr "Csüt"
+
+msgid "Fri"
+msgstr "Pén"
+
+msgid "Sat"
+msgstr "Szo"
+
+msgid "January"
+msgstr "Január"
+
+msgid "February"
+msgstr "Február"
+
+msgid "March"
+msgstr "Március"
+
+msgid "April"
+msgstr "Április"
+
+msgid "May"
+msgstr "Május"
+
+msgid "June"
+msgstr "Június"
+
+msgid "July"
+msgstr "Július"
+
+msgid "August"
+msgstr "Augusztus"
+
+msgid "September"
+msgstr "Szeptember"
+
+msgid "October"
+msgstr "Október"
+
+msgid "November"
+msgstr "November"
+
+msgid "December"
+msgstr "December"
+
+msgid "Page {A} of {0}"
+msgstr "{A} oldal a {0}-ból/ből"
+
+msgid "Displaying messages {0} - {1} of {2}"
+msgstr "Üzenetek megjelenítése {0} - {1} a {2}-ból/ből"
+
+msgid "No messages to display"
+msgstr "Nincs megjeleníthető üzenet"
+
+msgid "First Page"
+msgstr "Első oldal"
+
+msgid "Previous Page"
+msgstr "Előző oldal"
+
+msgid "Next Page"
+msgstr "Következő oldal"
+
+msgid "Last Page"
+msgstr "Utolsó oldal"
+
+msgid "Refresh"
+msgstr "Frissítés"
+
+msgid "Today"
+msgstr "Ma"
+
+msgid "OK"
+msgstr "OK"
+
+msgid "Cancel"
+msgstr "Mégse"
+
+msgid "{0} (Spacebar)"
+msgstr "{0} (Szóköz)"
+
+msgid "This date is before the minimum date"
+msgstr "A dátum a legkorábbi dátum előtt található"
+
+msgid "This date is after the maximum date"
+msgstr "A dátum a legkésőbbi dátum után található"
+
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
+msgid "d/m/Y"
+msgstr "Y/m/d"
+
+msgid "Disabled"
+msgstr "Kikapcsolt"
+
+msgid "Next Month (Control+Right)"
+msgstr "Következő hónap (Control+Jobb nyíl)"
+
+msgid "Previous Month (Control+Left)"
+msgstr "Előző hónap (Control+Bal nyíl)"
+
+msgid "Choose a month (Control+Up/Down to move years)"
+msgstr "Hónap kiválasztása (Control+Fel/le az évek mozgatásához)"
+
+msgid "Sort Ascending"
+msgstr "Növekvő sorrend"
+
+msgid "Sort Descending"
+msgstr "Csökkenő sorrend"
+
+msgid "Columns"
+msgstr "Oszlopok"
+
+msgid "Group By This Field"
+msgstr "Kijelölt mező szerinti csoportosítás"
+
+msgid "Show in Groups"
+msgstr "Csoportokba rendezés"
+
+msgid "(None)"
+msgstr "(Semmi)"
+
+msgid "Ok"
+msgstr "Ok"
+
+msgid "Yes"
+msgstr "Igen"
+
+msgid "No"
+msgstr "Nem"
+
+msgid "Loading"
+msgstr "Betöltés"
+
+msgid "The value in this field is invalid"
+msgstr "A mezőben lévő érték érvénytelen"
+
+msgid "The minimum length for this field is {0}"
+msgstr "A mező minimális hossza {0}"
+
+msgid "The maximum length for this field is {0}"
+msgstr "A mező maximális hossza {0}"
+
+msgid "This field is required"
+msgstr "A mező kötelező"
+
+msgid "The minimum value for this field is {0}"
+msgstr "A mező minimális hossza {0}"
+
+msgid "The maximum value for this field is {0}"
+msgstr "A mező maximális hossza {0}"
+
+msgid "{0} is not a valid number"
+msgstr "A {0} nem érvényes szám"
+
+msgid "The date in this field must be equal to or after {0}"
+msgstr ""
+"A mezőben lévő dátumnak egyenlőnek vagy későbbinek kell lenni, mint {0}"
+
+msgid "The date in this field must be equal to or before {0}"
+msgstr ""
+"A mezőben lévő dátumnak egyenlőnek vagy korábbinak kell lenni, mint {0}"
+
+msgid "{0} is not a valid date - it must be in the format {1}"
+msgstr "A {0} nem érvényes szám - a megfelelő formátum {1}"
+
+msgid "You must select at least one item in this group"
+msgstr "Legalább egy elemet ki kell jelölni ebben a csoportban"
+
+msgid "You must select one item in this group"
+msgstr "Ki kell választani egy elemet a csoportból"
+
+msgid "The time in this field must be equal to or after {0}"
+msgstr ""
+"Az időnek a beviteli mezőben egyenlőnek vagy későbbinek kell lennie, mint {0}"
+
+msgid "The time in this field must be equal to or before {0}"
+msgstr ""
+"Az időnek a beviteli mezőben egyenlőnek vagy korábbinak kell lennie, mint {0}"
+
+msgid "{0} is not a valid time"
+msgstr "{0} nem érvényes idő"
+
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
+msgid "G:i"
+msgstr "G:i"
+
+msgid "Name"
+msgstr "Név"
+
+msgid "Value"
+msgstr "Érték"
+
+msgid "true"
+msgstr "igaz"
+
+msgid "false"
+msgstr "hamis"
+
+msgid ""
+"This field should be an e-mail address in the format \"user@example.com\""
+msgstr ""
+"Ebben a mezőben email címnek kell szerepelnie az alábbi formában: "
+"\"felhasznalo@example.com\""
+
+msgid "This field should be a URL in the format \"{0}\""
+msgstr "A mezőnek URL-nek kell lenni az alábbi formában \"{0}\""
+
+# That should be verified when used.
+msgid "This field should only contain letters and _"
+msgstr "A mező csak betűket és _ jelet tartalmazhat"
+
+msgid "This field should only contain letters, numbers and _"
+msgstr "A mező csak betűket, számokat, és _ jelet tartalmazhat"
+
+# 81%
+#, fuzzy
+msgid "Email Addresses"
+msgstr "E-mail címek"
+
+# 75%
+#, fuzzy
+msgid "Email addresses"
+msgstr "E-mail címek"
+
+msgid "Group details"
+msgstr "Csoport részletek"
+
+msgid "General"
+msgstr "Általános"
+
+msgid "Display Name"
+msgstr "Megjelenítendő név"
+
+msgid "Alias"
+msgstr "Álnév"
+
+msgid "Owner"
+msgstr "Tulajdonos"
+
+# 80%
+msgid "Notes"
+msgstr "Jegyzetek"
+
+msgid "Members"
+msgstr "Tagok"
+
+msgid "Email Address"
+msgstr "Email cím"
+
+msgid "Account"
+msgstr "Fiók"
+
+msgid "Member Of"
+msgstr "Tagja"
+
+msgid "Group Membership"
+msgstr "Csoporttagság"
+
+msgid "Address Book"
+msgstr "Címjegyzék"
+
+# Felhasználó részletek
+msgid "User details"
+msgstr "Felhasználói adatlap"
+
+msgid "First name"
+msgstr ""
+
+msgid "Last name"
+msgstr ""
+
+msgid "Initials"
+msgstr ""
+
+msgid "Display"
+msgstr "Megjelenő"
+
+msgid "Addresses"
+msgstr "Címek"
+
+msgid "Address"
+msgstr "Cím"
+
+msgid "City"
+msgstr "Város"
+
+msgid "State"
+msgstr "Megye"
+
+msgid "Zip Code"
+msgstr "Irányítószám"
+
+msgid "Country"
+msgstr "Ország"
+
+msgid "Professional"
+msgstr ""
+
+msgid "Title"
+msgstr "Titulus"
+
+msgid "Company"
+msgstr "Cég"
+
+msgid "Department"
+msgstr "Osztály"
+
+msgid "Office"
+msgstr "Iroda"
+
+msgid "Assistant"
+msgstr "Asszisztens"
+
+msgid "Phone"
+msgstr "Telefon"
+
+msgid "Organization"
+msgstr "Szervezet"
+
+msgid "Manager"
+msgstr "Igazgató"
+
+msgid "Direct reports"
+msgstr "Közvetlen beosztottak"
+
+msgid "Phone numbers"
+msgstr "Telefonszámok"
+
+msgid "Business"
+msgstr "Üzleti"
+
+# 88%
+msgid "Business2"
+msgstr "Üzleti 2"
+
+msgid "Fax"
+msgstr "Fax"
+
+msgid "Home"
+msgstr "Otthon"
+
+msgid "Home2"
+msgstr "Otthon 2"
+
+msgid "Mobile"
+msgstr "Mobil"
+
+msgid "Pager"
+msgstr "Személyhívó"
+
+# 75%
+# 100%
+#, fuzzy
+msgid "No user selected"
+msgstr "Nincs kiválasztott jegyzet"
+
+msgid "You must select one or more users."
+msgstr "Ki kell választania egy vagy több felhasználót."
+
+msgid "You must select a user."
+msgstr "Választania kell egy felhasználót."
+
+msgid "Select"
+msgstr "Választ"
+
+msgid "Show Details"
+msgstr "Részletek megjelenítése"
+
+msgid "Copy contact"
+msgstr ""
+
+msgid "Copy contacts"
+msgstr ""
+
+msgid ""
+"Showing only the first {0} names. Use search to find more specific results."
+msgstr ""
+
+msgid "Use the search bar to get results"
+msgstr "Használja a keresőt, hogy találatokat kapjon"
+
+msgid "There are no items to show in this list"
+msgstr "Nincsenek megjeleníthető elemek ebben a nézetben"
+
+# -ból -ből?
+msgid "Show Names from the"
+msgstr "Nevek megjelenítése következőből"
+
+msgid "Search..."
+msgstr "Keresés..."
+
+msgid "Sort by: Icon"
+msgstr "Rendezés ikon szerint"
+
+# 76%
+msgid "Sort by: Name"
+msgstr "Rendezés: Név"
+
+# 76%
+msgid "Sort by: Display Name"
+msgstr "Rendezés: Megjelenő név"
+
+msgid "File as"
+msgstr "Mappába rendetés mint"
+
+# 75%
+msgid "Sort by: File As"
+msgstr "Rendezés: Fájl"
+
+# 80%
+msgid "First Name"
+msgstr "Vezetéknév"
+
+msgid "Sort by: First Name"
+msgstr "Rendezés: Vezetéknév"
+
+# 77%
+msgid "Last Name"
+msgstr "Keresztnév"
+
+# 76%
+msgid "Sort by: Last Name"
+msgstr "Rendezés: Vezetéknév"
+
+msgid "Sort by: Email Address"
+msgstr "Rendezés: Email cím"
+
+msgid "Job Title"
+msgstr "Beosztás"
+
+msgid "Sort by: Job Title"
+msgstr "Rendezés: Beosztás"
+
+msgid "Company Name"
+msgstr "Cégnév"
+
+# 76%
+msgid "Sort by: Company Name"
+msgstr "Rendezés: Cégnév"
+
+msgid "Sort by: Department"
+msgstr "Rendezés: Osztály"
+
+msgid "Office Phone"
+msgstr "Irodai telefon"
+
+msgid "Sort by: Office Phone"
+msgstr "Rendezés: Irodai telefon"
+
+msgid "Sort by: Mobile"
+msgstr "Rendezés: Mobil"
+
+msgid "Home Phone"
+msgstr "Otthoni telefon"
+
+msgid "Sort by: Home Phone"
+msgstr "Rendezés: Otthoni telefon"
+
+# 78%
+msgid "Sort by: Pager"
+msgstr "Rendezés: Személyhívó"
+
+msgid "Location"
+msgstr "Helyszín"
+
+# 80%
+# 76%
+msgid "Sort by: Location"
+msgstr "Rendezés: Helyszín"
+
+# 76%
+msgid "Sort by: Fax"
+msgstr "Rendezés: Fax"
+
+msgid "Print single item"
+msgstr ""
+
+# 78%
+msgid "Print selected item"
+msgstr "Kijelölt elem nyomtatása"
+
+msgid "Print"
+msgstr "Nyomtatás"
+
+msgid "No item selected"
+msgstr ""
+
+msgid "No preview"
+msgstr "Nincs előnézet"
+
+msgid "Right preview"
+msgstr "Jobb oldali előnézet"
+
+msgid "Bottom preview"
+msgstr "Alsó előnézet"
+
+# 87%
+msgid "Any date"
+msgstr "Bármelyik dátum"
+
+msgid "Past week"
+msgstr "Múlt hét"
+
+msgid "Past 2 weeks"
+msgstr "Utóbbi két hét"
+
+msgid "Past month"
+msgstr "Múlt hónap"
+
+msgid "Past 6 month"
+msgstr "Utóbbi 6 hónap"
+
+msgid "Past year"
+msgstr "Tavaly"
+
+msgid "Custom date"
+msgstr "Egyéni dátum"
+
+msgid "Add to favorites"
+msgstr "Hozzáadás a kedvencekhez"
+
+msgid "Add"
+msgstr "Hozzáad"
+
+#, fuzzy
+msgid "Empty folder name"
+msgstr "Importálás mappába"
+
+msgid "You must specify a name."
+msgstr "Meg kell adnia egy nevet."
+
+msgid "Add a folder to favorites based on your search query"
+msgstr "Mappa hozzáadása a kedvencekhez a keresés alapján"
+
+msgid "Folder name"
+msgstr "Mappa név"
+
+#, fuzzy
+msgid "Select Category"
+msgstr "Kategória beállítása"
+
+msgid "Apply"
+msgstr "Alkalmaz"
+
+msgid "All folders are selected"
+msgstr "Minden mappa kiválasztva"
+
+msgid "Reply"
+msgstr "Válasz"
+
+msgid "Reply All"
+msgstr "Válasz mindenkinek"
+
+msgid "Forward"
+msgstr "Továbbítás"
+
+#, fuzzy
+msgid "Edit as New"
+msgstr "Szerkesztés új üzenetként"
+
+msgid "Search tools"
+msgstr "Keresőeszközök"
+
+# 85%
+# 100%
+msgid "Folders"
+msgstr "Mappák"
+
+msgid "Include subfolders"
+msgstr "Almappákban is"
+
+msgid "Show.."
+msgstr "Mutasd.."
+
+msgid "Mails"
+msgstr "Levelek"
+
+# Maybe "Találkozó".
+msgid "Appointments"
+msgstr "Találkozó"
+
+msgid "Contacts"
+msgstr "Névjegyzék"
+
+msgid "Tasks"
+msgstr "Feladatok"
+
+msgid "Filter.."
+msgstr "Szűrés.."
+
+msgid "Unread"
+msgstr "Olvasatlan"
+
+msgid "Attachments"
+msgstr "Mellékletek"
+
+msgid "Date"
+msgstr "Dátum"
+
+#, fuzzy
+msgctxt "search.date"
+msgid "From"
+msgstr "Feladó"
+
+#, fuzzy
+msgctxt "search.date"
+msgid "To"
+msgstr "Címzett"
+
+#, fuzzy
+msgid "Filter category.."
+msgstr "Kategória törlése"
+
+msgid "Search.."
+msgstr "Keresés.."
+
+msgid "Sender"
+msgstr "Feladó"
+
+msgid "Recipients"
+msgstr "Címzettek"
+
+msgid "Subject"
+msgstr "Tárgy"
+
+msgid "Body & Attachments"
+msgstr "Üzenettörzs és mellékletek"
+
+msgid "Favorites"
+msgstr "Kedvencek"
+
+msgid "Add a folder to favorites based on this search query"
+msgstr "Keresés alapján mappa létrehozása a kedvencekben"
+
+msgid "Select Folder"
+msgstr "Mappa választás"
+
+msgid "Delete search folder"
+msgstr "Keresési mappa törlése"
+
+# 76%
+# 84%
+# 100%
+msgid "Sort by: Date"
+msgstr "Rendezés: Dátum"
+
+msgid "Loading Search results"
+msgstr "Keresési eredmények betöltése"
+
+msgid "Sorting tip"
+msgstr "Rendezési tipp"
+
+msgid ""
+"You can sort by date if you narrow down your search results. Enable filters "
+"or adjust your input."
+msgstr ""
+
+msgid "Did you mean"
+msgstr "Arra gondolt, hogy"
+
+msgid "With"
+msgstr ""
+
+msgid "To"
+msgstr "Címzett"
+
+msgid "No date"
+msgstr "Nincs dátum"
+
+msgid "Error"
+msgstr "Hiba"
+
+msgid ""
+"Could not accept proposal as this meeting is not available in calendar; It "
+"may have been moved or deleted."
+msgstr ""
+"A javaslatot nem lehet elfogadni, mivel az értekezlet nincs a naptárban; "
+"lehetséges, hogy áthelyezték, vagy törölték."
+
+msgid ""
+"Could not view proposal as this meeting is not available in calendar; It may "
+"have been moved or deleted."
+msgstr ""
+"A javaslatot nem lehet megtekinteni, mivel a találkozó nincs a naptárban; "
+"lehetséges, hogy áthelyezték, vagy törölték."
+
+msgid "Required"
+msgstr "Kötelező"
+
+msgid "Optional"
+msgstr "Opcionális"
+
+msgid "Resource"
+msgstr "Erőforrás"
+
+msgid "Could not open store."
+msgstr "Nem lehet megnyitni a tárolót."
+
+msgid "Could not open default calendar folder."
+msgstr "Nem lehet megnyitni az alapértelmezett naptárt."
+
+msgid "workday"
+msgstr "munkanap"
+
+msgid "day"
+msgstr "nap"
+
+msgid "days"
+msgstr "napok"
+
+# 75%
+msgid "week"
+msgstr "hét"
+
+# 75%
+# 80%
+msgid "weeks"
+msgstr "hetek"
+
+msgid " on "
+msgstr "  "
+
+# 80%
+msgid "month"
+msgstr "hónap"
+
+# 80%
+# 83%
+msgid "months"
+msgstr "hónapok"
+
+msgid "year"
+msgstr "év"
+
+msgid "years"
+msgstr "évek"
+
+# Have to look at it in action.
+msgid "Occurs every {0} effective {1} from {2} to {3}."
+msgstr "Ismétlődés minden {0} érvényes {1} {2}-tól/től {3}-ig."
+
+# Have to look at it in action.
+msgid "Occurs every {0} {1} effective {2} from {3} to {4}."
+msgstr "Ismétlődés minden {0} {1} érvényes {2} {3}-tól {4}-ig."
+
+msgid "Occurs every {0} effective {1}."
+msgstr "Előfordulás minden {0} érvényes {1}."
+
+msgid "Occurs every {0} {1} effective {2}."
+msgstr "Ismétlődik minden {0} {1} érvényes {2}."
+
+msgid "Occurs every {0} effective {1} for {2} occurrence from {3} to {4}."
+msgid_plural ""
+"Occurs every {0} effective {1} for {2} occurrences from {3} to {4}."
+msgstr[0] ""
+msgstr[1] ""
+
+msgid "Occurs every {0} {1} effective {2} for {3} occurrence from {4} to {5}."
+msgid_plural ""
+"Occurs every {0} {1} effective {2} for {3} occurrences {4} to {5}."
+msgstr[0] ""
+msgstr[1] ""
+
+msgid "Occurs every {0} effective {1} for {2} occurrence."
+msgid_plural "Occurs every {0} effective {1} for {2} occurrences."
+msgstr[0] ""
+msgstr[1] ""
+
+msgid "Occurs every {0} {1} effective {2} for {3} occurrence."
+msgid_plural "Occurs every {0} {1} effective {2} for {3} occurrences."
+msgstr[0] ""
+msgstr[1] ""
+
+# Have to look at it in action.
+# 78%
+msgid "Occurs every {0} effective {1} until {2} from {3} to {4}."
+msgstr "Ismétlődés minden {0} érvényes {1} {2}-ig {3}-tól {4}-ig."
+
+# Have to look at it in action.
+# 78%
+# 86%
+msgid "Occurs every {0} {1} effective {2} until {3} from {4} to {5}."
+msgstr "Ismétlődés minden {0} {1} érvényes {2} {3}-ig {4}tól/től {5}-ig."
+
+# Have to look at it in action.
+# 86%
+# 76%
+msgid "Occurs every {0} effective {1} until {2}."
+msgstr "Ismétlődés minden {0} érvényes {1} {2}-ig."
+
+# Have to look at it in action.
+# 86%
+# 76%
+msgid "Occurs every {0} {1} effective {2} until {3}."
+msgstr "Ismétlődés minden {0} {1} érvényes {2}-tól/től {3}-ig."
+
+msgid "When"
+msgstr "Mikor"
+
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
+msgid "l jS F Y {0}"
+msgstr ""
+
+msgid "Where"
+msgstr "Hol"
+
+msgid "New Meeting Time Proposed"
+msgstr "Új felajánlott értekezlet időpont"
+
+# 75%
+# 100%
+msgid "and "
+msgstr "és "
+
+# Mellékletek szerinti rendezés?
+msgid "Sort by: Attachment"
+msgstr "Rendezés: Mellékletek"
+
+msgid "Sort by: Recurring"
+msgstr "Rendezés: Ismétlődés szerint"
+
+msgid "Sort by: Subject"
+msgstr "Rendezés: Tárgy szerint"
+
+msgid "Start Date"
+msgstr "Kezdési időpont"
+
+msgid "Sort by: Start Date"
+msgstr "Rendezés: Kezdő dátum szerint"
+
+# 87%
+msgid "End Date"
+msgstr "Befejezés dátuma"
+
+msgid "Sort by: End Date"
+msgstr ""
+
+msgid "Organizer"
+msgstr "Szervező"
+
+msgid "Required Attendee"
+msgstr "Kötelező résztvevő"
+
+msgid "Optional Attendee"
+msgstr "Opcionális résztvevő"
+
+msgid "Show Time As"
+msgstr "Időpont megjelenítése mint"
+
+msgid "Recurrence pattern"
+msgstr "Ismétlődési minta"
+
+msgid "All Day Event"
+msgstr "Egész napos esemény"
+
+# 76%
+# 100%
+msgid "Add Shared Calendar"
+msgstr "Megosztott naptárak megnyitása"
+
+msgid "Remove From Calendar"
+msgstr "Eltávolítás a naptárból"
+
+msgid "No Response Required"
+msgstr "Nem igényel választ"
+
+# 75%
+msgid "Accept"
+msgstr "Elfogad"
+
+msgid "Accept Meeting Request"
+msgstr "Értekezlet meghívás elfogadása"
+
+msgid "Tentative"
+msgstr "Feltételes"
+
+msgid "Tentatively Accept Meeting Request"
+msgstr "Értekezlet meghívó feltételes elfogadása"
+
+msgid "Decline"
+msgstr "Elutasít"
+
+msgid "Decline Meeting Request"
+msgstr "Értekezlet meghívó elutasítása"
+
+msgid "Propose New Time"
+msgstr "Új időpont javaslat"
+
+msgid "Propose New Time for Meeting Request"
+msgstr "Új időpont javaslása a találkozóhoz"
+
+msgid "View All Proposals"
+msgstr "Minden javaslat megtekintése"
+
+msgid "Accept Proposal"
+msgstr "Javaslat elfogadása"
+
+msgid "Accept Proposed Time"
+msgstr "Javasolt időpont elfogadása"
+
+msgid "View in calendar"
+msgstr "Megtekintés a naptárban"
+
+msgid "Day"
+msgstr "Nap"
+
+msgid "Workweek"
+msgstr "Munkahét"
+
+msgid "Week"
+msgstr "Hét"
+
+msgid "Month"
+msgstr "Hónap"
+
+msgid "List"
+msgstr "Lista"
+
+# Maybe "Találkozó".
+msgid "Appointment"
+msgstr "Találkozó"
+
+msgid "Meeting request"
+msgstr "Értekezlet összehívása"
+
+msgid "Print selected appointment"
+msgstr "Kijelölt találkozó nyomtatása"
+
+msgid "No appointment selected"
+msgstr "Nincs kiválasztott találkozó"
+
+msgid "Print overview"
+msgstr "Nyomtatási áttekintés"
+
+#, fuzzy
+msgid "Create Appointment"
+msgstr "Magán találkozó"
+
+# 88%
+msgid "Calendar"
+msgstr "Naptár"
+
+#, fuzzy
+msgid "Create in other calendar"
+msgstr "Megtekintés a naptárban"
+
+msgid ""
+"The selected calendar has \"read-only\" permissions. Instead you can create "
+"an item in your own calendar."
+msgstr ""
+
+msgid "What would you like?"
+msgstr ""
+
+#, fuzzy
+msgid "Own calendar"
+msgstr "Megtekintés a naptárban"
+
+msgid "F Y"
+msgstr "F Y"
+
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
+msgid "l"
+msgstr "l"
+
+msgid "All text fields"
+msgstr "Minden szövegmező"
+
+msgid "Body"
+msgstr "Törzs"
+
+msgid "Subject or Sender"
+msgstr "Tárgy vagy Feladó"
+
+msgid "To or cc"
+msgstr "Címzett vagy másolat"
+
+msgid "Meeting"
+msgstr "Találkozó"
+
+# Have to take a look at it in action.
+#, fuzzy
+msgctxt "calendar.dialog"
+msgid "Resources have been planned"
+msgstr "Erőforrások lefoglalása megtörtént."
+
+#, fuzzy
+msgid "Send update"
+msgstr "Küldés később"
+
+msgid "Do you want to send an update to all recipients?"
+msgstr ""
+
+msgid "Send update to attendees"
+msgstr "Frissítés küldése a résztvevőknek"
+
+msgid ""
+"You have made changes to the list of attendees. What would you like to do?"
+msgstr ""
+
+msgid "Send updates to only added or deleted attendees."
+msgstr "Frissítés küldése csak a hozzáadott vagy törölt résztvevők részére."
+
+msgid "Send updates to all attendees."
+msgstr "Frissítés küldése minden résztvevőnek."
+
+#, fuzzy
+msgid "Busy attendees"
+msgstr "Résztvevők meghívása"
+
+#, fuzzy
+msgid "One or more attendees are busy. Are you sure to invite?"
+msgstr "Egy, vagy több meghívott elfoglalt. Biztosan meghívja őket?"
+
+msgid "Scheduling"
+msgstr "Ütemezés"
+
+msgid "Tracking"
+msgstr "Követés"
+
+# 75%
+msgctxt "calendar.dialog"
+msgid "Not all attendees could be resolved."
+msgstr "Nem minden címzett található meg."
+
+msgctxt "calendar.dialog"
+msgid "{0} attendees accepted, {1} tentatively accepted, {2} declined."
+msgstr ""
+"{0} meghívott elfogadta, {1} feltételesen fogadta el, {2} elutasította."
+
+msgctxt "calendar.dialog"
+msgid ""
+"{0} attendees proposed a new time for this meeting. Click the Scheduling tab "
+"for details."
+msgstr ""
+"{0} résztvevő új időpontot ajánlott az értekezletre. Részletekért kattintson "
+"a Beosztás fülre."
+
+msgctxt "calendar.dialog"
+msgid "You proposed a new time for this meeting on {0}"
+msgstr "Új időpontot ajánlott fel az értekezletre: {0}"
+
+# 91%
+msgctxt "calendar.dialog"
+msgid "{0} proposed a new time for this meeting on {1}"
+msgstr "{0} új időpontot ajánlott fel az értekezletre erre a dátumra {1}"
+
+msgctxt "calendar.dialog"
+msgid "Accepted on {0}"
+msgstr "Elfogadva: {0}"
+
+msgctxt "calendar.dialog"
+msgid "Accepted by {0} on {1}"
+msgstr "Elfogadva {0} által ekkor: {1}"
+
+msgctxt "calendar.dialog"
+msgid "Tentatively Accepted on {0}"
+msgstr "Feltételesen elfogadva: {0}"
+
+# 76%
+msgctxt "calendar.dialog"
+msgid "Tentatively Accepted by {0} on {1}"
+msgstr "Feltételesen elfogadva {0} által ekkor: {1}"
+
+msgctxt "calendar.dialog"
+msgid "This appointment occurs in the past."
+msgstr "A találkozó időpontja a múltban van."
+
+msgctxt "calendar.dialog"
+msgid "Please respond."
+msgstr "Kérem válaszoljon."
+
+msgctxt "calendar.dialog"
+msgid "No responses have been received for this meeting."
+msgstr "Nem érkezett válasz az értekezlet meghívóra."
+
+msgctxt "calendar.dialog"
+msgid "Meeting has been canceled."
+msgstr "Az értekezletet törölték."
+
+# Maybe need to use the word in different order and with different prefix.
+msgctxt "calendar.dialog"
+msgid "Invitations have not been sent for this meeting."
+msgstr "Nincsenek elküldött meghívók erre az értekezletre."
+
+msgctxt "calendar.dialog"
+msgid ""
+"Please note that any changes you make will be overwritten when this meeting "
+"request is updated by the organizer"
+msgstr ""
+"Bármely most végbevitt változtatás felülíródik, ha az értekezlet szervezője "
+"frissíti az értekezletet"
+
+msgid "Create in"
+msgstr "Létrehozás ebben:"
+
+msgid "Time"
+msgstr "Idő"
+
+msgid "until"
+msgstr "Vége"
+
+msgid "Recurrence"
+msgstr "Ismétlődés"
+
+msgid "Reminder"
+msgstr "Jelzés"
+
+msgid "Show as"
+msgstr "Megjelenítés, mint"
+
+msgid "Warning"
+msgstr "Figyelmeztetés"
+
+msgid "Attachments cannot be modified for a single occurence"
+msgstr "A mellékletet nem lehet csak egy előfordulásnál módosítani"
+
+msgid "Type your message here..."
+msgstr "Írja be üzenetét..."
+
+#, fuzzy
+msgid "Update location"
+msgstr "Lista frissítése"
+
+msgid ""
+"Do you want to update the location \"{0}\" with the new location \"{1}\"?"
+msgstr "Ki akarja cserélni a \"{0}\" helyszínt az új \"{1}\" helyszínnel?"
+
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
+msgid "jS F Y {0}"
+msgstr ""
+
+# 75%
+msgid "None"
+msgstr "Nincs"
+
+# 75%
+msgid "Send"
+msgstr "Küldés"
+
+msgid "Save"
+msgstr "Mentés"
+
+msgid "Close"
+msgstr "Bezárás"
+
+msgid "Delete"
+msgstr "Törlés"
+
+msgid "Add attachment"
+msgstr "Melléklet hozzáadása"
+
+msgid "Check names"
+msgstr "Nevek ellenőrzése"
+
+msgid "Addressbook"
+msgstr ""
+
+msgid "Open addressbook"
+msgstr ""
+
+msgid "Invite attendees"
+msgstr "Résztvevők meghívása"
+
+msgid "Cancel invitation"
+msgstr "Meghívás törlése"
+
+msgid "High priority"
+msgstr "Sürgős"
+
+# 76%
+msgid "Mark this appointment as high priority"
+msgstr "Találkozó sürgősnek jelölése"
+
+msgid "Low priority"
+msgstr "Nem sürgős"
+
+# 78%
+msgid "Mark this appointment as low priority"
+msgstr "Találkozó nem sürgősnek jelölése"
+
+msgid "Categories"
+msgstr "Kategóriák"
+
+msgid "Open the categories dialog"
+msgstr "Kategóriák párbeszédablak megnyitása"
+
+msgid "Private"
+msgstr "Személyes"
+
+msgid "Mark this appointment as private"
+msgstr "Találkozó magánjellegűnek jelölése"
+
+msgid "Proposed Date and Time"
+msgstr "Ajánlott dátum és idő"
+
+msgid "Duration"
+msgstr "Időtartam"
+
+msgid "Proposed By"
+msgstr "Felvetette"
+
+msgid "Current Meeting Time"
+msgstr "Értekezlet jelenlegi időpontja"
+
+msgid "Show only working hours"
+msgstr "Csak a munkaidő megjelenítése"
+
+msgid "Start time"
+msgstr "Kezdés"
+
+msgid "End time"
+msgstr "Befejezés"
+
+msgid "Comment"
+msgstr "Megjegyzés"
+
+msgid "Send Meeting Request Cancellation"
+msgstr "Üzenet küldése értekezlet törléséről"
+
+msgid ""
+"This meeting will be cancelled. Do you want to include comments with your "
+"cancellation?"
+msgstr ""
+"Az értekezlet törlésre kerül. Akar megjegyzést fűzni a törlést tudató "
+"üzenethez?"
+
+msgid "Edit the cancellation before Sending."
+msgstr "A törlési üzenet szerkesztése küldés előtt."
+
+msgid "Send the cancellation now."
+msgstr "Törlési üzenet küldése most."
+
+# Have to take a look at it in action.
+msgid "Send Meeting Request Confirmation"
+msgstr "Értekezlet meghívó megerősítésének elküldése"
+
+#, fuzzy
+msgid ""
+"This meeting will be accepted and moved to your calendar. Do you want to "
+"include comments with your response?"
+msgstr ""
+"Ez az értekezlet elfogadásra került és a naptárába lett helyezve. Kíván "
+"megjegyzést fűzni a válaszához?"
+
+#, fuzzy
+msgid ""
+"This meeting will be tentatively accepted and moved to your calendar. Do you "
+"want to include comments with your response?"
+msgstr ""
+"Ez az értekezlet esetleges módban elfogadásra került és a naptárába lett "
+"helyezve. Kíván megjegyzést fűzni a válaszához?"
+
+#, fuzzy
+msgid ""
+"This meeting will be declined and moved to your Deleted Items folder. Do you "
+"want to include comments with your response?"
+msgstr ""
+"Ezt az értekezletet elutasította, és a Törölt mappába helyezte. Kíván "
+"megjegyzést fűzni a válaszához?"
+
+#, fuzzy
+msgid "Edit the response before sending"
+msgstr "Válasz szerkesztése elküldés előtt."
+
+msgid "Send the response now."
+msgstr "Válasz elküldése azonnal."
+
+msgid "Don't send a response."
+msgstr "Ne küldjön választ."
+
+msgid "The following responses for this meeting have been received"
+msgstr "Az értekezlethez kapcsolódó alábbi válaszok érkeztek"
+
+msgid "Attendance"
+msgstr "Részvétel"
+
+msgid "Response"
+msgstr "Válasz"
+
+# 93%
+# 100%
+msgid "New appointment"
+msgstr "Új találkozó"
+
+msgid "Creating an item"
+msgstr "Elem készítése"
+
+# 89%
+# 100%
+msgid "New meeting request"
+msgstr "Új találkozó kérelem"
+
+msgid "Switch calendar range back and forth"
+msgstr "Naptár nézet tartomány oda-vissza állítása"
+
+msgid "Copy selected item"
+msgstr "Kijelölt elem másolása"
+
+msgid "Paste selected item"
+msgstr "Kijelölt elem beillesztése"
+
+msgid "An overview of"
+msgstr ""
+
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
+msgid "Start"
+msgstr "Indítás"
+
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
+msgid "End"
+msgstr "Vége"
+
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for formatting instructions
+msgid "Printed by"
+msgstr ""
+
+msgid "at"
+msgstr ""
+
+msgid "of"
+msgstr ""
+
+#, fuzzy
+msgid "Location: "
+msgstr "Helyszín"
+
+msgid "j M {0}"
+msgstr ""
+
+msgid "l jS M Y {0}"
+msgstr ""
+
+msgid "All day: "
+msgstr ""
+
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for formatting instructions
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
+msgid "l jS F"
+msgstr "F j. l"
+
+# 88%
+msgid "Organiser"
+msgstr "Szervező"
+
+# 92%
+msgid "Meeting status"
+msgstr "Értekezlet állapota"
+
+# 94%
+msgid "Required Attendees"
+msgstr "Kötelező résztvevő"
+
+# 94%
+msgid "Optional Attendees"
+msgstr "Opcionális résztvevő"
+
+# 88%
+msgid "Resources"
+msgstr "Erőforrások"
+
+# Fontosság?
+msgid "Sensitivity"
+msgstr "Információ érzékenysége"
+
+# maybe: jelentőség
+msgid "Importance"
+msgstr "Fontosság"
+
+msgid "M j"
+msgstr ""
+
+#, fuzzy
+msgid "j"
+msgstr "j"
+
+msgid "General calendar settings"
+msgstr "Általános naptár beállítások"
+
+msgid "First day of the week"
+msgstr "A hét első napja"
+
+msgid "Start of workday"
+msgstr "Munkanap kezdete"
+
+msgid "End of workday"
+msgstr "Munkanap vége"
+
+msgid "Calendar resolution"
+msgstr "Naptár felosztása"
+
+msgid "Default appointment duration {A} minutes"
+msgstr "Alapértelmezett találkozó időtartam: {A} perc"
+
+msgid "Duration must be between 1 and 120 minutes."
+msgstr "Az időtartamnak 1 és 120 perc között kell lennie."
+
+msgid "Default status for all day appointment"
+msgstr ""
+
+msgid "Working days"
+msgstr "Munkanapok"
+
+msgid "Show busy dates as bold in the date picker"
+msgstr "Foglalt dátumokat kiemelten jelenítse meg a dátumválasztóban"
+
+#, fuzzy
+msgid ""
+"Free/Busy information is used by people sending meeting requests, to "
+"determine when you are available for meetings."
+msgstr "Elérhetőségéhez hozzáférhetnek mások, "
+
+#, fuzzy
+msgid "Free/Busy publishing"
+msgstr "Elérhetőség mutatásának engedélyezése"
+
+#, fuzzy
+msgid "Publish {A} month(s) of Calendar Free/Busy information on the server."
+msgstr "{A} hónap elérhetőségének publikussá tétele a kiszolgálón."
+
+#, fuzzy
+msgid ""
+"You can only publish a Free/Busy period from 0 to 36 months. 0 means Free/"
+"Busy information is not published."
+msgstr ""
+"Csak az 1 és 36 hónap közti intervallumban tudja megadni elérhetőségét."
+
+msgid "Side-by-side mode"
+msgstr "Egymás melletti mód"
+
+msgid "Overlay mode"
+msgstr "Átfedés módja"
+
+msgid "Calendar view settings"
+msgstr "Naptár nézet beállítások"
+
+msgid "View multiple calendars in"
+msgstr "Több naptár áttekintése"
+
+msgid "Reminder settings"
+msgstr "Emlékeztető beállításai"
+
+msgid "Enable reminder for new appointments"
+msgstr "Emlékeztetők engedélyezése az új találkozókhoz"
+
+msgid "Default reminder time"
+msgstr "Alapértelmezett emlékeztetési időpont"
+
+msgid "Default all-day appointment reminder time"
+msgstr "Egész napos események alapértelmezett emlékeztetési ideje"
+
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
+msgid "jS"
+msgstr "j"
+
+msgid "{0} selected item"
+msgid_plural "{0} selected items"
+msgstr[0] "{0} kiválasztott elem"
+msgstr[1] "{0} kiválasztott elem"
+
+msgid "New Appointment"
+msgstr "Új találkozó"
+
+msgid "New Meeting Request"
+msgstr "Új találkozó kérelem"
+
+msgid "Open"
+msgstr "Megnyitás"
+
+msgid "Copy/Move"
+msgstr "Másolás/mozgatás"
+
+# 75%
+#, fuzzy
+msgid "Send to..."
+msgstr "Továbbítás mellékletként"
+
+msgid "Export as"
+msgstr "Exportálás mint"
+
+# 80%
+# 100%
+msgid "Occurrence"
+msgstr "Ismétlődés"
+
+msgid "Series"
+msgstr "Sorozat"
+
+# Maybe "Találkozó".
+#, fuzzy
+msgid "Appointment not found"
+msgstr "Találkozó"
+
+msgid "This appointment has been moved or deleted, do you want to continue?"
+msgstr "A találkozót áthelyezték, vagy törölték, kívánja folytatni?"
+
+msgid "All Day"
+msgstr "Teljes nap"
+
+msgid "Sort by: All Day"
+msgstr "Rendezés: Egész napos események"
+
+msgid "Icon"
+msgstr "Ikon"
+
+msgid "Recurring"
+msgstr "Ismétlődés"
+
+# 80%
+# 76%
+# 82%
+msgid "Sort by: Duration"
+msgstr "Rendezés: Időtartam szerint"
+
+msgid "Meeting Status"
+msgstr "Értekezlet állapota"
+
+msgid "Sort by: Meeting Status"
+msgstr "Rendezés: Értekezlet állapota szerint"
+
+msgid "Sort by: Show as"
+msgstr "Rendezés: Mutasd mint"
+
+msgid "Sort by: Categories"
+msgstr "Rendezés: Kategóriák"
+
+msgid "Created On"
+msgstr "Létrehozva"
+
+# 84%
+msgid "Sort by: Created On"
+msgstr "Rendezés: Létrehozás dátuma szerint"
+
+msgid "Due By"
+msgstr "Határidő"
+
+# 76%
+msgid "Sort by: Due By"
+msgstr "Rendezés: Határidő szerint"
+
+msgid "Label"
+msgstr "Címke"
+
+# 76%
+# 78%
+msgid "Sort by: Label"
+msgstr "Rendezés: Címke szerint"
+
+msgid "Sort by: Organizer"
+msgstr "Rendezés: Szervező szerint"
+
+msgid "Sort by: Required Attendee"
+msgstr "Rendezés: Kötelező résztvevő szerint"
+
+msgid "Sort by: Optional Attendee"
+msgstr "Rendezés: Opcionális résztvevő szerint"
+
+msgid "Sort by: Resources"
+msgstr "Rendezés: Erőforrások szerint"
+
+msgid "Recurring Start Date"
+msgstr ""
+
+msgid "Sort by: Recurring Start Date"
+msgstr ""
+
+msgid "Recurring End Date"
+msgstr ""
+
+msgid "Sort by: Recurring End Date"
+msgstr ""
+
+msgid "Recurring Pattern"
+msgstr "Ismétlődési minta"
+
+msgid "Sort by: Recurring Pattern"
+msgstr "Rendezés: Ismétlődési minta szerint"
+
+# 77%
+msgid "Sort by: Reminder"
+msgstr "Rendezés: Emlékeztető szerint"
+
+msgid "Sort by: Sensitivity"
+msgstr "Rendezés: Érzékenység szerint"
+
+msgid "Loading appointments"
+msgstr "Találkozók betöltése"
+
+msgid "Attendees"
+msgstr ""
+
+msgid "Optional attendees"
+msgstr ""
+
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
+msgid "jS F {0}"
+msgstr ""
+
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
+msgid "jS F Y"
+msgstr "Y. F j"
+
+msgid ""
+"You have insufficient privileges to move and copy this item. Ask the folder "
+"owner to grant you permissions or contact your system administrator."
+msgstr ""
+
+msgid ""
+"You have insufficient privileges to copy this item. Ask the folder owner to "
+"grant you permissions or contact your system administrator."
+msgstr ""
+
+msgid "Insufficient privileges"
+msgstr "Nincs elég jogosultsága"
+
+msgid ""
+"Copying this appointment will unset it as private. Are you sure you want to "
+"continue?"
+msgstr ""
+
+msgid "Private item"
+msgstr ""
+
+msgid "Copy"
+msgstr "Másolás"
+
+msgid ""
+"Moving this appointment will unset it as private. Are you sure you want to "
+"continue?"
+msgstr ""
+
+msgid "Move"
+msgstr "Áthelyezés"
+
+#, fuzzy
+msgid "Update recipients"
+msgstr "Címzett szerkesztése"
+
+msgid "The time of the meeting has changed. What would you like to do?"
+msgstr ""
+
+msgid "Save changes and send an update to all recipients"
+msgstr "Változások elmentése, és frissítés elküldése a résztvevőknek"
+
+msgid "Open meeting request with changes"
+msgstr "Értekezlet meghívó megnyitása a változásokkal"
+
+msgid "grommunio Web"
+msgstr "grommunio Web"
+
+#, fuzzy
+msgid ""
+"Please note that any changes you make will be overwritten when this meeting "
+"request is updated by the organizer. Would you like to move this meeting?"
+msgstr ""
+"Bármely most végbevitt változtatás felülíródik, ha az értekezlet szervezője "
+"frissíti az értekezletet"
+
+#, fuzzy
+msgid "Don't move"
+msgstr "Ne Küldje"
+
+msgid "Switch to day view to see all appointments"
+msgstr ""
+
+#. TRANSLATORS: This message is used as label for the field which to indicates to whom the given mail was sent.
+msgctxt "mail.previewpanel"
+msgid "Proposed"
+msgstr "Javaslat"
+
+#. TRANSLATORS: This message is used as label for the field which to indicates to whom the given mail was sent
+msgctxt "mail.previewpanel"
+msgid "When"
+msgstr "Mikor"
+
+#. TRANSLATORS: This message is used as label for the field which to indicates to whom the given mail was sent
+msgctxt "mail.previewpanel"
+msgid "Location"
+msgstr "Helyszín"
+
+#, fuzzy
+msgid "No additional response required"
+msgstr "Nem igényel választ"
+
+msgid ""
+"Your calendar has been updated automatically. This meeting request will now "
+"be deleted."
+msgstr ""
+"A naptára automatikusan frissítésre került. A találkozási kérelem most "
+"törlésre kerül."
+
+#, fuzzy
+msgid "Loading appointments..."
+msgstr "Találkozók betöltése"
+
+msgid "Please select a calendar via widget settings"
+msgstr ""
+
+msgid "Number of days"
+msgstr ""
+
+msgid "day(s)"
+msgstr "nap múlva"
+
+msgid "{0}"
+msgstr ""
+
+#, fuzzy
+msgid "Upcoming Appointments"
+msgstr "Találkozók betöltése"
+
+msgid "Appointments of {0}"
+msgstr ""
+
+msgid "Appointments of {0} - {1}"
+msgstr ""
+
+# 93%
+# 100%
+#, fuzzy
+msgid "No appointments"
+msgstr "Új találkozó"
+
+#, fuzzy
+msgid "Today {0} - {1}"
+msgstr "Ma: {1} {0}"
+
+msgid "Today (all day)"
+msgstr ""
+
+# 80%
+# 100%
+#. TRANSLATORS: Display name of a folder: "FOLDERNAME - STORENAME".
+#. TRANSLATORS: Displayed on top of a tree with folders: "FOLDERNAME - USERNAME".
+#, fuzzy
+msgid "{0} - {1}"
+msgstr "{1} - {0}"
+
+msgid "d/m/y {0}"
+msgstr ""
+
+msgid "{0} - {1} (all day)"
+msgstr ""
+
+#, fuzzy
+msgid "d/m/y"
+msgstr "Y/m/d"
+
+msgid "Select one..."
+msgstr "Válaszon egy..."
+
+msgid "Unnamed folder"
+msgstr "Névtelen mappa"
+
+msgid "Discard"
+msgstr "Elvet"
+
+msgid "Quick Appointment"
+msgstr "Gyors találkozó"
+
+msgid "Printing of multiple items has not been implemented."
+msgstr "Nem sikerült a több elem nyomtatása."
+
+msgid "Printing of this item is not yet available"
+msgstr "Az elem nyomtatása nem elérhető"
+
+msgid "Item type: "
+msgstr "Elem típus: "
+
+msgid "Printing of this view is not yet available"
+msgstr "A nézet nyomtatása nem elérhető"
+
+msgid "Recurring Message"
+msgstr "Ismétlődő üzenet"
+
+msgid ""
+"This is a recurring message. Do you want to open only this occurrence or the "
+"series?"
+msgstr ""
+"Ez egy ismétlődő üzenet. Csak ezt az egy ismétlődést akarja megnyitni, vagy "
+"az egész sorozatot?"
+
+msgid "Recurring Appointment"
+msgstr "Ismétlődő időpont"
+
+msgid ""
+"This is a recurring appointment. Do you want to open only this occurrence or "
+"the series?"
+msgstr ""
+"Ez egy ismétlődő időpont. Csak ezt az egy időpontot akarja megnyitni, vagy "
+"az egész sorozatot?"
+
+# 80%
+msgid "Recurring Meeting Request"
+msgstr "Ismétlődő értekezlet összehívás"
+
+msgid ""
+"This is a recurring meeting request. Do you want to open only this "
+"occurrence or the series?"
+msgstr ""
+"Ez egy ismétlődő értekezlet összehívás. Csak ezt az egy ismétlődést akarja "
+"megnyitni, vagy az egész sorozatot?"
+
+msgid "Recurring Task Request"
+msgstr "Ismétlődő feladat kérés"
+
+msgid ""
+"This is a recurring task request. Do you want to open only this occurrence "
+"or the series?"
+msgstr ""
+"Ez egy ismétlődő feladat kérés. Csak ezt az egy ismétlődést akarja "
+"megnyitni, vagy az egész sorozatot?"
+
+msgid "Open this occurrence"
+msgstr "Ennek az előfordulásnak a megnyitása"
+
+msgid "Open the series"
+msgstr "Sorozat megnyitása"
+
+msgid "Paste Recurring {0}"
+msgstr ""
+
+msgid ""
+"This is a recurring {0}. Do you want to paste only this occurrence or the "
+"series?"
+msgstr ""
+
+msgid "message"
+msgstr "üzenet"
+
+msgid "meeting request"
+msgstr "értekezlet-összehívás"
+
+msgid "appointment"
+msgstr "találkozó"
+
+msgid "Paste this occurrence only"
+msgstr ""
+
+msgid "Paste the series..."
+msgstr ""
+
+msgid ""
+"This is a recurring message. Do you want to delete only this occurrence or "
+"the series?"
+msgstr ""
+"Ez egy ismétlődő üzenet. Csak ezt az egy ismétlődést akarja törölni, vagy az "
+"egész sorozatot?"
+
+msgid ""
+"This is a recurring appointment. Do you want to delete only this occurrence "
+"or the series?"
+msgstr ""
+"Ez egy ismétlődő időpont. Ezt az egy időpontot akarja törölni, vagy az egész "
+"sorozatot?"
+
+msgid ""
+"This is a recurring meeting request. Do you want to delete only this "
+"occurrence or the series?"
+msgstr ""
+"Ez egy ismétlődő értekezlet összehívás. Csak ezt az egy ismétlődést akarja "
+"törölni, vagy az egész sorozatot?"
+
+msgid ""
+"This is a recurring task request. Do you want to delete only this occurrence "
+"or the series?"
+msgstr ""
+"Ez egy ismétlődő feladat kérés. Csak ezt az egy ismétlődést akarja törölni, "
+"vagy az egész sorozatot?"
+
+msgid "Delete this occurrence"
+msgstr "Törölje ezt az előfordulást"
+
+msgid "Delete the series"
+msgstr "Törölje a sorozatot"
+
+msgid "Confirm Delete"
+msgstr "Törlés jóváhagyása"
+
+msgid "This \"{0}\" meeting was already accepted."
+msgstr "\"{0}\" értekezletet már elfogadta."
+
+msgid "You have not responded to the meeting request \"{0}\"."
+msgstr "Az alábbi értekezlet összehívásra nem válaszolt: \"{0}\"."
+
+msgid "Delete and send a response to the meeting organizer"
+msgstr "Törlés és válasz küldése az értekezlet szervezőjének"
+
+msgid "Delete without sending"
+msgstr "Törlés küldés nélkül"
+
+#, fuzzy
+msgid "Insufficient permissions"
+msgstr "Nincs elég jogosultsága"
+
+msgid "You have insufficient privileges to delete items in this folder."
+msgstr ""
+
+#, fuzzy
+msgid "Notify recipients"
+msgstr "Címzett szerkesztése"
+
+msgid ""
+"A cancellation message will be sent to all recipients, do you wish to "
+"continue?"
+msgstr ""
+"A lemondó üzenet minden címzettnek el lesz küldve, biztosan folytatni akarja?"
+
+msgid "Delete Incomplete Task"
+msgstr "Befejezetlen feladat törlése"
+
+msgid "The task \"{0}\" has not been completed. What do you want to do?"
+msgstr "Az alábbi feladat nem készült el: \"{0}\". Mit szeretne tenni?"
+
+msgid "Decline and delete"
+msgstr "Visszautasítás és törlés"
+
+msgid "Mark complete and delete"
+msgstr "Késznek jelöl és törlés"
+
+#, fuzzy
+msgid "Following recipients are already exists"
+msgstr "Az alábbi címzet(tek) nem érhető(ek) el"
+
+#, fuzzy
+msgid "Duplicate recipients"
+msgstr "Címzett szerkesztése"
+
+#, fuzzy
+msgid "Duplicate recipient"
+msgstr "Címzett szerkesztése"
+
+#, fuzzy
+msgid "Recipient already exists."
+msgstr "A felhasználó már létezik"
+
+# 77%
+#, fuzzy
+msgid "Notify sender"
+msgstr "Rendezés: Emlékeztető szerint"
+
+#, fuzzy
+msgid ""
+"The sender of this email has requested a read receipt. Do you wish to notify "
+"the sender?"
+msgstr ""
+"A küldő ebben az üzenetben olvasási visszaigazolást kért. Kíván "
+"visszaigazolást küldeni?"
+
+msgid "Import"
+msgstr "Importálás"
+
+msgid "Successfully imported item(s) to {0}"
+msgstr ""
+
+msgid "Failed to import item(s) to {0}"
+msgstr ""
+
+#, fuzzy
+msgid "Import error"
+msgstr "Importálás ebbe"
+
+msgid "Unable to import \"{0}\". The file is not valid"
+msgstr ""
+
+msgid ""
+"You have insufficient privileges to move these items. Would you like to copy "
+"instead?"
+msgstr ""
+
+msgid ""
+"You have insufficient privileges to move this item. Would you like to copy "
+"instead?"
+msgstr ""
+
+# 100%
+msgid "Cc"
+msgstr "Cc"
+
+# 100%
+msgid "Bcc"
+msgstr "Bcc"
+
+msgid "From"
+msgstr "Feladó"
+
+msgid "Insert item"
+msgstr "Elem beszúrása"
+
+msgid "Insert as"
+msgstr "Beillesztés, mint"
+
+msgid "Text only"
+msgstr "Csak szöveg"
+
+# 90%
+msgid "Attachment"
+msgstr "Melléklet"
+
+msgid "Attach Item"
+msgstr "Elem csatolása"
+
+msgid "No message selected"
+msgstr "Nincs kiválasztott üzenet"
+
+msgid "Import to"
+msgstr "Importálás ebbe"
+
+# 90%
+# 100%
+msgid "New folder"
+msgstr "Új mappa"
+
+msgid "Download as ZIP"
+msgstr "Letöltés ZIP-ként"
+
+msgid "Continue"
+msgstr "Folytatás"
+
+msgid ""
+"These attachments have an unsupported file type and can not be added to the "
+"ZIP file:"
+msgstr ""
+"Az alábbi csatolmányok fájlkiterjesztése nem támogatott, így nem adhatóak "
+"hozzá a ZIP fájlhoz:"
+
+msgid "Would you like to continue downloading without adding these files?"
+msgstr "Szeretné folytatni a letöltést a fájlok hozzáadása nélkül?"
+
+msgid ""
+"Always continue download of ZIP files without adding unsupported file types."
+msgstr ""
+"Mindig töltse le a ZIP fájlokat a nem támogatott fájlok hozzáadása nélkül."
+
+msgid "File upload"
+msgstr "Fájl feltöltés"
+
+msgid "Attach item"
+msgstr "Elem csatolása"
+
+msgid "Preview"
+msgstr "Előnézet"
+
+msgid "Download"
+msgstr "Letöltés"
+
+msgid "Download all as ZIP"
+msgstr "Összes letöltése ZIP-ként"
+
+msgid "Import to folder"
+msgstr "Importálás mappába"
+
+msgid ""
+"In order to use the vCard import feature, upgrade your Gromox to version 0 "
+"or higher."
+msgstr ""
+
+msgid ""
+"In order to use the ICS / VCS import feature, upgrade your Gromox to version "
+"0 or higher."
+msgstr ""
+
+msgid "Attachment error"
+msgstr "Csatolmány hiba"
+
+msgid "Cannot create ZIP, The allowed maximum size is 30 MB."
+msgstr ""
+"Nem sikerült létrehozni a ZIP-fájlt, a maximális megengedett méret 30 MB."
+
+msgid "Unable to download"
+msgstr ""
+
+msgid "Picture format is not supported. "
+msgstr "Nem támogatott képformátum. "
+
+msgid "Supported format for contact pictures are"
+msgstr "A támogatott képformátumok"
+
+# 93%
+# 100%
+msgid "Attachment Error"
+msgstr "Csatolmány hiba"
+
+msgid "Manage Categories"
+msgstr "Kategóriák kezelése"
+
+msgid "New"
+msgstr "Új"
+
+msgid "Delete Category"
+msgstr "Kategória törlése"
+
+msgid ""
+"Are you sure you want to delete the category \"{0}\"? Other items keep this "
+"category, but lose the assigned color."
+msgstr ""
+
+msgid "Rename Category"
+msgstr "Kategória átnevezése"
+
+msgid "A category named \""
+msgstr ""
+
+msgid "Create New Category"
+msgstr "Kategória létrehozása"
+
+msgid "Pin to quick access"
+msgstr ""
+
+msgid "Create"
+msgstr "Létrehoz"
+
+msgid ""
+"You must apply the changes you have made to the categories before you can "
+"create this category."
+msgstr ""
+
+msgid "You already have a category named '{0}'. Please use another name."
+msgstr ""
+
+msgid ""
+"You already have a category named '{0}' in your pending changes. Please use "
+"another name."
+msgstr ""
+
+msgid "Rename"
+msgstr "Átnevezés"
+
+msgid "This is the first time you have used \"{0}\" category."
+msgstr ""
+
+msgid "Do you want to rename it?"
+msgstr "Biztosan át akarja nevezni?"
+
+msgid ""
+"The category \"{0}\" already exists. Do you want to merge the \"{1}\" and "
+"\"{2}\" categories?"
+msgstr ""
+
+msgid "Merge"
+msgstr "Összevon"
+
+msgid "Remove"
+msgstr "Eltávolítás"
+
+# 90%
+msgid "Check Names"
+msgstr "Nevek ellenőrzése"
+
+msgid "Select an address to use"
+msgstr "Válassza ki a használni kívánt címet"
+
+# 83%
+msgid "Email"
+msgstr "E-mail"
+
+msgid "More than one '{0}' found."
+msgstr "Több, mint egy '{0}' találat."
+
+msgid "Alert"
+msgstr "Riasztás"
+
+# 80%
+msgid "Please select a recipient"
+msgstr "Kérjem válasszon címzettet"
+
+msgid "Mail and Post"
+msgstr "Levél és posta"
+
+msgid "Contact"
+msgstr "Kapcsolat"
+
+msgid "Journal"
+msgstr "Napló"
+
+msgid "Note"
+msgstr "Jegyzet"
+
+msgid "Task"
+msgstr "Feladat"
+
+msgid "Inbox"
+msgstr "Beérkezett üzenetek"
+
+msgid "Entire Inbox"
+msgstr "Teljes beérkezett"
+
+msgid "Secretary"
+msgstr "Titkárnő"
+
+msgid "Only read"
+msgstr "Csak olvasásra"
+
+msgid "Delegate Permissions"
+msgstr "Meghatalmazott engedélyek"
+
+msgid "This delegate has the following permissions"
+msgstr "Ennek a meghatalmazottnak a következők a jogosultságai"
+
+msgid "Delegate can see my private items."
+msgstr "A meghatalmazott láthatja a személyes elemeimet."
+
+msgid "Delegate receives copies of meeting-related messages sent to me."
+msgstr ""
+"A küldött másolatot kap az értekezlettel kapcsolatos nekem küldött "
+"üzenetekről."
+
+msgid "Other"
+msgstr "Egyéb"
+
+#, fuzzy
+msgid "No delegates configured"
+msgstr "Nincs aláírás beállítva"
+
+msgid "Loading delegates"
+msgstr "Meghatalmazottak betöltése"
+
+# 76%
+msgid "Please select a delegate."
+msgstr "Kérem válasszon meghatalmazottat."
+
+msgid "Delegates can send items on your behalf."
+msgstr ""
+
+msgid ""
+"If you only want to set folder permissions, right-click on a folder to open "
+"the context menu and click on \"Share Folder...\""
+msgstr ""
+
+# 90%
+msgid "Permission"
+msgstr "Hozzáférés"
+
+#, fuzzy
+msgid "Duplicate delegate"
+msgstr "Visszautasítás és törlés"
+
+msgid "Delegate already exists in the list."
+msgstr "A meghatalmazott már szerepel a listán."
+
+msgid "Copy/Move Folder"
+msgstr "Mappa másolása/mozgatása"
+
+msgid "Copy/Move Messages"
+msgstr "Üzenetek másolása/áthelyezése"
+
+msgid "Destination folder"
+msgstr "Célmappa"
+
+msgid "There is {0} message selected."
+msgid_plural "There are {0} messages selected."
+msgstr[0] "{0} üzenet kiválasztva."
+msgstr[1] "{0} üzenet kiválasztva."
+
+msgid "Folder '{0}' selected."
+msgstr "'{0}' mappa kiválasztva."
+
+msgid ""
+"You have insufficient privileges to move this folder. Ask the folder owner "
+"to grant you permissions or contact your system administrator."
+msgstr ""
+
+msgid ""
+"You have insufficient privileges to copy this folder. Ask the folder owner "
+"to grant you permissions or contact your system administrator."
+msgstr ""
+
+msgid "You have insufficient privileges to move following items."
+msgstr ""
+
+msgid "Subject:"
+msgstr ""
+
+msgid "Would you like to copy instead?"
+msgstr ""
+
+msgid "Do not show this message again."
+msgstr "Ne mutassa ezt az üzenetet többet."
+
+msgid "ICS"
+msgstr ""
+
+msgid "Set custom flag"
+msgstr "Egyedi jelölő beállítása"
+
+# 90%
+msgid "Start date"
+msgstr "Kezdő dátum"
+
+# 87%
+msgid "End date"
+msgstr "Befejezés dátuma"
+
+msgid "Tomorrow"
+msgstr "Holnap"
+
+msgid "This week"
+msgstr "Ez a hét"
+
+msgid "Next week"
+msgstr "Jövő hét"
+
+msgid "Custom"
+msgstr "Egyéni"
+
+msgid "Set reminder"
+msgstr "Emlékeztető beállítása"
+
+msgid "Complete"
+msgstr "Kész"
+
+msgid "today"
+msgstr "ma"
+
+msgid "tomorrow"
+msgstr "holnap"
+
+msgid "this week"
+msgstr "ez a hét"
+
+msgid "next week"
+msgstr "jövő hét"
+
+msgid "Edit recipient"
+msgstr "Címzett szerkesztése"
+
+#, fuzzy
+msgid "Copy email address"
+msgstr "E-mail cím másolása"
+
+#, fuzzy
+msgid "Set as required"
+msgstr "A mező kötelező"
+
+#, fuzzy
+msgid "Set as optional"
+msgstr "Opcionális"
+
+#, fuzzy
+msgid "Set as resource"
+msgstr "Rendezés: Erőforrások szerint"
+
+msgid "Select attendees"
+msgstr "Válasszon résztvevőket"
+
+msgid "Suggested Times"
+msgstr "Javasolt időpontok"
+
+msgid "Busy"
+msgstr "Elfoglalt"
+
+msgid "Out of Office"
+msgstr "Házon kívül"
+
+msgid "No Information"
+msgstr "Nincs információ"
+
+# 82%
+msgid "Show non-working hours"
+msgstr "Munkaszüneti órák megjelenítése"
+
+# 82%
+# 81%
+msgid "Hide non-working hours"
+msgstr "Munkaszüneti órák elrejtése"
+
+msgid "No freebusy information available for this date"
+msgstr "Nincs elérhető szabad/foglalt információ erre a dátumra"
+
+msgid "No suggestions available"
+msgstr "Nincs elérhető javaslat"
+
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
+msgid "l jS F Y"
+msgstr "Y. F j. l, G:i"
+
+msgid "Switch between different contexts e.g. inbox, calendar, etc."
+msgstr "Kontextusok közötti váltás, pl. inbox, naptár, stb."
+
+msgid "Basic navigation"
+msgstr "Egyszerű navigáció"
+
+msgid "Switch between different views"
+msgstr "Nézetek közti váltás"
+
+msgid "New item"
+msgstr "Új elem"
+
+msgid "All views"
+msgstr "Összes nézet"
+
+msgid "Close tab"
+msgstr "Fül bezárása"
+
+msgid "Print item"
+msgstr "Nyomtatás"
+
+msgid "Items"
+msgstr "Elemek"
+
+msgid "Save an item e.g. mail, contact, etc."
+msgstr "Elem mentése, pl. levél, névjegy stb."
+
+msgid "Send an item e.g. mail, meeting request, etc."
+msgstr "Elem küldése, pl. levél, meghívó, stb."
+
+msgid "Select all items"
+msgstr "Összes elem kiválasztása"
+
+msgid "Extend the selection to the first item in the list"
+msgstr "Kijelőlés kiterjesztése a lista első eleméig"
+
+msgid "Extend the selection to the last item in the list"
+msgstr "Kijelölés kiterjesztése a lista utolsó eleméig"
+
+# 77%
+msgid "Open selected item"
+msgstr "Kiválasztott elem megnyitása"
+
+msgid "Open dialog to categorize selected item"
+msgstr "Dialógusablak nyitása a kiválasztott elem kategorizálásához"
+
+msgid "Print list"
+msgstr "Lista nyomtatása"
+
+msgid "Open copy/move dialog"
+msgstr "Másolás/mozgatás dialógusablak megnyitása"
+
+# 77%
+# 75%
+# 100%
+msgid "Delete selected item"
+msgstr "Kiválasztott elem törlése"
+
+msgid ""
+"Delete selected item without moving it to the Deleted Items folder. The "
+"deleted item can still be restored."
+msgstr ""
+"A kiválasztott elem törélse a Törölt elemek mappába mozgatás mellőzésével. A "
+"törölt elem még visszaállítható marad."
+
+#, fuzzy
+msgid "Add/Edit Cc recipient"
+msgstr "Címzett szerkesztése"
+
+msgid "Disable for new mail"
+msgstr ""
+
+msgid "Enable for new mail"
+msgstr ""
+
+msgid "Disable for replies"
+msgstr ""
+
+msgid "Enable for replies"
+msgstr ""
+
+#, fuzzy
+msgid "No Cc recipient configured"
+msgstr "Nincs aláírás beállítva"
+
+#, fuzzy
+msgid "Loading Cc recipients"
+msgstr "Címzett szerkesztése"
+
+# 88%
+# 100%
+#, fuzzy
+msgid "Reply Mail"
+msgstr "Válasz mindenkinek"
+
+msgid "New Mail"
+msgstr "Új levél"
+
+# 80%
+#, fuzzy
+msgid "Please select a Cc recipient record."
+msgstr "Kérjem válasszon címzettet"
+
+#, fuzzy
+msgid "Manage Cc recipients"
+msgstr "Címzett szerkesztése"
+
+msgid ""
+"Cc recipients can be used to set a default Cc user in new mail, replies or "
+"both."
+msgstr ""
+
+msgid "Help"
+msgstr "Súgó"
+
+msgid "Web Manual"
+msgstr ""
+
+msgid "Item data"
+msgstr ""
+
+msgid "INSERT"
+msgstr "INSERT"
+
+msgid "Sort by: context.mail.griddefaultcolumn"
+msgstr "Rendezés: tartalom.levél.rácsalapértelmezettoszlop"
+
+msgid "ZDeveloper"
+msgstr "ZDeveloper"
+
+msgid "grommunio Web print"
+msgstr ""
+
+# 91%
+msgid "Display name"
+msgstr "Megjelenő név"
+
+# 92%
+msgid "Email address"
+msgstr "E-mail cím"
+
+# 78%
+# 100%
+#, fuzzy
+msgid "Expand distribution list"
+msgstr "Új terjesztési lista"
+
+msgid ""
+"Distribution list will be replaced with its members. You will not be able to "
+"collapse it again."
+msgstr ""
+"A terjesztési lista tagjainak megjelenítése. A lista összecsukására nem lesz "
+"lehetősége."
+
+# 92%
+msgid "Edit Recipient"
+msgstr "Címzett szerkesztése"
+
+#, fuzzy
+msgid "Copy email addresses"
+msgstr "E-mail cím másolása"
+
+# 90%
+msgid "Send email"
+msgstr "Email küldése"
+
+msgid "Delete recipient from suggestion list"
+msgstr "Címzett törlése a javaslatok listájáról"
+
+msgid "Copy all email addresses"
+msgstr ""
+
+msgid "View recipient"
+msgstr "Címzett megtekintése"
+
+msgid "Weekday"
+msgstr "Hétköznap"
+
+msgid "Weekend Day"
+msgstr "Hétvége"
+
+msgid "1st"
+msgstr "1."
+
+msgid "2nd"
+msgstr "2."
+
+msgid "3rd"
+msgstr "3."
+
+msgid "4th"
+msgstr "4."
+
+# 75%
+msgid "last"
+msgstr "utolsó"
+
+msgid "Every {A} day(s)"
+msgstr "Minden {A} nap"
+
+msgid "Every weekday"
+msgstr "Minden hétköznap"
+
+msgid "Regenerate new task {A} day(s) after each task is completed"
+msgstr ""
+"Új feladatok újra generálása {A} naponként minden egyes elvégzett feladat "
+"után"
+
+msgid "Day {A} of every {B} month(s)"
+msgstr "Minden {B} hónap(ok) {A} napja"
+
+msgid "The {A} {B} of every {C} month(s)"
+msgstr "Minden {C} hónap(ok) {A} {B}"
+
+# 91%
+msgid "Regenerate new task {A} month(s) after each task is completed"
+msgstr "Feladat újragenerálása {A} hónappal a feladatok elvégzése után"
+
+msgid "Appointment Recurrence"
+msgstr "Találkozó ismétlődése"
+
+msgid "Remove Recurrence"
+msgstr "Ismétlődés eltávolítása"
+
+#, fuzzy
+msgid "Reset recurring"
+msgstr "Ismétlődés"
+
+#, fuzzy
+msgid "This will reset every exception. Do you want to continue?"
+msgstr "A találkozót áthelyezték, vagy törölték, kívánja folytatni?"
+
+msgid "Task Recurrence"
+msgstr "Feladat ismétlődése"
+
+msgid "Daily"
+msgstr "Naponta"
+
+msgid "Weekly"
+msgstr "Hetente"
+
+msgid "Monthly"
+msgstr "Havonta"
+
+msgid "Yearly"
+msgstr "Évente"
+
+msgid "Range of recurrence"
+msgstr "Ismétlődés tartománya"
+
+msgid "No end date"
+msgstr "Nincs befejező dátum"
+
+msgid "End after {A} occurrences"
+msgstr "Érjen véget {A} ismétlődés után"
+
+msgid "End by {A}"
+msgstr "Vége {A}"
+
+#. TRANSLATORS: This informs the user what the exact duration of the appointment is. Where {D} represents the days, {H} the hours and {M} the minutes.
+#. For example: 'Occurence duration: 1 day 2 hours 45 minutes', or when the appointment is shorter then 1 day: 'Occurence duration: 1 hour'
+msgid "Occurrence duration: {D} {H} {M}"
+msgstr "Előfordulás időtartama: {D} {H} {M}"
+
+msgid "Every {A} week(s) on"
+msgstr "Minden {A} héten"
+
+# 93%
+msgid "Regenerate new task {A} week(s) after each task is completed"
+msgstr "Feladat újragenerálása {A} héttel később a feladatok elvégzése után"
+
+msgid "Every {A} {B}"
+msgstr "Minden {A} {B}"
+
+msgid "The {A} {B} of {C}"
+msgstr "A(z) {A} {B} a(z) {C}"
+
+# 95%
+msgid "Regenerate new task {A} year(s) after each task is completed"
+msgstr "Feladat újragenerálása {A} évvel később a feladatok elvégzése után"
+
+msgid "Info"
+msgstr "Infó"
+
+msgid "Not supported at the moment."
+msgstr "Jelenleg nem támogatott."
+
+#, fuzzy
+msgid "There is {0} reminder"
+msgid_plural "There are {0} reminders"
+msgstr[0] "{0} emlékeztető van"
+msgstr[1] "{0} emlékeztető van"
+
+# 88%
+msgid "Reminders"
+msgstr "Emlékeztetők"
+
+#, fuzzy
+msgid "There are no reminders"
+msgstr "{0} emlékeztető van"
+
+msgid "Due In"
+msgstr "Esedékes -kor"
+
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
+msgid "Due"
+msgstr "Esedékesség"
+
+# 92%
+msgid "Reminder time"
+msgstr "Emlékeztető időpontja"
+
+msgid "Dismiss All"
+msgstr "Összes elvetése"
+
+msgid "Open Item"
+msgstr "Elem megnyitása"
+
+msgid "Dismiss"
+msgstr "Elvetés"
+
+# szundira?
+msgid "Click Snooze to be reminded again in"
+msgstr "Kattintson a halasztásra és újra emlékeztetve lesz"
+
+# Szundi?
+msgid "Snooze"
+msgstr "Halasztás"
+
+msgctxt "reminder.dialog"
+msgid "{0} reminder is selected."
+msgid_plural "{0} reminders are selected."
+msgstr[0] "{0} emlékeztető van kiválasztva."
+msgstr[1] "{0} emlékeztető van kiválasztva."
+
+msgid "Restore Softdeleted Items"
+msgstr "Helyileg törölt elemek visszaállítása"
+
+msgid "Restore From {0}"
+msgstr "Helyreállítás {0}-ból"
+
+msgid "Restore"
+msgstr "Visszaállítás"
+
+msgid "Restore All"
+msgstr "Mindegyik helyreállítása"
+
+msgid "Permanent Delete"
+msgstr "Végleges törlés"
+
+msgid "Delete All"
+msgstr "Mindegyik törlése"
+
+# 75%
+# 100%
+msgid "Messages"
+msgstr "Üzenetek"
+
+#, fuzzy
+msgid "Delete all items"
+msgstr "Összes elem kiválasztása"
+
+#, fuzzy
+msgid "Are you sure you want to permanently delete all items?"
+msgstr "Biztos benne, hogy minden elemet véglegesen töröl?"
+
+#, fuzzy
+msgid "Restore all items"
+msgstr "Elemek helyreállítása"
+
+#, fuzzy
+msgid "Are you sure you want to restore all items?"
+msgstr "Biztos benne, hogy mindegyik elemet visszaállítja?"
+
+msgid "Total {0} recoverable item"
+msgid_plural "Total {0} recoverable items"
+msgstr[0] "Összesen {0} helyreállítható elem"
+msgstr[1] "Összesen {0} helyreállítható elem"
+
+msgid "Deleted On"
+msgstr "Törölve lett"
+
+# 84%
+# 78%
+msgid "Sort by: Deleted On"
+msgstr "Rendezés: Törlés ideje szerint"
+
+msgid "Item Count"
+msgstr "Elemszám"
+
+msgid "Sort by: Item Count"
+msgstr "Rendezés: Elem száma szerint"
+
+# 76%
+msgid "Sort by: From"
+msgstr "Rendezés: Küldő szerint"
+
+msgid "Received"
+msgstr "Érkezett"
+
+msgid "Sort by: Received"
+msgstr "Rendezés: Fogadás időpontja szerint"
+
+msgid "Size"
+msgstr "Méret"
+
+msgid "Sort by: Size"
+msgstr "Rendezés: Méret"
+
+#, fuzzy
+msgid "Move the message to folder..."
+msgstr "Üzenet áthelyezése ebbe a mappába ..."
+
+#, fuzzy
+msgid "Copy the message to folder..."
+msgstr "Üzenet másolása ebbe a mappába ..."
+
+msgid "Delete the message"
+msgstr "Üzenet törlése"
+
+#, fuzzy
+msgid "Redirect the message to..."
+msgstr "Üzenet átirányítása ..."
+
+#, fuzzy
+msgid "Forward the message to..."
+msgstr "Üzenet továbbítása ..."
+
+#, fuzzy
+msgid "Forward the message as attachment to..."
+msgstr "Üzenet továbbítása mellékletként ..."
+
+#, fuzzy
+msgid "Mark the message as read..."
+msgstr "Üzenet továbbítása ..."
+
+#, fuzzy
+msgid "is received from..."
+msgstr "küldője..."
+
+#, fuzzy
+msgid "includes these words in the sender's address..."
+msgstr "küldőjének címe tartalmazza ezeket a szavakat ..."
+
+#, fuzzy
+msgid "includes these words in the recipient's address..."
+msgstr "küldőjének címe tartalmazza ezeket a szavakat ..."
+
+#, fuzzy
+msgid "includes these words in the subject..."
+msgstr "tárgya tartalmazza ezeket a szavakat ..."
+
+#, fuzzy
+msgid "includes these words in the body..."
+msgstr "levéltörzse tartalmazza ezeket a szavakat..."
+
+#, fuzzy
+msgid "includes these words in the transport-headers..."
+msgstr "a levél fejléce tartalmazza ezeket a szavakat..."
+
+#, fuzzy
+msgid "has importance..."
+msgstr "prioritása ..."
+
+msgid "has an attachment"
+msgstr "mellékletet tartalmaz"
+
+#, fuzzy
+msgid "is sent to..."
+msgstr "címzettje (To:, Cc:) a következő cím..."
+
+msgid "is sent only to me"
+msgstr "kizárólag nekem van címezve"
+
+msgid "has my name in the Cc field"
+msgstr "másolata érkezett nekem címezve"
+
+#, fuzzy
+msgid "does not have my name in the To or Cc field"
+msgstr "címzettjei (To: Cc:) között szerepelek"
+
+msgid "has my name in the To or Cc field"
+msgstr "címzettjei (To: Cc:) között szerepelek"
+
+#, fuzzy
+msgid "has sensitivity..."
+msgstr "információinak érzékenysége"
+
+#, fuzzy
+msgid "is received after..."
+msgstr "később érkezett mint"
+
+#, fuzzy
+msgid "is received before..."
+msgstr "korábban érkezett mint"
+
+msgid "size is at least..."
+msgstr ""
+
+msgid "size is at most..."
+msgstr ""
+
+msgid "has my name in the To field"
+msgstr "nekem lett címezve"
+
+msgid "is received (all messages)"
+msgstr "érkezett (minden üzenet)"
+
+msgid "Unknown condition"
+msgstr "Ismeretlen feltétel"
+
+msgid "This condition for the current rule is unknown"
+msgstr "Ebben a szabályban ez a feltétel ismeretlen"
+
+msgid "Add action"
+msgstr "Művelet hozzáadása"
+
+msgid "Remove action"
+msgstr "Művelet eltávolítása"
+
+msgid "Unknown action"
+msgstr "Ismeretlen művelet"
+
+msgid "This action for the current rule is unknown"
+msgstr "Ebben a szabályban ez a művelet ismeretlen"
+
+msgid "Add condition"
+msgstr "Feltétel hozzáadása"
+
+msgid "Remove condition"
+msgstr "Feltétel eltávolítása"
+
+msgid "Inbox Rule"
+msgstr "Beérkező szabály"
+
+msgid "Rule name"
+msgstr "Szabály neve"
+
+msgid "When the message"
+msgstr "Ha az üzenet"
+
+msgid "Do the following"
+msgstr "Tegye a következőket"
+
+# 75%
+#, fuzzy
+msgid "Exceptions"
+msgstr "Lehetőségek"
+
+msgid "Apply only when Out of Office is active"
+msgstr ""
+
+msgid "Stop processing more rules"
+msgstr "Állítsa meg a többi szabály feldolgozását"
+
+#, fuzzy
+msgid "Add exception"
+msgstr "Művelet hozzáadása"
+
+#, fuzzy
+msgid "Remove exception"
+msgstr "Művelet eltávolítása"
+
+msgid "Specify Words or Phrases"
+msgstr "Adjon meg szavakat vagy kifejezéseket"
+
+msgid "Edit"
+msgstr "Szerkesztés"
+
+msgid "and"
+msgstr "és"
+
+msgid ""
+"Distribution lists are not supported in rules, would you like to replace the "
+"distribution list with its members?"
+msgstr ""
+"A terjesztési listák nem támogatottak szabályok kezelésekor. Kívánja "
+"lecserélni a terjesztési listát a lista tagjaira?"
+
+msgid "or"
+msgstr "vagy"
+
+msgid "No rule exists"
+msgstr "Nem létezik szabály"
+
+msgid "Active"
+msgstr "Aktív"
+
+#, fuzzy
+msgid "Out of office"
+msgstr "Házon kívül"
+
+# 80%
+msgid "Rule"
+msgstr "Szabály"
+
+# 76%
+msgid "Loading rules"
+msgstr "Szabályok betöltése"
+
+msgid "Please select a rule."
+msgstr "Kérem válasszon szabályt."
+
+msgid "Rule already has highest priority."
+msgstr "A szabály már a legmagasabb prioritású."
+
+msgid "Rule already has lowest priority."
+msgstr "A szabály már a legalacsonyabb prioritású."
+
+msgid "Always move messages from {0}"
+msgstr ""
+
+msgid "Always move messages that are sent to <recipients>"
+msgstr ""
+
+msgid "Always move messages with this subject"
+msgstr ""
+
+msgid "Create rule..."
+msgstr ""
+
+msgid "myself"
+msgstr "saját magam"
+
+msgid "Update rules for"
+msgstr "Szabályok kezelése a következő felhasználó számára"
+
+msgid "Apply changes"
+msgstr ""
+
+msgid "Do you wish to apply the changes?"
+msgstr "Kívánja alkalmazni a változásokat?"
+
+msgid "All folders"
+msgstr "Összes mappa"
+
+msgid "Other..."
+msgstr "Egyéb..."
+
+msgid "Search in.."
+msgstr "Keresés.."
+
+#, fuzzy
+msgid "Folder does not exist"
+msgstr "Mappa tartalmaz"
+
+msgid ""
+"The folder you are searching through no longer exists. Please select another "
+"folder"
+msgstr ""
+
+msgid "Add/Edit sender"
+msgstr "Küldő hozzáadása/módosítása"
+
+msgid "No from addresses configured"
+msgstr ""
+
+msgid "Loading from addresses"
+msgstr ""
+
+msgid "Forward Mail"
+msgstr ""
+
+msgid "Please select a from address record."
+msgstr ""
+
+msgid "Add/Edit From recipient"
+msgstr ""
+
+msgid "Manage the recipients used in the 'From' field"
+msgstr ""
+
+msgid "View"
+msgstr "Nézet"
+
+msgid "Please select a sendas record."
+msgstr "Válasszon egy feladó címet."
+
+msgid "Delegates"
+msgstr "Megbízottak"
+
+# 88%
+msgid "Delegate settings"
+msgstr "Meghatalmazottak beállításai"
+
+msgid "Desktop Notifications Settings"
+msgstr ""
+
+msgid "We need permissions to enable desktop notifications."
+msgstr ""
+
+msgid "Request Permissions"
+msgstr ""
+
+msgid "Enable desktop notifications for new mail"
+msgstr ""
+
+msgid "Enable desktop notifications for reminders"
+msgstr ""
+
+msgid "{A} Auto hide desktop notification after second(s) {B}"
+msgstr ""
+
+msgid "Disable sound"
+msgstr ""
+
+msgid "Notifications"
+msgstr ""
+
+msgid "Rules"
+msgstr "Szabályok"
+
+msgid "From Addresses"
+msgstr ""
+
+msgid "From Addresses settings"
+msgstr ""
+
+# 88%
+# 100%
+msgid "Full name"
+msgstr "Teljes név"
+
+msgid "Phone Numbers"
+msgstr "Telefonszámok"
+
+# 80%
+# 75%
+msgid "Business Fax"
+msgstr "Üzleti Fax"
+
+msgid "Webpage"
+msgstr "Weboldal"
+
+msgid "IM Address"
+msgstr "IM cím"
+
+msgid "D, d-m-Y, {0}"
+msgstr ""
+
+# 76%
+msgid "{0} selected row"
+msgid_plural "{0} selected rows"
+msgstr[0] "{0} kiválasztott sor"
+msgstr[1] "{0} kiválasztott sor"
+
+msgid "Reminder is set on: {0}, {1}"
+msgstr ""
+
+msgid "d-m-Y"
+msgstr "Y-m-d"
+
+msgid "l d/m/Y"
+msgstr "l Y/m/d"
+
+msgid "l d/m/Y {0}"
+msgstr ""
+
+msgid "d-m-Y {0}"
+msgstr ""
+
+msgid "Unknown"
+msgstr "Ismeretlen"
+
+# 88%
+msgid "Meeting Organizer"
+msgstr "Értekezlet szervező"
+
+msgid "{0} overdue"
+msgstr "{0} lejárt"
+
+msgid "Loading..."
+msgstr "Betöltés..."
+
+msgid "Message could not be loaded"
+msgstr ""
+
+# 100%
+#. TRANSLATORS: This message is used as label for the field which indicates which attachments are inside the message
+msgctxt "mail.previewpanel"
+msgid "Attachments"
+msgstr "Mellékletek"
+
+msgid "Download Pictures"
+msgstr "Képek letöltése"
+
+msgid "Add Sender to Safe Senders List"
+msgstr "Feladó hozzáadása a megbízható feladók listájához"
+
+msgid "Add Domain to Safe Senders List"
+msgstr "Domain hozzáadása a megbízható feladók listájához"
+
+#. TRANSLATORS: This sentence is given in the Email previewpanel, and indicates with which
+#. importance the message was sent. For example:
+#. 'This message was sent with high importance.'
+#. 'This message was sent with low importance.'
+msgctxt "mail.previewpanel"
+msgid "This message was sent with {0} importance."
+msgstr "Üzenet küldése {0} prioritással."
+
+#. TRANSLATORS: This sentence is given in the Email previewpanel, and indicates which
+#. sensitivity level applies to the message. For example:
+#. 'Please treat this as Personal.'
+#. 'Please treat this as Private.'
+#. 'Please treat this as Confidential.'
+msgctxt "mail.previewpanel"
+msgid "Please treat this as {0}."
+msgstr "Kérem kezelje ezt, mint {0}."
+
+msgctxt "mail.previewpanel"
+msgid ""
+"Click here to download pictures. To help protect your privacy, WebApp "
+"prevented automatic download of some pictures in this message."
+msgstr ""
+
+msgctxt "mail.previewpanel"
+msgid ""
+"This message is corrupt and will not be displayed correctly, Click here to "
+"fix it."
+msgstr ""
+"Az üzenet sérült és nem lehet megjeleníteni, kattintson ide a javításhoz."
+
+msgctxt "mail.previewpanel"
+msgid "{0} has accepted."
+msgstr "{0} elfogadta."
+
+msgctxt "mail.previewpanel"
+msgid "{0} has accepted on behalf of {1}."
+msgstr "{0} elfogadta {1} nevében."
+
+msgctxt "mail.previewpanel"
+msgid "{0} has tentatively accepted."
+msgstr "{0} feltételesen elfogadta."
+
+msgctxt "mail.previewpanel"
+msgid "{0} has tentatively accepted on behalf of {1}."
+msgstr "{0} feltételesen elfogadta {1} nevében."
+
+msgctxt "mail.previewpanel"
+msgid "{0} has declined."
+msgstr "{0} elutasította."
+
+msgctxt "mail.previewpanel"
+msgid "{0} has declined on behalf of {1}."
+msgstr "{0} elutasította {1} nevében."
+
+msgctxt "mail.previewpanel"
+msgid "{0} tentatively accepted and proposed a new time for this meeting."
+msgstr "{0} feltételesen elfogadta és új időpontot javasolt a értekezletre."
+
+msgctxt "mail.previewpanel"
+msgid ""
+"{0} tentatively accepted on behalf of {1} and proposed a new time for this "
+"meeting."
+msgstr ""
+"{0} feltételesen elfogadta {1} nevében és új időpontot javasolt az "
+"értekezletre."
+
+msgctxt "mail.previewpanel"
+msgid "{0} declined and proposed a new time for this meeting."
+msgstr "{0} elutasította és új időpontot javasolt az értekezletre."
+
+msgctxt "mail.previewpanel"
+msgid "{0} declined on behalf of {1} and proposed a new time for this meeting."
+msgstr "{0} elutasította {1} nevében és új időpontot javasolt az értekezletre."
+
+msgctxt "mail.previewpanel"
+msgid "This meeting is not in the Calendar; it may have been moved or deleted."
+msgstr "Az értekezlet nincs a naptárban; talán mozgatva, vagy törölve lett."
+
+msgctxt "mail.previewpanel"
+msgid ""
+"This meeting request was updated after this message was sent. You should "
+"open the latest update or open the item from the calendar."
+msgstr ""
+"Az értekezlet összehívás frissítve lett az üzenet elküldését követően. Meg "
+"kell nyitnia a legújabb frissítést vagy nyissa meg a tételt a naptárból."
+
+msgctxt "mail.previewpanel"
+msgid "As the meeting organizer, you do not need to respond to the meeting"
+msgstr "Mint az értekezlet szervezőjének, nem kell válaszolnia az értekezletre"
+
+msgctxt "mail.previewpanel"
+msgid "The meeting was updated after the attendee sent this response"
+msgstr "Az értekezlet módosítását követően a résztvevő ezt a választ küldte"
+
+msgctxt "mail.previewpanel"
+msgid "This appointment occurs in the past."
+msgstr "A találkozó időpontja a múltban van."
+
+# 100%
+msgctxt "mail.previewpanel"
+msgid "Please respond."
+msgstr "Kérem válaszoljon."
+
+msgctxt "mail.previewpanel"
+msgid "This is an update of a previously sent meeting request."
+msgstr "Ez a korábban elküldött értekezlet összehívás frissítése."
+
+msgctxt "mail.previewpanel"
+msgid "Received for {0}."
+msgstr "Beérkezett {0}."
+
+msgctxt "mail.previewpanel"
+msgid "You replied to this message."
+msgstr "Válaszolt erre a levélre."
+
+msgctxt "mail.previewpanel"
+msgid "You forwarded this message."
+msgstr "Továbbította ezt a levelet."
+
+msgctxt "mail.previewpanel"
+msgid "You replied to this message on {0}."
+msgstr "Erre az üzenetre az következő időpontban válaszolt: {0}."
+
+msgctxt "mail.previewpanel"
+msgid "You forwarded this message on {0}."
+msgstr "Ezt az üzenetet a következő időpontban továbbította: {0}."
+
+msgid "Assigned by {0} on {1}."
+msgstr "Beosztva {0} által ekkor: {1}."
+
+msgid "Waiting for response from recipient"
+msgstr "Várakozás a címzett válaszára"
+
+msgid "Accepted by {0} on {1}."
+msgstr "Elfogadva {0} által ekkor: {1}."
+
+msgid "{0} has accepted on behalf of {1} {2}."
+msgstr "{0} elfogadta {2} {1} nevében."
+
+msgid "Declined by {0} on {1}."
+msgstr "Elutasítva {0} által ekkor: {1}."
+
+msgid "{0} has declined on behalf of {1} {2}."
+msgstr "{0} elutasította {2} {1} nevében."
+
+msgid "Last update sent on {0}."
+msgstr "Utolsó frissítés kiküldve: {0}."
+
+msgid "{0} has updated on behalf of {1} {2}."
+msgstr "{0} elfogadta {2} {1} nevében."
+
+#, fuzzy
+msgid "Fix message"
+msgstr "üzenet"
+
+msgid ""
+"We are going to try to fix a corrupted mail message, do you wish to continue?"
+msgstr "Sérült üzenet javítása, kívánja folytatni?"
+
+msgid "The matching task was not found in your task list."
+msgstr ""
+
+# 100%
+msgctxt "mail.previewpanel"
+msgid "To"
+msgstr "Címzett"
+
+msgctxt "mail.previewpanel"
+msgid "Cc"
+msgstr "Cc"
+
+msgctxt "mail.previewpanel"
+msgid "Bcc"
+msgstr "Bcc"
+
+msgctxt "mail.previewpanel"
+msgid "Categories"
+msgstr "Kategóriák"
+
+#. TRANSLATORS: This message is used as label for the field which to indicates to whom the given mail was sent
+msgctxt "mail.previewpanel"
+msgid "Recipients"
+msgstr "Címzettek"
+
+#. TRANSLATORS: check if the mail is send by some delegator or not. if then display "on behalf of".
+msgctxt "mail.previewpanel"
+msgid "on behalf of"
+msgstr "nevében"
+
+# 75%
+#. TRANSLATORS: This message is used to indicate that no sent date is available for the message (because it has not been sent yet).
+msgctxt "mail.previewpanel"
+msgid "None"
+msgstr "Nincs"
+
+#, fuzzy
+msgid "Pop-out"
+msgstr "Pop-Out"
+
+#, fuzzy
+msgid "Mark as read"
+msgstr "Megjelölés olvasatlanként"
+
+#, fuzzy
+msgid "Mark as unread"
+msgstr "Megjelölés olvasatlanként"
+
+msgid "in"
+msgstr ""
+
+# Gyökééééér... :D
+msgid "Root"
+msgstr "Legfelső szint"
+
+msgid "Datepicker"
+msgstr ""
+
+msgid "File As"
+msgstr "Fájl, mint"
+
+msgid "Full Name"
+msgstr "Teljes név"
+
+msgid "Department Name"
+msgstr "Osztály neve"
+
+msgid "Home Address"
+msgstr "Otthoni cím"
+
+msgid "Business Address"
+msgstr "Üzleti cím"
+
+msgid "Other Address"
+msgstr "Egyéb cím"
+
+msgid "Business Phone"
+msgstr "Üzleti telefon"
+
+# 100%
+msgid "Business 2 Phone"
+msgstr "Üzleti 2 telefonszám"
+
+# 88%
+msgid "Assistant Phone"
+msgstr "Másodlagos telefonszám"
+
+msgid "Company Main Phone"
+msgstr "Cég központi telefonszáma"
+
+# 83%
+msgid "Home 2 Phone"
+msgstr "Otthoni 2 telefonszám"
+
+msgid "Car Phone"
+msgstr "Autó telefon"
+
+msgid "Radio"
+msgstr "Mobil"
+
+msgid "Callback Phone"
+msgstr "Visszahívás telefon"
+
+msgid "Other Phone"
+msgstr "Egyéb telefon"
+
+msgid "Primary Phone"
+msgstr "Elsődleges telefonszám"
+
+msgid "Telex"
+msgstr "Telex"
+
+msgid "TTY/TDD Phone"
+msgstr "TTY/TDD telefon"
+
+msgid "ISDN"
+msgstr "ISDN"
+
+msgid "Other Fax"
+msgstr "Egyéb Fax"
+
+msgid "Home Fax"
+msgstr "Otthoni Fax"
+
+# 100%
+msgid "Email Display As"
+msgstr "E-mail megjelenítése, mint"
+
+# 75%
+# 87%
+msgid "Email 2"
+msgstr "E-mail 2"
+
+# 89%
+msgid "Email2 Display As"
+msgstr "E-mail2 megjelenítés, mint"
+
+# 75%
+# 87%
+msgid "Email 3"
+msgstr "E-mail 3"
+
+# 89%
+msgid "Email3 Display As"
+msgstr "Email 3 megjelenítés, mint"
+
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
+msgid "Birthday"
+msgstr "Születésnap"
+
+msgid "Wedding Anniversary"
+msgstr "Esküvői évforduló"
+
+msgid "Spouse/Partner"
+msgstr "Feleség/élettárs"
+
+msgid "Profession"
+msgstr "Szakma"
+
+msgid "Assistant's Name"
+msgstr "Asszisztens neve"
+
+# 100%
+msgid "Distribution List Name"
+msgstr "Terjesztési lista neve"
+
+# 75%
+msgid "Open Shared Contacts"
+msgstr "Megosztott kapcsolatok megnyitása"
+
+msgid "Business Cards"
+msgstr "Névjegykártya"
+
+msgid "Phone List"
+msgstr "Telefon lista"
+
+msgid "Add to contacts"
+msgstr "Hozzáadás a névjegyekhez"
+
+# 77%
+msgid "Print selected contact"
+msgstr "Kijelölt kapcsolat nyomtatása"
+
+msgid "No contact selected"
+msgstr "Nincs kijelölt kapcsolat"
+
+msgid "Distribution list"
+msgstr "Terjesztési lista"
+
+msgid "Dr."
+msgstr "Dr."
+
+msgid "Miss"
+msgstr "Hölgy"
+
+msgid "Mr."
+msgstr "Úr"
+
+msgid "Mrs."
+msgstr "Asszony."
+
+msgid "Ms."
+msgstr "Hölgy"
+
+msgid "Prof."
+msgstr "Prof."
+
+msgid "Jr."
+msgstr "Ifj."
+
+msgid "Sr."
+msgstr "Úr"
+
+msgid "Phone number"
+msgstr "Telefonszám"
+
+msgid "Check address"
+msgstr "Ellenőrizze a címet"
+
+msgid "Street"
+msgstr "Út/utca"
+
+msgid "State/Province"
+msgstr "Állam/tartomány"
+
+msgid "Zip/Postal code"
+msgstr "Irányítószám"
+
+msgid "Country/Region"
+msgstr "Ország/régió"
+
+msgid "Show this again when address is incomplete or unclear."
+msgstr "Mutassa ezt újra, ha a cím nem teljes, vagy nem tiszta."
+
+msgid "Details"
+msgstr "Részletek"
+
+msgid "Office location"
+msgstr "Iroda hely"
+
+msgid "Manager's name"
+msgstr "Igazgató neve"
+
+msgid "Assistant's name"
+msgstr "Asszisztens neve"
+
+msgid "Nickname"
+msgstr "Becenév"
+
+msgid "Suffix"
+msgstr "Utótag"
+
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
+msgid "Anniversary"
+msgstr "Évforduló"
+
+msgid "Photo"
+msgstr "Fotó"
+
+msgid "Additional information"
+msgstr "Kiegészítő információk"
+
+# 80%
+msgid "Business 2"
+msgstr "Üzleti 2"
+
+msgid "Callback"
+msgstr "Visszahívás"
+
+msgid "Car"
+msgstr "Autó"
+
+msgid "Home 2"
+msgstr "Otthoni 2"
+
+msgid "Primary"
+msgstr "Elsődleges"
+
+msgid "TTY/TDD"
+msgstr "TTY/TDD"
+
+msgid "Check full name"
+msgstr "Ellenőrizze a teljes nevet"
+
+msgid "First"
+msgstr "Keresztnév"
+
+msgid "Middle"
+msgstr "Középső"
+
+# 75%
+msgid "Last"
+msgstr "Vezetéknév"
+
+msgid "Show this again when name is incomplete or unclear."
+msgstr "Jelenítse meg újra, amennyiben a név nem teljes, vagy nem tiszta."
+
+msgid "Check phone number"
+msgstr "Ellenőrizze a telefonszámot"
+
+msgid "Country/Region code"
+msgstr "Ország/régió kód"
+
+msgid "City/Area code"
+msgstr "Város/terület kód"
+
+msgid "Local number"
+msgstr "Körzetszám"
+
+msgid "Extension"
+msgstr "Kiterjesztés"
+
+msgid "Add Attachment"
+msgstr "Melléklet hozzáadása"
+
+# 81%
+#, fuzzy
+msgid "Add attachments to this contact"
+msgstr "Mellékletek hozzáadása a névjegyhez."
+
+# 75%
+#, fuzzy
+msgid "Mark this contact as private"
+msgstr "Jelölje meg a névjegyet személyesként."
+
+msgid "Distribution List"
+msgstr "Terjesztési lista"
+
+#, fuzzy
+msgid "Mark this Distribution list as private"
+msgstr "Jelölje meg a terjesztési listát személyesként."
+
+#, fuzzy
+msgid "New email address"
+msgstr "Új e-mail cím"
+
+#, fuzzy
+msgid "Please enter a valid email address"
+msgstr "Kérem adjon meg valós e-mail címet!"
+
+msgid "Select Members"
+msgstr "Tagok kiválasztása"
+
+msgid "Add New"
+msgstr "Új"
+
+msgid "Type your note here..."
+msgstr "Ide írja be a szövegét..."
+
+msgid "New contact"
+msgstr "Új névjegy"
+
+# 78%
+# 100%
+msgid "New distribution list"
+msgstr "Új terjesztési lista"
+
+#, fuzzy
+msgid "Email 2 Display As"
+msgstr "E-mail 2 megjelenítés, mint"
+
+#, fuzzy
+msgid "Email 3 Display As"
+msgstr "E-mail 3 megjelenítés, mint"
+
+msgid "Assistent"
+msgstr "Asszisztens"
+
+msgid "Loading contacts"
+msgstr "Kapcsolatok betöltése"
+
+msgid ""
+"There are no items to show in this list. Update the filter for more results."
+msgstr ""
+
+msgid "[Group]"
+msgstr ""
+
+msgid "Work:"
+msgstr ""
+
+msgid "Primary:"
+msgstr ""
+
+msgid "Mobile:"
+msgstr ""
+
+msgid "Sort by: Full Name"
+msgstr "Rendezés: Teljes név"
+
+msgid "Sort by: Email Address 2"
+msgstr "Rendezés: E-mail cím 2"
+
+msgid "Sort by: Email Address 3"
+msgstr "Rendezés: E-mail cím 3"
+
+msgid "Mobile Phone"
+msgstr "Mobil"
+
+msgid "Sort by: Mobile Phone"
+msgstr "Rendezés: Mobil"
+
+msgid "Sort by: Business Phone"
+msgstr "Rendezés: Üzleti telefon"
+
+msgid "Sort by: Business Fax"
+msgstr "Rendezés: Üzleti Fax"
+
+msgid "Sort by: Department Name"
+msgstr "Rendezés: Osztály neve"
+
+msgid "Office Location"
+msgstr "Iroda hely"
+
+msgid "Sort by: Office Location"
+msgstr "rendezés: Iroda hely"
+
+msgid "Sort by: Profession"
+msgstr "Rendezés: Szakma"
+
+msgid "Manager Name"
+msgstr "Igazgató neve"
+
+msgid "Sort by: Manager Name"
+msgstr "Rendezés: Igazgató neve"
+
+msgid "Sort by: Assistant's Name"
+msgstr "Rendezés: Asszisztens neve"
+
+# 76%
+msgid "Sort by: Nickname"
+msgstr "Rendezés: Becenév"
+
+msgid "Sort by: Spouse/Partner Name"
+msgstr "Rendezés: Feleség/élettárs neve"
+
+msgid "Sort by: Birthday"
+msgstr "Rendezés: Születésnap"
+
+msgid "Sort by: Anniversary"
+msgstr "Rendezés: Évforduló"
+
+msgid "Sort by: Business Address"
+msgstr "Rendezés: Üzleti cím"
+
+msgid "Sort by: Home Address"
+msgstr "Rendezés: Otthoni cím"
+
+msgid "Sort by: Office Address"
+msgstr "Rendezés: Egyéb cím"
+
+msgid "Mailing Address"
+msgstr "Levelezési cím"
+
+msgid "Sort by: Mailing Address"
+msgstr "Rendezés: Levelezési cím"
+
+msgid "Sort by: IM Address"
+msgstr "Rendezés: IM cím"
+
+# 75%
+msgid "Sort by: Webpage"
+msgstr "Rendezés: Weboldal"
+
+msgid "Assistant's Phone"
+msgstr "Asszisztens telefonszám"
+
+msgid "Sort by: Assistant's Phone"
+msgstr "Rendezés: Asszisztens telefonszám"
+
+msgid "Business Phone 2"
+msgstr "Üzleti telefon 2"
+
+msgid "Sort by: Business Phone 2"
+msgstr "Rendezés: Üzleti telefon 2"
+
+msgid "Sort by: Callback"
+msgstr "Rendezés: Visszahívás telefon"
+
+msgid "Sort by: Car Phone"
+msgstr "Rendezés: Autó telefon"
+
+msgid "Company Phone"
+msgstr "Céges telefon"
+
+msgid "Sort by: Company Main Phone"
+msgstr "Rendezés: Céges telefon"
+
+msgid "Home Phone 2"
+msgstr "Otthoni telefon 2"
+
+msgid "Sort by: Home Phone 2"
+msgstr "Rendezés: Otthoni telefon 2"
+
+msgid "Sort by: Home Fax"
+msgstr "Rendezés: Otthoni Fax"
+
+# 76%
+msgid "Sort by: ISDN"
+msgstr "Rendezés: ISDN"
+
+msgid "Sort by: Other Phone"
+msgstr "Rendezés: Egyéb telefon"
+
+msgid "Radio Phone"
+msgstr "Mobil"
+
+msgid "Sort by: Radio Phone"
+msgstr "Rendezés: Mobil"
+
+msgid "Sort by: TTY/TDD Phone"
+msgstr "Rendezés: TTY/TDD telefon"
+
+msgid "Sort by: Telex Phone"
+msgstr "Rendezés: Telex"
+
+msgid "Change Picture"
+msgstr "Kép megváltoztatása"
+
+msgid "Remove Picture"
+msgstr "Kép eltávolítása"
+
+#, fuzzy
+msgid "VCF file(s)"
+msgstr "EML fájl(ok)"
+
+msgid "Quick Contact"
+msgstr "Gyors kontakt"
+
+msgid "Open in new browser window"
+msgstr "Megnyitás új ablakban"
+
+msgid ""
+"Your browser seems to have blocked one or more pop-ups. Please change your "
+"browser's settings to always allow pop-ups from grommunio Web."
+msgstr ""
+"A böngésző blokkolt egy vagy több felugró ablakot. Kérem engedélyezze a "
+"felugró ablakokat a grommunio Web számára a böngésző beállításaiban."
+
+msgid "Untitled"
+msgstr "Névtelen"
+
+msgid ""
+"Cannot upload attachment, only {0} attachments are allowed to be added to "
+"the message"
+msgstr ""
+"A csatolmányt nem lehet feltölteni, az üzenethez csak {0} állományt lehet "
+"csatolni"
+
+msgid ""
+"Cannot upload attachment, attachment is {0} while the allowed maximum is {1}."
+msgstr ""
+"A csatolmányt nem lehet feltölteni, a mérete {0} az engedélyezett maximális "
+"méret {1}."
+
+msgid ""
+"Cannot upload attachment, the total attachment size is {0} while the allowed "
+"maximum is {1}"
+msgstr ""
+"A csatolmányt nem lehet feltölteni, az állományok teljes mérete {0}, a "
+"maximális méret {1}"
+
+msgid ""
+"Cannot upload attachment, total attachment is {0} while the allowed maximum "
+"attachment in single request is {1}."
+msgstr ""
+"A csatolmányt nem lehet feltölteni, a csatolmányok száma {0}, míg az "
+"egyszerre kiválaszható csatolmányok száma {1}."
+
+msgid ""
+"Cannot upload attachment, total attachments are {0} files while the maximum "
+"{1} files are allowed in single request."
+msgstr ""
+"A csatolmányt nem lehet feltölteni, a csatolmányok száma {0} fájl, a "
+"maximálisan egedélyezett {1}."
+
+#. TRANSLATORS: {0} indicates name/email address of secretary and {1} indicates boss' name/email address
+msgid "{0} on behalf of {1}"
+msgstr "{0} {1} nevében"
+
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
+msgid "jS F"
+msgstr "F j."
+
+msgid "Y"
+msgstr "Y"
+
+msgid "Important"
+msgstr "Fontos"
+
+msgid "Work"
+msgstr "Munka"
+
+msgid "Personal"
+msgstr "Személyes"
+
+msgid "Holiday"
+msgstr "Szabadság"
+
+msgid "Travel Required"
+msgstr "Utazást igényel"
+
+msgid "Preparation Required"
+msgstr "Előkészítést igényel"
+
+# Date in Hungarian can be "találkozó" or randevú also. -- it's not that kind of date
+msgid "Special Date"
+msgstr "Különleges dátum"
+
+msgid "Phone Interview"
+msgstr "Telefoninterjú"
+
+msgid "Free"
+msgstr "Szabad"
+
+msgid "Low"
+msgstr "Alacsony"
+
+msgid "Normal"
+msgstr "Normál"
+
+msgid "High"
+msgstr "Magas"
+
+# 75%
+# 80%
+msgid "Canceled"
+msgstr "Megszakítva"
+
+msgid "Blue"
+msgstr "Kék"
+
+msgid "Green"
+msgstr "Zöld"
+
+msgid "Pink"
+msgstr "Rózsaszín"
+
+msgid "White"
+msgstr "Fehér"
+
+msgid "Yellow"
+msgstr "Sárga"
+
+msgid "No response"
+msgstr "Nincs válasz"
+
+msgid "Not responded"
+msgstr "Nem válaszolt"
+
+msgid "Accepted"
+msgstr "Elfogadta"
+
+msgid "Declined"
+msgstr "Elutasította"
+
+msgid "Confidential"
+msgstr "Bizalmas"
+
+msgid "Not Started"
+msgstr "Nem megkezdett"
+
+msgid "In Progress"
+msgstr "Folyamatban"
+
+msgid "Wait for other person"
+msgstr "Másik személyre vár"
+
+# 87%
+msgid "Deferred"
+msgstr "Elhalasztott"
+
+msgid "Dark"
+msgstr "Sötét"
+
+msgid "High Contrast"
+msgstr "Magas kontraszt"
+
+msgid "Lime"
+msgstr "Lime"
+
+msgid "Orange"
+msgstr "Narancs"
+
+msgid "Purple"
+msgstr "Bíbor"
+
+msgid "Logout"
+msgstr "Kijelentkezés"
+
+msgid "Switch view"
+msgstr "Nézet változtatása"
+
+# There's no synonim for Widget in Hungarian language.
+#, fuzzy
+msgid "Widgets"
+msgstr "Beépülő modul hozzáadása"
+
+#, fuzzy
+msgid "Sending..."
+msgstr "Küldés"
+
+msgid "Sent successfully"
+msgstr "Sikeresen elküldve"
+
+#, fuzzy
+msgid "No recipient"
+msgstr "Címzett szerkesztése"
+
+#, fuzzy
+msgid "Please specify at least one recipient"
+msgstr "Kérjük adjon meg egy címzettet"
+
+msgid "Please specify a recipient"
+msgstr "Kérjük adjon meg egy címzettet"
+
+msgid "The attached files are not uploaded yet."
+msgstr "A csatolandó fájlok még nincsenek feltöltve."
+
+msgid "Do you want to send this message without attachments?"
+msgstr "Csatolmány nélkül akarja elküldeni a levelet?"
+
+#, fuzzy
+msgid "Attachments not uploaded yet"
+msgstr "A csatolmányok nem letölthetőek"
+
+msgid "Don't Send"
+msgstr "Ne Küldje"
+
+msgid "Send Anyway"
+msgstr "Küldés Mindenképp"
+
+#, fuzzy
+msgid "No subject"
+msgstr "nincs tárgy"
+
+msgid "Send this message without a subject?"
+msgstr "Üzenet küldése tárgy nélkül?"
+
+#, fuzzy
+msgid "Unresolved recipients"
+msgstr "Címzett szerkesztése"
+
+msgid "Not all recipients could be resolved"
+msgstr "Nem minden címzett található meg"
+
+msgid "Collapse hierarchy"
+msgstr "Hierarchia bezárása"
+
+msgid "Expand hierarchy"
+msgstr "Hierarchia megnyitása"
+
+msgid "Folders List"
+msgstr "Mappák listája"
+
+#, fuzzy
+msgid "Copy Details"
+msgstr "Részletek megjelenítése"
+
+#, fuzzy
+msgid "Hide Details"
+msgstr "Részletek"
+
+# 86%
+# 100%
+# 76%
+msgid "Loaded {0} of {1}"
+msgstr "{0}/{1} elem betöltve"
+
+msgid "Saving"
+msgstr "Mentés"
+
+# 80%
+msgid "Saved"
+msgstr "Mentett"
+
+msgid "Saved successfully"
+msgstr "Sikeresen elmentve"
+
+#, fuzzy
+msgid ""
+"You will lose all unsaved work. Are you sure you want to close this window?"
+msgstr ""
+"Minden nem mentett változás el fog veszni. Biztosan be akarja csukni ezt az "
+"ablakot?"
+
+msgid "grommunio Content Panel"
+msgstr "grommunio Content Panel"
+
+#, fuzzy
+msgid "Delete item"
+msgstr "Elemek törlése"
+
+msgid "This item has been changed. Are you sure you want to delete it?"
+msgstr "Ez az elem megváltozott. Biztosan törölni akarja?"
+
+msgid "Unsaved changes"
+msgstr ""
+
+msgid "Welcome to grommunio Web"
+msgstr ""
+
+#, fuzzy
+msgid "This is the first time you are using grommunio Web. "
+msgstr ""
+"Ön először használja a grommunio Webot. <br />Kérem, a folytatás előtt "
+"ellenőrizze az alábbiakat."
+
+#, fuzzy
+msgid "Please check the following settings before continuing."
+msgstr ""
+"Ön először használja a grommunio Webot. <br />Kérem, a folytatás előtt "
+"ellenőrizze az alábbiakat."
+
+# There's no synonim for Widget in Hungarian language.
+#, fuzzy
+msgid "Widget height"
+msgstr "Beépülő modul hozzáadása"
+
+msgid "pixels"
+msgstr ""
+
+msgid "Configure widget"
+msgstr "Widget beállítása"
+
+msgid "Reload interval"
+msgstr "Újratöltési intervallum"
+
+#, fuzzy
+msgid "seconds"
+msgstr "másodperc."
+
+#, fuzzy
+msgid "Open in new tab"
+msgstr "Megnyitás új ablakban"
+
+# There's no synonim for Widget in Hungarian language.
+msgid "Add widgets"
+msgstr "Beépülő modul hozzáadása"
+
+msgid "No widgets installed."
+msgstr "Nincs beépülő modul telepítve."
+
+#, fuzzy
+msgid "Remove widget"
+msgstr "Kép eltávolítása"
+
+#, fuzzy
+msgid "Collapse widget"
+msgstr "Beépülő modul panel összezárása"
+
+#, fuzzy
+msgid "Expand widget"
+msgstr "Beépülő modul panel szétnyitása"
+
+msgid "About this widget"
+msgstr ""
+
+# There's no synonim for Widget in Hungarian language.
+#, fuzzy
+msgid "Add new widget"
+msgstr "Beépülő modul hozzáadása"
+
+msgid "Collapse widget panel"
+msgstr "Beépülő modul panel összezárása"
+
+msgid "Expand widget panel"
+msgstr "Beépülő modul panel szétnyitása"
+
+msgid "Your changes will be lost if you leave this page now."
+msgstr "A változtatásai elvesznek, ha most elhagyja ezt az oldalt."
+
+msgid "D {0}"
+msgstr ""
+
+#, fuzzy
+msgid "D d-m"
+msgstr "Y-m-d D"
+
+msgid ""
+"Not enough permissions to open this store, do you want to remove it from the "
+"hierarchy?"
+msgstr ""
+"Nincs elég jogosultsága megnyitni ezt a tárolót, kívánja eltávolítani a "
+"hierarchiából?"
+
+msgid ""
+"Not enough permissions to open this folder, do you want to remove it from "
+"the hierarchy?"
+msgstr ""
+"Nincs elég jogosultsága megnyitni ezt a mappát, kívánja eltávolítani a "
+"hierarchiából?"
+
+#, fuzzy
+msgid "Insufficient Permissions"
+msgstr "Nincs elég jogosultsága"
+
+msgid "Not enough permissions to open this folder."
+msgstr "Nincs elég jogosultsága megnyitni ezt a mappát."
+
+#, fuzzy
+msgid "There is {0} unread message in the folder {1} of {2}"
+msgid_plural "There are {0} unread messages in the folder {1} of {2}"
+msgstr[0] "{0} olvasatlan üzenete van a {1} mappában"
+msgstr[1] "{0} olvasatlan üzenete van a {1} mappában"
+
+msgid "There is {0} unread message in the folder {1}"
+msgid_plural "There are {0} unread messages in the folder {1}"
+msgstr[0] "{0} olvasatlan üzenete van a {1} mappában"
+msgstr[1] "{0} olvasatlan üzenete van a {1} mappában"
+
+msgid "Publishing Editor"
+msgstr "Kiadványszerkesztő"
+
+#, fuzzy
+msgid "Editor"
+msgstr "Szerkesztés"
+
+msgid "Publishing Author"
+msgstr "Kiadványszerző"
+
+msgid "Author"
+msgstr "Szerző"
+
+msgid "Nonediting Author"
+msgstr "Nem szerkesztő szerző"
+
+msgid "Reviewer"
+msgstr "Véleményező"
+
+msgid "Contributor"
+msgstr "Hozzájáruló"
+
+msgid "Unable to import:"
+msgstr ""
+
+#, fuzzy
+msgid "The files are not valid"
+msgstr "A csatolandó fájlok még nincsenek feltöltve."
+
+msgid "Create New Folder"
+msgstr "Új mappa"
+
+msgid "Folder contains"
+msgstr "Mappa tartalmaz"
+
+msgid "Calendar Items"
+msgstr "Naptár elemei"
+
+msgid "Mail and Post Items"
+msgstr "Levelezés és üzenetek elemei"
+
+msgid "Contacts Items"
+msgstr "Kapcsolatok elemei"
+
+msgid "Note Items"
+msgstr "Feljegyzések elemei"
+
+msgid "Task Items"
+msgstr "Feladatok elemei"
+
+#, fuzzy
+msgid "Select where to place the folder"
+msgstr "Válassza ki a feltöltési mappát"
+
+#, fuzzy
+msgid "No folder name"
+msgstr "Mappa név"
+
+#, fuzzy
+msgid "No destination"
+msgstr "Nincs információ"
+
+msgid "You must select a destination folder."
+msgstr "Meg kell adnia a célmappát."
+
+msgid "Properties"
+msgstr "Tulajdonságok"
+
+msgid "Type"
+msgstr "Típus"
+
+msgid "Description"
+msgstr "Leírás"
+
+msgid "EntryID"
+msgstr ""
+
+msgid "Parent EID"
+msgstr ""
+
+msgid "Folder size"
+msgstr "Mappa méret"
+
+msgid "Folder containing {0} Items"
+msgstr "A mappa tartalmaz {0} elemet"
+
+msgid "Permissions"
+msgstr "Jogok"
+
+msgid "No permissions granted"
+msgstr "Nincs engedélyezett hozzáférés"
+
+msgid "Profile"
+msgstr "Profil"
+
+msgid "Read"
+msgstr "Olvasás"
+
+msgid "Full Details"
+msgstr "Minden részlet"
+
+msgid "Write"
+msgstr "Írás"
+
+msgid "Create items"
+msgstr "Elemek létrehozása"
+
+msgid "Create subfolders"
+msgstr "Almappák létrehozása"
+
+msgid "Edit own"
+msgstr "Saját szerkesztése"
+
+msgid "Edit all"
+msgstr "Összes szerkesztése"
+
+msgid "Delete items"
+msgstr "Elemek törlése"
+
+msgid "Own"
+msgstr "Saját"
+
+msgid "All"
+msgstr "Mind"
+
+msgid "Folder owner"
+msgstr "Mappa tulajdonosa"
+
+msgid "Folder contact"
+msgstr "Mappakapcsolat"
+
+msgid "Folder visible"
+msgstr "Mappa láthatóság"
+
+msgid "User already exists"
+msgstr "A felhasználó már létezik"
+
+msgid "Group already exists"
+msgstr "A csoport már létezik"
+
+msgid "Folder Size"
+msgstr "Mappa méret"
+
+msgid "Folder Name"
+msgstr "Mappa név"
+
+msgid "Size (without subfolders)"
+msgstr "Méret (almappák nélkül)"
+
+msgid "Total size (including subfolders)"
+msgstr "Teljes méret (almappákkal)"
+
+msgid "Loading subfolder sizes"
+msgstr "Almappák méretének betöltése"
+
+msgid "No subfolders present"
+msgstr "Nincs almappa"
+
+msgid "Subfolder"
+msgstr "Almappa"
+
+msgid "Sort by: Name of the subfolder"
+msgstr "Rendezés: almappák neve"
+
+msgid "Sort by: Size (without subfolders)"
+msgstr "Rendezés: méret (almappák nélkül)"
+
+msgid "Total size"
+msgstr "Teljes méret"
+
+msgid "Sort by: Total size (including subfolders)"
+msgstr "Rendezés: teljes méret (almappákkal)"
+
+# 78%
+msgid "Open Shared Folders"
+msgstr "Megosztott mappák megnyitása"
+
+#, fuzzy
+msgid "Unresolved user"
+msgstr "A felhasználó nem feloldható."
+
+msgid "Username '{0}' could not be resolved."
+msgstr "'{0}' felhasználó nem feloldható."
+
+msgid "Invalid user"
+msgstr ""
+
+msgid "Username '{0}' is not a valid user."
+msgstr "'{0}' nem érvényes felhasználó."
+
+#, fuzzy
+msgid "Own store"
+msgstr "Hiányzó tároló"
+
+#, fuzzy
+msgid "It is not possible to open your own store twice."
+msgstr "Nem lehetséges a saját tárolót duplán megnyitni"
+
+#, fuzzy
+msgid "Folder already open"
+msgstr "A megosztott mappa már meg van nyitva."
+
+msgid "This shared folder is already open."
+msgstr "A megosztott mappa már meg van nyitva."
+
+msgid "No user"
+msgstr ""
+
+#, fuzzy
+msgid "You must specify a user"
+msgstr "Meg kell adnia egy felhasználónevet."
+
+msgid "Folder type"
+msgstr "Mappa típus"
+
+msgid "Show subfolders"
+msgstr "Almappák megjelenítése"
+
+msgid "Open shared folder/store"
+msgstr "Megosztott mappa/tárhely megnyitása"
+
+msgid "Rename folder"
+msgstr ""
+
+#, fuzzy
+msgid "Empty folder"
+msgstr "Importálás mappába"
+
+#, fuzzy
+msgid "Empty Junk Email"
+msgstr "Levélszemét törlése"
+
+msgid "Empty Deleted Items"
+msgstr "Törölt elemek kiűrítése"
+
+msgid "Rename Folder"
+msgstr "Mappa átnevezése"
+
+msgid "New Folder"
+msgstr "Új mappa"
+
+msgid "Mark All Messages Read"
+msgstr "Minden üzenet megjelölése olvasottként"
+
+msgid "Delete Folder"
+msgstr "Mappa törlése"
+
+msgid "Close store"
+msgstr "Tároló bezárása"
+
+msgid "Close folder"
+msgstr "Mappa bezárása"
+
+msgid "Reload"
+msgstr "Frissítés"
+
+msgid "Restore items"
+msgstr "Elemek helyreállítása"
+
+# 76%
+# 100%
+msgid "Select color"
+msgstr "Válasszon színt"
+
+msgid "Add to Favorites"
+msgstr "Hozzáadás a kedvencekhez"
+
+msgid "Remove From Favorites"
+msgstr "Eltávolítás a kedvencekből"
+
+#, fuzzy
+msgid "Share folder..."
+msgstr "Kezdő mappa"
+
+#, fuzzy
+msgid "Import emails"
+msgstr "Importálás ebbe"
+
+# 93%
+# 100%
+#, fuzzy
+msgid "Import appointments"
+msgstr "Új találkozó"
+
+msgid "Import contacts"
+msgstr ""
+
+#, fuzzy
+msgid "Properties of {0}"
+msgstr "Tulajdonságok"
+
+msgid "Share {0} with..."
+msgstr ""
+
+#, fuzzy
+msgid "Properties of {0} - {1}"
+msgstr "Tulajdonságok"
+
+msgid ""
+"Are you sure you want to permanently delete all the items and subfolders in "
+"the \"{0}\" folder?"
+msgstr ""
+"Biztosan véglegesen törölni kívánja az összes elemet és almappát a \"{0}\" "
+"mappában?"
+
+msgid ""
+"Are you sure you want to delete the folder \"{0}\" and move all of its "
+"contents into the Deleted Items folder?"
+msgstr ""
+"Biztosan törölni kívánja a \"{0}\" mappát és az összes elemét a Törölt "
+"elemek mappába helyezi?"
+
+#, fuzzy
+msgid "Delete folder"
+msgstr "Mappa törlése"
+
+msgid "Are you sure you want to empty {0}?"
+msgstr "Biztosan ki szeretné üríteni {0}?"
+
+msgid "Show All"
+msgstr ""
+
+msgid "Show all folders"
+msgstr "Minden mappa megjelenítése"
+
+msgid ""
+"You have insufficient privileges to move this folder. Would you like to copy "
+"instead?"
+msgstr ""
+
+msgid "CC"
+msgstr "CC"
+
+msgid "BCC"
+msgstr "BCC"
+
+msgid "Sort by: Importance"
+msgstr "Rendezés: Fontosság szerint"
+
+# 76%
+msgid "Sort by: To"
+msgstr "Rendezés: Címzett szerint"
+
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
+msgid "Sent"
+msgstr "Elküldött"
+
+# 75%
+msgid "Red"
+msgstr "Vörös"
+
+msgid "Original message"
+msgstr "Eredeti üzenet"
+
+msgid "Schedule mail to be sent out"
+msgstr "Küldendő levelek ütemezése"
+
+msgid "Scheduled Items"
+msgstr "Ütemezett elemek"
+
+msgid "Your message will be sent at "
+msgstr "A levél a következő időpontban lesz elküldve "
+
+#, fuzzy
+msgid "Go to your Outbox to edit your email."
+msgstr "A levél szerkesztéséhez nyisd meg a <b>Kimenő elemek</b> mappát."
+
+msgid "hour(s)"
+msgstr "óra múlva"
+
+msgid "month(s)"
+msgstr "hónap múlva"
+
+msgid "at a specific time"
+msgstr "a megadott időben"
+
+msgid "The time you entered is in the past. Please reschedule your mail."
+msgstr "A megadott idő a múltban van. Adjon meg új időpontot."
+
+msgid "today  at "
+msgstr "ma "
+
+msgid "tomorrow  at "
+msgstr "holnap "
+
+msgid "{0} at "
+msgstr ""
+
+msgid "at {0}"
+msgstr ""
+
+msgid "Your email will be sent {0}{1}"
+msgstr "A levél kiküldésének időpontja: {0}{1}"
+
+msgid "Saving..."
+msgstr "Mentés..."
+
+#, fuzzy
+msgid "Saved at {0}"
+msgstr "Üzenet elmentve ekkor: {0}."
+
+#, fuzzy
+msgid "Saving failed"
+msgstr "Művelet sikertelen"
+
+msgid "Message Options"
+msgstr "Üzenet beállítások"
+
+msgid "This message will be flagged for follow up when it is sent."
+msgstr ""
+
+msgid "Send Later"
+msgstr "Küldés később"
+
+#, fuzzy
+msgid "Schedule your mail to be sent on a specific date and time"
+msgstr "Levél küldésének ütemezése előre megadott napon és időben."
+
+# 86%
+msgid "Add attachments to this email"
+msgstr "Mellékletek hozzáadása az emailhez"
+
+msgid "Add signature"
+msgstr "Aláírás hozzáadása"
+
+# 75%
+msgid "Options"
+msgstr "Lehetőségek"
+
+msgid "Open options dialog"
+msgstr "Beállítások párbeszédpanel megnyitása"
+
+msgid "Set flag"
+msgstr "Jelölés beállítása"
+
+msgid "Set flag on this email"
+msgstr "Email megjelölése"
+
+msgid "Mark this mail as high priority"
+msgstr "Levél megjelölése magas prioritásúként"
+
+msgid "Mark this mail as low priority"
+msgstr "Levél megjelölése alacsony prioritásúként"
+
+msgid "Set read receipt"
+msgstr "Olvasási visszaigazolás beállítása"
+
+msgid "Request read receipt from recipients"
+msgstr "Olvasási visszaigazolás kérése a címzettektől"
+
+msgid "Show Bcc"
+msgstr "Titkos címzettek megjelenítése"
+
+#, fuzzy
+msgid "Show Bcc field"
+msgstr "Titkos címzettek megjelenítése"
+
+#, fuzzy
+msgid "Show From field"
+msgstr "Feladó megjelenítése"
+
+msgid "Cannot save while attachment is being uploaded"
+msgstr ""
+
+msgid "Miscellaneous Options"
+msgstr "Vegyes beállítások"
+
+msgid "Internet Headers"
+msgstr "Internetes fejlécek"
+
+msgid "Message Settings"
+msgstr "Üzenet beállítások"
+
+msgid "Tracking Options"
+msgstr "Követési beállítások"
+
+msgid "Request a read receipt for this message."
+msgstr "Olvasási visszaigazolás kérése az üzenethez."
+
+msgid "no subject"
+msgstr "nincs tárgy"
+
+msgid "Set Category"
+msgstr "Kategória beállítása"
+
+msgid "Pop-Out"
+msgstr "Pop-Out"
+
+msgid "Mark Read"
+msgstr "Megjelölés olvasottként"
+
+msgid "Mark Unread"
+msgstr "Megjelölés olvasatlanként"
+
+# 87%
+# 100%
+msgid "New mail"
+msgstr "Új levél"
+
+msgid "Mail"
+msgstr "Levél"
+
+# 88%
+# 100%
+msgid "Reply all"
+msgstr "Válasz mindenkinek"
+
+msgid "Toggle read/unread"
+msgstr "Megjelölés olvasottként/olvasatlanként"
+
+msgid "Toggle red/complete flag"
+msgstr "Megjelölés piros/elvégzett zászlóval"
+
+# 82%
+msgid "Open Shared Mails"
+msgstr "Megosztott levelezés megnyitása"
+
+#, fuzzy
+msgid "Print single email"
+msgstr "Email nyomtatása"
+
+# 78%
+#, fuzzy
+msgid "Print selected email"
+msgstr "Kijelölt elem nyomtatása"
+
+#, fuzzy
+msgid "Filter"
+msgstr "Szűrés.."
+
+msgid "FW"
+msgstr "FW"
+
+msgid "RE"
+msgstr "RE"
+
+msgid "on behalf of"
+msgstr ""
+
+msgid "Safe Senders list is empty"
+msgstr ""
+
+msgid "Please select a safe sender record."
+msgstr ""
+
+msgid "Delete all safe senders"
+msgstr ""
+
+msgid "Are you sure you want to delete all safe senders?"
+msgstr ""
+
+msgid "HTML"
+msgstr "HTML"
+
+msgid "Plain Text"
+msgstr "Egyszerű szöveg"
+
+msgid "Compose mail settings"
+msgstr "Levél írás beállításai"
+
+msgid "Compose mail in this format"
+msgstr "Levél írása ebben a formátumban"
+
+msgid "Default font"
+msgstr "Alapértelmezett betűtípus"
+
+msgid "Default font size"
+msgstr "Alapértelmezett betűméret"
+
+msgid "Always request a read receipt"
+msgstr "Mindig kérjen olvasási visszaigazolást"
+
+#. TRANSLATORS: The {A} _must_ always be at the start of the translation
+#. The '{B}' represents the number of minutes which the user will type in.
+msgid "{A}AutoSave unsent mail every {B} minute(s)"
+msgstr "{A}Automata Mentés a nem elküldött leveleknél minden {B} percben"
+
+msgid "Conversation view settings"
+msgstr ""
+
+msgid "Enable conversation view"
+msgstr ""
+
+msgid "Collapse conversation when selecting a different email"
+msgstr ""
+
+msgid "Incoming mail"
+msgstr "Bejövő levél"
+
+msgid "How to respond to requests for read receipts"
+msgstr "Hogyan reagáljon az olvasást visszaigazoló kérésekre"
+
+msgid "Always send a response"
+msgstr "Mindig válaszoljon"
+
+msgid "Never send a response"
+msgstr "Soha ne küldjön választ"
+
+msgid "Ask me before sending a response"
+msgstr "Kérdezzen meg a válasz elküldése előtt"
+
+#. TRANSLATORS: The {A} _must_ always be at the start of the translation
+#. The '{B}' represents the number of seconds which the user will type in.
+msgid "{A}Automatically mark mail as read after {B} second(s)"
+msgstr "{A}Levél olvasottnak jelölése {B} másodperc után"
+
+msgid "Off"
+msgstr "Kikapcsol"
+
+msgid "Right"
+msgstr "Jobb"
+
+msgid "Bottom"
+msgstr "Alsó"
+
+# 83%
+# 100%
+msgid "Location of preview pane"
+msgstr "Előnézeti panel helyzete"
+
+msgid "Use English abbreviations for forward (FW:) and reply (RE:)"
+msgstr ""
+
+msgid "Close original message on reply or forward"
+msgstr "Zárja be az eredeti üzenetet válasz küldése, vagy továbbítás után"
+
+msgid "General mail settings"
+msgstr "Általános levelezési beállítások"
+
+msgid "Open or compose a mail item in a"
+msgstr "Levél megnyitásának és írásának módja"
+
+msgid "grommunio Web tab"
+msgstr "grommunio Web fül"
+
+msgid "Browser window"
+msgstr "Böngésző ablak"
+
+msgid "Update Out of Office settings for"
+msgstr ""
+
+msgid "I am currently in the office"
+msgstr "Jelenleg házon belül tartózkodom"
+
+msgid "I am out of the office from"
+msgstr "Jelenleg házon kívül tartózkodom"
+
+msgid "I will be back on"
+msgstr "Visszatérek"
+
+#, fuzzy
+msgid "Automatically reply once per day, per sender with the following text"
+msgstr ""
+"Az automata válasz csak egyszer legyen elküldve a feladóknak, a következő "
+"szöveggel"
+
+msgid "Inside My Organization"
+msgstr ""
+
+msgid "Outside My Organization"
+msgstr ""
+
+msgid "Auto-reply to people outside my organization"
+msgstr ""
+
+msgid "My contacts only"
+msgstr ""
+
+msgid "Anyone outside my organization"
+msgstr ""
+
+msgid ""
+"The time you entered is before the out of office date. Please reschedule."
+msgstr ""
+"A megadott időpont a házon kívüli dátum előtt van. Adjon meg új időpontot!"
+
+msgid "Safe Senders"
+msgstr ""
+
+msgid ""
+"To protect your privacy email addresses or domains can only be added via the "
+"\"Add to safe sender list\" functionality in an opened email."
+msgstr ""
+
+msgid "Delete all"
+msgstr ""
+
+msgid "Signatures"
+msgstr "Aláírások"
+
+msgid "No signatures configured"
+msgstr "Nincs aláírás beállítva"
+
+msgid "New messages"
+msgstr ""
+
+msgid "Replies/forwards"
+msgstr ""
+
+msgid "Signature name:"
+msgstr ""
+
+msgid "Save Signature"
+msgstr "Aláírás mentése"
+
+msgid "You have unsaved changes. Do you wish to save the changes?"
+msgstr ""
+"Nem mentett változásokkal rendelkezik. El akarja menteni a változásokat?"
+
+msgid "New signature"
+msgstr "Új aláírás"
+
+msgid "EML file(s)"
+msgstr "EML fájl(ok)"
+
+msgid "ZIP file"
+msgstr "ZIP archívum"
+
+msgid "max. "
+msgstr "max. "
+
+# 75%
+msgid "Sort by: Sent"
+msgstr "Rendezés: Elküldés szerint"
+
+msgid "Modified"
+msgstr "Módosítva"
+
+msgid "Sort by: Modified"
+msgstr "Rendezés: Módosítva"
+
+msgid "Flag"
+msgstr "Jelölő"
+
+msgid "Sort by: flag"
+msgstr "Rendezés: jelölő"
+
+# 85%
+# 100%
+#, fuzzy
+msgid "Older"
+msgstr "Mappák"
+
+msgid "Yesterday"
+msgstr ""
+
+#, fuzzy
+msgid "Last Week"
+msgstr "Múlt hét"
+
+msgid "Two Weeks Ago"
+msgstr ""
+
+msgid "Three Weeks Ago"
+msgstr ""
+
+#, fuzzy
+msgid "Last Month"
+msgstr "Múlt hónap"
+
+msgid "Small"
+msgstr ""
+
+msgid "Medium"
+msgstr ""
+
+msgid "Large"
+msgstr ""
+
+msgid "Very large"
+msgstr ""
+
+msgid "Huge"
+msgstr ""
+
+msgid "Follow up"
+msgstr ""
+
+msgid "Move to Junk Folder"
+msgstr "Levélszemét mappába mozgatás"
+
+# 75%
+msgid "Send to"
+msgstr "Továbbítás mellékletként"
+
+msgid "Loading mail"
+msgstr "Levél betöltése"
+
+msgid "No unread mail."
+msgstr "Nincs olvasatlan email."
+
+msgid "Unread Mail"
+msgstr "Olvasatlan üzenet"
+
+msgid "Quick Mail"
+msgstr "Gyors email"
+
+#, fuzzy
+msgid "Print note"
+msgstr "Jegyzet nyomtatása"
+
+msgid "Color"
+msgstr "Szín"
+
+msgid "New note"
+msgstr "Új jegyzet"
+
+msgid "Open Shared Notes"
+msgstr "Megosztott jegyzetek megnyitása"
+
+msgid "Sticky note"
+msgstr "Öntapadós jegyzet"
+
+# 78%
+# 84%
+# 100%
+msgid "Print selected note"
+msgstr "Kijelölt jegyzet nyomtatása"
+
+# 75%
+# 100%
+msgid "No note selected"
+msgstr "Nincs kiválasztott jegyzet"
+
+msgid "Icons"
+msgstr "Ikonok"
+
+msgid "List view"
+msgstr "Lista nézet"
+
+msgid "List Last Seven Days"
+msgstr "Utolsó hét nap listázása"
+
+msgid "Created"
+msgstr "Létrehozva"
+
+msgid "Sort by: Created"
+msgstr "Rendezés: Létrehozás szerint"
+
+msgid "Sort by: Color"
+msgstr "Szín szerinti rendezés"
+
+msgid "Loading Notes"
+msgstr "Jegyzetek betöltése"
+
+msgid "Loading notes"
+msgstr "Jegyzetek betöltése"
+
+msgid "Quick Note"
+msgstr "Gyors jegyzet"
+
+#, fuzzy
+msgid ""
+"You must reload grommunio Web for the changes to take effect. Unsaved "
+"changes will be lost."
+msgstr "A beállítások frissítéséhez a grommunio Webot újra kell indítania."
+
+#, fuzzy
+msgid "Reload grommunio Web"
+msgstr "grommunio Web"
+
+msgid "Settings"
+msgstr "Beállítások"
+
+msgid "Basic"
+msgstr "Alap"
+
+msgid "Account information - {0}"
+msgstr ""
+
+msgid "Profile Picture"
+msgstr ""
+
+msgid "Language"
+msgstr "Nyelv"
+
+msgid "Startup folder"
+msgstr "Kezdő mappa"
+
+msgid "Theme"
+msgstr "Téma"
+
+msgid "Select Default Folder"
+msgstr "Alapértelmezett mappa kiválasztása"
+
+msgid "Advanced"
+msgstr "Haladó"
+
+msgid "Advanced settings"
+msgstr "Haladó beállítások"
+
+msgid "Developer tools"
+msgstr ""
+
+msgid "Show insertion points in grommunio Web"
+msgstr ""
+
+msgid "Show \"item data\" button in context menu (mail only)"
+msgstr ""
+
+msgid "Edit setting"
+msgstr "Beállítás szerkesztése"
+
+msgid "Restore to defaults"
+msgstr "Alaphelyzetbe állítás"
+
+msgid "Delete settings"
+msgstr "Beállítások törlése"
+
+#, fuzzy
+msgid "{0} Iconset"
+msgstr "Ikonok"
+
+msgid "About"
+msgstr "Rólunk"
+
+msgid "I want to display date and time in this format:"
+msgstr ""
+
+msgid "Short"
+msgstr "Rövid"
+
+msgid "Long"
+msgstr "Hosszú"
+
+msgid "Time format:"
+msgstr ""
+
+msgid "12h clock"
+msgstr ""
+
+msgid "24h clock"
+msgstr ""
+
+# 88%
+#, fuzzy
+msgid "Favorite settings"
+msgstr "Meghatalmazottak beállításai"
+
+#, fuzzy
+msgid "Hide favorites"
+msgstr "Hozzáadás a kedvencekhez"
+
+msgid "Unpin favorites from top"
+msgstr ""
+
+msgid "Give unread items a colored border"
+msgstr ""
+
+msgid "Show 'help' button in top-right corner"
+msgstr ""
+
+msgid "Show unread mail counter in application title"
+msgstr ""
+
+msgid "Hide widget panel"
+msgstr ""
+
+msgid "Show search bar above folder list"
+msgstr ""
+
+msgid "Auto"
+msgstr ""
+
+msgid "Actual size"
+msgstr ""
+
+msgid "Page width"
+msgstr ""
+
+msgid "Attachment preview (PDF and Open formats)"
+msgstr ""
+
+msgid "Document default zoom"
+msgstr ""
+
+msgid "PDF zoom"
+msgstr ""
+
+msgid "File previewing"
+msgstr ""
+
+msgid "Inbox navigation"
+msgstr "Beérkező üzenetek közötti navigáció"
+
+msgid "I want to navigate through my items by using."
+msgstr "Az alábbi funkciók segítségével szeretnék az elemeim közt navigálni:"
+
+msgid "Infinite Scroll"
+msgstr "Végtelen görgetés"
+
+msgid "grommunio Web automatically loads additional items when you scroll down"
+msgstr ""
+"A grommunio Web automatikusan töltse be a további elemeket legörgetéskor"
+
+msgid "Pagination"
+msgstr "Oldalakba rendezés"
+
+msgid ""
+"grommunio Web displays items on pages and you can use navigation controls to "
+"navigate"
+msgstr ""
+"A WebbApp oldalakba rendezi az elemeket, az elemek között szabadon navigálhat"
+
+msgid "Load items in blocks of {A}"
+msgstr "Elemek betöltése {A} darabos blokkokban"
+
+msgid "Load {A} items per page."
+msgstr "Egy oldalon {A} elemet töltsön be."
+
+msgid "Keyboard Shortcuts"
+msgstr "Gyorsbillentyűk"
+
+msgid "Part of basic keyboard shortcuts"
+msgstr "Alapértelmezett gyorsbillentyűk része"
+
+msgid "Keyboard shortcuts off"
+msgstr "Gyorsbillentyűk kikapcsolása"
+
+msgid "Basic keyboard shortcuts on"
+msgstr "Gyorsbillentyűk engedélyezése"
+
+msgid "All keyboard shortcuts on"
+msgstr "Minden gyorsbillentyű engedélyezése"
+
+msgid "This change requires a reload of grommunio Web"
+msgstr ""
+
+msgid "Plugins"
+msgstr "Bővítmények"
+
+msgid "Available plugins"
+msgstr "Elérhető bővítmények"
+
+msgid "No plugins available"
+msgstr "Nincs rendelkezésre álló bővítmény"
+
+msgid "Version"
+msgstr "Verzió"
+
+msgid "This plugin cannot be disabled"
+msgstr "Ezt a bővítmény nem lehet letiltani"
+
+msgid "This plugin cannot be enabled"
+msgstr "Ezt a beépülőmodult nem lehet engedélyezni"
+
+msgid "Mailbox Usage"
+msgstr "Postafiók használtság"
+
+msgid "A quota is not set on your store."
+msgstr ""
+
+msgid "{0} of mailbox space is used."
+msgstr "{0} felhasznált postafiók tárterület."
+
+msgid "You have exceeded hard quota, you can not send or receive mails."
+msgstr ""
+
+msgid "At {0} you won't be able to send mails."
+msgstr "{0}-kor nem fog tudni leveleket küldeni."
+
+msgid ""
+"You can not send mails as you have exceeded soft quota, at {0} you won't be "
+"able to receive mails."
+msgstr ""
+
+msgid "At {0} you won't be able to send or receive mails."
+msgstr ""
+
+msgid "You can not send mails as you have exceeded soft quota."
+msgstr "Nem tud leveleket küldeni, mert elérte az alsó kvóta határt."
+
+#, fuzzy
+msgid "Reset settings"
+msgstr "Beállítások törlése"
+
+#, fuzzy
+msgid "Reset settings to their original defaults."
+msgstr "A grommunio Web beállításokat alaphelyzetbe állítja"
+
+msgid ""
+"This will close all opened shared stores and resets all settings to the "
+"default value."
+msgstr ""
+
+#, fuzzy
+msgid ""
+"grommunio Web will automatically reload in order for these changes to take "
+"effect"
+msgstr ""
+"A beállítások érvénybe lépéséhez a grommunio Web automatikusan újra fog "
+"indulni"
+
+msgid "Reset"
+msgstr "Visszaállítás"
+
+#, fuzzy
+msgid "Reloading, Please wait."
+msgstr "Betöltés folyamatban. Kérem várjon."
+
+msgid "Setting"
+msgstr "Beállítás"
+
+msgid "The setting '{0}' can not be edited"
+msgstr "A '{0}' beállítás nem szerkeszthető"
+
+msgid "Version information"
+msgstr "Verzió információ"
+
+msgid "Gromox"
+msgstr "Gromox"
+
+msgid "Delete confirmation"
+msgstr "Törlés megerősítése"
+
+msgid "Deleting the item(s) will also delete the original item(s)."
+msgstr ""
+
+msgid "Do you want to delete the item(s)?"
+msgstr ""
+
+msgid "Sort by: Priority"
+msgstr "Rendezés: Prioritás szerint"
+
+msgid "Status"
+msgstr "Státusz"
+
+msgid "Sort by: Status"
+msgstr "Rendezés: Állapot szerint"
+
+msgid "Due Date"
+msgstr "Határidő"
+
+msgid "Sort by: Due Date"
+msgstr "Rendezés: Határidő szerint"
+
+msgid "% Completed"
+msgstr "% kész"
+
+msgid "Sort by: Percent Completed"
+msgstr "Rendezés: Készenléti állapot szerint"
+
+msgid "Task Status"
+msgstr "Feladat állapota"
+
+# 93%
+msgid "Percent Complete"
+msgstr "Készültség Szintje"
+
+msgid "Total Work"
+msgstr "Teljes Munkaidő"
+
+msgid "Actual Work"
+msgstr "Tényleges Munkaidő"
+
+msgid "Companies"
+msgstr "Cégek"
+
+msgid "Billing Information"
+msgstr "Számlázási Adatok"
+
+msgid "Mileage"
+msgstr "Mérföldkő"
+
+msgid "Accepting Task"
+msgstr "Feladatok elfogadása"
+
+msgid "Declining Task"
+msgstr "Feladatok elutasítása"
+
+#, fuzzy
+msgid ""
+"This task will be accepted and moved to your task folder. Do you want to "
+"include comments with your response?"
+msgstr ""
+"Ez az értekezlet elfogadásra került és a naptárába lett helyezve. Kíván "
+"megjegyzést fűzni a válaszához?"
+
+msgid ""
+"This task will be declined and moved into the Deleted Items folder. Do you "
+"want to edit the response before sending it?"
+msgstr ""
+"Ezt az értekezletet elutasította, és a Törölt mappába helyezte. Kívánja "
+"szerkeszteni a válasz üzenetet küldés előtt?"
+
+msgid "Send the response now"
+msgstr "Válasz elküldése azonnal"
+
+msgid "Date Complete"
+msgstr "Befejezés dátuma"
+
+msgid "Multiple companies name must be separated by"
+msgstr ""
+
+msgid "Update List"
+msgstr "Lista frissítése"
+
+msgid "Create Unassigned Copy"
+msgstr "Nem hozzárendelt másolat készítése"
+
+msgid "copy"
+msgstr "másolás"
+
+msgid "Unable to send task request"
+msgstr ""
+
+msgid "You cannot send a task request to yourself."
+msgstr "Saját magának nem küldhet feladatot."
+
+#, fuzzy
+msgid "Multiple recipients"
+msgstr "Címzett megtekintése"
+
+msgid "A task request can only have one recipient."
+msgstr "A feladat kiosztásnak csak egy címzettje lehet."
+
+msgid "Due date"
+msgstr "Határidő"
+
+msgid "Priority"
+msgstr "Prioritás"
+
+# 80%
+msgid "% Complete"
+msgstr "% kész"
+
+msgid "Track progress"
+msgstr "Készültség nyomon követése"
+
+msgid "Keep updated copy of task and receive automated status reports"
+msgstr ""
+
+msgid "Send task to assignees"
+msgstr "Feladat elküldése a hozzárendelt személynek"
+
+msgid "Restore to Task List"
+msgstr "Visszaállítás a Feladatlistába"
+
+# 94%
+# 76%
+# 100%
+msgid "Delete this task"
+msgstr "Feladat törlése"
+
+msgid "Add attachments to this task"
+msgstr "Mellékletek hozzáadása a feladathoz"
+
+msgid "Mark as Complete"
+msgstr "Késznek jelöl"
+
+msgid "Mark this task as complete"
+msgstr "Feladat késznek jelölése"
+
+# 75%
+# 100%
+msgid "Print this task"
+msgstr "Feladat nyomtatása"
+
+msgid "Assign Task"
+msgstr "Feladat hozzárendelése"
+
+msgid "Cancel Assignment"
+msgstr "Hozzárendelés törlése"
+
+# 75%
+# 79%
+# 100%
+msgid "Mark this task as private"
+msgstr "Jelölje meg a feladatot személyesként"
+
+msgid "New task"
+msgstr "Új feladat"
+
+#, fuzzy
+msgid "Completed"
+msgstr "Kész"
+
+# 76%
+#, fuzzy
+msgid "Printed by: "
+msgstr "Rendezés: Címzett szerint"
+
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
+#, fuzzy
+msgid "Printed on: "
+msgstr "Jegyzet nyomtatása"
+
+msgid "Percent complete"
+msgstr "Százalékban kész"
+
+msgid "Total work"
+msgstr "Teljes munkaidő"
+
+msgid "{totalwork} hours"
+msgstr "{totalwork} óra"
+
+msgid "Actual work"
+msgstr "Tényleges munkaidő"
+
+msgid "{actualwork} hours"
+msgstr "{actualwork} óra"
+
+msgid "Open Shared Tasks"
+msgstr "Megosztott feladat megnyitása"
+
+msgid "Simple view"
+msgstr "Egyszerű nézet"
+
+msgid "Detailed view"
+msgstr "Részletes nézet"
+
+# 92%
+# 100%
+msgid "Task request"
+msgstr "Feladat kiosztás"
+
+msgid "Print selected task"
+msgstr "Kijelölt feladatok nyomtatása"
+
+msgid "No task selected"
+msgstr "Nincs kiválasztott feladat"
+
+msgid "Print task list"
+msgstr "Feladatlista nyomtatása"
+
+msgid "Create task"
+msgstr "Feladat létrehozása"
+
+msgid "Upcoming"
+msgstr ""
+
+msgid "Overdue"
+msgstr ""
+
+msgid "Mark Complete"
+msgstr "Befejezettnek jelöl"
+
+msgid "Mark Incomplete"
+msgstr "Befejezetlennek jelöl"
+
+#, fuzzy
+msgid "Remove from To-Do List"
+msgstr "Eltávolítás a kedvencekből"
+
+#, fuzzy
+msgid "Changes to assigned task"
+msgstr "Feladat elküldése a hozzárendelt személynek"
+
+#, fuzzy
+msgid ""
+"Please note that assigned task(s) will be overwritten when the assignee "
+"makes changes."
+msgstr ""
+"Bármely most végbevitt változtatás felülíródik, ha az értekezlet szervezője "
+"frissíti az értekezletet"
+
+msgid "Sort by: Complete"
+msgstr "Rendezés: Elvégzett feladatok szerint"
+
+msgid "Reminder Time"
+msgstr "Emlékeztető időpontja"
+
+msgid "Sort by: Reminder Time"
+msgstr "Rendezés: Emlékeztető ideje szerint"
+
+msgid "Assigned To"
+msgstr "Alábbi személyhez rendelve"
+
+msgid "Sort by: Assignee"
+msgstr "Rendezés: Hozzárendelt személy szerint"
+
+msgid "Sort by: Owner"
+msgstr "Rendezés: Tulajdonos szerint"
+
+#, fuzzy
+msgid "Sort by: Percentage Completed"
+msgstr "Rendezés: Készenléti állapot szerint"
+
+#, fuzzy
+msgid "Assigned task changes"
+msgstr "Feladat hozzárendelése"
+
+msgid "Loading tasks"
+msgstr "Feladatok betöltése"
+
+msgid "Date completed"
+msgstr "Befejezve"
+
+msgid "hours"
+msgstr "óra"
+
+msgid "Billing information"
+msgstr "Számlázási adatok"
+
+msgid "Update list"
+msgstr "Lista frissítése"
+
+msgid "D d-m-Y"
+msgstr "Y-m-d D"
+
+msgid "none"
+msgstr ""
+
+msgid "Quick Task"
+msgstr "Gyors feladat"
+
+msgid "No tasks."
+msgstr "Nincsenek feladatok."
+
+msgid "Tasks / To-Do"
+msgstr ""
+
+#, fuzzy
+msgid "Import / Export"
+msgstr "Importálás ebbe"
+
+msgid ""
+"Calendar, contact and mail items can be imported and exported from and to "
+"grommunio Web."
+msgstr ""
+
+msgid ""
+"Right-click a folder and select the import button. Additionally, items can "
+"be imported from the attachment context menu."
+msgstr ""
+
+msgid "Exporting can be done from the context menu of an item."
+msgstr ""
+
+#, fuzzy
+msgid "Icon packs"
+msgstr "Ikonok"
+
+msgid ""
+"You can now choose between different icons. By default the new Breeze icons "
+"are enabled, but if you prefer the classic icons you can change this in the "
+"settings."
+msgstr ""
+
+msgid ""
+"Go to your settings, open the general tab and select an icon pack to your "
+"liking."
+msgstr ""
+
+msgid "Left: Breeze - Right: Classic"
+msgstr ""
+
+msgid "What's new"
+msgstr "Újdonságok"
+
+msgid "Don't show me new features again."
+msgstr "Ne mutassa az újdonságokat többször."
+
+msgid "Skip"
+msgstr "Kihagy"
+
+msgid "Previous"
+msgstr "Előző"
+
+msgid "Next"
+msgstr "Következő"
+
+msgid "Click the link to open the URL in a new window."
+msgstr "Kattintson a linkre az új ablakban való megnyitáshoz."
+
+msgid "The server reported an unknown error on your request."
+msgstr "A kiszolgáló ismeretlen hibával válaszolt a kérésre."
+
+msgid "The server reported an unspecified error on your request."
+msgstr "A kiszolgáló nem meghatározható hibával válaszolt a kérésre."
+
+msgid "The session has expired, reauthentication is required."
+msgstr "A munkamenet lejárt, újra be kell jelentkeznie."
+
+msgid ""
+"The session in the current browser window has been closed from another "
+"browser window or tab."
+msgstr ""
+"Az ebben a böngészőablakban található munkamenet be lett zárva egy másik "
+"böngésző ablak, vagy lap miatt."
+
+msgid "Session expired"
+msgstr "Munkamenet lejárt"
+
+msgid "Do you wish to be redirected to the logon page?"
+msgstr "Kívánja, hogy át legyen irányítva a bejelentkező oldalra?"
+
+msgid "Reauthentication required, click here to go to back to logon page."
+msgstr ""
+"Ismételt hitelesítés szükséges, kattintson ide a bejelentkezőablakra való "
+"visszatéréshez."
+
+msgid "Connection problem"
+msgstr "Kapcsolódási hiba"
+
+msgid "Could not connect to server, retrying in {0} second(s)"
+msgstr ""
+"Nem lehetett kapcsolódni a szerverhez, újrapróbálkozás {0} másodperc múlva"
+
+msgid "Click to retry now"
+msgstr "Kattintson az újrapróbálkozáshoz most"
+
+msgid "Connection restored"
+msgstr "Kapcsolat helyreállítva"
+
+msgid "Connection with server has been restored"
+msgstr "A kapcsolat a szerverrel helyreállt"
+
+#. TRANSLATORS: Example: HTTP 404
+msgid "HTTP {0}"
+msgstr ""
+
+msgid "Invalid data received from the server"
+msgstr ""
+
+msgid "Missing store"
+msgstr "Hiányzó tároló"
+
+msgid "The default store is missing from the hierarchy."
+msgstr "Az alapértelmezett tároló hiányzik a hierarchiából."
+
+msgid ""
+"Not all functionality of grommunio Web might be working properly because of "
+"this."
+msgstr "Emiatt nem garantálható a grommunio Web minden funkciójának működése."
+
+msgctxt "hierarchy.foldername"
+msgid "Inbox"
+msgstr "Beérkezett üzenetek"
+
+msgctxt "hierarchy.foldername"
+msgid "Outbox"
+msgstr "Kimenő üzenetek"
+
+msgctxt "hierarchy.foldername"
+msgid "Sent Items"
+msgstr "Elküldött üzenetek"
+
+msgctxt "hierarchy.foldername"
+msgid "Deleted items"
+msgstr "Törölt elemek"
+
+# 88%
+# 100%
+msgctxt "hierarchy.foldername"
+msgid "Calendar"
+msgstr "Naptár"
+
+msgctxt "hierarchy.foldername"
+msgid "Contacts"
+msgstr "Kapcsolatok"
+
+msgctxt "hierarchy.foldername"
+msgid "Drafts"
+msgstr "Vázlatok"
+
+msgctxt "hierarchy.foldername"
+msgid "Journal"
+msgstr "Napló"
+
+# 80%
+# 100%
+msgctxt "hierarchy.foldername"
+msgid "Notes"
+msgstr "Jegyzet"
+
+# 100%
+msgctxt "hierarchy.foldername"
+msgid "Tasks"
+msgstr "Feladatok"
+
+#, fuzzy
+msgctxt "hierarchy.foldername"
+msgid "Junk Email"
+msgstr "Levélszemét"
+
+msgid "Missing folders"
+msgstr "Hiányzó mappák"
+
+msgid "The following required folder is missing in the hierarchy: {0}"
+msgid_plural "The following required folders are missing in the hierarchy: {0}"
+msgstr[0] "A következő szükséges mappa hiányzik a hierarchiából: {0}"
+msgstr[1] "A következő szükséges mappák hiányoznak a hierarchiából: {0}"
+
+msgid "Loading model from server failed"
+msgstr "A modell betöltése a szerverről sikertelen"
+
+#, fuzzy
+msgid "Out of Office is currently activated. Would you like to turn it off?"
+msgstr "A házon kívüli üzenet be van kapcsolva. Szeretné kikapcsolni?"
+
+msgid "Open Chat at start"
+msgstr ""
+
+msgid "Desktop Notifications Plugin"
+msgstr ""
+
+msgid "Desktop Notifications"
+msgstr ""
+
+msgid "{A} Autohide desktop notification after second(s) {B}"
+msgstr ""
+
+msgid "Intranet"
+msgstr ""
+
+msgid "Email Details"
+msgstr ""
+
+msgid "Item Data"
+msgstr ""
+
+msgid "Mobile Device Manager"
+msgstr ""
+
+msgid "Wiping device"
+msgstr ""
+
+msgid "Password incorrect"
+msgstr ""
+
+msgid "Full resync in progress"
+msgstr ""
+
+msgid "Username or password incorrect"
+msgstr ""
+
+msgid "Not Applicable"
+msgstr ""
+
+msgid "Wipe Pending"
+msgstr ""
+
+msgid "Wipe Requested"
+msgstr ""
+
+msgid "Wipe Executed"
+msgstr ""
+
+msgid "Not Available"
+msgstr ""
+
+msgid "Device"
+msgstr ""
+
+msgid "Operating System"
+msgstr ""
+
+msgid "ID"
+msgstr ""
+
+msgid "User Agent"
+msgstr ""
+
+msgid "MDM Plugin"
+msgstr ""
+
+msgid "Active Sync Version"
+msgstr ""
+
+msgid "grommunio-sync Version"
+msgstr ""
+
+msgid "Policy name"
+msgstr ""
+
+msgid "Outlook Extension"
+msgstr ""
+
+msgid "Build"
+msgstr ""
+
+msgid "Last updated"
+msgstr ""
+
+msgid "d F Y, H:i"
+msgstr ""
+
+msgid "Connected since"
+msgstr ""
+
+msgid "d F Y"
+msgstr ""
+
+msgid "Synchronize"
+msgstr ""
+
+msgid "Manage Shared Folders"
+msgstr ""
+
+msgid ""
+"Select folders to sync to your device from the list below. To add additional "
+"mailboxes to the list, open them in WebApp first."
+msgstr ""
+
+msgid "grommunio-sync"
+msgstr ""
+
+msgid "Mobile device management"
+msgstr ""
+
+msgid "Mobile Devices"
+msgstr ""
+
+msgid ""
+"Unable to connect to the grommunio-sync server. Click {0} to enter your "
+"credentials"
+msgstr ""
+
+msgid "Devices"
+msgstr ""
+
+msgid "No devices connected to your account"
+msgstr ""
+
+msgid "Last Update"
+msgstr ""
+
+msgid "Device ID"
+msgstr ""
+
+msgid "Device OS"
+msgstr ""
+
+msgid "Device Info"
+msgstr ""
+
+msgid "First Sync time"
+msgstr ""
+
+msgid "Full resync"
+msgstr ""
+
+msgid "Remove device"
+msgstr ""
+
+msgid "Please enter your username and password"
+msgstr ""
+
+msgid "Password"
+msgstr "Jelszó"
+
+msgid "Username"
+msgstr "Felhasználónév"
+
+msgid ""
+"Do you really want to wipe your device?\n"
+" Enter your password to confirm."
+msgstr ""
+
+msgid "Add meeting"
+msgstr ""
+
+msgid "Room name:"
+msgstr ""
+
+msgid "Room URL:"
+msgstr ""
+
+msgid "Shift-click for advanced settings"
+msgstr ""
+
+msgid "Join webmeeting"
+msgstr ""
+
+msgid "Open meeting in:"
+msgstr ""
+
+msgid "Web tab"
+msgstr ""
+
+msgid "Hide the button in the main toolbar"
+msgstr ""
+
+msgid "Add the subject to the room name"
+msgstr ""
+
+msgid "Add the organizer name to the room name"
+msgstr ""
+
+msgid "Add the URL to the meeting location rather than overwriting it"
+msgstr ""
+
+msgid ""
+"Prevent the URL in the meeting location from being overridden automatically "
+"(ex: when adding a meetingroom)"
+msgstr ""
+
+msgid "If you have problems when creating meetings, try disabling this setting"
+msgstr ""
+
+msgid "Add an invitation to the appointment description"
+msgstr ""
+
+msgid "Invitation text"
+msgstr ""
+
+msgid ""
+"must contain %url% as a placeholder for the meeting link, empty the textbox "
+"to reset to default"
+msgstr ""
+
+msgid "An unknown error occurred while changing password."
+msgstr ""
+
+msgid "Password is changed successfully."
+msgstr ""
+
+msgid "Success"
+msgstr ""
+
+msgid "Change Password"
+msgstr ""
+
+msgid "Current password"
+msgstr ""
+
+msgid "New password"
+msgstr ""
+
+msgid "Retype new password"
+msgstr ""
+
+msgid "New passwords do not match."
+msgstr ""
+
+msgid "Current password is empty."
+msgstr ""
+
+msgid "New password is empty."
+msgstr ""
+
+msgid "One or more fields does contain errors."
+msgstr ""
+
+msgid ""
+"Password is weak. Password should contain capital, non-capital letters and "
+"numbers. Password should have 8 to 20 characters."
+msgstr ""
+
+msgid "Charm pink"
+msgstr "Rózsaszín"
+
+msgid "Cadmium red"
+msgstr "Vörös"
+
+msgid "Apricot"
+msgstr "Barack"
+
+msgid "California"
+msgstr "Kalifornia"
+
+msgid "Soft green"
+msgstr "Világoszöld"
+
+msgid "Mint"
+msgstr "Menta"
+
+msgid "Pearl aqua"
+msgstr "Világoskék"
+
+msgid "Grommunio blue"
+msgstr ""
+
+msgid "Baby blue"
+msgstr "Babakék"
+
+msgid "Mauve"
+msgstr "Mályva"
+
+msgid "Silver sand"
+msgstr "Homok"
+
+msgid "Competition"
+msgstr "Versenytárs"
+
+msgid "Gifts"
+msgstr "Ajándékok"
+
+msgid "Goals/Objectives"
+msgstr "Célok"
+
+msgid "Holiday Cards"
+msgstr "Üdvözlőkártyák"
+
+msgid "Hot Contacts"
+msgstr "Friss kapcsolat"
+
+msgid "Ideas"
+msgstr "Ötletek"
+
+msgid "International"
+msgstr "Nemzetközi"
+
+msgid "Key Customer"
+msgstr "Kiemelten fontos vásárló"
+
+msgid "Miscellaneous"
+msgstr "Vegyes"
+
+msgid "Phone Calls"
+msgstr "Telefonhívások"
+
+msgid "Strategies"
+msgstr "Stratégiák"
+
+msgid "Suppliers"
+msgstr "Beszállítók"
+
+msgid "Time & Expenses"
+msgstr "Idő és kiadás"
+
+msgid "VIP"
+msgstr "VIP"
+
+msgid "Waiting"
+msgstr "Várakozás"
+
+msgid "You have been automatically logged out"
+msgstr "Automatikusan ki lett jelentkeztetve"
+
+msgid ""
+"Sorry, access to grommunio Web is not available with this user account. "
+"Please contact your system administrator."
+msgstr ""
+
+msgid "Mobile device management plugin"
+msgstr ""
+
+#, php-format
+msgid ""
+"Unexpected error occurred. Please contact your system administrator. Error "
+"code: %s"
+msgstr ""
+
+msgid "No data received."
+msgstr ""
+
+msgid "Account is empty."
+msgstr ""
+
+msgid "Current password does not match."
+msgstr ""
+
+msgid ""
+"Your password is wrong or you have insufficent permission to change password"
+msgstr ""
+
+msgid "Password is not changed."
+msgstr ""
+
+msgid "Error changing password. Please contact the system administrator."
+msgstr ""
+
+msgid "Password has been changed successfully."
+msgstr ""
+
+msgid "Can't add data to bus, same action type is present in bus"
+msgstr ""
+
+msgid "Response data requested from bus but it doesn't have any data."
+msgstr ""
+
+#, php-format
+msgid "Unknown module '%s' with id '%s'"
+msgstr ""
+
+msgid ""
+"Server encountered some problem, so it was not able to handle the request."
+msgstr ""
+
+#, php-format
+msgid "Unknown notifier '%s'"
+msgstr ""
+
+msgid "An unexpected error has occurred"
+msgstr ""
+
+msgid "To-Do List"
+msgstr ""
+
+#. TRANSLATORS: This indicates that the opened folder belongs to a particular user,
+#. * for example: 'Calendar of Holiday', in this case %1$s is 'Calendar' (the foldername)
+#. * and %2$s is 'Holiday' (the username).
+#.
+#, php-format
+msgid "%1$s of %2$s"
+msgstr ""
+
+msgid "Error retrieving existing settings"
+msgstr ""
+
+msgid "Error retrieving existing persistent settings"
+msgstr ""
+
+# 93%
+msgid "Logon failed. Please verify your credentials and try again."
+msgstr ""
+"Sikertelen bejelentkezés. Kérem, ellenőrizze felhasználónevét/jelszavát."
+
+# 83%
+msgid "Cannot connect to Gromox."
+msgstr "Nem sikerült csatlakozni a grommunio szerverhez."
+
+msgid ""
+"Login did not work due to a duplicate session. The issue was automatically "
+"resolved, please log in again."
+msgstr ""
+
+msgid "Unknown MAPI Error"
+msgstr "Ismeretlen MAPI hiba: %s"
+
+msgid "This external link will open in a new window"
+msgstr ""
+
+msgid "Destination folder not found."
+msgstr ""
+
+msgid "Eml is corrupted"
+msgstr ""
+
+msgid "The eml Attachment is not imported successfully"
+msgstr ""
+
+msgid "The vcf attachment is not imported successfully"
+msgstr ""
+
+#, php-format
+msgid "Unable to import '%s' to '%s'. "
+msgstr ""
+
+#, fuzzy
+msgid "There is no appointment found in this file."
+msgstr "A találkozó időpontja a múltban van."
+
+#, fuzzy
+msgid "The file is corrupt."
+msgstr "Az EML fájl sérült"
+
+#, fuzzy
+msgid "The file is invalid."
+msgstr "A csatolandó fájlok még nincsenek feltöltve."
+
+#, php-format
+msgid "Unable to import '%s'. "
+msgstr ""
+
+msgid "Please contact your system administrator if the problem persists."
+msgstr ""
+
+msgid "Attachment is not imported successfully"
+msgstr ""
+
+msgid "Embedded attachment not found."
+msgstr ""
+
+msgid "ZIP is not created successfully"
+msgstr ""
+
+msgid "Attachments can not be downloaded"
+msgstr ""
+
+msgid "Could not find attachment."
+msgstr ""
+
+msgid "Operation failed"
+msgstr ""
+
+msgid "Sticky Note"
+msgstr ""
+
+msgid "Task Request"
+msgstr ""
+
+msgid "Could not find message, either it has been moved or deleted."
+msgstr ""
+
+msgid "Request is not available."
+msgstr ""
+
+# 94%
+# 90%
+msgid "You have insufficient privileges to open this object."
+msgstr "Nincs elegendő jogosultsága az elem megnyitásához."
+
+# 93%
+msgid "Logon Failed. Please check your name/password."
+msgstr "Bejelentkezés nem sikerült. Ellenőrizze felhasználónevét/jelszavát."
+
+# 83%
+msgid "Can not connect to Gromox."
+msgstr "Nem lehet a grommunio kiszolgálóhoz csatlakozni."
+
+msgid "Can not open object with provided id."
+msgstr "Nem nyitható meg a megadott azonosítójú elem."
+
+msgid "There are no recipients in the message."
+msgstr "Nincsenek címzettek megjelölve az üzenetben."
+
+msgid "Can not find object."
+msgstr "Elem nem található."
+
+msgid "Operation failed: Server does not have enough memory."
+msgstr "Művelet sikertelen: A kiszolgáló nem rendelkezik elegendő memóriával."
+
+#, php-format
+msgid "Unknown MAPI Error: %s"
+msgstr "Ismeretlen MAPI hiba: %s"
+
+msgid "Action is not performed correctly."
+msgstr ""
+
+msgid "Tentatively accepted"
+msgstr "Feltételesen elfogadta"
+
+msgid "New Time Proposed"
+msgstr "Új időpont javaslat"
+
+# Have to look at it in action.
+# 86%
+# 76%
+# 78%
+#, php-format
+msgid "Occurs every %s effective %s from %s to %s."
+msgstr "Előfordulása %s, Érvénybe lép %s, kezdete: %s, vége: %s."
+
+# Have to look at it in action.
+# 77%
+#, fuzzy, php-format
+msgid "Occurs every %s %s effective %s from %s to %s."
+msgstr "Ismétlődés minden {0} érvényes {1} {2}-tól/től {3}-ig."
+
+# 80%
+#, php-format
+msgid "Occurs every %s effective %s."
+msgstr "Előfordulása %s, kezdete: %s."
+
+# 75%
+#, php-format
+msgid "Occurs every %s %s effective %s."
+msgstr ""
+
+#, php-format
+msgid "Occurs every %s effective %s for %s occurrence from %s to %s."
+msgid_plural "Occurs every %s effective %s for %s occurrences from %s to %s."
+msgstr[0] ""
+msgstr[1] ""
+
+#, php-format
+msgid "Occurs every %s %s effective %s for %s occurrence from %s to %s."
+msgid_plural "Occurs every %s %s effective %s for %s occurrences %s to %s."
+msgstr[0] ""
+msgstr[1] ""
+
+#, php-format
+msgid "Occurs every %s effective %s for %s occurrence."
+msgid_plural "Occurs every %s effective %s for %s occurrences."
+msgstr[0] ""
+msgstr[1] ""
+
+#, php-format
+msgid "Occurs every %s %s effective %s for %s occurrence."
+msgid_plural "Occurs every %s %s effective %s for %s occurrences."
+msgstr[0] ""
+msgstr[1] ""
+
+# Have to look at it in action.
+# 76%
+# 75%
+#, fuzzy, php-format
+msgid "Occurs every %s effective %s until %s from %s to %s."
+msgstr "Ismétlődés minden {0} érvényes {1} {2}-tól/től {3}-ig."
+
+# Have to look at it in action.
+# 76%
+# 75%
+# 94%
+#, fuzzy, php-format
+msgid "Occurs every %s %s effective %s until %s from %s to %s."
+msgstr "Ismétlődés minden {0} érvényes {1} {2}-tól/től {3}-ig."
+
+# Have to look at it in action.
+# 86%
+# 76%
+# 78%
+#, fuzzy, php-format
+msgid "Occurs every %s effective %s until %s."
+msgstr "Ismétlődés minden {0} érvényes {1} {2}-tól/től {3}-ig."
+
+# Have to look at it in action.
+# 86%
+# 76%
+# 78%
+# 92%
+#, fuzzy, php-format
+msgid "Occurs every %s %s effective %s until %s."
+msgstr "Ismétlődés minden {0} érvényes {1} {2}-tól/től {3}-ig."
+
+msgid "Task Accepted:"
+msgstr ""
+
+msgid "Task Declined:"
+msgstr ""
+
+msgid "Task Updated:"
+msgstr ""
+
+msgid "Task Completed:"
+msgstr ""
+
+msgid "Contact not found"
+msgstr ""
+
+msgid ""
+"Contact information could not be displayed because the server had trouble "
+"retrieving the information."
+msgstr ""
+
+msgid "Could not handle this type of object."
+msgstr ""
+
+msgid "Could not open this object."
+msgstr ""
+
+msgid "Error in search, please try again"
+msgstr ""
+
+msgid "Unable to perform search query, no permissions to create search folder."
+msgstr ""
+
+msgid "Unable to perform search query, search folder not found."
+msgstr ""
+
+msgid "Unable to perform search query, store might not support searching."
+msgstr ""
+
+msgid "Error in creating search folder."
+msgstr ""
+
+msgid "Could not open occurrence."
+msgstr ""
+
+msgid "Could not open occurrence, specific occurrence is probably deleted."
+msgstr ""
+
+msgid "a meeting request"
+msgstr ""
+
+msgid "an appointment"
+msgstr ""
+
+msgid "You have insufficient privileges to move "
+msgstr ""
+
+msgid ""
+"Cannot set a reminder to appear before the previous occurrence. Reset "
+"reminder to save the change"
+msgstr ""
+
+msgid "Two occurrences cannot occur on the same day"
+msgstr ""
+
+#, php-format
+msgid ""
+"You marked '%s' as a resource. You cannot schedule a meeting with '%s' "
+"because you do not have the appropiate permissions for that account. Either "
+"enter the name as a required or optional attendee or talk to your "
+"administrator about giving you permission to schedule '%s'."
+msgstr ""
+
+#, php-format
+msgid ""
+"'%s' has declined your meeting because '%s' does not automatically accept "
+"meeting requests."
+msgstr ""
+
+#, php-format
+msgid ""
+"'%s' has declined your meeting because it is recurring. You must book each "
+"meeting separately with this resource."
+msgstr ""
+
+#, php-format
+msgid ""
+"'%s' is already booked for this specified time. You must use another time or "
+"find another resource."
+msgstr ""
+
+msgid "Meeting was not scheduled."
+msgstr ""
+
+msgid "Meeting could not be sent."
+msgstr ""
+
+msgid "Meeting could not be saved."
+msgstr ""
+
+msgid "Private Appointment"
+msgstr ""
+
+#, php-format
+msgid "%s's Birthday"
+msgstr ""
+
+#, php-format
+msgid "%s's Anniversary"
+msgstr ""
+
+msgid "Unknown user/group"
+msgstr ""
+
+msgid "Could not save delegate information."
+msgstr ""
+
+msgid "Could not delete delegate."
+msgstr ""
+
+msgid "Can not get list of delegates."
+msgstr ""
+
+msgid "Could not load the hierarchy."
+msgstr ""
+
+msgid "Could not load folder properties."
+msgstr ""
+
+msgid "Could not remove folder from favorites."
+msgstr ""
+
+msgid "You have insufficient privileges to delete folder."
+msgstr ""
+
+msgid "Could not delete folder."
+msgstr ""
+
+msgid "You have insufficient privileges to copy folder."
+msgstr ""
+
+msgid "Could not copy folder."
+msgstr ""
+
+msgid "You have insufficient privileges to move this folder."
+msgstr ""
+
+msgid "Could not move folder."
+msgstr ""
+
+msgid "You have insufficient privileges to delete items."
+msgstr ""
+
+msgid "Could not empty folder."
+msgstr ""
+
+msgid "Could not perform action correctly."
+msgstr ""
+
+msgid ""
+"A favorite folder with this name already exists, please use another name."
+msgstr ""
+
+msgid "Could not add folder to favorites."
+msgstr ""
+
+msgid "You have insufficient privileges to set permissions for this folder."
+msgstr ""
+
+msgid "Could not set folder permissions."
+msgstr ""
+
+msgid "You have insufficient privileges to rename this folder."
+msgstr ""
+
+msgid "A folder with this name already exists. Use another name."
+msgstr ""
+
+msgid "Could not rename folder."
+msgstr ""
+
+msgid "You have insufficient privileges to create this folder."
+msgstr ""
+
+msgid "Could not create folder."
+msgstr ""
+
+msgid "Could not close shared folder."
+msgstr ""
+
+msgid "User could not be resolved."
+msgstr ""
+
+#, php-format
+msgid ""
+"You have insufficient privileges to open this %1$s folder. The folder owner "
+"can set these using the 'permissions'-tab of the folder properties (right "
+"click the %1$s folder > properties > permissions)."
+msgstr ""
+
+msgid "unknown"
+msgstr ""
+
+msgid "Could not move folder"
+msgstr ""
+
+msgid "Could not copy folder"
+msgstr ""
+
+msgid "You have insufficient privileges to open this message."
+msgstr ""
+
+msgid ""
+"Could not find message, either it has been moved or deleted or you don't "
+"have access to open this message."
+msgstr ""
+
+msgid "Could not open message."
+msgstr "Az üzenetet nem lehet megnyitni."
+
+# 75%
+# 80%
+# 98%
+msgid "You have insufficient privileges to decline this Meeting Request"
+msgstr "Nincs elég jogosultsága az értekezlet visszautasításához"
+
+# 75%
+# 89%
+# 98%
+msgid "You have insufficient privileges to accept this Meeting Request"
+msgstr "Nincs elég jogosultsága az értekezlet elfogadásához"
+
+msgid "Could not copy message"
+msgstr "Nem másolható üzenet"
+
+msgid "Could not move message"
+msgstr "Nem mozgatható üzenet"
+
+msgid "You have insufficient privileges to save items in this folder"
+msgstr "Nincs elégséges a jogosultsága elemek mentéséhez ebbe a mappába"
+
+msgid "Could not save message"
+msgstr "Nem menthető üzenet"
+
+msgid "You have insufficient privileges to remove item from the calendar."
+msgstr "Nincs elég jogosultsága az elem eltávolításához a naptárból."
+
+msgid ""
+"Message is no longer in the outgoing queue, typically because it has already "
+"been sent."
+msgstr ""
+"Az üzenet nem található a kimenő levelek között, valószínűleg már kiküldésre "
+"került."
+
+msgid "Message cannot be aborted"
+msgstr "Az üzenet nem visszavonható"
+
+msgid "You have insufficient privileges to delete items in this folder"
+msgstr "Nincsen jogosultsága az elemek eltávolításához ebben a mappában"
+
+msgid "You have insufficient privileges to attach item as an attachment."
+msgstr "Nincs elég jogosultsága, hogy az elemet mellékletként csatolja."
+
+msgid "Could not attach item as an attachment."
+msgstr "Az elem nem csatolható mellékletként."
+
+msgid ""
+"You have insufficient privileges to reclaim the ownership for the Task "
+"Request."
+msgstr "Nincs megfelelő jogosultsága, hogy magához rendelje a feladatot."
+
+msgid "Could not reclaim the ownership for the Task Request."
+msgstr "A feladat feletti tulajdonjog átruházása sikertelen."
+
+# 75%
+msgid "You have insufficient privileges to accept this Task Request."
+msgstr "Nincs elég jogosultsága az üzenet megnyitásához."
+
+# 78%
+msgid "Could not accept Task Request."
+msgstr "Nem tudja elfogadni a feladatot."
+
+# 75%
+# 90%
+msgid "You have insufficient privileges to decline this Task Request."
+msgstr "Nincs elég jogosultsága a feladat lemondásához."
+
+# 79%
+msgid "Could not decline Task Request."
+msgstr "Nem tudja elutasítani a feladatot."
+
+msgid "Conflicts with another appointment."
+msgstr "Ütközés egy másik találkozóval."
+
+#, php-format
+msgid ""
+"%s occurrence of this recurring appointment conflicts with other appointment."
+msgid_plural ""
+"%s occurrences of this recurring appointment conflicts with other "
+"appointments."
+msgstr[0] "%s ismétlődése ütközik egy másik találkozóval."
+msgstr[1] "%s ismétlődései ütköznek egyéb találkozókkal."
+
+msgid "Your message did not reach some or all of the intended recipients"
+msgstr "Az üzenet nem ért el pár címzettet"
+
+msgid "The following recipient(s) could not be reached"
+msgstr "Az alábbi címzet(tek) nem érhető(ek) el"
+
+msgid "You have insufficient privileges to see the contents of this folder."
+msgstr ""
+
+msgid "Could not load the contents of this folder."
+msgstr ""
+
+msgid ""
+"You have insufficient privileges to perform search operation in this folder."
+msgstr ""
+
+msgid "Could not update search results."
+msgstr ""
+
+msgid "Could not stop search operation."
+msgstr ""
+
+msgid "You have insufficient privileges to save this message."
+msgstr ""
+
+msgid "Could not save message."
+msgstr ""
+
+msgid "You have insufficient privileges to delete this message."
+msgstr ""
+
+msgid "Could not delete message."
+msgstr ""
+
+msgid "You have insufficient privileges to cancel this Meeting Request."
+msgstr ""
+
+msgid "Could not cancel Meeting Request."
+msgstr ""
+
+msgid "You have insufficient privileges to decline this Meeting Request."
+msgstr ""
+
+msgid "Could not decline Meeting Request."
+msgstr ""
+
+msgid "You have insufficient privileges to accept this Meeting Request."
+msgstr ""
+
+msgid "Could not accept Meeting Request."
+msgstr ""
+
+msgid "You have insufficient privileges to cancel Meeting Request invitation."
+msgstr ""
+
+msgid "Could not cancel Meeting Request invitations."
+msgstr ""
+
+msgid "You can not continue search operation on this folder."
+msgstr ""
+
+msgid "Error in search, please try again."
+msgstr ""
+
+msgid "Error in distribution list expansion."
+msgstr ""
+
+msgid "The message store has exceeded its hard quota limit."
+msgstr ""
+
+msgid ""
+"To reduce the amount of data in this message store, select some items that "
+"you no longer need, delete them and cleanup your Deleted Items folder."
+msgstr ""
+
+msgid "The message store has exceeded its soft quota limit."
+msgstr ""
+
+msgid "Could not process request data properly."
+msgstr ""
+
+#, php-format
+msgid "Unknown action type specified - %s"
+msgstr ""
+
+msgid "Cannot snooze the reminder. You may be reminded again."
+msgstr ""
+
+msgid "Cannot dismiss the reminder. You may be reminded again."
+msgstr ""
+
+msgid "You have insufficient privileges to perform this action."
+msgstr ""
+
+msgid "Could not resolve user."
+msgstr ""
+
+msgid "Setting mail filters on the stores of other users is not allowed."
+msgstr ""
+
+msgid "Untitled rule"
+msgstr ""
+
+msgid "Could not load rules."
+msgstr ""
+
+msgid "Could not save rules."
+msgstr ""
+
+msgid "Task Request:"
+msgstr ""
+
+msgid "Sign in"
+msgstr ""
+
+msgid "File is not imported successfully"
+msgstr ""
+
+msgid "There is no contact found in this file."
+msgstr ""
+
+msgid ""
+"grommunio Web does not support importing multiple VCF with this version."
+msgstr ""
+
+msgid ""
+"grommunio Web does not support importing multiple ICS with this version."
+msgstr ""
+
+#, php-format
+msgid "Unable to import '%s'"
+msgstr ""
+
+msgid "The EML is not valid"
+msgstr ""
+
+msgid "GB"
+msgstr ""
+
+msgid "MB"
+msgstr ""
+
+msgid "KB"
+msgstr ""
+
+msgid "B"
+msgstr ""
+
+msgid "The maximum stack depth has been exceeded"
+msgstr ""
+
+msgid "Control character error, possibly incorrectly encoded"
+msgstr ""
+
+msgid "Invalid or malformed JSON"
+msgstr ""
+
+msgid "Syntax error"
+msgstr ""
+
+msgid "Malformed UTF-8 characters, possibly incorrectly encoded"
+msgstr ""
+
+#, php-format
+msgid "JSON Error: - %s"
+msgstr ""
+
+msgid "Some problem encountered when encoding/decoding JSON data."
+msgstr ""

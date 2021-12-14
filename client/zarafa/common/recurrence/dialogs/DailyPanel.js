@@ -12,14 +12,14 @@ Zarafa.common.recurrence.dialogs.DailyPanel = Ext.extend(Zarafa.common.recurrenc
 	 * @constructor
 	 * @param {Object} config Configuration object
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		config = config || {};
 
 		Ext.applyIf(config, {
 			xtype: 'zarafa.recurrencedailypanel',
-			recurrenceType : Zarafa.common.recurrence.data.RecurrenceType.DAILY,
-			recurrenceSubtypes : [
+			recurrenceType: Zarafa.common.recurrence.data.RecurrenceType.DAILY,
+			recurrenceSubtypes: [
 				Zarafa.common.recurrence.data.RecurrenceSubtype.DAILY_EVERY_N_DAYS,
 				Zarafa.common.recurrence.data.RecurrenceSubtype.DAILY_WEEKDAYS,
 				Zarafa.common.recurrence.data.RecurrenceSubtype.DAILY_REGENERATE
@@ -46,7 +46,7 @@ Zarafa.common.recurrence.dialogs.DailyPanel = Ext.extend(Zarafa.common.recurrenc
 	 * @return {Object} Configuration object for the panel
 	 * @private
 	 */
-	createEveryNDaysPanel : function()
+	createEveryNDaysPanel: function()
 	{
 		return {
 			xtype: 'panel',
@@ -92,7 +92,7 @@ Zarafa.common.recurrence.dialogs.DailyPanel = Ext.extend(Zarafa.common.recurrenc
 	 * @return {Object} Configuration object for the panel
 	 * @private
 	 */
-	createEveryWeekdayPanel : function()
+	createEveryWeekdayPanel: function()
 	{
 		return {
 			xtype: 'panel',
@@ -110,7 +110,7 @@ Zarafa.common.recurrence.dialogs.DailyPanel = Ext.extend(Zarafa.common.recurrenc
 			},{
 				xtype: 'displayfield',
 				value: _('Every weekday'),
-				hideLabel : true
+				hideLabel: true
 			}]
 		};
 	},
@@ -123,7 +123,7 @@ Zarafa.common.recurrence.dialogs.DailyPanel = Ext.extend(Zarafa.common.recurrenc
 	 *return @return {Object} Configuration object for the panel
 	 * @private
 	 */
-	createRegeneratePanel : function()
+	createRegeneratePanel: function()
 	{
 		return {
 			xtype: 'panel',
@@ -154,7 +154,7 @@ Zarafa.common.recurrence.dialogs.DailyPanel = Ext.extend(Zarafa.common.recurrenc
 					allowNegative: false,
 					minValue: 1,
 					width: 50,
-					listeners : {
+					listeners: {
 						change: this.onDailyRegenerateChange,
 						scope: this
 					}
@@ -171,7 +171,7 @@ Zarafa.common.recurrence.dialogs.DailyPanel = Ext.extend(Zarafa.common.recurrenc
 	 * @param {Mixed} value The new value of the field
 	 * @private
 	 */
-	onEveryNDaysChange : function(field, value)
+	onEveryNDaysChange: function(field, value)
 	{
 		this.onSubtypePropertyChange(Zarafa.common.recurrence.data.RecurrenceSubtype.DAILY_EVERY_N_DAYS, field, value * (24 * 60));
 	},
@@ -184,7 +184,7 @@ Zarafa.common.recurrence.dialogs.DailyPanel = Ext.extend(Zarafa.common.recurrenc
 	 * @param {Mixed} value The new value of the field
 	 * @private
 	 */
-	onDailyRegenerateChange : function(field, value)
+	onDailyRegenerateChange: function(field, value)
 	{
 		this.onSubtypePropertyChange(Zarafa.common.recurrence.data.RecurrenceSubtype.DAILY_REGENERATE, field, value * (24 * 60));
 	},
@@ -197,10 +197,10 @@ Zarafa.common.recurrence.dialogs.DailyPanel = Ext.extend(Zarafa.common.recurrenc
 	 * data from the Record.
 	 * @private
 	 */
-	updateEveryNDaysValues : function(record, useDefaultValues)
+	updateEveryNDaysValues: function(record, useDefaultValues)
 	{
 		// Convert everyn value from minutes, to days
-		var everyn = useDefaultValues ? 1 : Math.floor(record.get('recurrence_everyn') / (24 * 60));
+		var everyn = useDefaultValues ? 1: Math.floor(record.get('recurrence_everyn') / (24 * 60));
 		this.everyNDaysSpinner.setValue(everyn);
 	},
 
@@ -212,10 +212,10 @@ Zarafa.common.recurrence.dialogs.DailyPanel = Ext.extend(Zarafa.common.recurrenc
 	 * data from the Record.
 	 * @private
 	 */
-	updateRegenerateValues : function(record, useDefaultValues)
+	updateRegenerateValues: function(record, useDefaultValues)
 	{
 		// Convert everyn value from minutes, to days
-		var everyn = useDefaultValues ? 1 : Math.floor(record.get('recurrence_everyn') / (24 * 60));
+		var everyn = useDefaultValues ? 1: Math.floor(record.get('recurrence_everyn') / (24 * 60));
 		this.regenNDaysSpinner.setValue(everyn);
 	},
 
@@ -226,7 +226,7 @@ Zarafa.common.recurrence.dialogs.DailyPanel = Ext.extend(Zarafa.common.recurrenc
 	 * @param {Boolean} contentReset force the component to perform a full update of the data.
 	 * @private
 	 */
-	updateUI : function(record, contentReset)
+	updateUI: function(record, contentReset)
 	{
 		var layout = false;
 
@@ -255,7 +255,7 @@ Zarafa.common.recurrence.dialogs.DailyPanel = Ext.extend(Zarafa.common.recurrenc
 	 * the given record.
 	 * @protected
 	 */
-	updateSubtype : function(record, pattern, useDefaultValues)
+	updateSubtype: function(record, pattern, useDefaultValues)
 	{
 		var subTypes = Zarafa.common.recurrence.data.RecurrenceSubtype;
 
@@ -275,7 +275,7 @@ Zarafa.common.recurrence.dialogs.DailyPanel = Ext.extend(Zarafa.common.recurrenc
 	 * currently enabled. Only the components for this subtype must be used to update the record.
 	 * @protected
 	 */
-	updateRecordSubType : function(record, pattern)
+	updateRecordSubType: function(record, pattern)
 	{
 		var subTypes = Zarafa.common.recurrence.data.RecurrenceSubtype;
 

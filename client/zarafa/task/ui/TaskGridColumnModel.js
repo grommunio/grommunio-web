@@ -9,23 +9,23 @@ Zarafa.task.ui.TaskGridColumnModel = Ext.extend(Zarafa.common.ui.grid.ColumnMode
 	 * @cfg {Array} simpleColumns The array of {@link Ext.grid.Column column} elements which must be visible within
 	 * the simple view of this {@link Ext.grid.ColumnModel ColumnModel}.
 	 */
-	simpleColumns : [],
+	simpleColumns: [],
 	/**
 	 * @cfg {Array} simpleColumns The array of {@link Ext.grid.Column column} elements which must be visible within
 	 * the detailed view of this {@link Ext.grid.ColumnModel ColumnModel}.
 	 */
-	 detailedColumns : [],
+	 detailedColumns: [],
 
 	/**
 	 * @cfg {Zarafa.task.TaskContextModel} model data handling part of context
 	 */
-	model : undefined,
+	model: undefined,
 
 	/**
 	 * @constructor
 	 * @param config Configuration structure
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		config = config || {};
 
@@ -33,9 +33,9 @@ Zarafa.task.ui.TaskGridColumnModel = Ext.extend(Zarafa.common.ui.grid.ColumnMode
 		this.detailedColumns = this.createDetailedColumns();
 
 		Ext.applyIf(config, {
-			columns : this.simpleColumns,
-			defaults : {
-				sortable : true
+			columns: this.simpleColumns,
+			defaults: {
+				sortable: true
 			}
 		});
 
@@ -48,119 +48,119 @@ Zarafa.task.ui.TaskGridColumnModel = Ext.extend(Zarafa.common.ui.grid.ColumnMode
 	 * @return {Ext.grid.Column[]} The array of columns
 	 * @private
 	 */
-	createSimpleColumns : function()
+	createSimpleColumns: function()
 	{
 		return[{
-			dataIndex : 'icon_index',
+			dataIndex: 'icon_index',
 			headerCls: 'zarafa-icon-column icon',
-			header : '<p class="icon_index">&nbsp;</p>',
-			width : 25,
-			tooltip : _('Sort by: Icon'),
-			fixed : true,
-			hideable : false,
-			renderer : Zarafa.common.ui.grid.Renderers.icon
+			header: '<p class="icon_index">&nbsp;</p>',
+			width: 25,
+			tooltip: _('Sort by: Icon'),
+			fixed: true,
+			hideable: false,
+			renderer: Zarafa.common.ui.grid.Renderers.icon
 		}, {
 			headerCls: 'zarafa-icon-column',
-			header : '<p class="icon_reminder">&nbsp;</p>',
-			dataIndex : 'reminder',
-			tooltip : _('Sort by: Reminder'),
+			header: '<p class="icon_reminder">&nbsp;</p>',
+			dataIndex: 'reminder',
+			tooltip: _('Sort by: Reminder'),
 			width: 24,
 			renderer: Zarafa.common.ui.grid.Renderers.reminder,
 			fixed: true
 		}, {
-			xtype : 'checkcolumn',
-			dataIndex : 'complete',
+			xtype: 'checkcolumn',
+			dataIndex: 'complete',
 			headerCls: 'zarafa-icon-column',
-			header : '<p class="icon_complete">&nbsp;</p>',
-			width : 25,
-			fixed : true,
+			header: '<p class="icon_complete">&nbsp;</p>',
+			width: 25,
+			fixed: true,
 			// override renderer so we can hide strikethough line displayed in empty cell, when task is complete
-			renderer : this.completeColumnRenderer.createDelegate(this),
-			tooltip : _('Sort by: Complete'),
+			renderer: this.completeColumnRenderer.createDelegate(this),
+			tooltip: _('Sort by: Complete'),
 			// override processEvent so we can save the change in the record
-			processEvent : Ext.ux.grid.CheckColumn.prototype.processEvent.createSequence(this.onCompleteColumnProcessEvent)
+			processEvent: Ext.ux.grid.CheckColumn.prototype.processEvent.createSequence(this.onCompleteColumnProcessEvent)
 		}, {
-			id : 'subject',
-			dataIndex : 'subject',
-			header : _('Subject'),
-			tooltip : _('Sort by: Subject'),
-			renderer : this.columnRenderer
+			id: 'subject',
+			dataIndex: 'subject',
+			header: _('Subject'),
+			tooltip: _('Sort by: Subject'),
+			renderer: this.columnRenderer
 		}, {
-			dataIndex : 'duedate',
-			header : _('Due Date'),
-			tooltip : _('Sort by: Due Date'),
-			renderer : this.columnRenderer
+			dataIndex: 'duedate',
+			header: _('Due Date'),
+			tooltip: _('Sort by: Due Date'),
+			renderer: this.columnRenderer
 		}, {
-			header : _('Reminder Time'),
+			header: _('Reminder Time'),
 			dataIndex: 'reminder_time',
 			width: 160,
-			renderer : this.columnRenderer,
-			tooltip : _('Sort by: Reminder Time'),
+			renderer: this.columnRenderer,
+			tooltip: _('Sort by: Reminder Time'),
 			hidden: true
 		}, {
-			header : _('Assigned To'),
-			dataIndex : 'display_to',
-			width : 100,
-			renderer : this.columnRenderer,
-			tooltip : _('Sort by: Assignee'),
+			header: _('Assigned To'),
+			dataIndex: 'display_to',
+			width: 100,
+			renderer: this.columnRenderer,
+			tooltip: _('Sort by: Assignee'),
 			hidden: true
 		}, {
-			dataIndex : 'startdate',
-			header : _('Start Date'),
-			tooltip : _('Sort by: Start Date'),
-			renderer : this.columnRenderer,
+			dataIndex: 'startdate',
+			header: _('Start Date'),
+			tooltip: _('Sort by: Start Date'),
+			renderer: this.columnRenderer,
 			hidden: true
 		}, {
-			dataIndex : 'percent_complete',
-			header : _('% Completed'),
-			width : 75,
-			tooltip : _('Sort by: Percent Completed'),
-			renderer : this.columnRenderer,
+			dataIndex: 'percent_complete',
+			header: _('% Completed'),
+			width: 75,
+			tooltip: _('Sort by: Percent Completed'),
+			renderer: this.columnRenderer,
 			hidden: true
 		}, {
-			dataIndex : 'categories',
-			header : _('Categories'),
-			tooltip : _('Sort by: Categories'),
-			renderer : Zarafa.common.ui.grid.Renderers.categories
+			dataIndex: 'categories',
+			header: _('Categories'),
+			tooltip: _('Sort by: Categories'),
+			renderer: Zarafa.common.ui.grid.Renderers.categories
 		}, {
 			headerCls: 'zarafa-icon-column',
-			header : '<p class="icon_paperclip">&nbsp;</p>',
-			dataIndex : 'hasattach',
+			header: '<p class="icon_paperclip">&nbsp;</p>',
+			dataIndex: 'hasattach',
 			width: 24,
-			renderer : Zarafa.common.ui.grid.Renderers.attachment,
-			fixed : true,
-			tooltip : _('Sort by: Attachment'),
+			renderer: Zarafa.common.ui.grid.Renderers.attachment,
+			fixed: true,
+			tooltip: _('Sort by: Attachment'),
 			hidden: true
 		}, {
-			dataIndex : 'importance',
+			dataIndex: 'importance',
 			headerCls: 'zarafa-icon-column importance',
-			header : '<p class="icon_importance">&nbsp;</p>',
-			width : 24,
-			tooltip : _('Sort by: Priority'),
-			fixed : true,
-			renderer : Zarafa.common.ui.grid.Renderers.importance,
+			header: '<p class="icon_importance">&nbsp;</p>',
+			width: 24,
+			tooltip: _('Sort by: Priority'),
+			fixed: true,
+			renderer: Zarafa.common.ui.grid.Renderers.importance,
 			hidden: true
 		}, {
 			headerCls: 'zarafa-icon-column',
-			header : '<p class="icon_recurrence">&nbsp;</p>',
+			header: '<p class="icon_recurrence">&nbsp;</p>',
 			dataIndex: 'recurring',
 			width: 24,
-			renderer : Zarafa.common.ui.grid.Renderers.recurrence,
+			renderer: Zarafa.common.ui.grid.Renderers.recurrence,
 			fixed: true,
 			hidden: true
 		}, {
-			dataIndex : 'owner',
-			header : _('Owner'),
-			tooltip : _('Sort by: Owner'),
-			renderer : this.columnRenderer,
+			dataIndex: 'owner',
+			header: _('Owner'),
+			tooltip: _('Sort by: Owner'),
+			renderer: this.columnRenderer,
 			hidden: true
 		}, {
-			header : '<p class="icon_flag">&nbsp;<span class="title">' + _('Flag') + '</span></p>',
+			header: '<p class="icon_flag">&nbsp;<span class="title">' + _('Flag') + '</span></p>',
 			headerCls: 'zarafa-icon-column flag k-unsortable',
-			dataIndex : 'flag_due_by',
+			dataIndex: 'flag_due_by',
 			width: 24,
-			renderer : Zarafa.common.ui.grid.Renderers.flag,
-			fixed : true,
+			renderer: Zarafa.common.ui.grid.Renderers.flag,
+			fixed: true,
 			sortable: false
 		}];
 	},
@@ -171,115 +171,115 @@ Zarafa.task.ui.TaskGridColumnModel = Ext.extend(Zarafa.common.ui.grid.ColumnMode
 	 * @return {Ext.grid.Column[]} The array of columns
 	 * @private
 	 */
-	createDetailedColumns : function()
+	createDetailedColumns: function()
 	{
 		return[{
-			dataIndex : 'icon_index',
+			dataIndex: 'icon_index',
 			headerCls: 'zarafa-icon-column icon',
-			header : '<p class="icon_index">&nbsp;</p>',
-			width : 25,
-			tooltip : _('Sort by: Icon'),
-			fixed : true,
-			hideable : false,
-			renderer : Zarafa.common.ui.grid.Renderers.icon
+			header: '<p class="icon_index">&nbsp;</p>',
+			width: 25,
+			tooltip: _('Sort by: Icon'),
+			fixed: true,
+			hideable: false,
+			renderer: Zarafa.common.ui.grid.Renderers.icon
 		}, {
 			headerCls: 'zarafa-icon-column',
-			header : '<p class="icon_reminder">&nbsp;</p>',
-			dataIndex : 'reminder',
-			tooltip : _('Sort by: Reminder'),
+			header: '<p class="icon_reminder">&nbsp;</p>',
+			dataIndex: 'reminder',
+			tooltip: _('Sort by: Reminder'),
 			width: 24,
 			renderer: Zarafa.common.ui.grid.Renderers.reminder,
 			fixed: true
 		},{
-			header : _('Reminder Time'),
+			header: _('Reminder Time'),
 			dataIndex: 'reminder_time',
 			width: 160,
-			renderer : this.columnRenderer,
-			tooltip : _('Sort by: Reminder Time'),
+			renderer: this.columnRenderer,
+			tooltip: _('Sort by: Reminder Time'),
 			hidden: true
 		}, {
-			xtype : 'checkcolumn',
-			dataIndex : 'complete',
+			xtype: 'checkcolumn',
+			dataIndex: 'complete',
 			headerCls: 'zarafa-icon-column',
-			header : '<p class="icon_complete">&nbsp;</p>',
-			width : 25,
-			fixed : true,
+			header: '<p class="icon_complete">&nbsp;</p>',
+			width: 25,
+			fixed: true,
 			// override renderer so we can hide strikethough line displayed in empty cell, when task is complete
-			renderer : this.completeColumnRenderer.createDelegate(this),
-			tooltip : _('Sort by: Complete'),
+			renderer: this.completeColumnRenderer.createDelegate(this),
+			tooltip: _('Sort by: Complete'),
 			// override processEvent so we can save the change in the record
-			processEvent : Ext.ux.grid.CheckColumn.prototype.processEvent.createSequence(this.onCompleteColumnProcessEvent)
+			processEvent: Ext.ux.grid.CheckColumn.prototype.processEvent.createSequence(this.onCompleteColumnProcessEvent)
 		}, {
-			id : 'subject',
-			dataIndex : 'subject',
-			header : _('Subject'),
-			tooltip : _('Sort by: Subject'),
-			renderer : this.columnRenderer
+			id: 'subject',
+			dataIndex: 'subject',
+			header: _('Subject'),
+			tooltip: _('Sort by: Subject'),
+			renderer: this.columnRenderer
 		}, {
-			header : _('Assigned To'),
-			dataIndex : 'display_to',
-			width : 100,
-			renderer : this.columnRenderer,
-			tooltip : _('Sort by: Assignee')
+			header: _('Assigned To'),
+			dataIndex: 'display_to',
+			width: 100,
+			renderer: this.columnRenderer,
+			tooltip: _('Sort by: Assignee')
 		}, {
-			dataIndex : 'startdate',
-			header : _('Start Date'),
-			tooltip : _('Sort by: Start Date'),
-			renderer : this.columnRenderer
+			dataIndex: 'startdate',
+			header: _('Start Date'),
+			tooltip: _('Sort by: Start Date'),
+			renderer: this.columnRenderer
 		}, {
-			dataIndex : 'duedate',
-			header : _('Due Date'),
-			tooltip : _('Sort by: Due Date'),
-			renderer : this.columnRenderer
+			dataIndex: 'duedate',
+			header: _('Due Date'),
+			tooltip: _('Sort by: Due Date'),
+			renderer: this.columnRenderer
 		},{
-			dataIndex : 'percent_complete',
-			header : _('% Completed'),
-			width : 75,
-			tooltip : _('Sort by: Percentage Completed'),
-			renderer : this.columnRenderer
+			dataIndex: 'percent_complete',
+			header: _('% Completed'),
+			width: 75,
+			tooltip: _('Sort by: Percentage Completed'),
+			renderer: this.columnRenderer
 		}, {
-			dataIndex : 'categories',
-			header : _('Categories'),
-			tooltip : _('Sort by: Categories'),
-			renderer : Zarafa.common.ui.grid.Renderers.categories
+			dataIndex: 'categories',
+			header: _('Categories'),
+			tooltip: _('Sort by: Categories'),
+			renderer: Zarafa.common.ui.grid.Renderers.categories
 		}, {
 			headerCls: 'zarafa-icon-column',
-			header : '<p class="icon_paperclip">&nbsp;</p>',
-			dataIndex : 'hasattach',
+			header: '<p class="icon_paperclip">&nbsp;</p>',
+			dataIndex: 'hasattach',
 			width: 24,
-			renderer : Zarafa.common.ui.grid.Renderers.attachment,
-			fixed : true,
-			tooltip : _('Sort by: Attachment')
+			renderer: Zarafa.common.ui.grid.Renderers.attachment,
+			fixed: true,
+			tooltip: _('Sort by: Attachment')
 		}, {
-			dataIndex : 'importance',
+			dataIndex: 'importance',
 			headerCls: 'zarafa-icon-column importance',
-			header : '<p class="icon_importance">&nbsp;</p>',
-			width : 24,
-			tooltip : _('Sort by: Priority'),
-			fixed : true,
-			renderer : Zarafa.common.ui.grid.Renderers.importance,
+			header: '<p class="icon_importance">&nbsp;</p>',
+			width: 24,
+			tooltip: _('Sort by: Priority'),
+			fixed: true,
+			renderer: Zarafa.common.ui.grid.Renderers.importance,
 			hidden: true
 		}, {
 			headerCls: 'zarafa-icon-column',
-			header : '<p class="icon_recurrence">&nbsp;</p>',
+			header: '<p class="icon_recurrence">&nbsp;</p>',
 			dataIndex: 'recurring',
 			width: 24,
-			renderer : Zarafa.common.ui.grid.Renderers.recurrence,
+			renderer: Zarafa.common.ui.grid.Renderers.recurrence,
 			fixed: true,
 			hidden: true
 		}, {
-			dataIndex : 'owner',
-			header : _('Owner'),
-			tooltip : _('Sort by: Owner'),
-			renderer : this.columnRenderer,
+			dataIndex: 'owner',
+			header: _('Owner'),
+			tooltip: _('Sort by: Owner'),
+			renderer: this.columnRenderer,
 			hidden: true
 		}, {
-			header : '<p class="icon_flag">&nbsp;<span class="title">' + _('Flag') + '</span></p>',
+			header: '<p class="icon_flag">&nbsp;<span class="title">' + _('Flag') + '</span></p>',
 			headerCls: 'zarafa-icon-column flag k-unsortable',
-			dataIndex : 'flag_due_by',
+			dataIndex: 'flag_due_by',
 			width: 24,
-			renderer : Zarafa.common.ui.grid.Renderers.flag,
-			fixed : true,
+			renderer: Zarafa.common.ui.grid.Renderers.flag,
+			fixed: true,
 			sortable: false
 		}];
 	},
@@ -293,7 +293,7 @@ Zarafa.task.ui.TaskGridColumnModel = Ext.extend(Zarafa.common.ui.grid.ColumnMode
 	 * @param {Ext.data.record} record The {Ext.data.Record} from which the data was extracted.
 	 * @return {String} The formatted string
 	 */
-	columnRenderer : function (value, p, record)
+	columnRenderer: function (value, p, record)
 	{
 		switch (this.dataIndex) {
 			case 'subject':
@@ -340,7 +340,7 @@ Zarafa.task.ui.TaskGridColumnModel = Ext.extend(Zarafa.common.ui.grid.ColumnMode
 	 * @return {String} The formatted string
 	 * @private
 	 */
-	completeColumnRenderer : function(value, p, record)
+	completeColumnRenderer: function(value, p, record)
 	{
 		p.css += ' zarafa-grid-empty-cell';
 
@@ -364,7 +364,7 @@ Zarafa.task.ui.TaskGridColumnModel = Ext.extend(Zarafa.common.ui.grid.ColumnMode
 	 * @param {Number} colIndex index of the column which is toggled
 	 * @private
 	 */
-	onCompleteColumnProcessEvent : function(name, e, grid, rowIndex, colIndex)
+	onCompleteColumnProcessEvent: function(name, e, grid, rowIndex, colIndex)
 	{
 		if (name !== 'mousedown') {
 			return;
@@ -379,11 +379,11 @@ Zarafa.task.ui.TaskGridColumnModel = Ext.extend(Zarafa.common.ui.grid.ColumnMode
 			// we need different set of flag properties as this is
 			// the mail record we are dealing with.
 			var mailFlagProps = {
-				flag_icon : Zarafa.core.mapi.FlagIcon.clear,
-				flag_complete_time : new Date(),
-				flag_request : '',
-				flag_status : Zarafa.core.mapi.FlagStatus.completed,
-				reminder : false
+				flag_icon: Zarafa.core.mapi.FlagIcon.clear,
+				flag_complete_time: new Date(),
+				flag_request: '',
+				flag_status: Zarafa.core.mapi.FlagStatus.completed,
+				reminder: false
 			};
 
 			grid.store.suspendEvents(false);
@@ -399,7 +399,7 @@ Zarafa.task.ui.TaskGridColumnModel = Ext.extend(Zarafa.common.ui.grid.ColumnMode
 
 		var complete = record.get('complete');
 		record.beginEdit();
-		record.set('percent_complete', complete ? 1 : 0);
+		record.set('percent_complete', complete ? 1: 0);
 		record.set('status', complete ? Zarafa.core.mapi.TaskStatus.COMPLETE : Zarafa.core.mapi.TaskStatus.NOT_STARTED);
 		record.set('date_completed', complete ? new Date() : null);
 		record.set('flag_icon', complete ? Zarafa.core.mapi.FlagIcon.clear : Zarafa.core.mapi.FlagIcon.red);
@@ -432,7 +432,7 @@ Zarafa.task.ui.TaskGridColumnModel = Ext.extend(Zarafa.common.ui.grid.ColumnMode
 	 *
 	 * @param {Boolean} isSimple True to enable the simple view, false otherwise
 	 */
-	setSimpleView : function(isSimple)
+	setSimpleView: function(isSimple)
 	{
 		if (isSimple) {
 			this.name = 'simple';
@@ -454,7 +454,7 @@ Zarafa.task.ui.TaskGridColumnModel = Ext.extend(Zarafa.common.ui.grid.ColumnMode
 	 * @param {Boolean} initial True if this is the initial configuration of the columnmodel
 	 * @protected
 	 */
-	setConfig : function(config, initial)
+	setConfig: function(config, initial)
 	{
 		// If we have model, default folder and which
 		// is To-do list folder then don't show

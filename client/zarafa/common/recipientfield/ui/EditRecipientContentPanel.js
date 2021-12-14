@@ -12,26 +12,26 @@ Zarafa.common.recipientfield.ui.EditRecipientContentPanel = Ext.extend(Zarafa.co
 	 * @cfg {Zarafa.core.data.IPMRecipientRecord} record The recipient which
 	 * is being edited by this panel.
 	 */
-	record : undefined,
+	record: undefined,
 
 	/**
 	 * The form panel which is loaded inside this panel.
 	 * @property
 	 * @type Ext.form.FormPanel
 	 */
-	formPanel : undefined,
+	formPanel: undefined,
 
 	/**
 	 * @constructor
 	 * @param {Object} config Configuration object
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		config = config || {};
 
 		Ext.applyIf(config, {
-			title : _('Edit recipient'),
-			layout : 'fit',
+			title: _('Edit recipient'),
+			layout: 'fit',
 			width: 350,
 			height: 110,
 			stateful: false,
@@ -48,8 +48,8 @@ Zarafa.common.recipientfield.ui.EditRecipientContentPanel = Ext.extend(Zarafa.co
 				},{
 					xtype: 'textfield',
 					fieldLabel: _('Email address'),
-					allowBlank : false,
-					vtype : 'email',
+					allowBlank: false,
+					vtype: 'email',
 					name: 'smtp_address',
 					anchor: '100%'
 				}],
@@ -75,7 +75,7 @@ Zarafa.common.recipientfield.ui.EditRecipientContentPanel = Ext.extend(Zarafa.co
 	 * This will load the {@link #record} into {@link #formPanel}.
 	 * @private
 	 */
-	onAfterFirstLayout : function()
+	onAfterFirstLayout: function()
 	{
 		this.formPanel.getForm().loadRecord(this.record);
 	},
@@ -84,7 +84,7 @@ Zarafa.common.recipientfield.ui.EditRecipientContentPanel = Ext.extend(Zarafa.co
 	 * Event handler which is raised when the user clicks the "Ok" {@link Ext.Button button}
 	 * @private
 	 */
-	onOk : function()
+	onOk: function()
 	{
 		this.formPanel.getForm().updateRecord(this.record);
 		this.close();
@@ -94,7 +94,7 @@ Zarafa.common.recipientfield.ui.EditRecipientContentPanel = Ext.extend(Zarafa.co
 	 * Event handler which is raised when the user clicks the "Cancel" {@link Ext.Button button}
 	 * @private
 	 */
-	onCancel : function()
+	onCancel: function()
 	{
 		this.close();
 	}

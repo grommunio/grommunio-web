@@ -21,46 +21,46 @@ Zarafa.core.ui.MessageContentPanel = Ext.extend(Zarafa.core.ui.RecordContentPane
 	 * @type Zarafa.core.data.CallbackQueue
 	 * @protected
 	 */
-	sendValidationQueue : undefined,
+	sendValidationQueue: undefined,
 
 	/**
 	 * @cfg {String/Object} sendingText When {@link #showInfoMask} is true, this text
 	 * will be shown when the message is being sent. When an object is provided which contains
 	 * the 'msg' fields respectively.
 	 */
-	sendingText : { msg : _('Sending...') },
+	sendingText: { msg: _('Sending...') },
 
 	/**
 	 * @cfg {String/Object} sendingDoneText When {@link #showInfoMask} is true, this text
 	 * will be shown when the message has been sent. When an object is provided which contains
 	 * the 'msg' fields respectively.
 	 */
-	sendingDoneText :{ msg : '<b>'+ _('Sent successfully')+'</b>' },
+	sendingDoneText:{ msg: '<b>'+ _('Sent successfully')+'</b>' },
 
 	/**
 	 * Indicates if the panel is currently busy sending data to the server.
 	 * @property
 	 * @type Boolean
 	 */
-	isSending : false,
+	isSending: false,
 
 	/**
-	 * @cfg {Boolean} closeOnSend Config option to close the panel when client recieves confirmation of message is sent.
+	 * @cfg {Boolean} closeOnSend Config option to close the panel when client receives confirmation of message is sent.
 	 */
-	closeOnSend : false,
+	closeOnSend: false,
 
 	/**
 	 * @constructor
 	 * @param config Configuration structure
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		config = config || {};
 
 		config.plugins = Ext.value(config.plugins, []);
 		config.plugins.push({
-			ptype : 'zarafa.markasreadplugin',
-			ignoreReadFlagTimer : true
+			ptype: 'zarafa.markasreadplugin',
+			ignoreReadFlagTimer: true
 		});
 
 
@@ -102,10 +102,10 @@ Zarafa.core.ui.MessageContentPanel = Ext.extend(Zarafa.core.ui.RecordContentPane
 		this.createSendValidationQueue();
 
 		if (Ext.isString(this.sendingText)) {
-			this.sendingText = { title : '', msg : this.sendingText };
+			this.sendingText = { title: '', msg: this.sendingText };
 		}
 		if (Ext.isString(this.sendingDoneText)) {
-			this.sendingDoneText = { title : '', msg : this.sendingDoneText };
+			this.sendingDoneText = { title: '', msg: this.sendingDoneText };
 		}
 
 		if(this.record) {
@@ -124,11 +124,11 @@ Zarafa.core.ui.MessageContentPanel = Ext.extend(Zarafa.core.ui.RecordContentPane
 	 *
 	 * @param {Zarafa.core.data.IPMStore} store The store which performs the update
 	 * @param {Zarafa.core.data.IPMRecord} record The Record which has been updated
-	 * @param {String} operation  The update operation being performed.
+	 * @param {String} operation The update operation being performed.
 	 * ({@link Ext.data.Record#EDIT}, {@link Ext.data.Record#REJECT}, {@link Ext.data.Record#COMMIT}).
 	 * @private
 	 */
-	syncUpdatesToShadowStore : function(store, record, operation)
+	syncUpdatesToShadowStore: function(store, record, operation)
 	{
 		if (Zarafa.core.EntryId.compareEntryIds(record.get('entryid'), this.record.get('entryid'))) {
 			if(operation === Ext.data.Record.COMMIT){
@@ -167,7 +167,7 @@ Zarafa.core.ui.MessageContentPanel = Ext.extend(Zarafa.core.ui.RecordContentPane
 	 * validation steps which must be executed to determine if the message can be send.
 	 * @protected
 	 */
-	createSendValidationQueue : function()
+	createSendValidationQueue: function()
 	{
 		// Create a callback queue to validate the record before sending
 		this.sendValidationQueue = new Zarafa.core.data.CallbackQueue();
@@ -187,7 +187,7 @@ Zarafa.core.ui.MessageContentPanel = Ext.extend(Zarafa.core.ui.RecordContentPane
 	 * @protected
 	 * @overridden
 	 */
-	displayInfoMask : function()
+	displayInfoMask: function()
 	{
 		if (this.showInfoMask === false) {
 			return;
@@ -195,7 +195,7 @@ Zarafa.core.ui.MessageContentPanel = Ext.extend(Zarafa.core.ui.RecordContentPane
 
 		if (this.record.hasMessageAction('send') || this.record.getMessageAction('sendResponse')) {
 			container.getNotifier().notify('info.sending', this.sendingText.title, this.sendingText.msg, {
-				container : this.getEl()
+				container: this.getEl()
 			});
 		} else {
 			Zarafa.core.ui.MessageContentPanel.superclass.displayInfoMask.apply(this, arguments);
@@ -205,13 +205,13 @@ Zarafa.core.ui.MessageContentPanel = Ext.extend(Zarafa.core.ui.RecordContentPane
 
 	/**
 	 * If {@link #showInfoMask} is enabled, and {@link #displayInfoMask} has been called, this
-	 * will remove the notification again. When saving has been successfull, a new notification
+	 * will remove the notification again. When saving has been successful, a new notification
 	 * will be shown to display the {@link #savingDoneText}.
 	 * @param {Boolean} success false to disable the display of {@link #savingDoneText}.
 	 * @protected
 	 * @overridden
 	 */
-	hideInfoMask : function(success)
+	hideInfoMask: function(success)
 	{
 		if (this.showInfoMask === false) {
 			return;
@@ -235,11 +235,11 @@ Zarafa.core.ui.MessageContentPanel = Ext.extend(Zarafa.core.ui.RecordContentPane
 	 * @param {Object} data The object data which is being saved to the server
 	 * @private
 	 */
-	onBeforeSaveRecord : function(store, data)
+	onBeforeSaveRecord: function(store, data)
 	{
 		if (data &&
-		    ((data.update && data.update.indexOf(this.record) >= 0) ||
-		     (data.create && data.create.indexOf(this.record) >= 0))) {
+		  ((data.update && data.update.indexOf(this.record) >= 0) ||
+		   (data.create && data.create.indexOf(this.record) >= 0))) {
 			this.isSending = this.record.hasMessageAction('send') || this.record.hasMessageAction('sendResponse');
 		}
 		Zarafa.core.ui.MessageContentPanel.superclass.onBeforeSaveRecord.apply(this, arguments);
@@ -250,14 +250,14 @@ Zarafa.core.ui.MessageContentPanel = Ext.extend(Zarafa.core.ui.RecordContentPane
 	 * this will display the {@link #savingText to indicate the saving is in progress.
 	 *
 	 * @param {Zarafa.core.ui.RecordContentPanel} contentpanel The contentpanel which fired the event
-	 * @param {String} action write Action that ocurred. Can be one of
+	 * @param {String} action write Action that occurred. Can be one of
 	 * {@link Ext.data.Record.EDIT EDIT}, {@link Ext.data.Record.REJECT REJECT} or
 	 * {@link Ext.data.Record.COMMIT COMMIT}
 	 * @param {Zarafa.core.data.IPMRecord} record The record which was updated
 	 * @private
 	 * @overridden
 	 */
-	onUpdateRecord : function(contentpanel, action, record)
+	onUpdateRecord: function(contentpanel, action, record)
 	{
 		Zarafa.core.ui.MessageContentPanel.superclass.onUpdateRecord.apply(this, arguments);
 
@@ -291,7 +291,7 @@ Zarafa.core.ui.MessageContentPanel = Ext.extend(Zarafa.core.ui.RecordContentPane
 	 * @private
 	 * @overridden
 	 */
-	onExceptionRecord : function(proxy, type, action, options, response, args)
+	onExceptionRecord: function(proxy, type, action, options, response, args)
 	{
 		Zarafa.core.ui.MessageContentPanel.superclass.onExceptionRecord.apply(this, arguments);
 
@@ -304,12 +304,12 @@ Zarafa.core.ui.MessageContentPanel = Ext.extend(Zarafa.core.ui.RecordContentPane
 	 * Save all changes made to the {@link #record} and send
 	 * the message to the specified recipients.
 	 */
-	sendRecord : function()
+	sendRecord: function()
 	{
 		// If record is saving then wait till saving is done. register aftersaverecord event
 		// on message content panel.
 		if(this.isSaving === true) {
-			this.on('aftersaverecord', this.onAfterSaveRecord, this, {single : true});
+			this.on('aftersaverecord', this.onAfterSaveRecord, this, {single: true});
 			return;
 		}
 
@@ -324,7 +324,7 @@ Zarafa.core.ui.MessageContentPanel = Ext.extend(Zarafa.core.ui.RecordContentPane
 		this.isSending = true;
 
 		// Start the validation queue to determine if the record can be
-		// send to the recipients correctly. If successfull, onCompleteValidateSendRecord
+		// send to the recipients correctly. If successful, onCompleteValidateSendRecord
 		// is called to send the actual record.
 		this.sendValidationQueue.run(this.onCompleteValidateSendRecord, this);
 	},
@@ -346,10 +346,10 @@ Zarafa.core.ui.MessageContentPanel = Ext.extend(Zarafa.core.ui.RecordContentPane
 	 * @param {Zarafa.core.ui.RecordContentPanel} contentpanel The contentpanel from where the record is saved
 	 * @param {Zarafa.core.data.IPMRecord} record The record which has been saved
 	 */
-	onAfterSaveRecord : function(contentPanel, record)
+	onAfterSaveRecord: function(contentPanel, record)
 	{
 		var store = record.getStore();
-		this.mon(store, 'write', this.sendRecord, this, {single : true});
+		this.mon(store, 'write', this.sendRecord, this, {single: true});
 	},
 
 	/**
@@ -362,7 +362,7 @@ Zarafa.core.ui.MessageContentPanel = Ext.extend(Zarafa.core.ui.RecordContentPane
 	 * @param {Function} callback The callback to call to continue in the queue
 	 * @private
 	 */
-	validateEmptyRecipients : function(callback)
+	validateEmptyRecipients: function(callback)
 	{
 		// Check if recipients have been provided
 		var recipientStore = this.record.getRecipientStore();
@@ -412,7 +412,7 @@ Zarafa.core.ui.MessageContentPanel = Ext.extend(Zarafa.core.ui.RecordContentPane
 	 * @param {Function} callback The callback to call to continue in the queue
 	 * @private
 	 */
-	validateAttachmentUpload : function(callback)
+	validateAttachmentUpload: function(callback)
 	{
 		var attachmentStore = this.record.getAttachmentStore();
 		var isAllAttachUploaded = true;
@@ -426,23 +426,23 @@ Zarafa.core.ui.MessageContentPanel = Ext.extend(Zarafa.core.ui.RecordContentPane
 
 		// Check if the attachment has been uploaded
 		if (!isAllAttachUploaded) {
-			var message  = _('The attached files are not uploaded yet.');
+			var message = _('The attached files are not uploaded yet.');
 			message += '<br/>';
 			message += _('Do you want to send this message without attachments?');
 
 			Zarafa.common.dialogs.MessageBox.addCustomButtons({
-				title : _('Attachments not uploaded yet'),
+				title: _('Attachments not uploaded yet'),
 				cls: Ext.MessageBox.WARNING_CLS,
-				msg : message,
-				fn : function(button) {
+				msg: message,
+				fn: function(button) {
 					callback(button === 'sendanyway');
 				},
-				customButton : [{
-					text : _('Don\'t Send'),
-					name : 'dontsend'
+				customButton: [{
+					text: _('Don\'t Send'),
+					name: 'dontsend'
 				}, {
-					text : _('Send Anyway'),
-					name : 'sendanyway'
+					text: _('Send Anyway'),
+					name: 'sendanyway'
 				}]
 			});
 		} else {
@@ -460,7 +460,7 @@ Zarafa.core.ui.MessageContentPanel = Ext.extend(Zarafa.core.ui.RecordContentPane
 	 * @param {Function} callback The callback to call to continue in the queue
 	 * @private
 	 */
-	validateEmptySubject : function(callback)
+	validateEmptySubject: function(callback)
 	{
 		// Check if the subject has been provided
 		if (Ext.isEmpty(this.record.get('subject'))){
@@ -492,7 +492,7 @@ Zarafa.core.ui.MessageContentPanel = Ext.extend(Zarafa.core.ui.RecordContentPane
 	 * @param {Function} callback The callback to call to continue in the queue
 	 * @private
 	 */
-	validateResolvedRecipients : function(callback)
+	validateResolvedRecipients: function(callback)
 	{
 		var recipientStore = this.record.getRecipientStore();
 		var unresolved = recipientStore.getUnresolvedRecipients();
@@ -511,8 +511,8 @@ Zarafa.core.ui.MessageContentPanel = Ext.extend(Zarafa.core.ui.RecordContentPane
 		} else if(!Ext.isEmpty(unresolved)) {
 			// Unresolved recipients were found, try to resolve them, and have the event handler
 			// call this function recursively so we can check again.
-			this.mon(recipientStore, 'resolved', this.validateResolvedRecipients.createDelegate(this, [ callback ], false), this, { single : true });
-			recipientStore.resolve(unresolved, { cancelPreviousRequest : true });
+			this.mon(recipientStore, 'resolved', this.validateResolvedRecipients.createDelegate(this, [ callback ], false), this, { single: true });
+			recipientStore.resolve(unresolved, { cancelPreviousRequest: true });
 		} else {
 			// No invalid or unresolved recipients, we can continue
 			// the callback queue to send the message.
@@ -528,7 +528,7 @@ Zarafa.core.ui.MessageContentPanel = Ext.extend(Zarafa.core.ui.RecordContentPane
 	 * @param {Boolean} success True if the queue ended successfully
 	 * @private
 	 */
-	onCompleteValidateSendRecord : function(success)
+	onCompleteValidateSendRecord: function(success)
 	{
 		if (success) {
 			this.record.addMessageAction('send', true);

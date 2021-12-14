@@ -1,5 +1,5 @@
 {
-    "--title": "grommunio-web",
+    "--title": "grommunio Web",
     "--warnings": ["-link", "-no_doc"],
     "--external": "extjs",
     "--ext-namespace": "Ext",

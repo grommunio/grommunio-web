@@ -1,11 +1,11 @@
 <?php
-require_once('classes/KopanoTest.php');
+require_once('classes/grommunioTest.php');
 require_once(BASE_PATH . 'server/includes/loader.php');
 
 /**
  * Test the FileLoader
  */
-class FileLoaderTest extends KopanoTest {
+class FileLoaderTest extends grommunioTest {
 
 	public function testExtjsJavascriptFiles() {
 		$loader = new FileLoader();

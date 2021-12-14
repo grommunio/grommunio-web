@@ -9,7 +9,7 @@ Zarafa.addressbook.dialogs.ABMultiUserSelectionContentPanel = Ext.extend(Zarafa.
 	/**
 	 * @cfg {Function} callback the callback function to return to after selecting user from AdressBook.
 	 */
-	callback : undefined,
+	callback: undefined,
 
 	/**
 	 * @cfg {Function} convert the convert function which converts an
@@ -19,23 +19,23 @@ Zarafa.addressbook.dialogs.ABMultiUserSelectionContentPanel = Ext.extend(Zarafa.
 	 * and optionally passes the {@link Ext.Component} which was generated from the
 	 * {@link #selectionCfg} which was used to select the recipient as second argument.
 	 */
-	convert : undefined,
+	convert: undefined,
 
 	/**
 	 * @cfg {Object} scope The scope in which the {@link #callback} will be called
 	 */
-	scope : undefined,
+	scope: undefined,
 
 	/**
 	 * @cfg {Ext.data.Store} store The store in which all records should be placed.
 	 */
-	store : undefined,
+	store: undefined,
 
 	/**
 	 * @cfg (Boolean) Set to true to hide contacts folders in the address book
 	 * hierarchy dropdown.
 	 */
-	hideContactsFolders : false,
+	hideContactsFolders: false,
 
 	/**
 	 * @cfg {Object} listRestriction The default restriction which
@@ -43,36 +43,37 @@ Zarafa.addressbook.dialogs.ABMultiUserSelectionContentPanel = Ext.extend(Zarafa.
 	 * from the server. This can be used to restrict the visibility
 	 * of users, groups, companies etc.
 	 */
-	listRestriction : undefined,
+	listRestriction: undefined,
 
 	/**
 	 * @cfg {Array} selectionCfg Array of {@link Zarafa.common.ui.BoxField} configuration
 	 * objects which are created below the User list. These will show which users
 	 * the user has selected.
 	 */
-	selectionCfg : undefined,
+	selectionCfg: undefined,
 
 	/**
  	 * @constructor
 	 * @param {Object} config Configuration structure
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		config = config || {};
 
 		config = Ext.applyIf(config, {
-			xtype : 'zarafa.abmultiuserselectioncontentpanel',
-			layout : 'fit',
-			title : _('Address Book'),
+			xtype: 'zarafa.abmultiuserselectioncontentpanel',
+			layout: 'fit',
+			title: _('Address Book'),
+			stateful: Zarafa.core.BrowserWindowMgr.isMainWindowActive(),
 			items: [{
 				xtype: 'zarafa.abmultiuserselectionpanel',
-				hideContactsFolders : config.hideContactsFolders,
-				listRestriction : config.listRestriction,
-				selectionCfg : config.selectionCfg,
-				callback : config.callback,
-				convert : config.convert,
-				scope : config.scope,
-				store : config.store
+				hideContactsFolders: config.hideContactsFolders,
+				listRestriction: config.listRestriction,
+				selectionCfg: config.selectionCfg,
+				callback: config.callback,
+				convert: config.convert,
+				scope: config.scope,
+				store: config.store
 			}]
 		});
 

@@ -6,7 +6,7 @@ Ext.namespace('Zarafa.common.rules.dialogs');
  * @xtype zarafa.markasreadlink
  *
  * Extension of the {@link Ext.Container Container}
- * especially for the {@link Zarafa.common.rules.data.ActionFlags#MARK_AS_READ  MARK_AS_READ ActionFlag}.
+ * especially for the {@link Zarafa.common.rules.data.ActionFlags#MARK_AS_READ MARK_AS_READ ActionFlag}.
  * This component handles MARK_AS_READ action.
  * This will not show anything to the user, but during {@link #setAction} this will force
  * the {@link #actionFlag} to be {@link Zarafa.common.rules.data.ActionFlags#MARK_AS_READ MARK_AS_READ}
@@ -19,7 +19,7 @@ Zarafa.common.rules.dialogs.MarkAsReadLink = Ext.extend(Ext.Container,{
 	 * @property
 	 * @type Zarafa.common.rules.data.ActionFlags
 	 */
-	actionFlag : undefined,
+	actionFlag: undefined,
 
 	/**
 	 * The action property which was configured during
@@ -27,7 +27,7 @@ Zarafa.common.rules.dialogs.MarkAsReadLink = Ext.extend(Ext.Container,{
 	 * @property
 	 * @type Object
 	 */
-	action : undefined,
+	action: undefined,
 
 	/**
 	 * True if the action was modified by the user, if this is false,
@@ -36,7 +36,7 @@ Zarafa.common.rules.dialogs.MarkAsReadLink = Ext.extend(Ext.Container,{
 	 * @property
 	 * @type Boolean
 	 */
-	isModified : false,
+	isModified: false,
 
 	/**
 	 * True if the action/condition is complete and valid,
@@ -47,18 +47,18 @@ Zarafa.common.rules.dialogs.MarkAsReadLink = Ext.extend(Ext.Container,{
 	 * @property
 	 * @type Boolean
 	 */
-	isValid : true,
+	isValid: true,
 
 	/**
-      * Apply an action onto the DataView, this will parse the action and show
-      * the contents in a user-friendly way to the user.
-      * @param {Zarafa.common.rules.data.ActionFlags} actionFlag The action type
-      * which identifies the exact type of the action.
-      * @param {Object} action The action to apply
-      */
-    setAction : function(actionFlag, action)
+   * Apply an action onto the DataView, this will parse the action and show
+   * the contents in a user-friendly way to the user.
+   * @param {Zarafa.common.rules.data.ActionFlags} actionFlag The action type
+   * which identifies the exact type of the action.
+   * @param {Object} action The action to apply
+   */
+  setAction: function(actionFlag, action)
 	{
-		this.isValid = action ?  true : false;
+		this.isValid = action ? true : false;
 		this.actionFlag = actionFlag;
 		this.action = action;
 		this.isModified = !Ext.isDefined(action);
@@ -68,23 +68,15 @@ Zarafa.common.rules.dialogs.MarkAsReadLink = Ext.extend(Ext.Container,{
 	 * Obtain the action as configured by the user
 	 * @return {Object} The action
 	 */
-	getAction : function()
+	getAction: function()
 	{
 		if (this.isModified !== true && this.isValid === true) {
 			return this.action;
 		}
 
-		var action = {};
-
-		if (this.actionFlag === Zarafa.common.rules.data.ActionFlags.MARK_AS_READ) {
-			action.action = Zarafa.core.mapi.RuleActions.OP_MARK_AS_READ;
-			action.flags = 0;
-			action.flavor = 0;
-
-			return action;
-		}
-
-		return false;
+		var actionFactory = container.getRulesFactoryByType(Zarafa.common.data.RulesFactoryType.ACTION);
+		var actionDefinition = actionFactory.getActionById(this.actionFlag);
+		return actionDefinition(this.actionFlag);
 	}
 
 });

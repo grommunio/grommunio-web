@@ -6,9 +6,9 @@ Ext.namespace('Zarafa.note.data');
  * @singleton
  */
 Zarafa.note.data.SearchFields = [{
-	name : _('All text fields'),
-	value : 'body categories'
+	name: _('All text fields'),
+	value: 'body categories'
 }, {
-	name : _('Categories'),
-	value : 'categories'
+	name: _('Categories'),
+	value: 'categories'
 }];

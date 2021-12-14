@@ -60,9 +60,9 @@ Zarafa.core.data.ProxyResponseHandler = Ext.extend(Zarafa.core.data.AbstractResp
 	 * if the {@link Zarafa.core.data.JsonReader JsonReader} is used, and which function is called.
 	 * See {@link Zarafa.core.data.JsonReader#readResponse readResponse} and
 	 * {@link Zarafa.core.data.JsonReader#readRecords readRecords} for possible return values)
-	 * this could be an Array or an {@link Ext.data.Response object}. 
+	 * this could be an Array or an {@link Ext.data.Response object}.
 	 * @property
-	 * @type Mixed 
+	 * @type Mixed
 	 */
 	receivedRecords: undefined,
 
@@ -72,7 +72,7 @@ Zarafa.core.data.ProxyResponseHandler = Ext.extend(Zarafa.core.data.AbstractResp
 	 * @property
 	 * @type Number
 	 */
-	receivedTime : undefined,
+	receivedTime: undefined,
 
 	/**
 	 * The meta data that is received with response that will be sent to the {#callback} function.
@@ -80,20 +80,20 @@ Zarafa.core.data.ProxyResponseHandler = Ext.extend(Zarafa.core.data.AbstractResp
 	 * @property
 	 * @type Mixed
 	 */
-	metaData : undefined,
+	metaData: undefined,
 
 	/**
 	 * The handler which is invoked when no valid response was returned
-	 * for the Request. This could be the PHP-side returned an invalid object which could not be 
+	 * for the Request. This could be the PHP-side returned an invalid object which could not be
 	 * parsed by a {@link Ext.data.DataReader DataReader}.
 	 * @param {Object} responseObject The raw browser response object (e.g.: XMLHttpRequest)
 	 * @param {Object} args (optional) A Javascript error object if the response could not
 	 * have been parsed by a {@link Ext.data.DataReader DataReader}.
 	 */
-	responseFailure : function(responseObject, args)
+	responseFailure: function(responseObject, args)
 	{
 		if (Ext.isDefined(this.proxy)) {
-			// Create the args object containing the sendRecords and the JS Error to be used when 
+			// Create the args object containing the sendRecords and the JS Error to be used when
 			// handling the exception event
 			args = {
 				error: args,
@@ -148,7 +148,7 @@ Zarafa.core.data.ProxyResponseHandler = Ext.extend(Zarafa.core.data.AbstractResp
 	 * not cancel the transaction itself, but rather causes the 'success' argument for the
 	 * {@link #done} function to be false.
 	 */
-	handle : function(action, data)
+	handle: function(action, data)
 	{
 		var ret;
 		try {
@@ -181,11 +181,11 @@ Zarafa.core.data.ProxyResponseHandler = Ext.extend(Zarafa.core.data.AbstractResp
 	 * @return {Boolean} False when action could not be handled successfully. This will
 	 * not cancel the transaction itself, but rather causes the 'success' argument for the
 	 */
-	doError : function(response)
+	doError: function(response)
 	{
 		// Create the args object containing the sendRecords to be used when handling the exception
 		var args = { sendRecords: this.sendRecords };
-		response = { error : response };
+		response = { error: response };
 
 		this.proxy.fireEvent('exception', this.proxy, 'remote', this.action, this.options, response, args);
 		return false;
@@ -197,7 +197,7 @@ Zarafa.core.data.ProxyResponseHandler = Ext.extend(Zarafa.core.data.AbstractResp
 	 * @param {Boolean} success True if no errors were returned from the PHP-side.
 	 * @override
 	 */
-	done : function(success)
+	done: function(success)
 	{
 		if (Ext.isFunction(this.callback)) {
 			// @FIXME do we have better way to pass meta data to callback function ?
@@ -208,11 +208,11 @@ Zarafa.core.data.ProxyResponseHandler = Ext.extend(Zarafa.core.data.AbstractResp
 	/**
 	 * Reads all {@link Zarafa.core.data.MAPIRecord records} from the response data from the server,
 	 * and correlates them to the {@link #sendRecords} list.
-	 * @param {Object} response The reponse data from the server containing the
+	 * @param {Object} response The response data from the server containing the
 	 * {@link Zarafa.core.data.MAPIRecord records}
 	 * @private
 	 */
-	correlateRecordFromResponse : function(response)
+	correlateRecordFromResponse: function(response)
 	{
 		var responseObj = this.reader.readResponse(Ext.data.Api.actions.read, response);
 		var sendRecords = this.sendRecords.clone();
@@ -241,7 +241,7 @@ Zarafa.core.data.ProxyResponseHandler = Ext.extend(Zarafa.core.data.AbstractResp
 	 * @param {Zarafa.core.data.MAPIRecord} record The record which was send to the server
 	 * @protected
 	 */
-	compareResponseDataToRecord : function(data, record)
+	compareResponseDataToRecord: function(data, record)
 	{
 		// FIXME: Record comparison by entryid alone is not sufficient.
 		// FIXME: probably first we should check type of entryid and then use appropriate compare functions
@@ -250,7 +250,7 @@ Zarafa.core.data.ProxyResponseHandler = Ext.extend(Zarafa.core.data.AbstractResp
 
 	/**
 	 * Reads all {@link Zarafa.core.data.MAPIRecord records} from the response data from the server.
-	 * @param {Object} response The reponse data from the server containing the
+	 * @param {Object} response The response data from the server containing the
 	 * {@link Zarafa.core.data.MAPIRecord records}
 	 * @param {String} field The fieldname of the array of items in the Response object which
 	 * must be converted into {@link Zarafa.core.data.MAPIRecord records}.
@@ -258,7 +258,7 @@ Zarafa.core.data.ProxyResponseHandler = Ext.extend(Zarafa.core.data.AbstractResp
 	 * read from the server response.
 	 * @private
 	 */
-	readRecordsFromResponse : function(response, field)
+	readRecordsFromResponse: function(response, field)
 	{
 		var items = response[field] || [];
 		if (!Array.isArray(items)) {
@@ -266,12 +266,15 @@ Zarafa.core.data.ProxyResponseHandler = Ext.extend(Zarafa.core.data.AbstractResp
 		}
 
 		// Item count is the number of items in the server-side store, not the number of items in
-		// the returned record list. This is used for pagination. 
+		// the returned record list. This is used for pagination.
 		var itemCount = response.page ? response.page.totalrowcount : items.length;
 
-		var o = { count : itemCount };
+		var o = { count: itemCount };
 		// Add 'field' property to response data, this will fix this.getRoot(o) in JSONReader
 		o[field] = items;
+		if (response.error) {
+			o.error = response.error;
+		}
 
 		// Use the reader to turn the raw JavaScript objects into a set of Ext.data.Record instances.
 		return this.reader.readRecords(o);

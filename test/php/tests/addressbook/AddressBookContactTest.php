@@ -1,9 +1,9 @@
 <?php
-require_once('classes/KopanoUser.php');
+require_once('classes/grommunioUser.php');
 require_once('classes/AddressBookUser.php');
 require_once('classes/ContactUser.php');
 require_once('classes/TestData.php');
-require_once('classes/KopanoTest.php');
+require_once('classes/grommunioTest.php');
 require_once('classes/Util.php');
 
 /**
@@ -11,7 +11,7 @@ require_once('classes/Util.php');
  *
  * Tests loading the Address Book contents of the Contacts containers
  */
-class AddressBookContactTest extends KopanoTest {
+class AddressBookContactTest extends grommunioTest {
 
 	/**
 	 * The user for which we will open the addressbook
@@ -40,8 +40,8 @@ class AddressBookContactTest extends KopanoTest {
 	{
 		parent::setUp();
 
-		$this->user = $this->addUser(new AddressBookUser(new KopanoUser(KOPANO_USER1_NAME, KOPANO_USER1_PASSWORD)));
-		$this->contactUser = $this->addUser(new ContactUser(new KopanoUser(KOPANO_USER1_NAME, KOPANO_USER1_PASSWORD)));
+		$this->user = $this->addUser(new AddressBookUser(new grommunioUser(GROMMUNIO_USER1_NAME, GROMMUNIO_USER1_PASSWORD)));
+		$this->contactUser = $this->addUser(new ContactUser(new grommunioUser(GROMMUNIO_USER1_NAME, GROMMUNIO_USER1_PASSWORD)));
 
 		$this->message = array(
 			'props' => TestData::getContact()
@@ -50,9 +50,9 @@ class AddressBookContactTest extends KopanoTest {
 		$this->multipleMessage = array(
 			'props' => TestData::getContact(array(
 				// add extra email address properties, so single contact will be converted to multiple contacts
-				'email_address_2' => 'email2@local.kopano.com',
-				'email_address_display_name_2' => 'new Contact (email2@local.kopano.com)',
-				'email_address_display_name_email_2' => 'email2@local.kopano.com',
+				'email_address_2' => 'email2@local.grommunio.com',
+				'email_address_display_name_2' => 'new Contact (email2@local.grommunio.com)',
+				'email_address_display_name_email_2' => 'email2@local.grommunio.com',
 				'email_address_type_2' => 'SMTP',
 				'fax_2_original_display_name' => 'new Contact',
 				'fax_2_email_address' => 'new Contact@5678',
@@ -97,7 +97,7 @@ class AddressBookContactTest extends KopanoTest {
 	}
 
 	/**
-	 * Test if the contact addressbook returns valid objects for mutliple email addresses
+	 * Test if the contact addressbook returns valid objects for multiple email addresses
 	 */
 	public function testLoadingMultipleContactAddressBookResults()
 	{

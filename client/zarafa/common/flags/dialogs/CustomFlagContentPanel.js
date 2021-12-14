@@ -12,13 +12,13 @@ Zarafa.common.flags.dialogs.CustomFlagContentPanel = Ext.extend(Zarafa.core.ui.C
 	 * @cfg {Boolean} setFocusOnReminder True to set the focus on
 	 * reminder checkbox.
 	 */
-	setFocusOnReminder : false,
+	setFocusOnReminder: false,
 
 	/**
 	 * @constructor
 	 * @param config Configuration structure
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		config = config || {};
 
@@ -32,15 +32,15 @@ Zarafa.common.flags.dialogs.CustomFlagContentPanel = Ext.extend(Zarafa.core.ui.C
 		});
 
 		config = Ext.applyIf(config, {
-			xtype : 'zarafa.customflagcontentpanel',
-			layout : 'fit',
-			title : _('Set custom flag'),
+			xtype: 'zarafa.customflagcontentpanel',
+			layout: 'fit',
+			title: _('Set custom flag'),
 			width: 350,
 			height: 160,
 			items: [{
 				xtype: 'zarafa.customflagpanel',
-				ref :'customFlagPanel',
-				records : config.record,
+				ref:'customFlagPanel',
+				records: config.record,
 				buttons: [{
 					text: _('Ok'),
 					handler: this.onOk,
@@ -51,8 +51,8 @@ Zarafa.common.flags.dialogs.CustomFlagContentPanel = Ext.extend(Zarafa.core.ui.C
 					scope: this
 				}]
 			}],
-			listeners : {
-				afterrender : function () {
+			listeners: {
+				afterrender: function () {
 					if (this.setFocusOnReminder) {
 						this.inputAutoFocusPlugin.setAutoFocus(this.customFlagPanel.reminderCheckbox);
 					}
@@ -68,7 +68,7 @@ Zarafa.common.flags.dialogs.CustomFlagContentPanel = Ext.extend(Zarafa.core.ui.C
 	 * Event handler which is called when ok button is press. it will
 	 * save the records.
 	 */
-	onOk : function ()
+	onOk: function ()
 	{
 		const flagProperties = Zarafa.common.flags.Util.getFlagBaseProperties();
 		delete flagProperties.reminder;
@@ -76,8 +76,8 @@ Zarafa.common.flags.dialogs.CustomFlagContentPanel = Ext.extend(Zarafa.core.ui.C
 		var dateRange = this.customFlagPanel.dateField.getValue();
 		if(!Ext.isDate(dateRange.getStartDate()) || !Ext.isDate(dateRange.getDueDate())) {
 			Ext.apply(flagProperties, {
-				startdate : null,
-				duedate : null
+				startdate: null,
+				duedate: null
 			});
 			if(!this.record[0].get('reminder')) {
 				Ext.apply(flagProperties, {
@@ -103,7 +103,7 @@ Zarafa.common.flags.dialogs.CustomFlagContentPanel = Ext.extend(Zarafa.core.ui.C
 	 * Event handler for the destroy event of the component. Will remove the records that
 	 * were copied from the shadow store.
 	 */
-	onDestroy : function()
+	onDestroy: function()
 	{
 		container.getShadowStore().remove(this.record);
 	}

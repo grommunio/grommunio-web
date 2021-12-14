@@ -29,7 +29,7 @@ class ZarafaErrorException extends BaseException
 		$this->errorContext = $errorContext;
 
 		if(!$displayMessage) {
-			$displayMessage = Language::getstring('Action is not performed correctly.');
+			$displayMessage = _('Action is not performed correctly.');
 		}
 
 		parent::__construct($errorMessage, $code, null, $displayMessage);

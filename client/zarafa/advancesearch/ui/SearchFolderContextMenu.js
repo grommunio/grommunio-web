@@ -11,17 +11,17 @@ Zarafa.advancesearch.ui.SearchFolderContextMenu = Ext.extend(Zarafa.core.ui.menu
 	 * @constructor
 	 * @param {Object} config Configuration object
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		config = config || {};
 
 		Ext.applyIf(config, {
-			items : [{
+			items: [{
 				xtype: 'zarafa.conditionalitem',
-				text : _('Delete search folder'),
-				iconCls : 'icon_folder_delete',
-				handler : this.onContextItemDeleteFolder,
-				scope : this
+				text: _('Delete search folder'),
+				iconCls: 'icon_folder_delete',
+				handler: this.onContextItemDeleteFolder,
+				scope: this
 			}]
 		});
 
@@ -32,7 +32,7 @@ Zarafa.advancesearch.ui.SearchFolderContextMenu = Ext.extend(Zarafa.core.ui.menu
 	 * Event handler triggers when "Delete search folder" button was clicked.
 	 * it is used to delete the search folder which marked as favorites.
 	 */
-	onContextItemDeleteFolder : function ()
+	onContextItemDeleteFolder: function ()
 	{
 		var record = this.records;
 		var store = record.getStore();

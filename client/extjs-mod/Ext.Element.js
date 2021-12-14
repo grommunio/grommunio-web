@@ -57,7 +57,7 @@
 	 * object as 'anim', which allows you to stop or manipulate the animation. Here is an example:</p>
 	 * <pre><code>
 	// using the 'anim' property to get the Anim object
-	if(opt.anim.isAnimated()){
+	if(opt.anim.isAnimated()) {
 		opt.anim.stop();
 	}
 	 * </code></pre>
@@ -82,7 +82,7 @@
 		 * @return {String} The size plus the optional size unit postfixed
 		 * @private
 		 */
-		addUnits : function(size)
+		addUnits: function(size)
 		{
 			if (Ext.isEmpty(size) || size == 'auto') {
 				size = size || '';
@@ -102,12 +102,12 @@
 		 * @return {Ext.Element} this
 		 * @override
 		 */
-		swallowEvent : function(eventName, preventDefault)
+		swallowEvent: function(eventName, preventDefault)
 		{
 			var me = this;
 			var fn = (preventDefault === true) ? this.swallowEventHandlerPreventDefault : this.swallowEventHandler;
 
-			if(Ext.isArray(eventName)){
+			if(Ext.isArray(eventName)) {
 				Ext.each(eventName, function(e) {
 					me.on(e, fn, this);
 				});
@@ -126,7 +126,7 @@
 		 * @param {Ext.EventObject} e The event object
 		 * @private
 		 */
-		swallowEventHandler : function(e)
+		swallowEventHandler: function(e)
 		{
 			e.stopPropagation();
 		},
@@ -141,7 +141,7 @@
 		 * @param {Ext.EventObject} e The event object
 		 * @private
 		 */
-		swallowEventHandlerPreventDefault : function(e)
+		swallowEventHandlerPreventDefault: function(e)
 		{
 			e.stopPropagation();
 			e.preventDefault();
@@ -154,11 +154,11 @@
 		 * @param {Boolean} preventDefault (optional) true if the default action was also prevented
 		 * @return {Ext.Element} this
 		 */
-		spitOutEvent : function(eventName, preventDefault)
+		spitOutEvent: function(eventName, preventDefault)
 		{
 			var me = this;
 			var fn = (preventDefault === true) ? this.swallowEventHandlerPreventDefault : this.swallowEventHandler;
-			if(Ext.isArray(eventName)){
+			if(Ext.isArray(eventName)) {
 				Ext.each(eventName, function(e) {
 					me.un(e, fn, this);
 				});
@@ -172,7 +172,7 @@
 		 * Opposite of {@link #unselectable}, enables text selection for this element (normalized across browsers)
 		 * @return {Ext.Element} this
 		 */
-		selectable : function()
+		selectable: function()
 		{
 			this.dom.unselectable = 'off';
 			return this.spitOutEvent('selectstart', true).
@@ -182,7 +182,7 @@
 		/**
 		 * Clear all CSS classes which were applied to the DOM tree
 		 */
-		clearClass : function()
+		clearClass: function()
 		{
 			this.dom.className = '';
 		},
@@ -191,7 +191,7 @@
 		 * Fires specified event for {@link Ext.Element element}.
 		 * @param {String} e The event name
 		 */
-		fireEvent : function(eventName, originalEvent)
+		fireEvent: function(eventName, originalEvent)
 		{
 			var HTMLEvts = /^(scroll|resize|load|unload|abort|error)$/,
 				mouseEvts = /^(click|dblclick|mousedown|mouseup|mouseover|mouseout|contextmenu)$/,
@@ -227,10 +227,10 @@
 		 * @param {Array} offsets (optional) Offset the positioning by [x, y]
 		 * @return {Array} [x, y]
 		 */
-		getAlignToXY : function(el, p, o){
+		getAlignToXY: function(el, p, o) {
 			el = Ext.get(el);
 
-			if(!el || !el.dom){
+			if(!el || !el.dom) {
 				throw "Element.alignToXY with an element that doesn't exist";
 			}
 
@@ -266,7 +266,7 @@
 					p2 = "",
 					m = p.match(/^([a-z]+)-([a-z]+)(\?)?$/);
 
-			if(!m){
+			if(!m) {
 				throw "Element.alignTo with an invalid alignment " + p;
 			}
 
@@ -282,7 +282,7 @@
 			x = a2[0] - a1[0] + o[0];
 			y = a2[1] - a1[1] + o[1];
 
-			if(c){
+			if(c) {
 				w = me.getWidth();
 				h = me.getHeight();
 				r = el.getRegion();
@@ -306,7 +306,7 @@
 				if (y + h > dh + scrollY) {
 					y = swapY ? r.top-h : dh+scrollY-h;
 				}
-				if (y < scrollY){
+				if (y < scrollY) {
 					y = swapY ? r.bottom : scrollY;
 				}
 			}
@@ -314,30 +314,30 @@
 		},
 
 		// private ==>  used outside of core
-		adjustForConstraints : function(xy, parent, offsets){
+		adjustForConstraints: function(xy, parent, offsets) {
 			// Using currently active browser window in case if parent is undefined
 			var browserWindow = Zarafa.core.BrowserWindowMgr.getActive();
 			return this.getConstrainToXY(parent || browserWindow.document, false, offsets, xy) ||  xy;
 		},
 
 		// private ==>  used outside of core
-		getConstrainToXY : function(el, local, offsets, proposedXY){
+		getConstrainToXY: function(el, local, offsets, proposedXY) {
 			var os = {top:0, left:0, bottom:0, right: 0};
 
-			return function(el, local, offsets, proposedXY){
+			return function(el, local, offsets, proposedXY) {
 				// Using currently active browser window for size and position related calculations
 				var browserWindow = Zarafa.core.BrowserWindowMgr.getActive();
 				el = Ext.get(el);
 				offsets = offsets ? Ext.applyIf(offsets, os) : os;
 
 				var vw, vh, vx = 0, vy = 0;
-				if(el.dom == browserWindow.document.body || el.dom == browserWindow.document){
+				if(el.dom == browserWindow.document.body || el.dom == browserWindow.document) {
 					vw = browserWindow.innerWidth;
 					vh = browserWindow.innerHeight;
-				}else{
+				} else {
 					vw = el.dom.clientWidth;
 					vh = el.dom.clientHeight;
-					if(!local){
+					if(!local) {
 						var vxy = el.getXY();
 						vx = vxy[0];
 						vy = vxy[1];
@@ -364,20 +364,20 @@
 				var moved = false;
 
 				// first validate right/bottom
-				if((x + w) > vr){
+				if((x + w) > vr) {
 					x = vr - w;
 					moved = true;
 				}
-				if((y + h) > vb){
+				if((y + h) > vb) {
 					y = vb - h;
 					moved = true;
 				}
 				// then make sure top/left isn't negative
-				if(x < vx){
+				if(x < vx) {
 					x = vx;
 					moved = true;
 				}
-				if(y < vy){
+				if(y < vy) {
 					y = vy;
 					moved = true;
 				}
@@ -394,7 +394,7 @@
 		 * @param {HTMLElement} el The HTMLElement which needs to be wrapped into {@link Ext.Element}
 		 * @return {Ext.Element} The Element object (or null if no matching element was found)
 		 */
-		get : function(el) {
+		get: function(el) {
 			var getResult = null;
 			var activeBrowserWindow = Zarafa.core.BrowserWindowMgr.getActive();
 
@@ -413,7 +413,7 @@
 			// If the element is still not found, Try to find the same in all the available browser windows
 			if (getResult === null && typeof el === "string") {
 				var browserWindows = Zarafa.core.BrowserWindowMgr.browserWindows;
-				browserWindows.each(function(browserWindow){
+				browserWindows.each(function(browserWindow) {
 					if(Ext.isDefined(browserWindow) && browserWindow.name !== 'mainBrowserWindow' && browserWindow !== activeBrowserWindow) {
 						// If element is found in browser window then return ext element
 						var element = browserWindow.document.getElementById(el);
@@ -429,7 +429,7 @@
 					browserWindows.each(function(browserWindow) {
 						if(browserWindow.document === el) {
 							// create a bogus element object representing the document object
-							var f = function(){};
+							var f = function() {};
 							f.prototype = Ext.Element.prototype;
 							getResult = new f();
 							getResult.dom = browserWindow.document;
@@ -447,8 +447,8 @@
 	Ext.get = Ext.Element.prototype.get;
 
 
-	// Overriding this method because 
-	// While mousedown event handler call it will get XY posstion of clickable area 
+	// Overriding this method because
+	// While mousedown event handler call it will get XY posstion of clickable area
 	// and then it will get style of particular posstion.
 	// So, getStyle method will use active browser window instead of main window.
 	Ext.Element.addMethods(function() {

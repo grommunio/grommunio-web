@@ -4,6 +4,6 @@
 	 * to something more appropriate to our needs.
 	 */
 	Ext.override(Ext.Container, {
-		bufferResize : false
+		bufferResize: false
 	});
 })();

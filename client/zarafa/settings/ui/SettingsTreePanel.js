@@ -14,19 +14,19 @@ Zarafa.settings.ui.SettingsTreePanel = Ext.extend(Zarafa.common.ui.EditorTreeGri
 	 * the Setting Value property. The keys used in this object are the 'typeof' results
 	 * of the value type.
 	 */
-	editors : undefined,
+	editors: undefined,
 
 	/**
 	 * @cfg {Zarafa.settings.SettingsModel} model The model which should be displayed
 	 * in the grid. This can be configured later using {@link #bindModel}.
 	 */
-	model : undefined,
+	model: undefined,
 
 	/**
 	 * @constructor
 	 * @param {Object} config configuration object
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		config = config || {};
 
@@ -39,19 +39,19 @@ Zarafa.settings.ui.SettingsTreePanel = Ext.extend(Zarafa.common.ui.EditorTreeGri
 			enableSort: true,
 			forceFit: true,
 			loader: new Zarafa.settings.data.SettingsTreeLoader({
-				model : config.model,
-				autoExpandLevel : 4,
-				autoExpandFilter : /^\/*(zarafa.*)?$/
+				model: config.model,
+				autoExpandLevel: 4,
+				autoExpandFilter: /^\/*(zarafa.*)?$/
 			}),
 			root: new Zarafa.settings.ui.SettingsTreeNode({
 				text: _('Settings'),
 				id: '/',
 				expanded: false
 			}),
-			editors : {
-				'boolean' : { xtype: 'checkbox' },
-				'number' : { xtype: 'zarafa.spinnerfield', plugins : [ 'zarafa.numberspinner' ] },
-				'string' : { xtype: 'textfield' }
+			editors: {
+				'boolean': { xtype: 'checkbox' },
+				'number': { xtype: 'zarafa.spinnerfield', plugins: [ 'zarafa.numberspinner' ] },
+				'string': { xtype: 'textfield' }
 			},
 			columns: [{
 				id: 'setting',
@@ -64,18 +64,22 @@ Zarafa.settings.ui.SettingsTreePanel = Ext.extend(Zarafa.common.ui.EditorTreeGri
 				dataIndex: 'value',
 				tpl: '{value:htmlEncodeUndef}',
 				width: 250,
-				editable : true
+				editable: true
 			}]
 		});
 
 		Zarafa.settings.ui.SettingsTreePanel.superclass.constructor.call(this, config);
+		
+		if (this.treeFilter && !(this.treeFilter instanceof Ext.tree.TreeFilter)) {
+			this.treeFilter = new Zarafa.common.ui.TreeFilter(this, {autoClear: true});
+		}
 	},
 
 	/**
 	 * Called by Extjs to initialize all event listeners.
 	 * @private
 	 */
-	initEvents : function()
+	initEvents: function()
 	{
 		Zarafa.settings.ui.SettingsTreePanel.superclass.initEvents.call(this);
 
@@ -93,7 +97,7 @@ Zarafa.settings.ui.SettingsTreePanel = Ext.extend(Zarafa.common.ui.EditorTreeGri
 	 * @param {Boolean} initialize (optional) True if this function is called
 	 * during initialization
 	 */
-	bindModel : function(model, initialize)
+	bindModel: function(model, initialize)
 	{
 		if (initialize || this.model !== model) {
 			if (this.model) {
@@ -108,8 +112,8 @@ Zarafa.settings.ui.SettingsTreePanel = Ext.extend(Zarafa.common.ui.EditorTreeGri
 			if (this.model) {
 				this.loader.bindModel(this.model);
 				this.mon(this.model, {
-					set : this.onSettingsChange,
-					remove : this.onSettingsRemove,
+					set: this.onSettingsChange,
+					remove: this.onSettingsRemove,
 					scope: this
 				});
 
@@ -129,7 +133,7 @@ Zarafa.settings.ui.SettingsTreePanel = Ext.extend(Zarafa.common.ui.EditorTreeGri
 	 * @param {Array} settings The array of settings which has been changed
 	 * @private
 	 */
-	onSettingsChange : function(model, settings)
+	onSettingsChange: function(model, settings)
 	{
 		if (!Array.isArray(settings)) {
 			settings = [ settings ];
@@ -170,7 +174,7 @@ Zarafa.settings.ui.SettingsTreePanel = Ext.extend(Zarafa.common.ui.EditorTreeGri
 	 * @param {Array} settings The array of settings which has been deleted
 	 * @private
 	 */
-	onSettingsRemove : function(model, settings)
+	onSettingsRemove: function(model, settings)
 	{
 		if (!Array.isArray(settings)) {
 			settings = [ settings ];
@@ -195,7 +199,7 @@ Zarafa.settings.ui.SettingsTreePanel = Ext.extend(Zarafa.common.ui.EditorTreeGri
 	 * @param {Mixed} value The value which was applied to the node
 	 * @private
 	 */
-	onAfterEdit : function(grid, node, column, value)
+	onAfterEdit: function(grid, node, column, value)
 	{
 		this.model.set(node.id, value);
 	},
@@ -207,10 +211,10 @@ Zarafa.settings.ui.SettingsTreePanel = Ext.extend(Zarafa.common.ui.EditorTreeGri
 	 * @param {Ext.EventObject} event The event object
 	 * @private
 	 */
-	onContextMenu : function(node, event)
+	onContextMenu: function(node, event)
 	{
 		node.select();
-		Zarafa.core.data.UIFactory.openDefaultContextMenu(node, { position : event.getXY(), settingsModel : this.model });
+		Zarafa.core.data.UIFactory.openDefaultContextMenu(node, { position: event.getXY(), settingsModel: this.model });
 	},
 
 	/**
@@ -221,7 +225,7 @@ Zarafa.settings.ui.SettingsTreePanel = Ext.extend(Zarafa.common.ui.EditorTreeGri
 	 * @param {Number} column The column index for which the editor is looked up
 	 * @return {Ext.form.Field} The editor used to edit the given cell
 	 */
-	getEditor : function(node, column)
+	getEditor: function(node, column)
 	{
 		var field = this.getColumn(column).dataIndex;
 		var value = node.attributes[field];
@@ -243,7 +247,7 @@ Zarafa.settings.ui.SettingsTreePanel = Ext.extend(Zarafa.common.ui.EditorTreeGri
 	 * all {@link #editors} as well.
 	 * @private
 	 */
-	onDestroy : function()
+	onDestroy: function()
 	{
 		Zarafa.settings.ui.SettingsTreePanel.superclass.onDestroy.call(this);
 

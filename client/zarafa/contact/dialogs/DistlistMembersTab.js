@@ -15,7 +15,7 @@ Zarafa.contact.dialogs.DistlistMembersTab = Ext.extend(Ext.form.FormPanel, {
 	 * @constructor
 	 * @param {Object} config configuration object.
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		config = config || {};
 
@@ -23,18 +23,18 @@ Zarafa.contact.dialogs.DistlistMembersTab = Ext.extend(Ext.form.FormPanel, {
 		config.plugins.push('zarafa.recordcomponentupdaterplugin');
 
 		Ext.applyIf(config, {
-			xtype : 'zarafa.distlistmemberstab',
+			xtype: 'zarafa.distlistmemberstab',
 			cls: 'zarafa-distlist-createpanel-memberstab',
-			title : _('Members'),
-			layout : 'vbox',
+			title: _('Members'),
+			layout: 'vbox',
 			layoutConfig: {
-				align : 'stretch',
-				pack  : 'start'
+				align: 'stretch',
+				pack: 'start'
 			},
-			defaults : {
-				header : false,
-				margins : {top:0, right:0, bottom:6, left:0},
-				border : false
+			defaults: {
+				header: false,
+				margins: {top:0, right:0, bottom:6, left:0},
+				border: false
 			},
 			items: this.getMembersTabItems()
 		});
@@ -45,19 +45,19 @@ Zarafa.contact.dialogs.DistlistMembersTab = Ext.extend(Ext.form.FormPanel, {
 	/**
 	 * Function will return items for members tab.
 	 */
-	getMembersTabItems : function()
+	getMembersTabItems: function()
 	{
 		return [{
 					layout:'form',
 					items: [{
-						xtype : 'textfield',
-						name : 'subject',
+						xtype: 'textfield',
+						name: 'subject',
 						labelStyle: 'text-align: left',
 						fieldLabel: _('Name'),
-						anchor : '100%',
-						listeners :{
-							change : this.onPropertyChange,
-							scope : this
+						anchor: '100%',
+						listeners:{
+							change: this.onPropertyChange,
+							scope: this
 						}
 					}]
 				},{
@@ -67,28 +67,28 @@ Zarafa.contact.dialogs.DistlistMembersTab = Ext.extend(Ext.form.FormPanel, {
 						columns: 5
 					},
 					items: [{
-						xtype : 'button',
+						xtype: 'button',
 						autoWidth: true,
-						text : _('Select Members') + '...',
-						handler : this.showAddressBookContent,
-						scope : this
+						text: _('Select Members') + '...',
+						handler: this.showAddressBookContent,
+						scope: this
 					},{
 						xtype: 'spacer',
 						width: 6
 					},{
-						xtype : 'button',
+						xtype: 'button',
 						autoWidth: true,
-						handler : this.addExternalMember,
+						handler: this.addExternalMember,
 						scope: this,
-						text : _('Add New') + '...'
+						text: _('Add New') + '...'
 					},{
 						xtype: 'spacer',
 						width: 6
 					},{
-						xtype : 'button',
+						xtype: 'button',
 						autoWidth: true,
-						text : _('Remove'),
-						handler : this.removeMembers,
+						text: _('Remove'),
+						handler: this.removeMembers,
 						scope: this
 					}]
 				},{
@@ -103,11 +103,11 @@ Zarafa.contact.dialogs.DistlistMembersTab = Ext.extend(Ext.form.FormPanel, {
 					store: new Ext.data.Store({
 						autoDestroy: true
 					}),
-					listeners : {
-						rowdblclick : this.onRowDblClick
+					listeners: {
+						rowdblclick: this.onRowDblClick
 					},
 					ref: 'membersGrid',
-					autoExpandColumn : 'display_name',
+					autoExpandColumn: 'display_name',
 					colModel: new Zarafa.contact.dialogs.DistlistMemberGridColumnModel()
 				}];
 	},
@@ -118,7 +118,7 @@ Zarafa.contact.dialogs.DistlistMembersTab = Ext.extend(Ext.form.FormPanel, {
 	 * @param {Zarafa.core.data.IPMRecord} record The record to load
 	 * @param {Boolean} contentReset force the component to perform a full update of the data.
 	 */
-	update : function(record, contentReset)
+	update: function(record, contentReset)
 	{
 		if(Ext.isEmpty(record)) {
 			return;
@@ -144,7 +144,7 @@ Zarafa.contact.dialogs.DistlistMembersTab = Ext.extend(Ext.form.FormPanel, {
 	 * @param {Zarafa.core.data.IPMRecord} record The record to update
 	 * @private
 	 */
-	updateRecord : function(record)
+	updateRecord: function(record)
 	{
 		record.beginEdit();
 
@@ -161,7 +161,7 @@ Zarafa.contact.dialogs.DistlistMembersTab = Ext.extend(Ext.form.FormPanel, {
 	 * Function Opens a {@link Zarafa.addressbook.dialogs.ABMultiUserSelectionContentPanel ABMultiUserSelectionContentPanel}
 	 * to select members from addressbook.
 	 */
-	showAddressBookContent : function()
+	showAddressBookContent: function()
 	{
 		Zarafa.contact.Actions.openMembersSelectionContent(this.record);
 	},
@@ -170,15 +170,15 @@ Zarafa.contact.dialogs.DistlistMembersTab = Ext.extend(Ext.form.FormPanel, {
 	 * Function will open {@link Zarafa.contact.dialogs.ABMultiUserSelectionContentPanel ABMultiUserSelectionContentPanel}
 	 * for adding external member.
 	 */
-	addExternalMember : function()
+	addExternalMember: function()
 	{
-		Zarafa.contact.Actions.openDistlistExternalMemberContent(undefined, { parentRecord : this.record });
+		Zarafa.contact.Actions.openDistlistExternalMemberContent(undefined, { parentRecord: this.record });
 	},
 
 	/**
 	 * Function will remove selected members from the membersGrid.
 	 */
-	removeMembers : function()
+	removeMembers: function()
 	{
 		var store = this.record.getMemberStore();
 		var selectedRecords = this.membersGrid.getSelectionModel().getSelections();
@@ -195,7 +195,7 @@ Zarafa.contact.dialogs.DistlistMembersTab = Ext.extend(Ext.form.FormPanel, {
 	 * @param {Mixed} oldValue The old value
 	 * @private
 	 */
-	onPropertyChange : function(field, newValue, oldValue)
+	onPropertyChange: function(field, newValue, oldValue)
 	{
 		this.record.set(field.getName(), newValue);
 	},
@@ -207,7 +207,7 @@ Zarafa.contact.dialogs.DistlistMembersTab = Ext.extend(Ext.form.FormPanel, {
 	 * @param {Number} rowIndex The index of the row which was double clicked
 	 * @param {Ext.EventObject} event The event
 	 */
-	onRowDblClick : function(grid, rowIndex, event)
+	onRowDblClick: function(grid, rowIndex, event)
 	{
 		var record = this.getStore().getAt(rowIndex);
 		Zarafa.contact.Actions.openDistlistMember(record, this.record);

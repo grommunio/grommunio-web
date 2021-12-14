@@ -10,7 +10,7 @@ Zarafa.mail.ui.MailPreviewPanel = Ext.extend(Zarafa.core.ui.PreviewPanel, {
 	 * @constructor
 	 * @param config Configuration structure
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		config = config || {};
 
@@ -21,16 +21,16 @@ Zarafa.mail.ui.MailPreviewPanel = Ext.extend(Zarafa.core.ui.PreviewPanel, {
 		Ext.applyIf(config, {
 			xtype: 'zarafa.mailpreviewpanel',
 			cls: 'zarafa-previewpanel zarafa-context-mainpanel',
-			recordComponentPluginConfig : Ext.applyIf(config.recordComponentPluginConfig || {}, {
+			recordComponentPluginConfig: Ext.applyIf(config.recordComponentPluginConfig || {}, {
 				// Defer loading mail immediately, because the user
 				// might be quickly clicking through the list of mails.
-				enableOpenLoadTask : true,
-				autoOpenLoadTaskDefer : 250
+				enableOpenLoadTask: true,
+				autoOpenLoadTaskDefer: 250
 			}),
 			width: 600,
 			height: 400,
-			tbar : {
-				items : [
+			tbar: {
+				items: [
 					this.createReplyButton(),
 					this.createReplyAllButton(),
 					this.createForwardButton()
@@ -47,7 +47,7 @@ Zarafa.mail.ui.MailPreviewPanel = Ext.extend(Zarafa.core.ui.PreviewPanel, {
 	 * @param {Zarafa.core.data.MAPIRecord} record The record to update in this component
 	 * @param {Boolean} contentReset force the component to perform a full update of the data.
 	 */
-	update : function(record, contentReset)
+	update: function(record, contentReset)
 	{
 		if ( this.record && this.record !== record && this.record.store && this.record.store !== record.store ){
 			Zarafa.core.PresenceManager.unregisterStore(this.record.store);
@@ -81,17 +81,18 @@ Zarafa.mail.ui.MailPreviewPanel = Ext.extend(Zarafa.core.ui.PreviewPanel, {
 	 * @return {Object} Configuration object of reply button for the panel toolbar
 	 * @private
 	 */
-	createReplyButton : function()
+	createReplyButton: function()
 	{
 		return {
 			xtype: 'button',
 			tooltip: _('Reply') + ' (Ctrl + R)',
 			overflowText: _('Reply'),
+			text: _('Reply'),
 			iconCls: 'icon_reply',
 			ref: 'replyBtn',
 			responseMode: Zarafa.mail.data.ActionTypes.REPLY,
 			handler: this.onResponse,
-			scope : this
+			scope: this
 		};
 	},
 
@@ -101,17 +102,18 @@ Zarafa.mail.ui.MailPreviewPanel = Ext.extend(Zarafa.core.ui.PreviewPanel, {
 	 * @return {Object} Configuration object of replyall button for the panel toolbar
 	 * @private
 	 */
-	createReplyAllButton : function()
+	createReplyAllButton: function()
 	{
 		return {
 			xtype: 'button',
 			tooltip: _('Reply All') + ' (Ctrl + Alt + R)',
 			overflowText: _('Reply All'),
+			text: _('Reply All'),
 			iconCls: 'icon_reply_all',
 			ref: 'replyAllBtn',
 			responseMode: Zarafa.mail.data.ActionTypes.REPLYALL,
 			handler: this.onResponse,
-			scope : this
+			scope: this
 		};
 	},
 
@@ -121,17 +123,18 @@ Zarafa.mail.ui.MailPreviewPanel = Ext.extend(Zarafa.core.ui.PreviewPanel, {
 	 * @return {Object} Configuration object of forward button for the panel toolbar
 	 * @private
 	 */
-	createForwardButton : function()
+	createForwardButton: function()
 	{
 		return {
 			xtype: 'button',
 			tooltip: _('Forward') + ' (Ctrl + F)',
 			overflowText: _('Forward'),
+			text: _('Forward'),
 			iconCls: 'icon_forward',
 			ref: 'forwardBtn',
 			responseMode: Zarafa.mail.data.ActionTypes.FORWARD,
 			handler: this.onResponse,
-			scope : this
+			scope: this
 		};
 	},
 
@@ -140,7 +143,7 @@ Zarafa.mail.ui.MailPreviewPanel = Ext.extend(Zarafa.core.ui.PreviewPanel, {
 	 * @param {Ext.Button} button The button which was clicked
 	 * @private
 	 */
-	onResponse : function(button)
+	onResponse: function(button)
 	{
 		Zarafa.mail.Actions.openCreateMailResponseContent(this.record, this.model, button.responseMode);
 	}

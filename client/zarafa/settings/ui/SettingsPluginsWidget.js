@@ -13,25 +13,25 @@ Zarafa.settings.ui.SettingsPluginsWidget = Ext.extend(Zarafa.settings.ui.Setting
 	 * @constructor
 	 * @param {Object} config Configuration object
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		config = config || {};
 
 		var store = new Ext.data.ArrayStore({
-			fields : [{
-				'name' : 'name'
+			fields: [{
+				'name': 'name'
 			},{
-				'name' : 'display_name'
+				'name': 'display_name'
 			},{
-				'name' : 'version'
+				'name': 'version'
 			},{
-				'name' : 'enabled',
-				'type' : 'boolean'
+				'name': 'enabled',
+				'type': 'boolean'
 			},{
-				'name' : 'allow_disable',
-				'type' : 'boolean'
+				'name': 'allow_disable',
+				'type': 'boolean'
 			},{
-				'name' : 'settings_base'
+				'name': 'settings_base'
 			}]
 		});
 
@@ -49,12 +49,12 @@ Zarafa.settings.ui.SettingsPluginsWidget = Ext.extend(Zarafa.settings.ui.Setting
 				}
 
 				store.add(new Ext.data.Record({
-					'name' : plugin.getName(),
-					'display_name' : plugin.getDisplayName(),
-					'version' : versionInfo,
-					'enabled' : plugin.isEnabled(),
-					'allow_disable' : plugin.allowUserDisable,
-					'settings_base' : plugin.getSettingsBase()
+					'name': plugin.getName(),
+					'display_name': plugin.getDisplayName(),
+					'version': versionInfo,
+					'enabled': plugin.isEnabled(),
+					'allow_disable': plugin.allowUserDisable,
+					'settings_base': plugin.getSettingsBase()
 				}));
 			}
 		}
@@ -62,43 +62,38 @@ Zarafa.settings.ui.SettingsPluginsWidget = Ext.extend(Zarafa.settings.ui.Setting
 		store.sort('display_name', 'ASC');
 
 		var model = new Ext.grid.CheckboxSelectionModel({
-			checkOnly : true,
-			header : '&#160;',
-			renderer : this.onEnabledRenderer,
+			checkOnly: true,
+			header: '&#160;',
+			renderer: this.onEnabledRenderer,
 			// Disable grid traversal using key events because we are using grid selection to
 			// indicate plugin's enable/disable state, so that shouldn't be modified
 			// when traversing using up/down arrow keys
-			onKeyPress : Ext.emptyFn,
+			onKeyPress: Ext.emptyFn,
 			listeners: {
-				rowselect : this.onRowSelect,
-				rowdeselect : this.onRowDeselect,
+				rowselect: this.onRowSelect,
+				rowdeselect: this.onRowDeselect,
 				scope: this
 			}
 		});
 
 		Ext.applyIf(config, {
-			title : _('Available plugins'),
-			layout : 'fit',
-			items : [{
-				xtype : 'panel',
-				border : false,
-				cls : 'zarafa-settings-pluginavailable',
+			title: _('Available plugins'),
+			layout: 'fit',
+			cls: 'k-settings-pluginpanel',
+			items: [{
+				xtype: 'panel',
+				border: false,
+				cls: 'zarafa-settings-pluginavailable',
 				ref: 'pluginsPanel',
-				layout : {
-					type : 'vbox',
-					align : 'stretch',
-					pack  : 'start'
+				layout: {
+					type: 'vbox',
+					align: 'stretch',
+					pack: 'start'
 				},
-				items : [{
-					xtype : 'displayfield',
-					value : _('The following plugins are available in the WebApp. It is possible to select and/or deselect different plugins to indicate which plugins should be enabled. When any plugin is enabled or disabled, the WebApp must be reloaded in order for the changes to take effect.'),
-					fieldClass : 'zarafa-settings-widget-extrainfo',
-					ref : 'extrainfo',
-					height: 50
-				},{
+				items: [{
 					xtype: 'grid',
 					border: true,
-					flex : 1,
+					flex: 1,
 					enableHdMenu: false,
 					deferRowRender:false,
 					autoExpandColumn: 'display_name',
@@ -106,28 +101,28 @@ Zarafa.settings.ui.SettingsPluginsWidget = Ext.extend(Zarafa.settings.ui.Setting
 					ref: '../pluginsGrid',
 					viewConfig: {
 						forceFit: true,
-						emptyText : '<div class=\'emptytext\'>' + _('No plugins available') + '</div>'
+						emptyText: '<div class=\'emptytext\'>' + _('No plugins available') + '</div>'
 					},
 					store: store,
 					columns: [model, {
-						id : 'display_name',
-						header  : _('Display Name'),
+						id: 'display_name',
+						header: _('Display Name'),
 						dataIndex: 'display_name',
 						headerCls: 'k-unsortable',
 						sortable: false,
-						renderer : this.onDisplayNameRenderer
+						renderer: this.onDisplayNameRenderer
 					},{
-						id : 'display_name',
-						header  : _('Version'),
+						id: 'display_name',
+						header: _('Version'),
 						dataIndex: 'version',
 						headerCls: 'k-unsortable',
 						sortable: false
 					}],
 					selModel: model
 				}],
-				listeners : {
+				listeners: {
 					scope: this,
-					resize : this.onResizePluginsPanel
+					resize: this.onResizePluginsPanel
 				}
 			}]
 		});
@@ -137,21 +132,12 @@ Zarafa.settings.ui.SettingsPluginsWidget = Ext.extend(Zarafa.settings.ui.Setting
 	},
 
 	/**
-	 * Event handler for the resize event of the plugins panel. Will calculate the correct size of the
-	 * extrainfo textfield and trigger a layout refresh.
-	 * @param {Ext.panel} pluginsPanel The panel that contains the extrainfo textfield and the grid
+	 * Event handler for the resize event of the plugins panel and trigger a layout refresh.
+	 * @param {Ext.panel} pluginsPanel The panel that contains the grid
 	 * with the plugins.
 	 */
-	onResizePluginsPanel : function(pluginsPanel)
+	onResizePluginsPanel: function(pluginsPanel)
 	{
-		// First set the size of the extrainfo field to auto, so we can calculate the auto height
-		// and then set that height on the component specifically
-		var el = pluginsPanel.extrainfo.getEl();
-		el.setHeight('auto');
-		var height = el.getHeight();
-		pluginsPanel.extrainfo.setHeight(height);
-		pluginsPanel.extrainfo.height = height;
-
 		// Now trigger a layout refresh to have the grid rendered with the correct height
 		pluginsPanel.doLayout();
 	},
@@ -164,7 +150,7 @@ Zarafa.settings.ui.SettingsPluginsWidget = Ext.extend(Zarafa.settings.ui.Setting
 	 * @param {Ext.EventObject} eventObj object of the event.
 	 * @private
 	 */
-	onRowClick : function(grid, rowIndex, eventObj)
+	onRowClick: function(grid, rowIndex, eventObj)
 	{
 		grid.getView().focusRow(rowIndex);
 
@@ -192,7 +178,7 @@ Zarafa.settings.ui.SettingsPluginsWidget = Ext.extend(Zarafa.settings.ui.Setting
 	 * {@link Zarafa.settings.SettingsModel} into the UI of this category.
 	 * @param {Zarafa.settings.SettingsModel} settingsModel The settings to load
 	 */
-	update : function(settingsModel)
+	update: function(settingsModel)
 	{
 		this.model = settingsModel;
 		var selModel = this.pluginsGrid.getSelectionModel();
@@ -228,7 +214,7 @@ Zarafa.settings.ui.SettingsPluginsWidget = Ext.extend(Zarafa.settings.ui.Setting
 	 * This is used to update the settings from the UI into the {@link Zarafa.settings.SettingsModel settings model}.
 	 * @param {Zarafa.settings.SettingsModel} settingsModel The settings to update
 	 */
-	updateSettings : function(settingsModel)
+	updateSettings: function(settingsModel)
 	{
 		var store = this.pluginsGrid.getStore();
 
@@ -253,7 +239,7 @@ Zarafa.settings.ui.SettingsPluginsWidget = Ext.extend(Zarafa.settings.ui.Setting
 	 * @param {Ext.data.record} record The {Ext.data.Record} from which the data was extracted.
 	 * @return {String} The formatted string
 	 */
-	onDisplayNameRenderer : function(value, p, record)
+	onDisplayNameRenderer: function(value, p, record)
 	{
 		value = Ext.util.Format.htmlEncode(value);
 
@@ -261,7 +247,7 @@ Zarafa.settings.ui.SettingsPluginsWidget = Ext.extend(Zarafa.settings.ui.Setting
 			// Add CSS class that this plugin cannot be disabled
 			p.css += ' zarafa-settings-pluginavailable-fixed';
 			// Add message that this plugin cannot be disabled
-			if ( record.get('enabled') === true ){
+			if ( record.get('enabled') === true ) {
 				value += ' <span>' + _('This plugin cannot be disabled') + '</span>';
 			} else {
 				value += ' <span>' + _('This plugin cannot be enabled') + '</span>';
@@ -280,7 +266,7 @@ Zarafa.settings.ui.SettingsPluginsWidget = Ext.extend(Zarafa.settings.ui.Setting
 	 * @param {Ext.data.record} record The {Ext.data.Record} from which the data was extracted.
 	 * @return {String} The formatted string
 	 */
-	onEnabledRenderer : function(value, p, record)
+	onEnabledRenderer: function(value, p, record)
 	{
 		if (record.get('allow_disable')) {
 			return Ext.grid.CheckboxSelectionModel.prototype.renderer.apply(this, arguments);
@@ -300,7 +286,7 @@ Zarafa.settings.ui.SettingsPluginsWidget = Ext.extend(Zarafa.settings.ui.Setting
 	 * @param {Ext.data.Record} record The record which was selected
 	 * @private
 	 */
-	onRowSelect : function(model, index, record)
+	onRowSelect: function(model, index, record)
 	{
 		record.set('enabled', true);
 		this.model.set(record.get('settings_base') + '/enable', true);
@@ -316,7 +302,7 @@ Zarafa.settings.ui.SettingsPluginsWidget = Ext.extend(Zarafa.settings.ui.Setting
 	 * @param {Ext.data.Record} record The record which was selected
 	 * @private
 	 */
-	onRowDeselect : function(model, index, record)
+	onRowDeselect: function(model, index, record)
 	{
 		record.set('enabled', false);
 		this.model.set(record.get('settings_base') + '/enable', false);

@@ -1,0 +1,6606 @@
+# grommunio Web Icelandic (Iceland) translation.
+# Copyright (C) 2021
+msgid ""
+msgstr ""
+"Project-Id-Version: grommunio Web Icelandic (Iceland)\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-09-25 14:32+0200\n"
+"PO-Revision-Date: 2019-12-01 02:07+0000\n"
+"Last-Translator: import\n"
+"Language: is_IS\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 2.4\n"
+
+#. TRANSLATORS: This message is used as label for the column which indicates the week number of the month in date picker. and 'Wk' stands for week
+msgid "Wk"
+msgstr "Vk"
+
+msgid "Now"
+msgstr "Núna"
+
+msgid "Value must be between 0% to 100%"
+msgstr "Gildi þarf að vera milli 0% og 100%"
+
+msgid "Number must be higher than zero"
+msgstr "Tala þarf að vera hærri en núll"
+
+msgid "More options"
+msgstr "Fleiri möguleikar"
+
+msgid "{0} byte"
+msgid_plural "{0} bytes"
+msgstr[0] "{0} bæti"
+msgstr[1] "{0} bæti"
+
+msgid "{0} KB"
+msgid_plural "{0} KB"
+msgstr[0] "{0} KB"
+msgstr[1] "{0} KB"
+
+msgid "{0} MB"
+msgid_plural "{0} MB"
+msgstr[0] "{0} MB"
+msgstr[1] "{0} MB"
+
+msgid "{0} GB"
+msgid_plural "{0} GB"
+msgstr[0] "{0} GB"
+msgstr[1] "{0} GB"
+
+msgid "{0} TB"
+msgid_plural "{0} TB"
+msgstr[0] "{0} TB"
+msgstr[1] "{0} TB"
+
+msgid "{0} minute"
+msgid_plural "{0} minutes"
+msgstr[0] "{0} mínúta"
+msgstr[1] "{0} mínútur"
+
+msgid "{0} hour"
+msgid_plural "{0} hours"
+msgstr[0] "{0} klukkustund"
+msgstr[1] "{0} klukkustundir"
+
+msgid "{0} day"
+msgid_plural "{0} days"
+msgstr[0] "{0} dagur"
+msgstr[1] "{0} dagar"
+
+msgid "{0} week"
+msgid_plural "{0} weeks"
+msgstr[0] "{0} vika"
+msgstr[1] "{0} vikur"
+
+msgid "The quick brown fox jumps over the lazy dog"
+msgstr "Sjá, hyldýpi þjóðfélagsins vex úr kærkomnu böli í ást"
+
+msgid "Sunday"
+msgstr "Sunnudagur"
+
+msgid "Monday"
+msgstr "Mánudagur"
+
+msgid "Tuesday"
+msgstr "Þriðjudagur"
+
+msgid "Wednesday"
+msgstr "Miðvikudagur"
+
+msgid "Thursday"
+msgstr "Fimmtudagur"
+
+msgid "Friday"
+msgstr "Föstudagur"
+
+msgid "Saturday"
+msgstr "Laugardagur"
+
+msgid "Sun"
+msgstr "Sun"
+
+msgid "Mon"
+msgstr "Mán"
+
+msgid "Tue"
+msgstr "Þri"
+
+msgid "Wed"
+msgstr "Mið"
+
+msgid "Thu"
+msgstr "Fim"
+
+msgid "Fri"
+msgstr "Fös"
+
+msgid "Sat"
+msgstr "Lau"
+
+msgid "January"
+msgstr "Janúar"
+
+msgid "February"
+msgstr "Febrúar"
+
+msgid "March"
+msgstr "Mars"
+
+msgid "April"
+msgstr "Apríl"
+
+msgid "May"
+msgstr "Maí"
+
+msgid "June"
+msgstr "Júní"
+
+msgid "July"
+msgstr "Júlí"
+
+msgid "August"
+msgstr "Ágúst"
+
+msgid "September"
+msgstr "September"
+
+msgid "October"
+msgstr "Október"
+
+msgid "November"
+msgstr "Nóvember"
+
+msgid "December"
+msgstr "Desember"
+
+msgid "Page {A} of {0}"
+msgstr "Síða {A} af {0}"
+
+msgid "Displaying messages {0} - {1} of {2}"
+msgstr "Sýni skeyti {0} - {1} af {2}"
+
+msgid "No messages to display"
+msgstr "Engin skeyti til að sýna"
+
+msgid "First Page"
+msgstr "Fyrsta síða"
+
+msgid "Previous Page"
+msgstr "Fyrri síða"
+
+msgid "Next Page"
+msgstr "Næsta síða"
+
+msgid "Last Page"
+msgstr "Síðasta síða"
+
+msgid "Refresh"
+msgstr "Glæða"
+
+msgid "Today"
+msgstr "Í dag"
+
+msgid "OK"
+msgstr "OK"
+
+msgid "Cancel"
+msgstr "Hætta við"
+
+msgid "{0} (Spacebar)"
+msgstr "{0} (Bilslá)"
+
+msgid "This date is before the minimum date"
+msgstr "Þessi dagsetning er eldri en lágmarksdagsetning"
+
+msgid "This date is after the maximum date"
+msgstr "Þessi dagsetning er yngri en hámarksdagsetning"
+
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
+msgid "d/m/Y"
+msgstr "d/m/Y"
+
+msgid "Disabled"
+msgstr "Óvirkt"
+
+msgid "Next Month (Control+Right)"
+msgstr "Næsti mánuður (Ctrl+Hægri)"
+
+msgid "Previous Month (Control+Left)"
+msgstr "Fyrri mánuður (Ctrl+Vinstri)"
+
+msgid "Choose a month (Control+Up/Down to move years)"
+msgstr "Velja mánuð (Ctrl+Upp/Niður til að breyta árum)"
+
+msgid "Sort Ascending"
+msgstr "Stígandi röð"
+
+msgid "Sort Descending"
+msgstr "Fallandi röð"
+
+msgid "Columns"
+msgstr "Dálkar"
+
+msgid "Group By This Field"
+msgstr "Hópa saman eftir þessum reit"
+
+msgid "Show in Groups"
+msgstr "Sýna í hópum"
+
+msgid "(None)"
+msgstr "(Ekkert)"
+
+msgid "Ok"
+msgstr "Ok"
+
+msgid "Yes"
+msgstr "Já"
+
+msgid "No"
+msgstr "Nei"
+
+msgid "Loading"
+msgstr "Hleð"
+
+msgid "The value in this field is invalid"
+msgstr "Gildið í þessum reit er ógilt"
+
+msgid "The minimum length for this field is {0}"
+msgstr "Lágmarkslengd fyrir þennan reit er {0}"
+
+msgid "The maximum length for this field is {0}"
+msgstr "Hámarkslengd fyrir þennan reit er {0}"
+
+msgid "This field is required"
+msgstr "Nauðsynlegt að fylla í þennan reit"
+
+msgid "The minimum value for this field is {0}"
+msgstr "Lágmarksgildið fyrir þennan reit er {0}"
+
+msgid "The maximum value for this field is {0}"
+msgstr "Hámarksgildið fyrir þennan reit er {0}"
+
+msgid "{0} is not a valid number"
+msgstr "{0} er ekki gild tala"
+
+msgid "The date in this field must be equal to or after {0}"
+msgstr "Dagsetningin í þessum reit þarf að vera sú sama og eða síðari en {0}"
+
+msgid "The date in this field must be equal to or before {0}"
+msgstr "Dagsetningin í þessum reit þarf að vera sú sama og eða eldri en {0}"
+
+msgid "{0} is not a valid date - it must be in the format {1}"
+msgstr "{0} er ekki gild dagsetning - hún þarf að fylgja sniðinu {1}"
+
+msgid "You must select at least one item in this group"
+msgstr "Þú verður að velja að minnsta kosti eitt atriði í þessum hóp"
+
+msgid "You must select one item in this group"
+msgstr "Þú verður að velja eitt atriði í þessum hóp"
+
+msgid "The time in this field must be equal to or after {0}"
+msgstr "Tíminn í þessum reit verður að vera sá sami og eða síðari en {0}"
+
+msgid "The time in this field must be equal to or before {0}"
+msgstr "Tíminn í þessum reit verður að vera sá sami og eða fyrri en {0}"
+
+msgid "{0} is not a valid time"
+msgstr "{0} er ekki gildur tími"
+
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
+msgid "G:i"
+msgstr "G:i"
+
+msgid "Name"
+msgstr "Nafn"
+
+msgid "Value"
+msgstr "Gildi"
+
+msgid "true"
+msgstr "satt"
+
+msgid "false"
+msgstr "ósatt"
+
+msgid ""
+"This field should be an e-mail address in the format \"user@example.com\""
+msgstr ""
+"Þessi reitur ætti að innihalda tölvupóstfang á sniðinu \"notandi@lén.is\""
+
+msgid "This field should be a URL in the format \"{0}\""
+msgstr "Þessi reitur ætti að vera vefslóð á sniðinu \"{0}\""
+
+msgid "This field should only contain letters and _"
+msgstr "Þessi reitur ætti einungis að innihalda bókstafi og _"
+
+msgid "This field should only contain letters, numbers and _"
+msgstr "Þessi reitur ætti einungis að innihalda bókstafi, tölustafi og _"
+
+msgid "Email Addresses"
+msgstr "Tölvupóstföng"
+
+msgid "Email addresses"
+msgstr "Tölvupóstföng"
+
+msgid "Group details"
+msgstr "Nánari hópslýsing"
+
+msgid "General"
+msgstr "Almennt"
+
+msgid "Display Name"
+msgstr "Þekkjanlegt nafn"
+
+msgid "Alias"
+msgstr "Samnefni"
+
+msgid "Owner"
+msgstr "Eigandi"
+
+msgid "Notes"
+msgstr "Minnisatriði"
+
+msgid "Members"
+msgstr "Meðlimir"
+
+msgid "Email Address"
+msgstr "Tölvupóstfang"
+
+msgid "Account"
+msgstr "Notandaaðgangur"
+
+msgid "Member Of"
+msgstr "Meðlimur í"
+
+msgid "Group Membership"
+msgstr "Hópaskráning"
+
+msgid "Address Book"
+msgstr "Vistfangaskrá"
+
+msgid "User details"
+msgstr "Nánari notandalýsing"
+
+msgid "First name"
+msgstr ""
+
+msgid "Last name"
+msgstr ""
+
+msgid "Initials"
+msgstr ""
+
+msgid "Display"
+msgstr "Sýna"
+
+msgid "Addresses"
+msgstr "Heimilisföng"
+
+msgid "Address"
+msgstr "Vistfang"
+
+msgid "City"
+msgstr "Sveitarfélag"
+
+msgid "State"
+msgstr "Sýsla/Fylki"
+
+msgid "Zip Code"
+msgstr "Póstnúmer"
+
+msgid "Country"
+msgstr "Land"
+
+msgid "Professional"
+msgstr ""
+
+msgid "Title"
+msgstr "Titill"
+
+msgid "Company"
+msgstr "Fyrirtæki"
+
+msgid "Department"
+msgstr "Deild"
+
+msgid "Office"
+msgstr "Skrifstofa"
+
+msgid "Assistant"
+msgstr "Aðstoðarmanneskja"
+
+msgid "Phone"
+msgstr "Sími"
+
+msgid "Organization"
+msgstr "Skipulagsheild"
+
+msgid "Manager"
+msgstr "Stjórnandi"
+
+msgid "Direct reports"
+msgstr "Beinar skýrslur"
+
+msgid "Phone numbers"
+msgstr "Símanúmer"
+
+msgid "Business"
+msgstr "Viðskipti"
+
+msgid "Business2"
+msgstr "Viðskipti2"
+
+msgid "Fax"
+msgstr "Fax"
+
+msgid "Home"
+msgstr "Aðsetur"
+
+msgid "Home2"
+msgstr "Aðsetur2"
+
+msgid "Mobile"
+msgstr "Farsími"
+
+msgid "Pager"
+msgstr "Sendiboði"
+
+msgid "No user selected"
+msgstr "Enginn notandi valinn"
+
+msgid "You must select one or more users."
+msgstr "Þú verður að velja einn eða fleiri notendur."
+
+msgid "You must select a user."
+msgstr "Þú verður að velja notanda."
+
+msgid "Select"
+msgstr "Velja"
+
+msgid "Show Details"
+msgstr "Sýna nánari lýsingu"
+
+msgid "Copy contact"
+msgstr ""
+
+msgid "Copy contacts"
+msgstr ""
+
+msgid ""
+"Showing only the first {0} names. Use search to find more specific results."
+msgstr ""
+
+msgid "Use the search bar to get results"
+msgstr "Notaðu leitarslána til að fá niðurstöður"
+
+msgid "There are no items to show in this list"
+msgstr "Það eru engin atriði til að sýna í þessum lista"
+
+msgid "Show Names from the"
+msgstr "Sýna nöfn frá"
+
+msgid "Search..."
+msgstr "Leita..."
+
+msgid "Sort by: Icon"
+msgstr "Raða eftir teikni"
+
+msgid "Sort by: Name"
+msgstr "Raða eftir nafni"
+
+msgid "Sort by: Display Name"
+msgstr "Raða eftir þekkjanlegu nafni"
+
+msgid "File as"
+msgstr "Skrá sem"
+
+msgid "Sort by: File As"
+msgstr "Raða eftir skráðu sem"
+
+msgid "First Name"
+msgstr "Fornafn"
+
+msgid "Sort by: First Name"
+msgstr "Raða eftir fornafni"
+
+msgid "Last Name"
+msgstr "Eftirnafn"
+
+msgid "Sort by: Last Name"
+msgstr "Raða eftir eftirnafni"
+
+msgid "Sort by: Email Address"
+msgstr "Raða eftir tölvupóstfangi"
+
+msgid "Job Title"
+msgstr "Starfstitill"
+
+msgid "Sort by: Job Title"
+msgstr "Raða eftir starfstitli"
+
+msgid "Company Name"
+msgstr "Fyrirtæki"
+
+msgid "Sort by: Company Name"
+msgstr "Raða eftir nafni fyrirtækis"
+
+msgid "Sort by: Department"
+msgstr "Raða eftir deild"
+
+msgid "Office Phone"
+msgstr "Skrifstofusími"
+
+msgid "Sort by: Office Phone"
+msgstr "Raða eftir skrifstofusíma"
+
+msgid "Sort by: Mobile"
+msgstr "Raða eftir farsíma"
+
+msgid "Home Phone"
+msgstr "Heimasími"
+
+msgid "Sort by: Home Phone"
+msgstr "Raða eftir heimasíma"
+
+msgid "Sort by: Pager"
+msgstr "Raða eftir sendiboða"
+
+msgid "Location"
+msgstr "Staðsetning"
+
+msgid "Sort by: Location"
+msgstr "Raða eftir staðsetningu"
+
+msgid "Sort by: Fax"
+msgstr "Raða eftir faxi"
+
+msgid "Print single item"
+msgstr ""
+
+msgid "Print selected item"
+msgstr "Prenta valið atriði"
+
+msgid "Print"
+msgstr "Prenta"
+
+msgid "No item selected"
+msgstr ""
+
+msgid "No preview"
+msgstr "Engin forsýn"
+
+msgid "Right preview"
+msgstr "Hægri forsýn"
+
+msgid "Bottom preview"
+msgstr "Neðanverð forsýn"
+
+msgid "Any date"
+msgstr "Hvaða dagsetning sem er"
+
+msgid "Past week"
+msgstr "Síðasta vika"
+
+msgid "Past 2 weeks"
+msgstr "Síðustu 2 vikur"
+
+msgid "Past month"
+msgstr "Síðasti mánuður"
+
+msgid "Past 6 month"
+msgstr "Síðustu 6 mánuðir"
+
+msgid "Past year"
+msgstr "Síðasta ár"
+
+msgid "Custom date"
+msgstr "Sérstök dagsetning"
+
+msgid "Add to favorites"
+msgstr "Bæta við í uppáhald"
+
+msgid "Add"
+msgstr "Bæta við"
+
+msgid "Empty folder name"
+msgstr "Tómt möppuheiti"
+
+msgid "You must specify a name."
+msgstr "Þú verður að tilgreina nafn."
+
+msgid "Add a folder to favorites based on your search query"
+msgstr "Bæta möppu við í uppáhald miðað við leitina þína"
+
+msgid "Folder name"
+msgstr "Möppuheiti"
+
+msgid "Select Category"
+msgstr "Velja flokk"
+
+msgid "Apply"
+msgstr "Nota"
+
+msgid "All folders are selected"
+msgstr "Allar möppur eru valdar"
+
+msgid "Reply"
+msgstr "Svara"
+
+msgid "Reply All"
+msgstr "Svara öllum"
+
+msgid "Forward"
+msgstr "Áframsenda"
+
+msgid "Edit as New"
+msgstr "Breyta sem nýjum"
+
+msgid "Search tools"
+msgstr "Leitartól"
+
+msgid "Folders"
+msgstr "Möppur"
+
+msgid "Include subfolders"
+msgstr "Taka undirmöppur með"
+
+msgid "Show.."
+msgstr "Sýna.."
+
+msgid "Mails"
+msgstr "Tölvupóstar"
+
+msgid "Appointments"
+msgstr "Tímabókanir"
+
+msgid "Contacts"
+msgstr "Tengiliðir"
+
+msgid "Tasks"
+msgstr "Verk"
+
+msgid "Filter.."
+msgstr "Sía.."
+
+msgid "Unread"
+msgstr "Ólesið"
+
+msgid "Attachments"
+msgstr "Viðhengi"
+
+msgid "Date"
+msgstr "Dagsetning"
+
+msgctxt "search.date"
+msgid "From"
+msgstr "Frá"
+
+msgctxt "search.date"
+msgid "To"
+msgstr "Til"
+
+msgid "Filter category.."
+msgstr "Sía flokka.."
+
+msgid "Search.."
+msgstr "Leita.."
+
+msgid "Sender"
+msgstr "Sendandi"
+
+msgid "Recipients"
+msgstr "Viðtakendur"
+
+msgid "Subject"
+msgstr "Málefni"
+
+msgid "Body & Attachments"
+msgstr "Innihald og viðhengi"
+
+msgid "Favorites"
+msgstr "Uppáhald"
+
+msgid "Add a folder to favorites based on this search query"
+msgstr "Bæta möppu við í uppáhald út frá þessari leit"
+
+msgid "Select Folder"
+msgstr "Velja möppu"
+
+msgid "Delete search folder"
+msgstr "Eyða leitarmöppu"
+
+msgid "Sort by: Date"
+msgstr "Raða eftir dagsetningu"
+
+msgid "Loading Search results"
+msgstr "Hleð leitarniðurstöðum"
+
+msgid "Sorting tip"
+msgstr "Röðunarábending"
+
+msgid ""
+"You can sort by date if you narrow down your search results. Enable filters "
+"or adjust your input."
+msgstr ""
+"Þú getur raðað eftir dagsetningu ef þú þrengir leitarniðurstöður. Virkjaðu "
+"síur eða lagfærðu leitarorðin."
+
+msgid "Did you mean"
+msgstr "Varstu að meina"
+
+msgid "With"
+msgstr "Með"
+
+msgid "To"
+msgstr "Til"
+
+msgid "No date"
+msgstr "Engin dagsetning"
+
+msgid "Error"
+msgstr "Villa"
+
+msgid ""
+"Could not accept proposal as this meeting is not available in calendar; It "
+"may have been moved or deleted."
+msgstr ""
+"Gat ekki samþykkt fundarboð þar sem fundurinn er ekki aðgengilegur í "
+"dagatali; Hann gæti hafa verið fluttur eða honum eytt."
+
+msgid ""
+"Could not view proposal as this meeting is not available in calendar; It may "
+"have been moved or deleted."
+msgstr ""
+"Gat ekki skoðað fundarboð þar sem fundurinn er ekki aðgengilegur í dagatali; "
+"Hann gæti hafa verið fluttur eða honum eytt."
+
+msgid "Required"
+msgstr "Nauðsynlegt"
+
+msgid "Optional"
+msgstr "Valkvætt"
+
+msgid "Resource"
+msgstr "Aðföng"
+
+msgid "Could not open store."
+msgstr "Gat ekki opnað geymslu."
+
+msgid "Could not open default calendar folder."
+msgstr "Gat ekki opnað sjálfgefna dagatalsmöppu."
+
+msgid "workday"
+msgstr "vinnudagur"
+
+msgid "day"
+msgstr "dagur"
+
+msgid "days"
+msgstr "dagar"
+
+msgid "week"
+msgstr "vika"
+
+msgid "weeks"
+msgstr "vikur"
+
+msgid " on "
+msgstr " á "
+
+msgid "month"
+msgstr "mánuður"
+
+msgid "months"
+msgstr "mánuðir"
+
+msgid "year"
+msgstr "ár"
+
+msgid "years"
+msgstr "ár"
+
+msgid "Occurs every {0} effective {1} from {2} to {3}."
+msgstr "Tíðni: 1 {0} með upphaf {1} frá {2} til {3}."
+
+msgid "Occurs every {0} {1} effective {2} from {3} to {4}."
+msgstr "Tíðni: {0} {1} með upphaf {2} frá {3} til {4}."
+
+msgid "Occurs every {0} effective {1}."
+msgstr "Tíðni: 1 {0} með upphaf {1}."
+
+msgid "Occurs every {0} {1} effective {2}."
+msgstr "Tíðni: {0} {1} með upphaf {2}."
+
+msgid "Occurs every {0} effective {1} for {2} occurrence from {3} to {4}."
+msgid_plural ""
+"Occurs every {0} effective {1} for {2} occurrences from {3} to {4}."
+msgstr[0] ""
+msgstr[1] ""
+
+msgid "Occurs every {0} {1} effective {2} for {3} occurrence from {4} to {5}."
+msgid_plural ""
+"Occurs every {0} {1} effective {2} for {3} occurrences {4} to {5}."
+msgstr[0] ""
+msgstr[1] ""
+
+msgid "Occurs every {0} effective {1} for {2} occurrence."
+msgid_plural "Occurs every {0} effective {1} for {2} occurrences."
+msgstr[0] ""
+msgstr[1] ""
+
+msgid "Occurs every {0} {1} effective {2} for {3} occurrence."
+msgid_plural "Occurs every {0} {1} effective {2} for {3} occurrences."
+msgstr[0] ""
+msgstr[1] ""
+
+msgid "Occurs every {0} effective {1} until {2} from {3} to {4}."
+msgstr "Tíðni: 1 {0} með upphaf {1} þar til {2} frá {3} til {4}."
+
+msgid "Occurs every {0} {1} effective {2} until {3} from {4} to {5}."
+msgstr "Tíðni: {0} {1} með upphaf {2} þar til {3} frá {4} til {5}."
+
+msgid "Occurs every {0} effective {1} until {2}."
+msgstr "Tíðni: 1 {0} með upphaf {1} þar til {2}."
+
+msgid "Occurs every {0} {1} effective {2} until {3}."
+msgstr "Tíðni: {0} {1} með upphaf {2} þar til {3}."
+
+msgid "When"
+msgstr "Hvenær"
+
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
+msgid "l jS F Y {0}"
+msgstr ""
+
+msgid "Where"
+msgstr "Hvar"
+
+msgid "New Meeting Time Proposed"
+msgstr "Nýr fundartími lagður til"
+
+msgid "and "
+msgstr "og "
+
+msgid "Sort by: Attachment"
+msgstr "Raða eftir viðhengi"
+
+msgid "Sort by: Recurring"
+msgstr "Raða eftir endurtekningu"
+
+msgid "Sort by: Subject"
+msgstr "Raða eftir málefni"
+
+msgid "Start Date"
+msgstr "Upphafsdagur"
+
+msgid "Sort by: Start Date"
+msgstr "Raða eftir upphafsdegi"
+
+msgid "End Date"
+msgstr "Lokadagur"
+
+msgid "Sort by: End Date"
+msgstr ""
+
+msgid "Organizer"
+msgstr "Skipuleggjandi"
+
+msgid "Required Attendee"
+msgstr "Nauðsynlegur þátttakandi"
+
+msgid "Optional Attendee"
+msgstr "Valkvæður þátttakandi"
+
+msgid "Show Time As"
+msgstr "Sýna tíma sem"
+
+msgid "Recurrence pattern"
+msgstr "Endurtekningarmynstur"
+
+msgid "All Day Event"
+msgstr "Heilsdagsatburður"
+
+msgid "Add Shared Calendar"
+msgstr "Bæta við deildu dagatali"
+
+msgid "Remove From Calendar"
+msgstr "Fjarlægja úr dagatali"
+
+msgid "No Response Required"
+msgstr "Ekki þörf á svari"
+
+msgid "Accept"
+msgstr "Samþykkja"
+
+msgid "Accept Meeting Request"
+msgstr "Samþykkja fundarboð"
+
+msgid "Tentative"
+msgstr "Mögulegt"
+
+msgid "Tentatively Accept Meeting Request"
+msgstr "Segja kannski við fundarboði"
+
+msgid "Decline"
+msgstr "Hafna"
+
+msgid "Decline Meeting Request"
+msgstr "Hafna fundarboði"
+
+msgid "Propose New Time"
+msgstr "Leggja til nýjan tíma"
+
+msgid "Propose New Time for Meeting Request"
+msgstr "Leggja til nýja tímasetningu fyrir fundinn"
+
+msgid "View All Proposals"
+msgstr "Skoða allar tillögur"
+
+msgid "Accept Proposal"
+msgstr "Samþykkja tillögu"
+
+msgid "Accept Proposed Time"
+msgstr "Samþykkja tillögu að tíma"
+
+msgid "View in calendar"
+msgstr "Skoða í dagatali"
+
+msgid "Day"
+msgstr "Dagur"
+
+msgid "Workweek"
+msgstr "Vinnuvika"
+
+msgid "Week"
+msgstr "Vika"
+
+msgid "Month"
+msgstr "Mánuður"
+
+msgid "List"
+msgstr "Listi"
+
+msgid "Appointment"
+msgstr "Tímabókun"
+
+msgid "Meeting request"
+msgstr "Fundarboð"
+
+msgid "Print selected appointment"
+msgstr "Prenta valda tímabókun"
+
+msgid "No appointment selected"
+msgstr "Engin tímabókun valin"
+
+msgid "Print overview"
+msgstr "Prenta yfirlit"
+
+msgid "Create Appointment"
+msgstr "Bóka tíma"
+
+msgid "Calendar"
+msgstr "Dagatal"
+
+msgid "Create in other calendar"
+msgstr "Búa til í öðru dagatali"
+
+msgid ""
+"The selected calendar has \"read-only\" permissions. Instead you can create "
+"an item in your own calendar."
+msgstr ""
+"Valið dagatal hefur einungis lesréttindi. Þú getur í staðinn búið til "
+"viðfangið í þínu eigin dagatali."
+
+msgid "What would you like?"
+msgstr "Hvað viltu?"
+
+msgid "Own calendar"
+msgstr "Eigið dagatal"
+
+msgid "F Y"
+msgstr "F Y"
+
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
+msgid "l"
+msgstr "l"
+
+msgid "All text fields"
+msgstr "Allir textareitir"
+
+msgid "Body"
+msgstr "Innihald"
+
+msgid "Subject or Sender"
+msgstr "Málefni eða sendandi"
+
+msgid "To or cc"
+msgstr "Til eða í afriti (cc)"
+
+msgid "Meeting"
+msgstr "Fundur"
+
+msgctxt "calendar.dialog"
+msgid "Resources have been planned"
+msgstr "Aðföngin eru frátekin"
+
+msgid "Send update"
+msgstr "Senda breytingu"
+
+msgid "Do you want to send an update to all recipients?"
+msgstr ""
+
+msgid "Send update to attendees"
+msgstr "Senda breytingu til þátttakenda"
+
+msgid ""
+"You have made changes to the list of attendees. What would you like to do?"
+msgstr ""
+
+msgid "Send updates to only added or deleted attendees."
+msgstr ""
+"Senda breytingu einungis til þátttakenda sem var bætt við eða fjarlægðir."
+
+msgid "Send updates to all attendees."
+msgstr "Senda breytingu til allra þátttakenda."
+
+msgid "Busy attendees"
+msgstr "Uppteknir þátttakendur"
+
+msgid "One or more attendees are busy. Are you sure to invite?"
+msgstr ""
+"Einn eða fleiri þátttakendur eru uppteknir. Ertu viss um að þú viljir bjóða "
+"þeim?"
+
+msgid "Scheduling"
+msgstr "Tímaáætlun"
+
+msgid "Tracking"
+msgstr "Eftirfylgni"
+
+msgctxt "calendar.dialog"
+msgid "Not all attendees could be resolved."
+msgstr "Ekki náðist að finna út úr öllum þátttakendum."
+
+msgctxt "calendar.dialog"
+msgid "{0} attendees accepted, {1} tentatively accepted, {2} declined."
+msgstr ""
+"Samþykkir þátttakendur: {0}. Mögulegir þátttakendur: {1}. Þátttakendur sem "
+"höfnuðu: {2}."
+
+msgctxt "calendar.dialog"
+msgid ""
+"{0} attendees proposed a new time for this meeting. Click the Scheduling tab "
+"for details."
+msgstr ""
+"{0} þátttakendur lögðu til nýjan tíma fyrir fundinn. Smelltu á "
+"Tímaáætlunarflipann fyrir nánari upplýsingar."
+
+msgctxt "calendar.dialog"
+msgid "You proposed a new time for this meeting on {0}"
+msgstr "Þú lagðir til nýjan tíma fyrir þennan fund: {0}"
+
+msgctxt "calendar.dialog"
+msgid "{0} proposed a new time for this meeting on {1}"
+msgstr "{0} lagði til nýjan tíma fyrir þennan fund: {1}"
+
+msgctxt "calendar.dialog"
+msgid "Accepted on {0}"
+msgstr "Samþykkti þann {0}"
+
+msgctxt "calendar.dialog"
+msgid "Accepted by {0} on {1}"
+msgstr "{0} samþykkti þann {1}"
+
+msgctxt "calendar.dialog"
+msgid "Tentatively Accepted on {0}"
+msgstr "Mögulegt samþykki þann {0}"
+
+msgctxt "calendar.dialog"
+msgid "Tentatively Accepted by {0} on {1}"
+msgstr "{0} samþykkti mögulega þann {1}"
+
+msgctxt "calendar.dialog"
+msgid "This appointment occurs in the past."
+msgstr "Þessi tímabókun átti sér stað í fortíðinni."
+
+msgctxt "calendar.dialog"
+msgid "Please respond."
+msgstr "Vinsamlegast svaraðu."
+
+msgctxt "calendar.dialog"
+msgid "No responses have been received for this meeting."
+msgstr "Engin svör hafa borist fyrir þennan fund."
+
+msgctxt "calendar.dialog"
+msgid "Meeting has been canceled."
+msgstr "Fundinum hefur verið aflýst."
+
+msgctxt "calendar.dialog"
+msgid "Invitations have not been sent for this meeting."
+msgstr "Fundarboð hafa ekki verið send fyrir þennan fund."
+
+msgctxt "calendar.dialog"
+msgid ""
+"Please note that any changes you make will be overwritten when this meeting "
+"request is updated by the organizer"
+msgstr ""
+"Vinsamlegast taktu eftir að allar breytingar sem þú gerir yfirskrifast þegar "
+"fundarboðið er uppfært af skipuleggjandanum"
+
+msgid "Create in"
+msgstr "Búa til í"
+
+msgid "Time"
+msgstr "Tími"
+
+msgid "until"
+msgstr "þar til"
+
+msgid "Recurrence"
+msgstr "Endurtekning"
+
+msgid "Reminder"
+msgstr "Áminning"
+
+msgid "Show as"
+msgstr "Sýna sem"
+
+msgid "Warning"
+msgstr "Viðvörun"
+
+msgid "Attachments cannot be modified for a single occurence"
+msgstr "Viðhengjum getur ekki verið breytt fyrir ákveðið skipti"
+
+msgid "Type your message here..."
+msgstr "Skrifaðu skilaboðin þín hér..."
+
+msgid "Update location"
+msgstr "Uppfæra staðsetningu"
+
+msgid ""
+"Do you want to update the location \"{0}\" with the new location \"{1}\"?"
+msgstr "Viltu uppfæra staðsetninguna \"{0}\" og nota í staðinn \"{1}\"?"
+
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
+msgid "jS F Y {0}"
+msgstr ""
+
+msgid "None"
+msgstr "Ekkert"
+
+msgid "Send"
+msgstr "Senda"
+
+msgid "Save"
+msgstr "Vista"
+
+msgid "Close"
+msgstr "Loka"
+
+msgid "Delete"
+msgstr "Eyða"
+
+msgid "Add attachment"
+msgstr "Bæta við viðhengi"
+
+msgid "Check names"
+msgstr "Athuga nöfn"
+
+msgid "Addressbook"
+msgstr ""
+
+msgid "Open addressbook"
+msgstr ""
+
+msgid "Invite attendees"
+msgstr "Bjóða þátttakendum"
+
+msgid "Cancel invitation"
+msgstr "Hætta við fundarboð"
+
+msgid "High priority"
+msgstr "Hár forgangur"
+
+msgid "Mark this appointment as high priority"
+msgstr "Merkja þessa tímabókun svo hún sé í háum forgangi"
+
+msgid "Low priority"
+msgstr "Lágur forgangur"
+
+msgid "Mark this appointment as low priority"
+msgstr "Merkja þessa tímabókun svo hún sé í lágum forgangi"
+
+msgid "Categories"
+msgstr "Flokkar"
+
+msgid "Open the categories dialog"
+msgstr "Opna flokkaglugga"
+
+msgid "Private"
+msgstr "Óopinbert"
+
+msgid "Mark this appointment as private"
+msgstr "Merkja þessa tímabókun sem óopinbera"
+
+msgid "Proposed Date and Time"
+msgstr "Leggja til dagsetningu og tíma"
+
+msgid "Duration"
+msgstr "Tímalengd"
+
+msgid "Proposed By"
+msgstr "Lagt til af"
+
+msgid "Current Meeting Time"
+msgstr "Núverandi fundartími"
+
+msgid "Show only working hours"
+msgstr "Sýna einungis vinnutíma"
+
+msgid "Start time"
+msgstr "Upphafstími"
+
+msgid "End time"
+msgstr "Lokatími"
+
+msgid "Comment"
+msgstr "Athugasemd"
+
+msgid "Send Meeting Request Cancellation"
+msgstr "Senda afboðun fundar"
+
+msgid ""
+"This meeting will be cancelled. Do you want to include comments with your "
+"cancellation?"
+msgstr ""
+"Þessi fundur verður afboðaður. Viltu láta fylgja texta með afboðuninni?"
+
+msgid "Edit the cancellation before Sending."
+msgstr "Breyta afboðuninni fyrir sendingu."
+
+msgid "Send the cancellation now."
+msgstr "Senda afboðunina núna."
+
+msgid "Send Meeting Request Confirmation"
+msgstr "Senda staðfestingu fundarboðs"
+
+msgid ""
+"This meeting will be accepted and moved to your calendar. Do you want to "
+"include comments with your response?"
+msgstr ""
+"Þessi fundur verður samþykktur og settur í dagatalið þitt. Viltu láta texta "
+"fylgja svarinu þínu?"
+
+msgid ""
+"This meeting will be tentatively accepted and moved to your calendar. Do you "
+"want to include comments with your response?"
+msgstr ""
+"Þessi fundur verður merktur sem mögulega samþykktur í dagatalinu þínu. Viltu "
+"láta texta fylgja svarinu þínu?"
+
+msgid ""
+"This meeting will be declined and moved to your Deleted Items folder. Do you "
+"want to include comments with your response?"
+msgstr ""
+"Þessum fundi verður hafnað og fundarboðið sett í ruslakörfuna. Viltu láta "
+"texta fylgja svarinu þínu?"
+
+msgid "Edit the response before sending"
+msgstr "Breyta svarinu áður en þú sendir það"
+
+msgid "Send the response now."
+msgstr "Senda svarið núna."
+
+msgid "Don't send a response."
+msgstr "Ekki senda svar."
+
+msgid "The following responses for this meeting have been received"
+msgstr "Eftirfarandi svör við þessum fundi hafa borist"
+
+msgid "Attendance"
+msgstr "Þátttaka"
+
+msgid "Response"
+msgstr "Svar"
+
+msgid "New appointment"
+msgstr "Ný tímabókun"
+
+msgid "Creating an item"
+msgstr "Búa til atriði"
+
+msgid "New meeting request"
+msgstr "Nýtt fundarboð"
+
+msgid "Switch calendar range back and forth"
+msgstr "Færa dagatalstímabil fram og til baka"
+
+msgid "Copy selected item"
+msgstr "Afrita valið atriði"
+
+msgid "Paste selected item"
+msgstr "Líma valið atriði"
+
+msgid "An overview of"
+msgstr ""
+
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
+msgid "Start"
+msgstr "Upphaf"
+
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
+msgid "End"
+msgstr "Lok"
+
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for formatting instructions
+msgid "Printed by"
+msgstr ""
+
+msgid "at"
+msgstr ""
+
+msgid "of"
+msgstr ""
+
+msgid "Location: "
+msgstr "Staðsetning: "
+
+msgid "j M {0}"
+msgstr ""
+
+msgid "l jS M Y {0}"
+msgstr ""
+
+msgid "All day: "
+msgstr ""
+
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for formatting instructions
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
+msgid "l jS F"
+msgstr "l jS F"
+
+msgid "Organiser"
+msgstr "Skipuleggjandi"
+
+msgid "Meeting status"
+msgstr "Mætingarlisti"
+
+msgid "Required Attendees"
+msgstr "Nauðsynlegir þátttakendur"
+
+msgid "Optional Attendees"
+msgstr "Valkvæðir þátttakendur"
+
+msgid "Resources"
+msgstr "Aðföng"
+
+msgid "Sensitivity"
+msgstr "Öryggi"
+
+msgid "Importance"
+msgstr "Mikilvægi"
+
+msgid "M j"
+msgstr "M j"
+
+msgid "j"
+msgstr "j"
+
+msgid "General calendar settings"
+msgstr "Almennar dagatalsstillingar"
+
+msgid "First day of the week"
+msgstr "Fyrsti dagur vikunnar"
+
+msgid "Start of workday"
+msgstr "Upphaf vinnudags"
+
+msgid "End of workday"
+msgstr "Lok vinnudags"
+
+msgid "Calendar resolution"
+msgstr "Nákvæmni dagatals"
+
+msgid "Default appointment duration {A} minutes"
+msgstr "Sjálfgefin lengd tímabókana: {A} mínútur"
+
+msgid "Duration must be between 1 and 120 minutes."
+msgstr "Tímalengd verður að vera milli 1 og 120 mínútur."
+
+msgid "Default status for all day appointment"
+msgstr ""
+
+msgid "Working days"
+msgstr "Vinnudagar"
+
+msgid "Show busy dates as bold in the date picker"
+msgstr "Sýna bókaða daga með feitletrun í dagsetningarvali"
+
+msgid ""
+"Free/Busy information is used by people sending meeting requests, to "
+"determine when you are available for meetings."
+msgstr ""
+"Upplýsingar um laust/bókað er notað af fólki sem sendir fundarboð til að sjá "
+"hvort þú sért laus á fundartímanum."
+
+msgid "Free/Busy publishing"
+msgstr "Birting laust/bókað"
+
+msgid "Publish {A} month(s) of Calendar Free/Busy information on the server."
+msgstr "Birta {0} mánuð(i) af upplýsingum um laust/bókað á netþjóninum."
+
+msgid ""
+"You can only publish a Free/Busy period from 0 to 36 months. 0 means Free/"
+"Busy information is not published."
+msgstr ""
+"Þú getur aðeins birt laust/bókað tímabil frá 0 og upp í 36 mánuði. 0 þýðir "
+"að upplýsingarnar eru ekki birtar."
+
+msgid "Side-by-side mode"
+msgstr "Hlið við hlið"
+
+msgid "Overlay mode"
+msgstr "Með yfirlögn"
+
+msgid "Calendar view settings"
+msgstr "Stillingar dagatalssýnar"
+
+msgid "View multiple calendars in"
+msgstr "Skoða mörg dagatöl"
+
+msgid "Reminder settings"
+msgstr "Áminningarstillingar"
+
+msgid "Enable reminder for new appointments"
+msgstr "Virkja áminningar fyrir nýjar tímabókanir"
+
+msgid "Default reminder time"
+msgstr "Sjálfgefinn tími áminninga"
+
+msgid "Default all-day appointment reminder time"
+msgstr "Sjálfgefinn tími áminninga heilsdagsbókana"
+
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
+msgid "jS"
+msgstr "jS"
+
+msgid "{0} selected item"
+msgid_plural "{0} selected items"
+msgstr[0] "{0} valið atriði"
+msgstr[1] "{0} valin atriði"
+
+msgid "New Appointment"
+msgstr "Ný tímabókun"
+
+msgid "New Meeting Request"
+msgstr "Nýtt fundarboð"
+
+msgid "Open"
+msgstr "Opið"
+
+msgid "Copy/Move"
+msgstr "Afrita/Færa"
+
+msgid "Send to..."
+msgstr "Senda til..."
+
+msgid "Export as"
+msgstr "Flytja út sem"
+
+msgid "Occurrence"
+msgstr "Tilvik"
+
+msgid "Series"
+msgstr "Fundaröð"
+
+msgid "Appointment not found"
+msgstr "Tímabókun fannst ekki"
+
+msgid "This appointment has been moved or deleted, do you want to continue?"
+msgstr "Þessi tímabókun hefur verið færð eða henni eytt, viltu halda áfram?"
+
+msgid "All Day"
+msgstr "Heill dagur"
+
+msgid "Sort by: All Day"
+msgstr "Raða eftir heilsdagsviðburðum"
+
+msgid "Icon"
+msgstr "Teikn"
+
+msgid "Recurring"
+msgstr "Endurtekning"
+
+msgid "Sort by: Duration"
+msgstr "Raða eftir tímalengd"
+
+msgid "Meeting Status"
+msgstr "Fundarstaða"
+
+msgid "Sort by: Meeting Status"
+msgstr "Raða eftir fundarstöðu"
+
+msgid "Sort by: Show as"
+msgstr "Raða eftir hvernig sýnt"
+
+msgid "Sort by: Categories"
+msgstr "Raða eftir flokkum"
+
+msgid "Created On"
+msgstr "Sköpunardagsetning"
+
+msgid "Sort by: Created On"
+msgstr "Raða eftir sköpunardagsetningu"
+
+msgid "Due By"
+msgstr "Lokadagsetning"
+
+msgid "Sort by: Due By"
+msgstr "Raða eftir lokadagsetningu"
+
+msgid "Label"
+msgstr "Merki"
+
+msgid "Sort by: Label"
+msgstr "Raða eftir merki"
+
+msgid "Sort by: Organizer"
+msgstr "Raða eftir skipuleggjanda"
+
+msgid "Sort by: Required Attendee"
+msgstr "Raða eftir nauðsynlegum þátttakanda"
+
+msgid "Sort by: Optional Attendee"
+msgstr "Raða eftir valkvæðum þátttakanda"
+
+msgid "Sort by: Resources"
+msgstr "Raða eftir aðföngum"
+
+msgid "Recurring Start Date"
+msgstr ""
+
+msgid "Sort by: Recurring Start Date"
+msgstr ""
+
+msgid "Recurring End Date"
+msgstr ""
+
+msgid "Sort by: Recurring End Date"
+msgstr ""
+
+msgid "Recurring Pattern"
+msgstr "Endurtekningarmynstur"
+
+msgid "Sort by: Recurring Pattern"
+msgstr "Raða eftir endurtekningarmynstri"
+
+msgid "Sort by: Reminder"
+msgstr "Raða eftir ámminingu"
+
+msgid "Sort by: Sensitivity"
+msgstr "Raða eftir öryggi"
+
+msgid "Loading appointments"
+msgstr "Hleð tímabókunum"
+
+msgid "Attendees"
+msgstr ""
+
+msgid "Optional attendees"
+msgstr ""
+
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
+msgid "jS F {0}"
+msgstr ""
+
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
+msgid "jS F Y"
+msgstr "jS F Y"
+
+msgid ""
+"You have insufficient privileges to move and copy this item. Ask the folder "
+"owner to grant you permissions or contact your system administrator."
+msgstr ""
+"Þú hefur ekki nægar heimildir til að færa og afrita þetta atriði. Þú getur "
+"beðið eigandann um réttindin eða haft samband við kerfisstjórn."
+
+msgid ""
+"You have insufficient privileges to copy this item. Ask the folder owner to "
+"grant you permissions or contact your system administrator."
+msgstr ""
+"Þú hefur ekki nægar heimildir til að afrita þetta atriði. Þú getur beðið "
+"eigandann um réttindin eða haft samband við kerfisstjórn."
+
+msgid "Insufficient privileges"
+msgstr "Ónæg réttindi"
+
+msgid ""
+"Copying this appointment will unset it as private. Are you sure you want to "
+"continue?"
+msgstr ""
+
+msgid "Private item"
+msgstr ""
+
+msgid "Copy"
+msgstr "Afrita"
+
+msgid ""
+"Moving this appointment will unset it as private. Are you sure you want to "
+"continue?"
+msgstr ""
+
+msgid "Move"
+msgstr "Færa"
+
+msgid "Update recipients"
+msgstr "Uppfæra viðtakendur"
+
+msgid "The time of the meeting has changed. What would you like to do?"
+msgstr ""
+
+msgid "Save changes and send an update to all recipients"
+msgstr "Vista breytingar og senda uppfærslu til allra viðtakenda"
+
+msgid "Open meeting request with changes"
+msgstr "Opna fundarboð með breytingum"
+
+msgid "grommunio Web"
+msgstr "grommunio vefviðmót"
+
+msgid ""
+"Please note that any changes you make will be overwritten when this meeting "
+"request is updated by the organizer. Would you like to move this meeting?"
+msgstr ""
+"Vinsamlegast athugið að breytingar sem þú gerir verða yfirskrifaðar þegar "
+"fundarboðið er uppfært af skipuleggjanda. Viltu færa þennan fund?"
+
+msgid "Don't move"
+msgstr "Ekki færa"
+
+msgid "Switch to day view to see all appointments"
+msgstr "Breyta dagasýn til að sjá allar tímabókanir"
+
+#. TRANSLATORS: This message is used as label for the field which to indicates to whom the given mail was sent.
+msgctxt "mail.previewpanel"
+msgid "Proposed"
+msgstr "Tillaga"
+
+#. TRANSLATORS: This message is used as label for the field which to indicates to whom the given mail was sent
+msgctxt "mail.previewpanel"
+msgid "When"
+msgstr "Hvenær"
+
+#. TRANSLATORS: This message is used as label for the field which to indicates to whom the given mail was sent
+msgctxt "mail.previewpanel"
+msgid "Location"
+msgstr "Staðsetning"
+
+msgid "No additional response required"
+msgstr "Ekki þörf á fleiri svörum"
+
+msgid ""
+"Your calendar has been updated automatically. This meeting request will now "
+"be deleted."
+msgstr ""
+"Dagatalið þitt hefur sjálfvirkt verið uppfært. Þessu fundarboði verður núna "
+"eytt."
+
+msgid "Loading appointments..."
+msgstr "Hleð tímabókunum..."
+
+msgid "Please select a calendar via widget settings"
+msgstr ""
+
+msgid "Number of days"
+msgstr "Fjöldi daga"
+
+msgid "day(s)"
+msgstr "dagur(dagar)"
+
+msgid "{0}"
+msgstr ""
+
+msgid "Upcoming Appointments"
+msgstr "Næstu tímabókanir"
+
+msgid "Appointments of {0}"
+msgstr ""
+
+msgid "Appointments of {0} - {1}"
+msgstr ""
+
+msgid "No appointments"
+msgstr "Engar tímabókanir"
+
+msgid "Today {0} - {1}"
+msgstr "Í dag {0} - {1}"
+
+msgid "Today (all day)"
+msgstr "Í dag (heill dagur)"
+
+#. TRANSLATORS: Display name of a folder: "FOLDERNAME - STORENAME".
+#. TRANSLATORS: Displayed on top of a tree with folders: "FOLDERNAME - USERNAME".
+msgid "{0} - {1}"
+msgstr "{0} - {1}"
+
+msgid "d/m/y {0}"
+msgstr ""
+
+msgid "{0} - {1} (all day)"
+msgstr "{0} - {1} (heill dagur)"
+
+msgid "d/m/y"
+msgstr "d/m/y"
+
+msgid "Select one..."
+msgstr "Veldu eitt..."
+
+msgid "Unnamed folder"
+msgstr "Mappa án titils"
+
+msgid "Discard"
+msgstr "Henda"
+
+msgid "Quick Appointment"
+msgstr "Skyndibókun"
+
+msgid "Printing of multiple items has not been implemented."
+msgstr "Útprentun fjölda atriða er ekki studd í augnablikinu."
+
+msgid "Printing of this item is not yet available"
+msgstr "Útprentun þessa atriðis er ekki möguleg"
+
+msgid "Item type: "
+msgstr "Gerð atriðis: "
+
+msgid "Printing of this view is not yet available"
+msgstr "Útprentun á þessari sýn er ekki möguleg"
+
+msgid "Recurring Message"
+msgstr "Endurtekin skilaboð"
+
+msgid ""
+"This is a recurring message. Do you want to open only this occurrence or the "
+"series?"
+msgstr ""
+"Þetta eru endurtekin skilaboð. Viltu opna aðeins þetta tilvik eða alla "
+"tímaröðina?"
+
+msgid "Recurring Appointment"
+msgstr "Endurtekin tímabókun"
+
+msgid ""
+"This is a recurring appointment. Do you want to open only this occurrence or "
+"the series?"
+msgstr ""
+"Þetta er endurtekin tímabókun. Viltu opna aðeins þetta tilvik eða alla "
+"tímaröðina?"
+
+msgid "Recurring Meeting Request"
+msgstr "Endurtekið fundarboð"
+
+msgid ""
+"This is a recurring meeting request. Do you want to open only this "
+"occurrence or the series?"
+msgstr ""
+"Þetta er endurtekið fundarboð. Viltu opna aðeins þetta tilvik eða alla "
+"tímaröðina?"
+
+msgid "Recurring Task Request"
+msgstr "Endurtekið verk"
+
+msgid ""
+"This is a recurring task request. Do you want to open only this occurrence "
+"or the series?"
+msgstr ""
+"Þetta er endurtekið verk. Viltu opna aðeins þetta tilvik eða alla tímaröðina?"
+
+msgid "Open this occurrence"
+msgstr "Opna þetta tilvik"
+
+msgid "Open the series"
+msgstr "Opna tímaröðina"
+
+msgid "Paste Recurring {0}"
+msgstr "Líma endurtekningu {0}"
+
+msgid ""
+"This is a recurring {0}. Do you want to paste only this occurrence or the "
+"series?"
+msgstr ""
+"Endurtekning fyrir: {0}. Viltu líma aðeins þetta tilvik eða alla tímaröðina?"
+
+msgid "message"
+msgstr "skilaboð"
+
+msgid "meeting request"
+msgstr "fundarboð"
+
+msgid "appointment"
+msgstr "tímabókun"
+
+msgid "Paste this occurrence only"
+msgstr "Líma eingöngu þetta tilvik"
+
+msgid "Paste the series..."
+msgstr "Líma tímaröð..."
+
+msgid ""
+"This is a recurring message. Do you want to delete only this occurrence or "
+"the series?"
+msgstr ""
+"Þetta eru endurtekin skilaboð. Viltu eyða aðeins þessu tilviki eða allri "
+"tímaröðinni?"
+
+msgid ""
+"This is a recurring appointment. Do you want to delete only this occurrence "
+"or the series?"
+msgstr ""
+"Þetta er endurtekin tímabókun. Viltu eyða aðeins þessu tilviki eða allri "
+"tímaröðinni?"
+
+msgid ""
+"This is a recurring meeting request. Do you want to delete only this "
+"occurrence or the series?"
+msgstr ""
+"Þetta er endurtekið fundarboð. Viltu eyða aðeins þessu tilviki eða allri "
+"tímaröðinni?"
+
+msgid ""
+"This is a recurring task request. Do you want to delete only this occurrence "
+"or the series?"
+msgstr ""
+"Þetta er endurtekið verk. Viltu eyða aðeins þessu tilviki eða allri "
+"tímaröðinni?"
+
+msgid "Delete this occurrence"
+msgstr "Eyða þessu tilviki"
+
+msgid "Delete the series"
+msgstr "Eyða tímaröðinni"
+
+msgid "Confirm Delete"
+msgstr "Staðfesta eyðingu"
+
+msgid "This \"{0}\" meeting was already accepted."
+msgstr "Þetta \"{0}\" fundarboð hefur nú þegar verið samþykkt."
+
+msgid "You have not responded to the meeting request \"{0}\"."
+msgstr "Þú hefur ekki svarað fundarboði \"{0}\"."
+
+msgid "Delete and send a response to the meeting organizer"
+msgstr "Eyða og senda svar til skipuleggjanda fundarins"
+
+msgid "Delete without sending"
+msgstr "Eyða án þess að senda"
+
+msgid "Insufficient permissions"
+msgstr "Ónæg réttindi"
+
+msgid "You have insufficient privileges to delete items in this folder."
+msgstr ""
+
+msgid "Notify recipients"
+msgstr "Láta viðtakendur vita"
+
+msgid ""
+"A cancellation message will be sent to all recipients, do you wish to "
+"continue?"
+msgstr ""
+"Skilaboð um að hætt sé við verða send til allra viðtakenda, viltu halda "
+"áfram?"
+
+msgid "Delete Incomplete Task"
+msgstr "Eyða ókláruðu verki"
+
+msgid "The task \"{0}\" has not been completed. What do you want to do?"
+msgstr "Verkið \"{0}\" er óklárað. Hvað viltu gera?"
+
+msgid "Decline and delete"
+msgstr "Hafna og eyða"
+
+msgid "Mark complete and delete"
+msgstr "Merkja sem klárað og eyða"
+
+msgid "Following recipients are already exists"
+msgstr "Eftirfarandi viðtakendur eru nú þegar til"
+
+msgid "Duplicate recipients"
+msgstr "Fjölfalda viðtakendur"
+
+msgid "Duplicate recipient"
+msgstr "Fjölfalda viðtakanda"
+
+msgid "Recipient already exists."
+msgstr "Viðtakandi er þegar til."
+
+msgid "Notify sender"
+msgstr "Láta sendanda vita"
+
+msgid ""
+"The sender of this email has requested a read receipt. Do you wish to notify "
+"the sender?"
+msgstr ""
+"Sendandi þessa tölvupósts óskar eftir leskvittun. Viltu láta sendandann vita?"
+
+msgid "Import"
+msgstr "Lesa inn"
+
+msgid "Successfully imported item(s) to {0}"
+msgstr "Tókst að lesa inn í: {0}"
+
+msgid "Failed to import item(s) to {0}"
+msgstr "Mistókst að lesa inn í: {0}"
+
+msgid "Import error"
+msgstr "Innlestrarvilla"
+
+msgid "Unable to import \"{0}\". The file is not valid"
+msgstr "Tókst ekki að lesa inn \"{0}\". Þessi skrá er ekki gild"
+
+msgid ""
+"You have insufficient privileges to move these items. Would you like to copy "
+"instead?"
+msgstr ""
+"Þú hefur ekki nægar heimildir til að færa þessi atriði. Viltu frekar afrita "
+"þau?"
+
+msgid ""
+"You have insufficient privileges to move this item. Would you like to copy "
+"instead?"
+msgstr ""
+"Þú hefur ekki nægar heimildir til að færa þetta atriði. Viltu frekar afrita "
+"það?"
+
+msgid "Cc"
+msgstr "Afrit"
+
+msgid "Bcc"
+msgstr "Dulið afrit"
+
+msgid "From"
+msgstr "Frá"
+
+msgid "Insert item"
+msgstr "Setja inn"
+
+msgid "Insert as"
+msgstr "Setja inn sem"
+
+msgid "Text only"
+msgstr "Eingöngu texta"
+
+msgid "Attachment"
+msgstr "Viðhengi"
+
+msgid "Attach Item"
+msgstr "Hengja við"
+
+msgid "No message selected"
+msgstr "Engin skilaboð valin"
+
+msgid "Import to"
+msgstr "Lesa inn í"
+
+msgid "New folder"
+msgstr "Ný mappa"
+
+msgid "Download as ZIP"
+msgstr "Hlaða niður sem ZIP skrá"
+
+msgid "Continue"
+msgstr "Halda áfram"
+
+msgid ""
+"These attachments have an unsupported file type and can not be added to the "
+"ZIP file:"
+msgstr ""
+"Skráarsnið þessara viðhengja eru ekki studd og þeim getur ekki verið bætt í "
+"ZIP skrána:"
+
+msgid "Would you like to continue downloading without adding these files?"
+msgstr "Viltu halda áfram að hlaða niður án þess að bæta við þessum skrám?"
+
+msgid ""
+"Always continue download of ZIP files without adding unsupported file types."
+msgstr ""
+"Alltaf halda áfram að hlaða niður ZIP skrám án þess að bæta við óstuddum "
+"skráarsniðum."
+
+msgid "File upload"
+msgstr "Skráarupphal"
+
+msgid "Attach item"
+msgstr "Hengja við"
+
+msgid "Preview"
+msgstr "Forsýn"
+
+msgid "Download"
+msgstr "Niðurhal"
+
+msgid "Download all as ZIP"
+msgstr "Hala öllu niður sem ZIP skrá"
+
+msgid "Import to folder"
+msgstr "Lesa inn í möppu"
+
+msgid ""
+"In order to use the vCard import feature, upgrade your Gromox to version 0 "
+"or higher."
+msgstr ""
+
+msgid ""
+"In order to use the ICS / VCS import feature, upgrade your Gromox to version "
+"0 or higher."
+msgstr ""
+
+msgid "Attachment error"
+msgstr "Viðhengisvilla"
+
+msgid "Cannot create ZIP, The allowed maximum size is 30 MB."
+msgstr "Gat ekki búið til ZIP skrá. Skráarstærð takmarkast við 30MB."
+
+msgid "Unable to download"
+msgstr "Gat ekki halað niður"
+
+msgid "Picture format is not supported. "
+msgstr "Myndasnið er ekki stutt. "
+
+msgid "Supported format for contact pictures are"
+msgstr "Studd snið fyrir tengiliðamyndir eru"
+
+msgid "Attachment Error"
+msgstr "Viðhengisvilla"
+
+msgid "Manage Categories"
+msgstr "Umsjón flokka"
+
+msgid "New"
+msgstr "Búa til"
+
+msgid "Delete Category"
+msgstr "Eyða flokki"
+
+msgid ""
+"Are you sure you want to delete the category \"{0}\"? Other items keep this "
+"category, but lose the assigned color."
+msgstr ""
+
+msgid "Rename Category"
+msgstr "Endurnefna flokk"
+
+msgid "A category named \""
+msgstr "Flokkur sem heitir \""
+
+msgid "Create New Category"
+msgstr "Búa til nýjan flokk"
+
+msgid "Pin to quick access"
+msgstr "Festa sem flýtileið"
+
+msgid "Create"
+msgstr "Búa til"
+
+msgid ""
+"You must apply the changes you have made to the categories before you can "
+"create this category."
+msgstr ""
+"Þú verður fyrst að virkja breytingarnar sem þú hefur gert á flokkum áður en "
+"þú getur búið til þennan flokk."
+
+msgid "You already have a category named '{0}'. Please use another name."
+msgstr ""
+"Þú ert nú þegar með flokk sem heitir '{0}'. Vinsamlegast veldu annað nafn."
+
+msgid ""
+"You already have a category named '{0}' in your pending changes. Please use "
+"another name."
+msgstr ""
+"Þú ert nú þegar með flokk sem heitir '{0}' í óvirkjuðum breytingum. "
+"Vinsamlegast veldu annað nafn."
+
+msgid "Rename"
+msgstr "Endurnefna"
+
+msgid "This is the first time you have used \"{0}\" category."
+msgstr "Þetta er í fyrsta skiptið sem þú hefur notað flokkinn \"{0}\"."
+
+msgid "Do you want to rename it?"
+msgstr "Viltu endurnefna?"
+
+msgid ""
+"The category \"{0}\" already exists. Do you want to merge the \"{1}\" and "
+"\"{2}\" categories?"
+msgstr ""
+"Flokkurinn \"{0}\" er nú þegar til. Viltu sameina flokkana \"{1}\" og "
+"\"{2}\"?"
+
+msgid "Merge"
+msgstr "Sameina"
+
+msgid "Remove"
+msgstr "Fjarlægja"
+
+msgid "Check Names"
+msgstr "Athuga nöfn"
+
+msgid "Select an address to use"
+msgstr "Veldu viðfang til að nota"
+
+msgid "Email"
+msgstr "Tölvupóstur"
+
+msgid "More than one '{0}' found."
+msgstr "Fleiri en eitt stykki fannst af: '{0}'."
+
+msgid "Alert"
+msgstr "Viðvörun"
+
+msgid "Please select a recipient"
+msgstr "Vinsamlegast veldu viðtakanda"
+
+msgid "Mail and Post"
+msgstr "Tölvupóstur og sending"
+
+msgid "Contact"
+msgstr "Tengiliður"
+
+msgid "Journal"
+msgstr "Dagbók"
+
+msgid "Note"
+msgstr "Athugasemd"
+
+msgid "Task"
+msgstr "Verk"
+
+msgid "Inbox"
+msgstr "Innhólf"
+
+msgid "Entire Inbox"
+msgstr "Allt innhólfið"
+
+msgid "Secretary"
+msgstr "Ritari"
+
+msgid "Only read"
+msgstr "Aðeins lesaðgangur"
+
+msgid "Delegate Permissions"
+msgstr "Útdeila réttindum"
+
+msgid "This delegate has the following permissions"
+msgstr "Þessi rétthafi hefur eftirfarandi réttindi"
+
+msgid "Delegate can see my private items."
+msgstr "Rétthafi getur séð einkaupplýsingar."
+
+msgid "Delegate receives copies of meeting-related messages sent to me."
+msgstr ""
+"Rétthafi fær afrit af öllum fundartengdum skilaboðum sem eru send til mín."
+
+msgid "Other"
+msgstr "Annað"
+
+msgid "No delegates configured"
+msgstr "Engir rétthafar uppsettir"
+
+msgid "Loading delegates"
+msgstr "Hleð rétthöfum"
+
+msgid "Please select a delegate."
+msgstr "Vinsamlegast veldu rétthafa."
+
+msgid "Delegates can send items on your behalf."
+msgstr "Rétthafar geta sent fyrir þína hönd."
+
+msgid ""
+"If you only want to set folder permissions, right-click on a folder to open "
+"the context menu and click on \"Share Folder...\""
+msgstr ""
+"Ef þú vilt aðeins stilla möppuréttindi, hægri smelltu á möppu til að opna "
+"samhengisháða vlmynd og smelltu á \"Deila möppu...\""
+
+msgid "Permission"
+msgstr "Réttindi"
+
+msgid "Duplicate delegate"
+msgstr "Fjölfalda rétthafa"
+
+msgid "Delegate already exists in the list."
+msgstr "Rétthafinn er nú þegar á listanum."
+
+msgid "Copy/Move Folder"
+msgstr "Afrita/færa möppu"
+
+msgid "Copy/Move Messages"
+msgstr "Afrita/færa skilaboð"
+
+msgid "Destination folder"
+msgstr "Móttökumappa"
+
+msgid "There is {0} message selected."
+msgid_plural "There are {0} messages selected."
+msgstr[0] "Það eru {0} skilaboð valin."
+msgstr[1] "Það eru {0} skilaboð valin."
+
+msgid "Folder '{0}' selected."
+msgstr "Mappa '{0}' valin."
+
+msgid ""
+"You have insufficient privileges to move this folder. Ask the folder owner "
+"to grant you permissions or contact your system administrator."
+msgstr ""
+"Þú hefur ekki nægar heimildir til að færa þessa möppu. Þú getur beðið "
+"eigandann um réttindin eða haft samband við kerfisstjórn."
+
+msgid ""
+"You have insufficient privileges to copy this folder. Ask the folder owner "
+"to grant you permissions or contact your system administrator."
+msgstr ""
+"Þú hefur ekki nægar heimildir til að afrita þessa möppu. Þú getur beðið "
+"eigandann um réttindin eða haft samband við kerfisstjórn."
+
+msgid "You have insufficient privileges to move following items."
+msgstr "Þú hefur ekki nægar heimildir til að færa eftirfarandi atriði."
+
+msgid "Subject:"
+msgstr "Málefni:"
+
+msgid "Would you like to copy instead?"
+msgstr "VIltu frkear afrita?"
+
+msgid "Do not show this message again."
+msgstr "Ekki sýna þessi skilaboð aftur."
+
+msgid "ICS"
+msgstr "ICS"
+
+msgid "Set custom flag"
+msgstr "Merkja með sérhönnuðu merki"
+
+msgid "Start date"
+msgstr "Upphafsdagsetning"
+
+msgid "End date"
+msgstr "Lokadagsetning"
+
+msgid "Tomorrow"
+msgstr "Á morgun"
+
+msgid "This week"
+msgstr "Í þessari viku"
+
+msgid "Next week"
+msgstr "Í næstu viku"
+
+msgid "Custom"
+msgstr "Sértilgreint"
+
+msgid "Set reminder"
+msgstr "Stilla áminningu"
+
+msgid "Complete"
+msgstr "Klárað"
+
+msgid "today"
+msgstr "í dag"
+
+msgid "tomorrow"
+msgstr "á morgun"
+
+msgid "this week"
+msgstr "í þessari viku"
+
+msgid "next week"
+msgstr "í næstu viku"
+
+msgid "Edit recipient"
+msgstr "Breyta viðtakanda"
+
+msgid "Copy email address"
+msgstr "Afrita tölvupóstfang"
+
+msgid "Set as required"
+msgstr "Setja sem nauðsyn"
+
+msgid "Set as optional"
+msgstr "Setja sem val"
+
+msgid "Set as resource"
+msgstr "Setja sem aðfang"
+
+msgid "Select attendees"
+msgstr "Velja þátttakendur"
+
+msgid "Suggested Times"
+msgstr "Tímatillögur"
+
+msgid "Busy"
+msgstr "Bókað"
+
+msgid "Out of Office"
+msgstr "Fjarverandi"
+
+msgid "No Information"
+msgstr "Engar upplýsingar"
+
+msgid "Show non-working hours"
+msgstr "Sýna klukkutíma utan vinnutíma"
+
+msgid "Hide non-working hours"
+msgstr "Fela klukkutíma utan vinnutíma"
+
+msgid "No freebusy information available for this date"
+msgstr "Engar upplýsingar um laust/bókað fyrir þessa dagsetningu"
+
+msgid "No suggestions available"
+msgstr "Engar tillögur"
+
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
+msgid "l jS F Y"
+msgstr "l jS F Y"
+
+msgid "Switch between different contexts e.g. inbox, calendar, etc."
+msgstr "Breyta milli samhengis, t.d. innhólf, dagatal o.s.frv."
+
+msgid "Basic navigation"
+msgstr "Grunnstikl"
+
+msgid "Switch between different views"
+msgstr "Breyta milli mismunandi sýna"
+
+msgid "New item"
+msgstr "Nýtt atriði"
+
+msgid "All views"
+msgstr "Allar sýnir"
+
+msgid "Close tab"
+msgstr "Loka flipa"
+
+msgid "Print item"
+msgstr "Prenta út"
+
+msgid "Items"
+msgstr "Atriði"
+
+msgid "Save an item e.g. mail, contact, etc."
+msgstr "Vista atriði, t.d. tölvupóst, tengilið o.s.frv."
+
+msgid "Send an item e.g. mail, meeting request, etc."
+msgstr "Senda atriði, t.d. tölvupóst, fundarboð o.s.frv."
+
+msgid "Select all items"
+msgstr "Velja öll atriði"
+
+msgid "Extend the selection to the first item in the list"
+msgstr "Lengja valið að fyrsta atriði listans"
+
+msgid "Extend the selection to the last item in the list"
+msgstr "Lengja valið að síðasta atriði listans"
+
+msgid "Open selected item"
+msgstr "Opna valið atriði"
+
+msgid "Open dialog to categorize selected item"
+msgstr "Opna glugga til að flokka valið atriði"
+
+msgid "Print list"
+msgstr "Prenta lista"
+
+msgid "Open copy/move dialog"
+msgstr "Opna afritunar/færsluglugga"
+
+msgid "Delete selected item"
+msgstr "Eyða völdu atriði"
+
+msgid ""
+"Delete selected item without moving it to the Deleted Items folder. The "
+"deleted item can still be restored."
+msgstr ""
+"Eyða völdu atriði án þess að færa það í ruslakörfuna. Endurheimt verður þá "
+"ekki möguleg."
+
+msgid "Add/Edit Cc recipient"
+msgstr "Bæta við/breyta viðtakanda afrits"
+
+msgid "Disable for new mail"
+msgstr ""
+
+msgid "Enable for new mail"
+msgstr ""
+
+msgid "Disable for replies"
+msgstr ""
+
+msgid "Enable for replies"
+msgstr ""
+
+msgid "No Cc recipient configured"
+msgstr "Engin viðtakandi afrits skráður"
+
+msgid "Loading Cc recipients"
+msgstr "Hleð viðtakendum afrits"
+
+msgid "Reply Mail"
+msgstr "Svarpóstur"
+
+msgid "New Mail"
+msgstr "Nýr póstur"
+
+msgid "Please select a Cc recipient record."
+msgstr "Vinsamlegast veldu skráningu á viðtakanda afrits."
+
+msgid "Manage Cc recipients"
+msgstr "Umsjón viðtakenda afrits"
+
+msgid ""
+"Cc recipients can be used to set a default Cc user in new mail, replies or "
+"both."
+msgstr ""
+"Viðtakendur afrits geta verið nýttir til að senda afrit á þá í nýjum pósti, "
+"svörum eða báðum tilvikum."
+
+msgid "Help"
+msgstr "Hjálp"
+
+msgid "Web Manual"
+msgstr ""
+
+msgid "Item data"
+msgstr ""
+
+msgid "INSERT"
+msgstr "SETJA INN"
+
+msgid "Sort by: context.mail.griddefaultcolumn"
+msgstr "Raða eftir context.mail.griddefaultcolumn"
+
+msgid "ZDeveloper"
+msgstr "ZForritari"
+
+msgid "grommunio Web print"
+msgstr ""
+
+msgid "Display name"
+msgstr "Þekkjanlegt nafn"
+
+msgid "Email address"
+msgstr "Tölvupóstfang"
+
+msgid "Expand distribution list"
+msgstr "Þenja póstlista"
+
+msgid ""
+"Distribution list will be replaced with its members. You will not be able to "
+"collapse it again."
+msgstr ""
+"Póstlistanum verður skipt út fyrir meðlimi hans. Þú getur ekki sett hann "
+"saman aftur."
+
+msgid "Edit Recipient"
+msgstr "Breyta viðtakanda"
+
+msgid "Copy email addresses"
+msgstr "Afrita tölvupóstföng"
+
+msgid "Send email"
+msgstr "Senda tölvupóst"
+
+msgid "Delete recipient from suggestion list"
+msgstr "Eyða viðtakanda úr tillögulista"
+
+msgid "Copy all email addresses"
+msgstr ""
+
+msgid "View recipient"
+msgstr "Skoða viðtakanda"
+
+msgid "Weekday"
+msgstr "Vikudagur"
+
+msgid "Weekend Day"
+msgstr "Helgardagur"
+
+msgid "1st"
+msgstr "1."
+
+msgid "2nd"
+msgstr "2."
+
+msgid "3rd"
+msgstr "3."
+
+msgid "4th"
+msgstr "4."
+
+msgid "last"
+msgstr "síðast"
+
+msgid "Every {A} day(s)"
+msgstr "Á {A} dags/daga fresti"
+
+msgid "Every weekday"
+msgstr "Á hverjum vikudegi"
+
+msgid "Regenerate new task {A} day(s) after each task is completed"
+msgstr "Endurframleiða nýtt verk {A} degi/dögum eftir að verkið klárast"
+
+msgid "Day {A} of every {B} month(s)"
+msgstr "Dagur {A} á {B} mánaða(r) fresti"
+
+msgid "The {A} {B} of every {C} month(s)"
+msgstr "{A} {B} á {C} mánaða(r) fresti"
+
+msgid "Regenerate new task {A} month(s) after each task is completed"
+msgstr "Endurframleiða nýtt verk {A} mánuði/mánuðum eftir að verkið klárast"
+
+msgid "Appointment Recurrence"
+msgstr "Endurtekning tímabókunar"
+
+msgid "Remove Recurrence"
+msgstr "Fjarlægja endurtekningu"
+
+msgid "Reset recurring"
+msgstr "Endurstilla endurtekningu"
+
+msgid "This will reset every exception. Do you want to continue?"
+msgstr "Þetta endurstillir öll frávik. Viltu halda áfram?"
+
+msgid "Task Recurrence"
+msgstr "Endurtekning verks"
+
+msgid "Daily"
+msgstr "Daglegt"
+
+msgid "Weekly"
+msgstr "Vikulegt"
+
+msgid "Monthly"
+msgstr "Mánaðarlegt"
+
+msgid "Yearly"
+msgstr "Árlegt"
+
+msgid "Range of recurrence"
+msgstr "Tímabil endurtekningar"
+
+msgid "No end date"
+msgstr "Engin lokadagsetning"
+
+msgid "End after {A} occurrences"
+msgstr "Hætta eftir {A} endurtekningar"
+
+msgid "End by {A}"
+msgstr "Hætta eftir {A}"
+
+#. TRANSLATORS: This informs the user what the exact duration of the appointment is. Where {D} represents the days, {H} the hours and {M} the minutes.
+#. For example: 'Occurence duration: 1 day 2 hours 45 minutes', or when the appointment is shorter then 1 day: 'Occurence duration: 1 hour'
+msgid "Occurrence duration: {D} {H} {M}"
+msgstr "Tímalengd endutekningar: {D} {H} {M}"
+
+msgid "Every {A} week(s) on"
+msgstr "Á {A} viku/vikna fresti á"
+
+msgid "Regenerate new task {A} week(s) after each task is completed"
+msgstr "Endurframleiða nýtt verk {A} viku(m) eftir að verk klárast"
+
+msgid "Every {A} {B}"
+msgstr "Á {A} {B} fresti"
+
+msgid "The {A} {B} of {C}"
+msgstr "Þann {A} {B} af {C}"
+
+msgid "Regenerate new task {A} year(s) after each task is completed"
+msgstr "Endurframleiða nýtt verk {A} ári/árum eftir að verk klárast"
+
+msgid "Info"
+msgstr "Upplýsingar"
+
+msgid "Not supported at the moment."
+msgstr "Ekki stutt í augnablikinu."
+
+msgid "There is {0} reminder"
+msgid_plural "There are {0} reminders"
+msgstr[0] "Það er {0} áminning"
+msgstr[1] "Það eru {0} áminningar"
+
+msgid "Reminders"
+msgstr "Áminningar"
+
+msgid "There are no reminders"
+msgstr "Það eru engar áminningar"
+
+msgid "Due In"
+msgstr "Lok eftir"
+
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
+msgid "Due"
+msgstr "Lok"
+
+msgid "Reminder time"
+msgstr "Áminningartími"
+
+msgid "Dismiss All"
+msgstr "Hunsa allt"
+
+msgid "Open Item"
+msgstr "Opna atriði"
+
+msgid "Dismiss"
+msgstr "Hunsa"
+
+msgid "Click Snooze to be reminded again in"
+msgstr "Smella á \"Svæfa\" til að fá aðra áminningu eftir"
+
+msgid "Snooze"
+msgstr "Svæfa"
+
+msgctxt "reminder.dialog"
+msgid "{0} reminder is selected."
+msgid_plural "{0} reminders are selected."
+msgstr[0] "{0} áminning valin."
+msgstr[1] "{0} áminningar valdar."
+
+msgid "Restore Softdeleted Items"
+msgstr "Endurheimta mjúkeydd atriði"
+
+msgid "Restore From {0}"
+msgstr "Endurheimta úr {0}"
+
+msgid "Restore"
+msgstr "Endurheimta"
+
+msgid "Restore All"
+msgstr "Endurheimta allt"
+
+msgid "Permanent Delete"
+msgstr "Eyða alveg"
+
+msgid "Delete All"
+msgstr "Eyða öllu"
+
+msgid "Messages"
+msgstr "Skilaboð"
+
+msgid "Delete all items"
+msgstr "Eyða öllum atriðum"
+
+msgid "Are you sure you want to permanently delete all items?"
+msgstr "Ertu viss um að þú viljir eyða öllum atriðum?"
+
+msgid "Restore all items"
+msgstr "Endurheimta öll atriði"
+
+msgid "Are you sure you want to restore all items?"
+msgstr "Ertu viss um að þú viljir endurheimta öll atriði?"
+
+msgid "Total {0} recoverable item"
+msgid_plural "Total {0} recoverable items"
+msgstr[0] "{0} endurheimtanlegt atriði í heildina"
+msgstr[1] "{0} endurheimtanleg atriði í heildina"
+
+msgid "Deleted On"
+msgstr "Eytt"
+
+msgid "Sort by: Deleted On"
+msgstr "Raða eftir eyðingardagsetningu"
+
+msgid "Item Count"
+msgstr "Atriðafjöldi"
+
+msgid "Sort by: Item Count"
+msgstr "Raða eftir atriðafjölda"
+
+msgid "Sort by: From"
+msgstr "Raða eftir sendanda"
+
+msgid "Received"
+msgstr "Móttekið"
+
+msgid "Sort by: Received"
+msgstr "Raða eftir móttökudagsetningu"
+
+msgid "Size"
+msgstr "Stærð"
+
+msgid "Sort by: Size"
+msgstr "Raða eftir stærð"
+
+msgid "Move the message to folder..."
+msgstr "Færa skilaboðin í möppuna..."
+
+msgid "Copy the message to folder..."
+msgstr "Afrita skilaboðin í möppuna..."
+
+msgid "Delete the message"
+msgstr "Eyða skilaboðunum"
+
+msgid "Redirect the message to..."
+msgstr "Beina skilaboðunum til..."
+
+msgid "Forward the message to..."
+msgstr "Áframsenda skilaboiðin til..."
+
+msgid "Forward the message as attachment to..."
+msgstr "Áframsenda skilaboðin sem viðhengi til..."
+
+msgid "Mark the message as read..."
+msgstr "Merkja skilaboðin sem lesin..."
+
+msgid "is received from..."
+msgstr "koma frá..."
+
+msgid "includes these words in the sender's address..."
+msgstr "inniheldur þessi orð í tölvupóstfangi sendanda..."
+
+msgid "includes these words in the recipient's address..."
+msgstr "inniheldur þessi orð í tölvupóstfangi viðtakanda..."
+
+msgid "includes these words in the subject..."
+msgstr "inniheldur þessi orð í málefni..."
+
+msgid "includes these words in the body..."
+msgstr "inniheldur þessi orð í meginmáli..."
+
+msgid "includes these words in the transport-headers..."
+msgstr "inniheldur þessi orð í flutningshausum (transport-headers)..."
+
+msgid "has importance..."
+msgstr "hefur mikilvægi..."
+
+msgid "has an attachment"
+msgstr "hefur viðhengi"
+
+msgid "is sent to..."
+msgstr "er sent til..."
+
+msgid "is sent only to me"
+msgstr "er eingöngu sent til mín"
+
+msgid "has my name in the Cc field"
+msgstr "hefur nafnið mitt í afritsreit (cc)"
+
+msgid "does not have my name in the To or Cc field"
+msgstr "hefur nafnið mitt hvorki í til- eða afritsreit (to/cc)"
+
+msgid "has my name in the To or Cc field"
+msgstr "hefur nafnið mitt í til- eða afritsreit (to/cc)"
+
+msgid "has sensitivity..."
+msgstr "hefur öryggisstig..."
+
+msgid "is received after..."
+msgstr "er móttekið eftir..."
+
+msgid "is received before..."
+msgstr "er móttekið fyrir..."
+
+msgid "size is at least..."
+msgstr "stærð er að minnsta kosti..."
+
+msgid "size is at most..."
+msgstr "stærð er í mesta lagi..."
+
+msgid "has my name in the To field"
+msgstr "hefur nafnið mitt í tilreit (to)"
+
+msgid "is received (all messages)"
+msgstr "er móttekið (öll skilaboð)"
+
+msgid "Unknown condition"
+msgstr "Óþekkt skilyrði"
+
+msgid "This condition for the current rule is unknown"
+msgstr "Skilyrðin fyrir þessa reglu eru óþekkt"
+
+msgid "Add action"
+msgstr "Bæta við aðgerð"
+
+msgid "Remove action"
+msgstr "Fjarlægja aðgerð"
+
+msgid "Unknown action"
+msgstr "Óþekkt aðgerð"
+
+msgid "This action for the current rule is unknown"
+msgstr "Þessi aðgerð fyrir regluna er óþekkt"
+
+msgid "Add condition"
+msgstr "Bæta við skilyrði"
+
+msgid "Remove condition"
+msgstr "Fjarlægja skilyrði"
+
+msgid "Inbox Rule"
+msgstr "Innhólfsregla"
+
+msgid "Rule name"
+msgstr "Nafn reglu"
+
+msgid "When the message"
+msgstr "Þegar skilaboðin"
+
+msgid "Do the following"
+msgstr "Gerðu eftirfarandi"
+
+msgid "Exceptions"
+msgstr "Frávik"
+
+msgid "Apply only when Out of Office is active"
+msgstr "Framkvæma aðeins þegar Fjarverandi er virkt"
+
+msgid "Stop processing more rules"
+msgstr "Hætta að vinna úr reglum"
+
+msgid "Add exception"
+msgstr "Bæta við fráviki"
+
+msgid "Remove exception"
+msgstr "Fjarlægja frávik"
+
+msgid "Specify Words or Phrases"
+msgstr "Tilgreina orð eða setningar"
+
+msgid "Edit"
+msgstr "Breyta"
+
+msgid "and"
+msgstr "og"
+
+msgid ""
+"Distribution lists are not supported in rules, would you like to replace the "
+"distribution list with its members?"
+msgstr ""
+"Póstlistar eru ekki studdir í reglum, viltu skipta út póstlistanum fyrir "
+"meðlimi hans?"
+
+msgid "or"
+msgstr "eða"
+
+msgid "No rule exists"
+msgstr "Engin regla tilgreind"
+
+msgid "Active"
+msgstr "Virkt"
+
+msgid "Out of office"
+msgstr "Fjarverandi"
+
+msgid "Rule"
+msgstr "Regla"
+
+msgid "Loading rules"
+msgstr "Hleð reglum"
+
+msgid "Please select a rule."
+msgstr "Vinsamlegast veldu reglu."
+
+msgid "Rule already has highest priority."
+msgstr "Reglan hefur nú þegar hæsta forgang."
+
+msgid "Rule already has lowest priority."
+msgstr "Reglan hefur nú þegar lægsta forgang."
+
+msgid "Always move messages from {0}"
+msgstr "Alltaf færa skilaboð frá {0}"
+
+msgid "Always move messages that are sent to <recipients>"
+msgstr "Alltaf færa skilaboð sem eru send til <viðtakendur>"
+
+msgid "Always move messages with this subject"
+msgstr "Alltaf færa skilaboð með þessu málefni"
+
+msgid "Create rule..."
+msgstr "Búa til reglu..."
+
+msgid "myself"
+msgstr "mig"
+
+msgid "Update rules for"
+msgstr "Uppfæra reglur fyrir"
+
+msgid "Apply changes"
+msgstr "Framkvæma breytingar"
+
+msgid "Do you wish to apply the changes?"
+msgstr "Viltu framkvæma breytingarnar?"
+
+msgid "All folders"
+msgstr "Allar möppur"
+
+msgid "Other..."
+msgstr "Annað..."
+
+msgid "Search in.."
+msgstr "Leita í..."
+
+msgid "Folder does not exist"
+msgstr "Mappan er ekki til"
+
+msgid ""
+"The folder you are searching through no longer exists. Please select another "
+"folder"
+msgstr ""
+"Mappan sem þú leitar í er ekki lengur til. Vinsamlegast veldu aðra möppu"
+
+msgid "Add/Edit sender"
+msgstr "Bæta við/breyta sendanda"
+
+msgid "No from addresses configured"
+msgstr "Póstfang sendanda ekki stillt"
+
+msgid "Loading from addresses"
+msgstr "Hleð póstföngum sendenda"
+
+msgid "Forward Mail"
+msgstr ""
+
+msgid "Please select a from address record."
+msgstr "Vinsamlegast veldu póstfangafærslu sendanda."
+
+msgid "Add/Edit From recipient"
+msgstr ""
+
+msgid "Manage the recipients used in the 'From' field"
+msgstr ""
+
+msgid "View"
+msgstr "Skoða"
+
+msgid "Please select a sendas record."
+msgstr "Vinsamlegast veldu færslu fyrir senda sem."
+
+msgid "Delegates"
+msgstr "Rétthafar"
+
+msgid "Delegate settings"
+msgstr "Stillingar rétthafa"
+
+msgid "Desktop Notifications Settings"
+msgstr ""
+
+msgid "We need permissions to enable desktop notifications."
+msgstr ""
+
+msgid "Request Permissions"
+msgstr ""
+
+msgid "Enable desktop notifications for new mail"
+msgstr ""
+
+msgid "Enable desktop notifications for reminders"
+msgstr ""
+
+msgid "{A} Auto hide desktop notification after second(s) {B}"
+msgstr ""
+
+msgid "Disable sound"
+msgstr ""
+
+msgid "Notifications"
+msgstr ""
+
+msgid "Rules"
+msgstr "Reglur"
+
+msgid "From Addresses"
+msgstr "Póstföng sendenda"
+
+msgid "From Addresses settings"
+msgstr "Stillingar póstfanga sendenda"
+
+msgid "Full name"
+msgstr "Fullt nafn"
+
+msgid "Phone Numbers"
+msgstr "Símanúmer"
+
+msgid "Business Fax"
+msgstr "Faxnúmer"
+
+msgid "Webpage"
+msgstr "Vefsíða"
+
+msgid "IM Address"
+msgstr "Spjallslóð"
+
+msgid "D, d-m-Y, {0}"
+msgstr ""
+
+msgid "{0} selected row"
+msgid_plural "{0} selected rows"
+msgstr[0] "{0} valin lína"
+msgstr[1] "{0} valdar línur"
+
+msgid "Reminder is set on: {0}, {1}"
+msgstr "Áminning er stillt á: {0}, {1}"
+
+msgid "d-m-Y"
+msgstr "d-m-Y"
+
+msgid "l d/m/Y"
+msgstr "l d/m/Y"
+
+msgid "l d/m/Y {0}"
+msgstr ""
+
+msgid "d-m-Y {0}"
+msgstr ""
+
+msgid "Unknown"
+msgstr "Óþekkt"
+
+msgid "Meeting Organizer"
+msgstr "Fundarskipuleggjandi"
+
+msgid "{0} overdue"
+msgstr "{0} í vanskilum"
+
+msgid "Loading..."
+msgstr "Hleð..."
+
+msgid "Message could not be loaded"
+msgstr ""
+
+#. TRANSLATORS: This message is used as label for the field which indicates which attachments are inside the message
+msgctxt "mail.previewpanel"
+msgid "Attachments"
+msgstr "Viðhengi"
+
+msgid "Download Pictures"
+msgstr "Hlaða niður myndum"
+
+msgid "Add Sender to Safe Senders List"
+msgstr "Bæta sendanda við sem öruggum sendanda"
+
+msgid "Add Domain to Safe Senders List"
+msgstr "Bæta léni sendanda við sem öruggum sendanda"
+
+#. TRANSLATORS: This sentence is given in the Email previewpanel, and indicates with which
+#. importance the message was sent. For example:
+#. 'This message was sent with high importance.'
+#. 'This message was sent with low importance.'
+msgctxt "mail.previewpanel"
+msgid "This message was sent with {0} importance."
+msgstr "Þessi skilaboð voru send með mikilvægi: {0}."
+
+#. TRANSLATORS: This sentence is given in the Email previewpanel, and indicates which
+#. sensitivity level applies to the message. For example:
+#. 'Please treat this as Personal.'
+#. 'Please treat this as Private.'
+#. 'Please treat this as Confidential.'
+msgctxt "mail.previewpanel"
+msgid "Please treat this as {0}."
+msgstr "Vinsamlegast meðhöndlaðu þetta sem {0}."
+
+msgctxt "mail.previewpanel"
+msgid ""
+"Click here to download pictures. To help protect your privacy, WebApp "
+"prevented automatic download of some pictures in this message."
+msgstr ""
+
+msgctxt "mail.previewpanel"
+msgid ""
+"This message is corrupt and will not be displayed correctly, Click here to "
+"fix it."
+msgstr ""
+"Þessi skilaboð eru gölluð og verða ekki sýnd rétt, smelltu hér til að laga "
+"þau."
+
+msgctxt "mail.previewpanel"
+msgid "{0} has accepted."
+msgstr "{0} hefur samþykkt."
+
+msgctxt "mail.previewpanel"
+msgid "{0} has accepted on behalf of {1}."
+msgstr "{0} hefur samþykkt fyrir hönd {1}."
+
+msgctxt "mail.previewpanel"
+msgid "{0} has tentatively accepted."
+msgstr "{0} sagði kannski."
+
+msgctxt "mail.previewpanel"
+msgid "{0} has tentatively accepted on behalf of {1}."
+msgstr "{0} sagði kannski fyrir hönd {1}."
+
+msgctxt "mail.previewpanel"
+msgid "{0} has declined."
+msgstr "{0} hafnaði."
+
+msgctxt "mail.previewpanel"
+msgid "{0} has declined on behalf of {1}."
+msgstr "{0} hafnaði fyrir hönd {1}."
+
+msgctxt "mail.previewpanel"
+msgid "{0} tentatively accepted and proposed a new time for this meeting."
+msgstr "{0} sagði kannski og lagði til nýja tímasetningu fyrir fundinn."
+
+msgctxt "mail.previewpanel"
+msgid ""
+"{0} tentatively accepted on behalf of {1} and proposed a new time for this "
+"meeting."
+msgstr ""
+"{0} sagði kannski fyrir hönd {1} og lagði til nýja tímasetningu fyrir "
+"fundinn."
+
+msgctxt "mail.previewpanel"
+msgid "{0} declined and proposed a new time for this meeting."
+msgstr "{0} hafnaði og lagði til nýja tímasetningu fyrir fundinn."
+
+msgctxt "mail.previewpanel"
+msgid "{0} declined on behalf of {1} and proposed a new time for this meeting."
+msgstr ""
+"{0} hafnaði fyrir hönd {1} og lagði til nýja tímasetningu fyrir fundinn."
+
+msgctxt "mail.previewpanel"
+msgid "This meeting is not in the Calendar; it may have been moved or deleted."
+msgstr ""
+"Þessi fundur finnst ekki á dagskránni; hann gæti hafa verið fluttur eða "
+"honum eytt."
+
+msgctxt "mail.previewpanel"
+msgid ""
+"This meeting request was updated after this message was sent. You should "
+"open the latest update or open the item from the calendar."
+msgstr ""
+"Þetta fundarboð var uppfært eftir að skilaboðin voru send. Þú ættir að opna "
+"nýjustu útgáfuna eða opna þau beint úr dagatalinu."
+
+msgctxt "mail.previewpanel"
+msgid "As the meeting organizer, you do not need to respond to the meeting"
+msgstr "Sem skipuleggjandi fundarins, þarft þú ekki að svara fundarboðinu"
+
+msgctxt "mail.previewpanel"
+msgid "The meeting was updated after the attendee sent this response"
+msgstr "Þessi fundur var uppfærður eftir að þátttakendur sendu svar"
+
+msgctxt "mail.previewpanel"
+msgid "This appointment occurs in the past."
+msgstr "Þessi tímabókun átti sér stað í fortíðinni."
+
+msgctxt "mail.previewpanel"
+msgid "Please respond."
+msgstr "Vinsamlegast svaraðu."
+
+msgctxt "mail.previewpanel"
+msgid "This is an update of a previously sent meeting request."
+msgstr "Þetta er uppfærsla á áður sendu fundarboði."
+
+msgctxt "mail.previewpanel"
+msgid "Received for {0}."
+msgstr "Móttekið fyrir {0}."
+
+msgctxt "mail.previewpanel"
+msgid "You replied to this message."
+msgstr "Þú svaraðir þessum skilaboðum."
+
+msgctxt "mail.previewpanel"
+msgid "You forwarded this message."
+msgstr "Þú áframsendir þessi skilaboð."
+
+msgctxt "mail.previewpanel"
+msgid "You replied to this message on {0}."
+msgstr "Þú svaraðir þessum skilaboðum {0}."
+
+msgctxt "mail.previewpanel"
+msgid "You forwarded this message on {0}."
+msgstr "Þú áframsendir þessi skilaboð {0}."
+
+msgid "Assigned by {0} on {1}."
+msgstr "Úthlutað af {0} {1}."
+
+msgid "Waiting for response from recipient"
+msgstr "Bíð eftir svari frá viðtakanda"
+
+msgid "Accepted by {0} on {1}."
+msgstr "Samþykkt af {0} {1}."
+
+msgid "{0} has accepted on behalf of {1} {2}."
+msgstr "{0} hefur samþykkt fyrir hönd {1} {2}."
+
+msgid "Declined by {0} on {1}."
+msgstr "Hafnað af {0} {1}."
+
+msgid "{0} has declined on behalf of {1} {2}."
+msgstr "{0} hefur hafnað fyrir hönd {1} {2}."
+
+msgid "Last update sent on {0}."
+msgstr "Síðasta uppfærsla send {0}."
+
+msgid "{0} has updated on behalf of {1} {2}."
+msgstr "{0} hefur uppfært fyrir hönd {1} {2}."
+
+msgid "Fix message"
+msgstr "Laga skilaboð"
+
+msgid ""
+"We are going to try to fix a corrupted mail message, do you wish to continue?"
+msgstr "Við ætlum að reyna að laga gölluð póstskilaboð, viltu halda áfram?"
+
+msgid "The matching task was not found in your task list."
+msgstr "Viðeigandi verkefni fannst ekki á verkaskránni þinni."
+
+msgctxt "mail.previewpanel"
+msgid "To"
+msgstr "Til"
+
+msgctxt "mail.previewpanel"
+msgid "Cc"
+msgstr "Afrit"
+
+msgctxt "mail.previewpanel"
+msgid "Bcc"
+msgstr "Dulið afrit"
+
+msgctxt "mail.previewpanel"
+msgid "Categories"
+msgstr "Flokkar"
+
+#. TRANSLATORS: This message is used as label for the field which to indicates to whom the given mail was sent
+msgctxt "mail.previewpanel"
+msgid "Recipients"
+msgstr "Viðtakendur"
+
+#. TRANSLATORS: check if the mail is send by some delegator or not. if then display "on behalf of".
+msgctxt "mail.previewpanel"
+msgid "on behalf of"
+msgstr "fyrir hönd"
+
+#. TRANSLATORS: This message is used to indicate that no sent date is available for the message (because it has not been sent yet).
+msgctxt "mail.previewpanel"
+msgid "None"
+msgstr "Ekkert"
+
+msgid "Pop-out"
+msgstr "Sprettigluggi"
+
+msgid "Mark as read"
+msgstr "Merkja sem lesið"
+
+msgid "Mark as unread"
+msgstr "Merkja sem ólesið"
+
+msgid "in"
+msgstr "í"
+
+msgid "Root"
+msgstr "Rót"
+
+msgid "Datepicker"
+msgstr "Dagsetningarval"
+
+msgid "File As"
+msgstr "Skrá sem"
+
+msgid "Full Name"
+msgstr "Fullt nafn"
+
+msgid "Department Name"
+msgstr "Deild"
+
+msgid "Home Address"
+msgstr "Heimilisfang"
+
+msgid "Business Address"
+msgstr "Heimilisfang fyrirtækis"
+
+msgid "Other Address"
+msgstr "Annað heimilisfang"
+
+msgid "Business Phone"
+msgstr "Vinnusími"
+
+msgid "Business 2 Phone"
+msgstr "Annar vinnusími"
+
+msgid "Assistant Phone"
+msgstr "Sími aðstoðarmanneskju"
+
+msgid "Company Main Phone"
+msgstr "Aðalsímanúmer fyrirtækis"
+
+msgid "Home 2 Phone"
+msgstr "Annar heimilissími"
+
+msgid "Car Phone"
+msgstr "Bílasími"
+
+msgid "Radio"
+msgstr "Talstöð"
+
+msgid "Callback Phone"
+msgstr "Endurhringingarsímanúmer"
+
+msgid "Other Phone"
+msgstr "Annað símanúmer"
+
+msgid "Primary Phone"
+msgstr "Aðalsímanúmer"
+
+msgid "Telex"
+msgstr "Fjarriti"
+
+msgid "TTY/TDD Phone"
+msgstr "Útstöðvarsímanúmer"
+
+msgid "ISDN"
+msgstr "ISDN"
+
+msgid "Other Fax"
+msgstr "Annað faxnúmer"
+
+msgid "Home Fax"
+msgstr "Faxnúmer heimilis"
+
+msgid "Email Display As"
+msgstr "Tölvupóstfang sýndur sem"
+
+msgid "Email 2"
+msgstr "Annað tölvupóstfang"
+
+msgid "Email2 Display As"
+msgstr "Annað tölvupóstfang sýnt sem"
+
+msgid "Email 3"
+msgstr "Þriðja tölvupóstfang"
+
+msgid "Email3 Display As"
+msgstr "Þriðja tölvupóstfang sýnt sem"
+
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
+msgid "Birthday"
+msgstr "Afmælisdagur"
+
+msgid "Wedding Anniversary"
+msgstr "Hjúskaparafmæli"
+
+msgid "Spouse/Partner"
+msgstr "Maki"
+
+msgid "Profession"
+msgstr "Starfsgrein"
+
+msgid "Assistant's Name"
+msgstr "Nafn aðstoðarmanneskju"
+
+msgid "Distribution List Name"
+msgstr "Nafn póstlista"
+
+msgid "Open Shared Contacts"
+msgstr "Opan sameiginlega tengiliði"
+
+msgid "Business Cards"
+msgstr "Nafnspjöld"
+
+msgid "Phone List"
+msgstr "Símanúmeralisti"
+
+msgid "Add to contacts"
+msgstr "Bæta við í tengiliði"
+
+msgid "Print selected contact"
+msgstr "Prenta valinn tengilið"
+
+msgid "No contact selected"
+msgstr "Enginn tengiliður valinn"
+
+msgid "Distribution list"
+msgstr "Póstlisti"
+
+msgid "Dr."
+msgstr "Dr."
+
+msgid "Miss"
+msgstr "Frú"
+
+msgid "Mr."
+msgstr "Herra"
+
+msgid "Mrs."
+msgstr "Frú"
+
+msgid "Ms."
+msgstr "Frú"
+
+msgid "Prof."
+msgstr "Próf."
+
+msgid "Jr."
+msgstr "Yngri"
+
+msgid "Sr."
+msgstr "Eldri"
+
+msgid "Phone number"
+msgstr "Símanúmer"
+
+msgid "Check address"
+msgstr "Athuga heimilisfang"
+
+msgid "Street"
+msgstr "Gata"
+
+msgid "State/Province"
+msgstr "Sýsla/fylki"
+
+msgid "Zip/Postal code"
+msgstr "Póstnúmer"
+
+msgid "Country/Region"
+msgstr "Land/svæði"
+
+msgid "Show this again when address is incomplete or unclear."
+msgstr "Sýna þetta aftur þegar heimilisfang er í ólagi eða óskýrt."
+
+msgid "Details"
+msgstr "Nánari upplýsingar"
+
+msgid "Office location"
+msgstr "Skrifstofustaðsetning"
+
+msgid "Manager's name"
+msgstr "Nafn stjórnanda"
+
+msgid "Assistant's name"
+msgstr "Nafn aðstoðarmanneskju"
+
+msgid "Nickname"
+msgstr "Gælunafn"
+
+msgid "Suffix"
+msgstr "Ending"
+
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
+msgid "Anniversary"
+msgstr "Afmæli"
+
+msgid "Photo"
+msgstr "Mynd"
+
+msgid "Additional information"
+msgstr "Viðbótarupplýsingar"
+
+msgid "Business 2"
+msgstr "Annað fyrirtæki"
+
+msgid "Callback"
+msgstr "Hringja til baka"
+
+msgid "Car"
+msgstr "Bíll"
+
+msgid "Home 2"
+msgstr "Annað heimili"
+
+msgid "Primary"
+msgstr "Aðal"
+
+msgid "TTY/TDD"
+msgstr "Útstöð"
+
+msgid "Check full name"
+msgstr "Athuga fullt nafn"
+
+msgid "First"
+msgstr "Fyrsta"
+
+msgid "Middle"
+msgstr "Mið"
+
+msgid "Last"
+msgstr "Síðasta"
+
+msgid "Show this again when name is incomplete or unclear."
+msgstr "Sýna þetta aftur þegar nafn er í ólagi eða óskýrt."
+
+msgid "Check phone number"
+msgstr "Athuga símanúmer"
+
+msgid "Country/Region code"
+msgstr "Landsnúmer"
+
+msgid "City/Area code"
+msgstr "Svæðisnúmer"
+
+msgid "Local number"
+msgstr "Staðbundið símanúmer"
+
+msgid "Extension"
+msgstr "Framlenging"
+
+msgid "Add Attachment"
+msgstr "Bæta við viðhengi"
+
+msgid "Add attachments to this contact"
+msgstr "Bæta viðhengjum við þennan tengilið"
+
+msgid "Mark this contact as private"
+msgstr "Merkja sem einkatengilið"
+
+msgid "Distribution List"
+msgstr "Póstlisti"
+
+msgid "Mark this Distribution list as private"
+msgstr "Merkja sem einkapóstlista"
+
+msgid "New email address"
+msgstr "Nýtt tölvupóstfang"
+
+msgid "Please enter a valid email address"
+msgstr "Vinsamlegast skráðu gilt tölvupóstfang"
+
+msgid "Select Members"
+msgstr "Velja meðlimi"
+
+msgid "Add New"
+msgstr "Nýskrá"
+
+msgid "Type your note here..."
+msgstr "Skrifaðu minnisatriðin þín hér..."
+
+msgid "New contact"
+msgstr "Nýr tengiliður"
+
+msgid "New distribution list"
+msgstr "Nýr póstlisti"
+
+msgid "Email 2 Display As"
+msgstr "Annað tölvupóstfang sýnt sem"
+
+msgid "Email 3 Display As"
+msgstr "Þriðja tölvupóstfang sýnt sem"
+
+msgid "Assistent"
+msgstr "Aðstoðarmanneskja"
+
+msgid "Loading contacts"
+msgstr "Hleð tengiliðum"
+
+msgid ""
+"There are no items to show in this list. Update the filter for more results."
+msgstr ""
+
+msgid "[Group]"
+msgstr ""
+
+msgid "Work:"
+msgstr ""
+
+msgid "Primary:"
+msgstr ""
+
+msgid "Mobile:"
+msgstr ""
+
+msgid "Sort by: Full Name"
+msgstr "Raða eftir fullu nafni"
+
+msgid "Sort by: Email Address 2"
+msgstr "Raða eftir öðru tölvupóstfangi"
+
+msgid "Sort by: Email Address 3"
+msgstr "Raða eftir þriðja tölvupóstfangi"
+
+msgid "Mobile Phone"
+msgstr "Farsími"
+
+msgid "Sort by: Mobile Phone"
+msgstr "Raða eftir farsímanúmeri"
+
+msgid "Sort by: Business Phone"
+msgstr "Raða eftir vinnusímanúmeri"
+
+msgid "Sort by: Business Fax"
+msgstr "Raða eftir faxnúmeri fyrirtækis"
+
+msgid "Sort by: Department Name"
+msgstr "Raða eftir deild"
+
+msgid "Office Location"
+msgstr "Skrifstofustaðsetning"
+
+msgid "Sort by: Office Location"
+msgstr "Raða eftir skrifstofustaðsetningu"
+
+msgid "Sort by: Profession"
+msgstr "Raða eftir starfsgrein"
+
+msgid "Manager Name"
+msgstr "Nafn stjórnanda"
+
+msgid "Sort by: Manager Name"
+msgstr "Raða eftir nafni stjórnanda"
+
+msgid "Sort by: Assistant's Name"
+msgstr "Raða eftir nafni aðstoðarmanneskju"
+
+msgid "Sort by: Nickname"
+msgstr "Raða eftir gælunafni"
+
+msgid "Sort by: Spouse/Partner Name"
+msgstr "Raða eftir nafni maka"
+
+msgid "Sort by: Birthday"
+msgstr "Raða eftir afmælisdegi"
+
+msgid "Sort by: Anniversary"
+msgstr "Raða eftir afmæli"
+
+msgid "Sort by: Business Address"
+msgstr "Raða eftir heimilisfangi fyrirtækis"
+
+msgid "Sort by: Home Address"
+msgstr "Raða eftir heimilisfangi"
+
+msgid "Sort by: Office Address"
+msgstr "Raða eftir heimilisfangi skrifstofu"
+
+msgid "Mailing Address"
+msgstr "Póstfang"
+
+msgid "Sort by: Mailing Address"
+msgstr "Raða eftir póstfangi"
+
+msgid "Sort by: IM Address"
+msgstr "Raða eftir spjalleinkenni"
+
+msgid "Sort by: Webpage"
+msgstr "Raða eftir vefsíðu"
+
+msgid "Assistant's Phone"
+msgstr "Símanúmer aðstoðarmanneskju"
+
+msgid "Sort by: Assistant's Phone"
+msgstr "Raða eftir símanúmeri aðstoðarmanneskju"
+
+msgid "Business Phone 2"
+msgstr "Annar vinnusími"
+
+msgid "Sort by: Business Phone 2"
+msgstr "Raða eftir öðrum vinnusíma"
+
+msgid "Sort by: Callback"
+msgstr "Raða eftir endurhringingu"
+
+msgid "Sort by: Car Phone"
+msgstr "Raða eftir bílasíma"
+
+msgid "Company Phone"
+msgstr "Aðalsímanúmer fyrirtækis"
+
+msgid "Sort by: Company Main Phone"
+msgstr "Raða eftir aðalsímanúmeri fyrirtækis"
+
+msgid "Home Phone 2"
+msgstr "Annar heimasími"
+
+msgid "Sort by: Home Phone 2"
+msgstr "Raða eftir öðru heimasímanúmeri"
+
+msgid "Sort by: Home Fax"
+msgstr "Raða eftir faxnúmeri heimilis"
+
+msgid "Sort by: ISDN"
+msgstr "Raða eftir ISDN"
+
+msgid "Sort by: Other Phone"
+msgstr "Raða eftir öðrum síma"
+
+msgid "Radio Phone"
+msgstr "Talstöðvarnúmer"
+
+msgid "Sort by: Radio Phone"
+msgstr "Raða eftir talstöðvarnúmeri"
+
+msgid "Sort by: TTY/TDD Phone"
+msgstr "Raða eftir útstöðvarsímanúmeri"
+
+msgid "Sort by: Telex Phone"
+msgstr "Raða eftir fjarritanúmeri"
+
+msgid "Change Picture"
+msgstr "Breyta mynd"
+
+msgid "Remove Picture"
+msgstr "Fjarlægja mynd"
+
+msgid "VCF file(s)"
+msgstr "VCF skrá(r)"
+
+msgid "Quick Contact"
+msgstr "Skynditengiliður"
+
+msgid "Open in new browser window"
+msgstr "Opna í nýjum vafraglugga"
+
+msgid ""
+"Your browser seems to have blocked one or more pop-ups. Please change your "
+"browser's settings to always allow pop-ups from grommunio Web."
+msgstr ""
+"Vafrinn þinn virðist loka á sprettiglugga. Vinsamlegast breyttu "
+"vafrastillingum til að leyfa sprettiglugga frá grommunio vefviðmótinu."
+
+msgid "Untitled"
+msgstr "Án titils"
+
+msgid ""
+"Cannot upload attachment, only {0} attachments are allowed to be added to "
+"the message"
+msgstr ""
+"Gat ekki halað upp viðhengi, aðeins má hengja {0} viðhengi við skilaboðin"
+
+msgid ""
+"Cannot upload attachment, attachment is {0} while the allowed maximum is {1}."
+msgstr "Gat ekki halað upp viðhengi, viðhengið er {0} en hámarkið er {1}."
+
+msgid ""
+"Cannot upload attachment, the total attachment size is {0} while the allowed "
+"maximum is {1}"
+msgstr ""
+"Gat ekki halað upp viðhengi, heildarstærð viðhengja er {0} en hámarkið er {1}"
+
+msgid ""
+"Cannot upload attachment, total attachment is {0} while the allowed maximum "
+"attachment in single request is {1}."
+msgstr ""
+"Gat ekki halað upp viðhengi, viðhengi eru í heildina {0} en hámarkið í einni "
+"beiðni er {1}."
+
+msgid ""
+"Cannot upload attachment, total attachments are {0} files while the maximum "
+"{1} files are allowed in single request."
+msgstr ""
+"Gat ekki halað upp viðhengi, heildarfjöldi viðhengja er {0} skrár en "
+"hámarkið er {1} skrár í einni beiðni."
+
+#. TRANSLATORS: {0} indicates name/email address of secretary and {1} indicates boss' name/email address
+msgid "{0} on behalf of {1}"
+msgstr "{0} fyrir hönd {1}"
+
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
+msgid "jS F"
+msgstr "jS F"
+
+msgid "Y"
+msgstr "Y"
+
+msgid "Important"
+msgstr "Mikilvægt"
+
+msgid "Work"
+msgstr "Starf"
+
+msgid "Personal"
+msgstr "Einkamál"
+
+msgid "Holiday"
+msgstr "Hátíðisdagur"
+
+msgid "Travel Required"
+msgstr "Ferðalag nauðsynlegt"
+
+msgid "Preparation Required"
+msgstr "Undirbúningur nauðsynlegur"
+
+msgid "Special Date"
+msgstr "Sérstök dagsetning"
+
+msgid "Phone Interview"
+msgstr "Símaviðtal"
+
+msgid "Free"
+msgstr "Laust"
+
+msgid "Low"
+msgstr "Lítið"
+
+msgid "Normal"
+msgstr "Eðlilegt"
+
+msgid "High"
+msgstr "Hátt"
+
+msgid "Canceled"
+msgstr "Hætt við"
+
+msgid "Blue"
+msgstr "Blátt"
+
+msgid "Green"
+msgstr "Grænt"
+
+msgid "Pink"
+msgstr "Bleikt"
+
+msgid "White"
+msgstr "Hvítt"
+
+msgid "Yellow"
+msgstr "Gult"
+
+msgid "No response"
+msgstr "Ekkert svar"
+
+msgid "Not responded"
+msgstr "Ósvarað"
+
+msgid "Accepted"
+msgstr "Samþykkt"
+
+msgid "Declined"
+msgstr "Hafnað"
+
+msgid "Confidential"
+msgstr "Trúnaðarmál"
+
+msgid "Not Started"
+msgstr "Ekki hafið"
+
+msgid "In Progress"
+msgstr "Í vinnslu"
+
+msgid "Wait for other person"
+msgstr "Bíð eftir öðrum einstaklingi"
+
+msgid "Deferred"
+msgstr "Frestað"
+
+msgid "Dark"
+msgstr "Dimmt"
+
+msgid "High Contrast"
+msgstr "Mikil skerpa"
+
+msgid "Lime"
+msgstr "Límónugrænt"
+
+msgid "Orange"
+msgstr "Appelsínugult"
+
+msgid "Purple"
+msgstr "Fjólublátt"
+
+msgid "Logout"
+msgstr "Útskrá"
+
+msgid "Switch view"
+msgstr "Breyta sýn"
+
+msgid "Widgets"
+msgstr "Græjur"
+
+msgid "Sending..."
+msgstr "Sendi..."
+
+msgid "Sent successfully"
+msgstr "Sending tókst"
+
+msgid "No recipient"
+msgstr "Enginn viðtakandi"
+
+msgid "Please specify at least one recipient"
+msgstr "Vinsamlegast tilgreindu að minnsta kosti einn viðtakanda"
+
+msgid "Please specify a recipient"
+msgstr "Vinsamlegast tilgreindu viðtakanda"
+
+msgid "The attached files are not uploaded yet."
+msgstr "Viðhengjum hefur ekki enn verið halað upp."
+
+msgid "Do you want to send this message without attachments?"
+msgstr "Viltu halda áfram og senda þessi skilaboð án viðhengja?"
+
+msgid "Attachments not uploaded yet"
+msgstr "Viðhengjum hefur ekki enn verið halað upp"
+
+msgid "Don't Send"
+msgstr "Ekki senda"
+
+msgid "Send Anyway"
+msgstr "Senda samt"
+
+msgid "No subject"
+msgstr "Ekkert málefni"
+
+msgid "Send this message without a subject?"
+msgstr "Viltu senda þessi skilaboð án málefnis?"
+
+msgid "Unresolved recipients"
+msgstr "Óskýrir viðtakendur"
+
+msgid "Not all recipients could be resolved"
+msgstr "Viðtakendur eru ekki allir skýrir"
+
+msgid "Collapse hierarchy"
+msgstr "Loka stigveldi"
+
+msgid "Expand hierarchy"
+msgstr "Opna stigveldi"
+
+msgid "Folders List"
+msgstr "Möppulisti"
+
+msgid "Copy Details"
+msgstr "Afrita nánari upplýsingar"
+
+msgid "Hide Details"
+msgstr "Fela nánari upplýsingar"
+
+msgid "Loaded {0} of {1}"
+msgstr "Hlóð {0} af {1}"
+
+msgid "Saving"
+msgstr "Vista"
+
+msgid "Saved"
+msgstr "Vistað"
+
+msgid "Saved successfully"
+msgstr "Tókst að vista"
+
+msgid ""
+"You will lose all unsaved work. Are you sure you want to close this window?"
+msgstr ""
+"Þú munt glata allri óvistaðri vinnu. Ertu viss um að þú viljir loka þessum "
+"glugga?"
+
+msgid "grommunio Content Panel"
+msgstr "grommunio efnisskiki"
+
+msgid "Delete item"
+msgstr "Eyða atriði"
+
+msgid "This item has been changed. Are you sure you want to delete it?"
+msgstr "Þessu atriði hefur verið breytt. Ertu viss um að þú viljir eyða því?"
+
+msgid "Unsaved changes"
+msgstr "Óvistaðar breytingar"
+
+msgid "Welcome to grommunio Web"
+msgstr ""
+
+msgid "This is the first time you are using grommunio Web. "
+msgstr "Þetta er í fyrsta skiptið sem þú notar grommunio vefviðmótið. "
+
+msgid "Please check the following settings before continuing."
+msgstr "Vinsamlegast athugaðu eftirfarandi stillingar áður en þú heldur áfram."
+
+msgid "Widget height"
+msgstr "Græjuhæð"
+
+msgid "pixels"
+msgstr "pixlar"
+
+msgid "Configure widget"
+msgstr "Stilla græju"
+
+msgid "Reload interval"
+msgstr "Endurhleðslutímabil"
+
+msgid "seconds"
+msgstr "sekúndur"
+
+msgid "Open in new tab"
+msgstr "Opna í nýjum flipa"
+
+msgid "Add widgets"
+msgstr "Bæta við græjum"
+
+msgid "No widgets installed."
+msgstr "Engar uppsettar græjur til."
+
+msgid "Remove widget"
+msgstr "Fjarlægja græju"
+
+msgid "Collapse widget"
+msgstr "Loka græju"
+
+msgid "Expand widget"
+msgstr "Opna græju"
+
+msgid "About this widget"
+msgstr ""
+
+msgid "Add new widget"
+msgstr "Bæta við græju"
+
+msgid "Collapse widget panel"
+msgstr "Loka græjuskika"
+
+msgid "Expand widget panel"
+msgstr "Opna græjuskika"
+
+msgid "Your changes will be lost if you leave this page now."
+msgstr "Þú glatar breytingunum þínum ef þú ferð af síðunni núna."
+
+msgid "D {0}"
+msgstr ""
+
+msgid "D d-m"
+msgstr "D d-m"
+
+msgid ""
+"Not enough permissions to open this store, do you want to remove it from the "
+"hierarchy?"
+msgstr ""
+"Þú hefur ekki réttindi til að opna þessa geymslu, viltu halda áfram og "
+"fjarlægja hana úr stigveldinu?"
+
+msgid ""
+"Not enough permissions to open this folder, do you want to remove it from "
+"the hierarchy?"
+msgstr ""
+"Þú hefur ekki næg réttindi til að opna þessa möppu, viltu halda áfram og "
+"fjarlægja hana úr stigveldinu?"
+
+msgid "Insufficient Permissions"
+msgstr "Ónæg réttindi"
+
+msgid "Not enough permissions to open this folder."
+msgstr "Þú hefur ekki næg réttindi til að opna þessa möppu."
+
+msgid "There is {0} unread message in the folder {1} of {2}"
+msgid_plural "There are {0} unread messages in the folder {1} of {2}"
+msgstr[0] "Það eru {0} ólesin skilaboð í möppunni {1} af {2}"
+msgstr[1] "Það eru {0} ólesin skilaboð í möppunni {1} af {2}"
+
+msgid "There is {0} unread message in the folder {1}"
+msgid_plural "There are {0} unread messages in the folder {1}"
+msgstr[0] "Það eru {0} ólesin skilaboð í möppunni {1}"
+msgstr[1] "Það eru {0} ólesin skilaboð í möppunni {1}"
+
+msgid "Publishing Editor"
+msgstr ""
+
+msgid "Editor"
+msgstr "Ritill"
+
+msgid "Publishing Author"
+msgstr ""
+
+msgid "Author"
+msgstr ""
+
+msgid "Nonediting Author"
+msgstr ""
+
+msgid "Reviewer"
+msgstr ""
+
+msgid "Contributor"
+msgstr ""
+
+msgid "Unable to import:"
+msgstr "Gat ekki flutt inn:"
+
+msgid "The files are not valid"
+msgstr "Þessar skrár eru ekki gildar"
+
+msgid "Create New Folder"
+msgstr "Búa til nýja möppu"
+
+msgid "Folder contains"
+msgstr "Möppuinnihald"
+
+msgid "Calendar Items"
+msgstr "Dagatalsfærslur"
+
+msgid "Mail and Post Items"
+msgstr "Tölvupóstssamskipti"
+
+msgid "Contacts Items"
+msgstr "Tengiliði"
+
+msgid "Note Items"
+msgstr "Minnisatriði"
+
+msgid "Task Items"
+msgstr "Verk"
+
+msgid "Select where to place the folder"
+msgstr "Veldu hvar þú vilt staðsetja möppuna"
+
+msgid "No folder name"
+msgstr "Ekkert möppunafn"
+
+msgid "No destination"
+msgstr "Engin staðsetning"
+
+msgid "You must select a destination folder."
+msgstr "Þú verður að velja möppu fyrir staðsetningu."
+
+msgid "Properties"
+msgstr "Eigindi"
+
+msgid "Type"
+msgstr "Gerð"
+
+msgid "Description"
+msgstr "Lýsing"
+
+msgid "EntryID"
+msgstr "Færsluauðkenni"
+
+msgid "Parent EID"
+msgstr ""
+
+msgid "Folder size"
+msgstr "Möppustærð"
+
+msgid "Folder containing {0} Items"
+msgstr "Mappa inniheldur {0} atriði"
+
+msgid "Permissions"
+msgstr "Réttindi"
+
+msgid "No permissions granted"
+msgstr "Engum réttindum úthlutað"
+
+msgid "Profile"
+msgstr "Kenniskrá"
+
+msgid "Read"
+msgstr ""
+
+msgid "Full Details"
+msgstr ""
+
+msgid "Write"
+msgstr ""
+
+msgid "Create items"
+msgstr "Búa til atriði"
+
+msgid "Create subfolders"
+msgstr "Búa til undirmöppur"
+
+msgid "Edit own"
+msgstr ""
+
+msgid "Edit all"
+msgstr ""
+
+msgid "Delete items"
+msgstr "Eyða möppum"
+
+msgid "Own"
+msgstr "Eigandi"
+
+msgid "All"
+msgstr "Allt"
+
+msgid "Folder owner"
+msgstr ""
+
+msgid "Folder contact"
+msgstr ""
+
+msgid "Folder visible"
+msgstr "Mappa sýnileg"
+
+msgid "User already exists"
+msgstr "Notandi er nú þegar til"
+
+msgid "Group already exists"
+msgstr "Hópur er nú þegar til"
+
+msgid "Folder Size"
+msgstr "Möppustærð"
+
+msgid "Folder Name"
+msgstr "Möppunafn"
+
+msgid "Size (without subfolders)"
+msgstr "Stærð (að frátöldum undirmöppum)"
+
+msgid "Total size (including subfolders)"
+msgstr "Heildarstærð (að meðtöldum undirmöppum)"
+
+msgid "Loading subfolder sizes"
+msgstr "Hleð stærð undirmappa"
+
+msgid "No subfolders present"
+msgstr "Engar undirmöppur til staðar"
+
+msgid "Subfolder"
+msgstr "Undirmappa"
+
+msgid "Sort by: Name of the subfolder"
+msgstr "Raða eftir nafni á undirmöppu"
+
+msgid "Sort by: Size (without subfolders)"
+msgstr "Raða eftir stærð (að frátöldum undirmöppum)"
+
+msgid "Total size"
+msgstr "Heildarstærð"
+
+msgid "Sort by: Total size (including subfolders)"
+msgstr "Raða eftir heildarstærð (undirmöppur meðtaldar)"
+
+msgid "Open Shared Folders"
+msgstr "Opna sameiginlegar möppur"
+
+msgid "Unresolved user"
+msgstr "Óskýr notandi"
+
+msgid "Username '{0}' could not be resolved."
+msgstr "Notandanafnið '{0}' er óþekkt."
+
+msgid "Invalid user"
+msgstr "Ógildur notandi"
+
+msgid "Username '{0}' is not a valid user."
+msgstr "Notandanafnið '{0}' er ekki gildur notandi."
+
+msgid "Own store"
+msgstr "Eigandi geymslu"
+
+msgid "It is not possible to open your own store twice."
+msgstr "Það er ekki hægt að opna þína eigin geymslu tvisvar."
+
+msgid "Folder already open"
+msgstr "Mappa er nú þegar opin"
+
+msgid "This shared folder is already open."
+msgstr "Þessi sameiginlega mappa er nú þegar opin."
+
+msgid "No user"
+msgstr "Enginn notandi"
+
+msgid "You must specify a user"
+msgstr "Þú verður að tilgreina notanda"
+
+msgid "Folder type"
+msgstr "Möppugerð"
+
+msgid "Show subfolders"
+msgstr "Sýna undirmöppur"
+
+msgid "Open shared folder/store"
+msgstr "Opna sameiginlega möppu/geymslu"
+
+msgid "Rename folder"
+msgstr ""
+
+msgid "Empty folder"
+msgstr "Tæma möppu"
+
+msgid "Empty Junk Email"
+msgstr "Tæma ruslpóst"
+
+msgid "Empty Deleted Items"
+msgstr "Tæma ruslakörfu"
+
+msgid "Rename Folder"
+msgstr "Endurnefna möppu"
+
+msgid "New Folder"
+msgstr "Ný mappa"
+
+msgid "Mark All Messages Read"
+msgstr "Merkja öll skilaboð sem lesin"
+
+msgid "Delete Folder"
+msgstr "Eyða möppu"
+
+msgid "Close store"
+msgstr "Loka geymslu"
+
+msgid "Close folder"
+msgstr "Loka möppu"
+
+msgid "Reload"
+msgstr "Endurhlaða"
+
+msgid "Restore items"
+msgstr "Endurheimta atriði"
+
+msgid "Select color"
+msgstr "Velja lit"
+
+msgid "Add to Favorites"
+msgstr "Gera að uppáhaldi"
+
+msgid "Remove From Favorites"
+msgstr "Taka úr uppáhaldi"
+
+msgid "Share folder..."
+msgstr "Deila möppu..."
+
+msgid "Import emails"
+msgstr "Flytja inn tölvupósta"
+
+msgid "Import appointments"
+msgstr "Flytja inn tímabókanir"
+
+msgid "Import contacts"
+msgstr "Flytja inn tengiliði"
+
+msgid "Properties of {0}"
+msgstr "Eigindi {0}"
+
+msgid "Share {0} with..."
+msgstr "Deila {0} með..."
+
+msgid "Properties of {0} - {1}"
+msgstr "Eigindi {0} - {1}"
+
+msgid ""
+"Are you sure you want to permanently delete all the items and subfolders in "
+"the \"{0}\" folder?"
+msgstr ""
+"Ertu viss um að þú viljir eyða algjörlega öllum atriðum og undirmöppum í "
+"möppunni \"{0}\"?"
+
+msgid ""
+"Are you sure you want to delete the folder \"{0}\" and move all of its "
+"contents into the Deleted Items folder?"
+msgstr ""
+"Ertu viss um að þú viljir eyða möppunni \"{0}\" og færa innihaldið í "
+"ruslakörfuna?"
+
+msgid "Delete folder"
+msgstr "Eyða möppu"
+
+msgid "Are you sure you want to empty {0}?"
+msgstr "Ertu viss um að þú viljir tæma {0}?"
+
+msgid "Show All"
+msgstr ""
+
+msgid "Show all folders"
+msgstr "Sýna allar möppur"
+
+msgid ""
+"You have insufficient privileges to move this folder. Would you like to copy "
+"instead?"
+msgstr ""
+
+msgid "CC"
+msgstr "Afrit"
+
+msgid "BCC"
+msgstr "Dulið afrit"
+
+msgid "Sort by: Importance"
+msgstr "Raða eftir mikilvægi"
+
+msgid "Sort by: To"
+msgstr "Raða eftir móttakanda"
+
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
+msgid "Sent"
+msgstr "Send"
+
+msgid "Red"
+msgstr "Rautt"
+
+msgid "Original message"
+msgstr "Upprunaleg skilaboð"
+
+msgid "Schedule mail to be sent out"
+msgstr "Tímasetja sendingu pósts"
+
+msgid "Scheduled Items"
+msgstr "Tímasett atriði"
+
+msgid "Your message will be sent at "
+msgstr "Skilaboðin þín verða send "
+
+msgid "Go to your Outbox to edit your email."
+msgstr "Farðu í úthólfið til að breyta tölvupóstinum."
+
+msgid "hour(s)"
+msgstr "klukkustund(ir)"
+
+msgid "month(s)"
+msgstr "mánuður(mánuðir)"
+
+msgid "at a specific time"
+msgstr "á tilgreindum tíma"
+
+msgid "The time you entered is in the past. Please reschedule your mail."
+msgstr ""
+"Tíminn sem þú tilgreindir er í fortíðinni. Vinsamlegast tilgreindu nýjan "
+"tíma fyrir póstinn þinn."
+
+msgid "today  at "
+msgstr "í dag  klukkan "
+
+msgid "tomorrow  at "
+msgstr "á morgun  klukkan "
+
+msgid "{0} at "
+msgstr "{0} klukkan "
+
+msgid "at {0}"
+msgstr "klukkan {0}"
+
+msgid "Your email will be sent {0}{1}"
+msgstr "Tölvupósturinn verður sendur {0}{1}"
+
+msgid "Saving..."
+msgstr "Vista..."
+
+msgid "Saved at {0}"
+msgstr "Vistað klukkan {0}"
+
+msgid "Saving failed"
+msgstr "Mistókst að vista"
+
+msgid "Message Options"
+msgstr "Valmöguleikar skilaboða"
+
+msgid "This message will be flagged for follow up when it is sent."
+msgstr "Þessi skilaboð verða skráð í eftirfylgni þegar þau eru send."
+
+msgid "Send Later"
+msgstr "Senda seinna"
+
+msgid "Schedule your mail to be sent on a specific date and time"
+msgstr "Tímasetja póstinn þinn til að vera sendur á tilgreindri tímasetningu"
+
+msgid "Add attachments to this email"
+msgstr "Bæta viðhengjum við tölvupóstinn"
+
+msgid "Add signature"
+msgstr "Bæta við undirskrift"
+
+msgid "Options"
+msgstr "Valmöguleikar"
+
+msgid "Open options dialog"
+msgstr "Opna valmöguleikaglugga"
+
+msgid "Set flag"
+msgstr "Setja merki"
+
+msgid "Set flag on this email"
+msgstr "Setja merki á þennan tölvupóst"
+
+msgid "Mark this mail as high priority"
+msgstr "Setja þennan póst í háan forgang"
+
+msgid "Mark this mail as low priority"
+msgstr "Setja þennan póst í lágan forgang"
+
+msgid "Set read receipt"
+msgstr "Stilla lestrarkvittun"
+
+msgid "Request read receipt from recipients"
+msgstr "Óska eftir lestrarkvittun frá viðtakendum"
+
+msgid "Show Bcc"
+msgstr "Sýna dulið afrit"
+
+msgid "Show Bcc field"
+msgstr "Sýna reit fyrir dulið afrit"
+
+msgid "Show From field"
+msgstr "Sýna reit fyrir sendanda"
+
+msgid "Cannot save while attachment is being uploaded"
+msgstr "Gat ekki vistað á meðan upphal viðhengis er í gangi"
+
+msgid "Miscellaneous Options"
+msgstr "Ýmsir valmöguleikar"
+
+msgid "Internet Headers"
+msgstr "Nethausar"
+
+msgid "Message Settings"
+msgstr "Stillingar skilaboða"
+
+msgid "Tracking Options"
+msgstr "Eltingarmöguleikar"
+
+msgid "Request a read receipt for this message."
+msgstr "Óska eftir lestrarkvittun fyrir þessi skilaboð."
+
+msgid "no subject"
+msgstr "ekkert málefni"
+
+msgid "Set Category"
+msgstr "Stilla flokk"
+
+msgid "Pop-Out"
+msgstr "Sprettigluggi"
+
+msgid "Mark Read"
+msgstr "Merkja sem lesið"
+
+msgid "Mark Unread"
+msgstr "Merkja sem ólesið"
+
+msgid "New mail"
+msgstr "Nýr póstur"
+
+msgid "Mail"
+msgstr "Póstur"
+
+msgid "Reply all"
+msgstr "Svara öllum"
+
+msgid "Toggle read/unread"
+msgstr "Skipta milli lesið/ólesið"
+
+msgid "Toggle red/complete flag"
+msgstr "Skipta milli rautt/klárað merki"
+
+msgid "Open Shared Mails"
+msgstr "Opna sameiginlega pósta"
+
+msgid "Print single email"
+msgstr "Prenta stakan tölvupóst"
+
+msgid "Print selected email"
+msgstr "Prenta valinn tölvupóst"
+
+msgid "Filter"
+msgstr "Sía"
+
+msgid "FW"
+msgstr "ÁFRAM"
+
+msgid "RE"
+msgstr "SVAR"
+
+msgid "on behalf of"
+msgstr ""
+
+msgid "Safe Senders list is empty"
+msgstr ""
+
+msgid "Please select a safe sender record."
+msgstr ""
+
+msgid "Delete all safe senders"
+msgstr ""
+
+msgid "Are you sure you want to delete all safe senders?"
+msgstr ""
+
+msgid "HTML"
+msgstr "HTML"
+
+msgid "Plain Text"
+msgstr "Hreinn texti"
+
+msgid "Compose mail settings"
+msgstr "Stillingar póstritils"
+
+msgid "Compose mail in this format"
+msgstr "Semja póst á þessu sniði"
+
+msgid "Default font"
+msgstr "Sjálfgefin leturgerð"
+
+msgid "Default font size"
+msgstr "Sjálfgefin leturstærð"
+
+msgid "Always request a read receipt"
+msgstr "Alltaf biðja um lestrarkvittun"
+
+#. TRANSLATORS: The {A} _must_ always be at the start of the translation
+#. The '{B}' represents the number of minutes which the user will type in.
+msgid "{A}AutoSave unsent mail every {B} minute(s)"
+msgstr "{A}Sjálfvista ósenda pósta á {B} mínútu/na fresti"
+
+msgid "Conversation view settings"
+msgstr ""
+
+msgid "Enable conversation view"
+msgstr ""
+
+msgid "Collapse conversation when selecting a different email"
+msgstr ""
+
+msgid "Incoming mail"
+msgstr "Móttekin póstur"
+
+msgid "How to respond to requests for read receipts"
+msgstr "Hvernig á að svara óskum um lestrarkvittanir"
+
+msgid "Always send a response"
+msgstr "Alltaf senda svar"
+
+msgid "Never send a response"
+msgstr "Aldrei senda svar"
+
+msgid "Ask me before sending a response"
+msgstr "Spyrja mig áður en svar er sent"
+
+#. TRANSLATORS: The {A} _must_ always be at the start of the translation
+#. The '{B}' represents the number of seconds which the user will type in.
+msgid "{A}Automatically mark mail as read after {B} second(s)"
+msgstr "{A}Sjálfkrafa merkja póst sem lesinn eftir {B} sekúndu(r)"
+
+msgid "Off"
+msgstr "Af"
+
+msgid "Right"
+msgstr "Hægri"
+
+msgid "Bottom"
+msgstr "Neðst"
+
+msgid "Location of preview pane"
+msgstr "Staðsetning forsýnarskika"
+
+msgid "Use English abbreviations for forward (FW:) and reply (RE:)"
+msgstr "Nota enskar skammstafanir fyrir áframsendingu (FW:) og svar (RE:)"
+
+msgid "Close original message on reply or forward"
+msgstr "Loka upprunalegum skilaboðum við svar eða áframsendingu"
+
+msgid "General mail settings"
+msgstr "Almennar póststillingar"
+
+msgid "Open or compose a mail item in a"
+msgstr "Opna eða semja póst atriði í"
+
+msgid "grommunio Web tab"
+msgstr "Vefviðmótsflipi grommunio"
+
+msgid "Browser window"
+msgstr "Vafragluggi"
+
+msgid "Update Out of Office settings for"
+msgstr "Uppfæra fjarverustillingar fyrir"
+
+msgid "I am currently in the office"
+msgstr "Ég er í vinnunni"
+
+msgid "I am out of the office from"
+msgstr "Ég er ekki í vinnunni frá"
+
+msgid "I will be back on"
+msgstr "Ég kem til baka"
+
+msgid "Automatically reply once per day, per sender with the following text"
+msgstr ""
+"Sjálfkrafa svara hverjum sendanda, einu sinni á dag, með eftirfarandi texta"
+
+msgid "Inside My Organization"
+msgstr ""
+
+msgid "Outside My Organization"
+msgstr ""
+
+msgid "Auto-reply to people outside my organization"
+msgstr ""
+
+msgid "My contacts only"
+msgstr ""
+
+msgid "Anyone outside my organization"
+msgstr ""
+
+msgid ""
+"The time you entered is before the out of office date. Please reschedule."
+msgstr ""
+"Tíminn sem þú skráðir er á undan tímasetningu fjarveru. Vinsamlegast "
+"endurstilltu tímann."
+
+msgid "Safe Senders"
+msgstr ""
+
+msgid ""
+"To protect your privacy email addresses or domains can only be added via the "
+"\"Add to safe sender list\" functionality in an opened email."
+msgstr ""
+
+msgid "Delete all"
+msgstr ""
+
+msgid "Signatures"
+msgstr "Undirskriftir"
+
+msgid "No signatures configured"
+msgstr "Engar undirskriftir uppsettar"
+
+msgid "New messages"
+msgstr ""
+
+msgid "Replies/forwards"
+msgstr ""
+
+msgid "Signature name:"
+msgstr ""
+
+msgid "Save Signature"
+msgstr "Vista undirskrift"
+
+msgid "You have unsaved changes. Do you wish to save the changes?"
+msgstr ""
+"Þú hefur óvistaðar breytingar. Viltu halda áfram og vista breytingarnar?"
+
+msgid "New signature"
+msgstr "Ný undirskrift"
+
+msgid "EML file(s)"
+msgstr "EML skrá(r)"
+
+msgid "ZIP file"
+msgstr "ZIP skrá"
+
+msgid "max. "
+msgstr "hámark. "
+
+msgid "Sort by: Sent"
+msgstr "Raða eftir sendingu"
+
+msgid "Modified"
+msgstr "Breytt"
+
+msgid "Sort by: Modified"
+msgstr "Raða eftir breytingu"
+
+msgid "Flag"
+msgstr "Merki"
+
+msgid "Sort by: flag"
+msgstr "Raða eftir merki"
+
+msgid "Older"
+msgstr "Eldra"
+
+msgid "Yesterday"
+msgstr "Í gær"
+
+msgid "Last Week"
+msgstr "Í síðustu viku"
+
+msgid "Two Weeks Ago"
+msgstr "Fyrir tveimur vikum"
+
+msgid "Three Weeks Ago"
+msgstr "Fyrir þremur vikum"
+
+msgid "Last Month"
+msgstr "Í síðasta mánuði"
+
+msgid "Small"
+msgstr "Lítið"
+
+msgid "Medium"
+msgstr "Miðlungs"
+
+msgid "Large"
+msgstr "Stórt"
+
+msgid "Very large"
+msgstr "Mjög stórt"
+
+msgid "Huge"
+msgstr "Risa"
+
+msgid "Follow up"
+msgstr "Eftirfylgni"
+
+msgid "Move to Junk Folder"
+msgstr "Færa í ruslpóst"
+
+msgid "Send to"
+msgstr "Senda til"
+
+msgid "Loading mail"
+msgstr "Hleð pósti"
+
+msgid "No unread mail."
+msgstr "Enginn ólesinn póstur."
+
+msgid "Unread Mail"
+msgstr "Ólesinn póstur"
+
+msgid "Quick Mail"
+msgstr "Skyndipóstur"
+
+msgid "Print note"
+msgstr "Prenta minnisatriði"
+
+msgid "Color"
+msgstr "Litur"
+
+msgid "New note"
+msgstr "Nýtt minnisatriði"
+
+msgid "Open Shared Notes"
+msgstr "Opna sameiginleg minnisatriði"
+
+msgid "Sticky note"
+msgstr "Klístrað minnisatriði"
+
+msgid "Print selected note"
+msgstr "Prenta valið minnisatriði"
+
+msgid "No note selected"
+msgstr "Ekkert minnisatriði valið"
+
+msgid "Icons"
+msgstr "Teikn"
+
+msgid "List view"
+msgstr "Listasýn"
+
+msgid "List Last Seven Days"
+msgstr "Sýna síðustu sjö daga"
+
+msgid "Created"
+msgstr "Skapað"
+
+msgid "Sort by: Created"
+msgstr "Raða eftir sköpunartíma"
+
+msgid "Sort by: Color"
+msgstr "Raða eftir lit"
+
+msgid "Loading Notes"
+msgstr "Hleð minnisatriðum"
+
+msgid "Loading notes"
+msgstr "Hleð minnisatriðum"
+
+msgid "Quick Note"
+msgstr "Skyndiminnisatriði"
+
+msgid ""
+"You must reload grommunio Web for the changes to take effect. Unsaved "
+"changes will be lost."
+msgstr ""
+"Þú verður að endurhlaða grommunio vefviðmótinu til þess að virkja "
+"breytingarnar. Óvistuðar breytingar munu glatast."
+
+msgid "Reload grommunio Web"
+msgstr "Endurhlaða grommunio vefviðmóti"
+
+msgid "Settings"
+msgstr "Stillingar"
+
+msgid "Basic"
+msgstr "Grunnur"
+
+msgid "Account information - {0}"
+msgstr ""
+
+msgid "Profile Picture"
+msgstr ""
+
+msgid "Language"
+msgstr "Tungumál"
+
+msgid "Startup folder"
+msgstr "Ræsimappa"
+
+msgid "Theme"
+msgstr "Þema"
+
+msgid "Select Default Folder"
+msgstr "Velja sjálfgefna möppu"
+
+msgid "Advanced"
+msgstr "Ítarlegt"
+
+msgid "Advanced settings"
+msgstr "Ítarlegar stillingar"
+
+msgid "Developer tools"
+msgstr ""
+
+msgid "Show insertion points in grommunio Web"
+msgstr ""
+
+msgid "Show \"item data\" button in context menu (mail only)"
+msgstr ""
+
+msgid "Edit setting"
+msgstr "Breyta stillingu"
+
+msgid "Restore to defaults"
+msgstr "Endurheimta sjálfgefnar stillingar"
+
+msgid "Delete settings"
+msgstr "Eyða stillingum"
+
+msgid "{0} Iconset"
+msgstr "{0} teiknasafn"
+
+msgid "About"
+msgstr "Um"
+
+msgid "I want to display date and time in this format:"
+msgstr "Ég vil sýna dagsetningu og tíma á þessu sniði:"
+
+msgid "Short"
+msgstr "Stutt"
+
+msgid "Long"
+msgstr "Langt"
+
+msgid "Time format:"
+msgstr ""
+
+msgid "12h clock"
+msgstr ""
+
+msgid "24h clock"
+msgstr ""
+
+msgid "Favorite settings"
+msgstr "Uppáhaldsstillingar"
+
+msgid "Hide favorites"
+msgstr "Fela uppáhald"
+
+msgid "Unpin favorites from top"
+msgstr "Fjarlægja uppáhald af toppnum"
+
+msgid "Give unread items a colored border"
+msgstr "Gefa ólesnum atriðum litaðan ramma"
+
+msgid "Show 'help' button in top-right corner"
+msgstr ""
+
+msgid "Show unread mail counter in application title"
+msgstr ""
+
+msgid "Hide widget panel"
+msgstr ""
+
+msgid "Show search bar above folder list"
+msgstr ""
+
+msgid "Auto"
+msgstr ""
+
+msgid "Actual size"
+msgstr ""
+
+msgid "Page width"
+msgstr ""
+
+msgid "Attachment preview (PDF and Open formats)"
+msgstr ""
+
+msgid "Document default zoom"
+msgstr ""
+
+msgid "PDF zoom"
+msgstr ""
+
+msgid "File previewing"
+msgstr ""
+
+msgid "Inbox navigation"
+msgstr "Innhólfsstiki"
+
+msgid "I want to navigate through my items by using."
+msgstr "Ég vil flakka um atriðin mín með því að nota."
+
+msgid "Infinite Scroll"
+msgstr "Óendanlegt skrun"
+
+msgid "grommunio Web automatically loads additional items when you scroll down"
+msgstr ""
+"grommunio vefviðmótið hlður sjálfkrafa viðbótaratriðum þegar þú skrunar niður"
+
+msgid "Pagination"
+msgstr "Síðuflakk"
+
+msgid ""
+"grommunio Web displays items on pages and you can use navigation controls to "
+"navigate"
+msgstr ""
+"grommunio vefviðmótið sýnir atriði á síðum og þú getur notað stjórnborð til "
+"að flakka á milli"
+
+msgid "Load items in blocks of {A}"
+msgstr "Hlaða atriðum í hópum af {A}"
+
+msgid "Load {A} items per page."
+msgstr "Hlaða {A} atirðum á síðu."
+
+msgid "Keyboard Shortcuts"
+msgstr "Flýtilyklar"
+
+msgid "Part of basic keyboard shortcuts"
+msgstr "Hluti af grunnflýtilyklum"
+
+msgid "Keyboard shortcuts off"
+msgstr "Óvirkja flýtilykla"
+
+msgid "Basic keyboard shortcuts on"
+msgstr "Grunnflýtilyklar virkjaðir"
+
+msgid "All keyboard shortcuts on"
+msgstr "Allir flýtilyklar virkjaðir"
+
+msgid "This change requires a reload of grommunio Web"
+msgstr ""
+
+msgid "Plugins"
+msgstr "Íbætur"
+
+msgid "Available plugins"
+msgstr "Aðgengilegar íbætur"
+
+msgid "No plugins available"
+msgstr "Engar íbætur aðgengilegar"
+
+msgid "Version"
+msgstr "Útgáfa"
+
+msgid "This plugin cannot be disabled"
+msgstr "Þessi íbót getur ekki verið óvirkjuð"
+
+msgid "This plugin cannot be enabled"
+msgstr "Þessi íbót getur ekki verið virkjuð"
+
+msgid "Mailbox Usage"
+msgstr "Pósthólfsnotkun"
+
+msgid "A quota is not set on your store."
+msgstr ""
+
+msgid "{0} of mailbox space is used."
+msgstr "{0} af pósthólfsplássi er notað."
+
+msgid "You have exceeded hard quota, you can not send or receive mails."
+msgstr ""
+
+msgid "At {0} you won't be able to send mails."
+msgstr "Við {0} muntu ekki geta sent tölvupóst."
+
+msgid ""
+"You can not send mails as you have exceeded soft quota, at {0} you won't be "
+"able to receive mails."
+msgstr ""
+
+msgid "At {0} you won't be able to send or receive mails."
+msgstr ""
+
+msgid "You can not send mails as you have exceeded soft quota."
+msgstr "Þú getur ekki sent póst þar sem þú hefur farið fram úr varúðarkvóta."
+
+msgid "Reset settings"
+msgstr "Endursetja stillingar"
+
+msgid "Reset settings to their original defaults."
+msgstr "Endursetja stillingar í sjálfgefnar stillingar."
+
+msgid ""
+"This will close all opened shared stores and resets all settings to the "
+"default value."
+msgstr ""
+"Þetta mun loka öllum opnum sameiginlegum geymslum og endursetja allar "
+"stillingar í sjálfgefin gildi."
+
+msgid ""
+"grommunio Web will automatically reload in order for these changes to take "
+"effect"
+msgstr ""
+"grommunio vefviðmótið mun sjálfvirkt endurhlaða sig til að virkja þessar "
+"breytingar"
+
+msgid "Reset"
+msgstr "Endursetja"
+
+msgid "Reloading, Please wait."
+msgstr "Endurhleð. Vinsamlegast bíðið."
+
+msgid "Setting"
+msgstr "Stilling"
+
+msgid "The setting '{0}' can not be edited"
+msgstr "Stillingunni '{0}' getur ekki verið breytt"
+
+msgid "Version information"
+msgstr "Útgáfuupplýsingar"
+
+msgid "Gromox"
+msgstr "grommunio kjarni"
+
+msgid "Delete confirmation"
+msgstr "Staðfesting á eyðingu"
+
+msgid "Deleting the item(s) will also delete the original item(s)."
+msgstr ""
+"Eyðing atriðisins/atriðanna mun einnig eyða upprunalegu atriði/atriðum."
+
+msgid "Do you want to delete the item(s)?"
+msgstr "Viltu eyða atriðinu/atriðunum?"
+
+msgid "Sort by: Priority"
+msgstr "Raða eftir forgangi"
+
+msgid "Status"
+msgstr "Staða"
+
+msgid "Sort by: Status"
+msgstr "Raða eftir stöðu"
+
+msgid "Due Date"
+msgstr "Skiladagur"
+
+msgid "Sort by: Due Date"
+msgstr "Raða eftir skiladegi"
+
+msgid "% Completed"
+msgstr "% kláruð"
+
+msgid "Sort by: Percent Completed"
+msgstr "Raða eftir hlutfalli kláraðra"
+
+msgid "Task Status"
+msgstr "Staða verks"
+
+msgid "Percent Complete"
+msgstr "Hlutfall kláraðra"
+
+msgid "Total Work"
+msgstr "Heildarvinna"
+
+msgid "Actual Work"
+msgstr "Raunveruleg vinna"
+
+msgid "Companies"
+msgstr "Fyrirtæki"
+
+msgid "Billing Information"
+msgstr "Reikningsupplýsingar"
+
+msgid "Mileage"
+msgstr "Nýting"
+
+msgid "Accepting Task"
+msgstr "Samþykki verk"
+
+msgid "Declining Task"
+msgstr "Hafna verki"
+
+msgid ""
+"This task will be accepted and moved to your task folder. Do you want to "
+"include comments with your response?"
+msgstr ""
+"Þetta verk verður samþykkt og fært í verkskrána þína. Viltu láta "
+"athugasemdir fylgja með svarinu þínu?"
+
+msgid ""
+"This task will be declined and moved into the Deleted Items folder. Do you "
+"want to edit the response before sending it?"
+msgstr ""
+"Þessu verki verður hafnað og það fært í ruslakörfuna. Viltu breyta svarinu "
+"þínu áður en þú sendir það?"
+
+msgid "Send the response now"
+msgstr "Senda svarið núna"
+
+msgid "Date Complete"
+msgstr "Dagsetning þegar klárað"
+
+msgid "Multiple companies name must be separated by"
+msgstr ""
+
+msgid "Update List"
+msgstr "Uppfæra lista"
+
+msgid "Create Unassigned Copy"
+msgstr "Búa til óúthlutað afrit"
+
+msgid "copy"
+msgstr "afrita"
+
+msgid "Unable to send task request"
+msgstr "Gat ekki sent verkbeiðni"
+
+msgid "You cannot send a task request to yourself."
+msgstr "Þú getur ekki sent verkbeiðni til þín."
+
+msgid "Multiple recipients"
+msgstr "Margir viðtakendur"
+
+msgid "A task request can only have one recipient."
+msgstr "Verkbeiðni getur aðeins haft einn viðtakanda."
+
+msgid "Due date"
+msgstr "Skiladagur"
+
+msgid "Priority"
+msgstr "Forgangur"
+
+msgid "% Complete"
+msgstr "% kláruð"
+
+msgid "Track progress"
+msgstr "Framgangseftirfylgni"
+
+msgid "Keep updated copy of task and receive automated status reports"
+msgstr "Geyma uppfært afrit af verki og taka við sjálfvirkum stöðuskýrslum"
+
+msgid "Send task to assignees"
+msgstr "Senda verk til verktaka"
+
+msgid "Restore to Task List"
+msgstr "Endurheimta verkskrá"
+
+msgid "Delete this task"
+msgstr "Eyða þessu verki"
+
+msgid "Add attachments to this task"
+msgstr "Bæta viðhengjum við þetta verk"
+
+msgid "Mark as Complete"
+msgstr "Merkja sem klárað"
+
+msgid "Mark this task as complete"
+msgstr "Merkja þetta verk sem klárað"
+
+msgid "Print this task"
+msgstr "Prenta þetta verk"
+
+msgid "Assign Task"
+msgstr "Úthluta verki"
+
+msgid "Cancel Assignment"
+msgstr "Hætta við úthlutun"
+
+msgid "Mark this task as private"
+msgstr "Merkja þetta sem einkaverk"
+
+msgid "New task"
+msgstr "Nýtt verk"
+
+msgid "Completed"
+msgstr "Klárað"
+
+msgid "Printed by: "
+msgstr "Umbeiðandi prentunar: "
+
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
+msgid "Printed on: "
+msgstr "Prentunardagsetning: "
+
+msgid "Percent complete"
+msgstr "Hlutfall kláraðra"
+
+msgid "Total work"
+msgstr "Heildarvinna"
+
+msgid "{totalwork} hours"
+msgstr "{totalwork} klukkutímar"
+
+msgid "Actual work"
+msgstr "Raunveruleg vinna"
+
+msgid "{actualwork} hours"
+msgstr "{actualwork} klukkutímar"
+
+msgid "Open Shared Tasks"
+msgstr "Opna sameiginleg verk"
+
+msgid "Simple view"
+msgstr "Einföld sýn"
+
+msgid "Detailed view"
+msgstr "Ítarleg sýn"
+
+msgid "Task request"
+msgstr "Verkbeiðni"
+
+msgid "Print selected task"
+msgstr "Prenta valið verk"
+
+msgid "No task selected"
+msgstr "Ekkert verk valið"
+
+msgid "Print task list"
+msgstr "Prenta verkskrá"
+
+msgid "Create task"
+msgstr "Búa til verk"
+
+msgid "Upcoming"
+msgstr ""
+
+msgid "Overdue"
+msgstr ""
+
+msgid "Mark Complete"
+msgstr "Merkja sem klárað"
+
+msgid "Mark Incomplete"
+msgstr "Merkja sem óklárað"
+
+msgid "Remove from To-Do List"
+msgstr "Fjarlægja úr aðgerðalista"
+
+msgid "Changes to assigned task"
+msgstr "Breytingar á úthlutuðu verki"
+
+msgid ""
+"Please note that assigned task(s) will be overwritten when the assignee "
+"makes changes."
+msgstr ""
+"Vinsamlegast athugaðu að úthlutuð verk verða yfirskrifuð þegar verktakinn "
+"gerir breytingar."
+
+msgid "Sort by: Complete"
+msgstr "Raða eftir kláruðum verkum"
+
+msgid "Reminder Time"
+msgstr "Áminningartímasetning"
+
+msgid "Sort by: Reminder Time"
+msgstr "Raða eftir áminningartímasetningu"
+
+msgid "Assigned To"
+msgstr "Úthlutað til"
+
+msgid "Sort by: Assignee"
+msgstr "Raða eftir verktaka"
+
+msgid "Sort by: Owner"
+msgstr "Raða eftir eiganda"
+
+msgid "Sort by: Percentage Completed"
+msgstr "Raða eftir hlutfalli kláraðra"
+
+msgid "Assigned task changes"
+msgstr "Breytingar úthlutaðs verks"
+
+msgid "Loading tasks"
+msgstr "Hleð verkum"
+
+msgid "Date completed"
+msgstr "Dagsetning þegar klárað"
+
+msgid "hours"
+msgstr "klukkutímar"
+
+msgid "Billing information"
+msgstr "Reikningsupplýsingar"
+
+msgid "Update list"
+msgstr "Uppfæra lista"
+
+msgid "D d-m-Y"
+msgstr "D d-m-Y"
+
+msgid "none"
+msgstr "ekkert"
+
+msgid "Quick Task"
+msgstr "Skyndiverk"
+
+msgid "No tasks."
+msgstr "Engin verk."
+
+msgid "Tasks / To-Do"
+msgstr "Verkskrá / Aðgerðalisti"
+
+msgid "Import / Export"
+msgstr "Flytja inn/út"
+
+msgid ""
+"Calendar, contact and mail items can be imported and exported from and to "
+"grommunio Web."
+msgstr ""
+"Dagatal, tengiliðir og póstar geta ekki verið fluttir inn og út í grommunio "
+"vefviðmótinu."
+
+msgid ""
+"Right-click a folder and select the import button. Additionally, items can "
+"be imported from the attachment context menu."
+msgstr ""
+"Hægrismelltu á möppu og veldu innflutningstakkann. Auk þess geta atriði "
+"verið flutt inn í gegnum viðhengisvalmyndina."
+
+msgid "Exporting can be done from the context menu of an item."
+msgstr "Útflutning er hægt að framkvæma í gegnum valmynd atriðis."
+
+msgid "Icon packs"
+msgstr "Teiknapakkar"
+
+msgid ""
+"You can now choose between different icons. By default the new Breeze icons "
+"are enabled, but if you prefer the classic icons you can change this in the "
+"settings."
+msgstr ""
+"Þú getur núna valið milli mismunandi teikna. Breeze-teikn eru sjálfgefið "
+"virkjuð en ef þú vilt klassísk teikn getur þú breytt því í stillingum."
+
+msgid ""
+"Go to your settings, open the general tab and select an icon pack to your "
+"liking."
+msgstr ""
+"Farðu í stillingarnar þínar og opnaðu almenna flipann til að velja "
+"teiknapakka sem þér líkar."
+
+msgid "Left: Breeze - Right: Classic"
+msgstr "Vinstri: Breeze - Hægri: Klassískt"
+
+msgid "What's new"
+msgstr "Hvað er nýtt"
+
+msgid "Don't show me new features again."
+msgstr "Ekki sýna mér tilkynningu um nýja virkni aftur."
+
+msgid "Skip"
+msgstr "Sleppa"
+
+msgid "Previous"
+msgstr "Fyrri"
+
+msgid "Next"
+msgstr "Næsta"
+
+msgid "Click the link to open the URL in a new window."
+msgstr "Smelltu á tengilinn til að opna vefslóðina í nýjum glugga."
+
+msgid "The server reported an unknown error on your request."
+msgstr "Vefþjónninn tilkynnti óþekkta villu í beiðninni þinni."
+
+msgid "The server reported an unspecified error on your request."
+msgstr "Vefþjónninn tilkynnti ótilgreinda villu í beiðninni þinni."
+
+msgid "The session has expired, reauthentication is required."
+msgstr "Setan þín er útrunnin, þú þarft að endurauðkenna þig."
+
+msgid ""
+"The session in the current browser window has been closed from another "
+"browser window or tab."
+msgstr "Setunni þinni í vafranum var lokað úr öðrum vafraglugga eða flipa."
+
+msgid "Session expired"
+msgstr "Útrunnin seta"
+
+msgid "Do you wish to be redirected to the logon page?"
+msgstr "Viltu flytjast yfir á innskráningarsíðu?"
+
+msgid "Reauthentication required, click here to go to back to logon page."
+msgstr ""
+"Endurauðkenning nauðsynleg, smelltu hér til að fara aftur á "
+"innskráningarsíðu."
+
+msgid "Connection problem"
+msgstr "Tengivilla"
+
+msgid "Could not connect to server, retrying in {0} second(s)"
+msgstr "Gat ekki tengst netþjóni, reyni aftur eftir {0} sekúndu(r)"
+
+msgid "Click to retry now"
+msgstr "Smelltu til að reyna núna"
+
+msgid "Connection restored"
+msgstr "Tengingu komið á að nýju"
+
+msgid "Connection with server has been restored"
+msgstr "Tengingin við netþjóninn hefur verið endurheimt"
+
+#. TRANSLATORS: Example: HTTP 404
+msgid "HTTP {0}"
+msgstr ""
+
+msgid "Invalid data received from the server"
+msgstr ""
+
+msgid "Missing store"
+msgstr "Geymslu vantar"
+
+msgid "The default store is missing from the hierarchy."
+msgstr "Sjálfvirku geymsluna vantar í stigveldið."
+
+msgid ""
+"Not all functionality of grommunio Web might be working properly because of "
+"this."
+msgstr ""
+"Það er óvíst hvort öll virkni í grommunio vefviðmótinu er eins og hún á að "
+"vera vegna þessa."
+
+msgctxt "hierarchy.foldername"
+msgid "Inbox"
+msgstr "Innhólf"
+
+msgctxt "hierarchy.foldername"
+msgid "Outbox"
+msgstr "Úthólf"
+
+msgctxt "hierarchy.foldername"
+msgid "Sent Items"
+msgstr "Sendingar"
+
+msgctxt "hierarchy.foldername"
+msgid "Deleted items"
+msgstr "Ruslakarfa"
+
+msgctxt "hierarchy.foldername"
+msgid "Calendar"
+msgstr "Dagatal"
+
+msgctxt "hierarchy.foldername"
+msgid "Contacts"
+msgstr "Tengiliðir"
+
+msgctxt "hierarchy.foldername"
+msgid "Drafts"
+msgstr "Óklárað"
+
+msgctxt "hierarchy.foldername"
+msgid "Journal"
+msgstr "Dagbók"
+
+msgctxt "hierarchy.foldername"
+msgid "Notes"
+msgstr "Minnisatriði"
+
+msgctxt "hierarchy.foldername"
+msgid "Tasks"
+msgstr "Verkskrá"
+
+msgctxt "hierarchy.foldername"
+msgid "Junk Email"
+msgstr "Ruslpóstur"
+
+msgid "Missing folders"
+msgstr "Möppur sem vantar"
+
+msgid "The following required folder is missing in the hierarchy: {0}"
+msgid_plural "The following required folders are missing in the hierarchy: {0}"
+msgstr[0] "Eftirfarandi möppu vantar í stigveldið: {0}"
+msgstr[1] "Eftirfarandi möppur vantar í stigveldið: {0}"
+
+msgid "Loading model from server failed"
+msgstr "Mistókst að hlaða líkani frá netþjóni"
+
+msgid "Out of Office is currently activated. Would you like to turn it off?"
+msgstr "Þú hefur stillt þig sem fjarverandi. Viltu afvirkja stillinguna?"
+
+msgid "Open Chat at start"
+msgstr ""
+
+msgid "Desktop Notifications Plugin"
+msgstr ""
+
+msgid "Desktop Notifications"
+msgstr ""
+
+msgid "{A} Autohide desktop notification after second(s) {B}"
+msgstr ""
+
+msgid "Intranet"
+msgstr ""
+
+msgid "Email Details"
+msgstr ""
+
+msgid "Item Data"
+msgstr ""
+
+msgid "Mobile Device Manager"
+msgstr ""
+
+msgid "Wiping device"
+msgstr ""
+
+msgid "Password incorrect"
+msgstr ""
+
+msgid "Full resync in progress"
+msgstr ""
+
+msgid "Username or password incorrect"
+msgstr ""
+
+msgid "Not Applicable"
+msgstr ""
+
+msgid "Wipe Pending"
+msgstr ""
+
+msgid "Wipe Requested"
+msgstr ""
+
+msgid "Wipe Executed"
+msgstr ""
+
+msgid "Not Available"
+msgstr ""
+
+msgid "Device"
+msgstr ""
+
+msgid "Operating System"
+msgstr ""
+
+msgid "ID"
+msgstr ""
+
+msgid "User Agent"
+msgstr ""
+
+msgid "MDM Plugin"
+msgstr ""
+
+msgid "Active Sync Version"
+msgstr ""
+
+msgid "grommunio-sync Version"
+msgstr ""
+
+msgid "Policy name"
+msgstr ""
+
+msgid "Outlook Extension"
+msgstr ""
+
+msgid "Build"
+msgstr ""
+
+msgid "Last updated"
+msgstr ""
+
+msgid "d F Y, H:i"
+msgstr ""
+
+msgid "Connected since"
+msgstr ""
+
+msgid "d F Y"
+msgstr ""
+
+msgid "Synchronize"
+msgstr ""
+
+msgid "Manage Shared Folders"
+msgstr ""
+
+msgid ""
+"Select folders to sync to your device from the list below. To add additional "
+"mailboxes to the list, open them in WebApp first."
+msgstr ""
+
+msgid "grommunio-sync"
+msgstr ""
+
+msgid "Mobile device management"
+msgstr ""
+
+msgid "Mobile Devices"
+msgstr ""
+
+msgid ""
+"Unable to connect to the grommunio-sync server. Click {0} to enter your "
+"credentials"
+msgstr ""
+
+msgid "Devices"
+msgstr ""
+
+msgid "No devices connected to your account"
+msgstr ""
+
+msgid "Last Update"
+msgstr ""
+
+msgid "Device ID"
+msgstr ""
+
+msgid "Device OS"
+msgstr ""
+
+msgid "Device Info"
+msgstr ""
+
+msgid "First Sync time"
+msgstr ""
+
+msgid "Full resync"
+msgstr ""
+
+msgid "Remove device"
+msgstr ""
+
+msgid "Please enter your username and password"
+msgstr ""
+
+msgid "Password"
+msgstr ""
+
+msgid "Username"
+msgstr ""
+
+msgid ""
+"Do you really want to wipe your device?\n"
+" Enter your password to confirm."
+msgstr ""
+
+msgid "Add meeting"
+msgstr ""
+
+msgid "Room name:"
+msgstr ""
+
+msgid "Room URL:"
+msgstr ""
+
+msgid "Shift-click for advanced settings"
+msgstr ""
+
+msgid "Join webmeeting"
+msgstr ""
+
+msgid "Open meeting in:"
+msgstr ""
+
+msgid "Web tab"
+msgstr ""
+
+msgid "Hide the button in the main toolbar"
+msgstr ""
+
+msgid "Add the subject to the room name"
+msgstr ""
+
+msgid "Add the organizer name to the room name"
+msgstr ""
+
+msgid "Add the URL to the meeting location rather than overwriting it"
+msgstr ""
+
+msgid ""
+"Prevent the URL in the meeting location from being overridden automatically "
+"(ex: when adding a meetingroom)"
+msgstr ""
+
+msgid "If you have problems when creating meetings, try disabling this setting"
+msgstr ""
+
+msgid "Add an invitation to the appointment description"
+msgstr ""
+
+msgid "Invitation text"
+msgstr ""
+
+msgid ""
+"must contain %url% as a placeholder for the meeting link, empty the textbox "
+"to reset to default"
+msgstr ""
+
+msgid "An unknown error occurred while changing password."
+msgstr ""
+
+msgid "Password is changed successfully."
+msgstr ""
+
+msgid "Success"
+msgstr ""
+
+msgid "Change Password"
+msgstr ""
+
+msgid "Current password"
+msgstr ""
+
+msgid "New password"
+msgstr ""
+
+msgid "Retype new password"
+msgstr ""
+
+msgid "New passwords do not match."
+msgstr ""
+
+msgid "Current password is empty."
+msgstr ""
+
+msgid "New password is empty."
+msgstr ""
+
+msgid "One or more fields does contain errors."
+msgstr ""
+
+msgid ""
+"Password is weak. Password should contain capital, non-capital letters and "
+"numbers. Password should have 8 to 20 characters."
+msgstr ""
+
+msgid "Charm pink"
+msgstr "Sjarmerandi bleikt"
+
+msgid "Cadmium red"
+msgstr "Kadmínrautt"
+
+msgid "Apricot"
+msgstr "Apríkósa"
+
+msgid "California"
+msgstr "Kalifornía"
+
+msgid "Soft green"
+msgstr "Mjúkgrænt"
+
+msgid "Mint"
+msgstr "Mynta"
+
+msgid "Pearl aqua"
+msgstr "Perlusjór"
+
+msgid "Grommunio blue"
+msgstr ""
+
+msgid "Baby blue"
+msgstr "Barnablátt"
+
+msgid "Mauve"
+msgstr "Fjólubleikt"
+
+msgid "Silver sand"
+msgstr "Silfursandur"
+
+msgid "Competition"
+msgstr "Keppni"
+
+msgid "Gifts"
+msgstr "Gjafir"
+
+msgid "Goals/Objectives"
+msgstr "Markmið/takmark"
+
+msgid "Holiday Cards"
+msgstr "Hátíðakort"
+
+msgid "Hot Contacts"
+msgstr "Vinsælir tengiliðir"
+
+msgid "Ideas"
+msgstr "Hugmyndir"
+
+msgid "International"
+msgstr "Alþjóðlegt"
+
+msgid "Key Customer"
+msgstr "Lykilviðskiptavinur"
+
+msgid "Miscellaneous"
+msgstr "Ýmislegt"
+
+msgid "Phone Calls"
+msgstr "Símtöl"
+
+msgid "Strategies"
+msgstr "Áætlanir"
+
+msgid "Suppliers"
+msgstr "Birgjar"
+
+msgid "Time & Expenses"
+msgstr "Tími og kostnaður"
+
+msgid "VIP"
+msgstr "Mikilmenni"
+
+msgid "Waiting"
+msgstr "Bíð"
+
+msgid "You have been automatically logged out"
+msgstr "Þú lentir í sjálfvirkri útskráningu"
+
+msgid ""
+"Sorry, access to grommunio Web is not available with this user account. "
+"Please contact your system administrator."
+msgstr ""
+"Því miður er aðgangur að grommunio vefviðmóti ekki til fyrir þennan "
+"notandaaðgang. Vinsamlegast ræddu við kerfisstjórn."
+
+msgid "Mobile device management plugin"
+msgstr ""
+
+#, php-format
+msgid ""
+"Unexpected error occurred. Please contact your system administrator. Error "
+"code: %s"
+msgstr ""
+
+msgid "No data received."
+msgstr ""
+
+msgid "Account is empty."
+msgstr ""
+
+msgid "Current password does not match."
+msgstr ""
+
+msgid ""
+"Your password is wrong or you have insufficent permission to change password"
+msgstr ""
+
+msgid "Password is not changed."
+msgstr ""
+
+msgid "Error changing password. Please contact the system administrator."
+msgstr ""
+
+msgid "Password has been changed successfully."
+msgstr ""
+
+msgid "Can't add data to bus, same action type is present in bus"
+msgstr ""
+
+msgid "Response data requested from bus but it doesn't have any data."
+msgstr ""
+
+#, php-format
+msgid "Unknown module '%s' with id '%s'"
+msgstr ""
+
+msgid ""
+"Server encountered some problem, so it was not able to handle the request."
+msgstr ""
+
+#, php-format
+msgid "Unknown notifier '%s'"
+msgstr ""
+
+msgid "An unexpected error has occurred"
+msgstr ""
+
+msgid "To-Do List"
+msgstr ""
+
+#. TRANSLATORS: This indicates that the opened folder belongs to a particular user,
+#. * for example: 'Calendar of Holiday', in this case %1$s is 'Calendar' (the foldername)
+#. * and %2$s is 'Holiday' (the username).
+#.
+#, php-format
+msgid "%1$s of %2$s"
+msgstr ""
+
+msgid "Error retrieving existing settings"
+msgstr ""
+
+msgid "Error retrieving existing persistent settings"
+msgstr ""
+
+msgid "Logon failed. Please verify your credentials and try again."
+msgstr ""
+"Innskráning mistókst. Athugaðu notandanafn og lykilorð og reyndu aftur."
+
+msgid "Cannot connect to Gromox."
+msgstr "Gat ekki tengst grommunio kjarnanum."
+
+msgid ""
+"Login did not work due to a duplicate session. The issue was automatically "
+"resolved, please log in again."
+msgstr ""
+"Innskráning mistókst vegna tvöfaldrar setu. Þessi villa var sjálfvirkt "
+"löguð, vinsamlegast reyndu að skrá þig inn aftur."
+
+msgid "Unknown MAPI Error"
+msgstr "Óþekkt MAPI-villa"
+
+msgid "This external link will open in a new window"
+msgstr ""
+
+msgid "Destination folder not found."
+msgstr ""
+
+msgid "Eml is corrupted"
+msgstr ""
+
+msgid "The eml Attachment is not imported successfully"
+msgstr ""
+
+msgid "The vcf attachment is not imported successfully"
+msgstr ""
+
+#, php-format
+msgid "Unable to import '%s' to '%s'. "
+msgstr "Gat ekki flutt inn '%s' í '%s'. "
+
+msgid "There is no appointment found in this file."
+msgstr "Það fannst engin tímabókun í þessari skrá."
+
+msgid "The file is corrupt."
+msgstr "Skráin er gölluð."
+
+msgid "The file is invalid."
+msgstr "Skráin er ógild."
+
+#, php-format
+msgid "Unable to import '%s'. "
+msgstr "Gat ekki flutt inn '%s'. "
+
+msgid "Please contact your system administrator if the problem persists."
+msgstr "Láttu kerfisstjórn vita ef vandamálið heldur áfram."
+
+msgid "Attachment is not imported successfully"
+msgstr ""
+
+msgid "Embedded attachment not found."
+msgstr ""
+
+msgid "ZIP is not created successfully"
+msgstr ""
+
+msgid "Attachments can not be downloaded"
+msgstr ""
+
+msgid "Could not find attachment."
+msgstr ""
+
+msgid "Operation failed"
+msgstr ""
+
+msgid "Sticky Note"
+msgstr ""
+
+msgid "Task Request"
+msgstr ""
+
+msgid "Could not find message, either it has been moved or deleted."
+msgstr ""
+
+msgid "Request is not available."
+msgstr ""
+
+msgid "You have insufficient privileges to open this object."
+msgstr "Þú ert ekki með réttindin til að opna þetta."
+
+msgid "Logon Failed. Please check your name/password."
+msgstr "Innskráning mistókst. Vinsamlegast athugaðu nafnið/lykilorðið þitt."
+
+msgid "Can not connect to Gromox."
+msgstr "Gat ekki tengst grommunio kjarnanum."
+
+msgid "Can not open object with provided id."
+msgstr "Gat ekki opnað einingu með tilgreindu auðkenni."
+
+msgid "There are no recipients in the message."
+msgstr "Skilaboðin hafa enga viðtakendur."
+
+msgid "Can not find object."
+msgstr "Fann ekki einingu."
+
+msgid "Operation failed: Server does not have enough memory."
+msgstr "Aðgerð mistókst: Netþjónninn hefur ekki nægilegt minni."
+
+#, php-format
+msgid "Unknown MAPI Error: %s"
+msgstr "Óþekkt MAPI-villa: %s"
+
+msgid "Action is not performed correctly."
+msgstr ""
+
+msgid "Tentatively accepted"
+msgstr "Kannski"
+
+msgid "New Time Proposed"
+msgstr "Tillaga að nýrri tímasetningu"
+
+#, php-format
+msgid "Occurs every %s effective %s from %s to %s."
+msgstr "Endurtekið á %s fresti með upphaf %s frá %s til %s."
+
+#, php-format
+msgid "Occurs every %s %s effective %s from %s to %s."
+msgstr "Endurtekið á %s %s fresti með upphaf %s frá %s til %s."
+
+#, php-format
+msgid "Occurs every %s effective %s."
+msgstr "Endurtekið á %s fresti með upphaf %s."
+
+#, php-format
+msgid "Occurs every %s %s effective %s."
+msgstr "Endurtekið á %s %s fresti með upphaf %s."
+
+#, php-format
+msgid "Occurs every %s effective %s for %s occurrence from %s to %s."
+msgid_plural "Occurs every %s effective %s for %s occurrences from %s to %s."
+msgstr[0] ""
+msgstr[1] ""
+
+#, php-format
+msgid "Occurs every %s %s effective %s for %s occurrence from %s to %s."
+msgid_plural "Occurs every %s %s effective %s for %s occurrences %s to %s."
+msgstr[0] ""
+msgstr[1] ""
+
+#, php-format
+msgid "Occurs every %s effective %s for %s occurrence."
+msgid_plural "Occurs every %s effective %s for %s occurrences."
+msgstr[0] ""
+msgstr[1] ""
+
+#, php-format
+msgid "Occurs every %s %s effective %s for %s occurrence."
+msgid_plural "Occurs every %s %s effective %s for %s occurrences."
+msgstr[0] ""
+msgstr[1] ""
+
+#, php-format
+msgid "Occurs every %s effective %s until %s from %s to %s."
+msgstr "Endurtekið á %s fresti með upphaf %s og lýkur %s frá %s til %s."
+
+#, php-format
+msgid "Occurs every %s %s effective %s until %s from %s to %s."
+msgstr "Endurtekið á %s %s fresti með upphaf %s og lýkur %s frá %s til %s."
+
+#, php-format
+msgid "Occurs every %s effective %s until %s."
+msgstr "Endurtekið á %s fresti með upphaf %s og lýkur %s."
+
+#, php-format
+msgid "Occurs every %s %s effective %s until %s."
+msgstr "Endurtekið á %s %s fresti með upphaf %s og lýkur %s."
+
+msgid "Task Accepted:"
+msgstr ""
+
+msgid "Task Declined:"
+msgstr ""
+
+msgid "Task Updated:"
+msgstr ""
+
+msgid "Task Completed:"
+msgstr ""
+
+msgid "Contact not found"
+msgstr ""
+
+msgid ""
+"Contact information could not be displayed because the server had trouble "
+"retrieving the information."
+msgstr ""
+
+msgid "Could not handle this type of object."
+msgstr ""
+
+msgid "Could not open this object."
+msgstr ""
+
+msgid "Error in search, please try again"
+msgstr ""
+
+msgid "Unable to perform search query, no permissions to create search folder."
+msgstr ""
+
+msgid "Unable to perform search query, search folder not found."
+msgstr ""
+
+msgid "Unable to perform search query, store might not support searching."
+msgstr ""
+
+msgid "Error in creating search folder."
+msgstr ""
+
+msgid "Could not open occurrence."
+msgstr ""
+
+msgid "Could not open occurrence, specific occurrence is probably deleted."
+msgstr ""
+
+msgid "a meeting request"
+msgstr ""
+
+msgid "an appointment"
+msgstr ""
+
+msgid "You have insufficient privileges to move "
+msgstr ""
+
+msgid ""
+"Cannot set a reminder to appear before the previous occurrence. Reset "
+"reminder to save the change"
+msgstr ""
+
+msgid "Two occurrences cannot occur on the same day"
+msgstr ""
+
+#, php-format
+msgid ""
+"You marked '%s' as a resource. You cannot schedule a meeting with '%s' "
+"because you do not have the appropiate permissions for that account. Either "
+"enter the name as a required or optional attendee or talk to your "
+"administrator about giving you permission to schedule '%s'."
+msgstr ""
+
+#, php-format
+msgid ""
+"'%s' has declined your meeting because '%s' does not automatically accept "
+"meeting requests."
+msgstr ""
+
+#, php-format
+msgid ""
+"'%s' has declined your meeting because it is recurring. You must book each "
+"meeting separately with this resource."
+msgstr ""
+
+#, php-format
+msgid ""
+"'%s' is already booked for this specified time. You must use another time or "
+"find another resource."
+msgstr ""
+
+msgid "Meeting was not scheduled."
+msgstr ""
+
+msgid "Meeting could not be sent."
+msgstr ""
+
+msgid "Meeting could not be saved."
+msgstr ""
+
+msgid "Private Appointment"
+msgstr ""
+
+#, php-format
+msgid "%s's Birthday"
+msgstr ""
+
+#, php-format
+msgid "%s's Anniversary"
+msgstr ""
+
+msgid "Unknown user/group"
+msgstr ""
+
+msgid "Could not save delegate information."
+msgstr ""
+
+msgid "Could not delete delegate."
+msgstr ""
+
+msgid "Can not get list of delegates."
+msgstr ""
+
+msgid "Could not load the hierarchy."
+msgstr ""
+
+msgid "Could not load folder properties."
+msgstr ""
+
+msgid "Could not remove folder from favorites."
+msgstr ""
+
+msgid "You have insufficient privileges to delete folder."
+msgstr ""
+
+msgid "Could not delete folder."
+msgstr ""
+
+msgid "You have insufficient privileges to copy folder."
+msgstr ""
+
+msgid "Could not copy folder."
+msgstr ""
+
+msgid "You have insufficient privileges to move this folder."
+msgstr ""
+
+msgid "Could not move folder."
+msgstr ""
+
+msgid "You have insufficient privileges to delete items."
+msgstr ""
+
+msgid "Could not empty folder."
+msgstr ""
+
+msgid "Could not perform action correctly."
+msgstr ""
+
+msgid ""
+"A favorite folder with this name already exists, please use another name."
+msgstr ""
+
+msgid "Could not add folder to favorites."
+msgstr ""
+
+msgid "You have insufficient privileges to set permissions for this folder."
+msgstr ""
+
+msgid "Could not set folder permissions."
+msgstr ""
+
+msgid "You have insufficient privileges to rename this folder."
+msgstr ""
+
+msgid "A folder with this name already exists. Use another name."
+msgstr ""
+
+msgid "Could not rename folder."
+msgstr ""
+
+msgid "You have insufficient privileges to create this folder."
+msgstr ""
+
+msgid "Could not create folder."
+msgstr ""
+
+msgid "Could not close shared folder."
+msgstr ""
+
+msgid "User could not be resolved."
+msgstr ""
+
+#, php-format
+msgid ""
+"You have insufficient privileges to open this %1$s folder. The folder owner "
+"can set these using the 'permissions'-tab of the folder properties (right "
+"click the %1$s folder > properties > permissions)."
+msgstr ""
+
+msgid "unknown"
+msgstr ""
+
+msgid "Could not move folder"
+msgstr ""
+
+msgid "Could not copy folder"
+msgstr ""
+
+msgid "You have insufficient privileges to open this message."
+msgstr ""
+
+msgid ""
+"Could not find message, either it has been moved or deleted or you don't "
+"have access to open this message."
+msgstr ""
+
+msgid "Could not open message."
+msgstr "Gat ekki opnað skilaboð."
+
+msgid "You have insufficient privileges to decline this Meeting Request"
+msgstr "Þú ert ekki með réttindi til að hafna þessu fundarboði"
+
+msgid "You have insufficient privileges to accept this Meeting Request"
+msgstr "Þú ert ekki með réttindi til að samþykkja þetta fundarboð"
+
+msgid "Could not copy message"
+msgstr "Gat ekki afritað skilaboð"
+
+msgid "Could not move message"
+msgstr "Gat ekki fært skilaboð"
+
+msgid "You have insufficient privileges to save items in this folder"
+msgstr "Þú ert ekki með réttindi til að vista í þessa möppu"
+
+msgid "Could not save message"
+msgstr "Gat ekki vistað skilaboð"
+
+msgid "You have insufficient privileges to remove item from the calendar."
+msgstr "Þú ert ekki með réttindi til að fjarlægja atriði úr dagatalinu."
+
+msgid ""
+"Message is no longer in the outgoing queue, typically because it has already "
+"been sent."
+msgstr ""
+"Skilaboðin eru ekki lengur í sendingarbiðröð, vanalega vegna þess að þau "
+"hafa þegar verið send."
+
+msgid "Message cannot be aborted"
+msgstr "Ekki hægt að hætta við skilaboð"
+
+msgid "You have insufficient privileges to delete items in this folder"
+msgstr "Þú ert ekki með réttindi til að eyða atriðum í þessari möppu"
+
+msgid "You have insufficient privileges to attach item as an attachment."
+msgstr "Þú ert ekki með réttindi til að bæta við viðhengi."
+
+msgid "Could not attach item as an attachment."
+msgstr "Gat ekki bætt við viðhengi."
+
+msgid ""
+"You have insufficient privileges to reclaim the ownership for the Task "
+"Request."
+msgstr "Þú ert ekki með réttindi til að slá eignarhaldi á verkbeiðni."
+
+msgid "Could not reclaim the ownership for the Task Request."
+msgstr "Gat ekki slegið eignarhaldi á verkbeiðni."
+
+msgid "You have insufficient privileges to accept this Task Request."
+msgstr "Þú ert ekki með réttindi til að samþykkja þessa verkbeiðni."
+
+msgid "Could not accept Task Request."
+msgstr "Gat ekki samþykkt verkbeiðni."
+
+msgid "You have insufficient privileges to decline this Task Request."
+msgstr "Þú ert ekki með réttindi til að hafna þessari verkbeiðni."
+
+msgid "Could not decline Task Request."
+msgstr "Gat ekki hafnað verkbeiðni."
+
+msgid "Conflicts with another appointment."
+msgstr "Árekstur við aðra tímabókun."
+
+#, php-format
+msgid ""
+"%s occurrence of this recurring appointment conflicts with other appointment."
+msgid_plural ""
+"%s occurrences of this recurring appointment conflicts with other "
+"appointments."
+msgstr[0] ""
+"%s tilvik af þessari endurteknu tímabókun rekst á við aðra tímabókun."
+msgstr[1] ""
+"%s tilvik af þessari endurteknu tímabókun rekst á við aðrar tímabókanir."
+
+msgid "Your message did not reach some or all of the intended recipients"
+msgstr "Skilaboðin náðu ekki til einhverra eða allra viðtakenda"
+
+msgid "The following recipient(s) could not be reached"
+msgstr "Ekki náðist í eftirfarandi viðtakanda/viðtakendur"
+
+msgid "You have insufficient privileges to see the contents of this folder."
+msgstr ""
+
+msgid "Could not load the contents of this folder."
+msgstr ""
+
+msgid ""
+"You have insufficient privileges to perform search operation in this folder."
+msgstr ""
+
+msgid "Could not update search results."
+msgstr ""
+
+msgid "Could not stop search operation."
+msgstr ""
+
+msgid "You have insufficient privileges to save this message."
+msgstr ""
+
+msgid "Could not save message."
+msgstr ""
+
+msgid "You have insufficient privileges to delete this message."
+msgstr ""
+
+msgid "Could not delete message."
+msgstr ""
+
+msgid "You have insufficient privileges to cancel this Meeting Request."
+msgstr ""
+
+msgid "Could not cancel Meeting Request."
+msgstr ""
+
+msgid "You have insufficient privileges to decline this Meeting Request."
+msgstr ""
+
+msgid "Could not decline Meeting Request."
+msgstr ""
+
+msgid "You have insufficient privileges to accept this Meeting Request."
+msgstr ""
+
+msgid "Could not accept Meeting Request."
+msgstr ""
+
+msgid "You have insufficient privileges to cancel Meeting Request invitation."
+msgstr ""
+
+msgid "Could not cancel Meeting Request invitations."
+msgstr ""
+
+msgid "You can not continue search operation on this folder."
+msgstr ""
+
+msgid "Error in search, please try again."
+msgstr ""
+
+msgid "Error in distribution list expansion."
+msgstr ""
+
+msgid "The message store has exceeded its hard quota limit."
+msgstr ""
+
+msgid ""
+"To reduce the amount of data in this message store, select some items that "
+"you no longer need, delete them and cleanup your Deleted Items folder."
+msgstr ""
+
+msgid "The message store has exceeded its soft quota limit."
+msgstr ""
+
+msgid "Could not process request data properly."
+msgstr ""
+
+#, php-format
+msgid "Unknown action type specified - %s"
+msgstr ""
+
+msgid "Cannot snooze the reminder. You may be reminded again."
+msgstr ""
+
+msgid "Cannot dismiss the reminder. You may be reminded again."
+msgstr ""
+
+msgid "You have insufficient privileges to perform this action."
+msgstr ""
+
+msgid "Could not resolve user."
+msgstr ""
+
+msgid "Setting mail filters on the stores of other users is not allowed."
+msgstr ""
+
+msgid "Untitled rule"
+msgstr ""
+
+msgid "Could not load rules."
+msgstr ""
+
+msgid "Could not save rules."
+msgstr ""
+
+msgid "Task Request:"
+msgstr ""
+
+msgid "Sign in"
+msgstr ""
+
+msgid "File is not imported successfully"
+msgstr ""
+
+msgid "There is no contact found in this file."
+msgstr "Það fannst enginn tengiliður í þessari skrá."
+
+msgid ""
+"grommunio Web does not support importing multiple VCF with this version."
+msgstr ""
+
+msgid ""
+"grommunio Web does not support importing multiple ICS with this version."
+msgstr ""
+
+#, php-format
+msgid "Unable to import '%s'"
+msgstr ""
+
+msgid "The EML is not valid"
+msgstr ""
+
+msgid "GB"
+msgstr ""
+
+msgid "MB"
+msgstr ""
+
+msgid "KB"
+msgstr ""
+
+msgid "B"
+msgstr ""
+
+msgid "The maximum stack depth has been exceeded"
+msgstr ""
+
+msgid "Control character error, possibly incorrectly encoded"
+msgstr ""
+
+msgid "Invalid or malformed JSON"
+msgstr ""
+
+msgid "Syntax error"
+msgstr ""
+
+msgid "Malformed UTF-8 characters, possibly incorrectly encoded"
+msgstr ""
+
+#, php-format
+msgid "JSON Error: - %s"
+msgstr ""
+
+msgid "Some problem encountered when encoding/decoding JSON data."
+msgstr ""

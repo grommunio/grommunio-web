@@ -21,7 +21,7 @@
 		 * @return {DragDrop} the drag drop object, null if it is not found
 		 * @static
 		 */
-		getGroupDDById : function(group, id)
+		getGroupDDById: function(group, id)
 		{
 			if (this.ids[group] && this.ids[group][id]) {
 				return this.ids[group][id];
@@ -39,7 +39,7 @@
 		 *                             the element occupies, including any padding
 		 *                             the instance is configured for.
 		 */
-		getLocation : function(oDD)
+		getLocation: function(oDD)
 		{
 			var el = oDD.getEl();
 
@@ -77,7 +77,7 @@
 		 * @return {Number} The z-index of the element, or of its topmost absolutely positioned ancestor. Returns -1 if the element is not
 		 * absolutely positioned.
 		 */
-		getZIndex : function(element)
+		getZIndex: function(element)
 		{
 			// to fix drag and drop between overlapping elements
 			// we are removing use of this function as previous version of extjs was not having this function
@@ -88,7 +88,7 @@
 		 * Drag and drop initialization.Setting up the global event handlers on browser window
 		 * @param {Object} browserWindowObject The newly created window object
          */
-		initEvents : function(browserWindowObject)
+		initEvents: function(browserWindowObject)
 		{
 			// Initialize mouse event handlers which are use to handle drag and drop in separate browser window.
 			Ext.EventManager.on(browserWindowObject.document, "mousemove", this.handleMouseMove, this, true);

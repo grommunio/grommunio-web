@@ -14,7 +14,7 @@ Zarafa.contact.ContactContextModel = Ext.extend(Zarafa.core.ContextModel, {
 	 * @property
 	 * @type Mixed
 	 */
-	current_character : 'a',
+	current_character: 'a',
 
 	/**
 	 * When searching, this property marks the {@link Zarafa.core.ContextModel#getCurrentDataMode datamode}
@@ -24,13 +24,13 @@ Zarafa.contact.ContactContextModel = Ext.extend(Zarafa.core.ContextModel, {
 	 * @type Mixed
 	 * @private
 	 */
-	oldDataMode : undefined,
+	oldDataMode: undefined,
 
 	/**
 	 * @constructor
 	 * @param {Object} config Configuration object
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		config = config || {};
 
@@ -39,7 +39,7 @@ Zarafa.contact.ContactContextModel = Ext.extend(Zarafa.core.ContextModel, {
 		}
 
 		Ext.applyIf(config, {
-			current_data_mode : Zarafa.contact.data.DataModes.ALL
+			current_data_mode: Zarafa.contact.data.DataModes.ALL
 		});
 
 		this.addEvents(
@@ -56,9 +56,9 @@ Zarafa.contact.ContactContextModel = Ext.extend(Zarafa.core.ContextModel, {
 		Zarafa.contact.ContactContextModel.superclass.constructor.call(this, config);
 
 		this.on({
-			'searchstart' : this.onSearchStart,
-			'searchstop' : this.onSearchStop,
-			scope : this
+			'searchstart': this.onSearchStart,
+			'searchstop': this.onSearchStop,
+			scope: this
 		});
 	},
 
@@ -68,7 +68,7 @@ Zarafa.contact.ContactContextModel = Ext.extend(Zarafa.core.ContextModel, {
 	 * @param {Zarafa.hierarchy.data.MAPIFolderRecord} folder MAPI folder to show.
 	 * @param {Boolean} suspended True to enable the ContextModel {@link #suspendLoading suspended}
 	 */
-	enable : function(folder, suspended)
+	enable: function(folder, suspended)
 	{
 		// Enable the superclass with suspended enabled, so we can safely change the
 		// restriction character
@@ -90,14 +90,14 @@ Zarafa.contact.ContactContextModel = Ext.extend(Zarafa.core.ContextModel, {
 	 * @param {Boolean} isDistlist True to create a distributionlist rather then a Contact
 	 * @return {Zarafa.coore.data.IPMRecord} The new {@link Zarafa.core.data.IPMRecord IPMRecord}.
 	 */
-	createRecord : function(folder, isDistlist)
+	createRecord: function(folder, isDistlist)
 	{
 		folder = folder || this.getDefaultFolder();
 
 		var record = Zarafa.core.data.RecordFactory.createRecordObjectByMessageClass(isDistlist ? 'IPM.Distlist' : 'IPM.Contact', {
-			store_entryid : folder.get('store_entryid'),
-			parent_entryid : folder.get('entryid'),
-			icon_index : isDistlist ? Zarafa.core.mapi.IconIndex['contact_distlist'] : Zarafa.core.mapi.IconIndex['contact_user']
+			store_entryid: folder.get('store_entryid'),
+			parent_entryid: folder.get('entryid'),
+			icon_index: isDistlist ? Zarafa.core.mapi.IconIndex['contact_distlist'] : Zarafa.core.mapi.IconIndex['contact_user']
 		});
 
 		return record;
@@ -113,7 +113,7 @@ Zarafa.contact.ContactContextModel = Ext.extend(Zarafa.core.ContextModel, {
 	 * @param {Zarafa.contact.data.DataModes} oldMode The previously selected DataMode.
 	 * @private
 	 */
-	onDataModeChange : function(model, newMode, oldMode)
+	onDataModeChange: function(model, newMode, oldMode)
 	{
 		Zarafa.contact.ContactContextModel.superclass.onDataModeChange.call(this, model, newMode, oldMode);
 
@@ -125,15 +125,15 @@ Zarafa.contact.ContactContextModel = Ext.extend(Zarafa.core.ContextModel, {
 		switch(newMode) {
 			case Zarafa.contact.data.DataModes.CHARACTER_RESTRICT:
 				this.load({
-					params : {
-						restriction : { 'search' : this.createCharacterRestriction() }
+					params: {
+						restriction: { 'search': this.createCharacterRestriction() }
 					}
 				});
 				break;
 			case Zarafa.contact.data.DataModes.ALL:
 				this.load({
-					params : {
-						restriction : {}
+					params: {
+						restriction: {}
 					}
 				});
 				break;
@@ -149,14 +149,14 @@ Zarafa.contact.ContactContextModel = Ext.extend(Zarafa.core.ContextModel, {
 	 * @param {Boolean} init (optional) True when this function is called during initialization
 	 * and it should force the change of the character.
 	 */
-	setRestrictionCharacter : function(character, init)
+	setRestrictionCharacter: function(character, init)
 	{
 		if (init === true || this.current_character !== character) {
 			var oldCharacter = this.current_character;
 			this.current_character = character;
 
 			this.onCharacterChange(this, this.current_character, oldCharacter);
-			
+
 			// fire mode change event
 			this.fireEvent('characterchange', this, this.current_character, oldCharacter);
 		}
@@ -165,7 +165,7 @@ Zarafa.contact.ContactContextModel = Ext.extend(Zarafa.core.ContextModel, {
 	/**
 	 * @return {String} The currently selected {@link #current_character character}.
 	 */
-	getRestrictionCharacter : function()
+	getRestrictionCharacter: function()
 	{
 		return this.current_character;
 	},
@@ -179,21 +179,21 @@ Zarafa.contact.ContactContextModel = Ext.extend(Zarafa.core.ContextModel, {
 	 * @param {Mixed} oldCharacter The previously selected character
 	 * @private
 	 */
-	onCharacterChange : function(mode, newCharacter, oldCharacter)
+	onCharacterChange: function(mode, newCharacter, oldCharacter)
 	{
 		if (this.current_data_mode === Zarafa.contact.data.DataModes.CHARACTER_RESTRICT) {
 			var params = {
-				start : 0
+				start: 0
 			};
 
 			if (newCharacter) {
 				params.restriction = {
-					'search' : this.createCharacterRestriction(newCharacter)
+					'search': this.createCharacterRestriction(newCharacter)
 				};
 			}
 
 			this.load({
-				params : params
+				params: params
 			});
 		}
 	},
@@ -205,7 +205,7 @@ Zarafa.contact.ContactContextModel = Ext.extend(Zarafa.core.ContextModel, {
 	 * @return {Object} restriction that will be applied to store.
 	 * @private
 	 */
-	createCharacterRestriction : function(character)
+	createCharacterRestriction: function(character)
 	{
 		var Factory = Zarafa.core.data.RestrictionFactory;
 		var Restrictions = Zarafa.core.mapi.Restrictions;
@@ -251,7 +251,7 @@ Zarafa.contact.ContactContextModel = Ext.extend(Zarafa.core.ContextModel, {
 	 * @param {String} character new character restriction.
 	 * @param {String} oldCharacter new character restriction.
 	 */
-	saveCharacterChangeState : function(contextModel, character, oldCharacter)
+	saveCharacterChangeState: function(contextModel, character, oldCharacter)
 	{
 		if (character != oldCharacter) {
 			this.saveState();
@@ -262,7 +262,7 @@ Zarafa.contact.ContactContextModel = Ext.extend(Zarafa.core.ContextModel, {
 	 * Register the {@link #stateEvents state events} to the {@link #saveState} callback function.
 	 * @private
 	 */
-	initStateEvents : function()
+	initStateEvents: function()
 	{
 		Zarafa.contact.ContactContextModel.superclass.initStateEvents.call(this);
 		this.on('characterchange', this.saveCharacterChangeState, this, {delay: 100});
@@ -274,10 +274,10 @@ Zarafa.contact.ContactContextModel = Ext.extend(Zarafa.core.ContextModel, {
 	 * @return {Object} The state object
 	 * @protected
 	 */
-	getState : function()
+	getState: function()
 	{
 		var state = Zarafa.contact.ContactContextModel.superclass.getState.call(this) || {};
-		return Ext.apply(state, { current_character : this.current_character });
+		return Ext.apply(state, { current_character: this.current_character });
 	},
 
 	/**
@@ -288,7 +288,7 @@ Zarafa.contact.ContactContextModel = Ext.extend(Zarafa.core.ContextModel, {
 	 * @param {Zarafa.core.ContextModel} model The model which fired the event
 	 * @private
 	 */
-	onSearchStart : function(model)
+	onSearchStart: function(model)
 	{
 		if(this.getCurrentDataMode() != Zarafa.contact.data.DataModes.SEARCH){
 			this.oldDataMode = this.getCurrentDataMode();
@@ -302,7 +302,7 @@ Zarafa.contact.ContactContextModel = Ext.extend(Zarafa.core.ContextModel, {
 	 * @param {Zarafa.core.ContextModel} model The model which fired the event
 	 * @private
 	 */
-	onSearchStop : function(model)
+	onSearchStop: function(model)
 	{
 		if (this.getCurrentDataMode() === Zarafa.contact.data.DataModes.SEARCH) {
 			this.setDataMode(this.oldDataMode);
@@ -315,7 +315,7 @@ Zarafa.contact.ContactContextModel = Ext.extend(Zarafa.core.ContextModel, {
 	 * @param {Zarafa.hierarchy.data.MAPIFolderRecord[]} folders selected folders as an array of
 	 * {@link Zarafa.hierarchy.data.MAPIFolderRecord MAPIFolder} objects.
 	 */
-	setFolders : function(folders)
+	setFolders: function(folders)
 	{
 		// Suspend loading, so we can safely change the restriction character
 		this.suspendLoading(true);

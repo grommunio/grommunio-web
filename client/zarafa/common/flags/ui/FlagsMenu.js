@@ -12,25 +12,25 @@ Zarafa.common.flags.ui.FlagsMenu = Ext.extend(Zarafa.core.ui.menu.ConditionalMen
 	 * @cfg {Zarafa.core.data.IPMRecord[]} The records to which the actions in
 	 * this menu will apply
 	 */
-	records : [],
+	records: [],
 
 	/**
 	 * @cfg {Boolean} shadowEdit True to add {@link #records} into
 	 * {@link Zarafa.core.data.ShadowStore}.
 	 */
-	shadowEdit : true,
+	shadowEdit: true,
 
 	/**
 	 * @cfg {Zarafa.core.data.IPMStore} store which contains
 	 * records on which flag will be apply.
 	 */
-	store : null,
+	store: null,
 
 	/**
 	 * @constructor
 	 * @param {Object} config Configuration object
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		config = config || {};
 
@@ -69,42 +69,42 @@ Zarafa.common.flags.ui.FlagsMenu = Ext.extend(Zarafa.core.ui.menu.ConditionalMen
 	 * the flags menu
 	 * @private
 	 */
-	createMenuItems : function()
+	createMenuItems: function()
 	{
 		return [{
 			text: _('Today'),
-			iconCls : 'icon_flag_red',
+			iconCls: 'icon_flag_red',
 			action: 'today',
 			handler: this.setFlag,
 			scope: this
 		}, {
 			text: _('Tomorrow'),
-			iconCls : 'icon_flag_orange_dark',
+			iconCls: 'icon_flag_orange_dark',
 			action: 'tomorrow',
 			handler: this.setFlag,
 			scope: this
 		}, {
 			text: _('This week'),
-			iconCls : 'icon_flag_orange',
+			iconCls: 'icon_flag_orange',
 			action: 'this_week',
 			handler: this.setFlag,
 			scope: this
 		}, {
 			text: _('Next week'),
-			iconCls : 'icon_flag_yellow',
+			iconCls: 'icon_flag_yellow',
 			action: 'next_week',
 			handler: this.setFlag,
 			scope: this
 		}, {
 			text: _('No date'),
-			iconCls : 'icon_flag_red',
+			iconCls: 'icon_flag_red',
 			action: 'no_date',
 			handler: this.setFlag,
 			scope: this
 		},{
 			xtype: 'zarafa.conditionalitem',
 			text: _('Custom'),
-			iconCls : 'icon_flag_red',
+			iconCls: 'icon_flag_red',
 			beforeShow: this.onFollowUpItemBeforeShow,
 			action: 'custom',
 			handler: this.onSetCustomFlag,
@@ -114,14 +114,14 @@ Zarafa.common.flags.ui.FlagsMenu = Ext.extend(Zarafa.core.ui.menu.ConditionalMen
 		}, {
 			xtype: 'zarafa.conditionalitem',
 			text: _('Set reminder'),
-			iconCls : 'icon_flag_Reminder',
-			action : 'set_reminder',
+			iconCls: 'icon_flag_Reminder',
+			action: 'set_reminder',
 			beforeShow: this.onFollowUpItemBeforeShow,
 			handler: this.onSetCustomFlag,
 			scope: this
 		}, {
 			text: _('Complete'),
-			iconCls : 'icon_flag_complete',
+			iconCls: 'icon_flag_complete',
 			action: 'complete',
 			handler: this.setFlag,
 			scope: this
@@ -130,7 +130,7 @@ Zarafa.common.flags.ui.FlagsMenu = Ext.extend(Zarafa.core.ui.menu.ConditionalMen
 			text: _('None'),
 			action: 'none',
 			beforeShow: this.onFollowUpItemBeforeShow,
-			iconCls : 'icon_flag',
+			iconCls: 'icon_flag',
 			handler: this.setFlag,
 			scope: this
 		}];
@@ -146,7 +146,7 @@ Zarafa.common.flags.ui.FlagsMenu = Ext.extend(Zarafa.core.ui.menu.ConditionalMen
 	 * to see if the item must be enabled or disabled.
 	 * @private
 	 */
-	onFollowUpItemBeforeShow : function (item, records)
+	onFollowUpItemBeforeShow: function (item, records)
 	{
 		if(!Array.isArray(records)) {
 			records = [records];
@@ -161,7 +161,7 @@ Zarafa.common.flags.ui.FlagsMenu = Ext.extend(Zarafa.core.ui.menu.ConditionalMen
 	 * Event handler for the destroy event of the component. Will remove the records that
 	 * were copied from the shadow store.
 	 */
-	onDestroy : function()
+	onDestroy: function()
 	{
 		if (this.shadowEdit !== false) {
 			container.getShadowStore().remove(this.record);
@@ -173,10 +173,10 @@ Zarafa.common.flags.ui.FlagsMenu = Ext.extend(Zarafa.core.ui.menu.ConditionalMen
 	 * or set reminder flag context menu item was clicked.
 	 * @param {Ext.menu.Item} menuItem The menu item that was clicked
 	 */
-	onSetCustomFlag : function (menuItem)
+	onSetCustomFlag: function (menuItem)
 	{
 		Zarafa.common.Actions.openCustomFlagContent(this.records,{
-			setFocusOnReminder : menuItem.action === 'set_reminder'
+			setFocusOnReminder: menuItem.action === 'set_reminder'
 		});
 	},
 
@@ -186,7 +186,7 @@ Zarafa.common.flags.ui.FlagsMenu = Ext.extend(Zarafa.core.ui.menu.ConditionalMen
 	 *
 	 * @param {Zarafa.core.ui.menu.ConditionalItem} menuItem The menu item that was clicked
 	 */
-	setFlag : function(menuItem)
+	setFlag: function(menuItem)
 	{
 		// If there was an old-style flag, we must set the category before changing the flag
 		Zarafa.common.flags.Util.updateCategories(this.records);
@@ -227,7 +227,7 @@ Zarafa.common.flags.ui.FlagsMenu = Ext.extend(Zarafa.core.ui.menu.ConditionalMen
 	 * @param {Zarafa.core.data.IPMRecord} records The record(s) for which configured flag needs to be identified.
 	 * @param {Object} flagProperties Necessary flag properties
 	 */
-	setFlagProperties : function(records, flagProperties)
+	setFlagProperties: function(records, flagProperties)
 	{
 		records.forEach(function(record){
 			record.beginEdit();

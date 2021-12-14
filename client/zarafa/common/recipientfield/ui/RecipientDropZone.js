@@ -15,7 +15,7 @@ Zarafa.common.recipientfield.ui.RecipientDropZone = Ext.extend(Zarafa.common.ui.
 	 * the drop node.
 	 * Check if the dragged record is of a different recipient type than the current field's, and change it if it is.
 	 * In this case return true to prevent drop repair, false otherwise.
-	 * 
+	 *
 	 * @param {Object} nodeData The custom data associated with the drop node (this is the same value returned from
 	 * {@link #getTargetFromEvent} for this node)
 	 * @param {Ext.dd.DragSource} source The drag source that was dragged over this drop zone
@@ -23,7 +23,7 @@ Zarafa.common.recipientfield.ui.RecipientDropZone = Ext.extend(Zarafa.common.ui.
 	 * @param {Object} data An object containing arbitrary data supplied by the drag source
 	 * @return {Boolean} True if the drop was valid, else false
 	 */
-	onNodeDrop : function(nodeData, dd, e, data)
+	onNodeDrop: function(nodeData, dd, e, data)
 	{
 		if (!this.isValidDropPoint(nodeData, dd, e, data)) {
 			return false;
@@ -53,8 +53,8 @@ Zarafa.common.recipientfield.ui.RecipientDropZone = Ext.extend(Zarafa.common.ui.
 	/**
 	 * Called while the DropZone determines that a {@link Ext.dd.DragSource} is over a drop node
 	 * that has either been registered or detected by a configured implementation of {@link #getTargetFromEvent}.
-	 * Overriden to use {@link #isValidDropPoint}
-	 * 
+	 * Overridden to use {@link #isValidDropPoint}
+	 *
 	 * @param {Object} nodeData The custom data associated with the drop node (this is the same value returned from
 	 * {@link #getTargetFromEvent} for this node)
 	 * @param {Ext.dd.DragSource} source The drag source that was dragged over this drop zone
@@ -64,7 +64,7 @@ Zarafa.common.recipientfield.ui.RecipientDropZone = Ext.extend(Zarafa.common.ui.
 	 * underlying {@link Ext.dd.StatusProxy} can be updated
 	 * @override
 	 */
-	onNodeOver : function(target, dd, e, data)
+	onNodeOver: function(target, dd, e, data)
 	{
 		return this.isValidDropPoint(target, dd, e, data) ? Ext.dd.DropZone.prototype.dropAllowed : Ext.dd.DropZone.prototype.dropNotAllowed;
 	},
@@ -72,7 +72,7 @@ Zarafa.common.recipientfield.ui.RecipientDropZone = Ext.extend(Zarafa.common.ui.
 	/**
 	 * Determines whether this dropzone allows dropping at this moment
 	 * This implementation checks whether the boxLimit has been exceeded
-	 * 
+	 *
 	 * @param {Object} nodeData The custom data associated with the drop node (this is the same value returned from
 	 * {@link #getTargetFromEvent} for this node)
 	 * @param {Ext.dd.DragSource} source The drag source that was dragged over this drop zone
@@ -80,7 +80,7 @@ Zarafa.common.recipientfield.ui.RecipientDropZone = Ext.extend(Zarafa.common.ui.
 	 * @param {Object} data An object containing arbitrary data supplied by the drag source
 	 * @return {Boolean} isValid A boolean indicating whether the DropZone allows dropping
 	 */
-	isValidDropPoint : function(target, dd, e, data)
+	isValidDropPoint: function(target, dd, e, data)
 	{
 		return (!this.field.boxLimit || this.field.items.getCount() < this.field.boxLimit);
 	}

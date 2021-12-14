@@ -16,7 +16,7 @@ Zarafa.calendar.data.busytime.BusyTimeResponseHandler = Ext.extend(Zarafa.core.d
 	 * not cancel the transaction itself, but rather causes the 'success' argument for the
 	 * {@link #done} function.
 	 */
-	doList : function(response)
+	doList: function(response)
 	{
 		this.receivedRecords = this.readRecordsFromResponse(response, 'item');
 	}

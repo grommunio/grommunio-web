@@ -11,14 +11,14 @@ Zarafa.contact.data.JsonMemberWriter = Ext.extend(Zarafa.core.data.JsonWriter, {
 	 * Convert members into a hash. Members exists as
 	 * {@link Zarafa.contact.DistlistMemberRecord DistlistMemberRecord} within
 	 * a {@link Zarafa.core.data.IPMRecord IPMRecord} and thus must be serialized
-	 * seperately into the hash object.
+	 * separately into the hash object.
 	 *
 	 * @param {Ext.data.Record} record The record to hash
 	 * @return {Object} The hashed object
 	 * @override
 	 * @private
 	 */
-	toPropHash : function(record)
+	toPropHash: function(record)
 	{
 		var memberStore = record.getMemberStore();
 		var hash = {};

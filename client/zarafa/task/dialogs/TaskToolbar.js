@@ -22,7 +22,7 @@ Zarafa.task.dialogs.TaskToolbar = Ext.extend(Zarafa.core.ui.ContentPanelToolbar,
 	 * @constructor
 	 * @param config Configuration structure
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		config = config || {};
 
@@ -30,7 +30,7 @@ Zarafa.task.dialogs.TaskToolbar = Ext.extend(Zarafa.core.ui.ContentPanelToolbar,
 		config.plugins.push('zarafa.recordcomponentupdaterplugin');
 
 		Ext.applyIf(config, {
-			insertionPointBase : 'context.task.taskcontentpanel',
+			insertionPointBase: 'context.task.taskcontentpanel',
 			actionItems: this.createActionButtons(),
 			optionItems: this.createOptionButtons()
 		});
@@ -39,15 +39,15 @@ Zarafa.task.dialogs.TaskToolbar = Ext.extend(Zarafa.core.ui.ContentPanelToolbar,
 	},
 
 	/**
-	 * Create all buttons which should be added by default the the 'Actions' Buttons.
-	 * These buttons are used to  send, save add attachments, delete, status of the message. And it contains
-	 * also buttons to check the recipient names .
+	 * Create all buttons which should be added by default to the 'Actions' buttons.
+	 * These buttons are used to send, save, add attachments, delete, view the status of the message.
+	 * It also contains buttons to check the recipient names.
 	 *
 	 * @return {Array} The {@link Ext.Button Button} elements which should be
 	 * added in the Options section of the {@link Ext.Toolbar Toolbar}.
 	 * @private
 	 */
-	createActionButtons : function()
+	createActionButtons: function()
 	{
 		return [{
 			xtype: 'button',
@@ -68,63 +68,73 @@ Zarafa.task.dialogs.TaskToolbar = Ext.extend(Zarafa.core.ui.ContentPanelToolbar,
 			handler: this.onSave,
 			scope: this
 		},{
-			xtype : 'button',
-			ref : 'saveBtn',
-			text : _('Save')+' & '+_('Close'),
-			overflowText : _('Save')+' & '+_('Close'),
-			tooltip: _('Save')+' & '+_('Close') + ' (Ctrl + S)',
-			cls : 'zarafa-action',
-			iconCls : 'icon_save_white',
-			handler: this.onSave,
-			scope : this
-		},{
 			xtype: 'button',
-			ref : 'restoreToTaskList',
-			text: _('Restore to Task List'),
-			overflowText: _('Restore to Task List'),
-			hidden : true,
-			handler : this.onRestoreToTaskList,
+			ref: 'saveBtn',
+			text: _('Save')+' & '+_('Close'),
+			overflowText: _('Save')+' & '+_('Close'),
+			tooltip: _('Save')+' & '+_('Close') + ' (Ctrl + S)',
+			cls: 'zarafa-action',
+			iconCls: 'icon_save_white',
+			handler: this.onSave,
 			scope: this
 		},{
-			xtype : 'button',
-			ref : 'deleteBtn',
-			overflowText : _('Delete'),
-			tooltip: _('Delete this task'),
-			iconCls : 'icon_delete',
-			handler : this.onDelete,
-			scope : this
+			xtype: 'button',
+			ref: 'restoreToTaskList',
+			text: _('Restore to Task List'),
+			overflowText: _('Restore to Task List'),
+			hidden: true,
+			handler: this.onRestoreToTaskList,
+			scope: this
 		},{
-			xtype : 'zarafa.attachmentbutton',
-			plugins : [ 'zarafa.recordcomponentupdaterplugin' ],
-			overflowText : _('Add Attachment'),
+			xtype: 'button',
+			ref: 'deleteBtn',
+			overflowText: _('Delete'),
+			tooltip: _('Delete this task'),
+			iconCls: 'icon_delete',
+			handler: this.onDelete,
+			scope: this
+		},{
+			xtype: 'zarafa.attachmentbutton',
+			plugins: [ 'zarafa.recordcomponentupdaterplugin' ],
+			overflowText: _('Add Attachment'),
 			tooltip: _('Add attachments to this task'),
-			iconCls : 'icon_paperclip',
-			ref : 'attachmentButton',
+			iconCls: 'icon_paperclip',
+			ref: 'attachmentButton',
 			// Add a listener to the component added event to set use the correct update function when the toolbar overflows
 			// (i.e. is too wide for the panel) and Ext moves the button to a menuitem.
-			listeners : {
-				added : this.onAttachmentButtonAdded,
-				scope : this
+			listeners: {
+				added: this.onAttachmentButtonAdded,
+				scope: this
 			}
 		},{
 			// Task Accept/Decline buttons.
-			xtype : 'zarafa.taskrequestbuttons'
+			xtype: 'zarafa.taskrequestbutton',
+			name: Zarafa.task.data.TaskRequestButtonNames.ACCEPT,
+			text: _('Accept'),
+			iconCls: 'icon_calendar_appt_accept',
+			responseStatus: Zarafa.core.mapi.TaskMode.ACCEPT
 		},{
-			xtype : 'button',
+			xtype: 'zarafa.taskrequestbutton',
+			name: Zarafa.task.data.TaskRequestButtonNames.DECLINE,
+			text: _('Decline'),
+			iconCls: 'icon_calendar_appt_cancelled',
+			responseStatus: Zarafa.core.mapi.TaskMode.DECLINE
+		},{
+			xtype: 'button',
 			ref: 'markCompleteBtn',
-			overflowText : _('Mark as Complete'),
+			overflowText: _('Mark as Complete'),
 			tooltip: _('Mark this task as complete'),
-			iconCls : 'icon_task_complete',
-			handler : this.onComplete,
-			scope : this
+			iconCls: 'icon_task_complete',
+			handler: this.onComplete,
+			scope: this
 		}, {
-			xtype : 'button',
-			overflowText : _('Print'),
+			xtype: 'button',
+			overflowText: _('Print'),
 			ref: 'printBtn',
-			tooltip : _('Print this task'),
-			iconCls : 'icon_print',
-			handler : this.onPrint,
-			scope : this
+			tooltip: _('Print this task'),
+			iconCls: 'icon_print',
+			handler: this.onPrint,
+			scope: this
 		},{
 			xtype: 'button',
 			overflowText: _('Check names'),
@@ -132,6 +142,18 @@ Zarafa.task.dialogs.TaskToolbar = Ext.extend(Zarafa.core.ui.ContentPanelToolbar,
 			iconCls: 'icon_checknames',
 			ref: 'checkNamesBtn',
 			handler: this.onCheckNames,
+			scope: this
+		},{
+			xtype: 'button',
+			overflowText: _('Addressbook'),
+			tooltip: _('Open addressbook'),
+			iconCls: 'icon_small_addressbook',
+			ref: 'addressbookBtn',
+			handler: function() {
+				Zarafa.task.Actions.openRecipientSelectionContent(this.record, {
+					defaultRecipientType: Zarafa.core.mapi.RecipientType.MAPI_TO
+				});
+			},
 			scope: this
 		}];
 	},
@@ -144,7 +166,7 @@ Zarafa.task.dialogs.TaskToolbar = Ext.extend(Zarafa.core.ui.ContentPanelToolbar,
 	 * @param {Ext.Component} item The item that was added. This can be a {@link Zarafa.common.attachment.ui.AttachmentButton}
 	 * or a {@link Ext.menu.Item}
 	 */
-	onAttachmentButtonAdded : function(item)
+	onAttachmentButtonAdded: function(item)
 	{
 		if ( item.isXType('menuitem') ){
 			// Set the update function to the update function of the original button
@@ -155,13 +177,13 @@ Zarafa.task.dialogs.TaskToolbar = Ext.extend(Zarafa.core.ui.ContentPanelToolbar,
 
 	/**
 	 * Create all buttons which should be added by default the the `Options` buttons.
-	 * This contains the buttons to aggisn the task set the task as recurrence.
+	 * This contains the buttons to assign the task and set the task as a recurrence.
 	 *
 	 * @return {Array} The {@link Ext.Button Button} elements which should be
 	 * added in the Options section of the {@link Ext.Toolbar Toolbar}.
 	 * @private
 	 */
-	createOptionButtons : function()
+	createOptionButtons: function()
 	{
 		return [{
 			xtype: 'button',
@@ -193,17 +215,17 @@ Zarafa.task.dialogs.TaskToolbar = Ext.extend(Zarafa.core.ui.ContentPanelToolbar,
 			tooltip: _('Mark this task as private'),
 			iconCls: 'icon_private',
 			ref: 'setPrivate',
-			enableToggle : true,
+			enableToggle: true,
 			toggleHandler: this.onPrivateGroupToggle,
 			scope: this
 		},{
-			xtype : 'button',
-			overflowText : _('Set flag'),
-			tooltip : _('Set flag on this email'),
+			xtype: 'button',
+			overflowText: _('Set flag'),
+			tooltip: _('Set flag on this email'),
 			ref: 'setFlags',
-			iconCls : 'icon_flag_red',
-			handler : this.onSetFlagButton,
-			scope : this
+			iconCls: 'icon_flag_red',
+			handler: this.onSetFlagButton,
+			scope: this
 		}];
 	},
 
@@ -214,7 +236,7 @@ Zarafa.task.dialogs.TaskToolbar = Ext.extend(Zarafa.core.ui.ContentPanelToolbar,
 	 * @param {Ext.Button} button The button which has been pressed
 	 * @private
 	 */
-	onSave : function(button)
+	onSave: function(button)
 	{
 		this.dialog.saveRecord();
 	},
@@ -226,9 +248,9 @@ Zarafa.task.dialogs.TaskToolbar = Ext.extend(Zarafa.core.ui.ContentPanelToolbar,
 	 * @param {Ext.Button} button The button which has been pressed
 	 * @private
 	 */
-	onCheckNames : function(button)
+	onCheckNames: function(button)
 	{
-		this.record.getRecipientStore().resolve(undefined, { cancelPreviousRequest : true });
+		this.record.getRecipientStore().resolve(undefined, { cancelPreviousRequest: true });
 	},
 
 	/**
@@ -237,7 +259,7 @@ Zarafa.task.dialogs.TaskToolbar = Ext.extend(Zarafa.core.ui.ContentPanelToolbar,
 	 * @param {Ext.Button} button The button which has been pressed
 	 * @private
 	 */
-	onRecurrence : function(button)
+	onRecurrence: function(button)
 	{
 		Zarafa.common.Actions.openRecurrenceContent(this.record, false);
 	},
@@ -250,12 +272,12 @@ Zarafa.task.dialogs.TaskToolbar = Ext.extend(Zarafa.core.ui.ContentPanelToolbar,
 	 * @param {Ext.EventObject} eventObject event object
 	 * @private
 	 */
-	onSetFlagButton : function (button, eventObject)
+	onSetFlagButton: function (button, eventObject)
 	{
 		var options = {
-			position : eventObject.getXY(),
-			shadowEdit : false,
-			saveOnSetFlag : false
+			position: eventObject.getXY(),
+			shadowEdit: false,
+			saveOnSetFlag: false
 		};
 		Zarafa.task.Actions.openFlagsMenu(this.record, options);
 	},
@@ -267,7 +289,7 @@ Zarafa.task.dialogs.TaskToolbar = Ext.extend(Zarafa.core.ui.ContentPanelToolbar,
 	 * @param {Ext.Button} button The button which has been pressed
 	 * @private
 	 */
-	onAssignment : function(button)
+	onAssignment: function(button)
 	{
 		this.record.beginEdit();
 		this.record.set('taskstate', Zarafa.core.mapi.TaskState.OWNER_NEW);
@@ -282,7 +304,7 @@ Zarafa.task.dialogs.TaskToolbar = Ext.extend(Zarafa.core.ui.ContentPanelToolbar,
 	 * @param {Ext.Button} button The button which has been pressed
 	 * @private
 	 */
-	onCancelAssignment : function(button)
+	onCancelAssignment: function(button)
 	{
 		this.record.beginEdit();
 		this.record.set('taskstate', Zarafa.core.mapi.TaskState.NORMAL);
@@ -296,7 +318,7 @@ Zarafa.task.dialogs.TaskToolbar = Ext.extend(Zarafa.core.ui.ContentPanelToolbar,
 	 * @param {Ext.Button} button The button which has been pressed
 	 * @private
 	 */
-	onComplete : function(button)
+	onComplete: function(button)
 	{
 		this.record.beginEdit();
 		this.record.set('complete', true);
@@ -323,7 +345,7 @@ Zarafa.task.dialogs.TaskToolbar = Ext.extend(Zarafa.core.ui.ContentPanelToolbar,
 	 * @param {Ext.Button} button The button which has been pressed
 	 * @private
 	 */
-	onRestoreToTaskList : function (button)
+	onRestoreToTaskList: function (button)
 	{
 		var record = this.record;
 		record.beginEdit();
@@ -353,9 +375,9 @@ Zarafa.task.dialogs.TaskToolbar = Ext.extend(Zarafa.core.ui.ContentPanelToolbar,
 	 * @param {Ext.Button} button The button which has been pressed
 	 * @private
 	 */
-	onCategories : function(button)
+	onCategories: function(button)
 	{
-		Zarafa.common.Actions.openCategoriesContent(this.record, {autoSave : false});
+		Zarafa.common.Actions.openCategoriesContent(this.record, {autoSave: false});
 	},
 
 	/**
@@ -364,7 +386,7 @@ Zarafa.task.dialogs.TaskToolbar = Ext.extend(Zarafa.core.ui.ContentPanelToolbar,
 	 * @param {Ext.Button} button The button which has been pressed
 	 * @private
 	 */
-	onDelete : function(button)
+	onDelete: function(button)
 	{
 		this.dialog.deleteRecord();
 	},
@@ -374,7 +396,7 @@ Zarafa.task.dialogs.TaskToolbar = Ext.extend(Zarafa.core.ui.ContentPanelToolbar,
 	 * @param {Ext.Button} button The button which has been pressed
 	 * @private
 	 */
-	onPrint : function()
+	onPrint: function()
 	{
 		Zarafa.common.Actions.openPrintDialog(this.record);
 	},
@@ -385,7 +407,7 @@ Zarafa.task.dialogs.TaskToolbar = Ext.extend(Zarafa.core.ui.ContentPanelToolbar,
 	 * @param {Ext.Button} button The button which was toggled
 	 * @private
 	 */
-	onPrivateGroupToggle : function(button)
+	onPrivateGroupToggle: function(button)
 	{
 		this.record.beginEdit();
 		this.record.set('private', button.pressed);
@@ -404,7 +426,7 @@ Zarafa.task.dialogs.TaskToolbar = Ext.extend(Zarafa.core.ui.ContentPanelToolbar,
 	 * @param {Zarafa.core.data.IPMRecord} record The record update the panel with.
 	 * @param {Boolean} contentReset force the component to perform a full update of the data.
 	 */
-	update : function(record, contentReset)
+	update: function(record, contentReset)
 	{
 		var layout = false;
 
@@ -416,6 +438,7 @@ Zarafa.task.dialogs.TaskToolbar = Ext.extend(Zarafa.core.ui.ContentPanelToolbar,
 			this.saveTaskRequest.setVisible(false);
 			this.saveBtn.setVisible(false);
 			this.checkNamesBtn.setVisible(false);
+			this.addressbookBtn.setVisible(false);
 			this.restoreToTaskList.setVisible(false);
 			this.assignTask.setVisible(false);
 			this.cancelAssignmetBtn.setVisible(false);
@@ -480,6 +503,7 @@ Zarafa.task.dialogs.TaskToolbar = Ext.extend(Zarafa.core.ui.ContentPanelToolbar,
 					this.saveTaskRequest.setVisible(isVisible);
 					this.saveBtn.setVisible(false);
 					this.checkNamesBtn.setVisible(isVisible);
+					this.addressbookBtn.setVisible(isVisible);
 					this.assignTask.setVisible(false);
 					this.cancelAssignmetBtn.setVisible(isVisible);
 					break;
@@ -489,6 +513,7 @@ Zarafa.task.dialogs.TaskToolbar = Ext.extend(Zarafa.core.ui.ContentPanelToolbar,
 					this.sendBtn.setVisible(false);
 					this.saveTaskRequest.setVisible(false);
 					this.checkNamesBtn.setVisible(false);
+					this.addressbookBtn.setVisible(false);
 					this.assignTask.setVisible(record.isNormalTask());
 					this.cancelAssignmetBtn.setVisible(false);
 					break;
@@ -518,7 +543,7 @@ Zarafa.task.dialogs.TaskToolbar = Ext.extend(Zarafa.core.ui.ContentPanelToolbar,
 	 * @param {Ext.Button} button The button which has been pressed
 	 * @private
 	 */
-	onSendTask : function(button)
+	onSendTask: function(button)
 	{
 		this.dialog.sendRecord();
 	}

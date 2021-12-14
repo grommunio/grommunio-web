@@ -13,7 +13,7 @@ Zarafa.settings.ui.SettingsCategoryPanel = Ext.extend(Ext.Container, {
 	 * @cfg {Zarafa.settings.SettingsContext} context The context which
 	 * is using this tab panel
 	 */
-	context : undefined,
+	context: undefined,
 
 	/**
 	 * The currently marked {@link Zarafa.settings.ui.SettingsCategoryTab#setActive active}
@@ -21,13 +21,13 @@ Zarafa.settings.ui.SettingsCategoryPanel = Ext.extend(Ext.Container, {
 	 * @property
 	 * @type Zarafa.settings.ui.SettingsCategoryTab
 	 */
-	activeTab : undefined,
+	activeTab: undefined,
 
 	/**
 	 * @constructor
 	 * @param {Object} config Configuration object
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		config = config || {};
 
@@ -52,7 +52,7 @@ Zarafa.settings.ui.SettingsCategoryPanel = Ext.extend(Ext.Container, {
 	 * @param {Mixed} oldViewId the old view which was previously activated
 	 * @private
 	 */
-	onViewChange : function(context, viewId, oldViewId)
+	onViewChange: function(context, viewId, oldViewId)
 	{
 		// The viewId is the ID which matches the Zarafa.settings.ui.SettingsCategory
 		// as loaded in the Zarafa.settings.ui.SettingsCategoryWidgetPanel. Search

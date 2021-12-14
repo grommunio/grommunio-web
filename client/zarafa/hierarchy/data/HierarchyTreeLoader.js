@@ -13,24 +13,24 @@ Zarafa.hierarchy.data.HierarchyTreeLoader = Ext.extend(Ext.tree.TreeLoader, {
 	 * @cfg {Zarafa.hierarchy.ui.Tree} tree The tree on which this treeloader
 	 * is applied.
 	 */
-	tree : undefined,
+	tree: undefined,
 
 	/**
 	 * @cfg {Zarafa.core.data.HierarchyStore} store store which will be used to get data for hierarchy.
 	 */
-	store : undefined,
+	store: undefined,
 
 	/**
 	 * @cfg {Object} config option for {@link Zarafa.hierarchy.ui.FolderNode foldernode}
 	 */
-	nodeConfig : undefined,
+	nodeConfig: undefined,
 
 	/**
 	 * @cfg {Boolean} deferredLoading True to defer updating the Hierarchy when the panel
 	 * is currently not visible. The parent {@link Ext.Container} which contains the
 	 * {@link Ext.layout.CardLayout}, is stored in the {@link #deferredLoadingActiveParent}.
 	 */
-	deferredLoading : false,
+	deferredLoading: false,
 
 	/**
 	 * When {@link #deferredLoading} is true, this property contains the {@link Ext.Container}
@@ -40,7 +40,7 @@ Zarafa.hierarchy.data.HierarchyTreeLoader = Ext.extend(Ext.tree.TreeLoader, {
 	 * @type Ext.Container
 	 * @private
 	 */
-	deferredLoadingActiveParent : undefined,
+	deferredLoadingActiveParent: undefined,
 
 	/**
 	 * When {@link #deferredLoading} is true, this property indicates if a call to
@@ -51,13 +51,20 @@ Zarafa.hierarchy.data.HierarchyTreeLoader = Ext.extend(Ext.tree.TreeLoader, {
 	 * @type Boolean
 	 * @private
 	 */
-	isDeferred : false,
+	isDeferred: false,
+
+	/**
+	 * This will be used in {@link #directFn} to determine whether to set defer or not when expanding a node.
+	 * For normal expansion its set to true to avoid browser crash while loding larger hierarchy.
+	 * It will be set to false in function {@link #onHierarchyAddFolder} to add nested folders in proper order.
+	 */
+	deferExpandNode: true,
 
 	/**
 	 * @constructor
 	 * @param {Object} config Configuration object
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		config = config || {};
 
@@ -77,7 +84,7 @@ Zarafa.hierarchy.data.HierarchyTreeLoader = Ext.extend(Ext.tree.TreeLoader, {
 		if (this.tree.rendered) {
 			this.onTreeAfterRender();
 		} else {
-			this.tree.on('afterrender', this.onTreeAfterRender, this, { single : true });
+			this.tree.on('afterrender', this.onTreeAfterRender, this, { single: true });
 		}
 	},
 
@@ -86,7 +93,7 @@ Zarafa.hierarchy.data.HierarchyTreeLoader = Ext.extend(Ext.tree.TreeLoader, {
 	 * call {@link #bindStore} to hook all events from the {@link #store}.
 	 * @private
 	 */
-	onTreeAfterRender : function()
+	onTreeAfterRender: function()
 	{
 		this.bindStore(this.store, true);
 
@@ -114,7 +121,7 @@ Zarafa.hierarchy.data.HierarchyTreeLoader = Ext.extend(Ext.tree.TreeLoader, {
 	 * @return {Boolean} True if the parent of the given container has the CardLayout
 	 * @private
 	 */
-	isParentCardLayout : function(ct)
+	isParentCardLayout: function(ct)
 	{
 		return ct.ownerCt && ct.ownerCt.layout && ct.ownerCt.layout.type === 'card';
 	},
@@ -125,7 +132,7 @@ Zarafa.hierarchy.data.HierarchyTreeLoader = Ext.extend(Ext.tree.TreeLoader, {
 	 * @param {Boolean} init True when this is called during initialization.
 	 * @private
 	 */
-	bindStore : function(store, init)
+	bindStore: function(store, init)
 	{
 		if (init !== true && this.store === store) {
 			return;
@@ -142,25 +149,25 @@ Zarafa.hierarchy.data.HierarchyTreeLoader = Ext.extend(Ext.tree.TreeLoader, {
 		this.store = store;
 		if (this.store) {
 			this.store.on({
-				'load' : this.onHierarchyLoad,
-				'remove' : this.onHierarchyStoreRemove,
-				'addFolder' : this.onHierarchyAddFolder,
-				'updateFolder' : this.onHierarchyUpdateFolder,
-				'removeFolder' : this.onHierarchyRemoveFolder,
-				'scope' : this
+				'load': this.onHierarchyLoad,
+				'remove': this.onHierarchyStoreRemove,
+				'addFolder': this.onHierarchyAddFolder,
+				'updateFolder': this.onHierarchyUpdateFolder,
+				'removeFolder': this.onHierarchyRemoveFolder,
+				'scope': this
 			});
 		}
 	},
 
 	/**
 	 * Event handler for the {@link Zarafa.hierarcy.data.HierarchyStore#load load} event.
-	 * This will add the loaded records into the tree as Store nodes. 
+	 * This will add the loaded records into the tree as Store nodes.
 	 * @param {Ext.data.Store} store The store which fired the event
 	 * @param {Ext.data.Record[]} records The records which were loaded into the store
 	 * @param {Object} options The additional options that were passed for loading the data.
 	 * @private
 	 */
-	onHierarchyLoad : function(store, records, options)
+	onHierarchyLoad: function(store, records, options)
 	{
 		// If we don't want to append a new store into the tree,
 		// then remove all currently existing nodes and rebuild
@@ -178,7 +185,7 @@ Zarafa.hierarchy.data.HierarchyTreeLoader = Ext.extend(Ext.tree.TreeLoader, {
 			// set isDeferred to true, so we don't need to perform
 			// update event handlers.
 			this.isDeferred = true;
-			this.deferredLoadingActiveParent.on('activate', this.doHierarchyLoad, this, { single : true });
+			this.deferredLoadingActiveParent.on('activate', this.doHierarchyLoad, this, { single: true });
 		}
 	},
 
@@ -186,7 +193,7 @@ Zarafa.hierarchy.data.HierarchyTreeLoader = Ext.extend(Ext.tree.TreeLoader, {
 	 * Called by {@link #onHierarchyLoad} to start (re)loading the hierarchy.
 	 * @private
 	 */
-	doHierarchyLoad : function()
+	doHierarchyLoad: function()
 	{
 		var rootNode = this.tree.getRootNode();
 
@@ -205,7 +212,7 @@ Zarafa.hierarchy.data.HierarchyTreeLoader = Ext.extend(Ext.tree.TreeLoader, {
 	 * @param {Object} response The response as returned by the server
 	 * @private
 	 */
-	doHierarchyLoadCallback : function(data, response)
+	doHierarchyLoadCallback: function(data, response)
 	{
 		var rootNode = this.tree.getRootNode();
 
@@ -221,13 +228,13 @@ Zarafa.hierarchy.data.HierarchyTreeLoader = Ext.extend(Ext.tree.TreeLoader, {
 				treeNode.attributes.folder = folder;
 				treeNode.reload();
 			} else if (folder.isFavoritesRootFolder()) {
-                // Check if favorite node and favorite folder doesn't have same number of children
-                // then reload the favorite node.
-                var favoritesStore = folder.getMAPIStore().getFavoritesStore();
-                if (treeNode.childNodes.length !== favoritesStore.getCount()) {
-                    treeNode.reload();
-                }
-            }
+        // Check if favorite node and favorite folder doesn't have same number of children
+        // then reload the favorite node.
+        var favoritesStore = folder.getMAPIStore().getFavoritesStore();
+        if (treeNode.childNodes.length !== favoritesStore.getCount()) {
+          treeNode.reload();
+        }
+      }
 		}
 		// when we close the shared store suggested contact folder
 		// of shared store was removed but node was not removed from
@@ -249,7 +256,7 @@ Zarafa.hierarchy.data.HierarchyTreeLoader = Ext.extend(Ext.tree.TreeLoader, {
 	 * @param {Number} index The index from where the store was removed
 	 * @private
 	 */
-	onHierarchyStoreRemove : function(store, record)
+	onHierarchyStoreRemove: function(store, record)
 	{
 		// A call to doHierarchyLoad is pending,
 		// no need to execute this event handler.
@@ -262,7 +269,7 @@ Zarafa.hierarchy.data.HierarchyTreeLoader = Ext.extend(Ext.tree.TreeLoader, {
 		if (treeNode) {
 			treeNode.remove(true);
 			if (this.deferredLoading === true) {
-				this.deferredLoadingActiveParent.on('activate', this.doHierarchyLoad, this, { single : true });
+				this.deferredLoadingActiveParent.on('activate', this.doHierarchyLoad, this, { single: true });
 			}
 		}
 	},
@@ -275,7 +282,7 @@ Zarafa.hierarchy.data.HierarchyTreeLoader = Ext.extend(Ext.tree.TreeLoader, {
 	 * @param {Zarafa.hierarchy.data.MAPIFolderRecord/Zarafa.hierarchy.data.MAPIFolderRecord[]} folder folders which are added in hierarchy.
 	 * @private
 	 */
-	onHierarchyAddFolder : function(store, mapiStore, record)
+	onHierarchyAddFolder: function(store, mapiStore, record)
 	{
 		// A call to doHierarchyLoad is pending,
 		// no need to execute this event handler.
@@ -310,9 +317,10 @@ Zarafa.hierarchy.data.HierarchyTreeLoader = Ext.extend(Ext.tree.TreeLoader, {
 						nodeType = 'rootfolder';
 					}
 
-					var newNode = this.createNode(Ext.apply({ nodeType : nodeType, folder: record }, this.nodeConfig));
+					var newNode = this.createNode(Ext.apply({ nodeType: nodeType, folder: record }, this.nodeConfig));
 					parentNode.appendChild(newNode);
 					parentNode.expand();
+					this.deferExpandNode = false;
 				}
 			}
 		}
@@ -325,7 +333,7 @@ Zarafa.hierarchy.data.HierarchyTreeLoader = Ext.extend(Ext.tree.TreeLoader, {
 	 * @param {Zarafa.hierarchy.data.MAPIFolderRecord} record folders which are updated in hierarchy.
 	 * @private
 	 */
-	onHierarchyUpdateFolder : function(store, mapiStore, record)
+	onHierarchyUpdateFolder: function(store, mapiStore, record)
 	{
 		// A call to doHierarchyLoad is pending,
 		// no need to execute this event handler.
@@ -394,7 +402,7 @@ Zarafa.hierarchy.data.HierarchyTreeLoader = Ext.extend(Ext.tree.TreeLoader, {
 	 * @param {Zarafa.hierarchy.data.MAPIFolderRecord} folder folders which are removed from hierarchy.
 	 * @private
 	 */
-	onHierarchyRemoveFolder : function(store, mapiStore, record)
+	onHierarchyRemoveFolder: function(store, mapiStore, record)
 	{
 		// A call to doHierarchyLoad is pending,
 		// no need to execute this event handler.
@@ -424,7 +432,7 @@ Zarafa.hierarchy.data.HierarchyTreeLoader = Ext.extend(Ext.tree.TreeLoader, {
 	 * the nodes below the provided node.
 	 * @private
 	 */
-	directFn : function(node, fn)
+	directFn: function(node, fn)
 	{
 		var treeNode = this.tree.getNodeById(node);
 		var data = [];
@@ -438,7 +446,7 @@ Zarafa.hierarchy.data.HierarchyTreeLoader = Ext.extend(Ext.tree.TreeLoader, {
 				var store = stores[i];
 				var folder = store.getSubtreeFolder();
 
-				if (folder) {
+				if (folder && this.tree.IPMSubTreeNodeFilter(folder)) {
 					// The IPM_SUBTREE of a shared stores doesn't need to be shown when
 					// a filter has been applied and the IPM_SUBTREE itself isn't a shared folder.
 					// This could be the case when we only loaded the Inbox or Calendar of the
@@ -448,7 +456,7 @@ Zarafa.hierarchy.data.HierarchyTreeLoader = Ext.extend(Ext.tree.TreeLoader, {
 					var visibleRoot = !this.tree.hasFilter() || !store.isSharedStore() || folder.isSharedFolder();
 
 					if (visibleRoot && this.tree.nodeFilter(folder)) {
-						data.push(Ext.apply({ nodeType : 'rootfolder', folder: folder }, this.nodeConfig));
+						data.push(Ext.apply({ nodeType: 'rootfolder', folder: folder }, this.nodeConfig));
 					} else {
 						data = data.concat(this.getFilteredChildNodes(folder, 'rootfolder'));
 					}
@@ -456,7 +464,7 @@ Zarafa.hierarchy.data.HierarchyTreeLoader = Ext.extend(Ext.tree.TreeLoader, {
 
 				var favoritesFolder = store.getFavoritesRootFolder();
 				if (store.isDefaultStore() && Ext.isDefined(favoritesFolder) && this.tree.nodeFilter(favoritesFolder)) {
-					data.push(Ext.apply({ nodeType : 'rootfolder', folder: favoritesFolder }, this.nodeConfig));
+					data.push(Ext.apply({ nodeType: 'rootfolder', folder: favoritesFolder }, this.nodeConfig));
 				}
 			}
 
@@ -467,10 +475,20 @@ Zarafa.hierarchy.data.HierarchyTreeLoader = Ext.extend(Ext.tree.TreeLoader, {
 			// try to load the entire tree in a single thread which might take so long
 			// that the browser will kill it.
 			/*eslint no-unused-vars: ["error", { "varsIgnorePattern": "defer" }]*/
-			var defer = function(node, fn) {
-				data = this.getFilteredChildNodes(treeNode.getFolder(), 'folder');
+
+			// Note: Adding a defer while adding folders into hierarchy makes problem in finding parent node.
+			// And because of this nodes gets attached to its grand parent node and so on.
+			// So, only do defer while doing normal expand of a node.
+			// Ref: KW-1494.
+			data = this.getFilteredChildNodes(treeNode.getFolder(), 'folder');
+			if (this.deferExpandNode) {
+				var defer = function(node, fn, data) {
+					fn(data, { status: true });
+				}.defer(1, this, [node, fn, data]);
+			} else {
+				this.deferExpandNode = true;
 				fn(data, { status: true });
-			}.defer(1, this, [node, fn]);
+			}
 		}
 	},
 
@@ -484,7 +502,7 @@ Zarafa.hierarchy.data.HierarchyTreeLoader = Ext.extend(Ext.tree.TreeLoader, {
 	 * @return {Object[]} The array of nodes which must be created as subfolders
 	 * @private
 	 */
-	getFilteredChildNodes : function(folder, nodeType)
+	getFilteredChildNodes: function(folder, nodeType)
 	{
 		var subfolders = folder.getChildren();
 		var nodes = [];
@@ -492,7 +510,7 @@ Zarafa.hierarchy.data.HierarchyTreeLoader = Ext.extend(Ext.tree.TreeLoader, {
 		for (var i = 0, len = subfolders.length; i < len; i++) {
 			var subfolder = subfolders[i];
 			if (this.tree.nodeFilter(subfolder)) {
-				nodes.push(Ext.apply({ nodeType : nodeType, folder: subfolder }, this.nodeConfig));
+				nodes.push(Ext.apply({ nodeType: nodeType, folder: subfolder }, this.nodeConfig));
 			} else if (subfolder.get('has_subfolder')) {
 				nodes = nodes.concat(this.getFilteredChildNodes(subfolder, nodeType));
 			}
@@ -513,7 +531,7 @@ Zarafa.hierarchy.data.HierarchyTreeLoader = Ext.extend(Ext.tree.TreeLoader, {
 	 * @return {Ext.tree.TreeNode} The parent node for the folder
 	 * @private
 	 */
-	getFilteredParentNode : function(folder, base)
+	getFilteredParentNode: function(folder, base)
 	{
 		var parentfolder;
 		if(folder.isFavoritesFolder()) {
@@ -546,28 +564,24 @@ Zarafa.hierarchy.data.HierarchyTreeLoader = Ext.extend(Ext.tree.TreeLoader, {
 	 * @param {Object} attr The attributes which will be used to create the node
 	 * @return {Zarafa.hierarchy.ui.FolderNode} The created node
 	 */
-	createNode : function(attr)
+	createNode: function(attr)
 	{
 		var folder = attr.folder;
 
 		if (folder) {
-		if (attr.nodeType === 'rootfolder') {
-			attr.extendedDisplayName = this.tree.hasFilter();
-		}
+			// To uniquely identify the favorites tree nodes we append the "favorites-" key word with node id
+			// when the node is created.
+			attr.id = folder.isFavoritesFolder() ? "favorites-" + folder.get('entryid') : folder.get('entryid');
+			if (folder.isFavoritesRootFolder()) {
+				attr.leaf = folder.get('assoc_content_count') === 0;
+			} else {
+				attr.leaf = !folder.get('has_subfolder');
+			}
 
-		// To uniquely identify the favorites tree nodes we append the "favorites-" key word with node id
-		// when the node is created.
-		attr.id = folder.isFavoritesFolder() ? "favorites-" + folder.get('entryid') : folder.get('entryid');
-		if (folder.isFavoritesRootFolder()) {
-			attr.leaf = folder.get('assoc_content_count') === 0;
-		} else {
-			attr.leaf = !folder.get('has_subfolder');
+			attr.uiProvider = Zarafa.hierarchy.ui.FolderNodeUI;
+			attr.expanded = this.tree.isFolderOpened(folder);
+			attr.allowDrag = !folder.isDefaultFolder() && !folder.isSearchFolder();
 		}
-
-		attr.uiProvider = Zarafa.hierarchy.ui.FolderNodeUI;
-		attr.expanded = this.tree.isFolderOpened(folder);
-		attr.allowDrag = !folder.isDefaultFolder() && !folder.isSearchFolder();
-	}
 
 		return Zarafa.hierarchy.data.HierarchyTreeLoader.superclass.createNode.apply(this, arguments);
 	},
@@ -575,7 +589,7 @@ Zarafa.hierarchy.data.HierarchyTreeLoader = Ext.extend(Ext.tree.TreeLoader, {
 	/**
 	 * Destroys the TreeLoader
 	 */
-	destroy : function()
+	destroy: function()
 	{
 		this.bindStore(null);
 		Zarafa.hierarchy.data.HierarchyTreeLoader.superclass.destroy.apply(this, arguments);

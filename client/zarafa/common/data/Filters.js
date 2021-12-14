@@ -15,5 +15,5 @@ Zarafa.common.data.Filters = Zarafa.core.Enum.create({
 	 * @property
 	 * @type Number
 	 */
-	UNREAD : 0
+	UNREAD: 0
 });

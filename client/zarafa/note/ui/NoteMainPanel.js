@@ -41,34 +41,34 @@ Zarafa.note.ui.NoteMainPanel = Ext.extend(Zarafa.common.ui.ContextMainPanel, {
 	 * @property
 	 * @type Zarafa.core.ui.SwitchViewContentContainer
 	 */
-	viewPanel : undefined,
-	
+	viewPanel: undefined,
+
 	/**
 	 * @constructor
 	 * @param notecontext
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		config = config || {};
 
 		Ext.applyIf(config, {
-			xtype : 'zarafa.notemainpanel',
+			xtype: 'zarafa.notemainpanel',
 			layout: 'fit',
 			items: [{
-				xtype : 'zarafa.switchviewcontentcontainer',
+				xtype: 'zarafa.switchviewcontentcontainer',
 				ref: 'viewPanel',
-				layout : 'card',
-				lazyItems : this.initViews(config.context)
+				layout: 'card',
+				lazyItems: this.initViews(config.context)
 			}],
-			tbar : {
+			tbar: {
 				xtype: 'zarafa.contextmainpaneltoolbar',
-				defaultTitle : _('Notes'),
-				paging : container.populateInsertionPoint('context.note.toolbar.paging', this),
-				items : container.populateInsertionPoint('context.note.toolbar.item', this),
-				context : config.context
+				defaultTitle: _('Notes'),
+				paging: container.populateInsertionPoint('context.note.toolbar.paging', this),
+				items: container.populateInsertionPoint('context.note.toolbar.item', this),
+				context: config.context
 			}
 		});
-		
+
 		Zarafa.note.ui.NoteMainPanel.superclass.constructor.call(this,config);
 	},
 
@@ -79,17 +79,17 @@ Zarafa.note.ui.NoteMainPanel = Ext.extend(Zarafa.common.ui.ContextMainPanel, {
 	 * @return {Array} array of config objects of different views
 	 * @private
 	 */
-	initViews : function(context)
+	initViews: function(context)
 	{
 		// add the standard available views
 		var allViews = [{
 			xtype	: 'zarafa.noteiconview',//Icon View
 			id	: 'note-iconview',
-			context : context
+			context: context
 		},{
 			xtype	: 'zarafa.notegrid',//Grid View
 			id	: 'note-gridview',
-			context : context
+			context: context
 		}];
 
 		var additionalViewItems = container.populateInsertionPoint('context.note.views', this, context);
@@ -103,7 +103,7 @@ Zarafa.note.ui.NoteMainPanel = Ext.extend(Zarafa.common.ui.ContextMainPanel, {
 	 * At this time all events can be registered.
 	 * @private
 	 */
-	initEvents : function()
+	initEvents: function()
 	{
 		if (Ext.isDefined(this.context)) {
 			this.mon(this.context, 'viewchange', this.onViewChange, this);
@@ -123,7 +123,7 @@ Zarafa.note.ui.NoteMainPanel = Ext.extend(Zarafa.common.ui.ContextMainPanel, {
 	 * @param {Zarafa.note.data.Views} oldView The ID of the previously selected view
 	 * @private
 	 */
-	onViewChange : function(context, newView, oldView)
+	onViewChange: function(context, newView, oldView)
 	{
 		switch (newView) {
 			case Zarafa.note.data.Views.ICON:

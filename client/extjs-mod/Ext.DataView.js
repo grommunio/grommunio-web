@@ -11,7 +11,7 @@
 		 * Override to add events for {@link Zarafa.common.ui.BoxField#extraItemSelector extraItemSelector} element.
 		 * @override
 		 */
-		initComponent : function()
+		initComponent: function()
 		{
 			orig_initComponent.apply(this, arguments);
 
@@ -44,7 +44,7 @@
 		 * @private
 		 * @override
 		 */
-		onClick : function(e)
+		onClick: function(e)
 		{
 			var extraItem = false;
 			var index;
@@ -53,7 +53,7 @@
 				extraItem = e.getTarget(this.extraItemSelector, this.getTemplateTarget());
 			}
 
-			if (extraItem){
+			if (extraItem) {
 				index = this.indexOf(extraItem);
 				if (this.onExtraItemClick(extraItem, index, e) !== false) {
 					this.fireEvent("extraitemclick", this, index, extraItem, e);
@@ -73,9 +73,9 @@
 		 * @private
 		 * @override
 		 */
-		onExtraItemClick : function(item, index, e)
+		onExtraItemClick: function(item, index, e)
 		{
-			if(this.fireEvent("beforeextraitemclick", this, index, item, e) === false){
+			if(this.fireEvent("beforeextraitemclick", this, index, item, e) === false) {
 				return false;
 			}
 

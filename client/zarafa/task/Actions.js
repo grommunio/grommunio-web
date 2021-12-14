@@ -16,7 +16,7 @@ Zarafa.task.Actions = {
 	 * @param {Object} config (optional) Configuration object used to create
 	 * the Content Panel.
 	 */
-	openCreateTaskContent : function(model, config)
+	openCreateTaskContent: function(model, config)
 	{
 		var record = model.createRecord();
 		Zarafa.core.data.UIFactory.openCreateRecord(record, config);
@@ -31,7 +31,7 @@ Zarafa.task.Actions = {
 	 * @param {Object} config (optional) Configuration object used to create
 	 * the Content Panel.
 	 */
-	openCreateTaskRequestContent : function(model, config)
+	openCreateTaskRequestContent: function(model, config)
 	{
 		var record = model.createRecord();
 		record.convertToTaskRequest();
@@ -45,7 +45,7 @@ Zarafa.task.Actions = {
 	 * @param {Zarafa.core.data.IPMRecord} records The record which will be converted to a task
 	 * @param {Zarafa.task.TaskContextModel} model Used to create a new task record
 	 */
-	createTaskFromMail : function(records, model)
+	createTaskFromMail: function(records, model)
 	{
 		var record;
 
@@ -60,7 +60,7 @@ Zarafa.task.Actions = {
 			Zarafa.core.data.UIFactory.openCreateRecord(newTaskRecord);
 		} else {
 			// If record is not openend, then we need to reopen it to get the body. (For example when the selected records store reloads)
-			record.getStore().on('open', this.openHandler.createDelegate(this, [model], 2), this, {single : true});
+			record.getStore().on('open', this.openHandler.createDelegate(this, [model], 2), this, {single: true});
 			record.open();
 		}
 	},
@@ -85,11 +85,11 @@ Zarafa.task.Actions = {
 	 * @param {Zarafa.task.TaskRecord} record The record, or records, for which the task conformation will be send.
 	 * @param {Object} config (optional) Configuration object used to create the ContentPanel
 	 */
-	openSendConfirmationContent : function(record, config)
+	openSendConfirmationContent: function(record, config)
 	{
 		config = Ext.applyIf(config || {}, {
-			record : record,
-			modal : true
+			record: record,
+			modal: true
 		});
 		var componentType = Zarafa.core.data.SharedComponentType['task.dialogs.sendtaskrequestconfirmation'];
 		Zarafa.core.data.UIFactory.openLayerComponent(componentType, record, config);
@@ -104,7 +104,7 @@ Zarafa.task.Actions = {
 	 * @param {Object} config (optional) Configuration object used to create
 	 * the Content Panel.
 	 */
-	openRecipientSelectionContent : function(records, config)
+	openRecipientSelectionContent: function(records, config)
 	{
 		if (Ext.isArray(records) && !Ext.isEmpty(records)) {
 			records = records[0];
@@ -116,20 +116,20 @@ Zarafa.task.Actions = {
 		var store = copy.getSubStore('recipients');
 
 		Zarafa.common.Actions.openABUserMultiSelectionContent({
-			callback : function() {
+			callback: function() {
 				records.applyData(copy);
 			},
-			convert : function(user, field) {
+			convert: function(user, field) {
 				return user.convertToRecipient(field ? field.defaultRecipientType : config.defaultRecipientType);
 			},
-			store : store,
-			selectionCfg : [{
-				xtype : 'zarafa.recipientfield',
-				fieldLabel : _('To') + ':',
-				boxStore : store,
+			store: store,
+			selectionCfg: [{
+				xtype: 'zarafa.recipientfield',
+				fieldLabel: _('To') + ':',
+				boxStore: store,
 				filterRecipientType: Zarafa.core.mapi.RecipientType.MAPI_TO,
 				defaultRecipientType: Zarafa.core.mapi.RecipientType.MAPI_TO,
-				flex : 1
+				flex: 1
 			}]
 		});
 	},
@@ -141,7 +141,7 @@ Zarafa.task.Actions = {
 	 *
 	 * @param {Array} records The array of {@link Zarafa.core.data.IPMRecord records} that must be deleted.
 	 */
-	deleteRecordsFromTodoList : function(records)
+	deleteRecordsFromTodoList: function(records)
 	{
 		// It would be nice if we could use the state functionality for this, but the MessageBox is not an
 		// Ext.Component and this context menu is already gone when the MessageBox is displayed, so this is
@@ -158,11 +158,11 @@ Zarafa.task.Actions = {
 			title: _('Delete confirmation'),
 			minWidth: 351,
 			customButton: [{
-				text : _('Delete'),
-				name : 'delete'
+				text: _('Delete'),
+				name: 'delete'
 			}, {
-				text : _('Cancel'),
-				name : 'cancel'
+				text: _('Cancel'),
+				name: 'cancel'
 			}],
 			checkbox: true,
 			fn: function(btnId, text, checked){
@@ -186,7 +186,7 @@ Zarafa.task.Actions = {
 	 * @param {Object} options An Object Which contains configuration options to
 	 * open {@link Zarafa.task.ui.TaskFlagsMenu FlagsMenu}.
 	 */
-	openFlagsMenu : function(records, options)
+	openFlagsMenu: function(records, options)
 	{
 		if (!Ext.isArray(records)) {
 			records = [ records ];

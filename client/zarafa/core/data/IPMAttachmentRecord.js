@@ -30,9 +30,9 @@ Zarafa.core.data.IPMAttachmentRecordFields = [
 
 	{name: 'attachment_contactphoto', type: 'boolean', defaultValue: false},	// rename to contactphoto ???
 	// Properties that will only be used when opening embedded attachment from unsaved message
-	{name : 'entryid'},
-	{name : 'store_entryid'},
-	{name : 'extension', type: 'string'}
+	{name: 'entryid'},
+	{name: 'store_entryid'},
+	{name: 'extension', type: 'string'}
 ];
 
 /**
@@ -45,21 +45,21 @@ Zarafa.core.data.IPMAttachmentRecord = Ext.extend(Ext.data.Record, {
 	 * @property
 	 * @type Boolean
 	 */
-	uploadAttempted : false,
+	uploadAttempted: false,
 
 	/**
 	 * Indicates this attachment is an inline image for an HTML mail
 	 * @property
 	 * @type private
 	 */
-	inline : false,
+	inline: false,
 
 	/**
 	 * Holds request id of all attachment requests made to server.
 	 * @property
 	 * @type private
 	 */
-	requestId : undefined,
+	requestId: undefined,
 
 	/**
 	 * Applies all data from an {@link Zarafa.core.data.IPMAttachmentRecord IPMAttachmentRecord}
@@ -68,7 +68,7 @@ Zarafa.core.data.IPMAttachmentRecord = Ext.extend(Ext.data.Record, {
 	 * @param {Zarafa.core.data.IPMAttachmentRecord} record The record to apply to this
 	 * @return {Zarafa.core.data.IPMAttachmentRecord} this
 	 */
-	applyData : function(record)
+	applyData: function(record)
 	{
 		this.beginEdit();
 
@@ -86,7 +86,7 @@ Zarafa.core.data.IPMAttachmentRecord = Ext.extend(Ext.data.Record, {
 	/**
 	 * @param {Boolean} inline
 	 */
-	setInline : function(inline)
+	setInline: function(inline)
 	{
 		this.inline = inline;
 	},
@@ -95,7 +95,7 @@ Zarafa.core.data.IPMAttachmentRecord = Ext.extend(Ext.data.Record, {
 	 * @return {Boolean} True if this attachment is uploaded or otherwise
 	 * present on the server
 	 */
-	isUploaded : function()
+	isUploaded: function()
 	{
 		return !Ext.isEmpty(this.get('tmpname')) || !this.isTmpFile();
 	},
@@ -103,7 +103,7 @@ Zarafa.core.data.IPMAttachmentRecord = Ext.extend(Ext.data.Record, {
 	/**
 	 * @return {Boolean} True if this attachment is a temporary file.
 	 */
-	isTmpFile : function()
+	isTmpFile: function()
 	{
 		return this.get('attach_num') <= -1;
 	},
@@ -111,7 +111,7 @@ Zarafa.core.data.IPMAttachmentRecord = Ext.extend(Ext.data.Record, {
 	/**
 	 * @return {Boolean} True if the attachment is inline
 	 */
-	isInline : function()
+	isInline: function()
 	{
 		return this.inline;
 	},
@@ -119,7 +119,7 @@ Zarafa.core.data.IPMAttachmentRecord = Ext.extend(Ext.data.Record, {
 	/**
 	 * @return {Boolean} True if the attachment is hidden
 	 */
-	isHidden : function()
+	isHidden: function()
 	{
 		return this.get('hidden');
 	},
@@ -127,7 +127,7 @@ Zarafa.core.data.IPMAttachmentRecord = Ext.extend(Ext.data.Record, {
 	/**
 	 * @return {Boolean} True if the attachment is an exception to a recurring appointment
 	 */
-	isRecurrenceException : function()
+	isRecurrenceException: function()
 	{
 		return this.isHidden() && Zarafa.core.MessageClass.isClass(this.get('attach_message_class'), 'IPM.OLE.CLASS.{00061055-0000-0000-C000-000000000046}');
 	},
@@ -135,7 +135,7 @@ Zarafa.core.data.IPMAttachmentRecord = Ext.extend(Ext.data.Record, {
 	/**
 	 * @return {Boolean} True if the attachment is contact photo.
 	 */
-	isContactPhoto : function()
+	isContactPhoto: function()
 	{
 		return this.get('attachment_contactphoto');
 	},
@@ -144,7 +144,7 @@ Zarafa.core.data.IPMAttachmentRecord = Ext.extend(Ext.data.Record, {
 	 * Checks if {@link Zarafa.core.data.IPMAttachmentRecord IPMAttachmentRecord} is embedded message
 	 * @return {Boolean} true if attachment record is an embedded message
 	 */
-	isEmbeddedMessage : function()
+	isEmbeddedMessage: function()
 	{
 		return this.get('attach_method') === Zarafa.core.mapi.AttachMethod.ATTACH_EMBEDDED_MSG && !this.isRecurrenceException();
 	},
@@ -152,7 +152,7 @@ Zarafa.core.data.IPMAttachmentRecord = Ext.extend(Ext.data.Record, {
 	/**
 	 * @return {Boolean} True if this attachment can be imported, false otherwise.
 	 */
-	canBeImported : function()
+	canBeImported: function()
 	{
 		var isSupportedExtension = false;
 		if (this.isEmbeddedMessage()) {
@@ -169,9 +169,9 @@ Zarafa.core.data.IPMAttachmentRecord = Ext.extend(Ext.data.Record, {
 	 *
 	 * @return {boolean} true if attachment is ICS Or VCS else false
 	 */
-	isICSAttachment : function()
+	isICSAttachment: function()
 	{
-		var fileExtension = this.get('extension');
+		var fileExtension = this.get('extension').toLowerCase();
 		if (!Ext.isEmpty(fileExtension)) {
 			return fileExtension === 'ics' || fileExtension === 'vcs';
 		}
@@ -184,9 +184,9 @@ Zarafa.core.data.IPMAttachmentRecord = Ext.extend(Ext.data.Record, {
 	 *
 	 * @return {boolean} true if attachment is EML else false
 	 */
-	isEmlAttachment : function()
+	isEmlAttachment: function()
 	{
-		var fileExtension = this.get('extension');
+		var fileExtension = this.get('extension').toLowerCase();
 		if (!Ext.isEmpty(fileExtension)) {
 			return fileExtension === 'eml';
 		}
@@ -199,9 +199,9 @@ Zarafa.core.data.IPMAttachmentRecord = Ext.extend(Ext.data.Record, {
 	 *
 	 * @return {boolean} true if attachment is VCF else false
 	 */
-	isVCFAttachment : function()
+	isVCFAttachment: function()
 	{
-		var fileExtension = this.get('extension');
+		var fileExtension = this.get('extension').toLowerCase();
 		if (!Ext.isEmpty(fileExtension)) {
 			return fileExtension === 'vcf';
 		}
@@ -212,7 +212,7 @@ Zarafa.core.data.IPMAttachmentRecord = Ext.extend(Ext.data.Record, {
 	/**
 	 * @return {Ext.data.Store} data store this record belongs to.
 	 */
-	getStore : function()
+	getStore: function()
 	{
 		return this.store;
 	},
@@ -222,7 +222,7 @@ Zarafa.core.data.IPMAttachmentRecord = Ext.extend(Ext.data.Record, {
 	 * it uses {@link Zarafa.core.data.IPMRecord IPMRecord} to get store and message entryids.
 	 * @return {String} URL for downloading inline images.
 	 */
-	getInlineImageUrl : function()
+	getInlineImageUrl: function()
 	{
 		return this.store.getInlineImageUrl(this);
 	},
@@ -233,7 +233,7 @@ Zarafa.core.data.IPMAttachmentRecord = Ext.extend(Ext.data.Record, {
 	 * @param {Boolean} allAsZip (optional) True to downloading all the attachments as ZIP
 	 * @return {String} URL for downloading attachment.
 	 */
-	getAttachmentUrl : function(allAsZip)
+	getAttachmentUrl: function(allAsZip)
 	{
 		return this.store.getAttachmentUrl(this, allAsZip);
 	},
@@ -243,7 +243,7 @@ Zarafa.core.data.IPMAttachmentRecord = Ext.extend(Ext.data.Record, {
 	 * @param {Zarafa.core.data.IPMRecord} parentRecord parent record that holds this attachment
 	 * @return {Array} attach_num of parent
 	 */
-	getParentAttachNum : function(parentRecord)
+	getParentAttachNum: function(parentRecord)
 	{
 		if(!parentRecord) {
 			parentRecord = this.store.getParentRecord();
@@ -269,7 +269,7 @@ Zarafa.core.data.IPMAttachmentRecord = Ext.extend(Ext.data.Record, {
 	 *
 	 * @return {Zarafa.core.data.IPMRecord} The IPMRecord which is an embedded message as attachment.
 	 */
-	convertToIPMRecord : function()
+	convertToIPMRecord: function()
 	{
 		var messageClass = this.get('attach_message_class');
 
@@ -293,15 +293,19 @@ Zarafa.core.data.IPMAttachmentRecord = Ext.extend(Ext.data.Record, {
 			var attachNum = parentAttachNum.concat(this.get('attach_num'));
 			var parentRecordEntryId = parentRecord.get('entryid');
 
+			if (Ext.isEmpty(parentRecordEntryId) && parentRecord.hasMessageAction('source_entryid')) {
+				parentRecordEntryId = parentRecord.getMessageAction('source_entryid');
+			}
+
 			return Zarafa.core.data.RecordFactory.createRecordObjectByMessageClass(messageClass, {
-				message_class : messageClass,
-				object_type : Zarafa.core.mapi.ObjectType.MAPI_MESSAGE,
-				attach_num : attachNum,
+				message_class: messageClass,
+				object_type: Zarafa.core.mapi.ObjectType.MAPI_MESSAGE,
+				attach_num: attachNum,
 
 				// pass entryids of parent record
-				entryid : parentRecordEntryId,
-				store_entryid : parentRecord.get('store_entryid')
-			}, parentRecordEntryId + attachNum.join(''));
+				entryid: parentRecordEntryId,
+				store_entryid: parentRecord.get('store_entryid')
+			}, attachNum.join('') + parentRecordEntryId);
 		} else {
 			// Embedded attachment is not saved yet in message, so we can use entryids from the attachment record itself to open the message
 			var originalRecordEntryId = this.get('entryid');
@@ -312,14 +316,14 @@ Zarafa.core.data.IPMAttachmentRecord = Ext.extend(Ext.data.Record, {
 			var attachNum = [].concat(this.get('attach_num'));
 
 			return Zarafa.core.data.RecordFactory.createRecordObjectByMessageClass(messageClass, {
-				message_class : messageClass,
-				object_type : Zarafa.core.mapi.ObjectType.MAPI_MESSAGE,
-				attach_num : attachNum,
+				message_class: messageClass,
+				object_type: Zarafa.core.mapi.ObjectType.MAPI_MESSAGE,
+				attach_num: attachNum,
 
 				// pass entryids of original record from which this embedded attachment record has been made
-				entryid : originalRecordEntryId,
-				store_entryid : this.get('store_entryid')
-			}, originalRecordEntryId + attachNum.join(''));
+				entryid: originalRecordEntryId,
+				store_entryid: this.get('store_entryid')
+			}, attachNum.join('') + originalRecordEntryId);
 		}
 	}
 });

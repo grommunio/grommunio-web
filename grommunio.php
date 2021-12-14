@@ -157,7 +157,7 @@
 		// Set the correct header and compress the response
 		header("Content-Encoding: gzip");
 		echo gzencode($json);
-	}else {
+	} else {
 		echo $json;
 	}
 

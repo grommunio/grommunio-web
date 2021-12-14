@@ -14,18 +14,18 @@ Zarafa.core.ui.notifier.SliderContainer = Ext.extend(Object, {
 	 * @cfg {Ext.Element} parentContainer The parent container in which the
 	 * slider will be positioned.
 	 */
-	parentContainer : undefined,
+	parentContainer: undefined,
 
 	/**
 	 * @cfg {String} containerCls The CSS class to be applied on the {@link #container}.
 	 */
-	containerCls : 'zarafa-notifier-container',
+	containerCls: 'zarafa-notifier-container',
 
 	/**
 	 * @cfg {String} itemCls The CSS class to be applied to the DIV wrapper around
 	 * the messages added in {@link #createMessage}.
 	 */
-	itemCls : 'zarafa-notifier-container-item',
+	itemCls: 'zarafa-notifier-container-item',
 
 	/**
 	 * @cfg {String} containerPosition The position of the container
@@ -40,24 +40,24 @@ Zarafa.core.ui.notifier.SliderContainer = Ext.extend(Object, {
 	 * - 'b': The center of the bottom edge
 	 * - 'br': The bottom right corner
 	 */
-	containerPosition : 't',
+	containerPosition: 't',
 
 	/**
 	 * @cfg {Char} slideinDirection the animation slidein direction for notification
 	 */
-	slideinDirection : 't',
+	slideinDirection: 't',
 
 	/**
 	 * @cfg {Char} slideoutDirection the animation slideout direction for notification
 	 */
-	slideoutDirection : 't',
+	slideoutDirection: 't',
 
 	/**
 	 * @cfg {Boolean} animatedContainerResize True to animate the resizing of the container
 	 * when a new notification is added into the container. This defaults to 'false' if
 	 * {@link #slideinDirection} is 't', 'true' otherwise.
 	 */
-	animatedContainerResize : false,
+	animatedContainerResize: false,
 
 	/**
 	 * The container in which the sliders will be placed.
@@ -65,7 +65,7 @@ Zarafa.core.ui.notifier.SliderContainer = Ext.extend(Object, {
 	 * @type Ext.Element
 	 * @private
 	 */
-	container : undefined,
+	container: undefined,
 
 	/**
 	 * The array of {@link Ext.Element Elements} which are pending to be displayed in the {@link #container}.
@@ -76,7 +76,7 @@ Zarafa.core.ui.notifier.SliderContainer = Ext.extend(Object, {
 	 * @type Array
 	 * @private
 	 */
-	pendingMessages : undefined,
+	pendingMessages: undefined,
 
 	/**
 	 * The array of {@link Ext.Element Elements} which are currently displayed in the {@link #container}.
@@ -84,7 +84,7 @@ Zarafa.core.ui.notifier.SliderContainer = Ext.extend(Object, {
 	 * @type Array
 	 * @private
 	 */
-	stackedMessages : undefined,
+	stackedMessages: undefined,
 
 	/**
 	 * Used by {@link #showNextMessage} to check if there currently is a Message which is being animated.
@@ -93,13 +93,13 @@ Zarafa.core.ui.notifier.SliderContainer = Ext.extend(Object, {
 	 * @type Array
 	 * @private
 	 */
-	animating : false,
+	animating: false,
 
 	/**
 	 * @constructor
 	 * @param {Object} config Configuration object
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		Ext.apply(this, config);
 
@@ -119,10 +119,10 @@ Zarafa.core.ui.notifier.SliderContainer = Ext.extend(Object, {
 	 * @param {Number} timeout (optional) If provided, the message will be removed automatically after the timeout
 	 * @return {Ext.Element} The slider element which was created
 	 */
-	createMessage : function(html, timeout)
+	createMessage: function(html, timeout)
 	{
 		// Construct the Ext.Element object
-		var element = Ext.DomHelper.append(this.container, { html : html, cls : this.itemCls, style : 'visibility: hidden;' }, true);
+		var element = Ext.DomHelper.append(this.container, { html: html, cls: this.itemCls, style: 'visibility: hidden;' }, true);
 
 		// Push it to pending messages
 		this.pendingMessages.push(element);
@@ -142,7 +142,7 @@ Zarafa.core.ui.notifier.SliderContainer = Ext.extend(Object, {
 	 * @return {Ext.Element} The slider element which was updated
 	 * @private
 	 */
-	updateMessage : function(element, html)
+	updateMessage: function(element, html)
 	{
 		element.dom.innerHTML = html;
 		return element;
@@ -152,16 +152,16 @@ Zarafa.core.ui.notifier.SliderContainer = Ext.extend(Object, {
 	 * Remove a message which was previously created using {@link #createMessage}.
 	 * @param {Ext.Element} element The element to remove
 	 */
-	removeMessage : function(element)
+	removeMessage: function(element)
 	{
 		this.animating = true;
 
 		if (this.stackedMessages.indexOf(element) >= 0) {
 			element.ghost(this.slideoutDirection, {
-				remove : true,
-				stopFx : true,
-				callback : this.onRemoveComplete.createDelegate(this, [ element ]),
-				scope : this
+				remove: true,
+				stopFx: true,
+				callback: this.onRemoveComplete.createDelegate(this, [ element ]),
+				scope: this
 			});
 		}
 	},
@@ -169,13 +169,13 @@ Zarafa.core.ui.notifier.SliderContainer = Ext.extend(Object, {
 	/**
 	 * Called whenever a message has been added to the {@link #pendingMessages} queue, or when
 	 * a message has been removed from the {@link #stackedMessages}. When we still have pending
-	 * messages in {@link #pendingMessages},  we first check if we are currently busy
+	 * messages in {@link #pendingMessages}, we first check if we are currently busy
 	 * {@link #animating animating} a message, or if there is no room for a new message to appear.
 	 * When neither problem occurs, then we start animating the new message into the screen.
 	 *
 	 * @private
 	 */
-	showNextMessage : function()
+	showNextMessage: function()
 	{
 		var element = this.pendingMessages[0];
 		var msgHeight = element.getHeight();
@@ -217,23 +217,23 @@ Zarafa.core.ui.notifier.SliderContainer = Ext.extend(Object, {
 	 * @param {Ext.Element} element The element to show
 	 * @private
 	 */
-	animMessage : function(element)
+	animMessage: function(element)
 	{
 		element = element.slideIn(this.slideinDirection, {
-			callback : this.onShowComplete,
-			scope : this
+			callback: this.onShowComplete,
+			scope: this
 		});
 
 		// Check if this element must automatically be removed
 		// after a certain timeout.
 		if (Ext.isNumber(element.timeout)) {
 			element.pause(element.timeout, {
-				callback : this.onPauseComplete,
-				scope : this
+				callback: this.onPauseComplete,
+				scope: this
 			}).ghost(this.slideoutDirection, {
-				remove : true,
-				callback : this.onRemoveComplete.createDelegate(this, [ element ]),
-				scope : this
+				remove: true,
+				callback: this.onRemoveComplete.createDelegate(this, [ element ]),
+				scope: this
 			});
 		}
 	},
@@ -245,7 +245,7 @@ Zarafa.core.ui.notifier.SliderContainer = Ext.extend(Object, {
 	 *
 	 * @private
 	 */
-	onShowComplete : function()
+	onShowComplete: function()
 	{
 		this.animating = false;
 
@@ -264,7 +264,7 @@ Zarafa.core.ui.notifier.SliderContainer = Ext.extend(Object, {
 	 *
 	 * @private
 	 */
-	onPauseComplete : function()
+	onPauseComplete: function()
 	{
 		this.animating = true;
 	},
@@ -276,7 +276,7 @@ Zarafa.core.ui.notifier.SliderContainer = Ext.extend(Object, {
 	 * @param {Ext.Element} element The element which was removed
 	 * @private
 	 */
-	onRemoveComplete : function(element)
+	onRemoveComplete: function(element)
 	{
 		var newHeight = this.container.getHeight() - element.height;
 		var index = this.stackedMessages.indexOf(element);
@@ -312,7 +312,7 @@ Zarafa.core.ui.notifier.SliderContainer = Ext.extend(Object, {
 			this.showNextMessage();
 		}
 	},
-																		    
+
 	/**
 	 * Obtain the {@link Ext.Element container} in which this slider will operate.
 	 * This uses the {@link #parentContainer} to find if any slider container already
@@ -320,7 +320,7 @@ Zarafa.core.ui.notifier.SliderContainer = Ext.extend(Object, {
 	 * @return {Ext.Element} The slider container
 	 * @private
 	 */
-	getContainer : function()
+	getContainer: function()
 	{
 		var parentId = this.parentContainer.id;
 		var sliderCls = this.containerCls + ' ' + this.containerCls + '-' + this.containerPosition;
@@ -329,7 +329,7 @@ Zarafa.core.ui.notifier.SliderContainer = Ext.extend(Object, {
 		var ct = Ext.DomQuery.select('#' + sliderId).shift();
 		if (!ct) {
 			// Insert the notifier message into the given container
-			ct = Ext.DomHelper.insertFirst(this.parentContainer, { id : sliderId, cls : sliderCls }, true);
+			ct = Ext.DomHelper.insertFirst(this.parentContainer, { id: sliderId, cls: sliderCls }, true);
 
 			// Set initial height to 0
 			ct.setHeight(0);
@@ -353,7 +353,7 @@ Zarafa.core.ui.notifier.SliderContainer = Ext.extend(Object, {
 	 * should be animated.
 	 * @private
 	 */
-	updateContainer : function(height, animate)
+	updateContainer: function(height, animate)
 	{
 		// The position of the element should be: br-br, t-t, etc, to ensure
 		// that the bottom-right corner of the container is in the bottom-right

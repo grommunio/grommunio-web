@@ -9,115 +9,115 @@ Zarafa.common.attachment.dialogs.AttachItemPanel = Ext.extend(Ext.Panel, {
 	/**
 	 * @cfg {Zarafa.core.data.MAPIRecord} record record in which we will add embedded attachment if user is adding it as attachment.
 	 */
-	record : undefined,
+	record: undefined,
 
 	/**
 	 * @cfg {Zarafa.common.ui.EditorField} editor editor in which we will be adding message as text if user has selected to add text in body.
 	 */
-	editor : undefined,
+	editor: undefined,
 
 	/**
 	 * @constructor
 	 * @param {Object} config Configuration object
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		config = config || {};
 
 		Ext.applyIf(config, {
 			layout: {
 				type: 'vbox',
-				align : 'stretch',
-				pack  : 'start',
-				padding : 10
+				align: 'stretch',
+				pack: 'start',
+				padding: 10
 			},
-			items : [{
-				xtype : 'container',
-				flex : 1,
-				layout : {
-					type : 'hbox',
-					align : 'stretch',
-					pack : 'start'
+			items: [{
+				xtype: 'container',
+				flex: 1,
+				layout: {
+					type: 'hbox',
+					align: 'stretch',
+					pack: 'start'
 				},
-				items : [{
+				items: [{
 					xtype: 'zarafa.hierarchytree',
-					flex : 1,
-					border : true,
-					enableDD : false,
-					treeSorter : true,
-					ref : '../hierarchyTree',
-					listeners : {
+					flex: 1,
+					border: true,
+					enableDD: false,
+					treeSorter: true,
+					ref: '../hierarchyTree',
+					listeners: {
 						// Register event that will initially select a default folder
-						'load' : this.onTreeNodeLoad,
-						scope : this
+						'load': this.onTreeNodeLoad,
+						scope: this
 					}
 				}, {
-					xtype : 'container',
-					width : 150,
-					defaults : {
-						style : {
-							margin : '0px 0px 10px 5px'
+					xtype: 'container',
+					width: 150,
+					defaults: {
+						style: {
+							margin: '0px 0px 10px 5px'
 						}
 					},
-					style : {
-						padding : '0px 0px 0px 10px'
+					style: {
+						padding: '0px 0px 0px 10px'
 					},
-					items : [{
-						xtype : 'button',
-						text : _('Ok'),
-						disabled : true,
+					items: [{
+						xtype: 'button',
+						text: _('Ok'),
+						disabled: true,
 						cls: 'zarafa-action',
-						ref : '../../okButton',
-						handler : this.onOK,
-						scope : this
+						ref: '../../okButton',
+						handler: this.onOK,
+						scope: this
 					}, {
-						xtype : 'button',
-						text : _('Cancel'),
-						ref : '../../cancelButton',
-						handler : this.onCancel,
-						scope : this
+						xtype: 'button',
+						text: _('Cancel'),
+						ref: '../../cancelButton',
+						handler: this.onCancel,
+						scope: this
 					}, {
-						xtype : 'fieldset',
-						title : _('Insert as'),
-						padding : '0px 5px 5px 5px',
-						layout : {
-							type : 'fit'
+						xtype: 'fieldset',
+						title: _('Insert as'),
+						padding: '0px 5px 5px 5px',
+						layout: {
+							type: 'fit'
 						},
-						items : [{
-							xtype : 'radiogroup',
-							vertical : true,
-							columns : 1,
-							ref : '../../../attachTypeRadioGroup',
-							defaults : {
-								style : {
-									margin : '5px 0px 0px 5px'
+						items: [{
+							xtype: 'radiogroup',
+							vertical: true,
+							columns: 1,
+							ref: '../../../attachTypeRadioGroup',
+							defaults: {
+								style: {
+									margin: '5px 0px 0px 5px'
 								}
 							},
-							items : [{
-								xtype : 'radio',
-								boxLabel : _('Text only'),
-								inputValue : 'text_only',
-								name : 'attach_item'
+							items: [{
+								xtype: 'radio',
+								boxLabel: _('Text only'),
+								inputValue: 'text_only',
+								name: 'attach_item'
 							}, {
-								xtype : 'radio',
-								boxLabel : _('Attachment'),
-								inputValue : 'attachment',
-								name : 'attach_item'
+								xtype: 'radio',
+								boxLabel: _('Attachment'),
+								inputValue: 'attachment',
+								name: 'attach_item'
 							}],
-							listeners : {
+							listeners: {
 								// Register event that will select default radio group item
-								'afterrender' : this.onRadioGroupAfterRender,
+								'afterrender': this.onRadioGroupAfterRender,
 								// Register event that will save current selected radio item in state settings
-								'change' : this.onRadioSelectionChange,
-								scope : this
+								'change': this.onRadioSelectionChange,
+								scope: this
 							}
 						}]
 					}]
 				}]
 			}, {
 				xtype: 'zarafa.attachitemgrid',
-				flex : 1,
-				ref : 'attachItemGrid'
+				flex: 1,
+				ref: 'attachItemGrid'
 			}]
 		});
 
@@ -128,7 +128,7 @@ Zarafa.common.attachment.dialogs.AttachItemPanel = Ext.extend(Ext.Panel, {
 	 * Initialize the event handlers
 	 * @protected
 	 */
-	initEvents : function()
+	initEvents: function()
 	{
 		Zarafa.common.attachment.dialogs.AttachItemPanel.superclass.initEvents.apply(this, arguments);
 
@@ -144,7 +144,7 @@ Zarafa.common.attachment.dialogs.AttachItemPanel = Ext.extend(Ext.Panel, {
 	 * Function will call {@link Zarafa.common.attachment.dialogs.AttachItemGrid#attachItem}.
 	 * @private
 	 */
-	onOK : function()
+	onOK: function()
 	{
 		this.attachItem();
 	},
@@ -153,7 +153,7 @@ Zarafa.common.attachment.dialogs.AttachItemPanel = Ext.extend(Ext.Panel, {
 	 * Handler will called when user presses the cancel button, this will simply close the {@link Zarafa.common.attachment.AttachItemContentPanel AttachItemContentPanel}
 	 * @private
 	 */
-	onCancel : function()
+	onCancel: function()
 	{
 		this.dialog.close();
 	},
@@ -161,12 +161,12 @@ Zarafa.common.attachment.dialogs.AttachItemPanel = Ext.extend(Ext.Panel, {
 	/**
 	 * Fired when the {@link Zarafa.hierarchy.ui.Tree Tree} fires the {@link Zarafa.hierarchy.ui.Tree#load load}
 	 * event. This function will try to select the {@link Ext.tree.TreeNode TreeNode} in
-	 * {@link Zarafa.hierarchy.ui.Tree Tree} intially. When the given node is not loaded yet, it will try again
+	 * {@link Zarafa.hierarchy.ui.Tree Tree} initially. When the given node is not loaded yet, it will try again
 	 * later when the event is fired again.
 	 * @param {Ext.tree.TreeNode} node node that has been loaded
 	 * @private
 	 */
-	onTreeNodeLoad : function(node)
+	onTreeNodeLoad: function(node)
 	{
 		var folder = this.dialog.getSelectedFolder();
 
@@ -178,11 +178,11 @@ Zarafa.common.attachment.dialogs.AttachItemPanel = Ext.extend(Ext.Panel, {
 
 	/**
 	 * Invoked when {@link Ext.form.RadioGroup RadioGroup} is rendered fully and {@link Ext.form.RadioGroup#afterrender} event is fired.
-	 * This function will try to select the {@link Ext.form.Radio Radio} in {@link Ext.form.RadioGroup RadioGroup} intially.
+	 * This function will try to select the {@link Ext.form.Radio Radio} in {@link Ext.form.RadioGroup RadioGroup} initially.
 	 * @param {Ext.form.RadioGroup} radioGroup radio group that has been rendered.
 	 * @private
 	 */
-	onRadioGroupAfterRender : function(radioGroup)
+	onRadioGroupAfterRender: function(radioGroup)
 	{
 		var option = this.dialog.getSelectedRadioItem();
 
@@ -196,7 +196,7 @@ Zarafa.common.attachment.dialogs.AttachItemPanel = Ext.extend(Ext.Panel, {
 	 * @param {Ext.form.Radio} checkedRadio radio item which is selected.
 	 * @private
 	 */
-	onRadioSelectionChange : function(radioGroup, checkedRadio)
+	onRadioSelectionChange: function(radioGroup, checkedRadio)
 	{
 		// save new selection in state settings
 		this.dialog.setRadioItemInState(checkedRadio);
@@ -208,7 +208,7 @@ Zarafa.common.attachment.dialogs.AttachItemPanel = Ext.extend(Ext.Panel, {
 	 * @param {Ext.tree.TreeNode} node node which is selected
 	 * @private
 	 */
-	onTreeSelectionChange : function(selectionModel, node)
+	onTreeSelectionChange: function(selectionModel, node)
 	{
 		var folder = node.getFolder();
 
@@ -231,7 +231,7 @@ Zarafa.common.attachment.dialogs.AttachItemPanel = Ext.extend(Ext.Panel, {
 	 * @param {Ext.grid.RowSelectionModel} selectionModel The selection model used by the grid.
 	 * @private
 	 */
-	onGridSelectionChange : function(selectionModel)
+	onGridSelectionChange: function(selectionModel)
 	{
 		var count = selectionModel.getCount();
 
@@ -243,7 +243,7 @@ Zarafa.common.attachment.dialogs.AttachItemPanel = Ext.extend(Ext.Panel, {
 	 * @param {String} radioValue String that indicates which radio item is selected, based on this value different function will be called.
 	 * @private
 	 */
-	attachItem : function(radioValue)
+	attachItem: function(radioValue)
 	{
 		var selected = this.attachItemGrid.getSelectionModel().getSelected();
 		var selectedRadio = this.attachTypeRadioGroup.getValue().inputValue;
@@ -267,7 +267,7 @@ Zarafa.common.attachment.dialogs.AttachItemPanel = Ext.extend(Ext.Panel, {
 	 * @param {Zarafa.core.data.IPMRecord} record record that is selected in grid and which should be added as attachment.
 	 * @private
 	 */
-	attachItemAsAttachment : function(record)
+	attachItemAsAttachment: function(record)
 	{
 		// add new attachment into parent record
 		this.record.getAttachmentStore().addAsAttachment(record);
@@ -281,7 +281,7 @@ Zarafa.common.attachment.dialogs.AttachItemPanel = Ext.extend(Ext.Panel, {
 	 * @param {Zarafa.core.data.IPMRecord} record record that is selected in grid and which should be added as text.
 	 * @private
 	 */
-	attachItemAsText : function(record)
+	attachItemAsText: function(record)
 	{
 		// if record is not opened then open it and get all contents of the record
 		if(!record.isOpened()) {
@@ -304,7 +304,7 @@ Zarafa.common.attachment.dialogs.AttachItemPanel = Ext.extend(Ext.Panel, {
 	 * @param {Zarafa.core.data.IPMRecord} record record which needs to be opened to get all data.
 	 * @param {Ext.Function} callback callback function that will be called after successfully opening the record.
 	 */
-	openRecord : function(record, callback)
+	openRecord: function(record, callback)
 	{
 		// show load mask till we fetch full data from server
 		this.dialog.showLoadMask();

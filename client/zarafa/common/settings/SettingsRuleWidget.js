@@ -14,21 +14,21 @@ Zarafa.common.settings.SettingsRuleWidget = Ext.extend(Zarafa.settings.ui.Settin
 	 * @constructor
 	 * @param {Object} config Configuration object
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		config = config || {};
 
 		Ext.applyIf(config, {
-			title : _('Rules'),
-			xtype : 'zarafa.settingsrulewidget',
+			title: _('Rules'),
+			xtype: 'zarafa.settingsrulewidget',
 			cls: 'zarafa-settings-widget k-rules-widget',
-			layout : {
+			layout: {
 				// override from SettingsWidget
-				type : 'fit'
+				type: 'fit'
 			},
-			items : [{
-				xtype : 'zarafa.rulespanel',
-				ref : 'rulesPanel'
+			items: [{
+				xtype: 'zarafa.rulespanel',
+				ref: 'rulesPanel'
 			}]
 		});
 
@@ -38,7 +38,7 @@ Zarafa.common.settings.SettingsRuleWidget = Ext.extend(Zarafa.settings.ui.Settin
 	/**
 	 * @return {Zarafa.common.rules.data.RulesStore} The store which is holds all rules
 	 */
-	getRulesStore : function()
+	getRulesStore: function()
 	{
 		return this.rulesPanel.store;
 	},
@@ -47,7 +47,7 @@ Zarafa.common.settings.SettingsRuleWidget = Ext.extend(Zarafa.settings.ui.Settin
 	 * initialize events for the {@link Zarafa.common.settings.SettingsDelegateWidget SettingsDelegateWidget}.
 	 * @private
 	 */
-	initEvents : function()
+	initEvents: function()
 	{
 		Zarafa.common.settings.SettingsRuleWidget.superclass.initEvents.call(this);
 
@@ -62,9 +62,9 @@ Zarafa.common.settings.SettingsRuleWidget = Ext.extend(Zarafa.settings.ui.Settin
 			// when the UI adds a rule, it will fire
 			// the 'update' event when the rule is
 			// completely filled in.
-			'remove' : this.doStoreRemove,
-			'update' : this.doStoreUpdate,
-			scope : this
+			'remove': this.doStoreRemove,
+			'update': this.doStoreUpdate,
+			scope: this
 		});
 	},
 
@@ -77,7 +77,7 @@ Zarafa.common.settings.SettingsRuleWidget = Ext.extend(Zarafa.settings.ui.Settin
 	 * @param {Ext.data.Record} record The record which was updated
 	 * @private
 	 */
-	doStoreRemove : function(store, record)
+	doStoreRemove: function(store, record)
 	{
 		if (record.phantom !== true) {
 			this.settingsContext.getModel().setDirty();
@@ -94,7 +94,7 @@ Zarafa.common.settings.SettingsRuleWidget = Ext.extend(Zarafa.settings.ui.Settin
 	 * @param {String} operation The update operation being performed.
 	 * @private
 	 */
-	doStoreUpdate : function(store, record, operation)
+	doStoreUpdate: function(store, record, operation)
 	{
 		if (operation !== Ext.data.Record.COMMIT) {
 			this.settingsContext.getModel().setDirty();
@@ -107,7 +107,7 @@ Zarafa.common.settings.SettingsRuleWidget = Ext.extend(Zarafa.settings.ui.Settin
 	 * save rules data.
 	 * @private
 	 */
-	onSaveSettings : function()
+	onSaveSettings: function()
 	{
 		this.rulesPanel.saveChanges();
 	},
@@ -118,7 +118,7 @@ Zarafa.common.settings.SettingsRuleWidget = Ext.extend(Zarafa.settings.ui.Settin
 	 * discard current changes and reload rules data from server.
 	 * @private
 	 */
-	onDiscardSettings : function()
+	onDiscardSettings: function()
 	{
 		this.rulesPanel.discardChanges();
 	}

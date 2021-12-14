@@ -20,7 +20,7 @@ Zarafa.common.ui.layout.SwitchBorderLayout.SwitchSplitRegion = Ext.extend(Ext.la
 	 * @property
 	 * @type Boolean
 	 */
-	hidden : undefined,
+	hidden: undefined,
 
 	/**
 	 * The old {@link Ext.Component#getWidth width} or {@link Ext.Component#getHeight height}
@@ -30,7 +30,7 @@ Zarafa.common.ui.layout.SwitchBorderLayout.SwitchSplitRegion = Ext.extend(Ext.la
 	 * @property
 	 * @type Number
 	 */
-	oldSize : undefined,
+	oldSize: undefined,
 
 	/**
 	 * @constructor
@@ -39,7 +39,7 @@ Zarafa.common.ui.layout.SwitchBorderLayout.SwitchSplitRegion = Ext.extend(Ext.la
 	 * @param {String} pos The position string ('north', 'west', 'south', 'east') for which
 	 * region to object is created
 	 */
-	constructor : function(layout, config, pos)
+	constructor: function(layout, config, pos)
 	{
 		Zarafa.common.ui.layout.SwitchBorderLayout.SwitchSplitRegion.superclass.constructor.call(this, layout, config, pos);
 
@@ -61,21 +61,21 @@ Zarafa.common.ui.layout.SwitchBorderLayout.SwitchSplitRegion = Ext.extend(Ext.la
 	 *
 	 * @param {Boolean} visible False to mark the region as hidden
 	 */
-	setVisible : Zarafa.common.ui.layout.SwitchBorderLayout.SwitchRegion.prototype.setVisible,
+	setVisible: Zarafa.common.ui.layout.SwitchBorderLayout.SwitchRegion.prototype.setVisible,
 
 	/**
 	 * Check if the region is currently {@link #hidden visible}. If the {@link #hidden} property
 	 * is undefined, it will check the visibility of the {@link #panel}.
 	 * @return {Boolean} True when the region is visible
 	 */
-	isVisible : Zarafa.common.ui.layout.SwitchBorderLayout.SwitchRegion.prototype.isVisible,
+	isVisible: Zarafa.common.ui.layout.SwitchBorderLayout.SwitchRegion.prototype.isVisible,
 
 	/**
 	 * Obtain the desired size for the region, this will use {@link #restrictSize}
 	 * to restrict the values to the allowed boundaries.
 	 * @return {Object} size The size for the region
 	 */
-	getSize : function() {
+	getSize: function() {
 		var size = Zarafa.common.ui.layout.SwitchBorderLayout.SwitchSplitRegion.superclass.getSize.call(this);
 		return this.restrictSize(size);
 	},
@@ -87,17 +87,17 @@ Zarafa.common.ui.layout.SwitchBorderLayout.SwitchSplitRegion = Ext.extend(Ext.la
 	 * @return {Object} The restricted size
 	 * @private
 	 */
-	restrictSize : Zarafa.common.ui.layout.SwitchBorderLayout.SwitchRegion.prototype.restrictSize,
+	restrictSize: Zarafa.common.ui.layout.SwitchBorderLayout.SwitchRegion.prototype.restrictSize,
 
 	/**
 	 * Render the components for this region (e.g. the {@link #splitEl split element}.
 	 * @param {Ext.Element} ct The parent container in which this region is added
 	 * @param {Ext.Component} p The component which is handled by this region
-	 * @param {Boolean} fakeId True if a fake ID should be used for creating the 
-	 * {@link #splitEl split element},  normally the ID from the component ('p') will
+	 * @param {Boolean} fakeId True if a fake ID should be used for creating the
+	 * {@link #splitEl split element}, normally the ID from the component ('p') will
 	 * be used.
 	 */
-	render : function(ct, p, fakeId)
+	render: function(ct, p, fakeId)
 	{
 		if (fakeId === true) {
 			var oldId = p.id;
@@ -116,9 +116,9 @@ Zarafa.common.ui.layout.SwitchBorderLayout.SwitchSplitRegion = Ext.extend(Ext.la
 	 * @param {Object} box The positioning information for the split element
 	 * @private
 	 */
-	preApplyLayout : function(box)
+	preApplyLayout: function(box)
 	{
-		this.splitEl.setPositioning({ left : box.x + 'px', top : box.y + box.height + 'px' });
+		this.splitEl.setPositioning({ left: box.x + 'px', top: box.y + box.height + 'px' });
 	},
 
 	/**
@@ -128,19 +128,19 @@ Zarafa.common.ui.layout.SwitchBorderLayout.SwitchSplitRegion = Ext.extend(Ext.la
 	 * @param {Number} newSize The new size which should be applied to the panel
 	 * @private
 	 */
-	onSplitMove : function(split, newSize)
+	onSplitMove: function(split, newSize)
 	{
 		var s = this.panel.getSize();
 		this.lastSplitSize = newSize;
 		if(this.position == 'north' || this.position == 'south'){
 			this.panel.setSize(s.width, newSize);
 			this.state.height = newSize;
-		}else{
+		} else {
 			this.panel.setSize(newSize, s.height);
 			this.state.width = newSize;
 		}
 		// Apply the doLayout on the container, this will
-		// ensure that all subchildren will also be layed
+		// ensure that all subchildren will also be laid
 		// out correctly again.
 		this.layout.container.doLayout();
 		this.panel.saveState();

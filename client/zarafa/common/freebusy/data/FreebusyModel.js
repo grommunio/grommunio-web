@@ -11,7 +11,7 @@ Zarafa.common.freebusy.data.FreebusyModel = Ext.extend(Ext.util.Observable,
 	 * The {@link Zarafa.common.freebusy.ui.TimelineView TimelineView} must only
 	 * display the working hours for the user.
 	 */
-	nonWorkingHoursHidden : true,
+	nonWorkingHoursHidden: true,
 	/**
 	 * @cfg {Zarafa.core.DateRange} daterange
 	 * The {@link Zarafa.core.DateRange} object that determines what time period will be shown
@@ -90,7 +90,7 @@ Zarafa.common.freebusy.data.FreebusyModel = Ext.extend(Ext.util.Observable,
 			// If selectorRange has been supplied copy the startdate and duedate values.
 			selectStart = config.selectorRange.getStartDate();
 			selectEnd = config.selectorRange.getDueDate();
-		}else{
+		} else {
 			// Defaults to next whole or half hour and will last by default for 30 minutes
 			selectStart = new Date().ceil(Date.MINUTE, 30);
 			selectEnd = selectStart.add(Date.MINUTE, 30);
@@ -98,8 +98,8 @@ Zarafa.common.freebusy.data.FreebusyModel = Ext.extend(Ext.util.Observable,
 
 		Ext.applyIf(config, {
 			userStore: config.userStore || new Zarafa.core.data.IPMRecipientStore(),
-			daterange: config.daterange || new Zarafa.core.DateRange({ startDate : startDate, dueDate : endDate}),
-			selectorRange: new Zarafa.core.DateRange({ startDate : selectStart, dueDate : selectEnd}),
+			daterange: config.daterange || new Zarafa.core.DateRange({ startDate: startDate, dueDate: endDate}),
+			selectorRange: new Zarafa.core.DateRange({ startDate: selectStart, dueDate: selectEnd}),
 			blockStore: config.blockStore || new Zarafa.common.freebusy.data.FreebusyBlockStore(),
 			sumBlockStore: config.sumBlockStore || new Zarafa.common.freebusy.data.FreebusyBlockStore({ remoteSort: false}),
 			suggestionBlockStore: config.suggestionBlockStore || new Zarafa.common.freebusy.data.FreebusyBlockStore({ remoteSort: false})
@@ -191,7 +191,7 @@ Zarafa.common.freebusy.data.FreebusyModel = Ext.extend(Ext.util.Observable,
 	 * @return {Zarafa.common.freebusy.data.FreebusyBlockStore} The created store
 	 * @private
 	 */
-	createFreeBlockStore : function()
+	createFreeBlockStore: function()
 	{
 		if (!this.freeBlockStore) {
 			this.freeBlockStore = new Zarafa.common.freebusy.data.FreebusyBlockStore({ remoteSort: false});
@@ -205,7 +205,7 @@ Zarafa.common.freebusy.data.FreebusyModel = Ext.extend(Ext.util.Observable,
 	 * @return {Zarafa.core.DateRange} The created daterange
 	 * @private
 	 */
-	createSuggestionRange : function()
+	createSuggestionRange: function()
 	{
 		if (!this.suggestionRange) {
 			this.suggestionRange = new Zarafa.core.DateRange();
@@ -219,7 +219,7 @@ Zarafa.common.freebusy.data.FreebusyModel = Ext.extend(Ext.util.Observable,
 	 * Get the visibility of the non-working hours.
 	 * @return {Boolean} True if the non-working hours are hidden
 	 */
-	showOnlyWorkingHours : function()
+	showOnlyWorkingHours: function()
 	{
 		return this.nonWorkingHoursHidden;
 	},
@@ -228,7 +228,7 @@ Zarafa.common.freebusy.data.FreebusyModel = Ext.extend(Ext.util.Observable,
 	 * Set the visibility of the non-working hours.
 	 * @param {Boolean} hide True to hide the non-working hours
 	 */
-	hideNonWorkingHours : function(hide)
+	hideNonWorkingHours: function(hide)
 	{
 		var oldNonWorkingHoursHidden = this.nonWorkingHoursHidden;
 		this.nonWorkingHoursHidden = hide;
@@ -315,7 +315,7 @@ Zarafa.common.freebusy.data.FreebusyModel = Ext.extend(Ext.util.Observable,
 		var oldBlockStore = this.blockStore;
 		if (this.blockStore) {
 			this.blockStore.un('load', this.onBlockLoad, this);
-			this.blockStore.un('remove', this.onBlockRemove, this, { buffer : 100 });
+			this.blockStore.un('remove', this.onBlockRemove, this, { buffer: 100 });
 			this.blockStore.un('clear', this.onBlockRemove, this);
 		}
 
@@ -323,7 +323,7 @@ Zarafa.common.freebusy.data.FreebusyModel = Ext.extend(Ext.util.Observable,
 
 		if (this.blockStore) {
 			this.blockStore.on('load', this.onBlockLoad, this);
-			this.blockStore.on('remove', this.onBlockRemove, this, { buffer : 100 });
+			this.blockStore.on('remove', this.onBlockRemove, this, { buffer: 100 });
 			this.blockStore.on('clear', this.onBlockRemove, this);
 		}
 
@@ -339,7 +339,7 @@ Zarafa.common.freebusy.data.FreebusyModel = Ext.extend(Ext.util.Observable,
 	 * Returns the block store.
 	 * @return {Zarafa.common.freebusy.data.FreebusyBlockStore} store
 	 */
-	getSumBlockStore : function()
+	getSumBlockStore: function()
 	{
 		return this.sumBlockStore;
 	},
@@ -352,7 +352,7 @@ Zarafa.common.freebusy.data.FreebusyModel = Ext.extend(Ext.util.Observable,
 	 * @return {Zarafa.common.freebusy.data.FreebusyBlockStore} The sum block store
 	 * @private
 	 */
-	setSumBlockStore : function(store, initial)
+	setSumBlockStore: function(store, initial)
 	{
 		if (initial !== true && this.sumBlockStore === store) {
 			return;
@@ -382,7 +382,7 @@ Zarafa.common.freebusy.data.FreebusyModel = Ext.extend(Ext.util.Observable,
 	 * Returns the block store.
 	 * @return {Zarafa.common.freebusy.data.FreebusyBlockStore} store
 	 */
-	getSuggestionBlockStore : function()
+	getSuggestionBlockStore: function()
 	{
 		return this.suggestionBlockStore;
 	},
@@ -395,7 +395,7 @@ Zarafa.common.freebusy.data.FreebusyModel = Ext.extend(Ext.util.Observable,
 	 * @return {Zarafa.common.freebusy.data.FreebusyBlockStore} The free block store
 	 * @private
 	 */
-	setSuggestionBlockStore : function(store, initial)
+	setSuggestionBlockStore: function(store, initial)
 	{
 		if (initial !== true && this.suggestionBlockStore === store) {
 			return;
@@ -417,7 +417,7 @@ Zarafa.common.freebusy.data.FreebusyModel = Ext.extend(Ext.util.Observable,
 	 * This returns the number of users inside the {@link #userStore}.
 	 * @return {Number} The number of users inside the userStore.
 	 */
-	getUserCount : function()
+	getUserCount: function()
 	{
 		return this.userStore.getCount();
 	},
@@ -433,8 +433,8 @@ Zarafa.common.freebusy.data.FreebusyModel = Ext.extend(Ext.util.Observable,
 		type = Ext.isNumber(type) ? type : Zarafa.core.mapi.RecipientType.MAPI_TO;
 
 		var record = Zarafa.core.data.RecordFactory.createRecordObjectByCustomType(Zarafa.core.data.RecordCustomObjectType.ZARAFA_RECIPIENT, {
-			display_name : name,
-			recipient_type : type
+			display_name: name,
+			recipient_type: type
 		});
 
 		// Adding record to userlist store to update the userlist
@@ -519,7 +519,7 @@ Zarafa.common.freebusy.data.FreebusyModel = Ext.extend(Ext.util.Observable,
 		 * fired. To prevent problems with this we check whether the selectorRange will fire an
 		 * update.
 		 */
-		if(!this.selectorRange.equals( new Zarafa.core.DateRange({ startDate : startDate, dueDate : dueDate}) )){
+		if(!this.selectorRange.equals( new Zarafa.core.DateRange({ startDate: startDate, dueDate: dueDate}) )){
 			this.updatingSelectorRangeExternally = true;
 		}
 		this.selectorRange.set(startDate, dueDate);
@@ -542,7 +542,7 @@ Zarafa.common.freebusy.data.FreebusyModel = Ext.extend(Ext.util.Observable,
 	 * @param {Ext.Date} startDate The start Date for the suggestions
 	 * @param {Number} duration (optional) The period for the suggestions
 	 */
-	setSuggestionDate : function(startDate, duration)
+	setSuggestionDate: function(startDate, duration)
 	{
 		var start = startDate.clone().clearTime();
 		var due = startDate.clone().clearTime();
@@ -575,12 +575,12 @@ Zarafa.common.freebusy.data.FreebusyModel = Ext.extend(Ext.util.Observable,
 	 * freebusy data is requested
 	 * @private
 	 */
-	loadFreebusyData : function(userRecords)
+	loadFreebusyData: function(userRecords)
 	{
 		var dateRange = this.getDateRange();
 		var loadData = {
 			add: true, // All blocks will be appended to the existing list.
-			actionType : Zarafa.core.Actions['list'],
+			actionType: Zarafa.core.Actions['list'],
 			params: {
 				users: [],
 				start: dateRange.getStartTime() / 1000,
@@ -599,8 +599,8 @@ Zarafa.common.freebusy.data.FreebusyModel = Ext.extend(Ext.util.Observable,
 		Ext.each(userRecords, function(userRecord) {
 			if (userRecord.isResolved()) {
 				loadData.params.users.push({
-					userid : userRecord.id,
-					entryid : userRecord.get('entryid')
+					userid: userRecord.id,
+					entryid: userRecord.get('entryid')
 				});
 			}
 		});
@@ -619,7 +619,7 @@ Zarafa.common.freebusy.data.FreebusyModel = Ext.extend(Ext.util.Observable,
 	 * @param {Zarafa.core.data.IPMRecipient} userRecords
 	 * @private
 	 */
-	onUserResolved : function(userStore, userRecords)
+	onUserResolved: function(userStore, userRecords)
 	{
 		this.loadFreebusyData(userRecords);
 	},
@@ -631,7 +631,7 @@ Zarafa.common.freebusy.data.FreebusyModel = Ext.extend(Ext.util.Observable,
 	 * @param {Zarafa.core.data.IPMRecipient} userRecords
 	 * @private
 	 */
-	onUserLoad : function(userStore, userRecords)
+	onUserLoad: function(userStore, userRecords)
 	{
 		this.loadFreebusyData(userRecords);
 	},
@@ -673,7 +673,7 @@ Zarafa.common.freebusy.data.FreebusyModel = Ext.extend(Ext.util.Observable,
 	 * @param {Zarafa.core.data.IPMRecipientStore[]} userRecords
 	 * @private
 	 */
-	onUserClear : function(userStore, records)
+	onUserClear: function(userStore, records)
 	{
 		this.blockStore.removeAll();
 	},
@@ -684,7 +684,7 @@ Zarafa.common.freebusy.data.FreebusyModel = Ext.extend(Ext.util.Observable,
 	 * @param {Ext.data.Record} record The original record from which the sum block is based
 	 * @return {Ext.data.Record} the record for the sumBlockStore
 	 */
-	createSumBlock : function(record)
+	createSumBlock: function(record)
 	{
 		return new Zarafa.common.freebusy.data.FreebusyBlockRecord({
 			start: record.get('start'),
@@ -702,7 +702,7 @@ Zarafa.common.freebusy.data.FreebusyModel = Ext.extend(Ext.util.Observable,
 	 * sufficient space until the end time, we can create another suggestion. This continues
 	 * until we have reached the end of the interval.
 	 */
-	createSuggestionBlocks : function(start, end, duration, interval)
+	createSuggestionBlocks: function(start, end, duration, interval)
 	{
 		var blocks = [];
 
@@ -728,7 +728,7 @@ Zarafa.common.freebusy.data.FreebusyModel = Ext.extend(Ext.util.Observable,
 	 * @return {Boolean} True if the record has been merged into sumRecord.
 	 * @private
 	 */
-	mergeRecordIntoSumBlock : function(record, sumRecord)
+	mergeRecordIntoSumBlock: function(record, sumRecord)
 	{
 		// Status is different, we can't merge the record into sumRecord
 		if (record.get('status') !== sumRecord.get('status')) {
@@ -794,7 +794,7 @@ Zarafa.common.freebusy.data.FreebusyModel = Ext.extend(Ext.util.Observable,
 	 * @param {Boolean} splitBusyStatus (optional) If true then sumBlocks will be generated per
 	 * BusyStatus group, otherwise a single sumBlock will be generated.
 	 */
-	mergeBlocksToSumBlockStore : function(records, sumBlockStore, splitBusyStatus)
+	mergeBlocksToSumBlockStore: function(records, sumBlockStore, splitBusyStatus)
 	{
 		var lastBlock = {};
 
@@ -804,7 +804,7 @@ Zarafa.common.freebusy.data.FreebusyModel = Ext.extend(Ext.util.Observable,
 		});
 
 		Ext.each(records, function(record) {
-			//  We are not generating sumBlocks for the free status.
+			// We are not generating sumBlocks for the free status.
 			var busyStatus = record.get('status');
 			if (busyStatus === Zarafa.core.mapi.BusyStatus.UNKNOWN || busyStatus === Zarafa.core.mapi.BusyStatus.FREE) {
 				return true;
@@ -838,7 +838,7 @@ Zarafa.common.freebusy.data.FreebusyModel = Ext.extend(Ext.util.Observable,
 	 * case the two {@link Ext.data.Record records} will be merged into a single block.
 	 * @param {Zarafa.common.freebusy.data.FreebusyBlockStore} sumBlockStore The store containing the sumblocks
 	 */
-	mergeSumBlocks : function(sumBlockStore)
+	mergeSumBlocks: function(sumBlockStore)
 	{
 		var lastBlock = {};
 
@@ -875,7 +875,7 @@ Zarafa.common.freebusy.data.FreebusyModel = Ext.extend(Ext.util.Observable,
 	 * @param {Object} options The loading options that were specified (see {@link #load} for details)
 	 * @private
 	 */
-	onBlockLoad : function(store, records, options)
+	onBlockLoad: function(store, records, options)
 	{
 		// Always start with a clean store
 		this.sumBlockStore.removeAll();
@@ -883,7 +883,7 @@ Zarafa.common.freebusy.data.FreebusyModel = Ext.extend(Ext.util.Observable,
 		if (this.getUserStore().getCount() == 1) {
 			// One user, still easy, sumBlockStore is the same as blockStore
 			this.blockStore.each(function(record) {
-				//  We are not generating sumBlocks for the free status.
+				// We are not generating sumBlocks for the free status.
 				var busyStatus = record.get('status');
 				if (busyStatus !== Zarafa.core.mapi.BusyStatus.UNKNOWN && busyStatus !== Zarafa.core.mapi.BusyStatus.FREE) {
 					this.sumBlockStore.add(this.createSumBlock(record));
@@ -917,7 +917,7 @@ Zarafa.common.freebusy.data.FreebusyModel = Ext.extend(Ext.util.Observable,
 	 * @param {Number} index The index at which the record was removed
 	 * @private
 	 */
-	onBlockRemove : function(store, record, index)
+	onBlockRemove: function(store, record, index)
 	{
 		this.onBlockLoad(store, store.getRange(), {});
 	},
@@ -929,7 +929,7 @@ Zarafa.common.freebusy.data.FreebusyModel = Ext.extend(Ext.util.Observable,
 	 * @param {Object} options The loading options that were specified (see {@link #load} for details)
 	 * @private
 	 */
-	onSumBlockLoad : function(store, records, options)
+	onSumBlockLoad: function(store, records, options)
 	{
 		// Always start with a clean store
 		this.freeBlockStore.removeAll();
@@ -950,7 +950,7 @@ Zarafa.common.freebusy.data.FreebusyModel = Ext.extend(Ext.util.Observable,
 	 * @param {Boolean} hideNonWorkingHours True to only show working hours.
 	 * @private
 	 */
-	onShowWorkingHoursChange : function(hideNonWorkingHours)
+	onShowWorkingHoursChange: function(hideNonWorkingHours)
 	{
 		this.setSuggestionDate(this.suggestionRange.getStartDate());
 	},
@@ -962,7 +962,7 @@ Zarafa.common.freebusy.data.FreebusyModel = Ext.extend(Ext.util.Observable,
 	 * @param {Zarafa.core.data.IPMRecipientStore} oldStore
 	 * @private
 	 */
-	onUserStoreChange : function(newStore, oldStore)
+	onUserStoreChange: function(newStore, oldStore)
 	{
 		newStore.fireEvent('load', newStore, newStore.getRange());
 	},
@@ -974,7 +974,7 @@ Zarafa.common.freebusy.data.FreebusyModel = Ext.extend(Ext.util.Observable,
 	 * @param {Zarafa.core.DateRange} oldRange The old selected range.
 	 * @private
 	 */
-	onSelectorRangeUpdate : function(newRange, oldRange)
+	onSelectorRangeUpdate: function(newRange, oldRange)
 	{
 		// Check to see if the update was triggered by outside sources
 		if(!this.updatingSelectorRangeExternally){
@@ -992,7 +992,7 @@ Zarafa.common.freebusy.data.FreebusyModel = Ext.extend(Ext.util.Observable,
 	 * @param {Zarafa.core.DateRange} oldRange The old selected range.
 	 * @private
 	 */
-	onSuggestionRangeUpdate : function(newRange, oldRange)
+	onSuggestionRangeUpdate: function(newRange, oldRange)
 	{
 		this.loadSuggestionBlocks();
 	},
@@ -1002,7 +1002,7 @@ Zarafa.common.freebusy.data.FreebusyModel = Ext.extend(Ext.util.Observable,
 	 * based on the information from the {@link #freeBlockStore} and the {@link #selectorRange}.
 	 * @private
 	 */
-	loadSuggestionBlocks : function()
+	loadSuggestionBlocks: function()
 	{
 		// Always start with a clean store
 		this.suggestionBlockStore.removeAll();
@@ -1059,7 +1059,7 @@ Zarafa.common.freebusy.data.FreebusyModel = Ext.extend(Ext.util.Observable,
 	 * @param {Boolean} modifiedOnly True if only the modified attendees should be checked
 	 * @return {Boolean} return true if all attendees are free else false.
 	 */
-	checkAttendeesBusyStatus : function(periodStartTime, periodEndTime, modifiedOnly)
+	checkAttendeesBusyStatus: function(periodStartTime, periodEndTime, modifiedOnly)
 	{
 		var userStore = this.getUserStore();
 		if (!userStore) {
@@ -1086,7 +1086,7 @@ Zarafa.common.freebusy.data.FreebusyModel = Ext.extend(Ext.util.Observable,
 	 * @param {Date} periodEndTime object of end time
 	 * @return {Boolean} return true if the attendee is free.
 	 */
-	checkAttendeeBusyStatus : function(userid, periodStartTime, periodEndTime)
+	checkAttendeeBusyStatus: function(userid, periodStartTime, periodEndTime)
 	{
 		var blockStore = this.getBlockStore();
 		if(!blockStore) {
@@ -1110,7 +1110,7 @@ Zarafa.common.freebusy.data.FreebusyModel = Ext.extend(Ext.util.Observable,
 			var record = blockStore.getAt(index);
 
 			/*
-			 * First we need to remove appointments which are occuring extermely before/after our
+			 * First we need to remove appointments which are occurring extremely before/after our
 			 * selected time, because then we have only set of appointments which are overlapping/inside
 			 * our time slot.
 			 * For that to achieve we first need sort the records based on start time and then to find
@@ -1118,7 +1118,7 @@ Zarafa.common.freebusy.data.FreebusyModel = Ext.extend(Ext.util.Observable,
 			 * and start time is less then our selected end time then we can say that
 			 * the selected time is not proper for all the attendees.
 			 */
-			// remove appointments occuring extremely before our selected time
+			// remove appointments occurring extremely before our selected time
 			if (record.get('end') > periodStartTime) {
 				// check if we are really interested in this block
 				if (record.get('status') === Zarafa.core.mapi.BusyStatus.FREE || record.get('status') === Zarafa.core.mapi.BusyStatus.UNKNOWN) {

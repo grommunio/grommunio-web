@@ -14,155 +14,177 @@ Zarafa.calendar.settings.SettingsCalendarWidget = Ext.extend(Zarafa.settings.ui.
 	 * @constructor
 	 * @param {Object} config Configuration object
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		config = config || {};
 
 		var dayData = [];
 		for (var i = 0, len = Date.dayNames.length; i < len; i++) {
 			dayData.push({
-				name : Date.dayNames[i],
-				value : i
+				name: Date.dayNames[i],
+				value: i
 			});
 		}
 
 		var dayStore = {
-			xtype : 'jsonstore',
-			fields : [ 'name', 'value' ],
-			data : dayData
+			xtype: 'jsonstore',
+			fields: [ 'name', 'value' ],
+			data: dayData
 		};
 
 		var zoomStore = {
-			xtype : 'jsonstore',
-			fields : [ 'name', 'value' ],
-			data : [{
-				value : 5,
-				name : Ext.util.Format.duration(5)
+			xtype: 'jsonstore',
+			fields: [ 'name', 'value' ],
+			data: [{
+				value: 5,
+				name: Ext.util.Format.duration(5)
 			},{
-				value : 6,
-				name : Ext.util.Format.duration(6)
+				value: 6,
+				name: Ext.util.Format.duration(6)
 			},{
-				value : 10,
-				name : Ext.util.Format.duration(10)
+				value: 10,
+				name: Ext.util.Format.duration(10)
 			},{
-				value : 15,
-				name : Ext.util.Format.duration(15)
+				value: 15,
+				name: Ext.util.Format.duration(15)
 			},{
-				value : 30,
-				name : Ext.util.Format.duration(30)
+				value: 30,
+				name: Ext.util.Format.duration(30)
 			},{
-				value : 60,
-				name : Ext.util.Format.duration(60)
+				value: 60,
+				name: Ext.util.Format.duration(60)
 			}]
 		};
 
 		Ext.applyIf(config, {
-			title : _('General calendar settings'),
-			layout : 'form',
-			items : [{
-				xtype : 'combo',
-				ref : 'weekStartCombo',
-				fieldLabel : _('First day of the week'),
-				name : 'zarafa/v1/main/week_start',
-				store : dayStore,
+			title: _('General calendar settings'),
+			layout: 'form',
+			items: [{
+				xtype: 'combo',
+				ref: 'weekStartCombo',
+				fieldLabel: _('First day of the week'),
+				name: 'zarafa/v1/main/week_start',
+				store: dayStore,
 				mode: 'local',
 				triggerAction: 'all',
 				displayField: 'name',
 				valueField: 'value',
 				lazyInit: false,
-				autoSelect : true,
+				autoSelect: true,
 				forceSelection: true,
 				editable: false,
-				listeners : {
-					select : this.onFieldSelect,
-					scope : this
+				listeners: {
+					select: this.onFieldSelect,
+					scope: this
 				}
 			},{
-				xtype : 'zarafa.timeperiodfield',
-				ref : 'workingHourPeriod',
-				defaultValue : new Zarafa.core.DateRange(),
-				defaultPeriod : 1,
-				defaultPeriodType : Date.HOUR,
-				labelWidth : 200,
-				startFieldConfig : {
-					fieldLabel : _('Start of workday'),
-					name : 'zarafa/v1/main/start_working_hour',
-					incrementValue : 30,
-					alternateIncrementValue : 1,
-					minValue : new Date().clearTime(),
-					maxValue : new Date().clearTime().add(Date.HOUR, 23)
+				xtype: 'zarafa.timeperiodfield',
+				ref: 'workingHourPeriod',
+				defaultValue: new Zarafa.core.DateRange(),
+				defaultPeriod: 1,
+				defaultPeriodType: Date.HOUR,
+				labelWidth: 200,
+				startFieldConfig: {
+					fieldLabel: _('Start of workday'),
+					name: 'zarafa/v1/main/start_working_hour',
+					incrementValue: 30,
+					alternateIncrementValue: 1,
+					minValue: new Date().clearTime(),
+					maxValue: new Date().clearTime().add(Date.HOUR, 23)
 				},
-				endFieldConfig : {
-					fieldLabel : _('End of workday'),
-					name : 'zarafa/v1/main/end_working_hour',
-					incrementValue : 30,
-					alternateIncrementValue : 1,
-					minValue : new Date().clearTime().add(Date.HOUR, 1),
-					maxValue : new Date().clearTime().add(Date.HOUR, 24)
+				endFieldConfig: {
+					fieldLabel: _('End of workday'),
+					name: 'zarafa/v1/main/end_working_hour',
+					incrementValue: 30,
+					alternateIncrementValue: 1,
+					minValue: new Date().clearTime().add(Date.HOUR, 1),
+					maxValue: new Date().clearTime().add(Date.HOUR, 24)
 				},
-				listeners : {
-					change  :this.onWorkTimeChange,
-					scope : this
+				listeners: {
+					change :this.onWorkTimeChange,
+					scope: this
 				}
 			},{
-				xtype : 'combo',
-				ref : 'zoomLevelCombo',
-				fieldLabel : _('Calendar resolution'),
-				name : 'zarafa/v1/contexts/calendar/default_zoom_level',
-				store : zoomStore,
+				xtype: 'combo',
+				ref: 'zoomLevelCombo',
+				fieldLabel: _('Calendar resolution'),
+				name: 'zarafa/v1/contexts/calendar/default_zoom_level',
+				store: zoomStore,
 				mode: 'local',
 				triggerAction: 'all',
 				displayField: 'name',
 				valueField: 'value',
 				lazyInit: false,
-				autoSelect : true,
+				autoSelect: true,
 				forceSelection: true,
 				editable: false,
-				listeners : {
-					select : this.onFieldSelect,
-					scope : this
+				listeners: {
+					select: this.onFieldSelect,
+					scope: this
 				}
 			},{
 				xtype: 'zarafa.compositefield',
 				plugins: [{
-					ptype : 'zarafa.splitfieldlabeler',
-					firstLabelCfg : {
+					ptype: 'zarafa.splitfieldlabeler',
+					firstLabelCfg: {
 						style: 'text-align: left; padding: 3px 3px 3px 0px',
-						width : 205
+						width: 205
 					}
 				}],
 				combineErrors: false,
 				fieldLabel: _('Default appointment duration {A} minutes'),
-				items : [{
+				items: [{
 					xtype: 'zarafa.spinnerfield',
 					plugins: [ 'zarafa.numberspinner' ],
 					ref: '../durationSpinner',
 					name: 'zarafa/v1/contexts/calendar/default_appointment_period',
 					labelSplitter: '{A}',
 					allowBlank: false,
-					allowDecimals : false,
-					allowNegative : false,
-					defaultValue : 30,
+					allowDecimals: false,
+					allowNegative: false,
+					defaultValue: 30,
 					minValue: 1,
 					maxValue: 120,
 					width: 50,
-					validator : function(value) {
+					validator: function(value) {
 						if(value >= 1 && value <= 120) {
 							return true;
 						}
 						return _('Duration must be between 1 and 120 minutes.');
 					},
-					listeners : {
+					listeners: {
 						change: this.onDurationChange,
 						scope: this
 					}
 				}]
 			},{
-				xtype : 'checkboxgroup',
-				ref : 'workingDays',
-				fieldLabel : _('Working days'),
-				name : 'zarafa/v1/main/working_days',
-				width : 225,
+				xtype: 'combo',
+				ref: 'busyStatusCombo',
+				fieldLabel: _('Default status for all day appointment'),
+				name: 'zarafa/v1/contexts/calendar/default_allday_busy_status',
+				store: {
+					xtype: 'jsonstore',
+					fields: [ 'name', 'value' ],
+					data: Zarafa.calendar.data.BusyStatus
+				},
+				mode: 'local',
+				triggerAction: 'all',
+				displayField: 'name',
+				valueField: 'value',
+				lazyInit: false,
+				autoSelect: true,
+				forceSelection: true,
+				editable: false,
+				listeners: {
+					select: this.onFieldSelect,
+					scope: this
+				}
+			},{
+				xtype: 'checkboxgroup',
+				ref: 'workingDays',
+				fieldLabel: _('Working days'),
+				name: 'zarafa/v1/main/working_days',
+				width: 225,
 				columns: 4,
 				items: [
 				{
@@ -195,14 +217,14 @@ Zarafa.calendar.settings.SettingsCalendarWidget = Ext.extend(Zarafa.settings.ui.
 					inputValue: 0
 				}]
 			},{
-				xtype : 'checkbox',
-				ref : 'boldCheck',
-				boxLabel : _('Show busy dates as bold in the date picker'),
-				hideLabel : true,
-				name : 'zarafa/v1/contexts/calendar/datepicker_show_busy',
-				listeners : {
-					check : this.onBoldCheck,
-					scope : this
+				xtype: 'checkbox',
+				ref: 'boldCheck',
+				boxLabel: _('Show busy dates as bold in the date picker'),
+				hideLabel: true,
+				name: 'zarafa/v1/contexts/calendar/datepicker_show_busy',
+				listeners: {
+					check: this.onBoldCheck,
+					scope: this
 				}
 			}]
 		});
@@ -217,20 +239,21 @@ Zarafa.calendar.settings.SettingsCalendarWidget = Ext.extend(Zarafa.settings.ui.
 	 * {@link Zarafa.settings.SettingsModel} into the UI of this category.
 	 * @param {Zarafa.settings.SettingsModel} settingsModel The settings to load
 	 */
-	update : function(settingsModel)
+	update: function(settingsModel)
 	{
 		this.model = settingsModel;
 
 		// Convert the start of workday from minutes to an actual time
 		var startTime = new Date().clearTime();
 		startTime = startTime.add(Date.MINUTE, settingsModel.get(this.workingHourPeriod.startField.name));
-		// Convert the end of  workday from minutes to an actual time
+		// Convert the end of workday from minutes to an actual time
 		var endTime = new Date().clearTime();
 		endTime = endTime.add(Date.MINUTE, settingsModel.get(this.workingHourPeriod.endField.name));
 		this.workingHourPeriod.getValue().set(startTime, endTime);
 
 		this.weekStartCombo.setValue(settingsModel.get(this.weekStartCombo.name));
 		this.zoomLevelCombo.setValue(settingsModel.get(this.zoomLevelCombo.name));
+		this.busyStatusCombo.setValue(settingsModel.get(this.busyStatusCombo.name));
 		this.boldCheck.setValue(settingsModel.get(this.boldCheck.name));
 
 		this.durationSpinner.setValue(settingsModel.get(this.durationSpinner.name));
@@ -262,7 +285,7 @@ Zarafa.calendar.settings.SettingsCalendarWidget = Ext.extend(Zarafa.settings.ui.
 	 * This is used to update the settings from the UI into the {@link Zarafa.settings.SettingsModel settings model}.
 	 * @param {Zarafa.settings.SettingsModel} settingsModel The settings to update
 	 */
-	updateSettings : function(settingsModel)
+	updateSettings: function(settingsModel)
 	{
 		var duration = this.durationSpinner.getValue();
 		if (!this.durationSpinner.isValid()) {
@@ -277,6 +300,7 @@ Zarafa.calendar.settings.SettingsCalendarWidget = Ext.extend(Zarafa.settings.ui.
 		this.onWorkTimeChange(this.workingHourPeriod, this.workingHourPeriod.getValue());
 		settingsModel.set(this.weekStartCombo.name, this.weekStartCombo.getValue());
 		settingsModel.set(this.zoomLevelCombo.name, this.zoomLevelCombo.getValue());
+		settingsModel.set(this.busyStatusCombo.name, this.busyStatusCombo.getValue());
 		settingsModel.set(this.boldCheck.name, this.boldCheck.getValue());
 		settingsModel.set(this.durationSpinner.name, duration);
 		settingsModel.set(this.workingDays.name, Ext.pluck(this.workingDays.getValue(), 'inputValue'));
@@ -291,7 +315,7 @@ Zarafa.calendar.settings.SettingsCalendarWidget = Ext.extend(Zarafa.settings.ui.
 	 * default duration for the appointment
 	 * @param {Number} newValue The new value for default duration for the appointments
 	 */
-	onDurationChange : function(field, newValue)
+	onDurationChange: function(field, newValue)
 	{
 		if (this.model && this.model.get(field.name) !== newValue) {
 			this.model.set(field.name, newValue);
@@ -306,7 +330,7 @@ Zarafa.calendar.settings.SettingsCalendarWidget = Ext.extend(Zarafa.settings.ui.
 	 * @param {Ext.data.Record} record The selected record
 	 * @private
 	 */
-	onFieldSelect : function(field, record)
+	onFieldSelect: function(field, record)
 	{
 		if (this.model) {
 			var set = record.get(field.valueField);
@@ -327,7 +351,7 @@ Zarafa.calendar.settings.SettingsCalendarWidget = Ext.extend(Zarafa.settings.ui.
 	 * @param {Zarafa.core.DateRange} oldValue the old value which was previously set
 	 * @private
 	 */
-	onWorkTimeChange  : function(field, newValue, oldValue)
+	onWorkTimeChange: function(field, newValue, oldValue)
 	{
 		if (this.model) {
 			// Convert the start of workday from date to number
@@ -352,7 +376,7 @@ Zarafa.calendar.settings.SettingsCalendarWidget = Ext.extend(Zarafa.settings.ui.
 	 * @param {Ext.data.Record} record The selected record
 	 * @private
 	 */
-	onBoldCheck : function(field, check)
+	onBoldCheck: function(field, check)
 	{
 		if (this.model) {
 			// FIXME: The settings model should be able to detect if
@@ -369,7 +393,7 @@ Zarafa.calendar.settings.SettingsCalendarWidget = Ext.extend(Zarafa.settings.ui.
 	 * @param {Array} checkedArray the checkedArray containing the checked boxes
 	 * @private
 	 */
-	onWorkingDaysChange : function(field, checkedArray)
+	onWorkingDaysChange: function(field, checkedArray)
 	{
 		if (this.model) {
 			this.model.set(this.workingDays.name, Ext.pluck(this.workingDays.getValue(), 'inputValue'));

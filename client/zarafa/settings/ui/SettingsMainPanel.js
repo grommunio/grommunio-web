@@ -18,10 +18,10 @@ Zarafa.settings.ui.SettingsMainPanel = Ext.extend(Zarafa.common.ui.ContextMainPa
 	 * @constructor
 	 * @param {Object} config Configuration object
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		config = config || {};
-		Ext.apply(config, {iconCls : 'icon_cogwheel'});
+		Ext.apply(config, {iconCls: 'icon_cogwheel'});
 
 		// Load all category categories which we will
 		// display in the content panel.
@@ -38,13 +38,13 @@ Zarafa.settings.ui.SettingsMainPanel = Ext.extend(Zarafa.common.ui.ContextMainPa
 			// Create the category tab which we use to
 			// switch to this particular category.
 			tabs.push({
-				xtype : 'zarafa.settingscategorytab',
-				title : category.title,
-				categoryIndex : category.categoryIndex,
-				iconCls : category.iconCls,
-				hidden : category.hidden,
-				context : config.context,
-				category : category
+				xtype: 'zarafa.settingscategorytab',
+				title: category.title,
+				categoryIndex: category.categoryIndex,
+				iconCls: category.iconCls,
+				hidden: category.hidden,
+				context: config.context,
+				category: category
 			});
 
 			// Make sure our created item is saved
@@ -56,74 +56,74 @@ Zarafa.settings.ui.SettingsMainPanel = Ext.extend(Zarafa.common.ui.ContextMainPa
 		items = Zarafa.core.Util.sortArray(items, 'ASC', 'categoryIndex');
 
 		Ext.applyIf(config, {
-			cls : 'zarafa-setting-mainpanel',
-			header : false,
+			cls: 'zarafa-setting-mainpanel',
+			header: false,
 			layout: {
 				type: 'hbox',
 				align: 'stretch'
 			},
 			items: [{
-				xtype : 'zarafa.settingscategorypanel',
-				width : 200,
-				context : config.context,
+				xtype: 'zarafa.settingscategorypanel',
+				width: 200,
+				context: config.context,
 				autoScroll: true,
-				items : tabs
+				items: tabs
 			},{
-				xtype : 'container',
-				flex  : 1,
-				layout : {
-					type : 'vbox',
-					align : 'stretch'
+				xtype: 'container',
+				flex : 1,
+				layout: {
+					type: 'vbox',
+					align: 'stretch'
 				},
-				items : [{
+				items: [{
 					// Render the main contents component, we have
 					// a widget content panel containing the widgets
 					// for the categories.
-					xtype : 'container',
-					flex : 1,
-					layout : {
-						type : 'fit',
-						align : 'stretch'
+					xtype: 'container',
+					flex: 1,
+					layout: {
+						type: 'fit',
+						align: 'stretch'
 					},
-					items : [{
-						xtype : 'zarafa.settingscategorywidgetpanel',
-						context : config.context,
-						items : items
+					items: [{
+						xtype: 'zarafa.settingscategorywidgetpanel',
+						context: config.context,
+						items: items
 					}]
 				},{
 					// Render the toolbar component, the sizes of the
 					// 2 components inside this toolbar match the sizes
 					// of the 2 components in the other main content.
-					xtype : 'container',
-					height : 50,
-					layout : {
-						type : 'fit',
-						align : 'stretch'
+					xtype: 'container',
+					height: 50,
+					layout: {
+						type: 'fit',
+						align: 'stretch'
 					},
-					items : [{
+					items: [{
 						// This section of the toolbar actually
 						// has contents. By changing the cls,
 						// and toolbarCls configuration objects
 						// we emulate that this contains looks
 						// similar to a Ext.Panel#buttons toolbar
-						xtype : 'container',
-						cls : 'x-panel-btns',
-						layout : 'fit',
-						items : [{
-							xtype : 'toolbar',
-							toolbarCls : 'x-panel-footer',
-							buttonAlign : 'right',
-							items : [{
-								xtype : 'button',
-								cls : 'zarafa-action',
-								text : _('Apply'),
-								handler : this.onApply,
-								scope : this
+						xtype: 'container',
+						cls: 'x-panel-btns',
+						layout: 'fit',
+						items: [{
+							xtype: 'toolbar',
+							toolbarCls: 'x-panel-footer',
+							buttonAlign: 'right',
+							items: [{
+								xtype: 'button',
+								cls: 'zarafa-action',
+								text: _('Apply'),
+								handler: this.onApply,
+								scope: this
 							},{
-								xtype : 'button',
-								text : _('Discard'),
-								handler : this.onDiscard,
-								scope : this
+								xtype: 'button',
+								text: _('Discard'),
+								handler: this.onDiscard,
+								scope: this
 							}]
 						}]
 					}]
@@ -138,7 +138,7 @@ Zarafa.settings.ui.SettingsMainPanel = Ext.extend(Zarafa.common.ui.ContextMainPa
 	 * {@link Zarafa.settings.SettingsContextModel#applyChanges Save all changes} to the server.
 	 * @private
 	 */
-	onApply : function()
+	onApply: function()
 	{
 		// Only save the settings when there are actual modifications to be saved.
 		if (this.context) {
@@ -150,7 +150,7 @@ Zarafa.settings.ui.SettingsMainPanel = Ext.extend(Zarafa.common.ui.ContextMainPa
 	 * {@link Zarafa.settings.SettingsContextModel#discardChanges Discard all unsaved changes}.
 	 * @private
 	 */
-	onDiscard : function()
+	onDiscard: function()
 	{
 		if (this.context) {
 			this.context.getModel().discardChanges();

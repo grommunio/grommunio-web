@@ -17,26 +17,26 @@ Zarafa.addressbook.dialogs.ABGroupDetailPanel = Ext.extend(Ext.TabPanel, {
 	 * @constructor
 	 * @param {Object} config configuration object.
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		config = config || {};
 
 		Ext.applyIf(config, {
-			xtype : 'zarafa.abgroupdetailpanel',
-			border : false,
-			activeTab : 0,
-			items : [{
-				xtype : 'zarafa.abgroupgeneraltab'
+			xtype: 'zarafa.abgroupdetailpanel',
+			border: false,
+			activeTab: 0,
+			items: [{
+				xtype: 'zarafa.abgroupgeneraltab'
 			}, {
-				xtype : 'zarafa.abmemberoftab'
+				xtype: 'zarafa.abmemberoftab'
 			},{
-				xtype : 'zarafa.abemailaddresstab'
+				xtype: 'zarafa.abemailaddresstab'
 			},
 			// Add insertion point
 			container.populateInsertionPoint('context.addressbook.abgroupdetailcontentpanel.tabs', this)
 			]
 		});
-		
+
 		Zarafa.addressbook.dialogs.ABGroupDetailPanel.superclass.constructor.call(this, config);
 	}
 });

@@ -14,7 +14,7 @@ Zarafa.common.freebusy.ui.FreebusyPanel = Ext.extend(Ext.Panel, {
 	/**
 	 * @cfg {Ext.data.Store} userStore
 	 * The {@link Ext.data.Store} object that handles the list of users loaded. It can be a normal
-	 * store, but it is preferably an {@link  Zarafa.core.data.IPMRecipientStore}.
+	 * store, but it is preferably an {@link Zarafa.core.data.IPMRecipientStore}.
 	 */
 	userStore: null,
 	/**
@@ -53,7 +53,7 @@ Zarafa.common.freebusy.ui.FreebusyPanel = Ext.extend(Ext.Panel, {
 	 * When set to true it will show the Suggestionlist to the left. When set to false it will hide it
 	 * (defaults to true).
 	 */
-	showSuggestionList : true,
+	showSuggestionList: true,
 	/**
 	 * @cfg {Boolean} editable
 	 * When set to false it will make the userlist non-editable (defaults to true).
@@ -133,7 +133,7 @@ Zarafa.common.freebusy.ui.FreebusyPanel = Ext.extend(Ext.Panel, {
 	 * @return {Object} Configuration object for the user listview
 	 * @private
 	 */
-	createUserListView : function()
+	createUserListView: function()
 	{
 		return {
 			xtype: 'panel',
@@ -169,7 +169,7 @@ Zarafa.common.freebusy.ui.FreebusyPanel = Ext.extend(Ext.Panel, {
 	 * @return {Object} Configuration object for the suggestion listview
 	 * @private
 	 */
-	createSuggestionView : function()
+	createSuggestionView: function()
 	{
 		return {
 			xtype: 'panel',
@@ -208,7 +208,7 @@ Zarafa.common.freebusy.ui.FreebusyPanel = Ext.extend(Ext.Panel, {
 	 * @return {Object} Configuration object for the timelineview
 	 * @private
 	 */
-	createTimelineView : function()
+	createTimelineView: function()
 	{
 		return Ext.applyIf(this.timelineConfig, {
 			xtype: 'zarafa.freebusytimelineview',
@@ -221,7 +221,7 @@ Zarafa.common.freebusy.ui.FreebusyPanel = Ext.extend(Ext.Panel, {
 			// TODO: Make this configurable and toggable
 			hideNonWorkingHours: true,
 			listeners: {
-				bodyscroll : this.onTimelineScroll,
+				bodyscroll: this.onTimelineScroll,
 				scope: this
 			}
 		});
@@ -233,7 +233,7 @@ Zarafa.common.freebusy.ui.FreebusyPanel = Ext.extend(Ext.Panel, {
 	 * @return {Object} configuration object for the legenda
 	 * @private
 	 */
-	createLegendaView : function()
+	createLegendaView: function()
 	{
 		return Ext.applyIf(this.legendaConfig, {
 			xtype: 'container',
@@ -251,7 +251,7 @@ Zarafa.common.freebusy.ui.FreebusyPanel = Ext.extend(Ext.Panel, {
 			},{
 				xtype: 'displayfield',
 				value: _('Busy'),
-				hideLabel : true,
+				hideLabel: true,
 				autoWidth: true
 			},{
 				xtype: 'container',
@@ -261,7 +261,7 @@ Zarafa.common.freebusy.ui.FreebusyPanel = Ext.extend(Ext.Panel, {
 			},{
 				xtype: 'displayfield',
 				value: _('Tentative'),
-				hideLabel : true,
+				hideLabel: true,
 				autoWidth: true
 			},{
 				xtype: 'container',
@@ -271,7 +271,7 @@ Zarafa.common.freebusy.ui.FreebusyPanel = Ext.extend(Ext.Panel, {
 			},{
 				xtype: 'displayfield',
 				value: _('Out of Office'),
-				hideLabel : true,
+				hideLabel: true,
 				autoWidth: true
 			},{
 				xtype: 'container',
@@ -281,7 +281,7 @@ Zarafa.common.freebusy.ui.FreebusyPanel = Ext.extend(Ext.Panel, {
 			},{
 				xtype: 'displayfield',
 				value: _('No Information'),
-				hideLabel : true,
+				hideLabel: true,
 				autoWidth: true
 			}]
 		});
@@ -310,7 +310,7 @@ Zarafa.common.freebusy.ui.FreebusyPanel = Ext.extend(Ext.Panel, {
 	 * Change the {@link #editable} field on this panel
 	 * @param {Boolean} value The new editable status
 	 */
-	setEditable : function(value)
+	setEditable: function(value)
 	{
 		if (this.editable !== value) {
 			this.editable = value;
@@ -329,7 +329,7 @@ Zarafa.common.freebusy.ui.FreebusyPanel = Ext.extend(Ext.Panel, {
 	onAfterLayout: function(container)
 	{
 		// Calculate the desired header size, we have the configured header size, but we need
-		// to substract any padding/borders and margins which are applied to the header.
+		// to subtract any padding/borders and margins which are applied to the header.
 		if (this.userListView) {
 			var height = this.headerHeight;
 
@@ -376,7 +376,7 @@ Zarafa.common.freebusy.ui.FreebusyPanel = Ext.extend(Ext.Panel, {
 	 * Scroll the TimelineView to the current Selector date, or to
 	 * the current date if no selector is available.
 	 */
-	scrollTimelineToSelection : function()
+	scrollTimelineToSelection: function()
 	{
 		if (this.timelineView.selector) {
 			this.timelineView.selector.scrollTimelineToSelection();
@@ -389,7 +389,7 @@ Zarafa.common.freebusy.ui.FreebusyPanel = Ext.extend(Ext.Panel, {
 	 * Scroll the TimelineView to the provided date argument.
 	 * @param {Date} date Date object
 	 */
-	scrollTimelineToDate : function(date)
+	scrollTimelineToDate: function(date)
 	{
 		this.timelineView.scrollDateIntoView(date);
 	},
@@ -411,7 +411,7 @@ Zarafa.common.freebusy.ui.FreebusyPanel = Ext.extend(Ext.Panel, {
 	 * @param {Zarafa.common.freebusy.data.FreebusyBlockRecord} record The selected suggestion
 	 * @private
 	 */
-	onSelectSuggestion : function(panel, record)
+	onSelectSuggestion: function(panel, record)
 	{
 		var start = record.get('start') * 1000;
 		var end = record.get('end') * 1000;

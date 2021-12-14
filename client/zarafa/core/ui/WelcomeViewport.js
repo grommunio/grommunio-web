@@ -16,62 +16,62 @@ Zarafa.core.ui.WelcomeViewport = Ext.extend(Ext.Viewport, {
 	 * @type Ext.Element
 	 * @private
 	 */
-	savingEl : undefined,
+	savingEl: undefined,
 
 	/**
 	 * @constructor
 	 * @param {Object} config Configuration object
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		config = config || {};
 
 		config = Ext.applyIf(config, {
-			layout : {
-				type : 'vbox',
-				align : 'stretch'
+			layout: {
+				type: 'vbox',
+				align: 'stretch'
 			},
-			items : [{
-				xtype : 'container',
-				flex : 0.5
+			items: [{
+				xtype: 'container',
+				flex: 0.5
 			},{
-				layout : {
-					type : 'hbox'
+				layout: {
+					type: 'hbox'
 				},
-				xtype : 'container',
-				items : [{
-					xtype : 'container',
-					flex : 0.5
+				xtype: 'container',
+				items: [{
+					xtype: 'container',
+					flex: 0.5
 				},{
-					xtype : 'panel',
-					cls : 'zarafa-welcome-body',
-					border : false,
-					items : [{
-						xtype : 'displayfield',
-						cls : 'zarafa-welcome-title',
-						value : _('Welcome to grommunio web')
+					xtype: 'panel',
+					cls: 'zarafa-welcome-body',
+					border: false,
+					items: [{
+						xtype: 'displayfield',
+						cls: 'zarafa-welcome-title',
+						value : _('Welcome to grommunio Web')
 					},{
-						xtype : 'displayfield',
-						cls : 'zarafa-welcome-message',
-						value: _('This is the first time you are using WebApp. ') + '<br />' + _('Please check the following settings before continuing.')
+						xtype: 'displayfield',
+						cls: 'zarafa-welcome-message',
+						value: _('This is the first time you are using grommunio Web. ') + '<br />' + _('Please check the following settings before continuing.')
 					},{
-						xtype : 'zarafa.settingswelcomecategory',
-						ref : '../../settingsCategory'
+						xtype: 'zarafa.settingswelcomecategory',
+						ref: '../../settingsCategory'
 					}],
-					buttonAlign : 'right',
-					buttons : [{
+					buttonAlign: 'right',
+					buttons: [{
 						cls: 'zarafa-action',
 						text: _('Continue'),
-						handler : this.onContinueButton,
-						scope : this
+						handler: this.onContinueButton,
+						scope: this
 					}]
 				},{
-					xtype : 'container',
-					flex : 0.5
+					xtype: 'container',
+					flex: 0.5
 				}]
 			},{
-				xtype : 'container',
-				flex : 0.5
+				xtype: 'container',
+				flex: 0.5
 			}]
 		});
 
@@ -90,7 +90,7 @@ Zarafa.core.ui.WelcomeViewport = Ext.extend(Ext.Viewport, {
 	 * {@link Zarafa.core.ui.MainViewport}.
 	 * @private
 	 */
-	onContinueButton : function()
+	onContinueButton: function()
 	{
 		var model = container.getSettingsModel();
 
@@ -112,13 +112,13 @@ Zarafa.core.ui.WelcomeViewport = Ext.extend(Ext.Viewport, {
 
 		// Register event listener, so we can redirect the user
 		// once the save has completed.
-		this.mon(model, 'save', this.onSettingsSave, this, { single : true });
-		this.mon(model, 'exception', this.onSettingsException, this, { single : true });
+		this.mon(model, 'save', this.onSettingsSave, this, { single: true });
+		this.mon(model, 'exception', this.onSettingsException, this, { single: true });
 
 		// Show an information box indicating that the settings are being saved.
 		this.savingEl = container.getNotifier().notify('info.saving', '', _('Saving') + '...', {
-			container : this.getEl(),
-			persistent : true
+			container: this.getEl(),
+			persistent: true
 		});
 
 		// Save settings
@@ -133,12 +133,12 @@ Zarafa.core.ui.WelcomeViewport = Ext.extend(Ext.Viewport, {
 	 * settings which were saved to the server.
 	 * @private
 	 */
-	onSettingsSave : function(model, parameters)
+	onSettingsSave: function(model, parameters)
 	{
 		container.getNotifier().notify('info.saving', null, null, {
-			container : this.getEl(),
-			destroy : true,
-			reference : this.savingEl
+			container: this.getEl(),
+			destroy: true,
+			reference: this.savingEl
 		});
 
 		Zarafa.core.Util.disableLeaveRequester();
@@ -150,12 +150,12 @@ Zarafa.core.ui.WelcomeViewport = Ext.extend(Ext.Viewport, {
 	 * event to indicate the settings were not successfully saved.
 	 * @private
 	 */
-	onSettingsException : function()
+	onSettingsException: function()
 	{
 		container.getNotifier().notify('info.saving', null, null, {
-			container : this.getEl(),
-			destroy : true,
-			reference : this.savingEl
+			container: this.getEl(),
+			destroy: true,
+			reference: this.savingEl
 		});
 	}
 });

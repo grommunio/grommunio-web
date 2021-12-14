@@ -1,12 +1,12 @@
 <?php
-require_once('classes/KopanoTest.php');
+require_once('classes/grommunioTest.php');
 
 /**
  * FolderEntryidTest
  *
  * Tests comparing folder entryids
  */
-class FolderEntryidTest extends KopanoTest {
+class FolderEntryidTest extends grommunioTest {
 
 	/**
 	 * Calendar folder

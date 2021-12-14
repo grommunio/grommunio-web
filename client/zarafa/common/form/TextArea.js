@@ -14,7 +14,7 @@ Zarafa.common.form.TextArea = Ext.extend(Ext.form.TextArea, {
 	 * @cfg {Boolean} enableSystemContextMenu Enable the browser's default contextmenu
 	 * to be opened on this {@link #el element}.
 	 */
-	enableSystemContextMenu : false,
+	enableSystemContextMenu: false,
 
 	/**
 	 * Called during {@link #render}. If {@link #enableSystemContextMenu} is eanbled, this
@@ -23,7 +23,7 @@ Zarafa.common.form.TextArea = Ext.extend(Ext.form.TextArea, {
 	 * @param {Number} position The position inside the container where the component is being rendered
 	 * @private
 	 */
-	onRender : function(ct, position)
+	onRender: function(ct, position)
 	{
 		Zarafa.common.form.TextArea.superclass.onRender.apply(this, arguments);
 
@@ -36,7 +36,7 @@ Zarafa.common.form.TextArea = Ext.extend(Ext.form.TextArea, {
 	 * Function adds passed text in textarea at cursor's position.
 	 * @param {String} text The text value which you want to add in text area
 	 */
-	insertAtCursor : function(text) {
+	insertAtCursor: function(text) {
 		var startPos = this.el.dom.selectionStart;
 		var endPos = this.el.dom.selectionEnd;
 		this.el.dom.value = this.el.dom.value.substring(0, startPos)
@@ -50,11 +50,11 @@ Zarafa.common.form.TextArea = Ext.extend(Ext.form.TextArea, {
 	/**
 	 * Function sets the cursor position to the start of the text
 	 */
-	setCursorLocation : function()
+	setCursorLocation: function()
 	{
 		var textAreaDom = this.getEl().dom;
 
-		// When a user replies to an email and the textarea contains text then by default 
+		// When a user replies to an email and the textarea contains text then by default
 		// the cursor is set to the end of the text. The following code sets the cursor position to
 		// the start of the text.
 		var textLen = textAreaDom.textLength;
@@ -64,7 +64,15 @@ Zarafa.common.form.TextArea = Ext.extend(Ext.form.TextArea, {
 		if(startPos === textLen && endPos === textLen) {
 			textAreaDom.setSelectionRange(0,0);
 		}
-	}
+	},
+
+	/**
+	 * Function select the text in editor by given selector.
+	 *
+	 * @param {String} selector The selector query which used to select the text in editor.
+	 * @return {boolean} return true if text is selected in editor else false.
+	 */
+	selectBySelector: Ext.emptyFn,
 });
 
 Ext.reg('zarafa.textarea', Zarafa.common.form.TextArea);

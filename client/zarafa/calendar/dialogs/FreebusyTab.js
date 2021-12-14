@@ -13,7 +13,7 @@ Zarafa.calendar.dialogs.FreebusyTab = Ext.extend(Ext.form.FormPanel, {
 	 * @constructor
 	 * @param {Object} config
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		config = config || {};
 
@@ -46,15 +46,15 @@ Zarafa.calendar.dialogs.FreebusyTab = Ext.extend(Ext.form.FormPanel, {
 	 * @return {Object} The configuration object for the freebusy panel
 	 * @private
 	 */
-	createCounterProposalPanel : function()
+	createCounterProposalPanel: function()
 	{
 		return {
 			xtype: 'zarafa.counterproposalgrid',
 			ref: 'counterproposalpanel',
 			hidden: true,
-			listeners : {
-				scope : this,
-				show : this.onProposalGridVisible
+			listeners: {
+				scope: this,
+				show: this.onProposalGridVisible
 			}
 		};
 	},
@@ -64,7 +64,7 @@ Zarafa.calendar.dialogs.FreebusyTab = Ext.extend(Ext.form.FormPanel, {
 	 * @return {Object} The configuration object for the freebusy panel
 	 * @private
 	 */
-	createFreebusyPanel : function()
+	createFreebusyPanel: function()
 	{
 		return {
 			xtype: 'zarafa.freebusypanel',
@@ -89,7 +89,7 @@ Zarafa.calendar.dialogs.FreebusyTab = Ext.extend(Ext.form.FormPanel, {
 	 * @return {Object} The configuration object for the Freebusy Options fields
 	 * @private
 	 */
-	createOptionsPanel : function()
+	createOptionsPanel: function()
 	{
 		return {
 			xtype: 'panel',
@@ -102,18 +102,18 @@ Zarafa.calendar.dialogs.FreebusyTab = Ext.extend(Ext.form.FormPanel, {
 				xtype: 'zarafa.datetimeperiodfield',
 				ref: '../../datetimePeriod',
 				defaultPeriod: container.getSettingsModel().get('zarafa/v1/contexts/calendar/default_appointment_period'),
-				defaultPeriodType : Date.MINUTE,
+				defaultPeriodType: Date.MINUTE,
 				timeIncrement: container.getSettingsModel().get('zarafa/v1/contexts/calendar/default_zoom_level'),
-				allowEqualValue : true,
+				allowEqualValue: true,
 				layout: 'hbox',
 				listeners: {
 					change: this.onDateRangeFieldChange,
-					afterrender : this.onDateRangeFieldAfterRender,
+					afterrender: this.onDateRangeFieldAfterRender,
 					scope: this
 				},
 				startFieldConfig: {
 					fieldLabel: _('Time'),
-					labelConfig : {
+					labelConfig: {
 						cls: 'label-startfield'
 					}
 				},
@@ -140,7 +140,7 @@ Zarafa.calendar.dialogs.FreebusyTab = Ext.extend(Ext.form.FormPanel, {
 	 * @param {Ext.Component} component Here Panel as a component
 	 * @private
 	 */
-	onProposalGridVisible : function(component)
+	onProposalGridVisible: function(component)
 	{
 		this.doLayout();
 	},
@@ -153,7 +153,7 @@ Zarafa.calendar.dialogs.FreebusyTab = Ext.extend(Ext.form.FormPanel, {
 	 * @param {Number} position The position within the container
 	 * @private
 	 */
-	onRender : function(container, position)
+	onRender: function(container, position)
 	{
 		Zarafa.calendar.dialogs.FreebusyTab.superclass.onRender.call(this, container, position);
 
@@ -169,7 +169,7 @@ Zarafa.calendar.dialogs.FreebusyTab = Ext.extend(Ext.form.FormPanel, {
 	 * @param {Ext.Panel} panel The panel which raised the event
 	 * @private
 	 */
-	onActivate : function(panel)
+	onActivate: function(panel)
 	{
 		// set the meeting status to meeting only when a new Meeting is being or if the organizer has opened the meeting
 		if(this.record && !this.record.isMeeting() && this.record.get('responsestatus') === Zarafa.core.mapi.ResponseStatus.RESPONSE_NONE) {
@@ -186,7 +186,7 @@ Zarafa.calendar.dialogs.FreebusyTab = Ext.extend(Ext.form.FormPanel, {
 	 * @param {Boolean} contentReset force the component to perform a full update of the data.
 	 * @private
 	 */
-	updateUI : function(record, contentReset)
+	updateUI: function(record, contentReset)
 	{
 		if (contentReset === true || record.isModifiedSinceLastUpdate('alldayevent')) {
 			if (record.get('alldayevent')) {
@@ -208,7 +208,7 @@ Zarafa.calendar.dialogs.FreebusyTab = Ext.extend(Ext.form.FormPanel, {
 	 * @param {Zarafa.core.data.IPMRecord} record The record to update the panel with
 	 * @param {Boolean} contentReset force the component to perform a full update of the data.
 	 */
-	update : function(record, contentReset)
+	update: function(record, contentReset)
 	{
 		this.record = record;
 		this.updateUI(record, contentReset);
@@ -228,7 +228,7 @@ Zarafa.calendar.dialogs.FreebusyTab = Ext.extend(Ext.form.FormPanel, {
 		}
 
 		// For all day events we store the due date as 00:00 on the day after
-		// it ends. For the UI, this means we have to substract 1 day to get
+		// it ends. For the UI, this means we have to subtract 1 day to get
 		// the date on which the appointment actually ends for the user.
 		if (record.get('alldayevent')) {
 			startDate.clearTime();
@@ -263,7 +263,7 @@ Zarafa.calendar.dialogs.FreebusyTab = Ext.extend(Ext.form.FormPanel, {
 	 * Update the {@link Zarafa.core.data.IPMRecord IPMRecord} with the data from the {@link Ext.Panel Panel}.
 	 * @param {Zarafa.core.data.IPMRecord} record The record which has to be updated
 	 */
-	updateRecord : function(record)
+	updateRecord: function(record)
 	{
 		record.beginEdit();
 		this.getForm().updateRecord(record);
@@ -280,7 +280,7 @@ Zarafa.calendar.dialogs.FreebusyTab = Ext.extend(Ext.form.FormPanel, {
 	 * @param {Zarafa.core.DateRange} oldRange The old daterange which was selected
 	 * @private
 	 */
-	onSelectorRangeUpdate : function(newRange, oldRange)
+	onSelectorRangeUpdate: function(newRange, oldRange)
 	{
 		this.record.beginEdit();
 		// Only when the selectorRange is updated we have a valid point
@@ -300,19 +300,19 @@ Zarafa.calendar.dialogs.FreebusyTab = Ext.extend(Ext.form.FormPanel, {
 	 * Update the 'recurrence_startocc' and 'recurrence_endocc' in the given record from
 	 * the given daterange. When appointment is recurring meeting request then
 	 * update the necessary recurring information of meeting request.
-	 * 
+	 *
 	 * @param {Zarafa.core.data.MAPIRecord} record the Record to update
 	 * @param {Zarafa.core.DateRange} daterange the Daterange to apply
 	 * @private
 	 */
-	updateRecurringInfo : function(record, daterange)
+	updateRecurringInfo: function(record, daterange)
 	{
 		var startDate = daterange.getStartDate().clone();
 
 		if (record.get('alldayevent') === true) {
 			startDate = startDate.clearTime();
 		}
-		
+
 		// Add some necessary properties while time information of
 		// recurring meeting gets updated from scheduler.
 		if(record.isRecurring() && record.isMeeting()) {
@@ -337,7 +337,7 @@ Zarafa.calendar.dialogs.FreebusyTab = Ext.extend(Ext.form.FormPanel, {
 	 * @param {Zarafa.core.DateRange} oldRange The old daterange which was selected
 	 * @private
 	 */
-	onDateRangeFieldChange : function(field, newRange, oldRange)
+	onDateRangeFieldChange: function(field, newRange, oldRange)
 	{
 		this.updateRecurringInfo(this.record, newRange);
 		this.updateStartDueDate(this.record, newRange);
@@ -349,9 +349,9 @@ Zarafa.calendar.dialogs.FreebusyTab = Ext.extend(Ext.form.FormPanel, {
 	 * This will set width of field.
 	 * @param {Ext.form.Field} field The field which is render
      */
-	onDateRangeFieldAfterRender : function(field)
+	onDateRangeFieldAfterRender: function(field)
 	{
-		// Somehow before update() the static width is not applied and component is not displayed 
+		// Somehow before update() the static width is not applied and component is not displayed
 		// and after onUpdateRecord() it is displayed with current date and time
 		// So, need to set after DateRangeField successfully rendered
 		field.setWidth(550);
@@ -368,7 +368,7 @@ Zarafa.calendar.dialogs.FreebusyTab = Ext.extend(Ext.form.FormPanel, {
 	 * @param {Zarafa.core.DateRange} daterange the Daterange to apply
 	 * @private
 	 */
-	updateStartDueDate : function(record, daterange)
+	updateStartDueDate: function(record, daterange)
 	{
 		var startDate = daterange.getStartDate().clone();
 		var dueDate = daterange.getDueDate().clone();
@@ -398,7 +398,7 @@ Zarafa.calendar.dialogs.FreebusyTab = Ext.extend(Ext.form.FormPanel, {
 	 * @param {Boolean} hideNonWorkingHours
 	 * @private
 	 */
-	onShowWorkingHoursChange : function(hideNonWorkingHours)
+	onShowWorkingHoursChange: function(hideNonWorkingHours)
 	{
 		this.workingHoursCheckbox.setValue(hideNonWorkingHours);
 	},
@@ -410,7 +410,7 @@ Zarafa.calendar.dialogs.FreebusyTab = Ext.extend(Ext.form.FormPanel, {
 	 * @param {Boolean} The current state of the checkbox
 	 * @private
 	 */
-	onOnlyWorkingHours : function(checkbox, checked)
+	onOnlyWorkingHours: function(checkbox, checked)
 	{
 		var model = this.freebusyPanel.getModel();
 		model.hideNonWorkingHours(checked);

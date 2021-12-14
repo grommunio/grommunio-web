@@ -16,7 +16,7 @@ Zarafa.core.plugins.MarkAsReadPlugin = Ext.extend(Object, {
 	 * @property
 	 * @type Ext.Component
 	 */
-	field : undefined,
+	field: undefined,
 
 	/**
 	 * The record which has been {@link #onSetRecord set} on the
@@ -24,14 +24,14 @@ Zarafa.core.plugins.MarkAsReadPlugin = Ext.extend(Object, {
 	 * @property
 	 * @type Zarafa.core.data.MAPIRecord
 	 */
-	record : undefined,
+	record: undefined,
 
 	/**
 	 * timer that is used to set message as read after specified seconds
 	 * @property
 	 * @type Number
 	 */
-	readFlagTimer : undefined,
+	readFlagTimer: undefined,
 
 	/**
 	 * Indicate that seting/starting up the {@link #readFlagTimer} will be
@@ -39,13 +39,13 @@ Zarafa.core.plugins.MarkAsReadPlugin = Ext.extend(Object, {
 	 * @property
 	 * @type Boolean
 	 */
-	ignoreReadFlagTimer : undefined,
+	ignoreReadFlagTimer: undefined,
 
 	/**
 	 * @constructor
 	 * @param {Object} config Configuration object
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		Ext.apply(this, config);
 	},
@@ -54,7 +54,7 @@ Zarafa.core.plugins.MarkAsReadPlugin = Ext.extend(Object, {
 	 * Initializes the {@link Ext.Component Component} to which this plugin has been hooked.
 	 * @param {Ext.Component} field The component on which the plugin is installed
 	 */
-	init : function(field)
+	init: function(field)
 	{
 		this.field = field;
 		field.markAsReadPlugin = this;
@@ -71,15 +71,15 @@ Zarafa.core.plugins.MarkAsReadPlugin = Ext.extend(Object, {
 	 * on the {@link #field}. This will register the event handlers which
 	 * are needed to listen for record changes.
 	 */
-	onRender : function()
+	onRender: function()
 	{
 		this.field.on({
-			'setrecord' : this.onSetRecord,
-			'beforesetrecord' : this.onBeforeSetRecord,
-			'loadrecord' : this.onLoadRecord,
-			'close' : this.onDestroy,
-			'destroy' : this.onDestroy,
-			'scope' : this
+			'setrecord': this.onSetRecord,
+			'beforesetrecord': this.onBeforeSetRecord,
+			'loadrecord': this.onLoadRecord,
+			'close': this.onDestroy,
+			'destroy': this.onDestroy,
+			'scope': this
 		});
 	},
 
@@ -91,7 +91,7 @@ Zarafa.core.plugins.MarkAsReadPlugin = Ext.extend(Object, {
 	 * @param {Zarafa.core.data.MAPIRecord} oldrecord The old record which was previously set
 	 * @private
 	 */
-	onSetRecord : function(field, record, oldrecord)
+	onSetRecord: function(field, record, oldrecord)
 	{
 		// If the record is the same, the data of the record was just updated. No need to mark it as
 		// read/unread then.
@@ -118,7 +118,7 @@ Zarafa.core.plugins.MarkAsReadPlugin = Ext.extend(Object, {
 	 * @param {Zarafa.core.data.MAPIRecord} oldrecord The old record which was previously set
 	 * @private
 	 */
-	onBeforeSetRecord : function(field, record, oldrecord)
+	onBeforeSetRecord: function(field, record, oldrecord)
 	{
 
 		this.resetReadFlagTimer();
@@ -150,7 +150,7 @@ Zarafa.core.plugins.MarkAsReadPlugin = Ext.extend(Object, {
 	 * @param {Object} options The loading options that were specified (see {@link Ext.data.Store#load load} for details)
 	 * @private
 	 */
-	onStoreLoad : function(store, records, options)
+	onStoreLoad: function(store, records, options)
 	{
 		this.resetReadFlagTimer();
 	},
@@ -166,9 +166,9 @@ Zarafa.core.plugins.MarkAsReadPlugin = Ext.extend(Object, {
 	 * @param {Zarafa.hierarchy.data.MAPIStoreRecord} record The record which was deleted
 	 * @private
 	 */
-	onStoreRemove : function(store, record)
+	onStoreRemove: function(store, record)
 	{
-		// Check if the removed record is the one which refered by the markAsRead plugin
+		// Check if the removed record is the one which referred by the markAsRead plugin
 		if (this.record === record) {
 			this.resetReadFlagTimer();
 		}
@@ -181,7 +181,7 @@ Zarafa.core.plugins.MarkAsReadPlugin = Ext.extend(Object, {
 	 * @param {Zarafa.core.data.MAPIRecord} record The record which was updated
 	 * @private
 	 */
-	onLoadRecord : function(field, record)
+	onLoadRecord: function(field, record)
 	{
 		if (record && !record.phantom && !record.isRead()) {
 			// decide based on flag if we want to instantly mark as read or start the timer
@@ -199,7 +199,7 @@ Zarafa.core.plugins.MarkAsReadPlugin = Ext.extend(Object, {
 	 * to {@link #markAsRead} as configured.
 	 * @private
 	 */
-	startReadFlagTimer : function()
+	startReadFlagTimer: function()
 	{
 		if (!this.readFlagTimer) {
 			var timeout = container.getSettingsModel().get('zarafa/v1/contexts/mail/readflag_time') * 1000;
@@ -213,7 +213,7 @@ Zarafa.core.plugins.MarkAsReadPlugin = Ext.extend(Object, {
 	 * available again for rescheduling.
 	 * @private
 	 */
-	resetReadFlagTimer : function()
+	resetReadFlagTimer: function()
 	{
 		if (this.readFlagTimer) {
 			window.clearTimeout(this.readFlagTimer);
@@ -226,9 +226,9 @@ Zarafa.core.plugins.MarkAsReadPlugin = Ext.extend(Object, {
 	 * as {@link Zarafa.common.Actions.markAsRead read}.
 	 * @private
 	 */
-	markAsRead : function()
+	markAsRead: function()
 	{
-		if (this.record) {
+		if (this.record && !Ext.isEmpty(this.record.getStore())) {
 			Zarafa.common.Actions.markAsRead(this.record);
 		}
 		delete this.readFlagTimer;
@@ -240,7 +240,7 @@ Zarafa.core.plugins.MarkAsReadPlugin = Ext.extend(Object, {
 	 * prevent the record from being marked as read.
 	 * @private
 	 */
-	onDestroy : function()
+	onDestroy: function()
 	{
 		this.resetReadFlagTimer();
 		this.record = undefined;

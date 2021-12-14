@@ -5,7 +5,7 @@ Ext.namespace('Zarafa.contact.data');
  * @extends Zarafa.core.Enum
  *
  * Enum containing the different viewing modes of the contact context.
- * 
+ *
  * @singleton
  */
 Zarafa.contact.data.ViewModes = Zarafa.core.Enum.create({
@@ -15,7 +15,7 @@ Zarafa.contact.data.ViewModes = Zarafa.core.Enum.create({
 	 * @property
 	 * @type Number
 	 */
-	NORMAL : 0,
+	NORMAL: 0,
 
 	/**
 	 * View all contact items from the selected folder(s) as business cards.
@@ -23,7 +23,7 @@ Zarafa.contact.data.ViewModes = Zarafa.core.Enum.create({
 	 * @property
 	 * @type Number
 	 */
-	BUSINESS : 1,
+	BUSINESS: 1,
 
 	/**
 	 * View all contact items from the selected folder(s) as address cards.
@@ -31,7 +31,7 @@ Zarafa.contact.data.ViewModes = Zarafa.core.Enum.create({
 	 * @property
 	 * @type Number
 	 */
-	ADDRESS : 2,
+	ADDRESS: 2,
 
 	/**
 	 * View all contact items from the selected folder(s) as detailed cards.
@@ -39,7 +39,7 @@ Zarafa.contact.data.ViewModes = Zarafa.core.Enum.create({
 	 * @property
 	 * @type Number
 	 */
-	DETAILED : 3,
+	DETAILED: 3,
 
 	/**
 	 * View all contact items from the selected folder(s) as telephone list.
@@ -47,7 +47,7 @@ Zarafa.contact.data.ViewModes = Zarafa.core.Enum.create({
 	 * @property
 	 * @type Number
 	 */
-	PHONE_LIST : 4,
+	PHONE_LIST: 4,
 
 	/**
 	 * View all contact items from the selected folder(s) grouped by category.
@@ -55,7 +55,7 @@ Zarafa.contact.data.ViewModes = Zarafa.core.Enum.create({
 	 * @property
 	 * @type Number
 	 */
-	GROUP_CATEGORY : 5,
+	GROUP_CATEGORY: 5,
 
 	/**
 	 * View all contact items from the selected folder(s) grouped by company.
@@ -63,7 +63,7 @@ Zarafa.contact.data.ViewModes = Zarafa.core.Enum.create({
 	 * @property
 	 * @type Number
 	 */
-	GROUP_COMPANY : 6,
+	GROUP_COMPANY: 6,
 
 	/**
 	 * View all contact items from the selected folder(s) grouped by location.
@@ -71,12 +71,12 @@ Zarafa.contact.data.ViewModes = Zarafa.core.Enum.create({
 	 * @property
 	 * @type Number
 	 */
-	GROUP_LOCATION : 7,
+	GROUP_LOCATION: 7,
 	/**
 	 * View all found contact items of the selected folder(s) in a list.
 	 *
 	 * @property
 	 * @type Number
 	 */
-	SEARCH : 8
+	SEARCH: 8
 });

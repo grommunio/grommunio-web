@@ -13,19 +13,19 @@ Zarafa.common.categories.dialogs.NewCategoryPanel = Ext.extend(Zarafa.core.ui.Co
 	 * {@link Zarafa.common.categories.dialogs.CategoriesContentPanel} this property will contain
 	 * the store of that panel.
 	 */
-	store : null,
+	store: null,
 
 	/**
 	 * @constructor
 	 * @param {Object} config Configuration object
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		config = config || {};
 
 		Ext.applyIf(config, {
 			xtype: 'zarafa.newcategorypanel',
-			title : _('Create New Category'),
+			title: _('Create New Category'),
 			cls: 'k-newcategorypanel',
 			width: 250,
 			height: 120,
@@ -87,7 +87,7 @@ Zarafa.common.categories.dialogs.NewCategoryPanel = Ext.extend(Zarafa.core.ui.Co
 	 * @param {Ext.form.TextField} field The textfield for the name of the new category
 	 * @param {Ext.EventObject} event Object with event data
 	 */
-	onSpecialKey : function(field, event)
+	onSpecialKey: function(field, event)
 	{
 		if ( event.getKey() === event.ENTER ){
 			event.preventDefault();
@@ -102,7 +102,7 @@ Zarafa.common.categories.dialogs.NewCategoryPanel = Ext.extend(Zarafa.core.ui.Co
 	 * @param {Ext.form.TextField} field The textfield for the name of the new category
 	 * @param {Ext.EventObject} event Object with event data
 	 */
-	onKeyDown : function(field, event)
+	onKeyDown: function(field, event)
 	{
 		var key = event.browserEvent.key;
 		if ( key === ';' || key === ',' ){ // Don't allow ; or , in a category name
@@ -115,7 +115,7 @@ Zarafa.common.categories.dialogs.NewCategoryPanel = Ext.extend(Zarafa.core.ui.Co
 	 * exist yet, and create and save the new category. Will also update the grid
 	 * of the manage categories dialog.
 	 */
-	onCreate : function()
+	onCreate: function()
 	{
 		var categoryName = this.formPanel.name.getValue().trim();
 		// Don't allow empty category names
@@ -155,7 +155,7 @@ Zarafa.common.categories.dialogs.NewCategoryPanel = Ext.extend(Zarafa.core.ui.Co
 	/**
 	 * Event handler for the click event of the Cancel button. Closes the dialog.
 	 */
-	onCancel : function()
+	onCancel: function()
 	{
 		this.close();
 	},
@@ -166,7 +166,7 @@ Zarafa.common.categories.dialogs.NewCategoryPanel = Ext.extend(Zarafa.core.ui.Co
 	 * @param {String} categoryName The name of the category that we try to create
 	 * @return {Boolean} True if the category can be created, false otherwise.
 	 */
-	canCreateNewCategory : function(categoryName)
+	canCreateNewCategory: function(categoryName)
 	{
 		var categoryStore = new Zarafa.common.categories.data.CategoriesStore();
 
@@ -209,7 +209,7 @@ Zarafa.common.categories.dialogs.NewCategoryPanel = Ext.extend(Zarafa.core.ui.Co
 	 * Shows an error message to the user
 	 * @param {String} msg The error message that will be shown
 	 */
-	showErrorMessage : function(msg)
+	showErrorMessage: function(msg)
 	{
 		// Make sure the MessageBox can get big enough
 		var maxWidth = Zarafa.common.dialogs.MessageBox.maxWidth;

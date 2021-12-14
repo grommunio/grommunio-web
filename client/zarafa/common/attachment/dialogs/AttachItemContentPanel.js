@@ -15,7 +15,7 @@ Zarafa.common.attachment.dialogs.AttachItemContentPanel = Ext.extend(Zarafa.core
 	 * @property
 	 * @type Zarafa.hierarchy.data.MAPIFolderRecord
 	 */
-	last_selected_folder : undefined,
+	last_selected_folder: undefined,
 
 	/**
 	 * The Radio item which was selected the last time this panel was opened.
@@ -23,17 +23,17 @@ Zarafa.common.attachment.dialogs.AttachItemContentPanel = Ext.extend(Zarafa.core
 	 * @property
 	 * @type String
 	 */
-	last_selected_radio : undefined,
+	last_selected_radio: undefined,
 
 	/**
 	 * @cfg {Zarafa.core.data.MAPIRecord} record record in which we will add embedded attachment if user is adding it as attachment.
 	 */
-	record : undefined,
+	record: undefined,
 
 	/**
 	 * @cfg {Zarafa.common.ui.EditorField} editor editor in which we will be adding message as text if user has selected to add text in body.
 	 */
-	editor : undefined,
+	editor: undefined,
 
 	/**
 	 * The LoadMask object which will be shown when the {@link #record} is being opened, and
@@ -42,24 +42,24 @@ Zarafa.common.attachment.dialogs.AttachItemContentPanel = Ext.extend(Zarafa.core
 	 * @property
 	 * @type Zarafa.common.ui.LoadMask
 	 */
-	loadMask : undefined,
+	loadMask: undefined,
 
 	/**
 	 * @constructor
 	 * @param {Object} config Configuration object
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		config = config || {};
 
 		Ext.applyIf(config, {
-			title : _('Insert item'),
-			layout : 'fit',
+			title: _('Insert item'),
+			layout: 'fit',
 			cls: 'k-insert-item-dialog',
-			items : [{
-				xtype : 'zarafa.attachitempanel',
-				record : config.record,
-				editor : config.editor
+			items: [{
+				xtype: 'zarafa.attachitempanel',
+				record: config.record,
+				editor: config.editor
 			}]
 		});
 
@@ -72,7 +72,7 @@ Zarafa.common.attachment.dialogs.AttachItemContentPanel = Ext.extend(Zarafa.core
 	 * {@link Zarafa.core.Container#getHierarchyStore hierarchy}.
 	 * @return {Zarafa.hierarchy.data.MAPIFolderRecord} The default selected folder
 	 */
-	getSelectedFolder : function()
+	getSelectedFolder: function()
 	{
 		if(!this.last_selected_folder) {
 			var hierarchy = container.getHierarchyStore();
@@ -87,7 +87,7 @@ Zarafa.common.attachment.dialogs.AttachItemContentPanel = Ext.extend(Zarafa.core
 	 * This will use {@link #last_selected_radio} if provided, otherwise will default to 'attachment'.
 	 * @return {String} The default selected radio item
 	 */
-	getSelectedRadioItem : function()
+	getSelectedRadioItem: function()
 	{
 		if(!this.last_selected_radio) {
 			this.last_selected_radio = 'attachment';
@@ -101,7 +101,7 @@ Zarafa.common.attachment.dialogs.AttachItemContentPanel = Ext.extend(Zarafa.core
 	 * and will call {@link #saveState} if this panel is {@link #stateful}.
 	 * @param {Zarafa.hierarchy.data.MAPIFolderRecord} folder The selected folder
 	 */
-	setFolderInState : function(folder)
+	setFolderInState: function(folder)
 	{
 		this.last_selected_folder = folder;
 		if(this.stateful !== false) {
@@ -114,7 +114,7 @@ Zarafa.common.attachment.dialogs.AttachItemContentPanel = Ext.extend(Zarafa.core
 	 * and will call {@link #saveState} if this panel is {@link #stateful}.
 	 * @param {Ext.form.Radio} radioItem The selected radio item
 	 */
-	setRadioItemInState : function(radioItem)
+	setRadioItemInState: function(radioItem)
 	{
 		// don't save radio selection in state settings, we are unsure we should have state setting for this
 		this.last_selected_radio = radioItem.inputValue;
@@ -129,7 +129,7 @@ Zarafa.common.attachment.dialogs.AttachItemContentPanel = Ext.extend(Zarafa.core
 	 * @return {Object} The state object
 	 * @protected
 	 */
-	getState : function()
+	getState: function()
 	{
 		var state = Zarafa.common.attachment.dialogs.AttachItemContentPanel.superclass.getState.call(this);
 
@@ -150,7 +150,7 @@ Zarafa.common.attachment.dialogs.AttachItemContentPanel = Ext.extend(Zarafa.core
 	 * @param {Object} state The state object
 	 * @protected
 	 */
-	applyState : function(state)
+	applyState: function(state)
 	{
 		if(state && state.last_selected_folder) {
 			this.last_selected_folder = container.getHierarchyStore().getFolder(state.last_selected_folder);
@@ -167,7 +167,7 @@ Zarafa.common.attachment.dialogs.AttachItemContentPanel = Ext.extend(Zarafa.core
 	 * If {@link #showLoadMask} is enabled, this function will display the {@link #loadMask}.
 	 * @protected
 	 */
-	showLoadMask : function()
+	showLoadMask: function()
 	{
 		if (!this.loadMask) {
 			this.loadMask = new Zarafa.common.ui.LoadMask(this.el);
@@ -181,7 +181,7 @@ Zarafa.common.attachment.dialogs.AttachItemContentPanel = Ext.extend(Zarafa.core
 	 * called to display the {@link #loadMask} this function will disable the loadMask.
 	 * @protected
 	 */
-	hideLoadMask : function()
+	hideLoadMask: function()
 	{
 		if (this.loadMask) {
 			this.loadMask.hide();
@@ -197,7 +197,7 @@ Zarafa.common.attachment.dialogs.AttachItemContentPanel = Ext.extend(Zarafa.core
 	 * @return {Zarafa.core.data.ListModuleStore} store that will be used to load data in {@link Zarafa.common.attachment.dialogs.AttachItemGrid AttachItemGrid}.
 	 * @private
 	 */
-	getStoreByFolder : function(folder)
+	getStoreByFolder: function(folder)
 	{
 		// find context which can successfully bid for this particular folder
 		var context = container.getContextByFolder(folder);
@@ -213,16 +213,16 @@ Zarafa.common.attachment.dialogs.AttachItemContentPanel = Ext.extend(Zarafa.core
 
 		// we will get the instance but instead we need to create a new instance of the store
 		store = new store.constructor({
-			// make sure that store is not registered with IPMStoreMgr as we don't want to propogate updates from other stores
+			// make sure that store is not registered with IPMStoreMgr as we don't want to propagate updates from other stores
 			// because this store is used in a modal dialog
-			standalone : true,
+			standalone: true,
 
 			// pass the folder from which we need to load the data
-			folder : folder,
+			folder: folder,
 
 			// destroy store when folder selection is changed
 			// and store is not needed anymore
-			autoDestroy : true
+			autoDestroy: true
 		});
 
 		return store;
@@ -235,7 +235,7 @@ Zarafa.common.attachment.dialogs.AttachItemContentPanel = Ext.extend(Zarafa.core
 	 * @return {Zarafa.core.data.ListModuleStore} store that will be used to show columns in {@link Zarafa.common.attachment.dialogs.AttachItemGrid AttachItemGrid}.
 	 * @private
 	 */
-	getColumnModelByFolder : function(folder)
+	getColumnModelByFolder: function(folder)
 	{
 		// find the correct column model for showing in grid, this will use bidding process
 		var componentType = Zarafa.core.data.SharedComponentType['common.attachment.dialog.attachitem.columnmodel'];
@@ -250,7 +250,7 @@ Zarafa.common.attachment.dialogs.AttachItemContentPanel = Ext.extend(Zarafa.core
 	 * @param {Zarafa.core.data.IPMRecord} record record that is selected and should use for bidding process.
 	 * @private
 	 */
-	getRendererByMessage : function(record)
+	getRendererByMessage: function(record)
 	{
 		// find the correct renderer for getting text data from record, this will use bidding process
 		var componentType = Zarafa.core.data.SharedComponentType['common.attachment.dialog.attachitem.textrenderer'];

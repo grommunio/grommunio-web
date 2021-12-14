@@ -11,7 +11,8 @@ body.login,
 #bg,body.zarafa-welcome {
   margin:0;
   padding:0;
-  background:url(../../images/bootback.svg) no-repeat center center;background-size:cover
+  background:url(../../images/bootback.svg) no-repeat center center;
+  background-size:cover;
 }
 
 body.login.theme-basic:after,
@@ -34,7 +35,6 @@ body.theme-dark.zarafa-welcome:after {
   right:0;
   margin:0;
   padding:0;
-  /**background:url(../../images/background.svg) removed by ivar**/;
   background-size:cover;
   z-index:-1
 }
@@ -194,7 +194,7 @@ body.login>#form-container #submitbutton:hover {
   cursor: pointer;
 }
 
-body.login>#form-container #submitbutton:click {
+body.login>#form-container #submitbutton:active {
   background-color:#065fa5
 }
 
@@ -202,9 +202,4 @@ body.login>#form-container #submitbutton:focus {
   box-shadow:0 0 0 1px #fff inset
 }
 
-body.login.MSIE10 #bg,body.login.MSIE11 #bg {
-  background-image:url(../../images/loginbg_daybreak_blurred.jpg)
-}
 /*# sourceMappingURL=login.css.map */
-
-

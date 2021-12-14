@@ -28,8 +28,8 @@ describe('ColorSchemes', function() {
 	});
 
 	describe('colorscheme', function() {
-		const name = "kopanoblue";
-		const displayName = "Kopano Blue";
+		const name = "grommunioblue";
+		const displayName = "grommunio Blue";
 		const baseColor = "#0067AC";
 
 		beforeEach(function() {

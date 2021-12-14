@@ -3,9 +3,9 @@ Ext.namespace('Zarafa.core.mapi');
 /**
  * @class Zarafa.core.mapi.RuleActions
  * @extends Zarafa.core.Enum
- * 
+ *
  * Enumerates the different rule actions.
- * 
+ *
  * @singleton
  */
 Zarafa.core.mapi.RuleActions = Zarafa.core.Enum.create({
@@ -15,39 +15,39 @@ Zarafa.core.mapi.RuleActions = Zarafa.core.Enum.create({
 	 * @property
 	 * @type Number
 	 */
-	OP_MOVE : 1,
-	
+	OP_MOVE: 1,
+
 	/**
 	 * Rule action which indicates the message should
 	 * be copied to a designated folder.
 	 * @property
 	 * @type Number
 	 */
-	OP_COPY : 2,
+	OP_COPY: 2,
 
 	/**
 	 * @property
 	 * @type Number
 	 */
-	OP_REPLY : 3,
+	OP_REPLY: 3,
 
 	/**
 	 * @property
 	 * @type Number
 	 */
-	OP_OOF_REPLY : 4,
+	OP_OOF_REPLY: 4,
 
 	/**
 	 * @property
 	 * @type Number
 	 */
-	OP_DEFER_ACTION : 5,
+	OP_DEFER_ACTION: 5,
 
 	/**
 	 * @property
 	 * @type Number
 	 */
-	OP_BOUNCE : 6,
+	OP_BOUNCE: 6,
 
 	/**
 	 * Rule action which indicates that the message should
@@ -55,19 +55,19 @@ Zarafa.core.mapi.RuleActions = Zarafa.core.Enum.create({
 	 * @property
 	 * @type Number
 	 */
-	OP_FORWARD : 7,
+	OP_FORWARD: 7,
 
 	/**
 	 * @property
 	 * @type Number
 	 */
-	OP_DELEGATE : 8,
+	OP_DELEGATE: 8,
 
 	/**
 	 * @property
 	 * @type Number
 	 */
-	OP_TAG : 9,
+	OP_TAG: 9,
 
 	/**
 	 * Rule action which indicates that the message should
@@ -75,7 +75,7 @@ Zarafa.core.mapi.RuleActions = Zarafa.core.Enum.create({
 	 * @property
 	 * @type Number
 	 */
-	OP_DELETE : 10,
+	OP_DELETE: 10,
 
 	/**
 	 * Rule action which indicates that the message should
@@ -83,5 +83,5 @@ Zarafa.core.mapi.RuleActions = Zarafa.core.Enum.create({
 	 * @property
 	 * @type Number
 	 */
-	OP_MARK_AS_READ : 11
+	OP_MARK_AS_READ: 11
 });

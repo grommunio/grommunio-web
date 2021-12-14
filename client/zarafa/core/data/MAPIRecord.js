@@ -30,7 +30,7 @@ Zarafa.core.data.MAPIRecord = Ext.extend(Ext.data.Record, {
 	 * @type Array
 	 * @private
 	 */
-	baseIdProperties : [ 'entryid', 'store_entryid', 'parent_entryid' ],
+	baseIdProperties: [ 'entryid', 'store_entryid', 'parent_entryid' ],
 
 	/**
 	 * The array of properties which must be used to uniquely
@@ -39,7 +39,7 @@ Zarafa.core.data.MAPIRecord = Ext.extend(Ext.data.Record, {
 	 * @type Array
 	 * @private
 	 */
-	idProperties : undefined,
+	idProperties: undefined,
 
 	/**
 	 * The key-value object of {@link Zarafa.core.data.MAPISubStore MAPISubStore} which stores
@@ -51,7 +51,7 @@ Zarafa.core.data.MAPIRecord = Ext.extend(Ext.data.Record, {
 	 * @type Object
 	 * @private
 	 */
-	subStores : undefined,
+	subStores: undefined,
 
 	/**
 	 * The key-value object of Booleans which stores the name of each SubStore which is supported
@@ -62,7 +62,7 @@ Zarafa.core.data.MAPIRecord = Ext.extend(Ext.data.Record, {
 	 * @type Object
 	 * @private
 	 */
-	subStoresTypes : undefined,
+	subStoresTypes: undefined,
 
 	/**
 	 * Used by {@link #setEventPropagation} and {@link #hasEventPropagation}, using this a record
@@ -72,7 +72,7 @@ Zarafa.core.data.MAPIRecord = Ext.extend(Ext.data.Record, {
 	 * @type Boolean
 	 * @private
 	 */
-	eventPropagation : true,
+	eventPropagation: true,
 
 	/**
 	 * True to enable fine-grained modifications tracking between individual {@link Ext.data.Store#update} events.
@@ -83,7 +83,7 @@ Zarafa.core.data.MAPIRecord = Ext.extend(Ext.data.Record, {
 	 * @type Boolean
 	 * @private
 	 */
-	trackUpdateModifications : false,
+	trackUpdateModifications: false,
 
 	/**
 	 * If {@link #trackUpdateModifications} is true, this field will contain all changes since the
@@ -93,7 +93,7 @@ Zarafa.core.data.MAPIRecord = Ext.extend(Ext.data.Record, {
 	 * @type Object
 	 * @private
 	 */
-	updateModifications : undefined,
+	updateModifications: undefined,
 
 	/**
 	 * If {@link #trackUpdateModifications} is true, this field will contains all substores which have
@@ -103,7 +103,7 @@ Zarafa.core.data.MAPIRecord = Ext.extend(Ext.data.Record, {
 	 * @type Object
 	 * @private
 	 */
-	updateSubStoreModifications : undefined,
+	updateSubStoreModifications: undefined,
 
 	/**
 	 * The number of editors working on this records. The {@link #beginEdit} and {@link #endEdit}
@@ -113,7 +113,7 @@ Zarafa.core.data.MAPIRecord = Ext.extend(Ext.data.Record, {
 	 * @type Number
 	 * @private
 	 */
-	editingCount : 0,
+	editingCount: 0,
 
 	/**
 	 * The property will contain list of sub action types that will be sent to server when saving/deleting
@@ -121,7 +121,7 @@ Zarafa.core.data.MAPIRecord = Ext.extend(Ext.data.Record, {
 	 * @property
 	 * @type Object
 	 */
-	actions : undefined,
+	actions: undefined,
 
 	/**
 	 * True if record is used for modal dialog. This is required because modal dialog will be the second dialog,
@@ -131,7 +131,7 @@ Zarafa.core.data.MAPIRecord = Ext.extend(Ext.data.Record, {
 	 * @type Boolean
 	 * @private
 	 */
-	isModalDialogRecord : false,
+	isModalDialogRecord: false,
 
 	/**
 	 * @constructor
@@ -140,7 +140,7 @@ Zarafa.core.data.MAPIRecord = Ext.extend(Ext.data.Record, {
 	 * @param {Zarafa.core.data.RecordDefinition} definition The record definition used to
 	 * construct this record
 	 */
-	constructor : function(data, id, definition)
+	constructor: function(data, id, definition)
 	{
 		Zarafa.core.data.MAPIRecord.superclass.constructor.call(this, data, id);
 
@@ -162,7 +162,7 @@ Zarafa.core.data.MAPIRecord = Ext.extend(Ext.data.Record, {
 	 * @param {String} newId (optional) A new Record id, defaults to the id of the record being copied. See id.
 	 * @return {Zarafa.core.data.MAPIRecord} The copy of the record.
 	 */
-	copy : function(newId)
+	copy: function(newId)
 	{
 		var copy = Zarafa.core.data.RecordFactory.createRecordObjectByRecordData(this.data, newId || this.id);
 
@@ -181,7 +181,7 @@ Zarafa.core.data.MAPIRecord = Ext.extend(Ext.data.Record, {
 	 * expensive copying of all data.
 	 * @return {Zarafa.core.data.MAPIRecord} this
 	 */
-	applyData : function(record, cheapCopy)
+	applyData: function(record, cheapCopy)
 	{
 		this.beginEdit();
 
@@ -208,7 +208,7 @@ Zarafa.core.data.MAPIRecord = Ext.extend(Ext.data.Record, {
 			}
 		}
 
-		// The actions are seperate from the 'data', so we must copy it
+		// The actions are separate from the 'data', so we must copy it
 		// separately. Note that we have no change or event mechanism for
 		// this field, so bluntly copying the object is sufficient.
 		this.actions = Ext.apply({}, record.actions);
@@ -229,7 +229,7 @@ Zarafa.core.data.MAPIRecord = Ext.extend(Ext.data.Record, {
 			// We are done with merging everything,
 			// call afterOpen() if needed to ensure the
 			// last initialization of the record occurs,
-			// and if record which refered by "this"
+			// and if record which referred by "this"
 			// is not opened.
 			if (record.isOpened() && !this.isOpened()) {
 				this.afterOpen();
@@ -246,7 +246,7 @@ Zarafa.core.data.MAPIRecord = Ext.extend(Ext.data.Record, {
 	 * This will call {@link Zarafa.core.data.MAPIStore#save} with itself
 	 * as argument.
 	 */
-	save : function()
+	save: function()
 	{
 		this.getStore().save(this);
 	},
@@ -258,7 +258,7 @@ Zarafa.core.data.MAPIRecord = Ext.extend(Ext.data.Record, {
 	 * @param {Zarafa.core.data.MAPIRecord} record The MAPIRecord to compare with
 	 * @return {Boolean} True if the records are the same.
 	 */
-	equals : Ext.emptyFn,
+	equals: Ext.emptyFn,
 
 	/**
 	 * Enable/Disable event {@link #eventPropagation propagation} from the
@@ -266,7 +266,7 @@ Zarafa.core.data.MAPIRecord = Ext.extend(Ext.data.Record, {
 	 * {@link Zarafa.core.data.IPMStoreMgr IPMStoreMgr}.
 	 * @param {Boolean} eventPropagation True if events can be propagated.
 	 */
-	setEventPropagation : function(eventPropagation)
+	setEventPropagation: function(eventPropagation)
 	{
 		this.eventPropagation = eventPropagation;
 	},
@@ -277,7 +277,7 @@ Zarafa.core.data.MAPIRecord = Ext.extend(Ext.data.Record, {
 	 * {@link Zarafa.core.data.IPMStoreMgr IPMStoreMgr}.
 	 * @return {Boolean} True if events can be propagated.
 	 */
-	hasEventPropagation : function()
+	hasEventPropagation: function()
 	{
 		return this.eventPropagation;
 	},
@@ -290,7 +290,7 @@ Zarafa.core.data.MAPIRecord = Ext.extend(Ext.data.Record, {
 	 * last update call.
 	 * @param {Boolean} enable Enable updatemodification tracking
 	 */
-	setUpdateModificationsTracking : function(enable)
+	setUpdateModificationsTracking: function(enable)
 	{
 		this.trackUpdateModifications = enable;
 	},
@@ -299,7 +299,7 @@ Zarafa.core.data.MAPIRecord = Ext.extend(Ext.data.Record, {
 	 * Get the updateModifications tracking status
 	 * @return {Boolean} True when update Modifications tracking has been enabled..
 	 */
-	getUpdateModificationsTracking : function()
+	getUpdateModificationsTracking: function()
 	{
 		return this.trackUpdateModifications;
 	},
@@ -307,7 +307,7 @@ Zarafa.core.data.MAPIRecord = Ext.extend(Ext.data.Record, {
 	/**
 	 * @return {Ext.data.Store} data store this record belongs to.
 	 */
-	getStore : function()
+	getStore: function()
 	{
 		return this.store;
 	},
@@ -316,7 +316,7 @@ Zarafa.core.data.MAPIRecord = Ext.extend(Ext.data.Record, {
 	 * Opens the record, loading all fields.
 	 * @param {Object} options Extra options to be used for loading the record
 	 */
-	open : function(options)
+	open: function(options)
 	{
 		if (this.isOpened() && (!options || options.forceLoad !== true)) {
 			return;
@@ -328,7 +328,7 @@ Zarafa.core.data.MAPIRecord = Ext.extend(Ext.data.Record, {
 	 * Called by the store after the record was opened successfully.
 	 * @private
 	 */
-	afterOpen : function()
+	afterOpen: function()
 	{
 		this.opened = true;
 		this.createSubStores();
@@ -339,7 +339,7 @@ Zarafa.core.data.MAPIRecord = Ext.extend(Ext.data.Record, {
 	/**
 	 * @return {Boolean} true iff the record has been fully loaded.
 	 */
-	isOpened : function()
+	isOpened: function()
 	{
 		return this.opened === true;
 	},
@@ -352,7 +352,7 @@ Zarafa.core.data.MAPIRecord = Ext.extend(Ext.data.Record, {
 	 * the modified array. Setting this argument will effectively override the
 	 * {@link Ext.data.Field#forceProtocol forceProtocol} option for the property we are modifying here.
 	 */
-	set : function(name, value, force)
+	set: function(name, value, force)
 	{
 		var forceProtocol = force;
 		if (!Ext.isDefined(forceProtocol)) {
@@ -394,7 +394,7 @@ Zarafa.core.data.MAPIRecord = Ext.extend(Ext.data.Record, {
 	 * Called after a record has been edited
 	 * @private
 	 */
-	afterEdit : function()
+	afterEdit: function()
 	{
 		Zarafa.core.data.MAPIRecord.superclass.afterEdit.call(this);
 		delete this.updateModifications;
@@ -405,7 +405,7 @@ Zarafa.core.data.MAPIRecord = Ext.extend(Ext.data.Record, {
 	 * Called after a record modifications have been rejected
 	 * @private
 	 */
-	afterReject : function()
+	afterReject: function()
 	{
 		Zarafa.core.data.MAPIRecord.superclass.afterReject.call(this);
 		delete this.updateModifications;
@@ -420,7 +420,7 @@ Zarafa.core.data.MAPIRecord = Ext.extend(Ext.data.Record, {
 	 * This function is overridden from {@link Ext.data.Record#beginEdit} and adds
 	 * support for nested editing blocks by using the {@link #editingCount}.
 	 */
-	beginEdit : function()
+	beginEdit: function()
 	{
 		// Increase editing counter, if it is a negative value, it means that
 		// it has been corrupted and we must force it to something valid.
@@ -443,7 +443,7 @@ Zarafa.core.data.MAPIRecord = Ext.extend(Ext.data.Record, {
 	 * This function is overridden from {@link Ext.data.Record#cancelEdit} and adds
 	 * support for nested editing blocks by using the {@link #editingCount}.
 	 */
-	cancelEdit : function()
+	cancelEdit: function()
 	{
 		// Increase editing counter, if it is a negative value, it means that
 		// it has been corrupted and we must force it to something valid.
@@ -466,7 +466,7 @@ Zarafa.core.data.MAPIRecord = Ext.extend(Ext.data.Record, {
 	 * This function is overridden from {@link Ext.data.Record#endEdit} and adds
 	 * support for nested editing blocks by using the {@link #editingCount}.
 	 */
-	endEdit : function()
+	endEdit: function()
 	{
 		// Increase editing counter, if it is a negative value, it means that
 		// it has been corrupted and we must force it to something valid.
@@ -489,7 +489,7 @@ Zarafa.core.data.MAPIRecord = Ext.extend(Ext.data.Record, {
 	 * @param {Boolean} silent (optional) True to skip notification of the owning
 	 * store of the change (defaults to false)
 	 */
-	commit : function(silent)
+	commit: function(silent)
 	{
 		// Delete the local modification tracking
 		delete this.updateModifications;
@@ -511,7 +511,7 @@ Zarafa.core.data.MAPIRecord = Ext.extend(Ext.data.Record, {
 	 * @param {String} fieldName The fieldname which has been modified
 	 * @return {Boolean} True if the field has been modified
 	 */
-	isModifiedSinceLastUpdate : function(fieldName)
+	isModifiedSinceLastUpdate: function(fieldName)
 	{
 		if (this.trackUpdateModifications === true) {
 			return !!(this.updateModifications && this.updateModifications.hasOwnProperty(fieldName));
@@ -528,7 +528,7 @@ Zarafa.core.data.MAPIRecord = Ext.extend(Ext.data.Record, {
 	 * @param {String} subStore Name of the subStore
 	 * @return {Boolean} True if the field has been modified
 	 */
-	isSubStoreModifiedSincelastUpdate : function(subStore)
+	isSubStoreModifiedSincelastUpdate: function(subStore)
 	{
 		if (this.trackUpdateModifications === true) {
 			return !!(this.updateSubStoreModifications && this.updateSubStoreModifications.hasOwnProperty(subStore));
@@ -544,7 +544,7 @@ Zarafa.core.data.MAPIRecord = Ext.extend(Ext.data.Record, {
 	 * @param {String} subStore Name of the subStore
 	 * @return {Array} The array of the records which were changed since the last update.
 	 */
-	getSubStoreChangesSinceLastUpdate : function(subStore)
+	getSubStoreChangesSinceLastUpdate: function(subStore)
 	{
 		if (this.trackUpdateModifications === true) {
 			if (this.updateSubStoreModifications && this.updateSubStoreModifications[subStore]) {
@@ -560,7 +560,7 @@ Zarafa.core.data.MAPIRecord = Ext.extend(Ext.data.Record, {
 	 * Get the Message Action list for the {@link Zarafa.core.data.MAPIRecord record}.
 	 * @return {Mixed} The Message Action list.
 	 */
-	getMessageActions : function()
+	getMessageActions: function()
 	{
 		return this.actions;
 	},
@@ -570,7 +570,7 @@ Zarafa.core.data.MAPIRecord = Ext.extend(Ext.data.Record, {
 	 * @param {String} actionName The name of action.
 	 * @return {Mixed} The Message Action.
 	 */
-	getMessageAction : function(actionName)
+	getMessageAction: function(actionName)
 	{
 		if(this.actions[actionName]) {
 			return this.actions[actionName];
@@ -584,7 +584,7 @@ Zarafa.core.data.MAPIRecord = Ext.extend(Ext.data.Record, {
 	 * @param {String} name The action name to add to the list.
 	 * @param {String} value The value attached to the action name
 	 */
-	addMessageAction : function(name, value)
+	addMessageAction: function(name, value)
 	{
 		this.actions[name] = value;
 
@@ -601,7 +601,7 @@ Zarafa.core.data.MAPIRecord = Ext.extend(Ext.data.Record, {
 	 * Delete action from the Message Action list
 	 * @param {String} name The action name to delete from the list.
 	 */
-	deleteMessageAction : function(name)
+	deleteMessageAction: function(name)
 	{
 		delete this.actions[name];
 	},
@@ -610,7 +610,7 @@ Zarafa.core.data.MAPIRecord = Ext.extend(Ext.data.Record, {
 	 * @param {String} name name of message action.
 	 * @return {Boolean} True if a {@link #actions message action} with the given name exists.
 	 */
-	hasMessageAction : function(name)
+	hasMessageAction: function(name)
 	{
 		return Ext.isDefined(this.actions[name]);
 	},
@@ -618,7 +618,7 @@ Zarafa.core.data.MAPIRecord = Ext.extend(Ext.data.Record, {
 	/**
 	 * Clear all Message Actions.
 	 */
-	clearMessageActions : function()
+	clearMessageActions: function()
 	{
 		this.actions = {};
 	},
@@ -626,7 +626,7 @@ Zarafa.core.data.MAPIRecord = Ext.extend(Ext.data.Record, {
 	/**
 	 * Clear Action Response.
 	 */
-	clearActionResponse : function()
+	clearActionResponse: function()
 	{
 		delete this.action_response;
 	},
@@ -636,7 +636,7 @@ Zarafa.core.data.MAPIRecord = Ext.extend(Ext.data.Record, {
 	 * @param {String} key Requested action response property
 	 * @return {Mixed} The corresponding data
 	 */
-	getActionResponse : function(key)
+	getActionResponse: function(key)
 	{
 		if(this.action_response){
 			return this.action_response[key];
@@ -644,11 +644,21 @@ Zarafa.core.data.MAPIRecord = Ext.extend(Ext.data.Record, {
 	},
 
 	/**
+	 * Unset private the {@link Zarafa.core.data.MAPIRecord record} to a different
+	 * {@link Zarafa.hierarchy.data.MAPIFolderRecord folder}.
+	 * @param {Zarafa.hierarchy.data.MAPIFolderRecord} folder The folder to copy/move the record to
+	 */
+	unsetPrivate: function()
+	{
+		this.addMessageAction('unset_Private', true);
+	},
+
+	/**
 	 * Copy the {@link Zarafa.core.data.MAPIRecord record} to a different
 	 * {@link Zarafa.hierarchy.data.MAPIFolderRecord folder}.
 	 * @param {Zarafa.hierarchy.data.MAPIFolderRecord} folder The folder to copy the record to
 	 */
-	copyTo : function(folder)
+	copyTo: function(folder)
 	{
 		this.addMessageAction('action_type', 'copy');
 		this.addMessageAction('destination_parent_entryid', folder.get('entryid'));
@@ -660,7 +670,7 @@ Zarafa.core.data.MAPIRecord = Ext.extend(Ext.data.Record, {
 	 * {@link Zarafa.hierarchy.data.MAPIFolderRecord folder}.
 	 * @param {Zarafa.hierarchy.data.MAPIFolderRecord} folder The folder to copy the record to
 	 */
-	moveTo : function(folder)
+	moveTo: function(folder)
 	{
 		this.addMessageAction('action_type', 'move');
 		this.addMessageAction('destination_parent_entryid', folder.get('entryid'));
@@ -668,11 +678,19 @@ Zarafa.core.data.MAPIRecord = Ext.extend(Ext.data.Record, {
 	},
 
 	/**
+	 * Adds message action 'suppress_exception' which suppresses an exception pop-up.
+	 */
+	suppressException: function()
+	{
+		this.addMessageAction('suppress_exception', true);
+	},
+
+	/**
 	 * Checks if the SubStore with the given name is supported by this record.
 	 * @param {String} name The name of the subStore to check
 	 * @return {Boolean} True if the given SubStore is supported by this Record.
 	 */
-	supportsSubStore : function(name)
+	supportsSubStore: function(name)
 	{
 		return Ext.isFunction(this.subStoresTypes[name]);
 	},
@@ -685,7 +703,7 @@ Zarafa.core.data.MAPIRecord = Ext.extend(Ext.data.Record, {
 	 * @param {String} name The name of the subStore to create
 	 * @return {Zarafa.core.data.MAPISubStore} The new substore.
 	 */
-	createSubStore : function(name)
+	createSubStore: function(name)
 	{
 		if (this.supportsSubStore(name)) {
 			var store = this.getSubStore(name);
@@ -703,7 +721,7 @@ Zarafa.core.data.MAPIRecord = Ext.extend(Ext.data.Record, {
 	 * Create all {@link #subStores} which are {@link #subStoresTypes supported}
 	 * by this record.
 	 */
-	createSubStores : function()
+	createSubStores: function()
 	{
 		for (var key in this.subStoresTypes) {
 			if (!this.getSubStore(key)) {
@@ -717,7 +735,7 @@ Zarafa.core.data.MAPIRecord = Ext.extend(Ext.data.Record, {
 	 * @param {String} name The name of the substore to get
 	 * @return {Zarafa.core.data.MAPISubStore} The substore.
 	 */
-	getSubStore : function(name)
+	getSubStore: function(name)
 	{
 		if (this.subStores !== null) {
 			return this.subStores[name];
@@ -731,10 +749,10 @@ Zarafa.core.data.MAPIRecord = Ext.extend(Ext.data.Record, {
 	 * @param {Zarafa.core.data.MAPISubStore} store the subStore.
 	 * @return {Zarafa.core.data.MAPISubStore} The substore.
 	 */
-	setSubStore : function(name, store)
+	setSubStore: function(name, store)
 	{
 		if (this.subStores === null) {
-			this.subStores = {name : store};
+			this.subStores = {name: store};
 		} else {
 			this.subStores[name] = store;
 		}
@@ -749,7 +767,7 @@ Zarafa.core.data.MAPIRecord = Ext.extend(Ext.data.Record, {
 	 * @param {Boolean} cheapCopy Use the cheap assignment rather then the more expensive copying
 	 * of all records
 	 */
-	mergeSubStore : function(name, remoteSubStore, cheapCopy)
+	mergeSubStore: function(name, remoteSubStore, cheapCopy)
 	{
 		var subStore = this.getSubStore(name);
 
@@ -759,11 +777,19 @@ Zarafa.core.data.MAPIRecord = Ext.extend(Ext.data.Record, {
 					// the "add", "modify" and "delete" changes in the subStore.
 
 					var prop = name === 'attachments' ? 'attach_id' : 'entryid';
+					var isPermissionSubStore = name === 'permissions';
 					// Go over the current store, and start searching for the corresponding
 					// record in the remote store.
 					subStore.each(function(record) {
 						var remoteRecordIndex = remoteSubStore.findBy(function (remoteRecord) {
-							return this.idComparison(record.get(prop), remoteRecord.get(prop));
+							var isRecordEqual = this.idComparison(record.get(prop), remoteRecord.get(prop));
+							// If substore is permissions substore then check both the copy of record 
+							// having same rights if not it means substore has old copy of user permission record 
+							// which needs to remove from substore.
+							if (isPermissionSubStore && isRecordEqual) {
+								return record.get("rights") === remoteRecord.get("rights");
+							}
+							return isRecordEqual;
 						}, this);
 
 						if (remoteRecordIndex < 0) {
@@ -806,13 +832,13 @@ Zarafa.core.data.MAPIRecord = Ext.extend(Ext.data.Record, {
 	 * @return {Boolean} return true if entryId is same else false.
 	 * @protected
 	 */
-	idComparison : function(entryIdOne, entryIdTwo)
+	idComparison: function(entryIdOne, entryIdTwo)
 	{
 		entryIdOne = Zarafa.core.EntryId.hasContactProviderGUID(entryIdOne) ?
-			Zarafa.core.EntryId.unwrapContactProviderEntryId(entryIdOne) : entryIdOne;
+			Zarafa.core.EntryId.unwrapContactProviderEntryId(entryIdOne): entryIdOne;
 
 		entryIdTwo = Zarafa.core.EntryId.hasContactProviderGUID(entryIdTwo) ?
-			Zarafa.core.EntryId.unwrapContactProviderEntryId(entryIdTwo) : entryIdTwo;
+			Zarafa.core.EntryId.unwrapContactProviderEntryId(entryIdTwo): entryIdTwo;
 
 		return Zarafa.core.EntryId.compareEntryIds(entryIdOne, entryIdTwo);
 	},
@@ -826,7 +852,7 @@ Zarafa.core.data.MAPIRecord = Ext.extend(Ext.data.Record, {
 	 * @param {Boolean} cheapCopy Use the cheap assignment rather then the more expensive copying
 	 * of all records
 	 */
-	mergeSubStores : function(subStores, cheapCopy)
+	mergeSubStores: function(subStores, cheapCopy)
 	{
 		for (var key in subStores) {
 			if (this.supportsSubStore(key)) {
@@ -842,7 +868,7 @@ Zarafa.core.data.MAPIRecord = Ext.extend(Ext.data.Record, {
 	 * @param {Zarafa.core.data.MAPIRecord[]} records The records which were added/modified/removed
 	 * @private
 	 */
-	onSubStoreChange : function(store, records)
+	onSubStoreChange: function(store, records)
 	{
 		for (var key in this.subStores) {
 			if (this.subStores[key] === store) {
@@ -858,8 +884,8 @@ Zarafa.core.data.MAPIRecord = Ext.extend(Ext.data.Record, {
 					var changes = this.updateSubStoreModifications[key];
 					if (!changes) {
 						changes = {
-							store : store,
-							changes : [].concat(records)
+							store: store,
+							changes: [].concat(records)
 						};
 						this.updateSubStoreModifications[key] = changes;
 					} else {
@@ -892,7 +918,7 @@ Zarafa.core.data.MAPIRecord = Ext.extend(Ext.data.Record, {
 	 * {@link Ext.data.Record#EDIT}, {@link Ext.data.Record#REJECT}, {@link Ext.data.Record#COMMIT}).
 	 * @private
 	 */
-	onSubStoreUpdate : function(store, records, action)
+	onSubStoreUpdate: function(store, records, action)
 	{
 		if (action !== Ext.data.Record.COMMIT) {
 			this.onSubStoreChange(store, records);
@@ -906,7 +932,7 @@ Zarafa.core.data.MAPIRecord = Ext.extend(Ext.data.Record, {
 	 *
 	 * @param {String} prop The propertyname to be added
 	 */
-	addIdProp : function(prop)
+	addIdProp: function(prop)
 	{
 		if (!this.hasIdProp(prop)) {
 			this.idProperties.push(prop);
@@ -918,7 +944,7 @@ Zarafa.core.data.MAPIRecord = Ext.extend(Ext.data.Record, {
 	 * @param {String} prop The name of the property
 	 * @return {Boolean} True if the given prop is an ID property
 	 */
-	hasIdProp : function(prop)
+	hasIdProp: function(prop)
 	{
 		return this.idProperties.indexOf(prop) > -1;
 	},
@@ -927,7 +953,7 @@ Zarafa.core.data.MAPIRecord = Ext.extend(Ext.data.Record, {
 	 * Remove extra Identification property from the {@link #idProperties} array.
 	 * @param {String} prop The name of the property
 	 */
-	removeIdProp : function(prop)
+	removeIdProp: function(prop)
 	{
 		if(this.hasIdProp(prop)) {
 			this.idProperties.splice(this.idProperties.indexOf(prop), 1);
@@ -941,7 +967,7 @@ Zarafa.core.data.MAPIRecord = Ext.extend(Ext.data.Record, {
 	 *
 	 * @return {array} the array of identification properties.
 	 */
-	getIdProps : function()
+	getIdProps: function()
 	{
 		return this.idProperties;
 	},
@@ -952,7 +978,7 @@ Zarafa.core.data.MAPIRecord = Ext.extend(Ext.data.Record, {
 	 *
 	 * @return {Zarafa.core.mapi.DisplayType|Zarafa.core.mapi.DisplayTypeEx} The display type value.
 	 */
-	getDisplayType : function()
+	getDisplayType: function()
 	{
 		var displayType = this.get('display_type');
 		var displayTypeEx = this.get('display_type_ex');
@@ -975,12 +1001,38 @@ Zarafa.core.data.MAPIRecord = Ext.extend(Ext.data.Record, {
 	 * Destroy the record, this will destroy the record and the record data
 	 * ensuring that all references are lost.
 	 */
-	destroy : function()
+	destroy: function()
 	{
 		// Destroy all substores
 		for (var key in this.subStores) {
 			this.subStores[key].destroy();
 		}
 		this.subStores = null;
+	},
+
+	/**
+	 * @returns {boolean} return true only if record has delete access else false.
+	 */
+	hasDeleteAccess: function ()
+	{
+		return (this.get('access') & Zarafa.core.mapi.Access.ACCESS_DELETE) > 0;
+	},
+
+	/**
+	 * Event handler for the 'datachanged' event of {@link Ext.data.Store store}
+	 * When we have modal dialog open and if we receive a new email then modified, store
+	 * and sub store of the selected records are not accessible anymore,
+	 * so we have to set the modified things from the record along with updated store in modal record.
+	 *
+	 * @param {Zarafa.core.data.ListModuleStore} store This store
+	 * @private
+	 */
+	onDataChange: function (store)
+	{
+		var modalRecord = this.modalRecord;
+		if (Ext.isEmpty(modalRecord.getStore()) && this.isModal()) {
+			modalRecord.applyData(this.record);
+			modalRecord.store = store;
+		}
 	}
 });

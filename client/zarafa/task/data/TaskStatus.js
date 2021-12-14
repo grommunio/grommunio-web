@@ -8,7 +8,7 @@ Ext.namespace('Zarafa.task.data');
  * @singleton
  */
 Zarafa.task.data.TaskStatus = {
-	status : [{
+	status: [{
 		value: Zarafa.core.mapi.TaskStatus['NOT_STARTED'],
 		name: Zarafa.core.mapi.TaskStatus.getDisplayName(Zarafa.core.mapi.TaskStatus['NOT_STARTED'])
 	},{

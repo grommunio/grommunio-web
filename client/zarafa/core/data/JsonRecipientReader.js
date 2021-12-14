@@ -13,7 +13,7 @@ Zarafa.core.data.JsonRecipientReader = Ext.extend(Zarafa.core.data.JsonReader, {
 	 * which represents the {@link Ext.data.Record records} which should be created using
 	 * {@link Zarafa.core.data.RecordFactory#createRecordObjectByCustomType}.
 	 */
-	customObjectType : Zarafa.core.data.RecordCustomObjectType.ZARAFA_RECIPIENT,
+	customObjectType: Zarafa.core.data.RecordCustomObjectType.ZARAFA_RECIPIENT,
 
 	/**
 	 * @constructor
@@ -22,12 +22,12 @@ Zarafa.core.data.JsonRecipientReader = Ext.extend(Zarafa.core.data.JsonReader, {
 	 * which must be read from response. If no type is given, it will use the
 	 * record type for the {@link Zarafa.core.data.RecordCustomObjectType#ZARAFA_RECIPIENT}.
 	 */
-	constructor : function(meta, recordType)
+	constructor: function(meta, recordType)
 	{
 		meta = Ext.applyIf(meta || {}, {
-			id : 'rowid',
-			idProperty : 'rowid',
-			dynamicRecord : false
+			id: 'rowid',
+			idProperty: 'rowid',
+			dynamicRecord: false
 		});
 
 		// If no recordType is provided, force the type to be a recipient

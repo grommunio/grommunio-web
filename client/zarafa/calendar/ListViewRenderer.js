@@ -22,48 +22,54 @@ Zarafa.calendar.printer.ListViewRenderer = Ext.extend(Zarafa.common.printer.rend
 	 * @return {String} The HTML for the XTemplate to print
 	 */
 	generateBodyTemplate: function(context) {
-		var html = '';
 
-		// +----------------------------------------------------+
-		// | priority | % complete | due date | subject | owner |
-		// ....
-		// +----------------------------------------------------+
-		// [name]                                    [print date]
+		/*
+		 * +----------------------------------------------------+
+		 * | priority | % complete | due date | subject | owner |
+		 * ....
+		 * +----------------------------------------------------+
+		 * [name]                                    [print date]
+		 */
 
-		html += '<table id="printlist" cellpadding=0 cellspacing=0>\n';
+		var html = '<div id="k-listview">'
 
-		html += '<tr>'
-			+ '<th>' + _('Subject') + '</th>'
-			+ '<th>' + _('Start') + '</th>'
-			+ '<th>' + _('End') + '</th>'
-			+ '<th>' + _('Duration') + '</th>'
-			+ '<th>' + _('Location') + '</th>'
-			+ '<th>' + _('Categories') + '</th>'
-			+ '</tr>\n';
+			// Div with calendar name
+			+ '<div id="k-name">'
+			+	'<tr><td>' + _('An overview of') + ': ' + '{foldernames} </td><tr>'
+			+ '</div>'
+			+ '<table id="k-printlist" cellpadding=0 cellspacing=0>'
+			+ 	'<tr>'
+			+		'<th>' + _('Subject') + '</th>'
+			+		'<th>' + _('Start') + '</th>'
+			+		'<th>' + _('End') + '</th>'
+			+		'<th>' + _('Duration') + '</th>'
+			+		'<th>' + _('Location') + '</th>'
+			+		'<th>' + _('Categories') + '</th>'
+			+	'</tr>'
+			// date format l jS F = Monday 1st January
+			+ 	'<tpl for="appointments">'
+			+		'<tr>'
+			+			'<td>{values.data.subject:htmlEncode}</td>'
+						// # TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
+			+			'<td>{values.data.startdate:formatDefaultTimeString("' + _("l jS F Y {0}") + '")}</td>'
+						// # TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
+			+			'<td>{values.data.duedate:formatDefaultTimeString("' + _("l jS F Y {0}") + '")}</td>'
+			+			'<td>{[Ext.util.Format.duration(values.data.duration, 1)]}</td>'
+			+			'<td>{values.data.location:htmlEncode}</td>'
+			+			'<td>{values.data.categories:htmlEncode}</td>'
+			+		'</tr>'
+			+	'</tpl>'
+			+'</table>'
 
-		// date format l jS F == Monday 1st January
-		html += '<tpl for="appointments">'
-			+ '<tr>'
-			+ '<td>{values.data.subject:htmlEncode}</td>'
-			// # TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
-			+ '<td>{values.data.startdate:date("' + _("l jS F Y G:i") + '")}</td>'
-			+ '<td>{values.data.duedate:date("' + _("l jS F Y G:i") + '")}</td>'
-			+ '<td>{[Ext.util.Format.duration(values.data.duration, 1)]}</td>'
-			+ '<td>{values.data.location:htmlEncode}</td>'
-			+ '<td>{values.data.categories:htmlEncode}</td>'
-			+ '</tr>\n'
-			+ '</tpl>';
+			// Bottom table with username and date
+			+ '<table id="k-printlistbottom">'
+			+	'<tr>'
+					// # TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
+     	        	+		'<td class="nowrap" align="left">'+_('Printed by') + ' ' + '{fullname}' + ' '+_('at') + ' ' + '{currenttime:formatDefaultTimeString("' + _("l jS F Y {0}") + '")}</td>'
+			+	'</tr>'
+			+ '</table>'
+		+ '</div>';
 
-		html += '</table>\n';
-		
-		// Bottom table with username and date
-		html += '<table id="printlistbottom">'
-		+ '<tr>'
-		+ '<td>' + _('Printed by: ') +'{fullname:htmlEncode}</td>'
-		// # TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
-		+ '<td class="right">' + _('Printed on: ') + '{currenttime:date("' + _("l jS F Y G:i") + '")}</td>'
-		+ '</tr>'
-		+ '</table>\n';
 		return html;
 	},
 
@@ -79,7 +85,20 @@ Zarafa.calendar.printer.ListViewRenderer = Ext.extend(Zarafa.common.printer.rend
 		data['fullname'] = container.getUser().getDisplayName();
 		data['currenttime'] = new Date();
 		data['appointments'] = model.getStore().getRange();
-		
+
+		// Obtain the calendar name
+        var folders = model.getFolders();
+        var foldernames = [];
+        for (var i = 0; i < folders.length; i++) {
+            if (folders[i].getMAPIStore().get('display_name') === container.getUser().getDisplayName()) {
+                foldernames.push(folders[i].get('display_name'));
+            } else {
+                foldernames.push(folders[i].get('display_name') + ' ' + _('of') + ' ' + folders[i].getMAPIStore().get('display_name'));
+            }
+        }
+
+        data['foldernames'] = foldernames.join(', ');
+
 		return data;
 	}
 });

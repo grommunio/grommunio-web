@@ -6,21 +6,21 @@ Ext.namespace('Zarafa.core');
  * Class for decoding entryids and for comparison between two entryids
  * we have basically two types of entryids object and store entryids.
  *
- * object entryids uses structure EID for entryids created using ZCP7/KC8/GX
+ * object entryids uses structure EID for entryids created
  * and for older entryids it uses structure EID_V0. Store entryids are generally wrapped
  * with some extra information (like guid for provider, dll name) which should be removed
  * before comparing two store entryids, after removing this wrapping the unwrapped entryid
  * uses the format same as object entryids (EID or EID_V0).
  *
- * version flag in EID and EID_V0 are Kopano specific flag and indicates which structure is used
+ * version flag in EID and EID_V0 are specific flags and indicate which structure is used
  * to create that entryid, EID always contains version as '01000000' and EID_V0 always contains
  * '00000000' as version flag.
  *
  * server part of EID and EID_V0 indicates server name and it can be variable length, padding can be
  * upto 3 bytes so it can be anything between 0 to 3 bytes.
  *
- * in public store public root folder, ipm_subtree and favorites folder are custom folders of Kopano
- * so it has static uniqueids.
+ * in public store public root folder, ipm_subtree and favorites folder are custom folders
+ * so they have static uniqueids.
  *
  * @singleton
  */
@@ -48,14 +48,14 @@ Zarafa.core.EntryId = (function()
 	var BASE_EID = Ext.extend(Object, {
 
 		// The entryid which this object represents
-		entryId : '',
+		entryId: '',
 
 		// The length of the entryid
-		length : 0,
+		length: 0,
 
 		// Constructor
 		// param: Entryid The entryid represented by this object
-		constructor : function(entryId)
+		constructor: function(entryId)
 		{
 			if(entryId) {
 				// always make entryids in uppercase so comparison will be case insensitive
@@ -67,7 +67,7 @@ Zarafa.core.EntryId = (function()
 		},
 
 		// Detect padding (max 3 bytes) from the entryId
-		getPadding : function(entryId)
+		getPadding: function(entryId)
 		{
 			var padding = '';
 			var offset = 0;
@@ -89,19 +89,19 @@ Zarafa.core.EntryId = (function()
 
 	// Entryid from version 6
 	var EID = Ext.extend(BASE_EID, {
-		abFlags : '',           // BYTE[4],   4 bytes,  8 hex characters
-		guid : '',              // GUID,     16 bytes, 32 hex characters
-		version : '',           // ULONG,     4 bytes,  8 hex characters
-		type : '',              // ULONG,     4 bytes,  8 hex characters
-		uniqueId : '',          // GUID,     16 bytes, 32 hex characters
-		server : '',            // CHAR,     variable length
-		padding : '',           // TCHAR[3],  4 bytes,  8 hex characters (upto 4 bytes)
+		abFlags: '',      // BYTE[4],  4 bytes, 8 hex characters
+		guid: '',       // GUID,   16 bytes, 32 hex characters
+		version: '',      // ULONG,   4 bytes, 8 hex characters
+		type: '',       // ULONG,   4 bytes, 8 hex characters
+		uniqueId: '',     // GUID,   16 bytes, 32 hex characters
+		server: '',      // CHAR,   variable length
+		padding: '',      // TCHAR[3], 4 bytes, 8 hex characters (upto 4 bytes)
 
-		MIN_LENGTH : 88,
-		name : 'EID',
+		MIN_LENGTH: 88,
+		name: 'EID',
 
 		// decompose the entryid and populate all flags of entryid
-		decomposeEntryId : function(entryId)
+		decomposeEntryId: function(entryId)
 		{
 			var offset = 0;
 
@@ -128,21 +128,21 @@ Zarafa.core.EntryId = (function()
 		}
 	});
 
-	// The entryid from the begin of Kopano till 5.20
+	// The entryid from the begin
 	var EID_V0 = Ext.extend(BASE_EID, {
-		abFlags : '',           // BYTE[4],   4 bytes,  8 hex characters
-		guid : '',              // GUID,     16 bytes, 32 hex characters
-		version : '',           // ULONG,     4 bytes,  8 hex characters
-		type : '',              // ULONG,     4 bytes,  8 hex characters
-		id : '',                // ULONG,     4 bytes,  8 hex characters
-		server : '',            // CHAR,     variable length
-		padding : '',           // TCHAR[3],  4 bytes,  8 hex characters (upto 4 bytes)
+		abFlags: '',      // BYTE[4],  4 bytes, 8 hex characters
+		guid: '',       // GUID,   16 bytes, 32 hex characters
+		version: '',      // ULONG,   4 bytes, 8 hex characters
+		type: '',       // ULONG,   4 bytes, 8 hex characters
+		id: '',        // ULONG,   4 bytes, 8 hex characters
+		server: '',      // CHAR,   variable length
+		padding: '',      // TCHAR[3], 4 bytes, 8 hex characters (upto 4 bytes)
 
-		MIN_LENGTH : 64,
-		name : 'EID_V0',
+		MIN_LENGTH: 64,
+		name: 'EID_V0',
 
 		// decompose the entryid and populate all flags of entryid
-		decomposeEntryId : function(entryId)
+		decomposeEntryId: function(entryId)
 		{
 			var offset = 0;
 
@@ -171,18 +171,18 @@ Zarafa.core.EntryId = (function()
 
 	// wrapped store entryid
 	var WrappedSEID = Ext.extend(BASE_EID, {
-		flags : '',             // BYTE[4],      4 bytes,  8 hex characters
-		providerUID : '',       // GUID,        16 bytes, 32 hex characters
-		version : '',           // ULONG,        1 bytes,  2 hex characters	// zero
-		type : '',              // ULONG,        1 bytes,  2 hex characters	// zero
-		DLLFileName : '',       // BYTE,        variable length				// kopano6client.dll
-		terminationChar : '',   // BYTE[1],      1 bytes,  2 hex characters	// zero
-		unWrappedEntryId : '',  // EID/EID_V0,  variable length because it contains server name
+		flags: '',       // BYTE[4],   4 bytes, 8 hex characters
+		providerUID: '',    // GUID,    16 bytes, 32 hex characters
+		version: '',      // ULONG,    1 bytes, 2 hex characters	// zero
+		type: '',       // ULONG,    1 bytes, 2 hex characters	// zero
+		DLLFileName: '',    // BYTE,    variable length
+		terminationChar: '',  // BYTE[1],   1 bytes, 2 hex characters	// zero
+		unWrappedEntryId: '', // EID/EID_V0, variable length because it contains server name
 
-		name : 'WrappedSEID',
+		name: 'WrappedSEID',
 
 		// decompose the entryid and populate all flags of entryid
-		decomposeEntryId : function(storeEntryId)
+		decomposeEntryId: function(storeEntryId)
 		{
 			var offset = 0;
 
@@ -215,19 +215,19 @@ Zarafa.core.EntryId = (function()
 
 	// The entryid for addressbook items
 	var ABEID = Ext.extend(BASE_EID, {
-		abFlags : '',           // BYTE[4],   4 bytes,  8 hex characters
-		guid : '',              // GUID,     16 bytes, 32 hex characters
-		version : '',           // ULONG,     4 bytes,  8 hex characters
-		type : '',              // ULONG,     4 bytes,  8 hex characters
-		id : '',                // ULONG,     4 bytes,  8 hex characters
-		extid : '',             // CHAR,      variable length
-		padding : '',           // TCHAR[3],  4 bytes,  8 hex characters (upto 4 bytes)
+		abFlags: '',      // BYTE[4],  4 bytes, 8 hex characters
+		guid: '',       // GUID,   16 bytes, 32 hex characters
+		version: '',      // ULONG,   4 bytes, 8 hex characters
+		type: '',       // ULONG,   4 bytes, 8 hex characters
+		id: '',        // ULONG,   4 bytes, 8 hex characters
+		extid: '',       // CHAR,   variable length
+		padding: '',      // TCHAR[3], 4 bytes, 8 hex characters (upto 4 bytes)
 
-		MIN_LENGTH : 64,
-		name : 'ABEID',
+		MIN_LENGTH: 64,
+		name: 'ABEID',
 
 		// decompose the entryid and populate all flags of entryid
-		decomposeEntryId : function(entryId)
+		decomposeEntryId: function(entryId)
 		{
 			var offset = 0;
 
@@ -256,16 +256,16 @@ Zarafa.core.EntryId = (function()
 
 	// The entryid for local addressbook items
 	var WrappedABEID = Ext.extend(BASE_EID, {
-		ulVersion : '',         // ULONG,     4 bytes,  8 hex characters
-		muid : '',              // MAPIUID,  16 bytes, 32 hex characters
-		ulObjType : '',         // ULONG,     4 bytes,  8 hex characters
-		ulOffset : '',          // ULONG,     4 bytes,  8 hex characters
-		unWrappedEntryId : '',  // EID/EID_V0,  variable length because it contains server name
+		ulVersion: '',     // ULONG,   4 bytes, 8 hex characters
+		muid: '',       // MAPIUID, 16 bytes, 32 hex characters
+		ulObjType: '',     // ULONG,   4 bytes, 8 hex characters
+		ulOffset: '',     // ULONG,   4 bytes, 8 hex characters
+		unWrappedEntryId: '', // EID/EID_V0, variable length because it contains server name
 
-		name : 'WrappedABEID',
+		name: 'WrappedABEID',
 
 		// decompose the entryid and populate all flags of entryid
-		decomposeEntryId : function(ABEntryId)
+		decomposeEntryId: function(ABEntryId)
 		{
 			var offset = 0;
 
@@ -315,7 +315,7 @@ Zarafa.core.EntryId = (function()
 		 * @param {String} entryid Entryid
 		 * @return {Object} EntryID object
 		 */
-		createABEntryIdObj : function(entryid)
+		createABEntryIdObj: function(entryid)
 		{
 			return new ABEID(entryid);
 		},
@@ -327,7 +327,7 @@ Zarafa.core.EntryId = (function()
 		 * @param {String} entryId2 EntryID
 		 * @return {Boolean} Result of the comparison
 		 */
-		compareABEntryIds : function(entryId1, entryId2)
+		compareABEntryIds: function(entryId1, entryId2)
 		{
 			if(!Ext.isString(entryId1) || !Ext.isString(entryId2)) {
 				return false;
@@ -345,7 +345,7 @@ Zarafa.core.EntryId = (function()
 		 * @param {String} entryid Entryid
 		 * @return {Object} EntryID object
 		 */
-		createEntryIdObj : function(entryid)
+		createEntryIdObj: function(entryid)
 		{
 			// check if we are dealing with old or new object entryids
 			var versionString = entryid.substr(40, 8);
@@ -369,7 +369,7 @@ Zarafa.core.EntryId = (function()
 		 * @param {String} entryId2 EntryID
 		 * @return {Boolean} Result of the comparison
 		 */
-		compareEntryIds : function(entryId1, entryId2)
+		compareEntryIds: function(entryId1, entryId2)
 		{
 			if(!Ext.isString(entryId1) || !Ext.isString(entryId2)) {
 				return false;
@@ -387,7 +387,7 @@ Zarafa.core.EntryId = (function()
 		 * @param {String} storeEntryId unwrapped store entryid.
 		 * @return {Object} store entryid object.
 		 */
-		createStoreEntryIdObj : function(storeEntryId)
+		createStoreEntryIdObj: function(storeEntryId)
 		{
 			return new WrappedSEID(storeEntryId);
 		},
@@ -399,7 +399,7 @@ Zarafa.core.EntryId = (function()
 		 * @param {String} storeEntryId2 store entryid
 		 * @return {Boolean} Result of the comparison
 		 */
-		compareStoreEntryIds : function(storeEntryId1, storeEntryId2)
+		compareStoreEntryIds: function(storeEntryId1, storeEntryId2)
 		{
 			if(!Ext.isString(storeEntryId1) || !Ext.isString(storeEntryId2)) {
 				return false;
@@ -418,7 +418,7 @@ Zarafa.core.EntryId = (function()
 		 * @param {String} entryId the Address Book entryid.
 		 * @return {String} The unwrapped entryId
 		 */
-		unwrapContactProviderEntryId : function(entryId)
+		unwrapContactProviderEntryId: function(entryId)
 		{
 			return WrappedABEID.unwrapABEID(entryId);
 		},
@@ -428,7 +428,7 @@ Zarafa.core.EntryId = (function()
 		 * @param {String} entryId The entryid
 		 * @return {String} The wrapped entryId
 		 */
-		wrapContactProviderEntryId : function(entryId, objType)
+		wrapContactProviderEntryId: function(entryId, objType)
 		{
 			return WrappedABEID.wrapABEID(entryId, objType);
 		},
@@ -440,7 +440,7 @@ Zarafa.core.EntryId = (function()
 		 * @param {String} emailaddress email address as configured in record.
 		 * @return {String} The oneoff entryId
 		 */
-		createOneOffEntryId : function(displayname, addrtype, emailaddress)
+		createOneOffEntryId: function(displayname, addrtype, emailaddress)
 		{
 			return '00000000' + MAPI_ONE_OFF_UID + '00000080' + Zarafa.core.Util.encode_utf16(displayname) + '0000' + Zarafa.core.Util.encode_utf16(addrtype) + '0000' + Zarafa.core.Util.encode_utf16(emailaddress) + '0000';
 		},
@@ -451,7 +451,7 @@ Zarafa.core.EntryId = (function()
 		 * @param {String} entryId folder entryid
 		 * @return {Boolean} true of folder is a favorite folder else false
 		 */
-		isFavoriteFolder : function(entryId)
+		isFavoriteFolder: function(entryId)
 		{
 			var entryIdObj = Zarafa.core.EntryId.createEntryIdObj(entryId);
 
@@ -463,7 +463,7 @@ Zarafa.core.EntryId = (function()
 		 * @param {String} entryId The entryid
 		 * @return {Boolean} true if the entryid is a oneoff
 		 */
-		isOneOffEntryId : function(entryId)
+		isOneOffEntryId: function(entryId)
 		{
 			var entryIdObj = Zarafa.core.EntryId.createEntryIdObj(entryId);
 
@@ -475,7 +475,7 @@ Zarafa.core.EntryId = (function()
 		 * @param {String} entryId folder entryid
 		 * @return {Boolean} true of folder is a root favorite folder else false
 		 */
-		isFavoriteRootFolder : function(entryId)
+		isFavoriteRootFolder: function(entryId)
 		{
 			var entryIdObj = Zarafa.core.EntryId.createEntryIdObj(entryId);
 
@@ -487,7 +487,7 @@ Zarafa.core.EntryId = (function()
 		 * @param {String} entryId folder entryid
 		 * @return {Boolean} true of folder is a root public folder else false
 		 */
-		isPublicRootFolder : function(entryId)
+		isPublicRootFolder: function(entryId)
 		{
 			var entryIdObj = Zarafa.core.EntryId.createEntryIdObj(entryId);
 
@@ -499,7 +499,7 @@ Zarafa.core.EntryId = (function()
 		 * @param {String} entryId folder entryid
 		 * @return {Boolean} true of folder is a root public folder else false
 		 */
-		isPublicSubtreeFolder : function(entryId)
+		isPublicSubtreeFolder: function(entryId)
 		{
 			var entryIdObj = Zarafa.core.EntryId.createEntryIdObj(entryId);
 
@@ -511,7 +511,7 @@ Zarafa.core.EntryId = (function()
 		 * @param {String} entryId Address Book entryid
 		 * @return {Boolean} true if guid matches the Contact Provider else false
 		 */
-		hasContactProviderGUID : function(entryId)
+		hasContactProviderGUID: function(entryId)
 		{
 			var entryIdObj = Zarafa.core.EntryId.createEntryIdObj(entryId);
 
@@ -523,7 +523,7 @@ Zarafa.core.EntryId = (function()
 		 * @param {String} entryId Address Book entryid
 		 * @return {Boolean} true if guid matches the Global Addressbook else false
 		 */
-		hasAddressBookGUID : function(entryId)
+		hasAddressBookGUID: function(entryId)
 		{
 			var entryIdObj = Zarafa.core.EntryId.createABEntryIdObj(entryId);
 
@@ -535,7 +535,7 @@ Zarafa.core.EntryId = (function()
 		 * @param {String} entryId Address Book entryid
 		 * @return {Boolean} true if guid matches the Global Addressbook Container else false
 		 */
-		isGlobalAddressbookContainer : function(entryId)
+		isGlobalAddressbookContainer: function(entryId)
 		{
 			// check for global addressbook entryid
 			if(Zarafa.core.EntryId.hasAddressBookGUID(entryId) === false) {

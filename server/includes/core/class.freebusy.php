@@ -29,7 +29,7 @@ class FreeBusy
 			$store = $GLOBALS['mapisession']->getDefaultMessageStore();
 		}
 
-		// Check Kopano-core has mapi_freebusy_openmsg function,
+		// Check for mapi_freebusy_openmsg function,
 		// If yes then use mapi function to get freebusy message.
 		if (function_exists('mapi_freebusy_openmsg')) {
 			return mapi_freebusy_openmsg($store);

@@ -15,7 +15,7 @@ Zarafa.calendar.ui.html.AppointmentProxy = Ext.extend(Zarafa.calendar.ui.Appoint
 	/**
 	 * @cfg {Boolean} showTime initial value of showTime. When true the start and due times are rendered in the view body. Defaults to false.
 	 */
-	showTime : false,
+	showTime: false,
 
 	/**
 	 * The &lt;div&gt; element for the body of the appointment. This element is
@@ -23,37 +23,37 @@ Zarafa.calendar.ui.html.AppointmentProxy = Ext.extend(Zarafa.calendar.ui.Appoint
 	 * @property
 	 * @type Array
 	 */
-	body : undefined,
+	body: undefined,
 
 	/**
 	 * The CSS class which must be applied to the {@link #header} element.
 	 * This class can be set using {@link #setHeaderClass}.
-	 * FIXME: This class doesn't work, as it is overriden by the subclass...
+	 * FIXME: This class doesn't work, as it is overridden by the subclass...
 	 * @property
 	 * @type String
 	 */
-	headerClassName : '',
+	headerClassName: '',
 
 	/**
 	 * The CSS class which must be applied to the {@link #body} element.
 	 * This class can be set using {@link #setBodyClass}.
-	 * FIXME: This class doesn't work, as it is overriden by the subclass...
+	 * FIXME: This class doesn't work, as it is overridden by the subclass...
 	 * @property
 	 * @type String
 	 */
-	bodyClassName : '',
+	bodyClassName: '',
 
 	/**
 	 * @constructor
 	 * @param {Object} config Configuration object
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		config = config || {};
 
 		Ext.applyIf(config, {
-			baseCls : 'zarafa-calendar',
-			itemCls : 'selection'
+			baseCls: 'zarafa-calendar',
+			itemCls: 'selection'
 		});
 
 		this.addEvents(
@@ -91,7 +91,7 @@ Zarafa.calendar.ui.html.AppointmentProxy = Ext.extend(Zarafa.calendar.ui.Appoint
 	 * @private
 	 * @override
 	 */
-	init : function()
+	init: function()
 	{
 		Zarafa.calendar.ui.html.AppointmentProxy.superclass.init.call(this);
 
@@ -102,7 +102,7 @@ Zarafa.calendar.ui.html.AppointmentProxy = Ext.extend(Zarafa.calendar.ui.Appoint
 	 * Sets date range. This method does not auto-update.
 	 * @param {Zarafa.core.DateRange} dateRange
 	 */
-	setDateRange : function(dateRange)
+	setDateRange: function(dateRange)
 	{
 		if (this.dateRange) {
 			this.mun(this.dateRange, 'update', this.onDateRangeUpdate, this);
@@ -117,7 +117,7 @@ Zarafa.calendar.ui.html.AppointmentProxy = Ext.extend(Zarafa.calendar.ui.Appoint
 	 * Renders the view.
 	 * @param {Ext.Element} container The Ext.Element into which the view must be rendered.
 	 */
-	render : function(container)
+	render: function(container)
 	{
 		Zarafa.calendar.ui.html.AppointmentProxy.superclass.render.apply(this, arguments);
 
@@ -131,7 +131,7 @@ Zarafa.calendar.ui.html.AppointmentProxy = Ext.extend(Zarafa.calendar.ui.Appoint
 	 * Sets the class or classes on the view header element.
 	 * @param {String} className class name or class name list
 	 */
-	setHeaderClass : function(className)
+	setHeaderClass: function(className)
 	{
 		this.headerClassName = className;
 	},
@@ -140,7 +140,7 @@ Zarafa.calendar.ui.html.AppointmentProxy = Ext.extend(Zarafa.calendar.ui.Appoint
 	 * Sets the class or classes on the view body elements.
 	 * @param {String} className class name or class name list
 	 */
-	setBodyClass : function(className)
+	setBodyClass: function(className)
 	{
 		this.bodyClassName = className;
 	},
@@ -149,7 +149,7 @@ Zarafa.calendar.ui.html.AppointmentProxy = Ext.extend(Zarafa.calendar.ui.Appoint
 	 * Toggles whether the view should show the start and due times in the view body.
 	 * @param {Boolean} showTime if true the view will show the start and due times in the calendar body.
 	 */
-	setShowTime : function(showTime)
+	setShowTime: function(showTime)
 	{
 		this.showTime = showTime;
 	},
@@ -165,7 +165,7 @@ Zarafa.calendar.ui.html.AppointmentProxy = Ext.extend(Zarafa.calendar.ui.Appoint
 			var startDate = dateRange.getStartDate();
 			var dueDate = dateRange.getDueDate();
 
-			var time = String.format('{0} - {1}', startDate.format(_("G:i")), dueDate.format(_("G:i")));
+			var time = String.format('{0} - {1}', startDate.formatDefaultTime(), dueDate.formatDefaultTime());
 
 			if (this.getFirstBodyElement().dom.innerHTML !== time) {
 				this.getFirstBodyElement().dom.innerHTML = time;
@@ -177,7 +177,7 @@ Zarafa.calendar.ui.html.AppointmentProxy = Ext.extend(Zarafa.calendar.ui.Appoint
 	 * Removes text from the view body.
 	 * @private
 	 */
-	clearTimeText : function()
+	clearTimeText: function()
 	{
 		if (this.body.length > 0) {
 			this.getFirstBodyElement().dom.innerHTML = '';
@@ -188,7 +188,7 @@ Zarafa.calendar.ui.html.AppointmentProxy = Ext.extend(Zarafa.calendar.ui.Appoint
 	 * Sets the visibility of the range
 	 * @param {Boolean} visible if true the view will be shown, if false it will be hidden
 	 */
-	setVisible : function(visible)
+	setVisible: function(visible)
 	{
 		Zarafa.calendar.ui.html.AppointmentProxy.superclass.setVisible.call(this, visible);
 
@@ -215,7 +215,7 @@ Zarafa.calendar.ui.html.AppointmentProxy = Ext.extend(Zarafa.calendar.ui.Appoint
 	 * @param {Object[]} bounds array of bounds (left, right, top, bottom) objects.
 	 * @private
 	 */
-	layoutBodyElements : function(bounds)
+	layoutBodyElements: function(bounds)
 	{
 		// optionally generate time text
 		if (this.showTime) {
@@ -238,7 +238,7 @@ Zarafa.calendar.ui.html.AppointmentProxy = Ext.extend(Zarafa.calendar.ui.Appoint
 	 * the view.
 	 * @param {Zarafa.core.DateRange} dateRange the changed daterange
 	 */
-	onDateRangeUpdate : function(dateRange)
+	onDateRangeUpdate: function(dateRange)
 	{
 		if (this.rendered && this.isVisible()) {
 			this.layout();
@@ -255,7 +255,7 @@ Zarafa.calendar.ui.html.AppointmentProxy = Ext.extend(Zarafa.calendar.ui.Appoint
 	 * @private
 	 * @override
 	 */
-	createBodyElement : function()
+	createBodyElement: function()
 	{
 		var calendarBody = this.parentView.getCalendarBody();
 
@@ -269,7 +269,7 @@ Zarafa.calendar.ui.html.AppointmentProxy = Ext.extend(Zarafa.calendar.ui.Appoint
 	 * @private
 	 * @override
 	 */
-	destroyBodyElement : function()
+	destroyBodyElement: function()
 	{
 		var element = this.body.pop();
 		this.mun(element, 'contextmenu', this.onContextMenu, this);
@@ -281,7 +281,7 @@ Zarafa.calendar.ui.html.AppointmentProxy = Ext.extend(Zarafa.calendar.ui.Appoint
 	 * Creates elements to represent the range when shown in the header.
 	 * @private
 	 */
-	createHeader : function()
+	createHeader: function()
 	{
 		this.createDiv(this.parentView.getCalendarHeader(), 'header');
 		this.mon(this.header, 'contextmenu', this.onContextMenu, this);
@@ -292,7 +292,7 @@ Zarafa.calendar.ui.html.AppointmentProxy = Ext.extend(Zarafa.calendar.ui.Appoint
 	 * Destroys the header element(s).
 	 * @private
 	 */
-	destroyHeader : function()
+	destroyHeader: function()
 	{
 		this.mun(this.header, 'contextmenu', this.onContextMenu, this);
 		this.mun(this.header, 'dblclick', this.onDoubleClick, this);
@@ -305,7 +305,7 @@ Zarafa.calendar.ui.html.AppointmentProxy = Ext.extend(Zarafa.calendar.ui.Appoint
 	 * Lays out the header element of the view.
 	 * @private
 	 */
-	layoutInHeader : function()
+	layoutInHeader: function()
 	{
 		// Get the bounds of the header from the parent calendar.
 		var bounds = this.parentView.dateRangeToHeaderBounds(this.getDateRange());
@@ -331,7 +331,7 @@ Zarafa.calendar.ui.html.AppointmentProxy = Ext.extend(Zarafa.calendar.ui.Appoint
 	 * @private
 	 * @override
 	 */
-	layoutInBody : function()
+	layoutInBody: function()
 	{
 		var bounds = this.parentView.dateRangeToBodyBounds(this.dateRange);
 
@@ -360,7 +360,7 @@ Zarafa.calendar.ui.html.AppointmentProxy = Ext.extend(Zarafa.calendar.ui.Appoint
 	 * shown on the header only i such a case.
 	 * @protected
 	 */
-	onLayout : function()
+	onLayout: function()
 	{
 		Zarafa.calendar.ui.html.AppointmentProxy.superclass.onLayout.call(this);
 
@@ -372,7 +372,7 @@ Zarafa.calendar.ui.html.AppointmentProxy = Ext.extend(Zarafa.calendar.ui.Appoint
 	/**
 	 * @return {Ext.Element} first element of the body of the view.
 	 */
-	getFirstBodyElement : function()
+	getFirstBodyElement: function()
 	{
 		return this.body[0];
 	},
@@ -382,7 +382,7 @@ Zarafa.calendar.ui.html.AppointmentProxy = Ext.extend(Zarafa.calendar.ui.Appoint
 	 * @param {Object} event The event object
 	 * @private
 	 */
-	onContextMenu : function(event)
+	onContextMenu: function(event)
 	{
 		this.parentView.fireEvent('contextmenu', this.parentView, event);
 	},
@@ -392,7 +392,7 @@ Zarafa.calendar.ui.html.AppointmentProxy = Ext.extend(Zarafa.calendar.ui.Appoint
 	 * @param {Object} event The event object
 	 * @private
 	 */
-	onDoubleClick : function(event)
+	onDoubleClick: function(event)
 	{
 		var model = this.parentView.parentView.model;
 

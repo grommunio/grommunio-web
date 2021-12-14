@@ -15,7 +15,7 @@ Zarafa.common.flags.Util = {
 	 * @property
 	 * @private
 	 */
-	lastWorkingDay : undefined,
+	lastWorkingDay: undefined,
 
 	/**
 	 * Number of the first working day of the week as set in the user's settings. 0 for Sunday,
@@ -25,7 +25,7 @@ Zarafa.common.flags.Util = {
 	 * @property
 	 * @private
 	 */
-	firstWorkingDay : undefined,
+	firstWorkingDay: undefined,
 
 	/**
 	 * The start of the working day of the user in minutes after 0:00 am.
@@ -34,14 +34,14 @@ Zarafa.common.flags.Util = {
 	 * @property
 	 * @private
 	 */
-	startWorkingHour : undefined,
+	startWorkingHour: undefined,
 
 	/**
 	 * Base flag properties
 	 *
 	 * @return {Object} Object with base properties.
 	 */
-	getFlagBaseProperties : function()
+	getFlagBaseProperties: function()
 	{
 		return {
 			flag_icon: 		Zarafa.core.mapi.FlagIcon.red,
@@ -60,11 +60,11 @@ Zarafa.common.flags.Util = {
 	 *
 	 * @return {Object} Object with property/value as key/value pairs.
 	 */
-	getFlagPropertiesNoDate : function()
+	getFlagPropertiesNoDate: function()
 	{
 		return {
-			startdate :         null,
-			duedate :           null,
+			startdate:     null,
+			duedate:      null,
 			reminder:		false,
 			reminder_time:		null,
 			flag_due_by:		null
@@ -77,7 +77,7 @@ Zarafa.common.flags.Util = {
 	 *
 	 * @return {Object} Object with property/value as key/value pairs.
 	 */
-	getFlagPropertiesToday : function()
+	getFlagPropertiesToday: function()
 	{
 		var now = new Date();
 		var date = now.clone().setToNoon();
@@ -92,8 +92,8 @@ Zarafa.common.flags.Util = {
 		}
 
 		return {
-			startdate :         date,
-			duedate :           date,
+			startdate:     date,
+			duedate:      date,
 			reminder_time:		reminderTime,
 			flag_due_by:		reminderTime
 		};
@@ -105,15 +105,15 @@ Zarafa.common.flags.Util = {
 	 *
 	 * @return {Object} Object with property/value as key/value pairs.
 	 */
-	getFlagPropertiesTomorrow : function()
+	getFlagPropertiesTomorrow: function()
 	{
 		var date = new Date().add(Date.DAY, 1).setToNoon();
 
 		var reminderTime = this.getReminderTimeForDate(date);
 
 		return {
-			startdate :         date,
-			duedate :           date,
+			startdate:     date,
+			duedate:      date,
 			reminder_time:		reminderTime,
 			flag_due_by:		reminderTime
 		};
@@ -125,7 +125,7 @@ Zarafa.common.flags.Util = {
 	 *
 	 * @return {Object} Object with property/value as key/value pairs.
 	 */
-	getFlagPropertiesThisWeek : function()
+	getFlagPropertiesThisWeek: function()
 	{
 		// Make sure the firstWorkingDay and lastWorkingDay properties are set
 		this.retrieveWorkingDays();
@@ -167,8 +167,8 @@ Zarafa.common.flags.Util = {
 		}
 
 		return {
-			startdate :         startDate,
-			duedate :           dueDate,
+			startdate:     startDate,
+			duedate:      dueDate,
 			reminder_time:		reminderTime,
 			flag_due_by:		reminderTime
 		};
@@ -180,7 +180,7 @@ Zarafa.common.flags.Util = {
 	 *
 	 * @return {Object} Object with property/value as key/value pairs.
 	 */
-	getFlagPropertiesNextWeek : function()
+	getFlagPropertiesNextWeek: function()
 	{
 		// Make sure the firstWorkingDay and lastWorkingDay properties are set
 		this.retrieveWorkingDays();
@@ -192,8 +192,8 @@ Zarafa.common.flags.Util = {
 		var reminderTime = this.getReminderTimeForDate(dueDate);
 
 		return {
-			startdate :         startDate,
-			duedate :           dueDate,
+			startdate:     startDate,
+			duedate:      dueDate,
 			reminder_time:		reminderTime,
 			flag_due_by:		reminderTime
 		};
@@ -205,7 +205,7 @@ Zarafa.common.flags.Util = {
 	 *
 	 * @return {Object} Object with property/value as key/value pairs.
 	 */
-	getFlagPropertiesComplete : function()
+	getFlagPropertiesComplete: function()
 	{
 		return {
 			flag_icon: 			Zarafa.core.mapi.FlagIcon.clear,
@@ -223,15 +223,15 @@ Zarafa.common.flags.Util = {
 	 *
 	 * @return {Object} Object with property/value as key/value pairs.
 	 */
-	getFlagPropertiesRemoveFlag : function()
+	getFlagPropertiesRemoveFlag: function()
 	{
 		return {
 			flag_icon: 			Zarafa.core.mapi.FlagIcon.clear,
 			flag_request: 		'',
 			flag_status: 		Zarafa.core.mapi.FlagStatus.cleared,
 			reminder:		false,
-			startdate :         null,
-			duedate :           null,
+			startdate:     null,
+			duedate:      null,
 			reminder_time:		null,
 			flag_due_by:		null
 		};
@@ -240,7 +240,7 @@ Zarafa.common.flags.Util = {
 	/**
 	 * Retrieves the values for {#firstWorkingDay} and {#lastWorkingDay}.
 	 */
-	retrieveWorkingDays : function()
+	retrieveWorkingDays: function()
 	{
 		if ( !this.firstWorkingDay ) {
 			// Set it to Monday and Friday if no working days are defined by the user
@@ -258,7 +258,7 @@ Zarafa.common.flags.Util = {
 	 * @param {Date} date The date object of which the day must be used to set the reminder.
 	 * @return {Date} The date object of the reminder
 	 */
-	getReminderTimeForDate : function(date)
+	getReminderTimeForDate: function(date)
 	{
 		var reminderTime = date.clone();
 		var startWorkingHours = parseInt(container.getSettingsModel().get('zarafa/v1/main/start_working_hour'), 10);
@@ -275,7 +275,7 @@ Zarafa.common.flags.Util = {
 	 * @param {Zarafa.core.data.IPMRecord} record The record for which configured flag needs to be identified.
 	 * @return {String/Boolean} Configured flag if any, false otherwise
 	 */
-	getConfiguredFlag : function(record)
+	getConfiguredFlag: function(record)
 	{
 		var configuredFlag = '';
 		var flagStatus = record.get('flag_status');
@@ -319,7 +319,7 @@ Zarafa.common.flags.Util = {
 	 * @param {Zarafa.core.data.IPMRecord[]} records The records which categories update with old-style flags
 	 * to real categories.
 	 */
-	updateCategories : function(records)
+	updateCategories: function(records)
 	{
 		if (!Array.isArray(records)) {
 			records = [records];

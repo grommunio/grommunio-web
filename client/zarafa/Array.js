@@ -4,10 +4,10 @@
  */
 Ext.apply(Array.prototype, {
 	/**
-	 * Creates a shallow clone of the array. 
+	 * Creates a shallow clone of the array.
 	 * @return {Array} a clone of the array.
 	 */
-	clone : function()
+	clone: function()
 	{
 		return this.slice(0);
 	},
@@ -17,7 +17,7 @@ Ext.apply(Array.prototype, {
 	 * arrays contain the exact same elements the Arrays
 	 * are equal.
 	 */
-	equals : function(arr)
+	equals: function(arr)
 	{
 		// We are comparing the exact same references.
 		if (this === arr) {
@@ -37,6 +37,7 @@ Ext.apply(Array.prototype, {
 	}
 });
 
+/* istanbul ignore if */
 if (!Array.prototype.find) {
 	/**
 	 * Returns the value of the first element in the array that satisfies

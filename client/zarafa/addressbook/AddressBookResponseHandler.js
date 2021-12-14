@@ -16,7 +16,7 @@ Zarafa.addressbook.AddressBookResponseHandler = Ext.extend(Zarafa.core.data.IPMR
 	 * @return {Boolean} False when action could not be handled successfully. This will
 	 * not cancel the transaction itself, but rather causes the 'success' argument for the
 	 */
-	doList : function(response)
+	doList: function(response)
 	{
 		this.receivedRecords = this.readRecordsFromResponse(response, 'item');
 	}

@@ -20,7 +20,7 @@ Zarafa.core.data.IPMRecordFields = [
 	{name: 'html_body', type: 'string'},
 	{name: 'isHTML', type:'boolean', defaultValue: false},
 	{name: 'entryid'},
-	{name: 'creation_time', type:'date', dateFormat:'timestamp', defaultValue: null, sortDir : 'DESC'},
+	{name: 'creation_time', type:'date', dateFormat:'timestamp', defaultValue: null, sortDir: 'DESC'},
 	{name: 'icon_index', type: 'int', defaultValue: -1},
 	{name: 'access', type: 'number', defaultValue: Zarafa.core.mapi.Access.ACCESS_READ},
 	{name: 'message_class', type: 'string'},
@@ -31,7 +31,7 @@ Zarafa.core.data.IPMRecordFields = [
 	{name: 'subject'},
 	{name: 'object_type', type: 'int', defaultValue: Zarafa.core.mapi.ObjectType.MAPI_MESSAGE},
 	{name: 'normalized_subject'},
-	{name: 'last_modification_time', type:'date', dateFormat:'timestamp', defaultValue: null, sortDir : 'DESC'},
+	{name: 'last_modification_time', type:'date', dateFormat:'timestamp', defaultValue: null, sortDir: 'DESC'},
 	{name: 'last_verb_execution_time', type:'date', dateFormat:'timestamp', defaultValue: null},
 	{name: 'last_verb_executed', type: 'int'},
 	{name: 'hasattach', type: 'boolean', defaultValue: false},
@@ -56,7 +56,7 @@ Zarafa.core.data.IPMRecordFields = [
 	{name: 'message_size', type: 'int'},
 	{name: 'categories'},
 	{name: 'deleted_on', type:'date', dateFormat:'timestamp', defaultValue: null},
-    {name: 'deferred_send_time', type: 'date', dateFormat: 'timestamp', defaultValue: null},
+  {name: 'deferred_send_time', type: 'date', dateFormat: 'timestamp', defaultValue: null},
 	// required when converting attachment record to ipm record for opening embedded messages
 	{name: 'attach_num', defaultValue: null}
 ];
@@ -104,7 +104,7 @@ Zarafa.core.data.IPMRecord = Ext.extend(Zarafa.core.data.MAPIRecord, {
 	 * @property
 	 * @type Boolean
 	 */
-	eventPropagation : true,
+	eventPropagation: true,
 
 	/**
 	 * The base array of ID properties which is copied to the {@link #idProperties}
@@ -113,7 +113,7 @@ Zarafa.core.data.IPMRecord = Ext.extend(Zarafa.core.data.MAPIRecord, {
 	 * @type Array
 	 * @private
 	 */
-	baseIdProperties : [ 'entryid', 'store_entryid', 'parent_entryid', 'attach_num' ],
+	baseIdProperties: [ 'entryid', 'store_entryid', 'parent_entryid', 'attach_num' ],
 
 	/**
 	 * Compare this {@link Zarafa.core.data.IPMRecord record} instance with another one to see
@@ -122,7 +122,7 @@ Zarafa.core.data.IPMRecord = Ext.extend(Zarafa.core.data.MAPIRecord, {
 	 * @param {Zarafa.core.data.IPMRecord} record The IPMRecord to compare with
 	 * @return {Boolean} True if the records are the same.
 	 */
-	equals : function(record)
+	equals: function(record)
 	{
 		// Simplest case, do we have the same object...
 		if (this === record) {
@@ -171,7 +171,7 @@ Zarafa.core.data.IPMRecord = Ext.extend(Zarafa.core.data.MAPIRecord, {
 	 * actual message_class is 'IPM.Note'). Defaults to false.
 	 * @return True when the given className matches the message_class.
 	 */
-	isMessageClass : function(className, baseOnly)
+	isMessageClass: function(className, baseOnly)
 	{
 		return Zarafa.core.MessageClass.isClass(this.get('message_class'), className, baseOnly);
 	},
@@ -181,7 +181,7 @@ Zarafa.core.data.IPMRecord = Ext.extend(Zarafa.core.data.MAPIRecord, {
 	 * Fuction will also check if delegate is present then it will generate a different string.
 	 * @return {String} string which can be shown in ui as from address.
 	 */
-	getSenderString : function()
+	getSenderString: function()
 	{
 		var sender = '';
 		var senderEntryId = this.get('sender_entryid');
@@ -206,7 +206,7 @@ Zarafa.core.data.IPMRecord = Ext.extend(Zarafa.core.data.MAPIRecord, {
 	 * body should be returned.
 	 * @return {String} The body property of {@link Zarafa.core.data.IPMRecord IPMRecord}.
 	 */
-	getBody : function(preferHTML)
+	getBody: function(preferHTML)
 	{
 		var isHTML = this.get('isHTML');
 		var body;
@@ -246,7 +246,7 @@ Zarafa.core.data.IPMRecord = Ext.extend(Zarafa.core.data.MAPIRecord, {
 	 * @param {Boolean} isHTMLEditor flag to indicate that we should update html body or plain body
 	 * based on type of editor used for modifications.
 	 */
-	setBody : function(body, isHTMLEditor)
+	setBody: function(body, isHTMLEditor)
 	{
 		// Only set the isHTML property when the
 		// body has been changed. This prevents the
@@ -282,7 +282,7 @@ Zarafa.core.data.IPMRecord = Ext.extend(Zarafa.core.data.MAPIRecord, {
 	 * @param {String} body html body of the record which should be converted to properly retrieve inline image data.
 	 * @return {String} modified data that can retrieve inline images when loaded in editor.
 	 */
-	inlineImgOutlookToZarafa : function(body)
+	inlineImgOutlookToZarafa: function(body)
 	{
 		var entryid;
 		var store;
@@ -314,7 +314,7 @@ Zarafa.core.data.IPMRecord = Ext.extend(Zarafa.core.data.MAPIRecord, {
 	 * @param {String} body html body from the editor which will be saved in the {@link Zarafa.core.data.IPMRecord IPMRecord}.
 	 * @return {String} modified data that can be safely saved in html body of record which is understandable by outlook.
 	 */
-	inlineImgZarafaToOutlook : function(body)
+	inlineImgZarafaToOutlook: function(body)
 	{
 		return Zarafa.core.HTMLParser.inlineImgZarafaToOutlook(body);
 	},
@@ -323,7 +323,7 @@ Zarafa.core.data.IPMRecord = Ext.extend(Zarafa.core.data.MAPIRecord, {
 	 * Convenience method for determining if the message has been read or not.
 	 * @return {Boolean} True if this item has been read.
 	 */
-	isRead : function()
+	isRead: function()
 	{
 		// embedded message should never be considered as unread messages
 		return this.isSubMessage() || (this.get('message_flags') & Zarafa.core.mapi.MessageFlags.MSGFLAG_READ) > 0;
@@ -333,7 +333,7 @@ Zarafa.core.data.IPMRecord = Ext.extend(Zarafa.core.data.MAPIRecord, {
 	 * Convenience method for determining if the message has been sent or not.
 	 * @return {Boolean} True if this item has NOT been sent.
 	 */
-	isUnsent : function()
+	isUnsent: function()
 	{
 		return (this.get('message_flags') & Zarafa.core.mapi.MessageFlags.MSGFLAG_UNSENT) > 0;
 	},
@@ -342,7 +342,7 @@ Zarafa.core.data.IPMRecord = Ext.extend(Zarafa.core.data.MAPIRecord, {
 	 * Convenience method for determining if the message is a sub message of another message.
 	 * @return {Boolean} True if this message is a sub message.
 	 */
-	isSubMessage : function()
+	isSubMessage: function()
 	{
 		return !Ext.isEmpty(this.get('attach_num'));
 	},
@@ -352,7 +352,7 @@ Zarafa.core.data.IPMRecord = Ext.extend(Zarafa.core.data.MAPIRecord, {
 	 * the message as read.
 	 * @return {Boolean} True if this item needs a read receipt to be send.
 	 */
-	needsReadReceipt : function()
+	needsReadReceipt: function()
 	{
 		return (this.get('message_flags') & Zarafa.core.mapi.MessageFlags.MSGFLAG_RN_PENDING) === Zarafa.core.mapi.MessageFlags.MSGFLAG_RN_PENDING;
 	},
@@ -362,7 +362,7 @@ Zarafa.core.data.IPMRecord = Ext.extend(Zarafa.core.data.MAPIRecord, {
 	 *
 	 * @param {Boolean} read True to mark the record as read.
 	 */
-	setReadFlags : function(read)
+	setReadFlags: function(read)
 	{
 		var flags = this.get('message_flags');
 
@@ -386,7 +386,7 @@ Zarafa.core.data.IPMRecord = Ext.extend(Zarafa.core.data.MAPIRecord, {
 	 * Creates a Recipients store for the {@link Zarafa.core.data.IPMRecord IPMRecord} (See {@link #createSubStore}).
 	 * @return {Zarafa.core.data.IPMRecipientStore} The new Recipient store.
 	 */
-	createRecipientStore : function()
+	createRecipientStore: function()
 	{
 		return this.createSubStore('recipients');
 	},
@@ -396,7 +396,7 @@ Zarafa.core.data.IPMRecord = Ext.extend(Zarafa.core.data.MAPIRecord, {
 	 * @param {Zarafa.core.data.IPMRecipientStore} recipientStore The Recipient store.
 	 * @return {Zarafa.core.data.IPMRecipientStore} The Recipient store.
 	 */
-	setRecipientStore : function(recipientStore)
+	setRecipientStore: function(recipientStore)
 	{
 		return this.setSubStore('recipients', recipientStore);
 	},
@@ -405,7 +405,7 @@ Zarafa.core.data.IPMRecord = Ext.extend(Zarafa.core.data.MAPIRecord, {
 	 * Get the Recipients store for the {@link Zarafa.core.data.IPMRecord IPMRecord} (See {@link #getSubStore}).
 	 * @return {Zarafa.core.data.IPMRecipientStore} The Recipient store.
 	 */
-	getRecipientStore : function()
+	getRecipientStore: function()
 	{
 		return this.getSubStore('recipients');
 	},
@@ -423,7 +423,7 @@ Zarafa.core.data.IPMRecord = Ext.extend(Zarafa.core.data.MAPIRecord, {
 	 * Creates a Folder store for the {@link Zarafa.core.data.IPMRecord IPMRecord} (See {@link #createSubStore}).
 	 * @return {Zarafa.core.data.IPMAttachmentStore} The new Attachment store.
 	 */
-	createAttachmentStore : function()
+	createAttachmentStore: function()
 	{
 		return this.createSubStore('attachments');
 	},
@@ -433,7 +433,7 @@ Zarafa.core.data.IPMRecord = Ext.extend(Zarafa.core.data.MAPIRecord, {
 	 * @param {Zarafa.core.data.IPMAttachmentStore} attachmentStore The Attachmentstore.
 	 * @return {Zarafa.core.data.IPMAttachmentStore} The Attachment store.
 	 */
-	setAttachmentStore : function(attachmentStore)
+	setAttachmentStore: function(attachmentStore)
 	{
 		return this.setSubStore('attachments', attachmentStore);
 	},
@@ -442,16 +442,16 @@ Zarafa.core.data.IPMRecord = Ext.extend(Zarafa.core.data.MAPIRecord, {
 	 * Get the Attachments store for the {@link Zarafa.core.data.IPMRecord IPMRecord} (See {@link #getSubStore}).
 	 * @return {Zarafa.core.data.IPMAttachmentStore} The Attachment store.
 	 */
-	getAttachmentStore : function()
+	getAttachmentStore: function()
 	{
 		return this.getSubStore('attachments');
 	},
 
 	/**
 	 * Helper function to return names of all attachments of message.
-	 * @return {String} comma seperated attachment names
+	 * @return {String} comma separated attachment names
 	 */
-	getAttachmentNames : function()
+	getAttachmentNames: function()
 	{
 		if (!this.get('hasattach') || this.get('hide_attachments')) {
 			return '';
@@ -477,7 +477,7 @@ Zarafa.core.data.IPMRecord = Ext.extend(Zarafa.core.data.MAPIRecord, {
 	 * properly.
 	 * @return {Boolean} true if message is faulty else false.
 	 */
-	isFaultyMessage : function()
+	isFaultyMessage: function()
 	{
 		var messageClass = this.get('message_class');
 
@@ -495,7 +495,7 @@ Zarafa.core.data.IPMRecord = Ext.extend(Zarafa.core.data.MAPIRecord, {
 	 * in webapp, it will change the message class to IPM.Note so all the fields related to
 	 * mail record will be populated properly.
 	 */
-	fixFaultyMessage : function()
+	fixFaultyMessage: function()
 	{
 		if(!this.isFaultyMessage()) {
 			// don't do anything if this is a normal message
@@ -517,7 +517,7 @@ Zarafa.core.data.IPMRecord = Ext.extend(Zarafa.core.data.MAPIRecord, {
 	 * @param {Boolean} allAsZip (optional) True to downloading all the attachments as ZIP
 	 * @return {String} URL for downloading message as file.
 	 */
-	getDownloadMessageUrl : function(allAsZip)
+	getDownloadMessageUrl: function(allAsZip)
 	{
 		var url = container.getBaseURL();
 		url = Ext.urlAppend(url, 'load=download_message');
@@ -537,7 +537,7 @@ Zarafa.core.data.IPMRecord = Ext.extend(Zarafa.core.data.MAPIRecord, {
 	 * @return {Boolean} True Function will return true if any attachment
 	 * is visible; false otherwise
 	 */
-	hasVisibleAttachments : function()
+	hasVisibleAttachments: function()
 	{
 		var visible = false;
 		var attachments = this.getAttachmentStore().getRange();
@@ -547,6 +547,56 @@ Zarafa.core.data.IPMRecord = Ext.extend(Zarafa.core.data.MAPIRecord, {
 			}
 		}, this);
 		return visible;
+	},
+
+	/**
+	 * Checks if the passed record is a header record, i.e. a fake record that was sent to
+	 * show as header of a conversation.
+	 *
+	 * @return {Boolean} True if the passed record is a conversation header record, false otherwise
+	 */
+	isConversationHeaderRecord: function()
+	{
+		if (!Ext.isDefined(this.get('conversation_count')) || !Ext.isDefined(this.get('depth'))) {
+			return false;
+		}
+
+		return this.get('conversation_count') > 1 && this.get('depth') === 0;
+	},
+
+	/**
+	 * Checks if the passed record is part of a conversation.
+	 *
+	 * @return {Boolean} True if the passed record is part of a conversation, false otherwise
+	 */
+	isConversationRecord: function() {
+		if (!Ext.isDefined(this.get('conversation_count')) || !Ext.isDefined(this.get('depth'))) {
+			return false;
+		}
+
+		return this.get('depth') > 0;
+	},
+
+	/**
+	 * Checks if the passed record is not part of a conversation and not header record.
+	 *
+	 * @return {Boolean} True if the passed record is normal record, false otherwise
+	 */
+	isNormalRecord: function() {
+		if (!Ext.isDefined(this.get('conversation_count')) || !Ext.isDefined(this.get('depth'))) {
+			return false;
+		}
+
+		return this.get('conversation_count') == 0 && this.get('depth') === 0;
+	},
+
+	/**
+	 * Checks if record is private record or not.
+	 * @returns {Boolean} True if the record is private item else false.
+	 */
+	isPrivate: function()
+	{
+		return Ext.isDefined(this.get('private')) ? this.get('private') : false;
 	}
 });
 

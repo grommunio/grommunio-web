@@ -6,7 +6,7 @@ Ext.namespace('Zarafa.common.ui.htmleditor');
  * @singleton
  */
 Zarafa.common.ui.htmleditor.LanguageMap = {
-	fileMapping : {
+	fileMapping: {
 		bg_BG: 'bg_BG',
 		cs_CZ: 'cs_CZ',
 		da_DK: 'da',
@@ -14,7 +14,7 @@ Zarafa.common.ui.htmleditor.LanguageMap = {
 		el_GR: 'el',
 		en_GB: 'en_GB',
 		en_US: '', // Special case, as this is the default language of tinymce
-		es_CA: 'ca',
+		ca_ES: 'ca',
 		et_EE: 'et',
 		fa_IR: 'fa_IR',
 		fi_FI: 'fi',

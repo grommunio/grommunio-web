@@ -7,7 +7,7 @@ Ext.namespace('Zarafa.hierarchy.ui');
  */
 Zarafa.hierarchy.ui.HierarchyTreeBottomBar = Ext.extend(Ext.Container, {
 	/**
-	 * @cfg {Zarafa.hierarchy.data.SharedFolderTypes} defaultSelectedSharedFolderType The default 
+	 * @cfg {Zarafa.hierarchy.data.SharedFolderTypes} defaultSelectedSharedFolderType The default
 	 * type of Shared Folder that is selected in the dialog that will be opened.
 	 */
 	defaultSelectedSharedFolderType: null,
@@ -21,7 +21,7 @@ Zarafa.hierarchy.ui.HierarchyTreeBottomBar = Ext.extend(Ext.Container, {
 	 * @constructor
 	 * @param config Configuration structure
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		config = config || {};
 
@@ -45,8 +45,8 @@ Zarafa.hierarchy.ui.HierarchyTreeBottomBar = Ext.extend(Ext.Container, {
 	},
 
 	/**
-	 * Called when the button to open Shared Folders is pressed. It will open the dialog to let the 
-	 * user decide on what folder to open. This function is called within the scope of the 
+	 * Called when the button to open Shared Folders is pressed. It will open the dialog to let the
+	 * user decide on what folder to open. This function is called within the scope of the
 	 * {@link Zarafa.hierarchy.ui.HierarchyTreeBottomBar}.
 	 * @param {Ext.Button} button, The Button
 	 * @param {Ext.EventObject} event The click event

@@ -1,9 +1,9 @@
 <?php
-require_once('classes/KopanoUser.php');
+require_once('classes/grommunioUser.php');
 require_once('classes/AddressBookUser.php');
 require_once('classes/DistlistUser.php');
 require_once('classes/TestData.php');
-require_once('classes/KopanoTest.php');
+require_once('classes/grommunioTest.php');
 require_once('classes/Util.php');
 
 /**
@@ -11,7 +11,7 @@ require_once('classes/Util.php');
  *
  * Tests loading the Address Book contents of the Contacts containers for distlists
  */
-class AddressBookDistlistTest extends KopanoTest {
+class AddressBookDistlistTest extends grommunioTest {
 
 	/**
 	 * The user for which we will open the addressbook
@@ -35,8 +35,8 @@ class AddressBookDistlistTest extends KopanoTest {
 	{
 		parent::setUp();
 
-		$this->user = $this->addUser(new AddressBookUser(new KopanoUser(KOPANO_USER1_NAME, KOPANO_USER1_PASSWORD)));
-		$this->distlistUser = $this->addUser(new DistlistUser(new KopanoUser(KOPANO_USER1_NAME, KOPANO_USER1_PASSWORD)));
+		$this->user = $this->addUser(new AddressBookUser(new grommunioUser(GROMMUNIO_USER1_NAME, GROMMUNIO_USER1_PASSWORD)));
+		$this->distlistUser = $this->addUser(new DistlistUser(new grommunioUser(GROMMUNIO_USER1_NAME, GROMMUNIO_USER1_PASSWORD)));
 
 		$this->message = array(
 			'props' => TestData::getDistlist(),

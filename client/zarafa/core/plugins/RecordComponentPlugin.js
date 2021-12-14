@@ -27,34 +27,34 @@ Zarafa.core.plugins.RecordComponentPlugin = Ext.extend(Object, {
 	 * @property
 	 * @type Ext.Container
 	 */
-	field : undefined,
+	field: undefined,
 
 	/**
 	 * @cfg {Boolean} ignoreUpdates True if the {@link #field} should not be listening to changes
 	 * made to the {@link #record} from a {@link Zarafa.core.data.MAPIStore Store}. This will force
 	 * the {@link #useShadowStore} option to be enabled.
 	 */
-	ignoreUpdates : false,
+	ignoreUpdates: false,
 
 	/**
 	 * @cfg {Boolean} allowWrite True if the {@link #field} supports
 	 * the editing and saving of the {@link #record}.
 	 */
-	allowWrite : false,
+	allowWrite: false,
 
 	/**
-	 * True when the {@link #field} has been layed out.
+	 * True when the {@link #field} has been laid out.
 	 * @property
 	 * @type Boolean
 	 */
-	isLayoutCalled : false,
+	isLayoutCalled: false,
 
 	/**
 	 * The record which is currently displayed in {@link #field}.
 	 * @property
 	 * @type Zarafa.core.data.MAPIRecord
 	 */
-	record : undefined,
+	record: undefined,
 
 	/**
 	 * The cheapCopy argument of {@link #setRecord}, this is used when {@link #setRecord} was
@@ -62,19 +62,19 @@ Zarafa.core.plugins.RecordComponentPlugin = Ext.extend(Object, {
 	 * @property
 	 * @type Boolean
 	 */
-	cheapCopy : undefined,
+	cheapCopy: undefined,
 
 	/**
 	 * @cfg {Boolean} useShadowStore True, if the {@link #record} should be pushed into the
 	 * shadowStore.
 	 */
-	useShadowStore : false,
+	useShadowStore: false,
 
 	/**
 	 * @cfg {Ext.data.Store} shadowStore is data store, it allows to use custom shadow store
 	 * by record component plugin. This config mostly used by the external plugins like Files plugin.
 	 */
-	shadowStore : undefined,
+	shadowStore: undefined,
 
 	/**
 	 * Indicates if the {@link #record} has been changed by the user since it has been loaded.
@@ -84,37 +84,37 @@ Zarafa.core.plugins.RecordComponentPlugin = Ext.extend(Object, {
 	 * @type Boolean
 	 * @private
 	 */
-	isChangedByUser : false,
+	isChangedByUser: false,
 
 	/**
 	 * @cfg {Array} loadTasks An array of objects containing tasks which should be executed
 	 * in order to properly load all data into the Component. The object should contain the
 	 * 'fn' field which contains the function to be called, this will be called with the following
 	 * arguments:
-	 *  - container {@link Ext.Container} The container on which this plugin is installed
-	 *  - record {@link Zarafa.core.data.MAPIRecord} The record which is being loaded
-	 *  - task {@link Object} The task object which was registered
-	 *  - callback {@link Function} The callback function which should be called when the task
-	 *    has completed its work.
+	 * - container {@link Ext.Container} The container on which this plugin is installed
+	 * - record {@link Zarafa.core.data.MAPIRecord} The record which is being loaded
+	 * - task {@link Object} The task object which was registered
+	 * - callback {@link Function} The callback function which should be called when the task
+	 *  has completed its work.
 	 * The task should also contain the 'scope' property which refers to the scope in which the
 	 * 'fn' should be called. If the task contains the 'defer' property, the call to 'fn' will
 	 * be defferred for the given number of milliseconds.
 	 */
-	loadTasks : undefined,
+	loadTasks: undefined,
 
 	/**
 	 * @cfg {Boolean} enableOpenLoadTask True to create a {@link #loadTask} which will
 	 * {@link Zarafa.core.data.MAPIRecord#open open} the {@link #record} when it is set
 	 * on the {@link #field}.
 	 */
-	enableOpenLoadTask : true,
+	enableOpenLoadTask: true,
 
 	/**
 	 * @cfg {Number} autoOpenLoadTaskDefer The 'defer' configuration option for the task
 	 * which will be put in {@link #loadTasks} when {@link #enableOpenLoadTask} is true.
 	 * This can be used to delay the opening of the record.
 	 */
-	autoOpenLoadTaskDefer : 0,
+	autoOpenLoadTaskDefer: 0,
 
 	/**
 	 * List of {@link Ext.util.DelayedTask} instances which will be filled in when
@@ -123,7 +123,7 @@ Zarafa.core.plugins.RecordComponentPlugin = Ext.extend(Object, {
 	 * @type Array
 	 * @private
 	 */
-	scheduledTasks : undefined,
+	scheduledTasks: undefined,
 
 	/**
 	 * The list of Tasks from {@link #loadTasks} which have been started but are awaiting
@@ -132,13 +132,13 @@ Zarafa.core.plugins.RecordComponentPlugin = Ext.extend(Object, {
 	 * @type Array
 	 * @private
 	 */
-	pendingTasks : undefined,
+	pendingTasks: undefined,
 
 	/**
 	 * @constructor
 	 * @param {Object} config Configuration object
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		config = config || {};
 
@@ -154,7 +154,7 @@ Zarafa.core.plugins.RecordComponentPlugin = Ext.extend(Object, {
 		}
 
 		Ext.applyIf(config, {
-			shadowStore : container.getShadowStore()
+			shadowStore: container.getShadowStore()
 		});
 
 		Ext.apply(this, config);
@@ -164,7 +164,7 @@ Zarafa.core.plugins.RecordComponentPlugin = Ext.extend(Object, {
 	 * Initializes the {@link Ext.Component Component} to which this plugin has been hooked.
 	 * @param {Ext.Component} The parent field to which this component is connected
 	 */
-	init : function(field)
+	init: function(field)
 	{
 		this.field = field;
 		field.recordComponentPlugin = this;
@@ -233,7 +233,7 @@ Zarafa.core.plugins.RecordComponentPlugin = Ext.extend(Object, {
 			 * through a {@link Zarafa.core.data.MAPIStore store}.
 			 * No event handler may modify any properties inside the provided record.
 			 * @param {Ext.Container} panel The panel to which the record was set
-			 * @param {String} action write Action that ocurred. Can be one of
+			 * @param {String} action write Action that occurred. Can be one of
 			 * {@link Ext.data.Record.EDIT EDIT}, {@link Ext.data.Record.REJECT REJECT} or
 			 * {@link Ext.data.Record.COMMIT COMMIT}
 			 * @param {Zarafa.core.data.MAPIRecord} record The record which was updated
@@ -292,7 +292,7 @@ Zarafa.core.plugins.RecordComponentPlugin = Ext.extend(Object, {
 		// we can't do that in the constructor because then nobody is listening to the event
 		// yet. Neither can we do it after rendering, since that only indicates that this container.
 		// has been rendered and not the components.
-		this.field.on('afterlayout', this.onAfterFirstLayout, this, {single : true});
+		this.field.on('afterlayout', this.onAfterFirstLayout, this, {single: true});
 
 		// Add event listener for the 'close' event, if we are editing the record, then the
 		// record must be removed from the shadowStore when closing the dialog.
@@ -308,7 +308,7 @@ Zarafa.core.plugins.RecordComponentPlugin = Ext.extend(Object, {
 	 * @param {Zarafa.core.data.MAPIRecord} record The record to edit
 	 * @private
 	 */
-	startShadowRecordEdit : function(record)
+	startShadowRecordEdit: function(record)
 	{
 		if(this.useShadowStore) {
 			this.shadowStore.add(record);
@@ -323,7 +323,7 @@ Zarafa.core.plugins.RecordComponentPlugin = Ext.extend(Object, {
 	 * @param {Zarafa.core.data.MAPIRecord} record The record to finish editing
 	 * @private
 	 */
-	endShadowRecordEdit : function(record)
+	endShadowRecordEdit: function(record)
 	{
 		if(this.useShadowStore) {
 			this.shadowStore.remove(record, true);
@@ -340,7 +340,7 @@ Zarafa.core.plugins.RecordComponentPlugin = Ext.extend(Object, {
 	 * @return {Boolean} True if the given record matches the record inside this container
 	 * @private
 	 */
-	isRecordInContainer : function(record)
+	isRecordInContainer: function(record)
 	{
 		if (this.allowWrite === true && this.useShadowStore === false) {
 			return (this.record && this.record === record);
@@ -351,7 +351,7 @@ Zarafa.core.plugins.RecordComponentPlugin = Ext.extend(Object, {
 
 	/**
 	 * Set the {@link Zarafa.core.data.MAPIRecord record} which must be shown inside the {@link #field}
-	 * When the field has not yet {@link #isLayoutCalled layed out}, then the {@link #record} is
+	 * When the field has not yet {@link #isLayoutCalled laid out}, then the {@link #record} is
 	 * set, but all work is deferred to the first {@link #doLayout layout} action on this container.
 	 * Otherwise this function will call {@link #beforesetrecord} to check if the record should be
 	 * set on this field. Depending on the {@link Zarafa.core.data.MAPIRecord#isOpened opened} status
@@ -361,7 +361,7 @@ Zarafa.core.plugins.RecordComponentPlugin = Ext.extend(Object, {
 	 * @param {Boolean} cheapCopy true to prevent the record from being copied. This is usually the case
 	 * when {@link #allowWrite} is enabled, and the given record is not a phantom.
 	 */
-	setRecord : function(record, cheapCopy)
+	setRecord: function(record, cheapCopy)
 	{
 		var oldrecord = this.record;
 
@@ -453,9 +453,9 @@ Zarafa.core.plugins.RecordComponentPlugin = Ext.extend(Object, {
 		var tasks = this.loadTasks ? this.loadTasks.clone() : [];
 		if (!record.isOpened() && this.enableOpenLoadTask) {
 			tasks.push({
-				fn : this.openTaskHandler,
-				scope : this,
-				defer : this.autoOpenLoadTaskDefer
+				fn: this.openTaskHandler,
+				scope: this,
+				defer: this.autoOpenLoadTaskDefer
 			});
 		}
 
@@ -474,7 +474,7 @@ Zarafa.core.plugins.RecordComponentPlugin = Ext.extend(Object, {
 	 * completed.
 	 * @private
 	 */
-	openTaskHandler : function(component, record, task, callback)
+	openTaskHandler: function(component, record, task, callback)
 	{
 		var fn = function(store, record) {
 			if (this.isRecordInContainer(record)) {
@@ -496,7 +496,7 @@ Zarafa.core.plugins.RecordComponentPlugin = Ext.extend(Object, {
 	 *
 	 * @return {Zarafa.core.data.MAPIRecord} The record which is currently active
 	 */
-	getActiveRecord : function()
+	getActiveRecord: function()
 	{
 		// The setrecord event is called during setRecord, but always after
 		// isLayoutCalled.
@@ -507,21 +507,21 @@ Zarafa.core.plugins.RecordComponentPlugin = Ext.extend(Object, {
 
 	/**
 	 * Event handler which is triggered after the {@link #field}
-	 * is first time layed out. This will reset the current {@link #record}
+	 * is first time laid out. This will reset the current {@link #record}
 	 * to trigger the {@link #setrecord} event for the initial Record.
 	 *
 	 * @param {Ext.Component} component This component
 	 * @param {ContainerLayout} layout The layout
 	 * @private
 	 */
-	onAfterFirstLayout : function(component, layout)
+	onAfterFirstLayout: function(component, layout)
 	{
 		this.isLayoutCalled = true;
 
 		if (this.record) {
 			// Force record reload by clearing this.record first.
 			var record = this.record;
-			this.record =  undefined;
+			this.record = undefined;
 			this.setRecord(record, this.cheapCopy);
 		}
 	},
@@ -537,7 +537,7 @@ Zarafa.core.plugins.RecordComponentPlugin = Ext.extend(Object, {
 	 * @param {Array} Array of Task objects as copied from {@link this.loadTasks}.
 	 * @private
 	 */
-	doLoadRecord : function(record, tasks)
+	doLoadRecord: function(record, tasks)
 	{
 		this.pendingTasks = [];
 		this.scheduledTasks = [];
@@ -574,12 +574,12 @@ Zarafa.core.plugins.RecordComponentPlugin = Ext.extend(Object, {
 	},
 
 	/**
-	 * Execute a task as registerd in the {@link #loadTasks registered tasks}.
+	 * Execute a task as registered in the {@link #loadTasks registered tasks}.
 	 * @param {Zarafa.core.data.MAPIRecord} record The record to perform the action on
 	 * @param {Object} task The task object from {@link #loadTasks}
 	 * @private
 	 */
-	doTask : function(record, task)
+	doTask: function(record, task)
 	{
 		if (this.isRecordInContainer(record)) {
 			task.fn.call(task.scope || task, this.field, record, task, this.doLoadRecordCallback.createDelegate(this, [ task ]));
@@ -594,7 +594,7 @@ Zarafa.core.plugins.RecordComponentPlugin = Ext.extend(Object, {
 	 * @param {Object} task The task which was completed
 	 * @private
 	 */
-	doLoadRecordCallback : function(task)
+	doLoadRecordCallback: function(task)
 	{
 		var record = this.record;
 
@@ -618,7 +618,7 @@ Zarafa.core.plugins.RecordComponentPlugin = Ext.extend(Object, {
 	 * no modifications from the user.
 	 * @private
 	 */
-	resetUserChangeTracker : function()
+	resetUserChangeTracker: function()
 	{
 		this.isChangedByUser = false;
 		this.field.fireEvent('userupdaterecord', this.field, this.record, this.isChangedByUser);
@@ -646,13 +646,13 @@ Zarafa.core.plugins.RecordComponentPlugin = Ext.extend(Object, {
 	 * @param {Zarafa.core.data.MAPIRecord} record The record to validate
 	 * @private
 	 */
-	checkForUserChanges : function(record)
+	checkForUserChanges: function(record)
 	{
 		var updateModifications = record.updateModifications;
 		var updateSubStoreModifications = record.updateSubStoreModifications;
 
 		if ((updateModifications && Object.keys(updateModifications).length > 0) ||
-		    (updateSubStoreModifications && Object.keys(updateSubStoreModifications).length > 0)) {
+		  (updateSubStoreModifications && Object.keys(updateSubStoreModifications).length > 0)) {
 			this.registerUserChange();
 		}
 	},
@@ -666,16 +666,16 @@ Zarafa.core.plugins.RecordComponentPlugin = Ext.extend(Object, {
 	 * @param {Zarafa.core.data.MAPIRecord} record The record which has been loaded
 	 * @private
 	 */
-	afterLoadRecord : function(record)
+	afterLoadRecord: function(record)
 	{
 		if (this.ignoreUpdates !== true) {
 			this.resetUserChangeTracker();
 
 			var store = this.record.getStore();
 			this.field.mon(store, {
-				'update' : this.onUpdateRecord,
-				'write' : this.onWrite,
-				'scope' : this
+				'update': this.onUpdateRecord,
+				'write': this.onWrite,
+				'scope': this
 			});
 		}
 	},
@@ -692,7 +692,7 @@ Zarafa.core.plugins.RecordComponentPlugin = Ext.extend(Object, {
 	 * {@link Ext.data.Record.COMMIT COMMIT}
 	 * @private
 	 */
-	onUpdateRecord : function(store, record, operation)
+	onUpdateRecord: function(store, record, operation)
 	{
 		if (!this.isRecordInContainer(record)) {
 			return;
@@ -742,7 +742,7 @@ Zarafa.core.plugins.RecordComponentPlugin = Ext.extend(Object, {
 	 * available.
 	 * @private
 	 */
-	onExceptionRecord : function(proxy, type, action, options, response, args)
+	onExceptionRecord: function(proxy, type, action, options, response, args)
 	{
 		/** Extract the record from the args, and pull it out of an array if that is the case.
 		 * If the array length is bigger than 1, we can discard this exception as this
@@ -775,7 +775,7 @@ Zarafa.core.plugins.RecordComponentPlugin = Ext.extend(Object, {
 	 * @param {Zarafa.core.data.IPMRecord[]} records Store's records, the subject(s) of the write-action
 	 * @private
 	 */
-	onWrite : function(store, action, result, res, records)
+	onWrite: function(store, action, result, res, records)
 	{
 		// If records isn't array then make it.
 		records = [].concat(records);
@@ -784,7 +784,7 @@ Zarafa.core.plugins.RecordComponentPlugin = Ext.extend(Object, {
 			if (this.record === records[i]) {
 				if(action == Ext.data.Api.actions.destroy) {
 					// the record has been destroyed and removed from store
-					// so user made changes are not usefull anymore
+					// so user made changes are not useful anymore
 					this.resetUserChangeTracker();
 				}
 				this.field.fireEvent('writerecord', store, action, result, res, records[i]);
@@ -800,7 +800,7 @@ Zarafa.core.plugins.RecordComponentPlugin = Ext.extend(Object, {
 	 * @param {Ext.Component} container The parent container on which this plugin is installed.
 	 * @private
 	 */
-	onClose : function(dialog)
+	onClose: function(dialog)
 	{
 		if (this.record) {
 			this.endShadowRecordEdit(this.record);

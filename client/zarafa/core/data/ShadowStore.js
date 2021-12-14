@@ -27,7 +27,7 @@ Zarafa.core.data.ShadowStore = Ext.extend(Zarafa.core.data.MAPIStore, {
 	 * {@link Zarafa.core.data.IPFStoreMgr IPFStoreMgr}.
 	 * Defaults to false.
 	 */
-	standalone : false,
+	standalone: false,
 
 	/**
 	 * @cfg {Boolean} serveronly If true, the {@link Zarafa.core.data.ShadowStore ShadowStore}
@@ -36,21 +36,21 @@ Zarafa.core.data.ShadowStore = Ext.extend(Zarafa.core.data.MAPIStore, {
 	 * are triggered by a serverside change (e.g. a write event coming from the server, after a successful save).
 	 * Defaults to false.
 	 */
-	serveronly : true,
+	serveronly: true,
 
 	/**
 	 * @constructor
 	 * @param config Configuration structure
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		config = config || {};
 
 		Ext.applyIf(config, {
-			batch : false,
-			proxy : new Zarafa.core.data.ShadowProxy(),
-			writer : new Zarafa.core.data.JsonWriter(),
-			reader : new Zarafa.core.data.JsonReader()
+			batch: false,
+			proxy: new Zarafa.core.data.ShadowProxy(),
+			writer: new Zarafa.core.data.JsonWriter(),
+			reader: new Zarafa.core.data.JsonReader()
 		});
 
 		Zarafa.core.data.ShadowStore.superclass.constructor.call(this, config);
@@ -72,7 +72,7 @@ Zarafa.core.data.ShadowStore = Ext.extend(Zarafa.core.data.MAPIStore, {
 	 * @return {String} The key by which the record must be saved into the {@link Ext.util.MixedCollection}.
 	 * @protected
 	 */
-	getRecordKey : function(o)
+	getRecordKey: function(o)
 	{
 		var objectKey;
 
@@ -99,7 +99,7 @@ Zarafa.core.data.ShadowStore = Ext.extend(Zarafa.core.data.MAPIStore, {
 	 * @param {Ext.data.Record} record The record which was realized
 	 * @protected
 	 */
-	reMap : function(record)
+	reMap: function(record)
 	{
 		if (Array.isArray(record)) {
 			for (var i = 0, len = record.length; i < len; i++) {
@@ -113,9 +113,9 @@ Zarafa.core.data.ShadowStore = Ext.extend(Zarafa.core.data.MAPIStore, {
 	/**
 	 * Remove Records from the Store and fires the {@link #remove} event.
 	 * @param {Ext.data.Record/Ext.data.Record[]} record The record object or array of records to remove from the cache.
-	 * @param {Boolean} silent [false] Defaults to <tt>false</tt>.  Set <tt>true</tt> to not fire remove event.
+	 * @param {Boolean} silent [false] Defaults to <tt>false</tt>. Set <tt>true</tt> to not fire remove event.
 	 */
-	remove : function(record, silent)
+	remove: function(record, silent)
 	{
 		// FIXME: This function is completely copied from
 		// Ext.data.store.remove(). Is there a nicer way we can
@@ -148,9 +148,9 @@ Zarafa.core.data.ShadowStore = Ext.extend(Zarafa.core.data.MAPIStore, {
 	/**
 	 * Remove a Record from the Store at the specified index. Fires the {@link #remove} event.
 	 * @param {Number} index The index of the record to remove.
-	 * @param {Boolean} silent [false] Defaults to <tt>false</tt>.  Set <tt>true</tt> to not fire remove event.
+	 * @param {Boolean} silent [false] Defaults to <tt>false</tt>. Set <tt>true</tt> to not fire remove event.
 	 */
-	removeAt : function(index, silent)
+	removeAt: function(index, silent)
 	{
 		this.remove(this.getAt(index), silent);
 	},
@@ -182,7 +182,7 @@ Zarafa.core.data.ShadowStore = Ext.extend(Zarafa.core.data.MAPIStore, {
 	 * @param {String|Array} entryidList Entryid of the folder
 	 * @return {Boolean} Returns true when entryid matches, false when it does not.
 	 */
-	containsStoreInLastLoad : function(entryidList)
+	containsStoreInLastLoad: function(entryidList)
 	{
 		return false;
 	},
@@ -190,7 +190,7 @@ Zarafa.core.data.ShadowStore = Ext.extend(Zarafa.core.data.MAPIStore, {
 	/**
 	 * Destroys the store.
 	 */
-	destroy : function()
+	destroy: function()
 	{
 		if (!this.standalone) {
 			Zarafa.core.data.IPMStoreMgr.unregister(this, this.serveronly);

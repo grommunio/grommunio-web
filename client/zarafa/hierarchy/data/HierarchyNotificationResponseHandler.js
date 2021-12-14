@@ -15,7 +15,7 @@ Zarafa.hierarchy.data.HierarchyNotificationResponseHandler = Ext.extend(Zarafa.c
 	 * @param {Object} data The entire response object which will be processed during this transaction.
 	 * @private
 	 */
-	doFolders : function(data)
+	doFolders: function(data)
 	{
 		var responseObj;
 		var folders = data.item;
@@ -29,7 +29,7 @@ Zarafa.hierarchy.data.HierarchyNotificationResponseHandler = Ext.extend(Zarafa.c
 		}
 
 		try {
-			responseObj = this.reader.readResponse(Ext.data.Api.actions.read, {item : folders});
+			responseObj = this.reader.readResponse(Ext.data.Api.actions.read, {item: folders});
 		} catch(e) {
 			return false;
 		}
@@ -64,7 +64,7 @@ Zarafa.hierarchy.data.HierarchyNotificationResponseHandler = Ext.extend(Zarafa.c
 	 * @param {Object} data The entire response object which will be processed during this transaction.
 	 * @private
 	 */
-	doNewmail : function(data)
+	doNewmail: function(data)
 	{
 		var folderEntryids = Ext.pluck(data.item, 'entryid');
 		var folderStores = Zarafa.core.data.IPMStoreMgr.getStoresForFolders(folderEntryids);
@@ -73,13 +73,13 @@ Zarafa.hierarchy.data.HierarchyNotificationResponseHandler = Ext.extend(Zarafa.c
 	},
 
 	/**
-	 * Handle the stores action we recieve as notification.
+	 * Handle the stores action we receive as notification.
 	 * This will obtain the list of {@link Zarafa.hierarchy.data.MAPIStoreRecord MAPIStoreRecord}
 	 * which must be updated, and generate the Notification.
 	 * @param {Object} data The entire response object which will be processed during this transaction.
 	 * @private
 	 */
-	doStores : function(data)
+	doStores: function(data)
 	{
 		var stores = data.item;
 		var mapiStoreIds = Ext.pluck(stores, 'store_entryid');
@@ -88,7 +88,7 @@ Zarafa.hierarchy.data.HierarchyNotificationResponseHandler = Ext.extend(Zarafa.c
 		for (var i = 0, len = mapiStoreIds.length; i < len; i++) {
 			var storeRecord = this.store.getById(mapiStoreIds[i]);
 			// We must check if we have a store record, because a keepalive request might be sent before the store loaded.
-			// The notifier that will be sent in the response will trigger this function and because we don't have the 
+			// The notifier that will be sent in the response will trigger this function and because we don't have the
 			// store record yet, we will eventually end up with a javascript error if we put undefined in the mapiStoreRecord array.
 			if ( Ext.isDefined(storeRecord) ){
 				mapiStoreRecord.push(storeRecord);

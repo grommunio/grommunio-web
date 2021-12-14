@@ -1,0 +1,7053 @@
+# grommunio Web Dutch translation.
+# Copyright (C) 2021
+msgid ""
+msgstr ""
+"Project-Id-Version: grommunio Web Dutch\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-09-25 14:32+0200\n"
+"PO-Revision-Date: 2021-04-16 08:20+0000\n"
+"Last-Translator: import\n"
+"Language: nl_NL\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 2.4\n"
+
+#. TRANSLATORS: This message is used as label for the column which indicates the week number of the month in date picker. and 'Wk' stands for week
+msgid "Wk"
+msgstr "Wk"
+
+msgid "Now"
+msgstr "Nu"
+
+msgid "Value must be between 0% to 100%"
+msgstr "Waarde moet tussen 0% en 100% liggen"
+
+msgid "Number must be higher than zero"
+msgstr "Getal moet hoger zijn dan nul"
+
+msgid "More options"
+msgstr "Meer opties"
+
+msgid "{0} byte"
+msgid_plural "{0} bytes"
+msgstr[0] "{0} byte"
+msgstr[1] "{0} bytes"
+
+msgid "{0} KB"
+msgid_plural "{0} KB"
+msgstr[0] "{0} KB"
+msgstr[1] "{0} KB"
+
+msgid "{0} MB"
+msgid_plural "{0} MB"
+msgstr[0] "{0} MB"
+msgstr[1] "{0} MB"
+
+msgid "{0} GB"
+msgid_plural "{0} GB"
+msgstr[0] "{0} GB"
+msgstr[1] "{0} GB"
+
+msgid "{0} TB"
+msgid_plural "{0} TB"
+msgstr[0] "{0} TB"
+msgstr[1] "{0} TB"
+
+# 81%
+# 90%
+msgid "{0} minute"
+msgid_plural "{0} minutes"
+msgstr[0] "{0} minuut"
+msgstr[1] "{0} minuten"
+
+msgid "{0} hour"
+msgid_plural "{0} hours"
+msgstr[0] "{0} uur"
+msgstr[1] "{0} uur"
+
+msgid "{0} day"
+msgid_plural "{0} days"
+msgstr[0] "{0} dag"
+msgstr[1] "{0} dagen"
+
+msgid "{0} week"
+msgid_plural "{0} weeks"
+msgstr[0] "{0} week"
+msgstr[1] "{0} weken"
+
+msgid "The quick brown fox jumps over the lazy dog"
+msgstr "Pa's wijze lynx bezag vroom het fikse aquaduct"
+
+msgid "Sunday"
+msgstr "Zondag"
+
+msgid "Monday"
+msgstr "Maandag"
+
+msgid "Tuesday"
+msgstr "Dinsdag"
+
+msgid "Wednesday"
+msgstr "Woensdag"
+
+msgid "Thursday"
+msgstr "Donderdag"
+
+msgid "Friday"
+msgstr "Vrijdag"
+
+msgid "Saturday"
+msgstr "Zaterdag"
+
+msgid "Sun"
+msgstr "Zo"
+
+msgid "Mon"
+msgstr "Ma"
+
+msgid "Tue"
+msgstr "Di"
+
+msgid "Wed"
+msgstr "Wo"
+
+msgid "Thu"
+msgstr "Do"
+
+msgid "Fri"
+msgstr "Vr"
+
+msgid "Sat"
+msgstr "Za"
+
+msgid "January"
+msgstr "Januari"
+
+msgid "February"
+msgstr "Februari"
+
+msgid "March"
+msgstr "Maart"
+
+msgid "April"
+msgstr "April"
+
+msgid "May"
+msgstr "Mei"
+
+msgid "June"
+msgstr "Juni"
+
+msgid "July"
+msgstr "Juli"
+
+msgid "August"
+msgstr "Augustus"
+
+msgid "September"
+msgstr "September"
+
+msgid "October"
+msgstr "Oktober"
+
+msgid "November"
+msgstr "November"
+
+msgid "December"
+msgstr "December"
+
+msgid "Page {A} of {0}"
+msgstr "Pagina {A} van {0}"
+
+msgid "Displaying messages {0} - {1} of {2}"
+msgstr "Getoonde berichten {0} - {1} van {2}"
+
+msgid "No messages to display"
+msgstr "Geen berichten om te tonen"
+
+msgid "First Page"
+msgstr "Eerste Pagina"
+
+msgid "Previous Page"
+msgstr "Vorige Pagina"
+
+msgid "Next Page"
+msgstr "Volgende Pagina"
+
+msgid "Last Page"
+msgstr "Laatste Pagina"
+
+msgid "Refresh"
+msgstr "Opnieuw laden"
+
+msgid "Today"
+msgstr "Vandaag"
+
+msgid "OK"
+msgstr "OK"
+
+msgid "Cancel"
+msgstr "Annuleren"
+
+msgid "{0} (Spacebar)"
+msgstr "{0} (Spatiebalk)"
+
+# misschien is "minimum date" te letterlijk gekopieerd
+msgid "This date is before the minimum date"
+msgstr "Het gekozen datum vindt voor de start datum plaats"
+
+# misschien is "minimum date" te letterlijk gekopieerd
+# 80%
+msgid "This date is after the maximum date"
+msgstr "Deze datum is later dan de maximumdatum"
+
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
+msgid "d/m/Y"
+msgstr "d-m-Y"
+
+msgid "Disabled"
+msgstr "Uitgeschakeld"
+
+msgid "Next Month (Control+Right)"
+msgstr "Volgende Maand (Ctrl+Rechts)"
+
+msgid "Previous Month (Control+Left)"
+msgstr "Vorige Maand (Ctrl+Links)"
+
+msgid "Choose a month (Control+Up/Down to move years)"
+msgstr ""
+"Kies een maand (Control+ Pijl omhoog/omlaag om te schakelen tussen de "
+"jaartallen)"
+
+msgid "Sort Ascending"
+msgstr "Sorteer Oplopend"
+
+msgid "Sort Descending"
+msgstr "Sorteer Aflopend"
+
+msgid "Columns"
+msgstr "Kolommen"
+
+msgid "Group By This Field"
+msgstr "Groepeer Op Deze Veld"
+
+msgid "Show in Groups"
+msgstr "Toon in Groepen"
+
+msgid "(None)"
+msgstr "(Geen)"
+
+msgid "Ok"
+msgstr "Ok"
+
+msgid "Yes"
+msgstr "Ja"
+
+msgid "No"
+msgstr "Nee"
+
+msgid "Loading"
+msgstr "Laden"
+
+msgid "The value in this field is invalid"
+msgstr "De waarde in deze veld is ongeldig"
+
+msgid "The minimum length for this field is {0}"
+msgstr "Het minimale lengte voor deze veld is {0}"
+
+msgid "The maximum length for this field is {0}"
+msgstr "Het maximale lengte voor deze veld is {0}"
+
+msgid "This field is required"
+msgstr "Dit veld is verplicht"
+
+msgid "The minimum value for this field is {0}"
+msgstr "De minimale waarde voor deze veld is {0}"
+
+msgid "The maximum value for this field is {0}"
+msgstr "De maximale waarde voor deze veld is {0}"
+
+msgid "{0} is not a valid number"
+msgstr "{0} is geen geldig nummer"
+
+msgid "The date in this field must be equal to or after {0}"
+msgstr "De datum in deze veld moet gelijk of later dan {0} zijn"
+
+msgid "The date in this field must be equal to or before {0}"
+msgstr "De datum in dit veld moet op of voor {0} vallen"
+
+msgid "{0} is not a valid date - it must be in the format {1}"
+msgstr "{0} is geen geldige datum - graag als volg invullen {1}"
+
+msgid "You must select at least one item in this group"
+msgstr "Graag minimaal één item uit deze groep selecteren"
+
+msgid "You must select one item in this group"
+msgstr "Graag één item uit deze groep selecteren"
+
+msgid "The time in this field must be equal to or after {0}"
+msgstr "De tijd in dit veld moet op of na {0} zijn"
+
+msgid "The time in this field must be equal to or before {0}"
+msgstr "De tijd in dit veld moet op of voor {0} zijn"
+
+msgid "{0} is not a valid time"
+msgstr "{0} is geen geldig tijdstip"
+
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
+msgid "G:i"
+msgstr "G:i"
+
+msgid "Name"
+msgstr "Naam"
+
+msgid "Value"
+msgstr "Waarde"
+
+# of juist
+msgid "true"
+msgstr "gezet"
+
+# onjuist
+msgid "false"
+msgstr "niet gezet"
+
+msgid ""
+"This field should be an e-mail address in the format \"user@example.com\""
+msgstr ""
+"Dit veld moet een e-mailadres zijn in de vorm \"gebruiker@voorbeeld.com\""
+
+msgid "This field should be a URL in the format \"{0}\""
+msgstr "Dit veld moet een URL zijn in de vorm \"{0}\""
+
+msgid "This field should only contain letters and _"
+msgstr "Dit veld mag alleen letters en _ bevatten"
+
+msgid "This field should only contain letters, numbers and _"
+msgstr "Dit veld mag alleen letters, cijfers en _ bevatten"
+
+# 87%
+msgid "Email Addresses"
+msgstr "Emailadressen"
+
+# 81%
+msgid "Email addresses"
+msgstr "Emailadressen"
+
+msgid "Group details"
+msgstr "Groepdetails"
+
+msgid "General"
+msgstr "Algemeen"
+
+msgid "Display Name"
+msgstr "Weergavenaam"
+
+msgid "Alias"
+msgstr "Alias"
+
+msgid "Owner"
+msgstr "Eigenaar"
+
+msgid "Notes"
+msgstr "Notities"
+
+msgid "Members"
+msgstr "Leden"
+
+# 92%
+msgid "Email Address"
+msgstr "E-mailadres"
+
+msgid "Account"
+msgstr "Account"
+
+msgid "Member Of"
+msgstr "Lid Van"
+
+msgid "Group Membership"
+msgstr "Groepslidmaatschap"
+
+msgid "Address Book"
+msgstr "Adresboek"
+
+msgid "User details"
+msgstr "Gebruikersdetails"
+
+msgid "First name"
+msgstr "Voornaam"
+
+msgid "Last name"
+msgstr "Achternaam"
+
+msgid "Initials"
+msgstr "Initialen"
+
+msgid "Display"
+msgstr "Tonen als"
+
+# 77%
+msgid "Addresses"
+msgstr "Adressen"
+
+msgid "Address"
+msgstr "Adres"
+
+msgid "City"
+msgstr "Stad"
+
+msgid "State"
+msgstr "Provincie/staat"
+
+msgid "Zip Code"
+msgstr "Postcode"
+
+msgid "Country"
+msgstr "Land"
+
+msgid "Professional"
+msgstr "Professioneel"
+
+msgid "Title"
+msgstr "Titel"
+
+msgid "Company"
+msgstr "Bedrijf"
+
+msgid "Department"
+msgstr "Afdeling"
+
+msgid "Office"
+msgstr "Kantoor"
+
+msgid "Assistant"
+msgstr "Assistent"
+
+msgid "Phone"
+msgstr "Telefoon"
+
+msgid "Organization"
+msgstr "Bedrijf"
+
+msgid "Manager"
+msgstr "Manager"
+
+msgid "Direct reports"
+msgstr "Directe meldingen"
+
+msgid "Phone numbers"
+msgstr "Telefoonnummers"
+
+msgid "Business"
+msgstr "Bedrijf"
+
+# 88%
+msgid "Business2"
+msgstr "Bedrijf2"
+
+msgid "Fax"
+msgstr "Fax"
+
+msgid "Home"
+msgstr "Thuis"
+
+msgid "Home2"
+msgstr "Thuis2"
+
+msgid "Mobile"
+msgstr "Mobiel"
+
+msgid "Pager"
+msgstr "Pieper"
+
+# 75%
+# 100%
+msgid "No user selected"
+msgstr "Geen gebruiker geselecteerd"
+
+msgid "You must select one or more users."
+msgstr "Graag één of meer gebruikers selecteren."
+
+msgid "You must select a user."
+msgstr "Graag één gebruiker selecteren."
+
+msgid "Select"
+msgstr "Selecteer"
+
+msgid "Show Details"
+msgstr "Toon Details"
+
+msgid "Copy contact"
+msgstr "Contact kopiëren"
+
+msgid "Copy contacts"
+msgstr "Contacten kopiëren"
+
+msgid ""
+"Showing only the first {0} names. Use search to find more specific results."
+msgstr ""
+"We laten alleen de eerste {0} namen zien. Gebruik de zoekfunctie voor "
+"concrete resultaten."
+
+msgid "Use the search bar to get results"
+msgstr "Gebruik het zoekveld om resultaten te krijgen"
+
+msgid "There are no items to show in this list"
+msgstr "Er zijn geen bestanden te zien in deze lijst"
+
+msgid "Show Names from the"
+msgstr "Toon de namen van de"
+
+msgid "Search..."
+msgstr "Zoek..."
+
+# 76%
+msgid "Sort by: Icon"
+msgstr "Sorteer op: Icoon"
+
+# 76%
+msgid "Sort by: Name"
+msgstr "Sorteer op: Naam"
+
+# 75%
+# 95%
+# 85%
+msgid "Sort by: Display Name"
+msgstr "Sorteer op: Weergavenaam"
+
+# 85%
+msgid "File as"
+msgstr "Opslaan als"
+
+# 93%
+# 81%
+msgid "Sort by: File As"
+msgstr "Sorteer op: Opslaan Als"
+
+# 80%
+msgid "First Name"
+msgstr "Voornaam"
+
+msgid "Sort by: First Name"
+msgstr "Sorteer op: Voornaam"
+
+# 77%
+msgid "Last Name"
+msgstr "Achternaam"
+
+# 76%
+msgid "Sort by: Last Name"
+msgstr "Sorteer op: Achternaam"
+
+# 86%
+msgid "Sort by: Email Address"
+msgstr "Sorteer op: E-mailadres"
+
+msgid "Job Title"
+msgstr "Functietitel"
+
+msgid "Sort by: Job Title"
+msgstr "Sorteer op: Functietitel"
+
+msgid "Company Name"
+msgstr "Bedrijfsnaam"
+
+# 95%
+# 85%
+msgid "Sort by: Company Name"
+msgstr "Sorteer op: Bedrijfsnaam"
+
+# 84%
+msgid "Sort by: Department"
+msgstr "Sorteer op: Afdeling"
+
+msgid "Office Phone"
+msgstr "Kantoortelefoon"
+
+# 90%
+# 75%
+# 85%
+msgid "Sort by: Office Phone"
+msgstr "Sorteer op: Kantoortelefoon"
+
+msgid "Sort by: Mobile"
+msgstr "Sorteer op: Mobiel"
+
+# 83%
+msgid "Home Phone"
+msgstr "Thuistelefoon"
+
+# 90%
+# 84%
+msgid "Sort by: Home Phone"
+msgstr "Sorteer op: Thuistelefoon"
+
+# 76%
+# 78%
+msgid "Sort by: Pager"
+msgstr "Sorteer op: Pager"
+
+msgid "Location"
+msgstr "Locatie"
+
+# 87%
+# 82%
+msgid "Sort by: Location"
+msgstr "Sorteer op: Locatie"
+
+# 76%
+msgid "Sort by: Fax"
+msgstr "Sorteer op: Fax"
+
+msgid "Print single item"
+msgstr "Print een losse item"
+
+# 78%
+msgid "Print selected item"
+msgstr "Druk geselecteerde item af"
+
+msgid "Print"
+msgstr "Afdrukken"
+
+msgid "No item selected"
+msgstr "Geen item geselecteerd"
+
+msgid "No preview"
+msgstr "Geen voorbeeld"
+
+msgid "Right preview"
+msgstr "Voorbeeld rechts"
+
+msgid "Bottom preview"
+msgstr "Voorbeeld onder"
+
+# 87%
+msgid "Any date"
+msgstr "Elke datum"
+
+msgid "Past week"
+msgstr "Afgelopen week"
+
+msgid "Past 2 weeks"
+msgstr "Afgelopen 2 weken"
+
+msgid "Past month"
+msgstr "Afgelopen maand"
+
+msgid "Past 6 month"
+msgstr "Afgelopen 6 maanden"
+
+msgid "Past year"
+msgstr "Afgelopen jaar"
+
+msgid "Custom date"
+msgstr "Aangepaste datum"
+
+msgid "Add to favorites"
+msgstr "Voeg toe aan favorieten"
+
+msgid "Add"
+msgstr "Voeg toe"
+
+msgid "Empty folder name"
+msgstr "Geen folder naam"
+
+msgid "You must specify a name."
+msgstr "Specificeer een naam."
+
+msgid "Add a folder to favorites based on your search query"
+msgstr "Voeg een folder toe aan favorieten gebaseerd op uw zoekopdracht"
+
+msgid "Folder name"
+msgstr "Foldernaam"
+
+msgid "Select Category"
+msgstr "Selecteer categorie"
+
+msgid "Apply"
+msgstr "Toepassen"
+
+msgid "All folders are selected"
+msgstr "Alle mappen zijn geselecteerd"
+
+msgid "Reply"
+msgstr "Beantwoord"
+
+msgid "Reply All"
+msgstr "Beantwoord Allen"
+
+msgid "Forward"
+msgstr "Doorsturen"
+
+msgid "Edit as New"
+msgstr "Als nieuw bewerken"
+
+msgid "Search tools"
+msgstr "Zoek opties"
+
+# 85%
+# 100%
+msgid "Folders"
+msgstr "Mappen"
+
+msgid "Include subfolders"
+msgstr "Inclusief submappen"
+
+msgid "Show.."
+msgstr "Toon..."
+
+msgid "Mails"
+msgstr "E-mails"
+
+msgid "Appointments"
+msgstr "Afspraken"
+
+msgid "Contacts"
+msgstr "Contactpersonen"
+
+msgid "Tasks"
+msgstr "Taken"
+
+msgid "Filter.."
+msgstr "Filter..."
+
+msgid "Unread"
+msgstr "Ongelezen"
+
+msgid "Attachments"
+msgstr "Bijlagen"
+
+msgid "Date"
+msgstr "Datum"
+
+msgctxt "search.date"
+msgid "From"
+msgstr "Van"
+
+msgctxt "search.date"
+msgid "To"
+msgstr "Tot"
+
+msgid "Filter category.."
+msgstr "Filteren op categorie.."
+
+msgid "Search.."
+msgstr "Zoeken..."
+
+msgid "Sender"
+msgstr "Afzender"
+
+msgid "Recipients"
+msgstr "Ontvangers"
+
+msgid "Subject"
+msgstr "Onderwerp"
+
+msgid "Body & Attachments"
+msgstr "Inhoud & bijlagen"
+
+msgid "Favorites"
+msgstr "Favorieten"
+
+msgid "Add a folder to favorites based on this search query"
+msgstr "Voeg een folder toe aan favorieten gebaseerd op deze zoekopdracht"
+
+# 76%
+msgid "Select Folder"
+msgstr "Selecteer Map"
+
+msgid "Delete search folder"
+msgstr "Verwijder een zoekfolder"
+
+# 76%
+# 84%
+# 100%
+msgid "Sort by: Date"
+msgstr "Sorteer op: Datum"
+
+msgid "Loading Search results"
+msgstr "Zoekresultaten laden"
+
+msgid "Sorting tip"
+msgstr "Sorteer tip"
+
+msgid ""
+"You can sort by date if you narrow down your search results. Enable filters "
+"or adjust your input."
+msgstr ""
+"Sorteren op datum is mogelijk indien de zoekresultaten specifieker zijn. Zet "
+"filters aan of pas de zoekopdracht aan."
+
+msgid "Did you mean"
+msgstr "Bedoelde u"
+
+msgid "With"
+msgstr "Met"
+
+msgid "To"
+msgstr "Aan"
+
+msgid "No date"
+msgstr "Geen datum"
+
+msgid "Error"
+msgstr "Fout"
+
+msgid ""
+"Could not accept proposal as this meeting is not available in calendar; It "
+"may have been moved or deleted."
+msgstr ""
+"Kon het voorstel niet accepteren omdat de vergadering niet beschikbaar is in "
+"de kalender; hij is misschien verplaatst of verwijderd."
+
+msgid ""
+"Could not view proposal as this meeting is not available in calendar; It may "
+"have been moved or deleted."
+msgstr ""
+"Kan het voorstel niet bekijken omdat deze bijeenkomst niet in de kalender "
+"staat; het kan verwijderd of verplaatst zijn."
+
+msgid "Required"
+msgstr "Vereist"
+
+# 75%
+msgid "Optional"
+msgstr "Optioneel"
+
+msgid "Resource"
+msgstr "Resource"
+
+msgid "Could not open store."
+msgstr "Kon store niet openen."
+
+msgid "Could not open default calendar folder."
+msgstr "Kon de standaardagendamap niet openen."
+
+msgid "workday"
+msgstr "werkdag"
+
+msgid "day"
+msgstr "dag"
+
+msgid "days"
+msgstr "dagen"
+
+# 75%
+msgid "week"
+msgstr "week"
+
+# 75%
+# 80%
+msgid "weeks"
+msgstr "weken"
+
+msgid " on "
+msgstr " aan "
+
+# 80%
+msgid "month"
+msgstr "maand"
+
+# 80%
+# 83%
+msgid "months"
+msgstr "maanden"
+
+msgid "year"
+msgstr "jaar"
+
+msgid "years"
+msgstr "jaren"
+
+msgid "Occurs every {0} effective {1} from {2} to {3}."
+msgstr "Elke {0} met ingang van {1} van {2} tot {3}."
+
+msgid "Occurs every {0} {1} effective {2} from {3} to {4}."
+msgstr "Elke {0} {1} met ingang van {2} van {3} tot {4}."
+
+msgid "Occurs every {0} effective {1}."
+msgstr "Elke {0} met ingang van {1}."
+
+msgid "Occurs every {0} {1} effective {2}."
+msgstr "Elke {0} {1} met ingang van {2}."
+
+msgid "Occurs every {0} effective {1} for {2} occurrence from {3} to {4}."
+msgid_plural ""
+"Occurs every {0} effective {1} for {2} occurrences from {3} to {4}."
+msgstr[0] "Elke {0} met ingang van {1} voor {2} gebeurtenis van {3} tot {4}."
+msgstr[1] ""
+"Elke {0} met ingang van {1} voor {2} gebeurtenissen van {3} tot {4}."
+
+msgid "Occurs every {0} {1} effective {2} for {3} occurrence from {4} to {5}."
+msgid_plural ""
+"Occurs every {0} {1} effective {2} for {3} occurrences {4} to {5}."
+msgstr[0] ""
+"Elke {0} {1} met ingang van {2} voor {3} gebeurtenis van {4} tot {5}."
+msgstr[1] ""
+"Elke {0} {1} met ingang van {2} voor {3} gebeurtenissen van {4} tot {5}."
+
+msgid "Occurs every {0} effective {1} for {2} occurrence."
+msgid_plural "Occurs every {0} effective {1} for {2} occurrences."
+msgstr[0] "Elke {0} met ingang van {1} voor {2} gebeurtenis."
+msgstr[1] "Elke {0} met ingang van {1} voor {2} gebeurtenissen."
+
+msgid "Occurs every {0} {1} effective {2} for {3} occurrence."
+msgid_plural "Occurs every {0} {1} effective {2} for {3} occurrences."
+msgstr[0] "Elke {0} {1} met ingang van {2} voor {3} gebeurtenis."
+msgstr[1] "Elke {0} {1} met ingang van {2} voor {3} gebeurtenissen."
+
+msgid "Occurs every {0} effective {1} until {2} from {3} to {4}."
+msgstr "Elke {0} met ingang van {1} tot en met {2}, van {3} tot {4}."
+
+msgid "Occurs every {0} {1} effective {2} until {3} from {4} to {5}."
+msgstr "Elke {0} {1} met ingang van {2} tot en met {3}, van {4} tot {5}."
+
+msgid "Occurs every {0} effective {1} until {2}."
+msgstr "Elke {0} met ingang van {1} tot en met {2}."
+
+msgid "Occurs every {0} {1} effective {2} until {3}."
+msgstr "Elke {0} {1} met ingang van {2} tot en met {3}."
+
+# 100%
+msgid "When"
+msgstr "Op"
+
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
+msgid "l jS F Y {0}"
+msgstr "l j F Y {0}"
+
+msgid "Where"
+msgstr "Locatie"
+
+msgid "New Meeting Time Proposed"
+msgstr "Nieuwe Tijd Voorgesteld"
+
+# 75%
+# 100%
+msgid "and "
+msgstr "en "
+
+msgid "Sort by: Attachment"
+msgstr "Sorteer op: Bijlage"
+
+msgid "Sort by: Recurring"
+msgstr "Sorteer op: Herhalend"
+
+# 81%
+msgid "Sort by: Subject"
+msgstr "Sorteer op: Onderwerp"
+
+msgid "Start Date"
+msgstr "Begindatum"
+
+# 84%
+msgid "Sort by: Start Date"
+msgstr "Sorteer op: Startdatum"
+
+# 87%
+msgid "End Date"
+msgstr "Einddatum"
+
+msgid "Sort by: End Date"
+msgstr "Sorteren op: einddatum"
+
+msgid "Organizer"
+msgstr "Organisator"
+
+msgid "Required Attendee"
+msgstr "Vereiste Deelnemer"
+
+msgid "Optional Attendee"
+msgstr "Optionele Deelnemer"
+
+msgid "Show Time As"
+msgstr "Toon Tijd Als"
+
+# 77%
+msgid "Recurrence pattern"
+msgstr "Terugkeerpatroon"
+
+msgid "All Day Event"
+msgstr "Duurt Hele Dag"
+
+# 81%
+# 79%
+# 87%
+# 76%
+# 100%
+msgid "Add Shared Calendar"
+msgstr "Open gedeelde agenda"
+
+msgid "Remove From Calendar"
+msgstr "Verwijder Uit Agenda"
+
+msgid "No Response Required"
+msgstr "Geen Antwoord Nodig"
+
+# 75%
+msgid "Accept"
+msgstr "Accepteer"
+
+# 77%
+msgid "Accept Meeting Request"
+msgstr "Accepteer Vergaderverzoek"
+
+msgid "Tentative"
+msgstr "Voorlopig bezet"
+
+msgid "Tentatively Accept Meeting Request"
+msgstr "Accepteer Vergaderverzoek Voorlopig"
+
+# 87%
+msgid "Decline"
+msgstr "Afwijzen"
+
+msgid "Decline Meeting Request"
+msgstr "Vergaderverzoek Afwijzen"
+
+msgid "Propose New Time"
+msgstr "Andere Tijd Voorstellen"
+
+msgid "Propose New Time for Meeting Request"
+msgstr "Andere Tijd Voorstellen voor het Vergaderverzoek"
+
+msgid "View All Proposals"
+msgstr "Bekijk Alle Voorstellen"
+
+msgid "Accept Proposal"
+msgstr "Accepteer Voorstel"
+
+msgid "Accept Proposed Time"
+msgstr "Accepteer Voorgestelde Tijd"
+
+msgid "View in calendar"
+msgstr "Bekijk in kalender"
+
+msgid "Day"
+msgstr "Dag"
+
+msgid "Workweek"
+msgstr "Werkweek"
+
+msgid "Week"
+msgstr "Week"
+
+msgid "Month"
+msgstr "Maand"
+
+msgid "List"
+msgstr "Lijst"
+
+msgid "Appointment"
+msgstr "Afspraak"
+
+msgid "Meeting request"
+msgstr "Vergaderverzoek"
+
+msgid "Print selected appointment"
+msgstr "Druk geselecteerde afspraak af"
+
+msgid "No appointment selected"
+msgstr "Geen afspraak geselecteerd"
+
+msgid "Print overview"
+msgstr "Druk overzicht af"
+
+msgid "Create Appointment"
+msgstr "Maak afspraak"
+
+msgid "Calendar"
+msgstr "Agenda"
+
+msgid "Create in other calendar"
+msgstr "Aanmaken in andere kalender"
+
+msgid ""
+"The selected calendar has \"read-only\" permissions. Instead you can create "
+"an item in your own calendar."
+msgstr ""
+"De geselecteerde kalender heeft \"alleen-lezen\" rechten. In plaats daarvan "
+"kan het item in je eigen kalender gemaakt worden."
+
+msgid "What would you like?"
+msgstr "Wat wil je doen?"
+
+msgid "Own calendar"
+msgstr "Eigen kalender"
+
+msgid "F Y"
+msgstr "F Y"
+
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
+msgid "l"
+msgstr "l"
+
+msgid "All text fields"
+msgstr "Alle tekstvelden"
+
+msgid "Body"
+msgstr "Inhoud"
+
+msgid "Subject or Sender"
+msgstr "Onderwerp of Afzender"
+
+msgid "To or cc"
+msgstr "Aan of cc"
+
+msgid "Meeting"
+msgstr "Bijeenkomst"
+
+msgctxt "calendar.dialog"
+msgid "Resources have been planned"
+msgstr "Resources zijn geboekt"
+
+msgid "Send update"
+msgstr "Verstuur een update"
+
+msgid "Do you want to send an update to all recipients?"
+msgstr "Wil je een update sturen naar alle genodigden?"
+
+msgid "Send update to attendees"
+msgstr "Verstuur update naar genodigden"
+
+msgid ""
+"You have made changes to the list of attendees. What would you like to do?"
+msgstr ""
+"Je hebt aanpassingen gemaakt aan de lijst met genodigden. Wat wil je doen?"
+
+msgid "Send updates to only added or deleted attendees."
+msgstr "Verstuur updates alleen naar toegevoegde of verwijderde genodigden."
+
+msgid "Send updates to all attendees."
+msgstr "Verstuur updates naar alle genodigden."
+
+msgid "Busy attendees"
+msgstr "Bezette genodigden"
+
+msgid "One or more attendees are busy. Are you sure to invite?"
+msgstr "Een of meerdere genodigden zijn bezig. Wilt u hen alsnog uitnodigen?"
+
+msgid "Scheduling"
+msgstr "Planning"
+
+msgid "Tracking"
+msgstr "Reacties"
+
+# 75%
+msgctxt "calendar.dialog"
+msgid "Not all attendees could be resolved."
+msgstr "Niet alle genodigden konden worden opgelost."
+
+msgctxt "calendar.dialog"
+msgid "{0} attendees accepted, {1} tentatively accepted, {2} declined."
+msgstr ""
+"{0} genodigden hebben geaccepteerd, {1} voorlopig geaccepteerd, {2} "
+"afgewezen."
+
+msgctxt "calendar.dialog"
+msgid ""
+"{0} attendees proposed a new time for this meeting. Click the Scheduling tab "
+"for details."
+msgstr ""
+"{0} genodigden deden alternatieve voorstellen voor deze bijeenkomst. Ga naar "
+"de Planningstab voor details."
+
+msgctxt "calendar.dialog"
+msgid "You proposed a new time for this meeting on {0}"
+msgstr "U stelde een nieuwe tijd voor deze bijeenkomst voor op {0}"
+
+# 91%
+msgctxt "calendar.dialog"
+msgid "{0} proposed a new time for this meeting on {1}"
+msgstr "{0} stelde een nieuwe tijd voor deze bijeenkomst voor op {1}"
+
+msgctxt "calendar.dialog"
+msgid "Accepted on {0}"
+msgstr "Geaccepteerd op {0}"
+
+msgctxt "calendar.dialog"
+msgid "Accepted by {0} on {1}"
+msgstr "Door {0} geaccepteerd op {1}"
+
+msgctxt "calendar.dialog"
+msgid "Tentatively Accepted on {0}"
+msgstr "Voorlopig Geaccepteerd op {0}"
+
+# 76%
+msgctxt "calendar.dialog"
+msgid "Tentatively Accepted by {0} on {1}"
+msgstr "Door {0} voorlopig geaccepteerd op {1}"
+
+msgctxt "calendar.dialog"
+msgid "This appointment occurs in the past."
+msgstr "Deze bijeenkomst is in het verleden."
+
+msgctxt "calendar.dialog"
+msgid "Please respond."
+msgstr "Beantwoord alstublieft."
+
+msgctxt "calendar.dialog"
+msgid "No responses have been received for this meeting."
+msgstr "Geen antwoorden ontvangen op dit vergaderverzoek."
+
+msgctxt "calendar.dialog"
+msgid "Meeting has been canceled."
+msgstr "Bijeenkomst is geannuleerd."
+
+msgctxt "calendar.dialog"
+msgid "Invitations have not been sent for this meeting."
+msgstr "Uitnodigingen voor deze vergadering zijn niet verstuurd."
+
+msgctxt "calendar.dialog"
+msgid ""
+"Please note that any changes you make will be overwritten when this meeting "
+"request is updated by the organizer"
+msgstr ""
+"Alle gemaakte wijzigingen zullen worden overschreven wanneer dit "
+"vergaderverzoek wordt bijgewerkt door de organisator"
+
+# 90%
+msgid "Create in"
+msgstr "Maak in"
+
+msgid "Time"
+msgstr "Tijd"
+
+msgid "until"
+msgstr "tot"
+
+msgid "Recurrence"
+msgstr "Terugkeerpatroon"
+
+msgid "Reminder"
+msgstr "Herinnering"
+
+msgid "Show as"
+msgstr "Toon als"
+
+msgid "Warning"
+msgstr "Waarschuwing"
+
+msgid "Attachments cannot be modified for a single occurence"
+msgstr "Bijlagen kunnen niet worden gewijzigd voor een herhaling"
+
+msgid "Type your message here..."
+msgstr "Schrijf het bericht hier..."
+
+msgid "Update location"
+msgstr "Locatie bijwerken"
+
+msgid ""
+"Do you want to update the location \"{0}\" with the new location \"{1}\"?"
+msgstr "Wilt u de locatie \"{0}\" bijwerken met de nieuwe locatie \"{1}\"?"
+
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
+msgid "jS F Y {0}"
+msgstr "j F Y {0}"
+
+# 75%
+msgid "None"
+msgstr "Geen"
+
+# 75%
+msgid "Send"
+msgstr "Verzenden"
+
+msgid "Save"
+msgstr "Opslaan"
+
+msgid "Close"
+msgstr "Sluiten"
+
+msgid "Delete"
+msgstr "Verwijderen"
+
+msgid "Add attachment"
+msgstr "Bijlage toevoegen"
+
+msgid "Check names"
+msgstr "Namen controleren"
+
+msgid "Addressbook"
+msgstr "Adresboek"
+
+msgid "Open addressbook"
+msgstr "Open adresboek"
+
+msgid "Invite attendees"
+msgstr "Nodig deelnemers uit"
+
+msgid "Cancel invitation"
+msgstr "Annuleer uitnodiging"
+
+msgid "High priority"
+msgstr "Hoge prioriteit"
+
+# 76%
+msgid "Mark this appointment as high priority"
+msgstr "Markeer deze afspraken als hoge prioriteit"
+
+msgid "Low priority"
+msgstr "Lage prioriteit"
+
+# 78%
+msgid "Mark this appointment as low priority"
+msgstr "Markeer deze afspraken als lage prioriteit"
+
+msgid "Categories"
+msgstr "Categorieën"
+
+msgid "Open the categories dialog"
+msgstr "Open het categorievenster"
+
+msgid "Private"
+msgstr "Privé"
+
+msgid "Mark this appointment as private"
+msgstr "Markeer deze afspraak als privé"
+
+msgid "Proposed Date and Time"
+msgstr "Voorgestelde Datum en Tijd"
+
+msgid "Duration"
+msgstr "Duur"
+
+msgid "Proposed By"
+msgstr "Voorgesteld Door"
+
+msgid "Current Meeting Time"
+msgstr "Huidige Tijd Bijeenkomst"
+
+msgid "Show only working hours"
+msgstr "Toon alleen kantooruren"
+
+msgid "Start time"
+msgstr "Begintijd"
+
+msgid "End time"
+msgstr "Eindtijd"
+
+msgid "Comment"
+msgstr "Opmerking"
+
+# 84%
+msgid "Send Meeting Request Cancellation"
+msgstr "Stuur Annulering Vergaderverzoek"
+
+msgid ""
+"This meeting will be cancelled. Do you want to include comments with your "
+"cancellation?"
+msgstr ""
+"Deze vergadering wordt geannuleerd. Wilt u commentaar invoegen in het "
+"annuleringsbericht?"
+
+msgid "Edit the cancellation before Sending."
+msgstr "Bewerk de annulering voor verzenden."
+
+msgid "Send the cancellation now."
+msgstr "Verzend de annulering nu."
+
+msgid "Send Meeting Request Confirmation"
+msgstr "Stuur Bevestiging Vergaderverzoek"
+
+msgid ""
+"This meeting will be accepted and moved to your calendar. Do you want to "
+"include comments with your response?"
+msgstr ""
+"Deze afspraak wordt geaccepteerd en naar uw agenda verplaatst. Wilt u "
+"commentaar invoegen in uw antwoord?"
+
+msgid ""
+"This meeting will be tentatively accepted and moved to your calendar. Do you "
+"want to include comments with your response?"
+msgstr ""
+"Deze afspraak wordt voorlopig geaccepteerd en naar uw agenda verplaatst. "
+"Wilt u commentaar invoegen in uw antwoord?"
+
+msgid ""
+"This meeting will be declined and moved to your Deleted Items folder. Do you "
+"want to include comments with your response?"
+msgstr ""
+"Deze afspraak wordt afgewezen en verplaatst naar de verwijderde bestanden. "
+"Wilt u commentaar invoegen in uw antwoord?"
+
+msgid "Edit the response before sending"
+msgstr "Antwoord bewerken voor het versturen"
+
+msgid "Send the response now."
+msgstr "Antwoord nu verzenden."
+
+msgid "Don't send a response."
+msgstr "Geen antwoord verzenden."
+
+# 91%
+msgid "The following responses for this meeting have been received"
+msgstr "De volgende antwoorden op dit vergaderverzoek werden ontvangen"
+
+msgid "Attendance"
+msgstr "Aanwezigheid"
+
+msgid "Response"
+msgstr "Antwoord"
+
+# 93%
+# 100%
+msgid "New appointment"
+msgstr "Nieuwe Afspraak"
+
+msgid "Creating an item"
+msgstr "Creëer een item"
+
+# 89%
+# 100%
+msgid "New meeting request"
+msgstr "Nieuw Vergaderverzoek"
+
+msgid "Switch calendar range back and forth"
+msgstr "Kalender bereik heen en terug wisselen"
+
+msgid "Copy selected item"
+msgstr "Kopieer geselecteerd item"
+
+msgid "Paste selected item"
+msgstr "Plak geselecteerd item"
+
+msgid "An overview of"
+msgstr "Een overzicht van"
+
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
+msgid "Start"
+msgstr "Begin"
+
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
+msgid "End"
+msgstr "Einde"
+
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for formatting instructions
+msgid "Printed by"
+msgstr "Geprint door"
+
+msgid "at"
+msgstr "op"
+
+msgid "of"
+msgstr "van"
+
+msgid "Location: "
+msgstr "Locatie: "
+
+msgid "j M {0}"
+msgstr "j M {0}"
+
+msgid "l jS M Y {0}"
+msgstr "l j M Y {0}"
+
+msgid "All day: "
+msgstr "Gehele dag: "
+
+# 87%
+# 75%
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for formatting instructions
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
+msgid "l jS F"
+msgstr "l j F"
+
+# 88%
+msgid "Organiser"
+msgstr "Organisator"
+
+# 92%
+msgid "Meeting status"
+msgstr "Status vergadering"
+
+# 94%
+msgid "Required Attendees"
+msgstr "Vereiste Deelnemers"
+
+# 94%
+msgid "Optional Attendees"
+msgstr "Optionele Deelnemers"
+
+# 88%
+msgid "Resources"
+msgstr "Middelen"
+
+msgid "Sensitivity"
+msgstr "Gevoeligheid"
+
+# 80%
+msgid "Importance"
+msgstr "Belangrijkheid"
+
+msgid "M j"
+msgstr "M j"
+
+msgid "j"
+msgstr "j"
+
+msgid "General calendar settings"
+msgstr "Kalenderinstellingen"
+
+msgid "First day of the week"
+msgstr "Eerste dag van de week"
+
+msgid "Start of workday"
+msgstr "Begin van de werkdag"
+
+msgid "End of workday"
+msgstr "Einde van de werkdag"
+
+msgid "Calendar resolution"
+msgstr "Kalenderresolutie"
+
+msgid "Default appointment duration {A} minutes"
+msgstr "Standaard afspraak tijdsduur {A} minuten"
+
+msgid "Duration must be between 1 and 120 minutes."
+msgstr "Tijdsduur moet tussen 1 en 120 minuten liggen."
+
+msgid "Default status for all day appointment"
+msgstr "Standaard status voor hele dag afspraken"
+
+msgid "Working days"
+msgstr "Werkdagen"
+
+msgid "Show busy dates as bold in the date picker"
+msgstr "Geef dagen met afspraken vet weer in het datumkeuzeveld"
+
+msgid ""
+"Free/Busy information is used by people sending meeting requests, to "
+"determine when you are available for meetings."
+msgstr ""
+"Beschikbaarheidsinformatie wordt gebruikt door de verzender van "
+"vergaderverzoeken, om te vast te stellen wanneer u beschikbaar bent voor "
+"vergaderingen."
+
+msgid "Free/Busy publishing"
+msgstr "Beschikbaarheidsinformatie publiceren"
+
+msgid "Publish {A} month(s) of Calendar Free/Busy information on the server."
+msgstr "Publiceer {A} maand(en) beschikbaarheidsinformatie op de server."
+
+msgid ""
+"You can only publish a Free/Busy period from 0 to 36 months. 0 means Free/"
+"Busy information is not published."
+msgstr ""
+"U kunt alleen beschikbaarheidsinformatie publiceren in een periode van 0 tot "
+"36 maanden. 0 betekent dat informatie niet wordt gepubliceerd."
+
+msgid "Side-by-side mode"
+msgstr "Naast-elkaarmodus"
+
+msgid "Overlay mode"
+msgstr "Over-elkaarmodus"
+
+msgid "Calendar view settings"
+msgstr "Kalenderinstellingen"
+
+msgid "View multiple calendars in"
+msgstr "Bekijk meerdere kalenders in"
+
+msgid "Reminder settings"
+msgstr "Herinneringsinstellingen"
+
+msgid "Enable reminder for new appointments"
+msgstr "Activeer herinnering voor nieuwe afspraken"
+
+msgid "Default reminder time"
+msgstr "Standaard herinneringstijd"
+
+msgid "Default all-day appointment reminder time"
+msgstr "Standaard herinneringstijd voor heledagafspraken"
+
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
+msgid "jS"
+msgstr "j"
+
+msgid "{0} selected item"
+msgid_plural "{0} selected items"
+msgstr[0] "{0} geselecteerd item"
+msgstr[1] "{0} geselecteerde items"
+
+msgid "New Appointment"
+msgstr "Nieuwe Afspraak"
+
+msgid "New Meeting Request"
+msgstr "Nieuw Vergaderverzoek"
+
+msgid "Open"
+msgstr "Openen"
+
+msgid "Copy/Move"
+msgstr "Kopiëren/Verplaatsen"
+
+# 75%
+msgid "Send to..."
+msgstr "Verzenden naar.."
+
+msgid "Export as"
+msgstr "Exporteren als"
+
+# 80%
+# 100%
+msgid "Occurrence"
+msgstr "Geval"
+
+msgid "Series"
+msgstr "Serie"
+
+msgid "Appointment not found"
+msgstr "Kalenderafspraak niet gevonden"
+
+msgid "This appointment has been moved or deleted, do you want to continue?"
+msgstr "Deze afspraak is verplaatst of verwijderd, wilt u doorgaan?"
+
+msgid "All Day"
+msgstr "Hele dag"
+
+msgid "Sort by: All Day"
+msgstr "Sorteer op: Hele dag"
+
+msgid "Icon"
+msgstr "Icoon"
+
+msgid "Recurring"
+msgstr "Terugkerend"
+
+# 87%
+# 82%
+msgid "Sort by: Duration"
+msgstr "Sorteer op: Duur"
+
+msgid "Meeting Status"
+msgstr "Status"
+
+msgid "Sort by: Meeting Status"
+msgstr "Sorteer op: Status"
+
+msgid "Sort by: Show as"
+msgstr "Sorteren op: Tonen als"
+
+# 84%
+msgid "Sort by: Categories"
+msgstr "Sorteer op: Categoriën"
+
+# 90%
+msgid "Created On"
+msgstr "Aangemaakt Op"
+
+# 81%
+# 84%
+msgid "Sort by: Created On"
+msgstr "Sorteer op: Aangemaakt Op"
+
+msgid "Due By"
+msgstr "Vervalt Op"
+
+# 82%
+# 76%
+msgid "Sort by: Due By"
+msgstr "Sorteer op: Vervaldatum"
+
+msgid "Label"
+msgstr "Label"
+
+# 76%
+# 78%
+msgid "Sort by: Label"
+msgstr "Sorteer op: Label"
+
+# 83%
+msgid "Sort by: Organizer"
+msgstr "Sorteer op: Organisator"
+
+msgid "Sort by: Required Attendee"
+msgstr "Sorteer op: Vereiste Deelnemer"
+
+msgid "Sort by: Optional Attendee"
+msgstr "Sorteer op: Optionele Deelnemer"
+
+msgid "Sort by: Resources"
+msgstr "Sorteer op: Resources"
+
+msgid "Recurring Start Date"
+msgstr "Terugkerende startdatum"
+
+msgid "Sort by: Recurring Start Date"
+msgstr "Sorteren op: terugkerende startdatum"
+
+msgid "Recurring End Date"
+msgstr "Terugkerende einddatum"
+
+msgid "Sort by: Recurring End Date"
+msgstr "Sorteren op: terugkerende einddatum"
+
+msgid "Recurring Pattern"
+msgstr "Terugkeerpatroon"
+
+msgid "Sort by: Recurring Pattern"
+msgstr "Sorteer op: Herhaalpatroon"
+
+# 86%
+# 77%
+msgid "Sort by: Reminder"
+msgstr "Sorteer op: Herinnering"
+
+msgid "Sort by: Sensitivity"
+msgstr "Sorteer op: Prive"
+
+# 86%
+msgid "Loading appointments"
+msgstr "Afspraken laden"
+
+msgid "Attendees"
+msgstr "Aanwezigen"
+
+msgid "Optional attendees"
+msgstr "Optionele aanwezigen"
+
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
+msgid "jS F {0}"
+msgstr "j F {0}"
+
+# 83%
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
+msgid "jS F Y"
+msgstr "j F Y"
+
+msgid ""
+"You have insufficient privileges to move and copy this item. Ask the folder "
+"owner to grant you permissions or contact your system administrator."
+msgstr ""
+"Je hebt onvoldoende rechten om dit item te verplaatsen en te kopiëren. Vraag "
+"de eigenaar van de folder om rechten of neem contact op met de administrator."
+
+msgid ""
+"You have insufficient privileges to copy this item. Ask the folder owner to "
+"grant you permissions or contact your system administrator."
+msgstr ""
+"Je hebt onvoldoende rechten om dit item te kopiëren. Vraag de eigenaar van "
+"de folder om rechten of neem contact op met de administrator."
+
+msgid "Insufficient privileges"
+msgstr "Onvoldoende rechten"
+
+msgid ""
+"Copying this appointment will unset it as private. Are you sure you want to "
+"continue?"
+msgstr ""
+
+msgid "Private item"
+msgstr ""
+
+msgid "Copy"
+msgstr "Kopiëren"
+
+msgid ""
+"Moving this appointment will unset it as private. Are you sure you want to "
+"continue?"
+msgstr ""
+
+msgid "Move"
+msgstr "Verplaatsen"
+
+msgid "Update recipients"
+msgstr "Update genodigden"
+
+msgid "The time of the meeting has changed. What would you like to do?"
+msgstr "De tijd van de afspraak is veranderd. Wat wil je doen?"
+
+msgid "Save changes and send an update to all recipients"
+msgstr "Bewaar wijzigingen en verstuur een update naar alle genodigden"
+
+msgid "Open meeting request with changes"
+msgstr "Open het vergaderverzoek met wijzigingen"
+
+msgid "grommunio Web"
+msgstr "grommunio Web"
+
+msgid ""
+"Please note that any changes you make will be overwritten when this meeting "
+"request is updated by the organizer. Would you like to move this meeting?"
+msgstr ""
+"Alle gemaakte wijzigingen zullen worden overschreven wanneer deze afspraak "
+"wordt bijgewerkt door de organisator. Wil je deze afspraak verplaatsen?"
+
+msgid "Don't move"
+msgstr "Niet verplaatsen"
+
+msgid "Switch to day view to see all appointments"
+msgstr "Schakel naar dagweergave om al de afspraken te zien"
+
+#. TRANSLATORS: This message is used as label for the field which to indicates to whom the given mail was sent.
+msgctxt "mail.previewpanel"
+msgid "Proposed"
+msgstr "Voorgesteld"
+
+#. TRANSLATORS: This message is used as label for the field which to indicates to whom the given mail was sent
+msgctxt "mail.previewpanel"
+msgid "When"
+msgstr "Op"
+
+# 100%
+#. TRANSLATORS: This message is used as label for the field which to indicates to whom the given mail was sent
+msgctxt "mail.previewpanel"
+msgid "Location"
+msgstr "Locatie"
+
+msgid "No additional response required"
+msgstr "Geen antwoord nodig"
+
+msgid ""
+"Your calendar has been updated automatically. This meeting request will now "
+"be deleted."
+msgstr ""
+"Uw agenda is automatisch bijgewerkt. Dit vergaderverzoek wordt nu verwijderd."
+
+# 86%
+msgid "Loading appointments..."
+msgstr "Afspraken laden..."
+
+msgid "Please select a calendar via widget settings"
+msgstr "Selecteer een kalendar via widget instellingen"
+
+msgid "Number of days"
+msgstr "Aantal dagen"
+
+msgid "day(s)"
+msgstr "dag(en)"
+
+msgid "{0}"
+msgstr "{0}"
+
+# 86%
+msgid "Upcoming Appointments"
+msgstr "Aankomende afspraken"
+
+msgid "Appointments of {0}"
+msgstr "Afspraken van {0}"
+
+msgid "Appointments of {0} - {1}"
+msgstr "Afspraken van {0} - {1}"
+
+# 93%
+# 100%
+msgid "No appointments"
+msgstr "Geen afspraken"
+
+msgid "Today {0} - {1}"
+msgstr "Vandaag: {1} - {0}"
+
+msgid "Today (all day)"
+msgstr "Vandaag (gehele dag)"
+
+# 100%
+#. TRANSLATORS: Display name of a folder: "FOLDERNAME - STORENAME".
+#. TRANSLATORS: Displayed on top of a tree with folders: "FOLDERNAME - USERNAME".
+msgid "{0} - {1}"
+msgstr "{0} - {1}"
+
+msgid "d/m/y {0}"
+msgstr "d/m/y {0}"
+
+msgid "{0} - {1} (all day)"
+msgstr "{0} - {1} (gehele dag)"
+
+msgid "d/m/y"
+msgstr "d-m-Y"
+
+msgid "Select one..."
+msgstr "Selecteer een..."
+
+msgid "Unnamed folder"
+msgstr "Map zonder naam"
+
+msgid "Discard"
+msgstr "Niet opslaan"
+
+msgid "Quick Appointment"
+msgstr "Vlugge Afspraak"
+
+msgid "Printing of multiple items has not been implemented."
+msgstr "Meerdere items afdrukken is niet geïmplementeerd."
+
+msgid "Printing of this item is not yet available"
+msgstr "Dit item afdrukken is nog niet mogelijk"
+
+msgid "Item type: "
+msgstr "Item type: "
+
+# 92%
+msgid "Printing of this view is not yet available"
+msgstr "Deze weergave afdrukken is nog niet mogelijk"
+
+msgid "Recurring Message"
+msgstr "Herhalend Bericht"
+
+msgid ""
+"This is a recurring message. Do you want to open only this occurrence or the "
+"series?"
+msgstr ""
+"Dit is een herhalend bericht. Wilt u alleen deze herhaling of de serie "
+"openen?"
+
+msgid "Recurring Appointment"
+msgstr "Herhalende Afspraak"
+
+msgid ""
+"This is a recurring appointment. Do you want to open only this occurrence or "
+"the series?"
+msgstr ""
+"Dit is een herhalende afspraak. Wilt u alleen deze herhaling of de serie "
+"openen?"
+
+# 80%
+msgid "Recurring Meeting Request"
+msgstr "Herhalend Vergaderverzoek"
+
+msgid ""
+"This is a recurring meeting request. Do you want to open only this "
+"occurrence or the series?"
+msgstr ""
+"Dit is een herhalend vergaderverzoek. Wilt u alleen deze herhaling of de "
+"serie openen?"
+
+msgid "Recurring Task Request"
+msgstr "Herhalend Taakverzoek"
+
+msgid ""
+"This is a recurring task request. Do you want to open only this occurrence "
+"or the series?"
+msgstr ""
+"Dit is een herhalend taakverzoek. Wilt u alleen deze herhaling of de serie "
+"openen?"
+
+# 95%
+msgid "Open this occurrence"
+msgstr "Open deze herhaling"
+
+msgid "Open the series"
+msgstr "Open de serie"
+
+msgid "Paste Recurring {0}"
+msgstr "Plak Herhaling {0}"
+
+msgid ""
+"This is a recurring {0}. Do you want to paste only this occurrence or the "
+"series?"
+msgstr ""
+"Dit is een terugkerende {0}. Wilt u alleen deze herhaling of de serie "
+"plakken?"
+
+msgid "message"
+msgstr "bericht"
+
+msgid "meeting request"
+msgstr "vergaderverzoek"
+
+msgid "appointment"
+msgstr "afspraak"
+
+msgid "Paste this occurrence only"
+msgstr "Plak alleen deze herhaling"
+
+msgid "Paste the series..."
+msgstr "Plak de serie..."
+
+msgid ""
+"This is a recurring message. Do you want to delete only this occurrence or "
+"the series?"
+msgstr ""
+"Dit is een herhalend bericht. Wilt u alleen deze herhaling of de serie "
+"verwijderen?"
+
+msgid ""
+"This is a recurring appointment. Do you want to delete only this occurrence "
+"or the series?"
+msgstr ""
+"Dit is een herhalende afspraak. Wilt u alleen deze herhaling of de serie "
+"verwijderen?"
+
+msgid ""
+"This is a recurring meeting request. Do you want to delete only this "
+"occurrence or the series?"
+msgstr ""
+"Dit is een herhalend vergaderverzoek. Wilt u alleen deze herhaling of de "
+"serie verwijderen?"
+
+msgid ""
+"This is a recurring task request. Do you want to delete only this occurrence "
+"or the series?"
+msgstr ""
+"Dit is een herhalend taakverzoek. Wilt u alleen deze herhaling of de serie "
+"verwijderen?"
+
+# 95%
+msgid "Delete this occurrence"
+msgstr "Verwijder deze herhaling"
+
+msgid "Delete the series"
+msgstr "Verwijder de serie"
+
+msgid "Confirm Delete"
+msgstr "Bevestig Verwijderen"
+
+msgid "This \"{0}\" meeting was already accepted."
+msgstr "Deze \"{0}\" vergadering was al geaccepteerd."
+
+msgid "You have not responded to the meeting request \"{0}\"."
+msgstr "U heeft niet gereageerd op vergaderverzoek \"{0}\"."
+
+msgid "Delete and send a response to the meeting organizer"
+msgstr "Verwijder en stuur een antwoord naar de organisator"
+
+msgid "Delete without sending"
+msgstr "Verwijder zonder te versturen"
+
+msgid "Insufficient permissions"
+msgstr "Onvoldoende rechten"
+
+msgid "You have insufficient privileges to delete items in this folder."
+msgstr "U heeft onvoldoende rechten om iets te verwijderen in deze folder."
+
+msgid "Notify recipients"
+msgstr "Stel genodigden op de hoogte"
+
+msgid ""
+"A cancellation message will be sent to all recipients, do you wish to "
+"continue?"
+msgstr ""
+"Een annuleringsbericht wordt naar alle ontvangers verstuurd, wilt u doorgaan?"
+
+msgid "Delete Incomplete Task"
+msgstr "Verwijder Onvoltooide Taak"
+
+msgid "The task \"{0}\" has not been completed. What do you want to do?"
+msgstr "De taak \"{0}\" is niet voltooid. Wat wilt u doen?"
+
+msgid "Decline and delete"
+msgstr "Afwijzen en verwijderen"
+
+msgid "Mark complete and delete"
+msgstr "Markeer als voltooid en verwijder"
+
+msgid "Following recipients are already exists"
+msgstr "De volgende geadresseerden bestaan al"
+
+msgid "Duplicate recipients"
+msgstr "Ontvanger bestaat al"
+
+msgid "Duplicate recipient"
+msgstr "Identieke ontvanger"
+
+msgid "Recipient already exists."
+msgstr "Ontvanger bestaat al."
+
+# 86%
+# 77%
+msgid "Notify sender"
+msgstr "Stel afzender op de hoogte"
+
+# Nog ff niet vertalen, WA-2159 heeft het nodig!
+msgid ""
+"The sender of this email has requested a read receipt. Do you wish to notify "
+"the sender?"
+msgstr ""
+"De afzender van dit bericht heeft gevraagd kennis te geven wanneer dit "
+"bericht is gelezen. Wilt u deze kennisgeving sturen naar de afzender?"
+
+msgid "Import"
+msgstr "Importeren"
+
+msgid "Successfully imported item(s) to {0}"
+msgstr "Item(s) succesvol geimporteerd naar {0}"
+
+msgid "Failed to import item(s) to {0}"
+msgstr "Kon item(s) niet succesvol importeren naar {0}"
+
+msgid "Import error"
+msgstr "Probleem met importeren"
+
+msgid "Unable to import \"{0}\". The file is not valid"
+msgstr "Kan \"{0}\" niet geïmporteerd worden. Het bestand is niet valide"
+
+msgid ""
+"You have insufficient privileges to move these items. Would you like to copy "
+"instead?"
+msgstr ""
+"Onvoldoende rechten om deze items te verplaatsen. Wil je deze items kopiëren?"
+
+msgid ""
+"You have insufficient privileges to move this item. Would you like to copy "
+"instead?"
+msgstr ""
+"Onvoldoende rechten om dit item te verplaatsen. Wil je het item kopiëren?"
+
+msgid "Cc"
+msgstr "Cc"
+
+msgid "Bcc"
+msgstr "Bcc"
+
+msgid "From"
+msgstr "Afzender"
+
+msgid "Insert item"
+msgstr "Item invoegen"
+
+msgid "Insert as"
+msgstr "Invoegen als"
+
+msgid "Text only"
+msgstr "Alleen tekst"
+
+# 90%
+msgid "Attachment"
+msgstr "Bijlage"
+
+msgid "Attach Item"
+msgstr "Item invoegen"
+
+msgid "No message selected"
+msgstr "Geen bericht geselecteerd"
+
+msgid "Import to"
+msgstr "Importeren naar"
+
+# 90%
+# 100%
+msgid "New folder"
+msgstr "Nieuwe Map"
+
+msgid "Download as ZIP"
+msgstr "Downloaden als ZIP"
+
+msgid "Continue"
+msgstr "Doorgaan"
+
+msgid ""
+"These attachments have an unsupported file type and can not be added to the "
+"ZIP file:"
+msgstr ""
+"Deze bijlagen hebben een niet ondersteund bestandstype en kunnen niet worden "
+"toegevoegd aan het ZIP bestand:"
+
+msgid "Would you like to continue downloading without adding these files?"
+msgstr "Wilt u doorgaan met downloaden zonder deze bestanden toe te voegen?"
+
+msgid ""
+"Always continue download of ZIP files without adding unsupported file types."
+msgstr ""
+"Altijd doorgaan met het downloaden van ZIP bestanden zonder niet "
+"ondersteunde bestandstypen toe te voegen."
+
+msgid "File upload"
+msgstr "Bestand uploaden"
+
+msgid "Attach item"
+msgstr "Item invoegen"
+
+msgid "Preview"
+msgstr "Voorbeeld"
+
+msgid "Download"
+msgstr "Downloaden"
+
+msgid "Download all as ZIP"
+msgstr "Allen downloaden als ZIP"
+
+msgid "Import to folder"
+msgstr "Importeren naar map"
+
+msgid ""
+"In order to use the vCard import feature, upgrade your Gromox to version 0 "
+"or higher."
+msgstr ""
+
+msgid ""
+"In order to use the ICS / VCS import feature, upgrade your Gromox to version "
+"0 or higher."
+msgstr ""
+
+msgid "Attachment error"
+msgstr "Bijlagefout"
+
+msgid "Cannot create ZIP, The allowed maximum size is 30 MB."
+msgstr "Kan geen ZIP-bestand aanmaken, de maximum toegestane grootte is 30MB."
+
+msgid "Unable to download"
+msgstr "Kan bestanden niet downloaden"
+
+msgid "Picture format is not supported. "
+msgstr "Formaat van de afbeelding wordt niet ondersteund. "
+
+msgid "Supported format for contact pictures are"
+msgstr "Ondersteunde formaten voor afbeeldingen van contactpersonen zijn"
+
+# 93%
+# 100%
+msgid "Attachment Error"
+msgstr "Fout in de bijlage"
+
+msgid "Manage Categories"
+msgstr "Beheer Categorieën"
+
+msgid "New"
+msgstr "Nieuw"
+
+msgid "Delete Category"
+msgstr "Verwijder Categorie"
+
+msgid ""
+"Are you sure you want to delete the category \"{0}\"? Other items keep this "
+"category, but lose the assigned color."
+msgstr ""
+"Weet u zeker dat u de categorie \"{0}\" wilt verwijderen? Andere items "
+"behouden deze categorie, maar tonen niet langer de gekozen kleur."
+
+msgid "Rename Category"
+msgstr "Hernoem Categorie"
+
+msgid "A category named \""
+msgstr "Een categorie genaamd \""
+
+msgid "Create New Category"
+msgstr "Creëer Nieuwe Categorie"
+
+msgid "Pin to quick access"
+msgstr "Aan snelle toegang vastmaken"
+
+msgid "Create"
+msgstr "Creëer"
+
+msgid ""
+"You must apply the changes you have made to the categories before you can "
+"create this category."
+msgstr ""
+"U moet the gemaakte wijzigingen toepassen voordat u deze categorie kunt "
+"aanmaken."
+
+msgid "You already have a category named '{0}'. Please use another name."
+msgstr "U heeft al een categorie genaamd '{0}'. Gebruik een andere naam."
+
+msgid ""
+"You already have a category named '{0}' in your pending changes. Please use "
+"another name."
+msgstr ""
+"U heeft al een categorie genaamd '{0}' waarvoor wijzigingen in behandeling "
+"zijn. Gebruik een andere naam."
+
+msgid "Rename"
+msgstr "Hernoem"
+
+msgid "This is the first time you have used \"{0}\" category."
+msgstr "Dit is de eerste keer dat u categorie \"{0}\" heeft gebruikt."
+
+msgid "Do you want to rename it?"
+msgstr "Wilt u het hernoemen?"
+
+msgid ""
+"The category \"{0}\" already exists. Do you want to merge the \"{1}\" and "
+"\"{2}\" categories?"
+msgstr ""
+"De categorie \"{0}\" bestaat al. Wilt u de categorie \"{1}\" en \"{2}\" "
+"samenvoegen?"
+
+msgid "Merge"
+msgstr "Voeg samen"
+
+msgid "Remove"
+msgstr "Verwijderen"
+
+# 90%
+msgid "Check Names"
+msgstr "Namen controleren"
+
+msgid "Select an address to use"
+msgstr "Selecteer een adres om te gebruiken"
+
+msgid "Email"
+msgstr "Email"
+
+msgid "More than one '{0}' found."
+msgstr "Meer dan een '{0}' gevonden."
+
+msgid "Alert"
+msgstr "Waarschuwing"
+
+# 80%
+msgid "Please select a recipient"
+msgstr "Geef een geadresseerde op"
+
+msgid "Mail and Post"
+msgstr "E-mail en Post"
+
+# 87%
+msgid "Contact"
+msgstr "Contactpersoon"
+
+msgid "Journal"
+msgstr "Logboek"
+
+msgid "Note"
+msgstr "Notitie"
+
+msgid "Task"
+msgstr "Taak"
+
+msgid "Inbox"
+msgstr "Postvak In"
+
+msgid "Entire Inbox"
+msgstr "Alle Mappen"
+
+msgid "Secretary"
+msgstr "Secretaresse"
+
+msgid "Only read"
+msgstr "Alleen lezen"
+
+msgid "Delegate Permissions"
+msgstr "Rechten gemachtigde"
+
+msgid "This delegate has the following permissions"
+msgstr "Deze gemachtigde heeft de volgende permissies"
+
+msgid "Delegate can see my private items."
+msgstr "Gemachtigde kan mijn privé items zien."
+
+msgid "Delegate receives copies of meeting-related messages sent to me."
+msgstr ""
+"Gemachtigde ontvangt een kopie van vergadering gerelateerde berichten die "
+"naar mij gezonden worden."
+
+msgid "Other"
+msgstr "Overig"
+
+msgid "No delegates configured"
+msgstr "Geen gemachtigen geconfigureerd"
+
+msgid "Loading delegates"
+msgstr "Gemachtigden laden"
+
+msgid "Please select a delegate."
+msgstr "Selecteer a.u.b. een gemachtigde."
+
+msgid "Delegates can send items on your behalf."
+msgstr "Gemachtigen kunnen namens u versturen."
+
+msgid ""
+"If you only want to set folder permissions, right-click on a folder to open "
+"the context menu and click on \"Share Folder...\""
+msgstr ""
+"Als u alleen folder rechten wilt geven, klik dan rechts op een folder om de "
+"context menu te openen en click op \"Deel folder...\""
+
+# 90%
+msgid "Permission"
+msgstr "Permissie"
+
+msgid "Duplicate delegate"
+msgstr "Identieke gemachtige"
+
+msgid "Delegate already exists in the list."
+msgstr "Gemachtigde bestaat reeds in de lijst."
+
+msgid "Copy/Move Folder"
+msgstr "Kopieer/Verplaats Map"
+
+msgid "Copy/Move Messages"
+msgstr "Berichten Kopiëren/Verplaatsen"
+
+msgid "Destination folder"
+msgstr "Bestemmingsmap"
+
+msgid "There is {0} message selected."
+msgid_plural "There are {0} messages selected."
+msgstr[0] "Er is {0} bericht geselecteerd."
+msgstr[1] "Er zijn {0} berichten geselecteerd."
+
+msgid "Folder '{0}' selected."
+msgstr "Map '{0}' geselecteerd."
+
+msgid ""
+"You have insufficient privileges to move this folder. Ask the folder owner "
+"to grant you permissions or contact your system administrator."
+msgstr ""
+"Je hebt onvoldoende rechten om deze folder te verplaatsen. Vraag de eigenaar "
+"van de folder om meer rechten of neem contact op met de administrator."
+
+msgid ""
+"You have insufficient privileges to copy this folder. Ask the folder owner "
+"to grant you permissions or contact your system administrator."
+msgstr ""
+"Je hebt onvoldoende rechten om deze folder te kopiëren. Vraag de eigenaar "
+"van de folder om rechten of neem contact op met de administrator."
+
+msgid "You have insufficient privileges to move following items."
+msgstr "Je hebt onvoldoende rechten om de volgende items te verplaatsen."
+
+msgid "Subject:"
+msgstr "Onderwerp:"
+
+msgid "Would you like to copy instead?"
+msgstr "Wil je de items kopiëren?"
+
+msgid "Do not show this message again."
+msgstr "Toon dit bericht niet meer."
+
+msgid "ICS"
+msgstr "ICS"
+
+msgid "Set custom flag"
+msgstr "Speciale vlag instellen"
+
+# 90%
+msgid "Start date"
+msgstr "Begindatum"
+
+# 87%
+msgid "End date"
+msgstr "Einddatum"
+
+msgid "Tomorrow"
+msgstr "Morgen"
+
+msgid "This week"
+msgstr "Deze week"
+
+msgid "Next week"
+msgstr "Volgende week"
+
+msgid "Custom"
+msgstr "Aangepast"
+
+msgid "Set reminder"
+msgstr "Herinnering instellen"
+
+msgid "Complete"
+msgstr "Voltooid"
+
+msgid "today"
+msgstr "vandaag"
+
+msgid "tomorrow"
+msgstr "morgen"
+
+msgid "this week"
+msgstr "deze week"
+
+msgid "next week"
+msgstr "volgende week"
+
+msgid "Edit recipient"
+msgstr "Bewerk geadresseerde"
+
+msgid "Copy email address"
+msgstr "Emailadres kopiëren"
+
+msgid "Set as required"
+msgstr "Markeer als verplicht"
+
+# 75%
+msgid "Set as optional"
+msgstr "Markeer als optioneel"
+
+msgid "Set as resource"
+msgstr "Markeer als resource"
+
+msgid "Select attendees"
+msgstr "Selecteer genodigden"
+
+msgid "Suggested Times"
+msgstr "Voorgestelde Tijden"
+
+msgid "Busy"
+msgstr "Bezet"
+
+msgid "Out of Office"
+msgstr "Niet Aanwezig"
+
+msgid "No Information"
+msgstr "Geen Informatie"
+
+# 82%
+msgid "Show non-working hours"
+msgstr "Toon ook niet-kantooruren"
+
+# 82%
+# 81%
+msgid "Hide non-working hours"
+msgstr "Toon alleen kantooruren"
+
+msgid "No freebusy information available for this date"
+msgstr "Geen beschikbaarheidsinformatie aanwezig voor deze datum"
+
+msgid "No suggestions available"
+msgstr "Geen suggesties beschikbaar"
+
+# 87%
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
+msgid "l jS F Y"
+msgstr "l j F Y"
+
+msgid "Switch between different contexts e.g. inbox, calendar, etc."
+msgstr ""
+"Wisselen tussen verschillende contexten zoals Postvak in, Kalender, ..."
+
+msgid "Basic navigation"
+msgstr "Basisnavigatie"
+
+msgid "Switch between different views"
+msgstr "Wissel tussen verschillende weergaven"
+
+msgid "New item"
+msgstr "Nieuw item"
+
+msgid "All views"
+msgstr "Alle schermweergaven"
+
+msgid "Close tab"
+msgstr "Sluit tab"
+
+msgid "Print item"
+msgstr "Item afdrukken"
+
+msgid "Items"
+msgstr "Items"
+
+msgid "Save an item e.g. mail, contact, etc."
+msgstr "Bewaar een item (bericht, contactpersoon, etc.)."
+
+msgid "Send an item e.g. mail, meeting request, etc."
+msgstr "Een item (bericht, vergaderverzoek, etc.) versturen."
+
+msgid "Select all items"
+msgstr "Selecteer alle items"
+
+msgid "Extend the selection to the first item in the list"
+msgstr "Selectie uitbreiden tot het eerste item in de lijst"
+
+msgid "Extend the selection to the last item in the list"
+msgstr "Selectie uitbreiden tot het laatste item in de lijst"
+
+# 77%
+msgid "Open selected item"
+msgstr "Open geselecteerd item"
+
+msgid "Open dialog to categorize selected item"
+msgstr ""
+"Open het dialoogvenster om het geselecteerde item een categorie te geven"
+
+msgid "Print list"
+msgstr "Lijst afdrukken"
+
+msgid "Open copy/move dialog"
+msgstr "Open het dialoogvenster kopiëren/verplaatsen"
+
+# 77%
+# 75%
+# 100%
+msgid "Delete selected item"
+msgstr "Verwijder geselecteerd item"
+
+msgid ""
+"Delete selected item without moving it to the Deleted Items folder. The "
+"deleted item can still be restored."
+msgstr ""
+"Verwijder geselecteerde item zonder het te verplaatsen naar de Verwijderde "
+"Items map. Het verwijderde item kan nog steeds worden hersteld."
+
+msgid "Add/Edit Cc recipient"
+msgstr "Toevoegen/Wijzigen Cc ontvanger"
+
+msgid "Disable for new mail"
+msgstr ""
+
+msgid "Enable for new mail"
+msgstr ""
+
+msgid "Disable for replies"
+msgstr ""
+
+msgid "Enable for replies"
+msgstr ""
+
+msgid "No Cc recipient configured"
+msgstr "Geen Cc ontvanger geconfigureerd"
+
+msgid "Loading Cc recipients"
+msgstr "Laden van Cc ontvangers"
+
+# 88%
+# 100%
+msgid "Reply Mail"
+msgstr "Beantwoorden"
+
+msgid "New Mail"
+msgstr "Nieuwe email"
+
+# 80%
+msgid "Please select a Cc recipient record."
+msgstr "Selecteer een Cc ontvanger."
+
+msgid "Manage Cc recipients"
+msgstr "Beheer Cc ontvangers"
+
+msgid ""
+"Cc recipients can be used to set a default Cc user in new mail, replies or "
+"both."
+msgstr ""
+"Cc ontvangers kunnen gebruikt worden om een gebruiker toe te voegen in het "
+"Cc veld, in nieuwe mail, antwoorden of beide."
+
+msgid "Help"
+msgstr "Hulp"
+
+msgid "Web Manual"
+msgstr ""
+
+msgid "Item data"
+msgstr "Item gegevens"
+
+msgid "INSERT"
+msgstr "INSERT"
+
+msgid "Sort by: context.mail.griddefaultcolumn"
+msgstr "Sorteren op: context.mail.griddefaultcolumn"
+
+msgid "ZDeveloper"
+msgstr "ZDeveloper"
+
+msgid "grommunio Web print"
+msgstr ""
+
+# 91%
+msgid "Display name"
+msgstr "Weergavenaam"
+
+# 85%
+msgid "Email address"
+msgstr "E-mailadres"
+
+# 75%
+# 78%
+# 100%
+msgid "Expand distribution list"
+msgstr "Distributielijst uitklappen"
+
+msgid ""
+"Distribution list will be replaced with its members. You will not be able to "
+"collapse it again."
+msgstr ""
+"De distributielijst wordt vervangen door zijn leden. Deze actie kan niet "
+"ongedaan worden gemaakt."
+
+# 92%
+msgid "Edit Recipient"
+msgstr "Bewerk Geadresseerde"
+
+msgid "Copy email addresses"
+msgstr "Emailadressen kopiëren"
+
+msgid "Send email"
+msgstr "Verzend e-mail"
+
+msgid "Delete recipient from suggestion list"
+msgstr "Verwijder de geadresseerde uit de suggestielijst"
+
+msgid "Copy all email addresses"
+msgstr "Kopieer alle email adressen"
+
+msgid "View recipient"
+msgstr "Bekijk geadresseerde"
+
+msgid "Weekday"
+msgstr "Werkdag"
+
+msgid "Weekend Day"
+msgstr "Weekenddag"
+
+msgid "1st"
+msgstr "1ste"
+
+msgid "2nd"
+msgstr "2de"
+
+msgid "3rd"
+msgstr "3de"
+
+msgid "4th"
+msgstr "4de"
+
+# 75%
+msgid "last"
+msgstr "laatste"
+
+msgid "Every {A} day(s)"
+msgstr "Elke {A} dag(en)"
+
+msgid "Every weekday"
+msgstr "Elke werkdag"
+
+msgid "Regenerate new task {A} day(s) after each task is completed"
+msgstr "Maak nieuwe taak {A} dag(en) nadat elke taak is voltooid"
+
+msgid "Day {A} of every {B} month(s)"
+msgstr "Dag {A} van elke {B} maand(en)"
+
+msgid "The {A} {B} of every {C} month(s)"
+msgstr "De {A} {B} van elke {C} ma(a)nd(en)"
+
+msgid "Regenerate new task {A} month(s) after each task is completed"
+msgstr "Maak nieuwe taak {A} ma(a)nd(en) nadat elke taak is afgerond"
+
+msgid "Appointment Recurrence"
+msgstr "Terugkeerpatroon Afspraak"
+
+msgid "Remove Recurrence"
+msgstr "Terugkeerpatroon verwijderen"
+
+msgid "Reset recurring"
+msgstr "Reset terugkeerpatroon"
+
+msgid "This will reset every exception. Do you want to continue?"
+msgstr "Deze actie reset elke uitzondering, wilt u doorgaan?"
+
+msgid "Task Recurrence"
+msgstr "Taakherhaling"
+
+msgid "Daily"
+msgstr "Dagelijks"
+
+msgid "Weekly"
+msgstr "Wekelijks"
+
+msgid "Monthly"
+msgstr "Maandelijks"
+
+msgid "Yearly"
+msgstr "Jaarlijks"
+
+msgid "Range of recurrence"
+msgstr "Bereik van terugkeerpatroon"
+
+msgid "No end date"
+msgstr "Geen einddatum"
+
+msgid "End after {A} occurrences"
+msgstr "Eindigt na {A} keer"
+
+msgid "End by {A}"
+msgstr "Hou op na {A}"
+
+# 96%
+#. TRANSLATORS: This informs the user what the exact duration of the appointment is. Where {D} represents the days, {H} the hours and {M} the minutes.
+#. For example: 'Occurence duration: 1 day 2 hours 45 minutes', or when the appointment is shorter then 1 day: 'Occurence duration: 1 hour'
+msgid "Occurrence duration: {D} {H} {M}"
+msgstr "Duur: {D} {H} {M}"
+
+msgid "Every {A} week(s) on"
+msgstr "Elke {A} we(e)k(en) op"
+
+msgid "Regenerate new task {A} week(s) after each task is completed"
+msgstr "Maak nieuwe taak {A} we(e)k(en) nadat elke taak is afgerond"
+
+msgid "Every {A} {B}"
+msgstr "Elke {A} {B}"
+
+msgid "The {A} {B} of {C}"
+msgstr "De {A} {B} van {C}"
+
+msgid "Regenerate new task {A} year(s) after each task is completed"
+msgstr "Genereer nieuwe taak {A} ja(a)r(en) nadat elke taak is afgerond"
+
+msgid "Info"
+msgstr "Info"
+
+msgid "Not supported at the moment."
+msgstr "Op dit moment niet ondersteund."
+
+msgid "There is {0} reminder"
+msgid_plural "There are {0} reminders"
+msgstr[0] "Er is {0} herinnering"
+msgstr[1] "Er zijn {0} herinneringen"
+
+# 88%
+msgid "Reminders"
+msgstr "Herinneringen"
+
+msgid "There are no reminders"
+msgstr "Er zijn geen herinnering"
+
+msgid "Due In"
+msgstr "Verloopt Over"
+
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
+msgid "Due"
+msgstr "Verloopt"
+
+# 92%
+msgid "Reminder time"
+msgstr "Herinneringstijd"
+
+msgid "Dismiss All"
+msgstr "Alles Verwijderen"
+
+msgid "Open Item"
+msgstr "Item Openen"
+
+msgid "Dismiss"
+msgstr "Verwijderen"
+
+msgid "Click Snooze to be reminded again in"
+msgstr "Klik Uitstellen om opnieuw herinnerd te worden over"
+
+msgid "Snooze"
+msgstr "Uitstellen"
+
+msgctxt "reminder.dialog"
+msgid "{0} reminder is selected."
+msgid_plural "{0} reminders are selected."
+msgstr[0] "{0} herinnering is geselecteerd."
+msgstr[1] "{0} herinneringen zijn geselecteerd."
+
+msgid "Restore Softdeleted Items"
+msgstr "Gedelete items terughalen"
+
+msgid "Restore From {0}"
+msgstr "Terughalen van {0}"
+
+msgid "Restore"
+msgstr "Herstellen"
+
+msgid "Restore All"
+msgstr "Alles Herstellen"
+
+msgid "Permanent Delete"
+msgstr "Verwijder permanent"
+
+msgid "Delete All"
+msgstr "Alles verwijderen"
+
+# 85%
+# 75%
+# 100%
+msgid "Messages"
+msgstr "Berichten"
+
+msgid "Delete all items"
+msgstr "Verwijder alle items"
+
+msgid "Are you sure you want to permanently delete all items?"
+msgstr "Weet u zeker dat u alle verwijderde items voorgoed wil verwijderen?"
+
+msgid "Restore all items"
+msgstr "Herstel alle items"
+
+msgid "Are you sure you want to restore all items?"
+msgstr "Weet u zeker dat u alle items wilt herstellen?"
+
+msgid "Total {0} recoverable item"
+msgid_plural "Total {0} recoverable items"
+msgstr[0] "Er is {0} item dat kan teruggezet worden"
+msgstr[1] "Er zijn {0} items die kunnen teruggezet worden"
+
+msgid "Deleted On"
+msgstr "Verwijderd op"
+
+# 81%
+# 84%
+# 78%
+msgid "Sort by: Deleted On"
+msgstr "Sorteer op: Verwijderd op"
+
+msgid "Item Count"
+msgstr "Aantal items"
+
+msgid "Sort by: Item Count"
+msgstr "Sorteer op: Aantal items"
+
+# 76%
+msgid "Sort by: From"
+msgstr "Sorteer op: Afzender"
+
+msgid "Received"
+msgstr "Ontvangen"
+
+msgid "Sort by: Received"
+msgstr "Sorteer op: Ontvangen"
+
+msgid "Size"
+msgstr "Grootte"
+
+# 81%
+# 75%
+# 76%
+msgid "Sort by: Size"
+msgstr "Sorteer op: Grootte"
+
+msgid "Move the message to folder..."
+msgstr "Verplaats bericht naar map..."
+
+msgid "Copy the message to folder..."
+msgstr "Kopieer bericht naar map..."
+
+msgid "Delete the message"
+msgstr "Verwijder het bericht"
+
+msgid "Redirect the message to..."
+msgstr "Leid het bericht om naar..."
+
+msgid "Forward the message to..."
+msgstr "Stuur het bericht door naar..."
+
+msgid "Forward the message as attachment to..."
+msgstr "Stuur het bericht als bijlage door naar..."
+
+msgid "Mark the message as read..."
+msgstr "Markeer het bericht als gelezen..."
+
+msgid "is received from..."
+msgstr "is ontvangen van..."
+
+msgid "includes these words in the sender's address..."
+msgstr "Gebruik deze woorden in het adres van de afzender..."
+
+msgid "includes these words in the recipient's address..."
+msgstr "Gebruik deze woorden in het adres van de afzender..."
+
+msgid "includes these words in the subject..."
+msgstr "bevat deze woorden in het onderwerp..."
+
+# 84%
+# 100%
+msgid "includes these words in the body..."
+msgstr "bevat deze woorden in de inhoud..."
+
+# 84%
+# 100%
+msgid "includes these words in the transport-headers..."
+msgstr "bevat deze woorden in de transport-headers..."
+
+msgid "has importance..."
+msgstr "heeft belangrijkheid..."
+
+msgid "has an attachment"
+msgstr "bevat bijlage"
+
+msgid "is sent to..."
+msgstr "is verzonden aan..."
+
+msgid "is sent only to me"
+msgstr "is alleen naar mij verzonden"
+
+msgid "has my name in the Cc field"
+msgstr "bevat mijn naam in het CC veld"
+
+msgid "does not have my name in the To or Cc field"
+msgstr "heeft mijn naam niet in de Aan of CC veld"
+
+msgid "has my name in the To or Cc field"
+msgstr "bevat mijn naam in het Aan of CC veld"
+
+msgid "has sensitivity..."
+msgstr "heeft gevoeligheid..."
+
+msgid "is received after..."
+msgstr "is ontvangen na..."
+
+msgid "is received before..."
+msgstr "is ontvangen voor..."
+
+msgid "size is at least..."
+msgstr "grootte is ten minste..."
+
+msgid "size is at most..."
+msgstr "grootte is maximaal..."
+
+msgid "has my name in the To field"
+msgstr "bevat mijn naam in het Aan veld"
+
+msgid "is received (all messages)"
+msgstr "wordt ontvangen (alle berichten)"
+
+msgid "Unknown condition"
+msgstr "Onbekende voorwaarde"
+
+msgid "This condition for the current rule is unknown"
+msgstr "Deze voorwaarde voor de huidige regel is onbekend"
+
+msgid "Add action"
+msgstr "Actie toevoegen"
+
+msgid "Remove action"
+msgstr "Actie verwijderen"
+
+msgid "Unknown action"
+msgstr "Onbekende actie"
+
+msgid "This action for the current rule is unknown"
+msgstr "Deze actie voor de huidige regel is onbekend"
+
+msgid "Add condition"
+msgstr "Voorwaarde toevoegen"
+
+msgid "Remove condition"
+msgstr "Voorwaarde verwijderen"
+
+msgid "Inbox Rule"
+msgstr "Regel voor Postvak In"
+
+msgid "Rule name"
+msgstr "Regelnaam"
+
+msgid "When the message"
+msgstr "Als het bericht"
+
+msgid "Do the following"
+msgstr "Doe het volgende"
+
+msgid "Exceptions"
+msgstr "Uitzonderingen"
+
+msgid "Apply only when Out of Office is active"
+msgstr "Pas alleen toe indien Out of Office actief is"
+
+msgid "Stop processing more rules"
+msgstr "Voorkom uitvoeren van andere regels"
+
+msgid "Add exception"
+msgstr "Voeg uitzondering toe"
+
+msgid "Remove exception"
+msgstr "Verwijder uitzondering"
+
+msgid "Specify Words or Phrases"
+msgstr "Geef Woorden of Frasen"
+
+msgid "Edit"
+msgstr "Bewerken"
+
+msgid "and"
+msgstr "en"
+
+msgid ""
+"Distribution lists are not supported in rules, would you like to replace the "
+"distribution list with its members?"
+msgstr ""
+"Distributielijsten kunnen niet worden gebruikt in filters. Wilt u de "
+"distributielijst vervangen door de leden?"
+
+msgid "or"
+msgstr "of"
+
+msgid "No rule exists"
+msgstr "Er bestaan geen regels"
+
+msgid "Active"
+msgstr "Actief"
+
+msgid "Out of office"
+msgstr "Afwezigheid"
+
+# 80%
+msgid "Rule"
+msgstr "Regel"
+
+# 76%
+msgid "Loading rules"
+msgstr "Regels laden"
+
+# 76%
+msgid "Please select a rule."
+msgstr "Selecteer een regel."
+
+msgid "Rule already has highest priority."
+msgstr "Regel heeft al hoogste prioriteit."
+
+msgid "Rule already has lowest priority."
+msgstr "Regel heeft al laagste prioriteit."
+
+msgid "Always move messages from {0}"
+msgstr "Berichten van {0} altijd verplaasen"
+
+msgid "Always move messages that are sent to <recipients>"
+msgstr "Berichten gestuurd aan <ontvangers> altijd verplaatsen"
+
+msgid "Always move messages with this subject"
+msgstr "Berichten met dit onderwerp altijd verplaatsen"
+
+msgid "Create rule..."
+msgstr "Maak regel..."
+
+msgid "myself"
+msgstr "mijzelf"
+
+msgid "Update rules for"
+msgstr "Werk regels bij voor"
+
+msgid "Apply changes"
+msgstr "Pas veranderingen toe"
+
+msgid "Do you wish to apply the changes?"
+msgstr "Wilt u de wijzigingen opslaan?"
+
+msgid "All folders"
+msgstr "Alle mappen"
+
+msgid "Other..."
+msgstr "Andere..."
+
+msgid "Search in.."
+msgstr "Zoeken in..."
+
+msgid "Folder does not exist"
+msgstr "Map bestaat niet"
+
+msgid ""
+"The folder you are searching through no longer exists. Please select another "
+"folder"
+msgstr ""
+"De folder waardoor u zoekt bestaat niet meer. Selecteer een andere folder"
+
+msgid "Add/Edit sender"
+msgstr "Verzender toevoegen/wijzigen"
+
+msgid "No from addresses configured"
+msgstr "Geen afzenders geconfigureerd"
+
+msgid "Loading from addresses"
+msgstr "Afzenders laden"
+
+msgid "Forward Mail"
+msgstr "Mail doorsturen"
+
+msgid "Please select a from address record."
+msgstr "Selecteer een afzender."
+
+msgid "Add/Edit From recipient"
+msgstr "Ontvanger toevoegen/wijzigen"
+
+msgid "Manage the recipients used in the 'From' field"
+msgstr "Beheer de ontvangers in het 'Van' veld"
+
+msgid "View"
+msgstr "Bekijken"
+
+msgid "Please select a sendas record."
+msgstr "Selecteer een 'verzenden als' adres."
+
+msgid "Delegates"
+msgstr "Gemachtigden"
+
+# 88%
+msgid "Delegate settings"
+msgstr "Gemachtigdeninstellingen"
+
+msgid "Desktop Notifications Settings"
+msgstr "Desktop notificaties instellingen"
+
+msgid "We need permissions to enable desktop notifications."
+msgstr "We hebben rechten nodig om desktop notificaties te laten zien."
+
+msgid "Request Permissions"
+msgstr "Vraag machtiging"
+
+msgid "Enable desktop notifications for new mail"
+msgstr "Zet desktop notificaties aan voor nieuwe mail"
+
+msgid "Enable desktop notifications for reminders"
+msgstr "Zet desktop notificaties aan voor herinneringen"
+
+msgid "{A} Auto hide desktop notification after second(s) {B}"
+msgstr "{A} Laat desktop notificaties verdwijnen na seconde(n) {B}"
+
+msgid "Disable sound"
+msgstr "Zet geluid uit"
+
+msgid "Notifications"
+msgstr "Notificaties"
+
+# 80%
+msgid "Rules"
+msgstr "Regels"
+
+msgid "From Addresses"
+msgstr "Afzenders"
+
+msgid "From Addresses settings"
+msgstr "Afzenders instellingen"
+
+# 88%
+# 100%
+msgid "Full name"
+msgstr "Volledige naam"
+
+# 92%
+msgid "Phone Numbers"
+msgstr "Telefoonnummers"
+
+# 80%
+# 75%
+msgid "Business Fax"
+msgstr "Werkfax"
+
+msgid "Webpage"
+msgstr "Webpagina"
+
+# 85%
+# 75%
+# 83%
+msgid "IM Address"
+msgstr "IM-Adres"
+
+msgid "D, d-m-Y, {0}"
+msgstr "D, d-m-Y, {0}"
+
+msgid "{0} selected row"
+msgid_plural "{0} selected rows"
+msgstr[0] "{0} geselecteerde rij"
+msgstr[1] "{0} geselecteerde rijen"
+
+msgid "Reminder is set on: {0}, {1}"
+msgstr "Herinnering ingesteld voor: {0}, {1}"
+
+msgid "d-m-Y"
+msgstr "d-m-Y"
+
+msgid "l d/m/Y"
+msgstr "l d-m-Y"
+
+msgid "l d/m/Y {0}"
+msgstr "l d/m/Y {0}"
+
+msgid "d-m-Y {0}"
+msgstr "d-m-Y {0}"
+
+# 85%
+msgid "Unknown"
+msgstr "Onbekend"
+
+msgid "Meeting Organizer"
+msgstr "Organisator Bijeenkomst"
+
+msgid "{0} overdue"
+msgstr "{0} geleden verlopen"
+
+msgid "Loading..."
+msgstr "Laden..."
+
+msgid "Message could not be loaded"
+msgstr "Bericht kan niet geladen worden"
+
+# 100%
+#. TRANSLATORS: This message is used as label for the field which indicates which attachments are inside the message
+msgctxt "mail.previewpanel"
+msgid "Attachments"
+msgstr "Bijlagen"
+
+msgid "Download Pictures"
+msgstr "Afbeeldingen Downloaden"
+
+msgid "Add Sender to Safe Senders List"
+msgstr "Afzender aan Vertrouwde Afzenderlijst toevoegen"
+
+msgid "Add Domain to Safe Senders List"
+msgstr "Domein aan Vertrouwde Afzenderlijst toevoegen"
+
+#. TRANSLATORS: This sentence is given in the Email previewpanel, and indicates with which
+#. importance the message was sent. For example:
+#. 'This message was sent with high importance.'
+#. 'This message was sent with low importance.'
+msgctxt "mail.previewpanel"
+msgid "This message was sent with {0} importance."
+msgstr "Dit bericht werd verstuurd met belangrijkheid {0}."
+
+#. TRANSLATORS: This sentence is given in the Email previewpanel, and indicates which
+#. sensitivity level applies to the message. For example:
+#. 'Please treat this as Personal.'
+#. 'Please treat this as Private.'
+#. 'Please treat this as Confidential.'
+msgctxt "mail.previewpanel"
+msgid "Please treat this as {0}."
+msgstr "Behandel deze tekst als {0}."
+
+msgctxt "mail.previewpanel"
+msgid ""
+"Click here to download pictures. To help protect your privacy, WebApp "
+"prevented automatic download of some pictures in this message."
+msgstr ""
+
+msgctxt "mail.previewpanel"
+msgid ""
+"This message is corrupt and will not be displayed correctly, Click here to "
+"fix it."
+msgstr ""
+"Dit bericht is corrupt en zal niet correct worden weergegeven. Klik hier om "
+"te repareren."
+
+msgctxt "mail.previewpanel"
+msgid "{0} has accepted."
+msgstr "{0} heeft geaccepteerd."
+
+msgctxt "mail.previewpanel"
+msgid "{0} has accepted on behalf of {1}."
+msgstr "{0} heeft namens {1} geaccepteerd."
+
+msgctxt "mail.previewpanel"
+msgid "{0} has tentatively accepted."
+msgstr "{0} heeft voorlopig geaccepteerd."
+
+msgctxt "mail.previewpanel"
+msgid "{0} has tentatively accepted on behalf of {1}."
+msgstr "{0} heeft voorlopig geaccepteerd namens {1}."
+
+msgctxt "mail.previewpanel"
+msgid "{0} has declined."
+msgstr "{0} heeft afgewezen."
+
+msgctxt "mail.previewpanel"
+msgid "{0} has declined on behalf of {1}."
+msgstr "{0} heeft afgewezen namens {1}."
+
+msgctxt "mail.previewpanel"
+msgid "{0} tentatively accepted and proposed a new time for this meeting."
+msgstr "{0} heeft voorlopig geaccepteerd en een nieuwe tijd voorgesteld."
+
+msgctxt "mail.previewpanel"
+msgid ""
+"{0} tentatively accepted on behalf of {1} and proposed a new time for this "
+"meeting."
+msgstr ""
+"{0} heeft voorlopig geaccepteerd namens {1} en een nieuwe tijd voorgesteld."
+
+msgctxt "mail.previewpanel"
+msgid "{0} declined and proposed a new time for this meeting."
+msgstr "{0} heeft afgewezen en een nieuwe tijd voorgesteld."
+
+msgctxt "mail.previewpanel"
+msgid "{0} declined on behalf of {1} and proposed a new time for this meeting."
+msgstr "{0} heeft afgewezen namens {1} en een nieuwe tijd voorgesteld."
+
+msgctxt "mail.previewpanel"
+msgid "This meeting is not in the Calendar; it may have been moved or deleted."
+msgstr ""
+"Deze afspraak staat niet in de Agenda; hij kan zijn verplaatst of verwijderd."
+
+msgctxt "mail.previewpanel"
+msgid ""
+"This meeting request was updated after this message was sent. You should "
+"open the latest update or open the item from the calendar."
+msgstr ""
+"Dit afspraakverzoek was bijgewerkt nadat dit bericht was verstuurd. U moet "
+"de laatste update of het item in de agenda openen."
+
+msgctxt "mail.previewpanel"
+msgid "As the meeting organizer, you do not need to respond to the meeting"
+msgstr "Als organisator hoeft u niet op dit verzoek te antwoorden"
+
+msgctxt "mail.previewpanel"
+msgid "The meeting was updated after the attendee sent this response"
+msgstr "De afspraak is bijgewerkt nadat de genodigde dit antwoord stuurde"
+
+# 100%
+msgctxt "mail.previewpanel"
+msgid "This appointment occurs in the past."
+msgstr "Deze bijeenkomst is in het verleden."
+
+# 100%
+msgctxt "mail.previewpanel"
+msgid "Please respond."
+msgstr "Beantwoord alstublieft."
+
+msgctxt "mail.previewpanel"
+msgid "This is an update of a previously sent meeting request."
+msgstr "Dit is een update van een eerder verstuurd vergaderverzoek."
+
+msgctxt "mail.previewpanel"
+msgid "Received for {0}."
+msgstr "Ontvangen voor {0}."
+
+msgctxt "mail.previewpanel"
+msgid "You replied to this message."
+msgstr "U heeft gereageerd op dit bericht."
+
+msgctxt "mail.previewpanel"
+msgid "You forwarded this message."
+msgstr "U heeft dit bericht doorgestuurd."
+
+msgctxt "mail.previewpanel"
+msgid "You replied to this message on {0}."
+msgstr "U heeft op dit bericht gereageerd op {0}."
+
+msgctxt "mail.previewpanel"
+msgid "You forwarded this message on {0}."
+msgstr "U heeft dit bericht doorgestuurd op {0}."
+
+msgid "Assigned by {0} on {1}."
+msgstr "Toegewezen door {0} op {1}."
+
+msgid "Waiting for response from recipient"
+msgstr "Aan het wachten op reactie van geadresseerde"
+
+msgid "Accepted by {0} on {1}."
+msgstr "Geaccepteerd door {0} op {1}."
+
+msgid "{0} has accepted on behalf of {1} {2}."
+msgstr "{0} heeft namens {1} geaccepteerd op {2}."
+
+msgid "Declined by {0} on {1}."
+msgstr "Afgewezen door {0} op {1}."
+
+msgid "{0} has declined on behalf of {1} {2}."
+msgstr "{0} heeft afgewezen namens {1} {2}."
+
+msgid "Last update sent on {0}."
+msgstr "Laatste update verstuurd op {0}."
+
+msgid "{0} has updated on behalf of {1} {2}."
+msgstr "{0} heeft namens {1} bijgewerkt op {2}."
+
+msgid "Fix message"
+msgstr "Corrigeer bericht"
+
+msgid ""
+"We are going to try to fix a corrupted mail message, do you wish to continue?"
+msgstr ""
+"Er zal gepoogd worden om een corrupt bericht te herstellen. Wilt u verder "
+"gaan?"
+
+msgid "The matching task was not found in your task list."
+msgstr "De overeenkomstige taak is niet gevonden in uw takenlijst."
+
+# 100%
+msgctxt "mail.previewpanel"
+msgid "To"
+msgstr "Naar"
+
+# 100%
+msgctxt "mail.previewpanel"
+msgid "Cc"
+msgstr "Cc"
+
+# 100%
+msgctxt "mail.previewpanel"
+msgid "Bcc"
+msgstr "Bcc"
+
+msgctxt "mail.previewpanel"
+msgid "Categories"
+msgstr "Categorieën"
+
+#. TRANSLATORS: This message is used as label for the field which to indicates to whom the given mail was sent
+msgctxt "mail.previewpanel"
+msgid "Recipients"
+msgstr "Geadresseerden"
+
+#. TRANSLATORS: check if the mail is send by some delegator or not. if then display "on behalf of".
+msgctxt "mail.previewpanel"
+msgid "on behalf of"
+msgstr "namens"
+
+# 75%
+# 100%
+#. TRANSLATORS: This message is used to indicate that no sent date is available for the message (because it has not been sent yet).
+msgctxt "mail.previewpanel"
+msgid "None"
+msgstr "geen"
+
+msgid "Pop-out"
+msgstr "Pop-out"
+
+msgid "Mark as read"
+msgstr "Markeer als ongelezen"
+
+msgid "Mark as unread"
+msgstr "Markeer als ongelezen"
+
+msgid "in"
+msgstr "over"
+
+msgid "Root"
+msgstr "Root"
+
+msgid "Datepicker"
+msgstr "Datumkiezer"
+
+msgid "File As"
+msgstr "Opslaan Als"
+
+msgid "Full Name"
+msgstr "Volledige Naam"
+
+msgid "Department Name"
+msgstr "Afdelingsnaam"
+
+msgid "Home Address"
+msgstr "Thuisadres"
+
+msgid "Business Address"
+msgstr "Werkadres"
+
+msgid "Other Address"
+msgstr "Overig Adres"
+
+msgid "Business Phone"
+msgstr "Werktelefoon"
+
+# 87%
+msgid "Business 2 Phone"
+msgstr "Werktelefoon 2"
+
+# 88%
+msgid "Assistant Phone"
+msgstr "Telefoon Assistent"
+
+msgid "Company Main Phone"
+msgstr "Hoofdnummer Bedrijf"
+
+# 83%
+msgid "Home 2 Phone"
+msgstr "Thuistelefoon 2"
+
+msgid "Car Phone"
+msgstr "Autotelefoon"
+
+msgid "Radio"
+msgstr "Radio"
+
+msgid "Callback Phone"
+msgstr "Terugbeltelefoonnummer"
+
+msgid "Other Phone"
+msgstr "Overige Telefoon"
+
+msgid "Primary Phone"
+msgstr "Telefoon"
+
+msgid "Telex"
+msgstr "Telex"
+
+msgid "TTY/TDD Phone"
+msgstr "TTY/TDD-telefoon"
+
+msgid "ISDN"
+msgstr "ISDN"
+
+msgid "Other Fax"
+msgstr "Overige Fax"
+
+msgid "Home Fax"
+msgstr "Thuisfax"
+
+# 94%
+msgid "Email Display As"
+msgstr "Toon E-mail Als"
+
+msgid "Email 2"
+msgstr "E-mail 2"
+
+# 89%
+msgid "Email2 Display As"
+msgstr "Toon e-mail 2 als"
+
+msgid "Email 3"
+msgstr "E-mail 3"
+
+# 89%
+msgid "Email3 Display As"
+msgstr "Toon E-mail 3 Als"
+
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
+msgid "Birthday"
+msgstr "Verjaardag"
+
+msgid "Wedding Anniversary"
+msgstr "Trouwdag"
+
+msgid "Spouse/Partner"
+msgstr "Echtgenoot/Partner"
+
+msgid "Profession"
+msgstr "Beroep"
+
+# 87%
+# 93%
+msgid "Assistant's Name"
+msgstr "Naam Assistent"
+
+# 94%
+# 77%
+msgid "Distribution List Name"
+msgstr "Naam Distributielijst"
+
+# 78%
+# 86%
+msgid "Open Shared Contacts"
+msgstr "Open Gedeelde Contactpersonen"
+
+msgid "Business Cards"
+msgstr "Visitekaartjes"
+
+msgid "Phone List"
+msgstr "Telefoonlijst"
+
+msgid "Add to contacts"
+msgstr "Voeg toe aan contactpersonen"
+
+# 77%
+msgid "Print selected contact"
+msgstr "Druk geselecteerde contactpersoon af"
+
+msgid "No contact selected"
+msgstr "Geen contactpersoon geselecteerd"
+
+msgid "Distribution list"
+msgstr "Distributielijst"
+
+msgid "Dr."
+msgstr "Dr."
+
+msgid "Miss"
+msgstr "Mej."
+
+msgid "Mr."
+msgstr "Dhr."
+
+msgid "Mrs."
+msgstr "Mevr."
+
+msgid "Ms."
+msgstr "Mevr."
+
+msgid "Prof."
+msgstr "Prof."
+
+msgid "Jr."
+msgstr "Jr."
+
+msgid "Sr."
+msgstr "Sr."
+
+# 92%
+msgid "Phone number"
+msgstr "Telefoonnummer"
+
+msgid "Check address"
+msgstr "Controleer adres"
+
+msgid "Street"
+msgstr "Straat"
+
+msgid "State/Province"
+msgstr "Staat/Provincie"
+
+msgid "Zip/Postal code"
+msgstr "Postcode"
+
+msgid "Country/Region"
+msgstr "Land/Regio"
+
+msgid "Show this again when address is incomplete or unclear."
+msgstr "Toon dit opnieuw als een adres incompleet of onduidelijk is."
+
+msgid "Details"
+msgstr "Details"
+
+# 93%
+msgid "Office location"
+msgstr "Kantoorlocatie"
+
+# 85%
+msgid "Manager's name"
+msgstr "Naam manager"
+
+# 87%
+msgid "Assistant's name"
+msgstr "Naam assistent"
+
+msgid "Nickname"
+msgstr "Bijnaam"
+
+msgid "Suffix"
+msgstr "Achtervoegsel"
+
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
+msgid "Anniversary"
+msgstr "Jubileum"
+
+msgid "Photo"
+msgstr "Foto"
+
+msgid "Additional information"
+msgstr "Extra informatie"
+
+# 80%
+msgid "Business 2"
+msgstr "Bedrijf 2"
+
+msgid "Callback"
+msgstr "Terugbellen"
+
+msgid "Car"
+msgstr "Auto"
+
+# 83%
+msgid "Home 2"
+msgstr "Thuis 2"
+
+msgid "Primary"
+msgstr "Primaire"
+
+msgid "TTY/TDD"
+msgstr "TTY/TDD"
+
+msgid "Check full name"
+msgstr "Controleer volledige naam"
+
+msgid "First"
+msgstr "Voornaam"
+
+msgid "Middle"
+msgstr "Tussen"
+
+# 75%
+msgid "Last"
+msgstr "Achternaam"
+
+msgid "Show this again when name is incomplete or unclear."
+msgstr "Opnieuw tonen als de naam incompleet of onduidelijk is."
+
+msgid "Check phone number"
+msgstr "Controleer telefoonnummer"
+
+msgid "Country/Region code"
+msgstr "Land-/regiocode"
+
+msgid "City/Area code"
+msgstr "Stad/regiocode"
+
+msgid "Local number"
+msgstr "Lokaal nummer"
+
+msgid "Extension"
+msgstr "Extensie"
+
+msgid "Add Attachment"
+msgstr "Bijlage Toevoegen"
+
+# 81%
+msgid "Add attachments to this contact"
+msgstr "Voeg bijlagen toe aan deze contactpersoon"
+
+# 75%
+msgid "Mark this contact as private"
+msgstr "Markeer deze contactpersoon als privé"
+
+# 94%
+msgid "Distribution List"
+msgstr "Distributielijst"
+
+msgid "Mark this Distribution list as private"
+msgstr "Markeer deze distributielijst als privé"
+
+msgid "New email address"
+msgstr "Nieuw emailadres"
+
+msgid "Please enter a valid email address"
+msgstr "Voer een geldig emailadres in"
+
+# 82%
+msgid "Select Members"
+msgstr "Selecteer Leden"
+
+msgid "Add New"
+msgstr "Nieuwe Toevoegen"
+
+msgid "Type your note here..."
+msgstr "Schrijf notitie hier..."
+
+msgid "New contact"
+msgstr "Nieuwe contactpersoon"
+
+# 75%
+# 78%
+# 100%
+msgid "New distribution list"
+msgstr "Nieuw distributielijst"
+
+msgid "Email 2 Display As"
+msgstr "Toon email2 als"
+
+msgid "Email 3 Display As"
+msgstr "Toon email3 als"
+
+# 88%
+msgid "Assistent"
+msgstr "Assistent"
+
+# 75%
+# 80%
+msgid "Loading contacts"
+msgstr "Contactpersonen laden"
+
+msgid ""
+"There are no items to show in this list. Update the filter for more results."
+msgstr ""
+"Er zijn geen items om in deze lijst te tonen. Bewerk het filter voor meer "
+"resultaten."
+
+msgid "[Group]"
+msgstr "[Groep]"
+
+msgid "Work:"
+msgstr "Werk:"
+
+msgid "Primary:"
+msgstr "Primair:"
+
+msgid "Mobile:"
+msgstr "Mobiel:"
+
+msgid "Sort by: Full Name"
+msgstr "Sorteer op: Volledige Naam"
+
+# 91%
+# 87%
+msgid "Sort by: Email Address 2"
+msgstr "Sorteer op: E-mailadres 2"
+
+# 91%
+# 87%
+msgid "Sort by: Email Address 3"
+msgstr "Sorteer op: E-mailadres 3"
+
+msgid "Mobile Phone"
+msgstr "Mobiele Telefoon"
+
+# 90%
+# 80%
+# 85%
+msgid "Sort by: Mobile Phone"
+msgstr "Sorteer op: Mobiele Telefoon"
+
+# 75%
+# 95%
+# 86%
+msgid "Sort by: Business Phone"
+msgstr "Sorteer op: Werktelefoon"
+
+# 75%
+# 95%
+# 77%
+# 85%
+msgid "Sort by: Business Fax"
+msgstr "Sorteer op: Werkfax"
+
+# 95%
+# 87%
+msgid "Sort by: Department Name"
+msgstr "Sorteer op: Afdelingsnaam"
+
+msgid "Office Location"
+msgstr "Kantoorlocatie"
+
+# 95%
+# 87%
+msgid "Sort by: Office Location"
+msgstr "Sorteer op: Kantoorlocatie"
+
+# 84%
+msgid "Sort by: Profession"
+msgstr "Sorteer op: Beroep"
+
+msgid "Manager Name"
+msgstr "Naam Manager"
+
+# 85%
+msgid "Sort by: Manager Name"
+msgstr "Sorteer op: Naam Manager"
+
+# 84%
+# 88%
+msgid "Sort by: Assistant's Name"
+msgstr "Sorteer op: Naam Assistent"
+
+# 93%
+# 82%
+msgid "Sort by: Nickname"
+msgstr "Sorteer op: Bijnaam"
+
+msgid "Sort by: Spouse/Partner Name"
+msgstr "Sorteer op: Naam Echtgenoot/Partner"
+
+# 93%
+# 82%
+msgid "Sort by: Birthday"
+msgstr "Sorteer op: Verjaardag"
+
+msgid "Sort by: Anniversary"
+msgstr "Sorteer op: Jubileum"
+
+# 95%
+# 88%
+msgid "Sort by: Business Address"
+msgstr "Sorteer op: Werkadres"
+
+# 76%
+# 85%
+msgid "Sort by: Home Address"
+msgstr "Sorteer op: Thuisadres"
+
+# 77%
+# 86%
+msgid "Sort by: Office Address"
+msgstr "Sorteer op: Kantooradres"
+
+msgid "Mailing Address"
+msgstr "Postadres"
+
+# 78%
+# 87%
+msgid "Sort by: Mailing Address"
+msgstr "Sorteer op: Postadres"
+
+# 76%
+# 85%
+msgid "Sort by: IM Address"
+msgstr "Sorteer op: IM-Adres"
+
+# 80%
+# 93%
+# 81%
+msgid "Sort by: Webpage"
+msgstr "Sorteer op: Webpagina"
+
+msgid "Assistant's Phone"
+msgstr "Telefoon Assistent"
+
+# 88%
+msgid "Sort by: Assistant's Phone"
+msgstr "Sorteer op: Telefoon Assistent"
+
+# 87%
+msgid "Business Phone 2"
+msgstr "Werktelefoon 2"
+
+# 75%
+# 87%
+# 88%
+msgid "Sort by: Business Phone 2"
+msgstr "Sorteer op: Werktelefoon 2"
+
+# 82%
+msgid "Sort by: Callback"
+msgstr "Sorteer op: Terugbeltelefoonnummer"
+
+# 83%
+msgid "Sort by: Car Phone"
+msgstr "Sorteer op: Autotelefoon"
+
+msgid "Company Phone"
+msgstr "Werktelefoon"
+
+# 88%
+msgid "Sort by: Company Main Phone"
+msgstr "Sorteer op: Hoofdtelefoonnummer Bedrijf"
+
+msgid "Home Phone 2"
+msgstr "Thuistelefoon 2"
+
+# 85%
+msgid "Sort by: Home Phone 2"
+msgstr "Sorteer op: Thuistelefoon 2"
+
+# 82%
+msgid "Sort by: Home Fax"
+msgstr "Sorteer op: Thuisfax"
+
+# 75%
+# 76%
+msgid "Sort by: ISDN"
+msgstr "Sorteer op: ISDN"
+
+# 78%
+# 85%
+msgid "Sort by: Other Phone"
+msgstr "Sorteer op: Overige Telefoon"
+
+msgid "Radio Phone"
+msgstr "Radiotelefoon"
+
+# 78%
+# 85%
+msgid "Sort by: Radio Phone"
+msgstr "Sorteer op: Radiotelefoon"
+
+msgid "Sort by: TTY/TDD Phone"
+msgstr "Sorteer op: TTY/TDD-telefoon"
+
+# 90%
+# 78%
+# 85%
+msgid "Sort by: Telex Phone"
+msgstr "Sorteer op: Telextelefoon"
+
+msgid "Change Picture"
+msgstr "Wijzig Afbeelding"
+
+msgid "Remove Picture"
+msgstr "Verwijder Afbeelding"
+
+msgid "VCF file(s)"
+msgstr "VCF bestand(en)"
+
+msgid "Quick Contact"
+msgstr "Vlugge Contactpersoon"
+
+msgid "Open in new browser window"
+msgstr "Open in nieuw browser venster"
+
+msgid ""
+"Your browser seems to have blocked one or more pop-ups. Please change your "
+"browser's settings to always allow pop-ups from grommunio Web."
+msgstr ""
+"De browser heeft één of meerdere pop-ups geblokkeerd. Wijzig de instellingen "
+"van de browser om pop-ups van grommunio Web altijd toe te staan."
+
+msgid "Untitled"
+msgstr "Geen naam"
+
+msgid ""
+"Cannot upload attachment, only {0} attachments are allowed to be added to "
+"the message"
+msgstr ""
+"Kan bijlage niet uploaden, slechts {0} bijlagen kunnen worden toegevoegd aan "
+"het bericht"
+
+msgid ""
+"Cannot upload attachment, attachment is {0} while the allowed maximum is {1}."
+msgstr ""
+"Kan het bestand niet oploaden. De bijlage is {0} terwijl het maximum {1} is."
+
+msgid ""
+"Cannot upload attachment, the total attachment size is {0} while the allowed "
+"maximum is {1}"
+msgstr ""
+"Kan bijlage niet uploaden, de totale grootte van bijlagen is {0} maar het "
+"toegestane maximum is {1}"
+
+msgid ""
+"Cannot upload attachment, total attachment is {0} while the allowed maximum "
+"attachment in single request is {1}."
+msgstr ""
+"Kan bijlage niet uploaden. Totaal aantal bijlagen is {0} en het maximaal "
+"toegestaan aantal bijlagen in een enkel verzoek is {1}."
+
+msgid ""
+"Cannot upload attachment, total attachments are {0} files while the maximum "
+"{1} files are allowed in single request."
+msgstr ""
+"Kan bijlage niet uploaden, totaal aantal bijlagen {0} en het maximum "
+"toegestaan aantal bijlagen in een enkel verzoek is {1}."
+
+#. TRANSLATORS: {0} indicates name/email address of secretary and {1} indicates boss' name/email address
+msgid "{0} on behalf of {1}"
+msgstr "{0} namens {1}"
+
+# 75%
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
+msgid "jS F"
+msgstr "j F"
+
+msgid "Y"
+msgstr "Y"
+
+msgid "Important"
+msgstr "Belangrijk"
+
+msgid "Work"
+msgstr "Werk"
+
+msgid "Personal"
+msgstr "Persoonlijk"
+
+msgid "Holiday"
+msgstr "Vakantie"
+
+msgid "Travel Required"
+msgstr "Vereiste Reistijd"
+
+# 75%
+msgid "Preparation Required"
+msgstr "Voorbereiding Vereist"
+
+msgid "Special Date"
+msgstr "Speciale Datum"
+
+msgid "Phone Interview"
+msgstr "Telefonisch Interview"
+
+msgid "Free"
+msgstr "Beschikbaar"
+
+msgid "Low"
+msgstr "Laag"
+
+msgid "Normal"
+msgstr "Normaal"
+
+msgid "High"
+msgstr "Hoog"
+
+# 75%
+msgid "Canceled"
+msgstr "Geannuleerd"
+
+msgid "Blue"
+msgstr "Blauw"
+
+msgid "Green"
+msgstr "Groen"
+
+msgid "Pink"
+msgstr "Roze"
+
+msgid "White"
+msgstr "Wit"
+
+msgid "Yellow"
+msgstr "Geel"
+
+msgid "No response"
+msgstr "Geen antwoord"
+
+msgid "Not responded"
+msgstr "Niet geantwoord"
+
+msgid "Accepted"
+msgstr "Geaccepteerd"
+
+msgid "Declined"
+msgstr "Afgewezen"
+
+msgid "Confidential"
+msgstr "Vertrouwelijk"
+
+msgid "Not Started"
+msgstr "Niet Gestart"
+
+msgid "In Progress"
+msgstr "Word uitgevoerd"
+
+msgid "Wait for other person"
+msgstr "Wacht op iemand anders"
+
+# 87%
+msgid "Deferred"
+msgstr "Uitgesteld"
+
+msgid "Dark"
+msgstr "Donker"
+
+# 75%
+msgid "High Contrast"
+msgstr "Hoog contrast"
+
+msgid "Lime"
+msgstr "Limoen"
+
+msgid "Orange"
+msgstr "Oranje"
+
+msgid "Purple"
+msgstr "Paars"
+
+msgid "Logout"
+msgstr "Afmelden"
+
+msgid "Switch view"
+msgstr "Weergave wijzigen"
+
+msgid "Widgets"
+msgstr "Widgets"
+
+msgid "Sending..."
+msgstr "Verzenden..."
+
+# 94%
+msgid "Sent successfully"
+msgstr "Succesvol verstuurd"
+
+msgid "No recipient"
+msgstr "Geen geadresseerde"
+
+msgid "Please specify at least one recipient"
+msgstr "Geef ten minste een ontvanger op"
+
+msgid "Please specify a recipient"
+msgstr "Geef een ontvanger op"
+
+msgid "The attached files are not uploaded yet."
+msgstr "De bijgevoegde bestanden zijn nog niet opgeladen."
+
+msgid "Do you want to send this message without attachments?"
+msgstr "Wil dit bericht verzenden zonder de bijlagen?"
+
+msgid "Attachments not uploaded yet"
+msgstr "Bijlage zijn nog niet geupload"
+
+msgid "Don't Send"
+msgstr "Niet verzenden"
+
+msgid "Send Anyway"
+msgstr "Toch verzenden"
+
+msgid "No subject"
+msgstr "Geen onderwerp"
+
+msgid "Send this message without a subject?"
+msgstr "Dit bericht verzenden zonder onderwerp?"
+
+msgid "Unresolved recipients"
+msgstr "Niet gevalideerde ontvangers"
+
+msgid "Not all recipients could be resolved"
+msgstr "Niet alle ontvangers konden worden gevalideerd"
+
+# 86%
+msgid "Collapse hierarchy"
+msgstr "Hiërarchie dichtklappen"
+
+msgid "Expand hierarchy"
+msgstr "Hiërarchie uitklappen"
+
+msgid "Folders List"
+msgstr "Mappenlijst"
+
+msgid "Copy Details"
+msgstr "Details Kopiëren"
+
+msgid "Hide Details"
+msgstr "Details verbergen"
+
+# 86%
+# 100%
+# 76%
+msgid "Loaded {0} of {1}"
+msgstr "Geladen {0} van {1}"
+
+msgid "Saving"
+msgstr "Opslaan"
+
+# 80%
+msgid "Saved"
+msgstr "Opgeslagen"
+
+# 94%
+msgid "Saved successfully"
+msgstr "Succesvol opgeslagen"
+
+msgid ""
+"You will lose all unsaved work. Are you sure you want to close this window?"
+msgstr ""
+"Alle niet-opgeslagen wijzigingen zullen verloren gaan. Wilt u dit venster "
+"sluiten?"
+
+msgid "grommunio Content Panel"
+msgstr "grommunio Content Panel"
+
+msgid "Delete item"
+msgstr "Item verwijderen"
+
+msgid "This item has been changed. Are you sure you want to delete it?"
+msgstr "Dit item is gewijzigd. Ben je zeker dat je het wil verwijderen?"
+
+msgid "Unsaved changes"
+msgstr "Niet-opgeslagen aanpassingen"
+
+msgid "Welcome to grommunio Web"
+msgstr ""
+
+msgid "This is the first time you are using grommunio Web. "
+msgstr "Dit is de eerste keer dat je grommunio Web gebruikt. "
+
+msgid "Please check the following settings before continuing."
+msgstr "Controleer de volgende settings voordat je verder gaat."
+
+msgid "Widget height"
+msgstr "Widget hoogte"
+
+msgid "pixels"
+msgstr "pixels"
+
+msgid "Configure widget"
+msgstr "Configureer widget"
+
+msgid "Reload interval"
+msgstr "Herlaad interval"
+
+msgid "seconds"
+msgstr "seconden"
+
+msgid "Open in new tab"
+msgstr "Open in nieuwe tab"
+
+msgid "Add widgets"
+msgstr "Widgets toevoegen"
+
+msgid "No widgets installed."
+msgstr "Geen widgets geïnstalleerd."
+
+msgid "Remove widget"
+msgstr "Verwijder widget"
+
+msgid "Collapse widget"
+msgstr "Widget inklappen"
+
+msgid "Expand widget"
+msgstr "Widget uitklappen"
+
+msgid "About this widget"
+msgstr "Over deze widget"
+
+msgid "Add new widget"
+msgstr "Widget toevoegen"
+
+msgid "Collapse widget panel"
+msgstr "Widget paneel inklappen"
+
+msgid "Expand widget panel"
+msgstr "Widget paneel uitklappen"
+
+msgid "Your changes will be lost if you leave this page now."
+msgstr "De wijzigingen worden niet opgeslagen wanneer u deze pagina verlaat."
+
+msgid "D {0}"
+msgstr "D {0}"
+
+msgid "D d-m"
+msgstr "D d-m"
+
+msgid ""
+"Not enough permissions to open this store, do you want to remove it from the "
+"hierarchy?"
+msgstr ""
+"Niet voldoende permissies om deze store te openen, wilt u hem verwijderen "
+"van de hiërarchie?"
+
+msgid ""
+"Not enough permissions to open this folder, do you want to remove it from "
+"the hierarchy?"
+msgstr ""
+"Niet voldoende permissies om deze map te openen, wilt u hem verwijderen van "
+"de hiërarchie?"
+
+msgid "Insufficient Permissions"
+msgstr "Onvoldoende rechten"
+
+msgid "Not enough permissions to open this folder."
+msgstr "Geen permissies om deze map te openen."
+
+msgid "There is {0} unread message in the folder {1} of {2}"
+msgid_plural "There are {0} unread messages in the folder {1} of {2}"
+msgstr[0] "Er is {0} ongelezen bericht in de map {1} of {2}"
+msgstr[1] "Er zijn {0} ongelezen berichten in de map {1} of {2}"
+
+msgid "There is {0} unread message in the folder {1}"
+msgid_plural "There are {0} unread messages in the folder {1}"
+msgstr[0] "Er is {0} ongelezen bericht in de map {1}"
+msgstr[1] "Er zijn {0} ongelezen berichten in de map {1}"
+
+msgid "Publishing Editor"
+msgstr "Publicerende redacteur"
+
+msgid "Editor"
+msgstr "Editor"
+
+msgid "Publishing Author"
+msgstr "Publicerende auteur"
+
+msgid "Author"
+msgstr "Auteur"
+
+msgid "Nonediting Author"
+msgstr "Niet-redacterende auteur"
+
+msgid "Reviewer"
+msgstr "Tweede lezer"
+
+msgid "Contributor"
+msgstr "Bijdrager"
+
+msgid "Unable to import:"
+msgstr "Kan de volgende bestanden niet importeren:"
+
+msgid "The files are not valid"
+msgstr "De bestanden zijn niet valide"
+
+msgid "Create New Folder"
+msgstr "Nieuwe map aanmaken"
+
+msgid "Folder contains"
+msgstr "Map bevat"
+
+msgid "Calendar Items"
+msgstr "Agenda-items"
+
+msgid "Mail and Post Items"
+msgstr "E-mail en Post-items"
+
+msgid "Contacts Items"
+msgstr "Contactitems"
+
+msgid "Note Items"
+msgstr "Notitie-items"
+
+msgid "Task Items"
+msgstr "Taakitems"
+
+msgid "Select where to place the folder"
+msgstr "Selecteer locatie voor de map"
+
+msgid "No folder name"
+msgstr "Geen foldernaam"
+
+msgid "No destination"
+msgstr "Geen bestemming"
+
+msgid "You must select a destination folder."
+msgstr "U moet een bestemmingsmap selecteren."
+
+msgid "Properties"
+msgstr "Eigenschappen"
+
+msgid "Type"
+msgstr "Type"
+
+msgid "Description"
+msgstr "Omschrijving"
+
+msgid "EntryID"
+msgstr "EntryID"
+
+msgid "Parent EID"
+msgstr ""
+
+msgid "Folder size"
+msgstr "Mapgrootte"
+
+msgid "Folder containing {0} Items"
+msgstr "Map met {0} Items"
+
+msgid "Permissions"
+msgstr "Machtigingen"
+
+msgid "No permissions granted"
+msgstr "Geen permissies toegekend"
+
+msgid "Profile"
+msgstr "Profiel"
+
+msgid "Read"
+msgstr "Lezen"
+
+msgid "Full Details"
+msgstr "Volledige details"
+
+msgid "Write"
+msgstr "Schrijven"
+
+msgid "Create items"
+msgstr "Items aanmaken"
+
+msgid "Create subfolders"
+msgstr "Submappen maken"
+
+msgid "Edit own"
+msgstr "Eigen bewerken"
+
+msgid "Edit all"
+msgstr "Alles bewerken"
+
+msgid "Delete items"
+msgstr "Items verwijderen"
+
+msgid "Own"
+msgstr "Eigen"
+
+msgid "All"
+msgstr "Alle"
+
+msgid "Folder owner"
+msgstr "Mapeigenaar"
+
+msgid "Folder contact"
+msgstr "Mapcontact"
+
+msgid "Folder visible"
+msgstr "Map zichtbaar"
+
+msgid "User already exists"
+msgstr "Gebruiker bestaat al"
+
+msgid "Group already exists"
+msgstr "Groep bestaat al"
+
+# 90%
+msgid "Folder Size"
+msgstr "Mapgrootte"
+
+msgid "Folder Name"
+msgstr "Mapnaam"
+
+msgid "Size (without subfolders)"
+msgstr "Grootte (zonder submappen)"
+
+msgid "Total size (including subfolders)"
+msgstr "Totale grootte (met submappen)"
+
+# 85%
+msgid "Loading subfolder sizes"
+msgstr "Inladen groottes submappen"
+
+msgid "No subfolders present"
+msgstr "Geen submappen aanwezig"
+
+# 80%
+msgid "Subfolder"
+msgstr "Submap"
+
+msgid "Sort by: Name of the subfolder"
+msgstr "Sorteer op: Naam van submap"
+
+msgid "Sort by: Size (without subfolders)"
+msgstr "Sorteer op: Grootte (zonder submappen)"
+
+msgid "Total size"
+msgstr "Totale grootte"
+
+msgid "Sort by: Total size (including subfolders)"
+msgstr "Sorteer op: Totale grootte (met submappen)"
+
+# 81%
+# 86%
+msgid "Open Shared Folders"
+msgstr "Open Gedeelde Mappen"
+
+msgid "Unresolved user"
+msgstr "Niet gevalideerde gebruiker"
+
+msgid "Username '{0}' could not be resolved."
+msgstr "Gebruikersnaam '{0}' kon niet worden gevonden."
+
+msgid "Invalid user"
+msgstr "Onbekende gebruiker"
+
+msgid "Username '{0}' is not a valid user."
+msgstr "'{0}' is geen geldige gebruiker."
+
+msgid "Own store"
+msgstr "Eigen store"
+
+msgid "It is not possible to open your own store twice."
+msgstr "Het is niet mogelijk om uw eigen store tweemaal te openen."
+
+msgid "Folder already open"
+msgstr "Deze map is al open"
+
+msgid "This shared folder is already open."
+msgstr "Deze gedeelde map is al open."
+
+msgid "No user"
+msgstr "Geen gebruiker"
+
+# 85%
+msgid "You must specify a user"
+msgstr "U moet een gebruikersnaam opgeven"
+
+msgid "Folder type"
+msgstr "Maptype"
+
+msgid "Show subfolders"
+msgstr "Toon submappen"
+
+msgid "Open shared folder/store"
+msgstr "Open gedeelde map of opslag"
+
+msgid "Rename folder"
+msgstr "Map hernoemen"
+
+msgid "Empty folder"
+msgstr "Leeg folder"
+
+msgid "Empty Junk Email"
+msgstr "Ongewenste Email legen"
+
+# 92%
+msgid "Empty Deleted Items"
+msgstr "Verwijderde items legen"
+
+msgid "Rename Folder"
+msgstr "Map Hernoemen"
+
+msgid "New Folder"
+msgstr "Nieuwe map"
+
+msgid "Mark All Messages Read"
+msgstr "Markeer Alle Berichten Gelezen"
+
+msgid "Delete Folder"
+msgstr "Verwijder Map"
+
+msgid "Close store"
+msgstr "Store sluiten"
+
+msgid "Close folder"
+msgstr "Map sluiten"
+
+msgid "Reload"
+msgstr "Herladen"
+
+msgid "Restore items"
+msgstr "Herstel items"
+
+# 76%
+# 100%
+msgid "Select color"
+msgstr "Selecteer kleur"
+
+msgid "Add to Favorites"
+msgstr "Aan favorieten toevoegen"
+
+msgid "Remove From Favorites"
+msgstr "Uit favorieten verwijderen"
+
+msgid "Share folder..."
+msgstr "Deel folder..."
+
+msgid "Import emails"
+msgstr "Importeer emails"
+
+# 93%
+# 100%
+msgid "Import appointments"
+msgstr "Importeer afspraken"
+
+msgid "Import contacts"
+msgstr "Contacten importeren"
+
+msgid "Properties of {0}"
+msgstr "Eigenschappen van {0}"
+
+msgid "Share {0} with..."
+msgstr "Deel {0} met..."
+
+msgid "Properties of {0} - {1}"
+msgstr "Eigenschappen van {0} - {1}"
+
+msgid ""
+"Are you sure you want to permanently delete all the items and subfolders in "
+"the \"{0}\" folder?"
+msgstr ""
+"Weet u zeker dat u alle items en subfolders in de \"{0}\"-map permanent wilt "
+"verwijderen?"
+
+msgid ""
+"Are you sure you want to delete the folder \"{0}\" and move all of its "
+"contents into the Deleted Items folder?"
+msgstr ""
+"Weet u zeker dat u de map \"{0}\" wilt verwijderen en alle inhoud naar de "
+"Deleted Items-map verplaatsen?"
+
+msgid "Delete folder"
+msgstr "Verwijder map"
+
+msgid "Are you sure you want to empty {0}?"
+msgstr "Weet u zeker dat u {0} wilt leegmaken?"
+
+msgid "Show All"
+msgstr "Toon alle"
+
+# 75%
+msgid "Show all folders"
+msgstr "Toon alle mappen"
+
+msgid ""
+"You have insufficient privileges to move this folder. Would you like to copy "
+"instead?"
+msgstr ""
+"U heeft onvoldoende toegangsrechten om deze map te verplaatsen. Wilt u in "
+"plaats daarvan kopiëren?"
+
+msgid "CC"
+msgstr "CC"
+
+msgid "BCC"
+msgstr "BCC"
+
+msgid "Sort by: Importance"
+msgstr "Sorteer op: Belangrijkheid"
+
+# 76%
+msgid "Sort by: To"
+msgstr "Sorteer op: Aan"
+
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
+msgid "Sent"
+msgstr "Verstuurd"
+
+msgid "Red"
+msgstr "Rood"
+
+msgid "Original message"
+msgstr "Oorspronkelijk bericht"
+
+msgid "Schedule mail to be sent out"
+msgstr "Plan het versturen van een bericht"
+
+msgid "Scheduled Items"
+msgstr "Ingeplande Items"
+
+msgid "Your message will be sent at "
+msgstr "Uw bericht wordt verstuurd op "
+
+msgid "Go to your Outbox to edit your email."
+msgstr "Ga naar je Outbox om de e-mail te bewerken."
+
+msgid "hour(s)"
+msgstr "uur"
+
+msgid "month(s)"
+msgstr "maand(en)"
+
+msgid "at a specific time"
+msgstr "op een specifieke datum"
+
+msgid "The time you entered is in the past. Please reschedule your mail."
+msgstr "De opgegeven tijd is al gepasseerd. Plan uw e-mail opnieuw in."
+
+msgid "today  at "
+msgstr "vandaag  om "
+
+msgid "tomorrow  at "
+msgstr "morgen  om "
+
+msgid "{0} at "
+msgstr "{0} om "
+
+msgid "at {0}"
+msgstr "op {0}"
+
+msgid "Your email will be sent {0}{1}"
+msgstr "Uw e-mail wordt {0}{1} verstuurd"
+
+msgid "Saving..."
+msgstr "Opslaan..."
+
+msgid "Saved at {0}"
+msgstr "Email opgeslagen om {0}"
+
+msgid "Saving failed"
+msgstr "Opslaan mislukt"
+
+msgid "Message Options"
+msgstr "Berichtopties"
+
+msgid "This message will be flagged for follow up when it is sent."
+msgstr "Dit bericht wordt gemarkeerd voor opvolging als het is verstuurd."
+
+msgid "Send Later"
+msgstr "Verzend Later"
+
+msgid "Schedule your mail to be sent on a specific date and time"
+msgstr ""
+"Plan uw bericht in om verstuurd te worden op een specifieke datum en tijdstip"
+
+# 86%
+msgid "Add attachments to this email"
+msgstr "Voeg bijlagen toe aan deze e-mail"
+
+msgid "Add signature"
+msgstr "Voeg handtekening toe"
+
+msgid "Options"
+msgstr "Opties"
+
+msgid "Open options dialog"
+msgstr "Open het optievenster"
+
+msgid "Set flag"
+msgstr "Markeer"
+
+msgid "Set flag on this email"
+msgstr "Markeer dit bericht"
+
+msgid "Mark this mail as high priority"
+msgstr "Deze e-mail markeren als hoge prioriteit"
+
+msgid "Mark this mail as low priority"
+msgstr "Deze e-mail markeren als lage prioriteit"
+
+msgid "Set read receipt"
+msgstr "Leesbevestiging instellen"
+
+msgid "Request read receipt from recipients"
+msgstr "Verzoek een leesbevestiging van geadresseerden"
+
+msgid "Show Bcc"
+msgstr "Toon Bcc"
+
+msgid "Show Bcc field"
+msgstr "Toon Bcc"
+
+msgid "Show From field"
+msgstr "Toon afzender"
+
+msgid "Cannot save while attachment is being uploaded"
+msgstr "Kan niet opslaan als bijlage aan het uploaden is"
+
+msgid "Miscellaneous Options"
+msgstr "Overige Opties"
+
+msgid "Internet Headers"
+msgstr "Internetkopregels"
+
+msgid "Message Settings"
+msgstr "Berichtinstellingen"
+
+msgid "Tracking Options"
+msgstr "Opties voor Reacties"
+
+msgid "Request a read receipt for this message."
+msgstr "Verzoek een leesbevestiging voor dit bericht."
+
+msgid "no subject"
+msgstr "geen onderwerp"
+
+msgid "Set Category"
+msgstr "Stel categorie in"
+
+msgid "Pop-Out"
+msgstr "Pop-out"
+
+msgid "Mark Read"
+msgstr "Markeer Gelezen"
+
+msgid "Mark Unread"
+msgstr "Markeer Ongelezen"
+
+# 87%
+# 100%
+msgid "New mail"
+msgstr "Nieuwe e-mail"
+
+msgid "Mail"
+msgstr "E-mail"
+
+# 88%
+# 100%
+msgid "Reply all"
+msgstr "Allen beantwoorden"
+
+msgid "Toggle read/unread"
+msgstr "Gelezen/ongelezen wisselen"
+
+msgid "Toggle red/complete flag"
+msgstr "Markering rood/voltooid wisselen"
+
+# 80%
+# 85%
+msgid "Open Shared Mails"
+msgstr "Open Gedeelde E-mails"
+
+msgid "Print single email"
+msgstr "Print email"
+
+# 78%
+msgid "Print selected email"
+msgstr "Print de geselecteerde email"
+
+msgid "Filter"
+msgstr "Filter"
+
+msgid "FW"
+msgstr "FW"
+
+msgid "RE"
+msgstr "AW"
+
+msgid "on behalf of"
+msgstr "namens"
+
+msgid "Safe Senders list is empty"
+msgstr "Lijst van veilige afzenders is leeg"
+
+msgid "Please select a safe sender record."
+msgstr "Selecteer een veilige afzender."
+
+msgid "Delete all safe senders"
+msgstr "Verwijder alle veilige afzenders"
+
+msgid "Are you sure you want to delete all safe senders?"
+msgstr "Weet je zeker dat je all veilige afzenders wilt verwijderen?"
+
+msgid "HTML"
+msgstr "HTML"
+
+msgid "Plain Text"
+msgstr "Platte Tekst"
+
+msgid "Compose mail settings"
+msgstr "Instellingen voor nieuwe e-mail"
+
+msgid "Compose mail in this format"
+msgstr "Mail in dit formaat opstellen"
+
+msgid "Default font"
+msgstr "Standaardlettertype"
+
+msgid "Default font size"
+msgstr "Standaard lettergrootte"
+
+msgid "Always request a read receipt"
+msgstr "Vraag altijd om een leesbevestiging"
+
+#. TRANSLATORS: The {A} _must_ always be at the start of the translation
+#. The '{B}' represents the number of minutes which the user will type in.
+msgid "{A}AutoSave unsent mail every {B} minute(s)"
+msgstr "{A} niet verstuurde e-mail iedere {B} minuten opslaan"
+
+msgid "Conversation view settings"
+msgstr "Instellen voor gespreksweergave"
+
+msgid "Enable conversation view"
+msgstr "Gespreksweergave aanzetten"
+
+msgid "Collapse conversation when selecting a different email"
+msgstr "Gesprek sluiten wanneer een andere mail geselecteerd wordt"
+
+msgid "Incoming mail"
+msgstr "Binnenkomende email"
+
+msgid "How to respond to requests for read receipts"
+msgstr "Hoe te antwoorden op verzoeken voor leesbevestiging"
+
+msgid "Always send a response"
+msgstr "Stuur altijd een antwoord"
+
+msgid "Never send a response"
+msgstr "Stuur nooit een antwoord"
+
+msgid "Ask me before sending a response"
+msgstr "Vraag mij voor het versturen van een antwoord"
+
+#. TRANSLATORS: The {A} _must_ always be at the start of the translation
+#. The '{B}' represents the number of seconds which the user will type in.
+msgid "{A}Automatically mark mail as read after {B} second(s)"
+msgstr "{A}E-mail automatisch als gelezen markeren na {B} seconde(n)"
+
+msgid "Off"
+msgstr "Uit"
+
+msgid "Right"
+msgstr "Rechts"
+
+msgid "Bottom"
+msgstr "Onder"
+
+# 83%
+# 100%
+msgid "Location of preview pane"
+msgstr "Locatie voorbeeld venster"
+
+msgid "Use English abbreviations for forward (FW:) and reply (RE:)"
+msgstr ""
+"Gebruik Engelse afkortingen voor doorsturen (FW:) en beantwoorden (RE:)"
+
+msgid "Close original message on reply or forward"
+msgstr "Originele bericht sluiten bij reageren of doorsturen"
+
+msgid "General mail settings"
+msgstr "Algemene e-mailinstellingen"
+
+msgid "Open or compose a mail item in a"
+msgstr "Open of schrijf een mail item in een"
+
+msgid "grommunio Web tab"
+msgstr "grommunio Web tab"
+
+msgid "Browser window"
+msgstr "Browser venster"
+
+msgid "Update Out of Office settings for"
+msgstr "Update afwezigheid settings voor"
+
+msgid "I am currently in the office"
+msgstr "Ik ben nu aanwezig"
+
+msgid "I am out of the office from"
+msgstr "Ik ben niet aanwezig van"
+
+msgid "I will be back on"
+msgstr "Ik ben terug op"
+
+msgid "Automatically reply once per day, per sender with the following text"
+msgstr ""
+"Antwoord automatisch eenmaal per dag naar elke afzender met de volgende tekst"
+
+msgid "Inside My Organization"
+msgstr ""
+
+msgid "Outside My Organization"
+msgstr ""
+
+msgid "Auto-reply to people outside my organization"
+msgstr ""
+
+msgid "My contacts only"
+msgstr ""
+
+msgid "Anyone outside my organization"
+msgstr ""
+
+msgid ""
+"The time you entered is before the out of office date. Please reschedule."
+msgstr "De ingevulde tijd ligt voor de afwezigheidstijd. Kies een andere tijd."
+
+msgid "Safe Senders"
+msgstr "Veilige afzenders"
+
+msgid ""
+"To protect your privacy email addresses or domains can only be added via the "
+"\"Add to safe sender list\" functionality in an opened email."
+msgstr ""
+"Om je privacy te waarborgen kunnen emailadressen en domeinen alleen worden "
+"toegevoegd via de 'Voeg veilige afzender toe' in een geopende email."
+
+msgid "Delete all"
+msgstr "Verwijder alles"
+
+msgid "Signatures"
+msgstr "Handtekeningen"
+
+msgid "No signatures configured"
+msgstr "Geen handtekeningen geconfigureerd"
+
+msgid "New messages"
+msgstr "Nieuwe berichten"
+
+msgid "Replies/forwards"
+msgstr "Beantwoorden/Doorsturen"
+
+msgid "Signature name:"
+msgstr "Naam handtekening:"
+
+msgid "Save Signature"
+msgstr "Handtekening opslaan"
+
+msgid "You have unsaved changes. Do you wish to save the changes?"
+msgstr "U heeft niet-opgeslagen wijzigingen. Wilt u deze opslaan?"
+
+# 76%
+msgid "New signature"
+msgstr "Nieuwe handtekening"
+
+msgid "EML file(s)"
+msgstr "EML bestand(en)"
+
+msgid "ZIP file"
+msgstr "ZIP bestand"
+
+msgid "max. "
+msgstr "max. "
+
+# 81%
+# 75%
+msgid "Sort by: Sent"
+msgstr "Sorteer op: Verzonden"
+
+msgid "Modified"
+msgstr "Aangepast"
+
+msgid "Sort by: Modified"
+msgstr "Sorteer op: Aangepast"
+
+msgid "Flag"
+msgstr "Opvolgen"
+
+msgid "Sort by: flag"
+msgstr "Sorteer op: opvolgen"
+
+# 85%
+# 100%
+msgid "Older"
+msgstr "Ouder"
+
+msgid "Yesterday"
+msgstr "Gisteren"
+
+msgid "Last Week"
+msgstr "Vorige week"
+
+msgid "Two Weeks Ago"
+msgstr "Twee weken geleden"
+
+msgid "Three Weeks Ago"
+msgstr "Drie weken geleden"
+
+msgid "Last Month"
+msgstr "Vorige maand"
+
+msgid "Small"
+msgstr "Klein"
+
+msgid "Medium"
+msgstr "Middelgroot"
+
+msgid "Large"
+msgstr "Groot"
+
+msgid "Very large"
+msgstr "Heel groot"
+
+msgid "Huge"
+msgstr "Enorm groot"
+
+msgid "Follow up"
+msgstr "Opvolgen"
+
+msgid "Move to Junk Folder"
+msgstr "Verplaats naar Junk Folder"
+
+# 75%
+msgid "Send to"
+msgstr "Verzenden naar"
+
+# 80%
+msgid "Loading mail"
+msgstr "Bericht laden"
+
+msgid "No unread mail."
+msgstr "Geen ongelezen e-mail."
+
+msgid "Unread Mail"
+msgstr "Ongelezen E-mail"
+
+msgid "Quick Mail"
+msgstr "Vlugge E-mail"
+
+msgid "Print note"
+msgstr "Print notitie"
+
+msgid "Color"
+msgstr "Kleur"
+
+msgid "New note"
+msgstr "Nieuwe notitie"
+
+# 85%
+msgid "Open Shared Notes"
+msgstr "Open Gedeelde Notities"
+
+msgid "Sticky note"
+msgstr "Post-it"
+
+# 78%
+# 84%
+# 100%
+msgid "Print selected note"
+msgstr "Druk de geselecteerde notitie af"
+
+# 75%
+# 100%
+msgid "No note selected"
+msgstr "Geen notitie geselecteerd"
+
+msgid "Icons"
+msgstr "Iconen"
+
+msgid "List view"
+msgstr "Lijstvenster"
+
+msgid "List Last Seven Days"
+msgstr "Toon de Laatste Zeven Dagen"
+
+msgid "Created"
+msgstr "Gemaakt"
+
+# 81%
+msgid "Sort by: Created"
+msgstr "Sorteer op: Aanmaakdatum"
+
+# 78%
+msgid "Sort by: Color"
+msgstr "Sorteer op: Kleur"
+
+# 94%
+# 76%
+msgid "Loading Notes"
+msgstr "Notities Laden"
+
+# 76%
+msgid "Loading notes"
+msgstr "Notities laden"
+
+msgid "Quick Note"
+msgstr "Vlugge Notitie"
+
+msgid ""
+"You must reload grommunio Web for the changes to take effect. Unsaved "
+"changes will be lost."
+msgstr ""
+"Om de wijziging toe te passen moet grommunio Web opnieuw worden geladen. "
+"Niet-opgeslagen veranderingen gaan verloren."
+
+msgid "Reload grommunio Web"
+msgstr "Herlaad grommunio Web"
+
+# 87%
+msgid "Settings"
+msgstr "Opties"
+
+msgid "Basic"
+msgstr "Basis"
+
+msgid "Account information - {0}"
+msgstr ""
+
+msgid "Profile Picture"
+msgstr ""
+
+msgid "Language"
+msgstr "Taal"
+
+msgid "Startup folder"
+msgstr "Opstartmap"
+
+msgid "Theme"
+msgstr "Thema"
+
+msgid "Select Default Folder"
+msgstr "Selecteer standaard map"
+
+msgid "Advanced"
+msgstr "Geavanceerd"
+
+msgid "Advanced settings"
+msgstr "Geavanceerde instellingen"
+
+msgid "Developer tools"
+msgstr "Ontwikkelaar tools"
+
+msgid "Show insertion points in grommunio Web"
+msgstr "Laat 'insertion points' zien in grommunio Web"
+
+msgid "Show \"item data\" button in context menu (mail only)"
+msgstr "Toon \"item data\" knop in context menu (alleen bij email)"
+
+msgid "Edit setting"
+msgstr "Aanpassen instelling"
+
+# 84%
+msgid "Restore to defaults"
+msgstr "Standaard herstellen"
+
+msgid "Delete settings"
+msgstr "Instellingen verwijderen"
+
+msgid "{0} Iconset"
+msgstr "{0} Iconen"
+
+msgid "About"
+msgstr "Over"
+
+msgid "I want to display date and time in this format:"
+msgstr "Laat de datum en tijd in dit formaat zien:"
+
+msgid "Short"
+msgstr "Kort"
+
+msgid "Long"
+msgstr "Lang"
+
+msgid "Time format:"
+msgstr "Tijdsformaat:"
+
+msgid "12h clock"
+msgstr "12‑uursnotatie"
+
+msgid "24h clock"
+msgstr "24‑uursnotatie"
+
+# 88%
+msgid "Favorite settings"
+msgstr "Instellingen voor favorieten"
+
+msgid "Hide favorites"
+msgstr "Verberg favorieten"
+
+msgid "Unpin favorites from top"
+msgstr "Maak favorieten los van de bovenkant"
+
+msgid "Give unread items a colored border"
+msgstr "Geef ongelezen items een gekleurde rand"
+
+msgid "Show 'help' button in top-right corner"
+msgstr "Laat 'Help' knop zien in de rechterbovenhoek"
+
+msgid "Show unread mail counter in application title"
+msgstr "Laat ongelezen email teller zien in applicatie titel"
+
+msgid "Hide widget panel"
+msgstr "Widget paneel verbergen"
+
+msgid "Show search bar above folder list"
+msgstr "Zoekbalk tonen boven mappenlijst"
+
+msgid "Auto"
+msgstr "Auto"
+
+msgid "Actual size"
+msgstr "Ware grootte"
+
+msgid "Page width"
+msgstr "Pagina breedte"
+
+msgid "Attachment preview (PDF and Open formats)"
+msgstr "Voorvertonen bijlage (PDF en Open formaten)"
+
+msgid "Document default zoom"
+msgstr "Document standaard zoom"
+
+msgid "PDF zoom"
+msgstr "PDF zoom"
+
+msgid "File previewing"
+msgstr "Voorbeeldweergave van bestanden"
+
+msgid "Inbox navigation"
+msgstr "Inbox navigatie"
+
+msgid "I want to navigate through my items by using."
+msgstr "I wil navigeren door mijn items met."
+
+msgid "Infinite Scroll"
+msgstr "Eindeloos bladeren"
+
+# 98%
+# 100%
+msgid "grommunio Web automatically loads additional items when you scroll down"
+msgstr ""
+"grommunio Web laadt automatisch nieuwe items wanneer u naar beneden scrollt"
+
+msgid "Pagination"
+msgstr "Paginering"
+
+msgid ""
+"grommunio Web displays items on pages and you can use navigation controls to "
+"navigate"
+msgstr ""
+"grommunio Web toont items in pagina's en u kunt navigatieknoppen gebruiken "
+"om te navigeren"
+
+msgid "Load items in blocks of {A}"
+msgstr "Items laden in blokken van {A}"
+
+msgid "Load {A} items per page."
+msgstr "Laad {A} items per pagina."
+
+msgid "Keyboard Shortcuts"
+msgstr "Sneltoetsen"
+
+msgid "Part of basic keyboard shortcuts"
+msgstr "Onderdeel van basis sneltoetsen"
+
+msgid "Keyboard shortcuts off"
+msgstr "Sneltoetsen uitgeschakeld"
+
+msgid "Basic keyboard shortcuts on"
+msgstr "Basis sneltoetsen ingeschakeld"
+
+msgid "All keyboard shortcuts on"
+msgstr "Alle sneltoetsen ingeschakeld"
+
+msgid "This change requires a reload of grommunio Web"
+msgstr ""
+
+msgid "Plugins"
+msgstr "Plugins"
+
+msgid "Available plugins"
+msgstr "Beschikbare plugins"
+
+msgid "No plugins available"
+msgstr "Geen plugins beschikbaar"
+
+msgid "Version"
+msgstr "Versie"
+
+msgid "This plugin cannot be disabled"
+msgstr "Deze plugin kan niet uitgeschakeld worden"
+
+msgid "This plugin cannot be enabled"
+msgstr "Deze plugin kan niet worden ingeschakeld"
+
+msgid "Mailbox Usage"
+msgstr "Gebruik Postvak"
+
+msgid "A quota is not set on your store."
+msgstr "Er is geen quota gezet op je store."
+
+msgid "{0} of mailbox space is used."
+msgstr "{0} van de postvakruimte is in gebruik."
+
+msgid "You have exceeded hard quota, you can not send or receive mails."
+msgstr ""
+"De limiet voor postvakgrootte is overschreden, u kunt geen emails zenden of "
+"ontvangen."
+
+msgid "At {0} you won't be able to send mails."
+msgstr "Bij {0} kunt u geen e-mails verzenden."
+
+msgid ""
+"You can not send mails as you have exceeded soft quota, at {0} you won't be "
+"able to receive mails."
+msgstr ""
+"U kunt geen emails zenden omdat de waarschuwingslimiet voor postvakgrootte "
+"is overschreden. Bij {0} kunt u geen emails meer ontvangen."
+
+msgid "At {0} you won't be able to send or receive mails."
+msgstr "Bij {0} kunt u geen emails meer verzenden of ontvangen."
+
+msgid "You can not send mails as you have exceeded soft quota."
+msgstr ""
+"U kunt geen e-mail versturen omdat u de zachte quota heeft overschreden."
+
+msgid "Reset settings"
+msgstr "Instellingen resetten"
+
+msgid "Reset settings to their original defaults."
+msgstr "Reset de instellingen naar de originele standaard instellingen."
+
+msgid ""
+"This will close all opened shared stores and resets all settings to the "
+"default value."
+msgstr ""
+"Deze actie sluit alle gedeelde mappen en reset alle instellingen naar de "
+"standaard."
+
+msgid ""
+"grommunio Web will automatically reload in order for these changes to take "
+"effect"
+msgstr ""
+"grommunio Web zal automatisch herladen om deze wijzigingen door te voeren"
+
+msgid "Reset"
+msgstr "Herstel"
+
+msgid "Reloading, Please wait."
+msgstr "Herladen, moment geduld."
+
+# 75%
+msgid "Setting"
+msgstr "Instelling"
+
+msgid "The setting '{0}' can not be edited"
+msgstr "De instelling '{0}' kan niet bewerkt worden"
+
+msgid "Version information"
+msgstr "Versie-informatie"
+
+msgid "Gromox"
+msgstr "Gromox"
+
+msgid "Delete confirmation"
+msgstr "Bevestig verwijderen"
+
+msgid "Deleting the item(s) will also delete the original item(s)."
+msgstr ""
+"Het verwijderen van de item(s) zal ook de originele item(s) verwijderen."
+
+msgid "Do you want to delete the item(s)?"
+msgstr "Wilt u de item(s) verwijderen?"
+
+# 82%
+msgid "Sort by: Priority"
+msgstr "Sorteer op: Prioriteit"
+
+msgid "Status"
+msgstr "Status"
+
+# 80%
+msgid "Sort by: Status"
+msgstr "Sorteer op: Status"
+
+msgid "Due Date"
+msgstr "Einddatum"
+
+# 82%
+msgid "Sort by: Due Date"
+msgstr "Sorteer op: Vervaldatum"
+
+msgid "% Completed"
+msgstr "% Voltooid"
+
+# 88%
+msgid "Sort by: Percent Completed"
+msgstr "Sorteer op: Percentage Voltooid"
+
+msgid "Task Status"
+msgstr "Status taak"
+
+# 93%
+msgid "Percent Complete"
+msgstr "Percentage Afgerond"
+
+msgid "Total Work"
+msgstr "Totale hoeveelheid werk"
+
+msgid "Actual Work"
+msgstr "Werkelijk Verricht"
+
+msgid "Companies"
+msgstr "Bedrijven"
+
+msgid "Billing Information"
+msgstr "Factuurinformatie"
+
+msgid "Mileage"
+msgstr "Reisafstand"
+
+msgid "Accepting Task"
+msgstr "Taak Accepteren"
+
+msgid "Declining Task"
+msgstr "Taak Afwijzen"
+
+msgid ""
+"This task will be accepted and moved to your task folder. Do you want to "
+"include comments with your response?"
+msgstr ""
+"Deze afspraak wordt geaccepteerd en naar uw task folder verplaatst. Wilt u "
+"commentaar invoegen in uw antwoord?"
+
+msgid ""
+"This task will be declined and moved into the Deleted Items folder. Do you "
+"want to edit the response before sending it?"
+msgstr ""
+"Deze taak wordt afgewezen en verplaatst naar de Taken map. Wilt u het "
+"antwoord bewerken voor het versturen?"
+
+msgid "Send the response now"
+msgstr "Antwoord nu verzenden"
+
+msgid "Date Complete"
+msgstr "Datum Voltooid"
+
+msgid "Multiple companies name must be separated by"
+msgstr "Meedere bedrijfsnamen moeten worden afgebakend door"
+
+msgid "Update List"
+msgstr "Lijst Bijwerken"
+
+msgid "Create Unassigned Copy"
+msgstr "Maak Nieuwe Niet-toegewezen Kopie"
+
+msgid "copy"
+msgstr "kopie"
+
+msgid "Unable to send task request"
+msgstr "Niet mogelijk om een gedeelde taak te versturen"
+
+msgid "You cannot send a task request to yourself."
+msgstr "U kunt geen taakverzoek naar uzelf sturen."
+
+msgid "Multiple recipients"
+msgstr "Meerdere ontvangers"
+
+msgid "A task request can only have one recipient."
+msgstr "Een taakverzoek mag maar één geadresseerde hebben."
+
+msgid "Due date"
+msgstr "Verloopdatum"
+
+msgid "Priority"
+msgstr "Prioriteit"
+
+# 90%
+msgid "% Complete"
+msgstr "% Voltooid"
+
+msgid "Track progress"
+msgstr "Voortgang bijhouden"
+
+msgid "Keep updated copy of task and receive automated status reports"
+msgstr ""
+"Bewaar een bijgewerkte kopie van de taak en ontvang geautomatiseerde "
+"statusrapporten"
+
+msgid "Send task to assignees"
+msgstr "Stuur taak naar geadresseerden"
+
+# 84%
+msgid "Restore to Task List"
+msgstr "Herstellen naar Takenlijst"
+
+# 94%
+# 76%
+# 100%
+msgid "Delete this task"
+msgstr "Verwijder deze taak"
+
+msgid "Add attachments to this task"
+msgstr "Voeg bijlagen toe aan deze taak"
+
+msgid "Mark as Complete"
+msgstr "Markeer als Voltooid"
+
+msgid "Mark this task as complete"
+msgstr "Markeer deze taak als voltooid"
+
+# 75%
+# 100%
+msgid "Print this task"
+msgstr "Druk deze taak af"
+
+msgid "Assign Task"
+msgstr "Wijs Taak Toe"
+
+msgid "Cancel Assignment"
+msgstr "Annuleer Toewijzing"
+
+# 75%
+# 79%
+# 100%
+msgid "Mark this task as private"
+msgstr "Markeer deze taak als privé"
+
+msgid "New task"
+msgstr "Nieuwe taak"
+
+msgid "Completed"
+msgstr "Afgerond"
+
+# 76%
+msgid "Printed by: "
+msgstr "Geprint door: "
+
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
+msgid "Printed on: "
+msgstr "Geprint op: "
+
+msgid "Percent complete"
+msgstr "Percentage afgerond"
+
+msgid "Total work"
+msgstr "Totale hoeveelheid werk"
+
+msgid "{totalwork} hours"
+msgstr "{totalwork} uren"
+
+# 90%
+msgid "Actual work"
+msgstr "Werkelijk Verricht"
+
+# 83%
+msgid "{actualwork} hours"
+msgstr "{actualwork} uren"
+
+# 80%
+# 85%
+msgid "Open Shared Tasks"
+msgstr "Open Gedeelde Taken"
+
+msgid "Simple view"
+msgstr "Eenvoudige weergave"
+
+msgid "Detailed view"
+msgstr "Gedetailleerde weergave"
+
+# 92%
+# 100%
+msgid "Task request"
+msgstr "Toegewezen taak"
+
+msgid "Print selected task"
+msgstr "Druk geselecteerde taak af"
+
+msgid "No task selected"
+msgstr "Geen taak geselecteerd"
+
+msgid "Print task list"
+msgstr "Druk takenlijst af"
+
+msgid "Create task"
+msgstr "Taak aanmaken"
+
+msgid "Upcoming"
+msgstr "Aankomende"
+
+msgid "Overdue"
+msgstr "Te laat"
+
+msgid "Mark Complete"
+msgstr "Markeer als Voltooid"
+
+msgid "Mark Incomplete"
+msgstr "Markeer als Onvoltooid"
+
+msgid "Remove from To-Do List"
+msgstr "Verwijderen uit To-Do lijst"
+
+msgid "Changes to assigned task"
+msgstr "Veranderingen in toegewezen taak"
+
+msgid ""
+"Please note that assigned task(s) will be overwritten when the assignee "
+"makes changes."
+msgstr ""
+"Let op: alle gemaakte wijzigingen zullen worden overschreven wanneer de "
+"toegewezen taak wordt bijgewerkt door de geadresseerde."
+
+# 82%
+msgid "Sort by: Complete"
+msgstr "Sorteer op: Voltooid"
+
+msgid "Reminder Time"
+msgstr "Herinneringstijd"
+
+# 86%
+msgid "Sort by: Reminder Time"
+msgstr "Sorteer op: Herinneringstijd"
+
+msgid "Assigned To"
+msgstr "Toegewezen Aan"
+
+# 82%
+msgid "Sort by: Assignee"
+msgstr "Sorteer op: Toegewezene"
+
+# 78%
+msgid "Sort by: Owner"
+msgstr "Sorteer op: Eigenaar"
+
+# 88%
+msgid "Sort by: Percentage Completed"
+msgstr "Sorteer op: Percentage Voltooid"
+
+msgid "Assigned task changes"
+msgstr "Toegewezen taak veranderingen"
+
+# 76%
+msgid "Loading tasks"
+msgstr "Taken laden"
+
+# 92%
+msgid "Date completed"
+msgstr "Datum voltooid"
+
+msgid "hours"
+msgstr "uren"
+
+msgid "Billing information"
+msgstr "Factuurinformatie"
+
+msgid "Update list"
+msgstr "Lijst bijwerken"
+
+msgid "D d-m-Y"
+msgstr "D d-m-Y"
+
+msgid "none"
+msgstr "geen"
+
+msgid "Quick Task"
+msgstr "Vlugge Taak"
+
+msgid "No tasks."
+msgstr "Geen taken."
+
+msgid "Tasks / To-Do"
+msgstr "Taken / To-Do"
+
+msgid "Import / Export"
+msgstr "Importeren/Exporteren"
+
+msgid ""
+"Calendar, contact and mail items can be imported and exported from and to "
+"grommunio Web."
+msgstr ""
+"Kalender, contacten en mail items kunnen geïmporteerd en geëxporteerd worden "
+"van en naar grommunio Web."
+
+msgid ""
+"Right-click a folder and select the import button. Additionally, items can "
+"be imported from the attachment context menu."
+msgstr ""
+"Klik met de rechtermuisknop en selecteer de importeer knop. Tevens kunnen "
+"items ook geïmporteerd worden via het rechtsklik menu van een bijlage."
+
+msgid "Exporting can be done from the context menu of an item."
+msgstr "Exporteren kan gedaan worden via het rechtsklik menu van een item."
+
+msgid "Icon packs"
+msgstr "Icon packs"
+
+msgid ""
+"You can now choose between different icons. By default the new Breeze icons "
+"are enabled, but if you prefer the classic icons you can change this in the "
+"settings."
+msgstr ""
+"Je kan nu kiezen tussen verschillende iconen. Standaard zijn de Breeze icons "
+"enabled, maar de oude iconen kunnen via settings worden geactiveerd."
+
+msgid ""
+"Go to your settings, open the general tab and select an icon pack to your "
+"liking."
+msgstr "Ga naar settings, open de algemene tab en selecteer een icon pack."
+
+msgid "Left: Breeze - Right: Classic"
+msgstr "Links: Breeze - Rechts: Klassiek"
+
+msgid "What's new"
+msgstr "Wat is er nieuw"
+
+msgid "Don't show me new features again."
+msgstr "Toon me geen nieuwe features meer."
+
+msgid "Skip"
+msgstr "Sla over"
+
+msgid "Previous"
+msgstr "Vorige"
+
+msgid "Next"
+msgstr "Volgende"
+
+msgid "Click the link to open the URL in a new window."
+msgstr "Klik op de link om de URL in een nieuw venster te openen."
+
+msgid "The server reported an unknown error on your request."
+msgstr "De server rapporteerde een onbekende fout in het verzoek."
+
+# 84%
+msgid "The server reported an unspecified error on your request."
+msgstr "De server rapporteerde een onbekende fout in het verzoek."
+
+msgid "The session has expired, reauthentication is required."
+msgstr "De sessie is verlopen, u moet opnieuw aanmelden."
+
+msgid ""
+"The session in the current browser window has been closed from another "
+"browser window or tab."
+msgstr ""
+"De sessie in het huidige browservenster is afgesloten in een ander "
+"browservenster of -tab."
+
+msgid "Session expired"
+msgstr "Sessie is verlopen"
+
+msgid "Do you wish to be redirected to the logon page?"
+msgstr "Wilt u naar de aanmeldpagina gaan?"
+
+msgid "Reauthentication required, click here to go to back to logon page."
+msgstr ""
+"U moet zich opnieuw aanmelden, klik hier om terug te gaan naar de "
+"aanmeldpagina."
+
+msgid "Connection problem"
+msgstr "Verbindingsprobleem"
+
+msgid "Could not connect to server, retrying in {0} second(s)"
+msgstr ""
+"Kon geen verbinding krijgen met de server, ik probeer het over {0} seconden "
+"opnieuw"
+
+msgid "Click to retry now"
+msgstr "Klik om nu opnieuw te proberen"
+
+msgid "Connection restored"
+msgstr "Verbinding is terug"
+
+msgid "Connection with server has been restored"
+msgstr "De verbinding met de server is terug"
+
+#. TRANSLATORS: Example: HTTP 404
+msgid "HTTP {0}"
+msgstr ""
+
+msgid "Invalid data received from the server"
+msgstr ""
+
+msgid "Missing store"
+msgstr "Ontbrekende store"
+
+msgid "The default store is missing from the hierarchy."
+msgstr "De standaardstore ontbreekt in de hiërarchie."
+
+msgid ""
+"Not all functionality of grommunio Web might be working properly because of "
+"this."
+msgstr ""
+"Sommige functionaliteit van grommunio Web werkt hierdoor misschien niet goed."
+
+# 100%
+msgctxt "hierarchy.foldername"
+msgid "Inbox"
+msgstr "Postvak In"
+
+msgctxt "hierarchy.foldername"
+msgid "Outbox"
+msgstr "Postvak Uit"
+
+msgctxt "hierarchy.foldername"
+msgid "Sent Items"
+msgstr "Verzonden Items"
+
+# 92%
+msgctxt "hierarchy.foldername"
+msgid "Deleted items"
+msgstr "Verwijderde items"
+
+# 100%
+msgctxt "hierarchy.foldername"
+msgid "Calendar"
+msgstr "Agenda"
+
+# 100%
+msgctxt "hierarchy.foldername"
+msgid "Contacts"
+msgstr "Contactpersonen"
+
+msgctxt "hierarchy.foldername"
+msgid "Drafts"
+msgstr "Concepten"
+
+# 100%
+msgctxt "hierarchy.foldername"
+msgid "Journal"
+msgstr "Logboek"
+
+# 100%
+msgctxt "hierarchy.foldername"
+msgid "Notes"
+msgstr "Notities"
+
+# 100%
+msgctxt "hierarchy.foldername"
+msgid "Tasks"
+msgstr "Taken"
+
+msgctxt "hierarchy.foldername"
+msgid "Junk Email"
+msgstr "Ongewenste Email"
+
+msgid "Missing folders"
+msgstr "Ontbrekende mappen"
+
+msgid "The following required folder is missing in the hierarchy: {0}"
+msgid_plural "The following required folders are missing in the hierarchy: {0}"
+msgstr[0] "De volgende vereiste map ontbreekt in de hiërarchie: {0}"
+msgstr[1] "De volgende vereiste mappen ontbreken in de hiërarchie: {0}"
+
+msgid "Loading model from server failed"
+msgstr "Het laden van het model van de server is mislukt"
+
+msgid "Out of Office is currently activated. Would you like to turn it off?"
+msgstr "De Afwezigheidsassistent is ingeschakeld. Wilt u deze uitschakelen?"
+
+msgid "Open Chat at start"
+msgstr ""
+
+msgid "Desktop Notifications Plugin"
+msgstr ""
+
+msgid "Desktop Notifications"
+msgstr ""
+
+msgid "{A} Autohide desktop notification after second(s) {B}"
+msgstr ""
+
+msgid "Intranet"
+msgstr ""
+
+msgid "Email Details"
+msgstr ""
+
+msgid "Item Data"
+msgstr ""
+
+msgid "Mobile Device Manager"
+msgstr ""
+
+msgid "Wiping device"
+msgstr ""
+
+msgid "Password incorrect"
+msgstr ""
+
+msgid "Full resync in progress"
+msgstr ""
+
+msgid "Username or password incorrect"
+msgstr ""
+
+msgid "Not Applicable"
+msgstr ""
+
+msgid "Wipe Pending"
+msgstr ""
+
+msgid "Wipe Requested"
+msgstr ""
+
+msgid "Wipe Executed"
+msgstr ""
+
+msgid "Not Available"
+msgstr ""
+
+msgid "Device"
+msgstr ""
+
+msgid "Operating System"
+msgstr ""
+
+msgid "ID"
+msgstr ""
+
+msgid "User Agent"
+msgstr ""
+
+msgid "MDM Plugin"
+msgstr ""
+
+msgid "Active Sync Version"
+msgstr ""
+
+msgid "grommunio-sync Version"
+msgstr ""
+
+msgid "Policy name"
+msgstr ""
+
+msgid "Outlook Extension"
+msgstr ""
+
+msgid "Build"
+msgstr ""
+
+msgid "Last updated"
+msgstr ""
+
+msgid "d F Y, H:i"
+msgstr ""
+
+msgid "Connected since"
+msgstr ""
+
+msgid "d F Y"
+msgstr ""
+
+msgid "Synchronize"
+msgstr ""
+
+msgid "Manage Shared Folders"
+msgstr ""
+
+msgid ""
+"Select folders to sync to your device from the list below. To add additional "
+"mailboxes to the list, open them in WebApp first."
+msgstr ""
+
+msgid "grommunio-sync"
+msgstr ""
+
+msgid "Mobile device management"
+msgstr ""
+
+msgid "Mobile Devices"
+msgstr ""
+
+msgid ""
+"Unable to connect to the grommunio-sync server. Click {0} to enter your "
+"credentials"
+msgstr ""
+
+msgid "Devices"
+msgstr ""
+
+msgid "No devices connected to your account"
+msgstr ""
+
+msgid "Last Update"
+msgstr ""
+
+msgid "Device ID"
+msgstr ""
+
+msgid "Device OS"
+msgstr ""
+
+msgid "Device Info"
+msgstr ""
+
+msgid "First Sync time"
+msgstr ""
+
+msgid "Full resync"
+msgstr ""
+
+msgid "Remove device"
+msgstr ""
+
+msgid "Please enter your username and password"
+msgstr ""
+
+msgid "Password"
+msgstr "Wachtwoord"
+
+msgid "Username"
+msgstr "Gebruikersnaam"
+
+msgid ""
+"Do you really want to wipe your device?\n"
+" Enter your password to confirm."
+msgstr ""
+
+msgid "Add meeting"
+msgstr ""
+
+msgid "Room name:"
+msgstr ""
+
+msgid "Room URL:"
+msgstr ""
+
+msgid "Shift-click for advanced settings"
+msgstr ""
+
+msgid "Join webmeeting"
+msgstr ""
+
+msgid "Open meeting in:"
+msgstr ""
+
+msgid "Web tab"
+msgstr ""
+
+msgid "Hide the button in the main toolbar"
+msgstr ""
+
+msgid "Add the subject to the room name"
+msgstr ""
+
+msgid "Add the organizer name to the room name"
+msgstr ""
+
+msgid "Add the URL to the meeting location rather than overwriting it"
+msgstr ""
+
+msgid ""
+"Prevent the URL in the meeting location from being overridden automatically "
+"(ex: when adding a meetingroom)"
+msgstr ""
+
+msgid "If you have problems when creating meetings, try disabling this setting"
+msgstr ""
+
+msgid "Add an invitation to the appointment description"
+msgstr ""
+
+msgid "Invitation text"
+msgstr ""
+
+msgid ""
+"must contain %url% as a placeholder for the meeting link, empty the textbox "
+"to reset to default"
+msgstr ""
+
+msgid "An unknown error occurred while changing password."
+msgstr ""
+
+msgid "Password is changed successfully."
+msgstr ""
+
+msgid "Success"
+msgstr ""
+
+msgid "Change Password"
+msgstr ""
+
+msgid "Current password"
+msgstr ""
+
+msgid "New password"
+msgstr ""
+
+msgid "Retype new password"
+msgstr ""
+
+msgid "New passwords do not match."
+msgstr ""
+
+msgid "Current password is empty."
+msgstr ""
+
+msgid "New password is empty."
+msgstr ""
+
+msgid "One or more fields does contain errors."
+msgstr ""
+
+msgid ""
+"Password is weak. Password should contain capital, non-capital letters and "
+"numbers. Password should have 8 to 20 characters."
+msgstr ""
+
+msgid "Charm pink"
+msgstr "Charm roze"
+
+msgid "Cadmium red"
+msgstr "Cadmium rood"
+
+msgid "Apricot"
+msgstr "Abrikoos"
+
+msgid "California"
+msgstr "Californië"
+
+msgid "Soft green"
+msgstr "Zacht groen"
+
+msgid "Mint"
+msgstr "Munt"
+
+msgid "Pearl aqua"
+msgstr "Parel aqua"
+
+msgid "Grommunio blue"
+msgstr ""
+
+msgid "Baby blue"
+msgstr "Baby blauw"
+
+msgid "Mauve"
+msgstr "Lila"
+
+msgid "Silver sand"
+msgstr "Zilver zand"
+
+msgid "Competition"
+msgstr "Concurrentie"
+
+msgid "Gifts"
+msgstr "Geschenken"
+
+msgid "Goals/Objectives"
+msgstr "Doelen/Doelstellingen"
+
+msgid "Holiday Cards"
+msgstr "Vakantiekaarten"
+
+# 75%
+msgid "Hot Contacts"
+msgstr "Belangrijke Contactpersonen"
+
+msgid "Ideas"
+msgstr "Ideeën"
+
+msgid "International"
+msgstr "Internationaal"
+
+msgid "Key Customer"
+msgstr "Belangrijke Klant"
+
+msgid "Miscellaneous"
+msgstr "Diversen"
+
+msgid "Phone Calls"
+msgstr "Telefoongesprekken"
+
+msgid "Strategies"
+msgstr "Strategieën"
+
+msgid "Suppliers"
+msgstr "Leveranciers"
+
+msgid "Time & Expenses"
+msgstr "Tijd & Kosten"
+
+msgid "VIP"
+msgstr "VIP"
+
+msgid "Waiting"
+msgstr "Aan het wachten"
+
+msgid "You have been automatically logged out"
+msgstr "U bent automatisch uitgelogd"
+
+msgid ""
+"Sorry, access to grommunio Web is not available with this user account. "
+"Please contact your system administrator."
+msgstr ""
+"Sorry, toegang tot grommunio Web is niet mogelijk met dit account. Neem "
+"contact op met je systeembeheerder."
+
+msgid "Mobile device management plugin"
+msgstr ""
+
+#, php-format
+msgid ""
+"Unexpected error occurred. Please contact your system administrator. Error "
+"code: %s"
+msgstr ""
+
+msgid "No data received."
+msgstr ""
+
+msgid "Account is empty."
+msgstr ""
+
+msgid "Current password does not match."
+msgstr ""
+
+msgid ""
+"Your password is wrong or you have insufficent permission to change password"
+msgstr ""
+
+msgid "Password is not changed."
+msgstr ""
+
+msgid "Error changing password. Please contact the system administrator."
+msgstr ""
+
+msgid "Password has been changed successfully."
+msgstr ""
+
+msgid "Can't add data to bus, same action type is present in bus"
+msgstr ""
+
+msgid "Response data requested from bus but it doesn't have any data."
+msgstr ""
+
+#, php-format
+msgid "Unknown module '%s' with id '%s'"
+msgstr ""
+
+msgid ""
+"Server encountered some problem, so it was not able to handle the request."
+msgstr ""
+
+#, php-format
+msgid "Unknown notifier '%s'"
+msgstr ""
+
+msgid "An unexpected error has occurred"
+msgstr ""
+
+msgid "To-Do List"
+msgstr ""
+
+#. TRANSLATORS: This indicates that the opened folder belongs to a particular user,
+#. * for example: 'Calendar of Holiday', in this case %1$s is 'Calendar' (the foldername)
+#. * and %2$s is 'Holiday' (the username).
+#.
+#, php-format
+msgid "%1$s of %2$s"
+msgstr ""
+
+msgid "Error retrieving existing settings"
+msgstr ""
+
+msgid "Error retrieving existing persistent settings"
+msgstr ""
+
+# 93%
+msgid "Logon failed. Please verify your credentials and try again."
+msgstr "Inloggen mislukt. Controleer inloggegevens en probeer opnieuw."
+
+# 94%
+# 83%
+msgid "Cannot connect to Gromox."
+msgstr "Kan niet verbinden met Gromox."
+
+msgid ""
+"Login did not work due to a duplicate session. The issue was automatically "
+"resolved, please log in again."
+msgstr ""
+"Inloggen is niet gelukt vanwege een dubbele sessie. De issue is automatisch "
+"opgelost, graag opnieuw inloggen."
+
+msgid "Unknown MAPI Error"
+msgstr "Onbekende MAPI-Fout"
+
+msgid "This external link will open in a new window"
+msgstr ""
+
+msgid "Destination folder not found."
+msgstr ""
+
+msgid "Eml is corrupted"
+msgstr ""
+
+msgid "The eml Attachment is not imported successfully"
+msgstr ""
+
+msgid "The vcf attachment is not imported successfully"
+msgstr ""
+
+#, php-format
+msgid "Unable to import '%s' to '%s'. "
+msgstr "Kan '%s' naar '%s' niet importeren. "
+
+msgid "There is no appointment found in this file."
+msgstr "Er is geen afspraak gevonden in dit bestand."
+
+msgid "The file is corrupt."
+msgstr "Dit bestand is corrupt."
+
+msgid "The file is invalid."
+msgstr "De bestanden zijn niet geldig."
+
+#, php-format
+msgid "Unable to import '%s'. "
+msgstr "'%s' kan niet worden geïmporteerd. "
+
+msgid "Please contact your system administrator if the problem persists."
+msgstr ""
+"Neem contact op met uw systeem administrator als het probleem zich blijft "
+"voortdoen."
+
+msgid "Attachment is not imported successfully"
+msgstr ""
+
+msgid "Embedded attachment not found."
+msgstr ""
+
+msgid "ZIP is not created successfully"
+msgstr ""
+
+msgid "Attachments can not be downloaded"
+msgstr ""
+
+msgid "Could not find attachment."
+msgstr ""
+
+msgid "Operation failed"
+msgstr ""
+
+msgid "Sticky Note"
+msgstr ""
+
+msgid "Task Request"
+msgstr ""
+
+msgid "Could not find message, either it has been moved or deleted."
+msgstr ""
+
+msgid "Request is not available."
+msgstr "Request is niet beschikbaar."
+
+# 86%
+# 90%
+msgid "You have insufficient privileges to open this object."
+msgstr "U heeft onvoldoende rechten om dit object te openen."
+
+# 93%
+msgid "Logon Failed. Please check your name/password."
+msgstr "Inloggen mislukt. Controleer naam/wachtwoord."
+
+# 94%
+# 83%
+msgid "Can not connect to Gromox."
+msgstr "Kan geen verbinding maken met de grommunio server."
+
+msgid "Can not open object with provided id."
+msgstr "Kan object met opgegeven id niet openen."
+
+msgid "There are no recipients in the message."
+msgstr "Er zijn geen geadresseerden in het bericht."
+
+msgid "Can not find object."
+msgstr "Kan object niet vinden."
+
+msgid "Operation failed: Server does not have enough memory."
+msgstr "Operatie mislukt: Server heeft onvoldoende beschikbaar geheugen."
+
+#, php-format
+msgid "Unknown MAPI Error: %s"
+msgstr "Onbekende MAPI-Fout: %s"
+
+msgid "Action is not performed correctly."
+msgstr ""
+
+msgid "Tentatively accepted"
+msgstr "Voorlopig geaccepteerd"
+
+msgid "New Time Proposed"
+msgstr "Nieuw tijd voor gesteld"
+
+# 78%
+# 76%
+#, php-format
+msgid "Occurs every %s effective %s from %s to %s."
+msgstr "Vind plaats elke %s vanaf %s van %s tot %s."
+
+# 77%
+#, php-format
+msgid "Occurs every %s %s effective %s from %s to %s."
+msgstr "Vind plaats elke %s %s vanaf %s van %s tot %s."
+
+# 80%
+#, php-format
+msgid "Occurs every %s effective %s."
+msgstr "Vind plaats elke %s vanaf %s."
+
+# 75%
+#, php-format
+msgid "Occurs every %s %s effective %s."
+msgstr "Vind plaats elke %s %s vanaf %s."
+
+#, php-format
+msgid "Occurs every %s effective %s for %s occurrence from %s to %s."
+msgid_plural "Occurs every %s effective %s for %s occurrences from %s to %s."
+msgstr[0] "Vind iedere %s plaats, vanaf %s voor %s keer van %s tot %s."
+msgstr[1] "Vind iedere %s plaats, vanaf %s voor %s keren van %s tot %s."
+
+#, php-format
+msgid "Occurs every %s %s effective %s for %s occurrence from %s to %s."
+msgid_plural "Occurs every %s %s effective %s for %s occurrences %s to %s."
+msgstr[0] "Vind plaats iedere %s %s, vanaf %s voor %s keer van %s tot %s."
+msgstr[1] "Vind plaats iedere %s %s, vanaf %s voor %s keren van %s tot %s."
+
+#, php-format
+msgid "Occurs every %s effective %s for %s occurrence."
+msgid_plural "Occurs every %s effective %s for %s occurrences."
+msgstr[0] "Vind iedere %s plaats, vanaf %s voor % keer."
+msgstr[1] "Vind iedere %s plaats, vanaf %s voor %s keren."
+
+#, php-format
+msgid "Occurs every %s %s effective %s for %s occurrence."
+msgid_plural "Occurs every %s %s effective %s for %s occurrences."
+msgstr[0] "Vind iedere %s %s plaats, vanaf %s voor %s keer."
+msgstr[1] "Vind iedere %s %s plaats, vanaf %s voor %s keren."
+
+# 96%
+# 76%
+# 75%
+#, php-format
+msgid "Occurs every %s effective %s until %s from %s to %s."
+msgstr "Vind elke %s plaats vanaf %s tot %s van %s tot %s."
+
+# 96%
+# 76%
+# 75%
+# 94%
+#, php-format
+msgid "Occurs every %s %s effective %s until %s from %s to %s."
+msgstr "Vind elke %s %s plaats vanaf %s tot %s van %s tot %s."
+
+# 78%
+#, php-format
+msgid "Occurs every %s effective %s until %s."
+msgstr "Vind elke %s plaats vanaf %s tot %s."
+
+# 78%
+# 92%
+#, php-format
+msgid "Occurs every %s %s effective %s until %s."
+msgstr "Elke %s %s met ingang van %s tot %s."
+
+msgid "Task Accepted:"
+msgstr ""
+
+msgid "Task Declined:"
+msgstr ""
+
+msgid "Task Updated:"
+msgstr ""
+
+msgid "Task Completed:"
+msgstr ""
+
+msgid "Contact not found"
+msgstr ""
+
+msgid ""
+"Contact information could not be displayed because the server had trouble "
+"retrieving the information."
+msgstr ""
+
+msgid "Could not handle this type of object."
+msgstr ""
+
+msgid "Could not open this object."
+msgstr ""
+
+msgid "Error in search, please try again"
+msgstr ""
+
+msgid "Unable to perform search query, no permissions to create search folder."
+msgstr ""
+
+msgid "Unable to perform search query, search folder not found."
+msgstr ""
+
+msgid "Unable to perform search query, store might not support searching."
+msgstr ""
+
+msgid "Error in creating search folder."
+msgstr ""
+
+msgid "Could not open occurrence."
+msgstr ""
+
+msgid "Could not open occurrence, specific occurrence is probably deleted."
+msgstr ""
+
+msgid "a meeting request"
+msgstr ""
+
+msgid "an appointment"
+msgstr ""
+
+msgid "You have insufficient privileges to move "
+msgstr ""
+
+msgid ""
+"Cannot set a reminder to appear before the previous occurrence. Reset "
+"reminder to save the change"
+msgstr ""
+
+msgid "Two occurrences cannot occur on the same day"
+msgstr ""
+
+#, php-format
+msgid ""
+"You marked '%s' as a resource. You cannot schedule a meeting with '%s' "
+"because you do not have the appropiate permissions for that account. Either "
+"enter the name as a required or optional attendee or talk to your "
+"administrator about giving you permission to schedule '%s'."
+msgstr ""
+
+#, php-format
+msgid ""
+"'%s' has declined your meeting because '%s' does not automatically accept "
+"meeting requests."
+msgstr ""
+
+#, php-format
+msgid ""
+"'%s' has declined your meeting because it is recurring. You must book each "
+"meeting separately with this resource."
+msgstr ""
+
+#, php-format
+msgid ""
+"'%s' is already booked for this specified time. You must use another time or "
+"find another resource."
+msgstr ""
+
+msgid "Meeting was not scheduled."
+msgstr ""
+
+msgid "Meeting could not be sent."
+msgstr ""
+
+msgid "Meeting could not be saved."
+msgstr ""
+
+msgid "Private Appointment"
+msgstr ""
+
+#, php-format
+msgid "%s's Birthday"
+msgstr ""
+
+#, php-format
+msgid "%s's Anniversary"
+msgstr ""
+
+msgid "Unknown user/group"
+msgstr ""
+
+msgid "Could not save delegate information."
+msgstr ""
+
+msgid "Could not delete delegate."
+msgstr ""
+
+msgid "Can not get list of delegates."
+msgstr ""
+
+msgid "Could not load the hierarchy."
+msgstr ""
+
+msgid "Could not load folder properties."
+msgstr ""
+
+msgid "Could not remove folder from favorites."
+msgstr ""
+
+msgid "You have insufficient privileges to delete folder."
+msgstr ""
+
+msgid "Could not delete folder."
+msgstr ""
+
+msgid "You have insufficient privileges to copy folder."
+msgstr ""
+
+msgid "Could not copy folder."
+msgstr ""
+
+msgid "You have insufficient privileges to move this folder."
+msgstr ""
+
+msgid "Could not move folder."
+msgstr ""
+
+msgid "You have insufficient privileges to delete items."
+msgstr ""
+
+msgid "Could not empty folder."
+msgstr ""
+
+msgid "Could not perform action correctly."
+msgstr ""
+
+msgid ""
+"A favorite folder with this name already exists, please use another name."
+msgstr ""
+
+msgid "Could not add folder to favorites."
+msgstr ""
+
+msgid "You have insufficient privileges to set permissions for this folder."
+msgstr ""
+
+msgid "Could not set folder permissions."
+msgstr ""
+
+msgid "You have insufficient privileges to rename this folder."
+msgstr ""
+
+msgid "A folder with this name already exists. Use another name."
+msgstr ""
+
+msgid "Could not rename folder."
+msgstr ""
+
+msgid "You have insufficient privileges to create this folder."
+msgstr ""
+
+msgid "Could not create folder."
+msgstr ""
+
+msgid "Could not close shared folder."
+msgstr ""
+
+msgid "User could not be resolved."
+msgstr ""
+
+#, php-format
+msgid ""
+"You have insufficient privileges to open this %1$s folder. The folder owner "
+"can set these using the 'permissions'-tab of the folder properties (right "
+"click the %1$s folder > properties > permissions)."
+msgstr ""
+
+msgid "unknown"
+msgstr ""
+
+msgid "Could not move folder"
+msgstr ""
+
+msgid "Could not copy folder"
+msgstr ""
+
+msgid "You have insufficient privileges to open this message."
+msgstr ""
+
+msgid ""
+"Could not find message, either it has been moved or deleted or you don't "
+"have access to open this message."
+msgstr ""
+
+# 78%
+msgid "Could not open message."
+msgstr "Kon bericht niet openen."
+
+# 98%
+msgid "You have insufficient privileges to decline this Meeting Request"
+msgstr "U heeft niet voldoende permissies om dit Vergaderverzoek af te wijzen"
+
+# 98%
+msgid "You have insufficient privileges to accept this Meeting Request"
+msgstr "U heeft niet voldoende permissies om dit Vergaderverzoek te accepteren"
+
+# 78%
+# 82%
+msgid "Could not copy message"
+msgstr "Kon bericht niet kopiëren"
+
+# 78%
+# 82%
+# 86%
+msgid "Could not move message"
+msgstr "Kon bericht niet verplaatsen"
+
+msgid "You have insufficient privileges to save items in this folder"
+msgstr "U heeft niet voldoende permissies om items in deze map op te slaan"
+
+# 78%
+# 82%
+# 95%
+msgid "Could not save message"
+msgstr "Kon bericht niet opslaan"
+
+msgid "You have insufficient privileges to remove item from the calendar."
+msgstr ""
+"U heeft niet voldoende permissies om het item uit de agenda te verwijderen."
+
+msgid ""
+"Message is no longer in the outgoing queue, typically because it has already "
+"been sent."
+msgstr ""
+"Bericht zit niet meer in de uitgaande wachtrij, normaal gesproken omdat het "
+"al is verzonden."
+
+msgid "Message cannot be aborted"
+msgstr "Bericht kan niet worden geannuleerd"
+
+msgid "You have insufficient privileges to delete items in this folder"
+msgstr "U heeft niet voldoende permissies om items in deze map te verwijderen"
+
+msgid "You have insufficient privileges to attach item as an attachment."
+msgstr "U heeft niet voldoende permissies om item als bijlage toe te voegen."
+
+msgid "Could not attach item as an attachment."
+msgstr "Kon item niet als bijlage toevoegen."
+
+msgid ""
+"You have insufficient privileges to reclaim the ownership for the Task "
+"Request."
+msgstr ""
+"U heeft niet voldoende permissies om opnieuw eigenaar te worden van het "
+"Taakverzoek."
+
+msgid "Could not reclaim the ownership for the Task Request."
+msgstr "Kon niet opnieuw eigenaar worden van het Taakverzoek."
+
+# 89%
+msgid "You have insufficient privileges to accept this Task Request."
+msgstr "U heeft niet voldoende permissies om dit Taakverzoek te accepteren."
+
+# 78%
+msgid "Could not accept Task Request."
+msgstr "Kon Taakverzoek niet accepteren."
+
+# 89%
+msgid "You have insufficient privileges to decline this Task Request."
+msgstr "U heeft niet voldoende permissies om dit Taakverzoek af te wijzen."
+
+# 79%
+msgid "Could not decline Task Request."
+msgstr "Kon Taakverzoek niet afwijzen."
+
+msgid "Conflicts with another appointment."
+msgstr "Conflicteert met een andere afspraak."
+
+#, php-format
+msgid ""
+"%s occurrence of this recurring appointment conflicts with other appointment."
+msgid_plural ""
+"%s occurrences of this recurring appointment conflicts with other "
+"appointments."
+msgstr[0] ""
+"%s herhaling van deze herhalende afspraak conflicteren met een andere "
+"afspraak."
+msgstr[1] ""
+"%s herhalingen van deze herhalende afspraak conflicteren met een andere "
+"afspraak."
+
+msgid "Your message did not reach some or all of the intended recipients"
+msgstr "Uw bericht is niet ontvangen door een of meerdere geadresseerden"
+
+msgid "The following recipient(s) could not be reached"
+msgstr "De volgende geadresseerde(n) kon(den) niet worden bereikt"
+
+msgid "You have insufficient privileges to see the contents of this folder."
+msgstr ""
+
+msgid "Could not load the contents of this folder."
+msgstr ""
+
+msgid ""
+"You have insufficient privileges to perform search operation in this folder."
+msgstr ""
+
+msgid "Could not update search results."
+msgstr ""
+
+msgid "Could not stop search operation."
+msgstr ""
+
+msgid "You have insufficient privileges to save this message."
+msgstr ""
+
+msgid "Could not save message."
+msgstr ""
+
+msgid "You have insufficient privileges to delete this message."
+msgstr ""
+
+msgid "Could not delete message."
+msgstr ""
+
+msgid "You have insufficient privileges to cancel this Meeting Request."
+msgstr ""
+
+msgid "Could not cancel Meeting Request."
+msgstr ""
+
+msgid "You have insufficient privileges to decline this Meeting Request."
+msgstr ""
+
+msgid "Could not decline Meeting Request."
+msgstr ""
+
+msgid "You have insufficient privileges to accept this Meeting Request."
+msgstr ""
+
+msgid "Could not accept Meeting Request."
+msgstr ""
+
+msgid "You have insufficient privileges to cancel Meeting Request invitation."
+msgstr ""
+
+msgid "Could not cancel Meeting Request invitations."
+msgstr ""
+
+msgid "You can not continue search operation on this folder."
+msgstr ""
+
+msgid "Error in search, please try again."
+msgstr ""
+
+msgid "Error in distribution list expansion."
+msgstr ""
+
+msgid "The message store has exceeded its hard quota limit."
+msgstr ""
+
+msgid ""
+"To reduce the amount of data in this message store, select some items that "
+"you no longer need, delete them and cleanup your Deleted Items folder."
+msgstr ""
+
+msgid "The message store has exceeded its soft quota limit."
+msgstr ""
+
+msgid "Could not process request data properly."
+msgstr ""
+
+#, php-format
+msgid "Unknown action type specified - %s"
+msgstr ""
+
+msgid "Cannot snooze the reminder. You may be reminded again."
+msgstr ""
+
+msgid "Cannot dismiss the reminder. You may be reminded again."
+msgstr ""
+
+msgid "You have insufficient privileges to perform this action."
+msgstr ""
+
+msgid "Could not resolve user."
+msgstr ""
+
+msgid "Setting mail filters on the stores of other users is not allowed."
+msgstr ""
+
+msgid "Untitled rule"
+msgstr ""
+
+msgid "Could not load rules."
+msgstr ""
+
+msgid "Could not save rules."
+msgstr ""
+
+msgid "Task Request:"
+msgstr ""
+
+msgid "Sign in"
+msgstr ""
+
+msgid "File is not imported successfully"
+msgstr ""
+
+msgid "There is no contact found in this file."
+msgstr "Geen contact gevonden in dit bestand."
+
+msgid ""
+"grommunio Web does not support importing multiple VCF with this version."
+msgstr ""
+"grommunio Web ondersteunt het importeren van meerdere VCF bestanden niet in "
+"deze versie."
+
+msgid ""
+"grommunio Web does not support importing multiple ICS with this version."
+msgstr ""
+"grommunio Web ondersteunt het importeren van meerdere ICS in één bestand "
+"niet in deze versie."
+
+#, php-format
+msgid "Unable to import '%s'"
+msgstr ""
+
+msgid "The EML is not valid"
+msgstr ""
+
+msgid "GB"
+msgstr ""
+
+msgid "MB"
+msgstr ""
+
+msgid "KB"
+msgstr ""
+
+msgid "B"
+msgstr ""
+
+msgid "The maximum stack depth has been exceeded"
+msgstr ""
+
+msgid "Control character error, possibly incorrectly encoded"
+msgstr ""
+
+msgid "Invalid or malformed JSON"
+msgstr ""
+
+msgid "Syntax error"
+msgstr ""
+
+msgid "Malformed UTF-8 characters, possibly incorrectly encoded"
+msgstr ""
+
+#, php-format
+msgid "JSON Error: - %s"
+msgstr ""
+
+msgid "Some problem encountered when encoding/decoding JSON data."
+msgstr ""

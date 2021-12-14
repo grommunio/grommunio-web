@@ -16,13 +16,16 @@ $serverConfig = array(
 	'active_theme'					=> Theming::getActiveTheme(),
 	'iconsets'						=> Iconsets::getIconsets(),
 	'active_iconset'				=> Iconsets::getActiveIconset(),
+	'enable_themes'					=> ENABLE_THEMES,
+	'enable_iconsets'               => ENABLE_ICONSETS,
+	'enable_widgets'				=> ENABLE_WIDGETS
 );
 ?>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 
 	<head>
-		<meta name="Generator" content="grommunio-web v<?php echo $loader->getVersion()?>">
+                <meta name="Generator" content="grommunio-web v<?php echo $loader->getVersion()?>">
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<title><?php echo $webappTitle; ?></title>
@@ -56,7 +59,7 @@ $serverConfig = array(
 		<script type="text/javascript"><?php require(BASE_PATH . 'client/resize.js'); ?></script>
 
 		<!-- Translations -->
-		<script type="text/javascript" src="index.php?version=<?php echo $loader->getVersion() ?>&load=translations.js&lang=<?php echo $Language->getSelected()?>"></script>
+		<script type="text/javascript" src="index.php?version=<?php echo getWebappVersion() ?>&load=translations.js&lang=<?php echo $Language->getSelected()?>"></script>
 		<!-- JS Files -->
 		<?php $loader->jsOrder(); ?>
 

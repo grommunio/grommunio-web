@@ -1,0 +1,6752 @@
+# grommunio Web Danish (Denmark) translation.
+# Copyright (C) 2021
+msgid ""
+msgstr ""
+"Project-Id-Version: grommunio Web Danish (Denmark)\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-09-25 14:32+0200\n"
+"PO-Revision-Date: 2018-02-06 18:03+0000\n"
+"Last-Translator: import\n"
+"Language: da_DK\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 2.4\n"
+
+#. TRANSLATORS: This message is used as label for the column which indicates the week number of the month in date picker. and 'Wk' stands for week
+msgid "Wk"
+msgstr "Uge"
+
+msgid "Now"
+msgstr "Nu"
+
+msgid "Value must be between 0% to 100%"
+msgstr "Værdi skal være mellem 0% og 100%"
+
+msgid "Number must be higher than zero"
+msgstr "Tal skal være højere end 0"
+
+msgid "More options"
+msgstr "Flere valgmuligheder"
+
+msgid "{0} byte"
+msgid_plural "{0} bytes"
+msgstr[0] "{0} byte"
+msgstr[1] "{0} bytes"
+
+msgid "{0} KB"
+msgid_plural "{0} KB"
+msgstr[0] "{0} KB"
+msgstr[1] "{0} KB"
+
+msgid "{0} MB"
+msgid_plural "{0} MB"
+msgstr[0] "{0} MB"
+msgstr[1] "{0} MB"
+
+msgid "{0} GB"
+msgid_plural "{0} GB"
+msgstr[0] "{0} GB"
+msgstr[1] "{0} GB"
+
+msgid "{0} TB"
+msgid_plural "{0} TB"
+msgstr[0] "{0} TB"
+msgstr[1] "{0} TB"
+
+msgid "{0} minute"
+msgid_plural "{0} minutes"
+msgstr[0] "{0} minut"
+msgstr[1] "{0} minutter"
+
+msgid "{0} hour"
+msgid_plural "{0} hours"
+msgstr[0] "{0} time"
+msgstr[1] "{0} timer"
+
+msgid "{0} day"
+msgid_plural "{0} days"
+msgstr[0] "{0} dag"
+msgstr[1] "{0} dage"
+
+msgid "{0} week"
+msgid_plural "{0} weeks"
+msgstr[0] "{0} uge"
+msgstr[1] "{0} uger"
+
+msgid "The quick brown fox jumps over the lazy dog"
+msgstr "Den raske brune rev hopper over den dovne hund"
+
+msgid "Sunday"
+msgstr "Søndag"
+
+msgid "Monday"
+msgstr "Mandag"
+
+msgid "Tuesday"
+msgstr "Tirsdag"
+
+msgid "Wednesday"
+msgstr "Onsdag"
+
+msgid "Thursday"
+msgstr "Torsdag"
+
+msgid "Friday"
+msgstr "Fredag"
+
+msgid "Saturday"
+msgstr "Lørdag"
+
+msgid "Sun"
+msgstr "Søn"
+
+msgid "Mon"
+msgstr "Man"
+
+msgid "Tue"
+msgstr "Tir"
+
+msgid "Wed"
+msgstr "Ons"
+
+msgid "Thu"
+msgstr "Tor"
+
+msgid "Fri"
+msgstr "Fre"
+
+msgid "Sat"
+msgstr "Lør"
+
+msgid "January"
+msgstr "Januar"
+
+msgid "February"
+msgstr "Februar"
+
+msgid "March"
+msgstr "Marts"
+
+msgid "April"
+msgstr "April"
+
+msgid "May"
+msgstr "Maj"
+
+msgid "June"
+msgstr "Juni"
+
+msgid "July"
+msgstr "Juli"
+
+msgid "August"
+msgstr "August"
+
+msgid "September"
+msgstr "September"
+
+msgid "October"
+msgstr "Oktober"
+
+msgid "November"
+msgstr "November"
+
+msgid "December"
+msgstr "December"
+
+msgid "Page {A} of {0}"
+msgstr "Side {A} af {0}"
+
+msgid "Displaying messages {0} - {1} of {2}"
+msgstr "Viser meddelelser {0} - {1} af {2}"
+
+msgid "No messages to display"
+msgstr "Ingen meddelelser at vise"
+
+msgid "First Page"
+msgstr "Første side"
+
+msgid "Previous Page"
+msgstr "Forrige side"
+
+msgid "Next Page"
+msgstr "Næste side"
+
+msgid "Last Page"
+msgstr "Sidste side"
+
+msgid "Refresh"
+msgstr "Opdater"
+
+msgid "Today"
+msgstr "I dag"
+
+msgid "OK"
+msgstr "OK"
+
+msgid "Cancel"
+msgstr "Afbryd"
+
+msgid "{0} (Spacebar)"
+msgstr "{0} (Mellemrum)"
+
+msgid "This date is before the minimum date"
+msgstr "Denne dato er før startdatoen"
+
+msgid "This date is after the maximum date"
+msgstr "Datoen skal være efter den største dato"
+
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
+msgid "d/m/Y"
+msgstr "d/m/Y"
+
+msgid "Disabled"
+msgstr "Slået fra"
+
+msgid "Next Month (Control+Right)"
+msgstr "Næste måned (Control+højre piltast)"
+
+msgid "Previous Month (Control+Left)"
+msgstr "Forrige måned (Control+venstre piltast)"
+
+msgid "Choose a month (Control+Up/Down to move years)"
+msgstr "Vælg måned (Control+op/ned piltaster for at skifte år)"
+
+msgid "Sort Ascending"
+msgstr "Sorter stigende"
+
+msgid "Sort Descending"
+msgstr "Sorter faldende"
+
+msgid "Columns"
+msgstr "Kolonner"
+
+msgid "Group By This Field"
+msgstr "Grupper efter dette felt "
+
+msgid "Show in Groups"
+msgstr "Vis i grupper"
+
+msgid "(None)"
+msgstr "(Ingen)"
+
+msgid "Ok"
+msgstr "Ok"
+
+msgid "Yes"
+msgstr "Ja"
+
+msgid "No"
+msgstr "Nej"
+
+msgid "Loading"
+msgstr "Henter"
+
+msgid "The value in this field is invalid"
+msgstr "Værdien i dette felt er ugyldig"
+
+msgid "The minimum length for this field is {0}"
+msgstr "Minimumslængden for dette felt er {0}"
+
+msgid "The maximum length for this field is {0}"
+msgstr "Maksimumslængden for dette felt er {0}"
+
+msgid "This field is required"
+msgstr "Dette felt er krævet"
+
+msgid "The minimum value for this field is {0}"
+msgstr "Minimumsværdien for dette felt er {0}"
+
+msgid "The maximum value for this field is {0}"
+msgstr "Maksimumsværdien for dette felt er {0}"
+
+msgid "{0} is not a valid number"
+msgstr "{0} er ikke et gyldigt tal"
+
+msgid "The date in this field must be equal to or after {0}"
+msgstr "Datoen i dette felt skal være lig med eller senere end {0}"
+
+msgid "The date in this field must be equal to or before {0}"
+msgstr "Datoen i dette felt skal være lig med eller tidligere end {0}"
+
+msgid "{0} is not a valid date - it must be in the format {1}"
+msgstr "{0} er ikke en gyldig dato - den skal være i formatet {1}"
+
+msgid "You must select at least one item in this group"
+msgstr "Du skal vælge mindst et element i denne gruppe"
+
+msgid "You must select one item in this group"
+msgstr "Du skal vælge et element i denne gruppe"
+
+msgid "The time in this field must be equal to or after {0}"
+msgstr "Tiden i dette felt skal være lig med eller efter {0}"
+
+msgid "The time in this field must be equal to or before {0}"
+msgstr "Tiden i dette felt skal være lig med eller før {0}"
+
+msgid "{0} is not a valid time"
+msgstr "{0} er ikke en gyldig tid"
+
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
+msgid "G:i"
+msgstr "G:i"
+
+msgid "Name"
+msgstr "Navn"
+
+msgid "Value"
+msgstr "Værdi"
+
+msgid "true"
+msgstr "sandt"
+
+msgid "false"
+msgstr "falsk"
+
+msgid ""
+"This field should be an e-mail address in the format \"user@example.com\""
+msgstr ""
+"Dette felt skal indeholde en email adresse i formatet \"bruger@domæne.dk\""
+
+msgid "This field should be a URL in the format \"{0}\""
+msgstr "Dette felt skal indeholde en URL i formatet \"{0}\""
+
+msgid "This field should only contain letters and _"
+msgstr "Dette felt må kun indeholde bogstaver og _"
+
+msgid "This field should only contain letters, numbers and _"
+msgstr "Dette felt må kun indeholde bogstaver, tal og _"
+
+#, fuzzy
+msgid "Email Addresses"
+msgstr "Email adresser"
+
+#, fuzzy
+msgid "Email addresses"
+msgstr "Email adresser "
+
+msgid "Group details"
+msgstr "Gruppe detaljer"
+
+msgid "General"
+msgstr "Generelt"
+
+msgid "Display Name"
+msgstr "Vist navn"
+
+msgid "Alias"
+msgstr "Alias"
+
+msgid "Owner"
+msgstr "Ejer"
+
+msgid "Notes"
+msgstr "Noter"
+
+msgid "Members"
+msgstr "Medlemmer"
+
+msgid "Email Address"
+msgstr "Email adresse"
+
+msgid "Account"
+msgstr "Konto"
+
+msgid "Member Of"
+msgstr "Medlem af"
+
+msgid "Group Membership"
+msgstr "Gruppe medlemsskab"
+
+msgid "Address Book"
+msgstr "Adressebog"
+
+msgid "User details"
+msgstr "Bruger detaljer"
+
+msgid "First name"
+msgstr ""
+
+msgid "Last name"
+msgstr ""
+
+msgid "Initials"
+msgstr ""
+
+msgid "Display"
+msgstr "Visning"
+
+msgid "Addresses"
+msgstr "Adresser"
+
+msgid "Address"
+msgstr "Adresse"
+
+msgid "City"
+msgstr "By"
+
+msgid "State"
+msgstr "Stat"
+
+msgid "Zip Code"
+msgstr "Postnummer"
+
+msgid "Country"
+msgstr "Land"
+
+msgid "Professional"
+msgstr ""
+
+msgid "Title"
+msgstr "Titel"
+
+msgid "Company"
+msgstr "Firma"
+
+msgid "Department"
+msgstr "Afdeling"
+
+msgid "Office"
+msgstr "Kontor"
+
+msgid "Assistant"
+msgstr "Assistent"
+
+msgid "Phone"
+msgstr "Telefon"
+
+msgid "Organization"
+msgstr "Organisation"
+
+msgid "Manager"
+msgstr "Leder"
+
+msgid "Direct reports"
+msgstr "Direkte underordnede"
+
+msgid "Phone numbers"
+msgstr "Telefonnumre"
+
+msgid "Business"
+msgstr "Arbejde"
+
+msgid "Business2"
+msgstr "Arbejde 2"
+
+msgid "Fax"
+msgstr "Fax"
+
+msgid "Home"
+msgstr "Hjemme"
+
+msgid "Home2"
+msgstr "Hjemme 2"
+
+msgid "Mobile"
+msgstr "Mobil"
+
+msgid "Pager"
+msgstr "Personsøger"
+
+#, fuzzy
+msgid "No user selected"
+msgstr "Ingen note er valgt"
+
+msgid "You must select one or more users."
+msgstr "Du skal vælge en eller flere brugere."
+
+msgid "You must select a user."
+msgstr "Du skal vælge en bruger."
+
+msgid "Select"
+msgstr "Vælg"
+
+msgid "Show Details"
+msgstr "Vis detaljer"
+
+msgid "Copy contact"
+msgstr ""
+
+msgid "Copy contacts"
+msgstr ""
+
+msgid ""
+"Showing only the first {0} names. Use search to find more specific results."
+msgstr ""
+
+msgid "Use the search bar to get results"
+msgstr "Brug søgefeltet for resultater"
+
+msgid "There are no items to show in this list"
+msgstr "Der findes ingen elementer at vise i denne visningstype"
+
+msgid "Show Names from the"
+msgstr "Vis navne fra"
+
+msgid "Search..."
+msgstr "Søg ..."
+
+msgid "Sort by: Icon"
+msgstr "Sorter efter: Ikon"
+
+msgid "Sort by: Name"
+msgstr "Sorter efter: Navn"
+
+msgid "Sort by: Display Name"
+msgstr "Sorter efter: Vist navn"
+
+msgid "File as"
+msgstr "Gemt som"
+
+msgid "Sort by: File As"
+msgstr "Sorter efter: Gemt som"
+
+msgid "First Name"
+msgstr "Fornavn"
+
+msgid "Sort by: First Name"
+msgstr "Sorter efter: fornavn"
+
+msgid "Last Name"
+msgstr "Efternavn"
+
+msgid "Sort by: Last Name"
+msgstr "Sorter efter: Efternavn"
+
+msgid "Sort by: Email Address"
+msgstr "Sorter efter: Email adresse"
+
+msgid "Job Title"
+msgstr "Stilling"
+
+msgid "Sort by: Job Title"
+msgstr "Sorter efter: Stilling"
+
+msgid "Company Name"
+msgstr "Firmanavn"
+
+msgid "Sort by: Company Name"
+msgstr "Sorter efter: Firmanavn"
+
+msgid "Sort by: Department"
+msgstr "Sorter efter: Afdeling"
+
+msgid "Office Phone"
+msgstr "Arbejdstelefon"
+
+msgid "Sort by: Office Phone"
+msgstr "Sorter efter: Arbejdstelefon"
+
+msgid "Sort by: Mobile"
+msgstr "Sorter efter: Mobil"
+
+msgid "Home Phone"
+msgstr "Hjemmetelefon"
+
+msgid "Sort by: Home Phone"
+msgstr "Sorter efter: Hjemmetelefon"
+
+msgid "Sort by: Pager"
+msgstr "Sorter efter: Personsøger"
+
+msgid "Location"
+msgstr "Placering"
+
+msgid "Sort by: Location"
+msgstr "Sorter efter: Placering"
+
+msgid "Sort by: Fax"
+msgstr "Sorter efter: Fax"
+
+msgid "Print single item"
+msgstr ""
+
+msgid "Print selected item"
+msgstr "Udskriv det valgte element"
+
+msgid "Print"
+msgstr "Udskriv"
+
+msgid "No item selected"
+msgstr ""
+
+msgid "No preview"
+msgstr "Ingen forhåndsvisning"
+
+msgid "Right preview"
+msgstr "Højre forhåndsvisning"
+
+msgid "Bottom preview"
+msgstr "Nedre forhåndsvisning"
+
+msgid "Any date"
+msgstr "Alle datoer"
+
+msgid "Past week"
+msgstr "Forrige uge"
+
+msgid "Past 2 weeks"
+msgstr "Sidste 2 uger"
+
+msgid "Past month"
+msgstr "Forrige måned"
+
+msgid "Past 6 month"
+msgstr "Forrige 6 måneder"
+
+msgid "Past year"
+msgstr "Forrige år"
+
+msgid "Custom date"
+msgstr "Selvvalgt dato"
+
+msgid "Add to favorites"
+msgstr "Tilføj til favoritter"
+
+msgid "Add"
+msgstr "Tilføj til"
+
+#, fuzzy
+msgid "Empty folder name"
+msgstr "Tøm mappe"
+
+msgid "You must specify a name."
+msgstr "Du skal angive et navn."
+
+msgid "Add a folder to favorites based on your search query"
+msgstr "Tilføj en mappe til dine favoritter baseret på dit søgeresultat"
+
+msgid "Folder name"
+msgstr "Mappenavn"
+
+#, fuzzy
+msgid "Select Category"
+msgstr "Sæt kategori"
+
+msgid "Apply"
+msgstr "Anvend"
+
+msgid "All folders are selected"
+msgstr "Alle mapper er valgt"
+
+msgid "Reply"
+msgstr "Svar"
+
+msgid "Reply All"
+msgstr "Svar til alle"
+
+msgid "Forward"
+msgstr "Videresend"
+
+#, fuzzy
+msgid "Edit as New"
+msgstr "Rediger som ny meddelelse"
+
+msgid "Search tools"
+msgstr "Søgningsværktøjer"
+
+msgid "Folders"
+msgstr "Mapper"
+
+msgid "Include subfolders"
+msgstr "Inkluder undermapper"
+
+msgid "Show.."
+msgstr "Vis.."
+
+msgid "Mails"
+msgstr "Meddelelser"
+
+#, fuzzy
+msgid "Appointments"
+msgstr "Aftale"
+
+msgid "Contacts"
+msgstr "Kontakter"
+
+msgid "Tasks"
+msgstr "Opgaver"
+
+msgid "Filter.."
+msgstr "Filtrer.."
+
+msgid "Unread"
+msgstr "Ulæst"
+
+msgid "Attachments"
+msgstr "Vedhæftninger"
+
+msgid "Date"
+msgstr "Dato"
+
+#, fuzzy
+msgctxt "search.date"
+msgid "From"
+msgstr "Fra"
+
+#, fuzzy
+msgctxt "search.date"
+msgid "To"
+msgstr "Til"
+
+#, fuzzy
+msgid "Filter category.."
+msgstr "Slet kategori"
+
+msgid "Search.."
+msgstr "Søg.."
+
+msgid "Sender"
+msgstr "Afsender"
+
+msgid "Recipients"
+msgstr "Modtagere"
+
+msgid "Subject"
+msgstr "Emne"
+
+msgid "Body & Attachments"
+msgstr "Brevkrop & vedhæftninger"
+
+msgid "Favorites"
+msgstr "Favoritter"
+
+msgid "Add a folder to favorites based on this search query"
+msgstr "Tilføj en mappe til dine favoritter baseret på dette søgeresultat"
+
+msgid "Select Folder"
+msgstr "Vælg mappe"
+
+msgid "Delete search folder"
+msgstr "Slet søgemappe"
+
+msgid "Sort by: Date"
+msgstr "Sorter efter: Dato"
+
+msgid "Loading Search results"
+msgstr "Henter søgningsresultater"
+
+#, fuzzy
+msgid "Sorting tip"
+msgstr "Sortering er ikke mulig"
+
+msgid ""
+"You can sort by date if you narrow down your search results. Enable filters "
+"or adjust your input."
+msgstr ""
+
+msgid "Did you mean"
+msgstr "Mente du"
+
+msgid "With"
+msgstr ""
+
+msgid "To"
+msgstr "Til"
+
+msgid "No date"
+msgstr "Ingen dato"
+
+msgid "Error"
+msgstr "Fejl"
+
+msgid ""
+"Could not accept proposal as this meeting is not available in calendar; It "
+"may have been moved or deleted."
+msgstr ""
+"Kunne ikke acceptere forslag, da dette møde ikke er tilgængelig i "
+"kalenderen. Det kan allerede være flyttet eller slettet."
+
+msgid ""
+"Could not view proposal as this meeting is not available in calendar; It may "
+"have been moved or deleted."
+msgstr ""
+"Kunne ikke vise forslag da mødet ikke er tilgængelig i kalenderen. Det kan "
+"være flyttet eller slettet."
+
+msgid "Required"
+msgstr "Krævet"
+
+msgid "Optional"
+msgstr "Valgfri"
+
+msgid "Resource"
+msgstr "Ressource "
+
+msgid "Could not open store."
+msgstr "Kan ikke åbne lager."
+
+msgid "Could not open default calendar folder."
+msgstr "Kan ikke åbne standard kalender mappe."
+
+msgid "workday"
+msgstr "arbejdsdag"
+
+msgid "day"
+msgstr "dag"
+
+msgid "days"
+msgstr "dage"
+
+msgid "week"
+msgstr "uge"
+
+msgid "weeks"
+msgstr "uger"
+
+msgid " on "
+msgstr "på"
+
+msgid "month"
+msgstr "måned"
+
+msgid "months"
+msgstr "måneder"
+
+msgid "year"
+msgstr "år"
+
+msgid "years"
+msgstr "år"
+
+msgid "Occurs every {0} effective {1} from {2} to {3}."
+msgstr "Forekommer hver {0} i kraft {1} fra {2} til {3}."
+
+msgid "Occurs every {0} {1} effective {2} from {3} to {4}."
+msgstr "Forekommer hver {0} {1} i kraft {2} fra {3} til {4}."
+
+msgid "Occurs every {0} effective {1}."
+msgstr "Forekommer hver {0} i kraft {1}"
+
+msgid "Occurs every {0} {1} effective {2}."
+msgstr "Forekommer hver {0} {1} i kraft {2}."
+
+msgid "Occurs every {0} effective {1} for {2} occurrence from {3} to {4}."
+msgid_plural ""
+"Occurs every {0} effective {1} for {2} occurrences from {3} to {4}."
+msgstr[0] ""
+msgstr[1] ""
+
+msgid "Occurs every {0} {1} effective {2} for {3} occurrence from {4} to {5}."
+msgid_plural ""
+"Occurs every {0} {1} effective {2} for {3} occurrences {4} to {5}."
+msgstr[0] ""
+msgstr[1] ""
+
+msgid "Occurs every {0} effective {1} for {2} occurrence."
+msgid_plural "Occurs every {0} effective {1} for {2} occurrences."
+msgstr[0] ""
+msgstr[1] ""
+
+msgid "Occurs every {0} {1} effective {2} for {3} occurrence."
+msgid_plural "Occurs every {0} {1} effective {2} for {3} occurrences."
+msgstr[0] ""
+msgstr[1] ""
+
+msgid "Occurs every {0} effective {1} until {2} from {3} to {4}."
+msgstr "Forekommer hver {0} i kraft {1} indtil {2} fra {3} til {4}."
+
+msgid "Occurs every {0} {1} effective {2} until {3} from {4} to {5}."
+msgstr "Forekommer hver {0} {1} i kraft {2} indtil {3} fra {4} til {5}."
+
+msgid "Occurs every {0} effective {1} until {2}."
+msgstr "Forekommer hver {0} i kraft {1} indtil {2}."
+
+msgid "Occurs every {0} {1} effective {2} until {3}."
+msgstr "Forekommer hver {0} {1} i kraft {2} indtil {3}."
+
+msgid "When"
+msgstr "Når"
+
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
+msgid "l jS F Y {0}"
+msgstr ""
+
+msgid "Where"
+msgstr "Hvor"
+
+msgid "New Meeting Time Proposed"
+msgstr "Forslag til nyt mødetidspunkt"
+
+msgid "and "
+msgstr "og"
+
+msgid "Sort by: Attachment"
+msgstr "Sorter efter: Vedhæftning"
+
+msgid "Sort by: Recurring"
+msgstr "Sorter efter: Gentagelse"
+
+msgid "Sort by: Subject"
+msgstr "Sorter efter: Emne"
+
+msgid "Start Date"
+msgstr "Startdato"
+
+msgid "Sort by: Start Date"
+msgstr "Sorter efter: Startdato"
+
+msgid "End Date"
+msgstr "Slutdato"
+
+msgid "Sort by: End Date"
+msgstr ""
+
+msgid "Organizer"
+msgstr "Arrangør"
+
+msgid "Required Attendee"
+msgstr "Krævet tilstedeværelse"
+
+msgid "Optional Attendee"
+msgstr "Valgfri tilstedeværelse"
+
+msgid "Show Time As"
+msgstr "Vis tid som"
+
+msgid "Recurrence pattern"
+msgstr "Gentagelsesmønster"
+
+msgid "All Day Event"
+msgstr "Heldags aftale"
+
+msgid "Add Shared Calendar"
+msgstr "Tilføj delt kalender"
+
+msgid "Remove From Calendar"
+msgstr "Fjern fra kalender"
+
+msgid "No Response Required"
+msgstr "Intet svar er krævet"
+
+msgid "Accept"
+msgstr "Accepter"
+
+msgid "Accept Meeting Request"
+msgstr "Accepter mødeindkaldelsen"
+
+msgid "Tentative"
+msgstr "Foreløbig "
+
+msgid "Tentatively Accept Meeting Request"
+msgstr "Foreløbig accepter mødeindkaldelsen"
+
+msgid "Decline"
+msgstr "Afvis"
+
+msgid "Decline Meeting Request"
+msgstr "Afvis mødeindkaldelsen"
+
+msgid "Propose New Time"
+msgstr "Foreslå ny tid"
+
+msgid "Propose New Time for Meeting Request"
+msgstr "Foreslå et nyt tidspunkt for mødeindkaldelsen"
+
+msgid "View All Proposals"
+msgstr "Vis alle forslag"
+
+msgid "Accept Proposal"
+msgstr "Accepter forslag"
+
+msgid "Accept Proposed Time"
+msgstr "Accepter foreslået tidspunkt"
+
+msgid "View in calendar"
+msgstr "Vis i kalender"
+
+msgid "Day"
+msgstr "Dag"
+
+msgid "Workweek"
+msgstr "Arbejdsuge"
+
+msgid "Week"
+msgstr "Uge"
+
+msgid "Month"
+msgstr "Måned"
+
+msgid "List"
+msgstr "Liste"
+
+msgid "Appointment"
+msgstr "Aftale"
+
+msgid "Meeting request"
+msgstr "Mødeindkaldelse"
+
+msgid "Print selected appointment"
+msgstr "Udskriv den valgte aftale"
+
+msgid "No appointment selected"
+msgstr "Ingen aftale er valgt"
+
+msgid "Print overview"
+msgstr "Udskriv overblik"
+
+#, fuzzy
+msgid "Create Appointment"
+msgstr "Privat aftale"
+
+msgid "Calendar"
+msgstr "Kalender"
+
+#, fuzzy
+msgid "Create in other calendar"
+msgstr "Vis i kalender"
+
+msgid ""
+"The selected calendar has \"read-only\" permissions. Instead you can create "
+"an item in your own calendar."
+msgstr ""
+
+msgid "What would you like?"
+msgstr ""
+
+#, fuzzy
+msgid "Own calendar"
+msgstr "Vis i kalender"
+
+msgid "F Y"
+msgstr "F Y"
+
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
+msgid "l"
+msgstr "l"
+
+msgid "All text fields"
+msgstr "Alle tekstfelter"
+
+msgid "Body"
+msgstr "Brevkrop"
+
+msgid "Subject or Sender"
+msgstr "Emne eller afsender"
+
+msgid "To or cc"
+msgstr "Til eller Cc"
+
+msgid "Meeting"
+msgstr "Møde"
+
+#, fuzzy
+msgctxt "calendar.dialog"
+msgid "Resources have been planned"
+msgstr "Ressourcerne er blevet planlagt. "
+
+#, fuzzy
+msgid "Send update"
+msgstr "Send senere"
+
+msgid "Do you want to send an update to all recipients?"
+msgstr ""
+
+msgid "Send update to attendees"
+msgstr "Send opdatering til deltagerne"
+
+msgid ""
+"You have made changes to the list of attendees. What would you like to do?"
+msgstr ""
+
+msgid "Send updates to only added or deleted attendees."
+msgstr "Send kun opdateringer til tilføjede eller slettede deltagere."
+
+msgid "Send updates to all attendees."
+msgstr "Send opdateringer til alle deltagere."
+
+#, fuzzy
+msgid "Busy attendees"
+msgstr "Inviter deltagere"
+
+#, fuzzy
+msgid "One or more attendees are busy. Are you sure to invite?"
+msgstr ""
+"En eller flere deltagere, du har inviteret, er optaget. Er du sikker på du "
+"vil invitere?"
+
+msgid "Scheduling"
+msgstr "Planlægning"
+
+msgid "Tracking"
+msgstr "Sporing"
+
+msgctxt "calendar.dialog"
+msgid "Not all attendees could be resolved."
+msgstr "Ikke alle deltagere kunne findes"
+
+msgctxt "calendar.dialog"
+msgid "{0} attendees accepted, {1} tentatively accepted, {2} declined."
+msgstr ""
+"{0} deltagere har accepteret, {1} har foreløbig accepteret, {2} har afvist."
+
+msgctxt "calendar.dialog"
+msgid ""
+"{0} attendees proposed a new time for this meeting. Click the Scheduling tab "
+"for details."
+msgstr ""
+"{0} deltagere har foreslået en nyt tid for dette møde. Tryk på \"Planlægnings"
+"\"-fanen for detaljer."
+
+msgctxt "calendar.dialog"
+msgid "You proposed a new time for this meeting on {0}"
+msgstr "Du har foreslået en ny tid for dette møde d. {0}"
+
+msgctxt "calendar.dialog"
+msgid "{0} proposed a new time for this meeting on {1}"
+msgstr "{0} foreslog en ny tid for dette møde d. {1}"
+
+msgctxt "calendar.dialog"
+msgid "Accepted on {0}"
+msgstr "Accepteret d. {0}"
+
+msgctxt "calendar.dialog"
+msgid "Accepted by {0} on {1}"
+msgstr "Accepteret af {0} d. {1}"
+
+msgctxt "calendar.dialog"
+msgid "Tentatively Accepted on {0}"
+msgstr "Foreløbigt accepteret d. {0}"
+
+msgctxt "calendar.dialog"
+msgid "Tentatively Accepted by {0} on {1}"
+msgstr "Foreløbig accepteret af {0} d. {1} "
+
+msgctxt "calendar.dialog"
+msgid "This appointment occurs in the past."
+msgstr "Denne aftale sker i fortiden."
+
+msgctxt "calendar.dialog"
+msgid "Please respond."
+msgstr "Vær venlig at svare."
+
+msgctxt "calendar.dialog"
+msgid "No responses have been received for this meeting."
+msgstr "Ingen svar er modtaget for dette møde."
+
+msgctxt "calendar.dialog"
+msgid "Meeting has been canceled."
+msgstr "Mødet er aflyst."
+
+msgctxt "calendar.dialog"
+msgid "Invitations have not been sent for this meeting."
+msgstr "Invitationerne er ikke sendt for dette møde."
+
+msgctxt "calendar.dialog"
+msgid ""
+"Please note that any changes you make will be overwritten when this meeting "
+"request is updated by the organizer"
+msgstr ""
+"Bemærk at ændringer du foretager vil blive overskrevet når denne "
+"mødeindkaldelse bliver opdateret af arrangøren"
+
+#, fuzzy
+msgid "Create in"
+msgstr "Oprettelsestidspunkt"
+
+msgid "Time"
+msgstr "Tid"
+
+msgid "until"
+msgstr "indtil"
+
+msgid "Recurrence"
+msgstr "Gentagelse"
+
+msgid "Reminder"
+msgstr "Påmindelse"
+
+msgid "Show as"
+msgstr "Vis som"
+
+msgid "Warning"
+msgstr "Advarsel"
+
+msgid "Attachments cannot be modified for a single occurence"
+msgstr "Vedhæftninger kunne ikke ændres for en enkelt hændelse"
+
+msgid "Type your message here..."
+msgstr "Indtast din besked her..."
+
+#, fuzzy
+msgid "Update location"
+msgstr "Opdater liste"
+
+msgid ""
+"Do you want to update the location \"{0}\" with the new location \"{1}\"?"
+msgstr "Vil du opdateret placeringen \"{0}\" med den nye placering \"{1}\"?"
+
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
+msgid "jS F Y {0}"
+msgstr ""
+
+msgid "None"
+msgstr "Ingen"
+
+msgid "Send"
+msgstr "Send"
+
+msgid "Save"
+msgstr "Gem"
+
+msgid "Close"
+msgstr "Luk"
+
+msgid "Delete"
+msgstr "Slet"
+
+msgid "Add attachment"
+msgstr "Tilføj vedhæftning"
+
+msgid "Check names"
+msgstr "Check navne"
+
+msgid "Addressbook"
+msgstr ""
+
+msgid "Open addressbook"
+msgstr ""
+
+msgid "Invite attendees"
+msgstr "Inviter deltagere"
+
+msgid "Cancel invitation"
+msgstr "Fortryd invitation"
+
+msgid "High priority"
+msgstr "Høj prioritet "
+
+msgid "Mark this appointment as high priority"
+msgstr "Marker denne aftale som høj prioritet"
+
+msgid "Low priority"
+msgstr "Lav prioritet"
+
+msgid "Mark this appointment as low priority"
+msgstr "Marker denne aftale som lav prioritet"
+
+msgid "Categories"
+msgstr "Kategorier"
+
+msgid "Open the categories dialog"
+msgstr "Åben kategori dialogboksen"
+
+msgid "Private"
+msgstr "Privat"
+
+msgid "Mark this appointment as private"
+msgstr "Marker denne aftale som privat"
+
+msgid "Proposed Date and Time"
+msgstr "Foreslået dato og tid"
+
+msgid "Duration"
+msgstr "Varighed"
+
+msgid "Proposed By"
+msgstr "Foreslået af"
+
+msgid "Current Meeting Time"
+msgstr "Nuværende møde tid"
+
+msgid "Show only working hours"
+msgstr "Vis kun arbejdstimer"
+
+msgid "Start time"
+msgstr "Starttid"
+
+msgid "End time"
+msgstr "Sluttid"
+
+msgid "Comment"
+msgstr "Kommentar"
+
+msgid "Send Meeting Request Cancellation"
+msgstr "Send aflysning af mødeindkaldelse"
+
+msgid ""
+"This meeting will be cancelled. Do you want to include comments with your "
+"cancellation?"
+msgstr ""
+"Dette møde vil blive aflyst. Vil du inkludere kommentarer med aflysningen?"
+
+msgid "Edit the cancellation before Sending."
+msgstr "Ret aflysningen før den sendes."
+
+msgid "Send the cancellation now."
+msgstr "Send aflysning nu."
+
+msgid "Send Meeting Request Confirmation"
+msgstr "Send mødeindkaldelses bekræftelse"
+
+#, fuzzy
+msgid ""
+"This meeting will be accepted and moved to your calendar. Do you want to "
+"include comments with your response?"
+msgstr ""
+"Dette møde er blevet accepteret og vil blive flyttet til din kalender. Vil "
+"du skrive nogle kommentarer i dit svar?"
+
+#, fuzzy
+msgid ""
+"This meeting will be tentatively accepted and moved to your calendar. Do you "
+"want to include comments with your response?"
+msgstr ""
+"Dette møde er blevet foreløbigt accepteret og vil blive flyttet til din "
+"kalender. Vil du skrive nogle kommentarer til dit svar?"
+
+#, fuzzy
+msgid ""
+"This meeting will be declined and moved to your Deleted Items folder. Do you "
+"want to include comments with your response?"
+msgstr ""
+"Dette møde er blevet afvist og vil blive flyttet til \"Slettede elementer\" "
+"mappen. Vil du skrive nogle kommentarer til dit svar?"
+
+#, fuzzy
+msgid "Edit the response before sending"
+msgstr "Ret svaret før afsendelse."
+
+msgid "Send the response now."
+msgstr "Send svar nu."
+
+msgid "Don't send a response."
+msgstr "Send ikke et svar."
+
+msgid "The following responses for this meeting have been received"
+msgstr "Følgende svar for dette møde er blevet modtaget"
+
+msgid "Attendance"
+msgstr "Tilstedeværelse"
+
+msgid "Response"
+msgstr "Svar"
+
+msgid "New appointment"
+msgstr "Ny aftale"
+
+msgid "Creating an item"
+msgstr "Opret et element"
+
+msgid "New meeting request"
+msgstr "Ny mødeindkaldelse"
+
+msgid "Switch calendar range back and forth"
+msgstr "Skift kalender interval tilbage og frem"
+
+msgid "Copy selected item"
+msgstr "Kopier det valgte element"
+
+msgid "Paste selected item"
+msgstr "Sæt det valgte element ind"
+
+msgid "An overview of"
+msgstr ""
+
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
+msgid "Start"
+msgstr "Start"
+
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
+msgid "End"
+msgstr "Slut"
+
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for formatting instructions
+msgid "Printed by"
+msgstr ""
+
+msgid "at"
+msgstr ""
+
+msgid "of"
+msgstr ""
+
+#, fuzzy
+msgid "Location: "
+msgstr "Placering"
+
+msgid "j M {0}"
+msgstr ""
+
+msgid "l jS M Y {0}"
+msgstr ""
+
+msgid "All day: "
+msgstr ""
+
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for formatting instructions
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
+msgid "l jS F"
+msgstr "l j F"
+
+msgid "Organiser"
+msgstr "Arrangør"
+
+msgid "Meeting status"
+msgstr "Mødestatus"
+
+msgid "Required Attendees"
+msgstr "Krævede deltagere"
+
+msgid "Optional Attendees"
+msgstr "Valgfrie deltagere"
+
+msgid "Resources"
+msgstr "Ressourcer "
+
+msgid "Sensitivity"
+msgstr "Følsomhed"
+
+msgid "Importance"
+msgstr "Vigtighed"
+
+msgid "M j"
+msgstr ""
+
+#, fuzzy
+msgid "j"
+msgstr "j"
+
+msgid "General calendar settings"
+msgstr "Grundlæggende kalender indstillinger"
+
+msgid "First day of the week"
+msgstr "Første dag i ugen"
+
+msgid "Start of workday"
+msgstr "Arbejdsdagens begyndelse"
+
+msgid "End of workday"
+msgstr "Arbejdsdagens slutning"
+
+msgid "Calendar resolution"
+msgstr "Kalender tæthed"
+
+#, fuzzy
+msgid "Default appointment duration {A} minutes"
+msgstr "Standard påmindelses tid for heldags aftaler"
+
+#, fuzzy
+msgid "Duration must be between 1 and 120 minutes."
+msgstr "Værdi skal være mellem 0% og 100%"
+
+msgid "Default status for all day appointment"
+msgstr ""
+
+msgid "Working days"
+msgstr "Arbejdsdage"
+
+msgid "Show busy dates as bold in the date picker"
+msgstr "Vis optagede dage med fed i datovælgeren"
+
+#, fuzzy
+msgid ""
+"Free/Busy information is used by people sending meeting requests, to "
+"determine when you are available for meetings."
+msgstr ""
+"Fri/optaget information er brugt af andre når de sender mødeindkaldelser,"
+
+#, fuzzy
+msgid "Free/Busy publishing"
+msgstr "Fri/optaget tilladelser"
+
+#, fuzzy
+msgid "Publish {A} month(s) of Calendar Free/Busy information on the server."
+msgstr ""
+"Offentliggør {A} måned(er) af kalender fri/optaget information på serveren."
+
+#, fuzzy
+msgid ""
+"You can only publish a Free/Busy period from 0 to 36 months. 0 means Free/"
+"Busy information is not published."
+msgstr "Du kan kun offentliggøre en fri/optaget periode for 1 til 36 måneder."
+
+msgid "Side-by-side mode"
+msgstr "Side-ved-side mode"
+
+msgid "Overlay mode"
+msgstr "Overlag mode"
+
+msgid "Calendar view settings"
+msgstr "Kalender visningsindstillinger"
+
+msgid "View multiple calendars in"
+msgstr "Vis flere kalendere i"
+
+msgid "Reminder settings"
+msgstr "Påmindelsesindstillinger"
+
+msgid "Enable reminder for new appointments"
+msgstr "Slå påmindelse til for nye aftaler"
+
+msgid "Default reminder time"
+msgstr "Standard påmindelses tid"
+
+msgid "Default all-day appointment reminder time"
+msgstr "Standard påmindelses tid for heldags aftaler"
+
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
+msgid "jS"
+msgstr "j"
+
+msgid "{0} selected item"
+msgid_plural "{0} selected items"
+msgstr[0] "{0} element er valgt"
+msgstr[1] "{0} elementer er valgt"
+
+msgid "New Appointment"
+msgstr "Ny aftale"
+
+msgid "New Meeting Request"
+msgstr "Ny mødeindkaldelse"
+
+msgid "Open"
+msgstr "Åben"
+
+msgid "Copy/Move"
+msgstr "Kopier/flyt"
+
+#, fuzzy
+msgid "Send to..."
+msgstr "Send"
+
+msgid "Export as"
+msgstr ""
+
+msgid "Occurrence"
+msgstr "Hændelse"
+
+msgid "Series"
+msgstr "Serie"
+
+#, fuzzy
+msgid "Appointment not found"
+msgstr "Aftale"
+
+msgid "This appointment has been moved or deleted, do you want to continue?"
+msgstr "Denne aftale er blevet flyttet eller slettet, vil du fortsætte?"
+
+msgid "All Day"
+msgstr "Hele dagen"
+
+msgid "Sort by: All Day"
+msgstr "Sorter efter: Hele dagen"
+
+msgid "Icon"
+msgstr "Ikon"
+
+msgid "Recurring"
+msgstr "Tilbagevendende"
+
+msgid "Sort by: Duration"
+msgstr "Sorter efter: Varighed"
+
+msgid "Meeting Status"
+msgstr "Møde status"
+
+msgid "Sort by: Meeting Status"
+msgstr "Sorter efter: Møde status"
+
+msgid "Sort by: Show as"
+msgstr "Sorter efter: Vis som"
+
+msgid "Sort by: Categories"
+msgstr "Sorter efter: Kategorier"
+
+msgid "Created On"
+msgstr "Oprettelsestidspunkt"
+
+msgid "Sort by: Created On"
+msgstr "Sorter efter: Oprettelsestidspunkt"
+
+msgid "Due By"
+msgstr "Forfalder"
+
+msgid "Sort by: Due By"
+msgstr "Sorter efter: Forfalder"
+
+msgid "Label"
+msgstr "Etiket"
+
+msgid "Sort by: Label"
+msgstr "Sorter efter: Label"
+
+msgid "Sort by: Organizer"
+msgstr "Sorter efter: Arrangør"
+
+msgid "Sort by: Required Attendee"
+msgstr "Sorter efter: Krævede deltagere"
+
+msgid "Sort by: Optional Attendee"
+msgstr "Sorter efter: Valgfrie deltagere"
+
+msgid "Sort by: Resources"
+msgstr "Sorter efter: Ressourcer"
+
+msgid "Recurring Start Date"
+msgstr ""
+
+msgid "Sort by: Recurring Start Date"
+msgstr ""
+
+msgid "Recurring End Date"
+msgstr ""
+
+msgid "Sort by: Recurring End Date"
+msgstr ""
+
+msgid "Recurring Pattern"
+msgstr "Gentagelsesmønster"
+
+msgid "Sort by: Recurring Pattern"
+msgstr "Sorter efter: Gentagelsesmønster"
+
+msgid "Sort by: Reminder"
+msgstr "Sorter efter: Påmindelse"
+
+msgid "Sort by: Sensitivity"
+msgstr "Sorter efter: Følsomhed"
+
+msgid "Loading appointments"
+msgstr "Henter aftaler"
+
+msgid "Attendees"
+msgstr ""
+
+msgid "Optional attendees"
+msgstr ""
+
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
+msgid "jS F {0}"
+msgstr ""
+
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
+msgid "jS F Y"
+msgstr "j F Y"
+
+msgid ""
+"You have insufficient privileges to move and copy this item. Ask the folder "
+"owner to grant you permissions or contact your system administrator."
+msgstr ""
+
+msgid ""
+"You have insufficient privileges to copy this item. Ask the folder owner to "
+"grant you permissions or contact your system administrator."
+msgstr ""
+
+msgid "Insufficient privileges"
+msgstr "Ikke tilstrækkelige rettigheder"
+
+msgid ""
+"Copying this appointment will unset it as private. Are you sure you want to "
+"continue?"
+msgstr ""
+
+msgid "Private item"
+msgstr ""
+
+msgid "Copy"
+msgstr "Kopier"
+
+msgid ""
+"Moving this appointment will unset it as private. Are you sure you want to "
+"continue?"
+msgstr ""
+
+msgid "Move"
+msgstr "Flyt"
+
+#, fuzzy
+msgid "Update recipients"
+msgstr "Ret modtager"
+
+msgid "The time of the meeting has changed. What would you like to do?"
+msgstr ""
+
+msgid "Save changes and send an update to all recipients"
+msgstr "Gem ændringerne og send en opdatering til alle modtagerne"
+
+msgid "Open meeting request with changes"
+msgstr "Åben mødeindkaldelse med ændringer"
+
+msgid "grommunio Web"
+msgstr "grommunio Web"
+
+#, fuzzy
+msgid ""
+"Please note that any changes you make will be overwritten when this meeting "
+"request is updated by the organizer. Would you like to move this meeting?"
+msgstr ""
+"Bemærk at ændringer du foretager vil blive overskrevet når denne "
+"mødeindkaldelse bliver opdateret af arrangøren"
+
+#, fuzzy
+msgid "Don't move"
+msgstr "Send ikke"
+
+msgid "Switch to day view to see all appointments"
+msgstr ""
+
+#. TRANSLATORS: This message is used as label for the field which to indicates to whom the given mail was sent.
+msgctxt "mail.previewpanel"
+msgid "Proposed"
+msgstr "Foreslået"
+
+#. TRANSLATORS: This message is used as label for the field which to indicates to whom the given mail was sent
+msgctxt "mail.previewpanel"
+msgid "When"
+msgstr "Hvornår"
+
+#. TRANSLATORS: This message is used as label for the field which to indicates to whom the given mail was sent
+msgctxt "mail.previewpanel"
+msgid "Location"
+msgstr "Placering"
+
+#, fuzzy
+msgid "No additional response required"
+msgstr "Intet svar er krævet"
+
+msgid ""
+"Your calendar has been updated automatically. This meeting request will now "
+"be deleted."
+msgstr ""
+"Din kalender er blevet opdateret automatisk. Denne mødeindkaldelse vil nu "
+"blive slettet."
+
+#, fuzzy
+msgid "Loading appointments..."
+msgstr "Henter aftaler"
+
+msgid "Please select a calendar via widget settings"
+msgstr ""
+
+msgid "Number of days"
+msgstr ""
+
+msgid "day(s)"
+msgstr "dag(e)"
+
+msgid "{0}"
+msgstr ""
+
+#, fuzzy
+msgid "Upcoming Appointments"
+msgstr "Henter aftaler"
+
+msgid "Appointments of {0}"
+msgstr ""
+
+msgid "Appointments of {0} - {1}"
+msgstr ""
+
+#, fuzzy
+msgid "No appointments"
+msgstr "Ny aftale"
+
+#, fuzzy
+msgid "Today {0} - {1}"
+msgstr "I dag: {1} {0}"
+
+msgid "Today (all day)"
+msgstr ""
+
+#. TRANSLATORS: Display name of a folder: "FOLDERNAME - STORENAME".
+#. TRANSLATORS: Displayed on top of a tree with folders: "FOLDERNAME - USERNAME".
+#, fuzzy
+msgid "{0} - {1}"
+msgstr "{0} i {1}"
+
+msgid "d/m/y {0}"
+msgstr ""
+
+msgid "{0} - {1} (all day)"
+msgstr ""
+
+#, fuzzy
+msgid "d/m/y"
+msgstr "d/m/Y"
+
+msgid "Select one..."
+msgstr "Vælg en..."
+
+msgid "Unnamed folder"
+msgstr "Unavngivet folder"
+
+msgid "Discard"
+msgstr "Kasser"
+
+msgid "Quick Appointment"
+msgstr "Hurtigaftale"
+
+msgid "Printing of multiple items has not been implemented."
+msgstr "Udskrivning af flere elementer er ikke blevet implementeret."
+
+msgid "Printing of this item is not yet available"
+msgstr "Udskrivning af dette element er endnu ikke mulig"
+
+msgid "Item type: "
+msgstr "Element type: "
+
+msgid "Printing of this view is not yet available"
+msgstr "Udskrivning af denne visning er endnu ikke tilgængelig"
+
+msgid "Recurring Message"
+msgstr "Tilbagevendende meddelelse"
+
+msgid ""
+"This is a recurring message. Do you want to open only this occurrence or the "
+"series?"
+msgstr ""
+"Dette er en tilbagevendende meddelelse. Vil du åbne denne hændelse eller "
+"hele serien?"
+
+msgid "Recurring Appointment"
+msgstr "Tilbagevendende aftale"
+
+msgid ""
+"This is a recurring appointment. Do you want to open only this occurrence or "
+"the series?"
+msgstr ""
+"Dette er en tilbagevendende aftale. Vil du åbne denne hændelse eller hele "
+"serien?"
+
+msgid "Recurring Meeting Request"
+msgstr "Tilbagevendende mødeindkaldelse"
+
+msgid ""
+"This is a recurring meeting request. Do you want to open only this "
+"occurrence or the series?"
+msgstr ""
+"Dette er en tilbagevendende mødeindkaldelse. Vil du åbne denne hændelse "
+"eller hele serien?"
+
+msgid "Recurring Task Request"
+msgstr "Tilbagevendende opgaveanmodning"
+
+msgid ""
+"This is a recurring task request. Do you want to open only this occurrence "
+"or the series?"
+msgstr ""
+"Dette er en tilbagevendende opgaveanmodning. Skal kun denne forekomst eller "
+"hele serien åbnes?"
+
+msgid "Open this occurrence"
+msgstr "Åbn denne forekomst"
+
+msgid "Open the series"
+msgstr "Åbn serien"
+
+msgid "Paste Recurring {0}"
+msgstr "Sæt ind serie {0}"
+
+msgid ""
+"This is a recurring {0}. Do you want to paste only this occurrence or the "
+"series?"
+msgstr ""
+"Dette er en gentagende {0}. Vil du indsætte denne hændelse eller hele serien?"
+
+msgid "message"
+msgstr "besked"
+
+msgid "meeting request"
+msgstr "mødeindkaldelse"
+
+msgid "appointment"
+msgstr "aftale"
+
+msgid "Paste this occurrence only"
+msgstr "Indsæt kun denne hændelse"
+
+msgid "Paste the series..."
+msgstr "Indsæt serien..."
+
+msgid ""
+"This is a recurring message. Do you want to delete only this occurrence or "
+"the series?"
+msgstr ""
+"Dette er en tilbagevendende meddelelse. Vil du slette denne forekomst eller "
+"hele serien?"
+
+msgid ""
+"This is a recurring appointment. Do you want to delete only this occurrence "
+"or the series?"
+msgstr ""
+"Dette er en tilbagevendende aftale. Vil du slette denne forekomst eller hele "
+"serien?"
+
+msgid ""
+"This is a recurring meeting request. Do you want to delete only this "
+"occurrence or the series?"
+msgstr ""
+"Dette er en tilbagevendende mødeindkaldelse. Vil du slette denne forekomst "
+"eller hele serien?"
+
+msgid ""
+"This is a recurring task request. Do you want to delete only this occurrence "
+"or the series?"
+msgstr ""
+"Dette er en tilbagevendende opgaveanmodning. Vil du slette denne forekomst "
+"eller hele serien?"
+
+msgid "Delete this occurrence"
+msgstr "Slet denne forekomst"
+
+msgid "Delete the series"
+msgstr "Slet hele serien"
+
+msgid "Confirm Delete"
+msgstr "Bekræft sletning"
+
+msgid "This \"{0}\" meeting was already accepted."
+msgstr "Dette \"{0}\" møde var allerede accepteret."
+
+msgid "You have not responded to the meeting request \"{0}\"."
+msgstr "Du har ikke svaret til mødeindkaldelsen \"{0}."
+
+msgid "Delete and send a response to the meeting organizer"
+msgstr "Slet og send et svar til mødearrangøren"
+
+msgid "Delete without sending"
+msgstr "Slet uden at sende"
+
+#, fuzzy
+msgid "Insufficient permissions"
+msgstr "Ikke tilstrækkelige rettigheder"
+
+msgid "You have insufficient privileges to delete items in this folder."
+msgstr ""
+
+#, fuzzy
+msgid "Notify recipients"
+msgstr "Ret modtager"
+
+msgid ""
+"A cancellation message will be sent to all recipients, do you wish to "
+"continue?"
+msgstr ""
+"En aflysnings meddelelse vil blive sendt til alle modtagere, vil du "
+"fortsætte?"
+
+msgid "Delete Incomplete Task"
+msgstr "Slet ufuldstændig opgave"
+
+msgid "The task \"{0}\" has not been completed. What do you want to do?"
+msgstr "Opgaven \"{0}\" er ikke færdig. Hvad vil du gøre?"
+
+msgid "Decline and delete"
+msgstr "Afslå og slet"
+
+msgid "Mark complete and delete"
+msgstr "Marker som fuldført og slet"
+
+msgid "Following recipients are already exists"
+msgstr ""
+
+#, fuzzy
+msgid "Duplicate recipients"
+msgstr "Ret modtager"
+
+#, fuzzy
+msgid "Duplicate recipient"
+msgstr "Ret modtager"
+
+#, fuzzy
+msgid "Recipient already exists."
+msgstr "Brugeren eksistere allerede"
+
+#, fuzzy
+msgid "Notify sender"
+msgstr "Sorter efter: Påmindelse"
+
+#, fuzzy
+msgid ""
+"The sender of this email has requested a read receipt. Do you wish to notify "
+"the sender?"
+msgstr ""
+"Afsenderen af denne meddelelse har bedt om at blive underrettet når du læser "
+"denne meddelelse. Vil du underrette afsenderen nu?"
+
+#, fuzzy
+msgid "Import"
+msgstr "Vigtigt"
+
+msgid "Successfully imported item(s) to {0}"
+msgstr ""
+
+msgid "Failed to import item(s) to {0}"
+msgstr ""
+
+#, fuzzy
+msgid "Import error"
+msgstr "Vigtigt"
+
+msgid "Unable to import \"{0}\". The file is not valid"
+msgstr ""
+
+msgid ""
+"You have insufficient privileges to move these items. Would you like to copy "
+"instead?"
+msgstr ""
+
+msgid ""
+"You have insufficient privileges to move this item. Would you like to copy "
+"instead?"
+msgstr ""
+
+msgid "Cc"
+msgstr "Cc"
+
+msgid "Bcc"
+msgstr "Bcc"
+
+msgid "From"
+msgstr "Fra"
+
+msgid "Insert item"
+msgstr "Indsæt element"
+
+msgid "Insert as"
+msgstr "Indsæt som"
+
+msgid "Text only"
+msgstr "Kun tekst"
+
+msgid "Attachment"
+msgstr "Vedhæftning"
+
+msgid "Attach Item"
+msgstr "Vedhæft element"
+
+msgid "No message selected"
+msgstr "Ingen meddelelse er valgt"
+
+#, fuzzy
+msgid "Import to"
+msgstr "Vigtigt"
+
+msgid "New folder"
+msgstr "Ny mappe"
+
+msgid "Download as ZIP"
+msgstr "Download som ZIP"
+
+msgid "Continue"
+msgstr "Fortsæt"
+
+msgid ""
+"These attachments have an unsupported file type and can not be added to the "
+"ZIP file:"
+msgstr ""
+"Disse vedhæftninger har en ikke-understøttet filtype og kan ikke tilføjes "
+"til zipfilen:"
+
+msgid "Would you like to continue downloading without adding these files?"
+msgstr "Vil du fortsætte download uden at tilføje disse filer?"
+
+msgid ""
+"Always continue download of ZIP files without adding unsupported file types."
+msgstr ""
+"Fortsæt altid med download af zipfiler uden at tilføje ikke-understøttede "
+"filtyper."
+
+msgid "File upload"
+msgstr "Fil upload"
+
+msgid "Attach item"
+msgstr "Vedhæft element"
+
+msgid "Preview"
+msgstr "Forhåndsvisning"
+
+msgid "Download"
+msgstr "Download"
+
+msgid "Download all as ZIP"
+msgstr "Download alt i en zipfil"
+
+#, fuzzy
+msgid "Import to folder"
+msgstr "Tøm mappe"
+
+msgid ""
+"In order to use the vCard import feature, upgrade your Gromox to version 0 "
+"or higher."
+msgstr ""
+
+msgid ""
+"In order to use the ICS / VCS import feature, upgrade your Gromox to version "
+"0 or higher."
+msgstr ""
+
+msgid "Attachment error"
+msgstr "Vedhæftningsfejl"
+
+msgid "Cannot create ZIP, The allowed maximum size is 30 MB."
+msgstr "Kan ikke oprette zipfil. Den højeste tilladte størrelse er 30 MB."
+
+msgid "Unable to download"
+msgstr ""
+
+msgid "Picture format is not supported. "
+msgstr "Billede formatet er ikke understøttet. "
+
+msgid "Supported format for contact pictures are"
+msgstr "Tilladte formater for kontaktbilleder er"
+
+msgid "Attachment Error"
+msgstr "Vedhæftningsfejl"
+
+msgid "Manage Categories"
+msgstr "Håndter kategorier"
+
+msgid "New"
+msgstr "Ny"
+
+msgid "Delete Category"
+msgstr "Slet kategori"
+
+msgid ""
+"Are you sure you want to delete the category \"{0}\"? Other items keep this "
+"category, but lose the assigned color."
+msgstr ""
+
+msgid "Rename Category"
+msgstr "Omdøb kategorien"
+
+msgid "A category named \""
+msgstr "En kategori med navnet \""
+
+msgid "Create New Category"
+msgstr "Opret ny kategori"
+
+msgid "Pin to quick access"
+msgstr "Fastgør for hurtig adgang"
+
+msgid "Create"
+msgstr "Opret"
+
+msgid ""
+"You must apply the changes you have made to the categories before you can "
+"create this category."
+msgstr ""
+
+msgid "You already have a category named '{0}'. Please use another name."
+msgstr ""
+
+msgid ""
+"You already have a category named '{0}' in your pending changes. Please use "
+"another name."
+msgstr ""
+
+msgid "Rename"
+msgstr "Omdøb"
+
+msgid "This is the first time you have used \"{0}\" category."
+msgstr ""
+
+msgid "Do you want to rename it?"
+msgstr "Vil du give den et nyt navn?"
+
+msgid ""
+"The category \"{0}\" already exists. Do you want to merge the \"{1}\" and "
+"\"{2}\" categories?"
+msgstr ""
+
+msgid "Merge"
+msgstr "Slå sammen"
+
+msgid "Remove"
+msgstr "Fjern"
+
+msgid "Check Names"
+msgstr "Check navne"
+
+msgid "Select an address to use"
+msgstr "Vælg en adresse"
+
+msgid "Email"
+msgstr "Email"
+
+msgid "More than one '{0}' found."
+msgstr "Mere end en '{0}' blev fundet."
+
+msgid "Alert"
+msgstr "Advarsel"
+
+msgid "Please select a recipient"
+msgstr "Vælg en modtager"
+
+msgid "Mail and Post"
+msgstr "Mail og post"
+
+msgid "Contact"
+msgstr "Kontakt"
+
+msgid "Journal"
+msgstr "Journal"
+
+msgid "Note"
+msgstr "Notat"
+
+msgid "Task"
+msgstr "Opgave"
+
+msgid "Inbox"
+msgstr "Indbakke"
+
+msgid "Entire Inbox"
+msgstr "Hele indbakken"
+
+msgid "Secretary"
+msgstr "Sekretær"
+
+msgid "Only read"
+msgstr "Kun læse"
+
+msgid "Delegate Permissions"
+msgstr "Uddeleger tilladelser"
+
+msgid "This delegate has the following permissions"
+msgstr "Denne delegerede har følgende tilladelser"
+
+msgid "Delegate can see my private items."
+msgstr "Den delegerede kan se mine private elementer."
+
+msgid "Delegate receives copies of meeting-related messages sent to me."
+msgstr ""
+"Den delegerede modtager kopier af møde relaterede meddelelser der er sendt "
+"til mig."
+
+msgid "Other"
+msgstr "Andet"
+
+#, fuzzy
+msgid "No delegates configured"
+msgstr "Ingen signatur er konfigureret"
+
+msgid "Loading delegates"
+msgstr "Henter delegerede"
+
+msgid "Please select a delegate."
+msgstr "Vælg en delegeret."
+
+msgid "Delegates can send items on your behalf."
+msgstr ""
+
+msgid ""
+"If you only want to set folder permissions, right-click on a folder to open "
+"the context menu and click on \"Share Folder...\""
+msgstr ""
+
+msgid "Permission"
+msgstr "Tilladelse"
+
+#, fuzzy
+msgid "Duplicate delegate"
+msgstr "Afslå og slet"
+
+msgid "Delegate already exists in the list."
+msgstr "Delegeret eksisterer allerede i listen."
+
+msgid "Copy/Move Folder"
+msgstr "Kopier/flyt mappe"
+
+msgid "Copy/Move Messages"
+msgstr "Kopier/flyt meddelelser"
+
+msgid "Destination folder"
+msgstr "Destinationsmappe"
+
+msgid "There is {0} message selected."
+msgid_plural "There are {0} messages selected."
+msgstr[0] "{0} meddelelse er valgt."
+msgstr[1] "{0} meddelelser er valgt."
+
+msgid "Folder '{0}' selected."
+msgstr "Mappen '{0}' er valgt."
+
+msgid ""
+"You have insufficient privileges to move this folder. Ask the folder owner "
+"to grant you permissions or contact your system administrator."
+msgstr ""
+
+msgid ""
+"You have insufficient privileges to copy this folder. Ask the folder owner "
+"to grant you permissions or contact your system administrator."
+msgstr ""
+
+msgid "You have insufficient privileges to move following items."
+msgstr ""
+
+msgid "Subject:"
+msgstr ""
+
+msgid "Would you like to copy instead?"
+msgstr ""
+
+msgid "Do not show this message again."
+msgstr "Vis ikke denne meddelelse igen."
+
+msgid "ICS"
+msgstr ""
+
+#, fuzzy
+msgid "Set custom flag"
+msgstr "Sæt flag"
+
+msgid "Start date"
+msgstr "Startdato"
+
+msgid "End date"
+msgstr "Slutdato"
+
+msgid "Tomorrow"
+msgstr "I morgen"
+
+msgid "This week"
+msgstr "Denne uge"
+
+msgid "Next week"
+msgstr "Næste uge"
+
+#, fuzzy
+msgid "Custom"
+msgstr "Selvvalgt dato"
+
+#, fuzzy
+msgid "Set reminder"
+msgstr "Rediger påmindelser"
+
+msgid "Complete"
+msgstr "Komplet"
+
+msgid "today"
+msgstr "i dag"
+
+msgid "tomorrow"
+msgstr "i morgen"
+
+msgid "this week"
+msgstr "denne uge"
+
+msgid "next week"
+msgstr "næste uge"
+
+msgid "Edit recipient"
+msgstr "Ret modtager"
+
+#, fuzzy
+msgid "Copy email address"
+msgstr "Ny email adresse"
+
+#, fuzzy
+msgid "Set as required"
+msgstr "Dette felt er krævet"
+
+#, fuzzy
+msgid "Set as optional"
+msgstr "Valgfri"
+
+#, fuzzy
+msgid "Set as resource"
+msgstr "Sorter efter: Ressourcer"
+
+msgid "Select attendees"
+msgstr "Vælg deltagere"
+
+msgid "Suggested Times"
+msgstr "Foreslået tid"
+
+msgid "Busy"
+msgstr "Optaget"
+
+msgid "Out of Office"
+msgstr "Ude af kontoret"
+
+msgid "No Information"
+msgstr "Ingen information"
+
+msgid "Show non-working hours"
+msgstr "Vis ikke-arbejdstimer"
+
+msgid "Hide non-working hours"
+msgstr "Skjul ikke-arbejdstimer"
+
+msgid "No freebusy information available for this date"
+msgstr "Ingen fri/optaget information er tilgængelig for denne dato"
+
+msgid "No suggestions available"
+msgstr "Ingen forslag er tilgængelig"
+
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
+msgid "l jS F Y"
+msgstr "l j F Y"
+
+msgid "Switch between different contexts e.g. inbox, calendar, etc."
+msgstr "Skift mellem forskellige kontekster, f.eks. indbakke, kalender, osv."
+
+msgid "Basic navigation"
+msgstr "Basal navigation"
+
+msgid "Switch between different views"
+msgstr "Skift mellem forskellige visninger"
+
+msgid "New item"
+msgstr "Nyt element"
+
+msgid "All views"
+msgstr "All visninger"
+
+msgid "Close tab"
+msgstr "Luk tab"
+
+msgid "Print item"
+msgstr "Udskriv element"
+
+msgid "Items"
+msgstr "Elementer"
+
+msgid "Save an item e.g. mail, contact, etc."
+msgstr "Gem et element f.eks. mail, kontakt, osv."
+
+msgid "Send an item e.g. mail, meeting request, etc."
+msgstr "Send et element f.eks. mail, mødeindkaldelse, osv."
+
+msgid "Select all items"
+msgstr "Vælg alle elementer"
+
+msgid "Extend the selection to the first item in the list"
+msgstr "Udvid valget til det første element i listen"
+
+msgid "Extend the selection to the last item in the list"
+msgstr "Udvid valget til det sidste element i listen"
+
+msgid "Open selected item"
+msgstr "Åbn det valgte element"
+
+msgid "Open dialog to categorize selected item"
+msgstr "Åbn dialogboks til at kategorisere det valgte element"
+
+msgid "Print list"
+msgstr "Udskriv liste"
+
+msgid "Open copy/move dialog"
+msgstr "Åbn kopier/flyt dialogboks"
+
+msgid "Delete selected item"
+msgstr "Slet det valgte element"
+
+msgid ""
+"Delete selected item without moving it to the Deleted Items folder. The "
+"deleted item can still be restored."
+msgstr ""
+"Slet de markerede elementer uden først at flytte dem til Slettede Elementer. "
+"De slettede elementer kan alligevel blive genoprettet."
+
+#, fuzzy
+msgid "Add/Edit Cc recipient"
+msgstr "Ret modtager"
+
+msgid "Disable for new mail"
+msgstr ""
+
+msgid "Enable for new mail"
+msgstr ""
+
+msgid "Disable for replies"
+msgstr ""
+
+msgid "Enable for replies"
+msgstr ""
+
+#, fuzzy
+msgid "No Cc recipient configured"
+msgstr "Ingen signatur er konfigureret"
+
+#, fuzzy
+msgid "Loading Cc recipients"
+msgstr "Ret modtager"
+
+#, fuzzy
+msgid "Reply Mail"
+msgstr "Svar alle"
+
+msgid "New Mail"
+msgstr "Ny mail"
+
+#, fuzzy
+msgid "Please select a Cc recipient record."
+msgstr "Vælg en modtager"
+
+#, fuzzy
+msgid "Manage Cc recipients"
+msgstr "Ret modtager"
+
+msgid ""
+"Cc recipients can be used to set a default Cc user in new mail, replies or "
+"both."
+msgstr ""
+
+msgid "Help"
+msgstr "Hjælp"
+
+msgid "Web Manual"
+msgstr ""
+
+msgid "Item data"
+msgstr ""
+
+msgid "INSERT"
+msgstr "INSERT"
+
+msgid "Sort by: context.mail.griddefaultcolumn"
+msgstr ""
+
+msgid "ZDeveloper"
+msgstr ""
+
+msgid "grommunio Web print"
+msgstr ""
+
+msgid "Display name"
+msgstr "Vist navn"
+
+msgid "Email address"
+msgstr "Email adresse"
+
+#, fuzzy
+msgid "Expand distribution list"
+msgstr "Ny distributionsliste"
+
+msgid ""
+"Distribution list will be replaced with its members. You will not be able to "
+"collapse it again."
+msgstr ""
+"Distributionslisten vil blive erstattet med alle dens medlemmer. Du vil ikke "
+"kunne folde den sammen igen."
+
+msgid "Edit Recipient"
+msgstr "Ret modtager"
+
+#, fuzzy
+msgid "Copy email addresses"
+msgstr "Ny email adresse"
+
+msgid "Send email"
+msgstr "Send email"
+
+msgid "Delete recipient from suggestion list"
+msgstr "Slet modtageren fra forslagslisten"
+
+msgid "Copy all email addresses"
+msgstr ""
+
+msgid "View recipient"
+msgstr "Vis modtager"
+
+msgid "Weekday"
+msgstr "Ugedag"
+
+msgid "Weekend Day"
+msgstr "Weekend dag"
+
+msgid "1st"
+msgstr "1."
+
+msgid "2nd"
+msgstr "2."
+
+msgid "3rd"
+msgstr "3."
+
+msgid "4th"
+msgstr "4."
+
+msgid "last"
+msgstr "sidste"
+
+msgid "Every {A} day(s)"
+msgstr "Hver {A} dag(e)"
+
+msgid "Every weekday"
+msgstr "Alle ugedage"
+
+msgid "Regenerate new task {A} day(s) after each task is completed"
+msgstr "Generer en ny opgave {A} dag(er) efter at hver opgave er udført"
+
+msgid "Day {A} of every {B} month(s)"
+msgstr "På {A}. dagen i hver {B}. måned"
+
+msgid "The {A} {B} of every {C} month(s)"
+msgstr "På {A} {B} dagen i hver {C}. måned"
+
+msgid "Regenerate new task {A} month(s) after each task is completed"
+msgstr "Generer en ny oppgave {A} måned(er) efter at hver opgave er udført"
+
+msgid "Appointment Recurrence"
+msgstr "Aftale gentagelse"
+
+msgid "Remove Recurrence"
+msgstr "Fjern gentagelse"
+
+#, fuzzy
+msgid "Reset recurring"
+msgstr "Tilbagevendende"
+
+#, fuzzy
+msgid "This will reset every exception. Do you want to continue?"
+msgstr "Denne aftale er blevet flyttet eller slettet, vil du fortsætte?"
+
+msgid "Task Recurrence"
+msgstr "Opgave gentagelse"
+
+msgid "Daily"
+msgstr "Daglig"
+
+msgid "Weekly"
+msgstr "Ugentlig"
+
+msgid "Monthly"
+msgstr "Månedlig"
+
+msgid "Yearly"
+msgstr "Årlig"
+
+msgid "Range of recurrence"
+msgstr "Interval for gentagelse"
+
+msgid "No end date"
+msgstr "Ingen slutdato"
+
+msgid "End after {A} occurrences"
+msgstr "Slutter efter {A} forekomster"
+
+msgid "End by {A}"
+msgstr "Sluttet på {A}"
+
+#. TRANSLATORS: This informs the user what the exact duration of the appointment is. Where {D} represents the days, {H} the hours and {M} the minutes.
+#. For example: 'Occurence duration: 1 day 2 hours 45 minutes', or when the appointment is shorter then 1 day: 'Occurence duration: 1 hour'
+msgid "Occurrence duration: {D} {H} {M}"
+msgstr "Forekomstens varighed: {D} {H} {M}"
+
+msgid "Every {A} week(s) on"
+msgstr "Hver {A} uge(r) på"
+
+msgid "Regenerate new task {A} week(s) after each task is completed"
+msgstr "Generer ny opgave {A} uge(r) efter at hver opgave er fuldført"
+
+msgid "Every {A} {B}"
+msgstr "Hver {A} {B}"
+
+msgid "The {A} {B} of {C}"
+msgstr "Den {A} {B} af {C}"
+
+msgid "Regenerate new task {A} year(s) after each task is completed"
+msgstr "Generer ny opgave {A} år efter at hver opgave er fuldført"
+
+msgid "Info"
+msgstr "Info"
+
+msgid "Not supported at the moment."
+msgstr "Ikke pt. understøttet."
+
+#, fuzzy
+msgid "There is {0} reminder"
+msgid_plural "There are {0} reminders"
+msgstr[0] "Der er {0} påmindelse"
+msgstr[1] "Der er {0} påmindelse"
+
+msgid "Reminders"
+msgstr "Påmindelser"
+
+#, fuzzy
+msgid "There are no reminders"
+msgstr "Der er {0} påmindelse"
+
+msgid "Due In"
+msgstr "Forfalder om"
+
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
+msgid "Due"
+msgstr "Forfolder"
+
+msgid "Reminder time"
+msgstr "Påmindelsestid"
+
+msgid "Dismiss All"
+msgstr "Afvis alle"
+
+msgid "Open Item"
+msgstr "Åbn element"
+
+msgid "Dismiss"
+msgstr "Afvis"
+
+msgid "Click Snooze to be reminded again in"
+msgstr "Klik på Snooze for at blive påmindet igen om"
+
+msgid "Snooze"
+msgstr "Udsæt"
+
+msgctxt "reminder.dialog"
+msgid "{0} reminder is selected."
+msgid_plural "{0} reminders are selected."
+msgstr[0] "{0} påmindelse er valgt"
+msgstr[1] "{0} påmindelser er valgt"
+
+msgid "Restore Softdeleted Items"
+msgstr "Genopret alle elementer som er \"soft deleted\""
+
+msgid "Restore From {0}"
+msgstr "Genopret fra {0}"
+
+msgid "Restore"
+msgstr "Genopret"
+
+msgid "Restore All"
+msgstr "Genopret alle"
+
+msgid "Permanent Delete"
+msgstr "Slet permanent"
+
+msgid "Delete All"
+msgstr "Slet alle"
+
+msgid "Messages"
+msgstr "Meddelelser"
+
+#, fuzzy
+msgid "Delete all items"
+msgstr "Vælg alle elementer"
+
+#, fuzzy
+msgid "Are you sure you want to permanently delete all items?"
+msgstr "Er du sikker på at du vil slette alle elementerne permanent?"
+
+#, fuzzy
+msgid "Restore all items"
+msgstr "Genskab elementer"
+
+#, fuzzy
+msgid "Are you sure you want to restore all items?"
+msgstr "Er du sikker på du vil genskabe alle elementerne?"
+
+msgid "Total {0} recoverable item"
+msgid_plural "Total {0} recoverable items"
+msgstr[0] "Totalt {0} element der kan genskabes"
+msgstr[1] "Totalt {0} elementer der kan genskabes"
+
+msgid "Deleted On"
+msgstr "Slettet den"
+
+msgid "Sort by: Deleted On"
+msgstr "Sorter efter: Sletningstidspunkt"
+
+msgid "Item Count"
+msgstr "Element antal"
+
+msgid "Sort by: Item Count"
+msgstr "Sorter efter: Element antal"
+
+msgid "Sort by: From"
+msgstr "Sorter efter: Fra"
+
+msgid "Received"
+msgstr "Modtaget"
+
+msgid "Sort by: Received"
+msgstr "Sorter efter: Modtaget"
+
+msgid "Size"
+msgstr "Størrelse"
+
+msgid "Sort by: Size"
+msgstr "Sorter efter: Størrelse"
+
+#, fuzzy
+msgid "Move the message to folder..."
+msgstr "Flyt meddelelsen til mappen ..."
+
+#, fuzzy
+msgid "Copy the message to folder..."
+msgstr "Kopier meddelelsen til mappen ..."
+
+msgid "Delete the message"
+msgstr "Slet denne meddelelse"
+
+#, fuzzy
+msgid "Redirect the message to..."
+msgstr "Viderestil meddelelsen til ..."
+
+#, fuzzy
+msgid "Forward the message to..."
+msgstr "Videresend meddelelsen til ..."
+
+#, fuzzy
+msgid "Forward the message as attachment to..."
+msgstr "Videresend meddelelsen som vedhæftning til ..."
+
+#, fuzzy
+msgid "Mark the message as read..."
+msgstr "Videresend meddelelsen til ..."
+
+#, fuzzy
+msgid "is received from..."
+msgstr "er modtaget fra ..."
+
+#, fuzzy
+msgid "includes these words in the sender's address..."
+msgstr "inkluder disse ord i afsenderens adresse ..."
+
+#, fuzzy
+msgid "includes these words in the recipient's address..."
+msgstr "inkluder disse ord i afsenderens adresse ..."
+
+#, fuzzy
+msgid "includes these words in the subject..."
+msgstr "inkluder disse ord i emnet ..."
+
+#, fuzzy
+msgid "includes these words in the body..."
+msgstr "inkluder disse ord i brevkroppen ..."
+
+#, fuzzy
+msgid "includes these words in the transport-headers..."
+msgstr "inkluder disse ord i brevkroppen ..."
+
+#, fuzzy
+msgid "has importance..."
+msgstr "har vigtighed ..."
+
+msgid "has an attachment"
+msgstr "har en vedhæftning"
+
+#, fuzzy
+msgid "is sent to..."
+msgstr "er sendt til ..."
+
+msgid "is sent only to me"
+msgstr "er kun sendt til mig"
+
+msgid "has my name in the Cc field"
+msgstr "har mit navn i Cc-feltet"
+
+#, fuzzy
+msgid "does not have my name in the To or Cc field"
+msgstr "har mit navn i Til eller Cc-feltet"
+
+msgid "has my name in the To or Cc field"
+msgstr "har mit navn i Til eller Cc-feltet"
+
+#, fuzzy
+msgid "has sensitivity..."
+msgstr "har fortrolighed"
+
+#, fuzzy
+msgid "is received after..."
+msgstr "er modtaget efter"
+
+#, fuzzy
+msgid "is received before..."
+msgstr "er modtaget før"
+
+msgid "size is at least..."
+msgstr ""
+
+msgid "size is at most..."
+msgstr ""
+
+msgid "has my name in the To field"
+msgstr "har mit navn i Til-feltet"
+
+msgid "is received (all messages)"
+msgstr "er modtaget (alle meddelelser)"
+
+msgid "Unknown condition"
+msgstr "Ukendt betingelse"
+
+msgid "This condition for the current rule is unknown"
+msgstr "Denne betingelse for den valgte regel er ukendt"
+
+msgid "Add action"
+msgstr "Tilføj handling"
+
+msgid "Remove action"
+msgstr "Fjern handling"
+
+msgid "Unknown action"
+msgstr "Ukendt handling"
+
+msgid "This action for the current rule is unknown"
+msgstr "Denne handling for det valgte regel er ukendt"
+
+msgid "Add condition"
+msgstr "Tilføj betingelse"
+
+msgid "Remove condition"
+msgstr "Fjern betingelse"
+
+msgid "Inbox Rule"
+msgstr "Indbakke regel"
+
+msgid "Rule name"
+msgstr "Regel navn"
+
+msgid "When the message"
+msgstr "Når meddelelsen"
+
+msgid "Do the following"
+msgstr "Gør følgende"
+
+#, fuzzy
+msgid "Exceptions"
+msgstr "Muligheder"
+
+msgid "Apply only when Out of Office is active"
+msgstr ""
+
+msgid "Stop processing more rules"
+msgstr "Stop udførsel af flere regler"
+
+#, fuzzy
+msgid "Add exception"
+msgstr "Tilføj handling"
+
+#, fuzzy
+msgid "Remove exception"
+msgstr "Fjern handling"
+
+msgid "Specify Words or Phrases"
+msgstr "Angiv ord eller sætninger"
+
+msgid "Edit"
+msgstr "Ret"
+
+msgid "and"
+msgstr "og"
+
+msgid ""
+"Distribution lists are not supported in rules, would you like to replace the "
+"distribution list with its members?"
+msgstr ""
+"Distributionslister er ikke understøttet i regler, vil du skifte "
+"distributionslisten ud med dens medlemmer?"
+
+msgid "or"
+msgstr "eller"
+
+msgid "No rule exists"
+msgstr "Ingen regel eksisterer"
+
+msgid "Active"
+msgstr "Aktiv"
+
+#, fuzzy
+msgid "Out of office"
+msgstr "Ude af kontoret"
+
+msgid "Rule"
+msgstr "Regel"
+
+msgid "Loading rules"
+msgstr "Henter regler"
+
+msgid "Please select a rule."
+msgstr "Vælg en regel."
+
+msgid "Rule already has highest priority."
+msgstr "Reglen har allerede den højeste prioritet."
+
+msgid "Rule already has lowest priority."
+msgstr "Reglen har allerede den laveste prioritet."
+
+msgid "Always move messages from {0}"
+msgstr ""
+
+msgid "Always move messages that are sent to <recipients>"
+msgstr ""
+
+msgid "Always move messages with this subject"
+msgstr ""
+
+msgid "Create rule..."
+msgstr ""
+
+msgid "myself"
+msgstr "mig selv"
+
+msgid "Update rules for"
+msgstr "Opdater regler for"
+
+msgid "Apply changes"
+msgstr ""
+
+msgid "Do you wish to apply the changes?"
+msgstr "Vil du anvende ændringerne?"
+
+msgid "All folders"
+msgstr "Alle mapper"
+
+msgid "Other..."
+msgstr "Andre..."
+
+msgid "Search in.."
+msgstr "Søg i.."
+
+#, fuzzy
+msgid "Folder does not exist"
+msgstr "Mappen indeholder"
+
+msgid ""
+"The folder you are searching through no longer exists. Please select another "
+"folder"
+msgstr ""
+
+msgid "Add/Edit sender"
+msgstr "Tilføj/Rediger afsender"
+
+msgid "No from addresses configured"
+msgstr "Ingen afsenderadresse er valgt"
+
+msgid "Loading from addresses"
+msgstr "Henter afsenderadresse"
+
+msgid "Forward Mail"
+msgstr ""
+
+msgid "Please select a from address record."
+msgstr "Vælg en afsenderadresse."
+
+msgid "Add/Edit From recipient"
+msgstr ""
+
+msgid "Manage the recipients used in the 'From' field"
+msgstr ""
+
+msgid "View"
+msgstr "Vis"
+
+msgid "Please select a sendas record."
+msgstr "Vælg venligst en \"Send som\" række."
+
+msgid "Delegates"
+msgstr "Repræsentanter"
+
+msgid "Delegate settings"
+msgstr "Repræsentant indstillinger"
+
+msgid "Desktop Notifications Settings"
+msgstr ""
+
+msgid "We need permissions to enable desktop notifications."
+msgstr ""
+
+msgid "Request Permissions"
+msgstr ""
+
+msgid "Enable desktop notifications for new mail"
+msgstr ""
+
+msgid "Enable desktop notifications for reminders"
+msgstr ""
+
+msgid "{A} Auto hide desktop notification after second(s) {B}"
+msgstr ""
+
+msgid "Disable sound"
+msgstr ""
+
+msgid "Notifications"
+msgstr ""
+
+msgid "Rules"
+msgstr "Regler"
+
+msgid "From Addresses"
+msgstr "Afsenderadresser"
+
+msgid "From Addresses settings"
+msgstr "Indstillinger for afsenderadresse"
+
+msgid "Full name"
+msgstr "Fulde navn"
+
+msgid "Phone Numbers"
+msgstr "Telefonnumre"
+
+msgid "Business Fax"
+msgstr "Forretnings fax"
+
+msgid "Webpage"
+msgstr "Hjemmeside"
+
+msgid "IM Address"
+msgstr "IM adresse"
+
+msgid "D, d-m-Y, {0}"
+msgstr ""
+
+msgid "{0} selected row"
+msgid_plural "{0} selected rows"
+msgstr[0] "{0} række er valgt"
+msgstr[1] "{0} rækker er valgt"
+
+msgid "Reminder is set on: {0}, {1}"
+msgstr ""
+
+msgid "d-m-Y"
+msgstr "d.m.Y"
+
+msgid "l d/m/Y"
+msgstr "l d/m/Y"
+
+msgid "l d/m/Y {0}"
+msgstr ""
+
+msgid "d-m-Y {0}"
+msgstr ""
+
+msgid "Unknown"
+msgstr "Ukendt"
+
+msgid "Meeting Organizer"
+msgstr "Mødearrangør"
+
+msgid "{0} overdue"
+msgstr "{0} overskredet"
+
+msgid "Loading..."
+msgstr "Henter..."
+
+msgid "Message could not be loaded"
+msgstr ""
+
+#. TRANSLATORS: This message is used as label for the field which indicates which attachments are inside the message
+msgctxt "mail.previewpanel"
+msgid "Attachments"
+msgstr "Vedhæftninger"
+
+msgid "Download Pictures"
+msgstr "Hent billeder"
+
+msgid "Add Sender to Safe Senders List"
+msgstr "Tilføj afsender til \"sikre afsendere\" listen"
+
+msgid "Add Domain to Safe Senders List"
+msgstr "Tilføj domæne til \"sikre afsendere\" listen"
+
+#. TRANSLATORS: This sentence is given in the Email previewpanel, and indicates with which
+#. importance the message was sent. For example:
+#. 'This message was sent with high importance.'
+#. 'This message was sent with low importance.'
+msgctxt "mail.previewpanel"
+msgid "This message was sent with {0} importance."
+msgstr "Meddelelsen var sendt med vigtighed {0}."
+
+#. TRANSLATORS: This sentence is given in the Email previewpanel, and indicates which
+#. sensitivity level applies to the message. For example:
+#. 'Please treat this as Personal.'
+#. 'Please treat this as Private.'
+#. 'Please treat this as Confidential.'
+msgctxt "mail.previewpanel"
+msgid "Please treat this as {0}."
+msgstr "Behandl dette som {0}."
+
+msgctxt "mail.previewpanel"
+msgid ""
+"Click here to download pictures. To help protect your privacy, WebApp "
+"prevented automatic download of some pictures in this message."
+msgstr ""
+
+msgctxt "mail.previewpanel"
+msgid ""
+"This message is corrupt and will not be displayed correctly, Click here to "
+"fix it."
+msgstr ""
+"Denne meddelelse er beskadiget og vil ikke kunne vises korrekt. Tryk her for "
+"at rette det."
+
+msgctxt "mail.previewpanel"
+msgid "{0} has accepted."
+msgstr "{0} har accepteret."
+
+msgctxt "mail.previewpanel"
+msgid "{0} has accepted on behalf of {1}."
+msgstr "{0} har accepteret på vegne af {1}."
+
+msgctxt "mail.previewpanel"
+msgid "{0} has tentatively accepted."
+msgstr "{0} har foreløbigt accepteret."
+
+msgctxt "mail.previewpanel"
+msgid "{0} has tentatively accepted on behalf of {1}."
+msgstr "{0} har foreløbigt accepteret på vegne af {1}."
+
+msgctxt "mail.previewpanel"
+msgid "{0} has declined."
+msgstr "{0} har afvist."
+
+msgctxt "mail.previewpanel"
+msgid "{0} has declined on behalf of {1}."
+msgstr "{0} har afvist på vegne af {1}."
+
+msgctxt "mail.previewpanel"
+msgid "{0} tentatively accepted and proposed a new time for this meeting."
+msgstr "{0} har foreløbigt accepteret og foreslået en ny tid for dette møde."
+
+msgctxt "mail.previewpanel"
+msgid ""
+"{0} tentatively accepted on behalf of {1} and proposed a new time for this "
+"meeting."
+msgstr ""
+"{0} har foreløbigt acceptere på vegne af {1} og foreslået en ny tid for "
+"dette møde."
+
+msgctxt "mail.previewpanel"
+msgid "{0} declined and proposed a new time for this meeting."
+msgstr "{0} har afvist og foreslået en ny tid for dette møde."
+
+msgctxt "mail.previewpanel"
+msgid "{0} declined on behalf of {1} and proposed a new time for this meeting."
+msgstr "{0} har afvist på vegne af {1} og foreslået en ny tid for dette møde."
+
+msgctxt "mail.previewpanel"
+msgid "This meeting is not in the Calendar; it may have been moved or deleted."
+msgstr "Dette møde er ikke i kalenderen; det kan være flyttet eller slettet."
+
+msgctxt "mail.previewpanel"
+msgid ""
+"This meeting request was updated after this message was sent. You should "
+"open the latest update or open the item from the calendar."
+msgstr ""
+"Mødeinvitationen er blevet opdateret efter at denne meddelelse blev sendt. "
+"Du bør åbne den sidste opdatering, eller åbne den direkte fra kalenderen."
+
+msgctxt "mail.previewpanel"
+msgid "As the meeting organizer, you do not need to respond to the meeting"
+msgstr "Som mødearrangør behøver du ikke at reagere på mødet"
+
+msgctxt "mail.previewpanel"
+msgid "The meeting was updated after the attendee sent this response"
+msgstr "Dette møde er blevet opdateret efter deltageren sendte dette svar"
+
+msgctxt "mail.previewpanel"
+msgid "This appointment occurs in the past."
+msgstr "Denne aftale sker i fortiden."
+
+msgctxt "mail.previewpanel"
+msgid "Please respond."
+msgstr "Svar venligst."
+
+msgctxt "mail.previewpanel"
+msgid "This is an update of a previously sent meeting request."
+msgstr "Dette er en opdatering af en tidligere afsendt mødeinvitation."
+
+msgctxt "mail.previewpanel"
+msgid "Received for {0}."
+msgstr "Modtaget for {0}."
+
+msgctxt "mail.previewpanel"
+msgid "You replied to this message."
+msgstr "Du har svaret på meddelelsen."
+
+msgctxt "mail.previewpanel"
+msgid "You forwarded this message."
+msgstr "Du har videresendt denne meddelelse."
+
+msgctxt "mail.previewpanel"
+msgid "You replied to this message on {0}."
+msgstr "Du svarede på denne meddelelse d. {0}"
+
+msgctxt "mail.previewpanel"
+msgid "You forwarded this message on {0}."
+msgstr "Du videresendte denne meddelelse d. {0}"
+
+msgid "Assigned by {0} on {1}."
+msgstr "Tildelt af {0} på {1}"
+
+msgid "Waiting for response from recipient"
+msgstr "Venter på svar fra modtager"
+
+msgid "Accepted by {0} on {1}."
+msgstr "Accepteret af {0} på {1}."
+
+msgid "{0} has accepted on behalf of {1} {2}."
+msgstr "{0} har accepteret på vegne af {1} {2}."
+
+msgid "Declined by {0} on {1}."
+msgstr "Afvist af {0} på {1}."
+
+msgid "{0} has declined on behalf of {1} {2}."
+msgstr "{0} har afslået på vegne af {1} {2}."
+
+msgid "Last update sent on {0}."
+msgstr "Sidste opdatering er sendt på {0}."
+
+msgid "{0} has updated on behalf of {1} {2}."
+msgstr "{0} har opdateret på vegne af {1} {2}."
+
+#, fuzzy
+msgid "Fix message"
+msgstr "besked"
+
+msgid ""
+"We are going to try to fix a corrupted mail message, do you wish to continue?"
+msgstr "Vi vil forsøge at reparere en ødelagt meddelelse, vil du fortsætte?"
+
+msgid "The matching task was not found in your task list."
+msgstr "Der findes ikke en tilsvarende opgave i opgavelisten."
+
+msgctxt "mail.previewpanel"
+msgid "To"
+msgstr "Til"
+
+msgctxt "mail.previewpanel"
+msgid "Cc"
+msgstr "Cc"
+
+msgctxt "mail.previewpanel"
+msgid "Bcc"
+msgstr "Bcc"
+
+msgctxt "mail.previewpanel"
+msgid "Categories"
+msgstr "Kategorier"
+
+#. TRANSLATORS: This message is used as label for the field which to indicates to whom the given mail was sent
+msgctxt "mail.previewpanel"
+msgid "Recipients"
+msgstr "Modtagere"
+
+#. TRANSLATORS: check if the mail is send by some delegator or not. if then display "on behalf of".
+msgctxt "mail.previewpanel"
+msgid "on behalf of"
+msgstr "på vegne af"
+
+#. TRANSLATORS: This message is used to indicate that no sent date is available for the message (because it has not been sent yet).
+msgctxt "mail.previewpanel"
+msgid "None"
+msgstr "Ingen"
+
+#, fuzzy
+msgid "Pop-out"
+msgstr "Pop-ud"
+
+#, fuzzy
+msgid "Mark as read"
+msgstr "Marker som ulæst"
+
+#, fuzzy
+msgid "Mark as unread"
+msgstr "Marker som ulæst"
+
+msgid "in"
+msgstr "om"
+
+msgid "Root"
+msgstr "Rod"
+
+msgid "Datepicker"
+msgstr ""
+
+msgid "File As"
+msgstr "Gemt som"
+
+msgid "Full Name"
+msgstr "Fulde navn"
+
+msgid "Department Name"
+msgstr "Afdelingsnavn"
+
+msgid "Home Address"
+msgstr "Hjemmeadresse"
+
+msgid "Business Address"
+msgstr "Arbejdsadresse"
+
+msgid "Other Address"
+msgstr "Anden adresse"
+
+msgid "Business Phone"
+msgstr "Arbejdstelefon"
+
+msgid "Business 2 Phone"
+msgstr "Arbejdstelefon 2"
+
+msgid "Assistant Phone"
+msgstr "Assistents telefon"
+
+msgid "Company Main Phone"
+msgstr "Hovedtelefon for firma"
+
+msgid "Home 2 Phone"
+msgstr "Hjemmetelefon 2"
+
+msgid "Car Phone"
+msgstr "Biltelefon"
+
+msgid "Radio"
+msgstr "Radio"
+
+msgid "Callback Phone"
+msgstr "Call-back telefon"
+
+msgid "Other Phone"
+msgstr "Andre telefoner"
+
+msgid "Primary Phone"
+msgstr "Hovedtelefon"
+
+msgid "Telex"
+msgstr "Telex"
+
+msgid "TTY/TDD Phone"
+msgstr "TTY/TDD telefon"
+
+msgid "ISDN"
+msgstr "ISDN"
+
+msgid "Other Fax"
+msgstr "Anden fax"
+
+msgid "Home Fax"
+msgstr "Privat fax"
+
+msgid "Email Display As"
+msgstr "E- mail vis som"
+
+msgid "Email 2"
+msgstr "E-mail 2"
+
+msgid "Email2 Display As"
+msgstr "Vis e-mail 2 som"
+
+msgid "Email 3"
+msgstr "E-mail 3"
+
+msgid "Email3 Display As"
+msgstr "Vis e-mail 3 som"
+
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
+msgid "Birthday"
+msgstr "Fødselsdag"
+
+msgid "Wedding Anniversary"
+msgstr "Bryllupsdag"
+
+msgid "Spouse/Partner"
+msgstr "Ægtefælle/partner"
+
+msgid "Profession"
+msgstr "Erhverv"
+
+msgid "Assistant's Name"
+msgstr "Assistentens navn"
+
+msgid "Distribution List Name"
+msgstr "Navn på distributionsliste"
+
+msgid "Open Shared Contacts"
+msgstr "Åbn delt kalender"
+
+msgid "Business Cards"
+msgstr "Visitkort"
+
+msgid "Phone List"
+msgstr "Telefonliste"
+
+msgid "Add to contacts"
+msgstr "Tilføj til kontakter"
+
+msgid "Print selected contact"
+msgstr "Udskriv den valgte kontakt"
+
+msgid "No contact selected"
+msgstr "Ingen kontakt er valgt"
+
+msgid "Distribution list"
+msgstr "Distributionsliste"
+
+msgid "Dr."
+msgstr "Dr."
+
+msgid "Miss"
+msgstr "Frøken"
+
+msgid "Mr."
+msgstr "Hr."
+
+msgid "Mrs."
+msgstr "Fru"
+
+msgid "Ms."
+msgstr "Frk."
+
+msgid "Prof."
+msgstr "Prof."
+
+msgid "Jr."
+msgstr "Jr."
+
+msgid "Sr."
+msgstr "Sr."
+
+msgid "Phone number"
+msgstr "Telefonnummer"
+
+msgid "Check address"
+msgstr "Check adresse"
+
+msgid "Street"
+msgstr "Vej"
+
+msgid "State/Province"
+msgstr "Stat/provins"
+
+msgid "Zip/Postal code"
+msgstr "Postnummer"
+
+msgid "Country/Region"
+msgstr "Land/region"
+
+msgid "Show this again when address is incomplete or unclear."
+msgstr "Vis dette igen når adressen er ukomplet eller uklar."
+
+msgid "Details"
+msgstr "Detaljer"
+
+msgid "Office location"
+msgstr "Kontor placering"
+
+msgid "Manager's name"
+msgstr "Leders navn"
+
+msgid "Assistant's name"
+msgstr "Assistents navn"
+
+msgid "Nickname"
+msgstr "Kaldenavn"
+
+msgid "Suffix"
+msgstr "Suffiks"
+
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
+msgid "Anniversary"
+msgstr "Mærkedag"
+
+msgid "Photo"
+msgstr "Foto"
+
+msgid "Additional information"
+msgstr "Yderligere information"
+
+msgid "Business 2"
+msgstr "Forretning 2"
+
+msgid "Callback"
+msgstr "Tilbageringning"
+
+msgid "Car"
+msgstr "Bil"
+
+msgid "Home 2"
+msgstr "Hjemme 2"
+
+msgid "Primary"
+msgstr "Primær"
+
+msgid "TTY/TDD"
+msgstr "TTY/TDD"
+
+msgid "Check full name"
+msgstr "Kontroller fulde navn"
+
+msgid "First"
+msgstr "Fornavn"
+
+msgid "Middle"
+msgstr "Mellem"
+
+msgid "Last"
+msgstr "Efternavn"
+
+msgid "Show this again when name is incomplete or unclear."
+msgstr "Vis denne dialog igen når navnet er ufuldstændigt eller uklart."
+
+msgid "Check phone number"
+msgstr "Kontroller telefonnummer"
+
+msgid "Country/Region code"
+msgstr "Landekode"
+
+msgid "City/Area code"
+msgstr "Områdenummer"
+
+msgid "Local number"
+msgstr "Lokalnummer"
+
+msgid "Extension"
+msgstr "Direktenr."
+
+msgid "Add Attachment"
+msgstr "Tilføj vedhæftning"
+
+#, fuzzy
+msgid "Add attachments to this contact"
+msgstr "Tilføj vedhæftning til denne kontakt."
+
+#, fuzzy
+msgid "Mark this contact as private"
+msgstr "Marker denne kontakt som privat."
+
+msgid "Distribution List"
+msgstr "Distributionsliste"
+
+#, fuzzy
+msgid "Mark this Distribution list as private"
+msgstr "Marker denne distributionsliste som privat."
+
+#, fuzzy
+msgid "New email address"
+msgstr "Ny email adresse"
+
+#, fuzzy
+msgid "Please enter a valid email address"
+msgstr "Indtast gyldig email adresse!"
+
+msgid "Select Members"
+msgstr "Vælg medlemmer"
+
+msgid "Add New"
+msgstr "Tilføj ny"
+
+msgid "Type your note here..."
+msgstr "Indtast din note her..."
+
+msgid "New contact"
+msgstr "Ny kontakt"
+
+msgid "New distribution list"
+msgstr "Ny distributionsliste"
+
+#, fuzzy
+msgid "Email 2 Display As"
+msgstr "Email 2 Vis som"
+
+#, fuzzy
+msgid "Email 3 Display As"
+msgstr "Email 3 Vis som"
+
+msgid "Assistent"
+msgstr "Assistent"
+
+msgid "Loading contacts"
+msgstr "Henter kontakter"
+
+msgid ""
+"There are no items to show in this list. Update the filter for more results."
+msgstr ""
+
+msgid "[Group]"
+msgstr ""
+
+msgid "Work:"
+msgstr ""
+
+msgid "Primary:"
+msgstr ""
+
+msgid "Mobile:"
+msgstr ""
+
+msgid "Sort by: Full Name"
+msgstr "Sorter efter: Fulde navn"
+
+msgid "Sort by: Email Address 2"
+msgstr "Sorter efter: Email adresse 2"
+
+msgid "Sort by: Email Address 3"
+msgstr "Sorter efter: Email adresse 3"
+
+msgid "Mobile Phone"
+msgstr "Mobiltelefon"
+
+msgid "Sort by: Mobile Phone"
+msgstr "Sorter efter: Mobiltelefon"
+
+msgid "Sort by: Business Phone"
+msgstr "Sorter efter: Forretningstelefon"
+
+msgid "Sort by: Business Fax"
+msgstr "Sorter efter: Forretningsfax"
+
+msgid "Sort by: Department Name"
+msgstr "Sorter efter: Afdelingsnavn"
+
+msgid "Office Location"
+msgstr "Kontor placering"
+
+msgid "Sort by: Office Location"
+msgstr "Sorter efter: Kontor placering"
+
+msgid "Sort by: Profession"
+msgstr "Sorter efter: Profession"
+
+msgid "Manager Name"
+msgstr "Leders navn"
+
+msgid "Sort by: Manager Name"
+msgstr "Sorter efter: Leders navn"
+
+msgid "Sort by: Assistant's Name"
+msgstr "Sorter efter: Assistents navn"
+
+msgid "Sort by: Nickname"
+msgstr "Sorter efter: Kaldenavn"
+
+msgid "Sort by: Spouse/Partner Name"
+msgstr "Sorter efter: Ægtefælle/Partners navn"
+
+msgid "Sort by: Birthday"
+msgstr "Sorter efter: Fødselsdag"
+
+msgid "Sort by: Anniversary"
+msgstr "Sorter efter: Jubilæum"
+
+msgid "Sort by: Business Address"
+msgstr "Sorter efter: Forretningsadresse"
+
+msgid "Sort by: Home Address"
+msgstr "Sorter efter: Hjemmeadresse"
+
+msgid "Sort by: Office Address"
+msgstr "Sorter efter: Kontoradresse"
+
+msgid "Mailing Address"
+msgstr "Postadresse"
+
+msgid "Sort by: Mailing Address"
+msgstr "Sorter efter: Postadresse"
+
+msgid "Sort by: IM Address"
+msgstr "Sorter efter: IM adresse"
+
+msgid "Sort by: Webpage"
+msgstr "Sorter efter: Hjemmeside"
+
+msgid "Assistant's Phone"
+msgstr "Assistents telefon"
+
+msgid "Sort by: Assistant's Phone"
+msgstr "Sorter efter: Assistents telefon"
+
+msgid "Business Phone 2"
+msgstr "Forretningstelefon 2"
+
+msgid "Sort by: Business Phone 2"
+msgstr "Sorter efter: Forretningstelefon 2"
+
+msgid "Sort by: Callback"
+msgstr "Sorter efter: Callback"
+
+msgid "Sort by: Car Phone"
+msgstr "Sorter efter: Biltelefon"
+
+msgid "Company Phone"
+msgstr "Firmatelefon"
+
+msgid "Sort by: Company Main Phone"
+msgstr "Sorter efter: Firma hovednummer"
+
+msgid "Home Phone 2"
+msgstr "Hjemmetelefon 2"
+
+msgid "Sort by: Home Phone 2"
+msgstr "Sorter efter: Hjemmetelefon 2"
+
+msgid "Sort by: Home Fax"
+msgstr "Sorter efter: Hjemmefax"
+
+msgid "Sort by: ISDN"
+msgstr "Sorter efter: ISDN"
+
+msgid "Sort by: Other Phone"
+msgstr "Sorter efter: Anden telefon"
+
+msgid "Radio Phone"
+msgstr "Radio telefon"
+
+msgid "Sort by: Radio Phone"
+msgstr "Sorter efter: Radio telefon"
+
+msgid "Sort by: TTY/TDD Phone"
+msgstr "Sorter efter: TTY/TTD Telefon"
+
+msgid "Sort by: Telex Phone"
+msgstr "Sorter efter: Telex"
+
+msgid "Change Picture"
+msgstr "Ændre foto"
+
+msgid "Remove Picture"
+msgstr "Fjern billede"
+
+msgid "VCF file(s)"
+msgstr ""
+
+msgid "Quick Contact"
+msgstr "Hurtigkontakt"
+
+msgid "Open in new browser window"
+msgstr "Åbn i nyt browser vindue"
+
+msgid ""
+"Your browser seems to have blocked one or more pop-ups. Please change your "
+"browser's settings to always allow pop-ups from grommunio Web."
+msgstr ""
+"Din browser har blokeret en eller flere pop-up vinduer. Ret venligst din "
+"browsers indstillinger til altid at tillade pop-up vinduer fra grommunio Web."
+
+msgid "Untitled"
+msgstr "Unavngivet"
+
+msgid ""
+"Cannot upload attachment, only {0} attachments are allowed to be added to "
+"the message"
+msgstr ""
+"Kan ikke uploade vedhæftning, kun {0} vedhæftninger er tilladt at tilføje "
+"til meddelelsen"
+
+msgid ""
+"Cannot upload attachment, attachment is {0} while the allowed maximum is {1}."
+msgstr ""
+"Kan ikke uploade vedhæftning, antallet af vedhæftninger er {0} mens det "
+"tilladte antal er max {1}."
+
+msgid ""
+"Cannot upload attachment, the total attachment size is {0} while the allowed "
+"maximum is {1}"
+msgstr ""
+"Kan ikke uploade vedhæftning, den totale vedhæftningstørrelse er {0} mens "
+"den højeste tilladte størrelse er {1}"
+
+msgid ""
+"Cannot upload attachment, total attachment is {0} while the allowed maximum "
+"attachment in single request is {1}."
+msgstr ""
+"Kunne ikke uploade vedhæftning, totalt antal vedhæftninger er {0} mens "
+"maksimalt vedhæftninger i en enkelt forespørgsel er {1}."
+
+msgid ""
+"Cannot upload attachment, total attachments are {0} files while the maximum "
+"{1} files are allowed in single request."
+msgstr ""
+"Kunne ikke uploade vedhæftning, totalt antal vedhæftninger er {0} filer mens "
+"maksimalt {1} filer er tilladt i en enkelt forespørgsel."
+
+#. TRANSLATORS: {0} indicates name/email address of secretary and {1} indicates boss' name/email address
+msgid "{0} on behalf of {1}"
+msgstr "{0} på vegne af {1}"
+
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
+msgid "jS F"
+msgstr "jS F"
+
+msgid "Y"
+msgstr "Y"
+
+msgid "Important"
+msgstr "Vigtigt"
+
+msgid "Work"
+msgstr "Arbejde"
+
+msgid "Personal"
+msgstr "Personlig"
+
+msgid "Holiday"
+msgstr "Ferie"
+
+msgid "Travel Required"
+msgstr "Kræver rejse"
+
+msgid "Preparation Required"
+msgstr "Kræver forberedelse"
+
+msgid "Special Date"
+msgstr "Speciel dato"
+
+msgid "Phone Interview"
+msgstr "Telefoninterview"
+
+msgid "Free"
+msgstr "Fri"
+
+msgid "Low"
+msgstr "Lav"
+
+msgid "Normal"
+msgstr "Normal"
+
+msgid "High"
+msgstr "Høj"
+
+msgid "Canceled"
+msgstr "Aflyst"
+
+msgid "Blue"
+msgstr "Blå"
+
+msgid "Green"
+msgstr "Grøn"
+
+msgid "Pink"
+msgstr "Rosa"
+
+msgid "White"
+msgstr "Hvid"
+
+msgid "Yellow"
+msgstr "Gul"
+
+msgid "No response"
+msgstr "Intet svar"
+
+msgid "Not responded"
+msgstr "Ikke svaret"
+
+msgid "Accepted"
+msgstr "Accepteret"
+
+msgid "Declined"
+msgstr "Afvist"
+
+msgid "Confidential"
+msgstr "Fortroligt"
+
+msgid "Not Started"
+msgstr "Ikke startet"
+
+msgid "In Progress"
+msgstr "I gang"
+
+msgid "Wait for other person"
+msgstr "Vent på anden person"
+
+msgid "Deferred"
+msgstr "Udsat"
+
+msgid "Dark"
+msgstr "Mørk"
+
+msgid "High Contrast"
+msgstr "Høj kontrast"
+
+msgid "Lime"
+msgstr "Limegrøn"
+
+msgid "Orange"
+msgstr "Orange"
+
+msgid "Purple"
+msgstr "Lilla"
+
+msgid "Logout"
+msgstr "Log ud"
+
+msgid "Switch view"
+msgstr "Skift visning"
+
+#, fuzzy
+msgid "Widgets"
+msgstr "Tilføj widgets"
+
+#, fuzzy
+msgid "Sending..."
+msgstr "Sender"
+
+msgid "Sent successfully"
+msgstr "Sendt med success"
+
+#, fuzzy
+msgid "No recipient"
+msgstr "Ret modtager"
+
+#, fuzzy
+msgid "Please specify at least one recipient"
+msgstr "Angiv en modtager"
+
+msgid "Please specify a recipient"
+msgstr "Angiv en modtager"
+
+msgid "The attached files are not uploaded yet."
+msgstr "De vedhæftede filer er endnu ikke uploadet."
+
+msgid "Do you want to send this message without attachments?"
+msgstr "Vil du sende denne meddelelse uden vedhæftninger?"
+
+#, fuzzy
+msgid "Attachments not uploaded yet"
+msgstr "Vedhæftningen kunne ikke hentes"
+
+msgid "Don't Send"
+msgstr "Send ikke"
+
+msgid "Send Anyway"
+msgstr "Send alligevel"
+
+#, fuzzy
+msgid "No subject"
+msgstr "intet emne"
+
+msgid "Send this message without a subject?"
+msgstr "Send denne meddelelse uden emne?"
+
+#, fuzzy
+msgid "Unresolved recipients"
+msgstr "Ret modtager"
+
+msgid "Not all recipients could be resolved"
+msgstr "Ikke alle modtagere kunne findes"
+
+msgid "Collapse hierarchy"
+msgstr "Luk hierarki"
+
+msgid "Expand hierarchy"
+msgstr "Udvid hierarki"
+
+msgid "Folders List"
+msgstr "Mappeliste"
+
+#, fuzzy
+msgid "Copy Details"
+msgstr "Vis detaljer"
+
+#, fuzzy
+msgid "Hide Details"
+msgstr "Detaljer"
+
+msgid "Loaded {0} of {1}"
+msgstr "Hentet {0} af {1}"
+
+msgid "Saving"
+msgstr "Gemmer"
+
+msgid "Saved"
+msgstr "Gemt"
+
+msgid "Saved successfully"
+msgstr "Gemt succesfuldt"
+
+#, fuzzy
+msgid ""
+"You will lose all unsaved work. Are you sure you want to close this window?"
+msgstr ""
+"Du vil miste alle dine ugemte ændringer. Er du sikker på at du vil lukke "
+"dette vindue?"
+
+msgid "grommunio Content Panel"
+msgstr "grommunio indholdspanel"
+
+#, fuzzy
+msgid "Delete item"
+msgstr "Slet elementer"
+
+msgid "This item has been changed. Are you sure you want to delete it?"
+msgstr "Elementet er blevet ændret. Er du sikker på du vil slette det?"
+
+msgid "Unsaved changes"
+msgstr ""
+
+msgid "Welcome to grommunio Web"
+msgstr ""
+
+#, fuzzy
+msgid "This is the first time you are using grommunio Web. "
+msgstr ""
+"Dette er den første gang du bruger grommunio Web. <br/>Tjek venligst de "
+"følgende indstillinger inden du fortsætter."
+
+#, fuzzy
+msgid "Please check the following settings before continuing."
+msgstr ""
+"Dette er den første gang du bruger grommunio Web. <br/>Tjek venligst de "
+"følgende indstillinger inden du fortsætter."
+
+#, fuzzy
+msgid "Widget height"
+msgstr "Tilføj widgets"
+
+msgid "pixels"
+msgstr ""
+
+msgid "Configure widget"
+msgstr "Konfigurer widget"
+
+msgid "Reload interval"
+msgstr "Genindlæsningsinterva"
+
+#, fuzzy
+msgid "seconds"
+msgstr "sekunder."
+
+#, fuzzy
+msgid "Open in new tab"
+msgstr "Åbn i nyt browser vindue"
+
+msgid "Add widgets"
+msgstr "Tilføj widgets"
+
+msgid "No widgets installed."
+msgstr "Ingen widgets er installeret"
+
+#, fuzzy
+msgid "Remove widget"
+msgstr "Fjern billede"
+
+#, fuzzy
+msgid "Collapse widget"
+msgstr "Luk widget panel"
+
+#, fuzzy
+msgid "Expand widget"
+msgstr "Udvid widget panel"
+
+msgid "About this widget"
+msgstr ""
+
+#, fuzzy
+msgid "Add new widget"
+msgstr "Tilføj widgets"
+
+msgid "Collapse widget panel"
+msgstr "Luk widget panel"
+
+msgid "Expand widget panel"
+msgstr "Udvid widget panel"
+
+msgid "Your changes will be lost if you leave this page now."
+msgstr "Dine ændringer vil gå tabt hvis du forlader siden nu."
+
+msgid "D {0}"
+msgstr ""
+
+#, fuzzy
+msgid "D d-m"
+msgstr "D, d.m.Y"
+
+msgid ""
+"Not enough permissions to open this store, do you want to remove it from the "
+"hierarchy?"
+msgstr ""
+"Du har ikke tilstrækkelige rettigheder til at åbne postkassen, vil du fjerne "
+"den fra hierarkiet?"
+
+msgid ""
+"Not enough permissions to open this folder, do you want to remove it from "
+"the hierarchy?"
+msgstr ""
+"Du har ikke tilstrækkelige rettigheder til at åbne denne mappe, vil du "
+"fjerne den fra hierarkiet?"
+
+#, fuzzy
+msgid "Insufficient Permissions"
+msgstr "Ikke tilstrækkelige rettigheder"
+
+msgid "Not enough permissions to open this folder."
+msgstr "Du har ikke tiltrækkelige rettigheder til at åbne denne mappe."
+
+#, fuzzy
+msgid "There is {0} unread message in the folder {1} of {2}"
+msgid_plural "There are {0} unread messages in the folder {1} of {2}"
+msgstr[0] "Der er {0} ulæst meddelelse i mappen {1}"
+msgstr[1] "Der er {0} ulæste meddelelser i mappen {1}"
+
+msgid "There is {0} unread message in the folder {1}"
+msgid_plural "There are {0} unread messages in the folder {1}"
+msgstr[0] "Der er {0} ulæst meddelelse i mappen {1}"
+msgstr[1] "Der er {0} ulæste meddelelser i mappen {1}"
+
+msgid "Publishing Editor"
+msgstr "Ansvarshavende redaktør"
+
+#, fuzzy
+msgid "Editor"
+msgstr "Ret"
+
+msgid "Publishing Author"
+msgstr "Ansvarshavende forfatter"
+
+msgid "Author"
+msgstr "Forfatter"
+
+msgid "Nonediting Author"
+msgstr "Ikkeredigerende forfatter"
+
+msgid "Reviewer"
+msgstr "Korrekturlæser"
+
+msgid "Contributor"
+msgstr "Bidragyder"
+
+msgid "Unable to import:"
+msgstr ""
+
+#, fuzzy
+msgid "The files are not valid"
+msgstr "De vedhæftede filer er endnu ikke uploadet."
+
+msgid "Create New Folder"
+msgstr "Opret ny mappe"
+
+msgid "Folder contains"
+msgstr "Mappen indeholder"
+
+msgid "Calendar Items"
+msgstr "Kalender elementer"
+
+msgid "Mail and Post Items"
+msgstr "Mail og post elementer"
+
+msgid "Contacts Items"
+msgstr "Kontakt elementer"
+
+msgid "Note Items"
+msgstr "Note elementer"
+
+msgid "Task Items"
+msgstr "Opgave elementer"
+
+msgid "Select where to place the folder"
+msgstr "Vælg hvor du vil placere mappen"
+
+#, fuzzy
+msgid "No folder name"
+msgstr "Mappenavn"
+
+#, fuzzy
+msgid "No destination"
+msgstr "Ingen information"
+
+msgid "You must select a destination folder."
+msgstr "Du skal vælge en destinations mappe."
+
+msgid "Properties"
+msgstr "Egenskaber"
+
+msgid "Type"
+msgstr "Type"
+
+msgid "Description"
+msgstr "Beskrivelse"
+
+msgid "EntryID"
+msgstr ""
+
+msgid "Parent EID"
+msgstr ""
+
+msgid "Folder size"
+msgstr "Mappestørrelse"
+
+msgid "Folder containing {0} Items"
+msgstr "Mappen indeholder {0} elementer"
+
+msgid "Permissions"
+msgstr "Tilladelser"
+
+msgid "No permissions granted"
+msgstr "Ingen tilladelser er givet"
+
+msgid "Profile"
+msgstr "Profil"
+
+msgid "Read"
+msgstr "Læs"
+
+msgid "Full Details"
+msgstr "Alle detaljer"
+
+msgid "Write"
+msgstr "Skriv"
+
+msgid "Create items"
+msgstr "Opret elementer"
+
+msgid "Create subfolders"
+msgstr "Opret undermapper"
+
+msgid "Edit own"
+msgstr "Rediger egne"
+
+msgid "Edit all"
+msgstr "Rediger alle"
+
+msgid "Delete items"
+msgstr "Slet elementer"
+
+msgid "Own"
+msgstr "Ejer"
+
+msgid "All"
+msgstr "Alle"
+
+msgid "Folder owner"
+msgstr "Mappeejer"
+
+msgid "Folder contact"
+msgstr "Mappekontakt"
+
+msgid "Folder visible"
+msgstr "Folder synlig"
+
+msgid "User already exists"
+msgstr "Brugeren eksistere allerede"
+
+msgid "Group already exists"
+msgstr "Gruppen eksistere allerede"
+
+msgid "Folder Size"
+msgstr "Mappestørrelse"
+
+msgid "Folder Name"
+msgstr "Mappenavn"
+
+msgid "Size (without subfolders)"
+msgstr "Størrelse (uden undermapper)"
+
+msgid "Total size (including subfolders)"
+msgstr "Total størrelse"
+
+msgid "Loading subfolder sizes"
+msgstr "Henter undermappe størrelser"
+
+msgid "No subfolders present"
+msgstr "Ingen undermapper eksistere"
+
+msgid "Subfolder"
+msgstr "Undermappe"
+
+msgid "Sort by: Name of the subfolder"
+msgstr "Sorter efter: Navn på undermappe"
+
+msgid "Sort by: Size (without subfolders)"
+msgstr "Sorter efter: Størrelse (uden undermapper)"
+
+msgid "Total size"
+msgstr "Total størrelse"
+
+msgid "Sort by: Total size (including subfolders)"
+msgstr "Sorter efter: Total størrelse (med undermapper)"
+
+msgid "Open Shared Folders"
+msgstr "Åbn delt mappe"
+
+#, fuzzy
+msgid "Unresolved user"
+msgstr "Kunne ikke finde bruger."
+
+msgid "Username '{0}' could not be resolved."
+msgstr "Brugernavn '{0}' kunne ikke findes."
+
+msgid "Invalid user"
+msgstr ""
+
+msgid "Username '{0}' is not a valid user."
+msgstr "Brugernavn '{0}' er ikke en gyldig bruger."
+
+#, fuzzy
+msgid "Own store"
+msgstr "Mangler postkasse"
+
+#, fuzzy
+msgid "It is not possible to open your own store twice."
+msgstr "Det er ikke muligt at åbne din egen postkasse to gange"
+
+#, fuzzy
+msgid "Folder already open"
+msgstr "Den delte mappe er allerede åben."
+
+msgid "This shared folder is already open."
+msgstr "Den delte mappe er allerede åben."
+
+msgid "No user"
+msgstr ""
+
+#, fuzzy
+msgid "You must specify a user"
+msgstr "Du skal angive et brugernavn."
+
+msgid "Folder type"
+msgstr "Mappetype"
+
+msgid "Show subfolders"
+msgstr "Vis undermapper"
+
+msgid "Open shared folder/store"
+msgstr "Åbn delt folder/lager"
+
+msgid "Rename folder"
+msgstr ""
+
+#, fuzzy
+msgid "Empty folder"
+msgstr "Tøm mappe"
+
+#, fuzzy
+msgid "Empty Junk Email"
+msgstr "Uønsket post"
+
+#, fuzzy
+msgid "Empty Deleted Items"
+msgstr "Slettede elementer"
+
+msgid "Rename Folder"
+msgstr "Omdøb mappe"
+
+msgid "New Folder"
+msgstr "Ny mappe"
+
+msgid "Mark All Messages Read"
+msgstr "Marker alle meddelelser som læst"
+
+msgid "Delete Folder"
+msgstr "Slet mappe"
+
+msgid "Close store"
+msgstr "Luk lager"
+
+msgid "Close folder"
+msgstr "Luk folder"
+
+msgid "Reload"
+msgstr "Opdater"
+
+msgid "Restore items"
+msgstr "Genskab elementer"
+
+msgid "Select color"
+msgstr "Vælg farve"
+
+msgid "Add to Favorites"
+msgstr "Tilføj til favoritter"
+
+msgid "Remove From Favorites"
+msgstr "Fjern fra favoritter"
+
+#, fuzzy
+msgid "Share folder..."
+msgstr "Start mappe"
+
+#, fuzzy
+msgid "Import emails"
+msgstr "Vigtigt"
+
+#, fuzzy
+msgid "Import appointments"
+msgstr "Ny aftale"
+
+msgid "Import contacts"
+msgstr ""
+
+#, fuzzy
+msgid "Properties of {0}"
+msgstr "Egenskaber"
+
+msgid "Share {0} with..."
+msgstr ""
+
+#, fuzzy
+msgid "Properties of {0} - {1}"
+msgstr "Egenskaber"
+
+msgid ""
+"Are you sure you want to permanently delete all the items and subfolders in "
+"the \"{0}\" folder?"
+msgstr ""
+"Er du sikker på at du vil slette alle elementer og undermapper permanent i "
+"mappen \"{0}\"?"
+
+msgid ""
+"Are you sure you want to delete the folder \"{0}\" and move all of its "
+"contents into the Deleted Items folder?"
+msgstr ""
+"Er du sikker på at du vil slette mappen \"{0}\" og flytte hele dens indhold "
+"til mappen \"Slettede elementer\"?"
+
+#, fuzzy
+msgid "Delete folder"
+msgstr "Slet mappe"
+
+msgid "Are you sure you want to empty {0}?"
+msgstr "Er du sikker på du vil tømme {0}?"
+
+msgid "Show All"
+msgstr ""
+
+msgid "Show all folders"
+msgstr "Vis alle mapper"
+
+msgid ""
+"You have insufficient privileges to move this folder. Would you like to copy "
+"instead?"
+msgstr ""
+
+msgid "CC"
+msgstr "CC"
+
+msgid "BCC"
+msgstr "BCC"
+
+msgid "Sort by: Importance"
+msgstr "Sorter efter: Vigtighed"
+
+msgid "Sort by: To"
+msgstr "Sorter efter: Til"
+
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
+msgid "Sent"
+msgstr "Sendt"
+
+msgid "Red"
+msgstr "Rød"
+
+msgid "Original message"
+msgstr "Original meddelelse"
+
+msgid "Schedule mail to be sent out"
+msgstr "Planlæg udsendelse af mail"
+
+msgid "Scheduled Items"
+msgstr "Planlagte elementer"
+
+msgid "Your message will be sent at "
+msgstr "Din meddelelse vil blive sendt "
+
+#, fuzzy
+msgid "Go to your Outbox to edit your email."
+msgstr "Gå til din <b>Udbakke</b> for at redigere din meddelelse."
+
+msgid "hour(s)"
+msgstr "time(r)"
+
+msgid "month(s)"
+msgstr "måned(er)"
+
+msgid "at a specific time"
+msgstr "på et specifikt tidspunkt"
+
+msgid "The time you entered is in the past. Please reschedule your mail."
+msgstr "Tidspunktet du angav er i fortiden. Angiv venligst nyt tidspunkt."
+
+msgid "today  at "
+msgstr "i dag "
+
+msgid "tomorrow  at "
+msgstr "i morgen "
+
+msgid "{0} at "
+msgstr "{0} om "
+
+msgid "at {0}"
+msgstr "om {0}"
+
+msgid "Your email will be sent {0}{1}"
+msgstr "Din email vil blive sendt {0}{1}"
+
+msgid "Saving..."
+msgstr "Gemmer..."
+
+#, fuzzy
+msgid "Saved at {0}"
+msgstr "Meddelelsen er gemt på {0}."
+
+#, fuzzy
+msgid "Saving failed"
+msgstr "Operationen mislykkedes"
+
+msgid "Message Options"
+msgstr "Meddelelses muligheder"
+
+msgid "This message will be flagged for follow up when it is sent."
+msgstr ""
+
+msgid "Send Later"
+msgstr "Send senere"
+
+#, fuzzy
+msgid "Schedule your mail to be sent on a specific date and time"
+msgstr "Planlæg at sende emailen på et specifikt angivet dato og tidspunkt."
+
+msgid "Add attachments to this email"
+msgstr "Tilføj vedhæftning til denne email"
+
+msgid "Add signature"
+msgstr "Tilføj signatur"
+
+msgid "Options"
+msgstr "Muligheder"
+
+msgid "Open options dialog"
+msgstr "Åbne dialogboksen Muligheder"
+
+msgid "Set flag"
+msgstr "Sæt flag"
+
+msgid "Set flag on this email"
+msgstr "Sæt flag på denne email"
+
+msgid "Mark this mail as high priority"
+msgstr "Marker denne mail som høj prioritet"
+
+msgid "Mark this mail as low priority"
+msgstr "Marker denne mail som lav prioritet"
+
+msgid "Set read receipt"
+msgstr "Sæt læsnings kvittering"
+
+msgid "Request read receipt from recipients"
+msgstr "Anmod om læsnings kvittering fra modtagere"
+
+msgid "Show Bcc"
+msgstr "Vis Bcc"
+
+#, fuzzy
+msgid "Show Bcc field"
+msgstr "Vis Bcc"
+
+#, fuzzy
+msgid "Show From field"
+msgstr "Vis fra"
+
+msgid "Cannot save while attachment is being uploaded"
+msgstr ""
+
+msgid "Miscellaneous Options"
+msgstr "Diverse muligheder"
+
+msgid "Internet Headers"
+msgstr "Internet brevhoveder"
+
+msgid "Message Settings"
+msgstr "Meddelelses indstillinger"
+
+msgid "Tracking Options"
+msgstr "Sporingsmuligheder"
+
+msgid "Request a read receipt for this message."
+msgstr "Anmod om kvittering af læsning for denne meddelelse."
+
+msgid "no subject"
+msgstr "intet emne"
+
+msgid "Set Category"
+msgstr "Sæt kategori"
+
+msgid "Pop-Out"
+msgstr "Pop-ud"
+
+msgid "Mark Read"
+msgstr "Marker som læst"
+
+msgid "Mark Unread"
+msgstr "Marker som ulæst"
+
+msgid "New mail"
+msgstr "Ny mail"
+
+msgid "Mail"
+msgstr "Mail"
+
+msgid "Reply all"
+msgstr "Svar alle"
+
+msgid "Toggle read/unread"
+msgstr "Flip læst/ulæst"
+
+msgid "Toggle red/complete flag"
+msgstr "Flip rød/komplet flag"
+
+msgid "Open Shared Mails"
+msgstr "Åbn delt mail"
+
+#, fuzzy
+msgid "Print single email"
+msgstr "Udskriv enkelt email"
+
+#, fuzzy
+msgid "Print selected email"
+msgstr "Udskriv det valgte element"
+
+#, fuzzy
+msgid "Filter"
+msgstr "Filtrer.."
+
+msgid "FW"
+msgstr "VS"
+
+msgid "RE"
+msgstr "SV"
+
+msgid "on behalf of"
+msgstr ""
+
+msgid "Safe Senders list is empty"
+msgstr ""
+
+msgid "Please select a safe sender record."
+msgstr ""
+
+msgid "Delete all safe senders"
+msgstr ""
+
+msgid "Are you sure you want to delete all safe senders?"
+msgstr ""
+
+msgid "HTML"
+msgstr "HTML"
+
+msgid "Plain Text"
+msgstr "Klar tekst"
+
+msgid "Compose mail settings"
+msgstr "Indstillinger for redigering af email"
+
+msgid "Compose mail in this format"
+msgstr "Skriv ny email med denne formattering"
+
+msgid "Default font"
+msgstr "Standard skrifttype"
+
+msgid "Default font size"
+msgstr "Standard skriftstørrelse"
+
+msgid "Always request a read receipt"
+msgstr "Bed altid om kvittering for læsning"
+
+#. TRANSLATORS: The {A} _must_ always be at the start of the translation
+#. The '{B}' represents the number of minutes which the user will type in.
+msgid "{A}AutoSave unsent mail every {B} minute(s)"
+msgstr "{A}Gem automatisk usendt email hvert {B} minut(ter)"
+
+msgid "Conversation view settings"
+msgstr ""
+
+msgid "Enable conversation view"
+msgstr ""
+
+msgid "Collapse conversation when selecting a different email"
+msgstr ""
+
+msgid "Incoming mail"
+msgstr "Indkommende email"
+
+msgid "How to respond to requests for read receipts"
+msgstr "Hvordan skal læsebekræftelser besvares"
+
+msgid "Always send a response"
+msgstr "Altid send svar"
+
+msgid "Never send a response"
+msgstr "Aldrig send svar"
+
+msgid "Ask me before sending a response"
+msgstr "Spørg mig før der sendes svar"
+
+#. TRANSLATORS: The {A} _must_ always be at the start of the translation
+#. The '{B}' represents the number of seconds which the user will type in.
+msgid "{A}Automatically mark mail as read after {B} second(s)"
+msgstr "{A}Automatisk merker emails som læst efter {B} sekund(er)"
+
+msgid "Off"
+msgstr "Fra"
+
+msgid "Right"
+msgstr "Højre"
+
+msgid "Bottom"
+msgstr "Bund"
+
+msgid "Location of preview pane"
+msgstr "Placering af forhåndsvisningsrude"
+
+msgid "Use English abbreviations for forward (FW:) and reply (RE:)"
+msgstr ""
+
+msgid "Close original message on reply or forward"
+msgstr ""
+"Luk den oprindelige meddelelse efter du har svaret eller videresendt den"
+
+msgid "General mail settings"
+msgstr "Generelle email indstillinger"
+
+msgid "Open or compose a mail item in a"
+msgstr "Åbn eller rediger en email"
+
+msgid "grommunio Web tab"
+msgstr "grommunio Web fane"
+
+msgid "Browser window"
+msgstr "Browser vindue"
+
+msgid "Update Out of Office settings for"
+msgstr ""
+
+msgid "I am currently in the office"
+msgstr "Jeg er på kontoret"
+
+msgid "I am out of the office from"
+msgstr "Jeg er fraværende"
+
+msgid "I will be back on"
+msgstr "Jeg er tilbage på"
+
+#, fuzzy
+msgid "Automatically reply once per day, per sender with the following text"
+msgstr "Autosvar hver afsender en gang med denne tekst"
+
+msgid "Inside My Organization"
+msgstr ""
+
+msgid "Outside My Organization"
+msgstr ""
+
+msgid "Auto-reply to people outside my organization"
+msgstr ""
+
+msgid "My contacts only"
+msgstr ""
+
+msgid "Anyone outside my organization"
+msgstr ""
+
+msgid ""
+"The time you entered is before the out of office date. Please reschedule."
+msgstr ""
+"Tidspunktet som du har opgivet er før starten af dit fravær. Angiv venligst "
+"et nyt tidspunkt."
+
+msgid "Safe Senders"
+msgstr ""
+
+msgid ""
+"To protect your privacy email addresses or domains can only be added via the "
+"\"Add to safe sender list\" functionality in an opened email."
+msgstr ""
+
+msgid "Delete all"
+msgstr ""
+
+msgid "Signatures"
+msgstr "Signaturer"
+
+msgid "No signatures configured"
+msgstr "Ingen signatur er konfigureret"
+
+msgid "New messages"
+msgstr ""
+
+msgid "Replies/forwards"
+msgstr ""
+
+msgid "Signature name:"
+msgstr ""
+
+#, fuzzy
+msgid "Save Signature"
+msgstr "Signaturer"
+
+msgid "You have unsaved changes. Do you wish to save the changes?"
+msgstr "Du har ugemte ændringer. Vil du gemme disse ændringer?"
+
+msgid "New signature"
+msgstr "Ny signatur"
+
+msgid "EML file(s)"
+msgstr ""
+
+#, fuzzy
+msgid "ZIP file"
+msgstr "Profil"
+
+msgid "max. "
+msgstr "maks "
+
+msgid "Sort by: Sent"
+msgstr "Sorter efter: Sendt"
+
+msgid "Modified"
+msgstr "Ændret"
+
+msgid "Sort by: Modified"
+msgstr "Sorter efter: Ændret"
+
+msgid "Flag"
+msgstr "Flag"
+
+msgid "Sort by: flag"
+msgstr ""
+
+#, fuzzy
+msgid "Older"
+msgstr "Mapper"
+
+msgid "Yesterday"
+msgstr ""
+
+#, fuzzy
+msgid "Last Week"
+msgstr "Forrige uge"
+
+msgid "Two Weeks Ago"
+msgstr ""
+
+msgid "Three Weeks Ago"
+msgstr ""
+
+#, fuzzy
+msgid "Last Month"
+msgstr "Forrige måned"
+
+msgid "Small"
+msgstr ""
+
+msgid "Medium"
+msgstr ""
+
+msgid "Large"
+msgstr ""
+
+msgid "Very large"
+msgstr ""
+
+msgid "Huge"
+msgstr ""
+
+msgid "Follow up"
+msgstr "Opfølgning"
+
+msgid "Move to Junk Folder"
+msgstr "Flyt til spam mappen"
+
+#, fuzzy
+msgid "Send to"
+msgstr "Send"
+
+msgid "Loading mail"
+msgstr "Henter mail"
+
+msgid "No unread mail."
+msgstr "Ingen ulæst post."
+
+msgid "Unread Mail"
+msgstr "Ulæst post"
+
+msgid "Quick Mail"
+msgstr "Hurtig email"
+
+#, fuzzy
+msgid "Print note"
+msgstr "Udskriv note"
+
+msgid "Color"
+msgstr "Farve"
+
+msgid "New note"
+msgstr "Ny note"
+
+msgid "Open Shared Notes"
+msgstr "Åbn delte noter"
+
+msgid "Sticky note"
+msgstr "Fastgjort note"
+
+msgid "Print selected note"
+msgstr "Print den valgte note"
+
+msgid "No note selected"
+msgstr "Ingen note er valgt"
+
+msgid "Icons"
+msgstr "Ikoner"
+
+msgid "List view"
+msgstr "Liste visning"
+
+msgid "List Last Seven Days"
+msgstr "Vis de sidste syv dage"
+
+msgid "Created"
+msgstr "Oprettet"
+
+msgid "Sort by: Created"
+msgstr "Sorter efter: Oprettet"
+
+msgid "Sort by: Color"
+msgstr "Sorter efter: Farve"
+
+msgid "Loading Notes"
+msgstr "Henter noter"
+
+msgid "Loading notes"
+msgstr "Henter noter"
+
+msgid "Quick Note"
+msgstr "Hurtig note"
+
+#, fuzzy
+msgid ""
+"You must reload grommunio Web for the changes to take effect. Unsaved "
+"changes will be lost."
+msgstr ""
+"For at ændringerne skal træde i kræft, skal du genindlæse grommunio Web."
+
+#, fuzzy
+msgid "Reload grommunio Web"
+msgstr "grommunio Web"
+
+msgid "Settings"
+msgstr "Indstillinger"
+
+msgid "Basic"
+msgstr "Basal"
+
+msgid "Account information - {0}"
+msgstr ""
+
+msgid "Profile Picture"
+msgstr ""
+
+msgid "Language"
+msgstr "Sprog"
+
+msgid "Startup folder"
+msgstr "Start mappe"
+
+msgid "Theme"
+msgstr "Tema"
+
+msgid "Select Default Folder"
+msgstr "Vælg standardmappe"
+
+msgid "Advanced"
+msgstr "Avanceret"
+
+msgid "Advanced settings"
+msgstr "Avancerede indstillinger"
+
+msgid "Developer tools"
+msgstr ""
+
+msgid "Show insertion points in grommunio Web"
+msgstr ""
+
+msgid "Show \"item data\" button in context menu (mail only)"
+msgstr ""
+
+msgid "Edit setting"
+msgstr "Rediger indstilling"
+
+msgid "Restore to defaults"
+msgstr "Genskab til standard"
+
+msgid "Delete settings"
+msgstr "Slet indstillinger"
+
+#, fuzzy
+msgid "{0} Iconset"
+msgstr "Ikoner"
+
+msgid "About"
+msgstr "Om"
+
+msgid "I want to display date and time in this format:"
+msgstr ""
+
+msgid "Short"
+msgstr ""
+
+msgid "Long"
+msgstr ""
+
+msgid "Time format:"
+msgstr ""
+
+msgid "12h clock"
+msgstr ""
+
+msgid "24h clock"
+msgstr ""
+
+#, fuzzy
+msgid "Favorite settings"
+msgstr "Repræsentant indstillinger"
+
+#, fuzzy
+msgid "Hide favorites"
+msgstr "Tilføj til favoritter"
+
+msgid "Unpin favorites from top"
+msgstr ""
+
+msgid "Give unread items a colored border"
+msgstr ""
+
+msgid "Show 'help' button in top-right corner"
+msgstr ""
+
+msgid "Show unread mail counter in application title"
+msgstr ""
+
+msgid "Hide widget panel"
+msgstr ""
+
+msgid "Show search bar above folder list"
+msgstr ""
+
+msgid "Auto"
+msgstr ""
+
+msgid "Actual size"
+msgstr ""
+
+msgid "Page width"
+msgstr ""
+
+msgid "Attachment preview (PDF and Open formats)"
+msgstr ""
+
+msgid "Document default zoom"
+msgstr ""
+
+msgid "PDF zoom"
+msgstr ""
+
+msgid "File previewing"
+msgstr ""
+
+msgid "Inbox navigation"
+msgstr "Indbakke navigation"
+
+msgid "I want to navigate through my items by using."
+msgstr "Jeg vil navigere i mine elementer ved at bruge."
+
+msgid "Infinite Scroll"
+msgstr "Uendelig rulning"
+
+msgid "grommunio Web automatically loads additional items when you scroll down"
+msgstr ""
+"grommunio Web henter automatisk yderligere elementer når du scroller ned"
+
+msgid "Pagination"
+msgstr "Paginering"
+
+msgid ""
+"grommunio Web displays items on pages and you can use navigation controls to "
+"navigate"
+msgstr ""
+"grommunio Web viser elementer på enkeltsider og du kan bladre igennem disse"
+
+msgid "Load items in blocks of {A}"
+msgstr "Hent elementer i blokke af {A}"
+
+msgid "Load {A} items per page."
+msgstr "Hent {A} elementer pr. side."
+
+msgid "Keyboard Shortcuts"
+msgstr "Genvejstaster"
+
+msgid "Part of basic keyboard shortcuts"
+msgstr "Del af standard genvejstaster"
+
+msgid "Keyboard shortcuts off"
+msgstr "Slå genvejstaster fra"
+
+msgid "Basic keyboard shortcuts on"
+msgstr "Slå standard genvejstaster til"
+
+msgid "All keyboard shortcuts on"
+msgstr "Slå alle genvejstaster til"
+
+msgid "This change requires a reload of grommunio Web"
+msgstr ""
+
+msgid "Plugins"
+msgstr "Udvidelser"
+
+msgid "Available plugins"
+msgstr "Tilgængelige udvidelser"
+
+msgid "No plugins available"
+msgstr "Ingen udvidelser er tilgængelige"
+
+msgid "Version"
+msgstr "Version"
+
+msgid "This plugin cannot be disabled"
+msgstr "Denne udvidelse kan ikke slås fra"
+
+msgid "This plugin cannot be enabled"
+msgstr "Denne udvidelse kan ikke slås til"
+
+msgid "Mailbox Usage"
+msgstr "Postkasse forbrug"
+
+msgid "A quota is not set on your store."
+msgstr ""
+
+msgid "{0} of mailbox space is used."
+msgstr "{0} af postkassen er brugt."
+
+msgid "You have exceeded hard quota, you can not send or receive mails."
+msgstr ""
+
+msgid "At {0} you won't be able to send mails."
+msgstr "På {0} vil du ikke kunne sende emails."
+
+msgid ""
+"You can not send mails as you have exceeded soft quota, at {0} you won't be "
+"able to receive mails."
+msgstr ""
+
+msgid "At {0} you won't be able to send or receive mails."
+msgstr ""
+
+msgid "You can not send mails as you have exceeded soft quota."
+msgstr "Du kan ikke sende emails da du har overskredet kvoten."
+
+#, fuzzy
+msgid "Reset settings"
+msgstr "Slet indstillinger"
+
+#, fuzzy
+msgid "Reset settings to their original defaults."
+msgstr "Nulstil grommunio Webs indstillinger til de originale"
+
+msgid ""
+"This will close all opened shared stores and resets all settings to the "
+"default value."
+msgstr ""
+
+#, fuzzy
+msgid ""
+"grommunio Web will automatically reload in order for these changes to take "
+"effect"
+msgstr ""
+"grommunio Web vil automatisk genindlæses for at disse ændringer kan træde i "
+"kraft"
+
+msgid "Reset"
+msgstr "Nulstil"
+
+#, fuzzy
+msgid "Reloading, Please wait."
+msgstr "Webapp genindlæser, vent venligst."
+
+msgid "Setting"
+msgstr "Indstilling"
+
+msgid "The setting '{0}' can not be edited"
+msgstr "Indstillingen '{0}' kan ikke redigeres"
+
+msgid "Version information"
+msgstr "Versions information"
+
+msgid "Gromox"
+msgstr "Gromox"
+
+msgid "Delete confirmation"
+msgstr "Slet bekræftelse"
+
+msgid "Deleting the item(s) will also delete the original item(s)."
+msgstr ""
+
+msgid "Do you want to delete the item(s)?"
+msgstr "Vil du slette element(erne)?"
+
+msgid "Sort by: Priority"
+msgstr "Sorter efter: Prioritet"
+
+msgid "Status"
+msgstr "Status"
+
+msgid "Sort by: Status"
+msgstr "Sorter efter: Status"
+
+msgid "Due Date"
+msgstr "Forfaldsdato"
+
+msgid "Sort by: Due Date"
+msgstr "Sorter efter: Forfaldsdato"
+
+msgid "% Completed"
+msgstr "% komplet"
+
+msgid "Sort by: Percent Completed"
+msgstr "Sorter efter: procent udført"
+
+msgid "Task Status"
+msgstr "Opgave status"
+
+msgid "Percent Complete"
+msgstr "Procent udført"
+
+msgid "Total Work"
+msgstr "Total tid"
+
+msgid "Actual Work"
+msgstr "Forbrugt tid"
+
+msgid "Companies"
+msgstr "Firmaer"
+
+msgid "Billing Information"
+msgstr "Fakturainformation"
+
+msgid "Mileage"
+msgstr "Fremskridt"
+
+msgid "Accepting Task"
+msgstr "Godkend opgave"
+
+msgid "Declining Task"
+msgstr "Afslår opgave"
+
+#, fuzzy
+msgid ""
+"This task will be accepted and moved to your task folder. Do you want to "
+"include comments with your response?"
+msgstr ""
+"Dette møde er blevet accepteret og vil blive flyttet til din kalender. Vil "
+"du skrive nogle kommentarer i dit svar?"
+
+msgid ""
+"This task will be declined and moved into the Deleted Items folder. Do you "
+"want to edit the response before sending it?"
+msgstr ""
+"Opgaven er afvist og flyttet til skrald. Vil du redigere svaret før det "
+"afsendes?"
+
+msgid "Send the response now"
+msgstr "Send svaret nu"
+
+msgid "Date Complete"
+msgstr "Dato fuldført"
+
+msgid "Multiple companies name must be separated by"
+msgstr ""
+
+msgid "Update List"
+msgstr "Opdater liste"
+
+msgid "Create Unassigned Copy"
+msgstr "Opret ikke-tildelt kopi"
+
+msgid "copy"
+msgstr "kopi"
+
+msgid "Unable to send task request"
+msgstr ""
+
+msgid "You cannot send a task request to yourself."
+msgstr "Du kan ikke sende en opgaveforespørgsel til dig selv."
+
+#, fuzzy
+msgid "Multiple recipients"
+msgstr "Vis modtager"
+
+msgid "A task request can only have one recipient."
+msgstr "En opgave kan kun kun have en modtager."
+
+msgid "Due date"
+msgstr "Forfaldsdato"
+
+msgid "Priority"
+msgstr "Prioritet"
+
+msgid "% Complete"
+msgstr "% Komplet"
+
+msgid "Track progress"
+msgstr "Følg fremdrift"
+
+msgid "Keep updated copy of task and receive automated status reports"
+msgstr "Behold kopi af opgave og modtag løbende statusrapporter"
+
+msgid "Send task to assignees"
+msgstr "Send opgave til modtagere"
+
+msgid "Restore to Task List"
+msgstr "Genopret til opgaveliste"
+
+msgid "Delete this task"
+msgstr "Slet denne opgave"
+
+msgid "Add attachments to this task"
+msgstr "Tilføj vedhæftning til denne opgave"
+
+msgid "Mark as Complete"
+msgstr "Marker som komplet"
+
+msgid "Mark this task as complete"
+msgstr "Marker denne opgave som komplet"
+
+msgid "Print this task"
+msgstr "Udskriv denne opgave"
+
+msgid "Assign Task"
+msgstr "Tildel opgave"
+
+msgid "Cancel Assignment"
+msgstr "Fjern tildeling"
+
+msgid "Mark this task as private"
+msgstr "Marker denne opgave som privat"
+
+msgid "New task"
+msgstr "Ny opgave"
+
+#, fuzzy
+msgid "Completed"
+msgstr "Komplet"
+
+#, fuzzy
+msgid "Printed by: "
+msgstr "Sorter efter: Til"
+
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
+#, fuzzy
+msgid "Printed on: "
+msgstr "Udskriv note"
+
+msgid "Percent complete"
+msgstr "Procent udført"
+
+msgid "Total work"
+msgstr "Total tid"
+
+msgid "{totalwork} hours"
+msgstr "{totaltid} timer"
+
+msgid "Actual work"
+msgstr "Faktisk tid"
+
+msgid "{actualwork} hours"
+msgstr "{faktisktid} timer"
+
+msgid "Open Shared Tasks"
+msgstr "Åbn delte opgaver"
+
+msgid "Simple view"
+msgstr "Enkel visning"
+
+msgid "Detailed view"
+msgstr "Detaljeret visning"
+
+msgid "Task request"
+msgstr "Opgaveforespørgsel"
+
+msgid "Print selected task"
+msgstr "Udskriv den valgte opgave"
+
+msgid "No task selected"
+msgstr "Ingen opgave er valgt"
+
+msgid "Print task list"
+msgstr "Udskriv opgaveliste"
+
+msgid "Create task"
+msgstr "Opret opgave"
+
+msgid "Upcoming"
+msgstr ""
+
+msgid "Overdue"
+msgstr ""
+
+msgid "Mark Complete"
+msgstr "Marker som fuldført"
+
+msgid "Mark Incomplete"
+msgstr "Marker som ikke fuldført"
+
+#, fuzzy
+msgid "Remove from To-Do List"
+msgstr "Fjern fra favoritter"
+
+#, fuzzy
+msgid "Changes to assigned task"
+msgstr "Send opgave til modtagere"
+
+msgid ""
+"Please note that assigned task(s) will be overwritten when the assignee "
+"makes changes."
+msgstr ""
+
+msgid "Sort by: Complete"
+msgstr "Sorter efter: Komplet"
+
+msgid "Reminder Time"
+msgstr "Påmindelses tidspunkt"
+
+msgid "Sort by: Reminder Time"
+msgstr "Sorter efter: Påmindelsestidspunkt"
+
+msgid "Assigned To"
+msgstr "Tildelt til"
+
+msgid "Sort by: Assignee"
+msgstr "Sorter efter: Modtager"
+
+msgid "Sort by: Owner"
+msgstr "Sorter efter: Ejer"
+
+#, fuzzy
+msgid "Sort by: Percentage Completed"
+msgstr "Sorter efter: procent udført"
+
+#, fuzzy
+msgid "Assigned task changes"
+msgstr "Tildel opgave"
+
+msgid "Loading tasks"
+msgstr "Henter opgaver"
+
+msgid "Date completed"
+msgstr "Fuldført dato"
+
+msgid "hours"
+msgstr "timer"
+
+msgid "Billing information"
+msgstr "Fakturainformation"
+
+msgid "Update list"
+msgstr "Opdater liste"
+
+msgid "D d-m-Y"
+msgstr "D, d.m.Y"
+
+msgid "none"
+msgstr ""
+
+msgid "Quick Task"
+msgstr "Hurtig opgave"
+
+msgid "No tasks."
+msgstr "Ingen opgaver."
+
+msgid "Tasks / To-Do"
+msgstr ""
+
+#, fuzzy
+msgid "Import / Export"
+msgstr "Vigtigt"
+
+msgid ""
+"Calendar, contact and mail items can be imported and exported from and to "
+"grommunio Web."
+msgstr ""
+
+msgid ""
+"Right-click a folder and select the import button. Additionally, items can "
+"be imported from the attachment context menu."
+msgstr ""
+
+msgid "Exporting can be done from the context menu of an item."
+msgstr ""
+
+#, fuzzy
+msgid "Icon packs"
+msgstr "Ikoner"
+
+msgid ""
+"You can now choose between different icons. By default the new Breeze icons "
+"are enabled, but if you prefer the classic icons you can change this in the "
+"settings."
+msgstr ""
+
+msgid ""
+"Go to your settings, open the general tab and select an icon pack to your "
+"liking."
+msgstr ""
+
+msgid "Left: Breeze - Right: Classic"
+msgstr ""
+
+msgid "What's new"
+msgstr "Nyheder"
+
+msgid "Don't show me new features again."
+msgstr "Vis mig ikke nye features igen."
+
+msgid "Skip"
+msgstr "Skip"
+
+msgid "Previous"
+msgstr "Forrige"
+
+msgid "Next"
+msgstr "Næste"
+
+msgid "Click the link to open the URL in a new window."
+msgstr ""
+
+msgid "The server reported an unknown error on your request."
+msgstr "Serveren svarede med en ukendt fejl på din forespørgsel."
+
+msgid "The server reported an unspecified error on your request."
+msgstr "Serveren svarede med en uspecifiseret fejl på din forespørgsel."
+
+msgid "The session has expired, reauthentication is required."
+msgstr "Din session er udløbet, du skal logge på igen."
+
+msgid ""
+"The session in the current browser window has been closed from another "
+"browser window or tab."
+msgstr ""
+"Sessionen i dette browser vindue er blevet afsluttet fra et andet browser "
+"vindue eller tab."
+
+msgid "Session expired"
+msgstr "Sessionen er udløbet"
+
+msgid "Do you wish to be redirected to the logon page?"
+msgstr "Ønsker du at blive omstillet til login siden?"
+
+msgid "Reauthentication required, click here to go to back to logon page."
+msgstr "Nyt login kræves, klik her for at komme tilbage til login siden."
+
+msgid "Connection problem"
+msgstr "Problem med forbindelsen"
+
+msgid "Could not connect to server, retrying in {0} second(s)"
+msgstr "Kunne ikke forbinde til server, forsøger igen om {0} sekund(er)"
+
+msgid "Click to retry now"
+msgstr "Klik for at forsøge igen"
+
+msgid "Connection restored"
+msgstr "Forbindelsen er genoptaget"
+
+msgid "Connection with server has been restored"
+msgstr "Forbindelsen til serveren er blevet genoptaget"
+
+#. TRANSLATORS: Example: HTTP 404
+msgid "HTTP {0}"
+msgstr ""
+
+msgid "Invalid data received from the server"
+msgstr ""
+
+msgid "Missing store"
+msgstr "Mangler postkasse"
+
+msgid "The default store is missing from the hierarchy."
+msgstr "Standard postkassen mangler i hierarkiet."
+
+msgid ""
+"Not all functionality of grommunio Web might be working properly because of "
+"this."
+msgstr ""
+"På grund af dette er det ikke sikkert at alle dele af webbrugerfladen "
+"fungerer."
+
+msgctxt "hierarchy.foldername"
+msgid "Inbox"
+msgstr "Indbakke"
+
+msgctxt "hierarchy.foldername"
+msgid "Outbox"
+msgstr "Udbakke"
+
+msgctxt "hierarchy.foldername"
+msgid "Sent Items"
+msgstr "Sendte elementer"
+
+msgctxt "hierarchy.foldername"
+msgid "Deleted items"
+msgstr "Slettede elementer"
+
+msgctxt "hierarchy.foldername"
+msgid "Calendar"
+msgstr "Kalender"
+
+msgctxt "hierarchy.foldername"
+msgid "Contacts"
+msgstr "Kontakter"
+
+msgctxt "hierarchy.foldername"
+msgid "Drafts"
+msgstr "Kladder"
+
+msgctxt "hierarchy.foldername"
+msgid "Journal"
+msgstr "Journal"
+
+msgctxt "hierarchy.foldername"
+msgid "Notes"
+msgstr "Noter"
+
+msgctxt "hierarchy.foldername"
+msgid "Tasks"
+msgstr "Opgaver"
+
+#, fuzzy
+msgctxt "hierarchy.foldername"
+msgid "Junk Email"
+msgstr "Uønsket post"
+
+msgid "Missing folders"
+msgstr "Mangler mapper"
+
+msgid "The following required folder is missing in the hierarchy: {0}"
+msgid_plural "The following required folders are missing in the hierarchy: {0}"
+msgstr[0] "Denne folder er nødvendig og mangler i hierarkiet: {0}"
+msgstr[1] "Disse foldere er nødvendige og mangler i hierarkiet: {0}"
+
+msgid "Loading model from server failed"
+msgstr "Indlæsning af modellen fra serveren er fejlet"
+
+#, fuzzy
+msgid "Out of Office is currently activated. Would you like to turn it off?"
+msgstr "\"Ude af kontoret\" er aktivt, vil du slå det fra?"
+
+msgid "Open Chat at start"
+msgstr ""
+
+msgid "Desktop Notifications Plugin"
+msgstr ""
+
+msgid "Desktop Notifications"
+msgstr ""
+
+msgid "{A} Autohide desktop notification after second(s) {B}"
+msgstr ""
+
+msgid "Intranet"
+msgstr ""
+
+msgid "Email Details"
+msgstr ""
+
+msgid "Item Data"
+msgstr ""
+
+msgid "Mobile Device Manager"
+msgstr ""
+
+msgid "Wiping device"
+msgstr ""
+
+msgid "Password incorrect"
+msgstr ""
+
+msgid "Full resync in progress"
+msgstr ""
+
+msgid "Username or password incorrect"
+msgstr ""
+
+msgid "Not Applicable"
+msgstr ""
+
+msgid "Wipe Pending"
+msgstr ""
+
+msgid "Wipe Requested"
+msgstr ""
+
+msgid "Wipe Executed"
+msgstr ""
+
+msgid "Not Available"
+msgstr ""
+
+msgid "Device"
+msgstr ""
+
+msgid "Operating System"
+msgstr ""
+
+msgid "ID"
+msgstr ""
+
+msgid "User Agent"
+msgstr ""
+
+msgid "MDM Plugin"
+msgstr ""
+
+msgid "Active Sync Version"
+msgstr ""
+
+msgid "grommunio-sync Version"
+msgstr ""
+
+msgid "Policy name"
+msgstr ""
+
+msgid "Outlook Extension"
+msgstr ""
+
+msgid "Build"
+msgstr ""
+
+msgid "Last updated"
+msgstr ""
+
+msgid "d F Y, H:i"
+msgstr ""
+
+msgid "Connected since"
+msgstr ""
+
+msgid "d F Y"
+msgstr ""
+
+msgid "Synchronize"
+msgstr ""
+
+msgid "Manage Shared Folders"
+msgstr ""
+
+msgid ""
+"Select folders to sync to your device from the list below. To add additional "
+"mailboxes to the list, open them in WebApp first."
+msgstr ""
+
+msgid "grommunio-sync"
+msgstr ""
+
+msgid "Mobile device management"
+msgstr ""
+
+msgid "Mobile Devices"
+msgstr ""
+
+msgid ""
+"Unable to connect to the grommunio-sync server. Click {0} to enter your "
+"credentials"
+msgstr ""
+
+msgid "Devices"
+msgstr ""
+
+msgid "No devices connected to your account"
+msgstr ""
+
+msgid "Last Update"
+msgstr ""
+
+msgid "Device ID"
+msgstr ""
+
+msgid "Device OS"
+msgstr ""
+
+msgid "Device Info"
+msgstr ""
+
+msgid "First Sync time"
+msgstr ""
+
+msgid "Full resync"
+msgstr ""
+
+msgid "Remove device"
+msgstr ""
+
+msgid "Please enter your username and password"
+msgstr ""
+
+msgid "Password"
+msgstr "Adgangskode"
+
+msgid "Username"
+msgstr "Brugernavn"
+
+msgid ""
+"Do you really want to wipe your device?\n"
+" Enter your password to confirm."
+msgstr ""
+
+msgid "Add meeting"
+msgstr ""
+
+msgid "Room name:"
+msgstr ""
+
+msgid "Room URL:"
+msgstr ""
+
+msgid "Shift-click for advanced settings"
+msgstr ""
+
+msgid "Join webmeeting"
+msgstr ""
+
+msgid "Open meeting in:"
+msgstr ""
+
+msgid "Web tab"
+msgstr ""
+
+msgid "Hide the button in the main toolbar"
+msgstr ""
+
+msgid "Add the subject to the room name"
+msgstr ""
+
+msgid "Add the organizer name to the room name"
+msgstr ""
+
+msgid "Add the URL to the meeting location rather than overwriting it"
+msgstr ""
+
+msgid ""
+"Prevent the URL in the meeting location from being overridden automatically "
+"(ex: when adding a meetingroom)"
+msgstr ""
+
+msgid "If you have problems when creating meetings, try disabling this setting"
+msgstr ""
+
+msgid "Add an invitation to the appointment description"
+msgstr ""
+
+msgid "Invitation text"
+msgstr ""
+
+msgid ""
+"must contain %url% as a placeholder for the meeting link, empty the textbox "
+"to reset to default"
+msgstr ""
+
+msgid "An unknown error occurred while changing password."
+msgstr ""
+
+msgid "Password is changed successfully."
+msgstr ""
+
+msgid "Success"
+msgstr ""
+
+msgid "Change Password"
+msgstr ""
+
+msgid "Current password"
+msgstr ""
+
+msgid "New password"
+msgstr ""
+
+msgid "Retype new password"
+msgstr ""
+
+msgid "New passwords do not match."
+msgstr ""
+
+msgid "Current password is empty."
+msgstr ""
+
+msgid "New password is empty."
+msgstr ""
+
+msgid "One or more fields does contain errors."
+msgstr ""
+
+msgid ""
+"Password is weak. Password should contain capital, non-capital letters and "
+"numbers. Password should have 8 to 20 characters."
+msgstr ""
+
+msgid "Charm pink"
+msgstr "Rosa"
+
+msgid "Cadmium red"
+msgstr "Kadmium rød"
+
+msgid "Apricot"
+msgstr "Aprikos"
+
+msgid "California"
+msgstr "Kalifornien"
+
+msgid "Soft green"
+msgstr "Lysegrøn"
+
+msgid "Mint"
+msgstr "Mynte"
+
+msgid "Pearl aqua"
+msgstr "Lyseblå"
+
+msgid "Grommunio blue"
+msgstr ""
+
+msgid "Baby blue"
+msgstr "Babyblå"
+
+msgid "Mauve"
+msgstr "Blålilla"
+
+msgid "Silver sand"
+msgstr "Sølv"
+
+msgid "Competition"
+msgstr "Konkurrence"
+
+msgid "Gifts"
+msgstr "Gaver"
+
+msgid "Goals/Objectives"
+msgstr "Mål/målsætninger"
+
+msgid "Holiday Cards"
+msgstr "Postkort"
+
+msgid "Hot Contacts"
+msgstr "Ofte benyttede kontakter"
+
+msgid "Ideas"
+msgstr "Ideer"
+
+msgid "International"
+msgstr "International"
+
+msgid "Key Customer"
+msgstr "Hovedkunde"
+
+msgid "Miscellaneous"
+msgstr "Diverse"
+
+msgid "Phone Calls"
+msgstr "Telefonopringninger"
+
+msgid "Strategies"
+msgstr "Strategier"
+
+msgid "Suppliers"
+msgstr "Leverandører"
+
+msgid "Time & Expenses"
+msgstr "Tid og udgifter"
+
+msgid "VIP"
+msgstr "VIP"
+
+msgid "Waiting"
+msgstr "Venter"
+
+msgid "You have been automatically logged out"
+msgstr "Du er blevet logget ud automatisk"
+
+msgid ""
+"Sorry, access to grommunio Web is not available with this user account. "
+"Please contact your system administrator."
+msgstr ""
+
+msgid "Mobile device management plugin"
+msgstr ""
+
+#, php-format
+msgid ""
+"Unexpected error occurred. Please contact your system administrator. Error "
+"code: %s"
+msgstr ""
+
+msgid "No data received."
+msgstr ""
+
+msgid "Account is empty."
+msgstr ""
+
+msgid "Current password does not match."
+msgstr ""
+
+msgid ""
+"Your password is wrong or you have insufficent permission to change password"
+msgstr ""
+
+msgid "Password is not changed."
+msgstr ""
+
+msgid "Error changing password. Please contact the system administrator."
+msgstr ""
+
+msgid "Password has been changed successfully."
+msgstr ""
+
+msgid "Can't add data to bus, same action type is present in bus"
+msgstr ""
+
+msgid "Response data requested from bus but it doesn't have any data."
+msgstr ""
+
+#, php-format
+msgid "Unknown module '%s' with id '%s'"
+msgstr ""
+
+msgid ""
+"Server encountered some problem, so it was not able to handle the request."
+msgstr ""
+
+#, php-format
+msgid "Unknown notifier '%s'"
+msgstr ""
+
+msgid "An unexpected error has occurred"
+msgstr ""
+
+msgid "To-Do List"
+msgstr ""
+
+#. TRANSLATORS: This indicates that the opened folder belongs to a particular user,
+#. * for example: 'Calendar of Holiday', in this case %1$s is 'Calendar' (the foldername)
+#. * and %2$s is 'Holiday' (the username).
+#.
+#, php-format
+msgid "%1$s of %2$s"
+msgstr ""
+
+msgid "Error retrieving existing settings"
+msgstr ""
+
+msgid "Error retrieving existing persistent settings"
+msgstr ""
+
+msgid "Logon failed. Please verify your credentials and try again."
+msgstr "Login fejlede. Check venligst dit brugernavn/adgangskode og prøv igen."
+
+msgid "Cannot connect to Gromox."
+msgstr "Kunne ikke forbinde til Gromox."
+
+msgid ""
+"Login did not work due to a duplicate session. The issue was automatically "
+"resolved, please log in again."
+msgstr ""
+
+msgid "Unknown MAPI Error"
+msgstr "Ukendt MAPI fejl"
+
+msgid "This external link will open in a new window"
+msgstr ""
+
+msgid "Destination folder not found."
+msgstr ""
+
+msgid "Eml is corrupted"
+msgstr ""
+
+msgid "The eml Attachment is not imported successfully"
+msgstr ""
+
+msgid "The vcf attachment is not imported successfully"
+msgstr ""
+
+#, php-format
+msgid "Unable to import '%s' to '%s'. "
+msgstr ""
+
+#, fuzzy
+msgid "There is no appointment found in this file."
+msgstr "Denne aftale sker i fortiden."
+
+msgid "The file is corrupt."
+msgstr ""
+
+#, fuzzy
+msgid "The file is invalid."
+msgstr "De vedhæftede filer er endnu ikke uploadet."
+
+#, php-format
+msgid "Unable to import '%s'. "
+msgstr ""
+
+msgid "Please contact your system administrator if the problem persists."
+msgstr ""
+
+msgid "Attachment is not imported successfully"
+msgstr ""
+
+msgid "Embedded attachment not found."
+msgstr ""
+
+msgid "ZIP is not created successfully"
+msgstr ""
+
+msgid "Attachments can not be downloaded"
+msgstr ""
+
+msgid "Could not find attachment."
+msgstr ""
+
+msgid "Operation failed"
+msgstr ""
+
+msgid "Sticky Note"
+msgstr ""
+
+msgid "Task Request"
+msgstr ""
+
+msgid "Could not find message, either it has been moved or deleted."
+msgstr ""
+
+msgid "Request is not available."
+msgstr ""
+
+msgid "You have insufficient privileges to open this object."
+msgstr "Du har ikke tilstrækkelige rettigheder til at åbne dette objekt."
+
+msgid "Logon Failed. Please check your name/password."
+msgstr "Login mislykkedes. Tjek venligst dit brugernavn/password."
+
+msgid "Can not connect to Gromox."
+msgstr "Kan ikke forbinde til Gromox."
+
+msgid "Can not open object with provided id."
+msgstr "Kan ikke åbne objektet med det angivne id."
+
+msgid "There are no recipients in the message."
+msgstr "Der er ingen modtagere i denne meddelelse."
+
+msgid "Can not find object."
+msgstr "Kan ikke finde objekt."
+
+msgid "Operation failed: Server does not have enough memory."
+msgstr "Operation fejlet: Serveren har ikke nok hukommelse."
+
+#, php-format
+msgid "Unknown MAPI Error: %s"
+msgstr "Ukendt MAPI fejl: %s"
+
+msgid "Action is not performed correctly."
+msgstr ""
+
+msgid "Tentatively accepted"
+msgstr "Foreløbigt accepteret"
+
+msgid "New Time Proposed"
+msgstr "Ny tid foreslået"
+
+#, php-format
+msgid "Occurs every %s effective %s from %s to %s."
+msgstr ""
+
+#, php-format
+msgid "Occurs every %s %s effective %s from %s to %s."
+msgstr ""
+
+#, php-format
+msgid "Occurs every %s effective %s."
+msgstr ""
+
+#, php-format
+msgid "Occurs every %s %s effective %s."
+msgstr ""
+
+#, php-format
+msgid "Occurs every %s effective %s for %s occurrence from %s to %s."
+msgid_plural "Occurs every %s effective %s for %s occurrences from %s to %s."
+msgstr[0] ""
+msgstr[1] ""
+
+#, php-format
+msgid "Occurs every %s %s effective %s for %s occurrence from %s to %s."
+msgid_plural "Occurs every %s %s effective %s for %s occurrences %s to %s."
+msgstr[0] ""
+msgstr[1] ""
+
+#, php-format
+msgid "Occurs every %s effective %s for %s occurrence."
+msgid_plural "Occurs every %s effective %s for %s occurrences."
+msgstr[0] ""
+msgstr[1] ""
+
+#, php-format
+msgid "Occurs every %s %s effective %s for %s occurrence."
+msgid_plural "Occurs every %s %s effective %s for %s occurrences."
+msgstr[0] ""
+msgstr[1] ""
+
+#, php-format
+msgid "Occurs every %s effective %s until %s from %s to %s."
+msgstr ""
+
+#, php-format
+msgid "Occurs every %s %s effective %s until %s from %s to %s."
+msgstr ""
+
+#, php-format
+msgid "Occurs every %s effective %s until %s."
+msgstr ""
+
+#, php-format
+msgid "Occurs every %s %s effective %s until %s."
+msgstr ""
+
+msgid "Task Accepted:"
+msgstr ""
+
+msgid "Task Declined:"
+msgstr ""
+
+msgid "Task Updated:"
+msgstr ""
+
+msgid "Task Completed:"
+msgstr ""
+
+msgid "Contact not found"
+msgstr ""
+
+msgid ""
+"Contact information could not be displayed because the server had trouble "
+"retrieving the information."
+msgstr ""
+
+msgid "Could not handle this type of object."
+msgstr ""
+
+msgid "Could not open this object."
+msgstr ""
+
+msgid "Error in search, please try again"
+msgstr ""
+
+msgid "Unable to perform search query, no permissions to create search folder."
+msgstr ""
+
+msgid "Unable to perform search query, search folder not found."
+msgstr ""
+
+msgid "Unable to perform search query, store might not support searching."
+msgstr ""
+
+msgid "Error in creating search folder."
+msgstr ""
+
+msgid "Could not open occurrence."
+msgstr ""
+
+msgid "Could not open occurrence, specific occurrence is probably deleted."
+msgstr ""
+
+msgid "a meeting request"
+msgstr ""
+
+msgid "an appointment"
+msgstr ""
+
+msgid "You have insufficient privileges to move "
+msgstr ""
+
+msgid ""
+"Cannot set a reminder to appear before the previous occurrence. Reset "
+"reminder to save the change"
+msgstr ""
+
+msgid "Two occurrences cannot occur on the same day"
+msgstr ""
+
+#, php-format
+msgid ""
+"You marked '%s' as a resource. You cannot schedule a meeting with '%s' "
+"because you do not have the appropiate permissions for that account. Either "
+"enter the name as a required or optional attendee or talk to your "
+"administrator about giving you permission to schedule '%s'."
+msgstr ""
+
+#, php-format
+msgid ""
+"'%s' has declined your meeting because '%s' does not automatically accept "
+"meeting requests."
+msgstr ""
+
+#, php-format
+msgid ""
+"'%s' has declined your meeting because it is recurring. You must book each "
+"meeting separately with this resource."
+msgstr ""
+
+#, php-format
+msgid ""
+"'%s' is already booked for this specified time. You must use another time or "
+"find another resource."
+msgstr ""
+
+msgid "Meeting was not scheduled."
+msgstr ""
+
+msgid "Meeting could not be sent."
+msgstr ""
+
+msgid "Meeting could not be saved."
+msgstr ""
+
+msgid "Private Appointment"
+msgstr ""
+
+#, php-format
+msgid "%s's Birthday"
+msgstr ""
+
+#, php-format
+msgid "%s's Anniversary"
+msgstr ""
+
+msgid "Unknown user/group"
+msgstr ""
+
+msgid "Could not save delegate information."
+msgstr ""
+
+msgid "Could not delete delegate."
+msgstr ""
+
+msgid "Can not get list of delegates."
+msgstr ""
+
+msgid "Could not load the hierarchy."
+msgstr ""
+
+msgid "Could not load folder properties."
+msgstr ""
+
+msgid "Could not remove folder from favorites."
+msgstr ""
+
+msgid "You have insufficient privileges to delete folder."
+msgstr ""
+
+msgid "Could not delete folder."
+msgstr ""
+
+msgid "You have insufficient privileges to copy folder."
+msgstr ""
+
+msgid "Could not copy folder."
+msgstr ""
+
+msgid "You have insufficient privileges to move this folder."
+msgstr ""
+
+msgid "Could not move folder."
+msgstr ""
+
+msgid "You have insufficient privileges to delete items."
+msgstr ""
+
+msgid "Could not empty folder."
+msgstr ""
+
+msgid "Could not perform action correctly."
+msgstr ""
+
+msgid ""
+"A favorite folder with this name already exists, please use another name."
+msgstr ""
+
+msgid "Could not add folder to favorites."
+msgstr ""
+
+msgid "You have insufficient privileges to set permissions for this folder."
+msgstr ""
+
+msgid "Could not set folder permissions."
+msgstr ""
+
+msgid "You have insufficient privileges to rename this folder."
+msgstr ""
+
+msgid "A folder with this name already exists. Use another name."
+msgstr ""
+
+msgid "Could not rename folder."
+msgstr ""
+
+msgid "You have insufficient privileges to create this folder."
+msgstr ""
+
+msgid "Could not create folder."
+msgstr ""
+
+msgid "Could not close shared folder."
+msgstr ""
+
+msgid "User could not be resolved."
+msgstr ""
+
+#, php-format
+msgid ""
+"You have insufficient privileges to open this %1$s folder. The folder owner "
+"can set these using the 'permissions'-tab of the folder properties (right "
+"click the %1$s folder > properties > permissions)."
+msgstr ""
+
+msgid "unknown"
+msgstr ""
+
+msgid "Could not move folder"
+msgstr ""
+
+msgid "Could not copy folder"
+msgstr ""
+
+msgid "You have insufficient privileges to open this message."
+msgstr ""
+
+msgid ""
+"Could not find message, either it has been moved or deleted or you don't "
+"have access to open this message."
+msgstr ""
+
+msgid "Could not open message."
+msgstr "Kunne ikke åbne meddelelsen."
+
+msgid "You have insufficient privileges to decline this Meeting Request"
+msgstr ""
+
+msgid "You have insufficient privileges to accept this Meeting Request"
+msgstr ""
+
+msgid "Could not copy message"
+msgstr "Kunne ikke kopiere meddelelsen"
+
+msgid "Could not move message"
+msgstr "Kunne ikke flytte meddelelsen"
+
+msgid "You have insufficient privileges to save items in this folder"
+msgstr ""
+
+msgid "Could not save message"
+msgstr "Kunne ikke gemme meddelelsen"
+
+msgid "You have insufficient privileges to remove item from the calendar."
+msgstr ""
+
+msgid ""
+"Message is no longer in the outgoing queue, typically because it has already "
+"been sent."
+msgstr ""
+
+#, fuzzy
+msgid "Message cannot be aborted"
+msgstr "Denne udvidelse kan ikke slås til"
+
+msgid "You have insufficient privileges to delete items in this folder"
+msgstr ""
+
+msgid "You have insufficient privileges to attach item as an attachment."
+msgstr ""
+
+msgid "Could not attach item as an attachment."
+msgstr ""
+
+msgid ""
+"You have insufficient privileges to reclaim the ownership for the Task "
+"Request."
+msgstr ""
+
+msgid "Could not reclaim the ownership for the Task Request."
+msgstr ""
+
+msgid "You have insufficient privileges to accept this Task Request."
+msgstr ""
+
+msgid "Could not accept Task Request."
+msgstr ""
+
+msgid "You have insufficient privileges to decline this Task Request."
+msgstr ""
+
+msgid "Could not decline Task Request."
+msgstr ""
+
+msgid "Conflicts with another appointment."
+msgstr ""
+
+#, php-format
+msgid ""
+"%s occurrence of this recurring appointment conflicts with other appointment."
+msgid_plural ""
+"%s occurrences of this recurring appointment conflicts with other "
+"appointments."
+msgstr[0] ""
+msgstr[1] ""
+
+msgid "Your message did not reach some or all of the intended recipients"
+msgstr ""
+
+msgid "The following recipient(s) could not be reached"
+msgstr ""
+
+msgid "You have insufficient privileges to see the contents of this folder."
+msgstr ""
+
+msgid "Could not load the contents of this folder."
+msgstr ""
+
+msgid ""
+"You have insufficient privileges to perform search operation in this folder."
+msgstr ""
+
+msgid "Could not update search results."
+msgstr ""
+
+msgid "Could not stop search operation."
+msgstr ""
+
+msgid "You have insufficient privileges to save this message."
+msgstr ""
+
+msgid "Could not save message."
+msgstr ""
+
+msgid "You have insufficient privileges to delete this message."
+msgstr ""
+
+msgid "Could not delete message."
+msgstr ""
+
+msgid "You have insufficient privileges to cancel this Meeting Request."
+msgstr ""
+
+msgid "Could not cancel Meeting Request."
+msgstr ""
+
+msgid "You have insufficient privileges to decline this Meeting Request."
+msgstr ""
+
+msgid "Could not decline Meeting Request."
+msgstr ""
+
+msgid "You have insufficient privileges to accept this Meeting Request."
+msgstr ""
+
+msgid "Could not accept Meeting Request."
+msgstr ""
+
+msgid "You have insufficient privileges to cancel Meeting Request invitation."
+msgstr ""
+
+msgid "Could not cancel Meeting Request invitations."
+msgstr ""
+
+msgid "You can not continue search operation on this folder."
+msgstr ""
+
+msgid "Error in search, please try again."
+msgstr ""
+
+msgid "Error in distribution list expansion."
+msgstr ""
+
+msgid "The message store has exceeded its hard quota limit."
+msgstr ""
+
+msgid ""
+"To reduce the amount of data in this message store, select some items that "
+"you no longer need, delete them and cleanup your Deleted Items folder."
+msgstr ""
+
+msgid "The message store has exceeded its soft quota limit."
+msgstr ""
+
+msgid "Could not process request data properly."
+msgstr ""
+
+#, php-format
+msgid "Unknown action type specified - %s"
+msgstr ""
+
+msgid "Cannot snooze the reminder. You may be reminded again."
+msgstr ""
+
+msgid "Cannot dismiss the reminder. You may be reminded again."
+msgstr ""
+
+msgid "You have insufficient privileges to perform this action."
+msgstr ""
+
+msgid "Could not resolve user."
+msgstr ""
+
+msgid "Setting mail filters on the stores of other users is not allowed."
+msgstr ""
+
+msgid "Untitled rule"
+msgstr ""
+
+msgid "Could not load rules."
+msgstr ""
+
+msgid "Could not save rules."
+msgstr ""
+
+msgid "Task Request:"
+msgstr ""
+
+msgid "Sign in"
+msgstr ""
+
+msgid "File is not imported successfully"
+msgstr ""
+
+msgid "There is no contact found in this file."
+msgstr ""
+
+msgid ""
+"grommunio Web does not support importing multiple VCF with this version."
+msgstr ""
+
+msgid ""
+"grommunio Web does not support importing multiple ICS with this version."
+msgstr ""
+
+#, php-format
+msgid "Unable to import '%s'"
+msgstr ""
+
+msgid "The EML is not valid"
+msgstr ""
+
+msgid "GB"
+msgstr ""
+
+msgid "MB"
+msgstr ""
+
+msgid "KB"
+msgstr ""
+
+msgid "B"
+msgstr ""
+
+msgid "The maximum stack depth has been exceeded"
+msgstr ""
+
+msgid "Control character error, possibly incorrectly encoded"
+msgstr ""
+
+msgid "Invalid or malformed JSON"
+msgstr ""
+
+msgid "Syntax error"
+msgstr ""
+
+msgid "Malformed UTF-8 characters, possibly incorrectly encoded"
+msgstr ""
+
+#, php-format
+msgid "JSON Error: - %s"
+msgstr ""
+
+msgid "Some problem encountered when encoding/decoding JSON data."
+msgstr ""

@@ -9,22 +9,22 @@ Ext.namespace('Zarafa.common.sendas.dialogs');
  */
 Zarafa.common.sendas.dialogs.SendAsEditContentPanel = Ext.extend(Zarafa.common.recipientfield.ui.EditRecipientContentPanel, {
 	/**
-	 * @cfg {Boolean} removeOnCancel Remove the {@link Zarafa.core.data.IPMRecipientRecord record} from store 
+	 * @cfg {Boolean} removeOnCancel Remove the {@link Zarafa.core.data.IPMRecipientRecord record} from store
 	 * while user press "cancel" button.
 	 */
-	removeOnCancel : true,
+	removeOnCancel: true,
 
 	/**
 	 * @constructor
 	 * @param config Configuration structure
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		config = config || {};
 
 		Ext.applyIf(config, {
-			xtype : 'zarafa.sendaseditcontentpanel',
-			title : _('Add/Edit sender')
+			xtype: 'zarafa.sendaseditcontentpanel',
+			title: _('Add/Edit sender')
 		});
 
 		Zarafa.common.sendas.dialogs.SendAsEditContentPanel.superclass.constructor.call(this, config);
@@ -34,7 +34,7 @@ Zarafa.common.sendas.dialogs.SendAsEditContentPanel = Ext.extend(Zarafa.common.r
 	 * Event handler which is raised when the user clicks the "Ok" {@link Ext.Button button}
 	 * @private
 	 */
-	onOk : function()
+	onOk: function()
 	{
 		var editForm = this.formPanel.getForm();
 
@@ -52,7 +52,7 @@ Zarafa.common.sendas.dialogs.SendAsEditContentPanel = Ext.extend(Zarafa.common.r
 	 * and should remove phantom record if needed.
 	 * @protected
 	 */
-	closeWrap : function()
+	closeWrap: function()
 	{
 		this.removePhantomRecord();
 		Zarafa.common.sendas.dialogs.SendAsEditContentPanel.superclass.closeWrap.apply(this, arguments);
@@ -62,7 +62,7 @@ Zarafa.common.sendas.dialogs.SendAsEditContentPanel = Ext.extend(Zarafa.common.r
 	 * Event handler which is raised when the user clicks the "Cancel" {@link Ext.Button button}
 	 * @private
 	 */
-	onCancel : function()
+	onCancel: function()
 	{
 		this.removePhantomRecord();
 		Zarafa.common.sendas.dialogs.SendAsEditContentPanel.superclass.onCancel.call(this);
@@ -74,7 +74,7 @@ Zarafa.common.sendas.dialogs.SendAsEditContentPanel = Ext.extend(Zarafa.common.r
 	 * is true and user has closed the dialog without saving it.
 	 * @private
 	 */
-	removePhantomRecord : function()
+	removePhantomRecord: function()
 	{
 		if (this.removeOnCancel === true && this.record.phantom) {
 			this.record.store.remove(this.record);

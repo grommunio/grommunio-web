@@ -19,25 +19,25 @@ Zarafa.mail.dialogs.MailOptionsSettingsPanel = Ext.extend(Ext.form.FormPanel, {
 	 * @property
 	 * @type Zarafa.core.data.IPMRecord
 	 */
-	record : undefined,
+	record: undefined,
 
 	/**
 	 * @cfg {Ext.data.Store/Object} importanceStore The store (or store configuration object),
 	 * which contains the {@link Zarafa.core.mapi.Importance importance} data.
 	 */
-	importanceStore : undefined,
+	importanceStore: undefined,
 
 	/**
 	 * @cfg {Ext.data.Store/Object} sensitivityStore The store (or store configuration object),
 	 * which contains the {@link Zarafa.core.mapi.Sensitivity sensitivity} data.
 	 */
-	sensitivityStore : undefined,
+	sensitivityStore: undefined,
 
 	/**
 	 * @constructor
 	 * @param {Object} config Configuration object
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		config = config || {};
 
@@ -48,7 +48,7 @@ Zarafa.mail.dialogs.MailOptionsSettingsPanel = Ext.extend(Ext.form.FormPanel, {
 			config.importanceStore = {
 				xtype: 'jsonstore',
 				fields: ['value', 'name'],
-				data : Zarafa.common.data.ImportanceFlags.flags
+				data: Zarafa.common.data.ImportanceFlags.flags
 			};
 		}
 
@@ -61,7 +61,7 @@ Zarafa.mail.dialogs.MailOptionsSettingsPanel = Ext.extend(Ext.form.FormPanel, {
 		}
 
 		Ext.applyIf(config, {
-			xtype : 'zarafa.mailoptionssettingspanel',
+			xtype: 'zarafa.mailoptionssettingspanel',
 			title: _('Message Settings'),
 			layout: 'form',
 			items: [{
@@ -114,7 +114,7 @@ Zarafa.mail.dialogs.MailOptionsSettingsPanel = Ext.extend(Ext.form.FormPanel, {
 	 * @param {Number} index The index of the selected record
 	 * @private
 	 */
-	onFieldSelect : function(combo, record, index)
+	onFieldSelect: function(combo, record, index)
 	{
 		this.record.set(combo.getName(), record.get(combo.valueField));
 	},
@@ -124,7 +124,7 @@ Zarafa.mail.dialogs.MailOptionsSettingsPanel = Ext.extend(Ext.form.FormPanel, {
 	 * @param {Zarafa.core.data.IPMRecord} record The record to update the panel with
 	 * @param {Boolean} contentReset force the component to perform a full update of the data.
 	 */
-	update : function(record, contentReset)
+	update: function(record, contentReset)
 	{
 		this.record = record;
 
@@ -147,7 +147,7 @@ Zarafa.mail.dialogs.MailOptionsSettingsPanel = Ext.extend(Ext.form.FormPanel, {
 	 * Update the {@link Zarafa.core.data.IPMRecord IPMRecord} with the data from the {@link Ext.Panel Panel}.
 	 * @param {Zarafa.core.data.IPMRecord} record The record which has to be updated
 	 */
-	updateRecord : function(record)
+	updateRecord: function(record)
 	{
 		this.getForm().updateRecord(record);
 

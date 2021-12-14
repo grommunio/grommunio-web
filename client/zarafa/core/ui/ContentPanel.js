@@ -20,9 +20,9 @@ Ext.namespace('Zarafa.core.ui');
  * <p>
  * <code><pre>
  * MyDialog.create(config, {
- *   browser : true,
- *   width : 500,
- *   height : 300,
+ *  browser: true,
+ *  width: 500,
+ *  height: 300,
  * });
  * </pre></code>.
  *
@@ -31,14 +31,14 @@ Zarafa.core.ui.ContentPanel = Ext.extend(Ext.Container, {
 	/**
 	 * @cfg {String} title The title for the ContentPanel
 	 */
-	title : undefined,
+	title: undefined,
 
 	/**
 	 * @cfg {String} The action to take when the close header tool is clicked.
 	 * Only used when using {@link Zarafa.core.data.UIFactoryWindowLayer UIFactoryWindowLayer} to
 	 * display this {@link Zarafa.core.ui.ContentPanel ContentPanel}.
 	 */
-	closeAction : 'closeWrap',
+	closeAction: 'closeWrap',
 
 	/**
 	 * @cfg {Boolean} standalone If true, the {@link Zarafa.core.ui.ContentPanel contentpanel}
@@ -46,28 +46,28 @@ Zarafa.core.ui.ContentPanel = Ext.extend(Ext.Container, {
 	 * listening to events coming from the {@link Zarafa.core.data.ContentPanelMgr ContentPanelMgr}.
 	 * Defaults to false.
 	 */
-	standalone : false,
+	standalone: false,
 
 	/**
 	 * @cfg {Number} width The width for the ContentPanel
 	 */
-	width : 800,
+	width: 800,
 
 	/**
 	 * @cfg {Number} height The height for the ContentPanel
 	 */
-	height : 550,
+	height: 550,
 
 	/**
 	 * @cfg {String} iconCls Icon class for the tab
 	 */
-	iconCls : undefined,
-	
+	iconCls: undefined,
+
 	/**
 	 * @cfg {Boolean} useInputAutoFocusPlugin True to use the inputautofocusplugin for
 	 * this panel
 	 */
-	useInputAutoFocusPlugin : true,
+	useInputAutoFocusPlugin: true,
 
 	/**
 	 * @cfg {Boolean} forceFullyOpenInMainWindow True to render panel on main browser window
@@ -78,20 +78,20 @@ Zarafa.core.ui.ContentPanel = Ext.extend(Ext.Container, {
 	 * @constructor
 	 * @param {Object} config configuration object.
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		config = config || {};
 
 		if ( config.useInputAutoFocusPlugin !== false ) {
 			config.plugins = Ext.value(config.plugins, []);
 			config.plugins.push({
-				ptype : 'zarafa.inputautofocusplugin'
+				ptype: 'zarafa.inputautofocusplugin'
 			});
 		}
 
 		Ext.applyIf(config, {
 			xtype: 'zarafa.contentpanel',
-			stateful : true
+			stateful: true
 		});
 
 		Zarafa.core.ui.ContentPanel.superclass.constructor.call(this, config);
@@ -152,12 +152,12 @@ Zarafa.core.ui.ContentPanel = Ext.extend(Ext.Container, {
 	/**
 	 * This will initialize the {@link Ext.Container container} which is
 	 * placed within the {@link Zarafa.core.ui.ContentPanel ContentPanel}. The
-	 * {@link Ext.Container container} will recieve a reference to the
+	 * {@link Ext.Container container} will receive a reference to the
 	 * {@link Zarafa.core.ui.ContentPanel ContentPanel} into which it has been embedded.
 	 * @param {Ext.Component} component The component which must be initialized
 	 * @private
 	 */
-	initializeChildComponent : function(component)
+	initializeChildComponent: function(component)
 	{
 		// Empty objects (undefined, null, []) cannot be initialized.
 		if (Ext.isEmpty(component)) {
@@ -199,7 +199,7 @@ Zarafa.core.ui.ContentPanel = Ext.extend(Ext.Container, {
 	/**
 	 * Closes the panel. Destroys all child components, rendering the panel unusable.
 	 */
-	close : function()
+	close: function()
 	{
 		if (this.fireEvent('beforeclose', this) !== false) {
 			this.doClose();
@@ -210,7 +210,7 @@ Zarafa.core.ui.ContentPanel = Ext.extend(Ext.Container, {
 	 * Close handler for the {@link #close} function.
 	 * @private
 	 */
-	doClose : function()
+	doClose: function()
 	{
 		this.fireEvent('close', this);
 		Zarafa.core.data.ContentPanelMgr.unregister(this);
@@ -222,7 +222,7 @@ Zarafa.core.ui.ContentPanel = Ext.extend(Ext.Container, {
 	 * we fire proper events to notify dialog is closed.
 	 * @protected
 	 */
-	closeWrap : function()
+	closeWrap: function()
 	{
 		this.close();
 	},
@@ -231,7 +231,7 @@ Zarafa.core.ui.ContentPanel = Ext.extend(Ext.Container, {
 	 * Sets the title of the panel.
 	 * @param {String} title the new window title.
 	 */
-	setTitle : function(title)
+	setTitle: function(title)
 	{
 		this.title = title;
 		this.fireEvent('titlechange', this, title);
@@ -240,7 +240,7 @@ Zarafa.core.ui.ContentPanel = Ext.extend(Ext.Container, {
 	/**
 	 * @param {String} iconCls Icon class of the panel
 	 */
-	setIcon : function(iconCls)
+	setIcon: function(iconCls)
 	{
 		var oldIcon = this.iconCls;
 		this.iconCls = iconCls;
@@ -250,7 +250,7 @@ Zarafa.core.ui.ContentPanel = Ext.extend(Ext.Container, {
 	/**
 	 * @return {Boolean} true iff the content panel is a modal dialog
 	 */
-	isModal : function()
+	isModal: function()
 	{
 		return this.modal;
 	},
@@ -262,7 +262,7 @@ Zarafa.core.ui.ContentPanel = Ext.extend(Ext.Container, {
 	 * a custom name.
 	 * @return {String} The unique name for this component by which the {@link #getState state} must be saved.
 	 */
-	getStateName : function()
+	getStateName: function()
 	{
 		return 'dialogs/' + Zarafa.core.ui.ContentPanel.superclass.getStateName.call(this);
 	},
@@ -273,7 +273,7 @@ Zarafa.core.ui.ContentPanel = Ext.extend(Ext.Container, {
 	 * @return {Object} The state object
 	 * @protected
 	 */
-	getState : function()
+	getState: function()
 	{
 		var state = Zarafa.core.ui.ContentPanel.superclass.getState.call(this) || {};
 		return Ext.apply(state, this.getSize());

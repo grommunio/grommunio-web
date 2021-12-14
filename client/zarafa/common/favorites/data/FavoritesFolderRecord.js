@@ -15,7 +15,7 @@ Zarafa.common.favorites.data.FavoritesFolderRecord = Ext.extend(Zarafa.hierarchy
 	 *
 	 * @return {Array} array of child {@link Zarafa.hierarchy.data.MAPIFolderRecord folders}
 	 */
-	getChildren : function()
+	getChildren: function()
 	{
 		var rs = Zarafa.common.favorites.data.FavoritesFolderRecord.superclass.getChildren.apply(this, arguments);
 
@@ -35,7 +35,7 @@ Zarafa.common.favorites.data.FavoritesFolderRecord = Ext.extend(Zarafa.hierarchy
 	 * Function is used to get original folder from favorites folder is created.
 	 * @return {Zarafa.hierarchy.data.MAPIFolderRecord} return {Zarafa.hierarchy.data.MAPIFolderRecord folder}.
 	 */
-	getOriginalRecordFromFavoritesRecord : function()
+	getOriginalRecordFromFavoritesRecord: function()
 	{
 		var mapiStore = container.getHierarchyStore().getById(this.get('store_entryid'));
 		return mapiStore.getFolderStore().getById(this.get("entryid"));

@@ -12,11 +12,11 @@ Zarafa.core.data.JsonAttachmentReader = Ext.extend(Zarafa.core.data.JsonReader, 
 	 * which must be read from response. If no type is given, it will use the
 	 * record type for the {@link Zarafa.core.mapi.ObjectType#MAPI_ATTACH}.
 	 */
-	constructor : function(meta, recordType)
+	constructor: function(meta, recordType)
 	{
 		meta = Ext.applyIf(meta || {}, {
-			id : 'attach_id',
-			idProperty : 'attach_id'
+			id: 'attach_id',
+			idProperty: 'attach_id'
 		});
 
 		// If no recordType is provided, force the type to be an attachment

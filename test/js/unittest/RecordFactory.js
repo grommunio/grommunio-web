@@ -94,13 +94,13 @@ describe('RecordFactory', function() {
 
 		it('can add the Field to a message class', function() {
 			const record = Zarafa.core.data.RecordFactory.createRecordObjectByMessageClass('TEST');
-			expect(record.fields.length).toEqual(44);
+			expect(record.fields.length).toEqual(45);
 			expect(record.fields.containsKey(['FIELD1'])).not.toBeUndefined();
 		});
 
 		it('can add a second Field to a subtype of the message class', function() {
 			const record = Zarafa.core.data.RecordFactory.createRecordObjectByMessageClass('TEST.A');
-			expect(record.fields.length).toEqual(45);
+			expect(record.fields.length).toEqual(46);
 			expect(record.fields.containsKey(['FIELD1'])).not.toBeUndefined();
 			expect(record.fields.containsKey(['FIELD2'])).not.toBeUndefined();
 		});

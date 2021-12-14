@@ -50,7 +50,7 @@ describe('Date Field', function() {
 	/**
 	 * Test the date picker of date field.
 	 */
-	describe('Date picker', function(){
+	describe('Date picker', function() {
 		var dateFieldObj;
 
 		beforeEach(function() {
@@ -63,7 +63,7 @@ describe('Date Field', function() {
 			dateFieldObj.destroy();
 		});
 
-		it('Can rendar the date picker without error.', function(){
+		it('Can rendar the date picker without error.', function() {
 			var loadDatePicker = function() {
 				dateFieldObj.onTriggerClick();
 			};
@@ -78,7 +78,7 @@ describe('Date Field', function() {
 			var datePicker;
 			var currentDate;
 
-			beforeEach(function(){
+			beforeEach(function() {
 				// Trigger date picker from date field.
 				dateFieldObj.onTriggerClick();
 

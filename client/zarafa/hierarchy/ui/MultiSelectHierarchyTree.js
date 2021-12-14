@@ -14,17 +14,17 @@ Zarafa.hierarchy.ui.MultiSelectHierarchyTree = Ext.extend(Zarafa.hierarchy.ui.Hi
 	 * @cfg {Boolean} Whether to apply colors to this tree's nodes
 	 * This is useful when multiple {@link Zarafa.hierarchy.data.MAPIFolderRecord} folders are allowed to be selected
 	 */
-	colored : false,
+	colored: false,
 
 	/**
 	 * @constructor
 	 * @param {Object} config Configuration object
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		// Default Node Config
 		config.nodeConfig = Ext.applyIf(config.nodeConfig || {}, {
-			checked : false
+			checked: false
 		});
 
 		Zarafa.hierarchy.ui.MultiSelectHierarchyTree.superclass.constructor.call(this, config);
@@ -42,7 +42,7 @@ Zarafa.hierarchy.ui.MultiSelectHierarchyTree = Ext.extend(Zarafa.hierarchy.ui.Hi
 	 * Remove listeners on Zarafa.hierarchy.ui.Tree click events
 	 * @private
 	 */
-	initEvents : function ()
+	initEvents: function ()
 	{
 		Zarafa.hierarchy.ui.MultiSelectHierarchyTree.superclass.initEvents.call(this);
 		this.un('click', this.onFolderClicked, this);
@@ -54,7 +54,7 @@ Zarafa.hierarchy.ui.MultiSelectHierarchyTree = Ext.extend(Zarafa.hierarchy.ui.Hi
 	 * @param {Ext.tree.TreeNode} treeNode tree node.
 	 * @private
 	 */
-	onTreeNodeClick : function(treeNode)
+	onTreeNodeClick: function(treeNode)
 	{
 		var treeNodeui = treeNode.getUI();
 		if (treeNodeui.checkbox.checked && treeNode.isNodeSelected) {
@@ -74,7 +74,7 @@ Zarafa.hierarchy.ui.MultiSelectHierarchyTree = Ext.extend(Zarafa.hierarchy.ui.Hi
 	 * @param {Zarafa.hierarchy.data.MAPIFolderRecord} folder The folder to select
 	 * @return {Boolean} True when the TreeNode for the given folder existed, and could be selected.
 	 */
-	selectFolderInTree : function(folder)
+	selectFolderInTree: function(folder)
 	{
 		var treeNode = this.ensureFolderVisible(folder);
 		if (treeNode) {
@@ -92,7 +92,7 @@ Zarafa.hierarchy.ui.MultiSelectHierarchyTree = Ext.extend(Zarafa.hierarchy.ui.Hi
 	 * @param {Boolean} checked indicates whether the box is checked.
 	 * @private
 	 */
-	onTreeNodeCheckChange : function(node, checked)
+	onTreeNodeCheckChange: function(node, checked)
 	{
 		var folder = node.getFolder();
 		if (checked) {
@@ -111,7 +111,7 @@ Zarafa.hierarchy.ui.MultiSelectHierarchyTree = Ext.extend(Zarafa.hierarchy.ui.Hi
 	 * @param {Zarafa.hierarchy.data.MAPIFolderRecord[]} folders list of currently selected folders.
 	 * @private
 	 */
-	onFolderChange : function(model, folders)
+	onFolderChange: function(model, folders)
 	{
 		this.updateAll();
 
@@ -133,7 +133,7 @@ Zarafa.hierarchy.ui.MultiSelectHierarchyTree = Ext.extend(Zarafa.hierarchy.ui.Hi
 	 * Set the corresponding folder as active folder in hierarchy.
 	 * @param {Zarafa.hierarchy.data.MAPIFolderRecord[]} folder which will mark as selected
 	 */
-	onCalendarActivate : function(folder)
+	onCalendarActivate: function(folder)
 	{
 		var selectedNode = this.getNodeById(folder.get('entryid'));
 		if (selectedNode) {

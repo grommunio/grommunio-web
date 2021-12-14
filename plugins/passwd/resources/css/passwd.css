@@ -15,7 +15,7 @@
     background: -webkit-linear-gradient(left,  #ff4c00 0%,#edd712 50%,#1aff00 100%); /* Chrome10+,Safari5.1+ */
     background: -o-linear-gradient(left,  #ff4c00 0%,#edd712 50%,#1aff00 100%); /* Opera 11.10+ */
     background: -ms-linear-gradient(left,  #ff4c00 0%,#edd712 50%,#1aff00 100%); /* IE10+ */
-    background: linear-gradient(left,  #ff4c00 0%,#edd712 50%,#1aff00 100%); /* W3C */
+    background: linear-gradient(to left,  #ff4c00 0%,#edd712 50%,#1aff00 100%); /* W3C */
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff4c00', endColorstr='#1aff00',GradientType=1 ); /* IE6-8 */
 }
 

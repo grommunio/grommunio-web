@@ -9,17 +9,17 @@ Zarafa.core.data.JsonWriter = Ext.extend(Ext.data.JsonWriter, {
 	 * @constructor
 	 * @param {Object} config Configuration object
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		config = config || {};
 
 		Ext.applyIf(config, {
-			writeAllFields : false,
+			writeAllFields: false,
 			// FIXME: Disable automatic encoding for now,
 			// the MAPIProxy needs an individuall encoded string
 			// for each record in the request. We might want to
 			// fix this in the future though.
-			encode : false
+			encode: false
 		});
 
 		Zarafa.core.data.JsonWriter.superclass.constructor.call(this, config);
@@ -34,7 +34,7 @@ Zarafa.core.data.JsonWriter = Ext.extend(Ext.data.JsonWriter, {
 	 * @param {Object/Array} data The object which musted be rendered
 	 * @private
 	 */
-	renderData : function(data)
+	renderData: function(data)
 	{
 		if (Array.isArray(data)) {
 			for (var i = 0, len = data.length; i < len; i++) {
@@ -54,7 +54,7 @@ Zarafa.core.data.JsonWriter = Ext.extend(Ext.data.JsonWriter, {
 	},
 
 	/**
-	 * Final action of a write event.  Apply the written data-object to params.
+	 * Final action of a write event. Apply the written data-object to params.
 	 * This function is extended from {@link Ext.data.JsonWriter Extjs}, to use
 	 * {@link #renderData} to add some extra data conversions before encoding
 	 * the data by {@link Ext.encode Ext.encode}.
@@ -63,7 +63,7 @@ Zarafa.core.data.JsonWriter = Ext.extend(Ext.data.JsonWriter, {
 	 * The baseParms must be encoded by the extending class, eg: {@link Ext.data.JsonWriter}, {@link Ext.data.XmlWriter}.
 	 * @param {Object/Object[]} data Data-object representing compiled Store-recordset.
 	 */
-	render : function(params, baseParams, data)
+	render: function(params, baseParams, data)
 	{
 		// Apply the parameters into the data object, this allows
 		// optional data to be send to the server.
@@ -83,7 +83,7 @@ Zarafa.core.data.JsonWriter = Ext.extend(Ext.data.JsonWriter, {
 	 * @return {Object}
 	 * @private
 	 */
-	openRecord : function(record)
+	openRecord: function(record)
 	{
 		return this.toIdHash(record);
 	},
@@ -98,7 +98,7 @@ Zarafa.core.data.JsonWriter = Ext.extend(Ext.data.JsonWriter, {
 	 * @override
 	 * @private
 	 */
-	createRecord : function(record)
+	createRecord: function(record)
 	{
 		return this.toPropHash(record);
 	},
@@ -113,7 +113,7 @@ Zarafa.core.data.JsonWriter = Ext.extend(Ext.data.JsonWriter, {
 	 * @override
 	 * @private
 	 */
-	updateRecord : function(record)
+	updateRecord: function(record)
 	{
 		return this.toPropHash(record);
 	},
@@ -126,7 +126,7 @@ Zarafa.core.data.JsonWriter = Ext.extend(Ext.data.JsonWriter, {
 	 * @override
 	 * @private
 	 */
-	destroyRecord : function(record)
+	destroyRecord: function(record)
 	{
 		return this.toIdHash(record);
 	},
@@ -142,7 +142,7 @@ Zarafa.core.data.JsonWriter = Ext.extend(Ext.data.JsonWriter, {
 	 * @return {Object} The hashed object
 	 * @private
 	 */
-	toIdHash : function(record, allowEmpty)
+	toIdHash: function(record, allowEmpty)
 	{
 		var hash = {};
 
@@ -169,7 +169,7 @@ Zarafa.core.data.JsonWriter = Ext.extend(Ext.data.JsonWriter, {
 	 * @return {Object} The hashed object
 	 * @private
 	 */
-	toPropHash : function(record)
+	toPropHash: function(record)
 	{
 		var hash = this.toIdHash(record, false);
 
@@ -188,7 +188,7 @@ Zarafa.core.data.JsonWriter = Ext.extend(Ext.data.JsonWriter, {
 				var store = record.subStores[key];
 
 				if (store && store.writer) {
-					Ext.apply(hash, store.writer.toPropHash(record)); 
+					Ext.apply(hash, store.writer.toPropHash(record));
 				}
 			}
 		}
@@ -207,11 +207,11 @@ Zarafa.core.data.JsonWriter = Ext.extend(Ext.data.JsonWriter, {
 	 * @param {Zarafa.core.data.IPMrecord} record The record to serialize from
 	 * @private
 	 */
-	removeIdHashFromProps : function(hash, record)
+	removeIdHashFromProps: function(hash, record)
 	{
-		Ext.each(record.getIdProps(), function(idProp) { 
+		Ext.each(record.getIdProps(), function(idProp) {
 			if (Ext.isDefined(hash.props) && Ext.isDefined(hash.props[idProp])) {
-				delete hash.props[idProp]; 
+				delete hash.props[idProp];
 			}
 		}, this);
 	},
@@ -220,13 +220,13 @@ Zarafa.core.data.JsonWriter = Ext.extend(Ext.data.JsonWriter, {
 	 * Add message actions into the hash. Message actions are not properties
 	 * which come from the server, but are used to add an additional action
 	 * instruction for the server to perform. As such the action needs to
-	 * be serialized seperately into the hash object.
+	 * be serialized separately into the hash object.
 	 *
 	 * @param {Object} hash The hash into which the message actions must be added
 	 * @param {Zarafa.core.data.IPMrecord} record The record to serialize from
 	 * @private
 	 */
-	addMessageActionsHash : function(hash, record)
+	addMessageActionsHash: function(hash, record)
 	{
 		var actions = record.getMessageActions();
 		var message_action = {};

@@ -10,7 +10,7 @@ Zarafa.calendar.ui.CalendarBlockPanel = Ext.extend(Ext.Panel, {
     /**
 	 * @cfg {Zarafa.calendar.CalendarContext} context The context to which this panel belongs
 	 */
-	context : undefined,
+	context: undefined,
 
 	/**
 	 * The {@link Zarafa.calendar.CalendarContextModel} which is obtained from
@@ -19,26 +19,26 @@ Zarafa.calendar.ui.CalendarBlockPanel = Ext.extend(Ext.Panel, {
 	 * @property
 	 * @type Zarafa.calendar.CalendarContextModel
 	 */
-	model : undefined,
+	model: undefined,
 
 	/**
 	 * @cfg {Zarafa.calendar.ui.AppointmentSelectionModel} selectionModel The
 	 * selection model which can be used for selecting {@link Zarafa.core.data.IPMRecord records}.
 	 */
-	selectionModel : undefined,
+	selectionModel: undefined,
 
 	/**
 	 * @cfg {Zarafa.calendar.ui.DateRangeSelectionModel} rangeSelectionModel The
 	 * selection model which can be used for selecting a {@link Zarafa.core.DateRange daterange}
 	 * within the calendar.
 	 */
-	rangeSelectionModel : undefined,
+	rangeSelectionModel: undefined,
 
 	/**
 	 * @constructor
 	 * @param {Object} config Configuration object
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		config = config || {};
 
@@ -53,21 +53,21 @@ Zarafa.calendar.ui.CalendarBlockPanel = Ext.extend(Ext.Panel, {
 		}
 
 		Ext.applyIf(config, {
-			border : false,
-			layout : 'fit',
-			deferredRender : false,
-			items : [{
+			border: false,
+			layout: 'fit',
+			deferredRender: false,
+			items: [{
 				xtype: 'zarafa.calendarpanel',
 				ref: 'calendarPanel',
-				context : config.context,
-				selectionModel : config.selectionModel,
-				rangeSelectionModel : config.rangeSelectionModel,
-				listeners : {
-					scope : this,
-					contextmenu : this.onContextMenu,
-					dblclick : this.onDblClick,
-					dayclick : this.onDayClick,
-					calendarclose : this.onCalendarClose
+				context: config.context,
+				selectionModel: config.selectionModel,
+				rangeSelectionModel: config.rangeSelectionModel,
+				listeners: {
+					scope: this,
+					contextmenu: this.onContextMenu,
+					dblclick: this.onDblClick,
+					dayclick: this.onDayClick,
+					calendarclose: this.onCalendarClose
 				}
 			}]
 		});
@@ -95,7 +95,7 @@ Zarafa.calendar.ui.CalendarBlockPanel = Ext.extend(Ext.Panel, {
 	 *
 	 * @private
 	 */
-	onStoreRemove : function(store, record, index)
+	onStoreRemove: function(store, record, index)
 	{
 		this.selectionModel.deselectRecord(record);
 	},
@@ -105,7 +105,7 @@ Zarafa.calendar.ui.CalendarBlockPanel = Ext.extend(Ext.Panel, {
 	 * which renderering within this CalendarBlockPanel.
 	 * @return {Zarafa.calendar.ui.CalendarPanel} The calendar panel.
 	 */
-	getCalendarPanel : function()
+	getCalendarPanel: function()
 	{
 		return this.calendarPanel;
 	},
@@ -116,7 +116,7 @@ Zarafa.calendar.ui.CalendarBlockPanel = Ext.extend(Ext.Panel, {
 	 * @param {Zarafa.core.data.IPMRecord} record The record for which the contextmenu is requested
 	 * @private
 	 */
-	onContextMenu : function(event, record)
+	onContextMenu: function(event, record)
 	{
 		var config = {
 			position: event.getXY(),
@@ -132,7 +132,7 @@ Zarafa.calendar.ui.CalendarBlockPanel = Ext.extend(Ext.Panel, {
 	 * @param {Zarafa.core.data.IPMRecord} record The record which was double-clicked
 	 * @private
 	 */
-	onDblClick : function(event, record)
+	onDblClick: function(event, record)
 	{
 		Zarafa.calendar.Actions.openAppointmentContent(record);
 	},
@@ -145,7 +145,7 @@ Zarafa.calendar.ui.CalendarBlockPanel = Ext.extend(Ext.Panel, {
 	 * @param {Ext.grid.RowSelectionModel} selectionModel The selection model used by the grid.
 	 * @private
 	 */
-	onSelectionChange : function(selectionModel)
+	onSelectionChange: function(selectionModel)
 	{
 		this.model.setSelectedRecords(selectionModel.getSelections());
 	},
@@ -160,7 +160,7 @@ Zarafa.calendar.ui.CalendarBlockPanel = Ext.extend(Ext.Panel, {
 	 * @param {Date} date The date which was selected
 	 * @private
 	 */
-	onDayClick : function(source, date)
+	onDayClick: function(source, date)
 	{
 		this.selectionModel.clearSelections();
 		this.rangeSelectionModel.clearSelections();
@@ -175,7 +175,7 @@ Zarafa.calendar.ui.CalendarBlockPanel = Ext.extend(Ext.Panel, {
 	 * @param {Zarafa.hierarchy.data.MAPIFolderRecord} folder The selected folder
 	 * @private
 	 */
-	onCalendarClose : function(folder)
+	onCalendarClose: function(folder)
 	{
 		this.model.removeFolder(folder);
 	},
@@ -188,7 +188,7 @@ Zarafa.calendar.ui.CalendarBlockPanel = Ext.extend(Ext.Panel, {
 	 * @param {Number} index The position of this panel within the container
 	 * @private
 	 */
-	onAdded : function(container, index)
+	onAdded: function(container, index)
 	{
 		Zarafa.calendar.ui.CalendarBlockPanel.superclass.onAdded.call(this, container, index);
 		this.mon(this.ownerCt, 'switchview', this.onSwitchView, this);
@@ -200,7 +200,7 @@ Zarafa.calendar.ui.CalendarBlockPanel = Ext.extend(Ext.Panel, {
 	 * event handler.
 	 * @private
 	 */
-	onRemoved : function()
+	onRemoved: function()
 	{
 		this.mun(this.ownerCt, 'switchview', this.onSwitchView, this);
 		Zarafa.calendar.ui.CalendarBlockPanel.superclass.onRemoved.call(this);
@@ -213,7 +213,7 @@ Zarafa.calendar.ui.CalendarBlockPanel = Ext.extend(Ext.Panel, {
 	 * @param {Ext.Panel} oldView The old view which has been loaded
 	 * @private
 	 */
-	onSwitchView : function(container, newView, oldView)
+	onSwitchView: function(container, newView, oldView)
 	{
 		if (this == newView) {
 			this.getCalendarPanel().bindStore(this.model.getStore());

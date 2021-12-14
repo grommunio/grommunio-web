@@ -1,8 +1,8 @@
 <?php
-require_once('classes/KopanoUser.php');
+require_once('classes/grommunioUser.php');
 require_once('classes/DistlistUser.php');
 require_once('classes/TestData.php');
-require_once('classes/KopanoTest.php');
+require_once('classes/grommunioTest.php');
 
 /**
  * LoadingDistlistTest
@@ -10,7 +10,7 @@ require_once('classes/KopanoTest.php');
  * Tests all possible cases for loading Distlists
  * @group distlist
  */
-class LoadDistlistsTest extends KopanoTest {
+class LoadDistlistsTest extends grommunioTest {
 	/**
 	 * The default user which is creating the distlists
 	 */
@@ -28,7 +28,7 @@ class LoadDistlistsTest extends KopanoTest {
 	{
 		parent::setUp();
 
-		$this->user = $this->addUser(new DistlistUser(new KopanoUser(KOPANO_USER1_NAME, KOPANO_USER1_PASSWORD)));
+		$this->user = $this->addUser(new DistlistUser(new grommunioUser(GROMMUNIO_USER1_NAME, GROMMUNIO_USER1_PASSWORD)));
 
 		$this->message = array(
 			'props' => TestData::getDistlist(),
@@ -54,7 +54,7 @@ class LoadDistlistsTest extends KopanoTest {
 	 * given restriction.
 	 *
 	 * The test functions using this provider should accept 4 arguments. Where the first
-	 * argument is the restriction whihc must be applied to the load of the distlists.
+	 * argument is the restriction which must be applied to the load of the distlists.
 	 * The second argument is the properties array which must be applied on the message which
 	 * should be loaded. The third argument is the expected distlist count which should be
 	 * returned by the load command, and the fourth argument is the message that should be

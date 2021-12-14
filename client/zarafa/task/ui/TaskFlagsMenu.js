@@ -13,7 +13,7 @@ Zarafa.task.ui.TaskFlagsMenu = Ext.extend(Zarafa.common.flags.ui.FlagsMenu, {
 	 * after set flags properties in selected record else
 	 * don't save record.
 	 */
-	saveOnSetFlag : true,
+	saveOnSetFlag: true,
 
 	/**
 	 * Action should perform on selected record(s).
@@ -21,13 +21,13 @@ Zarafa.task.ui.TaskFlagsMenu = Ext.extend(Zarafa.common.flags.ui.FlagsMenu, {
 	 * @property
 	 * @type String
 	 */
-	action : undefined,
+	action: undefined,
 
 	/**
 	 * @constructor
 	 * @param {Object} config Configuration object
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		config = Ext.applyIf(config || {}, {
 			xtype: 'zarafa.taskflagsmenu'
@@ -41,7 +41,7 @@ Zarafa.task.ui.TaskFlagsMenu = Ext.extend(Zarafa.common.flags.ui.FlagsMenu, {
 	 *
 	 * @param {Zarafa.core.ui.menu.ConditionalItem} menuItem The menu item that was clicked
 	 */
-	setFlag : function(menuItem)
+	setFlag: function(menuItem)
 	{
 		this.action = menuItem.action;
 		Zarafa.task.ui.TaskFlagsMenu.superclass.setFlag.apply(this, arguments);
@@ -53,7 +53,7 @@ Zarafa.task.ui.TaskFlagsMenu = Ext.extend(Zarafa.common.flags.ui.FlagsMenu, {
 	 * @param {Zarafa.core.data.IPMRecord} records The record(s) for which configured flag needs to be set.
 	 * @param {Object} flagProperties Necessary flag properties
 	 */
-	setFlagProperties : function (records, flagProperties)
+	setFlagProperties: function (records, flagProperties)
 	{
 		records.forEach(function(record){
 			record.beginEdit();

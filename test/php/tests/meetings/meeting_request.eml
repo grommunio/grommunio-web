@@ -1,7 +1,7 @@
 Return-Path: <user2@farmer.lan>
-Received: from lithium ([::1]:40372) by lithium (kopano-dagent)  with LMTP;
+Received: from lithium ([::1]:40372) by lithium (grommunio-dagent)  with LMTP;
  Tue, 2 Oct 2018 20:50:08 +0200
-Received: by lithium (kopano-spooler) with MAPI; Tue, 2 Oct 2018 20:49:27
+Received: by lithium (grommunio-spooler) with MAPI; Tue, 2 Oct 2018 20:49:27
  +0200
 Subject: meeting request
 From: =?UTF-8?Q?Timmothy_Schwwwwwwalter?= <user2@farmer.lan>
@@ -12,7 +12,7 @@ Content-Type: multipart/mixed;
  boundary="=_n-XIg3jeMuWIgfxNMOHfgrsRM6UXhDQaoxP-FB1c0O3R0u+P"
 X-Priority: 3 (Normal)
 Thread-Index: AQCwXr2AF2z93TUhSASt4CyPD5x22A==
-X-Mailer: Kopano 8.4.90
+X-Mailer: grommunio 8.4.90
 Message-Id: <kcim.5bb3bdc1.52f.21fecb454cdb0bca@lithium>
 
 This is a multi-part message in MIME format. Your mail reader does not

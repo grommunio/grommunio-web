@@ -16,25 +16,25 @@ Zarafa.settings.data.SettingsTreeLoader = Ext.extend(Ext.ux.tree.TreeGridLoader,
 	 * be expanded by default, when set to 2 the node 'zarafa/v1' will be expanded,
 	 * etc.
 	 */
-	autoExpandLevel : 0,
+	autoExpandLevel: 0,
 
 	/**
 	 * @cfg {String/RegExp} autoExpandFilter The String or Regular expressing which
 	 * is used to test if the node must be expanded or not.
 	 */
-	autoExpandFilter : undefined,
+	autoExpandFilter: undefined,
 
 	/**
 	 * @cfg {Zarafa.settings.SettingsModel} model The model which should be used for
 	 * loading the settings. This can be configured later using {@link #bindModel}.
 	 */
-	model : undefined,
+	model: undefined,
 
 	/**
 	 * @constructor
 	 * @param {Object} config Configuration object
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		config = config || {};
 
@@ -56,7 +56,7 @@ Zarafa.settings.data.SettingsTreeLoader = Ext.extend(Ext.ux.tree.TreeGridLoader,
 	 * @param {Boolean} initialize (optional) True if this function is called
 	 * during initialization
 	 */
-	bindModel : function(model, initialize)
+	bindModel: function(model, initialize)
 	{
 		if (initialize || this.model !== model) {
 			this.model = model;
@@ -73,7 +73,7 @@ Zarafa.settings.data.SettingsTreeLoader = Ext.extend(Ext.ux.tree.TreeGridLoader,
 	 * the nodes below the provided node.
 	 * @private
 	 */
-	directFn : function(node, fn)
+	directFn: function(node, fn)
 	{
 		var path = this.model.getPath(node);
 		var settings = this.model.get(path, true);
@@ -95,9 +95,9 @@ Zarafa.settings.data.SettingsTreeLoader = Ext.extend(Ext.ux.tree.TreeGridLoader,
 				text: key,
 				id: nodePath,
 				leaf: leaf,
-				expanded : !leaf && expanded,
+				expanded: !leaf && expanded,
 				value: leaf ? settings[key] : undefined,
-				uiProvider : Zarafa.settings.ui.SettingsTreeNodeUI
+				uiProvider: Zarafa.settings.ui.SettingsTreeNodeUI
 			});
 		}
 

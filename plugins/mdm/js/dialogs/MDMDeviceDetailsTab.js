@@ -10,7 +10,7 @@ Ext.namespace('Zarafa.plugins.mdm.dialogs');
 Zarafa.plugins.mdm.dialogs.MDMDeviceDetailsTab = Ext.extend(Ext.form.FormPanel, {
 
 	/**
-	 * @cfg {Boolean} isKoe True if device has Kopano Outlook Extension information.
+	 * @cfg {Boolean} isKoe True if device has Outlook Extension information.
 	 */
 	isKoe : false,
 
@@ -47,7 +47,7 @@ Zarafa.plugins.mdm.dialogs.MDMDeviceDetailsTab = Ext.extend(Ext.form.FormPanel, 
 	},
 	/**
 	 * Function which is use to create device information panel
-	 * @param {Boolean} isKoe True if device has Kopano Outlook Extension information, false otherwise.
+	 * @param {Boolean} isKoe True if device has Outlook Extension information, false otherwise.
 	 * @return {Object} Configuration object for the panel which shows device properties
 	 * @private
 	 */
@@ -83,7 +83,7 @@ Zarafa.plugins.mdm.dialogs.MDMDeviceDetailsTab = Ext.extend(Ext.form.FormPanel, 
 
 	/**
 	 * Function which is use to create version information panel.
-	 * @param {Boolean} isKoe True if device has Kopano Outlook Extension information, false otherwise.
+	 * @param {Boolean} isKoe True if device has Outlook Extension information, false otherwise.
 	 * @return {Object} Configuration object for the panel which shows versions properties
 	 * @private
 	 */
@@ -115,9 +115,9 @@ Zarafa.plugins.mdm.dialogs.MDMDeviceDetailsTab = Ext.extend(Ext.form.FormPanel, 
 	},
 
 	/**
-	 * Function which is use to create Kopano Outlook Extension panel
+	 * Function which is use to create Outlook Extension panel
 	 * @param {Zarafa.plugins.mdm.data.MDMDeviceRecord} record The device record.s
-	 * @return {Object} Configuration object for the panel which shows Kopano Outlook Extension properties
+	 * @return {Object} Configuration object for the panel which shows Outlook Extension properties
 	 * @private
 	 */
 	createKOEInfoPanel: function (record)
@@ -130,7 +130,7 @@ Zarafa.plugins.mdm.dialogs.MDMDeviceDetailsTab = Ext.extend(Ext.form.FormPanel, 
 			defaultType: 'displayfield',
 			items: [{
 				cls: 'mdm-display-name',
-				value: dgettext('plugin_mdm', 'Kopano Outlook Extension'),
+				value: dgettext('plugin_mdm', 'Outlook Extension'),
 				htmlEncode: true,
 				hideLabel: true,
 				disabled: false

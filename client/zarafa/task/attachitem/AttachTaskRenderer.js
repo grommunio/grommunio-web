@@ -11,21 +11,21 @@ Zarafa.task.attachitem.AttachTaskRenderer = Ext.extend(Zarafa.common.attachment.
 	 * Constructor will intialize default properties
 	 * @param {Object} config configuration object
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		Zarafa.task.attachitem.AttachTaskRenderer.superclass.constructor.call(this, config);
 
 		Ext.apply(this.labels, {
-			'startdate' : _('Start Date'),
-			'duedate' : _('Due Date'),
-			'status' : _('Task Status'),
-			'percent_complete' : _('Percent Complete'),
-			'totalwork' : _('Total Work'),
-			'actualwork' : _('Actual Work'),
-			'owner' : _('Owner'),
-			'companies' : _('Companies'),
-			'billinginformation' : _('Billing Information'),
-			'mileage' : _('Mileage')
+			'startdate': _('Start Date'),
+			'duedate': _('Due Date'),
+			'status': _('Task Status'),
+			'percent_complete': _('Percent Complete'),
+			'totalwork': _('Total Work'),
+			'actualwork': _('Actual Work'),
+			'owner': _('Owner'),
+			'companies': _('Companies'),
+			'billinginformation': _('Billing Information'),
+			'mileage': _('Mileage')
 		});
 	},
 
@@ -34,42 +34,42 @@ Zarafa.task.attachitem.AttachTaskRenderer = Ext.extend(Zarafa.common.attachment.
 	 * This will generate template for the html format only.
 	 * @return {String} The HTML for the XTemplate to use
 	 */
-	generateHTMLTemplate : function()
+	generateHTMLTemplate: function()
 	{
 		var html = '';
 
 		html += this.addHTMLRowGroup({
-			'subject' : '{subject:htmlEncode}',
-			// # TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
-			'startdate' : '{startdate:date("' + _("l jS F Y G:i") + '")}',
-			// # TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
-			'duedate' : '{duedate:date("' + _("l jS F Y G:i") + '")}',
-			'importance' : '{importance:importanceString}',
-			'sensitivity' : '{sensitivity:sensitivityString}'
+			'subject': '{subject:htmlEncode}',
+			// # TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
+			'startdate': '{startdate:formatDefaultTimeString("' + _("l jS F Y {0}") + '")}',
+			// # TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
+			'duedate': '{duedate:formatDefaultTimeString("' + _("l jS F Y {0}") + '")}',
+			'importance': '{importance:importanceString}',
+			'sensitivity': '{sensitivity:sensitivityString}'
 		});
 
 		html += this.addHTMLRowGroup({
-			'status' : '{status:taskStatusString}',
-			'percent_complete' : '{percent_complete:percentage}',
-			// # TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
-			'datecompleted' : '{datecompleted:date("' + _("l jS F Y G:i") + '")}'
+			'status': '{status:taskStatusString}',
+			'percent_complete': '{percent_complete:percentage}',
+			// # TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
+			'datecompleted': '{datecompleted:formatDefaultTimeString("' + _("l jS F Y {0}") + '")}'
 		});
 
 		html += this.addHTMLRowGroup({
-			'totalwork' : '{totalwork:duration}',
-			'actualwork' : '{actualwork:duration}',
-			'owner' : '{owner:htmlEncode}',
-			'categories' : '{categories:htmlEncode}',
-			'companies' : '{companies:htmlEncode}',
-			'billinginformation' : '{billinginformation:htmlEncode}',
-			'mileage' : '{mileage:htmlEncode}'
+			'totalwork': '{totalwork:duration}',
+			'actualwork': '{actualwork:duration}',
+			'owner': '{owner:htmlEncode}',
+			'categories': '{categories:htmlEncode}',
+			'companies': '{companies:htmlEncode}',
+			'billinginformation': '{billinginformation:htmlEncode}',
+			'mileage': '{mileage:htmlEncode}'
 		});
 
 		html += this.addHTMLRowGroup({
-			'categories' : '{categories:htmlEncode}',
-			'companies' : '{companies:htmlEncode}',
-			'billinginformation' : '{billinginformation:htmlEncode}',
-			'mileage' : '{mileage:htmlEncode}'
+			'categories': '{categories:htmlEncode}',
+			'companies': '{companies:htmlEncode}',
+			'billinginformation': '{billinginformation:htmlEncode}',
+			'mileage': '{mileage:htmlEncode}'
 		});
 
 		html += this.addHTMLRow('attachment_names', '{attachment_names:htmlEncode}');
@@ -83,42 +83,42 @@ Zarafa.task.attachitem.AttachTaskRenderer = Ext.extend(Zarafa.common.attachment.
 	 * This will generate template for the plain text format only.
 	 * @return {String} The HTML for the XTemplate to use
 	 */
-	generatePlainTemplate : function()
+	generatePlainTemplate: function()
 	{
 		var html = '';
 
 		html += this.addPlainRowGroup({
-			'subject' : '{subject}',
-			// # TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
-			'startdate' : '{startdate:date("' + _("l jS F Y G:i") + '")}',
-			// # TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
-			'duedate' : '{duedate:date("' + _("l jS F Y G:i") + '")}',
-			'importance' : '{importance:importanceString}',
-			'sensitivity' : '{sensitivity:sensitivityString}'
+			'subject': '{subject}',
+			// # TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
+			'startdate': '{startdate:formatDefaultTimeString("' + _("l jS F Y {0}") + '")}',
+			// # TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
+			'duedate': '{duedate:formatDefaultTimeString("' + _("l jS F Y {0}") + '")}',
+			'importance': '{importance:importanceString}',
+			'sensitivity': '{sensitivity:sensitivityString}'
 		});
 
 		html += this.addPlainRowGroup({
-			'status' : '{status:taskStatusString}',
-			'percent_complete' : '{percent_complete:percentage}',
-			// # TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
-			'datecompleted' : '{datecompleted:date("' + _("l jS F Y G:i") + '")}'
+			'status': '{status:taskStatusString}',
+			'percent_complete': '{percent_complete:percentage}',
+			// # TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
+			'datecompleted': '{datecompleted:formatDefaultTimeString("' + _("l jS F Y {0}") + '")}'
 		});
 
 		html += this.addPlainRowGroup({
-			'totalwork' : '{totalwork:duration}',
-			'actualwork' : '{actualwork:duration}',
-			'owner' : '{owner}',
-			'categories' : '{categories}',
-			'companies' : '{companies}',
-			'billinginformation' : '{billinginformation}',
-			'mileage' : '{mileage}'
+			'totalwork': '{totalwork:duration}',
+			'actualwork': '{actualwork:duration}',
+			'owner': '{owner}',
+			'categories': '{categories}',
+			'companies': '{companies}',
+			'billinginformation': '{billinginformation}',
+			'mileage': '{mileage}'
 		});
 
 		html += this.addPlainRowGroup({
-			'categories' : '{categories}',
-			'companies' : '{companies}',
-			'billinginformation' : '{billinginformation}',
-			'mileage' : '{mileage}'
+			'categories': '{categories}',
+			'companies': '{companies}',
+			'billinginformation': '{billinginformation}',
+			'mileage': '{mileage}'
 		});
 
 		html += this.addPlainRow('attachment_names', '{attachment_names}');
@@ -129,11 +129,11 @@ Zarafa.task.attachitem.AttachTaskRenderer = Ext.extend(Zarafa.common.attachment.
 
 	/**
 	 * Prepares data suitable for use in an XTemplate from the record.
-	 * @param {Zarafa.core.data.IPMRecord} record The record to aquire data from.
+	 * @param {Zarafa.core.data.IPMRecord} record The record to acquire data from.
 	 * @param {Boolean} htmlFormat decide if html or plain data is requested, this will depend on the user settings.
 	 * @return {Array} An array of data which is customized for our purpose.
 	 */
-	prepareData : function(record, htmlFormat)
+	prepareData: function(record, htmlFormat)
 	{
 		var data = Zarafa.task.attachitem.AttachTaskRenderer.superclass.prepareData.apply(this, arguments);
 

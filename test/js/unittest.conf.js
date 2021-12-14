@@ -14,15 +14,15 @@ module.exports = function(config) {
       /* Translations polyfill */
       'polyfill/translations.js',
       '../../deploy/client/extjs-mod/extjs-mod-debug.js',
-      '../../deploy/client/third-party/ux-thirdparty.js',
-      '../../deploy/client/kopano-debug.js',
+      '../../deploy/client/third-party/ux-thirdparty-debug.js',
+      '../../deploy/client/grommunio-debug.js',
       /* Custom ExtJS matchers */
       'util/matchers.js',
       'unittest/*.js',
     ],
 
     preprocessors: {
-      '../../deploy/client/kopano-debug.js': ['coverage']
+      '../../deploy/client/grommunio-debug.js': ['coverage']
     },
 
     reporters: ['progress'],

@@ -36,7 +36,7 @@
 	Ext.override(Ext.form.Label, {
 		cls: 'x-form-item-label',
 
-		onRender : function(ct, position)
+		onRender: function(ct, position)
 		{
 			orig_onRender.apply(this, arguments);
 

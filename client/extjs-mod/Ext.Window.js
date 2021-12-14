@@ -6,12 +6,12 @@
 		/**
 		 * The window object that represents the browser window that contains this Ext.Window
 		 */
-		browserWindow : undefined,
+		browserWindow: undefined,
 
 		/*
 		 * overridden to set the correct size for the mask element in popout windows
 		 */
-		beforeShow : function()
+		beforeShow: function()
 		{
 			orig_beforeShow.call(this);
 
@@ -23,21 +23,21 @@
 		/*
 		 * Overridden to set a different handler for the resize event of popout windows
 		 */
-		afterShow : function(isAnim)
+		afterShow: function(isAnim)
 		{
-	        if (this.isDestroyed){
+	        if (this.isDestroyed) {
 	            return false;
 	        }
 	        this.proxy.hide();
 	        this.el.setStyle('display', 'block');
 	        this.el.show();
-	        if(this.maximized){
+	        if(this.maximized) {
 	            this.fitContainer();
 	        }
 
-	        if(this.monitorResize || this.modal || this.constrain || this.constrainHeader){
+	        if(this.monitorResize || this.modal || this.constrain || this.constrainHeader) {
            		// Popout browser windows should listen to their own resize event and not to the one of the main window
-				if ( this.browserWindow.name === 'mainBrowserWindow' ){
+				if ( this.browserWindow.name === 'mainBrowserWindow' ) {
 	            	Ext.EventManager.onWindowResize(this.onWindowResize, this);
 	           } else {
 					Zarafa.core.BrowserWindowMgr.on('separatewindowresize', this.onSeparateWindowResize, this);
@@ -45,12 +45,12 @@
 	        }
 	        this.doConstrain();
 	        this.doLayout();
-	        if(this.keyMap){
+	        if(this.keyMap) {
 	            this.keyMap.enable();
 	        }
 	        this.toFront();
 	        this.updateHandles();
-	        if(isAnim && (Ext.isIE || Ext.isWebKit)){
+	        if(isAnim && (Ext.isIE || Ext.isWebKit)) {
 	            var sz = this.getSize();
 	            this.onResize(sz.width, sz.height);
 	        }
@@ -61,16 +61,16 @@
 		/*
 		 * Overridden to remove the correct event listener for popout browser windows
 		 */
-		afterHide : function(){
+		afterHide: function() {
 			this.proxy.hide();
-			if(this.monitorResize || this.modal || this.constrain || this.constrainHeader){
-				if ( this.browserWindow.name === 'mainBrowserWindow' ){
+			if(this.monitorResize || this.modal || this.constrain || this.constrainHeader) {
+				if ( this.browserWindow.name === 'mainBrowserWindow' ) {
 					Ext.EventManager.removeResizeListener(this.onWindowResize, this);
 			   } else {
 					Zarafa.core.BrowserWindowMgr.un('separatewindowresize', this.onSeparateWindowResize, this);
 			   }
 			}
-			if(this.keyMap){
+			if(this.keyMap) {
 				this.keyMap.disable();
 			}
 			this.onHide();
@@ -80,7 +80,7 @@
 		/*
 		 * Overridden to set the correct size of the mask for popout windows
 		 */
-		onWindowResize : function()
+		onWindowResize: function()
 		{
 			orig_onWindowResize.call(this);
 
@@ -93,9 +93,9 @@
 		 * @param {Window} browserWindow The window object that represents the browser window that
 		 * was resized.
 		 */
-		onSeparateWindowResize : function(browserWindow)
+		onSeparateWindowResize: function(browserWindow)
 		{
-			if ( browserWindow === this.browserWindow ){
+			if ( browserWindow === this.browserWindow ) {
 				this.onWindowResize();
 			}
 		},
@@ -103,9 +103,9 @@
 		/**
 		 * Resizes the mask that is used for modal windows to fit the browser window size
 		 */
-		correctMaskSize : function()
+		correctMaskSize: function()
 		{
-			if(this.modal){
+			if(this.modal) {
 				// Hide the mask when resizing it or it will influence the size of the window
 				this.mask.hide();
 				this.mask.setSize(

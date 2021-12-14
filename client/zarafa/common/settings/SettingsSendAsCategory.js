@@ -21,18 +21,18 @@ Zarafa.common.settings.SettingsSendAsCategory = Ext.extend(Zarafa.settings.ui.Se
 	 * @constructor
 	 * @param {Object} config Configuration object
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		config = config || {};
 
 		Ext.applyIf(config, {
-			title : _('From Addresses'),
-			categoryIndex : 6,
-			xtype : 'zarafa.settingssendascategory',
-			iconCls : 'zarafa-settings-category-sendas',
-			items : [{
-					xtype : 'zarafa.settingssendaswidget',
-					settingsContext : config.settingsContext
+			title: _('From Addresses'),
+			categoryIndex: 6,
+			xtype: 'zarafa.settingssendascategory',
+			iconCls: 'zarafa-settings-category-sendas',
+			items: [{
+					xtype: 'zarafa.settingssendaswidget',
+					settingsContext: config.settingsContext
 				},
 				container.populateInsertionPoint('context.settings.category.sendas', this)
 			]

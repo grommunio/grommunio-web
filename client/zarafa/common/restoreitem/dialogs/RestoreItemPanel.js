@@ -1,29 +1,40 @@
+/*
+ * #dependsFile client/zarafa/common/ui/grid/MapiMessageGridPanel.js
+ */
+
 Ext.namespace('Zarafa.common.restoreitem.dialogs');
 
 /**
  * @class Zarafa.common.restoreitem.dialogs.RestoreItemPanel
- * @extends Ext.grid.GridPanel
+ * @extends Zarafa.common.ui.grid.MapiMessageGrid
  * @xtype zarafa.restoreitempanel
  *
  * A gridPanel which provides UI for RestoreItem dialog to display the list of soft deleted items.
  * It also contains a {@link Zarafa.core.ui.ContentPanelToolbar ContentPanelToolbar}.
  */
-Zarafa.common.restoreitem.dialogs.RestoreItemPanel = Ext.extend(Ext.grid.GridPanel, {
+Zarafa.common.restoreitem.dialogs.RestoreItemPanel = Ext.extend(Zarafa.common.ui.grid.MapiMessageGrid , {
 
 	/**
 	 * @cfg {Zarafa.hierarchy.data.MAPIFolderRecord} folder default folder for the contextModel.
 	 */
-	folder : undefined,
+	folder: undefined,
 
 	/**
 	 * The current type of soft deleted items list.
 	 * Default value is 'message' as By default Grid is loaded with soft deleted message list.
-	 * This String is changed by {@link #onRadioChange}.
+	 * This String is changed by {@link #onRadioChecked}.
 	 * @property
 	 * @type String
 	 * @private
 	 */
-	itemType : 'message',
+	itemType: 'message',
+
+	/**
+	 * The {@link Zarafa.core.ContextModel} which is obtained by using {@link #folder}.
+	 * @property
+	 * @type Zarafa.core.ContextModel
+	 */
+	model: undefined,
 
 	/**
 	 * @constructor
@@ -37,40 +48,44 @@ Zarafa.common.restoreitem.dialogs.RestoreItemPanel = Ext.extend(Ext.grid.GridPan
 			xtype: 'zarafa.restoreitempanel',
 			border: false,
 			store: new Zarafa.common.restoreitem.data.RestoreItemStore({
+				folder: config.folder,
 				autoLoad: {
 					folder: config.folder
 				}
 			}),
+			model: container.getContextByFolder(config.folder).getModel(),
 			loadMask: true,
+			supportLiveScroll: true,
 			viewConfig: {
 				forceFit: true,
-				emptyText : '<div class="emptytext">' + _('There are no items to show in this list') + '</div>',
-				getRowClass : this.viewConfigGetRowClass
+				emptyText: '<div class="emptytext">' + _('There are no items to show in this list') + '</div>',
+				getRowClass: this.viewConfigGetRowClass
 			},
 			tbar: {
 				xtype: 'zarafa.contentpaneltoolbar',
 				insertionPointBase: 'common.restoreitemcontentpanel',
 				actionItems: this.createActionButtons()
 			},
-			bbar: [{
-					xtype: 'tbfill'
-				},{
-					xtype : 'displayfield',
-					height : 15,
-					ref : '../statusMessage'
-			}],
 			colModel: this.initMessageColumnModel(),
-			sm : new Ext.grid.RowSelectionModel()
+			sm: new Ext.grid.RowSelectionModel()
 		});
 
 		Zarafa.common.restoreitem.dialogs.RestoreItemPanel.superclass.constructor.call(this,config);
 
-		this.mon(this.store, 'load', this.onStoreLoad, this);
-		this.mon(this.store, 'load', this.disableToolbarButton, this);
-		this.mon(this.store, 'load', this.setStatusMessage, this);
-		this.mon(this.store, 'remove', this.setStatusMessage, this);
+	},
+
+	/**
+	 * Initialize event handlers
+	 * @private
+	 */
+	initEvents: function()
+	{
+		Zarafa.common.restoreitem.dialogs.RestoreItemPanel.superclass.initEvents.call(this);
+
 		this.mon(this.store, 'remove', this.disableToolbarButton, this);
 		this.mon(this.getSelectionModel(), 'selectionchange', this.onSelectionChange, this);
+		this.mon(this.getView(), 'livescrollstart', this.onLiveScrollStart, this);
+		this.mon(this.getView(), 'beforesort', this.onBeforeSort, this);
 
 	},
 
@@ -86,7 +101,7 @@ Zarafa.common.restoreitem.dialogs.RestoreItemPanel = Ext.extend(Ext.grid.GridPan
 	 * @return {String} a CSS class name to add to the row
 	 * @private
 	 */
-	viewConfigGetRowClass :function(record, rowIndex, rowParams, store)
+	viewConfigGetRowClass:function(record, rowIndex, rowParams, store)
 	{
 		return record.isRead() ? 'mail_read' : 'mail_unread';
 	},
@@ -97,7 +112,7 @@ Zarafa.common.restoreitem.dialogs.RestoreItemPanel = Ext.extend(Ext.grid.GridPan
 	 * @return {Array} array consist of buttons for restore content panel
 	 * @private
 	 */
-	createActionButtons : function()
+	createActionButtons: function()
 	{
 		var radioGroupName = Ext.id(null, 'restoreitem-');
 		return [{
@@ -105,59 +120,59 @@ Zarafa.common.restoreitem.dialogs.RestoreItemPanel = Ext.extend(Ext.grid.GridPan
 			overflowText: _('Restore'),
 			text: _('Restore'),
 			iconCls: 'icon_restore',
-			handler : this.onRestore,
-			disabled : true,
-			ref : '../restoreButton',
+			handler: this.onRestore,
+			disabled: true,
+			ref: '../restoreButton',
 			scope: this
 		}, {
 			xtype: 'button',
 			overflowText: _('Restore All'),
 			text: _('Restore All'),
 			iconCls: 'icon_restore',
-			handler : this.onRestoreAll,
-			disabled : true,
-			ref : '../restoreAllButton',
+			handler: this.onRestoreAll,
+			disabled: true,
+			ref: '../restoreAllButton',
 			scope: this
 		},{
 			xtype: 'button',
 			overflowText: _('Permanent Delete'),
 			text: _('Permanent Delete'),
 			iconCls: 'icon_delete',
-			handler : this.onPermanentDelete,
-			disabled : true,
-			ref : '../permanentDeleteButton',
+			handler: this.onPermanentDelete,
+			disabled: true,
+			ref: '../permanentDeleteButton',
 			scope: this
 		},{
 			xtype: 'button',
 			overflowText: _('Delete All'),
 			text: _('Delete All'),
 			iconCls: 'icon_delete',
-			handler : this.onDeleteAll,
-			disabled : true,
-			ref : '../deleteAllButton',
+			handler: this.onDeleteAll,
+			disabled: true,
+			ref: '../deleteAllButton',
 			scope: this
 		},{
 			xtype: 'tbfill'
 		},{
-			xtype : 'radio',
+			xtype: 'radio',
 			width: 90,
 			boxLabel: _('Messages'),
 			name: radioGroupName,
 			inputValue: 'message',
 			checked: true,
-			listeners : {
-				check : this.onRadioChecked,
-				scope : this
+			listeners: {
+				check: this.onRadioChecked,
+				scope: this
 			}
 		},{
-			xtype : 'radio',
+			xtype: 'radio',
 			width: 70,
 			boxLabel: _('Folders'),
 			name: radioGroupName,
 			inputValue: 'folder',
-			listeners : {
-				check : this.onRadioChecked,
-				scope : this
+			listeners: {
+				check: this.onRadioChecked,
+				scope: this
 			}
 		}];
 	},
@@ -169,17 +184,13 @@ Zarafa.common.restoreitem.dialogs.RestoreItemPanel = Ext.extend(Ext.grid.GridPan
 	 * @param {Boolean} checked The new checked value
 	 * @private
 	 */
-	onRadioChecked : function(radio, checked)
+	onRadioChecked: function(radio, checked)
 	{
 		// load data about deleted message or folder in store based on the selected radio
 		if (checked === true) {
 			this.itemType = radio.inputValue;
-
-			this.store.load({
-				params: {
-					itemType : this.itemType
-				}
-			});
+			this.store.setItemType(this.itemType);
+			this.store.load();
 		}
 	},
 
@@ -191,7 +202,7 @@ Zarafa.common.restoreitem.dialogs.RestoreItemPanel = Ext.extend(Ext.grid.GridPan
 	 * @param {Ext.EventObject} eventObj event object for the click event.
 	 * @private
 	 */
-	onPermanentDelete : function(button, eventObj)
+	onPermanentDelete: function(button, eventObj)
 	{
 		var records = this.getSelectionModel().getSelections();
 		this.doPermanentDelete(records);
@@ -205,17 +216,15 @@ Zarafa.common.restoreitem.dialogs.RestoreItemPanel = Ext.extend(Ext.grid.GridPan
 	 * @param {Ext.EventObject} eventObj event object for the click event.
 	 * @private
 	 */
-	onDeleteAll : function(button, eventObj)
+	onDeleteAll: function(button, eventObj)
 	{
-		var records = this.store.getRange();
-		
 		Ext.MessageBox.show({
 			title: _('Delete all items'),
 			msg: _('Are you sure you want to permanently delete all items?'),
 			buttons: Ext.MessageBox.YESNO,
 			fn: function(buttonClicked) {
 				if (buttonClicked == 'yes') {
-					this.doPermanentDelete(records);
+					this.doPermanentDelete([], true);
 				}
 			},
 			scope: this
@@ -225,26 +234,39 @@ Zarafa.common.restoreitem.dialogs.RestoreItemPanel = Ext.extend(Ext.grid.GridPan
 	/**
 	 * Helper for deleting / restoring items.
 	 * @param {Zarafa.common.restoreitem.data.RestoreItemRecord[]} records The records that should be hard-deleted
+	 * @param {boolean} bulkAction true to either restore/delete all folder/items.
 	 * @private
 	 */
-	doAction: function(records, action)
+	doAction: function(records, action, bulkAction)
 	{
-		var saveRecords = records.map(function(record) {
-			record.addMessageAction('action_type', action + this.itemType);
-			this.store.remove(record);
-			return record;
-		}, this);
-		this.store.save(saveRecords);
+		if (bulkAction) {
+			this.store.load({
+				folder: this.folder,
+				params: {
+					message_action: {
+						action_type: action + "All"
+					}
+				}
+			});
+		} else {
+			var saveRecords = records.map(function(record) {
+				record.addMessageAction('action_type', action + this.itemType);
+				this.store.remove(record);
+				return record;
+			}, this);
+			this.store.save(saveRecords);
+		}
 	},
 
 	/**
 	 * This will Permanently delete the selected record(s) which is passed as argument.
 	 * @param {Zarafa.common.restoreitem.data.RestoreItemRecord[]} records The records that should be hard-deleted
+	 * @param {boolean} bulkAction true to permanently delete all items.
 	 * @private
 	 */
-	doPermanentDelete : function(records)
+	doPermanentDelete: function(records, bulkAction)
 	{
-		this.doAction(records, 'delete');
+		this.doAction(records, 'delete', bulkAction);
 	},
 
 	/**
@@ -255,7 +277,7 @@ Zarafa.common.restoreitem.dialogs.RestoreItemPanel = Ext.extend(Ext.grid.GridPan
 	 * @param {Ext.EventObject} eventObj event object for the click event.
 	 * @private
 	 */
-	onRestore : function(button, eventObj)
+	onRestore: function(button, eventObj)
 	{
 		var records = this.getSelectionModel().getSelections();
 		this.doRestore(records);
@@ -269,18 +291,17 @@ Zarafa.common.restoreitem.dialogs.RestoreItemPanel = Ext.extend(Ext.grid.GridPan
 	 * @param {Ext.EventObject} eventObj event object for the click event.
 	 * @private
 	 */
-	onRestoreAll : function(button, eventObj)
+	onRestoreAll: function(button, eventObj)
 	{
-		var records = this.store.getRange();
 		Ext.MessageBox.show({
 			title: _('Restore all items'),
 			msg: _('Are you sure you want to restore all items?'),
 			buttons: Ext.MessageBox.YESNO,
 			fn: function(buttonClicked) {
 				if (buttonClicked == 'yes') {
-					this.doRestore(records);
+					this.doRestore([], true);
 				}
-			
+
 			},
 			scope: this
 		});
@@ -289,11 +310,12 @@ Zarafa.common.restoreitem.dialogs.RestoreItemPanel = Ext.extend(Ext.grid.GridPan
 	/**
 	 * This will retore the selected record(s) which is passed as argument.
 	 * @param {Zarafa.common.restoreitem.data.RestoreItemRecord[]} records The records that should be restored
+	 * @param {boolean} bulkAction true to restore all items.
 	 * @private
 	 */
-	doRestore : function(records)
+	doRestore: function(records, bulkAction)
 	{
-		this.doAction(records, 'restore');
+		this.doAction(records, 'restore', bulkAction);
 	},
 
 	/**
@@ -304,15 +326,19 @@ Zarafa.common.restoreitem.dialogs.RestoreItemPanel = Ext.extend(Ext.grid.GridPan
 	 * @param {Object} options The options which were used to load the data
 	 * @private
 	 */
-	onStoreLoad : function( store, records, options )
+	onStoreLoad: function( store, records, options )
 	{
-		if (Ext.isDefined(options.params.itemType) && options.params.itemType == 'folder') {
+		if (Ext.isDefined(options.params.itemType) && options.params.itemType === 'folder') {
 			this.reconfigure(store, this.initFolderColumnModel());
 		} else {
 			this.reconfigure(store, this.initMessageColumnModel());
 		}
 
 		this.getSelectionModel().selectFirstRow();
+
+		this.disableToolbarButton(store);
+
+		Zarafa.common.restoreitem.dialogs.RestoreItemPanel.superclass.onStoreLoad.apply(this, arguments);
 	},
 
 	/**
@@ -321,7 +347,7 @@ Zarafa.common.restoreitem.dialogs.RestoreItemPanel = Ext.extend(Ext.grid.GridPan
 	 * @param {Ext.grid.RowSelectionModel} selectionModel The selection model used by the grid.
 	 * @private
 	 */
-	onSelectionChange : function(selectionModel)
+	onSelectionChange: function(selectionModel)
 	{
 		var noSelection = (selectionModel.hasSelection() === false);
 
@@ -338,7 +364,7 @@ Zarafa.common.restoreitem.dialogs.RestoreItemPanel = Ext.extend(Ext.grid.GridPan
 	 * @param {Number} index The index from where the records were deleted
 	 * @private
 	 */
-	setStatusMessage : function(store, record, index)
+	setStatusMessage: function(store, record, index)
 	{
 		this.statusMessage.setValue(String.format(ngettext('Total {0} recoverable item', 'Total {0} recoverable items', store.getCount()), store.getCount()));
 	},
@@ -352,7 +378,7 @@ Zarafa.common.restoreitem.dialogs.RestoreItemPanel = Ext.extend(Ext.grid.GridPan
 	 * @param {Number} index The index from where the records were deleted
 	 * @private
 	 */
-	disableToolbarButton : function(store, record, index)
+	disableToolbarButton: function(store, record, index)
 	{
 		var noItem = (store.getCount() === 0);
 		this.deleteAllButton.setDisabled(noItem);
@@ -365,36 +391,38 @@ Zarafa.common.restoreitem.dialogs.RestoreItemPanel = Ext.extend(Ext.grid.GridPan
 	 * @return {Ext.grid.ColumnModel} column model object
 	 * @private
 	 */
-	initFolderColumnModel : function()
+	initFolderColumnModel: function()
 	{
-		return new Ext.grid.ColumnModel([{
-			dataIndex : 'icon_index',
-			headerCls: 'zarafa-icon-column',
-			header : '<p class="icon_index">&nbsp;</p>',
-			tooltip : _('Sort by: Icon'),
-			width : 24,
-			sortable: true,
-			fixed : true,
-			renderer : Zarafa.common.ui.grid.Renderers.icon
-		},{
-			dataIndex:'display_name',
-			header: _('Name'),
-			tooltip : _('Sort by: Name'),
-			sortable: true,
-			renderer: Ext.util.Format.htmlEncode
-		},{
-			dataIndex:'deleted_on',
-			header: _('Deleted On'),
-			tooltip : _('Sort by: Deleted On'),
-			sortable: true,
-			renderer: Zarafa.common.ui.grid.Renderers.datetime
-		},{
-			dataIndex: 'content_count',
-			header: _('Item Count'),
-			tooltip : _('Sort by: Item Count'),
-			sortable: true,
-			renderer: Ext.util.Format.htmlEncode
-		}]);
+		return new Ext.grid.ColumnModel({
+			columns: [{
+				dataIndex: 'icon_index',
+				headerCls: 'zarafa-icon-column',
+				header: '<p class="icon_index">&nbsp;</p>',
+				tooltip: _('Sort by: Icon'),
+				width: 24,
+				sortable: true,
+				fixed: true,
+				renderer: Zarafa.common.ui.grid.Renderers.icon
+			},{
+				dataIndex:'display_name',
+				header: _('Name'),
+				tooltip: _('Sort by: Name'),
+				sortable: true,
+				renderer: Ext.util.Format.htmlEncode
+			},{
+				dataIndex:'deleted_on',
+				header: _('Deleted On'),
+				tooltip: _('Sort by: Deleted On'),
+				sortable: true,
+				renderer: Zarafa.common.ui.grid.Renderers.datetime
+			},{
+				dataIndex: 'content_count',
+				header: _('Item Count'),
+				tooltip: _('Sort by: Item Count'),
+				sortable: true,
+				renderer: Ext.util.Format.htmlEncode
+			}]
+		});
 	},
 
 	/**
@@ -403,57 +431,84 @@ Zarafa.common.restoreitem.dialogs.RestoreItemPanel = Ext.extend(Ext.grid.GridPan
 	 * @return {Ext.grid.ColumnModel} column model object
 	 * @private
 	 */
-	initMessageColumnModel : function()
+	initMessageColumnModel: function()
 	{
-		return new Ext.grid.ColumnModel([{
-			dataIndex : 'icon_index',
-			headerCls: 'zarafa-icon-column',
-			header : '<p class="icon_index">&nbsp;</p>',
-			tooltip : _('Sort by: Icon'),
-			width : 24,
-			sortable: true,
-			fixed : true,
-			renderer : Zarafa.common.ui.grid.Renderers.icon
-		},{
-			dataIndex : 'hasattach',
-			headerCls: 'zarafa-icon-column',
-			header : '<p class=\'icon_paperclip\'>&nbsp;</p>',
-			tooltip : _('Sort by: Attachment'),
-			width : 24,
-			sortable: true,
-			fixed : true,
-			renderer : Zarafa.common.ui.grid.Renderers.attachment
-		},{
-			dataIndex:'sender_name',
-			header: _('From'),
-			tooltip : _('Sort by: From'),
-			sortable: true,
-			renderer: Ext.util.Format.htmlEncode
-		},{
-			dataIndex: 'subject',
-			header: _('Subject'),
-			tooltip : _('Sort by: Subject'),
-			sortable: true,
-			renderer: Ext.util.Format.htmlEncode
-		},{
-			dataIndex:'deleted_on',
-			header: _('Deleted On'),
-			tooltip : _('Sort by: Deleted On'),
-			sortable: true,
-			renderer: Zarafa.common.ui.grid.Renderers.datetime
-		},{
-			dataIndex : 'message_delivery_time',
-			header : _('Received'),
-			tooltip : _('Sort by: Received'),
-			sortable: true,
-			renderer : Zarafa.common.ui.grid.Renderers.datetime
-		},{
-			dataIndex:'message_size',
-			header: _('Size'),
-			tooltip : _('Sort by: Size'),
-			sortable: true,
-			renderer: Zarafa.common.ui.grid.Renderers.size
-		}]);
+		return new Ext.grid.ColumnModel({
+			columns: [{
+				dataIndex: 'icon_index',
+				headerCls: 'zarafa-icon-column',
+				header: '<p class="icon_index">&nbsp;</p>',
+				tooltip: _('Sort by: Icon'),
+				width: 24,
+				sortable: true,
+				fixed: true,
+				renderer: Zarafa.common.ui.grid.Renderers.icon
+			},{
+				dataIndex: 'hasattach',
+				headerCls: 'zarafa-icon-column',
+				header: '<p class=\'icon_paperclip\'>&nbsp;</p>',
+				tooltip: _('Sort by: Attachment'),
+				width: 24,
+				sortable: true,
+				fixed: true,
+				renderer: Zarafa.common.ui.grid.Renderers.attachment
+			},{
+				dataIndex:'sender_name',
+				header: _('From'),
+				tooltip: _('Sort by: From'),
+				sortable: true,
+				renderer: Ext.util.Format.htmlEncode
+			},{
+				dataIndex: 'subject',
+				header: _('Subject'),
+				tooltip: _('Sort by: Subject'),
+				sortable: true,
+				renderer: Ext.util.Format.htmlEncode
+			},{
+				dataIndex:'deleted_on',
+				header: _('Deleted On'),
+				tooltip: _('Sort by: Deleted On'),
+				sortable: true,
+				renderer: Zarafa.common.ui.grid.Renderers.datetime
+			},{
+				dataIndex: 'message_delivery_time',
+				header: _('Received'),
+				tooltip: _('Sort by: Received'),
+				sortable: true,
+				renderer: Zarafa.common.ui.grid.Renderers.datetime
+			},{
+				dataIndex:'message_size',
+				header: _('Size'),
+				tooltip: _('Sort by: Size'),
+				sortable: true,
+				renderer: Zarafa.common.ui.grid.Renderers.size
+			}]
+		});
+	},
+
+	/**
+	 * Event handler which triggered when scrollbar gets scrolled more then 90% of it`s height.
+	 * it will be used to start live scroll on {@link Zarafa.core.data.ListModuleStore ListModuleStore}.
+	 * also it will register event on {@link Zarafa.core.data.ListModuleStore ListModuleStore} to get
+	 * updated batch of mails status.
+	 *
+	 * @param {Number} cursor the cursor contains the last index of record in grid.
+	 * @private
+	 */
+	onLiveScrollStart: function(cursor)
+	{
+		this.model.startLiveScroll(cursor, this.getStore());
+	},
+
+	/**
+	 * Event handler which triggered when header of grid was clicked to apply the sorting
+	 * on {@link Zarafa.common.restoreitem.dialogs.RestoreItemPanel RestoreItemPanel}. it will first stop the
+	 * {@link Zarafa.core.ContextModel#stopLiveScroll live scroll} and then apply the sorting.
+	 * @private
+	 */
+	onBeforeSort: function()
+	{
+		this.model.stopLiveScroll();
 	}
 });
 

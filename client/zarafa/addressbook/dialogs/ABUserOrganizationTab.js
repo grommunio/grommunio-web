@@ -12,7 +12,7 @@ Zarafa.addressbook.dialogs.ABUserOrganizationTab = Ext.extend(Ext.form.FormPanel
 	 * @constructor
 	 * @param {Object} config configuration object.
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		config = config || {};
 
@@ -20,38 +20,40 @@ Zarafa.addressbook.dialogs.ABUserOrganizationTab = Ext.extend(Ext.form.FormPanel
 		config.plugins.push('zarafa.recordcomponentupdaterplugin');
 
 		Ext.applyIf(config, {
-			xtype : 'zarafa.abuserorganizationtab',
-			title : _('Organization'),
-			selModel	: this.initSelectionModel(),
+			xtype: 'zarafa.abuserorganizationtab',
+			title: _('Organization'),
+			selModel: this.initSelectionModel(),
+			padding: 5,
 			layout: {
 				type: 'vbox',
 				align: 'stretch'
 			},
-			autoScroll : true,
-			items : [
+			autoScroll: true,
+			items: [
 				this.createManagerFieldset(),
 				this.createDirectReportFieldset()
 			]
 		});
-		
+
 		Zarafa.addressbook.dialogs.ABUserOrganizationTab.superclass.constructor.call(this, config);
 	},
 
 	/**
-	 * Creates manager fieldset for organization tab 
+	 * Creates manager fieldset for organization tab
 	 * @return {Object} config object for creating {@link Ext.form.FieldSet FieldSet}.
 	 * @private
 	 */
-	createManagerFieldset : function()
+	createManagerFieldset: function()
 	{
 		return [{
-			xtype : 'displayfield',
-			value : _('Manager') + ':',
-			hideLabel : true
+			xtype: 'displayfield',
+			margins: '0 0 5 0',
+			value: _('Manager') + ':',
+			hideLabel: true
 		},{
-			xtype : 'zarafa.abitemgrid',
-			ref : 'managerList',
-			autoHeight : true
+			xtype: 'zarafa.abitemgrid',
+			ref: 'managerList',
+			autoHeight: true
 		}];
 	},
 
@@ -60,27 +62,28 @@ Zarafa.addressbook.dialogs.ABUserOrganizationTab = Ext.extend(Ext.form.FormPanel
 	 * @return {Ext.grid.RowSelectionModel} selection model object
 	 * @private
 	 */
-	initSelectionModel : function()
+	initSelectionModel: function()
 	{
 		return new Ext.grid.RowSelectionModel({
-			singleSelect : false
+			singleSelect: false
 		});
 	},
-	
+
 	/**
 	 * Creates the direct report fieldset for organization tab of form panel.
 	 * @return {Object} config object for creating {@link Ext.form.FieldSet FieldSet}.
 	 * @private
 	 */
-	createDirectReportFieldset : function()
+	createDirectReportFieldset: function()
 	{
 		return [{
-			xtype : 'displayfield',
-			value : _('Direct reports') + ':',
-			hideLabel : true
+			xtype: 'displayfield',
+			margins: '5 0',
+			value: _('Direct reports') + ':',
+			hideLabel: true
 		},{
-			xtype : 'zarafa.abitemgrid',
-			ref : 'reportList',
+			xtype: 'zarafa.abitemgrid',
+			ref: 'reportList',
 			flex: 1
 		}];
 	},
@@ -92,7 +95,7 @@ Zarafa.addressbook.dialogs.ABUserOrganizationTab = Ext.extend(Ext.form.FormPanel
 	 * @param {Boolean} contentReset force the component to perform a full update of the data.
 	 * @private
 	 */
-	update : function(record, contentReset)
+	update: function(record, contentReset)
 	{
 		this.getForm().loadRecord(record);
 		var managerSubStore = record.getSubStore('ems_ab_manager');

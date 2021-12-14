@@ -1,16 +1,16 @@
 /* The font */
 
-$font-default-line-height		: 20px;
-$font-default-size			: 13px;
+$font-default-line-height			: 20px;
+$font-default-size					: 13px;
 $font-default-color			: #000000;
 
-$font-size-large			: 15px;
-$font-line-height-large			: 20px;
+$font-size-large					: 15px;
+$font-line-height-large				: 20px;
 
-$font-size-extra-large			: 18px;
+$font-size-extra-large				: 18px;
 $font-line-height-extra-large		: 25px;
 
-$font-line-height-small			: 15px;
+$font-line-height-small				: 15px;
 $font-line-height-mail-grid-compact : $font-default-size + 2px;
 
 @mixin basefont($size){

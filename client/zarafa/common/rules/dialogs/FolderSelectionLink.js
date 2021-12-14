@@ -15,14 +15,14 @@ Zarafa.common.rules.dialogs.FolderSelectionLink = Ext.extend(Ext.BoxComponent, {
 	 * @cfg {String} fieldLabel The label which must be applied to template
 	 * as a prefix to the list of attachments.
 	 */
-	emptyText :_('Select one...'),
+	emptyText:_('Select one...'),
 
 	/**
 	 * The folder which was selected by the user
 	 * @property
 	 * @type Zarafa.hierarchy.data.MAPIFolderRecord
 	 */
-	folder : undefined,
+	folder: undefined,
 
 	/**
 	 * The Action type which is handled by this view
@@ -30,7 +30,7 @@ Zarafa.common.rules.dialogs.FolderSelectionLink = Ext.extend(Ext.BoxComponent, {
 	 * @property
 	 * @type Zarafa.common.rules.data.ActionFlags
 	 */
-	actionFlag : undefined,
+	actionFlag: undefined,
 
 	/**
 	 * The action property which was configured during
@@ -38,7 +38,7 @@ Zarafa.common.rules.dialogs.FolderSelectionLink = Ext.extend(Ext.BoxComponent, {
 	 * @property
 	 * @type Object
 	 */
-	action : undefined,
+	action: undefined,
 
 	/**
 	 * True if the action was modified by the user, if this is false,
@@ -47,7 +47,7 @@ Zarafa.common.rules.dialogs.FolderSelectionLink = Ext.extend(Ext.BoxComponent, {
 	 * @property
 	 * @type Boolean
 	 */
-	isModified : false,
+	isModified: false,
 
 	/**
 	 * True if the action/condition is complete and valid,
@@ -58,22 +58,22 @@ Zarafa.common.rules.dialogs.FolderSelectionLink = Ext.extend(Ext.BoxComponent, {
 	 * @property
 	 * @type Boolean
 	 */
-	isValid : true,
+	isValid: true,
 
 	/**
 	 * @constructor
 	 * @param {Object} config configuration object.
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		config = config || {};
 
 		Ext.applyIf(config,{
 			xtype: 'zarafa.folderselectionlink',
-			border : false,
-			autoScroll :true,
-			anchor : '100%',
-			tpl : new Ext.XTemplate(
+			border: false,
+			autoScroll:true,
+			anchor: '100%',
+			tpl: new Ext.XTemplate(
 				'<div class="zarafa-folder-link">' +
 					'<tpl if="!Ext.isEmpty(values.display_name)">' +
 						'&quot;{display_name:htmlEncode}&quot;' +
@@ -83,7 +83,7 @@ Zarafa.common.rules.dialogs.FolderSelectionLink = Ext.extend(Ext.BoxComponent, {
 					'</tpl>' +
 				'</div>',
 				{
-					compiled : true
+					compiled: true
 				}
 			)
 		});
@@ -96,7 +96,7 @@ Zarafa.common.rules.dialogs.FolderSelectionLink = Ext.extend(Ext.BoxComponent, {
 	 * This will register the {@link #onActivate} and {@link #onClick} event handlers.
 	 * @private
 	 */
-	afterRender : function()
+	afterRender: function()
 	{
 		Zarafa.common.rules.dialogs.FolderSelectionLink.superclass.afterRender.apply(this, arguments);
 
@@ -112,18 +112,19 @@ Zarafa.common.rules.dialogs.FolderSelectionLink = Ext.extend(Ext.BoxComponent, {
 	 * @param {Ext.EventObject} evt The mouse event
  	 * @protected
 	 */
-	onClick : function(dataView, index, node, evt)
+	onClick: function(dataView, index, node, evt)
 	{
 		Zarafa.hierarchy.Actions.openFolderSelectionContent({
-			folder : this.folder,
+			folder: this.folder,
 			hideTodoList: true,
-			callback : function(folder) {
+			IPMSubTreeFilter: this.storeEntryId,
+			callback: function(folder) {
 				this.folder = folder;
 				this.isModified = true;
 				this.update(folder);
 			},
-			scope : this,
-			modal : true
+			scope: this,
+			modal: true
 		});
 	},
 
@@ -134,7 +135,7 @@ Zarafa.common.rules.dialogs.FolderSelectionLink = Ext.extend(Ext.BoxComponent, {
 	 * which identifies the exact type of the action.
 	 * @param {Object} action The action to apply
 	 */
-	setAction : function(actionFlag, action)
+	setAction: function(actionFlag, action)
 	{
 		this.folder = undefined;
 		this.isValid = false;
@@ -159,42 +160,15 @@ Zarafa.common.rules.dialogs.FolderSelectionLink = Ext.extend(Ext.BoxComponent, {
 	 * Obtain the action as configured by the user
 	 * @return {Object} The action
 	 */
-	getAction : function()
+	getAction: function()
 	{
 		if (this.isModified !== true && this.isValid === true) {
 			return this.action;
 		}
 
-		var action = {};
-
-		// No folder selected, this means
-		// we can't create an action.
-		if (!this.folder) {
-			return false;
-		}
-
-		// Set the folder properties.
-		action.folderentryid = this.folder.get('entryid');
-		action.storeentryid = this.folder.get('store_entryid');
-
-		// Fill in the additional properties required for the action.
-		switch (this.actionFlag) {
-			case Zarafa.common.rules.data.ActionFlags.MOVE:
-				action.action = Zarafa.core.mapi.RuleActions.OP_MOVE;
-				action.flags = 0;
-				action.flavor = 0;
-				break;
-			case Zarafa.common.rules.data.ActionFlags.COPY:
-				action.action = Zarafa.core.mapi.RuleActions.OP_COPY;
-				action.flags = 0;
-				action.flavor = 0;
-				break;
-			default:
-				// invalid actionFlag
-				return false;
-		}
-
-		return action;
+		var actionFactory = container.getRulesFactoryByType(Zarafa.common.data.RulesFactoryType.ACTION);
+		var actionDefinition = actionFactory.getActionById(this.actionFlag);
+		return actionDefinition({folder: this.folder});
 	},
 
 	/**
@@ -202,9 +176,9 @@ Zarafa.common.rules.dialogs.FolderSelectionLink = Ext.extend(Ext.BoxComponent, {
 	 * the {@link #folder}.
 	 * @param {Zarafa.hierarchy.data.MAPIFolderRecord} folder The folder to show
 	 */
-	update : function(folder)
+	update: function(folder)
 	{
- 		var data = folder ? folder.data : { display_name : this.emptyText };
+ 		var data = folder ? folder.data : { display_name: this.emptyText };
 		Zarafa.common.rules.dialogs.FolderSelectionLink.superclass.update.call(this, this.tpl.apply(data));
 	}
 });

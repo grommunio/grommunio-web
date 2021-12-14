@@ -9,7 +9,7 @@ Ext.namespace('Zarafa.core.data');
  * The UI Factory is responsible for opening {@link Zarafa.core.ui.ContentPanel panels} in {@link Zarafa.core.data.UIFactoryLayer layers}.
  * The UI Factory decides the type of layer, based on cascading rules.
  * Types of layers are registered via {@link #registerLayer}.
- * First the type of layer is taken from settings, and then from a config object passed when creating the panel. 
+ * First the type of layer is taken from settings, and then from a config object passed when creating the panel.
  */
 Zarafa.core.data.UIFactory = {
 
@@ -19,13 +19,13 @@ Zarafa.core.data.UIFactory = {
 	 * @type Array
 	 * @private
 	 */
-	layers : [],
+	layers: [],
 
 	/**
 	 * Register a layer a layer to the {@Link #layers} array.
 	 * @param {Zarafa.core.data.UIFactoryLayer} layer The layer to register
 	 */
-	registerLayer : function(layer)
+	registerLayer: function(layer)
 	{
 		var index = layer.index || 0;
 
@@ -44,12 +44,12 @@ Zarafa.core.data.UIFactory = {
 
 	/**
 	 * Method to determine the {@link Zarafa.core.data.UIFactoryLayer layer} to use
-	 * 
+	 *
 	 * @param {Object} config Configuration object
 	 * @param {Zarafa.core.data.MAPIRecord} record The record(s) loaded in the component
 	 * @return {Zarafa.core.data.UIFactoryLayer} The Layer in which to place a component
 	 */
-	getPreferredLayer : function(config, record)
+	getPreferredLayer: function(config, record)
 	{
 		var layers = this.layers;
 
@@ -119,7 +119,7 @@ Zarafa.core.data.UIFactory = {
 	 * @param {Zarafa.core.data.MAPIRecord} record The record(s) loaded in the component
 	 * @param {Object} config Configuration object
 	 */
-	openLayerComponent : function(componentType, records, config)
+	openLayerComponent: function(componentType, records, config)
 	{
 		var ComponentConstructor = container.getSharedComponent(componentType, records);
 		if (ComponentConstructor) {
@@ -129,9 +129,9 @@ Zarafa.core.data.UIFactory = {
 				// FIXME: This shouldn't be here, the caller should have
 				// applied the record and closable information.
 				config = Ext.applyIf(config || {}, {
-					record : records,
-					closable : true,
-					plugins : []
+					record: records,
+					closable: true,
+					plugins: []
 				});
 				config.plugins = config.plugins.concat(layer.plugins);
 
@@ -148,7 +148,7 @@ Zarafa.core.data.UIFactory = {
 	 * The record/records which will be loaded in dialog.
 	 * @param {Object} config configuration object.
 	 */
-	openViewRecord : function(records, config)
+	openViewRecord: function(records, config)
 	{
 		var componentType = Zarafa.core.data.SharedComponentType['common.view'];
 		this.openLayerComponent(componentType, records, config);
@@ -160,7 +160,7 @@ Zarafa.core.data.UIFactory = {
 	 * The record/records which will be loaded in dialog.
 	 * @param {Object} config configuration object.
 	 */
-	openCreateRecord : function(records, config)
+	openCreateRecord: function(records, config)
 	{
 		var componentType = Zarafa.core.data.SharedComponentType['common.create'];
 		this.openLayerComponent(componentType, records, config);
@@ -174,7 +174,7 @@ Zarafa.core.data.UIFactory = {
 	 * @param {Object} position The X and Y coordinate where the contextmenu was requested
 	 * @param {Object} configuration object which should be applied to the contextmenu.
 	 */
-	openDefaultContextMenu : function(records, config)
+	openDefaultContextMenu: function(records, config)
 	{
 		var componentType = Zarafa.core.data.SharedComponentType['common.contextmenu'];
 		this.openContextMenu(componentType, records, config);
@@ -187,11 +187,11 @@ Zarafa.core.data.UIFactory = {
 	 * @param {Zarafa.core.data.MAPIRecord|Zarafa.core.data.MAPIRecord[]} records The record(s) for which the contextmenu will be shown
 	 * @param {Object} config Configuration object
 	 */
-	openContextMenu : function(componentType, records, config)
+	openContextMenu: function(componentType, records, config)
 	{
 		var ComponentConstructor = container.getSharedComponent(componentType, records);
 		if (ComponentConstructor) {
-			new ComponentConstructor(Ext.applyIf(config || {}, {records : records })).showAt(config.position);
+			new ComponentConstructor(Ext.applyIf(config || {}, {records: records })).showAt(config.position);
 		}
 	},
 

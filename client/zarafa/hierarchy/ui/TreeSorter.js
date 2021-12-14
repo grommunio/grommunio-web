@@ -33,19 +33,19 @@ Zarafa.hierarchy.ui.TreeSorter = Ext.extend(Ext.tree.TreeSorter, {
 	 * @cfg {String} folderProperty The property from the {@link Zarafa.hierarchy.data.MAPIFolderRecord folder}
 	 * which must be used in the comparison between 2 {@link Zarafa.hierarchy.data.MAPIFolderRecord folders}.
 	 */
-	folderProperty : 'display_name',
+	folderProperty: 'display_name',
 
 	/**
 	 * @cfg {String} storeProperty The property from the {@link Zarafa.hierarchy.data.MAPIStoreRecord store}
 	 * which must be used in the comparison between 2 {@link Zarafa.hierarchy.data.MAPIStoreRecord stores}.
 	 */
-	storeProperty : 'mailbox_owner_name',
+	storeProperty: 'mailbox_owner_name',
 
 	/**
 	 * @cfg {String[]} folderOrder The predefined order for the folders in the hierarchy. It contains default
 	 * folder keys and container classes.
 	 */
-	folderOrder : [
+	folderOrder: [
 		'inbox',
 		'drafts',
 		'outbox',
@@ -72,7 +72,7 @@ Zarafa.hierarchy.ui.TreeSorter = Ext.extend(Ext.tree.TreeSorter, {
 	 * @param {Ext.tree.Tree} tree The tree which this sorter is being applied on
 	 * @param {Object} config Configuration object
 	 */
-	constructor : function(tree, config)
+	constructor: function(tree, config)
 	{
 		Zarafa.hierarchy.ui.TreeSorter.superclass.constructor.apply(this, arguments);
 
@@ -88,7 +88,7 @@ Zarafa.hierarchy.ui.TreeSorter = Ext.extend(Ext.tree.TreeSorter, {
 	 * @param {Ext.tree.Node} node2 The second node to be compared
 	 * @private
 	 */
-	hierarchySort : function(node1, node2)
+	hierarchySort: function(node1, node2)
 	{
 		var folder1 = node1.attributes.folder;
 		var folder2 = node2.attributes.folder;
@@ -167,7 +167,7 @@ Zarafa.hierarchy.ui.TreeSorter = Ext.extend(Ext.tree.TreeSorter, {
 	 * @return {Integer} +1 if record1 should be placed before record 2 in the order, -1 otherwise
 	 * @private
 	 */
-	compareRecordProp : function(record1, record2, property, descending, caseSensitive)
+	compareRecordProp: function(record1, record2, property, descending, caseSensitive)
 	{
 		var	folderKey1;
 		var	folderKey2;
@@ -178,9 +178,9 @@ Zarafa.hierarchy.ui.TreeSorter = Ext.extend(Ext.tree.TreeSorter, {
 
 		// First look at the folders Order, because they have a predefined order
 		// For the sorting of folders of Favorites, get the oroginal records which helps getting FullyQualifiedName later.
-		// Escape getting the oroginal records  for search type folders.
+		// Escape getting the oroginal records for search type folders.
 		// Escape getting default folder key for Shared type folders. For the store records and other than favorites records,
-        // directly get the default folder key.
+    // directly get the default folder key.
 		if(!bothRecordsStore && record1.isFavoritesFolder() && record2.isFavoritesFolder()) {
 			record1 = !record1.isSearchFolder() ? record1.getOriginalRecordFromFavoritesRecord() : record1;
 			record2 = !record2.isSearchFolder() ? record2.getOriginalRecordFromFavoritesRecord() : record2;
@@ -210,10 +210,10 @@ Zarafa.hierarchy.ui.TreeSorter = Ext.extend(Ext.tree.TreeSorter, {
 		if ( index1 > -1 ){
 			if ( index2===-1 || index1<index2 ){
 				return descending ? +1 : -1;
-			}else if ( index1 > index2 ) {
+			} else if ( index1 > index2 ) {
 				return descending ? -1 : +1;
 			}
-		}else if ( index2 > -1 ){
+		} else if ( index2 > -1 ){
 			return descending ? -1 : +1;
 		}
 

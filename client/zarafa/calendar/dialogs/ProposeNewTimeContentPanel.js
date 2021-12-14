@@ -10,26 +10,26 @@ Zarafa.calendar.dialogs.ProposeNewTimeContentPanel = Ext.extend(Zarafa.core.ui.C
 	 * @cfg {Zarafa.core.ui.IPMRecord} record The record for which the
 	 * propose new time panel is opened.
 	 */
-	record : undefined,
+	record: undefined,
 
 	/**
 	 * @cfg {Boolean} autoSave Automatically save all changes on the
 	 * {@link Zarafa.core.data.IPMRecord IPMRecord} to the
 	 * {@link Zarafa.core.data.IPMStore IPMStore}.
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		config = config || {};
 
 		config = Ext.applyIf(config, {
 			// Override from Ext.Component
-			xtype : 'zarafa.proposenewtimecontentpanel',
+			xtype: 'zarafa.proposenewtimecontentpanel',
 			layout: 'fit',
-			title : _('Propose New Time'),
-			width : 375,
+			title: _('Propose New Time'),
+			width: 375,
 			height: 200,
-			recordComponentPluginConfig : Ext.applyIf(config.recordComponentPluginConfig || {}, {
-				allowWrite : true
+			recordComponentPluginConfig: Ext.applyIf(config.recordComponentPluginConfig || {}, {
+				allowWrite: true
 			}),
 			items: [{
 
@@ -47,7 +47,7 @@ Zarafa.calendar.dialogs.ProposeNewTimeContentPanel = Ext.extend(Zarafa.core.ui.C
 				}]
 			}]
 		});
-		
+
 		Zarafa.calendar.dialogs.ProposeNewTimeContentPanel.superclass.constructor.call(this, config);
 	},
 
@@ -55,7 +55,7 @@ Zarafa.calendar.dialogs.ProposeNewTimeContentPanel = Ext.extend(Zarafa.core.ui.C
 	 * Event handler which is raised when the user clicks the "Ok" {@link Ext.Button button}
 	 * @private
 	 */
-	onOk : function()
+	onOk: function()
 	{
 		this.proposeNewTimePanel.updateRecord(this.record);
 		this.close();
@@ -67,7 +67,7 @@ Zarafa.calendar.dialogs.ProposeNewTimeContentPanel = Ext.extend(Zarafa.core.ui.C
 	 * This will close the panel.
 	 * @private
 	 */
-	onCancel : function()
+	onCancel: function()
 	{
 		this.close();
 	}

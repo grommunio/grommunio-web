@@ -620,7 +620,7 @@
 		 * @return entryid EntryID of the accepted task
 		 */
 		function doAccept() {
-			$prefix = Language::getstring("Task Accepted:") . " ";
+			$prefix = _("Task Accepted:") . " ";
 			$messageProps = mapi_getprops($this->message, array(PR_MESSAGE_CLASS, $this->props['taskstate']));
 			
 			if(!isset($messageProps[$this->props['taskstate']]) || $messageProps[$this->props['taskstate']] != tdsOWN) {
@@ -669,7 +669,7 @@
 		 * @return boolean TRUE on success, FALSE on failure
 		 */
 		function doDecline() {
-			$prefix = Language::getstring("Task Declined:") . " ";
+			$prefix = _("Task Declined:") . " ";
 			$messageProps = mapi_getprops($this->message, array($this->props['taskstate']));
 			
 			if(!isset($messageProps[$this->props['taskstate']]) || $messageProps[$this->props['taskstate']] != tdsOWN) {
@@ -723,9 +723,9 @@
 
 			$props = mapi_getprops($this->message, array($this->props['taskupdates'], $this->props['tasksoc'], $this->props['recurring'], $this->props['complete']));
 			if (!$props[$this->props['complete']] && $props[$this->props['taskupdates']] && !(isset($props[$this->props['recurring']]) && $props[$this->props['recurring']])) {
-				$this->sendResponse(tdmtTaskUpd, Language::getstring("Task Updated:") . " ");
+				$this->sendResponse(tdmtTaskUpd, _("Task Updated:") . " ");
 			} else if($props[$this->props['complete']]) {
-				$this->sendResponse(tdmtTaskUpd, Language::getstring("Task Completed:") . " ");
+				$this->sendResponse(tdmtTaskUpd, _("Task Completed:") . " ");
 			}
 		}
 
@@ -1119,7 +1119,7 @@
 		 *
 		 * If it is a task update, then only recipient type MAPI_CC are taken from the task message.
 		 *
-		 * If it is accept/decline response, then PR_SENT_REPRESENTATING_XXXX are taken as recipient.
+		 * If it is accept/decline response, then PR_SENT_REPRESENTATION_XXXX are taken as recipient.
 		 *
 		 *@param $outgoing MAPI_message outgoing mapi message 
 		 *@param $responseType String response type

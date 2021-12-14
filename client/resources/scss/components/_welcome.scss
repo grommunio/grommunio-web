@@ -9,13 +9,13 @@
 			}
 			
 			div.zarafa-welcome-title {
-				background: $kopano-blue;
+				background: $grommunio-blue;
 				color: $font-color-light;
 				@include basefont($font-size-large);
 				line-height: $font-line-height-large;
 				padding: ($header-height - $font-line-height-large)/2 $padding-large;
-				border-left: 1px solid $kopano-blue;
-				border-right: 1px solid $kopano-blue;
+				border-left: 1px solid $grommunio-blue;
+				border-right: 1px solid $grommunio-blue;
 			}
 			
 			div.zarafa-welcome-message {

@@ -10,27 +10,27 @@ Zarafa.calendar.dialogs.SendMeetingRequestConfirmationContentPanel = Ext.extend(
 	 * @cfg {Zarafa.core.ui.IPMRecord} record The record for which the
 	 * propose new time content panel is opened.
 	 */
-	record : undefined,
+	record: undefined,
 
 	/**
 	 * @cfg {Zarafa.core.mapi.ResponseStatus} responseType The response type value selected by user.
 	 */
-	responseType : undefined,
+	responseType: undefined,
 
 	/**
 	 * @constructor
 	 * @param {Object} config Configuration object
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		config = config || {};
 
 		config = Ext.applyIf(config, {
 			// Override from Ext.Component
-			xtype : 'zarafa.sendmeetingrequestconfirmcontentpanel',
+			xtype: 'zarafa.sendmeetingrequestconfirmcontentpanel',
 			layout: 'fit',
 			title: _('Send Meeting Request Confirmation'),
-			modal : true,
+			modal: true,
 			width: 350,
 			height: 250,
 			items: [{
@@ -57,11 +57,11 @@ Zarafa.calendar.dialogs.SendMeetingRequestConfirmationContentPanel = Ext.extend(
 	 * Event handler which is raised when the user clicks the "Ok" {@link Ext.Button button}
 	 * @private
 	 */
-	onOk : function()
+	onOk: function()
 	{
 		/*
 		 * If user wants to perform an action (accept/decline/propose new time/ tentatively accept) on whole
-		 * meeting request then we have to remove base date from record because if record contains basedate then it 
+		 * meeting request then we have to remove base date from record because if record contains basedate then it
 		 * will be treated as exception on server side and requested operation carried out on single occurrence.
 		 */
 		if(this.record.isRecurringOccurence() && Ext.isDefined(this.buttonName) && this.buttonName === 'recurring') {
@@ -78,7 +78,7 @@ Zarafa.calendar.dialogs.SendMeetingRequestConfirmationContentPanel = Ext.extend(
 	 * This will close the panel.
 	 * @private
 	 */
-	onCancel : function()
+	onCancel: function()
 	{
 		this.close();
 	}

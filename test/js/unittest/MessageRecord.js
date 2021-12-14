@@ -16,11 +16,11 @@ describe('MessageRecord', function() {
     'block_status' : 34524308,
     'sent_representing_entryid' : '00000000AC21A95040D3EE48B319FBA753304425010000000600000000000000000000000000000000000067EID',
     'sent_representing_name' : 'john',
-    'sent_representing_email_address' : 'john@kopano.local',
+    'sent_representing_email_address' : 'john@grommunio.local',
     'sent_representing_address_type' : 'EX',
     'sender_entryid' : '00000000AC21A95040D3EE48B319FBA753304425010000000600000000000000000000000000000000000068EID',
     'sender_name' : 'jane',
-    'sender_email_address' : 'jane@kopano.local',
+    'sender_email_address' : 'jane@grommunio.local',
     'sender_address_type' : 'EX'
   };
 
@@ -137,22 +137,22 @@ describe('MessageRecord', function() {
 
 		it('should check for safe_senders_list setting for exact match', function() {
 
-			settingsModel.set('zarafa/v1/contexts/mail/safe_senders_list', ['john@kopano.local']);
+			settingsModel.set('zarafa/v1/contexts/mail/safe_senders_list', ['john@grommunio.local']);
 			expect(isExternalContentBlocked()).toBeFalsy();
 		});
 
 		it('should check for blocked_senders_list setting for exact match', function() {
-			settingsModel.set('zarafa/v1/contexts/mail/blocked_senders_list', ['john@kopano.local']);
+			settingsModel.set('zarafa/v1/contexts/mail/blocked_senders_list', ['john@grommunio.local']);
 			expect(isExternalContentBlocked()).toBeTruthy();
 		});
 
 		it('should check for safe_senders_list setting for partial match', function() {
-			settingsModel.set('zarafa/v1/contexts/mail/safe_senders_list', ['kopano.local']);
+			settingsModel.set('zarafa/v1/contexts/mail/safe_senders_list', ['grommunio.local']);
 			expect(isExternalContentBlocked()).toBeFalsy();
 		});
 
 		it('should check for blocked_senders_list setting for partial match', function() {
-			settingsModel.set('zarafa/v1/contexts/mail/blocked_senders_list', ['kopano.local']);
+			settingsModel.set('zarafa/v1/contexts/mail/blocked_senders_list', ['grommunio.local']);
 			expect(isExternalContentBlocked()).toBeTruthy();
 		});
 

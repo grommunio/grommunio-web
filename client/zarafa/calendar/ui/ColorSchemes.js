@@ -11,47 +11,47 @@
 // be changed to be more descriptive.
 Zarafa.core.ColorSchemes.addField([
 	{
-		name : 'header',
-		weight : 1
+		name: 'header',
+		weight: 1
 	},
 	{
-		name : 'border',
-		weight : 1.80
+		name: 'border',
+		weight: 1.80
 	},
 	{
-		name : 'borderInner',
-		weight : 1.42
+		name: 'borderInner',
+		weight: 1.42
 	},
 	{
-		name : 'startcolorappointment',
-		weight : 1
+		name: 'startcolorappointment',
+		weight: 1
 	},
 	{
-		name : 'endcolorappointment',
-		weight : 1
+		name: 'endcolorappointment',
+		weight: 1
 	},
 	{
-		name : 'startcolorappointmentbox',
-		weight : 1.29
+		name: 'startcolorappointmentbox',
+		weight: 1.29
 	},
 	{
-		name : 'endcolorappointmentbox',
-		weight : 1.29
+		name: 'endcolorappointmentbox',
+		weight: 1.29
 	},
 	{
-		name : 'stripnormal',
-		weight : 1.86
+		name: 'stripnormal',
+		weight: 1.86
 	},
 	{
-		name : 'stripworking',
-		color : '#ffffff'
+		name: 'stripworking',
+		color: '#ffffff'
 	},
 	{
-		name : 'linenormal',
-		weight : 1.73
+		name: 'linenormal',
+		weight: 1.73
 	},
 	{
-		name : 'hourline',
-		weight : 1.33
+		name: 'hourline',
+		weight: 1.33
 	}
 ]);

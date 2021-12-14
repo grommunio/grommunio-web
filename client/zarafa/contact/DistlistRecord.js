@@ -23,7 +23,7 @@ Zarafa.contact.DistListRecordFields = [
 /**
  * @class Zarafa.contact.DistlistRecord
  * @extends Zarafa.core.data.IPMRecord
- * 
+ *
  * An extension to the {@link Zarafa.core.data.IPMRecord IPMRecord} specific to records which are
  * used as Distribution Lists
  */
@@ -36,17 +36,17 @@ Zarafa.contact.DistlistRecord = Ext.extend(Zarafa.core.data.IPMRecord, {
 	 * be applied to this recipient. Defaults to {@link Zarafa.core.mapi.RecipientType#MAPI_TO}.
 	 * @return {Zarafa.core.data.IPMRecipientRecord} The recipientRecord for this addressbook item
 	 */
-	convertToRecipient : function(recipientType)
+	convertToRecipient: function(recipientType)
 	{
 		var recipientRecord = Zarafa.core.data.RecordFactory.createRecordObjectByCustomType(Zarafa.core.data.RecordCustomObjectType.ZARAFA_RECIPIENT, {
-			entryid : Zarafa.core.EntryId.wrapContactProviderEntryId(this.get('entryid'), Zarafa.core.mapi.ObjectType.MAPI_DISTLIST),
-			object_type : Zarafa.core.mapi.ObjectType.MAPI_DISTLIST,
-			display_type : Zarafa.core.mapi.DisplayType.DT_DISTLIST,
-			display_type_ex : Zarafa.core.mapi.DisplayType.DT_DISTLIST,
-			display_name : this.get('display_name'),
-			email_address : this.get('fileas'),
-			address_type : 'MAPIPDL',
-			recipient_type : recipientType || Zarafa.core.mapi.RecipientType.MAPI_TO
+			entryid: Zarafa.core.EntryId.wrapContactProviderEntryId(this.get('entryid'), Zarafa.core.mapi.ObjectType.MAPI_DISTLIST),
+			object_type: Zarafa.core.mapi.ObjectType.MAPI_DISTLIST,
+			display_type: Zarafa.core.mapi.DisplayType.DT_DISTLIST,
+			display_type_ex: Zarafa.core.mapi.DisplayType.DT_DISTLIST,
+			display_name: this.get('display_name'),
+			email_address: this.get('fileas'),
+			address_type: 'MAPIPDL',
+			recipient_type: recipientType || Zarafa.core.mapi.RecipientType.MAPI_TO
 		});
 
 		return recipientRecord;
@@ -57,15 +57,15 @@ Zarafa.contact.DistlistRecord = Ext.extend(Zarafa.core.data.IPMRecord, {
 	 * which can be used as record inside {@link Zarafa.contact.DistlistMemberStore}.
 	 * @return {Zarafa.contact.DistlistMemberRecord} The distribution list member for distlist item.
 	 */
-	convertToDistlistMember : function()
+	convertToDistlistMember: function()
 	{
 		return Zarafa.core.data.RecordFactory.createRecordObjectByCustomType(Zarafa.core.data.RecordCustomObjectType.ZARAFA_DISTLIST_MEMBER, {
-			entryid : this.get('entryid'),
-			address_type : 'MAPIPDL',
+			entryid: this.get('entryid'),
+			address_type: 'MAPIPDL',
 			// mapi_parseoneoff will fail if we don't give email_address
-			email_address : this.get('fileas'),
-			distlist_type : Zarafa.core.mapi.DistlistType.DL_DIST,
-			display_name : this.get('display_name')
+			email_address: this.get('fileas'),
+			distlist_type: Zarafa.core.mapi.DistlistType.DL_DIST,
+			display_name: this.get('display_name')
 		});
 	},
 
@@ -82,7 +82,7 @@ Zarafa.contact.DistlistRecord = Ext.extend(Zarafa.core.data.IPMRecord, {
 	 * Creates a Folder store for the {@link Zarafa.core.data.IPMRecord IPMRecord} (See {@link #createSubStore}).
 	 * @return {Zarafa.core.data.IPMRecipientStore} The new Folder store.
 	 */
-	createMemberStore : function()
+	createMemberStore: function()
 	{
 		return this.createSubStore('members');
 	},
@@ -92,7 +92,7 @@ Zarafa.contact.DistlistRecord = Ext.extend(Zarafa.core.data.IPMRecord, {
 	 * @param {Zarafa.core.data.IPMRecipientStore} memberStore The Member store.
 	 * @return {Zarafa.core.data.IPMRecipientStore} The Member store.
 	 */
-	setMemberStore : function(memberStore)
+	setMemberStore: function(memberStore)
 	{
 		return this.setSubStore('members', memberStore);
 	},
@@ -101,16 +101,16 @@ Zarafa.contact.DistlistRecord = Ext.extend(Zarafa.core.data.IPMRecord, {
 	 * Get the Members store for the {@link Zarafa.core.data.IPMRecord IPMRecord} (See {@link #getSubStore}).
 	 * @return {Zarafa.core.data.IPMRecipientStore} The Members store.
 	 */
-	getMemberStore : function()
+	getMemberStore: function()
 	{
 		return this.getSubStore('members');
 	},
 
 	/**
 	 * Helper function to return names of all members of distribution list.
-	 * @return {String} comma seperated member names
+	 * @return {String} comma separated member names
 	 */
-	getMemberNames : function()
+	getMemberNames: function()
 	{
 		var store = this.getSubStore('members');
 		var names = [];

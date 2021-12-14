@@ -1,14 +1,14 @@
 <?php
-require_once('classes/KopanoUser.php');
+require_once('classes/grommunioUser.php');
 require_once('classes/TestUser.php');
-require_once('classes/KopanoTest.php');
+require_once('classes/grommunioTest.php');
 
 /**
  * LoadPluginsTest
  *
  * Tests loading the plugins
  */
-class LoadPluginsTest extends KopanoTest {
+class LoadPluginsTest extends grommunioTest {
 
 	/**
 	 * The default user.
@@ -22,7 +22,7 @@ class LoadPluginsTest extends KopanoTest {
 	{
 		parent::setUp();
 
-		$this->user = $this->addUser(new TestUser(new KopanoUser(KOPANO_USER1_NAME, KOPANO_USER1_PASSWORD)));
+		$this->user = $this->addUser(new TestUser(new grommunioUser(GROMMUNIO_USER1_NAME, GROMMUNIO_USER1_PASSWORD)));
 		// Ensure the user is logged in, that creates a valid session environment
 		// in which we can safely replace the PluginManager.
 		$this->user->logon();

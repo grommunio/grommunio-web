@@ -11,7 +11,7 @@ Zarafa.settings.ui.SettingsTreeNode = Ext.extend(Ext.tree.AsyncTreeNode, {
 	 * @constructor
 	 * @param {Object} config Configuration object
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		this.addEvents(
 			/**
@@ -30,7 +30,7 @@ Zarafa.settings.ui.SettingsTreeNode = Ext.extend(Ext.tree.AsyncTreeNode, {
 	/**
 	 * Enable the editor for this Treenode
 	 */
-	startEdit : function()
+	startEdit: function()
 	{
 		this.ownerTree.startEdit(this, 1);
 	},
@@ -38,7 +38,7 @@ Zarafa.settings.ui.SettingsTreeNode = Ext.extend(Ext.tree.AsyncTreeNode, {
 	/**
 	 * @return {Boolean} True if this node can be edited
 	 */
-	isEditable : function()
+	isEditable: function()
 	{
 		return this.leaf && !Array.isArray(this.attributes.value);
 	},
@@ -47,7 +47,7 @@ Zarafa.settings.ui.SettingsTreeNode = Ext.extend(Ext.tree.AsyncTreeNode, {
 	 * Sets the value for this node
 	 * @param {Mixed} value
 	 */
-	setValue : function(value)
+	setValue: function(value)
 	{
 		var oldValue = this.attributes['value'];
 		this.attributes['value'] = value;

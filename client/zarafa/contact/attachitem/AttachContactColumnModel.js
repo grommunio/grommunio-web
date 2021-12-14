@@ -16,14 +16,14 @@ Zarafa.contact.attachitem.AttachContactColumnModel = Ext.extend(Zarafa.common.ui
 	 * @constructor
 	 * @param config Configuration structure
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		config = config || {};
 
 		Ext.applyIf(config, {
-			columns : this.getColumns(),
-			defaults : {
-				sortable : true
+			columns: this.getColumns(),
+			defaults: {
+				sortable: true
 			}
 		});
 
@@ -37,39 +37,39 @@ Zarafa.contact.attachitem.AttachContactColumnModel = Ext.extend(Zarafa.common.ui
 	 * @return {Ext.grid.Column[]} The array of columns
 	 * @private
 	 */
-	getColumns : function()
+	getColumns: function()
 	{
 		return [{
-			dataIndex : 'icon_index',
+			dataIndex: 'icon_index',
 			headerCls: 'zarafa-icon-column',
-			header : '<p class=\'icon_index\'>&nbsp;</p>',
-			tooltip : _('Sort by: Icon'),
-			width : 24,
-			fixed : true,
-			renderer : Zarafa.common.ui.grid.Renderers.icon
+			header: '<p class=\'icon_index\'>&nbsp;</p>',
+			tooltip: _('Sort by: Icon'),
+			width: 24,
+			fixed: true,
+			renderer: Zarafa.common.ui.grid.Renderers.icon
 		}, {
-			header : '<p class=\'icon_paperclip\'>&nbsp;</p>',
+			header: '<p class=\'icon_paperclip\'>&nbsp;</p>',
 			headerCls: 'zarafa-icon-column',
-			dataIndex : 'hasattach',
-			width : 24,
-			fixed : true,
-			renderer : Zarafa.common.ui.grid.Renderers.attachment,
-			tooltip : _('Sort by: Attachment')
+			dataIndex: 'hasattach',
+			width: 24,
+			fixed: true,
+			renderer: Zarafa.common.ui.grid.Renderers.attachment,
+			tooltip: _('Sort by: Attachment')
 		}, {
-			dataIndex : 'fileas',
-			header : _('File As'),
-			tooltip : _('Sort by: File As'),
-			renderer : Ext.util.Format.htmlEncode
+			dataIndex: 'fileas',
+			header: _('File As'),
+			tooltip: _('Sort by: File As'),
+			renderer: Ext.util.Format.htmlEncode
 		}, {
-			dataIndex : 'company_name',
-			header : _('Company Name'),
-			tooltip : _('Sort by: Company Name'),
-			renderer : Ext.util.Format.htmlEncode
+			dataIndex: 'company_name',
+			header: _('Company Name'),
+			tooltip: _('Sort by: Company Name'),
+			renderer: Ext.util.Format.htmlEncode
 		}, {
-			dataIndex : 'title',
-			header : _('Job Title'),
-			tooltip : _('Sort by: Job Title'),
-			renderer : Ext.util.Format.htmlEncode
+			dataIndex: 'title',
+			header: _('Job Title'),
+			tooltip: _('Sort by: Job Title'),
+			renderer: Ext.util.Format.htmlEncode
 		}];
 	}
 });

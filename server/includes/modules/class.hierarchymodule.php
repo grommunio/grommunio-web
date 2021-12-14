@@ -243,7 +243,7 @@
 													sleep(1);
 													$this->createLinkedSearchFolder($newSearchFolder);
 												}
-											}else {
+											} else {
 												$this->addFolder($store, $parententryid, $action["props"]["display_name"], $action["props"]["container_class"]);
 											}
 										if($action["props"]["container_class"] === "IPF.Contact"){
@@ -268,7 +268,10 @@
 								} else {
 									// We're closing a Shared Store, simply remove it from the session.
 									$entryid = $GLOBALS["mapisession"]->removeUserStore($action["user_name"]);
-									$this->removeFromFavorite(hex2bin($action["store_entryid"]), $store, PR_WLINK_STORE_ENTRYID, false);
+
+									if (isset($action["remove_favorites"]) && $action["remove_favorites"]) {
+										$this->removeFromFavorite(hex2bin($action["store_entryid"]), $store, PR_WLINK_STORE_ENTRYID, false);
+									}
 								}
 
 								$data = array();
@@ -358,23 +361,23 @@
 			if(is_null($e->displayMessage)) {
 				switch($actionType) {
 					case "list":
-						$e->setDisplayMessage(Language::getstring("Could not load the hierarchy."));
+						$e->setDisplayMessage(_("Could not load the hierarchy."));
 						break;
 
 					case "open":
-						$e->setDisplayMessage(Language::getstring("Could not load folder properties."));
+						$e->setDisplayMessage(_("Could not load folder properties."));
 						break;
 
 					case "delete":
 						if (isset($action["message_action"])
 							&& isset($action["message_action"]["action_type"])
 							&& $action["message_action"]["action_type"] === "removefavorites") {
-								$e->setDisplayMessage(Language::getstring("Could not remove folder from favorites."));
+								$e->setDisplayMessage(_("Could not remove folder from favorites."));
 						} else {
 							if($e->getCode() == MAPI_E_NO_ACCESS)
-								$e->setDisplayMessage(Language::getstring("You have insufficient privileges to delete folder."));
+								$e->setDisplayMessage(_("You have insufficient privileges to delete folder."));
 							else
-								$e->setDisplayMessage(Language::getstring("Could not delete folder."));
+								$e->setDisplayMessage(_("Could not delete folder."));
 							break;
 						}
 					case "save":
@@ -384,34 +387,34 @@
 								{
 									case "copy":
 										if($e->getCode() == MAPI_E_NO_ACCESS)
-											$e->setDisplayMessage(Language::getstring("You have insufficient privileges to copy folder."));
+											$e->setDisplayMessage(_("You have insufficient privileges to copy folder."));
 										else
-											$e->setDisplayMessage(Language::getstring("Could not copy folder."));
+											$e->setDisplayMessage(_("Could not copy folder."));
 										break;
 
 									case "move":
 										if($e->getCode() == MAPI_E_NO_ACCESS)
-											$e->setDisplayMessage(Language::getstring("You have insufficient privileges to move this folder."));
+											$e->setDisplayMessage(_("You have insufficient privileges to move this folder."));
 										else
-											$e->setDisplayMessage(Language::getstring("Could not move folder."));
+											$e->setDisplayMessage(_("Could not move folder."));
 										break;
 
 									case "emptyfolder":
 										if($e->getCode() == MAPI_E_NO_ACCESS)
-											$e->setDisplayMessage(Language::getstring("You have insufficient privileges to delete items."));
+											$e->setDisplayMessage(_("You have insufficient privileges to delete items."));
 										else
-											$e->setDisplayMessage(Language::getstring("Could not empty folder."));
+											$e->setDisplayMessage(_("Could not empty folder."));
 										break;
 
 									case "readflags":
-										$e->setDisplayMessage(Language::getstring("Could not perform action correctly."));
+										$e->setDisplayMessage(_("Could not perform action correctly."));
 										break;
 
 									case "addtofavorites":
 										if ($e->getCode() == MAPI_E_COLLISION) {
-											$e->setDisplayMessage(Language::getstring("A favorite folder with this name already exists, please use another name."));
+											$e->setDisplayMessage(_("A favorite folder with this name already exists, please use another name."));
 										} else {
-											$e->setDisplayMessage(Language::getstring("Could not add folder to favorites."));
+											$e->setDisplayMessage(_("Could not add folder to favorites."));
 										}
 										break;
 								}
@@ -419,20 +422,20 @@
 								// Exception genereated while setting folder permissions.
 								if (isset($action["permissions"])){
 									if($e->getCode() == MAPI_E_NO_ACCESS)
-											$e->setDisplayMessage(Language::getstring("You have insufficient privileges to set permissions for this folder."));
+											$e->setDisplayMessage(_("You have insufficient privileges to set permissions for this folder."));
 										else
-											$e->setDisplayMessage(Language::getstring("Could not set folder permissions."));
+											$e->setDisplayMessage(_("Could not set folder permissions."));
 								} else {
 									// Exception genereated while renaming folder.
 									switch($e->getCode()){
 										case MAPI_E_NO_ACCESS:
-											$e->setDisplayMessage(Language::getstring("You have insufficient privileges to rename this folder."));
+											$e->setDisplayMessage(_("You have insufficient privileges to rename this folder."));
 										break;
 										case MAPI_E_COLLISION:
-											$e->setDisplayMessage(Language::getstring("A folder with this name already exists. Use another name."));
+											$e->setDisplayMessage(_("A folder with this name already exists. Use another name."));
 										break;
 										default:
-											$e->setDisplayMessage(Language::getstring("Could not rename folder."));
+											$e->setDisplayMessage(_("Could not rename folder."));
 									}
 
 								}
@@ -441,30 +444,30 @@
 							// Exception genereated while creating new folder.
 							switch($e->getCode()){
 								case MAPI_E_NO_ACCESS:
-									$e->setDisplayMessage(Language::getstring("You have insufficient privileges to create this folder."));
+									$e->setDisplayMessage(_("You have insufficient privileges to create this folder."));
 								break;
 								case MAPI_E_COLLISION:
-									$e->setDisplayMessage(Language::getstring("A folder with this name already exists. Use another name."));
+									$e->setDisplayMessage(_("A folder with this name already exists. Use another name."));
 								break;
 								default:
-									$e->setDisplayMessage(Language::getstring("Could not create folder."));
+									$e->setDisplayMessage(_("Could not create folder."));
 							}
 						}
 						break;
 
 					case "closesharedfolder":
-						$e->setDisplayMessage(Language::getstring("Could not close shared folder."));
+						$e->setDisplayMessage(_("Could not close shared folder."));
 						break;
 
 					case "opensharedfolder":
 						if($e->getCode() == MAPI_E_NOT_FOUND) {
-							$e->setDisplayMessage(Language::getstring("User could not be resolved."));
+							$e->setDisplayMessage(_("User could not be resolved."));
 						} else {
 							$folderType = $action["folder_type"];
 							if ($folderType == "all") {
 								$folderType = 'entire inbox';
 							}
-							$e->setDisplayMessage(sprintf(Language::getstring('You have insufficient privileges to open this %1$s folder. The folder owner can set these using the \'permissions\'-tab of the folder properties (right click the %1$s folder > properties > permissions).'),$folderType));
+							$e->setDisplayMessage(sprintf(_('You have insufficient privileges to open this %1$s folder. The folder owner can set these using the \'permissions\'-tab of the folder properties (right click the %1$s folder > properties > permissions).'),$folderType));
 						}
 						break;
 				}
@@ -764,8 +767,8 @@
 		function getUserInfo($entryid){
 
 			// default return stuff
-			$result = array("fullname"=>Language::getstring("Unknown user/group"),
-							"username"=>Language::getstring("unknown"),
+			$result = array("fullname"=>_("Unknown user/group"),
+							"username"=>_("unknown"),
 							"entryid"=>null,
 							"type"=>MAPI_MAILUSER,
 							"id"=>$entryid
@@ -835,10 +838,10 @@
 			if (!empty($store)) {
 				$props = mapi_getprops($store, array(PR_FINDER_ENTRYID));
 				try {
-					$finderFolder = mapi_msgstore_openentry($store, $props[PR_FINDER_ENTRYID]);
-					$hierarchyTable = mapi_folder_gethierarchytable($finderFolder, MAPI_DEFERRED_ERRORS);
-					$finderHierarchyTables[$props[PR_FINDER_ENTRYID]] = $hierarchyTable;
-				}
+				$finderFolder = mapi_msgstore_openentry($store, $props[PR_FINDER_ENTRYID]);
+				$hierarchyTable = mapi_folder_gethierarchytable($finderFolder, MAPI_DEFERRED_ERRORS);
+				$finderHierarchyTables[$props[PR_FINDER_ENTRYID]] = $hierarchyTable;
+			}
 				catch(Exception $e) {
 				}
 			}
@@ -1220,9 +1223,9 @@
 				$GLOBALS["bus"]->notify(bin2hex($folderProps[PR_ENTRYID]), OBJECT_SAVE, $folderProps);
 			} else {
 				if ($moveFolder) {
-					$this->sendFeedback(false, Language::getstring('Could not move folder'));
+					$this->sendFeedback(false, _('Could not move folder'));
 				} else {
-					$this->sendFeedback(false, Language::getstring('Could not copy folder'));
+					$this->sendFeedback(false, _('Could not copy folder'));
 				}
 			}
 		}

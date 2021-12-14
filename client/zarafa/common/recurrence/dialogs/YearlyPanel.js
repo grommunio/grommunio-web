@@ -12,14 +12,14 @@ Zarafa.common.recurrence.dialogs.YearlyPanel = Ext.extend(Zarafa.common.recurren
 	 * @constructor
 	 * @param {Object} config Configuration object
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		config = config || {};
 
 		Ext.applyIf(config, {
 			xtype: 'zarafa.recurrenceyearlypanel',
-			recurrenceType : Zarafa.common.recurrence.data.RecurrenceType.YEARLY,
-			recurrenceSubtypes : [
+			recurrenceType: Zarafa.common.recurrence.data.RecurrenceType.YEARLY,
+			recurrenceSubtypes: [
 				Zarafa.common.recurrence.data.RecurrenceSubtype.YEARLY_MONTH,
 				Zarafa.common.recurrence.data.RecurrenceSubtype.YEARLY_N_WEEKDAY,
 				Zarafa.common.recurrence.data.RecurrenceSubtype.YEARLY_REGENERATE
@@ -46,7 +46,7 @@ Zarafa.common.recurrence.dialogs.YearlyPanel = Ext.extend(Zarafa.common.recurren
 	 * @return {Object} Configuration object for the panel
 	 * @private
 	 */
-	createEveryNWeekdayPanel : function()
+	createEveryNWeekdayPanel: function()
 	{
 		return {
 			xtype: 'panel',
@@ -57,7 +57,7 @@ Zarafa.common.recurrence.dialogs.YearlyPanel = Ext.extend(Zarafa.common.recurren
 				patternValue: Zarafa.common.recurrence.data.RecurrenceSubtype.YEARLY_MONTH,
 				hideLabel: true,
 				width: 25,
-				listeners : {
+				listeners: {
 					change: this.onSubtypeChange,
 					scope: this
 				}
@@ -76,7 +76,7 @@ Zarafa.common.recurrence.dialogs.YearlyPanel = Ext.extend(Zarafa.common.recurren
 					store: {
 						xtype: 'jsonstore',
 						fields: ['name', 'value'],
-						data : Zarafa.common.recurrence.data.MonthData
+						data: Zarafa.common.recurrence.data.MonthData
 					},
 					mode: 'local',
 					triggerAction: 'all',
@@ -87,8 +87,8 @@ Zarafa.common.recurrence.dialogs.YearlyPanel = Ext.extend(Zarafa.common.recurren
 					editable: false,
 					autoSelect: true,
 					listeners: {
-						change : this.onYearlyMonthChange,
-						select : this.onEveryNWeekdayMonthSelect,
+						change: this.onYearlyMonthChange,
+						select: this.onEveryNWeekdayMonthSelect,
 						scope: this
 					}
 				},{
@@ -101,7 +101,7 @@ Zarafa.common.recurrence.dialogs.YearlyPanel = Ext.extend(Zarafa.common.recurren
 					minValue: 1,
 					maxValue: 31,
 					width: 50,
-					listeners : {
+					listeners: {
 						change: this.onYearlyMonthChange,
 						scope: this
 					}
@@ -117,7 +117,7 @@ Zarafa.common.recurrence.dialogs.YearlyPanel = Ext.extend(Zarafa.common.recurren
 	 * @return {Object} Configuration object for the panel
 	 * @private
 	 */
-	createEveryMonthPanel : function()
+	createEveryMonthPanel: function()
 	{
 		return {
 			xtype: 'panel',
@@ -128,7 +128,7 @@ Zarafa.common.recurrence.dialogs.YearlyPanel = Ext.extend(Zarafa.common.recurren
 				patternValue: Zarafa.common.recurrence.data.RecurrenceSubtype.YEARLY_N_WEEKDAY,
 				hideLabel: true,
 				width: 25,
-				listeners : {
+				listeners: {
 					change: this.onSubtypeChange,
 					scope: this
 				}
@@ -147,7 +147,7 @@ Zarafa.common.recurrence.dialogs.YearlyPanel = Ext.extend(Zarafa.common.recurren
 					store: {
 						xtype: 'jsonstore',
 						fields: ['name', 'value'],
-						data : Zarafa.common.recurrence.data.DayRankData
+						data: Zarafa.common.recurrence.data.DayRankData
 					},
 					mode: 'local',
 					triggerAction: 'all',
@@ -157,7 +157,7 @@ Zarafa.common.recurrence.dialogs.YearlyPanel = Ext.extend(Zarafa.common.recurren
 					forceSelection: true,
 					editable: false,
 					autoSelect: true,
-					listeners : {
+					listeners: {
 						change: this.onYearlyNWeekdayChange,
 						scope: this
 					}
@@ -170,7 +170,7 @@ Zarafa.common.recurrence.dialogs.YearlyPanel = Ext.extend(Zarafa.common.recurren
 					store: {
 						xtype: 'jsonstore',
 						fields: ['name', 'value'],
-						data : Zarafa.common.recurrence.data.DayData
+						data: Zarafa.common.recurrence.data.DayData
 					},
 					mode: 'local',
 					triggerAction: 'all',
@@ -180,7 +180,7 @@ Zarafa.common.recurrence.dialogs.YearlyPanel = Ext.extend(Zarafa.common.recurren
 					forceSelection: true,
 					editable: false,
 					autoSelect: true,
-					listeners : {
+					listeners: {
 						change: this.onYearlyNWeekdayChange,
 						scope: this
 					}
@@ -193,7 +193,7 @@ Zarafa.common.recurrence.dialogs.YearlyPanel = Ext.extend(Zarafa.common.recurren
 					store: {
 						xtype: 'jsonstore',
 						fields: ['name', 'value'],
-						data : Zarafa.common.recurrence.data.MonthData
+						data: Zarafa.common.recurrence.data.MonthData
 					},
 					mode: 'local',
 					triggerAction: 'all',
@@ -203,7 +203,7 @@ Zarafa.common.recurrence.dialogs.YearlyPanel = Ext.extend(Zarafa.common.recurren
 					forceSelection: true,
 					editable: false,
 					autoSelect: true,
-					listeners : {
+					listeners: {
 						change: this.onYearlyNWeekdayChange,
 						scope: this
 					}
@@ -220,7 +220,7 @@ Zarafa.common.recurrence.dialogs.YearlyPanel = Ext.extend(Zarafa.common.recurren
 	 * @return {Object} Configuration object for the panel
 	 * @private
 	 */
-	createRegeneratePanel : function()
+	createRegeneratePanel: function()
 	{
 		return {
 			xtype: 'panel',
@@ -232,7 +232,7 @@ Zarafa.common.recurrence.dialogs.YearlyPanel = Ext.extend(Zarafa.common.recurren
 				patternValue: Zarafa.common.recurrence.data.RecurrenceSubtype.YEARLY_REGENERATE,
 				hideLabel: true,
 				width: 25,
-				listeners : {
+				listeners: {
 					change: this.onSubtypeChange,
 					scope: this
 				}
@@ -251,7 +251,7 @@ Zarafa.common.recurrence.dialogs.YearlyPanel = Ext.extend(Zarafa.common.recurren
 					allowNegative: false,
 					minValue: 1,
 					width: 50,
-					listeners : {
+					listeners: {
 						change: this.onYearlyRegenerateChange,
 						scope: this
 					}
@@ -268,7 +268,7 @@ Zarafa.common.recurrence.dialogs.YearlyPanel = Ext.extend(Zarafa.common.recurren
 	 * @param {Mixed} value The new value of the field
 	 * @private
 	 */
-	onYearlyMonthChange : function(field, value)
+	onYearlyMonthChange: function(field, value)
 	{
 		this.onSubtypePropertyChange(Zarafa.common.recurrence.data.RecurrenceSubtype.YEARLY_MONTH, field, value);
 	},
@@ -281,7 +281,7 @@ Zarafa.common.recurrence.dialogs.YearlyPanel = Ext.extend(Zarafa.common.recurren
 	 * @param {Mixed} value The new value of the field
 	 * @private
 	 */
-	onYearlyNWeekdayChange : function(field, value)
+	onYearlyNWeekdayChange: function(field, value)
 	{
 		this.onSubtypePropertyChange(Zarafa.common.recurrence.data.RecurrenceSubtype.YEARLY_N_WEEKDAY, field, value);
 	},
@@ -294,7 +294,7 @@ Zarafa.common.recurrence.dialogs.YearlyPanel = Ext.extend(Zarafa.common.recurren
 	 * @param {Mixed} value The new value of the field
 	 * @private
 	 */
-	onYearlyRegenerateChange : function(field, value)
+	onYearlyRegenerateChange: function(field, value)
 	{
 		this.onSubtypePropertyChange(Zarafa.common.recurrence.data.RecurrenceSubtype.YEARLY_REGENERATE, field, value);
 	},
@@ -309,7 +309,7 @@ Zarafa.common.recurrence.dialogs.YearlyPanel = Ext.extend(Zarafa.common.recurren
 	 * @param {Number} index The index of the selected record
 	 * @private
 	 */
-	onEveryNWeekdayMonthSelect : function(combo, record, index)
+	onEveryNWeekdayMonthSelect: function(combo, record, index)
 	{
 		var maxDaysInMonth = [31, 29 /* Include leapyear */, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
 		var value = maxDaysInMonth[index];
@@ -328,7 +328,7 @@ Zarafa.common.recurrence.dialogs.YearlyPanel = Ext.extend(Zarafa.common.recurren
 	 * data from the Record.
 	 * @private
 	 */
-	updateEveryNWeekdayValues : function(record, useDefaultValues)
+	updateEveryNWeekdayValues: function(record, useDefaultValues)
 	{
 		var month;
 		var monthday;
@@ -357,7 +357,7 @@ Zarafa.common.recurrence.dialogs.YearlyPanel = Ext.extend(Zarafa.common.recurren
 	 * data from the Record.
 	 * @private
 	 */
-	updateEveryMonthValues : function(record, useDefaultValues)
+	updateEveryMonthValues: function(record, useDefaultValues)
 	{
 		var nday;
 		var weekdays;
@@ -390,7 +390,7 @@ Zarafa.common.recurrence.dialogs.YearlyPanel = Ext.extend(Zarafa.common.recurren
 	 * data from the Record.
 	 * @private
 	 */
-	updateRegenerateValues : function(record, useDefaultValues)
+	updateRegenerateValues: function(record, useDefaultValues)
 	{
 		// Convert everyn value from minutes, to days
 		this.regenNYearsSpinner.setValue(1);
@@ -403,7 +403,7 @@ Zarafa.common.recurrence.dialogs.YearlyPanel = Ext.extend(Zarafa.common.recurren
 	 * @param {Boolean} contentReset force the component to perform a full update of the data.
 	 * @private
 	 */
-	updateUI : function(record, contentReset)
+	updateUI: function(record, contentReset)
 	{
 		var layout = false;
 
@@ -432,7 +432,7 @@ Zarafa.common.recurrence.dialogs.YearlyPanel = Ext.extend(Zarafa.common.recurren
 	 * the given record.
 	 * @protected
 	 */
-	updateSubtype : function(record, pattern, useDefaultValues)
+	updateSubtype: function(record, pattern, useDefaultValues)
 	{
 		var subTypes = Zarafa.common.recurrence.data.RecurrenceSubtype;
 
@@ -454,7 +454,7 @@ Zarafa.common.recurrence.dialogs.YearlyPanel = Ext.extend(Zarafa.common.recurren
 	 * currently enabled. Only the components for this subtype must be used to update the record.
 	 * @protected
 	 */
-	updateRecordSubType : function(record, pattern)
+	updateRecordSubType: function(record, pattern)
 	{
 		var subTypes = Zarafa.common.recurrence.data.RecurrenceSubtype;
 

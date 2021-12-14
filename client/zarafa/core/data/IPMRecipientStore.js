@@ -28,14 +28,14 @@ Zarafa.core.data.IPMRecipientStore = Ext.extend(Zarafa.core.data.MAPISubStore, {
 	 * @cfg {Boolean} autoResolve True to enable automatic {@link #resolve resolving} of
 	 * recipients when they are added into the store. Defaults to true.
 	 */
-	autoResolve : true,
+	autoResolve: true,
 
 	/**
 	 * @cfg {Zarafa.core.data.RecordCustomObjectType} customObjectType The custom object type
 	 * which represents the {@link Ext.data.Record records} which should be created using
 	 * {@link Zarafa.core.data.RecordFactory#createRecordObjectByCustomType}.
 	 */
-	customObjectType : Zarafa.core.data.RecordCustomObjectType.ZARAFA_RECIPIENT,
+	customObjectType: Zarafa.core.data.RecordCustomObjectType.ZARAFA_RECIPIENT,
 
 	/**
 	 * @cfg {Boolean} allowResolvingToLocalContacts True to allow recipients to resolve to local
@@ -69,16 +69,16 @@ Zarafa.core.data.IPMRecipientStore = Ext.extend(Zarafa.core.data.MAPISubStore, {
 	 * @constructor
 	 * @param config Configuration object
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		config = config || {};
 
 		Ext.applyIf(config, {
 			// provide a default writer
-			writer : new Zarafa.core.data.JsonRecipientWriter(),
+			writer: new Zarafa.core.data.JsonRecipientWriter(),
 			// provide a default reader
-			reader : new Zarafa.core.data.JsonRecipientReader({
-				customObjectType : config.customObjectType || this.customObjectType
+			reader: new Zarafa.core.data.JsonRecipientReader({
+				customObjectType: config.customObjectType || this.customObjectType
 			})
 		});
 
@@ -114,7 +114,7 @@ Zarafa.core.data.IPMRecipientStore = Ext.extend(Zarafa.core.data.MAPISubStore, {
 		this.resolveProxy = new Zarafa.core.data.IPMRecipientResolveProxy();
 		this.expandProxy = new Zarafa.core.data.IPMExpandDistlistProxy();
 
-		this.relayEvents(this.resolveProxy,  ['exception']);
+		this.relayEvents(this.resolveProxy, ['exception']);
 
 		this.resolveReader = new Ext.data.JsonReader({
 			root: 'result'
@@ -122,14 +122,14 @@ Zarafa.core.data.IPMRecipientStore = Ext.extend(Zarafa.core.data.MAPISubStore, {
 
 		this.expandReader = new Zarafa.core.data.JsonReader({
 			root: 'result',
-			id : 'entryid',
-			dynamicRecord : false
+			id: 'entryid',
+			dynamicRecord: false
 		}, Zarafa.core.data.IPMExpandDistlistRecord);
 
 		this.on({
-			'add' : this.onRecipientAdd,
-			'update' : this.onRecipientUpdate,
-			'exception' : this.onResolveException,
+			'add': this.onRecipientAdd,
+			'update': this.onRecipientUpdate,
+			'exception': this.onResolveException,
 			scope: this
 		});
 	},
@@ -141,7 +141,7 @@ Zarafa.core.data.IPMRecipientStore = Ext.extend(Zarafa.core.data.MAPISubStore, {
 	 * @param {Zarafa.core.mapi.RecipientType} type The recipientType which must be applied to the recipient
 	 * @return {Zarafa.core.data.IPMRecipientRecord} The created recipient
 	 */
-	parseRecipient : function(str, type)
+	parseRecipient: function(str, type)
 	{
 		var recipient = Zarafa.core.data.RecordFactory.createRecordObjectByCustomType(this.customObjectType);
 		var mailStart = str.indexOf('<');
@@ -180,7 +180,7 @@ Zarafa.core.data.IPMRecipientStore = Ext.extend(Zarafa.core.data.MAPISubStore, {
 	 * must be filtered. If not provided, {@link #getRange} is assumed.
 	 * @return {Zarafa.core.data.IPMRecipientRecord[]} The list of resolved recipients
 	 */
-	getResolvedRecipients : function(records)
+	getResolvedRecipients: function(records)
 	{
 		var resolved = [];
 
@@ -205,7 +205,7 @@ Zarafa.core.data.IPMRecipientStore = Ext.extend(Zarafa.core.data.MAPISubStore, {
 	 * must be filtered. If not provided, {@link #getRange} is assumed.
 	 * @return {Zarafa.core.data.IPMRecipientRecord[]} The list of non-resolved recipients
 	 */
-	getUnresolvedRecipients : function(records)
+	getUnresolvedRecipients: function(records)
 	{
 		var unresolved = [];
 
@@ -229,7 +229,7 @@ Zarafa.core.data.IPMRecipientStore = Ext.extend(Zarafa.core.data.MAPISubStore, {
 	 * must be filtered. If not provided, {@link #getRange} is assumed.
 	 * @return {Zarafa.core.data.IPMRecipientRecord[]} The list of invalid recipients
 	 */
-	getInvalidRecipients : function(records)
+	getInvalidRecipients: function(records)
 	{
 		var invalid = [];
 
@@ -251,7 +251,7 @@ Zarafa.core.data.IPMRecipientStore = Ext.extend(Zarafa.core.data.MAPISubStore, {
 	 * if nothing is provided, all {@link #getUnresolvedRecipients unresolved} recipients will be resolved.
 	 * @param {Object} options (optional) Additional options
 	 */
-	resolve : function(records, options)
+	resolve: function(records, options)
 	{
 		if (Ext.isDefined(records) && !Array.isArray(records)) {
 			records = [ records ];
@@ -294,9 +294,9 @@ Zarafa.core.data.IPMRecipientStore = Ext.extend(Zarafa.core.data.MAPISubStore, {
 
 			resolveRequests.push({
 				id: recipientRecord.id,
-				display_name : displayName,
-				email_address : emailAddress,
-				address_type : addressType
+				display_name: displayName,
+				email_address: emailAddress,
+				address_type: addressType
 			});
 
 			pendingRecords.push(recipientRecord);
@@ -312,7 +312,7 @@ Zarafa.core.data.IPMRecipientStore = Ext.extend(Zarafa.core.data.MAPISubStore, {
 		// The arguments that can be used in the callback function
 		var args = Ext.apply({}, options, {
 			actionType: Zarafa.core.Actions['checknames'],
-			listRequest : true,
+			listRequest: true,
 			pendingRecords: pendingRecords,
 			params: parameters
 		});
@@ -333,7 +333,7 @@ Zarafa.core.data.IPMRecipientStore = Ext.extend(Zarafa.core.data.MAPISubStore, {
 	 * are no results returned the user is notified of that fact.
 	 * @param {Ext.data.Record/Array} records The record or records which have been received from the server.
 	 * @param {Object} options The options object used for the request
-	 * @param {Boolean} success True if the request was successfull.
+	 * @param {Boolean} success True if the request was successful.
 	 * @private
 	 */
 	onCheckNamesResult: function(records, options, success)
@@ -380,7 +380,7 @@ Zarafa.core.data.IPMRecipientStore = Ext.extend(Zarafa.core.data.MAPISubStore, {
 	 * @param {Boolean} recurse True if we want expand a distribution list in a distribution list.
 	 * @param {Object} options (optional) Additional options
 	 */
-	expand : function(record, recurse, options)
+	expand: function(record, recurse, options)
 	{
 		// Setup the parameters that will make up the expand request to the server
 		var parameters = {
@@ -391,8 +391,8 @@ Zarafa.core.data.IPMRecipientStore = Ext.extend(Zarafa.core.data.MAPISubStore, {
 		// The arguments that can be used in the callback function
 		var args = Ext.apply({}, options, {
 			actionType: Zarafa.core.Actions['expand'],
-			listRequest : true,
-			recipientType : record.get('recipient_type'),
+			listRequest: true,
+			recipientType: record.get('recipient_type'),
 			params: parameters
 		});
 
@@ -405,7 +405,7 @@ Zarafa.core.data.IPMRecipientStore = Ext.extend(Zarafa.core.data.MAPISubStore, {
 	 * handled separately. Resulted member record(s) are converted to the recipient record and added to the recipient store.
 	 * @param {Ext.data.Record/Array} records The record or records which have been received from the server.
 	 * @param {Object} options The options object used for the request
-	 * @param {Boolean} success True if the request was successfull.
+	 * @param {Boolean} success True if the request was successful.
 	 * @private
 	 */
 	onExpandResult: function(records, options, success)
@@ -437,16 +437,16 @@ Zarafa.core.data.IPMRecipientStore = Ext.extend(Zarafa.core.data.MAPISubStore, {
 	 * @param {Zarafa.core.data.IPMRecipientRecord[]} records The records which were added
 	 * @private
 	 */
-	onRecipientAdd : function(store, records)
+	onRecipientAdd: function(store, records)
 	{
 		if (this.autoResolve) {
-            Ext.each(records,function(record){
-                    if(record.dirty){
-                        this.resolve(records);
-                        return false;
-                    }
-            },this);
-        }
+      Ext.each(records,function(record){
+          if(record.dirty){
+            this.resolve(records);
+            return false;
+          }
+      },this);
+    }
 	},
 
 	/**
@@ -456,7 +456,7 @@ Zarafa.core.data.IPMRecipientStore = Ext.extend(Zarafa.core.data.MAPISubStore, {
 	 * @param {Zarafa.core.data.IPMRecipientRecord[]} records The records which were updated
 	 * @private
 	 */
-	onRecipientUpdate : function(store, records)
+	onRecipientUpdate: function(store, records)
 	{
 		if (this.autoResolve) {
 			// The PresenceManager can also fire the 'update' event for records
@@ -497,10 +497,10 @@ Zarafa.core.data.IPMRecipientStore = Ext.extend(Zarafa.core.data.MAPISubStore, {
 	 * @return {Boolean} True if any recipient from the given recipients list has recipient type
 	 * {@link Zarafa.core.mapi.RecipientType.MAPI_BCC}.
 	 */
-	hasBccRecipients : function(recipients)
+	hasBccRecipients: function(recipients)
 	{
 		var hasBcc = false;
-		
+
 		recipients = recipients || this.data.items;
 
 		for (var i = 0, len = recipients.length; i < len; i++) {
@@ -523,19 +523,19 @@ Zarafa.core.data.IPMRecipientStore = Ext.extend(Zarafa.core.data.MAPISubStore, {
 	 * @param {Object} scope (optional) The scope in which given callbackFn will be executed.
 	 * @returns {boolean} true if recipient already exists in recipient store else false.
 	 */
-	isRecipientExists : function(record, callbackFn, scope)
+	isRecipientExists: function(record, callbackFn, scope)
 	{
 		var records = this.getRange();
 		if (Ext.isFunction(callbackFn)) {
-			return records.some(callbackFn, scope || this)
-		} else {
-			var entryid = record instanceof Ext.data.Record ? record.get('entryid') : record['entryid'];
-			return records.some(function(recipient) {
-				if (recipient.isOneOff()) {
-					return recipient.get('entryid') === entryid;
-				}
-				return Zarafa.core.EntryId.compareEntryIds(recipient.get('entryid'), entryid);
-			}, scope || this);
+			return records.some(callbackFn, scope || this);
 		}
+
+		var entryid = record instanceof Ext.data.Record ? record.get('entryid') : record['entryid'];
+		return records.some(function(recipient) {
+			if (recipient.isOneOff()) {
+				return recipient.get('entryid') === entryid;
+			}
+			return Zarafa.core.EntryId.compareEntryIds(recipient.get('entryid'), entryid);
+		}, scope || this);
 	}
 });

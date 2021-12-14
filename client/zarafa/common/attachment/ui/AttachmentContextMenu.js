@@ -22,7 +22,7 @@ Zarafa.common.attachment.ui.AttachmentContextMenu = Ext.extend(Zarafa.core.ui.me
 	 * @constructor
 	 * @param {Object} config Configuration object
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		config = config || {};
 
@@ -30,15 +30,15 @@ Zarafa.common.attachment.ui.AttachmentContextMenu = Ext.extend(Zarafa.core.ui.me
 			config.model = config.context.getModel();
 		}
 		Ext.applyIf(config, {
-			items : [
+			items: [
 				this.createContextActionItems(config.records),
 				container.populateInsertionPoint('common.contextmenu.attachment.actions', this),
-				{ xtype : 'menuseparator' },
+				{ xtype: 'menuseparator' },
 				container.populateInsertionPoint('common.contextmenu.attachment.options', this)
 			],
-			defaults : {
+			defaults: {
 				xtype: 'zarafa.conditionalitem',
-				hideOnDisabled : false
+				hideOnDisabled: false
 			}
 		});
 		Zarafa.common.attachment.ui.AttachmentContextMenu.superclass.constructor.call(this, config);
@@ -50,33 +50,33 @@ Zarafa.common.attachment.ui.AttachmentContextMenu = Ext.extend(Zarafa.core.ui.me
 	 * @return {Zarafa.core.ui.menu.ConditionalItem[]} The list of Action context menu items
 	 * @private
 	 */
-	createContextActionItems : function(records)
+	createContextActionItems: function(records)
 	{
 		return [{
-			text : _('Preview'),
-			iconCls : 'icon_attachment_preview',
-			scope : this,
-			handler : this.onPreviewItem,
-			beforeShow : this.onPreviewBeforeShow
+			text: _('Preview'),
+			iconCls: 'icon_attachment_preview',
+			scope: this,
+			handler: this.onPreviewItem,
+			beforeShow: this.onPreviewBeforeShow
 		}, {
-			text : _('Download'),
-			iconCls : 'icon_download',
-			scope : this,
-			handler : this.onDownloadItem,
-			beforeShow : this.onDownloadBeforeShow
+			text: _('Download'),
+			iconCls: 'icon_download',
+			scope: this,
+			handler: this.onDownloadItem,
+			beforeShow: this.onDownloadBeforeShow
 		}, {
-			text : _('Download all as ZIP'),
-			iconCls : 'icon_download_zip',
-			scope : this,
-			handler : this.onDownloadAllAsZip,
-			beforeShow : this.onDownloadZipBeforeShow
+			text: _('Download all as ZIP'),
+			iconCls: 'icon_download_zip',
+			scope: this,
+			handler: this.onDownloadAllAsZip,
+			beforeShow: this.onDownloadZipBeforeShow
 		}, {
-			text : _('Import to folder'),
-			iconCls : 'icon_import_attachment',
-			handler : this.onImportToFolder,
-			beforeShow : this.onImportToFolderBeforeShow,
-			afterRender : this.onImportToFolderAfterRender,
-			scope : this
+			text: _('Import to folder'),
+			iconCls: 'icon_import_attachment',
+			handler: this.onImportToFolder,
+			beforeShow: this.onImportToFolderBeforeShow,
+			afterRender: this.onImportToFolderAfterRender,
+			scope: this
 		}];
 	},
 
@@ -86,8 +86,13 @@ Zarafa.common.attachment.ui.AttachmentContextMenu = Ext.extend(Zarafa.core.ui.me
 	 * @param {Zarafa.core.ui.menu.ConditionalItem} item context menu item
 	 * @param {Zarafa.core.data.IPMAttachmentRecord} record attachment record on which context menu is shown
 	 */
-	onPreviewBeforeShow : function(item, record)
+	onPreviewBeforeShow: function(item, record)
 	{
+		if (!Zarafa.common.Actions.isFilePreviewerEnabled()) {
+			item.setVisible(false);
+			return;
+		}
+
 		// get component that can preview the selected record
 		var comp = container.getSharedComponent(Zarafa.core.data.SharedComponentType['common.view'], record);
 
@@ -105,7 +110,7 @@ Zarafa.common.attachment.ui.AttachmentContextMenu = Ext.extend(Zarafa.core.ui.me
 	 * @param {Zarafa.core.ui.menu.ConditionalItem} item context menu item
 	 * @param {Zarafa.core.data.IPMAttachmentRecord} record attachment record on which context menu is shown
 	 */
-	onDownloadBeforeShow : function(item, record)
+	onDownloadBeforeShow: function(item, record)
 	{
 		// embedded messages can not be downloaded
 		item.setDisabled(record.isEmbeddedMessage());
@@ -117,7 +122,7 @@ Zarafa.common.attachment.ui.AttachmentContextMenu = Ext.extend(Zarafa.core.ui.me
 	 * @param {Zarafa.core.ui.menu.ConditionalItem} item context menu item
 	 * @param {Zarafa.core.data.IPMAttachmentRecord} record attachment record on which context menu is shown
 	 */
-	onDownloadZipBeforeShow : function(item, record)
+	onDownloadZipBeforeShow: function(item, record)
 	{
 		var normalAttachmentCounter = 0;
 		// Check if there is more than one normal attachments.
@@ -141,7 +146,7 @@ Zarafa.common.attachment.ui.AttachmentContextMenu = Ext.extend(Zarafa.core.ui.me
 	 * @param {Zarafa.core.ui.menu.ConditionalItem} item context menu item
 	 * @param {Zarafa.core.data.IPMAttachmentRecord} record attachment record on which context menu is shown
 	 */
-	onImportToFolderBeforeShow : function(item, record)
+	onImportToFolderBeforeShow: function(item, record)
 	{
 		var store = record.getStore();
 		var parentRecord = store.getParentRecord();
@@ -153,7 +158,7 @@ Zarafa.common.attachment.ui.AttachmentContextMenu = Ext.extend(Zarafa.core.ui.me
 	 * It helps to put qtip in case if the item is disabled.
 	 * @param {Zarafa.core.ui.menu.ConditionalItem} item context menu item
 	 */
-	onImportToFolderAfterRender : function(item)
+	onImportToFolderAfterRender: function(item)
 	{
 		var serverConfig = container.getServerConfig();
 		var attachRecord = this.getRecords();
@@ -183,11 +188,11 @@ Zarafa.common.attachment.ui.AttachmentContextMenu = Ext.extend(Zarafa.core.ui.me
 	 * item in the context menu. This will open the item in a new dialog.
 	 * @private
 	 */
-	onPreviewItem : function()
+	onPreviewItem: function()
 	{
 		//should already have a component that has won the bid
 		//invoke that component to open the preview
-		Zarafa.core.data.UIFactory.openViewRecord(this.records);
+		Zarafa.core.data.UIFactory.openViewRecord(this.records, {modal: true, autoResize: true});
 	},
 
 	/**
@@ -195,7 +200,7 @@ Zarafa.common.attachment.ui.AttachmentContextMenu = Ext.extend(Zarafa.core.ui.me
 	 * item in the context menu. This will open the print dialog.
 	 * @private
 	 */
-	onDownloadItem : function()
+	onDownloadItem: function()
 	{
 		Zarafa.common.Actions.downloadAttachment(this.records);
 	},
@@ -205,7 +210,7 @@ Zarafa.common.attachment.ui.AttachmentContextMenu = Ext.extend(Zarafa.core.ui.me
 	 * item in the context menu.
 	 * @private
 	 */
-	onDownloadAllAsZip : function()
+	onDownloadAllAsZip: function()
 	{
 		Zarafa.common.Actions.downloadAttachment(this.records, true);
 	},
@@ -215,7 +220,7 @@ Zarafa.common.attachment.ui.AttachmentContextMenu = Ext.extend(Zarafa.core.ui.me
 	 * item in the context menu.
 	 * @private
 	 */
-	onImportToFolder : function()
+	onImportToFolder: function()
 	{
 		Zarafa.common.Actions.importToFolder(this.records);
 	}

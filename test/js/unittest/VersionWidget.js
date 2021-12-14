@@ -15,7 +15,7 @@ describe('VersionWidget', function() {
 		versionWidget.destroy();
 	});
 
-	it('verify Kopano Groupware Core / WebApp is displayed', function() {
+	it('verify grommunio Web is displayed', function() {
 		const webappVersion = versionWidget.items.itemAt(0);
 		expect(webappVersion.getValue()).toEqual(version['webapp']);
 		const zcpVersion = versionWidget.items.itemAt(1);

@@ -25,7 +25,7 @@ describe('NoteEditPanel', function() {
 	});
 
 	it('onTextareaChange', function() {
-		const text = 'this is kopano';
+		const text = 'this is grommunio';
 		dialog.noteText.setValue(text);
 		dialog.onTextareaChange(dialog.noteText);
 		expect(dialog.record.get('body')).toEqual(text);
@@ -59,7 +59,7 @@ describe('NoteEditPanel', function() {
 	});
 
 	it('updateRecord', function() {
-		const text = 'this is kopano';
+		const text = 'this is grommunio';
 		dialog.noteText.setValue(text);
 		dialog.updateRecord(dialog.record);
 		expect(dialog.record.get('body')).toEqual(text);

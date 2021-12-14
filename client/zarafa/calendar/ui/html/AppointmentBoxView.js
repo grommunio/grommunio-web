@@ -19,7 +19,7 @@ Zarafa.calendar.ui.html.AppointmentBoxView = Ext.extend(Zarafa.calendar.ui.Appoi
 	 * @property
 	 * @type Array
 	 */
-	bounds : undefined,
+	bounds: undefined,
 
 	/**
 	 * The main text which will be rendered into the body of the appointment. This field
@@ -27,7 +27,7 @@ Zarafa.calendar.ui.html.AppointmentBoxView = Ext.extend(Zarafa.calendar.ui.Appoi
 	 * @property
 	 * @type String
 	 */
-	mainRenderedText : '',
+	mainRenderedText: '',
 
 	/**
 	 * The subtext which will be rendered alongside the {@link #mainRenderedText}. This field
@@ -35,14 +35,14 @@ Zarafa.calendar.ui.html.AppointmentBoxView = Ext.extend(Zarafa.calendar.ui.Appoi
 	 * @property
 	 * @type String
 	 */
-	subRenderedText : '',
+	subRenderedText: '',
 
 	/**
 	 * This will mark the appointment as selected or unselected.
 	 * @param {Boolean} selected True if the appointment should be marked as selected.
 	 * @override
 	 */
-	setSelected : function(selected)
+	setSelected: function(selected)
 	{
 		Zarafa.calendar.ui.html.AppointmentBoxView.superclass.setSelected.call(this, selected);
 
@@ -71,7 +71,7 @@ Zarafa.calendar.ui.html.AppointmentBoxView = Ext.extend(Zarafa.calendar.ui.Appoi
 	 * @return {Boolean} true iff the event is over the resize handle.
 	 * @override
 	 */
-	eventOverBodyStartHandle : function(event)
+	eventOverBodyStartHandle: function(event)
 	{
 		return Zarafa.calendar.ui.html.AppointmentDaysView.prototype.eventOverStartHandle.call(this, event);
 	},
@@ -82,7 +82,7 @@ Zarafa.calendar.ui.html.AppointmentBoxView = Ext.extend(Zarafa.calendar.ui.Appoi
 	 * @return {Boolean} true iff the event is over the resize handle.
 	 * @override
 	 */
-	eventOverBodyDueHandle : function(event)
+	eventOverBodyDueHandle: function(event)
 	{
 		return Zarafa.calendar.ui.html.AppointmentDaysView.prototype.eventOverDueHandle.call(this, event);
 	},
@@ -93,7 +93,7 @@ Zarafa.calendar.ui.html.AppointmentBoxView = Ext.extend(Zarafa.calendar.ui.Appoi
 	 * @return {Boolean} true if the event is over the appointment.
 	 * @override
 	 */
-	eventOverBody : function(event)
+	eventOverBody: function(event)
 	{
 		return Zarafa.calendar.ui.html.AppointmentDaysView.prototype.eventOverAppointment.call(this, event);
 	},
@@ -105,7 +105,7 @@ Zarafa.calendar.ui.html.AppointmentBoxView = Ext.extend(Zarafa.calendar.ui.Appoi
 	 * @override
 	 * @private
 	 */
-	layoutInHeader : Ext.emptyFn,
+	layoutInHeader: Ext.emptyFn,
 
 	/**
 	 * Creates elements to represent the range when shown in the header.
@@ -114,7 +114,7 @@ Zarafa.calendar.ui.html.AppointmentBoxView = Ext.extend(Zarafa.calendar.ui.Appoi
 	 * @private
 	 * @override
 	 */
-	createHeader : Ext.emptyFn,
+	createHeader: Ext.emptyFn,
 
 	/**
 	 * Destroys the header elements.
@@ -123,7 +123,7 @@ Zarafa.calendar.ui.html.AppointmentBoxView = Ext.extend(Zarafa.calendar.ui.Appoi
 	 * @private
 	 * @override
 	 */
-	destroyHeader : Ext.emptyFn,
+	destroyHeader: Ext.emptyFn,
 
 	/**
 	 * Lays out the body of the view. This will generate the Body bounts using the
@@ -132,7 +132,7 @@ Zarafa.calendar.ui.html.AppointmentBoxView = Ext.extend(Zarafa.calendar.ui.Appoi
 	 * @private
 	 * @override
 	 */
-	layoutInBody : function()
+	layoutInBody: function()
 	{
 		// get an array of bounds (left, right, top, bottom) objects to represent the range on the calendar body
 		this.bounds = this.parentView.dateRangeToBodyBounds(this.getDateRange(), this.slot);
@@ -151,7 +151,7 @@ Zarafa.calendar.ui.html.AppointmentBoxView = Ext.extend(Zarafa.calendar.ui.Appoi
 	 * @return {String} The start time text of appointment.
 	 * @private
 	 */
-	startTimeTextRenderer : function()
+	startTimeTextRenderer: function()
 	{
 		return Ext.util.Format.htmlEncode(this.record.get('startdate').format(this.timeFormat));
 	},
@@ -164,7 +164,7 @@ Zarafa.calendar.ui.html.AppointmentBoxView = Ext.extend(Zarafa.calendar.ui.Appoi
 	 * @return {String} The end time text of appointment.
 	 * @private
 	 */
-	endTimeTextRenderer : function()
+	endTimeTextRenderer: function()
 	{
 		return Ext.util.Format.htmlEncode(this.record.get('duedate').format(this.timeFormat));
 	}

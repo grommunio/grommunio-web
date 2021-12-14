@@ -16,7 +16,7 @@ Zarafa.core.ui.notifier.ConsolePlugin = Ext.extend(Zarafa.core.ui.notifier.Notif
 	/**
 	 * Notify the user with a message.
 	 *
-	 * The category can be either  "error", "warning", "info" or "debug", or a subtype thereof (e.g. "info.newmail").
+	 * The category can be either "error", "warning", "info" or "debug", or a subtype thereof (e.g. "info.newmail").
 	 *
 	 * @param {String} category The category which applies to the notification.
 	 * @param {String} title The title which must be shown in the message.
@@ -32,7 +32,7 @@ Zarafa.core.ui.notifier.ConsolePlugin = Ext.extend(Zarafa.core.ui.notifier.Notif
 	 * @return {Mixed} A reference to the message which was created, this can be used
 	 * as value for 'reference' in the config argument.
 	 */
-	notify : function(category, title, message, config)
+	notify: function(category, title, message, config)
 	{
 		// Internet Explorer only defines 'console' when the browser's
 		// debugger is opened, and the console on which is going to be

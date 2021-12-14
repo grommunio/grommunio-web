@@ -15,7 +15,7 @@ Zarafa.core.KeyMapMgr = Ext.extend(Object, {
 	 * @type Object
 	 * @private
 	 */
-	keyMaps : undefined,
+	keyMaps: undefined,
 
 	/**
 	 * The list of key configurations (see {@link Zarafa.core.KeyMap#addBinding Zarafa.core.KeyMap.addBinding})
@@ -24,12 +24,12 @@ Zarafa.core.KeyMapMgr = Ext.extend(Object, {
 	 * @type Object
 	 * @private
 	 */
-	keys : undefined,
+	keys: undefined,
 
 	/**
 	 * @constructor
 	 */
-	constructor : function()
+	constructor: function()
 	{
 		this.keyMaps = new Ext.util.MixedCollection();
 		this.keys = {};
@@ -40,7 +40,7 @@ Zarafa.core.KeyMapMgr = Ext.extend(Object, {
 	 * @param {String} mapId The ID of the map keys are registered to.
 	 * @param {Object|Array} keyConfig The config (see {@link Zarafa.core.KeyMap#addBinding addBinding}).
 	 */
-	register : function(mapId, keyConfig)
+	register: function(mapId, keyConfig)
 	{
 		if(!this.keys[mapId]){
 			this.keys[mapId] = [];
@@ -57,14 +57,14 @@ Zarafa.core.KeyMapMgr = Ext.extend(Object, {
 	},
 
 	/**
-	 * Function will register all key bindings that are registerd in {@link Zarafa.core.KeyMapMgr this}
+	 * Function will register all key bindings that are registered in {@link Zarafa.core.KeyMapMgr this}
 	 * class to the 'globaldisable' mapid and assign stop event and empty hadler so that we can disable
 	 * default behaviour of browser when no component is focused and user tries to perform some
 	 * key-combinations which isn't available globally.
 	 * @param {String} mapId The ID of the map keys are registered to.
 	 * @param {Object|Array} keyConfig The config (see {@link Zarafa.core.KeyMap#addBinding addBinding}).
 	 */
-	preventBrowserDefaults : function(mapId, keyConfig)
+	preventBrowserDefaults: function(mapId, keyConfig)
 	{
 		// Check that mapID isn't 'global' as they are already registered globally.
 		// Check that mapID isn't 'globaldisable' to prevent recursive call.
@@ -74,8 +74,8 @@ Zarafa.core.KeyMapMgr = Ext.extend(Object, {
 
 				if(config.enableGlobally !== true) {
 					var disableKeyConfig = {
-						handler : Ext.emptyFn,
-						stopEvent : true
+						handler: Ext.emptyFn,
+						stopEvent: true
 					};
 
 					Ext.applyIf(disableKeyConfig, config);
@@ -91,9 +91,9 @@ Zarafa.core.KeyMapMgr = Ext.extend(Object, {
 					if (key === Ext.EventObject.A) {
 						// special case for ctrl + a, as we want to allow action in text fields but not on body of webapp
 						var disableKeyConfig = {
-							handler : this.disableTextSelection,
+							handler: this.disableTextSelection,
 							// don't blindly prevent default action instead leave that handling for the handler
-							stopEvent : false
+							stopEvent: false
 						};
 
 						Ext.applyIf(disableKeyConfig, config);
@@ -114,7 +114,7 @@ Zarafa.core.KeyMapMgr = Ext.extend(Object, {
 	 * @param {Ext.EventObject} event The event
 	 * @param {Ext.Component} component The component on which key event is fired.
 	 */
-	disableTextSelection : function(key, event, component)
+	disableTextSelection: function(key, event, component)
 	{
 		var target = event.getTarget().nodeName.toLowerCase();
 
@@ -140,7 +140,7 @@ Zarafa.core.KeyMapMgr = Ext.extend(Object, {
 	 * different element then {@link Ext.Component#el} then we should pass the element on which keymap
 	 * will be registered (eg Zarafa.common.ui.HTMLEditor).
 	 */
-	activate : function(component, mapId, element)
+	activate: function(component, mapId, element)
 	{
 		// if element is not passed then get it from component
 		if(!element) {
@@ -191,12 +191,12 @@ Zarafa.core.KeyMapMgr = Ext.extend(Object, {
 
 	/**
 	 * Function is used to get key bindings registered for a particular map id.
-	 * It will recursively get bindings for every string seperated using dot and then will
+	 * It will recursively get bindings for every string separated using dot and then will
 	 * combine and return the bindings.
 	 * @param {String} mapId map id for which we need to get bindings
 	 * @return {Array} array of key bindings that be added in keymap
 	 */
-	getKeyBindings : function(mapId)
+	getKeyBindings: function(mapId)
 	{
 		// Get the bindings registered for the mapId. Also see if any other bindings have been
 		// registered on mapIds that are hierarchically-speaking its parent. So
@@ -222,7 +222,7 @@ Zarafa.core.KeyMapMgr = Ext.extend(Object, {
 	 * is going to be destroyed, so we can safely remove keymappings registered with that component.
 	 * @param {Ext.Component} component component that is going to be destroyed
 	 */
-	onComponentDestroy : function(component)
+	onComponentDestroy: function(component)
  	{
 		this.deactivate(component.getEl());
 	},
@@ -234,7 +234,7 @@ Zarafa.core.KeyMapMgr = Ext.extend(Object, {
 	 * element is destroyed from dom.
 	 * @param {Ext.Element} element The element on which keymap is bound.
 	 */
-	deactivate : function(element)
+	deactivate: function(element)
 	{
 		element = Ext.get(element);
 		var keymap = this.keyMaps.get(element.id);
@@ -308,7 +308,7 @@ Zarafa.core.KeyMapMgr = Ext.extend(Object, {
 	 * After that each keymap, including the ones that have the originallyEnabled flag set to false,
 	 * will have that flag cleared from the keymap object.
 	 */
-	enableAllKeymaps : function()
+	enableAllKeymaps: function()
 	{
 		this.keyMaps.each(function(keymap) {
 			if(keymap.originallyEnabled === true) {
@@ -327,7 +327,7 @@ Zarafa.core.KeyMapMgr = Ext.extend(Object, {
 	 * After that each keymap, including the ones that have the originallyEnabled flag set to false,
 	 * will have that flag cleared from the keymap object.
 	 */
-	disableAllKeymaps : function()
+	disableAllKeymaps: function()
 	{
 		this.keyMaps.each(function(keymap) {
 			keymap.originallyEnabled = keymap.isEnabled();
@@ -340,7 +340,7 @@ Zarafa.core.KeyMapMgr = Ext.extend(Object, {
 	 * @param {Ext.Element} element The element on which keymap is bound.
 	 * @return {Boolean} True when enabled, false otherwise.
 	 */
-	isEnabled : function(element)
+	isEnabled: function(element)
 	{
 		var keymap = this.getActive(element);
 
@@ -351,7 +351,7 @@ Zarafa.core.KeyMapMgr = Ext.extend(Object, {
 	 * Returns whether the keymaps are globally enabled or not.
 	 * return {Boolean} True when enabled, false otherwise.
 	 */
-	isGloballyEnabled : function()
+	isGloballyEnabled: function()
 	{
 		return container.getSettingsModel().get('zarafa/v1/main/keycontrols') !== Zarafa.settings.data.KeyboardSettings.NO_KEYBOARD_SHORTCUTS;
 	}

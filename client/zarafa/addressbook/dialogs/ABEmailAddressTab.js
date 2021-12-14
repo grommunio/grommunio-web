@@ -12,7 +12,7 @@ Zarafa.addressbook.dialogs.ABEmailAddressTab = Ext.extend(Ext.form.FormPanel, {
 	 * @constructor
 	 * @param {Object} config configuration object.
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		config = config || {};
 
@@ -20,36 +20,36 @@ Zarafa.addressbook.dialogs.ABEmailAddressTab = Ext.extend(Ext.form.FormPanel, {
 		config.plugins.push('zarafa.recordcomponentupdaterplugin');
 
 		Ext.applyIf(config, {
-			xtype : 'zarafa.abemailaddresstab',
-			title : _('Email Addresses'),
+			xtype: 'zarafa.abemailaddresstab',
+			title: _('Email Addresses'),
 			layout: {
 				type: 'vbox',
-				pack  : 'start',
+				pack: 'start',
 				align: 'stretch'
 			},
-			items : [{
-				xtype : 'displayfield',
-				value : _('Email addresses') + ':',
-				hideLabel : true
+			items: [{
+				xtype: 'displayfield',
+				value: _('Email addresses') + ':',
+				hideLabel: true
 			},{
-				xtype : 'panel',
+				xtype: 'panel',
 				flex: 1,
-				items : [{
+				items: [{
 					xtype: 'listview',
 					// initialize a dummy store
 					store: new Ext.data.Store(),
 					ref: '../emailList',
-					hideHeaders : true,
+					hideHeaders: true,
 					singleSelect: false,
 					anchor: '100% 100%',
 					columns: [{
 						dataIndex: 'address',
-						tpl : '{address:htmlEncode}'
+						tpl: '{address:htmlEncode}'
 					}]
 				}]
 			}]
 		});
-		
+
 		Zarafa.addressbook.dialogs.ABEmailAddressTab.superclass.constructor.call(this, config);
 	},
 
@@ -60,12 +60,12 @@ Zarafa.addressbook.dialogs.ABEmailAddressTab = Ext.extend(Ext.form.FormPanel, {
 	 * @param {Boolean} contentReset force the component to perform a full update of the data.
 	 * @private
 	 */
-	update : function(record, contentReset)
+	update: function(record, contentReset)
 	{
 		this.getForm().loadRecord(record);
 
 		var proxyAddressSubStore = record.getSubStore('ems_ab_proxy_addresses');
-		if (proxyAddressSubStore && this.emailList.getStore() !== proxyAddressSubStore) { 
+		if (proxyAddressSubStore && this.emailList.getStore() !== proxyAddressSubStore) {
 			this.emailList.bindStore(proxyAddressSubStore);
 		}
 	}

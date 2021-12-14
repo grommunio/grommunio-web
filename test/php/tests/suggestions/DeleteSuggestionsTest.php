@@ -1,11 +1,11 @@
 <?php
-require_once('classes/KopanoUser.php');
+require_once('classes/grommunioUser.php');
 require_once('classes/SuggestionUser.php');
 require_once('classes/MailUser.php');
 require_once('classes/TestData.php');
-require_once('classes/KopanoTest.php');
+require_once('classes/grommunioTest.php');
 
-class DeleteSuggestionsTest extends KopanoTest {
+class DeleteSuggestionsTest extends grommunioTest {
 	/**
 	 * The default user
 	 */
@@ -23,8 +23,8 @@ class DeleteSuggestionsTest extends KopanoTest {
 	{
 		parent::setUp();
 
-		$this->user = $this->addUser(new SuggestionUser(new KopanoUser(KOPANO_USER1_NAME, KOPANO_USER1_PASSWORD)));
-		$this->mailUser = $this->addUser(new MailUser(new KopanoUser(KOPANO_USER1_NAME, KOPANO_USER1_PASSWORD)));
+		$this->user = $this->addUser(new SuggestionUser(new grommunioUser(GROMMUNIO_USER1_NAME, GROMMUNIO_USER1_PASSWORD)));
+		$this->mailUser = $this->addUser(new MailUser(new grommunioUser(GROMMUNIO_USER1_NAME, GROMMUNIO_USER1_PASSWORD)));
 	}
 
 	/**
@@ -33,8 +33,8 @@ class DeleteSuggestionsTest extends KopanoTest {
 	public function testDeleteNonExistingSuggestion()
 	{
 		$data = array(
-			'email_address' => KOPANO_USER2_NAME,
-			'smtp_address' => KOPANO_USER2_EMAIL_ADDRESS,
+			'email_address' => GROMMUNIO_USER2_NAME,
+			'smtp_address' => GROMMUNIO_USER2_EMAIL_ADDRESS,
 		);
 		$response = $this->user->deleteSuggestion($data);
 
@@ -47,7 +47,7 @@ class DeleteSuggestionsTest extends KopanoTest {
 	public function testDeleteExistingSuggestion()
 	{
 		// send the mail to the user
-		$recipient1 = $this->addUser(new MailUser(new KopanoUser(KOPANO_USER2_NAME, KOPANO_USER2_PASSWORD)));
+		$recipient1 = $this->addUser(new MailUser(new grommunioUser(GROMMUNIO_USER2_NAME, GROMMUNIO_USER2_PASSWORD)));
 		$message = array(
 			'props' => TestData::getMail(),
 			'recipients' => array(
@@ -60,10 +60,10 @@ class DeleteSuggestionsTest extends KopanoTest {
 		
 		// Delete the created suggestion, and load all suggestions
 		$this->user->deleteSuggestion($recipient1->getRecipient());
-		$response = $this->user->listSuggestions(KOPANO_USER2_NAME);
+		$response = $this->user->listSuggestions(GROMMUNIO_USER2_NAME);
 		
 		$this->assertArrayHasKey('list', $response, 'Test that the response contains the \'list\' object');
-		$this->assertEquals(KOPANO_USER2_NAME, $response['list']['query'], 'Test that the query matches the send query');
+		$this->assertEquals(GROMMUNIO_USER2_NAME, $response['list']['query'], 'Test that the query matches the send query');
 		$this->assertEmpty($response['list']['results'], 'Test that no results where returned');
 	}
 }

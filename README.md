@@ -1,6 +1,6 @@
-# grommunio web
+# grommunio Web
 
-WebApp provides all the familiar email, advanced calendaring and contacts
+grommunio Web provides all the familiar email, advanced calendaring and contacts
 features you need to be productive. It helps you by providing an overview of
 what matters to you, whether this is your incoming email, your weekly schedule
 or the contact details of that person you really need to call.
@@ -71,4 +71,3 @@ If you want to use the existing grommunio-web config, point config.php to it: ``
 Adjust "/opt/grommunio-web/defaults.php" to use sources instead of the release version. Search for ```if(!defined('DEBUG_LOADER')) define('DEBUG_LOADER', LOAD_RELEASE);``` and replace it with ```if(!defined('DEBUG_LOADER')) define('DEBUG_LOADER', LOAD_SOURCE);```. 
 
 Adjust the nginx config file "/usr/share/grommunio-common/nginx/locations.d/grommunio-web.conf" by replacing ```alias /usr/share/grommunio-web/;``` with ```alias /opt/grommunio-web/;```. Reload nginx: ```systemctl reload nginx```.
-

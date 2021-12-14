@@ -38,21 +38,21 @@ Zarafa.mail.ui.MailPanel = Ext.extend(Zarafa.common.ui.ContextMainPanel, {
 	 * @property
 	 * @type Zarafa.core.ui.SwitchViewContentContainer
 	 */
-	viewPanel : undefined,
+	viewPanel: undefined,
 
 	/**
 	 * @constructor
 	 * @param config Configuration structure
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		config = config || {};
 
 		Ext.applyIf(config, {
 			// Overridden from Ext.Component
 			xtype: 'zarafa.mailpanel',
-			layout : 'zarafa.switchborder',
-			items : [
+			layout: 'zarafa.switchborder',
+			items: [
 				this.initMailGrid(config),
 				this.initPreviewPanel(config.context)
 			]
@@ -68,37 +68,37 @@ Zarafa.mail.ui.MailPanel = Ext.extend(Zarafa.common.ui.ContextMainPanel, {
 	 * @return {Zarafa.mail.ui.MailGrid}
 	 * @private
 	 */
-	initMailGrid : function(config)
+	initMailGrid: function(config)
 	{
 		return {
 			xtype: 'panel',
 			layout: 'zarafa.collapsible',
-			cls : 'zarafa-context-mainpanel',
-			minWidth : 200,
+			cls: 'zarafa-context-mainpanel',
+			minWidth: 200,
 			minHeight: 200,
-			region : 'center',
-			collapsible : false,
-			split : true,
+			region: 'center',
+			collapsible: false,
+			split: true,
 			items: [{
 				xtype: 'zarafa.switchviewcontentcontainer',
 				ref: '../viewPanel',
-				layout : 'card',
-				lazyItems : this.initViews(config.context)
+				layout: 'card',
+				lazyItems: this.initViews(config.context)
 			}],
-			tbar : {
+			tbar: {
 				xtype: 'zarafa.contextmainpaneltoolbar',
 				id: 'zarafa-main-content-mail-toolbar',
-				defaultTitle : _('Mail'),
-				paging : container.populateInsertionPoint('context.mail.toolbar.paging', this),
-				items : container.populateInsertionPoint('context.mail.toolbar.item', this),
-				context : config.context
+				defaultTitle: _('Mail'),
+				paging: container.populateInsertionPoint('context.mail.toolbar.paging', this),
+				items: container.populateInsertionPoint('context.mail.toolbar.item', this),
+				context: config.context
 			},
-			listeners : {
-				render : function(panel)
+			listeners: {
+				render: function(panel)
 				{
 					this.topToolbar = panel.getTopToolbar();
 				},
-				scope : this
+				scope: this
 			}
 		};
 	},
@@ -110,15 +110,15 @@ Zarafa.mail.ui.MailPanel = Ext.extend(Zarafa.common.ui.ContextMainPanel, {
 	 * @return {Array} array of config objects of different views
 	 * @private
 	 */
-	initViews : function(context)
+	initViews: function(context)
 	{
 		// add the standard available views
 		var allViews = [{
 			xtype: 'zarafa.mailgrid',
 			flex: 1,
-			id    : 'mail-grid',
+			id  : 'mail-grid',
 			anchor: '100%',
-			context : context,
+			context: context,
 			ref: '../../mailGrid'
 		}];
 
@@ -132,10 +132,10 @@ Zarafa.mail.ui.MailPanel = Ext.extend(Zarafa.common.ui.ContextMainPanel, {
 	 * Function is used to get the {@link Zarafa.mail.ui.MailGrid mailgrid}
 	 * return {Zarafa.mail.ui.MailGrid} return the mail grid.
 	 */
-	getGridPanel : function()
+	getGridPanel: function()
 	{
 		return this.mailGrid;
-	}, 
+	},
 
 	/**
 	 * Initializes the {@link Zarafa.core.ui.PreviewPanel PreviewPanel}
@@ -144,13 +144,13 @@ Zarafa.mail.ui.MailPanel = Ext.extend(Zarafa.common.ui.ContextMainPanel, {
 	 * @return {Zarafa.core.ui.PreviewPanel}
 	 * @private
 	 */
-	initPreviewPanel : function(context)
+	initPreviewPanel: function(context)
 	{
 		return {
 			xtype: 'zarafa.mailpreviewpanel',
 			id: 'zarafa-main-content-mail-preview',
-			region : 'south',
-			split : true,
+			region: 'south',
+			split: true,
 			context: context
 		};
 	},
@@ -160,7 +160,7 @@ Zarafa.mail.ui.MailPanel = Ext.extend(Zarafa.common.ui.ContextMainPanel, {
 	 * At this time all events can be registered.
 	 * @private
 	 */
-	initEvents : function()
+	initEvents: function()
 	{
 		if (Ext.isDefined(this.context)) {
 			this.mon(this.context, 'viewchange', this.onViewChange, this);
@@ -181,7 +181,7 @@ Zarafa.mail.ui.MailPanel = Ext.extend(Zarafa.common.ui.ContextMainPanel, {
 	 * @param {Zarafa.mail.data.Views} newView The ID of the selected view.
 	 * @param {Zarafa.mail.data.Views} oldView The ID of the previously selected view.
 	 */
-	onViewChange : function(context, newView, oldView)
+	onViewChange: function(context, newView, oldView)
 	{
 		switch (newView) {
 			case Zarafa.mail.data.Views.LIST:
@@ -202,7 +202,7 @@ Zarafa.mail.ui.MailPanel = Ext.extend(Zarafa.common.ui.ContextMainPanel, {
 	 * @param {Zarafa.mail.data.ViewModes} oldViewMode The previous mode
 	 * @private
 	 */
-	onViewModeChange : function(context, newViewMode, oldViewMode)
+	onViewModeChange: function(context, newViewMode, oldViewMode)
 	{
 		var orientation;
 		var el = this.getEl();
@@ -235,7 +235,7 @@ Zarafa.mail.ui.MailPanel = Ext.extend(Zarafa.common.ui.ContextMainPanel, {
 		var layout = this.getLayout();
 		if (!Ext.isFunction(layout.setOrientation)) {
 			if (Ext.isString(layout)) {
-				this.layoutConfig = Ext.apply(this.layoutConfig || {}, { orientation : orientation });
+				this.layoutConfig = Ext.apply(this.layoutConfig || {}, { orientation: orientation });
 			} else {
 				this.layout.orientation = orientation;
 			}

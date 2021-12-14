@@ -16,7 +16,7 @@ Zarafa.core.plugins.AutoSaveMessagePlugin = Ext.extend(Object, {
 	 * @property
 	 * @type Ext.Component
 	 */
-	field : undefined,
+	field: undefined,
 
 	/**
 	 * The record which has been {@link #onSetRecord set} on the
@@ -24,20 +24,20 @@ Zarafa.core.plugins.AutoSaveMessagePlugin = Ext.extend(Object, {
 	 * @property
 	 * @type Zarafa.core.data.MAPIRecord
 	 */
-	record : undefined,
+	record: undefined,
 
 	/**
 	 * Timer that is used to save message after specified minutes
 	 * @property
 	 * @type Number
 	 */
-	messageAutoSaveTimer : undefined,
+	messageAutoSaveTimer: undefined,
 
 	/**
 	 * @constructor
 	 * @param {Object} config Configuration object
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		Ext.apply(this, config);
 	},
@@ -46,7 +46,7 @@ Zarafa.core.plugins.AutoSaveMessagePlugin = Ext.extend(Object, {
 	 * Initializes the {@link Ext.Component Component} to which this plugin has been hooked.
 	 * @param {Ext.Component} field The component on which the plugin is installed
 	 */
-	init : function(field)
+	init: function(field)
 	{
 		this.field = field;
 		field.messageAutoSavePlugin = this;
@@ -59,16 +59,16 @@ Zarafa.core.plugins.AutoSaveMessagePlugin = Ext.extend(Object, {
 	 * on the {@link #field}. This will register the event handlers which
 	 * are needed to listen for record changes.
 	 */
-	onRender : function()
+	onRender: function()
 	{
 		// Initialize necessary events based on ContentPanel and RecordComponentPlugin.
 		this.field.on({
-			'setrecord' : this.onSetRecord,
-			'userupdaterecord' : this.onUserUpdateRecord,
-			'saverecord' : this.onSaveRecord,
-			'close' : this.onDestroy,
-			'destroy' : this.onDestroy,
-			'scope' : this
+			'setrecord': this.onSetRecord,
+			'userupdaterecord': this.onUserUpdateRecord,
+			'saverecord': this.onSaveRecord,
+			'close': this.onDestroy,
+			'destroy': this.onDestroy,
+			'scope': this
 		});
 
 		var fields = this.field.find('enableKeyEvents', true);
@@ -76,8 +76,8 @@ Zarafa.core.plugins.AutoSaveMessagePlugin = Ext.extend(Object, {
 		// Register keypress event on every input field of the ContentPanel.
 		Ext.each(fields, function(inputField) {
 			this.field.mon(inputField, {
-				'keypress' : this.onFieldKeyPress,
-				'scope' : this
+				'keypress': this.onFieldKeyPress,
+				'scope': this
 			});
 		}, this);
 	},
@@ -89,7 +89,7 @@ Zarafa.core.plugins.AutoSaveMessagePlugin = Ext.extend(Object, {
 	 * @param {Zarafa.core.data.MAPIRecord} oldrecord The old record which was previously set
 	 * @private
 	 */
-	onSetRecord : function(field, record, oldrecord)
+	onSetRecord: function(field, record, oldrecord)
 	{
 		// Only IPMRecords will be handled by this plugin,
 		// all other records will be discarded.
@@ -108,7 +108,7 @@ Zarafa.core.plugins.AutoSaveMessagePlugin = Ext.extend(Object, {
 	 * @param {Boolean} isChangedByUser Indicates if the record has been changed by the user since it has been loaded.
 	 * @private
 	 */
-	onUserUpdateRecord : function(field, record, isChangedByUser)
+	onUserUpdateRecord: function(field, record, isChangedByUser)
 	{
 		if (isChangedByUser) {
 			this.startMessageAutoSaveTimer();
@@ -123,7 +123,7 @@ Zarafa.core.plugins.AutoSaveMessagePlugin = Ext.extend(Object, {
 	 * @param {Object} options The options configuration passed to the addListener call
 	 * @private
 	 */
-	onFieldKeyPress : function(element, event, options)
+	onFieldKeyPress: function(element, event, options)
 	{
 		this.startMessageAutoSaveTimer();
 	},
@@ -134,7 +134,7 @@ Zarafa.core.plugins.AutoSaveMessagePlugin = Ext.extend(Object, {
 	 * to {@link #messageAutoSave} as configured.
 	 * @private
 	 */
-	startMessageAutoSaveTimer : function()
+	startMessageAutoSaveTimer: function()
 	{
 		if (!this.messageAutoSaveTimer && this.record && this.record.isUnsent()) {
 			var timeout = container.getSettingsModel().get('zarafa/v1/contexts/mail/autosave_time') * 1000;
@@ -148,7 +148,7 @@ Zarafa.core.plugins.AutoSaveMessagePlugin = Ext.extend(Object, {
 	 * available again for rescheduling.
 	 * @private
 	 */
-	resetMessageAutoSaveTimer : function()
+	resetMessageAutoSaveTimer: function()
 	{
 		if (this.messageAutoSaveTimer) {
 			window.clearTimeout(this.messageAutoSaveTimer);
@@ -161,7 +161,7 @@ Zarafa.core.plugins.AutoSaveMessagePlugin = Ext.extend(Object, {
 	 * {@link Zarafa.common.Actions.messageAutoSave autosave} the {@link #record}.
 	 * @private
 	 */
-	messageAutoSave : function()
+	messageAutoSave: function()
 	{
 		if (this.record) {
 
@@ -191,7 +191,7 @@ Zarafa.core.plugins.AutoSaveMessagePlugin = Ext.extend(Object, {
 	 * @param {Zarafa.core.data.IPMRecord} record The record which is being saved.
 	 * @private
 	 */
-	onSaveRecord : function(contentpanel, record)
+	onSaveRecord: function(contentpanel, record)
 	{
 		this.resetMessageAutoSaveTimer();
 	},
@@ -201,7 +201,7 @@ Zarafa.core.plugins.AutoSaveMessagePlugin = Ext.extend(Object, {
 	 * This will {@link #resetMessageAutoSaveTimer cancel} the {@link #messageAutoSaveTimer}
 	 * @private
 	 */
-	onDestroy : function()
+	onDestroy: function()
 	{
 		this.resetMessageAutoSaveTimer();
 		this.record = undefined;

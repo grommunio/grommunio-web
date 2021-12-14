@@ -3,7 +3,7 @@ Ext.namespace('Zarafa.core.data');
 /**
  * @class Zarafa.core.data.IPFRecord
  * @extends Zarafa.core.data.MAPIRecord
- * 
+ *
  */
 Zarafa.core.data.IPFRecord = Ext.extend(Zarafa.core.data.MAPIRecord, {
 	/**
@@ -13,7 +13,7 @@ Zarafa.core.data.IPFRecord = Ext.extend(Zarafa.core.data.MAPIRecord, {
 	 * @param {Zarafa.core.data.MAPIRecord} record The MAPIRecord to compare with
 	 * @return {Boolean} True if the records are the same.
 	 */
-	equals : function(record)
+	equals: function(record)
 	{
 		// Simplest case, do we have the same object...
 		if (this === record) {
@@ -48,7 +48,7 @@ Zarafa.core.data.IPFRecord = Ext.extend(Zarafa.core.data.MAPIRecord, {
 	 * actual container_class is 'IPF.Note'). Defaults to false.
 	 * @return True when the given className matches the container_class.
 	 */
-	isContainerClass : function(className, baseOnly)
+	isContainerClass: function(className, baseOnly)
 	{
 		return Zarafa.core.ContainerClass.isClass(this.get('container_class'), className, baseOnly);
 	}

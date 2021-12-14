@@ -13,30 +13,30 @@ Zarafa.common.attachment.dialogs.AttachItemGrid = Ext.extend(Zarafa.common.ui.gr
 	 * @constructor
 	 * @param {Object} config Configuration structure
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		config = config || {};
 
 		Ext.applyIf(config, {
-			xtype : 'zarafa.attachitemgrid',
-			border : true,
-			colModel : this.initColumnModel(),
-			selModel : this.initSelectionModel(),
+			xtype: 'zarafa.attachitemgrid',
+			border: true,
+			colModel: this.initColumnModel(),
+			selModel: this.initSelectionModel(),
 			// provide a dummy store for initialization, this will be changed later on
-			store : new Zarafa.core.data.ListModuleStore(),
-			loadMask : true,
-			tbar : [{
-				xtype : 'zarafa.paging',
-				pageSize : 50,
+			store: new Zarafa.core.data.ListModuleStore(),
+			loadMask: true,
+			tbar: [{
+				xtype: 'zarafa.paging',
+				pageSize: 50,
 				// provide a dummy store for initialization, this will be changed later on
-				store : new Zarafa.core.data.ListModuleStore()
+				store: new Zarafa.core.data.ListModuleStore()
 			}],
-			listeners : {
+			listeners: {
 				// Register event that will change store associated with pagination
-				'reconfigure' : this.onGridReconfigure,
+				'reconfigure': this.onGridReconfigure,
 				// Register event that will add message as attachment to message
-				'rowdblclick' : this.onRowDblClick,
-				scope : this
+				'rowdblclick': this.onRowDblClick,
+				scope: this
 			}
 		});
 
@@ -49,7 +49,7 @@ Zarafa.common.attachment.dialogs.AttachItemGrid = Ext.extend(Zarafa.common.ui.gr
 	 * @return {Ext.grid.ColumnModel} column model object
 	 * @private
 	 */
-	initColumnModel : function()
+	initColumnModel: function()
 	{
 		return new Zarafa.common.ui.grid.ColumnModel();
 	},
@@ -59,10 +59,10 @@ Zarafa.common.attachment.dialogs.AttachItemGrid = Ext.extend(Zarafa.common.ui.gr
 	 * @return {Ext.grid.RowSelectionModel} selection model object
 	 * @private
 	 */
-	initSelectionModel : function()
+	initSelectionModel: function()
 	{
 		return new Ext.grid.RowSelectionModel({
-			singleSelect : true
+			singleSelect: true
 		});
 	},
 
@@ -70,7 +70,7 @@ Zarafa.common.attachment.dialogs.AttachItemGrid = Ext.extend(Zarafa.common.ui.gr
 	 * Event handler which is fired when the {@link #store store} is loaded. And we can select the first row.
 	 * @private
 	 */
-	onStoreLoad : function()
+	onStoreLoad: function()
 	{
 		this.getSelectionModel().selectFirstRow();
 	},
@@ -83,7 +83,7 @@ Zarafa.common.attachment.dialogs.AttachItemGrid = Ext.extend(Zarafa.common.ui.gr
 	 * @param {Zarafa.common.ui.grid.ColumnModel} colModel column model which is now bound with grid panel.
 	 * @private
 	 */
-	onGridReconfigure : function(grid, store, colModel)
+	onGridReconfigure: function(grid, store, colModel)
 	{
 		// change store of paging toolbar
 		var paging = this.getTopToolbar().findByType('zarafa.paging')[0];
@@ -102,7 +102,7 @@ Zarafa.common.attachment.dialogs.AttachItemGrid = Ext.extend(Zarafa.common.ui.gr
 	 * @param {Ext.EventObject} event The event
 	 * @private
 	 */
-	onRowDblClick : function(grid, rowIndex, event)
+	onRowDblClick: function(grid, rowIndex, event)
 	{
 		this.ownerCt.attachItem();
 	}

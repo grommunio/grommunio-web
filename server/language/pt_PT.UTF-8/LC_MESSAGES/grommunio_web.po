@@ -1,0 +1,6620 @@
+# grommunio Web Portuguese (Portugal) translation.
+# Copyright (C) 2021
+msgid ""
+msgstr ""
+"Project-Id-Version: grommunio Web Portuguese (Portugal)\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-09-25 14:32+0200\n"
+"PO-Revision-Date: 2021-04-10 01:09+0000\n"
+"Last-Translator: import\n"
+"Language: pt_PT\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Generator: Weblate 2.4\n"
+
+#. TRANSLATORS: This message is used as label for the column which indicates the week number of the month in date picker. and 'Wk' stands for week
+msgid "Wk"
+msgstr "Semana"
+
+msgid "Now"
+msgstr "Agora"
+
+msgid "Value must be between 0% to 100%"
+msgstr "Valor tem que ser entre 0% e 100%"
+
+msgid "Number must be higher than zero"
+msgstr "Número tem que ser maior que zero"
+
+msgid "More options"
+msgstr "Mais opções"
+
+msgid "{0} byte"
+msgid_plural "{0} bytes"
+msgstr[0] "{0} byte"
+msgstr[1] "{0} bytes"
+
+msgid "{0} KB"
+msgid_plural "{0} KB"
+msgstr[0] "{0} KB"
+msgstr[1] "{0} KB"
+
+msgid "{0} MB"
+msgid_plural "{0} MB"
+msgstr[0] "{0} MB"
+msgstr[1] "{0} MB"
+
+msgid "{0} GB"
+msgid_plural "{0} GB"
+msgstr[0] "{0} GB"
+msgstr[1] "{0} GB"
+
+msgid "{0} TB"
+msgid_plural "{0} TB"
+msgstr[0] "{0} TB"
+msgstr[1] "{0} TB"
+
+msgid "{0} minute"
+msgid_plural "{0} minutes"
+msgstr[0] "{0} minuto"
+msgstr[1] "{0} minutos"
+
+msgid "{0} hour"
+msgid_plural "{0} hours"
+msgstr[0] "{0} hora"
+msgstr[1] "{0} horas"
+
+msgid "{0} day"
+msgid_plural "{0} days"
+msgstr[0] "{0} dia"
+msgstr[1] "{0} dias"
+
+msgid "{0} week"
+msgid_plural "{0} weeks"
+msgstr[0] "{0} semana"
+msgstr[1] "{0} semanas"
+
+msgid "The quick brown fox jumps over the lazy dog"
+msgstr "A rápida raposa castanha salta sobre o preguiçoso cão"
+
+msgid "Sunday"
+msgstr "Domingo"
+
+msgid "Monday"
+msgstr "Segunda-feira"
+
+msgid "Tuesday"
+msgstr "Terça-feira"
+
+msgid "Wednesday"
+msgstr "Quarta-feira"
+
+msgid "Thursday"
+msgstr "Quinta-feira"
+
+msgid "Friday"
+msgstr "Sexta-feira"
+
+msgid "Saturday"
+msgstr "Sábado"
+
+msgid "Sun"
+msgstr "Dom"
+
+msgid "Mon"
+msgstr "Seg"
+
+msgid "Tue"
+msgstr "Ter"
+
+msgid "Wed"
+msgstr "Qua"
+
+msgid "Thu"
+msgstr "Qui"
+
+msgid "Fri"
+msgstr "Sex"
+
+msgid "Sat"
+msgstr "Sáb"
+
+msgid "January"
+msgstr "Janeiro"
+
+msgid "February"
+msgstr "Fevereiro"
+
+msgid "March"
+msgstr "Março"
+
+msgid "April"
+msgstr "Abril"
+
+msgid "May"
+msgstr "Maio"
+
+msgid "June"
+msgstr "Junho"
+
+msgid "July"
+msgstr "Julho"
+
+msgid "August"
+msgstr "Agosto"
+
+msgid "September"
+msgstr "Setembro"
+
+msgid "October"
+msgstr "Outubro"
+
+msgid "November"
+msgstr "Novembro"
+
+msgid "December"
+msgstr "Dezembro"
+
+msgid "Page {A} of {0}"
+msgstr "Página {A} de {0}"
+
+msgid "Displaying messages {0} - {1} of {2}"
+msgstr "A ver mensagens {0} - {1} de {2}"
+
+msgid "No messages to display"
+msgstr "Sem mensagens para mostrar"
+
+msgid "First Page"
+msgstr "Primeira página"
+
+msgid "Previous Page"
+msgstr "Página anterior"
+
+msgid "Next Page"
+msgstr "Página seguinte"
+
+msgid "Last Page"
+msgstr "Última página"
+
+msgid "Refresh"
+msgstr "Atualizar"
+
+msgid "Today"
+msgstr "Hoje"
+
+msgid "OK"
+msgstr "OK"
+
+msgid "Cancel"
+msgstr "Cancelar"
+
+msgid "{0} (Spacebar)"
+msgstr "{0} (Barra de espaços)"
+
+msgid "This date is before the minimum date"
+msgstr "Esta data é anterior à data mínima"
+
+msgid "This date is after the maximum date"
+msgstr "Esta data é posterior à data máxima"
+
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
+msgid "d/m/Y"
+msgstr "d/m/Y"
+
+msgid "Disabled"
+msgstr "Desativado"
+
+msgid "Next Month (Control+Right)"
+msgstr "Mês seguinte (Control+Right)"
+
+msgid "Previous Month (Control+Left)"
+msgstr "Mês anterior (Control+Left)"
+
+msgid "Choose a month (Control+Up/Down to move years)"
+msgstr "Escolher um mês (Control+Up/Down para escolher anos)"
+
+msgid "Sort Ascending"
+msgstr "Ordem ascendente"
+
+msgid "Sort Descending"
+msgstr "Ordem descendente"
+
+msgid "Columns"
+msgstr "Colunas"
+
+msgid "Group By This Field"
+msgstr "Agrupar através deste campo"
+
+msgid "Show in Groups"
+msgstr "Mostar por grupos"
+
+msgid "(None)"
+msgstr "(nenhum)"
+
+msgid "Ok"
+msgstr "Ok"
+
+msgid "Yes"
+msgstr "Sim"
+
+msgid "No"
+msgstr "Não"
+
+msgid "Loading"
+msgstr "A carregar"
+
+msgid "The value in this field is invalid"
+msgstr "O valor neste campo é inválido"
+
+msgid "The minimum length for this field is {0}"
+msgstr "O comprimento mínimo para este campo é {0}"
+
+msgid "The maximum length for this field is {0}"
+msgstr "O comprimento máximo para este campo é {0}"
+
+msgid "This field is required"
+msgstr "Este campo é obrigatório"
+
+msgid "The minimum value for this field is {0}"
+msgstr "O valor mínimo para este campo é {0}"
+
+msgid "The maximum value for this field is {0}"
+msgstr "O valor máximo para este campo é {0}"
+
+msgid "{0} is not a valid number"
+msgstr "{0} não é um número válido"
+
+msgid "The date in this field must be equal to or after {0}"
+msgstr "A data neste campo tem que ser igual ou depois de {0}"
+
+msgid "The date in this field must be equal to or before {0}"
+msgstr "A data neste campo tem que ser igual ou antes de {0}"
+
+msgid "{0} is not a valid date - it must be in the format {1}"
+msgstr "{0} não é uma data válida - tem que estar no formato {1}"
+
+msgid "You must select at least one item in this group"
+msgstr "Tem que selecionar pelo menos um item neste grupo"
+
+msgid "You must select one item in this group"
+msgstr "Tem que selecionar um item neste grupo"
+
+msgid "The time in this field must be equal to or after {0}"
+msgstr "A hora neste campo tem que ser igual ou depois de {0}"
+
+msgid "The time in this field must be equal to or before {0}"
+msgstr "A hora neste campo tem que ser igual ou antes de {0}"
+
+msgid "{0} is not a valid time"
+msgstr "{0} não é uma hora válida"
+
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
+msgid "G:i"
+msgstr "G:i"
+
+msgid "Name"
+msgstr "Nome"
+
+msgid "Value"
+msgstr "Valor"
+
+msgid "true"
+msgstr "verdadeiro"
+
+msgid "false"
+msgstr "falso"
+
+msgid ""
+"This field should be an e-mail address in the format \"user@example.com\""
+msgstr ""
+"Este campo deve ser um endereço de E-mail no formato \"user@example.com\""
+
+msgid "This field should be a URL in the format \"{0}\""
+msgstr "Este campo de ser um URL no formato \"{0}\""
+
+msgid "This field should only contain letters and _"
+msgstr "Este campo deve apenas conter letras e '_'"
+
+msgid "This field should only contain letters, numbers and _"
+msgstr "Este campo deve apenas conter letras, números e '_'"
+
+msgid "Email Addresses"
+msgstr "Endereços de E-mail"
+
+msgid "Email addresses"
+msgstr "Endereços de E-mail"
+
+msgid "Group details"
+msgstr "Detalhes do grupo"
+
+msgid "General"
+msgstr "Geral"
+
+msgid "Display Name"
+msgstr "Nome a exibir"
+
+msgid "Alias"
+msgstr "Alias"
+
+msgid "Owner"
+msgstr "Proprietário"
+
+msgid "Notes"
+msgstr "Notas"
+
+msgid "Members"
+msgstr "Membros"
+
+msgid "Email Address"
+msgstr "Endereço de Email"
+
+msgid "Account"
+msgstr "Conta"
+
+msgid "Member Of"
+msgstr "Membro de"
+
+msgid "Group Membership"
+msgstr "Pertence aos grupos"
+
+msgid "Address Book"
+msgstr "Livro de Endereços"
+
+msgid "User details"
+msgstr "Detalhes do utilizador"
+
+msgid "First name"
+msgstr "Primeiro nome"
+
+msgid "Last name"
+msgstr "Último nome"
+
+msgid "Initials"
+msgstr "Iniciais"
+
+msgid "Display"
+msgstr "Mostrar"
+
+msgid "Addresses"
+msgstr "Moradas"
+
+msgid "Address"
+msgstr "Morada"
+
+msgid "City"
+msgstr "Cidade"
+
+msgid "State"
+msgstr "Região"
+
+msgid "Zip Code"
+msgstr "Código Postal"
+
+msgid "Country"
+msgstr "País"
+
+msgid "Professional"
+msgstr "Profissional"
+
+msgid "Title"
+msgstr "Título"
+
+msgid "Company"
+msgstr "Empresa"
+
+msgid "Department"
+msgstr "Departamento"
+
+msgid "Office"
+msgstr "Escritório"
+
+msgid "Assistant"
+msgstr "Assistente"
+
+msgid "Phone"
+msgstr "Telefone"
+
+msgid "Organization"
+msgstr "Organização"
+
+msgid "Manager"
+msgstr "Diretor"
+
+msgid "Direct reports"
+msgstr "Responde diretamente"
+
+msgid "Phone numbers"
+msgstr "Números de Telefone"
+
+msgid "Business"
+msgstr "Trabalho"
+
+msgid "Business2"
+msgstr "Trabalho 2"
+
+msgid "Fax"
+msgstr "Fax"
+
+msgid "Home"
+msgstr "Início"
+
+msgid "Home2"
+msgstr "Casa 2"
+
+msgid "Mobile"
+msgstr "Telemóvel"
+
+msgid "Pager"
+msgstr "Pager"
+
+msgid "No user selected"
+msgstr "Nenhum utilizador selecionado"
+
+msgid "You must select one or more users."
+msgstr "Tem que selecionar um ou mais utilizadores."
+
+msgid "You must select a user."
+msgstr "Tem que selecionar um utilizador."
+
+msgid "Select"
+msgstr "Selecionar"
+
+msgid "Show Details"
+msgstr "Mostar detalhes"
+
+msgid "Copy contact"
+msgstr "Copiar contacto"
+
+msgid "Copy contacts"
+msgstr "Copiar contactos"
+
+msgid ""
+"Showing only the first {0} names. Use search to find more specific results."
+msgstr ""
+"A mostrar só os {0} primeiros nomes. Use a procura para encontrar resultados "
+"mais específicos."
+
+msgid "Use the search bar to get results"
+msgstr "Use a barra de procura par obter resultados"
+
+msgid "There are no items to show in this list"
+msgstr "Não existem itens para mostrar na lista"
+
+msgid "Show Names from the"
+msgstr "Exibir Nomes de"
+
+msgid "Search..."
+msgstr "Procurar..."
+
+msgid "Sort by: Icon"
+msgstr "Ordenar por: Icone"
+
+msgid "Sort by: Name"
+msgstr "Ordenar por: Nome"
+
+msgid "Sort by: Display Name"
+msgstr "Ordenar por: Nome a exibir"
+
+msgid "File as"
+msgstr "Arquivar como"
+
+msgid "Sort by: File As"
+msgstr "Ordenar por: Arquivar como"
+
+msgid "First Name"
+msgstr "Primeiro Nome"
+
+msgid "Sort by: First Name"
+msgstr "Ordenar por: Primeiro Nome"
+
+msgid "Last Name"
+msgstr "Sobrenome"
+
+msgid "Sort by: Last Name"
+msgstr "Ordenar por: Sobrenome"
+
+msgid "Sort by: Email Address"
+msgstr "Ordenar por: Endereço de E-mail"
+
+msgid "Job Title"
+msgstr "Nome do cargo"
+
+msgid "Sort by: Job Title"
+msgstr "Ordenar por: Nome do cargo"
+
+msgid "Company Name"
+msgstr "Empresa"
+
+msgid "Sort by: Company Name"
+msgstr "Ordenar por: Empresa"
+
+msgid "Sort by: Department"
+msgstr "Ordenar por: Departamento"
+
+msgid "Office Phone"
+msgstr "Telefone do escritório"
+
+msgid "Sort by: Office Phone"
+msgstr "Ordenar por: Telefone do escritório"
+
+msgid "Sort by: Mobile"
+msgstr "Ordenar por: Telemóvel"
+
+msgid "Home Phone"
+msgstr "Telefone de casa"
+
+msgid "Sort by: Home Phone"
+msgstr "Ordenar por: Telefone de casa"
+
+msgid "Sort by: Pager"
+msgstr "Ordenar por: Pager"
+
+msgid "Location"
+msgstr "Local"
+
+msgid "Sort by: Location"
+msgstr "Ordenar por: Local"
+
+msgid "Sort by: Fax"
+msgstr "Ordenar por: Fax"
+
+msgid "Print single item"
+msgstr "Imprimir só um item"
+
+msgid "Print selected item"
+msgstr "Imprimir item selecionado"
+
+msgid "Print"
+msgstr "Imprimir"
+
+msgid "No item selected"
+msgstr "Nenhum item selecionado"
+
+msgid "No preview"
+msgstr "Sem pré-visualização"
+
+msgid "Right preview"
+msgstr "Pré-visualização à direita"
+
+msgid "Bottom preview"
+msgstr "Pré-visualização em baixo"
+
+msgid "Any date"
+msgstr "Qualquer data"
+
+msgid "Past week"
+msgstr "Na última semana"
+
+msgid "Past 2 weeks"
+msgstr "Nas duas últimas semanas"
+
+msgid "Past month"
+msgstr "No último mês"
+
+msgid "Past 6 month"
+msgstr "Nos últimos seis meses"
+
+msgid "Past year"
+msgstr "No último ano"
+
+msgid "Custom date"
+msgstr "Data personalizada"
+
+msgid "Add to favorites"
+msgstr "Adicionar aos Favoritos"
+
+msgid "Add"
+msgstr "Adicionar"
+
+msgid "Empty folder name"
+msgstr "Esvaziar nome da pasta"
+
+msgid "You must specify a name."
+msgstr "Tem que especificar um nome."
+
+msgid "Add a folder to favorites based on your search query"
+msgstr "Adicionar uma pasta aos favoritos baseada na sua procura"
+
+msgid "Folder name"
+msgstr "Nome da pasta"
+
+msgid "Select Category"
+msgstr "Selecionar categoria"
+
+msgid "Apply"
+msgstr "Aplicar"
+
+msgid "All folders are selected"
+msgstr "Todas as pastas selecionadas"
+
+msgid "Reply"
+msgstr "Responder"
+
+msgid "Reply All"
+msgstr "Responder a todos"
+
+msgid "Forward"
+msgstr "Reencaminhar"
+
+msgid "Edit as New"
+msgstr "Editar como nova mensagem"
+
+msgid "Search tools"
+msgstr "Opções de pesquisa"
+
+msgid "Folders"
+msgstr "Pastas"
+
+msgid "Include subfolders"
+msgstr "Incluir subpastas"
+
+msgid "Show.."
+msgstr "Mostar.."
+
+msgid "Mails"
+msgstr "Mensagens"
+
+msgid "Appointments"
+msgstr "Compromisso"
+
+msgid "Contacts"
+msgstr "Contactos"
+
+msgid "Tasks"
+msgstr "Tarefas"
+
+msgid "Filter.."
+msgstr "Filtrar.."
+
+msgid "Unread"
+msgstr "Por ler"
+
+msgid "Attachments"
+msgstr "Anexos"
+
+msgid "Date"
+msgstr "Data"
+
+msgctxt "search.date"
+msgid "From"
+msgstr "De"
+
+msgctxt "search.date"
+msgid "To"
+msgstr "Para"
+
+msgid "Filter category.."
+msgstr "Filtrar categoria."
+
+msgid "Search.."
+msgstr "Procurar.."
+
+msgid "Sender"
+msgstr "Remetente"
+
+msgid "Recipients"
+msgstr "Destinatários"
+
+msgid "Subject"
+msgstr "Assunto"
+
+msgid "Body & Attachments"
+msgstr "Corpo e anexos"
+
+msgid "Favorites"
+msgstr "Favoritos"
+
+msgid "Add a folder to favorites based on this search query"
+msgstr "Adicionar uma pasta aos favoritos baseada nesta procura"
+
+msgid "Select Folder"
+msgstr "Selecionar pasta"
+
+msgid "Delete search folder"
+msgstr "Eliminar pasta de procura"
+
+msgid "Sort by: Date"
+msgstr "Ordenar por: Data"
+
+msgid "Loading Search results"
+msgstr "A carregar resultados da procura"
+
+msgid "Sorting tip"
+msgstr "Sugestão de ordenação"
+
+msgid ""
+"You can sort by date if you narrow down your search results. Enable filters "
+"or adjust your input."
+msgstr ""
+"Pode ordenar por data se definir uma procura mais restrita. Ative os filtros "
+"ou altere os termos da procura."
+
+msgid "Did you mean"
+msgstr "Queria dizer"
+
+msgid "With"
+msgstr "Com"
+
+msgid "To"
+msgstr "Para"
+
+msgid "No date"
+msgstr "Sem data final"
+
+msgid "Error"
+msgstr "Erro"
+
+msgid ""
+"Could not accept proposal as this meeting is not available in calendar; It "
+"may have been moved or deleted."
+msgstr ""
+"Não foi possível aceitar a proposta pois este evento não está disponível no "
+"calendário; Pode ter sido movido ou apagado."
+
+msgid ""
+"Could not view proposal as this meeting is not available in calendar; It may "
+"have been moved or deleted."
+msgstr ""
+"Não foi possível mostar a proposta pois este evento não está disponível no "
+"calendário; Pode ter sido movido ou apagado."
+
+msgid "Required"
+msgstr "Obrigatório"
+
+msgid "Optional"
+msgstr "Opcional"
+
+msgid "Resource"
+msgstr "Recurso"
+
+msgid "Could not open store."
+msgstr "Não foi possível abrir a caixa."
+
+msgid "Could not open default calendar folder."
+msgstr "Não foi possível abrir a pasta por defeito do Calendário."
+
+msgid "workday"
+msgstr "dia útil"
+
+msgid "day"
+msgstr "dia"
+
+msgid "days"
+msgstr "dias"
+
+msgid "week"
+msgstr "semana"
+
+msgid "weeks"
+msgstr "semanas"
+
+msgid " on "
+msgstr " em "
+
+msgid "month"
+msgstr "mês"
+
+msgid "months"
+msgstr "meses"
+
+msgid "year"
+msgstr "ano"
+
+msgid "years"
+msgstr "anos"
+
+msgid "Occurs every {0} effective {1} from {2} to {3}."
+msgstr "Acontece a cada {0} a partir de {1} de {2} até {3}."
+
+msgid "Occurs every {0} {1} effective {2} from {3} to {4}."
+msgstr "Acontece a cada {0} {1} a partir de {2} de {3} até {4}."
+
+msgid "Occurs every {0} effective {1}."
+msgstr "Acontece a cada {0} a partir de {1}."
+
+msgid "Occurs every {0} {1} effective {2}."
+msgstr "Acontece a cada {0} {1} a partir de {2}."
+
+msgid "Occurs every {0} effective {1} for {2} occurrence from {3} to {4}."
+msgid_plural ""
+"Occurs every {0} effective {1} for {2} occurrences from {3} to {4}."
+msgstr[0] "Acontece a cada {0} a partir de {1} por {2} vez de {3} até {4}."
+msgstr[1] "Acontece a cada {0} a partir de {1} por {2} vezwes de {3} até {4}."
+
+msgid "Occurs every {0} {1} effective {2} for {3} occurrence from {4} to {5}."
+msgid_plural ""
+"Occurs every {0} {1} effective {2} for {3} occurrences {4} to {5}."
+msgstr[0] "Acontece a cada {0} {1} a partir de {2} por {3} vez de {4} até {5}."
+msgstr[1] ""
+"Acontece a cada {0} {1} a partir de {2} por {3} vezes de {4} até {5}."
+
+msgid "Occurs every {0} effective {1} for {2} occurrence."
+msgid_plural "Occurs every {0} effective {1} for {2} occurrences."
+msgstr[0] "Acontece a cada {0} a partir de {1} por {2} vez."
+msgstr[1] "Acontece a cada {0} a partir de {1} por {2} vezes."
+
+msgid "Occurs every {0} {1} effective {2} for {3} occurrence."
+msgid_plural "Occurs every {0} {1} effective {2} for {3} occurrences."
+msgstr[0] "Acontece a cada {0} {1} a partir de {2} por {3} vez."
+msgstr[1] "Acontece a cada {0} {1} a partir de {2} por {3} vezes."
+
+msgid "Occurs every {0} effective {1} until {2} from {3} to {4}."
+msgstr "Acontece a cada {0} a partir de {1} até {2} de {3} até {4}."
+
+msgid "Occurs every {0} {1} effective {2} until {3} from {4} to {5}."
+msgstr "Acontece a cada {0} {1} a partir de {2} até {3} de {4} até {5}."
+
+msgid "Occurs every {0} effective {1} until {2}."
+msgstr "Acontece a cada {0} a partir de {1} até {2}."
+
+msgid "Occurs every {0} {1} effective {2} until {3}."
+msgstr "Acontece a cada {0} {1} a partir de {2} até {3}."
+
+msgid "When"
+msgstr "Quando"
+
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
+msgid "l jS F Y {0}"
+msgstr "l jS F Y {0}"
+
+msgid "Where"
+msgstr "Onde"
+
+msgid "New Meeting Time Proposed"
+msgstr "Nova hora de Reunião proposta"
+
+msgid "and "
+msgstr "e "
+
+msgid "Sort by: Attachment"
+msgstr "Ordenar por: Anexos"
+
+msgid "Sort by: Recurring"
+msgstr "Ordenar por: Periódico"
+
+msgid "Sort by: Subject"
+msgstr "Ordenar por: Assunto"
+
+msgid "Start Date"
+msgstr "Data de início"
+
+msgid "Sort by: Start Date"
+msgstr "Ordenar por: Data de Início"
+
+msgid "End Date"
+msgstr "Data de fim"
+
+msgid "Sort by: End Date"
+msgstr "Ordenar por: Data de fim"
+
+msgid "Organizer"
+msgstr "Organizador"
+
+msgid "Required Attendee"
+msgstr "Participante obrigatório"
+
+msgid "Optional Attendee"
+msgstr "Participante opcional"
+
+msgid "Show Time As"
+msgstr "Mostrar hora como"
+
+msgid "Recurrence pattern"
+msgstr "Padrão de Periocidade"
+
+msgid "All Day Event"
+msgstr "Evento dia inteiro"
+
+msgid "Add Shared Calendar"
+msgstr "Adicionar calendário partilhado"
+
+msgid "Remove From Calendar"
+msgstr "Remover do calendário"
+
+msgid "No Response Required"
+msgstr "Sem resposta necessária"
+
+msgid "Accept"
+msgstr "Aceitar"
+
+msgid "Accept Meeting Request"
+msgstr "Aceitar pedido de reunião"
+
+msgid "Tentative"
+msgstr "Tentativa"
+
+msgid "Tentatively Accept Meeting Request"
+msgstr "Aceitar pedido de reunião em modo de tentativa"
+
+msgid "Decline"
+msgstr "Recusar"
+
+msgid "Decline Meeting Request"
+msgstr "Recusar pedido de reunião"
+
+msgid "Propose New Time"
+msgstr "Propor nova hora"
+
+msgid "Propose New Time for Meeting Request"
+msgstr "Propor nova hora para o pedido de reunião"
+
+msgid "View All Proposals"
+msgstr "Ver todas as propostas"
+
+msgid "Accept Proposal"
+msgstr "Aceitar proposta"
+
+msgid "Accept Proposed Time"
+msgstr "Aceitar hora proposta"
+
+msgid "View in calendar"
+msgstr "Ver no calendário"
+
+msgid "Day"
+msgstr "Dia"
+
+msgid "Workweek"
+msgstr "Semana de Trabalho"
+
+msgid "Week"
+msgstr "Semana"
+
+msgid "Month"
+msgstr "Mês"
+
+msgid "List"
+msgstr "Lista"
+
+msgid "Appointment"
+msgstr "Compromisso"
+
+msgid "Meeting request"
+msgstr "Pedido de reunião"
+
+msgid "Print selected appointment"
+msgstr "Imprimir compromisso selecionado"
+
+msgid "No appointment selected"
+msgstr "Nenhum compromisso selecionado"
+
+msgid "Print overview"
+msgstr "Imprimir vista geral"
+
+msgid "Create Appointment"
+msgstr "Criar Compromisso"
+
+msgid "Calendar"
+msgstr "Calendário"
+
+msgid "Create in other calendar"
+msgstr "Criar noutro calendário"
+
+msgid ""
+"The selected calendar has \"read-only\" permissions. Instead you can create "
+"an item in your own calendar."
+msgstr ""
+"O calendário selecionado só permissões de leitura. Alternativamente pode "
+"criar um item no seu próprio calendário."
+
+msgid "What would you like?"
+msgstr "O que preferia?"
+
+msgid "Own calendar"
+msgstr "Meu calendário"
+
+msgid "F Y"
+msgstr "F Y"
+
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
+msgid "l"
+msgstr "l"
+
+msgid "All text fields"
+msgstr "Todos os campos de texto"
+
+msgid "Body"
+msgstr "Corpo da mensagem"
+
+msgid "Subject or Sender"
+msgstr "Assunto ou Remetente"
+
+msgid "To or cc"
+msgstr "Para ou cc"
+
+msgid "Meeting"
+msgstr "Reunião"
+
+msgctxt "calendar.dialog"
+msgid "Resources have been planned"
+msgstr "Os recursos foram planeados"
+
+msgid "Send update"
+msgstr "Enviar atualização"
+
+msgid "Do you want to send an update to all recipients?"
+msgstr "Deseja enviar uma actualização para todos os destinatários?"
+
+msgid "Send update to attendees"
+msgstr "Enviar atualização aos participantes"
+
+msgid ""
+"You have made changes to the list of attendees. What would you like to do?"
+msgstr "Fez alterações à lista de participantes. Como deseja proceder?"
+
+msgid "Send updates to only added or deleted attendees."
+msgstr ""
+"Enviar atualizações só para os participantes adicionados ou eliminados."
+
+msgid "Send updates to all attendees."
+msgstr "Enviar atualizações para todos os participantes."
+
+msgid "Busy attendees"
+msgstr "Participantes ocupados"
+
+msgid "One or more attendees are busy. Are you sure to invite?"
+msgstr ""
+"Um ou mais participantes estão ocupados. Tem a certeza que quer convidá-los?"
+
+msgid "Scheduling"
+msgstr "Agendamento"
+
+msgid "Tracking"
+msgstr "Acompanhamento"
+
+msgctxt "calendar.dialog"
+msgid "Not all attendees could be resolved."
+msgstr "Não possível resolver todos os participantes."
+
+msgctxt "calendar.dialog"
+msgid "{0} attendees accepted, {1} tentatively accepted, {2} declined."
+msgstr "{0} participantes aceitaram, {1} em modo tentativa, {2} recusaram."
+
+msgctxt "calendar.dialog"
+msgid ""
+"{0} attendees proposed a new time for this meeting. Click the Scheduling tab "
+"for details."
+msgstr ""
+"{0} participantes propuseram uma nova data para a reunião. Por favor clique "
+"em 'Agendamento' para detalhes."
+
+msgctxt "calendar.dialog"
+msgid "You proposed a new time for this meeting on {0}"
+msgstr "Propôs uma nova data para essa reunião em {0}"
+
+msgctxt "calendar.dialog"
+msgid "{0} proposed a new time for this meeting on {1}"
+msgstr "{0} propôs uma nova data para esta reunião em {1}"
+
+msgctxt "calendar.dialog"
+msgid "Accepted on {0}"
+msgstr "Aceite em {0}"
+
+msgctxt "calendar.dialog"
+msgid "Accepted by {0} on {1}"
+msgstr "Aceite por {0} em {1}"
+
+msgctxt "calendar.dialog"
+msgid "Tentatively Accepted on {0}"
+msgstr "Aceite como tentativa em {0}"
+
+msgctxt "calendar.dialog"
+msgid "Tentatively Accepted by {0} on {1}"
+msgstr "Aceite como tentativa por {0} em {1}"
+
+msgctxt "calendar.dialog"
+msgid "This appointment occurs in the past."
+msgstr "A data deste compromisso está ultrapassada."
+
+msgctxt "calendar.dialog"
+msgid "Please respond."
+msgstr "Por favor responda."
+
+msgctxt "calendar.dialog"
+msgid "No responses have been received for this meeting."
+msgstr "Não foram recebidas respostas relativas a esta reunião."
+
+msgctxt "calendar.dialog"
+msgid "Meeting has been canceled."
+msgstr "A reunião foi cancelada."
+
+msgctxt "calendar.dialog"
+msgid "Invitations have not been sent for this meeting."
+msgstr "Não foram enviados convites para esta reunião."
+
+msgctxt "calendar.dialog"
+msgid ""
+"Please note that any changes you make will be overwritten when this meeting "
+"request is updated by the organizer"
+msgstr ""
+"Qualquer alteração efetuada será anulada quando o autor do pedido desta "
+"reunião o atualizar"
+
+msgid "Create in"
+msgstr "Criar em"
+
+msgid "Time"
+msgstr "Hora"
+
+msgid "until"
+msgstr "até"
+
+msgid "Recurrence"
+msgstr "Periocidade"
+
+msgid "Reminder"
+msgstr "Lembrete"
+
+msgid "Show as"
+msgstr "Mostrar como"
+
+msgid "Warning"
+msgstr "Aviso"
+
+msgid "Attachments cannot be modified for a single occurence"
+msgstr "Anexos não podem ser modificados para uma única ocorrência"
+
+msgid "Type your message here..."
+msgstr "Escreva aqui a sua mensagem..."
+
+msgid "Update location"
+msgstr "Atualizar localização"
+
+msgid ""
+"Do you want to update the location \"{0}\" with the new location \"{1}\"?"
+msgstr "Quer alterar a localização \"{0}\" pela nova localização \"{1}\"?"
+
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
+msgid "jS F Y {0}"
+msgstr "jS F Y {0}"
+
+msgid "None"
+msgstr "Nenhum"
+
+msgid "Send"
+msgstr "Enviar"
+
+msgid "Save"
+msgstr "Gravar"
+
+msgid "Close"
+msgstr "Fechar"
+
+msgid "Delete"
+msgstr "Apagar"
+
+msgid "Add attachment"
+msgstr "Adicionar anexo"
+
+msgid "Check names"
+msgstr "Conferir nomes"
+
+msgid "Addressbook"
+msgstr "Livro de endereços"
+
+msgid "Open addressbook"
+msgstr "Abrir livro de endereços"
+
+msgid "Invite attendees"
+msgstr "Convidar participantes"
+
+msgid "Cancel invitation"
+msgstr "Cancelar convite"
+
+msgid "High priority"
+msgstr "Prioridade alta"
+
+msgid "Mark this appointment as high priority"
+msgstr "Marcar esta reunião com importância alta"
+
+msgid "Low priority"
+msgstr "Prioridade baixa"
+
+msgid "Mark this appointment as low priority"
+msgstr "Marcar esta reunião com importância baixa"
+
+msgid "Categories"
+msgstr "Categorias"
+
+msgid "Open the categories dialog"
+msgstr "Abrir opções de categorias"
+
+msgid "Private"
+msgstr "Privada"
+
+msgid "Mark this appointment as private"
+msgstr "Marcar esta reunião como privada"
+
+msgid "Proposed Date and Time"
+msgstr "Data e hora propostas"
+
+msgid "Duration"
+msgstr "Duração"
+
+msgid "Proposed By"
+msgstr "Proposto por"
+
+msgid "Current Meeting Time"
+msgstr "Atual hora da reunião"
+
+msgid "Show only working hours"
+msgstr "Mostrar apenas horas de trabalho"
+
+msgid "Start time"
+msgstr "Hora de início"
+
+msgid "End time"
+msgstr "Hora de fim"
+
+msgid "Comment"
+msgstr "Comentário"
+
+msgid "Send Meeting Request Cancellation"
+msgstr "Enviar cancelamento do pedido de reunião"
+
+msgid ""
+"This meeting will be cancelled. Do you want to include comments with your "
+"cancellation?"
+msgstr "Esta reunião será cancelada. Quer editar a resposta antes de enviar?"
+
+msgid "Edit the cancellation before Sending."
+msgstr "Editar o cancelamento antes de enviar."
+
+msgid "Send the cancellation now."
+msgstr "Enviar cancelamento agora."
+
+msgid "Send Meeting Request Confirmation"
+msgstr "Enviar confirmação de pedido de reunião"
+
+msgid ""
+"This meeting will be accepted and moved to your calendar. Do you want to "
+"include comments with your response?"
+msgstr ""
+"Esta reunião vai ser aceite e movida para o calendário. Quer incluir "
+"comentários com a sua resposta?"
+
+msgid ""
+"This meeting will be tentatively accepted and moved to your calendar. Do you "
+"want to include comments with your response?"
+msgstr ""
+"Esta reunião vai ser aceite em modo de tentativa e movida para o Calendário, "
+"Quer incluir comentários com a sua resposta?"
+
+msgid ""
+"This meeting will be declined and moved to your Deleted Items folder. Do you "
+"want to include comments with your response?"
+msgstr ""
+"Esta reunião vai ser recusada e movida para os Itens Eliminados. Quer "
+"incluir comentários com a sua resposta?"
+
+msgid "Edit the response before sending"
+msgstr "Editar resposta antes de enviar"
+
+msgid "Send the response now."
+msgstr "Enviar resposta agora."
+
+msgid "Don't send a response."
+msgstr "Não enviar uma resposta."
+
+msgid "The following responses for this meeting have been received"
+msgstr "As seguintes respostas a esta reunião foram recebidas"
+
+msgid "Attendance"
+msgstr "Comparecimento"
+
+msgid "Response"
+msgstr "Resposta"
+
+msgid "New appointment"
+msgstr "Novo compromisso"
+
+msgid "Creating an item"
+msgstr "A criar item"
+
+msgid "New meeting request"
+msgstr "Novo pedido de reunião"
+
+msgid "Switch calendar range back and forth"
+msgstr "Mudar posição no calendário"
+
+msgid "Copy selected item"
+msgstr "Copiar item selecionado"
+
+msgid "Paste selected item"
+msgstr "Colar item selecionado"
+
+msgid "An overview of"
+msgstr "Vista geral de"
+
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
+msgid "Start"
+msgstr "Início"
+
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
+msgid "End"
+msgstr "Fim"
+
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for formatting instructions
+msgid "Printed by"
+msgstr "Impresso por"
+
+msgid "at"
+msgstr "em"
+
+msgid "of"
+msgstr "de"
+
+msgid "Location: "
+msgstr "Local: "
+
+msgid "j M {0}"
+msgstr "j M {0}"
+
+msgid "l jS M Y {0}"
+msgstr "l jS M Y {0}"
+
+msgid "All day: "
+msgstr "Todo o dia: "
+
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for formatting instructions
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
+msgid "l jS F"
+msgstr "l j F"
+
+msgid "Organiser"
+msgstr "Organizador"
+
+msgid "Meeting status"
+msgstr "Estado da reunião"
+
+msgid "Required Attendees"
+msgstr "Participantes obrigatórios"
+
+msgid "Optional Attendees"
+msgstr "Participantes opcionais"
+
+msgid "Resources"
+msgstr "Recursos"
+
+msgid "Sensitivity"
+msgstr "Confidencialidade"
+
+msgid "Importance"
+msgstr "Importância"
+
+msgid "M j"
+msgstr "M j"
+
+msgid "j"
+msgstr "j"
+
+msgid "General calendar settings"
+msgstr "Definições gerais do calendário"
+
+msgid "First day of the week"
+msgstr "Primeiro dia da semana"
+
+msgid "Start of workday"
+msgstr "Começo do dia de trabalho"
+
+msgid "End of workday"
+msgstr "Fim do dia de trabalho"
+
+msgid "Calendar resolution"
+msgstr "Vista do Calendário"
+
+msgid "Default appointment duration {A} minutes"
+msgstr "Duração por defeito dos compromissos {A} minutos"
+
+msgid "Duration must be between 1 and 120 minutes."
+msgstr "Duração tem que ser entre 1 e 120 minutos."
+
+msgid "Default status for all day appointment"
+msgstr "Estado por defeito para compromissos de dia inteiro"
+
+msgid "Working days"
+msgstr "Dias de trabalho"
+
+msgid "Show busy dates as bold in the date picker"
+msgstr "Mostar datas ocupadas em negrito"
+
+msgid ""
+"Free/Busy information is used by people sending meeting requests, to "
+"determine when you are available for meetings."
+msgstr ""
+"A informação sobre livre/ocupado é usada pelas pessoas ao enviarem pedidos "
+"de reunião, para saber quando está disponível para as reuniões."
+
+msgid "Free/Busy publishing"
+msgstr "Publicação de Livre/Ocupado"
+
+msgid "Publish {A} month(s) of Calendar Free/Busy information on the server."
+msgstr ""
+"Publicar no servidor {A} meses de informação de Calendário sobre Livre/"
+"Ocupado ."
+
+msgid ""
+"You can only publish a Free/Busy period from 0 to 36 months. 0 means Free/"
+"Busy information is not published."
+msgstr ""
+"Só é possível publicar a informação de Livre/Ocupado por um período de 0 a "
+"36 meses. 0 significa que a informação sobre Livre/Ocupado não é publicada."
+
+msgid "Side-by-side mode"
+msgstr "Modo lado a lado"
+
+msgid "Overlay mode"
+msgstr "Modo de sobreposição"
+
+msgid "Calendar view settings"
+msgstr "Definições de visualização do Calendário"
+
+msgid "View multiple calendars in"
+msgstr "Ver múltiplos calendários em"
+
+msgid "Reminder settings"
+msgstr "Definições de lembretes"
+
+msgid "Enable reminder for new appointments"
+msgstr "Ativar lembretes para novas reuniões"
+
+msgid "Default reminder time"
+msgstr "Tempo por defeito dos lembretes"
+
+msgid "Default all-day appointment reminder time"
+msgstr "Tempo por defeito dos lembretes para compromissos dia inteiro"
+
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
+msgid "jS"
+msgstr "j"
+
+msgid "{0} selected item"
+msgid_plural "{0} selected items"
+msgstr[0] "{0} item selecionado"
+msgstr[1] "{0} itens selecionados"
+
+msgid "New Appointment"
+msgstr "Novo compromisso"
+
+msgid "New Meeting Request"
+msgstr "Novo Pedido de reunião"
+
+msgid "Open"
+msgstr "Abrir"
+
+msgid "Copy/Move"
+msgstr "Copiar/Mover"
+
+msgid "Send to..."
+msgstr "Enviar para..."
+
+msgid "Export as"
+msgstr "Exportar como"
+
+msgid "Occurrence"
+msgstr "Periocidade"
+
+msgid "Series"
+msgstr "Séries"
+
+msgid "Appointment not found"
+msgstr "Compromisso não encontrado"
+
+msgid "This appointment has been moved or deleted, do you want to continue?"
+msgstr "Este compromisso foi movido ou eliminado. Quer continuar?"
+
+msgid "All Day"
+msgstr "Todo o dia"
+
+msgid "Sort by: All Day"
+msgstr "Ordenar por: Dia inteiro"
+
+msgid "Icon"
+msgstr "Icone"
+
+msgid "Recurring"
+msgstr "Periódico"
+
+msgid "Sort by: Duration"
+msgstr "Ordenar por: Duração"
+
+msgid "Meeting Status"
+msgstr "Estado da reunião"
+
+msgid "Sort by: Meeting Status"
+msgstr "Ordenar por: Estado da reunião"
+
+msgid "Sort by: Show as"
+msgstr "Ordenar por: Mostrar como"
+
+msgid "Sort by: Categories"
+msgstr "Ordenar por: Categorias"
+
+msgid "Created On"
+msgstr "Criado em"
+
+msgid "Sort by: Created On"
+msgstr "Ordenar por: Criado em"
+
+msgid "Due By"
+msgstr "Limite em"
+
+msgid "Sort by: Due By"
+msgstr "Ordenar por: Limite em"
+
+msgid "Label"
+msgstr "Etiqueta"
+
+msgid "Sort by: Label"
+msgstr "Ordenar por: Etiqueta"
+
+msgid "Sort by: Organizer"
+msgstr "Ordenar por: Organizador"
+
+msgid "Sort by: Required Attendee"
+msgstr "Ordenar por: Participante obrigatório"
+
+msgid "Sort by: Optional Attendee"
+msgstr "Ordenar por: Participante opcional"
+
+msgid "Sort by: Resources"
+msgstr "Ordenar por: Recursos"
+
+msgid "Recurring Start Date"
+msgstr "Data início periodicidade"
+
+msgid "Sort by: Recurring Start Date"
+msgstr "Ordenar por: Data início periodicidade"
+
+msgid "Recurring End Date"
+msgstr "Data fim periodicidade"
+
+msgid "Sort by: Recurring End Date"
+msgstr "Ordenar por: Data fim periodicidade"
+
+msgid "Recurring Pattern"
+msgstr "Padrão de periodicidade"
+
+msgid "Sort by: Recurring Pattern"
+msgstr "Ordenar por: Padrão de periodicidade"
+
+msgid "Sort by: Reminder"
+msgstr "Ordenar por: Lembrete"
+
+msgid "Sort by: Sensitivity"
+msgstr "Ordenar por: Confidencialidade"
+
+msgid "Loading appointments"
+msgstr "A carregar compromissos"
+
+msgid "Attendees"
+msgstr "Participantes"
+
+msgid "Optional attendees"
+msgstr "Participantes opcionais"
+
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
+msgid "jS F {0}"
+msgstr "jS F {0}"
+
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
+msgid "jS F Y"
+msgstr "j F Y"
+
+msgid ""
+"You have insufficient privileges to move and copy this item. Ask the folder "
+"owner to grant you permissions or contact your system administrator."
+msgstr ""
+"Não tem permissões suficientes para mover e copiar este item. Peça ao dono "
+"da pasta para lhe atribuir as permissões necessárias ou contacte o seu "
+"administrador de sistemas."
+
+msgid ""
+"You have insufficient privileges to copy this item. Ask the folder owner to "
+"grant you permissions or contact your system administrator."
+msgstr ""
+"Não tem permissões suficientes para copiar este item. Peça ao dono da pasta "
+"para lhe atribuir as permissões necessárias ou contacte o seu administrador "
+"de sistemas."
+
+msgid "Insufficient privileges"
+msgstr "Permissões insuficientes"
+
+msgid ""
+"Copying this appointment will unset it as private. Are you sure you want to "
+"continue?"
+msgstr ""
+
+msgid "Private item"
+msgstr ""
+
+msgid "Copy"
+msgstr "Copiar"
+
+msgid ""
+"Moving this appointment will unset it as private. Are you sure you want to "
+"continue?"
+msgstr ""
+
+msgid "Move"
+msgstr "Mover"
+
+msgid "Update recipients"
+msgstr "Atualizar destinatários"
+
+msgid "The time of the meeting has changed. What would you like to do?"
+msgstr "A hora da reunião foi alterada. Como deseja proceder?"
+
+msgid "Save changes and send an update to all recipients"
+msgstr "Guardar alterações e enviar uma atualização a todos os destinatários"
+
+msgid "Open meeting request with changes"
+msgstr "Abrir pedido de reunião com alterações"
+
+msgid "grommunio Web"
+msgstr "grommunio Web"
+
+msgid ""
+"Please note that any changes you make will be overwritten when this meeting "
+"request is updated by the organizer. Would you like to move this meeting?"
+msgstr ""
+"Qualquer alteração efetuada será anulada quando o autor do pedido desta "
+"reunião o atualizar. Deseja mover esta reunião?"
+
+msgid "Don't move"
+msgstr "Não mover"
+
+msgid "Switch to day view to see all appointments"
+msgstr "Mude para a vista por dia para ver todos os compromissos"
+
+#. TRANSLATORS: This message is used as label for the field which to indicates to whom the given mail was sent.
+msgctxt "mail.previewpanel"
+msgid "Proposed"
+msgstr "Proposto"
+
+#. TRANSLATORS: This message is used as label for the field which to indicates to whom the given mail was sent
+msgctxt "mail.previewpanel"
+msgid "When"
+msgstr "Quando"
+
+#. TRANSLATORS: This message is used as label for the field which to indicates to whom the given mail was sent
+msgctxt "mail.previewpanel"
+msgid "Location"
+msgstr "Local"
+
+msgid "No additional response required"
+msgstr "Nenhuma resposta adicional necessária"
+
+msgid ""
+"Your calendar has been updated automatically. This meeting request will now "
+"be deleted."
+msgstr ""
+"O calendário foi atualizado automaticamente. Este pedido de reunião vai ser "
+"eliminado."
+
+msgid "Loading appointments..."
+msgstr "A carregar compromissos..."
+
+msgid "Please select a calendar via widget settings"
+msgstr "Por favor selecione um calendário através das definições do widget"
+
+msgid "Number of days"
+msgstr "Número de dias"
+
+msgid "day(s)"
+msgstr "dia(s)"
+
+msgid "{0}"
+msgstr "{0}"
+
+msgid "Upcoming Appointments"
+msgstr "Próximos compromissos"
+
+msgid "Appointments of {0}"
+msgstr "Compromissos de {0}"
+
+msgid "Appointments of {0} - {1}"
+msgstr "Compromissos de {0} - {1}"
+
+msgid "No appointments"
+msgstr "Sem compromissos"
+
+msgid "Today {0} - {1}"
+msgstr "Hoje {0} - {1}"
+
+msgid "Today (all day)"
+msgstr "Hoje (todo dia)"
+
+#. TRANSLATORS: Display name of a folder: "FOLDERNAME - STORENAME".
+#. TRANSLATORS: Displayed on top of a tree with folders: "FOLDERNAME - USERNAME".
+msgid "{0} - {1}"
+msgstr "{0} - {1}"
+
+msgid "d/m/y {0}"
+msgstr "d/m/y {0}"
+
+msgid "{0} - {1} (all day)"
+msgstr "{0} - {1} (todo dia)"
+
+msgid "d/m/y"
+msgstr "d/m/Y"
+
+msgid "Select one..."
+msgstr "Selecionar um..."
+
+msgid "Unnamed folder"
+msgstr "Pasta sem nome"
+
+msgid "Discard"
+msgstr "Ignorar"
+
+msgid "Quick Appointment"
+msgstr "Compromisso rápido"
+
+msgid "Printing of multiple items has not been implemented."
+msgstr "Imprimir múltiplos itens ainda não foi implementado."
+
+msgid "Printing of this item is not yet available"
+msgstr "A impressão deste item ainda não está disponível"
+
+msgid "Item type: "
+msgstr "Tipo de item: "
+
+msgid "Printing of this view is not yet available"
+msgstr "A impressão desta vista ainda não está disponível"
+
+msgid "Recurring Message"
+msgstr "Mensagem de periodicidade"
+
+msgid ""
+"This is a recurring message. Do you want to open only this occurrence or the "
+"series?"
+msgstr "Isto é uma mensagem periódica. Quer abrir só esta ou a série completa?"
+
+msgid "Recurring Appointment"
+msgstr "Compromisso periódico"
+
+msgid ""
+"This is a recurring appointment. Do you want to open only this occurrence or "
+"the series?"
+msgstr ""
+"Isto é um compromisso periódico. Quer abrir só este ou a série completa?"
+
+msgid "Recurring Meeting Request"
+msgstr "Pedido de reunião periódico"
+
+msgid ""
+"This is a recurring meeting request. Do you want to open only this "
+"occurrence or the series?"
+msgstr ""
+"Isto é um pedido de reunião periódico. Quer abrir só este ou a série "
+"completa?"
+
+msgid "Recurring Task Request"
+msgstr "Pedido de tarefa periódico"
+
+msgid ""
+"This is a recurring task request. Do you want to open only this occurrence "
+"or the series?"
+msgstr ""
+"Isto é um pedido de tarefa periódico. Quer abrir só este ou a série completa?"
+
+msgid "Open this occurrence"
+msgstr "Abrir só esta"
+
+msgid "Open the series"
+msgstr "Abrir a série completa"
+
+msgid "Paste Recurring {0}"
+msgstr "Periódico passado {0}"
+
+msgid ""
+"This is a recurring {0}. Do you want to paste only this occurrence or the "
+"series?"
+msgstr "Isto é uma mensagem periódica. Quer abrir só esta ou a série completa?"
+
+msgid "message"
+msgstr "mensagem"
+
+msgid "meeting request"
+msgstr "pedido de reunião"
+
+msgid "appointment"
+msgstr "compromisso"
+
+msgid "Paste this occurrence only"
+msgstr "Colar só esta ocorrência"
+
+msgid "Paste the series..."
+msgstr "Colar a série..."
+
+msgid ""
+"This is a recurring message. Do you want to delete only this occurrence or "
+"the series?"
+msgstr ""
+"Isto é uma mensagem periódica. Quer eliminar só esta ou a série completa?"
+
+msgid ""
+"This is a recurring appointment. Do you want to delete only this occurrence "
+"or the series?"
+msgstr ""
+"Isto é um compromisso periódico. Quer eliminar só este ou a série completa?"
+
+msgid ""
+"This is a recurring meeting request. Do you want to delete only this "
+"occurrence or the series?"
+msgstr ""
+"Isto é um pedido de reunião periódico. Quer eliminar só este ou a série "
+"completa?"
+
+msgid ""
+"This is a recurring task request. Do you want to delete only this occurrence "
+"or the series?"
+msgstr ""
+"Isto é um pedido de tarefa periódico. Quer eliminar só este ou a série "
+"completa?"
+
+msgid "Delete this occurrence"
+msgstr "Eliminar só este"
+
+msgid "Delete the series"
+msgstr "Eliminar a série completa"
+
+msgid "Confirm Delete"
+msgstr "Confirmar"
+
+msgid "This \"{0}\" meeting was already accepted."
+msgstr "O compromisso \"{0}\" já tinha sido aceite."
+
+msgid "You have not responded to the meeting request \"{0}\"."
+msgstr "Não respondeu ao pedido de reunião \"{0}\"."
+
+msgid "Delete and send a response to the meeting organizer"
+msgstr "Eliminar e enviar uma resposta ao organizador"
+
+msgid "Delete without sending"
+msgstr "Eliminar sem enviar"
+
+msgid "Insufficient permissions"
+msgstr "Permissões insuficientes"
+
+msgid "You have insufficient privileges to delete items in this folder."
+msgstr "Não tem permissões suficientes para eliminar itens nesta pasta."
+
+msgid "Notify recipients"
+msgstr "Notificar destinatários"
+
+msgid ""
+"A cancellation message will be sent to all recipients, do you wish to "
+"continue?"
+msgstr ""
+"Uma mensagem de cancelamento vai ser enviada a todos os destinatários. "
+"Deseja continuar?"
+
+msgid "Delete Incomplete Task"
+msgstr "Eliminar tarefa por terminar"
+
+msgid "The task \"{0}\" has not been completed. What do you want to do?"
+msgstr "A tarefa \"{0}\" não foi terminada. Que pretende fazer?"
+
+msgid "Decline and delete"
+msgstr "Recusar e eliminar"
+
+msgid "Mark complete and delete"
+msgstr "Marcar como terminada e eliminar"
+
+msgid "Following recipients are already exists"
+msgstr "O seguintes destinatários já existem"
+
+msgid "Duplicate recipients"
+msgstr "Destinatários duplicados"
+
+msgid "Duplicate recipient"
+msgstr "Destinatário duplicado"
+
+msgid "Recipient already exists."
+msgstr "Destinatário já existe."
+
+msgid "Notify sender"
+msgstr "Notificar remetente"
+
+msgid ""
+"The sender of this email has requested a read receipt. Do you wish to notify "
+"the sender?"
+msgstr ""
+"O remetente desta mensagem solicitou o envio de um recebido de leitura. "
+"Deseja enviar um recibo?"
+
+msgid "Import"
+msgstr "Importar"
+
+msgid "Successfully imported item(s) to {0}"
+msgstr "Item(s) importado(s) com sucesso para {0}"
+
+msgid "Failed to import item(s) to {0}"
+msgstr "Falhou ao importar Item(s) para {0}"
+
+msgid "Import error"
+msgstr "Erro ao importar"
+
+msgid "Unable to import \"{0}\". The file is not valid"
+msgstr "Não foi possível importar \"{0}\". O ficheiro não é válido"
+
+msgid ""
+"You have insufficient privileges to move these items. Would you like to copy "
+"instead?"
+msgstr ""
+"Não tem privilégios suficientes para mover estes itens. Deseja antes copiar?"
+
+msgid ""
+"You have insufficient privileges to move this item. Would you like to copy "
+"instead?"
+msgstr ""
+"Não tem privilégios suficientes para mover este item. Deseja antes copiar?"
+
+msgid "Cc"
+msgstr "Cc"
+
+msgid "Bcc"
+msgstr "Bcc"
+
+msgid "From"
+msgstr "De"
+
+msgid "Insert item"
+msgstr "Inserir item"
+
+msgid "Insert as"
+msgstr "Inserir como"
+
+msgid "Text only"
+msgstr "Só texto"
+
+msgid "Attachment"
+msgstr "Anexo"
+
+msgid "Attach Item"
+msgstr "Anexar item"
+
+msgid "No message selected"
+msgstr "Nenhuma mensagem selecionada"
+
+msgid "Import to"
+msgstr "Importar para"
+
+msgid "New folder"
+msgstr "Nova pasta"
+
+msgid "Download as ZIP"
+msgstr "Transferir como ZIP"
+
+msgid "Continue"
+msgstr "Continuar"
+
+msgid ""
+"These attachments have an unsupported file type and can not be added to the "
+"ZIP file:"
+msgstr ""
+"Estes anexos têm um tipo de ficheiro não suportado e não podem ser "
+"adicionados ao ficheiro ZIP:"
+
+msgid "Would you like to continue downloading without adding these files?"
+msgstr "Deseja continuar a transferência sem adicionar estes ficheiros?"
+
+msgid ""
+"Always continue download of ZIP files without adding unsupported file types."
+msgstr ""
+"Continuar sempre com a transferência dos ficheiros ZIP sem adicionar "
+"ficheiros não suportados."
+
+msgid "File upload"
+msgstr "Enviar ficheiro"
+
+msgid "Attach item"
+msgstr "Anexar item"
+
+msgid "Preview"
+msgstr "Pré-visualização"
+
+msgid "Download"
+msgstr "Transferir"
+
+msgid "Download all as ZIP"
+msgstr "Transferir tudo como ZIP"
+
+msgid "Import to folder"
+msgstr "Importar para a pasta"
+
+msgid ""
+"In order to use the vCard import feature, upgrade your Gromox to version 0 "
+"or higher."
+msgstr ""
+
+msgid ""
+"In order to use the ICS / VCS import feature, upgrade your Gromox to version "
+"0 or higher."
+msgstr ""
+
+msgid "Attachment error"
+msgstr "Erro Anexo"
+
+msgid "Cannot create ZIP, The allowed maximum size is 30 MB."
+msgstr "Não é possível criar ZIP. O tamanho máximo é 30 MB."
+
+msgid "Unable to download"
+msgstr "Não foi possível transferir"
+
+msgid "Picture format is not supported. "
+msgstr "Formato da imagem não suportado. "
+
+msgid "Supported format for contact pictures are"
+msgstr "Os formatos de imagem suportados são"
+
+msgid "Attachment Error"
+msgstr "Erro Anexo"
+
+msgid "Manage Categories"
+msgstr "Gerir Categorias"
+
+msgid "New"
+msgstr "Novo"
+
+msgid "Delete Category"
+msgstr "Eliminar categoria"
+
+msgid ""
+"Are you sure you want to delete the category \"{0}\"? Other items keep this "
+"category, but lose the assigned color."
+msgstr ""
+"Tem a certeza que pretende eliminar a categoria \"{0}\"? Os itens existentes "
+"irão manter esta categoria, mas perdem a cor atribuída."
+
+msgid "Rename Category"
+msgstr "Alterar nome da categoria"
+
+msgid "A category named \""
+msgstr "Uma categoria chamada \""
+
+msgid "Create New Category"
+msgstr "Criar nova Categoria"
+
+msgid "Pin to quick access"
+msgstr "Marcar para acesso rápido"
+
+msgid "Create"
+msgstr "Criar"
+
+msgid ""
+"You must apply the changes you have made to the categories before you can "
+"create this category."
+msgstr ""
+"Tem que aplicar as modificações efetuadas nas categorias antes de poder "
+"criar esta categoria."
+
+msgid "You already have a category named '{0}'. Please use another name."
+msgstr "Já tem uma categoria com o nome '{0}'. Por favor use outro nome."
+
+msgid ""
+"You already have a category named '{0}' in your pending changes. Please use "
+"another name."
+msgstr ""
+"Já tem uma categoria com o nome '{0}' nas modificações por aplicar. Por "
+"favor use outro nome."
+
+msgid "Rename"
+msgstr "Renomear"
+
+msgid "This is the first time you have used \"{0}\" category."
+msgstr "Esta é a primeira vez que usou a categoria \"{0}\"."
+
+msgid "Do you want to rename it?"
+msgstr "Tem certeza que quer alterar o nome?"
+
+msgid ""
+"The category \"{0}\" already exists. Do you want to merge the \"{1}\" and "
+"\"{2}\" categories?"
+msgstr ""
+"A categoria \"{}\" já existe. Quer juntar numa a categoria \"{1}\" e \"{2}\"?"
+
+msgid "Merge"
+msgstr "Fundir"
+
+msgid "Remove"
+msgstr "Remover"
+
+msgid "Check Names"
+msgstr "Conferir nomes"
+
+msgid "Select an address to use"
+msgstr "Selecione o endereço a usar"
+
+msgid "Email"
+msgstr "E-mail"
+
+msgid "More than one '{0}' found."
+msgstr "Mais de que um '{0}' encontrado."
+
+msgid "Alert"
+msgstr "Alerta"
+
+msgid "Please select a recipient"
+msgstr "Por favor selecione um destinatário"
+
+msgid "Mail and Post"
+msgstr "Correio e publicação"
+
+msgid "Contact"
+msgstr "Contacto"
+
+msgid "Journal"
+msgstr "Diário"
+
+msgid "Note"
+msgstr "Nota"
+
+msgid "Task"
+msgstr "Tarefa"
+
+msgid "Inbox"
+msgstr "Caixa de Entrada"
+
+msgid "Entire Inbox"
+msgstr "Caixa inteira"
+
+msgid "Secretary"
+msgstr "Assistente"
+
+msgid "Only read"
+msgstr "Só ler"
+
+msgid "Delegate Permissions"
+msgstr "Delegar permissões"
+
+msgid "This delegate has the following permissions"
+msgstr "Este utilizador tem as seguintes permissões"
+
+msgid "Delegate can see my private items."
+msgstr "Utilizador pode ver os meus itens privados."
+
+msgid "Delegate receives copies of meeting-related messages sent to me."
+msgstr ""
+"Utilizador recebe cópias das mensagens enviadas para mim relacionadas com a "
+"reunião."
+
+msgid "Other"
+msgstr "Outro"
+
+msgid "No delegates configured"
+msgstr "Sem delegados configurados"
+
+msgid "Loading delegates"
+msgstr "A carregar utilizadores"
+
+msgid "Please select a delegate."
+msgstr "Por favor selecione utilizador."
+
+msgid "Delegates can send items on your behalf."
+msgstr "Delegados podem enviar itens em seu nome."
+
+msgid ""
+"If you only want to set folder permissions, right-click on a folder to open "
+"the context menu and click on \"Share Folder...\""
+msgstr ""
+"Se desejar apenas definir permissões para pastas, carregue com o botão "
+"direito numa pasta e selecione \"Partilhar Pasta...\" nas opções"
+
+msgid "Permission"
+msgstr "Nível de permissão"
+
+msgid "Duplicate delegate"
+msgstr "Delegado duplicado"
+
+msgid "Delegate already exists in the list."
+msgstr "Utilizador já existe na lista."
+
+msgid "Copy/Move Folder"
+msgstr "Copiar/Mover pasta"
+
+msgid "Copy/Move Messages"
+msgstr "Copiar/Mover mensagens"
+
+msgid "Destination folder"
+msgstr "Pasta de destino"
+
+msgid "There is {0} message selected."
+msgid_plural "There are {0} messages selected."
+msgstr[0] "Existe {0} mensagem selecionada."
+msgstr[1] "Existem {0} mensagens selecionadas."
+
+msgid "Folder '{0}' selected."
+msgstr "Pasta '{0}' selecionada."
+
+msgid ""
+"You have insufficient privileges to move this folder. Ask the folder owner "
+"to grant you permissions or contact your system administrator."
+msgstr ""
+"Não tem permissões suficientes para mover esta pasta. Peça ao dono da pasta "
+"para lhe atribuir as permissões necessárias ou contacte o seu administrador "
+"de sistemas."
+
+msgid ""
+"You have insufficient privileges to copy this folder. Ask the folder owner "
+"to grant you permissions or contact your system administrator."
+msgstr ""
+"Não tem permissões suficientes para copiar esta pasta. Peça ao dono da pasta "
+"para lhe atribuir as permissões necessárias ou contacte o seu administrador "
+"de sistemas."
+
+msgid "You have insufficient privileges to move following items."
+msgstr "Não tem privilégios suficientes para mover os seguintes itens."
+
+msgid "Subject:"
+msgstr "Assunto:"
+
+msgid "Would you like to copy instead?"
+msgstr "Deseja antes copiar?"
+
+msgid "Do not show this message again."
+msgstr "Não mostrar esta mensagem outra vez."
+
+msgid "ICS"
+msgstr "ICS"
+
+msgid "Set custom flag"
+msgstr "Marcar bandeira personalizada"
+
+msgid "Start date"
+msgstr "Data de início"
+
+msgid "End date"
+msgstr "Data de fim"
+
+msgid "Tomorrow"
+msgstr "Amanhã"
+
+msgid "This week"
+msgstr "Esta semana"
+
+msgid "Next week"
+msgstr "Na próxima semana"
+
+msgid "Custom"
+msgstr "Personalizado"
+
+msgid "Set reminder"
+msgstr "Definir Lembrete"
+
+msgid "Complete"
+msgstr "Completo"
+
+msgid "today"
+msgstr "hoje"
+
+msgid "tomorrow"
+msgstr "amanhã"
+
+msgid "this week"
+msgstr "esta semana"
+
+msgid "next week"
+msgstr "na próxima semana"
+
+msgid "Edit recipient"
+msgstr "Editar destinatário"
+
+msgid "Copy email address"
+msgstr "Copiar endereço de E-mail"
+
+msgid "Set as required"
+msgstr "Definido como necessário"
+
+msgid "Set as optional"
+msgstr "Definido como opcional"
+
+msgid "Set as resource"
+msgstr "Definido como Recurso"
+
+msgid "Select attendees"
+msgstr "Selecionar participantes"
+
+msgid "Suggested Times"
+msgstr "Datas sugeridas"
+
+msgid "Busy"
+msgstr "Ocupado"
+
+msgid "Out of Office"
+msgstr "Fora do escritório"
+
+msgid "No Information"
+msgstr "Nenhuma Informação"
+
+msgid "Show non-working hours"
+msgstr "Mostar fora das horas de trabalho"
+
+msgid "Hide non-working hours"
+msgstr "Esconder fora das horas de trabalho"
+
+msgid "No freebusy information available for this date"
+msgstr "Sem informação disponível para esta data"
+
+msgid "No suggestions available"
+msgstr "Nenhuma sugestão disponível"
+
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
+msgid "l jS F Y"
+msgstr "l j F Y"
+
+msgid "Switch between different contexts e.g. inbox, calendar, etc."
+msgstr ""
+"Alternar entre diferentes contextos e.g. caixa de entrada. calendário, etc."
+
+msgid "Basic navigation"
+msgstr "Navegação básica"
+
+msgid "Switch between different views"
+msgstr "Alternar entre vistas diferentes"
+
+msgid "New item"
+msgstr "Novo item"
+
+msgid "All views"
+msgstr "Todas as vistas"
+
+msgid "Close tab"
+msgstr "Fechar aba"
+
+msgid "Print item"
+msgstr "Imprimir item"
+
+msgid "Items"
+msgstr "Itens"
+
+msgid "Save an item e.g. mail, contact, etc."
+msgstr "Gravar um item e.g. mensagem, contacto, etc."
+
+msgid "Send an item e.g. mail, meeting request, etc."
+msgstr "Enviar um item e.g. mensagem, pedido de reunião, etc."
+
+msgid "Select all items"
+msgstr "Selecionar todos os itens"
+
+msgid "Extend the selection to the first item in the list"
+msgstr "Estender seleção até ao primeiro item da lista"
+
+msgid "Extend the selection to the last item in the list"
+msgstr "Estender seleção até ao último item da lista"
+
+msgid "Open selected item"
+msgstr "Abrir item selecionado"
+
+msgid "Open dialog to categorize selected item"
+msgstr "Abrir opções para categorizar itens selecionados"
+
+msgid "Print list"
+msgstr "Imprimir lista"
+
+msgid "Open copy/move dialog"
+msgstr "Abrir opções de copiar/mover"
+
+msgid "Delete selected item"
+msgstr "Eliminar item selecionado"
+
+msgid ""
+"Delete selected item without moving it to the Deleted Items folder. The "
+"deleted item can still be restored."
+msgstr ""
+"Eliminar o item selecionado sem o mover para a pasta Itens Eliminados. O "
+"item poderá ser recuperado na mesma."
+
+msgid "Add/Edit Cc recipient"
+msgstr "Adicionar/editar destinatário Cc"
+
+msgid "Disable for new mail"
+msgstr ""
+
+msgid "Enable for new mail"
+msgstr ""
+
+msgid "Disable for replies"
+msgstr ""
+
+msgid "Enable for replies"
+msgstr ""
+
+msgid "No Cc recipient configured"
+msgstr "Nenhum destinatário Cc  configurado"
+
+msgid "Loading Cc recipients"
+msgstr "A carregar destinatários Cc"
+
+msgid "Reply Mail"
+msgstr "Responder"
+
+msgid "New Mail"
+msgstr "Nova mensagem"
+
+msgid "Please select a Cc recipient record."
+msgstr "Por favor selecione um destinatário Cc."
+
+msgid "Manage Cc recipients"
+msgstr "Gerir destinatários Cc"
+
+msgid ""
+"Cc recipients can be used to set a default Cc user in new mail, replies or "
+"both."
+msgstr ""
+"Destinatários Cc podem ser usados para definir destinatários Cc por defeito "
+"em mensagens novas, respostas ou ambas."
+
+msgid "Help"
+msgstr "Ajuda"
+
+msgid "Web Manual"
+msgstr ""
+
+msgid "Item data"
+msgstr "Data do item"
+
+msgid "INSERT"
+msgstr "INSERIR"
+
+msgid "Sort by: context.mail.griddefaultcolumn"
+msgstr "Ordenar por: context.mail.griddefaultcolumn"
+
+msgid "ZDeveloper"
+msgstr "ZDeveloper"
+
+msgid "grommunio Web print"
+msgstr ""
+
+msgid "Display name"
+msgstr "Nome a mostrar"
+
+msgid "Email address"
+msgstr "Endereço de Email"
+
+msgid "Expand distribution list"
+msgstr "Expandir lista de distribuição"
+
+msgid ""
+"Distribution list will be replaced with its members. You will not be able to "
+"collapse it again."
+msgstr ""
+"A lista de distribuição vai ser substituída pelos seu membros. Não vai ser "
+"possível voltar à forma inicial."
+
+msgid "Edit Recipient"
+msgstr "Editar Destinatário"
+
+msgid "Copy email addresses"
+msgstr "Copiar endereços de E-mail"
+
+msgid "Send email"
+msgstr "Enviar mensagem"
+
+msgid "Delete recipient from suggestion list"
+msgstr "Eliminar destinatário da lista de sugestões"
+
+msgid "Copy all email addresses"
+msgstr "Copiar todos os endereços de E-mail"
+
+msgid "View recipient"
+msgstr "Ver destinatário"
+
+msgid "Weekday"
+msgstr "Dia da semana"
+
+msgid "Weekend Day"
+msgstr "Dia do fim-de-semana"
+
+msgid "1st"
+msgstr "1º"
+
+msgid "2nd"
+msgstr "2º"
+
+msgid "3rd"
+msgstr "3º"
+
+msgid "4th"
+msgstr "4º"
+
+msgid "last"
+msgstr "último"
+
+msgid "Every {A} day(s)"
+msgstr "Todos {A} dia(s)"
+
+msgid "Every weekday"
+msgstr "Todos os dias da semana"
+
+msgid "Regenerate new task {A} day(s) after each task is completed"
+msgstr "Refazer nova tarefa {A} dia(s) depois de cada tarefa ser concluída"
+
+msgid "Day {A} of every {B} month(s)"
+msgstr "Dia {A} de todos os {B} meses"
+
+msgid "The {A} {B} of every {C} month(s)"
+msgstr "Os {A} {B} de todos os {C} meses"
+
+msgid "Regenerate new task {A} month(s) after each task is completed"
+msgstr "Refazer nova tarefa {A} meses depois de cada tarefa ser concluída"
+
+msgid "Appointment Recurrence"
+msgstr "Periocidade do Compromisso"
+
+msgid "Remove Recurrence"
+msgstr "Remover periocidade"
+
+msgid "Reset recurring"
+msgstr "Reset periódico"
+
+msgid "This will reset every exception. Do you want to continue?"
+msgstr "Isto vai limpar todas as exceções. Deseja continuar?"
+
+msgid "Task Recurrence"
+msgstr "Periocidade da tarefa"
+
+msgid "Daily"
+msgstr "Diária"
+
+msgid "Weekly"
+msgstr "Semanal"
+
+msgid "Monthly"
+msgstr "Mensal"
+
+msgid "Yearly"
+msgstr "Anual"
+
+msgid "Range of recurrence"
+msgstr "Escala da periocidade"
+
+msgid "No end date"
+msgstr "Sem data final"
+
+msgid "End after {A} occurrences"
+msgstr "Acaba após {A}"
+
+msgid "End by {A}"
+msgstr "Acaba em {A}"
+
+#. TRANSLATORS: This informs the user what the exact duration of the appointment is. Where {D} represents the days, {H} the hours and {M} the minutes.
+#. For example: 'Occurence duration: 1 day 2 hours 45 minutes', or when the appointment is shorter then 1 day: 'Occurence duration: 1 hour'
+msgid "Occurrence duration: {D} {H} {M}"
+msgstr "Duração do evento: {D} {H} {M}"
+
+msgid "Every {A} week(s) on"
+msgstr "A cada {A} semana em"
+
+msgid "Regenerate new task {A} week(s) after each task is completed"
+msgstr "Refazer nova tarefa {A} semana(s) depois de cada tarefa ser concluída"
+
+msgid "Every {A} {B}"
+msgstr "A cada {A} {B}"
+
+msgid "The {A} {B} of {C}"
+msgstr "O {A} {B} de {C}"
+
+msgid "Regenerate new task {A} year(s) after each task is completed"
+msgstr "Refazer nova tarefa {A} ano(s) depois de cada tarefa ser concluída"
+
+msgid "Info"
+msgstr "Informação"
+
+msgid "Not supported at the moment."
+msgstr "Não suportado atualmente."
+
+msgid "There is {0} reminder"
+msgid_plural "There are {0} reminders"
+msgstr[0] "Existe {0} lembrete"
+msgstr[1] "Existem {0} lembretes"
+
+msgid "Reminders"
+msgstr "Lembretes"
+
+msgid "There are no reminders"
+msgstr "Não existem lembretes"
+
+msgid "Due In"
+msgstr "Limite em"
+
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
+msgid "Due"
+msgstr "Em"
+
+msgid "Reminder time"
+msgstr "Hora Lembrete"
+
+msgid "Dismiss All"
+msgstr "Dispensar todos"
+
+msgid "Open Item"
+msgstr "Abrir item"
+
+msgid "Dismiss"
+msgstr "Dispensar"
+
+msgid "Click Snooze to be reminded again in"
+msgstr "Clique Suspender para ser lembrado novamente em"
+
+msgid "Snooze"
+msgstr "Suspender"
+
+msgctxt "reminder.dialog"
+msgid "{0} reminder is selected."
+msgid_plural "{0} reminders are selected."
+msgstr[0] "{0} lembrete selecionado."
+msgstr[1] "{0} lembretes selecionados."
+
+msgid "Restore Softdeleted Items"
+msgstr "Recuperar itens Eliminados"
+
+msgid "Restore From {0}"
+msgstr "Recuperar de {0}"
+
+msgid "Restore"
+msgstr "Recuperar"
+
+msgid "Restore All"
+msgstr "Recuperar todos"
+
+msgid "Permanent Delete"
+msgstr "Eliminar definitivamente"
+
+msgid "Delete All"
+msgstr "Eliminar todos"
+
+msgid "Messages"
+msgstr "Mensagens"
+
+msgid "Delete all items"
+msgstr "Eliminar todos os itens"
+
+msgid "Are you sure you want to permanently delete all items?"
+msgstr "Tem certeza de que quer eliminar permanentemente todos os itens?"
+
+msgid "Restore all items"
+msgstr "Restaurar todos os Itens"
+
+msgid "Are you sure you want to restore all items?"
+msgstr "Tem certeza que quer restaurar todos os itens?"
+
+msgid "Total {0} recoverable item"
+msgid_plural "Total {0} recoverable items"
+msgstr[0] "Total {0} item recuperável"
+msgstr[1] "Total {0} itens recuperáveis"
+
+msgid "Deleted On"
+msgstr "Eliminado em"
+
+msgid "Sort by: Deleted On"
+msgstr "Ordenar por: Removido em"
+
+msgid "Item Count"
+msgstr "Número de itens"
+
+msgid "Sort by: Item Count"
+msgstr "Ordenar por: Número de itens"
+
+msgid "Sort by: From"
+msgstr "Ordenar por: De"
+
+msgid "Received"
+msgstr "Recebido"
+
+msgid "Sort by: Received"
+msgstr "Ordenar por: Data de Recebimento"
+
+msgid "Size"
+msgstr "Tamanho"
+
+msgid "Sort by: Size"
+msgstr "Ordenar por: Tamanho"
+
+msgid "Move the message to folder..."
+msgstr "Mover a mensagem para a pasta ..."
+
+msgid "Copy the message to folder..."
+msgstr "Copiar a mensagem para a pasta ..."
+
+msgid "Delete the message"
+msgstr "Eliminar a mensagem"
+
+msgid "Redirect the message to..."
+msgstr "Redirecionar a mensagem para ..."
+
+msgid "Forward the message to..."
+msgstr "Reencaminhar a mensagem para ..."
+
+msgid "Forward the message as attachment to..."
+msgstr "Reencaminhar a mensagem como anexo para ..."
+
+msgid "Mark the message as read..."
+msgstr "Marcar a mensagem como lida ..."
+
+msgid "is received from..."
+msgstr "recebida de ..."
+
+msgid "includes these words in the sender's address..."
+msgstr "inclui estas palavras no endereço do remetente..."
+
+msgid "includes these words in the recipient's address..."
+msgstr "inclui estas palavras no endereço do destinatário..."
+
+msgid "includes these words in the subject..."
+msgstr "inclui estas palavras no assunto..."
+
+msgid "includes these words in the body..."
+msgstr "inclui estas palavras no corpo da mensagem..."
+
+msgid "includes these words in the transport-headers..."
+msgstr "inclui estas palavras nos cabeçalhos de transporte..."
+
+msgid "has importance..."
+msgstr "tem importância..."
+
+msgid "has an attachment"
+msgstr "tem anexos"
+
+msgid "is sent to..."
+msgstr "enviada para..."
+
+msgid "is sent only to me"
+msgstr "enviada só para mim"
+
+msgid "has my name in the Cc field"
+msgstr "tem o meu nome no campo Cc"
+
+msgid "does not have my name in the To or Cc field"
+msgstr "não tem o meu nome no campo Para ou Cc"
+
+msgid "has my name in the To or Cc field"
+msgstr "tem o meu nome no campo Para ou Cc"
+
+msgid "has sensitivity..."
+msgstr "tem confidencialidade..."
+
+msgid "is received after..."
+msgstr "recebida após..."
+
+msgid "is received before..."
+msgstr "recebida antes..."
+
+msgid "size is at least..."
+msgstr "tamanho é pelo menos..."
+
+msgid "size is at most..."
+msgstr "tamanho é no máximo..."
+
+msgid "has my name in the To field"
+msgstr "tem o meu nome no campo Para"
+
+msgid "is received (all messages)"
+msgstr "recebida (todas as mensagens)"
+
+msgid "Unknown condition"
+msgstr "Condição desconhecida"
+
+msgid "This condition for the current rule is unknown"
+msgstr "Esta condição para esta regra é desconhecida"
+
+msgid "Add action"
+msgstr "Adicionar ação"
+
+msgid "Remove action"
+msgstr "Remover ação"
+
+msgid "Unknown action"
+msgstr "Ação desconhecida"
+
+msgid "This action for the current rule is unknown"
+msgstr "Esta ação para a regra atual é desconhecida"
+
+msgid "Add condition"
+msgstr "Adicionar condição"
+
+msgid "Remove condition"
+msgstr "Remover condição"
+
+msgid "Inbox Rule"
+msgstr "Regra de Caixa de Entrada"
+
+msgid "Rule name"
+msgstr "Nome da regra"
+
+msgid "When the message"
+msgstr "Quando a mensagem"
+
+msgid "Do the following"
+msgstr "Executar o seguinte"
+
+msgid "Exceptions"
+msgstr "Exceções"
+
+msgid "Apply only when Out of Office is active"
+msgstr "Aplicar apenas quando Fora do escritório estiver ativo"
+
+msgid "Stop processing more rules"
+msgstr "Para de processar mais regras"
+
+msgid "Add exception"
+msgstr "Adicionar exceção"
+
+msgid "Remove exception"
+msgstr "Remover exceção"
+
+msgid "Specify Words or Phrases"
+msgstr "Especificar palavras ou frases"
+
+msgid "Edit"
+msgstr "Editar"
+
+msgid "and"
+msgstr "e"
+
+msgid ""
+"Distribution lists are not supported in rules, would you like to replace the "
+"distribution list with its members?"
+msgstr ""
+"Listasde distribuição não são suportadas em regras. Deseja substituir a "
+"lista de distribuição pelos seus membros?"
+
+msgid "or"
+msgstr "ou"
+
+msgid "No rule exists"
+msgstr "Não existem regras"
+
+msgid "Active"
+msgstr "Ativa"
+
+msgid "Out of office"
+msgstr "Fora do escritório"
+
+msgid "Rule"
+msgstr "Regra"
+
+msgid "Loading rules"
+msgstr "A carregar regras"
+
+msgid "Please select a rule."
+msgstr "Por favor selecione uma regra."
+
+msgid "Rule already has highest priority."
+msgstr "Regra já tem a prioridade mais elevada."
+
+msgid "Rule already has lowest priority."
+msgstr "Regra já tem a prioridade mais baixa."
+
+msgid "Always move messages from {0}"
+msgstr "Mover sempre as mensagens de {0}"
+
+msgid "Always move messages that are sent to <recipients>"
+msgstr "Mover sempre as mensagens enviadas para <recipients>"
+
+msgid "Always move messages with this subject"
+msgstr "Mover sempre as mensagens com este assunto"
+
+msgid "Create rule..."
+msgstr "Criar regra..."
+
+msgid "myself"
+msgstr "eu próprio"
+
+msgid "Update rules for"
+msgstr "Atualizar regras para"
+
+msgid "Apply changes"
+msgstr "Aplicar alterações"
+
+msgid "Do you wish to apply the changes?"
+msgstr "Deseja aplicar as alterações?"
+
+msgid "All folders"
+msgstr "Todas as pastas"
+
+msgid "Other..."
+msgstr "Outra..."
+
+msgid "Search in.."
+msgstr "Procurar em.."
+
+msgid "Folder does not exist"
+msgstr "Pasta não existe"
+
+msgid ""
+"The folder you are searching through no longer exists. Please select another "
+"folder"
+msgstr ""
+"A pasta onde está a procurar já não existe. por favor selecione outra pasta"
+
+msgid "Add/Edit sender"
+msgstr "Adicionar/editar remetente"
+
+msgid "No from addresses configured"
+msgstr "Sem endereços configurados"
+
+msgid "Loading from addresses"
+msgstr "A carregar 'Em nome de'"
+
+msgid "Forward Mail"
+msgstr "Reencaminhar mensagem"
+
+msgid "Please select a from address record."
+msgstr "Por favor selecione um registo."
+
+msgid "Add/Edit From recipient"
+msgstr "Adicionar/Editar registo \"De\""
+
+msgid "Manage the recipients used in the 'From' field"
+msgstr "Gerir os registos usados no campo \"De\""
+
+msgid "View"
+msgstr "Ver"
+
+msgid "Please select a sendas record."
+msgstr "Por favor selecione um registo \"De\"."
+
+msgid "Delegates"
+msgstr "Delegar"
+
+msgid "Delegate settings"
+msgstr "Definições de delegação"
+
+msgid "Desktop Notifications Settings"
+msgstr "Definições Notificações Ambiente de Trabalho"
+
+msgid "We need permissions to enable desktop notifications."
+msgstr ""
+"São necessárias permissões para ativar as notificações de ambiente de "
+"trabalho."
+
+msgid "Request Permissions"
+msgstr "Pedir Permissões"
+
+msgid "Enable desktop notifications for new mail"
+msgstr "Ativar notificações no ambiente de trabalho para mensagens novas"
+
+msgid "Enable desktop notifications for reminders"
+msgstr "Ativar notificações no ambiente de trabalho para lembretes"
+
+msgid "{A} Auto hide desktop notification after second(s) {B}"
+msgstr ""
+"{A} Esconder automaticamente as notificações no ambiente de trabalho após "
+"{B} segundo(s)"
+
+msgid "Disable sound"
+msgstr "Desativar som"
+
+msgid "Notifications"
+msgstr "Notificações"
+
+msgid "Rules"
+msgstr "Regras"
+
+msgid "From Addresses"
+msgstr "Endereços 'De'"
+
+msgid "From Addresses settings"
+msgstr "Definições de endereços"
+
+msgid "Full name"
+msgstr "Nome completo"
+
+msgid "Phone Numbers"
+msgstr "Números de Telefone"
+
+msgid "Business Fax"
+msgstr "Fax trabalho"
+
+msgid "Webpage"
+msgstr "Página Web"
+
+msgid "IM Address"
+msgstr "Endereço IM (MSN, ICQ, Yahoo!Messenger)"
+
+msgid "D, d-m-Y, {0}"
+msgstr "D, d-m-Y, {0}"
+
+msgid "{0} selected row"
+msgid_plural "{0} selected rows"
+msgstr[0] "{0} linha selecionada"
+msgstr[1] "{0} linhas selecionadas"
+
+msgid "Reminder is set on: {0}, {1}"
+msgstr "Lembrete definido em: {0}, {1}"
+
+msgid "d-m-Y"
+msgstr "d-m-Y"
+
+msgid "l d/m/Y"
+msgstr "l d/m/Y"
+
+msgid "l d/m/Y {0}"
+msgstr "l d/m/Y {0}"
+
+msgid "d-m-Y {0}"
+msgstr "d-m-Y {0}"
+
+msgid "Unknown"
+msgstr "Desconhecido"
+
+msgid "Meeting Organizer"
+msgstr "Organizador"
+
+msgid "{0} overdue"
+msgstr "{0} atrasado"
+
+msgid "Loading..."
+msgstr "A carregar..."
+
+msgid "Message could not be loaded"
+msgstr "Não foi possível carregar a mensagem"
+
+#. TRANSLATORS: This message is used as label for the field which indicates which attachments are inside the message
+msgctxt "mail.previewpanel"
+msgid "Attachments"
+msgstr "Anexos"
+
+msgid "Download Pictures"
+msgstr "Transferir imagens"
+
+msgid "Add Sender to Safe Senders List"
+msgstr "Adicionar remetente à lista de remetentes seguros"
+
+msgid "Add Domain to Safe Senders List"
+msgstr "Adicionar domínio à lista de remetentes seguros"
+
+#. TRANSLATORS: This sentence is given in the Email previewpanel, and indicates with which
+#. importance the message was sent. For example:
+#. 'This message was sent with high importance.'
+#. 'This message was sent with low importance.'
+msgctxt "mail.previewpanel"
+msgid "This message was sent with {0} importance."
+msgstr "Esta mensagem foi enviada com importância {0}."
+
+#. TRANSLATORS: This sentence is given in the Email previewpanel, and indicates which
+#. sensitivity level applies to the message. For example:
+#. 'Please treat this as Personal.'
+#. 'Please treat this as Private.'
+#. 'Please treat this as Confidential.'
+msgctxt "mail.previewpanel"
+msgid "Please treat this as {0}."
+msgstr "Por favor considere isto como {0}."
+
+msgctxt "mail.previewpanel"
+msgid ""
+"Click here to download pictures. To help protect your privacy, WebApp "
+"prevented automatic download of some pictures in this message."
+msgstr ""
+
+msgctxt "mail.previewpanel"
+msgid ""
+"This message is corrupt and will not be displayed correctly, Click here to "
+"fix it."
+msgstr ""
+"Esta mensagem está corrompida e não pode ser visualizada corretamente. "
+"Clique aqui para reparar."
+
+msgctxt "mail.previewpanel"
+msgid "{0} has accepted."
+msgstr "{0} aceitou."
+
+msgctxt "mail.previewpanel"
+msgid "{0} has accepted on behalf of {1}."
+msgstr "{0} aceitou em nome de {1}."
+
+msgctxt "mail.previewpanel"
+msgid "{0} has tentatively accepted."
+msgstr "{0} aceitou como tentativa."
+
+msgctxt "mail.previewpanel"
+msgid "{0} has tentatively accepted on behalf of {1}."
+msgstr "{0} aceitou como tentativa em nome de {1}."
+
+msgctxt "mail.previewpanel"
+msgid "{0} has declined."
+msgstr "{0} recusou."
+
+msgctxt "mail.previewpanel"
+msgid "{0} has declined on behalf of {1}."
+msgstr "{0} recusou em nome de {1}."
+
+msgctxt "mail.previewpanel"
+msgid "{0} tentatively accepted and proposed a new time for this meeting."
+msgstr "{0} aceitou como tentativa e propôs uma nova data para a esta reunião."
+
+msgctxt "mail.previewpanel"
+msgid ""
+"{0} tentatively accepted on behalf of {1} and proposed a new time for this "
+"meeting."
+msgstr ""
+"{0} aceitou como tentativa em nome de {1} e propôs uma nova data para a esta "
+"reunião."
+
+msgctxt "mail.previewpanel"
+msgid "{0} declined and proposed a new time for this meeting."
+msgstr "{0} recusou e propôs uma nova data para a esta reunião."
+
+msgctxt "mail.previewpanel"
+msgid "{0} declined on behalf of {1} and proposed a new time for this meeting."
+msgstr "{0} recusou em nome de {1} e propôs uma nova data para a esta reunião."
+
+msgctxt "mail.previewpanel"
+msgid "This meeting is not in the Calendar; it may have been moved or deleted."
+msgstr ""
+"Esta reunião não existe no calendário. Pode ter sido movida ou eliminada."
+
+msgctxt "mail.previewpanel"
+msgid ""
+"This meeting request was updated after this message was sent. You should "
+"open the latest update or open the item from the calendar."
+msgstr ""
+"Este pedido de reunião foi alterado depois de responder. Deve abrir a última "
+"atualização ou abrir o item através do calendário."
+
+msgctxt "mail.previewpanel"
+msgid "As the meeting organizer, you do not need to respond to the meeting"
+msgstr "Como organizador da reunião não necessita de responder ao convite"
+
+msgctxt "mail.previewpanel"
+msgid "The meeting was updated after the attendee sent this response"
+msgstr "A reunião foi alterada após o participante responder"
+
+msgctxt "mail.previewpanel"
+msgid "This appointment occurs in the past."
+msgstr "A data deste compromisso está ultrapassada."
+
+msgctxt "mail.previewpanel"
+msgid "Please respond."
+msgstr "Por favor responda."
+
+msgctxt "mail.previewpanel"
+msgid "This is an update of a previously sent meeting request."
+msgstr "Isto é uma atualização de pedido de reunião enviado anteriormente."
+
+msgctxt "mail.previewpanel"
+msgid "Received for {0}."
+msgstr "Recebido para {0}."
+
+msgctxt "mail.previewpanel"
+msgid "You replied to this message."
+msgstr "Respondeu a esta mensagem."
+
+msgctxt "mail.previewpanel"
+msgid "You forwarded this message."
+msgstr "Reencaminhou esta mensagem em {0}."
+
+msgctxt "mail.previewpanel"
+msgid "You replied to this message on {0}."
+msgstr "Respondeu a esta mensagem em {0}."
+
+msgctxt "mail.previewpanel"
+msgid "You forwarded this message on {0}."
+msgstr "Reencaminhou esta mensagem em {0}."
+
+msgid "Assigned by {0} on {1}."
+msgstr "Atribuído a {0} por {1}."
+
+msgid "Waiting for response from recipient"
+msgstr "À espera de resposta dos destinatários"
+
+msgid "Accepted by {0} on {1}."
+msgstr "Aceite por {0} em {1}."
+
+msgid "{0} has accepted on behalf of {1} {2}."
+msgstr "{0} aceitou em nome de {1} {2}."
+
+msgid "Declined by {0} on {1}."
+msgstr "Recusado por {0} em {1}."
+
+msgid "{0} has declined on behalf of {1} {2}."
+msgstr "{0} recusou em nome de {1} {2}."
+
+msgid "Last update sent on {0}."
+msgstr "Última atualização enviada em {0}."
+
+msgid "{0} has updated on behalf of {1} {2}."
+msgstr "{0} atualizou em nome de {1} {2}."
+
+msgid "Fix message"
+msgstr "Corrigir mensagem"
+
+msgid ""
+"We are going to try to fix a corrupted mail message, do you wish to continue?"
+msgstr "Vamos tentar corrigir a mensagem corrompida. Deseja continuar?"
+
+msgid "The matching task was not found in your task list."
+msgstr "Não foi encontrada nenhuma tarefa correspondente na sua lista."
+
+msgctxt "mail.previewpanel"
+msgid "To"
+msgstr "Para"
+
+msgctxt "mail.previewpanel"
+msgid "Cc"
+msgstr "Cc"
+
+msgctxt "mail.previewpanel"
+msgid "Bcc"
+msgstr "Bcc"
+
+msgctxt "mail.previewpanel"
+msgid "Categories"
+msgstr "Categorias"
+
+#. TRANSLATORS: This message is used as label for the field which to indicates to whom the given mail was sent
+msgctxt "mail.previewpanel"
+msgid "Recipients"
+msgstr "Destinatários"
+
+#. TRANSLATORS: check if the mail is send by some delegator or not. if then display "on behalf of".
+msgctxt "mail.previewpanel"
+msgid "on behalf of"
+msgstr "em nome de"
+
+#. TRANSLATORS: This message is used to indicate that no sent date is available for the message (because it has not been sent yet).
+msgctxt "mail.previewpanel"
+msgid "None"
+msgstr "Nenhum"
+
+msgid "Pop-out"
+msgstr "Pop-out"
+
+msgid "Mark as read"
+msgstr "Marcar como lida"
+
+msgid "Mark as unread"
+msgstr "Marcar como não lida"
+
+msgid "in"
+msgstr "em"
+
+msgid "Root"
+msgstr "Raiz"
+
+msgid "Datepicker"
+msgstr "Escolha de data"
+
+msgid "File As"
+msgstr "Arquivar Como"
+
+msgid "Full Name"
+msgstr "Nome completo"
+
+msgid "Department Name"
+msgstr "Nome Departamento"
+
+msgid "Home Address"
+msgstr "Morada de casa"
+
+msgid "Business Address"
+msgstr "Morada trabalho"
+
+msgid "Other Address"
+msgstr "Outra morada"
+
+msgid "Business Phone"
+msgstr "Telefone trabalho"
+
+msgid "Business 2 Phone"
+msgstr "Telefone trabalho 2"
+
+msgid "Assistant Phone"
+msgstr "Telefone do assistente"
+
+msgid "Company Main Phone"
+msgstr "Telefone Empresa"
+
+msgid "Home 2 Phone"
+msgstr "Telefone casa 2"
+
+msgid "Car Phone"
+msgstr "Telefone do Carro"
+
+msgid "Radio"
+msgstr "Radio"
+
+msgid "Callback Phone"
+msgstr "Telefone para retornar"
+
+msgid "Other Phone"
+msgstr "Outro Telefone"
+
+msgid "Primary Phone"
+msgstr "Telefone primário"
+
+msgid "Telex"
+msgstr "Telex"
+
+msgid "TTY/TDD Phone"
+msgstr "Telefone TTY/TDD"
+
+msgid "ISDN"
+msgstr "ISDN"
+
+msgid "Other Fax"
+msgstr "Outro Fax"
+
+msgid "Home Fax"
+msgstr "Fax casa"
+
+msgid "Email Display As"
+msgstr "E-mail mostrar como"
+
+msgid "Email 2"
+msgstr "E-mail 2"
+
+msgid "Email2 Display As"
+msgstr "E-mail 2 mostrar como"
+
+msgid "Email 3"
+msgstr "E-mail 3"
+
+msgid "Email3 Display As"
+msgstr "E-mail 3 mostrar como"
+
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
+msgid "Birthday"
+msgstr "Aniversário"
+
+msgid "Wedding Anniversary"
+msgstr "Aniversário casamento"
+
+msgid "Spouse/Partner"
+msgstr "Cônjuge"
+
+msgid "Profession"
+msgstr "Profissão"
+
+msgid "Assistant's Name"
+msgstr "Nome do assistente"
+
+msgid "Distribution List Name"
+msgstr "Nome da lista de distribuição"
+
+msgid "Open Shared Contacts"
+msgstr "Abrir contactos partilhados"
+
+msgid "Business Cards"
+msgstr "Cartões de trabalho"
+
+msgid "Phone List"
+msgstr "Lista telefones"
+
+msgid "Add to contacts"
+msgstr "Adicionar a contactos"
+
+msgid "Print selected contact"
+msgstr "Imprimir contacto selecionado"
+
+msgid "No contact selected"
+msgstr "Nenhum contacto selecionado"
+
+msgid "Distribution list"
+msgstr "Lista de distribuição"
+
+msgid "Dr."
+msgstr "Dr."
+
+msgid "Miss"
+msgstr "Menina"
+
+msgid "Mr."
+msgstr "Sr."
+
+msgid "Mrs."
+msgstr "Sra."
+
+msgid "Ms."
+msgstr "Ms."
+
+msgid "Prof."
+msgstr "Prof."
+
+msgid "Jr."
+msgstr "Jr."
+
+msgid "Sr."
+msgstr "Sr."
+
+msgid "Phone number"
+msgstr "Números de Telefone"
+
+msgid "Check address"
+msgstr "Morada para envio de cheque"
+
+msgid "Street"
+msgstr "Rua"
+
+msgid "State/Province"
+msgstr "Região"
+
+msgid "Zip/Postal code"
+msgstr "Código Postal"
+
+msgid "Country/Region"
+msgstr "País"
+
+msgid "Show this again when address is incomplete or unclear."
+msgstr "Mostar outra vez quando a morada for incompleta ou ilegível."
+
+msgid "Details"
+msgstr "Detalhes"
+
+msgid "Office location"
+msgstr "Local do escritório"
+
+msgid "Manager's name"
+msgstr "Nome do diretor"
+
+msgid "Assistant's name"
+msgstr "Nome do assistente"
+
+msgid "Nickname"
+msgstr "Alcunha"
+
+msgid "Suffix"
+msgstr "Sufixo"
+
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
+msgid "Anniversary"
+msgstr "Aniversário"
+
+msgid "Photo"
+msgstr "Fotografia"
+
+msgid "Additional information"
+msgstr "Informação adicional"
+
+msgid "Business 2"
+msgstr "Trabalho 2"
+
+msgid "Callback"
+msgstr "Ligar de volta"
+
+msgid "Car"
+msgstr "Carro"
+
+msgid "Home 2"
+msgstr "Casa 2"
+
+msgid "Primary"
+msgstr "Primário"
+
+msgid "TTY/TDD"
+msgstr "TTY/TDD"
+
+msgid "Check full name"
+msgstr "Verificar nome completo"
+
+msgid "First"
+msgstr "Primeiro"
+
+msgid "Middle"
+msgstr "Segundo nome"
+
+msgid "Last"
+msgstr "Sobrenome"
+
+msgid "Show this again when name is incomplete or unclear."
+msgstr "Mostar outra vez quando o nome estiver incompleto ou for ilegível."
+
+msgid "Check phone number"
+msgstr "Verificar número de telefone"
+
+msgid "Country/Region code"
+msgstr "Indicativo País"
+
+msgid "City/Area code"
+msgstr "Indicativo Cidade"
+
+msgid "Local number"
+msgstr "Número local"
+
+msgid "Extension"
+msgstr "Extensão"
+
+msgid "Add Attachment"
+msgstr "Adicionar anexo"
+
+msgid "Add attachments to this contact"
+msgstr "Adicionar anexos a este contacto"
+
+msgid "Mark this contact as private"
+msgstr "Marcar contacto como privado"
+
+msgid "Distribution List"
+msgstr "Lista de Distribuição"
+
+msgid "Mark this Distribution list as private"
+msgstr "Marcar esta lista de distribuição como privada"
+
+msgid "New email address"
+msgstr "Novo endereço de E-mail"
+
+msgid "Please enter a valid email address"
+msgstr "Por favor introduza um endereço de email válido"
+
+msgid "Select Members"
+msgstr "Selecionar membros"
+
+msgid "Add New"
+msgstr "Adicionar novo"
+
+msgid "Type your note here..."
+msgstr "Escreva aqui a sua nota..."
+
+msgid "New contact"
+msgstr "Novo contacto"
+
+msgid "New distribution list"
+msgstr "Nova lista de distribuição"
+
+msgid "Email 2 Display As"
+msgstr "E-mail 2 Mostrar Como"
+
+msgid "Email 3 Display As"
+msgstr "E-mail 3 Mostrar Como"
+
+msgid "Assistent"
+msgstr "Assistente"
+
+msgid "Loading contacts"
+msgstr "A carregar contactos"
+
+msgid ""
+"There are no items to show in this list. Update the filter for more results."
+msgstr ""
+"Não existem itens para mostrar na lista. Actualize o filtro para obter mais "
+"resultados."
+
+msgid "[Group]"
+msgstr "[Grupo]"
+
+msgid "Work:"
+msgstr "Trabalho:"
+
+msgid "Primary:"
+msgstr "Primário:"
+
+msgid "Mobile:"
+msgstr "Móvel:"
+
+msgid "Sort by: Full Name"
+msgstr "Ordenar por: Nome da completo"
+
+msgid "Sort by: Email Address 2"
+msgstr "Ordenar por: E-mail 2"
+
+msgid "Sort by: Email Address 3"
+msgstr "Ordenar por: E-mail 3"
+
+msgid "Mobile Phone"
+msgstr "Telemóvel"
+
+msgid "Sort by: Mobile Phone"
+msgstr "Ordenar por: Telemóvel"
+
+msgid "Sort by: Business Phone"
+msgstr "Ordenar por: Telefone trabalho"
+
+msgid "Sort by: Business Fax"
+msgstr "Ordenar por: Fax trabalho"
+
+msgid "Sort by: Department Name"
+msgstr "Ordenar por: Departamento"
+
+msgid "Office Location"
+msgstr "Localização escritório"
+
+msgid "Sort by: Office Location"
+msgstr "Ordenar por: Localização escritório"
+
+msgid "Sort by: Profession"
+msgstr "Ordenar por:Profissão"
+
+msgid "Manager Name"
+msgstr "Nome do diretor"
+
+msgid "Sort by: Manager Name"
+msgstr "Ordenar por: Nome do diretor"
+
+msgid "Sort by: Assistant's Name"
+msgstr "Ordenar por: nome do assistente"
+
+msgid "Sort by: Nickname"
+msgstr "Ordenar por: Alcunha"
+
+msgid "Sort by: Spouse/Partner Name"
+msgstr "Ordenar por: Cônjuge"
+
+msgid "Sort by: Birthday"
+msgstr "Ordenar por: Aniversário"
+
+msgid "Sort by: Anniversary"
+msgstr "Ordenar por: Casamento"
+
+msgid "Sort by: Business Address"
+msgstr "Ordenar por: Morada trabalho"
+
+msgid "Sort by: Home Address"
+msgstr "Ordenar por: Morada de casa"
+
+msgid "Sort by: Office Address"
+msgstr "Ordenar por: Morada escritório"
+
+msgid "Mailing Address"
+msgstr "Endereço de Mailing"
+
+msgid "Sort by: Mailing Address"
+msgstr "Ordenar por: Endereço de Mailing"
+
+msgid "Sort by: IM Address"
+msgstr "Ordenar por: Endereço IM"
+
+msgid "Sort by: Webpage"
+msgstr "Ordenar por: Página Web"
+
+msgid "Assistant's Phone"
+msgstr "Telefone do assistente"
+
+msgid "Sort by: Assistant's Phone"
+msgstr "Ordenar por: Telefone do assistente"
+
+msgid "Business Phone 2"
+msgstr "Telefone Trabalho 2"
+
+msgid "Sort by: Business Phone 2"
+msgstr "Ordenar por: Telefone trabalho 2"
+
+msgid "Sort by: Callback"
+msgstr "Ordenar por: Callback"
+
+msgid "Sort by: Car Phone"
+msgstr "Ordenar por: Carro"
+
+msgid "Company Phone"
+msgstr "Telefone empresa"
+
+msgid "Sort by: Company Main Phone"
+msgstr "Ordenar por: Telefone empresa"
+
+msgid "Home Phone 2"
+msgstr "Telefone casa 2"
+
+msgid "Sort by: Home Phone 2"
+msgstr "Ordenar por: Telefone casa 2"
+
+msgid "Sort by: Home Fax"
+msgstr "Ordenar por: Fax casa"
+
+msgid "Sort by: ISDN"
+msgstr "Ordenar por: ISDN"
+
+msgid "Sort by: Other Phone"
+msgstr "Ordenar por: Outro telefone"
+
+msgid "Radio Phone"
+msgstr "Telefone Radio"
+
+msgid "Sort by: Radio Phone"
+msgstr "Ordenar por: Telefone Radio"
+
+msgid "Sort by: TTY/TDD Phone"
+msgstr "Ordenar por: TTY/TDD Phone"
+
+msgid "Sort by: Telex Phone"
+msgstr "Ordenar por: Telex"
+
+msgid "Change Picture"
+msgstr "Alterar fotografia"
+
+msgid "Remove Picture"
+msgstr "Remover fotografia"
+
+msgid "VCF file(s)"
+msgstr "Ficheiros(s) VCF"
+
+msgid "Quick Contact"
+msgstr "Contacto rápido"
+
+msgid "Open in new browser window"
+msgstr "Abrir numa nova janela"
+
+msgid ""
+"Your browser seems to have blocked one or more pop-ups. Please change your "
+"browser's settings to always allow pop-ups from grommunio Web."
+msgstr ""
+"O browser parece ter bloqueado um ou mais pop-ups. Por favor altere as "
+"definições do seu browser para permitir sempre pop-ups da grommunio Web."
+
+msgid "Untitled"
+msgstr "Sem nome"
+
+msgid ""
+"Cannot upload attachment, only {0} attachments are allowed to be added to "
+"the message"
+msgstr ""
+"Não foi possível adicionar o anexo. Só é possível adicionar {0} anexos à "
+"mensagem"
+
+msgid ""
+"Cannot upload attachment, attachment is {0} while the allowed maximum is {1}."
+msgstr ""
+"Não foi possível adicionar o anexo. O anexo tem {0} enquanto o máximo "
+"permitido é {1}."
+
+msgid ""
+"Cannot upload attachment, the total attachment size is {0} while the allowed "
+"maximum is {1}"
+msgstr ""
+"Não foi possível adicionar o anexo. O total dos anexos é {0} enquanto o "
+"máximo permitido é {1}"
+
+msgid ""
+"Cannot upload attachment, total attachment is {0} while the allowed maximum "
+"attachment in single request is {1}."
+msgstr ""
+"Não foi possível adicionar o anexo. O total dos anexos é {0} enquanto o "
+"máximo permitido num único pedido é {1}."
+
+msgid ""
+"Cannot upload attachment, total attachments are {0} files while the maximum "
+"{1} files are allowed in single request."
+msgstr ""
+"Não foi possível adicionar o anexo. Está a tentar anexar {0} ficheiros "
+"enquanto o máximo permitido num único pedido é {1}."
+
+#. TRANSLATORS: {0} indicates name/email address of secretary and {1} indicates boss' name/email address
+msgid "{0} on behalf of {1}"
+msgstr "{0} em nome de {1}"
+
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
+msgid "jS F"
+msgstr "j F"
+
+msgid "Y"
+msgstr "Y"
+
+msgid "Important"
+msgstr "Importante"
+
+msgid "Work"
+msgstr "Trabalho"
+
+msgid "Personal"
+msgstr "Pessoal"
+
+msgid "Holiday"
+msgstr "Feriado"
+
+msgid "Travel Required"
+msgstr "Viajar Necessário"
+
+msgid "Preparation Required"
+msgstr "Preparação Necessária"
+
+msgid "Special Date"
+msgstr "Data especial"
+
+msgid "Phone Interview"
+msgstr "Entrevista telefónica"
+
+msgid "Free"
+msgstr "Livre"
+
+msgid "Low"
+msgstr "Baixa"
+
+msgid "Normal"
+msgstr "Normal"
+
+msgid "High"
+msgstr "Alta"
+
+msgid "Canceled"
+msgstr "Cancelado"
+
+msgid "Blue"
+msgstr "Azul"
+
+msgid "Green"
+msgstr "Verde"
+
+msgid "Pink"
+msgstr "Rosa"
+
+msgid "White"
+msgstr "Branco"
+
+msgid "Yellow"
+msgstr "Amarelo"
+
+msgid "No response"
+msgstr "Sem resposta"
+
+msgid "Not responded"
+msgstr "Não respondeu"
+
+msgid "Accepted"
+msgstr "Aceite"
+
+msgid "Declined"
+msgstr "Recusado"
+
+msgid "Confidential"
+msgstr "Confidencial"
+
+msgid "Not Started"
+msgstr "Não Iniciado"
+
+msgid "In Progress"
+msgstr "Em progresso"
+
+msgid "Wait for other person"
+msgstr "Aguarde por outra pessoa"
+
+msgid "Deferred"
+msgstr "Diferido"
+
+msgid "Dark"
+msgstr "Escuro"
+
+msgid "High Contrast"
+msgstr "Alto contraste"
+
+msgid "Lime"
+msgstr "Lima"
+
+msgid "Orange"
+msgstr "Laranja"
+
+msgid "Purple"
+msgstr "Roxo"
+
+msgid "Logout"
+msgstr "Sair"
+
+msgid "Switch view"
+msgstr "Mudar vista"
+
+msgid "Widgets"
+msgstr "Widgets"
+
+msgid "Sending..."
+msgstr "A enviar..."
+
+msgid "Sent successfully"
+msgstr "Enviado com sucesso"
+
+msgid "No recipient"
+msgstr "Nenhum destinatário"
+
+msgid "Please specify at least one recipient"
+msgstr "Por favor especifique pelo menos um destinatário"
+
+msgid "Please specify a recipient"
+msgstr "Por favor especifique um destinatário"
+
+msgid "The attached files are not uploaded yet."
+msgstr "Os ficheiros anexos ainda não foram recebidos."
+
+msgid "Do you want to send this message without attachments?"
+msgstr "Quer enviar esta mensagem sem os anexos?"
+
+msgid "Attachments not uploaded yet"
+msgstr "O anexo ainda não foi enviado"
+
+msgid "Don't Send"
+msgstr "Não enviar"
+
+msgid "Send Anyway"
+msgstr "Enviar na mesma"
+
+msgid "No subject"
+msgstr "Sem assunto"
+
+msgid "Send this message without a subject?"
+msgstr "Enviar esta mensagem sem Assunto?"
+
+msgid "Unresolved recipients"
+msgstr "Destinatário não resolvidos"
+
+msgid "Not all recipients could be resolved"
+msgstr "Não foi possível resolver alguns destinatários"
+
+msgid "Collapse hierarchy"
+msgstr "Ocultar Painel de Navegação"
+
+msgid "Expand hierarchy"
+msgstr "Mostar Painel de Navegação"
+
+msgid "Folders List"
+msgstr "Lista de pastas"
+
+msgid "Copy Details"
+msgstr "Copiar detalhes"
+
+msgid "Hide Details"
+msgstr "Esconder Detalhes"
+
+msgid "Loaded {0} of {1}"
+msgstr "Carregado {0} de {1}"
+
+msgid "Saving"
+msgstr "A gravar"
+
+msgid "Saved"
+msgstr "Guardado"
+
+msgid "Saved successfully"
+msgstr "Gravado com sucesso"
+
+msgid ""
+"You will lose all unsaved work. Are you sure you want to close this window?"
+msgstr ""
+"Todas as alterações não gravadas serão perdidas. Tem a certeza que quer "
+"fechar a janela?"
+
+msgid "grommunio Content Panel"
+msgstr "Painel de conteúdos grommunio"
+
+msgid "Delete item"
+msgstr "Eliminar item"
+
+msgid "This item has been changed. Are you sure you want to delete it?"
+msgstr "Este item foi alterado. Tem a certeza que o quer eliminar?"
+
+msgid "Unsaved changes"
+msgstr "Alterações por gravar"
+
+msgid "Welcome to grommunio Web"
+msgstr ""
+
+msgid "This is the first time you are using grommunio Web. "
+msgstr "Esta é a primeira vez que está a usar a grommunio Web. "
+
+msgid "Please check the following settings before continuing."
+msgstr "Por favor confira as seguintes definições antes de continuar."
+
+msgid "Widget height"
+msgstr "Altura do Widget"
+
+msgid "pixels"
+msgstr "pixeis"
+
+msgid "Configure widget"
+msgstr "Configurar widget"
+
+msgid "Reload interval"
+msgstr "Intervalo para refrescar (s)"
+
+msgid "seconds"
+msgstr "segundos"
+
+msgid "Open in new tab"
+msgstr "Abrir numa nova aba"
+
+msgid "Add widgets"
+msgstr "Adicionar widgets"
+
+msgid "No widgets installed."
+msgstr "Sem widgets instalados."
+
+msgid "Remove widget"
+msgstr "Remover widget"
+
+msgid "Collapse widget"
+msgstr "Colapsar widget"
+
+msgid "Expand widget"
+msgstr "Expandir widget"
+
+msgid "About this widget"
+msgstr "Acerca deste widget"
+
+msgid "Add new widget"
+msgstr "Adicionar novo widget"
+
+msgid "Collapse widget panel"
+msgstr "Fechar painel de widgets"
+
+msgid "Expand widget panel"
+msgstr "Abrir painel de widgets"
+
+msgid "Your changes will be lost if you leave this page now."
+msgstr "As alterações serão perdidas se sair desta página."
+
+msgid "D {0}"
+msgstr "D {0}"
+
+msgid "D d-m"
+msgstr "D d-m"
+
+msgid ""
+"Not enough permissions to open this store, do you want to remove it from the "
+"hierarchy?"
+msgstr ""
+"Não tem permissões suficientes para abrir esta caixa. Quer removê-la do "
+"Painel de Navegação?"
+
+msgid ""
+"Not enough permissions to open this folder, do you want to remove it from "
+"the hierarchy?"
+msgstr ""
+"Não tem permissões suficientes para abrir esta pasta. Quer removê-la do "
+"Painel de Navegação?"
+
+msgid "Insufficient Permissions"
+msgstr "Permissões insuficientes"
+
+msgid "Not enough permissions to open this folder."
+msgstr "Não tem permissões suficientes para abrir esta pasta."
+
+msgid "There is {0} unread message in the folder {1} of {2}"
+msgid_plural "There are {0} unread messages in the folder {1} of {2}"
+msgstr[0] "Existe {0} mensagem por ler na pasta {1} de {2}"
+msgstr[1] "Existem {0} mensagens por ler na pasta {1} de {2}"
+
+msgid "There is {0} unread message in the folder {1}"
+msgid_plural "There are {0} unread messages in the folder {1}"
+msgstr[0] "Existem {0} mensagem por ler na pasta {1}"
+msgstr[1] "Existem {0} mensagens por ler na pasta {1}"
+
+msgid "Publishing Editor"
+msgstr "Editor da publicação"
+
+msgid "Editor"
+msgstr "Editor"
+
+msgid "Publishing Author"
+msgstr "Autor da publicação"
+
+msgid "Author"
+msgstr "Autor"
+
+msgid "Nonediting Author"
+msgstr "Autor não editor"
+
+msgid "Reviewer"
+msgstr "Revisor"
+
+msgid "Contributor"
+msgstr "Contribuidor"
+
+msgid "Unable to import:"
+msgstr "Não foi possível importar:"
+
+msgid "The files are not valid"
+msgstr "Os ficheiros não são válidos"
+
+msgid "Create New Folder"
+msgstr "Criar nova pasta"
+
+msgid "Folder contains"
+msgstr "Conteúdo da pasta"
+
+msgid "Calendar Items"
+msgstr "Itens de calendário"
+
+msgid "Mail and Post Items"
+msgstr "Correio e itens publicados"
+
+msgid "Contacts Items"
+msgstr "Itens de Contactos"
+
+msgid "Note Items"
+msgstr "Itens de Notas"
+
+msgid "Task Items"
+msgstr "Itens de Tarefa"
+
+msgid "Select where to place the folder"
+msgstr "Selecione onde colocar a pasta"
+
+msgid "No folder name"
+msgstr "Sem nome da pasta"
+
+msgid "No destination"
+msgstr "Nenhum destino"
+
+msgid "You must select a destination folder."
+msgstr "Tem de selecionar uma pasta de destino."
+
+msgid "Properties"
+msgstr "Propriedades"
+
+msgid "Type"
+msgstr "Tipo"
+
+msgid "Description"
+msgstr "Descrição"
+
+msgid "EntryID"
+msgstr "EntryID"
+
+msgid "Parent EID"
+msgstr ""
+
+msgid "Folder size"
+msgstr "Tamanho da pasta"
+
+msgid "Folder containing {0} Items"
+msgstr "A pasta contém {0} itens"
+
+msgid "Permissions"
+msgstr "Permissões"
+
+msgid "No permissions granted"
+msgstr "Sem permissões atribuídas"
+
+msgid "Profile"
+msgstr "Perfil"
+
+msgid "Read"
+msgstr "Ler"
+
+msgid "Full Details"
+msgstr "Detalhes completos"
+
+msgid "Write"
+msgstr "Escrever"
+
+msgid "Create items"
+msgstr "Criar itens"
+
+msgid "Create subfolders"
+msgstr "Criar subpastas"
+
+msgid "Edit own"
+msgstr "Editar própria"
+
+msgid "Edit all"
+msgstr "Editar tudo"
+
+msgid "Delete items"
+msgstr "Eliminar itens"
+
+msgid "Own"
+msgstr "Os seus"
+
+msgid "All"
+msgstr "Todos"
+
+msgid "Folder owner"
+msgstr "Dono da pasta"
+
+msgid "Folder contact"
+msgstr "Contacto da pasta"
+
+msgid "Folder visible"
+msgstr "Pasta visível"
+
+msgid "User already exists"
+msgstr "Utilizador já existe"
+
+msgid "Group already exists"
+msgstr "Grupo já existe"
+
+msgid "Folder Size"
+msgstr "Tamanho da pasta"
+
+msgid "Folder Name"
+msgstr "Nome da pasta"
+
+msgid "Size (without subfolders)"
+msgstr "Tamanho (sem subpastas)"
+
+msgid "Total size (including subfolders)"
+msgstr "Tamanho total (incluindo subpastas)"
+
+msgid "Loading subfolder sizes"
+msgstr "A carregar tamanho das subpastas"
+
+msgid "No subfolders present"
+msgstr "Nenhuma sub-pasta existente"
+
+msgid "Subfolder"
+msgstr "Sub-pasta"
+
+msgid "Sort by: Name of the subfolder"
+msgstr "Ordenar por: Nome de subpastas"
+
+msgid "Sort by: Size (without subfolders)"
+msgstr "Ordenar por: Tamanho (sem subpastas)"
+
+msgid "Total size"
+msgstr "Tamanho total"
+
+msgid "Sort by: Total size (including subfolders)"
+msgstr "Ordenar por: Tamanho total (incluindo subpastas)"
+
+msgid "Open Shared Folders"
+msgstr "Abrir pastas partilhadas"
+
+msgid "Unresolved user"
+msgstr "Não foi possível encontrar o utilizador"
+
+msgid "Username '{0}' could not be resolved."
+msgstr "Não foi possível resolver o utilizador '{0}'."
+
+msgid "Invalid user"
+msgstr "Utilizador inválido"
+
+msgid "Username '{0}' is not a valid user."
+msgstr "O utilizador '{0}' não é válido."
+
+msgid "Own store"
+msgstr "Própria Caixa"
+
+msgid "It is not possible to open your own store twice."
+msgstr "Não é possível abrir a própria caixa duas vezes."
+
+msgid "Folder already open"
+msgstr "Pasta já está aberta"
+
+msgid "This shared folder is already open."
+msgstr "Esta pasta partilhada já está aberta."
+
+msgid "No user"
+msgstr "Nenhum utilizador"
+
+msgid "You must specify a user"
+msgstr "Tem de especificar um utilizador"
+
+msgid "Folder type"
+msgstr "Tipo de pasta"
+
+msgid "Show subfolders"
+msgstr "Mostrar subpastas"
+
+msgid "Open shared folder/store"
+msgstr "Abrir pastas/caixas partilhadas"
+
+msgid "Rename folder"
+msgstr ""
+
+msgid "Empty folder"
+msgstr "Esvaziar pasta"
+
+msgid "Empty Junk Email"
+msgstr "Esvaziar E-mail de SPAM"
+
+msgid "Empty Deleted Items"
+msgstr "Esvaziar Itens Eliminados"
+
+msgid "Rename Folder"
+msgstr "Mudar nome da pasta"
+
+msgid "New Folder"
+msgstr "Nova pasta"
+
+msgid "Mark All Messages Read"
+msgstr "Marcar todas as mensagens como lidas"
+
+msgid "Delete Folder"
+msgstr "Eliminar pasta"
+
+msgid "Close store"
+msgstr "Fechar caixa"
+
+msgid "Close folder"
+msgstr "Fechar pasta"
+
+msgid "Reload"
+msgstr "Recarregar"
+
+msgid "Restore items"
+msgstr "Restaurar Itens"
+
+msgid "Select color"
+msgstr "Selecionar Cor"
+
+msgid "Add to Favorites"
+msgstr "Adicionar aos Favoritos"
+
+msgid "Remove From Favorites"
+msgstr "Remover dos Favoritos"
+
+msgid "Share folder..."
+msgstr "Partilhar pasta..."
+
+msgid "Import emails"
+msgstr "Importar mensagens"
+
+msgid "Import appointments"
+msgstr "Importar compromissos"
+
+msgid "Import contacts"
+msgstr "importar contactos"
+
+msgid "Properties of {0}"
+msgstr "Propriedades de {0}"
+
+msgid "Share {0} with..."
+msgstr "Partilhar {0} com..."
+
+msgid "Properties of {0} - {1}"
+msgstr "Propriedades de {0} - {1}"
+
+msgid ""
+"Are you sure you want to permanently delete all the items and subfolders in "
+"the \"{0}\" folder?"
+msgstr ""
+"Tem certeza de que quer excluir todos os itens e subpastas da pasta \"{0}\"?"
+
+msgid ""
+"Are you sure you want to delete the folder \"{0}\" and move all of its "
+"contents into the Deleted Items folder?"
+msgstr ""
+"Tem a certeza que quer apagar a pasta \"{0}\" e mover os seus conteúdos para "
+"a pasta Itens Excluídos?"
+
+msgid "Delete folder"
+msgstr "Eliminar pasta"
+
+msgid "Are you sure you want to empty {0}?"
+msgstr "Tem certeza de que quer esvaziar {0}?"
+
+msgid "Show All"
+msgstr "Mostrar todos"
+
+msgid "Show all folders"
+msgstr "Mostar todas as pastas"
+
+msgid ""
+"You have insufficient privileges to move this folder. Would you like to copy "
+"instead?"
+msgstr ""
+"Não tem privilégios suficientes para mover esta pasta. Deseja copiar em vez "
+"de mover?"
+
+msgid "CC"
+msgstr "CC"
+
+msgid "BCC"
+msgstr "BCC"
+
+msgid "Sort by: Importance"
+msgstr "Ordenar por: Importância"
+
+msgid "Sort by: To"
+msgstr "Ordenar por: Para"
+
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
+msgid "Sent"
+msgstr "Enviado"
+
+msgid "Red"
+msgstr "Vermelho"
+
+msgid "Original message"
+msgstr "Mensagem original"
+
+msgid "Schedule mail to be sent out"
+msgstr "Agendar mensagem para ser enviada"
+
+msgid "Scheduled Items"
+msgstr "Itens agendados"
+
+msgid "Your message will be sent at "
+msgstr "A mensagem será enviada a "
+
+msgid "Go to your Outbox to edit your email."
+msgstr "Vá à sua Caixa de Saída para editar a mensagem."
+
+msgid "hour(s)"
+msgstr "hora(s)"
+
+msgid "month(s)"
+msgstr "mês(es)"
+
+msgid "at a specific time"
+msgstr "a uma hora específica"
+
+msgid "The time you entered is in the past. Please reschedule your mail."
+msgstr "A data especificada é no passado. Indique outra."
+
+msgid "today  at "
+msgstr "hoje a "
+
+msgid "tomorrow  at "
+msgstr "amanhã a "
+
+msgid "{0} at "
+msgstr "{0} a "
+
+msgid "at {0}"
+msgstr "a {0}"
+
+msgid "Your email will be sent {0}{1}"
+msgstr "A mensagem será enviada {0}{1}"
+
+msgid "Saving..."
+msgstr "A gravar..."
+
+msgid "Saved at {0}"
+msgstr "Gravada em {0}"
+
+msgid "Saving failed"
+msgstr "Gravar falhou"
+
+msgid "Message Options"
+msgstr "Opções da mensagem"
+
+msgid "This message will be flagged for follow up when it is sent."
+msgstr "Esta mensagem vai ser marcada para seguimento quando for enviada."
+
+msgid "Send Later"
+msgstr "Enviar depois"
+
+msgid "Schedule your mail to be sent on a specific date and time"
+msgstr "Agendar a mensagem para ser enviada numa data específica"
+
+msgid "Add attachments to this email"
+msgstr "Adicionar anexos a esta mensagem"
+
+msgid "Add signature"
+msgstr "Adicionar assinatura"
+
+msgid "Options"
+msgstr "Opções"
+
+msgid "Open options dialog"
+msgstr "Abrir opções"
+
+msgid "Set flag"
+msgstr "Marcar bandeira"
+
+msgid "Set flag on this email"
+msgstr "Marcar bandeira nesta mensagem"
+
+msgid "Mark this mail as high priority"
+msgstr "Marcar esta mensagem como alta prioridade"
+
+msgid "Mark this mail as low priority"
+msgstr "Marcar esta mensagem como baixa prioridade"
+
+msgid "Set read receipt"
+msgstr "Marcar recibo de leitura"
+
+msgid "Request read receipt from recipients"
+msgstr "Pedir recibo de leitura dos destinatários"
+
+msgid "Show Bcc"
+msgstr "Mostar Bcc"
+
+msgid "Show Bcc field"
+msgstr "Mostrar Bcc"
+
+msgid "Show From field"
+msgstr "Mostrar De"
+
+msgid "Cannot save while attachment is being uploaded"
+msgstr "Não é possível guardar enquanto o anexo é enviado"
+
+msgid "Miscellaneous Options"
+msgstr "Opções Várias"
+
+msgid "Internet Headers"
+msgstr "Cabeçalhos de Internet"
+
+msgid "Message Settings"
+msgstr "Preferências da mensagem"
+
+msgid "Tracking Options"
+msgstr "Opções de seguimento"
+
+msgid "Request a read receipt for this message."
+msgstr "Pedir recibo de leitura para esta mensagem."
+
+msgid "no subject"
+msgstr "sem assunto"
+
+msgid "Set Category"
+msgstr "Definir categoria"
+
+msgid "Pop-Out"
+msgstr "Pop-out"
+
+msgid "Mark Read"
+msgstr "Marcar como lida"
+
+msgid "Mark Unread"
+msgstr "Marcar como não lida"
+
+msgid "New mail"
+msgstr "Nova mensagem"
+
+msgid "Mail"
+msgstr "Correio"
+
+msgid "Reply all"
+msgstr "Responder a todos"
+
+msgid "Toggle read/unread"
+msgstr "Marcar lida/por ler"
+
+msgid "Toggle red/complete flag"
+msgstr "Marcar bandeira vermelha/completa"
+
+msgid "Open Shared Mails"
+msgstr "Abrir caixas partilhadas"
+
+msgid "Print single email"
+msgstr "Imprimir só uma mensagem"
+
+msgid "Print selected email"
+msgstr "Imprimir item selecionado"
+
+msgid "Filter"
+msgstr "Filtrar"
+
+msgid "FW"
+msgstr "FW"
+
+msgid "RE"
+msgstr "RE"
+
+msgid "on behalf of"
+msgstr ""
+
+msgid "Safe Senders list is empty"
+msgstr "Lista de remetentes seguros vazia"
+
+msgid "Please select a safe sender record."
+msgstr "Por favor selecione um registo de um remetente seguro."
+
+msgid "Delete all safe senders"
+msgstr "Apagar todos os remetentes seguros"
+
+msgid "Are you sure you want to delete all safe senders?"
+msgstr "Tem a certeza que pretende apagar todos os remetentes seguros?"
+
+msgid "HTML"
+msgstr "HTML"
+
+msgid "Plain Text"
+msgstr "Texto simples"
+
+msgid "Compose mail settings"
+msgstr "Definições de composição de E-mail"
+
+msgid "Compose mail in this format"
+msgstr "Formatar mensagem como"
+
+msgid "Default font"
+msgstr "Tipo de letra por defeito"
+
+msgid "Default font size"
+msgstr "Tamanho da letra por defeito"
+
+msgid "Always request a read receipt"
+msgstr "Enviar sempre um pedido de recibo de leitura"
+
+#. TRANSLATORS: The {A} _must_ always be at the start of the translation
+#. The '{B}' represents the number of minutes which the user will type in.
+msgid "{A}AutoSave unsent mail every {B} minute(s)"
+msgstr "{A}Gravar automaticamente E-mails por enviar a cada {B} minuto(s)"
+
+msgid "Conversation view settings"
+msgstr "Definições da vista de conversa"
+
+msgid "Enable conversation view"
+msgstr "Ativar vista de conversação"
+
+msgid "Collapse conversation when selecting a different email"
+msgstr "Colapsar a conversa quando é selecionado uma mensagem diferente"
+
+msgid "Incoming mail"
+msgstr "Mensagem de entrada"
+
+msgid "How to respond to requests for read receipts"
+msgstr "Como responder aos pedidos de recibo de leitura"
+
+msgid "Always send a response"
+msgstr "Enviar sempre uma resposta"
+
+msgid "Never send a response"
+msgstr "Nunca enviar uma resposta"
+
+msgid "Ask me before sending a response"
+msgstr "Perguntar sempre antes de enviar uma resposta"
+
+#. TRANSLATORS: The {A} _must_ always be at the start of the translation
+#. The '{B}' represents the number of seconds which the user will type in.
+msgid "{A}Automatically mark mail as read after {B} second(s)"
+msgstr "{A}Marcar automaticamente os E-mails como lidos após {B} segundo(s)"
+
+msgid "Off"
+msgstr "Desligado"
+
+msgid "Right"
+msgstr "À direita"
+
+msgid "Bottom"
+msgstr "Na parte inferior"
+
+msgid "Location of preview pane"
+msgstr "Localização do painel de leitura"
+
+msgid "Use English abbreviations for forward (FW:) and reply (RE:)"
+msgstr "Usar abreviações inglesas para reencaminhar (FW:) e responder (RE:)"
+
+msgid "Close original message on reply or forward"
+msgstr "Fechar mensagem original ao responder ou reencaminhar"
+
+msgid "General mail settings"
+msgstr "Definições de E-mail gerais"
+
+msgid "Open or compose a mail item in a"
+msgstr "Abrir ou compor um item de E-mail em"
+
+msgid "grommunio Web tab"
+msgstr "Aba grommunio Web"
+
+msgid "Browser window"
+msgstr "Nova janela"
+
+msgid "Update Out of Office settings for"
+msgstr "Atualizar definições Fora do escritório para"
+
+msgid "I am currently in the office"
+msgstr "Estou no escritório neste momento"
+
+msgid "I am out of the office from"
+msgstr "Estou ausente do escritório de"
+
+msgid "I will be back on"
+msgstr "Volto em"
+
+msgid "Automatically reply once per day, per sender with the following text"
+msgstr ""
+"Responder automaticamente somente uma vez para cada remetente com o seguinte "
+"texto"
+
+msgid "Inside My Organization"
+msgstr ""
+
+msgid "Outside My Organization"
+msgstr ""
+
+msgid "Auto-reply to people outside my organization"
+msgstr ""
+
+msgid "My contacts only"
+msgstr ""
+
+msgid "Anyone outside my organization"
+msgstr ""
+
+msgid ""
+"The time you entered is before the out of office date. Please reschedule."
+msgstr "A data que inseriu é antes da data de \"fora de escritório\" definida."
+
+msgid "Safe Senders"
+msgstr "Remetentes seguros"
+
+msgid ""
+"To protect your privacy email addresses or domains can only be added via the "
+"\"Add to safe sender list\" functionality in an opened email."
+msgstr ""
+"Para proteger a sua privacidade, endereços de email ou domínios só podem ser "
+"adicionados através da função \"Adicionar à lista de remetentes seguros\" "
+"numa mensagem aberta."
+
+msgid "Delete all"
+msgstr "Apagar todas"
+
+msgid "Signatures"
+msgstr "Assinaturas"
+
+msgid "No signatures configured"
+msgstr "Sem assinaturas configuradas"
+
+msgid "New messages"
+msgstr "Novas mensagens"
+
+msgid "Replies/forwards"
+msgstr "Respostas/reencaminhamentos"
+
+msgid "Signature name:"
+msgstr "Nome da assinatura:"
+
+msgid "Save Signature"
+msgstr "Assinaturas"
+
+msgid "You have unsaved changes. Do you wish to save the changes?"
+msgstr "Existem alterações por gravar. Deseja gravar estas alterações?"
+
+msgid "New signature"
+msgstr "Nova assinatura"
+
+msgid "EML file(s)"
+msgstr "Ficheiros(s) EML"
+
+msgid "ZIP file"
+msgstr "Ficheiro ZIP"
+
+msgid "max. "
+msgstr "max. "
+
+msgid "Sort by: Sent"
+msgstr "Ordenar por: Enviado"
+
+msgid "Modified"
+msgstr "Modificado"
+
+msgid "Sort by: Modified"
+msgstr "Ordenar por: Modificado"
+
+msgid "Flag"
+msgstr "Marcar bandeira"
+
+msgid "Sort by: flag"
+msgstr "Ordenar por: bandeira"
+
+msgid "Older"
+msgstr "Antigo"
+
+msgid "Yesterday"
+msgstr "Ontem"
+
+msgid "Last Week"
+msgstr "Na semana passada"
+
+msgid "Two Weeks Ago"
+msgstr "Duas semanas antes"
+
+msgid "Three Weeks Ago"
+msgstr "Três semanas antes"
+
+msgid "Last Month"
+msgstr "No mês passado"
+
+msgid "Small"
+msgstr "Pequeno"
+
+msgid "Medium"
+msgstr "Médio"
+
+msgid "Large"
+msgstr "Grande"
+
+msgid "Very large"
+msgstr "muito grande"
+
+msgid "Huge"
+msgstr "Enorme"
+
+msgid "Follow up"
+msgstr "Seguir"
+
+msgid "Move to Junk Folder"
+msgstr "Mover para Spam"
+
+msgid "Send to"
+msgstr "Enviar para"
+
+msgid "Loading mail"
+msgstr "A Carregar mensagens"
+
+msgid "No unread mail."
+msgstr "Sem mensagens por ler."
+
+msgid "Unread Mail"
+msgstr "Mensagens por ler"
+
+msgid "Quick Mail"
+msgstr "Mensagem rápida"
+
+msgid "Print note"
+msgstr "Imprimir esta nota"
+
+msgid "Color"
+msgstr "Cor"
+
+msgid "New note"
+msgstr "Nova nota"
+
+msgid "Open Shared Notes"
+msgstr "Abrir Notas partilhadas"
+
+msgid "Sticky note"
+msgstr "Nota adesiva"
+
+msgid "Print selected note"
+msgstr "Imprimir nota selecionada"
+
+msgid "No note selected"
+msgstr "Nenhuma nota selecionada"
+
+msgid "Icons"
+msgstr "Ícones"
+
+msgid "List view"
+msgstr "Ver em lista"
+
+msgid "List Last Seven Days"
+msgstr "Visualizar últimos sete dias"
+
+msgid "Created"
+msgstr "Criado"
+
+msgid "Sort by: Created"
+msgstr "Ordenar por: Criado"
+
+msgid "Sort by: Color"
+msgstr "Ordenar por: Cor"
+
+msgid "Loading Notes"
+msgstr "A carregar Notas"
+
+msgid "Loading notes"
+msgstr "A carregar notas"
+
+msgid "Quick Note"
+msgstr "Nota rápida"
+
+msgid ""
+"You must reload grommunio Web for the changes to take effect. Unsaved "
+"changes will be lost."
+msgstr ""
+"É necessário reiniciar a grommunio Web para que as alterações possam ser "
+"aplicadas. Alterações por gravar serão perdidas."
+
+msgid "Reload grommunio Web"
+msgstr "Reiniciar grommunio Web"
+
+msgid "Settings"
+msgstr "Definições"
+
+msgid "Basic"
+msgstr "Básico"
+
+msgid "Account information - {0}"
+msgstr ""
+
+msgid "Profile Picture"
+msgstr ""
+
+msgid "Language"
+msgstr "Idioma"
+
+msgid "Startup folder"
+msgstr "Pasta inicial"
+
+msgid "Theme"
+msgstr "Tema"
+
+msgid "Select Default Folder"
+msgstr "Selecionar pasta por defeito"
+
+msgid "Advanced"
+msgstr "Avançadas"
+
+msgid "Advanced settings"
+msgstr "Definições avançadas"
+
+msgid "Developer tools"
+msgstr "Ferramentas de desenvolvimento"
+
+msgid "Show insertion points in grommunio Web"
+msgstr "Mostrar pontos de entrada na grommunio Web"
+
+msgid "Show \"item data\" button in context menu (mail only)"
+msgstr "Mostrar botão \"Dados do item\" no menu de contexto (só em Correio)"
+
+msgid "Edit setting"
+msgstr "Editar definições"
+
+msgid "Restore to defaults"
+msgstr "Repor valores originais"
+
+msgid "Delete settings"
+msgstr "Eliminar definições"
+
+msgid "{0} Iconset"
+msgstr "{0} conjunto Ícones"
+
+msgid "About"
+msgstr "Acerca"
+
+msgid "I want to display date and time in this format:"
+msgstr "Quero mostar a hora e data neste formato:"
+
+msgid "Short"
+msgstr "Abreviada"
+
+msgid "Long"
+msgstr "Completa"
+
+msgid "Time format:"
+msgstr "Formatação da hora:"
+
+msgid "12h clock"
+msgstr "Relógio 12h"
+
+msgid "24h clock"
+msgstr "Relógio 24h"
+
+msgid "Favorite settings"
+msgstr "Definições de favoritos"
+
+msgid "Hide favorites"
+msgstr "Esconder Favoritos"
+
+msgid "Unpin favorites from top"
+msgstr "Desprender os favoritos do topo"
+
+msgid "Give unread items a colored border"
+msgstr "Usar um rebordo colorido nos itens por ler"
+
+msgid "Show 'help' button in top-right corner"
+msgstr "Mostrar botão \"Ajuda\" no canto superior direito"
+
+msgid "Show unread mail counter in application title"
+msgstr "Mostrar número de mensagens por ler no título da aplicação"
+
+msgid "Hide widget panel"
+msgstr "Esconder painel dos widgets"
+
+msgid "Show search bar above folder list"
+msgstr "Mostrar barra de procura em cima da lista de pastas"
+
+msgid "Auto"
+msgstr "Automático"
+
+msgid "Actual size"
+msgstr "Tamanho real"
+
+msgid "Page width"
+msgstr "Largura da página"
+
+msgid "Attachment preview (PDF and Open formats)"
+msgstr "Pré-visualizar anexo (PDF e formatos \"Open\")"
+
+msgid "Document default zoom"
+msgstr "Zoom por defeito do documento"
+
+msgid "PDF zoom"
+msgstr "PDF zoom"
+
+msgid "File previewing"
+msgstr "Pré-visualização de ficheiros"
+
+msgid "Inbox navigation"
+msgstr "Navegação na Caixa de Entrada"
+
+msgid "I want to navigate through my items by using."
+msgstr "Quero percorrer os itens usando."
+
+msgid "Infinite Scroll"
+msgstr "Percorrer infinitamente"
+
+msgid "grommunio Web automatically loads additional items when you scroll down"
+msgstr "grommunio Web carrega itens adicionais à medida que navega"
+
+msgid "Pagination"
+msgstr "Paginação"
+
+msgid ""
+"grommunio Web displays items on pages and you can use navigation controls to "
+"navigate"
+msgstr ""
+"A grommunio Web mostra os itens por página e pode percorrê-los através dos "
+"botões de navegação"
+
+msgid "Load items in blocks of {A}"
+msgstr "Carregar itens em blocos de {A}"
+
+msgid "Load {A} items per page."
+msgstr "Carregar {A} itens por página."
+
+msgid "Keyboard Shortcuts"
+msgstr "Atalhos teclado"
+
+msgid "Part of basic keyboard shortcuts"
+msgstr "Parte de atalhos teclado básicos"
+
+msgid "Keyboard shortcuts off"
+msgstr "Atalhos teclado desligados"
+
+msgid "Basic keyboard shortcuts on"
+msgstr "Atalhos teclado básicos ligados"
+
+msgid "All keyboard shortcuts on"
+msgstr "Todos atalhos teclado ligados"
+
+msgid "This change requires a reload of grommunio Web"
+msgstr ""
+
+msgid "Plugins"
+msgstr "Plugins"
+
+msgid "Available plugins"
+msgstr "Plugins disponíveis"
+
+msgid "No plugins available"
+msgstr "Nenhum plugin disponível"
+
+msgid "Version"
+msgstr "Versão"
+
+msgid "This plugin cannot be disabled"
+msgstr "Este plugin não pode ser desativado"
+
+msgid "This plugin cannot be enabled"
+msgstr "Este plugin não pode ser ativado"
+
+msgid "Mailbox Usage"
+msgstr "Ocupação da caixa de correio"
+
+msgid "A quota is not set on your store."
+msgstr "Não foi definida nenhuma quota para a sua caixa."
+
+msgid "{0} of mailbox space is used."
+msgstr "{0} da caixa de correio usada."
+
+msgid "You have exceeded hard quota, you can not send or receive mails."
+msgstr "Excedeu a sua quota limite. Não pode enviar nem receber E-mails."
+
+msgid "At {0} you won't be able to send mails."
+msgstr "A partir de {0} não vai conseguir enviar E-mails."
+
+msgid ""
+"You can not send mails as you have exceeded soft quota, at {0} you won't be "
+"able to receive mails."
+msgstr ""
+"Não pode enviar E-mails pois excedeu a sua quota de aviso. A partir de {0} "
+"deixará de receber E-mails."
+
+msgid "At {0} you won't be able to send or receive mails."
+msgstr "A partir de {0} vai deixar de poder enviar e receber E-mails."
+
+msgid "You can not send mails as you have exceeded soft quota."
+msgstr "Não pode enviar E-mails pois excedeu a quota de aviso."
+
+msgid "Reset settings"
+msgstr "Limpar definições"
+
+msgid "Reset settings to their original defaults."
+msgstr "Limpar as definições para o valores originais."
+
+msgid ""
+"This will close all opened shared stores and resets all settings to the "
+"default value."
+msgstr ""
+"Isto irá fechar todas as caixas partilhadas e limpar todas as definições "
+"para os valores originais."
+
+msgid ""
+"grommunio Web will automatically reload in order for these changes to take "
+"effect"
+msgstr ""
+"A grommunio Web vai reiniciar automaticamente para que as alterações possam "
+"ser aplicadas"
+
+msgid "Reset"
+msgstr "Reset"
+
+msgid "Reloading, Please wait."
+msgstr "A reiniciar... Por favor aguarde."
+
+msgid "Setting"
+msgstr "Definição"
+
+msgid "The setting '{0}' can not be edited"
+msgstr "A definição '{0}' não pode ser editada"
+
+msgid "Version information"
+msgstr "Informação sobre versão"
+
+msgid "Gromox"
+msgstr "Gromox"
+
+msgid "Delete confirmation"
+msgstr "Confirmar remoção"
+
+msgid "Deleting the item(s) will also delete the original item(s)."
+msgstr "Apagar este item(s) também irá a pagar o item(s) original."
+
+msgid "Do you want to delete the item(s)?"
+msgstr "Tem certeza que quer apagar os itens?"
+
+msgid "Sort by: Priority"
+msgstr "Ordenar por: Prioridade"
+
+msgid "Status"
+msgstr "Estado"
+
+msgid "Sort by: Status"
+msgstr "Ordenar por: Estado"
+
+msgid "Due Date"
+msgstr "Data de término"
+
+msgid "Sort by: Due Date"
+msgstr "Ordenar por: Data de término"
+
+msgid "% Completed"
+msgstr "% Completada"
+
+msgid "Sort by: Percent Completed"
+msgstr "Ordenar por: Percentagem Completa"
+
+msgid "Task Status"
+msgstr "Estado da Tarefa"
+
+msgid "Percent Complete"
+msgstr "Percentagem Completa"
+
+msgid "Total Work"
+msgstr "Trabalho Total"
+
+msgid "Actual Work"
+msgstr "Trabalho Efetivo"
+
+msgid "Companies"
+msgstr "Empresas"
+
+msgid "Billing Information"
+msgstr "Informação de faturação"
+
+msgid "Mileage"
+msgstr "Distância"
+
+msgid "Accepting Task"
+msgstr "Aceitação de Tarefa"
+
+msgid "Declining Task"
+msgstr "Recusa de Tarefa"
+
+msgid ""
+"This task will be accepted and moved to your task folder. Do you want to "
+"include comments with your response?"
+msgstr ""
+"Esta tarefa vai ser aceite e movida para a pasta das tarefas. Quer incluir "
+"comentários com a sua resposta?"
+
+msgid ""
+"This task will be declined and moved into the Deleted Items folder. Do you "
+"want to edit the response before sending it?"
+msgstr ""
+"Esta tarefa vai ser recusada e movida para a pasta Itens Eliminados. Quer "
+"editar a resposta antes de enviar?"
+
+msgid "Send the response now"
+msgstr "Enviar resposta agora"
+
+msgid "Date Complete"
+msgstr "Data completa"
+
+msgid "Multiple companies name must be separated by"
+msgstr "Vários nomes de empresas têm que ser separados por"
+
+msgid "Update List"
+msgstr "Atualizar lista"
+
+msgid "Create Unassigned Copy"
+msgstr "Criar cópia por atribuir"
+
+msgid "copy"
+msgstr "cópia"
+
+msgid "Unable to send task request"
+msgstr "Não foi possível enviar o pedido de tarefa"
+
+msgid "You cannot send a task request to yourself."
+msgstr "Não é possível enviar um pedido de tarefa para o próprio."
+
+msgid "Multiple recipients"
+msgstr "Múltiplos destinatários"
+
+msgid "A task request can only have one recipient."
+msgstr "Um pedido de tarefa só pode ter um destinatário."
+
+msgid "Due date"
+msgstr "Data de término"
+
+msgid "Priority"
+msgstr "Prioridade"
+
+msgid "% Complete"
+msgstr "% Completa"
+
+msgid "Track progress"
+msgstr "Ver progresso"
+
+msgid "Keep updated copy of task and receive automated status reports"
+msgstr ""
+"Manter cópia atualizada da tarefa e receber notificações de estado "
+"automáticos"
+
+msgid "Send task to assignees"
+msgstr "Enviar tarefa aos destinatários"
+
+msgid "Restore to Task List"
+msgstr "Restaurar para Lista de Tarefas"
+
+msgid "Delete this task"
+msgstr "Eliminar esta tarefa"
+
+msgid "Add attachments to this task"
+msgstr "Adicionar anexos a esta tarefa"
+
+msgid "Mark as Complete"
+msgstr "Marcar como completa"
+
+msgid "Mark this task as complete"
+msgstr "Marcar esta tarefa como completa"
+
+msgid "Print this task"
+msgstr "Imprimir esta tarefa"
+
+msgid "Assign Task"
+msgstr "Atribuir tarefa"
+
+msgid "Cancel Assignment"
+msgstr "Cancelar atribuição"
+
+msgid "Mark this task as private"
+msgstr "Marcar tarefa como privada"
+
+msgid "New task"
+msgstr "Nova tarefa"
+
+msgid "Completed"
+msgstr "Completo"
+
+msgid "Printed by: "
+msgstr "Impresso por: "
+
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
+msgid "Printed on: "
+msgstr "Impresso em: "
+
+msgid "Percent complete"
+msgstr "Percentagem completa"
+
+msgid "Total work"
+msgstr "Trabalho total"
+
+msgid "{totalwork} hours"
+msgstr "{totalwork} horas"
+
+msgid "Actual work"
+msgstr "Trabalho efetivo"
+
+msgid "{actualwork} hours"
+msgstr "{actualwork} horas"
+
+msgid "Open Shared Tasks"
+msgstr "Abrir Tarefas partilhadas"
+
+msgid "Simple view"
+msgstr "Visita simples"
+
+msgid "Detailed view"
+msgstr "Vista detalhada"
+
+msgid "Task request"
+msgstr "Pedido de tarefa"
+
+msgid "Print selected task"
+msgstr "Imprimir tarefa selecionada"
+
+msgid "No task selected"
+msgstr "Nenhuma tarefa selecionada"
+
+msgid "Print task list"
+msgstr "Imprimir lista de tarefas"
+
+msgid "Create task"
+msgstr "Criar tarefa"
+
+msgid "Upcoming"
+msgstr "Próximas"
+
+msgid "Overdue"
+msgstr "Em atraso"
+
+msgid "Mark Complete"
+msgstr "Assinalar Completa"
+
+msgid "Mark Incomplete"
+msgstr "Assinalar Incompleta"
+
+msgid "Remove from To-Do List"
+msgstr "Remover da Lista Ações a fazer"
+
+msgid "Changes to assigned task"
+msgstr "Alterações à tarefa atribuída"
+
+msgid ""
+"Please note that assigned task(s) will be overwritten when the assignee "
+"makes changes."
+msgstr ""
+"As tarefas que estão atribuídas serão modificadas quando o respetivo "
+"utilizador proceder a alterações."
+
+msgid "Sort by: Complete"
+msgstr "Ordenar por: Completo"
+
+msgid "Reminder Time"
+msgstr "Hora Lembrete"
+
+msgid "Sort by: Reminder Time"
+msgstr "Ordenar por: Hora Lembrete"
+
+msgid "Assigned To"
+msgstr "Atribuído a"
+
+msgid "Sort by: Assignee"
+msgstr "Ordenar por: Atribuído"
+
+msgid "Sort by: Owner"
+msgstr "Ordenar por: Proprietário"
+
+msgid "Sort by: Percentage Completed"
+msgstr "Ordenar por: Percentagem Completa"
+
+msgid "Assigned task changes"
+msgstr "Alterações à tarefa atribuída"
+
+msgid "Loading tasks"
+msgstr "A Carregar Tarefas"
+
+msgid "Date completed"
+msgstr "Data término"
+
+msgid "hours"
+msgstr "horas"
+
+msgid "Billing information"
+msgstr "Informação de faturação"
+
+msgid "Update list"
+msgstr "Atualizar lista"
+
+msgid "D d-m-Y"
+msgstr "D d-m-Y"
+
+msgid "none"
+msgstr "nenhum"
+
+msgid "Quick Task"
+msgstr "Tarefa rápida"
+
+msgid "No tasks."
+msgstr "Sem tarefas."
+
+msgid "Tasks / To-Do"
+msgstr "Tarefas a fazer"
+
+msgid "Import / Export"
+msgstr "Importar / Exportar"
+
+msgid ""
+"Calendar, contact and mail items can be imported and exported from and to "
+"grommunio Web."
+msgstr ""
+"Itens de Calendário, Contactos e Correio podem ser importados e exportados "
+"para a e da grommunio Web."
+
+msgid ""
+"Right-click a folder and select the import button. Additionally, items can "
+"be imported from the attachment context menu."
+msgstr ""
+"Use o botão direito numa pasta e selecione o botão de importar. "
+"Adicionalmente podem ser importados itens do menu de contexto dos anexos."
+
+msgid "Exporting can be done from the context menu of an item."
+msgstr "Exportar pode ser realizado do menu de contexto de um item."
+
+msgid "Icon packs"
+msgstr "Pacote de ícones"
+
+msgid ""
+"You can now choose between different icons. By default the new Breeze icons "
+"are enabled, but if you prefer the classic icons you can change this in the "
+"settings."
+msgstr ""
+"Agora pode escolher entre diferentes ícones. Por defeito os novos ícones "
+"Breeze estão ativos, mas se preferir os ícones clássicos pode alterar nas "
+"definições."
+
+msgid ""
+"Go to your settings, open the general tab and select an icon pack to your "
+"liking."
+msgstr ""
+"Vá às definições, e na aba Geral selecione o pacote de ícones que desejar."
+
+msgid "Left: Breeze - Right: Classic"
+msgstr "Esquerda: Breeze - Direita: Clássico"
+
+msgid "What's new"
+msgstr "Novidades"
+
+msgid "Don't show me new features again."
+msgstr "Não voltar a mostar novas funcionalidades."
+
+msgid "Skip"
+msgstr "Saltar"
+
+msgid "Previous"
+msgstr "Anterior"
+
+msgid "Next"
+msgstr "Seguinte"
+
+msgid "Click the link to open the URL in a new window."
+msgstr "Este Link vai abrir numa nova janela."
+
+msgid "The server reported an unknown error on your request."
+msgstr "O servidor retornou um erro desconhecido no pedido."
+
+msgid "The server reported an unspecified error on your request."
+msgstr "O servidor retornou um erro não definido no pedido."
+
+msgid "The session has expired, reauthentication is required."
+msgstr "A sessão expirou. É necessário voltar a autenticar-se."
+
+msgid ""
+"The session in the current browser window has been closed from another "
+"browser window or tab."
+msgstr "A sessão desta janela foi terminada noutra janela ou aba."
+
+msgid "Session expired"
+msgstr "Sessão expirou"
+
+msgid "Do you wish to be redirected to the logon page?"
+msgstr "Deseja ser redirecionado para a página de login?"
+
+msgid "Reauthentication required, click here to go to back to logon page."
+msgstr ""
+"É necessário voltar a autenticar-se. clique aqui para voltar à página de "
+"login."
+
+msgid "Connection problem"
+msgstr "Erro ligação"
+
+msgid "Could not connect to server, retrying in {0} second(s)"
+msgstr "Não foi possível ligar ao servidor. Tentar em {0} segundo(s)"
+
+msgid "Click to retry now"
+msgstr "Clique para tentar agora"
+
+msgid "Connection restored"
+msgstr "Ligação reposta"
+
+msgid "Connection with server has been restored"
+msgstr "A ligação com o servidor foi reposta"
+
+#. TRANSLATORS: Example: HTTP 404
+msgid "HTTP {0}"
+msgstr ""
+
+msgid "Invalid data received from the server"
+msgstr ""
+
+msgid "Missing store"
+msgstr "Caixa não encontrada"
+
+msgid "The default store is missing from the hierarchy."
+msgstr "A caixa por defeito não existe no Painel de Navegação."
+
+msgid ""
+"Not all functionality of grommunio Web might be working properly because of "
+"this."
+msgstr ""
+"Nem todas as funcionalidades da grommunio Web poderão funcionar devido a "
+"isso."
+
+msgctxt "hierarchy.foldername"
+msgid "Inbox"
+msgstr "Caixa de Entrada"
+
+msgctxt "hierarchy.foldername"
+msgid "Outbox"
+msgstr "Caixa de Saída"
+
+msgctxt "hierarchy.foldername"
+msgid "Sent Items"
+msgstr "Itens enviados"
+
+msgctxt "hierarchy.foldername"
+msgid "Deleted items"
+msgstr "Itens Eliminados"
+
+msgctxt "hierarchy.foldername"
+msgid "Calendar"
+msgstr "Calendário"
+
+msgctxt "hierarchy.foldername"
+msgid "Contacts"
+msgstr "Contactos"
+
+msgctxt "hierarchy.foldername"
+msgid "Drafts"
+msgstr "Rascunhos"
+
+msgctxt "hierarchy.foldername"
+msgid "Journal"
+msgstr "Diário"
+
+msgctxt "hierarchy.foldername"
+msgid "Notes"
+msgstr "Notas"
+
+msgctxt "hierarchy.foldername"
+msgid "Tasks"
+msgstr "Tarefas"
+
+msgctxt "hierarchy.foldername"
+msgid "Junk Email"
+msgstr "E-mail de SPAM"
+
+msgid "Missing folders"
+msgstr "Pastas inexistentes"
+
+msgid "The following required folder is missing in the hierarchy: {0}"
+msgid_plural "The following required folders are missing in the hierarchy: {0}"
+msgstr[0] "A seguinte pasta necessária está em falta na lista: {0}"
+msgstr[1] "As seguintes pastas necessárias estão em falta na lista: {0}"
+
+msgid "Loading model from server failed"
+msgstr "Falhou a carregar modelo do servidor"
+
+msgid "Out of Office is currently activated. Would you like to turn it off?"
+msgstr "\"Fora do escritório\" está atualmente ativo. Deseja desativar?"
+
+msgid "Open Chat at start"
+msgstr ""
+
+msgid "Desktop Notifications Plugin"
+msgstr ""
+
+msgid "Desktop Notifications"
+msgstr ""
+
+msgid "{A} Autohide desktop notification after second(s) {B}"
+msgstr ""
+
+msgid "Intranet"
+msgstr ""
+
+msgid "Email Details"
+msgstr ""
+
+msgid "Item Data"
+msgstr ""
+
+msgid "Mobile Device Manager"
+msgstr ""
+
+msgid "Wiping device"
+msgstr ""
+
+msgid "Password incorrect"
+msgstr ""
+
+msgid "Full resync in progress"
+msgstr ""
+
+msgid "Username or password incorrect"
+msgstr ""
+
+msgid "Not Applicable"
+msgstr ""
+
+msgid "Wipe Pending"
+msgstr ""
+
+msgid "Wipe Requested"
+msgstr ""
+
+msgid "Wipe Executed"
+msgstr ""
+
+msgid "Not Available"
+msgstr ""
+
+msgid "Device"
+msgstr ""
+
+msgid "Operating System"
+msgstr ""
+
+msgid "ID"
+msgstr ""
+
+msgid "User Agent"
+msgstr ""
+
+msgid "MDM Plugin"
+msgstr ""
+
+msgid "Active Sync Version"
+msgstr ""
+
+msgid "grommunio-sync Version"
+msgstr ""
+
+msgid "Policy name"
+msgstr ""
+
+msgid "Outlook Extension"
+msgstr ""
+
+msgid "Build"
+msgstr ""
+
+msgid "Last updated"
+msgstr ""
+
+msgid "d F Y, H:i"
+msgstr ""
+
+msgid "Connected since"
+msgstr ""
+
+msgid "d F Y"
+msgstr ""
+
+msgid "Synchronize"
+msgstr ""
+
+msgid "Manage Shared Folders"
+msgstr ""
+
+msgid ""
+"Select folders to sync to your device from the list below. To add additional "
+"mailboxes to the list, open them in WebApp first."
+msgstr ""
+
+msgid "grommunio-sync"
+msgstr ""
+
+msgid "Mobile device management"
+msgstr ""
+
+msgid "Mobile Devices"
+msgstr ""
+
+msgid ""
+"Unable to connect to the grommunio-sync server. Click {0} to enter your "
+"credentials"
+msgstr ""
+
+msgid "Devices"
+msgstr ""
+
+msgid "No devices connected to your account"
+msgstr ""
+
+msgid "Last Update"
+msgstr ""
+
+msgid "Device ID"
+msgstr ""
+
+msgid "Device OS"
+msgstr ""
+
+msgid "Device Info"
+msgstr ""
+
+msgid "First Sync time"
+msgstr ""
+
+msgid "Full resync"
+msgstr ""
+
+msgid "Remove device"
+msgstr ""
+
+msgid "Please enter your username and password"
+msgstr ""
+
+msgid "Password"
+msgstr "Senha"
+
+msgid "Username"
+msgstr "Utilizador"
+
+msgid ""
+"Do you really want to wipe your device?\n"
+" Enter your password to confirm."
+msgstr ""
+
+msgid "Add meeting"
+msgstr ""
+
+msgid "Room name:"
+msgstr ""
+
+msgid "Room URL:"
+msgstr ""
+
+msgid "Shift-click for advanced settings"
+msgstr ""
+
+msgid "Join webmeeting"
+msgstr ""
+
+msgid "Open meeting in:"
+msgstr ""
+
+msgid "Web tab"
+msgstr ""
+
+msgid "Hide the button in the main toolbar"
+msgstr ""
+
+msgid "Add the subject to the room name"
+msgstr ""
+
+msgid "Add the organizer name to the room name"
+msgstr ""
+
+msgid "Add the URL to the meeting location rather than overwriting it"
+msgstr ""
+
+msgid ""
+"Prevent the URL in the meeting location from being overridden automatically "
+"(ex: when adding a meetingroom)"
+msgstr ""
+
+msgid "If you have problems when creating meetings, try disabling this setting"
+msgstr ""
+
+msgid "Add an invitation to the appointment description"
+msgstr ""
+
+msgid "Invitation text"
+msgstr ""
+
+msgid ""
+"must contain %url% as a placeholder for the meeting link, empty the textbox "
+"to reset to default"
+msgstr ""
+
+msgid "An unknown error occurred while changing password."
+msgstr ""
+
+msgid "Password is changed successfully."
+msgstr ""
+
+msgid "Success"
+msgstr ""
+
+msgid "Change Password"
+msgstr ""
+
+msgid "Current password"
+msgstr ""
+
+msgid "New password"
+msgstr ""
+
+msgid "Retype new password"
+msgstr ""
+
+msgid "New passwords do not match."
+msgstr ""
+
+msgid "Current password is empty."
+msgstr ""
+
+msgid "New password is empty."
+msgstr ""
+
+msgid "One or more fields does contain errors."
+msgstr ""
+
+msgid ""
+"Password is weak. Password should contain capital, non-capital letters and "
+"numbers. Password should have 8 to 20 characters."
+msgstr ""
+
+msgid "Charm pink"
+msgstr "Rosa charmoso"
+
+msgid "Cadmium red"
+msgstr "Vermelho Cádmio"
+
+msgid "Apricot"
+msgstr "Alperce"
+
+msgid "California"
+msgstr "Califórnia"
+
+msgid "Soft green"
+msgstr "Verde suave"
+
+msgid "Mint"
+msgstr "Menta"
+
+msgid "Pearl aqua"
+msgstr "Pérola água"
+
+msgid "Grommunio blue"
+msgstr ""
+
+msgid "Baby blue"
+msgstr "Azul-bebé"
+
+msgid "Mauve"
+msgstr "Malva"
+
+msgid "Silver sand"
+msgstr "Areia prateada"
+
+msgid "Competition"
+msgstr "Completo"
+
+msgid "Gifts"
+msgstr "Prendas"
+
+msgid "Goals/Objectives"
+msgstr "Objetivos"
+
+msgid "Holiday Cards"
+msgstr "Cartões de feriado"
+
+msgid "Hot Contacts"
+msgstr "Contactos importantes"
+
+msgid "Ideas"
+msgstr "Ideias"
+
+msgid "International"
+msgstr "Internacional"
+
+msgid "Key Customer"
+msgstr "Cliente chave"
+
+msgid "Miscellaneous"
+msgstr "Vários"
+
+msgid "Phone Calls"
+msgstr "Chamadas telefónicas"
+
+msgid "Strategies"
+msgstr "Estratégias"
+
+msgid "Suppliers"
+msgstr "Fornecedores"
+
+msgid "Time & Expenses"
+msgstr "Tempo & Despesas"
+
+msgid "VIP"
+msgstr "VIP"
+
+msgid "Waiting"
+msgstr "Em espera"
+
+msgid "You have been automatically logged out"
+msgstr "A sessão foi automaticamente terminada"
+
+msgid ""
+"Sorry, access to grommunio Web is not available with this user account. "
+"Please contact your system administrator."
+msgstr ""
+"Infelizmente o acesso à Webapp não está disponível para a conta deste "
+"utilizador. Por favor contacte o seu administrador de sistema."
+
+msgid "Mobile device management plugin"
+msgstr ""
+
+#, php-format
+msgid ""
+"Unexpected error occurred. Please contact your system administrator. Error "
+"code: %s"
+msgstr ""
+
+msgid "No data received."
+msgstr ""
+
+msgid "Account is empty."
+msgstr ""
+
+msgid "Current password does not match."
+msgstr ""
+
+msgid ""
+"Your password is wrong or you have insufficent permission to change password"
+msgstr ""
+
+msgid "Password is not changed."
+msgstr ""
+
+msgid "Error changing password. Please contact the system administrator."
+msgstr ""
+
+msgid "Password has been changed successfully."
+msgstr ""
+
+msgid "Can't add data to bus, same action type is present in bus"
+msgstr ""
+
+msgid "Response data requested from bus but it doesn't have any data."
+msgstr ""
+
+#, php-format
+msgid "Unknown module '%s' with id '%s'"
+msgstr ""
+
+msgid ""
+"Server encountered some problem, so it was not able to handle the request."
+msgstr ""
+
+#, php-format
+msgid "Unknown notifier '%s'"
+msgstr ""
+
+msgid "An unexpected error has occurred"
+msgstr ""
+
+msgid "To-Do List"
+msgstr ""
+
+#. TRANSLATORS: This indicates that the opened folder belongs to a particular user,
+#. * for example: 'Calendar of Holiday', in this case %1$s is 'Calendar' (the foldername)
+#. * and %2$s is 'Holiday' (the username).
+#.
+#, php-format
+msgid "%1$s of %2$s"
+msgstr ""
+
+msgid "Error retrieving existing settings"
+msgstr ""
+
+msgid "Error retrieving existing persistent settings"
+msgstr ""
+
+msgid "Logon failed. Please verify your credentials and try again."
+msgstr ""
+"Início de sessão falhou. Por favor verifique o seu utilizador/password e "
+"volte a tentar."
+
+msgid "Cannot connect to Gromox."
+msgstr "Não é possível ligar ao Gromox."
+
+msgid ""
+"Login did not work due to a duplicate session. The issue was automatically "
+"resolved, please log in again."
+msgstr ""
+"Falhou o início de sessão devido a uma sessão duplicada. A situação foi "
+"resolvida automaticamente, por favor inicie sessão novamente."
+
+msgid "Unknown MAPI Error"
+msgstr "Erro MAPI desconhecido"
+
+msgid "This external link will open in a new window"
+msgstr ""
+
+msgid "Destination folder not found."
+msgstr ""
+
+msgid "Eml is corrupted"
+msgstr ""
+
+msgid "The eml Attachment is not imported successfully"
+msgstr ""
+
+msgid "The vcf attachment is not imported successfully"
+msgstr ""
+
+#, php-format
+msgid "Unable to import '%s' to '%s'. "
+msgstr "Não foi possível importar '%s' para '%s' "
+
+msgid "There is no appointment found in this file."
+msgstr "Não foi encontrado nenhum compromisso neste ficheiro."
+
+msgid "The file is corrupt."
+msgstr "O ficheiro está corrompido."
+
+msgid "The file is invalid."
+msgstr "O ficheiro é inválido."
+
+#, php-format
+msgid "Unable to import '%s'. "
+msgstr "Não foi possível importar '%s' "
+
+msgid "Please contact your system administrator if the problem persists."
+msgstr ""
+"Por favor contacte o seu administrador de sistema se o problema persistir."
+
+msgid "Attachment is not imported successfully"
+msgstr ""
+
+msgid "Embedded attachment not found."
+msgstr ""
+
+msgid "ZIP is not created successfully"
+msgstr ""
+
+msgid "Attachments can not be downloaded"
+msgstr ""
+
+msgid "Could not find attachment."
+msgstr ""
+
+msgid "Operation failed"
+msgstr ""
+
+msgid "Sticky Note"
+msgstr ""
+
+msgid "Task Request"
+msgstr ""
+
+msgid "Could not find message, either it has been moved or deleted."
+msgstr ""
+
+msgid "Request is not available."
+msgstr "O pedido não está disponível."
+
+msgid "You have insufficient privileges to open this object."
+msgstr "Não tem permissões suficientes para abrir este objeto."
+
+msgid "Logon Failed. Please check your name/password."
+msgstr ""
+"Falha ao iniciar sessão. Por favor verifique o seu utilizador/password."
+
+msgid "Can not connect to Gromox."
+msgstr "Não foi possível ligar ao Gromox."
+
+msgid "Can not open object with provided id."
+msgstr "Não foi possível abrir o objeto com o id fornecido."
+
+msgid "There are no recipients in the message."
+msgstr "Não existem destinatários na mensagem."
+
+msgid "Can not find object."
+msgstr "Objeto não encontrado."
+
+msgid "Operation failed: Server does not have enough memory."
+msgstr "Operação falhou. O servidor não tem memória suficiente."
+
+#, php-format
+msgid "Unknown MAPI Error: %s"
+msgstr "Erro MAPI desconhecido: %s"
+
+msgid "Action is not performed correctly."
+msgstr ""
+
+msgid "Tentatively accepted"
+msgstr "Aceite em modo tentativa"
+
+msgid "New Time Proposed"
+msgstr "Nova data proposta"
+
+#, php-format
+msgid "Occurs every %s effective %s from %s to %s."
+msgstr "Acontece a cada %s a partir de %s de %s até %s."
+
+#, php-format
+msgid "Occurs every %s %s effective %s from %s to %s."
+msgstr "Acontece a cada %s %s a partir de %s de %s até %s."
+
+#, php-format
+msgid "Occurs every %s effective %s."
+msgstr "Acontece a cada %s a partir de %s."
+
+#, php-format
+msgid "Occurs every %s %s effective %s."
+msgstr "Acontece a cada %s %s a partir de %s."
+
+#, php-format
+msgid "Occurs every %s effective %s for %s occurrence from %s to %s."
+msgid_plural "Occurs every %s effective %s for %s occurrences from %s to %s."
+msgstr[0] "Acontece a cada %s a partir de %s por %s vez de %s até %s."
+msgstr[1] "Acontece a cada %s a partir de %s por %s vezes de %s até %s."
+
+#, php-format
+msgid "Occurs every %s %s effective %s for %s occurrence from %s to %s."
+msgid_plural "Occurs every %s %s effective %s for %s occurrences %s to %s."
+msgstr[0] "Acontece a cada %s %s a partir de %s por %s vez de %s até %s."
+msgstr[1] "Acontece a cada %s %s a partir de %s por %s vezes de %s até %s."
+
+#, php-format
+msgid "Occurs every %s effective %s for %s occurrence."
+msgid_plural "Occurs every %s effective %s for %s occurrences."
+msgstr[0] "Acontece a cada %s a partir de %s por %s vez."
+msgstr[1] "Acontece a cada %s a partir de %s por %s vezes."
+
+#, php-format
+msgid "Occurs every %s %s effective %s for %s occurrence."
+msgid_plural "Occurs every %s %s effective %s for %s occurrences."
+msgstr[0] "Acontece a cada %s %s a partir de %s por %s vez."
+msgstr[1] "Acontece a cada %s %s a partir de %s por %s vezes."
+
+#, php-format
+msgid "Occurs every %s effective %s until %s from %s to %s."
+msgstr "Acontece %s a cada %s a partir de %s de %s até %s."
+
+#, php-format
+msgid "Occurs every %s %s effective %s until %s from %s to %s."
+msgstr "Acontece %s a cada %s %s a partir de %s de %s até %s."
+
+#, php-format
+msgid "Occurs every %s effective %s until %s."
+msgstr "Acontece a cada %s a partir de %s até %s."
+
+#, php-format
+msgid "Occurs every %s %s effective %s until %s."
+msgstr "Acontece a cada %s %s a partir de %s até %s."
+
+msgid "Task Accepted:"
+msgstr ""
+
+msgid "Task Declined:"
+msgstr ""
+
+msgid "Task Updated:"
+msgstr ""
+
+msgid "Task Completed:"
+msgstr ""
+
+msgid "Contact not found"
+msgstr ""
+
+msgid ""
+"Contact information could not be displayed because the server had trouble "
+"retrieving the information."
+msgstr ""
+
+msgid "Could not handle this type of object."
+msgstr ""
+
+msgid "Could not open this object."
+msgstr ""
+
+msgid "Error in search, please try again"
+msgstr ""
+
+msgid "Unable to perform search query, no permissions to create search folder."
+msgstr ""
+
+msgid "Unable to perform search query, search folder not found."
+msgstr ""
+
+msgid "Unable to perform search query, store might not support searching."
+msgstr ""
+
+msgid "Error in creating search folder."
+msgstr ""
+
+msgid "Could not open occurrence."
+msgstr ""
+
+msgid "Could not open occurrence, specific occurrence is probably deleted."
+msgstr ""
+
+msgid "a meeting request"
+msgstr ""
+
+msgid "an appointment"
+msgstr ""
+
+msgid "You have insufficient privileges to move "
+msgstr ""
+
+msgid ""
+"Cannot set a reminder to appear before the previous occurrence. Reset "
+"reminder to save the change"
+msgstr ""
+
+msgid "Two occurrences cannot occur on the same day"
+msgstr ""
+
+#, php-format
+msgid ""
+"You marked '%s' as a resource. You cannot schedule a meeting with '%s' "
+"because you do not have the appropiate permissions for that account. Either "
+"enter the name as a required or optional attendee or talk to your "
+"administrator about giving you permission to schedule '%s'."
+msgstr ""
+
+#, php-format
+msgid ""
+"'%s' has declined your meeting because '%s' does not automatically accept "
+"meeting requests."
+msgstr ""
+
+#, php-format
+msgid ""
+"'%s' has declined your meeting because it is recurring. You must book each "
+"meeting separately with this resource."
+msgstr ""
+
+#, php-format
+msgid ""
+"'%s' is already booked for this specified time. You must use another time or "
+"find another resource."
+msgstr ""
+
+msgid "Meeting was not scheduled."
+msgstr ""
+
+msgid "Meeting could not be sent."
+msgstr ""
+
+msgid "Meeting could not be saved."
+msgstr ""
+
+msgid "Private Appointment"
+msgstr ""
+
+#, php-format
+msgid "%s's Birthday"
+msgstr ""
+
+#, php-format
+msgid "%s's Anniversary"
+msgstr ""
+
+msgid "Unknown user/group"
+msgstr ""
+
+msgid "Could not save delegate information."
+msgstr ""
+
+msgid "Could not delete delegate."
+msgstr ""
+
+msgid "Can not get list of delegates."
+msgstr ""
+
+msgid "Could not load the hierarchy."
+msgstr ""
+
+msgid "Could not load folder properties."
+msgstr ""
+
+msgid "Could not remove folder from favorites."
+msgstr ""
+
+msgid "You have insufficient privileges to delete folder."
+msgstr ""
+
+msgid "Could not delete folder."
+msgstr ""
+
+msgid "You have insufficient privileges to copy folder."
+msgstr ""
+
+msgid "Could not copy folder."
+msgstr ""
+
+msgid "You have insufficient privileges to move this folder."
+msgstr ""
+
+msgid "Could not move folder."
+msgstr ""
+
+msgid "You have insufficient privileges to delete items."
+msgstr ""
+
+msgid "Could not empty folder."
+msgstr ""
+
+msgid "Could not perform action correctly."
+msgstr ""
+
+msgid ""
+"A favorite folder with this name already exists, please use another name."
+msgstr ""
+
+msgid "Could not add folder to favorites."
+msgstr ""
+
+msgid "You have insufficient privileges to set permissions for this folder."
+msgstr ""
+
+msgid "Could not set folder permissions."
+msgstr ""
+
+msgid "You have insufficient privileges to rename this folder."
+msgstr ""
+
+msgid "A folder with this name already exists. Use another name."
+msgstr ""
+
+msgid "Could not rename folder."
+msgstr ""
+
+msgid "You have insufficient privileges to create this folder."
+msgstr ""
+
+msgid "Could not create folder."
+msgstr ""
+
+msgid "Could not close shared folder."
+msgstr ""
+
+msgid "User could not be resolved."
+msgstr ""
+
+#, php-format
+msgid ""
+"You have insufficient privileges to open this %1$s folder. The folder owner "
+"can set these using the 'permissions'-tab of the folder properties (right "
+"click the %1$s folder > properties > permissions)."
+msgstr ""
+
+msgid "unknown"
+msgstr ""
+
+msgid "Could not move folder"
+msgstr ""
+
+msgid "Could not copy folder"
+msgstr ""
+
+msgid "You have insufficient privileges to open this message."
+msgstr ""
+
+msgid ""
+"Could not find message, either it has been moved or deleted or you don't "
+"have access to open this message."
+msgstr ""
+
+msgid "Could not open message."
+msgstr "Não foi possível abrir a mensagem."
+
+msgid "You have insufficient privileges to decline this Meeting Request"
+msgstr "Não tem permissões suficientes para recusar o pedido de Reunião"
+
+msgid "You have insufficient privileges to accept this Meeting Request"
+msgstr "Não tem permissões suficientes para aceitar o pedido de Reunião"
+
+msgid "Could not copy message"
+msgstr "Não foi possível copiar a mensagem"
+
+msgid "Could not move message"
+msgstr "Não foi possível mover a mensagem"
+
+msgid "You have insufficient privileges to save items in this folder"
+msgstr "Não tem permissões suficientes para guardar itens nesta pasta"
+
+msgid "Could not save message"
+msgstr "Não foi possível guardar a mensagem"
+
+msgid "You have insufficient privileges to remove item from the calendar."
+msgstr "Não tem permissões suficientes para eliminar item do calendário."
+
+msgid ""
+"Message is no longer in the outgoing queue, typically because it has already "
+"been sent."
+msgstr ""
+"A mensagem já não se encontra na fila de saída. Normalmente porque já foi "
+"enviada."
+
+msgid "Message cannot be aborted"
+msgstr "Mensagem não pode ser abortada"
+
+msgid "You have insufficient privileges to delete items in this folder"
+msgstr "Não tem permissões suficientes para eliminar itens nesta pasta"
+
+msgid "You have insufficient privileges to attach item as an attachment."
+msgstr "Não tem permissões suficientes para adicionar este item como anexo."
+
+msgid "Could not attach item as an attachment."
+msgstr "Não possível adicionar o item como anexo."
+
+msgid ""
+"You have insufficient privileges to reclaim the ownership for the Task "
+"Request."
+msgstr ""
+"Não tem permissões suficientes para se tornar proprietário do pedido de "
+"Tarefa."
+
+msgid "Could not reclaim the ownership for the Task Request."
+msgstr "Não foi possível apropriar o pedido de Tarefa."
+
+msgid "You have insufficient privileges to accept this Task Request."
+msgstr "Não tem permissões suficientes para aceitar o pedido de Tarefa."
+
+msgid "Could not accept Task Request."
+msgstr "Não foi possível aceitar o pedido de Tarefa."
+
+msgid "You have insufficient privileges to decline this Task Request."
+msgstr "Não tem permissões suficientes para recusar o pedido de Tarefa."
+
+msgid "Could not decline Task Request."
+msgstr "Não foi possível recusar o pedido de Tarefa."
+
+msgid "Conflicts with another appointment."
+msgstr "Conflitos com outros compromissos."
+
+#, php-format
+msgid ""
+"%s occurrence of this recurring appointment conflicts with other appointment."
+msgid_plural ""
+"%s occurrences of this recurring appointment conflicts with other "
+"appointments."
+msgstr[0] "%s ocorrência deste compromisso coincide com outro compromisso."
+msgstr[1] "%s ocorrências deste compromisso coincidem com outros compromissos."
+
+msgid "Your message did not reach some or all of the intended recipients"
+msgstr ""
+"Não foi possível entregar a  mensagem a alguns ou todos os destinatários"
+
+msgid "The following recipient(s) could not be reached"
+msgstr "Não foi possível entregar aos seguintes destinatários"
+
+msgid "You have insufficient privileges to see the contents of this folder."
+msgstr ""
+
+msgid "Could not load the contents of this folder."
+msgstr ""
+
+msgid ""
+"You have insufficient privileges to perform search operation in this folder."
+msgstr ""
+
+msgid "Could not update search results."
+msgstr ""
+
+msgid "Could not stop search operation."
+msgstr ""
+
+msgid "You have insufficient privileges to save this message."
+msgstr ""
+
+msgid "Could not save message."
+msgstr ""
+
+msgid "You have insufficient privileges to delete this message."
+msgstr ""
+
+msgid "Could not delete message."
+msgstr ""
+
+msgid "You have insufficient privileges to cancel this Meeting Request."
+msgstr ""
+
+msgid "Could not cancel Meeting Request."
+msgstr ""
+
+msgid "You have insufficient privileges to decline this Meeting Request."
+msgstr ""
+
+msgid "Could not decline Meeting Request."
+msgstr ""
+
+msgid "You have insufficient privileges to accept this Meeting Request."
+msgstr ""
+
+msgid "Could not accept Meeting Request."
+msgstr ""
+
+msgid "You have insufficient privileges to cancel Meeting Request invitation."
+msgstr ""
+
+msgid "Could not cancel Meeting Request invitations."
+msgstr ""
+
+msgid "You can not continue search operation on this folder."
+msgstr ""
+
+msgid "Error in search, please try again."
+msgstr ""
+
+msgid "Error in distribution list expansion."
+msgstr ""
+
+msgid "The message store has exceeded its hard quota limit."
+msgstr ""
+
+msgid ""
+"To reduce the amount of data in this message store, select some items that "
+"you no longer need, delete them and cleanup your Deleted Items folder."
+msgstr ""
+
+msgid "The message store has exceeded its soft quota limit."
+msgstr ""
+
+msgid "Could not process request data properly."
+msgstr ""
+
+#, php-format
+msgid "Unknown action type specified - %s"
+msgstr ""
+
+msgid "Cannot snooze the reminder. You may be reminded again."
+msgstr ""
+
+msgid "Cannot dismiss the reminder. You may be reminded again."
+msgstr ""
+
+msgid "You have insufficient privileges to perform this action."
+msgstr ""
+
+msgid "Could not resolve user."
+msgstr ""
+
+msgid "Setting mail filters on the stores of other users is not allowed."
+msgstr ""
+
+msgid "Untitled rule"
+msgstr ""
+
+msgid "Could not load rules."
+msgstr ""
+
+msgid "Could not save rules."
+msgstr ""
+
+msgid "Task Request:"
+msgstr ""
+
+msgid "Sign in"
+msgstr ""
+
+msgid "File is not imported successfully"
+msgstr ""
+
+msgid "There is no contact found in this file."
+msgstr "Não foram encontrados contactos no ficheiro."
+
+msgid ""
+"grommunio Web does not support importing multiple VCF with this version."
+msgstr "A grommunio Web não suporta importar VCF múltiplos com esta versão."
+
+msgid ""
+"grommunio Web does not support importing multiple ICS with this version."
+msgstr "A grommunio Web não suporta importar múltiplos ICS com esta versão."
+
+#, php-format
+msgid "Unable to import '%s'"
+msgstr ""
+
+msgid "The EML is not valid"
+msgstr ""
+
+msgid "GB"
+msgstr ""
+
+msgid "MB"
+msgstr ""
+
+msgid "KB"
+msgstr ""
+
+msgid "B"
+msgstr ""
+
+msgid "The maximum stack depth has been exceeded"
+msgstr ""
+
+msgid "Control character error, possibly incorrectly encoded"
+msgstr ""
+
+msgid "Invalid or malformed JSON"
+msgstr ""
+
+msgid "Syntax error"
+msgstr ""
+
+msgid "Malformed UTF-8 characters, possibly incorrectly encoded"
+msgstr ""
+
+#, php-format
+msgid "JSON Error: - %s"
+msgstr ""
+
+msgid "Some problem encountered when encoding/decoding JSON data."
+msgstr ""

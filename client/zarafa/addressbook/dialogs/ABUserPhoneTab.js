@@ -13,7 +13,7 @@ Zarafa.addressbook.dialogs.ABUserPhoneTab = Ext.extend(Ext.form.FormPanel, {
 	 * @constructor
 	 * @param {Object} config configuration object.
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		config = config || {};
 
@@ -21,132 +21,132 @@ Zarafa.addressbook.dialogs.ABUserPhoneTab = Ext.extend(Ext.form.FormPanel, {
 		config.plugins.push('zarafa.recordcomponentupdaterplugin');
 
 		Ext.applyIf(config, {
-			xtype : 'zarafa.abuserphonetab',
-			title : _('Phone'),
+			xtype: 'zarafa.abuserphonetab',
+			title: _('Phone'),
 			layout: {
 				type: 'vbox',
 				align: 'stretch'
 			},
-			autoScroll : true,
-			items : [
+			autoScroll: true,
+			items: [
 				this.createPhonenumberFieldset(),
 				this.createNoteFieldset()
 			]
 		});
-		
+
 		Zarafa.addressbook.dialogs.ABUserPhoneTab.superclass.constructor.call(this, config);
 	},
 
 	/**
-	 * Creates the Phonenumber fieldset for phone tab 
+	 * Creates the Phonenumber fieldset for phone tab
 	 * @return {Object} config object for creating {@link Ext.form.FieldSet FieldSet}.
 	 * @private
 	 */
-	createPhonenumberFieldset : function()
+	createPhonenumberFieldset: function()
 	{
 		return {
-			xtype : 'fieldset',
-			title : _('Phone numbers'),
-			border : true,
-			cls : 'zarafa-fieldset',
-			layout : 'column',
+			xtype: 'fieldset',
+			title: _('Phone numbers'),
+			border: true,
+			cls: 'zarafa-fieldset',
+			layout: 'column',
 			columnWidth: 1,
 			autoHeight: true,
-			anchor : '100%',
-			items : [{
-				xtype : 'container',
-				layout : 'form',
+			anchor: '100%',
+			items: [{
+				xtype: 'container',
+				layout: 'form',
 				columnWidth	: 0.5,
-				border : false,
-				defaults :{
-					anchor :'100%',
-					editable : false,
-					readOnly : true
+				border: false,
+				defaults: {
+					anchor: '100%',
+					editable: false,
+					readOnly: true
 				},
-				items : [{
-					xtype : 'textfield',
-					fieldLabel :_('Business'),
-					name : 'business_telephone_number'
+				items: [{
+					xtype: 'textfield',
+					fieldLabel:_('Business'),
+					name: 'business_telephone_number'
 				},{
-					xtype : 'combo',
+					xtype: 'combo',
 					mode: 'local',
-					fieldLabel :_('Business2'),
-					store : new Zarafa.addressbook.AddressBookTelephoneNumberSubStore(),
+					fieldLabel:_('Business2'),
+					store: new Zarafa.addressbook.AddressBookTelephoneNumberSubStore(),
 					autoSelect: true,
-					forceSelection : true,
-					lazyInit : false,
-					editable : false,
-					readOnly : false,
+					forceSelection: true,
+					lazyInit: false,
+					editable: false,
+					readOnly: false,
 					triggerAction	: 'all',
-					displayField : 'number',
-					valueField : 'number',
-					ref : '../../business2PhoneCombo'
+					displayField: 'number',
+					valueField: 'number',
+					ref: '../../business2PhoneCombo'
 				},{
-					xtype : 'textfield',
-					fieldLabel :_('Fax'),
-					name : 'primary_fax_number'
+					xtype: 'textfield',
+					fieldLabel:_('Fax'),
+					name: 'primary_fax_number'
 				},{
-					xtype : 'textfield',
-					fieldLabel : _('Assistant'),
-					name : 'assistant'
+					xtype: 'textfield',
+					fieldLabel: _('Assistant'),
+					name: 'assistant'
 				}]
 			},{
-				xtype : 'container',
-				layout : 'form',
+				xtype: 'container',
+				layout: 'form',
 				columnWidth	: 0.5,
-				border : false,
-				defaults : {
-					anchor : '100%',
-					editable : false,
-					readOnly : true
+				border: false,
+				defaults: {
+					anchor: '100%',
+					editable: false,
+					readOnly: true
 				},
-				items : [{
-					xtype : 'textfield',
-					fieldLabel : _('Home'),
-					name : 'home_telephone_number'
+				items: [{
+					xtype: 'textfield',
+					fieldLabel: _('Home'),
+					name: 'home_telephone_number'
 				},{
-					xtype : 'combo',
+					xtype: 'combo',
 					mode: 'local',
-					fieldLabel :_('Home2'),
-					store : new Zarafa.addressbook.AddressBookTelephoneNumberSubStore(),
-					forceSelection : true,
-					lazyInit : false,
-					editable : false,
-					readOnly : false,
+					fieldLabel:_('Home2'),
+					store: new Zarafa.addressbook.AddressBookTelephoneNumberSubStore(),
+					forceSelection: true,
+					lazyInit: false,
+					editable: false,
+					readOnly: false,
 					triggerAction	: 'all',
-					displayField : 'number',
-					valueField : 'number',
-					ref : '../../home2PhoneCombo'
+					displayField: 'number',
+					valueField: 'number',
+					ref: '../../home2PhoneCombo'
 				},{
-					xtype : 'textfield',
-					fieldLabel : _('Mobile'),
-					name : 'mobile_telephone_number'
+					xtype: 'textfield',
+					fieldLabel: _('Mobile'),
+					name: 'mobile_telephone_number'
 				},{
-					xtype : 'textfield',
-					fieldLabel : _('Pager'),
-					name : 'pager_telephone_number'
+					xtype: 'textfield',
+					fieldLabel: _('Pager'),
+					name: 'pager_telephone_number'
 				}]
 			}]
 		};
 	},
 
 	/**
-	 * Creates the note fieldset for phone tab 
+	 * Creates the note fieldset for phone tab
 	 * @return {Object} config object for creating {@link Ext.form.FieldSet FieldSet}.
 	 * @private
 	 */
-	createNoteFieldset : function()
+	createNoteFieldset: function()
 	{
 		return [{
-			xtype : 'displayfield',
-			value : _('Notes') + ':',
-			hideLabel : true
+			xtype: 'displayfield',
+			value: _('Notes') + ':',
+			hideLabel: true
 		},{
-			xtype : 'textarea',
-			hideLabel : true,
-			name : 'comment',
-			readOnly : true,
-			columnWidth : 1,
+			xtype: 'textarea',
+			hideLabel: true,
+			name: 'comment',
+			readOnly: true,
+			columnWidth: 1,
 			flex: 1
 		}];
 	},
@@ -158,7 +158,7 @@ Zarafa.addressbook.dialogs.ABUserPhoneTab = Ext.extend(Ext.form.FormPanel, {
 	 * @param {Boolean} contentReset force the component to perform a full update of the data.
 	 * @private
 	 */
-	update : function(record, contentReset)
+	update: function(record, contentReset)
 	{
 		this.getForm().loadRecord(record);
 

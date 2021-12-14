@@ -1,15 +1,15 @@
 <?php
-require_once('classes/KopanoUser.php');
+require_once('classes/grommunioUser.php');
 require_once('classes/CalendarUser.php');
 require_once('classes/TestData.php');
-require_once('classes/KopanoTest.php');
+require_once('classes/grommunioTest.php');
 
 /**
  * SearchAppointmentsTest
  *
  * Tests all possible cases for searching Appointments
  */
-class SearchAppointmentsTest extends KopanoTest {
+class SearchAppointmentsTest extends grommunioTest {
 	/**
 	 * The default user
 	 */
@@ -27,7 +27,7 @@ class SearchAppointmentsTest extends KopanoTest {
 	{
 		parent::setUp();
 
-		$this->user = $this->addUser(new CalendarUser(new KopanoUser(KOPANO_USER1_NAME, KOPANO_USER1_PASSWORD)));
+		$this->user = $this->addUser(new CalendarUser(new grommunioUser(GROMMUNIO_USER1_NAME, GROMMUNIO_USER1_PASSWORD)));
 
 		$this->message = array(
 			'props' => TestData::getAppointment(),

@@ -10,31 +10,31 @@ Zarafa.common.checknames.dialogs.CheckNamesContentPanel = Ext.extend(Zarafa.core
 	 * @cfg {Array} array store
 	 * array store of checknames, that will be populated in ListBox
 	 */
-	checkNamesData : undefined,
+	checkNamesData: undefined,
 
 	/**
 	 * @cfg {Zarafa.core.data.IPMRecipientRecord} record
 	 * recipient record for which the content panel is to be created
 	 */
-	record : undefined,
+	record: undefined,
 
 	/**
 	 * @constructor
 	 * @param config Configuration structure
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		config = config || {};
 		config = Ext.applyIf(config, {
-			xtype : 'zarafa.checknamescontentpanel',
+			xtype: 'zarafa.checknamescontentpanel',
 			layout: 'fit',
-			title : _('Check Names'),
+			title: _('Check Names'),
 			border: false,
 			width: 320,
 			height: 300,
 			items:[{
 				xtype	: 'zarafa.checknamespanel',
-				buttons : [{
+				buttons: [{
 					text	: _('Ok'),
 					handler	:this.onOk,
 					scope	: this
@@ -52,10 +52,10 @@ Zarafa.common.checknames.dialogs.CheckNamesContentPanel = Ext.extend(Zarafa.core
 	/**
 	 * Called automatically when the contentpanel is being rendered. This
 	 * will load the {@link #record} and {@link #checknamesData} into
-	 * the  {@link Zarafa.common.checknames.dialogs.CheckNamesPanel CheckNamesPanel}.
+	 * the {@link Zarafa.common.checknames.dialogs.CheckNamesPanel CheckNamesPanel}.
 	 * @private
 	 */
-	onRender : function()
+	onRender: function()
 	{
 		Zarafa.common.checknames.dialogs.CheckNamesContentPanel.superclass.onRender.apply(this, arguments);
 
@@ -68,7 +68,7 @@ Zarafa.common.checknames.dialogs.CheckNamesContentPanel = Ext.extend(Zarafa.core
 	 * @param {Zarafa.core.data.IPMRecipientRecord} recipientrecord
 	 * @private
 	 */
-	onOk : function()
+	onOk: function()
 	{
 		if (this.get(0).updateRecord(this.record) !== false) {
 			this.dialog.close();
@@ -80,9 +80,31 @@ Zarafa.common.checknames.dialogs.CheckNamesContentPanel = Ext.extend(Zarafa.core
 	 * this will close the checkNames content panel
 	 * @private
 	 */
-	onCancel : function()
+	onCancel: function()
 	{
+		this.markRecipientToInvalid();
 		this.dialog.close();
+	},
+
+	/**
+	 * Function used to mark the recipient to invalid.
+	 */
+	markRecipientToInvalid: function()
+	{
+		this.record.resolveAttemptAmbiguous = false;
+		this.record.resolveAttempted = true;
+		this.record.afterEdit();
+	},
+
+	/**
+	 * Function has been called when check name dialog closed by close button.
+	 * It will call {@link #markRecipientToInvalid} to mark the recipient to invalid.
+	 * @override
+	 */
+	close: function()
+	{
+		this.markRecipientToInvalid();
+		Zarafa.common.checknames.dialogs.CheckNamesContentPanel.superclass.close.apply(this, arguments);
 	}
 });
 

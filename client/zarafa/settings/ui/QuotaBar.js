@@ -14,13 +14,13 @@ Zarafa.settings.ui.QuotaBar = Ext.extend(Ext.BoxComponent, {
 	 * @cfg {Zarafa.hierarchy.data.MAPIStoreRecord} userStore
 	 * User's store on which  quota information is set.
 	*/
-	userStore : undefined,
+	userStore: undefined,
 
 	/**
 	 * @cfg {String} quotaTemplate
 	 * Template for quota bar.
 	 */
-	quotaTemplate :'<div class="zarafa-quotabar">' +
+	quotaTemplate:'<div class="zarafa-quotabar">' +
 						'<div class="zarafa-quotabar-normal"></div>' +
 						'<div class="zarafa-quotabar-warn"></div>' +
 						'<div class="zarafa-quotabar-soft"></div>' +
@@ -31,7 +31,7 @@ Zarafa.settings.ui.QuotaBar = Ext.extend(Ext.BoxComponent, {
 	 * @constructor
 	 * @param {Object} config Configuration object
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		config = config || {};
 
@@ -51,7 +51,7 @@ Zarafa.settings.ui.QuotaBar = Ext.extend(Ext.BoxComponent, {
 	 * Function will overwrites the quotaTemplate the content of el with the new node(s).
 	 * @private
 	 */
-	onQuotaBarRender : function() {
+	onQuotaBarRender: function() {
 		this.quotaTemplate.overwrite(Ext.get(this.el));
 		this.updateQuotaBar();
 	},
@@ -61,7 +61,7 @@ Zarafa.settings.ui.QuotaBar = Ext.extend(Ext.BoxComponent, {
 	 * and will update/show the quotabar accordingly.
 	 * @private
 	 */
-	updateQuotaBar : function() {
+	updateQuotaBar: function() {
 		if(this.userStore) {
 			if(this.el && this.el.child('div.zarafa-quotabar')) {
 
@@ -80,19 +80,19 @@ Zarafa.settings.ui.QuotaBar = Ext.extend(Ext.BoxComponent, {
 				 * Just add necessary quota information in quota variable,
 				 * and remove inapropriate info like softQuota > hardQuota.
 				 * There might be the case where if hardQuota is not set
-				 * then in that case add soft quota to infromation variable.
+				 * then in that case add soft quota to information variable.
 				 */
 				var quota = [];
 				if(warnQuota && (!softQuota || warnQuota < softQuota) && (!hardQuota || warnQuota < hardQuota)) {
-					quota.push({size : warnQuota, element : 'div.zarafa-quotabar-warn'});
+					quota.push({size: warnQuota, element: 'div.zarafa-quotabar-warn'});
 				}
 
 				if(softQuota && (!hardQuota || softQuota < hardQuota)) {
-					quota.push({size : softQuota, element : 'div.zarafa-quotabar-soft'});
+					quota.push({size: softQuota, element: 'div.zarafa-quotabar-soft'});
 				}
 
 				if(hardQuota) {
-					quota.push({size : hardQuota, element : 'div.zarafa-quotabar-hard'});
+					quota.push({size: hardQuota, element: 'div.zarafa-quotabar-hard'});
 				}
 
 
@@ -101,7 +101,7 @@ Zarafa.settings.ui.QuotaBar = Ext.extend(Ext.BoxComponent, {
 				if(storeSize > maxLimit) {
 					// If store size has exceeded the hard_quota then set it as maxLimit
 					maxLimit = storeSize;
-					quota.push({size : storeSize});
+					quota.push({size: storeSize});
 				}
 
 				// Count the factor by 'total width of qouta bar'/'max qouta limit'
@@ -180,7 +180,7 @@ Zarafa.settings.ui.QuotaBar = Ext.extend(Ext.BoxComponent, {
 	 * @param {String} op, operation string
 	 * @private
 	 */
-	onUpdateHierarchyStore : function(store, storeRecord, op) {
+	onUpdateHierarchyStore: function(store, storeRecord, op) {
 		// Check whether default store is changed or not.
 		if(storeRecord.isDefaultStore()){
 			this.updateQuotaBar();

@@ -14,20 +14,20 @@ Zarafa.settings.ui.SettingsWidget = Ext.extend(Ext.Panel, {
 	/**
 	 * @cfg {Zarafa.settings.SettingsContext} settingsContext
 	 */
-	settingsContext : undefined,
+	settingsContext: undefined,
 
 	/**
 	 * @constructor
 	 * @param {Object} config Configuration object
 	 */
-	constructor : function(config)
+	constructor: function(config)
 	{
 		config = config || {};
 
 		Ext.applyIf(config, {
-			cls : 'zarafa-settings-widget',
-			layout : 'form',
-			labelWidth : 200
+			cls: 'zarafa-settings-widget',
+			layout: 'form',
+			labelWidth: 200
 		});
 
 		Zarafa.settings.ui.SettingsWidget.superclass.constructor.call(this, config);
@@ -40,7 +40,7 @@ Zarafa.settings.ui.SettingsWidget = Ext.extend(Ext.Panel, {
 	 * {@link Zarafa.settings.SettingsModel} into the UI of this category.
 	 * @param {Zarafa.settings.SettingsModel} settingsModel The settings to load
 	 */
-	update : Ext.emptyFn,
+	update: Ext.emptyFn,
 
 	/**
 	 * Called by the {@link Zarafa.settings.ui.SettingsCategory Category} when
@@ -48,7 +48,7 @@ Zarafa.settings.ui.SettingsWidget = Ext.extend(Ext.Panel, {
 	 * This is used to update the settings from the UI into the {@link Zarafa.settings.SettingsModel settings model}.
 	 * @param {Zarafa.settings.SettingsModel} settingsModel The settings to update
 	 */
-	updateSettings : Ext.emptyFn
+	updateSettings: Ext.emptyFn
 });
 
 Ext.reg('zarafa.settingswidget', Zarafa.settings.ui.SettingsWidget);

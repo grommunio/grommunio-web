@@ -8,7 +8,7 @@ Ext.namespace('Zarafa.mail.data');
  * @singleton
  */
 Zarafa.mail.data.SensitivityFlags = {
-	flags : [{
+	flags: [{
 		value: Zarafa.core.mapi.Sensitivity['NONE'],
 		name: Zarafa.core.mapi.Sensitivity.getDisplayName(Zarafa.core.mapi.Sensitivity['NONE'])
 	},{
