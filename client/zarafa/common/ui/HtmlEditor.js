@@ -124,7 +124,7 @@ Zarafa.common.ui.HtmlEditor = Ext.extend(Ext.ux.form.TinyMCETextArea, {
 					'td, th, p{' +
 						'font-family: inherit !important;' +
 						'font-size: inherit !important;' +
-					'}' + 
+					'}' +
 					'.mce-content-body table { border-spacing:0; }',
 				table_default_styles: {
 					width: '10%'
@@ -750,7 +750,7 @@ Zarafa.common.ui.HtmlEditor = Ext.extend(Ext.ux.form.TinyMCETextArea, {
 	splitBlockquote: function(editor, blockquote)
 	{
 		// Add a node where we will split the blockquote
-		editor.selection.setContent('<span id="zarafa-splitter"></span>');
+		editor.selection.setContent('<span id="zarafa-splitter"></span>', {'format': 'raw'});
 		var splitElement = editor.dom.get('zarafa-splitter');
 		editor.dom.split(blockquote, splitElement);
 
