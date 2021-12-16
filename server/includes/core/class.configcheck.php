@@ -22,7 +22,7 @@ class ConfigCheck
 		$this->checkPHPsetting("session.auto_start", "off", "Modify this setting in '%s'");
 		$this->checkPHPsetting("output_handler", "", "With this option set, it is unsure if the grommunio Web will work correctly");
 		$this->checkPHPsetting("zlib.output_handler", "", "With this option set, it is unsure if the grommunio Web will work correctly");
-		$this->checkPHPsetting("zlib.output_compression", "off", "With this option set, it could occure that XMLHTTP-requests will fail");
+		$this->checkPHPsetting("zlib.output_compression", "off", "With this option set, it could occur that XMLHTTP-requests will fail");
 
 		if (CONFIG_CHECK_COOKIES_HTTP) {
 			$this->checkPHPsecurity("session.cookie_httponly", "on", "Modify this setting in '%s'");

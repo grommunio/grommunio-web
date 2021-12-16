@@ -721,7 +721,7 @@ Ext.apply(Date, {
 	 * plus the extra DST offset when DST is in effect.
 	 *
 	 * We can't retrieve this directly from the browser, so we assume that the DST change
-	 * will occure on a Sunday at 2:00 or 3:00 AM, and simply scan all the sundays in a
+	 * will occur on a Sunday at 2:00 or 3:00 AM, and simply scan all the sundays in a
 	 * year, looking for changes. We then have to guess which bit is DST and which is 'normal'
 	 * by assuming that the DST offset will be less than the normal offset. From this we
 	 * calculate the start and end dates of DST and the actuall offset in minutes.
