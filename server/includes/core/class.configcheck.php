@@ -227,7 +227,7 @@ class ConfigCheck
 		}
 
 		if (ini_get($setting) != $value){
-			$this->error_config($setting, $value_needed, $help_msg);
+			$this->error_config($setting, $value_needed, $help_msg." (Current value: \"".ini_get($setting)."\")");
 			$result = false;
 		}
 		return $result;
