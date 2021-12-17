@@ -3710,7 +3710,7 @@
 				}
 
 				// When saving a mail we can allow an empty email address or entryid, but not when sending it
-				if(empty($recipientItem["display_name"]) || ($send && empty($recipientItem["email_address"]) && empty($recipientItem['entryid']))) {
+				if($send && empty($recipientItem["email_address"]) && empty($recipientItem['entryid'])) {
 					return;
 				}
 
