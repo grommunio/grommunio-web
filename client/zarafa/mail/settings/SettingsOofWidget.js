@@ -499,8 +499,8 @@ Zarafa.mail.settings.SettingsOofWidget = Ext.extend(Zarafa.settings.ui.SettingsW
 		}
 		var record = this.record;
 		var isOofSet = record.get('set');
-		this.inOfficeField.setValue(isOofSet ? 'false' : 'true');
-		this.outOfOfficeRadio.setValue(isOofSet ? 'true' : 'false') ;
+		this.inOfficeField.setValue(!isOofSet);
+		this.outOfOfficeRadio.setValue(!!isOofSet);
 
 		if (isOofSet) {
 			var configuredFromSetting = record.get('from');
