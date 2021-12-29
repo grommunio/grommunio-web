@@ -19,10 +19,10 @@ class ConfigCheck
 		$this->checkPHP("5.4", "You must upgrade PHP");
 		$this->checkExtension("mapi", null, "If you have upgraded Gromox, please restart nginx/php-fpm");
 		$this->checkExtension("gettext", null, "Install the gettext extension for PHP");
-		$this->checkPHPsetting("session.auto_start", "off", "Modify this setting in '%s'");
+		$this->checkPHPsetting("session.auto_start", "0", "Modify this setting in '%s'");
 		$this->checkPHPsetting("output_handler", "", "With this option set, it is unsure if the grommunio Web will work correctly");
 		$this->checkPHPsetting("zlib.output_handler", "", "With this option set, it is unsure if the grommunio Web will work correctly");
-		$this->checkPHPsetting("zlib.output_compression", "off", "With this option set, it could occur that XMLHTTP-requests will fail");
+		$this->checkPHPsetting("zlib.output_compression", "", "With this option set, it could occur that XMLHTTP requests will fail");
 
 		if (CONFIG_CHECK_COOKIES_HTTP) {
 			$this->checkPHPsecurity("session.cookie_httponly", "on", "Modify this setting in '%s'");
@@ -208,26 +208,9 @@ class ConfigCheck
 	 */
 	function checkPHPsetting($setting,$value_needed, $help_msg=""){
 		$result = true;
-		// convert $value_needed
-		switch($value_needed){
-			case "on":
-			case "yes":
-			case "true":
-				$value = 1;
-				break;
-
-			case "off":
-			case "no":
-			case "false":
-				$value = 0;
-				break;
-
-			default:
-				$value = $value_needed;
-		}
-
-		if (ini_get($setting) != $value){
-			$this->error_config($setting, $value_needed, $help_msg." (Current value: \"".ini_get($setting)."\")");
+		$inival = ini_get($setting);
+		if (strcmp($inival, $value_needed) != 0) {
+			$this->error_config($setting, $value_needed, $help_msg." (Current value: \"$inival\")");
 			$result = false;
 		}
 		return $result;
