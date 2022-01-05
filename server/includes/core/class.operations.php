@@ -2842,7 +2842,6 @@
 			}
 
 			$folder = mapi_msgstore_openentry($store, $parententryid);
-			$folder = mapi_msgstore_openentry($store, $parententryid);
 			
 			$msgprops = mapi_getprops($store, array(PR_IPM_WASTEBASKET_ENTRYID, PR_MDB_PROVIDER, PR_IPM_OUTBOX_ENTRYID));
 
