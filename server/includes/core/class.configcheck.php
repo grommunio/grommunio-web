@@ -26,7 +26,7 @@ class ConfigCheck
 		# Replicate value logic from php-src/ext/zlib/zlib.c
 		$sv = ini_get("zlib.output_compression");
 		$sv = strcasecmp($sv, "on") == 0 ? 1 :
-		      strcasecmp($sv, "off") == 0 ? 0 : intval($sv);
+		      (strcasecmp($sv, "off") == 0 ? 0 : intval($sv));
 		if ($sv != 0)
 			$this->error_config("zlib.output_compression", "off", "With this option enabled, it could occur that XMLHTTP requests will fail");
 
