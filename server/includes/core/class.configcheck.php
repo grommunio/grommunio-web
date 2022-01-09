@@ -37,9 +37,14 @@ class ConfigCheck
 			$this->checkPHPsecurity("session.cookie_secure", "on", "Modify this setting in '%s'");
 		}
 
+		# More custom logic needed :(
+		# When save_path is left unset/empty, ini_get reports it as empty,
+		# even though PHP uses some directory anyway (usually /tmp).
 		$sp = ini_get("session.save_path");
-		if (!$this->checkDirectory($sp, "w", "session.save_path is not writable. This means PHP is practically running stateless, which is incompatible with the requirements of grommunio-web."))
+		if (strlen($sp) > 0 && !$this->checkDirectory($sp, "w",
+		    "session.save_path is not writable. This means PHP is practically running stateless, which is incompatible with the requirements of grommunio-web."))
 			error_log("session.save_path ($sp) is not writable");
+
 		$this->checkDirectory(TMP_PATH, "rw", "Please make sure this directory exists and is writable for nginx/php-fpm");
 		$this->checkFunction("iconv", "Install the 'iconv' module for PHP, or else you don't have euro-sign support.");
 		$this->checkFunction("gzencode", "You don't have zlib support: <a href=\"https://php.net/manual/en/ref.zlib.php#zlib.installation\">https://php.net/manual/en/ref.zlib.php#zlib.installation</a>");
