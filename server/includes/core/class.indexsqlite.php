@@ -6,8 +6,6 @@ define('PR_FOLDER_ID',					0x67480014);
 define('PR_MID',					0x674A0014);
 define('PR_CHANGE_NUMBER',				0x67A40014);
 
-define('MAX_FTS_RESULT_ITEMS',				300);
-
 class IndexSqlite extends SQLite3
 {
 	private $username;

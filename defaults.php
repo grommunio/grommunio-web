@@ -491,6 +491,11 @@ if(!defined("POWERPASTE_HTML_IMPORT")) define("POWERPASTE_HTML_IMPORT", "merge")
 if(!defined("POWERPASTE_ALLOW_LOCAL_IMAGES")) define("POWERPASTE_ALLOW_LOCAL_IMAGES", true);
 
 /**
+ * Defaults for sqlite search index
+ */
+if(!defined("MAX_FTS_RESULT_ITEMS")) define("MAX_FTS_RESULT_ITEMS", 1000);
+
+/**
  * The following options are taken from the debug.php
  */
 if(!defined("DEBUG_LOADER")) define("DEBUG_LOADER", LOAD_RELEASE);
