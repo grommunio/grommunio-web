@@ -7,12 +7,21 @@
 
 require_once(__DIR__ . '/server/includes/core/constants.php');
 
+// Comment next line to disable the config check (or set FALSE to log the config errors)
 if(!defined("CONFIG_CHECK")) define("CONFIG_CHECK", TRUE);
 if(!defined("CONFIG_CHECK_COOKIES_HTTP")) define("CONFIG_CHECK_COOKIES_HTTP", FALSE);
 if(!defined("CONFIG_CHECK_COOKIES_SSL")) define("CONFIG_CHECK_COOKIES_SSL", FALSE);
 
+// Time that the state files are allowed to survive (in seconds)
+// For filesystems on which relatime is used, this value should be larger then the relatime_interval
+// for kernels 2.6.30 and above relatime is enabled by default, and the relatime_interval is set to
+// 24 hours.
 if(!defined("STATE_FILE_MAX_LIFETIME")) define("STATE_FILE_MAX_LIFETIME", 28*60*60);
+
+// Time that attachments are allowed to survive (in seconds)
 if(!defined("UPLOADED_ATTACHMENT_MAX_LIFETIME")) define("UPLOADED_ATTACHMENT_MAX_LIFETIME", 6*60*60);
+
+// Set true to show public folders in hierarchy, false will disable public folders in hierarchy.
 if(!defined("ENABLE_PUBLIC_FOLDERS")) define("ENABLE_PUBLIC_FOLDERS", true);
 
 /**
@@ -35,9 +44,7 @@ if(!defined("ENABLE_ICONSETS")) define("ENABLE_ICONSETS", true);
  */
 if(!defined("ENABLE_SHARED_RULES")) define("ENABLE_SHARED_RULES", false);
 
-/**
- * When set to true, we enable GZIP
- */
+// Enable GZIP compression for responses
 if(!defined("ENABLE_RESPONSE_COMPRESSION")) define("ENABLE_RESPONSE_COMPRESSION", true);
 
 /**
@@ -95,6 +102,7 @@ if(!defined("ABITEMDETAILS_MAX_NUM_DISTLIST_MEMBERS")) define("ABITEMDETAILS_MAX
 /**
  * Use direct booking by default (books resources directly in the calendar instead of sending a meeting
  * request)
+ * Booking method (true = direct booking, false = send meeting request)
  */
 if(!defined("ENABLE_DIRECT_BOOKING")) define("ENABLE_DIRECT_BOOKING", true);
 
@@ -134,6 +142,9 @@ if(!defined("PLUGIN_WEBAPPMANUAL_URL")) define("PLUGIN_WEBAPPMANUAL_URL", "https
 /**
  * Defines the domains to which redirection after login is allowed. The redirect url will be read from
  * the GET-parameter 'continue'.
+ * Add http(s):// to the domains and separate domains with spaces.
+ * Note: The domain under which grommunio Web runs, is always allowed and does
+ * not need to be added here.
  */
 if(!defined("REDIRECT_ALLOWED_DOMAINS")) define("REDIRECT_ALLOWED_DOMAINS", '');
 
@@ -481,11 +492,16 @@ if(!defined("SHARED_STORE_POLLING_INTERVAL")) define("SHARED_STORE_POLLING_INTER
  * Prefetch email count
  */
 if(!defined("PREFETCH_EMAIL_COUNT")) define("PREFETCH_EMAIL_COUNT", 10);
+
+// Define the interval between loading of new emails in the background.
 if(!defined("PREFETCH_EMAIL_INTERVAL")) define("PREFETCH_EMAIL_INTERVAL", 30);
 
-/**
- * Defaults for powerpaste
- */
+/**************************************\
+* Powerpaste                           *
+\**************************************/
+
+// Options for TinyMCE's powerpaste plugin, see https://www.tiny.cloud/docs/plugins/powerpaste/#configurationoptions
+// for more details.
 if(!defined("POWERPASTE_WORD_IMPORT")) define("POWERPASTE_WORD_IMPORT", "merge");
 if(!defined("POWERPASTE_HTML_IMPORT")) define("POWERPASTE_HTML_IMPORT", "merge");
 if(!defined("POWERPASTE_ALLOW_LOCAL_IMAGES")) define("POWERPASTE_ALLOW_LOCAL_IMAGES", true);
@@ -505,7 +521,15 @@ if(!defined("DEBUG_DUMP_FILE")) define("DEBUG_DUMP_FILE", "debug.txt");
  * Defaults for Logger
  */
 if(!defined("LOG_USER_LEVEL")) define("LOG_USER_LEVEL", LOGLEVEL_OFF);
+
+// To save e.g. user activity data only for selected users, provide the username followed by semicolon.
+// The data will be saved into a dedicated file per user in the LOG_FILE_DIR
+// Users have to be encapsulated in quotes, several users are semicolon separated, like:
+// define('LOG_USERS', 'user1;user2;user3');
 if(!defined("LOG_USERS")) define("LOG_USERS", "");
+
+// Location of the log directory
+// e.g /var/log/grommunio/
 if(!defined("LOG_FILE_DIR")) define("LOG_FILE_DIR", "");
 if(!defined("LOG_SUCCESSFUL_LOGINS")) define("LOG_SUCCESSFUL_LOGINS", false);
 ?>

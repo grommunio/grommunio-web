@@ -3,13 +3,9 @@
 	// All possible web client settings can be set in this file. Some settings
 	// (language) can also be set per user or logon.
 
-	// Comment next line to disable the config check (or set FALSE to log the config errors)
-	define("CONFIG_CHECK", TRUE);
-
-	// Use these options to optionally disable some PHP configuration checks.
-	// WARNING: these checks will disable checks regarding the security of grommunio Web site configuration,
-	// only change them if you know the consequences - improper use will lead to an insecure installation!
-	define("CONFIG_CHECK_COOKIES_HTTP", FALSE);
+	// Use this option to optionally disable some PHP configuration checks.
+	// WARNING: this check will disable checks regarding the security of grommunio Web site configuration,
+	// only change it if you know the consequences - improper use will lead to an insecure installation!
 	define("CONFIG_CHECK_COOKIES_SSL", TRUE);
 
 	// Depending on your setup, it might be advisable to change the lines below to one defined with your
@@ -28,10 +24,6 @@
 	// Set to 'false' to disable secure session cookies and to allow log-in without HTTPS.
 	define("SECURE_COOKIES", TRUE);
 
-	// Use DOMPurify to filter HTML
-	// Caution: disabling DOMPurify is a potential security risk.
-	define("ENABLE_DOMPURIFY_FILTER", true);
-
 	// The timeout (in seconds) for the session. User will be logged out of grommunio Web
 	// when he has not actively used grommunio Web for this time.
 	// Set to 0 (or remove) for no timeout during browser session.
@@ -47,12 +39,6 @@
 	// recommended)
 	define("CROSS_DOMAIN_AUTHENTICATION_ALLOWED_DOMAINS", "");
 
-	// Defines the domains to which redirection after login is allowed.
-	// Add http(s):// to the domains and separate domains with spaces.
-	// Note: The domain under which grommunio Web runs, is always allowed and does
-	// not need to be added here.
-	define("REDIRECT_ALLOWED_DOMAINS", "");
-
 	// Defines the base url and end with a slash.
 	$base_url = dirname($_SERVER["PHP_SELF"]);
 	if(substr($base_url,-1)!="/") $base_url .="/";
@@ -65,15 +51,13 @@
 	// Define the path to the plugin directory (No slash at the end)
 	define("PATH_PLUGIN_DIR", "plugins");
 
-	// Enable the plugins
-	define("ENABLE_PLUGINS", true);
-
 	// Define list of disabled plugins separated by semicolon
 	define("DISABLED_PLUGINS_LIST", "");
 
 	// Define a list of plugins that cannot be disabled by users.
 	// Plugins should be seperated by a semicolon (;). A wildcard (*)
 	// can be used to identify multiple plugins.
+	// Overrides defaults.php
 	define("ALWAYS_ENABLED_PLUGINS_LIST", "passwd;mdm");
 
 	//this path is used for client(domain) define data such as themes, icons ...
@@ -95,74 +79,15 @@
 	// Users can override the 'logged-in' theme in the settings.
 	//define("THEME", 'grommunioLighttheme');
 
-	// General grommunio Web icon set. This will be loaded by default for every user.
-	// Users can override the iconset in the settings.
-	define("ICONSET", "breeze");
-
-	// Enable iconsets.
-	define("ENABLE_ICONSETS", true);
-
 	// The title that will be shown in the title bar of the browser
 	define("WEBAPP_TITLE", "grommunio Web");
 
-	// The base URL where the User Manual for grommunio Web can be found
-	define("PLUGIN_WEBAPPMANUAL_URL", "https://docs.grommunio.com/web/");
-
-	// When set to false, GAB does not show any user, unless searched for.
-	define("ENABLE_FULL_GAB", true);
-
-	// Set a maximum number of (search) results for the addressbook
-	// When more results are found no results will be displayed in the client.
-	// Set to 0 to disable this feature and show all results.
-	define("MAX_GAB_RESULTS", 0);
-
-	// Set to true to show public contact folders in address-book folder list,
-	// false will hide public contact folders in address-book folder list.
-	define("ENABLE_PUBLIC_CONTACT_FOLDERS", false);
-
-	// Set true to show public folders in hierarchy, false will disable public folders in hierarchy.
-	define("ENABLE_PUBLIC_FOLDERS", true);
-
-	// Set true to hide shared contact folders in address-book folder list,
-	// false will show shared contact folders in address-book folder list.
-	define("ENABLE_SHARED_CONTACT_FOLDERS", false);
-
-	// Set to true to give users the option to enable file previewer in their settings
-	// Set to false to hide the setting and disable file previewer for all users
-	define("ENABLE_FILE_PREVIEWER", true);
-
-	// Set to true to give users the possiblity to edit, create, and delete mail filters on the store
-	// of other users. The user needs owner permissions on the store of the other user.
-	define("ENABLE_SHARED_RULES", false);
-
-	// Booking method (true = direct booking, false = send meeting request)
-	define("ENABLE_DIRECT_BOOKING", true);
-
-	// Enable GZIP compression for responses
-	define("ENABLE_RESPONSE_COMPRESSION", true);
-
-	// When set to false this disables the welcome screen shown to new users.
-	define("ENABLE_WELCOME_SCREEN", true);
-
 	// Set to false to disable the "What's new dialog" that will be shown to users to introduce new features.
+	// Overrides defaults.php
 	define("ENABLE_WHATS_NEW_DIALOG", false);
 
-	// When set to false it will disable showing of advanced settings.
-	define("ENABLE_ADVANCED_SETTINGS", false);
-
-	// Freebusy start offset that will be used to load freebusy data in appointments, number is subtracted from current time
-	define("FREEBUSY_LOAD_START_OFFSET", 7);
-
-	// Freebusy end offset that will be used to load freebusy data in appointments, number is added to current time
-	define("FREEBUSY_LOAD_END_OFFSET", 90);
-
-	// Maximum eml files to be included in a single ZIP archive
-	define("MAX_EML_FILES_IN_ZIP", 50);
-
-	// Set true to default soft delete the shared store items
-	define("ENABLE_DEFAULT_SOFT_DELETE", false);
-
 	// Enable widgets/today context.
+	// Overrides defaults.php
 	define("ENABLE_WIDGETS", false);
 
 	// Additional color schemes for the calendars can be added by uncommenting and editing the following define.
@@ -202,19 +127,14 @@
 	//  	array(_('B'))
 	// )));
 
-	// Define the polling interval in minutes for unread mail in shared stores.
-	define("SHARED_STORE_POLLING_INTERVAL", 15);
-
 	// Define the amount of emails to load in the background, in batches of 10 emails per request every x seconds
 	// defined by PREFETCH_EMAIL_INTERVAL until the defined amount of items is loaded. Setting this value to zero
 	// disables this feature.
+	// Overrides defaults.php
 	define("PREFETCH_EMAIL_COUNT", 0);
 
 	// indicate whether not to use magicHTML as html filter, magicHTML is very slow, so by the default we disable it
 	define('ENABLE_HTMLBODY_FILTER', false);
-
-	// Define the interval between loading of new emails in the background.
-	define("PREFETCH_EMAIL_INTERVAL", 30);
 
 	// The grommunio admin API status endpoint
 	define('ADMIN_API_STATUS_ENDPOINT', 'http://[::1]:8080/api/v1/status');
@@ -232,15 +152,6 @@
 	// Time that static files may exist in the client's cache (13 weeks)
 	define("EXPIRES_TIME", 60*60*24*7*13);
 
-	// Time that the state files are allowed to survive (in seconds)
-	// For filesystems on which relatime is used, this value should be larger then the relatime_interval
-	// for kernels 2.6.30 and above relatime is enabled by default, and the relatime_interval is set to
-	// 24 hours.
-	define("STATE_FILE_MAX_LIFETIME", 28*60*60);
-
-	// Time that attachments are allowed to survive (in seconds)
-	define("UPLOADED_ATTACHMENT_MAX_LIFETIME", 6*60*60);
-
 	/**********************************************************************************
 	 *  Logging settings
 	 *
@@ -257,17 +168,8 @@
 	 *  LOGLEVEL_WARN and LOGLEVEL_INFO level entries.
 	 *
 	 **************************************************************************************/
+	// Overrides defaults.php
 	define("LOG_USER_LEVEL", LOGLEVEL_DEBUG);
-
-	// To save e.g. user activity data only for selected users, provide the username followed by semicolon.
-	// The data will be saved into a dedicated file per user in the LOG_FILE_DIR
-	// Users have to be encapsulated in quotes, several users are semicolon separated, like:
-	// define('LOG_USERS', 'user1;user2;user3');
-	define("LOG_USERS", "");
-
-	// Location of the log directory
-	// e.g /var/log/grommunio/
-	define("LOG_FILE_DIR", "");
 
 	/**************************************\
 	* Languages                            *
@@ -289,22 +191,13 @@
 	// semicolon.  A list of available languages can be found in
 	// the manual or by looking at the list of directories in
 	// /usr/share/grommunio-web/server/language .
+	// Overrides defaults.php
 	define("ENABLED_LANGUAGES", "ca_ES;cs_CZ;da_DK;de_DE;en_GB;en_US;es_ES;fi_FI;fr_FR;hu_HU;it_IT;ja_JP;nb_NO;nl_NL;pl_PL;pt_BR;ru_RU;sl_SI;tr_TR;zh_CN;zh_TW");
 
 	// Defines the default time zone
 	if (!ini_get('date.timezone')) {
 		date_default_timezone_set('Europe/Vienna');
 	}
-
-	/**************************************\
-	* Powerpaste                           *
-	\**************************************/
-
-	// Options for TinyMCE's powerpaste plugin, see https://www.tiny.cloud/docs/plugins/powerpaste/#configurationoptions
-	// for more details.
-	define("POWERPASTE_WORD_IMPORT", "merge");
-	define("POWERPASTE_HTML_IMPORT", "merge");
-	define("POWERPASTE_ALLOW_LOCAL_IMAGES", true);
 
 	/**************************************\
 	* Debugging                            *
