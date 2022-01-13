@@ -3,7 +3,7 @@
 	* In general
 	*
 	* This class never actually modifies a task item unless we receive a task request update. This means
-	* that setting all the properties to make the task item itself behave like a task request is up to the 
+	* that setting all the properties to make the task item itself behave like a task request is up to the
 	* caller.
 	*
 	* The only exception to this is the generation of the TaskGlobalObjId, the unique identifier identifying
@@ -199,7 +199,7 @@
 
 		/**
 		 * Gets the task associated with an IPM.TaskRequest message
-		 * 
+		 *
 		 * If the task does not exist yet, it is created, using the attachment object in the
 		 * task request item.
 		 *
@@ -211,7 +211,7 @@
 		function getAssociatedTask($create)
 		{
 			$props = mapi_getprops($this->message, array(PR_MESSAGE_CLASS, $this->props['task_goid']));
-			
+
 			if($props[PR_MESSAGE_CLASS] == "IPM.Task") {
 				// Message itself is task, so return that
 				return $this->message;
@@ -225,9 +225,9 @@
 									ULPROPTAG => $this->props['task_goid'],
 									VALUE => $goid)
 								);
-			
+
 			$contents = mapi_folder_getcontentstable($taskFolder);
-			
+
 			$rows = mapi_table_queryallrows($contents, array(PR_ENTRYID), $restriction);
 
 			if(empty($rows)) {
@@ -237,7 +237,7 @@
 				}
 
 				$task = mapi_folder_createmessage($taskFolder);
-				
+
 				$sub = $this->getEmbeddedTask($this->message);
 				mapi_copyto($sub, array(), array($this->props['categories']), $task);
 
@@ -255,15 +255,16 @@
 
 				// Copy sender information from the e-mail
 				$props = mapi_getprops($this->message, $senderProps);
+				$props[PR_MESSAGE_CLASS] = 'IPM.Task';
 				mapi_setprops($task, $props);
 			} else {
 				// If there are multiple, just use the first
 				$entryid = $rows[0][PR_ENTRYID];
 
-				$store = $this->getTaskFolderStore(); 
+				$store = $this->getTaskFolderStore();
 				$task = mapi_msgstore_openentry($store, $entryid);
 			}
-			
+
 			return $task;
 		}
 
@@ -314,7 +315,7 @@
 		}
 
 		// Organizer functions (called by the organizer)
-			
+
 		/**
 		 * Processes a task request response, which can be any of the following:
 		 * - Task accept (task history is marked as accepted)
@@ -399,7 +400,7 @@
 
 				// We copy all properties except taskstate, taskhistory, taskmode and taskfcreator properties
 				// from $sub message to $task even also we copy all attachments from $sub to $task message.
-				mapi_copyto($sub, array(), $ignoreProps , $task);
+				mapi_copyto($sub, array(), $ignoreProps, $task);
 				$senderProps = mapi_getprops($this->message, array(
 					PR_SENDER_NAME,
 					PR_SENDER_EMAIL_ADDRESS,
@@ -417,6 +418,11 @@
 
 				// Update taskstate and task history (last action done by the assignee)
 				mapi_setprops($task,$props);
+
+				// Copy missing properties from embedded task
+				$subProperties = $this->getSubProperties();
+				$subprops = mapi_getprops($sub, $subProperties);
+				mapi_setprops($task, $subprops);
 
 				mapi_savechanges($task);
 			}
@@ -504,7 +510,7 @@
 
 
 			// No need to copy PR_ICON_INDEX and  PR_SENT_* information in to outgoing message.
-				$ignoreProps = array(PR_ICON_INDEX, PR_SENT_REPRESENTING_NAME, PR_SENT_REPRESENTING_EMAIL_ADDRESS, PR_SENT_REPRESENTING_ADDRTYPE, PR_SENT_REPRESENTING_ENTRYID, PR_SENT_REPRESENTING_SEARCH_KEY);
+			$ignoreProps = array(PR_ICON_INDEX, PR_SENT_REPRESENTING_NAME, PR_SENT_REPRESENTING_EMAIL_ADDRESS, PR_SENT_REPRESENTING_ADDRTYPE, PR_SENT_REPRESENTING_ENTRYID, PR_SENT_REPRESENTING_SEARCH_KEY);
 			mapi_copyto($this->message, array(), $ignoreProps, $outgoing);
 
 			// Make it a task request, and put it in sent items after it is sent
@@ -522,14 +528,14 @@
 					PR_ATTACH_METHOD => ATTACH_EMBEDDED_MSG,
 					PR_ATTACHMENT_HIDDEN => true,
 					PR_DISPLAY_NAME => $messageprops[PR_SUBJECT]));
-			
+
 			$sub = mapi_attach_openproperty($attach, PR_ATTACH_DATA_OBJ, IID_IMessage, 0, MAPI_MODIFY | MAPI_CREATE);
-			
+
 			mapi_copyto($this->message, array(), array(), $sub);
 			mapi_savechanges($sub);
-			
+
 			mapi_savechanges($attach);
-			
+
 			mapi_savechanges($outgoing);
 			mapi_message_submitmessage($outgoing);
 			return true;
@@ -543,13 +549,13 @@
 		 */
 		function updateTaskRequest() {
 			$messageprops = mapi_getprops($this->message, array($this->props['updatecount']));
-			
+
 			if(isset($messageprops)) {
 				$messageprops[$this->props['updatecount']]++;
 			} else {
 				$messageprops[$this->props['updatecount']] = 1;
 			}
-			
+
 			mapi_setprops($this->message, $messageprops);
 		}
 
@@ -590,6 +596,7 @@
 				// create an associated task in task folder while
 				// reading/loading task request on client side.
 				$task = $this->getAssociatedTask(true);
+
 				$taskProps = mapi_getprops($task, array($this->props['taskmultrecips']));
 				$taskProps[$this->props["taskstate"]] = $isReceivedItem ? tdsOWN : tdsACC;
 				$taskProps[$this->props["taskhistory"]] = thAssigned;
@@ -622,7 +629,7 @@
 		function doAccept() {
 			$prefix = _("Task Accepted:") . " ";
 			$messageProps = mapi_getprops($this->message, array(PR_MESSAGE_CLASS, $this->props['taskstate']));
-			
+
 			if(!isset($messageProps[$this->props['taskstate']]) || $messageProps[$this->props['taskstate']] != tdsOWN) {
 				// Can only accept assignee task
 				return false;
@@ -646,7 +653,7 @@
 				}
 			}
 
-			// Set as accepted        
+			// Set as accepted
 			mapi_setprops($this->message, $props);
 
 			// As we copy the all properties from received message we need to remove following
@@ -654,7 +661,7 @@
 			mapi_deleteprops($this->message, array(PR_MESSAGE_RECIP_ME, PR_MESSAGE_TO_ME, PR_MESSAGE_CC_ME, PR_PROCESSED));
 
 			mapi_savechanges($this->message);
-			
+
 			$this->sendResponse(tdmtTaskAcc, $prefix);
 
 			return $this->deleteReceivedTR();
@@ -671,7 +678,7 @@
 		function doDecline() {
 			$prefix = _("Task Declined:") . " ";
 			$messageProps = mapi_getprops($this->message, array($this->props['taskstate']));
-			
+
 			if(!isset($messageProps[$this->props['taskstate']]) || $messageProps[$this->props['taskstate']] != tdsOWN) {
 				return false; // Can only decline assignee task
 			}
@@ -686,7 +693,7 @@
 				));
 			mapi_deleteprops($this->message, array(PR_MESSAGE_RECIP_ME, PR_MESSAGE_TO_ME, PR_MESSAGE_CC_ME, PR_PROCESSED));
 			mapi_savechanges($this->message);
-			
+
 			$this->sendResponse(tdmtTaskDec, $prefix);
 
 			// Delete the associated task when task request is declined by the assignee.
@@ -718,7 +725,7 @@
 
 			// Set as updated
 			mapi_setprops($this->message, array($this->props['taskhistory'] => thUpdated));
-			
+
 			mapi_savechanges($this->message);
 
 			$props = mapi_getprops($this->message, array($this->props['taskupdates'], $this->props['tasksoc'], $this->props['recurring'], $this->props['complete']));
@@ -738,44 +745,44 @@
 		function getTaskFolderStore()
 		{
 			$ownerentryid = false;
-			
+
 			$rcvdprops = mapi_getprops($this->message, array(PR_RCVD_REPRESENTING_ENTRYID));
 			if(isset($rcvdprops[PR_RCVD_REPRESENTING_ENTRYID])) {
-				$ownerentryid = $rcvdprops;
+				$ownerentryid = $rcvdprops[PR_RCVD_REPRESENTING_ENTRYID];
 			}
-			
+
 			if(!$ownerentryid) {
 				$store = $this->store;
 			} else {
 				$ab = mapi_openaddressbook($this->session);
 				if(!$ab) return false;
-				
+
 				$mailuser = mapi_ab_openentry($ab, $ownerentryid);
 				if(!$mailuser) return false;
-				
+
 				$mailuserprops = mapi_getprops($mailuser, array(PR_EMAIL_ADDRESS));
 				if(!isset($mailuserprops[PR_EMAIL_ADDRESS])) return false;
-				
+
 				$storeid = mapi_msgstore_createentryid($this->store, $mailuserprops[PR_EMAIL_ADDRESS]);
-				
+
 				$store = mapi_openmsgstore($this->session, $storeid);
-				
+
 			}
 			return $store;
 		}
-			
+
 		/**
 		 * Open the default task folder for the current user, or the specified user if passed
 		 */
 		function getDefaultTasksFolder()
 		{
 			$store = $this->getTaskFolderStore();
-			
+
 			$inbox = mapi_msgstore_getreceivefolder($store);
 			$inboxprops = mapi_getprops($inbox, Array(PR_IPM_TASK_ENTRYID));
 			if(!isset($inboxprops[PR_IPM_TASK_ENTRYID]))
 				return false;
-			
+
 			return mapi_msgstore_openentry($store, $inboxprops[PR_IPM_TASK_ENTRYID]);
 		}
 
@@ -791,11 +798,11 @@
 			if (!isset($storeprops[PR_MAILBOX_OWNER_ENTRYID])) {
 				return false;
 			}
-			
+
 			$ab = mapi_openaddressbook($this->session);
 			$mailuser = mapi_ab_openentry($ab, $storeprops[PR_MAILBOX_OWNER_ENTRYID]);
 			$mailuserprops = mapi_getprops($mailuser, array(PR_ADDRTYPE, PR_EMAIL_ADDRESS, PR_DISPLAY_NAME, PR_SEARCH_KEY, PR_ENTRYID));
-			
+
 			$props = array();
 			$props[PR_SENT_REPRESENTING_ADDRTYPE] = $mailuserprops[PR_ADDRTYPE];
 			$props[PR_SENT_REPRESENTING_EMAIL_ADDRESS] = $mailuserprops[PR_EMAIL_ADDRESS];
@@ -815,10 +822,10 @@
 			// Open our default store for this user (that's the only store we can submit in)
 			$store = $this->getDefaultStore();
 			$storeprops = mapi_getprops($store, array(PR_IPM_OUTBOX_ENTRYID, PR_IPM_SENTMAIL_ENTRYID));
-			
+
 			$outbox = mapi_msgstore_openentry($store, $storeprops[PR_IPM_OUTBOX_ENTRYID]);
 			if(!$outbox) return false;
-			
+
 			$outgoing = mapi_folder_createmessage($outbox);
 			if(!$outgoing) return false;
 
@@ -826,9 +833,9 @@
 			$ownerstore = $this->getTaskFolderStore();
 			$sentreprprops = $this->getSentReprProps($ownerstore);
 			mapi_setprops($outgoing, $sentreprprops);
-			
+
 			mapi_setprops($outgoing, array(PR_SENTMAIL_ENTRYID => $storeprops[PR_IPM_SENTMAIL_ENTRYID]));
-			
+
 			return $outgoing;
 		}
 
@@ -837,7 +844,7 @@
 		 *
 		 * @param $type int Type of response (tdmtTaskAcc, tdmtTaskDec, tdmtTaskUpd);
 		 * @return boolean TRUE on success
-		 */    
+		 */
 		function sendResponse($type, $prefix)
 		{
 			// Create a message in our outbox
@@ -908,12 +915,12 @@
 		{
 			$table = mapi_getmsgstorestable($this->session);
 			$rows = mapi_table_queryallrows($table, array(PR_DEFAULT_STORE, PR_ENTRYID));
-			
+
 			foreach($rows as $row) {
 				if($row[PR_DEFAULT_STORE])
 					return mapi_openmsgstore($this->session, $row[PR_ENTRYID]);
 			}
-			
+
 			return false;
 		}
 
@@ -928,7 +935,7 @@
 			for($i=0;$i<16;$i++) {
 				$goid .= chr(rand(0, 255));
 			}
-			return $goid;  
+			return $goid;
 		}
 
 		/**
@@ -940,8 +947,8 @@
 		 */
 		function getEmbeddedTask($message) {
 			$task = false;
-			$goid = mapi_getprops($message, array($this->props["task_goid"]));
-			$attachmentTable = mapi_message_getattachmenttable($message);
+			$goid = mapi_getprops($this->message, array($this->props["task_goid"]));
+			$attachmentTable = mapi_message_getattachmenttable($this->message);
 			$restriction = array(RES_PROPERTY,
 								array(RELOP => RELOP_EQ,
 									ULPROPTAG => PR_ATTACH_METHOD,
@@ -955,7 +962,7 @@
 
 			foreach ($rows as $row) {
 				try {
-					$attach = mapi_message_openattach($message, $row[PR_ATTACH_NUM]);
+					$attach = mapi_message_openattach($this->message, $row[PR_ATTACH_NUM]);
 					$task = mapi_attach_openobj($attach);
 				} catch (MAPIException $e) {
 					continue;
@@ -965,7 +972,7 @@
 				if($goid[$this->props["task_goid"]] === $taskGoid[$this->props["task_goid"]]) {
 					mapi_setprops($attach, array(PR_ATTACHMENT_HIDDEN => true));
 					mapi_savechanges($attach);
-					mapi_savechanges($message);
+					mapi_savechanges($this->message);
 					break;
 				}
 			}
@@ -980,10 +987,10 @@
 		{
 			$delegatestore = $this->getDefaultStore();
 			$taskstore = $this->getTaskFolderStore();
-			
+
 			$delegateprops = mapi_getprops($delegatestore, array(PR_MAILBOX_OWNER_NAME));
 			$taskprops = mapi_getprops($taskstore, array(PR_MAILBOX_OWNER_NAME));
-			
+
 			// The owner of the task
 			$username = $delegateprops[PR_MAILBOX_OWNER_NAME];
 			// This is me (the one calling the script)
@@ -1121,7 +1128,7 @@
 		 *
 		 * If it is accept/decline response, then PR_SENT_REPRESENTATION_XXXX are taken as recipient.
 		 *
-		 *@param $outgoing MAPI_message outgoing mapi message 
+		 *@param $outgoing MAPI_message outgoing mapi message
 		 *@param $responseType String response type
 		 */
 		function setRecipientsForResponse($outgoing, $responseType)
@@ -1191,7 +1198,7 @@
 		function sendCompleteUpdate()
 		{
 			$messageprops = mapi_getprops($this->message, array($this->props['taskstate']));
-			
+
 			if(!isset($messageprops[$this->props['taskstate']]) || $messageprops[$this->props['taskstate']] != tdsOWN) {
 				return false; // Can only decline assignee task
 			}
@@ -1224,6 +1231,27 @@
 		function setTaskCommentsInfo($taskCommentsInfo)
 		{
 			$this->taskCommentsInfo = $taskCommentsInfo;
+		}
+
+		function getSubProperties() {
+			$subProperties = array();
+			$subProperties["subject"] = PR_SUBJECT;
+			$subProperties["convtopic"] = PR_CONVERSATION_TOPIC;
+			$subProperties["complete"] = "PT_BOOLEAN:PSETID_Task:0x811c";
+			$subProperties["datecompleted"] = "PT_SYSTIME:PSETID_Task:0x810f";
+			$subProperties["recurring"] = "PT_BOOLEAN:PSETID_Task:0x8126";
+			$subProperties["startdate"] = "PT_SYSTIME:PSETID_Task:0x8104";
+			$subProperties["duedate"] = "PT_SYSTIME:PSETID_Task:0x8105";
+			$subProperties["status"] = "PT_LONG:PSETID_Task:0x8101";
+			$subProperties["percent_complete"] = "PT_DOUBLE:PSETID_Task:0x8102";
+			$subProperties["totalwork"] = "PT_LONG:PSETID_Task:0x8111";
+			$subProperties["actualwork"] = "PT_LONG:PSETID_Task:0x8110";
+			$subProperties["categories"] = "PT_MV_STRING8:PS_PUBLIC_STRINGS:Keywords";
+			$subProperties["companies"] = "PT_MV_STRING8:PSETID_Common:0x8539";
+			$subProperties["mileage"] = "PT_STRING8:PSETID_Common:0x8534";
+			$subProperties["billinginformation"] = "PT_STRING8:PSETID_Common:0x8535";
+
+			return getPropIdsFromStrings($this->store, $subProperties);
 		}
 	}
 ?>

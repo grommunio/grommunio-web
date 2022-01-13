@@ -1592,7 +1592,7 @@
 
 				// Get actual SMTP address for sent_representing_email_address and received_by_email_address
 				$smtpprops = mapi_getprops($message, array(PR_SENT_REPRESENTING_ENTRYID, PR_RECEIVED_BY_ENTRYID, PR_SENDER_ENTRYID));
-				
+
 				if (isset($smtpprops[PR_SENT_REPRESENTING_ENTRYID])) {
 					try {
 						$user = mapi_ab_openentry($GLOBALS['mapisession']->getAddressbook(true), $smtpprops[PR_SENT_REPRESENTING_ENTRYID]);
@@ -1635,7 +1635,7 @@
 				// TODO: Move retrieving the body to a separate function.
 				$plaintext = $this->isPlainText($message);
 				$tmpProps = mapi_getprops($message, array(PR_BODY, PR_HTML));
-				
+
 				if (empty($tmpProps[PR_HTML])) {
 					$tmpProps = mapi_getprops($message, array(PR_BODY, PR_RTF_COMPRESSED));
 					if (isset($tmpProps[PR_RTF_COMPRESSED])) {
@@ -2842,7 +2842,7 @@
 			}
 
 			$folder = mapi_msgstore_openentry($store, $parententryid);
-			
+
 			$msgprops = mapi_getprops($store, array(PR_IPM_WASTEBASKET_ENTRYID, PR_MDB_PROVIDER, PR_IPM_OUTBOX_ENTRYID));
 
 			switch($msgprops[PR_MDB_PROVIDER]){
@@ -3599,7 +3599,7 @@
 					$props['email_address'] = isset($recipientRow[PR_EMAIL_ADDRESS]) ? $recipientRow[PR_EMAIL_ADDRESS] : '';
 					$props['smtp_address'] = isset($recipientRow[PR_SMTP_ADDRESS]) ? $recipientRow[PR_SMTP_ADDRESS] : '';
 					$props['address_type'] = isset($recipientRow[PR_ADDRTYPE]) ? $recipientRow[PR_ADDRTYPE] : '';
-					$props['object_type'] = $recipientRow[PR_OBJECT_TYPE];
+					$props['object_type'] = isset($recipientRow[PR_OBJECT_TYPE]) ? $recipientRow[PR_OBJECT_TYPE] : MAPI_MAILUSER;
 					$props['recipient_type'] = $recipientRow[PR_RECIPIENT_TYPE];
 					$props['display_type'] = isset($recipientRow[PR_DISPLAY_TYPE]) ? $recipientRow[PR_DISPLAY_TYPE] : DT_MAILUSER;
 
@@ -3663,7 +3663,6 @@
 					array_push($recipientsInfo, array( "props" => $props ));
 				}
 			}
-
 			return $recipientsInfo;
 		}
 
@@ -4590,7 +4589,7 @@
 
 		/**
 		 * Function used to compressed the image.
-		 * 
+		 *
 		 * @param string $image The image which is going to compress.
 		 * @param integer compressedQuality The compression factor range from 0 (high) to 100 (low)
 		 * Default value is set to 10 which is nearly extreme compressed image.

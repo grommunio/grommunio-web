@@ -4,7 +4,7 @@
 
 	/**
 	 * Task ItemModule
-	 * Module which openes, creates, saves and deletes an item. It 
+	 * Module which openes, creates, saves and deletes an item. It
 	 * extends the Module class.
 	 */
 	class TaskItemModule extends ItemModule
@@ -17,7 +17,7 @@
 		function __construct($id, $data)
 		{
 			parent::__construct($id, $data);
-		
+
 			$this->properties = $GLOBALS["properties"]->getTaskProperties();
 
 			$this->plaintext = true;
@@ -89,7 +89,7 @@
 		 * @param object $store MAPI Message Store Object
 		 * @param string $parententryid parent entryid of the message
 		 * @param array $action the action data, sent by the client
-		 * @return boolean true on success or false on failure		 		 
+		 * @return boolean true on success or false on failure
 		 */
 		function save($store, $parententryid, $entryid, $action)
 		{
@@ -139,9 +139,9 @@
 		 * Function which deletes an item.
 		 * @param object $store MAPI Message Store Object
 		 * @param string $parententryid parent entryid of the message
-		 * @param string $entryid entryid of the message		 
+		 * @param string $entryid entryid of the message
 		 * @param array $action the action data, sent by the client
-		 * @return boolean true on success or false on failure		 		 
+		 * @return boolean true on success or false on failure
 		 */
 		function delete($store, $parententryid, $entryids, $action)
 		{
@@ -311,13 +311,18 @@
 						$tr = new TaskRequest($store, $message, $GLOBALS["mapisession"]->getSession());
 						if ($send) {
 							$tr->sendTaskRequest(_("Task Request:") . " ");
+
+							return $messageProps;
 						} else if (isset($action["message_action"]["response_type"]) && $action["message_action"]["response_type"] === tdmtTaskUpd) {
 							$tr->doUpdate();
+
+							return $messageProps;
 						} else if (isset($action["message_action"]["action_type"]) && $action["message_action"]["action_type"] === "restoreToTaskList") {
 							$deleteTRProps = $tr->deleteReceivedTR();
 							if ($deleteTRProps) {
 								$GLOBALS["bus"]->notify(bin2hex($deleteTRProps[PR_PARENT_ENTRYID]), TABLE_DELETE, $deleteTRProps);
 							}
+							return $messageProps;
 						}
 					}
 
