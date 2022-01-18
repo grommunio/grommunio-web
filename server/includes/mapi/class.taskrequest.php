@@ -333,6 +333,8 @@
 
 			// Get the embedded task information.
 			$sub = $this->getEmbeddedTask($this->message);
+			// OL saves the task related properties in the embedded message
+			$subProps = mapi_getprops($sub, array($this->props["taskupdates"]));
 
 			// If task is updated in task folder then we don't need to process
 			// old response
@@ -343,7 +345,7 @@
 			$isReceivedItem = $this->isReceivedItem($messageProps);
 
 			$isCreateAssociatedTask = false;
-			$isAllowUpdateAssociatedTask = $messageProps[$this->props["taskupdates"]];
+			$isAllowUpdateAssociatedTask = $subProps[$this->props["taskupdates"]];
 			$props = mapi_getprops($this->message, array(PR_MESSAGE_CLASS));
 			// Set correct taskmode and taskhistory depending on response type
 			switch ($props[PR_MESSAGE_CLASS]) {
@@ -532,6 +534,8 @@
 			$sub = mapi_attach_openproperty($attach, PR_ATTACH_DATA_OBJ, IID_IMessage, 0, MAPI_MODIFY | MAPI_CREATE);
 
 			mapi_copyto($this->message, array(), array(), $sub);
+			mapi_setprops($sub, array(PR_MESSAGE_CLASS => 'IPM.Task'));
+
 			mapi_savechanges($sub);
 
 			mapi_savechanges($attach);

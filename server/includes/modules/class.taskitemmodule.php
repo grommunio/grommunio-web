@@ -52,8 +52,9 @@
 				if ($tr->isTaskRequest() || $tr->isTaskRequestResponse()) {
 					$tr->isTaskRequest() ? $tr->processTaskRequest() : $tr->processTaskResponse();
 					$task = $tr->getAssociatedTask(false);
+					$action["message_action"]["open_task"] = true;
 					$data = $this->getMessageProps($store, $entryid, $action, $task);
-					$data['item']['props']['task_not_found'] = ($task === false);;
+					$data['item']['props']['task_not_found'] = ($task === false);
 				}
 			}
 
