@@ -52,8 +52,6 @@
 			$properties["commonassign"] = "PT_LONG:PSETID_Common:0x8518";
 			$properties["flagdueby"] = "PT_SYSTIME:PSETID_Common:0x8560";
 			$properties["side_effects"] = "PT_LONG:PSETID_Common:0x8510";
-			$properties["reminder"] = "PT_BOOLEAN:PSETID_Common:0x8503";
-			$properties["reminder_minutes"] = "PT_LONG:PSETID_Common:0x8501";
 
 			$this->proptags = getPropIdsFromStrings($store, $properties);
 
