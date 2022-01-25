@@ -485,6 +485,11 @@ define('pbGlobalProfileSectionGuid'              ,makeGuid("{C8B0DB13-05AA-1A10-
 /* Zarafa Contacts provider GUID */
 define('ZARAFA_CONTACTS_GUID'                    ,makeGuid("{30047F72-92E3-DA4F-B86A-E52A7FE46571}"));
 
+/* GUIDs fpr store UID's Providers */
+define('MUID_STORE_WRAP_GUID'                    ,makeGuid("{10BBA138-E505-1A10-A1BB-08002B2A56C2}"));
+define('MUID_STORE_PRIVATE_GUID'                 ,makeGuid("{20FA551B-66AA-CD11-9BC8-00AA002FC45A}"));
+define('MUID_STORE_PUBLIC_GUID'                  ,makeGuid("{1002831C-66AA-CD11-9BC8-00AA002FC45A}"));
+
 /* Permissions */
 
 // Get permission type

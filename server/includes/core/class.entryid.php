@@ -458,6 +458,135 @@
 			// check for object_type == MAPI_ABCONT and id == 1
 			return ($entryIdObj['type'] == '04000000' && $entryIdObj['id'] == self::ZARAFA_UID_GLOBAL_ADDRESS_BOOK);
 		}
+
+		/**
+		 * Creates an object that has split up all the components of an message store entryid.
+		 * @param {String} $entryId message store entryid
+		 * @return {Object} message store entryid object
+		 */
+		public function createMsgStoreEntryIdObj($entryId) {
+			$res = array(
+				'Flags' => '',
+				'ProviderUID' => '',
+				'Version' => '',
+				'Flag' => '',
+				'DLLFileName' => '',
+				'WrappedFlags' => '',
+				'WrappedProviderUID' => '',
+				'WrappedType' => '',
+				'ServerShortname' => '',
+				'MailboxDN' => '',
+				'V2' => array(
+					'Magic' => '',
+					'Size' => '',
+					'Version' => '',
+					'OffsetDN' => '',
+					'OffsetFQDN' => '',
+					'ServerDN' => '',
+					'ServerFQDN' => '',
+					'ReservedBlock' => ''
+				),
+				'V3' => array(
+					'Magic' => '',
+					'Size' => '',
+					'Version' => '',
+					'OffsetSmtpAddress' => '',
+					'SmtpAddress' => '',
+				)
+			);
+
+			if (!$entryId) {
+				return $res;
+			}
+
+			$offset = 0;
+			if (!$this->getAndCheckComponents($entryId, $offset, 4, 0x0, $res, 'Flags')) {
+				return $res;
+			};
+			$offset += 4;
+
+			if (!$this->getAndCheckComponents($entryId, $offset, 16, MUID_STORE_WRAP_GUID, $res, 'ProviderUID')) {
+				return $res;
+			};
+			$offset += 16;
+
+			if (!$this->getAndCheckComponents($entryId, $offset, 1, 0x0, $res, 'Version')) {
+				return $res;
+			};
+			$offset += 1;
+
+			if (!$this->getAndCheckComponents($entryId, $offset, 1, 0x0, $res, 'Flag')) {
+				return $res;
+			};
+			$offset += 1;
+
+			if (!$this->getAndCheckComponents($entryId, $offset, 10, 'emsmdb.dll', $res, 'DLLFileName')) {
+				return $res;
+			};
+			$offset += 14;
+
+			if (!$this->getAndCheckComponents($entryId, $offset, 4, 0x0, $res, 'WrappedFlags')) {
+				return $res;
+			};
+			$offset += 4;
+
+			if (!$this->getAndCheckComponents($entryId, $offset, 16, array(MUID_STORE_PRIVATE_GUID, MUID_STORE_PUBLIC_GUID), $res, 'WrappedProviderUID')) {
+				return $res;
+			};
+			$offset += 16;
+
+			if (!$this->getAndCheckComponents($entryId, $offset, 4, array_map('hex2bin', array('0C000000', '06000000')), $res, 'WrappedType')) {
+				return $res;
+			};
+			$offset += 4;
+
+			$zeroBytePos = strpos($entryId, "\0", $offset);
+			if ($zeroBytePos !== false) {
+				$res['ServerShortname'] = trim(substr($entryId, $offset, $zeroBytePos - $offset));
+				$offset = $zeroBytePos + 1;
+			}
+
+			$zeroBytePos = strpos($entryId, "\0", $offset);
+			if ($zeroBytePos !== false) {
+				$res['MailboxDN'] = trim(substr($entryId, $offset, $zeroBytePos - $offset));
+				$offset = $zeroBytePos + 1;
+			}
+
+			// TODO V2 and V3 structs
+
+			return $res;
+		}
+
+		/**
+		 * Reads $len bytes beginning from $start of the $entryid,
+		 * checks if the value of resulting string is expected and adds it
+		 * to $res object in such case.
+		 * @param {String} $entryId message store entryid
+		 * @param {int} $start start position of the value to get
+		 * @param {int} $len length in bytes of the value to get
+		 * @param {Object} $checkValue value to check against
+		 * @param {Object} $res message store entryid object
+		 * @param {String} $key component name
+		 * @return {Boolean} true if the component has the expected value, false otherwise.
+		 */
+		private function getAndCheckComponents($entryId, $start, $len, $checkValue, &$res, $key) {
+			$val = substr($entryId, $start, $len);
+			if (is_array($checkValue)) {
+				 if (!in_array($val, $checkValue)) {
+					error_log(sprintf("Unexpected value in store entryid for user %s. Entryid: %s key: '%s' value: '%s' expected: %s",
+						$GLOBALS["mapisession"]->getUserName(), bin2hex($entryId), $key, $val, print_r(array_map('bin2hex', $checkValue), 1)));
+					return false;
+				 }
+			}
+			elseif ($checkValue !== null && $val != $checkValue) {
+				error_log(sprintf("Unexpected value in store entryid for user %s. Entryid: %s key: '%s' value: '%s' expected: %s",
+						$GLOBALS["mapisession"]->getUserName(), bin2hex($entryId), $key, $val, $checkValue));
+				return false;
+			}
+
+			$res[$key] = $val;
+			return true;
+		}
 	}
 
 	// Create global entryId object

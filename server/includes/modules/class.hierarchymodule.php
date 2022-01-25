@@ -856,12 +856,12 @@
 							$this->deleteSearchFolder($store, $props[PR_PARENT_ENTRYID], $props[PR_ENTRYID], array());
 						}
 					} else if ($message[PR_MESSAGE_CLASS] === "IPM.Microsoft.WunderBar.Link") {
-						if ($GLOBALS['entryid']->compareEntryIds($message[$prop], $entryid)) {
+						if (isset($message[$prop]) && $GLOBALS['entryid']->compareEntryIds($message[$prop], $entryid)) {
 							mapi_folder_deletemessages($commonViewsFolder, array($message[PR_ENTRYID]));
 							if ($doNotify) {
 								$GLOBALS["bus"]->notify(bin2hex($message[PR_ENTRYID]), OBJECT_SAVE, $message);
 							}
-						} else {
+						} elseif (isset($message[PR_WLINK_STORE_ENTRYID])) {
 							$storeObj = $GLOBALS["mapisession"]->openMessageStore($message[PR_WLINK_STORE_ENTRYID]);
 							$storeProps = mapi_getprops($storeObj, array(PR_ENTRYID));
 							if ($GLOBALS['entryid']->compareEntryIds($message[PR_WLINK_ENTRYID], $storeProps[PR_ENTRYID])) {
