@@ -468,7 +468,7 @@ Zarafa.common.ui.HtmlEditor = Ext.extend(Ext.ux.form.TinyMCETextArea, {
 	addDefaultFormatting: function ()
 	{
 		var tinymceEditor = this.getEditor();
-		if ( tinymceEditor.getContent() ) {
+		if ( tinymceEditor.getContent({ format: "text" }).trim()) {
 			// Only add default formatting when there is no content
 			// Otherwise is has already been added
 			return;
@@ -818,6 +818,7 @@ Zarafa.common.ui.HtmlEditor = Ext.extend(Ext.ux.form.TinyMCETextArea, {
 			var newNode = editor.selection.getNode();
 			editor.selection.setCursorLocation(newNode);
 		}.createDelegate(this));
+		this.composeDefaultFormatting(editor);
 	},
 
 	/**
