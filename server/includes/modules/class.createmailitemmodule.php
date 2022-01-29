@@ -106,6 +106,9 @@
 							// get resources of store and message
 							$copyFromStore = $GLOBALS['mapisession']->openMessageStore($copyFromStore);
 							$copyFromMessage = $GLOBALS['operations']->openMessage($copyFromStore, $copyFromMessage, $copyFromAttachNum);
+							if ($copyFromStore) {
+								$store = $copyFromStore;
+							}
 
 							// Decode smime signed messages on this message
 							parse_smime($copyFromStore, $copyFromMessage);
@@ -273,8 +276,8 @@
 
 
 		/**
-		 * Function which is used to get the source message information, which contains the information of 
-		 * reply/forward and entry id of original mail, where we have to set the reply/forward arrow when 
+		 * Function which is used to get the source message information, which contains the information of
+		 * reply/forward and entry id of original mail, where we have to set the reply/forward arrow when
 		 * draft(saved mail) is send.
 		 * @param array $action the action data, sent by the client
 		 * @return array|Boolean false when entryid and source message entryid is missing otherwise array with
@@ -317,7 +320,7 @@
 		}
 
 		/**
-		 * Function is used to get the shared or delegate store entryid where 
+		 * Function is used to get the shared or delegate store entryid where
 		 * source message was stored on which we have to set replay/forward arrow
 		 * when draft(saved mail) is send.
 		 * @param Array $props the $props data, which get from saved mail.
@@ -349,10 +352,10 @@
 			$sourceMsgInfo = $this->getSourceMsgInfo($action);
 			if(isset($sourceMsgInfo['source_message_info']) && $sourceMsgInfo['source_message_info']) {
 				/**
-				 * $sourceMsgInfo['source_message_info'] contains the hex value, where first 24byte contains action type 
-				 * and next 48byte contains entryid of original mail. so we have to extract the action type 
+				 * $sourceMsgInfo['source_message_info'] contains the hex value, where first 24byte contains action type
+				 * and next 48byte contains entryid of original mail. so we have to extract the action type
 				 * from this hex value.
-				 * 
+				 *
 				 * Example : 01000E000C00000005010000660000000200000030000000 + record entryid
 				 * Here 66 represents the REPLY action type. same way 67 and 68 is represent
 				 * REPLY ALL and FORWARD respectively.
@@ -375,7 +378,7 @@
 					$messageProps = mapi_getprops($message);
 					$props = Conversion::mapMAPI2XML($this->properties, $messageProps);
 					switch($mailActionType) {
-						
+
 						case '66': // Reply
 						case '67': // Reply All
 							$props['icon_index'] = 261;
