@@ -2449,6 +2449,9 @@ msgstr "Nedostupný"
 msgid "Out of Office"
 msgstr "Mimo kancelář"
 
+msgid "User is currently out of office."
+msgstr "Uživatel je právě mimo kancelář."
+
 msgid "No Information"
 msgstr "Žádné informace"
 

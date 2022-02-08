@@ -2369,6 +2369,9 @@ msgstr "繁忙"
 msgid "Out of Office"
 msgstr "不在辦公室"
 
+msgid "User is currently out of office."
+msgstr "使用者現在不在辦公室"
+
 msgid "No Information"
 msgstr "無相關資訊"
 

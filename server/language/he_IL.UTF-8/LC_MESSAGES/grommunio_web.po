@@ -2449,6 +2449,9 @@ msgstr "עסוק"
 msgid "Out of Office"
 msgstr "מחוץ למשרד"
 
+msgid "User is currently out of office."
+msgstr ""
+
 msgid "No Information"
 msgstr "אין מידע"
 

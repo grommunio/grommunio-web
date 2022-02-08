@@ -2430,6 +2430,11 @@ msgstr "Занят"
 msgid "Out of Office"
 msgstr "Нет в офисе(Out of Office)"
 
+msgid "User is currently out of office."
+msgstr ""
+"У пользователя в данный момент установлен статус «Нет в офисе»(Out of "
+"Office)."
+
 msgid "No Information"
 msgstr "Нет информации"
 

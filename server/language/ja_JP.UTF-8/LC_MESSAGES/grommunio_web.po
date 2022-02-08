@@ -2397,6 +2397,9 @@ msgstr "予定あり"
 msgid "Out of Office"
 msgstr "外出中"
 
+msgid "User is currently out of office."
+msgstr "ユーザーは現在外出中です。"
+
 msgid "No Information"
 msgstr "情報がありません。"
 

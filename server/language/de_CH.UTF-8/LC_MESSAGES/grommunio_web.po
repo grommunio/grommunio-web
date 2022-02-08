@@ -2452,6 +2452,9 @@ msgstr "Gebucht"
 msgid "Out of Office"
 msgstr "Abwesend"
 
+msgid "User is currently out of office."
+msgstr "Der Benutzer ist zur Zeit nicht im Büro."
+
 msgid "No Information"
 msgstr "Keine Information"
 

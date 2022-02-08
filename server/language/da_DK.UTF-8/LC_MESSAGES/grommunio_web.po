@@ -2361,6 +2361,9 @@ msgstr "Optaget"
 msgid "Out of Office"
 msgstr "Ude af kontoret"
 
+msgid "User is currently out of office."
+msgstr "Jeg er ikke på kontoret."
+
 msgid "No Information"
 msgstr "Ingen information"
 

@@ -2451,6 +2451,9 @@ msgstr "Meşgul"
 msgid "Out of Office"
 msgstr "Ofis dışında"
 
+msgid "User is currently out of office."
+msgstr "Kullanıcı şu anda ofis dışında"
+
 msgid "No Information"
 msgstr "Bilgi yok"
 

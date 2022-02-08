@@ -2414,6 +2414,9 @@ msgstr "Opptatt"
 msgid "Out of Office"
 msgstr "Fraværende"
 
+msgid "User is currently out of office."
+msgstr "Jeg er ikke på kontoret."
+
 msgid "No Information"
 msgstr "Ingen informasjon"
 

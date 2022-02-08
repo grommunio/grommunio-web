@@ -2472,6 +2472,9 @@ msgstr "Bezet"
 msgid "Out of Office"
 msgstr "Niet Aanwezig"
 
+msgid "User is currently out of office."
+msgstr "Gebruiker is nu niet aanwezig."
+
 msgid "No Information"
 msgstr "Geen Informatie"
 

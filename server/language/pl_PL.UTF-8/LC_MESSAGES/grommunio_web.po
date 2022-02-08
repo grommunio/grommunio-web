@@ -2346,6 +2346,9 @@ msgstr "Zajęty"
 msgid "Out of Office"
 msgstr "Poza biurem"
 
+msgid "User is currently out of office."
+msgstr "Użytkownik jest obecnie poza biurem."
+
 msgid "No Information"
 msgstr "Brak informacji"
 

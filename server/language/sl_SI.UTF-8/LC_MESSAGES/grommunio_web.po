@@ -2476,6 +2476,9 @@ msgstr "Zasedeno"
 msgid "Out of Office"
 msgstr "Odsoten"
 
+msgid "User is currently out of office."
+msgstr "Uporabnik je trenutno odsoten."
+
 msgid "No Information"
 msgstr "Ni informacije"
 

@@ -2441,6 +2441,9 @@ msgstr "Varattu"
 msgid "Out of Office"
 msgstr "Poissa toimistolta"
 
+msgid "User is currently out of office."
+msgstr "Käyttäjä on parhaillaan poissa toimistolta."
+
 msgid "No Information"
 msgstr "Ei tietoja"
 

@@ -2291,6 +2291,9 @@ msgstr "忙碌"
 msgid "Out of Office"
 msgstr "外出"
 
+msgid "User is currently out of office."
+msgstr "用户当前不在公司。"
+
 msgid "No Information"
 msgstr "无信息"
 

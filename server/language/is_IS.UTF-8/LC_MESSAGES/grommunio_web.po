@@ -2329,6 +2329,9 @@ msgstr "Bókað"
 msgid "Out of Office"
 msgstr "Fjarverandi"
 
+msgid "User is currently out of office."
+msgstr "Notandi er fjarverandi frá vinnustað."
+
 msgid "No Information"
 msgstr "Engar upplýsingar"
 

@@ -2312,6 +2312,9 @@ msgstr ""
 msgid "Out of Office"
 msgstr ""
 
+msgid "User is currently out of office."
+msgstr ""
+
 msgid "No Information"
 msgstr ""
 

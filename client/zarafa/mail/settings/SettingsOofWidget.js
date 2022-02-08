@@ -255,6 +255,7 @@ Zarafa.mail.settings.SettingsOofWidget = Ext.extend(Zarafa.settings.ui.SettingsW
 						name: 'internal_subject',
 						ref: '../../../intSubjectField',
 						emptyText: _('Out of Office'),
+						defaultValue: _('Out of Office'),
 						flex: 1,
 						listeners: {
 							change: this.onFieldChange,
@@ -266,6 +267,7 @@ Zarafa.mail.settings.SettingsOofWidget = Ext.extend(Zarafa.settings.ui.SettingsW
 					cls: 'k-signature-editor',
 					name: 'internal_reply',
 					ref: '../../intBodyField',
+					defaultValue: _('User is currently out of office.'),
 					anchor: '100%',
 					height: 450,
 					useHtml: true,
@@ -347,6 +349,7 @@ Zarafa.mail.settings.SettingsOofWidget = Ext.extend(Zarafa.settings.ui.SettingsW
 						name: 'external_subject',
 						ref: '../../../extSubjectField',
 						emptyText: _('Out of Office'),
+						defaultValue: _('Out of Office'),
 						flex: 1,
 						listeners: {
 							change: this.onFieldChange,
@@ -358,6 +361,7 @@ Zarafa.mail.settings.SettingsOofWidget = Ext.extend(Zarafa.settings.ui.SettingsW
 					cls: 'k-signature-editor',
 					name: 'external_reply',
 					ref: '../../extBodyField',
+					defaultValue: _('User is currently out of office.'),
 					anchor: '100%',
 					height: 450,
 					useHtml: true,
@@ -539,9 +543,19 @@ Zarafa.mail.settings.SettingsOofWidget = Ext.extend(Zarafa.settings.ui.SettingsW
 			this.backDateTimeField.setValue(this.backDateTimeField.defaultValue);
 		}
 
-		this.intSubjectField.setValue(record.get(this.intSubjectField.name));
-		this.extSubjectField.setValue(record.get(this.extSubjectField.name));
-		this.intBodyField.setValue(record.get(this.intBodyField.name));
+		var intSubject = record.get(this.intSubjectField.name) || this.intSubjectField.defaultValue;
+		this.intSubjectField.setValue(intSubject);
+
+		var extSubject = record.get(this.extSubjectField.name) || this.extSubjectField.defaultValue;
+		this.extSubjectField.setValue(extSubject);
+
+		var intBody = record.get(this.intBodyField.name) || this.intBodyField.defaultValue;
+		this.intBodyField.setValue(intBody);
+
+		if (this.extBodyLoaded) {
+			var extBody = record.get(this.extBodyField.name) || this.extBodyField.defaultValue;
+			this.extBodyField.setValue(extBody);
+		}
 	},
 
 	/**

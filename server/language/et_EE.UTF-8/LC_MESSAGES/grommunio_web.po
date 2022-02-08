@@ -2374,6 +2374,9 @@ msgstr "Hõivatud"
 msgid "Out of Office"
 msgstr "Kontorist väljas"
 
+msgid "User is currently out of office."
+msgstr ""
+
 msgid "No Information"
 msgstr ""
 

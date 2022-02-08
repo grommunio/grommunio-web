@@ -2469,6 +2469,9 @@ msgstr "Elfoglalt"
 msgid "Out of Office"
 msgstr "Házon kívül"
 
+msgid "User is currently out of office."
+msgstr "A felhasználó jelenleg házon kívül van."
+
 msgid "No Information"
 msgstr "Nincs információ"
 
