@@ -757,16 +757,20 @@
 			// Here we check PR_WLINK_STORE_ENTRYID and PR_WLINK_ENTRYID is same. Which same only in one case
 			// where some user has mark favorites to root(Inbox-<user name>) folder from OL. So here if condition
 			// gets true we get the IPM_SUBTREE and send it to response as favorites folder to webapp.
-			if($GLOBALS['entryid']->compareEntryIds($linkMessageProps[PR_WLINK_STORE_ENTRYID], $linkMessageProps[PR_WLINK_ENTRYID])) {
-				$storeObj = $GLOBALS["mapisession"]->openMessageStore($linkMessageProps[PR_WLINK_STORE_ENTRYID]);
-				$subTreeEntryid = mapi_getprops($storeObj, array(PR_IPM_SUBTREE_ENTRYID));
-				$folderObj = mapi_msgstore_openentry($storeObj, $subTreeEntryid[PR_IPM_SUBTREE_ENTRYID]);
-			} else {
-				$storeObj = $GLOBALS["mapisession"]->openMessageStore($linkMessageProps[PR_WLINK_STORE_ENTRYID]);
-				$folderObj = mapi_msgstore_openentry($storeObj, $linkMessageProps[PR_WLINK_ENTRYID]);
+			try {
+				if($GLOBALS['entryid']->compareEntryIds($linkMessageProps[PR_WLINK_STORE_ENTRYID], $linkMessageProps[PR_WLINK_ENTRYID])) {
+					$storeObj = $GLOBALS["mapisession"]->openMessageStore($linkMessageProps[PR_WLINK_STORE_ENTRYID]);
+					$subTreeEntryid = mapi_getprops($storeObj, array(PR_IPM_SUBTREE_ENTRYID));
+					$folderObj = mapi_msgstore_openentry($storeObj, $subTreeEntryid[PR_IPM_SUBTREE_ENTRYID]);
+				} else {
+					$storeObj = $GLOBALS["mapisession"]->openMessageStore($linkMessageProps[PR_WLINK_STORE_ENTRYID]);
+					$folderObj = mapi_msgstore_openentry($storeObj, $linkMessageProps[PR_WLINK_ENTRYID]);
+				}
+				return mapi_getprops($folderObj, $GLOBALS["properties"]->getFavoritesFolderProperties());
 			}
-
-			return mapi_getprops($folderObj, $GLOBALS["properties"]->getFavoritesFolderProperties());
+			catch(Exception $e) {
+				error_log($e);
+			}
 		}
 
 		/**
