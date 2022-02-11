@@ -690,6 +690,9 @@
 							continue;
 						}
 						$props = $this->getFavoriteLinkedFolderProps($row);
+						if(empty($props)) {
+							continue;
+						}
 					} else if ($row[PR_MESSAGE_CLASS] === "IPM.Microsoft.WunderBar.SFInfo") {
 						$props = $this->getFavoritesLinkedSearchFolderProps($row[PR_WB_SF_ID], $finderHierarchyTables);
 						if(empty($props)) {
@@ -769,8 +772,10 @@
 				return mapi_getprops($folderObj, $GLOBALS["properties"]->getFavoritesFolderProperties());
 			}
 			catch(Exception $e) {
-				error_log($e);
+				// in some cases error_log was causing an endless loop, so disable it for now
+				// error_log($e);
 			}
+			return false;
 		}
 
 		/**
