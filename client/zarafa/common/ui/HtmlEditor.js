@@ -74,7 +74,7 @@ Zarafa.common.ui.HtmlEditor = Ext.extend(Ext.ux.form.TinyMCETextArea, {
 			readOnly: false,
 			tinyMCEConfig:{
 				delta_height: 1,
-				plugins: ["advlist emoticons directionality lists image charmap searchreplace textcolor table"],
+				plugins: ["advlist directionality lists image charmap searchreplace textcolor table"],
 				// Add the powerpaste as an external plugin so we can update tinymce by just replacing
 				// the contents of its folder without removing the powerpaste plugin
 				// Note: the path is relative to the path of tinymce
@@ -87,7 +87,7 @@ Zarafa.common.ui.HtmlEditor = Ext.extend(Ext.ux.form.TinyMCETextArea, {
 				powerpaste_word_import: powerpasteConfig.powerpaste_word_import,
 				powerpaste_html_import: powerpasteConfig.powerpaste_html_import,
 				powerpaste_allow_local_images: powerpasteConfig.powerpaste_allow_local_images,
-				toolbar1: "fontselect fontsizeselect | bold italic underline strikethrough | subscript superscript | forecolor backcolor | alignleft aligncenter alignright alignjustify | outdent indent | ltr rtl | bullist numlist | table | searchreplace | link unlink | undo redo | charmap emoticons image hr removeformat",
+				toolbar1: "fontselect fontsizeselect | bold italic underline strikethrough | subscript superscript | forecolor backcolor | alignleft aligncenter alignright alignjustify | outdent indent | ltr rtl | bullist numlist | table | searchreplace | link unlink | undo redo | charmap image hr removeformat",
 				extended_valid_elements: 'a[name|href|target|title|onclick|dir],img[class|src|border=0|alt|title|hspace|vspace|width|height|align|onmouseover|onmouseout|name|style],table[style|dir|class|border=1|cellspacing|cellpadding|bgcolor|id],colgroup,col[style|dir|width],tbody,tr[style|dir|class],td[style|dir|class|colspan|rowspan|width|height],hr[class|width|size|noshade],font[face|size|color|style|dir],span[class|align|style|dir|br],p[class|style|dir|span|br]',
 				paste_data_images: true,
 				automatic_uploads: false,
