@@ -6,7 +6,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: dev@grommunio.com\n"
 "POT-Creation-Date: 2019-09-25 14:32+0200\n"
 "PO-Revision-Date: 2022-02-26 23:55+0000\n"
-"Last-Translator: J. Lavoie <j.lavoie@net-c.ca>\n"
+"Last-Translator: Mike Williams <mike.williams@grammm.com>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/grommunio/"
 "grommunio-web/de/>\n"
 "Language: de_DE\n"
@@ -376,7 +376,7 @@ msgid "Last name"
 msgstr "Nachname"
 
 msgid "Initials"
-msgstr "Initialen"
+msgstr "Initialien"
 
 msgid "Display"
 msgstr "Anzeige"
@@ -392,7 +392,7 @@ msgid "City"
 msgstr "Stadt"
 
 msgid "State"
-msgstr "Staat"
+msgstr "Bundesland"
 
 msgid "Zip Code"
 msgstr "Postleitzahl"
@@ -450,7 +450,7 @@ msgid "Home2"
 msgstr "Privat 2"
 
 msgid "Mobile"
-msgstr "Mobil"
+msgstr "Mobiltelefon"
 
 msgid "Pager"
 msgstr "Pager"
@@ -665,7 +665,7 @@ msgid "Reply All"
 msgstr "Allen antworten"
 
 msgid "Forward"
-msgstr "Weiterleiten"
+msgstr "Weiterleitung"
 
 msgid "Edit as New"
 msgstr "Nachricht als neu bearbeiten"
@@ -2777,7 +2777,7 @@ msgstr ""
 "vorangegangenen Aufgabe"
 
 msgid "Info"
-msgstr "Informationen"
+msgstr "Info"
 
 msgid "Not supported at the moment."
 msgstr "Wird momentan nicht unterstützt."
@@ -4103,7 +4103,7 @@ msgid "Not responded"
 msgstr "Nicht geantwortet"
 
 msgid "Accepted"
-msgstr "Zugesagt"
+msgstr "Angenommen"
 
 msgid "Declined"
 msgstr "Abgelehnt"
@@ -4140,7 +4140,7 @@ msgid "Purple"
 msgstr "Lila"
 
 msgid "Logout"
-msgstr "Abmelden"
+msgstr "Ausloggen"
 
 msgid "Switch view"
 msgstr "Ansicht umschalten"
@@ -4404,7 +4404,7 @@ msgid "Type"
 msgstr "Typ"
 
 msgid "Description"
-msgstr "Name"
+msgstr "Beschreibung"
 
 msgid "EntryID"
 msgstr "EntryID"
@@ -5619,7 +5619,7 @@ msgid "New task"
 msgstr "Neue Aufgabe"
 
 msgid "Completed"
-msgstr "Erledigt"
+msgstr "Abgeschlossen"
 
 # 76%
 msgid "Printed by: "
