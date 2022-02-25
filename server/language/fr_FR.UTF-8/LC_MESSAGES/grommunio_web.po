@@ -3,9 +3,9 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web French (France)\n"
-"Report-Msgid-Bugs-To: \n"
+"Report-Msgid-Bugs-To: dev@grommunio.com\n"
 "POT-Creation-Date: 2019-09-25 14:32+0200\n"
-"PO-Revision-Date: 2021-12-07 16:51+0000\n"
+"PO-Revision-Date: 2022-02-26 23:55+0000\n"
 "Last-Translator: J. Lavoie <j.lavoie@net-c.ca>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/grommunio/"
 "grommunio-web/fr/>\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 4.10-dev\n"
+"X-Generator: Weblate 4.11.1-dev\n"
 
 #. TRANSLATORS: This message is used as label for the column which indicates the week number of the month in date picker. and 'Wk' stands for week
 msgid "Wk"
@@ -316,7 +316,7 @@ msgstr ""
 "exemple.com »"
 
 msgid "This field should be a URL in the format \"{0}\""
-msgstr "Ce champ doit contenir une URL au format \"{0}\""
+msgstr "Ce champ doit contenir une URL au format « {0} »"
 
 msgid "This field should only contain letters and _"
 msgstr "Ce champ ne peut contenir que des lettres et le caractère _"
@@ -1020,13 +1020,11 @@ msgstr ""
 "Le calendrier sélectionné est en \"lecture seule\". A la place, vous pouvez "
 "créer un élément dans votre propre calendrier."
 
-#, fuzzy
 msgid "What would you like?"
-msgstr "Qu'aimeriez-vous ?"
+msgstr "Qu'aimeriez-vous ?"
 
-#, fuzzy
 msgid "Own calendar"
-msgstr "Mon calendrier"
+msgstr "Calendrier personnel"
 
 msgid "F Y"
 msgstr "F Y"
