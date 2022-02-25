@@ -10,7 +10,7 @@
 		function __construct($id, $data)
 		{
 			parent::__construct($id, $data);
-	
+
 			$this->properties = $GLOBALS["properties"]->getRecipientProperties();
 		}
 
@@ -49,7 +49,8 @@
 		 */
 		function expandDist($entryid, $data = Array(), $isRecurse = false)
 		{
-			if($GLOBALS['entryid']->hasAddressBookGUID(bin2hex($entryid))) {
+			$heid = bin2hex($entryid);
+			if($GLOBALS['entryid']->hasAddressBookGUID($heid) || $GLOBALS['entryid']->hasAddressBookRecipientGUID($heid)) {
 				$abentry = mapi_ab_openentry($this->addrbook, $entryid);
 				$table = mapi_folder_getcontentstable($abentry, MAPI_DEFERRED_ERRORS);
 				$rows = mapi_table_queryrows($table, $this->properties, 0, (ABITEMDETAILS_MAX_NUM_DISTLIST_MEMBERS > 0) ? ABITEMDETAILS_MAX_NUM_DISTLIST_MEMBERS : 0x7fffffff);
@@ -75,7 +76,7 @@
 				 * If distribution list was belongs to local/shared folder then
 				 * it will expand all members of distribution list.
 				 */
-				$distlistMembers = $GLOBALS['operations']->expandDistList(bin2hex($entryid), $isRecurse);
+				$distlistMembers = $GLOBALS['operations']->expandDistList($heid, $isRecurse);
 				$recipients = array();
 				foreach($distlistMembers as $distlistMember) {
 					$recipients['props'] = $distlistMember;
@@ -87,7 +88,7 @@
 
 		/**
 		 * Function which expand the distribution list, sent by the client. This function is used
-		 * when a user wants to replace the distribution list with its members 
+		 * when a user wants to replace the distribution list with its members
 		 * in the to, cc and bcc field. This function retrieve members of that particular distribution list
 		 * and send that list back to the client.
 		 * @param array $action the action data, sent by the client

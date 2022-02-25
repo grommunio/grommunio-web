@@ -23,5 +23,7 @@ define('PS_INTERNET_HEADERS',                   makeguid("{00020386-0000-0000-c0
 define('MUIDECSAB',                             makeguid("{50A921AC-D340-48ee-B319-FBA753304425}"));
 
 define('MUIDZCSAB',                             makeguid("{30047F72-92E3-DA4F-B86A-E52A7FE46571}"));
- 
+
+define('MUIDEMSAB',                             makeguid("{C840A7DC-42C0-1A10-B4B9-08002B2FE182}"));
+
 ?>

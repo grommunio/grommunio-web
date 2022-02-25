@@ -16,6 +16,8 @@
 		const MUIDZCSAB = '727F0430E3924FDAB86AE52A7FE46571';
 		/* GUID for OneOff entryid */
 		const MAPI_ONE_OFF_UID = '812B1FA4BEA310199D6E00DD010F5402';
+		/* GUID for Address book recipient */
+		const MUIDEMSAB = 'DCA740C8C042101AB4B908002B2FE182';
 
 		/* Hardcoded ID used for generating entryid of addressbook container */
 		const ZARAFA_UID_ADDRESS_BOOK = '00000000';
@@ -303,7 +305,7 @@
 		 * @param {String} abEntryId unwrapped addressbook entryid.
 		 * @return {Object} addresbook entryid object.
 		 */
-		private function createABEntryIdObj($abEntryId)
+		public function createABEntryIdObj($abEntryId)
 		{
 			return $this->getABEIDVersion($abEntryId);
 		}
@@ -439,6 +441,18 @@
 			$entryIdObj = $this->createABEntryIdObj($entryId);
 
 			return $entryIdObj['guid'] == self::MUIDECSAB;
+		}
+
+		/**
+		 * Checks if the GUID part of the entryid is of the Address book recipient.
+		 * @param {String} $entryId Address Book entryid
+		 * @return {Boolean} true if guid matches the Ab recipient else false
+		 */
+		public function hasAddressBookRecipientGUID($entryId)
+		{
+			$entryIdObj = $this->createABEntryIdObj($entryId);
+
+			return $entryIdObj['guid'] == self::MUIDEMSAB;
 		}
 
 		/**
@@ -586,6 +600,67 @@
 
 			$res[$key] = $val;
 			return true;
+		}
+
+		/**
+		 * Creates an object that has split up all the components of a message entryid.
+		 * @param {String} $entryId message entryid
+		 * @return {Object} message entryid object
+		 */
+		public function createMessageEntryIdObj($entryId)
+		{
+			$res = array(
+				'providerguid' => '',			// GUID,     16 bytes, 32 hex characters
+				'messagetype' => '',			// UINT,      2 bytes,  4 hex characters
+				'folderdbguid' => '',			// GUID,     16 bytes, 32 hex characters
+				'foldercounter'	=> '',		// ULONG,     6 bytes, 12 hex characters
+				'padding'	=> '',					// TCHAR[3],  2 bytes,  4 hex characters
+				'messagedbguid' => '',		// GUID,     16 bytes, 32 hex characters
+				'messagecounter'	=> '',	// ULONG,     6 bytes, 12 hex characters
+			);
+
+			if (!$entryId) {
+				return $res;
+			}
+
+			$res['length'] = strlen($entryId);
+			$offset = 0;
+
+			$res['providerguid'] = substr($entryId, $offset, 32);
+			$offset += 32;
+
+			$res['messagetype'] = substr($entryId, $offset, 4);
+			$offset += 4;
+
+			$res['folderdbguid'] = substr($entryId, $offset, 32);
+			$offset += 32;
+
+			$res['foldercounter'] = substr($entryId, $offset, 12);
+			$offset += 12;
+
+			$res['padding'] = substr($entryId, $offset, 4);
+			$offset += 4;
+
+			$res['messagedbguid'] = substr($entryId, $offset, 32);
+			$offset += 32;
+
+			$res['messagecounter'] = substr($entryId, $offset, 12);
+			$offset += 12;
+
+			return $res;
+		}
+
+		/**
+		 * Creates a folder entryid with provided parameters.
+		 * @param $providerguid {String} provider guid
+		 * @param $foldertype {int} folder type flag
+		 * @param $folderdbguid {String} folder db guid
+		 * @param $foldercounter {String} folder counter
+		 * @return {String} folder entryid
+		 */
+		public function createFolderEntryId($providerguid, $foldertype, $folderdbguid, $foldercounter)
+		{
+			return strtoupper('00000000' . $providerguid . $foldertype . $folderdbguid . $foldercounter . '0000');
 		}
 	}
 

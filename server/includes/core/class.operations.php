@@ -3900,26 +3900,27 @@
 		function expandDistList($distlistEntryid, $isRecursive = false)
 		{
 			$properties = $GLOBALS['properties']->getDistListProperties();
+			$eidObj = $GLOBALS['entryid']->createABEntryIdObj($distlistEntryid);
+			$extidObj = $GLOBALS['entryid']->createMessageEntryIdObj($eidObj['extid']);
+			$distListFolder = $GLOBALS['entryid']->createFolderEntryId($extidObj['providerguid'], '0100', $extidObj['folderdbguid'], $extidObj['foldercounter']);
 
-			$isExternalDistList = $this->isExternalContactItem(hex2bin($distlistEntryid));
-
-			if($isExternalDistList) {
-				$store = $this->getOtherStoreFromEntryid($distlistEntryid);
-			} else {
-				$store = $GLOBALS["mapisession"]->getDefaultMessageStore();
+			$store = $GLOBALS["mapisession"]->getDefaultMessageStore();
+			if (!$this->isSpecialFolder($store, hex2bin($distListFolder))) {
+				// distribution list from a shared or public store, try to find it
+				// TODO also filter subfolders of the private contacts folder
+				// TODO find the shared store efficiently see getOtherStoreFromEntryid
 			}
 
-			if ($GLOBALS['entryid']->hasContactProviderGUID($distlistEntryid)) {
-				$distlistEntryid = $GLOBALS["entryid"]->unwrapABEntryIdObj($distlistEntryid);
-			}
+			$distlistEntryid = $GLOBALS["entryid"]->unwrapABEntryIdObj($distlistEntryid);
 
 			try {
 				$distlist = $this->openMessage($store, hex2bin($distlistEntryid));
 			} catch(Exception $e) {
+				// the distribution list is in a public folder
 				$distlist = $this->openMessage($GLOBALS["mapisession"]->getPublicMessageStore(), hex2bin($distlistEntryid));
 			}
 
-			// Retrive the members from distribution list.
+			// Retrieve the members from distribution list.
 			$distlistMembers = $this->getMembersFromDistributionList($store, $distlist, $properties, $isRecursive);
 			$recipients = array();
 
