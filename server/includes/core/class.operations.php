@@ -3902,12 +3902,13 @@
 			$properties = $GLOBALS['properties']->getDistListProperties();
 			$eidObj = $GLOBALS['entryid']->createABEntryIdObj($distlistEntryid);
 			$extidObj = $GLOBALS['entryid']->createMessageEntryIdObj($eidObj['extid']);
-			$distListFolder = $GLOBALS['entryid']->createFolderEntryId($extidObj['providerguid'], '0100', $extidObj['folderdbguid'], $extidObj['foldercounter']);
 
 			$store = $GLOBALS["mapisession"]->getDefaultMessageStore();
-			if (!$this->isSpecialFolder($store, hex2bin($distListFolder))) {
+			$contactFolderId = $this->getPropertiesFromStoreRoot($store, array(PR_IPM_CONTACT_ENTRYID));
+			$contactFolderidObj = $GLOBALS['entryid']->createFolderEntryIdObj(bin2hex($contactFolderId[PR_IPM_CONTACT_ENTRYID]));
+
+			if ($contactFolderidObj['providerguid'] != $extidObj['providerguid'] && $contactFolderidObj['folderdbguid'] != $extidObj['folderdbguid']) {
 				// distribution list from a shared or public store, try to find it
-				// TODO also filter subfolders of the private contacts folder
 				// TODO find the shared store efficiently see getOtherStoreFromEntryid
 			}
 
@@ -4631,6 +4632,12 @@
 				}
 			}
 			return "";
+		}
+
+		function getPropertiesFromStoreRoot($store, $props)
+		{
+			$root = mapi_msgstore_openentry($store, null);
+			return mapi_getprops($root, $props);
 		}
 	}
 ?>

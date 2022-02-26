@@ -609,6 +609,9 @@
 		 */
 		public function createMessageEntryIdObj($entryId)
 		{
+			// always make entryids in uppercase so comparison will be case insensitive
+			$entryId = strtoupper($entryId);
+
 			$res = array(
 				'providerguid' => '',			// GUID,     16 bytes, 32 hex characters
 				'messagetype' => '',			// UINT,      2 bytes,  4 hex characters
@@ -661,6 +664,53 @@
 		public function createFolderEntryId($providerguid, $foldertype, $folderdbguid, $foldercounter)
 		{
 			return strtoupper('00000000' . $providerguid . $foldertype . $folderdbguid . $foldercounter . '0000');
+		}
+
+		/**
+		 * Creates an object that has split up all the components of a folder entryid.
+		 * @param {String} $entryId folder entryid
+		 * @return {Object} folder entryid object
+		 */
+		public function createFolderEntryIdObj($entryId)
+		{
+			// always make entryids in uppercase so comparison will be case insensitive
+			$entryId = strtoupper($entryId);
+
+			$res = array(
+				'abflags'	=> '',					// BYTE[4],   4 bytes,  8 hex characters
+				'providerguid' => '',			// GUID,     16 bytes, 32 hex characters
+				'foldertype' => '',				// UINT,      2 bytes,  4 hex characters
+				'folderdbguid' => '',			// GUID,     16 bytes, 32 hex characters
+				'foldercounter'	=> '',		// ULONG,     6 bytes, 12 hex characters
+				'padding'	=> '',					// TCHAR[3],  2 bytes,  4 hex characters
+			);
+
+			if (!$entryId) {
+				return $res;
+			}
+
+			$res['length'] = strlen($entryId);
+			$offset = 0;
+
+			$res['abflags'] = substr($entryId, $offset, 8);
+			$offset += 8;
+
+			$res['providerguid'] = substr($entryId, $offset, 32);
+			$offset += 32;
+
+			$res['foldertype'] = substr($entryId, $offset, 4);
+			$offset += 4;
+
+			$res['folderdbguid'] = substr($entryId, $offset, 32);
+			$offset += 32;
+
+			$res['foldercounter'] = substr($entryId, $offset, 12);
+			$offset += 12;
+
+			$res['padding'] = substr($entryId, $offset, 4);
+			$offset += 4;
+
+			return $res;
 		}
 	}
 
