@@ -3908,8 +3908,15 @@
 			$contactFolderidObj = $GLOBALS['entryid']->createFolderEntryIdObj(bin2hex($contactFolderId[PR_IPM_CONTACT_ENTRYID]));
 
 			if ($contactFolderidObj['providerguid'] != $extidObj['providerguid'] && $contactFolderidObj['folderdbguid'] != $extidObj['folderdbguid']) {
-				// distribution list from a shared or public store, try to find it
-				// TODO find the shared store efficiently see getOtherStoreFromEntryid
+				$storelist = $GLOBALS["mapisession"]->getAllMessageStores();
+				foreach ($storelist as $storeObj) {
+					$contactFolderId = $this->getPropertiesFromStoreRoot($storeObj, array(PR_IPM_CONTACT_ENTRYID));
+					$contactFolderidObj = $GLOBALS['entryid']->createFolderEntryIdObj(bin2hex($contactFolderId[PR_IPM_CONTACT_ENTRYID]));
+					if ($contactFolderidObj['providerguid'] == $extidObj['providerguid'] && $contactFolderidObj['folderdbguid'] == $extidObj['folderdbguid']) {
+						$store = $storeObj;
+						break;
+					}
+				}
 			}
 
 			$distlistEntryid = $GLOBALS["entryid"]->unwrapABEntryIdObj($distlistEntryid);
