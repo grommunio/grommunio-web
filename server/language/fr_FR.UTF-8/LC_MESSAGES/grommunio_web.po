@@ -5,8 +5,8 @@ msgstr ""
 "Project-Id-Version: grommunio Web French (France)\n"
 "Report-Msgid-Bugs-To: dev@grommunio.com\n"
 "POT-Creation-Date: 2019-09-25 14:32+0200\n"
-"PO-Revision-Date: 2022-02-26 23:55+0000\n"
-"Last-Translator: J. Lavoie <j.lavoie@net-c.ca>\n"
+"PO-Revision-Date: 2022-03-09 00:55+0000\n"
+"Last-Translator: Mike Williams <mike.williams@grammm.com>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/grommunio/"
 "grommunio-web/fr/>\n"
 "Language: fr_FR\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 4.11.1-dev\n"
+"X-Generator: Weblate 4.12-dev\n"
 
 #. TRANSLATORS: This message is used as label for the column which indicates the week number of the month in date picker. and 'Wk' stands for week
 msgid "Wk"
@@ -407,10 +407,10 @@ msgid "Title"
 msgstr "Titre"
 
 msgid "Company"
-msgstr "Société"
+msgstr "Entreprise"
 
 msgid "Department"
-msgstr "Service"
+msgstr "Département"
 
 msgid "Office"
 msgstr "Bureau"
@@ -422,7 +422,7 @@ msgid "Phone"
 msgstr "Téléphone"
 
 msgid "Organization"
-msgstr "Organisme"
+msgstr "Organisation"
 
 msgid "Manager"
 msgstr "Responsable"
@@ -449,10 +449,10 @@ msgid "Home2"
 msgstr "Domicile 2"
 
 msgid "Mobile"
-msgstr "Téléphone portable"
+msgstr "Mobile"
 
 msgid "Pager"
-msgstr "Pageur"
+msgstr "Pager"
 
 msgid "No user selected"
 msgstr "Aucun utilisateur sélectionné"
@@ -714,7 +714,7 @@ msgid "Sender"
 msgstr "Expéditeur"
 
 msgid "Recipients"
-msgstr "Destinataires"
+msgstr "Récepteur"
 
 msgid "Subject"
 msgstr "Sujet"
@@ -1165,7 +1165,7 @@ msgid "Create in"
 msgstr "Date de création"
 
 msgid "Time"
-msgstr "Heure"
+msgstr "Temps"
 
 msgid "until"
 msgstr "jusqu'à"
@@ -1211,7 +1211,7 @@ msgid "Send"
 msgstr "Envoyer"
 
 msgid "Save"
-msgstr "Enregistrer"
+msgstr "Sauvez"
 
 msgid "Close"
 msgstr "Fermer"
@@ -2119,7 +2119,7 @@ msgid "Preview"
 msgstr "Aperçu"
 
 msgid "Download"
-msgstr "Téléchargement"
+msgstr "Télécharger"
 
 msgid "Download all as ZIP"
 msgstr "Télécharger tout dans un fichier ZIP"
@@ -2591,7 +2591,7 @@ msgid "grommunio Web print"
 msgstr ""
 
 msgid "Display name"
-msgstr "Afficher le nom"
+msgstr "Nom d'affichage"
 
 msgid "Email address"
 msgstr "Adresse électronique"
@@ -3134,7 +3134,7 @@ msgid "Please select a sendas record."
 msgstr "Veuillez sélectionner un enregistrement Envoyé en tant que"
 
 msgid "Delegates"
-msgstr "Délégations"
+msgstr "Délégués"
 
 # 88%
 msgid "Delegate settings"
@@ -3683,7 +3683,7 @@ msgid "Additional information"
 msgstr "Informations complémentaires"
 
 msgid "Business 2"
-msgstr "Professionnel 2"
+msgstr "Entreprise 2"
 
 msgid "Callback"
 msgstr "Rappel"
@@ -4686,7 +4686,7 @@ msgid ""
 msgstr ""
 
 msgid "CC"
-msgstr "Cc"
+msgstr "CC"
 
 msgid "BCC"
 msgstr "Cci"
@@ -5484,7 +5484,7 @@ msgid "Sort by: Priority"
 msgstr "Trier par : Priorité"
 
 msgid "Status"
-msgstr "État"
+msgstr "Statut"
 
 # 75%
 msgid "Sort by: Status"
@@ -5638,9 +5638,8 @@ msgstr "Marquer cette tâche comme privé"
 msgid "New task"
 msgstr "Créer Tâche"
 
-#, fuzzy
 msgid "Completed"
-msgstr "Achevé"
+msgstr "Complété"
 
 #, fuzzy
 msgid "Printed by: "
@@ -6092,7 +6091,7 @@ msgid ""
 msgstr ""
 
 msgid "Devices"
-msgstr ""
+msgstr "Dispositifs"
 
 msgid "No devices connected to your account"
 msgstr ""
@@ -6101,7 +6100,7 @@ msgid "Last Update"
 msgstr ""
 
 msgid "Device ID"
-msgstr ""
+msgstr "ID du dispositif"
 
 msgid "Device OS"
 msgstr ""
@@ -6200,7 +6199,7 @@ msgid "Current password"
 msgstr ""
 
 msgid "New password"
-msgstr ""
+msgstr "Nouveau mot de passe"
 
 msgid "Retype new password"
 msgstr ""
@@ -6298,7 +6297,7 @@ msgid "VIP"
 msgstr "VIP"
 
 msgid "Waiting"
-msgstr "En attente"
+msgstr "Attente"
 
 msgid "You have been automatically logged out"
 msgstr "Vous avez été déconnecté automatiquement"
