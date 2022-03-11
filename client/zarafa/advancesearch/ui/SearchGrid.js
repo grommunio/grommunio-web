@@ -79,7 +79,7 @@ Zarafa.advancesearch.ui.SearchGrid = Ext.extend(Zarafa.common.ui.grid.MapiMessag
 			// The maximum number of records that the store can hold and still be sortable
 			//TODO: This value should probably be configurable, but let's not do that until we are absolutely sure
 			// about doing the sorting this way.
-			sortableRecordsMax: 300
+			sortableRecordsMax: 2000
 		});
 
 		Zarafa.advancesearch.ui.SearchGrid.superclass.constructor.call(this, config);

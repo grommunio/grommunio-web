@@ -493,7 +493,7 @@ if(!defined("POWERPASTE_ALLOW_LOCAL_IMAGES")) define("POWERPASTE_ALLOW_LOCAL_IMA
 /**
  * Defaults for sqlite search index
  */
-if(!defined("MAX_FTS_RESULT_ITEMS")) define("MAX_FTS_RESULT_ITEMS", 1000);
+if(!defined("MAX_FTS_RESULT_ITEMS")) define("MAX_FTS_RESULT_ITEMS", 2000);
 
 /**
  * The following options are taken from the debug.php
