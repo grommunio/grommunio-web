@@ -83,10 +83,6 @@ class Plugingmaps extends Plugin {
 					'plugins' => Array(
 						'gmaps' => Array(
 							'enable'            => PLUGIN_GMAPS_USER_DEFAULT_ENABLE,
-							'show_routes'		=> PLUGIN_GMAPS_SHOW_ROUTES,
-							'default_address'	=> PLUGIN_GMAPS_DEFAULT_ADDRESS,
-							'lat'				=> null,
-							'lng'				=> null,
 						)
 
 					)

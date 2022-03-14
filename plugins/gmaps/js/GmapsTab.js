@@ -11,39 +11,16 @@ Ext.namespace('Zarafa.plugins.gmaps');
 Zarafa.plugins.gmaps.GmapsTab=Ext.extend(Ext.Panel, {
 
 	/**
-	 * The google map instance on which we can place the {@link #markers}
-	 * @property
-	 * @type google.maps.Map
+	 * The leaflet instance on which we can place the
 	 */
 	map: undefined,
+
+	/**
+	 * The openstreetmap query provider
+	 */
 	provider: null,
 
 	mapTemplate: '<div id="map" style="height: 519px;"></div>',
-
-	/**
-	 * Array of Google Marker instances which are positioned on the {@link #gmap}.
-	 * @property
-	 * @type google.maps.Marker[]
-	 */
-	markers: undefined,
-
-	/**
-	 * Latitude for gmaps
-	 * center display and directions rendering
-	 * taken from settings.
-	 * @property
-	 * @type number
-	 */
-	latitude:null,
-
-	/**
-	 * Longitude for gmaps
-	 * center display and directions rendering
-	 * taken from settings.
-	 * @property
-	 * @type number
-	 */
-	longitude:null,
 
 	/**
 	 * @constructor
@@ -179,58 +156,6 @@ Zarafa.plugins.gmaps.GmapsTab=Ext.extend(Ext.Panel, {
 	},
 
 	/**
-	 * The callback callback function for google
-	 * geocoder to obtain geographical coordinates from the
-	 * given address.
-	 * @param {google.maps.GeocoderResult} results - results of google
-	 * geocoder work
-	 * @param {google.maps.GeocoderStatus} status - the status
-	 * of geocoder work
-	 * @param {String} address - the address to render route
-	 * @param {String} title - the title for gmaps marker
-	 * @private
-	 */
-	callbackGeocodeResult:function(results, status, address ,title)
-	{
-		if (status == 'ok')
-		{
-			var latLng= results[0].geometry.location;
-			//setting up markers
-			this.callbackSetMarkers(title, latLng);
-			//rendering directions
-			if (container.getSettingsModel().get('zarafa/v1/plugins/gmaps/show_routes'))
-			{
-				this.renderRoutes(address, latLng);
-			}
-		}
-	},
-
-	/**
-	 * The callback callback function for google
-	 * geocoder to obtain geographical coordinates from the
-	 * given address and set to settings.
-	 * @param {google.maps.GeocoderResult} results - results of google
-	 * geocoder work
-	 * @param {google.maps.GeocoderStatus} status - the status
-	 * of geocoder work
-	 * @private
-	 */
-	callbackGeocodeForSettings:function(results, status)
-	{
-		if (status == 'ok')
-		{
-
-			var settingsLat= results[0].geometry.location.lat();
-			var settingsLng=results[0].geometry.location.lng();
-
-			container.getSettingsModel().beginEdit();
-			container.getSettingsModel().set('zarafa/v1/plugins/gmaps/lat', settingsLat);
-			container.getSettingsModel().set('zarafa/v1/plugins/gmaps/lng', settingsLng);
-			container.getSettingsModel().endEdit();
-		}
-	},
-
-	/**
 	 * The main address coding function.
 	 * Shows google maps and puts markers on the coordinates
 	 * where contacts' addresses are.
@@ -251,84 +176,6 @@ Zarafa.plugins.gmaps.GmapsTab=Ext.extend(Ext.Panel, {
 			}
 	},
 
-	/**
-	 * The function for rendering gmaps route
-	 * from the default address from the settings to the first given address.
-	 * @param address - the first filled in address of the user to
-	 * render route to.
-	 * @param {google.maps.LatLng} latlng - the coordinates of destiantion address
-	 * @private
-	 */
-	renderRoutes:function(address, latlng)
-	{
-		var directionsService = new google.maps.DirectionsService();
-
-		var dirRequest={
-			//get route from the default address to contact address
-			origin: container.getSettingsModel().get('zarafa/v1/plugins/gmaps/default_address'),
-			destination: latlng,
-			travelMode: false
-		};
-
-		//only if we have the first address filled in
-		if (this.markers.length==1)
-		{
-			dirRequest.destination=address;
-			//rendering gmaps directions
-			directionsService.route(dirRequest, this.callbackSetDirections.createDelegate(this));
-		}
-	},
-
-
-	/**
-	 * The callback function for renderring google
-	 * maps markers.
-	 * @param {string} title - the title for this gmaps marker
-	 * @param {google.maps.LatLng} latlng - the coordinates for rendering markers
-	 */
-	callbackSetMarkers:function(title, latlng)
-	{
-		this.map.setCenter(latlng);
-		/*
-		this.markers.push(new google.maps.Marker({
-			map: this.gmap,
-			position:  latlng,
-			title: title
-		}));
-		*/
-	},
-
-	/**
-	 * The callback function for google
-	 * directions service.
-	 * @param {google.maps.GeocoderResult} results - results of google
-	 * geocoder work
-	 * @param {google.maps.GeocoderStatus} status - the status
-	 * of geocoder work
-	 * @private
-	 */
-	callbackSetDirections:function(result, status)
-	{
-		//var directionsDisplay = new google.maps.DirectionsRenderer({draggable: true});
-		//directionsDisplay.setMap(this.gmap);
-		//if (status == google.maps.DirectionsStatus.OK)
-		//{
-		//	directionsDisplay.setDirections(result);
-		//}
-	},
-
-	/**
-	 * Resets the {@link #markers}, removing the given markers from the {@link #gmap}.
-	 * @private
-	 */
-	resetMarkers: function()
-	{
-		for (var i = 0; i < this.markers.length; i++) {
-			// Calling setMap without arguments, removes the marker.
-			this.markers[i].setMap();
-		}
-		this.markers = [];
-	}
 });
 
 //registration
