@@ -18,6 +18,7 @@ class Plugingmaps extends Plugin {
 	 */
 	function init() {
 		$this->registerHook('server.core.settings.init.before');
+		$this->registerHook('server.main.include.cssfiles');
 		$this->registerHook('server.main.include.jsfiles');
 	}
 
@@ -34,21 +35,39 @@ class Plugingmaps extends Plugin {
 				$this->injectPluginSettings($data);
 				break;
 			case 'server.main.include.jsfiles':
-				$this->addGmapsJsFile($data);
+				$this->addLeafletJsFile($data);
+				break;
+			case 'server.main.include.cssfiles':
+				$this->addLeafletCssFile($data);
 				break;
 		}
 	}
 
 	/**
 	 * Function includes the the files neccessary for using
-	 * Google Maps API version 3
+	 * leaflet
 	 *  @param $data
 	 */
-	function addGmapsJsFile(&$data) {
+	function addLeafletJsFile(&$data) {
 		// make sure to load remote files only when plugin is enabled
 		if($GLOBALS['settings']->get('zarafa/v1/plugins/gmaps/enable') == true) {
 			//removing https: provides protocols compatibility, especially in IE9
-			//$data['files'][] = '//unpkg.com/leaflet@1.7.1/dist/leaflet.js';
+			$data['files'][] = 'plugins/gmaps/js/leaflet.js';
+			$data['files'][] = 'plugins/gmaps/js/geocoder.js';
+		}
+	}
+
+/**
+	 * Function includes the the files neccessary for using
+	 * leaflet
+	 *  @param $data
+	 */
+	function addLeafletCssFile(&$data) {
+		// make sure to load remote files only when plugin is enabled
+		if($GLOBALS['settings']->get('zarafa/v1/plugins/gmaps/enable') == true) {
+			//removing https: provides protocols compatibility, especially in IE9
+			$data['files'][] = 'plugins/gmaps/css/leaflet.css';
+			$data['files'][] = 'plugins/gmaps/css/geocoder.css';
 		}
 	}
 
@@ -66,7 +85,6 @@ class Plugingmaps extends Plugin {
 							'enable'            => PLUGIN_GMAPS_USER_DEFAULT_ENABLE,
 							'show_routes'		=> PLUGIN_GMAPS_SHOW_ROUTES,
 							'default_address'	=> PLUGIN_GMAPS_DEFAULT_ADDRESS,
-							'md5'				=> null,
 							'lat'				=> null,
 							'lng'				=> null,
 						)

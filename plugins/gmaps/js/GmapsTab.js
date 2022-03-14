@@ -16,6 +16,7 @@ Zarafa.plugins.gmaps.GmapsTab=Ext.extend(Ext.Panel, {
 	 * @type google.maps.Map
 	 */
 	map: undefined,
+	provider: null,
 
 	mapTemplate: '<div id="map" style="height: 519px;"></div>',
 
@@ -55,6 +56,7 @@ Zarafa.plugins.gmaps.GmapsTab=Ext.extend(Ext.Panel, {
 		config.plugins.push('zarafa.recordcomponentupdaterplugin');
 
 		Ext.apply(config, {
+			id: 'map',
 			xtype   : 'container',
 			// #TRANSLATORS: The map of earth
 			title   : _('Map'),
@@ -64,77 +66,26 @@ Zarafa.plugins.gmaps.GmapsTab=Ext.extend(Ext.Panel, {
 				resize: this.resizeMap,
 				scope: this
 			},
-			items: [
-				this.activeReminderPanel()
-			]
 		});
 
 		Zarafa.plugins.gmaps.GmapsTab.superclass.constructor.call(this, config);
-
-		if (Ext.isString(this.activeReminderTemplate)) {
-			this.activeReminderTemplate = new Ext.XTemplate(this.activeReminderTemplate, {
-				compiled: true
-			});
-		}
+		
 	},
 
-	loadRequiredFiles: function () {
-		var scripts = ['plugins/gmaps/js/leaflet.js'];
-		var styles = ['plugins/gmaps/js/leaflet.css'];
-		var filesloaded = 0;
-		var filestoload = scripts.length + styles.length;
-		for (var i = 0; i < scripts.length; i++) {
-				var script = document.createElement('script');
-				script.type = 'text/javascript';
-				script.src = scripts[i];
-				script.onload = function () {
-						filesloaded++;
-						finishLoad();
-				};
-				document.head.appendChild(script);
-		}
-		for (var i = 0; i < styles.length; i++) {
-				var style = document.createElement('link');
-				style.rel = 'stylesheet';
-				style.href = styles[i];
-				style.type = 'text/css';
-				style.onload = function () {
-						filesloaded++;
-						finishLoad();
-				};
-				document.head.appendChild(style);
-		}
-		function finishLoad() {
-				if (filesloaded === filestoload) {
-						var map = L.map('map').setView([51.505, -0.09], 13);
-						L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-							attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-						}).addTo(map);
-						return map;
-				}
-		}
-},
-
-	activeReminderPanel: function()
-	{
-		return {
-			xtype: 'panel',
-			html: this.mapTemplate
-		};
-	},
 
 	/**
 	 * Called during rendering of the tab. This will initialize the {@link #gmap} using
 	 * {@link #createGmap} and {@link #markers}.
 	 * @private
 	 */
-	onRender: function()
+	onRender: function(...props)
 	{
 		Zarafa.plugins.gmaps.GmapsTab.superclass.onRender.apply(this, arguments);
 		this.latitude=container.getSettingsModel().get('zarafa/v1/plugins/gmaps/lat');
 		this.longitude=container.getSettingsModel().get('zarafa/v1/plugins/gmaps/lng');
-		this.map = this.createGmap();
 		this.markers = [];
+		this.map = this.createGmap();
+		this.provider = new GeoSearch.OpenStreetMapProvider()
 	},
 
 	/**
@@ -144,7 +95,11 @@ Zarafa.plugins.gmaps.GmapsTab=Ext.extend(Ext.Panel, {
 	 */
 	createGmap: function(coords)
 	{
-		return this.loadRequiredFiles();
+		const map = L.map('map').setView([51.505, -0.09], 13);
+		L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+			attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+		}).addTo(map);
+		return map;
 	},
 
 	/**
@@ -283,10 +238,17 @@ Zarafa.plugins.gmaps.GmapsTab=Ext.extend(Ext.Panel, {
 	 * @param {String} title (optional) - The title for the marker
 	 * @private
 	 */
-	showOnMap: function(address, title)
+	showOnMap: async function(address, title)
 	{
-			//var geocoder = new google.maps.Geocoder();
-			//geocoder.geocode({ 'address': address}, this.callbackGeocodeResult.createDelegate(this,[address, title], true));
+			if(this.map && this.provider) {
+				const results = await this.provider.search({ query: address }) || [];
+				if(results.length > 0) {
+					const coords = [results[0].y, results[0].x];
+					L.marker(coords, {title}).addTo(this.map)
+						.bindPopup(title);
+					this.map.setView(coords, 6)
+				}
+			}
 	},
 
 	/**

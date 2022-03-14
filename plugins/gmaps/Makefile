@@ -3,8 +3,7 @@ include ../shared.mk
 JSFILES = js/GmapsPlugin.js js/GmapsTab.js
 
 COPYFILES = LICENSE.txt manifest.xml config.php \
-	$(wildcard php/*.php) \
-	$(wildcard md5/*.js)
+	$(wildcard php/*.php)
 
 COPYFILESDEST = $(addprefix $(DESTDIR)/, $(COPYFILES))
 

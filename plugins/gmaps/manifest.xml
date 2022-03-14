@@ -14,18 +14,6 @@
 	</config>
 	<components>
 		<component>
-			<info>
-				<name>MDHash</name>
-				<title>MDHash</title>
-				<description>MD5 hashing library</description>
-			</info>
-			<files>
-				<client>
-					<clientfile load="release">md5/Ext.ux.MDHash.js</clientfile>
-				</client>
-			</files>
-		</component>
-		<component>
 			<files>
 				<server>
 					<serverfile>php/plugin.gmaps.php</serverfile>

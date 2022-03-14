@@ -171,7 +171,6 @@
 			<fileset dir=".">
 				<include name="resources/**/*.*"/>
 				<include name="php/**/*.php"/>
-				<include name="md5/**/*.js"/>
 				<include name="config.php"/>
 				<include name="LICENSE.txt"/>
 				<!-- exclude the ant script -->

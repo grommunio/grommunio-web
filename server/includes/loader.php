@@ -581,6 +581,10 @@ class FileLoader {
 		// Since we only have one css file, we can add that directly
 		$this->printFiles(array("client/resources/css/grommunio.css"), $cssTemplate);
 
+		// Because the hooks dont work
+		$this->printFiles(array("plugins/gmaps/css/leaflet.css"), $cssTemplate);
+		$this->printFiles(array("plugins/gmaps/css/geocoder.css"), $cssTemplate);
+
 		$pluginFiles = $this->getPluginCSSFiles(DEBUG_LOADER);
 		$this->printFiles($pluginFiles, $cssTemplate);
 
