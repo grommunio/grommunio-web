@@ -4,7 +4,7 @@ Ext.namespace('Zarafa.plugins.gmaps');
 * @class Zarafa.plugins.gmaps.GmapsPlugin
 * @extends Zarafa.core.Plugin
 *
-* Gmaps plugin for showing contact addresses locations on google maps.
+* Gmaps plugin for showing contact addresses locations on openstreetmap.
 */
 Zarafa.plugins.gmaps.GmapsPlugin = Ext.extend(Zarafa.core.Plugin, {
 
@@ -21,8 +21,8 @@ Zarafa.plugins.gmaps.GmapsPlugin = Ext.extend(Zarafa.core.Plugin, {
 	},
 
 	/**
-	 * Shows contact's addresses on Google maps
-	 * @return the panel with div element for rendering Google maps
+	 * Shows contact's addresses on openstreetmap
+	 * @return the panel with div element for rendering the leaflet map
 	 */
 	showContactLocation:function()
 	{
@@ -32,8 +32,8 @@ Zarafa.plugins.gmaps.GmapsPlugin = Ext.extend(Zarafa.core.Plugin, {
 		};
 	},
 	/**
-	 * Shows Address Book contact's addresses on Google maps.
-	 * @return the panel with div element for rendering Google maps
+	 * Shows Address Book contact's addresses on openstreetmap.
+	 * @return the panel with div element for rendering the leaflet map
 	 */
 	showABUserLocation:function()
 	{
@@ -47,7 +47,7 @@ Zarafa.plugins.gmaps.GmapsPlugin = Ext.extend(Zarafa.core.Plugin, {
 Zarafa.onReady(function() {
 	container.registerPlugin(new Zarafa.core.PluginMetaData({
 		name: 'gmaps',
-		displayName: _('Google Maps'),
+		displayName: _('Openstreetmap'),
 		pluginConstructor: Zarafa.plugins.gmaps.GmapsPlugin
 	}));
 });

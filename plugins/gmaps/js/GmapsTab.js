@@ -51,7 +51,7 @@ Zarafa.plugins.gmaps.GmapsTab=Ext.extend(Ext.Panel, {
 
 
 	/**
-	 * Called during rendering of the tab. This will initialize the {@link #gmap} using
+	 * Called during rendering of the tab. This will initialize the {@link #map} using
 	 * {@link #createGmap} and {@link #markers}.
 	 * @private
 	 */
@@ -63,8 +63,8 @@ Zarafa.plugins.gmaps.GmapsTab=Ext.extend(Ext.Panel, {
 	},
 
 	/**
-	 * Initiates Google Maps, creating maps object
-	 * @return {Object} map - google maps object.
+	 * Initiates leaflet, creating maps object
+	 * @return {Object} map - leaflet map object.
 	 * @private
 	 */
 	createGmap: function(coords)
@@ -140,7 +140,7 @@ Zarafa.plugins.gmaps.GmapsTab=Ext.extend(Ext.Panel, {
 
 	/**
 	 * The main address coding function.
-	 * Shows google maps and puts markers on the coordinates
+	 * Shows leaflet map and puts markers on the coordinates
 	 * where contacts' addresses are.
 	 * @param {String} address - the address to convert to coordinates and to put marker
 	 * @param {String} title (optional) - The title for the marker
