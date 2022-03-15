@@ -51,23 +51,20 @@ Zarafa.plugins.gmaps.GmapsTab=Ext.extend(Ext.Panel, {
 
 
 	/**
-	 * Called during rendering of the tab. This will initialize the {@link #gmap} using
+	 * Called during rendering of the tab. This will initialize the {@link #map} using
 	 * {@link #createGmap} and {@link #markers}.
 	 * @private
 	 */
 	onRender: function(...props)
 	{
 		Zarafa.plugins.gmaps.GmapsTab.superclass.onRender.apply(this, arguments);
-		this.latitude=container.getSettingsModel().get('zarafa/v1/plugins/gmaps/lat');
-		this.longitude=container.getSettingsModel().get('zarafa/v1/plugins/gmaps/lng');
-		this.markers = [];
 		this.map = this.createGmap();
 		this.provider = new GeoSearch.OpenStreetMapProvider()
 	},
 
 	/**
-	 * Initiates Google Maps, creating maps object
-	 * @return {Object} map - google maps object.
+	 * Initiates leaflet, creating maps object
+	 * @return {Object} map - leaflet map object.
 	 * @private
 	 */
 	createGmap: function(coords)
@@ -106,10 +103,6 @@ Zarafa.plugins.gmaps.GmapsTab=Ext.extend(Ext.Panel, {
 		{
 			case 'contact':
 				if (contentReset || record.isModifiedSinceLastUpdate('home_address') || record.isModifiedSinceLastUpdate('business_address') || record.isModifiedSinceLastUpdate('other_address')) {
-					// Remove all markers
-					this.resetMarkers();
-					// Reinstantiate the markers
-
 					var homeAddress = record.get('home_address');
 					if (!Ext.isEmpty(homeAddress.trim()))
 					{
@@ -127,20 +120,10 @@ Zarafa.plugins.gmaps.GmapsTab=Ext.extend(Ext.Panel, {
 					{
 						this.showOnMap(otherAddress, _('Other Address'));
 					}
-
-					if (Ext.isEmpty(container.getSettingsModel().get('zarafa/v1/plugins/gmaps/default_address')))
-					{
-						//setting Kopano headquarters coordinates if nothing found in settings
-						this.latitude=51.996417;
-						this.longitude=4.3850826000000325;
-					}
 				}
 				break;
 			case 'abuser':
 				if (contentReset) {
-					// Remove all markers
-					this.resetMarkers();
-					// Reinstantiate the markers
 					var abContactAddress = record.get('street_address') + ' ' +
 						record.get('state_or_province') + ' ' +
 						record.get('locality')+' '+
@@ -157,7 +140,7 @@ Zarafa.plugins.gmaps.GmapsTab=Ext.extend(Ext.Panel, {
 
 	/**
 	 * The main address coding function.
-	 * Shows google maps and puts markers on the coordinates
+	 * Shows leaflet map and puts markers on the coordinates
 	 * where contacts' addresses are.
 	 * @param {String} address - the address to convert to coordinates and to put marker
 	 * @param {String} title (optional) - The title for the marker
@@ -174,7 +157,7 @@ Zarafa.plugins.gmaps.GmapsTab=Ext.extend(Ext.Panel, {
 					this.map.setView(coords, 6)
 				}
 			}
-	},
+	}
 
 });
 

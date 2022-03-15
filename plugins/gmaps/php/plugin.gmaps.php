@@ -1,9 +1,9 @@
 <?php
 
 /**
- * Google maps plugin
+ * Openstreetmap plugin
  *
- * Makes possible to see contact location on google maps
+ * Makes possible to see contact location on openstreetmap
  *
  */
 

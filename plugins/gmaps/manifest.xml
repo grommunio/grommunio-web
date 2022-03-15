@@ -4,10 +4,10 @@
 	<info>
 		<version>0.3</version>
 		<name>gmaps</name>
-		<title>Google Maps Plugin</title>
-		<author>Kopano</author>
-		<authorURL>https://www.kopano.com</authorURL>
-		<description>Shows contact address on google maps.</description>
+		<title>gmaps Plugin</title>
+		<author>grommunio GmbH</author>
+		<authorURL>https://www.grommunio.com</authorURL>
+		<description>Shows contact address on openstreetmap.</description>
 	</info>
 	<config>
 		<configfile>config.php</configfile>
