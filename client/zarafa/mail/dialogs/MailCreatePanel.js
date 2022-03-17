@@ -419,7 +419,12 @@ Zarafa.mail.dialogs.MailCreatePanel = Ext.extend(Ext.form.FormPanel, {
 	 */
 	onChange: function(field, value)
 	{
-		this.record.set(field.name, value);
+		var record = this.record;
+		var fieldname = field.name;
+		if(fieldname === 'subject') {
+			record.set('normalized_subject', value);
+			record.set(fieldname, value);
+		}
 	},
 
 	/**
