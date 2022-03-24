@@ -1,17 +1,20 @@
 include ../shared.mk
 
-JSFILES = js/GmapsPlugin.js js/GmapsTab.js
+JSFILES = js/MapsPlugin.js js/MapsTab.js
 
 COPYFILES = LICENSE.txt manifest.xml config.php \
+        $(wildcard resources/css/*.css) \
+        $(wildcard resources/css/images/*.png) \
+        $(wildcard js/external/*.css) \
 	$(wildcard php/*.php)
 
 COPYFILESDEST = $(addprefix $(DESTDIR)/, $(COPYFILES))
 
-all: $(COPYFILESDEST) $(JSDEPLOY)/gmaps.js
+all: $(COPYFILESDEST) $(JSDEPLOY)/maps.js
 
-$(JSDEPLOY)/gmaps.js: $(JSFILES)
+$(JSDEPLOY)/maps.js: $(JSFILES)
 	mkdir -p $(DESTDIR)/js
-	cat $(JSFILES) > $(JSDEPLOY)/gmaps-debug.js
+	cat $(JSFILES) > $(JSDEPLOY)/maps-debug.js
 	$(JSCOMPILER) --js $(@:.js=-debug.js) --js_output_file $@ \
 		--source_map_location_mapping=$(JSDEPLOY)/js/\| \
 		--output_wrapper="%output%//# sourceMappingURL=$(shell basename $@.map)" \
