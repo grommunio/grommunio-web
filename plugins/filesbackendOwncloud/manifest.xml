@@ -1,0 +1,50 @@
+<?xml version="1.0"?>
+<!DOCTYPE plugin SYSTEM "manifest.dtd">
+<plugin version="2">
+	<info>
+		<version>1.0</version>
+		<name>filesbackendOwncloud</name>
+		<title>ownCloud backend for Files</title>
+		<author>grommunio GmbH</author>
+		<authorURL>http://www.grommunio.com</authorURL>
+		<description>This backend for Files provides ownCloud support</description>
+	</info>
+	<dependencies>
+		<depends type="depends">
+			<dependsname>files</dependsname>
+		</depends>
+	</dependencies>
+	<translations>
+		<translationsdir>language</translationsdir>
+	</translations>
+	<components>
+		<component>
+			<files>
+				<server>
+				    <serverfile>php/class.pluginowncloud.php</serverfile>
+				</server>
+				<client>
+					<clientfile load="release">js/filesbackendOwncloud.js</clientfile>
+					<clientfile load="debug">js/filesbackendOwncloud-debug.js</clientfile>
+					<clientfile load="source">js/OwncloudBackend.js</clientfile>
+					<clientfile load="source">js/ui/FilesShareDialogPanel.js</clientfile>
+					<clientfile load="source">js/ui/FilesShareUserEditPanel.js</clientfile>
+					<clientfile load="source">js/ui/FilesShareUserEditContentPanel.js</clientfile>
+					<clientfile load="source">js/ui/FilesShareUserGrid.js</clientfile>
+					<clientfile load="source">js/ui/FilesShareUserGridColumnModel.js</clientfile>
+					<clientfile load="source">js/ui/UserGroupPredictorField.js</clientfile>
+					<clientfile load="source">js/data/ShareGridStore.js</clientfile>
+					<clientfile load="source">js/data/ResponseHandler.js</clientfile>
+					<clientfile load="source">js/data/ShareGridRecord.js</clientfile>
+					<clientfile load="source">js/data/singleton/ShareStore.js</clientfile>
+					<clientfile load="source">js/data/RecipientTypes.js</clientfile>
+				</client>
+				<resources>
+					<resourcefile load="release">resources/css/filesbackendOwncloud.css</resourcefile>
+					<resourcefile load="debug">resources/css/filesbackendOwncloud.css</resourcefile>
+					<resourcefile load="source">resources/css/filesbackendOwncloud.css</resourcefile>
+				</resources>
+			</files>
+		</component>
+	</components>
+</plugin>

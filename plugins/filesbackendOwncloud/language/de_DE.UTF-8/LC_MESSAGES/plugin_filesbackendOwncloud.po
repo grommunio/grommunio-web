@@ -1,0 +1,194 @@
+# grommunio Web Files German (Germany) translation.
+# Copyright (C) 2017
+# This file is distributed under the same license as the grommunio-web-files package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+msgid ""
+msgstr ""
+"Project-Id-Version: grommunio Web Files Plugin German (Germany)\n"
+"Report-Msgid-Bugs-To: dev@grommunio.com\n"
+"POT-Creation-Date: 2019-10-08 13:29+0000\n"
+"PO-Revision-Date: 2022-03-15 16:55+0000\n"
+"Last-Translator: Mike Williams <mike.williams@grommunio.com>\n"
+"Language-Team: German <https://hosted.weblate.org/projects/grommunio/"
+"grommunio-web/de/>\n"
+"Language: de_DE\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.11.1-dev\n"
+
+msgid "Files: ownCloud Backend"
+msgstr "Files: ownCloud Backend"
+
+msgid "Share with user/group"
+msgstr "Mit Benutzer/Gruppe teilen"
+
+msgid "Share via link"
+msgstr "Per Link teilen"
+
+msgid "Public link"
+msgstr "Öffentlicher Link"
+
+msgid "Password protect"
+msgstr "Mit Passwort schützen"
+
+msgid "Password"
+msgstr "Passwort"
+
+msgid "Public upload"
+msgstr "Öffentlicher Upload"
+
+msgid "Expiration date"
+msgstr "Ablaufdatum"
+
+msgid "Date"
+msgstr "Datum"
+
+msgid "Ok"
+msgstr "Ok"
+
+msgid "Cancel"
+msgstr "Abbrechen"
+
+msgid "Loading details..."
+msgstr "Lade Details..."
+
+msgid "Share Details"
+msgstr "Freigabedetails"
+
+msgid "Save"
+msgstr "Speichern"
+
+msgid "Re-share"
+msgstr "erneut freigeben"
+
+msgid "Change"
+msgstr "Ändern"
+
+msgid "Create"
+msgstr "Erstellen"
+
+msgid "Delete"
+msgstr "Löschen"
+
+msgid "Share with"
+msgstr "Teilen mit"
+
+msgid "Type"
+msgstr "Typ"
+
+msgid "Permissions"
+msgstr "Berechtigungen"
+
+msgid "Name"
+msgstr "Name"
+
+msgid "Sort by: Name"
+msgstr "Sortieren nach: Name"
+
+msgid "Sort by: Type"
+msgstr "Sortieren nach: Typ"
+
+msgid "Add"
+msgstr "Hinzufügen"
+
+msgid "Loading users and groups"
+msgstr "Lade Benutzer und Gruppen"
+
+msgid "Add users or groups to share files."
+msgstr "Benutzer oder Gruppen zur Freigabe hinzufügen."
+
+msgid "Type to search"
+msgstr "Suchbegriff eingeben"
+
+msgid "Loading..."
+msgstr "Laden ..."
+
+msgid "No results"
+msgstr "Keine Ergebnisse"
+
+msgid "With this backend, you can connect to any ownCloud server."
+msgstr "Mit diesem Backend können Sie zu jedem ownCloud Server verbinden."
+
+msgid "Files ownCloud Backend: "
+msgstr ""
+
+msgid "Server address"
+msgstr "Server Adresse"
+
+msgid "Server port"
+msgstr "Server Port"
+
+msgid "Use SSL"
+msgstr "SSL verwenden"
+
+msgid "Webdav base path"
+msgstr "WebDAV Basispfad"
+
+msgid "Username"
+msgstr "Benutzername"
+
+msgid "Use grommunio credentials"
+msgstr "grommunio Zugangsdaten verwenden"
+
+msgid "php-curl is not available"
+msgstr "php-curl ist nicht verfügbar"
+
+msgid "Access denied"
+msgstr ""
+
+msgid "Connection failed"
+msgstr ""
+
+msgid "Sabre error"
+msgstr ""
+
+msgid "Copying failed"
+msgstr ""
+
+msgid "Unknown error"
+msgstr "Unbekannter Fehler"
+
+msgid "Please contact your system administrator."
+msgstr ""
+
+msgid "Unauthorized. Wrong username or password."
+msgstr "Nicht angemeldet. Benutzername oder Passwort falsch."
+
+msgid "File server is not reachable. Please verify the file server URL."
+msgstr ""
+"Dateiserver ist nicht erreichbar. Bitte überprüfen Sie die Dateiserver-URL."
+
+msgid "You don't have enough permissions to view this file or folder."
+msgstr ""
+"Sie haben nicht genügend Berechtigungen, um diese Datei oder diesen Ordner "
+"anzuzeigen."
+
+msgid "The file or folder is not available anymore."
+msgstr "Die Datei oder der Ordner ist nicht mehr verfügbar."
+
+msgid "Connection to the file server timed out. Please check again later."
+msgstr ""
+"Zeitüberschreitung bei der Verbindung zum Dateiserver. Bitte versuchen Sie "
+"es später noch einmal."
+
+msgid "This file is locked by another user. Please try again later."
+msgstr ""
+"Diese Datei ist durch einem anderen Benutzer gesperrt. Bitte versuchen Sie "
+"es später noch einmal."
+
+msgid "The request failed."
+msgstr ""
+
+msgid "The file server encountered an internal problem."
+msgstr ""
+
+msgid "We could not write to temporary directory."
+msgstr ""
+
+msgid "We could not retrieve list of server features."
+msgstr ""
+
+msgid "PHP-Curl is not available."
+msgstr ""

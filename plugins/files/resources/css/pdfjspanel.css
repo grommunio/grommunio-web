@@ -1,0 +1,8 @@
+/*
+ * PDF JS PANEL STYLES
+ */
+/* TODO: remove the page container if scaleCombo is implemented */
+.pdf-page-container, .pdf-text-layer {
+    width: 100%;
+    height: 100%;
+}

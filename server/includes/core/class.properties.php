@@ -67,10 +67,10 @@
 			if ($this->init) {
 				return;
 			}
-			
+
 			$this->store = $this->getStore();
 			$storeMapping = $this->getStoreMappingSignature($this->store);
-			
+
 			if ($this->storeMapping !== $storeMapping) {
 				$this->storeMapping = $storeMapping;
 				// Ensure the mapping exists
@@ -144,7 +144,10 @@
 		 */
 		private function getStoreMappingSignature($store)
 		{
-			$storeMapping = mapi_getprops($store, array(PR_MAPPING_SIGNATURE));
+			try {
+				$storeMapping = mapi_getprops($store, array(PR_MAPPING_SIGNATURE));
+			}
+			catch (Exception $e) {}
 			return isset($storeMapping[PR_MAPPING_SIGNATURE]) ? bin2hex($storeMapping[PR_MAPPING_SIGNATURE]) : '0';
 		}
 
@@ -1052,7 +1055,7 @@
 		function getMailListProperties()
 		{
 			$properties = $this->getMailProperties();
-			
+
 			unset($properties['transport_message_headers']);
 			unset($properties['appointment_startdate']);
 			unset($properties['appointment_duedate']);

@@ -1,0 +1,41 @@
+<?php
+
+namespace Files\Core;
+
+
+class Exception extends \Exception
+{	
+	/**
+	 * The exception title to show as a message box title at client side.
+	 */
+	public $title = null;
+
+	/**
+	 * @constructor
+	 * @param string $message The error message
+	 * @param int $code The error code
+	 */
+	public function __construct($message, $code = 0)
+	{
+		parent::__construct($message, $code);
+	}
+
+	/**
+	 * Function sets title of an exception that will be sent to the client side
+	 * to show it to user.
+	 * @param string $title title of an exception.
+	 */
+	public function setTitle($title)
+	{
+		$this->title = $title;
+	}
+	
+	/**
+	 * @return string returns title that should be sent to client to display as a message box
+	 * title.
+	 */
+	public function getTitle()
+	{
+		return $this->title;
+	}
+}

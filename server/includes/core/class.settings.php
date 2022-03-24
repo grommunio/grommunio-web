@@ -505,12 +505,15 @@
 					}
 				}
 
-				$stream = mapi_openproperty($this->store, PR_EC_WEBACCESS_SETTINGS_JSON, IID_IStream, STGM_TRANSACTED, MAPI_CREATE | MAPI_MODIFY);
-				mapi_stream_setsize($stream, strlen($settings));
-				mapi_stream_write($stream, $settings);
-				mapi_stream_commit($stream);
+				try {
+					$stream = mapi_openproperty($this->store, PR_EC_WEBACCESS_SETTINGS_JSON, IID_IStream, STGM_TRANSACTED, MAPI_CREATE | MAPI_MODIFY);
+					mapi_stream_setsize($stream, strlen($settings));
+					mapi_stream_write($stream, $settings);
+					mapi_stream_commit($stream);
 
-				mapi_savechanges($this->store);
+					mapi_savechanges($this->store);
+				}
+				catch(Exception $e) {}
 
 				// Settings saved, update settings_string and modified array
 				$this->settings_string = $settings;

@@ -1,0 +1,305 @@
+<project default="all">
+	<property environment="env"/>
+	<property name="root-folder" value="${basedir}/../../"/>
+	<property name="tools-folder" value="${root-folder}/tools/"/>
+	<property name="target-folder" value="${root-folder}/deploy/plugins"/>
+	<property name="server-folder" value="${root-folder}/server"/>
+	<property name="language-folder" value="${basedir}/language"/>
+
+	<import file="${tools-folder}/antutil.xml"/>
+
+	<typedef file="${tools-folder}/antlib.xml">
+		<classpath>
+			<pathelement location="${tools-folder}/tools.jar"/>
+			<pathelement location="${tools-folder}/lib/compiler.jar"/>
+		</classpath>
+	</typedef>
+
+	<taskdef resource="net/sf/antcontrib/antcontrib.properties">
+		<classpath>
+			<pathelement location="${tools-folder}/lib/ant-contrib-1.0b3.jar"/>
+		</classpath>
+	</taskdef>
+
+	<!-- php checks for valitation... -->
+	<target name="check-for-php">
+		<exec executable="php" failonerror="true" failifexecutionfails="false" errorproperty="hasPHP">
+			<arg value="-v"/>
+		</exec>
+	</target>
+
+	<!-- define nicknames for libraries -->
+	<property name="yui-compressor" location="${tools-folder}/lib/yuicompressor-2.4.8.jar" />
+	<property name="yui-compressor-ant-task" location="${tools-folder}/lib/yui-compressor-ant-task-0.5.jar" />
+
+	<!-- adds libraries to the classpath -->
+	<path id="yui.classpath">
+		<pathelement location="${yui-compressor}" />
+		<pathelement location="${yui-compressor-ant-task}" />
+	</path>
+
+	<!-- define tasks -->
+	<taskdef name="yui-compressor" classname="net.noha.tools.ant.yuicompressor.tasks.YuiCompressorTask">
+		<classpath refid="yui.classpath" />
+	</taskdef>
+
+
+	<!-- Determine plugin name -->
+	<basename file="${basedir}" property="plugin"/>
+
+	<!-- The Plugin distribution files -->
+	<property name="plugin-folder" value="${plugin}"/>
+	<property name="plugin-debugfile" value="${plugin}-debug.js"/>
+	<property name="plugin-file" value="${plugin}.js"/>
+
+	<!-- The Plugin CSS files -->
+	<property name="plugin-css-folder" value="resources/css"/>
+	<property name="plugin-css-file" value="${plugin}-min.css"/>
+	<property name="plugin-css-debug-file" value="${plugin}.css"/>
+
+	<!-- Meta target -->
+	<target name="all" depends="concat, compress"/>
+
+	<!-- Clean -->
+	<target name="clean">
+		<delete includeemptydirs="true" failonerror="false">
+			<!-- Delete the Plugin files -->
+			<fileset dir="${target-folder}/${plugin-folder}">
+				<include name="**/*"/>
+			</fileset>
+		</delete>
+	</target>
+
+	<!-- Concatenates JavaScript files with automatic dependency generation -->
+	<target name="concat">
+		<!-- Concatenate plugin JS file -->
+		<if>
+			<available file="js" type="dir" />
+			<then>
+				<mkdir dir="${target-folder}/${plugin-folder}/js"/>
+				<echo message="Concatenating: ${plugin-debugfile}"/>
+				<zConcat outputFolder="${target-folder}/${plugin-folder}/js" outputFile="${plugin-debugfile}" prioritize="\w+">
+					<concatfiles>
+						<fileset dir="js" includes="**/*.js" excludes="external/*.js"/>
+					</concatfiles>
+				</zConcat>
+			</then>
+		</if>
+
+		<!-- Concatenate plugin CSS files -->
+		<if>
+			<available file="${plugin-css-folder}" type="dir" />
+			<then>
+				<mkdir dir="${target-folder}/${plugin-folder}/${plugin-css-folder}"/>
+				<echo message="Concatenating: ${plugin-css-debug-file}"/>
+				<!--zConcat outputFolder="${target-folder}/${plugin-folder}/${plugin-css-folder}" outputFile="${plugin-css-debug-file}">
+					<concatfiles>
+						<fileset dir="${plugin-css-folder}" includes="**/*.css" />
+					</concatfiles>
+				</zConcat-->
+				<concat destfile="${target-folder}/${plugin-folder}/${plugin-css-folder}/${plugin-css-debug-file}">
+					<fileset dir="${plugin-css-folder}" includes="**/*.css" />
+				</concat>
+			</then>
+		</if>
+	</target>
+
+	<!-- Preformat the Concatenated Javascript files to improve compilation -->
+	<target name="preformat" depends="concat">
+		<if>
+			<available file="${target-folder}/${plugin-folder}/js/${plugin-debugfile}" type="file" />
+			<then>
+				<echo message="Preformatting: ${plugin-debugfile}"/>
+				<replaceregexp byline="true">
+					<regexp pattern="(^[ ,\t]*\*[ ,\t]@.*)\{(.*)\[\]\}"/>
+					<substitution expression="\1{\2\|Array}"/>
+					<fileset dir="${target-folder}/${plugin-folder}/js" includes="${plugin-debugfile}"/>
+				</replaceregexp>
+			</then>
+		</if>
+	</target>
+
+	<!-- Compress JavaScript -->
+	<target name="compress" depends="preformat">
+		<if>
+			<available file="${target-folder}/${plugin-folder}/js/${plugin-debugfile}" type="file" />
+			<then>
+				<echo message="Compiling: ${plugin-debugfile}" />
+				<zCompile inputFolder="${target-folder}/${plugin-folder}/js" inputFile="${plugin-debugfile}" outputFolder="${target-folder}/${plugin-folder}/js" outputFile="${plugin-file}" createSourceMap="false">
+					<externs>
+						var Ext = {};
+						var Zarafa = {};
+						var container = {};
+						var console = {};
+						var odf = {};
+						var PDFJS = {};
+						var _ = function(key, domain) {};
+						var dgettext = function(domain, msgid) {};
+						var dngettext = function(domain, msgid, msgid_plural, count) {};
+						var dnpgettext = function(domain, msgctxt, msgid, msgid_plural, count) {};
+						var dpgettext = function(domain, msgctxt, msgid) {};
+						var ngettext = function(msgid, msgid_plural, count) {};
+						var npgettext = function(msgctxt, msgid, msgid_plural, count) {};
+						var pgettext = function(msgctxt, msgid) {};
+					</externs>
+				</zCompile>
+			</then>
+		</if>
+	</target>
+
+	<!-- syntax check all PHP files -->
+	<target name="validate" if="hasPHP" depends="check-for-php, predeploy">
+		<if>
+			<available filepath="${target-folder}/${plugin-folder}/" file="config.php" type="file" />
+			<then>
+				<antcall target="syntax-check">
+					<param name="file" value="${target-folder}/${plugin-folder}/config.php"/>
+				</antcall>
+			</then>
+			<else>
+				<echo message="config.php does not exist" />
+			</else>
+		</if>
+		<if>
+			<available filepath="${target-folder}/${plugin-folder}/" file="php" type="dir" />
+			<then>
+				<foreach target="syntax-check" param="file" parallel="true">
+					<path>
+						<fileset dir="${target-folder}/${plugin-folder}/">
+							<include name="**/*.php"/>
+						</fileset>
+					</path>
+				</foreach>
+			</then>
+			<else>
+				<echo message="Directory ${target-folder}/${plugin-folder}/php does not exist" />
+			</else>
+		</if>
+	</target>
+
+	<target name="syntax-check">
+		<echo message="validating ${file}"/>
+		<exec executable="php" failonerror="true" failifexecutionfails="false">
+			<arg value="-l"/>
+			<arg value="${file}"/>
+		</exec>
+	</target>
+
+	<!-- Generate language files -->
+	<target name="language">
+		<if>
+			<available file="msgfmt" filepath="${env.PATH}" />
+			<then>
+				<foreach target="msgfmt" param="file">
+					<path>
+						<fileset dir="${language-folder}">
+							<include name="**/LC_MESSAGES/*.po"/>
+						</fileset>
+					</path>
+				</foreach>
+			</then>
+			<else>
+				<echo message="WARNING: msgfmt not available, not generating *.mo files for translations"/>
+				<!-- just copy files -->
+				<copy todir="${target-folder}/${plugin-folder}">
+					<fileset dir=".">
+						<include name="language/**/*.mo"/>
+						<include name="language/**/*.txt"/>
+					</fileset>
+				</copy>
+			</else>
+		</if>
+	</target>
+
+	<target name="msgfmt">
+		<propertyregex property="outfile" input="${file}" regexp=".*\/(language\/.*)\.po" replace="${target-folder}/${plugin-folder}/\1\.mo"/>
+		<echo message="Converting ${file} to ${outfile}"/>
+		<dirname property="outdir" file="${outfile}"/>
+		<mkdir dir="${outdir}"/>
+		<exec executable="msgfmt" failonerror="true" logError="true">
+			<arg value="-v"/>
+			<arg value="-o"/>
+			<arg value="${outfile}"/>
+			<arg value="${file}"/>
+		</exec>
+	</target>
+
+	<!-- Precopy some files and make replacements - needed for validating -->
+	<target name="predeploy" depends="clean">
+		<mkdir dir="${target-folder}/${plugin-folder}"/>
+
+		<!-- copy files -->
+		<copy todir="${target-folder}/${plugin-folder}">
+			<fileset dir=".">
+				<include name="php/**/*.php"/>
+				<include name="config.php"/>
+			</fileset>
+		</copy>
+	</target>
+
+	<!-- Install all files into the target folder -->
+	<target name="deploy" depends="clean, compress, compresscss, validate, language">
+
+		<!-- Copy (and validate) manifest.xml -->
+		<if>
+			<available file="xmllint" filepath="${env.PATH}" />
+			<then>
+				<exec executable="xmllint" output="${target-folder}/${plugin-folder}/manifest.xml" failonerror="true" logError="true">
+					<arg value="--valid"/>
+					<arg value="--path"/>
+					<arg value="${server-folder}"/>
+					<arg value="manifest.xml"/>
+				</exec>
+			</then>
+			<else>
+				<echo message="WARNING: xmllint not available, not performing syntax-check on manifest.xml"/>
+				<!-- xmllint is not available, so we must copy the file manually -->
+				<copy todir="${target-folder}/${plugin-folder}">
+					<fileset dir=".">
+						<include name="manifest.xml"/>
+					</fileset>
+				</copy>
+			</else>
+		</if>
+
+		<!-- copy files -->
+		<copy todir="${target-folder}/${plugin-folder}">
+			<fileset dir=".">
+				<include name="resources/**/*.*"/>
+				<include name="js/external/*.*"/>
+				<include name="CHANGELOG.txt"/>
+				<include name="php/Files/Backend/**/*.css"/>
+				<include name="php/Files/Backend/**/*.js"/>
+				<!-- exclude the ant script -->
+				<exclude name="build.xml"/>
+				<!-- CSS is generated during build -->
+				<exclude name="resources/css/*.*"/>
+				<!-- gimp raw files -->
+				<exclude name="resources/**/*.xcf"/>
+			</fileset>
+		</copy>
+	</target>
+
+	<!-- compresses each CSS file -->
+	<target name="compresscss" depends="concat">
+
+		<available file="${tools-folder}/lib/yui-compressor-ant-task-0.5.jar" property="YUIANT_AVAILABLE" />
+		<fail unless="YUIANT_AVAILABLE" message="yui-compressor-ant-task-0.5.jar not found" />
+
+		<if>
+			<available file="${target-folder}/${plugin-folder}/${plugin-css-folder}/${plugin-css-debug-file}" type="file" />
+			<then>
+				<yui-compressor
+					warn="false"
+					munge="true"
+					preserveallsemicolons="false"
+					fromdir="${target-folder}/${plugin-folder}/${plugin-css-folder}"
+					todir="${target-folder}/${plugin-folder}/${plugin-css-folder}">
+
+				  <include name="${plugin-css-debug-file}" />
+				</yui-compressor>
+			</then>
+		</if>
+	</target>
+
+</project>

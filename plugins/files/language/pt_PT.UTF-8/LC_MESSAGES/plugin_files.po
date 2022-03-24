@@ -1,0 +1,707 @@
+# grommunio Web Files Portuguese (Portugal) translation.
+# Copyright (C) 2017
+# This file is distributed under the same license as the grommunio-web-files package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+msgid ""
+msgstr ""
+"Project-Id-Version: grommunio Web Files Plugin Portuguese (Portugal)\n"
+"Report-Msgid-Bugs-To: dev@grommunio.com\n"
+"POT-Creation-Date: 2019-10-08 13:29+0000\n"
+"PO-Revision-Date: 2022-03-15 16:55+0000\n"
+"Last-Translator: Mike Williams <mike.williams@grommunio.com>\n"
+"Language-Team: Portuguese (Portugal) <https://hosted.weblate.org/projects/"
+"grommunio/grommunio-web/pt_PT/>\n"
+"Language: pt_PT\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: Weblate 4.11.1-dev\n"
+
+msgid "Add attachment from {0}"
+msgstr "Adicionar anexo {0}"
+
+msgid "Confirm deletion"
+msgstr "Confirmação de eliminação"
+
+msgid "Are you sure you want to delete {0}?"
+msgstr "Tem a certeza que quer apagar {0}?"
+
+msgid "Are you sure you want to delete {0} and all of its contents?"
+msgstr "Tem a certeza que quer apagar {0} e todo o seu conteúdo?"
+
+msgid "Are you sure you want to delete {0} files?"
+msgstr "Tem a certeza que quer apagar os {0} ficheiros?"
+
+msgid "Are you sure want to delete {0} folders and all of their contents?"
+msgstr "Tem a certeza que quer eliminar as {0} pastas e todo o seu conteúdo?"
+
+msgid ""
+"Are you sure want to delete the selected items and all of their contents?"
+msgstr ""
+"Tem a certeza que quer apagar os itens selecionados e todo o seu conteúdo?"
+
+msgid "Confirm overwrite"
+msgstr "Confirme substituição"
+
+msgid "File already exists. Do you want to overwrite it?"
+msgstr "O ficheiro já existe. Pretende substituí-lo?"
+
+msgid "Rename"
+msgstr "Renomear"
+
+msgid "Please enter a new name"
+msgstr "Por favor introduza o novo nome"
+
+msgid "Rename record"
+msgstr "Alterar nome do registo"
+
+msgid "A file name should not be empty."
+msgstr "O nome de um ficheiro não deve ser vazio."
+
+msgid "Rename item"
+msgstr "Alterar nome do item"
+
+msgid "A file named \"{0}\" already exists. Please enter a different name."
+msgstr ""
+"Já existe um ficheiro com o nome \"{0}\". Por favor introduza outro nome."
+
+msgid "Downloading"
+msgstr "A transferir"
+
+msgid "Download started... please wait!"
+msgstr "Transferência iniciada... por favor aguarde!"
+
+msgid "Upload"
+msgstr "Enviar"
+
+msgid "At least one file is too large! Maximum allowed filesize: {0}."
+msgstr ""
+"Pelo menos um ficheiro é demasiado grande! Tamanho máximo de ficheiro "
+"permitido: {0}."
+
+msgid "Keep both"
+msgstr "Manter os dois"
+
+msgid "Overwrite"
+msgstr "Substituir"
+
+msgid "Cancel"
+msgstr "Cancelar"
+
+msgid "Warning"
+msgstr "Aviso"
+
+msgid "Error"
+msgstr "Erro"
+
+msgid "l d/m/Y G:i"
+msgstr "l d/m/Y G:i"
+
+msgid "Never"
+msgstr "Nunca"
+
+msgid "Add from Files"
+msgstr "Adicionar de Ficheiros"
+
+msgid "Add attachment from Files"
+msgstr "Adicionar anexo de Ficheiros"
+
+msgid "Add to Files"
+msgstr "Adicionar a Ficheiros"
+
+msgid "Untitled"
+msgstr "Sem nome"
+
+msgid "Upload file"
+msgstr "Enviar ficheiro"
+
+msgid "No preview"
+msgstr "Sem pré-visualização"
+
+msgid "Right preview"
+msgstr "Pré-visualização à direita"
+
+msgid "Bottom preview"
+msgstr "Pré-visualização em baixo"
+
+msgid "Switch view"
+msgstr "Mudar vista"
+
+msgid "List"
+msgstr "Lista"
+
+msgid "Icons"
+msgstr "Ícones"
+
+msgid "Files"
+msgstr "Ficheiros"
+
+msgid "Files Plugin"
+msgstr "Plugin Ficheiros"
+
+msgid "Manage Accounts"
+msgstr "Gerir contas"
+
+msgid "Reset Files settings"
+msgstr "Reset das definições de Ficheiros"
+
+msgid "Resets Files settings to their original defaults"
+msgstr "Repor as definições originais de Ficheiros"
+
+msgid "Are you sure to remove all settings and accounts?"
+msgstr "Tem a certeza que quer remover todas as definições e contas?"
+
+msgid ""
+"Accounts marked by your administrator as \"cannot be changed\" will not be "
+"removed."
+msgstr ""
+"Contas marcadas como \"não podem ser modificadas\" pelo administrador não "
+"podem ser removidas."
+
+msgid ""
+"WebApp will automatically restart in order for these changes to take effect."
+msgstr ""
+"A WebApp vai reiniciar automaticamente para que as alterações possam ser "
+"aplicadas."
+
+msgid "Reset"
+msgstr "Reset"
+
+msgid "Webapp is reloading, Please wait."
+msgstr "WebApp a carregar... Por favor aguarde."
+
+msgid "Edit Account"
+msgstr "Editar conta"
+
+msgid "Save"
+msgstr "Gravar"
+
+msgid "Account Information"
+msgstr "Informação da conta"
+
+msgid "Account name"
+msgstr "Nome da conta"
+
+msgid "Account type"
+msgstr "Tipo de conta"
+
+msgid "Select backend..."
+msgstr "Selecionar o backend.."
+
+msgid "Account Configuration"
+msgstr "Configuração da conta"
+
+msgid "Update"
+msgstr "Atualizar"
+
+msgid "ID"
+msgstr "ID"
+
+msgid "Sort by: ID"
+msgstr "Ordenar por: ID"
+
+msgid "Status"
+msgstr "Estado"
+
+msgid "Sort by: Status"
+msgstr "Ordenar por: Estado"
+
+msgid "Name"
+msgstr "Nome"
+
+msgid "Sort by: Name"
+msgstr "Ordenar por: Nome"
+
+msgid "Backend"
+msgstr "Backend"
+
+msgid "Sort by: Backend"
+msgstr "Ordenar por: Backend"
+
+msgid "Features"
+msgstr "Funcionalidades"
+
+msgid "Shows all available features of the backend."
+msgstr "Mostrar todas as funcionalidades do backend disponíveis."
+
+msgid "Show quota information"
+msgstr "Mostar informação sobre quota"
+
+msgid "Show version information"
+msgstr "Mostar informação sobre versão"
+
+msgid "Share files"
+msgstr "Partilhar ficheiros"
+
+msgid "Fast Down/Upload"
+msgstr "Transferir/Enviar rápido"
+
+msgid "No account created!"
+msgstr "Nenhuma conta criada!"
+
+msgid "Add Account"
+msgstr "Adicionar conta"
+
+msgid "Remove Account"
+msgstr "Remover conta"
+
+msgid "Loading accounts"
+msgstr "A carregar contas"
+
+msgid "Do you really want to delete the account \"{0}\"?"
+msgstr "Tem a certeza que pretende apagar a conta \"{0}\"?"
+
+msgid "Quota Information"
+msgstr "Informação sobre quota"
+
+msgid "Reload"
+msgstr "Recarregar"
+
+msgid "Close"
+msgstr "Fechar"
+
+msgid "Used"
+msgstr "Usado"
+
+msgid "Loading"
+msgstr "A carregar"
+
+msgid "Free"
+msgstr "Livre"
+
+msgid "Total"
+msgstr "Total"
+
+msgid "Version Information"
+msgstr "Informação sobre versão"
+
+msgid "All Day"
+msgstr "Todo o dia"
+
+msgid "Sort by: Type"
+msgstr "Ordenar por: Tipo"
+
+msgid "Filename"
+msgstr "Nome do ficheiro"
+
+msgid "Sort by: Filename"
+msgstr "Ordenar por: Nome de ficheiro"
+
+msgid "Size"
+msgstr "Tamanho"
+
+msgid "Sort by: Size"
+msgstr "Ordenar por: Tamanho"
+
+msgid "Loading files"
+msgstr "A carregar ficheiros"
+
+msgid "Add attachment"
+msgstr "Adicionar anexo"
+
+msgid "The file {0} is too large!"
+msgstr "O ficheiro {0} é demasiado grande!"
+
+msgid "max"
+msgstr "max"
+
+msgid "You have to choose at least one file!"
+msgstr "Tem que escolher pelo menos um ficheiro!"
+
+msgid "Create New Folder"
+msgstr "Criar nova pasta"
+
+msgid "Ok"
+msgstr "Ok"
+
+msgid "Select where to place the folder"
+msgstr "Selecione onde colocar a pasta"
+
+msgid "grommunio Web"
+msgstr "grommunio Web"
+
+msgid "You must specify a name."
+msgstr "Tem que especificar um nome."
+
+msgid "Folder already exists"
+msgstr "A pasta já existe"
+
+msgid "Incorrect foldername"
+msgstr "Nome da pasta incorreto"
+
+msgid "File information"
+msgstr "Informação sobre ficheiro"
+
+msgid "Select a file"
+msgstr "Selecionar um ficheiro"
+
+msgid "Maximum upload size"
+msgstr "Tamanho máximo de envio"
+
+msgid "Browse"
+msgstr "Procurar"
+
+msgid "Select upload folder"
+msgstr "Selecionar pasta para envio"
+
+msgid "File \"{0}\" is too large! Maximum allowed filesize: {1}."
+msgstr ""
+"O ficheiro \"{0}\" é demasiado grande! Tamanho máximo de ficheiro permitido: "
+"{1}."
+
+msgid "Add item to Files"
+msgstr "Adicionar item a Ficheiros"
+
+msgid "There are no items to show in this list"
+msgstr "Não existem itens para mostrar na lista"
+
+msgid "New folder"
+msgstr "Nova pasta"
+
+msgid "You have to choose a folder!"
+msgstr "Tem que escolher uma pasta!"
+
+msgid "Uploaded"
+msgstr "Enviado"
+
+msgid "Attachment successfully stored in Files"
+msgstr "Anexo guardado com sucesso em Ficheiros"
+
+msgid "Upload Failed"
+msgstr "Envio falhou"
+
+msgid "Attachment could not be stored in Files! Error: "
+msgstr "Não foi possível guardar o anexo em Ficheiros! Erro: "
+
+msgid "Share Files"
+msgstr "Partilhar ficheiros"
+
+msgid "Uploading files to "
+msgstr "A enviar ficheiros para "
+
+msgid "Starting upload"
+msgstr "A começar envio"
+
+msgid "Cancel upload"
+msgstr "Cancelar envio"
+
+msgid "- seconds left"
+msgstr "- segundos para acabar"
+
+msgid " seconds left"
+msgstr " segundos para acabar"
+
+msgid " minutes left"
+msgstr " minutos para acabar"
+
+msgid "Uploading: "
+msgstr "A enviar: "
+
+msgid "Upload status unavailable... please wait."
+msgstr "Estado de envio não disponível.. por favor aguarde."
+
+msgid "Upload finished!"
+msgstr "Envio terminado!"
+
+msgid "Upload aborted!"
+msgstr "Envio cancelado!"
+
+msgid "Upload failed!"
+msgstr "Envio falhado!"
+
+msgid "Upload files"
+msgstr "Enviar ficheiros"
+
+msgid "New Folder"
+msgstr "Nova pasta"
+
+msgid "Download"
+msgstr "Transferir"
+
+msgid "Download files"
+msgstr "Transferir ficheiros"
+
+msgid "Share"
+msgstr "Partilhar"
+
+msgid "Attach to mail"
+msgstr "Anexar à mensagem"
+
+msgid "Delete"
+msgstr "Apagar"
+
+msgid "Attaching"
+msgstr "A anexar"
+
+msgid "Creating email... Please wait!"
+msgstr "A criar mensagem... Por favor aguarde!"
+
+msgid "Edit share"
+msgstr "Editar partilha"
+
+msgid "Info"
+msgstr "Informação"
+
+msgid ""
+"There are no accounts added. Go to settings, Files tab and add an account"
+msgstr ""
+"Não existem contas adicionadas. Vá a Definições, aba Ficheiros e adicione "
+"uma conta"
+
+msgid "Filesize"
+msgstr "Tamanho do ficheiro"
+
+msgid "Last modified"
+msgstr "Última vez modificado"
+
+msgid "Type"
+msgstr "Tipo"
+
+msgid "Is shared"
+msgstr "Está partilhado"
+
+msgid "File preview"
+msgstr "Pré-visualização do ficheiro"
+
+msgid "Your browser does not support previewing of audio files!"
+msgstr "O seu navegador não suporta a pré-visualização de ficheiros áudio!"
+
+msgid "Your browser does not support previewing of video files!"
+msgstr "O seu navegador não suporta a pré-visualização de ficheiros de vídeo!"
+
+msgid "d.m.Y G:i"
+msgstr "d.m.Y G:i"
+
+msgid "Folder"
+msgstr "Pasta"
+
+msgid "File ({0})"
+msgstr "Ficheiro {0}"
+
+msgid "Yes"
+msgstr "Sim"
+
+msgid "No"
+msgstr "Não"
+
+msgid "Sort by: Path"
+msgstr "Ordenar por: Caminho"
+
+msgid "Sort by: Last modified"
+msgstr "Ordenar por: Última vez modificado"
+
+msgid "Sort by: Shared"
+msgstr "Ordenar por: Partilhado"
+
+msgid "There are no items to show in this view"
+msgstr "Não existem itens para exibir nesta vista"
+
+msgid "Refresh"
+msgstr "Atualizar"
+
+msgid "files selected"
+msgstr "ficheiros selecionados"
+
+msgid "Home"
+msgstr "Início"
+
+msgid "{0} of {1} in use"
+msgstr "{0} de {1} em uso"
+
+msgid "Unknown account ID"
+msgstr "ID de conta desconhecido"
+
+msgid "Feature \"Quota Information\" is not supported by this backend!"
+msgstr ""
+"A funcionalidade \"Informação de quota\" não é suportada por este backend!"
+
+msgid "Feature \"Version Information\" is not supported by this backend!"
+msgstr ""
+"A funcionalidade \"Informação de versão\" não é suportada por este backend!"
+
+msgid "Feature \"OAUTH\" is not supported by this backend!"
+msgstr "A funcionalidade \"OAUTH\" não é suportada por este backend!"
+
+msgid "Moving between accounts is not implemented"
+msgstr "Mover entre contas não está implementado"
+
+msgid "Files plugin"
+msgstr "Plugin Ficheiros"
+
+msgid "Unknown type - cannot save this file to the Files backend!"
+msgstr ""
+"Tipo desconhecido - não pode guardar este ficheiro para o backend de "
+"Ficheiros!"
+
+msgid "No record given!"
+msgstr "Nenhum registo fornecido!"
+
+msgid "Fetching sharing information failed"
+msgstr "Falhou a recolher informação sobre partilha"
+
+msgid "Sharing failed"
+msgstr "Falhou a partilhar"
+
+msgid "Updating share failed"
+msgstr "Falhou a atualizar partilha"
+
+msgid "Deleting share failed"
+msgstr "Falhou a apagar partilha"
+
+msgid "With this backend, you can connect to any ftp server."
+msgstr "Com este backend, não pode ligar a nenhum servidor ftp."
+
+msgid "Files FTP Backend: "
+msgstr "Backend Ficheiros FTP: "
+
+msgid "Server address"
+msgstr "Endereço do servidor"
+
+msgid "Server port"
+msgstr "Porta do servidor"
+
+msgid "FTP user"
+msgstr "Utilizador FTP"
+
+msgid "FTP password"
+msgstr "Palavra-passe FTP"
+
+msgid "Base path"
+msgstr "Caminho base"
+
+msgid "Use SSL"
+msgstr "Usar SSL"
+
+msgid "Use passive mode"
+msgstr "Usar modo passivo"
+
+msgid "Use grommunio credentials"
+msgstr "Usar credenciais grommunio"
+
+msgid "Authentication failed"
+msgstr "Autenticação falhou"
+
+msgid "Connection failed"
+msgstr "Ligação falhou"
+
+msgid "Unparsable server response."
+msgstr "Resposta do servidor não processável."
+
+msgid "Temporary directory problems"
+msgstr "Problemas na pasta temporária"
+
+msgid "Not implemented"
+msgstr "Não implementado"
+
+msgid "Unknown error"
+msgstr "Erro desconhecido"
+
+msgid "Please contact your system administrator"
+msgstr "Por favor contacte o seu administrador de sistemas"
+
+msgid "Unauthorized. Wrong username or password."
+msgstr "Não autorizado. Utilizador ou palavra-passe errada."
+
+msgid "File server is not reachable. Please verify the connection."
+msgstr ""
+"O servidor de ficheiros não está disponível. Por favor verifique a ligação."
+
+msgid "You don't have enough permissions to view this file or folder."
+msgstr "Não tem permissões suficientes para ver este ficheiro ou pasta."
+
+msgid "This file or folder is not available anymore."
+msgstr "O ficheiro ou pasta já não se encontra disponível."
+
+msgid "Connection to the file server timed out. Please check again later."
+msgstr "A ligação ao servidor expirou. Por favor volte a tentar."
+
+msgid "This file is locked by another user. Please check again later."
+msgstr ""
+"Este ficheiro está bloqueado por outro utilizador. Por favor volte a tentar "
+"mais tarde."
+
+msgid "The request failed."
+msgstr "O pedido falhou."
+
+msgid "The file server encountered an internal problem."
+msgstr "O servidor de ficheiros encontrou um problema interno."
+
+msgid "We could not write to temporary directory."
+msgstr "Não foi possível escrever na pasta temporária."
+
+msgid "We could not retrieve list of server features."
+msgstr "Não foi possível obter a lista das funcionalidades do servidor."
+
+msgid "This function is not yet implemented."
+msgstr "Esta função ainda não foi implementada."
+
+msgid "With this backend, you can connect to any WebDAV server."
+msgstr "Com este backend pode ligar a qualquer servidor WEBDAV."
+
+msgid "Files WebDAV Backend: "
+msgstr "Backend Ficheiros WebDav: "
+
+msgid "Webdav base path"
+msgstr "Caminho webdav base"
+
+msgid "Username"
+msgstr "Utilizador"
+
+msgid "Password"
+msgstr "Palavra-passe"
+
+msgid "PHP-CURL is not installed"
+msgstr "PHP-CURL não está instalado"
+
+msgid "Access denied"
+msgstr "Acesso negado"
+
+msgid "Sabre error"
+msgstr "Erro do Sabre"
+
+msgid "Directory creation failed"
+msgstr "Falhou ao criar pasta"
+
+msgid "Deletion failed"
+msgstr "Falhou ao eliminar"
+
+msgid "Moving failed"
+msgstr "Falhou ao mover"
+
+msgid "File or folder not found"
+msgstr "Ficheiro ou pasta não encontrado"
+
+msgid "Copying failed"
+msgstr "Falhou ao copiar"
+
+msgid "File server is not reachable. Please verify the file server URL."
+msgstr ""
+"Servidor de ficheiros não disponível. Por favor verifique o URL do servidor "
+"de ficheiros."
+
+msgid "The file or folder is not available anymore."
+msgstr "O ficheiro ou pasta já não se encontra disponível."
+
+msgid "This file is locked by another user. Please try again later."
+msgstr ""
+"Este ficheiro está bloqueado por outro utilizador. Por favor volte a tentar "
+"mais tarde."
+
+msgid "PHP-Curl is not available."
+msgstr "PHP-Curl não está disponível."
+
+msgid "PHP-CURL not installed"
+msgstr "PHP-Curl não está instalado"
+
+msgid "Account is ready to use."
+msgstr "Conta está pronta a usar."
+
+msgid "File backend not responding. Please try again later."
+msgstr "Backend de ficheiros não está a responder. Por favor tente mais tarde."
+
+msgid "Zip file generation failed. Please inform the administrator."
+msgstr "Falha ao gerar ficheiro zip. Por favor informe o administrador."
+
+msgid "This file is no longer available. Please reload the folder."
+msgstr "Este ficheiro já não está disponível. Por favor atualize a pasta."
