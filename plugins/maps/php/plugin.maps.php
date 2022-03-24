@@ -7,7 +7,7 @@
  *
  */
 
-class Plugingmaps extends Plugin {
+class Pluginmaps extends Plugin {
 
 	function __construct() {}
 
@@ -50,10 +50,10 @@ class Plugingmaps extends Plugin {
 	 */
 	function addLeafletJsFile(&$data) {
 		// make sure to load remote files only when plugin is enabled
-		if($GLOBALS['settings']->get('zarafa/v1/plugins/gmaps/enable') == true) {
+		if($GLOBALS['settings']->get('zarafa/v1/plugins/maps/enable') == true) {
 			//removing https: provides protocols compatibility, especially in IE9
-			$data['files'][] = 'plugins/gmaps/js/leaflet.js';
-			$data['files'][] = 'plugins/gmaps/js/geocoder.js';
+			$data['files'][] = 'plugins/maps/js/external/leaflet.js';
+			$data['files'][] = 'plugins/maps/js/external/geocoder.js';
 		}
 	}
 
@@ -64,16 +64,16 @@ class Plugingmaps extends Plugin {
 	 */
 	function addLeafletCssFile(&$data) {
 		// make sure to load remote files only when plugin is enabled
-		if($GLOBALS['settings']->get('zarafa/v1/plugins/gmaps/enable') == true) {
+		if($GLOBALS['settings']->get('zarafa/v1/plugins/maps/enable') == true) {
 			//removing https: provides protocols compatibility, especially in IE9
-			$data['files'][] = 'plugins/gmaps/css/leaflet.css';
-			$data['files'][] = 'plugins/gmaps/css/geocoder.css';
+			$data['files'][] = 'plugins/maps/resources/css/leaflet.css';
+			$data['files'][] = 'plugins/maps/resources/css/geocoder.css';
 		}
 	}
 
 	/**
 	 * Called when the core Settings class is initialized and ready to accept sysadmin default
-	 * settings. Registers the sysadmin defaults for the Gmaps plugin.
+	 * settings. Registers the sysadmin defaults for the Maps plugin.
 	 * @param Array $data Reference to the data of the triggered hook
 	 */
 	function injectPluginSettings(&$data) {
@@ -81,7 +81,7 @@ class Plugingmaps extends Plugin {
 			'zarafa' => Array(
 				'v1' => Array(
 					'plugins' => Array(
-						'gmaps' => Array(
+						'maps' => Array(
 							'enable'            => PLUGIN_GMAPS_USER_DEFAULT_ENABLE,
 						)
 

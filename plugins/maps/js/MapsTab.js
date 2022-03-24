@@ -1,14 +1,14 @@
-Ext.namespace('Zarafa.plugins.gmaps');
+Ext.namespace('Zarafa.plugins.maps');
 
 /**
-* @class Zarafa.plugins.gmaps.GmapsTab
+* @class Zarafa.plugins.maps.MapsTab
 * @extends Ext.Panel
-* @xtype gmaps.contactgmapstab
+* @xtype maps.contactmapstab
 *
-* This class is used to create layout of gmaps tab
+* This class is used to create layout of maps tab
 * panel of the contact dialog.
 */
-Zarafa.plugins.gmaps.GmapsTab=Ext.extend(Ext.Panel, {
+Zarafa.plugins.maps.MapsTab=Ext.extend(Ext.Panel, {
 
 	/**
 	 * The leaflet instance on which we can place the
@@ -38,14 +38,14 @@ Zarafa.plugins.gmaps.GmapsTab=Ext.extend(Ext.Panel, {
 			// #TRANSLATORS: The map of earth
 			title   : _('Map'),
 			cls: 'map',
-			//proper body style for rendering gmaps
+			//proper body style for rendering maps
 			listeners: {
 				resize: this.resizeMap,
 				scope: this
 			},
 		});
 
-		Zarafa.plugins.gmaps.GmapsTab.superclass.constructor.call(this, config);
+		Zarafa.plugins.maps.MapsTab.superclass.constructor.call(this, config);
 		
 	},
 
@@ -57,7 +57,7 @@ Zarafa.plugins.gmaps.GmapsTab=Ext.extend(Ext.Panel, {
 	 */
 	onRender: function(...props)
 	{
-		Zarafa.plugins.gmaps.GmapsTab.superclass.onRender.apply(this, arguments);
+		Zarafa.plugins.maps.MapsTab.superclass.onRender.apply(this, arguments);
 		this.map = this.createGmap();
 		this.provider = new GeoSearch.OpenStreetMapProvider()
 	},
@@ -87,7 +87,7 @@ Zarafa.plugins.gmaps.GmapsTab=Ext.extend(Ext.Panel, {
 	},
 
 	/**
-	 * Load record into gmaps panel
+	 * Load record into maps panel
 	 *
 	 * @param {Zarafa.core.data.IPMRecord} record The record to work with
 	 * @param {Boolean} contentReset force the component to perform a full update of the data.
@@ -162,4 +162,4 @@ Zarafa.plugins.gmaps.GmapsTab=Ext.extend(Ext.Panel, {
 });
 
 //registration
-Ext.reg('gmaps.contactgmapstab', Zarafa.plugins.gmaps.GmapsTab);
+Ext.reg('maps.contactmapstab', Zarafa.plugins.maps.MapsTab);

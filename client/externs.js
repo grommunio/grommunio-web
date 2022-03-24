@@ -30,3 +30,5 @@ var resizeLoginBox = function() {};
 var userManager = {};
 var DOMPurify = {};
 const IS_KUSTOMER_CHECK_ENABLED = false;
+var L = {};
+var GeoSearch = {};

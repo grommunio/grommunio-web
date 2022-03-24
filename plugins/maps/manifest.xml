@@ -3,8 +3,8 @@
 <plugin version="2">
 	<info>
 		<version>0.3</version>
-		<name>gmaps</name>
-		<title>gmaps Plugin</title>
+		<name>maps</name>
+		<title>maps Plugin</title>
 		<author>grommunio GmbH</author>
 		<authorURL>https://www.grommunio.com</authorURL>
 		<description>Shows contact address on openstreetmap.</description>
@@ -16,13 +16,13 @@
 		<component>
 			<files>
 				<server>
-					<serverfile>php/plugin.gmaps.php</serverfile>
+					<serverfile>php/plugin.maps.php</serverfile>
 				</server>
 				<client>
-					<clientfile load="release">js/gmaps.js</clientfile>
-					<clientfile load="debug">js/gmaps-debug.js</clientfile>
-					<clientfile load="source">js/GmapsPlugin.js</clientfile>
-					<clientfile load="source">js/GmapsTab.js</clientfile>
+					<clientfile load="release">js/maps.js</clientfile>
+					<clientfile load="debug">js/maps-debug.js</clientfile>
+					<clientfile load="source">js/MapsPlugin.js</clientfile>
+					<clientfile load="source">js/MapsTab.js</clientfile>
 				</client>
 			</files>
 		</component>

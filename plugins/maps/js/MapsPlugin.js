@@ -1,12 +1,12 @@
-Ext.namespace('Zarafa.plugins.gmaps');
+Ext.namespace('Zarafa.plugins.maps');
 
 /**
-* @class Zarafa.plugins.gmaps.GmapsPlugin
+* @class Zarafa.plugins.maps.MapsPlugin
 * @extends Zarafa.core.Plugin
 *
-* Gmaps plugin for showing contact addresses locations on openstreetmap.
+* Maps plugin for showing contact addresses locations on openstreetmap.
 */
-Zarafa.plugins.gmaps.GmapsPlugin = Ext.extend(Zarafa.core.Plugin, {
+Zarafa.plugins.maps.MapsPlugin = Ext.extend(Zarafa.core.Plugin, {
 
 	/**
 	 * Initialize the plugin by calling {@link #registerInsertionPoint}.
@@ -14,7 +14,7 @@ Zarafa.plugins.gmaps.GmapsPlugin = Ext.extend(Zarafa.core.Plugin, {
 	 */
 	initPlugin: function()
 	{
-		Zarafa.plugins.gmaps.GmapsPlugin.superclass.initPlugin.apply(this, arguments);
+		Zarafa.plugins.maps.MapsPlugin.superclass.initPlugin.apply(this, arguments);
 
 		this.registerInsertionPoint('context.contact.contactcontentpanel.tabs',this.showContactLocation, this);
 		this.registerInsertionPoint('context.addressbook.abuserdetailcontentpanel.tabs',this.showABUserLocation, this);
@@ -27,7 +27,7 @@ Zarafa.plugins.gmaps.GmapsPlugin = Ext.extend(Zarafa.core.Plugin, {
 	showContactLocation:function()
 	{
 		return {
-			xtype:'gmaps.contactgmapstab',
+			xtype:'maps.contactmapstab',
 			itemId: 'contact'
 		};
 	},
@@ -38,7 +38,7 @@ Zarafa.plugins.gmaps.GmapsPlugin = Ext.extend(Zarafa.core.Plugin, {
 	showABUserLocation:function()
 	{
 		return {
-			xtype:'gmaps.contactgmapstab',
+			xtype:'maps.contactmapstab',
 			itemId: 'abuser'
 		};
 	}
@@ -46,8 +46,8 @@ Zarafa.plugins.gmaps.GmapsPlugin = Ext.extend(Zarafa.core.Plugin, {
 
 Zarafa.onReady(function() {
 	container.registerPlugin(new Zarafa.core.PluginMetaData({
-		name: 'gmaps',
+		name: 'maps',
 		displayName: _('Openstreetmap'),
-		pluginConstructor: Zarafa.plugins.gmaps.GmapsPlugin
+		pluginConstructor: Zarafa.plugins.maps.MapsPlugin
 	}));
 });
