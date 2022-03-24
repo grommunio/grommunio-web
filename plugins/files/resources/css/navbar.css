@@ -1,0 +1,91 @@
+/*
+ * Navigation Bar Styles
+ */
+
+/** navbar container */
+.navbar_container {
+    width: 100%;
+}
+
+/** override extjs size */
+.navbar_container .x-column-inner {
+    width: 100% !important;
+}
+
+/** Navigation bar home button **/
+.files_navbar_home {
+    background-image: url(../resources/icons/actions/home.png);
+}
+
+/** Navigation bar x-btn default style and hovered active x-btn inside the navbar **/
+.files_navbar_button .x-btn-small, .files_navbar_button.files_navbar_button_last.x-btn-over .x-btn-small {
+    background: none;
+    box-shadow: none;
+    border: 1px solid transparent;
+}
+
+/** Hovered x-btn in navigation bar (non active) **/
+.files_navbar_button.x-btn-over .x-btn-small  {
+    background: none;
+    box-shadow: none;
+    border: 1px solid #e6e6e6;
+}
+
+/** Navigation bar button **/
+.files_navbar_button .x-btn-small button {
+    float: left;
+    height: 22px !important;
+    padding: 0 4px !important;
+    margin: 0 !important;
+    min-width: 0 !important;
+    background-color: white;
+    box-shadow: none;
+    line-height: 20px;
+    display: inline-block;
+    max-width: 100%;
+}
+
+.files_navbar_button .x-btn-small {
+    margin-right: 0 !important;
+}
+
+/** Navigation bar last/Focus/Active button **/
+.files_navbar_button_last button {
+    font-weight: bold;
+    border: 1px solid #e6e6e6;
+    box-shadow: none;
+    background-color: #f8f8f8 !important;
+    box-sizing: border-box;
+    line-height: 20px;
+    display: inline-block;
+    border-radius: 2px;
+    padding: 1px 6px;
+    overflow: visible;
+}
+
+/** Right arrow icon **/
+.files_navbar_button:before {
+    content: url(../resources/images/navbar/arrow_right.png);
+    float: left;
+    padding: 8px 4px 0 5px;
+}
+
+.files_navbar_button_first::before {
+    content: '';
+    padding: 0;
+}
+
+/** Quota bar **/
+.files_quota_bar_snippet {
+    margin-right: 12px;
+}
+
+.files_navbar_panel {
+    overflow-y: auto;
+}
+
+.zarafa-hierarchy-node-backend {
+    font-weight: normal;
+    color: #777777 !important;
+    font-style: italic !important;
+}

@@ -1,0 +1,15 @@
+/*
+ * WEB ODF PANEL STYLES
+ */
+/* TODO: remove the page container if scaleCombo is implemented */
+.webodfpanel-outerDocumentContainer {
+    text-align: center;
+    width: 500px;
+    height: 500px;
+    overflow: auto;
+    color: rgba(255,255,255, 0);
+}
+
+.webodfpanel-canvas {
+
+}

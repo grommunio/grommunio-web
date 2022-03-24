@@ -1,0 +1,699 @@
+# grommunio Web Files Japanese translation.
+# Copyright (C) 2017
+# This file is distributed under the same license as the grommunio-web-files package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+msgid ""
+msgstr ""
+"Project-Id-Version: grommunio Web Files Plugin Japanese\n"
+"Report-Msgid-Bugs-To: dev@grommunio.com\n"
+"POT-Creation-Date: 2019-10-08 13:29+0000\n"
+"PO-Revision-Date: 2022-03-15 16:55+0000\n"
+"Last-Translator: Mike Williams <mike.williams@grommunio.com>\n"
+"Language-Team: Japanese <https://hosted.weblate.org/projects/grommunio/"
+"grommunio-web/ja/>\n"
+"Language: ja_JP\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 4.11.1-dev\n"
+
+msgid "Add attachment from {0}"
+msgstr "{0} から添付ファイルを追加"
+
+msgid "Confirm deletion"
+msgstr "削除確認"
+
+#, fuzzy
+msgid "Are you sure you want to delete {0}?"
+msgstr "アカウント \"{0}\" を削除してもよろしいですか?"
+
+msgid "Are you sure you want to delete {0} and all of its contents?"
+msgstr ""
+
+#, fuzzy
+msgid "Are you sure you want to delete {0} files?"
+msgstr "アカウント \"{0}\" を削除してもよろしいですか?"
+
+msgid "Are you sure want to delete {0} folders and all of their contents?"
+msgstr ""
+
+msgid ""
+"Are you sure want to delete the selected items and all of their contents?"
+msgstr ""
+
+msgid "Confirm overwrite"
+msgstr "上書き確認"
+
+msgid "File already exists. Do you want to overwrite it?"
+msgstr "ファイルが既に存在しています.上書きをしますか？"
+
+msgid "Rename"
+msgstr "名前変更"
+
+msgid "Please enter a new name"
+msgstr "新しい名前を入力してください"
+
+msgid "Rename record"
+msgstr ""
+
+msgid "A file name should not be empty."
+msgstr ""
+
+msgid "Rename item"
+msgstr ""
+
+msgid "A file named \"{0}\" already exists. Please enter a different name."
+msgstr ""
+
+msgid "Downloading"
+msgstr "ダウンロード中です"
+
+msgid "Download started... please wait!"
+msgstr "ダウンロードを開始しました...しばらくお待ちください!"
+
+msgid "Upload"
+msgstr "アップロード"
+
+msgid "At least one file is too large! Maximum allowed filesize: {0}."
+msgstr ""
+"少なくとも１つのファイルサイズが大きすぎます。最大許容サイズは {0} です。"
+
+msgid "Keep both"
+msgstr ""
+
+#, fuzzy
+msgid "Overwrite"
+msgstr "上書き確認"
+
+msgid "Cancel"
+msgstr "キャンセル"
+
+msgid "Warning"
+msgstr "警告"
+
+msgid "Error"
+msgstr "エラー"
+
+msgid "l d/m/Y G:i"
+msgstr "Y/m/l d G:i"
+
+msgid "Never"
+msgstr "記録なし"
+
+msgid "Add from Files"
+msgstr "ファイル共有から追加"
+
+msgid "Add attachment from Files"
+msgstr "ファイル共有から添付ファイルを追加"
+
+msgid "Add to Files"
+msgstr "ファイル共有へ追加"
+
+msgid "Untitled"
+msgstr "タイトル無し"
+
+msgid "Upload file"
+msgstr "ファイルをアップロード"
+
+msgid "No preview"
+msgstr "プレビュー無し"
+
+msgid "Right preview"
+msgstr "右側プレビュー"
+
+msgid "Bottom preview"
+msgstr "下側プレビュー"
+
+msgid "Switch view"
+msgstr "ビューを切替"
+
+msgid "List"
+msgstr "一覧"
+
+msgid "Icons"
+msgstr "アイコン"
+
+msgid "Files"
+msgstr "ファイル"
+
+msgid "Files Plugin"
+msgstr "ファイルプラグイン"
+
+msgid "Manage Accounts"
+msgstr "アカウントを管理"
+
+msgid "Reset Files settings"
+msgstr "ファイル設定をリセット"
+
+msgid "Resets Files settings to their original defaults"
+msgstr "初期設定へファイル設定を戻す"
+
+msgid "Are you sure to remove all settings and accounts?"
+msgstr ""
+
+msgid ""
+"Accounts marked by your administrator as \"cannot be changed\" will not be "
+"removed."
+msgstr ""
+
+#, fuzzy
+msgid ""
+"WebApp will automatically restart in order for these changes to take effect."
+msgstr "設定反映を行うためにWebAppは自動的に再起動します"
+
+msgid "Reset"
+msgstr "リセット"
+
+msgid "Webapp is reloading, Please wait."
+msgstr "Webappを再読み込み中です、しばらくお待ちください。"
+
+msgid "Edit Account"
+msgstr "アカウントを編集"
+
+msgid "Save"
+msgstr "保存"
+
+msgid "Account Information"
+msgstr "アカウント情報"
+
+msgid "Account name"
+msgstr "アカウント名"
+
+msgid "Account type"
+msgstr "アカウントタイプ"
+
+msgid "Select backend..."
+msgstr "バックエンドを選択..."
+
+msgid "Account Configuration"
+msgstr "アカウント設定"
+
+msgid "Update"
+msgstr "アップデート"
+
+msgid "ID"
+msgstr "ID"
+
+msgid "Sort by: ID"
+msgstr "並べ替え順 : ID"
+
+msgid "Status"
+msgstr "ステータス"
+
+msgid "Sort by: Status"
+msgstr "並べ替え順 : ステータス"
+
+msgid "Name"
+msgstr "名前"
+
+msgid "Sort by: Name"
+msgstr "並べ替え順 : 名前"
+
+msgid "Backend"
+msgstr "バックエンド"
+
+msgid "Sort by: Backend"
+msgstr "並べ替え順 : バックエンド"
+
+msgid "Features"
+msgstr "機能"
+
+msgid "Shows all available features of the backend."
+msgstr "バックエンドとして利用可能な全ての機能を表示する。"
+
+msgid "Show quota information"
+msgstr "クォータ情報を表示"
+
+msgid "Show version information"
+msgstr "バージョン情報を表示"
+
+msgid "Share files"
+msgstr "ファイル共有"
+
+msgid "Fast Down/Upload"
+msgstr "高速ダウンロード/アップロード"
+
+msgid "No account created!"
+msgstr "アカウントが作成されていません!"
+
+msgid "Add Account"
+msgstr "アカウントを追加"
+
+msgid "Remove Account"
+msgstr "アカウントを削除"
+
+msgid "Loading accounts"
+msgstr "アカウントを読み込み中です"
+
+msgid "Do you really want to delete the account \"{0}\"?"
+msgstr "アカウント \"{0}\" を削除してもよろしいですか?"
+
+msgid "Quota Information"
+msgstr "クオータ情報"
+
+msgid "Reload"
+msgstr "再読み込み"
+
+msgid "Close"
+msgstr "閉じる"
+
+msgid "Used"
+msgstr "使用中"
+
+msgid "Loading"
+msgstr "読み込み中"
+
+msgid "Free"
+msgstr "空き"
+
+msgid "Total"
+msgstr ""
+
+msgid "Version Information"
+msgstr "バージョン情報"
+
+msgid "All Day"
+msgstr ""
+
+msgid "Sort by: Type"
+msgstr "並べ替え順 : 種別"
+
+msgid "Filename"
+msgstr "ファイル名"
+
+msgid "Sort by: Filename"
+msgstr "並べ替え順 : ファイル名"
+
+msgid "Size"
+msgstr "サイズ"
+
+msgid "Sort by: Size"
+msgstr "並べ替え順 : サイズ"
+
+msgid "Loading files"
+msgstr "ファイルを読み込み中"
+
+msgid "Add attachment"
+msgstr "添付ファイルを追加"
+
+msgid "The file {0} is too large!"
+msgstr "ファイル {0} は大きすぎます!"
+
+msgid "max"
+msgstr "最大"
+
+msgid "You have to choose at least one file!"
+msgstr "少なくとも１つのファイルを選択してください!"
+
+#, fuzzy
+msgid "Create New Folder"
+msgstr "新しいフォルダを作成"
+
+msgid "Ok"
+msgstr ""
+
+#, fuzzy
+msgid "Select where to place the folder"
+msgstr "アップロードするフォルダを選択"
+
+msgid "grommunio Web"
+msgstr ""
+
+msgid "You must specify a name."
+msgstr ""
+
+msgid "Folder already exists"
+msgstr "フォルダが既に存在しています"
+
+msgid "Incorrect foldername"
+msgstr "フォルダ名が正しくありません"
+
+msgid "File information"
+msgstr "ファイル情報"
+
+msgid "Select a file"
+msgstr "ファイルを選択"
+
+msgid "Maximum upload size"
+msgstr "最大アップロードサイズ"
+
+msgid "Browse"
+msgstr "一覧表示"
+
+msgid "Select upload folder"
+msgstr "アップロードするフォルダを選択"
+
+msgid "File \"{0}\" is too large! Maximum allowed filesize: {1}."
+msgstr ""
+"ファイル \"{0}\" のサイズが大きすぎます! 最大ファイルサイズは {1} です。"
+
+msgid "Add item to Files"
+msgstr "ファイル共有へアイテムを追加"
+
+msgid "There are no items to show in this list"
+msgstr ""
+
+msgid "New folder"
+msgstr "新しいフォルダ"
+
+msgid "You have to choose a folder!"
+msgstr "フォルダを選択する必要があります!"
+
+msgid "Uploaded"
+msgstr "アップロード済み"
+
+msgid "Attachment successfully stored in Files"
+msgstr "共有フォルダへ添付ファイルを保存しました"
+
+msgid "Upload Failed"
+msgstr "アップロードに失敗しました"
+
+msgid "Attachment could not be stored in Files! Error: "
+msgstr "添付ファイルがファイル共有へ保存されませんでした "
+
+msgid "Share Files"
+msgstr "共有ファイル"
+
+msgid "Uploading files to "
+msgstr "ファイルを次へアップロード中 "
+
+msgid "Starting upload"
+msgstr "アップロードを開始"
+
+msgid "Cancel upload"
+msgstr "アップロードをキャンセル"
+
+msgid "- seconds left"
+msgstr "- 秒残り"
+
+msgid " seconds left"
+msgstr " 秒残り"
+
+msgid " minutes left"
+msgstr " 分残り"
+
+msgid "Uploading: "
+msgstr "アップロード中 "
+
+msgid "Upload status unavailable... please wait."
+msgstr "アップロード状況が不明です... しばらくお待ちください。"
+
+msgid "Upload finished!"
+msgstr "アップロードが完了しました!"
+
+msgid "Upload aborted!"
+msgstr "アップロードが中断されました!"
+
+msgid "Upload failed!"
+msgstr "アップロードが失敗しました!"
+
+msgid "Upload files"
+msgstr "ファイルをアップロード"
+
+#, fuzzy
+msgid "New Folder"
+msgstr "新しいフォルダ"
+
+msgid "Download"
+msgstr "ダウンロード"
+
+msgid "Download files"
+msgstr "ダウンロードファイル"
+
+msgid "Share"
+msgstr "共有"
+
+msgid "Attach to mail"
+msgstr "メールへ添付"
+
+msgid "Delete"
+msgstr "削除"
+
+msgid "Attaching"
+msgstr "添付中"
+
+msgid "Creating email... Please wait!"
+msgstr "メールを作成中です しばらくお待ちください!"
+
+msgid "Edit share"
+msgstr "共有を編集"
+
+msgid "Info"
+msgstr "情報"
+
+#, fuzzy
+msgid ""
+"There are no accounts added. Go to settings, Files tab and add an account"
+msgstr "追加されたアカウントはありません 設定よりアカウントを追加してください!"
+
+msgid "Filesize"
+msgstr "ファイルサイズ"
+
+msgid "Last modified"
+msgstr "最終更新日"
+
+msgid "Type"
+msgstr "タイプ"
+
+msgid "Is shared"
+msgstr "共有されています"
+
+msgid "File preview"
+msgstr "ファイル・レビュー"
+
+msgid "Your browser does not support previewing of audio files!"
+msgstr ""
+"ご利用中のブラウザは、オーディオファイルのレビューをサポートしていません!"
+
+msgid "Your browser does not support previewing of video files!"
+msgstr "ご利用中のブラウザでは、動画ファイルのレビューをサポートしていません!"
+
+msgid "d.m.Y G:i"
+msgstr "Y.m.d G:i"
+
+msgid "Folder"
+msgstr "フォルダ"
+
+msgid "File ({0})"
+msgstr "ファイル ({0})"
+
+msgid "Yes"
+msgstr "はい"
+
+msgid "No"
+msgstr "いいえ"
+
+msgid "Sort by: Path"
+msgstr "並べ替え順 : パス"
+
+msgid "Sort by: Last modified"
+msgstr "並べ替え順 : 最終更新日"
+
+msgid "Sort by: Shared"
+msgstr "並べ替え順 : 共有済み"
+
+msgid "There are no items to show in this view"
+msgstr "このビューで表示するアイテムがありません"
+
+msgid "Refresh"
+msgstr ""
+
+msgid "files selected"
+msgstr "ファイルが選択されました"
+
+msgid "Home"
+msgstr ""
+
+msgid "{0} of {1} in use"
+msgstr "{1} のうち {0} が利用されています"
+
+msgid "Unknown account ID"
+msgstr "アカウントＩＤが不明です"
+
+msgid "Feature \"Quota Information\" is not supported by this backend!"
+msgstr ""
+"このバックエンドでは \"Quota Information\" 機能はサポートされていません!"
+
+msgid "Feature \"Version Information\" is not supported by this backend!"
+msgstr ""
+"このバックエンドでは \"Version Information\" 機能はサポートされていません!"
+
+msgid "Feature \"OAUTH\" is not supported by this backend!"
+msgstr "このバックエンドでは \"OAUTH\" 機能はサポートされていません!"
+
+msgid "Moving between accounts is not implemented"
+msgstr ""
+
+msgid "Files plugin"
+msgstr ""
+
+msgid "Unknown type - cannot save this file to the Files backend!"
+msgstr ""
+"不明な種別 - ファイルバックエンドへこのファイルを保存することができません!"
+
+msgid "No record given!"
+msgstr "レコードが与えられていません!"
+
+msgid "Fetching sharing information failed"
+msgstr "共有情報の取り込みに失敗しました"
+
+msgid "Sharing failed"
+msgstr "共有に失敗しました"
+
+msgid "Updating share failed"
+msgstr "共有の更新に失敗しました"
+
+msgid "Deleting share failed"
+msgstr "削除の共有に失敗しました"
+
+msgid "With this backend, you can connect to any ftp server."
+msgstr "このバックエンドでは、ご希望するFTPサーバへ接続することができます."
+
+msgid "Files FTP Backend: "
+msgstr ""
+
+msgid "Server address"
+msgstr "サーバアドレス"
+
+msgid "Server port"
+msgstr "サーバポート"
+
+msgid "FTP user"
+msgstr "FTPユーザ"
+
+msgid "FTP password"
+msgstr "FTPパスワード"
+
+msgid "Base path"
+msgstr "ベースパス"
+
+msgid "Use SSL"
+msgstr "SSLを使用する"
+
+msgid "Use passive mode"
+msgstr "パッシブモードを使用する"
+
+msgid "Use grommunio credentials"
+msgstr "grommunio認証を使用する"
+
+msgid "Authentication failed"
+msgstr ""
+
+msgid "Connection failed"
+msgstr ""
+
+msgid "Unparsable server response."
+msgstr "サーバからの応答が正しくありません。"
+
+msgid "Temporary directory problems"
+msgstr ""
+
+msgid "Not implemented"
+msgstr ""
+
+msgid "Unknown error"
+msgstr "不明なエラーが発生しました"
+
+msgid "Please contact your system administrator"
+msgstr ""
+
+msgid "Unauthorized. Wrong username or password."
+msgstr "認証に失敗しました.ユーザ名かパスワードが違います."
+
+msgid "File server is not reachable. Please verify the connection."
+msgstr ""
+
+msgid "You don't have enough permissions to view this file or folder."
+msgstr ""
+
+msgid "This file or folder is not available anymore."
+msgstr ""
+
+msgid "Connection to the file server timed out. Please check again later."
+msgstr ""
+
+msgid "This file is locked by another user. Please check again later."
+msgstr ""
+
+msgid "The request failed."
+msgstr ""
+
+msgid "The file server encountered an internal problem."
+msgstr ""
+
+msgid "We could not write to temporary directory."
+msgstr ""
+
+msgid "We could not retrieve list of server features."
+msgstr ""
+
+msgid "This function is not yet implemented."
+msgstr ""
+
+msgid "With this backend, you can connect to any WebDAV server."
+msgstr ""
+
+msgid "Files WebDAV Backend: "
+msgstr ""
+
+msgid "Webdav base path"
+msgstr "WebDavベースパス"
+
+msgid "Username"
+msgstr "ユーザ名"
+
+msgid "Password"
+msgstr "パスワード"
+
+msgid "PHP-CURL is not installed"
+msgstr ""
+
+msgid "Access denied"
+msgstr ""
+
+msgid "Sabre error"
+msgstr ""
+
+msgid "Directory creation failed"
+msgstr ""
+
+msgid "Deletion failed"
+msgstr ""
+
+msgid "Moving failed"
+msgstr ""
+
+msgid "File or folder not found"
+msgstr ""
+
+msgid "Copying failed"
+msgstr ""
+
+msgid "File server is not reachable. Please verify the file server URL."
+msgstr ""
+
+msgid "The file or folder is not available anymore."
+msgstr ""
+
+msgid "This file is locked by another user. Please try again later."
+msgstr ""
+
+msgid "PHP-Curl is not available."
+msgstr ""
+
+msgid "PHP-CURL not installed"
+msgstr ""
+
+msgid "Account is ready to use."
+msgstr "アカウントは既に利用されています."
+
+msgid "File backend not responding. Please try again later."
+msgstr ""
+"ファイル共有バックエンドから応答がありません.後ほど,改めてお試しください."
+
+msgid "Zip file generation failed. Please inform the administrator."
+msgstr "ZIPファイルの生成に失敗しました.システム管理者へご連絡ください."
+
+msgid "This file is no longer available. Please reload the folder."
+msgstr "このファイルは存在していません.フォルダを再読み込みしてください."

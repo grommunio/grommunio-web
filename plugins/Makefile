@@ -1,4 +1,4 @@
-SUBDIRS = chat desktopnotifications intranet mdm meet passwd maps
+SUBDIRS = chat desktopnotifications intranet mdm meet passwd maps files filesbackendOwncloud
 
 .PHONY: subdirs $(SUBDIRS)
 

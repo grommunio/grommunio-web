@@ -1,0 +1,35 @@
+include ../shared.mk
+
+MSGFMT ?= msgfmt
+
+JSFILES = js/data/singleton/ShareStore.js \
+          js/data/ShareGridStore.js \
+          js/data/RecipientTypes.js \
+          js/data/ResponseHandler.js \
+          js/data/ShareGridRecord.js \
+          js/OwncloudBackend.js \
+          js/ui/FilesShareUserGrid.js \
+          js/ui/FilesShareUserGridColumnModel.js \
+          js/ui/FilesShareUserEditPanel.js \
+          js/ui/FilesShareUserEditContentPanel.js \
+          js/ui/UserGroupPredictorField.js \
+          js/ui/FilesShareDialogPanel.js
+
+COPYFILES = LICENSE.txt manifest.xml \
+        $(wildcard resources/css/*.css) \
+        $(wildcard resources/icons/*.png) \
+        $(shell find php/ -type f -name '*.php')
+
+COPYFILESDEST = $(addprefix $(DESTDIR)/, $(COPYFILES))
+
+all: $(COPYFILESDEST) $(JSDEPLOY)/filesbackendOwncloud.js
+
+$(JSDEPLOY)/filesbackendOwncloud.js: $(JSFILES)
+	mkdir -p $(DESTDIR)/js
+	cat $(JSFILES) > $(JSDEPLOY)/filesbackendOwncloud-debug.js
+	$(JSCOMPILER) --js $(@:.js=-debug.js) --js_output_file $@ \
+		--source_map_location_mapping=$(JSDEPLOY)/js/\| \
+		--output_wrapper="%output%//# sourceMappingURL=$(shell basename $@.map)" \
+		--create_source_map $@.map \
+		$(JSOPTIONS)
+

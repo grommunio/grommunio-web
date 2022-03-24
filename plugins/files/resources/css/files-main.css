@@ -1,0 +1,870 @@
+#zarafa-navigationpanel-files-navigation-tree .x-panel-body {
+        overflow: hidden !important;
+}
+
+#zarafa-navigationpanel-files-navigation-tree .x-panel-body:hover {
+        overflow: auto !important;
+}
+
+.icon_files {
+	background-image:url(../resources/icons/files_icon.png) !important;
+	background-repeat: no-repeat;
+	background-position: left 9px !important;
+}
+
+button.icon_files {
+	background-position: 5px 5px !important;
+}
+
+.icon_files_category {
+	background-image:url(../resources/icons/files_icon_category.png);
+	background-position: 4px center;
+}
+.x-btn .x-btn-large .icon_files_category{
+	background-image:url(../resources/icons/files_icon_category_large.png);
+}
+
+.x-menu-item-icon.icon_files_category {
+	background-position: center;
+}
+
+.icon_files_category_white {
+	background-image:url(../resources/icons/files_icon_category_white.png);
+	background-position: 5% center !important;
+}
+
+.icon_cache {
+	background-image:url(../resources/icons/icon_refresh.png) !important;
+	background-repeat: no-repeat;
+	background-position: center;
+}
+.icon_info {
+	background-image:url(../resources/icons/icon_info_small.png) !important;
+	background-repeat: no-repeat;
+	background-position: center;
+}
+.icon_viewswitch {
+	background-image:url(../resources/icons/icon_viewswitch.png) !important;
+	background-repeat: no-repeat;
+	background-position: center;
+}
+.icon_action_cancel {
+    background-image:url(../resources/icons/actions/cancel.png) !important;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+span.error_files {
+	color: #CC3333 !important;
+}
+
+/** top toolbar */
+.files_top_toolbar .x-toolbar-left table{
+    width: 100%;
+}
+
+.files_top_toolbar {
+	padding: 6px 0 5px 0 !important;
+	height: 25px !important;
+}
+
+/** quota bar */
+.files_quota_bar_snippet .img{
+    width: 16px;
+    height: 16px;
+    background-image: url('../resources/icons/ajax-loader.gif');
+    border: none!important;
+}
+.files_quota_bar_container {
+    margin-top: 3px;
+}
+.files_quota_bar {
+    border: 1px solid #e6e6e6;
+    height: 18px !important;
+}
+.files_quota_bar .x-progress-inner{
+    background-image: none;
+    background-color: transparent;
+}
+.files_quota_bar .x-progress-bar{
+    background-image: none;
+    background: #d5e9f9;
+    border-color: #e6e6e6;
+    height: 18px !important;
+}
+
+/** Upload panel */
+.fp_upload_canceled {
+    border-color: #831505;
+}
+.fp_upload_canceled .x-progress-bar {
+    background-image: none;
+    background-color: #fd104e;
+    border-color: #831505;
+}
+.fp_upload_header {
+    font-size: 12px!important;
+    font-weight: bold;
+}
+.files_type_hidden {
+	display: none;
+}
+
+.files_image {
+	height:50px;
+	width:40px;
+}
+
+/** add + delete */
+.filesplugin_icon_delete {
+	background: url(../resources/icons/delete_icon.png) no-repeat !important;
+	background-repeat: no-repeat;
+	background-position: 3px center !important;
+	background-size: 17px!important;
+}
+.filesplugin_icon_add {
+	background: url(../resources/icons/add_icon.png) no-repeat !important;
+	background-repeat: no-repeat;
+	background-position: 4px center !important;
+}
+
+.files_backend_selector {
+    width: 25px;
+    display: inline-block;
+}
+
+/* Status icons for the account list */
+.zarafa-files-account-ok {
+	background-image: url(../resources/icons/accstat/ok.png);
+}
+
+.zarafa-files-account-new {
+	background-image: url(../resources/icons/accstat/new.png);
+}
+
+.zarafa-files-account-error {
+	background-image: url(../resources/icons/accstat/error.png);
+}
+
+.zarafa-files-account-unknown {
+	background-image: url(../resources/icons/accstat/unknown.png);
+}
+
+/* Sharing Icons */
+.files_icon_16_share {
+	background-image: url(../resources/icons/share_icon_16.png)!important;
+	background-repeat: no-repeat;
+}
+.files_icon_12_share {
+	background-image: url(../resources/icons/share_icon_12.png)!important;
+	background-repeat: no-repeat;
+	top: 7px;
+}
+
+/* Icons for the feature list */
+.zarafa-files-feature-spacer {
+	margin-left: 3px;
+	margin-right: 3px;
+}
+.zarafa-files-accfeature-quota {
+	background-image: url(../resources/icons/features/quota.png);
+}
+
+.zarafa-files-accfeature-info {
+	background-image: url(../resources/icons/features/info.png);
+}
+
+.zarafa-files-accfeature-sharing {
+	background-image: url(../resources/icons/features/sharing.png);
+}
+.zarafa-files-accfeature-streaming {
+    background-image: url(../resources/icons/features/streaming.png);
+}
+
+
+/* extjs overwrite */
+/* used in fieldsets */
+.x-tool.x-tool-toggle {
+	background-image: url(../resources/icons/icon_toggle.png);
+	background-position: center;
+}
+
+/* icon view */
+.zarafa-files-iconview-thumb {
+	float:left;
+	height: 95px;
+	margin:5px;
+	overflow:hidden;
+	padding-left:2px;
+	padding-right:2px;
+	padding-top:2px;
+	text-align:center;
+	width:70px;
+	border:2px solid #fff;
+	text-overflow:ellipsis;
+}
+
+.zarafa-files-iconview-icon {
+	height: 56px;
+	margin-top: 6px;
+	background-repeat: no-repeat !important;
+	background-position: center center !important;
+}
+
+.zarafa-files-iconview {
+	 background-color: white;
+}
+
+.zarafa-files-iconview-over {
+	background-color:#EFEFFF;
+	border:2px solid #DDDDDD;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	color:#0E62BB;
+}
+.zarafa-files-iconview-selected	{
+	background-color:#CEE3F6;
+	border:2px solid #7EACD6;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	color:#0E62BB;
+}
+.zarafa-files-iconview-subject {
+	color: #000;
+	text-overflow:ellipsis;
+	overflow:hidden;
+}
+
+.zarafa-files-listview-icon {
+	background-repeat: no-repeat;
+	background-position: center;
+}
+
+.zarafa-files-context-mainpanel {
+	border-right: 1px solid #e6e6e6;
+}
+
+.zarafa-files-previewpanel {
+	border-left: 1px solid #e6e6e6;
+}
+
+/* account view */
+.zarafa-files-accountview {
+	background-color: white;
+}
+
+.zarafa-files-accountview-container {
+	float:left;
+	word-wrap: break-word;
+	height: 95px;
+	margin:5px;
+	overflow:hidden;
+	padding-left:2px;
+	padding-right:2px;
+	padding-top:2px;
+	text-align:center;
+	width:300px;
+	border:2px solid #fff;
+	text-overflow:ellipsis;
+}
+
+.zarafa-files-account-background {
+	width: 80px;
+	height: 80px;
+	background-repeat: no-repeat;
+	background-size: 100% 100%!important;
+	margin-right: 10px;
+	float: left;
+}
+
+.zarafa-files-accountview-selected {
+	background-color:#CEE3F6;
+	border:2px solid #7EACD6;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	color:#0E62BB;
+}
+
+.zarafa-files-accountview-over {
+	background-color:#EFEFFF;
+	border:2px solid #DDDDDD;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	color:#0E62BB;
+}
+
+.zarafa-files-account-info {
+	float:left;
+	text-align: left;
+}
+
+.zarafa-files-accountview-subject {
+	font-size: large;
+	display: block;
+}
+
+.zarafa-files-accountview-account {
+	font-size: small;
+	display: block;
+}
+
+.zarafa-files-accountview-quota {
+	font-size: small;
+	display: block;
+}
+
+
+
+/* file type icons 48px */
+.files48icon_folder {
+	background-image: url(../resources/icons/iconview/48px/folder.png);
+	height: 56px; 
+	margin-top: 6px;
+}
+
+.files48icon_blank {
+	background-image: url(../resources/icons/iconview/48px/_blank.png);
+}
+
+.files48icon_aac {
+	background-image: url(../resources/icons/iconview/48px/aac.png);
+}
+
+.files48icon_ai {
+	background-image: url(../resources/icons/iconview/48px/ai.png);
+}
+
+.files48icon_aiff {
+	background-image: url(../resources/icons/iconview/48px/aiff.png);
+}
+
+.files48icon_apk {
+	background-image: url(../resources/icons/iconview/48px/apk.png);
+}
+
+.files48icon_avi {
+	background-image: url(../resources/icons/iconview/48px/avi.png);
+}
+
+.files48icon_bmp {
+	background-image: url(../resources/icons/iconview/48px/bmp.png);
+}
+
+.files48icon_c {
+	background-image: url(../resources/icons/iconview/48px/c.png);
+}
+
+.files48icon_cpp, .files48icon_cc {
+	background-image: url(../resources/icons/iconview/48px/cpp.png);
+}
+
+.files48icon_css {
+	background-image: url(../resources/icons/iconview/48px/css.png);
+}
+
+.files48icon_csv {
+	background-image: url(../resources/icons/iconview/48px/csv.png);
+}
+
+.files48icon_dat {
+	background-image: url(../resources/icons/iconview/48px/dat.png);
+}
+
+.files48icon_dmg {
+	background-image: url(../resources/icons/iconview/48px/dmg.png);
+}
+
+.files48icon_doc, .files48icon_docx {
+	background-image: url(../resources/icons/iconview/48px/doc.png);
+}
+
+.files48icon_dotx {
+	background-image: url(../resources/icons/iconview/48px/dotx.png);
+}
+
+.files48icon_dwg {
+	background-image: url(../resources/icons/iconview/48px/dwg.png);
+}
+
+.files48icon_dxf {
+	background-image: url(../resources/icons/iconview/48px/dxf.png);
+}
+
+.files48icon_eps {
+	background-image: url(../resources/icons/iconview/48px/eps.png);
+}
+
+.files48icon_exe {
+	background-image: url(../resources/icons/iconview/48px/exe.png);
+}
+
+.files48icon_flv {
+	background-image: url(../resources/icons/iconview/48px/flv.png);
+}
+
+.files48icon_gif {
+	background-image: url(../resources/icons/iconview/48px/gif.png);
+}
+
+.files48icon_h {
+	background-image: url(../resources/icons/iconview/48px/h.png);
+}
+
+.files48icon_hpp {
+	background-image: url(../resources/icons/iconview/48px/hpp.png);
+}
+
+.files48icon_html{
+	background-image: url(../resources/icons/iconview/48px/html.png);
+}
+
+.files48icon_ics {
+	background-image: url(../resources/icons/iconview/48px/ics.png);
+}
+
+.files48icon_iso {
+	background-image: url(../resources/icons/iconview/48px/iso.png);
+}
+
+.files48icon_java {
+	background-image: url(../resources/icons/iconview/48px/java.png);
+}
+
+.files48icon_jpg {
+	background-image: url(../resources/icons/iconview/48px/jpg.png);
+}
+
+.files48icon_js {
+	background-image: url(../resources/icons/iconview/48px/js.png);
+}
+
+.files48icon_key {
+	background-image: url(../resources/icons/iconview/48px/key.png);
+}
+
+.files48icon_less {
+	background-image: url(../resources/icons/iconview/48px/less.png);
+}
+
+.files48icon_mid {
+	background-image: url(../resources/icons/iconview/48px/mid.png);
+}
+
+.files48icon_mp3 {
+	background-image: url(../resources/icons/iconview/48px/mp3.png);
+}
+
+.files48icon_mp4 {
+	background-image: url(../resources/icons/iconview/48px/mp4.png);
+}
+
+.files48icon_mpg {
+	background-image: url(../resources/icons/iconview/48px/mpg.png);
+}
+
+.files48icon_odf {
+	background-image: url(../resources/icons/iconview/48px/odf.png);
+}
+
+.files48icon_ods {
+	background-image: url(../resources/icons/iconview/48px/ods.png);
+}
+
+.files48icon_odt {
+	background-image: url(../resources/icons/iconview/48px/odt.png);
+}
+
+.files48icon_otp {
+	background-image: url(../resources/icons/iconview/48px/otp.png);
+}
+
+.files48icon_ots {
+	background-image: url(../resources/icons/iconview/48px/ots.png);
+}
+
+.files48icon_ott {
+	background-image: url(../resources/icons/iconview/48px/ott.png);
+}
+
+.files48icon_pdf {
+	background-image: url(../resources/icons/iconview/48px/pdf.png);
+}
+
+.files48icon_php {
+	background-image: url(../resources/icons/iconview/48px/php.png);
+}
+
+.files48icon_png {
+	background-image: url(../resources/icons/iconview/48px/png.png);
+}
+
+.files48icon_ppt, .files48icon_pptx {
+	background-image: url(../resources/icons/iconview/48px/ppt.png);
+}
+
+.files48icon_psd {
+	background-image: url(../resources/icons/iconview/48px/psd.png);
+}
+
+.files48icon_py {
+	background-image: url(../resources/icons/iconview/48px/py.png);
+}
+
+.files48icon_qt {
+	background-image: url(../resources/icons/iconview/48px/qt.png);
+}
+
+.files48icon_rar {
+	background-image: url(../resources/icons/iconview/48px/rar.png);
+}
+
+.files48icon_rb {
+	background-image: url(../resources/icons/iconview/48px/rb.png);
+}
+
+.files48icon_rtf {
+	background-image: url(../resources/icons/iconview/48px/rtf.png);
+}
+
+.files48icon_sass {
+	background-image: url(../resources/icons/iconview/48px/sass.png);
+}
+
+.files48icon_scss {
+	background-image: url(../resources/icons/iconview/48px/scss.png);
+}
+
+.files48icon_sql {
+	background-image: url(../resources/icons/iconview/48px/sql.png);
+}
+
+.files48icon_tga {
+	background-image: url(../resources/icons/iconview/48px/tga.png);
+}
+
+.files48icon_tgz, .files48icon_gz {
+	background-image: url(../resources/icons/iconview/48px/tgz.png);
+}
+
+.files48icon_tiff {
+	background-image: url(../resources/icons/iconview/48px/tiff.png);
+}
+
+.files48icon_txt {
+	background-image: url(../resources/icons/iconview/48px/txt.png);
+}
+
+.files48icon_wav {
+	background-image: url(../resources/icons/iconview/48px/wav.png);
+}
+
+.files48icon_xls {
+	background-image: url(../resources/icons/iconview/48px/xls.png);
+}
+
+.files48icon_xlsx {
+	background-image: url(../resources/icons/iconview/48px/xlsx.png);
+}
+
+.files48icon_xml {
+	background-image: url(../resources/icons/iconview/48px/xml.png);
+}
+
+.files48icon_yml {
+	background-image: url(../resources/icons/iconview/48px/yml.png);
+}
+
+.files48icon_zip {
+	background-image: url(../resources/icons/iconview/48px/zip.png);
+}
+
+/* file type icons 16px */
+.files16icon_folder {
+	background-image: url(../resources/icons/iconview/16px/folder.png) !important;
+}
+
+.files16icon_blank {
+	background-image: url(../resources/icons/iconview/16px/_blank.png)!important;
+}
+
+.files16icon_aac {
+	background-image: url(../resources/icons/iconview/16px/aac.png)!important;
+}
+
+.files16icon_ai {
+	background-image: url(../resources/icons/iconview/16px/ai.png)!important;
+}
+
+.files16icon_aiff {
+	background-image: url(../resources/icons/iconview/16px/aiff.png)!important;
+}
+
+.files16icon_apk {
+	background-image: url(../resources/icons/iconview/16px/apk.png)!important;
+}
+
+.files16icon_avi {
+	background-image: url(../resources/icons/iconview/16px/avi.png)!important;
+}
+
+.files16icon_bmp {
+	background-image: url(../resources/icons/iconview/16px/bmp.png)!important;
+}
+
+.files16icon_c {
+	background-image: url(../resources/icons/iconview/16px/c.png)!important;
+}
+
+.files16icon_cpp, .files16icon_cc {
+	background-image: url(../resources/icons/iconview/16px/cpp.png)!important;
+}
+
+.files16icon_css {
+	background-image: url(../resources/icons/iconview/16px/css.png)!important;
+}
+
+.files16icon_csv {
+	background-image: url(../resources/icons/iconview/16px/csv.png)!important;
+}
+
+.files16icon_dat {
+	background-image: url(../resources/icons/iconview/16px/dat.png)!important;
+}
+
+.files16icon_dmg {
+	background-image: url(../resources/icons/iconview/16px/dmg.png)!important;
+}
+
+.files16icon_doc, .files16icon_docx {
+	background-image: url(../resources/icons/iconview/16px/doc.png)!important;
+}
+
+.files16icon_dotx {
+	background-image: url(../resources/icons/iconview/16px/dotx.png)!important;
+}
+
+.files16icon_dwg {
+	background-image: url(../resources/icons/iconview/16px/dwg.png)!important;
+}
+
+.files16icon_dxf {
+	background-image: url(../resources/icons/iconview/16px/dxf.png)!important;
+}
+
+.files16icon_eps {
+	background-image: url(../resources/icons/iconview/16px/eps.png)!important;
+}
+
+.files16icon_exe {
+	background-image: url(../resources/icons/iconview/16px/exe.png)!important;
+}
+
+.files16icon_flv {
+	background-image: url(../resources/icons/iconview/16px/flv.png)!important;
+}
+
+.files16icon_gif {
+	background-image: url(../resources/icons/iconview/16px/gif.png)!important;
+}
+
+.files16icon_h {
+	background-image: url(../resources/icons/iconview/16px/h.png)!important;
+}
+
+.files16icon_hpp {
+	background-image: url(../resources/icons/iconview/16px/hpp.png)!important;
+}
+
+.files16icon_html{
+	background-image: url(../resources/icons/iconview/16px/html.png)!important;
+}
+
+.files16icon_ics {
+	background-image: url(../resources/icons/iconview/16px/ics.png)!important;
+}
+
+.files16icon_iso {
+	background-image: url(../resources/icons/iconview/16px/iso.png)!important;
+}
+
+.files16icon_java {
+	background-image: url(../resources/icons/iconview/16px/java.png)!important;
+}
+
+.files16icon_jpg {
+	background-image: url(../resources/icons/iconview/16px/jpg.png)!important;
+}
+
+.files16icon_js {
+	background-image: url(../resources/icons/iconview/16px/js.png)!important;
+}
+
+.files16icon_key {
+	background-image: url(../resources/icons/iconview/16px/key.png)!important;
+}
+
+.files16icon_less {
+	background-image: url(../resources/icons/iconview/16px/less.png)!important;
+}
+
+.files16icon_mid {
+	background-image: url(../resources/icons/iconview/16px/mid.png)!important;
+}
+
+.files16icon_mp3 {
+	background-image: url(../resources/icons/iconview/16px/mp3.png)!important;
+}
+
+.files16icon_mp4 {
+	background-image: url(../resources/icons/iconview/16px/mp4.png)!important;
+}
+
+.files16icon_mpg {
+	background-image: url(../resources/icons/iconview/16px/mpg.png)!important;
+}
+
+.files16icon_odf {
+	background-image: url(../resources/icons/iconview/16px/odf.png)!important;
+}
+
+.files16icon_ods {
+	background-image: url(../resources/icons/iconview/16px/ods.png)!important;
+}
+
+.files16icon_odt {
+	background-image: url(../resources/icons/iconview/16px/odt.png)!important;
+}
+
+.files16icon_otp {
+	background-image: url(../resources/icons/iconview/16px/otp.png)!important;
+}
+
+.files16icon_ots {
+	background-image: url(../resources/icons/iconview/16px/ots.png)!important;
+}
+
+.files16icon_ott {
+	background-image: url(../resources/icons/iconview/16px/ott.png)!important;
+}
+
+.files16icon_pdf {
+	background-image: url(../resources/icons/iconview/16px/pdf.png)!important;
+}
+
+.files16icon_php {
+	background-image: url(../resources/icons/iconview/16px/php.png)!important;
+}
+
+.files16icon_png {
+	background-image: url(../resources/icons/iconview/16px/png.png)!important;
+}
+
+.files16icon_ppt, .files16icon_pptx {
+	background-image: url(../resources/icons/iconview/16px/ppt.png)!important;
+}
+
+.files16icon_psd {
+	background-image: url(../resources/icons/iconview/16px/psd.png)!important;
+}
+
+.files16icon_py {
+	background-image: url(../resources/icons/iconview/16px/py.png)!important;
+}
+
+.files16icon_qt {
+	background-image: url(../resources/icons/iconview/16px/qt.png)!important;
+}
+
+.files16icon_rar {
+	background-image: url(../resources/icons/iconview/16px/rar.png)!important;
+}
+
+.files16icon_rb {
+	background-image: url(../resources/icons/iconview/16px/rb.png)!important;
+}
+
+.files16icon_rtf {
+	background-image: url(../resources/icons/iconview/16px/rtf.png)!important;
+}
+
+.files16icon_sass {
+	background-image: url(../resources/icons/iconview/16px/sass.png)!important;
+}
+
+.files16icon_scss {
+	background-image: url(../resources/icons/iconview/16px/scss.png)!important;
+}
+
+.files16icon_sql {
+	background-image: url(../resources/icons/iconview/16px/sql.png)!important;
+}
+
+.files16icon_tga {
+	background-image: url(../resources/icons/iconview/16px/tga.png)!important;
+}
+
+.files16icon_tgz, .files16icon_gz {
+	background-image: url(../resources/icons/iconview/16px/tgz.png)!important;
+}
+
+.files16icon_tiff {
+	background-image: url(../resources/icons/iconview/16px/tiff.png)!important;
+}
+
+.files16icon_txt {
+	background-image: url(../resources/icons/iconview/16px/txt.png)!important;
+}
+
+.files16icon_wav {
+	background-image: url(../resources/icons/iconview/16px/wav.png)!important;
+}
+
+.files16icon_xls {
+	background-image: url(../resources/icons/iconview/16px/xls.png)!important;
+}
+
+.files16icon_xlsx {
+	background-image: url(../resources/icons/iconview/16px/xlsx.png)!important;
+}
+
+.files16icon_xml {
+	background-image: url(../resources/icons/iconview/16px/xml.png)!important;
+}
+
+.files16icon_yml {
+	background-image: url(../resources/icons/iconview/16px/yml.png)!important;
+}
+
+.files16icon_zip {
+	background-image: url(../resources/icons/iconview/16px/zip.png)!important;
+}
+
+.files-context-navigation-node {
+	padding: 12px 0 6px;
+	border-right-style: none;
+	border-left-style: none;
+}
+
+.files-context-navigation-node .x-tree-node-el {
+	padding-left: 10px;
+}
+
+.zarafa-files-hierarchypanel-subpanel > .x-panel-header {
+	background-color: white;
+	padding: 8px 9px 8px 12px;
+}
+
+.files-create-folder-tree-panel {
+	padding: 12px 0 6px;
+}
+
+.files-create-folder-tree-panel .x-tree-node-el {
+	padding-left: 10px;
+}
+
+.files-faulty-account .x-action-col-icon {
+	cursor: default;
+}
+
+#files-gridview .x-grid3-row {
+	border-left: none;
+}

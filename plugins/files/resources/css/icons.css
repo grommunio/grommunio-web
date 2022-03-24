@@ -1,0 +1,39 @@
+/*
+ * ACTION ICONS
+ */
+.files_icon_actionbutton {
+    /* revert x-btn-text-icon */
+    border: none!important;
+    box-shadow:none!important;
+}
+.files_icon_action {
+    background-repeat: no-repeat;
+    background-position: 3px center !important;
+}
+.files_icon_action_upload {
+    background-image: url(../resources/icons/actions/upload.png);
+}
+.files_icon_action_new_folder {
+    background-image:url(../resources/icons/actions/new_folder.png);
+}
+.files_icon_action_download {
+    background-image:url(../resources/icons/actions/download.png);
+}
+.files_icon_action_share {
+    background-image:url(../resources/icons/actions/share.png);
+}
+.files_icon_action_attach_to_mail {
+    background-image:url(../resources/icons/actions/add_to_mail.png);
+}
+.files_icon_action_edit {
+    background-image:url(../resources/icons/actions/edit.png);
+}
+.files_icon_action_delete {
+    background-image:url(../resources/icons/actions/delete.png);
+}
+.files_icon_action_home {
+    background-image:url(../resources/icons/actions/home.png);
+}
+.files_icon_action_fullscreen {
+    background-image:url(../resources/icons/actions/full_screen.png);
+}

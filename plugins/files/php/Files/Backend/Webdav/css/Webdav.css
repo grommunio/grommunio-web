@@ -1,0 +1,27 @@
+/* WEBDAV BACKEND STYLES */
+
+/* The main icon for the backend*/
+/* Naming convention: icon_<size>_<backend name> */
+.icon_16_Webdav {
+	background-image: url(../resources/icons/backends/webdav16.png)!important;
+	background-repeat: no-repeat;
+}
+
+.icon_24_Webdav {
+	background-image: url(../resources/icons/backends/webdav24.png)!important;
+	background-repeat: no-repeat;
+}
+
+.icon_256_Webdav {
+	background-image: url(../resources/icons/backends/webdav256.png)!important;
+	background-repeat: no-repeat;
+}
+
+.icon_16_logo_Webdav {
+    background-image: url(../resources/icons/backends/webdav_logo16.png)!important;
+    background-repeat: no-repeat;
+}
+
+.x-treenode-load-silent .x-tree-node-icon .icon_16_Webdav{
+    background-image: url(../resources/icons/backends/webdav16.png)!important;
+}

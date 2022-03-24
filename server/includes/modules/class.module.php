@@ -331,22 +331,24 @@
 		 * Function which returns MAPI Message Store Object. It
 		 * searches in the variable $action for a storeid.
 		 * @param array $action the XML data retrieved from the client
-		 * @return object MAPI Message Store Object, false if storeid is not found in the $action variable 
+		 * @return object MAPI Message Store Object, false if storeid is not found in the $action variable
 		 */
 		function getActionStore($action)
 		{
 			$store = false;
-
-			if(isset($action["store_entryid"]) && !empty($action["store_entryid"])) {
-				if(is_array($action["store_entryid"])) {
-					$store = array();
-					foreach($action["store_entryid"] as $store_id) {
-						array_push($store, $GLOBALS["mapisession"]->openMessageStore(hex2bin($store_id)));
+			try {
+				if(isset($action["store_entryid"]) && !empty($action["store_entryid"])) {
+					if(is_array($action["store_entryid"])) {
+						$store = array();
+						foreach($action["store_entryid"] as $store_id) {
+							array_push($store, $GLOBALS["mapisession"]->openMessageStore(hex2bin($store_id)));
+						}
+					} elseif (ctype_xdigit($action["store_entryid"])) {
+						$store = $GLOBALS["mapisession"]->openMessageStore(hex2bin($action["store_entryid"]));
 					}
-				} else {
-					$store = $GLOBALS["mapisession"]->openMessageStore(hex2bin($action["store_entryid"]));
 				}
 			}
+			catch(Exception $e) {}
 
 			return $store;
 		}
@@ -372,7 +374,7 @@
 		 * Function which returns an entryid. It
 		 * searches in the variable $action for an entryid.
 		 * @param array $action the XML data retrieved from the client
-		 * @return object MAPI Message Store Object, false if entryid is not found in the $action variable 
+		 * @return object MAPI Message Store Object, false if entryid is not found in the $action variable
 		 */
 		function getActionEntryID($action)
 		{
@@ -399,7 +401,7 @@
 		 * @param array $data list of all actions.
 		 * @return array $action the json data retrieved from the client
 		 */
-		function getActionData($data) 
+		function getActionData($data)
 		{
 			$actionData = false;
 			foreach($data as $actionType => $action)

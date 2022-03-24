@@ -1,0 +1,132 @@
+<?xml version="1.0"?>
+<!DOCTYPE plugin SYSTEM "manifest.dtd">
+<plugin version="2">
+	<info>
+		<version>4.0</version>
+		<name>files</name>
+		<title>Files</title>
+		<author>grommunio GmbH</author>
+		<authorURL>http://www.grommunio.com</authorURL>
+		<description>Integrate Files into grommunio web</description>
+	</info>
+	<config>
+		<configfile>config.php</configfile>
+	</config>
+	<translations>
+		<translationsdir>language</translationsdir>
+	</translations>
+	<components>
+		<component>
+			<files>
+				<server>
+					<serverfile type="module" module="fileslistmodule">php/modules/class.fileslistmodule.php</serverfile>
+					<serverfile type="module" module="filesaccountmodule">php/class.filesaccountmodule.php</serverfile>
+					<serverfile type="module" module="filesbrowsermodule">php/class.filesbrowsermodule.php</serverfile>
+					<serverfile type="module" module="hierarchylistmodule">php/modules/class.hierarchylistmodule.php</serverfile>
+					<serverfile type="notifier" notifier="filesbrowsernotifier">php/notifiers/class.filesbrowsernotifier.php</serverfile>
+					<serverfile type="notifier" notifier="fileshierarchynotifier">php/notifiers/class.fileshierarchynotifier.php</serverfile>
+					<serverfile>php/plugin.files.php</serverfile>
+				</server>
+				<client>
+					<clientfile load="release">php/jsloader.php?debug=false</clientfile>
+					<clientfile load="debug">php/jsloader.php?debug=true</clientfile>
+					<clientfile load="source">js/ABOUT.js</clientfile>
+					<clientfile load="source">js/FilesContextModel.js</clientfile>
+					<clientfile load="source">js/FilesContext.js</clientfile>
+					<clientfile load="source">js/FilesPlugin.js</clientfile>
+					<clientfile load="source">js/ui/FilesMainContextMenu.js</clientfile>
+					<clientfile load="source">js/ui/FilesTreeContextMenu.js</clientfile>
+					<clientfile load="source">js/ui/FilesMainPanel.js</clientfile>
+					<clientfile load="source">js/ui/FilesPreviewPanel.js</clientfile>
+					<clientfile load="source">js/ui/FilesRecordAccountView.js</clientfile>
+					<clientfile load="source">js/ui/FilesRecordDetailsPanel.js</clientfile>
+					<clientfile load="source">js/ui/FilesRecordGridColumnModel.js</clientfile>
+					<clientfile load="source">js/ui/FilesRecordGridView.js</clientfile>
+					<clientfile load="source">js/ui/FilesRecordIconView.js</clientfile>
+					<clientfile load="source">js/ui/FilesRecordViewPanel.js</clientfile>
+					<clientfile load="source">js/ui/FilesListToolbar.js</clientfile>
+					<clientfile load="source">js/ui/FilesTopToolbar.js</clientfile>
+					<clientfile load="source">js/ui/NavigatorTreePanel.js</clientfile>
+					<clientfile load="source">js/ui/FilesHierarchyRootNode.js</clientfile>
+					<clientfile load="source">js/ui/FilesFolderNode.js</clientfile>
+					<clientfile load="source">js/ui/FilesRootFolderNode.js</clientfile>
+					<clientfile load="source">js/ui/FolderNodeUI.js</clientfile>
+
+					<clientfile load="source">js/ui/Tree.js</clientfile>
+					<clientfile load="source">js/ui/TreeSorter.js</clientfile>
+					<clientfile load="source">js/ui/MultipleFileUploadField.js</clientfile>
+					<clientfile load="source">js/ui/UploadComponent.js</clientfile>
+					<clientfile load="source">js/ui/dialogs/AttachFromFilesContentPanel.js</clientfile>
+					<clientfile load="source">js/ui/dialogs/CreateFolderContentPanel.js</clientfile>
+					<clientfile load="source">js/ui/dialogs/CreateFolderPanel.js</clientfile>
+					<clientfile load="source">js/ui/dialogs/AttachFromFilesGridPanel.js</clientfile>
+					<clientfile load="source">js/ui/dialogs/AttachFromFilesPanel.js</clientfile>
+
+					<clientfile load="source">js/ui/dialogs/FilesRecordContentPanel.js</clientfile>
+					<clientfile load="source">js/ui/dialogs/FilesUploadContentPanel.js</clientfile>
+					<clientfile load="source">js/ui/dialogs/SaveToFilesContentPanel.js</clientfile>
+					<clientfile load="source">js/ui/dialogs/SaveToFilesPanel.js</clientfile>
+					<clientfile load="source">js/ui/dialogs/ShareContentPanel.js</clientfile>
+					<clientfile load="source">js/ui/dialogs/SharePanel.js</clientfile>
+					<clientfile load="source">js/ui/dialogs/UploadStatusContentPanel.js</clientfile>
+					<clientfile load="source">js/ui/dialogs/UploadStatusPanel.js</clientfile>
+					<clientfile load="source">js/ui/snippets/FilesQuotaBar.js</clientfile>
+					<clientfile load="source">js/ui/snippets/FilesNavigationBar.js</clientfile>
+					<clientfile load="source">js/ui/snippets/WebODFPanel.js</clientfile>
+					<clientfile load="source">js/ui/snippets/PDFjsPanel.js</clientfile>
+					<clientfile load="source">js/settings/SettingsAccountWidget.js</clientfile>
+					<clientfile load="source">js/settings/SettingsMainCategory.js</clientfile>
+					<clientfile load="source">js/settings/SettingsResetWidget.js</clientfile>
+					<clientfile load="source">js/settings/data/AccountRenderUtil.js</clientfile>
+					<clientfile load="source">js/settings/ui/AccountEditContentPanel.js</clientfile>
+					<clientfile load="source">js/settings/ui/AccountEditPanel.js</clientfile>
+					<clientfile load="source">js/settings/ui/AccountGrid.js</clientfile>
+					<clientfile load="source">js/settings/ui/AccountGridColumnModel.js</clientfile>
+					<clientfile load="source">js/settings/ui/AccountPanel.js</clientfile>
+					<clientfile load="source">js/settings/ui/FeatureQuotaInfoContentPanel.js</clientfile>
+					<clientfile load="source">js/settings/ui/FeatureQuotaInfoPanel.js</clientfile>
+					<clientfile load="source">js/settings/ui/FeatureVersionInfoContentPanel.js</clientfile>
+					<clientfile load="source">js/settings/ui/FeatureVersionInfoPanel.js</clientfile>
+
+					<clientfile load="source">js/data/FilesFoldersSubStore.js</clientfile>
+					<clientfile load="source">js/data/FilesFolderResponseHandler.js</clientfile>
+					<clientfile load="source">js/data/FilesHierarchyProxy.js</clientfile>
+					<clientfile load="source">js/data/FilesHierarchyStore.js</clientfile>
+					<clientfile load="source">js/data/FilesJsonReader.js</clientfile>
+					<clientfile load="source">js/data/FilesStoreRecord.js</clientfile>
+					<clientfile load="source">js/data/FilesFolderRecord.js</clientfile>
+
+					<clientfile load="source">js/data/FilesShadowProxy.js</clientfile>
+					<clientfile load="source">js/data/FilesShadowStore.js</clientfile>
+
+					<clientfile load="source">js/data/AccountRecord.js</clientfile>
+					<clientfile load="source">js/data/AccountStore.js</clientfile>
+					<clientfile load="source">js/data/FilesBackendRecord.js</clientfile>
+					<clientfile load="source">js/data/FilesBackendStore.js</clientfile>
+					<clientfile load="source">js/data/Actions.js</clientfile>
+					<clientfile load="source">js/data/ComponentBox.js</clientfile>
+					<clientfile load="source">js/data/ViewModes.js</clientfile>
+					<clientfile load="source">js/data/Views.js</clientfile>
+					<clientfile load="source">js/data/DataModes.js</clientfile>
+					<clientfile load="source">js/data/FileTypes.js</clientfile>
+					<clientfile load="source">js/data/FilesProxy.js</clientfile>
+					<clientfile load="source">js/data/FilesRecord.js</clientfile>
+					<clientfile load="source">js/data/FilesRecordStore.js</clientfile>
+					<clientfile load="source">js/data/NavigatorTreeLoader.js</clientfile>
+					<clientfile load="source">js/data/ResponseHandler.js</clientfile>
+					<clientfile load="source">js/data/Utils.js</clientfile>
+					<clientfile load="source">js/data/AsyncFilesTreeNode.js</clientfile>
+
+
+
+					<clientfile load="source">php/jsloader.php?debug=true</clientfile>
+				</client>
+				<resources>
+					<resourcefile load="release">php/cssloader.php?debug=false</resourcefile>
+					<resourcefile load="debug">php/cssloader.php?debug=true</resourcefile>
+					<resourcefile load="source">php/cssloader.php?debug=true&amp;source=true</resourcefile>
+				</resources>
+			</files>
+		</component>
+	</components>
+</plugin>

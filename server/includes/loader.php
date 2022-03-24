@@ -510,6 +510,8 @@ class FileLoader {
 	 * @return String Content of the file
 	 */
 	private function getFileContents($fn){
+		$fn = strtok($fn, '?');
+
 		$fc="";
 		$fh = fopen($fn, "r");
 		if($fh) {

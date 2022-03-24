@@ -1,0 +1,188 @@
+# grommunio Web Files Russian translation.
+# Copyright (C) 2017
+# This file is distributed under the same license as the grommunio-web-files package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+msgid ""
+msgstr ""
+"Project-Id-Version: grommunio Web Files Plugin Russian\n"
+"Report-Msgid-Bugs-To: dev@grommunio.com\n"
+"POT-Creation-Date: 2019-10-08 13:29+0000\n"
+"PO-Revision-Date: 2022-03-15 16:55+0000\n"
+"Last-Translator: Mike Williams <mike.williams@grommunio.com>\n"
+"Language-Team: Russian <https://hosted.weblate.org/projects/grommunio/"
+"grommunio-web/ru/>\n"
+"Language: ru_RU\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 4.11.1-dev\n"
+
+msgid "Files: ownCloud Backend"
+msgstr "Файлы: сервер ownCloud"
+
+msgid "Share with user/group"
+msgstr "Общий доступ с пользователями/группами"
+
+msgid "Share via link"
+msgstr "Общий доступ по ссылке"
+
+msgid "Public link"
+msgstr "Ссылка"
+
+msgid "Password protect"
+msgstr "Защита паролем"
+
+msgid "Password"
+msgstr "Пароль"
+
+msgid "Public upload"
+msgstr "Разрешить загрузку"
+
+msgid "Expiration date"
+msgstr "Срок действия"
+
+msgid "Date"
+msgstr "Дата"
+
+msgid "Ok"
+msgstr "Ок"
+
+msgid "Cancel"
+msgstr "Отмена"
+
+msgid "Loading details..."
+msgstr "Загрузка подробностей..."
+
+msgid "Share Details"
+msgstr "Общий доступ"
+
+msgid "Save"
+msgstr "Сохранить"
+
+msgid "Re-share"
+msgstr "Предоставлять общий доступ"
+
+msgid "Change"
+msgstr "Изменять"
+
+msgid "Create"
+msgstr "Создавать"
+
+msgid "Delete"
+msgstr "Удалять"
+
+msgid "Share with"
+msgstr "Общий доступ с"
+
+msgid "Type"
+msgstr "Тип"
+
+msgid "Permissions"
+msgstr "Права доступа"
+
+msgid "Name"
+msgstr "Имя"
+
+msgid "Sort by: Name"
+msgstr "Сортировка по: Имени"
+
+msgid "Sort by: Type"
+msgstr "Сортировка по: Типу"
+
+msgid "Add"
+msgstr "Добавить"
+
+msgid "Loading users and groups"
+msgstr "Загрузка пользователей и групп"
+
+msgid "Add users or groups to share files."
+msgstr "Добавите пользователей или группы к общему доступу."
+
+msgid "Type to search"
+msgstr "Начните писать для поиска"
+
+msgid "Loading..."
+msgstr "Загрузка..."
+
+msgid "No results"
+msgstr "Нет результатов"
+
+msgid "With this backend, you can connect to any ownCloud server."
+msgstr ""
+
+msgid "Files ownCloud Backend: "
+msgstr ""
+
+msgid "Server address"
+msgstr "Адрес сервера"
+
+msgid "Server port"
+msgstr "Порт сервера"
+
+msgid "Use SSL"
+msgstr "Использовать SSL"
+
+msgid "Webdav base path"
+msgstr "Путь webdav"
+
+msgid "Username"
+msgstr "Имя пользователя"
+
+msgid "Use grommunio credentials"
+msgstr "Использовать учетные данные grommunio"
+
+msgid "php-curl is not available"
+msgstr ""
+
+msgid "Access denied"
+msgstr ""
+
+msgid "Connection failed"
+msgstr ""
+
+msgid "Sabre error"
+msgstr ""
+
+msgid "Copying failed"
+msgstr ""
+
+msgid "Unknown error"
+msgstr "Неизвестная ошибка"
+
+msgid "Please contact your system administrator."
+msgstr ""
+
+msgid "Unauthorized. Wrong username or password."
+msgstr "Доступ запрещен. Неверное имя пользователя или пароль."
+
+msgid "File server is not reachable. Please verify the file server URL."
+msgstr ""
+
+msgid "You don't have enough permissions to view this file or folder."
+msgstr ""
+
+msgid "The file or folder is not available anymore."
+msgstr ""
+
+msgid "Connection to the file server timed out. Please check again later."
+msgstr ""
+
+msgid "This file is locked by another user. Please try again later."
+msgstr ""
+
+msgid "The request failed."
+msgstr ""
+
+msgid "The file server encountered an internal problem."
+msgstr ""
+
+msgid "We could not write to temporary directory."
+msgstr ""
+
+msgid "We could not retrieve list of server features."
+msgstr ""
+
+msgid "PHP-Curl is not available."
+msgstr ""
