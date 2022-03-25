@@ -2,7 +2,7 @@
 /**
  * This enables/disables the WHOLE plugin.
  */
-define('PLUGIN_FILES_USER_DEFAULT_ENABLE', true);
+define('PLUGIN_FILES_USER_DEFAULT_ENABLE', false);
 
 /**
  * Display a confirmation popup to the user before a file gets deleted.
