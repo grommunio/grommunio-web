@@ -9,6 +9,7 @@ JSFILES = js/ABOUT.js js/PasswdPlugin.js \
 
 COPYFILES = LICENSE.txt manifest.xml config.php \
 	$(wildcard resources/css/*.css) \
+	$(wildcard resources/images/*.png) \
 	$(wildcard php/*.php)
 
 COPYFILESDEST = $(addprefix $(DESTDIR)/, $(COPYFILES))
