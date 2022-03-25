@@ -5,7 +5,7 @@ JSFILES = js/MapsPlugin.js js/MapsTab.js
 COPYFILES = LICENSE.txt manifest.xml config.php \
         $(wildcard resources/css/*.css) \
         $(wildcard resources/css/images/*.png) \
-        $(wildcard js/external/*.css) \
+        $(wildcard js/external/*.js) \
 	$(wildcard php/*.php)
 
 COPYFILESDEST = $(addprefix $(DESTDIR)/, $(COPYFILES))
