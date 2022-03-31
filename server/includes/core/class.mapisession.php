@@ -824,8 +824,6 @@
 							array_push($otherUsersStores, $sharedStore);
 						}
 
-						$this->userstores[$username] = $user_entryid;
-
 						// Check if an entire store will be loaded, if so load the archive store as well
 						if(isset($folder['all']) && $folder['all']['folder_type'] == 'all'){
 							$this->getArchivedStores($this->resolveStrictUserName($username));
@@ -896,8 +894,6 @@
 					}
 				}
 			}
-
-			$GLOBALS["settings"]->set("zarafa/v1/contexts/hierarchy/shared_stores", $result);
 			return $result;
 		}
 
