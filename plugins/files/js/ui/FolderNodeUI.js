@@ -189,7 +189,11 @@ Zarafa.plugins.files.ui.FolderNodeUI  = Ext.extend(Ext.tree.TreeNodeUI, {
 
 		var ownerNode = Ext.get(this.folderBackendNode);
 		var store = folder.getFilesStore();
-		var ownerName = ' - ' + store.getBackend();
+		var backendName = store.getBackend();
+		if (backendName === 'Owncloud') {
+			backendName = 'grommunio';
+		}
+		var ownerName = ' - ' + backendName;
 
 		ownerNode.update(ownerName);
 		ownerNode.repaint();

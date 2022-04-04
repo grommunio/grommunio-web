@@ -72,7 +72,11 @@ Zarafa.plugins.files.settings.data.AccountRenderUtil = {
 		if (Ext.isEmpty(value)) {
 			return '';
 		}
-		return '<span class="icon_16_' + value + ' files_backend_selector">&nbsp;</span>' + value;
+		var backendName = value;
+		if (value === 'Owncloud') {
+			backendName = 'grommunio';
+		}
+		return '<span class="icon_16_' + value + ' files_backend_selector">&nbsp;</span>' + backendName;
 	},
 
 	/**
