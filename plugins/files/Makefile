@@ -111,6 +111,7 @@ $(JSDEPLOY)/files.js: $(JSFILES)
 		--output_wrapper="%output%//# sourceMappingURL=$(shell basename $@.map)" \
 		--create_source_map $@.map \
 		$(JSOPTIONS)
+	sed -i 's#sourceMappingURL=files.js.map#sourceMappingURL=../js/files.js.map#' $@
 
 $(CSSDEPLOY)/files.css: $(CSSFILES)
 	mkdir -p $(CSSDEPLOY)
