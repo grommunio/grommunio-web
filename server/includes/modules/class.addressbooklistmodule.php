@@ -77,7 +77,6 @@
 		 */
 		function GABUsers($action, $actionType)
 		{
-			error_log(print_r($action, true));
 			$searchstring = '';
 			$hide_users = false;
 			$hide_groups = false;
