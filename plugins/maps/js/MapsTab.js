@@ -20,7 +20,7 @@ Zarafa.plugins.maps.MapsTab=Ext.extend(Ext.Panel, {
 	 */
 	provider: null,
 
-	mapTemplate: '<div id="map" style="height: 519px;"></div>',
+	mapID: 0,
 
 	/**
 	 * @constructor
@@ -32,12 +32,14 @@ Zarafa.plugins.maps.MapsTab=Ext.extend(Ext.Panel, {
 		config.plugins = Ext.value(config.plugins, []);
 		config.plugins.push('zarafa.recordcomponentupdaterplugin');
 
+		this.mapID = new Date().getUTCMilliseconds();
+
 		Ext.apply(config, {
-			id: 'map',
+			id: 'map' + this.mapID,
 			xtype   : 'container',
 			// #TRANSLATORS: The map of earth
 			title   : _('Map'),
-			cls: 'map',
+			cls: 'map' + this.mapID,
 			//proper body style for rendering maps
 			listeners: {
 				resize: this.resizeMap,
@@ -69,7 +71,7 @@ Zarafa.plugins.maps.MapsTab=Ext.extend(Ext.Panel, {
 	 */
 	createGmap: function(coords)
 	{
-		const map = L.map('map').setView([51.505, -0.09], 13);
+		const map = L.map('map' + this.mapID).setView([51.505, -0.09], 13);
 		L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 			attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
 		}).addTo(map);
