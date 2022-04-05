@@ -77,6 +77,7 @@
 		 */
 		function GABUsers($action, $actionType)
 		{
+			error_log(print_r($action, true));
 			$searchstring = '';
 			$hide_users = false;
 			$hide_groups = false;
@@ -115,27 +116,30 @@
 
 			// Rewrite the sort info when sorting on full name as this is a combination of multiple fields
 			$sortingOnName = false;
-			if ( isset($action["sort"]) && is_array($action["sort"]) && count($action["sort"])===1 && $action["sort"][0]["field"]==="full_name" ) {
+			if ( isset($action["sort"]) && is_array($action["sort"]) && count($action["sort"])===1 && isset($action["sort"][0]["field"])) {
 				$sortingOnName = true;
 				$sortingDir = $action["sort"][0]["direction"];
-				$action["sort"] = array(
-					array(
-						"field" 	=> "surname",
-						"direction" => $sortingDir
-					),
-					array(
-						"field" 	=> "given_name",
-						"direction" => $sortingDir
-					),
-					array(
-						"field" 	=> "middle_name",
-						"direction" => $sortingDir
-					),
-					array(
-						"field" 	=> "display_name",
-						"direction" => $sortingDir
-					),
-				);
+				$sortingField = $action["sort"][0]["field"];
+				if($action["sort"][0]["field"] === 'full_name') {
+					$action["sort"] = array(
+						array(
+							"field" 	=> "surname",
+							"direction" => $sortingDir
+						),
+						array(
+							"field" 	=> "given_name",
+							"direction" => $sortingDir
+						),
+						array(
+							"field" 	=> "middle_name",
+							"direction" => $sortingDir
+						),
+						array(
+							"field" 	=> "display_name",
+							"direction" => $sortingDir
+						),
+					);
+				}
 
 				// Parse incoming sort order
 				$this->parseSortOrder($action, $map, true);
