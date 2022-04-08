@@ -507,11 +507,6 @@
 
 				mapi_inetmapi_imtomapi($GLOBALS['mapisession']->getSession(), $store, $GLOBALS['mapisession']->getAddressbook(), $message, $data, Array("parse_smime_signed" => 1));
 
-				// mark the message as read if the main message has read flag
-				if ($read) {
-					$mprops = mapi_getprops($message, array(PR_MESSAGE_FLAGS));
-					mapi_setprops($message, array(PR_MESSAGE_FLAGS => $mprops[PR_MESSAGE_FLAGS] | MSGFLAG_READ));
-				}
 			}
 		} else if(isset($props[PR_MESSAGE_CLASS]) && stripos($props[PR_MESSAGE_CLASS], 'IPM.Note.SMIME') !== false) {
 			// this is a encrypted message. decode it.
@@ -541,6 +536,11 @@
 					mapi_message_deleteattach($message, $attnum);
 				}
 			}
+		}
+		// mark the message as read if the main message has read flag
+		if ($read) {
+			$mprops = mapi_getprops($message, array(PR_MESSAGE_FLAGS));
+			mapi_setprops($message, array(PR_MESSAGE_FLAGS => $mprops[PR_MESSAGE_FLAGS] | MSGFLAG_READ));
 		}
 	}
 
