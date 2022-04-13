@@ -1,0 +1,518 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: KC-8\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-07-16 10:32+0200\n"
+"PO-Revision-Date: 2019-07-16 12:13+0000\n"
+"Last-Translator: Björn <b.neumann@kopano.com>\n"
+"Language-Team: German <http://translate.kopano.io/projects/kopano/smime/de/>"
+"\n"
+"Language: de_DE\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 2.4\n"
+
+#: js/dialogs/ChangePassphraseContentPanel.js:20
+#: js/dialogs/ChangePassphraseContentPanel.js:29
+#: js/settings/SettingsSmimeWidget.js:40
+msgid "Change passphrase"
+msgstr "Passwort ändern"
+
+#: js/dialogs/ChangePassphraseContentPanel.js:33
+#: js/dialogs/PassphraseWindow.js:38
+msgid "Cancel"
+msgstr "Abbrechen"
+
+#: js/dialogs/ChangePassphrasePanel.js:27
+msgid "Old passphrase"
+msgstr "Bisheriges Passwort"
+
+#: js/dialogs/ChangePassphrasePanel.js:45
+msgid "Wrong passphrase. Please try again"
+msgstr "Falsches Passwort. Bitte probieren Sie erneut"
+
+#: js/dialogs/ChangePassphrasePanel.js:49
+msgid "New passphrase"
+msgstr "Neues Passwort"
+
+#: js/dialogs/ChangePassphrasePanel.js:63
+msgid "Confirm new passphrase"
+msgstr "Neues Passwort bestätigen"
+
+#: js/dialogs/ChangePassphrasePanel.js:80
+msgid "The passphrases don't match. Please try again"
+msgstr "Die Passphrasen stimmen nicht überein. Bitte versuchen Sie es erneut"
+
+#: js/dialogs/ChangePassphrasePanel.js:136 js/dialogs/PassphraseWindow.js:300
+#: js/settings/UploadCertificateWidget.js:150
+#: js/settings/UploadCertificateWidget.js:155 js/SmimePlugin.js:393
+#: js/SmimePlugin.js:445 js/SmimePlugin.js:460
+msgid "S/MIME Message"
+msgstr "S/MIME Nachricht"
+
+#: js/dialogs/ChangePassphrasePanel.js:136
+msgid "Passphrase changed succesfully"
+msgstr "Passphrase erfolgreich geändert"
+
+#: js/dialogs/PassphraseContentPanel.js:23
+msgid "S/MIME Passphrase"
+msgstr "S/MIME Passwort"
+
+#: js/dialogs/PassphraseWindow.js:33
+msgid "Submit"
+msgstr "Okay"
+
+#: js/dialogs/PassphraseWindow.js:177 js/settings/UploadCertificateWidget.js:63
+msgid "Certificate passphrase"
+msgstr "Passwort des Zertifikates"
+
+#: js/dialogs/PassphraseWindow.js:300
+msgid "The passphrase you typed is incorrect. Please try again."
+msgstr ""
+"Die von Ihnen eingegebene Passphrase ist falsch. Bitte versuchen Sie es "
+"erneut."
+
+#: js/settings/SettingsPublickeyGrid.js:30
+msgid "No certificates imported, please upload your private certificate"
+msgstr ""
+"Keine Zertifikate verfügbar, bitte laden Sie Ihr persönliches Zertifikat hoch"
+
+#: js/settings/SettingsPublickeyGrid.js:65
+msgid "Email"
+msgstr "E-Mail"
+
+#: js/settings/SettingsPublickeyGrid.js:71
+msgid "Valid from"
+msgstr "Gültig ab"
+
+#: js/settings/SettingsPublickeyGrid.js:76
+msgid "Expires"
+msgstr "Läuft aus"
+
+#: js/settings/SettingsPublickeyGrid.js:81
+msgid "Type"
+msgstr "Typ"
+
+#: js/settings/SettingsPublickeyGrid.js:107
+msgid "Loading certificates"
+msgstr "Zertifikate werden geladen"
+
+#: js/settings/SettingsPublickeyGrid.js:133
+#: js/settings/SettingsPublickeyGrid.js:141
+#: js/settings/UploadCertificateWidget.js:103
+#: js/settings/UploadCertificateWidget.js:110 js/SmimePlugin.js:520
+msgid "S/MIME Plugin"
+msgstr "S/MIME-Plugin"
+
+#: js/settings/SettingsPublickeyGrid.js:134
+msgid "Please select a certificate."
+msgstr "Bitte wählen Sie ein Zertifikat."
+
+#: js/settings/SettingsPublickeyGrid.js:142
+msgid ""
+"Do you really want to remove your private certificate? If you remove your "
+"certificate you will not be able to sign or decrypt S/MIME emails."
+msgstr ""
+"Möchten Sie Ihr privates Zertifikat wirklich entfernen? Wenn Sie es "
+"entfernen, werden Sie keine S/MIME-Nachrichten mehr entschlüsseln oder "
+"signieren können."
+
+#: js/settings/SettingsPublickeyGrid.js:198
+msgid "Certificate details"
+msgstr "Details zum Zertifikat"
+
+#: js/settings/SettingsPublickeyPanel.js:60
+msgid ""
+"Below you can view and delete public & private certificate(s) stored on the "
+"server."
+msgstr ""
+"Hier können Sie auf dem Server gespeicherte öffentliche und private "
+"Zertifikate ansehen und löschen."
+
+#: js/settings/SettingsPublickeyPanel.js:88
+msgid "Filter on Email"
+msgstr "Nach E-Mail filtern"
+
+#: js/settings/SettingsPublickeyPanel.js:104
+msgid "Remove"
+msgstr "Entfernen"
+
+#: js/settings/SettingsPublickeyPanel.js:115
+msgid "Details"
+msgstr "Details"
+
+#: js/settings/SettingsPublickeyWidget.js:19
+msgid "Public & Private certificates"
+msgstr "Öffentliche & Private Zertifikate"
+
+#: js/settings/SettingsSmimeCategory.js:29
+msgid "S/MIME"
+msgstr "S/MIME"
+
+#: js/settings/SettingsSmimeWidget.js:20
+msgid "You don't have a valid certificate corresponding to your account"
+msgstr "Sie haben kein Ihrem Benutzer zugeordnetes valides Zertifikat"
+
+#: js/settings/SettingsSmimeWidget.js:35
+msgid "Personal certificate"
+msgstr "Persönliches Zertifikat"
+
+#: js/settings/SettingsSmimeWidget.js:79
+msgid "You have a valid certificate corresponding to your account"
+msgstr "Sie haben ein valides Zertifikat, das zu Ihrem Account passt"
+
+#: js/settings/UploadCertificateWidget.js:43
+msgid "Upload your certificate"
+msgstr "Zertifikat hochladen"
+
+#: js/settings/UploadCertificateWidget.js:49
+msgid ""
+"Below you can upload your private certificate in PKCS#12 format. The WebApp "
+"only accepts certificates which are valid and only stores one private "
+"certificate on the server."
+msgstr ""
+"Hier können Sie Ihr privates Zertifikat im PKCS#12-Format hochladen. Die "
+"WebApp akzeptiert nur valide Zertifikate und speichert nur ein privates "
+"Zertifikat auf dem Server."
+
+#: js/settings/UploadCertificateWidget.js:52
+#: js/settings/UploadCertificateWidget.js:53
+msgid "Select"
+msgstr "Auswählen"
+
+#: js/settings/UploadCertificateWidget.js:55
+msgid "Private certificate"
+msgstr "Privates Zertifikat"
+
+#: js/settings/UploadCertificateWidget.js:69
+msgid "Upload"
+msgstr "Hochladen"
+
+#: js/settings/UploadCertificateWidget.js:104
+msgid "You must fill in the certificate passphrase to upload your certificate."
+msgstr ""
+"Sie müssen die Passphrase für Ihr Zertifikat eingeben um es hochzuladen."
+
+#: js/settings/UploadCertificateWidget.js:111
+msgid "You must first select a valid private certificate in PKCS#12 format."
+msgstr "Sie müssen zuerst ein gültiges Zertifikat im PKCS#12 Format auswählen."
+
+#: js/SmimePlugin.js:79
+msgid "Sign"
+msgstr "Signieren"
+
+#: js/SmimePlugin.js:81
+msgid "Sign message"
+msgstr "Nachricht signieren"
+
+#: js/SmimePlugin.js:82
+msgid ""
+"Ensure the authenticity of the message by adding a digital signature to this "
+"message. Any changes to the message will invalidate the signature."
+msgstr ""
+"Stellt die Echtheit der Nachricht sicher, indem eine digitale Signatur "
+"hinzugefügt wird. Nur für die unveränderte Nachricht ist die Signatur valid."
+
+#: js/SmimePlugin.js:105
+msgid "Encrypt"
+msgstr "Verschlüsseln"
+
+#: js/SmimePlugin.js:107
+msgid "Encrypt message"
+msgstr "Nachricht verschlüsseln"
+
+#: js/SmimePlugin.js:108
+msgid ""
+"Ensure the privacy of the message by encrypting its contents. Only the "
+"recipient of the message will be able to open it."
+msgstr ""
+"Transportiert die Nachricht vertraulich, indem sie verschlüsselt wird. Nur "
+"der Empfänger wird die Nachricht öffnen können."
+
+#: js/SmimePlugin.js:181
+msgid "What's going on with my email?"
+msgstr "Was geschieht mit meiner E-Mail?"
+
+#: js/SmimeText.js:18
+msgid ""
+"WebApp can verify digital signatures of emails. A successful verification "
+"reassures you that the message has not been tampered with and validates the "
+"identity of the sender."
+msgstr ""
+"Die WebApp kann digitale Signaturen verifizieren. Eine erfolgreiche "
+"Verifizierung stellt sicher, dass die E-Mail nach dem Versand nicht "
+"verändert wurde und wirklich vom angegebenen Absender kommt."
+
+#: js/SmimeText.js:19
+msgid ""
+"You are seeing this message because the verification of the digital signature"
+msgstr ""
+"Sie sehen diese Nachricht, weil die Verifikation der digitalen Signatur"
+
+#: js/SmimeText.js:19
+msgid " has failed"
+msgstr " hat nicht funktioniert"
+
+#: js/SmimeText.js:19
+msgid " for this message."
+msgstr " für diese Nachricht."
+
+#: js/SmimeText.js:20
+msgid "What caused this issue?"
+msgstr "Was ist der Grund dafür?"
+
+#: js/SmimeText.js:22
+msgid "What should I do?"
+msgstr "Was kann ich machen?"
+
+#: js/SmimeText.js:23
+msgid ""
+"You can continue to work. However, you should keep in mind that the identity "
+"and the authenticity of the message content could not be verified."
+msgstr ""
+"Sie können weiterarbeiten. Aber Sie sollten in Erinnerung behalten, das die "
+"Identität des Senders und die Echtheit der Nachricht nicht verifiziert "
+"werden konnten."
+
+#: js/SmimeText.js:24
+msgid ""
+"You can contact your helpdesk or system administrator if you are not sure "
+"what to do next."
+msgstr ""
+"Bitte kontaktieren Sie Ihre Supporthotline oder den Systemadministrator, "
+"wenn Sie sich unsicher sind."
+
+#: js/SmimeText.js:38
+msgid ""
+"WebApp can verify digital signatures of emails. A successful verification "
+"reassures you "
+msgstr ""
+"Die WebApp kann digitale Signaturen verifizieren. Eine erfolgreiche "
+"Verifizierung stellt sicher, "
+
+#: js/SmimeText.js:39
+msgid ""
+"that the message has not been tampered with and validates the identity of "
+"the sender."
+msgstr ""
+"dass die E-Mail nach dem Versand nicht verändert wurde und wirklich vom "
+"angegebenen Absender kommt."
+
+#: js/SmimeText.js:40
+msgid ""
+"The verification of the digital signature was successful for this email "
+"message."
+msgstr ""
+"Die digitale Signatur dieser Nachricht konnte erfolgreich verifiziert werden."
+
+#: js/SmimeText.js:43
+msgid "WebApp could not find a public certificate for the recipient."
+msgstr ""
+"Die WebApp kann kein öffentliches Zertifikat für diesen Empfänger finden."
+
+#: js/SmimeText.js:46
+msgid ""
+"The identity of the sender and authenticity of the message content have been "
+"verified, but the certificate used to sign the message expired on [d-m-Y]."
+msgstr ""
+"Die Identität des Senders und die Echtheit der Nachricht wurden verifiziert, "
+"das dafür genutzte Zertifikat ist jedoch am [d.m.Y] ausgelaufen."
+
+#: js/SmimeText.js:49
+msgid "The digital signature could not be verified for unknown reasons."
+msgstr ""
+"Die digitale Signatur konnte aus unbekanntem Grund nicht bestätigt werden."
+
+#: js/SmimeText.js:52
+msgid ""
+"The digital certificate used to sign this message has been revoked (i.e. the "
+"sender has marked it as compromised)"
+msgstr ""
+"Das Zertifikat mit dem diese Nachricht signiert wurde, ist widerrufen "
+"worden. (z.B. wenn der Absender es als kompromittiert markiert hat)"
+
+#: js/SmimeText.js:55
+msgid ""
+"The verification service of the certificate authority that signed the "
+"sender's certificate is not available. The validity of the certificate could "
+"not be verified."
+msgstr ""
+"Der Überprüfungsdienst der Zertifizierungsstelle, die das Zertifikat des "
+"Absenders signiert hat, ist nicht verfügbar. Die Gültigkeit des Zertifikats "
+"konnte nicht überprüft werden."
+
+#: js/SmimeText.js:58
+msgid ""
+"The revocation status of the digital certificate used to sign this email is "
+"unknown (Server is unavaliable or certificate does not support OCSP). The "
+"validity of the certificate could not be verified."
+msgstr ""
+"Der Sperrstatus des zum Signieren dieser E-Mail verwendeten digitalen "
+"Zertifikats ist unbekannt (Server ist nicht verfügbar oder Zertifikat "
+"unterstützt kein OCSP). Die Gültigkeit des Zertifikats konnte nicht "
+"überprüft werden."
+
+#: js/SmimeText.js:61
+msgid ""
+"The revocation status of the digital certificate used to sign this email is "
+"disabled (OCSP). The validity of the certificate could not be verified."
+msgstr ""
+"Der Sperrstatus des zum Signieren dieser E-Mail verwendeten digitalen "
+"Zertifikats ist deaktiviert (OCSP). Die Gültigkeit des Zertifikats konnte "
+"nicht überprüft werden."
+
+#: js/SmimeText.js:64
+msgid "The certificate verification server (OCSP) is temporarly offline."
+msgstr "Der Zertifikatsüberprüfungsserver (OCSP) ist vorübergehend offline."
+
+#: js/SmimeText.js:67
+msgid "Sender is removed from the server."
+msgstr "Der Absender wurde vom Server entfernt."
+
+#: js/SmimeText.js:82
+msgid "Signature verified succesfully"
+msgstr "Die Signatur wurde erfolgreich überprüft"
+
+#: js/SmimeText.js:84
+msgid "Could not verify signature, missing public certificate"
+msgstr ""
+"Die Signatur konnte nicht überprüft werden, weil das öffentliche Zertifikat "
+"fehlt"
+
+#: js/SmimeText.js:86
+msgid "Signature verification succesfull, but certificate is expired"
+msgstr ""
+"Die Signatur wurde erfolgreich überprüft, aber das Zertifikat ist abgelaufen"
+
+#: js/SmimeText.js:88
+msgid "Signature could not be verified"
+msgstr "Die Signatur konnte nicht überprüft werden"
+
+#: js/SmimeText.js:90
+msgid "Certificate has been revoked"
+msgstr "Das Zertifikat wurde widerrufen"
+
+#: js/SmimeText.js:92
+msgid "Verification with Certificate Authority failed"
+msgstr "Überprüfung bei der Zertifizierungsstelle fehlgeschlagen"
+
+#: js/SmimeText.js:94
+msgid "Message decrypted succesfully"
+msgstr "Nachricht wurde erfolgreich entschlüsselt"
+
+#: js/SmimeText.js:96
+msgid "Message decryption failed"
+msgstr "Entschlüsseln der Nachricht ist fehlgeschlagen"
+
+#: js/SmimeText.js:98
+msgid "Please"
+msgstr "Bitte"
+
+#: js/SmimeText.js:98
+msgid "click here"
+msgstr "klicken Sie hier"
+
+#: js/SmimeText.js:98
+msgid "to unlock your certificate"
+msgstr "um Ihr Zertifikat zu entsperren"
+
+#: js/SmimeText.js:100 js/SmimeText.js:104
+msgid "Cannot determine revocation status of certificate"
+msgstr "Sperrstatus des Zertifikats kann nicht ermittelt werden"
+
+#: js/SmimeText.js:102
+msgid "Signature verified (OCSP disabled)"
+msgstr "Signatur überprüft (OCSP deaktiviert)"
+
+#: js/SmimeText.js:106
+msgid "Unable to decrypt this message. Certificate does not match"
+msgstr ""
+"Die Nachricht kann nicht entschlüsselt werden. Das Zertifikat stimmt nicht "
+"überein"
+
+#: js/SmimeText.js:108
+msgid "Verification failed. User is removed from the server."
+msgstr "Überprüfung fehlgeschlagen. Benutzer wird vom Server entfernt."
+
+#: php/class.pluginsmimemodule.php:111
+msgid "No certificate avaliable"
+msgstr "Kein Zertifikat verfügbar"
+
+#: php/class.pluginsmimemodule.php:117
+msgid "Private certificate is not valid yet, unable to sign email"
+msgstr ""
+"Das persönliche Zertifikat ist noch nicht gültig, die Nachricht konnte nicht "
+"signiert werden"
+
+#: php/class.pluginsmimemodule.php:119
+msgid "Private certificate has been expired, unable to sign email"
+msgstr ""
+"Das persönliche Zertifikat ist abgelaufen, Nachricht konnte nicht signiert "
+"werden"
+
+#: php/class.pluginsmimemodule.php:121
+msgid "Private certificate does not match email address"
+msgstr "Persönliches Zertifikat stimmt nicht mit der E-Mail-Adresse überein"
+
+#: php/plugin.smime.php:182
+msgid "Missing public certificates for the following recipients: "
+msgstr "Für die folgenden Empfänger fehlen die Zertifikate: "
+
+#: php/plugin.smime.php:182
+msgid ". Please contact your system administrator for details"
+msgstr ". Bitte kontaktieren Sie Ihren System-Administrator für Details"
+
+#: php/plugin.smime.php:184
+msgid ""
+"Your public certificate is not installed. Without this certificate, you will "
+"not be able to read encrypted messages you have sent to others."
+msgstr ""
+"Ihr öffentliches Zertifikat ist nicht installiert. Ohne dieses Zertifikat "
+"können Sie keine verschlüsselten Nachrichten lesen, die Sie an andere "
+"gesendet haben."
+
+#: php/plugin.smime.php:466
+msgid "Certificate is already stored on the server"
+msgstr "Das Zertifikat ist bereits auf dem Server gespeichert"
+
+#: php/plugin.smime.php:480
+msgid "New certificate uploaded"
+msgstr "Neues Zertifikat hochgeladen"
+
+#: php/plugin.smime.php:482
+msgid "Certificate uploaded"
+msgstr "Zertifikat hochgeladen"
+
+#: php/util.php:193
+msgid "Unable to decrypt certificate"
+msgstr "Entschlüsseln des Zertifikats nicht möglich"
+
+#: php/util.php:210
+msgid "Private key can't be used to sign email"
+msgstr "Privater Schlüssel kann nicht zum signieren verwendet werden"
+
+#: php/util.php:214
+msgid "Certificate email address doesn't match WebApp account "
+msgstr "E-Mail-Adresse des Zertifikats stimmt nicht mit der von WebApp überein "
+
+#: php/util.php:218
+msgid "Certificate was expired on "
+msgstr "Zertifikat ist abgelaufen am "
+
+#: php/util.php:218 php/util.php:222
+msgid "Certificate has not been imported"
+msgstr "Zertifikat wurde nicht importiert"
+
+#: php/util.php:222
+msgid "Certificate is not yet valid "
+msgstr "Zertifikat ist noch nicht gültig "
+
+#: php/util.php:226
+msgid "Certificate is revoked"
+msgstr "Zertifikat wurde widerrufen"
+
+#: php/util.php:229
+msgid "Unable to read public certificate"
+msgstr "Kann öffentliches Zertifikat nicht lesen"

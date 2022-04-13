@@ -30,6 +30,7 @@
 		{
 			$result = false;
 			$send = false;
+			$saveChanges = true;
 
 			if(!$store) {
 				$store = $GLOBALS['mapisession']->getDefaultMessageStore();
@@ -55,9 +56,6 @@
 
 					unset($action['props']['message_flags']);
 				}
-
-				$saveChanges = true;
-				$send = false;
 
 				if(isset($action['message_action']) && isset($action['message_action']['send'])) {
 					$send = $action['message_action']['send'];
