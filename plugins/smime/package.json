@@ -1,0 +1,9 @@
+{
+  "name": "smime",
+  "version": "1.0.0",
+  "description": "grommunio web S/MIME Plugin",
+  "license": "AGPL-3.0",
+  "devDependencies": {
+    "eslint": "^4.18.0"
+  }
+}

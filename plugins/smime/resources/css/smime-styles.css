@@ -1,0 +1,129 @@
+.smime-info-good,
+.smime-info-fatal,
+.smime-info-partial,
+.smime-info-info {
+	color: #222;
+        width: 100%;
+        height: 24px;
+        padding: 0 0 0 8px;
+        margin-top: 6px;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        box-sizing: border-box;
+        font-size: 13px;
+}
+
+.smime-info-good {
+	background-color: #d1fbd5;
+}
+
+.smime-info-fatal {
+	background-color: #f9cbca;
+}
+
+.smime-info-partial {
+	background-color: #fae0c1;
+}
+
+.smime-info-info {
+	background-color: #d7e8f8;
+}
+
+.icon_smime_encrypt {
+  background-image: url(../icons/ico_lock_locked.png);
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.icon_smime_unlocked {
+  background-image: url(../icons/ico_lock_open.png);
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.icon_smime_sign {
+  background-image: url(../icons/ico_ribbon.png);
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.x-btn-text.icon_smime_sign_selected {
+  background-image: url(../icons/ico_ribbon_selected.png);
+  background-repeat: no-repeat;
+  background-position: 3px center !important;
+  min-width: 50px !important;
+}
+
+.x-btn-text.icon_smime_encrypt_selected {
+  background-image: url(../icons/ico_lock_locked_selected.png);
+  background-position: 3px center !important;
+  background-repeat: no-repeat;
+  min-width: 50px !important;
+}
+
+.x-btn-text.icon_smime_sign, .x-btn-text.icon_smime_encrypt {
+  background-position: 3px center !important;
+  min-width: 50px !important;
+}
+
+.x-grid3-hd-row td.zarafa-icon-column .x-grid3-hd-inner p.icon_smime_settings {
+  background-position: center;
+  width: 16px;
+}
+
+.icon_smime_settings {
+  background-image: url(../icons/ico_shield.png);
+  background-repeat: no-repeat;
+  background-position: 6px center;
+}
+
+.x-menu-item .icon_smime_settings {
+  background-position: 0px center;
+}
+
+.x-btn-text.icon_smime_settings {
+  background-position: 5px center !important;
+  padding-left: 25px !important;
+}
+
+.icon_smime_sign_content {
+   display: inline-block;
+}
+
+.icon_smime_sign_content:before {
+   content: url(../icons/ico_ribbon.png);
+   position: relative;
+   top: 3px;
+}
+
+.icon_smime_encr_content {
+   display: inline-block;
+}
+
+.icon_smime_encr_content:before {
+   content: url(../icons/ico_lock_locked.png);
+   position: relative;
+   top: 3px;
+}
+
+.icon_smime_decr_content:before {
+
+   content: url(../icons/ico_lock_open.png);
+   position: relative;
+   top: 3px;
+}
+
+.icon_smime_decr_content {
+   display: inline-block;
+}
+
+/* styling for the passphrase dialog */
+.x-viewport .k-smime-viewport .x-panel-footer.x-panel-btns {
+	padding-top: 0;
+	padding-left: 0;
+	padding-right: 0;
+}
+
+.zarafa-smime-invalid-text {
+	color: #e40023;
+}

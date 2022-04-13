@@ -1,0 +1,58 @@
+<?xml version="1.0"?>
+<!DOCTYPE plugin SYSTEM "manifest.dtd">
+<plugin version="2">
+	<info>
+		<version>1.0</version>
+		<name>S/MIME Plugin</name>
+		<title>S/MIME Plugin</title>
+		<author>grommunio</author>
+		<authorURL>https://www.grommunio.com</authorURL>
+		<description>Enables S/MIME Integration in grommunio web</description>
+	</info>
+	<config>
+		<configfile>config.php</configfile>
+	</config>
+	<translations>
+		<translationsdir>language</translationsdir>
+	</translations>
+	<components>
+		<component>
+			<files>
+				<server>
+					<serverfile>php/plugin.smime.php</serverfile>
+					<serverfile type="module" module="pluginsmimemodule">php/class.pluginsmimemodule.php</serverfile>
+				</server>
+				<client>
+					<clientfile load="release">js/smime.js</clientfile>
+					<clientfile load="debug">js/smime-debug.js</clientfile>
+					<clientfile load="source">js/SmimePlugin.js</clientfile>
+					<clientfile load="source">js/SmimeText.js</clientfile>
+					<clientfile load="source">js/data/SmimeAttachmentRecord.js</clientfile>
+					<clientfile load="source">js/data/SmimeAttachmentStore.js</clientfile>
+					<clientfile load="source">js/data/SmimeCertificateRecord.js</clientfile>
+					<!-- CertificateStore -->
+					<clientfile load="source">js/data/JsonCertificateReader.js</clientfile>
+					<clientfile load="source">js/data/SmimeCertificateStore.js</clientfile>
+
+					<clientfile load="source">js/data/SmimeResponseHandler.js</clientfile>
+					<clientfile load="source">js/ui/Viewport.js</clientfile>
+					<clientfile load="source">js/ui/FormPanel.js</clientfile>
+					<clientfile load="source">js/dialogs/PassphraseContentPanel.js</clientfile>
+					<clientfile load="source">js/dialogs/PassphraseWindow.js</clientfile>
+					<clientfile load="source">js/dialogs/ChangePassphraseContentPanel.js</clientfile>
+					<clientfile load="source">js/dialogs/ChangePassphrasePanel.js</clientfile>
+					<clientfile load="source">js/settings/SettingsSmimeCategory.js</clientfile>
+					<clientfile load="source">js/settings/SettingsSmimeWidget.js</clientfile>
+					<clientfile load="source">js/settings/UploadCertificateWidget.js</clientfile>
+					<clientfile load="source">js/settings/SettingsPublickeyWidget.js</clientfile>
+					<clientfile load="source">js/settings/SettingsPublickeyPanel.js</clientfile>
+					<clientfile load="source">js/settings/SettingsPublickeyGrid.js</clientfile>
+				</client>
+				<resources>
+					<resourcefile load="release">resources/css/smime.css</resourcefile>
+					<resourcefile load="source">resources/css/smime-styles.css</resourcefile>
+				</resources>
+			</files>
+		</component>
+	</components>
+</plugin>

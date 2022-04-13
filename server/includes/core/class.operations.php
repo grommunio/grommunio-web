@@ -2784,6 +2784,11 @@
 						} else {
 							$folder = mapi_msgstore_openentry($store, $oldParentEntryId);
 						}
+
+						// Copy message_class for S/MIME plugin
+						if(isset($tmpProps[PR_MESSAGE_CLASS])) {
+							$props[PR_MESSAGE_CLASS] = $tmpProps[PR_MESSAGE_CLASS];
+						}
 						// Delete the old message
 						mapi_folder_deletemessages($folder, array($oldEntryId));
 					}

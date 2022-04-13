@@ -1,0 +1,18 @@
+<testsuites>
+  <testsuite name="SMIME">
+    <directory>test/</directory>
+    <file>*.php</file>
+  </testsuite>
+  <logging>
+    <log type="junit" target="smime-phptests.xml" logIncompleteSkipped="false"/>
+    <log type="coverage-html" target="htmlcov" lowUpperBound="35" highLowerBound="70"/>
+  </logging>
+  <filter>
+	  <whitelist>
+		  <directory suffix=".php">php</directory>
+	  </whitelist>
+	  <blacklist>
+		  <directory suffix=".php">php/lib</directory>
+	  </blacklist>
+  </filter>
+</testsuites>
