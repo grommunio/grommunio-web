@@ -33,17 +33,17 @@ CSSDEPLOY = $(DESTDIR)/resources/css/
 
 COPYFILESDEST = $(addprefix $(DESTDIR)/, $(COPYFILES))
 
-all: $(COPYFILESDEST) $(JSDEPLOY)/files.js $(CSSDEPLOY)/files.css
+all: $(COPYFILESDEST) $(JSDEPLOY)/smime.js $(CSSDEPLOY)/smime.css
 
-$(JSDEPLOY)/files.js: $(JSFILES)
+$(JSDEPLOY)/smime.js: $(JSFILES)
 	mkdir -p $(DESTDIR)/js
-	cat $(JSFILES) > $(JSDEPLOY)/files-debug.js
+	cat $(JSFILES) > $(JSDEPLOY)/smime-debug.js
 	$(JSCOMPILER) --js $(@:.js=-debug.js) --js_output_file $@ \
 		--source_map_location_mapping=$(JSDEPLOY)/js/\| \
 		--output_wrapper="%output%//# sourceMappingURL=$(shell basename $@.map)" \
 		--create_source_map $@.map \
 		$(JSOPTIONS)
 
-$(CSSDEPLOY)/files.css: $(CSSFILES)
+$(CSSDEPLOY)/smime.css: $(CSSFILES)
 	mkdir -p $(CSSDEPLOY)
-	cat $(CSSFILES) > $(CSSDEPLOY)/files.css
+	cat $(CSSFILES) > $(CSSDEPLOY)/smime.css
