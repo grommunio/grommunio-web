@@ -210,7 +210,6 @@ class Pluginsmime extends Plugin {
 		// If user entry exists in GAB, try to retrieve public cert
 		// Public certificate from GAB in combination with LDAP saved in PR_EMS_AB_TAGGED_X509_CERT
 		$userProps = mapi_getprops($message, array(PR_SENT_REPRESENTING_ENTRYID, PR_SENT_REPRESENTING_NAME));
-
 		if (isset($userProps[PR_SENT_REPRESENTING_ENTRYID])) {
 			try{
 				$user = mapi_ab_openentry($GLOBALS['mapisession']->getAddressbook(), $userProps[PR_SENT_REPRESENTING_ENTRYID]);
@@ -271,7 +270,6 @@ class Pluginsmime extends Plugin {
 					file_put_contents($tmpUserCert, $userCert);
 				}
 				$signed_ok = openssl_pkcs7_verify($tmpfname, PKCS7_NOINTERN, $outcert, explode(';', PLUGIN_SMIME_CACERTS), $tmpUserCert);
-
 				$openssl_error_code = $this->extract_openssl_error();
 				$this->validateSignedMessage($signed_ok, $openssl_error_code);
 				// Check if we need to import a newer certificate
@@ -318,7 +316,6 @@ class Pluginsmime extends Plugin {
 				$this->message['info'] = SMIME_CA;
 			}
 		}
-
 		// Certificate is newer or not yet imported to the user store and not revoked
 		// If certificate is from the GAB, then don't import it.
 		if ($importMessageCert && !$fromGAB) {
@@ -398,10 +395,10 @@ class Pluginsmime extends Plugin {
 				unlink($olcert);
 			}
 
-			$receivedTime = mapi_getprops($data['message'], Array(PR_MESSAGE_DELIVERY_TIME));
+			$copyProps = mapi_getprops($data['message'], Array(PR_MESSAGE_DELIVERY_TIME, PR_SENDER_ENTRYID, PR_SENT_REPRESENTING_ENTRYID));
 			mapi_inetmapi_imtomapi($GLOBALS['mapisession']->getSession(), $data['store'], $GLOBALS['mapisession']->getAddressbook(), $data['message'], $content, Array('parse_smime_signed' => True));
 			// Manually set time back to the received time, since mapi_inetmapi_imtomapi overwrites this
-			mapi_setprops($data['message'], $receivedTime);
+			mapi_setprops($data['message'], $copyProps);
 
 			// remove temporary files
 			unlink($tmpFile);
@@ -960,13 +957,6 @@ class Pluginsmime extends Plugin {
 				$issued_by .= $key . '=' . $certData['issuer'][$key] . "\n";
 			}
 
-			$issued_to = "";
-			foreach(array_keys($certData['subject']) as $key) {
-				if($key !== 'emailAddress') {
-					$issued_to .= $key . '=' . $certData['subject'][$key] . "\n";
-				}
-			}
-
 			$root = mapi_msgstore_openentry($this->getStore(), null);
 			$assocMessage = mapi_folder_createmessage($root, MAPI_ASSOCIATED);
 			// TODO: write these properties down.
@@ -977,7 +967,7 @@ class Pluginsmime extends Plugin {
 				PR_CLIENT_SUBMIT_TIME => $certData['validFrom_time_t'],
 				PR_SENDER_NAME => $certData['serialNumber'], // serial
 				PR_SENDER_EMAIL_ADDRESS => $issued_by, // Issuer To
-				PR_SUBJECT_PREFIX => $issued_to,
+				PR_SUBJECT_PREFIX => '',
 				PR_RECEIVED_BY_NAME => $this->fingerprint_cert($cert, 'sha1'), // SHA1 Fingerprint
 				PR_INTERNET_MESSAGE_ID => $this->fingerprint_cert($cert) // MD5 FingerPrint
 			));
@@ -1089,10 +1079,9 @@ class Pluginsmime extends Plugin {
 			$messageProps  = mapi_getprops($mapiMessage, array(PR_SENT_REPRESENTING_ENTRYID, PR_SENDER_ENTRYID));
 			$senderEntryID = isset($messageProps[PR_SENT_REPRESENTING_ENTRYID])? $messageProps[PR_SENT_REPRESENTING_ENTRYID] : $messageProps[PR_SENDER_ENTRYID];
 			$senderUser = mapi_ab_openentry($GLOBALS["mapisession"]->getAddressbook(), $senderEntryID);
-
 			if ($senderUser) {
 				$userprops = mapi_getprops($senderUser, array(PR_ADDRTYPE, PR_DISPLAY_NAME, PR_EMAIL_ADDRESS, PR_SMTP_ADDRESS, PR_OBJECT_TYPE,PR_RECIPIENT_TYPE, PR_DISPLAY_TYPE, PR_DISPLAY_TYPE_EX, PR_ENTRYID));
-
+				
 				$senderStructure = array();
 				$senderStructure["props"]['entryid']         = bin2hex($userprops[PR_ENTRYID]);
 				$senderStructure["props"]['display_name']    = isset($userprops[PR_DISPLAY_NAME]) ? $userprops[PR_DISPLAY_NAME] : '';
