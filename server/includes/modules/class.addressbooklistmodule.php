@@ -114,9 +114,8 @@
 			$map['fileas'] = $this->properties['account'];
 
 			// Rewrite the sort info when sorting on full name as this is a combination of multiple fields
-			$sortingOnName = false;
+			global $sortingField;
 			if ( isset($action["sort"]) && is_array($action["sort"]) && count($action["sort"])===1 && isset($action["sort"][0]["field"])) {
-				$sortingOnName = true;
 				$sortingDir = $action["sort"][0]["direction"];
 				$sortingField = $action["sort"][0]["field"];
 				if($action["sort"][0]["field"] === 'full_name') {
@@ -422,14 +421,16 @@
 					array_push($items, array('props' => $item));
 				}
 
-				if ( $sortingOnName ){
+				if ( !empty($sortingField) ){
 					// Sort the items here, because full_name is not a real property, so we can not use the regular sorting
 					// Note: This hack only works becaue the GAB does not work with paging!
 					function cmpAsc($a, $b){
-						return strcasecmp($b['props']['full_name'], $a['props']['full_name']);
+						global $sortingField;
+						return strcasecmp($b['props'][$sortingField], $a['props'][$sortingField]);
 					}
 					function cmpDesc($a, $b){
-						return strcasecmp($a['props']['full_name'], $b['props']['full_name']);
+						global $sortingField;
+						return strcasecmp($a['props'][$sortingField], $b['props'][$sortingField]);
 					}
 
 					$cmpFn = $sortingDir === 'DESC' ? 'cmpDesc' : 'cmpAsc';
