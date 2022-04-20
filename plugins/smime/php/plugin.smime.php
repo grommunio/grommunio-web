@@ -213,19 +213,18 @@ class Pluginsmime extends Plugin {
 		if (isset($userProps[PR_SENT_REPRESENTING_ENTRYID])) {
 			try{
 				$user = mapi_ab_openentry($GLOBALS['mapisession']->getAddressbook(), $userProps[PR_SENT_REPRESENTING_ENTRYID]);
+				$gabCert = $this->getGABCert($user);
+				if (!empty($gabCert)) {
+					$fromGAB = true;
+					// Put empty string into file? dafuq?
+					file_put_contents($tmpUserCert, $userCert);
+				}
 			} catch (MAPIException $e) {
 				$msg = "[smime] Unable to open PR_SENT_REPRESENTING_ENTRYID. Maybe %s was does not exists or deleted from server.";
 				Log::write(LOGLEVEL_ERROR, sprintf($msg, $userProps[PR_SENT_REPRESENTING_NAME]));
+				error_log("[smime] Unable to open PR_SENT_REPRESENTING_NAME: " . print_r($userProps[PR_SENT_REPRESENTING_NAME], true));
 				$this->message['success'] = SMIME_NOPUB;
 				$this->message['info'] = SMIME_USER_DETECT_FAILURE;
-				return;
-			}
-
-			$gabCert = $this->getGABCert($user);
-			if (!empty($gabCert)) {
-				$fromGAB = true;
-				// Put empty string into file? dafuq?
-				file_put_contents($tmpUserCert, $userCert);
 			}
 		}
 
@@ -238,6 +237,21 @@ class Pluginsmime extends Plugin {
 				$emailAddr = $senderAddressArray['email_address'];
 			} else {
 				$emailAddr = $senderAddressArray['smtp_address'];
+			}
+
+			// User not in AB,
+			// so get email address from either PR_SENT_REPRESENTING_NAME, PR_SEARCH_KEY or PR_SENT_REPRESENTING_SEARCH_KEY
+			// of the message
+			if(!$emailAddr) {
+				if(!empty($userProps[PR_SENT_REPRESENTING_NAME])) {
+					$emailAddr = $userProps[PR_SENT_REPRESENTING_NAME];
+				} else {
+					$searchKeys = mapi_getprops($message, array(PR_SEARCH_KEY, PR_SENT_REPRESENTING_SEARCH_KEY));
+					$searchKey = $searchKeys[PR_SEARCH_KEY] ?? $searchKeys[PR_SENT_REPRESENTING_SEARCH_KEY];
+					if($searchKey) {
+						$emailAddr = $trim(strtolower(explode(':', $searchKey)[1]));
+					}
+				}
 			}
 
 			if($emailAddr) {
@@ -1078,20 +1092,24 @@ class Pluginsmime extends Plugin {
 		if (!method_exists($GLOBALS['operations'], 'getSenderAddress')) {
 			$messageProps  = mapi_getprops($mapiMessage, array(PR_SENT_REPRESENTING_ENTRYID, PR_SENDER_ENTRYID));
 			$senderEntryID = isset($messageProps[PR_SENT_REPRESENTING_ENTRYID])? $messageProps[PR_SENT_REPRESENTING_ENTRYID] : $messageProps[PR_SENDER_ENTRYID];
-			$senderUser = mapi_ab_openentry($GLOBALS["mapisession"]->getAddressbook(), $senderEntryID);
-			if ($senderUser) {
-				$userprops = mapi_getprops($senderUser, array(PR_ADDRTYPE, PR_DISPLAY_NAME, PR_EMAIL_ADDRESS, PR_SMTP_ADDRESS, PR_OBJECT_TYPE,PR_RECIPIENT_TYPE, PR_DISPLAY_TYPE, PR_DISPLAY_TYPE_EX, PR_ENTRYID));
-				
-				$senderStructure = array();
-				$senderStructure["props"]['entryid']         = bin2hex($userprops[PR_ENTRYID]);
-				$senderStructure["props"]['display_name']    = isset($userprops[PR_DISPLAY_NAME]) ? $userprops[PR_DISPLAY_NAME] : '';
-				$senderStructure["props"]['email_address']   = isset($userprops[PR_EMAIL_ADDRESS]) ? $userprops[PR_EMAIL_ADDRESS] : '';
-				$senderStructure["props"]['smtp_address']    = isset($userprops[PR_SMTP_ADDRESS]) ? $userprops[PR_SMTP_ADDRESS] : '';
-				$senderStructure["props"]['address_type']    = isset($userprops[PR_ADDRTYPE]) ? $userprops[PR_ADDRTYPE] : '';
-				$senderStructure["props"]['object_type']     = $userprops[PR_OBJECT_TYPE];
-				$senderStructure["props"]['recipient_type']  = MAPI_TO;
-				$senderStructure["props"]['display_type']    = isset($userprops[PR_DISPLAY_TYPE])    ? $userprops[PR_DISPLAY_TYPE]    : MAPI_MAILUSER;
-				$senderStructure["props"]['display_type_ex'] = isset($userprops[PR_DISPLAY_TYPE_EX]) ? $userprops[PR_DISPLAY_TYPE_EX] : MAPI_MAILUSER;
+			try {
+				$senderUser = mapi_ab_openentry($GLOBALS["mapisession"]->getAddressbook(), $senderEntryID);
+				if ($senderUser) {
+					$userprops = mapi_getprops($senderUser, array(PR_ADDRTYPE, PR_DISPLAY_NAME, PR_EMAIL_ADDRESS, PR_SMTP_ADDRESS, PR_OBJECT_TYPE,PR_RECIPIENT_TYPE, PR_DISPLAY_TYPE, PR_DISPLAY_TYPE_EX, PR_ENTRYID));
+					
+					$senderStructure = array();
+					$senderStructure["props"]['entryid']         = bin2hex($userprops[PR_ENTRYID]);
+					$senderStructure["props"]['display_name']    = isset($userprops[PR_DISPLAY_NAME]) ? $userprops[PR_DISPLAY_NAME] : '';
+					$senderStructure["props"]['email_address']   = isset($userprops[PR_EMAIL_ADDRESS]) ? $userprops[PR_EMAIL_ADDRESS] : '';
+					$senderStructure["props"]['smtp_address']    = isset($userprops[PR_SMTP_ADDRESS]) ? $userprops[PR_SMTP_ADDRESS] : '';
+					$senderStructure["props"]['address_type']    = isset($userprops[PR_ADDRTYPE]) ? $userprops[PR_ADDRTYPE] : '';
+					$senderStructure["props"]['object_type']     = $userprops[PR_OBJECT_TYPE];
+					$senderStructure["props"]['recipient_type']  = MAPI_TO;
+					$senderStructure["props"]['display_type']    = isset($userprops[PR_DISPLAY_TYPE])    ? $userprops[PR_DISPLAY_TYPE]    : MAPI_MAILUSER;
+					$senderStructure["props"]['display_type_ex'] = isset($userprops[PR_DISPLAY_TYPE_EX]) ? $userprops[PR_DISPLAY_TYPE_EX] : MAPI_MAILUSER;
+				}
+			} catch (MAPIException $e) {
+				Log::write(LOGLEVEL_ERROR, sprintf("%s %s", $e, $userProps[PR_SENT_REPRESENTING_NAME]));
 			}
 			return $senderStructure;
 		} else {
