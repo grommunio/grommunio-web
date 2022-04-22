@@ -229,8 +229,12 @@ Zarafa.plugins.files.ui.FilesRecordGridView = Ext.extend(Zarafa.common.ui.grid.G
 	{
 		var store = this.getStore();
 		var record = store.getAt(rowIndex);
+		var officeFiletypes = container.getSettingsModel().get('zarafa/v1/plugins/files/onlyoffice_filetypes');
+		officeFiletypes = (officeFiletypes || []).split(',');
 		if (record.get('type') === Zarafa.plugins.files.data.FileTypes.FOLDER) {
 			Zarafa.plugins.files.data.Actions.openFolder(this.model, record.get('entryid'));
+		} else if(officeFiletypes.some((type) => record.get('folder_id').endsWith(type))) { // If onlyoffice document
+			this.openTab(record);
 		} else {
 			Zarafa.plugins.files.data.Actions.downloadItem(record);
 		}
@@ -266,6 +270,43 @@ Zarafa.plugins.files.ui.FilesRecordGridView = Ext.extend(Zarafa.common.ui.grid.G
 			return;
 		}
 		this.model.setPreviewRecord(undefined);
+	},
+
+	/**
+	 * Event handler for the click event of the tabbar buttons. It will
+	 * open the tab if it already exists, or create it otherwise.
+	 * @param {Zarafa.core.ui.MainTab} btn The button in the
+	 * {@link Zarafa.core.ui.MainTabBar main tabbar}
+	 */
+	openTab: function(record)
+	{
+		var tabIndex;
+		var url = record.get('folder_id');
+		var displayName = record.get('display_name');
+		Ext.each(container.getTabPanel().items.items, function(item, index){
+			if (item.url === url && item.title === displayName) {
+				tabIndex = index;
+			}
+		});
+
+		if ( Ext.isDefined(tabIndex) ){
+			// open the existing tab
+			var mainContentTabPanel = container.getMainPanel().contentPanel;
+			mainContentTabPanel.activate(tabIndex);
+		} else {
+			// Create a new tab
+			var component = Zarafa.core.data.SharedComponentType['plugins.files.onlyofficepanel'];
+			Zarafa.core.data.UIFactory.openLayerComponent(
+				component,
+				record,
+				{
+					url: url,
+					tabId: 'onlyoffice',
+					title: displayName || 'office',
+					tabOrder: 10
+				}
+			);
+		}
 	},
 
 	/**

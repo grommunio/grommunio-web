@@ -397,6 +397,7 @@ class Backend extends AbstractBackend implements iFeatureQuota, iFeatureVersionI
 		$this->log("[LS] start for dir: $dir");
 		try {
 			$response = $this->sabre_client->propFind($dir, array(
+				'{http://owncloud.org/ns}fileid',
 				'{DAV:}resourcetype',
 				'{DAV:}getcontentlength',
 				'{DAV:}getlastmodified',
@@ -426,6 +427,7 @@ class Backend extends AbstractBackend implements iFeatureQuota, iFeatureVersionI
 				}
 
 				$lsdata[$name] = array(
+					"fileid" => isset($fields["{http://owncloud.org/ns}fileid"]) ? $fields["{http://owncloud.org/ns}fileid"] : '-1',
 					"resourcetype" => $type,
 					"getcontentlength" => isset($fields["{DAV:}getcontentlength"]) ? $fields["{DAV:}getcontentlength"] : null,
 					"getlastmodified" => isset($fields["{DAV:}getlastmodified"]) ? $fields["{DAV:}getlastmodified"] : null,
@@ -736,6 +738,7 @@ class Backend extends AbstractBackend implements iFeatureQuota, iFeatureVersionI
 	{
 		$path = $this->removeSlash($path);
 		$response = $this->sabre_client->propFind($path, array(
+			'{http://owncloud.org/ns}fileid',
 			'{DAV:}resourcetype',
 			'{DAV:}getcontentlength',
 			'{DAV:}getlastmodified',
@@ -752,6 +755,7 @@ class Backend extends AbstractBackend implements iFeatureQuota, iFeatureVersionI
 		}
 
 		$gpi = array(
+			"fileid" => isset($response["{http://owncloud.org/ns}fileid"]) ? $response["{http://owncloud.org/ns}fileid"] : '-1',
 			"resourcetype" => $type,
 			"getcontentlength" => isset($response["{DAV:}getcontentlength"]) ? $response["{DAV:}getcontentlength"] : null,
 			"getlastmodified" => isset($response["{DAV:}getlastmodified"]) ? $response["{DAV:}getlastmodified"] : null,

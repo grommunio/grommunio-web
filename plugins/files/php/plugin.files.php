@@ -112,7 +112,8 @@ class Pluginfiles extends Plugin
 					),
 					'plugins' => Array(
 						'files' => Array(
-							'enable' => PLUGIN_FILES_USER_DEFAULT_ENABLE
+							'enable' => PLUGIN_FILES_USER_DEFAULT_ENABLE,
+							'onlyoffice_filetypes' => PLUGIN_FILES_ONLYOFFICE_FILETYPES
 						)
 					)
 				)
