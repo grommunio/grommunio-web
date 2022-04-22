@@ -5931,7 +5931,7 @@ msgid "Out of Office is currently activated. Would you like to turn it off?"
 msgstr ""
 
 msgid "Open Chat at start"
-msgstr ""
+msgstr "Otevření chatu po spuštění"
 
 msgid "Desktop Notifications Plugin"
 msgstr ""

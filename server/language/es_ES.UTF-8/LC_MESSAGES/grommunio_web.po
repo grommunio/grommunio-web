@@ -6013,7 +6013,7 @@ msgid "Out of Office is currently activated. Would you like to turn it off?"
 msgstr "La notificación Fuera de la Oficina está activa. Desea desactivarla?"
 
 msgid "Open Chat at start"
-msgstr ""
+msgstr "Abrir el chat cuando se inicia"
 
 msgid "Desktop Notifications Plugin"
 msgstr ""

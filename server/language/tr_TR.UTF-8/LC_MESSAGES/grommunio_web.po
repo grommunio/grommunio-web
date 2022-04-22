@@ -5971,7 +5971,7 @@ msgid "Out of Office is currently activated. Would you like to turn it off?"
 msgstr "Ofis dışı bildirimi aktif. Kapatmak ister misiniz?"
 
 msgid "Open Chat at start"
-msgstr ""
+msgstr "Başlatıldığında sohbeti aç"
 
 msgid "Desktop Notifications Plugin"
 msgstr ""

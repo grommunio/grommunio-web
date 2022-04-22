@@ -5599,131 +5599,135 @@ msgid "Item Data"
 msgstr ""
 
 msgid "Mobile Device Manager"
-msgstr ""
+msgstr "Gestor Dispositivos Móveis"
 
 msgid "Wiping device"
-msgstr ""
+msgstr "A limpar dispositivo"
 
 msgid "Password incorrect"
-msgstr ""
+msgstr "Palavra  passe incorreta"
 
 msgid "Full resync in progress"
-msgstr ""
+msgstr "Ressincronização total em progresso"
 
 msgid "Username or password incorrect"
-msgstr ""
+msgstr "Utilizador ou palavra-passe errada"
 
 msgid "Not Applicable"
-msgstr ""
+msgstr "Não aplicável"
 
 msgid "Wipe Pending"
-msgstr ""
+msgstr "Limpeza pendente"
 
 msgid "Wipe Requested"
-msgstr ""
+msgstr "Limpeza pedida"
 
 msgid "Wipe Executed"
-msgstr ""
+msgstr "Limpeza efetuada"
 
 msgid "Not Available"
-msgstr ""
+msgstr "Não disponível"
 
 msgid "Device"
-msgstr ""
+msgstr "Dispositivo"
 
 msgid "Operating System"
-msgstr ""
+msgstr "Sistema Operativo"
 
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 msgid "User Agent"
-msgstr ""
+msgstr "Agente do Utilizador"
 
 msgid "MDM Plugin"
-msgstr ""
+msgstr "Plugin MDM"
 
 msgid "Active Sync Version"
-msgstr ""
+msgstr "Versão Active Sync"
 
 msgid "grommunio-sync Version"
-msgstr ""
+msgstr "Versão grommunio-sync"
 
 msgid "Policy name"
-msgstr ""
+msgstr "Nome da Politica"
 
 msgid "Outlook Extension"
 msgstr ""
 
 msgid "Build"
-msgstr ""
+msgstr "Compilação"
 
 msgid "Last updated"
-msgstr ""
+msgstr "Última vez atualizado"
 
 msgid "d F Y, H:i"
-msgstr ""
+msgstr "d F Y, H:i"
 
 msgid "Connected since"
-msgstr ""
+msgstr "Ligado desde"
 
 msgid "d F Y"
-msgstr ""
+msgstr "d F Y"
 
 msgid "Synchronize"
-msgstr ""
+msgstr "Sincronizar"
 
 msgid "Manage Shared Folders"
-msgstr ""
+msgstr "Gerir pastas partilhadas"
 
 msgid ""
 "Select folders to sync to your device from the list below. To add additional "
 "mailboxes to the list, open them in WebApp first."
 msgstr ""
+"Selecione as pastas a sincronizar para o seu dispositivo. Para adicionar "
+"mais caixas de correio à lista abra-as primeiro na WebApp."
 
 msgid "grommunio-sync"
-msgstr ""
+msgstr "grommunio-sync"
 
 msgid "Mobile device management"
-msgstr ""
+msgstr "Gestão de dispositivos móveis"
 
 msgid "Mobile Devices"
-msgstr ""
+msgstr "Dispositivos móveis"
 
 msgid ""
 "Unable to connect to the grommunio-sync server. Click {0} to enter your "
 "credentials"
 msgstr ""
+"Não foi possível estabelecer a ligação com o servidor grommunio-sync. "
+"Carregue em {0} para inserir as suas credenciais"
 
 msgid "Devices"
-msgstr ""
+msgstr "Dispositivos"
 
 msgid "No devices connected to your account"
-msgstr ""
+msgstr "Nenhum dispositivo associado a esta conta"
 
 msgid "Last Update"
-msgstr ""
+msgstr "Última atualização"
 
 msgid "Device ID"
-msgstr ""
+msgstr "ID do dispositivo"
 
 msgid "Device OS"
-msgstr ""
+msgstr "OS do dispositivo"
 
 msgid "Device Info"
-msgstr ""
+msgstr "Informação do dispositivo"
 
 msgid "First Sync time"
-msgstr ""
+msgstr "Data primeira sincronização"
 
 msgid "Full resync"
-msgstr ""
+msgstr "Ressincronização total"
 
 msgid "Remove device"
-msgstr ""
+msgstr "Remover dispositivo"
 
 msgid "Please enter your username and password"
-msgstr ""
+msgstr "Por favor introduza o seu utilizador e palavra-passe"
 
 msgid "Password"
 msgstr "Senha"
@@ -5735,6 +5739,8 @@ msgid ""
 "Do you really want to wipe your device?\n"
 " Enter your password to confirm."
 msgstr ""
+"Tem a certeza que quer limpar o dispositivo?\n"
+" Introduza a sua palavra passe para continuar."
 
 msgid "Add meeting"
 msgstr ""
@@ -5915,13 +5921,15 @@ msgstr ""
 "utilizador. Por favor contacte o seu administrador de sistema."
 
 msgid "Mobile device management plugin"
-msgstr ""
+msgstr "Gestão de dispositivos móveis"
 
 #, php-format
 msgid ""
 "Unexpected error occurred. Please contact your system administrator. Error "
 "code: %s"
 msgstr ""
+"Ocorreu um erro inesperado. Por favor contacte o seu administrador de "
+"sistemas. Código do erro: %s"
 
 msgid "No data received."
 msgstr ""
@@ -6621,3 +6629,1031 @@ msgstr ""
 
 msgid "Some problem encountered when encoding/decoding JSON data."
 msgstr ""
+
+msgid "Change passphrase"
+msgstr "Alterar frase-chave"
+
+msgid "Old passphrase"
+msgstr "Frase-chave antiga"
+
+msgid "Wrong passphrase. Please try again"
+msgstr "Frase-chave errada. Por favor tente novamente"
+
+msgid "New passphrase"
+msgstr "Nova frase-chave"
+
+msgid "Confirm new passphrase"
+msgstr "Confirmar nova frase-chave"
+
+msgid "The passphrases don't match. Please try again"
+msgstr "As frases-chave não coincidem. Por favor tente novamente"
+
+msgid "S/MIME Message"
+msgstr "Mensagem S/MIME"
+
+msgid "Passphrase changed succesfully"
+msgstr "Frase-chave alterada com sucesso"
+
+msgid "S/MIME Passphrase"
+msgstr "Frase-chave S/MIME"
+
+msgid "Submit"
+msgstr "Submeter"
+
+msgid "Certificate passphrase"
+msgstr "Frase-chave do certificado"
+
+msgid "The passphrase you typed is incorrect. Please try again."
+msgstr ""
+"A frase-chave que introduziu está incorreta. Por favor tente novamente."
+
+msgid "No certificates imported, please upload your private certificate"
+msgstr ""
+"Nenhum certificado importado. Por favor envie o seu certificado privado"
+
+msgid "Valid from"
+msgstr "Válido a partir de"
+
+msgid "Expires"
+msgstr "Expira"
+
+msgid "Loading certificates"
+msgstr "A carregar certificados"
+
+msgid "S/MIME Plugin"
+msgstr "Plugin S/MIME"
+
+msgid "Please select a certificate."
+msgstr "Por favor selecione um certificado."
+
+msgid ""
+"Do you really want to remove your private certificate? If you remove your "
+"certificate you will not be able to sign or decrypt S/MIME emails."
+msgstr ""
+"Tem a certeza que quer remover o seu certificado privado? Se remover o seu "
+"certificado não será capaz de assinar ou desencriptar as suas mensagens S/"
+"MIME."
+
+msgid "Certificate details"
+msgstr "Detalhes do certificado"
+
+msgid ""
+"Below you can view and delete public & private certificate(s) stored on the "
+"server."
+msgstr ""
+"Aqui pode ver e apagar os certificados públicos e privados guardados no "
+"servidor."
+
+msgid "Filter on Email"
+msgstr "Filtrar por endereço"
+
+msgid "Public & Private certificates"
+msgstr "Certificados Públicos e Privados"
+
+msgid "S/MIME"
+msgstr "S/MIME"
+
+msgid "You don't have a valid certificate corresponding to your account"
+msgstr "Não tem nenhum certificado válido correspondente à sua conta"
+
+msgid "Personal certificate"
+msgstr "Certificado pessoal"
+
+msgid "You have a valid certificate corresponding to your account"
+msgstr "Tem um certificado válido correspondente à sua conta"
+
+msgid "Upload your certificate"
+msgstr "Enviar o seu certificado"
+
+msgid ""
+"Below you can upload your private certificate in PKCS#12 format. The WebApp "
+"only accepts certificates which are valid and only stores one private "
+"certificate on the server."
+msgstr ""
+"Aqui pode enviar o seu certificado privado no formato PKCS#12. A WebApp só "
+"aceita certificados que são válidos e só guarda um certificado privado no "
+"servidor."
+
+msgid "Private certificate"
+msgstr "Certificado privado"
+
+msgid "Upload"
+msgstr "Enviar"
+
+msgid "You must fill in the certificate passphrase to upload your certificate."
+msgstr "Tem que inserir a frase-chave para poder enviar o certificado."
+
+msgid "You must first select a valid private certificate in PKCS#12 format."
+msgstr "Tem que selecionar um certificado privado válido no formato PKCS#12."
+
+msgid "Sign"
+msgstr "Assinar"
+
+msgid "Sign message"
+msgstr "Assinar mensagem"
+
+msgid ""
+"Ensure the authenticity of the message by adding a digital signature to this "
+"message. Any changes to the message will invalidate the signature."
+msgstr ""
+"Garanta a autenticidade da mensagem adicionando-lhe uma assinatura digital. "
+"Qualquer alteração posterior efetuada na mensagem irá invalidar a assinatura."
+
+msgid "Encrypt"
+msgstr "Encriptar"
+
+msgid "Encrypt message"
+msgstr "Encriptar mensagem"
+
+msgid ""
+"Ensure the privacy of the message by encrypting its contents. Only the "
+"recipient of the message will be able to open it."
+msgstr ""
+"Garanta a privacidade da mensagem encriptando o seu conteúdo. Só os "
+"destinatários da mensagem serão capazes de a abrir."
+
+msgid "What's going on with my email?"
+msgstr "Que está a acontecer com as minhas mensagens?"
+
+msgid ""
+"WebApp can verify digital signatures of emails. A successful verification "
+"reassures you that the message has not been tampered with and validates the "
+"identity of the sender."
+msgstr ""
+"A WebApp é capaz de verificar as assinaturas digitais das mensagens. Uma "
+"verificação bem sucedida garante que a mensagem não foi adulterada e valida "
+"a identidade do remetente."
+
+msgid ""
+"You are seeing this message because the verification of the digital signature"
+msgstr "Está a ver esta mensagem devido à verificação da assinatura digital"
+
+msgid " has failed"
+msgstr " que  falhou"
+
+msgid " for this message."
+msgstr " para esta mensagem."
+
+msgid "What caused this issue?"
+msgstr "Qual a causa deste problema?"
+
+msgid "What should I do?"
+msgstr "Que devo fazer?"
+
+msgid ""
+"You can continue to work. However, you should keep in mind that the identity "
+"and the authenticity of the message content could not be verified."
+msgstr ""
+"Pode continuar a trabalhar. No entanto deve ter em atenção que a identidade "
+"do remetente e autenticidade do conteúdo da mensagem não puderam ser "
+"atestados."
+
+msgid ""
+"You can contact your helpdesk or system administrator if you are not sure "
+"what to do next."
+msgstr ""
+"Pode contactar o helpdesk ou o administrador de sistema se não tiver a "
+"certeza como proceder."
+
+msgid ""
+"WebApp can verify digital signatures of emails. A successful verification "
+"reassures you "
+msgstr ""
+"A WebApp é capaz de verificar as assinaturas digitais das mensagens. Uma "
+"verficação bem sucedida garante que "
+
+msgid ""
+"that the message has not been tampered with and validates the identity of "
+"the sender."
+msgstr "a mensagem não foi adulterada e valida a identidade do remetente."
+
+msgid ""
+"The verification of the digital signature was successful for this email "
+"message."
+msgstr "A verificação da assinatura digital desta mensagem foi bem sucedida."
+
+msgid "WebApp could not find a public certificate for the recipient."
+msgstr "A WebApp não encontrou o certificado público do destinatário."
+
+msgid ""
+"The identity of the sender and authenticity of the message content have been "
+"verified, but the certificate used to sign the message expired on [d-m-Y]."
+msgstr ""
+"A identidade do remetente e a autenticidade do conteúdo da mensagem foram "
+"validados, mas o certificado usado para assinar a mensagem expirou em [d-m-"
+"Y]."
+
+msgid "The digital signature could not be verified for unknown reasons."
+msgstr ""
+"Não foi possível verificar a assinatura digital por razões desconhecidas."
+
+msgid ""
+"The digital certificate used to sign this message has been revoked (i.e. the "
+"sender has marked it as compromised)"
+msgstr ""
+"O certificado digital usado para assinar esta mensagem foi revogado (i.e. o "
+"emissor do certificado classificou-o como comprometido)"
+
+msgid ""
+"The verification service of the certificate authority that signed the "
+"sender's certificate is not available. The validity of the certificate could "
+"not be verified."
+msgstr ""
+"O serviço de verificação da autoridade que assinou o certificado do "
+"remetente está indisponível. A validade do certificado não pode ser "
+"verificada."
+
+msgid ""
+"The revocation status of the digital certificate used to sign this email is "
+"unknown (Server is unavaliable or certificate does not support OCSP). The "
+"validity of the certificate could not be verified."
+msgstr ""
+"O estado de revogação do certificado digital usado para assinar esta "
+"mensagem é desconhecido (o servidor está indisponível ou o certificado não "
+"suporta OCSP). A validade do certificado não pode ser verificada."
+
+msgid ""
+"The revocation status of the digital certificate used to sign this email is "
+"disabled (OCSP). The validity of the certificate could not be verified."
+msgstr ""
+"O estado da revogação do certificado digital usado para assinar esta "
+"mensagem está desativado (OCSP). A validade do certificado não pode ser "
+"verificada."
+
+msgid "The certificate verification server (OCSP) is temporarly offline."
+msgstr ""
+"O servidor de verificação de certificados (OCSP) está temporariamente "
+"indisponível."
+
+msgid "Sender is removed from the server."
+msgstr "Remetente foi removido do servidor."
+
+msgid "Signature verified succesfully"
+msgstr "Assinatura válida"
+
+msgid "Could not verify signature, missing public certificate"
+msgstr ""
+"Não foi possível verificar a assinatura. Certificado público não encontrado"
+
+msgid "Signature verification succesfull, but certificate is expired"
+msgstr "Assinatura validada com sucesso, mas o certificado expirou"
+
+msgid "Signature could not be verified"
+msgstr "Não foi possível validar a assinatura"
+
+msgid "Certificate has been revoked"
+msgstr "O certificado foi revogado"
+
+msgid "Verification with Certificate Authority failed"
+msgstr "Verificação com a Autoridade de Certificação falhou"
+
+msgid "Message decrypted succesfully"
+msgstr "Mensagem desencriptada com sucesso"
+
+msgid "Message decryption failed"
+msgstr "Desencriptação da mensagem falhou"
+
+msgid "Please"
+msgstr "Por favor"
+
+msgid "click here"
+msgstr "carregue aqui"
+
+msgid "to unlock your certificate"
+msgstr "para desbloquear o seu certificado"
+
+msgid "Cannot determine revocation status of certificate"
+msgstr "Não é possível determinar o estado de revogação do certificado"
+
+msgid "Signature verified (OCSP disabled)"
+msgstr "Assinatura validada (OCSP desativado)"
+
+msgid "Unable to decrypt this message. Certificate does not match"
+msgstr ""
+"Não é possível desencriptar esta mensagem. O certificado não corresponde"
+
+msgid "Verification failed. User is removed from the server."
+msgstr "Verificação falhou. O utilizador foi removido do servidor."
+
+msgid "No certificate avaliable"
+msgstr "Nenhum certificado disponível"
+
+msgid "Private certificate is not valid yet, unable to sign email"
+msgstr ""
+"O certificado privado ainda não é válido. Não é possível assinar a mensagem"
+
+msgid "Private certificate has been expired, unable to sign email"
+msgstr "O certificado privado expirou. Não é possível assinar a mensagem"
+
+msgid "Private certificate does not match email address"
+msgstr "O certificado privado não corresponde ao endereço de Email"
+
+msgid "Missing public certificates for the following recipients: "
+msgstr "Faltam os certificados públicos dos seguintes destinatários: "
+
+msgid ". Please contact your system administrator for details"
+msgstr ""
+". Por favor contacte o seu administrador de sistema para mais informações"
+
+msgid ""
+"Your public certificate is not installed. Without this certificate, you will "
+"not be able to read encrypted messages you have sent to others."
+msgstr ""
+"O seu certificado privado não está instalado. Sem este certificado não será "
+"possível ler as mensagens encriptadas que enviou."
+
+msgid "Certificate is already stored on the server"
+msgstr "O certificado já existe no servidor"
+
+msgid "New certificate uploaded"
+msgstr "Novo certificado enviado"
+
+msgid "Certificate uploaded"
+msgstr "Certificado enviado"
+
+msgid "Unable to decrypt certificate"
+msgstr "Não é possível desencriptar o certificado"
+
+msgid "Private key can't be used to sign email"
+msgstr "A chave privada não pode ser usada para assinar mensagens"
+
+msgid "Certificate email address doesn't match WebApp account "
+msgstr "O endereço de email da conta WebApp não corresponde ao do certificado "
+
+msgid "Certificate was expired on "
+msgstr "Certificado expirou em "
+
+msgid "Certificate has not been imported"
+msgstr "O certificado não foi importado"
+
+msgid "Certificate is not yet valid "
+msgstr "O certificado ainda não é válido "
+
+msgid "Certificate is revoked"
+msgstr "O certificado está revogado"
+
+msgid "Unable to read public certificate"
+msgstr "Não é possível ler o certificado público"
+
+msgid "Add attachment from {0}"
+msgstr "Adicionar anexo {0}"
+
+msgid "Confirm deletion"
+msgstr "Confirmação de eliminação"
+
+msgid "Are you sure you want to delete {0}?"
+msgstr "Tem a certeza que quer apagar {0}?"
+
+msgid "Are you sure you want to delete {0} and all of its contents?"
+msgstr "Tem a certeza que quer apagar {0} e todo o seu conteúdo?"
+
+msgid "Are you sure you want to delete {0} files?"
+msgstr "Tem a certeza que quer apagar os {0} ficheiros?"
+
+msgid "Are you sure want to delete {0} folders and all of their contents?"
+msgstr "Tem a certeza que quer eliminar as {0} pastas e todo o seu conteúdo?"
+
+msgid ""
+"Are you sure want to delete the selected items and all of their contents?"
+msgstr ""
+"Tem a certeza que quer apagar os itens selecionados e todo o seu conteúdo?"
+
+msgid "Confirm overwrite"
+msgstr "Confirme substituição"
+
+msgid "File already exists. Do you want to overwrite it?"
+msgstr "O ficheiro já existe. Pretende substituí-lo?"
+
+msgid "Please enter a new name"
+msgstr "Por favor introduza o novo nome"
+
+msgid "Rename record"
+msgstr "Alterar nome do registo"
+
+msgid "A file name should not be empty."
+msgstr "O nome de um ficheiro não deve ser vazio."
+
+msgid "Rename item"
+msgstr "Alterar nome do item"
+
+msgid "A file named \"{0}\" already exists. Please enter a different name."
+msgstr ""
+"Já existe um ficheiro com o nome \"{0}\". Por favor introduza outro nome."
+
+msgid "Downloading"
+msgstr "A transferir"
+
+msgid "Download started... please wait!"
+msgstr "Transferência iniciada... por favor aguarde!"
+
+msgid "At least one file is too large! Maximum allowed filesize: {0}."
+msgstr ""
+"Pelo menos um ficheiro é demasiado grande! Tamanho máximo de ficheiro "
+"permitido: {0}."
+
+msgid "Keep both"
+msgstr "Manter os dois"
+
+msgid "Overwrite"
+msgstr "Substituir"
+
+msgid "l d/m/Y G:i"
+msgstr "l d/m/Y G:i"
+
+msgid "Never"
+msgstr "Nunca"
+
+msgid "Add from Files"
+msgstr "Adicionar de Ficheiros"
+
+msgid "Add attachment from Files"
+msgstr "Adicionar anexo de Ficheiros"
+
+msgid "Add to Files"
+msgstr "Adicionar a Ficheiros"
+
+msgid "Upload file"
+msgstr "Enviar ficheiro"
+
+msgid "Files"
+msgstr "Ficheiros"
+
+msgid "Files Plugin"
+msgstr "Plugin Ficheiros"
+
+msgid "Manage Accounts"
+msgstr "Gerir contas"
+
+msgid "Reset Files settings"
+msgstr "Reset das definições de Ficheiros"
+
+msgid "Resets Files settings to their original defaults"
+msgstr "Repor as definições originais de Ficheiros"
+
+msgid "Are you sure to remove all settings and accounts?"
+msgstr "Tem a certeza que quer remover todas as definições e contas?"
+
+msgid ""
+"Accounts marked by your administrator as \"cannot be changed\" will not be "
+"removed."
+msgstr ""
+"Contas marcadas como \"não podem ser modificadas\" pelo administrador não "
+"podem ser removidas."
+
+msgid ""
+"WebApp will automatically restart in order for these changes to take effect."
+msgstr ""
+"A WebApp vai reiniciar automaticamente para que as alterações possam ser "
+"aplicadas."
+
+msgid "Webapp is reloading, Please wait."
+msgstr "WebApp a carregar... Por favor aguarde."
+
+msgid "Edit Account"
+msgstr "Editar conta"
+
+msgid "Account Information"
+msgstr "Informação da conta"
+
+msgid "Account name"
+msgstr "Nome da conta"
+
+msgid "Account type"
+msgstr "Tipo de conta"
+
+msgid "Select backend..."
+msgstr "Selecionar o backend.."
+
+msgid "Account Configuration"
+msgstr "Configuração da conta"
+
+msgid "Update"
+msgstr "Atualizar"
+
+msgid "Sort by: ID"
+msgstr "Ordenar por: ID"
+
+msgid "Backend"
+msgstr "Backend"
+
+msgid "Sort by: Backend"
+msgstr "Ordenar por: Backend"
+
+msgid "Features"
+msgstr "Funcionalidades"
+
+msgid "Shows all available features of the backend."
+msgstr "Mostrar todas as funcionalidades do backend disponíveis."
+
+msgid "Show quota information"
+msgstr "Mostar informação sobre quota"
+
+msgid "Show version information"
+msgstr "Mostar informação sobre versão"
+
+msgid "Share files"
+msgstr "Partilhar ficheiros"
+
+msgid "Fast Down/Upload"
+msgstr "Transferir/Enviar rápido"
+
+msgid "No account created!"
+msgstr "Nenhuma conta criada!"
+
+msgid "Add Account"
+msgstr "Adicionar conta"
+
+msgid "Remove Account"
+msgstr "Remover conta"
+
+msgid "Loading accounts"
+msgstr "A carregar contas"
+
+msgid "Do you really want to delete the account \"{0}\"?"
+msgstr "Tem a certeza que pretende apagar a conta \"{0}\"?"
+
+msgid "Quota Information"
+msgstr "Informação sobre quota"
+
+msgid "Used"
+msgstr "Usado"
+
+msgid "Total"
+msgstr "Total"
+
+msgid "Version Information"
+msgstr "Informação sobre versão"
+
+msgid "Sort by: Type"
+msgstr "Ordenar por: Tipo"
+
+msgid "Filename"
+msgstr "Nome do ficheiro"
+
+msgid "Sort by: Filename"
+msgstr "Ordenar por: Nome de ficheiro"
+
+msgid "Loading files"
+msgstr "A carregar ficheiros"
+
+msgid "The file {0} is too large!"
+msgstr "O ficheiro {0} é demasiado grande!"
+
+msgid "max"
+msgstr "max"
+
+msgid "You have to choose at least one file!"
+msgstr "Tem que escolher pelo menos um ficheiro!"
+
+msgid "Folder already exists"
+msgstr "A pasta já existe"
+
+msgid "Incorrect foldername"
+msgstr "Nome da pasta incorreto"
+
+msgid "File information"
+msgstr "Informação sobre ficheiro"
+
+msgid "Select a file"
+msgstr "Selecionar um ficheiro"
+
+msgid "Maximum upload size"
+msgstr "Tamanho máximo de envio"
+
+msgid "Browse"
+msgstr "Procurar"
+
+msgid "Select upload folder"
+msgstr "Selecionar pasta para envio"
+
+msgid "File \"{0}\" is too large! Maximum allowed filesize: {1}."
+msgstr ""
+"O ficheiro \"{0}\" é demasiado grande! Tamanho máximo de ficheiro permitido: "
+"{1}."
+
+msgid "Add item to Files"
+msgstr "Adicionar item a Ficheiros"
+
+msgid "You have to choose a folder!"
+msgstr "Tem que escolher uma pasta!"
+
+msgid "Uploaded"
+msgstr "Enviado"
+
+msgid "Attachment successfully stored in Files"
+msgstr "Anexo guardado com sucesso em Ficheiros"
+
+msgid "Upload Failed"
+msgstr "Envio falhou"
+
+msgid "Attachment could not be stored in Files! Error: "
+msgstr "Não foi possível guardar o anexo em Ficheiros! Erro: "
+
+msgid "Share Files"
+msgstr "Partilhar ficheiros"
+
+msgid "Uploading files to "
+msgstr "A enviar ficheiros para "
+
+msgid "Starting upload"
+msgstr "A começar envio"
+
+msgid "Cancel upload"
+msgstr "Cancelar envio"
+
+msgid "- seconds left"
+msgstr "- segundos para acabar"
+
+msgid " seconds left"
+msgstr " segundos para acabar"
+
+msgid " minutes left"
+msgstr " minutos para acabar"
+
+msgid "Uploading: "
+msgstr "A enviar: "
+
+msgid "Upload status unavailable... please wait."
+msgstr "Estado de envio não disponível.. por favor aguarde."
+
+msgid "Upload finished!"
+msgstr "Envio terminado!"
+
+msgid "Upload aborted!"
+msgstr "Envio cancelado!"
+
+msgid "Upload failed!"
+msgstr "Envio falhado!"
+
+msgid "Upload files"
+msgstr "Enviar ficheiros"
+
+msgid "Download files"
+msgstr "Transferir ficheiros"
+
+msgid "Share"
+msgstr "Partilhar"
+
+msgid "Attach to mail"
+msgstr "Anexar à mensagem"
+
+msgid "Attaching"
+msgstr "A anexar"
+
+msgid "Creating email... Please wait!"
+msgstr "A criar mensagem... Por favor aguarde!"
+
+msgid "Edit share"
+msgstr "Editar partilha"
+
+msgid ""
+"There are no accounts added. Go to settings, Files tab and add an account"
+msgstr ""
+"Não existem contas adicionadas. Vá a Definições, aba Ficheiros e adicione "
+"uma conta"
+
+msgid "Filesize"
+msgstr "Tamanho do ficheiro"
+
+msgid "Last modified"
+msgstr "Última vez modificado"
+
+msgid "Is shared"
+msgstr "Está partilhado"
+
+msgid "File preview"
+msgstr "Pré-visualização do ficheiro"
+
+msgid "Your browser does not support previewing of audio files!"
+msgstr "O seu navegador não suporta a pré-visualização de ficheiros áudio!"
+
+msgid "Your browser does not support previewing of video files!"
+msgstr "O seu navegador não suporta a pré-visualização de ficheiros de vídeo!"
+
+msgid "d.m.Y G:i"
+msgstr "d.m.Y G:i"
+
+msgid "Folder"
+msgstr "Pasta"
+
+msgid "File ({0})"
+msgstr "Ficheiro {0}"
+
+msgid "Sort by: Path"
+msgstr "Ordenar por: Caminho"
+
+msgid "Sort by: Last modified"
+msgstr "Ordenar por: Última vez modificado"
+
+msgid "Sort by: Shared"
+msgstr "Ordenar por: Partilhado"
+
+msgid "There are no items to show in this view"
+msgstr "Não existem itens para exibir nesta vista"
+
+msgid "files selected"
+msgstr "ficheiros selecionados"
+
+msgid "{0} of {1} in use"
+msgstr "{0} de {1} em uso"
+
+msgid "Unknown account ID"
+msgstr "ID de conta desconhecido"
+
+msgid "Feature \"Quota Information\" is not supported by this backend!"
+msgstr ""
+"A funcionalidade \"Informação de quota\" não é suportada por este backend!"
+
+msgid "Feature \"Version Information\" is not supported by this backend!"
+msgstr ""
+"A funcionalidade \"Informação de versão\" não é suportada por este backend!"
+
+msgid "Feature \"OAUTH\" is not supported by this backend!"
+msgstr "A funcionalidade \"OAUTH\" não é suportada por este backend!"
+
+msgid "Moving between accounts is not implemented"
+msgstr "Mover entre contas não está implementado"
+
+msgid "Files plugin"
+msgstr "Plugin Ficheiros"
+
+msgid "Unknown type - cannot save this file to the Files backend!"
+msgstr ""
+"Tipo desconhecido - não pode guardar este ficheiro para o backend de "
+"Ficheiros!"
+
+msgid "No record given!"
+msgstr "Nenhum registo fornecido!"
+
+msgid "Fetching sharing information failed"
+msgstr "Falhou a recolher informação sobre partilha"
+
+msgid "Sharing failed"
+msgstr "Falhou a partilhar"
+
+msgid "Updating share failed"
+msgstr "Falhou a atualizar partilha"
+
+msgid "Deleting share failed"
+msgstr "Falhou a apagar partilha"
+
+msgid "With this backend, you can connect to any ftp server."
+msgstr "Com este backend, não pode ligar a nenhum servidor ftp."
+
+msgid "Files FTP Backend: "
+msgstr "Backend Ficheiros FTP: "
+
+msgid "Server address"
+msgstr "Endereço do servidor"
+
+msgid "Server port"
+msgstr "Porta do servidor"
+
+msgid "FTP user"
+msgstr "Utilizador FTP"
+
+msgid "FTP password"
+msgstr "Palavra-passe FTP"
+
+msgid "Base path"
+msgstr "Caminho base"
+
+msgid "Use SSL"
+msgstr "Usar SSL"
+
+msgid "Use passive mode"
+msgstr "Usar modo passivo"
+
+msgid "Use grommunio credentials"
+msgstr "Usar credenciais grommunio"
+
+msgid "Authentication failed"
+msgstr "Autenticação falhou"
+
+msgid "Connection failed"
+msgstr "Ligação falhou"
+
+msgid "Unparsable server response."
+msgstr "Resposta do servidor não processável."
+
+msgid "Temporary directory problems"
+msgstr "Problemas na pasta temporária"
+
+msgid "Not implemented"
+msgstr "Não implementado"
+
+msgid "Unknown error"
+msgstr "Erro desconhecido"
+
+msgid "Please contact your system administrator"
+msgstr "Por favor contacte o seu administrador de sistemas"
+
+msgid "Unauthorized. Wrong username or password."
+msgstr "Não autorizado. Utilizador ou palavra-passe errada."
+
+msgid "File server is not reachable. Please verify the connection."
+msgstr ""
+"O servidor de ficheiros não está disponível. Por favor verifique a ligação."
+
+msgid "You don't have enough permissions to view this file or folder."
+msgstr "Não tem permissões suficientes para ver este ficheiro ou pasta."
+
+msgid "This file or folder is not available anymore."
+msgstr "O ficheiro ou pasta já não se encontra disponível."
+
+msgid "Connection to the file server timed out. Please check again later."
+msgstr "A ligação ao servidor expirou. Por favor volte a tentar."
+
+msgid "This file is locked by another user. Please check again later."
+msgstr ""
+"Este ficheiro está bloqueado por outro utilizador. Por favor volte a tentar "
+"mais tarde."
+
+msgid "The request failed."
+msgstr "O pedido falhou."
+
+msgid "The file server encountered an internal problem."
+msgstr "O servidor de ficheiros encontrou um problema interno."
+
+msgid "We could not write to temporary directory."
+msgstr "Não foi possível escrever na pasta temporária."
+
+msgid "We could not retrieve list of server features."
+msgstr "Não foi possível obter a lista das funcionalidades do servidor."
+
+msgid "This function is not yet implemented."
+msgstr "Esta função ainda não foi implementada."
+
+msgid "With this backend, you can connect to any WebDAV server."
+msgstr "Com este backend pode ligar a qualquer servidor WEBDAV."
+
+msgid "Files WebDAV Backend: "
+msgstr "Backend Ficheiros WebDav: "
+
+msgid "Webdav base path"
+msgstr "Caminho webdav base"
+
+msgid "PHP-CURL is not installed"
+msgstr "PHP-CURL não está instalado"
+
+msgid "Access denied"
+msgstr "Acesso negado"
+
+msgid "Sabre error"
+msgstr "Erro do Sabre"
+
+msgid "Directory creation failed"
+msgstr "Falhou ao criar pasta"
+
+msgid "Deletion failed"
+msgstr "Falhou ao eliminar"
+
+msgid "Moving failed"
+msgstr "Falhou ao mover"
+
+msgid "File or folder not found"
+msgstr "Ficheiro ou pasta não encontrado"
+
+msgid "Copying failed"
+msgstr "Falhou ao copiar"
+
+msgid "File server is not reachable. Please verify the file server URL."
+msgstr ""
+"Servidor de ficheiros não disponível. Por favor verifique o URL do servidor "
+"de ficheiros."
+
+msgid "The file or folder is not available anymore."
+msgstr "O ficheiro ou pasta já não se encontra disponível."
+
+msgid "This file is locked by another user. Please try again later."
+msgstr ""
+"Este ficheiro está bloqueado por outro utilizador. Por favor volte a tentar "
+"mais tarde."
+
+msgid "PHP-Curl is not available."
+msgstr "PHP-Curl não está disponível."
+
+msgid "PHP-CURL not installed"
+msgstr "PHP-Curl não está instalado"
+
+msgid "Account is ready to use."
+msgstr "Conta está pronta a usar."
+
+msgid "File backend not responding. Please try again later."
+msgstr "Backend de ficheiros não está a responder. Por favor tente mais tarde."
+
+msgid "Zip file generation failed. Please inform the administrator."
+msgstr "Falha ao gerar ficheiro zip. Por favor informe o administrador."
+
+msgid "This file is no longer available. Please reload the folder."
+msgstr "Este ficheiro já não está disponível. Por favor atualize a pasta."
+
+msgid "Files: ownCloud Backend"
+msgstr "Plugin Ficheiros: Backend Owncloud"
+
+msgid "Share with user/group"
+msgstr "Partilhar com utilizador/grupo"
+
+msgid "Share via link"
+msgstr "Partilhar atravs de hiperligao"
+
+msgid "Public link"
+msgstr "Ligao pblica"
+
+msgid "Password protect"
+msgstr "Protegido por palavra-passe"
+
+msgid "Public upload"
+msgstr "Envio pblico"
+
+msgid "Expiration date"
+msgstr "Data de expirao"
+
+msgid "Loading details..."
+msgstr "A carregar detalhes..."
+
+msgid "Share Details"
+msgstr "Detalhes da partilha"
+
+msgid "Re-share"
+msgstr "Pode partilhar"
+
+msgid "Change"
+msgstr "Alterar"
+
+msgid "Share with"
+msgstr "Partilhar com"
+
+msgid "Loading users and groups"
+msgstr "A carregar utilizadores e grupos"
+
+msgid "Add users or groups to share files."
+msgstr "Adicionar utilizadores ou grupos  partilha."
+
+msgid "Type to search"
+msgstr "Escreva para procurar"
+
+msgid "No results"
+msgstr "Nenhum resultado"
+
+msgid "With this backend, you can connect to any ownCloud server."
+msgstr "Com este conector pode ligar a qualquer servidor Owncloud."
+
+msgid "Files ownCloud Backend: "
+msgstr ""
+
+msgid "php-curl is not available"
+msgstr "php-curl não está disponível"
+
+msgid "Please contact your system administrator."
+msgstr ""
+
+msgid "Short folder Ids"
+msgstr "Ids de pasta curtos"
+
+msgid "Provisioning Status"
+msgstr "Estado de aprovisionamento"
+
+msgid "Wipe Device"
+msgstr "Limpar dispositivo"
+
+msgid "version not available"
+msgstr "versão não disponível"
+
+msgid ""
+"Unauthorized to connect to grommunio-sync server. Please contact your system "
+"administrator."
+msgstr ""
+"Acesso não autorizado ao servidor grommunio-sync. Por favor contacte o seu "
+"administrador de sistemas."
+
+msgid ""
+"Unable to connect to grommunio-sync server. Please contact your system "
+"administrator."
+msgstr ""
+"Não foi possível ligar ao servidor grommunio-sync. Por favor contacte o seu "
+"administrador de sistemas."
+
+msgid ""
+"Unable to connect to the grommunio-sync server. Please contact your system "
+"administrator."
+msgstr ""
+"Não foi possível ligar ao servidor grommunio-sync. Por favor contacte o seu "
+"administrador de sistemas."
+
+msgid ""
+"Folder can not be added because there is already an additional folder with "
+"the same name"
+msgstr ""
+"A pasta não pode ser adicionada porque já existe uma pasta adicional com o "
+"mesmo nome"
+
+msgid ""
+"Folder can not be removed because there is no folder known with given folder "
+"id"
+msgstr ""
+"A pasta não pode ser removida porque não existe nenhuma pasta conhecida com "
+"o id fornecido"
+
+msgid "Device ID could not be found"
+msgstr "ID do dispositivo não foi encontrado"

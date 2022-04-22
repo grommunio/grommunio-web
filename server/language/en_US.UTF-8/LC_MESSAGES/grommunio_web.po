@@ -569,13 +569,13 @@ msgid "No item selected"
 msgstr ""
 
 msgid "No preview"
-msgstr ""
+msgstr "No preview"
 
 msgid "Right preview"
-msgstr ""
+msgstr "Right preview"
 
 msgid "Bottom preview"
-msgstr ""
+msgstr "Bottom preview"
 
 msgid "Any date"
 msgstr ""
@@ -738,7 +738,7 @@ msgid "No date"
 msgstr ""
 
 msgid "Error"
-msgstr ""
+msgstr "Error"
 
 msgid ""
 "Could not accept proposal as this meeting is not available in calendar; It "
@@ -954,7 +954,7 @@ msgid "Month"
 msgstr ""
 
 msgid "List"
-msgstr ""
+msgstr "List"
 
 msgid "Appointment"
 msgstr ""
@@ -1131,7 +1131,7 @@ msgid "Show as"
 msgstr ""
 
 msgid "Warning"
-msgstr ""
+msgstr "Warning"
 
 msgid "Attachments cannot be modified for a single occurence"
 msgstr ""
@@ -1166,7 +1166,7 @@ msgid "Delete"
 msgstr ""
 
 msgid "Add attachment"
-msgstr ""
+msgstr "Add attachment"
 
 msgid "Check names"
 msgstr ""
@@ -1932,7 +1932,7 @@ msgid "Import to"
 msgstr ""
 
 msgid "New folder"
-msgstr ""
+msgstr "New folder"
 
 msgid "Download as ZIP"
 msgstr ""
@@ -2041,7 +2041,7 @@ msgid ""
 msgstr ""
 
 msgid "Rename"
-msgstr ""
+msgstr "Rename"
 
 msgid "This is the first time you have used \"{0}\" category."
 msgstr ""
@@ -2527,7 +2527,7 @@ msgid "Regenerate new task {A} year(s) after each task is completed"
 msgstr ""
 
 msgid "Info"
-msgstr ""
+msgstr "Info"
 
 msgid "Not supported at the moment."
 msgstr ""
@@ -2637,7 +2637,7 @@ msgid "Size"
 msgstr "Size"
 
 msgid "Sort by: Size"
-msgstr ""
+msgstr "Sort by: Size"
 
 msgid "Move the message to folder..."
 msgstr ""
@@ -3777,7 +3777,7 @@ msgid "Logout"
 msgstr ""
 
 msgid "Switch view"
-msgstr ""
+msgstr "Switch view"
 
 msgid "Widgets"
 msgstr ""
@@ -4020,7 +4020,7 @@ msgid "Properties"
 msgstr ""
 
 msgid "Type"
-msgstr ""
+msgstr "Type"
 
 msgid "Description"
 msgstr ""
@@ -4715,7 +4715,7 @@ msgid "No note selected"
 msgstr ""
 
 msgid "Icons"
-msgstr ""
+msgstr "Icons"
 
 msgid "List view"
 msgstr ""
@@ -4971,7 +4971,7 @@ msgid ""
 msgstr ""
 
 msgid "Reset"
-msgstr ""
+msgstr "Reset"
 
 msgid "Reloading, Please wait."
 msgstr ""
@@ -5425,7 +5425,7 @@ msgid "Out of Office is currently activated. Would you like to turn it off?"
 msgstr ""
 
 msgid "Open Chat at start"
-msgstr ""
+msgstr "Open Chat at start"
 
 msgid "Desktop Notifications Plugin"
 msgstr ""
@@ -6454,4 +6454,579 @@ msgid "JSON Error: - %s"
 msgstr ""
 
 msgid "Some problem encountered when encoding/decoding JSON data."
+msgstr ""
+
+msgid "Add attachment from {0}"
+msgstr "Add attachment from {0}"
+
+msgid "Confirm deletion"
+msgstr "Confirm deletion"
+
+msgid "Are you sure you want to delete {0}?"
+msgstr ""
+
+msgid "Are you sure you want to delete {0} and all of its contents?"
+msgstr ""
+
+msgid "Are you sure you want to delete {0} files?"
+msgstr ""
+
+msgid "Are you sure want to delete {0} folders and all of their contents?"
+msgstr ""
+
+msgid ""
+"Are you sure want to delete the selected items and all of their contents?"
+msgstr ""
+
+msgid "Confirm overwrite"
+msgstr "Confirm overwrite"
+
+msgid "File already exists. Do you want to overwrite it?"
+msgstr "File already exists. Do you want to overwrite it?"
+
+msgid "Please enter a new name"
+msgstr "Please enter a new name"
+
+msgid "Rename record"
+msgstr ""
+
+msgid "A file name should not be empty."
+msgstr ""
+
+msgid "Rename item"
+msgstr ""
+
+msgid "A file named \"{0}\" already exists. Please enter a different name."
+msgstr ""
+
+msgid "Downloading"
+msgstr "Downloading"
+
+msgid "Download started... please wait!"
+msgstr "Download started... please wait!"
+
+msgid "Upload"
+msgstr "Upload"
+
+#, fuzzy
+msgid "At least one file is too large! Maximum allowed filesize: {0}."
+msgstr "File is too large! Maximum allowed filesize: {0}."
+
+msgid "Keep both"
+msgstr ""
+
+#, fuzzy
+msgid "Overwrite"
+msgstr "Confirm overwrite"
+
+msgid "l d/m/Y G:i"
+msgstr "l d/m/Y G:i"
+
+msgid "Never"
+msgstr "Never"
+
+msgid "Add from Files"
+msgstr ""
+
+#, fuzzy
+msgid "Add attachment from Files"
+msgstr "Add attachment from {0}"
+
+msgid "Add to Files"
+msgstr ""
+
+msgid "Upload file"
+msgstr "Upload file"
+
+msgid "Files"
+msgstr "Files"
+
+#, fuzzy
+msgid "Files Plugin"
+msgstr "Plugin"
+
+msgid "Manage Accounts"
+msgstr ""
+
+msgid "Reset Files settings"
+msgstr "Reset Files settings"
+
+msgid "Resets Files settings to their original defaults"
+msgstr "Resets Files settings to their original defaults"
+
+msgid "Are you sure to remove all settings and accounts?"
+msgstr ""
+
+msgid ""
+"Accounts marked by your administrator as \"cannot be changed\" will not be "
+"removed."
+msgstr ""
+
+#, fuzzy
+msgid ""
+"WebApp will automatically restart in order for these changes to take effect."
+msgstr ""
+"WebApp will automatically restart in order for these changes to take effect"
+
+msgid "Webapp is reloading, Please wait."
+msgstr "Webapp is reloading, Please wait."
+
+msgid "Edit Account"
+msgstr ""
+
+#, fuzzy
+msgid "Account Information"
+msgstr "Quota information"
+
+msgid "Account name"
+msgstr ""
+
+msgid "Account type"
+msgstr ""
+
+#, fuzzy
+msgid "Select backend..."
+msgstr "Select a file"
+
+msgid "Account Configuration"
+msgstr ""
+
+msgid "Update"
+msgstr ""
+
+msgid "Sort by: ID"
+msgstr "Sort by: ID"
+
+#, fuzzy
+msgid "Backend"
+msgstr "Files Backend"
+
+#, fuzzy
+msgid "Sort by: Backend"
+msgstr "Sort by: Type"
+
+msgid "Features"
+msgstr ""
+
+msgid "Shows all available features of the backend."
+msgstr ""
+
+#, fuzzy
+msgid "Show quota information"
+msgstr "Quota information"
+
+#, fuzzy
+msgid "Show version information"
+msgstr "Version information"
+
+#, fuzzy
+msgid "Share files"
+msgstr "Die Datei"
+
+msgid "Fast Down/Upload"
+msgstr ""
+
+#, fuzzy
+msgid "No account created!"
+msgstr "Directory not created!"
+
+msgid "Add Account"
+msgstr ""
+
+msgid "Remove Account"
+msgstr ""
+
+#, fuzzy
+msgid "Loading accounts"
+msgstr "Loading attachment"
+
+msgid "Do you really want to delete the account \"{0}\"?"
+msgstr ""
+
+#, fuzzy
+msgid "Quota Information"
+msgstr "Quota information"
+
+msgid "Used"
+msgstr ""
+
+msgid "Total"
+msgstr ""
+
+#, fuzzy
+msgid "Version Information"
+msgstr "Version information"
+
+msgid "Sort by: Type"
+msgstr "Sort by: Type"
+
+msgid "Filename"
+msgstr "Filename"
+
+msgid "Sort by: Filename"
+msgstr "Sort by: Filename"
+
+msgid "Loading files"
+msgstr "Loading files"
+
+msgid "The file {0} is too large!"
+msgstr "The file {0} is too large!"
+
+msgid "max"
+msgstr "max"
+
+msgid "You have to choose at least one file!"
+msgstr "You have to choose at least one file!"
+
+msgid " grommunio Web"
+msgstr "grommunio Web"
+
+msgid "Folder already exists"
+msgstr "Folder already exists"
+
+msgid "Incorrect foldername"
+msgstr "Incorrect foldername"
+
+msgid "File information"
+msgstr "File information"
+
+msgid "Select a file"
+msgstr "Select a file"
+
+msgid "Maximum upload size"
+msgstr "Maximum upload size"
+
+msgid "Browse"
+msgstr "Browse"
+
+msgid "Select upload folder"
+msgstr "Select upload folder"
+
+msgid "File \"{0}\" is too large! Maximum allowed filesize: {1}."
+msgstr "File \"{0}\" is too large! Maximum allowed filesize: {1}."
+
+msgid "Add item to Files"
+msgstr ""
+
+msgid "You have to choose a folder!"
+msgstr "You have to choose a folder!"
+
+msgid "Uploaded"
+msgstr "Uploaded"
+
+#, fuzzy
+msgid "Attachment successfully stored in Files"
+msgstr "Attachment successfully stored to {0}"
+
+msgid "Upload Failed"
+msgstr "Upload Failed"
+
+#, fuzzy
+msgid "Attachment could not be stored in Files! Error: "
+msgstr "Attachment could not be stored in {0}! Error:"
+
+#, fuzzy
+msgid "Share Files"
+msgstr "Files"
+
+#, fuzzy
+msgid "Uploading files to "
+msgstr "Uploading files"
+
+msgid "Starting upload"
+msgstr ""
+
+#, fuzzy
+msgid "Cancel upload"
+msgstr "Cancel"
+
+msgid "- seconds left"
+msgstr ""
+
+msgid " seconds left"
+msgstr ""
+
+msgid " minutes left"
+msgstr ""
+
+#, fuzzy
+msgid "Uploading: "
+msgstr "Uploading files"
+
+#, fuzzy
+msgid "Upload status unavailable... please wait."
+msgstr "Download started... please wait!"
+
+#, fuzzy
+msgid "Upload finished!"
+msgstr "Upload file"
+
+#, fuzzy
+msgid "Upload aborted!"
+msgstr "Upload Failed"
+
+#, fuzzy
+msgid "Upload failed!"
+msgstr "Upload Failed"
+
+#, fuzzy
+msgid "Upload files"
+msgstr "Upload file"
+
+#, fuzzy
+msgid "Download files"
+msgstr "Upload file"
+
+msgid "Share"
+msgstr ""
+
+msgid "Attach to mail"
+msgstr "Attach to mail"
+
+msgid "Attaching"
+msgstr "Attaching"
+
+msgid "Creating email... Please wait!"
+msgstr "Creating email... Please wait!"
+
+msgid "Edit share"
+msgstr ""
+
+msgid ""
+"There are no accounts added. Go to settings, Files tab and add an account"
+msgstr ""
+
+msgid "Filesize"
+msgstr "Filesize"
+
+msgid "Last modified"
+msgstr "Last modified"
+
+msgid "Is shared"
+msgstr ""
+
+msgid "File preview"
+msgstr "File preview"
+
+msgid "Your browser does not support previewing of audio files!"
+msgstr ""
+
+msgid "Your browser does not support previewing of video files!"
+msgstr ""
+
+msgid "d.m.Y G:i"
+msgstr "d/m/Y G:i"
+
+msgid "Folder"
+msgstr "Folder"
+
+msgid "File ({0})"
+msgstr "File ({0})"
+
+msgid "Sort by: Path"
+msgstr "Sort by: Path"
+
+msgid "Sort by: Last modified"
+msgstr "Sort by: Last modified"
+
+#, fuzzy
+msgid "Sort by: Shared"
+msgstr "Sort by: Size"
+
+msgid "There are no items to show in this view"
+msgstr "There are no items to show in this view"
+
+#, fuzzy
+msgid "files selected"
+msgstr "Store selected file"
+
+#, fuzzy
+msgid "{0} of {1} in use"
+msgstr "{0} of disk space is used."
+
+msgid "Unknown account ID"
+msgstr ""
+
+msgid "Feature \"Quota Information\" is not supported by this backend!"
+msgstr ""
+
+msgid "Feature \"Version Information\" is not supported by this backend!"
+msgstr ""
+
+msgid "Feature \"OAUTH\" is not supported by this backend!"
+msgstr ""
+
+msgid "Moving between accounts is not implemented"
+msgstr ""
+
+msgid "Files plugin"
+msgstr ""
+
+msgid "Unknown type - cannot save this file to the Files backend!"
+msgstr ""
+
+msgid "No record given!"
+msgstr ""
+
+msgid "Fetching sharing information failed"
+msgstr ""
+
+#, fuzzy
+msgid "Sharing failed"
+msgstr "Loading failed"
+
+#, fuzzy
+msgid "Updating share failed"
+msgstr "Loading failed"
+
+#, fuzzy
+msgid "Deleting share failed"
+msgstr "Creation failed"
+
+msgid "With this backend, you can connect to any ftp server."
+msgstr ""
+
+msgid "Files FTP Backend: "
+msgstr ""
+
+msgid "Server address"
+msgstr "Server address"
+
+msgid "Server port"
+msgstr "Server port"
+
+msgid "FTP user"
+msgstr ""
+
+#, fuzzy
+msgid "FTP password"
+msgstr "Password"
+
+#, fuzzy
+msgid "Base path"
+msgstr "Please wait"
+
+msgid "Use SSL"
+msgstr ""
+
+msgid "Use passive mode"
+msgstr ""
+
+#, fuzzy
+msgid "Use grommunio credentials"
+msgstr "Use grommunio credentials for authentication"
+
+msgid "Authentication failed"
+msgstr ""
+
+msgid "Connection failed"
+msgstr ""
+
+msgid "Unparsable server response."
+msgstr ""
+
+msgid "Temporary directory problems"
+msgstr ""
+
+msgid "Not implemented"
+msgstr ""
+
+#, fuzzy
+msgid "Unknown error"
+msgstr "Unknown"
+
+msgid "Please contact your system administrator"
+msgstr ""
+
+msgid "Unauthorized. Wrong username or password."
+msgstr ""
+
+msgid "File server is not reachable. Please verify the connection."
+msgstr ""
+
+msgid "You don't have enough permissions to view this file or folder."
+msgstr ""
+
+msgid "This file or folder is not available anymore."
+msgstr ""
+
+msgid "Connection to the file server timed out. Please check again later."
+msgstr ""
+
+msgid "This file is locked by another user. Please check again later."
+msgstr ""
+
+msgid "The request failed."
+msgstr ""
+
+msgid "The file server encountered an internal problem."
+msgstr ""
+
+msgid "We could not write to temporary directory."
+msgstr ""
+
+msgid "We could not retrieve list of server features."
+msgstr ""
+
+msgid "This function is not yet implemented."
+msgstr ""
+
+msgid "With this backend, you can connect to any WebDAV server."
+msgstr ""
+
+msgid "Files WebDAV Backend: "
+msgstr ""
+
+msgid "Webdav base path"
+msgstr ""
+
+msgid "PHP-CURL is not installed"
+msgstr ""
+
+msgid "Access denied"
+msgstr ""
+
+msgid "Sabre error"
+msgstr ""
+
+msgid "Directory creation failed"
+msgstr ""
+
+msgid "Deletion failed"
+msgstr ""
+
+msgid "Moving failed"
+msgstr ""
+
+msgid "File or folder not found"
+msgstr ""
+
+msgid "Copying failed"
+msgstr ""
+
+msgid "File server is not reachable. Please verify the file server URL."
+msgstr ""
+
+msgid "The file or folder is not available anymore."
+msgstr ""
+
+msgid "This file is locked by another user. Please try again later."
+msgstr ""
+
+msgid "PHP-Curl is not available."
+msgstr ""
+
+msgid "PHP-CURL not installed"
+msgstr ""
+
+msgid "Account is ready to use."
+msgstr ""
+
+msgid "File backend not responding. Please try again later."
+msgstr ""
+
+msgid "Zip file generation failed. Please inform the administrator."
+msgstr ""
+
+msgid "This file is no longer available. Please reload the folder."
 msgstr ""

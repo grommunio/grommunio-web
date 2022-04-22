@@ -6116,6 +6116,8 @@ msgid ""
 "Do you really want to wipe your device?\n"
 " Enter your password to confirm."
 msgstr ""
+"Möchten Sie wirklich Ihre Gerät löschen?\n"
+" Bitte geben Sie Ihr Passwort zur Bestätigung ein."
 
 msgid "Add meeting"
 msgstr "Meeting hinzufügen"
@@ -6326,19 +6328,24 @@ msgstr "Aktuelle Passwörter stimmen nicht überein."
 msgid ""
 "Your password is wrong or you have insufficent permission to change password"
 msgstr ""
-"Das Passwort ist falsch oder Sie haben nicht genügend Berechtigung um Passwörter zu ändern"
+"Das Passwort ist falsch oder Sie haben nicht genügend Berechtigung um "
+"Passwörter zu ändern"
 
 msgid "Password is not changed."
 msgstr "Passwort ist unverändert."
 
 msgid "Error changing password. Please contact the system administrator."
-msgstr "Fehler beim Ändern des Passwortes. Bitte kontaktieren Sie Ihren Systemadministrator."
+msgstr ""
+"Fehler beim Ändern des Passwortes. Bitte kontaktieren Sie Ihren "
+"Systemadministrator."
 
 msgid "Password has been changed successfully."
 msgstr "Passwort wurde erfolgreich geändert."
 
 msgid "Can't add data to bus, same action type is present in bus"
-msgstr "Konnte Daten nicht zum Bus hinzufügen, selbe Aktion ist auf dem Bus vorhanden."
+msgstr ""
+"Konnte Daten nicht zum Bus hinzufügen, selbe Aktion ist auf dem Bus "
+"vorhanden."
 
 msgid "Response data requested from bus but it doesn't have any data."
 msgstr "Antwortdaten vom Bus angefragt aber es enthält keine Daten."
@@ -6350,7 +6357,8 @@ msgstr "Unbekanntes Modul '%s' mit id '%s'"
 msgid ""
 "Server encountered some problem, so it was not able to handle the request."
 msgstr ""
-"Server ist auf ein Problem gestoßen, damit konnte die Anfrage nicht verarbeitet werden."
+"Server ist auf ein Problem gestoßen, damit konnte die Anfrage nicht "
+"verarbeitet werden."
 
 #, php-format
 msgid "Unknown notifier '%s'"
@@ -6458,7 +6466,8 @@ msgid "Task Request"
 msgstr "Aufgabenanfrage"
 
 msgid "Could not find message, either it has been moved or deleted."
-msgstr "Konnte Nachricht nicht finden, entweder wurde Sie verschoben oder gelöscht."
+msgstr ""
+"Konnte Nachricht nicht finden, entweder wurde Sie verschoben oder gelöscht."
 
 msgid "Request is not available."
 msgstr "Anfrage ist nicht verfügbar."
@@ -6598,8 +6607,8 @@ msgid ""
 "Contact information could not be displayed because the server had trouble "
 "retrieving the information."
 msgstr ""
-"Kontaktinformation konnte nicht dargestellt werden da der Server Probleme hatte, "
-"die Information einzuholen."
+"Kontaktinformation konnte nicht dargestellt werden da der Server Probleme "
+"hatte, die Information einzuholen."
 
 msgid "Could not handle this type of object."
 msgstr "Konnte diese Form des Objekts nicht verarbeiten."
@@ -6611,13 +6620,17 @@ msgid "Error in search, please try again"
 msgstr "Fehler in der Suche, bitte versuchen Sie es erneut"
 
 msgid "Unable to perform search query, no permissions to create search folder."
-msgstr "Fehler die Suchanfrage durchzuführen, keine Berechtigungen um Suchverzeichnisse anzulegen."
+msgstr ""
+"Fehler die Suchanfrage durchzuführen, keine Berechtigungen um "
+"Suchverzeichnisse anzulegen."
 
 msgid "Unable to perform search query, search folder not found."
 msgstr "Fehler die Suchanfrage durchzuführen, Suchverzeichnis nicht gefunden."
 
 msgid "Unable to perform search query, store might not support searching."
-msgstr "Fehler die Suchanfrage durchzuführen, Speicher könnte Suche nicht unterstützen."
+msgstr ""
+"Fehler die Suchanfrage durchzuführen, Speicher könnte Suche nicht "
+"unterstützen."
 
 msgid "Error in creating search folder."
 msgstr "Fehler in der Erstellung des Suchverzeichnisses."
@@ -6626,7 +6639,8 @@ msgid "Could not open occurrence."
 msgstr "Konnte Ereignis nicht öffnen."
 
 msgid "Could not open occurrence, specific occurrence is probably deleted."
-msgstr "Konnte Eregnis nicht öffnen, spezifisches Ereignis wurde vermutlich gelöscht."
+msgstr ""
+"Konnte Eregnis nicht öffnen, spezifisches Ereignis wurde vermutlich gelöscht."
 
 msgid "a meeting request"
 msgstr "eine Terminanfrage"
@@ -6653,33 +6667,34 @@ msgid ""
 "administrator about giving you permission to schedule '%s'."
 msgstr ""
 "Sie haben '%S' als Ressource markiert. Sie können keinen Termin mit '%' "
-"erstellen, da Sie nicht die notwendigen Berechtigungen für das Konto besitzen. Entweder"
-"fügen Sie den Namen als erforderlichen oder optionalen Teilnehmer hinzu oder sprechen "
-"mit Ihrem Administrator um die Erteilung der Berechtigung '%s' zu planen."
+"erstellen, da Sie nicht die notwendigen Berechtigungen für das Konto "
+"besitzen. Entwederfügen Sie den Namen als erforderlichen oder optionalen "
+"Teilnehmer hinzu oder sprechen mit Ihrem Administrator um die Erteilung der "
+"Berechtigung '%s' zu planen."
 
 #, php-format
 msgid ""
 "'%s' has declined your meeting because '%s' does not automatically accept "
 "meeting requests."
 msgstr ""
-"'%s' hat Ihre Terminanfrage abgelehnt da '%s' nicht automatisch Terminanfragen "
-"akzeptiert."
+"'%s' hat Ihre Terminanfrage abgelehnt da '%s' nicht automatisch "
+"Terminanfragen akzeptiert."
 
 #, php-format
 msgid ""
 "'%s' has declined your meeting because it is recurring. You must book each "
 "meeting separately with this resource."
 msgstr ""
-"'%s' hat Ihre Terminanfrage abgelehnt da es ein wiederholender Termin ist. Sie müssen jede Terminanfrage "
-"mit dieser Ressource separat buchen."
+"'%s' hat Ihre Terminanfrage abgelehnt da es ein wiederholender Termin ist. "
+"Sie müssen jede Terminanfrage mit dieser Ressource separat buchen."
 
 #, php-format
 msgid ""
 "'%s' is already booked for this specified time. You must use another time or "
 "find another resource."
 msgstr ""
-"'%s' ist bereits gebucht zu der spezifizierten Zeit. Sie müssen entweder eine andere Zeit oder "
-"eine andere Ressource aufsuchen."
+"'%s' ist bereits gebucht zu der spezifizierten Zeit. Sie müssen entweder "
+"eine andere Zeit oder eine andere Ressource aufsuchen."
 
 msgid "Meeting was not scheduled."
 msgstr "Termin wurde nicht geplant."
@@ -6729,13 +6744,15 @@ msgid "Could not delete folder."
 msgstr "Konnte Verzeichnis nicht löschen."
 
 msgid "You have insufficient privileges to copy folder."
-msgstr "Sie haben nicht genügend Berechtigungen um das Verzeichnis zu kopieren."
+msgstr ""
+"Sie haben nicht genügend Berechtigungen um das Verzeichnis zu kopieren."
 
 msgid "Could not copy folder."
 msgstr "Konnte Verzeichnis nicht kopieren."
 
 msgid "You have insufficient privileges to move this folder."
-msgstr "Sie haben nicht genügend Berechtigungen um das Verzeichnis zu verschieben."
+msgstr ""
+"Sie haben nicht genügend Berechtigungen um das Verzeichnis zu verschieben."
 
 msgid "Could not move folder."
 msgstr "Konnte Verzeichnis nicht verschieben."
@@ -6752,28 +6769,35 @@ msgstr "Konnte die Aktion nicht korrekt ausführen."
 msgid ""
 "A favorite folder with this name already exists, please use another name."
 msgstr ""
-"Ein Verzeichnis mit diesem Namen existiert bereits, bitte verwenden Sie einen anderen Namen."
+"Ein Verzeichnis mit diesem Namen existiert bereits, bitte verwenden Sie "
+"einen anderen Namen."
 
 msgid "Could not add folder to favorites."
 msgstr "Konnte Verzeichnis nicht zu Favoriten hinzufügen."
 
 msgid "You have insufficient privileges to set permissions for this folder."
-msgstr "Sie haben nicht genügend Berechtigungen um Berechtigungen auf dieses Verzeichnis zu setzen."
+msgstr ""
+"Sie haben nicht genügend Berechtigungen um Berechtigungen auf dieses "
+"Verzeichnis zu setzen."
 
 msgid "Could not set folder permissions."
 msgstr "Konnte Verzeichnisberechtigungen nicht setzen."
 
 msgid "You have insufficient privileges to rename this folder."
-msgstr "Sie haben nicht genügend Berechtigungen um das Verzeichnis umzubenennen."
+msgstr ""
+"Sie haben nicht genügend Berechtigungen um das Verzeichnis umzubenennen."
 
 msgid "A folder with this name already exists. Use another name."
-msgstr "Ein Verzeichnis mit diesem Namen existiert bereits. Verwenden Sie einen anderen Namen."
+msgstr ""
+"Ein Verzeichnis mit diesem Namen existiert bereits. Verwenden Sie einen "
+"anderen Namen."
 
 msgid "Could not rename folder."
 msgstr "Konnte Verzeichnis nicht umbenennen."
 
 msgid "You have insufficient privileges to create this folder."
-msgstr "Sie haben nicht genügend Berechtigungen um das Verzeichnis zu erstellen."
+msgstr ""
+"Sie haben nicht genügend Berechtigungen um das Verzeichnis zu erstellen."
 
 msgid "Could not create folder."
 msgstr "Konnte Verzeichnis nicht erstellen"
@@ -6790,8 +6814,9 @@ msgid ""
 "can set these using the 'permissions'-tab of the folder properties (right "
 "click the %1$s folder > properties > permissions)."
 msgstr ""
-"Sie haben nicht genügend Berechtigungen um dieses %1$s Verzeichnis zu öffnen. "
-"Der Eigentümer kann diese innerhalb des Berechtigungs-Tab einstellen (Rechtsklick auf %1$s Verzeichnis -> Eigenschaften -> Berechtigung)."
+"Sie haben nicht genügend Berechtigungen um dieses %1$s Verzeichnis zu "
+"öffnen. Der Eigentümer kann diese innerhalb des Berechtigungs-Tab einstellen "
+"(Rechtsklick auf %1$s Verzeichnis -> Eigenschaften -> Berechtigung)."
 
 msgid "unknown"
 msgstr "unbekannt"
@@ -6809,8 +6834,8 @@ msgid ""
 "Could not find message, either it has been moved or deleted or you don't "
 "have access to open this message."
 msgstr ""
-"Konnte die Nachricht nicht finden, entweder wurde Sie verschoben, gelöscht oder Sie"
-"haben nicht das Recht, diese Nachricht zu öffnen."
+"Konnte die Nachricht nicht finden, entweder wurde Sie verschoben, gelöscht "
+"oder Siehaben nicht das Recht, diese Nachricht zu öffnen."
 
 # 78%
 msgid "Could not open message."
@@ -6935,7 +6960,9 @@ msgid "The following recipient(s) could not be reached"
 msgstr "Der/die folgenden Empfänger konnten nicht erreicht werden"
 
 msgid "You have insufficient privileges to see the contents of this folder."
-msgstr "Sie haben nicht genügend Berechtigungen um die Inhalte diesen Verzeichnisses anzuzeigen."
+msgstr ""
+"Sie haben nicht genügend Berechtigungen um die Inhalte diesen Verzeichnisses "
+"anzuzeigen."
 
 msgid "Could not load the contents of this folder."
 msgstr "Konnte den Inhalt des Ordners nicht laden."
@@ -6943,7 +6970,8 @@ msgstr "Konnte den Inhalt des Ordners nicht laden."
 msgid ""
 "You have insufficient privileges to perform search operation in this folder."
 msgstr ""
-"Sie haben nicht genügend Berechtigungen um Suchanfragen in diesem Verzeichnis auszuführen."
+"Sie haben nicht genügend Berechtigungen um Suchanfragen in diesem "
+"Verzeichnis auszuführen."
 
 msgid "Could not update search results."
 msgstr "Konnte Suchergebnisse nicht aktualisieren."
@@ -6952,7 +6980,8 @@ msgid "Could not stop search operation."
 msgstr "Konnte Suchoperation nicht anhalten."
 
 msgid "You have insufficient privileges to save this message."
-msgstr "Sie haben nicht genügend Berechtigungen um diese Nachricht zu speichern."
+msgstr ""
+"Sie haben nicht genügend Berechtigungen um diese Nachricht zu speichern."
 
 msgid "Could not save message."
 msgstr "Konnte Nachricht nicht speichern."
@@ -6964,31 +6993,36 @@ msgid "Could not delete message."
 msgstr "Konnte Nachricht nicht löschen."
 
 msgid "You have insufficient privileges to cancel this Meeting Request."
-msgstr "Sie haben nicht genügend Berechtigungen um diese Terminanfrage abzusagen."
+msgstr ""
+"Sie haben nicht genügend Berechtigungen um diese Terminanfrage abzusagen."
 
 msgid "Could not cancel Meeting Request."
 msgstr "Konnte Terminanfrage nicht absagen."
 
 msgid "You have insufficient privileges to decline this Meeting Request."
-msgstr "Sie haben nicht genügend Berechtigungen um diese Terminanfrage abzulehnen."
+msgstr ""
+"Sie haben nicht genügend Berechtigungen um diese Terminanfrage abzulehnen."
 
 msgid "Could not decline Meeting Request."
 msgstr "Konnte Terminanfrage nicht ablehnen."
 
 msgid "You have insufficient privileges to accept this Meeting Request."
-msgstr "Sie haben nicht genügend Berechtigungen um diese Terminanfrage zuzusagen."
+msgstr ""
+"Sie haben nicht genügend Berechtigungen um diese Terminanfrage zuzusagen."
 
 msgid "Could not accept Meeting Request."
 msgstr "Konnte Terminanfrage nicht akzeptieren."
 
 msgid "You have insufficient privileges to cancel Meeting Request invitation."
-msgstr "Sie haben nicht genügend Berechtigungen um diese Termineinladung abbrechen."
+msgstr ""
+"Sie haben nicht genügend Berechtigungen um diese Termineinladung abbrechen."
 
 msgid "Could not cancel Meeting Request invitations."
 msgstr "Konnte Termineinladung nicht abbrechen."
 
 msgid "You can not continue search operation on this folder."
-msgstr "Sie können keine weiteren Suchoperationen auf diesem Verzeichnis durchführen."
+msgstr ""
+"Sie können keine weiteren Suchoperationen auf diesem Verzeichnis durchführen."
 
 msgid "Error in search, please try again."
 msgstr "Fehler in der Suche, bitte versuchen Sie es erneut."
@@ -6997,7 +7031,8 @@ msgid "Error in distribution list expansion."
 msgstr "Fehler in der Auflösung der Verteilerliste."
 
 msgid "The message store has exceeded its hard quota limit."
-msgstr "Der Nachrichtenspeicher hat das harte Speicherplatzquota überschritten."
+msgstr ""
+"Der Nachrichtenspeicher hat das harte Speicherplatzquota überschritten."
 
 msgid ""
 "To reduce the amount of data in this message store, select some items that "
@@ -7005,7 +7040,8 @@ msgid ""
 msgstr ""
 
 msgid "The message store has exceeded its soft quota limit."
-msgstr "Der Nachrichtenspeicher hat das weiche Speicherplatzquota überschritten."
+msgstr ""
+"Der Nachrichtenspeicher hat das weiche Speicherplatzquota überschritten."
 
 msgid "Could not process request data properly."
 msgstr "Konnte die Abfragedaten nicht verarbeiten."
@@ -7015,10 +7051,12 @@ msgid "Unknown action type specified - %s"
 msgstr "Unbekannter Aktionstyp spezifiziert - %s"
 
 msgid "Cannot snooze the reminder. You may be reminded again."
-msgstr "Konnte die Erinnerungen nicht schließen. Sie könnten erneut erinnert werden."
+msgstr ""
+"Konnte die Erinnerungen nicht schließen. Sie könnten erneut erinnert werden."
 
 msgid "Cannot dismiss the reminder. You may be reminded again."
-msgstr "Konnte die Erinnerungen nicht verwerfen. Sie könnten erneut erinnert werden."
+msgstr ""
+"Konnte die Erinnerungen nicht verwerfen. Sie könnten erneut erinnert werden."
 
 msgid "You have insufficient privileges to perform this action."
 msgstr "Sie haben nicht genügend Berechtigungen um diese Aktion auszuführen."
@@ -7027,7 +7065,8 @@ msgid "Could not resolve user."
 msgstr "Konnte Benutzer nicht auflösen."
 
 msgid "Setting mail filters on the stores of other users is not allowed."
-msgstr "Das setzen von Mailfilter auf andere Benutzerspeicher ist nicht erlaubt."
+msgstr ""
+"Das setzen von Mailfilter auf andere Benutzerspeicher ist nicht erlaubt."
 
 msgid "Untitled rule"
 msgstr "Regel ohne Titel"
@@ -7101,3 +7140,1054 @@ msgstr "JSON Fehler - %s"
 
 msgid "Some problem encountered when encoding/decoding JSON data."
 msgstr "Ein Problem ist bei der En-/Dekodierung von JSON Daten aufgetreten."
+
+msgid "Change passphrase"
+msgstr "Passwort ändern"
+
+msgid "Old passphrase"
+msgstr "Bisheriges Passwort"
+
+msgid "Wrong passphrase. Please try again"
+msgstr "Falsches Passwort. Bitte probieren Sie erneut"
+
+msgid "New passphrase"
+msgstr "Neues Passwort"
+
+msgid "Confirm new passphrase"
+msgstr "Neues Passwort bestätigen"
+
+msgid "The passphrases don't match. Please try again"
+msgstr "Die Passphrasen stimmen nicht überein. Bitte versuchen Sie es erneut"
+
+msgid "S/MIME Message"
+msgstr "S/MIME Nachricht"
+
+msgid "Passphrase changed succesfully"
+msgstr "Passphrase erfolgreich geändert"
+
+msgid "S/MIME Passphrase"
+msgstr "S/MIME Passwort"
+
+msgid "Submit"
+msgstr "Okay"
+
+msgid "Certificate passphrase"
+msgstr "Passwort des Zertifikates"
+
+msgid "The passphrase you typed is incorrect. Please try again."
+msgstr ""
+"Die von Ihnen eingegebene Passphrase ist falsch. Bitte versuchen Sie es "
+"erneut."
+
+msgid "No certificates imported, please upload your private certificate"
+msgstr ""
+"Keine Zertifikate verfügbar, bitte laden Sie Ihr persönliches Zertifikat hoch"
+
+msgid "Valid from"
+msgstr "Gültig ab"
+
+msgid "Expires"
+msgstr "Läuft aus"
+
+msgid "Loading certificates"
+msgstr "Zertifikate werden geladen"
+
+msgid "S/MIME Plugin"
+msgstr "S/MIME-Plugin"
+
+msgid "Please select a certificate."
+msgstr "Bitte wählen Sie ein Zertifikat."
+
+msgid ""
+"Do you really want to remove your private certificate? If you remove your "
+"certificate you will not be able to sign or decrypt S/MIME emails."
+msgstr ""
+"Möchten Sie Ihr privates Zertifikat wirklich entfernen? Wenn Sie es "
+"entfernen, werden Sie keine S/MIME-Nachrichten mehr entschlüsseln oder "
+"signieren können."
+
+msgid "Certificate details"
+msgstr "Details zum Zertifikat"
+
+msgid ""
+"Below you can view and delete public & private certificate(s) stored on the "
+"server."
+msgstr ""
+"Hier können Sie auf dem Server gespeicherte öffentliche und private "
+"Zertifikate ansehen und löschen."
+
+msgid "Filter on Email"
+msgstr "Nach E-Mail filtern"
+
+msgid "Public & Private certificates"
+msgstr "Öffentliche & Private Zertifikate"
+
+msgid "S/MIME"
+msgstr "S/MIME"
+
+msgid "You don't have a valid certificate corresponding to your account"
+msgstr "Sie haben kein Ihrem Benutzer zugeordnetes valides Zertifikat"
+
+msgid "Personal certificate"
+msgstr "Persönliches Zertifikat"
+
+msgid "You have a valid certificate corresponding to your account"
+msgstr "Sie haben ein valides Zertifikat, das zu Ihrem Account passt"
+
+msgid "Upload your certificate"
+msgstr "Zertifikat hochladen"
+
+msgid ""
+"Below you can upload your private certificate in PKCS#12 format. The WebApp "
+"only accepts certificates which are valid and only stores one private "
+"certificate on the server."
+msgstr ""
+"Hier können Sie Ihr privates Zertifikat im PKCS#12-Format hochladen. Die "
+"WebApp akzeptiert nur valide Zertifikate und speichert nur ein privates "
+"Zertifikat auf dem Server."
+
+msgid "Private certificate"
+msgstr "Privates Zertifikat"
+
+msgid "Upload"
+msgstr "Hochladen"
+
+msgid "You must fill in the certificate passphrase to upload your certificate."
+msgstr ""
+"Sie müssen die Passphrase für Ihr Zertifikat eingeben um es hochzuladen."
+
+msgid "You must first select a valid private certificate in PKCS#12 format."
+msgstr "Sie müssen zuerst ein gültiges Zertifikat im PKCS#12 Format auswählen."
+
+msgid "Sign"
+msgstr "Signieren"
+
+msgid "Sign message"
+msgstr "Nachricht signieren"
+
+msgid ""
+"Ensure the authenticity of the message by adding a digital signature to this "
+"message. Any changes to the message will invalidate the signature."
+msgstr ""
+"Stellt die Echtheit der Nachricht sicher, indem eine digitale Signatur "
+"hinzugefügt wird. Nur für die unveränderte Nachricht ist die Signatur valid."
+
+msgid "Encrypt"
+msgstr "Verschlüsseln"
+
+msgid "Encrypt message"
+msgstr "Nachricht verschlüsseln"
+
+msgid ""
+"Ensure the privacy of the message by encrypting its contents. Only the "
+"recipient of the message will be able to open it."
+msgstr ""
+"Transportiert die Nachricht vertraulich, indem sie verschlüsselt wird. Nur "
+"der Empfänger wird die Nachricht öffnen können."
+
+msgid "What's going on with my email?"
+msgstr "Was geschieht mit meiner E-Mail?"
+
+msgid ""
+"WebApp can verify digital signatures of emails. A successful verification "
+"reassures you that the message has not been tampered with and validates the "
+"identity of the sender."
+msgstr ""
+"Die WebApp kann digitale Signaturen verifizieren. Eine erfolgreiche "
+"Verifizierung stellt sicher, dass die E-Mail nach dem Versand nicht "
+"verändert wurde und wirklich vom angegebenen Absender kommt."
+
+msgid ""
+"You are seeing this message because the verification of the digital signature"
+msgstr ""
+"Sie sehen diese Nachricht, weil die Verifikation der digitalen Signatur"
+
+msgid " has failed"
+msgstr " hat nicht funktioniert"
+
+msgid " for this message."
+msgstr " für diese Nachricht."
+
+msgid "What caused this issue?"
+msgstr "Was ist der Grund dafür?"
+
+msgid "What should I do?"
+msgstr "Was kann ich machen?"
+
+msgid ""
+"You can continue to work. However, you should keep in mind that the identity "
+"and the authenticity of the message content could not be verified."
+msgstr ""
+"Sie können weiterarbeiten. Aber Sie sollten in Erinnerung behalten, das die "
+"Identität des Senders und die Echtheit der Nachricht nicht verifiziert "
+"werden konnten."
+
+msgid ""
+"You can contact your helpdesk or system administrator if you are not sure "
+"what to do next."
+msgstr ""
+"Bitte kontaktieren Sie Ihre Supporthotline oder den Systemadministrator, "
+"wenn Sie sich unsicher sind."
+
+msgid ""
+"WebApp can verify digital signatures of emails. A successful verification "
+"reassures you "
+msgstr ""
+"Die WebApp kann digitale Signaturen verifizieren. Eine erfolgreiche "
+"Verifizierung stellt sicher, "
+
+msgid ""
+"that the message has not been tampered with and validates the identity of "
+"the sender."
+msgstr ""
+"dass die E-Mail nach dem Versand nicht verändert wurde und wirklich vom "
+"angegebenen Absender kommt."
+
+msgid ""
+"The verification of the digital signature was successful for this email "
+"message."
+msgstr ""
+"Die digitale Signatur dieser Nachricht konnte erfolgreich verifiziert werden."
+
+msgid "WebApp could not find a public certificate for the recipient."
+msgstr ""
+"Die WebApp kann kein öffentliches Zertifikat für diesen Empfänger finden."
+
+msgid ""
+"The identity of the sender and authenticity of the message content have been "
+"verified, but the certificate used to sign the message expired on [d-m-Y]."
+msgstr ""
+"Die Identität des Senders und die Echtheit der Nachricht wurden verifiziert, "
+"das dafür genutzte Zertifikat ist jedoch am [d.m.Y] ausgelaufen."
+
+msgid "The digital signature could not be verified for unknown reasons."
+msgstr ""
+"Die digitale Signatur konnte aus unbekanntem Grund nicht bestätigt werden."
+
+msgid ""
+"The digital certificate used to sign this message has been revoked (i.e. the "
+"sender has marked it as compromised)"
+msgstr ""
+"Das Zertifikat mit dem diese Nachricht signiert wurde, ist widerrufen "
+"worden. (z.B. wenn der Absender es als kompromittiert markiert hat)"
+
+msgid ""
+"The verification service of the certificate authority that signed the "
+"sender's certificate is not available. The validity of the certificate could "
+"not be verified."
+msgstr ""
+"Der Überprüfungsdienst der Zertifizierungsstelle, die das Zertifikat des "
+"Absenders signiert hat, ist nicht verfügbar. Die Gültigkeit des Zertifikats "
+"konnte nicht überprüft werden."
+
+msgid ""
+"The revocation status of the digital certificate used to sign this email is "
+"unknown (Server is unavaliable or certificate does not support OCSP). The "
+"validity of the certificate could not be verified."
+msgstr ""
+"Der Sperrstatus des zum Signieren dieser E-Mail verwendeten digitalen "
+"Zertifikats ist unbekannt (Server ist nicht verfügbar oder Zertifikat "
+"unterstützt kein OCSP). Die Gültigkeit des Zertifikats konnte nicht "
+"überprüft werden."
+
+msgid ""
+"The revocation status of the digital certificate used to sign this email is "
+"disabled (OCSP). The validity of the certificate could not be verified."
+msgstr ""
+"Der Sperrstatus des zum Signieren dieser E-Mail verwendeten digitalen "
+"Zertifikats ist deaktiviert (OCSP). Die Gültigkeit des Zertifikats konnte "
+"nicht überprüft werden."
+
+msgid "The certificate verification server (OCSP) is temporarly offline."
+msgstr "Der Zertifikatsüberprüfungsserver (OCSP) ist vorübergehend offline."
+
+msgid "Sender is removed from the server."
+msgstr "Der Absender wurde vom Server entfernt."
+
+msgid "Signature verified succesfully"
+msgstr "Die Signatur wurde erfolgreich überprüft"
+
+msgid "Could not verify signature, missing public certificate"
+msgstr ""
+"Die Signatur konnte nicht überprüft werden, weil das öffentliche Zertifikat "
+"fehlt"
+
+msgid "Signature verification succesfull, but certificate is expired"
+msgstr ""
+"Die Signatur wurde erfolgreich überprüft, aber das Zertifikat ist abgelaufen"
+
+msgid "Signature could not be verified"
+msgstr "Die Signatur konnte nicht überprüft werden"
+
+msgid "Certificate has been revoked"
+msgstr "Das Zertifikat wurde widerrufen"
+
+msgid "Verification with Certificate Authority failed"
+msgstr "Überprüfung bei der Zertifizierungsstelle fehlgeschlagen"
+
+msgid "Message decrypted succesfully"
+msgstr "Nachricht wurde erfolgreich entschlüsselt"
+
+msgid "Message decryption failed"
+msgstr "Entschlüsseln der Nachricht ist fehlgeschlagen"
+
+msgid "Please"
+msgstr "Bitte"
+
+msgid "click here"
+msgstr "klicken Sie hier"
+
+msgid "to unlock your certificate"
+msgstr "um Ihr Zertifikat zu entsperren"
+
+msgid "Cannot determine revocation status of certificate"
+msgstr "Sperrstatus des Zertifikats kann nicht ermittelt werden"
+
+msgid "Signature verified (OCSP disabled)"
+msgstr "Signatur überprüft (OCSP deaktiviert)"
+
+msgid "Unable to decrypt this message. Certificate does not match"
+msgstr ""
+"Die Nachricht kann nicht entschlüsselt werden. Das Zertifikat stimmt nicht "
+"überein"
+
+msgid "Verification failed. User is removed from the server."
+msgstr "Überprüfung fehlgeschlagen. Benutzer wird vom Server entfernt."
+
+msgid "No certificate avaliable"
+msgstr "Kein Zertifikat verfügbar"
+
+msgid "Private certificate is not valid yet, unable to sign email"
+msgstr ""
+"Das persönliche Zertifikat ist noch nicht gültig, die Nachricht konnte nicht "
+"signiert werden"
+
+msgid "Private certificate has been expired, unable to sign email"
+msgstr ""
+"Das persönliche Zertifikat ist abgelaufen, Nachricht konnte nicht signiert "
+"werden"
+
+msgid "Private certificate does not match email address"
+msgstr "Persönliches Zertifikat stimmt nicht mit der E-Mail-Adresse überein"
+
+msgid "Missing public certificates for the following recipients: "
+msgstr "Für die folgenden Empfänger fehlen die Zertifikate: "
+
+msgid ". Please contact your system administrator for details"
+msgstr ". Bitte kontaktieren Sie Ihren System-Administrator für Details"
+
+msgid ""
+"Your public certificate is not installed. Without this certificate, you will "
+"not be able to read encrypted messages you have sent to others."
+msgstr ""
+"Ihr öffentliches Zertifikat ist nicht installiert. Ohne dieses Zertifikat "
+"können Sie keine verschlüsselten Nachrichten lesen, die Sie an andere "
+"gesendet haben."
+
+msgid "Certificate is already stored on the server"
+msgstr "Das Zertifikat ist bereits auf dem Server gespeichert"
+
+msgid "New certificate uploaded"
+msgstr "Neues Zertifikat hochgeladen"
+
+msgid "Certificate uploaded"
+msgstr "Zertifikat hochgeladen"
+
+msgid "Unable to decrypt certificate"
+msgstr "Entschlüsseln des Zertifikats nicht möglich"
+
+msgid "Private key can't be used to sign email"
+msgstr "Privater Schlüssel kann nicht zum signieren verwendet werden"
+
+msgid "Certificate email address doesn't match WebApp account "
+msgstr ""
+"E-Mail-Adresse des Zertifikats stimmt nicht mit der von WebApp überein "
+
+msgid "Certificate was expired on "
+msgstr "Zertifikat ist abgelaufen am "
+
+msgid "Certificate has not been imported"
+msgstr "Zertifikat wurde nicht importiert"
+
+msgid "Certificate is not yet valid "
+msgstr "Zertifikat ist noch nicht gültig "
+
+msgid "Certificate is revoked"
+msgstr "Zertifikat wurde widerrufen"
+
+msgid "Unable to read public certificate"
+msgstr "Kann öffentliches Zertifikat nicht lesen"
+
+msgid "Add attachment from {0}"
+msgstr "Datei aus {0} einfügen"
+
+msgid "Confirm deletion"
+msgstr "Löschen bestätigen"
+
+msgid "Are you sure you want to delete {0}?"
+msgstr "Wollen Sie \"{0}\" wirklich löschen?"
+
+msgid "Are you sure you want to delete {0} and all of its contents?"
+msgstr "Sind Sie sicher dass Sie {0} und die Inhalte löschen wollen?"
+
+msgid "Are you sure you want to delete {0} files?"
+msgstr "Wollen Sie \"{0}\" Dateien wirklich löschen?"
+
+msgid "Are you sure want to delete {0} folders and all of their contents?"
+msgstr ""
+"Sind Sie sicher, dass Sie alle {0} Ordner mit dem gesamten Inhalt löschen "
+"wollen?"
+
+msgid ""
+"Are you sure want to delete the selected items and all of their contents?"
+msgstr ""
+"Sind Sie sicher, dass Sie ausgewählten Elemente und ihren Inhalt löschen "
+"wollen?"
+
+msgid "Confirm overwrite"
+msgstr "Überschreiben bestätigen"
+
+msgid "File already exists. Do you want to overwrite it?"
+msgstr "Datei existiert bereits. Möchten Sie diese Überschreiben?"
+
+msgid "Please enter a new name"
+msgstr "Bitte einen neuen Namen eingeben"
+
+msgid "Rename record"
+msgstr "Datensatz umbennen"
+
+msgid "A file name should not be empty."
+msgstr "Ein Dateiname sollte nicht leer sein."
+
+msgid "Rename item"
+msgstr "Element umbenennen"
+
+msgid "A file named \"{0}\" already exists. Please enter a different name."
+msgstr ""
+"Eine Datei mit dem Namen \"{0}\" ist bereits vorhanden. Bitte geben Sie "
+"einen anderen Namen ein."
+
+msgid "Downloading"
+msgstr "Lade herunter"
+
+msgid "Download started... please wait!"
+msgstr "Download wurde gestartet... bitte warten!"
+
+msgid "At least one file is too large! Maximum allowed filesize: {0}."
+msgstr "Mindestens eine der Dateien ist zu groß! Die Maximalgröße ist: {0}."
+
+msgid "Keep both"
+msgstr "Beide behalten"
+
+msgid "Overwrite"
+msgstr "Überschreiben"
+
+msgid "l d/m/Y G:i"
+msgstr "l d.m.Y G:i"
+
+msgid "Never"
+msgstr "Nie"
+
+msgid "Add from Files"
+msgstr "Aus Files einfügen"
+
+msgid "Add attachment from Files"
+msgstr "Anhang aus Files hinzufügen"
+
+msgid "Add to Files"
+msgstr "Zu Files hinzufügen"
+
+msgid "Upload file"
+msgstr "Datei hochladen"
+
+msgid "Files"
+msgstr "Dateien"
+
+msgid "Files Plugin"
+msgstr "Files Plugin"
+
+msgid "Manage Accounts"
+msgstr "Accounts verwalten"
+
+msgid "Reset Files settings"
+msgstr "Einstellungen des Files Plugin zurücksetzen"
+
+msgid "Resets Files settings to their original defaults"
+msgstr "Einstellungen des Files Plugin auf die Werkseinstellungen zurücksetzen"
+
+msgid "Are you sure to remove all settings and accounts?"
+msgstr ""
+"Sind Sie sicher, dass Sie alle Files-Einstellungen zurücksetzen und alle "
+"Accounts löschen wollen?"
+
+msgid ""
+"Accounts marked by your administrator as \"cannot be changed\" will not be "
+"removed."
+msgstr ""
+"Von Ihrem Administrator als \"nicht änderbar\" gekennzeichnete Konten werden "
+"nicht entfernt."
+
+msgid ""
+"WebApp will automatically restart in order for these changes to take effect."
+msgstr "WebApp wird automatisch neu starten, um die Änderungen zu übernehmen."
+
+msgid "Webapp is reloading, Please wait."
+msgstr "Webapp wird neu geladen. Bitte warten."
+
+msgid "Edit Account"
+msgstr "Account bearbeiten"
+
+msgid "Account Information"
+msgstr "Accountinformationen"
+
+msgid "Account name"
+msgstr "Accountname"
+
+msgid "Account type"
+msgstr "Accounttyp"
+
+msgid "Select backend..."
+msgstr "Backend auswählen..."
+
+msgid "Account Configuration"
+msgstr "Accountkonfiguration"
+
+msgid "Update"
+msgstr "Aktualisieren"
+
+msgid "Sort by: ID"
+msgstr "Sortieren nach: ID"
+
+msgid "Backend"
+msgstr "Backend"
+
+msgid "Sort by: Backend"
+msgstr "Sortieren nach: Backend"
+
+msgid "Features"
+msgstr "Funktionen"
+
+msgid "Shows all available features of the backend."
+msgstr "Zeigt alle verfügbaren Funktionen des Backends."
+
+msgid "Show quota information"
+msgstr "Quotainformationen anzeigen"
+
+msgid "Show version information"
+msgstr "Versionsinformationen anzeigen"
+
+msgid "Share files"
+msgstr "Datei teilen"
+
+msgid "Fast Down/Upload"
+msgstr "Schneller Down/Upload"
+
+msgid "No account created!"
+msgstr "Es wurde kein Account erstellt!"
+
+msgid "Add Account"
+msgstr "Account hinzufügen"
+
+msgid "Remove Account"
+msgstr "Account entfernen"
+
+msgid "Loading accounts"
+msgstr "Lade Account"
+
+msgid "Do you really want to delete the account \"{0}\"?"
+msgstr "Wollen Sie den Account \"{0}\" wirklich entfernen?"
+
+msgid "Quota Information"
+msgstr "Quotainformationen"
+
+msgid "Used"
+msgstr "Belegt"
+
+msgid "Total"
+msgstr "Gesamt"
+
+msgid "Version Information"
+msgstr "Versionsinformationen"
+
+msgid "Sort by: Type"
+msgstr "Sortieren nach: Typ"
+
+msgid "Filename"
+msgstr "Dateiname"
+
+msgid "Sort by: Filename"
+msgstr "Sortieren nach: Dateiname"
+
+msgid "Loading files"
+msgstr "Lade Dateien"
+
+msgid "The file {0} is too large!"
+msgstr "Die Datei {0} ist zu groß!"
+
+msgid "max"
+msgstr "max"
+
+msgid "You have to choose at least one file!"
+msgstr "Sie müssen mindestens eine Datei auswählen!"
+
+msgid "Folder already exists"
+msgstr "Ordner existiert bereits"
+
+msgid "Incorrect foldername"
+msgstr "Ordnername nicht korrekt"
+
+msgid "File information"
+msgstr "Dateiinformationen"
+
+msgid "Select a file"
+msgstr "Datei auswählen"
+
+msgid "Maximum upload size"
+msgstr "Maximale Uploadgröße"
+
+msgid "Browse"
+msgstr "Durchsuchen"
+
+msgid "Select upload folder"
+msgstr "Ordner zum Hochladen auswählen"
+
+msgid "File \"{0}\" is too large! Maximum allowed filesize: {1}."
+msgstr "Datei \"{0}\" ist zu groß! Die Maximalgröße ist: {1}."
+
+msgid "Add item to Files"
+msgstr "Element zu Files hinzufügen"
+
+msgid "You have to choose a folder!"
+msgstr "Sie müssen einen Ordner auswählen!"
+
+msgid "Uploaded"
+msgstr "Hochgeladen"
+
+msgid "Attachment successfully stored in Files"
+msgstr "Anhang wurde erfolgreich in Files gepeichert"
+
+msgid "Upload Failed"
+msgstr "Hochladen fehlgeschlagen"
+
+msgid "Attachment could not be stored in Files! Error: "
+msgstr "Anhang konnte nicht in Files gespeichert werden! Fehler: "
+
+msgid "Share Files"
+msgstr "Datei teilen"
+
+msgid "Uploading files to "
+msgstr "Dateien hochladen nach "
+
+msgid "Starting upload"
+msgstr "Hochladen starten"
+
+msgid "Cancel upload"
+msgstr "Hochladen abbrechen"
+
+msgid "- seconds left"
+msgstr "- Sekunden verbleibend"
+
+msgid " seconds left"
+msgstr " Sekunden verbleibend"
+
+msgid " minutes left"
+msgstr " Minuten verbleibend"
+
+msgid "Uploading: "
+msgstr "Lade hoch: "
+
+msgid "Upload status unavailable... please wait."
+msgstr "Status des Hochladens nicht verfügbar... bitte warten."
+
+msgid "Upload finished!"
+msgstr "Hochladen vollständig!"
+
+msgid "Upload aborted!"
+msgstr "Hochladen abgebrochen!"
+
+msgid "Upload failed!"
+msgstr "Hochladen fehlgeschlagen!"
+
+msgid "Upload files"
+msgstr "Dateien hochladen"
+
+msgid "Download files"
+msgstr "Dateien herunterladen"
+
+msgid "Share"
+msgstr "Teilen"
+
+msgid "Attach to mail"
+msgstr "An E-Mail anhängen"
+
+msgid "Attaching"
+msgstr "Anhängen"
+
+msgid "Creating email... Please wait!"
+msgstr "Erstelle Mail... Bitte warten!"
+
+msgid "Edit share"
+msgstr "Freigabe bearbeiten"
+
+msgid ""
+"There are no accounts added. Go to settings, Files tab and add an account"
+msgstr ""
+"Es wurden noch keine Account's hinzugefügt. Bitte in den Einstellungen einen "
+"Account hinzufügen"
+
+msgid "Filesize"
+msgstr "Dateigröße"
+
+msgid "Last modified"
+msgstr "Zuletzt geändert"
+
+msgid "Is shared"
+msgstr "Wird geteilt"
+
+msgid "File preview"
+msgstr "Dateivorschau"
+
+msgid "Your browser does not support previewing of audio files!"
+msgstr "Ihr Browser unterstützt nicht die Vorschau von Audio-Dateien!"
+
+msgid "Your browser does not support previewing of video files!"
+msgstr "Ihr Browser unterstützt nicht die Vorschau von Video-Dateien!"
+
+msgid "d.m.Y G:i"
+msgstr "d.m.Y G:i"
+
+msgid "Folder"
+msgstr "Ordner"
+
+msgid "File ({0})"
+msgstr "Datei ({0})"
+
+msgid "Sort by: Path"
+msgstr "Sortieren nach: Pfad"
+
+msgid "Sort by: Last modified"
+msgstr "Sortieren nach: Änderungsdatum"
+
+msgid "Sort by: Shared"
+msgstr "Sortieren nach: Geteilt"
+
+msgid "There are no items to show in this view"
+msgstr "Es gibt keine Elemente in dieser Ansicht"
+
+msgid "files selected"
+msgstr "ausgewählte Dateien"
+
+msgid "{0} of {1} in use"
+msgstr "{0} von {1} benutzt"
+
+msgid "Unknown account ID"
+msgstr "Unbekannte Account-ID"
+
+msgid "Feature \"Quota Information\" is not supported by this backend!"
+msgstr "Quota Informationen werden von diesem Backend nicht unterstützt!"
+
+msgid "Feature \"Version Information\" is not supported by this backend!"
+msgstr ""
+"Versionsinformationen können von diesem Backend nicht angezeigt werden!"
+
+msgid "Feature \"OAUTH\" is not supported by this backend!"
+msgstr "OAUTH wird von diesem Backend nicht unterstützt!"
+
+msgid "Moving between accounts is not implemented"
+msgstr "Verschieben zwischen Konten ist nicht implementiert"
+
+msgid "Files plugin"
+msgstr "Files plugin"
+
+msgid "Unknown type - cannot save this file to the Files backend!"
+msgstr "Diese Datei kann nicht im Files-Backend gespeichert werden!"
+
+msgid "No record given!"
+msgstr "Keine Daten eingegeben!"
+
+msgid "Fetching sharing information failed"
+msgstr "Holen der Freigabeinformationen fehlgeschlagen"
+
+msgid "Sharing failed"
+msgstr "Teilen fehlgeschlagen"
+
+msgid "Updating share failed"
+msgstr "Aktualisieren der Freigabe fehlgeschlagen"
+
+msgid "Deleting share failed"
+msgstr "Löschen der Freigabe fehlgeschlagen"
+
+msgid "With this backend, you can connect to any ftp server."
+msgstr "Mit diesem Backend können Sie Dateien von einem FTP Server einbinden."
+
+msgid "Files FTP Backend: "
+msgstr "Files FTP Backend: "
+
+msgid "Server address"
+msgstr "Server Adresse"
+
+msgid "Server port"
+msgstr "Server Port"
+
+msgid "FTP user"
+msgstr "FTP Benutzer"
+
+msgid "FTP password"
+msgstr "FTP Passwort"
+
+msgid "Base path"
+msgstr "Basispfad"
+
+msgid "Use SSL"
+msgstr "SSL verwenden"
+
+msgid "Use passive mode"
+msgstr "Passiven Modus verwenden"
+
+msgid "Use grommunio credentials"
+msgstr "grommunio Zugangsdaten verwenden"
+
+msgid "Authentication failed"
+msgstr "Authentifizierung fehlgeschlagen"
+
+msgid "Connection failed"
+msgstr "Verbindung fehlgeschlagen"
+
+msgid "Unparsable server response."
+msgstr "Unbekannte Antwort vom Server."
+
+msgid "Temporary directory problems"
+msgstr "Temporäres Problem mit Verzeichnissen"
+
+msgid "Not implemented"
+msgstr "Nicht implementiert"
+
+msgid "Unknown error"
+msgstr "Unbekannter Fehler"
+
+msgid "Please contact your system administrator"
+msgstr "Bitte kontaktieren Sie Ihren Systemadministrator"
+
+msgid "Unauthorized. Wrong username or password."
+msgstr "Nicht angemeldet. Benutzername oder Passwort falsch."
+
+msgid "File server is not reachable. Please verify the connection."
+msgstr "Dateiserver ist nicht erreichbar. Bitte überprüfen Sie die Verbindung."
+
+msgid "You don't have enough permissions to view this file or folder."
+msgstr ""
+"Sie haben nicht genügend Berechtigungen, um diese Datei oder diesen Ordner "
+"anzuzeigen."
+
+msgid "This file or folder is not available anymore."
+msgstr "Diese Datei oder dieser Ordner ist nicht mehr verfügbar."
+
+msgid "Connection to the file server timed out. Please check again later."
+msgstr ""
+"Zeitüberschreitung bei der Verbindung zum Dateiserver. Bitte versuchen Sie "
+"es später noch einmal."
+
+msgid "This file is locked by another user. Please check again later."
+msgstr ""
+"Diese Datei ist von einem anderen Benutzer gesperrt. Bitte versuchen Sie es "
+"später noch einmal."
+
+msgid "The request failed."
+msgstr "Die Anfrage ist fehlgeschlagen."
+
+msgid "The file server encountered an internal problem."
+msgstr "Der Dateiserver hat ein internes Problem festgestellt."
+
+msgid "We could not write to temporary directory."
+msgstr "Es konnte nicht in ein temporäres Verzeichnis geschrieben werden."
+
+msgid "We could not retrieve list of server features."
+msgstr "Die Liste der Serverfunktionen konnte nicht abgerufen werden."
+
+msgid "This function is not yet implemented."
+msgstr "Diese Funktion ist noch nicht implementiert."
+
+msgid "With this backend, you can connect to any WebDAV server."
+msgstr "Mit diesem Backend können Sie zu jedem WebDAV Server verbinden."
+
+msgid "Files WebDAV Backend: "
+msgstr "Files WebDAV Backend: "
+
+msgid "Webdav base path"
+msgstr "WebDAV Basispfad"
+
+msgid "PHP-CURL is not installed"
+msgstr "PHP-CURL ist nicht installiert"
+
+msgid "Access denied"
+msgstr "Zugriff verweigert"
+
+msgid "Sabre error"
+msgstr "Sabre Fehler"
+
+msgid "Directory creation failed"
+msgstr "Verzeichnis erstellen fehlgeschlagen"
+
+msgid "Deletion failed"
+msgstr "Löschen fehlgeschlagen"
+
+msgid "Moving failed"
+msgstr "Verschieben fehlgeschlagen"
+
+msgid "File or folder not found"
+msgstr "Datei oder Ordner nicht gefunden"
+
+msgid "Copying failed"
+msgstr "Kopieren fehlgeschlagen"
+
+msgid "File server is not reachable. Please verify the file server URL."
+msgstr ""
+"Dateiserver ist nicht erreichbar. Bitte überprüfen Sie die Dateiserver-URL."
+
+msgid "The file or folder is not available anymore."
+msgstr "Die Datei oder der Ordner ist nicht mehr verfügbar."
+
+msgid "This file is locked by another user. Please try again later."
+msgstr ""
+"Diese Datei ist durch einem anderen Benutzer gesperrt. Bitte versuchen Sie "
+"es später noch einmal."
+
+msgid "PHP-Curl is not available."
+msgstr "PHP-CURL ist nicht verfügbar."
+
+msgid "PHP-CURL not installed"
+msgstr "PHP-CURL ist nicht installiert"
+
+msgid "Account is ready to use."
+msgstr "Account ist einsatzbereit."
+
+msgid "File backend not responding. Please try again later."
+msgstr "Backend antwortet nicht. Bitte versuchen Sie es später erneut."
+
+msgid "Zip file generation failed. Please inform the administrator."
+msgstr ""
+"Erstellung der ZIP-Datei fehlgeschlagen. Bitte den Administrator "
+"kontaktieren."
+
+msgid "This file is no longer available. Please reload the folder."
+msgstr "Diese Datei existiert nicht mehr. Bitte den Ordner neu laden."
+
+msgid "Files: ownCloud Backend"
+msgstr "Files: ownCloud Backend"
+
+msgid "Share with user/group"
+msgstr "Mit Benutzer/Gruppe teilen"
+
+msgid "Share via link"
+msgstr "Per Link teilen"
+
+msgid "Public link"
+msgstr "Öffentlicher Link"
+
+msgid "Password protect"
+msgstr "Mit Passwort schützen"
+
+msgid "Public upload"
+msgstr "Öffentlicher Upload"
+
+msgid "Expiration date"
+msgstr "Ablaufdatum"
+
+msgid "Loading details..."
+msgstr "Lade Details..."
+
+msgid "Share Details"
+msgstr "Freigabedetails"
+
+msgid "Re-share"
+msgstr "erneut freigeben"
+
+msgid "Change"
+msgstr "Ändern"
+
+msgid "Share with"
+msgstr "Teilen mit"
+
+msgid "Loading users and groups"
+msgstr "Lade Benutzer und Gruppen"
+
+msgid "Add users or groups to share files."
+msgstr "Benutzer oder Gruppen zur Freigabe hinzufügen."
+
+msgid "Type to search"
+msgstr "Suchbegriff eingeben"
+
+msgid "No results"
+msgstr "Keine Ergebnisse"
+
+msgid "With this backend, you can connect to any ownCloud server."
+msgstr "Mit diesem Backend können Sie zu jedem ownCloud Server verbinden."
+
+msgid "Files ownCloud Backend: "
+msgstr ""
+
+msgid "php-curl is not available"
+msgstr "php-curl ist nicht verfügbar"
+
+msgid "Please contact your system administrator."
+msgstr ""
+
+msgid "Short folder Ids"
+msgstr "Kurze Ordner IDs"
+
+msgid "Provisioning Status"
+msgstr "Status des Provisioning"
+
+msgid "Wipe Device"
+msgstr "Gerät löschen"
+
+msgid ""
+"Do you really want to remove your device?\n"
+" Enter your password to confirm."
+msgstr ""
+"Möchten Sie wirklich Ihre Gerät entfernen?\n"
+" Bitte geben Sie Ihr Passwort zur Bestätigung ein."
+
+msgid "version not available"
+msgstr "Version nicht verfügbar"
+
+msgid ""
+"Unauthorized to connect to grommunio-sync server. Please contact your system "
+"administrator."
+msgstr ""
+"Keine Berechtigung um auf den grommunio-sync Server zuzugreifen. Bitte "
+"wenden Sie sich an Ihren Administrator."
+
+msgid ""
+"Unable to connect to grommunio-sync server. Please contact your system "
+"administrator."
+msgstr ""
+"Konnte nicht auf den grommunio-sync Server zugreifen. Bitte wenden Sie sich "
+"an Ihren Administrator."
+
+msgid ""
+"Unable to connect to the grommunio-sync server. Please contact your system "
+"administrator."
+msgstr ""
+"Konnte nicht auf den grommunio-sync Server zugreifen. Bitte wenden Sie sich "
+"an Ihren Administrator."
+
+msgid ""
+"Folder can not be added because there is already an additional folder with "
+"the same name"
+msgstr ""
+"Der Ordner kann nicht hinzugefügt werden, ein zusätzlicher Ordner mit dem "
+"Namen ist schon vorhanden"
+
+msgid ""
+"Folder can not be removed because there is no folder known with given folder "
+"id"
+msgstr ""
+"Der Ordner kann nicht entfernt werden, es ist kein Ordner mit dieser Ordner "
+"ID vorhanden"
+
+msgid "Device ID could not be found"
+msgstr "Geräte ID konnte nicht gefunden werden"
+
+msgid "Join Meeting"
+msgstr "Meeting beitreten"
