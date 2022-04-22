@@ -40,19 +40,19 @@ Zarafa.plugins.smime.settings.UploadCertificateWidget = Ext.extend(Zarafa.settin
 		}
 
 		Ext.applyIf(config, {
-			title	: _('Upload your certificate', 'plugin_smime'),
+			title	: _('Upload your certificate'),
 			layout : 'form',
 			xtype : 'smime.uploadcertificatewidget',
 			items :[{
 				xtype: 'displayfield',
 				hideLabel : true,
-				value : _('Below you can upload your private certificate in PKCS#12 format. The WebApp only accepts certificates which are valid and only stores one private certificate on the server.', 'plugin_smime')
+				value : _('Below you can upload your private certificate in PKCS#12 format. The WebApp only accepts certificates which are valid and only stores one private certificate on the server.')
 			},{
 				xtype : 'button',
-				text : _('Select', 'plugin_smime'),
-				defaultValue : _('Select', 'plugin_smime'),
+				text : _('Select'),
+				defaultValue : _('Select'),
 				iconCls : 'icon_smime_settings',
-				fieldLabel : _('Private certificate', 'plugin_smime'),
+				fieldLabel : _('Private certificate'),
 				ref : 'certificate',
 				width: 84,
 				handler : this.selectCertificate,
@@ -60,13 +60,13 @@ Zarafa.plugins.smime.settings.UploadCertificateWidget = Ext.extend(Zarafa.settin
 			},{
 				xtype : 'textfield',
 				inputType: 'password',
-				fieldLabel : _('Certificate passphrase', 'plugin_smime'),
+				fieldLabel : _('Certificate passphrase'),
 				width: 200,
 				ref : 'passphrase',
 				scope : this
 			},{
 				xtype : 'button',
-				text : _('Upload', 'plugin_smime'),
+				text : _('Upload'),
 				width : 84,
 				handler : this.uploadCertificate,
 				scope : this
@@ -100,15 +100,15 @@ Zarafa.plugins.smime.settings.UploadCertificateWidget = Ext.extend(Zarafa.settin
 	{
 		if(Ext.isEmpty(this.passphrase.getValue())) {
 			Ext.MessageBox.show({
-				title: _('S/MIME Plugin', 'plugin_smime'),
-                                msg: _('You must fill in the certificate passphrase to upload your certificate.', 'plugin_smime'),
+				title: _('S/MIME Plugin'),
+                                msg: _('You must fill in the certificate passphrase to upload your certificate.'),
                                 buttons: Ext.MessageBox.OK,
                                 icon: Ext.MessageBox.INFO
                         });
 		} else if(Ext.isEmpty(this.files)) {
 			Ext.MessageBox.show({
-                                title: _('S/MIME Plugin', 'plugin_smime'),
-                                msg: _('You must first select a valid private certificate in PKCS#12 format.', 'plugin_smime'),
+                                title: _('S/MIME Plugin'),
+                                msg: _('You must first select a valid private certificate in PKCS#12 format.'),
                                 buttons: Ext.MessageBox.OK,
                                 icon: Ext.MessageBox.INFO
                         });
@@ -146,12 +146,12 @@ Zarafa.plugins.smime.settings.UploadCertificateWidget = Ext.extend(Zarafa.settin
 	onUpdate : function(store, record)
 	{
 		if(record.get('cert')) {
-			container.getNotifier().notify('info.saved', _('S/MIME Message'), record.get('cert_warning', 'plugin_smime'));
+			container.getNotifier().notify('info.saved', _('S/MIME Message'), record.get('cert_warning'));
 			this.store.load();
 			this.passphrase.reset();
 			this.certificate.setText(this.certificate.defaultValue);
 		} else {
-			container.getNotifier().notify('error.connection', _('S/MIME Message'), record.get('cert_warning', 'plugin_smime'));
+			container.getNotifier().notify('error.connection', _('S/MIME Message'), record.get('cert_warning'));
 		} 
 
 	},

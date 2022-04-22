@@ -82,7 +82,7 @@ Zarafa.plugins.files.backend.Owncloud.OwncloudBackend = Ext.extend(Zarafa.core.P
 Zarafa.onReady(function () {
 	container.registerPlugin(new Zarafa.core.PluginMetaData({
 		name             : 'filesbackendOwncloud', // this name must be in format "filesbackend<Backendname>"
-		displayName      : dgettext('plugin_filesbackendOwncloud', 'Files: ownCloud Backend'),
+		displayName      : _('Files: ownCloud Backend'),
 		allowUserDisable : false, // don't allow to disable this plugin - files will get confused if it is disabled
 		pluginConstructor: Zarafa.plugins.files.backend.Owncloud.OwncloudBackend
 	}));

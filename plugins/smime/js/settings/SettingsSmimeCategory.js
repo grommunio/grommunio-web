@@ -26,7 +26,7 @@ Zarafa.plugins.smime.settings.SettingsSmimeCategory = Ext.extend(Zarafa.settings
 		this.store = new Zarafa.plugins.smime.data.SmimeCertificateStore();
 
                 Ext.applyIf(config, {
-			title : _('S/MIME', 'plugin_smime'),
+			title : _('S/MIME'),
                         categoryIndex : 1,
                         iconCls : 'icon_smime_settings',
                         items : [{

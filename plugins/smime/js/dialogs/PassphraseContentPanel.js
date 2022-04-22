@@ -20,7 +20,7 @@ Zarafa.plugins.smime.dialogs.PassphraseContentPanel = Ext.extend(Zarafa.core.ui.
 			cls : 'zarafa-smime-passphrasewindow',
 			modal: true,
 			layout: 'fit',
-			title : _('S/MIME Passphrase', 'plugin_smime'),
+			title : _('S/MIME Passphrase'),
 			width: 350,
 			height: 100,
 			stateful: false,

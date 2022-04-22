@@ -30,12 +30,12 @@ Zarafa.plugins.smime.dialogs.PassphraseWindow = Ext.extend(Ext.Panel, {
 			items: this.getInnerItems(),
 			buttons : [{
 				type: 'submit',
-				text: _('Submit', 'plugin_smime'),
+				text: _('Submit'),
 				cls: 'zarafa-action passphrase_submit',
 				handler: this.checkPassphrase,
 				scope: this
 			},{
-				text: _('Cancel', 'plugin_smime'),
+				text: _('Cancel'),
 				cls: 'passphrase_cancel',
 				handler: this.onCancel,
 				scope: this
@@ -174,7 +174,7 @@ Zarafa.plugins.smime.dialogs.PassphraseWindow = Ext.extend(Ext.Panel, {
 					type: 'password',
 					size: '20',
 					autocomplete: passwordSaveEnabled ? 'on' : 'nope',
-					placeholder: _('Certificate passphrase', 'plugin_smime')
+					placeholder: _('Certificate passphrase')
 				},
 				name : 'spassword',
 				hideLabel : true,
@@ -297,7 +297,7 @@ Zarafa.plugins.smime.dialogs.PassphraseWindow = Ext.extend(Ext.Panel, {
 			if(this.passphrase) {
 				this.passphrase.reset();
 			}
-			container.getNotifier().notify('error.connection', _('S/MIME Message', 'plugin_smime'), _('The passphrase you typed is incorrect. Please try again.', 'plugin_smime'));
+			container.getNotifier().notify('error.connection', _('S/MIME Message'), _('The passphrase you typed is incorrect. Please try again.'));
 		}
 	}
 });

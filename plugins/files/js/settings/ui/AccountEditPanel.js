@@ -32,13 +32,13 @@ Zarafa.plugins.files.settings.ui.AccountEditPanel = Ext.extend(Ext.Panel, {
 			border: false,
 			items: this.createPanelItems(config),
 			buttons: [{
-				text: dgettext('plugin_files', 'Save'),
+				text: _('Save'),
 				ref: "../saveBtn",
 				cls: "zarafa-action",
 				handler: this.doSave,
 				scope: this
 			}, {
-				text: dgettext('plugin_files', 'Cancel'),
+				text: _('Cancel'),
 				handler: this.doClose,
 				scope: this
 			}]
@@ -118,7 +118,7 @@ Zarafa.plugins.files.settings.ui.AccountEditPanel = Ext.extend(Ext.Panel, {
 	createPanelItems: function (config) {
 
 		// default values
-		var name = dgettext('plugin_files', 'Files');
+		var name = _('Files');
 
 		if (Ext.isDefined(config.item)) {// set defaultvalues if available
 			name = config.item.get("name");
@@ -127,7 +127,7 @@ Zarafa.plugins.files.settings.ui.AccountEditPanel = Ext.extend(Ext.Panel, {
 		return [{
 			xtype         : 'fieldset',
 			checkboxToggle: false,
-			title         : dgettext('plugin_files', 'Account Information'),
+			title         : _('Account Information'),
 			defaultType   : 'textfield',
 			ref           : 'accInfo',
 			collapsed     : false,
@@ -142,7 +142,7 @@ Zarafa.plugins.files.settings.ui.AccountEditPanel = Ext.extend(Ext.Panel, {
 				},
 				defaultType: 'textfield',
 				items      : [{
-					fieldLabel: dgettext('plugin_files', 'Account name'),
+					fieldLabel: _('Account name'),
 					labelAlign: 'top',
 					ref       : '../../../accName',
 					value     : name,
@@ -152,7 +152,7 @@ Zarafa.plugins.files.settings.ui.AccountEditPanel = Ext.extend(Ext.Panel, {
 		}, {
 			xtype         : 'fieldset',
 			checkboxToggle: false,
-			title         : dgettext('plugin_files', 'Account Configuration'),
+			title         : _('Account Configuration'),
 			autoHeight    : true,
 			defaultType   : 'textfield',
 			ref           : 'metaInfo',

@@ -21,7 +21,7 @@ Zarafa.plugins.mdm.settings.MDMSettingsCategory = Ext.extend(Zarafa.settings.ui.
 		config = config || {};
 
 		Ext.applyIf(config, {
-			title : _('Mobile Devices', 'plugin_mdm'),
+			title : _('Mobile Devices'),
 			iconCls : 'icon_mdm_settings',
 			items : [{
 				xtype : 'Zarafa.plugins.mdm.mdmsettingswidget'

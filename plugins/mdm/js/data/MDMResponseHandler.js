@@ -68,9 +68,9 @@ Zarafa.plugins.mdm.data.MDMResponseHandler = Ext.extend(Zarafa.core.data.Abstrac
 	doWipe : function(response)
 	{
 		if (response.wipe === true) {
-			container.getNotifier().notify('info.mdm', _('Mobile Device Manager'), _('Wiping device', 'plugin_mdm'));
+			container.getNotifier().notify('info.mdm', _('Mobile Device Manager'), _('Wiping device'));
 		} else if (!response.wipe) {
-			container.getNotifier().notify('info.mdm', _('Mobile Device Manager'), _('Password incorrect', 'plugin_mdm'));
+			container.getNotifier().notify('info.mdm', _('Mobile Device Manager'), _('Password incorrect'));
 		} else {
 			this.processAuthResponse (response, this.failureCallback, 'wipe');
 		}
@@ -84,7 +84,7 @@ Zarafa.plugins.mdm.data.MDMResponseHandler = Ext.extend(Zarafa.core.data.Abstrac
 	doResync : function(response)
 	{
 		if (response.resync === true) {
-			container.getNotifier().notify('info.mdm', _('Mobile Device Manager'), _('Full resync in progress', 'plugin_mdm'));
+			container.getNotifier().notify('info.mdm', _('Mobile Device Manager'), _('Full resync in progress'));
 		} else {
 			this.processAuthResponse (response, this.failureCallback, 'resync');
 		}
@@ -103,7 +103,7 @@ Zarafa.plugins.mdm.data.MDMResponseHandler = Ext.extend(Zarafa.core.data.Abstrac
 		if (authenticationObj) {
 			callbackFn.call(this.mdmWidgetScope, authenticationObj.authentication);
 			if (actionType === 'authenticate' && authenticationObj.authentication === false) {
-				container.getNotifier().notify('info.mdm', _('Mobile Device Manager'), _('Username or password incorrect', 'plugin_mdm'));
+				container.getNotifier().notify('info.mdm', _('Mobile Device Manager'), _('Username or password incorrect'));
 			}
 		}
 	}

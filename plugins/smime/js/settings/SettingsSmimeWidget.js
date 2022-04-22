@@ -17,7 +17,7 @@ Zarafa.plugins.smime.settings.SettingsSmimeWidget = Ext.extend(Zarafa.settings.u
 	 * The default button label for the 'Change passphrase' button
 	 * @cfg {String} defaultButtonLabel
 	 */
-	defaultButtonLabel : _('You don\'t have a valid certificate corresponding to your account', 'plugin_smime'),
+	defaultButtonLabel : _('You don\'t have a valid certificate corresponding to your account'),
 
 
 	/**
@@ -32,12 +32,12 @@ Zarafa.plugins.smime.settings.SettingsSmimeWidget = Ext.extend(Zarafa.settings.u
 		}
 
 		Ext.applyIf(config, {
-			title	: _('Personal certificate', 'plugin_smime'),
+			title	: _('Personal certificate'),
 			layout : 'form',
 			xtype : 'smime.settingssmimewidget',
 			items :[{
 				xtype: 'button',
-				text: _('Change passphrase for last certificate', 'plugin_smime'),
+				text: _('Change passphrase for last certificate'),
 				labelStyle: 'width:580px',
 				ref: 'certificateField',
 				fieldLabel : this.defaultButtonLabel,
@@ -76,7 +76,7 @@ Zarafa.plugins.smime.settings.SettingsSmimeWidget = Ext.extend(Zarafa.settings.u
 			this.certificateField.enable();
 			this.record = this.store.getAt(index);
 			// TODO: add validity message
-			this.setCertificateButtonLabel(_('You have a valid certificate corresponding to your account', 'plugin_smime'));
+			this.setCertificateButtonLabel(_('You have a valid certificate corresponding to your account'));
 		}
 	},
 

@@ -47,12 +47,12 @@ Zarafa.plugins.files.backend.Owncloud.ui.FilesShareUserEditPanel = Ext.extend(Ex
 			defaultType: 'textfield',
 			items      : this.createPanelItems(),
 			buttons    : [{
-					text   : dgettext('plugin_filesbackendOwncloud', 'Save'),
+					text   : _('Save'),
 					handler: this.doSave,
 					scope  : this
 				},
 				{
-					text   : dgettext('plugin_filesbackendOwncloud', 'Cancel'),
+					text   : _('Cancel'),
 					handler: this.doClose,
 					scope  : this
 				}]
@@ -133,14 +133,14 @@ Zarafa.plugins.files.backend.Owncloud.ui.FilesShareUserEditPanel = Ext.extend(Ex
 		var permissionItems = [
 			{
 				xtype     : 'checkbox',
-				fieldLabel: dgettext('plugin_filesbackendOwncloud', 'Re-share'),
+				fieldLabel: _('Re-share'),
 				name      : 'permissionShare',
 				ref       : '../permissionShare',
 				checked   : permissionShare
 			},
 			{
 				xtype     : 'checkbox',
-				fieldLabel: dgettext('plugin_filesbackendOwncloud', 'Change'),
+				fieldLabel: _('Change'),
 				name      : 'permissionChange',
 				ref       : '../permissionChange',
 				checked   : permissionChange
@@ -150,14 +150,14 @@ Zarafa.plugins.files.backend.Owncloud.ui.FilesShareUserEditPanel = Ext.extend(Ex
 			permissionItems.push(
 				{
 					xtype     : 'checkbox',
-					fieldLabel: dgettext('plugin_filesbackendOwncloud', 'Create'),
+					fieldLabel: _('Create'),
 					name      : 'permissionCreate',
 					ref       : '../permissionCreate',
 					checked   : permissionCreate
 				},
 				{
 					xtype     : 'checkbox',
-					fieldLabel: dgettext('plugin_filesbackendOwncloud', 'Delete'),
+					fieldLabel: _('Delete'),
 					name      : 'permissionDelete',
 					ref       : '../permissionDelete',
 					checked   : permissionDelete
@@ -168,7 +168,7 @@ Zarafa.plugins.files.backend.Owncloud.ui.FilesShareUserEditPanel = Ext.extend(Ex
 		return [
 			{
 				xtype     : 'filesplugin.owncloud.usergrouppredictorfield',
-				fieldLabel: dgettext('plugin_filesbackendOwncloud', 'Share with'),
+				fieldLabel: _('Share with'),
 				name      : 'shareWith',
 				ref       : 'shareWith',
 				allowBlank: false,
@@ -177,7 +177,7 @@ Zarafa.plugins.files.backend.Owncloud.ui.FilesShareUserEditPanel = Ext.extend(Ex
 			},
 			{
 				xtype     : 'selectbox',
-				fieldLabel: dgettext('plugin_filesbackendOwncloud', 'Type'),
+				fieldLabel: _('Type'),
 				name      : 'type',
 				ref       : 'type',
 				allowBlank: false,
@@ -190,7 +190,7 @@ Zarafa.plugins.files.backend.Owncloud.ui.FilesShareUserEditPanel = Ext.extend(Ex
 			},
 			{
 				xtype      : 'fieldset',
-				title      : dgettext('plugin_filesbackendOwncloud', 'Permissions'),
+				title      : _('Permissions'),
 				defaults   : {
 					labelWidth: 89,
 					anchor    : '100%',

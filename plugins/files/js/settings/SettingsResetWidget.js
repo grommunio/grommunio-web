@@ -24,15 +24,15 @@ Zarafa.plugins.files.settings.SettingsResetWidget = Ext.extend(Zarafa.settings.u
 		config = config || {};
 
 		Ext.applyIf(config, {
-			title : dgettext('plugin_files', 'Reset Files settings'),
+			title : _('Reset Files settings'),
 			layout: 'form',
 			items : [{
 				xtype    : 'displayfield',
 				hideLabel: true,
-				value    : dgettext('plugin_files', 'Resets Files settings to their original defaults')
+				value    : _('Resets Files settings to their original defaults')
 			}, {
 				xtype  : 'button',
-				text   : dgettext('plugin_files', 'Reset Files settings'),
+				text   : _('Reset Files settings'),
 				width  : 150,
 				handler: this.onResetSettings,
 				scope  : this
@@ -49,22 +49,22 @@ Zarafa.plugins.files.settings.SettingsResetWidget = Ext.extend(Zarafa.settings.u
 	 * @private
 	 */
 	onResetSettings: function () {
-		var message = dgettext('plugin_files', 'Are you sure to remove all settings and accounts?');
+		var message = _('Are you sure to remove all settings and accounts?');
 		message += '<br/>';
-		message += '<i>' + dgettext('plugin_files', 'Accounts marked by your administrator as "cannot be changed" will not be removed.') + '</i>';
+		message += '<i>' + _('Accounts marked by your administrator as "cannot be changed" will not be removed.') + '</i>';
 		message += '<br/><br/>';
-		message += dgettext('plugin_files', 'WebApp will automatically restart in order for these changes to take effect.');
+		message += _('WebApp will automatically restart in order for these changes to take effect.');
 		message += '<br/>';
 
 		Zarafa.common.dialogs.MessageBox.addCustomButtons({
-			title       : dgettext('plugin_files', 'Reset Files settings'),
+			title       : _('Reset Files settings'),
 			msg         : message,
 			fn          : this.resetDefaultSettings,
 			customButton: [{
-				text: dgettext('plugin_files', 'Reset'),
+				text: _('Reset'),
 				name: 'reset'
 			}, {
-				text: dgettext('plugin_files', 'Cancel'),
+				text: _('Cancel'),
 				name: 'cancel'
 			}],
 			scope       : this
@@ -91,7 +91,7 @@ Zarafa.plugins.files.settings.SettingsResetWidget = Ext.extend(Zarafa.settings.u
 			settingsModel.save();
 
 			this.loadMask = new Zarafa.common.ui.LoadMask(Ext.getBody(), {
-				msg: '<b>' + dgettext('plugin_files', 'Webapp is reloading, Please wait.') + '</b>'
+				msg: '<b>' + _('Webapp is reloading, Please wait.') + '</b>'
 			});
 
 			this.loadMask.show();

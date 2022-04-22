@@ -68,7 +68,7 @@ Zarafa.plugins.files.ui.FilesRecordGridView = Ext.extend(Zarafa.common.ui.grid.G
 
 	initLoadMask: function () {
 		return {
-			msg: dgettext('plugin_files', 'Loading files') + '...'
+			msg: _('Loading files') + '...'
 		};
 	},
 

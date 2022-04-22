@@ -50,10 +50,10 @@ class DownloadHandler
 
 			if ((isset($_GET["inline"]) && $_GET["inline"] == "false") || (isset($_GET["contentDispositionType"]) && $_GET["contentDispositionType"] == "attachment")) {
 				// Javascript error message
-				echo "<script>alert('" . dgettext('plugin_files', 'File backend not responding. Please try again later.') . "');</script>";
+				echo "<script>alert('" . _('File backend not responding. Please try again later.') . "');</script>";
 			} else {
 				// Text error message that is shown in the preview box
-				echo dgettext('plugin_files', 'File backend not responding. Please try again later.');
+				echo _('File backend not responding. Please try again later.');
 			}
 			die();
 		}
@@ -66,7 +66,7 @@ class DownloadHandler
 				$res = $zip->open($zipname, \ZipArchive::CREATE);
 				if ($res !== true) {
 					Logger::error(self::LOG_CONTEXT, "Zip creation failed: " . $res);
-					echo "<script>alert('" . dgettext('plugin_files', 'Zip file generation failed. Please inform the administrator.') . "');</script>";
+					echo "<script>alert('" . _('Zip file generation failed. Please inform the administrator.') . "');</script>";
 
 					die();
 				}
@@ -83,7 +83,7 @@ class DownloadHandler
 					$i++;
 					if ($res !== true) {
 						Logger::error(self::LOG_CONTEXT, "Zip addFile failed: " . $res . " file: " . $tmpfiles[$i] . " id: " . $relNodeId);
-						echo "<script>alert('" . dgettext('plugin_files', 'Zip file generation failed. Please inform the administrator.') . "');</script>";
+						echo "<script>alert('" . _('Zip file generation failed. Please inform the administrator.') . "');</script>";
 
 						die();
 					}
@@ -155,10 +155,10 @@ class DownloadHandler
 
 			if (isset($_GET["inline"]) && $_GET["inline"] == "false") {
 				// Javascript error message
-				echo "<script>alert('" . dgettext('plugin_files', 'This file is no longer available. Please reload the folder.') . "');</script>";
+				echo "<script>alert('" . _('This file is no longer available. Please reload the folder.') . "');</script>";
 			} else {
 				// Text error message that is shown in the preview box
-				echo dgettext('plugin_files', 'This file is no longer available. Please reload the folder.');
+				echo _('This file is no longer available. Please reload the folder.');
 			}
 			die();
 		}

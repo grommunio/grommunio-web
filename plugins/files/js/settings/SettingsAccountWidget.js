@@ -18,7 +18,7 @@ Zarafa.plugins.files.settings.SettingsAccountsWidget = Ext.extend(Zarafa.setting
 		config = config || {};
 
 		Ext.applyIf(config, {
-			title : dgettext('plugin_files', 'Manage Accounts'),
+			title : _('Manage Accounts'),
 			xtype : 'filesplugin.settingsaccountswidget',
 			height: 400,
 			layout: 'fit',

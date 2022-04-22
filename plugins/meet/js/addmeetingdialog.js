@@ -10,7 +10,7 @@ Zarafa.plugins.meet.ui.AddMeetingDialog = Ext.extend(Zarafa.core.ui.ContentPanel
     config = Ext.applyIf(config, {
       xtype: 'meet_addmeetingdialog',
       layout: 'form',
-      title: _('Add meeting', 'plugin_meet'),
+      title: _('Add meeting'),
       width: 320,
       height: 135,
       style: {
@@ -20,7 +20,7 @@ Zarafa.plugins.meet.ui.AddMeetingDialog = Ext.extend(Zarafa.core.ui.ContentPanel
         {
           xtype: 'displayfield',
           hideLabel: true,
-          value: _('Room name:', 'plugin_meet'),
+          value: _('Room name:'),
           style: {
             marginTop: '5px',
             marginLeft: '5px'
@@ -42,7 +42,7 @@ Zarafa.plugins.meet.ui.AddMeetingDialog = Ext.extend(Zarafa.core.ui.ContentPanel
         },{
           xtype: 'displayfield',
           hideLabel: true,
-          value: _('Room URL:', 'plugin_meet'),
+          value: _('Room URL:'),
           style: {
             marginTop: '5px',
             marginLeft: '5px'
@@ -59,7 +59,7 @@ Zarafa.plugins.meet.ui.AddMeetingDialog = Ext.extend(Zarafa.core.ui.ContentPanel
           }
         },{
           xtype: 'button',
-          text: _('Add meeting', 'plugin_meet'),
+          text: _('Add meeting'),
           scope: this,
           handler: this.addMeeting,
           style: {

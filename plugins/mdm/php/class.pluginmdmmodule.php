@@ -255,8 +255,8 @@ class PluginMDMModule extends Module
 					}
 				}
 				catch (Exception $e) {
-					$title = dgettext('plugin_mdm', 'Mobile device management plugin');
-					$display_message = sprintf(dgettext('plugin_mdm', 'Unexpected error occurred. Please contact your system administrator. Error code: %s'), $e->getMessage());
+					$title = _('Mobile device management plugin');
+					$display_message = sprintf(_('Unexpected error occurred. Please contact your system administrator. Error code: %s'), $e->getMessage());
 					$this->sendFeedback(true, array("type" => ERROR_GENERAL, "info" => array('title' => $title, 'display_message' => $display_message)));
 				}
 			}
@@ -320,7 +320,7 @@ class PluginMDMModule extends Module
 		$client = $this->getSoapClient();
 		$items = $client->AdditionalFolderList($device['deviceid']);
 		$syncFoldersProps['sharedfolders'] = count($items);
-		$syncFoldersProps["shortfolderids"] = $device['hasfolderidmapping'] ? dgettext('plugin_mdm', "Yes") : dgettext('plugin_mdm', "No");
+		$syncFoldersProps["shortfolderids"] = $device['hasfolderidmapping'] ? _("Yes") : _("No");
 		$syncFoldersProps['synchronizedfolders'] = $synchronizedFolders + count($items);
 		*/
 		$syncFoldersProps['synchronizedfolders'] = $synchronizedFolders;

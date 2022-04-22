@@ -35,41 +35,41 @@ Zarafa.plugins.files.ui.FilesRecordGridColumnModel = Ext.extend(Zarafa.common.ui
 			renderer : Zarafa.plugins.files.data.Utils.Renderer.typeRenderer,
 			width    : 24,
 			fixed    : true,
-			tooltip  : dgettext('plugin_files', 'Sort by: Type')
+			tooltip  : _('Sort by: Type')
 		},
 			{
 				header   : 'ID',
 				dataIndex: 'id',
 				width    : 50,
 				hidden   : true,
-				tooltip  : dgettext('plugin_files', 'Sort by: ID')
+				tooltip  : _('Sort by: ID')
 			},
 			{
 				header   : 'Path',
 				dataIndex: 'path',
 				width    : 100,
 				hidden   : true,
-				tooltip  : dgettext('plugin_files', 'Sort by: Path')
+				tooltip  : _('Sort by: Path')
 			},
 			{
-				header   : dgettext('plugin_files', 'Filename'),
+				header   : _('Filename'),
 				dataIndex: 'filename',
 				width    : 160,
-				tooltip  : dgettext('plugin_files', 'Sort by: Filename')
+				tooltip  : _('Sort by: Filename')
 			},
 			{
-				header   : dgettext('plugin_files', 'Last modified'),
+				header   : _('Last modified'),
 				dataIndex: 'lastmodified',
 				width    : 160,
 				renderer : Zarafa.plugins.files.data.Utils.Renderer.datetimeRenderer,
-				tooltip  : dgettext('plugin_files', 'Sort by: Last modified')
+				tooltip  : _('Sort by: Last modified')
 			},
 			{
-				header   : dgettext('plugin_files', 'Size'),
+				header   : _('Size'),
 				dataIndex: 'message_size',
 				width    : 80,
 				renderer : Zarafa.plugins.files.data.Utils.Format.fileSizeList,
-				tooltip  : dgettext('plugin_files', 'Sort by: Size')
+				tooltip  : _('Sort by: Size')
 			},
 			{
 				id       : 'isshared',
@@ -82,7 +82,7 @@ Zarafa.plugins.files.ui.FilesRecordGridColumnModel = Ext.extend(Zarafa.common.ui
 				},
 				width    : 32,
 				fixed    : true,
-				tooltip  : dgettext('plugin_files', 'Sort by: Shared')
+				tooltip  : _('Sort by: Shared')
 			}
 		];
 	},
@@ -96,28 +96,28 @@ Zarafa.plugins.files.ui.FilesRecordGridColumnModel = Ext.extend(Zarafa.common.ui
 			renderer : Zarafa.plugins.files.data.Utils.Renderer.typeRenderer,
 			width    : 24,
 			fixed    : true,
-			tooltip  : dgettext('plugin_files', 'Sort by: Type')
+			tooltip  : _('Sort by: Type')
 		},
 			{
-				header   : dgettext('plugin_files', 'Filename'),
+				header   : _('Filename'),
 				dataIndex: 'filename',
 				width    : 160,
-				tooltip  : dgettext('plugin_files', 'Sort by: Filename')
+				tooltip  : _('Sort by: Filename')
 			},
 			{
-				header   : dgettext('plugin_files', 'Last modified'),
+				header   : _('Last modified'),
 				dataIndex: 'lastmodified',
 				width    : 100,
 				renderer : Zarafa.plugins.files.data.Utils.Renderer.datetimeRenderer,
-				tooltip  : dgettext('plugin_files', 'Sort by: Last modified')
+				tooltip  : _('Sort by: Last modified')
 			},
 			{
-				header   : dgettext('plugin_files', 'Size'),
+				header   : _('Size'),
 				dataIndex: 'message_size',
 				width    : 80,
 				hidden   : true,
 				renderer : Zarafa.plugins.files.data.Utils.Format.fileSizeList,
-				tooltip  : dgettext('plugin_files', 'Sort by: Size')
+				tooltip  : _('Sort by: Size')
 			},
 			{
 				id       : 'isshared',
@@ -130,7 +130,7 @@ Zarafa.plugins.files.ui.FilesRecordGridColumnModel = Ext.extend(Zarafa.common.ui
 				},
 				width    : 32,
 				fixed    : true,
-				tooltip  : dgettext('plugin_files', 'Sort by: Shared')
+				tooltip  : _('Sort by: Shared')
 			}
 		];
 	},

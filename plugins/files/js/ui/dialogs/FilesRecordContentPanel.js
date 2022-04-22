@@ -21,7 +21,7 @@ Zarafa.plugins.files.ui.dialogs.FilesRecordContentPanel = Ext.extend(Zarafa.core
 			xtype: 'filesplugin.filesrecordcontentpanel',
 
 			layout: 'fit',
-			title : dgettext('plugin_files', 'File information'),
+			title : _('File information'),
 			items : [this.createPanel(config)]
 		});
 

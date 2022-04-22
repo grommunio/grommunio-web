@@ -18,7 +18,7 @@ Zarafa.plugins.files.settings.SettingsMainCategory = Ext.extend(Zarafa.settings.
 		config = config || {};
 
 		Ext.applyIf(config, {
-			title        : dgettext('plugin_files', 'Files'),
+			title        : _('Files'),
 			categoryIndex: 1,
 			iconCls      : 'icon_files_category',
 			items        : [{

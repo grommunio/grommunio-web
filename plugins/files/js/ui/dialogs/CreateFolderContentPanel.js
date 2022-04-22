@@ -21,7 +21,7 @@ Zarafa.plugins.files.ui.dialogs.CreateFolderContentPanel = Ext.extend(Zarafa.cor
 		Ext.applyIf(config, {
 			xtype : 'zarafa.createfoldercontentpanel',
 			layout: 'fit',
-			title : dgettext('plugin_files', 'Create New Folder'),
+			title : _('Create New Folder'),
 			recordComponentPluginConfig : Ext.applyIf(config.recordComponentPluginConfig || {}, {
 				allowWrite : true,
 				ignoreUpdates : false,

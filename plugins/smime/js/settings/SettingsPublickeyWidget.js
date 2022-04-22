@@ -16,7 +16,7 @@ Zarafa.plugins.smime.settings.SettingsPublickeyWidget = Ext.extend(Zarafa.settin
 
 		Ext.applyIf(config, {
 			height : 400,
-			title : _('Public & Private certificates', 'plugin_smime'),
+			title : _('Public & Private certificates'),
 			xtype : 'smime.settingspublickeysmimewidget',
 			layout : {
 				// override from SettingsWidget

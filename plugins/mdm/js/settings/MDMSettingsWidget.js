@@ -16,7 +16,7 @@ Zarafa.plugins.mdm.settings.MDMSettingsWidget = Ext.extend(Zarafa.settings.ui.Se
 
 		var store = new Zarafa.plugins.mdm.data.MDMDeviceStore();
 		Ext.applyIf(config, {
-			title : _('Mobile Devices', 'plugin_mdm'),
+			title : _('Mobile Devices'),
 			items : [{
 				xtype : 'panel',
 				layout: 'fit',
@@ -38,7 +38,7 @@ Zarafa.plugins.mdm.settings.MDMSettingsWidget = Ext.extend(Zarafa.settings.ui.Se
 				},
 				items : [{
 					xtype : 'grid',
-					name : _('Devices', 'plugin_mdm'),
+					name : _('Devices'),
 					ref : '../deviceGrid',
 					height : 400,
 					loadMask : true,
@@ -46,61 +46,61 @@ Zarafa.plugins.mdm.settings.MDMSettingsWidget = Ext.extend(Zarafa.settings.ui.Se
 					viewConfig : {
 						forceFit : true,
 						deferEmptyText: false,
-						emptyText: '<div class="emptytext">' + _('No devices connected to your account', 'plugin_mdm') + '</div>'
+						emptyText: '<div class="emptytext">' + _('No devices connected to your account') + '</div>'
 					},
 					columns : [{
 						dataIndex : 'devicetype',
-						header : _('Device', 'plugin_mdm'),
+						header : _('Device'),
 						renderer : Ext.util.Format.htmlEncode
 					},{
 						dataIndex : 'useragent',
-						header : _('User Agent', 'plugin_mdm'),
+						header : _('User Agent'),
 						renderer : Ext.util.Format.htmlEncode
 					},{
 						dataIndex : 'wipestatus',
-						header : _('Provisioning Status', 'plugin_mdm'),
+						header : _('Provisioning Status'),
 						renderer : Zarafa.plugins.mdm.ui.Renderers.provisioningStatus
 					},{
 						dataIndex : 'lastupdatetime',
-						header : _('Last Update', 'plugin_mdm'),
+						header : _('Last Update'),
 						renderer : Ext.util.Format.htmlEncode
 					},{
 						dataIndex : 'entryid',
-						header : _('Device ID', 'plugin_mdm'),
+						header : _('Device ID'),
 						renderer : Ext.util.Format.htmlEncode
 					},{
 						dataIndex : 'deviceos',
-						header : _('Device OS', 'plugin_mdm'),
+						header : _('Device OS'),
 						hidden : true,
 						renderer : Ext.util.Format.htmlEncode
 					},{
 						dataIndex : 'devicefriendlyname',
-						header : _('Device Info', 'plugin_mdm'),
+						header : _('Device Info'),
 						hidden : true,
 						renderer : Ext.util.Format.htmlEncode
 					},{
 						dataIndex : 'firstsynctime',
-						header : _('First Sync time', 'plugin_mdm'),
+						header : _('First Sync time'),
 						hidden : true,
 						renderer : Ext.util.Format.htmlEncode
 					}],
 					buttons : [{
-						text : _('Wipe Device', 'plugin_mdm'),
+						text : _('Wipe Device'),
 						ref : '../../../wipeBtn',
 						handler : this.onWipeBtn,
 						scope : this
 					},{
-						text : _('Full resync', 'plugin_mdm'),
+						text : _('Full resync'),
 						ref : '../../../resyncBtn',
 						handler : this.onFullResync,
 						scope : this
 					},{
-						text : _('Remove device', 'plugin_mdm'),
+						text : _('Remove device'),
 						ref : '../../../removeBtn',
 						handler : this.onRemoveBtn,
 						scope : this
 					},{
-						text : _('Refresh', 'plugin_mdm'),
+						text : _('Refresh'),
 						ref : '../../../refresh',
 						handler : this.onRefresh,
 						scope : this
@@ -171,7 +171,7 @@ Zarafa.plugins.mdm.settings.MDMSettingsWidget = Ext.extend(Zarafa.settings.ui.Se
 	{
 		var customCfg = this.getCustomItemsAndButtons(actionType);
 		var msgbox = new Zarafa.common.dialogs.CustomMessageBox({
-			title:  _('Mobile Device Manager', 'plugin_mdm'),
+			title:  _('Mobile Device Manager'),
 			msg: message,
 			buttonAlign: 'left',
 			cls: 'k-show-more-details',

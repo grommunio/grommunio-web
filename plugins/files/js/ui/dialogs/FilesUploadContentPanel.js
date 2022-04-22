@@ -25,7 +25,7 @@ Zarafa.plugins.files.ui.dialogs.FilesUploadContentPanel = Ext.extend(Zarafa.core
 		Ext.applyIf(config, {
 			xtype: 'filesplugin.filesuploadcontentpanel',
 			layout: 'fit',
-			title : dgettext('plugin_files', 'Upload file'),
+			title : _('Upload file'),
 			items : [{
 				xtype     : 'form',
 				ref       : 'mainuploadform',
@@ -56,12 +56,12 @@ Zarafa.plugins.files.ui.dialogs.FilesUploadContentPanel = Ext.extend(Zarafa.core
 	createUploadField: function () {
 		return {
 			xtype : 'panel',
-			title : dgettext('plugin_files', 'Select a file') + ' (' + dgettext('plugin_files', 'Maximum upload size') + ': ' + Zarafa.plugins.files.data.Utils.Format.fileSize(Zarafa.plugins.files.data.Utils.Core.getMaxUploadFilesize()) + '):',
+			title : _('Select a file') + ' (' + _('Maximum upload size') + ': ' + Zarafa.plugins.files.data.Utils.Format.fileSize(Zarafa.plugins.files.data.Utils.Core.getMaxUploadFilesize()) + '):',
 			layout: 'fit',
 			padding: 10,
 			items : [{
 				xtype     : 'filesplugin.multiplefileuploadfield',
-				buttonText: dgettext('plugin_files', 'Browse') + '...',
+				buttonText: _('Browse') + '...',
 				name      : 'attachments[]',
 				disabled  : true,
 				listeners : {
@@ -84,7 +84,7 @@ Zarafa.plugins.files.ui.dialogs.FilesUploadContentPanel = Ext.extend(Zarafa.core
 		var model = filesContext.getModel();
 		return {
 			xtype : 'filesplugin.tree',
-			title : dgettext('plugin_files', 'Select upload folder') + ':',
+			title : _('Select upload folder') + ':',
 			FilesFilter: Zarafa.plugins.files.data.FileTypes.FOLDER,
 			flex:1,
 			store : model.getHierarchyStore(),
@@ -105,13 +105,13 @@ Zarafa.plugins.files.ui.dialogs.FilesUploadContentPanel = Ext.extend(Zarafa.core
 			xtype   : 'button',
 			ref     : '../../mainuploadbutton',
 			disabled: true,
-			text    : '&nbsp;&nbsp;' + dgettext('plugin_files', 'Upload'),
+			text    : '&nbsp;&nbsp;' + _('Upload'),
 			iconCls : 'icon_files',
 			handler : this.doUpload,
 			scope   : this
 		}, {
 			xtype  : 'button',
-			text   : dgettext('plugin_files', 'Cancel'),
+			text   : _('Cancel'),
 			handler: this.onClose,
 			scope  : this
 		}];
@@ -152,8 +152,8 @@ Zarafa.plugins.files.ui.dialogs.FilesUploadContentPanel = Ext.extend(Zarafa.core
 					this.mainuploadfield.reset();
 
 					Zarafa.common.dialogs.MessageBox.show({
-						title  : dgettext('plugin_files', 'Error'),
-						msg    : String.format(dgettext('plugin_files', 'File "{0}" is too large! Maximum allowed filesize: {1}.'), file.name, Zarafa.plugins.files.data.Utils.Format.fileSize(Zarafa.plugins.files.data.Utils.Core.getMaxUploadFilesize())),
+						title  : _('Error'),
+						msg    : String.format(_('File "{0}" is too large! Maximum allowed filesize: {1}.'), file.name, Zarafa.plugins.files.data.Utils.Format.fileSize(Zarafa.plugins.files.data.Utils.Core.getMaxUploadFilesize())),
 						icon   : Zarafa.common.dialogs.MessageBox.ERROR,
 						buttons: Zarafa.common.dialogs.MessageBox.OK
 					});

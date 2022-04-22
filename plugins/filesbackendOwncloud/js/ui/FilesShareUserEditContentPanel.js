@@ -22,7 +22,7 @@ Zarafa.plugins.files.backend.Owncloud.ui.FilesShareUserEditContentPanel = Ext.ex
 	constructor: function (config) {
 		Ext.applyIf(config, {
 			layout     : 'fit',
-			title      : dgettext('plugin_filesbackendOwncloud', 'Share Details'),
+			title      : _('Share Details'),
 			closeOnSave: true,
 			model      : true,
 			autoSave   : false,

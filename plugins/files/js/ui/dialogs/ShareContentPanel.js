@@ -22,7 +22,7 @@ Zarafa.plugins.files.ui.dialogs.ShareContentPanel = Ext.extend(Zarafa.core.ui.Co
 		config = config || {};
 		Ext.applyIf(config, {
 			layout     : 'fit',
-			title      : dgettext('plugin_files', 'Share Files'),
+			title      : _('Share Files'),
 			width      : 800,
 			height     : 500,
 			items: [

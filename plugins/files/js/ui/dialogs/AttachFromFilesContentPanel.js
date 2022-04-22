@@ -17,7 +17,7 @@ Zarafa.plugins.files.ui.dialogs.AttachFromFilesContentPanel = Ext.extend(Zarafa.
 		config = config || {};
 		Ext.applyIf(config, {
 			layout : 'fit',
-			title : dgettext('plugin_files', 'Add attachment from Files'),
+			title : _('Add attachment from Files'),
 			closeOnSave: true,
 			width : 400,
 			height : 300,

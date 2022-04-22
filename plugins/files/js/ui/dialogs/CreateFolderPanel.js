@@ -37,13 +37,13 @@ Zarafa.plugins.files.ui.dialogs.CreateFolderPanel = Ext.extend(Ext.Panel, {
 			items: this.createPanel(config),
 			buttonAlign: 'right',
 			buttons: [{
-				text: dgettext('plugin_files', 'Ok'),
+				text: _('Ok'),
 				ref: '../okButton',
 				cls: 'zarafa-action',
 				handler : this.onOk,
 				scope: this
 			},{
-				text: dgettext('plugin_files', 'Cancel'),
+				text: _('Cancel'),
 				ref: '../cancelButton',
 				handler : this.onCancel,
 				scope: this
@@ -73,7 +73,7 @@ Zarafa.plugins.files.ui.dialogs.CreateFolderPanel = Ext.extend(Ext.Panel, {
 			labelAlign : 'top',
 			items : [{
 				xtype : 'textfield',
-				fieldLabel : dgettext('plugin_files', 'Name'),
+				fieldLabel : _('Name'),
 				cls: 'form-field-name',
 				ref : '../newNameField'
 			},{
@@ -81,7 +81,7 @@ Zarafa.plugins.files.ui.dialogs.CreateFolderPanel = Ext.extend(Ext.Panel, {
 				model : config.model,
 				FilesFilter: Zarafa.plugins.files.data.FileTypes.FOLDER,
 				bodyCssClass : 'files-create-folder-tree-panel',
-				fieldLabel : dgettext('plugin_files', 'Select where to place the folder'),
+				fieldLabel : _('Select where to place the folder'),
 				anchor : '100% 80%',
 				forceLayout : true,
 				ref : '../hierarchyTree',
@@ -130,8 +130,8 @@ Zarafa.plugins.files.ui.dialogs.CreateFolderPanel = Ext.extend(Ext.Panel, {
 
 		if (Ext.isEmpty(folderName.trim())) {
 			Ext.MessageBox.show({
-				title: dgettext('plugin_files', 'grommunio Web'),
-				msg: dgettext('plugin_files', 'You must specify a name.'),
+				title: _('grommunio Web'),
+				msg: _('You must specify a name.'),
 				buttons: Ext.MessageBox.OK,
 				icon: Ext.MessageBox.INFO,
 				scope : this
@@ -145,10 +145,10 @@ Zarafa.plugins.files.ui.dialogs.CreateFolderPanel = Ext.extend(Ext.Panel, {
 		});
 
 		if (folderAlreadyExist) {
-			Zarafa.plugins.files.data.Actions.msgWarning(dgettext('plugin_files', 'Folder already exists'));
+			Zarafa.plugins.files.data.Actions.msgWarning(_('Folder already exists'));
 			return;
 		} else if (!Zarafa.plugins.files.data.Utils.File.isValidFilename(folderName)) {
-			Zarafa.plugins.files.data.Actions.msgWarning(dgettext('plugin_files', 'Incorrect foldername'));
+			Zarafa.plugins.files.data.Actions.msgWarning(_('Incorrect foldername'));
 			return;
 		}
 

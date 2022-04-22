@@ -78,12 +78,12 @@ Zarafa.plugins.files.ui.dialogs.AttachFromFilesPanel = Ext.extend(Ext.Panel, {
 	createActionButtons: function () {
 		return [{
 			xtype  : 'button',
-			text   : dgettext('plugin_files', 'Add attachment'),
+			text   : _('Add attachment'),
 			iconCls: 'icon_files_category_white',
 			handler: this.downloadSelectedFilesFromFilesToTmp,
 			scope  : this
 		},{
-			text   : dgettext('plugin_files', 'Cancel'),
+			text   : _('Cancel'),
 			handler: this.onClickCancel,
 			scope: this
 		}];
@@ -119,8 +119,8 @@ Zarafa.plugins.files.ui.dialogs.AttachFromFilesPanel = Ext.extend(Ext.Panel, {
 		Ext.each(selectedNodes, function (node, index) {
 			if (node.get('message_size') > max_attachment_size) {
 				Zarafa.common.dialogs.MessageBox.show({
-					title  : dgettext('plugin_files', 'Warning'),
-					msg    : String.format(dgettext('plugin_files', 'The file {0} is too large!'), node.get('filename')) + ' (' + dgettext('plugin_files', 'max') + ': ' + Ext.util.Format.fileSize(max_attachment_size) + ')',
+					title  : _('Warning'),
+					msg    : String.format(_('The file {0} is too large!'), node.get('filename')) + ' (' + _('max') + ': ' + Ext.util.Format.fileSize(max_attachment_size) + ')',
 					icon   : Zarafa.common.dialogs.MessageBox.WARNING,
 					buttons: Zarafa.common.dialogs.MessageBox.OK
 				});
@@ -133,8 +133,8 @@ Zarafa.plugins.files.ui.dialogs.AttachFromFilesPanel = Ext.extend(Ext.Panel, {
 		if (!size_exceeded) {
 			if (idsList.length < 1) {
 				Ext.MessageBox.show({
-					title  : dgettext('plugin_files', 'Warning'),
-					msg    : dgettext('plugin_files', 'You have to choose at least one file!'),
+					title  : _('Warning'),
+					msg    : _('You have to choose at least one file!'),
 					icon   : Zarafa.common.dialogs.MessageBox.WARNING,
 					buttons: Zarafa.common.dialogs.MessageBox.OK
 				});
@@ -155,7 +155,7 @@ Zarafa.plugins.files.ui.dialogs.AttachFromFilesPanel = Ext.extend(Ext.Panel, {
 					);
 				} catch (e) {
 					Zarafa.common.dialogs.MessageBox.show({
-						title  : dgettext('plugin_files', 'Warning'),
+						title  : _('Warning'),
 						msg    : e.getMessage(),
 						icon   : Zarafa.common.dialogs.MessageBox.WARNING,
 						buttons: Zarafa.common.dialogs.MessageBox.OK

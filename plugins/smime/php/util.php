@@ -202,7 +202,7 @@ function verifyOCSP($certificate, $extracerts = [], &$message) {
 function validateUploadedPKCS($certificate, $passphrase, $emailAddress)
 {
 	if (!openssl_pkcs12_read($certificate, $certs, $passphrase)) {
-		return [dgettext('plugin_smime', 'Unable to decrypt certificate'), '', ''];
+		return [_('Unable to decrypt certificate'), '', ''];
 	}
 
 	$message = '';
@@ -219,26 +219,26 @@ function validateUploadedPKCS($certificate, $passphrase, $emailAddress)
 
 		// Check priv key for signing capabilities
 		if(!openssl_x509_checkpurpose($privatekey, X509_PURPOSE_SMIME_SIGN)) {
-			$message = dgettext('plugin_smime', 'Private key can\'t be used to sign email');
+			$message = _('Private key can\'t be used to sign email');
 		}
 		// Check if the certificate owner matches the WebApp users email address
 		else if (strcasecmp($certEmailAddress, $emailAddress) !== 0) {
-			$message = dgettext('plugin_smime', 'Certificate email address doesn\'t match WebApp account ') . $certEmailAddress;
+			$message = _('Certificate email address doesn\'t match WebApp account ') . $certEmailAddress;
 		}
 		// Check if certificate is not expired, still import the certificate since a user wants to decrypt his old email
 		else if($validTo < time()) {
-			$message = dgettext('plugin_smime', 'Certificate was expired on ') . date('Y-m-d', $validTo) .  '. ' . dgettext('plugin_smime', 'Certificate has not been imported');
+			$message = _('Certificate was expired on ') . date('Y-m-d', $validTo) .  '. ' . _('Certificate has not been imported');
 		}
 		// Check if the certificate is validFrom date is not in the future
 		else if($validFrom > time()) {
-			$message = dgettext('plugin_smime', 'Certificate is not yet valid ') . date('Y-m-d', $validFrom) . '. ' . dgettext('plugin_smime', 'Certificate has not been imported');
+			$message = _('Certificate is not yet valid ') . date('Y-m-d', $validFrom) . '. ' . _('Certificate has not been imported');
 		}
 		// We allow users to import private certificate which have no OCSP support
 		else if(!verifyOCSP($certs['cert'], $extracerts, $data)) {
-			$message = dgettext('plugin_smime', 'Certificate is revoked');
+			$message = _('Certificate is revoked');
 		}
 	} else { // Can't parse public certificate pkcs#12 file might be corrupt
-		$message = dgettext('plugin_smime', 'Unable to read public certificate');
+		$message = _('Unable to read public certificate');
 	}
 
 	return [$message, $publickey, $publickeyData];

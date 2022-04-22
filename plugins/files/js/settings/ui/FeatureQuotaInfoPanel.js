@@ -29,11 +29,11 @@ Zarafa.plugins.files.settings.ui.FeatureQuotaInfoPanel = Ext.extend(Ext.Panel, {
 			xtype      : 'filesplugin.featurequotainfopanel',
 			items      : this.createPanelItems(),
 			buttons    : [{
-				text   : dgettext('plugin_files', 'Reload'),
+				text   : _('Reload'),
 				handler: this.doReload.createDelegate(this),
 				scope  : this
 			}, {
-				text   : dgettext('plugin_files', 'Close'),
+				text   : _('Close'),
 				handler: this.doClose,
 				scope  : this
 			}]
@@ -113,18 +113,18 @@ Zarafa.plugins.files.settings.ui.FeatureQuotaInfoPanel = Ext.extend(Ext.Panel, {
 			items: [{
 				xtype     : 'displayfield',
 				name      : 'usedField',
-				fieldLabel: dgettext('plugin_files', 'Used'),
-				value     : dgettext('plugin_files', 'Loading') + '&hellip;'
+				fieldLabel: _('Used'),
+				value     : _('Loading') + '&hellip;'
 			}, {
 				xtype     : 'displayfield',
 				name      : 'availableField',
-				fieldLabel: dgettext('plugin_files', 'Free'),
-				value     : dgettext('plugin_files', 'Loading') + '&hellip;'
+				fieldLabel: _('Free'),
+				value     : _('Loading') + '&hellip;'
 			}, {
 				xtype     : 'displayfield',
 				name      : 'totalField',
-				fieldLabel: dgettext('plugin_files', 'Total'),
-				value     : dgettext('plugin_files', 'Loading') + '&hellip;'
+				fieldLabel: _('Total'),
+				value     : _('Loading') + '&hellip;'
 			}]
 		}];
 	}

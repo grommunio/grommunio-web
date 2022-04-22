@@ -23,7 +23,7 @@ Zarafa.plugins.files.settings.ui.AccountEditContentPanel = Ext.extend(Zarafa.cor
 			width: 400,
 			height: 250,
 			stateful: false,
-			title: dgettext('plugin_files', 'Edit Account'),
+			title: _('Edit Account'),
 			items: [{
 				xtype: 'filesplugin.accounteditpanel',
 				item: config.item,

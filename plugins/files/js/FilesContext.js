@@ -101,7 +101,7 @@ Zarafa.plugins.files.FilesContext = Ext.extend(Zarafa.core.Context, {
 	createAttachmentDownloadInsertionPoint: function (include, btn)
 	{
 		return {
-			text: dgettext('plugin_files', 'Add from Files'),
+			text: _('Add from Files'),
 			handler: this.showFilesDownloadAttachmentDialog,
 			scope: btn,
 			context: this,
@@ -122,7 +122,7 @@ Zarafa.plugins.files.FilesContext = Ext.extend(Zarafa.core.Context, {
 		var activeMenuItem = this.menu.activeItem;
 		var component = Zarafa.core.data.SharedComponentType['common.dialog.attachments.files'];
 		Zarafa.core.data.UIFactory.openLayerComponent(component, this.record, {
-			title: dgettext('plugin_files', 'Add attachment from Files'),
+			title: _('Add attachment from Files'),
 			modal: true,
 			model: activeMenuItem.context.getModel()
 		});
@@ -154,7 +154,7 @@ Zarafa.plugins.files.FilesContext = Ext.extend(Zarafa.core.Context, {
 	createAttachmentUploadInsertionPoint: function (include, btn)
 	{
 		return {
-			text   : dgettext('plugin_files', 'Add to Files'),
+			text   : _('Add to Files'),
 			handler: this.showFilesUploadAttachmentDialog,
 			scope  : btn,
 			iconCls: 'icon_files_category',
@@ -226,7 +226,7 @@ Zarafa.plugins.files.FilesContext = Ext.extend(Zarafa.core.Context, {
 	createEmailUploadInsertionPoint: function (include, btn)
 	{
 		return {
-			text : dgettext('plugin_files', 'Add to Files'),
+			text : _('Add to Files'),
 			handler: this.showFilesUploadEmailDialog,
 			scope : btn,
 			iconCls: 'icon_files_category',
@@ -247,7 +247,7 @@ Zarafa.plugins.files.FilesContext = Ext.extend(Zarafa.core.Context, {
 
 		var jsonRecords = [];
 		for (var i = 0, len = records.length; i < len; i++) {
-			var fileName = Ext.isEmpty(records[i].get('subject')) ? dgettext('plugin_files', 'Untitled') : records[i].get('subject');
+			var fileName = Ext.isEmpty(records[i].get('subject')) ? _('Untitled') : records[i].get('subject');
 			jsonRecords[i] = {
 				store   : records[i].get('store_entryid'),
 				entryid : records[i].get('entryid'),
@@ -480,7 +480,7 @@ Zarafa.plugins.files.FilesContext = Ext.extend(Zarafa.core.Context, {
 	createNewFilesButton: function () {
 		return {
 			xtype       : 'menuitem',
-			text        : dgettext('plugin_files', 'Upload file'),
+			text        : _('Upload file'),
 			plugins     : 'zarafa.menuitemtooltipplugin',
 			iconCls     : 'icon_files_category',
 			newMenuIndex: 6,
@@ -502,25 +502,25 @@ Zarafa.plugins.files.FilesContext = Ext.extend(Zarafa.core.Context, {
 		var items = container.populateInsertionPoint('main.maintoolbar.view.files', this) || [];
 
 		var defaultItems = [{
-			overflowText : dgettext('plugin_files', 'No preview'),
+			overflowText : _('No preview'),
 			iconCls      : 'icon_previewpanel_off',
-			text         : dgettext('plugin_files', 'No preview'),
+			text         : _('No preview'),
 			valueViewMode: Zarafa.plugins.files.data.ViewModes.NO_PREVIEW,
 			valueDataMode: Zarafa.plugins.files.data.DataModes.ALL,
 			handler      : this.onContextSelectView,
 			scope        : this
 		}, {
-			overflowText : dgettext('plugin_files', 'Right preview'),
+			overflowText : _('Right preview'),
 			iconCls      : 'icon_previewpanel_right',
-			text         : dgettext('plugin_files', 'Right preview'),
+			text         : _('Right preview'),
 			valueViewMode: Zarafa.plugins.files.data.ViewModes.RIGHT_PREVIEW,
 			valueDataMode: Zarafa.plugins.files.data.DataModes.ALL,
 			handler      : this.onContextSelectView,
 			scope        : this
 		}, {
-			overflowText : dgettext('plugin_files', 'Bottom preview'),
+			overflowText : _('Bottom preview'),
 			iconCls      : 'icon_previewpanel_bottom',
-			text         : dgettext('plugin_files', 'Bottom preview'),
+			text         : _('Bottom preview'),
 			valueViewMode: Zarafa.plugins.files.data.ViewModes.BOTTOM_PREVIEW,
 			valueDataMode: Zarafa.plugins.files.data.DataModes.ALL,
 			handler      : this.onContextSelectView,
@@ -541,7 +541,7 @@ Zarafa.plugins.files.FilesContext = Ext.extend(Zarafa.core.Context, {
 		return [{
 			xtype    : 'splitbutton',
 			ref      : '../../../filesSwitchViewButton',
-			tooltip  : dgettext('plugin_files', 'Switch view'),
+			tooltip  : _('Switch view'),
 			scale    : 'large',
 			iconCls  : 'icon_viewswitch',
 			handler  : function () {
@@ -550,15 +550,15 @@ Zarafa.plugins.files.FilesContext = Ext.extend(Zarafa.core.Context, {
 			menu : {
 				xtype : 'menu',
 				items: [{
-					text        : dgettext('plugin_files', 'List'),
-					overflowText: dgettext('plugin_files', 'List'),
+					text        : _('List'),
+					overflowText: _('List'),
 					iconCls     : 'icon_contact_list',
 					valueView   : Zarafa.plugins.files.data.Views.LIST,
 					handler     : this.onSwitchView,
 					scope       : this
 				}, {
-					text        : dgettext('plugin_files', 'Icons'),
-					overflowText: dgettext('plugin_files', 'Icons'),
+					text        : _('Icons'),
+					overflowText: _('Icons'),
 					iconCls     : 'icon_note_icon_view',
 					valueView   : Zarafa.plugins.files.data.Views.ICON,
 					handler     : this.onSwitchView,
@@ -668,7 +668,7 @@ Zarafa.onReady(function () {
 	if (container.getSettingsModel().get('zarafa/v1/plugins/files/enable') === true) {
 		container.registerContext(new Zarafa.core.ContextMetaData({
 			name             : 'filescontext',
-			displayName      : dgettext('plugin_files', 'Files'),
+			displayName      : _('Files'),
 			allowUserVisible : false,
 			pluginConstructor: Zarafa.plugins.files.FilesContext
 		}));

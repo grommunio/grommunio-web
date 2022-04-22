@@ -18,7 +18,7 @@ Zarafa.plugins.files.ui.dialogs.SaveToFilesContentPanel = Ext.extend(Zarafa.core
 
 		Ext.applyIf(config, {
 			layout     : 'fit',
-			title      : dgettext('plugin_files', 'Add item to Files'),
+			title      : _('Add item to Files'),
 			closeOnSave: true,
 			width      : 400,
 			height     : 300,

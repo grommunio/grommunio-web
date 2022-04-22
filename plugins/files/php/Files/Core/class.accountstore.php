@@ -284,7 +284,7 @@ class AccountStore
 	private function checkBackendConfig($backendInstance, $backendConfig)
 	{
 		$status = Account::STATUS_NEW;
-		$description = dgettext('plugin_files', 'Account is ready to use.');
+		$description = _('Account is ready to use.');
 		try {
 			$backendInstance->init_backend($backendConfig);
 			$backendInstance->open();

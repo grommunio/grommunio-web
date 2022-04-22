@@ -229,7 +229,7 @@ Zarafa.plugins.files.data.Utils = {
 			p.css = 'mail_date';
 
 			value = new Date(value);
-			return Ext.isDate(value) ? value.format(dgettext('plugin_files', 'l d/m/Y G:i')) : dgettext('plugin_files', 'Never');
+			return Ext.isDate(value) ? value.format(_('l d/m/Y G:i')) : _('Never');
 		}
 	},
 

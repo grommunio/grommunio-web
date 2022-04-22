@@ -34,12 +34,12 @@ Zarafa.plugins.mdm.dialogs.MDMDevicePanel = Ext.extend(Ext.Panel, {
 				items: [{
 					xtype: 'mdmplugin.mdmdevicegeneraltab',
 					record: config.record,
-					title: dgettext('plugin_mdm','General'),
+					title: _('General'),
 					isKoe : config.isKoe
 				}, {
 					xtype: 'mdmplugin.mdmdevicedetailstab',
 					record: config.record,
-					title: dgettext('plugin_mdm','Details'),
+					title: _('Details'),
 					isKoe : config.isKoe
 				}]
 			}]

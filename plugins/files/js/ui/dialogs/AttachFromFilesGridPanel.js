@@ -37,18 +37,18 @@ Zarafa.plugins.files.ui.dialogs.AttachFromFilesGridPanel = Ext.extend(Ext.grid.G
 				renderer : Zarafa.plugins.files.data.Utils.Renderer.typeRenderer,
 				width    : 24,
 				fixed    : true,
-				tooltip  : dgettext('plugin_files', 'Sort by: Type')
+				tooltip  : _('Sort by: Type')
 			},{
-				header   : dgettext('plugin_files', 'Filename'),
+				header   : _('Filename'),
 				dataIndex: 'filename',
 				width    : 160,
-				tooltip  : dgettext('plugin_files', 'Sort by: Filename')
+				tooltip  : _('Sort by: Filename')
 			},{
-				header   : dgettext('plugin_files', 'Size'),
+				header   : _('Size'),
 				dataIndex: 'message_size',
 				width    : 80,
 				renderer : Zarafa.plugins.files.data.Utils.Format.fileSizeList,
-				tooltip  : dgettext('plugin_files', 'Sort by: Size')
+				tooltip  : _('Sort by: Size')
 			}],
 			selModel: model,
 			loadMask : {

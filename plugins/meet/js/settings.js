@@ -31,7 +31,7 @@ Zarafa.plugins.meet.SettingsWidget = Ext.extend(Zarafa.settings.ui.SettingsWidge
         {
           xtype: 'displayfield',
           hideLabel: true,
-          value: _('Open meeting in:', 'plugin_meet')
+          value: _('Open meeting in:')
         },{
           xtype: 'radiogroup',
           ref: 'openInRadio',
@@ -58,42 +58,42 @@ Zarafa.plugins.meet.SettingsWidget = Ext.extend(Zarafa.settings.ui.SettingsWidge
         },{
           xtype: 'checkbox',
           ref: 'hideTabbarButtonCheckbox',
-          boxLabel: _('Hide the button in the main toolbar', 'plugin_meet'),
+          boxLabel: _('Hide the button in the main toolbar'),
           checked: false,
           hideLabel : true,
           style: 'margin-top: 5px',
         },{
           xtype: 'checkbox',
           ref: 'mnameAddSubject',
-          boxLabel: _('Add the subject to the room name', 'plugin_meet'),
+          boxLabel: _('Add the subject to the room name'),
           checked: true,
           hideLabel : true,
           style: 'margin-top: 5px',
         },{
           xtype: 'checkbox',
           ref: 'mnameAddOrganizer',
-          boxLabel: _('Add the organizer name to the room name', 'plugin_meet'),
+          boxLabel: _('Add the organizer name to the room name'),
           checked: true,
           hideLabel : true,
           style: 'margin-top: 5px',
         },{
           xtype: 'checkbox',
           ref: 'locationAddCheckbox',
-          boxLabel: _('Add the URL to the meeting location rather than overwriting it', 'plugin_meet'),
+          boxLabel: _('Add the URL to the meeting location rather than overwriting it'),
           checked: true,
           hideLabel : true,
           style: 'margin-top: 5px',
         },{
           xtype: 'checkbox',
           ref: 'locationFixCheckbox',
-          boxLabel: _('Prevent the URL in the meeting location from being overridden automatically (ex: when adding a meetingroom)', 'plugin_meet') + '<span class="k-settings-label-minor">(' + _('If you have problems when creating meetings, try disabling this setting', 'plugin_meet') + ')</span>',
+          boxLabel: _('Prevent the URL in the meeting location from being overridden automatically (ex: when adding a meetingroom)') + '<span class="k-settings-label-minor">(' + _('If you have problems when creating meetings, try disabling this setting') + ')</span>',
           checked: true,
           hideLabel : true,
           style: 'margin-top: 5px',
         },{
           xtype: 'checkbox',
           ref: 'addInvitationCheckbox',
-          boxLabel: _('Add an invitation to the appointment description', 'plugin_meet'),
+          boxLabel: _('Add an invitation to the appointment description'),
           checked: true,
           hideLabel : true,
           style: 'margin-top: 5px',
@@ -101,7 +101,7 @@ Zarafa.plugins.meet.SettingsWidget = Ext.extend(Zarafa.settings.ui.SettingsWidge
           xtype: 'displayfield',
           hideLabel: true,
           style: 'margin-top: 5px',
-          value: _('Invitation text', 'plugin_meet') + ': <span class="k-settings-label-minor">(' + _('must contain %url% as a placeholder for the meeting link, empty the textbox to reset to default', 'plugin_meet') + ')</span>',
+          value: _('Invitation text') + ': <span class="k-settings-label-minor">(' + _('must contain %url% as a placeholder for the meeting link, empty the textbox to reset to default') + ')</span>',
         },{
           xtype: 'textarea',
           ref: 'invitationEditor',

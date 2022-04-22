@@ -76,10 +76,10 @@ Zarafa.plugins.smime.SmimePlugin = Ext.extend(Zarafa.core.Plugin, {
 	{
 		return {
 			xtype : 'button',
-			text : _('Sign', 'plugin_smime'),
+			text : _('Sign'),
 			tooltip: {
-				title: _('Sign message', 'plugin_smime'),
-				text: _('Ensure the authenticity of the message by adding a digital signature to this message. Any changes to the message will invalidate the signature.', 'plugin_smime')
+				title: _('Sign message'),
+				text: _('Ensure the authenticity of the message by adding a digital signature to this message. Any changes to the message will invalidate the signature.')
 			},
 			iconCls : 'icon_smime_sign',
 			listeners : {
@@ -102,10 +102,10 @@ Zarafa.plugins.smime.SmimePlugin = Ext.extend(Zarafa.core.Plugin, {
 	{
 		return {
 			xtype : 'button',
-			text : _('Encrypt', 'plugin_smime'),
+			text : _('Encrypt'),
 			tooltip: {
-				title: _('Encrypt message', 'plugin_smime'),
-				text: _('Ensure the privacy of the message by encrypting its contents. Only the recipient of the message will be able to open it.', 'plugin_smime')
+				title: _('Encrypt message'),
+				text: _('Ensure the privacy of the message by encrypting its contents. Only the recipient of the message will be able to open it.')
 			},
 			iconCls : 'icon_smime_encrypt',
 			listeners : {
@@ -178,7 +178,7 @@ Zarafa.plugins.smime.SmimePlugin = Ext.extend(Zarafa.core.Plugin, {
 				case 'signed':
 				case 'encryptsigned':
 					container.getNotifier().notify(Zarafa.plugins.smime.SmimeText.getPopupStatus(smimeInfo.success),
-							_('What\'s going on with my email?', 'plugin_smime'), Zarafa.plugins.smime.SmimeText.getPopupText(smimeInfo.info));
+							_('What\'s going on with my email?'), Zarafa.plugins.smime.SmimeText.getPopupText(smimeInfo.info));
 					break;
 			}
 		}
@@ -391,7 +391,7 @@ Zarafa.plugins.smime.SmimePlugin = Ext.extend(Zarafa.core.Plugin, {
 		if(response.status) {
 			Zarafa.core.data.UIFactory.openLayerComponent(Zarafa.core.data.SharedComponentType['plugin.smime.dialog.passphrasewindow'], btn, {manager: Ext.WindowMgr});
 		} else {
-			container.getNotifier().notify('info.saved', _('S/MIME Message', 'plugin_smime'), response.message);
+			container.getNotifier().notify('info.saved', _('S/MIME Message'), response.message);
 		}
 	},
 
@@ -443,7 +443,7 @@ Zarafa.plugins.smime.SmimePlugin = Ext.extend(Zarafa.core.Plugin, {
 	showDefaultColumn : function()
 	{
 		return  {
-			header : '<p class="icon_smime_settings">&nbsp;<span class="title">' + '&nbsp' + _('S/MIME Message', 'plugin_smime') + '</span></p>',
+			header : '<p class="icon_smime_settings">&nbsp;<span class="title">' + '&nbsp' + _('S/MIME Message') + '</span></p>',
 			headerCls: 'zarafa-icon-column',
 			dataIndex : 'message_class',
 			width : 24,
@@ -458,7 +458,7 @@ Zarafa.plugins.smime.SmimePlugin = Ext.extend(Zarafa.core.Plugin, {
 				return '';
 			},
 			fixed : true,
-			tooltip : _('S/MIME Message', 'plugin_smime')
+			tooltip : _('S/MIME Message')
 		};
 	},
 
@@ -518,7 +518,7 @@ Zarafa.onReady(function() {
 
 	container.registerPlugin(new Zarafa.core.PluginMetaData({
 		name : 'smime',
-		displayName : _('S/MIME Plugin', 'plugin_smime'),
+		displayName : _('S/MIME Plugin'),
 		pluginConstructor : Zarafa.plugins.smime.SmimePlugin
 	}));
 });

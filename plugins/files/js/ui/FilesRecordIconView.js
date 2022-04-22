@@ -35,10 +35,10 @@ Zarafa.plugins.files.ui.FilesRecordIconView = Ext.extend(Zarafa.common.ui.Dragga
 		Ext.applyIf(config, {
 			xtype: 'filesplugin.filesrecordiconview',
 			cls           : 'zarafa-files-iconview',
-			loadingText   : dgettext('plugin_files', 'Loading files') + '...',
+			loadingText   : _('Loading files') + '...',
 			deferEmptyText: false,
 			autoScroll    : true,
-			emptyText     : '<div class="emptytext">' + dgettext('plugin_files', 'There are no items to show in this view') + '</div>',
+			emptyText     : '<div class="emptytext">' + _('There are no items to show in this view') + '</div>',
 			overClass     : 'zarafa-files-iconview-over',
 			tpl           : this.initTemplate(),
 			multiSelect   : true,

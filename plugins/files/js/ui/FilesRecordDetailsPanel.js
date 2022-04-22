@@ -59,7 +59,7 @@ Zarafa.plugins.files.ui.FilesRecordDetailsPanel = Ext.extend(Ext.form.FormPanel,
 	fieldSetFileInfo: function () {
 		return {
 			xtype   : 'fieldset',
-			title   : dgettext('plugin_files', 'File information'),
+			title   : _('File information'),
 			height  : 150,
 			width   : 300,
 			defaults: {
@@ -67,35 +67,35 @@ Zarafa.plugins.files.ui.FilesRecordDetailsPanel = Ext.extend(Ext.form.FormPanel,
 			},
 			items   : [{
 				xtype     : 'textfield',
-				fieldLabel: dgettext('plugin_files', 'Filename'),
+				fieldLabel: _('Filename'),
 				ref       : '../filename',
 				value     : "unknown",
 				readOnly  : true
 			},
 				{
 					xtype     : 'textfield',
-					fieldLabel: dgettext('plugin_files', 'Filesize'),
+					fieldLabel: _('Filesize'),
 					ref       : '../filesize',
 					value     : "unknown",
 					readOnly  : true
 				},
 				{
 					xtype     : 'textfield',
-					fieldLabel: dgettext('plugin_files', 'Last modified'),
+					fieldLabel: _('Last modified'),
 					ref       : '../lastmodified',
 					value     : "unknown",
 					readOnly  : true
 				},
 				{
 					xtype     : 'textfield',
-					fieldLabel: dgettext('plugin_files', 'Type'),
+					fieldLabel: _('Type'),
 					ref       : '../type',
 					value     : "unknown",
 					readOnly  : true
 				},
 				{
 					xtype     : 'textfield',
-					fieldLabel: dgettext('plugin_files', 'Is shared'),
+					fieldLabel: _('Is shared'),
 					ref       : '../shared',
 					hidden    : true,
 					value     : "unknown",
@@ -122,7 +122,7 @@ Zarafa.plugins.files.ui.FilesRecordDetailsPanel = Ext.extend(Ext.form.FormPanel,
 
 		return {
 			xtype: 'fieldset',
-			title: dgettext('plugin_files', 'File preview'),
+			title: _('File preview'),
 			ref  : 'filepreview',
 			flex : 1,
 			autoScroll: true,
@@ -232,7 +232,7 @@ Zarafa.plugins.files.ui.FilesRecordDetailsPanel = Ext.extend(Ext.form.FormPanel,
 							src: Zarafa.plugins.files.data.Actions.getDownloadLink(record),
 							type: audioType
 						},
-						dgettext('plugin_files', 'Your browser does not support previewing of audio files!')
+						_('Your browser does not support previewing of audio files!')
 					]
 				}
 			}
@@ -263,7 +263,7 @@ Zarafa.plugins.files.ui.FilesRecordDetailsPanel = Ext.extend(Ext.form.FormPanel,
 							src: Zarafa.plugins.files.data.Actions.getDownloadLink(record),
 							type: videoType
 						},
-						dgettext('plugin_files', 'Your browser does not support previewing of video files!')
+						_('Your browser does not support previewing of video files!')
 					]
 				}
 			}
@@ -295,20 +295,20 @@ Zarafa.plugins.files.ui.FilesRecordDetailsPanel = Ext.extend(Ext.form.FormPanel,
 			this.filesize.setValue(Zarafa.plugins.files.data.Utils.Format.fileSize(record.get('message_size')));
 		}
 
-		var lastModifiedDate = Ext.util.Format.date(new Date(record.get('lastmodified')), dgettext('plugin_files', 'd.m.Y G:i'));
+		var lastModifiedDate = Ext.util.Format.date(new Date(record.get('lastmodified')), _('d.m.Y G:i'));
 		this.lastmodified.setValue(lastModifiedDate);
 
-		var type = dgettext('plugin_files', 'Folder');
+		var type = _('Folder');
 		if (recordType) {
 			var extension = this.getExtension(record.get('filename'));
-			type = String.format(dgettext('plugin_files', 'File ({0})'), extension);
+			type = String.format(_('File ({0})'), extension);
 		}
 		this.type.setValue(type);
 
 		var supportSharing = record.getAccount().supportsFeature(Zarafa.plugins.files.data.AccountRecordFeature.SHARING);
 		this.shared.setVisible(supportSharing);
 		if (supportSharing) {
-			this.shared.setValue(record.get("isshared") ? dgettext('plugin_files', 'Yes') : dgettext('plugin_files', 'No'));
+			this.shared.setValue(record.get("isshared") ? _('Yes') : _('No'));
 		}
 		this.setPreviewPanel(record, extension);
 	},

@@ -38,7 +38,7 @@ Zarafa.plugins.files.ui.FilesMainContextMenu = Ext.extend(Zarafa.core.ui.menu.Co
 	createContextActionItems: function (model) {
 		return [{
 			xtype     : 'zarafa.conditionalitem',
-			text      : dgettext('plugin_files', 'Download'),
+			text      : _('Download'),
 			iconCls   : 'files_icon_action files_icon_action_download',
 			handler   : this.onContextItemDownload,
 			beforeShow: function (item, records) {
@@ -49,7 +49,7 @@ Zarafa.plugins.files.ui.FilesMainContextMenu = Ext.extend(Zarafa.core.ui.menu.Co
 			scope     : this
 		}, {
 			xtype     : 'zarafa.conditionalitem',
-			text      : dgettext('plugin_files', 'Share'),
+			text      : _('Share'),
 			iconCls   : 'files_icon_action files_icon_action_share',
 			handler   : this.onContextItemShare,
 			beforeShow: function (item, records) {
@@ -66,13 +66,13 @@ Zarafa.plugins.files.ui.FilesMainContextMenu = Ext.extend(Zarafa.core.ui.menu.Co
 				item.setVisible(visible);
 
 				if (isShared == true) {
-					item.setText(dgettext('plugin_files', 'Edit share'));
+					item.setText(_('Edit share'));
 				}
 			},
 			scope     : this
 		}, {
 			xtype     : 'zarafa.conditionalitem',
-			text      : dgettext('plugin_files', 'New Folder'),
+			text      : _('New Folder'),
 			iconCls   : 'files_icon_action files_icon_action_new_folder',
 			handler   : this.onContextItemNewFolder,
 			beforeShow: function (item, records) {
@@ -82,7 +82,7 @@ Zarafa.plugins.files.ui.FilesMainContextMenu = Ext.extend(Zarafa.core.ui.menu.Co
 			scope     : this
 		}, {
 			xtype     : 'zarafa.conditionalitem',
-			text      : dgettext('plugin_files', 'Attach to mail'),
+			text      : _('Attach to mail'),
 			iconCls   : 'files_icon_action files_icon_action_attach_to_mail',
 			handler   : this.onContextItemAttach,
 			beforeShow: function (item, records) {
@@ -102,7 +102,7 @@ Zarafa.plugins.files.ui.FilesMainContextMenu = Ext.extend(Zarafa.core.ui.menu.Co
 			scope     : this
 		}, {
 			xtype     : 'zarafa.conditionalitem',
-			text      : dgettext('plugin_files', 'Rename'),
+			text      : _('Rename'),
 			iconCls   : 'files_icon_action files_icon_action_edit',
 			handler   : this.onContextItemRename,
 			beforeShow: function (item, records) {
@@ -111,7 +111,7 @@ Zarafa.plugins.files.ui.FilesMainContextMenu = Ext.extend(Zarafa.core.ui.menu.Co
 			scope     : this
 		}, {
 			xtype     : 'zarafa.conditionalitem',
-			text      : dgettext('plugin_files', 'Delete'),
+			text      : _('Delete'),
 			iconCls   : 'files_icon_action files_icon_action_delete',
 			handler   : this.onContextItemDelete,
 			beforeShow: function (item, records) {
@@ -120,7 +120,7 @@ Zarafa.plugins.files.ui.FilesMainContextMenu = Ext.extend(Zarafa.core.ui.menu.Co
 			scope     : this
 		}, {
 			xtype : 'zarafa.conditionalitem',
-			text : dgettext('plugin_files', 'Info'),
+			text : _('Info'),
 			iconCls : 'icon_info',
 			handler : this.onContextItemInfo,
 			beforeShow: function (item, records) {
@@ -211,7 +211,7 @@ Zarafa.plugins.files.ui.FilesMainContextMenu = Ext.extend(Zarafa.core.ui.menu.Co
 			idsList.push(record.get('folder_id'));
 		}, this);
 
-		container.getNotifier().notify('info.files', dgettext('plugin_files', 'Attaching'), dgettext('plugin_files', 'Creating email... Please wait!'));
+		container.getNotifier().notify('info.files', _('Attaching'), _('Creating email... Please wait!'));
 
 		try {
 			container.getRequest().singleRequest(

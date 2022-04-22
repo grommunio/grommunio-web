@@ -24,7 +24,7 @@ Zarafa.plugins.smime.dialogs.ChangePassphrasePanel = Ext.extend(Ext.Panel, {
 			items: [{
 				hideLabel: true,
 				xtype: 'displayfield',
-				value: _('Old passphrase', 'plugin_smime')
+				value: _('Old passphrase')
 			},{
 				hideLabel: true,
 				xtype : 'textfield',
@@ -42,11 +42,11 @@ Zarafa.plugins.smime.dialogs.ChangePassphrasePanel = Ext.extend(Ext.Panel, {
 				xtype: 'displayfield',
 				ref: 'wrong_passphrase',
 				cls: 'zarafa-smime-invalid-text',
-				value: _('Wrong passphrase. Please try again', 'plugin_smime')
+				value: _('Wrong passphrase. Please try again')
 			},{
 				hideLabel: true,
 				xtype: 'displayfield',
-				value: _('New passphrase', 'plugin_smime')
+				value: _('New passphrase')
 			},{
 				hideLabel: true,
 				xtype : 'textfield',
@@ -60,7 +60,7 @@ Zarafa.plugins.smime.dialogs.ChangePassphrasePanel = Ext.extend(Ext.Panel, {
 			},{
 				hideLabel: true,
 				xtype: 'displayfield',
-				value: _('Confirm new passphrase', 'plugin_smime')
+				value: _('Confirm new passphrase')
 			},{
 				hideLabel: true,
 				xtype : 'textfield',
@@ -77,7 +77,7 @@ Zarafa.plugins.smime.dialogs.ChangePassphrasePanel = Ext.extend(Ext.Panel, {
 				xtype: 'displayfield',
 				ref: 'wrong_verification',
 				cls: 'zarafa-smime-invalid-text',
-				value: _("The passphrases don't match. Please try again", 'plugin_smime')
+				value: _("The passphrases don't match. Please try again")
 			}]
 		});
 
@@ -133,7 +133,7 @@ Zarafa.plugins.smime.dialogs.ChangePassphrasePanel = Ext.extend(Ext.Panel, {
 	 */
 	onChangePassphraseRequest: function(response) {
 		if (response.code === Zarafa.plugins.smime.CHANGE_CERTIFICATE_SUCCESS) {
-			container.getNotifier().notify('info.saved', _('S/MIME Message', 'plugin_smime'), _('Passphrase changed succesfully', 'plugin_smime'));
+			container.getNotifier().notify('info.saved', _('S/MIME Message'), _('Passphrase changed succesfully'));
 			this.dialog.close();
 		} else {
 			this.wrong_passphrase.show();

@@ -59,12 +59,12 @@ Zarafa.plugins.meet.Plugin = Ext.extend(Zarafa.core.Plugin, {
   createAddMeetingButton: function(){
     return {
       xtype: 'button',
-      text: _('Add meeting', 'plugin_meet'),
+      text: _('Add meeting'),
       iconCls: 'icon_meet',
       handler: this.onAddMeetingButtonClick,
       scope: this,
       plugins: ['zarafa.recordcomponentupdaterplugin'],
-      tooltip: _('Shift-click for advanced settings', 'plugin_meet'),
+      tooltip: _('Shift-click for advanced settings'),
       update: function(record, contentReset){
         this.record = record;
         if ((new RegExp(container.getSettingsModel().get('zarafa/v1/plugins/meet/server').replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + '[-a-zA-Z0-9()@:%_\+.~#?&\/=]+')).test(record.get('location'))) {
@@ -79,7 +79,7 @@ Zarafa.plugins.meet.Plugin = Ext.extend(Zarafa.core.Plugin, {
   createJoinMeetingButton: function(){
     return {
       xtype: 'button',
-      text: _('Join webmeeting', 'plugin_meet'),
+      text: _('Join webmeeting'),
       iconCls: 'icon_meet',
       handler: this.onJoinMeetingButtonClick,
       scope: this,

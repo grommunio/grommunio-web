@@ -34,57 +34,57 @@ Zarafa.plugins.files.settings.ui.AccountGridColumnModel = Ext.extend(Zarafa.comm
 		return [
 			new Ext.grid.RowNumberer(),
 			{
-				header   : dgettext('plugin_files', 'ID'),
+				header   : _('ID'),
 				dataIndex: 'id',
 				width    : 50,
 				hidden   : true,
 				sortable : false,
-				tooltip  : dgettext('plugin_files', 'Sort by: ID')
+				tooltip  : _('Sort by: ID')
 			}, {
-				header   : dgettext('plugin_files', 'Status'),
+				header   : _('Status'),
 				dataIndex: 'status',
 				width    : 40,
 				sortable : false,
 				renderer : Zarafa.plugins.files.settings.data.AccountRenderUtil.statusRenderer,
-				tooltip  : dgettext('plugin_files', 'Sort by: Status')
+				tooltip  : _('Sort by: Status')
 			}, {
-				header   : dgettext('plugin_files', 'Name'),
+				header   : _('Name'),
 				dataIndex: 'name',
 				flex     : 1,
 				sortable : false,
-				tooltip  : dgettext('plugin_files', 'Sort by: Name')
+				tooltip  : _('Sort by: Name')
 			}, {
-				header   : dgettext('plugin_files', 'Backend'),
+				header   : _('Backend'),
 				dataIndex: 'backend',
 				width    : 40,
 				sortable : false,
 				renderer : Zarafa.plugins.files.settings.data.AccountRenderUtil.backendRenderer,
-				tooltip  : dgettext('plugin_files', 'Sort by: Backend')
+				tooltip  : _('Sort by: Backend')
 			}, {
 				xtype    : 'actioncolumn',
-				header   : dgettext('plugin_files', 'Features'),
+				header   : _('Features'),
 				dataIndex: 'backend_features',
 				width    : 40,
 				sortable : false,
-				tooltip  : dgettext('plugin_files', 'Shows all available features of the backend.'),
+				tooltip  : _('Shows all available features of the backend.'),
 				items    : [{
 					getClass: Zarafa.plugins.files.settings.data.AccountRenderUtil.featureRenderer.createDelegate(this, [Zarafa.plugins.files.data.AccountRecordFeature.QUOTA], true),
 					icon    : 'plugins/files/resources/icons/features/quota.png',
-					tooltip : dgettext('plugin_files', 'Show quota information'),
+					tooltip : _('Show quota information'),
 					handler : this.showDialog.createDelegate(this, ['filesplugin.featurequotainfo'], 2)
 				}, {
 					getClass: Zarafa.plugins.files.settings.data.AccountRenderUtil.featureRenderer.createDelegate(this, [Zarafa.plugins.files.data.AccountRecordFeature.VERSION_INFO], true),
 					icon    : 'plugins/files/resources/icons/features/info.png',
-					tooltip : dgettext('plugin_files', 'Show version information'),
+					tooltip : _('Show version information'),
 					handler : this.showDialog.createDelegate(this, ['filesplugin.featureversioninfo'], 2)
 				}, {
 					getClass: Zarafa.plugins.files.settings.data.AccountRenderUtil.featureRenderer.createDelegate(this, [Zarafa.plugins.files.data.AccountRecordFeature.SHARING], true),
 					icon    : 'plugins/files/resources/icons/features/sharing.png',
-					tooltip : dgettext('plugin_files', 'Share files')
+					tooltip : _('Share files')
 				}, {
 					getClass: Zarafa.plugins.files.settings.data.AccountRenderUtil.featureRenderer.createDelegate(this, [Zarafa.plugins.files.data.AccountRecordFeature.STREAMING], true),
 					icon    : 'plugins/files/resources/icons/features/streaming.png',
-					tooltip : dgettext('plugin_files', 'Fast Down/Upload')
+					tooltip : _('Fast Down/Upload')
 				}]
 			}];
 	},

@@ -21,7 +21,7 @@ Zarafa.plugins.mdm.dialogs.MDMDeviceContentPanel = Ext.extend(Zarafa.core.ui.Rec
 			xtype: 'mdmplugin.devicecontentpanel',
 			modal: true,
 			showModalWithoutParent: true,
-			title: dgettext('plugin_mdm', config.record.get('devicetype')),
+			title: _(config.record.get('devicetype')),
 			recordComponentPluginConfig: Ext.applyIf(config.recordComponentPluginConfig || {}, {
 				allowWrite: true,
 				useShadowStore: true

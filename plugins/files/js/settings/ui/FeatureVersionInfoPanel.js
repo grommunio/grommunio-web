@@ -30,7 +30,7 @@ Zarafa.plugins.files.settings.ui.FeatureVersionInfoPanel = Ext.extend(Ext.Panel,
 			xtype      : 'filesplugin.featureversioninfopanel',
 			items      : this.createPanelItems(config),
 			buttons    : [{
-				text   : dgettext('plugin_files', 'Close'),
+				text   : _('Close'),
 				handler: this.doClose,
 				scope  : this
 			}]
@@ -91,13 +91,13 @@ Zarafa.plugins.files.settings.ui.FeatureVersionInfoPanel = Ext.extend(Ext.Panel,
 			items     : [{
 				xtype     : 'displayfield',
 				ref       : '../backendVersionField',
-				fieldLabel: dgettext('plugin_files', 'Backend'),
-				value     : dgettext('plugin_files', 'Loading') + '&hellip;'
+				fieldLabel: _('Backend'),
+				value     : _('Loading') + '&hellip;'
 			}, {
 				xtype     : 'displayfield',
 				ref       : '../serverVersionField',
 				fieldLabel: this.account.get('backend'),
-				value     : dgettext('plugin_files', 'Loading') + '&hellip;'
+				value     : _('Loading') + '&hellip;'
 			}]
 		}];
 	}

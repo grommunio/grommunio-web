@@ -38,28 +38,28 @@ Zarafa.plugins.files.backend.Owncloud.ui.FilesShareUserGridColumnModel = Ext.ext
 	createDefaultColumns: function (fileType) {
 		var columns = [
 			{
-				header   : dgettext('plugin_filesbackendOwncloud', 'Name'),
+				header   : _('Name'),
 				dataIndex: 'shareWithDisplayname',
 				flex     : 1,
 				sortable : true,
-				tooltip  : dgettext('plugin_filesbackendOwncloud', 'Sort by: Name')
+				tooltip  : _('Sort by: Name')
 			}, {
-				header   : dgettext('plugin_filesbackendOwncloud', 'Type'),
+				header   : _('Type'),
 				dataIndex: 'type',
 				flex	   : 1,
 				align	   : 'center',
 				sortable : true,
 				renderer : this.shareTypeRenderer,
-				tooltip  : dgettext('plugin_filesbackendOwncloud', 'Sort by: Type')
+				tooltip  : _('Sort by: Type')
 			}, {
-				header   : dgettext('plugin_filesbackendOwncloud', 'Re-share'),
+				header   : _('Re-share'),
 				dataIndex: 'permissionShare',
 				flex	   : 1,
 				align	   : 'center',
 				sortable : false,
 				renderer : this.yesNoRenderer
 			}, {
-				header   : dgettext('plugin_filesbackendOwncloud', 'Change'),
+				header   : _('Change'),
 				dataIndex: 'permissionChange',
 				flex 	   : 1,
 				align    : 'center',
@@ -69,14 +69,14 @@ Zarafa.plugins.files.backend.Owncloud.ui.FilesShareUserGridColumnModel = Ext.ext
 			if (fileType === Zarafa.plugins.files.data.FileTypes.FOLDER) {
 				columns.push(
 				{
-					header   : dgettext('plugin_filesbackendOwncloud', 'Create'),
+					header   : _('Create'),
 					dataIndex: 'permissionCreate',
 					flex     : 1,
 					align    : 'center',
 					sortable : false,
 					renderer : this.yesNoRenderer
 				}, {
-					header   : dgettext('plugin_filesbackendOwncloud', 'Delete'),
+					header   : _('Delete'),
 					dataIndex: 'permissionDelete',
 					flex     : 1,
 					align    : 'center',

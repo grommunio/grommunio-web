@@ -42,7 +42,7 @@ Zarafa.plugins.files.ui.MultipleFileUploadField = Ext.extend(Ext.ux.form.FileUpl
 			change    : function () {
 				var v = this.fileInput.dom.value;
 				if (this.fileInput.dom.files.length > 1) {
-					v = this.fileInput.dom.files.length + ' ' + dgettext('plugin_files', 'files selected');
+					v = this.fileInput.dom.files.length + ' ' + _('files selected');
 				}
 				this.setValue(v);
 				this.fireEvent('fileselected', this, v);

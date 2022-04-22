@@ -11,7 +11,7 @@ Zarafa.plugins.files.ui.snippets.FilesQuotaBar = Ext.extend(Ext.Panel, {
 	/**
 	 * @cfg String
 	 */
-	quotaText: dgettext('plugin_files', '{0} of {1} in use'), // String.format(this.pageInfoText, pageData, total)
+	quotaText: _('{0} of {1} in use'), // String.format(this.pageInfoText, pageData, total)
 
 	/**
 	 * @cfg Boolean

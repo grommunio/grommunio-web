@@ -57,7 +57,7 @@ Zarafa.plugins.smime.settings.SettingsPublickeyPanel = Ext.extend(Ext.Panel, {
 		var certStore = store;
 		return [{
 			xtype : 'displayfield',
-			value : _('Below you can view and delete public & private certificate(s) stored on the server.', 'plugin_smime'),
+			value : _('Below you can view and delete public & private certificate(s) stored on the server.'),
 			fieldClass : 'x-form-display-field zarafa-settings-widget-extrainfo'
 		}, {
 			xtype : 'container',
@@ -85,7 +85,7 @@ Zarafa.plugins.smime.settings.SettingsPublickeyPanel = Ext.extend(Ext.Panel, {
 				},
 				items : [{
 					xtype : 'displayfield',
-					value : _('Filter on Email', 'plugin_smime')
+					value : _('Filter on Email')
 				}, {
 					xtype : 'textfield',
 					listeners : {
@@ -101,7 +101,7 @@ Zarafa.plugins.smime.settings.SettingsPublickeyPanel = Ext.extend(Ext.Panel, {
 				}, {
 					xtype : 'button',
 					width : 84,
-					text : _('Remove', 'plugin_smime'),
+					text : _('Remove'),
 					disabled : true,
 					ref : '../../removeButton',
 					handler : this.onCertificateRemove,
@@ -112,7 +112,7 @@ Zarafa.plugins.smime.settings.SettingsPublickeyPanel = Ext.extend(Ext.Panel, {
 				}, {
 					xtype : 'button',
 					width : 84,
-					text : _('Details', 'plugin_smime'),
+					text : _('Details'),
 					disabled : true,
 					ref : '../../detailButton',
 					handler : this.onDetailButton,

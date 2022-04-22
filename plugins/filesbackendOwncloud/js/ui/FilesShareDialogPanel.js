@@ -80,7 +80,7 @@ Zarafa.plugins.files.backend.Owncloud.ui.FilesShareDialogPanel = Ext.extend(Zara
 			width    : 780,
 			items    : [{
 				xtype     : "fieldset",
-				title     : dgettext("plugin_filesbackendOwncloud", "Share with user/group"),
+				title     : _("Share with user/group"),
 				autoHeight: true,
 				ref       : "userfieldset",
 				items     : [{
@@ -92,7 +92,7 @@ Zarafa.plugins.files.backend.Owncloud.ui.FilesShareDialogPanel = Ext.extend(Zara
 			}, {
 				xtype     : "checkbox",
 				fieldLabel: "",
-				boxLabel  : dgettext("plugin_filesbackendOwncloud", "Share via link"),
+				boxLabel  : _("Share via link"),
 				ref       : "linkcheckbox",
 				inputValue: "sharelink",
 				style: {
@@ -104,7 +104,7 @@ Zarafa.plugins.files.backend.Owncloud.ui.FilesShareDialogPanel = Ext.extend(Zara
 				}
 			}, {
 				xtype     : "fieldset",
-				title     : dgettext("plugin_filesbackendOwncloud", "Share via link"),
+				title     : _("Share via link"),
 				autoHeight: true,
 				ref       : "linkfieldset",
 				hidden    : true,
@@ -120,7 +120,7 @@ Zarafa.plugins.files.backend.Owncloud.ui.FilesShareDialogPanel = Ext.extend(Zara
 						layout     : "form",
 						items      : {
 							xtype        : "textfield",
-							fieldLabel   : dgettext("plugin_filesbackendOwncloud", "Public link"),
+							fieldLabel   : _("Public link"),
 							ref          : "../../../linkfield",
 							anchor       : '100%',
 							selectOnFocus: true,
@@ -137,7 +137,7 @@ Zarafa.plugins.files.backend.Owncloud.ui.FilesShareDialogPanel = Ext.extend(Zara
 					}]
 				}, {
 					xtype     : "checkbox",
-					fieldLabel: dgettext("plugin_filesbackendOwncloud", "Password protect"),
+					fieldLabel: _("Password protect"),
 					boxLabel  : "",
 					ref       : "../passwordcheckbox",
 					inputValue: "pwprotected",
@@ -146,7 +146,7 @@ Zarafa.plugins.files.backend.Owncloud.ui.FilesShareDialogPanel = Ext.extend(Zara
 					}
 				}, {
 					xtype     : "textfield",
-					fieldLabel: dgettext("plugin_filesbackendOwncloud", "Password"),
+					fieldLabel: _("Password"),
 					ref       : "../passwordfield",
 					hidden    : true,
 					inputType : 'password',
@@ -157,7 +157,7 @@ Zarafa.plugins.files.backend.Owncloud.ui.FilesShareDialogPanel = Ext.extend(Zara
 					}
 				}, {
 					xtype     : "checkbox",
-					fieldLabel: dgettext("plugin_filesbackendOwncloud", "Public upload"),
+					fieldLabel: _("Public upload"),
 					boxLabel  : "",
 					hidden    : true,
 					ref       : "../editcheckbox",
@@ -167,7 +167,7 @@ Zarafa.plugins.files.backend.Owncloud.ui.FilesShareDialogPanel = Ext.extend(Zara
 					}
 				}, {
 					xtype     : "checkbox",
-					fieldLabel: dgettext("plugin_filesbackendOwncloud", "Expiration date"),
+					fieldLabel: _("Expiration date"),
 					boxLabel  : "",
 					ref       : "../expirationcheckbox",
 					inputValue: "useexpiration",
@@ -178,7 +178,7 @@ Zarafa.plugins.files.backend.Owncloud.ui.FilesShareDialogPanel = Ext.extend(Zara
 					xtype     : "datefield",
 					ref       : "../expirationfield",
 					hidden    : true,
-					fieldLabel: dgettext("plugin_filesbackendOwncloud", "Date"),
+					fieldLabel: _("Date"),
 					minValue  : new Date(new Date().getTime() + 24 * 60 * 60 * 1000), // tomorrow
 					width     : 170,
 					format    : 'Y-m-d',
@@ -190,13 +190,13 @@ Zarafa.plugins.files.backend.Owncloud.ui.FilesShareDialogPanel = Ext.extend(Zara
 			}],
 			buttons  : [{
 				xtype  : 'button',
-				text   : dgettext('plugin_filesbackendOwncloud', 'Ok'),
+				text   : _('Ok'),
 				handler: this.onDoneButtonClick,
 				ref     : "../doneButton",
 				scope  : this
 			}, {
 				xtype  : 'button',
-				text   : dgettext('plugin_filesbackendOwncloud', 'Cancel'),
+				text   : _('Cancel'),
 				handler: this.onCancel,
 				scope  : this
 			}]
@@ -405,7 +405,7 @@ Zarafa.plugins.files.backend.Owncloud.ui.FilesShareDialogPanel = Ext.extend(Zara
 	 */
 	checkSharedRecord: function () {
 		// init loading mask after the panel was rendered
-		this.loadMask = new Ext.LoadMask(this.getEl(), {msg: dgettext("plugin_filesbackendOwncloud", "Loading details...")});
+		this.loadMask = new Ext.LoadMask(this.getEl(), {msg: _("Loading details...")});
 
 		// check if we have a shared record where we should load details
 		if (Ext.isDefined(this.parentRecord)) {

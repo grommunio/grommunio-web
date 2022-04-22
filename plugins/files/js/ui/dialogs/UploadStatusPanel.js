@@ -130,7 +130,7 @@ Zarafa.plugins.files.ui.dialogs.UploadStatusPanel = Ext.extend(Ext.form.FormPane
 					columnWidth: .95,
 					items      : {
 						xtype: 'progress',
-						text : dgettext('plugin_files', 'Starting upload') + '&hellip;',
+						text : _('Starting upload') + '&hellip;',
 						ref  : '../../progress'
 					}
 				}, {
@@ -139,8 +139,8 @@ Zarafa.plugins.files.ui.dialogs.UploadStatusPanel = Ext.extend(Ext.form.FormPane
 						xtype        : 'button',
 						ref          : '../../cancel',
 						custom_fileid: ref,
-						tooltip      : dgettext('plugin_files', 'Cancel upload'),
-						overflowText : dgettext('plugin_files', 'Cancel upload'),
+						tooltip      : _('Cancel upload'),
+						overflowText : _('Cancel upload'),
 						iconCls      : 'icon_action_cancel',
 						handler      : this.doCancelUpload.createDelegate(this)
 					}
@@ -171,7 +171,7 @@ Zarafa.plugins.files.ui.dialogs.UploadStatusPanel = Ext.extend(Ext.form.FormPane
 					style      : 'text-align: right;',
 					items      : {
 						xtype: 'displayfield',
-						value: dgettext('plugin_files', '- seconds left'),
+						value: _('- seconds left'),
 						ref  : '../../eta'
 					}
 				}]
@@ -254,11 +254,11 @@ Zarafa.plugins.files.ui.dialogs.UploadStatusPanel = Ext.extend(Ext.form.FormPane
 
 			// calc ETA
 			var eta = (total - loaded) / speed; // seconds
-			var eta_unit = dgettext('plugin_files', ' seconds left');
+			var eta_unit = _(' seconds left');
 
 			if (eta > 60) {
 				eta = eta / 60; // minutes
-				eta_unit = dgettext('plugin_files', ' minutes left');
+				eta_unit = _(' minutes left');
 			}
 
 			// transform speed units
@@ -281,7 +281,7 @@ Zarafa.plugins.files.ui.dialogs.UploadStatusPanel = Ext.extend(Ext.form.FormPane
 					}
 				} else {
 					filesUploaderPanel.speed.setValue('- kB/s');
-					filesUploaderPanel.eta.setValue(dgettext('plugin_files', '- seconds left'));
+					filesUploaderPanel.eta.setValue(_('- seconds left'));
 				}
 			}
 		}, this);
@@ -303,10 +303,10 @@ Zarafa.plugins.files.ui.dialogs.UploadStatusPanel = Ext.extend(Ext.form.FormPane
 				this.xhr[index].cust_total = event.total;
 
 				var finished = ((event.loaded / event.total) * 100).toFixed(2);
-				filesUploaderPanel.progress.updateProgress((event.loaded / event.total), dgettext('plugin_files', 'Uploading: ') + finished + '%', true);
+				filesUploaderPanel.progress.updateProgress((event.loaded / event.total), _('Uploading: ') + finished + '%', true);
 				filesUploaderPanel.uploaded.setValue(Zarafa.plugins.files.data.Utils.Format.fileSizeList(event.loaded));
 			} else {
-				filesUploaderPanel.progress.updateProgress(0.5, dgettext('plugin_files', 'Upload status unavailable... please wait.'), true);
+				filesUploaderPanel.progress.updateProgress(0.5, _('Upload status unavailable... please wait.'), true);
 			}
 		}
 	},
@@ -324,7 +324,7 @@ Zarafa.plugins.files.ui.dialogs.UploadStatusPanel = Ext.extend(Ext.form.FormPane
 		// If files upload panel is not already closed then do go farther operations like
 		// disable the cancel button and update progress bar etc.
 		if (filesUploaderPanel) {
-			filesUploaderPanel.progress.updateProgress(1, dgettext('plugin_files', 'Upload finished!'), true);
+			filesUploaderPanel.progress.updateProgress(1, _('Upload finished!'), true);
 
 			// reset stats - to tell the timer to stop
 			this.xhr[index].cust_loaded = 0; // store loaded and total size to xhr element
@@ -347,7 +347,7 @@ Zarafa.plugins.files.ui.dialogs.UploadStatusPanel = Ext.extend(Ext.form.FormPane
 		var filesUploaderPanel = this["fileuploadfield_" + index];
 		if (Ext.isDefined(filesUploaderPanel)) {
 			var progressbar = filesUploaderPanel.progress;
-			progressbar.updateProgress(1, dgettext('plugin_files', 'Upload aborted!'), true);
+			progressbar.updateProgress(1, _('Upload aborted!'), true);
 			progressbar.addClass("fp_upload_canceled");
 			filesUploaderPanel.cancel.disable();
 
@@ -369,7 +369,7 @@ Zarafa.plugins.files.ui.dialogs.UploadStatusPanel = Ext.extend(Ext.form.FormPane
 		var filesUploaderPanel = this["fileuploadfield_" + index];
 		if (Ext.isDefined(filesUploaderPanel)) {
 			var progressbar = filesUploaderPanel.progress;
-			progressbar.updateProgress(1, dgettext('plugin_files', 'Upload failed!'), true);
+			progressbar.updateProgress(1, _('Upload failed!'), true);
 			progressbar.addClass("fp_upload_canceled");
 			filesUploaderPanel.cancel.disable();
 

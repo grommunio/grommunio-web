@@ -37,7 +37,7 @@ Zarafa.plugins.files.settings.ui.AccountGrid = Ext.extend(Zarafa.common.ui.grid.
 			viewConfig : {
 				forceFit : true,
 				deferEmptyText : false,
-				emptyText : '<div class="emptytext">' + dgettext('plugin_files', 'No account created!') + '</div>'
+				emptyText : '<div class="emptytext">' + _('No account created!') + '</div>'
 			},
 			sm  : this.initSelectionModel(),
 			cm : this.initColumnModel(),
@@ -47,13 +47,13 @@ Zarafa.plugins.files.settings.ui.AccountGrid = Ext.extend(Zarafa.common.ui.grid.
 			},
 			tbar : [{
 				iconCls: 'filesplugin_icon_add',
-				text   : dgettext('plugin_files', 'Add Account'),
+				text   : _('Add Account'),
 				ref    : '../addAccountBtn',
 				handler: this.onAccountAdd,
 				scope : this
 			}, {
 				iconCls : 'filesplugin_icon_delete',
-				text : dgettext('plugin_files', 'Remove Account'),
+				text : _('Remove Account'),
 				disabled: true,
 				ref : '../removeAccountBtn',
 				handler : this.onAccountRemove,
@@ -95,7 +95,7 @@ Zarafa.plugins.files.settings.ui.AccountGrid = Ext.extend(Zarafa.common.ui.grid.
 	initLoadMask: function ()
 	{
 		return {
-			msg: dgettext('plugin_files', 'Loading accounts') + '...'
+			msg: _('Loading accounts') + '...'
 		};
 	},
 
@@ -204,8 +204,8 @@ Zarafa.plugins.files.settings.ui.AccountGrid = Ext.extend(Zarafa.common.ui.grid.
 		// Warn user before deleting the account!
 		if (Ext.isDefined(selections[0])) { // as we have single select, remove the first item
 			Ext.MessageBox.confirm(
-				dgettext('plugin_files', 'Confirm deletion'),
-				String.format(dgettext('plugin_files', 'Do you really want to delete the account "{0}"?'), selections[0].get("name")),
+				_('Confirm deletion'),
+				String.format(_('Do you really want to delete the account "{0}"?'), selections[0].get("name")),
 				this.doRemove.createDelegate(this, [selections[0]], true),
 				this
 			);

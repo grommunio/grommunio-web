@@ -45,11 +45,11 @@ Zarafa.plugins.files.backend.Owncloud.ui.FilesShareUserGrid = Ext.extend(Ext.gri
 			},
 			tbar        : [{
 				iconCls: 'filesplugin_icon_add',
-				text   : dgettext('plugin_filesbackendOwncloud', 'Add'),
+				text   : _('Add'),
 				handler: this.onAdd.createDelegate(this)
 			}, '-', {
 				iconCls : 'filesplugin_icon_delete',
-				text    : dgettext('plugin_filesbackendOwncloud', 'Delete'),
+				text    : _('Delete'),
 				ref     : '../removeAccountBtn',
 				disabled: true,
 				handler : this.onDelete.createDelegate(this)
@@ -67,7 +67,7 @@ Zarafa.plugins.files.backend.Owncloud.ui.FilesShareUserGrid = Ext.extend(Ext.gri
 	 */
 	initLoadMask: function () {
 		return {
-			msg: dgettext('plugin_filesbackendOwncloud', 'Loading users and groups') + '...'
+			msg: _('Loading users and groups') + '...'
 		};
 	},
 
@@ -92,7 +92,7 @@ Zarafa.plugins.files.backend.Owncloud.ui.FilesShareUserGrid = Ext.extend(Ext.gri
 		return {
 			enableRowBody : false,
 			forceFit      : true,
-			emptyText     : '<div class=\'emptytext\'>' + dgettext('plugin_filesbackendOwncloud', 'Add users or groups to share files.') + '</div>',
+			emptyText     : '<div class=\'emptytext\'>' + _('Add users or groups to share files.') + '</div>',
 			deferEmptyText: false
 		};
 	},

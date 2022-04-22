@@ -107,7 +107,7 @@ Zarafa.plugins.files.data.ResponseHandler = Ext.extend(Zarafa.core.data.IPMRespo
 	 */
 	doError: function (response) {
 		Zarafa.common.dialogs.MessageBox.show({
-			title  : dgettext('plugin_files', 'Error'),
+			title  : _('Error'),
 			msg    : response.info.original_message,
 			icon   : Zarafa.common.dialogs.MessageBox.ERROR,
 			buttons: Zarafa.common.dialogs.MessageBox.OK

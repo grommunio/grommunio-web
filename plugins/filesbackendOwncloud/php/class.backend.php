@@ -49,7 +49,7 @@ class Backend extends \Files\Backend\Webdav\Backend implements iFeatureSharing
 		$this->init_form();
 
 		// set backend description
-		$this->backendDescription = dgettext('plugin_filesbackendOwncloud', "With this backend, you can connect to any ownCloud server.");
+		$this->backendDescription = _("With this backend, you can connect to any ownCloud server.");
 
 		// set backend display name
 		$this->backendDisplayName = "ownCloud";
@@ -59,7 +59,7 @@ class Backend extends \Files\Backend\Webdav\Backend implements iFeatureSharing
 		$this->backendVersion = "3.0";
 
 		// Backend name used in translations
-		$this->backendTransName = dgettext('plugin_filesbackendOwncloud', 'Files ownCloud Backend: ');
+		$this->backendTransName = _('Files ownCloud Backend: ');
 	}
 
 	/**
@@ -79,14 +79,14 @@ class Backend extends \Files\Backend\Webdav\Backend implements iFeatureSharing
 		$this->formFields = array(
 			array(
 				"name" => "server_address",
-				"fieldLabel" => dgettext('plugin_filesbackendOwncloud', 'Server address'),
+				"fieldLabel" => _('Server address'),
 				"editor" => array(
 					"allowBlank" => false
 				)
 			),
 			array(
 				"name" => "server_port",
-				"fieldLabel" => dgettext('plugin_filesbackendOwncloud', 'Server port'),
+				"fieldLabel" => _('Server port'),
 				"editor" => array(
 					"ref" => "../../portField",
 					"allowBlank" => false
@@ -94,7 +94,7 @@ class Backend extends \Files\Backend\Webdav\Backend implements iFeatureSharing
 			),
 			array(
 				"name" => "server_ssl",
-				"fieldLabel" => dgettext('plugin_filesbackendOwncloud', 'Use SSL'),
+				"fieldLabel" => _('Use SSL'),
 				"editor" => array(
 					"xtype" => "checkbox",
 					"listeners" => array(
@@ -104,21 +104,21 @@ class Backend extends \Files\Backend\Webdav\Backend implements iFeatureSharing
 			),
 			array(
 				"name" => "server_path",
-				"fieldLabel" => dgettext('plugin_filesbackendOwncloud', 'Webdav base path'),
+				"fieldLabel" => _('Webdav base path'),
 				"editor" => array(
 					"allowBlank" => false
 				)
 			),
 			array(
 				"name" => "user",
-				"fieldLabel" => dgettext('plugin_filesbackendOwncloud', 'Username'),
+				"fieldLabel" => _('Username'),
 				"editor" => array(
 					"ref" => "../../usernameField"
 				)
 			),
 			array(
 				"name" => "password",
-				"fieldLabel" => dgettext('plugin_filesbackendOwncloud', 'Password'),
+				"fieldLabel" => _('Password'),
 				"editor" => array(
 					"ref" => "../../passwordField",
 					"inputType" => "password"
@@ -126,7 +126,7 @@ class Backend extends \Files\Backend\Webdav\Backend implements iFeatureSharing
 			),
 			array(
 				"name" => "use_grommunio_credentials",
-				"fieldLabel" => dgettext('plugin_filesbackendOwncloud', 'Use grommunio credentials'),
+				"fieldLabel" => _('Use grommunio credentials'),
 				"editor" => array(
 					"xtype" => "checkbox",
 					"listeners" => array(
@@ -165,7 +165,7 @@ class Backend extends \Files\Backend\Webdav\Backend implements iFeatureSharing
 		$serverHasCurl = function_exists('curl_version');
 		if (!$serverHasCurl) {
 			$e = new BackendException($this->parseErrorCodeToMessage(self::WD_ERR_NO_CURL), 500);
-			$e->setTitle($this->backendTransName . dgettext('plugin_filesbackendOwncloud', 'php-curl is not available'));
+			$e->setTitle($this->backendTransName . _('php-curl is not available'));
 			throw $e;
 		}
 
@@ -187,11 +187,11 @@ class Backend extends \Files\Backend\Webdav\Backend implements iFeatureSharing
 			$this->log('Failed to open: ' . $e->getMessage());
 			if (intval($e->getHTTPCode()) == 401) {
 				$e = new BackendException($this->parseErrorCodeToMessage(self::WD_ERR_UNAUTHORIZED), $e->getHTTPCode());
-				$e->setTitle($this->backendTransName . dgettext('plugin_filesbackendOwncloud', 'Access denied'));
+				$e->setTitle($this->backendTransName . _('Access denied'));
 				throw $e;
 			} else {
 				$e = new BackendException($this->parseErrorCodeToMessage(self::WD_ERR_UNREACHABLE), $e->getHTTPCode());
-				$e->setTitle($this->backendTransName . dgettext('plugin_filesbackendOwncloud', 'Connection failed'));
+				$e->setTitle($this->backendTransName . _('Connection failed'));
 				throw $e;
 			}
 		}
@@ -243,12 +243,12 @@ class Backend extends \Files\Backend\Webdav\Backend implements iFeatureSharing
 			return true;
 		} catch (ClientException $e) {
 			$e = new BackendException($this->parseErrorCodeToMessage($e->getCode()), $e->getCode());
-			$e->setTitle($this->backendTransName . dgettext('plugin_filesbackendOwncloud', 'Sabre error'));
+			$e->setTitle($this->backendTransName . _('Sabre error'));
 			throw $e;
 		} catch (Exception $e) {
 			$this->log('[COPY] fatal: ' . $e->getMessage());
 			$e = new BackendException($this->parseErrorCodeToMessage($e->getHTTPCode()), $e->getHTTPCode());
-			$e->setTitle($this->backendTransName . dgettext('plugin_filesbackendOwncloud', 'Copying failed'));
+			$e->setTitle($this->backendTransName . _('Copying failed'));
 			throw $e;
 		}
 	}
@@ -264,48 +264,48 @@ class Backend extends \Files\Backend\Webdav\Backend implements iFeatureSharing
 	{
 		$error = intval($error_code);
 
-		$msg = dgettext('plugin_filesbackendOwncloud', 'Unknown error');
-		$contactAdmin = dgettext('plugin_filesbackendOwncloud', 'Please contact your system administrator.');
+		$msg = _('Unknown error');
+		$contactAdmin = _('Please contact your system administrator.');
 
 		switch ($error) {
 			case CURLE_BAD_PASSWORD_ENTERED:
 			case self::WD_ERR_UNAUTHORIZED:
-				$msg = dgettext('plugin_filesbackendOwncloud', 'Unauthorized. Wrong username or password.');
+				$msg = _('Unauthorized. Wrong username or password.');
 				break;
 			case CURLE_SSL_CONNECT_ERROR:
 			case CURLE_COULDNT_RESOLVE_HOST:
 			case CURLE_COULDNT_CONNECT:
 			case CURLE_OPERATION_TIMEOUTED:
 			case self::WD_ERR_UNREACHABLE:
-				$msg = dgettext('plugin_filesbackendOwncloud', 'File server is not reachable. Please verify the file server URL.');
+				$msg = _('File server is not reachable. Please verify the file server URL.');
 				break;
 			case self::WD_ERR_FORBIDDEN:
-				$msg = dgettext('plugin_filesbackendOwncloud', 'You don\'t have enough permissions to view this file or folder.');
+				$msg = _('You don\'t have enough permissions to view this file or folder.');
 				break;
 			case self::WD_ERR_NOTFOUND:
-				$msg = dgettext('plugin_filesbackendOwncloud', 'The file or folder is not available anymore.');
+				$msg = _('The file or folder is not available anymore.');
 				break;
 			case self::WD_ERR_TIMEOUT:
-				$msg = dgettext('plugin_filesbackendOwncloud', 'Connection to the file server timed out. Please check again later.');
+				$msg = _('Connection to the file server timed out. Please check again later.');
 				break;
 			case self::WD_ERR_LOCKED:
-				$msg = dgettext('plugin_filesbackendOwncloud', 'This file is locked by another user. Please try again later.');
+				$msg = _('This file is locked by another user. Please try again later.');
 				break;
 			case self::WD_ERR_FAILED_DEPENDENCY:
-				$msg = dgettext('plugin_filesbackendOwncloud', 'The request failed.') . ' ' . $contactAdmin;
+				$msg = _('The request failed.') . ' ' . $contactAdmin;
 				break;
 			case self::WD_ERR_INTERNAL:
 				// This is a general error, might be thrown due to a wrong IP, but we don't know.
-				$msg = dgettext('plugin_filesbackendOwncloud', 'The file server encountered an internal problem.') . ' ' . $contactAdmin;
+				$msg = _('The file server encountered an internal problem.') . ' ' . $contactAdmin;
 				break;
 			case self::WD_ERR_TMP:
-				$msg = dgettext('plugin_filesbackendOwncloud', 'We could not write to temporary directory.') . ' ' . $contactAdmin;
+				$msg = _('We could not write to temporary directory.') . ' ' . $contactAdmin;
 				break;
 			case self::WD_ERR_FEATURES:
-				$msg = dgettext('plugin_filesbackendOwncloud', 'We could not retrieve list of server features.') . ' ' . $contactAdmin;
+				$msg = _('We could not retrieve list of server features.') . ' ' . $contactAdmin;
 				break;
 			case self::WD_ERR_NO_CURL:
-				$msg = dgettext('plugin_filesbackendOwncloud', 'PHP-Curl is not available.') . ' ' . $contactAdmin;
+				$msg = _('PHP-Curl is not available.') . ' ' . $contactAdmin;
 				break;
 		}
 

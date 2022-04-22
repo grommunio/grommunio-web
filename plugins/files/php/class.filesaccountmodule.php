@@ -331,7 +331,7 @@ class FilesAccountModule extends ListModule
 
 		// check if ID was valid, if not respond with error.
 		if ($currentAccount === NULL || $currentAccount === FALSE) {
-			throw new AccountException(dgettext('plugin_files', "Unknown account ID"));
+			throw new AccountException(_("Unknown account ID"));
 		}
 
 		$backendStore = \Files\Backend\BackendStore::getInstance();
@@ -339,7 +339,7 @@ class FilesAccountModule extends ListModule
 
 		// check if backend really supports this feature
 		if (!$backendInstance->supports(\Files\Backend\BackendStore::FEATURE_QUOTA)) {
-			throw new AccountException(dgettext('plugin_files', 'Feature "Quota Information" is not supported by this backend!'));
+			throw new AccountException(_('Feature "Quota Information" is not supported by this backend!'));
 		}
 
 		// init backend instance
@@ -352,8 +352,8 @@ class FilesAccountModule extends ListModule
 
 		$response['status'] = true;
 		$response['quota'] = array(
-			array("state" => dgettext('plugin_files', 'Used'), "amount" => $qUsed),
-			array("state" => dgettext('plugin_files', 'Free'), "amount" => $qAvailable)
+			array("state" => _('Used'), "amount" => $qUsed),
+			array("state" => _('Free'), "amount" => $qAvailable)
 		);
 
 		$this->addActionData($actionType, $response);
@@ -380,7 +380,7 @@ class FilesAccountModule extends ListModule
 
 		// check if ID was valid, if not respond with error.
 		if ($currentAccount === NULL || $currentAccount === FALSE) {
-			throw new AccountException(dgettext('plugin_files', "Unknown account ID"));
+			throw new AccountException(_("Unknown account ID"));
 		}
 
 		$backendStore = \Files\Backend\BackendStore::getInstance();
@@ -388,7 +388,7 @@ class FilesAccountModule extends ListModule
 
 		// check if backend really supports this feature
 		if (!$backendInstance->supports(\Files\Backend\BackendStore::FEATURE_VERSION)) {
-			throw new AccountException(dgettext('plugin_files', 'Feature "Version Information" is not supported by this backend!'));
+			throw new AccountException(_('Feature "Version Information" is not supported by this backend!'));
 		}
 
 		// init backend instance
@@ -429,7 +429,7 @@ class FilesAccountModule extends ListModule
 
 		// check if ID was valid, if not respond with error.
 		if ($currentAccount === NULL || $currentAccount === FALSE) {
-			throw new AccountException(dgettext('plugin_files', "Unknown account ID"));
+			throw new AccountException(_("Unknown account ID"));
 		}
 
 		$backendStore = \Files\Backend\BackendStore::getInstance();
@@ -437,7 +437,7 @@ class FilesAccountModule extends ListModule
 
 		// check if backend really supports this feature
 		if (!$backendInstance->supports(\Files\Backend\BackendStore::FEATURE_OAUTH)) {
-			throw new AccountException(dgettext('plugin_files', 'Feature "OAUTH" is not supported by this backend!'));
+			throw new AccountException(_('Feature "OAUTH" is not supported by this backend!'));
 		}
 
 		// init backend instance

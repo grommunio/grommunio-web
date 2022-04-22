@@ -17,7 +17,7 @@ Zarafa.plugins.smime.dialogs.ChangePassphraseContentPanel = Ext.extend(Zarafa.co
 		config = config || {};
 		config = Ext.applyIf(config, {
 			layout: 'fit',
-			title: _('Change passphrase', 'plugin_smime'),
+			title: _('Change passphrase'),
 			width: 300,
 			height: 250,
 			stateful: false,
@@ -26,11 +26,11 @@ Zarafa.plugins.smime.dialogs.ChangePassphraseContentPanel = Ext.extend(Zarafa.co
 				xtype: 'smime.changepassphrasepanel',
 				buttonAlign: 'center',
 				buttons: [{
-					text: _('Change passphrase', 'plugin_smime'),
+					text: _('Change passphrase'),
 					handler: this.onChangePassphrase,
 					scope: this
 				},{
-					text: _('Cancel', 'plugin_smime'),
+					text: _('Cancel'),
 					handler: this.close,
 					scope: this
 				}]

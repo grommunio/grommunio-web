@@ -21,7 +21,7 @@ Zarafa.plugins.mdm.dialogs.MDMManageSharedFolderContentPanel = Ext.extend(Zarafa
 			{
 			xtype: 'mdm.managesharedfoldercontentpanel',
 			layout: 'fit',
-			title: dgettext('plugin_mdm','Manage Shared Folders'),
+			title: _('Manage Shared Folders'),
 			modal: true,
 			stateful: false,
 			showInfoMask : false,

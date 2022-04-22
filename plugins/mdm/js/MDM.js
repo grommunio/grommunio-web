@@ -94,7 +94,7 @@ Zarafa.plugins.mdm.MDM = Ext.extend(Zarafa.core.Plugin, {
 	createVersionInfo : function() {
 		var version = container.getSettingsModel().get('zarafa/v1/plugins/mdm/zpush-server-version', true);
 		return {
-			fieldLabel : _('grommunio-sync', 'plugin_mdm'),
+			fieldLabel : _('grommunio-sync'),
 			value : version
 		};
 	}
@@ -104,7 +104,7 @@ Zarafa.plugins.mdm.MDM = Ext.extend(Zarafa.core.Plugin, {
 Zarafa.onReady(function() {
 	container.registerPlugin(new Zarafa.core.PluginMetaData({
 		name : 'mdm',
-		displayName : _('Mobile device management', 'plugin_mdm'),
+		displayName : _('Mobile device management'),
 		pluginConstructor : Zarafa.plugins.mdm.MDM
 	}));
 });

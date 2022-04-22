@@ -58,18 +58,18 @@ Zarafa.plugins.mdm.dialogs.MDMDeviceGeneralTab = Ext.extend(Ext.form.FormPanel, 
 			},
 			items: [{
 				cls: 'mdm-display-name',
-				value: dgettext('plugin_mdm', config.record.get('devicetype')),
+				value: _(config.record.get('devicetype')),
 				htmlEncode: true,
 				disabled: false,
 				hideLabel: true
 			}, {
-				fieldLabel: dgettext('plugin_mdm', 'Connected since'),
+				fieldLabel: _('Connected since'),
 				value: String.format('{0}', new Date(config.record.get('firstsynctime')).format(_('d F Y')))
 			}, {
-				fieldLabel: dgettext('plugin_mdm', 'Last updated'),
+				fieldLabel: _('Last updated'),
 				value: String.format(_('{0}'), new Date(config.record.get('lastupdatetime')).format(_('d F Y, H:i')))
 			}, {
-				fieldLabel: dgettext('plugin_mdm', 'Status'),
+				fieldLabel: _('Status'),
 				hidden: config.isKoe,
 				listeners: {
 					afterrender: this.onAfterRenderStatus,
@@ -90,11 +90,11 @@ Zarafa.plugins.mdm.dialogs.MDMDeviceGeneralTab = Ext.extend(Ext.form.FormPanel, 
 			defaultType: 'displayfield',
 			items: [{
 				cls: 'mdm-display-name',
-				value: dgettext('plugin_mdm', 'Synchronize'),
+				value: _('Synchronize'),
 				htmlEncode: true,
 				hideLabel: true
 			}, {
-				fieldLabel: dgettext('plugin_mdm', 'Folders'),
+				fieldLabel: _('Folders'),
 				disabled: true,
 				name: 'synchronizedfolders'
 			}, {
@@ -159,7 +159,7 @@ Zarafa.plugins.mdm.dialogs.MDMDeviceGeneralTab = Ext.extend(Ext.form.FormPanel, 
 				flex: 1
 			}, {
 				xtype: 'button',
-				text: dgettext('plugin_mdm', 'Manage Shared Folders'),
+				text: _('Manage Shared Folders'),
 				cls: 'mdm-managesharedfolder-button',
 				listeners: {
 					click: this.onClickManageSharedFolder,

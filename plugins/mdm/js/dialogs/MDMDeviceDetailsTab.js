@@ -61,21 +61,21 @@ Zarafa.plugins.mdm.dialogs.MDMDeviceDetailsTab = Ext.extend(Ext.form.FormPanel, 
 			},
 			items: [{
 				cls: 'mdm-display-name',
-				value: dgettext('plugin_mdm', 'Device'),
+				value: _('Device'),
 				hideLabel: true,
 				disabled: false
 			}, {
-				fieldLabel: dgettext('plugin_mdm', 'Type'),
+				fieldLabel: _('Type'),
 				name: 'devicetype'
 			}, {
-				fieldLabel: dgettext('plugin_mdm', 'Operating System'),
+				fieldLabel: _('Operating System'),
 				hidden: isKoe,
 				name: 'deviceos'
 			}, {
-				fieldLabel: dgettext('plugin_mdm', 'ID'),
+				fieldLabel: _('ID'),
 				name: 'entryid'
 			}, {
-				fieldLabel: dgettext('plugin_mdm', 'User Agent'),
+				fieldLabel: _('User Agent'),
 				name: 'useragent'
 			}]
 		};
@@ -97,18 +97,18 @@ Zarafa.plugins.mdm.dialogs.MDMDeviceDetailsTab = Ext.extend(Ext.form.FormPanel, 
 			cls : 'mdm-device-panel mdm-field-sep',
 			items: [{
 				cls: 'mdm-display-name',
-				value: dgettext('plugin_mdm', 'MDM Plugin'),
+				value: _('MDM Plugin'),
 				htmlEncode: true,
 				hideLabel: true,
 				disabled: false
 			}, {
-				fieldLabel: dgettext('plugin_mdm', 'Active Sync Version'),
+				fieldLabel: _('Active Sync Version'),
 				name: 'asversion'
 			}, {
-				fieldLabel: dgettext('plugin_mdm', 'grommunio-sync Version'),
+				fieldLabel: _('grommunio-sync Version'),
 				value: container.getSettingsModel().get('zarafa/v1/plugins/mdm/zpush-server-version', true)
 			}, {
-				fieldLabel: dgettext('plugin_mdm', 'Policy name'),
+				fieldLabel: _('Policy name'),
 				name: 'policyname'
 			}]
 		};
@@ -130,18 +130,18 @@ Zarafa.plugins.mdm.dialogs.MDMDeviceDetailsTab = Ext.extend(Ext.form.FormPanel, 
 			defaultType: 'displayfield',
 			items: [{
 				cls: 'mdm-display-name',
-				value: dgettext('plugin_mdm', 'Outlook Extension'),
+				value: _('Outlook Extension'),
 				htmlEncode: true,
 				hideLabel: true,
 				disabled: false
 			}, {
-				fieldLabel: dgettext('plugin_mdm', 'Version'),
+				fieldLabel: _('Version'),
 				name: "koeversion"
 			}, {
-				fieldLabel: dgettext('plugin_mdm', 'Build'),
+				fieldLabel: _('Build'),
 				name: "koebuild"
 			}, {
-				fieldLabel: dgettext('plugin_mdm', 'Last updated'),
+				fieldLabel: _('Last updated'),
 				value: String.format('{0}', new Date(record.get('koebuilddate')).format(_('d F Y, H:i')))
 			}]
 		};

@@ -544,9 +544,9 @@ class FilesBrowserModule extends FilesListModule
 			$this->sendFeedback(false, array(
 				'type' => ERROR_GENERAL,
 				'info' => array(
-					'title' => dgettext('plugin_files', "Files Plugin"),
-					'original_message' => dgettext('plugin_files', "Moving between accounts is not implemented"),
-					'display_message' => dgettext('plugin_files', "Moving between accounts is not implemented")
+					'title' => _("Files Plugin"),
+					'original_message' => _("Moving between accounts is not implemented"),
+					'display_message' => _("Moving between accounts is not implemented")
 				)
 			));
 
@@ -816,9 +816,9 @@ class FilesBrowserModule extends FilesListModule
 			$this->sendFeedback(false, array(
 				'type' => ERROR_GENERAL,
 				'info' => array(
-					'title' => dgettext('plugin_files', "Files plugin"),
-					'original_message' => dgettext('plugin_files', "Unknown type - cannot save this file to the Files backend!"),
-					'display_message' => dgettext('plugin_files', "Unknown type - cannot save this file to the Files backend!")
+					'title' => _("Files plugin"),
+					'original_message' => _("Unknown type - cannot save this file to the Files backend!"),
+					'display_message' => _("Unknown type - cannot save this file to the Files backend!")
 				)
 			));
 		}
@@ -1054,7 +1054,7 @@ class FilesBrowserModule extends FilesListModule
 				if (!empty($messageProps[PR_SUBJECT])) {
 					$filename = PathUtil::sanitizeFilename($messageProps[PR_SUBJECT]) . '.eml';
 				} else {
-					$filename = dgettext('plugin_files', 'Untitled') . '.eml';
+					$filename = _('Untitled') . '.eml';
 				}
 
 				$tmpname = tempnam(TMP_PATH, "email2filez");
@@ -1094,9 +1094,9 @@ class FilesBrowserModule extends FilesListModule
 			$this->sendFeedback(false, array(
 				'type' => ERROR_GENERAL,
 				'info' => array(
-					'title' => dgettext('plugin_files', "Files Plugin"),
-					'original_message' => dgettext('plugin_files', "No record given!"),
-					'display_message' => dgettext('plugin_files', "No record given!")
+					'title' => _("Files Plugin"),
+					'original_message' => _("No record given!"),
+					'display_message' => _("No record given!")
 				)
 			));
 		}
@@ -1115,7 +1115,7 @@ class FilesBrowserModule extends FilesListModule
 			$sInfo = $initializedBackend->sharingDetails($relRecords);
 		} catch (Exception $e) {
 			$response['status'] = false;
-			$response['header'] = dgettext('plugin_files', 'Fetching sharing information failed');
+			$response['header'] = _('Fetching sharing information failed');
 			$response['message'] = $e->getMessage();
 			$this->addActionData("error", $response);
 			$GLOBALS["bus"]->addData($this->getResponseData());
@@ -1153,9 +1153,9 @@ class FilesBrowserModule extends FilesListModule
 			$this->sendFeedback(false, array(
 				'type' => ERROR_GENERAL,
 				'info' => array(
-					'title' => dgettext('plugin_files', "Files Plugin"),
-					'original_message' => dgettext('plugin_files', "No record given!"),
-					'display_message' => dgettext('plugin_files', "No record given!")
+					'title' => _("Files Plugin"),
+					'original_message' => _("No record given!"),
+					'display_message' => _("No record given!")
 				)
 			));
 		}
@@ -1175,7 +1175,7 @@ class FilesBrowserModule extends FilesListModule
 			$sInfo = $initializedBackend->share($sharingRecords);
 		} catch (Exception $e) {
 			$response['status'] = false;
-			$response['header'] = dgettext('plugin_files', 'Sharing failed');
+			$response['header'] = _('Sharing failed');
 			$response['message'] = $e->getMessage();
 			$this->addActionData("error", $response);
 			$GLOBALS["bus"]->addData($this->getResponseData());
@@ -1214,9 +1214,9 @@ class FilesBrowserModule extends FilesListModule
 			$this->sendFeedback(false, array(
 				'type' => ERROR_GENERAL,
 				'info' => array(
-					'title' => dgettext('plugin_files', "Files Plugin"),
-					'original_message' => dgettext('plugin_files', "No record given!"),
-					'display_message' => dgettext('plugin_files', "No record given!")
+					'title' => _("Files Plugin"),
+					'original_message' => _("No record given!"),
+					'display_message' => _("No record given!")
 				)
 			));
 		}
@@ -1235,7 +1235,7 @@ class FilesBrowserModule extends FilesListModule
 			$sInfo = $initializedBackend->share($sharingRecords, true);
 		} catch (Exception $e) {
 			$response['status'] = false;
-			$response['header'] = dgettext('plugin_files', 'Updating share failed');
+			$response['header'] = _('Updating share failed');
 			$response['message'] = $e->getMessage();
 			$this->addActionData("error", $response);
 			$GLOBALS["bus"]->addData($this->getResponseData());
@@ -1267,9 +1267,9 @@ class FilesBrowserModule extends FilesListModule
 			$this->sendFeedback(false, array(
 				'type' => ERROR_GENERAL,
 				'info' => array(
-					'title' => dgettext('plugin_files', "Files Plugin"),
-					'original_message' => dgettext('plugin_files', "No record given!"),
-					'display_message' => dgettext('plugin_files', "No record given!")
+					'title' => _("Files Plugin"),
+					'original_message' => _("No record given!"),
+					'display_message' => _("No record given!")
 				)
 			));
 		}
@@ -1283,7 +1283,7 @@ class FilesBrowserModule extends FilesListModule
 			$sInfo = $initializedBackend->unshare($records);
 		} catch (Exception $e) {
 			$response['status'] = false;
-			$response['header'] = dgettext('plugin_files', 'Deleting share failed');
+			$response['header'] = _('Deleting share failed');
 			$response['message'] = $e->getMessage();
 			$this->addActionData("error", $response);
 			$GLOBALS["bus"]->addData($this->getResponseData());

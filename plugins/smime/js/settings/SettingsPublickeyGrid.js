@@ -27,7 +27,7 @@ Zarafa.plugins.smime.settings.PublickeyGrid = Ext.extend(Ext.grid.GridPanel, {
 			viewConfig : {
 				forceFit : true,
                 deferEmptyText : false,
-				emptyText : '<div class=\'emptytext\'>' + _('No certificates imported, please upload your private certificate', 'plugin_smime') + '</div>'
+				emptyText : '<div class=\'emptytext\'>' + _('No certificates imported, please upload your private certificate') + '</div>'
 			},
 			loadMask : this.initLoadMask(),
 			columns : this.initColumnModel(),
@@ -62,23 +62,23 @@ Zarafa.plugins.smime.settings.PublickeyGrid = Ext.extend(Ext.grid.GridPanel, {
 	{
 		return [{
 			dataIndex : 'email',
-			header : _('Email', 'plugin_smime'),
+			header : _('Email'),
 			sortable: true,
 			renderer : Ext.util.Format.htmlEncode
 		},{
 			dataIndex : 'validfrom',
 			sortable: true,
-			header : _('Valid from', 'plugin_smime'),
+			header : _('Valid from'),
 			renderer : Ext.util.Format.htmlEncode
 		},{
 			dataIndex : 'validto',
 			sortable: true,
-			header : _('Expires', 'plugin_smime'),
+			header : _('Expires'),
 			renderer : Ext.util.Format.htmlEncode
 		},{
 			dataIndex : 'type',
 			sortable: true,
-			header : _('Type', 'plugin_smime'),
+			header : _('Type'),
 			renderer : Ext.util.Format.htmlEncode
 		}];
 	},
@@ -104,7 +104,7 @@ Zarafa.plugins.smime.settings.PublickeyGrid = Ext.extend(Ext.grid.GridPanel, {
 	initLoadMask : function()
 	{
 		return {
-			msg : _('Loading certificates', 'plugin_smime') + '...'
+			msg : _('Loading certificates') + '...'
 		};
 	},
 
@@ -130,16 +130,16 @@ Zarafa.plugins.smime.settings.PublickeyGrid = Ext.extend(Ext.grid.GridPanel, {
 
 		if(!certificate) {
 			Ext.MessageBox.show({
-				title: _('S/MIME Plugin', 'plugin_smime'),
-				msg: _('Please select a certificate.', 'plugin_smime'),
+				title: _('S/MIME Plugin'),
+				msg: _('Please select a certificate.'),
 				buttons: Ext.MessageBox.OK,
 				icon: Ext.MessageBox.INFO
 			});
 			return;
 		} else if(certificate.get('type') === 'private') {
 			Ext.MessageBox.show({
-				title: _('S/MIME Plugin', 'plugin_smime'),
-				msg :_('Do you really want to remove your private certificate? If you remove your certificate you will not be able to sign or decrypt S/MIME emails.', 'plugin_smime'),
+				title: _('S/MIME Plugin'),
+				msg :_('Do you really want to remove your private certificate? If you remove your certificate you will not be able to sign or decrypt S/MIME emails.'),
 				icon: Ext.MessageBox.WARNING,
 				fn: this.onRemoveCertificate,
 				scope: this,
@@ -195,7 +195,7 @@ Zarafa.plugins.smime.settings.PublickeyGrid = Ext.extend(Ext.grid.GridPanel, {
 				"Issued to: " + certificate.get('issued_to') + "</br>" +
 				"SHA1 Fingerprint: " + certificate.get('fingerprint_sha1') + "</br>" +
 				"MD5 Fingerprint: " + certificate.get('fingerprint_md5') + "</br>";
-			Ext.Msg.alert(_('Certificate details', 'plugin_smime'), text);
+			Ext.Msg.alert(_('Certificate details'), text);
 		}
 	}
 

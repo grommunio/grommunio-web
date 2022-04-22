@@ -51,17 +51,17 @@ Zarafa.plugins.mdm.data.ProvisioningStatus = Zarafa.core.Enum.create({
 	{
 		switch (provisioningStatus) {
 			case Zarafa.plugins.mdm.data.ProvisioningStatus.NOT_APPLICABLE:
-				return _('Not Applicable', 'plugin_mdm');
+				return _('Not Applicable');
 			case Zarafa.plugins.mdm.data.ProvisioningStatus.OK:
-				return _('Ok', 'plugin_mdm');
+				return _('Ok');
 			case Zarafa.plugins.mdm.data.ProvisioningStatus.WIPE_PENDING:
-				return _('Wipe Pending', 'plugin_mdm');
+				return _('Wipe Pending');
 			case Zarafa.plugins.mdm.data.ProvisioningStatus.WIPE_REQUESTED:
-				return _('Wipe Requested', 'plugin_mdm');
+				return _('Wipe Requested');
 			case Zarafa.plugins.mdm.data.ProvisioningStatus.WIPE_EXECUTED:
-				return _('Wipe Executed', 'plugin_mdm');
+				return _('Wipe Executed');
 			default:
-				return _('Not Available', 'plugin_mdm');
+				return _('Not Available');
 		}
 	}
 });

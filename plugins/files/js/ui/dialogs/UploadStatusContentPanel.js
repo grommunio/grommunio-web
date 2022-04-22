@@ -17,7 +17,7 @@ Zarafa.plugins.files.ui.dialogs.UploadStatusContentPanel = Ext.extend(Zarafa.cor
 		config = config || {};
 		Ext.applyIf(config, {
 			layout : 'fit',
-			title : dgettext('plugin_files', 'Uploading files to ') + Zarafa.plugins.files.data.Utils.File.stripAccountId(config.destination) + ' &hellip;',
+			title : _('Uploading files to ') + Zarafa.plugins.files.data.Utils.File.stripAccountId(config.destination) + ' &hellip;',
 			closeOnSave : true,
 			width : 480,
 			height : 445,

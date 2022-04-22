@@ -62,9 +62,9 @@ Zarafa.plugins.files.ui.FilesListToolbar = Ext.extend(Zarafa.core.ui.ContentPane
 	{
 		return [{
 			cls : 'files_icon_actionbutton',
-			text : dgettext('plugin_files', 'Upload'),
+			text : _('Upload'),
 			ref : 'uploadButton',
-			overflowText: dgettext('plugin_files', 'Upload files'),
+			overflowText: _('Upload files'),
 			iconCls : 'files_icon_action files_icon_action_upload',
 			handler : this.onFileUpload,
 			model : this.model,
@@ -72,18 +72,18 @@ Zarafa.plugins.files.ui.FilesListToolbar = Ext.extend(Zarafa.core.ui.ContentPane
 			scope : this
 		}, {
 			cls : 'files_icon_actionbutton',
-			text : dgettext('plugin_files', 'New Folder'),
+			text : _('New Folder'),
 			ref : 'createFolderButton',
 			disabled : true,
-			overflowText: dgettext('plugin_files', 'New Folder'),
+			overflowText: _('New Folder'),
 			iconCls : 'files_icon_action files_icon_action_new_folder',
 			handler : this.onCreateFolder,
 			scope : this
 		}, {
 			ref : 'downloadBtn',
 			cls : 'files_icon_actionbutton',
-			text : dgettext('plugin_files', 'Download'),
-			overflowText : dgettext('plugin_files', 'Download files'),
+			text : _('Download'),
+			overflowText : _('Download files'),
 			iconCls : 'files_icon_action files_icon_action_download',
 			handler : this.onFileDownload,
 			disabled : true,
@@ -91,8 +91,8 @@ Zarafa.plugins.files.ui.FilesListToolbar = Ext.extend(Zarafa.core.ui.ContentPane
 		}, {
 			cls : 'files_icon_actionbutton',
 			ref : 'shareBtn',
-			text : dgettext('plugin_files', 'Share'),
-			overflowText : dgettext('plugin_files', 'Share files'),
+			text : _('Share'),
+			overflowText : _('Share files'),
 			iconCls : 'files_icon_action files_icon_action_share',
 			handler : this.onFileShare,
 			disabled : true,
@@ -100,8 +100,8 @@ Zarafa.plugins.files.ui.FilesListToolbar = Ext.extend(Zarafa.core.ui.ContentPane
 		}, {
 			cls : 'files_icon_actionbutton',
 			ref : 'attachToMailBtn',
-			text : dgettext('plugin_files', 'Attach to mail'),
-			overflowText : dgettext('plugin_files', 'Attach to mail'),
+			text : _('Attach to mail'),
+			overflowText : _('Attach to mail'),
 			iconCls : 'files_icon_action files_icon_action_attach_to_mail',
 			handler : this.onFileAddToMail,
 			disabled : true,
@@ -109,8 +109,8 @@ Zarafa.plugins.files.ui.FilesListToolbar = Ext.extend(Zarafa.core.ui.ContentPane
 		}, {
 			xtype: 'tbfill'
 		}, {
-			tooltip : dgettext('plugin_files', 'Rename'),
-			overflowText : dgettext('plugin_files', 'Rename'),
+			tooltip : _('Rename'),
+			overflowText : _('Rename'),
 			ref : "renameBtn",
 			iconCls : 'files_icon_action files_icon_action_edit',
 			handler : this.onRename,
@@ -119,9 +119,9 @@ Zarafa.plugins.files.ui.FilesListToolbar = Ext.extend(Zarafa.core.ui.ContentPane
 			scope : this
 		}, {
 			xtype : 'zarafa.toolbarbutton',
-			tooltip : dgettext('plugin_files', 'Delete'),
+			tooltip : _('Delete'),
 			ref : "deleteBtn",
-			overflowText : dgettext('plugin_files', 'Delete'),
+			overflowText : _('Delete'),
 			iconCls : 'files_icon_action files_icon_action_delete',
 			handler : this.onDelete,
 			disabled : true,
@@ -248,7 +248,7 @@ Zarafa.plugins.files.ui.FilesListToolbar = Ext.extend(Zarafa.core.ui.ContentPane
 			idsList.push(record.get('folder_id'));
 		}, this);
 
-		container.getNotifier().notify('info.files', dgettext('plugin_files', 'Attaching'), dgettext('plugin_files', 'Creating email... Please wait!'));
+		container.getNotifier().notify('info.files', _('Attaching'), _('Creating email... Please wait!'));
 
 		try {
 			container.getRequest().singleRequest(

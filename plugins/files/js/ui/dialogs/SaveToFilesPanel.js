@@ -82,18 +82,18 @@ Zarafa.plugins.files.ui.dialogs.SaveToFilesPanel = Ext.extend(Ext.Panel, {
 				renderer : Zarafa.plugins.files.data.Utils.Renderer.typeRenderer,
 				width    : 24,
 				fixed    : true,
-				tooltip  : dgettext('plugin_files', 'Sort by: Type')
+				tooltip  : _('Sort by: Type')
 			},{
-				header   : dgettext('plugin_files', 'Filename'),
+				header   : _('Filename'),
 				dataIndex: 'filename',
 				width    : 160,
-				tooltip  : dgettext('plugin_files', 'Sort by: Filename')
+				tooltip  : _('Sort by: Filename')
 			},{
-				header   : dgettext('plugin_files', 'Size'),
+				header   : _('Size'),
 				dataIndex: 'message_size',
 				width    : 80,
 				renderer : Zarafa.plugins.files.data.Utils.Format.fileSizeList,
-				tooltip  : dgettext('plugin_files', 'Sort by: Size')
+				tooltip  : _('Sort by: Size')
 			}],
 			loadMask : {
 				msg : _('Loading files') + '...'
@@ -117,13 +117,13 @@ Zarafa.plugins.files.ui.dialogs.SaveToFilesPanel = Ext.extend(Ext.Panel, {
 	createActionButtons: function () {
 		return [{
 			xtype: 'button',
-			text: dgettext('plugin_files', 'New folder'),
+			text: _('New folder'),
 			cls: 'zarafa-normal',
 			handler: this.onClickNewFolder,
 			scope: this
 		}, {
 			xtype: 'button',
-			text: dgettext('plugin_files', 'Save'),
+			text: _('Save'),
 			cls: 'zarafa-action',
 			iconCls: 'icon_files_category_white',
 			handler: this.onClickSave,
@@ -174,8 +174,8 @@ Zarafa.plugins.files.ui.dialogs.SaveToFilesPanel = Ext.extend(Ext.Panel, {
 		if (!Ext.isEmpty(filesExists)) {
 			// TODO: Show which file name is duplicated.
 			Ext.MessageBox.confirm(
-				dgettext('plugin_files', 'Confirm overwrite'),
-				dgettext('plugin_files', 'File already exists. Do you want to overwrite it?'),
+				_('Confirm overwrite'),
+				_('File already exists. Do you want to overwrite it?'),
 				function(button) {
 					if (button === 'no') {
 						return;
@@ -211,7 +211,7 @@ Zarafa.plugins.files.ui.dialogs.SaveToFilesPanel = Ext.extend(Ext.Panel, {
 		var selectionModel = this.hierarchyTree.getSelectionModel();
 		var selectedNode = selectionModel.getSelectedNode();
 		if (Ext.isEmpty(selectedNode)) {
-			Zarafa.plugins.files.data.Actions.msgWarning(dgettext('plugin_files', 'You have to choose a folder!'));
+			Zarafa.plugins.files.data.Actions.msgWarning(_('You have to choose a folder!'));
 			return undefined;
 		}
 		return selectedNode.getFolder();
@@ -255,9 +255,9 @@ Zarafa.plugins.files.ui.dialogs.SaveToFilesPanel = Ext.extend(Ext.Panel, {
 	uploadDone: function (response)
 	{
 		if (response.status === true) {
-			container.getNotifier().notify('info.files', dgettext('plugin_files', 'Uploaded'), dgettext('plugin_files', 'Attachment successfully stored in Files'));
+			container.getNotifier().notify('info.files', _('Uploaded'), _('Attachment successfully stored in Files'));
 		} else {
-			container.getNotifier().notify('error', dgettext('plugin_files', 'Upload Failed'), dgettext('plugin_files', 'Attachment could not be stored in Files! Error: ' + response.status));
+			container.getNotifier().notify('error', _('Upload Failed'), _('Attachment could not be stored in Files! Error: ' + response.status));
 		}
 
 		this.dialog.close();

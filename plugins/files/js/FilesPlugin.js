@@ -109,7 +109,7 @@ Zarafa.plugins.files.FilesPlugin = Ext.extend(Zarafa.core.Plugin, {
 Zarafa.onReady(function () {
 	container.registerPlugin(new Zarafa.core.PluginMetaData({
 		name             : 'files',
-		displayName      : dgettext('plugin_files', 'Files Plugin'),
+		displayName      : _('Files Plugin'),
 		about            : Zarafa.plugins.files.ABOUT,
 		allowUserDisable : true,
 		pluginConstructor: Zarafa.plugins.files.FilesPlugin

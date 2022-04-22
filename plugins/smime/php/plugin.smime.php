@@ -184,9 +184,9 @@ class Pluginsmime extends Plugin {
 		}
 
 		if (array_filter($missingCerts, "missingMyself") === []) {
-			$errorMsg = dgettext('plugin_smime', 'Missing public certificates for the following recipients: ') . implode(', ', $missingCerts) . dgettext('plugin_smime', '. Please contact your system administrator for details');
+			$errorMsg = _('Missing public certificates for the following recipients: ') . implode(', ', $missingCerts) . _('. Please contact your system administrator for details');
 		} else {
-			$errorMsg = dgettext("plugin_smime", "Your public certificate is not installed. Without this certificate, you will not be able to read encrypted messages you have sent to others.");
+			$errorMsg = _("Your public certificate is not installed. Without this certificate, you will not be able to read encrypted messages you have sent to others.");
 		}
 		
 		$module->sendFeedback(false, array("type" => ERROR_GENERAL, "info" => array('display_message' => $errorMsg)));
@@ -517,7 +517,7 @@ class Pluginsmime extends Plugin {
 				$certMessage = getMAPICert($this->getStore());
 				// TODO: update to serialNumber check
 				if($certMessage && $certMessage[0][PR_MESSAGE_DELIVERY_TIME] == $publickeyData['validTo_time_t']) {
-					$message = dgettext('plugin_smime', 'Certificate is already stored on the server');
+					$message = _('Certificate is already stored on the server');
 				} else {
 					$saveCert = true;
 					$root = mapi_msgstore_openentry($this->getStore(), null);
@@ -532,9 +532,9 @@ class Pluginsmime extends Plugin {
 						if($pubCert) {
 							mapi_folder_deletemessages($root, array($pubCert[PR_ENTRYID]));
 						}
-						$message = dgettext('plugin_smime', 'New certificate uploaded');
+						$message = _('New certificate uploaded');
 					} else {
-						$message = dgettext('plugin_smime', 'Certificate uploaded');
+						$message = _('Certificate uploaded');
 					}*/
 
 					$this->importCertificate($certificate, $publickeyData, 'private');

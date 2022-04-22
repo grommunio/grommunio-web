@@ -209,7 +209,7 @@ Zarafa.plugins.files.ui.snippets.FilesNavigationBar = Ext.extend(Ext.Panel, {
 		this.add({
 			xtype : 'button',
 			cls: "files_navbar_button files_navbar_button_first",
-			tooltip: dgettext('plugin_files', 'Home'),
+			tooltip: _('Home'),
 			path: "#R#", // root folder
 			listeners: {
 				click: this.doNavButtonClick,

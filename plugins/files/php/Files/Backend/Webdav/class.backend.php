@@ -104,7 +104,7 @@ class Backend extends AbstractBackend implements iFeatureQuota, iFeatureVersionI
 		$this->init_form();
 
 		// set backend description
-		$this->backendDescription = dgettext('plugin_files', "With this backend, you can connect to any WebDAV server.");
+		$this->backendDescription = _("With this backend, you can connect to any WebDAV server.");
 
 		// set backend display name
 		$this->backendDisplayName = "Webdav";
@@ -114,7 +114,7 @@ class Backend extends AbstractBackend implements iFeatureQuota, iFeatureVersionI
 		$this->backendVersion = "3.0";
 
 		// Backend name used in translations
-		$this->backendTransName = dgettext('plugin_files', 'Files WebDAV Backend: ');
+		$this->backendTransName = _('Files WebDAV Backend: ');
 	}
 
 	/**
@@ -134,14 +134,14 @@ class Backend extends AbstractBackend implements iFeatureQuota, iFeatureVersionI
 		$this->formFields = array(
 			array(
 				"name" => "server_address",
-				"fieldLabel" => dgettext('plugin_files', 'Server address'),
+				"fieldLabel" => _('Server address'),
 				"editor" => array(
 					"allowBlank" => false
 				)
 			),
 			array(
 				"name" => "server_port",
-				"fieldLabel" => dgettext('plugin_files', 'Server port'),
+				"fieldLabel" => _('Server port'),
 				"editor" => array(
 					"ref" => "../../portField",
 					"allowBlank" => false
@@ -149,7 +149,7 @@ class Backend extends AbstractBackend implements iFeatureQuota, iFeatureVersionI
 			),
 			array(
 				"name" => "server_ssl",
-				"fieldLabel" => dgettext('plugin_files', 'Use SSL'),
+				"fieldLabel" => _('Use SSL'),
 				"editor" => array(
 					"xtype" => "checkbox",
 					"listeners" => array(
@@ -159,20 +159,20 @@ class Backend extends AbstractBackend implements iFeatureQuota, iFeatureVersionI
 			),
 			array(
 				"name" => "server_path",
-				"fieldLabel" => dgettext('plugin_files', 'Webdav base path'),
+				"fieldLabel" => _('Webdav base path'),
 				"editor" => array(
 				)
 			),
 			array(
 				"name" => "user",
-				"fieldLabel" => dgettext('plugin_files', 'Username'),
+				"fieldLabel" => _('Username'),
 				"editor" => array(
 					"ref" => "../../usernameField"
 				)
 			),
 			array(
 				"name" => "password",
-				"fieldLabel" => dgettext('plugin_files', 'Password'),
+				"fieldLabel" => _('Password'),
 				"editor" => array(
 					"ref" => "../../passwordField",
 					"inputType" => "password"
@@ -180,7 +180,7 @@ class Backend extends AbstractBackend implements iFeatureQuota, iFeatureVersionI
 			),
 			array(
 				"name" => "use_grommunio_credentials",
-				"fieldLabel" => dgettext('plugin_files', 'Use grommunio credentials'),
+				"fieldLabel" => _('Use grommunio credentials'),
 				"editor" => array(
 					"xtype" => "checkbox",
 					"listeners" => array(
@@ -349,7 +349,7 @@ class Backend extends AbstractBackend implements iFeatureQuota, iFeatureVersionI
 		$serverHasCurl = function_exists('curl_version');
 		if (!$serverHasCurl) {
 			$e = new BackendException($this->parseErrorCodeToMessage(self::WD_ERR_NO_CURL), 500);
-			$e->setTitle($this->backendTransName . dgettext('plugin_files', 'PHP-CURL is not installed'));
+			$e->setTitle($this->backendTransName . _('PHP-CURL is not installed'));
 			throw $e;
 		}
 
@@ -369,11 +369,11 @@ class Backend extends AbstractBackend implements iFeatureQuota, iFeatureVersionI
 			$this->log('Failed to open: ' . $e->getMessage());
 			if (intval($e->getHTTPCode()) == 401) {
 				$e = new BackendException($this->parseErrorCodeToMessage(self::WD_ERR_UNAUTHORIZED), $e->getHTTPCode());
-				$e->setTitle($this->backendTransName . dgettext('plugin_files', 'Access denied'));
+				$e->setTitle($this->backendTransName . _('Access denied'));
 				throw $e;
 			} else {
 				$e = new BackendException($this->parseErrorCodeToMessage(self::WD_ERR_UNREACHABLE), $e->getHTTPCode());
-				$e->setTitle($this->backendTransName . dgettext('plugin_files', 'Connection failed'));
+				$e->setTitle($this->backendTransName . _('Connection failed'));
 				throw $e;
 			}
 		}
@@ -445,7 +445,7 @@ class Backend extends AbstractBackend implements iFeatureQuota, iFeatureVersionI
 		} catch (ClientException $e) {
 			$this->log('ls sabre ClientException: ' . $e->getMessage());
 			$e = new BackendException($this->parseErrorCodeToMessage($e->getCode()), $e->getCode());
-			$e->setTitle($this->backendTransName . dgettext('plugin_files', 'Sabre error'));
+			$e->setTitle($this->backendTransName . _('Sabre error'));
 			throw $e;
 		} catch (Exception $e) {
 			$this->log('ls general exception: ' . $e->getMessage() . " [" . $e->getHTTPCode() .  "]");
@@ -460,7 +460,7 @@ class Backend extends AbstractBackend implements iFeatureQuota, iFeatureVersionI
 				}
 			}
 			$e = new BackendException($this->parseErrorCodeToMessage($err_code), $err_code);
-			$e->setTitle($this->backendTransName . dgettext('plugin_files', 'Connection failed'));
+			$e->setTitle($this->backendTransName . _('Connection failed'));
 			throw $e;
 		}
 	}
@@ -488,12 +488,12 @@ class Backend extends AbstractBackend implements iFeatureQuota, iFeatureVersionI
 			return true;
 		} catch (ClientException $e) {
 			$e = new BackendException($this->parseErrorCodeToMessage($e->getCode()), $e->getCode());
-			$e->setTitle($this->backendTransName . dgettext('plugin_files', 'Sabre error'));
+			$e->setTitle($this->backendTransName . _('Sabre error'));
 			throw $e;
 		} catch (Exception $e) {
 			$this->log('[MKCOL] fatal: ' . $e->getMessage());
 			$e = new BackendException($this->parseErrorCodeToMessage($e->getHTTPCode()), $e->getHTTPCode());
-			$e->setTitle($this->backendTransName . dgettext('plugin_files', 'Directory creation failed'));
+			$e->setTitle($this->backendTransName . _('Directory creation failed'));
 			throw $e;
 		}
 	}
@@ -521,12 +521,12 @@ class Backend extends AbstractBackend implements iFeatureQuota, iFeatureVersionI
 			return true;
 		} catch (ClientException $e) {
 			$e = new BackendException($this->parseErrorCodeToMessage($e->getCode()), $e->getCode());
-			$e->setTitle($this->backendTransName . dgettext('plugin_files', 'Sabre error'));
+			$e->setTitle($this->backendTransName . _('Sabre error'));
 			throw $e;
 		} catch (Exception $e) {
 			$this->log('[DELETE] fatal: ' . $e->getMessage());
 			$e = new BackendException($this->parseErrorCodeToMessage($e->getHTTPCode()), $e->getHTTPCode());
-			$e->setTitle($this->backendTransName . dgettext('plugin_files', 'Deletion failed'));
+			$e->setTitle($this->backendTransName . _('Deletion failed'));
 			throw $e;
 		}
 	}
@@ -563,12 +563,12 @@ class Backend extends AbstractBackend implements iFeatureQuota, iFeatureVersionI
 			return true;
 		} catch (ClientException $e) {
 			$e = new BackendException($this->parseErrorCodeToMessage($e->getCode()), $e->getCode());
-			$e->setTitle($this->backendTransName . dgettext('plugin_files', 'Sabre error'));
+			$e->setTitle($this->backendTransName . _('Sabre error'));
 			throw $e;
 		} catch (Exception $e) {
 			$this->log('[MOVE] fatal: ' . $e->getMessage());
 			$e = new BackendException($this->parseErrorCodeToMessage($e->getHTTPCode()), $e->getHTTPCode());
-			$e->setTitle($this->backendTransName . dgettext('plugin_files', 'Moving failed'));
+			$e->setTitle($this->backendTransName . _('Moving failed'));
 			throw $e;
 		}
 	}
@@ -596,12 +596,12 @@ class Backend extends AbstractBackend implements iFeatureQuota, iFeatureVersionI
 			return true;
 		} catch (ClientException $e) {
 			$e = new BackendException($this->parseErrorCodeToMessage($e->getCode()), $e->getCode());
-			$e->setTitle($this->backendTransName . dgettext('plugin_files', 'Sabre error'));
+			$e->setTitle($this->backendTransName . _('Sabre error'));
 			throw $e;
 		} catch (Exception $e) {
 			$this->log('[PUT] fatal: ' . $e->getMessage());
 			$e = new BackendException($this->parseErrorCodeToMessage($e->getHTTPCode()), $e->getHTTPCode());
-			$e->setTitle($this->backendTransName . dgettext('plugin_files', 'Connection failed'));
+			$e->setTitle($this->backendTransName . _('Connection failed'));
 			throw $e;
 		}
 	}
@@ -624,7 +624,7 @@ class Backend extends AbstractBackend implements iFeatureQuota, iFeatureVersionI
 			return $this->put($path, $buffer);
 		} else {
 			$e = new BackendException($this->parseErrorCodeToMessage(self::WD_ERR_TMP), self::WD_ERR_TMP);
-			$e->setTitle($this->backendTransName . dgettext('plugin_files', 'Temporary directory problems'));
+			$e->setTitle($this->backendTransName . _('Temporary directory problems'));
 			throw $e;
 		}
 	}
@@ -673,12 +673,12 @@ class Backend extends AbstractBackend implements iFeatureQuota, iFeatureVersionI
 			$this->log("[GET_FILE] done in $time seconds: " . $response['statusCode']);
 		} catch (ClientException $e) {
 			$e = new BackendException($this->parseErrorCodeToMessage($e->getCode()), $e->getCode());
-			$e->setTitle($this->backendTransName . dgettext('plugin_files', 'Sabre error'));
+			$e->setTitle($this->backendTransName . _('Sabre error'));
 			throw $e;
 		} catch (Exception $e) {
 			$this->log('[GET_FILE] - FATAL -' . $e->getMessage());
 			$e = new BackendException($this->parseErrorCodeToMessage($e->getHTTPCode()), $e->getHTTPCode());
-			$e->setTitle($this->backendTransName . dgettext('plugin_files', 'File or folder not found'));
+			$e->setTitle($this->backendTransName . _('File or folder not found'));
 			throw $e;
 		}
 	}
@@ -784,7 +784,7 @@ class Backend extends AbstractBackend implements iFeatureQuota, iFeatureVersionI
 
 		$this->log('[OPTIONS] - ERROR - Error getting server features');
 		$e = new BackendException($this->parseErrorCodeToMessage(self::WD_ERR_FEATURES), self::WD_ERR_FEATURES);
-		$e->setTitle($this->backendTransName . dgettext('plugin_files', 'Not implemented'));
+		$e->setTitle($this->backendTransName . _('Not implemented'));
 		throw $e;
 	}
 
@@ -870,12 +870,12 @@ class Backend extends AbstractBackend implements iFeatureQuota, iFeatureVersionI
 			return true;
 		} catch (ClientException $e) {
 			$e = new BackendException($this->parseErrorCodeToMessage($e->getCode()), $e->getCode());
-			$e->setTitle($this->backendTransName . dgettext('plugin_files', 'Sabre error'));
+			$e->setTitle($this->backendTransName . _('Sabre error'));
 			throw $e;
 		} catch (Exception $e) {
 			$this->log('[COPY] - FATAL - ' . $e->getMessage());
 			$e = new BackendException($this->parseErrorCodeToMessage($e->getHTTPCode()), $e->getHTTPCode());
-			$e->setTitle($this->backendTransName . dgettext('plugin_files', 'Copying failed'));
+			$e->setTitle($this->backendTransName . _('Copying failed'));
 			throw $e;
 		}
 	}
@@ -936,51 +936,51 @@ class Backend extends AbstractBackend implements iFeatureQuota, iFeatureVersionI
 	{
 		$error = intval($error_code);
 
-		$msg = dgettext('plugin_files', 'Unknown error');
-		$contactAdmin = dgettext('plugin_files', 'Please contact your system administrator');
+		$msg = _('Unknown error');
+		$contactAdmin = _('Please contact your system administrator');
 
 		switch ($error) {
 			case CURLE_BAD_PASSWORD_ENTERED:
 			case self::WD_ERR_UNAUTHORIZED:
-				$msg = dgettext('plugin_files', 'Unauthorized. Wrong username or password.');
+				$msg = _('Unauthorized. Wrong username or password.');
 				break;
 			case CURLE_SSL_CONNECT_ERROR:
 			case CURLE_COULDNT_RESOLVE_HOST:
 			case CURLE_COULDNT_CONNECT:
 			case CURLE_OPERATION_TIMEOUTED:
 			case self::WD_ERR_UNREACHABLE:
-				$msg = dgettext('plugin_files', 'File server is not reachable. Please verify the connection.');
+				$msg = _('File server is not reachable. Please verify the connection.');
 				break;
 			case self::WD_ERR_NOTALLOWED:
-				$msg = dgettext('plugin_files', 'File server is not reachable. Please verify the file server URL.');
+				$msg = _('File server is not reachable. Please verify the file server URL.');
 				break;
 			case self::WD_ERR_FORBIDDEN:
-				$msg = dgettext('plugin_files', 'You don\'t have enough permissions to view this file or folder.');
+				$msg = _('You don\'t have enough permissions to view this file or folder.');
 				break;
 			case self::WD_ERR_NOTFOUND:
-				$msg = dgettext('plugin_files', 'The file or folder is not available anymore.');
+				$msg = _('The file or folder is not available anymore.');
 				break;
 			case self::WD_ERR_TIMEOUT:
-				$msg = dgettext('plugin_files', 'Connection to the file server timed out. Please check again later.');
+				$msg = _('Connection to the file server timed out. Please check again later.');
 				break;
 			case self::WD_ERR_LOCKED:
-				$msg = dgettext('plugin_files', 'This file is locked by another user. Please try again later.');
+				$msg = _('This file is locked by another user. Please try again later.');
 				break;
 			case self::WD_ERR_FAILED_DEPENDENCY:
-				$msg = dgettext('plugin_files', 'The request failed.') . ' ' . $contactAdmin;
+				$msg = _('The request failed.') . ' ' . $contactAdmin;
 				break;
 			case self::WD_ERR_INTERNAL:
 				// This is a general error, might be thrown due to a wrong IP, but we don't know.
-				$msg = dgettext('plugin_files', 'The file server encountered an internal problem.') . ' ' . $contactAdmin;
+				$msg = _('The file server encountered an internal problem.') . ' ' . $contactAdmin;
 				break;
 			case self::WD_ERR_TMP:
-				$msg = dgettext('plugin_files', 'We could not write to temporary directory.') . ' ' . $contactAdmin;
+				$msg = _('We could not write to temporary directory.') . ' ' . $contactAdmin;
 				break;
 			case self::WD_ERR_FEATURES:
-				$msg = dgettext('plugin_files', 'We could not retrieve list of server features.') . ' ' . $contactAdmin;
+				$msg = _('We could not retrieve list of server features.') . ' ' . $contactAdmin;
 				break;
 			case self::WD_ERR_NO_CURL:
-				$msg = dgettext('plugin_files', 'PHP-Curl is not available.') . ' ' . $contactAdmin;
+				$msg = _('PHP-Curl is not available.') . ' ' . $contactAdmin;
 				break;
 		}
 
@@ -1070,7 +1070,7 @@ class Backend extends AbstractBackend implements iFeatureQuota, iFeatureVersionI
 		$serverHasCurl = function_exists('curl_version');
 		if (!$serverHasCurl) {
 			$e = new BackendException($this->parseErrorCodeToMessage(self::WD_ERR_NO_CURL), 500);
-			$e->setTitle($this->backendTransName . dgettext('plugin_files', 'PHP-CURL not installed'));
+			$e->setTitle($this->backendTransName . _('PHP-CURL not installed'));
 			throw $e;
 		}
 

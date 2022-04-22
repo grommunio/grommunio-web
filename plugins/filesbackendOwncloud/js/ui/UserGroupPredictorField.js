@@ -41,9 +41,9 @@ Zarafa.plugins.files.backend.Owncloud.ui.UserGroupPredictorField = Ext.extend(Ex
 			itemId: 'predictor',
 			mode: 'remote',
 			minChars: 2,
-			emptyText: dgettext('plugin_filesbackendOwncloud', 'Type to search'),
-			loadingText: dgettext('plugin_filesbackendOwncloud', 'Loading...'),
-			listEmptyText: dgettext('plugin_filesbackendOwncloud', 'No results'),
+			emptyText: _('Type to search'),
+			loadingText: _('Loading...'),
+			listEmptyText: _('No results'),
 			itemSelector: 'div.ugpredic_search_item',
 			tpl: new Ext.XTemplate(
 				'<tpl for=".">',

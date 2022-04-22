@@ -21,7 +21,7 @@ Zarafa.plugins.chat.settings.GeneralSettingsWidget = Ext.extend(Zarafa.settings.
 				xtype: 'checkbox',
 				ref: 'autostart',
 				hideLabel: true,
-				boxLabel: _('Open Chat at start', 'plugin_chat'),
+				boxLabel: _('Open Chat at start'),
 				listeners: {
 					check: this.onCheckAutoStart,
 					scope: this

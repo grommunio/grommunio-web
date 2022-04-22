@@ -109,7 +109,7 @@ class PluginSmimeModule extends Module
 
 		// No certificates
 		if(!$privateCerts || count($privateCerts) === 0) {
-			$message = dgettext('plugin_smime', 'No certificate avaliable');
+			$message = _('No certificate avaliable');
 		} else {
 			// For each certificate in MAPI store
 			$smtpAddress = $GLOBALS['mapisession']->getSMTPAddress();
@@ -118,11 +118,11 @@ class PluginSmimeModule extends Module
 				// TODO: create a more generic function which verifyies if the certificate is valid
 				// And remove possible duplication from plugin.smime.php->onUploadCertificate
 				if($privateCerts[$i][PR_MESSAGE_DELIVERY_TIME] < time()) { // validTo
-					$message = dgettext('plugin_smime', 'Private certificate is not valid yet, unable to sign email');
+					$message = _('Private certificate is not valid yet, unable to sign email');
 				} else if($privateCerts[$i][PR_CLIENT_SUBMIT_TIME] >= time()) { // validFrom
-					$message = dgettext('plugin_smime', 'Private certificate has been expired, unable to sign email');
+					$message = _('Private certificate has been expired, unable to sign email');
 				} else if (strcasecmp($privateCerts[$i][PR_SUBJECT], $smtpAddress) !== 0) {
-					$message = dgettext('plugin_smime', 'Private certificate does not match email address');
+					$message = _('Private certificate does not match email address');
 				} else {
 					$status = True;
 					$message = '';

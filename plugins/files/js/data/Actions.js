@@ -67,7 +67,7 @@ Zarafa.plugins.files.data.Actions = {
 		var emailRecord = container.getContextByName("mail").getModel().createRecord();
 
 		Zarafa.core.data.UIFactory.openLayerComponent(Zarafa.core.data.SharedComponentType['zarafa.plugins.files.attachdialog'], undefined, {
-			title      : String.format(dgettext('plugin_files', 'Add attachment from {0}'), container.getSettingsModel().get('zarafa/v1/plugins/files/button_name')),
+			title      : String.format(_('Add attachment from {0}'), container.getSettingsModel().get('zarafa/v1/plugins/files/button_name')),
 			emailrecord: emailRecord,
 			manager    : Ext.WindowMgr
 		});
@@ -162,7 +162,7 @@ Zarafa.plugins.files.data.Actions = {
 
 		if (allowDelete) {
 			if (askOnDelete) {
-				Ext.MessageBox.confirm(dgettext('plugin_files', 'Confirm deletion'),
+				Ext.MessageBox.confirm(_('Confirm deletion'),
 					this.createDeletionMessage(fileCount, firstFileName, folderCount, firstFolderName),
 					function (button) {
 						if (button === 'yes') {
@@ -186,23 +186,23 @@ Zarafa.plugins.files.data.Actions = {
 	createDeletionMessage: function(fileCount, fileName, folderCount, folderName) {
 		//single file
 		if (fileCount === 1 && folderCount === 0) {
-			return String.format(dgettext('plugin_files', 'Are you sure you want to delete {0}?'), fileName);
+			return String.format(_('Are you sure you want to delete {0}?'), fileName);
 		}
 		//single folder
 		if (fileCount === 0 && folderCount === 1) {
-			 return String.format(dgettext('plugin_files', 'Are you sure you want to delete {0} and all of its contents?'), folderName);
+			 return String.format(_('Are you sure you want to delete {0} and all of its contents?'), folderName);
 		}
 		//multiple files
 		if (fileCount >= 1 && folderCount === 0) {
-			 return String.format(dgettext('plugin_files', 'Are you sure you want to delete {0} files?'), fileCount);
+			 return String.format(_('Are you sure you want to delete {0} files?'), fileCount);
 		}
 		//multiple folders
 		if (fileCount === 0 && folderCount >= 1) {
-			return String.format(dgettext('plugin_files', 'Are you sure want to delete {0} folders and all of their contents?'), folderCount);
+			return String.format(_('Are you sure want to delete {0} folders and all of their contents?'), folderCount);
 		}
 		//multiple files and folders
 		if (fileCount !== 0 && folderCount !== 0) {
-			return dgettext('plugin_files', 'Are you sure want to delete the selected items and all of their contents?');
+			return _('Are you sure want to delete the selected items and all of their contents?');
 		}
 	},
 
@@ -297,8 +297,8 @@ Zarafa.plugins.files.data.Actions = {
 		if (isExists) {
 			// TODO: Show conflicted folder/file names.
 			Ext.MessageBox.confirm(
-				dgettext('plugin_files', 'Confirm overwrite'),
-				dgettext('plugin_files', 'File already exists. Do you want to overwrite it?'),
+				_('Confirm overwrite'),
+				_('File already exists. Do you want to overwrite it?'),
 				function (button) {
 					this.doMoveRecords(records, destination, button);
 				},
@@ -372,8 +372,8 @@ Zarafa.plugins.files.data.Actions = {
 	 */
 	openRenameDialog: function (record) {
 		Ext.MessageBox.prompt(
-			dgettext('plugin_files', 'Rename'),
-			dgettext('plugin_files', 'Please enter a new name'),
+			_('Rename'),
+			_('Please enter a new name'),
 			this.doCheckRenameDuplicate.createDelegate(this, [record], true),
 			this,
 			false,
@@ -474,7 +474,7 @@ Zarafa.plugins.files.data.Actions = {
 			var url = this.getDownloadLinkForMultipleFiles(records, false);
 			downloadFrame.dom.contentWindow.location = url;
 		}
-		container.getNotifier().notify('info.files', dgettext('plugin_files', 'Downloading'), dgettext('plugin_files', 'Download started... please wait!'));
+		container.getNotifier().notify('info.files', _('Downloading'), _('Download started... please wait!'));
 	},
 
 	/**
@@ -509,8 +509,8 @@ Zarafa.plugins.files.data.Actions = {
 
 		if (fileTooLarge) {
 			Zarafa.common.dialogs.MessageBox.show({
-				title  : dgettext('plugin_files', 'Upload'),
-				msg    : String.format(dgettext('plugin_files', 'At least one file is too large! Maximum allowed filesize: {0}.'), Zarafa.plugins.files.data.Utils.Format.fileSize(Zarafa.plugins.files.data.Utils.Core.getMaxUploadFilesize())),
+				title  : _('Upload'),
+				msg    : String.format(_('At least one file is too large! Maximum allowed filesize: {0}.'), Zarafa.plugins.files.data.Utils.Format.fileSize(Zarafa.plugins.files.data.Utils.Core.getMaxUploadFilesize())),
 				icon   : Zarafa.common.dialogs.MessageBox.ERROR,
 				buttons: Zarafa.common.dialogs.MessageBox.OK
 			});
@@ -584,18 +584,18 @@ Zarafa.plugins.files.data.Actions = {
 	checkForExistingFilesDone: function (response, files, destination, store, callback) {
 		if (response.duplicate === true) {
 			Zarafa.common.dialogs.MessageBox.addCustomButtons({
-				title : dgettext('plugin_files', 'Confirm overwrite'),
+				title : _('Confirm overwrite'),
 				icon: Ext.MessageBox.QUESTION,
-				msg : dgettext('plugin_files', 'File already exists. Do you want to overwrite it?'),
+				msg : _('File already exists. Do you want to overwrite it?'),
 				fn : callback.createDelegate(this, [files, destination, store], true),
 				customButton : [{
-					text :  dgettext('plugin_files', 'Keep both'),
+					text :  _('Keep both'),
 					name : 'keepboth'
 				}, {
-					text :  dgettext('plugin_files', 'Overwrite'),
+					text :  _('Overwrite'),
 					name : 'overwrite'
 				}, {
-					text :  dgettext('plugin_files', 'Cancel'),
+					text :  _('Cancel'),
 					name : 'cancel'
 				}],
 				scope : this
@@ -645,7 +645,7 @@ Zarafa.plugins.files.data.Actions = {
 	 */
 	msgWarning: function (errorMessage) {
 		Zarafa.common.dialogs.MessageBox.show({
-			title  : dgettext('plugin_files', 'Warning'),
+			title  : _('Warning'),
 			msg    : errorMessage,
 			icon   : Zarafa.common.dialogs.MessageBox.WARNING,
 			buttons: Zarafa.common.dialogs.MessageBox.OK
