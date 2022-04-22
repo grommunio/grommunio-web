@@ -11,6 +11,7 @@ Zarafa.plugins.files.data.FilesRecordFields = [
 	// FIXME : try to remove this id proper.
 	{name: 'id', mapping:"entryid"},
 	{name: 'folder_id'},
+	{name: 'fileid'},
 	{name: 'path'},
 	{name: 'type', type: 'int', defaultValue: Zarafa.plugins.files.data.FileTypes.FOLDER},
 	{name: 'filename'},
@@ -104,6 +105,15 @@ Zarafa.plugins.files.data.FilesRecord = Ext.extend(Zarafa.core.data.IPMRecord, {
 	 */
 	getDisabled: function () {
 		return this.disabled;
+	},
+
+	/**
+	 * Get the file id.
+	 *
+	 * @return {Boolean}
+	 */
+	getFileid: function () {
+		return this.get('fileid') || "-1";
 	},
 
 	/**

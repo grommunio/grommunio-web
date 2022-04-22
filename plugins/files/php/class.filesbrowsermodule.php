@@ -321,6 +321,8 @@ class FilesBrowserModule extends FilesListModule
 				$size = $node['getcontentlength'] === null ? -1 : intval($node['getcontentlength']);
 				$size = $type == FILES_FOLDER ? -1 : $size; // folder's dont have a size
 
+				$fileid = $node['fileid'] === "-1" ? -1 : intval($node['fileid']);
+
 				$shared = false;
 				$sharedid = array();
 				if (isset($sharingInfo) && count($sharingInfo[$relNodeId]) > 0) {
@@ -359,6 +361,7 @@ class FilesBrowserModule extends FilesListModule
 				$nodes[$nodeId] = array('props' =>
 					array(
 						'folder_id' => stringToUTF8Encode($realID),
+						'fileid' => $fileid,
 						'path' => $path,
 						'filename' => $filename,
 						'message_size' => $size,

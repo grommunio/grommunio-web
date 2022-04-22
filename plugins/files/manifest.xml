@@ -53,6 +53,8 @@
 					<clientfile load="source">js/ui/FolderNodeUI.js</clientfile>
 
 					<clientfile load="source">js/ui/Tree.js</clientfile>
+					<clientfile load="source">js/ui/ContentPanel.js</clientfile>
+					<clientfile load="source">js/ui/OnlyofficePanel.js</clientfile>
 					<clientfile load="source">js/ui/TreeSorter.js</clientfile>
 					<clientfile load="source">js/ui/MultipleFileUploadField.js</clientfile>
 					<clientfile load="source">js/ui/UploadComponent.js</clientfile>

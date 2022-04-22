@@ -34,6 +34,8 @@ Zarafa.plugins.files.FilesPlugin = Ext.extend(Zarafa.core.Plugin, {
 		Zarafa.core.mapi.IconIndex["folder_note"] = 5378;
 		Zarafa.core.mapi.IconIndex["files"] = 5377;
 
+		Zarafa.core.data.SharedComponentType.addProperty('plugins.files.onlyofficepanel');
+
 		Zarafa.core.data.SharedComponentType.addProperty('filesplugin.accountedit');
 		Zarafa.core.data.SharedComponentType.addProperty('filesplugin.featurequotainfo');
 		Zarafa.core.data.SharedComponentType.addProperty('filesplugin.featureversioninfo');
@@ -47,7 +49,7 @@ Zarafa.plugins.files.FilesPlugin = Ext.extend(Zarafa.core.Plugin, {
 		Zarafa.core.ModuleNames['IPM.FILESACCOUNT'] = {
 			list: 'filesaccountmodule',
 			item: 'filesaccountmodule'
-		}
+		};
 	},
 
 	/**
@@ -64,6 +66,7 @@ Zarafa.plugins.files.FilesPlugin = Ext.extend(Zarafa.core.Plugin, {
 			case Zarafa.core.data.SharedComponentType['filesplugin.featurequotainfo']:
 			case Zarafa.core.data.SharedComponentType['filesplugin.featureversioninfo']:
 			case Zarafa.core.data.SharedComponentType['common.dialog.attachments.savetofiles']:
+			case Zarafa.core.data.SharedComponentType['plugins.files.onlyofficepanel']:
 				bid = 1;
 				break;
 		}
@@ -89,6 +92,9 @@ Zarafa.plugins.files.FilesPlugin = Ext.extend(Zarafa.core.Plugin, {
 				break;
 			case Zarafa.core.data.SharedComponentType['filesplugin.featureversioninfo']:
 				component = Zarafa.plugins.files.settings.ui.FeatureVersionInfoContentPanel;
+				break;
+			case Zarafa.core.data.SharedComponentType['plugins.files.onlyofficepanel']:
+				component = Zarafa.plugins.files.ui.ContentPanel;
 				break;
 		}
 

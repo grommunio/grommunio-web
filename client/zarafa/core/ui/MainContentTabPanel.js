@@ -228,7 +228,6 @@ Zarafa.core.ui.MainContentTabPanel = Ext.extend(Ext.TabPanel, {
 			return;
 		}
 
-
 		var target = this.findTargets(e);
 		if (target.close) {
 			target.item.close();
