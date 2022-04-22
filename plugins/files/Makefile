@@ -63,6 +63,8 @@ JSFILES = js/ABOUT.js \
           js/ui/Tree.js \
           js/ui/TreeSorter.js \
           js/ui/UploadComponent.js \
+          js/ui/ContentPanel.js \
+          js/ui/OnlyofficePanel.js \
           js/ui/dialogs/AttachFromFilesContentPanel.js \
           js/ui/dialogs/AttachFromFilesGridPanel.js \
           js/ui/dialogs/AttachFromFilesPanel.js \
