@@ -35,12 +35,11 @@ Zarafa.plugins.files.ui.OnlyofficePanel = Ext.extend(Ext.Panel, {
 			iconCls: 'icon_files',
 			html : {
 				tag: 'iframe',
-				height: '100%',
 				width: '100%',
 				id: this.iframeId,
 				cls: 'files-iframe',
 				src: baseUrl + fileid + "?filePath=%2F" + filePath,
-				style: 'position:absolute;display:block;top:-45px'
+				style: 'position:absolute;display:block;top:-45px;height:calc(100%+45px);'
 			}
 		});
 
