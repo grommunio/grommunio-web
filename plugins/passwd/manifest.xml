@@ -32,7 +32,6 @@
 					<clientfile load="source">js/settings/SettingsPasswdWidget.js</clientfile>
 					<clientfile load="source">js/settings/PasswdPanel.js</clientfile>
 					<clientfile load="source">js/data/PasswdResponseHandler.js</clientfile>
-					<clientfile load="source">js/ABOUT.js</clientfile>
 					<clientfile load="source">js/external/PasswordMeter.js</clientfile>
 				</client>
 				<resources>

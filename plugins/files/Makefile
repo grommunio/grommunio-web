@@ -2,8 +2,7 @@ include ../shared.mk
 
 MSGFMT ?= msgfmt
 
-JSFILES = js/ABOUT.js \
-          js/FilesContext.js \
+JSFILES = js/FilesContext.js \
           js/FilesContextModel.js \
           js/FilesPlugin.js \
           js/data/AccountRecord.js \
@@ -86,7 +85,7 @@ JSFILES = js/ABOUT.js \
           js/ui/NavigatorTreePanel.js \
           js/ui/FilesRootFolderNode.js
 
-COPYFILES = LICENSE.txt manifest.xml config.php \
+COPYFILES = manifest.xml config.php \
         js/external/Ext.ux.form.MetaForm-debug.js \
         js/external/Ext.ux.form.MetaForm.js \
         $(shell find resources/icons/ -type f \( -name '*.png' -o -name '*.gif' -o -name '*.jpg' \) ) \

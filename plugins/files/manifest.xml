@@ -30,7 +30,6 @@
 				<client>
 					<clientfile load="release">php/jsloader.php?debug=false</clientfile>
 					<clientfile load="debug">php/jsloader.php?debug=true</clientfile>
-					<clientfile load="source">js/ABOUT.js</clientfile>
 					<clientfile load="source">js/FilesContextModel.js</clientfile>
 					<clientfile load="source">js/FilesContext.js</clientfile>
 					<clientfile load="source">js/FilesPlugin.js</clientfile>

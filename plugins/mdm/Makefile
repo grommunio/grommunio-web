@@ -1,6 +1,6 @@
 include ../shared.mk
 
-JSFILES = js/ABOUT.js js/MDM.js \
+JSFILES = js/MDM.js \
 	js/data/MDMDeviceFolderStore.js \
 	js/data/MDMDeviceFolderRecord.js \
 	js/data/JsonDeviceFolderReader.js \
@@ -25,7 +25,7 @@ JSFILES = js/ABOUT.js js/MDM.js \
 	js/ui/MDMFolderNodeUI.js \
 	js/ui/MDMHierarchyTreePanel.js
 
-COPYFILES = LICENSE.txt manifest.xml config.php \
+COPYFILES = manifest.xml config.php \
 	$(wildcard resources/icons/*.png) \
 	$(wildcard resources/css/*.css) \
 	$(wildcard php/*.php)

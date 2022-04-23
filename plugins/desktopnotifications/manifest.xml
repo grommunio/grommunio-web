@@ -29,7 +29,6 @@
 					<clientfile load="source">js/settings/SettingsNotificationsWidget.js</clientfile>
 					<clientfile load="source">js/DesktopNotifications.js</clientfile>
 					<clientfile load="source">js/DesktopNotifier.js</clientfile>
-					<clientfile load="source">js/ABOUT.js</clientfile>
 				</client>
 				<resources>
 					<resourcefile load="release">resources/desktopnotifications.css</resourcefile>

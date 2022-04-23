@@ -9,7 +9,7 @@ JSFILES = js/ChatPlugin.js \
           js/settings/GeneralSettingsWidget.js \
           js/Notifications.js
 
-COPYFILES = LICENSE.txt manifest.xml config.php \
+COPYFILES = manifest.xml config.php \
 	$(wildcard resources/css/*.css) \
 	$(wildcard resources/img/*.png) \
 	$(wildcard php/*.php)

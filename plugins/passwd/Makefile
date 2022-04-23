@@ -1,13 +1,13 @@
 include ../shared.mk
 
-JSFILES = js/ABOUT.js js/PasswdPlugin.js \
+JSFILES = js/PasswdPlugin.js \
 	js/data/PasswdResponseHandler.js \
 	js/external/PasswordMeter.js \
 	js/settings/PasswdPanel.js \
 	js/settings/SettingsPasswdCategory.js \
 	js/settings/SettingsPasswdWidget.js
 
-COPYFILES = LICENSE.txt manifest.xml config.php \
+COPYFILES = manifest.xml config.php \
 	$(wildcard resources/css/*.css) \
 	$(wildcard resources/images/*.png) \
 	$(wildcard php/*.php)

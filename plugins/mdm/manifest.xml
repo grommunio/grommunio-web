@@ -27,7 +27,6 @@
 					<clientfile load="debug">js/mdm-debug.js</clientfile>
 
 					<clientfile load="source">js/MDM.js</clientfile>
-					<clientfile load="source">js/ABOUT.js</clientfile>
 					<clientfile load="source">js/data/MDMDeviceFolderStore.js</clientfile>
 					<clientfile load="source">js/data/MDMDeviceFolderRecord.js</clientfile>
 					<clientfile load="source">js/data/JsonDeviceFolderReader.js</clientfile>

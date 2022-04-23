@@ -23,7 +23,7 @@ JSFILES = js/data/JsonCertificateReader.js \
           js/SmimePlugin.js \
           js/SmimeText.js
 
-COPYFILES = LICENSE.txt manifest.xml config.php \
+COPYFILES = manifest.xml config.php \
         $(wildcard resources/icons/*.png) \
         $(shell find php/ -type f -name '*.php')
 

@@ -2,7 +2,7 @@ include ../shared.mk
 
 JSFILES = js/MapsPlugin.js js/MapsTab.js
 
-COPYFILES = LICENSE.txt manifest.xml config.php \
+COPYFILES = manifest.xml config.php \
         $(wildcard resources/css/*.css) \
         $(wildcard resources/css/images/*.png) \
         $(wildcard js/external/*.js) \

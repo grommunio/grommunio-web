@@ -6,7 +6,7 @@ JSFILES = js/IntranetPlugin.js \
 		js/ui/ContentPanel.js \
 		js/ui/Panel.js
 
-COPYFILES = LICENSE.txt manifest.xml config.php \
+COPYFILES = manifest.xml config.php \
 	$(wildcard resources/css/*.css) \
 	$(wildcard resources/icons/*.png) \
 	$(wildcard php/*.php)

@@ -15,7 +15,7 @@ JSFILES = js/data/singleton/ShareStore.js \
           js/ui/UserGroupPredictorField.js \
           js/ui/FilesShareDialogPanel.js
 
-COPYFILES = LICENSE.txt manifest.xml \
+COPYFILES = manifest.xml \
         $(wildcard resources/css/*.css) \
         $(wildcard resources/icons/*.png) \
         $(shell find php/ -type f -name '*.php')

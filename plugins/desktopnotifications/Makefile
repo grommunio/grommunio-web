@@ -2,13 +2,13 @@ include ../shared.mk
 
 MSGFMT ?= msgfmt
 
-JSFILES = js/ABOUT.js js/DesktopNotifier.js \
+JSFILES = js/DesktopNotifier.js \
 	js/DesktopNotifications.js \
 	js/DesktopNotificationsPlugin.js \
 	js/settings/SettingsNotificationsCategory.js \
 	js/settings/SettingsNotificationsWidget.js
 
-COPYFILES = LICENSE.txt manifest.xml config.php \
+COPYFILES = manifest.xml config.php \
 	$(wildcard resources/*) \
 	$(wildcard php/*.php)
 
