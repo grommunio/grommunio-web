@@ -8,14 +8,12 @@ require_once __DIR__ . "/../Files/Backend/class.exception.php";
 require_once __DIR__ . "/../Files/Core/Util/class.logger.php";
 require_once __DIR__ . "/../Files/Core/Util/class.stringutil.php";
 
-require_once __DIR__ . "/../lib/phpfastcache/src/autoload.php";
+require_once __DIR__ . "/../lib/phpfastcache/lib/Phpfastcache/Autoload/Autoload.php";
 
 use \Files\Core\Util\Logger;
 use \Files\Core\Util\StringUtil;
-use phpFastCache\CacheManager;
-
-use \Files\Core\Exception as AccountException;
-use \Files\Backend\Exception as BackendException;
+use Phpfastcache\CacheManager;
+use Phpfastcache\Drivers\Redis\Config as RedisConfig;
 
 /**
  * This module handles all list and change requests for the files browser.
@@ -69,32 +67,12 @@ class FilesListModule extends ListModule
 		$this->backendStore = \Files\Backend\BackendStore::getInstance();
 
 		// Setup the cache
-		$cacheSysPath = ( defined(PLUGIN_FILES_CACHE_DIR) ? PLUGIN_FILES_CACHE_DIR : '/var/lib/grommunio-web/plugin_files' );
-		if (!is_writable($cacheSysPath)) {
-			Logger::error(self::LOG_CONTEXT, "Cache files directory failing back to /tmp, because " . $cacheSysPath . " is not writeable by the php process. Please adjust permissions. See KFP-161." );
-			$cacheSysPath = sys_get_temp_dir();
-		}
+		$config = new RedisConfig();
+		$config->setHost(PLUGIN_FILES_REDIS_HOST);
+		$config->setPort(PLUGIN_FILES_REDIS_PORT);
+		$config->setPassword(PLUGIN_FILES_REDIS_AUTH);
 
-		CacheManager::setup(array(
-			"storage" => "redis",
-			"redis" => array(
-					'host' => PLUGIN_FILES_REDIS_HOST,
-					'port' => PLUGIN_FILES_REDIS_PORT,
-					'auth' => PLUGIN_FILES_REDIS_AUTH,
-					'database' => '',
-					'timeout' => '',
-			),
-			"path" => $cacheSysPath,
-			"fallback" => "files", // fallback when redis does not work
-	));
-
-		$this->cache = CacheManager::getInstance('redis');
-
-		if ($this->cache->fallback) {
-			Logger::debug(self::LOG_CONTEXT, "[cache] redis storage could not be loaded. Using files storage.");
-			CacheManager::setup("storage", "files");
-			$this->cache = CacheManager::getInstance();
-		}
+		$this->cache = CacheManager::getInstance('Redis', $config);
 
 		// For backward compatibility we will check if the Encryption store exists. If not,
 		// we will fall back to the old way of retrieving the password from the session.
@@ -105,6 +83,11 @@ class FilesListModule extends ListModule
 		} else {
 			$this->uid = $_SESSION["username"];
 		}
+		// As of the V6, the following characters can not longer being a part of the key identifier: {}()/\@:
+		// If you try to do so, an \phpFastCache\Exceptions\phpFastCacheInvalidArgumentException will be raised.
+		// You must replace them with a safe delimiter such as .|-_
+		// @see https://github.com/PHPSocialNetwork/phpfastcache/blob/8.1.2/docs/migration/MigratingFromV5ToV6.md
+		$this->uid = str_replace(['{', '}', '(', ')', '/', '\\', '@'], '_', $this->uid);
 
 		Logger::debug(self::LOG_CONTEXT, "[constructor]: executing the module as uid: " . $this->uid);
 	}
@@ -655,7 +638,7 @@ class FilesListModule extends ListModule
 	function getVersionFromCache($displayName, $accountID = '')
 	{
 		$key =  $this->uid . $accountID . $displayName;
-		return $this->cache->get($key);
+		return $this->cache->getItem($key)->get();
 	}
 
 	/**
@@ -674,7 +657,7 @@ class FilesListModule extends ListModule
 		}
 
 		$key = $this->uid . $accountID . $displayName;
-		$this->cache->set($key, $version);
+		$this->cache->save($this->cache->getItem($key)->set($version));
 	}
 
 	/**
@@ -704,7 +687,7 @@ class FilesListModule extends ListModule
 	{
 		$key = $this->makeCacheKey($accountID, $path);
 		Logger::debug(self::LOG_CONTEXT, "Setting cache for node: " . $accountID . $path . " ## " . $key);
-		$this->cache->set($key, $data);
+		$this->cache->save($this->cache->getItem($key)->set($data));
 	}
 
 	/**
@@ -717,7 +700,7 @@ class FilesListModule extends ListModule
 	{
 		$key = $this->makeCacheKey($accountID, $path);
 		Logger::debug(self::LOG_CONTEXT, "Getting cache for node: " . $accountID . $path . " ## " . $key);
-		return $this->cache->get($key);
+		return $this->cache->getItem($key)->get();
 	}
 
 	/**
@@ -729,7 +712,7 @@ class FilesListModule extends ListModule
 	{
 		$key = $this->makeCacheKey($accountID, $path);
 		Logger::debug(self::LOG_CONTEXT, "Removing cache for node: " . $accountID .  $path . " ## " . $key);
-		$this->cache->delete($key);
+		$this->cache->deleteItem($key);
 	}
 
 	/**
@@ -737,7 +720,7 @@ class FilesListModule extends ListModule
 	 */
 	function clearCache()
 	{
-		$this->cache->clean();
+		$this->cache->clear();
 	}
 
 	/**

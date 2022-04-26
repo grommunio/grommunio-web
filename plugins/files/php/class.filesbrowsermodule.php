@@ -12,7 +12,7 @@ require_once __DIR__ . "/Files/Core/Util/class.logger.php";
 require_once __DIR__ . "/Files/Core/Util/class.stringutil.php";
 require_once __DIR__ . "/Files/Core/Util/class.pathutil.php";
 
-require_once __DIR__ . "/lib/phpfastcache/src/autoload.php";
+require_once __DIR__ . "/lib/phpfastcache/lib/Phpfastcache/Autoload/Autoload.php";
 
 use \Files\Core\Util\ArrayUtil;
 use \Files\Core\Util\Logger;
