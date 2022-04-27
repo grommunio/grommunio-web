@@ -11,14 +11,14 @@ grommunio: variables
 	/* Background Color */
 	--primary-background-color:#1c2025;
 
-  /* Primary Button Background */
-  --button-primary-background: linear-gradient(150deg, #56CCF2, #2F80ED);
+	/* Primary Button Background */
+	--button-primary-background: linear-gradient(150deg, #56CCF2, #2F80ED);
 
-  /* Secondary Button Background */
-  --button-secondary-background: linear-gradient(150deg, #FF512F, #DD2476);
+	/* Secondary Button Background */
+	--button-secondary-background: linear-gradient(150deg, #FF512F, #DD2476);
 
 	/* Input Field Background */
-	--primary-input-field: #1c2d30; 
+	--primary-input-field: #051a2e;
 
 	/* List Item Hover & Selected */
 	--primary-item-hover: #1976d2;
@@ -32,7 +32,6 @@ grommunio: variables
 
 	/* Toolbar color */
 	--toolbar-color: #1f1f1f;
-
 }
 
 /*----------------------------------------------------------------------------------------------------------------------
@@ -1902,15 +1901,15 @@ grommunio overrides
 
 /* Background of "Email" Button (Top-Left) */
 #zarafa-maintoolbar .x-btn.zarafa-action .x-btn-large button {
-  background: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPSczMicgaGVpZ2h0PSczMicgdmlld0JveD0nMCAwIDMyIDMyJz4gPHBhdGggc3R5bGU9J2ZpbGw6I2ZmZmZmZicgZD0nTSAyLjkzMTY0MDYgNSBDIDIuNDE1MjAwNiA1IDIgNS40MTUyMDAyIDIgNS45MzE2NDA2IEwgMiAyNi4wNjgzNTkgQyAyIDI2LjU4NDggMi40MTUyMDA2IDI3IDIuOTMxNjQwNiAyNyBMIDI5LjA2ODM1OSAyNyBDIDI5LjU4NDggMjcgMzAgMjYuNTg0OCAzMCAyNi4wNjgzNTkgTCAzMCA1LjkzMTY0MDYgQyAzMCA1LjQxNTIwMDIgMjkuNTg0OCA1IDI5LjA2ODM1OSA1IEwgMi45MzE2NDA2IDUgeiBNIDYuMjAxMTcxOSA3IEwgMjUuNzk4ODI4IDcgTCAxNiAxMy43ODMyMDMgTCA2LjIwMTE3MTkgNyB6IE0gNCA3LjkwODIwMzEgTCAxNS40MzE2NDEgMTUuODIyMjY2IEEgMS4wMDAxIDEuMDAwMSAwIDAgMCAxNi41NjgzNTkgMTUuODIyMjY2IEwgMjggNy45MDgyMDMxIEwgMjggMjUgTCA0IDI1IEwgNCA3LjkwODIwMzEgeiAnIC8+PC9zdmc+), var(--button-primary-background) !important;
-  background-repeat: no-repeat !important;
-  background-position: center center !important;
+	background: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPSczMicgaGVpZ2h0PSczMicgdmlld0JveD0nMCAwIDMyIDMyJz4gPHBhdGggc3R5bGU9J2ZpbGw6I2ZmZmZmZicgZD0nTSAyLjkzMTY0MDYgNSBDIDIuNDE1MjAwNiA1IDIgNS40MTUyMDAyIDIgNS45MzE2NDA2IEwgMiAyNi4wNjgzNTkgQyAyIDI2LjU4NDggMi40MTUyMDA2IDI3IDIuOTMxNjQwNiAyNyBMIDI5LjA2ODM1OSAyNyBDIDI5LjU4NDggMjcgMzAgMjYuNTg0OCAzMCAyNi4wNjgzNTkgTCAzMCA1LjkzMTY0MDYgQyAzMCA1LjQxNTIwMDIgMjkuNTg0OCA1IDI5LjA2ODM1OSA1IEwgMi45MzE2NDA2IDUgeiBNIDYuMjAxMTcxOSA3IEwgMjUuNzk4ODI4IDcgTCAxNiAxMy43ODMyMDMgTCA2LjIwMTE3MTkgNyB6IE0gNCA3LjkwODIwMzEgTCAxNS40MzE2NDEgMTUuODIyMjY2IEEgMS4wMDAxIDEuMDAwMSAwIDAgMCAxNi41NjgzNTkgMTUuODIyMjY2IEwgMjggNy45MDgyMDMxIEwgMjggMjUgTCA0IDI1IEwgNCA3LjkwODIwMzEgeiAnIC8+PC9zdmc+), var(--button-primary-background) !important;
+	background-repeat: no-repeat !important;
+	background-position: center center !important;
 }
 
 /* Primary Buttons */
 #zarafa-maintoolbar .x-btn.zarafa-action .x-btn-large,
 .zarafa-hierarchy-treepanel-footer-opensharedfolder > .x-btn-small .x-btn-text {
-  background: var(--button-primary-background) !important;
+	background: var(--button-primary-background) !important;
 }
 
 /*****************************
@@ -1920,24 +1919,53 @@ grommunio overrides
 /* Unread items */
 .k-unreadborders .x-grid3-row.x-grid3-row-collapsed.mail_unread > table,
 .k-unreadborders .x-grid3-row.x-grid3-row-expanded.mail_unread > table {
-    border-left: 4px solid #2b90d9 !important;
+	border-left: 4px solid #2b90d9 !important;
 }
 
 /* Selected mail item */
 .x-grid3-row.x-grid3-row-expanded.mail_read.x-grid3-row-selected > table {
-    border-left: 4px solid var(--primary-paper-background) !important;
+	border-left: 4px solid var(--primary-paper-background) !important;
 }
 
 /* Hover selected item */
 .x-grid3-row.x-grid3-row-expanded.mail_read.x-grid3-row-selected.x-grid3-row-over > table,
 .x-grid3-row.x-grid3-row-collapsed.mail_read.x-grid3-row-selected > table {
-    border-left: 4px solid var(--primary-paper-background) !important;
+	border-left: 4px solid var(--primary-paper-background) !important;
 }
 
 .preview-header-sender-initial {
- color: #282c37;
+	color: #282c37;
 }
 
 .x-grid3-row.x-grid3-row-expanded.mail_read > table, .x-grid3-row.x-grid3-row-collapsed.mail_read > table {
-    border-left: 4px solid var(--primary-paper-background) !important; }
+	border-left: 4px solid var(--primary-paper-background) !important;
+}
 
+.x-grid3-hd-row td.sort-desc .x-grid3-hd-inner, .x-grid3-hd-row td.sort-asc .x-grid3-hd-inner, .x-grid3-hd-row td.sort-desc .x-grid3-hd-inner .x-grid3-hd-btn, .x-grid3-hd-row td.sort-asc .x-grid3-hd-inner .x-grid3-hd-btn {
+	background-color: var(--primary-item-selected) !important;
+}
+
+.x-form-field-wrap:not(.x-zarafa-boxfield):not(.x-item-disabled) .x-form-text, .x-form-field-wrap:not(.x-zarafa-boxfield):not(.x-item-disabled) .x-form-trigger, .x-grid3-hd.x-grid3-cell .x-grid3-hd-inner, .x-grid3-hd.x-grid3-cell .x-grid3-hd-inner .x-grid3-hd-btn, .x-date-picker .x-date-mp table tr.x-date-mp-btns td button.x-date-mp-ok, .x-date-picker .x-date-mp table tr.x-date-mp-btns td button.x-date-mp-cancel, .x-date-picker .x-date-middle .x-btn .x-btn-small em, .x-date-picker .x-date-middle .x-btn .x-btn-small em button, .x-btn.zarafa-action .x-btn-large, .x-btn.zarafa-action .x-btn-medium, .x-btn.zarafa-action .x-btn-small, .x-window .k-recipient-hover-card-button .x-btn-small, .x-btn .x-btn-noicon, .x-btn .x-btn-large, .x-btn .x-btn-medium {
+	border: 0;
+}
+
+.x-form-field-wrap:not(.x-zarafa-boxfield):not(.x-item-disabled) .x-form-text, .x-form-field-wrap:not(.x-zarafa-boxfield):not(.x-item-disabled) .x-form-trigger, .x-grid3-hd.x-grid3-cell .x-grid3-hd-inner, .x-grid3-hd.x-grid3-cell .x-grid3-hd-inner .x-grid3-hd-btn, .x-date-picker .x-date-mp table tr.x-date-mp-btns td button.x-date-mp-ok, .x-date-picker .x-date-mp table tr.x-date-mp-btns td button.x-date-mp-cancel, .x-date-picker .x-date-middle .x-btn .x-btn-small em, .x-date-picker .x-date-middle .x-btn .x-btn-small em button, .x-window .k-recipient-hover-card-button .x-btn-small, .x-btn .x-btn-noicon, .x-btn .x-btn-large, .x-btn .x-btn-medium {
+	background-color: var(--primary-input-field) !important;
+}
+
+.x-btn.zarafa-action .x-btn-medium, .x-btn.zarafa-action .x-btn-small {
+	background-color: var(--button-primary-background);
+}
+
+.zarafa-files-accountview-container {
+	border: none;
+}
+
+.zarafa-files-accountview-over {
+	background-color: var(--primary-item-hover);
+	color: #EFEFFF;
+}
+
+.files_navbar_button_last button {
+	background-color: var(--primary-color) !important;
+}
