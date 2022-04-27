@@ -4,20 +4,23 @@
     #include <abstractions/apache2-common>
     #include <abstractions/base>
     #include <abstractions/nameservice>
-    #include <abstractions/php5>
+    #include <abstractions/php>
 
     @{PROC}/@{pid}/task/@{tid}/comm rw,
     @{PROC}/@{pid}/cmdline r,
 
-    /etc/grommunio/web/*.php r,
+    /etc/grommunio-web/*.php r,
 
     /usr/share/grommunio-web/** r,
 
     /var/lib/grommunio-web/tmp/** rwk,
     /var/lib/grommunio-web/sqlite-index/** rwk,
+    /var/lib/grommunio-web/session/** rwk,
+    /var/lib/grommunio-web/plugin_files/** rwk,
 
     /var/log/gromox/ r,
-    /var/log/gromox/php-fpm-webapp.log rw,
+    /var/log/grommunio/fpm-web.log rw,
+    /var/log/grommunio/nginx-web-*.log rw,
 
     # Useful when in debugging mode
     /usr/share/grommunio-web/debug.txt rw,
