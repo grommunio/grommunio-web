@@ -167,7 +167,7 @@ Zarafa.plugins.files.ui.dialogs.CreateFilePanel = Ext.extend(Ext.Panel, {
 			});
 			if(record) {
 				Zarafa.plugins.files.data.Actions.openTab(record);
-				Zarafa.plugins.files.data.Actions.updateCache(accId);
+				Zarafa.plugins.files.data.Actions.updateCache(accId.slice(0, -1) + dir);
 				if (this.model) {
 					this.model.reload();
 				}
