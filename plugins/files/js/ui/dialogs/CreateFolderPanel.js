@@ -75,7 +75,15 @@ Zarafa.plugins.files.ui.dialogs.CreateFolderPanel = Ext.extend(Ext.Panel, {
 				xtype : 'textfield',
 				fieldLabel : _('Name'),
 				cls: 'form-field-name',
-				ref : '../newNameField'
+				ref : '../newNameField',
+				enableKeyEvents: true,
+				listeners: {
+					keyup: {
+						fn: this.handleEnter,
+						buffer: 200
+					},
+					scope: this
+				}
 			},{
 				xtype : 'filesplugin.tree',
 				model : config.model,
@@ -208,6 +216,21 @@ Zarafa.plugins.files.ui.dialogs.CreateFolderPanel = Ext.extend(Ext.Panel, {
 	update : function(record, contentReset)
 	{
 		this.record = record;
+	},
+
+	/**
+	 * Event handler which is triggered when
+	 * a key is pressed in the searchTextField
+	 *
+	 * @param {Ext.form.TextField} field
+	 * @param {Ext.EventObject} e
+	 * @private
+	 */
+	handleEnter: function(field, e)
+	{
+		if (e.getKey() === e.ENTER) {
+			this.onOk();
+		}
 	}
 });
 
