@@ -45,7 +45,7 @@ body,
 .ext-el-mask-msg div,
 .x-date-inner a,
 .x-date-mp td {
-  font-family: arial, tahoma, helvetica, sans-serif;
+  font-family: Arial, Helvetica, "Helvetica Neue", sans-serif;
   font-size: 13px;
 }
 
@@ -5642,7 +5642,7 @@ div.zarafa-contact-cardview-selected {
 .zarafa-welcome-body > .x-panel-bwrap > .x-panel-body div.zarafa-welcome-title {
   background: linear-gradient(150deg, #009FFD, #2a2a72);
   color: #ffffff;
-  font-family: arial, tahoma, helvetica, sans-serif;
+  font-family: Arial, Helvetica, "Helvetica Neue", sans-serif;
   font-size: 15px;
   line-height: 20px;
   padding: 8px 9px;

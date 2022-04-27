@@ -351,7 +351,7 @@ Zarafa.common.ui.IconClass = {
 
 		if (hasCounter) {
 			svg +='<circle fill="#ee162d" cx="16" cy="2.5" r="8"/>' +
-				'<text x="16" y="5.5" id="counter" style="fill:#FFF; font-weight: bold; font-family: arial, tahoma, helvetica, sans-serif;font-size: 10px;" text-anchor="middle">'+counter+'</text>';
+				'<text x="16" y="5.5" id="counter" style="fill:#FFF; font-weight: bold; font-family: Arial,Helvetica,sans-serif; font-size: 10px;" text-anchor="middle">'+counter+'</text>';
 		}
 		svg += '</svg>';
 		return svg;

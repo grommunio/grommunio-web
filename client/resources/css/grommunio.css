@@ -46,7 +46,7 @@ body,
 .x-date-mp td,
 .x-fieldset legend,
 .loading-indicator {
-  font-family: arial, tahoma, helvetica, sans-serif;
+  font-family: Arial, Helvetica, "Helvetica Neue", sans-serif;
   font-size: 13px; }
 
 /***************************************************************
@@ -2037,7 +2037,7 @@ span.preview-header-sender-initial {
   text-align:center;
   width:40px;
   height:40px;
-  font-family:arial, tahoma, helvetica, sans-serif;
+  font-family:Arial, Helvetica, "Helvetica Neue", sans-serif;
   font-size:18px;
   float:left;
   user-select:none }
@@ -3954,7 +3954,7 @@ div.zarafa-contact-cardview-selected {
   .zarafa-welcome-body > .x-panel-bwrap > .x-panel-body div.zarafa-welcome-title {
     background: #1e88e5;
     color: #ffffff;
-    font-family: arial, tahoma, helvetica, sans-serif;
+    font-family: Arial, Helvetica, "Helvetica Neue", sans-serif;
     font-size: 15px;
     line-height: 20px;
     padding: 8px 9px;

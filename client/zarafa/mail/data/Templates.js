@@ -55,7 +55,7 @@ Zarafa.mail.data.Templates =
 		'<p style="padding:0; margin:0; min-height:{fontSize}; font-family:{fontFamily}; font-size:{fontSize};"><br/></p>' +
 		'<p style="padding:0; margin:0; min-height:{fontSize}; font-family:{fontFamily}; font-size:{fontSize};"><br/></p>' +
 		'<blockquote style=\'border-left: 2px solid #325FBA; padding-left: 5px; margin: 0px 5px;\'>' +
-			'<span style="font-family:tahoma,arial,helvetica,sans-serif; font-size: 10pt;">' +
+			'<span style="font-family:Arial,Helvetica,sans-serif; font-size: 10pt;">' +
 				'--------------------' + _('Original message') + '--------------------<br />' +
 				'<tpl if="!Ext.isEmpty(values.sent_representing_name)">' +
 					'<span>' +

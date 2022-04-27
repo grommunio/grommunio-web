@@ -1949,7 +1949,7 @@ grommunio overrides
 	border: 0;
 }
 
-.x-form-field-wrap:not(.x-zarafa-boxfield):not(.x-item-disabled) .x-form-text, .x-form-field-wrap:not(.x-zarafa-boxfield):not(.x-item-disabled) .x-form-trigger, .x-grid3-hd.x-grid3-cell .x-grid3-hd-inner, .x-grid3-hd.x-grid3-cell .x-grid3-hd-inner .x-grid3-hd-btn, .x-date-picker .x-date-mp table tr.x-date-mp-btns td button.x-date-mp-ok, .x-date-picker .x-date-mp table tr.x-date-mp-btns td button.x-date-mp-cancel, .x-date-picker .x-date-middle .x-btn .x-btn-small em, .x-date-picker .x-date-middle .x-btn .x-btn-small em button, .x-window .k-recipient-hover-card-button .x-btn-small, .x-btn .x-btn-noicon, .x-btn .x-btn-large, .x-btn .x-btn-medium {
+.x-form-field-wrap:not(.x-zarafa-boxfield):not(.x-item-disabled) .x-form-text, .x-form-field-wrap:not(.x-zarafa-boxfield):not(.x-item-disabled) .x-form-trigger, .x-date-picker .x-date-mp table tr.x-date-mp-btns td button.x-date-mp-ok, .x-date-picker .x-date-mp table tr.x-date-mp-btns td button.x-date-mp-cancel, .x-date-picker .x-date-middle .x-btn .x-btn-small em, .x-date-picker .x-date-middle .x-btn .x-btn-small em button, .x-window .k-recipient-hover-card-button .x-btn-small, .x-btn .x-btn-noicon, .x-btn .x-btn-large, .x-btn .x-btn-medium {
 	background-color: var(--primary-input-field) !important;
 }
 
