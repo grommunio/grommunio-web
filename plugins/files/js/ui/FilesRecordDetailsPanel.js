@@ -2,7 +2,7 @@ Ext.namespace('Zarafa.plugins.files.ui');
 
 Zarafa.plugins.files.ui.FilesRecordDetailsPanel = Ext.extend(Ext.form.FormPanel, {
 
-	defaultPreviewImage: 'plugins/files/resources/icons/no-preview.jpg',
+	defaultPreviewImage: 'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMjIuODc5IiBoZWlnaHQ9Ijc5LjY5OSI+PHBhdGggZD0iTS45NTUgMzcuMzI2YTk0LjYgOTQuNiAwIDAgMSA5LjE1MS05LjYyNUMyNC40NDEgMTQuNjU0IDQxLjQ2MiA3LjY4NCA1OS4wMSA3LjMzNGM2LjU2MS0uMTMxIDEzLjE4NS42NjUgMTkuNzU3IDIuNDE2bC01LjkwNCA1LjkwNGMtNC41ODEtLjkxNi05LjE2OC0xLjMyNC0xMy43MTQtMS4yMzMtMTUuODExLjMxNi0zMS4yMTUgNi42NTctNDQuMjYyIDE4LjUzM2gwYy0yLjMyNCAyLjExNS00LjU2MiA0LjM5LTYuNzAyIDYuODIgNC4wNzEgNC43MjEgOC42IDguODAxIDEzLjQ1MiAxMi4yMjcgMi45ODggMi4xMTEgNi4wOTcgMy45NzMgOS4yOTYgNS41ODZsLTUuMjYyIDUuMjYyYy0yLjc4Mi0xLjUwNC01LjQ5NC0zLjE4NC04LjEyLTUuMDM5LTYuMTQzLTQuMzM4LTExLjgxMy05LjYyOS0xNi43OC0xNS44NS0xLjEwOS0xLjM5Ny0uOTk5LTMuMzcuMTg0LTQuNjM0aDAgMHpNOTYuMDMgMGw1Ljg5MyA1Ljg5My03My44MDQgNzMuODA2LTUuODk0LTUuODk1TDk2LjAzIDBoMHptMS42OSAxNy42MDljNC40MjMgMi41MjcgOC43NjcgNS41MjggMTIuOTk0IDkuMDE0IDMuODc3IDMuMTk2IDcuNjM1IDYuNzczIDExLjI0IDEwLjczNWEzLjU1IDMuNTUgMCAwIDEgLjIyNiA0LjUwN2MtNC4xMzEgNS44MzQtOC44NzYgMTAuODE2LTE0LjA2OSAxNC45NjMtMTIuOTkyIDEwLjM3MS0yOC43NzMgMTUuNDc3LTQ0Ljc1OSAxNS41NDktNi4xMTQuMDI3LTkuNzk4LTMuMTQxLTE1LjgyNS00LjU3NmwzLjU0NS0zLjU0M2M0LjA2NS43MDUgOC4xNjcgMS4wNDkgMTIuMjUyIDEuMDMxIDE0LjQyMS0uMDY0IDI4LjY1My00LjY2OCA0MC4zNjYtMTQuMDIgMy45OTgtMy4xOTEgNy43MDYtNi45MzkgMTEuMDI4LTExLjI1NC0yLjc4Ny0yLjkwNS01LjYyNy01LjU0My04LjUwOC03LjkxOC00LjQ1NS0zLjY3My05LjA0Mi02Ljc1OS0xMy43MDctOS4yNzNsNS4yMTctNS4yMTVoMHptLTM2LjI4LjUzNGEyMS42OCAyMS42OCAwIDAgMSA3LjU3NiAxLjM1OWwtNS42ODkgNS42ODljLS42MTktLjA3OS0xLjI0OC0uMTE5LTEuODg2LS4xMTlBMTQuNzMgMTQuNzMgMCAwIDAgNTAuOTkyIDI5LjRjLTIuNjc0IDIuNjc0LTQuMzI4IDYuMzY5LTQuMzI4IDEwLjQ1IDAgLjYzOS4wNCAxLjI2OC4xMTkgMS44ODVsLTUuNjg5IDUuNjkxYy0uODc5LTIuMzU5LTEuMzU5LTQuOTEyLTEuMzU5LTcuNTc2YTIxLjY0IDIxLjY0IDAgMCAxIDYuMzU4LTE1LjM0OWMzLjkyNy0zLjkyOSA5LjM1My02LjM1OCAxNS4zNDctNi4zNThoMHptMjAuNjczIDE1LjA3M2EyMS43IDIxLjcgMCAwIDEgMS4wMzIgNi42MzRBMjEuNjQgMjEuNjQgMCAwIDEgNjEuNDQgNjEuNTU1Yy0yLjMxMyAwLTQuNTQyLS4zNjEtNi42MzMtMS4wMzNsNS45MTQtNS45MTRjLjIzOC4wMTIuNDc4LjAxOC43MTkuMDE4IDQuMDgxIDAgNy43NzUtMS42NTIgMTAuNDQ5LTQuMzI2YTE0LjczIDE0LjczIDAgMCAwIDQuMzI4LTEwLjQ0OWMwLS4yNDEtLjAwNi0uNDgtLjAxOC0uNzJsNS45MTQtNS45MTVoMHoiLz48L3N2Zz4=',
 
 	record : undefined,
 
@@ -144,6 +144,7 @@ Zarafa.plugins.files.ui.FilesRecordDetailsPanel = Ext.extend(Ext.form.FormPanel,
 		var odfEnabled = Ext.isDefined(container.getPluginByName('webodf')) ? true: false;
 
 		var css = "width: 100%;";
+		var cssNone = "width: 20%; position: relative; top: 50%; transform: translate(-50%) translateY(-50%); left: 50%; opacity: 0.5;";
 		switch (viewMode) {
 			case Zarafa.plugins.files.data.ViewModes.RIGHT_PREVIEW:
 				css = "width: 100%;";
@@ -276,7 +277,7 @@ Zarafa.plugins.files.ui.FilesRecordDetailsPanel = Ext.extend(Ext.form.FormPanel,
 		} else {
 			component = {
 				xtype : 'component',
-				autoEl: {tag: 'img', src: this.defaultPreviewImage, style: css}
+				autoEl: {tag: 'img', src: this.defaultPreviewImage, style: cssNone}
 			}
 		}
 
