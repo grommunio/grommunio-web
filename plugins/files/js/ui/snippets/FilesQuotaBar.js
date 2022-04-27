@@ -9,11 +9,6 @@ Zarafa.plugins.files.ui.snippets.FilesQuotaBar = Ext.extend(Ext.Panel, {
 	model: undefined,
 
 	/**
-	 * @cfg String
-	 */
-	quotaText: _('{0} of {1} in use'), // String.format(this.pageInfoText, pageData, total)
-
-	/**
 	 * @cfg Boolean
 	 */
 	loadOnlyOnce: true,
@@ -149,12 +144,16 @@ Zarafa.plugins.files.ui.snippets.FilesQuotaBar = Ext.extend(Ext.Panel, {
 		var free = parseInt(response["quota"][1].amount);
 		var total = used + free;
 
+		const quotaText = free < 0 ? '{0} in use' : '{0} of {1} in use';
+
 		// show/hide components
 		this.loadingIcon.hide();
 		this.quotaPanel.show();
 
 		// Update text values
-		this.usageInfo.setText(String.format(this.quotaText, Ext.util.Format.fileSize(used), Ext.util.Format.fileSize(total)));
+		this.usageInfo.setText(
+			free < 0 ? String.format(quotaText, Ext.util.Format.fileSize(used))
+			: String.format(quotaText, Ext.util.Format.fileSize(used), Ext.util.Format.fileSize(total)));
 
 		// Update progressbar
 		this.progressBar.updateProgress(used / total);

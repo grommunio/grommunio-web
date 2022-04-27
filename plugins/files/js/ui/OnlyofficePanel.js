@@ -40,11 +40,50 @@ Zarafa.plugins.files.ui.OnlyofficePanel = Ext.extend(Ext.Panel, {
 				id: this.iframeId,
 				cls: 'files-iframe',
 				src: baseUrl + fileid + "?filePath=%2F" + filePath,
-				style: 'position:absolute;display:block;top:-45px;height:calc(100% + 45px);'
+				style: 'position:absolute;display:block;top:-45px;height:calc(100% + 45px);',
+			},
+			listeners: {
+				afterrender: this.onAfterRender,
+				scope: this
+			}
+		});
+
+		window.addEventListener("message", (e) => {
+			if(e.data === "ocLoginRequired") {
+					Ext.MessageBox.show({
+					title: _('grommunio Web'),
+					msg: _('Authentication required, when using grommunio-files for the first time'),
+					buttons: Ext.MessageBox.OK,
+					icon: Ext.MessageBox.INFO,
+					scope : this
+				});
 			}
 		});
 
 		Zarafa.plugins.files.ui.OnlyofficePanel.superclass.constructor.call(this, config);
+	},
+
+	/**
+	 * Handler for the afterrender event of this panel. Will set a load mask when opening
+	 * a url.
+	 */
+	onAfterRender: function()
+	{
+		const iframe = document.getElementById(this.iframeId);
+		const iframeWin = iframe.contentWindow || iframe;
+		const iframeDoc = iframe.contentDocument || iframeWin.document;
+
+		var script = iframeDoc.createElement("script");
+		script.append(`
+			window.onload = function() {
+				const el = document.getElementById('password');
+				if(el) {
+					var parentWindow = window.parent;
+					parentWindow.postMessage('ocLoginRequired', '*');
+				}
+			}
+	`);
+	iframeDoc.documentElement.appendChild(script);
 	}
 });
 

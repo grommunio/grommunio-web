@@ -445,6 +445,24 @@ Zarafa.plugins.files.data.Utils = {
 		 */
 		getDirName: function (path) {
 			return path.replace(/\\/g, '/').replace(/\/[^\/]*\/?$/, '');
+		},
+
+		getNewFileUrl: function (folderId) {
+			var accId = Zarafa.plugins.files.data.Utils.File.getAccountId(folderId);
+			var store = container.getCurrentContext().getAccountsStore();
+			if(!accId || !store) {
+				return false;
+			}
+			var account = store.getById(accId);
+			if(!account) {
+				return false;
+			}
+			const backendConfig = account.get("backend_config") || {};
+			const { server_address, server_path, server_ssl } = backendConfig;
+			var owncloudLocation = server_path.substr(1);
+			owncloudLocation = owncloudLocation.substr(0, owncloudLocation.indexOf('/'));
+			const url = (server_ssl ? 'https:' : 'http:') + '//' + server_address + "/" + owncloudLocation + "/index.php/apps/onlyoffice/ajax/new";
+			return url;
 		}
 	},
 

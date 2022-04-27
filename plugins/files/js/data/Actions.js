@@ -266,6 +266,28 @@ Zarafa.plugins.files.data.Actions = {
 	},
 
 	/**
+	 * Create a new Folder in {@link Zarafa.core.data.IPMRecord node}.
+	 *
+	 * @param {Zarafa.plugins.files.context.FilesContextModel} model Context Model.
+	 * @param {Object} config (optional) Configuration object used to create
+	 * the Content Panel.
+	 * @param {Zarafa.plugins.files.data.FilesFolderRecord} folder The destination folder in which the new folder will be created.
+	 */
+	createFile: function (model, config, folder, button, filetype) {
+		config = Ext.applyIf(config || {}, {
+			accountFilter: folder.getFilesStore().get('entryid'),
+			parentFolder: folder,
+			model: model,
+			manager: Ext.WindowMgr,
+			button: button,
+			filetype: filetype
+		});
+
+		var componentType = Zarafa.core.data.SharedComponentType['zarafa.plugins.files.createfiledialog'];
+		Zarafa.core.data.UIFactory.openLayerComponent(componentType, null, config);
+	},
+
+	/**
 	 * Callback for the {@link Zarafa.plugins.files.data.FilesRecordStore#load} event.
 	 * This function will refresh the view of the main panel.
 	 */
@@ -748,5 +770,42 @@ Zarafa.plugins.files.data.Actions = {
 
 		var component = Zarafa.core.data.SharedComponentType['common.dialog.attachments.savetofiles'];
 		Zarafa.core.data.UIFactory.openLayerComponent(component, undefined, config);
+	},
+
+	/**
+	 * Event handler for the click event of the tabbar buttons. It will
+	 * open the tab if it already exists, or create it otherwise.
+	 * @param {Zarafa.core.ui.MainTab} btn The button in the
+	 * {@link Zarafa.core.ui.MainTabBar main tabbar}
+	 */
+	openTab: function(record)
+	{
+		var tabIndex;
+		var url = record.get('folder_id');
+		var displayName = record.get('display_name');
+		Ext.each(container.getTabPanel().items.items, function(item, index){
+			if (displayName && item.url === url && item.title === displayName) {
+				tabIndex = index;
+			}
+		});
+
+		if ( Ext.isDefined(tabIndex) ){
+			// open the existing tab
+			var mainContentTabPanel = container.getMainPanel().contentPanel;
+			mainContentTabPanel.activate(tabIndex);
+		} else {
+			// Create a new tab
+			var component = Zarafa.core.data.SharedComponentType['plugins.files.onlyofficepanel'];
+			Zarafa.core.data.UIFactory.openLayerComponent(
+				component,
+				record,
+				{
+					url: url,
+					tabId: 'onlyoffice',
+					title: displayName || 'office',
+					tabOrder: 10
+				}
+			);
+		}
 	}
 };
