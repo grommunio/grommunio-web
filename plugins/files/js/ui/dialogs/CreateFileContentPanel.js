@@ -26,7 +26,7 @@ Zarafa.plugins.files.ui.dialogs.CreateFileContentPanel = Ext.extend(Zarafa.core.
 			showLoadMask: false,
 			showInfoMask: false,
 			width: 300,
-			height: 60,
+			height: 110,
 			items: [{
 				xtype: 'filesplugin.createfilepanel',
 				accountFilter : config.accountFilter,

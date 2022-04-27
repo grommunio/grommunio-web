@@ -357,11 +357,18 @@ Zarafa.settings.ui.SettingsAccountWidget = Ext.extend(Zarafa.settings.ui.Setting
 
 		if (this.activeTheme !== value) {
 			this.model.requiresReload = true;
-		}
 
+		}
+		
 		if (this.model) {
 			this.model.set(combo.name, value);
 		}
+
+		// Set Onlyoffice theme
+		window.localStorage.setItem('ui-theme',
+			value === 'dark' ? '{"id":"theme-dark","type":"dark"}' : '{"id":"theme-light","type":"light"}');
+		window.localStorage.setItem('ui-theme-id',
+			value === 'dark' ? 'theme-dark' : 'theme-light');
 	},
 
 	/**

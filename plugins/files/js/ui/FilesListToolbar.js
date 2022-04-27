@@ -140,6 +140,15 @@ Zarafa.plugins.files.ui.FilesListToolbar = Ext.extend(Zarafa.core.ui.ContentPane
 			disabled : true,
 			scope : this
 		}, {
+			cls : 'files_icon_actionbutton',
+			ref : 'attachLinkToMailBtn',
+			text : _('Attach to mail as link'),
+			overflowText : _('Attach to mail as link'),
+			iconCls : 'files_icon_action files_icon_action_attach_to_mail',
+			handler : this.onFileLinkAddToMail,
+			disabled : true,
+			scope : this
+		},{
 			xtype: 'tbfill'
 		}, {
 			tooltip : _('Rename'),
@@ -172,11 +181,22 @@ Zarafa.plugins.files.ui.FilesListToolbar = Ext.extend(Zarafa.core.ui.ContentPane
 	 */
 	onRecordSelectionChange : function(model, records)
 	{
+		var linkShareVisible = true;
+		if (Ext.isArray(records)) {
+			for(let i = 0; i < records.length; i++) {
+				const sharedIds = records[i].get('sharedid');
+				if(sharedIds.length === 0) {
+					linkShareVisible = false;
+				}
+			}
+		}
+
 		var validator = Zarafa.plugins.files.data.Utils.Validator;
 		var isVisible = validator.actionSelectionVisibilityFilter(records, false, true, false, true);
 		this.downloadBtn.setDisabled(!isVisible);
 		this.attachToMailBtn.setDisabled(!isVisible);
-
+		this.attachLinkToMailBtn.setDisabled(!(isVisible && linkShareVisible));
+		
 		isVisible = validator.actionSelectionVisibilityFilter(records, true, false, false, true);
 		if (isVisible) {
 			this.shareBtn.setDisabled(!isVisible);
@@ -187,6 +207,7 @@ Zarafa.plugins.files.ui.FilesListToolbar = Ext.extend(Zarafa.core.ui.ContentPane
 		}
 		this.renameBtn.setDisabled(!isVisible);
 		this.deleteBtn.setDisabled(!validator.actionSelectionVisibilityFilter(records, false, false, false, true));
+		
 	},
 
 	/**
@@ -311,6 +332,70 @@ Zarafa.plugins.files.ui.FilesListToolbar = Ext.extend(Zarafa.core.ui.ContentPane
 		} catch (e) {
 			Zarafa.plugins.files.data.Actions.msgWarning(e.message);
 		}
+	},
+
+	/**
+	 * Event handler for attaching the selected file as link to a new mail record.
+	 *
+	 * See {@link #onFileInputChange} for the handling of the selected files.
+	 * @param {Ext.Button} button the button on which click event is performed.
+	 * @param {Ext.EventObject} event The event object
+	 * @private
+	 */
+	onFileLinkAddToMail: function (button, event) {
+		var records = this.model.getSelectedRecords();
+		var idsList = [];
+		var emailRecord = container.getContextByName("mail").getModel().createRecord();
+
+		Ext.each(records, function (record) {
+			idsList.push(record.get('folder_id'));
+		}, this);
+
+		container.getNotifier().notify('info.files', _('Attaching'), _('Creating email... Please wait!'));
+
+		try {
+			container.getRequest().singleRequest(
+				'filesbrowsermodule',
+				'loadsharingdetails',
+				{
+					records: idsList
+				},
+				new Zarafa.plugins.files.backend.Owncloud.data.ResponseHandler({
+					successCallback: this.attachLinkToMail.createDelegate(this, [emailRecord], true)
+				})
+			);
+		} catch (e) {
+			Zarafa.plugins.files.data.Actions.msgWarning(e.message);
+		}
+	},
+
+	/**
+	 * Callback for the loadsharingdetails response. This function will initialize the UI with the given
+	 * share records.
+	 *
+	 * @param {Object} response the response object from the share record request
+	 * @private
+	 */
+	attachLinkToMail: function (response, emailRecord) {
+		const signature = emailRecord.get('html_body');
+		var shares = response.shares;
+		// For each record
+		const urls = Object.values(shares).map((share) => {
+			// Get last share-link of record
+			const arr = Object.values(share);
+			const len = arr.length;
+			if(len > 0) {
+				return arr[len - 1].url;
+			}
+			return '';
+		});
+		var html = '<br>';
+		urls.forEach((url) => {
+			html += '<a href="' + url + '">' + url + '</a><br>';
+		});
+		html += signature;
+		emailRecord.set('html_body', html);
+		Zarafa.core.data.UIFactory.openCreateRecord(emailRecord);
 	},
 
 	/**
