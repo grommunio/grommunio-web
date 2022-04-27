@@ -60,6 +60,8 @@
 					<clientfile load="source">js/ui/dialogs/AttachFromFilesContentPanel.js</clientfile>
 					<clientfile load="source">js/ui/dialogs/CreateFolderContentPanel.js</clientfile>
 					<clientfile load="source">js/ui/dialogs/CreateFolderPanel.js</clientfile>
+					<clientfile load="source">js/ui/dialogs/CreateFileContentPanel.js</clientfile>
+					<clientfile load="source">js/ui/dialogs/CreateFilePanel.js</clientfile>
 					<clientfile load="source">js/ui/dialogs/AttachFromFilesGridPanel.js</clientfile>
 					<clientfile load="source">js/ui/dialogs/AttachFromFilesPanel.js</clientfile>
 

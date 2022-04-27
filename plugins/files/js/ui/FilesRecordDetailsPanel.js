@@ -60,7 +60,7 @@ Zarafa.plugins.files.ui.FilesRecordDetailsPanel = Ext.extend(Ext.form.FormPanel,
 		return {
 			xtype   : 'fieldset',
 			title   : _('File information'),
-			height  : 150,
+			height  : 170,
 			width   : 300,
 			defaults: {
 				anchor: '-3'

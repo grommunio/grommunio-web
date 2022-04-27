@@ -5,6 +5,12 @@
 define('PLUGIN_FILES_USER_DEFAULT_ENABLE', false);
 
 /**
+ * This enables/disables the Onlyoffice Tab(s) when doubleclicking office-type files.
+ * Default: false
+ */
+define('PLUGIN_FILES_ONLYOFFICE_ENABLE', false);
+
+/**
  * This defined the filetypes which will be opened inside an onlyoffice tab.
  * If a filetype isn't set here, those files will just be downloaded
  * Available filetypes:

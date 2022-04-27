@@ -69,6 +69,8 @@ JSFILES = js/FilesContext.js \
           js/ui/dialogs/AttachFromFilesPanel.js \
           js/ui/dialogs/CreateFolderContentPanel.js \
           js/ui/dialogs/CreateFolderPanel.js \
+          js/ui/dialogs/CreateFileContentPanel.js \
+          js/ui/dialogs/CreateFilePanel.js \
           js/ui/dialogs/FilesRecordContentPanel.js \
           js/ui/dialogs/FilesUploadContentPanel.js \
           js/ui/dialogs/SaveToFilesContentPanel.js \

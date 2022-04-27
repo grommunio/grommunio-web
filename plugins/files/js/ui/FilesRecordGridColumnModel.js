@@ -115,7 +115,6 @@ Zarafa.plugins.files.ui.FilesRecordGridColumnModel = Ext.extend(Zarafa.common.ui
 				header   : _('Size'),
 				dataIndex: 'message_size',
 				width    : 80,
-				hidden   : true,
 				renderer : Zarafa.plugins.files.data.Utils.Format.fileSizeList,
 				tooltip  : _('Sort by: Size')
 			},

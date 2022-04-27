@@ -70,6 +70,7 @@ Zarafa.plugins.files.FilesContext = Ext.extend(Zarafa.core.Context, {
 
 		Zarafa.core.data.SharedComponentType.addProperty('zarafa.plugins.files.attachdialog');
 		Zarafa.core.data.SharedComponentType.addProperty('zarafa.plugins.files.createfolderdialog');
+		Zarafa.core.data.SharedComponentType.addProperty('zarafa.plugins.files.createfiledialog');
 		Zarafa.core.data.SharedComponentType.addProperty('zarafa.plugins.files.fileinfopanel');
 		Zarafa.core.data.SharedComponentType.addProperty('zarafa.plugins.files.sharedialog');
 		Zarafa.core.data.SharedComponentType.addProperty('zarafa.plugins.files.uploadstatusdialog');
@@ -347,6 +348,7 @@ Zarafa.plugins.files.FilesContext = Ext.extend(Zarafa.core.Context, {
 			case Zarafa.core.data.SharedComponentType['zarafa.plugins.files.uploadstatusdialog']:
 			case Zarafa.core.data.SharedComponentType['zarafa.plugins.files.treecontextmenu']:
 			case Zarafa.core.data.SharedComponentType['zarafa.plugins.files.createfolderdialog']:
+			case Zarafa.core.data.SharedComponentType['zarafa.plugins.files.createfiledialog']:
 			case Zarafa.core.data.SharedComponentType['common.dialog.attachments.savetofiles']:
 				bid = 1;
 				break;
@@ -392,6 +394,9 @@ Zarafa.plugins.files.FilesContext = Ext.extend(Zarafa.core.Context, {
 			case Zarafa.core.data.SharedComponentType['common.create']:
 				component = Zarafa.plugins.files.ui.dialogs.FilesUploadContentPanel;
 				break;
+			case Zarafa.core.data.SharedComponentType['zarafa.plugins.files.createfiledialog']:
+				component = Zarafa.plugins.files.ui.dialogs.CreateFileContentPanel;
+				break;
 			case Zarafa.core.data.SharedComponentType['zarafa.plugins.files.createfolderdialog']:
 				component = Zarafa.plugins.files.ui.dialogs.CreateFolderContentPanel;
 				break;
@@ -417,7 +422,7 @@ Zarafa.plugins.files.FilesContext = Ext.extend(Zarafa.core.Context, {
 			case Zarafa.core.data.SharedComponentType['common.dialog.attachments.savetofiles']:
 				component = Zarafa.plugins.files.ui.dialogs.SaveToFilesContentPanel;
 				break;
-			default :
+			default:
 				break;
 		}
 		return component;

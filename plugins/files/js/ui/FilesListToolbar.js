@@ -37,7 +37,7 @@ Zarafa.plugins.files.ui.FilesListToolbar = Ext.extend(Zarafa.core.ui.ContentPane
 		});
 		Zarafa.plugins.files.ui.FilesListToolbar.superclass.constructor.call(this, config);
 
-		this.initEvent()
+		this.initEvent();
 		this.onFolderChangeLoad(this.model, [this.model.getDefaultFolder()]);
 	},
 
@@ -49,6 +49,30 @@ Zarafa.plugins.files.ui.FilesListToolbar = Ext.extend(Zarafa.core.ui.ContentPane
 			recordselectionchange : this.onRecordSelectionChange,
 			folderchange : this.onFolderChangeLoad,
 			scope : this
+		});
+
+		const fileTypes = [{
+			text: _('Document'),
+			iconCls: 'plus',
+			signatureId: false,
+			handler: this.onCreateFile(this.model, '.docx')
+		},{
+			text: _('Presentation'),
+			iconCls: 'plus',
+			signatureId: false,
+			handler: this.onCreateFile(this.model, '.pptx')
+		},{
+			text: _('Spreadsheet'),
+			iconCls: 'plus',
+			signatureId: false,
+			handler: this.onCreateFile(this.model, '.xlsx')
+		}];
+
+		// Create menu for the first time.
+		// instance creation of menu will be handled by MenuMgr
+		this.createFileButton.menu = Ext.menu.MenuMgr.get({
+			xtype: 'menu',
+			items: fileTypes
 		});
 	},
 
@@ -70,6 +94,15 @@ Zarafa.plugins.files.ui.FilesListToolbar = Ext.extend(Zarafa.core.ui.ContentPane
 			model : this.model,
 			disabled : true,
 			scope : this
+		},{
+			xtype: 'button',
+			text : _('Create document'),
+			overflowText: _('Create document'),
+			tooltip: _('Create office document'),
+			iconCls: 'icon_new_note', // TODO: Change to proper icon
+			ref: 'createFileButton',
+			scope: this,
+			disabled : false
 		}, {
 			cls : 'files_icon_actionbutton',
 			text : _('New Folder'),
@@ -172,9 +205,21 @@ Zarafa.plugins.files.ui.FilesListToolbar = Ext.extend(Zarafa.core.ui.ContentPane
 			this.shareBtn.setVisible(false);
 		} else {
 			this.createFolderButton.setDisabled(false);
+			this.createFileButton.setDisabled(false);
 			this.uploadButton.setDisabled(false);
 		}
 	},
+
+	/**
+	 * Event handler for creating a new file
+	 */
+	onCreateFile: function(model, filetype) {
+		return function (button) {
+			var hierarchyStore = model.getHierarchyStore();
+			var folder = hierarchyStore.getFolder(model.getStore().getPath());
+			Zarafa.plugins.files.data.Actions.createFile(model, undefined, folder, button, filetype);
+		};
+	}, 
 
 	/**
 	 * Event handler for opening the "create new folder" dialog.
@@ -316,7 +361,7 @@ Zarafa.plugins.files.ui.FilesListToolbar = Ext.extend(Zarafa.core.ui.ContentPane
 		var records = model.getSelectedRecords();
 		var folders = [];
 		Ext.each(records, function (item) {
-			folders.push(model.getHierarchyStore().getFolder(item.id))
+			folders.push(model.getHierarchyStore().getFolder(item.id));
 		}, this);
 
 		Zarafa.plugins.files.data.Actions.deleteRecords(records);
