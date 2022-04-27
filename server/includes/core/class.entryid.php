@@ -593,8 +593,10 @@
 				 }
 			}
 			elseif ($checkValue !== null && $val != $checkValue) {
+				$user = $GLOBALS["mapisession"] !== null ? $GLOBALS["mapisession"]->getUserName() :
+				        "<mapisession not yet initialized>";
 				error_log(sprintf("Unexpected value in store entryid for user %s. Entryid: %s key: '%s' value: '%s' expected: %s",
-						$GLOBALS["mapisession"]->getUserName(), bin2hex($entryId), $key, $val, $checkValue));
+				          $user, bin2hex($entryId), $key, $val, $checkValue));
 				return false;
 			}
 
