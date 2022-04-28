@@ -6,6 +6,7 @@ COPYFILES = manifest.xml config.php \
         $(wildcard resources/css/*.css) \
         $(wildcard resources/css/images/*.png) \
         $(wildcard js/external/*.js) \
+        $(wildcard js/external/*.js.map) \
 	$(wildcard php/*.php)
 
 COPYFILESDEST = $(addprefix $(DESTDIR)/, $(COPYFILES))
