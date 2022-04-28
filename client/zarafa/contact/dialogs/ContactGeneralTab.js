@@ -36,7 +36,7 @@ Zarafa.contact.dialogs.ContactGeneralTab = Ext.extend(Ext.form.FormPanel, {
 
 		// make sure it is first applied in the config before used
 		Ext.applyIf(config, {
-			labelWidth: 110,
+			labelWidth: 128,
 			labelAlign: 'left'
 		});
 
