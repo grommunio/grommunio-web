@@ -68,6 +68,7 @@ Zarafa.plugins.files.backend.Owncloud.ui.FilesShareDialogPanel = Ext.extend(Zara
 		var type = config.ownerCt.records[0].get("type");
 		this.recordId = config.ownerCt.records[0].get("folder_id");
 		this.parentRecord = config.ownerCt.records[0];
+		var shares = this.parentRecord.get('sharedid');
 		Zarafa.plugins.files.backend.Owncloud.data.singleton.ShareStore.init(type);
 		this.setupGridStoreListeners();
 
@@ -187,6 +188,12 @@ Zarafa.plugins.files.backend.Owncloud.ui.FilesShareDialogPanel = Ext.extend(Zara
 						keyup : this.onExpirationDateChange.createDelegate(this)
 					}
 				}]
+			}, {
+				xtype: 'label',
+				text: _('More than 1 share link exists. Only showing the latest one'),
+				hidden : (shares || []).length < 2,
+				width: '100%',
+				autoWidth: true
 			}],
 			buttons  : [{
 				xtype  : 'button',
