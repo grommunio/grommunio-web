@@ -697,7 +697,8 @@
       returnValue: 1,
       webkitMovementX: 1,
       webkitMovementY: 1,
-      keyIdentifier: 1
+      keyIdentifier: 1,
+      mozPressure: 1
     };
     var hasIsDefaultPrevented = function (event) {
       return event.isDefaultPrevented === returnTrue || event.isDefaultPrevented === returnFalse;
