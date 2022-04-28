@@ -814,18 +814,23 @@
 				if (isset($this->userstores[$username])) {
 					continue;
 				}
+				$storeOk = true;
 
 				if(is_array($folder) && !empty($folder)) {
 					try {
 						$user_entryid = mapi_msgstore_createentryid($this->getDefaultMessageStore(), $username);
 
-						$sharedStore =  $this->openMessageStore($user_entryid, $username);
-						if ($sharedStore !== false) {
+						$sharedStore = $this->openMessageStore($user_entryid, $username);
+						if ($sharedStore !== false && $sharedStore !== ecLoginPerm &&
+							$sharedStore !== MAPI_E_CALL_FAILED && $sharedStore !== MAPI_E_NOT_FOUND)
+						{
 							array_push($otherUsersStores, $sharedStore);
+						} else {
+							$storeOk = false;
 						}
 
 						// Check if an entire store will be loaded, if so load the archive store as well
-						if(isset($folder['all']) && $folder['all']['folder_type'] == 'all'){
+						if($storeOk && isset($folder['all']) && $folder['all']['folder_type'] == 'all'){
 							$this->getArchivedStores($this->resolveStrictUserName($username));
 						}
 					} catch (MAPIException $e) {
@@ -833,12 +838,20 @@
 							// The user or the corresponding store couldn't be found,
 							// print an error to the log, and remove the user from the settings.
 							dump('Failed to load store for user ' . $username . ', user was not found. Removing it from settings.');
-							$GLOBALS["settings"]->delete("zarafa/v1/contexts/hierarchy/shared_stores/" . $username, true);
+							$GLOBALS["settings"]->delete("zarafa/v1/contexts/hierarchy/shared_stores/" . bin2hex($username), true);
 						} else {
 							// That is odd, something else went wrong. Lets not be hasty and preserve
 							// the user in the settings, but do print something to the log to indicate
 							// something happened...
 							dump('Failed to load store for user ' . $username . '. ' . $e->getDisplayMessage());
+						}
+					} finally {
+						if (!$storeOk && ($sharedStore == ecLoginPerm || $sharedStore == MAPI_E_NOT_FOUND)) {
+							// The user or the corresponding store couldn't be opened
+							// (e.g. the user was deleted or permissions revoked),
+							// print an error to the log, and remove the user from the settings.
+							dump(sprintf("The user %s failed to load store of the user %s. Removing it from settings.", $this->session_info["username"], $username));
+							$GLOBALS["settings"]->delete("zarafa/v1/contexts/hierarchy/shared_stores/" . bin2hex($username), true);
 						}
 					}
 				}

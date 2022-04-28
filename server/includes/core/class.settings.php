@@ -443,11 +443,9 @@
 		 */
 		function saveSettings()
 		{
-			/*
 			if (!$this->init) {
 				$this->Init();
 			}
-			*/
 
 			if (isset($this->settings['zarafa']['v1'])) {
 				unset($this->settings['zarafa']['v1']['contexts']['mail']['outofoffice']);
