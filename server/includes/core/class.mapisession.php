@@ -730,14 +730,12 @@
 			} catch (MAPIException $e) {
 				error_log('Failed to open store. ' . $this->session_info["username"] .
 				          ' requested ' . bin2hex($entryid) . ($name ? " ($name)" : ''));
-				error_log($e);
 				return $e->getCode();
 			} catch (Exception $e ) {
 				// mapi_openmsgstore seems to throw another exception than MAPIException
 				// sometimes, so we add a safety net.
 				error_log('Failed to open store. ' . $this->session_info["username"] .
 				          ' requested ' . bin2hex($entryid) . ($name ? " ($name)" : ''));
-				error_log($e);
 				return $e->getCode();
 			}
 
