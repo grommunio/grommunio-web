@@ -676,9 +676,7 @@
 			$rows = mapi_table_queryallrows($table, $GLOBALS["properties"]->getFavoritesFolderProperties(), $restriction);
 			$faultyLinkMsg = [];
 			foreach ($rows as $row) {
-				if (!isset($row[PR_WLINK_TYPE]))
-					continue;
-				if ($row[PR_WLINK_TYPE] > 2)
+				if (isset($row[PR_WLINK_TYPE]) && $row[PR_WLINK_TYPE] > wblSharedFolder)
 					continue;
 				try {
 					if ($row[PR_MESSAGE_CLASS] === "IPM.Microsoft.WunderBar.Link") {
@@ -767,6 +765,9 @@
 					$folderObj = mapi_msgstore_openentry($storeObj, $subTreeEntryid[PR_IPM_SUBTREE_ENTRYID]);
 				} else {
 					$storeObj = $GLOBALS["mapisession"]->openMessageStore($linkMessageProps[PR_WLINK_STORE_ENTRYID]);
+					if ($storeObj == MAPI_E_CALL_FAILED || $storeObj == MAPI_E_NOT_FOUND) {
+						return false;
+					}
 					$folderObj = mapi_msgstore_openentry($storeObj, $linkMessageProps[PR_WLINK_ENTRYID]);
 				}
 				return mapi_getprops($folderObj, $GLOBALS["properties"]->getFavoritesFolderProperties());
@@ -967,12 +968,15 @@
 				$props = Array(
 					PR_MESSAGE_CLASS => "IPM.Microsoft.WunderBar.SFInfo",
 					PR_WB_SF_ID => $searchFolderId,
+					PR_WLINK_TYPE => wblSearchFolder,
 				);
 			} else {
+				$defaultStoreEntryId = hex2bin($GLOBALS['mapisession']->getDefaultMessageStoreEntryId());
 				$props = Array(
 					PR_MESSAGE_CLASS => "IPM.Microsoft.WunderBar.Link",
 					PR_WLINK_ENTRYID => $folderProps[PR_ENTRYID],
-					PR_WLINK_STORE_ENTRYID  => $folderProps[PR_STORE_ENTRYID]
+					PR_WLINK_STORE_ENTRYID  => $folderProps[PR_STORE_ENTRYID],
+					PR_WLINK_TYPE => $GLOBALS['entryid']->compareEntryIds($defaultStoreEntryId, $folderProps[PR_STORE_ENTRYID]) ? wblNormalFolder : wblSharedFolder,
 				);
 			}
 

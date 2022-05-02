@@ -689,3 +689,9 @@ define('STGM_CONVERT'                            ,0x00020000);
 define('STGM_FAILIFTHERE'                        ,0x00000000);
 define('STGM_NOSNAPSHOT'                         ,0x00200000);
 define('STGM_DIRECT_SWMR'                        ,0x00400000);
+
+/* PidTagWlinkType / PR_WLINK_TYPE values */
+define('wblNormalFolder'                         ,0x00000000);
+define('wblSearchFolder'                         ,0x00000001);
+define('wblSharedFolder'                         ,0x00000002);
+define('wblHeader'                               ,0x00000004);
