@@ -38,28 +38,34 @@
 					// this particular item was added by setup-contact-provider mechanism.
 					// Let us try to get that particular contact item in respective user store.
 					// @Fixme: After implementation of KC-350 this extra handling can be removed.
-					if ($e->getCode() == MAPI_E_NOT_FOUND) {
+					if ($e->getCode() == MAPI_E_NOT_FOUND || $e->getCode() == MAPI_E_INVALID_PARAMETER) {
+						$hexEntryid = bin2hex($entryid);
 						// Remove Address-Book-Provider prefix from the entryid
-						$externalEntryid = $GLOBALS["entryid"]->unwrapABEntryIdObj(bin2hex($entryid));
+						$externalEntryid = $GLOBALS["entryid"]->unwrapABEntryIdObj($hexEntryid);
+						// Check if it's a contact from the user's contacts folder
+						$contactItem = $GLOBALS['operations']->openMessage($GLOBALS['mapisession']->getDefaultMessageStore(), hex2bin($externalEntryid));
 
-						// Retrieve user store entryid to which this external item belongs
-						$userStore = $GLOBALS['operations']->getOtherStoreFromEntryid($externalEntryid);
+						if ($contactItem === false) {
+							// Retrieve user store entryid to which this external item belongs
+							$userStore = $GLOBALS['operations']->getOtherStoreFromEntryid($externalEntryid);
 
-						// If userStore not found it means user is not exists in address book
-						if($userStore === false) {
-							$msg = "The contact \"%s\" could not be displayed because it could not be retrieved or has been deleted";
+							// If userStore not found it means user is not exists in address book
+							if($userStore === false) {
+								$msg = "The contact \"%s\" could not be displayed because it could not be retrieved or has been deleted";
 
-							error_log(sprintf($msg, $action["message_action"]["username"]));
+								error_log(sprintf($msg, $action["message_action"]["username"]));
 
-							$e->setTitle(_('Contact not found'));
-							$e->setDisplayMessage(_("Contact information could not be displayed because the server had trouble retrieving the information.") .
-							_("Please contact your system administrator if the problem persists."));
-							throw $e;
-							return false;
+								$e->setTitle(_('Contact not found'));
+								$e->setDisplayMessage(_("Contact information could not be displayed because the server had trouble retrieving the information.") .
+								_("Please contact your system administrator if the problem persists."));
+								throw $e;
+								return false;
+							}
+
+							$e->setHandled();
+							$contactItem = $GLOBALS['operations']->openMessage($userStore, hex2bin($externalEntryid));
 						}
-
-						$e->setHandled();
-						$contactItem = $GLOBALS['operations']->openMessage($userStore, hex2bin($externalEntryid));
+						
 
 						if ($contactItem != false) {
 							// Get necessary property from respective contact item
@@ -74,7 +80,7 @@
 								'title' => $contactItemProps[PR_TITLE],
 								'company_name' => $contactItemProps[PR_COMPANY_NAME]
 							);
-							$data['entryid'] = bin2hex($entryid);
+							$data['entryid'] = $hexEntryid;
 
 							$this->addActionData("item", $data);
 							$GLOBALS["bus"]->addData($this->getResponseData());

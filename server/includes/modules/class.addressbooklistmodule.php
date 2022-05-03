@@ -307,7 +307,7 @@
 					// Test whether the GUID in the entryid is from the Contact Provider
 					if($GLOBALS['entryid']->hasContactProviderGUID( bin2hex($user_data[$this->properties['entryid']]) )){
 						// Use the original_display_name property to fill in the fileas column
-						$item['fileas'] = $user_data[$this->properties['original_display_name']];
+						$item['fileas'] = $user_data[$this->properties['original_display_name']] ?? $item['display_name'];
 						$item['address_type'] = isset($user_data[$this->properties['address_type']]) ? $user_data[$this->properties['address_type']] : 'SMTP';
 
 						if (isset($action["isSharedFolder"]) && $action["isSharedFolder"] === true) {
