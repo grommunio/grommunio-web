@@ -1918,7 +1918,6 @@ grommunio overrides
 
 /* Background of "Email" Button (Top-Left) */
 #zarafa-maintoolbar .x-btn.zarafa-action .x-btn-large button {
-	background: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPSczMicgaGVpZ2h0PSczMicgdmlld0JveD0nMCAwIDMyIDMyJz4gPHBhdGggc3R5bGU9J2ZpbGw6I2ZmZmZmZicgZD0nTSAyLjkzMTY0MDYgNSBDIDIuNDE1MjAwNiA1IDIgNS40MTUyMDAyIDIgNS45MzE2NDA2IEwgMiAyNi4wNjgzNTkgQyAyIDI2LjU4NDggMi40MTUyMDA2IDI3IDIuOTMxNjQwNiAyNyBMIDI5LjA2ODM1OSAyNyBDIDI5LjU4NDggMjcgMzAgMjYuNTg0OCAzMCAyNi4wNjgzNTkgTCAzMCA1LjkzMTY0MDYgQyAzMCA1LjQxNTIwMDIgMjkuNTg0OCA1IDI5LjA2ODM1OSA1IEwgMi45MzE2NDA2IDUgeiBNIDYuMjAxMTcxOSA3IEwgMjUuNzk4ODI4IDcgTCAxNiAxMy43ODMyMDMgTCA2LjIwMTE3MTkgNyB6IE0gNCA3LjkwODIwMzEgTCAxNS40MzE2NDEgMTUuODIyMjY2IEEgMS4wMDAxIDEuMDAwMSAwIDAgMCAxNi41NjgzNTkgMTUuODIyMjY2IEwgMjggNy45MDgyMDMxIEwgMjggMjUgTCA0IDI1IEwgNCA3LjkwODIwMzEgeiAnIC8+PC9zdmc+), var(--button-primary-background) !important;
 	background-repeat: no-repeat !important;
 	background-position: center center !important;
 }
@@ -1985,4 +1984,8 @@ grommunio overrides
 
 .files_navbar_button_last button {
 	background-color: var(--primary-color) !important;
+}
+
+#zarafa-maintoolbar .x-btn.zarafa-action .x-btn-small, #zarafa-maintoolbar .x-btn.zarafa-action .x-btn-medium, #zarafa-maintoolbar .x-btn.zarafa-action .x-btn-large, #zarafa-maintoolbar .x-btn.zarafa-action .x-btn-large button, #zarafa-maintoolbar .x-btn.zarafa-action .x-btn-small button, #zarafa-maintoolbar .x-btn.zarafa-action .x-btn-medium button {
+    background-color: var(--primary-item-selected) !important;
 }
