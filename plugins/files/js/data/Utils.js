@@ -329,12 +329,20 @@ Zarafa.plugins.files.data.Utils = {
 			if (!Ext.isDefined(size)) {
 				size = "48";
 			}
-			var existingIcons = ["aac", "ai", "aiff", "apk", "avi", "bmp", "c", "cpp", "css", "csv", "dat", "dmg",
-				"doc", "docx", "dotx", "dwg", "dxf", "eps", "exe", "flv", "gif", "gz", "h", "hpp", "html", "ics",
-				"iso", "java", "jpg", "js", "key", "less", "mid", "mp3", "mp4", "mpg", "odf", "ods",
-				"odt", "otp", "ots", "ott", "pdf", "php", "png", "ppt", "psd", "py", "qt", "rar",
-				"rb", "rtf", "sass", "sql", "tga", "tgz", "tiff", "txt", "wav", "xls", "xlsx", "xml",
-				"yml", "zip"];
+			var existingIcons = ["aac", "aif", "cda", "aiff", "mpa", "ogg", "wma", "mp3", "mid", "midi", "ai",
+				"apk", "avi", "flv", "mp4", "mov", "mpeg", "wmv", "vob", "swf", "mkv", "m4v",
+				"h264", "3g2", "3gp", "mpg" bmp", "ico", "icns", "gif", "jpg", "jpeg", "png",
+				"tif", "tiff", "tga", "c", "cpp", "cc", "h", "cs", "class", "swift", "hpp", "java",
+				"js", "php", "asp", "aspx", "jsp", "rb", "qt", "py", "pyc", "sh", "tcsh", "ksh",
+				"pl", "vbs", "css", "sass", "scss", "xml", "yaml", "htm", "html", "xhtml",
+				"rss", "csv", "xls", "xlsm", "xlsx", "ods", "ots", "zip", "tgz", "gz", "7z",
+				"lzma", "cab", "rar", "deb", "rpm", "z", "pkg", "arj", "doc", "docx", "dotx",
+				"odt", "ott", "rtf", "wpd", "tex", "eps", "dwg", "dxf", "svg", "ics", "vcf", "iso",
+				"vhd", "vhdx", "ova", "img", "bin", "dmg", "toast", "vcd", "pdf", "ps", "ppt",
+				"pptx", "odp", "pps", "key", "psd", "sql", "mdb", "mde", "db", "sqlite", "txt",
+				"log", "cfg", "conf", "ini", "tmp", "lnk", "wav", "eml", "emlx", "msg", "oft",
+				"ost", "pst", "fnt", "fon", "otf", "ttf", "exe", "bat", "ps1", "cgi", "jar",
+				"wsf", "com"];
 
 			if (filename === "folder") {
 				return "files" + size + "icon_folder";
