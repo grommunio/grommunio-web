@@ -273,6 +273,9 @@ Main panel
 /* This is set for the individual pages (e-mail, calendar, note etc.) */
 /* On e-mail, there is a border around the item list and the preview */
 /*#zarafa-mainpanel > .x-tab-panel-bwrap > .x-tab-panel-body > div > .x-panel,*/
+.x-tab-panel-body {
+	border-color: var(--primary-paper-background) !important;
+}
 #zarafa-mainpanel > .x-tab-panel-bwrap > .x-tab-panel-body > div > .x-panel,
 #zarafa-mainpanel .k-appointmentcreatetab .k-datetime-panel table tr:nth-child(2),		/* It is crap that I have to set this */
 #zarafa-mainpanel .k-taskgeneraltab .k-datetime-panel table tr:nth-child(2),			/* It is crap that I have to set this */
