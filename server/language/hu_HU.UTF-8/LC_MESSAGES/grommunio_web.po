@@ -2469,9 +2469,6 @@ msgstr "Elfoglalt"
 msgid "Out of Office"
 msgstr "Házon kívül"
 
-msgid "User is currently out of office."
-msgstr "A felhasználó jelenleg házon kívül van."
-
 msgid "No Information"
 msgstr "Nincs információ"
 
@@ -4126,6 +4123,9 @@ msgstr "Magas kontraszt"
 msgid "Lime"
 msgstr "Lime"
 
+msgid "Magenta"
+msgstr ""
+
 msgid "Orange"
 msgstr "Narancs"
 
@@ -4378,6 +4378,12 @@ msgstr "Véleményező"
 msgid "Contributor"
 msgstr "Hozzájáruló"
 
+msgid "Free/Busy time, subject, location"
+msgstr ""
+
+msgid "Free/Busy time"
+msgstr ""
+
 msgid "Unable to import:"
 msgstr ""
 
@@ -4451,11 +4457,11 @@ msgstr "Nincs engedélyezett hozzáférés"
 msgid "Profile"
 msgstr "Profil"
 
-msgid "Read"
-msgstr "Olvasás"
-
 msgid "Full Details"
 msgstr "Minden részlet"
+
+msgid "Read"
+msgstr "Olvasás"
 
 msgid "Write"
 msgstr "Írás"
@@ -4611,9 +4617,6 @@ msgstr "Mappa bezárása"
 
 msgid "Reload"
 msgstr "Frissítés"
-
-msgid "Restore items"
-msgstr "Elemek helyreállítása"
 
 # 76%
 # 100%
@@ -5014,6 +5017,9 @@ msgstr ""
 
 msgid "Inside My Organization"
 msgstr ""
+
+msgid "User is currently out of office."
+msgstr "A felhasználó jelenleg házon kívül van."
 
 msgid "Outside My Organization"
 msgstr ""
@@ -5959,13 +5965,453 @@ msgstr ""
 msgid "{A} Autohide desktop notification after second(s) {B}"
 msgstr ""
 
+msgid "Files: ownCloud Backend"
+msgstr "Fájlok: ownCloud beépülő"
+
+msgid "Share with user/group"
+msgstr "Megosztás felhasználóval/csoporttal"
+
+msgid "Share via link"
+msgstr "Megosztás linken keresztül"
+
+msgid "Public link"
+msgstr "Publikus link"
+
+msgid "Password protect"
+msgstr "Jelszavas védelem"
+
+msgid "Password"
+msgstr "Jelszó"
+
+msgid "Public upload"
+msgstr "Publikus feltöltés"
+
+msgid "Expiration date"
+msgstr "Lejárati dátum"
+
+msgid "More than 1 share link exists. Only showing the latest one"
+msgstr ""
+
+msgid "Loading details..."
+msgstr "Részletek betöltése..."
+
+#, fuzzy
+msgid "Share Details"
+msgstr "Megosztás részleteinek szerkesztése"
+
+#, fuzzy
+msgid "Re-share"
+msgstr "Újra megosztás"
+
+msgid "Change"
+msgstr "Változtat"
+
+msgid "Share with"
+msgstr "Megosztás ezzel"
+
+msgid "Sort by: Type"
+msgstr "Rendezés: Típus"
+
+msgid "Loading users and groups"
+msgstr "Felhasználók és csoportok betöltése"
+
+msgid "Add users or groups to share files."
+msgstr ""
+
+msgid "Type to search"
+msgstr ""
+
+msgid "No results"
+msgstr ""
+
+msgid "Add attachment from {0}"
+msgstr "Melléklet hozzáadása innen: {0}"
+
+msgid "Confirm deletion"
+msgstr "Törlés megerősítése"
+
+#, fuzzy
+msgid "Are you sure you want to delete {0}?"
+msgstr "Mindenképpen törölni kívánja a fiókot ({0})?"
+
+msgid "Are you sure you want to delete {0} and all of its contents?"
+msgstr ""
+
+#, fuzzy
+msgid "Are you sure you want to delete {0} files?"
+msgstr "Mindenképpen törölni kívánja a fiókot ({0})?"
+
+msgid "Are you sure want to delete {0} folders and all of their contents?"
+msgstr ""
+
+msgid ""
+"Are you sure want to delete the selected items and all of their contents?"
+msgstr ""
+
+msgid "Confirm overwrite"
+msgstr "Felülírás megerősítése"
+
+msgid "File already exists. Do you want to overwrite it?"
+msgstr "A fájl már létezik. Felül kívánja írni?"
+
+msgid "Please enter a new name"
+msgstr "Adjon meg egy új nevet"
+
+msgid "Rename record"
+msgstr ""
+
+msgid "A file name should not be empty."
+msgstr ""
+
+msgid "Rename item"
+msgstr ""
+
+msgid "A file named \"{0}\" already exists. Please enter a different name."
+msgstr ""
+
+msgid "Downloading"
+msgstr "Letöltés"
+
+msgid "Download started... please wait!"
+msgstr "Letöltés megkezdve... kérem várjon!"
+
+msgid "Upload"
+msgstr "Feltöltés"
+
+msgid "At least one file is too large! Maximum allowed filesize: {0}."
+msgstr "Valamelyik fájl túl nagy! A maximális engedélyezett fájlméret: {0}."
+
+msgid "Keep both"
+msgstr ""
+
+#, fuzzy
+msgid "Overwrite"
+msgstr "Felülírás megerősítése"
+
+msgid "l d/m/Y G:i"
+msgstr "l Y/m/d G:i"
+
+msgid "Never"
+msgstr "Újabb"
+
+msgid "Add from Files"
+msgstr "Hozzáadás a Fájlokból"
+
+msgid "Add attachment from Files"
+msgstr "Melléklet csatolása a Fájlokból"
+
+msgid "Add to Files"
+msgstr "Hozzáadás a Fájlokhoz"
+
+msgid "Upload file"
+msgstr "Fájl feltöltés"
+
+msgid "Files"
+msgstr "Fájlok"
+
+msgid "Files Plugin"
+msgstr "Fájlok bővítmény"
+
+msgid "Manage Accounts"
+msgstr "Fiókok kezelése"
+
+msgid "Reset Files settings"
+msgstr "Fájlok beállításainak visszaállítása"
+
+msgid "Resets Files settings to their original defaults"
+msgstr "Fájlok beállításainak alaphelyzetbe állítása"
+
+msgid "Are you sure to remove all settings and accounts?"
+msgstr ""
+
+msgid ""
+"Accounts marked by your administrator as \"cannot be changed\" will not be "
+"removed."
+msgstr ""
+
+#, fuzzy
+msgid ""
+"WebApp will automatically restart in order for these changes to take effect."
+msgstr ""
+"A beállítások érvénybe lépéséhez a WebApp automatikusan újra fog indulni"
+
+msgid "Webapp is reloading, Please wait."
+msgstr "Betöltés folyamatban. Kérem várjon."
+
+msgid "Edit Account"
+msgstr "Fiók szerkesztése"
+
+msgid "Account Information"
+msgstr "Fiók információ"
+
+msgid "Account name"
+msgstr "Fiók név"
+
+msgid "Account Configuration"
+msgstr "Fiók beállítások"
+
+msgid "Update"
+msgstr "Frissít"
+
+msgid "ID"
+msgstr "ID"
+
+msgid "Sort by: ID"
+msgstr "Rendezés: ID"
+
+msgid "Backend"
+msgstr "Típus"
+
+msgid "Sort by: Backend"
+msgstr "Rendezés: Típus"
+
+msgid "Features"
+msgstr "Képességek"
+
+msgid "Shows all available features of the backend."
+msgstr "Az összes képesség mutatása a kiválasztott típusban."
+
+msgid "Show quota information"
+msgstr "Kvóta információk megjelenítése"
+
+msgid "Show version information"
+msgstr "Verzió információk megjelenítése"
+
+msgid "Share files"
+msgstr "Fájlok megosztása"
+
+msgid "Fast Down/Upload"
+msgstr "Gyors le- és feltöltés"
+
+msgid "No account created!"
+msgstr "Nincs fiók létrehozva!"
+
+msgid "Add Account"
+msgstr "Fiók hozzáadása"
+
+msgid "Remove Account"
+msgstr "Fiók eltávolítása"
+
+msgid "Loading accounts"
+msgstr "Fiókok betöltése"
+
+msgid "Do you really want to delete the account \"{0}\"?"
+msgstr "Mindenképpen törölni kívánja a fiókot ({0})?"
+
+msgid "Quota Information"
+msgstr "Kvóta információ"
+
+msgid "Used"
+msgstr "Használatban"
+
+msgid "Total"
+msgstr ""
+
+msgid "Version Information"
+msgstr "Verzió információ"
+
+msgid "Filename"
+msgstr "Fájlnév"
+
+msgid "Sort by: Filename"
+msgstr "Rendezés: Név"
+
+msgid "Loading files"
+msgstr "Fájlok betöltése"
+
+msgid "The file {0} is too large!"
+msgstr "A fájl ({0}) túl nagy!"
+
+msgid "max"
+msgstr "max"
+
+msgid "You have to choose at least one file!"
+msgstr "Válasszon ki egy fájlt!"
+
+msgid "Create New "
+msgstr ""
+
+msgid "Incorrect filename"
+msgstr ""
+
+msgid "Error reaching office backend"
+msgstr ""
+
+msgid "Folder already exists"
+msgstr "A mappa már létezik"
+
+msgid "Incorrect foldername"
+msgstr "Hibás mappanév"
+
+msgid "File information"
+msgstr "Fájl információ"
+
+msgid "Select a file"
+msgstr "Fájl kiálasztása"
+
+msgid "Maximum upload size"
+msgstr "Maximális feltöltési méret"
+
+msgid "Browse"
+msgstr "Tallózás"
+
+msgid "Select upload folder"
+msgstr "Válassza ki a feltöltési mappát"
+
+msgid "File \"{0}\" is too large! Maximum allowed filesize: {1}."
+msgstr "A fájl \"{0}\" túl nagy! A maximálisan megengedett fájlméret: {1}."
+
+msgid "Add item to Files"
+msgstr "Új elem hozzáadása a Fájlokhoz"
+
+msgid "You have to choose a folder!"
+msgstr "Válasszon ki egy mappát!"
+
+msgid "Uploaded"
+msgstr "Feltöltve"
+
+msgid "Attachment successfully stored in Files"
+msgstr "Melléklet sikeresen mentve a Fájlokba"
+
+msgid "Upload Failed"
+msgstr "Feltöltés sikertelen"
+
+msgid "Attachment could not be stored in Files! Error: "
+msgstr "A melléklet nem menthető a Fájlokba! Hiba: "
+
+msgid "Share Files"
+msgstr "Fájlok megosztása"
+
+msgid "Uploading files to "
+msgstr "Fájlok feltöltése ide: "
+
+msgid "Starting upload"
+msgstr "Feltöltés megkezdése"
+
+msgid "Cancel upload"
+msgstr "Feltöltés megszakítása"
+
+msgid "- seconds left"
+msgstr "- másodperc van hátra"
+
+msgid " seconds left"
+msgstr " másodperc van hátra"
+
+msgid " minutes left"
+msgstr " perc van hátra"
+
+msgid "Uploading: "
+msgstr "Feltöltés: "
+
+msgid "Upload status unavailable... please wait."
+msgstr "A feltöltés állapota nem elérhető... kérem várjon."
+
+msgid "Upload finished!"
+msgstr "Feltöltés befejeződött!"
+
+msgid "Upload aborted!"
+msgstr "A feltöltés megszakadt!"
+
+msgid "Upload failed!"
+msgstr "A feltöltés nem sikerült!"
+
+msgid "Document"
+msgstr ""
+
+msgid "Presentation"
+msgstr ""
+
+msgid "Spreadsheet"
+msgstr ""
+
+msgid "Upload files"
+msgstr "Fájlok feltöltése"
+
+msgid "Create document"
+msgstr ""
+
+msgid "Create office document"
+msgstr ""
+
+msgid "Download files"
+msgstr "Fájlok letöltése"
+
+msgid "Share"
+msgstr "Megosztás"
+
+msgid "Attach to mail"
+msgstr "Emailhez csatolás"
+
+msgid "Attach to mail as link"
+msgstr ""
+
+msgid "Attaching"
+msgstr "Csatolás"
+
+msgid "Creating email... Please wait!"
+msgstr "Email létrehozása... Kérem várjon!"
+
+msgid "Edit share"
+msgstr "Megosztás szerkesztése"
+
+#, fuzzy
+msgid ""
+"There are no accounts added. Go to settings, Files tab and add an account"
+msgstr "Nincsen fiókok hozzáadva. A beállítások menüben adhat hozzá fiókokat!"
+
+msgid "Filesize"
+msgstr "Fájl méret"
+
+msgid "Last modified"
+msgstr "Utolsó módosítás"
+
+msgid "Is shared"
+msgstr "Megosztva"
+
+msgid "File preview"
+msgstr "Előnézet"
+
+msgid "Your browser does not support previewing of audio files!"
+msgstr "A böngészője nem támogatja az audio fájlok előnézetét!"
+
+msgid "Your browser does not support previewing of video files!"
+msgstr "A böngészője nem támogatja a video fájlok előnézetét!"
+
+msgid "d.m.Y G:i"
+msgstr "Y.m.d. G:i"
+
+msgid "Folder"
+msgstr "Mappa"
+
+msgid "File ({0})"
+msgstr "Fájl ({0})"
+
+msgid "Sort by: Path"
+msgstr "Rendezés: Útvonal"
+
+msgid "Sort by: Last modified"
+msgstr "Rendezés: Utolsó módosítás"
+
+msgid "Sort by: Shared"
+msgstr "Rendezés: Megosztva"
+
+msgid "There are no items to show in this view"
+msgstr "Nincsenek megjeleníthető elemek ebben a nézetben"
+
+msgid "files selected"
+msgstr "fájlok kiválasztva"
+
+msgid "Authentication required, when using grommunio-files for the first time"
+msgstr ""
+
 msgid "Intranet"
 msgstr ""
 
-msgid "Email Details"
+msgid "Openstreetmap"
 msgstr ""
 
-msgid "Item Data"
+#. TRANSLATORS: The map of earth
+msgid "Map"
 msgstr ""
 
 msgid "Mobile Device Manager"
@@ -6003,9 +6449,6 @@ msgstr "Eszköz"
 
 msgid "Operating System"
 msgstr ""
-
-msgid "ID"
-msgstr "ID"
 
 msgid "User Agent"
 msgstr "Felhasználói ügynök"
@@ -6071,6 +6514,9 @@ msgstr "Eszközök"
 msgid "No devices connected to your account"
 msgstr "Nincsenek eszközök kapcsolva a fiókjához"
 
+msgid "Provisioning Status"
+msgstr ""
+
 msgid "Last Update"
 msgstr "Utolsó frissítés"
 
@@ -6086,6 +6532,9 @@ msgstr "Eszköz információ"
 msgid "First Sync time"
 msgstr "Első szinkronizálás ideje"
 
+msgid "Wipe Device"
+msgstr "Eszköz törlése"
+
 msgid "Full resync"
 msgstr "Teljes újraszinkronizálás"
 
@@ -6094,9 +6543,6 @@ msgstr "Eszköz eltávolítása"
 
 msgid "Please enter your username and password"
 msgstr ""
-
-msgid "Password"
-msgstr "Jelszó"
 
 msgid "Username"
 msgstr "Felhasználónév"
@@ -6107,6 +6553,11 @@ msgid ""
 msgstr ""
 "Biztosan törölni szeretne minden adatot az eszközről?\n"
 " Adja meg a jelszavát a folytatáshoz!"
+
+msgid ""
+"Do you really want to remove your device?\n"
+" Enter your password to confirm."
+msgstr ""
 
 msgid "Add meeting"
 msgstr ""
@@ -6198,6 +6649,284 @@ msgid ""
 "numbers. Password should have 8 to 20 characters."
 msgstr ""
 
+msgid "Change passphrase"
+msgstr ""
+
+msgid "Old passphrase"
+msgstr ""
+
+msgid "Wrong passphrase. Please try again"
+msgstr ""
+
+msgid "New passphrase"
+msgstr ""
+
+msgid "Confirm new passphrase"
+msgstr ""
+
+msgid "The passphrases don't match. Please try again"
+msgstr ""
+
+msgid "S/MIME Message"
+msgstr "S/MIME üzenet"
+
+#, fuzzy
+msgid "Passphrase changed succesfully"
+msgstr "Az üzenetet sikerült visszafejteni"
+
+msgid "S/MIME Passphrase"
+msgstr ""
+
+msgid "Submit"
+msgstr "Elküld"
+
+msgid "Certificate passphrase"
+msgstr "Tanúsítvány jelszó"
+
+msgid "The passphrase you typed is incorrect. Please try again."
+msgstr ""
+
+msgid "No certificates imported, please upload your private certificate"
+msgstr ""
+
+msgid "Valid from"
+msgstr "Érvényesség kezdete"
+
+msgid "Expires"
+msgstr "Lejárat"
+
+msgid "Loading certificates"
+msgstr "Tanúsítványok betöltése"
+
+msgid "S/MIME Plugin"
+msgstr "S/MIME Beépülő"
+
+msgid "Please select a certificate."
+msgstr "Válasszon egy tanúsítványt."
+
+msgid ""
+"Do you really want to remove your private certificate? If you remove your "
+"certificate you will not be able to sign or decrypt S/MIME emails."
+msgstr ""
+"Biztosan törölni szeretné a privát tanúsítványát? Amennyiben törli a privát "
+"tanúsítványt, a jövőben nem fog tudni aláírni és megnyitni S/MIME üzeneteket."
+
+msgid "Certificate details"
+msgstr "Tanúsítvány részletek"
+
+msgid ""
+"Below you can view and delete public & private certificate(s) stored on the "
+"server."
+msgstr ""
+"Alább láthatja és törölhet a publikus és privát tanúsítványokat, amelyek a "
+"szerveren vannak tárolva."
+
+msgid "Filter on Email"
+msgstr "Szűrő levélen"
+
+msgid "Public & Private certificates"
+msgstr "Publikus & Privát tanúsítványok"
+
+msgid "S/MIME"
+msgstr "S/MIME"
+
+msgid "You don't have a valid certificate corresponding to your account"
+msgstr "Nincs érvényes tanúsítványa ehhez a fiókhoz"
+
+msgid "Personal certificate"
+msgstr "Személyes tanúsítvány"
+
+msgid "Change passphrase for last certificate"
+msgstr ""
+
+msgid "You have a valid certificate corresponding to your account"
+msgstr "Rendelkezik érvényes tanúsítvánnyal ehhez a fiókhoz"
+
+msgid "Upload your certificate"
+msgstr "Tanúsítvány feltöltése"
+
+msgid ""
+"Below you can upload your private certificate in PKCS#12 format. The WebApp "
+"only accepts certificates which are valid and only stores one private "
+"certificate on the server."
+msgstr ""
+"Feltöltheti tanúsítványét PKCS#12 formátumban. A WebApp csak olyan "
+"tanúsítványokat fogad el, amik érvényesek, és csak egy privát tanúsítványt "
+"tárol a kiszolgálón."
+
+msgid "Private certificate"
+msgstr "Privát tanúsítvány"
+
+msgid "You must fill in the certificate passphrase to upload your certificate."
+msgstr ""
+
+msgid "You must first select a valid private certificate in PKCS#12 format."
+msgstr ""
+
+msgid "Sign"
+msgstr "Aláír"
+
+msgid "Sign message"
+msgstr "Üzenet aláírása"
+
+msgid ""
+"Ensure the authenticity of the message by adding a digital signature to this "
+"message. Any changes to the message will invalidate the signature."
+msgstr ""
+"Biztosítsa az üzenet hitelességét azzal, hogy digitálisan aláírja. Az üzenet "
+"bármely változtatása az aláírást érvényteleníti."
+
+msgid "Encrypt"
+msgstr "Titkosít"
+
+msgid "Encrypt message"
+msgstr "Üzenet titkosítása"
+
+msgid ""
+"Ensure the privacy of the message by encrypting its contents. Only the "
+"recipient of the message will be able to open it."
+msgstr ""
+"Biztosítsa az üzenet titkosságát azzal, hogy titkosítja. Csak az üzenet "
+"címzettje fogja tudni megnyitni."
+
+msgid "What's going on with my email?"
+msgstr "Mi történik a levelemmel?"
+
+msgid ""
+"WebApp can verify digital signatures of emails. A successful verification "
+"reassures you that the message has not been tampered with and validates the "
+"identity of the sender."
+msgstr ""
+
+msgid ""
+"You are seeing this message because the verification of the digital signature"
+msgstr ""
+
+msgid " has failed"
+msgstr ""
+
+msgid " for this message."
+msgstr ""
+
+msgid "What caused this issue?"
+msgstr "Mi okozta ezt a problémát?"
+
+msgid "What should I do?"
+msgstr "Mit tegyek?"
+
+msgid ""
+"You can continue to work. However, you should keep in mind that the identity "
+"and the authenticity of the message content could not be verified."
+msgstr ""
+
+msgid ""
+"You can contact your helpdesk or system administrator if you are not sure "
+"what to do next."
+msgstr ""
+
+msgid ""
+"WebApp can verify digital signatures of emails. A successful verification "
+"reassures you "
+msgstr ""
+
+msgid ""
+"that the message has not been tampered with and validates the identity of "
+"the sender."
+msgstr ""
+
+msgid ""
+"The verification of the digital signature was successful for this email "
+"message."
+msgstr ""
+
+msgid "WebApp could not find a public certificate for the recipient."
+msgstr "A WebApp nem talált publikus tanúsítványt a címzetthez."
+
+msgid ""
+"The identity of the sender and authenticity of the message content have been "
+"verified, but the certificate used to sign the message expired on [d-m-Y]."
+msgstr ""
+
+msgid "The digital signature could not be verified for unknown reasons."
+msgstr ""
+
+msgid ""
+"The digital certificate used to sign this message has been revoked (i.e. the "
+"sender has marked it as compromised)"
+msgstr ""
+
+msgid ""
+"The verification service of the certificate authority that signed the "
+"sender's certificate is not available. The validity of the certificate could "
+"not be verified."
+msgstr ""
+
+msgid ""
+"The revocation status of the digital certificate used to sign this email is "
+"unknown (Server is unavaliable or certificate does not support OCSP). The "
+"validity of the certificate could not be verified."
+msgstr ""
+
+msgid ""
+"The revocation status of the digital certificate used to sign this email is "
+"disabled (OCSP). The validity of the certificate could not be verified."
+msgstr ""
+
+msgid "The certificate verification server (OCSP) is temporarly offline."
+msgstr ""
+
+msgid "Sender is removed from the server."
+msgstr ""
+
+msgid "Signature verified succesfully"
+msgstr "A tanúsítvány ellenőrzése sikeres"
+
+msgid "Could not verify signature, missing public certificate"
+msgstr ""
+"Az aláírás érvényessége nem ellenőrizhető, mert nem található hozzá publikus "
+"tanúsítvány"
+
+msgid "Signature verification succesfull, but certificate is expired"
+msgstr ""
+"Aláírás ellenőrzése sikeres, de a tanúsítvány érvényességi ideje lejárt"
+
+msgid "Signature could not be verified"
+msgstr "Aláírás érvényessége nem ellenőrizhető"
+
+msgid "Certificate has been revoked"
+msgstr "A tanúsítványt visszavonták"
+
+msgid "Verification with Certificate Authority failed"
+msgstr ""
+
+msgid "Message decrypted succesfully"
+msgstr "Az üzenetet sikerült visszafejteni"
+
+msgid "Message decryption failed"
+msgstr "Az üzenet visszafejtése nem sikerült"
+
+msgid "Please"
+msgstr ""
+
+msgid "click here"
+msgstr ""
+
+#, fuzzy
+msgid "to unlock your certificate"
+msgstr "Tanúsítvány feltöltése"
+
+msgid "Cannot determine revocation status of certificate"
+msgstr ""
+
+msgid "Signature verified (OCSP disabled)"
+msgstr ""
+
+msgid "Unable to decrypt this message. Certificate does not match"
+msgstr ""
+
+msgid "Verification failed. User is removed from the server."
+msgstr ""
+
 msgid "Charm pink"
 msgstr "Rózsaszín"
 
@@ -6284,6 +7013,165 @@ msgid ""
 "Please contact your system administrator."
 msgstr ""
 
+msgid "With this backend, you can connect to any ownCloud server."
+msgstr ""
+
+msgid "Files ownCloud Backend: "
+msgstr ""
+
+msgid "Server address"
+msgstr "Szerver címe"
+
+msgid "Server port"
+msgstr "Szerver port"
+
+msgid "Use SSL"
+msgstr "SSL használata"
+
+msgid "Webdav base path"
+msgstr "Webdav alap elérési út"
+
+msgid "Use grommunio credentials"
+msgstr "grommunio hitelesítési adatainak használata"
+
+msgid "php-curl is not available"
+msgstr ""
+
+msgid "Access denied"
+msgstr ""
+
+msgid "Connection failed"
+msgstr ""
+
+msgid "Sabre error"
+msgstr ""
+
+msgid "Copying failed"
+msgstr ""
+
+msgid "Unknown error"
+msgstr "Ismeretlen hiba"
+
+msgid "Please contact your system administrator."
+msgstr ""
+
+msgid "Unauthorized. Wrong username or password."
+msgstr "Hibás felhasználónév vagy jelszó."
+
+msgid "File server is not reachable. Please verify the file server URL."
+msgstr ""
+
+msgid "You don't have enough permissions to view this file or folder."
+msgstr ""
+
+msgid "The file or folder is not available anymore."
+msgstr ""
+
+msgid "Connection to the file server timed out. Please check again later."
+msgstr ""
+
+msgid "This file is locked by another user. Please try again later."
+msgstr ""
+
+msgid "The request failed."
+msgstr ""
+
+msgid "The file server encountered an internal problem."
+msgstr ""
+
+msgid "We could not write to temporary directory."
+msgstr ""
+
+msgid "We could not retrieve list of server features."
+msgstr ""
+
+msgid "PHP-Curl is not available."
+msgstr ""
+
+msgid "Unknown account ID"
+msgstr "Ismeretlen fiók ID"
+
+msgid "Feature \"Quota Information\" is not supported by this backend!"
+msgstr "Ez a backend nem támogatja a kvóta információkat!"
+
+msgid "Feature \"Version Information\" is not supported by this backend!"
+msgstr "Ez a backend nem támogatja a verzió információkat!"
+
+msgid "Feature \"OAUTH\" is not supported by this backend!"
+msgstr "Ez a backend nem támogatja az \"OAUTH\" hitelesítést!"
+
+msgid "Moving between accounts is not implemented"
+msgstr ""
+
+msgid "Files plugin"
+msgstr ""
+
+msgid "Unknown type - cannot save this file to the Files backend!"
+msgstr "Ismeretlen típus - nem lehet menteni a fájl a Fájlokba!"
+
+msgid "No record given!"
+msgstr ""
+
+msgid "Fetching sharing information failed"
+msgstr "Megosztási információk betöltése sikertelen"
+
+msgid "Sharing failed"
+msgstr "Megosztás sikeretlen"
+
+msgid "Updating share failed"
+msgstr "Megosztás frissítése sikertelen"
+
+msgid "Deleting share failed"
+msgstr "Megosztás eltávolítása sikertelen"
+
+msgid "With this backend, you can connect to any WebDAV server."
+msgstr ""
+
+msgid "Files WebDAV Backend: "
+msgstr ""
+
+msgid "PHP-CURL is not installed"
+msgstr ""
+
+msgid "Directory creation failed"
+msgstr ""
+
+msgid "Deletion failed"
+msgstr ""
+
+msgid "Moving failed"
+msgstr ""
+
+msgid "Temporary directory problems"
+msgstr ""
+
+msgid "File or folder not found"
+msgstr ""
+
+msgid "Not implemented"
+msgstr ""
+
+msgid "Please contact your system administrator"
+msgstr ""
+
+msgid "File server is not reachable. Please verify the connection."
+msgstr ""
+
+msgid "PHP-CURL not installed"
+msgstr ""
+
+msgid "Account is ready to use."
+msgstr "A fiók már használatban van."
+
+msgid "File backend not responding. Please try again later."
+msgstr "A backend nem válaszol. Próbálja meg később."
+
+msgid "Zip file generation failed. Please inform the administrator."
+msgstr "A zip fájl készítése sikertelen. Kérjük értesítse a rendszergazdát."
+
+msgid "This file is no longer available. Please reload the folder."
+msgstr "Ez a fájl már nem elérhető. Frissítse a mappát."
+
 msgid "Mobile device management plugin"
 msgstr ""
 
@@ -6313,6 +7201,57 @@ msgid "Error changing password. Please contact the system administrator."
 msgstr ""
 
 msgid "Password has been changed successfully."
+msgstr ""
+
+msgid "No certificate avaliable"
+msgstr "Nem áll rendelkezésre tanúsítvány"
+
+msgid "Private certificate is not valid yet, unable to sign email"
+msgstr ""
+"Személyes tanúsítvány még nem érvényes, nem lehetséges a levél aláírása"
+
+msgid "Private certificate has been expired, unable to sign email"
+msgstr "A személyes tanúsítvány lejárt, nem lehetséges a levél aláírása"
+
+msgid "Private certificate does not match email address"
+msgstr "A személyes tanúsítvány nem egyezik meg az email címmel"
+
+msgid "Missing public certificates for the following recipients: "
+msgstr ""
+
+msgid ". Please contact your system administrator for details"
+msgstr "Kérem, vegye fel a kapcsolatot a rendszergazdával a részletekért"
+
+msgid ""
+"Your public certificate is not installed. Without this certificate, you will "
+"not be able to read encrypted messages you have sent to others."
+msgstr ""
+
+msgid "Certificate is already stored on the server"
+msgstr ""
+
+msgid "Unable to decrypt certificate"
+msgstr ""
+
+msgid "Private key can't be used to sign email"
+msgstr "Privát kulccsal nem lehet üzenetet aláírni"
+
+msgid "Certificate email address doesn't match WebApp account "
+msgstr ""
+
+msgid "Certificate was expired on "
+msgstr "A tanúsítvány lejárt ekkor: "
+
+msgid "Certificate has not been imported"
+msgstr ""
+
+msgid "Certificate is not yet valid "
+msgstr "A tanúsítvány még nem érvényes "
+
+msgid "Certificate is revoked"
+msgstr "A tanúsítványt visszavonták"
+
+msgid "Unable to read public certificate"
 msgstr ""
 
 msgid "Can't add data to bus, same action type is present in bus"
@@ -7027,976 +7966,3 @@ msgstr ""
 
 msgid "Some problem encountered when encoding/decoding JSON data."
 msgstr ""
-
-msgid "Change passphrase"
-msgstr ""
-
-msgid "Old passphrase"
-msgstr ""
-
-msgid "Wrong passphrase. Please try again"
-msgstr ""
-
-msgid "New passphrase"
-msgstr ""
-
-msgid "Confirm new passphrase"
-msgstr ""
-
-msgid "The passphrases don't match. Please try again"
-msgstr ""
-
-msgid "S/MIME Message"
-msgstr "S/MIME üzenet"
-
-#, fuzzy
-msgid "Passphrase changed succesfully"
-msgstr "Az üzenetet sikerült visszafejteni"
-
-msgid "S/MIME Passphrase"
-msgstr ""
-
-msgid "Submit"
-msgstr "Elküld"
-
-msgid "Certificate passphrase"
-msgstr "Tanúsítvány jelszó"
-
-msgid "The passphrase you typed is incorrect. Please try again."
-msgstr ""
-
-msgid "No certificates imported, please upload your private certificate"
-msgstr ""
-
-msgid "Valid from"
-msgstr "Érvényesség kezdete"
-
-msgid "Expires"
-msgstr "Lejárat"
-
-msgid "Loading certificates"
-msgstr "Tanúsítványok betöltése"
-
-msgid "S/MIME Plugin"
-msgstr "S/MIME Beépülő"
-
-msgid "Please select a certificate."
-msgstr "Válasszon egy tanúsítványt."
-
-msgid ""
-"Do you really want to remove your private certificate? If you remove your "
-"certificate you will not be able to sign or decrypt S/MIME emails."
-msgstr ""
-"Biztosan törölni szeretné a privát tanúsítványát? Amennyiben törli a privát "
-"tanúsítványt, a jövőben nem fog tudni aláírni és megnyitni S/MIME üzeneteket."
-
-msgid "Certificate details"
-msgstr "Tanúsítvány részletek"
-
-msgid ""
-"Below you can view and delete public & private certificate(s) stored on the "
-"server."
-msgstr ""
-"Alább láthatja és törölhet a publikus és privát tanúsítványokat, amelyek a "
-"szerveren vannak tárolva."
-
-msgid "Filter on Email"
-msgstr "Szűrő levélen"
-
-msgid "Public & Private certificates"
-msgstr "Publikus & Privát tanúsítványok"
-
-msgid "S/MIME"
-msgstr "S/MIME"
-
-msgid "You don't have a valid certificate corresponding to your account"
-msgstr "Nincs érvényes tanúsítványa ehhez a fiókhoz"
-
-msgid "Personal certificate"
-msgstr "Személyes tanúsítvány"
-
-msgid "You have a valid certificate corresponding to your account"
-msgstr "Rendelkezik érvényes tanúsítvánnyal ehhez a fiókhoz"
-
-msgid "Upload your certificate"
-msgstr "Tanúsítvány feltöltése"
-
-msgid ""
-"Below you can upload your private certificate in PKCS#12 format. The WebApp "
-"only accepts certificates which are valid and only stores one private "
-"certificate on the server."
-msgstr ""
-"Feltöltheti tanúsítványét PKCS#12 formátumban. A WebApp csak olyan "
-"tanúsítványokat fogad el, amik érvényesek, és csak egy privát tanúsítványt "
-"tárol a kiszolgálón."
-
-msgid "Private certificate"
-msgstr "Privát tanúsítvány"
-
-msgid "Upload"
-msgstr "Feltöltés"
-
-msgid "You must fill in the certificate passphrase to upload your certificate."
-msgstr ""
-
-msgid "You must first select a valid private certificate in PKCS#12 format."
-msgstr ""
-
-msgid "Sign"
-msgstr "Aláír"
-
-msgid "Sign message"
-msgstr "Üzenet aláírása"
-
-msgid ""
-"Ensure the authenticity of the message by adding a digital signature to this "
-"message. Any changes to the message will invalidate the signature."
-msgstr ""
-"Biztosítsa az üzenet hitelességét azzal, hogy digitálisan aláírja. Az üzenet "
-"bármely változtatása az aláírást érvényteleníti."
-
-msgid "Encrypt"
-msgstr "Titkosít"
-
-msgid "Encrypt message"
-msgstr "Üzenet titkosítása"
-
-msgid ""
-"Ensure the privacy of the message by encrypting its contents. Only the "
-"recipient of the message will be able to open it."
-msgstr ""
-"Biztosítsa az üzenet titkosságát azzal, hogy titkosítja. Csak az üzenet "
-"címzettje fogja tudni megnyitni."
-
-msgid "What's going on with my email?"
-msgstr "Mi történik a levelemmel?"
-
-msgid ""
-"WebApp can verify digital signatures of emails. A successful verification "
-"reassures you that the message has not been tampered with and validates the "
-"identity of the sender."
-msgstr ""
-
-msgid ""
-"You are seeing this message because the verification of the digital signature"
-msgstr ""
-
-msgid " has failed"
-msgstr ""
-
-msgid " for this message."
-msgstr ""
-
-msgid "What caused this issue?"
-msgstr "Mi okozta ezt a problémát?"
-
-msgid "What should I do?"
-msgstr "Mit tegyek?"
-
-msgid ""
-"You can continue to work. However, you should keep in mind that the identity "
-"and the authenticity of the message content could not be verified."
-msgstr ""
-
-msgid ""
-"You can contact your helpdesk or system administrator if you are not sure "
-"what to do next."
-msgstr ""
-
-msgid ""
-"WebApp can verify digital signatures of emails. A successful verification "
-"reassures you "
-msgstr ""
-
-msgid ""
-"that the message has not been tampered with and validates the identity of "
-"the sender."
-msgstr ""
-
-msgid ""
-"The verification of the digital signature was successful for this email "
-"message."
-msgstr ""
-
-msgid "WebApp could not find a public certificate for the recipient."
-msgstr "A WebApp nem talált publikus tanúsítványt a címzetthez."
-
-msgid ""
-"The identity of the sender and authenticity of the message content have been "
-"verified, but the certificate used to sign the message expired on [d-m-Y]."
-msgstr ""
-
-msgid "The digital signature could not be verified for unknown reasons."
-msgstr ""
-
-msgid ""
-"The digital certificate used to sign this message has been revoked (i.e. the "
-"sender has marked it as compromised)"
-msgstr ""
-
-msgid ""
-"The verification service of the certificate authority that signed the "
-"sender's certificate is not available. The validity of the certificate could "
-"not be verified."
-msgstr ""
-
-msgid ""
-"The revocation status of the digital certificate used to sign this email is "
-"unknown (Server is unavaliable or certificate does not support OCSP). The "
-"validity of the certificate could not be verified."
-msgstr ""
-
-msgid ""
-"The revocation status of the digital certificate used to sign this email is "
-"disabled (OCSP). The validity of the certificate could not be verified."
-msgstr ""
-
-msgid "The certificate verification server (OCSP) is temporarly offline."
-msgstr ""
-
-msgid "Sender is removed from the server."
-msgstr ""
-
-msgid "Signature verified succesfully"
-msgstr "A tanúsítvány ellenőrzése sikeres"
-
-msgid "Could not verify signature, missing public certificate"
-msgstr ""
-"Az aláírás érvényessége nem ellenőrizhető, mert nem található hozzá publikus "
-"tanúsítvány"
-
-msgid "Signature verification succesfull, but certificate is expired"
-msgstr ""
-"Aláírás ellenőrzése sikeres, de a tanúsítvány érvényességi ideje lejárt"
-
-msgid "Signature could not be verified"
-msgstr "Aláírás érvényessége nem ellenőrizhető"
-
-msgid "Certificate has been revoked"
-msgstr "A tanúsítványt visszavonták"
-
-msgid "Verification with Certificate Authority failed"
-msgstr ""
-
-msgid "Message decrypted succesfully"
-msgstr "Az üzenetet sikerült visszafejteni"
-
-msgid "Message decryption failed"
-msgstr "Az üzenet visszafejtése nem sikerült"
-
-msgid "Please"
-msgstr ""
-
-msgid "click here"
-msgstr ""
-
-#, fuzzy
-msgid "to unlock your certificate"
-msgstr "Tanúsítvány feltöltése"
-
-msgid "Cannot determine revocation status of certificate"
-msgstr ""
-
-msgid "Signature verified (OCSP disabled)"
-msgstr ""
-
-msgid "Unable to decrypt this message. Certificate does not match"
-msgstr ""
-
-msgid "Verification failed. User is removed from the server."
-msgstr ""
-
-msgid "No certificate avaliable"
-msgstr "Nem áll rendelkezésre tanúsítvány"
-
-msgid "Private certificate is not valid yet, unable to sign email"
-msgstr ""
-"Személyes tanúsítvány még nem érvényes, nem lehetséges a levél aláírása"
-
-msgid "Private certificate has been expired, unable to sign email"
-msgstr "A személyes tanúsítvány lejárt, nem lehetséges a levél aláírása"
-
-msgid "Private certificate does not match email address"
-msgstr "A személyes tanúsítvány nem egyezik meg az email címmel"
-
-msgid "Missing public certificates for the following recipients: "
-msgstr ""
-
-msgid ". Please contact your system administrator for details"
-msgstr "Kérem, vegye fel a kapcsolatot a rendszergazdával a részletekért"
-
-msgid ""
-"Your public certificate is not installed. Without this certificate, you will "
-"not be able to read encrypted messages you have sent to others."
-msgstr ""
-
-msgid "Certificate is already stored on the server"
-msgstr ""
-
-msgid "New certificate uploaded"
-msgstr "Új tanúsítvány feltöltődött"
-
-msgid "Certificate uploaded"
-msgstr "Tanúsítvány feltöltődött"
-
-msgid "Unable to decrypt certificate"
-msgstr ""
-
-msgid "Private key can't be used to sign email"
-msgstr "Privát kulccsal nem lehet üzenetet aláírni"
-
-msgid "Certificate email address doesn't match WebApp account "
-msgstr ""
-
-msgid "Certificate was expired on "
-msgstr "A tanúsítvány lejárt ekkor: "
-
-msgid "Certificate has not been imported"
-msgstr ""
-
-msgid "Certificate is not yet valid "
-msgstr "A tanúsítvány még nem érvényes "
-
-msgid "Certificate is revoked"
-msgstr "A tanúsítványt visszavonták"
-
-msgid "Unable to read public certificate"
-msgstr ""
-
-msgid "Add attachment from {0}"
-msgstr "Melléklet hozzáadása innen: {0}"
-
-msgid "Confirm deletion"
-msgstr "Törlés megerősítése"
-
-#, fuzzy
-msgid "Are you sure you want to delete {0}?"
-msgstr "Mindenképpen törölni kívánja a fiókot ({0})?"
-
-msgid "Are you sure you want to delete {0} and all of its contents?"
-msgstr ""
-
-#, fuzzy
-msgid "Are you sure you want to delete {0} files?"
-msgstr "Mindenképpen törölni kívánja a fiókot ({0})?"
-
-msgid "Are you sure want to delete {0} folders and all of their contents?"
-msgstr ""
-
-msgid ""
-"Are you sure want to delete the selected items and all of their contents?"
-msgstr ""
-
-msgid "Confirm overwrite"
-msgstr "Felülírás megerősítése"
-
-msgid "File already exists. Do you want to overwrite it?"
-msgstr "A fájl már létezik. Felül kívánja írni?"
-
-msgid "Please enter a new name"
-msgstr "Adjon meg egy új nevet"
-
-msgid "Rename record"
-msgstr ""
-
-msgid "A file name should not be empty."
-msgstr ""
-
-msgid "Rename item"
-msgstr ""
-
-msgid "A file named \"{0}\" already exists. Please enter a different name."
-msgstr ""
-
-msgid "Downloading"
-msgstr "Letöltés"
-
-msgid "Download started... please wait!"
-msgstr "Letöltés megkezdve... kérem várjon!"
-
-msgid "At least one file is too large! Maximum allowed filesize: {0}."
-msgstr "Valamelyik fájl túl nagy! A maximális engedélyezett fájlméret: {0}."
-
-msgid "Keep both"
-msgstr ""
-
-#, fuzzy
-msgid "Overwrite"
-msgstr "Felülírás megerősítése"
-
-msgid "l d/m/Y G:i"
-msgstr "l Y/m/d G:i"
-
-msgid "Never"
-msgstr "Újabb"
-
-msgid "Add from Files"
-msgstr "Hozzáadás a Fájlokból"
-
-msgid "Add attachment from Files"
-msgstr "Melléklet csatolása a Fájlokból"
-
-msgid "Add to Files"
-msgstr "Hozzáadás a Fájlokhoz"
-
-msgid "Upload file"
-msgstr "Fájl feltöltés"
-
-msgid "Files"
-msgstr "Fájlok"
-
-msgid "Files Plugin"
-msgstr "Fájlok bővítmény"
-
-msgid "Manage Accounts"
-msgstr "Fiókok kezelése"
-
-msgid "Reset Files settings"
-msgstr "Fájlok beállításainak visszaállítása"
-
-msgid "Resets Files settings to their original defaults"
-msgstr "Fájlok beállításainak alaphelyzetbe állítása"
-
-msgid "Are you sure to remove all settings and accounts?"
-msgstr ""
-
-msgid ""
-"Accounts marked by your administrator as \"cannot be changed\" will not be "
-"removed."
-msgstr ""
-
-#, fuzzy
-msgid ""
-"WebApp will automatically restart in order for these changes to take effect."
-msgstr ""
-"A beállítások érvénybe lépéséhez a WebApp automatikusan újra fog indulni"
-
-msgid "Webapp is reloading, Please wait."
-msgstr "Betöltés folyamatban. Kérem várjon."
-
-msgid "Edit Account"
-msgstr "Fiók szerkesztése"
-
-msgid "Account Information"
-msgstr "Fiók információ"
-
-msgid "Account name"
-msgstr "Fiók név"
-
-msgid "Account type"
-msgstr "Fiók típus"
-
-msgid "Select backend..."
-msgstr "Válasszon típust..."
-
-msgid "Account Configuration"
-msgstr "Fiók beállítások"
-
-msgid "Update"
-msgstr "Frissít"
-
-msgid "Sort by: ID"
-msgstr "Rendezés: ID"
-
-msgid "Backend"
-msgstr "Típus"
-
-msgid "Sort by: Backend"
-msgstr "Rendezés: Típus"
-
-msgid "Features"
-msgstr "Képességek"
-
-msgid "Shows all available features of the backend."
-msgstr "Az összes képesség mutatása a kiválasztott típusban."
-
-msgid "Show quota information"
-msgstr "Kvóta információk megjelenítése"
-
-msgid "Show version information"
-msgstr "Verzió információk megjelenítése"
-
-msgid "Share files"
-msgstr "Fájlok megosztása"
-
-msgid "Fast Down/Upload"
-msgstr "Gyors le- és feltöltés"
-
-msgid "No account created!"
-msgstr "Nincs fiók létrehozva!"
-
-msgid "Add Account"
-msgstr "Fiók hozzáadása"
-
-msgid "Remove Account"
-msgstr "Fiók eltávolítása"
-
-msgid "Loading accounts"
-msgstr "Fiókok betöltése"
-
-msgid "Do you really want to delete the account \"{0}\"?"
-msgstr "Mindenképpen törölni kívánja a fiókot ({0})?"
-
-msgid "Quota Information"
-msgstr "Kvóta információ"
-
-msgid "Used"
-msgstr "Használatban"
-
-msgid "Total"
-msgstr ""
-
-msgid "Version Information"
-msgstr "Verzió információ"
-
-msgid "Sort by: Type"
-msgstr "Rendezés: Típus"
-
-msgid "Filename"
-msgstr "Fájlnév"
-
-msgid "Sort by: Filename"
-msgstr "Rendezés: Név"
-
-msgid "Loading files"
-msgstr "Fájlok betöltése"
-
-msgid "The file {0} is too large!"
-msgstr "A fájl ({0}) túl nagy!"
-
-msgid "max"
-msgstr "max"
-
-msgid "You have to choose at least one file!"
-msgstr "Válasszon ki egy fájlt!"
-
-msgid "Folder already exists"
-msgstr "A mappa már létezik"
-
-msgid "Incorrect foldername"
-msgstr "Hibás mappanév"
-
-msgid "File information"
-msgstr "Fájl információ"
-
-msgid "Select a file"
-msgstr "Fájl kiálasztása"
-
-msgid "Maximum upload size"
-msgstr "Maximális feltöltési méret"
-
-msgid "Browse"
-msgstr "Tallózás"
-
-msgid "Select upload folder"
-msgstr "Válassza ki a feltöltési mappát"
-
-msgid "File \"{0}\" is too large! Maximum allowed filesize: {1}."
-msgstr "A fájl \"{0}\" túl nagy! A maximálisan megengedett fájlméret: {1}."
-
-msgid "Add item to Files"
-msgstr "Új elem hozzáadása a Fájlokhoz"
-
-msgid "You have to choose a folder!"
-msgstr "Válasszon ki egy mappát!"
-
-msgid "Uploaded"
-msgstr "Feltöltve"
-
-msgid "Attachment successfully stored in Files"
-msgstr "Melléklet sikeresen mentve a Fájlokba"
-
-msgid "Upload Failed"
-msgstr "Feltöltés sikertelen"
-
-msgid "Attachment could not be stored in Files! Error: "
-msgstr "A melléklet nem menthető a Fájlokba! Hiba: "
-
-msgid "Share Files"
-msgstr "Fájlok megosztása"
-
-msgid "Uploading files to "
-msgstr "Fájlok feltöltése ide: "
-
-msgid "Starting upload"
-msgstr "Feltöltés megkezdése"
-
-msgid "Cancel upload"
-msgstr "Feltöltés megszakítása"
-
-msgid "- seconds left"
-msgstr "- másodperc van hátra"
-
-msgid " seconds left"
-msgstr " másodperc van hátra"
-
-msgid " minutes left"
-msgstr " perc van hátra"
-
-msgid "Uploading: "
-msgstr "Feltöltés: "
-
-msgid "Upload status unavailable... please wait."
-msgstr "A feltöltés állapota nem elérhető... kérem várjon."
-
-msgid "Upload finished!"
-msgstr "Feltöltés befejeződött!"
-
-msgid "Upload aborted!"
-msgstr "A feltöltés megszakadt!"
-
-msgid "Upload failed!"
-msgstr "A feltöltés nem sikerült!"
-
-msgid "Upload files"
-msgstr "Fájlok feltöltése"
-
-msgid "Download files"
-msgstr "Fájlok letöltése"
-
-msgid "Share"
-msgstr "Megosztás"
-
-msgid "Attach to mail"
-msgstr "Emailhez csatolás"
-
-msgid "Attaching"
-msgstr "Csatolás"
-
-msgid "Creating email... Please wait!"
-msgstr "Email létrehozása... Kérem várjon!"
-
-msgid "Edit share"
-msgstr "Megosztás szerkesztése"
-
-#, fuzzy
-msgid ""
-"There are no accounts added. Go to settings, Files tab and add an account"
-msgstr "Nincsen fiókok hozzáadva. A beállítások menüben adhat hozzá fiókokat!"
-
-msgid "Filesize"
-msgstr "Fájl méret"
-
-msgid "Last modified"
-msgstr "Utolsó módosítás"
-
-msgid "Is shared"
-msgstr "Megosztva"
-
-msgid "File preview"
-msgstr "Előnézet"
-
-msgid "Your browser does not support previewing of audio files!"
-msgstr "A böngészője nem támogatja az audio fájlok előnézetét!"
-
-msgid "Your browser does not support previewing of video files!"
-msgstr "A böngészője nem támogatja a video fájlok előnézetét!"
-
-msgid "d.m.Y G:i"
-msgstr "Y.m.d. G:i"
-
-msgid "Folder"
-msgstr "Mappa"
-
-msgid "File ({0})"
-msgstr "Fájl ({0})"
-
-msgid "Sort by: Path"
-msgstr "Rendezés: Útvonal"
-
-msgid "Sort by: Last modified"
-msgstr "Rendezés: Utolsó módosítás"
-
-msgid "Sort by: Shared"
-msgstr "Rendezés: Megosztva"
-
-msgid "There are no items to show in this view"
-msgstr "Nincsenek megjeleníthető elemek ebben a nézetben"
-
-msgid "files selected"
-msgstr "fájlok kiválasztva"
-
-msgid "{0} of {1} in use"
-msgstr "{1}-ból {0} használatban"
-
-msgid "Unknown account ID"
-msgstr "Ismeretlen fiók ID"
-
-msgid "Feature \"Quota Information\" is not supported by this backend!"
-msgstr "Ez a backend nem támogatja a kvóta információkat!"
-
-msgid "Feature \"Version Information\" is not supported by this backend!"
-msgstr "Ez a backend nem támogatja a verzió információkat!"
-
-msgid "Feature \"OAUTH\" is not supported by this backend!"
-msgstr "Ez a backend nem támogatja az \"OAUTH\" hitelesítést!"
-
-msgid "Moving between accounts is not implemented"
-msgstr ""
-
-msgid "Files plugin"
-msgstr ""
-
-msgid "Unknown type - cannot save this file to the Files backend!"
-msgstr "Ismeretlen típus - nem lehet menteni a fájl a Fájlokba!"
-
-msgid "No record given!"
-msgstr ""
-
-msgid "Fetching sharing information failed"
-msgstr "Megosztási információk betöltése sikertelen"
-
-msgid "Sharing failed"
-msgstr "Megosztás sikeretlen"
-
-msgid "Updating share failed"
-msgstr "Megosztás frissítése sikertelen"
-
-msgid "Deleting share failed"
-msgstr "Megosztás eltávolítása sikertelen"
-
-msgid "With this backend, you can connect to any ftp server."
-msgstr "Ezzel a backenddel FTP szerverekhez csatlakozhat."
-
-msgid "Files FTP Backend: "
-msgstr ""
-
-msgid "Server address"
-msgstr "Szerver címe"
-
-msgid "Server port"
-msgstr "Szerver port"
-
-msgid "FTP user"
-msgstr "FTP felhasználó"
-
-msgid "FTP password"
-msgstr "FTP jelszó"
-
-msgid "Base path"
-msgstr "Alap elérési útvonal"
-
-msgid "Use SSL"
-msgstr "SSL használata"
-
-msgid "Use passive mode"
-msgstr "Passzív mód használata"
-
-msgid "Use grommunio credentials"
-msgstr "grommunio hitelesítési adatainak használata"
-
-msgid "Authentication failed"
-msgstr ""
-
-msgid "Connection failed"
-msgstr ""
-
-msgid "Unparsable server response."
-msgstr "Hoppá! Érthetetlen szerver válasz."
-
-msgid "Temporary directory problems"
-msgstr ""
-
-msgid "Not implemented"
-msgstr ""
-
-msgid "Unknown error"
-msgstr "Ismeretlen hiba"
-
-msgid "Please contact your system administrator"
-msgstr ""
-
-msgid "Unauthorized. Wrong username or password."
-msgstr "Hibás felhasználónév vagy jelszó."
-
-msgid "File server is not reachable. Please verify the connection."
-msgstr ""
-
-msgid "You don't have enough permissions to view this file or folder."
-msgstr ""
-
-msgid "This file or folder is not available anymore."
-msgstr ""
-
-msgid "Connection to the file server timed out. Please check again later."
-msgstr ""
-
-msgid "This file is locked by another user. Please check again later."
-msgstr ""
-
-msgid "The request failed."
-msgstr ""
-
-msgid "The file server encountered an internal problem."
-msgstr ""
-
-msgid "We could not write to temporary directory."
-msgstr ""
-
-msgid "We could not retrieve list of server features."
-msgstr ""
-
-msgid "This function is not yet implemented."
-msgstr ""
-
-msgid "With this backend, you can connect to any WebDAV server."
-msgstr ""
-
-msgid "Files WebDAV Backend: "
-msgstr ""
-
-msgid "Webdav base path"
-msgstr "Webdav alap elérési út"
-
-msgid "PHP-CURL is not installed"
-msgstr ""
-
-msgid "Access denied"
-msgstr ""
-
-msgid "Sabre error"
-msgstr ""
-
-msgid "Directory creation failed"
-msgstr ""
-
-msgid "Deletion failed"
-msgstr ""
-
-msgid "Moving failed"
-msgstr ""
-
-msgid "File or folder not found"
-msgstr ""
-
-msgid "Copying failed"
-msgstr ""
-
-msgid "File server is not reachable. Please verify the file server URL."
-msgstr ""
-
-msgid "The file or folder is not available anymore."
-msgstr ""
-
-msgid "This file is locked by another user. Please try again later."
-msgstr ""
-
-msgid "PHP-Curl is not available."
-msgstr ""
-
-msgid "PHP-CURL not installed"
-msgstr ""
-
-msgid "Account is ready to use."
-msgstr "A fiók már használatban van."
-
-msgid "File backend not responding. Please try again later."
-msgstr "A backend nem válaszol. Próbálja meg később."
-
-msgid "Zip file generation failed. Please inform the administrator."
-msgstr "A zip fájl készítése sikertelen. Kérjük értesítse a rendszergazdát."
-
-msgid "This file is no longer available. Please reload the folder."
-msgstr "Ez a fájl már nem elérhető. Frissítse a mappát."
-
-msgid "Files: ownCloud Backend"
-msgstr "Fájlok: ownCloud beépülő"
-
-msgid "Share with user/group"
-msgstr "Megosztás felhasználóval/csoporttal"
-
-msgid "Share via link"
-msgstr "Megosztás linken keresztül"
-
-msgid "Public link"
-msgstr "Publikus link"
-
-msgid "Password protect"
-msgstr "Jelszavas védelem"
-
-msgid "Public upload"
-msgstr "Publikus feltöltés"
-
-msgid "Expiration date"
-msgstr "Lejárati dátum"
-
-msgid "Loading details..."
-msgstr "Részletek betöltése..."
-
-#, fuzzy
-msgid "Share Details"
-msgstr "Megosztás részleteinek szerkesztése"
-
-#, fuzzy
-msgid "Re-share"
-msgstr "Újra megosztás"
-
-msgid "Change"
-msgstr "Változtat"
-
-msgid "Share with"
-msgstr "Megosztás ezzel"
-
-msgid "Loading users and groups"
-msgstr "Felhasználók és csoportok betöltése"
-
-msgid "Add users or groups to share files."
-msgstr ""
-
-msgid "Type to search"
-msgstr ""
-
-msgid "No results"
-msgstr ""
-
-msgid "With this backend, you can connect to any ownCloud server."
-msgstr ""
-
-msgid "Files ownCloud Backend: "
-msgstr ""
-
-msgid "php-curl is not available"
-msgstr ""
-
-msgid "Please contact your system administrator."
-msgstr ""
-
-msgid "Short folder Ids"
-msgstr ""
-
-msgid "Provisioning Status"
-msgstr ""
-
-msgid "Wipe Device"
-msgstr "Eszköz törlése"
-
-msgid "version not available"
-msgstr ""
-
-msgid ""
-"Unauthorized to connect to grommunio-sync server. Please contact your system "
-"administrator."
-msgstr ""
-
-msgid ""
-"Unable to connect to grommunio-sync server. Please contact your system "
-"administrator."
-msgstr ""
-
-msgid ""
-"Unable to connect to the grommunio-sync server. Please contact your system "
-"administrator."
-msgstr ""
-
-msgid ""
-"Folder can not be added because there is already an additional folder with "
-"the same name"
-msgstr ""
-
-msgid ""
-"Folder can not be removed because there is no folder known with given folder "
-"id"
-msgstr ""
-
-msgid "Device ID could not be found"
-msgstr "Az eszközazonosító nem található"

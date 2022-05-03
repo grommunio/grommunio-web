@@ -2397,9 +2397,6 @@ msgstr "予定あり"
 msgid "Out of Office"
 msgstr "外出中"
 
-msgid "User is currently out of office."
-msgstr "ユーザーは現在外出中です。"
-
 msgid "No Information"
 msgstr "情報がありません。"
 
@@ -4054,6 +4051,9 @@ msgstr "ハイコントラスト"
 msgid "Lime"
 msgstr ""
 
+msgid "Magenta"
+msgstr ""
+
 msgid "Orange"
 msgstr "オレンジ"
 
@@ -4289,6 +4289,12 @@ msgstr ""
 msgid "Contributor"
 msgstr ""
 
+msgid "Free/Busy time, subject, location"
+msgstr ""
+
+msgid "Free/Busy time"
+msgstr ""
+
 msgid "Unable to import:"
 msgstr ""
 
@@ -4360,10 +4366,10 @@ msgstr "権限がありません。"
 msgid "Profile"
 msgstr "プロファイル"
 
-msgid "Read"
+msgid "Full Details"
 msgstr ""
 
-msgid "Full Details"
+msgid "Read"
 msgstr ""
 
 msgid "Write"
@@ -4523,9 +4529,6 @@ msgstr "フォルダを閉じる"
 
 msgid "Reload"
 msgstr "再読み込み"
-
-msgid "Restore items"
-msgstr "アイテムを回復する"
 
 # 76%
 # 100%
@@ -4920,6 +4923,9 @@ msgstr "送信者へ一度だけ下記のテキストを自動的に送信しま
 
 msgid "Inside My Organization"
 msgstr ""
+
+msgid "User is currently out of office."
+msgstr "ユーザーは現在外出中です。"
 
 msgid "Outside My Organization"
 msgstr ""
@@ -5878,13 +5884,454 @@ msgstr ""
 msgid "{A} Autohide desktop notification after second(s) {B}"
 msgstr ""
 
+msgid "Files: ownCloud Backend"
+msgstr ""
+
+msgid "Share with user/group"
+msgstr ""
+
+msgid "Share via link"
+msgstr ""
+
+msgid "Public link"
+msgstr ""
+
+msgid "Password protect"
+msgstr ""
+
+msgid "Password"
+msgstr "パスワード"
+
+msgid "Public upload"
+msgstr ""
+
+msgid "Expiration date"
+msgstr ""
+
+msgid "More than 1 share link exists. Only showing the latest one"
+msgstr ""
+
+msgid "Loading details..."
+msgstr ""
+
+msgid "Share Details"
+msgstr ""
+
+#, fuzzy
+msgid "Re-share"
+msgstr "共有"
+
+msgid "Change"
+msgstr ""
+
+msgid "Share with"
+msgstr ""
+
+msgid "Sort by: Type"
+msgstr "並べ替え順 : 種別"
+
+msgid "Loading users and groups"
+msgstr ""
+
+msgid "Add users or groups to share files."
+msgstr ""
+
+msgid "Type to search"
+msgstr ""
+
+msgid "No results"
+msgstr ""
+
+msgid "Add attachment from {0}"
+msgstr "{0} から添付ファイルを追加"
+
+msgid "Confirm deletion"
+msgstr "削除確認"
+
+#, fuzzy
+msgid "Are you sure you want to delete {0}?"
+msgstr "アカウント \"{0}\" を削除してもよろしいですか?"
+
+msgid "Are you sure you want to delete {0} and all of its contents?"
+msgstr ""
+
+#, fuzzy
+msgid "Are you sure you want to delete {0} files?"
+msgstr "アカウント \"{0}\" を削除してもよろしいですか?"
+
+msgid "Are you sure want to delete {0} folders and all of their contents?"
+msgstr ""
+
+msgid ""
+"Are you sure want to delete the selected items and all of their contents?"
+msgstr ""
+
+msgid "Confirm overwrite"
+msgstr "上書き確認"
+
+msgid "File already exists. Do you want to overwrite it?"
+msgstr "ファイルが既に存在しています.上書きをしますか？"
+
+msgid "Please enter a new name"
+msgstr "新しい名前を入力してください"
+
+msgid "Rename record"
+msgstr ""
+
+msgid "A file name should not be empty."
+msgstr ""
+
+msgid "Rename item"
+msgstr ""
+
+msgid "A file named \"{0}\" already exists. Please enter a different name."
+msgstr ""
+
+msgid "Downloading"
+msgstr "ダウンロード中です"
+
+msgid "Download started... please wait!"
+msgstr "ダウンロードを開始しました...しばらくお待ちください!"
+
+msgid "Upload"
+msgstr "アップロード"
+
+msgid "At least one file is too large! Maximum allowed filesize: {0}."
+msgstr ""
+"少なくとも１つのファイルサイズが大きすぎます。最大許容サイズは {0} です。"
+
+msgid "Keep both"
+msgstr ""
+
+#, fuzzy
+msgid "Overwrite"
+msgstr "上書き確認"
+
+msgid "l d/m/Y G:i"
+msgstr "Y/m/l d G:i"
+
+msgid "Never"
+msgstr "記録なし"
+
+msgid "Add from Files"
+msgstr "ファイル共有から追加"
+
+msgid "Add attachment from Files"
+msgstr "ファイル共有から添付ファイルを追加"
+
+msgid "Add to Files"
+msgstr "ファイル共有へ追加"
+
+msgid "Upload file"
+msgstr "ファイルをアップロード"
+
+msgid "Files"
+msgstr "ファイル"
+
+msgid "Files Plugin"
+msgstr "ファイルプラグイン"
+
+msgid "Manage Accounts"
+msgstr "アカウントを管理"
+
+msgid "Reset Files settings"
+msgstr "ファイル設定をリセット"
+
+msgid "Resets Files settings to their original defaults"
+msgstr "初期設定へファイル設定を戻す"
+
+msgid "Are you sure to remove all settings and accounts?"
+msgstr ""
+
+msgid ""
+"Accounts marked by your administrator as \"cannot be changed\" will not be "
+"removed."
+msgstr ""
+
+#, fuzzy
+msgid ""
+"WebApp will automatically restart in order for these changes to take effect."
+msgstr "設定反映を行うためにWebAppは自動的に再起動します"
+
+msgid "Webapp is reloading, Please wait."
+msgstr "Webappを再読み込み中です、しばらくお待ちください。"
+
+msgid "Edit Account"
+msgstr "アカウントを編集"
+
+msgid "Account Information"
+msgstr "アカウント情報"
+
+msgid "Account name"
+msgstr "アカウント名"
+
+msgid "Account Configuration"
+msgstr "アカウント設定"
+
+msgid "Update"
+msgstr "アップデート"
+
+msgid "ID"
+msgstr "ID"
+
+msgid "Sort by: ID"
+msgstr "並べ替え順 : ID"
+
+msgid "Backend"
+msgstr "バックエンド"
+
+msgid "Sort by: Backend"
+msgstr "並べ替え順 : バックエンド"
+
+msgid "Features"
+msgstr "機能"
+
+msgid "Shows all available features of the backend."
+msgstr "バックエンドとして利用可能な全ての機能を表示する。"
+
+msgid "Show quota information"
+msgstr "クォータ情報を表示"
+
+msgid "Show version information"
+msgstr "バージョン情報を表示"
+
+msgid "Share files"
+msgstr "ファイル共有"
+
+msgid "Fast Down/Upload"
+msgstr "高速ダウンロード/アップロード"
+
+msgid "No account created!"
+msgstr "アカウントが作成されていません!"
+
+msgid "Add Account"
+msgstr "アカウントを追加"
+
+msgid "Remove Account"
+msgstr "アカウントを削除"
+
+msgid "Loading accounts"
+msgstr "アカウントを読み込み中です"
+
+msgid "Do you really want to delete the account \"{0}\"?"
+msgstr "アカウント \"{0}\" を削除してもよろしいですか?"
+
+msgid "Quota Information"
+msgstr "クオータ情報"
+
+msgid "Used"
+msgstr "使用中"
+
+msgid "Total"
+msgstr ""
+
+msgid "Version Information"
+msgstr "バージョン情報"
+
+msgid "Filename"
+msgstr "ファイル名"
+
+msgid "Sort by: Filename"
+msgstr "並べ替え順 : ファイル名"
+
+msgid "Loading files"
+msgstr "ファイルを読み込み中"
+
+msgid "The file {0} is too large!"
+msgstr "ファイル {0} は大きすぎます!"
+
+msgid "max"
+msgstr "最大"
+
+msgid "You have to choose at least one file!"
+msgstr "少なくとも１つのファイルを選択してください!"
+
+msgid "Create New "
+msgstr ""
+
+msgid "Incorrect filename"
+msgstr ""
+
+msgid "Error reaching office backend"
+msgstr ""
+
+msgid "Folder already exists"
+msgstr "フォルダが既に存在しています"
+
+msgid "Incorrect foldername"
+msgstr "フォルダ名が正しくありません"
+
+msgid "File information"
+msgstr "ファイル情報"
+
+msgid "Select a file"
+msgstr "ファイルを選択"
+
+msgid "Maximum upload size"
+msgstr "最大アップロードサイズ"
+
+msgid "Browse"
+msgstr "一覧表示"
+
+msgid "Select upload folder"
+msgstr "アップロードするフォルダを選択"
+
+msgid "File \"{0}\" is too large! Maximum allowed filesize: {1}."
+msgstr ""
+"ファイル \"{0}\" のサイズが大きすぎます! 最大ファイルサイズは {1} です。"
+
+msgid "Add item to Files"
+msgstr "ファイル共有へアイテムを追加"
+
+msgid "You have to choose a folder!"
+msgstr "フォルダを選択する必要があります!"
+
+msgid "Uploaded"
+msgstr "アップロード済み"
+
+msgid "Attachment successfully stored in Files"
+msgstr "共有フォルダへ添付ファイルを保存しました"
+
+msgid "Upload Failed"
+msgstr "アップロードに失敗しました"
+
+msgid "Attachment could not be stored in Files! Error: "
+msgstr "添付ファイルがファイル共有へ保存されませんでした "
+
+msgid "Share Files"
+msgstr "共有ファイル"
+
+msgid "Uploading files to "
+msgstr "ファイルを次へアップロード中 "
+
+msgid "Starting upload"
+msgstr "アップロードを開始"
+
+msgid "Cancel upload"
+msgstr "アップロードをキャンセル"
+
+msgid "- seconds left"
+msgstr "- 秒残り"
+
+msgid " seconds left"
+msgstr " 秒残り"
+
+msgid " minutes left"
+msgstr " 分残り"
+
+msgid "Uploading: "
+msgstr "アップロード中 "
+
+msgid "Upload status unavailable... please wait."
+msgstr "アップロード状況が不明です... しばらくお待ちください。"
+
+msgid "Upload finished!"
+msgstr "アップロードが完了しました!"
+
+msgid "Upload aborted!"
+msgstr "アップロードが中断されました!"
+
+msgid "Upload failed!"
+msgstr "アップロードが失敗しました!"
+
+msgid "Document"
+msgstr ""
+
+msgid "Presentation"
+msgstr ""
+
+msgid "Spreadsheet"
+msgstr ""
+
+msgid "Upload files"
+msgstr "ファイルをアップロード"
+
+msgid "Create document"
+msgstr ""
+
+msgid "Create office document"
+msgstr ""
+
+msgid "Download files"
+msgstr "ダウンロードファイル"
+
+msgid "Share"
+msgstr "共有"
+
+msgid "Attach to mail"
+msgstr "メールへ添付"
+
+msgid "Attach to mail as link"
+msgstr ""
+
+msgid "Attaching"
+msgstr "添付中"
+
+msgid "Creating email... Please wait!"
+msgstr "メールを作成中です しばらくお待ちください!"
+
+msgid "Edit share"
+msgstr "共有を編集"
+
+#, fuzzy
+msgid ""
+"There are no accounts added. Go to settings, Files tab and add an account"
+msgstr "追加されたアカウントはありません 設定よりアカウントを追加してください!"
+
+msgid "Filesize"
+msgstr "ファイルサイズ"
+
+msgid "Last modified"
+msgstr "最終更新日"
+
+msgid "Is shared"
+msgstr "共有されています"
+
+msgid "File preview"
+msgstr "ファイル・レビュー"
+
+msgid "Your browser does not support previewing of audio files!"
+msgstr ""
+"ご利用中のブラウザは、オーディオファイルのレビューをサポートしていません!"
+
+msgid "Your browser does not support previewing of video files!"
+msgstr "ご利用中のブラウザでは、動画ファイルのレビューをサポートしていません!"
+
+msgid "d.m.Y G:i"
+msgstr "Y.m.d G:i"
+
+msgid "Folder"
+msgstr "フォルダ"
+
+msgid "File ({0})"
+msgstr "ファイル ({0})"
+
+msgid "Sort by: Path"
+msgstr "並べ替え順 : パス"
+
+msgid "Sort by: Last modified"
+msgstr "並べ替え順 : 最終更新日"
+
+msgid "Sort by: Shared"
+msgstr "並べ替え順 : 共有済み"
+
+msgid "There are no items to show in this view"
+msgstr "このビューで表示するアイテムがありません"
+
+msgid "files selected"
+msgstr "ファイルが選択されました"
+
+msgid "Authentication required, when using grommunio-files for the first time"
+msgstr ""
+
 msgid "Intranet"
 msgstr ""
 
-msgid "Email Details"
+msgid "Openstreetmap"
 msgstr ""
 
-msgid "Item Data"
+#. TRANSLATORS: The map of earth
+msgid "Map"
 msgstr ""
 
 msgid "Mobile Device Manager"
@@ -5922,9 +6369,6 @@ msgstr ""
 
 msgid "Operating System"
 msgstr ""
-
-msgid "ID"
-msgstr "ID"
 
 msgid "User Agent"
 msgstr ""
@@ -5990,6 +6434,9 @@ msgstr ""
 msgid "No devices connected to your account"
 msgstr ""
 
+msgid "Provisioning Status"
+msgstr ""
+
 msgid "Last Update"
 msgstr ""
 
@@ -6005,6 +6452,9 @@ msgstr ""
 msgid "First Sync time"
 msgstr ""
 
+msgid "Wipe Device"
+msgstr ""
+
 msgid "Full resync"
 msgstr ""
 
@@ -6014,14 +6464,16 @@ msgstr ""
 msgid "Please enter your username and password"
 msgstr ""
 
-msgid "Password"
-msgstr "パスワード"
-
 msgid "Username"
 msgstr "ユーザー名"
 
 msgid ""
 "Do you really want to wipe your device?\n"
+" Enter your password to confirm."
+msgstr ""
+
+msgid ""
+"Do you really want to remove your device?\n"
 " Enter your password to confirm."
 msgstr ""
 
@@ -6115,6 +6567,304 @@ msgid ""
 "numbers. Password should have 8 to 20 characters."
 msgstr ""
 
+msgid "Change passphrase"
+msgstr ""
+
+msgid "Old passphrase"
+msgstr ""
+
+msgid "Wrong passphrase. Please try again"
+msgstr ""
+
+msgid "New passphrase"
+msgstr ""
+
+msgid "Confirm new passphrase"
+msgstr ""
+
+msgid "The passphrases don't match. Please try again"
+msgstr ""
+
+msgid "S/MIME Message"
+msgstr "S/MIME メッセージ"
+
+#, fuzzy
+msgid "Passphrase changed succesfully"
+msgstr "メッセージの復号化に成功しました"
+
+msgid "S/MIME Passphrase"
+msgstr "S/MIME パスフレーズ"
+
+msgid "Submit"
+msgstr "登録"
+
+msgid "Certificate passphrase"
+msgstr "Certificate パスフレーズ"
+
+msgid "The passphrase you typed is incorrect. Please try again."
+msgstr ""
+
+msgid "No certificates imported, please upload your private certificate"
+msgstr ""
+
+msgid "Valid from"
+msgstr "から有効"
+
+msgid "Expires"
+msgstr "有効期限"
+
+msgid "Loading certificates"
+msgstr "証明書を読み込み中です"
+
+msgid "S/MIME Plugin"
+msgstr "S/MIMEプラグイン"
+
+msgid "Please select a certificate."
+msgstr "証明書を選択してください。"
+
+msgid ""
+"Do you really want to remove your private certificate? If you remove your "
+"certificate you will not be able to sign or decrypt S/MIME emails."
+msgstr ""
+"プライベート証明書を削除してもよろしいですか? もしこの証明書を削除した場合、"
+"電子メールに対するS/MIME署名や暗号化が利用できなくなります。"
+
+msgid "Certificate details"
+msgstr "証明書詳細"
+
+msgid ""
+"Below you can view and delete public & private certificate(s) stored on the "
+"server."
+msgstr ""
+"以下があなたが閲覧できる、または削除ができるサーバへ保存されている公開及びプ"
+"ライベート証明書です。"
+
+msgid "Filter on Email"
+msgstr "Emailでフィルタ"
+
+msgid "Public & Private certificates"
+msgstr "公開及びプライベート証明書"
+
+msgid "S/MIME"
+msgstr "S/MIME"
+
+msgid "You don't have a valid certificate corresponding to your account"
+msgstr "あなたのアカウントに一致する有効な証明書がありません"
+
+msgid "Personal certificate"
+msgstr "パーソナル証明書"
+
+msgid "Change passphrase for last certificate"
+msgstr ""
+
+msgid "You have a valid certificate corresponding to your account"
+msgstr "あなたのアカウントに一致する有効な証明書があります"
+
+msgid "Upload your certificate"
+msgstr "証明書をアップロード"
+
+msgid ""
+"Below you can upload your private certificate in PKCS#12 format. The WebApp "
+"only accepts certificates which are valid and only stores one private "
+"certificate on the server."
+msgstr ""
+"PKCS#12フォーマットの証明書をアップロードすることができます。WebAppでは個人証"
+"明書であり有効であるものに限り、サーバにて受け付けることができます。"
+
+msgid "Private certificate"
+msgstr "プライベート証明書"
+
+msgid "You must fill in the certificate passphrase to upload your certificate."
+msgstr ""
+
+msgid "You must first select a valid private certificate in PKCS#12 format."
+msgstr ""
+
+msgid "Sign"
+msgstr "署名"
+
+msgid "Sign message"
+msgstr "署名メッセージ"
+
+msgid ""
+"Ensure the authenticity of the message by adding a digital signature to this "
+"message. Any changes to the message will invalidate the signature."
+msgstr ""
+"メッセージへデジタル署名を追加することにより、メッセージの送信元を証明しま"
+"す。変更が加わると署名は無効なものとなります。"
+
+msgid "Encrypt"
+msgstr "暗号化"
+
+msgid "Encrypt message"
+msgstr "暗号化メッセージ"
+
+msgid ""
+"Ensure the privacy of the message by encrypting its contents. Only the "
+"recipient of the message will be able to open it."
+msgstr ""
+"その内容を暗号化することでプライバシーを確保します。そのメッセージは受信者に"
+"限り閲覧することができます。"
+
+msgid "What's going on with my email?"
+msgstr "私のメールに何が発生していますか?"
+
+msgid ""
+"WebApp can verify digital signatures of emails. A successful verification "
+"reassures you that the message has not been tampered with and validates the "
+"identity of the sender."
+msgstr ""
+"WebAppは電子メールのデジタル証明書を確認することができます。認証が正しく成功"
+"することは、送信者が証明されると共に改ざんされていないことを証明します。"
+
+msgid ""
+"You are seeing this message because the verification of the digital signature"
+msgstr ""
+
+msgid " has failed"
+msgstr ""
+
+msgid " for this message."
+msgstr ""
+"このメッセージは次の理由により表示されています：このメッセージのためのデジタ"
+"ル証明書の認証 \") + \"<b> \" + _(\" has failed\") + \"</b>\" + _(\" 。"
+
+msgid "What caused this issue?"
+msgstr "この問題が発生している理由は何ですか?"
+
+msgid "What should I do?"
+msgstr "対応方法はありますか?"
+
+msgid ""
+"You can continue to work. However, you should keep in mind that the identity "
+"and the authenticity of the message content could not be verified."
+msgstr ""
+"あなたは継続してメール作成を行えます。しかし、メッセージ内容は正しく認証され"
+"ていないことにご注意ください。"
+
+msgid ""
+"You can contact your helpdesk or system administrator if you are not sure "
+"what to do next."
+msgstr ""
+"対応方法が不明な場合、ヘルプデスク、もしくはシステム管理者へお問い合わせくだ"
+"さい。"
+
+msgid ""
+"WebApp can verify digital signatures of emails. A successful verification "
+"reassures you "
+msgstr ""
+"WebAppは電子メールのデジタル証明書を認証することができました。認証は成功して"
+"いますので、ご安心ください。 "
+
+msgid ""
+"that the message has not been tampered with and validates the identity of "
+"the sender."
+msgstr "送信者認証が完了と共に内容が改ざんされていないことを確認いたしました。"
+
+msgid ""
+"The verification of the digital signature was successful for this email "
+"message."
+msgstr "デジタル証明書の認証は正しく成功しました。"
+
+msgid "WebApp could not find a public certificate for the recipient."
+msgstr "WebAppは受信者の公開鍵を見つけることができませんでした。"
+
+msgid ""
+"The identity of the sender and authenticity of the message content have been "
+"verified, but the certificate used to sign the message expired on [d-m-Y]."
+msgstr ""
+"メッセージ内容及び送信者の特定が確認されました。しかし、証明書の有効期限は "
+"[d-m-Y] となっています。"
+
+msgid "The digital signature could not be verified for unknown reasons."
+msgstr "原因不明によりデジタル証明書を確認することができませんでした。"
+
+msgid ""
+"The digital certificate used to sign this message has been revoked (i.e. the "
+"sender has marked it as compromised)"
+msgstr ""
+"このメッセージに証明されていたデジタル証明書は無効化されています。(例：送信者"
+"により廃棄されている場合など)"
+
+msgid ""
+"The verification service of the certificate authority that signed the "
+"sender's certificate is not available. The validity of the certificate could "
+"not be verified."
+msgstr ""
+"送信者の証明書を署名するために必要とする認証局証明書を確認することができませ"
+"んでした。この証明書の有効性を確認することができませんでした。"
+
+msgid ""
+"The revocation status of the digital certificate used to sign this email is "
+"unknown (Server is unavaliable or certificate does not support OCSP). The "
+"validity of the certificate could not be verified."
+msgstr ""
+"このメールを署名するために利用されたデジタル証明書の無効化ステータスが不明で"
+"す（サーバへ接続できないか、OCSPがサポートされていません）。証明書の有効性が"
+"確認されませんでした。"
+
+msgid ""
+"The revocation status of the digital certificate used to sign this email is "
+"disabled (OCSP). The validity of the certificate could not be verified."
+msgstr ""
+"このメールを署名するために利用されたデジタル証明書の無効化ステータスが無効で"
+"す(OCSP)。この証明書の有効性を確認することができませんでした。"
+
+msgid "The certificate verification server (OCSP) is temporarly offline."
+msgstr "この証明書を確認するためのサーバ (OCSP) は一時的にオフラインです。"
+
+#, fuzzy
+msgid "Sender is removed from the server."
+msgstr "証明書は既にサーバへ保存されています"
+
+msgid "Signature verified succesfully"
+msgstr "署名を正しく確認されました"
+
+msgid "Could not verify signature, missing public certificate"
+msgstr "公開証明書に問題があるため、署名を確認することができませんでした"
+
+msgid "Signature verification succesfull, but certificate is expired"
+msgstr "署名の確認に成功しました、しかし証明書が有効期限切れしています"
+
+msgid "Signature could not be verified"
+msgstr "署名を確認することができませんでした"
+
+msgid "Certificate has been revoked"
+msgstr "証明書は無効化されています"
+
+msgid "Verification with Certificate Authority failed"
+msgstr "証明書発行元の確認に失敗しました"
+
+msgid "Message decrypted succesfully"
+msgstr "メッセージの復号化に成功しました"
+
+msgid "Message decryption failed"
+msgstr "メッセージの復号化に失敗しました"
+
+msgid "Please"
+msgstr ""
+
+msgid "click here"
+msgstr ""
+
+#, fuzzy
+msgid "to unlock your certificate"
+msgstr "証明書をアップロード"
+
+msgid "Cannot determine revocation status of certificate"
+msgstr "証明書の取り消しステータスを確認することができません"
+
+msgid "Signature verified (OCSP disabled)"
+msgstr "署名が確認されました (OCSP 無効)"
+
+#, fuzzy
+msgid "Unable to decrypt this message. Certificate does not match"
+msgstr "証明書を復号することができませんでした"
+
+#, fuzzy
+msgid "Verification failed. User is removed from the server."
+msgstr "証明書は既にサーバへ保存されています"
+
 msgid "Charm pink"
 msgstr ""
 
@@ -6201,6 +6951,169 @@ msgid ""
 "Please contact your system administrator."
 msgstr ""
 
+msgid "With this backend, you can connect to any ownCloud server."
+msgstr ""
+
+msgid "Files ownCloud Backend: "
+msgstr ""
+
+msgid "Server address"
+msgstr "サーバアドレス"
+
+msgid "Server port"
+msgstr "サーバポート"
+
+msgid "Use SSL"
+msgstr "SSLを使用する"
+
+msgid "Webdav base path"
+msgstr "WebDavベースパス"
+
+msgid "Use grommunio credentials"
+msgstr "grommunio認証を使用する"
+
+msgid "php-curl is not available"
+msgstr ""
+
+msgid "Access denied"
+msgstr ""
+
+msgid "Connection failed"
+msgstr ""
+
+msgid "Sabre error"
+msgstr ""
+
+msgid "Copying failed"
+msgstr ""
+
+msgid "Unknown error"
+msgstr "不明なエラーが発生しました"
+
+msgid "Please contact your system administrator."
+msgstr ""
+
+msgid "Unauthorized. Wrong username or password."
+msgstr "認証に失敗しました.ユーザ名かパスワードが違います."
+
+msgid "File server is not reachable. Please verify the file server URL."
+msgstr ""
+
+msgid "You don't have enough permissions to view this file or folder."
+msgstr ""
+
+msgid "The file or folder is not available anymore."
+msgstr ""
+
+msgid "Connection to the file server timed out. Please check again later."
+msgstr ""
+
+msgid "This file is locked by another user. Please try again later."
+msgstr ""
+
+msgid "The request failed."
+msgstr ""
+
+msgid "The file server encountered an internal problem."
+msgstr ""
+
+msgid "We could not write to temporary directory."
+msgstr ""
+
+msgid "We could not retrieve list of server features."
+msgstr ""
+
+msgid "PHP-Curl is not available."
+msgstr ""
+
+msgid "Unknown account ID"
+msgstr "アカウントＩＤが不明です"
+
+msgid "Feature \"Quota Information\" is not supported by this backend!"
+msgstr ""
+"このバックエンドでは \"Quota Information\" 機能はサポートされていません!"
+
+msgid "Feature \"Version Information\" is not supported by this backend!"
+msgstr ""
+"このバックエンドでは \"Version Information\" 機能はサポートされていません!"
+
+msgid "Feature \"OAUTH\" is not supported by this backend!"
+msgstr "このバックエンドでは \"OAUTH\" 機能はサポートされていません!"
+
+msgid "Moving between accounts is not implemented"
+msgstr ""
+
+msgid "Files plugin"
+msgstr ""
+
+msgid "Unknown type - cannot save this file to the Files backend!"
+msgstr ""
+"不明な種別 - ファイルバックエンドへこのファイルを保存することができません!"
+
+msgid "No record given!"
+msgstr "レコードが与えられていません!"
+
+msgid "Fetching sharing information failed"
+msgstr "共有情報の取り込みに失敗しました"
+
+msgid "Sharing failed"
+msgstr "共有に失敗しました"
+
+msgid "Updating share failed"
+msgstr "共有の更新に失敗しました"
+
+msgid "Deleting share failed"
+msgstr "削除の共有に失敗しました"
+
+msgid "With this backend, you can connect to any WebDAV server."
+msgstr ""
+
+msgid "Files WebDAV Backend: "
+msgstr ""
+
+msgid "PHP-CURL is not installed"
+msgstr ""
+
+msgid "Directory creation failed"
+msgstr ""
+
+msgid "Deletion failed"
+msgstr ""
+
+msgid "Moving failed"
+msgstr ""
+
+msgid "Temporary directory problems"
+msgstr ""
+
+msgid "File or folder not found"
+msgstr ""
+
+msgid "Not implemented"
+msgstr ""
+
+msgid "Please contact your system administrator"
+msgstr ""
+
+msgid "File server is not reachable. Please verify the connection."
+msgstr ""
+
+msgid "PHP-CURL not installed"
+msgstr ""
+
+msgid "Account is ready to use."
+msgstr "アカウントは既に利用されています."
+
+msgid "File backend not responding. Please try again later."
+msgstr ""
+"ファイル共有バックエンドから応答がありません.後ほど,改めてお試しください."
+
+msgid "Zip file generation failed. Please inform the administrator."
+msgstr "ZIPファイルの生成に失敗しました.システム管理者へご連絡ください."
+
+msgid "This file is no longer available. Please reload the folder."
+msgstr "このファイルは存在していません.フォルダを再読み込みしてください."
+
 msgid "Mobile device management plugin"
 msgstr ""
 
@@ -6231,6 +7144,59 @@ msgstr ""
 
 msgid "Password has been changed successfully."
 msgstr ""
+
+msgid "No certificate avaliable"
+msgstr "証明書が存在しません"
+
+msgid "Private certificate is not valid yet, unable to sign email"
+msgstr ""
+"プライベート証明書がまだ有効ではありません、電子メールへ署名することができま"
+"せん"
+
+msgid "Private certificate has been expired, unable to sign email"
+msgstr ""
+"個人証明書が有効期限切れしています、電子メールへ署名することができません"
+
+msgid "Private certificate does not match email address"
+msgstr "電子メールのアドレスと個人証明書が一致していません"
+
+msgid "Missing public certificates for the following recipients: "
+msgstr "次の受信者への公開証明書がありません : "
+
+msgid ". Please contact your system administrator for details"
+msgstr "詳細についてはシステム管理者へお問い合わせください"
+
+msgid ""
+"Your public certificate is not installed. Without this certificate, you will "
+"not be able to read encrypted messages you have sent to others."
+msgstr ""
+
+msgid "Certificate is already stored on the server"
+msgstr "証明書は既にサーバへ保存されています"
+
+msgid "Unable to decrypt certificate"
+msgstr "証明書を復号することができませんでした"
+
+msgid "Private key can't be used to sign email"
+msgstr "メールを署名するために公開鍵は利用されていません"
+
+msgid "Certificate email address doesn't match WebApp account "
+msgstr "WebAppアカウントと証明書の電子メールアドレスが一致しません "
+
+msgid "Certificate was expired on "
+msgstr "証明書の有効期限は次の通りです "
+
+msgid "Certificate has not been imported"
+msgstr "証明書はインポートされていません"
+
+msgid "Certificate is not yet valid "
+msgstr "証明書はまだ有効ではありません "
+
+msgid "Certificate is revoked"
+msgstr "証明書は廃棄されました"
+
+msgid "Unable to read public certificate"
+msgstr "公開鍵証明書を読み込むことができませんでした"
 
 msgid "Can't add data to bus, same action type is present in bus"
 msgstr ""
@@ -6937,1004 +7903,4 @@ msgid "JSON Error: - %s"
 msgstr ""
 
 msgid "Some problem encountered when encoding/decoding JSON data."
-msgstr ""
-
-msgid "Change passphrase"
-msgstr ""
-
-msgid "Old passphrase"
-msgstr ""
-
-msgid "Wrong passphrase. Please try again"
-msgstr ""
-
-msgid "New passphrase"
-msgstr ""
-
-msgid "Confirm new passphrase"
-msgstr ""
-
-msgid "The passphrases don't match. Please try again"
-msgstr ""
-
-msgid "S/MIME Message"
-msgstr "S/MIME メッセージ"
-
-#, fuzzy
-msgid "Passphrase changed succesfully"
-msgstr "メッセージの復号化に成功しました"
-
-msgid "S/MIME Passphrase"
-msgstr "S/MIME パスフレーズ"
-
-msgid "Submit"
-msgstr "登録"
-
-msgid "Certificate passphrase"
-msgstr "Certificate パスフレーズ"
-
-msgid "The passphrase you typed is incorrect. Please try again."
-msgstr ""
-
-msgid "No certificates imported, please upload your private certificate"
-msgstr ""
-
-msgid "Valid from"
-msgstr "から有効"
-
-msgid "Expires"
-msgstr "有効期限"
-
-msgid "Loading certificates"
-msgstr "証明書を読み込み中です"
-
-msgid "S/MIME Plugin"
-msgstr "S/MIMEプラグイン"
-
-msgid "Please select a certificate."
-msgstr "証明書を選択してください。"
-
-msgid ""
-"Do you really want to remove your private certificate? If you remove your "
-"certificate you will not be able to sign or decrypt S/MIME emails."
-msgstr ""
-"プライベート証明書を削除してもよろしいですか? もしこの証明書を削除した場合、"
-"電子メールに対するS/MIME署名や暗号化が利用できなくなります。"
-
-msgid "Certificate details"
-msgstr "証明書詳細"
-
-msgid ""
-"Below you can view and delete public & private certificate(s) stored on the "
-"server."
-msgstr ""
-"以下があなたが閲覧できる、または削除ができるサーバへ保存されている公開及びプ"
-"ライベート証明書です。"
-
-msgid "Filter on Email"
-msgstr "Emailでフィルタ"
-
-msgid "Public & Private certificates"
-msgstr "公開及びプライベート証明書"
-
-msgid "S/MIME"
-msgstr "S/MIME"
-
-msgid "You don't have a valid certificate corresponding to your account"
-msgstr "あなたのアカウントに一致する有効な証明書がありません"
-
-msgid "Personal certificate"
-msgstr "パーソナル証明書"
-
-msgid "You have a valid certificate corresponding to your account"
-msgstr "あなたのアカウントに一致する有効な証明書があります"
-
-msgid "Upload your certificate"
-msgstr "証明書をアップロード"
-
-msgid ""
-"Below you can upload your private certificate in PKCS#12 format. The WebApp "
-"only accepts certificates which are valid and only stores one private "
-"certificate on the server."
-msgstr ""
-"PKCS#12フォーマットの証明書をアップロードすることができます。WebAppでは個人証"
-"明書であり有効であるものに限り、サーバにて受け付けることができます。"
-
-msgid "Private certificate"
-msgstr "プライベート証明書"
-
-msgid "Upload"
-msgstr "アップロード"
-
-msgid "You must fill in the certificate passphrase to upload your certificate."
-msgstr ""
-
-msgid "You must first select a valid private certificate in PKCS#12 format."
-msgstr ""
-
-msgid "Sign"
-msgstr "署名"
-
-msgid "Sign message"
-msgstr "署名メッセージ"
-
-msgid ""
-"Ensure the authenticity of the message by adding a digital signature to this "
-"message. Any changes to the message will invalidate the signature."
-msgstr ""
-"メッセージへデジタル署名を追加することにより、メッセージの送信元を証明しま"
-"す。変更が加わると署名は無効なものとなります。"
-
-msgid "Encrypt"
-msgstr "暗号化"
-
-msgid "Encrypt message"
-msgstr "暗号化メッセージ"
-
-msgid ""
-"Ensure the privacy of the message by encrypting its contents. Only the "
-"recipient of the message will be able to open it."
-msgstr ""
-"その内容を暗号化することでプライバシーを確保します。そのメッセージは受信者に"
-"限り閲覧することができます。"
-
-msgid "What's going on with my email?"
-msgstr "私のメールに何が発生していますか?"
-
-msgid ""
-"WebApp can verify digital signatures of emails. A successful verification "
-"reassures you that the message has not been tampered with and validates the "
-"identity of the sender."
-msgstr ""
-"WebAppは電子メールのデジタル証明書を確認することができます。認証が正しく成功"
-"することは、送信者が証明されると共に改ざんされていないことを証明します。"
-
-msgid ""
-"You are seeing this message because the verification of the digital signature"
-msgstr ""
-
-msgid " has failed"
-msgstr ""
-
-msgid " for this message."
-msgstr ""
-"このメッセージは次の理由により表示されています：このメッセージのためのデジタ"
-"ル証明書の認証 \") + \"<b> \" + _(\" has failed\") + \"</b>\" + _(\" 。"
-
-msgid "What caused this issue?"
-msgstr "この問題が発生している理由は何ですか?"
-
-msgid "What should I do?"
-msgstr "対応方法はありますか?"
-
-msgid ""
-"You can continue to work. However, you should keep in mind that the identity "
-"and the authenticity of the message content could not be verified."
-msgstr ""
-"あなたは継続してメール作成を行えます。しかし、メッセージ内容は正しく認証され"
-"ていないことにご注意ください。"
-
-msgid ""
-"You can contact your helpdesk or system administrator if you are not sure "
-"what to do next."
-msgstr ""
-"対応方法が不明な場合、ヘルプデスク、もしくはシステム管理者へお問い合わせくだ"
-"さい。"
-
-msgid ""
-"WebApp can verify digital signatures of emails. A successful verification "
-"reassures you "
-msgstr ""
-"WebAppは電子メールのデジタル証明書を認証することができました。認証は成功して"
-"いますので、ご安心ください。 "
-
-msgid ""
-"that the message has not been tampered with and validates the identity of "
-"the sender."
-msgstr "送信者認証が完了と共に内容が改ざんされていないことを確認いたしました。"
-
-msgid ""
-"The verification of the digital signature was successful for this email "
-"message."
-msgstr "デジタル証明書の認証は正しく成功しました。"
-
-msgid "WebApp could not find a public certificate for the recipient."
-msgstr "WebAppは受信者の公開鍵を見つけることができませんでした。"
-
-msgid ""
-"The identity of the sender and authenticity of the message content have been "
-"verified, but the certificate used to sign the message expired on [d-m-Y]."
-msgstr ""
-"メッセージ内容及び送信者の特定が確認されました。しかし、証明書の有効期限は "
-"[d-m-Y] となっています。"
-
-msgid "The digital signature could not be verified for unknown reasons."
-msgstr "原因不明によりデジタル証明書を確認することができませんでした。"
-
-msgid ""
-"The digital certificate used to sign this message has been revoked (i.e. the "
-"sender has marked it as compromised)"
-msgstr ""
-"このメッセージに証明されていたデジタル証明書は無効化されています。(例：送信者"
-"により廃棄されている場合など)"
-
-msgid ""
-"The verification service of the certificate authority that signed the "
-"sender's certificate is not available. The validity of the certificate could "
-"not be verified."
-msgstr ""
-"送信者の証明書を署名するために必要とする認証局証明書を確認することができませ"
-"んでした。この証明書の有効性を確認することができませんでした。"
-
-msgid ""
-"The revocation status of the digital certificate used to sign this email is "
-"unknown (Server is unavaliable or certificate does not support OCSP). The "
-"validity of the certificate could not be verified."
-msgstr ""
-"このメールを署名するために利用されたデジタル証明書の無効化ステータスが不明で"
-"す（サーバへ接続できないか、OCSPがサポートされていません）。証明書の有効性が"
-"確認されませんでした。"
-
-msgid ""
-"The revocation status of the digital certificate used to sign this email is "
-"disabled (OCSP). The validity of the certificate could not be verified."
-msgstr ""
-"このメールを署名するために利用されたデジタル証明書の無効化ステータスが無効で"
-"す(OCSP)。この証明書の有効性を確認することができませんでした。"
-
-msgid "The certificate verification server (OCSP) is temporarly offline."
-msgstr "この証明書を確認するためのサーバ (OCSP) は一時的にオフラインです。"
-
-#, fuzzy
-msgid "Sender is removed from the server."
-msgstr "証明書は既にサーバへ保存されています"
-
-msgid "Signature verified succesfully"
-msgstr "署名を正しく確認されました"
-
-msgid "Could not verify signature, missing public certificate"
-msgstr "公開証明書に問題があるため、署名を確認することができませんでした"
-
-msgid "Signature verification succesfull, but certificate is expired"
-msgstr "署名の確認に成功しました、しかし証明書が有効期限切れしています"
-
-msgid "Signature could not be verified"
-msgstr "署名を確認することができませんでした"
-
-msgid "Certificate has been revoked"
-msgstr "証明書は無効化されています"
-
-msgid "Verification with Certificate Authority failed"
-msgstr "証明書発行元の確認に失敗しました"
-
-msgid "Message decrypted succesfully"
-msgstr "メッセージの復号化に成功しました"
-
-msgid "Message decryption failed"
-msgstr "メッセージの復号化に失敗しました"
-
-msgid "Please"
-msgstr ""
-
-msgid "click here"
-msgstr ""
-
-#, fuzzy
-msgid "to unlock your certificate"
-msgstr "証明書をアップロード"
-
-msgid "Cannot determine revocation status of certificate"
-msgstr "証明書の取り消しステータスを確認することができません"
-
-msgid "Signature verified (OCSP disabled)"
-msgstr "署名が確認されました (OCSP 無効)"
-
-#, fuzzy
-msgid "Unable to decrypt this message. Certificate does not match"
-msgstr "証明書を復号することができませんでした"
-
-#, fuzzy
-msgid "Verification failed. User is removed from the server."
-msgstr "証明書は既にサーバへ保存されています"
-
-msgid "No certificate avaliable"
-msgstr "証明書が存在しません"
-
-msgid "Private certificate is not valid yet, unable to sign email"
-msgstr ""
-"プライベート証明書がまだ有効ではありません、電子メールへ署名することができま"
-"せん"
-
-msgid "Private certificate has been expired, unable to sign email"
-msgstr ""
-"個人証明書が有効期限切れしています、電子メールへ署名することができません"
-
-msgid "Private certificate does not match email address"
-msgstr "電子メールのアドレスと個人証明書が一致していません"
-
-msgid "Missing public certificates for the following recipients: "
-msgstr "次の受信者への公開証明書がありません : "
-
-msgid ". Please contact your system administrator for details"
-msgstr "詳細についてはシステム管理者へお問い合わせください"
-
-msgid ""
-"Your public certificate is not installed. Without this certificate, you will "
-"not be able to read encrypted messages you have sent to others."
-msgstr ""
-
-msgid "Certificate is already stored on the server"
-msgstr "証明書は既にサーバへ保存されています"
-
-msgid "New certificate uploaded"
-msgstr "新しい証明書がアップロードされました"
-
-msgid "Certificate uploaded"
-msgstr "証明書がアップロードされました"
-
-msgid "Unable to decrypt certificate"
-msgstr "証明書を復号することができませんでした"
-
-msgid "Private key can't be used to sign email"
-msgstr "メールを署名するために公開鍵は利用されていません"
-
-msgid "Certificate email address doesn't match WebApp account "
-msgstr "WebAppアカウントと証明書の電子メールアドレスが一致しません "
-
-msgid "Certificate was expired on "
-msgstr "証明書の有効期限は次の通りです "
-
-msgid "Certificate has not been imported"
-msgstr "証明書はインポートされていません"
-
-msgid "Certificate is not yet valid "
-msgstr "証明書はまだ有効ではありません "
-
-msgid "Certificate is revoked"
-msgstr "証明書は廃棄されました"
-
-msgid "Unable to read public certificate"
-msgstr "公開鍵証明書を読み込むことができませんでした"
-
-msgid "Add attachment from {0}"
-msgstr "{0} から添付ファイルを追加"
-
-msgid "Confirm deletion"
-msgstr "削除確認"
-
-#, fuzzy
-msgid "Are you sure you want to delete {0}?"
-msgstr "アカウント \"{0}\" を削除してもよろしいですか?"
-
-msgid "Are you sure you want to delete {0} and all of its contents?"
-msgstr ""
-
-#, fuzzy
-msgid "Are you sure you want to delete {0} files?"
-msgstr "アカウント \"{0}\" を削除してもよろしいですか?"
-
-msgid "Are you sure want to delete {0} folders and all of their contents?"
-msgstr ""
-
-msgid ""
-"Are you sure want to delete the selected items and all of their contents?"
-msgstr ""
-
-msgid "Confirm overwrite"
-msgstr "上書き確認"
-
-msgid "File already exists. Do you want to overwrite it?"
-msgstr "ファイルが既に存在しています.上書きをしますか？"
-
-msgid "Please enter a new name"
-msgstr "新しい名前を入力してください"
-
-msgid "Rename record"
-msgstr ""
-
-msgid "A file name should not be empty."
-msgstr ""
-
-msgid "Rename item"
-msgstr ""
-
-msgid "A file named \"{0}\" already exists. Please enter a different name."
-msgstr ""
-
-msgid "Downloading"
-msgstr "ダウンロード中です"
-
-msgid "Download started... please wait!"
-msgstr "ダウンロードを開始しました...しばらくお待ちください!"
-
-msgid "At least one file is too large! Maximum allowed filesize: {0}."
-msgstr ""
-"少なくとも１つのファイルサイズが大きすぎます。最大許容サイズは {0} です。"
-
-msgid "Keep both"
-msgstr ""
-
-#, fuzzy
-msgid "Overwrite"
-msgstr "上書き確認"
-
-msgid "l d/m/Y G:i"
-msgstr "Y/m/l d G:i"
-
-msgid "Never"
-msgstr "記録なし"
-
-msgid "Add from Files"
-msgstr "ファイル共有から追加"
-
-msgid "Add attachment from Files"
-msgstr "ファイル共有から添付ファイルを追加"
-
-msgid "Add to Files"
-msgstr "ファイル共有へ追加"
-
-msgid "Upload file"
-msgstr "ファイルをアップロード"
-
-msgid "Files"
-msgstr "ファイル"
-
-msgid "Files Plugin"
-msgstr "ファイルプラグイン"
-
-msgid "Manage Accounts"
-msgstr "アカウントを管理"
-
-msgid "Reset Files settings"
-msgstr "ファイル設定をリセット"
-
-msgid "Resets Files settings to their original defaults"
-msgstr "初期設定へファイル設定を戻す"
-
-msgid "Are you sure to remove all settings and accounts?"
-msgstr ""
-
-msgid ""
-"Accounts marked by your administrator as \"cannot be changed\" will not be "
-"removed."
-msgstr ""
-
-#, fuzzy
-msgid ""
-"WebApp will automatically restart in order for these changes to take effect."
-msgstr "設定反映を行うためにWebAppは自動的に再起動します"
-
-msgid "Webapp is reloading, Please wait."
-msgstr "Webappを再読み込み中です、しばらくお待ちください。"
-
-msgid "Edit Account"
-msgstr "アカウントを編集"
-
-msgid "Account Information"
-msgstr "アカウント情報"
-
-msgid "Account name"
-msgstr "アカウント名"
-
-msgid "Account type"
-msgstr "アカウントタイプ"
-
-msgid "Select backend..."
-msgstr "バックエンドを選択..."
-
-msgid "Account Configuration"
-msgstr "アカウント設定"
-
-msgid "Update"
-msgstr "アップデート"
-
-msgid "Sort by: ID"
-msgstr "並べ替え順 : ID"
-
-msgid "Backend"
-msgstr "バックエンド"
-
-msgid "Sort by: Backend"
-msgstr "並べ替え順 : バックエンド"
-
-msgid "Features"
-msgstr "機能"
-
-msgid "Shows all available features of the backend."
-msgstr "バックエンドとして利用可能な全ての機能を表示する。"
-
-msgid "Show quota information"
-msgstr "クォータ情報を表示"
-
-msgid "Show version information"
-msgstr "バージョン情報を表示"
-
-msgid "Share files"
-msgstr "ファイル共有"
-
-msgid "Fast Down/Upload"
-msgstr "高速ダウンロード/アップロード"
-
-msgid "No account created!"
-msgstr "アカウントが作成されていません!"
-
-msgid "Add Account"
-msgstr "アカウントを追加"
-
-msgid "Remove Account"
-msgstr "アカウントを削除"
-
-msgid "Loading accounts"
-msgstr "アカウントを読み込み中です"
-
-msgid "Do you really want to delete the account \"{0}\"?"
-msgstr "アカウント \"{0}\" を削除してもよろしいですか?"
-
-msgid "Quota Information"
-msgstr "クオータ情報"
-
-msgid "Used"
-msgstr "使用中"
-
-msgid "Total"
-msgstr ""
-
-msgid "Version Information"
-msgstr "バージョン情報"
-
-msgid "Sort by: Type"
-msgstr "並べ替え順 : 種別"
-
-msgid "Filename"
-msgstr "ファイル名"
-
-msgid "Sort by: Filename"
-msgstr "並べ替え順 : ファイル名"
-
-msgid "Loading files"
-msgstr "ファイルを読み込み中"
-
-msgid "The file {0} is too large!"
-msgstr "ファイル {0} は大きすぎます!"
-
-msgid "max"
-msgstr "最大"
-
-msgid "You have to choose at least one file!"
-msgstr "少なくとも１つのファイルを選択してください!"
-
-msgid "Folder already exists"
-msgstr "フォルダが既に存在しています"
-
-msgid "Incorrect foldername"
-msgstr "フォルダ名が正しくありません"
-
-msgid "File information"
-msgstr "ファイル情報"
-
-msgid "Select a file"
-msgstr "ファイルを選択"
-
-msgid "Maximum upload size"
-msgstr "最大アップロードサイズ"
-
-msgid "Browse"
-msgstr "一覧表示"
-
-msgid "Select upload folder"
-msgstr "アップロードするフォルダを選択"
-
-msgid "File \"{0}\" is too large! Maximum allowed filesize: {1}."
-msgstr ""
-"ファイル \"{0}\" のサイズが大きすぎます! 最大ファイルサイズは {1} です。"
-
-msgid "Add item to Files"
-msgstr "ファイル共有へアイテムを追加"
-
-msgid "You have to choose a folder!"
-msgstr "フォルダを選択する必要があります!"
-
-msgid "Uploaded"
-msgstr "アップロード済み"
-
-msgid "Attachment successfully stored in Files"
-msgstr "共有フォルダへ添付ファイルを保存しました"
-
-msgid "Upload Failed"
-msgstr "アップロードに失敗しました"
-
-msgid "Attachment could not be stored in Files! Error: "
-msgstr "添付ファイルがファイル共有へ保存されませんでした "
-
-msgid "Share Files"
-msgstr "共有ファイル"
-
-msgid "Uploading files to "
-msgstr "ファイルを次へアップロード中 "
-
-msgid "Starting upload"
-msgstr "アップロードを開始"
-
-msgid "Cancel upload"
-msgstr "アップロードをキャンセル"
-
-msgid "- seconds left"
-msgstr "- 秒残り"
-
-msgid " seconds left"
-msgstr " 秒残り"
-
-msgid " minutes left"
-msgstr " 分残り"
-
-msgid "Uploading: "
-msgstr "アップロード中 "
-
-msgid "Upload status unavailable... please wait."
-msgstr "アップロード状況が不明です... しばらくお待ちください。"
-
-msgid "Upload finished!"
-msgstr "アップロードが完了しました!"
-
-msgid "Upload aborted!"
-msgstr "アップロードが中断されました!"
-
-msgid "Upload failed!"
-msgstr "アップロードが失敗しました!"
-
-msgid "Upload files"
-msgstr "ファイルをアップロード"
-
-msgid "Download files"
-msgstr "ダウンロードファイル"
-
-msgid "Share"
-msgstr "共有"
-
-msgid "Attach to mail"
-msgstr "メールへ添付"
-
-msgid "Attaching"
-msgstr "添付中"
-
-msgid "Creating email... Please wait!"
-msgstr "メールを作成中です しばらくお待ちください!"
-
-msgid "Edit share"
-msgstr "共有を編集"
-
-#, fuzzy
-msgid ""
-"There are no accounts added. Go to settings, Files tab and add an account"
-msgstr "追加されたアカウントはありません 設定よりアカウントを追加してください!"
-
-msgid "Filesize"
-msgstr "ファイルサイズ"
-
-msgid "Last modified"
-msgstr "最終更新日"
-
-msgid "Is shared"
-msgstr "共有されています"
-
-msgid "File preview"
-msgstr "ファイル・レビュー"
-
-msgid "Your browser does not support previewing of audio files!"
-msgstr ""
-"ご利用中のブラウザは、オーディオファイルのレビューをサポートしていません!"
-
-msgid "Your browser does not support previewing of video files!"
-msgstr "ご利用中のブラウザでは、動画ファイルのレビューをサポートしていません!"
-
-msgid "d.m.Y G:i"
-msgstr "Y.m.d G:i"
-
-msgid "Folder"
-msgstr "フォルダ"
-
-msgid "File ({0})"
-msgstr "ファイル ({0})"
-
-msgid "Sort by: Path"
-msgstr "並べ替え順 : パス"
-
-msgid "Sort by: Last modified"
-msgstr "並べ替え順 : 最終更新日"
-
-msgid "Sort by: Shared"
-msgstr "並べ替え順 : 共有済み"
-
-msgid "There are no items to show in this view"
-msgstr "このビューで表示するアイテムがありません"
-
-msgid "files selected"
-msgstr "ファイルが選択されました"
-
-msgid "{0} of {1} in use"
-msgstr "{1} のうち {0} が利用されています"
-
-msgid "Unknown account ID"
-msgstr "アカウントＩＤが不明です"
-
-msgid "Feature \"Quota Information\" is not supported by this backend!"
-msgstr ""
-"このバックエンドでは \"Quota Information\" 機能はサポートされていません!"
-
-msgid "Feature \"Version Information\" is not supported by this backend!"
-msgstr ""
-"このバックエンドでは \"Version Information\" 機能はサポートされていません!"
-
-msgid "Feature \"OAUTH\" is not supported by this backend!"
-msgstr "このバックエンドでは \"OAUTH\" 機能はサポートされていません!"
-
-msgid "Moving between accounts is not implemented"
-msgstr ""
-
-msgid "Files plugin"
-msgstr ""
-
-msgid "Unknown type - cannot save this file to the Files backend!"
-msgstr ""
-"不明な種別 - ファイルバックエンドへこのファイルを保存することができません!"
-
-msgid "No record given!"
-msgstr "レコードが与えられていません!"
-
-msgid "Fetching sharing information failed"
-msgstr "共有情報の取り込みに失敗しました"
-
-msgid "Sharing failed"
-msgstr "共有に失敗しました"
-
-msgid "Updating share failed"
-msgstr "共有の更新に失敗しました"
-
-msgid "Deleting share failed"
-msgstr "削除の共有に失敗しました"
-
-msgid "With this backend, you can connect to any ftp server."
-msgstr "このバックエンドでは、ご希望するFTPサーバへ接続することができます."
-
-msgid "Files FTP Backend: "
-msgstr ""
-
-msgid "Server address"
-msgstr "サーバアドレス"
-
-msgid "Server port"
-msgstr "サーバポート"
-
-msgid "FTP user"
-msgstr "FTPユーザ"
-
-msgid "FTP password"
-msgstr "FTPパスワード"
-
-msgid "Base path"
-msgstr "ベースパス"
-
-msgid "Use SSL"
-msgstr "SSLを使用する"
-
-msgid "Use passive mode"
-msgstr "パッシブモードを使用する"
-
-msgid "Use grommunio credentials"
-msgstr "grommunio認証を使用する"
-
-msgid "Authentication failed"
-msgstr ""
-
-msgid "Connection failed"
-msgstr ""
-
-msgid "Unparsable server response."
-msgstr "サーバからの応答が正しくありません。"
-
-msgid "Temporary directory problems"
-msgstr ""
-
-msgid "Not implemented"
-msgstr ""
-
-msgid "Unknown error"
-msgstr "不明なエラーが発生しました"
-
-msgid "Please contact your system administrator"
-msgstr ""
-
-msgid "Unauthorized. Wrong username or password."
-msgstr "認証に失敗しました.ユーザ名かパスワードが違います."
-
-msgid "File server is not reachable. Please verify the connection."
-msgstr ""
-
-msgid "You don't have enough permissions to view this file or folder."
-msgstr ""
-
-msgid "This file or folder is not available anymore."
-msgstr ""
-
-msgid "Connection to the file server timed out. Please check again later."
-msgstr ""
-
-msgid "This file is locked by another user. Please check again later."
-msgstr ""
-
-msgid "The request failed."
-msgstr ""
-
-msgid "The file server encountered an internal problem."
-msgstr ""
-
-msgid "We could not write to temporary directory."
-msgstr ""
-
-msgid "We could not retrieve list of server features."
-msgstr ""
-
-msgid "This function is not yet implemented."
-msgstr ""
-
-msgid "With this backend, you can connect to any WebDAV server."
-msgstr ""
-
-msgid "Files WebDAV Backend: "
-msgstr ""
-
-msgid "Webdav base path"
-msgstr "WebDavベースパス"
-
-msgid "PHP-CURL is not installed"
-msgstr ""
-
-msgid "Access denied"
-msgstr ""
-
-msgid "Sabre error"
-msgstr ""
-
-msgid "Directory creation failed"
-msgstr ""
-
-msgid "Deletion failed"
-msgstr ""
-
-msgid "Moving failed"
-msgstr ""
-
-msgid "File or folder not found"
-msgstr ""
-
-msgid "Copying failed"
-msgstr ""
-
-msgid "File server is not reachable. Please verify the file server URL."
-msgstr ""
-
-msgid "The file or folder is not available anymore."
-msgstr ""
-
-msgid "This file is locked by another user. Please try again later."
-msgstr ""
-
-msgid "PHP-Curl is not available."
-msgstr ""
-
-msgid "PHP-CURL not installed"
-msgstr ""
-
-msgid "Account is ready to use."
-msgstr "アカウントは既に利用されています."
-
-msgid "File backend not responding. Please try again later."
-msgstr ""
-"ファイル共有バックエンドから応答がありません.後ほど,改めてお試しください."
-
-msgid "Zip file generation failed. Please inform the administrator."
-msgstr "ZIPファイルの生成に失敗しました.システム管理者へご連絡ください."
-
-msgid "This file is no longer available. Please reload the folder."
-msgstr "このファイルは存在していません.フォルダを再読み込みしてください."
-
-msgid "Files: ownCloud Backend"
-msgstr ""
-
-msgid "Share with user/group"
-msgstr ""
-
-msgid "Share via link"
-msgstr ""
-
-msgid "Public link"
-msgstr ""
-
-msgid "Password protect"
-msgstr ""
-
-msgid "Public upload"
-msgstr ""
-
-msgid "Expiration date"
-msgstr ""
-
-msgid "Loading details..."
-msgstr ""
-
-msgid "Share Details"
-msgstr ""
-
-#, fuzzy
-msgid "Re-share"
-msgstr "共有"
-
-msgid "Change"
-msgstr ""
-
-msgid "Share with"
-msgstr ""
-
-msgid "Loading users and groups"
-msgstr ""
-
-msgid "Add users or groups to share files."
-msgstr ""
-
-msgid "Type to search"
-msgstr ""
-
-msgid "No results"
-msgstr ""
-
-msgid "With this backend, you can connect to any ownCloud server."
-msgstr ""
-
-msgid "Files ownCloud Backend: "
-msgstr ""
-
-msgid "php-curl is not available"
-msgstr ""
-
-msgid "Please contact your system administrator."
-msgstr ""
-
-msgid "Short folder Ids"
-msgstr ""
-
-msgid "Provisioning Status"
-msgstr ""
-
-msgid "Wipe Device"
-msgstr ""
-
-msgid "version not available"
-msgstr ""
-
-msgid ""
-"Unauthorized to connect to grommunio-sync server. Please contact your system "
-"administrator."
-msgstr ""
-
-msgid ""
-"Unable to connect to grommunio-sync server. Please contact your system "
-"administrator."
-msgstr ""
-
-msgid ""
-"Unable to connect to the grommunio-sync server. Please contact your system "
-"administrator."
-msgstr ""
-
-msgid ""
-"Folder can not be added because there is already an additional folder with "
-"the same name"
-msgstr ""
-
-msgid ""
-"Folder can not be removed because there is no folder known with given folder "
-"id"
-msgstr ""
-
-msgid "Device ID could not be found"
 msgstr ""
