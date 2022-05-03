@@ -1226,6 +1226,7 @@ Settings
 .zarafa-settings-widget-extrainfo {
 	background-color: #664d00 !important;
 	color: #f0f0f0;
+	padding: 4px;
 }
 
 /* Normal about links */
