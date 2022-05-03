@@ -58,6 +58,10 @@ span.error_files {
 }
 
 /** top toolbar */
+.x-toolbar {
+	background-color: var(--primary-paper-background) !important;
+}
+
 .files_top_toolbar .x-toolbar-left table{
 	width: 100%;
 }
