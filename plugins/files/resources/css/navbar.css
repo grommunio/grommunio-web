@@ -69,7 +69,7 @@
 
 /** Right arrow icon **/
 .files_navbar_button:before {
-    content: url(../resources/images/navbar/arrow_right.png);
+    content: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSc1JyBoZWlnaHQ9JzknIHZpZXdCb3g9IjAgMCA5Mi4yIDEyMi44OCI+PHBhdGggZD0iTTkyLjIgNjAuOTdMMCAxMjIuODhWMGw5Mi4yIDYwLjk3eiIgZmlsbC1ydWxlPSJldmVub2RkIiBmaWxsPSIjNmQ2ZDcwIi8+PC9zdmc+Cg==);
     float: left;
     padding: 8px 4px 0 5px;
 }
