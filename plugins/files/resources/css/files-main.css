@@ -191,14 +191,14 @@ span.error_files {
 /* icon view */
 .zarafa-files-iconview-thumb {
 	float:left;
-	height: 95px;
+	height:100px;
 	margin:5px;
 	overflow:hidden;
 	padding-left:2px;
 	padding-right:2px;
 	padding-top:2px;
 	text-align:center;
-	width:70px;
+	width:130px;
 	border:2px solid #fff;
 	text-overflow:ellipsis;
 }
