@@ -249,8 +249,21 @@ Main panel
 #zarafa-mainpanel .x-panel-body,
 #zarafa-mainpanel .x-grid3,
 #zarafa-mainpanel .x-grid3-body,
-#zarafa-mainpanel .x-grid3-scroller {
+#zarafa-mainpanel .x-grid3-scroller,
+.zarafa-files-iconview {
 	background-color: var(--primary-paper-background) !important;
+}
+.zarafa-files-iconview-subject {
+	color: #fff !important;
+}
+.zarafa-files-iconview-over {
+	background-color: #666 !important;
+}
+.zarafa-files-iconview-thumb {
+	border: 2px solid var(--primary-paper-background) !important;
+}
+.zarafa-files-iconview-selected {
+	background-color: var(--primary-item-selected) !important;
 }
 #zarafa-mainpanel .emptytext {
 	color: #fff;
