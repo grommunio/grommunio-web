@@ -331,7 +331,7 @@ Zarafa.plugins.files.data.Utils = {
 			}
 			var existingIcons = ["aac", "aif", "cda", "aiff", "mpa", "ogg", "wma", "mp3", "mid", "midi", "ai",
 				"apk", "avi", "flv", "mp4", "mov", "mpeg", "wmv", "vob", "swf", "mkv", "m4v",
-				"h264", "3g2", "3gp", "mpg" bmp", "ico", "icns", "gif", "jpg", "jpeg", "png",
+				"h264", "3g2", "3gp", "mpg", "bmp", "ico", "icns", "gif", "jpg", "jpeg", "png",
 				"tif", "tiff", "tga", "c", "cpp", "cc", "h", "cs", "class", "swift", "hpp", "java",
 				"js", "php", "asp", "aspx", "jsp", "rb", "qt", "py", "pyc", "sh", "tcsh", "ksh",
 				"pl", "vbs", "css", "sass", "scss", "xml", "yaml", "htm", "html", "xhtml",
