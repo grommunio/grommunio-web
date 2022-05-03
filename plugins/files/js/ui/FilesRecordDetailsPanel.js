@@ -185,7 +185,7 @@ Zarafa.plugins.files.ui.FilesRecordDetailsPanel = Ext.extend(Ext.form.FormPanel,
 					tag: 'iframe',
 					width: '98%',
 					height: '98%',
-					border: 'none',
+					frameborder: 'none',
 					seamless: '',
 					src: Zarafa.plugins.files.data.Actions.getDownloadLink(record)
 				}
