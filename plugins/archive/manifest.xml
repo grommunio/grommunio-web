@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!DOCTYPE plugin SYSTEM "manifest.dtd">
+<plugin version="2">
+	<info>
+		<version>1.0</version>
+		<name>archive</name>
+		<title>Archive</title>
+		<author>grommunio</author>
+		<authorURL>https://grommunio.com</authorURL>
+		<description>The archive plugin adds a button to the top menu bar that opens a grommunio Archive inside grommunio Web</description>
+	</info>
+	<config>
+		<configfile>config.php</configfile>
+	</config>
+	<components>
+		<component>
+			<files>
+				<server>
+					<serverfile>php/plugin.archive.php</serverfile>
+				</server>
+				<client>
+					<clientfile load="release">js/archive.js</clientfile>
+					<clientfile load="debug">js/archive-debug.js</clientfile>
+					<clientfile load="source">js/ArchivePlugin.js</clientfile>
+					<clientfile load="source">js/ui/ContentPanel.js</clientfile>
+					<clientfile load="source">js/ui/Panel.js</clientfile>
+				</client>
+				<resources>
+					<resourcefile load="release">resources/css/archive.css</resourcefile>
+					<resourcefile load="debug">resources/css/archive.css</resourcefile>
+					<resourcefile load="source">resources/css/archive.css</resourcefile>
+				</resources>
+			</files>
+		</component>
+	</components>
+</plugin>
