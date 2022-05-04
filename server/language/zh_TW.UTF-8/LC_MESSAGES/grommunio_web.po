@@ -5791,6 +5791,9 @@ msgstr "伺服器載入模組失敗"
 msgid "Out of Office is currently activated. Would you like to turn it off?"
 msgstr "不在辦公室已啟動，您要關閉嗎？"
 
+msgid "Archive"
+msgstr ""
+
 msgid "Open Chat at start"
 msgstr "开始时打开聊天"
 

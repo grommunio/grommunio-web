@@ -5580,6 +5580,9 @@ msgstr "Falhou a carregar modelo do servidor"
 msgid "Out of Office is currently activated. Would you like to turn it off?"
 msgstr "\"Fora do escritório\" está atualmente ativo. Deseja desativar?"
 
+msgid "Archive"
+msgstr ""
+
 msgid "Open Chat at start"
 msgstr ""
 

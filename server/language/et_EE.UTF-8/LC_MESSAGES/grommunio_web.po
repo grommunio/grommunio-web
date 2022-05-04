@@ -5840,6 +5840,9 @@ msgid "Out of Office is currently activated. Would you like to turn it off?"
 msgstr ""
 "Kontorist väljas on hetkel sisse lülitatud. Kas soovite välja lülitada?"
 
+msgid "Archive"
+msgstr ""
+
 msgid "Open Chat at start"
 msgstr ""
 

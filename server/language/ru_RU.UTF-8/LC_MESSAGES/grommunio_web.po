@@ -5860,6 +5860,9 @@ msgstr "Произошла ошибка при загрузке модели с 
 msgid "Out of Office is currently activated. Would you like to turn it off?"
 msgstr "Статус «Нет в офисе» включён. Хотите выключить?"
 
+msgid "Archive"
+msgstr ""
+
 msgid "Open Chat at start"
 msgstr "Открытие чата при запуске"
 

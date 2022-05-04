@@ -5922,6 +5922,9 @@ msgstr "Mallin lataaminen palvelimelta epäonnistui"
 msgid "Out of Office is currently activated. Would you like to turn it off?"
 msgstr "Poissaolovastaus on päällä. Haluatko kytkeä sen pois päältä?"
 
+msgid "Archive"
+msgstr ""
+
 msgid "Open Chat at start"
 msgstr "Avaa chat, kun se käynnistetään"
 

@@ -5962,6 +5962,9 @@ msgid "Out of Office is currently activated. Would you like to turn it off?"
 msgstr ""
 "Abwesenheitsnotiz ist momentan eingeschaltet. Möchten Sie diese abschalten?"
 
+msgid "Archive"
+msgstr "Archiv"
+
 msgid "Open Chat at start"
 msgstr "Chat beim Start öffnen"
 

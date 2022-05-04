@@ -5738,6 +5738,9 @@ msgstr "Lasting av modulen fra server feilet"
 msgid "Out of Office is currently activated. Would you like to turn it off?"
 msgstr "Fraværendenotis er skrudd på. Vil du skru den av?"
 
+msgid "Archive"
+msgstr ""
+
 msgid "Open Chat at start"
 msgstr "Åpne chat når du starter"
 

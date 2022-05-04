@@ -6011,6 +6011,9 @@ msgstr "Nalaganje vzorca iz serverja je spodletelo"
 msgid "Out of Office is currently activated. Would you like to turn it off?"
 msgstr "Odsotnost je vključena. Ali jo želite izključiti?"
 
+msgid "Archive"
+msgstr ""
+
 msgid "Open Chat at start"
 msgstr "Öppna chatten när den startas"
 

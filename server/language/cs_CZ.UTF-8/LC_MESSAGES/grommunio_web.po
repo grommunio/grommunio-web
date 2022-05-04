@@ -5933,6 +5933,9 @@ msgstr "Selhalo načítání ze serveru"
 msgid "Out of Office is currently activated. Would you like to turn it off?"
 msgstr ""
 
+msgid "Archive"
+msgstr ""
+
 msgid "Open Chat at start"
 msgstr "Otevření chatu po spuštění"
 

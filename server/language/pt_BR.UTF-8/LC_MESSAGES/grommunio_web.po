@@ -5892,6 +5892,9 @@ msgstr "Erro ao carregar modelo do servidor"
 msgid "Out of Office is currently activated. Would you like to turn it off?"
 msgstr "Fora do Escritório está ativado. Deseja desligá-lo?"
 
+msgid "Archive"
+msgstr ""
+
 msgid "Open Chat at start"
 msgstr "Conversa aberta quando começou"
 

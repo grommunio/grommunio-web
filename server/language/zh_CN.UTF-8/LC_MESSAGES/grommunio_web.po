@@ -5518,6 +5518,9 @@ msgstr "从服务器加载模块失败"
 msgid "Out of Office is currently activated. Would you like to turn it off?"
 msgstr "外出状态当前已激活。您是否需将其关闭？"
 
+msgid "Archive"
+msgstr ""
+
 msgid "Open Chat at start"
 msgstr ""
 

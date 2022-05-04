@@ -5610,6 +5610,9 @@ msgstr "Ładowanie modułu z serwera nie powiodło się"
 msgid "Out of Office is currently activated. Would you like to turn it off?"
 msgstr "Informacja o nieobecności jest teraz aktywna. Czy chcesz ją wyłączyć?"
 
+msgid "Archive"
+msgstr ""
+
 msgid "Open Chat at start"
 msgstr "Otwórz czat po uruchomieniu"
 

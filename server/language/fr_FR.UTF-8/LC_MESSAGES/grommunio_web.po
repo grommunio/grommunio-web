@@ -5970,6 +5970,9 @@ msgstr ""
 "La notification Absent(e) du bureau est présentement activée. Voulez-vous "
 "désactiver votre notification d'absence ?"
 
+msgid "Archive"
+msgstr ""
+
 msgid "Open Chat at start"
 msgstr "Ouvrir le chat au démarrage"
 

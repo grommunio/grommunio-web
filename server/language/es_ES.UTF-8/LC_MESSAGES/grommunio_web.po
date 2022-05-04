@@ -6013,6 +6013,9 @@ msgstr "La carga del modelo desde el servidor ha fallado"
 msgid "Out of Office is currently activated. Would you like to turn it off?"
 msgstr "La notificación Fuera de la Oficina está activa. Desea desactivarla?"
 
+msgid "Archive"
+msgstr ""
+
 msgid "Open Chat at start"
 msgstr "Abrir el chat cuando se inicia"
 

@@ -5950,6 +5950,9 @@ msgstr "A modell betöltése a szerverről sikertelen"
 msgid "Out of Office is currently activated. Would you like to turn it off?"
 msgstr "A házon kívüli üzenet be van kapcsolva. Szeretné kikapcsolni?"
 
+msgid "Archive"
+msgstr ""
+
 msgid "Open Chat at start"
 msgstr "Csevegés megnyitása indításkor"
 

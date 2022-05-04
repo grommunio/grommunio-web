@@ -5859,6 +5859,9 @@ msgstr "Impossibile caricare il modello dal server"
 msgid "Out of Office is currently activated. Would you like to turn it off?"
 msgstr "Il risponditore automatico fuori ufficio è attivo. Vuoi disattivarlo?"
 
+msgid "Archive"
+msgstr ""
+
 msgid "Open Chat at start"
 msgstr "Aprire la chat all'avvio"
 

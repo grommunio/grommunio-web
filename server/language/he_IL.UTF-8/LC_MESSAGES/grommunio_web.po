@@ -5947,6 +5947,9 @@ msgstr "טעינת מודל מן השרת נכשלה"
 msgid "Out of Office is currently activated. Would you like to turn it off?"
 msgstr ""
 
+msgid "Archive"
+msgstr ""
+
 msgid "Open Chat at start"
 msgstr ""
 

@@ -5972,6 +5972,9 @@ msgstr "Sunucudan model yüklenmesi başarısız"
 msgid "Out of Office is currently activated. Would you like to turn it off?"
 msgstr "Ofis dışı bildirimi aktif. Kapatmak ister misiniz?"
 
+msgid "Archive"
+msgstr ""
+
 msgid "Open Chat at start"
 msgstr "Başlatıldığında sohbeti aç"
 

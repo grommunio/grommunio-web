@@ -5967,6 +5967,9 @@ msgstr "Het laden van het model van de server is mislukt"
 msgid "Out of Office is currently activated. Would you like to turn it off?"
 msgstr "De Afwezigheidsassistent is ingeschakeld. Wilt u deze uitschakelen?"
 
+msgid "Archive"
+msgstr ""
+
 msgid "Open Chat at start"
 msgstr "Open chat wanneer gestart"
 

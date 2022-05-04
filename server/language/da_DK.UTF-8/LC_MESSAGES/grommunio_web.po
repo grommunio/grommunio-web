@@ -5692,6 +5692,9 @@ msgstr "Indlæsning af modellen fra serveren er fejlet"
 msgid "Out of Office is currently activated. Would you like to turn it off?"
 msgstr "\"Ude af kontoret\" er aktivt, vil du slå det fra?"
 
+msgid "Archive"
+msgstr ""
+
 msgid "Open Chat at start"
 msgstr "Åbn chatten, når den er startet"
 

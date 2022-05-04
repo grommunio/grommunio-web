@@ -5570,6 +5570,9 @@ msgstr "Mistókst að hlaða líkani frá netþjóni"
 msgid "Out of Office is currently activated. Would you like to turn it off?"
 msgstr "Þú hefur stillt þig sem fjarverandi. Viltu afvirkja stillinguna?"
 
+msgid "Archive"
+msgstr ""
+
 msgid "Open Chat at start"
 msgstr ""
 
