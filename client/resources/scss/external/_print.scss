@@ -1,11 +1,8 @@
 /* setting the margin to 0 makes some browsers use the full paper, and disabling their header and footers */
 @page
 {
-    size: auto; /* auto is the initial value */
-    margin-top: 0.5in;
-    margin-bottom: 0.5in;
-    margin-left: 0.5in;
-    margin-right: 0.5in;
+	size: auto; /* auto is the initial value */
+	margin-top: 1.4cm;
 }
 
 @media print {
@@ -20,7 +17,7 @@
 }
 
 /* common css to make some tags clear on paper */
-html,div,dl,dt,dd,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,p,blockquote,th,td {
+html,body,div,dl,dt,dd,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,p,blockquote,th,td {
 	margin: 0;
 	padding: 0;
 }
@@ -30,6 +27,11 @@ img,body,html {
 address,caption,cite,code,dfn,th,var {
 	font-style: normal;
 	font-weight: normal;
+}
+
+html, body {
+	width: 100%;
+	height: 100%;
 }
 
 caption,th {
