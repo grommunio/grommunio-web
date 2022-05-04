@@ -277,7 +277,7 @@ Zarafa.ABOUT = ""
 
 	+ "<h1>DOMPurify</h1>"
 
-	+ "<p>Copyright 2015 Mario Heiderich.</p><p>Licensed under the Apache License, version 2.0.</p>";
+	+ "<p>Copyright 2015 Mario Heiderich.</p><p>Licensed under the Apache License, version 2.0.</p>"
 
 
 	+ "<h1>ViewerJS</h1>"
