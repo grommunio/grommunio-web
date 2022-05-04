@@ -3750,10 +3750,6 @@ msgstr "Отображаемый адрес эл. почты 2"
 msgid "Email 3 Display As"
 msgstr "Отображаемый адрес эл. почты 3"
 
-# 88%
-msgid "Assistent"
-msgstr "Заместитель"
-
 msgid "Loading contacts"
 msgstr "Загрузка контактов"
 
@@ -6316,6 +6312,12 @@ msgid "Authentication required, when using grommunio-files for the first time"
 msgstr ""
 
 msgid "Intranet"
+msgstr ""
+
+msgid "number"
+msgstr ""
+
+msgid "shadow"
 msgstr ""
 
 msgid "Openstreetmap"

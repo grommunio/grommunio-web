@@ -3559,9 +3559,6 @@ msgstr "Annað tölvupóstfang sýnt sem"
 msgid "Email 3 Display As"
 msgstr "Þriðja tölvupóstfang sýnt sem"
 
-msgid "Assistent"
-msgstr "Aðstoðarmanneskja"
-
 msgid "Loading contacts"
 msgstr "Hleð tengiliðum"
 
@@ -6018,6 +6015,12 @@ msgid "Authentication required, when using grommunio-files for the first time"
 msgstr ""
 
 msgid "Intranet"
+msgstr ""
+
+msgid "number"
+msgstr ""
+
+msgid "shadow"
 msgstr ""
 
 msgid "Openstreetmap"

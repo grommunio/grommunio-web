@@ -3758,10 +3758,6 @@ msgstr "E-mail 2 Visualizza come"
 msgid "Email 3 Display As"
 msgstr "E-mail 3 Visualizza come"
 
-# 88%
-msgid "Assistent"
-msgstr "Assistente"
-
 msgid "Loading contacts"
 msgstr "Caricamento contatti"
 
@@ -6327,6 +6323,12 @@ msgid "Authentication required, when using grommunio-files for the first time"
 msgstr ""
 
 msgid "Intranet"
+msgstr ""
+
+msgid "number"
+msgstr ""
+
+msgid "shadow"
 msgstr ""
 
 msgid "Openstreetmap"

@@ -3790,9 +3790,6 @@ msgstr "Sähköposti 2:n näyttö muodossa"
 msgid "Email 3 Display As"
 msgstr "S'hköpostin 3:n näyttö muodossa"
 
-msgid "Assistent"
-msgstr "Assistentti"
-
 msgid "Loading contacts"
 msgstr "Ladataan yhteystietoja"
 
@@ -6370,6 +6367,12 @@ msgid "Authentication required, when using grommunio-files for the first time"
 msgstr ""
 
 msgid "Intranet"
+msgstr ""
+
+msgid "number"
+msgstr ""
+
+msgid "shadow"
 msgstr ""
 
 msgid "Openstreetmap"

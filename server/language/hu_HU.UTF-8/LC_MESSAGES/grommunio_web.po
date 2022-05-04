@@ -3807,9 +3807,6 @@ msgstr "E-mail 2 megjelenítés, mint"
 msgid "Email 3 Display As"
 msgstr "E-mail 3 megjelenítés, mint"
 
-msgid "Assistent"
-msgstr "Asszisztens"
-
 msgid "Loading contacts"
 msgstr "Kapcsolatok betöltése"
 
@@ -6404,6 +6401,12 @@ msgid "Authentication required, when using grommunio-files for the first time"
 msgstr ""
 
 msgid "Intranet"
+msgstr ""
+
+msgid "number"
+msgstr ""
+
+msgid "shadow"
 msgstr ""
 
 msgid "Openstreetmap"

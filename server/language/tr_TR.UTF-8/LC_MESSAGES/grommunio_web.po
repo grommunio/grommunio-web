@@ -3810,10 +3810,6 @@ msgstr "E-posta 2 olarak göster"
 msgid "Email 3 Display As"
 msgstr "E-posta 3 olarak göster"
 
-# 88%
-msgid "Assistent"
-msgstr "Asistan"
-
 msgid "Loading contacts"
 msgstr "Kişiler yükleniyor"
 
@@ -6421,6 +6417,12 @@ msgid "Authentication required, when using grommunio-files for the first time"
 msgstr ""
 
 msgid "Intranet"
+msgstr ""
+
+msgid "number"
+msgstr ""
+
+msgid "shadow"
 msgstr ""
 
 msgid "Openstreetmap"

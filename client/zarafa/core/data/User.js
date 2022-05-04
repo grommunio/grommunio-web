@@ -211,7 +211,7 @@ Zarafa.core.data.User = Ext.extend(Object, {
 	},
 
 	/**
-	 * @return {String} The assistent for this user
+	 * @return {String} The assistant for this user
 	 */
 	getAssistant: function()
 	{

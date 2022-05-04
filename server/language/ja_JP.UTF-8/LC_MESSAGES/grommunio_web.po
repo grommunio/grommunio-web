@@ -3736,10 +3736,6 @@ msgstr "メール表示"
 msgid "Email 3 Display As"
 msgstr "メール表示"
 
-# 88%
-msgid "Assistent"
-msgstr "アシスタント"
-
 msgid "Loading contacts"
 msgstr "コンタクトを読み込み中"
 
@@ -6325,6 +6321,12 @@ msgid "Authentication required, when using grommunio-files for the first time"
 msgstr ""
 
 msgid "Intranet"
+msgstr ""
+
+msgid "number"
+msgstr ""
+
+msgid "shadow"
 msgstr ""
 
 msgid "Openstreetmap"

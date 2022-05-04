@@ -3528,9 +3528,6 @@ msgstr "电子邮件2显示为"
 msgid "Email 3 Display As"
 msgstr "电子邮件3显示为"
 
-msgid "Assistent"
-msgstr "助理"
-
 msgid "Loading contacts"
 msgstr "加载联系人"
 
@@ -5966,6 +5963,12 @@ msgid "Authentication required, when using grommunio-files for the first time"
 msgstr ""
 
 msgid "Intranet"
+msgstr ""
+
+msgid "number"
+msgstr ""
+
+msgid "shadow"
 msgstr ""
 
 msgid "Openstreetmap"

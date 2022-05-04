@@ -3845,10 +3845,6 @@ msgstr "Prikazno ime elektronskega sporočila"
 msgid "Email 3 Display As"
 msgstr "Prikazno ime elektronskega sporočila 3"
 
-# 88%
-msgid "Assistent"
-msgstr "Asistent"
-
 msgid "Loading contacts"
 msgstr "Nalaganje kontaktov"
 
@@ -6460,6 +6456,12 @@ msgid "Authentication required, when using grommunio-files for the first time"
 msgstr ""
 
 msgid "Intranet"
+msgstr ""
+
+msgid "number"
+msgstr ""
+
+msgid "shadow"
 msgstr ""
 
 msgid "Openstreetmap"

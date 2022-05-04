@@ -3812,10 +3812,6 @@ msgstr "E-Mail 2 darstellen als"
 msgid "Email 3 Display As"
 msgstr "E-Mail 3 darstellen als"
 
-# 88%
-msgid "Assistent"
-msgstr "Assistent"
-
 msgid "Loading contacts"
 msgstr "Lade Kontakte"
 
@@ -6426,6 +6422,12 @@ msgstr ""
 
 msgid "Intranet"
 msgstr "Intranet"
+
+msgid "number"
+msgstr ""
+
+msgid "shadow"
+msgstr ""
 
 msgid "Openstreetmap"
 msgstr "Openstreetmap"

@@ -3787,11 +3787,6 @@ msgstr ""
 msgid "Email 3 Display As"
 msgstr ""
 
-# 88%
-#, fuzzy
-msgid "Assistent"
-msgstr "עוזר"
-
 msgid "Loading contacts"
 msgstr ""
 
@@ -6397,6 +6392,12 @@ msgid "Authentication required, when using grommunio-files for the first time"
 msgstr ""
 
 msgid "Intranet"
+msgstr ""
+
+msgid "number"
+msgstr ""
+
+msgid "shadow"
 msgstr ""
 
 msgid "Openstreetmap"
