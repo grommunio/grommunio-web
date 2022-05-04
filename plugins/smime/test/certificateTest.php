@@ -11,10 +11,10 @@ class CertificateTest extends SMIMETest
 		$this->countryName = "NL";
 		$this->stateOrProvinceName = "Zuid Holland";
 		$this->localityName = "Delft";
-		$this->organizationName = "Kopano";
+		$this->organizationName = "grommunio";
 		$this->organizationalUnitName = "Dev";
 		$this->commonName = "John";
-		$this->emailAddress = "john@kopano.com";
+		$this->emailAddress = "dev@grommunio.com";
 		$dn = [
 			 "countryName" => $this->countryName,
 			 "stateOrProvinceName" => $this->stateOrProvinceName,

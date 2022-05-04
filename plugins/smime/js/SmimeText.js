@@ -15,7 +15,7 @@ Zarafa.plugins.smime.SmimeText = function () {
 		 * @return {String} popup text
 		 */
 		createMessage: function (text) {
-			return _('WebApp can verify digital signatures of emails. A successful verification reassures you that the message has not been tampered with and validates the identity of the sender.') +
+			return _('grommunio Web can verify digital signatures of emails. A successful verification reassures you that the message has not been tampered with and validates the identity of the sender.') +
 				"<br><br>" + _('You are seeing this message because the verification of the digital signature') + "<b>" + _(' has failed') + "</b>" + _(' for this message.') + "<br>" +
 				"<br><b>" + _('What caused this issue?') + "</b><br><br>" +
 				text +
@@ -35,12 +35,12 @@ Zarafa.plugins.smime.SmimeText = function () {
 			switch (index) {
 				// Verified succesfully
 				case 0:
-					return _('WebApp can verify digital signatures of emails. A successful verification reassures you ') +
+					return _('grommunio Web can verify digital signatures of emails. A successful verification reassures you ') +
 						_('that the message has not been tampered with and validates the identity of the sender.') + "<br><br>" +
 						_('The verification of the digital signature was successful for this email message.');
 				// Could not verify, missing public certificate
 				case 1:
-					return Zarafa.plugins.smime.SmimeText.createMessage(_('WebApp could not find a public certificate for the recipient.'));
+					return Zarafa.plugins.smime.SmimeText.createMessage(_('grommunio Web could not find a public certificate for the recipient.'));
 				// Signature verified, but certificate expired
 				case 2:
 					return Zarafa.plugins.smime.SmimeText.createMessage(_('The identity of the sender and authenticity of the message content have been verified, but the certificate used to sign the message expired on [d-m-Y].'));

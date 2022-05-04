@@ -7,7 +7,7 @@ Zarafa.plugins.intranet.isDeskApp = function(){
  * @class Zarafa.plugins.intranet.Intranet
  * @extends Zarafa.core.Plugin
  *
- * Plugin that makes it possible to change the styling of the WebApp
+ * Plugin that makes it possible to change the styling of grommunio Web
  */
 Zarafa.plugins.intranet.Intranet = Ext.extend(Zarafa.core.Plugin, {
 

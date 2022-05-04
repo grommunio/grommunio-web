@@ -1,4 +1,4 @@
-# WebApp PHP Tests
+# grommunio Web PHP Tests
 
 The PHP tests are behaviour written tests, which execute actions usually send by the JavaScript
 client. The tests can be found in the tests folder, test classes used as test helpers for testing

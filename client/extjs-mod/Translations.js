@@ -2,7 +2,7 @@ Ext.namespace('Zarafa.util');
 
 // This class is defined counter-intuitively in extjs-mod,
 // because we need the utility function in both extjs-mod as
-// well as the WebApp core.
+// well as the grommunio Web core.
 
 /**
  * @class Zarafa.util.Translations

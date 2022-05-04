@@ -5,11 +5,11 @@ Ext.namespace('Zarafa.core.data');
  * @extends Zarafa.core.Enum
  * @singleton
  *
- * The various reasons why the WebApp can be {@link Zararafa.core.Request#paralyze paralyzed}.
+ * The various reasons why grommunio Web can be {@link Zararafa.core.Request#paralyze paralyzed}.
  */
 Zarafa.core.data.ParalyzeReason = Zarafa.core.Enum.create({
 	/**
-	 * Denotes that the WebApp is paralyzed because the browser
+	 * Denotes that grommunio Web is paralyzed because the browser
 	 * window is reloading or otherwise unloading.
 	 * @property
 	 * @type Number
@@ -17,7 +17,7 @@ Zarafa.core.data.ParalyzeReason = Zarafa.core.Enum.create({
 	BROWSER_RELOADING: 0,
 
 	/**
-	 * Denotes that the WebApp is paralyzed because the session
+	 * Denotes that grommunio Web is paralyzed because the session
 	 * has been expired and the user is no longer logged in.
 	 * @property
 	 * @type Number
@@ -25,7 +25,7 @@ Zarafa.core.data.ParalyzeReason = Zarafa.core.Enum.create({
 	SESSION_EXPIRED: 1,
 
 	/**
-	 * Denotes that the WebApp is paralyzed because the session
+	 * Denotes that grommunio Web is paralyzed because the session
 	 * was altered (cookie session id doesn't match expected id)
 	 * @property
 	 * @type Number

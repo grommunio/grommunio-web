@@ -30,7 +30,7 @@ grommunio-admin -l
 # Create public store
 grommunio-storeadm -h default: -P
 
-echo 'Deploy WebApp'
+echo 'Deploy grommunio Web'
 
 make -C /workspace server
 echo 'Running tests'

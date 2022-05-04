@@ -15,7 +15,7 @@ use \Files\Core\Util\StringUtil;
 class BackendStore
 {
 	const EXTERNAL_BACKEND_PREFIX = "filesbackend"; // folder prefix for external backends
-	private $EXTERNAL_BACKEND_DIR = ""; // path to search for external plugins (should be webapp/plugins)
+	private $EXTERNAL_BACKEND_DIR = ""; // path to search for external plugins (should be grommunio-web/plugins)
 	const BACKEND_DIR = "/"; // path to search for core backends, relative to current path
 	const LOG_CONTEXT = "BackendStore"; // Context for the Logger
 

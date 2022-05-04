@@ -45,7 +45,7 @@ Zarafa.core.data.UIFactoryBrowserWindowLayer = Ext.extend(Zarafa.core.data.UIFac
 		if ( Ext.isDefined(window.deskappOpenWindow) ){
 			// DeskApp needs to open the external window itself because we want to open a new DeskApp window
 			// and not a new browser window. So we must check if we are using DeskApp or not. We will do so by
-			// checking if the function deskappOpenWindow exists, because this gets injected in WebApp by
+			// checking if the function deskappOpenWindow exists, because this gets injected in grommunio Web by
 			// DeskApp.
 			var options = {
 				width: config.width || 950,
@@ -99,7 +99,7 @@ Zarafa.core.data.UIFactoryBrowserWindowLayer = Ext.extend(Zarafa.core.data.UIFac
 
 	/**
 	 * A helper function which prepare a config string dynamically to render popout window properly in a stacked manner.
-	 * The first opened window will be centered over the WebApp main window. The following windows will be stacked
+	 * The first opened window will be centered over grommunio Web main window. The following windows will be stacked
 	 * over the previous opened window.
 	 *
 	 * @param {Object} config A configuration object for the window that should be created. It can contain the

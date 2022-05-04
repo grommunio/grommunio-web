@@ -46,7 +46,7 @@ Zarafa.plugins.smime.settings.UploadCertificateWidget = Ext.extend(Zarafa.settin
 			items :[{
 				xtype: 'displayfield',
 				hideLabel : true,
-				value : _('Below you can upload your private certificate in PKCS#12 format. The WebApp only accepts certificates which are valid and only stores one private certificate on the server.')
+				value : _('Below you can upload your private certificate in PKCS#12 format. grommunio Web only accepts certificates which are valid and only stores one private certificate on the server.')
 			},{
 				xtype : 'button',
 				text : _('Select'),

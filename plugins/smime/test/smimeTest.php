@@ -8,7 +8,7 @@ if (!defined('OPENSSL_CONF_PATH')) {
 	define('OPENSSL_CONF_PATH', '/etc/ssl/openssl.cnf');
 }
 
-// Mock webapp's Log
+// Mock grommunio Web Log
 define('LOGLEVEL_ERROR', 0);
 define('LOGLEVEL_INFO', 0);
 

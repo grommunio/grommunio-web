@@ -37,7 +37,7 @@ Zarafa.whatsnew.Actions = {
 	},
 
 	/**
-	 * Returns an array with objects that describe the new features of the WebApp. The objects consist of the
+	 * Returns an array with objects that describe the new features of grommunio Web. The objects consist of the
 	 * following properties:<br>
 	 * <ul>
 	 * <li>title</li>
@@ -53,14 +53,14 @@ Zarafa.whatsnew.Actions = {
 	{
 		var sm = container.getSettingsModel();
 
-		// Check if we have new features in this version of WebApp
+		// Check if we have new features in this version of grommunio Web
 		var webAppVersion = container.getVersion().getWebApp();
 
 		if ( !this.validateWhatsNewData('webapp-core', webAppVersion) ){
 			return [];
 		}
 
-		// Update the version of the WebApp for which we we showed new features
+		// Update the version of grommunio Web for which we we showed new features
 		sm.set('zarafa/v1/main/new_features_dialog/last_version/webapp', webAppVersion);
 
 		return Zarafa.whatsnew.Features.features;
@@ -117,7 +117,7 @@ Zarafa.whatsnew.Actions = {
 	},
 
 	/**
-	 * Checks if the WhatsNew data of the WebApp core or a plugin is valid.
+	 * Checks if the WhatsNew data of grommunio Web core or a plugin is valid.
 	 * @param {String} unit Either 'webapp-core' or a plugin name.
 	 * @param {String} unitVersion The current version of the unit.
 	 *

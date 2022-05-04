@@ -5,7 +5,7 @@ Ext.namespace('Zarafa.plugins.passwd');
  * @extends Zarafa.core.Plugin
  *
  * Passwd plugin.
- * Allows users to change password from webapp.
+ * Allows users to change password from grommunio Web.
  */
 Zarafa.plugins.passwd.PasswdPlugin = Ext.extend(Zarafa.core.Plugin, {
 

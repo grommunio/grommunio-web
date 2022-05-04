@@ -3283,7 +3283,7 @@
 
 							// If a .p7m file was manually uploaded by the user, we must change the mime type because
 							// otherwise mail applications will think the containing email is an encrypted email.
-							// That will make Outlook crash, and it will make WebApp show the original mail as encrypted
+							// That will make Outlook crash, and it will make grommunio Web show the original mail as encrypted
 							// without showing the attachment
 							$mimeType = $fileinfo["type"];
 							$smimeTags = array('multipart/signed', 'application/pkcs7-mime', 'application/x-pkcs7-mime');
@@ -4436,7 +4436,7 @@
 		 * to CID embedded images. Which are supported in major mail clients or
 		 * providers such as outlook.com or gmail.com
 		 *
-		 * The WebApp now extracts the base64 image, saves it as hidden attachment,
+		 * grommunio Web now extracts the base64 image, saves it as hidden attachment,
 		 * replace the img src tag with the 'cid' which corresponds with the attachments
 		 * cid.
 		 *

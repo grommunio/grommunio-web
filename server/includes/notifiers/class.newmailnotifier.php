@@ -32,7 +32,7 @@
 
 		/**
 		 * Fetch the folder hierarchy from the IPM.Subtree with the properties required for the newmail notification
-		 * for the WebApp client.
+		 * for grommunio Web client.
 		 *
 		 * The returned hierarchy is cached in the session state and compared when the function is called, when
 		 * the data differs newmail notifications for the changed folder(s) are created and send to the client.

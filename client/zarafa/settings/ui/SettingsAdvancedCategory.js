@@ -149,7 +149,7 @@ Zarafa.settings.ui.SettingsAdvancedCategory = Ext.extend(Zarafa.settings.ui.Sett
 	},
 
 	/**
-	 * Event handler which is called when "Show insertion points in WebApp" has been checked/unchecked.
+	 * Event handler which is called when "Show insertion points in grommunio Web" has been checked/unchecked.
 	 * This will apply the new value to the settings.
 	 * @param {Ext.form.Field} field The field which has fired the event
 	 * @param {String} checked The new value of check box.

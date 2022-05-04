@@ -289,7 +289,7 @@ Zarafa.plugins.files.ui.FilesRecordIconView = Ext.extend(Zarafa.common.ui.Dragga
 	onSelectionChange: function (dataView, selections) {
 		var records = dataView.getSelectedRecords();
 
-		// FIXME: In Webapp context who contains the dataViews are not statefulRecordSelection but in files context
+		// FIXME: In grommunio Web context who contains the dataViews are not statefulRecordSelection but in files context
 		//  we have preview panel and because of that we need to make file context model statefulRecordSelection to true.
 		//  here we face an issue when we delete more than one record from icon views because onSelectionChange function
 		//  also called to deselect the record. when record was deleted at that time dataView.getSelectedRecords returns

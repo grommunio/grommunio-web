@@ -5,7 +5,7 @@ Ext.namespace('Zarafa.common.ui.grid');
  * @extends Ext.grid.GridView
  * @xtype zarafa.gridview
  *
- * WebApp specific GridView which contain extra features and bugfixes
+ * grommunio Web specific GridView which contain extra features and bugfixes
  * which could not be resolved by plugins or directly in extjs.
  */
 Zarafa.common.ui.grid.GridView = Ext.extend(Ext.grid.GroupingView, {

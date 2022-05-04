@@ -28,7 +28,7 @@ The directory where to save cache files for phpfastcache, if redis is not availa
 
 ```define('PLUGIN_FILESBROWSER_LOGLEVEL', "ERROR");```
 
-If you experience any problems with the plugin, set this flag to **'DEBUG'** and send your nginx/php-fpm/webapp error log to the grommunio developers.
+If you experience any problems with the plugin, set this flag to **'DEBUG'** and send your nginx/php-fpm/grommunio web error log to the grommunio developers.
 
 ```define('FILES_ACCOUNTSTORE_V1_SECRET_KEY', "");```
 

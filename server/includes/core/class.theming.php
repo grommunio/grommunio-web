@@ -9,7 +9,7 @@ define('THEME_PATH_' . LOAD_DEBUG, 'client/themes');
 define('THEME_PATH_' . LOAD_RELEASE, 'client/themes');
 
 /**
- * This class provides some functionality for theming the WebApp
+ * This class provides some functionality for theming grommunio Web
  */
 class Theming
 {
@@ -72,7 +72,7 @@ class Theming
 			}
 						
 			// If a theme was found, check if the theme is still installed
-			// Remember that 'basic' is not a real theme, but the name for the default look of WebApp
+			// Remember that 'basic' is not a real theme, but the name for the default look of grommunio Web
 			// Note 1: We will first try to find the a core theme with this name, only
 			// when we don't find one, we will try to find a theme plugin.
 			// Note 2: we do not use the pluginExists method of the PluginManager, because that

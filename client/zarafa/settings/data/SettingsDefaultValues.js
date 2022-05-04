@@ -379,7 +379,7 @@ Zarafa.settings.data.SettingsDefaultValue = function(){
 								'last_version': {
 									/**
 									 * zarafa/v1/main/last_version/webapp
-									 * The version of WebApp for which the What's new dialog was shown last time
+									 * The version of grommunio Web for which the What's new dialog was shown last time
 									 * @property
 									 * @type String
 									 */

@@ -65,7 +65,7 @@
 								break;
 						}
 					} catch (MAPIException $e) {
-						// This is a very nasty hack that makes sure that the WebApp doesn't show an error message when
+						// This is a very nasty hack that makes sure that grommunio Web doesn't show an error message when
 						// search wants to throw an error. This is only done because a proper fix for this bug has not
 						// been found yet. When WA-9161 is really solved, this should be removed again.
 						if ( $actionType !== 'search' && $actionType !== 'updatesearch' && $actionType !== 'stopsearch' ){

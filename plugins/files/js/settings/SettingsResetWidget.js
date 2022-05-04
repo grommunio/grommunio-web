@@ -53,7 +53,7 @@ Zarafa.plugins.files.settings.SettingsResetWidget = Ext.extend(Zarafa.settings.u
 		message += '<br/>';
 		message += '<i>' + _('Accounts marked by your administrator as "cannot be changed" will not be removed.') + '</i>';
 		message += '<br/><br/>';
-		message += _('WebApp will automatically restart in order for these changes to take effect.');
+		message += _('grommunio Web will automatically restart in order for these changes to take effect.');
 		message += '<br/>';
 
 		Zarafa.common.dialogs.MessageBox.addCustomButtons({
@@ -91,7 +91,7 @@ Zarafa.plugins.files.settings.SettingsResetWidget = Ext.extend(Zarafa.settings.u
 			settingsModel.save();
 
 			this.loadMask = new Zarafa.common.ui.LoadMask(Ext.getBody(), {
-				msg: '<b>' + _('Webapp is reloading, Please wait.') + '</b>'
+				msg: '<b>' + _('grommunio Web is reloading, Please wait.') + '</b>'
 			});
 
 			this.loadMask.show();
@@ -104,7 +104,7 @@ Zarafa.plugins.files.settings.SettingsResetWidget = Ext.extend(Zarafa.settings.u
 
 	/**
 	 * Called when the {@link Zarafa.settings.SettingsModel} fires the {@link Zarafa.settings.SettingsModel#save save}
-	 * event to indicate the settings were successfully saved and it will forcefully realod the webapp.
+	 * event to indicate the settings were successfully saved and it will forcefully reload grommunio Web.
 	 * @param {Zarafa.settings.SettingsModel} model The model which fired the event.
 	 * @param {Object} parameters The key-value object containing the action and the corresponding
 	 * settings which were saved to the server.

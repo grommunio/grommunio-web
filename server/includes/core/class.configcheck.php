@@ -50,7 +50,7 @@ class ConfigCheck
 		$this->checkFunction("gzencode", "You don't have zlib support: <a href=\"https://php.net/manual/en/ref.zlib.php#zlib.installation\">https://php.net/manual/en/ref.zlib.php#zlib.installation</a>");
 		$this->checkLoader(DEBUG_LOADER, "Your 'DEBUG_LOADER' configuration isn't valid for the current folder");
 
-		// check if there were *any* errors and we need to stop the WebApp
+		// check if there were *any* errors and we need to stop grommunio Web
 		if (!$this->result && $this->haltOnError){
 			?>
 				<p style="font-weight: bold;">grommunio Web can't start because of incompatible configuration.</p>

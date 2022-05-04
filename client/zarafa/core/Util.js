@@ -760,7 +760,7 @@ Zarafa.core.Util =
 				// For format 'm/d/Y', since this is a different format, we need to specifically format
 				// the date as the 'getFormattedDate' function supports formats similar to 'd/m/Y'.
 				var result = [];
-				// If the selected language is English(US) but the WebApp is using the local
+				// If the selected language is English(US) but grommunio Web is using the local
 				// format 'd/m/Y', then no need to format according to 'm/d/Y' format
 				if (format === 'd/m/Y') {
 					formattedDate = this.getFormattedDate(rawValue, '/');

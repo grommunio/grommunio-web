@@ -561,9 +561,9 @@ Zarafa.common.ui.HtmlEditor = Ext.extend(Ext.ux.form.TinyMCETextArea, {
 
 	/**
 	 * Function is called when mouse is clicked in the editor.
-	 * Editor mousedown event needs to be relayed for the document element of WebApp page,
+	 * Editor mousedown event needs to be relayed for the document element of grommunio Web page,
 	 * to hide the context-menu.
-	 * wheel event propagated from underlying iframe needs to be relayed to WepApp document
+	 * wheel event propagated from underlying iframe needs to be relayed to grommunio Web document
 	 * to perform zoom functionality in DeskApp.
 	 * @param {Object} event The event object
 	 */

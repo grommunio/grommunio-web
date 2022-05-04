@@ -11,7 +11,7 @@
 /* grids */
 /* fonts */
 /* Tooltip */
-/* different padding sizes (and margins) used in the WebApp */
+/* different padding sizes (and margins) used in grommunio Web */
 /* sizes of the buttons */
 /* triggers of comboboxes and up-down inputs */
 /* settings */
@@ -5631,7 +5631,7 @@ div.zarafa-contact-cardview-selected {
 /* line 1, ../scss/components/_welcome.scss */
 .zarafa-welcome-body {
   width: 450px;
-  /* Hide warning messages regarding reloading WebApp */
+  /* Hide warning messages regarding reloading grommunio Web */
 }
 /* line 6, ../scss/components/_welcome.scss */
 .zarafa-welcome-body > .x-panel-bwrap > .x-panel-body > div {

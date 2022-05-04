@@ -329,7 +329,7 @@ class AccountStore
 	}
 
 	/**
-	 * Encrypt the backend configuration using the standard webapp key.
+	 * Encrypt the backend configuration using the standard grommunio Web key.
 	 *
 	 * @param Array $backendConfig Backend specific account settings
 	 *     like username, password, serveraddress, ...
@@ -347,7 +347,7 @@ class AccountStore
 	}
 
 	/**
-	 * Decrypt the backend configuration using the standard webapp key.
+	 * Decrypt the backend configuration using the standard grommunio Web key.
 	 *
 	 * @param Array $backendConfig Backend specific account settings
 	 *     like username, password, serveraddress, ...

@@ -5,7 +5,7 @@ Ext.namespace('Zarafa.core.data');
  * @extends Object
  *
  * An object which represents a logged
- * on user in the WebApp environment.
+ * on user in grommunio Web environment.
  * To obtain the instance of this object
  * for the currently logged in user,
  * refer to {@link Zarafa.core.Container#getUser}

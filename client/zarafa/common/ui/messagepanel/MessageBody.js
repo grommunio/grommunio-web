@@ -92,7 +92,7 @@ Zarafa.common.ui.messagepanel.MessageBody = Ext.extend(Ext.Container, {
 	 * {@link Zarafa.core.ui.MainContentTabPanel}
 	 *
 	 * @param {Zarafa.core.ui.MainContentTabPanel} mainContentTabPanel The main
-	 * tab panel of the WebApp
+	 * tab panel of grommunio Web
 	 * @param {Ext.Panel} newTab The tab (panel) that will be activated
 	 * @param {Ext.Panel} currentTab The tab (panel) that is currently active
 	 */
@@ -145,7 +145,7 @@ Zarafa.common.ui.messagepanel.MessageBody = Ext.extend(Ext.Container, {
 	/**
 	 * Function is called when specified events performed in the iframe.
 	 * Basically this function relay those events to document element
-	 * belongs to WebApp window.
+	 * belongs to grommunio Web window.
 	 * @param {Object} event The event object
 	 */
 	relayEventHandlers: function(event)

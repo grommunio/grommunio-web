@@ -475,7 +475,7 @@ Zarafa.plugins.files.data.Utils = {
 	},
 
 	/**
-	 * WebApp Core methods
+	 * grommunio Web Core methods
 	 */
 	Core: {
 		/**

@@ -4,7 +4,7 @@ Ext.namespace('Zarafa.plugins.files');
  * @class Zarafa.plugins.files.FilesPlugin
  * @extends Zarafa.core.Plugin
  *
- * This class integrates the Files plugin to the core WebApp.
+ * This class integrates the Files plugin into grommunio Web.
  * It allows users to set up and manage their Files accounts.
  */
 Zarafa.plugins.files.FilesPlugin = Ext.extend(Zarafa.core.Plugin, {
@@ -43,7 +43,7 @@ Zarafa.plugins.files.FilesPlugin = Ext.extend(Zarafa.core.Plugin, {
 	},
 
 	/**
-	 * This method registers the Files module names to the main WebApp.
+	 * This method registers the Files module names to grommunio Web.
 	 */
 	registerModules: function () {
 		Zarafa.core.ModuleNames['IPM.FILESACCOUNT'] = {
@@ -103,8 +103,8 @@ Zarafa.plugins.files.FilesPlugin = Ext.extend(Zarafa.core.Plugin, {
 });
 
 /**
- * This code gets executed after the WebApp has loaded.
- * It hooks the plugin to the WebApp.
+ * This code gets executed after grommunio Web has loaded.
+ * It hooks the plugin to grommunio Web.
  */
 Zarafa.onReady(function () {
 	container.registerPlugin(new Zarafa.core.PluginMetaData({

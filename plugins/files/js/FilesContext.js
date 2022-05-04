@@ -4,7 +4,7 @@ Ext.namespace('Zarafa.plugins.files');
  * @class Zarafa.plugins.files.FilesContext
  * @extends Zarafa.core.Context
  *
- * This class will add a new context to the webapp. The new context
+ * This class will add a new context to grommunio Web. The new context
  * offers a filebrowser for the Files backend.
  */
 Zarafa.plugins.files.FilesContext = Ext.extend(Zarafa.core.Context, {
@@ -79,7 +79,7 @@ Zarafa.plugins.files.FilesContext = Ext.extend(Zarafa.core.Context, {
 	},
 
 	/**
-	 * Adds a new tab item to the top tab bar of the WebApp.
+	 * Adds a new tab item to the top tab bar of grommunio Web.
 	 *
 	 * @returns {Object} The button for the top tab bar.
 	 */
@@ -666,8 +666,8 @@ Zarafa.plugins.files.FilesContext = Ext.extend(Zarafa.core.Context, {
 });
 
 /**
- * This code gets executed after the WebApp has loaded.
- * It hooks the context to the WebApp.
+ * This code gets executed after grommunio Web has loaded.
+ * It hooks the context to grommunio Web.
  */
 Zarafa.onReady(function () {
 	if (container.getSettingsModel().get('zarafa/v1/plugins/files/enable') === true) {

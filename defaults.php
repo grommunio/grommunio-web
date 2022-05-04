@@ -135,7 +135,7 @@ if (!defined('ENABLED_LANGUAGES')) define("ENABLED_LANGUAGES",
 );
 
 /**
- * Defines the base URL where the User Manual for WebApp can be found
+ * Defines the base URL where the User Manual for grommunio Web can be found
  */
 if(!defined("PLUGIN_WEBAPPMANUAL_URL")) define("PLUGIN_WEBAPPMANUAL_URL", "https://docs.grommunio.com/web");
 
@@ -308,7 +308,7 @@ if (!defined("COLOR_SCHEMES")) define("COLOR_SCHEMES", json_encode(array(
  *
  * The first six categories have the additional fields standardIndex. This field maps
  * these categories to the colored flag that could have been set on an item. These
- * flags will be shown as categories in the WebApp.
+ * flags will be shown as categories in grommunio Web.
  */
 if (!defined("DEFAULT_CATEGORIES")) define("DEFAULT_CATEGORIES", json_encode(array(
 	array(

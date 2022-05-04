@@ -270,7 +270,7 @@ class Conversion {
 	{
 		if (is_integer($property)) {
 			// Retrieve constants categories, mapi error names are defined
-			// in the 'user' category, since the WebApp code defines it in mapitags.php.
+			// in the 'user' category, since grommunio Web code defines it in mapitags.php.
 			foreach (get_defined_constants(true)['user'] as $key => $value) {
 				if ($property == $value) {
 					$prefix = substr($key, 0, 3);

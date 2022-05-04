@@ -5,7 +5,7 @@ Ext.namespace('Zarafa.plugins.mdm');
  * @extends Zarafa.core.Plugin
  *
  * Plugin which lists all devices connected to a Grommunio account with Sync.
- * The user can wipe, resync, remove a device using buttons in the WebApp.
+ * The user can wipe, resync, remove a device using buttons in grommunio Web.
  */
 Zarafa.plugins.mdm.MDM = Ext.extend(Zarafa.core.Plugin, {
 	/**

@@ -90,7 +90,7 @@ Zarafa.core.data.SettingsStateProvider = Ext.extend(Ext.state.Provider, {
 
 	/**
 	 * Convert a 'width' or 'height' value into a percentage of the current size of the body.
-	 * This will ensure that when the WebApp is reloaded on a new display (with different resolution)
+	 * This will ensure that when grommunio Web is reloaded on a new display (with different resolution)
 	 * the panel is scaled accordingly.
 	 * @param {Ext.Component} component The component for which the percentages are calculated
 	 * @param {Number} value The value to convert
@@ -113,7 +113,7 @@ Zarafa.core.data.SettingsStateProvider = Ext.extend(Ext.state.Provider, {
 
 	/**
 	 * Convert a 'width' or 'height' percentage into a real size depending on the size of the body.
-	 * This will ensure that when the WebApp is reloaded on a new display (with different resolution)
+	 * This will ensure that when grommunio Web is reloaded on a new display (with different resolution)
 	 * the panel is scaled accordingly. It will check the {@link Ext.Component#minWidth}/{@link Ext.Panel#maxWidth}
 	 * and {@link Ext.Panel#minHeight}/{@link Ext.Panel#maxHeight} properties in the component to prevent
 	 * it from becoming too big.

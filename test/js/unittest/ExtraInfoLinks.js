@@ -157,7 +157,7 @@ describe('Extra information links', function() {
 
       const extraInfoEl = Ext.query('div.preview-header-extrainfobox-item');
       expect(Ext.isEmpty(extraInfoEl)).toBeFalsy();
-      expect(extraInfoEl[0].textContent).toContain('Click here to download pictures. To help protect your privacy, WebApp prevented automatic download of some pictures in this message.');
+      expect(extraInfoEl[0].textContent).toContain('Click here to download pictures. To help protect your privacy, grommunio Web prevented automatic download of some pictures in this message.');
     });
   });
 });

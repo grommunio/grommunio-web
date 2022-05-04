@@ -82,7 +82,7 @@ Zarafa.core.Plugin = Ext.extend(Zarafa.core.data.StatefulObservable, {
 	},
 
 	/**
-	 * Add a About/Copyright notice to the WebApp, to the {@link Zarafa.settings.ui.SettingsCopyrightCategory About Category}
+	 * Add a About/Copyright notice to grommunio Web, to the {@link Zarafa.settings.ui.SettingsCopyrightCategory About Category}
 	 * inside the {@link Zarafa.settings.SettingsContext Settings}. This is a convenience function which will use the
 	 * {@link Zarafa.settings.ui.SettingsCopyrightCategory#context.settings.category.copyright context.settings.category.copyright}
 	 * insertion point.

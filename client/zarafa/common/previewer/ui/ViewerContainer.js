@@ -263,7 +263,7 @@ Zarafa.common.previewer.ui.ViewerContainer = Ext.extend(Zarafa.core.ui.ContentPa
 	},
 
 	/**
-	 * Handler for the contentload event of the webview. Will inject the WebApp cookies
+	 * Handler for the contentload event of the webview. Will inject the grommunio Web cookies
 	 * into the webview, so documents can be loaded
 	 */
 	onLoadWebview: function()

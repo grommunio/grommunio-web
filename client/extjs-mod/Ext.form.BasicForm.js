@@ -24,7 +24,7 @@
 					if (Ext.type(value) !== false && value.getGroupValue) {
 						value = value.getGroupValue();
 						// This else statement has been changed, originally it was if (field.eachItem).
-						// From ExtJs code this could only be true for CompositeFields, however in WebApp
+						// From ExtJs code this could only be true for CompositeFields, however in grommunio Web
 						// we use Composite fields for returning a single values based on combining the
 						// values from the individual components. To keep supporting this feature without
 						// requiring a completely new component support for the config option 'isSingleValued'

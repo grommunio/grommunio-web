@@ -155,7 +155,6 @@ class PluginSmimeModule extends Module
 
 		if($result) {
 			$encryptionStore = EncryptionStore::getInstance();
-			// TODO: remove when we no longer support WebApp 3.4.0
 			if (encryptionStoreExpirationSupport()) {
 				$encryptionStore->add('smime', $data['passphrase'], time() + (5 * 60));
 			} else {

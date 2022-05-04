@@ -228,7 +228,7 @@ Zarafa.plugins.files.data.FilesFoldersSubStore = Ext.extend(Zarafa.core.data.IPF
 	 */
 	load : function(options)
 	{
-		// FIXME: In Webapp sub store are not allow to send request to server but files is
+		// FIXME: In grommunio Web sub store are not allow to send request to server but files is
 		// a special case where we dont load all the folder of hierarchy in advance so here
 		// we have to give privilege to substore so it can able to send a request to server
 		// to load the child folders

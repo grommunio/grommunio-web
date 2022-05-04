@@ -27,7 +27,7 @@ Zarafa.core.data.ServerConfig = Ext.extend(Object, {
 	},
 
 	/**
-	 * @return {String} the base url of the WebApp
+	 * @return {String} the base url of grommunio Web
 	 */
 	getBaseUrl: function()
 	{
@@ -35,7 +35,7 @@ Zarafa.core.data.ServerConfig = Ext.extend(Object, {
 	},
 
 	/**
-	 * @return {String} the title of the WebApp
+	 * @return {String} the title of grommunio Web
 	 */
 	getWebappTitle: function()
 	{
@@ -60,7 +60,7 @@ Zarafa.core.data.ServerConfig = Ext.extend(Object, {
 	},
 
 	/**
-	 * @return {Boolean} True if WebApp is using Single Sign-On to login
+	 * @return {Boolean} True if grommunio Web is using Single Sign-On to login
 	 */
 	usingSSO: function()
 	{

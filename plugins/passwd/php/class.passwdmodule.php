@@ -86,12 +86,8 @@ class PasswdModule extends Module
 
 		// get current session password
 		// if this plugin is used on a webapp version with EncryptionStore,
-		// $_SESSION['password'] is no longer available. User EncryptionStore
+		// $_SESSION['password'] is no longer available. Uses EncryptionStore
 		// in this case.
-		// EncryptionStore was introduced in webapp core somewhere after
-		// version 2.1.2, and with or before version 2.2.0.414.
-		// tested with Zarafa WebApp 2.2.1.43-199.1 running with
-		// Zarafa Server 7.2.4.29-99.1
 		if(class_exists("EncryptionStore")) {
 			$encryptionStore = EncryptionStore::getInstance();
 			$sessionPass = $encryptionStore->get("password");

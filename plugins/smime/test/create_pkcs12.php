@@ -2,13 +2,13 @@
 define('OPENSSL_CONF_PATH', '/etc/ssl/openssl.cnf');
 
 $dn = [
-	"countryName" => "NL",
-	"stateOrProvinceName" => "Zuid Holland",
-	"localityName" => "Delft",
-	"organizationName" => "Kopano",
+	"countryName" => "AT",
+	"stateOrProvinceName" => "Vienna",
+	"localityName" => "Vienna",
+	"organizationName" => "grommunio",
 	"organizationalUnitName" => "Dev",
-	"commonName" => "John",
-	"emailAddress" => "john@kopano.com",
+	"commonName" => "Dev",
+	"emailAddress" => "dev@grommunio.com",
 ];
 $config = ['config' => OPENSSL_CONF_PATH];
 $daysvalid = 365;

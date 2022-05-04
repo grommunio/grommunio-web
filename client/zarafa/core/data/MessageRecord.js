@@ -113,7 +113,7 @@ Zarafa.core.data.MessageRecord = Ext.extend(Zarafa.core.data.IPMRecord, {
 			if (p.hasClass('MsoListParagraph') || p.hasClass('MsoListNumber')) {
 
 				// Outlook uses negative indents for lists.
-				// WebApp displays the CSS correctly, but results in cut of text for users.
+				// grommunio Web displays the CSS correctly, but results in cut of text for users.
 				// If the paragraph has a negative text-indent, we replace it by a positive text-indent.
 				// If there is no negative text-indent, we set it to 0.
 				// We exclude items that have 'margin-left' and negative text-indent,

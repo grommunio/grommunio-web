@@ -8,7 +8,7 @@ Ext.namespace('Zarafa.whatsnew');
  * This object describes the new features that should be shown to users one time after updating
  * grommunio Web.
  * NOTE: Plugins can add the same property to their main plugin class to communicate new features.
- * WebApp must use urls relative to the root of grommunio Web. Plugins must use urls relative to the
+ * grommunio Web must use urls relative to the root of grommunio Web. Plugins must use urls relative to the
  * root directory of the plugin.
  */
 Zarafa.whatsnew.Features = {

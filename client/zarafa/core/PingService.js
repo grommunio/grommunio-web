@@ -6,7 +6,7 @@ Ext.namespace('Zarafa.core');
  *
  * Ping service which will periodically ping the server to determine
  * if the HTTP and Gromox server are both available again, so the user can
- * continue working with the WebApp.
+ * continue working with grommunio Web.
  */
 Zarafa.core.PingService = Ext.extend(Ext.util.Observable, {
 

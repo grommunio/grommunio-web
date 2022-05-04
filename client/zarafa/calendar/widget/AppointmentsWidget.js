@@ -13,7 +13,7 @@ Ext.namespace('Zarafa.calendar.widget');
  * saved in miliseconds but displayed in seconds. The reload
  * interval is how often the calendar is fully reloaded from the
  * server, to show records that were added to the folder
- * outside of WebApp.
+ * outside of grommunio Web.
  */
 Zarafa.calendar.widget.AppointmentsWidget = Ext.extend(Zarafa.core.ui.widget.AbstractFolderWidget, {
 	/**

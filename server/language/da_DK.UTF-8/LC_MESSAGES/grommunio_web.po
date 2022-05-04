@@ -3151,7 +3151,7 @@ msgstr "Behandl dette som {0}."
 
 msgctxt "mail.previewpanel"
 msgid ""
-"Click here to download pictures. To help protect your privacy, WebApp "
+"Click here to download pictures. To help protect your privacy, grommunio Web "
 "prevented automatic download of some pictures in this message."
 msgstr ""
 
@@ -5867,10 +5867,11 @@ msgid ""
 msgstr ""
 
 msgid ""
-"WebApp will automatically restart in order for these changes to take effect."
+"grommunio Web will automatically restart in order for these changes to take "
+"effect."
 msgstr ""
 
-msgid "Webapp is reloading, Please wait."
+msgid "grommunio Web is reloading, Please wait."
 msgstr ""
 
 msgid "Edit Account"
@@ -6226,7 +6227,7 @@ msgstr ""
 
 msgid ""
 "Select folders to sync to your device from the list below. To add additional "
-"mailboxes to the list, open them in WebApp first."
+"mailboxes to the list, open them in grommunio Web first."
 msgstr ""
 
 msgid "grommunio-sync"
@@ -6474,8 +6475,8 @@ msgid "Upload your certificate"
 msgstr ""
 
 msgid ""
-"Below you can upload your private certificate in PKCS#12 format. The WebApp "
-"only accepts certificates which are valid and only stores one private "
+"Below you can upload your private certificate in PKCS#12 format. grommunio "
+"Web only accepts certificates which are valid and only stores one private "
 "certificate on the server."
 msgstr ""
 
@@ -6514,9 +6515,9 @@ msgid "What's going on with my email?"
 msgstr ""
 
 msgid ""
-"WebApp can verify digital signatures of emails. A successful verification "
-"reassures you that the message has not been tampered with and validates the "
-"identity of the sender."
+"grommunio Web can verify digital signatures of emails. A successful "
+"verification reassures you that the message has not been tampered with and "
+"validates the identity of the sender."
 msgstr ""
 
 msgid ""
@@ -6546,8 +6547,8 @@ msgid ""
 msgstr ""
 
 msgid ""
-"WebApp can verify digital signatures of emails. A successful verification "
-"reassures you "
+"grommunio Web can verify digital signatures of emails. A successful "
+"verification reassures you "
 msgstr ""
 
 msgid ""
@@ -6560,7 +6561,7 @@ msgid ""
 "message."
 msgstr ""
 
-msgid "WebApp could not find a public certificate for the recipient."
+msgid "grommunio Web could not find a public certificate for the recipient."
 msgstr ""
 
 msgid ""
@@ -6952,7 +6953,7 @@ msgstr ""
 msgid "Private key can't be used to sign email"
 msgstr ""
 
-msgid "Certificate email address doesn't match WebApp account "
+msgid "Certificate email address doesn't match grommunio Web account "
 msgstr ""
 
 msgid "Certificate was expired on "

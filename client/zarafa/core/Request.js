@@ -181,15 +181,15 @@ Zarafa.core.Request = Ext.extend(Ext.util.Observable, (function() {
 				/**
 				 * @event connectionparalyzed
 				 * Fired when the window is about to be unloaded. At this moment
-				 * WebApp will shutdown and start dropping all communication with the PHP
+				 * grommunio Web will shutdown and start dropping all communication with the PHP
 				 * @param {Zarafa.core.Request} request
-				 * @param {Zarafa.core.data.ParalyzeReason} reason The reason to paralyze the WebApp
+				 * @param {Zarafa.core.data.ParalyzeReason} reason The reason to paralyze the grommunio Web
 				 */
 				'connectionparalyzed',
 				/**
 				 * @event connectioninterrupted
 				 * Fired when the connection to the server has been lost, but is likely
-				 * to be restored soon. WebApp will start pausing all communication with
+				 * to be restored soon. grommunio Web will start pausing all communication with
 				 * the PHP until the connection has been restored.
 				 * @param {Zarafa.core.Request} request
 				 * @param {Zarafa.core.PingService} service The ping service which will
@@ -248,7 +248,7 @@ Zarafa.core.Request = Ext.extend(Ext.util.Observable, (function() {
 		/**
 		 * Set the {@link #paralyzed} property which will prevent any requests from
 		 * being send out to the server. This will fire the {@link #connectionparalyzed} event.
-		 * @param {Zarafa.core.data.ParalyzeReason} reason The reason to paralyze the WebApp
+		 * @param {Zarafa.core.data.ParalyzeReason} reason The reason to paralyze grommunio Web
 		 */
 		paralyze: function(reason)
 		{
@@ -293,7 +293,7 @@ Zarafa.core.Request = Ext.extend(Ext.util.Observable, (function() {
 			service.on('restored', this.restore, this);
 
 			// Add some event handlers which will stop the PingService
-			// as soon as the connection is restored, or if the WebApp
+			// as soon as the connection is restored, or if grommunio Web
 			// is being paralyzed. We defer the connectionrestored by 1 ms,
 			// so we force the 'stop' event from the service to be fired after
 			// all 'restored' event handlers from the service have been handled.
@@ -322,7 +322,7 @@ Zarafa.core.Request = Ext.extend(Ext.util.Observable, (function() {
 			}
 
 			// If the response object indicates that our session
-			// is no longer active, we must paralyze the WebApp
+			// is no longer active, we must paralyze grommunio Web
 			// as no further requests can be send to the server.
 			if (response && response.active === false) {
 				this.paralyze(Zarafa.core.data.ParalyzeReason.SESSION_EXPIRED);

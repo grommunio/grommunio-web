@@ -414,7 +414,7 @@ Zarafa.mail.settings.SettingsOofWidget = Ext.extend(Zarafa.settings.ui.SettingsW
 			hierarchyStore.getStores().forEach(function(store) {
 				if (store.get('user_name') === user) {
 					// Saving out of office only works with equal or more than secretary permissions on the full store.
-					// Note: The WebApp backend will not check the rights and allows saving out of office settings
+					// Note: The grommunio Web backend will not check the rights and allows saving out of office settings
 					// when the user has folder rights, because that is what Gromox needs).
 					var subtree = store.getSubtreeFolder();
 					var hasSufficientPermission = (subtree.get('rights') & Zarafa.core.mapi.Rights.RIGHTS_SECRETARY) === Zarafa.core.mapi.Rights.RIGHTS_SECRETARY;

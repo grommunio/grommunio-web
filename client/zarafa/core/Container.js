@@ -199,8 +199,8 @@ Zarafa.core.Container = Ext.extend(Ext.util.Observable, {
 	},
 
 	/**
-	 * Obtain the versioning data for the WebApp environment
-	 * @return {Zarafa.core.data.Version} The version data of the WebApp environment
+	 * Obtain the versioning data for grommunio Web environment
+	 * @return {Zarafa.core.data.Version} The version data of the grommunio Web environment
 	 */
 	getVersion: function()
 	{
@@ -208,8 +208,8 @@ Zarafa.core.Container = Ext.extend(Ext.util.Observable, {
 	},
 
 	/**
-	 * Set the version data for the WebApp environment
-	 * @param {Object} versionData The version data of the WebApp environment
+	 * Set the version data for grommunio Web environment
+	 * @param {Object} versionData The version data of the grommunio Web environment
 	 */
 	setVersion: function(versionData)
 	{

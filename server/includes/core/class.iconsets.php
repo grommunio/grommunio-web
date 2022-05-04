@@ -2,7 +2,7 @@
 define('ICONSETS_PATH', 'client/resources/iconsets');
 
 /**
- * This class provides some functionality for theming the WebApp
+ * This class provides some functionality for theming grommunio Web
  */
 class Iconsets {
 	/**

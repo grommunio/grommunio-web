@@ -43,7 +43,7 @@ Zarafa.common.ui.htmleditor.LanguageMap = {
 	/**
 	 * Converts the official language code to the language code that tinymce
 	 * uses for their editor.
-	 * @param {String} webappLanguageCode The official language code that WebApp uses
+	 * @param {String} webappLanguageCode The official language code that grommunio Web uses
 	 * @return {String} the language code that tinymce uses
 	 */
 	getTinyLanguageCode: function(webappLanguageCode){

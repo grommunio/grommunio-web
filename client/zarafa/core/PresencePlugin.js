@@ -6,7 +6,7 @@ Ext.namespace('Zarafa.core');
  *
  * A {@link Zarafa.core.PresencePlugin PresencePlugin} is a special kind of plugin
  * that should implement a method to communicate presence information about
- * users to the WebApp core. The core will then use this information to display
+ * users to grommunio Web core. The core will then use this information to display
  * a presence indication in the UI.
  *
  * This class was intended to be overridden.

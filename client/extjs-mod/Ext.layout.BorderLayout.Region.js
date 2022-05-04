@@ -4,7 +4,7 @@
 	 * hide the split element in such a way it will not be considered by the browser
 	 * for sizing/positioning. By default the BorderLayout#region would apply "visibility: none"
 	 * to the style of the CSS element. However due to a bug in Extjs the splitEl would have
-	 * a greater height then the MainViewPort element. As a result the entire WebApp could be
+	 * a greater height then the MainViewPort element. As a result, entire grommunio Web could be
 	 * scrolled up partially out of the view of the user. This occurred primarily when using
 	 * debugging tools...
 	 */

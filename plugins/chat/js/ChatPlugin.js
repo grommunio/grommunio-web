@@ -4,7 +4,7 @@ Ext.namespace('Zarafa.plugins.chat');
  * @class Zarafa.plugins.chat.Chat
  * @extends Zarafa.core.Plugin
  *
- * Plugin that adds Chat to WebApp
+ * Plugin that adds Chat to grommunio Web
  */
 Zarafa.plugins.chat.Chat = Ext.extend(Zarafa.core.Plugin, {
 

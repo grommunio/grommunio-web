@@ -35,7 +35,7 @@ define('PLUGIN_FILES_CACHE_DIR', "/var/lib/grommunio-web/plugin_files");
  *
  * Possible values: DEBUG, NORMAL, ERROR, NONE
  *
- * This setting is not editable within webapp!!
+ * This setting is not editable within grommunio Web
  */
 define('PLUGIN_FILESBROWSER_LOGLEVEL', "ERROR");
 

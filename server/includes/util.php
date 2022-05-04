@@ -247,7 +247,7 @@
 						array(
 							FUZZYLEVEL	=> FL_PREFIX,
 							ULPROPTAG	=> PR_DISPLAY_NAME,
-							VALUE		=> array(PR_DISPLAY_NAME=>"WebApp Search Folder")
+							VALUE		=> array(PR_DISPLAY_NAME=>"grommunio Web Search Folder")
 						)
 					),
 					array(RES_PROPERTY,
@@ -378,7 +378,7 @@
 			return false;
 		}
 
-		// The same domain as the WebApp is always allowed
+		// The same domain as grommunio Web is always allowed
 		if ( $parsed['host'] === $_SERVER['HTTP_HOST'] ){
 			return true;
 		}

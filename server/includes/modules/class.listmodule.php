@@ -630,7 +630,7 @@
 			}
 
 			// check for folder name, if exists then delete it
-			$folderName = "WebApp Search Folder";
+			$folderName = "grommunio Web Search Folder";
 			try {
 				$table = mapi_folder_gethierarchytable($searchFolderRoot, 0);
 				$rows = mapi_table_queryrows($table, array(PR_DISPLAY_NAME, PR_ENTRYID), 0, 0xFFFF);

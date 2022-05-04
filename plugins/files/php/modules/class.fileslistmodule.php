@@ -292,7 +292,7 @@ class FilesListModule extends ListModule
 				}
 
 				// We need to call this function recursively when user rename the folder.
-				// we have to send all sub folder as server side notification so webapp
+				// we have to send all sub folder as server side notification so grommunio Web
 				// can update the sub folder as per it's parent folder is renamed.
 				if ($objectType === FILES_FOLDER && $recursive) {
 					$nodes = $this->getSubFolders($realID, $backend, true, $nodes);

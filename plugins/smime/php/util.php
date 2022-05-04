@@ -136,7 +136,7 @@ function der2pem($certificate) {
  * - Issuer certificate (Authority Information Access: Ca Issuers) openssl x509 -in certificate.crt -text
  * - OCSP URL (Authority Information Access: OCSP Url)
  *
- * The issuer certificate is fetched once and stored in /var/lib/kopano-webapp/tmp/smime
+ * The issuer certificate is fetched once and stored in /var/lib/grommunio-web/tmp/smime
  * We create the directory if it does not exists, check if the certificate is already stored. If it is already
  * stored we, use stat() to determine if it is not very old (> 1 Month) and otherwise fetch the certificate and store it.
  *
@@ -221,9 +221,9 @@ function validateUploadedPKCS($certificate, $passphrase, $emailAddress)
 		if(!openssl_x509_checkpurpose($privatekey, X509_PURPOSE_SMIME_SIGN)) {
 			$message = _('Private key can\'t be used to sign email');
 		}
-		// Check if the certificate owner matches the WebApp users email address
+		// Check if the certificate owner matches the grommunio Web users email address
 		else if (strcasecmp($certEmailAddress, $emailAddress) !== 0) {
-			$message = _('Certificate email address doesn\'t match WebApp account ') . $certEmailAddress;
+			$message = _('Certificate email address doesn\'t match grommunio Web account ') . $certEmailAddress;
 		}
 		// Check if certificate is not expired, still import the certificate since a user wants to decrypt his old email
 		else if($validTo < time()) {
@@ -246,7 +246,6 @@ function validateUploadedPKCS($certificate, $passphrase, $emailAddress)
 
 /**
  * Detect if the encryptionstore has a third parameter which sets the expiration.
- * Remove when WebApp 3.4.0 is removed.
  * @return {boolean} true is expiration is supported
  */
 function encryptionStoreExpirationSupport() {

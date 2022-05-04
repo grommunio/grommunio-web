@@ -30,7 +30,7 @@ Zarafa.common.ui.ColorPicker = Ext.extend(Ext.form.Field, {
 	/**
    * @cfg {String[]} colors The colors that will be used for the colorpicker. Colors
    * should be in RGB hex format without the #. E.g. 'AA0000' for red. Defaults to
-   * the default calendar colors used by the WebApp.
+   * the default calendar colors used by grommunio Web.
 	 */
 	colors: [
 		'E30022', // cadmium red

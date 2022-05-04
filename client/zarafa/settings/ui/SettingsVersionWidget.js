@@ -5,7 +5,7 @@ Ext.namespace('Zarafa.settings.ui');
  * @extends Zarafa.settings.ui.SettingsWidget
  * @xtype zarafa.settingsversionwidget
  *
- * The WebApp version widget
+ * grommunio Web version widget
  */
 Zarafa.settings.ui.SettingsVersionWidget = Ext.extend(Zarafa.settings.ui.SettingsWidget, {
 

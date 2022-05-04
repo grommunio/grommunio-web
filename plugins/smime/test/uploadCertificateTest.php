@@ -12,7 +12,7 @@ class UploadCertificateTest extends SMIMETest
 {
 	const DAY_EPOCH = 86400;
 	const PASSPHRASE = 'test';
-	const EMAIL_ADDRESS = 'john@kopano.com';
+	const EMAIL_ADDRESS = 'dev@grommunio.com';
 	
 	// Cache private key generation
 	private $privkey = '';
@@ -26,7 +26,7 @@ class UploadCertificateTest extends SMIMETest
 			"countryName" => "NL",
 			"stateOrProvinceName" => "Zuid Holland",
 			"localityName" => "Delft",
-			"organizationName" => "Kopano",
+			"organizationName" => "grommunio",
 			"organizationalUnitName" => "Dev",
 			"commonName" => "John",
 			"emailAddress" => $emailAddress
@@ -91,7 +91,7 @@ class UploadCertificateTest extends SMIMETest
 	{
 		$pkcs12 = $this->generatePKCS12();
 		$this->assertEquals(validateUploadedPKCS($pkcs12, self::PASSPHRASE, 'foo@bar.nl')[0],
-			"Certificate email address doesn't match WebApp account " . self::EMAIL_ADDRESS);
+			"Certificate email address doesn't match grommunio Web account " . self::EMAIL_ADDRESS);
 	}
 
 	/**

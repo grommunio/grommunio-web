@@ -6,7 +6,7 @@ Ext.namespace('Zarafa.settings.ui');
  * @xtype zarafa.settingscopyrightcategory
  *
  * Special Settings Category which shows the copyright notice
- * of WebApp and any possible plugins which register their own
+ * of grommunio Web and any possible plugins which register their own
  * copyright notices.
  */
 Zarafa.settings.ui.SettingsCopyrightCategory = Ext.extend(Zarafa.settings.ui.SettingsCategory, {

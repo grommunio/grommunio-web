@@ -460,7 +460,7 @@ Zarafa.mail.MailContextModel = Ext.extend(Zarafa.core.ContextModel, {
 	 * Copy the body (both plain text and html) of the {@link Zarafa.core.data.IPMRecord original record}
 	 * to the {@link Zarafa.core.data.IPMRecord new record}.
 	 * The html body will be cleaned, meaning the wrapping div that was added by
-	 * the WebApp backend will be removed. This is necessary because it introduces
+	 * the grommunio Web backend will be removed. This is necessary because it introduces
 	 * problems when we paste it in TinyMCE.
 	 *
 	 * @param {Zarafa.core.data.IPMRecord} record The new record

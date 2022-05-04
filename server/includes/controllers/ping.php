@@ -1,7 +1,7 @@
 <?php
 
 	/************************************************************************************
-	 * 	This file handles the ping request that is sent by the front-end of the WebApp
+	 * 	This file handles the ping request that is sent by the front-end of grommunio Web
 	 * 	to check if a broken connection with the server can be re-established. 
 	 ***********************************************************************************/
 

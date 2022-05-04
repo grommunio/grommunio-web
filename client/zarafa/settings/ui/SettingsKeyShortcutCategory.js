@@ -6,7 +6,7 @@ Ext.namespace('Zarafa.settings.ui');
  * @xtype zarafa.settingskeyshortcutcategory
  *
  * Special Settings Category which shows the list and description of keyboard shortcuts
- * of WebApp.
+ * of grommunio Web.
  */
 Zarafa.settings.ui.SettingsKeyShortcutCategory = Ext.extend(Zarafa.settings.ui.SettingsCategory, {
 

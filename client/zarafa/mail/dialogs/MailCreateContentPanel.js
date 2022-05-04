@@ -298,7 +298,7 @@ Zarafa.mail.dialogs.MailCreateContentPanel = Ext.extend(Zarafa.core.ui.MessageCo
 	/**
 	 * Called when bcctoggle or fromtoggle event is fired, if the argument
 	 * saveState is true it will save the state of the mailcreatecontentpanel
-	 * to the WebApp user settings.
+	 * to grommunio Web user settings.
 	 *
 	 * @param {Zarafa.mail.dialogs.MailCreateContentPanel} panel the mail create content panel
 	 * @param {Boolean} visible visiblity of button

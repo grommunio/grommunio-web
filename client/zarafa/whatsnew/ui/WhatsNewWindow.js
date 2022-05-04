@@ -4,12 +4,12 @@ Ext.namespace('Zarafa.whatsnew.ui');
  * @class Zarafa.whatsnew.ui.WhatsNewWindow
  * @extends Ext.Window
  *
- * The WhatsNewWindow is a dialog that shows new features in the latest version of the WebApp and the enabled
+ * The WhatsNewWindow is a dialog that shows new features in the latest version of grommunio Web and the enabled
  * plugins. Features will be shown once, and the user has the option to turn off the showing of the dialog.
  */
 Zarafa.whatsnew.ui.WhatsNewWindow = Ext.extend(Ext.Window, {
 	/**
-	 * @cfg {Object[]} features Array of objects describing the latest features of the WebApp version
+	 * @cfg {Object[]} features Array of objects describing the latest features of grommunio Web version
 	 * and of the installed plugins. Objects could have the following properties:<br>
 	 * <ul>
 	 * 		<li>title: String (mandatory)</li>

@@ -968,7 +968,7 @@
                 $storeProps = mapi_getprops($store, [PR_FINDER_ENTRYID]);
                 $props = array();
                 $folder = mapi_msgstore_openentry($store, $storeProps[PR_FINDER_ENTRYID]);
-                $folderName = $GLOBALS["operations"]->checkFolderNameConflict($store, $folder, "WebApp Search Folder");
+                $folderName = $GLOBALS["operations"]->checkFolderNameConflict($store, $folder, "grommunio Web Search Folder");
 	            return $GLOBALS["operations"]->renameFolder($store, $entryid, $folderName, $props);
             }
 		}

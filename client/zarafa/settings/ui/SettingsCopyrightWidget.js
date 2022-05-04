@@ -5,7 +5,7 @@ Ext.namespace('Zarafa.settings.ui');
  * @extends Zarafa.settings.ui.SettingsWidget
  * @xtype zarafa.settingscopyrightwidget
  *
- * The WebApp copyright notice widget
+ * The grommunio Web copyright notice widget
  */
 Zarafa.settings.ui.SettingsCopyrightWidget = Ext.extend(Zarafa.settings.ui.SettingsWidget, {
 

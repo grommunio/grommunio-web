@@ -5,7 +5,7 @@ Ext.namespace('Zarafa.core.data');
  * @extends Object
  *
  * An object which represents the versioning
- * information of the WebApp environment.
+ * information of grommunio Web environment.
  * To obtain the instance of this object
  * refer to {@link Zarafa.core.Container#getVersion}
  */
@@ -29,7 +29,7 @@ Zarafa.core.data.Version = Ext.extend(Object, {
 	},
 
 	/**
-	 * @return {String} Return the WebApp version number
+	 * @return {String} Return grommunio Web version number
 	 */
 	getWebApp: function()
 	{

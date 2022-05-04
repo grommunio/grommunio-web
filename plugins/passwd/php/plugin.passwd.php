@@ -2,9 +2,7 @@
 /**
  * Passwd plugin.
  *
- * Allows to change user password from webapp.
- *
- * Author: Saket patel <silentsakky@gmail.com>
+ * Allows to change user password from grommunio Web.
  */
 
 class Pluginpasswd extends Plugin {

@@ -14,7 +14,7 @@ Ext.namespace('Zarafa.core.ui.widget');
  * saved in miliseconds but displayed in seconds. The reload
  * interval is how often the folder is fully reloaded from the
  * server, to show records that were added to the folder
- * outside of WebApp.
+ * outside of grommunio Web.
  */
 Zarafa.core.ui.widget.AbstractFolderWidget = Ext.extend(Zarafa.core.ui.widget.Widget, {
 	/**

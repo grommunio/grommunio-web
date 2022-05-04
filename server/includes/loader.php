@@ -9,7 +9,7 @@ class FileLoader {
 
 	public function __construct()
 	{
-		// Unique cache file per WebApp location.
+		// Unique cache file per grommunio Web location.
 		$basePath = sys_get_temp_dir() . DIRECTORY_SEPARATOR . '.' . md5(realpath(__FILE__));
 		$this->cacheFile = "$basePath-loadcache";
 		$this->cacheSum = "$basePath-loadsum";
@@ -78,7 +78,7 @@ class FileLoader {
 	}
 
 	/**
-	 * Obtain the list of WebApp files
+	 * Obtain the list of grommunio Web files
 	 *
 	 * @param number $load The LOAD_RELEASE | LOAD_DEBUG | LOAD_SOURCE flag
 	 * to indicate which files should be loaded.
@@ -191,8 +191,8 @@ class FileLoader {
 	}
 
 	/**
-	 * Return WebApp version.
-	 * @return String returns WebApp version
+	 * Return grommunio Web version.
+	 * @return String returns grommunio Web version
 	 */
 	public function getVersion()
 	{
@@ -524,7 +524,7 @@ class FileLoader {
 	}
 
 	/**
-	 * The JavaScript load order for WebApp. The loader order is cached when WebApp
+	 * The JavaScript load order for grommunio Web. The loader order is cached when grommunio Web
 	 * is LOAD_SOURCE mode, since calculating the loader is quite expensive.
 	 */
 	public function jsOrder()
@@ -572,7 +572,7 @@ class FileLoader {
 	}
 
 	/**
-	 * The CSS load order for WebApp
+	 * The CSS load order for grommunio Web
 	 */
 	public function cssOrder()
 	{

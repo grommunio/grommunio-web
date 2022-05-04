@@ -211,7 +211,7 @@
 
 		/**
 		 * Parses the incoming sort request and builds a MAPI sort order.
-		 * Overridden to rewrite the sorting for flags. (because the flags that are shown in the WebApp
+		 * Overridden to rewrite the sorting for flags. (because the flags that are shown in grommunio Web
 		 * are a combination of several properties)
 		 *
 		 * @param array $action the action data, sent by the client

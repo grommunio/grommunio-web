@@ -77,7 +77,7 @@ Zarafa.plugins.mdm.dialogs.MDMManageSharedFolderPanel = Ext.extend(Ext.Panel, {
 			items: [{
 				xtype: 'displayfield',
 				hideLabel : true,
-				value: _('Select folders to sync to your device from the list below. To add additional mailboxes to the list, open them in WebApp first.')
+				value: _('Select folders to sync to your device from the list below. To add additional mailboxes to the list, open them in grommunio Web first.')
 			}, {
 				xtype: 'mdm.hierarchytree',
 				autoScroll : true,

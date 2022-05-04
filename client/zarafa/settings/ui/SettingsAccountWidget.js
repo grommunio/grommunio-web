@@ -192,7 +192,7 @@ Zarafa.settings.ui.SettingsAccountWidget = Ext.extend(Zarafa.settings.ui.Setting
 			});
 		}
 
-		// We always have more than one iconset (WebApp ships with the classic and breeze icon sets)
+		// We always have more than one iconset (grommunio Web ships with the classic and breeze icon sets)
 		config.items.push({
 			xtype: 'combo',
 			width: 200,

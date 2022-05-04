@@ -5,7 +5,7 @@ Ext.namespace('Zarafa.common.ui.grid');
  * @extends Ext.grid.GridPanel
  * @xtype zarafa.gridpanel
  *
- * WebApp specific GridPanel which contain extra features and bugfixes
+ * grommunio Web specific GridPanel which contain extra features and bugfixes
  * which could not be resolved by plugins or directly in extjs.
  */
 Zarafa.common.ui.grid.GridPanel = Ext.extend(Ext.grid.GridPanel, {

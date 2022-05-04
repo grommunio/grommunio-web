@@ -437,7 +437,6 @@ class Pluginsmime extends Plugin {
 			$this->message['info'] = SMIME_UNLOCK_CERT;
 		}
 
-		// When using WebApp 3.4.0, there is no expiration, so clear the password
 		if (!encryptionStoreExpirationSupport()) {
 			withPHPSession(function() use ($encryptionStore) { $encryptionStore->add('smime', ''); });
 		}
@@ -492,7 +491,7 @@ class Pluginsmime extends Plugin {
 	}
 
 	/**
-	 * Handles the uploaded certificate in the settingsmenu in the WebApp
+	 * Handles the uploaded certificate in the settingsmenu in grommunio Web
 	 * - Opens the certificate with provided passphrase
 	 * - Checks if it can be used for signing/decrypting
 	 * - Verifies that the email address is equal to the
@@ -1021,7 +1020,7 @@ class Pluginsmime extends Plugin {
 	/**
 	 * Retrieve the GAB User.
 	 *
-	 * FIXME: ideally this would be a public function in WebApp.
+	 * FIXME: ideally this would be a public function in grommunio Web.
 	 *
 	 * @param String $email the email address of the user
 	 * @return Mixed $user Boolean if false else MAPIObject.
@@ -1088,7 +1087,6 @@ class Pluginsmime extends Plugin {
 	 */
 	function getSenderAddress($mapiMessage)
 	{
-		// WebApp will remove this method in the future (3.4.0)
 		if (!method_exists($GLOBALS['operations'], 'getSenderAddress')) {
 			$messageProps  = mapi_getprops($mapiMessage, array(PR_SENT_REPRESENTING_ENTRYID, PR_SENDER_ENTRYID));
 			$senderEntryID = isset($messageProps[PR_SENT_REPRESENTING_ENTRYID])? $messageProps[PR_SENT_REPRESENTING_ENTRYID] : $messageProps[PR_SENDER_ENTRYID];

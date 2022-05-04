@@ -2,7 +2,7 @@ Ext.namespace('Zarafa.plugins.chat');
 
 /**
  * This object is used to relay browser notifications from the Chat iframe
- * to the WebApp window. Chat need to have the Notifymatters plugin installed
+ * to the grommunio Web window. Chat need to have the Notifymatters plugin installed
  * and activated.
  * @type {Object}
  */

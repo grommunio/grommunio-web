@@ -58,7 +58,7 @@ Zarafa.common.rules.ui.RulesPanel = Ext.extend(Ext.Container, {
 			hierarchyStore.getStores().forEach(function(store) {
 				if (store.get('user_name') === user) {
 					// Saving rules only works with owner permissions on the full store.
-					// Note: Rules are stored on the default received folder (inbox). The WebApp backend will
+					// Note: Rules are stored on the default received folder (inbox). The grommunio Web backend will
 					// not check the rights and allows saving rules when the user has folder rights on the
 					// inbox (because that's what Gromox needs).
 					var subtree = store.getSubtreeFolder();

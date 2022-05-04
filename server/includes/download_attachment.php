@@ -39,7 +39,7 @@ class DownloadAttachment extends DownloadBase
 	private $attachCid;
 
 	/**
-	 * A string that will be initialized with WebApp-specific and common-for-all file name for ZIP file.
+	 * A string that will be initialized with grommunio Web-specific and common-for-all file name for ZIP file.
 	 */
 	private $zipFileName;
 

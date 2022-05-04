@@ -5,7 +5,7 @@ Ext.namespace('Zarafa.common.ui');
  * @extends Ext.Container
  * @xtype zarafa.editorfield
  *
- * The WebApp EditorField is intended as Input area for data. This field
+ * The grommunio Web EditorField is intended as Input area for data. This field
  * offers the possibility for editing using the {@link Zarafa.common.ui.HtmlEditor HtmlEditor}
  * or a simple {@link Ext.form.TextArea textarea}.
  *
