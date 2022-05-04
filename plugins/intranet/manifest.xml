@@ -2,7 +2,7 @@
 <!DOCTYPE plugin SYSTEM "manifest.dtd">
 <plugin version="2">
 	<info>
-		<version>0.1</version>
+		<version>1.0</version>
 		<name>intranet</name>
 		<title>Intranet</title>
 		<author>grommunio</author>

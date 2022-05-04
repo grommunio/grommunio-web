@@ -2,12 +2,12 @@
 <!DOCTYPE plugin SYSTEM "manifest.dtd">
 <plugin version="2">
 	<info>
-		<version>0.3</version>
+		<version>1.0</version>
 		<name>maps</name>
-		<title>maps Plugin</title>
+		<title>Maps Plugin</title>
 		<author>grommunio GmbH</author>
 		<authorURL>https://www.grommunio.com</authorURL>
-		<description>Shows contact address on openstreetmap.</description>
+		<description>Shows contact addresses on openstreetmap</description>
 	</info>
 	<config>
 		<configfile>config.php</configfile>

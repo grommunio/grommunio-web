@@ -7,7 +7,7 @@
 		<title>Archive</title>
 		<author>grommunio</author>
 		<authorURL>https://grommunio.com</authorURL>
-		<description>The archive plugin adds a button to the top menu bar that opens a grommunio Archive inside grommunio Web</description>
+		<description>The archive plugin adds a button to the top menu bar that opens grommunio Archive inside grommunio Web</description>
 	</info>
 	<config>
 		<configfile>config.php</configfile>

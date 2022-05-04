@@ -2,8 +2,8 @@
 <!DOCTYPE plugin SYSTEM "manifest.dtd">
 <plugin version="2">
 	<info>
-		<version>1.3</version>
-		<name>Passwd</name>
+		<version>1.4</version>
+		<name>passwd</name>
 		<title>Password Change Plugin</title>
 		<author>grommunio</author>
 		<authorURL>https://grommunio.com</authorURL>
@@ -12,10 +12,6 @@
 	<config>
 		<configfile>config.php</configfile>
 	</config>
-	<translations>
-		<translationsdir>language</translationsdir>
-	</translations>
-
 	<components>
 		<component>
 			<files>

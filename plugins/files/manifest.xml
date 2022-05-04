@@ -2,7 +2,7 @@
 <!DOCTYPE plugin SYSTEM "manifest.dtd">
 <plugin version="2">
 	<info>
-		<version>4.0</version>
+		<version>5.0</version>
 		<name>files</name>
 		<title>Files</title>
 		<author>grommunio GmbH</author>
@@ -12,9 +12,6 @@
 	<config>
 		<configfile>config.php</configfile>
 	</config>
-	<translations>
-		<translationsdir>language</translationsdir>
-	</translations>
 	<components>
 		<component>
 			<files>

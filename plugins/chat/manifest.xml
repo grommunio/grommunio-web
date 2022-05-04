@@ -2,7 +2,7 @@
 <!DOCTYPE plugin SYSTEM "manifest.dtd">
 <plugin version="2">
 	<info>
-		<version>0.1</version>
+		<version>1.0</version>
 		<name>chat</name>
 		<title>Chat</title>
 		<author>grommunio</author>
@@ -12,9 +12,6 @@
 	<config>
 		<configfile>config.php</configfile>
 	</config>
-	<translations>
-		<translationsdir>language</translationsdir>
-	</translations>
 	<components>
 		<component>
 			<files>

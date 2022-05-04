@@ -1,40 +1,37 @@
 <?xml version="1.0"?>
 <!DOCTYPE plugin SYSTEM "manifest.dtd">
 <plugin version="2">
-  <info>
-    <version>1.0</version>
-    <name>meet</name>
-    <title>grommunio Meet</title>
-    <author>grommunio</author>
-    <authorURL>https://grommunio.com</authorURL>
-    <description>Support for grommunio Meet</description>
-  </info>
-  <config>
-    <configfile>config.php</configfile>
-  </config>
-    <translations>
-    <translationsdir>language</translationsdir>
-  </translations>
-  <components>
-    <component>
-      <files>
-        <server>
-          <serverfile>php/settings.php</serverfile>
-        </server>
-        <client>
-          <clientfile load="release">js/meet.js</clientfile>
-          <clientfile load="debug">js/meet-debug.js</clientfile>
-          <clientfile load="source">js/plugin.js</clientfile>
-          <clientfile load="source">js/settings.js</clientfile>
-          <clientfile load="source">js/tabpanel.js</clientfile>
-          <clientfile load="source">js/addmeetingdialog.js</clientfile>
-        </client>
-        <resources>
-          <resourcefile load="release">resources/css/meet.css</resourcefile>
-          <resourcefile load="debug">resources/css/meet.css</resourcefile>
-          <resourcefile load="source">resources/css/meet.css</resourcefile>
-        </resources>
-      </files>
-    </component>
-  </components>
+	<info>
+		<version>1.0</version>
+		<name>meet</name>
+		<title>Meet</title>
+		<author>grommunio</author>
+		<authorURL>https://grommunio.com</authorURL>
+		<description>Support for grommunio Meet</description>
+	</info>
+	<config>
+		<configfile>config.php</configfile>
+	</config>
+	<components>
+		<component>
+			<files>
+				<server>
+					<serverfile>php/settings.php</serverfile>
+				</server>
+				<client>
+					<clientfile load="release">js/meet.js</clientfile>
+					<clientfile load="debug">js/meet-debug.js</clientfile>
+					<clientfile load="source">js/plugin.js</clientfile>
+					<clientfile load="source">js/settings.js</clientfile>
+					<clientfile load="source">js/tabpanel.js</clientfile>
+					<clientfile load="source">js/addmeetingdialog.js</clientfile>
+				</client>
+				<resources>
+					<resourcefile load="release">resources/css/meet.css</resourcefile>
+					<resourcefile load="debug">resources/css/meet.css</resourcefile>
+					<resourcefile load="source">resources/css/meet.css</resourcefile>
+				</resources>
+			</files>
+		</component>
+	</components>
 </plugin>
