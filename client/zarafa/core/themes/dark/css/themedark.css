@@ -1987,5 +1987,5 @@ grommunio overrides
 }
 
 #zarafa-maintoolbar .x-btn.zarafa-action .x-btn-small, #zarafa-maintoolbar .x-btn.zarafa-action .x-btn-medium, #zarafa-maintoolbar .x-btn.zarafa-action .x-btn-large, #zarafa-maintoolbar .x-btn.zarafa-action .x-btn-large button, #zarafa-maintoolbar .x-btn.zarafa-action .x-btn-small button, #zarafa-maintoolbar .x-btn.zarafa-action .x-btn-medium button {
-    background-color: var(--primary-item-selected) !important;
+    background-color: var(--button-primary-background) !important;
 }
