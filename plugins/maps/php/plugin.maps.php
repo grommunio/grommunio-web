@@ -82,7 +82,7 @@ class Pluginmaps extends Plugin {
 				'v1' => Array(
 					'plugins' => Array(
 						'maps' => Array(
-							'enable'            => PLUGIN_GMAPS_USER_DEFAULT_ENABLE,
+							'enable'            => PLUGIN_MAPS_USER_DEFAULT_ENABLE,
 						)
 
 					)
