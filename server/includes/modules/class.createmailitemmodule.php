@@ -178,11 +178,11 @@
 							$action["recipients"]["remove"] = $members["remove"];
 						}
 
-						$result = $GLOBALS['operations']->submitMessage($store, $entryid, Conversion::mapXML2MAPI($this->properties, $action['props']), $messageProps, isset($action['recipients']) ? $action['recipients'] : array(), isset($action['attachments']) ? $action['attachments'] : array(), $copyFromMessage, $copyAttachments, false, $copyInlineAttachmentsOnly, isset($action['props']['isHTML']) ? !$action['props']['isHTML'] : false );
+						$error = $GLOBALS['operations']->submitMessage($store, $entryid, Conversion::mapXML2MAPI($this->properties, $action['props']), $messageProps, isset($action['recipients']) ? $action['recipients'] : array(), isset($action['attachments']) ? $action['attachments'] : array(), $copyFromMessage, $copyAttachments, false, $copyInlineAttachmentsOnly, isset($action['props']['isHTML']) ? !$action['props']['isHTML'] : false );
 
 						// If draft is sent from the drafts folder, delete notification
-						if($result) {
-
+						if(!$error) {
+							$result = true;
 							$GLOBALS['operations']->parseDistListAndAddToRecipientHistory($savedUnsavedRecipients, $remove);
 
 							if(isset($entryid) && !empty($entryid)) {
@@ -197,6 +197,16 @@
 								$GLOBALS['bus']->notify(bin2hex($parententryid), TABLE_DELETE, $props);
 							}
 							$this->sendFeedback($result ? true : false, array(), false);
+						} else {
+							if($error === 'MAPI_E_NO_ACCESS') {
+								// Handling error: not able to handle this type of object
+								$data = array();
+								$data["type"] = 1; // MAPI
+								$data["info"] = array();
+								$data["info"]['title'] = _("Insufficient permissions");
+								$data["info"]['display_message'] = _("You don't have the permission to complete this action");
+								$this->addActionData("error", $data);
+							}
 						}
 					} else {
 						$propertiesToDelete = array();

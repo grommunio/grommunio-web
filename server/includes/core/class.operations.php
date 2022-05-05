@@ -2645,11 +2645,10 @@
 		 * @param boolean $copyRecipients If set we copy all recipients from the $copyFromMessage.
 		 * @param boolean $copyInlineAttachmentsOnly if true then copy only inline attachments.
 		 * @param boolean $isPlainText if true then message body will be generated using PR_BODY otherwise PR_HTML will be used in saveMessage() function.
-		 * @return boolean true if action succeeded, false if not
+		 * @return boolean false if action succeeded, true if not
 		 */
 		function submitMessage($store, $entryid, $props, &$messageProps, $recipients = array(), $attachments = array(), $copyFromMessage = false, $copyAttachments = false, $copyRecipients = false, $copyInlineAttachmentsOnly = false, $isPlainText = false)
 		{
-			$result = false;
 			$message = false;
 			$origStore = $store;
 
@@ -2818,22 +2817,22 @@
 						mapi_message_submitmessage($message);
 					} catch (MAPIException $e) {
 						$username = $GLOBALS["mapisession"]->getUserName();
+						$errorName = get_mapi_error_name($e->getCode());
 						error_log(sprintf('Unable to submit message for %s, MAPI error: %s. ' .
 							'SMTP server may be down or it refused the message or the message' .
 							' is too large to submit or user does not have the permission ...',
-							$username, get_mapi_error_name($e->getCode())));
-                        return false;
+							$username, $errorName));
+            return $errorName;
 					}
 
 					$tmp_props = mapi_getprops($message, array(PR_PARENT_ENTRYID));
 					$messageProps[PR_PARENT_ENTRYID] = $tmp_props[PR_PARENT_ENTRYID];
-					$result = true;
 
 					$this->addRecipientsToRecipientHistory($this->getRecipientsInfo($message));
 				}
 			}
 
-			return $result;
+			return false;
 		}
 
 		/**
