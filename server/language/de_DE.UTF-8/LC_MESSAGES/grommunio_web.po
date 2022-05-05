@@ -7729,6 +7729,9 @@ msgstr "%'s Geburtstag"
 msgid "%s's Anniversary"
 msgstr "%s's Jahrestag"
 
+msgid "You don't have the permission to complete this action"
+msgstr "Sie haben nicht die Berechtigung um diese Aktion auszuführen"
+
 msgid "Unknown user/group"
 msgstr "Unbekannter Benutzer/Gruppe"
 

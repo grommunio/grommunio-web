@@ -7296,6 +7296,9 @@ msgstr ""
 msgid "%s's Anniversary"
 msgstr ""
 
+msgid "You don't have the permission to complete this action"
+msgstr ""
+
 msgid "Unknown user/group"
 msgstr ""
 
