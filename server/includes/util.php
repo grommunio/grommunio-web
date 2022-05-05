@@ -475,7 +475,9 @@
 	 */
 	function parse_smime($store, $message)
 	{
-		$props = mapi_getprops($message, array(PR_MESSAGE_CLASS, PR_MESSAGE_FLAGS));
+		$props = mapi_getprops($message, array(PR_MESSAGE_CLASS, PR_MESSAGE_FLAGS, 
+			PR_SENT_REPRESENTING_NAME, PR_SENT_REPRESENTING_ENTRYID, PR_SENT_REPRESENTING_SEARCH_KEY, 
+			PR_SENT_REPRESENTING_EMAIL_ADDRESS, PR_SENT_REPRESENTING_SMTP_ADDRESS, PR_SENT_REPRESENTING_ADDRTYPE));
 		$read = $props[PR_MESSAGE_FLAGS] & MSGFLAG_READ;
 
 		if(isset($props[PR_MESSAGE_CLASS]) && stripos($props[PR_MESSAGE_CLASS], 'IPM.Note.SMIME.MultipartSigned') !== false) {
@@ -506,6 +508,16 @@
 				mapi_message_deleteattach($message, $attnum);
 
 				mapi_inetmapi_imtomapi($GLOBALS['mapisession']->getSession(), $store, $GLOBALS['mapisession']->getAddressbook(), $message, $data, Array("parse_smime_signed" => 1));
+
+				mapi_setprops($message, array(
+					PR_MESSAGE_CLASS => $props[PR_MESSAGE_CLASS],
+					PR_SENT_REPRESENTING_NAME => $props[PR_SENT_REPRESENTING_NAME],
+					PR_SENT_REPRESENTING_ENTRYID => $props[PR_SENT_REPRESENTING_ENTRYID],
+					PR_SENT_REPRESENTING_SEARCH_KEY => $props[PR_SENT_REPRESENTING_SEARCH_KEY],
+					PR_SENT_REPRESENTING_EMAIL_ADDRESS => $props[PR_SENT_REPRESENTING_EMAIL_ADDRESS] ?? '',
+					PR_SENT_REPRESENTING_SMTP_ADDRESS => $props[PR_SENT_REPRESENTING_SMTP_ADDRESS] ?? '',
+					PR_SENT_REPRESENTING_ADDRTYPE => $props[PR_SENT_REPRESENTING_ADDRTYPE] ?? 'SMTP',
+			));
 
 			}
 		} else if(isset($props[PR_MESSAGE_CLASS]) && stripos($props[PR_MESSAGE_CLASS], 'IPM.Note.SMIME') !== false) {
