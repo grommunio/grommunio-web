@@ -112,7 +112,7 @@ Zarafa.plugins.files.ui.FilesMainContextMenu = Ext.extend(Zarafa.core.ui.menu.Co
 			scope : this,
 			beforeShow: function (item, records) {
 				
-				var visible = Zarafa.plugins.files.data.Utils.Validator.actionSelectionVisibilityFilter(records, false, true, false, true);
+				var visible = Zarafa.plugins.files.data.Utils.Validator.actionSelectionVisibilityFilter(records, false, false, false, true);
 
 				if (Ext.isArray(records)) {
 					for(let i = 0; i < records.length; i++) {
