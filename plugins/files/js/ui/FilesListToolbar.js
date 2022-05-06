@@ -193,9 +193,10 @@ Zarafa.plugins.files.ui.FilesListToolbar = Ext.extend(Zarafa.core.ui.ContentPane
 
 		var validator = Zarafa.plugins.files.data.Utils.Validator;
 		var isVisible = validator.actionSelectionVisibilityFilter(records, false, true, false, true);
+		linkShareVisible = linkShareVisible && validator.actionSelectionVisibilityFilter(records, false, false, false, true);
 		this.downloadBtn.setDisabled(!isVisible);
 		this.attachToMailBtn.setDisabled(!isVisible);
-		this.attachLinkToMailBtn.setDisabled(!(isVisible && linkShareVisible));
+		this.attachLinkToMailBtn.setDisabled(!linkShareVisible);
 		
 		isVisible = validator.actionSelectionVisibilityFilter(records, true, false, false, true);
 		if (isVisible) {
