@@ -317,6 +317,32 @@ Zarafa.hierarchy.ui.ContextMenu = Ext.extend(Zarafa.core.ui.menu.ConditionalMenu
 	},
 
 	/**
+	 * Gets all recursive subfolders of {@link Zarafa.hierarchy.data.MAPIFolderRecord folder}
+	 * in a flat list, not a tree
+	 *
+	 * @param {Zarafa.hierarchy.data.MAPIFolderRecord} folder The folder which children are returned
+	 * @param {Boolean} isRoot If true, the root folder is excluded in the result
+	 * @private
+	 */
+	getRecusiveSubfolderList: function(folder, isRoot)
+	{
+		const folderChildren = folder.getChildren();
+		if(!folderChildren || !folderChildren.length) {
+				return folder;
+		}
+		const newChildren = [];
+		for(let i = 0; i < folderChildren.length; i++) {
+			const subTree = this.getRecusiveSubfolderList(folderChildren[i]);
+			if(Ext.isArray(subTree)) {
+				subTree.forEach(folder => newChildren.push(folder))
+			} else {
+				newChildren.push(subTree);
+			}
+		}
+		return isRoot ? newChildren : [folder, ...newChildren];
+	},
+
+	/**
 	 * Fires on selecting 'Share folder...' or 'Properties' menu option from
 	 * {@link Zarafa.hierarchy.ui.ContextMenu ContextMenu} Opens
 	 * {@link Zarafa.hierarchy.dialogs.FolderPropertiesContent FolderPropertiesContent}

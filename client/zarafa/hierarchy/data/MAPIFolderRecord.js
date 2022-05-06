@@ -35,7 +35,8 @@ Zarafa.hierarchy.data.MAPIFolderRecordFields = [
 	{name: 'extended_flags', type: 'int', defaultValue: 0},
 	{name: 'assoc_content_count', type: 'int', defaultValue: 0},
 	{name: 'is_unavailable', type: 'boolean', defaultValue: false},
-	{name: 'isFavorites', type: 'boolean', defaultValue: false}
+	{name: 'isFavorites', type: 'boolean', defaultValue: false},
+	{name: 'recursive', type: 'boolean', defaultValue: false}
 ];
 
 Zarafa.core.data.RecordFactory.addFieldToObjectType(Zarafa.core.mapi.ObjectType.MAPI_FOLDER, Zarafa.hierarchy.data.MAPIFolderRecordFields);
@@ -52,6 +53,7 @@ Zarafa.core.data.RecordFactory.addListenerToObjectType(Zarafa.core.mapi.ObjectTy
  *
  */
 Zarafa.hierarchy.data.MAPIFolderRecord = Ext.extend(Zarafa.core.data.IPFRecord, {
+
 	/**
 	 * Usually called by the {@link Ext.data.Store} which owns the Record.
 	 * Commits all changes made to the Record since either creation, or the last commit operation.
