@@ -634,9 +634,6 @@
 		 */
 		function save($store, $folder, $action)
 		{
-			$hierarchyTable = mapi_folder_gethierarchytable($folder, CONVENIENT_DEPTH | MAPI_DEFERRED_ERRORS);
-			$subfolders = mapi_table_queryallrows($hierarchyTable, array(PR_ENTRYID));
-			
 			// Rename folder
 			if (isset($action["props"]["display_name"]))
 				$this->modifyFolder($store, hex2bin($action["entryid"]), $action["props"]["display_name"]);
@@ -647,6 +644,8 @@
 			if (isset($action["permissions"])){
 				$this->setFolderPermissions($folder, $action["permissions"]);
 				if(isset($action['props']['recursive'])) {
+					$hierarchyTable = mapi_folder_gethierarchytable($folder, CONVENIENT_DEPTH | MAPI_DEFERRED_ERRORS);
+					$subfolders = mapi_table_queryallrows($hierarchyTable, array(PR_ENTRYID));
 					foreach($subfolders as $subfolder) {
 						$folderObject = mapi_msgstore_openentry($store, $subfolder[PR_ENTRYID]);
 						$this->setFolderPermissions($folderObject, $action["permissions"]);
