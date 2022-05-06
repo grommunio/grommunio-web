@@ -75,7 +75,8 @@ Zarafa.plugins.archive.Archive = Ext.extend(Zarafa.core.Plugin, {
 			text: _('Archive'),
 			site: site,
 			cls: 'mainmenu-button-archive',
-			handler: this.openTab
+			handler: this.openTab,
+			tabOrderIndex: site.tabOrder
 		};
 	},
 
