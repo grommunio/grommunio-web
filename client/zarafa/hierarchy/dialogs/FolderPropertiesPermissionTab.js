@@ -13,15 +13,16 @@ Zarafa.hierarchy.dialogs.FolderPropertiesPermissionTab = Ext.extend(Ext.Panel, {
 	 * @constructor
 	 * @param {Object} config
 	 */
+
 	constructor: function(config)
 	{
 		config = config || {};
-
+		
 		config.plugins = Ext.value(config.plugins, []);
 		config.plugins.push('zarafa.recordcomponentupdaterplugin');
 		var emptyText = Ext.isDefined(config.emptyText) ? config.emptyText : _('No permissions granted');
 		var isAppointmentDialog = Ext.isDefined(config.isAppointmentDialog) ? config.isAppointmentDialog : false;
-
+		
 		Ext.applyIf(config, {
 			xtype: 'zarafa.folderpropertiespermissiontab',
 			cls: 'tab-permissions',
@@ -338,6 +339,14 @@ Zarafa.hierarchy.dialogs.FolderPropertiesPermissionTab = Ext.extend(Ext.Panel, {
 							}
 						}]
 					}]
+				},{
+					xtype: "checkbox",
+					style: 'margin-top: 8px;',
+					name: 'recursive',
+					boxLabel: _('Apply (copy) changed permissions recursively'),
+					handler: this.onFolderFieldChange,
+					scope: this,
+					ref: 'recursivePermissionsCheckbox'
 				}]
 			}]
 		};
@@ -362,6 +371,19 @@ Zarafa.hierarchy.dialogs.FolderPropertiesPermissionTab = Ext.extend(Ext.Panel, {
 			}
 		});
 	},
+
+		/**
+	 * Event handler which is fired when a field has been changed.
+	 * This will update the corresponding field inside the {@link Zarafa.core.data.IPMRecord record}.
+	 * @param {Ext.form.Field} field The field which has changed
+	 * @param {Mixed} newValue The new value for the field
+	 * @param {Mixed} oldValue The original value for the field
+	 * @private
+	 */
+		onFolderFieldChange: function(field, newValue, oldValue)
+		{
+			this.record.set(field.getName(), newValue);
+		},
 
 	/**
 	 * Event handler for the {@link Zarafa.common.Actions#openABUserSelectionContent} function,

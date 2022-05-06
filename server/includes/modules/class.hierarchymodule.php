@@ -634,6 +634,9 @@
 		 */
 		function save($store, $folder, $action)
 		{
+			$hierarchyTable = mapi_folder_gethierarchytable($folder, CONVENIENT_DEPTH | MAPI_DEFERRED_ERRORS);
+			$subfolders = mapi_table_queryallrows($hierarchyTable, array(PR_ENTRYID));
+			
 			// Rename folder
 			if (isset($action["props"]["display_name"]))
 				$this->modifyFolder($store, hex2bin($action["entryid"]), $action["props"]["display_name"]);
@@ -643,6 +646,13 @@
 
 			if (isset($action["permissions"])){
 				$this->setFolderPermissions($folder, $action["permissions"]);
+				if(isset($action['props']['recursive'])) {
+					foreach($subfolders as $subfolder) {
+						$folderObject = mapi_msgstore_openentry($store, $subfolder[PR_ENTRYID]);
+						$this->setFolderPermissions($folderObject, $action["permissions"]);
+						mapi_savechanges($folderObject);
+					}
+				}
 			}
 
 			mapi_savechanges($folder);
@@ -676,8 +686,7 @@
 				$grants[$id] = $rights;
 			}
 
-			$result = $grants;
-			return $result;
+			return $grants;
 		}
 
 		function setFolderPermissions($folder, $permissions)
@@ -685,6 +694,7 @@
 			$folderProps = mapi_getprops($folder, array(PR_DISPLAY_NAME, PR_STORE_ENTRYID, PR_ENTRYID));
 			$store = $GLOBALS["mapisession"]->openMessageStore($folderProps[PR_STORE_ENTRYID]);
 			$storeProps = mapi_getprops($store, array(PR_IPM_SUBTREE_ENTRYID));
+			$currentPermissions = $this->getFolderPermissions($folder);
 
 			// check if the folder is the default calendar, if so we also need to set the same permissions on the freebusy folder
 			$root = mapi_msgstore_openentry($store, null);
@@ -694,15 +704,16 @@
 					$freebusy = freebusy::getLocalFreeBusyFolder($store);
 				}
 			}
-
+			
 			// check if folder is rootFolder, then we need the permissions from the store
 			if ($folderProps[PR_ENTRYID] == $storeProps[PR_IPM_SUBTREE_ENTRYID]){
 				$folder = $store;
 			}
 
+			
 			// first, get the current permissions because we need to delete all current acl's
 			$curAcls = mapi_zarafa_getpermissionrules($folder, ACCESS_TYPE_GRANT);
-
+			
 			// First check which permissions should be removed from the existing list
 			if (isset($permissions['remove']) && !empty($permissions['remove'])) {
 				foreach ($permissions['remove'] as $i => &$delAcl) {
@@ -717,22 +728,34 @@
 				}
 				unset($delAcl);
 			}
-
+			
 			// Then we check which permissions must be updated in the existing list
 			if (isset($permissions['modify']) && !empty($permissions['modify'])) {
 				foreach ($permissions['modify'] as $i => &$modAcl) {
-					$userid = hex2bin($modAcl['entryid']);
-					foreach($curAcls as $aclIndex => &$curAcl) {
-						if ($curAcl['userid'] === $userid) {
-							$curAcl['rights'] = $modAcl['rights'];
-							$curAcl['state'] = RIGHT_MODIFY | RIGHT_AUTOUPDATE_DENIED;
+					$entryid = $modAcl['entryid'];
+					// No permission for this user
+					// This is necessary for recursive folder permissions.
+					// If a subfolder does not have any permissions for the user yet,
+					// they need to be added instead of modified.
+					if(!in_array($entryid, $currentPermissions)) {
+						if(!isset($permissions['add'])) {
+							$permissions['add'] = array();
+						}
+						array_push($permissions['add'], $modAcl);
+					} else {
+						$userid = hex2bin($entryid);
+						foreach($curAcls as $aclIndex => &$curAcl) {
+							if ($curAcl['userid'] === $userid) {
+								$curAcl['rights'] = $modAcl['rights'];
+								$curAcl['state'] = RIGHT_MODIFY | RIGHT_AUTOUPDATE_DENIED;
+							}
 						}
 					}
 					unset($curAcl);
 				}
 				unset($modAcl);
 			}
-
+			
 			// Finally we check which permissions must be added to the existing list
 			if (isset($permissions['add']) && !empty($permissions['add'])) {
 				foreach ($permissions['add'] as $i => &$addAcl) {
@@ -745,7 +768,7 @@
 				}
 				unset($addAcl);
 			}
-
+			
 			if (!empty($curAcls)) {
 				mapi_zarafa_setpermissionrules($folder, $curAcls);
 
@@ -758,7 +781,7 @@
 						}
 					}
 					unset($acl);
-
+					
 					mapi_zarafa_setpermissionrules($freebusy, $curAcls);
 				}
 			}
