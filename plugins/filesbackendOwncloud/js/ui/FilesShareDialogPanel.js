@@ -385,14 +385,16 @@ Zarafa.plugins.files.backend.Owncloud.ui.FilesShareDialogPanel = Ext.extend(Zara
 	 * @private
 	 */
 	onDoneButtonClick: function () {
-
+		
 		// check if we have a link or user/group share
 		if (this.linkcheckbox.getValue()) { // we have a link share
 			// check if we have to update the share
 			this.updateExistingShare();
+			Zarafa.plugins.files.data.Actions.updateCache(this.recordId);
 		} else { // we have a user/group share
 			this.closeDialog();
 		}
+
 	},
 
 	/**
@@ -542,16 +544,19 @@ Zarafa.plugins.files.backend.Owncloud.ui.FilesShareDialogPanel = Ext.extend(Zara
 
 		// store the id of this share
 		this.linkShareID = share["id"];
-
+		
 		var recIds = this.parentRecord.get("sharedid") || [];
 		recIds.push(share["id"]);
-
+		
 		// also update the parent record
 		this.parentRecord.set("sharedid", recIds);
 		this.parentRecord.set("isshared", true);
-
+		
 		// enable the done button
 		this.doneButton.setDisabled(false);
+		
+		// Reload file in view to show "attack as link" button
+		Zarafa.plugins.files.data.Actions.updateCache(this.recordId);
 
 		this.loadMask.hide();
 	},
@@ -587,7 +592,9 @@ Zarafa.plugins.files.backend.Owncloud.ui.FilesShareDialogPanel = Ext.extend(Zara
 	 */
 	shareByIDRemoved: function (response, id) {
 		var recIds = this.parentRecord.get("sharedid") || [];
-		var index = recIds.indexOf(id);
+
+		// For some reason 'id' is a string when the record was shared before opening the dialog
+		var index = recIds.indexOf(parseInt(id));
 
 		if (index > -1) {
 			recIds.splice(index, 1); // remove the id from the array
@@ -595,10 +602,15 @@ Zarafa.plugins.files.backend.Owncloud.ui.FilesShareDialogPanel = Ext.extend(Zara
 
 		// also update the parent record
 		this.parentRecord.set("sharedid", recIds);
+		
 
 		if (recIds.length == 0) {
 			this.parentRecord.set("isshared", false);
 		}
+
+		// Reload file in view to show "attack as link" button
+		Zarafa.plugins.files.data.Actions.updateCache(this.recordId);
+		
 		this.loadMask.hide();
 	},
 
