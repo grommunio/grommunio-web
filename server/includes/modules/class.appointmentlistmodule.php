@@ -137,7 +137,88 @@
 					// this will set sorting and paging for items in listview.
 
 					$this->getDelegateFolderInfo($store);
-					parent::messageList($store, $entryid, $action, $actionType);
+
+
+					/* This is an override for parent::messageList(), which ignores an array of entryids / stores.
+					*	 The following block considers this possibily and merges the data of several folders / stores.
+					*/
+
+					$this->searchFolderList = false; // Set to indicate this is not the search result, but a normal folder content
+
+					if($store && $entryid) {
+						// Restriction
+						$this->parseRestriction($action);
+
+						// Sort
+						$this->parseSortOrder($action, null, true);
+
+						$limit = false;
+						if(isset($action['restriction']['limit'])){
+							$limit = $action['restriction']['limit'];
+						} else {
+							$limit = $GLOBALS['settings']->get('zarafa/v1/main/page_size', 50);
+						}
+
+						$isSearchFolder = isset($action['search_folder_entryid']);
+						$entryid = $isSearchFolder ? hex2bin($action['search_folder_entryid']) : $entryid;
+
+						if(!is_array($entryid) && !is_array($store)) {
+							$entryid = [ $entryid ];
+							$store = [ $store ];
+						}
+
+						// Get the table and merge the arrays
+						$data = array();
+						$items = array();
+						for($i = 0, $c = count($entryid); $i < $c; $i++) {
+							$newItems = $GLOBALS["operations"]->getTable($store[$i], $entryid[$i], $this->properties, $this->sort, $this->start, $limit, $this->restriction);
+							$items = array_merge($items, $newItems['item']);
+						}
+
+						// If the request come from search folder then no need to send folder information
+						if (!$isSearchFolder) {
+							$contentCount = 0;
+							$contentUnread = 0;
+
+							// For each folder
+							for($i = 0, $c = count($entryid); $i < $c; $i++) {
+								//Open folder
+								$folder = mapi_msgstore_openentry($store[$i], $entryid[$i]);
+								// Obtain some statistics from the folder contents
+								$content = mapi_getprops($folder, array(PR_CONTENT_COUNT, PR_CONTENT_UNREAD));
+								if (isset($content[PR_CONTENT_COUNT])) {
+									$contentCount += $content[PR_CONTENT_COUNT];
+								}
+
+								if (isset($content[PR_CONTENT_UNREAD])) {
+									$contentUnread += $content[PR_CONTENT_UNREAD];
+								}
+							}
+
+							$data["folder"] = array();
+							$data["folder"]["content_count"] = $contentCount;
+							$data["folder"]["content_unread"] = $contentUnread;
+						}
+
+						$items = $this->filterPrivateItems($items);
+						// unset will remove the value but will not regenerate array keys, so we need to
+						// do it here
+						$data["item"] = $items;
+
+						for($i = 0, $c = count($entryid); $i < $c; $i++) {
+							// Allowing to hook in just before the data sent away to be sent to the client
+							$GLOBALS['PluginManager']->triggerHook('server.module.listmodule.list.after', array(
+								'moduleObject' =>& $this,
+								'store' => $store[$i],
+								'entryid' => $entryid[$i],
+								'action' => $action,
+								'data' =>& $data
+							));
+						}
+
+						$this->addActionData($actionType, $data);
+						$GLOBALS["bus"]->addData($this->getResponseData());
+					}
 				}
 			}
 		}
