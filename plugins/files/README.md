@@ -30,11 +30,6 @@ The directory where to save cache files for phpfastcache, if redis is not availa
 
 If you experience any problems with the plugin, set this flag to **'DEBUG'** and send your nginx/php-fpm/grommunio web error log to the grommunio developers.
 
-```define('FILES_ACCOUNTSTORE_V1_SECRET_KEY', "");```
-
-The secret key for the acount data encryption when "Use grommunio Credentials" is not used. A random secret can be
-generated with: `openssl rand -hex 32`.
-
 ```define('PLUGIN_FILES_REDIS_HOST', 'localhost');```
 
 Redis host for phpFastCache.

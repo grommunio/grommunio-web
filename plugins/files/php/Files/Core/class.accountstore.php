@@ -32,21 +32,6 @@ class AccountStore
 	 */
 	function __construct()
 	{
-		if (!defined('FILES_ACCOUNTSTORE_V1_SECRET_KEY')) {
-			Logger::error("Files", "FILES_ACCOUNTSTORE_V1_SECRET_KEY not configured in config.php");
-			return;
-		}
-
-		if (empty(FILES_ACCOUNTSTORE_V1_SECRET_KEY)) {
-			Logger::error("Files", "FILES_ACCOUNTSTORE_V1_SECRET_KEY configuration option is empty");
-			return;
-		}
-
-		if (strlen(hex2bin(FILES_ACCOUNTSTORE_V1_SECRET_KEY)) != SODIUM_CRYPTO_SECRETBOX_KEYBYTES) {
-			Logger::error("Files", sprintf("FILES_ACCOUNTSTORE_V1_SECRET_KEY length is not the expected length '%s'", SODIUM_CRYPTO_SECRETBOX_KEYBYTES * 2));
-			return;
-		}
-
 		$this->initialiseAccounts();
 	}
 
@@ -329,24 +314,6 @@ class AccountStore
 	}
 
 	/**
-	 * Encrypt the backend configuration using the standard grommunio Web key.
-	 *
-	 * @param Array $backendConfig Backend specific account settings
-	 *     like username, password, serveraddress, ...
-	 * @return array
-	 * TODO: unused, only in the migration script
-	 */
-	private function encryptBackendConfig($backendConfig) {
-		$encBackendConfig = array();
-
-		foreach($backendConfig as $key => $value) {
-			$encBackendConfig[$key] = $this->encryptBackendConfigProperty($value);
-		}
-
-		return $encBackendConfig;
-	}
-
-	/**
 	 * Decrypt the backend configuration using the standard grommunio Web key.
 	 *
 	 * @param Array $backendConfig Backend specific account settings
@@ -361,7 +328,7 @@ class AccountStore
 				try {
 					$decBackendConfig[$key] = $this->decryptBackendConfigProperty($value, $version);
 				} catch (Exception $e) {
-					Logger::error(self::LOG_CONTEXT, sprintf("Unable to decrypt backend configuration: '%s'". $e->getMessage()));
+					Logger::error(self::LOG_CONTEXT, sprintf("Unable to decrypt backend configuration: '%s'", $e->getMessage()));
 				}
 			}
 		}
@@ -379,7 +346,8 @@ class AccountStore
 	private function encryptBackendConfigProperty($value, $version=0) {
 		if ($version == self::ACCOUNT_VERSION && !is_bool($value)) {
 			$nonce = random_bytes(SODIUM_CRYPTO_SECRETBOX_NONCEBYTES);
-			$encrypted = sodium_crypto_secretbox($value, $nonce, hex2bin(FILES_ACCOUNTSTORE_V1_SECRET_KEY));
+			$key = $GLOBALS["operations"]->getFilesEncryptionKey();
+			$encrypted = sodium_crypto_secretbox($value, $nonce, $key);
 			$value = bin2hex($nonce) . bin2hex($encrypted);
 		} else if ($version !== self::ACCOUNT_VERSION) {
 			throw Exception("Unable to encrypt backend configuration unsupported version $version");
@@ -404,19 +372,12 @@ class AccountStore
 			$value = hex2bin($value);
 			$nonce = substr($value, 0, SODIUM_CRYPTO_SECRETBOX_NONCEBYTES);
 			$encrypted = substr($value, SODIUM_CRYPTO_SECRETBOX_NONCEBYTES, strlen($value));
-			$value = sodium_crypto_secretbox_open($encrypted, $nonce, hex2bin(FILES_ACCOUNTSTORE_V1_SECRET_KEY));
+			$key = $GLOBALS["operations"]->getFilesEncryptionKey();
+			$value = sodium_crypto_secretbox_open($encrypted, $nonce, $key);
 
 			// Decryption failed, password might have changed
 			if ($value === false) {
 				throw new Exception("invalid password");
-			}
-		} else {
-			if (!defined('FILES_PASSWORD_KEY') && !defined('FILES_PASSWORD_IV')) {
-				throw new Exception("FILES_PASSWORD_KEY/FILES_PASSWORD_IV not defined");
-			}
-			// if user has openssl module installed decrypt
-			if (function_exists("openssl_decrypt")) {
-				$value = openssl_decrypt($value, "des-ede3-cbc", FILES_PASSWORD_KEY, 0, FILES_PASSWORD_IV);
 			}
 		}
 

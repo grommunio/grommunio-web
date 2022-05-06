@@ -4653,5 +4653,38 @@
 			$root = mapi_msgstore_openentry($store, null);
 			return mapi_getprops($root, $props);
 		}
+
+		/**
+		 * Returns the encryption key for sodium functions.
+		 *
+		 * It will generate a new one if the user doesn't have an encryption key yet.
+		 * It will also save the key into EncryptionStore for this session if the key
+		 * wasn't there yet.
+		 *
+		 * @return string
+		 */
+		function getFilesEncryptionKey()
+		{
+			// fallback if FILES_ACCOUNTSTORE_V1_SECRET_KEY is defined globally
+			$key = defined('FILES_ACCOUNTSTORE_V1_SECRET_KEY') ? hex2bin(constant('FILES_ACCOUNTSTORE_V1_SECRET_KEY')) : null;
+			if ($key === null) {
+				$encryptionStore = \EncryptionStore::getInstance();
+				$key = $encryptionStore->get('filesenckey');
+				if ($key === null) {
+					$store = $GLOBALS["mapisession"]->getDefaultMessageStore();
+					$props = mapi_getprops($store, [PR_EC_WA_FILES_ENCRYPTION_KEY]);
+					if (isset($props[PR_EC_WA_FILES_ENCRYPTION_KEY])) {
+						$key = $props[PR_EC_WA_FILES_ENCRYPTION_KEY];
+					}
+					else {
+						$key = sodium_crypto_secretbox_keygen();
+						$encryptionStore->add('filesenckey', $key);
+						mapi_setprops($store, [PR_EC_WA_FILES_ENCRYPTION_KEY => $key]);
+						mapi_savechanges($store);
+					}
+				}
+			}
+			return $key;
+		}
 	}
 ?>

@@ -39,12 +39,6 @@ define('PLUGIN_FILES_CACHE_DIR', "/var/lib/grommunio-web/plugin_files");
  */
 define('PLUGIN_FILESBROWSER_LOGLEVEL', "ERROR");
 
-/**
- * The secret key for the acount data encryption when "Use grommunio Credentials" is not used.
- * A random secret can be generated with: openssl rand -hex 32
- */
-define('FILES_ACCOUNTSTORE_V1_SECRET_KEY', "");
-
 /*
  * Redis host for phpFastCache.
  */
