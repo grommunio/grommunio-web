@@ -4447,6 +4447,9 @@ msgstr "Kansio"
 msgid "Folder visible"
 msgstr "Kansio näkyvissä"
 
+msgid "Apply (copy) changed permissions recursively"
+msgstr ""
+
 msgid "User already exists"
 msgstr "Käyttäjä on jo olemassa"
 

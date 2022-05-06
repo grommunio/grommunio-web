@@ -4453,6 +4453,9 @@ msgstr ""
 msgid "Folder visible"
 msgstr "תיקיה נראית"
 
+msgid "Apply (copy) changed permissions recursively"
+msgstr ""
+
 msgid "User already exists"
 msgstr ""
 

@@ -4401,6 +4401,9 @@ msgstr ""
 msgid "Folder visible"
 msgstr "フォルダ表示"
 
+msgid "Apply (copy) changed permissions recursively"
+msgstr ""
+
 msgid "User already exists"
 msgstr "ユーザーは既に登録されています。"
 

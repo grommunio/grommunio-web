@@ -4498,6 +4498,9 @@ msgstr "Mapcontact"
 msgid "Folder visible"
 msgstr "Map zichtbaar"
 
+msgid "Apply (copy) changed permissions recursively"
+msgstr ""
+
 msgid "User already exists"
 msgstr "Gebruiker bestaat al"
 

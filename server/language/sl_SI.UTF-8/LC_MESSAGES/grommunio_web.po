@@ -4533,6 +4533,9 @@ msgstr "Stik mape"
 msgid "Folder visible"
 msgstr "Vidna mapa"
 
+msgid "Apply (copy) changed permissions recursively"
+msgstr ""
+
 msgid "User already exists"
 msgstr "Uporabnik že obstaja"
 

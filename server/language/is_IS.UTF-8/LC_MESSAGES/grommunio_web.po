@@ -4193,6 +4193,9 @@ msgstr ""
 msgid "Folder visible"
 msgstr "Mappa sýnileg"
 
+msgid "Apply (copy) changed permissions recursively"
+msgstr ""
+
 msgid "User already exists"
 msgstr "Notandi er nú þegar til"
 

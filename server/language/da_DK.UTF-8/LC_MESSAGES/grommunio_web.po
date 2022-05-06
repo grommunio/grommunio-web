@@ -4294,6 +4294,9 @@ msgstr "Mappekontakt"
 msgid "Folder visible"
 msgstr "Folder synlig"
 
+msgid "Apply (copy) changed permissions recursively"
+msgstr ""
+
 msgid "User already exists"
 msgstr "Brugeren eksistere allerede"
 

@@ -4407,6 +4407,9 @@ msgstr "Contatto cartella"
 msgid "Folder visible"
 msgstr "Cartella visibile"
 
+msgid "Apply (copy) changed permissions recursively"
+msgstr ""
+
 msgid "User already exists"
 msgstr "L'utente esiste già"
 

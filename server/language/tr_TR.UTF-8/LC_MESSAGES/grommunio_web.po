@@ -4489,6 +4489,9 @@ msgstr "Klasör bağlantısı"
 msgid "Folder visible"
 msgstr "Klasör görülebilir"
 
+msgid "Apply (copy) changed permissions recursively"
+msgstr ""
+
 msgid "User already exists"
 msgstr "Kullanıcı zaten var"
 

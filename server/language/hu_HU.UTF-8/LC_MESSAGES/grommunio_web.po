@@ -4493,6 +4493,9 @@ msgstr "Mappakapcsolat"
 msgid "Folder visible"
 msgstr "Mappa láthatóság"
 
+msgid "Apply (copy) changed permissions recursively"
+msgstr ""
+
 msgid "User already exists"
 msgstr "A felhasználó már létezik"
 

@@ -4341,6 +4341,9 @@ msgstr ""
 msgid "Folder visible"
 msgstr "已有的資料夾"
 
+msgid "Apply (copy) changed permissions recursively"
+msgstr ""
+
 msgid "User already exists"
 msgstr "使用者已存在"
 

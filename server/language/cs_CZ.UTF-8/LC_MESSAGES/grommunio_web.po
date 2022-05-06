@@ -4463,6 +4463,9 @@ msgstr "Kontakt složky"
 msgid "Folder visible"
 msgstr "Viditelná složka"
 
+msgid "Apply (copy) changed permissions recursively"
+msgstr ""
+
 msgid "User already exists"
 msgstr "Uživatel již existuje"
 

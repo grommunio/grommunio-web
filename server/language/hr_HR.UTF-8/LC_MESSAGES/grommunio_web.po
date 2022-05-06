@@ -4115,6 +4115,9 @@ msgstr "Kontakt mape"
 msgid "Folder visible"
 msgstr "Mapa je vidljiva"
 
+msgid "Apply (copy) changed permissions recursively"
+msgstr ""
+
 msgid "User already exists"
 msgstr ""
 

@@ -4227,6 +4227,9 @@ msgstr "Kontakt katalogu"
 msgid "Folder visible"
 msgstr "Pokaż folder"
 
+msgid "Apply (copy) changed permissions recursively"
+msgstr ""
+
 msgid "User already exists"
 msgstr "Ten użytkownik już istnieje"
 

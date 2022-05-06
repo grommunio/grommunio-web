@@ -4159,6 +4159,9 @@ msgstr "Контакт теки"
 msgid "Folder visible"
 msgstr "Перегляд тек"
 
+msgid "Apply (copy) changed permissions recursively"
+msgstr ""
+
 msgid "User already exists"
 msgstr ""
 

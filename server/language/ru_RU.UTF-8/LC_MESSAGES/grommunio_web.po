@@ -4410,6 +4410,9 @@ msgstr "Контакт папки"
 msgid "Folder visible"
 msgstr "Просмотр каталога"
 
+msgid "Apply (copy) changed permissions recursively"
+msgstr ""
+
 msgid "User already exists"
 msgstr "Пользователь уже существует"
 

@@ -4526,6 +4526,9 @@ msgstr "Carpeta de contacto"
 msgid "Folder visible"
 msgstr "Carpeta visible"
 
+msgid "Apply (copy) changed permissions recursively"
+msgstr ""
+
 msgid "User already exists"
 msgstr "Ya existe este Usuario"
 

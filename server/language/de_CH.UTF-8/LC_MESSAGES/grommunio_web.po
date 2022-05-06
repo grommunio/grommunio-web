@@ -4447,6 +4447,9 @@ msgstr "Ordnerkontakt"
 msgid "Folder visible"
 msgstr "Ordner anzeigen"
 
+msgid "Apply (copy) changed permissions recursively"
+msgstr ""
+
 msgid "User already exists"
 msgstr "Der Benutzer existiert bereits"
 

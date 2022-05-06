@@ -4201,6 +4201,9 @@ msgstr "Contacto da pasta"
 msgid "Folder visible"
 msgstr "Pasta visível"
 
+msgid "Apply (copy) changed permissions recursively"
+msgstr ""
+
 msgid "User already exists"
 msgstr "Utilizador já existe"
 
