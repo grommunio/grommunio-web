@@ -3433,8 +3433,38 @@
 					}
 
 					$new = mapi_message_createattach($message);
-					mapi_copyto($old, array(), array(), $new, 0);
-					mapi_savechanges($new);
+					try {
+						mapi_copyto($old, array(), array(), $new, 0);
+						mapi_savechanges($new);
+					}
+					catch (MAPIException $e) {
+						// This is a workaround for the grommunio-web issue 75
+						// Remove it after gromox issue 253 is resolved
+						if ($e->getCode() == ecMsgCycle) {
+							$oldstream = mapi_openproperty($old, PR_ATTACH_DATA_BIN, IID_IStream, 0, 0);
+							$stat = mapi_stream_stat($oldstream);
+							$props = mapi_attach_getprops($old, array(PR_ATTACH_LONG_FILENAME, PR_ATTACH_MIME_TAG, PR_DISPLAY_NAME, PR_ATTACH_METHOD, PR_ATTACH_FILENAME, PR_ATTACHMENT_HIDDEN, PR_ATTACH_EXTENSION, PR_ATTACH_FLAGS));
+
+							mapi_setprops($new, array(
+								PR_ATTACH_LONG_FILENAME		=> $props[PR_ATTACH_LONG_FILENAME] ?? '',
+								PR_ATTACH_MIME_TAG 				=> $props[PR_ATTACH_MIME_TAG] ?? "application/octet-stream",
+								PR_DISPLAY_NAME 					=> $props[PR_DISPLAY_NAME] ?? '',
+								PR_ATTACH_METHOD 					=> $props[PR_ATTACH_METHOD] ?? ATTACH_BY_VALUE,
+								PR_ATTACH_FILENAME 				=> $props[PR_ATTACH_FILENAME] ?? '',
+								PR_ATTACH_DATA_BIN 				=> "",
+								PR_ATTACHMENT_HIDDEN 			=> $props[PR_ATTACHMENT_HIDDEN] ?? false,
+								PR_ATTACH_EXTENSION 			=> $props[PR_ATTACH_EXTENSION] ?? '',
+								PR_ATTACH_FLAGS 					=> $props[PR_ATTACH_FLAGS] ?? 0,
+							));
+							$newstream = mapi_openproperty($new, PR_ATTACH_DATA_BIN, IID_IStream, 0, MAPI_CREATE | MAPI_MODIFY);
+							mapi_stream_setsize($newstream, $stat['cb']);
+							for ($i = 0; $i < $stat['cb']; $i+= BLOCK_SIZE) {
+								mapi_stream_write($newstream, mapi_stream_read($oldstream, BLOCK_SIZE));
+							}
+							mapi_stream_commit($newstream);
+							mapi_savechanges($new);
+						}
+					}
 				}
 			}
 		}

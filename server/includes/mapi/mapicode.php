@@ -84,6 +84,7 @@ define('NOERROR'                                         ,0);
 // 32bit/64bit hell.
 define('ecUnknownUser'                                   ,0x000003EB);
 define('ecLoginPerm'                                     ,0x000003F2);
+define('ecMsgCycle'                                      ,0x00000504);
 define('MAPI_E_CALL_FAILED'                              ,0x80004005);
 define('MAPI_E_NOT_ENOUGH_MEMORY'                        ,0x8007000E);
 define('MAPI_E_INVALID_PARAMETER'                        ,0x80070057);
