@@ -736,7 +736,7 @@
 					// This is necessary for recursive folder permissions.
 					// If a subfolder does not have any permissions for the user yet,
 					// they need to be added instead of modified.
-					if(!in_array($entryid, $currentPermissions)) {
+					if(!$this->idInCurrentPermissions($currentPermissions, $entryid)) {
 						if(!isset($permissions['add'])) {
 							$permissions['add'] = array();
 						}
@@ -780,10 +780,19 @@
 						}
 					}
 					unset($acl);
-					
+
 					mapi_zarafa_setpermissionrules($freebusy, $curAcls);
 				}
 			}
+		}
+
+		function idInCurrentPermissions($currentPermissions, $entryid) {
+			foreach ($currentPermissions as $key => $array) {
+				if ($array['entryid'] === $entryid) {
+						return true;
+				}
+			}
+			return false;
 		}
 
 		function getUserInfo($entryid){
