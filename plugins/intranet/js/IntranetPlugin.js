@@ -63,7 +63,7 @@ Zarafa.plugins.intranet.Intranet = Ext.extend(Zarafa.core.Plugin, {
 			autostart: pluginSettings['autostart'],
 			iconCls : 'icon_intranet',
 			iconPath : pluginSettings['icon'],
-			tabOrder: 15
+			tabOrder: 21
 		}];
 
 		var i=1;
@@ -74,7 +74,7 @@ Zarafa.plugins.intranet.Intranet = Ext.extend(Zarafa.core.Plugin, {
 				autostart: pluginSettings['autostart-' + i],
 				iconCls : 'icon_intranet_' + i,
 				iconPath : pluginSettings['icon-' + i],
-				tabOrder: 15 + i
+				tabOrder: 21 + i
 			});
 			i++;
 		}
@@ -122,7 +122,8 @@ Zarafa.plugins.intranet.Intranet = Ext.extend(Zarafa.core.Plugin, {
 			text: site.buttonText,
 			site: site,
 			cls: 'mainmenu-button-intranet',
-			handler: this.openTab
+			handler: this.openTab,
+			tabOrderIndex: site.tabOrder
 		};
 	},
 
