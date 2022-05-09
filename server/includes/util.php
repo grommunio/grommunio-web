@@ -475,8 +475,8 @@
 	 */
 	function parse_smime($store, $message)
 	{
-		$props = mapi_getprops($message, array(PR_MESSAGE_CLASS, PR_MESSAGE_FLAGS, 
-			PR_SENT_REPRESENTING_NAME, PR_SENT_REPRESENTING_ENTRYID, PR_SENT_REPRESENTING_SEARCH_KEY, 
+		$props = mapi_getprops($message, array(PR_MESSAGE_CLASS, PR_MESSAGE_FLAGS,
+			PR_SENT_REPRESENTING_NAME, PR_SENT_REPRESENTING_ENTRYID, PR_SENT_REPRESENTING_SEARCH_KEY,
 			PR_SENT_REPRESENTING_EMAIL_ADDRESS, PR_SENT_REPRESENTING_SMTP_ADDRESS, PR_SENT_REPRESENTING_ADDRTYPE));
 		$read = $props[PR_MESSAGE_FLAGS] & MSGFLAG_READ;
 
@@ -503,11 +503,17 @@
 					'props' => $props,
 					'message' => &$message,
 					'data' => &$data
-					));
+				));
 
-				mapi_message_deleteattach($message, $attnum);
+				// also copy recipients because they are lost after mapi_inetmapi_imtomapi
+				$recipienttable = mapi_message_getrecipienttable($message);
+				$messageRecipients = mapi_table_queryallrows($recipienttable, $GLOBALS["properties"]->getRecipientProperties());
 
 				mapi_inetmapi_imtomapi($GLOBALS['mapisession']->getSession(), $store, $GLOBALS['mapisession']->getAddressbook(), $message, $data, Array("parse_smime_signed" => 1));
+
+				if(!empty($messageRecipients)) {
+					mapi_message_modifyrecipients($message, MODRECIP_ADD, $messageRecipients);
+				}
 
 				mapi_setprops($message, array(
 					PR_MESSAGE_CLASS => $props[PR_MESSAGE_CLASS],
