@@ -156,7 +156,7 @@
 							);
 						}
 
-						// Get the proxy addresses list, this property exsists in both MAILUSER and DISTLIST
+						// Get the proxy addresses list, this property exists in both MAILUSER and DISTLIST
 						$proxyAddresses = $this->getProxyAddressesDetails($messageprops);
 						// Remove the MV-flagged property
 						if(!empty($proxyAddresses)){
@@ -166,7 +166,7 @@
 							);
 						}
 
-						// Get the properties of the group membership, this property exsists in both MAILUSER and DISTLIST
+						// Get the properties of the group membership, this property exists in both MAILUSER and DISTLIST
 						$memberOfList = $this->getMemberOfDetails($messageprops);
 						if(!empty($memberOfList)){
 							// Add the list of proxy_addresses in the correct format to the $props list to be send to the client.

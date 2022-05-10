@@ -32,7 +32,7 @@ td.x-grid3-hd-menu-open .x-grid3-hd-inner {
 			display: inline-block;
 			border: 1px solid $background-color-main;
 			border-radius: 2px;
-			padding: ($button-small-height - $font-default-line-height - 2px)/2 $padding-medium; /* substract 2px for the borders */
+			padding: ($button-small-height - $font-default-line-height - 2px)/2 $padding-medium; /* subtract 2px for the borders */
 			font-weight: bold;
 			overflow: visible; /* needed for the .x-grid3-hd-btn to be visible when we place it outside of the button */
 			background: $background-color-main;

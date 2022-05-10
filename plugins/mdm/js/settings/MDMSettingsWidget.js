@@ -141,7 +141,7 @@ Zarafa.plugins.mdm.settings.MDMSettingsWidget = Ext.extend(Zarafa.settings.ui.Se
 	 * handler for 'beforeloadrecord' event of {@link Zarafa.plugins.mdm.data.MDMDeviceStore store}.
 	 * It will show or hide "authentication red bar" button on the basis of response.
 	 * This will be called from  {@link Zarafa.plugins.mdm.data.MDMResponseHandler MDMResponseHandler}
-	 * @param {Boolean} isAuthenticated indicates wether a User is authenicated to grommunio-sync server or not.
+	 * @param {Boolean} isAuthenticated indicates whether a User is authenticated to grommunio-sync server or not.
 	 */
 	checkAuthentication : function(isAuthenticated)
 	{

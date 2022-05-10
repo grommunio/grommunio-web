@@ -20,7 +20,7 @@ Zarafa.plugins.files.backend.Owncloud.OwncloudBackend = Ext.extend(Zarafa.core.P
 	},
 
 	/**
-	 * Initialze all insertion points.
+	 * Initialize all insertion points.
 	 */
 	initPlugin: function () {
 		Zarafa.plugins.files.backend.Owncloud.OwncloudBackend.superclass.initPlugin.apply(this, arguments);

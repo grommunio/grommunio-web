@@ -5,7 +5,7 @@ Ext.namespace('Zarafa.plugins.files.ui.dialogs');
  * @extends Ext.Panel
  * @xtype filesplugin.createfolderpanel
  *
- * Panel for users to create folder record in differnt supported backends.
+ * Panel for users to create folder record in different supported backends.
  */
 Zarafa.plugins.files.ui.dialogs.CreateFolderPanel = Ext.extend(Ext.Panel, {
 
@@ -127,9 +127,9 @@ Zarafa.plugins.files.ui.dialogs.CreateFolderPanel = Ext.extend(Ext.Panel, {
 	/**
 	 * Event handler which is triggered when the user presses the ok
 	 * {@link Ext.Button button}. function is responsible to create folder
-	 * under the respective folder as well as check for dublicate folder.
+	 * under the respective folder as well as check for duplicate folder.
 	 *
-	 * @param {Ext.Button} button which triggeres this event.
+	 * @param {Ext.Button} button which triggers this event.
 	 * @param {Ext.EventObject} event The event object
 	 */
 	onOk : function (button, event)
@@ -192,7 +192,7 @@ Zarafa.plugins.files.ui.dialogs.CreateFolderPanel = Ext.extend(Ext.Panel, {
 	/**
 	 * Fired when the {@link Zarafa.hierarchy.ui.Tree Tree} fires the {@link Zarafa.hierarchy.ui.Tree#load load}
 	 * event. This function will try to select the {@link Ext.tree.TreeNode TreeNode} in
-	 * {@link Zarafa.hierarchy.ui.Tree Tree} intially. When the given node is not loaded yet, it will try again
+	 * {@link Zarafa.hierarchy.ui.Tree Tree} initially. When the given node is not loaded yet, it will try again
 	 * later when the event is fired again.
 	 *
 	 * @private

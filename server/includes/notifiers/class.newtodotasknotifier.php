@@ -16,7 +16,7 @@ class NewTodoTaskNotifier extends Notifier
 	}
 
 	/**
-	 * If an event elsewhere has occurred, it enters in this methode. This method
+	 * If an event elsewhere has occurred, it enters in this method. This method
 	 * executes one or more actions, depends on the event.
 	 * @param int $event Event.
 	 * @param string $entryid Entryid.

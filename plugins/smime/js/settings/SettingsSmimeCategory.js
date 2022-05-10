@@ -89,7 +89,7 @@ Zarafa.plugins.smime.settings.SettingsSmimeCategory = Ext.extend(Zarafa.settings
 
 	/**
 	 * Event handler which is fired when the {@link Zarafa.plugins.smime.data.SmimeCertificateStore SmimeCertificateStore}
-	 * fires the 'save' event indicating the successfull save of the delegates. This will
+	 * fires the 'save' event indicating the successful save of the delegates. This will
 	 * {@link #hideSavingMask hide the notification}.
 	 * @private
 	 */

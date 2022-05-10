@@ -324,7 +324,7 @@
 						$this->sessionData['searchOriginalEntryids'][] = bin2hex($entryids[$index]);
 					}
 				}
-				// we never start the seach folder because we will populate the search folder by ourselves
+				// we never start the search folder because we will populate the search folder by ourselves
 				mapi_folder_setsearchcriteria($searchFolder, $this->restriction, $entryids, $subfolder_flag|STOP_SEARCH);
 				$this->sessionData['searchCriteriaCheck'] = $restrictionCheck;
 			}
@@ -333,7 +333,7 @@
 				$folderEntryid = bin2hex($entryid);
 				if($this->sessionData['searchOriginalEntryids'][0] !== $folderEntryid) {
 					$this->sessionData['searchOriginalEntryids'][0] = $folderEntryid;
-					// we never start the seach folder because we will populate the search folder by ourselves
+					// we never start the search folder because we will populate the search folder by ourselves
 					mapi_folder_setsearchcriteria($searchFolder, $this->restriction, array($entryid), $subfolder_flag|STOP_SEARCH);
 				}
 			}

@@ -33,7 +33,7 @@ Zarafa.plugins.smime.SmimeText = function () {
 		 */
 		getPopupText: function (index) {
 			switch (index) {
-				// Verified succesfully
+				// Verified successfully
 				case 0:
 					return _('grommunio Web can verify digital signatures of emails. A successful verification reassures you ') +
 						_('that the message has not been tampered with and validates the identity of the sender.') + "<br><br>" +
@@ -55,13 +55,13 @@ Zarafa.plugins.smime.SmimeText = function () {
 					return Zarafa.plugins.smime.SmimeText.createMessage(_('The verification service of the certificate authority that signed the sender\'s certificate is not available. The validity of the certificate could not be verified.'));
 				// Certificate does not support OCSP
 				case 9:
-					return Zarafa.plugins.smime.SmimeText.createMessage(_('The revocation status of the digital certificate used to sign this email is unknown (Server is unavaliable or certificate does not support OCSP). The validity of the certificate could not be verified.'));
+					return Zarafa.plugins.smime.SmimeText.createMessage(_('The revocation status of the digital certificate used to sign this email is unknown (Server is unavailable or certificate does not support OCSP). The validity of the certificate could not be verified.'));
 				// OCSP check disabled
 				case 10:
 					return Zarafa.plugins.smime.SmimeText.createMessage(_('The revocation status of the digital certificate used to sign this email is disabled (OCSP). The validity of the certificate could not be verified.'));
 				// OCSP server offline
 				case 11:
-					return Zarafa.plugins.smime.SmimeText.createMessage(_('The certificate verification server (OCSP) is temporarly offline.'));
+					return Zarafa.plugins.smime.SmimeText.createMessage(_('The certificate verification server (OCSP) is temporarily offline.'));
 				// User
 				case 13:
 					return Zarafa.plugins.smime.SmimeText.createMessage(_('Sender is removed from the server.'));
@@ -70,7 +70,7 @@ Zarafa.plugins.smime.SmimeText = function () {
 		},
 
 		/**
-		 * Function to retreive the status messages for the corresponding status code from PHP
+		 * Function to retrieve the status messages for the corresponding status code from PHP
 		 * The translated text is drawn in the S/MIME previewpanel button
 		 *
 		 * @param {Number} index
@@ -79,7 +79,7 @@ Zarafa.plugins.smime.SmimeText = function () {
 		getMessageInfo: function (index) {
 			switch (index) {
 				case 0:
-					return _('Signature verified succesfully');
+					return _('Signature verified successful');
 				case 1:
 					return _('Could not verify signature, missing public certificate');
 				case 2:

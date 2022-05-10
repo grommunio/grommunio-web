@@ -54,7 +54,7 @@ Zarafa.plugins.files.ui.UploadComponent = Ext.extend(Ext.Component, {
 		// so we detect when the user selects a file.
 		uploadEl.on('change', this.onFileInputChange, this);
 
-		// Mimick clicking on the <input> field
+		// Mimic clicking on the <input> field
 		// to open the File Selection dialog.
 		uploadEl.dom.click();
 	},

@@ -535,7 +535,7 @@ button::-moz-focus-inner {
     border: 1px solid #3094e3 !important;
     box-shadow: none !important; }
 
-/* Drag & Drop icon override, select mail drag to folder hiearchy. */
+/* Drag & Drop icon override, select mail drag to folder hierarchy. */
 .x-tree-drop-ok-append .x-dd-drop-icon,
 .x-tree-drop-ok-append-add .x-dd-drop-icon,
 .x-dd-drag-proxy.x-dd-drop-nodrop .x-dd-drop-icon {
@@ -875,7 +875,7 @@ td.x-grid3-hd-menu-open .x-grid3-hd-inner {
       border: 1px solid #ffffff;
       border-radius: 2px;
       padding: 1px 6px;
-      /* substract 2px for the borders */
+      /* subtract 2px for the borders */
       font-weight: bold;
       overflow: visible;
       /* needed for the .x-grid3-hd-btn to be visible when we place it outside of the button */
@@ -1191,7 +1191,7 @@ td.x-grid3-hd-menu-open .x-grid3-hd-inner {
 
 .x-panel-bbar .x-toolbar, .x-panel-tbar .x-toolbar, .k-search-toolbar-panel .x-toolbar {
   padding: 4.5px 6px;
-  /* we need to substract 2px extra to account for the borders around the buttons */
+  /* we need to subtract 2px extra to account for the borders around the buttons */
   border: none;
   border-bottom: 1px solid #e6e6e6; }
 
@@ -1352,7 +1352,7 @@ li.x-menu-item-active {
   background-image: none;
   background-color: transparent; }
 
-/* Categorie menu */
+/* Categories menu */
 .x-menu.k-categories .x-menu-list .x-menu-item svg {
   position: absolute;
   left: 3px;
@@ -1633,7 +1633,7 @@ ul.x-tab-strip-top {
   .x-zarafa-boxfield ul {
     padding: 0 1px;
     /*
-     * We need to set a minumum height because the attachment field by default has no contents and therefor would
+     * We need to set a minimum height because the attachment field by default has no contents and therefor would
      * have a height of 0
      */
     min-height: 22px;
@@ -4313,7 +4313,7 @@ body .k-category-block {
   background: rgba(0, 0, 0, 0.8);
   border-radius: 2px; }
 
-/* tooltip for example Addrss book button large */
+/* tooltip for example Address book button large */
 .x-tip .x-tip-tc, .x-tip .x-tip-tl, .x-tip .x-tip-tr, .x-tip .x-tip-bc, .x-tip .x-tip-bl, .x-tip .x-tip-br, .x-tip .x-tip-ml, .x-tip .x-tip-mr {
   background-image: none;
   background: transparent; }

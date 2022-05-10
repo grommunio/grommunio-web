@@ -327,7 +327,7 @@ window.checkfont = (function() {
 // Send a fingerprint request when the document is loaded
 // When the user has not been authenticated (i.e. is on the login page),
 // the backend will store the fingerprint in the session.
-// When the user has been authenticated, the backend will chek if the
+// When the user has been authenticated, the backend will check if the
 // sent fingerprint matches the one stored in the session. If they do not
 // match, the session will be destroyed.
 window.addEventListener('load', function(){

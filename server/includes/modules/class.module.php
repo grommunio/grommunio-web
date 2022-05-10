@@ -59,7 +59,7 @@
 			$this->createNotifiers();
 
 			// Get the store from $data and set it to properties class.
-			// It is requires for multi server environment where namespace differes.
+			// It is requires for multi server environment where namespace differs.
 			// e.g. 'categories' => -2062020578, 'categories' => -2062610402,
 			if (isset($GLOBALS['properties'])) {
 				$GLOBALS['properties']->setStore($this->getActionStore($this->getActionData($data)));

@@ -117,7 +117,7 @@ Ext.MessageBox = Ext.extend(Object, {
 	 */
 	minPromptWidth: 250,
 	/**
-	 * An object containing the default button text strings that can be overriden for localized language support.
+	 * An object containing the default button text strings that can be overridden for localized language support.
 	 * Supported properties are: ok, cancel, yes and no.  Generally you should include a locale-specific
 	 * resource file for handling language support across the framework.
 	 * Customize the default text like so: Ext.MessageBox.buttonText.yes = "oui"; //french
@@ -687,7 +687,7 @@ Ext.MessageBox.ERROR
 	 * @param {String} title The title bar text
 	 * @param {String} msg The message box body text
 	 * @param {Function} fn (this.optional) The callback function invoked after the message box is closed
-	 * @param {Object} scope (this.optional) The scope (<code>this</code> reference) in which the callback is executed. Defaults to the browser wnidow.
+	 * @param {Object} scope (this.optional) The scope (<code>this</code> reference) in which the callback is executed. Defaults to the browser window.
 	 * @return {Ext.MessageBox} this
 	 */
 	alert: function(title, msg, fn, scope) {
@@ -710,7 +710,7 @@ Ext.MessageBox.ERROR
 	 * @param {String} title The title bar text
 	 * @param {String} msg The message box body text
 	 * @param {Function} fn (this.optional) The callback function invoked after the message box is closed
-	 * @param {Object} scope (this.optional) The scope (<code>this</code> reference) in which the callback is executed. Defaults to the browser wnidow.
+	 * @param {Object} scope (this.optional) The scope (<code>this</code> reference) in which the callback is executed. Defaults to the browser window.
 	 * @return {Ext.MessageBox} this
 	 */
 	confirm: function(title, msg, fn, scope) {
@@ -734,7 +734,7 @@ Ext.MessageBox.ERROR
 	 * @param {String} title The title bar text
 	 * @param {String} msg The message box body text
 	 * @param {Function} fn (this.optional) The callback function invoked after the message box is closed
-	 * @param {Object} scope (this.optional) The scope (<code>this</code> reference) in which the callback is executed. Defaults to the browser wnidow.
+	 * @param {Object} scope (this.optional) The scope (<code>this</code> reference) in which the callback is executed. Defaults to the browser window.
 	 * @param {Boolean/Number} multiline (this.optional) True to create a multiline textbox using the defaultTextHeight
 	 * property, or the height in pixels to create the textbox (defaults to false / single-line)
 	 * @param {String} value (this.optional) Default value of the text input element (defaults to '')

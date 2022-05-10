@@ -58,7 +58,7 @@
 					break;
 
 				case HIERARCHY_GET_ONE:
-					// Get single store and it's archive store aswell
+					// Get single store and it's archive store as well
 					$storelist = $GLOBALS["mapisession"]->getSingleMessageStores($store, $storeOptions, $username);
 					break;
 			}
@@ -4118,7 +4118,7 @@
 			$recipients = Array();
 			foreach ($entryids as $entryid)
 			{
-				// Check if entryid extracted, since unpack errors can not be catched.
+				// Check if entryid extracted, since unpack errors can not be caught.
 				if (!$entryid) {
 					continue;
 				}
@@ -4483,7 +4483,7 @@
 				$cpprops = mapi_message_getprops($message, array(PR_INTERNET_CPID));
 				$codepage = isset($cpprops[PR_INTERNET_CPID]) ? $cpprops[PR_INTERNET_CPID] : 1252;
 				$hackEncoding = '<meta http-equiv="Content-Type" content="text/html; charset=' . Conversion::getCodepageCharset($codepage) . '">';
-				// TinyMCE does not generate valid HTML, so we must supress warnings.
+				// TinyMCE does not generate valid HTML, so we must suppress warnings.
 				@$doc->loadHTML($hackEncoding . $body);
 				$images = $doc->getElementsByTagName('img');
 				$saveChanges = false;

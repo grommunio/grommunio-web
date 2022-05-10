@@ -8,7 +8,7 @@
 	class MAPIException extends BaseException
 	{
 		/**
-		 * Function will return display message of exception if its set by the calle.
+		 * Function will return display message of exception if its set by the callee.
 		 * if it is not set then we are generating some default display messages based
 		 * on mapi error code.
 		 * @return string returns error-message that should be sent to client to display.

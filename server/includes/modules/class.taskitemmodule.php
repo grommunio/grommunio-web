@@ -175,7 +175,7 @@
 		 * @param mapistore $store MAPI Message Store Object
 		 * @param string $parententryid parent entryid of the messages to be deleted
 		 * @param array $entryids a list of entryids which will be deleted
-		 * @param boolean $softDelete flag for soft-deleteing (when user presses Shift+Del)
+		 * @param boolean $softDelete flag for soft-deleting (when user presses Shift+Del)
 		 * @return boolean true if action succeeded, false if not
 		 */
 		function deleteTask($store, $parententryid, $entryids, $action)

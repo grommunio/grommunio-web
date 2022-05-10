@@ -289,7 +289,7 @@ class WebAppAuthentication
 
 		WebAppAuthentication::login($email, $_POST['password']);
 
-		// Store the credentials in the session if logging in was succesfull
+		// Store the credentials in the session if logging in was successful
 		if ( WebAppAuthentication::$_errorCode === NOERROR ){
 			WebAppAuthentication::_storeCredentialsInSession($email, $_POST['password']);
 		}
@@ -330,7 +330,7 @@ class WebAppAuthentication
 			null, null, 0
 		);
 
-		// Store the credentials in the session if logging in was succesfull
+		// Store the credentials in the session if logging in was successful
 		if ( WebAppAuthentication::$_errorCode === NOERROR ){
 			WebAppAuthentication::_storeCredentialsInSession($_POST['username'], $_POST['token']);
 			WebAppAuthentication::_storeMAPISession(WebAppAuthentication::$_mapiSession->getSession());

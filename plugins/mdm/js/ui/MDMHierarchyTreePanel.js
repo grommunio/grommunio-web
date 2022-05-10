@@ -5,7 +5,7 @@ Ext.namespace('Zarafa.plugins.mdm.ui');
  * @extends Zarafa.hierarchy.ui.Tree
  * @xtype mdm.hierarchytree
  *
- * MDMHierarchyTreePanel for hierachy list in the
+ * MDMHierarchyTreePanel for hierarchy list in the
  * {@link Zarafa.plugins.mdm.dialogs.MDMManageSharedFolderPanel manageSharedFolderPanel}.
  */
 Zarafa.plugins.mdm.ui.MDMHierarchyTreePanel = Ext.extend(Zarafa.hierarchy.ui.Tree, {
@@ -26,7 +26,7 @@ Zarafa.plugins.mdm.ui.MDMHierarchyTreePanel = Ext.extend(Zarafa.hierarchy.ui.Tre
 	 */
 	initComponent : function()
 	{
-		// Intialize the loader
+		// Initialize the loader
 		if (!this.loader) {
 			this.loader = new Zarafa.plugins.mdm.data.MDMHierarchyTreeLoader({
 				tree : this,

@@ -209,7 +209,7 @@
 							$e->setDisplayMessage($msg);
 							$e->setTitle(_('Insufficient privileges'));
 
-							// Need this notification to refresh the calender.
+							// Need this notification to refresh the calendar.
 							$GLOBALS['bus']->notify(bin2hex($parententryid), TABLE_DELETE, $messageProps);
 						}
 						break;
@@ -250,7 +250,7 @@
 			} elseif(is_array($messageProps) && isset($messageProps['error'])){
 				switch($messageProps['error']){
 					case 1:
-						$errorMsg = sprintf(_('You marked \'%s\' as a resource. You cannot schedule a meeting with \'%s\' because you do not have the appropiate permissions for that account. Either enter the name as a required or optional attendee or talk to your administrator about giving you permission to schedule \'%s\'.'), $messageProps['displayname'], $messageProps['displayname'], $messageProps['displayname']);
+						$errorMsg = sprintf(_('You marked \'%s\' as a resource. You cannot schedule a meeting with \'%s\' because you do not have the appropriate permissions for that account. Either enter the name as a required or optional attendee or talk to your administrator about giving you permission to schedule \'%s\'.'), $messageProps['displayname'], $messageProps['displayname'], $messageProps['displayname']);
 						break;
 					case 2:
 						$errorMsg = sprintf(_('\'%s\' has declined your meeting because \'%s\' does not automatically accept meeting requests.'), $messageProps['displayname'], $messageProps['displayname']);

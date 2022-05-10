@@ -528,7 +528,7 @@ class PluginMDMModule extends Module
 			$inbox = mapi_msgstore_getreceivefolder($store);
 			$inboxProps = mapi_getprops($inbox, array(PR_ENTRYID));
 		} catch (MAPIException $e) {
-			// don't propogate this error to parent handlers, if store doesn't support it
+			// don't propagate this error to parent handlers, if store doesn't support it
 			if ($e->getCode() === MAPI_E_NO_SUPPORT) {
 				$e->setHandled();
 			}
@@ -749,7 +749,7 @@ class PluginMDMModule extends Module
 			)
 		));
 
-		// CONVENIENT_DEPTH doesn't work on the IPM_SUBTREE, hence we will be recursivly
+		// CONVENIENT_DEPTH doesn't work on the IPM_SUBTREE, hence we will be recursively
 		// walking through the hierarchy. However, we have some special folders like the
 		// "Favorites" and "Public Folders" from where we can switch to using
 		// CONVENIENT_DEPTH. Obtain these special cases here.

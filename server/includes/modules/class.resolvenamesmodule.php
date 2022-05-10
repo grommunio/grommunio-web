@@ -204,7 +204,7 @@
 
 		/**
 		 * Used to find multiple entries from the contact folders in the Addressbook when resolving
-		 * returned an ambigious result. It will find the Contact folders in the Addressbook and
+		 * returned an ambiguous result. It will find the Contact folders in the Addressbook and
 		 * apply a restriction to extract the entries.
 		 * @param {MAPIAddressbook} $ab The addressbook
 		 * @param {String} $query The search query, case is ignored

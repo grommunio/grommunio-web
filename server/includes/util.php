@@ -351,7 +351,7 @@
 			$data['mailto'] = $_GET['to'];
 
 			// There may be some data after to field, like cc, subject, body
-			// So add them in the urlData string aswell
+			// So add them in the urlData string as well
 			$pos = stripos($urlData, $_GET['to']) + strlen($_GET['to']);
 			$subString = substr($urlData, $pos);
 			$data['mailto'] .= $subString;
@@ -839,7 +839,7 @@
 		 * https://github.com/libical/libical/issues/490
 		 *
 		 * Because of above issues we need to remove
-		 * double qoutes or PREF from vcf stream if
+		 * double quotes or PREF from vcf stream if
 		 * it exists in vcf stream.
 		 */
 		if (preg_match('/"/', $attachmentStream) > 0) {

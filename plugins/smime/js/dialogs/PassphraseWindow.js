@@ -126,7 +126,7 @@ Zarafa.plugins.smime.dialogs.PassphraseWindow = Ext.extend(Ext.Panel, {
 			Zarafa.core.BrowserWindowMgr.setActive(this.windowName);
 			Zarafa.core.BrowserWindowMgr.initExtCss(iframeElement.dom.contentWindow);
 
-			// Disable contextmenu globaly in the iframe.
+			// Disable contextmenu globally in the iframe.
 			Ext.getBody().on('contextmenu', Zarafa.core.BrowserWindowMgr.onBodyContextMenu, this);
 
 			// Create a viewport for the iframe window that will take care of the resizing

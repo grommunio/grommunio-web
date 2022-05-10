@@ -160,7 +160,7 @@ function dump_restriction($restriction) {
 }
 
 /**
- * This function is used to covert all constants of restriction into a human readable strings
+ * This function is used to convert all constants of restriction into a human readable strings
  */
 function simplify_restriction($restriction) {
 	if (!is_array($restriction)) {

@@ -13,7 +13,7 @@
 	// Examples: define("DEFAULT_SERVER", "default:");
 	define("DEFAULT_SERVER", "default:");
 
-	// Defines the default domain of email adresses to login with
+	// Defines the default domain of email addresses to login with
 	// If this is set, you can login with only the user part of an email.
 	// Examples: define("DEFAULT_DOMAIN", "example.com");
 	define("DEFAULT_DOMAIN", "");
@@ -55,7 +55,7 @@
 	define("DISABLED_PLUGINS_LIST", "");
 
 	// Define a list of plugins that cannot be disabled by users.
-	// Plugins should be seperated by a semicolon (;). A wildcard (*)
+	// Plugins should be separated by a semicolon (;). A wildcard (*)
 	// can be used to identify multiple plugins.
 	// Overrides defaults.php
 	define("ALWAYS_ENABLED_PLUGINS_LIST", "passwd;mdm");
@@ -64,7 +64,7 @@
 	//do not delete this!
 	define("APPDATA_DIR", "appdata");
 
-	//this path is used for sqlite3 full text index for ervery user
+	//this path is used for sqlite3 full text index for every user
 	define("SQLITE_INDEX_PATH", "/var/lib/grommunio-web/sqlite-index");
 
 	//define the type of full-text search engine in sqlite

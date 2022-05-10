@@ -19,7 +19,7 @@ use OCSAPI\Exception\PermissionDeniedException;
 
 /**
  * This class provides basic functionality to interact with the owncloud sharing api (OCS).
- * For mor details read here: https://doc.owncloud.org/server/8.0/developer_manual/core/ocs-share-api.html
+ * For more details read here: https://doc.owncloud.org/server/8.0/developer_manual/core/ocs-share-api.html
  *
  * ATTENTION: currently there is a bug in the owncloud API implementation:
  * https://github.com/owncloud/core/issues/10671
@@ -124,7 +124,7 @@ class ocsclient {
 		return $this->doCurlRequest($url, array());
 	}
 	/**
-	 * Execute curl request with paramters
+	 * Execute curl request with parameters
 	 *
 	 * @param $url string URL for the request
 	 * @return curl responsedata

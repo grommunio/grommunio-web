@@ -99,7 +99,7 @@ Zarafa.plugins.files.FilesContextModel = Ext.extend(Zarafa.core.ContextModel, {
 	 * This will fire the event {@link #previewrecordchange}.
 	 *
 	 * @param {mixed} record The record which is set as preview or false to refresh the old record
-	 * @param {Boolean} refresh (optinal) true to just refresh the old record
+	 * @param {Boolean} refresh (optional) true to just refresh the old record
 	 */
 	setPreviewRecord: function (record, refresh) {
 		if (container.getCurrentContext().getName() === "filescontext") {

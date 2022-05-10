@@ -47,7 +47,7 @@ Zarafa.plugins.files.ui.dialogs.CreateFolderContentPanel = Ext.extend(Zarafa.cor
 	 * is being {@link Ext.data.Record#COMMIT committed}.
 	 *
 	 * @param {Zarafa.core.ui.RecordContentPanel} contentpanel The record which fired the event
-	 * @param {String} action write Action that ocurred. Can be one of
+	 * @param {String} action write Action that occurred. Can be one of
 	 * {@link Ext.data.Record.EDIT EDIT}, {@link Ext.data.Record.REJECT REJECT} or
 	 * {@link Ext.data.Record.COMMIT COMMIT}
 	 * @param {Zarafa.core.data.IPMRecord} record The record which was updated

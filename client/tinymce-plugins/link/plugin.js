@@ -334,7 +334,7 @@
 			var getAnchorElement = function (editor, selectedElm) {
 				selectedElm = selectedElm || editor.selection.getStart();
 				if (isImageFigure(selectedElm)) {
-					// for an image conained in a figure we look for a link inside the selected element
+					// for an image contained in a figure we look for a link inside the selected element
 					return editor.dom.select('a[href]', selectedElm)[0];
 				} else {
 					return editor.dom.getParent(selectedElm, 'a[href]');

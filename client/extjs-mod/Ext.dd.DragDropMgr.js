@@ -51,7 +51,7 @@
 				/*
 				 * The code below is to ensure that large scrolling elements will
 				 * only have their visible area recognized as a drop target, otherwise it
-				 * can potentially erronously register as a target when the element scrolls
+				 * can potentially erroneously register as a target when the element scrolls
 				 * over the top of something below it.
 				 */
 				el = Ext.get(el.parentNode);

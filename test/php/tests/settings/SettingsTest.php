@@ -141,7 +141,7 @@ class SettingsTest extends grommunioTest {
 	}
 
 	/**
-	 * Test if an object can be overidden
+	 * Test if an object can be overridden
 	 */
 	public function testOverrideObject()
 	{

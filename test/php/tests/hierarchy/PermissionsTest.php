@@ -112,7 +112,7 @@ class PermissionsTest extends grommunioTest {
 	}
 
 	/**
-	 * Test if the properties are correcly applied on the folder
+	 * Test if the properties are correctly applied on the folder
 	 * @dataProvider providerPermissionsFolder
 	 */
 	public function testSecondAddedPermissionInFolder($entryid, $type)

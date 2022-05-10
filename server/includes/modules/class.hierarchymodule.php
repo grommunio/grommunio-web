@@ -419,14 +419,14 @@
 										break;
 								}
 							} else {
-								// Exception genereated while setting folder permissions.
+								// Exception generated while setting folder permissions.
 								if (isset($action["permissions"])){
 									if($e->getCode() == MAPI_E_NO_ACCESS)
 											$e->setDisplayMessage(_("You have insufficient privileges to set permissions for this folder."));
 										else
 											$e->setDisplayMessage(_("Could not set folder permissions."));
 								} else {
-									// Exception genereated while renaming folder.
+									// Exception generated while renaming folder.
 									switch($e->getCode()){
 										case MAPI_E_NO_ACCESS:
 											$e->setDisplayMessage(_("You have insufficient privileges to rename this folder."));
@@ -441,7 +441,7 @@
 								}
 							}
 						} else {
-							// Exception genereated while creating new folder.
+							// Exception generated while creating new folder.
 							switch($e->getCode()){
 								case MAPI_E_NO_ACCESS:
 									$e->setDisplayMessage(_("You have insufficient privileges to create this folder."));
@@ -1248,7 +1248,7 @@
 					}
 				}
 
-				// Now udpate destination folder
+				// Now update destination folder
 				$folder = mapi_msgstore_openentry($deststore, $destfolderentryid);
 				$folderProps = mapi_getprops($folder, array(PR_ENTRYID, PR_STORE_ENTRYID));
 				$GLOBALS["bus"]->notify(bin2hex($folderProps[PR_ENTRYID]), OBJECT_SAVE, $folderProps);

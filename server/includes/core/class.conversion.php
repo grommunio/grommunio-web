@@ -229,7 +229,7 @@ class Conversion {
 	 * @example this also works json2property('PR_SUBJECT') => 0x0037001e
 	 * @param Array props A mapping of property names to their corresponding MAPI property tags
 	 * @param String property name
-	 * @param Boolean $convertToSingleValued wether to convert the multi valued property tag to single valued or not
+	 * @param Boolean $convertToSingleValued whether to convert the multi valued property tag to single valued or not
 	 * @return int The property tag
 	 */
 	public static function json2property($mapping, $prop, $convertToSingleValued = false)

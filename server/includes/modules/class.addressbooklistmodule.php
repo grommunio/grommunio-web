@@ -423,7 +423,7 @@
 
 				if ( !empty($sortingField) ){
 					// Sort the items here, because full_name is not a real property, so we can not use the regular sorting
-					// Note: This hack only works becaue the GAB does not work with paging!
+					// Note: This hack only works because the GAB does not work with paging!
 					function cmpAsc($a, $b){
 						global $sortingField;
 						return strcasecmp($b['props'][$sortingField], $a['props'][$sortingField]);

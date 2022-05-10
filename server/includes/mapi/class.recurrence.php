@@ -802,7 +802,7 @@
 
 					if(!isset($data[$this->proptags["basedate"]])) {
 						// if no basedate found then it could be embedded message so ignore it
-						// we need proper restriction to exclude embedded messages aswell
+						// we need proper restriction to exclude embedded messages as well
 						continue;
 					}
 

@@ -17,7 +17,7 @@ class PathUtil
 	 * Returns the mimetype for the specified file
 	 *
 	 * @static
-	 * @param string $filename Filname to get the mime type from
+	 * @param string $filename Filename to get the mime type from
 	 * @param int $mode 0 = full check, 1 = extension check only
 	 *
 	 * @return string the found mimetype or 'application/octet-stream' as fallback

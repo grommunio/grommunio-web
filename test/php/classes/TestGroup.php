@@ -9,7 +9,7 @@
 class TestGroup {
 
 	/**
-	 * The grommunioUser object, this is the oject used to logon
+	 * The grommunioUser object, this is the object used to logon
 	 * to the server with, and will access the group in the address book
 	 */
 	private $user;

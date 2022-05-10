@@ -93,7 +93,7 @@ class BusytimeTest extends grommunioTest {
 		$firstDay = date("j", $firstDayStamp); //day of the month (only the first week, 1-7)
 		$weeks = floor(($days-$firstDay)/7)+1;
 
-		//floor dosen't convert the data type from float to integer, and assertCount
+		//floor doesn't convert the data type from float to integer, and assertCount
 		//requires Integer as its first argument
 		$weeks = intval($weeks);
 

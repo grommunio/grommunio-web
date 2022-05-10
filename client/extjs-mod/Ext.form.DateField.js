@@ -11,7 +11,7 @@
 		 */
 		showNow: false,
 		/**
-		 * overriden to set starting day of the week
+		 * overridden to set starting day of the week
 		 * @override
 		 */
 		initComponent: function()
@@ -90,7 +90,7 @@
 		* field value is null than empty string will be returned because ExtJS by default uses
 		* empty string to indicate that date is not present but there is no way in mapi to set
 		* empty date. Here the validation function for date field doesn't expect null so we have
-		* overriden processValue to give empty string if value is null.
+		* overridden processValue to give empty string if value is null.
 		* @param {Mixed} value
 		* @return {Mixed} value or empty string.
 		*/

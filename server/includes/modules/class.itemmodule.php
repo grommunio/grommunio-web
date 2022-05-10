@@ -776,7 +776,7 @@
 				if($basedate) {
 					$props['appointment_basedate'] = $basedate;
 
-					// if basedate is provided then it is exception, so get update counter of the exceotion
+					// if basedate is provided then it is exception, so get update counter of the exception
 					$exception = $meetingRequestObject->getExceptionItem($calendarItem, $basedate);
 
 					if($exception !== false) {

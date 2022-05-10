@@ -1031,7 +1031,7 @@
 						case 0x0B: //weekly
 							// Needed values
 							// $forwardcount - number of weeks we can skip forward
-							// $restocc - number of remaning occurrences after the week skip
+							// $restocc - number of remaining occurrences after the week skip
 
 							// Add the weeks till the last item
 							$occenddate+=($forwardcount*7*24*60*60);

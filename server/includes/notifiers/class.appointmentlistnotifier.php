@@ -20,7 +20,7 @@
 		}
 
 		/**
-		 * If an event elsewhere has occurred, it enters in this methode. This method
+		 * If an event elsewhere has occurred, it enters in this method. This method
 		 * executes one ore more actions, depends on the event.
 		 * @param int $event Event.
 		 * @param string $entryid Entryid.
@@ -75,9 +75,9 @@
 							/**
 							 * We dose't need these properties in AppointmentListNotifier,
 							 * because if we send this properties in AppointmentListNotifier
-							 * webapp use this properties and try to re-draw appointment in calender
+							 * webapp use this properties and try to re-draw appointment in calendar
 							 * which look annoying when user drag and drop same appointment frequently
-							 * in calender (related to WA-8897).
+							 * in calendar (related to WA-8897).
 							 */
 							unset($data['props']['startdate']);
 							unset($data['props']['duedate']);

@@ -1,7 +1,7 @@
 <?php
 	/**
 	 * ListModule
-	 * Superclass of every module, which retreives a MAPI message list. It
+	 * Superclass of every module, which retrieves a MAPI message list. It
 	 * extends the Module class.
 	 */
 	class ListModule extends Module

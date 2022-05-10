@@ -185,7 +185,7 @@ abstract class AbstractBackend
 	abstract public function copy_coll($src_path, $dst_path, $overwrite = false);
 
 	/**
-	 * Get's path information from backend server for the first element
+	 * Gets path information from backend server for the first element
 	 * in the given path.
 	 *
 	 * Returned value:

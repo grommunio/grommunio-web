@@ -14,7 +14,7 @@ class AttachmentState {
 	private $basedir;
 
 	/**
-	 * The directpry in which the attachments for the current session are found
+	 * The directory in which the attachments for the current session are found
 	 */
 	private $sessiondir;
 

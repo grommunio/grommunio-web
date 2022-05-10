@@ -114,7 +114,7 @@ class PasswdModule extends Module
 				}
 			} catch (MAPIException $e) {
 				if (MAPI_E_NO_ACCESS == mapi_last_hresult()) {
-					$errorMessage = _('Your password is wrong or you have insufficent permission to change password');
+					$errorMessage = _('Your password is wrong or you have insufficient permission to change password');
 				}
 			}
 			if (empty($errorMessage)) {

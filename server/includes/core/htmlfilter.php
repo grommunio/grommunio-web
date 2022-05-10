@@ -524,7 +524,7 @@ function sq_getnxtag($body, $offset){
  *
  * @param $attvalue the by-ref value to check.
  * @param $regex    the regular expression to check against.
- * @param $hex      whether the entites are hexadecimal.
+ * @param $hex      whether the entities are hexadecimal.
  * @return          True or False depending on whether there were matches.
  */
 function sq_deent(&$attvalue, $regex, $hex=false){

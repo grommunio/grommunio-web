@@ -593,7 +593,7 @@ Zarafa.plugins.files.FilesContext = Ext.extend(Zarafa.core.Context, {
 
 	/**
 	 * Registers to the {@link Zarafa.core.Container#contextswitch contextswitch} event on the
-	 * {@link Zarafa.core.Container container} so the visiblity of the button can be toggled
+	 * {@link Zarafa.core.Container container} so the visibility of the button can be toggled
 	 * whenever the context is switched. We do this after the button is rendered.
 	 *
 	 * @param {Ext.Button} btn The button
@@ -616,7 +616,7 @@ Zarafa.plugins.files.FilesContext = Ext.extend(Zarafa.core.Context, {
 	 * will get that from the {@link Zarafa.core.Container container}.
 	 *
 	 * @param {Ext.Button} btn The button.
-	 * @param {Zarafa.core.Context} activeContext (Optionial} The active Context.
+	 * @param {Zarafa.core.Context} activeContext (Optional) The active Context.
 	 */
 	setVisiblityMainToolbarButton: function (btn, activeContext) {
 		activeContext = activeContext || container.getCurrentContext();

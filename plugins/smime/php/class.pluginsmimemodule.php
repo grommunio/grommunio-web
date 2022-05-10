@@ -71,7 +71,7 @@ class PluginSmimeModule extends Module
 							$GLOBALS['bus']->addData($this->getResponseData());
 							break;
 						case 'delete':
-							// FIXME: handle multiple deletes? Seperate function?
+							// FIXME: handle multiple deletes? Separate function?
 							$entryid = $actionData['entryid'];
 							$root = mapi_msgstore_openentry($this->store, null);
 							mapi_folder_deletemessages($root, array(hex2bin($entryid)));

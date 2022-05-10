@@ -139,7 +139,7 @@ class BackendStore
 	}
 
 	/**
-	 * Check if a backend is registerd.
+	 * Check if a backend is registered.
 	 *
 	 * @param $backend
 	 *

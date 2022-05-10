@@ -15,7 +15,7 @@ describe('Custom Message Box', function() {
 	};
 
 	/**
-	 * Fuction should open the custom message box.
+	 * Function should open the custom message box.
 	 * @param {Object} config The config contains configuration option for custom message box.
 	 */
 	var openMessageBox = function(config) {

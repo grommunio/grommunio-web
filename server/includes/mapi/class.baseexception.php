@@ -9,7 +9,7 @@
  * getFile() - source filename
  * getLine() - source line
  * getTrace() - n array of the backtrace()
- * getTraceAsString() - formated string of trace
+ * getTraceAsString() - formatted string of trace
  */
 class BaseException extends Exception
 {

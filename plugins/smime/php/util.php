@@ -32,7 +32,7 @@ function getCertEmail($certificate)
  * @param {MAPIStore} $store user's store
  * @param {String} $type of message_class.
  * @param {String} $emailAddress emailaddress to specify.
- * @return {MAPIObject} the mapi message containing the private certificate, returns false if no certifcate is found
+ * @return {MAPIObject} the mapi message containing the private certificate, returns false if no certificate is found
  *
  */
 function getMAPICert($store, $type = 'WebApp.Security.Private', $emailAddress = '')

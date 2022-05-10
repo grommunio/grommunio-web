@@ -2,7 +2,7 @@
 /**
  * This file is used to set configuration options to a default value that have
  * not been set in the config.php.Each definition of a configuration value must
- * be preceeded by 'if(!defined("KEY"))'
+ * be preceded by 'if(!defined("KEY"))'
  */
 
 require_once(__DIR__ . '/server/includes/core/constants.php');
@@ -36,7 +36,7 @@ if(!defined("ENABLE_FILE_PREVIEWER")) define("ENABLE_FILE_PREVIEWER", true);
 if(!defined("ENABLE_ICONSETS")) define("ENABLE_ICONSETS", true);
 
 /**
- * Set to true to give users the possiblity to edit and create mail filters on the store
+ * Set to true to give users the possibility to edit and create mail filters on the store
  * of other users. The user needs owner permissions on the store and folder permissions on
  * the inbox of the other user.
  * SECURITY NOTE: This makes it possible for a user to create a filter on a folder for which
@@ -94,7 +94,7 @@ if(!defined("ENABLE_SHARED_CONTACT_FOLDERS")) define("ENABLE_SHARED_CONTACT_FOLD
 
 /**
  * Limit the amount of members shown in the addressbook details dialog for a distlist. If the list
- * is too great the browser will hang loading and rendereing all the items. By default set to 0
+ * is too great the browser will hang loading and rendering all the items. By default set to 0
  * which means it loads all members.
  */
 if(!defined("ABITEMDETAILS_MAX_NUM_DISTLIST_MEMBERS")) define("ABITEMDETAILS_MAX_NUM_DISTLIST_MEMBERS", 0);

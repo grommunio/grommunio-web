@@ -589,7 +589,7 @@ class UploadAttachment
 	 * Function used get the destination folder in which
 	 * item gets imported.
 	 *
-     * @return Object folder object in which item get's imported.
+     * @return Object folder object in which item gets imported.
      */
 	function getDestinationFolder()
 	{
@@ -690,7 +690,7 @@ class UploadAttachment
 	{
 		$providedFile = sys_get_temp_dir() . DIRECTORY_SEPARATOR . $_GET['attachment_id'];
 
-		// check wheather the doc is already moved
+		// check whether the doc is already moved
 		if (file_exists($providedFile)) {
 			$filename = mb_basename(stripslashes($_GET['name']));
 

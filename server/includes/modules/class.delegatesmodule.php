@@ -509,7 +509,7 @@
 			$rule[PR_RULE_ACTIONS] = Array(
 							Array(
 								'action' => OP_DELEGATE,
-								// don't set this value it will have no effect, its harcoded to FWD_PRESERVE_SENDER | FWD_DO_NOT_MUNGE_MSG
+								// don't set this value it will have no effect, its hardcoded to FWD_PRESERVE_SENDER | FWD_DO_NOT_MUNGE_MSG
 								'flavor' => 0,
 								'flags' => 0,
 								'adrlist' => $usersInfo

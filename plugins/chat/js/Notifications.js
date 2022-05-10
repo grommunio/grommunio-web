@@ -60,7 +60,7 @@ Zarafa.plugins.chat.Notifications = {
 	retryDelay: 200,
 
 	/**
-	 * Intializes the relaying of notifications.
+	 * Initializes the relaying of notifications.
 	 * @param  {[type]} iframe [description]
 	 * @return {[type]}        [description]
 	 */
@@ -175,7 +175,7 @@ Zarafa.plugins.chat.Notifications = {
 	 * Wrapper function for posting messages to the chat iframe
 	 * @param  {String} msg The message to send
 	 * @param  {Any} data The data to send with the message
-	 * @param  {Number} ref Notifcation id for the Notifymatters plugin
+	 * @param  {Number} ref Notification id for the Notifymatters plugin
 	 */
     sendMessage : function(msg, data, ref) {
         const payload = {

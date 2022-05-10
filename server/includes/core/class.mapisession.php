@@ -581,7 +581,7 @@
 		}
 
 		/**
-		 * Get the message stores from the messge store table from your session. Standard stores
+		 * Get the message stores from the message store table from your session. Standard stores
 		 * like the default store and the public store are made them easily accessible through the
 		 * defaultstore and publicStore properties.
 		 */
@@ -639,7 +639,7 @@
 		}
 
 		/**
-		 * Get single store and it's archive store aswell if we are openig full store.
+		 * Get single store and it's archive store as well if we are openig full store.
 		 *
 		 * @param $store object the store of the user
 		 * @param array $storeOptions contains folder_type of which folder to open

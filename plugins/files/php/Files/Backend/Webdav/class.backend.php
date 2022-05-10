@@ -48,7 +48,7 @@ class Backend extends AbstractBackend implements iFeatureQuota, iFeatureVersionI
 	protected $metaConfig;
 
 	/**
-	 * @var boolean debuggin flag, if true, debugging is enabled
+	 * @var boolean debugging flag, if true, debugging is enabled
 	 */
 	var $debug = false;
 
@@ -726,7 +726,7 @@ class Backend extends AbstractBackend implements iFeatureQuota, iFeatureVersionI
 	}
 
 	/**
-	 * Get's path information from webdav server for one element
+	 * Gets path information from webdav server for one element
 	 *
 	 * @param string $path Path to file or folder
 	 *
@@ -768,7 +768,7 @@ class Backend extends AbstractBackend implements iFeatureQuota, iFeatureVersionI
 	}
 
 	/**
-	 * Get's server information
+	 * Gets server information
 	 *
 	 * @throws BackendException if request is not successful
 	 * @return array with all header fields returned from webdav server.

@@ -71,7 +71,7 @@ Zarafa.plugins.files.ui.dialogs.AttachFromFilesPanel = Ext.extend(Ext.Panel, {
 	},
 
 	/**
-	 * Genereate the toolbar buttons.
+	 * Generate the toolbar buttons.
 	 *
 	 * @returns {Object}
 	 */

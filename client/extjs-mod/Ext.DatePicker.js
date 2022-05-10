@@ -45,7 +45,7 @@
 		showNow: false,
 
 		/**
-		 * overriden to set starting day of the week
+		 * overridden to set starting day of the week
 		 * @override
 		 */
 		initComponent: function()
@@ -66,7 +66,7 @@
 
 		/**
 		 * handler for the render event
-		 * overriden to set the width of the table
+		 * overridden to set the width of the table
 		 * @private
 		 * @override
 		 */
@@ -137,7 +137,7 @@
 
 		/**
 		 * Handler for the before destroy event
-		 * overriden to delete the {@link Ext.DatePicker#weekCells} property.
+		 * overridden to delete the {@link Ext.DatePicker#weekCells} property.
 		 * @private
 		 * @override
 		 */
@@ -154,7 +154,7 @@
 		},
 
 		/**
-		 * Overriden to fire 'selectnow' event if {@link #showNow} is set to true.
+		 * Overridden to fire 'selectnow' event if {@link #showNow} is set to true.
 		 * @override
 		 */
 		selectToday: function()

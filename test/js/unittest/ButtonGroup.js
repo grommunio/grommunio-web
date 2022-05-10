@@ -14,7 +14,7 @@ describe("ButtonGroup", function() {
 
 	/*
 	 * Test visibility of buttongroup that it is not show
-	 * when it is empty and it is shown when it has atleast
+	 * when it is empty and it is shown when it has at least
 	 * one button to show.
 	 */
 	describe('Visibility', function() {

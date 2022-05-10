@@ -130,7 +130,7 @@ class ConfigurationOption extends ArrayObject implements ConfigurationOptionInte
                      * We use property instead of getter
                      * because of is/get conditions and
                      * to allow us to retrieve the value
-                     * in catch statement bloc
+                     * in catch statement block
                      */
                     $value = $this->{\lcfirst(\substr($method, 3))};
                     $this->{$method}($value);

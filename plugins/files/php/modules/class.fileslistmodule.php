@@ -104,7 +104,7 @@ class FilesListModule extends ListModule
 		$versions =  $GLOBALS['PluginManager']->getPluginsVersion();
 		$filesVersion = $versions['files'];
 
-		// Clear cache when version gets changed and update 'files' version in chache.
+		// Clear cache when version gets changed and update 'files' version in cache.
 		if ($isReload ||  version_compare($this->getVersionFromCache('files'), $filesVersion) !== 0) {
 			$this->clearCache();
 			$this->setVersionInCache('files', $filesVersion);
@@ -344,7 +344,7 @@ class FilesListModule extends ListModule
 
 	/**
 	 * Function will check that given folder has sub folder or not.
-	 * This will retrurn null when there's an exception retriving folder data.
+	 * This will retrurn null when there's an exception retrieving folder data.
 	 *
 	 * @param {String} $id The $id is id of selected folder.
 	 * @param $accountID
@@ -443,7 +443,7 @@ class FilesListModule extends ListModule
 				// Get old cached data.
 				$cachedDir = $this->getCache($actionId, dirname($cachePath, 1));
 
-				// Insert newly created folder infor with entryid, parentEntryid and storeEntryid
+				// Insert newly created folder info with entryid, parentEntryid and storeEntryid
 				// in already cached data.
 				$cachedDir[$relDirname] = $newDir;
 				$dir = $cachedDir;
@@ -662,7 +662,7 @@ class FilesListModule extends ListModule
 
 	/**
 	 * Initialize the backend for the given account.
-	 * @param {Object} $account The account object the backend should be initilized for
+	 * @param {Object} $account The account object the backend should be initialized for
 	 * @param {Bool} $setID Should the accountID be set in the backend object, or not. Defaults to false.
 	 * @return {Object} The initialized backend
 	 */
@@ -694,7 +694,7 @@ class FilesListModule extends ListModule
 	 * Get directotry data form the cache.
 	 * @param {String} $accountID Id of the account of the data to get
 	 * @param {String} $path Path of the file or folder to retrieve the cache element for
-	 * @return {String} The diretory data or null if nothing was found
+	 * @return {String} The directory data or null if nothing was found
 	 */
 	function getCache($accountID, $path)
 	{

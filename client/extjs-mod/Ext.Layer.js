@@ -127,7 +127,7 @@
 
         // private
         // this code can execute repeatedly in milliseconds (i.e. during a drag) so
-        // code size was sacrificed for effeciency (e.g. no getBox/setBox, no XY calls)
+        // code size was sacrificed for efficiency (e.g. no getBox/setBox, no XY calls)
         sync: function(doShow) {
             var shadow = this.shadow;
             if(!this.updating && this.isVisible() && (shadow || this.useShim)) {

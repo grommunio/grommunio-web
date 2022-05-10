@@ -1,6 +1,6 @@
 <?php
 /**
- * This class implemets a files backend account
+ * This class implements a files backend account
  *
  * @class Account
  */

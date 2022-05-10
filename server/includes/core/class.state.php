@@ -19,7 +19,7 @@
  * to the request URL when the client does an XML request. Each 'subsystem' has its own state file.
  *
  * Currently the subsystem is equal to the module ID. This means that if you have two requests from the same
- * module, they will have to wait for eachother. In practice this should hardly ever happen.
+ * module, they will have to wait for each other. In practice this should hardly ever happen.
  *
  * It can also support to create global state which can be access by all PHP request.
  *

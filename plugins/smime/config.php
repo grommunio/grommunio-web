@@ -5,7 +5,7 @@ DEFINE('PLUGIN_SMIME_USER_DEFAULT_ENABLE_SMIME', true);
 // 
 DEFINE('PLUGIN_SMIME_CACERTS', '/etc/ssl/certs');
 
-// Set preferred encryption cipher, check http://www.php.net/manual/en/openssl.ciphers.php for the avaliable ciphers.
+// Set preferred encryption cipher, check http://www.php.net/manual/en/openssl.ciphers.php for the available ciphers.
 // Recommended is OPENSSL_CIPHER_AES_128_CBC or higher
 DEFINE('PLUGIN_SMIME_CIPHER', OPENSSL_CIPHER_3DES); 
 

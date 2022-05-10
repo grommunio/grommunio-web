@@ -12,7 +12,7 @@ grommunio Web
 
 $ ./tools/update_translations -u
 
-The exisiting po files in server/language will be updated with the new
+The existing po files in server/language will be updated with the new
 translation strings from the JavaScript and PHP code. Obsolete strings are
 automatically removed.
 

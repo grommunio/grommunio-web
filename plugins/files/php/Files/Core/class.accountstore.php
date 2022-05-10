@@ -189,7 +189,7 @@ class AccountStore
 	}
 
 	/**
-	 * @return Account[] alls Accounts
+	 * @return Account[] all Accounts
 	 */
 	public function getAllAccounts()
 	{

@@ -19,11 +19,11 @@ describe('HTMLParser', function() {
 	});
 
 	/*
-	 * Test functions related to blocking external content is working propery.
+	 * Test functions related to blocking external content is working properly.
 	 */
 	describe('External Content', function() {
 		/*
-		 * Test functions related to detecting external content is working propery.
+		 * Test functions related to detecting external content is working properly.
 		 */
 		describe('Detect External Content', function() {
 			it('can check external content properly', function() {
@@ -64,7 +64,7 @@ describe('HTMLParser', function() {
 		});
 
 		/*
-		 * Test functions related to blocking external content is working propery.
+		 * Test functions related to blocking external content is working properly.
 		 */
 		describe('Block External Content', function() {
 			it('can block external content properly', function() {

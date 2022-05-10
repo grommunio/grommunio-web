@@ -44,7 +44,7 @@ class Pluginmaps extends Plugin {
 	}
 
 	/**
-	 * Function includes the the files neccessary for using
+	 * Function includes the the files necessary for using
 	 * leaflet
 	 *  @param $data
 	 */
@@ -58,7 +58,7 @@ class Pluginmaps extends Plugin {
 	}
 
 /**
-	 * Function includes the the files neccessary for using
+	 * Function includes the the files necessary for using
 	 * leaflet
 	 *  @param $data
 	 */

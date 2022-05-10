@@ -15,7 +15,7 @@
 }
 
 .x-panel-bbar .x-toolbar, .x-panel-tbar .x-toolbar, .k-search-toolbar-panel .x-toolbar {
-	padding: ($toolbar-height - $button-small-height - 2px - 1px)/2 $padding-medium; /* we need to substract 2px extra to account for the borders around the buttons */
+	padding: ($toolbar-height - $button-small-height - 2px - 1px)/2 $padding-medium; /* we need to subtract 2px extra to account for the borders around the buttons */
 	border: none;
 	border-bottom: 1px solid $grey;
 }

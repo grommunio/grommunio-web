@@ -60,7 +60,7 @@ class Util {
 	 * Returns the index of an array which has a $key which matches the given $value
 	 * @param array $arr The array to search in
 	 * @param String $key The key which we will check in all items
-	 * @param String $vlaue The value for which we are looking for
+	 * @param String $value The value for which we are looking for
 	 * @return Number The index of the item in the array which matches the $key-$value pair
 	 */
 	public static function indexInArray($arr, $key, $value, $skip = 0)

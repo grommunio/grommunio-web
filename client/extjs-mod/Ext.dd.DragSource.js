@@ -57,7 +57,7 @@
 		{
 			// If we don't have a cached target, then we haven't got a connection
 			// with a DropZone. This can happen when 2 DropZones are hovering over
-			// eachother, when we enter the second DropZone, onDragEnter will have
+			// each other, when we enter the second DropZone, onDragEnter will have
 			// unhooked the first DropZone. But since we are now hovering over it
 			// again, we seem to have exited the top DropZone and we are back at
 			// the first. So we force the connection again using onDragEnter().

@@ -3,7 +3,7 @@
  * suggestEmailAddressModule
  *
  * Class is used to store/retrieve suggestion list entries from a mapi property PR_EC_RECIPIENT_HISTORY_JSON
- * on default store. The format of recipient history that is stored in this proeprty is shown below
+ * on default store. The format of recipient history that is stored in this property is shown below
  * {
  * 	 recipients : [
  *		'display_name' : 'foo bar',
@@ -116,7 +116,7 @@ class suggestEmailAddressModule extends Module
 	 * Function is used to get recipient history from mapi property based
 	 * on the query specified by the client in action array.
 	 * @param {Array} $action action data in associative array format.
-	 * @param {Array} $recipient_history recipient history stored in mapi proeprty.
+	 * @param {Array} $recipient_history recipient history stored in mapi property.
 	 * @returns {Array} data holding recipients that matched the query.
 	 */
 	function getRecipientList($action, $recipient_history) {

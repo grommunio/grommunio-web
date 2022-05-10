@@ -83,7 +83,7 @@ foreach($translations as $domain => $translation_list){
 		$translation = $translations[$domain][$i];
 		if($translation['msgid'] == '') continue;
 
-		// Conver the charset to UTF-8 if that is not already the case
+		// Convert the charset to UTF-8 if that is not already the case
 		if($charset != 'UTF-8'){
 			$translation['msgctxt'] = changeTranslationCharsetToUTF8($translation['msgctxt'], $charset);
 			$translation['msgid'] = changeTranslationCharsetToUTF8($translation['msgid'], $charset);

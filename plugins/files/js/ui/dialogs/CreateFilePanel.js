@@ -5,7 +5,7 @@ Ext.namespace('Zarafa.plugins.files.ui.dialogs');
  * @extends Ext.Panel
  * @xtype filesplugin.createfolderpanel
  *
- * Panel for users to create folder record in differnt supported backends.
+ * Panel for users to create folder record in different supported backends.
  */
 Zarafa.plugins.files.ui.dialogs.CreateFilePanel = Ext.extend(Ext.Panel, {
 
@@ -116,9 +116,9 @@ Zarafa.plugins.files.ui.dialogs.CreateFilePanel = Ext.extend(Ext.Panel, {
 	/**
 	 * Event handler which is triggered when the user presses the ok
 	 * {@link Ext.Button button}. function is responsible to create folder
-	 * under the respective folder as well as check for dublicate folder.
+	 * under the respective folder as well as check for duplicate folder.
 	 *
-	 * @param {Ext.Button} button which triggeres this event.
+	 * @param {Ext.Button} button which triggers this event.
 	 * @param {Ext.EventObject} event The event object
 	 */
 	onOk : function (button, event)

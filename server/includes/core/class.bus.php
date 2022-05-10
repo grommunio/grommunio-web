@@ -4,7 +4,7 @@
 	/**
 	* Generic event bus with subscribe/notify architecture
 	*
-	* Every notifier registers itselfs by this class so that it can receive events. The events represent changes in the underlying
+	* Every notifier registers itself by this class so that it can receive events. The events represent changes in the underlying
 	* MAPI store like changes to folders, e-mails, calendar items, etc.
 	*
 	* A notifier can register itself for the following events:

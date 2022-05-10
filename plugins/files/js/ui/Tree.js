@@ -89,7 +89,7 @@ Zarafa.plugins.files.ui.Tree = Ext.extend(Ext.tree.TreePanel, {
 	 */
 	initComponent : function()
 	{
-		// Intialize the loader
+		// Initialize the loader
 		if (!this.loader) {
 			this.loader = new Zarafa.plugins.files.data.NavigatorTreeLoader({
 				tree : this,

@@ -168,7 +168,7 @@ public class Concatinator
 	 * after that, and so on.
 	 * <p>
 	 * For example, calling sort with "\w+, Foo.bar.*" will move all files which have classes in the 'root' package
-	 * (i.e. 'Date', 'Foo') to the top of the list, after wich come all files which have classes in 'Foo.bar' or any
+	 * (i.e. 'Date', 'Foo') to the top of the list, after which come all files which have classes in 'Foo.bar' or any
 	 * of its descending packages, and finally all the files that match neither of these criteria.
 	 * <p>
 	 * The regular expression format is the standard <a href="http://java.sun.com/javase/6/docs/api/java/util/regex/Pattern.html">Java format<a>.

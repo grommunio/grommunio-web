@@ -30,4 +30,4 @@ To add more buttons that open a webpage, just define them like above with a numb
 
 ## Good to know
 It is not possible to open a website that has a different protocol as grommunio Web itself. E.g. it is not possible to open a webpage that starts with https when grommunio Web runs under http.
-Some sites, e.g. https://google.com don't allow browsers to load them in an iframe (due to Content Security Policy), therfore it is not possible to use these sites with this plugin.
+Some sites, e.g. https://google.com don't allow browsers to load them in an iframe (due to Content Security Policy), therefore it is not possible to use these sites with this plugin.

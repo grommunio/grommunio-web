@@ -1,6 +1,6 @@
 (function() {
 	/*
-	 * Override Ext.form.Label, there is a bahavioral difference
+	 * Override Ext.form.Label, there is a behavioral difference
 	 * between with using:
 	 *      {
 	 *          xtype: 'component',
@@ -12,7 +12,7 @@
 	 *          text: 'test'
 	 *      }
 	 *
-	 *  Altough both would render a label with the contents 'test',
+	 *  Although both would render a label with the contents 'test',
 	 *  the CSS classes are applied incorrectly. When using the
 	 *  fieldLabel option, the generated HTML is:
 	 *

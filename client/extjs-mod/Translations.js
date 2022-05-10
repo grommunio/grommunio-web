@@ -15,7 +15,7 @@ Zarafa.util.Translations = {
 
 	/**
 	 * This will split a translation string up into different sections.
-	 * The intension is to fix problems which might occur when two labels
+	 * The intention is to fix problems which might occur when two labels
 	 * are used to construct a full sentence, this could happen with for example
 	 * paging, where the translation string is "Page X of Y" where the used labels
 	 * are: "Page" and "of Y". Obviously this will not translate correctly for
@@ -60,7 +60,7 @@ Zarafa.util.Translations = {
 
 	/**
 	 * This will split a translation string up into different sections.
-	 * The intension is to fix problems which might occur when more then two labels
+	 * The intention is to fix problems which might occur when more then two labels
 	 * are used to construct a full sentence, this could happen with for example
 	 * recurrence where the translation string is 'Every X Y of every Z month(s)'.
 	 * We don't want to translate 'Every', 'of every' and 'month(s)' separately.

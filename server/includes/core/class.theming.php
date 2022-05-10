@@ -553,7 +553,7 @@ class Theming
 			.x-date-picker .x-date-mp table tr.x-date-mp-btns td button.x-date-mp-ok {
 				background: {{action-color}} !important;
 			}
-			/* Focussed Action button */
+			/* Focused Action button */
 			.x-btn.zarafa-action.x-btn-focus .x-btn-small, .x-btn.zarafa-action.x-btn-focus .x-btn-medium, .x-btn.zarafa-action.x-btn-focus .x-btn-large {
 				background: {{action-color}} !important;
 			}

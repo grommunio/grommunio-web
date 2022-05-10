@@ -23,7 +23,7 @@ Ext.namespace('Zarafa.plugins.files.ui');
  </a>
  </div>
  </code></pre>
- *  but for our custom needs we need to chagne that layout to accomodate counters also
+ *  but for our custom needs we need to change that layout to accommodate counters also
  <pre><code>
  <div unselectable="on" class="x-tree-node-el x-tree-node-leaf x-unselectable" >	// element node
  <span class="x-tree-node-indent">		// for indentation
@@ -42,7 +42,7 @@ Ext.namespace('Zarafa.plugins.files.ui');
 Zarafa.plugins.files.ui.FolderNodeUI  = Ext.extend(Ext.tree.TreeNodeUI, {
 
 	/**
-	 * Function will render {@link Zarafa.hierachy.ui.FolderNode FolderNode} based on modified template for
+	 * Function will render {@link Zarafa.hierarchy.ui.FolderNode FolderNode} based on modified template for
 	 * our custom needs.
 	 * @param {Zarafa.hierarchy.ui.FolderNode} n tree node.
 	 * @param {Object} a config object of {@link Zarafa.hierarchy.ui.FolderNode FolderNode}.

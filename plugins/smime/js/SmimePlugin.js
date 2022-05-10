@@ -151,9 +151,9 @@ Zarafa.plugins.smime.SmimePlugin = Ext.extend(Zarafa.core.Plugin, {
 	},
 
 	/**
-	 * Handler for the button which is displayed when a encrypted / signed message is openend
+	 * Handler for the button which is displayed when a encrypted / signed message is opened
 	 * When an encrypted message is opened, we will send a request to unlock the certificate.
-	 * When an signed email is openend, we will show a popup with extra information about the signed message
+	 * When an signed email is opened, we will show a popup with extra information about the signed message
 	 */
 	onSmimeButton: function(button)
 	{

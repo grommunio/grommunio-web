@@ -12,7 +12,7 @@ Ext.namespace('Zarafa.plugins.mdm.ui');
 Zarafa.plugins.mdm.ui.MDMFolderNodeUI = Ext.extend(Zarafa.hierarchy.ui.FolderNodeUI, {
 
 	/**
-	 * Function will render {@link Zarafa.hierachy.ui.FolderNode FolderNode} based on modified template for
+	 * Function will render {@link Zarafa.hierarchy.ui.FolderNode FolderNode} based on modified template for
 	 * our custom needs.
 	 * @param {Zarafa.hierarchy.ui.FolderNode} node tree node.
 	 * @param {Object} config config object of {@link Zarafa.hierarchy.ui.FolderNode FolderNode}.

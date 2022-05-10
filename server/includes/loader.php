@@ -366,7 +366,7 @@ class FileLoader {
 				if(substr($fileData['extends'][$i], 0, strlen('Zarafa')) == 'Zarafa'){
 					if (isset($libFileLookup[ $fileData['extends'][$i] ])) {
 						// The @extends is found in the library file.
-						// No need to update the depdencies
+						// No need to update the dependencies
 					} else if(isset($classFileLookup[ $fileData['extends'][$i] ])){
 						// The @extends is found as @class in another file
 						// Convert the class dependency into a filename
@@ -452,7 +452,7 @@ class FileLoader {
 							$fileDepths[ $file ] = $highestParentDepth + 1;
 							$changed = true;
 						}
-					// The node does not have any dependecies so its a root node.
+					// The node does not have any dependencies so its a root node.
 					} else {
 						$fileDepths[ $file ] = 0;
 						$changed = true;
@@ -464,7 +464,7 @@ class FileLoader {
 		// If not all the files have been assigned a depth, but nothing changed the last round there
 		// must be something wrong with the dependencies of the skipped files. So lets tell someone.
 		if(count($fileDepths) < count($fileData)){
-			$errorMsg = '[LOADER] Could not compute all dependecies. The following files cannot be resolved properly: ';
+			$errorMsg = '[LOADER] Could not compute all dependencies. The following files cannot be resolved properly: ';
 			$errorMsg .= implode(', ', array_diff(array_keys($fileData), array_keys($fileDepths)));
 			trigger_error($errorMsg);
 		}

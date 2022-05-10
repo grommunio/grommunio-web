@@ -1,6 +1,6 @@
 (function() {
 	/*
-	 * Override Ext.form.DisplayField to guarentee the availability
+	 * Override Ext.form.DisplayField to guarantee the availability
 	 * of the 'x-form-item' CSS class.
 	 * This is normally only applied when the component is being
 	 * rendered using the FormLayout, but this doesn't really make

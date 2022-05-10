@@ -6,7 +6,7 @@ Ext.namespace('Zarafa.plugins.desktopnotifications.js.settings');
  * @xtype zarafa.settingsdesktopnotificationswidget
  *
  * The {@link Zarafa.settings.ui.SettingsWidget widget} for enable/disable desktop notifications
- * in the {@link Zarafa.plugins.desktopnotifications.js.settings.SettingsDesktopNotificationsCategory dekstop notification category}.
+ * in the {@link Zarafa.plugins.desktopnotifications.js.settings.SettingsDesktopNotificationsCategory desktop notification category}.
  */
 Zarafa.plugins.desktopnotifications.js.settings.SettingsNotificationsWidget = Ext.extend(Zarafa.settings.ui.SettingsWidget, {
 

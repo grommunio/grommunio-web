@@ -40,7 +40,7 @@ PR_SUBJECT_PREFIX          | The subject denoted as C=NL .... CN=john
 PR_RECEIVED_BY_NAME        | The SHA1 certificate finger print
 PR_INTERNET_MESSAGE_ID     | The MD5 certificate finger print
 
-In the attchment of this message the pkcs12 is stored (based64) encoded for a WebApp.Security.Private message,
+In the attachment of this message the pkcs12 is stored (based64) encoded for a WebApp.Security.Private message,
    if it is a WebApp.Security.Public message the attachment contains a base64 encoded PEM file.
 
 ## Testing

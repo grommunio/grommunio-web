@@ -12,7 +12,7 @@ require_once('classes/Restriction.php');
  */
 class TestUser {
 	/**
-	 * The actual grommunioUser object, this is the oject used to logon
+	 * The actual grommunioUser object, this is the object used to logon
 	 * to the server with.
 	 */
 	private $user;
@@ -393,9 +393,9 @@ class TestUser {
 	 */
 	public function execute($module, $data)
 	{
-		// Logout and in again, this ensures that we fully mimick the
+		// Logout and in again, this ensures that we fully mimic the
 		// PHP behavior of multiple requests (which also resets the
-		// envionment).
+		// environment).
 		$this->logout();
 		$this->logon();
 

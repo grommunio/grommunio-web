@@ -282,7 +282,7 @@ class FilesAccountModule extends ListModule
 	}
 
 	/**
-	 * Return all Informations about the existing backends.
+	 * Return all Information about the existing backends.
 	 *
 	 * @param {String} $actionType
 	 */

@@ -33,7 +33,7 @@ Zarafa.plugins.files.ui.FilesFolderNode = Ext.extend(Ext.tree.AsyncTreeNode, {
 
 		var folder = config.folder;
 
-		// If a folder is provided we have an extra oppurtunity to
+		// If a folder is provided we have an extra opportunity to
 		// apply some extra defaults.
 		if (Ext.isDefined(folder)) {
 			Ext.applyIf(config, {

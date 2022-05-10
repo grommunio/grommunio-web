@@ -477,7 +477,7 @@ class FilesBrowserModule extends FilesListModule
 				$result = $initializedBackend->delete($relNodeId);
 			} catch (\Files\Backend\Exception $e) {
 				// TODO: this might fails because the file was already deleted.
-				// fire error message if any other error occured.
+				// fire error message if any other error occurred.
 				Logger::debug(self::LOG_CONTEXT, "deleted a directory that was no longer available");
 			}
 			Logger::debug(self::LOG_CONTEXT, "deleted: " . $nodeId . ", worked: " . $result);

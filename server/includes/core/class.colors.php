@@ -271,7 +271,7 @@ class Colors {
 		}
 
 		// Not a valid color
-		// Note: alpha-numeric channels are not supported (i.e. rgba(x, x, x, x) or #xxxxxxxx or #xxxx)
+		// Note: alphanumeric channels are not supported (i.e. rgba(x, x, x, x) or #xxxxxxxx or #xxxx)
 		return null;
 	}
 

@@ -256,7 +256,7 @@
 		 * Function will delete (outlook) client rules. Outlook maintains client rules
 		 * in associated table of inbox, When we create/delete/update rule from webapp
 		 * it won't match with outlook's client rules, so it will confuse outlook and
-		 * it will ask user to preserve whether client or server side rules, so everytime
+		 * it will ask user to preserve whether client or server side rules, so every time
 		 * we save rules we need to remove this outlook generated client rule to remove
 		 * ambigiuty.
 		 *

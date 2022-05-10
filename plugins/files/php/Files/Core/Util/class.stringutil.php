@@ -51,7 +51,7 @@ class StringUtil
 	 */
 	static function randomstring($length = 6)
 	{
-		// $chars - all allowed charakters
+		// $chars - all allowed characters
 		$chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
 
 		srand((double)microtime() * 1000000);

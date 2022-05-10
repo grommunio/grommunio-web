@@ -4,7 +4,7 @@ require_once('class.certificate.php');
 
 // Green, everything was good
 define('SMIME_STATUS_SUCCESS', 0);
-// Orange, CA is missing or OCSP is not avaliable
+// Orange, CA is missing or OCSP is not available
 define('SMIME_STATUS_PARTIAL', 1);
 // Red, something really went wrong
 define('SMIME_STATUS_FAIL', 2);
@@ -37,7 +37,7 @@ class Pluginsmime extends Plugin {
 	/**
 	 * decrypted/verified message
 	 */
-	private $messsage = array();
+	private $message = array();
 
 	/**
 	 * Default MAPI Message Store
@@ -95,7 +95,7 @@ class Pluginsmime extends Plugin {
 			case 'server.core.settings.init.before':
 				$this->onBeforeSettingsInit($data);
 				break;
-			// Verify a signed or encrypted message when an email is opend
+			// Verify a signed or encrypted message when an email is opened
 			case 'server.util.parse_smime.signed':
 				$this->onSignedMessage($data);
 				break;
@@ -205,7 +205,7 @@ class Pluginsmime extends Plugin {
 		$importMessageCert = true;
 		$fromGAB = false;
 
-		// TODO: worth to split fetching public certificate in a seperate function?
+		// TODO: worth to split fetching public certificate in a separate function?
 
 		// If user entry exists in GAB, try to retrieve public cert
 		// Public certificate from GAB in combination with LDAP saved in PR_EMS_AB_TAGGED_X509_CERT
@@ -357,7 +357,7 @@ class Pluginsmime extends Plugin {
 
 	/**
 	 * Function which decrypts an encrypted message.
-	 * The key should be unlocked and stored in the EncryptionStore for a successfull decrypt
+	 * The key should be unlocked and stored in the EncryptionStore for a successful decrypt
 	 * If the key isn't in the session, we give the user a message to unlock his certificate.
 	 *
 	 * @param {mixed} $data array of data from hook
@@ -510,7 +510,7 @@ class Pluginsmime extends Plugin {
 			$emailAddress = $GLOBALS['mapisession']->getSMTPAddress();
 			list($message, $publickey, $publickeyData) = validateUploadedPKCS($certificate, $passphrase, $emailAddress);
 
-			// All checks completed succesfull
+			// All checks completed successful
 			// Store private cert in users associated store (check for duplicates)
 			if(empty($message)) {
 				$certMessage = getMAPICert($this->getStore());
@@ -689,7 +689,7 @@ class Pluginsmime extends Plugin {
 		// Only the newest one is returned
 		$certs = readPrivateCert($this->getStore(), $encryptionStore->get('smime'));
 
-		// Retrieve intermediate CA's for verification, if avaliable
+		// Retrieve intermediate CA's for verification, if available
 		if (isset($certs['extracerts'])) {
 			$tmpFile = tempnam(sys_get_temp_dir(), true);
 			file_put_contents($tmpFile, implode('', $certs['extracerts']));
@@ -830,7 +830,7 @@ class Pluginsmime extends Plugin {
 				$pubkey = mapi_msgstore_openentry($this->getStore(), $cert[PR_ENTRYID]);
 				$certificate = "";
 				if($pubkey != false) {
-					// retreive pkcs#11 certificate from body
+					// retrieve pkcs#11 certificate from body
 					$stream = mapi_openproperty($pubkey, PR_BODY, IID_IStream, 0, 0);
 					$stat = mapi_stream_stat($stream);
 					mapi_stream_seek($stream, 0, STREAM_SEEK_SET);
@@ -895,7 +895,7 @@ class Pluginsmime extends Plugin {
 	 * @return {String}
 	 */
 	function extract_openssl_error() {
-		// TODO: should catch more erros by using while($error = @openssl_error_string())
+		// TODO: should catch more errors by using while($error = @openssl_error_string())
 		$this->openssl_error = @openssl_error_string();
 		$openssl_error_code = 0;
 		if($this->openssl_error) {

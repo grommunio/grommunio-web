@@ -12,13 +12,13 @@ Ext.namespace('Zarafa.plugins.smime.settings');
  */
 Zarafa.plugins.smime.settings.UploadCertificateWidget = Ext.extend(Zarafa.settings.ui.SettingsWidget, {
 	/**
-	 * @cfg {Object} form used to temprorarly store the value of form in 
+	 * @cfg {Object} form used to temporarily store the value of form in 
 	 * {@link #selectCertificateCallback} for {@link #uploadCertificate}.
 	 */
 	form: undefined,
 
 	/**
-	 * @cfg {Object} files used to temprorarly store the value of form in 
+	 * @cfg {Object} files used to temporarily store the value of form in 
 	 * {@link #selectCertificateCallback for {@link #uploadCertificate}.
 	 */
 	files: undefined,

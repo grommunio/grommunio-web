@@ -140,7 +140,7 @@
 
 
 					/* This is an override for parent::messageList(), which ignores an array of entryids / stores.
-					*	 The following block considers this possibily and merges the data of several folders / stores.
+					*	 The following block considers this possibly and merges the data of several folders / stores.
 					*/
 
 					$this->searchFolderList = false; // Set to indicate this is not the search result, but a normal folder content
@@ -379,7 +379,7 @@
 						if ( isset($recuritem["exception"]) ){
 							// Add categories if they are set on the exception
 							// We will create a new Recurrence object with the opened message,
-							// so we can open the attachments. The attachements for this exception
+							// so we can open the attachments. The attachments for this exception
 							// contains the categories property (if changed)
 							$msgEntryid = bin2hex($calendaritem[$this->properties["entryid"]]);
 							if ( !isset($openedMessages[$msgEntryid]) ){

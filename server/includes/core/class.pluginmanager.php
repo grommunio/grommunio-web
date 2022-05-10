@@ -390,7 +390,7 @@ class PluginManager
 			include_once($file);
 		}
 
-		// Inlcude the root files of all the plugins and instantiate the plugin
+		// Include the root files of all the plugins and instantiate the plugin
 		foreach ($this->pluginorder as $plugName) {
 			$pluginClassName = 'Plugin' . $plugName;
 			if(class_exists($pluginClassName)){
@@ -488,7 +488,7 @@ class PluginManager
 	 * Checks if plugin exists.
 	 *
 	 * @param $pluginname string Identifier of the plugin
-	 * @return boolen True when plugin exists, false when it does not.
+	 * @return boolean True when plugin exists, false when it does not.
 	 */
 	function pluginExists($pluginname){
 		if(isset($this->plugindata[ $pluginname ])){

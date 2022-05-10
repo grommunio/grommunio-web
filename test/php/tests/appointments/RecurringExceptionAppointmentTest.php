@@ -225,7 +225,7 @@ class RecurringExceptionAppointmentTest extends grommunioTest {
 		$exception = $exception['item']['item'];
 
 		// Check if the exception contains correct subject/body
-		// @FIXME Disabled because corrently we don't support getting empty body of an exception
+		// @FIXME Disabled because currently we don't support getting empty body of an exception
 		// $this->assertEquals($newBody, $exception['props']['body'], 'Test that the Exception contains updated body.');
 		$this->assertEquals($newSubject, $exception['props']['subject'], 'Test that the Exception contains updated subject.');
 	}

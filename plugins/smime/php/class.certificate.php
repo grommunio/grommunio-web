@@ -310,7 +310,7 @@ class Certificate
 
 		/* Set custom error handler since the nemid ocsp library uses
 		 * trigger_error() to throw errors when it cannot parse certain
-		 * x509 fields which are not required for the OCSP Reuqest.
+		 * x509 fields which are not required for the OCSP Request.
 		 * Also when receiving the OCSP request, the OCSP library
 		 * triggers errors when the request does not adhere to the
 		 * standard.
@@ -346,7 +346,7 @@ class Certificate
 		// Do the OCSP request
 		$context = stream_context_create($stream_options);
 		$derresponse = file_get_contents($this->ocspURL(), null, $context);
-		// OCSP service not avaliable, import certificate, but show a warning.
+		// OCSP service not available, import certificate, but show a warning.
 		if ($derresponse === false) {
 			throw new OCSPException('No response', OCSP_NO_RESPONSE);
 		}
