@@ -157,7 +157,7 @@ class IndexSqlite extends SQLite3
 		$this->count = 0;
 		if (isset($sender) && $sender == $sending && $sending == $recipients && $recipients == $subject
 			&& $subject == $content && $content == $attachments && $attachments == $others) {
-			$sql_string .=  $sender . "'";	
+			$sql_string .=  SQLite3::escapeString($sender) . "*'";
 		} else {
 			$first = true;
 			if (isset($sender)) {
@@ -166,7 +166,7 @@ class IndexSqlite extends SQLite3
 				} else {
 					$sql_string .= " OR ";
 				}
-				$sql_string .= 'sender:' . SQLite3::escapeString($sender);
+				$sql_string .= 'sender:' . SQLite3::escapeString($sender) . '*';
 			}
 			if (isset($sending)) {
 				if (true == $first) {
@@ -174,7 +174,7 @@ class IndexSqlite extends SQLite3
 				} else {
 					$sql_string .= " OR ";
 				}
-				$sql_string .= 'sending:' . SQLite3::escapeString($sending);
+				$sql_string .= 'sending:' . SQLite3::escapeString($sending) . '*';
 			}
 			if (isset($recipients)) {
 				if (true == $first) {
@@ -182,7 +182,7 @@ class IndexSqlite extends SQLite3
 				} else {
 					$sql_string .= " OR ";
 				}
-				$sql_string .= 'recipients:' . SQLite3::escapeString($recipients);
+				$sql_string .= 'recipients:' . SQLite3::escapeString($recipients) . '*';
 			}
 			if (isset($subject)) {
 				if (true == $first) {
@@ -190,7 +190,7 @@ class IndexSqlite extends SQLite3
 				} else {
 					$sql_string .= " OR ";
 				}
-				$sql_string .= 'subject:' . SQLite3::escapeString($subject);
+				$sql_string .= 'subject:' . SQLite3::escapeString($subject) . '*';
 			}
 			if (isset($content)) {
 				if (true == $first) {
@@ -198,7 +198,7 @@ class IndexSqlite extends SQLite3
 				} else {
 					$sql_string .= " OR ";
 				}
-				$sql_string .= 'content:' . SQLite3::escapeString($content);
+				$sql_string .= 'content:' . SQLite3::escapeString($content) . '*';
 			}
 			if (isset($attachments)) {
 				if (true == $first) {
@@ -206,7 +206,7 @@ class IndexSqlite extends SQLite3
 				} else {
 					$sql_string .= " OR ";
 				}
-				$sql_string .= 'attachments:' . SQLite3::escapeString($attachments);
+				$sql_string .= 'attachments:' . SQLite3::escapeString($attachments) . '*';
 			}
 			if (isset($others)) {
 				if (true == $first) {
@@ -214,7 +214,7 @@ class IndexSqlite extends SQLite3
 				} else {
 					$sql_string .= " OR ";
 				}
-				$sql_string .= 'others:' . SQLite3::escapeString($others);
+				$sql_string .= 'others:' . SQLite3::escapeString($others) . '*';
 			}
 			if ($first) {
 				return false;
