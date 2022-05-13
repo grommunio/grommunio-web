@@ -5842,7 +5842,7 @@ msgstr ""
 "zurückgewiesen."
 
 msgid "The session has expired, reauthentication is required."
-msgstr "Ihre Sitzung ist ausgelaufen, bitte melden Sie sich erneut an."
+msgstr "Ihre Sitzung ist abgelaufen, bitte melden Sie sich erneut an."
 
 msgid ""
 "The session in the current browser window has been closed from another "
