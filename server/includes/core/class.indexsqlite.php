@@ -253,7 +253,7 @@ class IndexSqlite extends SQLite3
 				SQLITE_FTS_ENGINE .
 				"(sender, sending, recipients, " .
 				"subject, content, attachments," .
-				"others, message_id PRIMARY KEY," .
+				"others, message_id," .
 				"attach_indexed UNINDEXED," .
 				"entryid UNINDEXED," .
 				"change_num UNINDEXED," .
