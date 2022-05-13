@@ -47,6 +47,13 @@ if(!defined("ENABLE_SHARED_RULES")) define("ENABLE_SHARED_RULES", false);
 // Enable GZIP compression for responses
 if(!defined("ENABLE_RESPONSE_COMPRESSION")) define("ENABLE_RESPONSE_COMPRESSION", true);
 
+// Type of full-text search engine in sqlite
+if(!defined("SQLITE_FTS_ENGINE")) define("SQLITE_FTS_ENGINE", "fts5");
+
+// Tokenizer for sqlite full text search engine
+// can be simple, unicode61, icu, ascii, porter
+if(!defined("SQLITE_FTS_TOKENIZER")) define("SQLITE_FTS_TOKENIZER", "unicode61");
+
 /**
  * When set to true this enable the fitlering of the HTML body using DOMPurify.
  */

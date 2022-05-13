@@ -60,19 +60,11 @@
 	// Overrides defaults.php
 	define("ALWAYS_ENABLED_PLUGINS_LIST", "passwd;mdm");
 
-	//this path is used for client(domain) define data such as themes, icons ...
-	//do not delete this!
+	// Path used for client(domain) define data such as themes, icons ...
 	define("APPDATA_DIR", "appdata");
 
-	//this path is used for sqlite3 full text index for every user
+	// Path used for full text index of every user
 	define("SQLITE_INDEX_PATH", "/var/lib/grommunio-web/sqlite-index");
-
-	//define the type of full-text search engine in sqlite
-	define("SQLITE_FTS_ENGINE", "fts4");
-
-	//define the tokenizer for sqlite full text search engine
-	//can be simple,unicode61,icu,ascii,porter ...
-	define("SQLITE_FTS_TOKENIZER", "unicode61");
 
 	// General grommunio Web theme. This will be loaded by default for every user
 	// (if the theme is installed as a plugin)
