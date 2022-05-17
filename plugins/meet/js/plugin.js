@@ -110,10 +110,10 @@ Zarafa.plugins.meet.Plugin = Ext.extend(Zarafa.core.Plugin, {
     if(hash < 0) hash += 2147483647;
     var mname = '';
     if(!container.getSettingsModel().get('zarafa/v1/plugins/meet/mname_nosubject')){
-      mname += (button.record.get('subject') || 'meet').replace(/[^a-zA-Z0-9\-]/g, '_').replace(/_{2,}/g,  '_').replace(/^_+|_+$/g, '') + '-';
+      mname += (button.record.get('subject') || 'meet').replace(/[^a-zA-Z0-9\-@\.]/g, '_').replace(/_{2,}/g,  '_').replace(/^_+|_+$/g, '') + '-';
     }
     if(!container.getSettingsModel().get('zarafa/v1/plugins/meet/mname_noorganizer')){
-      mname += container.getUser().getUserName().replace(".", "") + '-';
+      mname += container.getUser().getUserName().replace(".", "_").replace("@", "_") + '-';
     }
     button.record.meetCurrentUrl = container.getSettingsModel().get('zarafa/v1/plugins/meet/server') + mname + hash.toString(16);
     var edf = null;
