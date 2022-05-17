@@ -6377,7 +6377,7 @@ msgstr "Freigabe bearbeiten"
 msgid ""
 "There are no accounts added. Go to settings, Files tab and add an account"
 msgstr ""
-"Es wurden noch keine Account's hinzugefügt. Bitte in den Einstellungen einen "
+"Es wurden noch keine Konten hinzugefügt. Bitte in den Einstellungen einen "
 "Account hinzufügen"
 
 msgid "Filesize"
