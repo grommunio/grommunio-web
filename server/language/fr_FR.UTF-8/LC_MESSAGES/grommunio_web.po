@@ -6958,12 +6958,9 @@ msgstr ""
 
 msgid ""
 "The revocation status of the digital certificate used to sign this email is "
-"unknown (Server is unavaliable or certificate does not support OCSP). The "
+"unknown (Server is unavailable or certificate does not support OCSP). The "
 "validity of the certificate could not be verified."
 msgstr ""
-"L'état de révocation du certificat numérique utilisé pour signer cet e-mail "
-"est inconnue ( Le serveur est indisponible ou le certificat ne prend pas en "
-"charge OCSP). La validité du certificat n'a pu être vérifiée."
 
 msgid ""
 "The revocation status of the digital certificate used to sign this email is "
@@ -6972,16 +6969,14 @@ msgstr ""
 "L'état de révocation du certificat numérique utilisé pour signer cet e-mail "
 "est désactivé (OCSP). La validité du certificat n'a pu être vérifiée."
 
-msgid "The certificate verification server (OCSP) is temporarly offline."
+msgid "The certificate verification server (OCSP) is temporarily offline."
 msgstr ""
-"Le serveur de vérification de certificat (OCSP) est temporairement hors "
-"ligne."
 
 #, fuzzy
 msgid "Sender is removed from the server."
 msgstr "Le certificat est déjà enregistré sur le serveur"
 
-msgid "Signature verified succesfully"
+msgid "Signature verified successfully"
 msgstr "Signature vérifiée avec succès"
 
 msgid "Could not verify signature, missing public certificate"
@@ -7299,7 +7294,7 @@ msgid "Current password does not match."
 msgstr ""
 
 msgid ""
-"Your password is wrong or you have insufficent permission to change password"
+"Your password is wrong or you have insufficient permission to change password"
 msgstr ""
 
 msgid "Password is not changed."
@@ -7660,7 +7655,7 @@ msgstr ""
 #, php-format
 msgid ""
 "You marked '%s' as a resource. You cannot schedule a meeting with '%s' "
-"because you do not have the appropiate permissions for that account. Either "
+"because you do not have the appropriate permissions for that account. Either "
 "enter the name as a required or optional attendee or talk to your "
 "administrator about giving you permission to schedule '%s'."
 msgstr ""

@@ -79,7 +79,7 @@ Zarafa.plugins.smime.SmimeText = function () {
 		getMessageInfo: function (index) {
 			switch (index) {
 				case 0:
-					return _('Signature verified successful');
+					return _('Signature verified successfully');
 				case 1:
 					return _('Could not verify signature, missing public certificate');
 				case 2:

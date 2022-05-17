@@ -6798,12 +6798,9 @@ msgstr ""
 
 msgid ""
 "The revocation status of the digital certificate used to sign this email is "
-"unknown (Server is unavaliable or certificate does not support OCSP). The "
+"unknown (Server is unavailable or certificate does not support OCSP). The "
 "validity of the certificate could not be verified."
 msgstr ""
-"このメールを署名するために利用されたデジタル証明書の無効化ステータスが不明で"
-"す（サーバへ接続できないか、OCSPがサポートされていません）。証明書の有効性が"
-"確認されませんでした。"
 
 msgid ""
 "The revocation status of the digital certificate used to sign this email is "
@@ -6812,14 +6809,14 @@ msgstr ""
 "このメールを署名するために利用されたデジタル証明書の無効化ステータスが無効で"
 "す(OCSP)。この証明書の有効性を確認することができませんでした。"
 
-msgid "The certificate verification server (OCSP) is temporarly offline."
+msgid "The certificate verification server (OCSP) is temporarily offline."
 msgstr "この証明書を確認するためのサーバ (OCSP) は一時的にオフラインです。"
 
 #, fuzzy
 msgid "Sender is removed from the server."
 msgstr "証明書は既にサーバへ保存されています"
 
-msgid "Signature verified succesfully"
+msgid "Signature verified successfully"
 msgstr "署名を正しく確認されました"
 
 msgid "Could not verify signature, missing public certificate"
@@ -7135,7 +7132,7 @@ msgid "Current password does not match."
 msgstr ""
 
 msgid ""
-"Your password is wrong or you have insufficent permission to change password"
+"Your password is wrong or you have insufficient permission to change password"
 msgstr ""
 
 msgid "Password is not changed."
@@ -7499,7 +7496,7 @@ msgstr ""
 #, php-format
 msgid ""
 "You marked '%s' as a resource. You cannot schedule a meeting with '%s' "
-"because you do not have the appropiate permissions for that account. Either "
+"because you do not have the appropriate permissions for that account. Either "
 "enter the name as a required or optional attendee or talk to your "
 "administrator about giving you permission to schedule '%s'."
 msgstr ""

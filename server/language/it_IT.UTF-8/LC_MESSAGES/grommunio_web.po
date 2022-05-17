@@ -6808,12 +6808,9 @@ msgstr ""
 
 msgid ""
 "The revocation status of the digital certificate used to sign this email is "
-"unknown (Server is unavaliable or certificate does not support OCSP). The "
+"unknown (Server is unavailable or certificate does not support OCSP). The "
 "validity of the certificate could not be verified."
 msgstr ""
-"Lo status della revoca del certificato usato per firmare questa emails e` "
-"sconosciuta (il servizio non e` disponibile o il certificato non supporta "
-"OCSP). Non e` stato possibile verificare la validita` del certificato."
 
 msgid ""
 "The revocation status of the digital certificate used to sign this email is "
@@ -6823,16 +6820,14 @@ msgstr ""
 "email e` disabilitato (OCSP). Non e` stato possibile verificare la validita` "
 "del certificato."
 
-msgid "The certificate verification server (OCSP) is temporarly offline."
+msgid "The certificate verification server (OCSP) is temporarily offline."
 msgstr ""
-"Il server per la verifica del certificato (OCSP) e` temporaneamente non "
-"disponibile."
 
 #, fuzzy
 msgid "Sender is removed from the server."
 msgstr "Il certificato e` gia` salvato nel sistema"
 
-msgid "Signature verified succesfully"
+msgid "Signature verified successfully"
 msgstr "La firma e` stata verificata con successo"
 
 msgid "Could not verify signature, missing public certificate"
@@ -7149,7 +7144,7 @@ msgid "Current password does not match."
 msgstr ""
 
 msgid ""
-"Your password is wrong or you have insufficent permission to change password"
+"Your password is wrong or you have insufficient permission to change password"
 msgstr ""
 
 msgid "Password is not changed."
@@ -7506,7 +7501,7 @@ msgstr ""
 #, php-format
 msgid ""
 "You marked '%s' as a resource. You cannot schedule a meeting with '%s' "
-"because you do not have the appropiate permissions for that account. Either "
+"because you do not have the appropriate permissions for that account. Either "
 "enter the name as a required or optional attendee or talk to your "
 "administrator about giving you permission to schedule '%s'."
 msgstr ""
