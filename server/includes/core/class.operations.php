@@ -2944,6 +2944,11 @@
 			$sourcefolder = mapi_msgstore_openentry($store, $parententryid);
 			$destfolder = mapi_msgstore_openentry($destStore, $destentryid);
 
+			if (!$sourcefolder || !$destfolder) {
+				error_log("Could not open source or destination folder. Aborting.");
+				return false;
+			}
+
 			if(!is_array($entryids)) {
 				$entryids = array($entryids);
 			}
@@ -2954,20 +2959,20 @@
 			 * the copying on the server instead of in client.
 			 */
 			if (empty($ignoreProps) && empty($props)) {
-				if ($moveMessages) {
-					mapi_folder_copymessages($sourcefolder, $entryids, $destfolder, MESSAGE_MOVE);
-					$error = mapi_last_hresult();
-
-					/*
-					 * If you delete a message from a folder where you only have
-					 * read permissions, the result is a partial success. Therefore
-					 * throw an exception.
-					 */
-					if ($error == MAPI_W_PARTIAL_COMPLETION) {
-						throw new MAPIException();
+				try {
+					mapi_folder_copymessages($sourcefolder, $entryids, $destfolder, $moveMessages ? MESSAGE_MOVE : 0);
+				}
+				catch(MAPIException $e) {
+					error_log(sprintf("mapi_folder_copymessages failed with code: 0x%08X. Wait 250ms and try again", mapi_last_hresult()));
+					// wait 250ms before trying again
+					usleep(250000);
+					try {
+						mapi_folder_copymessages($sourcefolder, $entryids, $destfolder, $moveMessages ? MESSAGE_MOVE : 0);
 					}
-				} else {
-					mapi_folder_copymessages($sourcefolder, $entryids, $destfolder);
+					catch(MAPIException $e) {
+						error_log(sprintf("2nd attempt of mapi_folder_copymessages also failed with code: 0x%08X. Abort.", mapi_last_hresult()));
+						return false;
+					}
 				}
 			} else {
 				foreach ($entryids as $entryid) {
