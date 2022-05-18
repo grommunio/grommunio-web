@@ -111,7 +111,8 @@ Zarafa.common.searchfield.ui.SearchTextField = Ext.extend(Ext.form.TextField, {
 	{
 		if (e.getKey() == e.ENTER) {
 			var textValue = this.getValue();
-			if (Ext.isEmpty(textValue)) {
+			const specialCharsFilter = /[!@#\$%\^\&*\)\(+=._-]/g;
+			if (Ext.isEmpty(textValue) || textValue.match(specialCharsFilter)) {
 				this.stopSearch();
 			} else {
 				this.onTriggerClick();
