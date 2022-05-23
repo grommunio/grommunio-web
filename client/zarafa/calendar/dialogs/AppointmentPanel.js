@@ -74,7 +74,12 @@ Zarafa.calendar.dialogs.AppointmentPanel = Ext.extend(Ext.Panel, {
 				tabchange: this.onTabPanelChange,
 				scope: this
 			},
-			items: [{
+			items: [
+			{
+				xtype: 'zarafa.appointmentpreviewtab',
+				title: _('Preview'),
+				ref: '../appointmentPreviewTab'
+			},{
 				xtype: 'zarafa.appointmenttab',
 				title: _('Appointment'),
 				ref: '../appointmentTab'
