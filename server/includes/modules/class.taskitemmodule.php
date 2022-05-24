@@ -215,7 +215,7 @@
 					}
 				}
 
-				// If softdelete is set then set it in softDelete variable and pass it for deleteing message.
+				// If softdelete is set then set it in softDelete variable and pass it for deleting message.
 				$softDelete = isset($action['message_action']['soft_delete']) ? $action['message_action']['soft_delete'] : false;
 				$result = $GLOBALS["operations"]->deleteMessages($store, $parententryid, $entryids, $softDelete);
 			} else {

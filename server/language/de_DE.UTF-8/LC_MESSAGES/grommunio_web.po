@@ -6963,7 +6963,7 @@ msgstr ""
 "Die Signatur konnte nicht überprüft werden, weil das öffentliche Zertifikat "
 "fehlt"
 
-msgid "Signature verification succesfull, but certificate is expired"
+msgid "Signature verification succesful, but certificate is expired"
 msgstr ""
 "Die Signatur wurde erfolgreich überprüft, aber das Zertifikat ist abgelaufen"
 

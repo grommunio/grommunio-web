@@ -34,7 +34,7 @@
 
 		/*
 		 * Override configureItem to hook the 'show' and 'hide'
-		 * event handlers to the items. This allows us to peform
+		 * event handlers to the items. This allows us to perform
 		 * a layout of the items when one of them is being hidden
 		 * or shown (as this means we have to consider moving items
 		 * into or out of the overflow menu).

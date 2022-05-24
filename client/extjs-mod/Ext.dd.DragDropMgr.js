@@ -120,7 +120,7 @@
 
 			// DragDrop is using this as a sanity check for the initial mousedown
 			// in this case we are done.  In POINT mode, if the drag obj has no
-			// contraints, we are also done. Otherwise we need to evaluate the
+			// constraints, we are also done. Otherwise we need to evaluate the
 			// location of the target as related to the actual location of the
 			// dragged element.
 			var dc = this.dragCurrent;

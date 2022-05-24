@@ -83,7 +83,7 @@ Zarafa.plugins.smime.SmimeText = function () {
 				case 1:
 					return _('Could not verify signature, missing public certificate');
 				case 2:
-					return _('Signature verification succesfull, but certificate is expired');
+					return _('Signature verification succesful, but certificate is expired');
 				case 3:
 					return _('Signature could not be verified');
 				case 4:
