@@ -2799,6 +2799,18 @@
 					// save changes to new message created in outbox
 					mapi_savechanges($newmessage);
 
+					$reprProps = mapi_getprops($newmessage, array(PR_SENT_REPRESENTING_EMAIL_ADDRESS, PR_SENDER_EMAIL_ADDRESS, PR_SENT_REPRESENTING_ENTRYID));
+					if (isset($reprProps[PR_SENT_REPRESENTING_EMAIL_ADDRESS], $reprProps[PR_SENDER_EMAIL_ADDRESS], $reprProps[PR_SENT_REPRESENTING_ENTRYID]) &&
+						strcasecmp($reprProps[PR_SENT_REPRESENTING_EMAIL_ADDRESS], $reprProps[PR_SENDER_EMAIL_ADDRESS]) != 0 ) {
+							$ab = $GLOBALS['mapisession']->getAddressbook();
+							$abitem = mapi_ab_openentry($ab, $reprProps[PR_SENT_REPRESENTING_ENTRYID]);
+							$abitemprops = mapi_getprops($abitem, array(PR_DISPLAY_NAME, PR_EMAIL_ADDRESS, PR_SEARCH_KEY));
+
+							$props[PR_SENT_REPRESENTING_NAME] = $abitemprops[PR_DISPLAY_NAME];
+							$props[PR_SENT_REPRESENTING_EMAIL_ADDRESS] = $abitemprops[PR_EMAIL_ADDRESS];
+							$props[PR_SENT_REPRESENTING_ADDRTYPE] = "EX";
+							$props[PR_SENT_REPRESENTING_SEARCH_KEY] = $abitemprops[PR_SEARCH_KEY];
+					}
 					// Save the new message properties
 					$message = $this->saveMessage($store, $entryid, $storeprops[PR_IPM_OUTBOX_ENTRYID], $props, $messageProps, $recipients, $attachments, array(), $copyFromMessage, $copyAttachments, $copyRecipients, $copyInlineAttachmentsOnly, true, true);
 				}

@@ -104,7 +104,7 @@
 							// get resources of store and message
 							$copyFromStore = $GLOBALS['mapisession']->openMessageStore($copyFromStore);
 							$copyFromMessage = $GLOBALS['operations']->openMessage($copyFromStore, $copyFromMessage, $copyFromAttachNum);
-							if ($copyFromStore) {
+							if ($copyFromStore && $send) {
 								$store = $copyFromStore;
 							}
 
@@ -316,7 +316,7 @@
 				$sourceMsgInfo = !empty($props['props']['source_message_info']) ? $props['props']['source_message_info'] : false;
 
 				if(isset($props["props"]['sent_representing_entryid']) && !empty($props["props"]['sent_representing_entryid'])){
-					$storeEntryid = $this->getSourceStoreEntriyId($props);
+					$storeEntryid = $this->getSourceStoreEntryId($props);
 				}
 
 				$metaData['source_message_info'] = $sourceMsgInfo;
@@ -334,19 +334,12 @@
 		 * @param Array $props the $props data, which get from saved mail.
 		 * @return string source store entryid.
 		 */
-		function getSourceStoreEntriyId($props) {
-			$otherUsers = $GLOBALS['mapisession']->retrieveOtherUsersFromSettings();
+		function getSourceStoreEntryId($props) {
 			$sentRepresentingEntryid = $props['props']['sent_representing_entryid'];
 			$user = mapi_ab_openentry($GLOBALS['mapisession']->getAddressbook(), hex2bin($sentRepresentingEntryid));
 			$userProps = mapi_getprops($user, array(PR_EMAIL_ADDRESS));
-			foreach ($otherUsers as $sharedUser => $values) {
-				if($sharedUser === $userProps[PR_EMAIL_ADDRESS]) {
-					$userEntryid = mapi_msgstore_createentryid($GLOBALS['mapisession']->getDefaultMessageStore(),$sharedUser);
-					$store = $GLOBALS['mapisession']->openMessageStore($userEntryid);
-					$storeEntryid = mapi_getprops($store, array(PR_STORE_ENTRYID));
-					return $storeEntryid[PR_STORE_ENTRYID];
-				}
-			}
+
+			return $GLOBALS['mapisession']->getStoreEntryIdOfUser(strtolower($userProps[PR_EMAIL_ADDRESS]));
 		}
 
 		/**
