@@ -2749,6 +2749,11 @@
 						unset($copyMessageProps[PR_PARENT_ENTRYID]);
 						unset($copyMessageProps[PR_STORE_ENTRYID]);
 
+						// grommunio generates PR_HTML on the fly, but it's necessary to unset it
+						// if the original message didn't have PR_HTML property.
+						if (!isset($props[PR_HTML]) && isset($copyMessageProps[PR_HTML])) {
+							unset($copyMessageProps[PR_HTML]);
+						}
 						// Merge original message props with props sent by client
 						$props = $props + $copyMessageProps;
 					}
@@ -2812,7 +2817,7 @@
 							$props[PR_SENT_REPRESENTING_SEARCH_KEY] = $abitemprops[PR_SEARCH_KEY];
 					}
 					// Save the new message properties
-					$message = $this->saveMessage($store, $entryid, $storeprops[PR_IPM_OUTBOX_ENTRYID], $props, $messageProps, $recipients, $attachments, array(), $copyFromMessage, $copyAttachments, $copyRecipients, $copyInlineAttachmentsOnly, true, true);
+					$message = $this->saveMessage($store, $entryid, $storeprops[PR_IPM_OUTBOX_ENTRYID], $props, $messageProps, $recipients, $attachments, array(), $copyFromMessage, $copyAttachments, $copyRecipients, $copyInlineAttachmentsOnly, true, true, $isPlainText);
 				}
 
 				if ($message) {
