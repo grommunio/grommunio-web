@@ -6932,7 +6932,7 @@ msgid "Could not verify signature, missing public certificate"
 msgstr ""
 "Handtekening kon niet worden gevalideerd, publiek certificaat ontbreekt"
 
-msgid "Signature verification succesful, but certificate is expired"
+msgid "Signature verification successful, but certificate is expired"
 msgstr "Handtekening succesvol gevalideerd, maar certificaat is verlopen"
 
 msgid "Signature could not be verified"

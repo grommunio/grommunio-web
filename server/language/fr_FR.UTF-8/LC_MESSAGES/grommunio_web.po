@@ -6982,7 +6982,7 @@ msgstr "Signature vérifiée avec succès"
 msgid "Could not verify signature, missing public certificate"
 msgstr "Impossible de vérifier la signature, le certificat public est manquant"
 
-msgid "Signature verification succesful, but certificate is expired"
+msgid "Signature verification successful, but certificate is expired"
 msgstr "La vérification de signature a réussi, mais le certificat a expirée"
 
 msgid "Signature could not be verified"

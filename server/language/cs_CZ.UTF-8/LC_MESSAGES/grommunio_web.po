@@ -6855,7 +6855,7 @@ msgstr ""
 msgid "Could not verify signature, missing public certificate"
 msgstr ""
 
-msgid "Signature verification succesful, but certificate is expired"
+msgid "Signature verification successful, but certificate is expired"
 msgstr ""
 
 msgid "Signature could not be verified"

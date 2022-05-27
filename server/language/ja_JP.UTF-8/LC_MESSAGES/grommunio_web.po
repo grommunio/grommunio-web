@@ -6822,7 +6822,7 @@ msgstr "署名を正しく確認されました"
 msgid "Could not verify signature, missing public certificate"
 msgstr "公開証明書に問題があるため、署名を確認することができませんでした"
 
-msgid "Signature verification succesful, but certificate is expired"
+msgid "Signature verification successful, but certificate is expired"
 msgstr "署名の確認に成功しました、しかし証明書が有効期限切れしています"
 
 msgid "Signature could not be verified"

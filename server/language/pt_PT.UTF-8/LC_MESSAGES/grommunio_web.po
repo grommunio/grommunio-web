@@ -6545,7 +6545,7 @@ msgid "Could not verify signature, missing public certificate"
 msgstr ""
 "Não foi possível verificar a assinatura. Certificado público não encontrado"
 
-msgid "Signature verification succesful, but certificate is expired"
+msgid "Signature verification successful, but certificate is expired"
 msgstr "Assinatura validada com sucesso, mas o certificado expirou"
 
 msgid "Signature could not be verified"

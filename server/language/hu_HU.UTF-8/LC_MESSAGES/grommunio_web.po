@@ -6891,7 +6891,7 @@ msgstr ""
 "Az aláírás érvényessége nem ellenőrizhető, mert nem található hozzá publikus "
 "tanúsítvány"
 
-msgid "Signature verification succesful, but certificate is expired"
+msgid "Signature verification successful, but certificate is expired"
 msgstr ""
 "Aláírás ellenőrzése sikeres, de a tanúsítvány érvényességi ideje lejárt"
 
