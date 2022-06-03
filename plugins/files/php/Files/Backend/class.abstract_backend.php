@@ -14,27 +14,26 @@ require_once __DIR__ . "/interface.streaming.php";
 require_once __DIR__ . "/interface.sharing.php";
 require_once __DIR__ . "/interface.oauth.php";
 
-abstract class AbstractBackend
-{
+abstract class AbstractBackend {
 	/**
 	 * @var string This is a small description for the backend. It will be shown in the settings UI.
 	 */
 	public $backendDescription = "This is a generic file backend.";
 
 	/**
-	 * @var string This is the name of backend that is visible to the user.
+	 * @var string this is the name of backend that is visible to the user
 	 */
 	public $backendDisplayName = "AbstractBackend";
 
 	/**
-	 * @var string Version code of the backend implementation.
+	 * @var string version code of the backend implementation
 	 */
 	public $backendVersion = "1.0";
 
 	/**
-	 * @var string AccountID of the account that is using this backend.
+	 * @var string accountID of the account that is using this backend
 	 */
-	protected $accountID = null;
+	protected $accountID;
 
 	/**
 	 * This function will initialize internal variables of the backend. It will receive the values in the
@@ -46,7 +45,6 @@ abstract class AbstractBackend
 	 * ...
 	 *
 	 * @param array $backend_config
-	 * @return void
 	 */
 	abstract public function init_backend($backend_config);
 
@@ -54,7 +52,6 @@ abstract class AbstractBackend
 	 * This function will set the backend internal debug flag. Each backend will handle debugging by itself.
 	 *
 	 * @param bool $debug
-	 * @return void
 	 */
 	abstract public function set_debug($debug);
 
@@ -62,6 +59,7 @@ abstract class AbstractBackend
 	 * This function opens the backend connection. For instance it will open a new ftp connection.
 	 *
 	 * @throws \Files\Backend\Exception
+	 *
 	 * @return bool
 	 */
 	abstract public function open();
@@ -81,11 +79,13 @@ abstract class AbstractBackend
 	 *  "path 2" => array(
 	 *      ...
 	 *  ),
-	 * ):
+	 * ):.
 	 *
 	 * @param string $dir
-	 * @param bool $hidefirst
+	 * @param bool   $hidefirst
+	 *
 	 * @throws \Files\Backend\Exception
+	 *
 	 * @return array
 	 */
 	abstract public function ls($dir, $hidefirst = true);
@@ -94,7 +94,9 @@ abstract class AbstractBackend
 	 * Creates a new directory on the server.
 	 *
 	 * @param string $dir
+	 *
 	 * @throws \Files\Backend\Exception
+	 *
 	 * @return bool
 	 */
 	abstract public function mkcol($dir);
@@ -103,7 +105,9 @@ abstract class AbstractBackend
 	 * Deletes a files or folder from the backend.
 	 *
 	 * @param string $path
+	 *
 	 * @throws \Files\Backend\Exception
+	 *
 	 * @return bool
 	 */
 	abstract public function delete($path);
@@ -112,10 +116,13 @@ abstract class AbstractBackend
 	 * Move a file or collection on the backend server (serverside).
 	 * If you set param $overwrite as true, the target will be overwritten.
 	 *
-	 * @param string $src_path Source path
+	 * @param string $src_path  Source path
 	 * @param string $dest_path Destination path
-	 * @param bool $overwrite Overwrite file if exists in $dest_path
+	 * @param bool   $overwrite Overwrite file if exists in $dest_path
+	 * @param mixed  $dst_path
+	 *
 	 * @throws \Files\Backend\Exception
+	 *
 	 * @return bool
 	 */
 	abstract public function move($src_path, $dst_path, $overwrite = false);
@@ -125,7 +132,9 @@ abstract class AbstractBackend
 	 *
 	 * @param string $path
 	 * @param string $data
+	 *
 	 * @throws \Files\Backend\Exception
+	 *
 	 * @return bool
 	 */
 	abstract public function put($path, $data);
@@ -135,7 +144,9 @@ abstract class AbstractBackend
 	 *
 	 * @param string $path
 	 * @param string $filename
+	 *
 	 * @throws \Files\Backend\Exception
+	 *
 	 * @return bool
 	 */
 	abstract public function put_file($path, $filename);
@@ -145,8 +156,8 @@ abstract class AbstractBackend
 	 *
 	 * @param string $path
 	 * @param string $buffer
+	 *
 	 * @throws \Files\Backend\Exception
-	 * @return void
 	 */
 	abstract public function get($path, &$buffer);
 
@@ -155,8 +166,8 @@ abstract class AbstractBackend
 	 *
 	 * @param string $srcpath
 	 * @param string $localpath
+	 *
 	 * @throws \Files\Backend\Exception
-	 * @return void
 	 */
 	abstract public function get_file($srcpath, $localpath);
 
@@ -166,8 +177,10 @@ abstract class AbstractBackend
 	 *
 	 * @param string $src_path
 	 * @param string $dst_path
-	 * @param bool $overwrite
+	 * @param bool   $overwrite
+	 *
 	 * @throws \Files\Backend\Exception
+	 *
 	 * @return bool
 	 */
 	abstract public function copy_file($src_path, $dst_path, $overwrite = false);
@@ -178,8 +191,10 @@ abstract class AbstractBackend
 	 *
 	 * @param string $src_path
 	 * @param string $dst_path
-	 * @param bool $overwrite
+	 * @param bool   $overwrite
+	 *
 	 * @throws \Files\Backend\Exception
+	 *
 	 * @return bool
 	 */
 	abstract public function copy_coll($src_path, $dst_path, $overwrite = false);
@@ -199,7 +214,9 @@ abstract class AbstractBackend
 	 * )
 	 *
 	 * @param string $path
+	 *
 	 * @throws \Files\Backend\Exception
+	 *
 	 * @return mixed
 	 */
 	abstract public function gpi($path);
@@ -209,7 +226,9 @@ abstract class AbstractBackend
 	 * return false.
 	 *
 	 * @param string $path
+	 *
 	 * @throws \Files\Backend\Exception
+	 *
 	 * @return bool
 	 */
 	abstract public function is_file($path);
@@ -219,7 +238,9 @@ abstract class AbstractBackend
 	 * return false.
 	 *
 	 * @param string $path
+	 *
 	 * @throws \Files\Backend\Exception
+	 *
 	 * @return bool
 	 */
 	abstract public function is_dir($path);
@@ -229,7 +250,9 @@ abstract class AbstractBackend
 	 * return false.
 	 *
 	 * @param string $path
+	 *
 	 * @throws \Files\Backend\Exception
+	 *
 	 * @return bool
 	 */
 	abstract public function exists($path);
@@ -282,27 +305,23 @@ abstract class AbstractBackend
 	 *
 	 * @return string
 	 */
-	public function getDescription()
-	{
+	public function getDescription() {
 		return $this->backendDescription;
 	}
 
 	/**
 	 * @return string
 	 */
-	public function getDisplayName()
-	{
+	public function getDisplayName() {
 		return $this->backendDisplayName;
 	}
-
 
 	/**
 	 * Returns the version/revision of the backend.
 	 *
 	 * @return string
 	 */
-	public function getBackendVersion()
-	{
+	public function getBackendVersion() {
 		return $this->backendVersion;
 	}
 
@@ -313,8 +332,7 @@ abstract class AbstractBackend
 	 *
 	 * @return bool
 	 */
-	public function supports($feature)
-	{
+	public function supports($feature) {
 		$features = $this->getAvailableFeatures();
 
 		return in_array($feature, $features);
@@ -325,10 +343,9 @@ abstract class AbstractBackend
 	 *
 	 * @return array
 	 */
-	public function getAvailableFeatures()
-	{
+	public function getAvailableFeatures() {
 		$interfaces = class_implements(get_class($this));
-		$features = array();
+		$features = [];
 
 		// remove namespace and interface prefix
 		foreach ($interfaces as $interface) {
@@ -343,24 +360,21 @@ abstract class AbstractBackend
 	 *
 	 * @param $account
 	 */
-	public function beforeDeleteAccount($account)
-	{
+	public function beforeDeleteAccount($account) {
 		// do nothing by default
 	}
 
 	/**
 	 * @return string
 	 */
-	public function getAccountID()
-	{
+	public function getAccountID() {
 		return $this->accountID;
 	}
 
 	/**
 	 * @param string $accountID
 	 */
-	public function setAccountID($accountID)
-	{
+	public function setAccountID($accountID) {
 		$this->accountID = $accountID;
 	}
 }

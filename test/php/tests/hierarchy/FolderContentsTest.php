@@ -1,57 +1,58 @@
 <?php
-require_once('classes/grommunioUser.php');
-require_once('classes/HierarchyUser.php');
-require_once('classes/MailUser.php');
-require_once('classes/TestData.php');
-require_once('classes/grommunioTest.php');
+
+require_once 'classes/grommunioUser.php';
+require_once 'classes/HierarchyUser.php';
+require_once 'classes/MailUser.php';
+require_once 'classes/TestData.php';
+require_once 'classes/grommunioTest.php';
 
 /**
- * FolderContentsTest
+ * FolderContentsTest.
  *
  * Tests for updating (empty, mark all as read) folders
+ *
+ * @internal
+ * @coversNothing
  */
 class FolderContentsTest extends grommunioTest {
-
 	/**
-	 * The user for which we will open the hierarchy
+	 * The user for which we will open the hierarchy.
 	 */
 	private $user;
 
 	/**
-	 * The user which will be delivering the mail
+	 * The user which will be delivering the mail.
 	 */
 	private $mailUser;
 
 	/**
-	 * The message which will be handled
+	 * The message which will be handled.
 	 */
 	private $message;
 
 	/**
-	 * During setup we create the user, and clear the shared stores settings
+	 * During setup we create the user, and clear the shared stores settings.
 	 */
-	protected function setUp()
-	{
+	protected function setUp() {
 		parent::setUp();
 
 		$this->user = $this->addUser(new HierarchyUser(new grommunioUser(GROMMUNIO_USER1_NAME, GROMMUNIO_USER1_PASSWORD)));
 		$this->mailUser = $this->addUser(new MailUser(new grommunioUser(GROMMUNIO_USER1_NAME, GROMMUNIO_USER1_PASSWORD)));
 
-		$this->message = array(
+		$this->message = [
 			'props' => TestData::getMail(),
-			'recipients' => array(
-				'add' => array(
-					$this->user->getRecipient()
-				)
-			)
-		);
+			'recipients' => [
+				'add' => [
+					$this->user->getRecipient(),
+				],
+			],
+		];
 	}
 
 	/**
-	 * Test the response from the 'emptyfolder' request
+	 * Test the response from the 'emptyfolder' request.
 	 */
-	public function testEmptyFolder()
-	{
+	public function testEmptyFolder() {
 		$inboxFolder = $this->user->getReceiveFolderEntryID();
 		$this->mailUser->setDefaultTestFolderEntryId($inboxFolder);
 		$this->mailUser->saveMail($this->message);
@@ -72,17 +73,16 @@ class FolderContentsTest extends grommunioTest {
 	}
 
 	/**
-	 * Test the response from the 'readflags' request
+	 * Test the response from the 'readflags' request.
 	 */
-	public function testMarkContentsAsRead()
-	{
+	public function testMarkContentsAsRead() {
 		$inboxFolder = $this->user->getReceiveFolderEntryID();
 		$this->mailUser->setDefaultTestFolderEntryId($inboxFolder);
 		$sentMail = $this->mailUser->saveMail($this->message);
-		mapi_setprops($sentMail, array(PR_MESSAGE_FLAGS => MSGFLAG_UNMODIFIED));
+		mapi_setprops($sentMail, [PR_MESSAGE_FLAGS => MSGFLAG_UNMODIFIED]);
 
 		$receivedMails = $this->mailUser->getAllReceivedMails();
-		$receivedProps = $this->mailUser->getMailProps($receivedMails[0], array(PR_MESSAGE_FLAGS));
+		$receivedProps = $this->mailUser->getMailProps($receivedMails[0], [PR_MESSAGE_FLAGS]);
 		$result = $this->user->markAllAsRead($inboxFolder);
 
 		$this->assertArrayHasKey('folders', $result, 'Test that the response contains the \'folders\' object');
@@ -93,11 +93,9 @@ class FolderContentsTest extends grommunioTest {
 		$this->assertEquals(0, $result['folders']['props']['content_unread'], 'Test that the returned folder has the content_unread of 0');
 
 		$readFolderMails = $this->mailUser->getAllReceivedMails();
-		$readFolderProps = $this->mailUser->getMailProps($readFolderMails[0], array(PR_MESSAGE_FLAGS));
+		$readFolderProps = $this->mailUser->getMailProps($readFolderMails[0], [PR_MESSAGE_FLAGS]);
 
 		$this->assertMaskNotEquals(MSGFLAG_READ, $receivedProps[PR_MESSAGE_FLAGS], 'Test that before marking the contents as read, the mail was unread');
 		$this->assertMaskEquals(MSGFLAG_READ, $readFolderProps[PR_MESSAGE_FLAGS], 'Test that after marking the contents as read, the mail was marked as read');
 	}
 }
-
-?>

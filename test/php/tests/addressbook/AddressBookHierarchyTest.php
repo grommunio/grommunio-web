@@ -1,38 +1,40 @@
 <?php
-require_once('classes/grommunioUser.php');
-require_once('classes/AddressBookUser.php');
-require_once('classes/HierarchyUser.php');
-require_once('classes/TestData.php');
-require_once('classes/grommunioTest.php');
-require_once('classes/Util.php');
+
+require_once 'classes/grommunioUser.php';
+require_once 'classes/AddressBookUser.php';
+require_once 'classes/HierarchyUser.php';
+require_once 'classes/TestData.php';
+require_once 'classes/grommunioTest.php';
+require_once 'classes/Util.php';
 
 /**
- * AddressBookHierarchyTest
+ * AddressBookHierarchyTest.
  *
  * Tests loading the Address Book Hierarchy
+ *
+ * @internal
+ * @coversNothing
  */
 class AddressBookHierarchyTest extends grommunioTest {
-
 	/**
-	 * The user for which we will open the addressbook
+	 * The user for which we will open the addressbook.
 	 */
 	private $user;
 
 	/**
-	 * The user that will be used to modify hierarchy
+	 * The user that will be used to modify hierarchy.
 	 */
 	private $hierarchyUser;
 
 	/**
-	 * The folder which will be saved
+	 * The folder which will be saved.
 	 */
 	private $folder;
 
 	/**
-	 * During setup we create the user, and clear the shared stores settings
+	 * During setup we create the user, and clear the shared stores settings.
 	 */
-	protected function setUp()
-	{
+	protected function setUp() {
 		parent::setUp();
 
 		$this->user = $this->addUser(new AddressBookUser(new grommunioUser(GROMMUNIO_USER1_NAME, GROMMUNIO_USER1_PASSWORD)));
@@ -45,10 +47,9 @@ class AddressBookHierarchyTest extends grommunioTest {
 	}
 
 	/**
-	 * Test the response when we load the addressbook hierarchy
+	 * Test the response when we load the addressbook hierarchy.
 	 */
-	public function testLoadingNormalAddressBookHierarchyResults()
-	{
+	public function testLoadingNormalAddressBookHierarchyResults() {
 		$response = $this->user->loadHierarchy();
 
 		$this->assertArrayHasKey('list', $response, 'Test that the response contains the \'list\' object');
@@ -73,18 +74,17 @@ class AddressBookHierarchyTest extends grommunioTest {
 	}
 
 	/**
-	 * Test the response when we load the addressbook hierarchy including the contacts folders and sub folders of our own store
+	 * Test the response when we load the addressbook hierarchy including the contacts folders and sub folders of our own store.
 	 */
-	public function testLoadingAddressBookHierarchyWithContactsResults()
-	{
+	public function testLoadingAddressBookHierarchyWithContactsResults() {
 		// Create a sub folder into Contacts folder
-		$this->folder = $this->hierarchyUser->saveFolder(array(
+		$this->folder = $this->hierarchyUser->saveFolder([
 			'parent_entryid' => bin2hex($this->user->getDefaultTestFolderEntryId()),
-			'props' => TestData::getFolder(array(
+			'props' => TestData::getFolder([
 				'container_class' => 'IPF.Contact',
-				'display_name' => 'Sub contacts'
-			))
-		));
+				'display_name' => 'Sub contacts',
+			]),
+		]);
 
 		// load folder hierarchy
 		$response = $this->user->loadHierarchy();
@@ -121,20 +121,19 @@ class AddressBookHierarchyTest extends grommunioTest {
 	}
 
 	/**
-	 * Test the response when we load the addressbook hierarchy excluding the contacts folder of wastebasket
+	 * Test the response when we load the addressbook hierarchy excluding the contacts folder of wastebasket.
 	 */
-	public function testLoadingABHierarchyWithoutWasteBasketContactsResults()
-	{
+	public function testLoadingABHierarchyWithoutWasteBasketContactsResults() {
 		// Create a sub folder into Contacts folder
-		$this->folder = $this->hierarchyUser->saveFolder(array(
+		$this->folder = $this->hierarchyUser->saveFolder([
 			'parent_entryid' => bin2hex($this->user->getDefaultTestFolderEntryId()),
-			'props' => TestData::getFolder(array(
+			'props' => TestData::getFolder([
 				'container_class' => 'IPF.Contact',
-				'display_name' => 'Sub contacts'
-			))
-		));
+				'display_name' => 'Sub contacts',
+			]),
+		]);
 
-		$props = $this->hierarchyUser->getFolderProps($this->folder, array(PR_ENTRYID));
+		$props = $this->hierarchyUser->getFolderProps($this->folder, [PR_ENTRYID]);
 
 		// move folder into wastebasket by deleting it
 		$this->hierarchyUser->deleteFolder($props[PR_ENTRYID]);
@@ -152,17 +151,16 @@ class AddressBookHierarchyTest extends grommunioTest {
 	 * Test the response when we load the addressbook hierarchy including the contacts folder of our own
 	 * store and that of another user.
 	 */
-	public function testLoadingAddressBookHierarchyWithSharedContactsResults()
-	{
-		$this->hierarchyUser->setSetting('zarafa/v1/contexts/hierarchy/shared_stores/' . GROMMUNIO_USER3_NAME . '/all', array(
+	public function testLoadingAddressBookHierarchyWithSharedContactsResults() {
+		$this->hierarchyUser->setSetting('zarafa/v1/contexts/hierarchy/shared_stores/' . GROMMUNIO_USER3_NAME . '/all', [
 			'folder_type' => 'all',
-			'show_subfolders' => false
-		));
-		$this->hierarchyUser->openSharedFolder(array(
+			'show_subfolders' => false,
+		]);
+		$this->hierarchyUser->openSharedFolder([
 			'user_name' => GROMMUNIO_USER3_NAME,
 			'folder_type' => 'all',
-			'show_subfolders' => false
-		));
+			'show_subfolders' => false,
+		]);
 
 		$response = $this->user->loadHierarchy();
 
@@ -189,7 +187,7 @@ class AddressBookHierarchyTest extends grommunioTest {
 		$this->assertEquals(MAPI_ABCONT, $contacts['object_type'], 'Test that the Personal Contacts folder has the correct \'display_type\' property set');
 		$this->assertEquals('contacts', $contacts['type'], 'Test that the Personal Contacts folder has the correct \'type\' property set');
 
-		$contacts = Util::searchInArray($folderProps, 'display_name', 'Contacts - '. GROMMUNIO_USER3_DISPLAY_NAME);
+		$contacts = Util::searchInArray($folderProps, 'display_name', 'Contacts - ' . GROMMUNIO_USER3_DISPLAY_NAME);
 		$this->assertNotEmpty($contacts, 'Test that the \'Contacts\' folder exists');
 		$this->assertEquals(1, $contacts['depth'], 'Test that the Shared Contacts folder has the correct \'depth\' property set');
 		$this->assertEquals(MAPI_ABCONT, $contacts['object_type'], 'Test that the Shared Contacts folder has the correct \'display_type\' property set');
@@ -199,11 +197,10 @@ class AddressBookHierarchyTest extends grommunioTest {
 	/**
 	 * Test the response when we load the addressbook hierarchy excluding the contacts folder of our own store.
 	 */
-	public function testLoadingAddressBookWithoutContactsResults()
-	{
-		$response = $this->user->loadHierarchy(array(
-			'hide_contacts' => true
-		));
+	public function testLoadingAddressBookWithoutContactsResults() {
+		$response = $this->user->loadHierarchy([
+			'hide_contacts' => true,
+		]);
 
 		$this->assertArrayHasKey('list', $response, 'Test that the response contains the \'list\' object');
 		$this->assertArrayHasKey('item', $response['list'], 'Test that the response contains the \'item\' object');
@@ -226,5 +223,3 @@ class AddressBookHierarchyTest extends grommunioTest {
 		$this->assertEmpty($contacts, 'Test that the \'Contacts\' folder exists');
 	}
 }
-
-?>

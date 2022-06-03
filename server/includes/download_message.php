@@ -1,25 +1,25 @@
 <?php
+
 // required to handle php errors
-require_once(__DIR__ . '/exceptions/class.ZarafaErrorException.php');
-require_once(__DIR__ . '/download_base.php');
+require_once __DIR__ . '/exceptions/class.ZarafaErrorException.php';
+require_once __DIR__ . '/download_base.php';
+
 /**
- * DownloadMessage
+ * DownloadMessage.
  *
  * A class to manage downloading of message as a file,
  * it will generate the message as RFC822-formatted e-mail stream.
  * It extends the DownloadBase class.
-  */
-class DownloadMessage extends DownloadBase
-{
+ */
+class DownloadMessage extends DownloadBase {
 	/**
 	 * Function get message-stream using respective mapi function.
 	 * It also sends the eml file to the client.
 	 */
-	function downloadMessageAsFile()
-	{
-		if($this->message && $this->store) {
+	public function downloadMessageAsFile() {
+		if ($this->message && $this->store) {
 			// get message properties.
-			$messageProps = mapi_getprops($this->message, array(PR_SUBJECT, PR_EC_IMAP_EMAIL, PR_MESSAGE_CLASS));
+			$messageProps = mapi_getprops($this->message, [PR_SUBJECT, PR_EC_IMAP_EMAIL, PR_MESSAGE_CLASS]);
 
 			$stream = $this->getEmlStream($messageProps);
 
@@ -32,7 +32,7 @@ class DownloadMessage extends DownloadBase
 			$this->setNecessaryHeaders($filename, $stat['cb']);
 
 			// Read whole message and echo it.
-			for($i = 0; $i < $stat['cb']; $i += BLOCK_SIZE) {
+			for ($i = 0; $i < $stat['cb']; $i += BLOCK_SIZE) {
 				// Print stream
 				echo mapi_stream_read($stream, BLOCK_SIZE);
 
@@ -48,9 +48,8 @@ class DownloadMessage extends DownloadBase
 	 * It also configures necessary header information which required to send the ZIP file to client.
 	 * Send ZIP to the client if all the requested eml files included successfully into the same.
 	 */
-	function downloadMessageAsZipFile()
-	{
-		if($this->store) {
+	public function downloadMessageAsZipFile() {
+		if ($this->store) {
 			// Generate random ZIP file name at default temporary path of PHP
 			$randomZipName = tempnam(sys_get_temp_dir(), 'zip');
 
@@ -58,21 +57,20 @@ class DownloadMessage extends DownloadBase
 			$zip = new ZipArchive();
 			$result = $zip->open($randomZipName, ZipArchive::CREATE);
 
-			if ($result === TRUE) {
-				for($index = 0, $count = count($this->entryIds); $index < $count; $index++) {
-
+			if ($result === true) {
+				for ($index = 0, $count = count($this->entryIds); $index < $count; ++$index) {
 					$this->message = mapi_msgstore_openentry($this->store, hex2bin($this->entryIds[$index]));
 
 					// get message properties.
-					$messageProps = mapi_getprops($this->message, array(PR_SUBJECT, PR_EC_IMAP_EMAIL, PR_MESSAGE_CLASS));
+					$messageProps = mapi_getprops($this->message, [PR_SUBJECT, PR_EC_IMAP_EMAIL, PR_MESSAGE_CLASS]);
 
 					$stream = $this->getEmlStream($messageProps);
 					$stat = mapi_stream_stat($stream);
 
 					// Get the stream
 					$datastring = '';
-					for($i = 0; $i < $stat['cb']; $i += BLOCK_SIZE) {
-						$datastring .=  mapi_stream_read($stream, BLOCK_SIZE);
+					for ($i = 0; $i < $stat['cb']; $i += BLOCK_SIZE) {
+						$datastring .= mapi_stream_read($stream, BLOCK_SIZE);
 						// Need to discard the buffer contents to prevent memory
 						// exhaustion.
 						ob_flush();
@@ -89,7 +87,8 @@ class DownloadMessage extends DownloadBase
 					// Add file into zip by stream
 					$zip->addFromString($filename, $datastring);
 				}
-			} else {
+			}
+			else {
 				$zip->close();
 				// Remove the zip file to avoid unnecessary disk-space consumption
 				unlink($randomZipName);
@@ -104,7 +103,7 @@ class DownloadMessage extends DownloadBase
 			header('Pragma: public');
 			header('Expires: 0'); // set expiration time
 			header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
-			header('Content-Disposition: attachment; filename="' . addslashes(browserDependingHTTPHeaderEncode(_("Messages").date(" d-m-Y").".zip")) . '"');
+			header('Content-Disposition: attachment; filename="' . addslashes(browserDependingHTTPHeaderEncode(_("Messages") . date(" d-m-Y") . ".zip")) . '"');
 			header('Content-Transfer-Encoding: binary');
 			header('Content-Type:  application/zip');
 			header('Content-Length: ' . filesize($randomZipName));
@@ -124,23 +123,25 @@ class DownloadMessage extends DownloadBase
 	 * PR_EC_IMAP_EMAIL
 	 * PR_EC_IMAP_EMAIL_SIZE
 	 * PR_EC_IMAP_BODY
-	 * PR_EC_IMAP_BODYSTRUCTURE
-	 * @param Array $messageProps Properties of this particular message.
-	 * @return Stream $stream The eml stream obtained from message.
+	 * PR_EC_IMAP_BODYSTRUCTURE.
+	 *
+	 * @param array $messageProps properties of this particular message
+	 *
+	 * @return Stream $stream the eml stream obtained from message
 	 */
-	function getEmlStream($messageProps)
-	{
+	public function getEmlStream($messageProps) {
 		// If RFC822-formatted stream is already available in PR_EC_IMAP_EMAIL property
 		// than directly use it, generate otherwise.
-		if(isset($messageProps[PR_EC_IMAP_EMAIL]) || propIsError(PR_EC_IMAP_EMAIL, $messageProps) == MAPI_E_NOT_ENOUGH_MEMORY) {
+		if (isset($messageProps[PR_EC_IMAP_EMAIL]) || propIsError(PR_EC_IMAP_EMAIL, $messageProps) == MAPI_E_NOT_ENOUGH_MEMORY) {
 			// Stream the message to properly get the PR_EC_IMAP_EMAIL property
 			$stream = mapi_openproperty($this->message, PR_EC_IMAP_EMAIL, IID_IStream, 0, 0);
-		} else {
+		}
+		else {
 			// Get addressbook for current session
 			$addrBook = $GLOBALS['mapisession']->getAddressbook();
 
 			// Read the message as RFC822-formatted e-mail stream.
-			$stream = mapi_inetmapi_imtoinet($GLOBALS['mapisession']->getSession(), $addrBook, $this->message, array());
+			$stream = mapi_inetmapi_imtoinet($GLOBALS['mapisession']->getSession(), $addrBook, $this->message, []);
 		}
 
 		return $stream;
@@ -150,12 +151,12 @@ class DownloadMessage extends DownloadBase
 	 * Check received data and decide either the eml file or
 	 * ZIP file is requested to be downloaded.
 	 */
-	public function download()
-	{
-		if($this->allAsZip){
+	public function download() {
+		if ($this->allAsZip) {
 			// download multiple eml messages in a ZIP file
 			$this->downloadMessageAsZipFile();
-		} else {
+		}
+		else {
 			// download message as file
 			$this->downloadMessageAsFile();
 		}
@@ -171,7 +172,7 @@ try {
 
 	// download message
 	$messageInstance->download();
-} catch (Exception $e) {
+}
+catch (Exception $e) {
 	$messageInstance->handleSaveMessageException($e);
 }
-?>

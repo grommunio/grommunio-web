@@ -1,15 +1,14 @@
 <?php
 
-require_once('IPMUser.php');
+require_once 'IPMUser.php';
 
 /**
- * RestoreMessageUser
+ * RestoreMessageUser.
  *
  * An extension to the IPMUser which can be used to get list of sof deleted items and
  * also can be used to hard delete messages from folder or restore it.
  */
 class RestoreMessageUser extends IPMUser {
-
 	/**
 	 * The name of the default itemmodule to which
 	 * we send all item requests.
@@ -23,10 +22,9 @@ class RestoreMessageUser extends IPMUser {
 	protected $defaultListModule;
 
 	/**
-	 * Initialize the RestoreMessageUser
+	 * Initialize the RestoreMessageUser.
 	 */
-	protected function initialize()
-	{
+	protected function initialize() {
 		parent::initialize();
 
 		$this->logon();
@@ -39,14 +37,15 @@ class RestoreMessageUser extends IPMUser {
 
 	/**
 	 * Load all soft deleted items from the default folder which is 'drafts'.
-	 * @param Array $sortOrder The properties related to sorting to be merged, by default 'false'.
-	 * @return Array The list of soft deleted messages from drafts folder
+	 *
+	 * @param array $sortOrder the properties related to sorting to be merged, by default 'false'
+	 *
+	 * @return array The list of soft deleted messages from drafts folder
 	 */
-	public function loadSoftdeletedItems($sortOrder = false)
-	{
+	public function loadSoftdeletedItems($sortOrder = false) {
 		$this->logon();
 
-		$props = array( 'itemType' => 'message' );
+		$props = ['itemType' => 'message'];
 
 		if ($sortOrder) {
 			$props = array_merge($props, $sortOrder);
@@ -57,21 +56,22 @@ class RestoreMessageUser extends IPMUser {
 
 	/**
 	 * Restore soft deleted items from the default folder which is 'drafts'.
-	 * @param Array $entryids The array of entryid of the items which should be restored
-	 * @return Array The response from the PHP
+	 *
+	 * @param array $entryids The array of entryid of the items which should be restored
+	 *
+	 * @return array The response from the PHP
 	 */
-	public function restoreSoftdeletedItems($entryids)
-	{
-		$response = array();
+	public function restoreSoftdeletedItems($entryids) {
+		$response = [];
 		$this->logon();
 
-		$props = array(
-			'message_action' => array(
-				'action_type' => 'restoremessage'
-			)
-		);
+		$props = [
+			'message_action' => [
+				'action_type' => 'restoremessage',
+			],
+		];
 
-		foreach($entryids as $entryid) {
+		foreach ($entryids as $entryid) {
 			$response[] = parent::deleteItem($entryid, $props);
 		}
 
@@ -80,26 +80,25 @@ class RestoreMessageUser extends IPMUser {
 
 	/**
 	 * Permanently Delete the soft deleted items from the default folder which is 'drafts'.
-	 * @param Array $entryids The array of entryid of the items which should be hard deleted
-	 * @return Array The response from the PHP
+	 *
+	 * @param array $entryids The array of entryid of the items which should be hard deleted
+	 *
+	 * @return array The response from the PHP
 	 */
-	public function deleteSoftdeletedItems($entryids)
-	{
-		$response = array();
+	public function deleteSoftdeletedItems($entryids) {
+		$response = [];
 		$this->logon();
 
-		$props = array(
-			'message_action' => array(
-				'action_type' => 'deletemessage'
-			)
-		);
+		$props = [
+			'message_action' => [
+				'action_type' => 'deletemessage',
+			],
+		];
 
-		foreach($entryids as $entryid) {
+		foreach ($entryids as $entryid) {
 			$response[] = parent::deleteItem($entryid, $props);
 		}
 
 		return $response;
 	}
 }
-
-?>

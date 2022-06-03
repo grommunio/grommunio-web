@@ -11,105 +11,103 @@ define('DEPEND_RECOMMENDS', 3);
 define('DEPEND_SUGGESTS', 4);
 
 /**
- * Managing component for all plugins
+ * Managing component for all plugins.
  *
  * This class handles all the plugin interaction with the webaccess on the server side.
- *
- * @package core
  */
-class PluginManager
-{
+class PluginManager {
 	// True if the Plugin framework is enabled
-	var $enabled;
+	public $enabled;
 
 	// The path to the folder which contains the plugins
-	var $pluginpath;
+	public $pluginpath;
 
 	// The path to the folder which holds the configuration for the plugins
 	// This folder has same structure as $this->pluginpath
-	var $pluginconfigpath;
+	public $pluginconfigpath;
 
 	// List of all plugins and their data
-	var $plugindata;
+	public $plugindata;
 
 	// List of the plugins in the order in which
 	// they should be loaded
-	var $pluginorder;
+	public $pluginorder;
 
 	/**
 	 * List of all hooks registered by plugins.
-	 * [eventID][] = plugin
+	 * [eventID][] = plugin.
 	 */
-	var $hooks;
+	public $hooks;
 
 	/**
 	 * List of all plugin objects
-	 * [pluginname] = pluginObj
+	 * [pluginname] = pluginObj.
 	 */
-	var $plugins;
+	public $plugins;
 
 	/**
 	 * List of all provided modules
-	 * [modulename] = moduleFile
+	 * [modulename] = moduleFile.
 	 */
-	var $modules;
+	public $modules;
 
 	/**
 	 * List of all provided notifiers
-	 * [notifiername] = notifierFile
+	 * [notifiername] = notifierFile.
 	 */
-	var $notifiers;
+	public $notifiers;
 
 	/**
 	 * List of sessiondata from plugins.
-	 * [pluginname] = sessiondata
+	 * [pluginname] = sessiondata.
 	 */
-	var $sessionData;
+	public $sessionData;
 
 	/**
 	 * Mapping for the XML 'load' attribute values
 	 * on the <serverfile>, <clientfile> or <resourcefile> element
 	 * to the corresponding define.
 	 */
-	var $loadMap = Array(
+	public $loadMap = [
 		'release' => LOAD_RELEASE,
 		'debug' => LOAD_DEBUG,
-		'source' => LOAD_SOURCE
-	);
+		'source' => LOAD_SOURCE,
+	];
 
 	/**
 	 * Mapping for the XML 'type' attribute values
 	 * on the <serverfile> element to the corresponding define.
 	 */
-	var $typeMap = Array(
+	public $typeMap = [
 		'plugin' => TYPE_PLUGIN,
 		'module' => TYPE_MODULE,
-		'notifier' => TYPE_NOTIFIER
-	);
+		'notifier' => TYPE_NOTIFIER,
+	];
 
 	/**
 	 * Mapping for the XML 'type' attribute values
 	 * on the <depends> element to the corresponding define.
 	 */
-	var $dependMap = Array(
+	public $dependMap = [
 		'depends' => DEPEND_DEPENDS,
 		'requires' => DEPEND_REQUIRES,
 		'recommends' => DEPEND_RECOMMENDS,
-		'suggests' => DEPEND_SUGGESTS
-	);
+		'suggests' => DEPEND_SUGGESTS,
+	];
 
 	/**
-	 * Constructor
+	 * Constructor.
+	 *
+	 * @param mixed $enable
 	 */
-	function __construct($enable = ENABLE_PLUGINS)
-	{
+	public function __construct($enable = ENABLE_PLUGINS) {
 		$this->enabled = $enable && defined('PATH_PLUGIN_DIR');
-		$this->plugindata = Array();
-		$this->pluginorder = Array();
-		$this->hooks = Array();
-		$this->plugins = Array();
-		$this->modules = Array();
-		$this->notifiers = Array();
+		$this->plugindata = [];
+		$this->pluginorder = [];
+		$this->hooks = [];
+		$this->plugins = [];
+		$this->modules = [];
+		$this->notifiers = [];
 		$this->sessionData = false;
 		if ($this->enabled) {
 			$this->pluginpath = PATH_PLUGIN_DIR;
@@ -118,27 +116,28 @@ class PluginManager
 	}
 
 	/**
-	 * pluginsEnabled
+	 * pluginsEnabled.
 	 *
 	 * Checks whether the plugins have been enabled by checking if the proper
 	 * configuration keys are set.
-	 * @return boolean Returns true when plugins enabled, false when not.
+	 *
+	 * @return bool returns true when plugins enabled, false when not
 	 */
-	function pluginsEnabled(){
+	public function pluginsEnabled() {
 		return $this->enabled;
 	}
 
 	/**
-	 * detectPlugins
+	 * detectPlugins.
 	 *
 	 * Detecting the installed plugins either by using the already ready data
 	 * from the state object or otherwise read in all the data and write it into
 	 * the state.
 	 *
-	 * @param String $disabled The list of plugins to disable, this list is separated
-	 * by the ';' character.
+	 * @param string $disabled the list of plugins to disable, this list is separated
+	 *                         by the ';' character
 	 */
-	function detectPlugins($disabled = ''){
+	public function detectPlugins($disabled = '') {
 		if (!$this->pluginsEnabled()) {
 			return false;
 		}
@@ -150,12 +149,12 @@ class PluginManager
 		if (!DEBUG_PLUGINS_DISABLE_CACHE) {
 			$this->plugindata = $pluginState->read("plugindata");
 			$pluginOrder = $pluginState->read("pluginorder");
-			$this->pluginorder = empty($pluginOrder) ? array() : $pluginOrder;
+			$this->pluginorder = empty($pluginOrder) ? [] : $pluginOrder;
 		}
 
 		// If no plugindata has been stored yet, get it from the plugins dir.
 		if (!$this->plugindata || !$this->pluginorder) {
-			$disabledPlugins = Array();
+			$disabledPlugins = [];
 			if (!empty($disabled)) {
 				$disabledPlugins = explode(';', $disabled);
 			}
@@ -164,7 +163,7 @@ class PluginManager
 			$this->plugindata = $this->readPluginFolder($disabledPlugins);
 
 			// Check if any plugin directories found or not
-			if (!empty($this->plugindata) ) {
+			if (!empty($this->plugindata)) {
 				// Not we update plugindata and pluginorder based on the configured dependencies.
 				// Note that each change to plugindata requires the requirements and dependencies
 				// to be recalculated.
@@ -172,15 +171,15 @@ class PluginManager
 					// Generate the order in which the plugins should be loaded,
 					// this uses the $this->plugindata as base.
 					$pluginOrder = $this->buildPluginDependencyOrder();
-					$this->pluginorder = empty($pluginOrder) ? array() : $pluginOrder;
-				};
+					$this->pluginorder = empty($pluginOrder) ? [] : $pluginOrder;
+				}
 			}
 		}
 
 		// Decide whether to show password plugin in settings:
 		// - show if the users are in a db
 		// - don't show if the users are in ldap
-		if (isset($this->plugindata['passwd']) && isset($GLOBALS['usersinldap']) && $GLOBALS['usersinldap']) {
+		if (isset($this->plugindata['passwd'], $GLOBALS['usersinldap']) && $GLOBALS['usersinldap']) {
 			unset($this->plugindata['passwd']);
 			if (($passwdKey = array_search('passwd', $this->pluginorder)) !== false) {
 				unset($this->pluginorder[$passwdKey]);
@@ -198,26 +197,25 @@ class PluginManager
 	}
 
 	/**
-	 * readPluginFolder
+	 * readPluginFolder.
 	 *
 	 * Read all subfolders of the directory referenced to by $this->pluginpath,
 	 * for each subdir, we $this->processPlugin it as a plugin.
 	 *
 	 * @param $disabledPlugins Array The list of disabled plugins, the subfolders
-	 * named as any of the strings inside this list will not be processed.
+	 * named as any of the strings inside this list will not be processed
 	 * @returns Array The object containing all the processed plugins. The object is a key-value'
 	 * object where the key is the unique name of the plugin, and the value the parsed data.
 	 */
-	function readPluginFolder($disabledPlugins)
-	{
-		$data = Array();
+	public function readPluginFolder($disabledPlugins) {
+		$data = [];
 
 		$pluginsdir = opendir($this->pluginpath);
 		if ($pluginsdir) {
-			while(($plugin = readdir($pluginsdir)) !== false){
-				if ($plugin != '.' && $plugin != '..' && !in_array($plugin, $disabledPlugins)){
-					if(is_dir($this->pluginpath . DIRECTORY_SEPARATOR . $plugin)){
-						if(is_file($this->pluginpath . DIRECTORY_SEPARATOR . $plugin . DIRECTORY_SEPARATOR . 'manifest.xml')){
+			while (($plugin = readdir($pluginsdir)) !== false) {
+				if ($plugin != '.' && $plugin != '..' && !in_array($plugin, $disabledPlugins)) {
+					if (is_dir($this->pluginpath . DIRECTORY_SEPARATOR . $plugin)) {
+						if (is_file($this->pluginpath . DIRECTORY_SEPARATOR . $plugin . DIRECTORY_SEPARATOR . 'manifest.xml')) {
 							$processed = $this->processPlugin($plugin);
 							$data[$processed['pluginname']] = $processed;
 						}
@@ -232,17 +230,16 @@ class PluginManager
 	}
 
 	/**
-	 * validatePluginRequirements
+	 * validatePluginRequirements.
 	 *
 	 * Go over the parsed $this->plugindata and check if all requirements are met.
 	 * This means that for each plugin which defined a "depends" or "requires" plugin
 	 * we check if those plugins are present on the system. If some dependencies are
 	 * not met, the plugin is removed from $this->plugindata.
 	 *
-	 * @return boolean False if the $this->plugindata was modified by this function
+	 * @return bool False if the $this->plugindata was modified by this function
 	 */
-	function validatePluginRequirements()
-	{
+	public function validatePluginRequirements() {
 		$modified = false;
 
 		do {
@@ -254,7 +251,6 @@ class PluginManager
 				// met. Otherwise we have to check the type of dependencies
 				// which were declared.
 				if ($plugin['dependencies']) {
-
 					// We only care about the 'depends' and 'requires'
 					// dependency types. All others are not blocking.
 					foreach ($plugin['dependencies'][DEPEND_DEPENDS] as &$depends) {
@@ -287,16 +283,17 @@ class PluginManager
 				}
 			}
 
-		// If a plugin was removed because of a failed dependency or requirement,
+			// If a plugin was removed because of a failed dependency or requirement,
 		// then we have to redo the cycle, because another plugin might have depended
 		// on the removed plugin.
-		} while(!$success);
+		}
+		while (!$success);
 
 		return !$modified;
 	}
 
 	/**
-	 * buildPluginDependencyOrder
+	 * buildPluginDependencyOrder.
 	 *
 	 * Go over the parsed $this->plugindata and create a ordered list of the plugins, resembling
 	 * the order in which those plugins should be loaded. This goes over all plugins to read
@@ -305,12 +302,11 @@ class PluginManager
 	 * In case of circular dependencies, the $this->plugindata object might be altered to remove
 	 * the plugin which the broken dependencies.
 	 *
-	 * @return Array The array of plugins in the order of which they should be loaded
+	 * @return array The array of plugins in the order of which they should be loaded
 	 */
-	function buildPluginDependencyOrder()
-	{
+	public function buildPluginDependencyOrder() {
 		$plugins = array_keys($this->plugindata);
-		$ordered = Array();
+		$ordered = [];
 		$failedCount = 0;
 
 		// We are going to keep it quite simple, we keep looping over the $plugins
@@ -325,9 +321,9 @@ class PluginManager
 
 			// Go over all dependencies to see if they have been met.
 			if ($plugin['dependencies']) {
-				for ($i = 0, $len = count($plugin['dependencies'][DEPEND_DEPENDS]); $i < $len; $i++) {
+				for ($i = 0, $len = count($plugin['dependencies'][DEPEND_DEPENDS]); $i < $len; ++$i) {
 					$dependency = $plugin['dependencies'][DEPEND_DEPENDS][$i];
-					if (array_search($dependency['plugin'], $ordered) === FALSE) {
+					if (array_search($dependency['plugin'], $ordered) === false) {
 						$accepted = false;
 						break;
 					}
@@ -343,7 +339,8 @@ class PluginManager
 				// looping because other plugins with previously unresolved dependencies
 				// could possible be resolved.
 				$failedCount = 0;
-			} else {
+			}
+			else {
 				// The dependencies for this plugin have not been met, we push
 				// the plugin back to the list and we will retry later when the
 				// $ordered list contains more items.
@@ -351,7 +348,7 @@ class PluginManager
 
 				// Increase the $failedCount property, this prevents that we could go into
 				// an infinite loop when a circular dependency was defined.
-				$failedCount++;
+				++$failedCount;
 			}
 
 			// If the $failedCount matches the the number of items in the $plugins array,
@@ -372,29 +369,29 @@ class PluginManager
 	}
 
 	/**
-	 * initPlugins
+	 * initPlugins.
 	 *
 	 * This function includes the server plugin classes, instantiate and
 	 * initialize them.
 	 *
 	 * @param number $load One of LOAD_RELEASE, LOAD_DEBUG, LOAD_SOURCE. This will filter
-	 * the files based on the 'load' attribute.
+	 *                     the files based on the 'load' attribute.
 	 */
-	function initPlugins($load = LOAD_RELEASE){
-		if(!$this->pluginsEnabled()){
+	public function initPlugins($load = LOAD_RELEASE) {
+		if (!$this->pluginsEnabled()) {
 			return false;
 		}
 
 		$files = $this->getServerFiles($load);
 		foreach ($files['server'] as $file) {
-			include_once($file);
+			include_once $file;
 		}
 
 		// Include the root files of all the plugins and instantiate the plugin
 		foreach ($this->pluginorder as $plugName) {
 			$pluginClassName = 'Plugin' . $plugName;
-			if(class_exists($pluginClassName)){
-				$this->plugins[$plugName] = new $pluginClassName;
+			if (class_exists($pluginClassName)) {
+				$this->plugins[$plugName] = new $pluginClassName();
 				$this->plugins[$plugName]->setPluginName($plugName);
 				$this->plugins[$plugName]->init();
 			}
@@ -405,19 +402,20 @@ class PluginManager
 	}
 
 	/**
-	 * processPlugin
+	 * processPlugin.
 	 *
 	 * Read in the manifest and get the files that need to be included
 	 * for placing hooks, defining modules, etc.
 	 *
 	 * @param $dirname string name of the directory of the plugin
+	 *
 	 * @return array The plugin data read from the given directory
 	 */
-	function processPlugin($dirname){
+	public function processPlugin($dirname) {
 		// Read XML manifest file of plugin
 		$handle = fopen($this->pluginpath . DIRECTORY_SEPARATOR . $dirname . DIRECTORY_SEPARATOR . 'manifest.xml', 'rb');
 		$xml = '';
-		if($handle){
+		if ($handle) {
 			while (!feof($handle)) {
 				$xml .= fread($handle, 4096);
 			}
@@ -428,16 +426,18 @@ class PluginManager
 		if ($plugindata) {
 			// Apply the name to the object
 			$plugindata['pluginname'] = $dirname;
-		} else {
+		}
+		else {
 			if (DEBUG_PLUGINS) {
-				dump('[PLUGIN ERROR] Plugin "'.$dirname.'" has an invalid manifest.');
+				dump('[PLUGIN ERROR] Plugin "' . $dirname . '" has an invalid manifest.');
 			}
 		}
+
 		return $plugindata;
 	}
 
 	/**
-	 * loadSessionData
+	 * loadSessionData.
 	 *
 	 * Loads sessiondata of the plugins from disk.
 	 * To improve performance the data is only loaded if a
@@ -445,34 +445,35 @@ class PluginManager
 	 *
 	 * @param $pluginname string Identifier of the plugin
 	 */
-	function loadSessionData($pluginname) {
+	public function loadSessionData($pluginname) {
 		// lazy reading of sessionData
 		if (!$this->sessionData) {
 			$sessState = new State('plugin_sessiondata');
 			$sessState->open();
 			$this->sessionData = $sessState->read("sessionData");
-			if (!isset($this->sessionData) || $this->sessionData == "")
-				$this->sessionData = array();
+			if (!isset($this->sessionData) || $this->sessionData == "") {
+				$this->sessionData = [];
+			}
 			$sessState->close();
 		}
 		if ($this->pluginExists($pluginname)) {
 			if (!isset($this->sessionData[$pluginname])) {
-				$this->sessionData[$pluginname] = array();
+				$this->sessionData[$pluginname] = [];
 			}
-			$this->plugins[ $pluginname ]->setSessionData($this->sessionData[$pluginname]);
+			$this->plugins[$pluginname]->setSessionData($this->sessionData[$pluginname]);
 		}
 	}
 
 	/**
-	 * saveSessionData
+	 * saveSessionData.
 	 *
 	 * Saves sessiondata of the plugins to the disk.
 	 *
 	 * @param $pluginname string Identifier of the plugin
 	 */
-	function saveSessionData($pluginname) {
+	public function saveSessionData($pluginname) {
 		if ($this->pluginExists($pluginname)) {
-			$this->sessionData[$pluginname] = $this->plugins[ $pluginname ]->getSessionData();
+			$this->sessionData[$pluginname] = $this->plugins[$pluginname]->getSessionData();
 		}
 		if ($this->sessionData) {
 			$sessState = new State('plugin_sessiondata');
@@ -483,31 +484,32 @@ class PluginManager
 	}
 
 	/**
-	 * pluginExists
+	 * pluginExists.
 	 *
 	 * Checks if plugin exists.
 	 *
 	 * @param $pluginname string Identifier of the plugin
-	 * @return boolean True when plugin exists, false when it does not.
+	 *
+	 * @return bool true when plugin exists, false when it does not
 	 */
-	function pluginExists($pluginname){
-		if(isset($this->plugindata[ $pluginname ])){
+	public function pluginExists($pluginname) {
+		if (isset($this->plugindata[$pluginname])) {
 			return true;
-		} else {
-			return false;
 		}
+
+		return false;
 	}
 
 	/**
-	 * getModuleFilePath
+	 * getModuleFilePath.
 	 *
 	 * Obtain the filepath of the given modulename
 	 *
 	 * @param $modulename string Identifier of the modulename
+	 *
 	 * @return string The path to the file for the module
 	 */
-	function getModuleFilePath($modulename)
-	{
+	public function getModuleFilePath($modulename) {
 		if (isset($this->modules[$modulename])) {
 			return $this->modules[$modulename];
 		}
@@ -516,15 +518,15 @@ class PluginManager
 	}
 
 	/**
-	 * getNotifierFilePath
+	 * getNotifierFilePath.
 	 *
 	 * Obtain the filepath of the given notifiername
 	 *
 	 * @param $notifiername string Identifier of the notifiername
+	 *
 	 * @return string The path to the file for the notifier
 	 */
-	function getNotifierFilePath($notifiername)
-	{
+	public function getNotifierFilePath($notifiername) {
 		if (isset($this->notifiers[$notifiername])) {
 			return $this->notifiers[$notifiername];
 		}
@@ -533,54 +535,55 @@ class PluginManager
 	}
 
 	/**
-	 * registerHook
+	 * registerHook.
 	 *
 	 * This function allows the plugin to register their hooks.
 	 *
-	 * @param $eventID string Identifier of the event where this hook must be triggered.
-	 * @param $pluginName string Name of the plugin that is registering this hook.
+	 * @param $eventID string Identifier of the event where this hook must be triggered
+	 * @param $pluginName string Name of the plugin that is registering this hook
 	 */
-	function registerHook($eventID, $pluginName){
-		$this->hooks[ $eventID ][ $pluginName ] = $pluginName;
+	public function registerHook($eventID, $pluginName) {
+		$this->hooks[$eventID][$pluginName] = $pluginName;
 	}
 
 	/**
-	 * triggerHook
+	 * triggerHook.
 	 *
 	 * This function will call all the registered hooks when their event is triggered.
 	 *
-	 * @param $eventID string Identifier of the event that has just been triggered.
-	 * @param $data mixed (Optional) Usually an array of data that the callback function can modify.
-	 * @return mixed Data that has been changed by plugins.
+	 * @param $eventID string Identifier of the event that has just been triggered
+	 * @param $data mixed (Optional) Usually an array of data that the callback function can modify
+	 *
+	 * @return mixed data that has been changed by plugins
 	 */
-	function triggerHook($eventID, $data = Array())
-	{
-		if(isset($this->hooks[ $eventID ]) && is_array($this->hooks[ $eventID ])){
-			foreach($this->hooks[ $eventID ] as $key => $pluginname){
-				$this->plugins[ $pluginname ]->execute($eventID, $data);
+	public function triggerHook($eventID, $data = []) {
+		if (isset($this->hooks[$eventID]) && is_array($this->hooks[$eventID])) {
+			foreach ($this->hooks[$eventID] as $key => $pluginname) {
+				$this->plugins[$pluginname]->execute($eventID, $data);
 			}
 		}
+
 		return $data;
 	}
 
 	/**
-	 * getPluginVersion
+	 * getPluginVersion.
 	 *
 	 * Function is used to prepare version information array from plugindata.
 	 *
-	 * @return Array The array of plugins version information.
+	 * @return array the array of plugins version information
 	 */
-	function getPluginsVersion()
-	{
-		$versionInfo = Array();
-		foreach ($this->plugindata as $pluginName => $data ) {
+	public function getPluginsVersion() {
+		$versionInfo = [];
+		foreach ($this->plugindata as $pluginName => $data) {
 			$versionInfo[$pluginName] = $data["version"];
 		}
+
 		return $versionInfo;
 	}
 
 	/**
-	 * getServerFilesForComponent
+	 * getServerFilesForComponent.
 	 *
 	 * Called by getServerFiles() to return the list of files which are provided
 	 * for the given component in a particular plugin.
@@ -591,36 +594,38 @@ class PluginManager
 	 * files, if that too files it will fallback to 'release' files. If the latter is
 	 * not found either, no files are returned.
 	 *
-	 * @param String $pluginname The name of the plugin (this is used in the pathname)
-	 * @param Array $component The component to read the serverfiles from
-	 * @param number $load One of LOAD_RELEASE, LOAD_DEBUG, LOAD_SOURCE. This will filter
-	 * the files based on the 'load' attribute.
+	 * @param string $pluginname The name of the plugin (this is used in the pathname)
+	 * @param array  $component  The component to read the serverfiles from
+	 * @param number $load       One of LOAD_RELEASE, LOAD_DEBUG, LOAD_SOURCE. This will filter
+	 *                           the files based on the 'load' attribute.
+	 *
 	 * @return array list of paths to the files in this component
 	 */
-	function getServerFilesForComponent($pluginname, $component, $load)
-	{
-		$componentfiles = Array(
-			'server' => Array(),
-			'modules' => Array(),
-			'notifiers' => Array()
-		);
+	public function getServerFilesForComponent($pluginname, $component, $load) {
+		$componentfiles = [
+			'server' => [],
+			'modules' => [],
+			'notifiers' => [],
+		];
 
 		foreach ($component['serverfiles'][$load] as &$file) {
 			switch ($file['type']) {
 				case TYPE_CONFIG:
 					$componentfiles['server'][] = $this->pluginconfigpath . DIRECTORY_SEPARATOR . $pluginname . DIRECTORY_SEPARATOR . $file['file'];
 					break;
+
 				case TYPE_PLUGIN:
 					$componentfiles['server'][] = $this->pluginpath . DIRECTORY_SEPARATOR . $pluginname . DIRECTORY_SEPARATOR . $file['file'];
 					break;
+
 				case TYPE_MODULE:
-					$componentfiles['modules'][ $file['module'] ] = $this->pluginpath . DIRECTORY_SEPARATOR . $pluginname . DIRECTORY_SEPARATOR . $file['file'];
+					$componentfiles['modules'][$file['module']] = $this->pluginpath . DIRECTORY_SEPARATOR . $pluginname . DIRECTORY_SEPARATOR . $file['file'];
 					break;
+
 				case TYPE_NOTIFIER:
-					$componentfiles['notifiers'][ $file['notifier'] ] = $this->pluginpath . DIRECTORY_SEPARATOR . $pluginname . DIRECTORY_SEPARATOR .$file['file'];
+					$componentfiles['notifiers'][$file['notifier']] = $this->pluginpath . DIRECTORY_SEPARATOR . $pluginname . DIRECTORY_SEPARATOR . $file['file'];
 					break;
 			}
-
 		}
 		unset($file);
 
@@ -628,7 +633,7 @@ class PluginManager
 	}
 
 	/**
-	 * getServerFiles
+	 * getServerFiles.
 	 *
 	 * Returning an array of paths to files that need to be included.
 	 * The paths which are returned start at the root of the webapp.
@@ -636,27 +641,29 @@ class PluginManager
 	 * This calls getServerFilesForComponent() to obtain the files
 	 * for each component inside the requested plugin
 	 *
-	 * @param string $pluginname The name of the plugin for which the server files are requested.
-	 * @param number $load One of LOAD_RELEASE, LOAD_DEBUG, LOAD_SOURCE. This will filter
-	 * the files based on the 'load' attribute.
-	 * @return array List of paths to files.
+	 * @param string $pluginname the name of the plugin for which the server files are requested
+	 * @param number $load       One of LOAD_RELEASE, LOAD_DEBUG, LOAD_SOURCE. This will filter
+	 *                           the files based on the 'load' attribute.
+	 *
+	 * @return array list of paths to files
 	 */
-	function getServerFiles($load = LOAD_RELEASE)
-	{
-		$files = Array(
-			'server' => Array(),
-			'modules' => Array(),
-			'notifiers' => Array()
-		);
+	public function getServerFiles($load = LOAD_RELEASE) {
+		$files = [
+			'server' => [],
+			'modules' => [],
+			'notifiers' => [],
+		];
 
 		foreach ($this->pluginorder as $pluginname) {
 			$plugin = &$this->plugindata[$pluginname];
-			foreach($plugin['components'] as &$component) {
+			foreach ($plugin['components'] as &$component) {
 				if (!empty($component['serverfiles'][$load])) {
 					$componentfiles = $this->getServerFilesForComponent($pluginname, $component, $load);
-				} else if ($load === LOAD_SOURCE && !empty($component['serverfiles'][LOAD_DEBUG])) {
+				}
+				elseif ($load === LOAD_SOURCE && !empty($component['serverfiles'][LOAD_DEBUG])) {
 					$componentfiles = $this->getServerFilesForComponent($pluginname, $component, LOAD_DEBUG);
-				} else if ($load !== LOAD_RELEASE && !empty($component['serverfiles'][LOAD_RELEASE])) {
+				}
+				elseif ($load !== LOAD_RELEASE && !empty($component['serverfiles'][LOAD_RELEASE])) {
 					$componentfiles = $this->getServerFilesForComponent($pluginname, $component, LOAD_RELEASE);
 				} // else tough luck, at least release should be present
 
@@ -675,7 +682,7 @@ class PluginManager
 	}
 
 	/**
-	 * getClientFilesForComponent
+	 * getClientFilesForComponent.
 	 *
 	 * Called by getClientFiles() to return the list of files which are provided
 	 * for the given component in a particular plugin.
@@ -686,15 +693,15 @@ class PluginManager
 	 * files, if that too files it will fallback to 'release' files. If the latter is
 	 * not found either, no files are returned.
 	 *
-	 * @param String $pluginname The name of the plugin (this is used in the pathname)
-	 * @param Array $component The component to read the clientfiles from
-	 * @param number $load One of LOAD_RELEASE, LOAD_DEBUG, LOAD_SOURCE. This will filter
-	 * the files based on the 'load' attribute.
+	 * @param string $pluginname The name of the plugin (this is used in the pathname)
+	 * @param array  $component  The component to read the clientfiles from
+	 * @param number $load       One of LOAD_RELEASE, LOAD_DEBUG, LOAD_SOURCE. This will filter
+	 *                           the files based on the 'load' attribute.
+	 *
 	 * @return array list of paths to the files in this component
 	 */
-	function getClientFilesForComponent($pluginname, $component, $load)
-	{
-		$componentfiles = Array();
+	public function getClientFilesForComponent($pluginname, $component, $load) {
+		$componentfiles = [];
 
 		foreach ($component['clientfiles'][$load] as &$file) {
 			$componentfiles[] = $this->pluginpath . DIRECTORY_SEPARATOR . $pluginname . DIRECTORY_SEPARATOR . $file['file'];
@@ -705,7 +712,7 @@ class PluginManager
 	}
 
 	/**
-	 * getClientFiles
+	 * getClientFiles.
 	 *
 	 * Returning an array of paths to files that need to be included.
 	 * The paths which are returned start at the root of the webapp.
@@ -714,20 +721,23 @@ class PluginManager
 	 * for each component inside each plugin.
 	 *
 	 * @param number $load One of LOAD_RELEASE, LOAD_DEBUG, LOAD_SOURCE. This will filter
-	 * the files based on the 'load' attribute.
-	 * @return array List of paths to files.
+	 *                     the files based on the 'load' attribute.
+	 *
+	 * @return array list of paths to files
 	 */
-	function getClientFiles($load = LOAD_RELEASE){
-		$files = Array();
+	public function getClientFiles($load = LOAD_RELEASE) {
+		$files = [];
 
 		foreach ($this->pluginorder as $pluginname) {
 			$plugin = &$this->plugindata[$pluginname];
-			foreach($plugin['components'] as &$component) {
+			foreach ($plugin['components'] as &$component) {
 				if (!empty($component['clientfiles'][$load])) {
 					$componentfiles = $this->getClientFilesForComponent($pluginname, $component, $load);
-				} else if ($load === LOAD_SOURCE && !empty($component['clientfiles'][LOAD_DEBUG])) {
+				}
+				elseif ($load === LOAD_SOURCE && !empty($component['clientfiles'][LOAD_DEBUG])) {
 					$componentfiles = $this->getClientFilesForComponent($pluginname, $component, LOAD_DEBUG);
-				} else if ($load !== LOAD_RELEASE && !empty($component['clientfiles'][LOAD_RELEASE])) {
+				}
+				elseif ($load !== LOAD_RELEASE && !empty($component['clientfiles'][LOAD_RELEASE])) {
 					$componentfiles = $this->getClientFilesForComponent($pluginname, $component, LOAD_RELEASE);
 				} // else tough luck, at least release should be present
 
@@ -744,7 +754,7 @@ class PluginManager
 	}
 
 	/**
-	 * getResourceFilesForComponent
+	 * getResourceFilesForComponent.
 	 *
 	 * Called by getResourceFiles() to return the list of files which are provided
 	 * for the given component in a particular plugin.
@@ -755,15 +765,15 @@ class PluginManager
 	 * files, if that too files it will fallback to 'release' files. If the latter is
 	 * not found either, no files are returned.
 	 *
-	 * @param String $pluginname The name of the plugin (this is used in the pathname)
-	 * @param Array $component The component to read the resourcefiles from
-	 * @param number $load One of LOAD_RELEASE, LOAD_DEBUG, LOAD_SOURCE. This will filter
-	 * the files based on the 'load' attribute.
+	 * @param string $pluginname The name of the plugin (this is used in the pathname)
+	 * @param array  $component  The component to read the resourcefiles from
+	 * @param number $load       One of LOAD_RELEASE, LOAD_DEBUG, LOAD_SOURCE. This will filter
+	 *                           the files based on the 'load' attribute.
+	 *
 	 * @return array list of paths to the files in this component
 	 */
-	function getResourceFilesForComponent($pluginname, $component, $load)
-	{
-		$componentfiles = Array();
+	public function getResourceFilesForComponent($pluginname, $component, $load) {
+		$componentfiles = [];
 
 		foreach ($component['resourcefiles'][$load] as &$file) {
 			$componentfiles[] = $this->pluginpath . DIRECTORY_SEPARATOR . $pluginname . DIRECTORY_SEPARATOR . $file['file'];
@@ -774,7 +784,7 @@ class PluginManager
 	}
 
 	/**
-	 * getResourceFiles
+	 * getResourceFiles.
 	 *
 	 * Returning an array of paths to files that need to be included.
 	 * The paths which are returned start at the root of the webapp.
@@ -783,20 +793,23 @@ class PluginManager
 	 * for each component inside each plugin.
 	 *
 	 * @param number $load One of LOAD_RELEASE, LOAD_DEBUG, LOAD_SOURCE. This will filter
-	 * the files based on the 'load' attribute.
-	 * @return array List of paths to files.
+	 *                     the files based on the 'load' attribute.
+	 *
+	 * @return array list of paths to files
 	 */
-	function getResourceFiles($load = LOAD_RELEASE) {
-		$files = Array();
+	public function getResourceFiles($load = LOAD_RELEASE) {
+		$files = [];
 
 		foreach ($this->pluginorder as $pluginname) {
 			$plugin = &$this->plugindata[$pluginname];
-			foreach($plugin['components'] as &$component) {
+			foreach ($plugin['components'] as &$component) {
 				if (!empty($component['resourcefiles'][$load])) {
 					$componentfiles = $this->getResourceFilesForComponent($pluginname, $component, $load);
-				} else if ($load === LOAD_SOURCE && !empty($component['resourcefiles'][LOAD_DEBUG])) {
+				}
+				elseif ($load === LOAD_SOURCE && !empty($component['resourcefiles'][LOAD_DEBUG])) {
 					$componentfiles = $this->getResourceFilesForComponent($pluginname, $component, LOAD_DEBUG);
-				} else if ($load !== LOAD_RELEASE && !empty($component['resourcefiles'][LOAD_RELEASE])) {
+				}
+				elseif ($load !== LOAD_RELEASE && !empty($component['resourcefiles'][LOAD_RELEASE])) {
 					$componentfiles = $this->getResourceFilesForComponent($pluginname, $component, LOAD_RELEASE);
 				} // else tough luck, at least release should be present
 
@@ -813,21 +826,21 @@ class PluginManager
 	}
 
 	/**
-	 * getTranslationFilePaths
+	 * getTranslationFilePaths.
 	 *
 	 * Returning an array of paths to to the translations files. This will be
 	 * used by the gettext functionality.
 	 *
-	 * @return array List of paths to translations.
+	 * @return array list of paths to translations
 	 */
-	function getTranslationFilePaths(){
-		$paths = Array();
+	public function getTranslationFilePaths() {
+		$paths = [];
 
 		foreach ($this->pluginorder as $pluginname) {
 			$plugin = &$this->plugindata[$pluginname];
 			if ($plugin['translationsdir']) {
-				$translationPath =  $this->pluginpath . DIRECTORY_SEPARATOR . $pluginname . DIRECTORY_SEPARATOR . $plugin['translationsdir']['dir'];
-				if(is_dir($translationPath)){
+				$translationPath = $this->pluginpath . DIRECTORY_SEPARATOR . $pluginname . DIRECTORY_SEPARATOR . $plugin['translationsdir']['dir'];
+				if (is_dir($translationPath)) {
 					$paths[$pluginname] = $translationPath;
 				}
 			}
@@ -838,22 +851,22 @@ class PluginManager
 	}
 
 	/**
-	 * extractPluginDataFromXML
+	 * extractPluginDataFromXML.
 	 *
 	 * Extracts all the data from the Plugin XML manifest.
 	 *
 	 * @param $xml string XML manifest of plugin
 	 * @param $dirname string name of the directory of the plugin
-	 * @return array Data from XML converted into array that the PluginManager can use.
+	 *
+	 * @return array data from XML converted into array that the PluginManager can use
 	 */
-	function extractPluginDataFromXML($xml, $dirname)
-	{
-		$plugindata = Array(
-			'components' => Array(),
+	public function extractPluginDataFromXML($xml, $dirname) {
+		$plugindata = [
+			'components' => [],
 			'dependencies' => null,
 			'translationsdir' => null,
-			'version' => null
-		);
+			'version' => null,
+		];
 
 		// Parse all XML data
 		$data = new SimpleXMLElement($xml);
@@ -861,105 +874,108 @@ class PluginManager
 		// Parse the <plugin> attributes
 		if (isset($data['version']) && (int) $data['version'] !== 2) {
 			if (DEBUG_PLUGINS) {
-				dump("[PLUGIN ERROR] Plugin $dirname manifest uses version " . $data['version'] . " while only version 2 is supported");
+				dump("[PLUGIN ERROR] Plugin {$dirname} manifest uses version " . $data['version'] . " while only version 2 is supported");
 			}
+
 			return false;
 		}
 
 		// Parse the <info> element
 		if (isset($data->info->version)) {
 			$plugindata['version'] = (string) $data->info->version;
-		} else {
-			dump("[PLUGIN WARNING] Plugin $dirname has not specified version information in manifest.xml");
+		}
+		else {
+			dump("[PLUGIN WARNING] Plugin {$dirname} has not specified version information in manifest.xml");
 		}
 
 		// Parse the <config> element
 		if (isset($data->config)) {
 			if (isset($data->config->configfile)) {
 				if (empty($data->config->configfile)) {
-					dump("[PLUGIN ERROR] Plugin $dirname manifest contains empty configfile declaration");
+					dump("[PLUGIN ERROR] Plugin {$dirname} manifest contains empty configfile declaration");
 				}
 				if (!file_exists($data->config->configfile)) {
-					dump("[PLUGIN ERROR] Plugin $dirname manifest config file does not exists");
+					dump("[PLUGIN ERROR] Plugin {$dirname} manifest config file does not exists");
 				}
-			} else {
-				dump("[PLUGIN ERROR] Plugin $dirname manifest configfile entry is missing");
+			}
+			else {
+				dump("[PLUGIN ERROR] Plugin {$dirname} manifest configfile entry is missing");
 			}
 
-			$files = Array(
-				LOAD_SOURCE => Array(),
-				LOAD_DEBUG => Array(),
-				LOAD_RELEASE => Array(),
-			);
-			foreach($data->config->configfile as $filename) {
-				$files[LOAD_RELEASE][] = Array(
+			$files = [
+				LOAD_SOURCE => [],
+				LOAD_DEBUG => [],
+				LOAD_RELEASE => [],
+			];
+			foreach ($data->config->configfile as $filename) {
+				$files[LOAD_RELEASE][] = [
 					'file' => (string) $filename,
 					'type' => TYPE_CONFIG,
 					'load' => LOAD_RELEASE,
 					'module' => null,
-					'notifier' => null
-				);
+					'notifier' => null,
+				];
 			}
-			$plugindata['components'][] = Array(
+			$plugindata['components'][] = [
 				'serverfiles' => $files,
-				'clientfiles' => Array(),
-				'resourcefiles' => Array(),
-			);
+				'clientfiles' => [],
+				'resourcefiles' => [],
+			];
 		}
 
 		// Parse the <dependencies> element
-		if (isset($data->dependencies) && isset($data->dependencies->depends)){
-			$dependencies = Array(
-				DEPEND_DEPENDS => Array(),
-				DEPEND_REQUIRES => Array(),
-				DEPEND_RECOMMENDS => Array(),
-				DEPEND_SUGGESTS => Array()
-			);
-			foreach($data->dependencies->depends as $depends){
-				$type = $this->dependMap[(string)$depends->attributes()->type];
+		if (isset($data->dependencies, $data->dependencies->depends)) {
+			$dependencies = [
+				DEPEND_DEPENDS => [],
+				DEPEND_REQUIRES => [],
+				DEPEND_RECOMMENDS => [],
+				DEPEND_SUGGESTS => [],
+			];
+			foreach ($data->dependencies->depends as $depends) {
+				$type = $this->dependMap[(string) $depends->attributes()->type];
 				$plugin = (string) $depends->dependsname;
-				$dependencies[$type][] = Array(
-					'plugin' => $plugin
-				);
+				$dependencies[$type][] = [
+					'plugin' => $plugin,
+				];
 			}
 			$plugindata['dependencies'] = $dependencies;
 		}
 
 		// Parse the <translations> element
-		if (isset($data->translations) && isset($data->translations->translationsdir)) {
-			$plugindata['translationsdir'] = Array(
-				'dir' => (string) $data->translations->translationsdir
-			);
+		if (isset($data->translations, $data->translations->translationsdir)) {
+			$plugindata['translationsdir'] = [
+				'dir' => (string) $data->translations->translationsdir,
+			];
 		}
 
 		// Parse the <components> element
-		if (isset($data->components) && isset($data->components->component)) {
-			foreach($data->components->component as $component){
-				$componentdata = array(
-					'serverfiles' => Array(
-						LOAD_SOURCE => Array(),
-						LOAD_DEBUG => Array(),
-						LOAD_RELEASE => Array()
-					),
-					'clientfiles' => Array(
-						LOAD_SOURCE => Array(),
-						LOAD_DEBUG => Array(),
-						LOAD_RELEASE => Array()
-					),
-					'resourcefiles' => Array(
-						LOAD_SOURCE => Array(),
-						LOAD_DEBUG => Array(),
-						LOAD_RELEASE => Array()
-					),
-				);
+		if (isset($data->components, $data->components->component)) {
+			foreach ($data->components->component as $component) {
+				$componentdata = [
+					'serverfiles' => [
+						LOAD_SOURCE => [],
+						LOAD_DEBUG => [],
+						LOAD_RELEASE => [],
+					],
+					'clientfiles' => [
+						LOAD_SOURCE => [],
+						LOAD_DEBUG => [],
+						LOAD_RELEASE => [],
+					],
+					'resourcefiles' => [
+						LOAD_SOURCE => [],
+						LOAD_DEBUG => [],
+						LOAD_RELEASE => [],
+					],
+				];
 				if (isset($component->files)) {
-					if (isset($component->files->server) && isset($component->files->server->serverfile)) {
-						$files = Array(
-							LOAD_SOURCE => Array(),
-							LOAD_DEBUG => Array(),
-							LOAD_RELEASE => Array()
-						);
-						foreach($component->files->server->serverfile as $serverfile) {
+					if (isset($component->files->server, $component->files->server->serverfile)) {
+						$files = [
+							LOAD_SOURCE => [],
+							LOAD_DEBUG => [],
+							LOAD_RELEASE => [],
+						];
+						foreach ($component->files->server->serverfile as $serverfile) {
 							$load = LOAD_RELEASE;
 							$type = TYPE_PLUGIN;
 							$module = null;
@@ -967,13 +983,13 @@ class PluginManager
 
 							$filename = (string) $serverfile;
 							if (empty($filename)) {
-								dump("[PLUGIN ERROR] Plugin $dirname manifest contains empty serverfile declaration");
+								dump("[PLUGIN ERROR] Plugin {$dirname} manifest contains empty serverfile declaration");
 							}
 							if (isset($serverfile['type'])) {
-								$type = $this->typeMap[(string)$serverfile['type']];
+								$type = $this->typeMap[(string) $serverfile['type']];
 							}
 							if (isset($serverfile['load'])) {
-								$load = $this->loadMap[(string)$serverfile['load']];
+								$load = $this->loadMap[(string) $serverfile['load']];
 							}
 							if (isset($serverfile['module'])) {
 								$module = (string) $serverfile['module'];
@@ -981,70 +997,72 @@ class PluginManager
 							if (isset($serverfile['notifier'])) {
 								$notifier = (string) $serverfile['notifier'];
 							}
-							if ($filename){
-								$files[$load][] = Array(
+							if ($filename) {
+								$files[$load][] = [
 									'file' => $filename,
 									'type' => $type,
 									'load' => $load,
 									'module' => $module,
-									'notifier' => $notifier
-								);
+									'notifier' => $notifier,
+								];
 							}
 						}
 						$componentdata['serverfiles'][LOAD_SOURCE] = array_merge($componentdata['serverfiles'][LOAD_SOURCE], $files[LOAD_SOURCE]);
 						$componentdata['serverfiles'][LOAD_DEBUG] = array_merge($componentdata['serverfiles'][LOAD_DEBUG], $files[LOAD_DEBUG]);
 						$componentdata['serverfiles'][LOAD_RELEASE] = array_merge($componentdata['serverfiles'][LOAD_RELEASE], $files[LOAD_RELEASE]);
 					}
-					if (isset($component->files->client) && isset($component->files->client->clientfile)) {
-						$files = Array(
-							LOAD_SOURCE => Array(),
-							LOAD_DEBUG => Array(),
-							LOAD_RELEASE => Array()
-						);
-						foreach($component->files->client->clientfile as $clientfile) {
-							$filename = False;
+					if (isset($component->files->client, $component->files->client->clientfile)) {
+						$files = [
+							LOAD_SOURCE => [],
+							LOAD_DEBUG => [],
+							LOAD_RELEASE => [],
+						];
+						foreach ($component->files->client->clientfile as $clientfile) {
+							$filename = false;
 							$load = LOAD_RELEASE;
 							$filename = (string) $clientfile;
 							if (isset($clientfile['load'])) {
-								$load = $this->loadMap[(string)$clientfile['load']];
+								$load = $this->loadMap[(string) $clientfile['load']];
 							}
 							if (empty($filename)) {
 								if (DEBUG_PLUGINS) {
-									dump("[PLUGIN ERROR] Plugin $dirname manifest contains empty resourcefile declaration");
+									dump("[PLUGIN ERROR] Plugin {$dirname} manifest contains empty resourcefile declaration");
 								}
-							} else {
-								$files[$load][] = Array(
+							}
+							else {
+								$files[$load][] = [
 									'file' => $filename,
 									'load' => $load,
-								);
+								];
 							}
 						}
 						$componentdata['clientfiles'][LOAD_SOURCE] = array_merge($componentdata['clientfiles'][LOAD_SOURCE], $files[LOAD_SOURCE]);
 						$componentdata['clientfiles'][LOAD_DEBUG] = array_merge($componentdata['clientfiles'][LOAD_DEBUG], $files[LOAD_DEBUG]);
 						$componentdata['clientfiles'][LOAD_RELEASE] = array_merge($componentdata['clientfiles'][LOAD_RELEASE], $files[LOAD_RELEASE]);
 					}
-					if (isset($component->files->resources) && isset($component->files->resources->resourcefile)) {
-						$files = Array(
-							LOAD_SOURCE => Array(),
-							LOAD_DEBUG => Array(),
-							LOAD_RELEASE => Array()
-						);
-						foreach($component->files->resources->resourcefile as $resourcefile) {
-							$filename = False;
+					if (isset($component->files->resources, $component->files->resources->resourcefile)) {
+						$files = [
+							LOAD_SOURCE => [],
+							LOAD_DEBUG => [],
+							LOAD_RELEASE => [],
+						];
+						foreach ($component->files->resources->resourcefile as $resourcefile) {
+							$filename = false;
 							$load = LOAD_RELEASE;
 							$filename = (string) $resourcefile;
 							if (isset($resourcefile['load'])) {
-								$load = $this->loadMap[(string)$resourcefile['load']];
+								$load = $this->loadMap[(string) $resourcefile['load']];
 							}
 							if (empty($filename)) {
 								if (DEBUG_PLUGINS) {
-									dump("[PLUGIN ERROR] Plugin $dirname manifest contains empty resourcefile declaration");
+									dump("[PLUGIN ERROR] Plugin {$dirname} manifest contains empty resourcefile declaration");
 								}
-							} else {
-								$files[$load][] = Array(
+							}
+							else {
+								$files[$load][] = [
 									'file' => $filename,
 									'load' => $load,
-								);
+								];
 							}
 						}
 						$componentdata['resourcefiles'][LOAD_SOURCE] = array_merge($componentdata['resourcefiles'][LOAD_SOURCE], $files[LOAD_SOURCE]);
@@ -1054,30 +1072,35 @@ class PluginManager
 					$plugindata['components'][] = $componentdata;
 				}
 			}
-		} else {
+		}
+		else {
 			if (DEBUG_PLUGINS) {
-				dump("[PLUGIN ERROR] Plugin $dirname manifest didn't provide any components");
+				dump("[PLUGIN ERROR] Plugin {$dirname} manifest didn't provide any components");
 			}
+
 			return false;
 		}
+
 		return $plugindata;
 	}
 
 	/**
 	 * Expands a string that contains a semicolon separated list of plugins.
 	 * All wildcards (*) will be resolved.
+	 *
+	 * @param mixed $pluginList
 	 */
-	function expandPluginList($pluginList)
-	{
+	public function expandPluginList($pluginList) {
 		$pluginNames = explode(';', $pluginList);
-		$pluginList = array();
-		foreach ( $pluginNames as $pluginName ){
+		$pluginList = [];
+		foreach ($pluginNames as $pluginName) {
 			$pluginName = trim($pluginName);
-			if ( array_key_exists($pluginName, $this->plugindata) ){
+			if (array_key_exists($pluginName, $this->plugindata)) {
 				$pluginList[] = $pluginName;
-			} else {
+			}
+			else {
 				// Check if it contains a wildcard
-				if ( strpos($pluginName, '*')!==false ){
+				if (strpos($pluginName, '*') !== false) {
 					$expandedPluginList = $this->_expandPluginNameWithWildcard($pluginName);
 					$pluginList = array_merge($pluginList, $expandedPluginList);
 				}
@@ -1099,22 +1122,22 @@ class PluginManager
 
 	/**
 	 * Finds all plugins that match the given string name (that contains one or
-	 * more wildcards)
+	 * more wildcards).
 	 *
-	 * @param String $pluginNameWithWildcard A plugin identifying string that
-	 * contains a wildcard character (*)
-	 * @return Array An array with the names of the plugins that are identified by
-	 * $pluginNameWithWildcard
+	 * @param string $pluginNameWithWildcard A plugin identifying string that
+	 *                                       contains a wildcard character (*)
+	 *
+	 * @return array An array with the names of the plugins that are identified by
+	 *               $pluginNameWithWildcard
 	 */
-	private function _expandPluginNameWithWildcard($pluginNameWithWildcard)
-	{
-		$retVal = array();
+	private function _expandPluginNameWithWildcard($pluginNameWithWildcard) {
+		$retVal = [];
 		$pluginNames = array_keys($this->plugindata);
 		$regExp = '/^' . str_replace('*', '.*?', $pluginNameWithWildcard) . '$/';
-		dump('rexexp = '.$regExp);
-		foreach ( $pluginNames as $pluginName ){
-			dump('checking plugin: '.$pluginName);
-			if ( preg_match($regExp, $pluginName) ){
+		dump('rexexp = ' . $regExp);
+		foreach ($pluginNames as $pluginName) {
+			dump('checking plugin: ' . $pluginName);
+			if (preg_match($regExp, $pluginName)) {
 				$retVal[] = $pluginName;
 			}
 		}
@@ -1122,4 +1145,3 @@ class PluginManager
 		return $retVal;
 	}
 }
-?>

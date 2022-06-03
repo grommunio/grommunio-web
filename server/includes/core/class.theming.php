@@ -1,6 +1,6 @@
 <?php
 
-require_once(__DIR__ . '/class.colors.php');
+require_once __DIR__ . '/class.colors.php';
 
 // The themes are moved to a different location when released
 // so we will define these constants for their location
@@ -9,31 +9,33 @@ define('THEME_PATH_' . LOAD_DEBUG, 'client/themes');
 define('THEME_PATH_' . LOAD_RELEASE, 'client/themes');
 
 /**
- * This class provides some functionality for theming grommunio Web
+ * This class provides some functionality for theming grommunio Web.
  */
-class Theming
-{
+class Theming {
 	/**
-	 * A hash that is used to cache if a theme is a json theme
+	 * A hash that is used to cache if a theme is a json theme.
+	 *
 	 * @property
 	 */
 	private static $isJsonThemeCache = [];
 
 	/**
-	 * A hash that is used to cache the properties of json themes
+	 * A hash that is used to cache the properties of json themes.
+	 *
 	 * @property
 	 */
 	private static $jsonThemePropsCache = [];
 
 	/**
-	 * Retrieves all installed json themes
-	 * @return Array An array with the directory names of the json themes as keys and their display names
-	 * as values
+	 * Retrieves all installed json themes.
+	 *
+	 * @return array An array with the directory names of the json themes as keys and their display names
+	 *               as values
 	 */
 	public static function getJsonThemes() {
 		$themes = [];
 		$directoryIterator = new DirectoryIterator(BASE_PATH . PATH_PLUGIN_DIR);
-		foreach ( $directoryIterator as $info ) {
+		foreach ($directoryIterator as $info) {
 			if ($info->isDot() || !$info->isDir()) {
 				continue;
 			}
@@ -57,20 +59,22 @@ class Theming
 	 * Returns the name of the active theme if one was found, and false otherwise.
 	 * The active theme can be set by the admin in the config.php, or by
 	 * the user in his settings.
-	 * @return String|Boolean
+	 *
+	 * @return bool|string
 	 */
 	public static function getActiveTheme() {
 		$theme = false;
 		$themePath = BASE_PATH . constant('THEME_PATH_' . DEBUG_LOADER);
 
 		// First check if a theme was set by this user in his settings
-		if ( WebAppAuthentication::isAuthenticated() ){
+		if (WebAppAuthentication::isAuthenticated()) {
 			if (ENABLE_THEMES === false) {
 				$theme = THEME !== "" ? THEME : 'basic';
-			} else {
+			}
+			else {
 				$theme = $GLOBALS['settings']->get('zarafa/v1/main/active_theme');
 			}
-						
+
 			// If a theme was found, check if the theme is still installed
 			// Remember that 'basic' is not a real theme, but the name for the default look of grommunio Web
 			// Note 1: We will first try to find the a core theme with this name, only
@@ -79,22 +83,21 @@ class Theming
 			// would not find packs with multiple plugins in it. So instead we just check if
 			// the directory exists.
 			if (
-				isset($theme) && !empty($theme) && $theme!=='basic'
-				&& !is_dir($themePath . '/' . $theme)
-				&& !is_dir(BASE_PATH . PATH_PLUGIN_DIR . '/' . $theme)
-			){
+				isset($theme) && !empty($theme) && $theme !== 'basic' &&
+				!is_dir($themePath . '/' . $theme) &&
+				!is_dir(BASE_PATH . PATH_PLUGIN_DIR . '/' . $theme)
+			) {
 				$theme = false;
 			}
 		}
 
-
 		// If a valid theme was not found in the settings of the user, let's see if a valid theme
 		// was defined by the admin.
-		if ( !$theme && defined('THEME') && THEME ){
+		if (!$theme && defined('THEME') && THEME) {
 			$theme = is_dir($themePath . '/' . THEME) || is_dir(BASE_PATH . PATH_PLUGIN_DIR . '/' . THEME) ? THEME : false;
 		}
 
-		if ( Theming::isJsonTheme($theme) && !is_array(Theming::getJsonThemeProps($theme)) ) {
+		if (Theming::isJsonTheme($theme) && !is_array(Theming::getJsonThemeProps($theme))) {
 			// Someone made an error, we cannot read this json theme
 			return false;
 		}
@@ -105,22 +108,24 @@ class Theming
 	/**
 	 * Returns the path to the favicon if included with the theme. If found the
 	 * path to it will be returned. Otherwise false.
-	 * @param String $theme the name of the theme for which the css will be returned.
-	 * Note: This is the directory name of the theme plugin.
+	 *
+	 * @param string $theme the name of the theme for which the css will be returned.
+	 *                      Note: This is the directory name of the theme plugin.
+	 *
 	 * 	 * @return String|Boolean
 	 */
 	public static function getFavicon($theme) {
 		$themePath = constant('THEME_PATH_' . DEBUG_LOADER);
 
 		// First check if we can find a core theme with this name
-		if ( $theme && is_dir(BASE_PATH . $themePath . '/' . $theme) && is_file(BASE_PATH . $themePath . '/' . $theme . '/favicon.ico') ){
+		if ($theme && is_dir(BASE_PATH . $themePath . '/' . $theme) && is_file(BASE_PATH . $themePath . '/' . $theme . '/favicon.ico')) {
 			// Add a date as GET parameter, so we will fetch a new icon every day
 			// This way themes can update the favicon and it will show the next day latest.
 			return $themePath . '/' . $theme . '/favicon.ico?' . date('Ymd');
 		}
 
 		// If no core theme was found, let's try to find a theme plugin with this name
-		if ( $theme && is_dir(BASE_PATH . PATH_PLUGIN_DIR . '/' . $theme) && is_file(BASE_PATH . PATH_PLUGIN_DIR . '/' . $theme . '/favicon.ico') ){
+		if ($theme && is_dir(BASE_PATH . PATH_PLUGIN_DIR . '/' . $theme) && is_file(BASE_PATH . PATH_PLUGIN_DIR . '/' . $theme . '/favicon.ico')) {
 			// Add a date as GET parameter, so we will fetch a new icon every day
 			// This way themes can update the favicon and it will show the next day latest.
 			return PATH_PLUGIN_DIR . '/' . $theme . '/favicon.ico?' . date('Ymd');
@@ -130,36 +135,38 @@ class Theming
 	}
 
 	/**
-	 * Returns the contents of the css files in the $theme as a string
-	 * @param String $theme the name of the theme for which the css will be returned.
-	 * Note: This is the directory name of the theme plugin.
-	 * @return String
+	 * Returns the contents of the css files in the $theme as a string.
+	 *
+	 * @param string $theme the name of the theme for which the css will be returned.
+	 *                      Note: This is the directory name of the theme plugin.
+	 *
+	 * @return string
 	 */
 	public static function getCss($theme) {
 		$themePathCoreThemes = BASE_PATH . constant('THEME_PATH_' . DEBUG_LOADER);
-		$cssFiles = array();
+		$cssFiles = [];
 
 		// First check if this is a core theme, and if it isn't, check if it is a theme plugin
-		if ( $theme && is_dir($themePathCoreThemes . '/' . $theme) ){
+		if ($theme && is_dir($themePathCoreThemes . '/' . $theme)) {
 			$themePath = $themePathCoreThemes . '/' . $theme;
-		} elseif ( $theme && is_dir(BASE_PATH . PATH_PLUGIN_DIR . '/' . $theme) ){
-			if ( Theming::isJsonTheme($theme) ) {
+		}
+		elseif ($theme && is_dir(BASE_PATH . PATH_PLUGIN_DIR . '/' . $theme)) {
+			if (Theming::isJsonTheme($theme)) {
 				return [];
 			}
 			$themePath = BASE_PATH . PATH_PLUGIN_DIR . '/' . $theme;
 		}
 
-		if ( isset($themePath) ){
-
+		if (isset($themePath)) {
 			// Use SPL iterators to recursively traverse the css directory and find all css files
 			$directoryIterator = new RecursiveDirectoryIterator($themePath . '/css/', FilesystemIterator::SKIP_DOTS);
 			$iterator = new RecursiveIteratorIterator($directoryIterator, RecursiveIteratorIterator::SELF_FIRST);
 
 			// Always rewind an iterator before using it!!! See https://bugs.php.net/bug.php?id=62914 (it might save you a couple of hours debugging)
 			$iterator->rewind();
-			while ( $iterator->valid() ) {
+			while ($iterator->valid()) {
 				$fileName = $iterator->getFilename();
-				if ( !$iterator->isDir() && (strtolower($iterator->getExtension())==='css' || substr($fileName, -8)==='.css.php' ) ){
+				if (!$iterator->isDir() && (strtolower($iterator->getExtension()) === 'css' || substr($fileName, -8) === '.css.php')) {
 					$cssFiles[] = substr($iterator->key(), strlen(BASE_PATH));
 				}
 				$iterator->next();
@@ -176,17 +183,20 @@ class Theming
 	 * Returns the value that is assigned to a property by the active theme
 	 * or null otherwise.
 	 * Currently only implemented for JSON themes.
-	 * @return String The value that the active theme has set for the property,
-	 * or NULL.
+	 *
+	 * @param mixed $propName
+	 *
+	 * @return string the value that the active theme has set for the property,
+	 *                or NULL
 	 */
 	public static function getThemeProperty($propName) {
 		$theme = Theming::getActiveTheme();
-		if ( !Theming::isJsonTheme($theme) ) {
+		if (!Theming::isJsonTheme($theme)) {
 			return false;
 		}
 
 		$props = Theming::getJsonThemeProps($theme);
-		if ( !isset($props[$propName]) ) {
+		if (!isset($props[$propName])) {
 			return false;
 		}
 
@@ -198,8 +208,9 @@ class Theming
 	 * of the icons. Currently only supported for JSON themes.
 	 * Note: Only SVG icons of an iconset that has defined the primary color
 	 * can be 'recolored'.
-	 * @return String The color that the active theme has set for the primary
-	 * color of the icons, or FALSE.
+	 *
+	 * @return string the color that the active theme has set for the primary
+	 *                color of the icons, or FALSE
 	 */
 	public static function getPrimaryIconColor() {
 		$val = Theming::getThemeProperty('icons-primary-color');
@@ -212,8 +223,9 @@ class Theming
 	 * of the icons. Currently only supported for JSON themes.
 	 * Note: Only SVG icons of an iconset that has defined the secondary color
 	 * can be 'recolored'.
-	 * @return String The color that the active theme has set for the secondary
-	 * color of the icons, or FALSE.
+	 *
+	 * @return string the color that the active theme has set for the secondary
+	 *                color of the icons, or FALSE
 	 */
 	public static function getSecondaryIconColor() {
 		$val = Theming::getThemeProperty('icons-secondary-color');
@@ -224,25 +236,29 @@ class Theming
 	/**
 	 * Checks if a theme is a JSON theme. (Basically this means that it checks if a
 	 * directory with the theme name exists and if that directory contains a file
-	 * called theme.json)
-	 * @param String $theme The name of the theme to check
-	 * @return Boolean True if the theme is a json theme, false otherwise
+	 * called theme.json).
+	 *
+	 * @param string $theme The name of the theme to check
+	 *
+	 * @return bool True if the theme is a json theme, false otherwise
 	 */
 	public static function isJsonTheme($theme) {
-		if ( empty($theme) ) {
+		if (empty($theme)) {
 			return false;
 		}
 
-		if ( !isset(Theming::$isJsonThemeCache[$theme]) ) {
+		if (!isset(Theming::$isJsonThemeCache[$theme])) {
 			$themePathCoreThemes = BASE_PATH . constant('THEME_PATH_' . DEBUG_LOADER);
 
 			// First check if this is a core theme, and if it isn't, check if it is a theme plugin
-			if ( is_dir($themePathCoreThemes . '/' . $theme) ){
+			if (is_dir($themePathCoreThemes . '/' . $theme)) {
 				// We don't have core json themes, so return false
 				Theming::$isJsonThemeCache[$theme] = false;
-			} elseif ( is_dir(BASE_PATH . PATH_PLUGIN_DIR . '/' . $theme) && is_file(BASE_PATH . PATH_PLUGIN_DIR . '/' . $theme . '/theme.json') ){
+			}
+			elseif (is_dir(BASE_PATH . PATH_PLUGIN_DIR . '/' . $theme) && is_file(BASE_PATH . PATH_PLUGIN_DIR . '/' . $theme . '/theme.json')) {
 				Theming::$isJsonThemeCache[$theme] = true;
-			} else {
+			}
+			else {
 				Theming::$isJsonThemeCache[$theme] = false;
 			}
 		}
@@ -252,21 +268,23 @@ class Theming
 
 	/**
 	 * Retrieves the properties set in the theme.json file of the theme.
-	 * @param String $theme The theme for which the properties should be retrieved
-	 * @return Array The decoded array of properties defined in the theme.json file
+	 *
+	 * @param string $theme The theme for which the properties should be retrieved
+	 *
+	 * @return array The decoded array of properties defined in the theme.json file
 	 */
 	public static function getJsonThemeProps($theme) {
-		if ( !Theming::isJsonTheme($theme) ) {
+		if (!Theming::isJsonTheme($theme)) {
 			return false;
 		}
 
 		// Check if we have the props in the cache before reading the file
-		if ( !isset(Theming::$jsonThemePropsCache[$theme]) ) {
+		if (!isset(Theming::$jsonThemePropsCache[$theme])) {
 			$json = file_get_contents(BASE_PATH . PATH_PLUGIN_DIR . '/' . $theme . '/theme.json');
 			Theming::$jsonThemePropsCache[$theme] = json_decode($json, true);
 
-			if ( json_last_error() !== JSON_ERROR_NONE ) {
-				error_log("The theme '$theme' does not have a valid theme.json file. " . json_last_error_msg());
+			if (json_last_error() !== JSON_ERROR_NONE) {
+				error_log("The theme '{$theme}' does not have a valid theme.json file. " . json_last_error_msg());
 				Theming::$jsonThemePropsCache[$theme] = '';
 			}
 		}
@@ -275,8 +293,9 @@ class Theming
 	}
 
 	/**
-	 * Normalizes all defined colors in a JSON theme to valid hex colors
-	 * @param Array $themeProps A hash with the properties defined a theme.json file
+	 * Normalizes all defined colors in a JSON theme to valid hex colors.
+	 *
+	 * @param array $themeProps A hash with the properties defined a theme.json file
 	 */
 	private static function normalizeColors($themeProps) {
 		$colorKeys = [
@@ -289,7 +308,7 @@ class Theming
 			'selection-text-color',
 			'focus-color',
 		];
-		foreach ( $colorKeys as $ck ) {
+		foreach ($colorKeys as $ck) {
 			$themeProps[$ck] = isset($themeProps[$ck]) ? Colors::getHexColorFromCssColor($themeProps[$ck]) : null;
 		}
 
@@ -297,114 +316,121 @@ class Theming
 	}
 
 	/**
-	 * Utility function to fix relative urls in JSON themes
-	 * @param String $url the url to be fixed
-	 * @param String $theme the name of the theme the url is part of
+	 * Utility function to fix relative urls in JSON themes.
+	 *
+	 * @param string $url   the url to be fixed
+	 * @param string $theme the name of the theme the url is part of
 	 */
 	private static function fixUrl($url, $theme) {
 		// the url is absolute we don't have to fix anything
-		if ( preg_match('/^https?:\/\//', $url) ) {
+		if (preg_match('/^https?:\/\//', $url)) {
 			return $url;
 		}
 
-		return PATH_PLUGIN_DIR . '/' . $theme .'/' . $url;
+		return PATH_PLUGIN_DIR . '/' . $theme . '/' . $url;
 	}
 
 	/**
-	 * Retrieves the styles that should be added to the page for the json theme
-	 * @param String $theme The theme for which the properties should be retrieved
-	 * @return String The styles (between <style> tags)
+	 * Retrieves the styles that should be added to the page for the json theme.
+	 *
+	 * @param string $theme The theme for which the properties should be retrieved
+	 *
+	 * @return string The styles (between <style> tags)
 	 */
 	public static function getStyles($theme) {
 		$styles = '';
-		if ( !Theming::isJsonTheme($theme) ) {
+		if (!Theming::isJsonTheme($theme)) {
 			$css = Theming::getCss($theme);
-			foreach ( $css as $file ){
-				$styles .= '<link rel="stylesheet" type="text/css" href="'.$file.'" />'."\n";
+			foreach ($css as $file) {
+				$styles .= '<link rel="stylesheet" type="text/css" href="' . $file . '" />' . "\n";
 			}
+
 			return $styles;
 		}
 
 		// Convert the json theme to css styles
 		$themeProps = Theming::getJsonThemeProps($theme);
-		if ( !$themeProps ) {
+		if (!$themeProps) {
 			return $styles;
 		}
 
 		$themeProps = Theming::normalizeColors($themeProps);
 
-		if ( $themeProps['primary-color'] ) {
-			if ( !$themeProps['primary-color:hover'] ) {
+		if ($themeProps['primary-color']) {
+			if (!$themeProps['primary-color:hover']) {
 				list(, , $l) = Colors::rgb2hsl(Colors::colorString2Object($themeProps['primary-color']));
-				if ( $l > 20 ) {
+				if ($l > 20) {
 					$themeProps['primary-color:hover'] = Colors::darker($themeProps['primary-color'], 10);
-				} else {
+				}
+				else {
 					$themeProps['primary-color:hover'] = Colors::lighter($themeProps['primary-color'], 20);
 				}
 			}
 
-			if ( !$themeProps['mainbar-text-color'] ) {
+			if (!$themeProps['mainbar-text-color']) {
 				// Check if the main bar is not too light for white text (i.e. the default color)
-				if ( Colors::getLuma($themeProps['primary-color']) > 155 ) {
+				if (Colors::getLuma($themeProps['primary-color']) > 155) {
 					$themeProps['mainbar-text-color'] = '#000000';
 				}
 			}
 
-			if ( !$themeProps['selection-color'] ) {
+			if (!$themeProps['selection-color']) {
 				$themeProps['selection-color'] = Colors::setLuminance($themeProps['primary-color'], 80);
 			}
 		}
-		if ( $themeProps['action-color'] && !$themeProps['action-color:hover'] ) {
+		if ($themeProps['action-color'] && !$themeProps['action-color:hover']) {
 			$themeProps['action-color:hover'] = Colors::darker($themeProps['action-color'], 10);
 		}
-		if ( isset($themeProps['selection-color']) && !isset($themeProps['selection-text-color']) ) {
+		if (isset($themeProps['selection-color']) && !isset($themeProps['selection-text-color'])) {
 			// Set a text color for the selection-color
 			$hsl = Colors::rgb2hsl($themeProps['selection-color']);
-			if ( $hsl['l'] > 50 ) {
+			if ($hsl['l'] > 50) {
 				$hsl['l'] = 5;
-			} else {
+			}
+			else {
 				$hsl['l'] = 95;
 			}
 			$themeProps['selection-text-color'] = Colors::colorObject2string(Colors::hsl2rgb($hsl));
 		}
 
-		if ( isset($themeProps['background-image']) ) {
+		if (isset($themeProps['background-image'])) {
 			$themeProps['background-image'] = Theming::fixUrl($themeProps['background-image'], $theme);
 		}
-		if ( isset($themeProps['logo-large']) ) {
+		if (isset($themeProps['logo-large'])) {
 			$themeProps['logo-large'] = Theming::fixUrl($themeProps['logo-large'], $theme);
 		}
-		if ( isset($themeProps['logo-small']) ) {
+		if (isset($themeProps['logo-small'])) {
 			$themeProps['logo-small'] = Theming::fixUrl($themeProps['logo-small'], $theme);
 		}
-		if ( isset($themeProps['logo-large']) && !isset($themeProps['logo-small']) ) {
+		if (isset($themeProps['logo-large']) && !isset($themeProps['logo-small'])) {
 			$themeProps['logo-small'] = $themeProps['logo-large'];
 		}
-		if ( isset($themeProps['spinner-image']) ) {
+		if (isset($themeProps['spinner-image'])) {
 			$themeProps['spinner-image'] = Theming::fixUrl($themeProps['spinner-image'], $theme);
 		}
 		$styles = '<style>';
-		foreach ( $themeProps as $k => $v ) {
-			if ( $v && isset(Theming::$styles[$k]) ) {
+		foreach ($themeProps as $k => $v) {
+			if ($v && isset(Theming::$styles[$k])) {
 				$styles .= str_replace("{{{$k}}}", htmlspecialchars($v), Theming::$styles[$k]);
 			}
 		}
-		$styles .= '</style>'."\n";
+		$styles .= '</style>' . "\n";
 
 		// Add the defined stylesheets
-		if ( isset($themeProps['stylesheets']) ) {
-			if ( is_string($themeProps['stylesheets']) ) {
+		if (isset($themeProps['stylesheets'])) {
+			if (is_string($themeProps['stylesheets'])) {
 				$stylesheets = explode(' ', $themeProps['stylesheets']);
-			} elseif ( is_array($themeProps['stylesheets']) ) {
+			}
+			elseif (is_array($themeProps['stylesheets'])) {
 				$stylesheets = $themeProps['stylesheets'];
 			}
-			foreach ( $stylesheets as $stylesheet ) {
-				if ( is_string($stylesheet) ) {
+			foreach ($stylesheets as $stylesheet) {
+				if (is_string($stylesheet)) {
 					$stylesheet = trim($stylesheet);
-					if ( empty($stylesheet) ) {
+					if (empty($stylesheet)) {
 						continue;
 					}
-					$styles .= "\t\t".'<link rel="stylesheet" type="text/css" href="'.htmlspecialchars(Theming::fixUrl($stylesheet, $theme)).'" />'."\n";
+					$styles .= "\t\t" . '<link rel="stylesheet" type="text/css" href="' . htmlspecialchars(Theming::fixUrl($stylesheet, $theme)) . '" />' . "\n";
 				}
 			}
 		}
@@ -413,10 +439,11 @@ class Theming
 	}
 
 	/**
-	 * The templates of the styles that a json theme can add to the page
+	 * The templates of the styles that a json theme can add to the page.
+	 *
 	 * @property
 	 */
-	private static $styles = array(
+	private static $styles = [
 		'primary-color' => '
 			/* The Sign in button of the login screen */
 			body.login #form-container #submitbutton,
@@ -760,6 +787,6 @@ class Theming
 			#loading-mask #form-container.loading .right {
 				background: url({{spinner-image}}) no-repeat center center;
 			}
-		'
-	);
+		',
+	];
 }

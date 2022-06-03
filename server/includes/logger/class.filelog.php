@@ -1,7 +1,6 @@
 <?php
 
-	class FileLog extends Logger
-	{
+	class FileLog extends Logger {
 		/**
 		 * @var string
 		 */
@@ -11,28 +10,27 @@
 		 * Writes a log message to the general log.
 		 *
 		 * @param {Number}        $loglevel       one of the defined LOGLEVELS
-		 * @param {string}        $message        The log message which we want to log in user specific log file.
+		 * @param {string}        $message        The log message which we want to log in user specific log file
 		 * @param {boolean|array} $detailMessage  (optional) The detailed log message. it can be Error/Exception array.
-		 * @param {boolean|array} $request        (optional) The request log the the request data which sent by the user.
-		 *
-		 * @access protected
-		 * @return void
+		 * @param {boolean|array} $request        (optional) The request log the the request data which sent by the user
+		 * @param mixed $logLevel
 		 */
-		protected function Write($logLevel, $message, $detailMessage, $request)
-		{
+		protected function Write($logLevel, $message, $detailMessage, $request) {
 			$dir = LOG_FILE_DIR;
-			if(substr(LOG_FILE_DIR,-1) != "/") {
-				$dir .="/";
+			if (substr(LOG_FILE_DIR, -1) != "/") {
+				$dir .= "/";
 			}
 
 			// If users directory not created then create it first.
 			if (!is_dir($dir)) {
 				if (empty($dir)) {
 					error_log("Log directory has not configured. provide valid directory path.");
+
 					return;
 				}
 				if (mkdir($dir, 0777, true) === false) {
-					error_log("Problem in creating log folder ". $dir);
+					error_log("Problem in creating log folder " . $dir);
+
 					return;
 				}
 			}
@@ -43,13 +41,13 @@
 		/**
 		 * Get the log user file.
 		 *
-		 * @access private
 		 * @return string
 		 */
 		private function getLogToUserFile() {
 			if (strlen($this->logToUserFile) == 0) {
-				$this->setLogToUserFile($this->getUser().".log");
+				$this->setLogToUserFile($this->getUser() . ".log");
 			}
+
 			return $this->logToUserFile;
 		}
 
@@ -57,9 +55,6 @@
 		 * Set user log-file relative to log directory.
 		 *
 		 * @param string $value
-		 *
-		 * @access private
-		 * @return void
 		 */
 		private function setLogToUserFile($value) {
 			$this->logToUserFile = $value;
@@ -69,11 +64,10 @@
 		 * Returns the string to be logged.
 		 *
 		 * @param {Number}        $loglevel       one of the defined LOGLEVELS
-		 * @param {string}        $message        The log message which we want to log in user specific log file.
+		 * @param {string}        $message        The log message which we want to log in user specific log file
 		 * @param {boolean|array} $detailMessage  (optional) The detailed log message. it can be Error/Exception array.
-		 * @param {boolean|array} $request        (optional) The request log the the request data which sent by the user.
+		 * @param {boolean|array} $request        (optional) The request log the the request data which sent by the user
 		 *
-		 * @access public
 		 * @return string
 		 */
 		public function BuildLogString($loglevel, $message, $detailMessage = false, $request = false) {

@@ -5,59 +5,58 @@
 	 * Module which openes, creates, saves and deletes an item. It
 	 * extends the Module class.
 	 */
-	class AppointmentItemModule extends ItemModule
-	{
+	class AppointmentItemModule extends ItemModule {
 		/**
-		 * Constructor
-		 * @param int $id unique id.
-		 * @param array $data list of all actions.
+		 * Constructor.
+		 *
+		 * @param int   $id   unique id
+		 * @param array $data list of all actions
 		 */
-		function __construct($id, $data)
-		{
+		public function __construct($id, $data) {
 			parent::__construct($id, $data);
 
 			$this->properties = $GLOBALS['properties']->getAppointmentProperties();
 
 			$this->plaintext = true;
-			$this->skipCopyProperties = array(
+			$this->skipCopyProperties = [
 				$this->properties['goid'],
 				$this->properties['goid2'],
 				$this->properties['request_sent'],
-				PR_OWNER_APPT_ID
-			);
+				PR_OWNER_APPT_ID,
+			];
 		}
 
-		function open($store, $entryid, $action)
-		{
-			if($store && $entryid) {
-				$data = array();
+		public function open($store, $entryid, $action) {
+			if ($store && $entryid) {
+				$data = [];
 
 				$message = $GLOBALS['operations']->openMessage($store, $entryid);
 
-				if(empty($message)) {
+				if (empty($message)) {
 					return;
 				}
 
 				// Open embedded message if requested
 				$attachNum = !empty($action['attach_num']) ? $action['attach_num'] : false;
-				if($attachNum) {
+				if ($attachNum) {
 					// get message props of sub message
 					$parentMessage = $message;
 					$message = $GLOBALS['operations']->openMessage($store, $entryid, $attachNum);
 
-					if(empty($message)) {
+					if (empty($message)) {
 						return;
 					}
 
 					$data['item'] = $GLOBALS['operations']->getEmbeddedMessageProps($store, $message, $this->properties, $parentMessage, $attachNum);
-				} else {
+				}
+				else {
 					// add all standard properties from the series/normal message
 					$data['item'] = $GLOBALS['operations']->getMessageProps($store, $message, $this->properties, $this->plaintext);
 				}
 
 				// if appointment is recurring then only we should get properties of occurrence if basedate is supplied
-				if($data['item']['props']['recurring'] === true) {
-					if(!empty($action['basedate'])) {
+				if ($data['item']['props']['recurring'] === true) {
+					if (!empty($action['basedate'])) {
 						// check for occurrence/exception
 						$basedate = $action['basedate'];
 
@@ -68,15 +67,15 @@
 						// Single occurrences are never recurring
 						$data['item']['props']['recurring'] = false;
 
-						if($exceptionatt) {
+						if ($exceptionatt) {
 							// Existing exception (open existing item, which includes basedate)
-							$exceptionattProps = mapi_getprops($exceptionatt, array(PR_ATTACH_NUM));
+							$exceptionattProps = mapi_getprops($exceptionatt, [PR_ATTACH_NUM]);
 							$exception = mapi_attach_openobj($exceptionatt, 0);
 
 							// overwrite properties with the ones from the exception
 							$exceptionProps = $GLOBALS['operations']->getMessageProps($store, $exception, $this->properties, $this->plaintext);
 
-							/**
+							/*
 							 * If recurring item has set reminder to true then
 							 * all occurrences before the 'flagdueby' value(of recurring item)
 							 * should not show that reminder is set.
@@ -95,20 +94,18 @@
 							// @FIXME getMessageProps should not return empty string if exception doesn't contain body
 							// by this change we can handle a situation where user has set empty string in the body explicitly
 							if (!empty($exceptionProps['props']['body']) || !empty($exceptionProps['props']['html_body'])) {
-								if(!empty($exceptionProps['props']['body'])) {
+								if (!empty($exceptionProps['props']['body'])) {
 									$data['item']['props']['body'] = $exceptionProps['props']['body'];
 								}
 
-								if(!empty($exceptionProps['props']['html_body'])) {
+								if (!empty($exceptionProps['props']['html_body'])) {
 									$data['item']['props']['html_body'] = $exceptionProps['props']['html_body'];
 								}
 
 								$data['item']['props']['isHTML'] = $exceptionProps['props']['isHTML'];
 							}
 							// remove properties from $exceptionProps so array_merge will not overwrite it
-							unset($exceptionProps['props']['html_body']);
-							unset($exceptionProps['props']['body']);
-							unset($exceptionProps['props']['isHTML']);
+							unset($exceptionProps['props']['html_body'], $exceptionProps['props']['body'], $exceptionProps['props']['isHTML']);
 
 							$data['item']['props'] = array_merge($data['item']['props'], $exceptionProps['props']);
 							if (isset($exceptionProps['recipients'])) {
@@ -121,20 +118,24 @@
 
 							// Make sure we are using the passed basedate and not something wrong in the opened item
 							$data['item']['props']['basedate'] = $basedate;
-							$data['item']['attach_num'] = array($exceptionattProps[PR_ATTACH_NUM]);
-						} else if($recur->isDeleteException($basedate)) {
+							$data['item']['attach_num'] = [$exceptionattProps[PR_ATTACH_NUM]];
+						}
+						elseif ($recur->isDeleteException($basedate)) {
 							// Exception is deleted, should not happen, but if it the case then give error
-							$this->sendFeedback(false,
-								array(
+							$this->sendFeedback(
+								false,
+								[
 									'type' => ERROR_ZARAFA,
-									'info' => array(
+									'info' => [
 										'original_message' => _('Could not open occurrence.'),
-										'display_message' => _('Could not open occurrence, specific occurrence is probably deleted.')
-									)
-								)
+										'display_message' => _('Could not open occurrence, specific occurrence is probably deleted.'),
+									],
+								]
 							);
+
 							return;
-						} else {
+						}
+						else {
 							// opening an occurrence of a recurring series (same as normal open, but add basedate, startdate and enddate)
 							$data['item']['props']['basedate'] = $basedate;
 							$data['item']['props']['startdate'] = $recur->getOccurrenceStart($basedate);
@@ -143,7 +144,7 @@
 							$data['item']['props']['commonend'] = $data['item']['props']['duedate'];
 							unset($data['item']['props']['reminder_time']);
 
-							/**
+							/*
 							 * If recurring item has set reminder to true then
 							 * all occurrences before the 'flagdueby' value(of recurring item)
 							 * should not show that reminder is set.
@@ -156,19 +157,20 @@
 								}
 							}
 						}
-					} else {
+					}
+					else {
 						// Opening a recurring series, get the recurrence information
 						$recur = new Recurrence($store, $message);
 						$recurpattern = $recur->getRecurrence();
 						$tz = $recur->tz; // no function to do this at the moment
 
 						// Add the recurrence pattern to the data
-						if(isset($recurpattern) && is_array($recurpattern)) {
+						if (isset($recurpattern) && is_array($recurpattern)) {
 							$data['item']['props'] += $recurpattern;
 						}
 
 						// Add the timezone information to the data
-						if(isset($tz) && is_array($tz)) {
+						if (isset($tz) && is_array($tz)) {
 							$data['item']['props'] += $tz;
 						}
 					}
@@ -185,25 +187,24 @@
 		 * like, here it will generate display message based on actionType
 		 * for particular exception.
 		 *
-		 * @param object $e Exception object
-		 * @param string $actionType the action type, sent by the client
-		 * @param MAPIobject $store Store object of message.
-		 * @param string $parententryid parent entryid of the message.
-		 * @param string $entryid entryid of the message.
-		 * @param array $action the action data, sent by the client
+		 * @param object     $e             Exception object
+		 * @param string     $actionType    the action type, sent by the client
+		 * @param MAPIobject $store         store object of message
+		 * @param string     $parententryid parent entryid of the message
+		 * @param string     $entryid       entryid of the message
+		 * @param array      $action        the action data, sent by the client
 		 */
-		function handleException(&$e, $actionType = null, $store = null, $parententryid = null, $entryid = null, $action = null)
-		{
+		public function handleException(&$e, $actionType = null, $store = null, $parententryid = null, $entryid = null, $action = null) {
 			if (is_null($e->displayMessage)) {
 				switch ($actionType) {
 					case "save":
 						if ($e->getCode() == MAPI_E_NO_ACCESS) {
 							$message = mapi_msgstore_openentry($store, $entryid);
-							$messageProps = mapi_getprops($message, array(PR_MESSAGE_CLASS, PR_ENTRYID, PR_PARENT_ENTRYID, PR_STORE_ENTRYID));
+							$messageProps = mapi_getprops($message, [PR_MESSAGE_CLASS, PR_ENTRYID, PR_PARENT_ENTRYID, PR_STORE_ENTRYID]);
 							$messageClass = $messageProps[PR_MESSAGE_CLASS];
 
 							$text = $messageClass !== "IPM.Appointment" ? _('a meeting request') : _('an appointment');
-							$msg = _('You have insufficient privileges to move ' . $text .' in this calendar. The calendar owner can set these using the \'permissions\'-tab of the folder properties (right click the calendar folder > properties > permissions)');
+							$msg = _('You have insufficient privileges to move ' . $text . ' in this calendar. The calendar owner can set these using the \'permissions\'-tab of the folder properties (right click the calendar folder > properties > permissions)');
 
 							$e->setDisplayMessage($msg);
 							$e->setTitle(_('Insufficient privileges'));
@@ -217,18 +218,16 @@
 			parent::handleException($e, $actionType, $store, $parententryid, $entryid, $action);
 		}
 
-
 		/**
 		 * Save the give appointment or meeting request to the calendar.
 		 *
-		 * @param mapistore $store MAPI store of the message
-		 * @param string $parententryid Parent entryid of the message (folder entryid, NOT message entryid)
-		 * @param string $entryid entryid of the message
-		 * @param array $action Action array containing json request
-		 * @param string $actionType The action type which triggered this action
+		 * @param mapistore $store         MAPI store of the message
+		 * @param string    $parententryid Parent entryid of the message (folder entryid, NOT message entryid)
+		 * @param string    $entryid       entryid of the message
+		 * @param array     $action        Action array containing json request
+		 * @param string    $actionType    The action type which triggered this action
 		 */
-		function save($store, $parententryid, $entryid, $action, $actionType = 'save')
-		{
+		public function save($store, $parententryid, $entryid, $action, $actionType = 'save') {
 			$result = false;
 
 			// Save appointment (saveAppointment takes care of creating/modifying exceptions to recurring
@@ -236,49 +235,56 @@
 			$messageProps = $GLOBALS['operations']->saveAppointment($store, $entryid, $parententryid, $action, $actionType, $this->directBookingMeetingRequest);
 
 			// Notify the bus if the save was OK
-			if($messageProps && !(is_array($messageProps) && isset($messageProps['error'])) && !isset($messageProps['remindertimeerror']) ){
+			if ($messageProps && !(is_array($messageProps) && isset($messageProps['error'])) && !isset($messageProps['remindertimeerror'])) {
 				$GLOBALS['bus']->notify(bin2hex($parententryid), TABLE_SAVE, $messageProps);
 				$result = true;
 			}
 
 			$errorMsg = false;
-			if(!$result && isset($messageProps['remindertimeerror']) && !$messageProps['remindertimeerror']){
+			if (!$result && isset($messageProps['remindertimeerror']) && !$messageProps['remindertimeerror']) {
 				$errorMsg = _('Cannot set a reminder to appear before the previous occurrence. Reset reminder to save the change');
-			} else if (isset($messageProps['isexceptionallowed']) && $messageProps['isexceptionallowed'] === false){
+			}
+			elseif (isset($messageProps['isexceptionallowed']) && $messageProps['isexceptionallowed'] === false) {
 				$errorMsg = _('Two occurrences cannot occur on the same day');
-			} elseif(is_array($messageProps) && isset($messageProps['error'])){
-				switch($messageProps['error']){
+			}
+			elseif (is_array($messageProps) && isset($messageProps['error'])) {
+				switch ($messageProps['error']) {
 					case 1:
 						$errorMsg = sprintf(_('You marked \'%s\' as a resource. You cannot schedule a meeting with \'%s\' because you do not have the appropriate permissions for that account. Either enter the name as a required or optional attendee or talk to your administrator about giving you permission to schedule \'%s\'.'), $messageProps['displayname'], $messageProps['displayname'], $messageProps['displayname']);
 						break;
+
 					case 2:
 						$errorMsg = sprintf(_('\'%s\' has declined your meeting because \'%s\' does not automatically accept meeting requests.'), $messageProps['displayname'], $messageProps['displayname']);
 						break;
+
 					case 3:
 						$errorMsg = sprintf(_('\'%s\' has declined your meeting because it is recurring. You must book each meeting separately with this resource.'), $messageProps['displayname']);
 						break;
+
 					case 4:
 						$errorMsg = sprintf(_('\'%s\' is already booked for this specified time. You must use another time or find another resource.'), $messageProps['displayname']);
 						break;
+
 					default:
 						$errorMsg = _('Meeting was not scheduled.');
 						break;
 				}
-			} else {
+			}
+			else {
 				// Recurring but non-existing exception (same as normal open, but add basedate, startdate and enddate)
-				$data = array();
+				$data = [];
 				if ($result) {
 					$data = Conversion::mapMAPI2XML($this->properties, $messageProps);
 
 					// Get recipient information from the saved appointment to update client side
 					// according to the latest recipient related changes only if changes requested from client.
 					$savedAppointment = $GLOBALS['operations']->openMessage($store, $messageProps[PR_ENTRYID]);
-					if(!empty($action['recipients'])) {
+					if (!empty($action['recipients'])) {
 						$recipients = $GLOBALS["operations"]->getRecipientsInfo($savedAppointment);
-						if(!empty($recipients)) {
-							$data["recipients"] = array(
-								"item" => $recipients
-							);
+						if (!empty($recipients)) {
+							$data["recipients"] = [
+								"item" => $recipients,
+							];
 						}
 					}
 
@@ -287,41 +293,41 @@
 					if (!empty($action['attachments'])) {
 						$attachments = $GLOBALS["operations"]->getAttachmentsInfo($savedAppointment);
 						if (!empty($attachments)) {
-							$data["attachments"] = array(
-								"item" => $attachments
-							);
+							$data["attachments"] = [
+								"item" => $attachments,
+							];
 						}
 					}
 
-					$data['action_response'] = Array(
-						'resources_booked' => $this->directBookingMeetingRequest
-					);
+					$data['action_response'] = [
+						'resources_booked' => $this->directBookingMeetingRequest,
+					];
 
-					if(isset($action['message_action']) && isset($action['message_action']['paste'])) {
+					if (isset($action['message_action'], $action['message_action']['paste'])) {
 						$data['action_response']['resources_pasted'] = true;
 					}
-
-				} else {
-					if(!empty($action['message_action']['send'])){
+				}
+				else {
+					if (!empty($action['message_action']['send'])) {
 						$errorMsg = _('Meeting could not be sent.');
-					} else {
+					}
+					else {
 						$errorMsg = _('Meeting could not be saved.');
 					}
 				}
 			}
 
-			if($errorMsg===false){
-
-				$this->addActionData('update', array('item' => $data));
+			if ($errorMsg === false) {
+				$this->addActionData('update', ['item' => $data]);
 				$GLOBALS['bus']->addData($this->getResponseData());
-			} else {
-				$this->sendFeedback(false, array(
+			}
+			else {
+				$this->sendFeedback(false, [
 					'type' => ERROR_ZARAFA,
-					'info' => array(
+					'info' => [
 						'display_message' => $errorMsg,
-					)
-				));
+					],
+				]);
 			}
 		}
 	}
-?>

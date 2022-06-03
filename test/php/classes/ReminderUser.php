@@ -1,13 +1,12 @@
 <?php
-require_once('IPMUser.php');
+
+require_once 'IPMUser.php';
 
 class ReminderUser extends IPMUser {
-
 	/**
-	 * Initialize the TestUser
+	 * Initialize the TestUser.
 	 */
-	protected function initialize()
-	{
+	protected function initialize() {
 		parent::initialize();
 
 		$this->logon();
@@ -17,58 +16,58 @@ class ReminderUser extends IPMUser {
 	}
 
 	/**
-	 * Load all reminders from the server
-	 * @return Array the reminders from the server
+	 * Load all reminders from the server.
+	 *
+	 * @return array the reminders from the server
 	 */
-	public function loadReminders()
-	{
+	public function loadReminders() {
 		$this->logon();
 
-		return $this->execute($this->defaultListModule, array(
-			'list' => array(
-			)
-		));
+		return $this->execute($this->defaultListModule, [
+			'list' => [
+			],
+		]);
 	}
 
 	/**
-	 * Snooze a reminder for the given number of minutes
+	 * Snooze a reminder for the given number of minutes.
+	 *
 	 * @param Binary $entryId The entryid to snooze
-	 * @param Number $time The number of minutes to snooze
-	 * @return Array The server response
+	 * @param Number $time    The number of minutes to snooze
+	 *
+	 * @return array The server response
 	 */
-	public function snoozeReminder($entryId, $time)
-	{
+	public function snoozeReminder($entryId, $time) {
 		$this->logon();
 
-		return $this->execute($this->defaultItemModule, array(
-			'delete' => array(
+		return $this->execute($this->defaultItemModule, [
+			'delete' => [
 				'entryid' => bin2hex($entryId),
-				'message_action' => array(
+				'message_action' => [
 					'action_type' => 'snooze',
-					'snoozeTime' => $time
-				)
-			)
-		));
+					'snoozeTime' => $time,
+				],
+			],
+		]);
 	}
 
 	/**
-	 * Dismiss a reminder
+	 * Dismiss a reminder.
+	 *
 	 * @param Binary $entryId the entryid to snooze
-	 * @return Array The server response
+	 *
+	 * @return array The server response
 	 */
-	public function dismissReminder($entryId)
-	{
+	public function dismissReminder($entryId) {
 		$this->logon();
 
-		return $this->execute($this->defaultItemModule, array(
-			'delete' => array(
+		return $this->execute($this->defaultItemModule, [
+			'delete' => [
 				'entryid' => bin2hex($entryId),
-				'message_action' => array(
-					'action_type' => 'dismiss'
-				)
-			)
-		));
+				'message_action' => [
+					'action_type' => 'dismiss',
+				],
+			],
+		]);
 	}
 }
-
-?>

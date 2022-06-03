@@ -3,31 +3,29 @@
  * Created by PhpStorm.
  * User: zdev
  * Date: 12.01.15
- * Time: 23:35
+ * Time: 23:35.
  */
 
 namespace Files\Core\Util;
 
-
-class PathUtil
-{
+class PathUtil {
 	/**
-	 * get_mime
+	 * get_mime.
 	 *
 	 * Returns the mimetype for the specified file
 	 *
 	 * @static
+	 *
 	 * @param string $filename Filename to get the mime type from
-	 * @param int $mode 0 = full check, 1 = extension check only
+	 * @param int    $mode     0 = full check, 1 = extension check only
 	 *
 	 * @return string the found mimetype or 'application/octet-stream' as fallback
 	 */
-	static function get_mime($filename, $mode = 0)
-	{
+	public static function get_mime($filename, $mode = 0) {
 		// mode 0 = full check
 		// mode 1 = extension check only
 
-		$mime_types = array(
+		$mime_types = [
 			'txt' => 'text/plain',
 			'htm' => 'text/html',
 			'html' => 'text/html',
@@ -86,71 +84,73 @@ class PathUtil
 			'odt' => 'application/vnd.oasis.opendocument.text',
 			'ods' => 'application/vnd.oasis.opendocument.spreadsheet',
 			'odp' => 'application/vnd.oasis.opendocument.presentation',
-		);
+		];
 
 		$exploded = explode('.', $filename);
 		$last = array_pop($exploded);
 		$ext = strtolower($last);
 
 		if (function_exists('mime_content_type') && is_file($filename) && $mode == 0) {
-			$mimetype = mime_content_type($filename);
-			return $mimetype;
-		} elseif (function_exists('finfo_open') && is_file($filename) && $mode == 0) {
+			return mime_content_type($filename);
+		}
+		if (function_exists('finfo_open') && is_file($filename) && $mode == 0) {
 			$finfo = finfo_open(FILEINFO_MIME);
 			$mimetype = finfo_file($finfo, $filename);
 			finfo_close($finfo);
+
 			return $mimetype;
-		} elseif (array_key_exists($ext, $mime_types)) {
-			return $mime_types[$ext];
-		} else {
-			return 'application/octet-stream';
 		}
+		if (array_key_exists($ext, $mime_types)) {
+			return $mime_types[$ext];
+		}
+
+		return 'application/octet-stream';
 	}
 
 	/**
-	 * Splits the filename from the given path
+	 * Splits the filename from the given path.
 	 *
 	 * @static
+	 *
 	 * @param string $path a filesystem path, use / as path separator
 	 *
 	 * @return string the last part of the path, mostly this is the filename
 	 */
-	static function getFilenameFromPath($path)
-	{
+	public static function getFilenameFromPath($path) {
 		$pathParts = explode('/', $path);
+
 		return end($pathParts);
 	}
 
 	/**
-	 * Splits the foldername/path from the given path
+	 * Splits the foldername/path from the given path.
 	 *
 	 * @static
+	 *
 	 * @param string $path
 	 *
 	 * @return string foldername
 	 */
-	static function getFolderNameFromPath($path)
-	{
+	public static function getFolderNameFromPath($path) {
 		$tmp = explode("/", $path);
 		array_pop($tmp);
 		$folder = implode("/", $tmp);
-		$folder = $folder == "" ? "/" : $folder;
 
-		return $folder;
+		return $folder == "" ? "/" : $folder;
 	}
 
 	/**
-	 * creates a security file, which is checked before downloading a file
+	 * creates a security file, which is checked before downloading a file.
 	 *
 	 * @static
-	 * @param string secid A random id
 	 *
-	 * @return void
+	 * @param string secid A random id
+	 * @param mixed $basepath
+	 * @param mixed $secid
 	 */
-	static function createSecIDFile($basepath, $secid)
-	{
+	public static function createSecIDFile($basepath, $secid) {
 		$lockFile = $basepath . DIRECTORY_SEPARATOR . "secid." . $secid;
-		$fh = fopen($lockFile, 'w') or die("can't open secid file");
+		$fh = fopen($lockFile, 'w') or exit("can't open secid file");
 		$stringData = date(DATE_RFC822);
 		fwrite($fh, $stringData);
 		fclose($fh);
@@ -159,16 +159,16 @@ class PathUtil
 	/**
 	 * Sanitize a filename.
 	 * Currently removes all html tags
-	 * and replaces \, /, :, ", |, !, ?, <, > and *
+	 * and replaces \, /, :, ", |, !, ?, <, > and *.
 	 *
 	 * @param string $string
+	 *
 	 * @return string
 	 */
-	static function sanitizeFilename($string)
-	{
+	public static function sanitizeFilename($string) {
 		$cleanerString = preg_replace('/[:\|\"!\*\?\\\\\/]+/i', '', $string);
 		$cleanerString = strip_tags($cleanerString);
-		$cleanerString = preg_replace('/[><]+/i', '', $cleanerString);
-		return $cleanerString;
+
+		return preg_replace('/[><]+/i', '', $cleanerString);
 	}
 }

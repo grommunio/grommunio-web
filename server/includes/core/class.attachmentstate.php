@@ -1,53 +1,51 @@
 <?php
 
 /**
- * AttachmentState
+ * AttachmentState.
  *
  * A wrapper around the State class for handling the Attachment State file.
  * This class supplies operators for correctly managing the State contents.
  */
 class AttachmentState {
-
 	/**
-	 * The basedir in which the attachments for all sessions are found
+	 * The basedir in which the attachments for all sessions are found.
 	 */
 	private $basedir;
 
 	/**
-	 * The directory in which the attachments for the current session are found
+	 * The directory in which the attachments for the current session are found.
 	 */
 	private $sessiondir;
 
 	/**
-	 * The directory in which the session files are created
+	 * The directory in which the session files are created.
 	 */
 	private $attachmentdir = 'attachments';
 
 	/**
-	 * The State object which refers to the Attachments state
+	 * The State object which refers to the Attachments state.
 	 */
 	private $state;
 
 	/**
-	 * List of attachment files from the $state
+	 * List of attachment files from the $state.
 	 */
 	private $files;
 
 	/**
-	 * List of deleted attachment files from the $state
+	 * List of deleted attachment files from the $state.
 	 */
 	private $deleteattachment;
 
 	/**
-	 * List of aborted attachment files while uploading is going on
+	 * List of aborted attachment files while uploading is going on.
 	 */
 	private $abortedattachment;
 
 	/**
-	 * Constructor
+	 * Constructor.
 	 */
-	public function __construct()
-	{
+	public function __construct() {
 		$this->basedir = TMP_PATH . DIRECTORY_SEPARATOR . $this->attachmentdir;
 		$this->sessiondir = $this->basedir . DIRECTORY_SEPARATOR . session_id();
 
@@ -55,12 +53,11 @@ class AttachmentState {
 	}
 
 	/**
-	 * Open the session file
+	 * Open the session file.
 	 *
 	 * The session file is opened and locked so that other processes can not access the state information
 	 */
-	public function open()
-	{
+	public function open() {
 		if (!is_dir($this->sessiondir)) {
 			mkdir($this->sessiondir, 0755, true /* recursive */);
 		}
@@ -80,15 +77,15 @@ class AttachmentState {
 	/**
 	 * Checks if any information regarding attachments is stored in this attachment state.
 	 *
-	 * @param String $message_id The unique identifier for referencing the attachments for a single message
-	 * @return Boolean True to indicate if any changes needed to save in message else false
+	 * @param string $message_id The unique identifier for referencing the attachments for a single message
+	 *
+	 * @return bool True to indicate if any changes needed to save in message else false
 	 */
-	public function isChangesPending($message_id)
-	{
+	public function isChangesPending($message_id) {
 		$files = $this->getAttachmentFiles($message_id);
 		$deletedfiles = $this->getDeletedAttachments($message_id);
 
-		if(empty($files) && empty($deletedfiles)) {
+		if (empty($files) && empty($deletedfiles)) {
 			return false;
 		}
 
@@ -101,23 +98,22 @@ class AttachmentState {
 	 * folder to prevent any other user to be able to access the attachment
 	 * files of another user.
 	 *
-	 * @return String The foldername in which the attachments can be found
+	 * @return string The foldername in which the attachments can be found
 	 */
-	private function getAttachmentFolder()
-	{
+	private function getAttachmentFolder() {
 		return $this->sessiondir;
 	}
 
 	/**
 	 * Obtain the full path for a new filename on the harddisk
 	 * This uses tempnam to generate a new filename in the default
-	 * attachments folder
+	 * attachments folder.
 	 *
-	 * @param String $filename The file for which the temporary path is requested
-	 * @return String The full path to the attachment file
+	 * @param string $filename The file for which the temporary path is requested
+	 *
+	 * @return string The full path to the attachment file
 	 */
-	public function getAttachmentTmpPath($filename)
-	{	
+	public function getAttachmentTmpPath($filename) {
 		$attachmentPath = tempnam($this->getAttachmentFolder(), mb_basename($filename));
 
 		// Convert in UTF-8 properly if any Malformed UTF-8 characters.
@@ -125,31 +121,32 @@ class AttachmentState {
 	}
 
 	/**
-	 * Obtain the full path of the given filename on the harddisk
+	 * Obtain the full path of the given filename on the harddisk.
 	 *
-	 * @param String $filename The file for which the path is requested
-	 * @return String The full path to the attachment file
+	 * @param string $filename The file for which the path is requested
+	 *
+	 * @return string The full path to the attachment file
 	 */
-	public function getAttachmentPath($filename)
-	{
+	public function getAttachmentPath($filename) {
 		return $this->getAttachmentFolder() . DIRECTORY_SEPARATOR . mb_basename($filename);
 	}
 
 	/**
 	 * Check if attachment file which belongs to the given $message_id
 	 * and is identified by the given $attachid is an embedded attachment.
-	 * @param String $message_id The unique identifier for referencing the
-	 * attachments for a single message
-	 * @param String $attachid The unique identifier for referencing the
-	 * attachment
-	 * @return Boolean True if attachment is an embedded else false
+	 *
+	 * @param string $message_id The unique identifier for referencing the
+	 *                           attachments for a single message
+	 * @param string $attachid   The unique identifier for referencing the
+	 *                           attachment
+	 *
+	 * @return bool True if attachment is an embedded else false
 	 */
-	public function isEmbeddedAttachment($message_id, $attachid)
-	{
+	public function isEmbeddedAttachment($message_id, $attachid) {
 		$attach = $this->getAttachmentFile($message_id, $attachid);
 
-		if($attach !== false) {
-			if($attach['sourcetype'] === 'embedded') {
+		if ($attach !== false) {
+			if ($attach['sourcetype'] === 'embedded') {
 				return true;
 			}
 		}
@@ -161,20 +158,21 @@ class AttachmentState {
 	 * Function which identifies whether an attachment is an inline or normal attachment.
 	 *
 	 * @param MAPIAttach $attachment MAPI attachment Object
-	 * @return return true if attachment was inline attachment else return false.
+	 *
+	 * @return return true if attachment was inline attachment else return false
 	 */
-	function isInlineAttachment($attachment)
-	{
-		$props = mapi_attach_getprops($attachment, array(PR_ATTACH_CONTENT_ID, PR_ATTACHMENT_HIDDEN, PR_ATTACH_FLAGS));
+	public function isInlineAttachment($attachment) {
+		$props = mapi_attach_getprops($attachment, [PR_ATTACH_CONTENT_ID, PR_ATTACHMENT_HIDDEN, PR_ATTACH_FLAGS]);
 		$isContentIdSet = isset($props[PR_ATTACH_CONTENT_ID]);
 
 		// PR_ATTACHMENT_HIDDEN property will not be available in case of embedded attachment.
 		$isHidden = isset($props[PR_ATTACHMENT_HIDDEN]) ? $props[PR_ATTACHMENT_HIDDEN] : false;
 		$isInlineAttachmentFlag = (isset($props[PR_ATTACH_FLAGS]) && $props[PR_ATTACH_FLAGS] & 4) ? true : false;
 
-		if($isContentIdSet && $isHidden && $isInlineAttachmentFlag) {
+		if ($isContentIdSet && $isHidden && $isInlineAttachmentFlag) {
 			return true;
 		}
+
 		return false;
 	}
 
@@ -182,17 +180,18 @@ class AttachmentState {
 	 * Function which identifies whether an attachment is contact photo or normal attachment.
 	 *
 	 * @param MAPIAttach $attachment MAPI attachment Object
-	 * @return return true if attachment is contact photo else return false.
+	 *
+	 * @return return true if attachment is contact photo else return false
 	 */
-	function isContactPhoto($attachment)
-	{
-		$attachmentProps = mapi_attach_getprops($attachment, array(PR_ATTACHMENT_CONTACTPHOTO, PR_ATTACHMENT_HIDDEN));
+	public function isContactPhoto($attachment) {
+		$attachmentProps = mapi_attach_getprops($attachment, [PR_ATTACHMENT_CONTACTPHOTO, PR_ATTACHMENT_HIDDEN]);
 		$isHidden = $attachmentProps[PR_ATTACHMENT_HIDDEN];
 		$isAttachmentContactPhoto = (isset($attachmentProps[PR_ATTACHMENT_CONTACTPHOTO]) && $attachmentProps[PR_ATTACHMENT_CONTACTPHOTO]) ? true : false;
 
-		if($isAttachmentContactPhoto && $isHidden) {
+		if ($isAttachmentContactPhoto && $isHidden) {
 			return true;
 		}
+
 		return false;
 	}
 
@@ -200,15 +199,15 @@ class AttachmentState {
 	 * Add a file which was uploaded to the server by moving it to the attachments directory,
 	 * and then register (addAttachmentFile) it.
 	 *
-	 * @param String $message_id The unique identifier for referencing the
-	 * attachments for a single message
-	 * @param String $filename The filename of the attachment
-	 * @param String $uploadedfile The file which was uploaded and will be moved to the attachments directory
-	 * @param Array $fileinfo The attachment data
+	 * @param string $message_id   The unique identifier for referencing the
+	 *                             attachments for a single message
+	 * @param string $filename     The filename of the attachment
+	 * @param string $uploadedfile The file which was uploaded and will be moved to the attachments directory
+	 * @param array  $fileinfo     The attachment data
+	 *
 	 * @return The attachment identifier to be used for referencing the file in the tmp folder
 	 */
-	public function addUploadedAttachmentFile($message_id, $filename, $uploadedfile, $fileinfo)
-	{
+	public function addUploadedAttachmentFile($message_id, $filename, $uploadedfile, $fileinfo) {
 		// Create the destination path, the attachment must
 		// be placed in the attachment folder with a unique name.
 		$filepath = $this->getAttachmentTmpPath($filename);
@@ -225,17 +224,17 @@ class AttachmentState {
 
 	/**
 	 * Move a file from an alternative location to the attachments directory,
-	 * this will call addAttachmentFile to register the attachment to the state
+	 * this will call addAttachmentFile to register the attachment to the state.
 	 *
-	 * @param String $message_id The unique identifier for referencing the
-	 * attachments for a single message
-	 * @param String $filename The filename of the attachment
-	 * @param String $sourcefile The path of the file to move to the attachments directory
-	 * @param Array $fileinfo The attachment data
+	 * @param string $message_id The unique identifier for referencing the
+	 *                           attachments for a single message
+	 * @param string $filename   The filename of the attachment
+	 * @param string $sourcefile The path of the file to move to the attachments directory
+	 * @param array  $fileinfo   The attachment data
+	 *
 	 * @return The attachment identifier to be used for referencing the file in the tmp folder
 	 */
-	public function addProvidedAttachmentFile($message_id, $filename, $sourcefile, $fileinfo)
-	{
+	public function addProvidedAttachmentFile($message_id, $filename, $sourcefile, $fileinfo) {
 		// Create the destination path, the attachment must
 		// be placed in the attachment folder with a unique name.
 		$filepath = $this->getAttachmentTmpPath($filename);
@@ -254,13 +253,13 @@ class AttachmentState {
 	/**
 	 * Add information regarding embedded attachment to attachment state.
 	 *
-	 * @param String $message_id The unique identifier for referencing the
-	 * attachments for a single message
-	 * @param Array $fileinfo The attachment data
+	 * @param string $message_id The unique identifier for referencing the
+	 *                           attachments for a single message
+	 * @param array  $fileinfo   The attachment data
+	 *
 	 * @return The attachment identifier to be used for referencing the file in the tmp folder
 	 */
-	public function addEmbeddedAttachment($message_id, $fileinfo)
-	{
+	public function addEmbeddedAttachment($message_id, $fileinfo) {
 		// generate a random number to be used as unique id of attachment
 		$tmpname = md5(rand());
 
@@ -271,15 +270,14 @@ class AttachmentState {
 
 	/**
 	 * Delete a file which was previously uploaded to the attachments directory,
-	 * this will call removeAttachmentFile to unregister the attachment from the state
+	 * this will call removeAttachmentFile to unregister the attachment from the state.
 	 *
-	 * @param String $message_id The unique identifier for referencing the
-	 * attachments for a single message
-	 * @param String $filename The filename of the attachment to delete
-	 * @param String $attachID The unique identifier for referencing attachment
+	 * @param string $message_id The unique identifier for referencing the
+	 *                           attachments for a single message
+	 * @param string $filename   The filename of the attachment to delete
+	 * @param string $attachID   The unique identifier for referencing attachment
 	 */
-	public function deleteUploadedAttachmentFile($message_id, $filename, $attachID)
-	{
+	public function deleteUploadedAttachmentFile($message_id, $filename, $attachID) {
 		// Create the destination path, the attachment has
 		// previously been placed in the attachment folder
 		$filepath = $this->getAttachmentPath($filename);
@@ -291,13 +289,14 @@ class AttachmentState {
 	}
 
 	/**
-	 * Obtain all files which were registered for the given $message_id
-	 * @param String $message_id The unique identifier for referencing the
-	 * attachments for a single message
-	 * @return Array The array of attachments
+	 * Obtain all files which were registered for the given $message_id.
+	 *
+	 * @param string $message_id The unique identifier for referencing the
+	 *                           attachments for a single message
+	 *
+	 * @return array The array of attachments
 	 */
-	public function getAttachmentFiles($message_id)
-	{
+	public function getAttachmentFiles($message_id) {
 		if ($this->files && isset($this->files[$message_id])) {
 			return $this->files[$message_id];
 		}
@@ -308,15 +307,16 @@ class AttachmentState {
 	/**
 	 * Obtain a single attachment file which belongs to the given $message_id
 	 * and is identified by the given $attachid.
-	 * @param String $message_id The unique identifier for referencing the
-	 * attachments for a single message
-	 * @param String $attachid The unique identifier for referencing the
-	 * attachment
-	 * @return Array The attachment description for the requested attachment
+	 *
+	 * @param string $message_id The unique identifier for referencing the
+	 *                           attachments for a single message
+	 * @param string $attachid   The unique identifier for referencing the
+	 *                           attachment
+	 *
+	 * @return array The attachment description for the requested attachment
 	 */
-	public function getAttachmentFile($message_id, $attachid)
-	{
-		if ($this->files && isset($this->files[$message_id]) && isset($this->files[$message_id][$attachid])) {
+	public function getAttachmentFile($message_id, $attachid) {
+		if ($this->files && isset($this->files[$message_id], $this->files[$message_id][$attachid])) {
 			return $this->files[$message_id][$attachid];
 		}
 
@@ -324,32 +324,33 @@ class AttachmentState {
 	}
 
 	/**
-	 * Add an attachment file to the message
-	 * @param String $message_id The unique identifier for referencing the
-	 * attachments for a single message
-	 * @param String $name The name of the new attachment
-	 * @param Array $attachment The attachment data
+	 * Add an attachment file to the message.
+	 *
+	 * @param string $message_id The unique identifier for referencing the
+	 *                           attachments for a single message
+	 * @param string $name       The name of the new attachment
+	 * @param array  $attachment The attachment data
 	 */
-	public function addAttachmentFile($message_id, $name, $attachment)
-	{
+	public function addAttachmentFile($message_id, $name, $attachment) {
 		if (!$this->files) {
-			$this->files = Array( $message_id => Array() );
-		} else if (!isset($this->files[$message_id])) {
-			$this->files[$message_id] = Array();
+			$this->files = [$message_id => []];
+		}
+		elseif (!isset($this->files[$message_id])) {
+			$this->files[$message_id] = [];
 		}
 
 		$this->files[$message_id][$name] = $attachment;
 	}
 
 	/**
-	 * Remove an attachment file from the message
-	 * @param String $message_id The unique identifier for referencing the
-	 * attachments for a single message
-	 * @param String $name The name of the attachment
-	 * @param String $attachID The unique identifier for referencing attachment
+	 * Remove an attachment file from the message.
+	 *
+	 * @param string $message_id The unique identifier for referencing the
+	 *                           attachments for a single message
+	 * @param string $name       The name of the attachment
+	 * @param string $attachID   The unique identifier for referencing attachment
 	 */
-	public function removeAttachmentFile($message_id, $name, $attachID)
-	{
+	public function removeAttachmentFile($message_id, $name, $attachID) {
 		if ($this->files && isset($this->files[$message_id])) {
 			unset($this->files[$message_id][$name]);
 		}
@@ -360,8 +361,8 @@ class AttachmentState {
 			$found = false;
 			if (!empty($this->files)) {
 				// Loop over and find the attachment from attachID and remove the same
-				foreach($this->files as $tmpDir => $attachment) {
-					foreach($this->files[$tmpDir] as $tmpName => $attachmentVal) {
+				foreach ($this->files as $tmpDir => $attachment) {
+					foreach ($this->files[$tmpDir] as $tmpName => $attachmentVal) {
 						if ($this->files[$tmpDir][$tmpName]['attach_id'] === $attachID) {
 							$found = true;
 							$filepath = $this->getAttachmentPath($tmpName);
@@ -379,31 +380,33 @@ class AttachmentState {
 				// this particular attachment, which will be removed when attachment_state
 				// will be opened again.
 				$this->addAbortedAttachment($message_id, $attachID);
+
 				return;
 			}
 		}
 	}
 
 	/**
-	 * Remove all attachment files from the message
-	 * @param String $message_id The unique identifier for referencing the
-	 * attachments for a single message
+	 * Remove all attachment files from the message.
+	 *
+	 * @param string $message_id The unique identifier for referencing the
+	 *                           attachments for a single message
 	 */
-	public function clearAttachmentFiles($message_id)
-	{
+	public function clearAttachmentFiles($message_id) {
 		if ($this->files) {
 			unset($this->files[$message_id]);
 		}
 	}
 
 	/**
-	 * Obtain all files which were removed for the given $message_id
-	 * @param String $message_id The unique identifier for referencing the
-	 * attachments for a single message
-	 * @return Array The array of attachments
+	 * Obtain all files which were removed for the given $message_id.
+	 *
+	 * @param string $message_id The unique identifier for referencing the
+	 *                           attachments for a single message
+	 *
+	 * @return array The array of attachments
 	 */
-	public function getDeletedAttachments($message_id)
-	{
+	public function getDeletedAttachments($message_id) {
 		if ($this->deleteattachment && isset($this->deleteattachment[$message_id])) {
 			return $this->deleteattachment[$message_id];
 		}
@@ -412,30 +415,31 @@ class AttachmentState {
 	}
 
 	/**
-	 * Add a deleted attachment file to the message
-	 * @param String $message_id The unique identifier for referencing the
-	 * attachments for a single message
-	 * @param String $name The name of the attachment
+	 * Add a deleted attachment file to the message.
+	 *
+	 * @param string $message_id The unique identifier for referencing the
+	 *                           attachments for a single message
+	 * @param string $name       The name of the attachment
 	 */
-	public function addDeletedAttachment($message_id, $name)
-	{
+	public function addDeletedAttachment($message_id, $name) {
 		if (!$this->deleteattachment) {
-			$this->deleteattachment = Array( $message_id => Array() );
-		} else if (!isset($this->deleteattachment[$message_id])) {
-			$this->deleteattachment[$message_id] = Array();
+			$this->deleteattachment = [$message_id => []];
+		}
+		elseif (!isset($this->deleteattachment[$message_id])) {
+			$this->deleteattachment[$message_id] = [];
 		}
 
 		$this->deleteattachment[$message_id][] = $name;
 	}
 
 	/**
-	 * Remove a deleted attachment from the message
-	 * @param String $message_id The unique identifier for referencing the
-	 * attachments for a single message
-	 * @param String $name The name of the attachment
+	 * Remove a deleted attachment from the message.
+	 *
+	 * @param string $message_id The unique identifier for referencing the
+	 *                           attachments for a single message
+	 * @param string $name       The name of the attachment
 	 */
-	public function removeDeletedAttachment($message_id, $name)
-	{
+	public function removeDeletedAttachment($message_id, $name) {
 		if ($this->deleteattachment && isset($this->deleteattachment[$message_id])) {
 			$index = array_search($name, $this->deleteattachment[$message_id]);
 			if ($index !== false) {
@@ -448,33 +452,33 @@ class AttachmentState {
 	/**
 	 * Add an aborted attachment file to the 'abortedattachment' array.
 	 * So that it can be removed from message while it is available in 'files' array.
-	 * @param String $message_id The unique identifier for referencing the
-	 * attachments for a single message
-	 * @param String $attachID The unique identifier for referencing attachment
+	 *
+	 * @param string $message_id The unique identifier for referencing the
+	 *                           attachments for a single message
+	 * @param string $attachID   The unique identifier for referencing attachment
 	 */
-	public function addAbortedAttachment($message_id, $attachID)
-	{
+	public function addAbortedAttachment($message_id, $attachID) {
 		if (!$this->abortedattachment) {
-			$this->abortedattachment = Array( $message_id => Array() );
-		} else if (!isset($this->abortedattachment[$message_id])) {
-			$this->abortedattachment[$message_id] = Array();
+			$this->abortedattachment = [$message_id => []];
+		}
+		elseif (!isset($this->abortedattachment[$message_id])) {
+			$this->abortedattachment[$message_id] = [];
 		}
 
 		$this->abortedattachment[$message_id][] = $attachID;
 	}
 
 	/**
-	 * Remove an aborted attachment from the message and files list
+	 * Remove an aborted attachment from the message and files list.
 	 */
-	public function removeAbortedAttachments()
-	{
-		if (empty($this->files)){
+	public function removeAbortedAttachments() {
+		if (empty($this->files)) {
 			return;
 		}
 
 		// Loop over and find the attachment from attachID and remove the same
-		foreach($this->files as $tmpDir => $attachment) {
-			foreach($this->files[$tmpDir] as $tmpName => $attachmentVal) {
+		foreach ($this->files as $tmpDir => $attachment) {
+			foreach ($this->files[$tmpDir] as $tmpName => $attachmentVal) {
 				if (!isset($this->abortedattachment[$tmpDir])) {
 					continue;
 				}
@@ -499,12 +503,12 @@ class AttachmentState {
 	}
 
 	/**
-	 * Remove all deleted attachment files from the message
-	 * @param String $message_id The unique identifier for referencing the
-	 * attachments for a single message
+	 * Remove all deleted attachment files from the message.
+	 *
+	 * @param string $message_id The unique identifier for referencing the
+	 *                           attachments for a single message
 	 */
-	public function clearDeletedAttachments($message_id)
-	{
+	public function clearDeletedAttachments($message_id) {
 		if ($this->deleteattachment) {
 			unset($this->deleteattachment[$message_id]);
 		}
@@ -514,8 +518,7 @@ class AttachmentState {
 	 * Close the state and flush all information back
 	 * to the State file on the disk.
 	 */
-	public function close()
-	{
+	public function close() {
 		$this->state->write('files', $this->files, false);
 		$this->state->write('deleteattachment', $this->deleteattachment, false);
 		$this->state->write('abortedattachment', $this->abortedattachment, false);
@@ -524,15 +527,16 @@ class AttachmentState {
 	}
 
 	/**
-	 * Cleans all old attachments in the attachment directory
-	 * @param Integer $maxLifeTime The maximum allowed age of files in seconds.
+	 * Cleans all old attachments in the attachment directory.
+	 *
+	 * @param int $maxLifeTime the maximum allowed age of files in seconds
 	 */
 	public function clean($maxLifeTime = UPLOADED_ATTACHMENT_MAX_LIFETIME) {
 		cleanTemp($this->basedir, $maxLifeTime);
 
 		// remove base directory also
-		if(is_dir($this->sessiondir)) {
-			/**
+		if (is_dir($this->sessiondir)) {
+			/*
 			 * FIXME: We should remove the folder when it is not needed,
 			 * Because of WA-6523 this is creating an issue, so need to fix this properly
 			 */
@@ -544,4 +548,3 @@ class AttachmentState {
 		}
 	}
 }
-?>

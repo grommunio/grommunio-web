@@ -1,64 +1,65 @@
 <?php
-require_once('classes/grommunioUser.php');
-require_once('classes/ContactUser.php');
-require_once('classes/TestData.php');
-require_once('classes/grommunioTest.php');
-require_once('classes/RestoreMessageUser.php');
+
+require_once 'classes/grommunioUser.php';
+require_once 'classes/ContactUser.php';
+require_once 'classes/TestData.php';
+require_once 'classes/grommunioTest.php';
+require_once 'classes/RestoreMessageUser.php';
 
 /**
- * ContactTest
+ * ContactTest.
  *
  * Tests small Contact operations (create, delete, open).
+ *
+ * @internal
+ * @coversNothing
  */
 class ContactTest extends grommunioTest {
 	/**
-	 * The default user
+	 * The default user.
 	 */
 	private $user;
 
 	/**
-	 * The default user which will be sending request to retrieve soft deleted folders
+	 * The default user which will be sending request to retrieve soft deleted folders.
 	 */
 	private $restoreUser;
 
 	/**
-	 * The message which will be handled
+	 * The message which will be handled.
 	 */
 	private $message;
 
 	/**
-	 * During setUp we create the user
+	 * During setUp we create the user.
 	 */
-	protected function setUp()
-	{
+	protected function setUp() {
 		parent::setUp();
 
 		$this->user = $this->addUser(new ContactUser(new grommunioUser(GROMMUNIO_USER1_NAME, GROMMUNIO_USER1_PASSWORD)));
 		$this->restoreUser = $this->addUser(new RestoreMessageUser(new grommunioUser(GROMMUNIO_USER1_NAME, GROMMUNIO_USER1_PASSWORD)));
 		$this->restoreUser->setDefaultTestFolderEntryId($this->user->getDefaultTestFolderEntryId());
-		
-		$this->message = array(
+
+		$this->message = [
 			'props' => TestData::getContact(),
-		);
+		];
 	}
 
 	/**
-	 * Test if the Contact is saved into the correct folder
+	 * Test if the Contact is saved into the correct folder.
 	 */
-	public function testSavingContactResult()
-	{
+	public function testSavingContactResult() {
 		$savedContact = $this->user->saveContact($this->message);
-		$entryid = $this->user->getContactProps($savedContact, array(PR_ENTRYID));
+		$entryid = $this->user->getContactProps($savedContact, [PR_ENTRYID]);
 		$foundContact = $this->user->getContact($entryid[PR_ENTRYID]);
 
 		$this->assertInternalType(PHPUnit_Framework_Constraint_IsType::TYPE_RESOURCE, $foundContact, 'Test that the found Contact is a resource');
 	}
 
 	/**
-	 * Test if all properties in the new contact are correct
+	 * Test if all properties in the new contact are correct.
 	 */
-	public function testSavingContactProperties()
-	{
+	public function testSavingContactProperties() {
 		$savedContact = $this->user->saveContact($this->message);
 		$props = $this->user->getContactProps($savedContact);
 
@@ -68,15 +69,15 @@ class ContactTest extends grommunioTest {
 	}
 
 	/**
-	 * Test if the Contact can be opened
+	 * Test if the Contact can be opened.
 	 */
-	public function testOpeningContact()
-	{
+	public function testOpeningContact() {
 		try {
 			$savedContact = $this->user->saveContact($this->message);
-			$entryid = $this->user->getContactProps($savedContact, array(PR_ENTRYID));
+			$entryid = $this->user->getContactProps($savedContact, [PR_ENTRYID]);
 			$openedContact = $this->user->openContact($entryid[PR_ENTRYID]);
-		} catch (Exception $e) {
+		}
+		catch (Exception $e) {
 			$this->fail('Test that the Contact can be opened: ' . $e->getMessage() . PHP_EOL . $e->getTraceAsString());
 		}
 
@@ -86,12 +87,11 @@ class ContactTest extends grommunioTest {
 	}
 
 	/**
-	 * Test if the opened Contact contains the correct properties
+	 * Test if the opened Contact contains the correct properties.
 	 */
-	public function testOpeningContactProperties()
-	{
+	public function testOpeningContactProperties() {
 		$savedContact = $this->user->saveContact($this->message);
-		$entryid = $this->user->getContactProps($savedContact, array(PR_ENTRYID));
+		$entryid = $this->user->getContactProps($savedContact, [PR_ENTRYID]);
 		$openedContact = $this->user->openContact($entryid[PR_ENTRYID]);
 
 		$props = $openedContact['item']['item']['props'];
@@ -101,22 +101,21 @@ class ContactTest extends grommunioTest {
 	}
 
 	/**
-	 * Test if the Contact can be modified by emptying the body
+	 * Test if the Contact can be modified by emptying the body.
 	 */
-	public function testUpdatingContactEmptyBody()
-	{
+	public function testUpdatingContactEmptyBody() {
 		$savedContact = $this->user->saveContact($this->message);
-		$entryid = $this->user->getContactProps($savedContact, array(PR_ENTRYID, PR_PARENT_ENTRYID, PR_STORE_ENTRYID));
+		$entryid = $this->user->getContactProps($savedContact, [PR_ENTRYID, PR_PARENT_ENTRYID, PR_STORE_ENTRYID]);
 		$openedContact = $this->user->openContact($entryid[PR_ENTRYID]);
-		$savedContact = $this->user->saveContact(array(
+		$savedContact = $this->user->saveContact([
 			'entryid' => bin2hex($entryid[PR_ENTRYID]),
 			'parent_entryid' => bin2hex($entryid[PR_PARENT_ENTRYID]),
 			'store_entryid' => bin2hex($entryid[PR_STORE_ENTRYID]),
-			'props' => array(
+			'props' => [
 				'body' => '',
-				'subject' => ''
-			)
-		));
+				'subject' => '',
+			],
+		]);
 		$openedContact = $this->user->openContact($entryid[PR_ENTRYID]);
 		$props = $openedContact['item']['item']['props'];
 
@@ -126,15 +125,15 @@ class ContactTest extends grommunioTest {
 	}
 
 	/**
-	 * Test if a Contact can be deleted
+	 * Test if a Contact can be deleted.
 	 */
-	public function testDeletingContacts()
-	{
+	public function testDeletingContacts() {
 		try {
 			$savedContact = $this->user->saveContact($this->message);
-			$props = $this->user->getContactProps($savedContact, array(PR_ENTRYID));
+			$props = $this->user->getContactProps($savedContact, [PR_ENTRYID]);
 			$this->user->deleteContact($props[PR_ENTRYID]);
-		} catch (Exception $e) {
+		}
+		catch (Exception $e) {
 			$this->fail('Test that the Contact can be deleted: ' . $e->getMessage() . PHP_EOL . $e->getTraceAsString());
 		}
 
@@ -152,22 +151,22 @@ class ContactTest extends grommunioTest {
 	}
 
 	/**
-	 * Test if a Contact can be Moved
+	 * Test if a Contact can be Moved.
 	 */
-	public function testMovingContacts()
-	{
+	public function testMovingContacts() {
 		try {
 			$savedContact = $this->user->saveContact($this->message);
-			$props = $this->user->getContactProps($savedContact, array(PR_ENTRYID));
-			$this->user->copyContact($props[PR_ENTRYID], array(), true);
-		} catch (Exception $e) {
+			$props = $this->user->getContactProps($savedContact, [PR_ENTRYID]);
+			$this->user->copyContact($props[PR_ENTRYID], [], true);
+		}
+		catch (Exception $e) {
 			$this->fail('Test that the Contact can be Moved: ' . $e->getMessage() . PHP_EOL . $e->getTraceAsString());
 		}
 
 		$contactItems = $this->user->loadContacts(false);
 
 		$this->assertCount(1, $contactItems, 'Test that 1 Contact was found in the folder');
-		//For simplicity we are moving a message into same folder, so check entryid is changed or not
+		// For simplicity we are moving a message into same folder, so check entryid is changed or not
 		$this->assertNotEquals(bin2hex($props[PR_ENTRYID]), $contactItems[0]['entryid'], 'Test that the entryid is not equal');
 
 		$softdeletedItems = $this->restoreUser->loadSoftdeletedItems();
@@ -175,16 +174,16 @@ class ContactTest extends grommunioTest {
 	}
 
 	/**
-	 * Test if a Contact can be copied
+	 * Test if a Contact can be copied.
 	 */
-	public function testCopyingContacts()
-	{
+	public function testCopyingContacts() {
 		try {
 			$savedContact = $this->user->saveContact($this->message);
-			$props = $this->user->getContactProps($savedContact, array(PR_ENTRYID));
+			$props = $this->user->getContactProps($savedContact, [PR_ENTRYID]);
 
 			$this->user->copyContact($props[PR_ENTRYID]);
-		} catch (Exception $e) {
+		}
+		catch (Exception $e) {
 			$this->fail('Test that the Contact can be copied: ' . $e->getMessage() . PHP_EOL . $e->getTraceAsString());
 		}
 
@@ -202,4 +201,3 @@ class ContactTest extends grommunioTest {
 		$this->assertEmpty($softdeletedItems, 'Test that no messages exists in the soft delete system');
 	}
 }
-?>

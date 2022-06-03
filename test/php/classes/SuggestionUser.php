@@ -1,15 +1,14 @@
 <?php
 
-require_once('TestUser.php');
+require_once 'TestUser.php';
 
 /**
- * SuggestionUser
+ * SuggestionUser.
  *
  * An extension to the TestUser which can request recipient suggestions
  * based on a portion of the email address.
  */
 class SuggestionUser extends TestUser {
-
 	/**
 	 * The name of the default itemmodule to which
 	 * we send all item requests.
@@ -23,10 +22,9 @@ class SuggestionUser extends TestUser {
 	protected $defaultListModule;
 
 	/**
-	 * Initialize the TestUser
+	 * Initialize the TestUser.
 	 */
-	protected function initialize()
-	{
+	protected function initialize() {
 		parent::initialize();
 
 		$this->logon();
@@ -36,34 +34,34 @@ class SuggestionUser extends TestUser {
 	}
 
 	/**
-	 * Load all suggestions from the server
-	 * @param String $query The search query
-	 * @return Array The response from the server
+	 * Load all suggestions from the server.
+	 *
+	 * @param string $query The search query
+	 *
+	 * @return array The response from the server
 	 */
-	public function listSuggestions($query)
-	{
+	public function listSuggestions($query) {
 		$this->logon();
 
-		return $this->execute($this->defaultListModule, array(
-			'list' => array(
-				'query' => $query
-			)
-		));
+		return $this->execute($this->defaultListModule, [
+			'list' => [
+				'query' => $query,
+			],
+		]);
 	}
 
 	/**
-	 * Delete a suggestion
-	 * @param Array $recipient The recipient record properties along with email address/ smtp address which should be removed
-	 * @return Array The response from the server
+	 * Delete a suggestion.
+	 *
+	 * @param array $recipient The recipient record properties along with email address/ smtp address which should be removed
+	 *
+	 * @return array The response from the server
 	 */
-	public function deleteSuggestion($recipient)
-	{
+	public function deleteSuggestion($recipient) {
 		$this->logon();
 
-		return $this->execute($this->defaultListModule, array(
-			'delete' => $recipient
-		));
+		return $this->execute($this->defaultListModule, [
+			'delete' => $recipient,
+		]);
 	}
 }
-
-?>

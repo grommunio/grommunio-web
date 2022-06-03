@@ -1,25 +1,27 @@
 <?php
-require_once('classes/grommunioUser.php');
-require_once('classes/TestUser.php');
-require_once('classes/grommunioTest.php');
+
+require_once 'classes/grommunioUser.php';
+require_once 'classes/TestUser.php';
+require_once 'classes/grommunioTest.php';
 
 /**
- * LoadPluginsTest
+ * LoadPluginsTest.
  *
  * Tests loading the plugins
+ *
+ * @internal
+ * @coversNothing
  */
 class LoadPluginsTest extends grommunioTest {
-
 	/**
 	 * The default user.
 	 */
 	private $user;
 
 	/**
-	 * During setUp we create the user
+	 * During setUp we create the user.
 	 */
-	protected function setUp()
-	{
+	protected function setUp() {
 		parent::setUp();
 
 		$this->user = $this->addUser(new TestUser(new grommunioUser(GROMMUNIO_USER1_NAME, GROMMUNIO_USER1_PASSWORD)));
@@ -31,11 +33,13 @@ class LoadPluginsTest extends grommunioTest {
 	}
 
 	/**
-	 * Test if the plugins will not be loaded when the Plugin Manager is disabled
+	 * Test if the plugins will not be loaded when the Plugin Manager is disabled.
+	 *
 	 * @dataProvider providerLoaderTypes
+	 *
+	 * @param mixed $type
 	 */
-	public function testDisabledPlugins($type)
-	{
+	public function testDisabledPlugins($type) {
 		$GLOBALS['PluginManager'] = new PluginManager(false);
 		$GLOBALS['PluginManager']->detectPlugins();
 		$GLOBALS['PluginManager']->initPlugins($type);
@@ -45,11 +49,11 @@ class LoadPluginsTest extends grommunioTest {
 	}
 
 	/**
-	 * Test if the XML has not been read when the plugin manager is disabled
+	 * Test if the XML has not been read when the plugin manager is disabled.
+	 *
 	 * @dataProvider providerLoaderTypes
 	 */
-	public function testDisabledPluginFiles()
-	{
+	public function testDisabledPluginFiles() {
 		$GLOBALS['PluginManager'] = new PluginManager(false);
 		$GLOBALS['PluginManager']->detectPlugins();
 
@@ -59,11 +63,13 @@ class LoadPluginsTest extends grommunioTest {
 	}
 
 	/**
-	 * Test if the XML has been properly read
+	 * Test if the XML has been properly read.
+	 *
 	 * @dataProvider providerLoaderTypes
+	 *
+	 * @param mixed $type
 	 */
-	public function testInitPluginFiles($type)
-	{
+	public function testInitPluginFiles($type) {
 		$GLOBALS['PluginManager'] = new PluginManager(true);
 		$GLOBALS['PluginManager']->detectPlugins();
 		$GLOBALS['PluginManager']->initPlugins($type);
@@ -81,7 +87,8 @@ class LoadPluginsTest extends grommunioTest {
 			$this->assertEquals(TYPE_CONFIG, $config['serverfiles'][$type][0]['type'], 'Test that the \'type\' property is \'config\'');
 			$this->assertEquals(LOAD_RELEASE, $config['serverfiles'][$type][0]['load'], 'Test that the \'load\' property is \'release\'');
 			$this->assertEmpty($config['serverfiles'][$type][0]['module'], 'Test that the \'module\' property is empty');
-		} else {
+		}
+		else {
 			$this->assertEmpty($config['serverfiles'][$type], 'Test that the config component of \'plugin2\' doesn\'t contain serverfiles');
 		}
 		$this->assertArrayNotHasKey($type, $config['clientfiles'], 'Test that the config component of \'plugin2\' doesn\'t contain clientfiles');
@@ -99,16 +106,19 @@ class LoadPluginsTest extends grommunioTest {
 			$this->assertEquals(TYPE_MODULE, $component['serverfiles'][$type][1]['type'], 'Test that the \'type\' property is \'module\'');
 			$this->assertEquals(LOAD_RELEASE, $component['serverfiles'][$type][1]['load'], 'Test that the \'load\' property is \'release\'');
 			$this->assertEquals('pluginplugin2module', $component['serverfiles'][$type][1]['module'], 'Test that the \'module\' property is \'pluginplugin2module\'');
-		} else {
+		}
+		else {
 			$this->assertEmpty($config['serverfiles'][$type], 'Test that the component of \'plugin2\' doesn\'t contain serverfiles');
 		}
 		$this->assertCount(1, $component['clientfiles'][$type], 'Test that the component of \'plugin2\' contains one clientfiles');
 		$this->assertEquals($type, $component['clientfiles'][$type][0]['load'], 'Test that the \'load\' property is correct');
 		if ($type == LOAD_RELEASE) {
 			$this->assertEquals('js/plugin2.js', $component['clientfiles'][$type][0]['file'], 'Test that the \'file\' property is \'plugin2.js\'');
-		} else if ($type == LOAD_DEBUG) {
+		}
+		elseif ($type == LOAD_DEBUG) {
 			$this->assertEquals('js/plugin2-debug.js', $component['clientfiles'][$type][0]['file'], 'Test that the \'file\' property is \'plugin2-debug.js\'');
-		} else {
+		}
+		else {
 			$this->assertEquals('js/Plugin2.js', $component['clientfiles'][$type][0]['file'], 'Test that the \'file\' property is \'Plugin2.js\'');
 		}
 		$this->assertArrayNotHasKey($type, $config['resourcefiles'], 'Test that the config component of \'plugin2\' doesn\'t contain resourcefiles');
@@ -125,11 +135,13 @@ class LoadPluginsTest extends grommunioTest {
 	}
 
 	/**
-	 * Test if the XML will not be read when a particular plugin is disabled
+	 * Test if the XML will not be read when a particular plugin is disabled.
+	 *
 	 * @dataProvider providerLoaderTypes
+	 *
+	 * @param mixed $type
 	 */
-	public function testInitDisabledPluginFiles($type)
-	{
+	public function testInitDisabledPluginFiles($type) {
 		$GLOBALS['PluginManager'] = new PluginManager(true);
 		$GLOBALS['PluginManager']->detectPlugins('plugin2');
 		$GLOBALS['PluginManager']->initPlugins($type);
@@ -139,11 +151,13 @@ class LoadPluginsTest extends grommunioTest {
 	}
 
 	/**
-	 * Test if the correct client files can be loaded
+	 * Test if the correct client files can be loaded.
+	 *
 	 * @dataProvider providerLoaderTypes
+	 *
+	 * @param mixed $type
 	 */
-	public function testLoadClientFiles($type)
-	{
+	public function testLoadClientFiles($type) {
 		$GLOBALS['PluginManager'] = new PluginManager(true);
 		$GLOBALS['PluginManager']->detectPlugins();
 
@@ -154,11 +168,13 @@ class LoadPluginsTest extends grommunioTest {
 			$this->assertTrue(in_array($basedir . 'plugin2.js', $files), 'Test that the release clientfile is correctly loaded');
 			$this->assertFalse(in_array($basedir . 'plugin2-debug.js', $files), 'Test that the debug clientfile is not loaded');
 			$this->assertFalse(in_array($basedir . 'Plugin2.js', $files), 'Test that the source file is not loaded');
-		} else if ($type === LOAD_DEBUG) {
+		}
+		elseif ($type === LOAD_DEBUG) {
 			$this->assertFalse(in_array($basedir . 'plugin2.js', $files), 'Test that the release clientfile is not loaded');
 			$this->assertTrue(in_array($basedir . 'plugin2-debug.js', $files), 'Test that the debug clientfile is correctly loaded');
 			$this->assertFalse(in_array($basedir . 'Plugin2.js', $files), 'Test that the source clientfile is not loaded');
-		} else if ($type === LOAD_SOURCE) {
+		}
+		elseif ($type === LOAD_SOURCE) {
 			$this->assertFalse(in_array($basedir . 'plugin2.js', $files), 'Test that the release clientfile is not loaded');
 			$this->assertFalse(in_array($basedir . 'plugin2-debug.js', $files), 'Test that the debug clientfile is not loaded');
 			$this->assertTrue(in_array($basedir . 'Plugin2.js', $files), 'Test that the source clientfile is correctly loaded');
@@ -166,11 +182,13 @@ class LoadPluginsTest extends grommunioTest {
 	}
 
 	/**
-	 * Test if the correct server files can be loaded
+	 * Test if the correct server files can be loaded.
+	 *
 	 * @dataProvider providerLoaderTypes
+	 *
+	 * @param mixed $type
 	 */
-	public function testLoadServerFiles($type)
-	{
+	public function testLoadServerFiles($type) {
 		$GLOBALS['PluginManager'] = new PluginManager(true);
 		$GLOBALS['PluginManager']->detectPlugins();
 
@@ -182,11 +200,13 @@ class LoadPluginsTest extends grommunioTest {
 	}
 
 	/**
-	 * Test if the correct resource files can be loaded
+	 * Test if the correct resource files can be loaded.
+	 *
 	 * @dataProvider providerLoaderTypes
+	 *
+	 * @param mixed $type
 	 */
-	public function testLoadResourceFiles($type)
-	{
+	public function testLoadResourceFiles($type) {
 		$GLOBALS['PluginManager'] = new PluginManager(true);
 		$GLOBALS['PluginManager']->detectPlugins();
 
@@ -196,10 +216,12 @@ class LoadPluginsTest extends grommunioTest {
 		if ($type === LOAD_RELEASE) {
 			$this->assertTrue(in_array($basedir . 'plugin3.css', $files), 'Test that the release/debug resourcefile is correctly loaded');
 			$this->assertFalse(in_array($basedir . 'plugin3-styles.css', $files), 'Test that the source resourcefile is not loaded');
-		} else if ($type === LOAD_DEBUG) {
+		}
+		elseif ($type === LOAD_DEBUG) {
 			$this->assertTrue(in_array($basedir . 'plugin3.css', $files), 'Test that the release/debug resourcefile is correctly loaded');
 			$this->assertFalse(in_array($basedir . 'plugin3-styles.css', $files), 'Test that the source file is not loaded');
-		} else if ($type === LOAD_SOURCE) {
+		}
+		elseif ($type === LOAD_SOURCE) {
 			$this->assertFalse(in_array($basedir . 'plugin3.css', $files), 'Test that the release/debug file is not loaded');
 			$this->assertTrue(in_array($basedir . 'plugin3-styles.css', $files), 'Test that the source resourcefile is not loaded');
 		}
@@ -207,16 +229,13 @@ class LoadPluginsTest extends grommunioTest {
 
 	/**
 	 * Data provider for the different Load types which are available.
-	 * The first argument to the test cases which use this provider is the type
+	 * The first argument to the test cases which use this provider is the type.
 	 */
-	public function providerLoaderTypes()
-	{
-		return array(
-			array(LOAD_RELEASE),
-			array(LOAD_DEBUG),
-			array(LOAD_SOURCE),
-		);
+	public function providerLoaderTypes() {
+		return [
+			[LOAD_RELEASE],
+			[LOAD_DEBUG],
+			[LOAD_SOURCE],
+		];
 	}
 }
-
-?>

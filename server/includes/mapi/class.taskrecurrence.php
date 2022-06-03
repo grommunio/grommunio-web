@@ -1,18 +1,16 @@
 <?php
 
-	class TaskRecurrence extends BaseRecurrence
-	{
+	class TaskRecurrence extends BaseRecurrence {
 		/**
-		 * Timezone info which is always false for task
+		 * Timezone info which is always false for task.
 		 */
-		var $tz = false;
+		public $tz = false;
 
-		function __construct($store, $message)
-		{
+		public function __construct($store, $message) {
 			$this->store = $store;
 			$this->message = $message;
 
-			$properties = array();
+			$properties = [];
 			$properties["entryid"] = PR_ENTRYID;
 			$properties["parent_entryid"] = PR_PARENT_ENTRYID;
 			$properties["icon_index"] = PR_ICON_INDEX;
@@ -59,30 +57,37 @@
 
 		/**
 		 * Function which saves recurrence and also regenerates task if necessary.
+		 *
 		 *@param array $recur new recurrence properties
+		 *
 		 *@return array of properties of regenerated task else false
 		 */
-		function setRecurrence(&$recur)
-		{
+		public function setRecurrence(&$recur) {
 			$this->recur = $recur;
-			$this->action =& $recur;
+			$this->action = &$recur;
 
-			if(!isset($this->recur["changed_occurrences"]))
-				$this->recur["changed_occurrences"] = Array();
+			if (!isset($this->recur["changed_occurrences"])) {
+				$this->recur["changed_occurrences"] = [];
+			}
 
-			if(!isset($this->recur["deleted_occurrences"]))
-				$this->recur["deleted_occurrences"] = Array();
+			if (!isset($this->recur["deleted_occurrences"])) {
+				$this->recur["deleted_occurrences"] = [];
+			}
 
-			if (!isset($this->recur['startocc'])) $this->recur['startocc'] = 0;
-			if (!isset($this->recur['endocc'])) $this->recur['endocc'] = 0;
+			if (!isset($this->recur['startocc'])) {
+				$this->recur['startocc'] = 0;
+			}
+			if (!isset($this->recur['endocc'])) {
+				$this->recur['endocc'] = 0;
+			}
 
 			// Save recurrence because we need proper startrecurrdate and endrecurrdate
 			$this->saveRecurrence();
 
 			// Update $this->recur with proper startrecurrdate and endrecurrdate updated after saving recurrence
-			$msgProps = mapi_getprops($this->message, array($this->proptags['recurring_data']));
+			$msgProps = mapi_getprops($this->message, [$this->proptags['recurring_data']]);
 			$recurring_data = $this->parseRecurrence($msgProps[$this->proptags['recurring_data']]);
-			foreach($recurring_data as $key => $value) {
+			foreach ($recurring_data as $key => $value) {
 				$this->recur[$key] = $value;
 			}
 
@@ -93,25 +98,23 @@
 		}
 
 		/**
-		 * Sets task object to first occurrence if startdate/duedate of task object is different from first occurrence
+		 * Sets task object to first occurrence if startdate/duedate of task object is different from first occurrence.
 		 */
-		function setFirstOccurrence()
-		{
+		public function setFirstOccurrence() {
 			// Check if it is already the first occurrence
-			if($this->action['start'] == $this->recur["start"]){
+			if ($this->action['start'] == $this->recur["start"]) {
 				return;
-			} else {
-				$items = $this->getNextOccurrence();
-
-				$props = array();
-				$props[$this->proptags['startdate']] = $items[$this->proptags['startdate']];
-				$props[$this->proptags['commonstart']] = $items[$this->proptags['startdate']];
-
-				$props[$this->proptags['duedate']] = $items[$this->proptags['duedate']];
-				$props[$this->proptags['commonend']] = $items[$this->proptags['duedate']];
-
-				mapi_setprops($this->message, $props);
 			}
+			$items = $this->getNextOccurrence();
+
+			$props = [];
+			$props[$this->proptags['startdate']] = $items[$this->proptags['startdate']];
+			$props[$this->proptags['commonstart']] = $items[$this->proptags['startdate']];
+
+			$props[$this->proptags['duedate']] = $items[$this->proptags['duedate']];
+			$props[$this->proptags['commonend']] = $items[$this->proptags['duedate']];
+
+			mapi_setprops($this->message, $props);
 		}
 
 		/**
@@ -119,24 +122,23 @@
 		 * existing task to next occurrence.
 		 *
 		 *@param array $recur $action from client
-		 *@return boolean if moving to next occurrence succeed then it returns
+		 *
+		 *@return bool if moving to next occurrence succeed then it returns
 		 *		properties of either newly created task or existing task ELSE
 		 *		false because that was last occurrence
 		 */
-		function moveToNextOccurrence()
-		{
+		public function moveToNextOccurrence() {
 			$result = false;
-			/**
+			/*
 			 * Every recurring task should have a 'duedate'. If a recurring task is created with no start/end date
 			 * then we create first two occurrence separately and for first occurrence recurrence has ended.
 			 */
-			if ((empty($this->action['startdate']) && empty($this->action['duedate']))
-				|| ($this->action['complete'] == 1) || (isset($this->action['deleteOccurrence']) && $this->action['deleteOccurrence'])){
-
+			if ((empty($this->action['startdate']) && empty($this->action['duedate'])) ||
+				($this->action['complete'] == 1) || (isset($this->action['deleteOccurrence']) && $this->action['deleteOccurrence'])) {
 				$nextOccurrence = $this->getNextOccurrence();
-				$result = mapi_getprops($this->message, array(PR_ENTRYID, PR_PARENT_ENTRYID, PR_STORE_ENTRYID));
+				$result = mapi_getprops($this->message, [PR_ENTRYID, PR_PARENT_ENTRYID, PR_STORE_ENTRYID]);
 
-				$props = array();
+				$props = [];
 				if ($nextOccurrence) {
 					if (!isset($this->action['deleteOccurrence'])) {
 						// Create current occurrence as separate task
@@ -161,16 +163,18 @@
 					}
 
 					$props[$this->proptags["dead_occurrence"]] = false;
-				} else {
-					if (isset($this->action['deleteOccurrence']) && $this->action['deleteOccurrence'])
+				}
+				else {
+					if (isset($this->action['deleteOccurrence']) && $this->action['deleteOccurrence']) {
 						return false;
+					}
 
 					// Didn't get next occurrence, probably this is the last one, so recurrence ends here
 					$props[$this->proptags["dead_occurrence"]] = true;
 					$props[$this->proptags["datecompleted"]] = $this->action['datecompleted'];
 					$props[$this->proptags["task_f_creator"]] = true;
 
-					//OL props
+					// OL props
 					$props[$this->proptags["side_effects"]] = 1296;
 					$props[$this->proptags["icon_index"]] = 1280;
 				}
@@ -182,17 +186,17 @@
 		}
 
 		/**
-		 * Function which return properties of next occurrence
+		 * Function which return properties of next occurrence.
+		 *
 		 *@return array startdate/enddate of next occurrence
 		 */
-		function getNextOccurrence()
-		{
+		public function getNextOccurrence() {
 			if ($this->recur) {
-				$items = array();
+				$items = [];
 
-				//@TODO: fix start of range
+				// @TODO: fix start of range
 				$start = isset($this->messageprops[$this->proptags["duedate"]]) ? $this->messageprops[$this->proptags["duedate"]] : $this->action['start'];
-				$dayend = ($this->recur['term'] == 0x23) ? 0x7fffffff : $this->dayStartOf($this->recur["end"]);
+				$dayend = ($this->recur['term'] == 0x23) ? 0x7FFFFFFF : $this->dayStartOf($this->recur["end"]);
 
 				// Fix recur object
 				$this->recur['startocc'] = 0;
@@ -208,15 +212,19 @@
 		/**
 		 * Function which clones current occurrence and sets appropriate properties.
 		 * The original recurring item is moved to next occurrence.
-		 *@param boolean $markComplete true if existing occurrence has to be mark complete else false.
+		 *
+		 *@param bool $markComplete true if existing occurrence has to be mark complete else false
 		 */
-		function regenerateTask($markComplete)
-		{
+		public function regenerateTask($markComplete) {
 			// Get all properties
 			$taskItemProps = mapi_getprops($this->message);
 
-			if (isset($this->action["subject"])) $taskItemProps[$this->proptags["subject"]] = $this->action["subject"];
-			if (isset($this->action["importance"])) $taskItemProps[$this->proptags["importance"]] = $this->action["importance"];
+			if (isset($this->action["subject"])) {
+				$taskItemProps[$this->proptags["subject"]] = $this->action["subject"];
+			}
+			if (isset($this->action["importance"])) {
+				$taskItemProps[$this->proptags["importance"]] = $this->action["importance"];
+			}
 			if (isset($this->action["startdate"])) {
 				$taskItemProps[$this->proptags["startdate"]] = $this->action["startdate"];
 				$taskItemProps[$this->proptags["commonstart"]] = $this->action["startdate"];
@@ -246,31 +254,31 @@
 			$taskItemProps[$this->proptags["dead_occurrence"]] = true;
 			$taskItemProps[$this->proptags["task_f_creator"]] = true;
 
-			//OL props
+			// OL props
 			$taskItemProps[$this->proptags["side_effects"]] = 1296;
 			$taskItemProps[$this->proptags["icon_index"]] = 1280;
 
 			// Copy recipients
 			$recipienttable = mapi_message_getrecipienttable($this->message);
-			$recipients = mapi_table_queryallrows($recipienttable, array(PR_ENTRYID, PR_DISPLAY_NAME, PR_EMAIL_ADDRESS, PR_RECIPIENT_ENTRYID, PR_RECIPIENT_TYPE, PR_SEND_INTERNET_ENCODING, PR_SEND_RICH_INFO, PR_RECIPIENT_DISPLAY_NAME, PR_ADDRTYPE, PR_DISPLAY_TYPE, PR_RECIPIENT_TRACKSTATUS, PR_RECIPIENT_TRACKSTATUS_TIME, PR_RECIPIENT_FLAGS, PR_ROWID));
+			$recipients = mapi_table_queryallrows($recipienttable, [PR_ENTRYID, PR_DISPLAY_NAME, PR_EMAIL_ADDRESS, PR_RECIPIENT_ENTRYID, PR_RECIPIENT_TYPE, PR_SEND_INTERNET_ENCODING, PR_SEND_RICH_INFO, PR_RECIPIENT_DISPLAY_NAME, PR_ADDRTYPE, PR_DISPLAY_TYPE, PR_RECIPIENT_TRACKSTATUS, PR_RECIPIENT_TRACKSTATUS_TIME, PR_RECIPIENT_FLAGS, PR_ROWID]);
 
 			$copy_to_recipientTable = mapi_message_getrecipienttable($newMessage);
-			$copy_to_recipientRows = mapi_table_queryallrows($copy_to_recipientTable, array(PR_ROWID));
-			foreach($copy_to_recipientRows as $recipient) {
-				mapi_message_modifyrecipients($newMessage, MODRECIP_REMOVE, array($recipient));
+			$copy_to_recipientRows = mapi_table_queryallrows($copy_to_recipientTable, [PR_ROWID]);
+			foreach ($copy_to_recipientRows as $recipient) {
+				mapi_message_modifyrecipients($newMessage, MODRECIP_REMOVE, [$recipient]);
 			}
 			mapi_message_modifyrecipients($newMessage, MODRECIP_ADD, $recipients);
 
 			// Copy attachments
 			$attachmentTable = mapi_message_getattachmenttable($this->message);
-			if($attachmentTable) {
-				$attachments = mapi_table_queryallrows($attachmentTable, array(PR_ATTACH_NUM, PR_ATTACH_SIZE, PR_ATTACH_LONG_FILENAME, PR_ATTACHMENT_HIDDEN, PR_DISPLAY_NAME, PR_ATTACH_METHOD));
+			if ($attachmentTable) {
+				$attachments = mapi_table_queryallrows($attachmentTable, [PR_ATTACH_NUM, PR_ATTACH_SIZE, PR_ATTACH_LONG_FILENAME, PR_ATTACHMENT_HIDDEN, PR_DISPLAY_NAME, PR_ATTACH_METHOD]);
 
-				foreach($attachments as $attach_props){
+				foreach ($attachments as $attach_props) {
 					$attach_old = mapi_message_openattach($this->message, (int) $attach_props[PR_ATTACH_NUM]);
 					$attach_newResourceMsg = mapi_message_createattach($newMessage);
 
-					mapi_copyto($attach_old, array(), array(), $attach_newResourceMsg, 0);
+					mapi_copyto($attach_old, [], [], $attach_newResourceMsg, 0);
 					mapi_savechanges($attach_newResourceMsg);
 				}
 			}
@@ -292,27 +300,29 @@
 			}
 
 			// We need these properties to notify client
-			return mapi_getprops($newMessage, array(PR_ENTRYID, PR_PARENT_ENTRYID, PR_STORE_ENTRYID));
+			return mapi_getprops($newMessage, [PR_ENTRYID, PR_PARENT_ENTRYID, PR_STORE_ENTRYID]);
 		}
 
 		/**
 		 * processOccurrenceItem, adds an item to a list of occurrences, but only if the
-		 * resulting occurrence starts or ends in the interval <$start, $end>
-		 * @param array $items reference to the array to be added to
-		 * @param date $start start of timeframe in GMT TIME
-		 * @param date $end end of timeframe in GMT TIME
-		 * @param date $basedate (hour/sec/min assumed to be 00:00:00) in LOCAL TIME OF THE OCCURRENCE
+		 * resulting occurrence starts or ends in the interval <$start, $end>.
+		 *
+		 * @param array $items    reference to the array to be added to
+		 * @param date  $start    start of timeframe in GMT TIME
+		 * @param date  $end      end of timeframe in GMT TIME
+		 * @param date  $basedate (hour/sec/min assumed to be 00:00:00) in LOCAL TIME OF THE OCCURRENCE
+		 * @param mixed $now
 		 */
-		function processOccurrenceItem(&$items, $start, $end, $now)
-		{
+		public function processOccurrenceItem(&$items, $start, $end, $now) {
 			if ($now > $start) {
-				$newItem = array();
+				$newItem = [];
 				$newItem[$this->proptags['startdate']] = $now;
 
 				// If startdate and enddate are set on task, then slide enddate according to duration
-				if (isset($this->messageprops[$this->proptags["startdate"]]) && isset($this->messageprops[$this->proptags["duedate"]])) {
+				if (isset($this->messageprops[$this->proptags["startdate"]], $this->messageprops[$this->proptags["duedate"]])) {
 					$newItem[$this->proptags['duedate']] = $newItem[$this->proptags['startdate']] + ($this->messageprops[$this->proptags["duedate"]] - $this->messageprops[$this->proptags["startdate"]]);
-				} else {
+				}
+				else {
 					$newItem[$this->proptags['duedate']] = $newItem[$this->proptags['startdate']];
 				}
 
@@ -321,15 +331,16 @@
 		}
 
 		/**
-		 * Function which marks existing occurrence to 'Complete'
+		 * Function which marks existing occurrence to 'Complete'.
+		 *
 		 *@param array $recur array action from client
+		 *
 		 *@return array of properties of regenerated task else false
 		 */
-		function markOccurrenceComplete(&$recur)
-		{
+		public function markOccurrenceComplete(&$recur) {
 			// Fix timezone object
 			$this->tz = false;
-			$this->action =& $recur;
+			$this->action = &$recur;
 			$dead_occurrence = isset($this->messageprops[$this->proptags['dead_occurrence']]) ? $this->messageprops[$this->proptags['dead_occurrence']] : false;
 
 			if (!$dead_occurrence) {
@@ -341,11 +352,11 @@
 
 		/**
 		 * Function which sets reminder on recurring task after existing occurrence has been deleted or marked complete.
+		 *
 		 *@param array $nextOccurrence properties of next occurrence
 		 */
-		function setReminder($nextOccurrence)
-		{
-			$props = array();
+		public function setReminder($nextOccurrence) {
+			$props = [];
 			if ($nextOccurrence) {
 				// Check if reminder is reset. Default is 'false'
 				$reset_reminder = isset($this->messageprops[$this->proptags['reset_reminder']]) ? $this->messageprops[$this->proptags['reset_reminder']] : false;
@@ -365,23 +376,25 @@
 					$props[$this->proptags['flagdueby']] = $next_reminder_time;
 					$this->action['reminder'] = $props[$this->proptags['reminder']] = true;
 				}
-			} else {
+			}
+			else {
 				// Didn't get next occurrence, probably this is the last occurrence
 				$props[$this->proptags['reminder']] = false;
 				$props[$this->proptags['reset_reminder']] = false;
 			}
 
-			if (!empty($props))
+			if (!empty($props)) {
 				mapi_setprops($this->message, $props);
+			}
 		}
 
 		/**
 		 * Function which recurring task to next occurrence.
-		 * It simply doesn't regenerate task
-		 @param array $action
+		 * It simply doesn't regenerate task.
+		 *
+		 * @param array $action
 		 */
-		function deleteOccurrence($action)
-		{
+		public function deleteOccurrence($action) {
 			$this->tz = false;
 			$this->action = $action;
 			$result = $this->moveToNextOccurrence();
@@ -391,4 +404,3 @@
 			return $result;
 		}
 	}
-?>

@@ -5,10 +5,9 @@ require_once __DIR__ . "/Files/Core/class.uploadhandler.php";
 require_once __DIR__ . "/Files/Core/class.recipienthandler.php";
 require_once __DIR__ . "/Files/Backend/class.backendstore.php";
 
-use \Files\Core\DownloadHandler;
-use \Files\Core\UploadHandler;
-use \Files\Core\RecipientHandler;
-use \Files\Core\Util\Logger;
+use Files\Core\DownloadHandler;
+use Files\Core\RecipientHandler;
+use Files\Core\UploadHandler;
 
 define("FILES_FOLDER", 0);
 define("FILES_FILE", 1);
@@ -19,52 +18,50 @@ define('ICON_FOLDER', 0x00001502);
 define('ICON_FILES', 0x00001506);
 
 /**
- * Files Plugin
+ * Files Plugin.
  *
  * Integrates Files into the grommunio environment.
  */
-class Pluginfiles extends Plugin
-{
+class Pluginfiles extends Plugin {
 	/**
-	 * Function initializes the Plugin and registers all hooks
-	 *
-	 * @return void
+	 * Function initializes the Plugin and registers all hooks.
 	 */
-	function init()
-	{
+	public function init() {
 		$this->registerHook('server.core.settings.init.before');
 		$this->registerHook('server.index.load.custom');
 	}
 
 	/**
-	 * Function is executed when a hook is triggered by the PluginManager
+	 * Function is executed when a hook is triggered by the PluginManager.
 	 *
 	 * @param string $eventID the id of the triggered hook
-	 * @param mixed $data object(s) related to the hook
-	 *
-	 * @return void
+	 * @param mixed  $data    object(s) related to the hook
 	 */
-	function execute($eventID, &$data)
-	{
+	public function execute($eventID, &$data) {
 		switch ($eventID) {
-			case 'server.core.settings.init.before' :
+			case 'server.core.settings.init.before':
 				$this->injectPluginSettings($data);
 				break;
+
 			case 'server.index.load.custom':
-				switch($data['name']) {
+				switch ($data['name']) {
 				case 'files_get_recipients':
 					RecipientHandler::doGetRecipients();
 					break;
+
 				case 'download_file':
 					DownloadHandler::doDownload();
 					break;
+
 				case 'upload_file':
 					UploadHandler::doUpload();
 					break;
+
 				case 'form':
 					if (isset($_GET['backend'])) {
 						$backend = urldecode($_GET["backend"]);
-					} else {
+					}
+					else {
 						$backend = '';
 					}
 					$backendstore = Files\Backend\BackendStore::getInstance();
@@ -72,10 +69,12 @@ class Pluginfiles extends Plugin
 					if ($backendstore->backendExists($backend)) {
 						$backendInstance = $backendstore->getInstanceOfBackend($backend);
 						$formdata = $backendInstance->getFormConfig();
-						die($formdata);
-					} else {
-						die("Specified backend does not exist!");
+
+						exit($formdata);
 					}
+
+						exit("Specified backend does not exist!");
+
 					break;
 			}
 			break;
@@ -87,38 +86,35 @@ class Pluginfiles extends Plugin
 	 * settings. Registers the sysadmin defaults for the FILES plugin.
 	 *
 	 * @param array $data Reference to the data of the triggered hook
-	 *
-	 * @return void
 	 */
-	function injectPluginSettings(&$data)
-	{
-		$data['settingsObj']->addSysAdminDefaults(Array(
-			'zarafa' => Array(
-				'v1' => Array(
-					'main' => Array(
-						'notifier' => Array(
-							'info' => Array(
-								'files' => Array(
-									'value' => "dropdown"        // static notifier
-								)
-							)
-						)
-					),
-					'contexts' => Array(
-						'files' => Array(
+	public function injectPluginSettings(&$data) {
+		$data['settingsObj']->addSysAdminDefaults([
+			'zarafa' => [
+				'v1' => [
+					'main' => [
+						'notifier' => [
+							'info' => [
+								'files' => [
+									'value' => "dropdown",        // static notifier
+								],
+							],
+						],
+					],
+					'contexts' => [
+						'files' => [
 							'ask_before_delete' => PLUGIN_FILES_ASK_BEFORE_DELETE,
-							'webapp_tmp' => TMP_PATH
-						)
-					),
-					'plugins' => Array(
-						'files' => Array(
+							'webapp_tmp' => TMP_PATH,
+						],
+					],
+					'plugins' => [
+						'files' => [
 							'enable' => PLUGIN_FILES_USER_DEFAULT_ENABLE,
 							'onlyoffice_enabled' => PLUGIN_FILES_ONLYOFFICE_ENABLE,
-							'onlyoffice_filetypes' => PLUGIN_FILES_ONLYOFFICE_FILETYPES
-						)
-					)
-				)
-			)
-		));
+							'onlyoffice_filetypes' => PLUGIN_FILES_ONLYOFFICE_FILETYPES,
+						],
+					],
+				],
+			],
+		]);
 	}
 }

@@ -1,12 +1,15 @@
 <?php
-require_once('classes/grommunioTest.php');
-require_once(BASE_PATH . 'server/includes/loader.php');
+
+require_once 'classes/grommunioTest.php';
+require_once BASE_PATH . 'server/includes/loader.php';
 
 /**
- * Test the FileLoader
+ * Test the FileLoader.
+ *
+ * @internal
+ * @coversNothing
  */
 class FileLoaderTest extends grommunioTest {
-
 	public function testExtjsJavascriptFiles() {
 		$loader = new FileLoader();
 		$files = $loader->getExtjsJavascriptFiles(LOAD_RELEASE);

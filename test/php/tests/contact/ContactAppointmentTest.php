@@ -1,23 +1,27 @@
 <?php
-require_once('classes/grommunioUser.php');
-require_once('classes/ContactUser.php');
-require_once('classes/CalendarUser.php');
-require_once('classes/TestData.php');
-require_once('classes/grommunioTest.php');
+
+require_once 'classes/grommunioUser.php';
+require_once 'classes/ContactUser.php';
+require_once 'classes/CalendarUser.php';
+require_once 'classes/TestData.php';
+require_once 'classes/grommunioTest.php';
 
 /**
- * ContactAppointmentTest
+ * ContactAppointmentTest.
  *
  * Tests functionality of creating appointments on birthday and anniversary properties in contacts.
+ *
+ * @internal
+ * @coversNothing
  */
 class ContactAppointmentTest extends grommunioTest {
 	/**
-	 * The default user
+	 * The default user.
 	 */
 	private $user;
 
 	/**
-	 * The message which will be handled
+	 * The message which will be handled.
 	 */
 	private $message;
 
@@ -27,10 +31,9 @@ class ContactAppointmentTest extends grommunioTest {
 	private $userTags;
 
 	/**
-	 * During setUp we create the user
+	 * During setUp we create the user.
 	 */
-	protected function setUp()
-	{
+	protected function setUp() {
 		parent::setUp();
 
 		$this->user = $this->addUser(new ContactUser(new grommunioUser(GROMMUNIO_USER1_NAME, GROMMUNIO_USER1_PASSWORD)));
@@ -38,21 +41,21 @@ class ContactAppointmentTest extends grommunioTest {
 
 		$this->userTags = $this->user->getContactPropTags();
 
-		$this->message = array(
+		$this->message = [
 			'props' => TestData::getContact(),
-		);
+		];
 	}
 
 	/**
-	 * Test if appointments are created for birthday and anniversary
+	 * Test if appointments are created for birthday and anniversary.
 	 */
-	public function testContactAppointments()
-	{
+	public function testContactAppointments() {
 		try {
 			$savedContact = $this->user->saveContact($this->message);
 
-			$props = $this->user->getContactProps($savedContact, array($this->userTags['birthday_eventid'], $this->userTags['anniversary_eventid']));
-		} catch (Exception $e) {
+			$props = $this->user->getContactProps($savedContact, [$this->userTags['birthday_eventid'], $this->userTags['anniversary_eventid']]);
+		}
+		catch (Exception $e) {
 			$this->fail('Test that the Appointment for birthday/anniversary is created for Contact: ' . $e->getMessage() . PHP_EOL . $e->getTraceAsString());
 		}
 
@@ -62,15 +65,15 @@ class ContactAppointmentTest extends grommunioTest {
 	}
 
 	/**
-	 * Test if appointments can be loaded in calendar
+	 * Test if appointments can be loaded in calendar.
 	 */
-	public function testContactAppointmentsInCalendar()
-	{
+	public function testContactAppointmentsInCalendar() {
 		try {
 			$savedContact = $this->user->saveContact($this->message);
 
 			$appointments = $this->calendarUser->loadAppointments();
-		} catch (Exception $e) {
+		}
+		catch (Exception $e) {
 			$this->fail('Test that the Appointment for birthday/anniversary can be loaded in the Calendar: ' . $e->getMessage() . PHP_EOL . $e->getTraceAsString());
 		}
 
@@ -78,17 +81,17 @@ class ContactAppointmentTest extends grommunioTest {
 	}
 
 	/**
-	 * Test if birthday appointment can be opened from calendar
+	 * Test if birthday appointment can be opened from calendar.
 	 */
-	public function testOpeningContactBirthdayAppointment()
-	{
+	public function testOpeningContactBirthdayAppointment() {
 		try {
 			$savedContact = $this->user->saveContact($this->message);
 
-			$props = $this->user->getContactProps($savedContact, array($this->userTags['birthday_eventid']));
+			$props = $this->user->getContactProps($savedContact, [$this->userTags['birthday_eventid']]);
 
 			$birthdayAppointment = $this->calendarUser->openAppointment($props[$this->userTags['birthday_eventid']]);
-		} catch (Exception $e) {
+		}
+		catch (Exception $e) {
 			$this->fail('Test that the Appointment for birthday can be opened: ' . $e->getMessage() . PHP_EOL . $e->getTraceAsString());
 		}
 
@@ -98,17 +101,17 @@ class ContactAppointmentTest extends grommunioTest {
 	}
 
 	/**
-	 * Test if anniversary appointment can be opened from calendar
+	 * Test if anniversary appointment can be opened from calendar.
 	 */
-	public function testOpeningContactAnniversaryAppointment()
-	{
+	public function testOpeningContactAnniversaryAppointment() {
 		try {
 			$savedContact = $this->user->saveContact($this->message);
 
-			$props = $this->user->getContactProps($savedContact, array($this->userTags['anniversary_eventid']));
+			$props = $this->user->getContactProps($savedContact, [$this->userTags['anniversary_eventid']]);
 
 			$anniversaryAppointment = $this->calendarUser->openAppointment($props[$this->userTags['anniversary_eventid']]);
-		} catch (Exception $e) {
+		}
+		catch (Exception $e) {
 			$this->fail('Test that the Appointment for anniversary can be opened: ' . $e->getMessage() . PHP_EOL . $e->getTraceAsString());
 		}
 
@@ -118,19 +121,19 @@ class ContactAppointmentTest extends grommunioTest {
 	}
 
 	/**
-	 * Test if properties are properly generated for birthday appointment
+	 * Test if properties are properly generated for birthday appointment.
 	 */
-	public function testContactBirthdayAppointmentProps()
-	{
+	public function testContactBirthdayAppointmentProps() {
 		try {
 			$savedContact = $this->user->saveContact($this->message);
 
-			$contactProps = $this->user->getContactProps($savedContact, array($this->userTags['birthday_eventid'], $this->userTags['birthday']));
+			$contactProps = $this->user->getContactProps($savedContact, [$this->userTags['birthday_eventid'], $this->userTags['birthday']]);
 
 			$birthdayAppointment = $this->calendarUser->openAppointment($contactProps[$this->userTags['birthday_eventid']]);
 
 			$props = $birthdayAppointment['item']['item']['props'];
-		} catch (Exception $e) {
+		}
+		catch (Exception $e) {
 			$this->fail('Test thatg the Appointment for birthday can be opened: ' . $e->getMessage() . PHP_EOL . $e->getTraceAsString());
 		}
 
@@ -163,19 +166,19 @@ class ContactAppointmentTest extends grommunioTest {
 	}
 
 	/**
-	 * Test if properties are properly generated for anniversary appointment
+	 * Test if properties are properly generated for anniversary appointment.
 	 */
-	public function testContactAnniversaryAppointmentProps()
-	{
+	public function testContactAnniversaryAppointmentProps() {
 		try {
 			$savedContact = $this->user->saveContact($this->message);
 
-			$contactProps = $this->user->getContactProps($savedContact, array($this->userTags['anniversary_eventid'], $this->userTags['wedding_anniversary']));
+			$contactProps = $this->user->getContactProps($savedContact, [$this->userTags['anniversary_eventid'], $this->userTags['wedding_anniversary']]);
 
 			$anniversaryAppointment = $this->calendarUser->openAppointment($contactProps[$this->userTags['anniversary_eventid']]);
 
 			$props = $anniversaryAppointment['item']['item']['props'];
-		} catch (Exception $e) {
+		}
+		catch (Exception $e) {
 			$this->fail('Test thatg the Appointment for anniversary can be opened: ' . $e->getMessage() . PHP_EOL . $e->getTraceAsString());
 		}
 
@@ -208,16 +211,15 @@ class ContactAppointmentTest extends grommunioTest {
 	}
 
 	/**
-	 * Test if appointment is not duplicated in calendar after updating same contact
+	 * Test if appointment is not duplicated in calendar after updating same contact.
 	 */
-	public function testContactAppointmentsNotDuplicated()
-	{
+	public function testContactAppointmentsNotDuplicated() {
 		try {
 			unset($this->message['props']['wedding_anniversary']);
 
 			$savedContact = $this->user->saveContact($this->message);
 
-			$props = $this->user->getContactProps($savedContact, array(PR_ENTRYID, $this->userTags['birthday_eventid']));
+			$props = $this->user->getContactProps($savedContact, [PR_ENTRYID, $this->userTags['birthday_eventid']]);
 
 			// update birthday time
 			$this->message['entryid'] = bin2hex($props[PR_ENTRYID]);
@@ -227,7 +229,8 @@ class ContactAppointmentTest extends grommunioTest {
 			$savedContact = $this->user->saveContact($this->message);
 
 			$appointments = $this->calendarUser->loadAppointments();
-		} catch (Exception $e) {
+		}
+		catch (Exception $e) {
 			$this->fail('Test that the Appointment is updated in Calendar after updating birthday in Contact: ' . $e->getMessage() . PHP_EOL . $e->getTraceAsString());
 		}
 
@@ -237,14 +240,13 @@ class ContactAppointmentTest extends grommunioTest {
 
 	/**
 	 * Test if appointment is updated in calendar after updating birthday in contact
-	 * For this test the birthday is placed in the Winter time
+	 * For this test the birthday is placed in the Winter time.
 	 */
-	public function testContactUpdateAppointment()
-	{
+	public function testContactUpdateAppointment() {
 		try {
 			$savedContact = $this->user->saveContact($this->message);
 
-			$props = $this->user->getContactProps($savedContact, array(PR_ENTRYID, $this->userTags['birthday_eventid']));
+			$props = $this->user->getContactProps($savedContact, [PR_ENTRYID, $this->userTags['birthday_eventid']]);
 
 			// update birthday time
 			$this->message['entryid'] = bin2hex($props[PR_ENTRYID]);
@@ -253,12 +255,13 @@ class ContactAppointmentTest extends grommunioTest {
 
 			$savedContact = $this->user->saveContact($this->message);
 
-			$contactProps = $this->user->getContactProps($savedContact, array($this->userTags['birthday_eventid'], $this->userTags['birthday']));
+			$contactProps = $this->user->getContactProps($savedContact, [$this->userTags['birthday_eventid'], $this->userTags['birthday']]);
 
 			$birthdayAppointment = $this->calendarUser->openAppointment($contactProps[$this->userTags['birthday_eventid']]);
 
 			$props = $birthdayAppointment['item']['item']['props'];
-		} catch (Exception $e) {
+		}
+		catch (Exception $e) {
 			$this->fail('Test that the Appointment is updated in Calendar after updating birthday in Contact: ' . $e->getMessage() . PHP_EOL . $e->getTraceAsString());
 		}
 
@@ -278,14 +281,13 @@ class ContactAppointmentTest extends grommunioTest {
 
 	/**
 	 * Test if appointment is updated in calendar after updating birthday in contact
-	 * For this test the birthday is placed in the Summer time
+	 * For this test the birthday is placed in the Summer time.
 	 */
-	public function testContactUpdateAppointmentDST()
-	{
+	public function testContactUpdateAppointmentDST() {
 		try {
 			$savedContact = $this->user->saveContact($this->message);
 
-			$props = $this->user->getContactProps($savedContact, array(PR_ENTRYID, $this->userTags['birthday_eventid']));
+			$props = $this->user->getContactProps($savedContact, [PR_ENTRYID, $this->userTags['birthday_eventid']]);
 
 			// update birthday time
 			$this->message['entryid'] = bin2hex($props[PR_ENTRYID]);
@@ -294,12 +296,13 @@ class ContactAppointmentTest extends grommunioTest {
 
 			$savedContact = $this->user->saveContact($this->message);
 
-			$contactProps = $this->user->getContactProps($savedContact, array($this->userTags['birthday_eventid'], $this->userTags['birthday']));
+			$contactProps = $this->user->getContactProps($savedContact, [$this->userTags['birthday_eventid'], $this->userTags['birthday']]);
 
 			$birthdayAppointment = $this->calendarUser->openAppointment($contactProps[$this->userTags['birthday_eventid']]);
 
 			$props = $birthdayAppointment['item']['item']['props'];
-		} catch (Exception $e) {
+		}
+		catch (Exception $e) {
 			$this->fail('Test that the Appointment is updated in Calendar after updating birthday in Contact: ' . $e->getMessage() . PHP_EOL . $e->getTraceAsString());
 		}
 
@@ -318,14 +321,13 @@ class ContactAppointmentTest extends grommunioTest {
 	}
 
 	/**
-	 * Test if appointment is created if the appointment is deleted for the birthday of contact
+	 * Test if appointment is created if the appointment is deleted for the birthday of contact.
 	 */
-	public function testContactUpdateDeletedAppointment()
-	{
+	public function testContactUpdateDeletedAppointment() {
 		try {
 			$savedContact = $this->user->saveContact($this->message);
 
-			$props = $this->user->getContactProps($savedContact, array(PR_ENTRYID, $this->userTags['birthday_eventid']));
+			$props = $this->user->getContactProps($savedContact, [PR_ENTRYID, $this->userTags['birthday_eventid']]);
 
 			// delete the appointment
 			$this->calendarUser->deleteAppointment($props[$this->userTags['birthday_eventid']]);
@@ -338,10 +340,11 @@ class ContactAppointmentTest extends grommunioTest {
 			$savedContact = $this->user->saveContact($this->message);
 
 			// get the new entryid of appointment
-			$props = $this->user->getContactProps($savedContact, array($this->userTags['birthday_eventid']));
+			$props = $this->user->getContactProps($savedContact, [$this->userTags['birthday_eventid']]);
 
 			$foundAppointment = $this->calendarUser->getAppointment($props[$this->userTags['birthday_eventid']]);
-		} catch (Exception $e) {
+		}
+		catch (Exception $e) {
 			$this->fail('Test that the Appointment is updated in Calendar after updating birthday in Contact: ' . $e->getMessage() . PHP_EOL . $e->getTraceAsString());
 		}
 
@@ -349,14 +352,13 @@ class ContactAppointmentTest extends grommunioTest {
 	}
 
 	/**
-	 * Test if appointment is deleted if birthday/anniversary date is removed from contact
+	 * Test if appointment is deleted if birthday/anniversary date is removed from contact.
 	 */
-	public function testContactDeleteAppointmentByRemovingProperty()
-	{
+	public function testContactDeleteAppointmentByRemovingProperty() {
 		try {
 			$savedContact = $this->user->saveContact($this->message);
 
-			$props = $this->user->getContactProps($savedContact, array(PR_ENTRYID, $this->userTags['birthday_eventid'], $this->userTags['anniversary_eventid']));
+			$props = $this->user->getContactProps($savedContact, [PR_ENTRYID, $this->userTags['birthday_eventid'], $this->userTags['anniversary_eventid']]);
 
 			// remove birthday/anniversary date
 			$this->message['entryid'] = bin2hex($props[PR_ENTRYID]);
@@ -367,10 +369,11 @@ class ContactAppointmentTest extends grommunioTest {
 
 			$savedContact = $this->user->saveContact($this->message);
 
-			$props = $this->user->getContactProps($savedContact, array(PR_ENTRYID, $this->userTags['birthday_eventid'], $this->userTags['anniversary_eventid']));
+			$props = $this->user->getContactProps($savedContact, [PR_ENTRYID, $this->userTags['birthday_eventid'], $this->userTags['anniversary_eventid']]);
 
 			$appointments = $this->calendarUser->loadAppointments();
-		} catch (Exception $e) {
+		}
+		catch (Exception $e) {
 			$this->fail('Test that the Appointment is updated in Calendar after updating birthday in Contact: ' . $e->getMessage() . PHP_EOL . $e->getTraceAsString());
 		}
 
@@ -381,10 +384,9 @@ class ContactAppointmentTest extends grommunioTest {
 	}
 
 	/**
-	 * Test if appointment is deleted when contact is deleted
+	 * Test if appointment is deleted when contact is deleted.
 	 */
-	public function testContactDeleteAppointment()
-	{
+	public function testContactDeleteAppointment() {
 		try {
 			$savedContact = $this->user->saveContact($this->message, false);
 
@@ -392,11 +394,11 @@ class ContactAppointmentTest extends grommunioTest {
 			$this->user->deleteContact(hex2bin($savedContact['entryid']));
 
 			$appointments = $this->calendarUser->loadAppointments();
-		} catch (Exception $e) {
+		}
+		catch (Exception $e) {
 			$this->fail('Test that the Appointment is updated in Calendar after updating birthday in Contact: ' . $e->getMessage() . PHP_EOL . $e->getTraceAsString());
 		}
 
 		$this->assertCount(0, $appointments, 'Test that there are no appointments in the calendar');
 	}
 }
-?>

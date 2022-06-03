@@ -1,4 +1,5 @@
 <?php
+
 // Load the release files (concatenated, compressed)
 define("LOAD_RELEASE", 1);
 // Load the debug files (concatenated, not compressed)
@@ -9,31 +10,32 @@ define("LOAD_SOURCE", 3);
 define('DEBUG_LOADER', LOAD_SOURCE);
 define('PATH_PLUGIN_DIR', '.');
 
-include('defaults.php');
-include('server/includes/loader.php');
-include('server/includes/core/class.pluginmanager.php');
+include 'defaults.php';
+include 'server/includes/loader.php';
+include 'server/includes/core/class.pluginmanager.php';
 
 function create_arg($files) {
 	$output = '';
-	foreach($files as $file) {
+	foreach ($files as $file) {
 		$output .= file_get_contents($file);
 	}
+
 	return $output;
 }
 
 // Only include extjs-mod
 function filter_extjsmod($file) {
-	return strpos($file, "extjs-mod") !== FALSE;
+	return strpos($file, "extjs-mod") !== false;
 }
 
-if ($argc < 3 ) {
-    exit("Usage: loadorder <extjs|grommunio> <filename>\n");
+if ($argc < 3) {
+	exit("Usage: loadorder <extjs|grommunio> <filename>\n");
 }
 
 $arg = $argv[1];
 $filename = $argv[2];
 if ($arg !== "extjs" && $arg !== "grommunio") {
-	exit("Invalid argument $arg");
+	exit("Invalid argument {$arg}");
 }
 
 # TODO: refactor pluginmanager out
@@ -49,5 +51,3 @@ if ($arg === "grommunio") {
 	$files = $loader->getZarafaJavascriptFiles(LOAD_SOURCE);
 	file_put_contents($filename, create_arg($files));
 }
-
-?>

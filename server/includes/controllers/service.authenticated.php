@@ -19,11 +19,11 @@
 	 *
 	 */
 
-	require_once(BASE_PATH . 'server/includes/core/class.response.php');
-	require_once( BASE_PATH . 'server/includes/core/class.webappauthentication.php');
+	require_once BASE_PATH . 'server/includes/core/class.response.php';
+	require_once BASE_PATH . 'server/includes/core/class.webappauthentication.php';
 
 	// This request only works with GET
-	if ( $_SERVER['REQUEST_METHOD'] !== 'GET' ){
+	if ($_SERVER['REQUEST_METHOD'] !== 'GET') {
 		Response::wrongMethod();
 	}
 
@@ -33,8 +33,9 @@
 	// We will always respond with status 200 for this request.
 	// The response will tell the requester if he is authenticated
 	// or not.
-	echo json_encode(array(
+	echo json_encode([
 		'authenticated' => WebAppAuthentication::isAuthenticated(),
-		'username' => WebAppAuthentication::getUserName()
-	));
-	die();
+		'username' => WebAppAuthentication::getUserName(),
+	]);
+
+	exit();

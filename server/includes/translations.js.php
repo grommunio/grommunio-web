@@ -1,7 +1,7 @@
 <?php
 	header("Content-Type: text/javascript; charset=utf-8");
 
-	header('Expires: '.gmdate('D, d M Y H:i:s',time() + EXPIRES_TIME).' GMT');
+	header('Expires: ' . gmdate('D, d M Y H:i:s', time() + EXPIRES_TIME) . ' GMT');
 	header('Cache-Control: max-age=' . EXPIRES_TIME . ',must-revalidate');
 
 	// Pragma: cache doesn't really exist. But since session_start() automatically
@@ -17,18 +17,22 @@
 /**
  * Convert the charset to UTF-8. If it is an array it will loop through all it's
  * items and encodes each item.
+ *
  * @param $source String|Array Input string or array with strings
- * @param $charset String Original charset of the source string(s).
- * @return String Source string encoded with the new charset
+ * @param $charset String Original charset of the source string(s)
+ *
+ * @return string Source string encoded with the new charset
  */
-function changeTranslationCharsetToUTF8($source, $charset){
-	if(is_array($source)){
-		for($i=0;$i<count($source);$i++){
+function changeTranslationCharsetToUTF8($source, $charset) {
+	if (is_array($source)) {
+		for ($i = 0; $i < count($source); ++$i) {
 			$source[$i] = iconv($charset, 'UTF-8//TRANSLIT', $source[$i]);
 		}
-	} elseif(is_string($source)){
+	}
+	elseif (is_string($source)) {
 		$source = iconv($charset, 'UTF-8//TRANSLIT', $source);
 	}
+
 	return $source;
 }
 ?>
@@ -50,74 +54,76 @@ Translations.prototype.setTranslations = function()
 {
 	// BEGIN TRANSLATIONS
 <?php
-foreach($translations as $domain => $translation_list){
+foreach ($translations as $domain => $translation_list) {
 	$pluralForms = false;
 	// Find the translation that contains the charset.
-	foreach($translations[$domain] as $key => $translationdomain){
+	foreach ($translations[$domain] as $key => $translationdomain) {
 		$charset = 'UTF-8';
-		if($translationdomain['msgid'] == ''){
+		if ($translationdomain['msgid'] == '') {
 			preg_match('/charset=([a-zA-Z0-9_-]+)/', $translationdomain['msgstr'], $matches);
-			if(count($matches) > 0 && isset($matches[1])){
+			if (count($matches) > 0 && isset($matches[1])) {
 				$charset = strtoupper($matches[1]);
 			}
 			preg_match('/Plural-Forms: ([^\n]+)/', $translationdomain['msgstr'], $matches);
-			if(count($matches) > 0 && isset($matches[1])){
+			if (count($matches) > 0 && isset($matches[1])) {
 				$pluralForms = $matches[1];
 			}
 			break;
 		}
 	}
-	if($pluralForms){
-?>
-	this.setPluralFormFunc('<?php echo $domain ?>', '<?php echo $pluralForms?>');
-<?php
-	} else {
-?>
-	this.setPluralFormFunc('<?php echo $domain ?>');
+	if ($pluralForms) {
+		?>
+	this.setPluralFormFunc('<?php echo $domain; ?>', '<?php echo $pluralForms; ?>');
 <?php
 	}
-?>
-	this.translations["<?php echo $domain ?>"] = new Object();
+	else {
+		?>
+	this.setPluralFormFunc('<?php echo $domain; ?>');
 <?php
-	for($i=0;$i<count($translations[$domain]);$i++){
+	} ?>
+	this.translations["<?php echo $domain; ?>"] = new Object();
+<?php
+	for ($i = 0; $i < count($translations[$domain]); ++$i) {
 		$translation = $translations[$domain][$i];
-		if($translation['msgid'] == '') continue;
+		if ($translation['msgid'] == '') {
+			continue;
+		}
 
 		// Convert the charset to UTF-8 if that is not already the case
-		if($charset != 'UTF-8'){
+		if ($charset != 'UTF-8') {
 			$translation['msgctxt'] = changeTranslationCharsetToUTF8($translation['msgctxt'], $charset);
 			$translation['msgid'] = changeTranslationCharsetToUTF8($translation['msgid'], $charset);
 			$translation['msgstr'] = changeTranslationCharsetToUTF8($translation['msgstr'], $charset);
 		}
 
 		// Escape the \n slash to prevent the translation file out breaking.
-		$msgid = str_replace("\n","\\n", addslashes($translation['msgid']));
+		$msgid = str_replace("\n", "\\n", addslashes($translation['msgid']));
 		// Prepare the $context to be glued together with the msgid together in JS
-		if($translation['msgctxt'] !== false){
+		if ($translation['msgctxt'] !== false) {
 			// Escape the \n slash to prevent the translation file out breaking.
-			$context = str_replace("\n","\\n", addslashes($translation['msgctxt']));
+			$context = str_replace("\n", "\\n", addslashes($translation['msgctxt']));
 			// We cannot do it in PHP as this will cause an issue with the backslash
-			$context = '"'.$context.'\004"+';
-		} else {
+			$context = '"' . $context . '\004"+';
+		}
+		else {
 			$context = '';
 		}
 
 		// If the translation is in plural form we have to set it as an array
-		if($translation['msgid_plural'] === false){
+		if ($translation['msgid_plural'] === false) {
 			// Escape the \n slash to prevent the translation file out breaking.
-			$msgstr = str_replace("\n","\\n", addslashes($translation['msgstr']));
-?>
-	this.translations["<?php echo $domain ?>"][<?php echo $context ?>"<?php echo $msgid ?>"] = "<?php echo $msgstr ?>";
+			$msgstr = str_replace("\n", "\\n", addslashes($translation['msgstr'])); ?>
+	this.translations["<?php echo $domain; ?>"][<?php echo $context; ?>"<?php echo $msgid; ?>"] = "<?php echo $msgstr; ?>";
 <?php
-		} else {
-?>
-	this.translations["<?php echo $domain?>"][<?php echo $context?>"<?php echo $msgid?>"] = new Array();
+		}
+		else {
+			?>
+	this.translations["<?php echo $domain; ?>"][<?php echo $context; ?>"<?php echo $msgid; ?>"] = new Array();
 <?php
-			for($j=0;$j<count($translation['msgstr']);$j++){
+			for ($j = 0; $j < count($translation['msgstr']); ++$j) {
 				// Escape the \n slash to prevent the translation file out breaking.
-				$msgstr = str_replace("\n","\\n", addslashes($translation['msgstr'][$j]));
-?>
-	this.translations["<?php echo$domain?>"][<?php echo $context?>"<?php echo $msgid?>"][<?php echo $j?>] = "<?php echo $msgstr?>";
+				$msgstr = str_replace("\n", "\\n", addslashes($translation['msgstr'][$j])); ?>
+	this.translations["<?php echo $domain; ?>"][<?php echo $context; ?>"<?php echo $msgid; ?>"][<?php echo $j; ?>] = "<?php echo $msgstr; ?>";
 <?php
 			}
 		}

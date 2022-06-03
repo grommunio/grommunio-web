@@ -1,13 +1,16 @@
 <?php
-require_once('classes/grommunioTest.php');
+
+require_once 'classes/grommunioTest.php';
 
 /**
- * ABEntryidTest
+ * ABEntryidTest.
  *
  * Tests comparing entryids
+ *
+ * @internal
+ * @coversNothing
  */
 class ABEntryidTest extends grommunioTest {
-
 	// Addressbook entryid
 	private $abEntryId1 = '00000000AC21A95040D3EE48B319FBA7533044250100000006000000390400004D6A41334D5449774E7A453D00000000';
 	private $abEntryId2 = '00000000AC21A95040D3EE48B319FBA7533044250100000006000000C90300004D6A41334D5449774E7A453D00000000';
@@ -21,99 +24,86 @@ class ABEntryidTest extends grommunioTest {
 
 	protected static $entryid;
 
-	public static function setUpBeforeClass()
-	{
+	public static function setUpBeforeClass() {
 		self::$entryid = new EntryId();
 	}
 
 	/**
-	 * Test comparing equal entryids
+	 * Test comparing equal entryids.
 	 */
-	public function testCompareEqualEntryIds()
-	{
+	public function testCompareEqualEntryIds() {
 		$this->assertTrue(self::$entryid->compareABEntryIds($this->abEntryId1, $this->abEntryId1), 'Test that comparing equal addressbook entryids return true');
 	}
 
 	/**
-	 * Test comparing unequal entryids for the same server
+	 * Test comparing unequal entryids for the same server.
 	 */
-	public function testCompareUnequalEntryIdsSameServer()
-	{
+	public function testCompareUnequalEntryIdsSameServer() {
 		$this->assertTrue(self::$entryid->compareABEntryIds($this->abEntryId1, $this->abEntryId2), 'Test that comparing unequal addressbook entryids for the same user return true');
 	}
 
 	/**
-	 * Test comparing different entryids
+	 * Test comparing different entryids.
 	 */
-	public function testCompareUnequalEntryIds()
-	{
+	public function testCompareUnequalEntryIds() {
 		$this->assertFalse(self::$entryid->compareABEntryIds($this->abEntryId1, $this->abEntryId3), 'Test that comparing unequal addressbook entryids return false');
 	}
 
 	/**
-	 * Check if an entryid is a one-off entryid
+	 * Check if an entryid is a one-off entryid.
 	 */
-	public function testIsOneOff()
-	{
+	public function testIsOneOff() {
 		$this->assertTrue(self::$entryid->isOneOffEntryId($this->abEntryId4), 'Test that a one-off entryid is correctly detected');
 	}
 
 	/**
-	 * Check if an entryid is not a one-off entryid
+	 * Check if an entryid is not a one-off entryid.
 	 */
-	public function testIsNotOneOff()
-	{
+	public function testIsNotOneOff() {
 		$this->assertFalse(self::$entryid->isOneOffEntryId($this->abEntryId1), 'Test that a non-one-off entryid is correctly detected');
 	}
 
 	/**
-	 * Check if an entryid is contact provider entryid
+	 * Check if an entryid is contact provider entryid.
+	 *
 	 * @FIXME not working
 	 */
-	public function xtestIsContactProvider()
-	{
+	public function xtestIsContactProvider() {
 		$this->assertTrue(self::$entryid->hasContactProviderGUID($this->abEntryId5), 'Test that a contact provider entryid is correctly detected');
 	}
 
 	/**
-	 * Check if an entryid is not contact provider entryid
+	 * Check if an entryid is not contact provider entryid.
 	 */
-	public function testIsNotContactProvider()
-	{
+	public function testIsNotContactProvider() {
 		$this->assertFalse(self::$entryid->hasContactProviderGUID($this->abEntryId1), 'Test that a non contact provider entryid is correctly detected');
 	}
 
 	/**
-	 * Check if an entryid is global addressbook entryid
+	 * Check if an entryid is global addressbook entryid.
 	 */
-	public function testIsGlobalAddressbook()
-	{
+	public function testIsGlobalAddressbook() {
 		$this->assertTrue(self::$entryid->hasAddressBookGUID($this->abEntryId1), 'Test that a global addressbook entryid is correctly detected');
 	}
 
 	/**
-	 * Check if an entryid is not global addressbook entryid
+	 * Check if an entryid is not global addressbook entryid.
 	 */
-	public function testIsNotGlobalAddressbook()
-	{
+	public function testIsNotGlobalAddressbook() {
 		$this->assertFalse(self::$entryid->hasAddressBookGUID($this->abEntryId5), 'Test that non global addressbook entryid is correctly detected');
 	}
 
 	/**
-	 * Check if an entryid is global addressbook container entryid
+	 * Check if an entryid is global addressbook container entryid.
 	 */
-	public function testIsGlobalAddressbookContainer()
-	{
+	public function testIsGlobalAddressbookContainer() {
 		$this->assertTrue(self::$entryid->isGlobalAddressbookContainer($this->abEntryId6), 'Test that a global addressbook root entryid is correctly detected');
 	}
 
 	/**
-	 * Check if an entryid is not global addressbook entryid
+	 * Check if an entryid is not global addressbook entryid.
 	 */
-	public function testIsNotGlobalAddressbookRoot()
-	{
+	public function testIsNotGlobalAddressbookRoot() {
 		$this->assertFalse(self::$entryid->isGlobalAddressbookContainer($this->abEntryId1), 'Test that not global addressbook root entryid is correctly detected');
 	}
 }
-
-?>

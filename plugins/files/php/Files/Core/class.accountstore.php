@@ -12,39 +12,33 @@ require_once __DIR__ . "/class.exception.php";
 require_once __DIR__ . "/../Backend/class.backendstore.php";
 require_once __DIR__ . "/../Backend/class.exception.php";
 
-use \Files\Backend\BackendStore;
-use \Files\Backend\Exception as BackendException;
+use Files\Backend\BackendStore;
+use Files\Backend\Exception as BackendException;
 use Files\Core\Util\Logger;
 
-class AccountStore
-{
-	const LOG_CONTEXT = "AccountStore"; // Context for the Logger
-	const ACCOUNT_STORAGE_PATH = "zarafa/v1/plugins/files/accounts";
-	const ACCOUNT_VERSION = 1;
+class AccountStore {
+	public const LOG_CONTEXT = "AccountStore"; // Context for the Logger
+	public const ACCOUNT_STORAGE_PATH = "zarafa/v1/plugins/files/accounts";
+	public const ACCOUNT_VERSION = 1;
 
 	/**
 	 * @var Account[] Account array
 	 */
 	private $accounts = [];
 
-	/**
-	 *
-	 */
-	function __construct()
-	{
+	public function __construct() {
 		$this->initialiseAccounts();
 	}
 
 	/**
 	 * @param $name
 	 * @param $backend
-	 * @param Array $backendConfig Backend specific account settings
-	 *     like username, password, serveraddress, ...
+	 * @param array $backendConfig Backend specific account settings
+	 *                             like username, password, serveraddress, ...
 	 *
 	 * @return Account
 	 */
-	public function createAccount($name, $backend, $backendConfig)
-	{
+	public function createAccount($name, $backend, $backendConfig) {
 		$newID = $this->createNewId($backendConfig); // create id out of the configuration
 
 		// create instance of backend to get features
@@ -95,8 +89,7 @@ class AccountStore
 	 *
 	 * @return Account
 	 */
-	public function updateAccount($account)
-	{
+	public function updateAccount($account) {
 		$accId = $account->getId();
 		$isAdministrativeAccount = $account->getCannotChangeFlag();
 
@@ -130,9 +123,10 @@ class AccountStore
 			}
 
 			// Unable to decrypt, don't update
-			if ($version == 0 && !defined('FILES_PASSWORD_IV') && !defined('FILES_PASSWORD_KEY'))  {
+			if ($version == 0 && !defined('FILES_PASSWORD_IV') && !defined('FILES_PASSWORD_KEY')) {
 				Logger::error(self::LOG_CONTEXT, "Unable to update the account to as FILES_PASSWORD_IV/FILES_PASSWORD_KEY is not set");
-			} else {
+			}
+			else {
 				// store all backend configurations
 				foreach ($account->getBackendConfig() as $key => $value) {
 					if ($key !== "version") {
@@ -158,14 +152,13 @@ class AccountStore
 	}
 
 	/**
-	 * Delete account from local store and from the MAPI settings
+	 * Delete account from local store and from the MAPI settings.
 	 *
 	 * @param $accountId
 	 *
 	 * @return bool
 	 */
-	public function deleteAccount($accountId)
-	{
+	public function deleteAccount($accountId) {
 		$account = $this->getAccount($accountId);
 		// Do not allow deleting administrative accounts, but fail silently.
 		if (!$account->getCannotChangeFlag()) {
@@ -177,40 +170,37 @@ class AccountStore
 	}
 
 	/**
-	 * Return the instance of the local account
+	 * Return the instance of the local account.
 	 *
 	 * @param $accountId
 	 *
 	 * @return Account
 	 */
-	public function getAccount($accountId)
-	{
+	public function getAccount($accountId) {
 		return $this->accounts[$accountId];
 	}
 
 	/**
 	 * @return Account[] all Accounts
 	 */
-	public function getAllAccounts()
-	{
+	public function getAllAccounts() {
 		return $this->accounts;
 	}
 
 	/**
 	 * Initialize the accountstore. Reads all accountinformation from the MAPI settings.
 	 */
-	private function initialiseAccounts()
-	{
+	private function initialiseAccounts() {
 		// Parse accounts from the Settings
 		$tmpAccs = $GLOBALS["settings"]->get(self::ACCOUNT_STORAGE_PATH);
 
 		if (is_array($tmpAccs)) {
-			$this->accounts = array();
+			$this->accounts = [];
 
 			foreach ($tmpAccs as $acc) {
 				// set backend_features if it is not set to prevent warning
 				if (!isset($acc["backend_features"])) {
-					$acc["backend_features"] = array();
+					$acc["backend_features"] = [];
 				}
 				// account_sequence was introduced later. So set and save it if missing.
 				if (!isset($acc["account_sequence"])) {
@@ -230,7 +220,7 @@ class AccountStore
 				$backend_config = $acc["backend_config"];
 				$version = 0;
 
-				if (isset($acc["backend_config"]) && isset($acc["backend_config"]["version"])) {
+				if (isset($acc["backend_config"], $acc["backend_config"]["version"])) {
 					$version = $acc["backend_config"]["version"];
 				}
 
@@ -238,13 +228,16 @@ class AccountStore
 					$backend_config = $this->decryptBackendConfig($acc["backend_config"], $version);
 					// version is lost after decryption, add it again
 					$backend_config["version"] = $version;
-				} else if ($version === 0) {
+				}
+				elseif ($version === 0) {
 					Logger::error(self::LOG_CONTEXT, "FILES_PASSWORD_IV or FILES_PASSWORD_KEY not set, unable to decrypt backend configuration");
-				} else {
-					Logger::error(self::LOG_CONTEXT, "Unsupported account version $version, unable to decrypt backend configuration");
+				}
+				else {
+					Logger::error(self::LOG_CONTEXT, "Unsupported account version {$version}, unable to decrypt backend configuration");
 				}
 
-				$this->accounts[$acc["id"]] = new Account($acc["id"],
+				$this->accounts[$acc["id"]] = new Account(
+					$acc["id"],
 					$acc["name"],
 					$acc["status"],
 					$acc["status_description"],
@@ -261,38 +254,38 @@ class AccountStore
 
 	/**
 	 * @param AbstractBackend $backendInstance
-	 * @param Array $backendConfig Backend specific account settings
-	 *     like username, password, serveraddress, ...
+	 * @param array           $backendConfig   Backend specific account settings
+	 *                                         like username, password, serveraddress, ...
 	 *
-	 * @return Array
+	 * @return array
 	 */
-	private function checkBackendConfig($backendInstance, $backendConfig)
-	{
+	private function checkBackendConfig($backendInstance, $backendConfig) {
 		$status = Account::STATUS_NEW;
 		$description = _('Account is ready to use.');
+
 		try {
 			$backendInstance->init_backend($backendConfig);
 			$backendInstance->open();
 			$backendInstance->ls("/");
 			$status = Account::STATUS_OK;
-		} catch (BackendException $e) {
+		}
+		catch (BackendException $e) {
 			$status = Account::STATUS_ERROR;
 			$description = $e->getMessage();
 
 			Logger::error(self::LOG_CONTEXT, "Account check failed: " . $description);
 		}
 
-		return array($status, $description);
+		return [$status, $description];
 	}
 
 	/**
-	 * @param Array $backendConfig Backend specific account settings
-	 *     like username, password, serveraddress, ...
+	 * @param array $backendConfig Backend specific account settings
+	 *                             like username, password, serveraddress, ...
 	 *
-	 * @return  an unique id
+	 * @return an unique id
 	 */
-	private function createNewId($backendConfig)
-	{
+	private function createNewId($backendConfig) {
 		// lets create a hash
 		return md5(json_encode($backendConfig) . time()); // json_encode is faster than serialize
 	}
@@ -304,8 +297,8 @@ class AccountStore
 	 */
 	private function getNewSequenceNumber() {
 		$seq = 0;
-		foreach($this->accounts as $acc) {
-			if($acc->getSequence() > $seq) {
+		foreach ($this->accounts as $acc) {
+			if ($acc->getSequence() > $seq) {
 				$seq = $acc->getSequence();
 			}
 		}
@@ -316,18 +309,21 @@ class AccountStore
 	/**
 	 * Decrypt the backend configuration using the standard grommunio Web key.
 	 *
-	 * @param Array $backendConfig Backend specific account settings
-	 *     like username, password, serveraddress, ...
+	 * @param array $backendConfig Backend specific account settings
+	 *                             like username, password, serveraddress, ...
+	 * @param mixed $version
+	 *
 	 * @return array
 	 */
-	private function decryptBackendConfig($backendConfig, $version=0) {
-		$decBackendConfig = array();
+	private function decryptBackendConfig($backendConfig, $version = 0) {
+		$decBackendConfig = [];
 
-		foreach($backendConfig as $key => $value) {
+		foreach ($backendConfig as $key => $value) {
 			if ($key !== "version") {
 				try {
 					$decBackendConfig[$key] = $this->decryptBackendConfigProperty($value, $version);
-				} catch (Exception $e) {
+				}
+				catch (Exception $e) {
 					Logger::error(self::LOG_CONTEXT, sprintf("Unable to decrypt backend configuration: '%s'", $e->getMessage()));
 				}
 			}
@@ -341,16 +337,18 @@ class AccountStore
 	 *
 	 * @param $value
 	 * @param $version the storage version used to identify what encryption to use
+	 *
 	 * @return string
 	 */
-	private function encryptBackendConfigProperty($value, $version=0) {
+	private function encryptBackendConfigProperty($value, $version = 0) {
 		if ($version == self::ACCOUNT_VERSION && !is_bool($value)) {
 			$nonce = random_bytes(SODIUM_CRYPTO_SECRETBOX_NONCEBYTES);
 			$key = $GLOBALS["operations"]->getFilesEncryptionKey();
 			$encrypted = sodium_crypto_secretbox($value, $nonce, $key);
 			$value = bin2hex($nonce) . bin2hex($encrypted);
-		} else if ($version !== self::ACCOUNT_VERSION) {
-			throw Exception("Unable to encrypt backend configuration unsupported version $version");
+		}
+		elseif ($version !== self::ACCOUNT_VERSION) {
+			throw Exception("Unable to encrypt backend configuration unsupported version {$version}");
 		}
 
 		return $value;
@@ -361,9 +359,10 @@ class AccountStore
 	 *
 	 * @param $value
 	 * @param $version the storage version used to identify what encryption to use
+	 *
 	 * @return string
 	 */
-	private function decryptBackendConfigProperty($value, $version=0) {
+	private function decryptBackendConfigProperty($value, $version = 0) {
 		if (is_bool($value)) {
 			return $value;
 		}

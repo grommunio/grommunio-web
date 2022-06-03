@@ -1,10 +1,8 @@
 <?php
+
 namespace Files\Backend;
 
-
-abstract class AbstractCSSLoader
-{
-
+abstract class AbstractCSSLoader {
 	protected $cssBuffer = "";
 
 	// path to css folder

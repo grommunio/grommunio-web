@@ -1,4 +1,5 @@
 <?php
+
 // Folder Properties
 define("SYNC_FOLDER_TYPE_OTHER", 1);
 define("SYNC_FOLDER_TYPE_INBOX", 2);
@@ -27,4 +28,3 @@ define("SYNC_PROVISION_RWSTATUS_OK", 1);
 define("SYNC_PROVISION_RWSTATUS_PENDING", 2);
 define("SYNC_PROVISION_RWSTATUS_REQUESTED", 4);
 define("SYNC_PROVISION_RWSTATUS_WIPED", 8);
-?>

@@ -1,28 +1,30 @@
 <?php
-require_once('classes/grommunioUser.php');
-require_once('classes/AddressBookUser.php');
-require_once('classes/ContactUser.php');
-require_once('classes/TestData.php');
-require_once('classes/grommunioTest.php');
-require_once('classes/Util.php');
+
+require_once 'classes/grommunioUser.php';
+require_once 'classes/AddressBookUser.php';
+require_once 'classes/ContactUser.php';
+require_once 'classes/TestData.php';
+require_once 'classes/grommunioTest.php';
+require_once 'classes/Util.php';
 
 /**
- * AddressBookItemTest
+ * AddressBookItemTest.
  *
  * Tests opening Address Book items
+ *
+ * @internal
+ * @coversNothing
  */
 class AddressBookItemTest extends grommunioTest {
-
 	/**
-	 * The user for which we will open the addressbook
+	 * The user for which we will open the addressbook.
 	 */
 	private $user;
 
 	/**
-	 * During setup we create the user, and clear the shared stores settings
+	 * During setup we create the user, and clear the shared stores settings.
 	 */
-	protected function setUp()
-	{
+	protected function setUp() {
 		parent::setUp();
 
 		$this->user = $this->addUser(new AddressBookUser(new grommunioUser(GROMMUNIO_USER1_NAME, GROMMUNIO_USER1_PASSWORD)));
@@ -32,8 +34,7 @@ class AddressBookItemTest extends grommunioTest {
 	/*
 	 * Test the returned object when a MAPI_MAILUSER has been opened
 	 */
-	public function testOpenMailUserResults()
-	{
+	public function testOpenMailUserResults() {
 		$response = $this->user->loadGlobalAddressBook();
 
 		$props = Util::pluckFromObject($response['list']['item'], 'props');
@@ -62,8 +63,7 @@ class AddressBookItemTest extends grommunioTest {
 	/*
 	 * Test the returned object when a MAPI_DISTLIST has been opened
 	 */
-	public function testOpenDistListResults()
-	{
+	public function testOpenDistListResults() {
 		$response = $this->user->loadGlobalAddressBook();
 
 		$props = Util::pluckFromObject($response['list']['item'], 'props');
@@ -94,5 +94,3 @@ class AddressBookItemTest extends grommunioTest {
 		$this->assertEquals('SMTP:' . GROMMUNIO_GROUP1_EMAIL_ADDRESS, $item['ems_ab_proxy_addresses']['item'][0]['address'], 'Test that the email address is correctly listed');
 	}
 }
-
-?>

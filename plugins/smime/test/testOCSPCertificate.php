@@ -1,10 +1,13 @@
 <?php
 
-require_once('php/class.certificate.php');
-require_once('php/util.php');
+require_once 'php/class.certificate.php';
+require_once 'php/util.php';
 
-class OCSPCertificateTest extends \PHPUnit_Framework_TestCase
-{
+/**
+ * @internal
+ * @coversNothing
+ */
+class OCSPCertificateTest extends \PHPUnit_Framework_TestCase {
 	protected $cert;
 
 	protected function setUp() {
@@ -12,13 +15,11 @@ class OCSPCertificateTest extends \PHPUnit_Framework_TestCase
 		$this->cert = new Certificate($this->certdata);
 	}
 
-	public function testEmailaddress()
-	{
+	public function testEmailaddress() {
 		$this->assertEquals($this->cert->emailAddress(), 'user1@farmer.lan');
 	}
 
-	public function testDerPem()
-	{
+	public function testDerPem() {
 		$pem = $this->cert->pem();
 		$der = $this->cert->der();
 
@@ -27,30 +28,23 @@ class OCSPCertificateTest extends \PHPUnit_Framework_TestCase
 		$this->assertEquals($this->certdata, $pem);
 	}
 
-	public function testValidFrom()
-	{
+	public function testValidFrom() {
 		$this->assertEquals($this->cert->validFrom(), 1491298233);
 	}
 
-	public function testValidTo()
-	{
+	public function testValidTo() {
 		$this->assertEquals($this->cert->validTo(), 1523698233);
 	}
 
-	public function testExpired()
-	{
+	public function testExpired() {
 		$this->assertEquals($this->cert->valid(), false);
 	}
 
-	public function testCAURL()
-	{
+	public function testCAURL() {
 		$this->assertNotEmpty($this->cert->caURL());
-	}	
+	}
 
-	public function testOCSPURL()
-	{
+	public function testOCSPURL() {
 		$this->assertNotEmpty($this->cert->ocspURL());
-	}	
+	}
 }
-
-?>

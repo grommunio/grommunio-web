@@ -1,34 +1,39 @@
 <?php
-require_once('classes/grommunioUser.php');
-require_once('classes/DistlistUser.php');
-require_once('classes/TestData.php');
-require_once('classes/grommunioTest.php');
-require_once('classes/RestoreMessageUser.php');
+
+require_once 'classes/grommunioUser.php';
+require_once 'classes/DistlistUser.php';
+require_once 'classes/TestData.php';
+require_once 'classes/grommunioTest.php';
+require_once 'classes/RestoreMessageUser.php';
 
 /**
- * DistlistTest
+ * DistlistTest.
  *
  * Tests small Distlist operations (create, delete, open).
+ *
  * @group distlist
+ *
+ * @internal
+ * @coversNothing
  */
 class DistlistTest extends grommunioTest {
 	/**
-	 * The default user
+	 * The default user.
 	 */
 	private $user;
 
 	/**
-	 * The default user which will be sending request to retrieve soft deleted folders
+	 * The default user which will be sending request to retrieve soft deleted folders.
 	 */
 	private $restoreUser;
 
 	/**
-	 * The message which will be handled
+	 * The message which will be handled.
 	 */
 	private $message;
 
 	/**
-	 * The message which doesn't contain any member information
+	 * The message which doesn't contain any member information.
 	 */
 	private $message2;
 
@@ -38,10 +43,9 @@ class DistlistTest extends grommunioTest {
 	private $userTags;
 
 	/**
-	 * During setUp we create the user
+	 * During setUp we create the user.
 	 */
-	protected function setUp()
-	{
+	protected function setUp() {
 		parent::setUp();
 
 		$this->user = $this->addUser(new DistlistUser(new grommunioUser(GROMMUNIO_USER1_NAME, GROMMUNIO_USER1_PASSWORD)));
@@ -50,29 +54,29 @@ class DistlistTest extends grommunioTest {
 
 		$this->userTags = $this->user->getDistlistPropTags();
 
-		$this->message = array(
+		$this->message = [
 			'props' => TestData::getDistlist(),
-			'members' => TestData::getDistlistMembers(array(1))
-		);
+			'members' => TestData::getDistlistMembers([1]),
+		];
 
-		$this->message2 = array(
-			'props' => TestData::getDistlist(array(
+		$this->message2 = [
+			'props' => TestData::getDistlist([
 				'fileas' => 'new distlist 2',
 				'subject' => 'new Distlist 2',
 				'display_name' => 'new distlist 2',
-				'dl_name' => 'new distlist 2'
-			))
-		);
+				'dl_name' => 'new distlist 2',
+			]),
+		];
 	}
 
 	/**
-	 * Test if a distlist can be saved to the contacts folder without problems
+	 * Test if a distlist can be saved to the contacts folder without problems.
 	 */
-	public function testSavingDistlist()
-	{
+	public function testSavingDistlist() {
 		try {
 			$savedDistlist = $this->user->saveDistlist($this->message);
-		} catch(Exception $e) {
+		}
+		catch (Exception $e) {
 			$this->fail('Test that the Distlist can be saved: ' . $e->getMessage() . PHP_EOL . $e->getTraceAsString());
 		}
 
@@ -80,22 +84,20 @@ class DistlistTest extends grommunioTest {
 	}
 
 	/**
-	 * Test if the distlist is saved into the correct folder
+	 * Test if the distlist is saved into the correct folder.
 	 */
-	public function testSavingDistlistResult()
-	{
+	public function testSavingDistlistResult() {
 		$savedDistlist = $this->user->saveDistlist($this->message);
-		$entryid = $this->user->getDistlistProps($savedDistlist, array(PR_ENTRYID));
+		$entryid = $this->user->getDistlistProps($savedDistlist, [PR_ENTRYID]);
 		$foundDistlist = $this->user->getDistlist($entryid[PR_ENTRYID]);
 
 		$this->assertInternalType(PHPUnit_Framework_Constraint_IsType::TYPE_RESOURCE, $foundDistlist, 'Test that the found Distlist is a resource');
 	}
 
 	/**
-	 * Test if all properties in the new distlist are correct
+	 * Test if all properties in the new distlist are correct.
 	 */
-	public function testSavingDistlistProperties()
-	{
+	public function testSavingDistlistProperties() {
 		$savedDistlist = $this->user->saveDistlist($this->message);
 		$props = $this->user->getDistlistProps($savedDistlist);
 
@@ -105,16 +107,16 @@ class DistlistTest extends grommunioTest {
 	}
 
 	/**
-	 * Test if the distlist can be opened
+	 * Test if the distlist can be opened.
 	 */
-	public function xtestOpeningDistlist()
-	{
+	public function xtestOpeningDistlist() {
 		try {
 			$savedDistlist = $this->user->saveDistlist($this->message);
-			$entryid = $this->user->getDistlistProps($savedDistlist, array(PR_ENTRYID));
+			$entryid = $this->user->getDistlistProps($savedDistlist, [PR_ENTRYID]);
 
 			$openedDistlist = $this->user->openDistlist($entryid[PR_ENTRYID]);
-		} catch (Exception $e) {
+		}
+		catch (Exception $e) {
 			$this->fail('Test that the Distlist can be opened: ' . $e->getMessage() . PHP_EOL . $e->getTraceAsString());
 		}
 
@@ -124,12 +126,11 @@ class DistlistTest extends grommunioTest {
 	}
 
 	/**
-	 * Test if the opened distlist contains the correct properties
+	 * Test if the opened distlist contains the correct properties.
 	 */
-	public function xtestOpeningDistlistProperties()
-	{
+	public function xtestOpeningDistlistProperties() {
 		$savedDistlist = $this->user->saveDistlist($this->message);
-		$entryid = $this->user->getDistlistProps($savedDistlist, array(PR_ENTRYID));
+		$entryid = $this->user->getDistlistProps($savedDistlist, [PR_ENTRYID]);
 
 		$openedDistlist = $this->user->openDistlist($entryid[PR_ENTRYID]);
 		$props = $openedDistlist['item']['item']['props'];
@@ -139,22 +140,21 @@ class DistlistTest extends grommunioTest {
 	}
 
 	/**
-	 * Test if the Distlist can be modified by emptying the body
+	 * Test if the Distlist can be modified by emptying the body.
 	 */
-	public function xtestUpdatingDistlistEmptyBody()
-	{
+	public function xtestUpdatingDistlistEmptyBody() {
 		$savedDistlist = $this->user->saveDistlist($this->message);
-		$entryid = $this->user->getDistlistProps($savedDistlist, array(PR_ENTRYID, PR_PARENT_ENTRYID, PR_STORE_ENTRYID));
+		$entryid = $this->user->getDistlistProps($savedDistlist, [PR_ENTRYID, PR_PARENT_ENTRYID, PR_STORE_ENTRYID]);
 		$openedDistlist = $this->user->openDistlist($entryid[PR_ENTRYID]);
-		$savedDistlist = $this->user->saveDistlist(array(
+		$savedDistlist = $this->user->saveDistlist([
 			'entryid' => bin2hex($entryid[PR_ENTRYID]),
 			'parent_entryid' => bin2hex($entryid[PR_PARENT_ENTRYID]),
 			'store_entryid' => bin2hex($entryid[PR_STORE_ENTRYID]),
-			'props' => array(
+			'props' => [
 				'body' => '',
-				'subject' => ''
-			)
-		));
+				'subject' => '',
+			],
+		]);
 		$openedDistlist = $this->user->openDistlist($entryid[PR_ENTRYID]);
 		$props = $openedDistlist['item']['item']['props'];
 
@@ -164,16 +164,16 @@ class DistlistTest extends grommunioTest {
 	}
 
 	/**
-	 * Test if a distlist can be deleted
+	 * Test if a distlist can be deleted.
 	 */
-	public function testDeletingDistlist()
-	{
+	public function testDeletingDistlist() {
 		try {
 			$savedDistlist = $this->user->saveDistlist($this->message);
-			$props = $this->user->getDistlistProps($savedDistlist, array(PR_ENTRYID));
+			$props = $this->user->getDistlistProps($savedDistlist, [PR_ENTRYID]);
 
 			$this->user->deleteDistlist($props[PR_ENTRYID]);
-		} catch (Exception $e) {
+		}
+		catch (Exception $e) {
 			$this->fail('Test that the Distlist can be deleted: ' . $e->getMessage() . PHP_EOL . $e->getTraceAsString());
 		}
 
@@ -191,22 +191,22 @@ class DistlistTest extends grommunioTest {
 	}
 
 	/**
-	 * Test if a distlist can be Moved
+	 * Test if a distlist can be Moved.
 	 */
-	public function testMovingDistlists()
-	{
+	public function testMovingDistlists() {
 		try {
 			$savedDistlist = $this->user->saveDistlist($this->message);
-			$props = $this->user->getDistlistProps($savedDistlist, array(PR_ENTRYID));
-			$this->user->copyDistlist($props[PR_ENTRYID], array(), true);
-		} catch (Exception $e) {
+			$props = $this->user->getDistlistProps($savedDistlist, [PR_ENTRYID]);
+			$this->user->copyDistlist($props[PR_ENTRYID], [], true);
+		}
+		catch (Exception $e) {
 			$this->fail('Test that the Distlist can be moved: ' . $e->getMessage() . PHP_EOL . $e->getTraceAsString());
 		}
 
 		$distlistItems = $this->user->loadDistlists();
 
 		$this->assertCount(1, $distlistItems, 'Test that 1 distlist was found in the folder');
-		//For simplicity we are moving a message into same folder, so check entryid is changed or not
+		// For simplicity we are moving a message into same folder, so check entryid is changed or not
 		$this->assertNotEquals(bin2hex($props[PR_ENTRYID]), $distlistItems[0]['entryid'], 'Test that the entryid is not equal');
 
 		$softdeletedItems = $this->restoreUser->loadSoftdeletedItems();
@@ -214,16 +214,16 @@ class DistlistTest extends grommunioTest {
 	}
 
 	/**
-	 * Test if a distlist can be copied
+	 * Test if a distlist can be copied.
 	 */
-	public function testCopyingDistlists()
-	{
+	public function testCopyingDistlists() {
 		try {
 			$savedDistlist = $this->user->saveDistlist($this->message);
-			$props = $this->user->getDistlistProps($savedDistlist, array(PR_ENTRYID));
+			$props = $this->user->getDistlistProps($savedDistlist, [PR_ENTRYID]);
 
 			$this->user->copyDistlist($props[PR_ENTRYID]);
-		} catch (Exception $e) {
+		}
+		catch (Exception $e) {
 			$this->fail('Test that the Distlist can be copied: ' . $e->getMessage() . PHP_EOL . $e->getTraceAsString());
 		}
 
@@ -243,17 +243,16 @@ class DistlistTest extends grommunioTest {
 	}
 
 	/**
-	 * Test if a distlist with no members can be saved to the contacts folder without problems
+	 * Test if a distlist with no members can be saved to the contacts folder without problems.
 	 */
-	public function testSavingDistlistWithNoMembers()
-	{
+	public function testSavingDistlistWithNoMembers() {
 		try {
 			$savedDistlist = $this->user->saveDistlist($this->message2);
 
-			$entryid = $this->user->getDistlistProps($savedDistlist, array(PR_ENTRYID));
+			$entryid = $this->user->getDistlistProps($savedDistlist, [PR_ENTRYID]);
 			$foundDistlist = $this->user->getDistlist($entryid[PR_ENTRYID]);
-
-		} catch(Exception $e) {
+		}
+		catch (Exception $e) {
 			$this->fail('Test that the Distlist can be saved: ' . $e->getMessage() . PHP_EOL . $e->getTraceAsString());
 		}
 
@@ -263,36 +262,35 @@ class DistlistTest extends grommunioTest {
 	}
 
 	/**
-	 * Test if the distlist with no members is saved and can be opened correctly
+	 * Test if the distlist with no members is saved and can be opened correctly.
 	 */
-	public function testSavingDistlistWithNoMembersProperties()
-	{
+	public function testSavingDistlistWithNoMembersProperties() {
 		$distlist = $this->user->saveDistlist($this->message2);
 
-		$entryid = $this->user->getDistlistProps($distlist, array(PR_ENTRYID));
+		$entryid = $this->user->getDistlistProps($distlist, [PR_ENTRYID]);
 		$distlist = $this->user->openDistlist($entryid[PR_ENTRYID]);
 
 		$this->assertArrayNotHasKey('members', $distlist['item']['item'], 'Test that distlist is saved with no members.');
 	}
 
 	/**
-	 * Test if a distlist with all types of members can be saved to the contacts folder without problems
-	 * @param {Array} $membersIndex array containing index of members to get from TestData::getDistlistMembers.
-	 * @param {String} $typeOfMember String to show type of user.
+	 * Test if a distlist with all types of members can be saved to the contacts folder without problems.
+	 *
+	 * @param {Array} $membersIndex array containing index of members to get from TestData::getDistlistMembers
+	 * @param {String} $typeOfMember String to show type of user
 	 * @dataProvider providerMemberRestriction
 	 */
-	public function testSavingDistlistWithEveryMember($membersIndex, $typeOfMember)
-	{
+	public function testSavingDistlistWithEveryMember($membersIndex, $typeOfMember) {
 		try {
 			// add addressbook members
 			$this->message2['members'] = TestData::getDistlistMembers($membersIndex);
 
 			$savedDistlist = $this->user->saveDistlist($this->message2);
 
-			$entryid = $this->user->getDistlistProps($savedDistlist, array(PR_ENTRYID));
+			$entryid = $this->user->getDistlistProps($savedDistlist, [PR_ENTRYID]);
 			$foundDistlist = $this->user->getDistlist($entryid[PR_ENTRYID]);
-
-		} catch(Exception $e) {
+		}
+		catch (Exception $e) {
 			$this->fail('Test that the Distlist can be saved: ' . $e->getMessage() . PHP_EOL . $e->getTraceAsString());
 		}
 
@@ -302,25 +300,24 @@ class DistlistTest extends grommunioTest {
 	}
 
 	/**
-	 * Test if the distlist with all types of members is saved and can be opened correctly
-	 * @param {Array} $membersIndex array containing index of members to get from TestData::getDistlistMembers.
-	 * @param {String} $typeOfMember String to show type of user.
+	 * Test if the distlist with all types of members is saved and can be opened correctly.
+	 *
+	 * @param {Array} $membersIndex array containing index of members to get from TestData::getDistlistMembers
+	 * @param {String} $typeOfMember String to show type of user
 	 * @dataProvider providerMemberRestriction
 	 */
-	public function testSavingDistlistWithEveryMemberProperties($membersIndex, $typeOfMember)
-	{
+	public function testSavingDistlistWithEveryMemberProperties($membersIndex, $typeOfMember) {
 		// add addressbook members
 		$providerMembersData = $this->message2['members'] = TestData::getDistlistMembers($membersIndex);
 
 		$distlist = $this->user->saveDistlist($this->message2);
 
-		$entryid = $this->user->getDistlistProps($distlist, array(PR_ENTRYID));
+		$entryid = $this->user->getDistlistProps($distlist, [PR_ENTRYID]);
 		$distlist = $this->user->openDistlist($entryid[PR_ENTRYID]);
 
 		$distlist = $distlist['item']['item'];
 
-
-		for($index = 0, $len = count($providerMembersData); $index < $len; $index++) {
+		for ($index = 0, $len = count($providerMembersData); $index < $len; ++$index) {
 			$providerMember = $providerMembersData[$index];
 
 			$member = $this->user->getMembersFromDistlist($distlist, $providerMember['distlist_type']);
@@ -332,12 +329,13 @@ class DistlistTest extends grommunioTest {
 			// Distlist members don't have an email_address
 			if (empty($providerMember['email_address'])) {
 				$this->assertArrayNotHasKey('email_address', $member, 'Test that the property \'email_address\' is not present for ' . $typeOfMember . 'member');
-			} else {
+			}
+			else {
 				$this->assertEquals($providerMember['email_address'], $member['email_address'], 'Test that the property \'email_address\' is correctly obtained for ' . $typeOfMember . 'member');
 			}
 
 			// external members don't have entryid, so check this only for non external members
-			if(isset($providerMember['entryid'])) {
+			if (isset($providerMember['entryid'])) {
 				$this->assertEquals($providerMember['entryid'], $member['entryid'], 'Test that the property \'entryid\' is correctly obtained for ' . $typeOfMember . 'member');
 			}
 		}
@@ -348,18 +346,16 @@ class DistlistTest extends grommunioTest {
 	 * The first argument is an array containing the member numbers that can be used in TestData::getDistlistMembers.
 	 * The second argument is a string explaining type of the member.
 	 */
-	public function providerMemberRestriction()
-	{
-		return array(
+	public function providerMemberRestriction() {
+		return [
 			// FIX: failing cases
-			//array(array( 1 ), 'Addressbook user'),
-			//array(array( 2 ), 'Addressbook group'),
-			array(array( 3 ), 'Contact distribution list'),
-			array(array( 4 ), 'Contact user 1'),
-			array(array( 5 ), 'Contact user 2'),
-			array(array( 6 ), 'Contact user 3'),
-			array(array( 7 ), 'External user')
-		);
+			// array(array( 1 ), 'Addressbook user'),
+			// array(array( 2 ), 'Addressbook group'),
+			[[3], 'Contact distribution list'],
+			[[4], 'Contact user 1'],
+			[[5], 'Contact user 2'],
+			[[6], 'Contact user 3'],
+			[[7], 'External user'],
+		];
 	}
 }
-?>

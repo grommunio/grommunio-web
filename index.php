@@ -1,27 +1,29 @@
 <?php
+
 	/**
 	 * This is the entry point for every request that should return HTML
-	 * (one exception is that it also returns translated text for javascript)
+	 * (one exception is that it also returns translated text for javascript).
 	 */
 
 	// Bootstrap the script
-	require_once('server/includes/bootstrap.php');
+	require_once 'server/includes/bootstrap.php';
 
 	// Added in 3.4.0, remove check in 3.5.0
 	if (!function_exists('gitversion')) {
 		/**
-		 * Obtain the current Git working branch
+		 * Obtain the current Git working branch.
+		 *
 		 * @return string the current git working branch
 		 */
-		function gitversion()
-		{
+		function gitversion() {
 			if (is_dir(BASE_PATH . DIRECTORY_SEPARATOR . '.git')) {
 				return trim(@shell_exec("git symbolic-ref --short HEAD || git rev-parse --short HEAD ."));
-			} else {
-				return '';
 			}
+
+			return '';
 		}
-	} else {
+	}
+	else {
 		error_log('Remove gitversion() function in debug.php it\'s deprecated');
 	}
 
@@ -31,11 +33,10 @@
 	 * @param string theme the users theme
 	 * @return string favicon
 	 */
-	function getFavicon($theme)
-	{
+	function getFavicon($theme) {
 		$favicon = Theming::getFavicon($theme);
 
-		if ( !isset($favicon) || $favicon === false) {
+		if (!isset($favicon) || $favicon === false) {
 			$favicon = 'client/resources/images/favicon.ico?kv2.2.0';
 		}
 
@@ -45,28 +46,28 @@
 	// If the user wants to logout (and is not using single-signon)
 	// then destroy the session and redirect to this page, so the login page
 	// will be shown
-	if ( isset($_GET['logout']) ) {
-
+	if (isset($_GET['logout'])) {
 		// GET variable user will be set when the user was logged out because of session timeout
 		// or because he logged out in another window.
 		$username = sanitizeGetValue('user', '', USERNAME_REGEX);
 		$webappSession->destroy();
-		$location =  rtrim(dirname($_SERVER['PHP_SELF']), '/').'/';
-		header('Location: ' . $location . ($username?'?user='.rawurlencode($username):''), true, 303);
-		die();
+		$location = rtrim(dirname($_SERVER['PHP_SELF']), '/') . '/';
+		header('Location: ' . $location . ($username ? '?user=' . rawurlencode($username) : ''), true, 303);
+
+		exit();
 	}
 
 	// Check if an action GET-parameter was sent with the request.
 	// This parameter is set when the webapp was opened by clicking on
 	// a mailto: link in the browser.
 	// If so, we will store it in the session, so we can use it later.
-	if ( isset($_GET['action']) && !empty($_GET['action']) ) {
+	if (isset($_GET['action']) && !empty($_GET['action'])) {
 		storeURLDataToSession();
 	}
 
 	// Check if the continue parameter was set. This will be set e.g. when someone
 	// uses the grommunio Web to login to another application with OpenID Connect.
-	if ( isset($_GET['continue']) && !empty($_GET['continue']) && !isset($_GET['wacontinue']) ) {
+	if (isset($_GET['continue']) && !empty($_GET['continue']) && !isset($_GET['wacontinue'])) {
 		$_SESSION['continue'] = $_GET['continue'];
 	}
 
@@ -74,12 +75,12 @@
 	WebAppAuthentication::authenticate();
 
 	$webappTitle = defined('WEBAPP_TITLE') && WEBAPP_TITLE ? WEBAPP_TITLE : 'grommunio Web';
-	if (isset($_COOKIE['webapp_title']))
-		$webappTitle .= " – ".$_COOKIE['webapp_title'];
+	if (isset($_COOKIE['webapp_title'])) {
+		$webappTitle .= " – " . $_COOKIE['webapp_title'];
+	}
 
 	// If we could not authenticate the user, we will show the login page
-	if ( !WebAppAuthentication::isAuthenticated() ) {
-
+	if (!WebAppAuthentication::isAuthenticated()) {
 		// Get language from the cookie, or from the language that is set by the admin
 		$Language = new Language();
 		$lang = isset($_COOKIE['lang']) ? $_COOKIE['lang'] : LANG;
@@ -87,27 +88,30 @@
 		$Language->setLanguage($lang);
 
 		// If GET parameter 'load' is defined, we defer handling to the load.php script
-		if ( isset($_GET['load']) && $_GET['load']!=='logon' ) {
-			include(BASE_PATH . 'server/includes/load.php');
-			die();
+		if (isset($_GET['load']) && $_GET['load'] !== 'logon') {
+			include BASE_PATH . 'server/includes/load.php';
+
+			exit();
 		}
 
 		// Set some template variables for the login page
-		$branch = DEBUG_LOADER===LOAD_SOURCE ? gitversion() : '';
+		$branch = DEBUG_LOADER === LOAD_SOURCE ? gitversion() : '';
 		$version = 'grommunio Web ' . trim(file_get_contents('version'));
 		$user = sanitizeGetValue('user', '', USERNAME_REGEX);
 
 		$url = '?logon';
 
-		if ( isset($_GET["logout"]) && $_GET["logout"]=="auto" ) {
+		if (isset($_GET["logout"]) && $_GET["logout"] == "auto") {
 			$error = _("You have been automatically logged out");
-		} else {
+		}
+		else {
 			$error = WebAppAuthentication::getErrorMessage();
-			if(empty($error) && useSecureCookies() && getRequestProtocol() == 'http') {
+			if (empty($error) && useSecureCookies() && getRequestProtocol() == 'http') {
 				header("HTTP/1.0 400 Bad Request");
-				include(BASE_PATH . 'server/includes/templates/BadRequest.php');
+				include BASE_PATH . 'server/includes/templates/BadRequest.php';
 				error_log("Rejected insecure request as configuration for 'SECURE_COOKIES' is true.");
-				die();
+
+				exit();
 			}
 		}
 
@@ -116,15 +120,16 @@
 		$user = isset($_GET['user']) ? htmlentities($_GET['user']) : '';
 
 		// Lets add a header when login failed (DeskApp needs it to identify failed login attempts)
-		if ( WebAppAuthentication::getErrorCode() !== NOERROR ) {
+		if (WebAppAuthentication::getErrorCode() !== NOERROR) {
 			header("X-grommunio-Hresult: " . get_mapi_error_name(WebAppAuthentication::getErrorCode()));
 		}
 
 		// Set a template variable for the favicon of the login, welcome, and webclient page
 		$theme = Theming::getActiveTheme();
 		$favicon = getFavicon(Theming::getActiveTheme());
-		include(BASE_PATH . 'server/includes/templates/login.php');
-		die();
+		include BASE_PATH . 'server/includes/templates/login.php';
+
+		exit();
 	}
 
 	// The user is authenticated! Let's get ready to start the webapp.
@@ -133,10 +138,11 @@
 	// we will redirect to make sure that a browser refresh will not post
 	// the credentials again, and that the url data is taken away from the
 	// url in the address bar (so a browser refresh will not pass them again)
-	if ( WebAppAuthentication::isUsingLoginForm() || isset($_GET['action']) && !empty($_GET['action']) ) {
-		$location =  rtrim(dirname($_SERVER['PHP_SELF']), '/').'/';
-		header('Location: ' . $location , true, 303);
-		die();
+	if (WebAppAuthentication::isUsingLoginForm() || isset($_GET['action']) && !empty($_GET['action'])) {
+		$location = rtrim(dirname($_SERVER['PHP_SELF']), '/') . '/';
+		header('Location: ' . $location, true, 303);
+
+		exit();
 	}
 
 	// TODO: we could replace all references to $GLOBALS['mapisession']
@@ -169,7 +175,7 @@
 
 	// If webapp feature is not enabled for the user,
 	// we will show the login page with appropriated error message.
-	if($GLOBALS['mapisession']->isWebappDisableAsFeature()) {
+	if ($GLOBALS['mapisession']->isWebappDisableAsFeature()) {
 		header("X-grommunio-Hresult: " . get_mapi_error_name(MAPI_E_WEBAPP_FEATURE_DISABLED));
 
 		$error = _("Sorry, access to grommunio Web is not available with this user account. Please contact your system administrator.");
@@ -182,14 +188,15 @@
 		$favicon = getFavicon(Theming::getActiveTheme());
 		$webappSession->destroy();
 		// Include the login template
-		include(BASE_PATH . 'server/includes/templates/login.php');
-		die();
+		include BASE_PATH . 'server/includes/templates/login.php';
+
+		exit();
 	}
 
 	$Language = new Language();
 
 	// Set session settings (language & style)
-	foreach($GLOBALS["settings"]->getSessionSettings($Language) as $key=>$value) {
+	foreach ($GLOBALS["settings"]->getSessionSettings($Language) as $key => $value) {
 		$_SESSION[$key] = $value;
 	}
 
@@ -197,10 +204,12 @@
 	if (isset($_REQUEST["language"]) && $Language->is_language($_REQUEST["language"])) {
 		$lang = $_REQUEST["language"];
 		$GLOBALS["settings"]->set("zarafa/v1/main/language", $lang);
-	} else if(isset($_SESSION["lang"])) {
+	}
+	elseif (isset($_SESSION["lang"])) {
 		$lang = $_SESSION["lang"];
 		$GLOBALS["settings"]->set("zarafa/v1/main/language", $lang);
-	} else {
+	}
+	else {
 		$lang = $GLOBALS["settings"]->get("zarafa/v1/main/language");
 		if (empty($lang)) {
 			$lang = LANG;
@@ -209,7 +218,7 @@
 	}
 
 	$Language->setLanguage($lang);
-	setcookie('lang', $lang, time()+31536000, '/', '', getRequestProtocol() === 'https');
+	setcookie('lang', $lang, time() + 31536000, '/', '', getRequestProtocol() === 'https');
 
 	// add extra header
 	header("X-grommunio: " . trim(file_get_contents('version')));
@@ -222,19 +231,19 @@
 	$unreadBorders = $GLOBALS["settings"]->get("zarafa/v1/main/unread_borders") === false ? '' : 'k-unreadborders';
 
 	// If GET parameter 'load' is defined, we defer handling to the load.php script
-	if ( isset($_GET['load']) ) {
-		include(BASE_PATH . 'server/includes/load.php');
-		die();
+	if (isset($_GET['load'])) {
+		include BASE_PATH . 'server/includes/load.php';
+
+		exit();
 	}
 
 	if (ENABLE_WELCOME_SCREEN && $GLOBALS["settings"]->get("zarafa/v1/main/show_welcome") !== false) {
-
 		// These hooks are defined twice (also when there is a "load" argument supplied)
 		$GLOBALS['PluginManager']->triggerHook("server.index.load.welcome.before");
-		include(BASE_PATH . 'server/includes/templates/welcome.php');
+		include BASE_PATH . 'server/includes/templates/welcome.php';
 		$GLOBALS['PluginManager']->triggerHook("server.index.load.welcome.after");
-	} else {
-
+	}
+	else {
 		// Set the show_welcome to false, so that when the admin is changing the
 		// ENABLE_WELCOME_SCREEN option to false after some time, the users who are already
 		// using grommunio Web are not bothered with the Welcome Screen.
@@ -261,6 +270,6 @@
 		$GLOBALS['PluginManager']->triggerHook("server.index.load.main.before");
 
 		// Include webclient
-		include(BASE_PATH . 'server/includes/templates/webclient.php');
+		include BASE_PATH . 'server/includes/templates/webclient.php';
 		$GLOBALS['PluginManager']->triggerHook("server.index.load.main.after");
 	}

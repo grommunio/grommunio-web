@@ -1,19 +1,18 @@
 <?php
-require_once('IPMUser.php');
+
+require_once 'IPMUser.php';
 
 /**
- * BusytimeUser
+ * BusytimeUser.
  *
  * An extension of the IPMUser to load the
  * busy times for the calendar.
  */
 class BusytimeUser extends IPMUser {
-
 	/**
-	 * Initialize the TestUser
+	 * Initialize the TestUser.
 	 */
-	protected function initialize()
-	{
+	protected function initialize() {
 		parent::initialize();
 
 		$this->logon();
@@ -25,24 +24,25 @@ class BusytimeUser extends IPMUser {
 	}
 
 	/**
-	 * Load all busy times from the calendar folder for the given restriction
-	 * @param Number $start The start date from where the busy times should be loaded
-	 * @param Number $due The due date until which the busy times should be loaded
-	 * @return Array The array of busy times for the given range
+	 * Load all busy times from the calendar folder for the given restriction.
+	 *
+	 * @param Number $start         The start date from where the busy times should be loaded
+	 * @param Number $due           The due date until which the busy times should be loaded
+	 * @param mixed  $restrictStart
+	 * @param mixed  $restrictDue
+	 *
+	 * @return array The array of busy times for the given range
 	 */
-	public function loadBusytimes($restrictStart, $restrictDue)
-	{
+	public function loadBusytimes($restrictStart, $restrictDue) {
 		$this->logon();
 
-		$extraProps = array(
-			'restriction' => array(
+		$extraProps = [
+			'restriction' => [
 				'startdate' => $restrictStart,
-				'duedate' => $restrictDue
-			)
-		);
+				'duedate' => $restrictDue,
+			],
+		];
 
 		return $this->loadItems($extraProps, false);
 	}
 }
-
-?>

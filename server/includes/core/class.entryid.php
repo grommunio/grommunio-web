@@ -1,47 +1,46 @@
 <?php
-	class EntryId
-	{
+
+	class EntryId {
 		/* Bit definitions for abFlags[3] of ENTRYID */
-		const ZARAFA_FAVORITE = '01';
+		public const ZARAFA_FAVORITE = '01';
 
 		/* GUID of root public folder */
-		const STATIC_GUID_PUBLICFOLDER = '00000000000000000000000000000003';
+		public const STATIC_GUID_PUBLICFOLDER = '00000000000000000000000000000003';
 		/* GUID of root favorite folder */
-		const STATIC_GUID_FAVORITE = '00000000000000000000000000000002';
-		/* GUID of ipm_subtree of public store*/
-		const STATIC_GUID_FAVSUBTREE = '00000000000000000000000000000001';
+		public const STATIC_GUID_FAVORITE = '00000000000000000000000000000002';
+		/* GUID of ipm_subtree of public store */
+		public const STATIC_GUID_FAVSUBTREE = '00000000000000000000000000000001';
 		/* GUID of Global Addressbook */
-		const MUIDECSAB = 'AC21A95040D3EE48B319FBA753304425';
+		public const MUIDECSAB = 'AC21A95040D3EE48B319FBA753304425';
 		/* GUID of Contact Provider */
-		const MUIDZCSAB = '727F0430E3924FDAB86AE52A7FE46571';
+		public const MUIDZCSAB = '727F0430E3924FDAB86AE52A7FE46571';
 		/* GUID for OneOff entryid */
-		const MAPI_ONE_OFF_UID = '812B1FA4BEA310199D6E00DD010F5402';
+		public const MAPI_ONE_OFF_UID = '812B1FA4BEA310199D6E00DD010F5402';
 		/* GUID for Address book recipient */
-		const MUIDEMSAB = 'DCA740C8C042101AB4B908002B2FE182';
+		public const MUIDEMSAB = 'DCA740C8C042101AB4B908002B2FE182';
 
 		/* Hardcoded ID used for generating entryid of addressbook container */
-		const ZARAFA_UID_ADDRESS_BOOK = '00000000';
+		public const ZARAFA_UID_ADDRESS_BOOK = '00000000';
 		/* Hardcoded ID used for generating entryid of global addressbook container */
-		const ZARAFA_UID_GLOBAL_ADDRESS_BOOK = '01000000';
+		public const ZARAFA_UID_GLOBAL_ADDRESS_BOOK = '01000000';
 		/* Hardcoded ID used for generating entryid of global addresslists container */
-		const ZARAFA_UID_GLOBAL_ADDRESS_LISTS = '02000000';
+		public const ZARAFA_UID_GLOBAL_ADDRESS_LISTS = '02000000';
 
-		public function __construct()
-		{
+		public function __construct() {
 		}
 
 		// Detect padding (max 3 bytes) from the entryId
-		private function getPadding($entryId)
-		{
+		private function getPadding($entryId) {
 			$len = strlen($entryId);
 			$padding = '';
 			$offset = 0;
 
-			for ($iterations = 4; $iterations > 0; $iterations--) {
+			for ($iterations = 4; $iterations > 0; --$iterations) {
 				if (substr($entryId, $len - ($offset + 2), $len - $offset) == '00') {
 					$padding .= '00';
 					$offset += 2;
-				} else {
+				}
+				else {
 					// if non-null character found then break the loop
 					break;
 				}
@@ -51,20 +50,19 @@
 		}
 
 		// Entryid from version 6
-		private function getEIDVersion($entryid)
-		{
+		private function getEIDVersion($entryid) {
 			// always make entryids in uppercase so comparison will be case insensitive
 			$entryId = strtoupper($entryid);
 
-			$res = array(
-				'abFlags'	=> '',		// BYTE[4],   4 bytes,  8 hex characters
-				'guid'		=> '',		// GUID,     16 bytes, 32 hex characters
-				'version'	=> '',		// ULONG,     4 bytes,  8 hex characters
-				'type'		=> '',		// ULONG,     4 bytes,  8 hex characters
-				'uniqueId'	=> '',		// ULONG,    16 bytes,  32 hex characters
-				'server'	=> '',		// CHAR,     variable length
-				'padding'	=> '',		// TCHAR[3],  4 bytes,  8 hex characters (upto 4 bytes)
-			);
+			$res = [
+				'abFlags' => '',		// BYTE[4],   4 bytes,  8 hex characters
+				'guid' => '',		// GUID,     16 bytes, 32 hex characters
+				'version' => '',		// ULONG,     4 bytes,  8 hex characters
+				'type' => '',		// ULONG,     4 bytes,  8 hex characters
+				'uniqueId' => '',		// ULONG,    16 bytes,  32 hex characters
+				'server' => '',		// CHAR,     variable length
+				'padding' => '',		// TCHAR[3],  4 bytes,  8 hex characters (upto 4 bytes)
+			];
 
 			$res['length'] = strlen($entryId);
 			$offset = 0;
@@ -74,7 +72,7 @@
 			$entryId = substr($entryId, 0, strlen($entryId) - strlen($res['padding']));
 
 			$res['abFlags'] = substr($entryId, $offset, 8);
-			$offset =+ 8;
+			$offset = +8;
 
 			$res['guid'] = substr($entryId, $offset, 32);
 			$offset += 32;
@@ -97,20 +95,19 @@
 		}
 
 		// The entryid from the begin of zarafa till 5.20
-		private function getEID_V0Version($entryid)
-		{
+		private function getEID_V0Version($entryid) {
 			// always make entryids in uppercase so comparison will be case insensitive
 			$entryId = strtoupper($entryid);
 
-			$res = array(
-				'abFlags'	=> '',		// BYTE[4],   4 bytes,  8 hex characters
-				'guid'		=> '',		// GUID,     16 bytes, 32 hex characters
-				'version'	=> '',		// ULONG,     4 bytes,  8 hex characters
-				'type'		=> '',		// ULONG,     4 bytes,  8 hex characters
-				'id'		=> '',		// ULONG,     4 bytes,  8 hex characters
-				'server'	=> '',		// CHAR,     variable length
-				'padding'	=> '',		// TCHAR[3],  4 bytes,  8 hex characters (upto 4 bytes)
-			);
+			$res = [
+				'abFlags' => '',		// BYTE[4],   4 bytes,  8 hex characters
+				'guid' => '',		// GUID,     16 bytes, 32 hex characters
+				'version' => '',		// ULONG,     4 bytes,  8 hex characters
+				'type' => '',		// ULONG,     4 bytes,  8 hex characters
+				'id' => '',		// ULONG,     4 bytes,  8 hex characters
+				'server' => '',		// CHAR,     variable length
+				'padding' => '',		// TCHAR[3],  4 bytes,  8 hex characters (upto 4 bytes)
+			];
 
 			$res['length'] = strlen($entryId);
 			$offset = 0;
@@ -120,7 +117,7 @@
 			$entryId = substr($entryId, 0, strlen($entryId) - strlen($res['padding']));
 
 			$res['abFlags'] = substr($entryId, $offset, 8);
-			$offset =+ 8;
+			$offset = +8;
 
 			$res['guid'] = substr($entryId, $offset, 32);
 			$offset += 32;
@@ -143,9 +140,8 @@
 		}
 
 		// wrapped store entryid
-		private function getWrappedSEID($storeEntryId)
-		{
-			$res = array();
+		private function getWrappedSEID($storeEntryId) {
+			$res = [];
 
 			$res['name'] = 'WrappedSEID';
 			$res['length'] = strlen($storeEntryId);
@@ -184,20 +180,19 @@
 		}
 
 		// Addressbook Entryid
-		private function getABEIDVersion($entryId)
-		{
+		private function getABEIDVersion($entryId) {
 			// always make entryids in uppercase so comparison will be case insensitive
 			$entryId = strtoupper($entryId);
 
-			$res = array(
-				'abFlags'	=> '',		// BYTE[4],   4 bytes,  8 hex characters
-				'guid'		=> '',		// GUID,     16 bytes, 32 hex characters
-				'version'	=> '',		// ULONG,     4 bytes,  8 hex characters
-				'type'		=> '',		// ULONG,     4 bytes,  8 hex characters
-				'id'		=> '',		// ULONG,    16 bytes,  32 hex characters
-				'extid'		=> '',		// CHAR,     variable length
-				'padding'	=> '',		// TCHAR[3],  4 bytes,  8 hex characters (upto 4 bytes)
-			);
+			$res = [
+				'abFlags' => '',		// BYTE[4],   4 bytes,  8 hex characters
+				'guid' => '',		// GUID,     16 bytes, 32 hex characters
+				'version' => '',		// ULONG,     4 bytes,  8 hex characters
+				'type' => '',		// ULONG,     4 bytes,  8 hex characters
+				'id' => '',		// ULONG,    16 bytes,  32 hex characters
+				'extid' => '',		// CHAR,     variable length
+				'padding' => '',		// TCHAR[3],  4 bytes,  8 hex characters (upto 4 bytes)
+			];
 
 			$res['length'] = strlen($entryId);
 			$offset = 0;
@@ -207,7 +202,7 @@
 			$entryId = substr($entryId, 0, strlen($entryId) - strlen($res['padding']));
 
 			$res['abFlags'] = substr($entryId, $offset, 8);
-			$offset =+ 8;
+			$offset = +8;
 
 			$res['guid'] = substr($entryId, $offset, 32);
 			$offset += 32;
@@ -231,18 +226,21 @@
 
 		/**
 		 * Creates an object that has split up all the components of an entryID.
+		 *
 		 * @param {String} entryid Entryid
+		 * @param mixed $entryid
+		 *
 		 * @return {Object} EntryID object
 		 */
-		private function createEntryIdObj($entryid)
-		{
+		private function createEntryIdObj($entryid) {
 			// check if we are dealing with old or new object entryids
 			$versionString = substr($entryid, 40, 8);
 
-			if($versionString == '00000000') {
+			if ($versionString == '00000000') {
 				// use EID_V0 struct
 				$eidObj = $this->getEID_V0Version($entryid);
-			} else {
+			}
+			else {
 				// use EID struct
 				$eidObj = $this->getEIDVersion($entryid);
 			}
@@ -253,71 +251,86 @@
 		/**
 		 * Compares two entryIds. It is possible to have two different entryIds that should match as they
 		 * represent the same object (in multiserver environments).
+		 *
 		 * @param {String} entryId1 EntryID
 		 * @param {String} entryId2 EntryID
+		 * @param mixed $entryId1
+		 * @param mixed $entryId2
+		 *
 		 * @return {Boolean} Result of the comparison
 		 */
-		public function compareEntryIds($entryId1, $entryId2)
-		{
-			if(!is_string($entryId1) || !is_string($entryId2)) {
+		public function compareEntryIds($entryId1, $entryId2) {
+			if (!is_string($entryId1) || !is_string($entryId2)) {
 				return false;
 			}
 
-			if($entryId1 === $entryId2) {
+			if ($entryId1 === $entryId2) {
 				// if normal comparison succeeds then we can directly say that entryids are same
 				return true;
 			}
+
 			return false;
 		}
 
 		/**
 		 * Creates an object that has split up all the components of a store entryid.
-		 * @param {String} storeEntryId unwrapped store entryid.
-		 * @return {Object} store entryid object.
+		 *
+		 * @param {String} storeEntryId unwrapped store entryid
+		 * @param mixed $storeEntryId
+		 *
+		 * @return {Object} store entryid object
 		 */
-		private function createStoreEntryIdObj($storeEntryId)
-		{
+		private function createStoreEntryIdObj($storeEntryId) {
 			return $this->getWrappedSEID($storeEntryId);
 		}
 
 		/**
 		 * Compares two entryIds. It is possible to have two different entryIds that should match as they
 		 * represent the same object (in multiserver environments).
+		 *
 		 * @param {String} storeEntryId1 store entryid
 		 * @param {String} storeEntryId2 store entryid
+		 * @param mixed $storeEntryId1
+		 * @param mixed $storeEntryId2
+		 *
 		 * @return {Boolean} Result of the comparison
 		 */
-		public function compareStoreEntryIds($storeEntryId1, $storeEntryId2)
-		{
-			if(!is_string($storeEntryId1) || !is_string($storeEntryId2)) {
+		public function compareStoreEntryIds($storeEntryId1, $storeEntryId2) {
+			if (!is_string($storeEntryId1) || !is_string($storeEntryId2)) {
 				return false;
 			}
 
-			if($storeEntryId1 === $storeEntryId2) {
+			if ($storeEntryId1 === $storeEntryId2) {
 				// if normal comparison succeeds then we can directly say that entryids are same
 				return true;
 			}
+
 			return false;
 		}
 
 		/**
 		 * Creates an object that has split up all the components of an addressbook entryid.
-		 * @param {String} abEntryId unwrapped addressbook entryid.
-		 * @return {Object} addresbook entryid object.
+		 *
+		 * @param {String} abEntryId unwrapped addressbook entryid
+		 * @param mixed $abEntryId
+		 *
+		 * @return {Object} addresbook entryid object
 		 */
-		public function createABEntryIdObj($abEntryId)
-		{
+		public function createABEntryIdObj($abEntryId) {
 			return $this->getABEIDVersion($abEntryId);
 		}
 
 		/**
-		 * Creates an object that has wrapped a normal entryid using the AddressBook Provider GUID
-		 * @param {String} entryId unwrapped entryid.
+		 * Creates an object that has wrapped a normal entryid using the AddressBook Provider GUID.
+		 *
+		 * @param {String} entryId unwrapped entryid
 		 * @param {Number} objType The ObjectType which represents the object
-		 * @return {String} wrapped addresbook entryid object.
+		 * @param mixed $entryId
+		 * @param mixed $objType
+		 *
+		 * @return {String} wrapped addresbook entryid object
 		 */
-		public function wrapABEntryIdObj($entryId, $objType)
-		{
+		public function wrapABEntryIdObj($entryId, $objType) {
 			$objType = dechex($objType);
 
 			// add padding for the type, which is of 4 bytes (8 characters)
@@ -328,12 +341,14 @@
 		}
 
 		/**
-		 * Unwrap a Address Book Provider Entryid to a normal entryid
+		 * Unwrap a Address Book Provider Entryid to a normal entryid.
+		 *
 		 * @param {String} abEntryId wrapped entryid
+		 * @param mixed $abEntryId
+		 *
 		 * @return {Object} unwrapped entryid
 		 */
-		public function unwrapABEntryIdObj($abEntryId)
-		{
+		public function unwrapABEntryIdObj($abEntryId) {
 			// Remove ulVersion (8 char), muid (32 char), ulObjType (8 char) and ulOffset (8 char)
 			return substr($abEntryId, 56);
 		}
@@ -341,43 +356,51 @@
 		/**
 		 * Compares two entryIds. It is possible to have two different entryIds that should match as they
 		 * represent the same object (in multiserver environments).
+		 *
 		 * @param {String} entryId1 EntryID
 		 * @param {String} entryId2 EntryID
+		 * @param mixed $entryId1
+		 * @param mixed $entryId2
+		 *
 		 * @return {Boolean} Result of the comparison
 		 */
-		public function compareABEntryIds($entryId1, $entryId2)
-		{
-			if(!is_string($entryId1) || !is_string($entryId2)) {
+		public function compareABEntryIds($entryId1, $entryId2) {
+			if (!is_string($entryId1) || !is_string($entryId2)) {
 				return false;
 			}
 
-			if($entryId1 === $entryId2) {
+			if ($entryId1 === $entryId2) {
 				// if normal comparison succeeds then we can directly say that entryids are same
 				return true;
 			}
+
 			return false;
 		}
 
 		/**
 		 * Checks if the passed folder entryid is a folder in the favorites folder, favorites folder
 		 * contains 0x01 in the abFlags[3] flag.
+		 *
 		 * @param {String} entryId folder entryid
+		 * @param mixed $entryId
+		 *
 		 * @return {Boolean} true of folder is a favorite folder else false
 		 */
-		public function isFavoriteFolder($entryId)
-		{
+		public function isFavoriteFolder($entryId) {
 			$entryIdObj = $this->createEntryIdObj($entryId);
 
-			return (substr($entryIdObj['abFlags'], 6, 8) == self::ZARAFA_FAVORITE);
+			return substr($entryIdObj['abFlags'], 6, 8) == self::ZARAFA_FAVORITE;
 		}
 
 		/**
 		 * Checks if the given entryid is a oneoff entryid.
+		 *
 		 * @param {String} entryId The entryid
+		 * @param mixed $entryId
+		 *
 		 * @return {Boolean} true if the entryid is a oneoff
 		 */
-		public function isOneOffEntryId($entryId)
-		{
+		public function isOneOffEntryId($entryId) {
 			$entryIdObj = $this->createEntryIdObj($entryId);
 
 			return $entryIdObj['guid'] == self::MAPI_ONE_OFF_UID;
@@ -385,11 +408,13 @@
 
 		/**
 		 * Checks if the passed folder entryid is root favorites folder.
+		 *
 		 * @param {String} entryId folder entryid
+		 * @param mixed $entryId
+		 *
 		 * @return {Boolean} true of folder is a root favorite folder else false
 		 */
-		public function isFavoriteRootFolder($entryId)
-		{
+		public function isFavoriteRootFolder($entryId) {
 			$entryIdObj = $this->createEntryIdObj($entryId);
 
 			return $entryIdObj['uniqueId'] == self::STATIC_GUID_FAVORITE;
@@ -397,11 +422,13 @@
 
 		/**
 		 * Checks if the passed folder entryid is root public folder.
+		 *
 		 * @param {String} entryId folder entryid
+		 * @param mixed $entryId
+		 *
 		 * @return {Boolean} true of folder is a root public folder else false
 		 */
-		public function isPublicRootFolder($entryId)
-		{
+		public function isPublicRootFolder($entryId) {
 			$entryIdObj = $this->createEntryIdObj($entryId);
 
 			return $entryIdObj['uniqueId'] == self::STATIC_GUID_PUBLICFOLDER;
@@ -409,23 +436,25 @@
 
 		/**
 		 * Checks if the passed folder entryid is public subtree folder.
+		 *
 		 * @param {String} entryId folder entryid
+		 * @param mixed $entryId
+		 *
 		 * @return {Boolean} true of folder is a root public folder else false
 		 */
-		public function isPublicSubtreeFolder($entryId)
-		{
+		public function isPublicSubtreeFolder($entryId) {
 			$entryIdObj = $this->createEntryIdObj($entryId);
 
 			return $entryIdObj['uniqueId'] == self::STATIC_GUID_FAVSUBTREE;
 		}
 
 		/**
-		 * Checks if the given entryid
-		 * @param {String} entryId Addressbook entryid
+		 * Checks if the given entryid.
 		 *
+		 * @param {String} entryId Addressbook entryid
+		 * @param mixed $entryId
 		 */
-		public function hasContactProviderGUID($entryId)
-		{
+		public function hasContactProviderGUID($entryId) {
 			$entryIdObj = $this->createABEntryIdObj($entryId);
 
 			return $entryIdObj['guid'] == self::MUIDZCSAB;
@@ -433,11 +462,12 @@
 
 		/**
 		 * Checks if the GUID part of the entryid is of the Global Addressbook.
+		 *
 		 * @param {String} $entryId Address Book entryid
+		 *
 		 * @return {Boolean} true if guid matches the Global Addressbook else false
 		 */
-		public function hasAddressBookGUID($entryId)
-		{
+		public function hasAddressBookGUID($entryId) {
 			$entryIdObj = $this->createABEntryIdObj($entryId);
 
 			return $entryIdObj['guid'] == self::MUIDECSAB;
@@ -445,11 +475,12 @@
 
 		/**
 		 * Checks if the GUID part of the entryid is of the Address book recipient.
+		 *
 		 * @param {String} $entryId Address Book entryid
+		 *
 		 * @return {Boolean} true if guid matches the Ab recipient else false
 		 */
-		public function hasAddressBookRecipientGUID($entryId)
-		{
+		public function hasAddressBookRecipientGUID($entryId) {
 			$entryIdObj = $this->createABEntryIdObj($entryId);
 
 			return $entryIdObj['guid'] == self::MUIDEMSAB;
@@ -457,29 +488,32 @@
 
 		/**
 		 * Checks if the GUID part of the entryid is of the Global Addressbook Container.
+		 *
 		 * @param {String} $entryId Address Book entryid
+		 *
 		 * @return {Boolean} true if guid matches the Global Addressbook Container else false
 		 */
-		public function isGlobalAddressbookContainer($entryId)
-		{
+		public function isGlobalAddressbookContainer($entryId) {
 			// check for global addressbook entryid
-			if($this->hasAddressBookGUID($entryId) === false) {
+			if ($this->hasAddressBookGUID($entryId) === false) {
 				return false;
 			}
 
 			$entryIdObj = $this->createABEntryIdObj($entryId);
 
 			// check for object_type == MAPI_ABCONT and id == 1
-			return ($entryIdObj['type'] == '04000000' && $entryIdObj['id'] == self::ZARAFA_UID_GLOBAL_ADDRESS_BOOK);
+			return $entryIdObj['type'] == '04000000' && $entryIdObj['id'] == self::ZARAFA_UID_GLOBAL_ADDRESS_BOOK;
 		}
 
 		/**
 		 * Creates an object that has split up all the components of an message store entryid.
+		 *
 		 * @param {String} $entryId message store entryid
+		 *
 		 * @return {Object} message store entryid object
 		 */
 		public function createMsgStoreEntryIdObj($entryId) {
-			$res = array(
+			$res = [
 				'Flags' => '',
 				'ProviderUID' => '',
 				'Version' => '',
@@ -490,7 +524,7 @@
 				'WrappedType' => '',
 				'ServerShortname' => '',
 				'MailboxDN' => '',
-				'V2' => array(
+				'V2' => [
 					'Magic' => '',
 					'Size' => '',
 					'Version' => '',
@@ -498,16 +532,16 @@
 					'OffsetFQDN' => '',
 					'ServerDN' => '',
 					'ServerFQDN' => '',
-					'ReservedBlock' => ''
-				),
-				'V3' => array(
+					'ReservedBlock' => '',
+				],
+				'V3' => [
 					'Magic' => '',
 					'Size' => '',
 					'Version' => '',
 					'OffsetSmtpAddress' => '',
 					'SmtpAddress' => '',
-				)
-			);
+				],
+			];
 
 			if (!$entryId) {
 				return $res;
@@ -516,42 +550,42 @@
 			$offset = 0;
 			if (!$this->getAndCheckComponents($entryId, $offset, 4, 0x0, $res, 'Flags')) {
 				return $res;
-			};
+			}
 			$offset += 4;
 
 			if (!$this->getAndCheckComponents($entryId, $offset, 16, MUID_STORE_WRAP_GUID, $res, 'ProviderUID')) {
 				return $res;
-			};
+			}
 			$offset += 16;
 
 			if (!$this->getAndCheckComponents($entryId, $offset, 1, 0x0, $res, 'Version')) {
 				return $res;
-			};
-			$offset += 1;
+			}
+			++$offset;
 
 			if (!$this->getAndCheckComponents($entryId, $offset, 1, 0x0, $res, 'Flag')) {
 				return $res;
-			};
-			$offset += 1;
+			}
+			++$offset;
 
 			if (!$this->getAndCheckComponents($entryId, $offset, 10, 'emsmdb.dll', $res, 'DLLFileName')) {
 				return $res;
-			};
+			}
 			$offset += 14;
 
 			if (!$this->getAndCheckComponents($entryId, $offset, 4, 0x0, $res, 'WrappedFlags')) {
 				return $res;
-			};
+			}
 			$offset += 4;
 
-			if (!$this->getAndCheckComponents($entryId, $offset, 16, array(MUID_STORE_PRIVATE_GUID, MUID_STORE_PUBLIC_GUID), $res, 'WrappedProviderUID')) {
+			if (!$this->getAndCheckComponents($entryId, $offset, 16, [MUID_STORE_PRIVATE_GUID, MUID_STORE_PUBLIC_GUID], $res, 'WrappedProviderUID')) {
 				return $res;
-			};
+			}
 			$offset += 16;
 
-			if (!$this->getAndCheckComponents($entryId, $offset, 4, array_map('hex2bin', array('0C000000', '06000000')), $res, 'WrappedType')) {
+			if (!$this->getAndCheckComponents($entryId, $offset, 4, array_map('hex2bin', ['0C000000', '06000000']), $res, 'WrappedType')) {
 				return $res;
-			};
+			}
 			$offset += 4;
 
 			$zeroBytePos = strpos($entryId, "\0", $offset);
@@ -575,54 +609,72 @@
 		 * Reads $len bytes beginning from $start of the $entryid,
 		 * checks if the value of resulting string is expected and adds it
 		 * to $res object in such case.
+		 *
 		 * @param {String} $entryId message store entryid
 		 * @param {int} $start start position of the value to get
 		 * @param {int} $len length in bytes of the value to get
 		 * @param {Object} $checkValue value to check against
 		 * @param {Object} $res message store entryid object
 		 * @param {String} $key component name
-		 * @return {Boolean} true if the component has the expected value, false otherwise.
+		 *
+		 * @return {Boolean} true if the component has the expected value, false otherwise
 		 */
 		private function getAndCheckComponents($entryId, $start, $len, $checkValue, &$res, $key) {
 			$val = substr($entryId, $start, $len);
 			if (is_array($checkValue)) {
-				 if (!in_array($val, $checkValue)) {
-					error_log(sprintf("Unexpected value in store entryid for user %s. Entryid: %s key: '%s' value: '%s' expected: %s",
-						$GLOBALS["mapisession"]->getUserName(), bin2hex($entryId), $key, $val, print_r(array_map('bin2hex', $checkValue), 1)));
+				if (!in_array($val, $checkValue)) {
+					error_log(sprintf(
+						"Unexpected value in store entryid for user %s. Entryid: %s key: '%s' value: '%s' expected: %s",
+						$GLOBALS["mapisession"]->getUserName(),
+						bin2hex($entryId),
+						$key,
+						$val,
+						print_r(array_map('bin2hex', $checkValue), 1)
+					));
+
 					return false;
-				 }
+				}
 			}
 			elseif ($checkValue !== null && $val != $checkValue) {
 				$user = $GLOBALS["mapisession"] !== null ? $GLOBALS["mapisession"]->getUserName() :
-				        "<mapisession not yet initialized>";
-				error_log(sprintf("Unexpected value in store entryid for user %s. Entryid: %s key: '%s' value: '%s' expected: %s",
-				          $user, bin2hex($entryId), $key, $val, $checkValue));
+						"<mapisession not yet initialized>";
+				error_log(sprintf(
+					"Unexpected value in store entryid for user %s. Entryid: %s key: '%s' value: '%s' expected: %s",
+					$user,
+					bin2hex($entryId),
+					$key,
+					$val,
+					$checkValue
+				));
+
 				return false;
 			}
 
 			$res[$key] = $val;
+
 			return true;
 		}
 
 		/**
 		 * Creates an object that has split up all the components of a message entryid.
+		 *
 		 * @param {String} $entryId message entryid
+		 *
 		 * @return {Object} message entryid object
 		 */
-		public function createMessageEntryIdObj($entryId)
-		{
+		public function createMessageEntryIdObj($entryId) {
 			// always make entryids in uppercase so comparison will be case insensitive
 			$entryId = strtoupper($entryId);
 
-			$res = array(
+			$res = [
 				'providerguid' => '',			// GUID,     16 bytes, 32 hex characters
 				'messagetype' => '',			// UINT,      2 bytes,  4 hex characters
 				'folderdbguid' => '',			// GUID,     16 bytes, 32 hex characters
-				'foldercounter'	=> '',		// ULONG,     6 bytes, 12 hex characters
-				'padding'	=> '',					// TCHAR[3],  2 bytes,  4 hex characters
+				'foldercounter' => '',		// ULONG,     6 bytes, 12 hex characters
+				'padding' => '',					// TCHAR[3],  2 bytes,  4 hex characters
 				'messagedbguid' => '',		// GUID,     16 bytes, 32 hex characters
-				'messagecounter'	=> '',	// ULONG,     6 bytes, 12 hex characters
-			);
+				'messagecounter' => '',	// ULONG,     6 bytes, 12 hex characters
+			];
 
 			if (!$entryId) {
 				return $res;
@@ -657,35 +709,37 @@
 
 		/**
 		 * Creates a folder entryid with provided parameters.
+		 *
 		 * @param $providerguid {String} provider guid
 		 * @param $foldertype {int} folder type flag
 		 * @param $folderdbguid {String} folder db guid
 		 * @param $foldercounter {String} folder counter
+		 *
 		 * @return {String} folder entryid
 		 */
-		public function createFolderEntryId($providerguid, $foldertype, $folderdbguid, $foldercounter)
-		{
+		public function createFolderEntryId($providerguid, $foldertype, $folderdbguid, $foldercounter) {
 			return strtoupper('00000000' . $providerguid . $foldertype . $folderdbguid . $foldercounter . '0000');
 		}
 
 		/**
 		 * Creates an object that has split up all the components of a folder entryid.
+		 *
 		 * @param {String} $entryId folder entryid
+		 *
 		 * @return {Object} folder entryid object
 		 */
-		public function createFolderEntryIdObj($entryId)
-		{
+		public function createFolderEntryIdObj($entryId) {
 			// always make entryids in uppercase so comparison will be case insensitive
 			$entryId = strtoupper($entryId);
 
-			$res = array(
-				'abflags'	=> '',					// BYTE[4],   4 bytes,  8 hex characters
+			$res = [
+				'abflags' => '',					// BYTE[4],   4 bytes,  8 hex characters
 				'providerguid' => '',			// GUID,     16 bytes, 32 hex characters
 				'foldertype' => '',				// UINT,      2 bytes,  4 hex characters
 				'folderdbguid' => '',			// GUID,     16 bytes, 32 hex characters
-				'foldercounter'	=> '',		// ULONG,     6 bytes, 12 hex characters
-				'padding'	=> '',					// TCHAR[3],  2 bytes,  4 hex characters
-			);
+				'foldercounter' => '',		// ULONG,     6 bytes, 12 hex characters
+				'padding' => '',					// TCHAR[3],  2 bytes,  4 hex characters
+			];
 
 			if (!$entryId) {
 				return $res;
@@ -718,4 +772,3 @@
 
 	// Create global entryId object
 	$GLOBALS["entryid"] = new EntryId();
-?>

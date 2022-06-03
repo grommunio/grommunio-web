@@ -12,8 +12,8 @@
 
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-		<link rel="icon" href="<?php echo $favicon ?>" type="image/x-icon">
-		<link rel="shortcut icon" href="<?php echo $favicon ?>" type="image/x-icon">
+		<link rel="icon" href="<?php echo $favicon; ?>" type="image/x-icon">
+		<link rel="shortcut icon" href="<?php echo $favicon; ?>" type="image/x-icon">
 
 		<link rel="stylesheet" type="text/css" href="client/resources/css/external/login.css">
 
@@ -22,25 +22,25 @@
 			echo Theming::getStyles($theme);
 		?>
 
-		<script type="text/javascript"><?php require(BASE_PATH . 'client/fingerprint.js'); ?></script>
+		<script type="text/javascript"><?php require BASE_PATH . 'client/fingerprint.js'; ?></script>
 	</head>
 
-	<body class="login theme-<?php echo strtolower($theme ? $theme : 'basic') ?>">
+	<body class="login theme-<?php echo strtolower($theme ? $theme : 'basic'); ?>">
 		<div id="form-container">
 			<div id="bg"></div>
 			<div id="content">
 				<div class="left">
 					<div id="logo"></div>
-					<?php if ( !empty($branch) ) { ?>
+					<?php if (!empty($branch)) { ?>
 					<h2><i><?php echo $branch; ?></i></h2>
 					<?php } ?>
 				</div>
 				<div class="right">
-					<form action="<?php echo $url ?>" method="post">
+					<form action="<?php echo $url; ?>" method="post">
 						<input type="text" name="username" id="username" value="<?php echo $user; ?>" placeholder="<?php echo _("Username"); ?>" required>
 						<input type="password" name="password" id="password" placeholder="<?php echo _("Password"); ?>" required>
 
-						<?php if ( isset($error) ) { ?>
+						<?php if (isset($error)) { ?>
 						<div id="error"><?php echo $error; ?></div>
 						<?php } ?>
 
@@ -49,7 +49,7 @@
 				</div>
 			</div>
 		</div>
-		<script type="text/javascript"><?php require(BASE_PATH . 'client/resize.js'); ?></script>
+		<script type="text/javascript"><?php require BASE_PATH . 'client/resize.js'; ?></script>
 		<script type="text/javascript">
 			// Set focus on the correct form element
 			function onLoad() {

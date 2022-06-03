@@ -1,24 +1,27 @@
 <?php
-require_once('classes/grommunioUser.php');
-require_once('classes/TestUser.php');
-require_once('classes/grommunioTest.php');
+
+require_once 'classes/grommunioUser.php';
+require_once 'classes/TestUser.php';
+require_once 'classes/grommunioTest.php';
 
 /**
- * SettingsTest
+ * SettingsTest.
  *
  * Tests the logic behind the saving and deleting of settings.
+ *
+ * @internal
+ * @coversNothing
  */
 class SettingsTest extends grommunioTest {
 	/**
-	 * The user which is saving the settings
+	 * The user which is saving the settings.
 	 */
 	private $user;
 
 	/**
 	 * During setup we are going to create the core Settings object.
 	 */
-	protected function setUp()
-	{
+	protected function setUp() {
 		$this->cleanFolders = false;
 		parent::setUp();
 
@@ -26,23 +29,26 @@ class SettingsTest extends grommunioTest {
 	}
 
 	/**
-	 * Test the results from the retrieving of settings
+	 * Test the results from the retrieving of settings.
 	 */
-	public function testRetrieveSettingResults()
-	{
+	public function testRetrieveSettingResults() {
 		$settings = $this->user->retrieveSettings();
-                $this->assertEmpty($settings['retrieveAll']);
+		$this->assertEmpty($settings['retrieveAll']);
 	}
 
 	/**
-	 * Test that a setting can be set
+	 * Test that a setting can be set.
+	 *
 	 * @dataProvider providerSetSettings
+	 *
+	 * @param mixed $path
+	 * @param mixed $value
 	 */
-	public function testSetSetting($path, $value)
-	{
+	public function testSetSetting($path, $value) {
 		try {
 			$result = $this->user->setSetting($path, $value);
-		} catch (Exception $e) {
+		}
+		catch (Exception $e) {
 			$this->fail('Test that the settings can be saved: ' . $e->getMessage() . PHP_EOL . $e->getTraceAsString());
 		}
 
@@ -50,11 +56,15 @@ class SettingsTest extends grommunioTest {
 	}
 
 	/**
-	 * Test if the setting has been set correctly
+	 * Test if the setting has been set correctly.
+	 *
 	 * @dataProvider providerSetSettings
+	 *
+	 * @param mixed $path
+	 * @param mixed $value
+	 * @param mixed $testMessage
 	 */
-	public function testSetSettingResult($path, $value, $testMessage)
-	{
+	public function testSetSettingResult($path, $value, $testMessage) {
 		$this->user->setSetting($path, $value);
 		$settings = $this->user->retrieveSettings();
 
@@ -63,7 +73,7 @@ class SettingsTest extends grommunioTest {
 
 		$path = explode('/', $path);
 
-		for ($i = 0, $len = count($path); $i < $len; $i++) {
+		for ($i = 0, $len = count($path); $i < $len; ++$i) {
 			$key = $path[$i];
 
 			$this->assertArrayHasKey($key, $settings, 'Test that the object contains the \'' . $key . '\' property');
@@ -75,22 +85,22 @@ class SettingsTest extends grommunioTest {
 	}
 
 	/**
-	 * Test if multiple settings can be set
+	 * Test if multiple settings can be set.
 	 */
-	public function testSetMultipleSettings()
-	{
+	public function testSetMultipleSettings() {
 		try {
-			$result = $this->user->setSetting(array(
-				array(
+			$result = $this->user->setSetting([
+				[
 					'path' => 'zarafa/v1/test1',
-					'value' => 'a'
-				),
-				array(
+					'value' => 'a',
+				],
+				[
 					'path' => 'zarafa/v1/test2',
-					'value' => 'b'
-				)
-			));
-		} catch (Exception $e) {
+					'value' => 'b',
+				],
+			]);
+		}
+		catch (Exception $e) {
 			$this->fail('Test that multiple settings can be saved: ' . $e->getMessage() . PHP_EOL . $e->getTraceAsString());
 		}
 
@@ -98,20 +108,19 @@ class SettingsTest extends grommunioTest {
 	}
 
 	/**
-	 * Test if the multiple settings were saved correctlty
+	 * Test if the multiple settings were saved correctlty.
 	 */
-	public function testSetMultipleSettingsResult()
-	{
-		$this->user->setSetting(array(
-			array(
+	public function testSetMultipleSettingsResult() {
+		$this->user->setSetting([
+			[
 				'path' => 'zarafa/v1/test1',
-				'value' => 'a'
-			),
-			array(
+				'value' => 'a',
+			],
+			[
 				'path' => 'zarafa/v1/test2',
-				'value' => 'b'
-			)
-		));
+				'value' => 'b',
+			],
+		]);
 		$settings = $this->user->retrieveSettings();
 
 		$this->assertArrayHasKey('retrieveAll', $settings, 'Test that the object contains the \'retrieveAll\' property');
@@ -125,47 +134,49 @@ class SettingsTest extends grommunioTest {
 	}
 
 	/**
-	 * Test if an array can be overridden
+	 * Test if an array can be overridden.
 	 */
-	public function testOverrideArray()
-	{
-		$this->user->setSetting('zarafa/v1/test', array(0 => 'first', 1 => 'second', 2 => 'third' ));
-		$this->user->setSetting('zarafa/v1/test', array(0 => 'fourth', 1 => 'fifth' ));
+	public function testOverrideArray() {
+		$this->user->setSetting('zarafa/v1/test', [0 => 'first', 1 => 'second', 2 => 'third']);
+		$this->user->setSetting('zarafa/v1/test', [0 => 'fourth', 1 => 'fifth']);
 
 		$settings = $this->user->retrieveSettings();
 
 		$settings = $settings['retrieveAll']['zarafa']['v1'];
 		$this->assertArrayHasKey('test', $settings, 'Test that the object contains the \'test\' property');
 
-		$this->assertEquals(array(0 => 'fourth', 1 => 'fifth' ), $settings['test'], 'Test that the array has been properly overridden');
+		$this->assertEquals([0 => 'fourth', 1 => 'fifth'], $settings['test'], 'Test that the array has been properly overridden');
 	}
 
 	/**
-	 * Test if an object can be overridden
+	 * Test if an object can be overridden.
 	 */
-	public function testOverrideObject()
-	{
-		$this->user->setSetting('zarafa/v1/test', array('first' => 'un', 'second' => 'deux', 'third' => 'trois' ));
-		$this->user->setSetting('zarafa/v1/test', array('fourth' => 'quatre', 'fifth' => 'cinq' ));
+	public function testOverrideObject() {
+		$this->user->setSetting('zarafa/v1/test', ['first' => 'un', 'second' => 'deux', 'third' => 'trois']);
+		$this->user->setSetting('zarafa/v1/test', ['fourth' => 'quatre', 'fifth' => 'cinq']);
 
 		$settings = $this->user->retrieveSettings();
 
 		$settings = $settings['retrieveAll']['zarafa']['v1'];
 		$this->assertArrayHasKey('test', $settings, 'Test that the object contains the \'test\' property');
 
-		$this->assertEquals(array('fourth' => 'quatre', 'fifth' => 'cinq' ), $settings['test'], 'Test that the object has been properly overridden');
+		$this->assertEquals(['fourth' => 'quatre', 'fifth' => 'cinq'], $settings['test'], 'Test that the object has been properly overridden');
 	}
 
 	/**
-	 * Test that a setting can be deleted
+	 * Test that a setting can be deleted.
+	 *
 	 * @dataProvider providerDeleteSettings
+	 *
+	 * @param mixed $path
+	 * @param mixed $value
 	 */
-	public function testDeleteSetting($path, $value)
-	{
+	public function testDeleteSetting($path, $value) {
 		try {
 			$this->user->setSetting($path, $value);
 			$result = $this->user->deleteSetting($path);
-		} catch (Exception $e) {
+		}
+		catch (Exception $e) {
 			$this->fail('Test that the settings can be deleted: ' . $e->getMessage() . PHP_EOL . $e->getTraceAsString());
 		}
 
@@ -173,11 +184,15 @@ class SettingsTest extends grommunioTest {
 	}
 
 	/**
-	 * Test if the deletion has been done correctly
+	 * Test if the deletion has been done correctly.
+	 *
 	 * @dataProvider providerDeleteSettings
+	 *
+	 * @param mixed $path
+	 * @param mixed $value
+	 * @param mixed $testMessage
 	 */
-	public function testDeleteSettingResult($path, $value, $testMessage)
-	{
+	public function testDeleteSettingResult($path, $value, $testMessage) {
 		$this->user->setSetting($path, $value);
 		$this->user->deleteSetting($path);
 		$settings = $this->user->retrieveSettings();
@@ -187,7 +202,7 @@ class SettingsTest extends grommunioTest {
 
 		$path = explode('/', $path);
 
-		for ($i = 0, $len = count($path) - 1; $i < $len; $i++) {
+		for ($i = 0, $len = count($path) - 1; $i < $len; ++$i) {
 			$key = $path[$i];
 
 			$this->assertArrayHasKey($key, $settings, 'Test that the object contains the \'' . $key . '\' property');
@@ -199,14 +214,14 @@ class SettingsTest extends grommunioTest {
 	}
 
 	/**
-	 * Test that a non-existing setting can be deleted
+	 * Test that a non-existing setting can be deleted.
 	 */
-	public function testDeleteNonExistingSetting()
-	{
+	public function testDeleteNonExistingSetting() {
 		try {
 			$this->user->setSetting('zarafa/v1/test1', 'a');
 			$result = $this->user->deleteSetting('zarafa/v2/unknown_setting');
-		} catch (Exception $e) {
+		}
+		catch (Exception $e) {
 			$this->fail('Test that the settings can be deleted: ' . $e->getMessage() . PHP_EOL . $e->getTraceAsString());
 		}
 
@@ -214,10 +229,9 @@ class SettingsTest extends grommunioTest {
 	}
 
 	/**
-	 * Test if the non-existing setting was deleted without errors
+	 * Test if the non-existing setting was deleted without errors.
 	 */
-	public function testDeleteNonExistingSettingResult()
-	{
+	public function testDeleteNonExistingSettingResult() {
 		$this->user->setSetting('zarafa/v1/test1', 'a');
 		$this->user->deleteSetting('zarafa/v2/unknown_setting');
 		$settings = $this->user->retrieveSettings();
@@ -229,26 +243,26 @@ class SettingsTest extends grommunioTest {
 	}
 
 	/**
-	 * Test if multiple settings can be deleted
+	 * Test if multiple settings can be deleted.
 	 */
-	public function testDeleteMultipleSettings()
-	{
+	public function testDeleteMultipleSettings() {
 		try {
-			$this->user->setSetting(array(
-				array(
+			$this->user->setSetting([
+				[
 					'path' => 'zarafa/v1/test1',
-					'value' => 'a'
-				),
-				array(
+					'value' => 'a',
+				],
+				[
 					'path' => 'zarafa/v1/test2',
-					'value' => 'b'
-				)
-			));
-			$result = $this->user->deleteSetting(array(
+					'value' => 'b',
+				],
+			]);
+			$result = $this->user->deleteSetting([
 				'zarafa/v1/test1',
-				'zarafa/v1/test2'
-			));
-		} catch (Exception $e) {
+				'zarafa/v1/test2',
+			]);
+		}
+		catch (Exception $e) {
 			$this->fail('Test that multiple settings can be deleted: ' . $e->getMessage() . PHP_EOL . $e->getTraceAsString());
 		}
 
@@ -256,24 +270,23 @@ class SettingsTest extends grommunioTest {
 	}
 
 	/**
-	 * Test if the multiple settings were deleted correctly
+	 * Test if the multiple settings were deleted correctly.
 	 */
-	public function testDeleteMultipleSettingsResult()
-	{
-		$this->user->setSetting(array(
-			array(
+	public function testDeleteMultipleSettingsResult() {
+		$this->user->setSetting([
+			[
 				'path' => 'zarafa/v1/test1',
-				'value' => 'a'
-			),
-			array(
+				'value' => 'a',
+			],
+			[
 				'path' => 'zarafa/v1/test2',
-				'value' => 'b'
-			)
-		));
-		$this->user->deleteSetting(array(
+				'value' => 'b',
+			],
+		]);
+		$this->user->deleteSetting([
 			'zarafa/v1/test1',
-			'zarafa/v1/test2'
-		));
+			'zarafa/v1/test2',
+		]);
 		$settings = $this->user->retrieveSettings();
 
 		$this->assertArrayHasKey('retrieveAll', $settings, 'Test that the object contains the \'retrieveAll\' property');
@@ -287,35 +300,31 @@ class SettingsTest extends grommunioTest {
 	 * Special Data provider which generates settings which can be set.
 	 * The first argument is path which should be changed
 	 * The second argument is the value which should be saved into the settings
-	 * The third argument is the message which should be printed when the test fails
+	 * The third argument is the message which should be printed when the test fails.
 	 */
-	public function providerSetSettings()
-	{
-		return array(
-			array('zarafa/v1/test', 10, 'Test that a number can be saved into the settings'),
-			array('zarafa/v1/test', 'test', 'Test that a string can be saved into the settings'),
-			array('zarafa/v1/test', true, 'Test that a boolean can be saved into the settings'),
-			array('zarafa/v1/test', array( 'sub' => 'value' ), 'Test that an object can be saved into the settings'),
-			array('zarafa/v1/test', array( 0 => 'first', 1 => 'second' ), 'Test that an arrat can be saved into the settings'),
-		);
+	public function providerSetSettings() {
+		return [
+			['zarafa/v1/test', 10, 'Test that a number can be saved into the settings'],
+			['zarafa/v1/test', 'test', 'Test that a string can be saved into the settings'],
+			['zarafa/v1/test', true, 'Test that a boolean can be saved into the settings'],
+			['zarafa/v1/test', ['sub' => 'value'], 'Test that an object can be saved into the settings'],
+			['zarafa/v1/test', [0 => 'first', 1 => 'second'], 'Test that an arrat can be saved into the settings'],
+		];
 	}
 
 	/**
 	 * Special Data provider which generates settings which can be set.
 	 * The first argument is path which should be changed
 	 * The second argument is the value which should be saved into the settings
-	 * The third argument is the message which should be printed when the test fails
+	 * The third argument is the message which should be printed when the test fails.
 	 */
-	public function providerDeleteSettings()
-	{
-		return array(
-			array('zarafa/v1/test', 10, 'Test that a number can be deleted from the settings'),
-			array('zarafa/v1/test', 'test', 'Test that a string can be deleted from the settings'),
-			array('zarafa/v1/test', true, 'Test that a boolean can be deleted from the settings'),
-			array('zarafa/v1/test', array( 'sub' => 'value' ), 'Test that an object can be deleted from the settings'),
-			array('zarafa/v1/test', array( 0 => 'first', 1 => 'second' ), 'Test that an arrat can be deleted from the settings'),
-		);
+	public function providerDeleteSettings() {
+		return [
+			['zarafa/v1/test', 10, 'Test that a number can be deleted from the settings'],
+			['zarafa/v1/test', 'test', 'Test that a string can be deleted from the settings'],
+			['zarafa/v1/test', true, 'Test that a boolean can be deleted from the settings'],
+			['zarafa/v1/test', ['sub' => 'value'], 'Test that an object can be deleted from the settings'],
+			['zarafa/v1/test', [0 => 'first', 1 => 'second'], 'Test that an arrat can be deleted from the settings'],
+		];
 	}
 }
-
-?>

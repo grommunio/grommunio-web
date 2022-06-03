@@ -1,54 +1,56 @@
 <?php
-require_once('classes/grommunioUser.php');
-require_once('classes/AddressBookUser.php');
-require_once('classes/ContactUser.php');
-require_once('classes/TestData.php');
-require_once('classes/grommunioTest.php');
-require_once('classes/Util.php');
+
+require_once 'classes/grommunioUser.php';
+require_once 'classes/AddressBookUser.php';
+require_once 'classes/ContactUser.php';
+require_once 'classes/TestData.php';
+require_once 'classes/grommunioTest.php';
+require_once 'classes/Util.php';
 
 /**
- * AddressBookContactTest
+ * AddressBookContactTest.
  *
  * Tests loading the Address Book contents of the Contacts containers
+ *
+ * @internal
+ * @coversNothing
  */
 class AddressBookContactTest extends grommunioTest {
-
 	/**
-	 * The user for which we will open the addressbook
+	 * The user for which we will open the addressbook.
 	 */
 	private $user;
 
 	/**
-	 * The user used for creating the contacts
+	 * The user used for creating the contacts.
 	 */
 	private $contactUser;
 
 	/**
-	 * The message which will be handled
+	 * The message which will be handled.
 	 */
 	private $message;
 
 	/**
-	 * The message which will be handled for multiple contacts
+	 * The message which will be handled for multiple contacts.
 	 */
 	private $multipleMessage;
 
 	/**
-	 * During setup we create the user, and clear the shared stores settings
+	 * During setup we create the user, and clear the shared stores settings.
 	 */
-	protected function setUp()
-	{
+	protected function setUp() {
 		parent::setUp();
 
 		$this->user = $this->addUser(new AddressBookUser(new grommunioUser(GROMMUNIO_USER1_NAME, GROMMUNIO_USER1_PASSWORD)));
 		$this->contactUser = $this->addUser(new ContactUser(new grommunioUser(GROMMUNIO_USER1_NAME, GROMMUNIO_USER1_PASSWORD)));
 
-		$this->message = array(
-			'props' => TestData::getContact()
-		);
+		$this->message = [
+			'props' => TestData::getContact(),
+		];
 
-		$this->multipleMessage = array(
-			'props' => TestData::getContact(array(
+		$this->multipleMessage = [
+			'props' => TestData::getContact([
 				// add extra email address properties, so single contact will be converted to multiple contacts
 				'email_address_2' => 'email2@local.grommunio.com',
 				'email_address_display_name_2' => 'new Contact (email2@local.grommunio.com)',
@@ -58,16 +60,15 @@ class AddressBookContactTest extends grommunioTest {
 				'fax_2_email_address' => 'new Contact@5678',
 				'fax_2_address_type' => 'FAX',
 				'address_book_long' => 43,
-				'address_book_mv' => array(0, 1, 3, 5)
-			))
-		);
+				'address_book_mv' => [0, 1, 3, 5],
+			]),
+		];
 	}
 
 	/**
-	 * Test if the contact addressbook returns valid objects
+	 * Test if the contact addressbook returns valid objects.
 	 */
-	public function testLoadingContactAddressBookResults()
-	{
+	public function testLoadingContactAddressBookResults() {
 		$this->contactUser->saveContact($this->message, false);
 
 		$response = $this->user->loadContactsAddressBook();
@@ -97,10 +98,9 @@ class AddressBookContactTest extends grommunioTest {
 	}
 
 	/**
-	 * Test if the contact addressbook returns valid objects for multiple email addresses
+	 * Test if the contact addressbook returns valid objects for multiple email addresses.
 	 */
-	public function testLoadingMultipleContactAddressBookResults()
-	{
+	public function testLoadingMultipleContactAddressBookResults() {
 		$this->contactUser->saveContact($this->multipleMessage, false);
 
 		$response = $this->user->loadContactsAddressBook();
@@ -151,11 +151,15 @@ class AddressBookContactTest extends grommunioTest {
 	}
 
 	/**
-	 * Test the results when the contact addressbook is loaded with an restriction
+	 * Test the results when the contact addressbook is loaded with an restriction.
+	 *
 	 * @dataProvider providerRestriction
+	 *
+	 * @param mixed $restriction
+	 * @param mixed $allowedContacts
+	 * @param mixed $blockedContacts
 	 */
-	public function testLoadingContactAddressBookWithRestrictionResults($restriction, $allowedContacts, $blockedContacts)
-	{
+	public function testLoadingContactAddressBookWithRestrictionResults($restriction, $allowedContacts, $blockedContacts) {
 		$this->contactUser->saveContact($this->message, false);
 
 		$response = $this->user->loadContactsAddressBook($restriction);
@@ -177,18 +181,9 @@ class AddressBookContactTest extends grommunioTest {
 	/**
 	 * Test that the contact will not be displayed if there is no Email address present in that partiular ontact.
 	 */
-	public function testLoadingContactAddressBookWithoutEmailAddress()
-	{
+	public function testLoadingContactAddressBookWithoutEmailAddress() {
 		// To obtain the contact without Email address, We need to unset all these properties.
-		unset($this->message['props']['fax_1_address_type']);
-		unset($this->message['props']['email_address_type_1']);
-		unset($this->message['props']['email_address_1']);
-		unset($this->message['props']['email_address_display_name_1']);
-		unset($this->message['props']['email_address_display_name_email_1']);
-		unset($this->message['props']['fax_1_email_address']);
-		unset($this->message['props']['address_book_long']);
-		unset($this->message['props']['address_book_mv']);
-		unset($this->message['props']['fax_1_original_display_name']);
+		unset($this->message['props']['fax_1_address_type'], $this->message['props']['email_address_type_1'], $this->message['props']['email_address_1'], $this->message['props']['email_address_display_name_1'], $this->message['props']['email_address_display_name_email_1'], $this->message['props']['fax_1_email_address'], $this->message['props']['address_book_long'], $this->message['props']['address_book_mv'], $this->message['props']['fax_1_original_display_name']);
 
 		$this->contactUser->saveContact($this->message, false);
 		$response = $this->user->loadContactsAddressBook();
@@ -202,20 +197,17 @@ class AddressBookContactTest extends grommunioTest {
 	 * The second argument is an array of usernames which should be visible in the addressbook list.
 	 * The third argument is an array of usernames which should have been filtered out by the restriction.
 	 */
-	public function providerRestriction()
-	{
+	public function providerRestriction() {
 		$contact = TestData::getContact();
 
-		return array(
-			array(array( 'searchstring' => 'SYSTEM' ), array( ), array( $contact['fileas'] )),
-			array(array( 'searchstring' => $contact['fileas'] ), array( $contact['fileas'] ), array( )),
-			array(array( 'searchstring' => $contact['display_name'] ), array( $contact['fileas'] ), array( )),
-			array(array( 'searchstring' => $contact['email_address_1'] ), array( $contact['fileas'] ), array( )),
-			array(array( 'searchstring' => $contact['email_address_display_name_1'] ), array( $contact['fileas'] ), array( )),
-			array(array( 'searchstring' => $contact['fax_1_email_address'] ), array( $contact['fileas'] ), array( )),
-			array(array( 'searchstring' => $contact['fax_1_original_display_name'] ), array( $contact['fileas'] ), array( )),
-		);
+		return [
+			[['searchstring' => 'SYSTEM'], [], [$contact['fileas']]],
+			[['searchstring' => $contact['fileas']], [$contact['fileas']], []],
+			[['searchstring' => $contact['display_name']], [$contact['fileas']], []],
+			[['searchstring' => $contact['email_address_1']], [$contact['fileas']], []],
+			[['searchstring' => $contact['email_address_display_name_1']], [$contact['fileas']], []],
+			[['searchstring' => $contact['fax_1_email_address']], [$contact['fileas']], []],
+			[['searchstring' => $contact['fax_1_original_display_name']], [$contact['fileas']], []],
+		];
 	}
 }
-
-?>

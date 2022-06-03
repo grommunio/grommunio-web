@@ -13,10 +13,9 @@ define('LOGLEVEL_ERROR', 0);
 define('LOGLEVEL_INFO', 0);
 
 class Log {
-	public static function Write($level, $message) {}
+	public static function Write($level, $message) {
+	}
 }
 
 abstract class SMIMETest extends PHPUnit_Framework_TestCase {
 }
-
-?>

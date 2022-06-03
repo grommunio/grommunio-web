@@ -4,17 +4,16 @@ class PluginPlugin2 extends Plugin {
 	/**
 	 * Called to initialize the plugin and register for hooks.
 	 */
-	function init() {
+	public function init() {
 		$this->registerHook('server.core.settings.init.before');
 	}
 
 	/**
-	 *
-	 * @param String $eventID Identifier of the hook
-	 * @param Array $data Reference to the data of the triggered hook
+	 * @param string $eventID Identifier of the hook
+	 * @param array  $data    Reference to the data of the triggered hook
 	 */
-	function execute($eventID, &$data) {
-		switch($eventID) {
+	public function execute($eventID, &$data) {
+		switch ($eventID) {
 			case 'server.core.settings.init.before':
 				$this->onBeforeSettingsInit($data);
 				break;
@@ -24,20 +23,20 @@ class PluginPlugin2 extends Plugin {
 	/**
 	 * Called when the core Settings class is initialized and ready to accept sysadmin default
 	 * settings.
-	 * @param Array $data Reference to the data of the triggered hook
+	 *
+	 * @param array $data Reference to the data of the triggered hook
 	 */
-	function onBeforeSettingsInit(&$data) {
-		$data['settingsObj']->addSysAdminDefaults(Array(
-			'zarafa' => Array(
-				'v1' => Array(
-					'plugins' => Array(
-						'statslogging' => Array(
-							'enable' => True,
-						)
-					)
-				)
-			)
-		));
+	public function onBeforeSettingsInit(&$data) {
+		$data['settingsObj']->addSysAdminDefaults([
+			'zarafa' => [
+				'v1' => [
+					'plugins' => [
+						'statslogging' => [
+							'enable' => true,
+						],
+					],
+				],
+			],
+		]);
 	}
 }
-?>

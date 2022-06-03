@@ -4,28 +4,26 @@
  * Manager for including JS and CSS files into the desired order.
  */
 class FileLoader {
-
 	private $source;
 
-	public function __construct()
-	{
+	public function __construct() {
 		// Unique cache file per grommunio Web location.
 		$basePath = sys_get_temp_dir() . DIRECTORY_SEPARATOR . '.' . md5(realpath(__FILE__));
-		$this->cacheFile = "$basePath-loadcache";
-		$this->cacheSum = "$basePath-loadsum";
-       		$this->source = DEBUG_LOADER === LOAD_SOURCE;
+		$this->cacheFile = "{$basePath}-loadcache";
+		$this->cacheSum = "{$basePath}-loadsum";
+		$this->source = DEBUG_LOADER === LOAD_SOURCE;
 	}
 
 	/**
-	 * Obtain the list of Extjs & UX files
+	 * Obtain the list of Extjs & UX files.
 	 *
-	 * @param number $load The LOAD_RELEASE | LOAD_DEBUG | LOAD_SOURCE flag
-	 * to indicate which files should be loaded.
+	 * @param number $load the LOAD_RELEASE | LOAD_DEBUG | LOAD_SOURCE flag
+	 *                     to indicate which files should be loaded
+	 *
 	 * @return array The array of Javascript files
 	 */
-	public function getExtjsJavascriptFiles($load)
-	{
-		$jsLoadingSequence = array();
+	public function getExtjsJavascriptFiles($load) {
+		$jsLoadingSequence = [];
 
 		if ($load == LOAD_RELEASE) {
 			$jsLoadingSequence[] = "client/extjs/ext-base-all.js";
@@ -34,7 +32,8 @@ class FileLoader {
 			$jsLoadingSequence[] = "client/tinymce/tinymce.min.js";
 			$jsLoadingSequence[] = "client/third-party/ux-thirdparty.js";
 			$jsLoadingSequence[] = "client/dompurify/purify.js";
-		} else if ($load == LOAD_DEBUG) {
+		}
+		elseif ($load == LOAD_DEBUG) {
 			$jsLoadingSequence[] = "client/extjs/ext-base-debug.js";
 			$jsLoadingSequence[] = "client/extjs/ext-all-debug.js";
 			$jsLoadingSequence[] = "client/extjs/ux/ux-all-debug.js";
@@ -42,7 +41,8 @@ class FileLoader {
 			$jsLoadingSequence[] = "client/tinymce/tinymce.js";
 			$jsLoadingSequence[] = "client/third-party/ux-thirdparty-debug.js";
 			$jsLoadingSequence[] = "client/dompurify/purify.js";
-		} else {
+		}
+		else {
 			$jsLoadingSequence[] = "client/extjs/ext-base-debug.js";
 			$jsLoadingSequence[] = "client/extjs/ext-all-debug.js";
 			$jsLoadingSequence[] = "client/extjs/ux/ux-all-debug.js";
@@ -66,39 +66,41 @@ class FileLoader {
 	}
 
 	/**
-	 * Obtain the list of Extjs & UX files
+	 * Obtain the list of Extjs & UX files.
 	 *
-	 * @param number $load The LOAD_RELEASE | LOAD_DEBUG | LOAD_SOURCE flag
-	 * to indicate which files should be loaded.
+	 * @param number $load the LOAD_RELEASE | LOAD_DEBUG | LOAD_SOURCE flag
+	 *                     to indicate which files should be loaded
+	 *
 	 * @return array The array of CSS files
 	 */
-	public function getExtjsCSSFiles($load)
-	{
-		return array("client/extjs/resources/css/ext-all-ux.css");
+	public function getExtjsCSSFiles($load) {
+		return ["client/extjs/resources/css/ext-all-ux.css"];
 	}
 
 	/**
-	 * Obtain the list of grommunio Web files
+	 * Obtain the list of grommunio Web files.
 	 *
-	 * @param number $load The LOAD_RELEASE | LOAD_DEBUG | LOAD_SOURCE flag
-	 * to indicate which files should be loaded.
-	 * @param array $libFiles (optional) library files when $load = LOAD_SOURCE
+	 * @param number $load     the LOAD_RELEASE | LOAD_DEBUG | LOAD_SOURCE flag
+	 *                         to indicate which files should be loaded
+	 * @param array  $libFiles (optional) library files when $load = LOAD_SOURCE
+	 *
 	 * @return array The array of Javascript files
 	 */
-	public function getZarafaJavascriptFiles($load, $libFiles = Array())
-	{
-		$jsLoadingSequence = array();
+	public function getZarafaJavascriptFiles($load, $libFiles = []) {
+		$jsLoadingSequence = [];
 
 		if ($load == LOAD_RELEASE) {
 			$jsLoadingSequence[] = "client/grommunio.js";
-		} else if ($load == LOAD_DEBUG) {
+		}
+		elseif ($load == LOAD_DEBUG) {
 			$jsLoadingSequence[] = "client/grommunio-debug.js";
-		} else {
+		}
+		else {
 			$jsLoadingSequence = array_merge(
 				$jsLoadingSequence,
 				$this->buildJSLoadingSequence(
 					$this->getListOfFiles('js', 'client/zarafa'),
-					Array('client/zarafa/core'),
+					['client/zarafa/core'],
 					$libFiles
 				)
 			);
@@ -110,33 +112,33 @@ class FileLoader {
 	/**
 	 * Obtain the list of all Javascript files as registered by the plugins.
 	 *
-	 * @param number $load The LOAD_RELEASE | LOAD_DEBUG | LOAD_SOURCE flag
-	 * to indicate which files should be loaded.
-	 * @param array $libFiles (optional) library files when $load = LOAD_SOURCE
+	 * @param number $load     the LOAD_RELEASE | LOAD_DEBUG | LOAD_SOURCE flag
+	 *                         to indicate which files should be loaded
+	 * @param array  $libFiles (optional) library files when $load = LOAD_SOURCE
+	 *
 	 * @return array The array of Javascript files
 	 */
-	public function getPluginJavascriptFiles($load, $libFiles = Array())
-	{
+	public function getPluginJavascriptFiles($load, $libFiles = []) {
 		if ($load === LOAD_SOURCE) {
 			return $this->buildJSLoadingSequence(
 				$GLOBALS['PluginManager']->getClientFiles($load),
-				Array(),
+				[],
 				$libFiles
 			);
-		} else {
-			return $GLOBALS['PluginManager']->getClientFiles($load);
 		}
+
+		return $GLOBALS['PluginManager']->getClientFiles($load);
 	}
 
 	/**
 	 * Obtain the list of all CSS files as registered by the plugins.
 	 *
-	 * @param number $load The LOAD_RELEASE | LOAD_DEBUG | LOAD_SOURCE flag
-	 * to indicate which files should be loaded.
+	 * @param number $load the LOAD_RELEASE | LOAD_DEBUG | LOAD_SOURCE flag
+	 *                     to indicate which files should be loaded
+	 *
 	 * @return array The array of CSS files
 	 */
-	public function getPluginCSSFiles($load)
-	{
+	public function getPluginCSSFiles($load) {
 		return $GLOBALS['PluginManager']->getResourceFiles($load);
 	}
 
@@ -144,14 +146,15 @@ class FileLoader {
 	 * Obtain the list of all Javascript files as provided by plugins using PluginManager#triggerHook
 	 * for the hook 'server.main.include.jsfiles'.
 	 *
-	 * @param number $load The LOAD_RELEASE | LOAD_DEBUG | LOAD_SOURCE flag
-	 * to indicate which files should be loaded.
+	 * @param number $load the LOAD_RELEASE | LOAD_DEBUG | LOAD_SOURCE flag
+	 *                     to indicate which files should be loaded
+	 *
 	 * @return array The array of Javascript files
 	 */
-	public function getRemoteJavascriptFiles($load)
-	{
-		$files = Array();
-		$GLOBALS['PluginManager']->triggerHook('server.main.include.jsfiles', Array('load' => $load, 'files'=> & $files));
+	public function getRemoteJavascriptFiles($load) {
+		$files = [];
+		$GLOBALS['PluginManager']->triggerHook('server.main.include.jsfiles', ['load' => $load, 'files' => &$files]);
+
 		return $files;
 	}
 
@@ -159,32 +162,33 @@ class FileLoader {
 	 * Obtain the list of all CSS files as provided by plugins using PluginManager#triggerHook
 	 * for the hook 'server.main.include.cssfiles'.
 	 *
-	 * @param number $load The LOAD_RELEASE | LOAD_DEBUG | LOAD_SOURCE flag
-	 * to indicate which files should be loaded.
+	 * @param number $load the LOAD_RELEASE | LOAD_DEBUG | LOAD_SOURCE flag
+	 *                     to indicate which files should be loaded
+	 *
 	 * @return array The array of CSS files
 	 */
-	public function getRemoteCSSFiles($load)
-	{
-		$files = Array();
-		$GLOBALS['PluginManager']->triggerHook('server.main.include.cssfiles', Array('load' => $load, 'files'=> & $files));
+	public function getRemoteCSSFiles($load) {
+		$files = [];
+		$GLOBALS['PluginManager']->triggerHook('server.main.include.cssfiles', ['load' => $load, 'files' => &$files]);
+
 		return $files;
 	}
 
 	/**
-	 * Print each file on a new line using the given $template
-	 * @param Array $files The files to print
-	 * @param String $template The template used to print each file, the string {file} will
-	 * be replaced with the filename
-	 * @param Boolean $base True if only the basename of the file must be printed
-	 * @param Boolean $concatVersion True if concatenate unique webapp version
-	 * with file name to avoid the caching issue.
+	 * Print each file on a new line using the given $template.
+	 *
+	 * @param array  $files         The files to print
+	 * @param string $template      The template used to print each file, the string {file} will
+	 *                              be replaced with the filename
+	 * @param bool   $base          True if only the basename of the file must be printed
+	 * @param bool   $concatVersion true if concatenate unique webapp version
+	 *                              with file name to avoid the caching issue
 	 */
-	public function printFiles($files, $template = '{file}', $base = false, $concatVersion = true)
-	{
-		foreach($files as $file) {
+	public function printFiles($files, $template = '{file}', $base = false, $concatVersion = true) {
+		foreach ($files as $file) {
 			$file = $base === true ? basename($file) : $file;
-			if($concatVersion) {
-				$file = $file."?version=".$this->getVersion();
+			if ($concatVersion) {
+				$file = $file . "?version=" . $this->getVersion();
 			}
 			echo str_replace('{file}', $file, $template) . PHP_EOL;
 		}
@@ -192,80 +196,86 @@ class FileLoader {
 
 	/**
 	 * Return grommunio Web version.
-	 * @return String returns grommunio Web version
+	 *
+	 * @return string returns grommunio Web version
 	 */
-	public function getVersion()
-	{
+	public function getVersion() {
 		return trim(file_get_contents('version'));
 	}
 
 	/**
-	 * getJavascriptFiles
+	 * getJavascriptFiles.
 	 *
 	 * Scanning files and subdirectories that can be found within the supplied
 	 * path and add all located Javascript files to a list.
+	 *
 	 * @param $path String Path of the directory to scan
 	 * @param $recursive Boolean If set to true scans subdirectories as well
 	 * @param $excludeFiles Array Optional Paths of files or directories that
-	 *                                     are excluded from the search.
-	 * @return Array List of arrays containing the paths to files that have to be included.
+	 *                                     are excluded from the search
+	 *
+	 * @return array list of arrays containing the paths to files that have to be included
 	 */
-	public function getJavascriptFiles($path, $recursive = true, $excludeFiles = Array()) {
+	public function getJavascriptFiles($path, $recursive = true, $excludeFiles = []) {
 		return $this->getListOfFiles('js', $path, $recursive, $excludeFiles);
 	}
 
 	/**
-	 * getCSSFiles
+	 * getCSSFiles.
 	 *
 	 * Scanning files and subdirectories that can be found within the supplied
 	 * path and add all located CSS files to a list.
+	 *
 	 * @param $path String Path of the directory to scan
 	 * @param $recursive Boolean If set to true scans subdirectories as well
 	 * @param $excludeFiles Array Optional Paths of files or directories that
-	 *                                     are excluded from the search.
-	 * @return Array List of arrays containing the paths to files that have to be included.
+	 *                                     are excluded from the search
+	 *
+	 * @return array list of arrays containing the paths to files that have to be included
 	 */
-	public function getCSSFiles($path, $recursive = true, $excludeFiles = Array()) {
+	public function getCSSFiles($path, $recursive = true, $excludeFiles = []) {
 		return $this->getListOfFiles('css', $path, $recursive, $excludeFiles);
 	}
 
 	/**
-	 * getListOfFiles
+	 * getListOfFiles.
 	 *
 	 * Scanning files and subdirectories that can be found within the supplied
 	 * path and add the files to a list.
+	 *
 	 * @param $ext The extension of files that are included ("js" or "css")
 	 * @param $path String Path of the directory to scan
 	 * @param $recursive Boolean If set to true scans subdirectories as well
 	 * @param $excludeFiles Array Optional Paths of files or directories that
-	 *                                     are excluded from the search.
-	 * @return Array List of arrays containing the paths to files that have to be included.
+	 *                                     are excluded from the search
+	 *
+	 * @return array list of arrays containing the paths to files that have to be included
 	 */
-	private function getListOfFiles($ext, $path, $recursive = true, $excludeFiles = Array()) {
+	private function getListOfFiles($ext, $path, $recursive = true, $excludeFiles = []) {
 		/*
 		 * We are using two lists of files to make sure the files from the
 		 * subdirectories are added after the current directory files.
 		 */
-		$files = Array();
-		$subDirFiles = Array();
+		$files = [];
+		$subDirFiles = [];
 
 		$dir = opendir($path);
 		if (!is_resource($dir)) {
 			return $files;
 		}
 
-		while(($file = readdir($dir)) !== false)
-		{
-			$filepath = $path.'/'.$file;
+		while (($file = readdir($dir)) !== false) {
+			$filepath = $path . '/' . $file;
 			// Skip entries like ".", ".." and ".svn"
-			if (substr($file,0,1)!="." && !in_array($filepath, $excludeFiles)){
+			if (substr($file, 0, 1) != "." && !in_array($filepath, $excludeFiles)) {
 				// Make sure we have files to include
 				$info = pathinfo($filepath, PATHINFO_EXTENSION);
 
-				if(is_file($filepath) && $info == $ext){
+				if (is_file($filepath) && $info == $ext) {
 					$files[] = $filepath;
 				// Subdirectories will be scanned as well
-				} elseif($recursive && is_dir($filepath)){
+				}
+				elseif ($recursive && is_dir($filepath)) {
 					$subDirFiles = array_merge($subDirFiles, $this->getListOfFiles($ext, $filepath, $recursive, $excludeFiles));
 				}
 			}
@@ -277,121 +287,124 @@ class FileLoader {
 		 */
 		sort($files);
 		sort($subDirFiles);
-		$files = array_merge($files, $subDirFiles);
 
-		return $files;
+		return array_merge($files, $subDirFiles);
 	}
 
 	/**
-	 * buildJSLoadingSequence
+	 * buildJSLoadingSequence.
 	 *
 	 * Will build the correct loading sequence for the JS files in application based on the class,
 	 * extends and depends statements in the files itself. It will first extract the class
 	 * definitions and dependencies. It will put that information in a list that holds the
 	 * dependencies for each file. With that list the proper sequence of loading can be constructed.
 	 * Files that originate from any of the specified coreFiles folders will be marked as core files.
-	 * @param $files Array List of files that have to be included.
-	 * @param $coreFiles Array (Optional) List of folders that contain core files.
+	 *
+	 * @param $files Array List of files that have to be included
+	 * @param $coreFiles Array (Optional) List of folders that contain core files
 	 * @param $libFiles Array (Optional) List of files that is used as library (and can contain
-	 * classed which are depended upon by the given files).
-	 * @return Array List of files that are sorted in the correct sequence
+	 * classed which are depended upon by the given files)
+	 *
+	 * @return array List of files that are sorted in the correct sequence
 	 */
-	private function buildJSLoadingSequence($files, $coreFiles = Array(), $libFiles = Array()){
+	private function buildJSLoadingSequence($files, $coreFiles = [], $libFiles = []) {
 		// Create a lookup table to easily get the classes which are defined in the library files
-		$libFileLookup = Array();
+		$libFileLookup = [];
 		// Create a lookup table to easily get the name of the file the class is defined in
-		$classFileLookup = Array();
+		$classFileLookup = [];
 
-		$fileDataLookup = Array();
-		$fileDependencies = Array();
+		$fileDataLookup = [];
+		$fileDependencies = [];
 
 		// Read all library files to determine the classes which are defined
-		for ($i = 0, $len = count($libFiles); $i < $len; $i++) {
+		for ($i = 0, $len = count($libFiles); $i < $len; ++$i) {
 			$filename = $libFiles[$i];
 			$content = $this->getFileContents($filename);
 
-			$class = Array();
+			$class = [];
 			preg_match_all('(@class\W([^\n\r]*))', $content, $class);
 
-			$libFileLookup[ $filename ] = Array(
-				'class' => $class[1]
-			);
+			$libFileLookup[$filename] = [
+				'class' => $class[1],
+			];
 
-			for ($j = 0, $lenJ = count($class[1]); $j < $lenJ; $j++){
-				$libFileLookup[ $class[1][$j] ] = true;
+			for ($j = 0, $lenJ = count($class[1]); $j < $lenJ; ++$j) {
+				$libFileLookup[$class[1][$j]] = true;
 			}
 		}
 
-		for ($i = 0, $len = count($files); $i < $len; $i++) {
+		for ($i = 0, $len = count($files); $i < $len; ++$i) {
 			$content = $this->getFileContents($files[$i]);
 			$filename = $files[$i];
 
-			$extends = Array();
-			$dependsFile = Array();
-			$class = Array();
+			$extends = [];
+			$dependsFile = [];
+			$class = [];
 
 			preg_match_all('(@extends\W([^\n\r]*))', $content, $extends);
 			preg_match_all('(@class\W([^\n\r]*))', $content, $class);
 			preg_match_all('(#dependsFile\W([^\n\r\*]+))', $content, $dependsFile);
-			$core = (strpos($content, '#core') !== false)? true : false;
+			$core = (strpos($content, '#core') !== false) ? true : false;
 
-			for ($j = 0, $lenJ = count($coreFiles); $j < $lenJ; $j++){
-				if(strpos($filename, $coreFiles[$j]) === 0){
+			for ($j = 0, $lenJ = count($coreFiles); $j < $lenJ; ++$j) {
+				if (strpos($filename, $coreFiles[$j]) === 0) {
 					$core = true;
 					break;
 				}
 			}
 
-			$fileDataLookup[ $filename ] = Array(
+			$fileDataLookup[$filename] = [
 				'class' => $class[1],
 				'extends' => $extends[1],
-				'dependsFile' => $dependsFile[1]
-			);
-			$fileDependencies[ $filename ] = Array(
-				'depends' => Array(),
-				'core' => $core		// Based on tag or on class or on file path?
-			);
+				'dependsFile' => $dependsFile[1],
+			];
+			$fileDependencies[$filename] = [
+				'depends' => [],
+				'core' => $core,		// Based on tag or on class or on file path?
+			];
 
-			for ($j = 0, $lenJ = count($class[1]); $j < $lenJ; $j++){
-				$classFileLookup[ $class[1][$j] ] = $filename;
+			for ($j = 0, $lenJ = count($class[1]); $j < $lenJ; ++$j) {
+				$classFileLookup[$class[1][$j]] = $filename;
 			}
 		}
 
 		// Convert dependencies found by searching for @extends to a filename.
 		foreach ($fileDataLookup as $filename => &$fileData) {
-
 			// First get the extended class dependencies. We also have to convert them into files names using the $classFileLookup.
-			for ($i = 0, $len = count($fileData['extends']); $i < $len; $i++) {
+			for ($i = 0, $len = count($fileData['extends']); $i < $len; ++$i) {
 				// The check if it extends the Zarafa namespace is needed because we do not index other namespaces.
-				if(substr($fileData['extends'][$i], 0, strlen('Zarafa')) == 'Zarafa'){
-					if (isset($libFileLookup[ $fileData['extends'][$i] ])) {
+				if (substr($fileData['extends'][$i], 0, strlen('Zarafa')) == 'Zarafa') {
+					if (isset($libFileLookup[$fileData['extends'][$i]])) {
 						// The @extends is found in the library file.
 						// No need to update the dependencies
-					} else if(isset($classFileLookup[ $fileData['extends'][$i] ])){
+					}
+					elseif (isset($classFileLookup[$fileData['extends'][$i]])) {
 						// The @extends is found as @class in another file
 						// Convert the class dependency into a filename
-						$dependencyFilename = $classFileLookup[ $fileData['extends'][$i] ];
+						$dependencyFilename = $classFileLookup[$fileData['extends'][$i]];
 						// Make sure the file does not depend on itself
-						if($dependencyFilename != $filename){
-							$fileDependencies[ $filename ]['depends'][] = $dependencyFilename;
+						if ($dependencyFilename != $filename) {
+							$fileDependencies[$filename]['depends'][] = $dependencyFilename;
 						}
-					} else {
-						trigger_error('Unable to find @extends dependency "'.$fileData['extends'][$i].'" for file "'.$filename.'"');
+					}
+					else {
+						trigger_error('Unable to find @extends dependency "' . $fileData['extends'][$i] . '" for file "' . $filename . '"');
 					}
 				}
 			}
 
 			// Add the file dependencies that have beed added by using #dependsFile in the file.
-			for ($i = 0, $len = count($fileData['dependsFile']); $i < $len; $i++){
+			for ($i = 0, $len = count($fileData['dependsFile']); $i < $len; ++$i) {
 				$dependencyFilename = $fileData['dependsFile'][$i];
 				// Check if the file exists to prevent non-existent dependencies
-				if(isset($fileDataLookup[ $dependencyFilename ])){
+				if (isset($fileDataLookup[$dependencyFilename])) {
 					// Make sure the file does not depend on itself
-					if($dependencyFilename != $filename){
-						$fileDependencies[ $filename ]['depends'][] = $dependencyFilename;
+					if ($dependencyFilename != $filename) {
+						$fileDependencies[$filename]['depends'][] = $dependencyFilename;
 					}
-				} else {
-					trigger_error('Unable to find file #dependsFile dependency "'.$fileData['dependsFile'][$i].'" for file "'.$filename.'"');
+				}
+				else {
+					trigger_error('Unable to find file #dependsFile dependency "' . $fileData['dependsFile'][$i] . '" for file "' . $filename . '"');
 				}
 			}
 		}
@@ -403,7 +416,7 @@ class FileLoader {
 	}
 
 	/**
-	 * generateDependencyBasedFileSeq
+	 * generateDependencyBasedFileSeq.
 	 *
 	 * This function will generate a loading sequence for the supplied list of files and their
 	 * dependencies. This function calculates the depth of each file in the dependencytree. Based on
@@ -419,42 +432,43 @@ class FileLoader {
 	 *                          'depends' => Array(FILENAME1, FILENAME2),
 	 *                          'core' => true|false
 	 *                        );
-	 * @return Array List of filenames in the calculated loading sequence
+	 *
+	 * @return array List of filenames in the calculated loading sequence
 	 */
-	private function generateDependencyBasedFileSeq($fileData){
-		$fileDepths = Array();
+	private function generateDependencyBasedFileSeq($fileData) {
+		$fileDepths = [];
 
 		$changed = true;
-		while($changed && (count($fileDepths) < count($fileData)) ){
+		while ($changed && (count($fileDepths) < count($fileData))) {
 			$changed = false;
 
 			// Loop through all the files and see if for each file we can get a depth assigned based on their parents depth.
-			foreach($fileData as $file => $dependencyData){
+			foreach ($fileData as $file => $dependencyData) {
 				$dependencies = $dependencyData['depends'];
 
-				if(!isset($fileDepths[ $file ])){
-					if(count($dependencies) > 0){
+				if (!isset($fileDepths[$file])) {
+					if (count($dependencies) > 0) {
 						$parentsDepthAssigned = true;
 						$highestParentDepth = 0;
 						// See if all the parents already have a depth assigned and if so take the highest one.
-						for($i=0;$i<count($dependencies);$i++){
+						for ($i = 0; $i < count($dependencies); ++$i) {
 							// Not all parents depths have been assigned yet, wait another turn
-							if(!isset($fileDepths[ $dependencies[$i] ])){
+							if (!isset($fileDepths[$dependencies[$i]])) {
 								$parentsDepthAssigned = false;
 								break;
-							} else {
-								// We should only take the highest depth
-								$highestParentDepth = max($highestParentDepth, $fileDepths[ $dependencies[$i] ]);
 							}
+							// We should only take the highest depth
+							$highestParentDepth = max($highestParentDepth, $fileDepths[$dependencies[$i]]);
 						}
 						// All parents have a depth assigned, we can calculate the one for this node.
-						if($parentsDepthAssigned){
-							$fileDepths[ $file ] = $highestParentDepth + 1;
+						if ($parentsDepthAssigned) {
+							$fileDepths[$file] = $highestParentDepth + 1;
 							$changed = true;
 						}
-					// The node does not have any dependencies so its a root node.
-					} else {
-						$fileDepths[ $file ] = 0;
+						// The node does not have any dependencies so its a root node.
+					}
+					else {
+						$fileDepths[$file] = 0;
 						$changed = true;
 					}
 				}
@@ -463,28 +477,30 @@ class FileLoader {
 
 		// If not all the files have been assigned a depth, but nothing changed the last round there
 		// must be something wrong with the dependencies of the skipped files. So lets tell someone.
-		if(count($fileDepths) < count($fileData)){
+		if (count($fileDepths) < count($fileData)) {
 			$errorMsg = '[LOADER] Could not compute all dependencies. The following files cannot be resolved properly: ';
 			$errorMsg .= implode(', ', array_diff(array_keys($fileData), array_keys($fileDepths)));
 			trigger_error($errorMsg);
 		}
 
-		$fileWeights = Array();
+		$fileWeights = [];
 		// Now lets determine each file's weight
-		foreach($fileData as $file => $dependencyData){
-			if($fileDepths[ $file ] !== null){
-				$weight = $fileDepths[ $file ] * 2;
+		foreach ($fileData as $file => $dependencyData) {
+			if ($fileDepths[$file] !== null) {
+				$weight = $fileDepths[$file] * 2;
 				// Add a penalty of 1 to non-core files to up the core-files in the sequence.
-				if(!$dependencyData['core']){
-					$weight++;
+				if (!$dependencyData['core']) {
+					++$weight;
 				}
-			} else {
+			}
+			else {
 				// Make up a weight to put it at the end
 				$weight = count($fileData);
 			}
-			if(!isset($fileWeights[ $weight]))
-				$fileWeights[ $weight ] = Array();
-			$fileWeights[ $weight ][] = $file;
+			if (!isset($fileWeights[$weight])) {
+				$fileWeights[$weight] = [];
+			}
+			$fileWeights[$weight][] = $file;
 		}
 
 		// The weights have not been added in the correct order, so sort it first on the keys.
@@ -492,9 +508,9 @@ class FileLoader {
 
 		// Now put it all in the correct order. Files with the same weight are added in the order
 		// they are in the list. This order should still be alphabetically.
-		$fileSequence = Array();
-		foreach($fileWeights as $weight => $fileList){
-			for($i=0;$i<count($fileList);$i++){
+		$fileSequence = [];
+		foreach ($fileWeights as $weight => $fileList) {
+			for ($i = 0; $i < count($fileList); ++$i) {
 				$fileSequence[] = $fileList[$i];
 			}
 		}
@@ -503,23 +519,26 @@ class FileLoader {
 	}
 
 	/**
-	 * getFileContents
+	 * getFileContents.
 	 *
 	 * Returns the content of the supplied file name.
+	 *
 	 * @param $fn String File name
-	 * @return String Content of the file
+	 *
+	 * @return string Content of the file
 	 */
-	private function getFileContents($fn){
+	private function getFileContents($fn) {
 		$fn = strtok($fn, '?');
 
-		$fc="";
+		$fc = "";
 		$fh = fopen($fn, "r");
-		if($fh) {
-			while(!feof($fh)){
+		if ($fh) {
+			while (!feof($fh)) {
 				$fc .= fgets($fh, 4096);
 			}
 			fclose($fh);
 		}
+
 		return $fc;
 	}
 
@@ -527,11 +546,11 @@ class FileLoader {
 	 * The JavaScript load order for grommunio Web. The loader order is cached when grommunio Web
 	 * is LOAD_SOURCE mode, since calculating the loader is quite expensive.
 	 */
-	public function jsOrder()
-	{
+	public function jsOrder() {
 		if ($this->source) {
 			if ($this->cacheExists()) {
 				echo file_get_contents($this->cacheFile);
+
 				return;
 			}
 			ob_start();
@@ -561,27 +580,26 @@ class FileLoader {
 	 * @return array An array that contains the names of all the javascript files that should be loaded
 	 */
 	private function getJsFiles() {
-		if ( !isset($this->extjsfiles) ){
+		if (!isset($this->extjsfiles)) {
 			$this->extjsFiles = $this->getExtjsJavascriptFiles(DEBUG_LOADER);
 			$this->webappFiles = $this->getZarafaJavascriptFiles(DEBUG_LOADER, $this->extjsFiles);
 			$this->pluginFiles = $this->getPluginJavascriptFiles(DEBUG_LOADER, array_merge($this->extjsFiles, $this->webappFiles));
 			$this->remoteFiles = $this->getRemoteJavascriptFiles(DEBUG_LOADER);
 		}
 
-		return array($this->extjsFiles, $this->webappFiles, $this->pluginFiles, $this->remoteFiles);
+		return [$this->extjsFiles, $this->webappFiles, $this->pluginFiles, $this->remoteFiles];
 	}
 
 	/**
-	 * The CSS load order for grommunio Web
+	 * The CSS load order for grommunio Web.
 	 */
-	public function cssOrder()
-	{
+	public function cssOrder() {
 		$cssTemplate = "\t\t<link rel=\"stylesheet\" type=\"text/css\" href=\"{file}\">";
 		$extjsFiles = $this->getExtjsCSSFiles(DEBUG_LOADER);
 		$this->printFiles($extjsFiles, $cssTemplate);
 
 		// Since we only have one css file, we can add that directly
-		$this->printFiles(array("client/resources/css/grommunio.css"), $cssTemplate);
+		$this->printFiles(["client/resources/css/grommunio.css"], $cssTemplate);
 
 		$pluginFiles = $this->getPluginCSSFiles(DEBUG_LOADER);
 		$this->printFiles($pluginFiles, $cssTemplate);
@@ -596,18 +614,17 @@ class FileLoader {
 	 *
 	 * return boolean False if cache is outdated
 	 */
-	private function cacheExists()
-	{
+	private function cacheExists() {
 		list($extjsFiles, $webappFiles, $pluginFiles, $remoteFiles) = $this->getJsFiles();
 		$files = [$extjsFiles, $webappFiles, $pluginFiles, $remoteFiles];
 		$md5 = md5(json_encode($files));
 
 		if (!file_exists($this->cacheSum) || file_get_contents($this->cacheSum) !== $md5) {
 			file_put_contents($this->cacheSum, $md5);
+
 			return false;
 		}
 
 		return true;
 	}
 }
-?>

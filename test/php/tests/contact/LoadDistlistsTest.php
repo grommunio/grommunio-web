@@ -1,48 +1,57 @@
 <?php
-require_once('classes/grommunioUser.php');
-require_once('classes/DistlistUser.php');
-require_once('classes/TestData.php');
-require_once('classes/grommunioTest.php');
+
+require_once 'classes/grommunioUser.php';
+require_once 'classes/DistlistUser.php';
+require_once 'classes/TestData.php';
+require_once 'classes/grommunioTest.php';
 
 /**
- * LoadingDistlistTest
+ * LoadingDistlistTest.
  *
  * Tests all possible cases for loading Distlists
+ *
  * @group distlist
+ *
+ * @internal
+ * @coversNothing
  */
 class LoadDistlistsTest extends grommunioTest {
 	/**
-	 * The default user which is creating the distlists
+	 * The default user which is creating the distlists.
 	 */
 	private $user;
 
 	/**
-	 * The default settings for the message
+	 * The default settings for the message.
 	 */
 	private $message;
 
 	/**
-	 * During setup we are going to create the $user which will create the distlists
+	 * During setup we are going to create the $user which will create the distlists.
 	 */
-	protected function setUp()
-	{
+	protected function setUp() {
 		parent::setUp();
 
 		$this->user = $this->addUser(new DistlistUser(new grommunioUser(GROMMUNIO_USER1_NAME, GROMMUNIO_USER1_PASSWORD)));
 
-		$this->message = array(
+		$this->message = [
 			'props' => TestData::getDistlist(),
-			'members' => TestData::getDistlistMembers(array(1))
-		);
+			'members' => TestData::getDistlistMembers([1]),
+		];
 	}
 
 	/**
-	 * Test loading distlists using different forms of restrictions
+	 * Test loading distlists using different forms of restrictions.
+	 *
 	 * @dataProvider providerLoadDistlists
+	 *
+	 * @param mixed $restriction
+	 * @param mixed $props
+	 * @param mixed $expectedCount
+	 * @param mixed $msg
 	 */
-	public function testLoadDistlists($restriction, $props, $expectedCount, $msg)
-	{
-		$this->user->saveDistlist(array( 'props' => array_merge($this->message['props'], $props)));
+	public function testLoadDistlists($restriction, $props, $expectedCount, $msg) {
+		$this->user->saveDistlist(['props' => array_merge($this->message['props'], $props)]);
 		$distlists = $this->user->loadDistlists($restriction);
 
 		$this->assertCount($expectedCount, $distlists, $msg);
@@ -60,132 +69,130 @@ class LoadDistlistsTest extends grommunioTest {
 	 * returned by the load command, and the fourth argument is the message that should be
 	 * shown when the test fails.
 	 */
-	public static function providerLoadDistlists()
-	{
-		return array(
+	public static function providerLoadDistlists() {
+		return [
 			// Load all data without using any restrictions
-			array(
-				array(
-					'search' => array(),
+			[
+				[
+					'search' => [],
 					'start' => 0,
-				),
-				array(),
-				1, 'Test that all distlists can be loaded without a restriction'
-			),
+				],
+				[],
+				1, 'Test that all distlists can be loaded without a restriction',
+			],
 
 			// Test the the alphanumeric restriction with a distlist inside the range
-			array(
-				array(
-					'search' => array(
-						RES_AND, array(
-							array(
+			[
+				[
+					'search' => [
+						RES_AND, [
+							[
 								RES_PROPERTY,
-								array(
-									VALUE => array('0x80B5001E' => '0'),
+								[
+									VALUE => ['0x80B5001E' => '0'],
 									RELOP => RELOP_GE,
 									ULPROPTAG => '0x80B5001E',
-								),
-							),
-							array(
+								],
+							],
+							[
 								RES_PROPERTY,
-								array(
-									VALUE => array('0x80B5001E' => '9'),
+								[
+									VALUE => ['0x80B5001E' => '9'],
 									RELOP => RELOP_LE,
 									ULPROPTAG => '0x80B5001E',
-								),
-							),
-						),
-					),
+								],
+							],
+						],
+					],
 					'start' => 0,
-				),
-				array( 'fileas' => '5 new Distlists'	),
-				1, 'Test that distlists can be loaded using a numeric restriction'
-			),
+				],
+				['fileas' => '5 new Distlists'],
+				1, 'Test that distlists can be loaded using a numeric restriction',
+			],
 
 			// Test the the alphanumeric restriction with a distlist outside the range
-			array(
-				array(
-					'search' => array(
-						RES_AND, array(
-							array(
+			[
+				[
+					'search' => [
+						RES_AND, [
+							[
 								RES_PROPERTY,
-								array(
-									VALUE => array('0x80B5001E' => '0'),
+								[
+									VALUE => ['0x80B5001E' => '0'],
 									RELOP => RELOP_GE,
 									ULPROPTAG => '0x80B5001E',
-								),
-							),
-							array(
+								],
+							],
+							[
 								RES_PROPERTY,
-								array(
-									VALUE => array('0x80B5001E' => '9'),
+								[
+									VALUE => ['0x80B5001E' => '9'],
 									RELOP => RELOP_LE,
 									ULPROPTAG => '0x80B5001E',
-								),
-							),
-						),
-					),
+								],
+							],
+						],
+					],
 					'start' => 0,
-				), array( 'fileas' => 'new Distlist' ),
-				0, 'Test that only distlists which start with number are loaded using the numeric restriction'
-			),
+				], ['fileas' => 'new Distlist'],
+				0, 'Test that only distlists which start with number are loaded using the numeric restriction',
+			],
 
 			// Test the the alphabetical restriction with a distlist inside the range
-			array(
-				array(
-					'search' => array(
-						RES_AND, array(
-							array(
+			[
+				[
+					'search' => [
+						RES_AND, [
+							[
 								RES_PROPERTY,
-								array(
-									VALUE => array('0x80B5001E' => 'a'),
+								[
+									VALUE => ['0x80B5001E' => 'a'],
 									RELOP => RELOP_GE,
 									ULPROPTAG => '0x80B5001E',
-								),
-							),
-							array(
+								],
+							],
+							[
 								RES_PROPERTY,
-								array(
-									VALUE => array('0x80B5001E' => 'b'),
+								[
+									VALUE => ['0x80B5001E' => 'b'],
 									RELOP => RELOP_LE,
 									ULPROPTAG => '0x80B5001E',
-								),
-							),
-						),
-					),
+								],
+							],
+						],
+					],
 					'start' => 0,
-				), array( 'fileas' => 'Anand' ),
-				1, 'Test that distlists can be loaded using a alphabetic restriction'
-			),
+				], ['fileas' => 'Anand'],
+				1, 'Test that distlists can be loaded using a alphabetic restriction',
+			],
 
 			// Test the the alphabetical restriction with a distlist outside the range
-			array(
-				array(
-					'search' => array(
-						RES_AND, array(
-							array(
+			[
+				[
+					'search' => [
+						RES_AND, [
+							[
 								RES_PROPERTY,
-								array(
-									VALUE => array('0x80B5001E' => 'r'),
+								[
+									VALUE => ['0x80B5001E' => 'r'],
 									RELOP => RELOP_GE,
 									ULPROPTAG => '0x80B5001E',
-								),
-							),
-							array(
+								],
+							],
+							[
 								RES_PROPERTY,
-								array(
-									VALUE => array('0x80B5001E' => 's'),
+								[
+									VALUE => ['0x80B5001E' => 's'],
 									RELOP => RELOP_LE,
 									ULPROPTAG => '0x80B5001E',
-								),
-							),
-						),
-					),
+								],
+							],
+						],
+					],
 					'start' => 0,
-				), array( 'fileas' => 'Saket' ),
-				0, 'Test that only distlists which start with the requested letter are loaded using the alphabetic restriction'
-			)
-		);
+				], ['fileas' => 'Saket'],
+				0, 'Test that only distlists which start with the requested letter are loaded using the alphabetic restriction',
+			],
+		];
 	}
 }
-?>

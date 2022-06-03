@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Secondary state handling
+ * Secondary state handling.
  *
  * This class works exactly the same as standard PHP sessions files. We implement it here
  * so we can have improved granularity and don't have to put everything into the session
@@ -22,57 +22,53 @@
  * module, they will have to wait for each other. In practice this should hardly ever happen.
  *
  * It can also support to create global state which can be access by all PHP request.
- *
- * @package core
  */
-
 class State {
-
 	/**
-	 * The file pointer of the state file
+	 * The file pointer of the state file.
 	 */
 	private $fp = false;
 
 	/**
-	 * The basedir in which the statefiles are found
+	 * The basedir in which the statefiles are found.
 	 */
 	private $basedir;
 
 	/**
-	 * The filename which is opened by this state file
+	 * The filename which is opened by this state file.
 	 */
 	private $filename;
 
 	/**
-	 * The directory in which the session files are created
+	 * The directory in which the session files are created.
 	 */
 	private $sessiondir = "session";
 
 	/**
-	 * The unserialized data as it has been read from the file
+	 * The unserialized data as it has been read from the file.
 	 */
 	public $sessioncache;
 
 	/**
-	 * The raw data as it has been read from the file
+	 * The raw data as it has been read from the file.
 	 */
 	public $contents;
 
-    /**
-     * @param string $subsystem Name of the subsystem
-     */
-	function __construct($subsystem) {
+	/**
+	 * @param string $subsystem Name of the subsystem
+	 */
+	public function __construct($subsystem) {
 		$this->basedir = TMP_PATH . DIRECTORY_SEPARATOR . $this->sessiondir;
 		$this->filename = $this->basedir . DIRECTORY_SEPARATOR . session_id() . "." . $subsystem;
 	}
 
 	/**
-	 * Open the session file
+	 * Open the session file.
 	 *
 	 * The session file is opened and locked so that other processes can not access the state information
 	 */
-	function open() {
-		if($this->fp === false) {
+	public function open() {
+		if ($this->fp === false) {
 			if (!is_dir($this->basedir)) {
 				mkdir($this->basedir, 0755, true /* recursive */);
 			}
@@ -83,13 +79,14 @@ class State {
 	}
 
 	/**
-	 * Read a setting from the state file
+	 * Read a setting from the state file.
 	 *
 	 * @param string $name Name of the setting to retrieve
+	 *
 	 * @return string Value of the state value, or null if not found
 	 */
-	function read($name) {
-		if($this->fp !== false) {
+	public function read($name) {
+		if ($this->fp !== false) {
 			// If the file has already been read, we only have to access
 			// our cache to obtain the requeste data.
 			if ($this->sessioncache === false) {
@@ -100,23 +97,24 @@ class State {
 			if (isset($this->sessioncache[$name])) {
 				return $this->sessioncache[$name];
 			}
-		} else {
+		}
+		else {
 			dump('[STATE ERROR] State file "' . $this->filename . '" isn\'t opened, Please open state file before reading it."');
 		}
+
 		return false;
 	}
 
 	/**
-	 * Write a setting to the state file
+	 * Write a setting to the state file.
 	 *
-	 * @param string $name Name of the setting to write
-	 * @param mixed $object Value of the object to be written to the setting
-	 * @param bool $flush False to prevent the changes written to disk
-	 * This requires a call to $flush() to write the changes to disk.
+	 * @param string $name   Name of the setting to write
+	 * @param mixed  $object Value of the object to be written to the setting
+	 * @param bool   $flush  false to prevent the changes written to disk
+	 *                       This requires a call to $flush() to write the changes to disk
 	 */
-	function write($name, $object, $flush = true)
-	{
-		if($this->fp !== false) {
+	public function write($name, $object, $flush = true) {
+		if ($this->fp !== false) {
 			// If the file has already been read, then we don't
 			// need to read the entire file again.
 			if ($this->sessioncache === false) {
@@ -128,19 +126,19 @@ class State {
 			if ($flush === true) {
 				$this->flush();
 			}
-		} else {
+		}
+		else {
 			dump('[STATE ERROR] State file "' . $this->filename . '" isn\'t opened, Please open state file before writing on it."');
 		}
 	}
 
 	/**
-	 * Flushes all changes to disk
+	 * Flushes all changes to disk.
 	 *
 	 * This flushes all changed made to the $this->sessioncache to disk
 	 */
-	function flush()
-	{
-		if($this->fp !== false) {
+	public function flush() {
+		if ($this->fp !== false) {
 			if ($this->sessioncache) {
 				$contents = serialize($this->sessioncache);
 
@@ -151,17 +149,18 @@ class State {
 					$this->contents = $contents;
 				}
 			}
-		} else {
+		}
+		else {
 			dump('[STATE ERROR] State file "' . $this->filename . '" isn\'t opened, Please open state file before writing on it."');
 		}
 	}
 
 	/**
-	 * Close the state file
+	 * Close the state file.
 	 *
 	 * This closes and unlocks the state file so that other processes can access the state
 	 */
-	function close() {
+	public function close() {
 		if (isset($this->fp)) {
 			// release write lock -- fclose does this automatically
 			// but only in PHP <= 5.3.2
@@ -171,10 +170,11 @@ class State {
 	}
 
 	/**
-	 * Cleans all old state information in the session directory
-	 * @param Integer $maxLifeTime The maximum allowed age of files in seconds.
+	 * Cleans all old state information in the session directory.
+	 *
+	 * @param int $maxLifeTime the maximum allowed age of files in seconds
 	 */
-	function clean($maxLifeTime = STATE_FILE_MAX_LIFETIME) {
+	public function clean($maxLifeTime = STATE_FILE_MAX_LIFETIME) {
 		cleanTemp($this->basedir, $maxLifeTime);
 	}
 }

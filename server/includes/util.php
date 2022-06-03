@@ -1,81 +1,85 @@
 <?php
-	/**
-	 * Utility functions
-	 *
-	 * @package core
-	 */
 
-	 require_once(BASE_PATH . 'server/includes/exceptions/class.JSONException.php');
+	 /**
+	  * Utility functions.
+	  */
+	 require_once BASE_PATH . 'server/includes/exceptions/class.JSONException.php';
 
 	/**
 	 * Function which reads the data stream. This data is send by the WebClient.
+	 *
 	 * @return string data
 	 */
 	function readData() {
 		$data = "";
 		$putData = fopen("php://input", "r");
 
-		while($block = fread($putData, 1024))
-		{
+		while ($block = fread($putData, 1024)) {
 			$data .= $block;
 		}
 
 		fclose($putData);
+
 		return $data;
 	}
 
 	/*
-     * Add in config specified default domain to email if no domain is set in form.
-     * If no default domain is set in config, the input string will be return without changes.
-     *
-     * @param string user the user to append domain to
-     * @return string email
-     */
-    function appendDefaultDomain($user)
-    {
-			if(empty($user)) return '';
-			if ( !defined('DEFAULT_DOMAIN') || strpos($user, '@') !== false) return $user;
-			$email = $user . "@" . DEFAULT_DOMAIN;
+	 * Add in config specified default domain to email if no domain is set in form.
+	 * If no default domain is set in config, the input string will be return without changes.
+	 *
+	 * @param string user the user to append domain to
+	 * @return string email
+	 */
+	function appendDefaultDomain($user) {
+		if (empty($user)) {
+			return '';
+		}
+		if (!defined('DEFAULT_DOMAIN') || strpos($user, '@') !== false) {
+			return $user;
+		}
 
-			return $email;
-    }
+		return $user . "@" . DEFAULT_DOMAIN;
+	}
 
 	/**
 	 * Function which is called every time the "session_start" method is called.
 	 * It unserializes the objects in the session. This function called by PHP.
+	 *
 	 * @param string @className the className of the object in the session
+	 * @param mixed $className
 	 */
-	function sessionNotifierLoader($className)
-	{
+	function sessionNotifierLoader($className) {
 		$className = strtolower($className); // for PHP5 set className to lower case to find the file (see ticket #839 for more information)
 
-		switch($className)
-		{
+		switch ($className) {
 			case "bus":
-				require_once(BASE_PATH . 'server/includes/core/class.bus.php');
+				require_once BASE_PATH . 'server/includes/core/class.bus.php';
 				break;
 
 			default:
 				$path = BASE_PATH . 'server/includes/notifiers/class.' . $className . '.php';
 				if (is_file($path)) {
-					require_once($path);
-				} else {
+					require_once $path;
+				}
+				else {
 					$path = $GLOBALS['PluginManager']->getNotifierFilePath($className);
 					if (is_file($path)) {
-						require_once($path);
+						require_once $path;
 					}
 				}
 				break;
 		}
-		if (!class_exists($className)){
-			trigger_error("Can't load ".$className." while unserializing the session.", E_USER_WARNING);
+		if (!class_exists($className)) {
+			trigger_error("Can't load " . $className . " while unserializing the session.", E_USER_WARNING);
 		}
 	}
 
 	/**
 	 * Function which checks if an array is an associative array.
+	 *
 	 * @param array $data array which should be verified
-	 * @return boolean true if the given array is an associative array, false if not
+	 *
+	 * @return bool true if the given array is an associative array, false if not
 	 */
 	function is_assoc_array($data) {
 		return is_array($data) && !empty($data) && !preg_match('/^\d+$/', implode('', array_keys($data)));
@@ -86,46 +90,52 @@
 	 * important settings are upload_max_filesize and post_max_size
 	 * upload_max_filesize specifies maximum upload size for attachments
 	 * post_max_size must be larger then upload_max_filesize.
-	 * these values are overwritten in .htaccess file of WA
+	 * these values are overwritten in .htaccess file of WA.
 	 *
-	 * @return string return max value either upload max filesize or post max size.
+	 * @param mixed $as_string
+	 *
+	 * @return string return max value either upload max filesize or post max size
 	 */
-	function getMaxUploadSize($as_string = false)
-	{
+	function getMaxUploadSize($as_string = false) {
 		$upload_max_value = strtoupper(ini_get('upload_max_filesize'));
 		$post_max_value = getMaxPostRequestSize();
 
-		/**
+		/*
 		 * if POST_MAX_SIZE is lower then UPLOAD_MAX_FILESIZE, then we have to check based on that value
 		 * as we will not be able to upload attachment larger then POST_MAX_SIZE (file size + header data)
 		 * so set POST_MAX_SIZE value to higher then UPLOAD_MAX_FILESIZE
 		 */
 
 		// calculate upload_max_value value to bytes
-		if (strpos($upload_max_value, "K")!== false){
+		if (strpos($upload_max_value, "K") !== false) {
 			$upload_max_value = ((int) $upload_max_value) * 1024;
-		} else if (strpos($upload_max_value, "M")!== false){
+		}
+		elseif (strpos($upload_max_value, "M") !== false) {
 			$upload_max_value = ((int) $upload_max_value) * 1024 * 1024;
-		} else if (strpos($upload_max_value, "G")!== false){
+		}
+		elseif (strpos($upload_max_value, "G") !== false) {
 			$upload_max_value = ((int) $upload_max_value) * 1024 * 1024 * 1024;
 		}
 
 		// check which one is larger
 		$value = $upload_max_value;
-		if($upload_max_value > $post_max_value) {
+		if ($upload_max_value > $post_max_value) {
 			$value = $post_max_value;
 		}
 
-		if ($as_string){
+		if ($as_string) {
 			// make user readable string
-			if ($value > (1024 * 1024 * 1024)){
-				$value = round($value / (1024 * 1024 * 1024), 1) ." ". _("GB");
-			} else if ($value > (1024 * 1024)){
-				$value = round($value / (1024 * 1024), 1) ." ". _("MB");
-			} else if ($value > 1024){
-				$value = round($value / 1024, 1) ." ". _("KB");
-			} else {
-				$value = $value ." ". _("B");
+			if ($value > (1024 * 1024 * 1024)) {
+				$value = round($value / (1024 * 1024 * 1024), 1) . " " . _("GB");
+			}
+			elseif ($value > (1024 * 1024)) {
+				$value = round($value / (1024 * 1024), 1) . " " . _("MB");
+			}
+			elseif ($value > 1024) {
+				$value = round($value / 1024, 1) . " " . _("KB");
+			}
+			else {
+				$value = $value . " " . _("B");
 			}
 		}
 
@@ -135,20 +145,21 @@
 	/**
 	 * Gets maximum post request size of attachment from php ini settings.
 	 * post_max_size specifies maximum size of a post request,
-	 * we are uploading attachment using post method
+	 * we are uploading attachment using post method.
 	 *
 	 * @return string returns the post request size with proper unit(MB, GB, KB etc.).
 	 */
-	function getMaxPostRequestSize()
-	{
+	function getMaxPostRequestSize() {
 		$post_max_value = strtoupper(ini_get('post_max_size'));
 
 		// calculate post_max_value value to bytes
-		if (strpos($post_max_value, "K")!== false){
+		if (strpos($post_max_value, "K") !== false) {
 			$post_max_value = ((int) $post_max_value) * 1024;
-		} else if (strpos($post_max_value, "M")!== false){
+		}
+		elseif (strpos($post_max_value, "M") !== false) {
 			$post_max_value = ((int) $post_max_value) * 1024 * 1024;
-		} else if (strpos($post_max_value, "G")!== false){
+		}
+		elseif (strpos($post_max_value, "G") !== false) {
 			$post_max_value = ((int) $post_max_value) * 1024 * 1024 * 1024;
 		}
 
@@ -159,25 +170,25 @@
 	 * Get maximum number of files that can be uploaded in single request from php ini settings.
 	 * max_file_uploads specifies maximum number of files allowed in post request.
 	 *
-	 * @return number maximum number of files can uploaded in single request.
+	 * @return number maximum number of files can uploaded in single request
 	 */
-	function getMaxFileUploads()
-	{
-		return (int)ini_get('max_file_uploads');
+	function getMaxFileUploads() {
+		return (int) ini_get('max_file_uploads');
 	}
 
 	/**
-	 * cleanTemp
+	 * cleanTemp.
 	 *
 	 * Cleans up the temp directory.
-	 * @param String $directory The path to the temp dir or sessions dir.
-	 * @param Integer $maxLifeTime The maximum allowed age of files in seconds.
-	 * @param Boolean $recursive False to prevent the folder to be cleaned up recursively
-	 * @param Boolean $removeSubs False to prevent empty subfolders from being deleted
-	 * @return Boolean True if the folder is empty
+	 *
+	 * @param string $directory   the path to the temp dir or sessions dir
+	 * @param int    $maxLifeTime the maximum allowed age of files in seconds
+	 * @param bool   $recursive   False to prevent the folder to be cleaned up recursively
+	 * @param bool   $removeSubs  False to prevent empty subfolders from being deleted
+	 *
+	 * @return bool True if the folder is empty
 	 */
-	function cleanTemp($directory = TMP_PATH, $maxLifeTime = STATE_FILE_MAX_LIFETIME, $recursive = true, $removeSubs = true)
-	{
+	function cleanTemp($directory = TMP_PATH, $maxLifeTime = STATE_FILE_MAX_LIFETIME, $recursive = true, $removeSubs = true) {
 		if (!is_dir($directory)) {
 			return;
 		}
@@ -207,20 +218,24 @@
 					// otherwise the currently folder is not empty.
 					if (cleanTemp($path, $maxLifeTime, $recursive) && $removeSubs) {
 						rmdir($path);
-					} else {
+					}
+					else {
 						$is_empty = false;
 					}
-				} else {
+				}
+				else {
 					// We are not cleaning recursively, the current
 					// folder is not empty.
 					$is_empty = false;
 				}
-			} else {
+			}
+			else {
 				$fileinfo = stat($path);
 
 				if ($fileinfo && $fileinfo["atime"] < time() - $maxLifeTime) {
 					unlink($path);
-				} else {
+				}
+				else {
 					$is_empty = false;
 				}
 			}
@@ -229,11 +244,10 @@
 		return $is_empty;
 	}
 
-	function cleanSearchFolders()
-	{
+	function cleanSearchFolders() {
 		$store = $GLOBALS["mapisession"]->getDefaultMessageStore();
 
-		$storeProps = mapi_getprops($store, array(PR_STORE_SUPPORT_MASK, PR_FINDER_ENTRYID));
+		$storeProps = mapi_getprops($store, [PR_STORE_SUPPORT_MASK, PR_FINDER_ENTRYID]);
 		if (($storeProps[PR_STORE_SUPPORT_MASK] & STORE_SEARCH_OK) !== STORE_SEARCH_OK) {
 			return;
 		}
@@ -241,36 +255,37 @@
 		$finderfolder = mapi_msgstore_openentry($store, $storeProps[PR_FINDER_ENTRYID]);
 
 		$hierarchytable = mapi_folder_gethierarchytable($finderfolder, MAPI_DEFERRED_ERRORS);
-		mapi_table_restrict($hierarchytable, array(RES_AND,
-				array(
-					array(RES_CONTENT,
-						array(
-							FUZZYLEVEL	=> FL_PREFIX,
-							ULPROPTAG	=> PR_DISPLAY_NAME,
-							VALUE		=> array(PR_DISPLAY_NAME=>"grommunio Web Search Folder")
-						)
-					),
-					array(RES_PROPERTY,
-						array(
-							RELOP		=> RELOP_LT,
-							ULPROPTAG	=> PR_LAST_MODIFICATION_TIME,
-							VALUE		=> array(PR_LAST_MODIFICATION_TIME=>(time()-ini_get("session.gc_maxlifetime")))
-						)
-					)
-				)
-		), TBL_BATCH);
+		mapi_table_restrict($hierarchytable, [RES_AND,
+			[
+				[RES_CONTENT,
+					[
+						FUZZYLEVEL => FL_PREFIX,
+						ULPROPTAG => PR_DISPLAY_NAME,
+						VALUE => [PR_DISPLAY_NAME => "grommunio Web Search Folder"],
+					],
+				],
+				[RES_PROPERTY,
+					[
+						RELOP => RELOP_LT,
+						ULPROPTAG => PR_LAST_MODIFICATION_TIME,
+						VALUE => [PR_LAST_MODIFICATION_TIME => (time() - ini_get("session.gc_maxlifetime"))],
+					],
+				],
+			],
+		], TBL_BATCH);
 
-		$folders = mapi_table_queryallrows($hierarchytable, array(PR_ENTRYID));
-		foreach($folders as $folder){
+		$folders = mapi_table_queryallrows($hierarchytable, [PR_ENTRYID]);
+		foreach ($folders as $folder) {
 			mapi_folder_deletefolder($finderfolder, $folder[PR_ENTRYID]);
 		}
 	}
 
-	function dechex_32($dec){
+	function dechex_32($dec) {
 		// Because on 64bit systems PHP handles integers as 64bit,
 		// we need to convert these 64bit integers to 32bit when we
 		// want the hex value
-		$result = unpack("H*",pack("N", $dec));
+		$result = unpack("H*", pack("N", $dec));
+
 		return $result[1];
 	}
 
@@ -279,34 +294,35 @@
 	 * HTTP request. MSIE and Edge has an issue with unicode filenames. All browsers do not seem to follow
 	 * the RFC specification. Firefox requires an unencoded string in the HTTP header. MSIE and Edge will
 	 * break on this and requires encoding.
-	 * @param String $input Unencoded string
-	 * @return String Encoded string
+	 *
+	 * @param string $input Unencoded string
+	 *
+	 * @return string Encoded string
 	 */
-	function browserDependingHTTPHeaderEncode($input)
-	{
+	function browserDependingHTTPHeaderEncode($input) {
 		$input = preg_replace("/\r|\n/", "", $input);
-		if(!isIE11() && !isEdge()) {
+		if (!isIE11() && !isEdge()) {
 			return $input;
-		} else {
-			return rawurlencode($input);
 		}
+
+		return rawurlencode($input);
 	}
 
 	/**
 	 * Helps to detect if the request came from IE11 or not.
-	 * @return Boolean True if IE11 is the requester, position of the word otherwise.
+	 *
+	 * @return bool true if IE11 is the requester, position of the word otherwise
 	 */
-	function isIE11()
-	{
+	function isIE11() {
 		return strpos($_SERVER['HTTP_USER_AGENT'], 'Trident') !== false;
 	}
 
 	/**
 	 * Helps to detect if the request came from Edge or not.
-	 * @return Boolean True if Edge is the requester, position of the word otherwise.
+	 *
+	 * @return bool true if Edge is the requester, position of the word otherwise
 	 */
-	function isEdge()
-	{
+	function isEdge() {
 		return strpos($_SERVER['HTTP_USER_AGENT'], 'Edge') !== false;
 	}
 
@@ -315,14 +331,16 @@
 	 * PHP's basename() does not properly support streams or filenames beginning with a non-US-ASCII character.
 	 * The default implementation in php for basename is locale aware. So it will truncate umlauts which can not be
 	 * parsed by the current set locale.
-	 * This problem only occurs with PHP < 5.2
+	 * This problem only occurs with PHP < 5.2.
+	 *
 	 * @see http://bugs.php.net/bug.php?id=37738, https://bugs.php.net/bug.php?id=37268
-	 * @param String $filepath full path of the file
-	 * @param String $suffix suffix that will be trimmed from file name
-	 * @return String base name of the file
+	 *
+	 * @param string $filepath full path of the file
+	 * @param string $suffix   suffix that will be trimmed from file name
+	 *
+	 * @return string base name of the file
 	 */
-	function mb_basename($filepath, $suffix = '')
-	{
+	function mb_basename($filepath, $suffix = '') {
 		// Remove right-most slashes when $uri points to directory.
 		$filepath = rtrim($filepath, DIRECTORY_SEPARATOR . ' ');
 
@@ -342,12 +360,11 @@
 	 * Function is used to get data from query string and store it in session
 	 * for use when webapp is completely loaded.
 	 */
-	function storeURLDataToSession()
-	{
-		$data = array();
+	function storeURLDataToSession() {
+		$data = [];
 
 		$urlData = urldecode($_SERVER['QUERY_STRING']);
-		if(!empty($_GET['action']) && $_GET['action'] === 'mailto') {
+		if (!empty($_GET['action']) && $_GET['action'] === 'mailto') {
 			$data['mailto'] = $_GET['to'];
 
 			// There may be some data after to field, like cc, subject, body
@@ -357,45 +374,47 @@
 			$data['mailto'] .= $subString;
 		}
 
-		if(!empty($data)) {
+		if (!empty($data)) {
 			// finally store all data to session
 			$_SESSION['url_action'] = $data;
 		}
 	}
 
 	/**
-	* Checks if the given url is allowed as redirect url.
-	* @param String $url The url that will be checked
-	*
-	* @return Boolean True is the url is allowed as redirect url,
-	* false otherwise
-	*/
+	 * Checks if the given url is allowed as redirect url.
+	 *
+	 * @param string $url The url that will be checked
+	 *
+	 * @return bool True is the url is allowed as redirect url,
+	 *              false otherwise
+	 */
 	function isContinueRedirectAllowed($url) {
 		// First check the protocol
 		$selfProtocol = isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] ? 'https' : 'http';
 		$parsed = parse_url($url);
-		if ( $parsed === false || !isset($parsed['scheme']) || strtolower($parsed['scheme'])!==$selfProtocol ){
+		if ($parsed === false || !isset($parsed['scheme']) || strtolower($parsed['scheme']) !== $selfProtocol) {
 			return false;
 		}
 
 		// The same domain as grommunio Web is always allowed
-		if ( $parsed['host'] === $_SERVER['HTTP_HOST'] ){
+		if ($parsed['host'] === $_SERVER['HTTP_HOST']) {
 			return true;
 		}
 
 		// Check if the domain is white listed
 		$allowedDomains = explode(' ', preg_replace('/\s+/', ' ', REDIRECT_ALLOWED_DOMAINS));
-		if ( count($allowedDomains) && !empty($allowedDomains[0]) ){
-			foreach ( $allowedDomains as $domain ){
+		if (count($allowedDomains) && !empty($allowedDomains[0])) {
+			foreach ($allowedDomains as $domain) {
 				$parsedDomain = parse_url($domain);
 
 				// Handle invalid configuration options
 				if (!isset($parsedDomain['scheme']) || !isset($parsedDomain['host'])) {
 					error_log("Invalid 'REDIRECT_ALLOWED_DOMAINS' " . $domain);
+
 					continue;
 				}
 
-				if ( $parsedDomain['scheme'].'://'.$parsedDomain['host'] === $parsed['scheme'].'://'.$parsed['host'] ){
+				if ($parsedDomain['scheme'] . '://' . $parsedDomain['host'] === $parsed['scheme'] . '://' . $parsed['host']) {
 					// This domain was allowed to redirect to by the administrator
 					return true;
 				}
@@ -407,26 +426,25 @@
 
 	// Constants for regular expressions which are used in get method to verify the input string
 	define("ID_REGEX", "/^[a-z0-9_]+$/im");
-	define("STRING_REGEX", "/^[a-z0-9_\s()@]+$/im");
-	define("USERNAME_REGEX", "/^[a-z0-9\-\.\'_@]+$/im");
-	define("ALLOWED_EMAIL_CHARS_REGEX", "/^[-a-z0-9_\.@!#\$%&'\*\+\/\=\?\^_`\{\|\}~]+$/im");
+	define("STRING_REGEX", "/^[a-z0-9_\\s()@]+$/im");
+	define("USERNAME_REGEX", "/^[a-z0-9\\-\\.\\'_@]+$/im");
+	define("ALLOWED_EMAIL_CHARS_REGEX", "/^[-a-z0-9_\\.@!#\$%&'\\*\\+\\/\\=\\?\\^_`\\{\\|\\}~]+$/im");
 	define("NUMERIC_REGEX", "/^[0-9]+$/im");
 	// Don't allow "\/:*?"<>|" characters in filename.
-	define("FILENAME_REGEX", "/^[^\/\:\*\?\"\<\>\|]+$/im");
+	define("FILENAME_REGEX", "/^[^\\/\\:\\*\\?\"\\<\\>\\|]+$/im");
 
 	/**
-	 * Function to sanitize user input values to prevent XSS attacks
+	 * Function to sanitize user input values to prevent XSS attacks.
 	 *
-	 * @param Mixed $value value that should be sanitized
-	 * @param Mixed $default default value to return when value is not safe
-	 * @param String $regex regex to validate values based on type of value passed
+	 * @param mixed  $value   value that should be sanitized
+	 * @param mixed  $default default value to return when value is not safe
+	 * @param string $regex   regex to validate values based on type of value passed
 	 */
-	function sanitizeValue($value, $default = '', $regex = false)
-	{
+	function sanitizeValue($value, $default = '', $regex = false) {
 		$result = addslashes($value);
-		if($regex) {
+		if ($regex) {
 			$match = preg_match_all($regex, $result);
-			if(!$match) {
+			if (!$match) {
 				$result = $default;
 			}
 		}
@@ -435,16 +453,15 @@
 	}
 
 	/**
-	 * Function to sanitize user input values to prevent XSS attacks
+	 * Function to sanitize user input values to prevent XSS attacks.
 	 *
-	 * @param String $key key that should be used to get value from $_GET to sanitize value
-	 * @param Mixed $default default value to return when value is not safe
-	 * @param String $regex regex to validate values based on type of value passed
+	 * @param string $key     key that should be used to get value from $_GET to sanitize value
+	 * @param mixed  $default default value to return when value is not safe
+	 * @param string $regex   regex to validate values based on type of value passed
 	 */
-	function sanitizeGetValue($key, $default = '', $regex = false)
-	{
+	function sanitizeGetValue($key, $default = '', $regex = false) {
 		// check if value really exists
-		if(isset($_GET[$key])) {
+		if (isset($_GET[$key])) {
 			return sanitizeValue($_GET[$key], $default, $regex);
 		}
 
@@ -452,16 +469,15 @@
 	}
 
 	/**
-	 * Function to sanitize user input values to prevent XSS attacks
+	 * Function to sanitize user input values to prevent XSS attacks.
 	 *
-	 * @param String $key key that should be used to get value from $_POST to sanitize value
-	 * @param Mixed $default default value to return when value is not safe
-	 * @param String $regex regex to validate values based on type of value passed
+	 * @param string $key     key that should be used to get value from $_POST to sanitize value
+	 * @param mixed  $default default value to return when value is not safe
+	 * @param string $regex   regex to validate values based on type of value passed
 	 */
-	function sanitizePostValue($key, $default = '', $regex = false)
-	{
+	function sanitizePostValue($key, $default = '', $regex = false) {
 		// check if value really exists
-		if(isset($_POST[$key])) {
+		if (isset($_POST[$key])) {
 			return sanitizeValue($_POST[$key], $default, $regex);
 		}
 
@@ -469,53 +485,53 @@
 	}
 
 	/**
-	 * Function will be used to decode smime messages and convert it to normal messages
-	 * @param MAPIStore $store user's store
+	 * Function will be used to decode smime messages and convert it to normal messages.
+	 *
+	 * @param MAPIStore   $store   user's store
 	 * @param MAPIMessage $message smime message
 	 */
-	function parse_smime($store, $message)
-	{
-		$props = mapi_getprops($message, array(PR_MESSAGE_CLASS, PR_MESSAGE_FLAGS,
+	function parse_smime($store, $message) {
+		$props = mapi_getprops($message, [PR_MESSAGE_CLASS, PR_MESSAGE_FLAGS,
 			PR_SENT_REPRESENTING_NAME, PR_SENT_REPRESENTING_ENTRYID, PR_SENT_REPRESENTING_SEARCH_KEY,
-			PR_SENT_REPRESENTING_EMAIL_ADDRESS, PR_SENT_REPRESENTING_SMTP_ADDRESS, PR_SENT_REPRESENTING_ADDRTYPE));
+			PR_SENT_REPRESENTING_EMAIL_ADDRESS, PR_SENT_REPRESENTING_SMTP_ADDRESS, PR_SENT_REPRESENTING_ADDRTYPE, ]);
 		$read = $props[PR_MESSAGE_FLAGS] & MSGFLAG_READ;
 
-		if(isset($props[PR_MESSAGE_CLASS]) && stripos($props[PR_MESSAGE_CLASS], 'IPM.Note.SMIME.MultipartSigned') !== false) {
+		if (isset($props[PR_MESSAGE_CLASS]) && stripos($props[PR_MESSAGE_CLASS], 'IPM.Note.SMIME.MultipartSigned') !== false) {
 			// this is a signed message. decode it.
 			$atable = mapi_message_getattachmenttable($message);
 
-			$rows = mapi_table_queryallrows($atable, Array(PR_ATTACH_MIME_TAG, PR_ATTACH_NUM));
+			$rows = mapi_table_queryallrows($atable, [PR_ATTACH_MIME_TAG, PR_ATTACH_NUM]);
 			$attnum = false;
 
-			foreach($rows as $row) {
-				if(isset($row[PR_ATTACH_MIME_TAG]) && $row[PR_ATTACH_MIME_TAG] == 'multipart/signed') {
+			foreach ($rows as $row) {
+				if (isset($row[PR_ATTACH_MIME_TAG]) && $row[PR_ATTACH_MIME_TAG] == 'multipart/signed') {
 					$attnum = $row[PR_ATTACH_NUM];
 				}
 			}
 
-			if($attnum !== false) {
+			if ($attnum !== false) {
 				$att = mapi_message_openattach($message, $attnum);
 				$data = mapi_openproperty($att, PR_ATTACH_DATA_BIN);
 
 				// Allowing to hook in before the signed attachment is removed
-				$GLOBALS['PluginManager']->triggerHook('server.util.parse_smime.signed', array(
+				$GLOBALS['PluginManager']->triggerHook('server.util.parse_smime.signed', [
 					'store' => $store,
 					'props' => $props,
 					'message' => &$message,
-					'data' => &$data
-				));
+					'data' => &$data,
+				]);
 
 				// also copy recipients because they are lost after mapi_inetmapi_imtomapi
 				$recipienttable = mapi_message_getrecipienttable($message);
 				$messageRecipients = mapi_table_queryallrows($recipienttable, $GLOBALS["properties"]->getRecipientProperties());
 
-				mapi_inetmapi_imtomapi($GLOBALS['mapisession']->getSession(), $store, $GLOBALS['mapisession']->getAddressbook(), $message, $data, Array("parse_smime_signed" => 1));
+				mapi_inetmapi_imtomapi($GLOBALS['mapisession']->getSession(), $store, $GLOBALS['mapisession']->getAddressbook(), $message, $data, ["parse_smime_signed" => 1]);
 
-				if(!empty($messageRecipients)) {
+				if (!empty($messageRecipients)) {
 					mapi_message_modifyrecipients($message, MODRECIP_ADD, $messageRecipients);
 				}
 
-				mapi_setprops($message, array(
+				mapi_setprops($message, [
 					PR_MESSAGE_CLASS => $props[PR_MESSAGE_CLASS],
 					PR_SENT_REPRESENTING_NAME => $props[PR_SENT_REPRESENTING_NAME],
 					PR_SENT_REPRESENTING_ENTRYID => $props[PR_SENT_REPRESENTING_ENTRYID],
@@ -523,32 +539,32 @@
 					PR_SENT_REPRESENTING_EMAIL_ADDRESS => $props[PR_SENT_REPRESENTING_EMAIL_ADDRESS] ?? '',
 					PR_SENT_REPRESENTING_SMTP_ADDRESS => $props[PR_SENT_REPRESENTING_SMTP_ADDRESS] ?? '',
 					PR_SENT_REPRESENTING_ADDRTYPE => $props[PR_SENT_REPRESENTING_ADDRTYPE] ?? 'SMTP',
-			));
-
+				]);
 			}
-		} else if(isset($props[PR_MESSAGE_CLASS]) && stripos($props[PR_MESSAGE_CLASS], 'IPM.Note.SMIME') !== false) {
+		}
+		elseif (isset($props[PR_MESSAGE_CLASS]) && stripos($props[PR_MESSAGE_CLASS], 'IPM.Note.SMIME') !== false) {
 			// this is a encrypted message. decode it.
 			$attachTable = mapi_message_getattachmenttable($message);
 
-			$rows = mapi_table_queryallrows($attachTable, Array(PR_ATTACH_MIME_TAG, PR_ATTACH_NUM, PR_ATTACH_LONG_FILENAME));
+			$rows = mapi_table_queryallrows($attachTable, [PR_ATTACH_MIME_TAG, PR_ATTACH_NUM, PR_ATTACH_LONG_FILENAME]);
 			$attnum = false;
-			foreach($rows as $row) {
-				if(isset($row[PR_ATTACH_MIME_TAG]) && in_array($row[PR_ATTACH_MIME_TAG],array('application/x-pkcs7-mime','application/pkcs7-mime')) ) {
+			foreach ($rows as $row) {
+				if (isset($row[PR_ATTACH_MIME_TAG]) && in_array($row[PR_ATTACH_MIME_TAG], ['application/x-pkcs7-mime', 'application/pkcs7-mime'])) {
 					$attnum = $row[PR_ATTACH_NUM];
 				}
 			}
 
-			if($attnum !== false) {
+			if ($attnum !== false) {
 				$att = mapi_message_openattach($message, $attnum);
 				$data = mapi_openproperty($att, PR_ATTACH_DATA_BIN);
 
 				// Allowing to hook in before the encrypted attachment is removed
-				$GLOBALS['PluginManager']->triggerHook('server.util.parse_smime.encrypted', array(
+				$GLOBALS['PluginManager']->triggerHook('server.util.parse_smime.encrypted', [
 					'store' => $store,
 					'props' => $props,
 					'message' => &$message,
-					'data' => &$data
-				));
+					'data' => &$data,
+				]);
 
 				if (isSmimePluginEnabled()) {
 					mapi_message_deleteattach($message, $attnum);
@@ -557,15 +573,15 @@
 		}
 		// mark the message as read if the main message has read flag
 		if ($read) {
-			$mprops = mapi_getprops($message, array(PR_MESSAGE_FLAGS));
-			mapi_setprops($message, array(PR_MESSAGE_FLAGS => $mprops[PR_MESSAGE_FLAGS] | MSGFLAG_READ));
+			$mprops = mapi_getprops($message, [PR_MESSAGE_FLAGS]);
+			mapi_setprops($message, [PR_MESSAGE_FLAGS => $mprops[PR_MESSAGE_FLAGS] | MSGFLAG_READ]);
 		}
 	}
 
 	/**
 	 * Helper function which used to check smime plugin is enabled.
 	 *
-	 * @return Boolean true if smime plugin is enabled else false.
+	 * @return bool true if smime plugin is enabled else false
 	 */
 	function isSmimePluginEnabled() {
 		return $GLOBALS['settings']->get("zarafa/v1/plugins/smime/enable", false);
@@ -575,16 +591,17 @@
 	 * Helper to stream a MAPI property.
 	 *
 	 * @param MAPIObject $mapiobj mapi message or store
-	 * @return String $datastring the streamed data
+	 * @param mixed      $proptag
+	 *
+	 * @return string $datastring the streamed data
 	 */
-	function streamProperty($mapiobj, $proptag)
-	{
+	function streamProperty($mapiobj, $proptag) {
 		$stream = mapi_openproperty($mapiobj, $proptag, IID_IStream, 0, 0);
 		$stat = mapi_stream_stat($stream);
 		mapi_stream_seek($stream, 0, STREAM_SEEK_SET);
 
 		$datastring = '';
-		for($i = 0; $i < $stat['cb']; $i+= BLOCK_SIZE){
+		for ($i = 0; $i < $stat['cb']; $i += BLOCK_SIZE) {
 			$datastring .= mapi_stream_read($stream, BLOCK_SIZE);
 		}
 
@@ -594,38 +611,41 @@
 	/**
 	 * Function will decode JSON string into objects.
 	 *
-	 * @param {String} $jsonString JSON data that should be decoded.
+	 * @param {String} $jsonString JSON data that should be decoded
 	 * @param {Boolean} $toAssoc flag to indicate that associative arrays should be
 	 * returned as objects or arrays, true means it will return associative array as arrays and
-	 * false will return associative arrays as objects.
-	 * @return {Object} decoded data.
+	 * false will return associative arrays as objects
+	 *
+	 * @return {Object} decoded data
 	 */
-	function json_decode_data($jsonString, $toAssoc = false)
-	{
+	function json_decode_data($jsonString, $toAssoc = false) {
 		$data = json_decode($jsonString, $toAssoc);
 		$errorString = '';
 
-		switch(json_last_error())
-		{
+		switch (json_last_error()) {
 			case JSON_ERROR_DEPTH:
 				$errorString = _("The maximum stack depth has been exceeded");
 				break;
+
 			case JSON_ERROR_CTRL_CHAR:
 				$errorString = _("Control character error, possibly incorrectly encoded");
 				break;
+
 			case JSON_ERROR_STATE_MISMATCH:
 				$errorString = _("Invalid or malformed JSON");
 				break;
+
 			case JSON_ERROR_SYNTAX:
 				$errorString = _("Syntax error");
 				break;
+
 			case JSON_ERROR_UTF8:
 				$errorString = _("Malformed UTF-8 characters, possibly incorrectly encoded");
 				break;
 		}
 
-		if(!empty($errorString)) {
-			throw new JSONException(sprintf(_("JSON Error: - %s") , $errorString), json_last_error(), null, _("Some problem encountered when encoding/decoding JSON data."));
+		if (!empty($errorString)) {
+			throw new JsonException(sprintf(_("JSON Error: - %s"), $errorString), json_last_error(), null, _("Some problem encountered when encoding/decoding JSON data."));
 		}
 
 		return $data;
@@ -634,15 +654,19 @@
 	/**
 	 * Tries to open the IPM subtree. If opening fails, it will try to fix it by
 	 * trying to find the correct entryid of the IPM subtree in the hierarchy.
+	 *
 	 * @param {MAPIObject} $store the store to retrieve IPM subtree from
+	 *
 	 * @return {mixed} false if the subtree is broken beyond quick repair,
 	 * the IPM subtree resource otherwise
 	 */
 	function getSubTree($store) {
-		$storeProps = mapi_getprops($store, array(PR_IPM_SUBTREE_ENTRYID));
+		$storeProps = mapi_getprops($store, [PR_IPM_SUBTREE_ENTRYID]);
+
 		try {
 			$ipmsubtree = mapi_msgstore_openentry($store, $storeProps[PR_IPM_SUBTREE_ENTRYID]);
-		} catch (MAPIException $e) {
+		}
+		catch (MAPIException $e) {
 			if ($e->getCode() == MAPI_E_NOT_FOUND || $e->getCode() == MAPI_E_INVALID_ENTRYID) {
 				$username = $GLOBALS["mapisession"]->getUserName();
 				error_log(sprintf('Unable to open IPM_SUBTREE for %s, trying to correct PR_IPM_SUBTREE_ENTRYID', $username));
@@ -661,30 +685,34 @@
 	 *
 	 * @param {String} $username the user who's store to retrieve hierarchy counters from.
 	 * If no username is given, the currently logged in user's store will be used.
-	 * @param {String} $folderType if inbox use the inbox as root folder.
-	 * @return {Array} folderStatCache a cache of the hierarchy folders.
+	 * @param {String} $folderType if inbox use the inbox as root folder
+	 *
+	 * @return {Array} folderStatCache a cache of the hierarchy folders
 	 */
-	function updateHierarchyCounters($username='', $folderType='')
-	{
+	function updateHierarchyCounters($username = '', $folderType = '') {
 		// Open the correct store
 		if ($username) {
 			$userEntryid = $GLOBALS["mapisession"]->getStoreEntryIdOfUser($username);
 			$store = $GLOBALS["mapisession"]->openMessageStore($userEntryid);
-		} else {
+		}
+		else {
 			$store = $GLOBALS["mapisession"]->getDefaultMessageStore();
 		}
 
-		$props = array(PR_DISPLAY_NAME, PR_LOCAL_COMMIT_TIME_MAX, PR_CONTENT_COUNT, PR_CONTENT_UNREAD, PR_ENTRYID, PR_STORE_ENTRYID);
+		$props = [PR_DISPLAY_NAME, PR_LOCAL_COMMIT_TIME_MAX, PR_CONTENT_COUNT, PR_CONTENT_UNREAD, PR_ENTRYID, PR_STORE_ENTRYID];
 
 		if ($folderType === 'inbox') {
 			try {
 				$rootFolder = mapi_msgstore_getreceivefolder($store);
-			} catch (MAPIException $e) {
+			}
+			catch (MAPIException $e) {
 				$username = $GLOBALS["mapisession"]->getUserName();
 				error_log(sprintf("Unable to open Inbox for %s. MAPI Error '%s'", $username, get_mapi_error_name($e->getCode())));
+
 				return [];
 			}
-		} else {
+		}
+		else {
 			$rootFolder = getSubTree($store);
 		}
 
@@ -696,15 +724,15 @@
 			array_push($rows, mapi_getprops($rootFolder, $props));
 		}
 
-		$folderStatCache = array();
-		foreach($rows as $folder) {
-			$folderStatCache[$folder[PR_DISPLAY_NAME]] = array(
+		$folderStatCache = [];
+		foreach ($rows as $folder) {
+			$folderStatCache[$folder[PR_DISPLAY_NAME]] = [
 				'commit_time' => isset($folder[PR_LOCAL_COMMIT_TIME_MAX]) ? $folder[PR_LOCAL_COMMIT_TIME_MAX] : "0000000000",
 				'entryid' => bin2hex($folder[PR_ENTRYID]),
 				'store_entryid' => bin2hex($folder[PR_STORE_ENTRYID]),
 				'content_count' => isset($folder[PR_CONTENT_COUNT]) ? $folder[PR_CONTENT_COUNT] : -1,
 				'content_unread' => isset($folder[PR_CONTENT_UNREAD]) ? $folder[PR_CONTENT_UNREAD] : -1,
-			);
+			];
 		}
 
 		return $folderStatCache;
@@ -716,33 +744,39 @@
 	 * and if found, setting the PR_IPM_SUBTREE_ENTRYID to that found entryid.
 	 *
 	 * @param {Object} $store the users MAPI Store
-	 * @return {mixed} false if unable to correct otherwise return the subtree.
+	 *
+	 * @return {mixed} false if unable to correct otherwise return the subtree
 	 */
-	function fix_ipmsubtree($store)
-	{
+	function fix_ipmsubtree($store) {
 		$root = mapi_msgstore_openentry($store, null);
 		$username = $GLOBALS["mapisession"]->getUserName();
 		$hierarchytable = mapi_folder_gethierarchytable($root);
 		mapi_table_restrict($hierarchytable, [RES_CONTENT,
-				[
-					FUZZYLEVEL	=> FL_PREFIX,
-					ULPROPTAG	=> PR_DISPLAY_NAME,
-					VALUE		=> [PR_DISPLAY_NAME => "IPM_SUBTREE"]
-				]
+			[
+				FUZZYLEVEL => FL_PREFIX,
+				ULPROPTAG => PR_DISPLAY_NAME,
+				VALUE => [PR_DISPLAY_NAME => "IPM_SUBTREE"],
+			],
 		]);
 
-		$folders = mapi_table_queryallrows($hierarchytable, array(PR_ENTRYID));
+		$folders = mapi_table_queryallrows($hierarchytable, [PR_ENTRYID]);
 		if (empty($folders)) {
 			error_log(sprintf("No IPM_SUBTREE found for %s, store is broken", $username));
+
 			return false;
 		}
 
 		try {
 			$entryid = $folders[0][PR_ENTRYID];
 			$ipmsubtree = mapi_msgstore_openentry($store, $entryid);
-		} catch (MAPIException $e) {
-			error_log(sprintf('Unable to open IPM_SUBTREE for %s, IPM_SUBTREE folder can not be opened. MAPI error: %s',
-					$username, get_mapi_error_name($e->getCode())));
+		}
+		catch (MAPIException $e) {
+			error_log(sprintf(
+				'Unable to open IPM_SUBTREE for %s, IPM_SUBTREE folder can not be opened. MAPI error: %s',
+				$username,
+				get_mapi_error_name($e->getCode())
+			));
+
 			return false;
 		}
 
@@ -754,15 +788,15 @@
 
 	/**
 	 * Helper function which provide protocol used by current request.
-	 * @return string It can be either https or http.
+	 *
+	 * @return string it can be either https or http
 	 */
-	function getRequestProtocol()
-	{
-		if(!empty($_SERVER['HTTP_X_FORWARDED_PROTO'])) {
+	function getRequestProtocol() {
+		if (!empty($_SERVER['HTTP_X_FORWARDED_PROTO'])) {
 			return $_SERVER['HTTP_X_FORWARDED_PROTO'];
-		} else {
-			return !empty($_SERVER['HTTPS']) ? "https" : "http";
 		}
+
+		return !empty($_SERVER['HTTPS']) ? "https" : "http";
 	}
 
 	/**
@@ -771,21 +805,21 @@
 	 * 'SECURE_COOKIES' defined. webapp only use insecure cookies
 	 * where a user has explicitly set 'SECURE_COOKIES' to false.
 	 *
-	 * @return Boolean return false only when a user has explicitly set
-	 * 'SECURE_COOKIES' to false else returns true.
+	 * @return bool return false only when a user has explicitly set
+	 *              'SECURE_COOKIES' to false else returns true
 	 */
-	function useSecureCookies()
-	{
+	function useSecureCookies() {
 		return !defined('SECURE_COOKIES') || SECURE_COOKIES !== false;
 	}
 
 	/**
-	 * Check if the eml stream is corrupted or not
-	 * @param String $attachment Content fetched from PR_ATTACH_DATA_BIN property of an attachment.
-	 * @return True if eml is broken, false otherwise.
+	 * Check if the eml stream is corrupted or not.
+	 *
+	 * @param string $attachment content fetched from PR_ATTACH_DATA_BIN property of an attachment
+	 *
+	 * @return true if eml is broken, false otherwise
 	 */
-	function isBrokenEml($attachment)
-	{
+	function isBrokenEml($attachment) {
 		// Get header part to process further
 		$splittedContent = preg_split("/\r?\n\r?\n/", $attachment);
 
@@ -805,7 +839,7 @@
 	/**
 	 * Function returns the IP address of the client.
 	 *
-	 * @return String The IP address of the client.
+	 * @return string the IP address of the client
 	 */
 	function getClientIPAddress() {
 		// Here, there is a scenario where the server is behind a proxy, when that
@@ -821,8 +855,7 @@
 	 *
 	 * @returns String webapp version.
 	 */
-	function getWebappVersion()
-	{
+	function getWebappVersion() {
 		return trim(file_get_contents('version'));
 	}
 
@@ -830,11 +863,10 @@
 	 * function which remove double quotes or PREF from vcf stream
 	 * if it has.
 	 *
-	 * @param {String} $attachmentStream The attachment stream.
+	 * @param {String} $attachmentStream The attachment stream
 	 */
-	function processVCFStream(&$attachmentStream)
-	{
-		/**
+	function processVCFStream(&$attachmentStream) {
+		/*
 		 * https://github.com/libical/libical/issues/488
 		 * https://github.com/libical/libical/issues/490
 		 *
@@ -848,8 +880,8 @@
 
 		if (preg_match('/EMAIL;PREF=/', $attachmentStream) > 0) {
 			$rows = explode("\n", $attachmentStream);
-			foreach($rows as $key => $row) {
-				if(preg_match("/EMAIL;PREF=/", $row)) {
+			foreach ($rows as $key => $row) {
+				if (preg_match("/EMAIL;PREF=/", $row)) {
 					unset($rows[$key]);
 				}
 			}
@@ -857,4 +889,3 @@
 			$attachmentStream = join("\n", $rows);
 		}
 	}
-?>

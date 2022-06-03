@@ -18,11 +18,11 @@
 	 *
 	 */
 
-	require_once(BASE_PATH . 'server/includes/core/class.response.php');
-	require_once( BASE_PATH . 'server/includes/core/class.webappauthentication.php');
+	require_once BASE_PATH . 'server/includes/core/class.response.php';
+	require_once BASE_PATH . 'server/includes/core/class.webappauthentication.php';
 
 	// This request only works whit GET
-	if ( $_SERVER['REQUEST_METHOD'] !== 'GET' ){
+	if ($_SERVER['REQUEST_METHOD'] !== 'GET') {
 		Response::wrongMethod();
 	}
 
@@ -31,5 +31,5 @@
 
 	// Destroy the session. This will effectively logout the user
 	WebAppSession::getInstance()->destroy();
-	die();
 
+	exit();
