@@ -1,27 +1,30 @@
 <?php
-require_once('test/smimeTest.php');
+
+require_once 'test/smimeTest.php';
 
 // Disable OCSP for tests
 define('PLUGIN_SMIME_ENABLE_OCSP', false);
 define('SMIME_STATUS_SUCCESS', 1);
 define('SMIME_OCSP_DISABLED', 1);
 
-require_once('php/util.php');
+require_once 'php/util.php';
 
-class UploadCertificateTest extends SMIMETest
-{
-	const DAY_EPOCH = 86400;
-	const PASSPHRASE = 'test';
-	const EMAIL_ADDRESS = 'dev@grommunio.com';
-	
+/**
+ * @internal
+ * @coversNothing
+ */
+class UploadCertificateTest extends SMIMETest {
+	public const DAY_EPOCH = 86400;
+	public const PASSPHRASE = 'test';
+	public const EMAIL_ADDRESS = 'dev@grommunio.com';
+
 	// Cache private key generation
 	private $privkey = '';
 
-	private function generatePKCS12($emailAddress = self::EMAIL_ADDRESS, $passphrase = self::PASSPHRASE)
-	{
+	private function generatePKCS12($emailAddress = self::EMAIL_ADDRESS, $passphrase = self::PASSPHRASE) {
 		$validFrom = time();
 		$validTo = time() + self::DAY_EPOCH * 365;
-		$daysvalid =  ($validTo - $validFrom) / self::DAY_EPOCH;
+		$daysvalid = ($validTo - $validFrom) / self::DAY_EPOCH;
 		$dn = [
 			"countryName" => "NL",
 			"stateOrProvinceName" => "Zuid Holland",
@@ -29,7 +32,7 @@ class UploadCertificateTest extends SMIMETest
 			"organizationName" => "grommunio",
 			"organizationalUnitName" => "Dev",
 			"commonName" => "John",
-			"emailAddress" => $emailAddress
+			"emailAddress" => $emailAddress,
 		];
 		$config = ['config' => OPENSSL_CONF_PATH];
 		if (empty($this->privkey)) {
@@ -40,46 +43,45 @@ class UploadCertificateTest extends SMIMETest
 		$sscert = openssl_csr_sign($csr, null, $this->privkey, $daysvalid, $config);
 		openssl_x509_export($sscert, $publickey);
 		openssl_pkcs12_export($publickey, $out, $this->privkey, $passphrase);
+
 		return $out;
 	}
 
 	/**
-	 * @param string $days string formatted as -500d or +500d.
+	 * @param string $days string formatted as -500d or +500d
 	 */
-	private function generatePKCS12Faketime($days)
-	{
+	private function generatePKCS12Faketime($days) {
 		$libfaketime = '/usr/lib/x86_64-linux-gnu/faketime/libfaketime.so.1';
 		if (!file_exists($libfaketime)) {
 			// Arch libfaketime location
 			$libfaketime = '/usr/lib/faketime/libfaketime.so.1';
 		}
-		return base64_decode(shell_exec("LD_PRELOAD='$libfaketime' FAKETIME=$days php ./test/create_pkcs12.php"));
+
+		return base64_decode(shell_exec("LD_PRELOAD='{$libfaketime}' FAKETIME={$days} php ./test/create_pkcs12.php"));
 	}
 
 	/**
 	 * Test a valid generate certificate.
 	 */
-	public function testValidCert()
-	{
+	public function testValidCert() {
 		$pkcs12 = $this->generatePKCS12();
 		list($message, $cert, $data) = validateUploadedPKCS($pkcs12, self::PASSPHRASE, self::EMAIL_ADDRESS);
 		$this->assertEquals($message, '');
 		$this->assertNotEmpty($cert);
 		$this->assertNotEmpty($data);
 	}
+
 	/**
-	 * Test an invalid PKCS#12 format
+	 * Test an invalid PKCS#12 format.
 	 */
-	public function testFaultyPKCS12()
-	{
+	public function testFaultyPKCS12() {
 		$this->assertEquals(validateUploadedPKCS('burp', 'burp', 'foo@bar.nl')[0], 'Unable to decrypt certificate');
 	}
 
 	/**
-	 * Test an incorrect passphrase
+	 * Test an incorrect passphrase.
 	 */
-	public function testIncorrectPassphrase()
-	{
+	public function testIncorrectPassphrase() {
 		$pkcs12 = $this->generatePKCS12();
 		$this->assertEquals(validateUploadedPKCS($pkcs12, 'burp', 'foo@bar.nl')[0], 'Unable to decrypt certificate');
 	}
@@ -87,18 +89,18 @@ class UploadCertificateTest extends SMIMETest
 	/**
 	 * Test incorrect email address, which does not match the account <-> cert.
 	 */
-	public function testIncorrectEmailAddress()
-	{
+	public function testIncorrectEmailAddress() {
 		$pkcs12 = $this->generatePKCS12();
-		$this->assertEquals(validateUploadedPKCS($pkcs12, self::PASSPHRASE, 'foo@bar.nl')[0],
-			"Certificate email address doesn't match grommunio Web account " . self::EMAIL_ADDRESS);
+		$this->assertEquals(
+			validateUploadedPKCS($pkcs12, self::PASSPHRASE, 'foo@bar.nl')[0],
+			"Certificate email address doesn't match grommunio Web account " . self::EMAIL_ADDRESS
+		);
 	}
 
 	/**
-	 * Test an expired certificate
+	 * Test an expired certificate.
 	 */
-	public function testCertificateDateExpired()
-	{
+	public function testCertificateDateExpired() {
 		$pkcs12 = $this->generatePKCS12Faketime('-500d');
 		list($message, $cert, $data) = validateUploadedPKCS($pkcs12, self::PASSPHRASE, self::EMAIL_ADDRESS);
 		$validTo = date('Y-m-d', $data['validTo_time_t']);
@@ -110,8 +112,7 @@ class UploadCertificateTest extends SMIMETest
 	/**
 	 * Test an certificate in the future.
 	 */
-	public function testCertificateNotValid()
-	{
+	public function testCertificateNotValid() {
 		$pkcs12 = $this->generatePKCS12Faketime('+500d');
 		list($message, $cert, $data) = validateUploadedPKCS($pkcs12, self::PASSPHRASE, self::EMAIL_ADDRESS);
 		$validFrom = date('Y-m-d', $data['validFrom_time_t']);
@@ -120,4 +121,3 @@ class UploadCertificateTest extends SMIMETest
 		$this->assertNotEmpty($cert);
 	}
 }
-?>

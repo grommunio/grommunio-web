@@ -1,48 +1,50 @@
 <?php
-require_once('classes/grommunioUser.php');
-require_once('classes/HierarchyUser.php');
-require_once('classes/TestData.php');
-require_once('classes/grommunioTest.php');
+
+require_once 'classes/grommunioUser.php';
+require_once 'classes/HierarchyUser.php';
+require_once 'classes/TestData.php';
+require_once 'classes/grommunioTest.php';
 
 /**
- * FolderTest
+ * FolderTest.
  *
  * Tests creating/opening and deleting folders
+ *
+ * @internal
+ * @coversNothing
  */
 class FolderTest extends grommunioTest {
-
 	/**
-	 * The user for which we will open the hierarchy
+	 * The user for which we will open the hierarchy.
 	 */
 	private $user;
 
 	/**
-	 * The folder which will be saved
+	 * The folder which will be saved.
 	 */
 	private $folder;
 
 	/**
-	 * During setup we create the user, and clear the shared stores settings
+	 * During setup we create the user, and clear the shared stores settings.
 	 */
-	protected function setUp()
-	{
+	protected function setUp() {
 		parent::setUp();
 
 		$this->user = $this->addUser(new HierarchyUser(new grommunioUser(GROMMUNIO_USER1_NAME, GROMMUNIO_USER1_PASSWORD)));
 
-		$this->folder = array(
-			'props' => TestData::getFolder()
-		);
+		$this->folder = [
+			'props' => TestData::getFolder(),
+		];
 	}
 
 	/*
 	 * Test if a folder can be created
 	 */
-	public function testCreateFolder()
-	{
+	public function testCreateFolder() {
 		try {
 			$folder = $this->user->saveFolder($this->folder);
-		} catch(Exception $e) {
+		}
+		catch (Exception $e) {
 			$this->fail('Test that a folder can be created: ' . $e->getMessage() . PHP_EOL . $e->getTraceAsString());
 		}
 
@@ -52,10 +54,9 @@ class FolderTest extends grommunioTest {
 	/*
 	 * Test the folder properties
 	 */
-	public function testOpenFolderResult()
-	{
+	public function testOpenFolderResult() {
 		$folder = $this->user->saveFolder($this->folder);
-		$props = $this->user->getFolderProps($folder, array(PR_ENTRYID));
+		$props = $this->user->getFolderProps($folder, [PR_ENTRYID]);
 		$folder = $this->user->openFolder($props[PR_ENTRYID]);
 
 		$this->assertArrayHasKey('item', $folder, 'Test that the opened folder returns an \'item\' array');
@@ -76,8 +77,7 @@ class FolderTest extends grommunioTest {
 	/*
 	 * Test the folder properties from the IPM_SUBTREE
 	 */
-	public function testOpenSubtreeResult()
-	{
+	public function testOpenSubtreeResult() {
 		$subtree = $this->user->getDefaultFolderEntryID(PR_IPM_SUBTREE_ENTRYID);
 		$folder = $this->user->openFolder($subtree);
 
@@ -100,21 +100,20 @@ class FolderTest extends grommunioTest {
 	/*
 	 * Test the if the properties were correctly saved
 	 */
-	public function testSaveFolderResult()
-	{
+	public function testSaveFolderResult() {
 		$folder = $this->user->saveFolder($this->folder);
-		$props = $this->user->getFolderProps($folder, array(PR_ENTRYID, PR_PARENT_ENTRYID, PR_STORE_ENTRYID));
+		$props = $this->user->getFolderProps($folder, [PR_ENTRYID, PR_PARENT_ENTRYID, PR_STORE_ENTRYID]);
 
-		$folder = array(
+		$folder = [
 			'entryid' => bin2hex($props[PR_ENTRYID]),
 			'parent_entryid' => bin2hex($props[PR_PARENT_ENTRYID]),
 			'store_entryid' => bin2hex($props[PR_STORE_ENTRYID]),
-			'props' => array(
+			'props' => [
 				'display_name' => 'Second test',
 				'comment' => 'Test comment',
-				'container_class' => 'IPF.Appointment'
-			)
-		);
+				'container_class' => 'IPF.Appointment',
+			],
+		];
 
 		$this->user->saveFolder($folder);
 
@@ -129,13 +128,13 @@ class FolderTest extends grommunioTest {
 	/*
 	 * Test that the folder can be deleted
 	 */
-	public function testDeleteFolder()
-	{
+	public function testDeleteFolder() {
 		try {
 			$folder = $this->user->saveFolder($this->folder);
-			$props = $this->user->getFolderProps($folder, array(PR_ENTRYID));
+			$props = $this->user->getFolderProps($folder, [PR_ENTRYID]);
 			$response = $this->user->deleteFolder($props[PR_ENTRYID]);
-		} catch (Exception $e) {
+		}
+		catch (Exception $e) {
 			$this->fail('Test that a folder can be deleted: ' . $e->getMessage() . PHP_EOL . $e->getTraceAsString());
 		}
 
@@ -149,59 +148,57 @@ class FolderTest extends grommunioTest {
 	/*
 	 * Test if the folder were correctly renamed
 	 */
-	public function testRenameFolder()
-	{
+	public function testRenameFolder() {
 		$folder = $this->user->saveFolder($this->folder);
-		$props = $this->user->getFolderProps($folder, array(PR_ENTRYID, PR_PARENT_ENTRYID, PR_STORE_ENTRYID));
+		$props = $this->user->getFolderProps($folder, [PR_ENTRYID, PR_PARENT_ENTRYID, PR_STORE_ENTRYID]);
 
-		$folder = array(
+		$folder = [
 			'entryid' => bin2hex($props[PR_ENTRYID]),
 			'parent_entryid' => bin2hex($props[PR_PARENT_ENTRYID]),
 			'store_entryid' => bin2hex($props[PR_STORE_ENTRYID]),
-			'props' => array(
+			'props' => [
 				'display_name' => 'Folder Name',
-			)
-		);
+			],
+		];
 
 		$this->user->saveFolder($folder);
 
 		// the restriction is used to obtain the list of folders based on the folder's entryid
 		$restriction = Restriction::ResProperty(PR_ENTRYID, $props[PR_ENTRYID], RELOP_EQ);
-		
+
 		// assert that the folder is found based on given entryid
 		$folderList = $this->user->getFolders($restriction);
 		$this->assertNotEmpty($folderList, 'Test that the folder is found based on the restriction');
 
 		// assert that the folder is renamed successfully
-		$folderProps = $this->user->getFolderProps($folderList[0], array(PR_DISPLAY_NAME));
+		$folderProps = $this->user->getFolderProps($folderList[0], [PR_DISPLAY_NAME]);
 		$this->assertEquals('Folder Name', $folderProps[PR_DISPLAY_NAME], 'Test that the folder is renamed successfully');
 	}
 
 	/*
 	 * Test if the folder were correctly renamed while there is another folder with same name already available
 	 */
-	public function testRenameFolderConflict()
-	{
+	public function testRenameFolderConflict() {
 		$folder = $this->user->saveFolder($this->folder);
 
 		// create another folder, and save it
-		$folderObj = array(
-			'props' => TestData::getFolder(array(
-				'display_name' => 'Folder Name'
-			))
-		);
+		$folderObj = [
+			'props' => TestData::getFolder([
+				'display_name' => 'Folder Name',
+			]),
+		];
 		$this->user->saveFolder($folderObj);
 
-		$props = $this->user->getFolderProps($folder, array(PR_ENTRYID, PR_PARENT_ENTRYID, PR_STORE_ENTRYID));
+		$props = $this->user->getFolderProps($folder, [PR_ENTRYID, PR_PARENT_ENTRYID, PR_STORE_ENTRYID]);
 
-		$folder = array(
+		$folder = [
 			'entryid' => bin2hex($props[PR_ENTRYID]),
 			'parent_entryid' => bin2hex($props[PR_PARENT_ENTRYID]),
 			'store_entryid' => bin2hex($props[PR_STORE_ENTRYID]),
-			'props' => array(
+			'props' => [
 				'display_name' => 'Folder Name',
-			)
-		);
+			],
+		];
 
 		$this->user->saveFolder($folder);
 
@@ -209,7 +206,7 @@ class FolderTest extends grommunioTest {
 		$restriction = Restriction::ResProperty(PR_ENTRYID, $props[PR_ENTRYID], RELOP_EQ);
 		// assert that the folder is renamed successfully
 		$folderList = $this->user->getFolders($restriction);
-		$folderProps = $this->user->getFolderProps($folderList[0], array(PR_DISPLAY_NAME));
+		$folderProps = $this->user->getFolderProps($folderList[0], [PR_DISPLAY_NAME]);
 
 		$this->assertNotEquals('Folder Name', $folderProps[PR_DISPLAY_NAME], 'Test that the folder is not renamed as there is another folder with same name');
 	}
@@ -218,28 +215,27 @@ class FolderTest extends grommunioTest {
 	 * Test if proper Exception will be thrown for rename while
 	 * there is another folder with same name already available.
 	 */
-	public function testRenameFolderConflictException()
-	{
+	public function testRenameFolderConflictException() {
 		$folder = $this->user->saveFolder($this->folder);
 
 		// create another folder, and save it
-		$folderObj = array(
-			'props' => TestData::getFolder(array(
-				'display_name' => 'Folder Name'
-			))
-		);
+		$folderObj = [
+			'props' => TestData::getFolder([
+				'display_name' => 'Folder Name',
+			]),
+		];
 		$this->user->saveFolder($folderObj);
 
-		$props = $this->user->getFolderProps($folder, array(PR_ENTRYID, PR_PARENT_ENTRYID, PR_STORE_ENTRYID));
+		$props = $this->user->getFolderProps($folder, [PR_ENTRYID, PR_PARENT_ENTRYID, PR_STORE_ENTRYID]);
 
-		$folder = array(
+		$folder = [
 			'entryid' => bin2hex($props[PR_ENTRYID]),
 			'parent_entryid' => bin2hex($props[PR_PARENT_ENTRYID]),
 			'store_entryid' => bin2hex($props[PR_STORE_ENTRYID]),
-			'props' => array(
+			'props' => [
 				'display_name' => 'Folder Name',
-			)
-		);
+			],
+		];
 
 		$response = $this->user->saveFolder($folder);
 
@@ -253,28 +249,27 @@ class FolderTest extends grommunioTest {
 	 * Test if the name will be reconfigured to its original value while
 	 * there is another folder with same name already available.
 	 */
-	function testRenameFolderDisplayNameConflict()
-	{
+	public function testRenameFolderDisplayNameConflict() {
 		$folder = $this->user->saveFolder($this->folder);
 
 		// create another folder, and save it
-		$folderObj = array(
-			'props' => TestData::getFolder(array(
-				'display_name' => 'Folder Name'
-			))
-		);
+		$folderObj = [
+			'props' => TestData::getFolder([
+				'display_name' => 'Folder Name',
+			]),
+		];
 		$this->user->saveFolder($folderObj);
 
-		$props = $this->user->getFolderProps($folder, array(PR_ENTRYID, PR_PARENT_ENTRYID, PR_STORE_ENTRYID, PR_DISPLAY_NAME));
+		$props = $this->user->getFolderProps($folder, [PR_ENTRYID, PR_PARENT_ENTRYID, PR_STORE_ENTRYID, PR_DISPLAY_NAME]);
 
-		$folder = array(
+		$folder = [
 			'entryid' => bin2hex($props[PR_ENTRYID]),
 			'parent_entryid' => bin2hex($props[PR_PARENT_ENTRYID]),
 			'store_entryid' => bin2hex($props[PR_STORE_ENTRYID]),
-			'props' => array(
+			'props' => [
 				'display_name' => 'Folder Name',
-			)
-		);
+			],
+		];
 		$this->user->saveFolder($folder);
 
 		// Get Inbox folder, in which there is conflicting folder name
@@ -284,12 +279,10 @@ class FolderTest extends grommunioTest {
 		$hierarchyTable = mapi_folder_gethierarchytable($parentFolder, MAPI_DEFERRED_ERRORS);
 		$restriction = Restriction::ResProperty(PR_ENTRYID, $props[PR_ENTRYID], RELOP_EQ);
 		mapi_table_restrict($hierarchyTable, $restriction);
-		$folderList = mapi_table_queryallrows($hierarchyTable, array(PR_DISPLAY_NAME));
+		$folderList = mapi_table_queryallrows($hierarchyTable, [PR_DISPLAY_NAME]);
 
 		// Check that the folder is there in Inbox, and make sure that folder name is as it was before
 		$this->assertNotEmpty($folderList, 'Test that the folder is found based on the restriction');
 		$this->assertEquals($props[PR_DISPLAY_NAME], $folderList[0][PR_DISPLAY_NAME], 'Test that the folder name is as it was due to name conflict');
 	}
 }
-
-?>

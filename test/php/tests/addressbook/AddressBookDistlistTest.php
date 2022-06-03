@@ -1,54 +1,55 @@
 <?php
-require_once('classes/grommunioUser.php');
-require_once('classes/AddressBookUser.php');
-require_once('classes/DistlistUser.php');
-require_once('classes/TestData.php');
-require_once('classes/grommunioTest.php');
-require_once('classes/Util.php');
+
+require_once 'classes/grommunioUser.php';
+require_once 'classes/AddressBookUser.php';
+require_once 'classes/DistlistUser.php';
+require_once 'classes/TestData.php';
+require_once 'classes/grommunioTest.php';
+require_once 'classes/Util.php';
 
 /**
- * AddressBookDistlistTest
+ * AddressBookDistlistTest.
  *
  * Tests loading the Address Book contents of the Contacts containers for distlists
+ *
+ * @internal
+ * @coversNothing
  */
 class AddressBookDistlistTest extends grommunioTest {
-
 	/**
-	 * The user for which we will open the addressbook
+	 * The user for which we will open the addressbook.
 	 */
 	private $user;
 
 	/**
-	 * The user used for creating the distlist
+	 * The user used for creating the distlist.
 	 */
 	private $distlistUser;
 
 	/**
-	 * The message which will be handled
+	 * The message which will be handled.
 	 */
 	private $message;
 
 	/**
-	 * During setup we create the user, and clear the shared stores settings
+	 * During setup we create the user, and clear the shared stores settings.
 	 */
-	protected function setUp()
-	{
+	protected function setUp() {
 		parent::setUp();
 
 		$this->user = $this->addUser(new AddressBookUser(new grommunioUser(GROMMUNIO_USER1_NAME, GROMMUNIO_USER1_PASSWORD)));
 		$this->distlistUser = $this->addUser(new DistlistUser(new grommunioUser(GROMMUNIO_USER1_NAME, GROMMUNIO_USER1_PASSWORD)));
 
-		$this->message = array(
+		$this->message = [
 			'props' => TestData::getDistlist(),
-			'members' => TestData::getDistlistMembers(array(1))
-		);
+			'members' => TestData::getDistlistMembers([1]),
+		];
 	}
 
 	/**
-	 * Test if the contact addressbook returns valid objects
+	 * Test if the contact addressbook returns valid objects.
 	 */
-	public function testLoadingDistlistAddressBookResults()
-	{
+	public function testLoadingDistlistAddressBookResults() {
 		$this->distlistUser->saveDistlist($this->message, false);
 
 		$response = $this->user->loadContactsAddressBook();
@@ -71,11 +72,15 @@ class AddressBookDistlistTest extends grommunioTest {
 	}
 
 	/**
-	 * Test the results when the contact addressbook is loaded with an restriction
+	 * Test the results when the contact addressbook is loaded with an restriction.
+	 *
 	 * @dataProvider providerRestriction
+	 *
+	 * @param mixed $restriction
+	 * @param mixed $allowedDistlists
+	 * @param mixed $blockedDistlists
 	 */
-	public function testLoadingContactDistlistAddressBookWithRestrictionResults($restriction, $allowedDistlists, $blockedDistlists)
-	{
+	public function testLoadingContactDistlistAddressBookWithRestrictionResults($restriction, $allowedDistlists, $blockedDistlists) {
 		$this->distlistUser->saveDistlist($this->message, false);
 
 		$response = $this->user->loadContactsAddressBook($restriction);
@@ -102,16 +107,13 @@ class AddressBookDistlistTest extends grommunioTest {
 	 * The second argument is an array of usernames which should be visible in the addressbook list.
 	 * The third argument is an array of usernames which should have been filtered out by the restriction.
 	 */
-	public function providerRestriction()
-	{
+	public function providerRestriction() {
 		$distlist = TestData::getDistlist();
 
-		return array(
-			array(array( 'searchstring' => 'SYSTEM' ), array( ), array( $distlist['fileas'] )),
-			array(array( 'searchstring' => $distlist['fileas'] ), array( $distlist['fileas'] ), array( )),
-			array(array( 'hide_groups' => true ), array( ), array( $distlist['fileas'] )),
-		);
+		return [
+			[['searchstring' => 'SYSTEM'], [], [$distlist['fileas']]],
+			[['searchstring' => $distlist['fileas']], [$distlist['fileas']], []],
+			[['hide_groups' => true], [], [$distlist['fileas']]],
+		];
 	}
 }
-
-?>

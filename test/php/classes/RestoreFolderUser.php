@@ -1,15 +1,14 @@
 <?php
 
-require_once('IPMUser.php');
+require_once 'IPMUser.php';
 
 /**
- * RestoreFolderUser
+ * RestoreFolderUser.
  *
  * An extension to the IPMUser which can be used to get list of soft deleted folders
  * and also delete/restore those folders.
  */
 class RestoreFolderUser extends IPMUser {
-
 	/**
 	 * The name of the default itemmodule to which
 	 * we send all item requests.
@@ -23,10 +22,9 @@ class RestoreFolderUser extends IPMUser {
 	protected $defaultListModule;
 
 	/**
-	 * Initialize the RestoreFolderUser
+	 * Initialize the RestoreFolderUser.
 	 */
-	protected function initialize()
-	{
+	protected function initialize() {
 		parent::initialize();
 
 		$this->logon();
@@ -39,14 +37,15 @@ class RestoreFolderUser extends IPMUser {
 
 	/**
 	 * Load all soft deleted folder from the default folder which is 'inbox'.
-	 * @param Array $sortOrder The properties related to sorting to be merged, by default 'false'.
-	 * @return Array The list of soft deleted folder
+	 *
+	 * @param array $sortOrder the properties related to sorting to be merged, by default 'false'
+	 *
+	 * @return array The list of soft deleted folder
 	 */
-	public function loadSoftdeletedItems($sortOrder = false)
-	{
+	public function loadSoftdeletedItems($sortOrder = false) {
 		$this->logon();
 
-		$props = array( 'itemType' => 'folder' );
+		$props = ['itemType' => 'folder'];
 
 		if ($sortOrder) {
 			$props = array_merge($props, $sortOrder);
@@ -57,21 +56,22 @@ class RestoreFolderUser extends IPMUser {
 
 	/**
 	 * Restore soft deleted folders from the default folder which is 'inbox'.
-	 * @param Array $entryids The array of entryid of the folders which should be restored
-	 * @return Array The response from the PHP
+	 *
+	 * @param array $entryids The array of entryid of the folders which should be restored
+	 *
+	 * @return array The response from the PHP
 	 */
-	public function restoreSoftdeletedItems($entryids)
-	{
-		$response = array();
+	public function restoreSoftdeletedItems($entryids) {
+		$response = [];
 		$this->logon();
 
-		$props = array(
-			'message_action' => array(
-				'action_type' => 'restorefolder'
-			)
-		);
+		$props = [
+			'message_action' => [
+				'action_type' => 'restorefolder',
+			],
+		];
 
-		foreach($entryids as $entryid) {
+		foreach ($entryids as $entryid) {
 			$response[] = parent::deleteItem($entryid, $props);
 		}
 
@@ -80,25 +80,25 @@ class RestoreFolderUser extends IPMUser {
 
 	/**
 	 * Permanently Delete the soft deleted folder from the default folder which is 'Inbox'.
-	 * @param Array $entryids The array of entryid of the folder which should be hard deleted
-	 * @return Array The response from the PHP
+	 *
+	 * @param array $entryids The array of entryid of the folder which should be hard deleted
+	 *
+	 * @return array The response from the PHP
 	 */
-	public function deleteSoftdeletedItems($entryids)
-	{
-		$response = array();
+	public function deleteSoftdeletedItems($entryids) {
+		$response = [];
 		$this->logon();
 
-		$props = array(
-			'message_action' => array(
-				'action_type' => 'deletefolder'
-			)
-		);
+		$props = [
+			'message_action' => [
+				'action_type' => 'deletefolder',
+			],
+		];
 
-		foreach($entryids as $entryid) {
+		foreach ($entryids as $entryid) {
 			$response[] = parent::deleteItem($entryid, $props);
 		}
 
 		return $response;
 	}
 }
-?>

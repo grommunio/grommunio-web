@@ -1,6 +1,7 @@
 <?php
+
 	/**
-	 * Server-wide properties class
+	 * Server-wide properties class.
 	 *
 	 * This class is instantiated only once and therefore initialises all its data structures only once. It
 	 * is then used throughout the code to retrieve property tags for various purposes.
@@ -27,13 +28,10 @@
 	 * If a property is listed here, the code will read that property from the item, and send it via XML. If that property
 	 * contains megabytes of data, this will mean that you'll be sending megabytes of redundant data over the wire each time
 	 * one of the objects (or, wores, an entire table) is retrieved by the client.
-	 *
-	 * @package core
 	 */
-	class Properties
-	{
+	class Properties {
 		/**
-		 * MAPI Message Store object
+		 * MAPI Message Store object.
 		 */
 		private $store = false;
 
@@ -43,12 +41,12 @@
 		private $stores = [];
 
 		/**
-		 * The PR_MAPPING_SIGNATURE for the current store
+		 * The PR_MAPPING_SIGNATURE for the current store.
 		 */
 		private $storeMapping = false;
 
 		/**
-		 * true if we have init'ed, false if not
+		 * true if we have init'ed, false if not.
 		 */
 		private $init = false;
 
@@ -57,13 +55,12 @@
 		 * PR_MAPPING_SIGNATURE on the server the properties
 		 * are stored.
 		 */
-		private $mapping = array();
+		private $mapping = [];
 
 		/**
 		 * Initialize the class by opening the default message store. This is done only once.
 		 */
-		function Init()
-		{
+		public function Init() {
 			if ($this->init) {
 				return;
 			}
@@ -75,7 +72,7 @@
 				$this->storeMapping = $storeMapping;
 				// Ensure the mapping exists
 				if (!isset($this->mapping[$this->storeMapping])) {
-					$this->mapping[$this->storeMapping] = array();
+					$this->mapping[$this->storeMapping] = [];
 				}
 			}
 
@@ -83,15 +80,13 @@
 		}
 
 		/**
-		 * Reset the properties state
+		 * Reset the properties state.
 		 *
 		 * Since the properties is a global, persistent object, the reset() function is called before or after
 		 * processing. This makes sure that the on-disk serialized representation of the bus object is as
 		 * small as possible.
-		 * @access public
 		 */
-		function reset()
-		{
+		public function reset() {
 			$this->init = false;
 			$this->store = false;
 			$this->stores = [];
@@ -100,28 +95,29 @@
 		/**
 		 * Setter function which set the store.
 		 *
-		 * @param object|array|boolean MAPI Message Store Object or array of MAPI Message Store Objects, false if storeid is not found in the request.
+		 * @param array|bool|object MAPI Message Store Object or array of MAPI Message Store Objects, false if storeid is not found in the request
+		 * @param mixed $store
 		 */
-		function setStore($store = false)
-		{
+		public function setStore($store = false) {
 			$stores = [];
 			if ($store === false) {
 				$this->stores = $stores;
+
 				return;
 			}
 
 			if (is_array($store)) {
 				$stores = $store;
-			} else {
-				$stores = array($store);
+			}
+			else {
+				$stores = [$store];
 				$this->store = $store;
 			}
 
-			foreach($stores as $key => $store) {
+			foreach ($stores as $key => $store) {
 				$storeMapping = $this->getStoreMappingSignature($store);
 				if ($this->storeMapping !== $storeMapping) {
 					$this->stores[$storeMapping] = $store;
-
 				}
 			}
 		}
@@ -131,8 +127,7 @@
 		 *
 		 * @return object MAPI Message Store Object
 		 */
-		function getStore()
-		{
+		public function getStore() {
 			return $this->store !== false ? $this->store : $GLOBALS["mapisession"]->getDefaultMessageStore();
 		}
 
@@ -140,14 +135,17 @@
 		 * Function which used to get the PR_MAPPING_SIGNATURE value from given store.
 		 *
 		 * @param object MAPI Message Store Object
-		 * @return string PR_MAPPING_SIGNATURE of the given MAPI Message Store if exists else 0.
+		 * @param mixed $store
+		 *
+		 * @return string PR_MAPPING_SIGNATURE of the given MAPI Message Store if exists else 0
 		 */
-		private function getStoreMappingSignature($store)
-		{
+		private function getStoreMappingSignature($store) {
 			try {
-				$storeMapping = mapi_getprops($store, array(PR_MAPPING_SIGNATURE));
+				$storeMapping = mapi_getprops($store, [PR_MAPPING_SIGNATURE]);
 			}
-			catch (Exception $e) {}
+			catch (Exception $e) {
+			}
+
 			return isset($storeMapping[PR_MAPPING_SIGNATURE]) ? bin2hex($storeMapping[PR_MAPPING_SIGNATURE]) : '0';
 		}
 
@@ -155,9 +153,9 @@
 		 * Helper function which set the store as a active store and storeMapping.
 		 *
 		 * @param object MAPI Message Store Object
+		 * @param mixed $store
 		 */
-		function setActiveStore($store)
-		{
+		public function setActiveStore($store) {
 			$storeMapping = $this->getStoreMappingSignature($store);
 			if ($this->storeMapping !== $storeMapping) {
 				$this->store = $store;
@@ -166,15 +164,15 @@
 		}
 
 		/**
-		 * Returns the properties for Recipients in a message
-		 * @return array properties for Recipient.
+		 * Returns the properties for Recipients in a message.
+		 *
+		 * @return array properties for Recipient
 		 */
-		function getRecipientProperties()
-		{
+		public function getRecipientProperties() {
 			$this->Init();
 
 			if (!isset($this->mapping[$this->storeMapping]['recipient'])) {
-				$properties = array();
+				$properties = [];
 				$properties["entryid"] = PR_ENTRYID;
 				$properties["search_key"] = PR_SEARCH_KEY;
 				$properties["rowid"] = PR_ROWID;
@@ -202,11 +200,11 @@
 		}
 
 		/**
-		 * Returns the properties for Out of office settings in a message
-		 * @return array properties for Out of office settings.
+		 * Returns the properties for Out of office settings in a message.
+		 *
+		 * @return array properties for Out of office settings
 		 */
-		function getOutOfOfficeProperties()
-		{
+		public function getOutOfOfficeProperties() {
 			$this->Init();
 
 			if (!isset($this->mapping[$this->storeMapping]['oofsettings'])) {
@@ -228,10 +226,9 @@
 		}
 
 		/**
-		 * Returns the properties for a meeting request
+		 * Returns the properties for a meeting request.
 		 */
-		function getMeetingrequestProperties()
-		{
+		public function getMeetingrequestProperties() {
 			$this->Init();
 
 			if (!isset($this->mapping[$this->storeMapping]['meeting'])) {
@@ -289,28 +286,28 @@
 
 		/**
 		 * Returns the properties for an appointment which is opened in a dialog.
-		 * @return array properties for an appointment.
+		 *
+		 * @return array properties for an appointment
 		 */
-		function getAppointmentProperties()
-		{
+		public function getAppointmentProperties() {
 			$this->Init();
 
 			if (!isset($this->mapping[$this->storeMapping]['appointment'])) {
-				$properties = array();
+				$properties = [];
 				$properties["entryid"] = PR_ENTRYID;
 				$properties["parent_entryid"] = PR_PARENT_ENTRYID;
 				$properties["store_entryid"] = PR_STORE_ENTRYID;
 				$properties["access"] = PR_ACCESS;
-	  			$properties["message_class"] = PR_MESSAGE_CLASS;
+				$properties["message_class"] = PR_MESSAGE_CLASS;
 				$properties["message_flags"] = PR_MESSAGE_FLAGS;
-	  			$properties["icon_index"] = PR_ICON_INDEX;
+				$properties["icon_index"] = PR_ICON_INDEX;
 				$properties["normalized_subject"] = PR_NORMALIZED_SUBJECT;
 				$properties["subject"] = PR_SUBJECT;
-	  			$properties["display_to"] = PR_DISPLAY_TO;
-	  			$properties["display_cc"] = PR_DISPLAY_CC;
-	  			$properties["display_bcc"] = PR_DISPLAY_BCC;
-	  			$properties["importance"] = PR_IMPORTANCE;
-	  			$properties["sensitivity"] = PR_SENSITIVITY;
+				$properties["display_to"] = PR_DISPLAY_TO;
+				$properties["display_cc"] = PR_DISPLAY_CC;
+				$properties["display_bcc"] = PR_DISPLAY_BCC;
+				$properties["importance"] = PR_IMPORTANCE;
+				$properties["sensitivity"] = PR_SENSITIVITY;
 				$properties["object_type"] = PR_OBJECT_TYPE;
 				$properties["message_size"] = PR_MESSAGE_SIZE;
 				$properties["hasattach"] = PR_HASATTACH;
@@ -367,7 +364,7 @@
 				$properties["proposed_end_date"] = "PT_SYSTIME:PSETID_Appointment:0x8251";
 				$properties["proposed_duration"] = "PT_LONG:PSETID_Appointment:0x8256";
 				$properties["counter_proposal"] = "PT_BOOLEAN:PSETID_Appointment:0x8257";
-				//$properties["proposal_number"] = "PT_BOOLEAN:PSETID_Appointment:0x8257";
+				// $properties["proposal_number"] = "PT_BOOLEAN:PSETID_Appointment:0x8257";
 
 				$properties["deleted_on"] = PR_DELETED_ON;
 				$properties["updatecounter"] = "PT_LONG:PSETID_Appointment:0x8201";
@@ -384,28 +381,27 @@
 
 		/**
 		 * Returns the properties for an appointment in the listview.
-		 * @return array properties for an appointment.
+		 *
+		 * @return array properties for an appointment
 		 */
-		function getAppointmentListProperties()
-		{
+		public function getAppointmentListProperties() {
 			$properties = $this->getAppointmentProperties();
 
-			unset($properties["goid"]);
-			unset($properties["goid2"]);
+			unset($properties["goid"], $properties["goid2"]);
 
 			return $properties;
 		}
 
 		/**
 		 * Returns the properties for a recurrence in the listview.
-		 * @return array properties for a recurrence.
+		 *
+		 * @return array properties for a recurrence
 		 */
-		function getRecurrenceProperties()
-		{
+		public function getRecurrenceProperties() {
 			$this->Init();
 
 			if (!isset($this->mapping[$this->storeMapping]['recurrence'])) {
-				$properties = array();
+				$properties = [];
 				$properties["entryid"] = PR_ENTRYID;
 				$properties["parent_entryid"] = PR_PARENT_ENTRYID;
 				$properties["message_class"] = PR_MESSAGE_CLASS;
@@ -452,15 +448,15 @@
 		}
 
 		/**
-		 * Returns the minimal set of properties for an appointment (similar to freebusy data)
-		 * @return array minimal properties for an appointment.
+		 * Returns the minimal set of properties for an appointment (similar to freebusy data).
+		 *
+		 * @return array minimal properties for an appointment
 		 */
-		function getBusyTimeProperties()
-		{
+		public function getBusyTimeProperties() {
 			$this->Init();
 
 			if (!isset($this->mapping[$this->storeMapping]['busytime'])) {
-				$properties = array();
+				$properties = [];
 				$properties["startdate"] = "PT_SYSTIME:PSETID_Appointment:0x820d";
 				$properties["duedate"] = "PT_SYSTIME:PSETID_Appointment:0x820e";
 				$properties["busystatus"] = "PT_LONG:PSETID_Appointment:0x8205";
@@ -473,14 +469,14 @@
 
 		/**
 		 * Returns the properties for a contact when opened in a dialog.
-		 * @return array properties for a contact.
+		 *
+		 * @return array properties for a contact
 		 */
-		function getContactProperties()
-		{
+		public function getContactProperties() {
 			$this->Init();
 
 			if (!isset($this->mapping[$this->storeMapping]['contact'])) {
-				$properties = array();
+				$properties = [];
 				$properties["entryid"] = PR_ENTRYID;
 				$properties["parent_entryid"] = PR_PARENT_ENTRYID;
 				$properties["store_entryid"] = PR_STORE_ENTRYID;
@@ -620,73 +616,27 @@
 
 		/**
 		 * Returns the properties for a contact in the listview.
-		 * @return array properties for a contact.
+		 *
+		 * @return array properties for a contact
 		 */
-		function getContactListProperties()
-		{
+		public function getContactListProperties() {
 			$properties = $this->getContactProperties();
 
-			unset($properties['members']);
-			unset($properties['oneoff_members']);
-
-			unset($properties['email_address_entryid_1']);
-			unset($properties['email_address_display_name_1']);
-			unset($properties['email_address_display_name_email_1']);
-			unset($properties['email_address_type_1']);
-			unset($properties['email_address_entryid_2']);
-			unset($properties['email_address_display_name_2']);
-			unset($properties['email_address_display_name_email_2']);
-			unset($properties['email_address_type_2']);
-			unset($properties['email_address_entryid_3']);
-			unset($properties['email_address_display_name_3']);
-			unset($properties['email_address_display_name_email_3']);
-			unset($properties['email_address_type_3']);
-
-			unset($properties['fax_1_address_type']);
-			unset($properties['fax_1_email_address']);
-			unset($properties['fax_1_original_display_name']);
-			unset($properties['fax_1_original_entryid']);
-			unset($properties['fax_2_address_type']);
-			unset($properties['fax_2_email_address']);
-			unset($properties['fax_2_original_display_name']);
-			unset($properties['fax_2_original_entryid']);
-			unset($properties['fax_3_address_type']);
-			unset($properties['fax_3_email_address']);
-			unset($properties['fax_3_original_display_name']);
-			unset($properties['fax_3_original_entryid']);
-
-			unset($properties['home_address_street']);
-			unset($properties['home_address_city']);
-			unset($properties['home_address_state']);
-			unset($properties['home_address_postal_code']);
-			unset($properties['home_address_country']);
-			unset($properties['other_address_street']);
-			unset($properties['other_address_city']);
-			unset($properties['other_address_state']);
-			unset($properties['other_address_postal_code']);
-			unset($properties['other_address_country']);
-			unset($properties['business_address_street']);
-			unset($properties['business_address_city']);
-			unset($properties['business_address_state']);
-			unset($properties['business_address_postal_code']);
-			unset($properties['business_address_country']);
-
-			unset($properties['birthday_eventid']);
-			unset($properties['anniversary_eventid']);
+			unset($properties['members'], $properties['oneoff_members'], $properties['email_address_entryid_1'], $properties['email_address_display_name_1'], $properties['email_address_display_name_email_1'], $properties['email_address_type_1'], $properties['email_address_entryid_2'], $properties['email_address_display_name_2'], $properties['email_address_display_name_email_2'], $properties['email_address_type_2'], $properties['email_address_entryid_3'], $properties['email_address_display_name_3'], $properties['email_address_display_name_email_3'], $properties['email_address_type_3'], $properties['fax_1_address_type'], $properties['fax_1_email_address'], $properties['fax_1_original_display_name'], $properties['fax_1_original_entryid'], $properties['fax_2_address_type'], $properties['fax_2_email_address'], $properties['fax_2_original_display_name'], $properties['fax_2_original_entryid'], $properties['fax_3_address_type'], $properties['fax_3_email_address'], $properties['fax_3_original_display_name'], $properties['fax_3_original_entryid'], $properties['home_address_street'], $properties['home_address_city'], $properties['home_address_state'], $properties['home_address_postal_code'], $properties['home_address_country'], $properties['other_address_street'], $properties['other_address_city'], $properties['other_address_state'], $properties['other_address_postal_code'], $properties['other_address_country'], $properties['business_address_street'], $properties['business_address_city'], $properties['business_address_state'], $properties['business_address_postal_code'], $properties['business_address_country'], $properties['birthday_eventid'], $properties['anniversary_eventid']);
 
 			return $properties;
 		}
 
 		/**
 		 * Returns the properties for a contact in the addressbook.
-		 * @return array properties for a contact.
+		 *
+		 * @return array properties for a contact
 		 */
-		function getContactABListProperties()
-		{
+		public function getContactABListProperties() {
 			$this->Init();
 
 			if (!isset($this->mapping[$this->storeMapping]['abcontact'])) {
-				$properties = array();
+				$properties = [];
 				$properties["entryid"] = PR_ENTRYID;
 				$properties["parent_entryid"] = PR_PARENT_ENTRYID;
 				$properties["store_entryid"] = PR_STORE_ENTRYID;	// is this required ???
@@ -732,14 +682,14 @@
 
 		/**
 		 * Returns the properties for a distribution list.
-		 * @return array properties for a distribution list.
+		 *
+		 * @return array properties for a distribution list
 		 */
-		function getDistListProperties()
-		{
+		public function getDistListProperties() {
 			$this->Init();
 
 			if (!isset($this->mapping[$this->storeMapping]['distlist'])) {
-				$properties = array();
+				$properties = [];
 				$properties["entryid"] = PR_ENTRYID;
 				$properties["parent_entryid"] = PR_PARENT_ENTRYID;
 				$properties["store_entryid"] = PR_STORE_ENTRYID;
@@ -770,14 +720,14 @@
 
 		/**
 		 * Returns the properties for a contact in the addressbook.
-		 * @return array properties for a contact.
+		 *
+		 * @return array properties for a contact
 		 */
-		function getAddressBookListProperties()
-		{
+		public function getAddressBookListProperties() {
 			$this->Init();
 
 			if (!isset($this->mapping[$this->storeMapping]['addressbook'])) {
-				$properties = array();
+				$properties = [];
 				$properties["entryid"] = PR_ENTRYID;
 				$properties["smtp_address"] = PR_SMTP_ADDRESS;
 				$properties["email_address"] = PR_EMAIL_ADDRESS;
@@ -812,14 +762,14 @@
 
 		/**
 		 * Returns the details properties for a MAPI_MAILUSER in the addressbook.
-		 * @return array properties for an AB entry.
+		 *
+		 * @return array properties for an AB entry
 		 */
-		function getAddressBookItemMailuserProperties()
-		{
+		public function getAddressBookItemMailuserProperties() {
 			$this->Init();
 
 			if (!isset($this->mapping[$this->storeMapping]['abmailuser'])) {
-				$properties = array();
+				$properties = [];
 				$properties["entryid"] = PR_ENTRYID;
 				$properties["object_type"] = PR_OBJECT_TYPE;
 				$properties["given_name"] = PR_GIVEN_NAME;
@@ -856,9 +806,9 @@
 				$properties["ems_ab_thumbnail_photo"] = PR_EMS_AB_THUMBNAIL_PHOTO;
 
 				// Allowing to hook in and add more properties
-				$GLOBALS['PluginManager']->triggerHook("server.core.properties.addressbookitem.mailuser", array(
-					'properties' =>& $properties
-				));
+				$GLOBALS['PluginManager']->triggerHook("server.core.properties.addressbookitem.mailuser", [
+					'properties' => &$properties,
+				]);
 
 				$this->mapping[$this->storeMapping]['abmailuser'] = getPropIdsFromStrings($this->store, $properties);
 			}
@@ -868,16 +818,16 @@
 
 		/**
 		 * Returns the details properties for a MAPI_DISTLIST in the addressbook.
-		 * @return array properties for an AB entry.
+		 *
+		 * @return array properties for an AB entry
 		 */
-		function getAddressBookItemDistlistProperties()
-		{
+		public function getAddressBookItemDistlistProperties() {
 			$this->Init();
 
 			if (!isset($this->mapping[$this->storeMapping]['abdistlist'])) {
 				$this->Init();
 
-				$properties = array();
+				$properties = [];
 				$properties["entryid"] = PR_ENTRYID;
 				$properties["object_type"] = PR_OBJECT_TYPE;
 				$properties["display_name"] = PR_DISPLAY_NAME;
@@ -889,9 +839,9 @@
 				$properties["ems_ab_proxy_addresses_mv"] = PR_EMS_AB_PROXY_ADDRESSES_MV;
 
 				// Allowing to hook in and add more properties
-				$GLOBALS['PluginManager']->triggerHook("server.core.properties.addressbookitem.distlist", array(
-					'properties' =>& $properties
-				));
+				$GLOBALS['PluginManager']->triggerHook("server.core.properties.addressbookitem.distlist", [
+					'properties' => &$properties,
+				]);
 
 				$this->mapping[$this->storeMapping]['abdistlist'] = getPropIdsFromStrings($this->store, $properties);
 			}
@@ -901,14 +851,14 @@
 
 		/**
 		 * Returns the details properties for the manager AB entry in the addressbook.
-		 * @return array properties for an AB entry.
+		 *
+		 * @return array properties for an AB entry
 		 */
-		function getAddressBookItemABObjectProperties()
-		{
+		public function getAddressBookItemABObjectProperties() {
 			$this->Init();
 
 			if (!isset($this->mapping[$this->storeMapping]['abobject'])) {
-				$properties = array();
+				$properties = [];
 				$properties["display_name"] = PR_DISPLAY_NAME;
 				$properties["entryid"] = PR_ENTRYID;
 				$properties["object_type"] = PR_OBJECT_TYPE;
@@ -921,9 +871,9 @@
 				$properties["rowid"] = PR_ROWID;
 
 				// Allowing to hook in and add more properties
-				$GLOBALS['PluginManager']->triggerHook("server.core.properties.addressbookitem.abobject", array(
-					'properties' =>& $properties
-				));
+				$GLOBALS['PluginManager']->triggerHook("server.core.properties.addressbookitem.abobject", [
+					'properties' => &$properties,
+				]);
 
 				$this->mapping[$this->storeMapping]['abobject'] = getPropIdsFromStrings($this->store, $properties);
 			}
@@ -932,15 +882,15 @@
 		}
 
 		/**
-		 * Returns the properties for an email when it is being opened
-		 * @return array properties for an email.
+		 * Returns the properties for an email when it is being opened.
+		 *
+		 * @return array properties for an email
 		 */
-		function getMailProperties()
-		{
+		public function getMailProperties() {
 			$this->Init();
 
 			if (!isset($this->mapping[$this->storeMapping]['mail'])) {
-				$properties = array();
+				$properties = [];
 				$properties["entryid"] = PR_ENTRYID;
 				$properties["store_entryid"] = PR_STORE_ENTRYID;
 				$properties["parent_entryid"] = PR_PARENT_ENTRYID;
@@ -1038,9 +988,9 @@
 				$properties["stubbed"] = "PT_BOOLEAN:PSETID_Archive:stubbed";
 
 				// Allowing to hook in and add more properties
-				$GLOBALS['PluginManager']->triggerHook("server.core.properties.mailproperties", array(
-					'properties' =>& $properties
-				));
+				$GLOBALS['PluginManager']->triggerHook("server.core.properties.mailproperties", [
+					'properties' => &$properties,
+				]);
 
 				$this->mapping[$this->storeMapping]['mail'] = getPropIdsFromStrings($this->store, $properties);
 			}
@@ -1050,41 +1000,27 @@
 
 		/**
 		 * Returns the properties for an email in the list view.
-		 * @return array properties for an email.
+		 *
+		 * @return array properties for an email
 		 */
-		function getMailListProperties()
-		{
+		public function getMailListProperties() {
 			$properties = $this->getMailProperties();
 
-			unset($properties['transport_message_headers']);
-			unset($properties['appointment_startdate']);
-			unset($properties['appointment_duedate']);
-			unset($properties['appointment_location']);
-			unset($properties['appointment_recurring_pattern']);
-			unset($properties['appointment_startdate_recurring']);
-			unset($properties['appointment_enddate_recurring']);
-			unset($properties['appointment_exception']);
-			unset($properties['appointment_location']);
-			unset($properties['proposed_start_date']);
-			unset($properties['proposed_end_date']);
-			unset($properties['proposed_duration']);
-			unset($properties['responsestatus']);
-			unset($properties['meetingtype']);
-			unset($properties['goid']);
-			unset($properties['goid2']);
+			unset($properties['transport_message_headers'], $properties['appointment_startdate'], $properties['appointment_duedate'], $properties['appointment_location'], $properties['appointment_recurring_pattern'], $properties['appointment_startdate_recurring'], $properties['appointment_enddate_recurring'], $properties['appointment_exception'], $properties['appointment_location'], $properties['proposed_start_date'], $properties['proposed_end_date'], $properties['proposed_duration'], $properties['responsestatus'], $properties['meetingtype'], $properties['goid'], $properties['goid2']);
+
 			return $properties;
 		}
 
 		/**
 		 * Returns the properties for a sticky note when it is being opened.
-		 * @return array properties for a sticky note.
+		 *
+		 * @return array properties for a sticky note
 		 */
-		function getStickyNoteProperties()
-		{
+		public function getStickyNoteProperties() {
 			$this->Init();
 
 			if (!isset($this->mapping[$this->storeMapping]['note'])) {
-				$properties = Array();
+				$properties = [];
 				$properties["entryid"] = PR_ENTRYID;
 				$properties["object_type"] = PR_OBJECT_TYPE;
 				$properties["parent_entryid"] = PR_PARENT_ENTRYID;
@@ -1109,25 +1045,23 @@
 
 		/**
 		 * Returns the properties for a sticky note in the list view.
-		 * @return array properties for a sticky note.
+		 *
+		 * @return array properties for a sticky note
 		 */
-		function getStickyNoteListProperties()
-		{
-			$properties = $this->getStickyNoteProperties();
-
-			return $properties;
+		public function getStickyNoteListProperties() {
+			return $this->getStickyNoteProperties();
 		}
 
 		/**
 		 * Returns the properties for a task when it is being opened.
-		 * @return array properties for a task.
+		 *
+		 * @return array properties for a task
 		 */
-		function getTaskProperties()
-		{
+		public function getTaskProperties() {
 			$this->Init();
 
 			if (!isset($this->mapping[$this->storeMapping]['task'])) {
-				$properties = array();
+				$properties = [];
 				$properties["entryid"] = PR_ENTRYID;
 				$properties["parent_entryid"] = PR_PARENT_ENTRYID;
 				$properties["store_entryid"] = PR_STORE_ENTRYID;
@@ -1147,7 +1081,7 @@
 				$properties["duedate"] = "PT_SYSTIME:PSETID_Task:0x8105";
 				$properties["status"] = "PT_LONG:PSETID_Task:0x8101";
 				$properties["percent_complete"] = "PT_DOUBLE:PSETID_Task:0x8102";
-                $properties["hide_attachments"] = "PT_BOOLEAN:PSETID_Common:0x8514";
+				$properties["hide_attachments"] = "PT_BOOLEAN:PSETID_Common:0x8514";
 				$properties["startdate"] = "PT_SYSTIME:PSETID_Task:0x8104";
 				$properties["owner"] = "PT_STRING8:PSETID_Task:0x811f";
 				$properties["reminder_minutes"] = "PT_LONG:PSETID_Common:0x8501";
@@ -1214,24 +1148,23 @@
 
 		/**
 		 * Returns the properties for a task in the listview.
-		 * @return array properties for a task.
+		 *
+		 * @return array properties for a task
 		 */
-		function getTaskListProperties()
-		{
-			$properties = $this->getTaskProperties();
-			return $properties;
+		public function getTaskListProperties() {
+			return $this->getTaskProperties();
 		}
 
 		/**
 		 * Returns the properties used by the "properties" dialog.
-		 * @return array properties.
+		 *
+		 * @return array properties
 		 */
-		function getFolderProperties()
-		{
+		public function getFolderProperties() {
 			$this->Init();
 
 			if (!isset($this->mapping[$this->storeMapping]['folder'])) {
-				$properties = Array();
+				$properties = [];
 				$properties["entryid"] = PR_ENTRYID;
 				$properties["parent_entryid"] = PR_PARENT_ENTRYID;
 				$properties["store_entryid"] = PR_STORE_ENTRYID;
@@ -1259,27 +1192,24 @@
 
 		/**
 		 * Returns the properties used by the hierarchy to show the folders.
-		 * @return Array properties.
+		 *
+		 * @return array properties
 		 */
-		function getFolderListProperties()
-		{
+		public function getFolderListProperties() {
 			$properties = $this->getFolderProperties();
 			$properties["assoc_content_count"] = PR_ASSOC_CONTENT_COUNT;
 
-			unset($properties['comment']);
-			unset($properties['message_size']);
-			unset($properties['deleted_on']);
-			unset($properties['creation_time']);
+			unset($properties['comment'], $properties['message_size'], $properties['deleted_on'], $properties['creation_time']);
 
 			return $properties;
 		}
 
 		/**
 		 * Returns the properties used by the hierarchy to show the favorites folders.
+		 *
 		 * @return array
 		 */
-		function getFavoritesFolderProperties()
-		{
+		public function getFavoritesFolderProperties() {
 			$properties = $this->getFolderListProperties();
 			$properties["search_folder_id"] = PR_WB_SF_ID;
 			$properties["message_class"] = PR_MESSAGE_CLASS;
@@ -1295,15 +1225,15 @@
 		}
 
 		/**
-		 * Returns the properties used for the reminders dialog
+		 * Returns the properties used for the reminders dialog.
+		 *
 		 * @return array properties
 		 */
-		function getReminderProperties()
-		{
+		public function getReminderProperties() {
 			$this->Init();
 
 			if (!isset($this->mapping[$this->storeMapping]['reminder'])) {
-				$properties = Array();
+				$properties = [];
 				$properties["entryid"] = PR_ENTRYID;
 				$properties["parent_entryid"] = PR_PARENT_ENTRYID;
 				$properties["store_entryid"] = PR_STORE_ENTRYID;
@@ -1340,15 +1270,15 @@
 		}
 
 		/**
-		 * Return properties used in rules
+		 * Return properties used in rules.
+		 *
 		 * @return array properties
 		 */
-		function getRulesProperties()
-		{
+		public function getRulesProperties() {
 			$this->Init();
 
 			if (!isset($this->mapping[$this->storeMapping]['rules'])) {
-				$properties = array();
+				$properties = [];
 				$properties["rule_id"] = PR_RULE_ID;
 				$properties["rule_name"] = PR_RULE_NAME;
 				$properties["rule_sequence"] = PR_RULE_SEQUENCE;
@@ -1370,15 +1300,15 @@
 		}
 
 		/**
-		 * Return properties used in restoreitemslistmodule
+		 * Return properties used in restoreitemslistmodule.
+		 *
 		 * @return array properties
 		 */
-		function getRestoreItemListProperties()
-		{
+		public function getRestoreItemListProperties() {
 			$this->Init();
 
 			if (!isset($this->mapping[$this->storeMapping]['restoreitemlist'])) {
-				$properties = array();
+				$properties = [];
 				$properties["display_name"] = PR_DISPLAY_NAME;
 				$properties["deleted_on"] = PR_DELETED_ON;
 				$properties["content_count"] = PR_CONTENT_COUNT;
@@ -1400,5 +1330,4 @@
 
 			return $this->mapping[$this->storeMapping]['restoreitemlist'];
 		}
-}
-?>
+	}

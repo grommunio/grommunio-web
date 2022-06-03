@@ -1,9 +1,8 @@
 <?php
+
 namespace Files\Backend;
 
-
-abstract class AbstractJSLoader
-{
+abstract class AbstractJSLoader {
 	protected $jsBuffer = "";
 
 	// path to js folder

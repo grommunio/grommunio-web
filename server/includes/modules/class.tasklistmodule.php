@@ -1,17 +1,16 @@
 <?php
 
 	/**
-	 * Task Module
+	 * Task Module.
 	 */
-	class TaskListModule extends ListModule
-	{
+	class TaskListModule extends ListModule {
 		/**
-		 * Constructor
-		 * @param int $id unique id.
-		 * @param array $data list of all actions.
+		 * Constructor.
+		 *
+		 * @param int   $id   unique id
+		 * @param array $data list of all actions
 		 */
-		function __construct($id, $data)
-		{
+		public function __construct($id, $data) {
 			parent::__construct($id, $data);
 
 			$this->properties = $GLOBALS["properties"]->getTaskListProperties();
@@ -23,8 +22,7 @@
 		 * Creates the notifiers for this module,
 		 * and register them to the Bus.
 		 */
-		function createNotifiers()
-		{
+		public function createNotifiers() {
 			$entryid = $this->getEntryID();
 			$GLOBALS["bus"]->registerNotifier('tasklistnotifier', $entryid);
 			$GLOBALS["bus"]->registerNotifier('newtodotasknotifier', bin2hex(TodoList::getEntryId()));
@@ -32,41 +30,43 @@
 
 		/**
 		 * Executes all the actions in the $data variable.
-		 * @return boolean true on success of false on fialure.
+		 *
+		 * @return bool true on success of false on fialure
 		 */
-		function execute()
-		{
-			foreach($this->data as $actionType => $action)
-			{
-				if(isset($actionType)) {
+		public function execute() {
+			foreach ($this->data as $actionType => $action) {
+				if (isset($actionType)) {
 					try {
 						$store = $this->getActionStore($action);
 						$entryid = $this->getActionEntryID($action);
 
-						switch($actionType)
-						{
+						switch ($actionType) {
 							case "list":
 								$this->getDelegateFolderInfo($store);
 								$this->messageList($store, $entryid, $action, $actionType);
 								break;
+
 							case "search":
 								// @FIXME add handling of private items
 								$this->search($store, $entryid, $action, $actionType);
 								break;
+
 							case "updatesearch":
 								$this->updatesearch($store, $entryid, $action);
 								break;
+
 							case "stopsearch":
 								$this->stopSearch($store, $entryid, $action);
 								break;
+
 							default:
 								$this->handleUnknownActionType($actionType);
 						}
-					} catch (MAPIException $e) {
+					}
+					catch (MAPIException $e) {
 						$this->processException($e, $actionType);
 					}
 				}
 			}
 		}
 	}
-?>

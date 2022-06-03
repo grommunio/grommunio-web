@@ -1,8 +1,12 @@
 <?php
-require_once('classes/grommunioTest.php');
+
+require_once 'classes/grommunioTest.php';
 
 /**
- * Test the Conversion class
+ * Test the Conversion class.
+ *
+ * @internal
+ * @coversNothing
  */
 class ConversionTest extends grommunioTest {
 	public function testCOleDateTimeToUnixTime() {
@@ -21,21 +25,21 @@ class ConversionTest extends grommunioTest {
 	}
 
 	public function testRestrictionJson() {
-		$restriction = Array(RES_PROPERTY,
-			Array(
+		$restriction = [RES_PROPERTY,
+			[
 				RELOP => RELOP_EQ,
 				ULPROPTAG => PR_MESSAGE_CLASS,
-				VALUE => Array(
+				VALUE => [
 					PR_MESSAGE_CLASS => "IPM.Note",
-				)
-			)
-		);
-	  	$json = Conversion::restriction2json($restriction);
+				],
+			],
+		];
+		$json = Conversion::restriction2json($restriction);
 		$convertedRestriction = Conversion::json2restriction($properties, $json);
 		$this->assertEquals($restriction, $convertedRestriction);
 	}
 
 	public function testProperty2json() {
-		$this->assertEquals(Conversion::property2json(0x37001e), 'PR_SUBJECT');
+		$this->assertEquals(Conversion::property2json(0x37001E), 'PR_SUBJECT');
 	}
 }

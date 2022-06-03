@@ -1,46 +1,47 @@
 <?php
 
-require_once( BASE_PATH . 'server/includes/mapi/mapicode.php');
+require_once BASE_PATH . 'server/includes/mapi/mapicode.php';
 
-require_once( BASE_PATH . 'server/includes/core/class.encryptionstore.php');
-require_once( BASE_PATH . 'server/includes/core/class.webappsession.php');
-require_once( BASE_PATH . 'server/includes/core/class.mapisession.php');
-require_once( BASE_PATH . 'server/includes/core/class.browserfingerprint.php');
+require_once BASE_PATH . 'server/includes/core/class.encryptionstore.php';
+require_once BASE_PATH . 'server/includes/core/class.webappsession.php';
+require_once BASE_PATH . 'server/includes/core/class.mapisession.php';
+require_once BASE_PATH . 'server/includes/core/class.browserfingerprint.php';
 
 /**
  * Class that handles authentication.
+ *
  * @singleton
  */
-class WebAppAuthentication
-{
+class WebAppAuthentication {
 	/**
-	 * @var self|null A reference to the only instance of this class
+	 * @var null|self A reference to the only instance of this class
 	 */
-	private static $_instance = null;
+	private static $_instance;
 
 	/**
-	 * @var boolean|false True if the user is authenticated, false otherwise
+	 * @var bool|false True if the user is authenticated, false otherwise
 	 */
 	private static $_authenticated = false;
 
 	/**
-	 * @var WebAppSession|null A reference to the php session object
+	 * @var null|WebAppSession A reference to the php session object
 	 */
-	private static $_phpSession = null;
+	private static $_phpSession;
 
 	/**
-	 * @var MapiSession|null A reference to the MapiSession object
+	 * @var null|MapiSession A reference to the MapiSession object
 	 */
-	private static $_mapiSession = null;
+	private static $_mapiSession;
 
 	/**
-	 * @var integer|0 An code that reflects the latest error
+	 * @var 0|int An code that reflects the latest error
+	 *
 	 * @see server/includes/mapi/mapicodes.php
 	 */
 	private static $_errorCode = NOERROR;
 
 	/**
-	 * @var boolean True if MAPI session savng support exists
+	 * @var bool True if MAPI session savng support exists
 	 */
 	private static $_sessionSaveSupport = false;
 
@@ -49,11 +50,11 @@ class WebAppAuthentication
 	 * If it does not exist yet, it will create an instance, and
 	 * also an MapiSession object, and it will start a php session
 	 * by instantiating a WebAppSession.
+	 *
 	 * @return self
 	 */
 	public static function getInstance() {
-		if ( is_null(WebAppAuthentication::$_instance) ) {
-
+		if (is_null(WebAppAuthentication::$_instance)) {
 			// Make sure a php session is started
 			WebAppAuthentication::$_phpSession = WebAppSession::getInstance();
 
@@ -71,39 +72,49 @@ class WebAppAuthentication
 	}
 
 	/**
-	 * Returns the error code of the last logon attempt
-	 * @return integer
+	 * Returns the error code of the last logon attempt.
+	 *
+	 * @return int
 	 */
 	public static function getErrorCode() {
 		return WebAppAuthentication::$_errorCode;
 	}
+
 	/**
 	 * Returns an error message that goed with the error code of
 	 * the last logon attempt.
+	 *
 	 * @return string
 	 */
 	public static function getErrorMessage() {
-		switch (WebAppAuthentication::getErrorCode()){
+		switch (WebAppAuthentication::getErrorCode()) {
 			case NOERROR:
 				return '';
+
 			case ecUnknownUser:
 			case MAPI_E_LOGON_FAILED:
 			case MAPI_E_UNCONFIGURED:
-				return  _('Logon failed. Please verify your credentials and try again.');
+				return _('Logon failed. Please verify your credentials and try again.');
+
 			case MAPI_E_NETWORK_ERROR:
 				return _('Cannot connect to Gromox.');
+
 			case MAPI_E_INVALID_WORKSTATION_ACCOUNT:
 				return _('Login did not work due to a duplicate session. The issue was automatically resolved, please log in again.');
+
 			case MAPI_E_END_OF_SESSION:
 				return '';
+
 			default:
 				return _('Unknown MAPI Error') . ': ' . get_mapi_error_name(WebAppAuthentication::getErrorCode());
 		}
 	}
 
 	/**
-	 * Returns the MapiSession instance
+	 * Returns the MapiSession instance.
+	 *
 	 * @see server/includes/core/class.mapisession.php
+	 *
 	 * @return MapiSession
 	 */
 	public static function getMapiSession() {
@@ -111,7 +122,8 @@ class WebAppAuthentication
 	}
 
 	/**
-	 * Set the MapiSession instance
+	 * Set the MapiSession instance.
+	 *
 	 * @param MAPISession $session the mapisession to set
 	 */
 	public static function setMapiSession($session) {
@@ -125,20 +137,21 @@ class WebAppAuthentication
 	 * php session.
 	 */
 	public static function authenticate() {
-
-		if ( WebAppAuthentication::isUsingLoginForm() ){
+		if (WebAppAuthentication::isUsingLoginForm()) {
 			WebAppAuthentication::authenticateWithPostedCredentials();
 
 		// At last check if we have credentials in the session
 		// and if found, try to login with those
-		} else {
+		}
+		else {
 			WebAppAuthentication::_authenticateWithSession();
 		}
 	}
 
 	/**
-	 * Returns true if a user is authenticated, or false otherwise
-	 * @return boolean
+	 * Returns true if a user is authenticated, or false otherwise.
+	 *
+	 * @return bool
 	 */
 	public static function isAuthenticated() {
 		return WebAppAuthentication::$_authenticated;
@@ -147,12 +160,13 @@ class WebAppAuthentication
 	/**
 	 * Tries to logon to Gromox with the given username and password. Returns
 	 * the error code that was given back.
+	 *
 	 * @param string $username The username
 	 * @param string $password The password
-	 * @return integer
+	 *
+	 * @return int
 	 */
 	public static function login($username, $password) {
-
 		if (!WebAppAuthentication::_restoreMAPISession()) {
 			// TODO: move logon from MapiSession to here
 			WebAppAuthentication::$_errorCode = WebAppAuthentication::$_mapiSession->logon(
@@ -162,24 +176,27 @@ class WebAppAuthentication
 			);
 
 			// Include external login plugins to be loaded
-			if(file_exists(BASE_PATH .'extlogin.php')){
-				include(BASE_PATH .'extlogin.php');
+			if (file_exists(BASE_PATH . 'extlogin.php')) {
+				include BASE_PATH . 'extlogin.php';
 			}
 
-			if (WebAppAuthentication::$_errorCode === NOERROR ) {
+			if (WebAppAuthentication::$_errorCode === NOERROR) {
 				WebAppAuthentication::$_authenticated = true;
 				WebAppAuthentication::_storeMAPISession(WebAppAuthentication::$_mapiSession->getSession());
 				$tmp = explode('@', $username);
-				if (2 == count($tmp)) {
-					setcookie('domainname', $tmp[1], time()+31536000, '/', '', getRequestProtocol() === 'https');
+				if (count($tmp) == 2) {
+					setcookie('domainname', $tmp[1], time() + 31536000, '/', '', getRequestProtocol() === 'https');
 				}
 				$wa_title = WebAppAuthentication::$_mapiSession->getFullName();
 				$companyname = WebAppAuthentication::$_mapiSession->getCompanyName();
-				if (isset($companyname) && strlen($companyname) != 0)
-					$wa_title .= " ($companyname)";
-				if (strlen($wa_title) != 0)
-					 setcookie('webapp_title', $wa_title, time()+31536000, '/', '', getRequestProtocol() === 'https');
-			} elseif ( WebAppAuthentication::$_errorCode == MAPI_E_LOGON_FAILED || WebAppAuthentication::$_errorCode == MAPI_E_UNCONFIGURED ) {
+				if (isset($companyname) && strlen($companyname) != 0) {
+					$wa_title .= " ({$companyname})";
+				}
+				if (strlen($wa_title) != 0) {
+					setcookie('webapp_title', $wa_title, time() + 31536000, '/', '', getRequestProtocol() === 'https');
+				}
+			}
+			elseif (WebAppAuthentication::$_errorCode == MAPI_E_LOGON_FAILED || WebAppAuthentication::$_errorCode == MAPI_E_UNCONFIGURED) {
 				error_log('grommunio Web user: ' . $username . ': authentication failure at MAPI');
 			}
 		}
@@ -203,13 +220,12 @@ class WebAppAuthentication
 		if (kc_session_save($session, $data) === NOERROR) {
 			$encryptionStore->add('savedsession', bin2hex($data));
 		}
-
 	}
 
 	/**
 	 * Restore a MAPISession from the serialized with kc_session_restore.
 	 *
-	 * @return boolean true if session has been restored successfully
+	 * @return bool true if session has been restored successfully
 	 */
 	private static function _restoreMAPISession() {
 		$encryptionStore = EncryptionStore::getInstance();
@@ -222,6 +238,7 @@ class WebAppAuthentication
 			WebAppAuthentication::$_errorCode = NOERROR;
 			WebAppAuthentication::$_authenticated = true;
 			WebAppAuthentication::setMapiSession($session);
+
 			return true;
 		}
 
@@ -229,9 +246,12 @@ class WebAppAuthentication
 	}
 
 	/**
-	 * Stores the given username and password in the session using the encryptionstore
+	 * Stores the given username and password in the session using the encryptionstore.
+	 *
 	 * @param string The username
 	 * @param string The password
+	 * @param mixed $username
+	 * @param mixed $password
 	 */
 	private static function _storeCredentialsInSession($username, $password) {
 		$encryptionStore = EncryptionStore::getInstance();
@@ -241,29 +261,31 @@ class WebAppAuthentication
 
 	/**
 	 * Checks if a user tries to log in by submitting the login form.
-	 * @return boolean
+	 *
+	 * @return bool
 	 */
 	public static function isUsingLoginForm() {
 		// Login form is only found on index.php
 		// If we don't check it, then posting to grommunio.php would
 		// also make authenticating possible.
-		if ( basename($_SERVER['SCRIPT_NAME']) !== 'index.php' ){
+		if (basename($_SERVER['SCRIPT_NAME']) !== 'index.php') {
 			return false;
 		}
 
-		return isset($_POST) && isset($_POST['username']) && isset($_POST['password']);
+		return isset($_POST) && isset($_POST['username'], $_POST['password']);
 	}
 
 	/**
 	 * Tries to authenticate the user with credentials that were posted.
 	 * Returns the error code from the logon attempt.
-	 * @return integer
+	 *
+	 * @return int
 	 */
 	public static function authenticateWithPostedCredentials() {
-
 		$email = appendDefaultDomain($_POST['username']);
 		if (empty($email) || empty($_POST['password'])) {
 			WebAppAuthentication::$_errorCode = MAPI_E_LOGON_FAILED;
+
 			return WebAppAuthentication::getErrorCode();
 		}
 
@@ -272,13 +294,15 @@ class WebAppAuthentication
 		$username = $encryptionStore->get('username');
 		$password = $encryptionStore->get('password');
 
-		if ( !is_null($username) && !is_null($password) ){
-			if ( $username!=$email || $password!=$_POST['password'] ) {
+		if (!is_null($username) && !is_null($password)) {
+			if ($username != $email || $password != $_POST['password']) {
 				WebAppAuthentication::$_errorCode = MAPI_E_INVALID_WORKSTATION_ACCOUNT;
 				WebAppAuthentication::$_phpSession->destroy();
+
 				return WebAppAuthentication::getErrorCode();
 			}
-		} else {
+		}
+		else {
 			// If no session is currently running, then store a fingerprint of the requester
 			// in the session.
 			$_SESSION['fingerprint'] = BrowserFingerprint::getFingerprint();
@@ -290,7 +314,7 @@ class WebAppAuthentication
 		WebAppAuthentication::login($email, $_POST['password']);
 
 		// Store the credentials in the session if logging in was successful
-		if ( WebAppAuthentication::$_errorCode === NOERROR ){
+		if (WebAppAuthentication::$_errorCode === NOERROR) {
 			WebAppAuthentication::_storeCredentialsInSession($email, $_POST['password']);
 		}
 
@@ -304,13 +328,14 @@ class WebAppAuthentication
 	 * be a new one generated and fingerprint stored in session which is
 	 * later compared after logon. After successful logon the session is stored.
 	 *
-	 * @param Boolean $new true if user has no session yet.
-	 * @return integer|void
+	 * @param bool $new true if user has no session yet
+	 *
+	 * @return int|void
 	 */
-	public static function authenticateWithToken($new=True) {
-
+	public static function authenticateWithToken($new = true) {
 		if (empty($_POST['token'])) {
 			WebAppAuthentication::$_errorCode = MAPI_E_LOGON_FAILED;
+
 			return WebAppAuthentication::getErrorCode();
 		}
 
@@ -327,11 +352,13 @@ class WebAppAuthentication
 			$_POST['username'],
 			$_POST['token'],
 			DEFAULT_SERVER,
-			null, null, 0
+			null,
+			null,
+			0
 		);
 
 		// Store the credentials in the session if logging in was successful
-		if ( WebAppAuthentication::$_errorCode === NOERROR ){
+		if (WebAppAuthentication::$_errorCode === NOERROR) {
 			WebAppAuthentication::_storeCredentialsInSession($_POST['username'], $_POST['token']);
 			WebAppAuthentication::_storeMAPISession(WebAppAuthentication::$_mapiSession->getSession());
 		}
@@ -347,15 +374,16 @@ class WebAppAuthentication
 	 * Before trying to logon, it will compare the requesters fingerprint with the
 	 * fingerprint stored in the session. If they are not the same, the session will be
 	 * destroyed and the script will be killed.
-	 * @return integer|void
+	 *
+	 * @return int|void
 	 */
 	private static function _authenticateWithSession() {
-
 		// Check if the session hasn't timed out
-		if ( WebAppAuthentication::$_phpSession->hasTimedOut() ){
+		if (WebAppAuthentication::$_phpSession->hasTimedOut()) {
 			// Using a MAPI error code here, while it is not really a MAPI session timeout
 			// However to the user this should make no difference, so the MAPI error will do.
 			WebAppAuthentication::$_errorCode = MAPI_E_END_OF_SESSION;
+
 			return WebAppAuthentication::getErrorCode();
 		}
 
@@ -363,28 +391,31 @@ class WebAppAuthentication
 		$encryptionStore = EncryptionStore::getInstance();
 		$username = $encryptionStore->get('username');
 		$password = $encryptionStore->get('password');
-		if ( is_null($username) || is_null($password) ){
+		if (is_null($username) || is_null($password)) {
 			return;
 		}
 
 		// Check if the browser fingerprint is the same as that of the browser that was
 		// used to login in the first place.
-		if ( $_SESSION['fingerprint'] !== BrowserFingerprint::getFingerprint() ){
+		if ($_SESSION['fingerprint'] !== BrowserFingerprint::getFingerprint()) {
 			// Something bad has happened. This must be someone who stole a session cookie!!!
 			// We will delete the session and stop the script without any error message
 			WebAppAuthentication::$_phpSession->destroy();
-			die();
+
+			exit();
 		}
 
 		return WebAppAuthentication::login($username, $password);
 	}
 
 	/**
-	 * Returns the username that is stored in the session
+	 * Returns the username that is stored in the session.
+	 *
 	 * @return string
 	 */
 	public static function getUserName() {
 		$encryptionStore = EncryptionStore::getInstance();
+
 		return $encryptionStore->get('username');
 	}
 }

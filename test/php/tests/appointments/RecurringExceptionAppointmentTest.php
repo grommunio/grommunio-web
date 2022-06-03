@@ -1,44 +1,46 @@
 <?php
-require_once('classes/grommunioUser.php');
-require_once('classes/CalendarUser.php');
-require_once('classes/TestData.php');
-require_once('classes/grommunioTest.php');
+
+require_once 'classes/grommunioUser.php';
+require_once 'classes/CalendarUser.php';
+require_once 'classes/TestData.php';
+require_once 'classes/grommunioTest.php';
 
 /**
- * RecurringExceptionAppointmentTest
+ * RecurringExceptionAppointmentTest.
  *
  * Tests creation of exceptions and create/delete/modify operations on that
+ *
+ * @internal
+ * @coversNothing
  */
 class RecurringExceptionAppointmentTest extends grommunioTest {
 	/**
-	 * The default user
+	 * The default user.
 	 */
 	private $user;
 
 	/**
-	 * The default settings for the appointment
+	 * The default settings for the appointment.
 	 */
 	private $appointment;
 
 	/**
-	 * During setUp we create the user
+	 * During setUp we create the user.
 	 */
-	protected function setUp()
-	{
+	protected function setUp() {
 		parent::setUp();
 
 		$this->user = $this->addUser(new CalendarUser(new grommunioUser(GROMMUNIO_USER1_NAME, GROMMUNIO_USER1_PASSWORD)));
 
-		$this->appointment = array(
-			'props' => TestData::getRecurringAppointment()
-		);
+		$this->appointment = [
+			'props' => TestData::getRecurringAppointment(),
+		];
 	}
 
 	/**
-	 * Test that exception can be created from recurring appointment
+	 * Test that exception can be created from recurring appointment.
 	 */
-	function testCreateExceptionRecurring()
-	{
+	public function testCreateExceptionRecurring() {
 		try {
 			$savedAppointment = $this->user->saveAppointment($this->appointment);
 
@@ -46,12 +48,12 @@ class RecurringExceptionAppointmentTest extends grommunioTest {
 			$entryId = $this->user->getAppointmentEntryId($savedAppointment);
 
 			// Load all occurrences
-			$occurrences = $this->user->loadAppointments(array(
-				'restriction' => array(
+			$occurrences = $this->user->loadAppointments([
+				'restriction' => [
 					'startdate' => gmmktime(0, 0, 0),
-					'duedate' => gmmktime(0, 0, 0, gmdate("n") + 1)
-				)
-			), false);
+					'duedate' => gmmktime(0, 0, 0, gmdate("n") + 1),
+				],
+			], false);
 
 			// get the first occurrence and create exception
 			$basedate = $occurrences[1]['props']['basedate'];
@@ -60,14 +62,14 @@ class RecurringExceptionAppointmentTest extends grommunioTest {
 			$newEnd = strtotime(date("Y-m-d G:i", $basedate) . " -10 hour +30 minute");
 
 			// Create an exception
-			$exceptionMessage = $this->user->saveAppointmentOccurence(array(
-				'props' => array(
+			$exceptionMessage = $this->user->saveAppointmentOccurence([
+				'props' => [
 					'startdate' => $newStart,
-					'duedate' => $newEnd
-				)
-			), $entryId, $basedate);
-
-		} catch(Exception $e) {
+					'duedate' => $newEnd,
+				],
+			], $entryId, $basedate);
+		}
+		catch (Exception $e) {
 			$this->fail('Test that the Exception can be saved: ' . $e->getMessage() . PHP_EOL . $e->getTraceAsString());
 		}
 
@@ -75,10 +77,9 @@ class RecurringExceptionAppointmentTest extends grommunioTest {
 	}
 
 	/**
-	 * Test that exception can be opened from recurring appointment
+	 * Test that exception can be opened from recurring appointment.
 	 */
-	function testCreateExceptionRecurringOpen()
-	{
+	public function testCreateExceptionRecurringOpen() {
 		try {
 			$savedAppointment = $this->user->saveAppointment($this->appointment);
 
@@ -86,12 +87,12 @@ class RecurringExceptionAppointmentTest extends grommunioTest {
 			$entryId = $this->user->getAppointmentEntryId($savedAppointment);
 
 			// Load all occurrences
-			$occurrences = $this->user->loadAppointments(array(
-				'restriction' => array(
+			$occurrences = $this->user->loadAppointments([
+				'restriction' => [
 					'startdate' => gmmktime(0, 0, 0),
-					'duedate' => gmmktime(0, 0, 0, gmdate("n") + 1)
-				)
-			), false);
+					'duedate' => gmmktime(0, 0, 0, gmdate("n") + 1),
+				],
+			], false);
 
 			// get the first occurrence and create exception
 			$basedate = $occurrences[1]['props']['basedate'];
@@ -100,12 +101,12 @@ class RecurringExceptionAppointmentTest extends grommunioTest {
 			$newEnd = strtotime(date("Y-m-d G:i", $basedate) . " -10 hour +30 minute");
 
 			// create an exception
-			$exceptionMessage = $this->user->saveAppointmentOccurence(array(
-				'props' => array(
+			$exceptionMessage = $this->user->saveAppointmentOccurence([
+				'props' => [
 					'startdate' => $newStart,
-					'duedate' => $newEnd
-				)
-			), $entryId, $basedate);
+					'duedate' => $newEnd,
+				],
+			], $entryId, $basedate);
 
 			// Get the entryid of the exception appointment
 			$entryId = $this->user->getAppointmentEntryId($exceptionMessage);
@@ -113,7 +114,8 @@ class RecurringExceptionAppointmentTest extends grommunioTest {
 			// Check what has happened
 			$exception = $this->user->openAppointmentOccurence($entryId, $basedate);
 			$exception = $exception['item']['item'];
-		} catch(Exception $e) {
+		}
+		catch (Exception $e) {
 			$this->fail('Test that the Exception can be opened: ' . $e->getMessage() . PHP_EOL . $e->getTraceAsString());
 		}
 
@@ -123,22 +125,21 @@ class RecurringExceptionAppointmentTest extends grommunioTest {
 	}
 
 	/**
-	 * Test properties of the exception message in recurring appointment
+	 * Test properties of the exception message in recurring appointment.
 	 */
-	function testCreateExceptionRecurringProps()
-	{
+	public function testCreateExceptionRecurringProps() {
 		$savedAppointment = $this->user->saveAppointment($this->appointment);
 
 		// Get the entryid of the original appointment
 		$entryId = $this->user->getAppointmentEntryId($savedAppointment);
 
 		// Load all occurrences
-		$occurrences = $this->user->loadAppointments(array(
-			'restriction' => array(
+		$occurrences = $this->user->loadAppointments([
+			'restriction' => [
 				'startdate' => gmmktime(0, 0, 0),
-				'duedate' => gmmktime(0, 0, 0, gmdate("n") + 1)
-			)
-		), false);
+				'duedate' => gmmktime(0, 0, 0, gmdate("n") + 1),
+			],
+		], false);
 
 		// get the first occurrence and create exception
 		$basedate = $occurrences[1]['props']['basedate'];
@@ -150,15 +151,15 @@ class RecurringExceptionAppointmentTest extends grommunioTest {
 		$newLabel = 1;
 
 		// Send an exception
-		$exceptionMessage = $this->user->saveAppointmentOccurence(array(
-			'props' => array(
+		$exceptionMessage = $this->user->saveAppointmentOccurence([
+			'props' => [
 				'startdate' => $newStart,
 				'duedate' => $newEnd,
 				'body' => $newBody,
 				'subject' => $newSubject,
-				'label' => $newLabel
-			)
-		), $entryId, $basedate);
+				'label' => $newLabel,
+			],
+		], $entryId, $basedate);
 
 		// Get the entryid of the exception appointment
 		$entryId = $this->user->getAppointmentEntryId($exceptionMessage);
@@ -182,22 +183,21 @@ class RecurringExceptionAppointmentTest extends grommunioTest {
 	}
 
 	/**
-	 * Test that empty body/subject can be saved in exception appointment
+	 * Test that empty body/subject can be saved in exception appointment.
 	 */
-	function testCreateExceptionRecurringEmptyProps()
-	{
+	public function testCreateExceptionRecurringEmptyProps() {
 		$savedAppointment = $this->user->saveAppointment($this->appointment);
 
 		// Get the entryid of the original appointment
 		$entryId = $this->user->getAppointmentEntryId($savedAppointment);
 
 		// Load all occurrences
-		$occurrences = $this->user->loadAppointments(array(
-			'restriction' => array(
+		$occurrences = $this->user->loadAppointments([
+			'restriction' => [
 				'startdate' => gmmktime(0, 0, 0),
-				'duedate' => gmmktime(0, 0, 0, gmdate("n") + 1)
-			)
-		), false);
+				'duedate' => gmmktime(0, 0, 0, gmdate("n") + 1),
+			],
+		], false);
 
 		// get the first occurrence and create exception
 		$basedate = $occurrences[1]['props']['basedate'];
@@ -208,14 +208,14 @@ class RecurringExceptionAppointmentTest extends grommunioTest {
 		$newSubject = '';
 
 		// Send an exception
-		$exceptionMessage = $this->user->saveAppointmentOccurence(array(
-			'props' => array(
+		$exceptionMessage = $this->user->saveAppointmentOccurence([
+			'props' => [
 				'startdate' => $newStart,
 				'duedate' => $newEnd,
 				'body' => $newBody,
-				'subject' => $newSubject
-			)
-		), $entryId, $basedate);
+				'subject' => $newSubject,
+			],
+		], $entryId, $basedate);
 
 		// Get the entryid of the exception appointment
 		$entryId = $this->user->getAppointmentEntryId($exceptionMessage);
@@ -233,8 +233,7 @@ class RecurringExceptionAppointmentTest extends grommunioTest {
 	/**
 	 * Test that exception can be deleted and converted to a deleted exception.
 	 */
-	function testDeleteExceptionRecurring()
-	{
+	public function testDeleteExceptionRecurring() {
 		try {
 			$savedAppointment = $this->user->saveAppointment($this->appointment);
 
@@ -242,12 +241,12 @@ class RecurringExceptionAppointmentTest extends grommunioTest {
 			$entryId = $this->user->getAppointmentEntryId($savedAppointment);
 
 			// Load all occurrences
-			$occurrences = $this->user->loadAppointments(array(
-				'restriction' => array(
+			$occurrences = $this->user->loadAppointments([
+				'restriction' => [
 					'startdate' => gmmktime(0, 0, 0),
-					'duedate' => gmmktime(0, 0, 0, gmdate("n") + 1)
-				)
-			), false);
+					'duedate' => gmmktime(0, 0, 0, gmdate("n") + 1),
+				],
+			], false);
 
 			$occurrenceCountStart = count($occurrences);
 
@@ -258,12 +257,12 @@ class RecurringExceptionAppointmentTest extends grommunioTest {
 			$newEnd = strtotime(date("Y-m-d G:i", $basedate) . " -10 hour +30 minute");
 
 			// Create an exception
-			$exceptionMessage = $this->user->saveAppointmentOccurence(array(
-				'props' => array(
+			$exceptionMessage = $this->user->saveAppointmentOccurence([
+				'props' => [
 					'startdate' => $newStart,
-					'duedate' => $newEnd
-				)
-			), $entryId, $basedate);
+					'duedate' => $newEnd,
+				],
+			], $entryId, $basedate);
 
 			// Get the entryid of the exception appointment
 			$entryId = $this->user->getAppointmentEntryId($exceptionMessage);
@@ -272,16 +271,16 @@ class RecurringExceptionAppointmentTest extends grommunioTest {
 			$this->user->deleteAppointmentOccurence($entryId, $basedate);
 
 			// Load all occurrences
-			$occurrences = $this->user->loadAppointments(array(
-				'restriction' => array(
+			$occurrences = $this->user->loadAppointments([
+				'restriction' => [
 					'startdate' => gmmktime(0, 0, 0),
-					'duedate' => gmmktime(0, 0, 0, gmdate("n") + 1)
-				)
-			), false);
+					'duedate' => gmmktime(0, 0, 0, gmdate("n") + 1),
+				],
+			], false);
 
 			$occurrenceCountEnd = count($occurrences);
-
-		} catch(Exception $e) {
+		}
+		catch (Exception $e) {
 			$this->fail('Test that the Exception can be deleted: ' . $e->getMessage() . PHP_EOL . $e->getTraceAsString());
 		}
 
@@ -289,10 +288,9 @@ class RecurringExceptionAppointmentTest extends grommunioTest {
 	}
 
 	/**
-	 * Test that opening a deleted exception will give error
+	 * Test that opening a deleted exception will give error.
 	 */
-	function testOpeningDeletedExceptionRecurring()
-	{
+	public function testOpeningDeletedExceptionRecurring() {
 		try {
 			$savedAppointment = $this->user->saveAppointment($this->appointment);
 
@@ -300,12 +298,12 @@ class RecurringExceptionAppointmentTest extends grommunioTest {
 			$entryId = $this->user->getAppointmentEntryId($savedAppointment);
 
 			// Load all occurrences
-			$occurrences = $this->user->loadAppointments(array(
-				'restriction' => array(
+			$occurrences = $this->user->loadAppointments([
+				'restriction' => [
 					'startdate' => gmmktime(0, 0, 0),
-					'duedate' => gmmktime(0, 0, 0, gmdate("n") + 1)
-				)
-			), false);
+					'duedate' => gmmktime(0, 0, 0, gmdate("n") + 1),
+				],
+			], false);
 
 			// get the first occurrence and create exception
 			$basedate = $occurrences[1]['props']['basedate'];
@@ -314,12 +312,12 @@ class RecurringExceptionAppointmentTest extends grommunioTest {
 			$newEnd = strtotime(date("Y-m-d G:i", $basedate) . " -10 hour +30 minute");
 
 			// Create an exception
-			$exceptionMessage = $this->user->saveAppointmentOccurence(array(
-				'props' => array(
+			$exceptionMessage = $this->user->saveAppointmentOccurence([
+				'props' => [
 					'startdate' => $newStart,
-					'duedate' => $newEnd
-				)
-			), $entryId, $basedate);
+					'duedate' => $newEnd,
+				],
+			], $entryId, $basedate);
 
 			// Get the entryid of the exception appointment
 			$entryId = $this->user->getAppointmentEntryId($exceptionMessage);
@@ -330,7 +328,8 @@ class RecurringExceptionAppointmentTest extends grommunioTest {
 			// try to open deleted exception
 			$error = $this->user->openAppointmentOccurence($entryId, $basedate);
 			$error = $error['error'];
-		} catch(Exception $e) {
+		}
+		catch (Exception $e) {
 			$this->fail('Test that the Deleted Exception can not be opened: ' . $e->getMessage() . PHP_EOL . $e->getTraceAsString());
 		}
 
@@ -339,5 +338,3 @@ class RecurringExceptionAppointmentTest extends grommunioTest {
 		$this->assertEquals('Could not open occurrence, specific occurrence is probably deleted.', $error['info']['display_message'], 'Test that we get a proper error message for the error');
 	}
 }
-
-?>

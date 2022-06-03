@@ -1,11 +1,10 @@
 <?php
 /**
- * DownloadBase
+ * DownloadBase.
  *
  * An abstract class which serve as base to manage downloading
  */
-abstract class DownloadBase
-{
+abstract class DownloadBase {
 	/**
 	 * Resource of the MAPIStore which holds the message which we need to save as file.
 	 */
@@ -42,43 +41,43 @@ abstract class DownloadBase
 	protected $fileNameTracker;
 
 	/**
-	 * Constructor
+	 * Constructor.
 	 */
-	public function __construct()
-	{
+	public function __construct() {
 		$this->storeId = false;
 		$this->entryId = false;
 		$this->allAsZip = false;
-		$this->fileNameTracker = array();
-		$this->entryIds = array();
+		$this->fileNameTracker = [];
+		$this->entryIds = [];
 		$this->message = false;
 	}
 
 	/**
 	 * Function will initialize data for this class object. it will also sanitize data
-	 * for possible XSS attack because data is received in $_GET
-	 * @param Array $data parameters received with the request.
+	 * for possible XSS attack because data is received in $_GET.
+	 *
+	 * @param array $data parameters received with the request
 	 */
-	public function init($data)
-	{
-		if(isset($data['storeid'])) {
+	public function init($data) {
+		if (isset($data['storeid'])) {
 			$this->storeId = sanitizeValue($data['storeid'], '', ID_REGEX);
 		}
 
-		if(isset($data['AllAsZip'])) {
+		if (isset($data['AllAsZip'])) {
 			$this->allAsZip = sanitizeValue($data['AllAsZip'], '', STRING_REGEX);
 		}
 
-		if($this->storeId){
+		if ($this->storeId) {
 			$this->store = $GLOBALS['mapisession']->openMessageStore(hex2bin($this->storeId));
 		}
 
-		if($this->allAsZip){
-			if($_POST && array_key_exists('entryids', $_POST) && isset($_POST['entryids'])) {
+		if ($this->allAsZip) {
+			if ($_POST && array_key_exists('entryids', $_POST) && isset($_POST['entryids'])) {
 				$this->entryIds = $_POST['entryids'];
 			}
-		} else {
-			if(isset($data['entryid'])) {
+		}
+		else {
+			if (isset($data['entryid'])) {
 				$this->entryId = sanitizeValue($data['entryid'], '', ID_REGEX);
 				$this->message = mapi_msgstore_openentry($this->store, hex2bin($this->entryId));
 
@@ -92,45 +91,46 @@ abstract class DownloadBase
 	 * Offers the functionality to postfixed the file name with number derived from
 	 * the appearance of other file with same name.
 	 * We need to keep track of the file names used so far to prevent duplicates.
-	 * @param String $filename name of the file to be added in ZIP.
-	 * @return String $filename changed name of the file to be added in ZIP to avoid same file names.
+	 *
+	 * @param string $filename name of the file to be added in ZIP
+	 *
+	 * @return string $filename changed name of the file to be added in ZIP to avoid same file names
 	 */
-	function handleDuplicateFileNames($filename)
-	{
+	public function handleDuplicateFileNames($filename) {
 		// A local name is optional.
-		if(!empty($filename)) {
-
+		if (!empty($filename)) {
 			// Check and add if file name is not there in tracker array
-			if(!array_key_exists($filename, $this->fileNameTracker)) {
+			if (!array_key_exists($filename, $this->fileNameTracker)) {
 				$this->fileNameTracker[$filename] = 0;
 			}
 
 			// We have to make sure that there aren't two of the same file names.
 			// Otherwise, one file will override the other and we will be missing the file.
-			while( $this->fileNameTracker[ $filename ] > 0 ) {
-				$fileNameInfo = pathinfo( $filename );
-				$intNext = $this->fileNameTracker[ $filename ]++;
-				$filename = "$fileNameInfo[filename] ($intNext).$fileNameInfo[extension]";
+			while ($this->fileNameTracker[$filename] > 0) {
+				$fileNameInfo = pathinfo($filename);
+				$intNext = $this->fileNameTracker[$filename]++;
+				$filename = "{$fileNameInfo['filename']} ({$intNext}).{$fileNameInfo['extension']}";
 
 				// Check and add if newly prepared file name is not there in tracker array
-				if(!array_key_exists($filename, $this->fileNameTracker)){
+				if (!array_key_exists($filename, $this->fileNameTracker)) {
 					$this->fileNameTracker[$filename] = 0;
 				}
 			}
 
 			// Add to the count.
-			$this->fileNameTracker[ $filename ]++;
+			++$this->fileNameTracker[$filename];
 		}
+
 		return $filename;
 	}
 
 	/**
 	 * Helper function to set necessary headers.
-	 * @param String $filename Proper name for the file to be downloaded.
-	 * @param Number $contentLength Total size of file content.
+	 *
+	 * @param string $filename      proper name for the file to be downloaded
+	 * @param Number $contentLength total size of file content
 	 */
-	function setNecessaryHeaders($filename, $contentLength)
-	{
+	public function setNecessaryHeaders($filename, $contentLength) {
 		// Set the headers
 		header('Pragma: public');
 		header('Expires: 0'); // set expiration time
@@ -150,11 +150,11 @@ abstract class DownloadBase
 	 * Function will return message type according to the MAPI message class
 	 * to display exception. so, user can easily understand the exception message.
 	 *
-	 * @param string $mapiMessageClass message type as defined in MAPI.
-	 * @return string $messageClass message type to prepare exception message.
+	 * @param string $mapiMessageClass message type as defined in MAPI
+	 *
+	 * @return string $messageClass message type to prepare exception message
 	 */
-	function getMessageType($mapiMessageClass)
-	{
+	public function getMessageType($mapiMessageClass) {
 		$messageClass = '';
 
 		// Convert message class into human readable format, so user can easily understand the display message.
@@ -162,21 +162,27 @@ abstract class DownloadBase
 			case 'Appointment':
 				$messageClass = _('Appointment');
 				break;
+
 			case 'StickyNote':
 				$messageClass = _('Sticky Note');
 				break;
+
 			case 'Contact':
 				$messageClass = _('Contact');
 				break;
+
 			case 'DistList':
 				$messageClass = _('Distribution list');
 				break;
+
 			case 'Task':
 				$messageClass = _('Task');
 				break;
+
 			case 'TaskRequest':
 				$messageClass = _('Task Request');
 				break;
+
 			default:
 				$messageClass = $mapiMessageClass;
 		}
@@ -188,11 +194,11 @@ abstract class DownloadBase
 	 * Returns message-class removing technical prefix/postfix from
 	 * original/technical message class.
 	 *
-	 * @param string $mapiMessageClass message type as defined in MAPI.
-	 * @return string $messageClass message class without any prefix/postfix.
+	 * @param string $mapiMessageClass message type as defined in MAPI
+	 *
+	 * @return string $messageClass message class without any prefix/postfix
 	 */
-	function getTrimmedMessageClass($mapiMessageClass)
-	{
+	public function getTrimmedMessageClass($mapiMessageClass) {
 		// Here, we have technical message class, so we need to remove technical prefix/postfix, if any.
 		// Creates an array of strings by splitting the message class from dot(.)
 		$explodedMessageClass = explode(".", $mapiMessageClass);
@@ -205,15 +211,14 @@ abstract class DownloadBase
 	 * Function will encode all the necessary information about the exception
 	 * into JSON format and send the response back to client.
 	 *
-	 * @param object $exception Exception object.
+	 * @param object $exception exception object
 	 */
-	function handleSaveMessageException($exception)
-	{
-		$return = array();
+	public function handleSaveMessageException($exception) {
+		$return = [];
 
 		// MAPI_E_NOT_FOUND exception contains generalize exception message.
 		// Set proper exception message as display message should be user understandable.
-		if($exception->getCode() == MAPI_E_NOT_FOUND) {
+		if ($exception->getCode() == MAPI_E_NOT_FOUND) {
 			$exception->setDisplayMessage(_('Could not find message, either it has been moved or deleted.'));
 		}
 
@@ -226,63 +231,66 @@ abstract class DownloadBase
 		// Set content type header
 		header('Content-Type: text/plain');
 
-		//prepare exception response according to exception class
-		if($exception instanceof MAPIException) {
-			$return = array(
+		// prepare exception response according to exception class
+		if ($exception instanceof MAPIException) {
+			$return = [
 				'success' => false,
-				'zarafa' => array(
-					'error' => array(
+				'zarafa' => [
+					'error' => [
 						'type' => ERROR_MAPI,
-						'info' => array(
+						'info' => [
 							'hresult' => $exception->getCode(),
 							'hresult_name' => get_mapi_error_name($exception->getCode()),
 							'file' => $exception->getFileLine(),
-							'display_message' => $exception->getDisplayMessage()
-						)
-					)
-				)
-			);
-		} else if($exception instanceof ZarafaException) {
-			$return = array(
+							'display_message' => $exception->getDisplayMessage(),
+						],
+					],
+				],
+			];
+		}
+		elseif ($exception instanceof ZarafaException) {
+			$return = [
 				'success' => false,
-				'zarafa' => array(
-					'error' => array(
+				'zarafa' => [
+					'error' => [
 						'type' => ERROR_ZARAFA,
-						'info' => array(
+						'info' => [
 							'file' => $exception->getFileLine(),
 							'display_message' => $exception->getDisplayMessage(),
-							'original_message' => $exception->getMessage()
-						)
-					)
-				)
-			);
-		} else if($exception instanceof BaseException) {
-			$return = array(
+							'original_message' => $exception->getMessage(),
+						],
+					],
+				],
+			];
+		}
+		elseif ($exception instanceof BaseException) {
+			$return = [
 				'success' => false,
-				'zarafa' => array(
-					'error' => array(
+				'zarafa' => [
+					'error' => [
 						'type' => ERROR_GENERAL,
-						'info' => array(
+						'info' => [
 							'file' => $exception->getFileLine(),
 							'display_message' => $exception->getDisplayMessage(),
-							'original_message' => $exception->getMessage()
-						)
-					)
-				)
-			);
-		} else {
-			$return = array(
+							'original_message' => $exception->getMessage(),
+						],
+					],
+				],
+			];
+		}
+		else {
+			$return = [
 				'success' => false,
-				'zarafa' => array(
-					'error' => array(
+				'zarafa' => [
+					'error' => [
 						'type' => ERROR_GENERAL,
-						'info' => array(
+						'info' => [
 							'display_message' => _('Operation failed'),
-							'original_message' => $exception->getMessage()
-						)
-					)
-				)
-			);
+							'original_message' => $exception->getMessage(),
+						],
+					],
+				],
+			];
 		}
 		echo json_encode($return);
 	}
@@ -293,4 +301,3 @@ abstract class DownloadBase
 	 */
 	abstract protected function download();
 }
-?>

@@ -1,49 +1,56 @@
 <?php
-require_once('classes/grommunioUser.php');
-require_once('classes/TaskUser.php');
-require_once('classes/TestData.php');
-require_once('classes/grommunioTest.php');
+
+require_once 'classes/grommunioUser.php';
+require_once 'classes/TaskUser.php';
+require_once 'classes/TestData.php';
+require_once 'classes/grommunioTest.php';
 
 /**
- * SearchTasksTest
+ * SearchTasksTest.
  *
  * Tests all possible cases for searching Tasks
+ *
+ * @internal
+ * @coversNothing
  */
 class SearchTasksTest extends grommunioTest {
 	/**
-	 * The default user
+	 * The default user.
 	 */
 	private $user;
 
 	/**
-	 * The message which will be handled
+	 * The message which will be handled.
 	 */
 	private $message;
 
 	/**
-	 * During setUp we create the user
+	 * During setUp we create the user.
 	 */
-	protected function setUp()
-	{
+	protected function setUp() {
 		parent::setUp();
 
 		$this->user = $this->addUser(new TaskUser(new grommunioUser(GROMMUNIO_USER1_NAME, GROMMUNIO_USER1_PASSWORD)));
 
-		$this->message = array(
+		$this->message = [
 			'props' => TestData::getTask(),
-		);
+		];
 	}
 
 	/**
-	 * Test if a search can be performed without using a search folder
+	 * Test if a search can be performed without using a search folder.
+	 *
 	 * @dataProvider providerTaskProps
+	 *
+	 * @param mixed $prop
+	 * @param mixed $value
 	 */
-	public function testStartSearching($prop, $value)
-	{
+	public function testStartSearching($prop, $value) {
 		try {
 			$this->user->saveTask($this->message);
 			$searchResult = $this->user->doSearch($prop, $value);
-		} catch (Exception $e) {
+		}
+		catch (Exception $e) {
 			$this->fail('Test that a search for Tasks can be started: ' . $e->getMessage() . PHP_EOL . $e->getTraceAsString());
 		}
 
@@ -52,15 +59,19 @@ class SearchTasksTest extends grommunioTest {
 	}
 
 	/**
-	 * Test if a search returns the correct search results
+	 * Test if a search returns the correct search results.
+	 *
 	 * @dataProvider providerTaskProps
+	 *
+	 * @param mixed $prop
+	 * @param mixed $value
 	 */
-	public function testSearchResults($prop, $value)
-	{
+	public function testSearchResults($prop, $value) {
 		try {
 			$this->user->saveTask($this->message);
 			$searchResult = $this->user->doSearch($prop, $value);
-		} catch (Exception $e) {
+		}
+		catch (Exception $e) {
 			$this->fail('Test that searching tasks returns items: ' . $e->getMessage() . PHP_EOL . $e->getTraceAsString());
 		}
 
@@ -69,11 +80,14 @@ class SearchTasksTest extends grommunioTest {
 	}
 
 	/**
-	 * Test if a search can be started using a search folder
+	 * Test if a search can be started using a search folder.
+	 *
 	 * @dataProvider providerTaskProps
+	 *
+	 * @param mixed $prop
+	 * @param mixed $value
 	 */
-	public function testStartSearchingInSearchFolder($prop, $value)
-	{
+	public function testStartSearchingInSearchFolder($prop, $value) {
 		$this->user->saveTask($this->message);
 
 		$searchResult = $this->user->startSearch($prop, $value);
@@ -84,10 +98,9 @@ class SearchTasksTest extends grommunioTest {
 	}
 
 	/**
-	 * Test if updates for a search folder can be requested
+	 * Test if updates for a search folder can be requested.
 	 */
-	public function testUpdateSearchingInSearchFolder()
-	{
+	public function testUpdateSearchingInSearchFolder() {
 		$this->user->saveTask($this->message);
 
 		$this->user->startSearch('subject', $this->message['props']['subject']);
@@ -99,11 +112,14 @@ class SearchTasksTest extends grommunioTest {
 	}
 
 	/**
-	 * Test if a search in a search folder can be ended
+	 * Test if a search in a search folder can be ended.
+	 *
 	 * @dataProvider providerTaskProps
+	 *
+	 * @param mixed $prop
+	 * @param mixed $value
 	 */
-	public function testStopSearchingInSearchFolder($prop, $value)
-	{
+	public function testStopSearchingInSearchFolder($prop, $value) {
 		$this->user->saveTask($this->message);
 
 		$this->user->startSearch($prop, $value);
@@ -115,11 +131,14 @@ class SearchTasksTest extends grommunioTest {
 	}
 
 	/**
-	 * Test if search results can be found
+	 * Test if search results can be found.
+	 *
 	 * @dataProvider providerTaskProps
+	 *
+	 * @param mixed $prop
+	 * @param mixed $value
 	 */
-	public function testSearchResultsFromSearchFolder($prop, $value)
-	{
+	public function testSearchResultsFromSearchFolder($prop, $value) {
 		$this->user->saveTask($this->message);
 
 		$searchResult = $this->user->startSearch($prop, $value);
@@ -129,17 +148,20 @@ class SearchTasksTest extends grommunioTest {
 	}
 
 	/**
-	 * Test if search results are returned on update
+	 * Test if search results are returned on update.
+	 *
 	 * @dataProvider providerTaskProps
+	 *
+	 * @param mixed $prop
+	 * @param mixed $value
 	 */
-	public function testSearchResultsAfterUpdateFromSearchFolder($prop, $value)
-	{
+	public function testSearchResultsAfterUpdateFromSearchFolder($prop, $value) {
 		$searchResult = $this->user->startSearch($prop, $value);
 
 		$this->user->saveTask($this->message);
 
 		// wait at most 10 seconds to wait for the search folder to be updated
-		for ($i = 0; $i < 10; $i++) {
+		for ($i = 0; $i < 10; ++$i) {
 			$updateResult = $this->user->updateSearch();
 			if ($updateResult['updatesearch']['search_meta']['results'] > 0) {
 				break;
@@ -154,20 +176,25 @@ class SearchTasksTest extends grommunioTest {
 	}
 
 	/**
-	 * Test if a search returns the correct search results
+	 * Test if a search returns the correct search results.
+	 *
 	 * @dataProvider providerSpecialCharacterProps
+	 *
+	 * @param mixed $subject
+	 * @param mixed $keyword
+	 * @param mixed $matches
 	 */
-	public function testSearchSpecialCharactersResults($subject, $keyword, $matches = true)
-	{
+	public function testSearchSpecialCharactersResults($subject, $keyword, $matches = true) {
 		$this->message['props']['subject'] = $subject;
 
 		$this->user->saveTask($this->message);
 		$searchResult = $this->user->doSearch('PR_SUBJECT', $keyword);
 
-		if($matches) {
+		if ($matches) {
 			$this->assertCount(1, $searchResult['list']['item'], 'Test that the item has been found during search');
 			$this->assertEquals(1, $searchResult['list']['page']['totalrowcount'], 'Test that the search indicates the correct number of results');
-		} else {
+		}
+		else {
 			$this->assertCount(0, $searchResult['list']['item'], 'Test that the item has not been found during search');
 			$this->assertEquals(0, $searchResult['list']['page']['totalrowcount'], 'Test that the search indicates the correct number of results');
 		}
@@ -176,18 +203,16 @@ class SearchTasksTest extends grommunioTest {
 	/**
 	 * This will feed property references in all ways currently possible
 	 * - as a key in the properties array, e.g. 'subject'
-	 * - as the name of a constant, e.g. 'PR_SUBJECT'
+	 * - as the name of a constant, e.g. 'PR_SUBJECT'.
 	 */
-	public function providerTaskProps()
-	{
+	public function providerTaskProps() {
 		$task = TestData::getTask();
 
-		return array(
-			array('subject', $task['subject']),
-			array('PR_SUBJECT', $task['subject']),
-			array('body', $task['body']),
-			array('PR_BODY', $task['body'])
-		);
+		return [
+			['subject', $task['subject']],
+			['PR_SUBJECT', $task['subject']],
+			['body', $task['body']],
+			['PR_BODY', $task['body']],
+		];
 	}
 }
-?>

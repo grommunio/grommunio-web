@@ -1,7 +1,7 @@
 <?php
+
 namespace Files\Backend;
 
-interface iFeatureVersionInfo
-{
+interface iFeatureVersionInfo {
 	public function getServerVersion();
 }

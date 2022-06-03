@@ -1,30 +1,32 @@
 <?php
-require_once('classes/grommunioUser.php');
-require_once('classes/TestUser.php');
-require_once('classes/grommunioTest.php');
+
+require_once 'classes/grommunioUser.php';
+require_once 'classes/TestUser.php';
+require_once 'classes/grommunioTest.php';
 
 /**
- * DependencyPluginsTest
+ * DependencyPluginsTest.
  *
  * Tests loading the plugins which have dependencies
+ *
+ * @internal
+ * @coversNothing
  */
 class DependencyPluginsTest extends grommunioTest {
-
 	/**
 	 * The default user.
 	 */
 	private $user;
 
 	/**
-	 * The base folder in which the various test setups can be found
+	 * The base folder in which the various test setups can be found.
 	 */
 	private $base;
 
 	/**
-	 * During setUp we create the user
+	 * During setUp we create the user.
 	 */
-	protected function setUp()
-	{
+	protected function setUp() {
 		parent::setUp();
 
 		$this->user = $this->addUser(new TestUser(new grommunioUser(GROMMUNIO_USER1_NAME, GROMMUNIO_USER1_PASSWORD)));
@@ -41,8 +43,7 @@ class DependencyPluginsTest extends grommunioTest {
 	 * Test if the plugins from the 'test-dependencies' folder has correctly been loaded.
 	 * These are the plugins with correct dependencies
 	 */
-	public function testLoadDependencyPluginsResult()
-	{
+	public function testLoadDependencyPluginsResult() {
 		$GLOBALS['PluginManager'] = new PluginManager(true);
 		$GLOBALS['PluginManager']->pluginpath = $this->base . DIRECTORY_SEPARATOR . 'test-dependencies';
 		$GLOBALS['PluginManager']->detectPlugins();
@@ -64,8 +65,7 @@ class DependencyPluginsTest extends grommunioTest {
 	 *	- Plugin 05 depends on Plugin 03
 	 *	- Plugin 06 depends on nothing
 	 */
-	public function testLoadDependencyPluginsClientFiles()
-	{
+	public function testLoadDependencyPluginsClientFiles() {
 		$GLOBALS['PluginManager'] = new PluginManager(true);
 		$GLOBALS['PluginManager']->pluginpath = $this->base . DIRECTORY_SEPARATOR . 'test-dependencies';
 		$GLOBALS['PluginManager']->detectPlugins();
@@ -96,8 +96,7 @@ class DependencyPluginsTest extends grommunioTest {
 	 * Test if the plugins from the 'test-unmet-dependencies' folder has correctly been loaded.
 	 * These are the plugins with some unmet dependencies
 	 */
-	public function testLoadUnmetDependencyPluginsResult()
-	{
+	public function testLoadUnmetDependencyPluginsResult() {
 		$GLOBALS['PluginManager'] = new PluginManager(true);
 		$GLOBALS['PluginManager']->pluginpath = $this->base . DIRECTORY_SEPARATOR . 'test-unmet-dependencies';
 		$GLOBALS['PluginManager']->detectPlugins();
@@ -119,8 +118,7 @@ class DependencyPluginsTest extends grommunioTest {
 	 *	- Plugin 05 depends on Plugin 07
 	 *	- Plugin 06 depends on nothing
 	 */
-	public function testLoadUnmetDependencyPluginsClientFiles()
-	{
+	public function testLoadUnmetDependencyPluginsClientFiles() {
 		$GLOBALS['PluginManager'] = new PluginManager(true);
 		$GLOBALS['PluginManager']->pluginpath = $this->base . DIRECTORY_SEPARATOR . 'test-unmet-dependencies';
 		$GLOBALS['PluginManager']->detectPlugins();
@@ -141,7 +139,7 @@ class DependencyPluginsTest extends grommunioTest {
 		// And f2 and f5 cannot be ordered
 		$this->assertNotFalse($f1, 'Test that Plugin 01 is ordered');
 		$this->assertFalse($f2, 'Test that Plugin 02 is not ordered');
-		$this->assertGreaterThan($f1,  $f3, 'Test that Plugin 03 is ordered after Plugin 01');
+		$this->assertGreaterThan($f1, $f3, 'Test that Plugin 03 is ordered after Plugin 01');
 		$this->assertGreaterThan($f3, $f4, 'Test that Plugin 04 is ordered after Plugin 03');
 		$this->assertFalse($f5, 'Test that Plugin 05 is not ordered');
 		$this->assertNotFalse($f6, 'Test that Plugin 06 is ordered');
@@ -151,8 +149,7 @@ class DependencyPluginsTest extends grommunioTest {
 	 * Test if the plugins from the 'test-circular-dependencies' folder has correctly been loaded.
 	 * These are the plugins with some circular dependencies
 	 */
-	public function testLoadCircularDependencyPluginsResult()
-	{
+	public function testLoadCircularDependencyPluginsResult() {
 		$GLOBALS['PluginManager'] = new PluginManager(true);
 		$GLOBALS['PluginManager']->pluginpath = $this->base . DIRECTORY_SEPARATOR . 'test-circular-dependencies';
 		$GLOBALS['PluginManager']->detectPlugins();
@@ -174,8 +171,7 @@ class DependencyPluginsTest extends grommunioTest {
 	 *	- Plugin 05 depends on Plugin 04
 	 *	- Plugin 06 depends on nothing
 	 */
-	public function testLoadCircularDependencyPluginsClientFiles()
-	{
+	public function testLoadCircularDependencyPluginsClientFiles() {
 		$GLOBALS['PluginManager'] = new PluginManager(true);
 		$GLOBALS['PluginManager']->pluginpath = $this->base . DIRECTORY_SEPARATOR . 'test-circular-dependencies';
 		$GLOBALS['PluginManager']->detectPlugins();
@@ -201,5 +197,3 @@ class DependencyPluginsTest extends grommunioTest {
 		$this->assertNotFalse($f6, 'Test that Plugin 06 is ordered');
 	}
 }
-
-?>

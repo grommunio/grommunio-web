@@ -1,55 +1,58 @@
 <?php
-require_once('classes/grommunioUser.php');
-require_once('classes/NoteUser.php');
-require_once('classes/TestData.php');
-require_once('classes/grommunioTest.php');
-require_once('classes/RestoreMessageUser.php');
+
+require_once 'classes/grommunioUser.php';
+require_once 'classes/NoteUser.php';
+require_once 'classes/TestData.php';
+require_once 'classes/grommunioTest.php';
+require_once 'classes/RestoreMessageUser.php';
 
 /**
- * NoteTest
+ * NoteTest.
  *
  * Tests small Sicky Note operations (create, delete, open).
+ *
+ * @internal
+ * @coversNothing
  */
 class NoteTest extends grommunioTest {
 	/**
-	 * The default user
+	 * The default user.
 	 */
 	private $user;
 
 	/**
-	 * The default user which will be sending request to retrieve soft deleted folders
+	 * The default user which will be sending request to retrieve soft deleted folders.
 	 */
 	private $restoreUser;
 
 	/**
-	 * The message which will be handled
+	 * The message which will be handled.
 	 */
 	private $message;
 
 	/**
-	 * During setUp we create the user
+	 * During setUp we create the user.
 	 */
-	protected function setUp()
-	{
+	protected function setUp() {
 		parent::setUp();
 
 		$this->user = $this->addUser(new NoteUser(new grommunioUser(GROMMUNIO_USER1_NAME, GROMMUNIO_USER1_PASSWORD)));
 		$this->restoreUser = $this->addUser(new RestoreMessageUser(new grommunioUser(GROMMUNIO_USER1_NAME, GROMMUNIO_USER1_PASSWORD)));
 		$this->restoreUser->setDefaultTestFolderEntryId($this->user->getDefaultTestFolderEntryId());
 
-		$this->message = array(
+		$this->message = [
 			'props' => TestData::getNote(),
-		);
+		];
 	}
 
 	/**
-	 * Test if a Sticky Note can be saved to the Notes folder without problems
+	 * Test if a Sticky Note can be saved to the Notes folder without problems.
 	 */
-	public function testSavingNotes()
-	{
+	public function testSavingNotes() {
 		try {
 			$savedNote = $this->user->saveNote($this->message);
-		} catch(Exception $e) {
+		}
+		catch (Exception $e) {
 			$this->fail('Test that the Sticky Note can be saved: ' . $e->getMessage() . PHP_EOL . $e->getTraceAsString());
 		}
 
@@ -57,22 +60,20 @@ class NoteTest extends grommunioTest {
 	}
 
 	/**
-	 * Test if the Sticky Note is saved into the correct folder
+	 * Test if the Sticky Note is saved into the correct folder.
 	 */
-	public function testSavingNoteFolder()
-	{
+	public function testSavingNoteFolder() {
 		$savedNote = $this->user->saveNote($this->message);
-		$entryid = $this->user->getNoteProps($savedNote, array(PR_ENTRYID));
+		$entryid = $this->user->getNoteProps($savedNote, [PR_ENTRYID]);
 		$foundNote = $this->user->getNote($entryid[PR_ENTRYID]);
 
 		$this->assertInternalType(PHPUnit_Framework_Constraint_IsType::TYPE_RESOURCE, $foundNote, 'Test that the found Sticky Note is a resource');
 	}
 
 	/**
-	 * Test if all properties in the new Sticky Note are correct
+	 * Test if all properties in the new Sticky Note are correct.
 	 */
-	public function testSavingNoteProperties()
-	{
+	public function testSavingNoteProperties() {
 		$savedNote = $this->user->saveNote($this->message);
 		$props = $this->user->getNoteProps($savedNote);
 
@@ -82,15 +83,15 @@ class NoteTest extends grommunioTest {
 	}
 
 	/**
-	 * Test if the Sticky Note can be opened
+	 * Test if the Sticky Note can be opened.
 	 */
-	public function testOpeningNote()
-	{
+	public function testOpeningNote() {
 		try {
 			$savedNote = $this->user->saveNote($this->message);
-			$entryid = $this->user->getNoteProps($savedNote, array(PR_ENTRYID));
+			$entryid = $this->user->getNoteProps($savedNote, [PR_ENTRYID]);
 			$openedNote = $this->user->openNote($entryid[PR_ENTRYID]);
-		} catch (Exception $e) {
+		}
+		catch (Exception $e) {
 			$this->fail('Test that the Sticky Note can be opened: ' . $e->getMessage()) . PHP_EOL . $e->getTraceAsString();
 		}
 
@@ -100,12 +101,11 @@ class NoteTest extends grommunioTest {
 	}
 
 	/**
-	 * Test if the opened Sticky Note contains the correct properties
+	 * Test if the opened Sticky Note contains the correct properties.
 	 */
-	public function testOpeningNoteProperties()
-	{
+	public function testOpeningNoteProperties() {
 		$savedNote = $this->user->saveNote($this->message);
-		$entryid = $this->user->getNoteProps($savedNote, array(PR_ENTRYID));
+		$entryid = $this->user->getNoteProps($savedNote, [PR_ENTRYID]);
 		$openedNote = $this->user->openNote($entryid[PR_ENTRYID]);
 
 		$props = $openedNote['item']['item']['props'];
@@ -116,22 +116,21 @@ class NoteTest extends grommunioTest {
 	}
 
 	/**
-	 * Test if the Sticky note can be modified by emptying the body
+	 * Test if the Sticky note can be modified by emptying the body.
 	 */
-	public function testUpdatingNoteEmptyBody()
-	{
+	public function testUpdatingNoteEmptyBody() {
 		$savedNote = $this->user->saveNote($this->message);
-		$entryid = $this->user->getNoteProps($savedNote, array(PR_ENTRYID, PR_PARENT_ENTRYID, PR_STORE_ENTRYID));
+		$entryid = $this->user->getNoteProps($savedNote, [PR_ENTRYID, PR_PARENT_ENTRYID, PR_STORE_ENTRYID]);
 		$openedNote = $this->user->openNote($entryid[PR_ENTRYID]);
-		$savedNote = $this->user->saveNote(array(
+		$savedNote = $this->user->saveNote([
 			'entryid' => bin2hex($entryid[PR_ENTRYID]),
 			'parent_entryid' => bin2hex($entryid[PR_PARENT_ENTRYID]),
 			'store_entryid' => bin2hex($entryid[PR_STORE_ENTRYID]),
-			'props' => array(
+			'props' => [
 				'body' => '',
-				'subject' => ''
-			)
-		));
+				'subject' => '',
+			],
+		]);
 		$openedNote = $this->user->openNote($entryid[PR_ENTRYID]);
 		$props = $openedNote['item']['item']['props'];
 
@@ -141,15 +140,15 @@ class NoteTest extends grommunioTest {
 	}
 
 	/**
-	 * Test if a Sticky Note can be deleted
+	 * Test if a Sticky Note can be deleted.
 	 */
-	public function testDeletingNotes()
-	{
+	public function testDeletingNotes() {
 		try {
 			$savedNote = $this->user->saveNote($this->message);
-			$props = $this->user->getNoteProps($savedNote, array(PR_ENTRYID));
+			$props = $this->user->getNoteProps($savedNote, [PR_ENTRYID]);
 			$this->user->deleteNote($props[PR_ENTRYID]);
-		} catch (Exception $e) {
+		}
+		catch (Exception $e) {
 			$this->fail('Test that the Sticky Note can be deleted: ' . $e->getMessage() . PHP_EOL . $e->getTraceAsString());
 		}
 
@@ -167,23 +166,23 @@ class NoteTest extends grommunioTest {
 	}
 
 	/**
-	 * Test if a Note can be Moved
+	 * Test if a Note can be Moved.
 	 */
-	public function testMovingNote()
-	{
+	public function testMovingNote() {
 		try {
 			$savedNote = $this->user->saveNote($this->message);
-			$props = $this->user->getNoteProps($savedNote, array(PR_ENTRYID));
-			$this->user->copyNote($props[PR_ENTRYID], array(), true);
-		} catch (Exception $e) {
+			$props = $this->user->getNoteProps($savedNote, [PR_ENTRYID]);
+			$this->user->copyNote($props[PR_ENTRYID], [], true);
+		}
+		catch (Exception $e) {
 			$this->fail('Test that the Note can be Moved: ' . $e->getMessage() . PHP_EOL . $e->getTraceAsString());
 		}
 
 		$noteItems = $this->user->loadNotes(false);
 
 		$this->assertCount(1, $noteItems, 'Test that 1 Note was found in the folder');
-		//For simplicity we are moving a message into same folder, so check entryid is the same since we use mapi_copymessages MOVE_MESSAGE
-		//true
+		// For simplicity we are moving a message into same folder, so check entryid is the same since we use mapi_copymessages MOVE_MESSAGE
+		// true
 		$this->assertEquals(bin2hex($props[PR_ENTRYID]), $noteItems[0]['entryid'], 'Test that the entryid is not equal');
 
 		$softdeletedItems = $this->restoreUser->loadSoftdeletedItems();
@@ -191,16 +190,16 @@ class NoteTest extends grommunioTest {
 	}
 
 	/**
-	 * Test if a Note can be Copied
+	 * Test if a Note can be Copied.
 	 */
-	public function testCopyingNote()
-	{
+	public function testCopyingNote() {
 		try {
 			$savedNote = $this->user->saveNote($this->message);
-			$props = $this->user->getNoteProps($savedNote, array(PR_ENTRYID));
+			$props = $this->user->getNoteProps($savedNote, [PR_ENTRYID]);
 
 			$this->user->copyNote($props[PR_ENTRYID]);
-		} catch (Exception $e) {
+		}
+		catch (Exception $e) {
 			$this->fail('Test that the Note can be copied: ' . $e->getMessage() . PHP_EOL . $e->getTraceAsString());
 		}
 
@@ -219,4 +218,3 @@ class NoteTest extends grommunioTest {
 		$this->assertEmpty($softdeletedItems, 'Test that no messages exists in the soft delete system');
 	}
 }
-?>

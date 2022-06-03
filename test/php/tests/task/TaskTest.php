@@ -1,55 +1,58 @@
 <?php
-require_once('classes/grommunioUser.php');
-require_once('classes/TaskUser.php');
-require_once('classes/TestData.php');
-require_once('classes/grommunioTest.php');
-require_once('classes/RestoreMessageUser.php');
+
+require_once 'classes/grommunioUser.php';
+require_once 'classes/TaskUser.php';
+require_once 'classes/TestData.php';
+require_once 'classes/grommunioTest.php';
+require_once 'classes/RestoreMessageUser.php';
 
 /**
- * TaskTest
+ * TaskTest.
  *
  * Tests small Task operations (create, delete, open).
+ *
+ * @internal
+ * @coversNothing
  */
 class TaskTest extends grommunioTest {
 	/**
-	 * The default user
+	 * The default user.
 	 */
 	private $user;
 
 	/**
-	 * The default user which will be sending request to retrieve soft deleted folders
+	 * The default user which will be sending request to retrieve soft deleted folders.
 	 */
 	private $restoreUser;
 
 	/**
-	 * The message which will be handled
+	 * The message which will be handled.
 	 */
 	private $message;
 
 	/**
-	 * During setUp we create the user
+	 * During setUp we create the user.
 	 */
-	protected function setUp()
-	{
+	protected function setUp() {
 		parent::setUp();
 
 		$this->user = $this->addUser(new TaskUser(new grommunioUser(GROMMUNIO_USER1_NAME, GROMMUNIO_USER1_PASSWORD)));
 		$this->restoreUser = $this->addUser(new RestoreMessageUser(new grommunioUser(GROMMUNIO_USER1_NAME, GROMMUNIO_USER1_PASSWORD)));
 		$this->restoreUser->setDefaultTestFolderEntryId($this->user->getDefaultTestFolderEntryId());
 
-		$this->message = array(
+		$this->message = [
 			'props' => TestData::getTask(),
-		);
+		];
 	}
 
 	/**
-	 * Test if a Task can be saved to the Tasks folder without problems
+	 * Test if a Task can be saved to the Tasks folder without problems.
 	 */
-	public function testSavingTasks()
-	{
+	public function testSavingTasks() {
 		try {
 			$savedTask = $this->user->saveTask($this->message);
-		} catch(Exception $e) {
+		}
+		catch (Exception $e) {
 			$this->fail('Test that the Task can be saved: ' . $e->getMessage() . PHP_EOL . $e->getTraceAsString());
 		}
 
@@ -57,22 +60,20 @@ class TaskTest extends grommunioTest {
 	}
 
 	/**
-	 * Test if the Task is saved into the correct folder
+	 * Test if the Task is saved into the correct folder.
 	 */
-	public function testSavingTaskFolder()
-	{
+	public function testSavingTaskFolder() {
 		$savedTask = $this->user->saveTask($this->message);
-		$entryid = $this->user->getTaskProps($savedTask, array(PR_ENTRYID));
+		$entryid = $this->user->getTaskProps($savedTask, [PR_ENTRYID]);
 		$foundTask = $this->user->getTask($entryid[PR_ENTRYID]);
 
 		$this->assertInternalType(PHPUnit_Framework_Constraint_IsType::TYPE_RESOURCE, $foundTask, 'Test that the found Task is a resource');
 	}
 
 	/**
-	 * Test if all properties in the new Task are correct
+	 * Test if all properties in the new Task are correct.
 	 */
-	public function testSavingTaskProperties()
-	{
+	public function testSavingTaskProperties() {
 		$savedTask = $this->user->saveTask($this->message);
 		$props = $this->user->getTaskProps($savedTask);
 
@@ -82,15 +83,15 @@ class TaskTest extends grommunioTest {
 	}
 
 	/**
-	 * Test if the Task can be opened
+	 * Test if the Task can be opened.
 	 */
-	public function testOpeningTask()
-	{
+	public function testOpeningTask() {
 		try {
 			$savedTask = $this->user->saveTask($this->message);
-			$entryid = $this->user->getTaskProps($savedTask, array(PR_ENTRYID));
+			$entryid = $this->user->getTaskProps($savedTask, [PR_ENTRYID]);
 			$openedTask = $this->user->openTask($entryid[PR_ENTRYID]);
-		} catch (Exception $e) {
+		}
+		catch (Exception $e) {
 			$this->fail('Test that the Task can be opened: ' . $e->getMessage() . PHP_EOL . $e->getTraceAsString());
 		}
 
@@ -100,12 +101,11 @@ class TaskTest extends grommunioTest {
 	}
 
 	/**
-	 * Test if the opened Task contains the correct properties
+	 * Test if the opened Task contains the correct properties.
 	 */
-	public function testOpeningTaskProperties()
-	{
+	public function testOpeningTaskProperties() {
 		$savedTask = $this->user->saveTask($this->message);
-		$entryid = $this->user->getTaskProps($savedTask, array(PR_ENTRYID));
+		$entryid = $this->user->getTaskProps($savedTask, [PR_ENTRYID]);
 		$openedTask = $this->user->openTask($entryid[PR_ENTRYID]);
 
 		$props = $openedTask['item']['item']['props'];
@@ -116,22 +116,21 @@ class TaskTest extends grommunioTest {
 	}
 
 	/**
-	 * Test if the Task can be modified by emptying the body
+	 * Test if the Task can be modified by emptying the body.
 	 */
-	public function testUpdatingTaskEmptyBody()
-	{
+	public function testUpdatingTaskEmptyBody() {
 		$savedTask = $this->user->saveTask($this->message);
-		$entryid = $this->user->getTaskProps($savedTask, array(PR_ENTRYID, PR_PARENT_ENTRYID, PR_STORE_ENTRYID));
+		$entryid = $this->user->getTaskProps($savedTask, [PR_ENTRYID, PR_PARENT_ENTRYID, PR_STORE_ENTRYID]);
 		$openedTask = $this->user->openTask($entryid[PR_ENTRYID]);
-		$savedTask = $this->user->saveTask(array(
+		$savedTask = $this->user->saveTask([
 			'entryid' => bin2hex($entryid[PR_ENTRYID]),
 			'parent_entryid' => bin2hex($entryid[PR_PARENT_ENTRYID]),
 			'store_entryid' => bin2hex($entryid[PR_STORE_ENTRYID]),
-			'props' => array(
+			'props' => [
 				'body' => '',
-				'subject' => ''
-			)
-		));
+				'subject' => '',
+			],
+		]);
 		$openedTask = $this->user->openTask($entryid[PR_ENTRYID]);
 		$props = $openedTask['item']['item']['props'];
 
@@ -141,15 +140,15 @@ class TaskTest extends grommunioTest {
 	}
 
 	/**
-	 * Test if a Task can be deleted
+	 * Test if a Task can be deleted.
 	 */
-	public function testDeletingTasks()
-	{
+	public function testDeletingTasks() {
 		try {
 			$savedTask = $this->user->saveTask($this->message);
-			$props = $this->user->getTaskProps($savedTask, array(PR_ENTRYID));
+			$props = $this->user->getTaskProps($savedTask, [PR_ENTRYID]);
 			$this->user->deleteTask($props[PR_ENTRYID]);
-		} catch (Exception $e) {
+		}
+		catch (Exception $e) {
 			$this->fail('Test that the Task can be deleted: ' . $e->getMessage() . PHP_EOL . $e->getTraceAsString());
 		}
 
@@ -167,23 +166,23 @@ class TaskTest extends grommunioTest {
 	}
 
 	/**
-	 * Test if a Task can be Moved
+	 * Test if a Task can be Moved.
 	 */
-	public function testMovingTasks()
-	{
+	public function testMovingTasks() {
 		try {
 			$savedTask = $this->user->saveTask($this->message);
-			$props = $this->user->getTaskProps($savedTask, array(PR_ENTRYID));
-			$this->user->copyTask($props[PR_ENTRYID], array(), true);
-		} catch (Exception $e) {
+			$props = $this->user->getTaskProps($savedTask, [PR_ENTRYID]);
+			$this->user->copyTask($props[PR_ENTRYID], [], true);
+		}
+		catch (Exception $e) {
 			$this->fail('Test that the Task can be Moved: ' . $e->getMessage() . PHP_EOL . $e->getTraceAsString());
 		}
 
 		$taskItems = $this->user->loadTasks(false);
 
 		$this->assertCount(1, $taskItems, 'Test that 1 Task was found in the folder');
-		//For simplicity we are moving a message into same folder, so check entryid is the same since we use mapi_copymessages MOVE_MESSAGE
-		//true
+		// For simplicity we are moving a message into same folder, so check entryid is the same since we use mapi_copymessages MOVE_MESSAGE
+		// true
 		$this->assertEquals(bin2hex($props[PR_ENTRYID]), $taskItems[0]['entryid'], 'Test that the entryid is not equal');
 
 		$softdeletedItems = $this->restoreUser->loadSoftdeletedItems();
@@ -191,16 +190,16 @@ class TaskTest extends grommunioTest {
 	}
 
 	/**
-	 * Test if a Task can be copied
+	 * Test if a Task can be copied.
 	 */
-	public function testCopyingTasks()
-	{
+	public function testCopyingTasks() {
 		try {
 			$savedTask = $this->user->saveTask($this->message);
-			$props = $this->user->getTaskProps($savedTask, array(PR_ENTRYID));
+			$props = $this->user->getTaskProps($savedTask, [PR_ENTRYID]);
 
 			$this->user->copyTask($props[PR_ENTRYID]);
-		} catch (Exception $e) {
+		}
+		catch (Exception $e) {
 			$this->fail('Test that the Task can be copied: ' . $e->getMessage() . PHP_EOL . $e->getTraceAsString());
 		}
 
@@ -219,4 +218,3 @@ class TaskTest extends grommunioTest {
 		$this->assertEmpty($softdeletedItems, 'Test that no messages exists in the soft delete system');
 	}
 }
-?>

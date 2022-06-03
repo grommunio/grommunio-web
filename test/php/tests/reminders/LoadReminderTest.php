@@ -1,64 +1,67 @@
 <?php
-require_once('classes/grommunioUser.php');
-require_once('classes/ReminderUser.php');
-require_once('classes/CalendarUser.php');
-require_once('classes/TaskUser.php');
-require_once('classes/TestData.php');
-require_once('classes/grommunioTest.php');
+
+require_once 'classes/grommunioUser.php';
+require_once 'classes/ReminderUser.php';
+require_once 'classes/CalendarUser.php';
+require_once 'classes/TaskUser.php';
+require_once 'classes/TestData.php';
+require_once 'classes/grommunioTest.php';
 
 /**
- * LoadReminderTest
+ * LoadReminderTest.
  *
  * Tests all possible cases for loading reminders
+ *
+ * @internal
+ * @coversNothing
  */
 class LoadReminderTest extends grommunioTest {
 	/**
-	 * The default user
+	 * The default user.
 	 */
 	private $user;
 
 	/**
-	 * During setUp we create the user
+	 * During setUp we create the user.
 	 */
-	protected function setUp()
-	{
+	protected function setUp() {
 		parent::setUp();
 
 		$this->user = $this->addUser(new ReminderUser(new grommunioUser(GROMMUNIO_USER1_NAME, GROMMUNIO_USER1_PASSWORD)));
 
-		$this->message = array(
+		$this->message = [
 			'props' => TestData::getMail(),
-			'recipients' => array(
-				'add' => array(
-					TestData::getSMTPRecipient(GROMMUNIO_USER2_DISPLAY_NAME, GROMMUNIO_USER2_EMAIL_ADDRESS)
-				)
-			)
-		);
+			'recipients' => [
+				'add' => [
+					TestData::getSMTPRecipient(GROMMUNIO_USER2_DISPLAY_NAME, GROMMUNIO_USER2_EMAIL_ADDRESS),
+				],
+			],
+		];
 	}
 
-        /**
-         * Helper function to wait on reminders
-         */
-        private function waitForReminder() {
-              $timeout = 10;
-              while ($timeout > 0) {
-                  $response = $this->user->loadReminders();
-                  if (!empty($response['list']['item'])) {
-                    break;
-                  }
-                  $timeout--;
-                  sleep(1);
-              }
-        }
+	/**
+	 * Helper function to wait on reminders.
+	 */
+	private function waitForReminder() {
+		$timeout = 10;
+		while ($timeout > 0) {
+			$response = $this->user->loadReminders();
+			if (!empty($response['list']['item'])) {
+				break;
+			}
+			--$timeout;
+			sleep(1);
+		}
+	}
 
 	/**
 	 * Test loading reminders.
 	 */
-	public function testLoadReminders()
-	{
+	public function testLoadReminders() {
 		try {
 			$response = $this->user->loadReminders();
-		} catch(Exception $e) {
+		}
+		catch (Exception $e) {
 			$this->fail('Test that the reminders can be obtains: ' . $e->getMessage() . PHP_EOL . $e->getTraceAsString());
 		}
 
@@ -67,10 +70,9 @@ class LoadReminderTest extends grommunioTest {
 	}
 
 	/**
-	 * Test loading appointment reminders
+	 * Test loading appointment reminders.
 	 */
-	public function xtestLoadAppointmentReminders()
-	{
+	public function xtestLoadAppointmentReminders() {
 		// Set the appointment time, have the appointment start 10 seconds
 		// in the future, and the reminder 5 seconds in the future.
 		$start = mktime(date('H'), date('i'), date('s') + 10);
@@ -78,8 +80,8 @@ class LoadReminderTest extends grommunioTest {
 		$flag = mktime(date('H'), date('i'), date('s') + 0.8);
 
 		$calendarUser = $this->addUser(new CalendarUser(new grommunioUser(GROMMUNIO_USER1_NAME, GROMMUNIO_USER1_PASSWORD)));
-		$appointment = $calendarUser->saveAppointment(array(
-			'props' => TestData::getAppointment(array(
+		$appointment = $calendarUser->saveAppointment([
+			'props' => TestData::getAppointment([
 				'startdate' => $start,
 				'duedate' => $end,
 				'commonstart' => $start,
@@ -88,9 +90,9 @@ class LoadReminderTest extends grommunioTest {
 				'reminder_minutes' => 15,
 				'reminder_time' => $start,
 				'flagdueby' => $flag,
-				'flag_due_by' => $flag
-			))
-		), false);
+				'flag_due_by' => $flag,
+			]),
+		], false);
 
 		// Wait for the reminder time.
 		sleep(1);
@@ -111,10 +113,9 @@ class LoadReminderTest extends grommunioTest {
 	}
 
 	/**
-	 * Test if the Reminder can be snoozed without errors
+	 * Test if the Reminder can be snoozed without errors.
 	 */
-	public function testSnoozeAppointmentReminders()
-	{
+	public function testSnoozeAppointmentReminders() {
 		try {
 			// Set the appointment time, have the appointment start 10 seconds
 			// in the future, and the reminder 5 seconds in the future.
@@ -123,8 +124,8 @@ class LoadReminderTest extends grommunioTest {
 			$flag = mktime(date('H'), date('i'), date('s') + 1);
 
 			$calendarUser = $this->addUser(new CalendarUser(new grommunioUser(GROMMUNIO_USER1_NAME, GROMMUNIO_USER1_PASSWORD)));
-			$appointment = $calendarUser->saveAppointment(array(
-				'props' => TestData::getAppointment(array(
+			$appointment = $calendarUser->saveAppointment([
+				'props' => TestData::getAppointment([
 					'startdate' => $start,
 					'duedate' => $end,
 					'commonstart' => $start,
@@ -132,19 +133,20 @@ class LoadReminderTest extends grommunioTest {
 					'reminder' => true,
 					'reminder_minutes' => 15,
 					'reminder_time' => $start,
-					'flagdueby' => $flag
-				))
-			), false);
+					'flagdueby' => $flag,
+				]),
+			], false);
 
-                        $this->waitForReminder();
+			$this->waitForReminder();
 
 			// Obtain the reminder
-		        $response = $this->user->loadReminders();
+			$response = $this->user->loadReminders();
 			$reminder = $response['list']['item'][0];
 
 			// Snooze reminder for 1 minute
 			$response = $this->user->snoozeReminder(hex2bin($reminder['entryid']), 1);
-		} catch (Exception $e) {
+		}
+		catch (Exception $e) {
 			$this->fail('Test that the reminders can be snoozed: ' . $e->getMessage() . PHP_EOL . $e->getTraceAsString());
 		}
 
@@ -153,10 +155,9 @@ class LoadReminderTest extends grommunioTest {
 	}
 
 	/**
-	 * Test that the Reminder can be snoozed
+	 * Test that the Reminder can be snoozed.
 	 */
-	public function testSnoozeAppointmentReminderResult()
-	{
+	public function testSnoozeAppointmentReminderResult() {
 		// Set the appointment time, have the appointment start 10 seconds
 		// in the future, and the reminder 5 seconds in the future.
 		$start = mktime(date('H'), date('i'), date('s') + 10);
@@ -164,8 +165,8 @@ class LoadReminderTest extends grommunioTest {
 		$flag = mktime(date('H'), date('i'), date('s') + 1);
 
 		$calendarUser = $this->addUser(new CalendarUser(new grommunioUser(GROMMUNIO_USER1_NAME, GROMMUNIO_USER1_PASSWORD)));
-		$appointment = $calendarUser->saveAppointment(array(
-			'props' => TestData::getAppointment(array(
+		$appointment = $calendarUser->saveAppointment([
+			'props' => TestData::getAppointment([
 				'startdate' => $start,
 				'duedate' => $end,
 				'commonstart' => $start,
@@ -173,12 +174,12 @@ class LoadReminderTest extends grommunioTest {
 				'reminder' => true,
 				'reminder_minutes' => 15,
 				'reminder_time' => $start,
-				'flagdueby' => $flag
-			))
-		), false);
+				'flagdueby' => $flag,
+			]),
+		], false);
 
 		// Wait for the reminder time.
-                $this->waitForReminder();
+		$this->waitForReminder();
 
 		// Obtain the reminder
 		$response = $this->user->loadReminders();
@@ -213,10 +214,9 @@ class LoadReminderTest extends grommunioTest {
 	}
 
 	/**
-	 * Test if the Reminder can be snoozed without errors
+	 * Test if the Reminder can be snoozed without errors.
 	 */
-	public function testDismissAppointmentReminders()
-	{
+	public function testDismissAppointmentReminders() {
 		try {
 			// Set the appointment time, have the appointment start 10 seconds
 			// in the future, and the reminder 5 seconds in the future.
@@ -225,8 +225,8 @@ class LoadReminderTest extends grommunioTest {
 			$flag = mktime(date('H'), date('i'), date('s') + 1);
 
 			$calendarUser = $this->addUser(new CalendarUser(new grommunioUser(GROMMUNIO_USER1_NAME, GROMMUNIO_USER1_PASSWORD)));
-			$appointment = $calendarUser->saveAppointment(array(
-				'props' => TestData::getAppointment(array(
+			$appointment = $calendarUser->saveAppointment([
+				'props' => TestData::getAppointment([
 					'startdate' => $start,
 					'duedate' => $end,
 					'commonstart' => $start,
@@ -234,12 +234,12 @@ class LoadReminderTest extends grommunioTest {
 					'reminder' => true,
 					'reminder_minutes' => 15,
 					'reminder_time' => $start,
-					'flagdueby' => $flag
-				))
-			), false);
+					'flagdueby' => $flag,
+				]),
+			], false);
 
 			// Wait for the reminder time.
-                        $this->waitForReminder();
+			$this->waitForReminder();
 
 			// Obtain the reminder
 			$response = $this->user->loadReminders();
@@ -247,7 +247,8 @@ class LoadReminderTest extends grommunioTest {
 
 			// Dismiss reminder
 			$response = $this->user->dismissReminder(hex2bin($reminder['entryid']));
-		} catch (Exception $e) {
+		}
+		catch (Exception $e) {
 			$this->fail('Test that the reminders can be snoozed: ' . $e->getMessage() . PHP_EOL . $e->getTraceAsString());
 		}
 
@@ -256,10 +257,9 @@ class LoadReminderTest extends grommunioTest {
 	}
 
 	/**
-	 * Test that the Reminder can be dismisses
+	 * Test that the Reminder can be dismisses.
 	 */
-	public function testDismissAppointmentReminderResult()
-	{
+	public function testDismissAppointmentReminderResult() {
 		// Set the appointment time, have the appointment start 10 seconds
 		// in the future, and the reminder 5 seconds in the future.
 		$start = mktime(date('H'), date('i'), date('s') + 10);
@@ -267,8 +267,8 @@ class LoadReminderTest extends grommunioTest {
 		$flag = mktime(date('H'), date('i'), date('s') + 1);
 
 		$calendarUser = $this->addUser(new CalendarUser(new grommunioUser(GROMMUNIO_USER1_NAME, GROMMUNIO_USER1_PASSWORD)));
-		$appointment = $calendarUser->saveAppointment(array(
-			'props' => TestData::getAppointment(array(
+		$appointment = $calendarUser->saveAppointment([
+			'props' => TestData::getAppointment([
 				'startdate' => $start,
 				'duedate' => $end,
 				'commonstart' => $start,
@@ -276,12 +276,12 @@ class LoadReminderTest extends grommunioTest {
 				'reminder' => true,
 				'reminder_minutes' => 15,
 				'reminder_time' => $start,
-				'flagdueby' => $flag
-			))
-		), false);
+				'flagdueby' => $flag,
+			]),
+		], false);
 
 		// Wait for the reminder time.
-                $this->waitForReminder();
+		$this->waitForReminder();
 
 		// Obtain the reminder
 		$response = $this->user->loadReminders();
@@ -307,25 +307,24 @@ class LoadReminderTest extends grommunioTest {
 	}
 
 	/**
-	 * Test loading task reminders
+	 * Test loading task reminders.
 	 */
-	public function testLoadTaskReminders()
-	{
+	public function testLoadTaskReminders() {
 		// Set the flag time 5 seconds in the future
 		$flag = mktime(date('H'), date('i'), date('s') + 1);
 
 		$taskUser = $this->addUser(new TaskUser(new grommunioUser(GROMMUNIO_USER1_NAME, GROMMUNIO_USER1_PASSWORD)));
-		$task = $taskUser->saveTask(array(
-			'props' => TestData::getTask(array(
+		$task = $taskUser->saveTask([
+			'props' => TestData::getTask([
 				'reminder' => true,
 				'reminder_time' => $flag,
 				'flagdueby' => $flag,
-				'flag_due_by' => $flag
-			))
-		), false);
+				'flag_due_by' => $flag,
+			]),
+		], false);
 
 		// Wait for the reminder time.
-                $this->waitForReminder();
+		$this->waitForReminder();
 
 		$response = $this->user->loadReminders();
 
@@ -343,26 +342,25 @@ class LoadReminderTest extends grommunioTest {
 	}
 
 	/**
-	 * Test if the Reminder can be snoozed without errors
+	 * Test if the Reminder can be snoozed without errors.
 	 */
-	public function testSnoozeTaskReminders()
-	{
+	public function testSnoozeTaskReminders() {
 		try {
 			// Set the flag time 5 seconds in the future
 			$flag = mktime(date('H'), date('i'), date('s') + 1);
 
 			$taskUser = $this->addUser(new TaskUser(new grommunioUser(GROMMUNIO_USER1_NAME, GROMMUNIO_USER1_PASSWORD)));
-			$taskUser->saveTask(array(
-				'props' => TestData::getTask(array(
+			$taskUser->saveTask([
+				'props' => TestData::getTask([
 					'reminder' => true,
 					'reminder_time' => $flag,
 					'flagdueby' => $flag,
-					'flag_due_by' => $flag
-				))
-			), false);
+					'flag_due_by' => $flag,
+				]),
+			], false);
 
 			// Wait for the reminder time.
-                        $this->waitForReminder();
+			$this->waitForReminder();
 
 			// Obtain the reminder
 			$response = $this->user->loadReminders();
@@ -370,7 +368,8 @@ class LoadReminderTest extends grommunioTest {
 
 			// Snooze reminder for 1 minute
 			$response = $this->user->snoozeReminder(hex2bin($reminder['entryid']), 1);
-		} catch (Exception $e) {
+		}
+		catch (Exception $e) {
 			$this->fail('Test that the reminders can be snoozed: ' . $e->getMessage() . PHP_EOL . $e->getTraceAsString());
 		}
 
@@ -379,25 +378,24 @@ class LoadReminderTest extends grommunioTest {
 	}
 
 	/**
-	 * Test that the Reminder can be snoozed
+	 * Test that the Reminder can be snoozed.
 	 */
-	public function testSnoozeTaskReminderResult()
-	{
+	public function testSnoozeTaskReminderResult() {
 		// Set the flag time 1 seconds in the future
 		$flag = mktime(date('H'), date('i'), date('s') + 1);
 
 		$taskUser = $this->addUser(new TaskUser(new grommunioUser(GROMMUNIO_USER1_NAME, GROMMUNIO_USER1_PASSWORD)));
-		$task = $taskUser->saveTask(array(
-			'props' => TestData::getTask(array(
+		$task = $taskUser->saveTask([
+			'props' => TestData::getTask([
 				'reminder' => true,
 				'reminder_time' => $flag,
 				'flagdueby' => $flag,
-				'flag_due_by' => $flag
-			))
-		), false);
+				'flag_due_by' => $flag,
+			]),
+		], false);
 
 		// Wait for the reminder time.
-                $this->waitForReminder();
+		$this->waitForReminder();
 
 		// Obtain the reminder
 		$response = $this->user->loadReminders();
@@ -432,26 +430,25 @@ class LoadReminderTest extends grommunioTest {
 	}
 
 	/**
-	 * Test if the Reminder can be snoozed without errors
+	 * Test if the Reminder can be snoozed without errors.
 	 */
-	public function testDismissTaskReminders()
-	{
+	public function testDismissTaskReminders() {
 		try {
 			// Set the flag time 2 seconds in the future
 			$flag = mktime(date('H'), date('i'), date('s') + 1);
 
 			$taskUser = $this->addUser(new TaskUser(new grommunioUser(GROMMUNIO_USER1_NAME, GROMMUNIO_USER1_PASSWORD)));
-			$taskUser->saveTask(array(
-				'props' => TestData::getTask(array(
+			$taskUser->saveTask([
+				'props' => TestData::getTask([
 					'reminder' => true,
 					'reminder_time' => $flag,
 					'flagdueby' => $flag,
-					'flag_due_by' => $flag
-				))
-			), false);
+					'flag_due_by' => $flag,
+				]),
+			], false);
 
 			// Wait for the reminder time.
-                        $this->waitForReminder();
+			$this->waitForReminder();
 
 			// Obtain the reminder
 			$response = $this->user->loadReminders();
@@ -459,7 +456,8 @@ class LoadReminderTest extends grommunioTest {
 
 			// Dismiss reminder
 			$response = $this->user->dismissReminder(hex2bin($reminder['entryid']));
-		} catch (Exception $e) {
+		}
+		catch (Exception $e) {
 			$this->fail('Test that the reminders can be snoozed: ' . $e->getMessage() . PHP_EOL . $e->getTraceAsString());
 		}
 
@@ -468,25 +466,24 @@ class LoadReminderTest extends grommunioTest {
 	}
 
 	/**
-	 * Test that the Reminder can be dismisses
+	 * Test that the Reminder can be dismisses.
 	 */
-	public function testDismissTaskReminderResult()
-	{
+	public function testDismissTaskReminderResult() {
 		// Set the flag time 5 seconds in the future
 		$flag = mktime(date('H'), date('i'), date('s') + 1);
 
 		$taskUser = $this->addUser(new TaskUser(new grommunioUser(GROMMUNIO_USER1_NAME, GROMMUNIO_USER1_PASSWORD)));
-		$taskUser->saveTask(array(
-			'props' => TestData::getTask(array(
+		$taskUser->saveTask([
+			'props' => TestData::getTask([
 				'reminder' => true,
 				'reminder_time' => $flag,
 				'flagdueby' => $flag,
-				'flag_due_by' => $flag
-			))
-		), false);
+				'flag_due_by' => $flag,
+			]),
+		], false);
 
 		// Wait for the reminder time.
-                $this->waitForReminder();
+		$this->waitForReminder();
 
 		// Obtain the reminder
 		$response = $this->user->loadReminders();
@@ -511,4 +508,3 @@ class LoadReminderTest extends grommunioTest {
 		$this->assertEmpty($response['list']['item'], 'Test that no reminders were returned');
 	}
 }
-?>

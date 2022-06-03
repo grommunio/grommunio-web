@@ -1,42 +1,44 @@
 <?php
-require_once('classes/grommunioUser.php');
-require_once('classes/BusytimeUser.php');
-require_once('classes/CalendarUser.php');
-require_once('classes/TestData.php');
-require_once('classes/grommunioTest.php');
+
+require_once 'classes/grommunioUser.php';
+require_once 'classes/BusytimeUser.php';
+require_once 'classes/CalendarUser.php';
+require_once 'classes/TestData.php';
+require_once 'classes/grommunioTest.php';
 
 /**
- * BusytimeTest
+ * BusytimeTest.
  *
  * Tests all cases for loading the busytimes
+ *
+ * @internal
+ * @coversNothing
  */
 class BusytimeTest extends grommunioTest {
-
 	/**
-	 * The default user which is creating the appointments
+	 * The default user which is creating the appointments.
 	 */
 	private $user;
 
 	/**
-	 * The calendar user which will save the appointments
+	 * The calendar user which will save the appointments.
 	 */
 	private $calendarUser;
 
 	/**
-	 * The start date for the restriction
+	 * The start date for the restriction.
 	 */
 	private $startDate;
 
 	/**
-	 * The due date for the restriction
+	 * The due date for the restriction.
 	 */
 	private $dueDate;
 
 	/**
 	 * During setup we are going to create the $user which will create the appointments.
 	 */
-	protected function setUp()
-	{
+	protected function setUp() {
 		parent::setUp();
 
 		$this->user = $this->addUser(new BusytimeUser(new grommunioUser(GROMMUNIO_USER1_NAME, GROMMUNIO_USER1_PASSWORD)));
@@ -47,32 +49,34 @@ class BusytimeTest extends grommunioTest {
 	}
 
 	/**
-	 * Test if the busytimes can be loaded
+	 * Test if the busytimes can be loaded.
 	 *
 	 * @dataProvider providerLoadBusytimes
+	 *
+	 * @param mixed $props
+	 * @param mixed $expectedCount
+	 * @param mixed $msg
 	 */
-	public function testLoadBusytime($props, $expectedCount, $msg)
-	{
+	public function testLoadBusytime($props, $expectedCount, $msg) {
 		try {
-			$appointment = array(
-				'props' => TestData::getRecurringAppointment($props)
-			);
+			$appointment = [
+				'props' => TestData::getRecurringAppointment($props),
+			];
 			$appointment = $this->calendarUser->saveAppointment($appointment);
 			$appointments = $this->user->loadBusytimes($this->startDate, $this->dueDate);
-		} catch (Exception $e) {
+		}
+		catch (Exception $e) {
 			$this->fail('Test that the Appointment can be saved: ' . $e->getMessage() . PHP_EOL . $e->getTraceAsString());
 		}
 
 		$this->assertCount($expectedCount, $appointments, $msg);
 	}
 
-	/**********************************************************************************************************/
 	/* Data providers */
-	/**********************************************************************************************************/
 
 	/**
 	 * Provide combinations of an appointment with different start/duedate and recurrences
-	 * The purpose is to test different cases where the appointments are placed inside the current month
+	 * The purpose is to test different cases where the appointments are placed inside the current month.
 	 *
 	 * The test functions using this provider should accept 3 arguments.
 	 * The first argument is the properties array which must be applied on the message which
@@ -80,56 +84,53 @@ class BusytimeTest extends grommunioTest {
 	 * returned by the load command, and the third argument is the message that should be
 	 * shown when the test fails.
 	 */
-	public function providerLoadBusytimes()
-	{
-		//get number of weeks in the next month, starting from today's date in a month
+	public function providerLoadBusytimes() {
+		// get number of weeks in the next month, starting from today's date in a month
 		$month = date("n") + 1;
-		if($month > 12) {
+		if ($month > 12) {
 			$month -= 12;
 		}
 
 		$days = cal_days_in_month(CAL_GREGORIAN, $month, date("Y"));
-		$firstDayStamp = mktime(0,0,0,date("n")+1,(date("j")%7)+1,date("Y")); //timestamp
-		$firstDay = date("j", $firstDayStamp); //day of the month (only the first week, 1-7)
-		$weeks = floor(($days-$firstDay)/7)+1;
+		$firstDayStamp = mktime(0, 0, 0, date("n") + 1, (date("j") % 7) + 1, date("Y")); // timestamp
+		$firstDay = date("j", $firstDayStamp); // day of the month (only the first week, 1-7)
+		$weeks = floor(($days - $firstDay) / 7) + 1;
 
-		//floor doesn't convert the data type from float to integer, and assertCount
-		//requires Integer as its first argument
+		// floor doesn't convert the data type from float to integer, and assertCount
+		// requires Integer as its first argument
 		$weeks = intval($weeks);
 
-		return array(
+		return [
 			// The appointment falls completely before the restriction
-			array(array(
+			[[
 				'startdate' => mktime(14, 0, 0, date("n"), date("j")),
 				'duedate' => mktime(15, 0, 0, date("n"), date("j")),
-				'recurring' => false
-			), 0, 'Test that the busy time is empty when appointment falls before range'),
+				'recurring' => false,
+			], 0, 'Test that the busy time is empty when appointment falls before range'],
 			// The appointment overlaps the start of the restriction
-			array(array(
+			[[
 				'startdate' => mktime(22, 0, 0, date("n"), date("j")),
 				'duedate' => mktime(02, 0, 0, date("n") + 1, date("j")),
-				'recurring' => false
-			), 1, 'Test that the busy time can be loaded when appointment overlaps startdate'),
+				'recurring' => false,
+			], 1, 'Test that the busy time can be loaded when appointment overlaps startdate'],
 			// The appointment falls completely after the restriction
-			array(array(
+			[[
 				'startdate' => mktime(14, 0, 0, date("n") + 2, date("j")),
 				'duedate' => mktime(15, 0, 0, date("n") + 2, date("j")),
-				'recurring' => false
-			), 0, 'Test that the busy time is empty when appointment falls after range'),
+				'recurring' => false,
+			], 0, 'Test that the busy time is empty when appointment falls after range'],
 			// The appointment overlaps the end of the restriction
-			array(array(
+			[[
 				'startdate' => mktime(22, 0, 0, date("n") + 2, 0),
 				'duedate' => mktime(02, 0, 0, date("n") + 2, 1),
-				'recurring' => false
-			), 1, 'Test that the busy time can be loaded when appointment overlaps duedate'),
+				'recurring' => false,
+			], 1, 'Test that the busy time can be loaded when appointment overlaps duedate'],
 			// The recurring appointment runs over the entire duration
-			array(array(
+			[[
 				'startdate' => $firstDayStamp,
 				'duedate' => $firstDayStamp + (60 * 60),
-				'recurring' => true
-			), $weeks, 'Test that the busy times for a recurring appointment can be loaded'),
-		);
+				'recurring' => true,
+			], $weeks, 'Test that the busy times for a recurring appointment can be loaded'],
+		];
 	}
 }
-
-?>

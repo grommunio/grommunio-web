@@ -1,30 +1,32 @@
 <?php
-require_once('classes/grommunioUser.php');
-require_once('classes/TestUser.php');
-require_once('classes/grommunioTest.php');
+
+require_once 'classes/grommunioUser.php';
+require_once 'classes/TestUser.php';
+require_once 'classes/grommunioTest.php';
 
 /**
- * RequirementPluginsTest
+ * RequirementPluginsTest.
  *
  * Tests loading the plugins which have requirements
+ *
+ * @internal
+ * @coversNothing
  */
 class RequirementPluginsTest extends grommunioTest {
-
 	/**
 	 * The default user.
 	 */
 	private $user;
 
 	/**
-	 * The base folder in which the various test setups can be found
+	 * The base folder in which the various test setups can be found.
 	 */
 	private $base;
 
 	/**
-	 * During setUp we create the user
+	 * During setUp we create the user.
 	 */
-	protected function setUp()
-	{
+	protected function setUp() {
 		parent::setUp();
 
 		$this->user = $this->addUser(new TestUser(new grommunioUser(GROMMUNIO_USER1_NAME, GROMMUNIO_USER1_PASSWORD)));
@@ -41,8 +43,7 @@ class RequirementPluginsTest extends grommunioTest {
 	 * Test if the plugins from the 'test-requirements' folder has correctly been loaded.
 	 * These are the plugins with correct requirements
 	 */
-	public function testLoadRequirementPluginsResult()
-	{
+	public function testLoadRequirementPluginsResult() {
 		$GLOBALS['PluginManager'] = new PluginManager(true);
 		$GLOBALS['PluginManager']->pluginpath = $this->base . DIRECTORY_SEPARATOR . 'test-requirements';
 		$GLOBALS['PluginManager']->detectPlugins();
@@ -64,8 +65,7 @@ class RequirementPluginsTest extends grommunioTest {
 	 *	- Plugin 05 requires Plugin 03
 	 *	- Plugin 06 requires nothing
 	 */
-	public function testLoadRequirementPluginsClientFiles()
-	{
+	public function testLoadRequirementPluginsClientFiles() {
 		$GLOBALS['PluginManager'] = new PluginManager(true);
 		$GLOBALS['PluginManager']->pluginpath = $this->base . DIRECTORY_SEPARATOR . 'test-requirements';
 		$GLOBALS['PluginManager']->detectPlugins();
@@ -94,8 +94,7 @@ class RequirementPluginsTest extends grommunioTest {
 	 * Test if the plugins from the 'test-unmet-requirements' folder has correctly been loaded.
 	 * These are the plugins with some unmet requirements
 	 */
-	public function testLoadUnmetRequirementPluginsResult()
-	{
+	public function testLoadUnmetRequirementPluginsResult() {
 		$GLOBALS['PluginManager'] = new PluginManager(true);
 		$GLOBALS['PluginManager']->pluginpath = $this->base . DIRECTORY_SEPARATOR . 'test-unmet-requirements';
 		$GLOBALS['PluginManager']->detectPlugins();
@@ -117,8 +116,7 @@ class RequirementPluginsTest extends grommunioTest {
 	 *	- Plugin 05 requires Plugin 07
 	 *	- Plugin 06 requires nothing
 	 */
-	public function testLoadUnmetRequirementPluginsClientFiles()
-	{
+	public function testLoadUnmetRequirementPluginsClientFiles() {
 		$GLOBALS['PluginManager'] = new PluginManager(true);
 		$GLOBALS['PluginManager']->pluginpath = $this->base . DIRECTORY_SEPARATOR . 'test-unmet-requirements';
 		$GLOBALS['PluginManager']->detectPlugins();
@@ -148,8 +146,7 @@ class RequirementPluginsTest extends grommunioTest {
 	 * Test if the plugins from the 'test-circular-requirements' folder has correctly been loaded.
 	 * These are the plugins with some circular requirements
 	 */
-	public function testLoadCircularRequirementPluginsResult()
-	{
+	public function testLoadCircularRequirementPluginsResult() {
 		$GLOBALS['PluginManager'] = new PluginManager(true);
 		$GLOBALS['PluginManager']->pluginpath = $this->base . DIRECTORY_SEPARATOR . 'test-circular-requirements';
 		$GLOBALS['PluginManager']->detectPlugins();
@@ -171,8 +168,7 @@ class RequirementPluginsTest extends grommunioTest {
 	 *	- Plugin 05 requires Plugin 04
 	 *	- Plugin 06 requires nothing
 	 */
-	public function testLoadCircularRequirementPluginsClientFiles()
-	{
+	public function testLoadCircularRequirementPluginsClientFiles() {
 		$GLOBALS['PluginManager'] = new PluginManager(true);
 		$GLOBALS['PluginManager']->pluginpath = $this->base . DIRECTORY_SEPARATOR . 'test-circular-requirements';
 		$GLOBALS['PluginManager']->detectPlugins();
@@ -197,5 +193,3 @@ class RequirementPluginsTest extends grommunioTest {
 		$this->assertNotFalse($f6, 'Test that Plugin 06 is ordered');
 	}
 }
-
-?>

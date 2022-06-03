@@ -1,59 +1,63 @@
 <?php
-require_once('classes/grommunioUser.php');
-require_once('classes/RestoreMessageUser.php');
-require_once('classes/MailUser.php');
-require_once('classes/TestData.php');
-require_once('classes/grommunioTest.php');
 
+require_once 'classes/grommunioUser.php';
+require_once 'classes/RestoreMessageUser.php';
+require_once 'classes/MailUser.php';
+require_once 'classes/TestData.php';
+require_once 'classes/grommunioTest.php';
+
+/**
+ * @internal
+ * @coversNothing
+ */
 class DeleteSoftDeletedMessages extends grommunioTest {
 	/**
-	 * The default user which will be sending request to retrieve soft deleted messages
+	 * The default user which will be sending request to retrieve soft deleted messages.
 	 */
 	private $restoreUser;
 
 	/**
-	 * The default user which will be sending the mail
+	 * The default user which will be sending the mail.
 	 */
 	private $mailUser;
 
 	/**
-	 * The message which will be created and saved
+	 * The message which will be created and saved.
 	 */
 	private $message;
 
 	/**
-	 * The entryid of the soft-deleted message
+	 * The entryid of the soft-deleted message.
 	 */
 	private $softDeletedId;
 
 	/**
-	 * During setUp we create the user
+	 * During setUp we create the user.
 	 */
-	protected function setUp()
-	{
+	protected function setUp() {
 		parent::setUp();
 
 		$this->restoreUser = $this->addUser(new RestoreMessageUser(new grommunioUser(GROMMUNIO_USER1_NAME, GROMMUNIO_USER1_PASSWORD)));
 		$this->mailUser = $this->addUser(new MailUser(new grommunioUser(GROMMUNIO_USER1_NAME, GROMMUNIO_USER1_PASSWORD)));
 
-		$this->message = array(
-			'props' => TestData::getMail()
-		);
+		$this->message = [
+			'props' => TestData::getMail(),
+		];
 
 		$savedMail = $this->mailUser->saveMail($this->message);
-		$this->softDeletedId = $this->mailUser->getMailProps($savedMail, array(PR_ENTRYID));
+		$this->softDeletedId = $this->mailUser->getMailProps($savedMail, [PR_ENTRYID]);
 		$this->softDeletedId = $this->softDeletedId[PR_ENTRYID];
-		$this->mailUser->deleteMail($this->softDeletedId, array('soft_delete' => true));
+		$this->mailUser->deleteMail($this->softDeletedId, ['soft_delete' => true]);
 	}
 
 	/**
-	 * Tests if soft deleted messages will be hard-deleted successfully
+	 * Tests if soft deleted messages will be hard-deleted successfully.
 	 */
-	public function testDeleteSoftDeletedMessages()
-	{
+	public function testDeleteSoftDeletedMessages() {
 		try {
-			$response = $this->restoreUser->deleteSoftdeletedItems(array($this->softDeletedId));
-		} catch(Exception $e) {
+			$response = $this->restoreUser->deleteSoftdeletedItems([$this->softDeletedId]);
+		}
+		catch (Exception $e) {
 			$this->fail('Test that a message can be hard-deleted: ' . $e->getMessage() . PHP_EOL . $e->getTraceAsString());
 		}
 
@@ -61,14 +65,15 @@ class DeleteSoftDeletedMessages extends grommunioTest {
 	}
 
 	/**
-	 * Tests if the message is not there into the soft deleted message list after hard-delete
-	 * @expectedException MAPIException
+	 * Tests if the message is not there into the soft deleted message list after hard-delete.
+	 *
+	 * @expectedException \MAPIException
 	 */
-	public function testSoftDeletedMessageDeletedPermanently()
-	{
+	public function testSoftDeletedMessageDeletedPermanently() {
 		try {
-			$this->restoreUser->deleteSoftdeletedItems(array($this->softDeletedId));
-		} catch(Exception $e) {
+			$this->restoreUser->deleteSoftdeletedItems([$this->softDeletedId]);
+		}
+		catch (Exception $e) {
 			$this->fail('Test that a message can be hard-deleted: ' . $e->getMessage() . PHP_EOL . $e->getTraceAsString());
 		}
 
@@ -83,33 +88,33 @@ class DeleteSoftDeletedMessages extends grommunioTest {
 	/*
 	 * Tests if all the soft deleted messages will be hard-deleted
 	 */
-	public function testDeleteAllSoftDeletedMessages()
-	{
-		$messageObjA = array(
-			'props' => TestData::getMail(array(
-				'subject' => 'A'
-			))
-		);
+	public function testDeleteAllSoftDeletedMessages() {
+		$messageObjA = [
+			'props' => TestData::getMail([
+				'subject' => 'A',
+			]),
+		];
 
-		$messageObjB = array(
-			'props' => TestData::getMail(array(
-				'subject' => 'B'
-			))
-		);
+		$messageObjB = [
+			'props' => TestData::getMail([
+				'subject' => 'B',
+			]),
+		];
 
 		try {
 			$savedMailA = $this->mailUser->saveMail($messageObjA);
 			$savedMailB = $this->mailUser->saveMail($messageObjB);
 
-			$propsA = $this->mailUser->getMailProps($savedMailA, array(PR_ENTRYID));
-			$propsB = $this->mailUser->getMailProps($savedMailB, array(PR_ENTRYID));
+			$propsA = $this->mailUser->getMailProps($savedMailA, [PR_ENTRYID]);
+			$propsB = $this->mailUser->getMailProps($savedMailB, [PR_ENTRYID]);
 
-			$this->mailUser->deleteMail($propsA[PR_ENTRYID], array('soft_delete' => true));
-			$this->mailUser->deleteMail($propsB[PR_ENTRYID], array('soft_delete' => true));
+			$this->mailUser->deleteMail($propsA[PR_ENTRYID], ['soft_delete' => true]);
+			$this->mailUser->deleteMail($propsB[PR_ENTRYID], ['soft_delete' => true]);
 
-			$entryids = array($propsA[PR_ENTRYID], $propsB[PR_ENTRYID], $this->softDeletedId);
+			$entryids = [$propsA[PR_ENTRYID], $propsB[PR_ENTRYID], $this->softDeletedId];
 			$response = $this->restoreUser->deleteSoftdeletedItems($entryids);
-		} catch (Exception $e) {
+		}
+		catch (Exception $e) {
 			$this->fail('Test that some messages can be soft deleted and hard-deleted too: ' . $e->getMessage() . PHP_EOL . $e->getTraceAsString());
 		}
 
@@ -119,35 +124,35 @@ class DeleteSoftDeletedMessages extends grommunioTest {
 	}
 
 	/**
-	 * Tests if all the messages are not there into the soft deleted message list after hard-delete all those messages
+	 * Tests if all the messages are not there into the soft deleted message list after hard-delete all those messages.
 	 */
-	public function testAllSoftDeletedMessagesDeletedPermanently()
-	{
-		$messageObjA = array(
-			'props' => TestData::getMail(array(
-				'subject' => 'A'
-			))
-		);
+	public function testAllSoftDeletedMessagesDeletedPermanently() {
+		$messageObjA = [
+			'props' => TestData::getMail([
+				'subject' => 'A',
+			]),
+		];
 
-		$messageObjB = array(
-			'props' => TestData::getMail(array(
-				'subject' => 'B'
-			))
-		);
+		$messageObjB = [
+			'props' => TestData::getMail([
+				'subject' => 'B',
+			]),
+		];
 
 		try {
 			$savedMailA = $this->mailUser->saveMail($messageObjA);
 			$savedMailB = $this->mailUser->saveMail($messageObjB);
 
-			$propsA = $this->mailUser->getMailProps($savedMailA, array(PR_ENTRYID));
-			$propsB = $this->mailUser->getMailProps($savedMailB, array(PR_ENTRYID));
+			$propsA = $this->mailUser->getMailProps($savedMailA, [PR_ENTRYID]);
+			$propsB = $this->mailUser->getMailProps($savedMailB, [PR_ENTRYID]);
 
-			$this->mailUser->deleteMail($propsA[PR_ENTRYID], array('soft_delete' => true));
-			$this->mailUser->deleteMail($propsB[PR_ENTRYID], array('soft_delete' => true));
+			$this->mailUser->deleteMail($propsA[PR_ENTRYID], ['soft_delete' => true]);
+			$this->mailUser->deleteMail($propsB[PR_ENTRYID], ['soft_delete' => true]);
 
-			$entryids = array($propsA[PR_ENTRYID], $propsB[PR_ENTRYID], $this->softDeletedId);
+			$entryids = [$propsA[PR_ENTRYID], $propsB[PR_ENTRYID], $this->softDeletedId];
 			$this->restoreUser->deleteSoftdeletedItems($entryids);
-		} catch (Exception $e) {
+		}
+		catch (Exception $e) {
 			$this->fail('Test that some messages can be soft deleted and hard-deleted too: ' . $e->getMessage() . PHP_EOL . $e->getTraceAsString());
 		}
 
@@ -156,4 +161,3 @@ class DeleteSoftDeletedMessages extends grommunioTest {
 		$this->assertEmpty($softDeletedMessages, 'Test that there is no soft deleted messages after Delete all');
 	}
 }
-?>

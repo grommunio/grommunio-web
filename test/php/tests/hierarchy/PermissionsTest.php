@@ -1,35 +1,38 @@
 <?php
-require_once('classes/grommunioUser.php');
-require_once('classes/HierarchyUser.php');
-require_once('classes/TestData.php');
-require_once('classes/grommunioTest.php');
+
+require_once 'classes/grommunioUser.php';
+require_once 'classes/HierarchyUser.php';
+require_once 'classes/TestData.php';
+require_once 'classes/grommunioTest.php';
 
 /**
- * PermissionsTest
+ * PermissionsTest.
  *
  * Tests all possible cases for applying permissions on a folder
+ *
+ * @internal
+ * @coversNothing
  */
 class PermissionsTest extends grommunioTest {
 	/**
-	 * The user for which we will add and close Shared Stores
+	 * The user for which we will add and close Shared Stores.
 	 */
 	private $user;
 
 	/**
-	 * The user which will receive the permissions
+	 * The user which will receive the permissions.
 	 */
 	private $permissionUser;
 
 	/**
-	 * The second user which will receive the permissions
+	 * The second user which will receive the permissions.
 	 */
 	private $permissionUser2;
 
 	/**
-	 * During setup we create the user, and clear the shared stores settings
+	 * During setup we create the user, and clear the shared stores settings.
 	 */
-	protected function setUp()
-	{   
+	protected function setUp() {
 		parent::setUp();
 
 		$this->user = $this->addUser(new HierarchyUser(new grommunioUser(GROMMUNIO_USER1_NAME, GROMMUNIO_USER1_PASSWORD)));
@@ -38,15 +41,19 @@ class PermissionsTest extends grommunioTest {
 	}
 
 	/**
-	 * Test if permissions can be loaded from a folder
+	 * Test if permissions can be loaded from a folder.
+	 *
 	 * @dataProvider providerPermissionsFolder
+	 *
+	 * @param mixed $entryid
+	 * @param mixed $type
 	 */
-	public function testListPermissions($entryid, $type)
-	{
+	public function testListPermissions($entryid, $type) {
 		try {
 			$entryid = $entryid ? $this->user->getDefaultFolderEntryID($entryid) : $entryid;
 			$folder = $this->user->openFolder($entryid);
-		} catch(Exception $e) {
+		}
+		catch (Exception $e) {
 			$this->fail('Test that a ' . $type . ' can be opened: ' . $e->getMessage() . PHP_EOL . $e->getTraceAsString());
 		}
 
@@ -56,15 +63,19 @@ class PermissionsTest extends grommunioTest {
 	}
 
 	/**
-	 * Test if permissions to a user can be given on a folder
+	 * Test if permissions to a user can be given on a folder.
+	 *
 	 * @dataProvider providerPermissionsFolder
+	 *
+	 * @param mixed $entryid
+	 * @param mixed $type
 	 */
-	public function testAddPermissionsToFolder($entryid, $type)
-	{
+	public function testAddPermissionsToFolder($entryid, $type) {
 		try {
 			$entryid = $entryid ? $this->user->getDefaultFolderEntryID($entryid) : $entryid;
 			$response = $this->user->addPermissions($this->permissionUser, ecRightsFolderVisible, $entryid);
-		} catch(Exception $e) {
+		}
+		catch (Exception $e) {
 			$this->fail('Test that permissions can be set on a ' . $type . ': ' . $e->getMessage() . PHP_EOL . $e->getTraceAsString());
 		}
 
@@ -72,11 +83,14 @@ class PermissionsTest extends grommunioTest {
 	}
 
 	/**
-	 * Test if the added permissions are properly saved
+	 * Test if the added permissions are properly saved.
+	 *
 	 * @dataProvider providerPermissionsFolder
+	 *
+	 * @param mixed $entryid
+	 * @param mixed $type
 	 */
-	public function testAddedPermissionsInFolder($entryid, $type)
-	{
+	public function testAddedPermissionsInFolder($entryid, $type) {
 		$entryid = $entryid ? $this->user->getDefaultFolderEntryID($entryid) : $entryid;
 		$this->user->addPermissions($this->permissionUser, ecRightsFolderVisible, $entryid);
 		$folder = $this->user->openFolder($entryid);
@@ -85,7 +99,7 @@ class PermissionsTest extends grommunioTest {
 		$this->assertArrayHasKey('permissions', $folder['item'], 'Test that the opened folder returns an \'permissions\' array');
 		$this->assertCount(1, $folder['item']['permissions']['item'], 'Test that the permissions list contains 1 item');
 
-		$user = $this->permissionUser->getUserProps(array( PR_ENTRYID, PR_OBJECT_TYPE, PR_DISPLAY_NAME ));
+		$user = $this->permissionUser->getUserProps([PR_ENTRYID, PR_OBJECT_TYPE, PR_DISPLAY_NAME]);
 		$permission = $folder['item']['permissions']['item'][0];
 
 		$this->assertEquals(bin2hex($user[PR_ENTRYID]), $permission['entryid'], 'Test that the entry is correct set');
@@ -95,16 +109,20 @@ class PermissionsTest extends grommunioTest {
 	}
 
 	/**
-	 * Test if another use can also receive permissions on the folder
+	 * Test if another use can also receive permissions on the folder.
+	 *
 	 * @dataProvider providerPermissionsFolder
+	 *
+	 * @param mixed $entryid
+	 * @param mixed $type
 	 */
-	public function testAddingSecondPermissionToFolder($entryid, $type)
-	{
+	public function testAddingSecondPermissionToFolder($entryid, $type) {
 		try {
 			$entryid = $entryid ? $this->user->getDefaultFolderEntryID($entryid) : $entryid;
 			$this->user->addPermissions($this->permissionUser, ecRightsFolderVisible, $entryid);
 			$response = $this->user->addPermissions($this->permissionUser2, ecRightsFolderVisible, $entryid);
-		} catch(Exception $e) {
+		}
+		catch (Exception $e) {
 			$this->fail('Test that permissions can be set on a ' . $type . ': ' . $e->getMessage() . PHP_EOL . $e->getTraceAsString());
 		}
 
@@ -112,11 +130,14 @@ class PermissionsTest extends grommunioTest {
 	}
 
 	/**
-	 * Test if the properties are correctly applied on the folder
+	 * Test if the properties are correctly applied on the folder.
+	 *
 	 * @dataProvider providerPermissionsFolder
+	 *
+	 * @param mixed $entryid
+	 * @param mixed $type
 	 */
-	public function testSecondAddedPermissionInFolder($entryid, $type)
-	{
+	public function testSecondAddedPermissionInFolder($entryid, $type) {
 		$entryid = $entryid ? $this->user->getDefaultFolderEntryID($entryid) : $entryid;
 		$this->user->addPermissions($this->permissionUser, ecRightsFolderVisible, $entryid);
 		$this->user->addPermissions($this->permissionUser2, ecRightsFolderAccess, $entryid);
@@ -126,7 +147,7 @@ class PermissionsTest extends grommunioTest {
 		$this->assertArrayHasKey('permissions', $folder['item'], 'Test that the opened folder returns an \'permissions\' array');
 		$this->assertCount(2, $folder['item']['permissions']['item'], 'Test that the permissions list contains 2 items');
 
-		$user = $this->permissionUser->getUserProps(array( PR_ENTRYID, PR_OBJECT_TYPE, PR_DISPLAY_NAME ));
+		$user = $this->permissionUser->getUserProps([PR_ENTRYID, PR_OBJECT_TYPE, PR_DISPLAY_NAME]);
 		$permission = Util::searchInArray($folder['item']['permissions']['item'], 'entryid', bin2hex($user[PR_ENTRYID]));
 
 		$this->assertEquals(bin2hex($user[PR_ENTRYID]), $permission['entryid'], 'Test that the entry is correct set');
@@ -134,7 +155,7 @@ class PermissionsTest extends grommunioTest {
 		$this->assertEquals($user[PR_DISPLAY_NAME], $permission['props']['display_name'], 'Test that the display name is correctly set');
 		$this->assertEquals(ecRightsFolderVisible, $permission['props']['rights'], 'Test that the rights are correctly set');
 
-		$user = $this->permissionUser2->getUserProps(array( PR_ENTRYID, PR_OBJECT_TYPE, PR_DISPLAY_NAME ));
+		$user = $this->permissionUser2->getUserProps([PR_ENTRYID, PR_OBJECT_TYPE, PR_DISPLAY_NAME]);
 		$permission = Util::searchInArray($folder['item']['permissions']['item'], 'entryid', bin2hex($user[PR_ENTRYID]));
 
 		$this->assertEquals(bin2hex($user[PR_ENTRYID]), $permission['entryid'], 'Test that the entry is correct set');
@@ -144,16 +165,20 @@ class PermissionsTest extends grommunioTest {
 	}
 
 	/**
-	 * Test if existing permissions can be modified on a folder
+	 * Test if existing permissions can be modified on a folder.
+	 *
 	 * @dataProvider providerPermissionsFolder
+	 *
+	 * @param mixed $entryid
+	 * @param mixed $type
 	 */
-	public function testModifyPermissionsOnFolder($entryid, $type)
-	{
+	public function testModifyPermissionsOnFolder($entryid, $type) {
 		try {
 			$entryid = $entryid ? $this->user->getDefaultFolderEntryID($entryid) : $entryid;
 			$this->user->addPermissions($this->permissionUser, ecRightsFolderVisible, $entryid);
 			$response = $this->user->modifyPermissions($this->permissionUser, ecRightsFolderVisible | ecRightsFolderAccess, $entryid);
-		} catch(Exception $e) {
+		}
+		catch (Exception $e) {
 			$this->fail('Test that permissions can be modified on a folder ' . $type . ': ' . $e->getMessage() . PHP_EOL . $e->getTraceAsString());
 		}
 
@@ -162,10 +187,13 @@ class PermissionsTest extends grommunioTest {
 
 	/**
 	 * Test if the modified permissions have been correctly saved.
+	 *
 	 * @dataProvider providerPermissionsFolder
+	 *
+	 * @param mixed $entryid
+	 * @param mixed $type
 	 */
-	public function testModifiedPermissionsInFolder($entryid, $type)
-	{
+	public function testModifiedPermissionsInFolder($entryid, $type) {
 		$entryid = $entryid ? $this->user->getDefaultFolderEntryID($entryid) : $entryid;
 		$this->user->addPermissions($this->permissionUser, ecRightsFolderVisible, $entryid);
 		$this->user->modifyPermissions($this->permissionUser, ecRightsFolderVisible | ecRightsFolderAccess, $entryid);
@@ -175,7 +203,7 @@ class PermissionsTest extends grommunioTest {
 		$this->assertArrayHasKey('permissions', $folder['item'], 'Test that the opened folder returns an \'permissions\' array');
 		$this->assertCount(1, $folder['item']['permissions']['item'], 'Test that the permissions list contains 1 item');
 
-		$user = $this->permissionUser->getUserProps(array( PR_ENTRYID, PR_OBJECT_TYPE, PR_DISPLAY_NAME ));
+		$user = $this->permissionUser->getUserProps([PR_ENTRYID, PR_OBJECT_TYPE, PR_DISPLAY_NAME]);
 		$permission = $folder['item']['permissions']['item'][0];
 
 		$this->assertEquals(bin2hex($user[PR_ENTRYID]), $permission['entryid'], 'Test that the entry is correct set');
@@ -185,16 +213,20 @@ class PermissionsTest extends grommunioTest {
 	}
 
 	/**
-	 * Test if permissions on a folder can be removed
+	 * Test if permissions on a folder can be removed.
+	 *
 	 * @dataProvider providerPermissionsFolder
+	 *
+	 * @param mixed $entryid
+	 * @param mixed $type
 	 */
-	public function testDeletePermissionsFromFolder($entryid, $type)
-	{
+	public function testDeletePermissionsFromFolder($entryid, $type) {
 		try {
 			$entryid = $entryid ? $this->user->getDefaultFolderEntryID($entryid) : $entryid;
 			$this->user->addPermissions($this->permissionUser, ecRightsFolderVisible, $entryid);
 			$response = $this->user->deletePermissions($this->permissionUser, $entryid);
-		} catch(Exception $e) {
+		}
+		catch (Exception $e) {
 			$this->fail('Test that permissions can be deleted from a folder ' . $type . ': ' . $e->getMessage() . PHP_EOL . $e->getTraceAsString());
 		}
 
@@ -203,10 +235,13 @@ class PermissionsTest extends grommunioTest {
 
 	/**
 	 * Test if the removed permissions are correctly removed from the folder.
+	 *
 	 * @dataProvider providerPermissionsFolder
+	 *
+	 * @param mixed $entryid
+	 * @param mixed $type
 	 */
-	public function testDeletedPermissionsInFolder($entryid, $type)
-	{
+	public function testDeletedPermissionsInFolder($entryid, $type) {
 		$entryid = $entryid ? $this->user->getDefaultFolderEntryID($entryid) : $entryid;
 		$this->user->addPermissions($this->permissionUser, ecRightsFolderVisible, $entryid);
 		$this->user->deletePermissions($this->permissionUser, $entryid);
@@ -220,14 +255,13 @@ class PermissionsTest extends grommunioTest {
 	/**
 	 * Special Data provider which indicates the folders for which the permissions should be modified.
 	 * The first argument is the identifier for TestUser::getDefaultFolderEntryID to obtain the correct entryid
-	 * The second argument is the string which represents the foldertype
+	 * The second argument is the string which represents the foldertype.
 	 */
-	public function providerPermissionsFolder()
-	{
-		return array(
-			array(null, 'Inbox'),
-			array(PR_IPM_APPOINTMENT_ENTRYID, 'calendar'),
-			//array(PR_IPM_SUBTREE_ENTRYID, 'store') // FIXME: teardown does not up the root store permissions.
-		);
+	public function providerPermissionsFolder() {
+		return [
+			[null, 'Inbox'],
+			[PR_IPM_APPOINTMENT_ENTRYID, 'calendar'],
+			// array(PR_IPM_SUBTREE_ENTRYID, 'store') // FIXME: teardown does not up the root store permissions.
+		];
 	}
 }

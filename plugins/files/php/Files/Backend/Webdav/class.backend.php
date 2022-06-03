@@ -7,13 +7,12 @@ require_once __DIR__ . "/../class.abstract_backend.php";
 require_once __DIR__ . "/../class.exception.php";
 
 use Files\Backend\AbstractBackend;
+use Files\Backend\Exception as BackendException;
 use Files\Backend\iFeatureQuota;
-use Files\Backend\iFeatureStreaming;
 use Files\Backend\iFeatureVersionInfo;
 use Files\Backend\Webdav\sabredav\FilesWebDavClient;
-use Files\Backend\Exception as BackendException;
-use \Sabre\DAV\Exception as Exception;
-use \Sabre\HTTP\ClientException;
+use Sabre\DAV\Exception;
+use Sabre\HTTP\ClientException;
 
 /**
  * This is a file backend for webdav servers.
@@ -21,24 +20,23 @@ use \Sabre\HTTP\ClientException;
  * @class   Backend
  * @extends AbstractBackend
  */
-class Backend extends AbstractBackend implements iFeatureQuota, iFeatureVersionInfo
-{
+class Backend extends AbstractBackend implements iFeatureQuota, iFeatureVersionInfo {
 	/**
 	 * Error codes
-	 * see @parseErrorCodeToMessage for description
+	 * see @parseErrorCodeToMessage for description.
 	 */
-	const WD_ERR_UNAUTHORIZED = 401;
-	const WD_ERR_FORBIDDEN = 403;
-	const WD_ERR_NOTFOUND = 404;
-	const WD_ERR_NOTALLOWED = 405;
-	const WD_ERR_TIMEOUT = 408;
-	const WD_ERR_LOCKED = 423;
-	const WD_ERR_FAILED_DEPENDENCY = 423;
-	const WD_ERR_INTERNAL = 500;
-	const WD_ERR_UNREACHABLE = 800;
-	const WD_ERR_TMP = 801;
-	const WD_ERR_FEATURES = 802;
-	const WD_ERR_NO_CURL = 803;
+	public const WD_ERR_UNAUTHORIZED = 401;
+	public const WD_ERR_FORBIDDEN = 403;
+	public const WD_ERR_NOTFOUND = 404;
+	public const WD_ERR_NOTALLOWED = 405;
+	public const WD_ERR_TIMEOUT = 408;
+	public const WD_ERR_LOCKED = 423;
+	public const WD_ERR_FAILED_DEPENDENCY = 423;
+	public const WD_ERR_INTERNAL = 500;
+	public const WD_ERR_UNREACHABLE = 800;
+	public const WD_ERR_TMP = 801;
+	public const WD_ERR_FEATURES = 802;
+	public const WD_ERR_NO_CURL = 803;
 
 	/**
 	 * Configuration data for the extjs metaform.
@@ -48,56 +46,54 @@ class Backend extends AbstractBackend implements iFeatureQuota, iFeatureVersionI
 	protected $metaConfig;
 
 	/**
-	 * @var boolean debugging flag, if true, debugging is enabled
+	 * @var bool debugging flag, if true, debugging is enabled
 	 */
-	var $debug = false;
+	public $debug = false;
 
 	/**
 	 * @var int webdav server port
 	 */
-	var $port = 80;
+	public $port = 80;
 
 	/**
 	 * @var string hostname or ip
 	 */
-	var $server = "localhost";
+	public $server = "localhost";
 
 	/**
 	 * @var string global path prefix for all requests
 	 */
-	var $path = "/webdav.php";
+	public $path = "/webdav.php";
 
 	/**
-	 * @var boolean if true, ssl is used
+	 * @var bool if true, ssl is used
 	 */
-	var $ssl = false;
+	public $ssl = false;
 
 	/**
-	 * @var boolean allow self signed certificates
+	 * @var bool allow self signed certificates
 	 */
-	var $allowselfsigned = true;
+	public $allowselfsigned = true;
 
 	/**
 	 * @var string the username
 	 */
-	var $user = "";
+	public $user = "";
 
 	/**
 	 * @var string the password
 	 */
-	var $pass = "";
+	public $pass = "";
 
 	/**
-	 * @var FilesWebDavClient the SabreDAV client object.
+	 * @var FilesWebDavClient the SabreDAV client object
 	 */
-	var $sabre_client;
+	public $sabre_client;
 
 	/**
 	 * @constructor
 	 */
-	function __construct()
-	{
-
+	public function __construct() {
 		// initialization
 		$this->debug = PLUGIN_FILESBROWSER_LOGLEVEL === "DEBUG" ? true : false;
 
@@ -118,119 +114,120 @@ class Backend extends AbstractBackend implements iFeatureQuota, iFeatureVersionI
 	}
 
 	/**
-	 * Initialise form fields
+	 * Initialise form fields.
 	 */
-	private function init_form()
-	{
-		$this->formConfig = array(
+	private function init_form() {
+		$this->formConfig = [
 			"labelAlign" => "left",
 			"columnCount" => 1,
 			"labelWidth" => 80,
-			"defaults" => array(
-				"width" => 292
-			)
-		);
+			"defaults" => [
+				"width" => 292,
+			],
+		];
 
-		$this->formFields = array(
-			array(
+		$this->formFields = [
+			[
 				"name" => "server_address",
 				"fieldLabel" => _('Server address'),
-				"editor" => array(
-					"allowBlank" => false
-				)
-			),
-			array(
+				"editor" => [
+					"allowBlank" => false,
+				],
+			],
+			[
 				"name" => "server_port",
 				"fieldLabel" => _('Server port'),
-				"editor" => array(
+				"editor" => [
 					"ref" => "../../portField",
-					"allowBlank" => false
-				)
-			),
-			array(
+					"allowBlank" => false,
+				],
+			],
+			[
 				"name" => "server_ssl",
 				"fieldLabel" => _('Use SSL'),
-				"editor" => array(
+				"editor" => [
 					"xtype" => "checkbox",
-					"listeners" => array(
-						"check" => "Zarafa.plugins.files.data.Actions.onCheckSSL" // this javascript function will be called!
-					)
-				)
-			),
-			array(
+					"listeners" => [
+						"check" => "Zarafa.plugins.files.data.Actions.onCheckSSL", // this javascript function will be called!
+					],
+				],
+			],
+			[
 				"name" => "server_path",
 				"fieldLabel" => _('Webdav base path'),
-				"editor" => array(
-				)
-			),
-			array(
+				"editor" => [
+				],
+			],
+			[
 				"name" => "user",
 				"fieldLabel" => _('Username'),
-				"editor" => array(
-					"ref" => "../../usernameField"
-				)
-			),
-			array(
+				"editor" => [
+					"ref" => "../../usernameField",
+				],
+			],
+			[
 				"name" => "password",
 				"fieldLabel" => _('Password'),
-				"editor" => array(
+				"editor" => [
 					"ref" => "../../passwordField",
-					"inputType" => "password"
-				)
-			),
-			array(
+					"inputType" => "password",
+				],
+			],
+			[
 				"name" => "use_grommunio_credentials",
 				"fieldLabel" => _('Use grommunio credentials'),
-				"editor" => array(
+				"editor" => [
 					"xtype" => "checkbox",
-					"listeners" => array(
-						"check" => "Zarafa.plugins.files.data.Actions.onCheckCredentials" // this javascript function will be called!
-					)
-				)
-			),
-		);
+					"listeners" => [
+						"check" => "Zarafa.plugins.files.data.Actions.onCheckCredentials", // this javascript function will be called!
+					],
+				],
+			],
+		];
 
-		$this->metaConfig = array(
+		$this->metaConfig = [
 			"success" => true,
-			"metaData" => array(
+			"metaData" => [
 				"fields" => $this->formFields,
-				"formConfig" => $this->formConfig
-			),
-			"data" => array( // here we can specify the default values.
+				"formConfig" => $this->formConfig,
+			],
+			"data" => [ // here we can specify the default values.
 				"server_address" => "files.demo.com",
 				"server_port" => "80",
-				"server_path" => "/remote.php/webdav"
-			)
-		);
+				"server_path" => "/remote.php/webdav",
+			],
+		];
 	}
 
 	/**
-	 * Initialize backend from $backend_config array
+	 * Initialize backend from $backend_config array.
+	 *
 	 * @param $backend_config
 	 */
-	public function init_backend($backend_config)
-	{
+	public function init_backend($backend_config) {
 		$this->set_server($backend_config["server_address"]);
 		$this->set_port($backend_config["server_port"]);
 		$this->set_base($backend_config["server_path"]);
 		$this->set_ssl($backend_config["server_ssl"]);
 
 		// set user and password
-		if ($backend_config["use_grommunio_credentials"] === FALSE) {
+		if ($backend_config["use_grommunio_credentials"] === false) {
 			$this->set_user($backend_config["user"]);
 			$this->set_pass($backend_config["password"]);
-		} else {
+		}
+		else {
 			// For backward compatibility we will check if the Encryption store exists. If not,
 			// we will fall back to the old way of retrieving the password from the session.
-			if ( class_exists('EncryptionStore') ) {
+			if (class_exists('EncryptionStore')) {
 				// Get the username and password from the Encryption store
 				$encryptionStore = \EncryptionStore::getInstance();
 				$this->set_user($encryptionStore->get('username'));
 				$this->set_pass($encryptionStore->get('password'));
-			} else {
+			}
+			else {
 				$this->set_user($GLOBALS['mapisession']->getUserName());
 				$password = $_SESSION['password'];
-				if(function_exists('openssl_decrypt')) {
+				if (function_exists('openssl_decrypt')) {
 					$this->set_pass(openssl_decrypt($password, "des-ede3-cbc", PASSWORD_KEY, 0, PASSWORD_IV));
 				}
 			}
@@ -241,49 +238,37 @@ class Backend extends AbstractBackend implements iFeatureQuota, iFeatureVersionI
 	 * Set webdav server. FQN or IP address.
 	 *
 	 * @param string $server hostname or ip of the ftp server
-	 *
-	 * @return void
 	 */
-	public function set_server($server)
-	{
+	public function set_server($server) {
 		$this->server = $server;
 	}
 
 	/**
-	 * Set base path
+	 * Set base path.
 	 *
 	 * @param string $pp the global path prefix
-	 *
-	 * @return void
 	 */
-	public function set_base($pp)
-	{
+	public function set_base($pp) {
 		$this->path = $pp;
 		$this->log('Base path set to ' . $this->path);
 	}
 
 	/**
-	 * Set ssl
+	 * Set ssl.
 	 *
 	 * @param int /bool $ssl (1 = true, 0 = false)
-	 *
-	 * @return void
 	 */
-	public function set_ssl($ssl)
-	{
+	public function set_ssl($ssl) {
 		$this->ssl = $ssl ? true : false;
 		$this->log('SSL extension was set to ' . $this->ssl);
 	}
 
 	/**
-	 * Allow self signed certificates - unimplemented
+	 * Allow self signed certificates - unimplemented.
 	 *
 	 * @param bool $allowselfsigned Allow self signed certificates. Not yet implemented.
-	 *
-	 * @return void
 	 */
-	public function set_selfsigned($allowselfsigned)
-	{
+	public function set_selfsigned($allowselfsigned) {
 		$this->allowselfsigned = $allowselfsigned;
 	}
 
@@ -291,35 +276,26 @@ class Backend extends AbstractBackend implements iFeatureQuota, iFeatureVersionI
 	 * Set tcp port of webdav server. Default is 80.
 	 *
 	 * @param int $port the port of the ftp server
-	 *
-	 * @return void
 	 */
-	public function set_port($port)
-	{
+	public function set_port($port) {
 		$this->port = $port;
 	}
 
 	/**
-	 * set user name for authentication
+	 * set user name for authentication.
 	 *
 	 * @param string $user username
-	 *
-	 * @return void
 	 */
-	public function set_user($user)
-	{
+	public function set_user($user) {
 		$this->user = $user;
 	}
 
 	/**
-	 * Set password for authentication
+	 * Set password for authentication.
 	 *
 	 * @param string $pass password
-	 *
-	 * @return void
 	 */
-	public function set_pass($pass)
-	{
+	public function set_pass($pass) {
 		$this->pass = $pass;
 	}
 
@@ -327,12 +303,9 @@ class Backend extends AbstractBackend implements iFeatureQuota, iFeatureVersionI
 	 * set debug on (1) or off (0).
 	 * produces a lot of debug messages in webservers error log if set to on (1).
 	 *
-	 * @param boolean $debug enable or disable debugging
-	 *
-	 * @return void
+	 * @param bool $debug enable or disable debugging
 	 */
-	public function set_debug($debug)
-	{
+	public function set_debug($debug) {
 		$this->debug = $debug;
 	}
 
@@ -340,63 +313,66 @@ class Backend extends AbstractBackend implements iFeatureQuota, iFeatureVersionI
 	 * Opens the connection to the webdav server.
 	 *
 	 * @throws BackendException if connection is not successful
-	 * @return boolean true if action succeeded
+	 *
+	 * @return bool true if action succeeded
 	 */
-	public function open()
-	{
-
+	public function open() {
 		// check if curl is available
 		$serverHasCurl = function_exists('curl_version');
 		if (!$serverHasCurl) {
 			$e = new BackendException($this->parseErrorCodeToMessage(self::WD_ERR_NO_CURL), 500);
 			$e->setTitle($this->backendTransName . _('PHP-CURL is not installed'));
+
 			throw $e;
 		}
 
-		$davsettings = array(
+		$davsettings = [
 			'baseUri' => $this->webdavUrl(),
 			'userName' => $this->user,
 			'password' => $this->pass,
 			'authType' => \Sabre\DAV\Client::AUTH_BASIC,
-		);
+		];
 
 		try {
 			$this->sabre_client = new FilesWebDavClient($davsettings);
 			$this->sabre_client->addCurlSetting(CURLOPT_SSL_VERIFYPEER, !$this->allowselfsigned);
 
 			return true;
-		} catch (Exception $e) {
+		}
+		catch (Exception $e) {
 			$this->log('Failed to open: ' . $e->getMessage());
 			if (intval($e->getHTTPCode()) == 401) {
 				$e = new BackendException($this->parseErrorCodeToMessage(self::WD_ERR_UNAUTHORIZED), $e->getHTTPCode());
 				$e->setTitle($this->backendTransName . _('Access denied'));
-				throw $e;
-			} else {
-				$e = new BackendException($this->parseErrorCodeToMessage(self::WD_ERR_UNREACHABLE), $e->getHTTPCode());
-				$e->setTitle($this->backendTransName . _('Connection failed'));
+
 				throw $e;
 			}
+			$e = new BackendException($this->parseErrorCodeToMessage(self::WD_ERR_UNREACHABLE), $e->getHTTPCode());
+			$e->setTitle($this->backendTransName . _('Connection failed'));
+
+			throw $e;
 		}
 	}
 
 	/**
-	 * show content of a directory
+	 * show content of a directory.
 	 *
-	 * @param string $path directory path
-	 * @param boolean $hidefirst Optional parameter to hide the root entry. Default true
+	 * @param string $path      directory path
+	 * @param bool   $hidefirst Optional parameter to hide the root entry. Default true
+	 * @param mixed  $dir
 	 *
 	 * @throws BackendException if request is not successful
 	 *
 	 * @return mixed array with directory content
 	 */
-	public function ls($dir, $hidefirst = true)
-	{
+	public function ls($dir, $hidefirst = true) {
 		$time_start = microtime(true);
 		$dir = $this->removeSlash($dir);
-		$lsdata = array();
-		$this->log("[LS] start for dir: $dir");
+		$lsdata = [];
+		$this->log("[LS] start for dir: {$dir}");
+
 		try {
-			$response = $this->sabre_client->propFind($dir, array(
+			$response = $this->sabre_client->propFind($dir, [
 				'{http://owncloud.org/ns}fileid',
 				'{DAV:}resourcetype',
 				'{DAV:}getcontentlength',
@@ -404,13 +380,13 @@ class Backend extends AbstractBackend implements iFeatureQuota, iFeatureVersionI
 				'{DAV:}getcontenttype',
 				'{DAV:}quota-used-bytes',
 				'{DAV:}quota-available-bytes',
-			), 1);
+			], 1);
 			$this->log("[LS] backend fetched in: " . (microtime(true) - $time_start) . " seconds.");
 
 			foreach ($response as $name => $fields) {
-
 				if ($hidefirst) {
 					$hidefirst = false; // skip the first line - its the requested dir itself
+
 					continue;
 				}
 
@@ -426,7 +402,7 @@ class Backend extends AbstractBackend implements iFeatureQuota, iFeatureVersionI
 					}
 				}
 
-				$lsdata[$name] = array(
+				$lsdata[$name] = [
 					"fileid" => isset($fields["{http://owncloud.org/ns}fileid"]) ? $fields["{http://owncloud.org/ns}fileid"] : '-1',
 					"resourcetype" => $type,
 					"getcontentlength" => isset($fields["{DAV:}getcontentlength"]) ? $fields["{DAV:}getcontentlength"] : null,
@@ -434,99 +410,110 @@ class Backend extends AbstractBackend implements iFeatureQuota, iFeatureVersionI
 					"getcontenttype" => isset($fields["{DAV:}getcontenttype"]) ? $fields["{DAV:}getcontenttype"] : null,
 					"quota-used-bytes" => isset($fields["{DAV:}quota-used-bytes"]) ? $fields["{DAV:}quota-used-bytes"] : null,
 					"quota-available-bytes" => isset($fields["{DAV:}quota-available-bytes"]) ? $fields["{DAV:}quota-available-bytes"] : null,
-				);
+				];
 			}
 			$time_end = microtime(true);
 			$time = $time_end - $time_start;
-			$this->log("[LS] done in $time seconds");
+			$this->log("[LS] done in {$time} seconds");
 
 			return $lsdata;
-
-		} catch (ClientException $e) {
+		}
+		catch (ClientException $e) {
 			$this->log('ls sabre ClientException: ' . $e->getMessage());
 			$e = new BackendException($this->parseErrorCodeToMessage($e->getCode()), $e->getCode());
 			$e->setTitle($this->backendTransName . _('Sabre error'));
+
 			throw $e;
-		} catch (Exception $e) {
-			$this->log('ls general exception: ' . $e->getMessage() . " [" . $e->getHTTPCode() .  "]");
+		}
+		catch (Exception $e) {
+			$this->log('ls general exception: ' . $e->getMessage() . " [" . $e->getHTTPCode() . "]");
 			// THIS IS A FIX FOR OWNCLOUD - It does return 500 instead of 401...
 			$err_code = $e->getHTTPCode();
 			// check if code is 500 - then we should try to parse the error message
-			if($err_code === 500) {
+			if ($err_code === 500) {
 				// message example: HTTP-Code: 401
 				$regx = '/[0-9]{3}/';
-				if(preg_match($regx, $e->getMessage(), $found)) {
+				if (preg_match($regx, $e->getMessage(), $found)) {
 					$err_code = $found[0];
 				}
 			}
 			$e = new BackendException($this->parseErrorCodeToMessage($err_code), $err_code);
 			$e->setTitle($this->backendTransName . _('Connection failed'));
+
 			throw $e;
 		}
 	}
 
 	/**
-	 * create a new directory
+	 * create a new directory.
 	 *
 	 * @param string $dir directory path
 	 *
 	 * @throws BackendException if request is not successful
 	 *
-	 * @return boolean true if action succeeded
+	 * @return bool true if action succeeded
 	 */
-	public function mkcol($dir)
-	{
+	public function mkcol($dir) {
 		$time_start = microtime(true);
 		$dir = $this->removeSlash($dir);
-		$this->log("[MKCOL] start for dir: $dir");
+		$this->log("[MKCOL] start for dir: {$dir}");
+
 		try {
 			$response = $this->sabre_client->request("MKCOL", $dir, null);
 			$time_end = microtime(true);
 			$time = $time_end - $time_start;
-			$this->log("[MKCOL] done in $time seconds: " . $response['statusCode']);
+			$this->log("[MKCOL] done in {$time} seconds: " . $response['statusCode']);
 
 			return true;
-		} catch (ClientException $e) {
+		}
+		catch (ClientException $e) {
 			$e = new BackendException($this->parseErrorCodeToMessage($e->getCode()), $e->getCode());
 			$e->setTitle($this->backendTransName . _('Sabre error'));
+
 			throw $e;
-		} catch (Exception $e) {
+		}
+		catch (Exception $e) {
 			$this->log('[MKCOL] fatal: ' . $e->getMessage());
 			$e = new BackendException($this->parseErrorCodeToMessage($e->getHTTPCode()), $e->getHTTPCode());
 			$e->setTitle($this->backendTransName . _('Directory creation failed'));
+
 			throw $e;
 		}
 	}
 
 	/**
-	 * delete a file or directory
+	 * delete a file or directory.
 	 *
 	 * @param string $path file/directory path
 	 *
 	 * @throws BackendException if request is not successful
 	 *
-	 * @return boolean true if action succeeded
+	 * @return bool true if action succeeded
 	 */
-	public function delete($path)
-	{
+	public function delete($path) {
 		$time_start = microtime(true);
 		$path = $this->removeSlash($path);
-		$this->log("[DELETE] start for dir: $path");
+		$this->log("[DELETE] start for dir: {$path}");
+
 		try {
 			$response = $this->sabre_client->request("DELETE", $path, null);
 			$time_end = microtime(true);
 			$time = $time_end - $time_start;
-			$this->log("[DELETE] done in $time seconds: " . $response['statusCode']);
+			$this->log("[DELETE] done in {$time} seconds: " . $response['statusCode']);
 
 			return true;
-		} catch (ClientException $e) {
+		}
+		catch (ClientException $e) {
 			$e = new BackendException($this->parseErrorCodeToMessage($e->getCode()), $e->getCode());
 			$e->setTitle($this->backendTransName . _('Sabre error'));
+
 			throw $e;
-		} catch (Exception $e) {
+		}
+		catch (Exception $e) {
 			$this->log('[DELETE] fatal: ' . $e->getMessage());
 			$e = new BackendException($this->parseErrorCodeToMessage($e->getHTTPCode()), $e->getHTTPCode());
 			$e->setTitle($this->backendTransName . _('Deletion failed'));
+
 			throw $e;
 		}
 	}
@@ -535,40 +522,46 @@ class Backend extends AbstractBackend implements iFeatureQuota, iFeatureVersionI
 	 * Move a file or collection on webdav server (serverside)
 	 * If you set param overwrite as true, the target will be overwritten.
 	 *
-	 * @param string $src_path Source path
+	 * @param string $src_path  Source path
 	 * @param string $dest_path Destination path
-	 * @param boolean $overwrite Overwrite file if exists in $dest_path
+	 * @param bool   $overwrite Overwrite file if exists in $dest_path
+	 * @param mixed  $dst_path
 	 *
 	 * @throws BackendException if request is not successful
 	 *
-	 * @return boolean true if action succeeded
+	 * @return bool true if action succeeded
 	 */
-	public function move($src_path, $dst_path, $overwrite = false)
-	{
+	public function move($src_path, $dst_path, $overwrite = false) {
 		$time_start = microtime(true);
 		$src_path = $this->removeSlash($src_path);
 		$dst_path = $this->webdavUrl() . $this->removeSlash($dst_path);
-		$this->log("[MOVE] start for dir: $src_path -> $dst_path");
+		$this->log("[MOVE] start for dir: {$src_path} -> {$dst_path}");
 		if ($overwrite) {
 			$overwrite = 'T';
-		} else {
+		}
+		else {
 			$overwrite = 'F';
 		}
 
 		try {
-			$response = $this->sabre_client->request("MOVE", $src_path, null, array("Destination" => $dst_path, 'Overwrite' => $overwrite));
+			$response = $this->sabre_client->request("MOVE", $src_path, null, ["Destination" => $dst_path, 'Overwrite' => $overwrite]);
 			$time_end = microtime(true);
 			$time = $time_end - $time_start;
-			$this->log("[MOVE] done in $time seconds: " . $response['statusCode']);
+			$this->log("[MOVE] done in {$time} seconds: " . $response['statusCode']);
+
 			return true;
-		} catch (ClientException $e) {
+		}
+		catch (ClientException $e) {
 			$e = new BackendException($this->parseErrorCodeToMessage($e->getCode()), $e->getCode());
 			$e->setTitle($this->backendTransName . _('Sabre error'));
+
 			throw $e;
-		} catch (Exception $e) {
+		}
+		catch (Exception $e) {
 			$this->log('[MOVE] fatal: ' . $e->getMessage());
 			$e = new BackendException($this->parseErrorCodeToMessage($e->getHTTPCode()), $e->getHTTPCode());
 			$e->setTitle($this->backendTransName . _('Moving failed'));
+
 			throw $e;
 		}
 	}
@@ -577,73 +570,78 @@ class Backend extends AbstractBackend implements iFeatureQuota, iFeatureVersionI
 	 * Puts a file into a collection.
 	 *
 	 * @param string $path Destination path
+	 * @param mixed  $data
 	 *
 	 * @string mixed $data Any kind of data
+	 *
 	 * @throws BackendException if request is not successful
 	 *
-	 * @return boolean true if action succeeded
+	 * @return bool true if action succeeded
 	 */
-	public function put($path, $data)
-	{
+	public function put($path, $data) {
 		$time_start = microtime(true);
 		$path = $this->removeSlash($path);
-		$this->log("[PUT] start for dir: $path strlen: " . strlen($data));
+		$this->log("[PUT] start for dir: {$path} strlen: " . strlen($data));
+
 		try {
 			$response = $this->sabre_client->request("PUT", $path, $data);
 			$time_end = microtime(true);
 			$time = $time_end - $time_start;
-			$this->log("[PUT] done in $time seconds: " . $response['statusCode']);
+			$this->log("[PUT] done in {$time} seconds: " . $response['statusCode']);
+
 			return true;
-		} catch (ClientException $e) {
+		}
+		catch (ClientException $e) {
 			$e = new BackendException($this->parseErrorCodeToMessage($e->getCode()), $e->getCode());
 			$e->setTitle($this->backendTransName . _('Sabre error'));
+
 			throw $e;
-		} catch (Exception $e) {
+		}
+		catch (Exception $e) {
 			$this->log('[PUT] fatal: ' . $e->getMessage());
 			$e = new BackendException($this->parseErrorCodeToMessage($e->getHTTPCode()), $e->getHTTPCode());
 			$e->setTitle($this->backendTransName . _('Connection failed'));
+
 			throw $e;
 		}
 	}
 
 	/**
-	 * Upload a local file
+	 * Upload a local file.
 	 *
-	 * @param string $path Destination path on the server
+	 * @param string $path     Destination path on the server
 	 * @param string $filename Local filename for the file that should be uploaded
 	 *
 	 * @throws BackendException if request is not successful
 	 *
-	 * @return boolean true if action succeeded
+	 * @return bool true if action succeeded
 	 */
-	public function put_file($path, $filename)
-	{
+	public function put_file($path, $filename) {
 		$buffer = file_get_contents($filename);
 
 		if ($buffer !== false) {
 			return $this->put($path, $buffer);
-		} else {
-			$e = new BackendException($this->parseErrorCodeToMessage(self::WD_ERR_TMP), self::WD_ERR_TMP);
-			$e->setTitle($this->backendTransName . _('Temporary directory problems'));
-			throw $e;
 		}
+		$e = new BackendException($this->parseErrorCodeToMessage(self::WD_ERR_TMP), self::WD_ERR_TMP);
+		$e->setTitle($this->backendTransName . _('Temporary directory problems'));
+
+		throw $e;
 	}
 
 	/**
 	 * Gets a file from a webdav collection.
 	 *
-	 * @param string $path The source path on the server
-	 * @param mixed $buffer Buffer for the received data
+	 * @param string $path   The source path on the server
+	 * @param mixed  $buffer Buffer for the received data
 	 *
 	 * @throws BackendException if request is not successful
 	 *
-	 * @return boolean true if action succeeded
+	 * @return bool true if action succeeded
 	 */
-	public function get($path, &$buffer)
-	{
+	public function get($path, &$buffer) {
 		$tmpfile = tempnam(TMP_PATH, stripslashes(base64_encode($path)));
 
-		$this->log("[GET] buffer path: $tmpfile");
+		$this->log("[GET] buffer path: {$tmpfile}");
 		$this->get_file($path, $tmpfile);
 
 		$buffer = file_get_contents($tmpfile);
@@ -653,80 +651,84 @@ class Backend extends AbstractBackend implements iFeatureQuota, iFeatureVersionI
 	/**
 	 * Gets a file from a collection into local filesystem.
 	 *
-	 * @param string $srcpath Source path on server
+	 * @param string $srcpath   Source path on server
 	 * @param string $localpath Destination path on local filesystem
 	 *
 	 * @throws BackendException if request is not successful
 	 *
-	 * @return boolean true if action succeeded
+	 * @return bool true if action succeeded
 	 */
-	public function get_file($srcpath, $localpath)
-	{
+	public function get_file($srcpath, $localpath) {
 		$time_start = microtime(true);
 		$path = $this->removeSlash($srcpath);
-		$this->log("[GET_FILE] start for dir: $path");
+		$this->log("[GET_FILE] start for dir: {$path}");
 		$this->log("[GET_FILE] local path (" . $localpath . ") writeable: " . is_writable($localpath));
+
 		try {
 			$response = $this->sabre_client->getFile($path, $localpath);
 			$time_end = microtime(true);
 			$time = $time_end - $time_start;
-			$this->log("[GET_FILE] done in $time seconds: " . $response['statusCode']);
-		} catch (ClientException $e) {
+			$this->log("[GET_FILE] done in {$time} seconds: " . $response['statusCode']);
+		}
+		catch (ClientException $e) {
 			$e = new BackendException($this->parseErrorCodeToMessage($e->getCode()), $e->getCode());
 			$e->setTitle($this->backendTransName . _('Sabre error'));
+
 			throw $e;
-		} catch (Exception $e) {
+		}
+		catch (Exception $e) {
 			$this->log('[GET_FILE] - FATAL -' . $e->getMessage());
 			$e = new BackendException($this->parseErrorCodeToMessage($e->getHTTPCode()), $e->getHTTPCode());
 			$e->setTitle($this->backendTransName . _('File or folder not found'));
+
 			throw $e;
 		}
 	}
 
 	/**
-	 * Public method copy_file
+	 * Public method copy_file.
 	 *
 	 * Copy a file on webdav server
 	 * Duplicates a file on the webdav server (serverside).
 	 * All work is done on the webdav server. If you set param overwrite as true,
 	 * the target will be overwritten.
 	 *
-	 * @param string $src_path Source path
+	 * @param string $src_path  Source path
 	 * @param string $dest_path Destination path
-	 * @param bool $overwrite Overwrite if file exists in $dst_path
+	 * @param bool   $overwrite Overwrite if file exists in $dst_path
+	 * @param mixed  $dst_path
 	 *
 	 * @throws BackendException if request is not successful
 	 *
-	 * @return boolean true if action succeeded
+	 * @return bool true if action succeeded
 	 */
-	public function copy_file($src_path, $dst_path, $overwrite = false)
-	{
+	public function copy_file($src_path, $dst_path, $overwrite = false) {
 		return $this->copy($src_path, $dst_path, $overwrite, false);
 	}
 
 	/**
-	 * Public method copy_coll
+	 * Public method copy_coll.
 	 *
 	 * Copy a collection on webdav server
 	 * Duplicates a collection on the webdav server (serverside).
 	 * All work is done on the webdav server. If you set param overwrite as true,
 	 * the target will be overwritten.
 	 *
-	 * @param string $src_path Source path
+	 * @param string $src_path  Source path
 	 * @param string $dest_path Destination path
-	 * @param bool $overwrite Overwrite if collection exists in $dst_path
+	 * @param bool   $overwrite Overwrite if collection exists in $dst_path
+	 * @param mixed  $dst_path
 	 *
 	 * @throws BackendException if request is not successful
 	 *
-	 * @return boolean true if action succeeded
+	 * @return bool true if action succeeded
 	 */
-	public function copy_coll($src_path, $dst_path, $overwrite = false)
-	{
+	public function copy_coll($src_path, $dst_path, $overwrite = false) {
 		return $this->copy($src_path, $dst_path, $overwrite, true);
 	}
 
 	/**
-	 * Gets path information from webdav server for one element
+	 * Gets path information from webdav server for one element.
 	 *
 	 * @param string $path Path to file or folder
 	 *
@@ -734,10 +736,9 @@ class Backend extends AbstractBackend implements iFeatureQuota, iFeatureVersionI
 	 *
 	 * @return array directory info
 	 */
-	public function gpi($path)
-	{
+	public function gpi($path) {
 		$path = $this->removeSlash($path);
-		$response = $this->sabre_client->propFind($path, array(
+		$response = $this->sabre_client->propFind($path, [
 			'{http://owncloud.org/ns}fileid',
 			'{DAV:}resourcetype',
 			'{DAV:}getcontentlength',
@@ -745,16 +746,17 @@ class Backend extends AbstractBackend implements iFeatureQuota, iFeatureVersionI
 			'{DAV:}getcontenttype',
 			'{DAV:}quota-used-bytes',
 			'{DAV:}quota-available-bytes',
-		));
+		]);
 
 		$type = $response["{DAV:}resourcetype"]->resourceType;
 		if (is_array($type) && !empty($type)) {
 			$type = $type[0] == "{DAV:}collection" ? "collection" : "file";
-		} else {
+		}
+		else {
 			$type = "file"; // fall back to file if detection fails... less harmful
 		}
 
-		$gpi = array(
+		return [
 			"fileid" => isset($response["{http://owncloud.org/ns}fileid"]) ? $response["{http://owncloud.org/ns}fileid"] : '-1',
 			"resourcetype" => $type,
 			"getcontentlength" => isset($response["{DAV:}getcontentlength"]) ? $response["{DAV:}getcontentlength"] : null,
@@ -762,19 +764,17 @@ class Backend extends AbstractBackend implements iFeatureQuota, iFeatureVersionI
 			"getcontenttype" => isset($response["{DAV:}getcontenttype"]) ? $response["{DAV:}getcontenttype"] : null,
 			"quota-used-bytes" => isset($response["{DAV:}quota-used-bytes"]) ? $response["{DAV:}quota-used-bytes"] : null,
 			"quota-available-bytes" => isset($response["{DAV:}quota-available-bytes"]) ? $response["{DAV:}quota-available-bytes"] : null,
-		);
-
-		return $gpi;
+		];
 	}
 
 	/**
-	 * Gets server information
+	 * Gets server information.
 	 *
 	 * @throws BackendException if request is not successful
-	 * @return array with all header fields returned from webdav server.
+	 *
+	 * @return array with all header fields returned from webdav server
 	 */
-	public function options()
-	{
+	public function options() {
 		$features = $this->sabre_client->options();
 
 		// be sure it is an array
@@ -785,47 +785,45 @@ class Backend extends AbstractBackend implements iFeatureQuota, iFeatureVersionI
 		$this->log('[OPTIONS] - ERROR - Error getting server features');
 		$e = new BackendException($this->parseErrorCodeToMessage(self::WD_ERR_FEATURES), self::WD_ERR_FEATURES);
 		$e->setTitle($this->backendTransName . _('Not implemented'));
+
 		throw $e;
 	}
 
 	/**
-	 * Gather whether a path points to a file or not
+	 * Gather whether a path points to a file or not.
 	 *
 	 * @param string $path Path to file or folder
 	 *
-	 * @return boolean true if path points to a file, false otherwise
+	 * @return bool true if path points to a file, false otherwise
 	 */
-	public function is_file($path)
-	{
+	public function is_file($path) {
 		$item = $this->gpi($path);
 
 		return $item === false ? false : ($item['resourcetype'] != 'collection');
 	}
 
 	/**
-	 * Gather whether a path points to a directory
+	 * Gather whether a path points to a directory.
 	 *
 	 * @param string $path Path to file or folder
 	 *
-	 * @return boolean true if path points to a directory, false otherwise
+	 * @return bool true if path points to a directory, false otherwise
 	 */
-	public function is_dir($path)
-	{
+	public function is_dir($path) {
 		$item = $this->gpi($path);
 
 		return $item === false ? false : ($item['resourcetype'] == 'collection');
 	}
 
 	/**
-	 * check if file/directory exists
+	 * check if file/directory exists.
 	 *
 	 * @param string $path Path to file or folder
 	 *
-	 * @return boolean true if path exists, false otherwise
+	 * @return bool true if path exists, false otherwise
 	 */
-	public function exists($path)
-	{
-		return ($this->is_dir($path) || $this->is_file($path));
+	public function exists($path) {
+		return $this->is_dir($path) || $this->is_file($path);
 	}
 
 	/**
@@ -834,63 +832,66 @@ class Backend extends AbstractBackend implements iFeatureQuota, iFeatureVersionI
 	 * All work is done on the webdav server. If you set param overwrite as true,
 	 * the target will be overwritten.
 	 *
-	 * @access private
-	 *
-	 * @param string $src_path Source path
+	 * @param string $src_path  Source path
 	 * @param string $dest_path Destination path
-	 * @param bool $overwrite Overwrite if collection exists in $dst_path
-	 * @param bool $coll Set this to true if you want to copy a folder.
+	 * @param bool   $overwrite Overwrite if collection exists in $dst_path
+	 * @param bool   $coll      set this to true if you want to copy a folder
+	 * @param mixed  $dst_path
 	 *
 	 * @throws BackendException if request is not successful
 	 *
-	 * @return boolean true if action succeeded
+	 * @return bool true if action succeeded
 	 */
-	private function copy($src_path, $dst_path, $overwrite, $coll)
-	{
+	private function copy($src_path, $dst_path, $overwrite, $coll) {
 		$time_start = microtime(true);
 		$src_path = $this->removeSlash($src_path);
 		$dst_path = $this->webdavUrl() . $this->removeSlash($dst_path);
-		$this->log("[COPY] start for dir: $src_path -> $dst_path");
+		$this->log("[COPY] start for dir: {$src_path} -> {$dst_path}");
 		if ($overwrite) {
 			$overwrite = 'T';
-		} else {
+		}
+		else {
 			$overwrite = 'F';
 		}
 
-		array("Destination" => $dst_path, 'Overwrite' => $overwrite);
+		["Destination" => $dst_path, 'Overwrite' => $overwrite];
 		if ($coll) {
-			$settings = array("Destination" => $dst_path, 'Depth' => 'Infinity');
+			$settings = ["Destination" => $dst_path, 'Depth' => 'Infinity'];
 		}
 
 		try {
 			$response = $this->sabre_client->request("COPY", $src_path, null, $settings);
 			$time_end = microtime(true);
 			$time = $time_end - $time_start;
-			$this->log("[COPY] done in $time seconds: " . $response['statusCode']);
+			$this->log("[COPY] done in {$time} seconds: " . $response['statusCode']);
+
 			return true;
-		} catch (ClientException $e) {
+		}
+		catch (ClientException $e) {
 			$e = new BackendException($this->parseErrorCodeToMessage($e->getCode()), $e->getCode());
 			$e->setTitle($this->backendTransName . _('Sabre error'));
+
 			throw $e;
-		} catch (Exception $e) {
+		}
+		catch (Exception $e) {
 			$this->log('[COPY] - FATAL - ' . $e->getMessage());
 			$e = new BackendException($this->parseErrorCodeToMessage($e->getHTTPCode()), $e->getHTTPCode());
 			$e->setTitle($this->backendTransName . _('Copying failed'));
+
 			throw $e;
 		}
 	}
 
 	/**
-	 * Create the base webdav url
+	 * Create the base webdav url.
 	 *
-	 * @access protected
 	 * @return string baseURL
 	 */
-	protected function webdavUrl()
-	{
+	protected function webdavUrl() {
 		if ($this->ssl) {
 			$url = "https://";
-		} else {
+		}
+		else {
 			$url = "http://";
 		}
 
@@ -904,25 +905,21 @@ class Backend extends AbstractBackend implements iFeatureQuota, iFeatureVersionI
 	}
 
 	/**
-	 * Removes the leading slash from the folder path
-	 *
-	 * @access private
+	 * Removes the leading slash from the folder path.
 	 *
 	 * @param string $dir directory path
 	 *
 	 * @return string trimmed directory path
 	 */
-	function removeSlash($dir)
-	{
+	public function removeSlash($dir) {
 		if (strpos($dir, '/') === 0) {
 			$dir = substr($dir, 1);
 		}
 
 		// remove all html entities and urlencode the path...
 		$nohtml = html_entity_decode($dir);
-		$dir = implode("/", array_map("rawurlencode", explode("/", $nohtml)));
 
-		return $dir;
+		return implode("/", array_map("rawurlencode", explode("/", $nohtml)));
 	}
 
 	/**
@@ -932,8 +929,7 @@ class Backend extends AbstractBackend implements iFeatureQuota, iFeatureVersionI
 	 *
 	 * @return string userfriendly error message
 	 */
-	private function parseErrorCodeToMessage($error_code)
-	{
+	private function parseErrorCodeToMessage($error_code) {
 		$error = intval($error_code);
 
 		$msg = _('Unknown error');
@@ -944,6 +940,7 @@ class Backend extends AbstractBackend implements iFeatureQuota, iFeatureVersionI
 			case self::WD_ERR_UNAUTHORIZED:
 				$msg = _('Unauthorized. Wrong username or password.');
 				break;
+
 			case CURLE_SSL_CONNECT_ERROR:
 			case CURLE_COULDNT_RESOLVE_HOST:
 			case CURLE_COULDNT_CONNECT:
@@ -951,34 +948,44 @@ class Backend extends AbstractBackend implements iFeatureQuota, iFeatureVersionI
 			case self::WD_ERR_UNREACHABLE:
 				$msg = _('File server is not reachable. Please verify the connection.');
 				break;
+
 			case self::WD_ERR_NOTALLOWED:
 				$msg = _('File server is not reachable. Please verify the file server URL.');
 				break;
+
 			case self::WD_ERR_FORBIDDEN:
 				$msg = _('You don\'t have enough permissions to view this file or folder.');
 				break;
+
 			case self::WD_ERR_NOTFOUND:
 				$msg = _('The file or folder is not available anymore.');
 				break;
+
 			case self::WD_ERR_TIMEOUT:
 				$msg = _('Connection to the file server timed out. Please check again later.');
 				break;
+
 			case self::WD_ERR_LOCKED:
 				$msg = _('This file is locked by another user. Please try again later.');
 				break;
+
 			case self::WD_ERR_FAILED_DEPENDENCY:
 				$msg = _('The request failed.') . ' ' . $contactAdmin;
 				break;
+
 			case self::WD_ERR_INTERNAL:
 				// This is a general error, might be thrown due to a wrong IP, but we don't know.
 				$msg = _('The file server encountered an internal problem.') . ' ' . $contactAdmin;
 				break;
+
 			case self::WD_ERR_TMP:
 				$msg = _('We could not write to temporary directory.') . ' ' . $contactAdmin;
 				break;
+
 			case self::WD_ERR_FEATURES:
 				$msg = _('We could not retrieve list of server features.') . ' ' . $contactAdmin;
 				break;
+
 			case self::WD_ERR_NO_CURL:
 				$msg = _('PHP-Curl is not available.') . ' ' . $contactAdmin;
 				break;
@@ -987,40 +994,35 @@ class Backend extends AbstractBackend implements iFeatureQuota, iFeatureVersionI
 		return $msg;
 	}
 
-	public function getFormConfig()
-	{
+	public function getFormConfig() {
 		$json = json_encode($this->metaConfig);
 
-		if ($json === FALSE) {
+		if ($json === false) {
 			error_log(json_last_error());
 		}
 
 		return $json;
 	}
 
-	public function getFormConfigWithData()
-	{
+	public function getFormConfigWithData() {
 		return json_encode($this->metaConfig);
 	}
 
 	/**
 	 * a simple php error_log wrapper.
 	 *
-	 * @access private
-	 *
 	 * @param string $err_string error message
-	 *
-	 * @return void
 	 */
-	private function log($err_string)
-	{
+	private function log($err_string) {
 		if ($this->debug) {
 			error_log("[BACKEND_WEBDAV]: " . $err_string);
 		}
 	}
 
 	/**
-	 * ============================ FEATURE FUNCTIONS ========================
+	 * ============================ FEATURE FUNCTIONS ========================.
+	 *
+	 * @param mixed $dir
 	 */
 
 	/**
@@ -1030,15 +1032,14 @@ class Backend extends AbstractBackend implements iFeatureQuota, iFeatureVersionI
 	 *
 	 * @return int bytes that are used or -1 on error
 	 */
-	public function getQuotaBytesUsed($dir)
-	{
+	public function getQuotaBytesUsed($dir) {
 		$lsdata = $this->ls($dir, false);
 
 		if (isset($lsdata) && is_array($lsdata)) {
 			return $lsdata[$dir]["quota-used-bytes"];
-		} else {
-			return -1;
 		}
+
+		return -1;
 	}
 
 	/**
@@ -1048,29 +1049,30 @@ class Backend extends AbstractBackend implements iFeatureQuota, iFeatureVersionI
 	 *
 	 * @return int bytes that are available or -1 on error
 	 */
-	public function getQuotaBytesAvailable($dir)
-	{
+	public function getQuotaBytesAvailable($dir) {
 		$lsdata = $this->ls($dir, false);
 
 		if (isset($lsdata) && is_array($lsdata)) {
 			return $lsdata[$dir]["quota-available-bytes"];
-		} else {
-			return -1;
 		}
+
+		return -1;
 	}
 
 	/**
 	 * Return the version string of the server backend.
-	 * @return String
+	 *
 	 * @throws BackendException
+	 *
+	 * @return string
 	 */
-	public function getServerVersion()
-	{
+	public function getServerVersion() {
 		// check if curl is available
 		$serverHasCurl = function_exists('curl_version');
 		if (!$serverHasCurl) {
 			$e = new BackendException($this->parseErrorCodeToMessage(self::WD_ERR_NO_CURL), 500);
 			$e->setTitle($this->backendTransName . _('PHP-CURL not installed'));
+
 			throw $e;
 		}
 
@@ -1080,11 +1082,11 @@ class Backend extends AbstractBackend implements iFeatureQuota, iFeatureVersionI
 
 		// try to get the contents of the owncloud status page
 		$ch = curl_init();
-		curl_setopt($ch, CURLOPT_AUTOREFERER, TRUE);
+		curl_setopt($ch, CURLOPT_AUTOREFERER, true);
 		curl_setopt($ch, CURLOPT_TIMEOUT, 3); // timeout of 3 seconds
 		curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 		curl_setopt($ch, CURLOPT_URL, $url);
-		curl_setopt($ch, CURLOPT_FOLLOWLOCATION, TRUE);
+		curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
 		if ($this->allowselfsigned) {
 			curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
 			curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
@@ -1096,7 +1098,8 @@ class Backend extends AbstractBackend implements iFeatureQuota, iFeatureVersionI
 		if ($httpcode && $httpcode == "200" && $versiondata) {
 			$versions = json_decode($versiondata);
 			$version = $versions->versionstring;
-		} else {
+		}
+		else {
 			$version = "Undetected (no Owncloud?)";
 		}
 

@@ -1,35 +1,41 @@
 <?php
 
 /**
- * Utility class for color conversions
+ * Utility class for color conversions.
  */
 class Colors {
 	/**
-	 * Creates a lighter color
-	 * @param String|Object $color A hexstring or color object (array with r, g, b keys)
-	 * @param Float $percentage the percentage with which the luminance of the color
-	 * should be changed
-	 * @return String A hexstring with the new color (including '#')
+	 * Creates a lighter color.
+	 *
+	 * @param object|string $color      A hexstring or color object (array with r, g, b keys)
+	 * @param float         $percentage the percentage with which the luminance of the color
+	 *                                  should be changed
+	 *
+	 * @return string A hexstring with the new color (including '#')
 	 */
 	public static function lighter($color, $percentage) {
 		$hsl = Colors::rgb2hsl($color);
 		$hsl['l'] += $percentage;
-		if ( $hsl['l'] > 100 ) {
+		if ($hsl['l'] > 100) {
 			$hsl['l'] = 100;
-		} elseif ( $hsl['l'] < 0 ) {
+		}
+		elseif ($hsl['l'] < 0) {
 			$hsl['l'] = 0;
 		}
 
 		$rgb = Colors::hsl2rgb($hsl);
+
 		return Colors::colorObject2string($rgb);
 	}
 
 	/**
-	 * Creates a darker color
-	 * @param String|Object $color A hexstring or color object (array with r, g, b keys)
-	 * @param Float $percentage the percentage with which the luminance of the color
-	 * should be changed
-	 * @return String A hexstring with the new color (including '#')
+	 * Creates a darker color.
+	 *
+	 * @param object|string $color      A hexstring or color object (array with r, g, b keys)
+	 * @param float         $percentage the percentage with which the luminance of the color
+	 *                                  should be changed
+	 *
+	 * @return string A hexstring with the new color (including '#')
 	 */
 	public static function darker($color, $percentage) {
 		return Colors::lighter($color, -$percentage);
@@ -37,39 +43,46 @@ class Colors {
 
 	/**
 	 * Sets the luminance to a certain value.
-	 * @param String|Object $color A hexstring or color object (array with r, g, b keys)
-	 * @param Float $percentage the percentage to which the luminance of the color
-	 * should be set
-	 * @return String A hexstring with the new color (including '#')
+	 *
+	 * @param object|string $color      A hexstring or color object (array with r, g, b keys)
+	 * @param float         $percentage the percentage to which the luminance of the color
+	 *                                  should be set
+	 *
+	 * @return string A hexstring with the new color (including '#')
 	 */
 	public static function setLuminance($color, $percentage) {
 		$hsl = Colors::rgb2hsl($color);
 		$hsl['l'] = $percentage;
-		if ( $hsl['l'] > 100 ) {
+		if ($hsl['l'] > 100) {
 			$hsl['l'] = 100;
-		} elseif ( $hsl['l'] < 0 ) {
+		}
+		elseif ($hsl['l'] < 0) {
 			$hsl['l'] = 0;
 		}
 
 		$rgb = Colors::hsl2rgb($hsl);
+
 		return Colors::colorObject2string($rgb);
 	}
 
 	/**
-	 * Transforms a hexstring into a color object (array with r, g, b keys)
-	 * @param String $color A hexstring or color object (array with r, g, b keys)
-	 * @return Array An array with values for r, g, b
+	 * Transforms a hexstring into a color object (array with r, g, b keys).
+	 *
+	 * @param string $color A hexstring or color object (array with r, g, b keys)
+	 *
+	 * @return array An array with values for r, g, b
 	 */
 	public static function colorString2Object($color) {
-		if ( substr($color, 0, 1) === '#' ) {
+		if (substr($color, 0, 1) === '#') {
 			$color = substr($color, 1);
 		}
 
-		if ( strlen($color) === 3 ) {
-			$red = intval(substr($color, 0, 1).substr($color, 0, 1), 16);
-			$green = intval(substr($color, 1, 1).substr($color, 1, 1), 16);
-			$blue = intval(substr($color, 2, 1).substr($color, 2, 1), 16);
-		} else {
+		if (strlen($color) === 3) {
+			$red = intval(substr($color, 0, 1) . substr($color, 0, 1), 16);
+			$green = intval(substr($color, 1, 1) . substr($color, 1, 1), 16);
+			$blue = intval(substr($color, 2, 1) . substr($color, 2, 1), 16);
+		}
+		else {
 			$red = intval(substr($color, 0, 2), 16);
 			$green = intval(substr($color, 2, 2), 16);
 			$blue = intval(substr($color, 4, 2), 16);
@@ -83,43 +96,48 @@ class Colors {
 	}
 
 	/**
-	 * Transforms a color object (array with r, g, b keys) into a hexstring
-	 * @param Array $color An array with values for r, g, b
-	 * @return String  A hexstring or color object (array with r, g, b keys)
+	 * Transforms a color object (array with r, g, b keys) into a hexstring.
+	 *
+	 * @param array $color An array with values for r, g, b
+	 *
+	 * @return string A hexstring or color object (array with r, g, b keys)
 	 */
 	public static function colorObject2string($color) {
 		$r = dechex($color['r']);
-		if ( strlen($r) === 1 ) {
-			$r = '0'.$r;
+		if (strlen($r) === 1) {
+			$r = '0' . $r;
 		}
 		$g = dechex($color['g']);
-		if ( strlen($g) === 1 ) {
-			$g = '0'.$g;
+		if (strlen($g) === 1) {
+			$g = '0' . $g;
 		}
 		$b = dechex($color['b']);
-		if ( strlen($b) === 1 ) {
-			$b = '0'.$b;
+		if (strlen($b) === 1) {
+			$b = '0' . $b;
 		}
+
 		return '#' . $r . $g . $b;
 	}
 
 	/**
 	 * Transforms an red-green-blue color to a hue-saturation-luminence color object
 	 * See http://www.niwa.nu/2013/05/math-behind-colorspace-conversions-rgb-hsl/ for
-	 * more information
-	 * @param Array $color An array with values for r, g, b
-	 * @return Array An array with values for h, s, l
+	 * more information.
+	 *
+	 * @param array $color An array with values for r, g, b
+	 *
+	 * @return array An array with values for h, s, l
 	 */
 	public static function rgb2hsl($color) {
-		if ( is_string($color) ) {
+		if (is_string($color)) {
 			$color = Colors::colorString2Object($color);
 		}
 
 		$min = min([$color['r'], $color['g'], $color['b']]);
 		$max = max([$color['r'], $color['g'], $color['b']]);
-		$lum = (100/255) * ($min + $max) / 2;
+		$lum = (100 / 255) * ($min + $max) / 2;
 
-		if ( $min === $max ) {
+		if ($min === $max) {
 			// greyscale
 			return [
 				'h' => 0,
@@ -128,21 +146,24 @@ class Colors {
 			];
 		}
 
-		if ( $lum < 50 ) {
-			$sat = 100*($max-$min)/($max+$min);
-		} else {
-			$sat = 100*($max/255-$min/255)/(2-$max/255-$min/255);
+		if ($lum < 50) {
+			$sat = 100 * ($max - $min) / ($max + $min);
+		}
+		else {
+			$sat = 100 * ($max / 255 - $min / 255) / (2 - $max / 255 - $min / 255);
 		}
 
-		if ( $max === $color['r'] ) {
-			$hue = ($color['g']-$color['b'])/($max-$min);
-		} elseif ( $max === $color['g'] ) {
-			$hue = 2 + ($color['b']-$color['r'])/($max-$min);
-		} else {
-			$hue = 4 + ($color['r']-$color['g'])/($max-$min);
+		if ($max === $color['r']) {
+			$hue = ($color['g'] - $color['b']) / ($max - $min);
+		}
+		elseif ($max === $color['g']) {
+			$hue = 2 + ($color['b'] - $color['r']) / ($max - $min);
+		}
+		else {
+			$hue = 4 + ($color['r'] - $color['g']) / ($max - $min);
 		}
 		$hue *= 60;
-		if ( $hue < 0 ) {
+		if ($hue < 0) {
 			$hue += 360;
 		}
 
@@ -156,118 +177,132 @@ class Colors {
 	/**
 	 * Transforms an hue-saturation-luminence to a red-green-blue color color object
 	 * See http://www.niwa.nu/2013/05/math-behind-colorspace-conversions-rgb-hsl/ for
-	 * more information
-	 * @param Array $color An array with values for h, s, l
-	 * @return Array An array with values for r, g, b
+	 * more information.
+	 *
+	 * @param array $color An array with values for h, s, l
+	 *
+	 * @return array An array with values for r, g, b
 	 */
 	public static function hsl2rgb($color) {
 		$hue = $color['h'];
 		$sat = $color['s'];
 		$lum = $color['l'];
 
-		if ( $color['s'] === 0 ) {
+		if ($color['s'] === 0) {
 			// greyscale
 			return [
-				'r' => $lum * (255/100),
-				'g' => $lum * (255/100),
-				'b' => $lum * (255/100),
+				'r' => $lum * (255 / 100),
+				'g' => $lum * (255 / 100),
+				'b' => $lum * (255 / 100),
 			];
 		}
 
-		$temp1 = $lum/100 < 0.5 ? ($lum/100)*(1+$sat/100) : ($lum+$sat-$lum*$sat/100)/100;
-		$temp2 = 2*$lum/100 - $temp1;
+		$temp1 = $lum / 100 < 0.5 ? ($lum / 100) * (1 + $sat / 100) : ($lum + $sat - $lum * $sat / 100) / 100;
+		$temp2 = 2 * $lum / 100 - $temp1;
 
-		$tempr = $hue/360 + 0.333;
-		if ( $tempr > 1 ) {
-			$tempr -= 1;
+		$tempr = $hue / 360 + 0.333;
+		if ($tempr > 1) {
+			--$tempr;
 		}
-		$tempg = $hue/360;
-		$tempb = $hue/360 - 0.333;
-		if ( $tempb < 0 ) {
-			$tempb += 1;
+		$tempg = $hue / 360;
+		$tempb = $hue / 360 - 0.333;
+		if ($tempb < 0) {
+			++$tempb;
 		}
 
-		if ( 6*$tempr < 1 ) {
-			$red = $temp2 + ($temp1-$temp2)*6*$tempr;
-		} elseif ( 2*$tempr < 1 ) {
+		if (6 * $tempr < 1) {
+			$red = $temp2 + ($temp1 - $temp2) * 6 * $tempr;
+		}
+		elseif (2 * $tempr < 1) {
 			$red = $temp1;
-		} elseif ( 3*$tempr < 2 ) {
-			$red = $temp2 + ($temp1-$temp2)*(0.666-$tempr)*6;
-		} else {
+		}
+		elseif (3 * $tempr < 2) {
+			$red = $temp2 + ($temp1 - $temp2) * (0.666 - $tempr) * 6;
+		}
+		else {
 			$red = $temp2;
 		}
 
-		if ( 6*$tempg < 1 ) {
-			$green = $temp2 + ($temp1-$temp2)*6*$tempg;
-		} elseif ( 2*$tempg < 1 ) {
+		if (6 * $tempg < 1) {
+			$green = $temp2 + ($temp1 - $temp2) * 6 * $tempg;
+		}
+		elseif (2 * $tempg < 1) {
 			$green = $temp1;
-		} elseif ( 3*$tempg < 2 ) {
-			$green = $temp2 + ($temp1-$temp2)*(0.666-$tempg)*6;
-		} else {
+		}
+		elseif (3 * $tempg < 2) {
+			$green = $temp2 + ($temp1 - $temp2) * (0.666 - $tempg) * 6;
+		}
+		else {
 			$green = $temp2;
 		}
 
-		if ( 6*$tempb < 1 ) {
-			$blue = $temp2 + ($temp1-$temp2)*6*$tempb;
-		} elseif ( 2*$tempb < 1 ) {
+		if (6 * $tempb < 1) {
+			$blue = $temp2 + ($temp1 - $temp2) * 6 * $tempb;
+		}
+		elseif (2 * $tempb < 1) {
 			$blue = $temp1;
-		} elseif ( 3*$tempb < 2 ) {
-			$blue = $temp2 + ($temp1-$temp2)*(0.666-$tempb)*6;
-		} else {
+		}
+		elseif (3 * $tempb < 2) {
+			$blue = $temp2 + ($temp1 - $temp2) * (0.666 - $tempb) * 6;
+		}
+		else {
 			$blue = $temp2;
 		}
 
 		return [
-			'r' => 255*$red,
-			'g' => 255*$green,
-			'b' => 255*$blue,
+			'r' => 255 * $red,
+			'g' => 255 * $green,
+			'b' => 255 * $blue,
 		];
 	}
 
 	/**
-	* Returns the luma value (brightness perception)
-	* See http://stackoverflow.com/a/12043228
-	* @param String|Array $color A hexstring or a color object (rgb or hsl)
-	* @return Float luma value
-	*/
-	static public function getLuma($color)
-	{
-		if ( is_string($color) ) {
+	 * Returns the luma value (brightness perception)
+	 * See http://stackoverflow.com/a/12043228.
+	 *
+	 * @param array|string $color A hexstring or a color object (rgb or hsl)
+	 *
+	 * @return float luma value
+	 */
+	public static function getLuma($color) {
+		if (is_string($color)) {
 			$color = Colors::colorString2Object($color);
-		} elseif ( !isset($color['r']) && isset($color['h']) ) {
+		}
+		elseif (!isset($color['r']) && isset($color['h'])) {
 			// assume that this is an hsl color
 			$color = Colors::hsl2rgb($color);
 		}
 
-		$luma = 0.2126 * $color['r'] + 0.7152 * $color['g'] + 0.0722 * $color['b']; // per ITU-R BT.709
-
-		return $luma;
+		return 0.2126 * $color['r'] + 0.7152 * $color['g'] + 0.0722 * $color['b']; // per ITU-R BT.709
 	}
 
 	/**
 	 * Translates a css color value to a hex color value. So rgb, rgba and
 	 * color keywords will be translated to their hex counterparts.
-	 * @param String $color The color that needs to be translated
-	 * @return String The hex color value
+	 *
+	 * @param string $color The color that needs to be translated
+	 *
+	 * @return string The hex color value
 	 */
-	static public function getHexColorFromCssColor($color) {
+	public static function getHexColorFromCssColor($color) {
 		$color = strtolower($color);
-		if ( isset(Colors::$keyWords[$color]) ) {
+		if (isset(Colors::$keyWords[$color])) {
 			return Colors::$keyWords[$color];
 		}
-		if ( preg_match('/^#([0-9a-f]{3}|[0-9a-f]{4}|[0-9a-f]{6}|[0-9a-f]{8})$/', $color) ) {
+		if (preg_match('/^#([0-9a-f]{3}|[0-9a-f]{4}|[0-9a-f]{6}|[0-9a-f]{8})$/', $color)) {
 			// Already a hex color
 			return $color;
 		}
-		if ( preg_match('/^rgb\(\s*(\d+)\s*,\s*(\d+)\s*,\s*(\d+)\s*\)$/', $color, $m) ) {
+		if (preg_match('/^rgb\(\s*(\d+)\s*,\s*(\d+)\s*,\s*(\d+)\s*\)$/', $color, $m)) {
 			$r = intval($m[1]);
 			$g = intval($m[2]);
 			$b = intval($m[3]);
-			if ( $r < 0 || $r > 255 || $g < 0 || $g > 255 | $b < 0 || $b > 255 ) {
+			if ($r < 0 || $r > 255 || $g < 0 || $g > 255 | $b < 0 || $b > 255) {
 				// Not a valid color
 				return null;
 			}
-			return Colors::colorObject2string(['r'=>$r, 'g'=>$g, 'b'=>$b]);
+
+			return Colors::colorObject2string(['r' => $r, 'g' => $g, 'b' => $b]);
 		}
 
 		// Not a valid color
@@ -276,9 +311,9 @@ class Colors {
 	}
 
 	/**
-	 * Color keywords. Taken from https://developer.mozilla.org/en-US/docs/Web/CSS/color_value
+	 * Color keywords. Taken from https://developer.mozilla.org/en-US/docs/Web/CSS/color_value.
 	 */
-	static public $keyWords = [
+	public static $keyWords = [
 		'black' => '#000000',
 		'silver' => '#c0c0c0',
 		'gray' => '#808080',

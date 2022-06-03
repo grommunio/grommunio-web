@@ -1,18 +1,21 @@
 <?php
-require_once('classes/grommunioTest.php');
+
+require_once 'classes/grommunioTest.php';
 
 define('EXPIRES_TIME', 0);
 // Horrible global required for translations.js.php
 $Language = new Language();
 
-require(BASE_PATH . 'server/includes/translations.js.php');
+require BASE_PATH . 'server/includes/translations.js.php';
 ob_end_clean();
 
 /**
- * Test the translation.js.php
+ * Test the translation.js.php.
+ *
+ * @internal
+ * @coversNothing
  */
 class TranslationJSTest extends grommunioTest {
-
 	public function testChangeTranslationCharsetToUTF8Str() {
 		$str = "foo";
 		$value = changeTranslationCharsetToUTF8($str, 'UTF-8');

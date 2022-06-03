@@ -1,4 +1,5 @@
 <?php
+
 require_once __DIR__ . "/../Files/Core/class.accountstore.php";
 require_once __DIR__ . "/../Files/Backend/class.backendstore.php";
 
@@ -10,8 +11,8 @@ require_once __DIR__ . "/../Files/Core/Util/class.stringutil.php";
 
 require_once __DIR__ . "/../lib/phpfastcache/lib/Phpfastcache/Autoload/Autoload.php";
 
-use \Files\Core\Util\Logger;
-use \Files\Core\Util\StringUtil;
+use Files\Core\Util\Logger;
+use Files\Core\Util\StringUtil;
 use Phpfastcache\CacheManager;
 use Phpfastcache\Drivers\Redis\Config as RedisConfig;
 
@@ -21,24 +22,23 @@ use Phpfastcache\Drivers\Redis\Config as RedisConfig;
  * @class FilesListModule
  * @extends ListModule
  */
-class FilesListModule extends ListModule
-{
-	const LOG_CONTEXT = "FilesListModule"; // Context for the Logger
+class FilesListModule extends ListModule {
+	public const LOG_CONTEXT = "FilesListModule"; // Context for the Logger
 
 	// Unauthorized errors of different backends.
-	const SMB_ERR_UNAUTHORIZED = 13;
-	const SMB_ERR_FORBIDDEN = 1;
-	const FTP_WD_OWNCLOUD_ERR_UNAUTHORIZED = 401;
-	const FTP_WD_OWNCLOUD_ERR_FORBIDDEN = 403;
-	const ALL_BACKEND_ERR_NOTFOUND = 404;
+	public const SMB_ERR_UNAUTHORIZED = 13;
+	public const SMB_ERR_FORBIDDEN = 1;
+	public const FTP_WD_OWNCLOUD_ERR_UNAUTHORIZED = 401;
+	public const FTP_WD_OWNCLOUD_ERR_FORBIDDEN = 403;
+	public const ALL_BACKEND_ERR_NOTFOUND = 404;
 
 	/**
-	 * @var \phpFastCache cache handler.
+	 * @var \phpFastCache cache handler
 	 */
 	public $cache;
 
 	/**
-	 * @var String User id of the currently logged in user. Used to generate unique cache id's.
+	 * @var string User id of the currently logged in user. Used to generate unique cache id's.
 	 */
 	public $uid;
 
@@ -58,8 +58,7 @@ class FilesListModule extends ListModule
 	 * @param $id
 	 * @param $data
 	 */
-	public function __construct($id, $data)
-	{
+	public function __construct($id, $data) {
 		parent::__construct($id, $data);
 
 		// Initialize the account and backendstore
@@ -76,11 +75,12 @@ class FilesListModule extends ListModule
 
 		// For backward compatibility we will check if the Encryption store exists. If not,
 		// we will fall back to the old way of retrieving the password from the session.
-		if ( class_exists('EncryptionStore') ) {
+		if (class_exists('EncryptionStore')) {
 			// Get the username from the Encryption store
 			$encryptionStore = \EncryptionStore::getInstance();
 			$this->uid = $encryptionStore->get('username');
-		} else {
+		}
+		else {
 			$this->uid = $_SESSION["username"];
 		}
 		// As of the V6, the following characters can not longer being a part of the key identifier: {}()/\@:
@@ -95,17 +95,18 @@ class FilesListModule extends ListModule
 	/**
 	 * Function get the folder data from backend.
 	 *
-	 * @return array return folders array.
+	 * @param mixed $isReload
+	 *
+	 * @return array return folders array
 	 */
-	function getHierarchyList($isReload = false)
-	{
-		$data = array();
-		$data["item"] = array();
-		$versions =  $GLOBALS['PluginManager']->getPluginsVersion();
+	public function getHierarchyList($isReload = false) {
+		$data = [];
+		$data["item"] = [];
+		$versions = $GLOBALS['PluginManager']->getPluginsVersion();
 		$filesVersion = $versions['files'];
 
 		// Clear cache when version gets changed and update 'files' version in cache.
-		if ($isReload ||  version_compare($this->getVersionFromCache('files'), $filesVersion) !== 0) {
+		if ($isReload || version_compare($this->getVersionFromCache('files'), $filesVersion) !== 0) {
 			$this->clearCache();
 			$this->setVersionInCache('files', $filesVersion);
 		}
@@ -122,9 +123,9 @@ class FilesListModule extends ListModule
 			$realNodeId = "#R#" . $account->getId() . "/";
 			$accountName = $account->getName();
 			$rootId = $this->createId($realNodeId);
-			$nodes = array(
+			$nodes = [
 				"store_entryid" => $rootId,
-				"props" => array(
+				"props" => [
 					'entryid' => $rootId,
 					'subtree_id' => $rootId,
 					'display_name' => $accountName,
@@ -136,52 +137,52 @@ class FilesListModule extends ListModule
 					'backend_features' => $account->getFeatures(),
 					'filename' => $accountName,
 					'account_sequence' => $account->getSequence(),
-					'cannot_change' => $account->getCannotChangeFlag()
-				)
-			);
+					'cannot_change' => $account->getCannotChangeFlag(),
+				],
+			];
 
 			$initializedBackend = $this->initializeBackend($account, true);
 
 			// Get sub folder of root folder.
 			$subFolders = $this->getSubFolders($realNodeId, $initializedBackend);
 
-			array_push($subFolders, array(
+			array_push($subFolders, [
 				'id' => $realNodeId,
 				'folder_id' => $realNodeId,
 				'entryid' => $rootId,
 				'parent_entryid' => $rootId,
 				'store_entryid' => $rootId,
-				'props' => array(
+				'props' => [
 					'path' => $realNodeId,
 					'icon_index' => ICON_FOLDER,
 					// Fixme : remove text property. we have to use display_name property.
 					'text' => $accountName,
-					'has_subfolder'=> empty($subFolders) === false,
+					'has_subfolder' => empty($subFolders) === false,
 					'object_type' => FILES_FOLDER,
 					'filename' => $accountName,
 					'display_name' => $accountName,
-				)
-			));
+				],
+			]);
 
 			// TODO: dummy folder which used client side to show the account view when user
 			//  switch to home folder using navigation bar.
-			array_push($subFolders, array(
+			array_push($subFolders, [
 				'id' => "#R#",
 				'folder_id' => "#R#",
 				'entryid' => "#R#",
 				'parent_entryid' => $rootId,
 				'store_entryid' => $rootId,
-				'props' => array(
+				'props' => [
 					'path' => $realNodeId,
 					'icon_index' => ICON_HOME_FOLDER,
 					'text' => "Files",
-					'has_subfolder'=> false,
+					'has_subfolder' => false,
 					'object_type' => FILES_FOLDER,
 					'filename' => "Files",
 					'display_name' => "Files",
-				)
-			));
-			$nodes["folders"] = array( "item" => $subFolders);
+				],
+			]);
+			$nodes["folders"] = ["item" => $subFolders];
 			array_push($data["item"], $nodes);
 		}
 
@@ -191,14 +192,14 @@ class FilesListModule extends ListModule
 	/**
 	 * Function used to get the sub folders of the given folder id.
 	 *
-	 * @param String $nodeId The folder id which used to get sub folders.
-	 * @param array $backend The backend which used to retrieve the folders
-	 * @param bool $recursive The recursive true which get the sub folder recursively.
-	 * @param array $nodes The nodes contains the array of nodes.
-	 * @return array return the array folders.
+	 * @param string $nodeId    the folder id which used to get sub folders
+	 * @param array  $backend   The backend which used to retrieve the folders
+	 * @param bool   $recursive the recursive true which get the sub folder recursively
+	 * @param array  $nodes     the nodes contains the array of nodes
+	 *
+	 * @return array return the array folders
 	 */
-	function getSubFolders($nodeId, $backend, $recursive = false, $nodes = array())
-	{
+	public function getSubFolders($nodeId, $backend, $recursive = false, $nodes = []) {
 		// relative node ID. We need to trim off the #R# and account ID
 		$relNodeId = substr($nodeId, strpos($nodeId, '/'));
 		$nodeIdPrefix = substr($nodeId, 0, strpos($nodeId, '/'));
@@ -213,11 +214,11 @@ class FilesListModule extends ListModule
 
 		$backendDisplayName = $backend->backendDisplayName;
 		$backendVersion = $backend->backendVersion;
-		$cacheVersion  = $this->getVersionFromCache($backendDisplayName, $accountID);
+		$cacheVersion = $this->getVersionFromCache($backendDisplayName, $accountID);
 		$dir = $this->getCache($accountID, $cachePath);
 
 		// Get new data from backend when cache is empty or the version of backend got changed.
-		if (is_null($dir) || version_compare($backendVersion,$cacheVersion) !== 0) {
+		if (is_null($dir) || version_compare($backendVersion, $cacheVersion) !== 0) {
 			$this->setVersionInCache($backendDisplayName, $backendVersion, $accountID);
 			$dir = $backend->ls($relNodeId);
 		}
@@ -251,14 +252,15 @@ class FilesListModule extends ListModule
 
 					$entryid = $this->createId($realID);
 					$parentEntryid = $parentNode !== false && isset($parentNode['entryid']) ? $parentNode['entryid'] : $this->createId($nodeId);
-					$storeEntryid = $this->createId($nodeIdPrefix .'/');
+					$storeEntryid = $this->createId($nodeIdPrefix . '/');
 
 					$dir[$id]['entryid'] = $entryid;
 					$dir[$id]['parent_entryid'] = $parentEntryid;
 					$dir[$id]['store_entryid'] = $storeEntryid;
 
 					$updateCache = true;
-				} else {
+				}
+				else {
 					$entryid = $node['entryid'];
 					$parentEntryid = $node['parent_entryid'];
 					$storeEntryid = $node['store_entryid'];
@@ -270,14 +272,15 @@ class FilesListModule extends ListModule
 				if (is_null($nodeHasSubFolder)) {
 					unset($dir[$id]);
 					$updateCache = true;
-				} else {
-					array_push($nodes, array(
+				}
+				else {
+					array_push($nodes, [
 						'id' => $realID,
 						'folder_id' => $realID,
 						'entryid' => $entryid,
 						'parent_entryid' => $parentEntryid,
 						'store_entryid' => $storeEntryid,
-						'props' => array(
+						'props' => [
 							'path' => $nodeId,
 							'message_size' => $size,
 							'text' => $filename,
@@ -286,9 +289,9 @@ class FilesListModule extends ListModule
 							'filename' => $filename,
 							'display_name' => $filename,
 							'lastmodified' => strtotime($node['getlastmodified']) * 1000,
-							'has_subfolder' => $nodeHasSubFolder
-						)
-					));
+							'has_subfolder' => $nodeHasSubFolder,
+						],
+					]);
 				}
 
 				// We need to call this function recursively when user rename the folder.
@@ -303,19 +306,19 @@ class FilesListModule extends ListModule
 				$this->setCache($accountID, $cachePath, $dir);
 			}
 		}
+
 		return $nodes;
 	}
 
 	/**
 	 * Function which used to get the parent folder of selected folder.
 	 *
-	 * @param string $cachePath The cache path of selected folder.
-	 * @param string $accountID The account ID in which folder is belongs.
+	 * @param string $cachePath the cache path of selected folder
+	 * @param string $accountID the account ID in which folder is belongs
 	 *
-	 * @return array | bool return the parent folder data else false.
+	 * @return array|bool return the parent folder data else false
 	 */
-	function getParentNode($cachePath, $accountID)
-	{
+	public function getParentNode($cachePath, $accountID) {
 		$parentNode = dirname($cachePath, 1);
 
 		// remove the trailing slash for the cache key
@@ -328,6 +331,7 @@ class FilesListModule extends ListModule
 		if (!is_null($dir) && isset($dir[$cachePath . '/'])) {
 			return $dir[$cachePath . '/'];
 		}
+
 		return false;
 	}
 
@@ -335,10 +339,10 @@ class FilesListModule extends ListModule
 	 * Function create the unique id.
 	 *
 	 * @param {string} $id The folder id
+	 *
 	 * @return return generated a hash value
 	 */
-	function createId($id)
-	{
+	public function createId($id) {
 		return hash("tiger192,3", $id);
 	}
 
@@ -346,13 +350,13 @@ class FilesListModule extends ListModule
 	 * Function will check that given folder has sub folder or not.
 	 * This will retrurn null when there's an exception retrieving folder data.
 	 *
-	 * @param {String} $id The $id is id of selected folder.
+	 * @param {String} $id The $id is id of selected folder
 	 * @param $accountID
 	 * @param $backend
-	 * @return bool or null when unable to access folder data.
+	 *
+	 * @return bool or null when unable to access folder data
 	 */
-	function hasSubFolder($id, $accountID, $backend)
-	{
+	public function hasSubFolder($id, $accountID, $backend) {
 		$cachePath = rtrim($id, '/');
 		if ($cachePath === "") {
 			$cachePath = "/";
@@ -363,21 +367,23 @@ class FilesListModule extends ListModule
 			try {
 				$dir = $backend->ls($id);
 				$this->setCache($accountID, $cachePath, $dir);
-			} catch (Exception $e) {
+			}
+			catch (Exception $e) {
 				$errorCode = $e->getCode();
 
 				// If folder not found or folder doesn't have enough access then don't display that folder.
 				if ($errorCode === self::SMB_ERR_UNAUTHORIZED ||
 				$errorCode === self::SMB_ERR_FORBIDDEN ||
 				$errorCode === self::FTP_WD_OWNCLOUD_ERR_UNAUTHORIZED ||
-				$errorCode === self::FTP_WD_OWNCLOUD_ERR_FORBIDDEN||
+				$errorCode === self::FTP_WD_OWNCLOUD_ERR_FORBIDDEN ||
 				$errorCode === self::ALL_BACKEND_ERR_NOTFOUND) {
-
 					if ($errorCode === self::ALL_BACKEND_ERR_NOTFOUND) {
-						Logger::error(self::LOG_CONTEXT, '[hasSubFolder]: folder '. $id .' not found');
-					} else {
-						Logger::error(self::LOG_CONTEXT, '[hasSubFolder]: Access denied for folder '. $id);
+						Logger::error(self::LOG_CONTEXT, '[hasSubFolder]: folder ' . $id . ' not found');
 					}
+					else {
+						Logger::error(self::LOG_CONTEXT, '[hasSubFolder]: Access denied for folder ' . $id);
+					}
+
 					return null;
 				}
 				// rethrow exception if its not related to access permission.
@@ -393,24 +399,25 @@ class FilesListModule extends ListModule
 				}
 			}
 		}
+
 		return false;
 	}
 
 	/**
 	 * @param $actionType
 	 * @param $actionData
+	 *
 	 * @throws \Files\Backend\Exception
 	 */
-	function save($actionData)
-	{
-		$response = array();
+	public function save($actionData) {
+		$response = [];
 		$props = $actionData["props"];
-		$messageProps = array();
+		$messageProps = [];
 		if (isset($actionData["entryid"]) && empty($actionData["entryid"])) {
 			$path = isset($props['path']) && !empty($props['path']) ? $props['path'] : "/";
 
 			$relDirname = substr($path, strpos($path, '/'));
-			$relDirname = $relDirname . $props["display_name"] .'/';
+			$relDirname = $relDirname . $props["display_name"] . '/';
 			$account = $this->accountFromNode($path);
 
 			// initialize the backend
@@ -456,25 +463,25 @@ class FilesListModule extends ListModule
 			$this->setCache($actionId, dirname($relDirname), $dir);
 
 			if ($result) {
-				$folder = array(
-					'props' =>
-						array(
-							'path' => $path,
-							'filename' => $props["display_name"],
-							'display_name' => $props["display_name"],
-							'text' => $props["display_name"],
-							'object_type' => $props['object_type'],
-							'has_subfolder' => false,
-						),
+				$folder = [
+					'props' => [
+						'path' => $path,
+						'filename' => $props["display_name"],
+						'display_name' => $props["display_name"],
+						'text' => $props["display_name"],
+						'object_type' => $props['object_type'],
+						'has_subfolder' => false,
+					],
 					'id' => rawurldecode($id),
 					'folder_id' => rawurldecode($id),
 					'entryid' => $entryid,
 					'parent_entryid' => $parentEntryid,
-					'store_entryid' => $storeEntryid
-				);
+					'store_entryid' => $storeEntryid,
+				];
 				$response = $folder;
 			}
-		} else {
+		}
+		else {
 			// Rename/update the folder/file name
 			$folderId = $actionData['message_action']["source_folder_id"];
 			// rename/update the folder or files name.
@@ -510,29 +517,29 @@ class FilesListModule extends ListModule
 				$this->setCache($account->getId(), dirname($relSrc), $dir);
 
 				$this->updateCacheAfterRename($relSrc, $relDst, $account->getId());
-			} else {
+			}
+			else {
 				// clear the cache
 				$this->deleteCache($account->getId(), dirname($relSrc));
 			}
 
 			if ($result) {
 				/* create the response object */
-				$folder = array();
+				$folder = [];
 
 				// some requests might not contain a new filename... so dont update the store
 				if (isset($props['filename'])) {
-					$folder = array(
-						'props' =>
-							array(
-								'folder_id' => rawurldecode($dst . $isfolder),
-								'path' => rawurldecode($dstdir),
-								'filename' =>$props['filename'],
-								'display_name' =>$props['filename']
-							),
+					$folder = [
+						'props' => [
+							'folder_id' => rawurldecode($dst . $isfolder),
+							'path' => rawurldecode($dstdir),
+							'filename' => $props['filename'],
+							'display_name' => $props['filename'],
+						],
 						'entryid' => $actionData["entryid"],
 						'parent_entryid' => $parentEntryid,
-						'store_entryid' => $actionData["store_entryid"]
-					);
+						'store_entryid' => $actionData["store_entryid"],
+					];
 				}
 				$response['item'] = $folder;
 				$messageProps = $folder;
@@ -541,18 +548,18 @@ class FilesListModule extends ListModule
 
 		$this->addActionData("update", $response);
 		$GLOBALS["bus"]->addData($this->getResponseData());
+
 		return $messageProps;
 	}
 
 	/**
 	 * Update the cache of renamed folder and it's sub folders.
 	 *
-	 * @param {String} $oldPath The $oldPath is path of folder before rename.
-	 * @param {String} $newPath The $newPath is path of folder after rename.
-	 * @param {String} $accountId The id of an account in which renamed folder is belongs.
+	 * @param {String} $oldPath The $oldPath is path of folder before rename
+	 * @param {String} $newPath The $newPath is path of folder after rename
+	 * @param {String} $accountId The id of an account in which renamed folder is belongs
 	 */
-	function updateCacheAfterRename($oldPath, $newPath, $accountId)
-	{
+	public function updateCacheAfterRename($oldPath, $newPath, $accountId) {
 		// remove the trailing slash for the cache key
 		$cachePath = rtrim($oldPath, '/');
 		if ($cachePath === "") {
@@ -573,7 +580,7 @@ class FilesListModule extends ListModule
 				}
 
 				if ($type === FILES_FOLDER) {
-					$this->updateCacheAfterRename($id,  rtrim($newId, '/'), $accountId);
+					$this->updateCacheAfterRename($id, rtrim($newId, '/'), $accountId);
 				}
 			}
 			$this->deleteCache($accountId, $cachePath);
@@ -584,10 +591,9 @@ class FilesListModule extends ListModule
 	/**
 	 * Function used to notify the sub folder of selected/modified folder.
 	 *
-	 * @param {String} $folderID The $folderID of a folder which is modified.
+	 * @param {String} $folderID The $folderID of a folder which is modified
 	 */
-	function notifySubFolders($folderID)
-	{
+	public function notifySubFolders($folderID) {
 		$account = $this->accountFromNode($folderID);
 		$initializedBackend = $this->initializeBackend($account, true);
 		$folderData = $this->getSubFolders($folderID, $initializedBackend, true);
@@ -599,32 +605,36 @@ class FilesListModule extends ListModule
 
 	/**
 	 * Get the account id from a node id.
+	 *
 	 * @param {String} $nodeID Id of the file or folder to operate on
+	 *
 	 * @return {String} The account id extracted from $nodeId
 	 */
-	function accountIDFromNode($nodeID)
-	{
+	public function accountIDFromNode($nodeID) {
 		return substr($nodeID, 3, (strpos($nodeID, '/') - 3)); // parse account id from node id
 	}
 
 	/**
 	 * Get the account from a node id.
+	 *
 	 * @param {String} $nodeId ID of the file or folder to operate on
+	 * @param mixed $nodeID
+	 *
 	 * @return {String} The account for $nodeId
 	 */
-	function accountFromNode($nodeID)
-	{
+	public function accountFromNode($nodeID) {
 		return $this->accountStore->getAccount($this->accountIDFromNode($nodeID));
 	}
 
 	/**
 	 * Create a key used to store data in the cache.
+	 *
 	 * @param {String} $accountID Id of the account of the data to cache
 	 * @param {String} $path Path of the file or folder to create the cache element for
+	 *
 	 * @return {String} The created key
 	 */
-	function makeCacheKey($accountID, $path)
-	{
+	public function makeCacheKey($accountID, $path) {
 		return $this->uid . md5($accountID . $path);
 	}
 
@@ -633,11 +643,12 @@ class FilesListModule extends ListModule
 	 *
 	 * @param {String} $displayName display name of the backend or file plugin
 	 * @param {String} $accountID Id of the account of the data to cache
+	 *
 	 * @return {String} version data or null if nothing was found
 	 */
-	function getVersionFromCache($displayName, $accountID = '')
-	{
-		$key =  $this->uid . $accountID . $displayName;
+	public function getVersionFromCache($displayName, $accountID = '') {
+		$key = $this->uid . $accountID . $displayName;
+
 		return $this->cache->getItem($key)->get();
 	}
 
@@ -648,11 +659,10 @@ class FilesListModule extends ListModule
 	 * @param {String} $version version info of backend or file plugin which needs to be cached
 	 * @param {String} $accountID Id of the account of the data to cache
 	 */
-	function setVersionInCache($displayName, $version, $accountID = '')
-	{
+	public function setVersionInCache($displayName, $version, $accountID = '') {
 		$olderVersionFromCache = $this->getVersionFromCache($displayName, $accountID);
 		// If version of files/backend is same then return.
-		if (version_compare($olderVersionFromCache,$version) === 0) {
+		if (version_compare($olderVersionFromCache, $version) === 0) {
 			return;
 		}
 
@@ -662,29 +672,31 @@ class FilesListModule extends ListModule
 
 	/**
 	 * Initialize the backend for the given account.
+	 *
 	 * @param {Object} $account The account object the backend should be initialized for
 	 * @param {Bool} $setID Should the accountID be set in the backend object, or not. Defaults to false.
+	 *
 	 * @return {Object} The initialized backend
 	 */
-	function initializeBackend($account, $setID = false)
-	{
+	public function initializeBackend($account, $setID = false) {
 		$backend = $this->backendStore->getInstanceOfBackend($account->getBackend());
 		$backend->init_backend($account->getBackendConfig());
-		if($setID) {
+		if ($setID) {
 			$backend->setAccountID($account->getId());
 		}
 		$backend->open();
+
 		return $backend;
 	}
 
 	/**
 	 * Save directory data in the cache.
+	 *
 	 * @param {String} $accountID Id of the account of the data to cache
 	 * @param {String} $path Path of the file or folder to create the cache element for
 	 * @param {String} $data Data to be cached
 	 */
-	function setCache($accountID, $path, $data)
-	{
+	public function setCache($accountID, $path, $data) {
 		$key = $this->makeCacheKey($accountID, $path);
 		Logger::debug(self::LOG_CONTEXT, "Setting cache for node: " . $accountID . $path . " ## " . $key);
 		$this->cache->save($this->cache->getItem($key)->set($data));
@@ -692,54 +704,57 @@ class FilesListModule extends ListModule
 
 	/**
 	 * Get directotry data form the cache.
+	 *
 	 * @param {String} $accountID Id of the account of the data to get
 	 * @param {String} $path Path of the file or folder to retrieve the cache element for
+	 *
 	 * @return {String} The directory data or null if nothing was found
 	 */
-	function getCache($accountID, $path)
-	{
+	public function getCache($accountID, $path) {
 		$key = $this->makeCacheKey($accountID, $path);
 		Logger::debug(self::LOG_CONTEXT, "Getting cache for node: " . $accountID . $path . " ## " . $key);
+
 		return $this->cache->getItem($key)->get();
 	}
 
 	/**
 	 * Remove data from the cache.
+	 *
 	 * @param {String} $accountID Id of the account to delete the cache for
 	 * @param {String} $path Path of the file or folder to delete the cache element
 	 */
-	function deleteCache($accountID, $path)
-	{
+	public function deleteCache($accountID, $path) {
 		$key = $this->makeCacheKey($accountID, $path);
-		Logger::debug(self::LOG_CONTEXT, "Removing cache for node: " . $accountID .  $path . " ## " . $key);
+		Logger::debug(self::LOG_CONTEXT, "Removing cache for node: " . $accountID . $path . " ## " . $key);
 		$this->cache->deleteItem($key);
 	}
 
 	/**
 	 * Function clear the cache.
 	 */
-	function clearCache()
-	{
+	public function clearCache() {
 		$this->cache->clear();
 	}
 
 	/**
 	 * Function which returns MAPI Message Store Object. It
 	 * searches in the variable $action for a storeid.
+	 *
 	 * @param array $action the XML data retrieved from the client
+	 *
 	 * @return object MAPI Message Store Object, false if storeid is not found in the $action variable
 	 */
-	function getActionStore($action)
-	{
+	public function getActionStore($action) {
 		$store = false;
 
-		if(isset($action["store_entryid"]) && !empty($action["store_entryid"])) {
-			if(is_array($action["store_entryid"])) {
-				$store = array();
-				foreach($action["store_entryid"] as $store_id) {
+		if (isset($action["store_entryid"]) && !empty($action["store_entryid"])) {
+			if (is_array($action["store_entryid"])) {
+				$store = [];
+				foreach ($action["store_entryid"] as $store_id) {
 					array_push($store, $store_id);
 				}
-			} else {
+			}
+			else {
 				$store = $action["store_entryid"];
 			}
 		}

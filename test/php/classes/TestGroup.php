@@ -1,31 +1,30 @@
 <?php
 
 /**
- * TestGroup
+ * TestGroup.
  *
  * A wrapper around the grommunioUser which adds utility functions.
  * This wrapper allows us to use GROMMUNIO group, e.g. mail to it
  */
 class TestGroup {
-
 	/**
 	 * The grommunioUser object, this is the object used to logon
-	 * to the server with, and will access the group in the address book
+	 * to the server with, and will access the group in the address book.
 	 */
 	private $user;
 
 	/**
-	 * The groupname
+	 * The groupname.
 	 */
 	protected $groupname;
 
 	/**
-	 * Constructor
-	 * @param String $name The name of the group
+	 * Constructor.
+	 *
+	 * @param string        $name The name of the group
 	 * @param grommunioUser $user The user to login with
 	 */
-	public function __construct($name, $user)
-	{
+	public function __construct($name, $user) {
 		$this->groupname = $name;
 		$this->user = $user;
 		$this->initialize();
@@ -33,23 +32,23 @@ class TestGroup {
 
 	/**
 	 * Initialize the TestUser.
-	 * Should be overridden by subclasses
+	 * Should be overridden by subclasses.
 	 */
-	protected function initialize()
-	{
+	protected function initialize() {
 	}
 
 	/**
-	 * Obtain the Recipient object for this user from a PHP response message
+	 * Obtain the Recipient object for this user from a PHP response message.
+	 *
 	 * @param array $message The message from where the recipient
-	 * should be obtained
+	 *                       should be obtained
+	 *
 	 * @return array The recipient
 	 */
-	public function getRecipientFromMessage($message)
-	{
+	public function getRecipientFromMessage($message) {
 		$groupname = $this->groupname;
 
-		if (isset($message['recipients']) && isset($message['recipients']['item'])) {
+		if (isset($message['recipients'], $message['recipients']['item'])) {
 			$props = Util::pluckFromObject($message['recipients']['item'], 'props');
 			$index = Util::indexInArray($props, 'email_address', $groupname);
 			if ($index >= 0) {
@@ -63,16 +62,17 @@ class TestGroup {
 	/**
 	 * Convert the current group into a recipient object which can
 	 * be used to send messages to.
+	 *
 	 * @param Number $recipientType The recipient type (defaults to MAPI_TO)
-	 * @return Array The recipient object
+	 *
+	 * @return array The recipient object
 	 */
-	public function getRecipient($recipientType = MAPI_TO)
-	{
+	public function getRecipient($recipientType = MAPI_TO) {
 		$this->user->logon();
 
 		$group = $this->getGroupProps();
 
-		return array(
+		return [
 			'entryid' => bin2hex($group[PR_ENTRYID]),
 			'object_type' => $group[PR_OBJECT_TYPE],
 			'display_name' => $group[PR_DISPLAY_NAME],
@@ -84,19 +84,20 @@ class TestGroup {
 			'display_type' => isset($group[PR_DISPLAY_TYPE]) ? $group[PR_DISPLAY_TYPE] : DT_DISTLIST,
 			'display_type_ex' => isset($group[PR_DISPLAY_TYPE_EX]) ? $group[PR_DISPLAY_TYPE_EX] : DTE_FLAG_ACL_CAPABLE,
 			'search_key' => bin2hex($group[PR_SEARCH_KEY]),
-		);
+		];
 	}
 
 	/**
-	 * Returns properties of the group
-	 * @param Array $tags properties of group that should be returned
-	 * @return Array The properties of group
+	 * Returns properties of the group.
+	 *
+	 * @param array $tags properties of group that should be returned
+	 *
+	 * @return array The properties of group
 	 */
-	public function getGroupProps($tags = array())
-	{
+	public function getGroupProps($tags = []) {
 		$this->user->logon();
 
-		$props = array();
+		$props = [];
 		$groupEntryId = $this->getGroupEntryID();
 
 		if ($groupEntryId) {
@@ -106,7 +107,8 @@ class TestGroup {
 			// receive groupdata
 			if (!empty($tags)) {
 				$props = mapi_getprops($group, $tags);
-			} else {
+			}
+			else {
 				$props = mapi_getprops($group);
 			}
 		}
@@ -115,19 +117,18 @@ class TestGroup {
 	}
 
 	/**
-	 * Returns entryid of the group
+	 * Returns entryid of the group.
+	 *
 	 * @return BinString entryid
 	 */
-	public function getGroupEntryID()
-	{
+	public function getGroupEntryID() {
 		$this->user->logon();
 
 		$addressbook = $this->user->getAddressbook();
 
-		$rows = mapi_ab_resolvename($addressbook, array ( array(PR_DISPLAY_NAME => $this->groupname) ) , 0 );
+		$rows = mapi_ab_resolvename($addressbook, [[PR_DISPLAY_NAME => $this->groupname]], 0);
 		if (count($rows) == 1 && isset($rows[0][PR_ENTRYID])) {
 			return $rows[0][PR_ENTRYID];
 		}
 	}
 }
-?>

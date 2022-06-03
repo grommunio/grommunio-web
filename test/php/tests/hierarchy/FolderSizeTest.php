@@ -1,54 +1,56 @@
 <?php
-require_once('classes/grommunioUser.php');
-require_once('classes/HierarchyUser.php');
-require_once('classes/MailUser.php');
-require_once('classes/TestData.php');
-require_once('classes/grommunioTest.php');
-require_once('classes/Util.php');
+
+require_once 'classes/grommunioUser.php';
+require_once 'classes/HierarchyUser.php';
+require_once 'classes/MailUser.php';
+require_once 'classes/TestData.php';
+require_once 'classes/grommunioTest.php';
+require_once 'classes/Util.php';
 
 /**
- * FolderSizeTest
+ * FolderSizeTest.
  *
  * Tests obtaining folder size information
+ *
+ * @internal
+ * @coversNothing
  */
 class FolderPropertiesTest extends grommunioTest {
-
 	/**
-	 * The user for which we will open the hierarchy
+	 * The user for which we will open the hierarchy.
 	 */
 	private $user;
 
 	/**
-	 * The user which will be saving/sending mail
+	 * The user which will be saving/sending mail.
 	 */
 	private $mailUser;
 
 	/**
-	 * The message which will be saved/send
+	 * The message which will be saved/send.
 	 */
 	private $message;
 
 	/**
-	 * During setup we create the user, and clear the shared stores settings
+	 * During setup we create the user, and clear the shared stores settings.
 	 */
-	protected function setUp()
-	{
+	protected function setUp() {
 		parent::setUp();
 
 		$this->user = $this->addUser(new HierarchyUser(new grommunioUser(GROMMUNIO_USER1_NAME, GROMMUNIO_USER1_PASSWORD)));
 		$this->mailUser = $this->addUser(new MailUser(new grommunioUser(GROMMUNIO_USER1_NAME, GROMMUNIO_USER1_PASSWORD)));
 
-		$this->message = array(
+		$this->message = [
 			'props' => TestData::getMail(),
-			'recipients' => array(
-				'add' => array(
-					$this->mailUser->getRecipient()
-				)
-			)
-		);
+			'recipients' => [
+				'add' => [
+					$this->mailUser->getRecipient(),
+				],
+			],
+		];
 
 		// Initialize the folders by sending and saving some mails
-		for ($i = 0; $i < 5; $i++) {
+		for ($i = 0; $i < 5; ++$i) {
 			$this->mailUser->saveMail($this->message);
 		}
 
@@ -57,7 +59,7 @@ class FolderPropertiesTest extends grommunioTest {
 						   'foldersize a bit more to directly see the foldersize differences';
 		$entryid = $this->mailUser->getDefaultTestFolderEntryId();
 		$this->mailUser->setDefaultTestFolderEntryId($this->mailUser->getReceiveFolderEntryID());
-		for ($i = 0; $i < 5; $i++) {
+		for ($i = 0; $i < 5; ++$i) {
 			$this->mailUser->saveMail($this->message);
 		}
 		$this->mailUser->setDefaultTestFolderEntryId($entryid);
@@ -66,8 +68,7 @@ class FolderPropertiesTest extends grommunioTest {
 	/*
 	 * Test if the foldersize is correctly calculated for the inbox
 	 */
-	public function testGetFolderSizeResponse()
-	{
+	public function testGetFolderSizeResponse() {
 		$info = $this->user->getFolderSize();
 
 		$this->assertArrayHasKey('item', $info, 'Test that the response contains the \'item\' key');
@@ -84,8 +85,7 @@ class FolderPropertiesTest extends grommunioTest {
 	/*
 	 * Test if the foldersize is correctly calculated for the entire store
 	 */
-	public function testGetStoreSizeResponse()
-	{
+	public function testGetStoreSizeResponse() {
 		$entryid = $this->user->getDefaultFolderEntryID(PR_IPM_SUBTREE_ENTRYID);
 		$info = $this->user->getFolderSize($entryid);
 
@@ -103,8 +103,7 @@ class FolderPropertiesTest extends grommunioTest {
 	/*
 	 * Test if the subfolders are property shown
 	 */
-	public function testSubFolderSizeResponse()
-	{
+	public function testSubFolderSizeResponse() {
 		$entryid = $this->user->getDefaultFolderEntryID(PR_IPM_SUBTREE_ENTRYID);
 		$info = $this->user->getFolderSize($entryid);
 		$inboxentryid = $this->user->getReceiveFolderEntryID();
@@ -142,5 +141,3 @@ class FolderPropertiesTest extends grommunioTest {
 		$this->assertEquals($wasteinfo['item']['props']['total_message_size'], $waste['props']['total_message_size'], 'Test that the \'total_message_size\' property in Deleted items is correct');
 	}
 }
-
-?>

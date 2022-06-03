@@ -1,6 +1,6 @@
 <?php
 
-require_once(__DIR__ . '/class.ZarafaException.php');
+require_once __DIR__ . '/class.ZarafaException.php';
 
 if (!class_exists('JSONException')) {
 	/**
@@ -8,8 +8,6 @@ if (!class_exists('JSONException')) {
 	 * in server/util.php
 	 * getCode() method will return actual JSON error constant.
 	 */
-	class JSONException extends ZarafaException
-	{
+	class JSONException extends ZarafaException {
 	}
 }
-?>

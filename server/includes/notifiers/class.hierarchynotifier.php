@@ -1,25 +1,24 @@
 <?php
+
 	/**
-	 * Hierarchy Notifier
+	 * Hierarchy Notifier.
 	 *
 	 * Generates notifications which might be created
 	 * inside the hierarchy.
 	 */
-	class HierarchyNotifier extends Notifier
-	{
+	class HierarchyNotifier extends Notifier {
 		/**
-		 * Flag to indicate that we need to reopen store object to get updated message size
+		 * Flag to indicate that we need to reopen store object to get updated message size.
 		 */
-		 private $reopenStore;
+		private $reopenStore;
 
 		/**
 		 * previous store size of the default store of user, this is updated whenever
-		 * notification is sent to client to update quota details
+		 * notification is sent to client to update quota details.
 		 */
-		 private $storeSize;
+		private $storeSize;
 
-		function __construct()
-		{
+		public function __construct() {
 			/*
 			 * Initialize hierarchy store's size, so in future on change events of
 			 * folder object or message item we can check store's previous size,
@@ -32,44 +31,46 @@
 
 		/**
 		 * @return Number Return the bitmask of events which are handled
-		 * by this notifier. The bitmask can consist of the
-		 * OBJECT_SAVE, OBJECT_DELETE, TABLE_SAVE, TABLE_DELETE, REQUEST_START and REQUEST_END flags
+		 *                by this notifier. The bitmask can consist of the
+		 *                OBJECT_SAVE, OBJECT_DELETE, TABLE_SAVE, TABLE_DELETE, REQUEST_START and REQUEST_END flags
 		 */
-		public function getEvents()
-		{
+		public function getEvents() {
 			return OBJECT_SAVE | OBJECT_DELETE | TABLE_SAVE | TABLE_DELETE | REQUEST_START | REQUEST_END;
 		}
 
 		/**
 		 * If an event elsewhere has occurred, it enters in this method. This method
 		 * executes one ore more actions, depends on the event.
-		 * @param int $event Event.
-		 * @param string $entryid Entryid.
-		 * @param array $data array of data.
+		 *
+		 * @param int    $event   event
+		 * @param string $entryid entryid
+		 * @param array  $data    array of data
+		 * @param mixed  $props
 		 */
-		public function update($event, $entryid, $props)
-		{
-			switch($event) {
+		public function update($event, $entryid, $props) {
+			switch ($event) {
 				case REQUEST_START:
 					$this->reopenStore = false;
 					break;
+
 				case OBJECT_SAVE:
 				case TABLE_SAVE:
 				case TABLE_DELETE:
-					$data = array();
+					$data = [];
 
 					// If no PR_ENTRYID is given, we will settle with PR_PARENT_ENTRYID
 					$folderEntryid = false;
 					if (isset($props[PR_PARENT_ENTRYID])) {
 						$folderEntryid = $props[PR_PARENT_ENTRYID];
-					} else if(isset($props[PR_ENTRYID])) {
+					}
+					elseif (isset($props[PR_ENTRYID])) {
 						$folderEntryid = $props[PR_ENTRYID];
 					}
 
 					// We won't send notifiers for changes to the todolist folder, since there is nothing to
 					// be updated by the client.
 					$entryIdUtil = new EntryId();
-					if ( $entryIdUtil->compareEntryIds(bin2hex($folderEntryid), bin2hex(TodoList::getEntryId())) ){
+					if ($entryIdUtil->compareEntryIds(bin2hex($folderEntryid), bin2hex(TodoList::getEntryId()))) {
 						return;
 					}
 
@@ -86,21 +87,23 @@
 
 						// If this folder belongs to Favorites folder,then change PARENT_ENTRYID manually.
 						if ($GLOBALS["entryid"]->isFavoriteFolder($folderProps[PR_ENTRYID])) {
-							$storeProps = mapi_getprops($store, array(PR_IPM_FAVORITES_ENTRYID));
+							$storeProps = mapi_getprops($store, [PR_IPM_FAVORITES_ENTRYID]);
 
 							if (isset($storeProps[PR_IPM_FAVORITES_ENTRYID])) {
 								$favFolder = mapi_msgstore_openentry($store, $storeProps[PR_IPM_FAVORITES_ENTRYID]);
 								$favHierarchyTable = mapi_folder_gethierarchytable($favFolder, MAPI_DEFERRED_ERRORS);
-								$folders = mapi_table_queryallrows($favHierarchyTable, array(PR_DISPLAY_NAME, PR_STORE_ENTRYID),
-									array(RES_PROPERTY,
-										array(
+								$folders = mapi_table_queryallrows(
+									$favHierarchyTable,
+									[PR_DISPLAY_NAME, PR_STORE_ENTRYID],
+									[RES_PROPERTY,
+										[
 											RELOP => RELOP_EQ,
 											ULPROPTAG => PR_ENTRYID,
-											VALUE => array(
-												PR_ENTRYID => $folderProps[PR_ENTRYID]
-											)
-										)
-									)
+											VALUE => [
+												PR_ENTRYID => $folderProps[PR_ENTRYID],
+											],
+										],
+									]
 								);
 
 								if (!empty($folders)) {
@@ -114,33 +117,36 @@
 						$data[] = $GLOBALS["operations"]->setFolder($folderProps);
 					}
 
-					$this->addNotificationActionData("folders", array( "item" => $data ));
+					$this->addNotificationActionData("folders", ["item" => $data]);
 					$GLOBALS["bus"]->addData($this->createNotificationResponseData());
 
 					// data is changed in store so message size will be updated so reopen store to get correct data
 					$this->reopenStore = true;
 					break;
+
 				case OBJECT_DELETE:
-					if (isset($props[PR_ENTRYID]) && isset($props[PR_PARENT_ENTRYID])) {
-						$data = array();
+					if (isset($props[PR_ENTRYID], $props[PR_PARENT_ENTRYID])) {
+						$data = [];
 						$data["folderdelete"] = 1;
 						$data["entryid"] = bin2hex($props[PR_ENTRYID]);
 						$data["parent_entryid"] = bin2hex($props[PR_PARENT_ENTRYID]);
 						$data["store_entryid"] = bin2hex($props[PR_STORE_ENTRYID]);
 
-						$this->addNotificationActionData("folders", array( "item" => $data ));
+						$this->addNotificationActionData("folders", ["item" => $data]);
 						$GLOBALS["bus"]->addData($this->createNotificationResponseData());
 
 						// data is changed in store so message size will be updated so reopen store to get correct data
 						$this->reopenStore = true;
 					}
 					break;
+
 				case REQUEST_END:
-					if($this->reopenStore) {
+					if ($this->reopenStore) {
 						// @FIXME this actually very heavy operation for performance point of view
 						// we need to remove this in future
 						$store = $GLOBALS["mapisession"]->getDefaultMessageStore(true);
-					} else {
+					}
+					else {
 						$store = $GLOBALS["mapisession"]->getDefaultMessageStore();
 					}
 
@@ -148,16 +154,16 @@
 					$this->reopenStore = false;
 
 					// Send notification for any changes in store's properties
-					if($store) {
-						$storeProps = mapi_getprops($store, array(PR_ENTRYID, PR_STORE_ENTRYID, PR_MDB_PROVIDER, PR_OBJECT_TYPE, PR_QUOTA_WARNING_THRESHOLD, PR_QUOTA_SEND_THRESHOLD, PR_QUOTA_RECEIVE_THRESHOLD, PR_MESSAGE_SIZE_EXTENDED));
+					if ($store) {
+						$storeProps = mapi_getprops($store, [PR_ENTRYID, PR_STORE_ENTRYID, PR_MDB_PROVIDER, PR_OBJECT_TYPE, PR_QUOTA_WARNING_THRESHOLD, PR_QUOTA_SEND_THRESHOLD, PR_QUOTA_RECEIVE_THRESHOLD, PR_MESSAGE_SIZE_EXTENDED]);
 
-						$storeSize = round($storeProps[PR_MESSAGE_SIZE_EXTENDED]/1024);
+						$storeSize = round($storeProps[PR_MESSAGE_SIZE_EXTENDED] / 1024);
 
 						// Check whether size of the store is changed, if it is changed then
 						// send latest store size and quota information to client-side.
-						if($this->storeSize != $storeSize) {
-							$data = array();
-							$data["props"] = array();
+						if ($this->storeSize != $storeSize) {
+							$data = [];
+							$data["props"] = [];
 							$data["store_entryid"] = bin2hex($storeProps[PR_STORE_ENTRYID]);
 							$data["props"]["object_type"] = $storeProps[PR_OBJECT_TYPE];
 							$data["props"]["store_size"] = $storeSize;
@@ -165,7 +171,7 @@
 							$data["props"]["quota_soft"] = isset($storeProps[PR_QUOTA_SEND_THRESHOLD]) ? $storeProps[PR_QUOTA_SEND_THRESHOLD] : 0;
 							$data["props"]["quota_hard"] = isset($storeProps[PR_QUOTA_RECEIVE_THRESHOLD]) ? $storeProps[PR_QUOTA_RECEIVE_THRESHOLD] : 0;
 
-							$this->addNotificationActionData("stores", array( "item" => array($data) ));
+							$this->addNotificationActionData("stores", ["item" => [$data]]);
 							$GLOBALS["bus"]->addData($this->createNotificationResponseData());
 
 							// assign size for next checking
@@ -176,4 +182,3 @@
 			}
 		}
 	}
-?>

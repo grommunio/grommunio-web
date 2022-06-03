@@ -1,12 +1,15 @@
 <?php
-require_once('classes/grommunioTest.php');
-require_once(BASE_PATH . 'server/includes/core/class.colors.php');
+
+require_once 'classes/grommunioTest.php';
+require_once BASE_PATH . 'server/includes/core/class.colors.php';
 
 /**
- * Test the Colors class
+ * Test the Colors class.
+ *
+ * @internal
+ * @coversNothing
  */
 class ColorsTest extends grommunioTest {
-
 	public function testLighter() {
 		$lighter = Colors::lighter("#ff6347", 20);
 		$this->assertEquals('#ffb9ac', $lighter);
@@ -45,4 +48,3 @@ class ColorsTest extends grommunioTest {
 		$this->assertEquals(0, $output);
 	}
 }
-

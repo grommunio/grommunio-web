@@ -1,11 +1,12 @@
 <?php
+
 	/**
-	* This file is the dispatcher of the whole application, every request for data enters
-	* here. JSON is received and send to the client.
-	*/
+	 * This file is the dispatcher of the whole application, every request for data enters
+	 * here. JSON is received and send to the client.
+	 */
 
 	// Bootstrap the script
-	require_once('server/includes/bootstrap.grommunio.php');
+	require_once 'server/includes/bootstrap.grommunio.php';
 
 	// Callback function for unserialize
 	// Notifier objects of the previous request are stored in the session. With this
@@ -23,52 +24,53 @@
 	// before we close the session.
 	if (isset($_SESSION["lang"])) {
 		$session_lang = $_SESSION["lang"];
-	} else {
+	}
+	else {
 		$session_lang = LANG;
 	}
 
 	// Set headers for JSON
 	header("Content-Type: application/json; charset=utf-8");
-	header("Expires: ".gmdate( "D, d M Y H:i:s")."GMT");
-	header("Last-Modified: ".gmdate( "D, d M Y H:i:s")."GMT");
+	header("Expires: " . gmdate("D, d M Y H:i:s") . "GMT");
+	header("Last-Modified: " . gmdate("D, d M Y H:i:s") . "GMT");
 	header("Cache-Control: no-cache, must-revalidate");
 	header("Pragma: no-cache");
-	if ( WebAppAuthentication::isAuthenticated() ) {
+	if (WebAppAuthentication::isAuthenticated()) {
 		header("X-grommunio: " . trim(file_get_contents(BASE_PATH . 'version')));
 	}
 
 	// If a service request was sent (a REST call), the service controller will handle it.
-	if ( isset($_GET['service']) ) {
-		require_once(BASE_PATH . 'server/includes/controllers/service.php');
-		die();
- 	}
+	if (isset($_GET['service'])) {
+		require_once BASE_PATH . 'server/includes/controllers/service.php';
+
+		exit();
+	}
 
 	// Close the session now, so we're not blocking other requests
 	session_write_close();
 
 	// If a ping request was sent, we the ping controller will handle it.
-	if ( isset($_GET['ping']) ) {
-		require_once(BASE_PATH . 'server/includes/controllers/ping.php');
-		die();
- 	}
+	if (isset($_GET['ping'])) {
+		require_once BASE_PATH . 'server/includes/controllers/ping.php';
 
-	if ( !WebAppAuthentication::isAuthenticated() ) {
+		exit();
+	}
+
+	if (!WebAppAuthentication::isAuthenticated()) {
 		if (WebAppAuthentication::getErrorCode() === MAPI_E_NETWORK_ERROR) {
-
 			// The user is not logged in because the Gromox server could not be reached.
 			// Return a HTTP 503 error so the client can act upon this event correctly.
 			header('HTTP/1.1 503 Service unavailable');
 			header("X-grommunio-Hresult: " . get_mapi_error_name(WebAppAuthentication::getErrorCode()));
-
-		} else {
-
+		}
+		else {
 			// The session expired, or the user is otherwise not logged on.
 			// Return a HTTP 401 error so the client can act upon this event correctly.
 			header('HTTP/1.1 401 Unauthorized');
 			header("X-grommunio-Hresult: " . get_mapi_error_name(WebAppAuthentication::getErrorCode()));
 		}
 
-		die();
+		exit();
 	}
 
 	// Instantiate Plugin Manager
@@ -108,7 +110,7 @@
 	// Get the bus object for this subsystem
 	$bus = $state->read("bus");
 
-	if ( !$bus ) {
+	if (!$bus) {
 		// Create global bus object
 		$bus = new Bus();
 	}
@@ -143,7 +145,8 @@
 	// Execute the request
 	try {
 		$json = $request->execute($json);
-	} catch (Exception $e) {
+	}
+	catch (Exception $e) {
 		// invalid requestdata exception
 		dump($e);
 	}
@@ -153,11 +156,12 @@
 	}
 
 	// Check if we can use gzip compression
-	if (ENABLE_RESPONSE_COMPRESSION && function_exists("gzencode") && isset($_SERVER["HTTP_ACCEPT_ENCODING"]) && strpos($_SERVER["HTTP_ACCEPT_ENCODING"], "gzip")!==false){
+	if (ENABLE_RESPONSE_COMPRESSION && function_exists("gzencode") && isset($_SERVER["HTTP_ACCEPT_ENCODING"]) && strpos($_SERVER["HTTP_ACCEPT_ENCODING"], "gzip") !== false) {
 		// Set the correct header and compress the response
 		header("Content-Encoding: gzip");
 		echo gzencode($json);
-	} else {
+	}
+	else {
 		echo $json;
 	}
 
@@ -175,4 +179,3 @@
 	// You can skip this as well because the lock is freed after the PHP script ends
 	// anyway. (only for PHP < 5.3.2)
 	$state->close();
-

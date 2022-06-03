@@ -1,5 +1,5 @@
 <?php
-include(BASE_PATH . 'server/includes/loader.php');
+include BASE_PATH . 'server/includes/loader.php';
 
 $loader = new FileLoader();
 
@@ -7,7 +7,7 @@ $loader = new FileLoader();
 <html>
 
 	<head>
-		<meta name="Generator" content="grommunio-web v<?php echo $loader->getVersion()?>">
+		<meta name="Generator" content="grommunio-web v<?php echo $loader->getVersion(); ?>">
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<title><?php echo $webappTitle; ?></title>
@@ -21,14 +21,15 @@ $loader = new FileLoader();
 		?>
 	</head>
 
-	<body class="theme-<?php echo strtolower($theme ? $theme : 'basic') ?>">
+	<body class="theme-<?php echo strtolower($theme ? $theme : 'basic'); ?>">
 		<?php
 			$jsTemplate = "\t\t<script type=\"text/javascript\" src=\"{file}\"></script>";
-                if (DEBUG_LOADER === LOAD_RELEASE) {
-                    $extjsFiles[] = "client/tinymce/tinymce.min.js";
-                } else {
-                    $extjsFiles[] = "client/tinymce/tinymce.js";
-                }
+				if (DEBUG_LOADER === LOAD_RELEASE) {
+					$extjsFiles[] = "client/tinymce/tinymce.min.js";
+				}
+				else {
+					$extjsFiles[] = "client/tinymce/tinymce.js";
+				}
 			$loader->printFiles($extjsFiles, $jsTemplate);
 		?>
 		<link id="grommunio-iconset-stylesheet" rel="stylesheet" href="<?php echo $iconsetStylesheet; ?>" >

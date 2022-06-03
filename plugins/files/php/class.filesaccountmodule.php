@@ -9,15 +9,13 @@ require_once __DIR__ . "/Files/Backend/class.backendstore.php";
 require_once __DIR__ . "/Files/Core/Util/class.arrayutil.php";
 require_once __DIR__ . "/Files/Core/Util/class.logger.php";
 
-use \Files\Core\Util\ArrayUtil;
-use \Files\Core\Util\Logger;
+use Files\Backend\Exception as BackendException;
+use Files\Core\Exception as AccountException;
+use Files\Core\Util\ArrayUtil;
+use Files\Core\Util\Logger;
 
-use \Files\Core\Exception as AccountException;
-use \Files\Backend\Exception as BackendException;
-
-class FilesAccountModule extends ListModule
-{
-	const LOG_CONTEXT = "FilesAccountModule"; // Context for the Logger
+class FilesAccountModule extends ListModule {
+	public const LOG_CONTEXT = "FilesAccountModule"; // Context for the Logger
 
 	/**
 	 * @constructor
@@ -25,18 +23,17 @@ class FilesAccountModule extends ListModule
 	 * @param $id
 	 * @param $data
 	 */
-	public function __construct($id, $data)
-	{
+	public function __construct($id, $data) {
 		parent::__construct($id, $data);
 	}
 
 	/**
 	 * Executes all the actions in the $data variable.
-	 * Exception part is used for authentication errors also
-	 * @return boolean true on success or false on failure.
+	 * Exception part is used for authentication errors also.
+	 *
+	 * @return bool true on success or false on failure
 	 */
-	public function execute()
-	{
+	public function execute() {
 		$result = false;
 
 		foreach ($this->data as $actionType => $actionData) {
@@ -47,53 +44,63 @@ class FilesAccountModule extends ListModule
 							// check if we should create a new account or edit an existing one
 							if (isset($actionData["entryid"])) {
 								$result = $this->accountUpdate($actionData);
-							} else {
+							}
+							else {
 								$result = $this->accountCreate($actionData);
 							}
 							break;
+
 						case "delete":
 							$result = $this->accountDelete($actionType, $actionData);
 							break;
+
 						case "list":
-							if(isset($actionData["list_backend"]) && $actionData["list_backend"]) {
+							if (isset($actionData["list_backend"]) && $actionData["list_backend"]) {
 								$result = $this->backendInformation($actionType);
-							} else {
+							}
+							else {
 								$result = $this->accountList($actionType, $actionData);
 							}
 							break;
+
 						case "getquota":
 							$result = $this->getQuotaInformation($actionType, $actionData);
 							break;
+
 						case "getversion":
 							$result = $this->getVersionInformation($actionType, $actionData);
 							break;
+
 						case "updatetoken":
 							$result = $this->updateOauthToken($actionType, $actionData);
 							break;
+
 						default:
 							$this->handleUnknownActionType($actionType);
 					}
-
-				} catch (MAPIException $e) {
+				}
+				catch (MAPIException $e) {
 					$this->sendFeedback(false, $this->errorDetailsFromException($e));
-				} catch (AccountException $e) {
-					$this->sendFeedback(false, array(
+				}
+				catch (AccountException $e) {
+					$this->sendFeedback(false, [
 						'type' => ERROR_GENERAL,
-						'info' => array(
+						'info' => [
 							'title' => $e->getTitle(),
 							'original_message' => $e->getMessage(),
-							'display_message' => $e->getMessage()
-						)
-					));
-				} catch (BackendException $e) {
-					$this->sendFeedback(false, array(
+							'display_message' => $e->getMessage(),
+						],
+					]);
+				}
+				catch (BackendException $e) {
+					$this->sendFeedback(false, [
 						'type' => ERROR_GENERAL,
-						'info' => array(
+						'info' => [
 							'title' => $e->getTitle(),
 							'original_message' => $e->getMessage(),
-							'display_message' => $e->getMessage()
-						)
-					));
+							'display_message' => $e->getMessage(),
+						],
+					]);
 				}
 			}
 		}
@@ -104,9 +111,8 @@ class FilesAccountModule extends ListModule
 	/**
 	 * @param {Array} $actionData
 	 */
-	public function accountCreate($actionData)
-	{
-		$response = array();
+	public function accountCreate($actionData) {
+		$response = [];
 		$requestProperties = $actionData["props"];
 
 		// create a new account in our backend
@@ -114,23 +120,22 @@ class FilesAccountModule extends ListModule
 		$newAccount = $accountStore->createAccount($requestProperties["name"], $requestProperties["backend"], $requestProperties["backend_config"]);
 
 		// create the response account object
-		$account = array();
-		$account[$newAccount->getId()] = array(
-			'props' =>
-				array(
-					'id' => $newAccount->getId(),
-					'status' => $newAccount->getStatus(),
-					'status_description' => $newAccount->getStatusDescription(),
-					'name' => $newAccount->getName(),
-					'backend' => $newAccount->getBackend(),
-					'backend_config' => $newAccount->getBackendConfig(),
-					'backend_features' => $newAccount->getFeatures(),
-					'account_sequence' => $newAccount->getSequence()
-				),
+		$account = [];
+		$account[$newAccount->getId()] = [
+			'props' => [
+				'id' => $newAccount->getId(),
+				'status' => $newAccount->getStatus(),
+				'status_description' => $newAccount->getStatusDescription(),
+				'name' => $newAccount->getName(),
+				'backend' => $newAccount->getBackend(),
+				'backend_config' => $newAccount->getBackendConfig(),
+				'backend_features' => $newAccount->getFeatures(),
+				'account_sequence' => $newAccount->getSequence(),
+			],
 			'entryid' => $newAccount->getId(),
 			'store_entryid' => 'filesaccount',
-			'parent_entryid' => 'accountstoreroot'
-		);
+			'parent_entryid' => 'accountstoreroot',
+		];
 		$response['item'] = array_values($account);
 
 		$this->addActionData("update", $response);
@@ -140,20 +145,20 @@ class FilesAccountModule extends ListModule
 	}
 
 	/**
-	 * remove an account from the store and the MAPI settings
+	 * remove an account from the store and the MAPI settings.
 	 *
 	 * @param {String} $actionType
 	 * @param {Array} $actionData
 	 */
-	public function accountDelete($actionType, $actionData)
-	{
-		$response = array();
+	public function accountDelete($actionType, $actionData) {
+		$response = [];
 
 		// check if account needs to clean things up before it gets deleted
 		try {
 			$accountStore = new \Files\Core\AccountStore();
 			$accountStore->getAccount($actionData['entryid'])->beforeDelete();
-		} catch (\Files\Backend\Exception $e) {
+		}
+		catch (\Files\Backend\Exception $e) {
 			// ignore errors here
 		}
 
@@ -166,25 +171,24 @@ class FilesAccountModule extends ListModule
 	}
 
 	/**
-	 * loads content of current folder - list of folders and files from the Files backend
+	 * loads content of current folder - list of folders and files from the Files backend.
 	 *
 	 * @param {String} $actionType
 	 * @param {Array} $actionData
 	 */
-	public function accountList($actionType, $actionData)
-	{
-		$response = array();
+	public function accountList($actionType, $actionData) {
+		$response = [];
 
 		// get a list of all accounts
 		$accountStore = new \Files\Core\AccountStore();
 		$accounts = $accountStore->getAllAccounts();
-		$accountList = array();
+		$accountList = [];
 
 		if (is_array($accounts)) {
 			foreach ($accounts as $account) {
 				$account = $accountStore->updateAccount($account);
-				$accountList[$account->getId()] = array(
-					"props" => array(
+				$accountList[$account->getId()] = [
+					"props" => [
 						"id" => $account->getId(),
 						"name" => $account->getName(),
 						"type" => "account", // to prevent warning while sorting
@@ -194,12 +198,12 @@ class FilesAccountModule extends ListModule
 						"backend_config" => $account->getBackendConfig(),
 						'backend_features' => $account->getFeatures(),
 						'account_sequence' => $account->getSequence(),
-						'cannot_change' => $account->getCannotChangeFlag()
-					),
+						'cannot_change' => $account->getCannotChangeFlag(),
+					],
 					'entryid' => $account->getId(),
 					'store_entryid' => 'filesaccount',
-					'parent_entryid' => 'accountstoreroot'
-				);
+					'parent_entryid' => 'accountstoreroot',
+				];
 			}
 		}
 
@@ -217,8 +221,8 @@ class FilesAccountModule extends ListModule
 		$accountList = ArrayUtil::sort_props_by_key($accountList, $sortKey, $sortDir);
 
 		$response["item"] = array_values($accountList);
-		$response['page'] = array("start" => 0, "rowcount" => 50, "totalrowcount" => count($response["item"]));
-		$response['folder'] = array("content_count" => count($response["item"]), "content_unread" => 0);
+		$response['page'] = ["start" => 0, "rowcount" => 50, "totalrowcount" => count($response["item"])];
+		$response['folder'] = ["content_count" => count($response["item"]), "content_unread" => 0];
 
 		$this->addActionData($actionType, $response);
 		$GLOBALS["bus"]->addData($this->getResponseData());
@@ -227,13 +231,12 @@ class FilesAccountModule extends ListModule
 	}
 
 	/**
-	 * update some values of an account
+	 * update some values of an account.
 	 *
 	 * @param {Array} $actionData
 	 */
-	public function accountUpdate($actionData)
-	{
-		$response = array();
+	public function accountUpdate($actionData) {
+		$response = [];
 
 		// create a new account in our backend
 		$accountStore = new \Files\Core\AccountStore();
@@ -257,9 +260,9 @@ class FilesAccountModule extends ListModule
 		$accountStore->updateAccount($currentAccount);
 
 		// create the response object
-		$updatedAccount = array();
-		$updatedAccount[$currentAccount->getId()] = array(
-			"props" => array(
+		$updatedAccount = [];
+		$updatedAccount[$currentAccount->getId()] = [
+			"props" => [
 				"id" => $currentAccount->getId(),
 				"name" => $currentAccount->getName(),
 				"status" => $currentAccount->getStatus(),
@@ -267,12 +270,12 @@ class FilesAccountModule extends ListModule
 				"backend" => $currentAccount->getBackend(),
 				"backend_config" => $currentAccount->getBackendConfig(),
 				'backend_features' => $currentAccount->getFeatures(),
-				'account_sequence' => $currentAccount->getSequence()
-			),
+				'account_sequence' => $currentAccount->getSequence(),
+			],
 			'entryid' => $currentAccount->getId(),
 			'store_entryid' => 'filesaccount',
-			'parent_entryid' => 'accountstoreroot'
-		);
+			'parent_entryid' => 'accountstoreroot',
+		];
 
 		$response['item'] = array_values($updatedAccount);
 		$this->addActionData("update", $response);
@@ -286,29 +289,29 @@ class FilesAccountModule extends ListModule
 	 *
 	 * @param {String} $actionType
 	 */
-	public function backendInformation($actionType)
-	{
+	public function backendInformation($actionType) {
 		// find all registered backends
 		$backendStore = \Files\Backend\BackendStore::getInstance();
 		$backendNames = $backendStore->getRegisteredBackendNames();
 
-		$data = array();
-		$items = array();
+		$data = [];
+		$items = [];
 		foreach ($backendNames as $backendName) {
 			$backendInstance = $backendStore->getInstanceOfBackend($backendName);
-			if ($backendInstance !== FALSE) {
-				array_push($items, array('props' => array(
+			if ($backendInstance !== false) {
+				array_push($items, ['props' => [
 					"name" => $backendName,
 					"message_class" => "IPM.FilesBackend",
-					"displayName" => $backendInstance->getDisplayName()
-				)));
+					"displayName" => $backendInstance->getDisplayName(),
+				]]);
 			}
 		}
 
-		$data = array_merge($data, array('item' => $items));
+		$data = array_merge($data, ['item' => $items]);
 
 		$this->addActionData($actionType, $data);
 		$GLOBALS["bus"]->addData($this->getResponseData());
+
 		return true;
 	}
 
@@ -318,9 +321,8 @@ class FilesAccountModule extends ListModule
 	 * @param {String} $actionType
 	 * @param {String} $actionData
 	 */
-	public function getQuotaInformation($actionType, $actionData)
-	{
-		$response = array();
+	public function getQuotaInformation($actionType, $actionData) {
+		$response = [];
 
 		$accountId = $actionData["accountId"];
 		$rootPath = $actionData["folder"];
@@ -330,7 +332,7 @@ class FilesAccountModule extends ListModule
 		$currentAccount = $accountStore->getAccount($accountId);
 
 		// check if ID was valid, if not respond with error.
-		if ($currentAccount === NULL || $currentAccount === FALSE) {
+		if ($currentAccount === null || $currentAccount === false) {
 			throw new AccountException(_("Unknown account ID"));
 		}
 
@@ -351,10 +353,10 @@ class FilesAccountModule extends ListModule
 		$qAvailable = $backendInstance->getQuotaBytesAvailable($rootPath);
 
 		$response['status'] = true;
-		$response['quota'] = array(
-			array("state" => _('Used'), "amount" => $qUsed),
-			array("state" => _('Free'), "amount" => $qAvailable)
-		);
+		$response['quota'] = [
+			["state" => _('Used'), "amount" => $qUsed],
+			["state" => _('Free'), "amount" => $qAvailable],
+		];
 
 		$this->addActionData($actionType, $response);
 		$GLOBALS["bus"]->addData($this->getResponseData());
@@ -368,9 +370,8 @@ class FilesAccountModule extends ListModule
 	 * @param {String} $actionType
 	 * @param {String} $actionData
 	 */
-	public function getVersionInformation($actionType, $actionData)
-	{
-		$response = array();
+	public function getVersionInformation($actionType, $actionData) {
+		$response = [];
 
 		$accountId = $actionData["accountId"];
 
@@ -379,7 +380,7 @@ class FilesAccountModule extends ListModule
 		$currentAccount = $accountStore->getAccount($accountId);
 
 		// check if ID was valid, if not respond with error.
-		if ($currentAccount === NULL || $currentAccount === FALSE) {
+		if ($currentAccount === null || $currentAccount === false) {
 			throw new AccountException(_("Unknown account ID"));
 		}
 
@@ -400,10 +401,10 @@ class FilesAccountModule extends ListModule
 		$backendVersion = $backendInstance->getBackendVersion();
 
 		$response['status'] = true;
-		$response['version'] = array(
+		$response['version'] = [
 			"backend" => $backendVersion,
-			"server" => $serverVersion
-		);
+			"server" => $serverVersion,
+		];
 
 		$this->addActionData($actionType, $response);
 		$GLOBALS["bus"]->addData($this->getResponseData());
@@ -417,9 +418,8 @@ class FilesAccountModule extends ListModule
 	 * @param {String} $actionType
 	 * @param {String} $actionData
 	 */
-	public function updateOauthToken($actionType, $actionData)
-	{
-		$response = array();
+	public function updateOauthToken($actionType, $actionData) {
+		$response = [];
 
 		$accountId = $actionData["accountId"];
 
@@ -428,7 +428,7 @@ class FilesAccountModule extends ListModule
 		$currentAccount = $accountStore->getAccount($accountId);
 
 		// check if ID was valid, if not respond with error.
-		if ($currentAccount === NULL || $currentAccount === FALSE) {
+		if ($currentAccount === null || $currentAccount === false) {
 			throw new AccountException(_("Unknown account ID"));
 		}
 
@@ -458,13 +458,12 @@ class FilesAccountModule extends ListModule
 	 * it should also send type of exception with the data. so client can know which type
 	 * of exception is generated.
 	 *
-	 * @param Object $exception the exception object which is generated.
+	 * @param object $exception the exception object which is generated
 	 *
-	 * @return Array error data
+	 * @return array error data
 	 * @overwrite
 	 */
-	function errorDetailsFromException($exception)
-	{
+	public function errorDetailsFromException($exception) {
 		parent::errorDetailsFromException($exception);
 	}
 }

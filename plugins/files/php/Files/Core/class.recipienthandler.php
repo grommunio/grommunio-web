@@ -7,22 +7,19 @@ require_once __DIR__ . "/class.accountstore.php";
 require_once __DIR__ . "/Util/class.pathutil.php";
 require_once __DIR__ . "/Util/class.logger.php";
 
-use \Files\Core\Util\PathUtil;
-use \Files\Core\Util\Logger;
+use Files\Core\Util\Logger;
 
+class RecipientHandler {
+	public const LOG_CONTEXT = "RecipientHandler"; // Context for the Logger
 
-class RecipientHandler
-{
-	const LOG_CONTEXT = "RecipientHandler"; // Context for the Logger
-
-	public static function doGetRecipients()
-	{
+	public static function doGetRecipients() {
 		// parse account id.
 		// wo only need to parse one string because it is
 		// only possible to download files from one backend at a time.
 		if (isset($_GET["ids"])) {
 			$tmpId = $_GET["ids"][0];
-		} else {
+		}
+		else {
 			$tmpId = $_GET["id"];
 		}
 		$accountID = substr($tmpId, 3, (strpos($tmpId, '/') - 3));
@@ -39,14 +36,15 @@ class RecipientHandler
 
 		try {
 			$initializedBackend->open();
-		} catch (\Files\Backend\Exception $e) {
+		}
+		catch (\Files\Backend\Exception $e) {
 			Logger::error(self::LOG_CONTEXT, "Could not open the backend: " . $e->getMessage());
-                        echo json_encode(array('success' => false, 'response' => $e->getCode(), 'message' => $e->getMessage()));
-			die();
+			echo json_encode(['success' => false, 'response' => $e->getCode(), 'message' => $e->getMessage()]);
+
+			exit();
 		}
 		$responsedata = $initializedBackend->getRecipients($_GET["query"]);
 		header('Content-Type: application/json');
 		echo json_encode($responsedata);
 	}
-
 }

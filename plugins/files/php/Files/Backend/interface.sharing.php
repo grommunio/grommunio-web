@@ -1,11 +1,10 @@
 <?php
+
 namespace Files\Backend;
 
-interface iFeatureSharing
-{
-
+interface iFeatureSharing {
 	/**
-	 * Get all shares in the specified folder
+	 * Get all shares in the specified folder.
 	 *
 	 * Returned value should like:
 	 *
@@ -20,6 +19,7 @@ interface iFeatureSharing
 	 * )
 	 *
 	 * @param $path
+	 *
 	 * @return array
 	 */
 	public function getShares($path);
@@ -39,7 +39,8 @@ interface iFeatureSharing
 	 *  )
 	 * )
 	 *
-	 * @param $patharray Simple array with path's to files or folders.
+	 * @param $patharray Simple array with path's to files or folders
+	 *
 	 * @return array
 	 */
 	public function sharingDetails($patharray);
@@ -59,6 +60,7 @@ interface iFeatureSharing
 	 *
 	 * @param $shareparams
 	 * @param bool $update
+	 *
 	 * @return bool
 	 */
 	public function share($shareparams, $update = false);
@@ -66,9 +68,9 @@ interface iFeatureSharing
 	/**
 	 * Disable sharing for the given files/folders.
 	 *
-	 * @param $patharray Simple array with path's to files or folders.
+	 * @param $patharray Simple array with path's to files or folders
+	 *
 	 * @return bool
 	 */
 	public function unshare($patharray);
-
 }

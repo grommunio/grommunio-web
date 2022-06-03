@@ -9,4 +9,3 @@
 
 	// Defines the base path on the server, terminated by a slash
 	define('BASE_PATH', realpath(dirname(__FILE__)) . '/');
-	

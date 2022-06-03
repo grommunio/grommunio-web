@@ -1,20 +1,18 @@
 <?php
 
-require_once('IPMUser.php');
+require_once 'IPMUser.php';
 
 /**
- * FreebusyUser
+ * FreebusyUser.
  *
  * An extension to the IPMUser to represent a user which
  * uses his freebusy information
  */
 class FreebusyUser extends IPMUser {
-
 	/**
-	 * Initialize the TestUser
+	 * Initialize the TestUser.
 	 */
-	protected function initialize()
-	{
+	protected function initialize() {
 		parent::initialize();
 
 		$this->logon();
@@ -26,23 +24,26 @@ class FreebusyUser extends IPMUser {
 	}
 
 	/**
-	 * Load all mails from the mail folder
-	 * @param Array The list of users for which the freebusy must be loaded
-	 * @param Number $start The start date from where the freebusy should be loaded
-	 * @param Number $due The due date until which the freebusy should be loaded
-	 * @return Array The array of items
+	 * Load all mails from the mail folder.
+	 *
+	 * @param array The list of users for which the freebusy must be loaded
+	 * @param Number $start         The start date from where the freebusy should be loaded
+	 * @param Number $due           The due date until which the freebusy should be loaded
+	 * @param mixed  $users
+	 * @param mixed  $restrictStart
+	 * @param mixed  $restrictDue
+	 *
+	 * @return array The array of items
 	 */
-	public function loadFreebusy($users, $restrictStart, $restrictDue)
-	{
+	public function loadFreebusy($users, $restrictStart, $restrictDue) {
 		$this->logon();
-		return $this->execute($this->defaultListModule, array(
-			"list" => array(
+
+		return $this->execute($this->defaultListModule, [
+			"list" => [
 				"users" => $users,
 				"start" => $restrictStart,
-				"end" => $restrictDue
-			)
-		));
+				"end" => $restrictDue,
+			],
+		]);
 	}
 }
-
-?>

@@ -1,5 +1,5 @@
 <?php
-include(BASE_PATH . 'server/includes/loader.php');
+include BASE_PATH . 'server/includes/loader.php';
 
 $loader = new FileLoader();
 

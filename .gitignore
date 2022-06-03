@@ -27,3 +27,5 @@
 node_modules
 # Stupid macos files
 .DS_Store
+/tools/php-cs-fixer*
+.php-cs-fixer.cache

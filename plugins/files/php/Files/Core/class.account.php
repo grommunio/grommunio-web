@@ -1,6 +1,6 @@
 <?php
 /**
- * This class implements a files backend account
+ * This class implements a files backend account.
  *
  * @class Account
  */
@@ -9,8 +9,7 @@ namespace Files\Core;
 
 use Files\Backend\BackendStore;
 
-class Account
-{
+class Account {
 	private $id;
 	private $name; // account name - for better usability
 	private $status;
@@ -22,12 +21,12 @@ class Account
 	private $cannot_change; // for locking accounts
 
 	/**
-	 * Status variables
+	 * Status variables.
 	 */
-	const STATUS_NEW = "new";
-	const STATUS_OK = "ok";
-	const STATUS_ERROR = "err";
-	const STATUS_UNKNOWN = "unk";
+	public const STATUS_NEW = "new";
+	public const STATUS_OK = "ok";
+	public const STATUS_ERROR = "err";
+	public const STATUS_UNKNOWN = "unk";
 
 	/**
 	 * @param       $id
@@ -37,9 +36,10 @@ class Account
 	 * @param       $backend
 	 * @param       $backendConfig
 	 * @param array $features
+	 * @param mixed $sequence
+	 * @param mixed $cannot_change
 	 */
-	function __construct($id, $name, $status, $statusDescription, $backend, $backendConfig, $features = array(), $sequence, $cannot_change)
-	{
+	public function __construct($id, $name, $status, $statusDescription, $backend, $backendConfig, $features = [], $sequence, $cannot_change) {
 		$this->id = $id;
 		$this->name = $name;
 		$this->status = $status;
@@ -54,72 +54,63 @@ class Account
 	/**
 	 * @return mixed
 	 */
-	public function getBackend()
-	{
+	public function getBackend() {
 		return $this->backend;
 	}
 
 	/**
 	 * @param mixed $backend
 	 */
-	public function setBackend($backend)
-	{
+	public function setBackend($backend) {
 		$this->backend = $backend;
 	}
 
 	/**
 	 * @return mixed
 	 */
-	public function getId()
-	{
+	public function getId() {
 		return $this->id;
 	}
 
 	/**
 	 * @param mixed $id
 	 */
-	public function setId($id)
-	{
+	public function setId($id) {
 		$this->id = $id;
 	}
 
 	/**
 	 * @return mixed
 	 */
-	public function getName()
-	{
+	public function getName() {
 		return $this->name;
 	}
 
 	/**
 	 * @param mixed $name
 	 */
-	public function setName($name)
-	{
+	public function setName($name) {
 		$this->name = $name;
 	}
 
 	/**
 	 * @return mixed
 	 */
-	public function getStatus()
-	{
+	public function getStatus() {
 		return $this->status;
 	}
 
 	/**
 	 * @param mixed $status
 	 */
-	public function setStatus($status)
-	{
+	public function setStatus($status) {
 		$this->status = $status;
 	}
 
 	/**
 	 * @return mixed
 	 */
-	public function getBackendConfig()
-	{
+	public function getBackendConfig() {
 		// always add the accountID to the backendConfig
 		$this->backendConfig["current_account_id"] = $this->getId();
 
@@ -129,40 +120,35 @@ class Account
 	/**
 	 * @param mixed $backendConfig
 	 */
-	public function setBackendConfig($backendConfig)
-	{
+	public function setBackendConfig($backendConfig) {
 		$this->backendConfig = $backendConfig;
 	}
 
 	/**
 	 * @return mixed
 	 */
-	public function getFeatures()
-	{
+	public function getFeatures() {
 		return $this->features;
 	}
 
 	/**
 	 * @param mixed $features
 	 */
-	public function setFeatures($features)
-	{
+	public function setFeatures($features) {
 		$this->features = $features;
 	}
 
 	/**
 	 * @return string
 	 */
-	public function getStatusDescription()
-	{
+	public function getStatusDescription() {
 		return $this->statusDescription;
 	}
 
 	/**
 	 * @param string $statusDescription
 	 */
-	public function setStatusDescription($statusDescription)
-	{
+	public function setStatusDescription($statusDescription) {
 		$this->statusDescription = $statusDescription;
 	}
 
@@ -171,8 +157,7 @@ class Account
 	 *
 	 * @return mixed
 	 */
-	public function getConfigValue($property)
-	{
+	public function getConfigValue($property) {
 		if (is_array($this->backendConfig) && in_array($property, $this->backendConfig)) {
 			return $this->backendConfig[$property];
 		}
@@ -184,10 +169,9 @@ class Account
 	 * @param $property
 	 * @param $value
 	 */
-	public function setConfigValue($property, $value)
-	{
+	public function setConfigValue($property, $value) {
 		if (!is_array($this->backendConfig)) {
-			$this->backendConfig = array();
+			$this->backendConfig = [];
 		}
 		$this->backendConfig[$property] = $value;
 	}
@@ -206,9 +190,8 @@ class Account
 	/**
 	 * @return int
 	 */
-	public function getSequence()
-	{
-		if(!$this->sequence) {
+	public function getSequence() {
+		if (!$this->sequence) {
 			$this->sequence = 0;
 		}
 
@@ -218,16 +201,14 @@ class Account
 	/**
 	 * @param int $sequence
 	 */
-	public function setSequence($sequence)
-	{
+	public function setSequence($sequence) {
 		$this->sequence = $sequence;
 	}
 
 	/**
-	 * @return boolean
+	 * @return bool
 	 */
-	public function getCannotChangeFlag()
-	{
+	public function getCannotChangeFlag() {
 		return isset($this->cannot_change) ? $this->cannot_change : false;
 	}
 }

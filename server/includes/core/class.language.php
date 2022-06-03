@@ -1,98 +1,92 @@
 <?php
+
 	/**
-	 * Language handling class
-	 *
-	 * @package core
+	 * Language handling class.
 	 */
 	class Language {
-
-		private $languages = array("en_US.UTF-8" => "English");
-		private $languagetable = array("en_US" => "eng_USA");
+		private $languages = ["en_US.UTF-8" => "English"];
+		private $languagetable = ["en_US" => "eng_USA"];
 		private $lang;
 		private $loaded = false;
 
 		/**
-		 * Default constructor
+		 * Default constructor.
 		 *
 		 * By default, the Language class only knows about en_GB (English). If you want more languages, you
 		 * must call loadLanguages().
-		 *
 		 */
-		function __construct()
-		{
+		public function __construct() {
 		}
 
 		/**
-		* Loads languages from disk
-		*
-		* loadLanguages() reads the languages from disk by reading LANGUAGE_DIR and opening all directories
-		* in that directory. Each directory must contain a 'language.txt' file containing:
-		*
-		* <language display name>
-		* <win32 language name>
-		*
-		* For example:
-		* <code>
-		* Nederlands
-		* nld_NLD
-		* </code>
-		*
-		* Also, the directory names must have a name that is:
-		* 1. Available to the server's locale system
-		* 2. In the UTF-8 charset
-		*
-		* For example, nl_NL.UTF-8
-		*
-		*/
-		function loadLanguages()
-		{
-			if($this->loaded)
+		 * Loads languages from disk.
+		 *
+		 * loadLanguages() reads the languages from disk by reading LANGUAGE_DIR and opening all directories
+		 * in that directory. Each directory must contain a 'language.txt' file containing:
+		 *
+		 * <language display name>
+		 * <win32 language name>
+		 *
+		 * For example:
+		 * <code>
+		 * Nederlands
+		 * nld_NLD
+		 * </code>
+		 *
+		 * Also, the directory names must have a name that is:
+		 * 1. Available to the server's locale system
+		 * 2. In the UTF-8 charset
+		 *
+		 * For example, nl_NL.UTF-8
+		 */
+		public function loadLanguages() {
+			if ($this->loaded) {
 				return;
+			}
 
 			$languages = explode(";", ENABLED_LANGUAGES);
 			$dh = opendir(LANGUAGE_DIR);
-			while (($entry = readdir($dh))!==false){
+			while (($entry = readdir($dh)) !== false) {
 				$langcode = str_ireplace(".UTF-8", "", $entry);
-				if(in_array($langcode, $languages) || in_array($entry, $languages)) {
-					if (is_dir(LANGUAGE_DIR.$entry."/LC_MESSAGES") && is_file(LANGUAGE_DIR.$entry."/language.txt")){
-						$fh = fopen(LANGUAGE_DIR.$entry."/language.txt", "r");
+				if (in_array($langcode, $languages) || in_array($entry, $languages)) {
+					if (is_dir(LANGUAGE_DIR . $entry . "/LC_MESSAGES") && is_file(LANGUAGE_DIR . $entry . "/language.txt")) {
+						$fh = fopen(LANGUAGE_DIR . $entry . "/language.txt", "r");
 						$lang_title = fgets($fh);
 						$lang_table = fgets($fh);
 						fclose($fh);
-						$this->languages[$entry] = "$langcode: ".trim($lang_title);
+						$this->languages[$entry] = "{$langcode}: " . trim($lang_title);
 						$this->languagetable[$entry] = trim($lang_table);
 					}
 				}
 			}
 			asort($this->languages, SORT_LOCALE_STRING);
 			asort($this->languagetable, SORT_LOCALE_STRING);
-			$this->loaded = true;		
+			$this->loaded = true;
 		}
 
 		/**
-		* Attempt to set language
-		*
-		* setLanguage attempts to set the language to the specified language. The language passed
-		* is the name of the directory containing the language.
-		*
-		* For setLanguage() to succeed, the language has to have been loaded via loadLanguages() AND
-		* the gettext system must 'know' the language specified.
-		*
-		* @param string $lang Language code (eg nl_NL.UTF-8)
-		*/
-		function setLanguage($lang)
-		{
+		 * Attempt to set language.
+		 *
+		 * setLanguage attempts to set the language to the specified language. The language passed
+		 * is the name of the directory containing the language.
+		 *
+		 * For setLanguage() to succeed, the language has to have been loaded via loadLanguages() AND
+		 * the gettext system must 'know' the language specified.
+		 *
+		 * @param string $lang Language code (eg nl_NL.UTF-8)
+		 */
+		public function setLanguage($lang) {
 			if (isset($GLOBALS['translations'])) {
 				return;
 			}
-			$lang = (empty($lang) || $lang=="C") ? LANG : $lang; // default language fix
+			$lang = (empty($lang) || $lang == "C") ? LANG : $lang; // default language fix
 
-			if ($this->is_language($lang)){
+			if ($this->is_language($lang)) {
 				$this->lang = $lang;
 				$tmp_translations = $this->getTranslations();
-				$translations = array();
+				$translations = [];
 				foreach ($tmp_translations as $resources) {
-					for ($i=0; $i<count($resources); $i++) {
+					for ($i = 0; $i < count($resources); ++$i) {
 						$msgid = $resources[$i]['msgid'];
 						if (isset($msgid)) {
 							$translations[$msgid] = $resources[$i]['msgstr'];
@@ -100,70 +94,70 @@
 					}
 				}
 				$GLOBALS['translations'] = $translations;
-			}else{
+			}
+			else {
 				error_log(sprintf("Unknown language: '%s'", $lang));
 			}
 		}
-		
-		public static function getstring($string)
-		{
-			if (isset($GLOBALS['translations']) && isset($GLOBALS['translations'][$string])) {
+
+		public static function getstring($string) {
+			if (isset($GLOBALS['translations'], $GLOBALS['translations'][$string])) {
 				return $GLOBALS['translations'][$string];
 			}
+
 			return $string;
 		}
 
 		/**
-		* Return a list of supported languages
-		*
-		* Returns an associative array in the format langid -> langname, for example "nl_NL.utf8" -> "Nederlands"
-		*
-		* @return array List of supported languages
-		*/
-		function getLanguages()
-		{
+		 * Return a list of supported languages.
+		 *
+		 * Returns an associative array in the format langid -> langname, for example "nl_NL.utf8" -> "Nederlands"
+		 *
+		 * @return array List of supported languages
+		 */
+		public function getLanguages() {
 			$this->loadLanguages();
+
 			return $this->languages;
 		}
 
 		/**
 		 * Returns the $getLanguages and formats in JSON so it can be parsed
-		 * by the javascript
+		 * by the javascript.
 		 *
 		 * @return string The javascript string
 		 */
-		function getJSON()
-		{
+		public function getJSON() {
 			$json = [];
 			$languages = $this->getLanguages();
 			foreach ($languages as $key => $lang) {
 				$json[] = [
 					"lang" => $key,
-					"name" => $lang
+					"name" => $lang,
 				];
 			}
+
 			return json_encode($json);
 		}
 
 		/**
-		* Returns the ID of the currently selected language
-		*
-		* @return string ID of selected language
-		*/
-		function getSelected()
-		{
+		 * Returns the ID of the currently selected language.
+		 *
+		 * @return string ID of selected language
+		 */
+		public function getSelected() {
 			return $this->lang;
 		}
 
 		/**
-		* Returns if the specified language is valid or not
-		*
-		* @param string $lang
-		* @return boolean TRUE if the language is valid
-		*/
-		function is_language($lang)
-		{
-			return $lang=="en_GB.UTF-8" || is_dir(LANGUAGE_DIR . "/" . $lang);
+		 * Returns if the specified language is valid or not.
+		 *
+		 * @param string $lang
+		 *
+		 * @return bool TRUE if the language is valid
+		 */
+		public function is_language($lang) {
+			return $lang == "en_GB.UTF-8" || is_dir(LANGUAGE_DIR . "/" . $lang);
 		}
 
 		/**
@@ -171,21 +165,21 @@
 		 * Examples:
 		 *  - en_GB => en.GB.UTF-8
 		 *  - en_GB.utf8 => en_GB.UTF-8
-		 *  - en_GB.UTF-8 => en_GB.UTF-8 (no changes)
+		 *  - en_GB.UTF-8 => en_GB.UTF-8 (no changes).
 		 *
-		 * @param string $lang language code to resolve.
+		 * @param string $lang language code to resolve
+		 *
 		 * @return string resolved language name (i.e. language code ending on .UTF-8).
 		 */
-		static function resolveLanguage($lang)
-		{
+		public static function resolveLanguage($lang) {
 			$normalizedLang = stristr($lang, '.utf-8', true);
-			if ( !empty($normalizedLang) && $normalizedLang !== $lang ) {
+			if (!empty($normalizedLang) && $normalizedLang !== $lang) {
 				// Make sure we will use the format UTF-8 (capitals and hyphen)
 				return $normalizedLang .= '.UTF-8';
 			}
 
 			$normalizedLang = stristr($lang, '.utf8', true);
-			if ( !empty($normalizedLang) && $normalizedLang !== $lang ) {
+			if (!empty($normalizedLang) && $normalizedLang !== $lang) {
 				// Make sure we will use the format UTF-8 (capitals and hyphen)
 				return $normalizedLang . '.UTF-8';
 			}
@@ -193,73 +187,77 @@
 			return $lang . '.UTF-8';
 		}
 
-		function getTranslations()
-		{
-			$memid = @shm_attach(0x950412de, 16*1024*1024, 0666);
+		public function getTranslations() {
+			$memid = @shm_attach(0x950412DE, 16 * 1024 * 1024, 0666);
 			if (@shm_has_var($memid, 0)) {
 				$cache_table = @shm_get_var($memid, 0);
 				if (empty($cache_table)) {
 					@shm_remove_var($memid, 0);
 					@shm_detach($memid);
-					return Array('grommunio_web'=>Array());
+
+					return ['grommunio_web' => []];
 				}
 				$translation_id = $cache_table[$this->getSelected()];
 				if (empty($translation_id)) {
 					@shm_detach($memid);
-					return Array('grommunio_web'=>Array());
+
+					return ['grommunio_web' => []];
 				}
 				$translations = @shm_get_var($memid, $translation_id);
 				@shm_detach($memid);
 				if (empty($translations)) {
-					return Array('grommunio_web'=>Array());
+					return ['grommunio_web' => []];
 				}
+
 				return $translations;
 			}
 			$handle = opendir(LANGUAGE_DIR);
-			if (false == $handle) {
+			if ($handle == false) {
 				@shm_detach($memid);
-				return Array('grommunio_web'=>Array());
+
+				return ['grommunio_web' => []];
 			}
 			$last_id = 1;
-			$cache_table = Array();
-			while (false !== ($entry=readdir($handle))) {
-				if (0 == strcmp($entry, ".") ||
-					0 == strcmp($entry, "..")) {
-					continue;	
+			$cache_table = [];
+			while (false !== ($entry = readdir($handle))) {
+				if (strcmp($entry, ".") == 0 ||
+					strcmp($entry, "..") == 0) {
+					continue;
 				}
-				$translations = Array();
-				$translations['grommunio_web'] = $this->getTranslationsFromFile(LANGUAGE_DIR.$entry.'/LC_MESSAGES/grommunio_web.mo');
+				$translations = [];
+				$translations['grommunio_web'] = $this->getTranslationsFromFile(LANGUAGE_DIR . $entry . '/LC_MESSAGES/grommunio_web.mo');
 				if (!$translations['grommunio_web']) {
 					continue;
 				}
 				if (isset($GLOBALS['PluginManager'])) {
 					// What we did above, we are also now going to do for each plugin that has translations.
 					$pluginTranslationPaths = $GLOBALS['PluginManager']->getTranslationFilePaths();
-					foreach($pluginTranslationPaths as $pluginname => $path){
-						$plugin_translations = $this->getTranslationsFromFile($path.'/'.$entry.'/LC_MESSAGES/plugin_'.$pluginname.'.mo');
-						if ($plugin_translations){
-							$translations['plugin_'.$pluginname] = $plugin_translations;
+					foreach ($pluginTranslationPaths as $pluginname => $path) {
+						$plugin_translations = $this->getTranslationsFromFile($path . '/' . $entry . '/LC_MESSAGES/plugin_' . $pluginname . '.mo');
+						if ($plugin_translations) {
+							$translations['plugin_' . $pluginname] = $plugin_translations;
 						}
 					}
 				}
 				$cache_table[$entry] = $last_id;
 				@shm_put_var($memid, $last_id, $translations);
-				if (0 == strcmp($entry, $this->getSelected())) {
+				if (strcmp($entry, $this->getSelected()) == 0) {
 					$ret_val = $translations;
 				}
-				$last_id ++;
+				++$last_id;
 			}
 			closedir($handle);
 			@shm_put_var($memid, 0, $cache_table);
 			@shm_detach($memid);
 			if (empty($ret_val)) {
-				return Array('grommunio_web'=>Array());
+				return ['grommunio_web' => []];
 			}
+
 			return $ret_val;
 		}
 
 		/**
-		 * getTranslationsFromFile
+		 * getTranslationsFromFile.
 		 *
 		 * This file reads the translations from the binary .mo file and returns
 		 * them in an array containing the original and the translation variant.
@@ -315,15 +313,19 @@
 		 *               +------------------------------------------+
 		 *
 		 * @param $filename string Name of the .mo file.
-		 * @return array|boolean false when file is missing otherwise array with
-		 *                             translations.
+		 *
+		 * @return array|bool false when file is missing otherwise array with
+		 *                    translations
 		 */
-
-		function getTranslationsFromFile($filename){
-			if(!is_file($filename)) return false;
+		public function getTranslationsFromFile($filename) {
+			if (!is_file($filename)) {
+				return false;
+			}
 
 			$fp = fopen($filename, 'r');
-			if(!$fp){return false;}
+			if (!$fp) {
+				return false;
+			}
 
 			// Get number of strings in .mo file
 			fseek($fp, 8, SEEK_SET);
@@ -341,41 +343,41 @@
 			$offset_transl_tbl = $offset_transl_tbl['offset'];
 
 			// The following arrays will contain the length and offset of the strings
-			$data_orig_strs = Array();
-			$data_transl_strs = Array();
+			$data_orig_strs = [];
+			$data_transl_strs = [];
 
-			/**
+			/*
 			 * Get the length and offset to the original strings by using the table
 			 * with original strings
 			 */
 			// Set pointer to start of orig string table
 			fseek($fp, $offset_orig_tbl, SEEK_SET);
-			for($i=0;$i<$num_of_str;$i++){
+			for ($i = 0; $i < $num_of_str; ++$i) {
 				// Length 4 bytes followed by offset 4 bytes
 				$length = unpack('Llen', fread($fp, 4));
 				$offset = unpack('Loffset', fread($fp, 4));
-				$data_orig_strs[$i] = Array( 'length' => $length['len'], 'offset' => $offset['offset'] );
+				$data_orig_strs[$i] = ['length' => $length['len'], 'offset' => $offset['offset']];
 			}
 
-			/**
+			/*
 			 * Get the length and offset to the translation strings by using the table
 			 * with translation strings
 			 */
 			// Set pointer to start of translations string table
 			fseek($fp, $offset_transl_tbl, SEEK_SET);
-			for($i=0;$i<$num_of_str;$i++){
+			for ($i = 0; $i < $num_of_str; ++$i) {
 				// Length 4 bytes followed by offset 4 bytes
 				$length = unpack('Llen', fread($fp, 4));
 				$offset = unpack('Loffset', fread($fp, 4));
-				$data_transl_strs[$i] = Array( 'length' => $length['len'], 'offset' => $offset['offset'] );
+				$data_transl_strs[$i] = ['length' => $length['len'], 'offset' => $offset['offset']];
 			}
 
 			// This array will contain the actual original and translation strings
-			$translation_data = Array();
+			$translation_data = [];
 
 			// Get the original strings using the length and offset
-			for($i = 0, $len = count($data_orig_strs); $i < $len; $i++){
-				$translation_data[$i] = Array();
+			for ($i = 0, $len = count($data_orig_strs); $i < $len; ++$i) {
+				$translation_data[$i] = [];
 
 				// Set pointer to the offset of the string
 				fseek($fp, $data_orig_strs[$i]['offset'], SEEK_SET);
@@ -384,35 +386,36 @@
 				$translation_data[$i]['msgctxt'] = false;
 				$translation_data[$i]['msgid_plural'] = false;
 
-				if($data_orig_strs[$i]['length'] > 0){	// fread does not accept length=0
+				if ($data_orig_strs[$i]['length'] > 0) {	// fread does not accept length=0
 					$length = $data_orig_strs[$i]['length'];
-					$orig_str = unpack('a'.$length.'str', fread($fp, $length));
+					$orig_str = unpack('a' . $length . 'str', fread($fp, $length));
 					$translation_data[$i]['msgid'] = $orig_str['str'];	// unpack converts to array :S
 
 					// Find context in the original string
-					if(strpos($translation_data[$i]['msgid'], "\004") !== false){
+					if (strpos($translation_data[$i]['msgid'], "\004") !== false) {
 						$contextSplit = explode("\004", $translation_data[$i]['msgid']);
 						$translation_data[$i]['msgctxt'] = $contextSplit[0];
 						$translation_data[$i]['msgid'] = $contextSplit[1];
 					}
 					// Find plural forms in the original string
-					if(strpos($translation_data[$i]['msgid'], "\0") !== false){
-						$original =  explode("\0", $translation_data[$i]['msgid']);
+					if (strpos($translation_data[$i]['msgid'], "\0") !== false) {
+						$original = explode("\0", $translation_data[$i]['msgid']);
 						$translation_data[$i]['msgid'] = $original[0];
 						$translation_data[$i]['msgid_plural'] = $original[1];
 					}
-				} else {
+				}
+				else {
 					$translation_data[$i]['msgid'] = '';
 				}
 			}
 
 			// Get the translation strings using the length and offset
-			for($i = 0, $len = count($data_transl_strs); $i < $len; $i++){
+			for ($i = 0, $len = count($data_transl_strs); $i < $len; ++$i) {
 				// Set pointer to the offset of the string
 				fseek($fp, $data_transl_strs[$i]['offset'], SEEK_SET);
-				if($data_transl_strs[$i]['length'] > 0){	// fread does not accept length=0
+				if ($data_transl_strs[$i]['length'] > 0) {	// fread does not accept length=0
 					$length = $data_transl_strs[$i]['length'];
-					$trans_str = unpack('a'.$length.'str', fread($fp, $length));
+					$trans_str = unpack('a' . $length . 'str', fread($fp, $length));
 					$translation_data[$i]['msgstr'] = $trans_str['str'];	// unpack converts to array :S
 
 					// If there are plural forms in the source string,
@@ -421,10 +424,11 @@
 					// present at all times, because languages that
 					// have only one plural form won't have this
 					// (e.g. Japanese)
-					if($translation_data[$i]['msgid_plural'] !== false) {
+					if ($translation_data[$i]['msgid_plural'] !== false) {
 						$translation_data[$i]['msgstr'] = explode("\0", $translation_data[$i]['msgstr']);
 					}
-				} else {
+				}
+				else {
 					$translation_data[$i]['msgstr'] = '';
 				}
 			}
@@ -432,4 +436,3 @@
 			return $translation_data;
 		}
 	}
-?>
