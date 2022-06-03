@@ -1,5 +1,4 @@
 <?php
-	require_once(BASE_PATH . 'server/includes/mapi/class.baserecurrence.php');
 
 	class TaskRecurrence extends BaseRecurrence
 	{

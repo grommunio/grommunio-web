@@ -13,8 +13,6 @@
 	*/
 
 	require_once(BASE_PATH . 'server/includes/core/class.filter.php');
-	require_once(BASE_PATH . 'server/includes/mapi/class.recurrence.php');
-	require_once(BASE_PATH . 'server/includes/mapi/class.meetingrequest.php');
 
 	class Operations
 	{

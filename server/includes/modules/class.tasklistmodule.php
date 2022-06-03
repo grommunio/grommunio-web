@@ -1,5 +1,4 @@
 <?php
-	include_once(__DIR__ . '/../mapi/class.taskrecurrence.php');
 
 	/**
 	 * Task Module

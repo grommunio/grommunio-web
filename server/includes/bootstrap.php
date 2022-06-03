@@ -33,8 +33,6 @@
 	}
 
 	// Include the files
-	require_once(BASE_PATH . 'server/includes/core/class.webappsession.php');
-
 	require_once(BASE_PATH . 'server/includes/mapi/mapi.util.php');
 	require_once(BASE_PATH . 'server/includes/mapi/mapicode.php');
 	require_once(BASE_PATH . 'server/includes/mapi/mapidefs.php');
@@ -45,6 +43,13 @@
 
 	require_once(BASE_PATH . 'server/includes/exceptions/class.ZarafaException.php');
 	require_once(BASE_PATH . 'server/includes/exceptions/class.ZarafaErrorException.php');
+	require_once BASE_PATH . 'server/includes/core/class.webappsession.php';
+	require_once BASE_PATH . 'server/includes/mapi/class.baserecurrence.php';
+	require_once BASE_PATH . 'server/includes/mapi/class.recurrence.php';
+	require_once BASE_PATH . 'server/includes/mapi/class.meetingrequest.php';
+	require_once BASE_PATH . 'server/includes/mapi/class.taskrecurrence.php';
+	require_once BASE_PATH . 'server/includes/mapi/class.taskrequest.php';
+
 	require_once(BASE_PATH . 'server/includes/util.php');
 	require_once(BASE_PATH . 'server/includes/gettext.php');
 
