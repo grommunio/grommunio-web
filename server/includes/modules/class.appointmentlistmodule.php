@@ -1,5 +1,4 @@
 <?php
-	require_once(BASE_PATH . 'server/includes/mapi/class.recurrence.php');
 
 	/**
 	 * Appointment Module
