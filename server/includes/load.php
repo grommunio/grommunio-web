@@ -1,5 +1,5 @@
 <?php
-	
+
 	require_once(BASE_PATH . 'server/includes/core/class.webappauthentication.php');
 
 	// Return a nice error when we are not authenticated
@@ -8,14 +8,14 @@
 			// The user is not logged in because gromox could not be reached.
 			// Return a HTTP 503 error so the client can act upon this event correctly.
 			header('HTTP/1.1 503 Service unavailable');
-			header("X-Zarafa-Hresult: " . get_mapi_error_name(WebAppAuthentication::getErrorCode()));
+			header("X-grommunio-Hresult: " . get_mapi_error_name(WebAppAuthentication::getErrorCode()));
 		} else {
 			// The session expired, or the user is otherwise not logged on.
 			// Return a HTTP 401 error so the client can act upon this event correctly.
 			header('HTTP/1.1 401 Unauthorized');
-			header("X-Zarafa-Hresult: " . get_mapi_error_name(WebAppAuthentication::getErrorCode()));
+			header("X-grommunio-Hresult: " . get_mapi_error_name(WebAppAuthentication::getErrorCode()));
 		}
-		
+
 		die();
 	}
 
@@ -68,4 +68,4 @@
 			header('HTTP/1.1 404 Not Found');
 			break;
 	}
-	
+

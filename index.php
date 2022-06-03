@@ -117,7 +117,7 @@
 
 		// Lets add a header when login failed (DeskApp needs it to identify failed login attempts)
 		if ( WebAppAuthentication::getErrorCode() !== NOERROR ) {
-			header("X-Zarafa-Hresult: " . get_mapi_error_name(WebAppAuthentication::getErrorCode()));
+			header("X-grommunio-Hresult: " . get_mapi_error_name(WebAppAuthentication::getErrorCode()));
 		}
 
 		// Set a template variable for the favicon of the login, welcome, and webclient page
@@ -170,7 +170,7 @@
 	// If webapp feature is not enabled for the user,
 	// we will show the login page with appropriated error message.
 	if($GLOBALS['mapisession']->isWebappDisableAsFeature()) {
-		header("X-Zarafa-Hresult: " . get_mapi_error_name(MAPI_E_WEBAPP_FEATURE_DISABLED));
+		header("X-grommunio-Hresult: " . get_mapi_error_name(MAPI_E_WEBAPP_FEATURE_DISABLED));
 
 		$error = _("Sorry, access to grommunio Web is not available with this user account. Please contact your system administrator.");
 		// Set some template variables for the login page
@@ -212,7 +212,7 @@
 	setcookie('lang', $lang, time()+31536000, '/', '', getRequestProtocol() === 'https');
 
 	// add extra header
-	header("X-Zarafa: " . trim(file_get_contents('version')));
+	header("X-grommunio: " . trim(file_get_contents('version')));
 
 	// Set a template variable for the favicon of the login, welcome, and webclient page
 	$theme = Theming::getActiveTheme();

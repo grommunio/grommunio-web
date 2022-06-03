@@ -682,7 +682,7 @@ Zarafa.core.Request = Ext.extend(Ext.util.Observable, (function() {
 					// normal logon page, so here we just paralyze the Request.
 					// The exact reason for the paralyzation can be found in the
 					// headers.
-					var reason = xmlHttpRequest.getResponseHeader('X-Zarafa-Hresult');
+					var reason = xmlHttpRequest.getResponseHeader('X-grommunio-Hresult');
 					if (reason === 'MAPI_E_INVALID_WORKSTATION_ACCOUNT') {
 						this.paralyze(Zarafa.core.data.ParalyzeReason.SESSION_INVALID);
 					} else {

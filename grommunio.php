@@ -34,7 +34,7 @@
 	header("Cache-Control: no-cache, must-revalidate");
 	header("Pragma: no-cache");
 	if ( WebAppAuthentication::isAuthenticated() ) {
-		header("X-Zarafa: " . trim(file_get_contents(BASE_PATH . 'version')));
+		header("X-grommunio: " . trim(file_get_contents(BASE_PATH . 'version')));
 	}
 
 	// If a service request was sent (a REST call), the service controller will handle it.
@@ -58,14 +58,14 @@
 			// The user is not logged in because the Gromox server could not be reached.
 			// Return a HTTP 503 error so the client can act upon this event correctly.
 			header('HTTP/1.1 503 Service unavailable');
-			header("X-Zarafa-Hresult: " . get_mapi_error_name(WebAppAuthentication::getErrorCode()));
+			header("X-grommunio-Hresult: " . get_mapi_error_name(WebAppAuthentication::getErrorCode()));
 
 		} else {
 
 			// The session expired, or the user is otherwise not logged on.
 			// Return a HTTP 401 error so the client can act upon this event correctly.
 			header('HTTP/1.1 401 Unauthorized');
-			header("X-Zarafa-Hresult: " . get_mapi_error_name(WebAppAuthentication::getErrorCode()));
+			header("X-grommunio-Hresult: " . get_mapi_error_name(WebAppAuthentication::getErrorCode()));
 		}
 
 		die();
