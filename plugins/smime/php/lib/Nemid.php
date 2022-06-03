@@ -6,7 +6,7 @@ include('Ocsp.php');
 
 class NemidLogin {
 
-    /** 
+    /**
       Prepares an array with the parameters for the nemid login form given a config object:
        class Nemidconfig {
            public $privatekey           = '../certs/testkey.pem';
@@ -75,14 +75,14 @@ class NemidCertificateCheck {
 
       Triggers an E_USER_ERROR if ANYTHING goes wrong ...
      */
-     
+
     public function checkAndReturnCertificate($signature, $nonce, $trustedroots, $disableocspcheck = false)
     {
         $document = new \DOMDocument();
         $xml = base64_decode($signature);
         $document->loadXML($xml);
 
-        $xp = new \DomXPath($document);
+        $xp = new \DOMXPath($document);
         $xp->registerNamespace('openoces', 'http://www.openoces.org/2006/07/signature#');
         $xp->registerNamespace('ds', 'http://www.w3.org/2000/09/xmldsig#');
 
@@ -122,9 +122,9 @@ class NemidCertificateCheck {
     }
 
     /*
-            
+
         $maxpathlength may be more limited than pathLenConstraint
-    
+
     */
     protected function simpleVerifyCertificateChain($certchain, $keyUsages, $trustedroots, $maxpathlength)
     {
@@ -194,7 +194,7 @@ class NemidCertificateCheck {
       Does the ocsp check of the last certificate in the $certchain
       $certchain contains root + intermediate + user certs
      */
-     
+
     protected function checkOcsp($certchain, $x509)
     {
         $certificate = array_pop($certchain); # the cert we are checking
@@ -263,7 +263,7 @@ class NemidCertificateCheck {
     /**
       Extracts, parses and orders - leaf to root - the certificates returned by NemID.
 
-      $xp is the DomXPath object - the XML text isn't needed
+      $xp is the DOMXPath object - the XML text isn't needed
       $x509 is the parser object
      */
     protected function xml2certs($xp, $x509)
@@ -323,7 +323,7 @@ class NemidCertificateCheck {
 
       $pid is the pid to lookup
     */
-     
+
     public function pidCprRequest($config, $pid, $cpr = null)
     {
         /*
@@ -347,23 +347,23 @@ class NemidCertificateCheck {
 
         $document = new \DOMDocument();
         $document->loadXML($pidCprRequest);
-        $xp = new \DomXPath($document);
+        $xp = new \DOMXPath($document);
 
         $pidCprRequestParams = array(
             'serviceId' => $config->serviceid,
             'pid' => $pid,
             'cpr' => $cpr,
         );
-        
+
         $element = $xp->query('/method/request')->item(0);
         $element->setAttribute("id", uniqid());
-        
+
         foreach ((array) $pidCprRequestParams as $p => $v) {
             $element = $xp->query('/method/request/' . $p)->item(0);
             $newelement = $document->createTextNode($v);
             $element->replaceChild($newelement, $element->firstChild);
         }
-        
+
         if (!$cpr) {
             $element = $xp->query('/method/request/cpr')->item(0);
             $element->parentNode->removeChild($element);
@@ -400,7 +400,7 @@ class NemidCertificateCheck {
         $response = file_get_contents($config->server, null, $context);
 
         $document->loadXML($response);
-        $xp = new \DomXPath($document);
+        $xp = new \DOMXPath($document);
         $status = $xp->query('/method/response/status/@statusCode')->item(0)->value;
 
         if ($status == 0) {
@@ -423,16 +423,16 @@ class Nemid52Compat {
     static function openssl_sign($data, &$signature, $priv_key_id, $signature_alg)
     {
         $eb = self::my_rsa_sha_encode($data, $priv_key_id, $signature_alg);
-        openssl_private_encrypt($eb, $signature, $priv_key_id, OPENSSL_NO_PADDING); 
+        openssl_private_encrypt($eb, $signature, $priv_key_id, OPENSSL_NO_PADDING);
     }
-    
+
     static function openssl_verify($data, $signature, $pub_key_id, $signature_alg)
     {
         openssl_public_decrypt($signature, $decrypted_signature, $pub_key_id, OPENSSL_NO_PADDING);
         $eb = self::my_rsa_sha_encode($data, $pub_key_id, $signature_alg);
         return $decrypted_signature === $eb ? 1 : 0;
     }
-    
+
     static function my_rsa_sha_encode($data, $key_id, $signagure_alg) {
         $algos = array(
             'sha1WithRSAEncryption'   => array('alg' => 'sha1',   'oid' => '1.3.14.3.2.26'),
@@ -440,32 +440,32 @@ class Nemid52Compat {
             'sha384WithRSAEncryption' => array('alg' => 'sha384', 'oid' => '2.16.840.1.101.3.4.2.2'),
             'sha512WithRSAEncryption' => array('alg' => 'sha512', 'oid' => '2.16.840.1.101.3.4.2.3'),
         );
-    
+
         $pinfo = openssl_pkey_get_details($key_id);
-     
+
         $digestalgorithm = $algos[$signagure_alg]['alg'];
         $digestalgorithm or trigger_error('unknown or unsupported signaturealgorithm: ' . $signagure_alg);
         $oid = $algos[$signagure_alg]['oid'];
-    
+
         $digest = hash($digestalgorithm, $data, true);
-        
+
         $t = self::sequence(self::sequence(self::s2oid($oid) . "\x05\x00") . self::octetstring($digest));
         $pslen = $pinfo['bits']/8 - (strlen($t) + 3);
-    
+
         $eb = "\x00\x01" . str_repeat("\xff", $pslen) . "\x00" . $t;
         return $eb;
     }
-    
+
     static function sequence($pdu)
     {
         return "\x30" . self::len($pdu) . $pdu;
     }
-    
+
     static function s2oid($s)
     {
         $e = explode('.', $s);
         $der = chr(40 * $e[0] + $e[1]);
-    
+
         foreach (array_slice($e, 2) as $c) {
             $mask = 0;
             $derrev = '';
@@ -478,13 +478,13 @@ class Nemid52Compat {
         }
         return "\x06" . self::len($der) . $der;
     }
-    
+
     static function octetstring($s)
     {
         return "\x04" . self::len($s) . $s;
     }
-    
-    
+
+
     static function len($i)
     {
         $i = strlen($i);
