@@ -7311,13 +7311,13 @@ msgid "Unknown MAPI Error: %s"
 msgstr "Неизвестная ошибка MAPI: %s"
 
 msgid "Action is not performed correctly."
-msgstr ""
+msgstr "Действие не завершено корректно."
 
 msgid "Tentatively accepted"
-msgstr "Предварительно принято."
+msgstr "Предварительно принято"
 
 msgid "New Time Proposed"
-msgstr "Предложено новое время."
+msgstr "Предложено новое время"
 
 # 78%
 # 76%
@@ -7870,4 +7870,35 @@ msgid "JSON Error: - %s"
 msgstr ""
 
 msgid "Some problem encountered when encoding/decoding JSON data."
+msgstr ""
+
+# 88%
+msgid "Assistent"
+msgstr "Заместитель"
+
+msgid ""
+"The revocation status of the digital certificate used to sign this email is "
+"unknown (Server is unavaliable or certificate does not support OCSP). The "
+"validity of the certificate could not be verified."
+msgstr ""
+
+msgid "The certificate verification server (OCSP) is temporarly offline."
+msgstr ""
+
+msgid "Signature verified succesfully"
+msgstr ""
+
+msgid "Signature verification succesfull, but certificate is expired"
+msgstr ""
+
+msgid ""
+"Your password is wrong or you have insufficent permission to change password"
+msgstr ""
+
+#, php-format
+msgid ""
+"You marked '%s' as a resource. You cannot schedule a meeting with '%s' "
+"because you do not have the appropiate permissions for that account. Either "
+"enter the name as a required or optional attendee or talk to your "
+"administrator about giving you permission to schedule '%s'."
 msgstr ""
