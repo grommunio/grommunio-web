@@ -166,6 +166,8 @@ class Meetingrequest {
 		$properties['timezone_data'] = 'PT_BINARY:PSETID_Appointment:0x8233';
 		$properties['timezone'] = 'PT_STRING8:PSETID_Appointment:0x8234';
 		$properties["categories"] = "PT_MV_STRING8:PS_PUBLIC_STRINGS:Keywords";
+		$properties["private"] = "PT_BOOLEAN:PSETID_Common:0x8506";
+		$properties["alldayevent"] = "PT_BOOLEAN:PSETID_Appointment:0x8215";
 
 		$this->proptags = getPropIdsFromStrings($store, $properties);
 	}
@@ -286,7 +288,8 @@ class Meetingrequest {
 			$this->proptags['proposed_end_whole'],
 			$this->proptags['proposed_duration'],
 			$this->proptags['counter_proposal'],
-			$this->proptags['attendee_critical_change'], ]);
+			$this->proptags['attendee_critical_change'],
+		]);
 
 		$goid2 = $messageprops[$this->proptags['goid2']];
 
@@ -421,7 +424,9 @@ class Meetingrequest {
 
 				// The email address matches, update the row
 				$recipient[PR_RECIPIENT_TRACKSTATUS] = $this->getTrackStatus($messageclass);
-				$recipient[PR_RECIPIENT_TRACKSTATUS_TIME] = $messageprops[$this->proptags['attendee_critical_change']];
+				if (isset($messageprops[$this->proptags['attendee_critical_change']])) {
+					$recipient[PR_RECIPIENT_TRACKSTATUS_TIME] = $messageprops[$this->proptags['attendee_critical_change']];
+				}
 
 				// If this is a counter proposal, set the proposal properties in the recipient row
 				if (isset($messageprops[$this->proptags['counter_proposal']]) && $messageprops[$this->proptags['counter_proposal']]) {
@@ -430,7 +435,9 @@ class Meetingrequest {
 					$recipient[PR_PROPOSEDNEWTIME] = $messageprops[$this->proptags['counter_proposal']];
 				}
 
-				mapi_message_modifyrecipients($calendarItem, MODRECIP_MODIFY, [$recipient]);
+				// Update the recipient information
+				mapi_message_modifyrecipients($calendarItem, MODRECIP_REMOVE, [$recipient]);
+				mapi_message_modifyrecipients($calendarItem, MODRECIP_ADD, [$recipient]);
 			}
 			if (isset($recipient[PR_RECIPIENT_TRACKSTATUS]) && $recipient[PR_RECIPIENT_TRACKSTATUS] == olRecipientTrackStatusAccepted) {
 				++$acceptedrecips;
@@ -723,7 +730,7 @@ class Meetingrequest {
 			mapi_message_setreadflag($this->message, SUPPRESS_RECEIPT);
 
 			// This meeting request item is recurring, so find all occurrences and saves them all as exceptions to this meeting request item.
-			if ($messageprops[$this->proptags['recurring']] == true) {
+			if (isset($messageprops[$this->proptags['recurring']]) && $messageprops[$this->proptags['recurring']] == true) {
 				$calendarItem = false;
 
 				// Find main recurring item based on GlobalID (0x3)
@@ -948,10 +955,27 @@ class Meetingrequest {
 							}
 						}
 
+						$calItemProps[$this->proptags['recurring_pattern']] = '';
+						$calItemProps[$this->proptags['alldayevent']] = $calItemProps[$this->proptags['alldayevent']] ?? false;
+						$calItemProps[$this->proptags['private']] = $calItemProps[$this->proptags['private']] ?? false;
+						$calItemProps[$this->proptags['meetingstatus']] = $calItemProps[$this->proptags['meetingstatus']] ?? olMeetingReceived;
+						if (isset($calItemProps[$this->proptags['startdate']])) {
+							$calItemProps[$this->proptags['commonstart']] = $calItemProps[$this->proptags['startdate']];
+						}
+						if (isset($calItemProps[$this->proptags['duedate']])) {
+							$calItemProps[$this->proptags['commonend']] = $calItemProps[$this->proptags['duedate']];
+						}
+
 						mapi_setprops($calmsg, $proposeNewTimeProps + $calItemProps);
 
 						// get properties which stores owner information in meeting request mails
-						$props = mapi_getprops($calmsg, [PR_SENT_REPRESENTING_ENTRYID, PR_SENT_REPRESENTING_NAME, PR_SENT_REPRESENTING_EMAIL_ADDRESS, PR_SENT_REPRESENTING_ADDRTYPE, PR_SENT_REPRESENTING_SEARCH_KEY]);
+						$props = mapi_getprops($calmsg, [
+							PR_SENT_REPRESENTING_ENTRYID,
+							PR_SENT_REPRESENTING_NAME,
+							PR_SENT_REPRESENTING_EMAIL_ADDRESS,
+							PR_SENT_REPRESENTING_ADDRTYPE,
+							PR_SENT_REPRESENTING_SEARCH_KEY,
+						]);
 
 						// add owner to recipient table
 						$recips = [];
@@ -970,6 +994,17 @@ class Meetingrequest {
 						// Create a new appointment with duplicate properties and recipient, but as an IPM.Appointment
 						$new = mapi_folder_createmessage($calFolder);
 						$props = mapi_getprops($this->message);
+
+						$props[$this->proptags['recurring_pattern']] = '';
+						$props[$this->proptags['alldayevent']] = $props[$this->proptags['alldayevent']] ?? false;
+						$props[$this->proptags['private']] = $props[$this->proptags['private']] ?? false;
+						$props[$this->proptags['meetingstatus']] = $props[$this->proptags['meetingstatus']] ?? olMeetingReceived;
+						if (isset($props[$this->proptags['startdate']])) {
+							$props[$this->proptags['commonstart']] = $props[$this->proptags['startdate']];
+						}
+						if (isset($props[$this->proptags['duedate']])) {
+							$props[$this->proptags['commonend']] = $props[$this->proptags['duedate']];
+						}
 
 						$props[PR_MESSAGE_CLASS] = 'IPM.Appointment';
 						// reset the PidLidMeetingType to Unspecified for outlook display the item
@@ -1026,7 +1061,19 @@ class Meetingrequest {
 						$reciptable = mapi_message_getrecipienttable($this->message);
 
 						$recips = [];
-						if (!$isDelegate) {
+						// If delegate, then do not add the delegate in recipients
+						if ($isDelegate) {
+							$delegate = mapi_getprops($this->message, [PR_RECEIVED_BY_EMAIL_ADDRESS]);
+							$res = [
+								RES_PROPERTY, [
+									RELOP => RELOP_NE,
+									ULPROPTAG => PR_EMAIL_ADDRESS,
+									VALUE => [PR_EMAIL_ADDRESS => $delegate[PR_RECEIVED_BY_EMAIL_ADDRESS]],
+								],
+							];
+							$recips = mapi_table_queryallrows($reciptable, $this->recipprops, $res);
+						}
+						else {
 							$recips = mapi_table_queryallrows($reciptable, $this->recipprops);
 						}
 
