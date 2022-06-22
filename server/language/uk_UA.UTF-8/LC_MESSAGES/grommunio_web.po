@@ -3,17 +3,19 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Ukrainian (Ukraine)\n"
-"Report-Msgid-Bugs-To: \n"
+"Report-Msgid-Bugs-To: dev@grommunio.com\n"
 "POT-Creation-Date: 2019-09-25 14:32+0200\n"
-"PO-Revision-Date: 2017-10-05 20:33+0200\n"
-"Last-Translator: import\n"
+"PO-Revision-Date: 2022-06-23 18:14+0000\n"
+"Last-Translator: Artem <artem@molotov.work>\n"
+"Language-Team: Ukrainian <https://hosted.weblate.org/projects/grommunio/"
+"grommunio-web/uk/>\n"
 "Language: uk_UA\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
-"X-Generator: Weblate 2.4\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 4.13.1-dev\n"
 
 #. TRANSLATORS: This message is used as label for the column which indicates the week number of the month in date picker. and 'Wk' stands for week
 msgid "Wk"
@@ -457,9 +459,8 @@ msgstr ""
 msgid "Pager"
 msgstr ""
 
-#, fuzzy
 msgid "No user selected"
-msgstr "Не вдається видалити папку."
+msgstr "Користувача не вибрано"
 
 msgid "You must select one or more users."
 msgstr ""
@@ -623,7 +624,7 @@ msgstr ""
 
 #, fuzzy
 msgid "Empty folder name"
-msgstr "Не вдається очистити папку."
+msgstr "Не вдається очистити теку."
 
 msgid "You must specify a name."
 msgstr ""
@@ -640,9 +641,8 @@ msgstr ""
 msgid "Apply"
 msgstr ""
 
-#, fuzzy
 msgid "All folders are selected"
-msgstr "Не вдається видалити папку."
+msgstr "Вибрано всі теки"
 
 msgid "Reply"
 msgstr ""
@@ -784,9 +784,8 @@ msgstr ""
 # 76%
 # 80%
 # 78%
-#, fuzzy
 msgid "Could not open store."
-msgstr "Не вдається видалити папку."
+msgstr "Не вдається відкрити сховище."
 
 msgid "Could not open default calendar folder."
 msgstr ""
@@ -1616,9 +1615,8 @@ msgid ""
 "grant you permissions or contact your system administrator."
 msgstr ""
 
-#, fuzzy
 msgid "Insufficient privileges"
-msgstr "У вас недостатньо прав, щоб скопіювати папку."
+msgstr "Недостатньо привілеїв"
 
 msgid ""
 "Copying this appointment will unset it as private. Are you sure you want to "
@@ -1867,9 +1865,8 @@ msgstr ""
 msgid "Delete without sending"
 msgstr ""
 
-#, fuzzy
 msgid "Insufficient permissions"
-msgstr "У вас недостатньо прав, щоб скопіювати папку."
+msgstr "Недостатньо дозволів"
 
 msgid "You have insufficient privileges to delete items in this folder."
 msgstr ""
@@ -2684,9 +2681,8 @@ msgstr ""
 msgid "Move the message to folder..."
 msgstr ""
 
-#, fuzzy
 msgid "Copy the message to folder..."
-msgstr "Не вдається видалити папку."
+msgstr "Скопіювати повідомлення до теки..."
 
 msgid "Delete the message"
 msgstr ""
@@ -4005,9 +4001,8 @@ msgid ""
 "the hierarchy?"
 msgstr ""
 
-#, fuzzy
 msgid "Insufficient Permissions"
-msgstr "У вас недостатньо прав, щоб скопіювати папку."
+msgstr "Недостатньо дозволів"
 
 msgid "Not enough permissions to open this folder."
 msgstr ""
@@ -4246,9 +4241,8 @@ msgstr ""
 msgid "Rename folder"
 msgstr ""
 
-#, fuzzy
 msgid "Empty folder"
-msgstr "Не вдається очистити папку."
+msgstr "Очистити теку"
 
 msgid "Empty Junk Email"
 msgstr ""
@@ -4317,9 +4311,8 @@ msgid ""
 "contents into the Deleted Items folder?"
 msgstr ""
 
-#, fuzzy
 msgid "Delete folder"
-msgstr "Не вдається видалити папку."
+msgstr "Видалити теку"
 
 msgid "Are you sure you want to empty {0}?"
 msgstr ""
@@ -4795,9 +4788,8 @@ msgstr ""
 msgid "Print selected note"
 msgstr "Підкреслення виділеного тексту."
 
-#, fuzzy
 msgid "No note selected"
-msgstr "Не вдається видалити папку."
+msgstr "Нотатку не вибрано"
 
 msgid "Icons"
 msgstr ""
@@ -6919,9 +6911,8 @@ msgid "Request is not available."
 msgstr ""
 
 # 90%
-#, fuzzy
 msgid "You have insufficient privileges to open this object."
-msgstr "У вас недостатньо прав, щоб відкрити цю папку."
+msgstr "У вас недостатньо привілеїв, щоб відкрити цей об'єкт."
 
 # 93%
 #, fuzzy
@@ -7240,9 +7231,8 @@ msgstr ""
 # 83%
 # 76%
 # 80%
-#, fuzzy
 msgid "Could not open message."
-msgstr "Не вдається видалити папку."
+msgstr "Не вдається відкрити повідомлення."
 
 # 75%
 # 90%
@@ -7261,26 +7251,22 @@ msgstr "У вас недостатньо прав, щоб зберегти це 
 # 83%
 # 76%
 # 86%
-#, fuzzy
 msgid "Could not copy message"
-msgstr "Не вдається видалити папку."
+msgstr "Не вдається скопіювати повідомлення"
 
 # 83%
 # 76%
-#, fuzzy
 msgid "Could not move message"
-msgstr "Не вдається видалити папку."
+msgstr "Не вдається перемістити повідомлення"
 
 # 81%
-#, fuzzy
 msgid "You have insufficient privileges to save items in this folder"
-msgstr "У вас недостатньо прав, щоб створити цю папку."
+msgstr "У вас недостатньо привілеїв, щоб зберегти елементи в цю теку"
 
 # 83%
 # 76%
-#, fuzzy
 msgid "Could not save message"
-msgstr "Не вдається видалити папку."
+msgstr "Не вдається зберегти повідомлення"
 
 msgid "You have insufficient privileges to remove item from the calendar."
 msgstr ""
@@ -7294,9 +7280,8 @@ msgid "Message cannot be aborted"
 msgstr ""
 
 # 81%
-#, fuzzy
 msgid "You have insufficient privileges to delete items in this folder"
-msgstr "У вас недостатньо прав, щоб створити цю папку."
+msgstr "У вас недостатньо привілеїв, щоб видалити елементи з цієї теки"
 
 msgid "You have insufficient privileges to attach item as an attachment."
 msgstr ""
