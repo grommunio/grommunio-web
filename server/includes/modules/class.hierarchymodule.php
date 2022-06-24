@@ -744,7 +744,7 @@
 
 			// check if folder is rootFolder, then we need the permissions from the store
 			if ($folderProps[PR_ENTRYID] == $storeProps[PR_IPM_SUBTREE_ENTRYID]) {
-				$folder = $store;
+				$folder = mapi_msgstore_openentry($store, $storeProps[PR_IPM_SUBTREE_ENTRYID]);
 			}
 
 			// first, get the current permissions because we need to delete all current acl's
