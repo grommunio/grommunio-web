@@ -85,7 +85,7 @@
 		/* Generic functions to access data */
 
 		/**
-		 * Function will return values of the properties PR_DELEGATES_SEE_PRIVATE, PR_SCHDINFO_DELEGATE_ENTRYIDS and
+		 * Function will return values of the properties PR_DELEGATE_FLAGS, PR_SCHDINFO_DELEGATE_ENTRYIDS and
 		 * PR_SCHDINFO_DELEGATE_NAMES from LocalFreeBusyMessage of the user's store.
 		 *
 		 * @param {MAPIMessage} $localFreeBusyMessage (optional) local freebusy message of the user's store
@@ -98,12 +98,12 @@
 					$localFreeBusyMessage = freebusy::getLocalFreeBusyMessage();
 				}
 
-				$this->delegateProps = mapi_getprops($localFreeBusyMessage, [PR_DELEGATES_SEE_PRIVATE, PR_SCHDINFO_DELEGATE_ENTRYIDS, PR_SCHDINFO_DELEGATE_NAMES]);
+				$this->delegateProps = mapi_getprops($localFreeBusyMessage, [PR_DELEGATE_FLAGS, PR_SCHDINFO_DELEGATE_ENTRYIDS, PR_SCHDINFO_DELEGATE_NAMES]);
 
 				// check if properties exists or not, if not then initialize with default values
 				// this way in caller functions we don't need to check for non-existent properties
-				if (!isset($this->delegateProps[PR_DELEGATES_SEE_PRIVATE])) {
-					$this->delegateProps[PR_DELEGATES_SEE_PRIVATE] = [];
+				if (!isset($this->delegateProps[PR_DELEGATE_FLAGS])) {
+					$this->delegateProps[PR_DELEGATE_FLAGS] = [];
 				}
 
 				if (!isset($this->delegateProps[PR_SCHDINFO_DELEGATE_ENTRYIDS])) {
@@ -156,7 +156,7 @@
 
 		/**
 		 * Function will return index of a particular delegate, this index can be used to get information of
-		 * delegate from PR_DELEGATES_SEE_PRIVATE, PR_SCHDINFO_DELEGATE_ENTRYIDS and
+		 * delegate from PR_DELEGATE_FLAGS, PR_SCHDINFO_DELEGATE_ENTRYIDS and
 		 * PR_SCHDINFO_DELEGATE_NAMES properties.
 		 *
 		 * @param {BinEntryid} $entryId entryid of delegate
@@ -279,7 +279,7 @@
 
 			$delegate['props'] = [];
 			$delegate['props']['display_name'] = $userinfo['display_name'];
-			$delegate['props']['can_see_private'] = isset($delegateProps[PR_DELEGATES_SEE_PRIVATE][$delegateIndex]) ? ($delegateProps[PR_DELEGATES_SEE_PRIVATE][$delegateIndex] == 1) : false;
+			$delegate['props']['can_see_private'] = isset($delegateProps[PR_DELEGATE_FLAGS][$delegateIndex]) ? ($delegateProps[PR_DELEGATE_FLAGS][$delegateIndex] == 1) : false;
 
 			$delegate['props'] = array_merge($delegate['props'], $this->getFolderPermissions($userEntryId));
 
@@ -375,7 +375,7 @@
 		}
 
 		/**
-		 * Function will update PR_DELEGATES_SEE_PRIVATE, PR_SCHDINFO_DELEGATE_ENTRYIDS and
+		 * Function will update PR_DELEGATE_FLAGS, PR_SCHDINFO_DELEGATE_ENTRYIDS and
 		 * PR_SCHDINFO_DELEGATE_NAMES properties in the current user's store.
 		 *
 		 * @param mixed $delegates
@@ -413,10 +413,10 @@
 					}
 				}
 				if (isset($delegate['props']['can_see_private'])) {
-					$delegateProps[PR_DELEGATES_SEE_PRIVATE][$j] = $delegate['props']['can_see_private'];
+					$delegateProps[PR_DELEGATE_FLAGS][$j] = $delegate['props']['can_see_private'];
 				}
 				else {
-					$delegateProps[PR_DELEGATES_SEE_PRIVATE][$j] = false;
+					$delegateProps[PR_DELEGATE_FLAGS][$j] = false;
 				}
 			}
 			mapi_setprops($localFreeBusyMessage, $delegateProps);
@@ -642,7 +642,7 @@
 		}
 
 		/**
-		 * Function will delete values from PR_DELEGATES_SEE_PRIVATE, PR_SCHDINFO_DELEGATE_ENTRYIDS and PR_SCHDINFO_DELEGATE_NAMES and save the properties back if its not empty.
+		 * Function will delete values from PR_DELEGATE_FLAGS, PR_SCHDINFO_DELEGATE_ENTRYIDS and PR_SCHDINFO_DELEGATE_NAMES and save the properties back if its not empty.
 		 *
 		 * @param {Array} $delegate delegate information sent from client
 		 */
@@ -660,11 +660,11 @@
 			if ($delegateIndex == -1) {
 				return;
 			}
-			unset($delegateProps[PR_DELEGATES_SEE_PRIVATE][$delegateIndex], $delegateProps[PR_SCHDINFO_DELEGATE_ENTRYIDS][$delegateIndex], $delegateProps[PR_SCHDINFO_DELEGATE_NAMES][$delegateIndex]);
+			unset($delegateProps[PR_DELEGATE_FLAGS][$delegateIndex], $delegateProps[PR_SCHDINFO_DELEGATE_ENTRYIDS][$delegateIndex], $delegateProps[PR_SCHDINFO_DELEGATE_NAMES][$delegateIndex]);
 
 			// unset will remove the value but will not regenerate array keys, so we need to
 			// do it here
-			$delegateProps[PR_DELEGATES_SEE_PRIVATE] = array_values($delegateProps[PR_DELEGATES_SEE_PRIVATE]);
+			$delegateProps[PR_DELEGATE_FLAGS] = array_values($delegateProps[PR_DELEGATE_FLAGS]);
 			$delegateProps[PR_SCHDINFO_DELEGATE_ENTRYIDS] = array_values($delegateProps[PR_SCHDINFO_DELEGATE_ENTRYIDS]);
 			$delegateProps[PR_SCHDINFO_DELEGATE_NAMES] = array_values($delegateProps[PR_SCHDINFO_DELEGATE_NAMES]);
 
@@ -673,7 +673,7 @@
 			}
 			else {
 				// Delete delegate properties.
-				mapi_deleteprops($localFreeBusyMessage, [PR_DELEGATES_SEE_PRIVATE, PR_SCHDINFO_DELEGATE_ENTRYIDS, PR_SCHDINFO_DELEGATE_NAMES]);
+				mapi_deleteprops($localFreeBusyMessage, [PR_DELEGATE_FLAGS, PR_SCHDINFO_DELEGATE_ENTRYIDS, PR_SCHDINFO_DELEGATE_NAMES]);
 			}
 
 			mapi_savechanges($localFreeBusyMessage);

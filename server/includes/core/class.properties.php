@@ -189,9 +189,9 @@
 				$properties["recipient_trackstatus"] = PR_RECIPIENT_TRACKSTATUS;
 				$properties["recipient_trackstatus_time"] = PR_RECIPIENT_TRACKSTATUS_TIME;
 
-				$properties["proposednewtime"] = PR_PROPOSEDNEWTIME;
-				$properties["proposednewtime_start"] = PR_PROPOSEDNEWTIME_START;
-				$properties["proposednewtime_end"] = PR_PROPOSEDNEWTIME_END;
+				$properties["proposednewtime"] = PR_RECIPIENT_PROPOSED;
+				$properties["proposednewtime_start"] = PR_RECIPIENT_PROPOSEDSTARTTIME;
+				$properties["proposednewtime_end"] = PR_RECIPIENT_PROPOSEDENDTIME;
 				$properties["creation_time"] = PR_CREATION_TIME;
 				$this->mapping[$this->storeMapping]['recipient'] = getPropIdsFromStrings($this->store, $properties);
 			}
@@ -208,17 +208,17 @@
 			$this->Init();
 
 			if (!isset($this->mapping[$this->storeMapping]['oofsettings'])) {
-				$properties["set"] = PR_EC_OUTOFOFFICE_STATE;
+				$properties["set"] = PR_EC_OUTOFOFFICE;
 				$properties["entryid"] = PR_MAILBOX_OWNER_ENTRYID;
 				$properties["store_entryid"] = PR_ENTRYID;
-				$properties["internal_reply"] = PR_EC_OUTOFOFFICE_INTERNALREPLY;
-				$properties["internal_subject"] = PR_EC_OUTOFOFFICE_INTERNALSUBJECT;
-				$properties["from"] = PR_EC_OUTOFOFFICE_BEGIN;
-				$properties["until"] = PR_EC_OUTOFOFFICE_END;
-				$properties["allow_external"] = PR_EC_OUTOFOFFICE_ALLOWEXTERNAL;
-				$properties["external_audience"] = PR_EC_OUTOFOFFICE_EXTERNALAUDIENCE;
-				$properties["external_reply"] = PR_EC_OUTOFOFFICE_EXTERNALREPLY;
-				$properties["external_subject"] = PR_EC_OUTOFOFFICE_EXTERNALSUBJECT;
+				$properties["internal_reply"] = PR_EC_OUTOFOFFICE_MSG;
+				$properties["internal_subject"] = PR_EC_OUTOFOFFICE_SUBJECT;
+				$properties["from"] = PR_EC_OUTOFOFFICE_FROM;
+				$properties["until"] = PR_EC_OUTOFOFFICE_UNTIL;
+				$properties["allow_external"] = PR_EC_ALLOW_EXTERNAL;
+				$properties["external_audience"] = PR_EC_EXTERNAL_AUDIENCE;
+				$properties["external_reply"] = PR_EC_EXTERNAL_REPLY;
+				$properties["external_subject"] = PR_EC_EXTERNAL_SUBJECT;
 				$this->mapping[$this->storeMapping]['oofsettings'] = getPropIdsFromStrings($this->store, $properties);
 			}
 
@@ -930,7 +930,7 @@
 				$properties["message_flags"] = PR_MESSAGE_FLAGS;
 				$properties["flag_status"] = PR_FLAG_STATUS;
 				$properties["flag_complete_time"] = PR_FLAG_COMPLETE_TIME;
-				$properties["flag_icon"] = PR_FLAG_ICON;
+				$properties["flag_icon"] = PR_FOLLOWUP_ICON;
 				$properties["block_status"] = PR_BLOCK_STATUS;
 				$properties["reminder_time"] = "PT_SYSTIME:PSETID_Common:0x8502";
 				$properties["reminder"] = "PT_BOOLEAN:PSETID_Common:0x8503";
@@ -1099,7 +1099,7 @@
 				$properties["commonstart"] = "PT_SYSTIME:PSETID_Common:0x8516";
 				$properties["commonend"] = "PT_SYSTIME:PSETID_Common:0x8517";
 				$properties["commonassign"] = "PT_LONG:PSETID_Common:0x8518";
-				$properties["flag_icon"] = PR_FLAG_ICON;
+				$properties["flag_icon"] = PR_FOLLOWUP_ICON;
 				$properties["flag_due_by"] = "PT_SYSTIME:PSETID_Common:0x8560";
 				$properties["flag_status"] = PR_FLAG_STATUS;
 				$properties["flag_complete_time"] = PR_FLAG_COMPLETE_TIME;
