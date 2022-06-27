@@ -3809,10 +3809,10 @@
 					}
 
 					// Set propose new time properties
-					if (isset($recipientRow[PR_PROPOSEDNEWTIME], $recipientRow[PR_PROPOSEDNEWTIME_START], $recipientRow[PR_PROPOSEDNEWTIME_END])) {
-						$props['proposednewtime_start'] = $recipientRow[PR_PROPOSEDNEWTIME_START];
-						$props['proposednewtime_end'] = $recipientRow[PR_PROPOSEDNEWTIME_END];
-						$props['proposednewtime'] = $recipientRow[PR_PROPOSEDNEWTIME];
+					if (isset($recipientRow[PR_RECIPIENT_PROPOSED], $recipientRow[PR_RECIPIENT_PROPOSEDSTARTTIME], $recipientRow[PR_RECIPIENT_PROPOSEDENDTIME])) {
+						$props['proposednewtime_start'] = $recipientRow[PR_RECIPIENT_PROPOSEDSTARTTIME];
+						$props['proposednewtime_end'] = $recipientRow[PR_RECIPIENT_PROPOSEDENDTIME];
+						$props['proposednewtime'] = $recipientRow[PR_RECIPIENT_PROPOSED];
 					}
 					else {
 						$props['proposednewtime'] = false;
@@ -3952,12 +3952,12 @@
 				}
 
 				if (isset($recipientItem["proposednewtime"]) && !empty($recipientItem["proposednewtime"]) && isset($recipientItem["proposednewtime_start"], $recipientItem["proposednewtime_end"])) {
-					$recipient[PR_PROPOSEDNEWTIME] = $recipientItem["proposednewtime"];
-					$recipient[PR_PROPOSEDNEWTIME_START] = $recipientItem["proposednewtime_start"];
-					$recipient[PR_PROPOSEDNEWTIME_END] = $recipientItem["proposednewtime_end"];
+					$recipient[PR_RECIPIENT_PROPOSED] = $recipientItem["proposednewtime"];
+					$recipient[PR_RECIPIENT_PROPOSEDSTARTTIME] = $recipientItem["proposednewtime_start"];
+					$recipient[PR_RECIPIENT_PROPOSEDENDTIME] = $recipientItem["proposednewtime_end"];
 				}
 				else {
-					$recipient[PR_PROPOSEDNEWTIME] = false;
+					$recipient[PR_RECIPIENT_PROPOSED] = false;
 				}
 
 				// Use given entryid if possible, otherwise create a one-off entryid
@@ -4346,8 +4346,8 @@
 		 * @return bool TRUE if the message is a plaintext message, FALSE if otherwise
 		 */
 		public function isPlainText($message) {
-			$props = mapi_getprops($message, [PR_NATIVE_BODY]);
-			if (isset($props[PR_NATIVE_BODY]) && $props[PR_NATIVE_BODY] == 1) {
+			$props = mapi_getprops($message, [PR_NATIVE_BODY_INFO]);
+			if (isset($props[PR_NATIVE_BODY_INFO]) && $props[PR_NATIVE_BODY_INFO] == 1) {
 				return true;
 			}
 
