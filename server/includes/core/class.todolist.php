@@ -297,7 +297,7 @@ class TodoList {
 																[
 																	RES_EXIST,
 																	[
-																		ULPROPTAG => PR_FOLLOWUP_ICON,
+																		ULPROPTAG => PR_FLAG_ICON,
 																	],
 																],
 															],
@@ -306,7 +306,7 @@ class TodoList {
 															RES_PROPERTY,
 															[
 																RELOP => RELOP_EQ,
-																ULPROPTAG => PR_FOLLOWUP_ICON,
+																ULPROPTAG => PR_FLAG_ICON,
 																VALUE => 0,
 															],
 														],
@@ -374,14 +374,14 @@ class TodoList {
 										[
 											RES_EXIST,
 											[
-												ULPROPTAG => PR_FOLLOWUP_ICON,
+												ULPROPTAG => PR_FLAG_ICON,
 											],
 										],
 										[
 											RES_PROPERTY,
 											[
 												RELOP => RELOP_GT,
-												ULPROPTAG => PR_FOLLOWUP_ICON,
+												ULPROPTAG => PR_FLAG_ICON,
 												VALUE => 0,
 											],
 										],

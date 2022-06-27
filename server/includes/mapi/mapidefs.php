@@ -642,7 +642,7 @@ define('fnevStatusObjectModified', 0x00000200);
 define('fnevReservedForMapi', 0x40000000);
 define('fnevExtended', 0x80000000);
 
-/* PersistBlockType values PR_ADDITIONAL_REN_ENTRYIDS_EX / PR_ADDITIONAL_REN_ENTRYIDS_EX PersistIDs */
+/* PersistBlockType values PR_IPM_OL2007_ENTRYIDS / PR_ADDITIONAL_REN_ENTRYIDS_EX PersistIDs */
 define('PERSIST_SENTINEL', 0x0000); // Indicates that the PersistData structure is the last one contained in the PidTagAdditionalRenEntryIdsEx property
 define('RSF_PID_RSS_SUBSCRIPTION', 0x8001); // Indicates that the structure contains data for the RSS Feeds folder
 define('RSF_PID_SEND_AND_TRACK', 0x8002); // Indicates that the structure contains data for the Tracked Mail Processing folder
@@ -654,7 +654,7 @@ define('RSF_PID_CONTACT_SEARCH', 0x8009); // Indicates that the structure contai
 define('RSF_PID_BUDDYLIST_PDLS', 0x800A); // Indicates that the structure contains data for the IM Contacts List folder.
 define('RSF_PID_BUDDYLIST_CONTACTS', 0x800B); // Indicates that the structure contains data for the Quick Contacts folder.
 
-/* PersistElementType Values ElementIDs for persist data of PR_ADDITIONAL_REN_ENTRYIDS_EX / PR_ADDITIONAL_REN_ENTRYIDS_EX */
+/* PersistElementType Values ElementIDs for persist data of PR_IPM_OL2007_ENTRYIDS / PR_ADDITIONAL_REN_ENTRYIDS_EX */
 define('ELEMENT_SENTINEL', 0x0000); // 0 bytes Indicates that the PersistElement structure is the last one contained in the DataElements field of the PersistData structure.
 define('RSF_ELID_ENTRYID', 0x0001); // variable Indicates that the ElementData field contains the entry ID of the special folder
 														   // that is of the type indicated by the value of the PersistID field of the PersistData structure.

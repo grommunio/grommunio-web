@@ -58,45 +58,45 @@
 			$oofSettings = [];
 			foreach ($otherStores as $storeEntryId => $storeObj) {
 				$props = mapi_getprops($storeObj, $this->properties);
-				if (!isset($props[PR_EC_OUTOFOFFICE])) {
-					$props[PR_EC_OUTOFOFFICE] = false;
+				if (!isset($props[PR_EC_OUTOFOFFICE_STATE])) {
+					$props[PR_EC_OUTOFOFFICE_STATE] = false;
 				}
-				if (!isset($props[PR_EC_OUTOFOFFICE_MSG])) {
-					$props[PR_EC_OUTOFOFFICE_MSG] = '';
+				if (!isset($props[PR_EC_OUTOFOFFICE_INTERNALREPLY])) {
+					$props[PR_EC_OUTOFOFFICE_INTERNALREPLY] = '';
 				}
-				if (!isset($props[PR_EC_OUTOFOFFICE_SUBJECT])) {
-					$props[PR_EC_OUTOFOFFICE_SUBJECT] = '';
+				if (!isset($props[PR_EC_OUTOFOFFICE_INTERNALSUBJECT])) {
+					$props[PR_EC_OUTOFOFFICE_INTERNALSUBJECT] = '';
 				}
-				if (!isset($props[PR_EC_OUTOFOFFICE_FROM])) {
-					$props[PR_EC_OUTOFOFFICE_FROM] = 0;
+				if (!isset($props[PR_EC_OUTOFOFFICE_BEGIN])) {
+					$props[PR_EC_OUTOFOFFICE_BEGIN] = 0;
 				}
-				if (!isset($props[PR_EC_OUTOFOFFICE_UNTIL]) || $props[PR_EC_OUTOFOFFICE_UNTIL] === FUTURE_ENDDATE) {
-					$props[PR_EC_OUTOFOFFICE_UNTIL] = 0;
+				if (!isset($props[PR_EC_OUTOFOFFICE_END]) || $props[PR_EC_OUTOFOFFICE_END] === FUTURE_ENDDATE) {
+					$props[PR_EC_OUTOFOFFICE_END] = 0;
 				}
-				if (!isset($props[PR_EC_ALLOW_EXTERNAL])) {
-					$props[PR_EC_ALLOW_EXTERNAL] = 0;
+				if (!isset($props[PR_EC_OUTOFOFFICE_ALLOWEXTERNAL])) {
+					$props[PR_EC_OUTOFOFFICE_ALLOWEXTERNAL] = 0;
 				}
-				if (!isset($props[PR_EC_EXTERNAL_AUDIENCE])) {
-					$props[PR_EC_EXTERNAL_AUDIENCE] = 0;
+				if (!isset($props[PR_EC_OUTOFOFFICE_EXTERNALAUDIENCE])) {
+					$props[PR_EC_OUTOFOFFICE_EXTERNALAUDIENCE] = 0;
 				}
-				if (!isset($props[PR_EC_EXTERNAL_REPLY])) {
-					$props[PR_EC_EXTERNAL_REPLY] = '';
+				if (!isset($props[PR_EC_OUTOFOFFICE_EXTERNALREPLY])) {
+					$props[PR_EC_OUTOFOFFICE_EXTERNALREPLY] = '';
 				}
-				if (!isset($props[PR_EC_EXTERNAL_SUBJECT])) {
-					$props[PR_EC_EXTERNAL_SUBJECT] = '';
+				if (!isset($props[PR_EC_OUTOFOFFICE_EXTERNALSUBJECT])) {
+					$props[PR_EC_OUTOFOFFICE_EXTERNALSUBJECT] = '';
 				}
 
 				$externalProps['props']['entryid'] = bin2hex($props[PR_MAILBOX_OWNER_ENTRYID]);
 				$externalProps['props']['store_entryid'] = bin2hex($props[PR_ENTRYID]);
-				$externalProps['props']['set'] = $props[PR_EC_OUTOFOFFICE];
-				$externalProps['props']['internal_reply'] = trim($props[PR_EC_OUTOFOFFICE_MSG]);
-				$externalProps['props']['internal_subject'] = trim($props[PR_EC_OUTOFOFFICE_SUBJECT]);
-				$externalProps['props']['from'] = $props[PR_EC_OUTOFOFFICE_FROM];
-				$externalProps['props']['until'] = $props[PR_EC_OUTOFOFFICE_UNTIL];
-				$externalProps['props']['allow_external'] = $props[PR_EC_ALLOW_EXTERNAL];
-				$externalProps['props']['external_audience'] = $props[PR_EC_EXTERNAL_AUDIENCE];
-				$externalProps['props']['external_reply'] = trim($props[PR_EC_EXTERNAL_REPLY]);
-				$externalProps['props']['external_subject'] = trim($props[PR_EC_EXTERNAL_SUBJECT]);
+				$externalProps['props']['set'] = $props[PR_EC_OUTOFOFFICE_STATE];
+				$externalProps['props']['internal_reply'] = trim($props[PR_EC_OUTOFOFFICE_INTERNALREPLY]);
+				$externalProps['props']['internal_subject'] = trim($props[PR_EC_OUTOFOFFICE_INTERNALSUBJECT]);
+				$externalProps['props']['from'] = $props[PR_EC_OUTOFOFFICE_BEGIN];
+				$externalProps['props']['until'] = $props[PR_EC_OUTOFOFFICE_END];
+				$externalProps['props']['allow_external'] = $props[PR_EC_OUTOFOFFICE_ALLOWEXTERNAL];
+				$externalProps['props']['external_audience'] = $props[PR_EC_OUTOFOFFICE_EXTERNALAUDIENCE];
+				$externalProps['props']['external_reply'] = trim($props[PR_EC_OUTOFOFFICE_EXTERNALREPLY]);
+				$externalProps['props']['external_subject'] = trim($props[PR_EC_OUTOFOFFICE_EXTERNALSUBJECT]);
 
 				array_push($oofSettings, $externalProps);
 			}
@@ -165,7 +165,7 @@
 			// then save FUTURE_ENDDATE as until date. Also when OOF is already ON and User
 			// don't change 'until' field then check if 'until' value is available in User's store
 			// and if not then set until date to FUTURE_ENDDATE.
-			// Note: If we remove PR_EC_OUTOFOFFICE_UNTIL property from User's store,
+			// Note: If we remove PR_EC_OUTOFOFFICE_END property from User's store,
 			// then gromox is setting past value "1970-01-01 00:00:00" as until date.
 			// To avoid this issue and for OOF to work as expected, we are setting until date as FUTURE_ENDDATE.
 			if (isset($oofSettings['until']) && $oofSettings['until'] === 0 ||
@@ -173,8 +173,8 @@
 				$props[$this->properties['until']] = FUTURE_ENDDATE;
 			}
 			elseif (!isset($oofSettings['until'], $oofSettings['set'])) {
-				$untilProp = mapi_getprops($store, [PR_EC_OUTOFOFFICE_UNTIL]);
-				if (!isset($untilProp[PR_EC_OUTOFOFFICE_UNTIL]) || $untilProp[PR_EC_OUTOFOFFICE_UNTIL] === 0) {
+				$untilProp = mapi_getprops($store, [PR_EC_OUTOFOFFICE_END]);
+				if (!isset($untilProp[PR_EC_OUTOFOFFICE_END]) || $untilProp[PR_EC_OUTOFOFFICE_END] === 0) {
 					$props[$this->properties['until']] = FUTURE_ENDDATE;
 				}
 			}
