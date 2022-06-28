@@ -27,3 +27,5 @@ define('PR_EC_WEBAPP_PERSISTENT_SETTINGS_JSON', mapi_prop_tag(PT_STRING8, 0x6774
 define('PR_EC_DISABLED_FEATURES', mapi_prop_tag(PT_MV_TSTRING, 0x67B4));
 
 define('PR_EC_ARCHIVE_SERVERS', mapi_prop_tag(PT_MV_TSTRING, 0x67C4));
+
+define('PR_EC_WA_FILES_ENCRYPTION_KEY', mapi_prop_tag(PT_BINARY, 0x67E2));
