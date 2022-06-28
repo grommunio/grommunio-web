@@ -699,14 +699,6 @@
 		}
 
 		public function getFolderPermissions($folder) {
-			// check if folder is rootFolder, then we need the permissions from the store
-			$folderProps = mapi_getprops($folder, [PR_DISPLAY_NAME, PR_STORE_ENTRYID]);
-
-			$store = $GLOBALS["mapisession"]->openMessageStore($folderProps[PR_STORE_ENTRYID]);
-			if ($folderProps[PR_DISPLAY_NAME] == "IPM_SUBTREE") {
-				$folder = $store;
-			}
-
 			$grants = mapi_zarafa_getpermissionrules($folder, ACCESS_TYPE_GRANT);
 			foreach ($grants as $id => $grant) {
 				// The mapi_zarafa_getpermissionrules returns the entryid in the userid key
@@ -740,11 +732,6 @@
 				if ($folderProps[PR_ENTRYID] == $rootProps[PR_IPM_APPOINTMENT_ENTRYID]) {
 					$freebusy = freebusy::getLocalFreeBusyFolder($store);
 				}
-			}
-
-			// check if folder is rootFolder, then we need the permissions from the store
-			if ($folderProps[PR_ENTRYID] == $storeProps[PR_IPM_SUBTREE_ENTRYID]) {
-				$folder = mapi_msgstore_openentry($store, $storeProps[PR_IPM_SUBTREE_ENTRYID]);
 			}
 
 			// first, get the current permissions because we need to delete all current acl's
