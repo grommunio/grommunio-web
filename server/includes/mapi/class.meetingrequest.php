@@ -430,9 +430,9 @@ class Meetingrequest {
 
 				// If this is a counter proposal, set the proposal properties in the recipient row
 				if (isset($messageprops[$this->proptags['counter_proposal']]) && $messageprops[$this->proptags['counter_proposal']]) {
-					$recipient[PR_PROPOSENEWTIME_START] = $messageprops[$this->proptags['proposed_start_whole']];
-					$recipient[PR_PROPOSENEWTIME_END] = $messageprops[$this->proptags['proposed_end_whole']];
-					$recipient[PR_PROPOSEDNEWTIME] = $messageprops[$this->proptags['counter_proposal']];
+					$recipient[PR_RECIPIENT_PROPOSEDSTARTTIME] = $messageprops[$this->proptags['proposed_start_whole']];
+					$recipient[PR_RECIPIENT_PROPOSEDENDTIME] = $messageprops[$this->proptags['proposed_end_whole']];
+					$recipient[PR_RECIPIENT_PROPOSED] = $messageprops[$this->proptags['counter_proposal']];
 				}
 
 				// Update the recipient information
@@ -459,9 +459,9 @@ class Meetingrequest {
 
 			// If this is a counter proposal, set the proposal properties in the recipient row
 			if (isset($messageprops[$this->proptags['counter_proposal']])) {
-				$recipient[PR_PROPOSENEWTIME_START] = $messageprops[$this->proptags['proposed_start_whole']];
-				$recipient[PR_PROPOSENEWTIME_END] = $messageprops[$this->proptags['proposed_end_whole']];
-				$recipient[PR_PROPOSEDNEWTIME] = $messageprops[$this->proptags['counter_proposal']];
+				$recipient[PR_RECIPIENT_PROPOSEDSTARTTIME] = $messageprops[$this->proptags['proposed_start_whole']];
+				$recipient[PR_RECIPIENT_PROPOSEDENDTIME] = $messageprops[$this->proptags['proposed_end_whole']];
+				$recipient[PR_RECIPIENT_PROPOSED] = $messageprops[$this->proptags['counter_proposal']];
 			}
 
 			mapi_message_modifyrecipients($calendarItem, MODRECIP_ADD, [$recipient]);
@@ -2559,11 +2559,11 @@ class Meetingrequest {
 				 */
 				$localFreebusyMsg = freebusy::getLocalFreeBusyMessage($userStore);
 				if ($localFreebusyMsg) {
-					$props = mapi_getprops($localFreebusyMsg, [PR_PROCESS_MEETING_REQUESTS, PR_DECLINE_RECURRING_MEETING_REQUESTS, PR_DECLINE_CONFLICTING_MEETING_REQUESTS]);
+					$props = mapi_getprops($localFreebusyMsg, [PR_SCHDINFO_AUTO_ACCEPT_APPTS, PR_SCHDINFO_DISALLOW_RECURRING_APPTS, PR_SCHDINFO_DISALLOW_OVERLAPPING_APPTS]);
 
-					$acceptMeetingRequests = isset($props[PR_PROCESS_MEETING_REQUESTS]) ? $props[PR_PROCESS_MEETING_REQUESTS] : false;
-					$declineRecurringMeetingRequests = isset($props[PR_DECLINE_RECURRING_MEETING_REQUESTS]) ? $props[PR_DECLINE_RECURRING_MEETING_REQUESTS] : false;
-					$declineConflictingMeetingRequests = isset($props[PR_DECLINE_CONFLICTING_MEETING_REQUESTS]) ? $props[PR_DECLINE_CONFLICTING_MEETING_REQUESTS] : false;
+					$acceptMeetingRequests = isset($props[PR_SCHDINFO_AUTO_ACCEPT_APPTS]) ? $props[PR_SCHDINFO_AUTO_ACCEPT_APPTS] : false;
+					$declineRecurringMeetingRequests = isset($props[PR_SCHDINFO_DISALLOW_RECURRING_APPTS]) ? $props[PR_SCHDINFO_DISALLOW_RECURRING_APPTS] : false;
+					$declineConflictingMeetingRequests = isset($props[PR_SCHDINFO_DISALLOW_OVERLAPPING_APPTS]) ? $props[PR_SCHDINFO_DISALLOW_OVERLAPPING_APPTS] : false;
 
 					if (!$acceptMeetingRequests) {
 						/*

@@ -214,7 +214,7 @@ class Pluginsmime extends Plugin {
 		// TODO: worth to split fetching public certificate in a separate function?
 
 		// If user entry exists in GAB, try to retrieve public cert
-		// Public certificate from GAB in combination with LDAP saved in PR_EMS_AB_TAGGED_X509_CERT
+		// Public certificate from GAB in combination with LDAP saved in PR_EMS_AB_X509_CERT
 		$userProps = mapi_getprops($message, [PR_SENT_REPRESENTING_ENTRYID, PR_SENT_REPRESENTING_NAME]);
 		if (isset($userProps[PR_SENT_REPRESENTING_ENTRYID])) {
 			try {
@@ -958,7 +958,7 @@ class Pluginsmime extends Plugin {
 		openssl_pkcs7_verify($emlfile, PKCS7_NOVERIFY, $certfile, [], $certfile, $outfile, $p7bfile);
 
 		$p7b = file_get_contents($p7bfile);
-		
+
 		openssl_pkcs7_read($p7b, $cas);
 		unlink($certfile);
 		unlink($outfile);
@@ -1061,7 +1061,7 @@ class Pluginsmime extends Plugin {
 	}
 
 	/**
-	 * Retrieve the PR_EMS_AB_TAGGED_X509_CERT.
+	 * Retrieve the PR_EMS_AB_X509_CERT.
 	 *
 	 * @param MAPIObject $user the GAB user
 	 *
@@ -1069,9 +1069,9 @@ class Pluginsmime extends Plugin {
 	 */
 	public function getGABCert($user) {
 		$cert = '';
-		$userCertArray = mapi_getprops($user, [PR_EMS_AB_TAGGED_X509_CERT]);
-		if (isset($userCertArray[PR_EMS_AB_TAGGED_X509_CERT])) {
-			$cert = der2pem($userCertArray[PR_EMS_AB_TAGGED_X509_CERT][0]);
+		$userCertArray = mapi_getprops($user, [PR_EMS_AB_X509_CERT]);
+		if (isset($userCertArray[PR_EMS_AB_X509_CERT])) {
+			$cert = der2pem($userCertArray[PR_EMS_AB_X509_CERT][0]);
 		}
 
 		return $cert;
