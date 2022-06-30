@@ -598,7 +598,7 @@ class Pluginsmime extends Plugin {
 		$message = $data['message'];
 
 		// Retrieve message class
-		$props = mapi_getprops($message, [PR_MESSAGE_CLASS, PR_EC_IMAP_EMAIL]);
+		$props = mapi_getprops($message, [PR_MESSAGE_CLASS]);
 		$messageClass = $props[PR_MESSAGE_CLASS];
 
 		if (isset($messageClass) && (stripos($messageClass, 'IPM.Note.SMIME') !== false)) {
@@ -614,16 +614,8 @@ class Pluginsmime extends Plugin {
 			mapi_setprops($message, [PR_MESSAGE_CLASS => 'IPM.Note']);
 			mapi_savechanges($message);
 
-			// If RFC822-formatted stream is already available in PR_EC_IMAP_EMAIL property
-			// than directly use it, generate otherwise.
-			if (isset($props[PR_EC_IMAP_EMAIL]) || propIsError(PR_EC_IMAP_EMAIL, $props) == MAPI_E_NOT_ENOUGH_MEMORY) {
-				// Stream the message to properly get the PR_EC_IMAP_EMAIL property
-				$emlMessageStream = mapi_openproperty($message, PR_EC_IMAP_EMAIL, IID_IStream, 0, 0);
-			}
-			else {
-				// Read the message as RFC822-formatted e-mail stream.
-				$emlMessageStream = mapi_inetmapi_imtoinet($GLOBALS['mapisession']->getSession(), $GLOBALS['mapisession']->getAddressbook(), $message, []);
-			}
+			// Read the message as RFC822-formatted e-mail stream.
+			$emlMessageStream = mapi_inetmapi_imtoinet($GLOBALS['mapisession']->getSession(), $GLOBALS['mapisession']->getAddressbook(), $message, []);
 
 			// Remove all attachments, since they are stored in the attached signed message
 			$atable = mapi_message_getattachmenttable($message);
