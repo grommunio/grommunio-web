@@ -1,87 +1,86 @@
-<?php return array (
-  'root' => 
-  array (
-    'pretty_version' => 'dev-master',
-    'version' => 'dev-master',
-    'aliases' => 
-    array (
+<?php return array(
+    'root' => array(
+        'name' => '__root__',
+        'pretty_version' => 'dev-master',
+        'version' => 'dev-master',
+        'reference' => '785041accad7011ee3d096a5daf3a96d472497c4',
+        'type' => 'library',
+        'install_path' => __DIR__ . '/../../',
+        'aliases' => array(),
+        'dev' => true,
     ),
-    'reference' => '513ed31c4c37235e8ee974cda065a1f4cea03a8b',
-    'name' => '__root__',
-  ),
-  'versions' => 
-  array (
-    '__root__' => 
-    array (
-      'pretty_version' => 'dev-master',
-      'version' => 'dev-master',
-      'aliases' => 
-      array (
-      ),
-      'reference' => '513ed31c4c37235e8ee974cda065a1f4cea03a8b',
+    'versions' => array(
+        '__root__' => array(
+            'pretty_version' => 'dev-master',
+            'version' => 'dev-master',
+            'reference' => '785041accad7011ee3d096a5daf3a96d472497c4',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../../',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
+        'psr/log' => array(
+            'pretty_version' => '1.1.4',
+            'version' => '1.1.4.0',
+            'reference' => 'd49695b909c3b7628b6289db5479a1c204601f11',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../psr/log',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
+        'sabre/dav' => array(
+            'pretty_version' => '4.4.0',
+            'version' => '4.4.0.0',
+            'reference' => 'b65362abc926520eda2c57e219f022a6c288069d',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../sabre/dav',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
+        'sabre/event' => array(
+            'pretty_version' => '5.1.4',
+            'version' => '5.1.4.0',
+            'reference' => 'd7da22897125d34d7eddf7977758191c06a74497',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../sabre/event',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
+        'sabre/http' => array(
+            'pretty_version' => '5.1.4',
+            'version' => '5.1.4.0',
+            'reference' => '84a83642c3b877da9d0e265fba7258157c0bdc37',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../sabre/http',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
+        'sabre/uri' => array(
+            'pretty_version' => '2.2.2',
+            'version' => '2.2.2.0',
+            'reference' => '7cb0f489578afad5006e85cd60f18ff33f2d440d',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../sabre/uri',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
+        'sabre/vobject' => array(
+            'pretty_version' => '4.4.2',
+            'version' => '4.4.2.0',
+            'reference' => 'b8a44ea1610d9b7012e42a7ff6f1cb66f0b757dd',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../sabre/vobject',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
+        'sabre/xml' => array(
+            'pretty_version' => '2.2.5',
+            'version' => '2.2.5.0',
+            'reference' => 'a6af111850e7536d200d9637c34885cd3c77a86c',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../sabre/xml',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
     ),
-    'psr/log' => 
-    array (
-      'pretty_version' => '1.1.3',
-      'version' => '1.1.3.0',
-      'aliases' => 
-      array (
-      ),
-      'reference' => '0f73288fd15629204f9d42b7055f72dacbe811fc',
-    ),
-    'sabre/dav' => 
-    array (
-      'pretty_version' => '3.2.3',
-      'version' => '3.2.3.0',
-      'aliases' => 
-      array (
-      ),
-      'reference' => 'a9780ce4f35560ecbd0af524ad32d9d2c8954b80',
-    ),
-    'sabre/event' => 
-    array (
-      'pretty_version' => '3.0.0',
-      'version' => '3.0.0.0',
-      'aliases' => 
-      array (
-      ),
-      'reference' => '831d586f5a442dceacdcf5e9c4c36a4db99a3534',
-    ),
-    'sabre/http' => 
-    array (
-      'pretty_version' => 'v4.2.4',
-      'version' => '4.2.4.0',
-      'aliases' => 
-      array (
-      ),
-      'reference' => 'acccec4ba863959b2d10c1fa0fb902736c5c8956',
-    ),
-    'sabre/uri' => 
-    array (
-      'pretty_version' => '1.2.1',
-      'version' => '1.2.1.0',
-      'aliases' => 
-      array (
-      ),
-      'reference' => 'ada354d83579565949d80b2e15593c2371225e61',
-    ),
-    'sabre/vobject' => 
-    array (
-      'pretty_version' => '4.2.2',
-      'version' => '4.2.2.0',
-      'aliases' => 
-      array (
-      ),
-      'reference' => '449616b2d45b95c8973975de23f34a3d14f63b4b',
-    ),
-    'sabre/xml' => 
-    array (
-      'pretty_version' => '1.5.1',
-      'version' => '1.5.1.0',
-      'aliases' => 
-      array (
-      ),
-      'reference' => 'a367665f1df614c3b8fefc30a54de7cd295e444e',
-    ),
-  ),
 );

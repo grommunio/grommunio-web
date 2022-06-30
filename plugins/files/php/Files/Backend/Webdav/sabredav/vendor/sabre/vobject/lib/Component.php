@@ -43,10 +43,8 @@ class Component extends Node
      * an iCalendar object, this may be something like CALSCALE:GREGORIAN. To
      * ensure that this does not happen, set $defaults to false.
      *
-     * @param Document $root
-     * @param string   $name     such as VCALENDAR, VEVENT
-     * @param array    $children
-     * @param bool     $defaults
+     * @param string $name     such as VCALENDAR, VEVENT
+     * @param bool   $defaults
      */
     public function __construct(Document $root, $name, array $children = [], $defaults = true)
     {
@@ -162,9 +160,9 @@ class Component extends Node
                     return;
                 }
             }
-        }
 
-        throw new \InvalidArgumentException('The item you passed to remove() was not a child of this component');
+            throw new \InvalidArgumentException('The item you passed to remove() was not a child of this component');
+        }
     }
 
     /**
@@ -251,7 +249,7 @@ class Component extends Node
         $result = [];
         foreach ($this->children as $childGroup) {
             foreach ($childGroup as $child) {
-                if ($child instanceof Property && strtoupper($child->group) === $group) {
+                if ($child instanceof Property && $child->group && strtoupper($child->group) === $group) {
                     $result[] = $child;
                 }
             }
@@ -341,6 +339,7 @@ class Component extends Node
      *
      * @return array
      */
+    #[\ReturnTypeWillChange]
     public function jsonSerialize()
     {
         $components = [];
@@ -433,7 +432,7 @@ class Component extends Node
      *
      * @param string $name
      *
-     * @return Property
+     * @return Property|null
      */
     public function __get($name)
     {
