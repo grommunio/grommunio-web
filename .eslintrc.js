@@ -220,7 +220,6 @@ module.exports = {
         "padded-blocks": "off",
         "padding-line-between-statements": "error",
         "prefer-arrow-callback": "off",
-        "prefer-const": "error",
         "prefer-numeric-literals": "error",
         "prefer-promise-reject-errors": "error",
         "prefer-spread": "off",
