@@ -50,12 +50,3 @@ Creating a new test:
 1. Create a new file in the unittest directory named "Array.js"
 2. Create a describe() function with the same new as the thing to test "Array"
 3. Create an it() function per separate test case. For example 'Array.find'
-
-## Coverage
-
-Coverage can be viewed by running the following command:
-
-```
-npm run jsunit -- --reporters coverage
-${BROWSER} test/js/coverage/report-html/index.html
-```
