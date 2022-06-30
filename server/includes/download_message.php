@@ -19,7 +19,7 @@ class DownloadMessage extends DownloadBase {
 	public function downloadMessageAsFile() {
 		if ($this->message && $this->store) {
 			// get message properties.
-			$messageProps = mapi_getprops($this->message, [PR_SUBJECT, PR_EC_IMAP_EMAIL, PR_MESSAGE_CLASS]);
+			$messageProps = mapi_getprops($this->message, [PR_SUBJECT, PR_MESSAGE_CLASS]);
 
 			$stream = $this->getEmlStream($messageProps);
 
@@ -62,7 +62,7 @@ class DownloadMessage extends DownloadBase {
 					$this->message = mapi_msgstore_openentry($this->store, hex2bin($this->entryIds[$index]));
 
 					// get message properties.
-					$messageProps = mapi_getprops($this->message, [PR_SUBJECT, PR_EC_IMAP_EMAIL, PR_MESSAGE_CLASS]);
+					$messageProps = mapi_getprops($this->message, [PR_SUBJECT, PR_MESSAGE_CLASS]);
 
 					$stream = $this->getEmlStream($messageProps);
 					$stat = mapi_stream_stat($stream);
@@ -119,30 +119,17 @@ class DownloadMessage extends DownloadBase {
 	/**
 	 * Function will obtain stream from the message, For email messages it will open email as
 	 * inet object and get the stream content as eml format, when user has IMAP enabled.
-	 * The below mentioned properties are configured with the whole message as a stream in it, while IMAP is enabled:
-	 * PR_EC_IMAP_EMAIL
-	 * PR_EC_IMAP_EMAIL_SIZE
-	 * PR_EC_IMAP_BODY
-	 * PR_EC_IMAP_BODYSTRUCTURE.
 	 *
 	 * @param array $messageProps properties of this particular message
 	 *
 	 * @return Stream $stream the eml stream obtained from message
 	 */
 	public function getEmlStream($messageProps) {
-		// If RFC822-formatted stream is already available in PR_EC_IMAP_EMAIL property
-		// than directly use it, generate otherwise.
-		if (isset($messageProps[PR_EC_IMAP_EMAIL]) || propIsError(PR_EC_IMAP_EMAIL, $messageProps) == MAPI_E_NOT_ENOUGH_MEMORY) {
-			// Stream the message to properly get the PR_EC_IMAP_EMAIL property
-			$stream = mapi_openproperty($this->message, PR_EC_IMAP_EMAIL, IID_IStream, 0, 0);
-		}
-		else {
-			// Get addressbook for current session
-			$addrBook = $GLOBALS['mapisession']->getAddressbook();
+		// Get addressbook for current session
+		$addrBook = $GLOBALS['mapisession']->getAddressbook();
 
-			// Read the message as RFC822-formatted e-mail stream.
-			$stream = mapi_inetmapi_imtoinet($GLOBALS['mapisession']->getSession(), $addrBook, $this->message, []);
-		}
+		// Read the message as RFC822-formatted e-mail stream.
+		$stream = mapi_inetmapi_imtoinet($GLOBALS['mapisession']->getSession(), $addrBook, $this->message, []);
 
 		return $stream;
 	}

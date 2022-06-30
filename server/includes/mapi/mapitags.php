@@ -24,8 +24,6 @@ define('PR_EC_RECIPIENT_HISTORY_JSON', mapi_prop_tag(PT_STRING8, 0x6773));
 /* The persistent settings are settings that will not be touched when the settings are reset */
 define('PR_EC_WEBAPP_PERSISTENT_SETTINGS_JSON', mapi_prop_tag(PT_STRING8, 0x6774));
 
-define('PR_EC_IMAP_EMAIL', mapi_prop_tag(PT_BINARY, 0x678C));  // the complete rfc822 email
-
 define('PR_EC_DISABLED_FEATURES', mapi_prop_tag(PT_MV_TSTRING, 0x67B4));
 
 define('PR_EC_ARCHIVE_SERVERS', mapi_prop_tag(PT_MV_TSTRING, 0x67C4));

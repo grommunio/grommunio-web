@@ -1046,7 +1046,7 @@ class FilesBrowserModule extends FilesListModule {
 
 		if ($message && $store) {
 			// get message properties.
-			$messageProps = mapi_getprops($message, [PR_SUBJECT, PR_EC_IMAP_EMAIL, PR_MESSAGE_CLASS]);
+			$messageProps = mapi_getprops($message, [PR_SUBJECT, PR_MESSAGE_CLASS]);
 
 			$isSupportedMessage = (
 				(stripos($messageProps[PR_MESSAGE_CLASS], 'IPM.Note') === 0) ||
@@ -1055,19 +1055,11 @@ class FilesBrowserModule extends FilesListModule {
 			);
 
 			if ($isSupportedMessage) {
-				// If RFC822-formatted stream is already available in PR_EC_IMAP_EMAIL property
-				// than directly use it, generate otherwise.
-				if (isset($messageProps[PR_EC_IMAP_EMAIL]) || propIsError(PR_EC_IMAP_EMAIL, $messageProps) == MAPI_E_NOT_ENOUGH_MEMORY) {
-					// Stream the message to properly get the PR_EC_IMAP_EMAIL property
-					$stream = mapi_openproperty($message, PR_EC_IMAP_EMAIL, IID_IStream, 0, 0);
-				}
-				else {
-					// Get addressbook for current session
-					$addrBook = $GLOBALS['mapisession']->getAddressbook();
+				// Get addressbook for current session
+				$addrBook = $GLOBALS['mapisession']->getAddressbook();
 
-					// Read the message as RFC822-formatted e-mail stream.
-					$stream = mapi_inetmapi_imtoinet($GLOBALS['mapisession']->getSession(), $addrBook, $message, []);
-				}
+				// Read the message as RFC822-formatted e-mail stream.
+				$stream = mapi_inetmapi_imtoinet($GLOBALS['mapisession']->getSession(), $addrBook, $message, []);
 
 				if (!empty($messageProps[PR_SUBJECT])) {
 					$filename = PathUtil::sanitizeFilename($messageProps[PR_SUBJECT]) . '.eml';
