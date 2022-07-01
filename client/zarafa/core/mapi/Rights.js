@@ -94,7 +94,7 @@ Zarafa.core.mapi.Rights = Zarafa.core.Enum.create({
  * @property
  * @type Number
  */
-Zarafa.core.mapi.Rights.RIGHTS_NO_RIGHTS		= Zarafa.core.mapi.Rights.RIGHTS_FOLDER_VISIBLE;
+Zarafa.core.mapi.Rights.RIGHTS_NO_RIGHTS		= Zarafa.core.mapi.Rights.RIGHTS_NONE;
 
 /**
  * Denotes that create rights are granted, this extends {@link #RIGHTS_NO_RIGHTS} with
@@ -111,7 +111,7 @@ Zarafa.core.mapi.Rights.RIGHTS_CONTRIBUTOR		= Zarafa.core.mapi.Rights.RIGHTS_FOL
  * @property
  * @type Number
  */
-Zarafa.core.mapi.Rights.RIGHTS_READONLY			= Zarafa.core.mapi.Rights.RIGHTS_NO_RIGHTS |
+Zarafa.core.mapi.Rights.RIGHTS_READONLY			= Zarafa.core.mapi.Rights.RIGHTS_FOLDER_VISIBLE |
 												Zarafa.core.mapi.Rights.RIGHTS_READ_ANY;
 
 /**
