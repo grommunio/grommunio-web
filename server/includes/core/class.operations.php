@@ -1747,7 +1747,7 @@
 				if (isset($messageprops[PR_REPLY_RECIPIENT_ENTRIES])) {
 					$props['reply-to']['item'] = $this->readReplyRecipientEntry($messageprops[PR_REPLY_RECIPIENT_ENTRIES]);
 				}
-				else {
+				if (!isset($messageprops[PR_REPLY_RECIPIENT_ENTRIES]) || count($props['reply-to']['item']) === 0) {
 					if (isset($props['props']['sent_representing_email_address']) && !empty($props['props']['sent_representing_email_address'])) {
 						$props['reply-to']['item'][] = [
 							'rowid' => 0,
