@@ -1,4 +1,9 @@
 <?php
+/*
+ * SPDX-License-Identifier: AGPL-3.0-only
+ * SPDX-FileCopyrightText: Copyright 2005-2016 Zarafa Deutschland GmbH
+ * SPDX-FileCopyrightText: Copyright 2020-2022 grommunio GmbH
+ */
 
 	/**
 	 * Recurrence.
@@ -440,15 +445,6 @@
 			return $this->toGMT($this->tz, $daystart + $this->recur["endocc"] * 60);
 		}
 
-		// Backwards compatible code
-		public function getOccurenceStart($basedate) {
-			return $this->getOccurrenceStart($basedate);
-		}
-
-		public function getOccurenceEnd($basedate) {
-			return $this->getOccurrenceEnd($basedate);
-		}
-
 		/**
 		 * This function returns the next remindertime starting from $timestamp
 		 * When no next reminder exists, false is returned.
@@ -537,38 +533,38 @@
 				// Daily
 				case 0x0A:
 					if ($everyn == 1) {
-						$type = dgettext("zarafa", "workday");
+						$type = dgettext('zarafa', 'workday');
 						$occSingleDayRank = true;
 					}
 					elseif ($everyn == (24 * 60)) {
-						$type = dgettext("zarafa", "day");
+						$type = dgettext('zarafa', 'day');
 						$occSingleDayRank = true;
 					}
 					else {
 						$everyn /= (24 * 60);
-						$type = dgettext("zarafa", "days");
+						$type = dgettext('zarafa', 'days');
 						$occSingleDayRank = false;
 					}
 					break;
 				// Weekly
 				case 0x0B:
 					if ($everyn == 1) {
-						$type = dgettext("zarafa", "week");
+						$type = dgettext('zarafa', 'week');
 						$occSingleDayRank = true;
 					}
 					else {
-						$type = dgettext("zarafa", "weeks");
+						$type = dgettext('zarafa', 'weeks');
 						$occSingleDayRank = false;
 					}
 					break;
 				// Monthly
 				case 0x0C:
 					if ($everyn == 1) {
-						$type = dgettext("zarafa", "month");
+						$type = dgettext('zarafa', 'month');
 						$occSingleDayRank = true;
 					}
 					else {
-						$type = dgettext("zarafa", "months");
+						$type = dgettext('zarafa', 'months');
 						$occSingleDayRank = false;
 					}
 					break;
@@ -576,12 +572,12 @@
 				case 0x0D:
 					if ($everyn <= 12) {
 						$everyn = 1;
-						$type = dgettext("zarafa", "year");
+						$type = dgettext('zarafa', 'year');
 						$occSingleDayRank = true;
 					}
 					else {
 						$everyn = $everyn / 12;
-						$type = dgettext("zarafa", "years");
+						$type = dgettext('zarafa', 'years');
 						$occSingleDayRank = false;
 					}
 					break;
@@ -591,10 +587,10 @@
 			$firstoccstartdate = isset($startocc) ? $start + (((int) $startocc) * 60) : $start;
 			$firstoccenddate = isset($endocc) ? $end + (((int) $endocc) * 60) : $end;
 
-			$start = gmdate(dgettext("zarafa", "d-m-Y"), $firstoccstartdate);
-			$end = gmdate(dgettext("zarafa", "d-m-Y"), $firstoccenddate);
-			$startocc = gmdate(dgettext("zarafa", "G:i"), $firstoccstartdate);
-			$endocc = gmdate(dgettext("zarafa", "G:i"), $firstoccenddate);
+			$start = gmdate(dgettext('zarafa', 'd-m-Y'), $firstoccstartdate);
+			$end = gmdate(dgettext('zarafa', 'd-m-Y'), $firstoccenddate);
+			$startocc = gmdate(dgettext('zarafa', 'G:i'), $firstoccstartdate);
+			$endocc = gmdate(dgettext('zarafa', 'G:i'), $firstoccenddate);
 
 			// Based on the properties, we need to generate the recurrence pattern string.
 			// This is obviously very easy since we can simply concatenate a bunch of strings,
@@ -607,18 +603,18 @@
 				// Never ends
 				if ($occTimeRange) {
 					if ($occSingleDayRank) {
-						$pattern = sprintf(dgettext("zarafa", "Occurs every %s effective %s from %s to %s."), $type, $start, $startocc, $endocc);
+						$pattern = sprintf(dgettext('zarafa', 'Occurs every %s effective %s from %s to %s.'), $type, $start, $startocc, $endocc);
 					}
 					else {
-						$pattern = sprintf(dgettext("zarafa", "Occurs every %s %s effective %s from %s to %s."), $everyn, $type, $start, $startocc, $endocc);
+						$pattern = sprintf(dgettext('zarafa', 'Occurs every %s %s effective %s from %s to %s.'), $everyn, $type, $start, $startocc, $endocc);
 					}
 				}
 				else {
 					if ($occSingleDayRank) {
-						$pattern = sprintf(dgettext("zarafa", "Occurs every %s effective %s."), $type, $start);
+						$pattern = sprintf(dgettext('zarafa', 'Occurs every %s effective %s.'), $type, $start);
 					}
 					else {
-						$pattern = sprintf(dgettext("zarafa", "Occurs every %s %s effective %s."), $everyn, $type, $start);
+						$pattern = sprintf(dgettext('zarafa', 'Occurs every %s %s effective %s.'), $everyn, $type, $start);
 					}
 				}
 			}
@@ -627,17 +623,17 @@
 				if ($occTimeRange) {
 					if ($occSingleDayRank) {
 						$pattern = sprintf(dngettext(
-							"zarafa",
-							"Occurs every %s effective %s for %s occurrence from %s to %s.",
-							"Occurs every %s effective %s for %s occurrences from %s to %s.",
+							'zarafa',
+							'Occurs every %s effective %s for %s occurrence from %s to %s.',
+							'Occurs every %s effective %s for %s occurrences from %s to %s.',
 							$numocc
 						), $type, $start, $numocc, $startocc, $endocc);
 					}
 					else {
 						$pattern = sprintf(dngettext(
-							"zarafa",
-							"Occurs every %s %s effective %s for %s occurrence from %s to %s.",
-							"Occurs every %s %s effective %s for %s occurrences %s to %s.",
+							'zarafa',
+							'Occurs every %s %s effective %s for %s occurrence from %s to %s.',
+							'Occurs every %s %s effective %s for %s occurrences %s to %s.',
 							$numocc
 						), $everyn, $type, $start, $numocc, $startocc, $endocc);
 					}
@@ -645,17 +641,17 @@
 				else {
 					if ($occSingleDayRank) {
 						$pattern = sprintf(dngettext(
-							"zarafa",
-							"Occurs every %s effective %s for %s occurrence.",
-							"Occurs every %s effective %s for %s occurrences.",
+							'zarafa',
+							'Occurs every %s effective %s for %s occurrence.',
+							'Occurs every %s effective %s for %s occurrences.',
 							$numocc
 						), $type, $start, $numocc);
 					}
 					else {
 						$pattern = sprintf(dngettext(
-							"zarafa",
-							"Occurs every %s %s effective %s for %s occurrence.",
-							"Occurs every %s %s effective %s for %s occurrences.",
+							'zarafa',
+							'Occurs every %s %s effective %s for %s occurrence.',
+							'Occurs every %s %s effective %s for %s occurrences.',
 							$numocc
 						), $everyn, $type, $start, $numocc);
 					}
@@ -665,18 +661,18 @@
 				// After the given enddate
 				if ($occTimeRange) {
 					if ($occSingleDayRank) {
-						$pattern = sprintf(dgettext("zarafa", "Occurs every %s effective %s until %s from %s to %s."), $type, $start, $end, $startocc, $endocc);
+						$pattern = sprintf(dgettext('zarafa', 'Occurs every %s effective %s until %s from %s to %s.'), $type, $start, $end, $startocc, $endocc);
 					}
 					else {
-						$pattern = sprintf(dgettext("zarafa", "Occurs every %s %s effective %s until %s from %s to %s."), $everyn, $type, $start, $end, $startocc, $endocc);
+						$pattern = sprintf(dgettext('zarafa', 'Occurs every %s %s effective %s until %s from %s to %s.'), $everyn, $type, $start, $end, $startocc, $endocc);
 					}
 				}
 				else {
 					if ($occSingleDayRank) {
-						$pattern = sprintf(dgettext("zarafa", "Occurs every %s effective %s until %s."), $type, $start, $end);
+						$pattern = sprintf(dgettext('zarafa', 'Occurs every %s effective %s until %s.'), $type, $start, $end);
 					}
 					else {
-						$pattern = sprintf(dgettext("zarafa", "Occurs every %s %s effective %s until %s."), $everyn, $type, $start, $end);
+						$pattern = sprintf(dgettext('zarafa', 'Occurs every %s %s effective %s until %s.'), $everyn, $type, $start, $end);
 					}
 				}
 			}
@@ -785,7 +781,8 @@
 		public function deleteExceptionAttachment($base_date) {
 			$attachments = mapi_message_getattachmenttable($this->message);
 			// Retrieve only exceptions which are stored as embedded messages
-			$attach_res = [RES_PROPERTY,
+			$attach_res = [
+				RES_PROPERTY,
 				[
 					RELOP => RELOP_EQ,
 					ULPROPTAG => PR_ATTACH_METHOD,
@@ -827,11 +824,13 @@
 		 */
 		public function getExceptionAttachment($base_date) {
 			// Retrieve only exceptions which are stored as embedded messages
-			$attach_res = [RES_PROPERTY, [
-				RELOP => RELOP_EQ,
-				ULPROPTAG => PR_ATTACH_METHOD,
-				VALUE => [PR_ATTACH_METHOD => ATTACH_EMBEDDED_MSG],
-			],
+			$attach_res = [
+				RES_PROPERTY,
+				[
+					RELOP => RELOP_EQ,
+					ULPROPTAG => PR_ATTACH_METHOD,
+					VALUE => [PR_ATTACH_METHOD => ATTACH_EMBEDDED_MSG],
+				],
 			];
 			$attachments = mapi_message_getattachmenttable($this->message);
 			$attachRows = mapi_table_queryallrows($attachments, [PR_ATTACH_NUM], $attach_res);
@@ -934,7 +933,7 @@
 				}
 
 				array_push($items, $this->getExceptionProperties($exception));
-				if ($limit && (count($items) == $limit)) {
+				if (count($items) == $limit) {
 					break;
 				}
 			}
@@ -1176,7 +1175,7 @@
 				foreach ($recipientRows as $key => $recipient) {
 					$found = false;
 					foreach ($exception_recips as $excep_recip) {
-						if ($recipient[PR_SEARCH_KEY] == $excep_recip[PR_SEARCH_KEY]) {
+						if (isset($recipient[PR_SEARCH_KEY], $excep_recip[PR_SEARCH_KEY]) && $recipient[PR_SEARCH_KEY] == $excep_recip[PR_SEARCH_KEY]) {
 							$found = true;
 						}
 					}

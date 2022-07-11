@@ -95,7 +95,7 @@
 		public function getDelegateProps($localFreeBusyMessage = false) {
 			if (empty($this->delegateProps)) {
 				if ($localFreeBusyMessage === false) {
-					$localFreeBusyMessage = freebusy::getLocalFreeBusyMessage();
+					$localFreeBusyMessage = FreeBusy::getLocalFreeBusyMessage($this->getDefaultStore());
 				}
 
 				$this->delegateProps = mapi_getprops($localFreeBusyMessage, [PR_DELEGATE_FLAGS, PR_SCHDINFO_DELEGATE_ENTRYIDS, PR_SCHDINFO_DELEGATE_NAMES]);
@@ -381,7 +381,7 @@
 		 * @param mixed $delegates
 		 */
 		public function setDelegateProps($delegates) {
-			$localFreeBusyMessage = freebusy::getLocalFreeBusyMessage();
+			$localFreeBusyMessage = FreeBusy::getLocalFreeBusyMessage($this->getDefaultStore());
 			$delegateProps = $this->getDelegateProps($localFreeBusyMessage);
 			$len = count($delegates);
 			for ($i = 0; $i < $len; ++$i) {
@@ -453,9 +453,9 @@
 					mapi_savechanges($folder);
 
 					if ($folderName === 'calendar') {
-						$freeBusyFolder = freebusy::getLocalFreeBusyFolder($store);
+						$freeBusyFolder = FreeBusy::getLocalFreeBusyFolder($store);
 
-						if (isset($freeBusyFolder)) {
+						if ($freeBusyFolder !== false) {
 							// set permissions on free/busy message
 							$acls[0]['rights'] |= ecRightsDefaultPublic;
 
@@ -475,7 +475,7 @@
 		 */
 		public function setDelegateMeetingRule($delegates) {
 			$delegateMeetingRule = $this->getDelegateMeetingRule();
-			if (isset($delegateMeetingRule)) {
+			if ($delegateMeetingRule !== false) {
 				$users = $delegateMeetingRule[PR_RULE_ACTIONS][0]['adrlist'];
 			}
 			else {
@@ -647,7 +647,7 @@
 		 * @param {Array} $delegate delegate information sent from client
 		 */
 		public function deleteDelegateProps($delegate) {
-			$localFreeBusyMessage = freebusy::getLocalFreeBusyMessage();
+			$localFreeBusyMessage = FreeBusy::getLocalFreeBusyMessage($this->getDefaultStore());
 			$delegateProps = $this->getDelegateProps($localFreeBusyMessage);
 			$delegateIndex = -1;
 			$len = count($delegateProps[PR_SCHDINFO_DELEGATE_ENTRYIDS]);
@@ -707,9 +707,9 @@
 				mapi_zarafa_setpermissionrules($folder, $acls);
 
 				if ($folderName === 'calendar') {
-					$freeBusyFolder = freebusy::getLocalFreeBusyFolder($store);
+					$freeBusyFolder = FreeBusy::getLocalFreeBusyFolder($store);
 
-					if (isset($freeBusyFolder)) {
+					if ($freeBusyFolder !== false) {
 						mapi_zarafa_setpermissionrules($freeBusyFolder, $acls);
 						mapi_savechanges($freeBusyFolder);
 					}

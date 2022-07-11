@@ -73,7 +73,7 @@
 
 	require_once BASE_PATH . 'server/includes/core/class.todolist.php';
 
-	require_once BASE_PATH . 'server/includes/core/class.freebusy.php';
+	require_once BASE_PATH . 'server/includes/mapi/class.freebusy.php';
 
 	require_once BASE_PATH . 'server/includes/core/class.theming.php';
 	require_once BASE_PATH . 'server/includes/core/class.iconsets.php';

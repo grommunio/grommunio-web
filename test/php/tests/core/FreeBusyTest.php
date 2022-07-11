@@ -32,7 +32,7 @@ class FreeBusyTest extends grommunioTest {
 	 * Test getting freebusy message.
 	 */
 	public function testGetLocalFreeBusyMessage() {
-		$result = freebusy::getLocalFreeBusyMessage($this->store);
+		$result = FreeBusy::getLocalFreeBusyMessage($this->store);
 		$this->assertNotFalse($result, "Test that it return message.");
 
 		$props = mapi_getprops($result, [PR_MESSAGE_CLASS]);
@@ -43,7 +43,7 @@ class FreeBusyTest extends grommunioTest {
 	 * Test getting freebusy folder.
 	 */
 	public function testGetLocalFreeBusyFolder() {
-		$result = freebusy::getLocalFreeBusyFolder($this->store);
+		$result = FreeBusy::getLocalFreeBusyFolder($this->store);
 		$this->assertNotFalse($result, "Test that it return freebusy folder");
 
 		$props = mapi_getprops($result, [PR_OBJECT_TYPE]);

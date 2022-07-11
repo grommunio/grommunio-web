@@ -1,10 +1,17 @@
 <?php
+/*
+ * SPDX-License-Identifier: AGPL-3.0-only
+ * SPDX-FileCopyrightText: Copyright 2005-2016 Zarafa Deutschland GmbH
+ * SPDX-FileCopyrightText: Copyright 2020-2022 grommunio GmbH
+ */
 
 	class TaskRecurrence extends BaseRecurrence {
 		/**
 		 * Timezone info which is always false for task.
 		 */
 		public $tz = false;
+
+		private $action;
 
 		public function __construct($store, $message) {
 			$this->store = $store;
@@ -287,13 +294,13 @@
 			mapi_savechanges($newMessage);
 
 			// Update body of original message
-			$msgbody = mapi_message_openproperty($this->message, PR_BODY);
+			$msgbody = mapi_openproperty($this->message, PR_BODY);
 			$msgbody = trim($msgbody, "\0");
 			$separator = "------------\r\n";
 
 			if (!empty($msgbody) && strrpos($msgbody, $separator) === false) {
 				$msgbody = $separator . $msgbody;
-				$stream = mapi_openproperty($this->message, PR_BODY, IID_IStream, 0, 0);
+				$stream = mapi_openproperty($this->message, PR_BODY, IID_IStream, STGM_TRANSACTED, 0);
 				mapi_stream_setsize($stream, strlen($msgbody));
 				mapi_stream_write($stream, $msgbody);
 				mapi_stream_commit($stream);
