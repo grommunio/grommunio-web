@@ -26,7 +26,9 @@ class FreeBusy {
 	 */
 	public static function getLocalFreeBusyMessage($store = false) {
 		if (!$store) {
-			$store = $GLOBALS['mapisession']->getDefaultMessageStore();
+			error_log("getLocalFreeBusyMessage: store not available");
+
+			return false;
 		}
 
 		// Check for mapi_freebusy_openmsg function,
@@ -51,10 +53,13 @@ class FreeBusy {
 				$table = mapi_folder_getcontentstable($freeBusyFolder);
 				mapi_table_restrict(
 					$table,
-					[RES_CONTENT, [
-						FUZZYLEVEL => FL_PREFIX,
-						ULPROPTAG => PR_MESSAGE_CLASS,
-						VALUE => [PR_MESSAGE_CLASS => "IPM.Microsoft.ScheduleData.FreeBusy"], ],
+					[
+						RES_CONTENT,
+						[
+							FUZZYLEVEL => FL_PREFIX,
+							ULPROPTAG => PR_MESSAGE_CLASS,
+							VALUE => [PR_MESSAGE_CLASS => "IPM.Microsoft.ScheduleData.FreeBusy"],
+						],
 					]
 				);
 
@@ -86,7 +91,9 @@ class FreeBusy {
 	 */
 	public static function getLocalFreeBusyFolder($store = false) {
 		if (!$store) {
-			$store = $GLOBALS['mapisession']->getDefaultMessageStore();
+			error_log("getLocalFreeBusyFolder: store not available");
+
+			return false;
 		}
 		// Get 'LocalFreeBusy' message from FreeBusy Store
 		$root = mapi_msgstore_openentry($store, null);

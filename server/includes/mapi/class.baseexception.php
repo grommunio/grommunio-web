@@ -1,4 +1,10 @@
 <?php
+/*
+ * SPDX-License-Identifier: AGPL-3.0-only
+ * SPDX-FileCopyrightText: Copyright 2005-2016 Zarafa Deutschland GmbH
+ * SPDX-FileCopyrightText: Copyright 2020-2022 grommunio GmbH
+ */
+
 /**
  * Defines a base exception class for all custom exceptions, so every exceptions that
  * is thrown/caught by this application should extend this base class and make use of it.

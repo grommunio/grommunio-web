@@ -1,4 +1,10 @@
 <?php
+/*
+ * SPDX-License-Identifier: AGPL-3.0-only
+ * SPDX-FileCopyrightText: Copyright 2005-2016 Zarafa Deutschland GmbH
+ * SPDX-FileCopyrightText: Copyright 2020-2022 grommunio GmbH
+ */
+
 /**
  * Function to make a MAPIGUID from a php string.
  * The C++ definition for the GUID is:
@@ -34,7 +40,7 @@ function get_mapi_error_name($errcode = null) {
 
 	if ($errcode !== 0) {
 		// Retrieve constants categories, MAPI error names are defined
-		// in the 'user' category, since the grommunio Web code defines it in mapicode.php.
+		// in the 'user' category, since the grommunio code defines it in mapicode.php.
 		foreach (get_defined_constants(true)['user'] as $key => $value) {
 			/*
 			 * If PHP encounters a number beyond the bounds of the integer type,
@@ -199,7 +205,8 @@ function DTE_LOCAL($value) {
  */
 function getCalendarItems($store, $calendar, $viewstart, $viewend, $propsrequested) {
 	$result = [];
-	$properties = getPropIdsFromStrings($store, ["duedate" => "PT_SYSTIME:PSETID_Appointment:0x820e",
+	$properties = getPropIdsFromStrings($store, [
+		"duedate" => "PT_SYSTIME:PSETID_Appointment:0x820e",
 		"startdate" => "PT_SYSTIME:PSETID_Appointment:0x820d",
 		"enddate_recurring" => "PT_SYSTIME:PSETID_Appointment:0x8236",
 		"recurring" => "PT_BOOLEAN:PSETID_Appointment:0x8223",
@@ -215,18 +222,23 @@ function getCalendarItems($store, $calendar, $viewstart, $viewend, $propsrequest
 
 	$restriction =
 		// OR
-		[RES_OR,
+		[
+			RES_OR,
 			[
 				[RES_AND,	// Normal items: itemEnd must be after viewStart, itemStart must be before viewEnd
 					[
-						[RES_PROPERTY,
-							[RELOP => RELOP_GT,
+						[
+							RES_PROPERTY,
+							[
+								RELOP => RELOP_GT,
 								ULPROPTAG => $properties["duedate"],
 								VALUE => $viewstart,
 							],
 						],
-						[RES_PROPERTY,
-							[RELOP => RELOP_LT,
+						[
+							RES_PROPERTY,
+							[
+								RELOP => RELOP_LT,
 								ULPROPTAG => $properties["startdate"],
 								VALUE => $viewend,
 							],
@@ -234,13 +246,15 @@ function getCalendarItems($store, $calendar, $viewstart, $viewend, $propsrequest
 					],
 				],
 				// OR
-				[RES_PROPERTY,
-					[RELOP => RELOP_EQ,
+				[
+					RES_PROPERTY,
+					[
+						RELOP => RELOP_EQ,
 						ULPROPTAG => $properties["recurring"],
 						VALUE => true,
 					],
 				],
-			], // EXISTS OR
+			],	// EXISTS OR
 		];		// global OR
 
 	// Get requested properties, plus whatever we need
@@ -278,3 +292,59 @@ function getCalendarItems($store, $calendar, $viewstart, $viewend, $propsrequest
 	// properties that the caller did not request (recurring, etc). This shouldn't be a problem though.
 	return $result;
 }
+
+	/**
+	 * Compares two entryIds. It is possible to have two different entryIds that should match as they
+	 * represent the same object (in multiserver environments).
+	 *
+	 * @param {String} entryId1 EntryID
+	 * @param {String} entryId2 EntryID
+	 * @param mixed $entryId1
+	 * @param mixed $entryId2
+	 *
+	 * @return {Boolean} Result of the comparison
+	 */
+	function compareEntryIds($entryId1, $entryId2) {
+		if (!is_string($entryId1) || !is_string($entryId2)) {
+			return false;
+		}
+
+		if ($entryId1 === $entryId2) {
+			// if normal comparison succeeds then we can directly say that entryids are same
+			return true;
+		}
+
+		return false;
+	}
+
+	/**
+	 * Creates a goid from an ical uuid.
+	 *
+	 * @param $uid
+	 *
+	 * @return string binary string representation of goid
+	 */
+	function getGoidFromUid($uid) {
+		return hex2bin("040000008200E00074C5B7101A82E0080000000000000000000000000000000000000000" .
+					bin2hex(pack("V", 12 + strlen($uid)) . "vCal-Uid" . pack("V", 1) . $uid));
+	}
+
+	/**
+	 * Creates an ical uuid from a goid.
+	 *
+	 * @param $goid
+	 *
+	 * @return string ical uuid
+	 */
+	function getUidFromGoid($goid) {
+		// check if "vCal-Uid" is somewhere in outlookid case-insensitive
+		$uid = stristr($goid, "vCal-Uid");
+		if ($uid !== false) {
+			// get the length of the ical id - go back 4 position from where "vCal-Uid" was found
+			$begin = unpack("V", substr($goid, strlen($uid) * (-1) - 4, 4));
+			// remove "vCal-Uid" and packed "1" and use the ical id length
+			return substr($uid, 12, ($begin[1] - 12));
+		}
+
+		return null;
+	}

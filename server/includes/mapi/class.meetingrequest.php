@@ -1,4 +1,9 @@
 <?php
+/*
+ * SPDX-License-Identifier: AGPL-3.0-only
+ * SPDX-FileCopyrightText: Copyright 2005-2016 Zarafa Deutschland GmbH
+ * SPDX-FileCopyrightText: Copyright 2020-2022 grommunio GmbH
+ */
 
 class Meetingrequest {
 	/*
@@ -95,6 +100,16 @@ class Meetingrequest {
 	 */
 	public $errorSetResource;
 
+	public $proptags;
+	private $store;
+	public $message;
+	private $session;
+	private $meetingTimeInfo;
+	private $enableDirectBooking;
+	private $includesResources;
+	private $nonAcceptingResources;
+	private $recipientDisplayname;
+
 	/**
 	 * Constructor.
 	 *
@@ -125,15 +140,20 @@ class Meetingrequest {
 		$properties['goid2'] = 'PT_BINARY:PSETID_Meeting:0x23';
 		$properties['type'] = 'PT_STRING8:PSETID_Meeting:0x24';
 		$properties['meetingrecurring'] = 'PT_BOOLEAN:PSETID_Meeting:0x5';
+		$properties['unknown2'] = 'PT_BOOLEAN:PSETID_Meeting:0xa';
 		$properties['attendee_critical_change'] = 'PT_SYSTIME:PSETID_Meeting:0x1';
 		$properties['owner_critical_change'] = 'PT_SYSTIME:PSETID_Meeting:0x1a';
 		$properties['meetingstatus'] = 'PT_LONG:PSETID_Appointment:0x8217';
 		$properties['responsestatus'] = 'PT_LONG:PSETID_Appointment:0x8218';
+		$properties['unknown6'] = 'PT_LONG:PSETID_Meeting:0x4';
 		$properties['replytime'] = 'PT_SYSTIME:PSETID_Appointment:0x8220';
+		$properties['usetnef'] = 'PT_BOOLEAN:PSETID_Common:0x8582';
 		$properties['recurrence_data'] = 'PT_BINARY:PSETID_Appointment:0x8216';
 		$properties['reminderminutes'] = 'PT_LONG:PSETID_Common:0x8501';
 		$properties['reminderset'] = 'PT_BOOLEAN:PSETID_Common:0x8503';
+		$properties['sendasical'] = 'PT_BOOLEAN:PSETID_Appointment:0x8200';
 		$properties['updatecounter'] = 'PT_LONG:PSETID_Appointment:0x8201';					// AppointmentSequenceNumber
+		$properties['unknown7'] = 'PT_LONG:PSETID_Appointment:0x8202';
 		$properties['last_updatecounter'] = 'PT_LONG:PSETID_Appointment:0x8203';			// AppointmentLastSequence
 		$properties['busystatus'] = 'PT_LONG:PSETID_Appointment:0x8205';
 		$properties['intendedbusystatus'] = 'PT_LONG:PSETID_Appointment:0x8224';
@@ -143,7 +163,7 @@ class Meetingrequest {
 		$properties['requestsent'] = 'PT_BOOLEAN:PSETID_Appointment:0x8229';		// PidLidFInvited, MeetingRequestWasSent
 		$properties['startdate'] = 'PT_SYSTIME:PSETID_Appointment:0x820d';
 		$properties['duedate'] = 'PT_SYSTIME:PSETID_Appointment:0x820e';
-		$properties["flagdueby"] = "PT_SYSTIME:PSETID_Common:0x8560";
+		$properties['flagdueby'] = 'PT_SYSTIME:PSETID_Common:0x8560';
 		$properties['commonstart'] = 'PT_SYSTIME:PSETID_Common:0x8516';
 		$properties['commonend'] = 'PT_SYSTIME:PSETID_Common:0x8517';
 		$properties['recurring'] = 'PT_BOOLEAN:PSETID_Appointment:0x8223';
@@ -165,9 +185,11 @@ class Meetingrequest {
 		$properties['meetingtype'] = 'PT_LONG:PSETID_Meeting:0x26';
 		$properties['timezone_data'] = 'PT_BINARY:PSETID_Appointment:0x8233';
 		$properties['timezone'] = 'PT_STRING8:PSETID_Appointment:0x8234';
-		$properties["categories"] = "PT_MV_STRING8:PS_PUBLIC_STRINGS:Keywords";
-		$properties["private"] = "PT_BOOLEAN:PSETID_Common:0x8506";
-		$properties["alldayevent"] = "PT_BOOLEAN:PSETID_Appointment:0x8215";
+		$properties['categories'] = 'PT_MV_STRING8:PS_PUBLIC_STRINGS:Keywords';
+		$properties['private'] = 'PT_BOOLEAN:PSETID_Common:0x8506';
+		$properties['alldayevent'] = 'PT_BOOLEAN:PSETID_Appointment:0x8215';
+		$properties['toattendeesstring'] = 'PT_STRING8:PSETID_Appointment:0x823B';
+		$properties['ccattendeesstring'] = 'PT_STRING8:PSETID_Appointment:0x823C';
 
 		$this->proptags = getPropIdsFromStrings($store, $properties);
 	}
@@ -600,7 +622,7 @@ class Meetingrequest {
 	 * your calendar.
 	 *
 	 * @param bool   $tentative            true if user as tentative accepted the meeting
-	 * @param bool   $sendresponse         true if a response has to be send to organizer
+	 * @param bool   $sendresponse         true if a response has to be sent to organizer
 	 * @param bool   $move                 true if the meeting request should be moved to the deleted items after processing
 	 * @param string $newProposedStartTime contains starttime if user has proposed other time
 	 * @param string $newProposedEndTime   contains endtime if user has proposed other time
@@ -688,7 +710,7 @@ class Meetingrequest {
 		// While sender is receiver then we have to process the meeting request as per the intended busy status
 		// instead of tentative, and accept the same as per the intended busystatus.
 		$senderEntryId = isset($messageprops[PR_SENT_REPRESENTING_ENTRYID]) ? $messageprops[PR_SENT_REPRESENTING_ENTRYID] : $messageprops[PR_SENDER_ENTRYID];
-		if (isset($messageprops[PR_RECEIVED_BY_ENTRYID]) && $GLOBALS["entryid"]->compareEntryIds($senderEntryId, $messageprops[PR_RECEIVED_BY_ENTRYID])) {
+		if (isset($messageprops[PR_RECEIVED_BY_ENTRYID]) && compareEntryIds($senderEntryId, $messageprops[PR_RECEIVED_BY_ENTRYID])) {
 			$entryid = $this->accept(false, $sendresponse, $move, $proposeNewTimeProps, $body, true, $store, $calFolder, $basedate);
 		}
 		else {
@@ -1065,7 +1087,8 @@ class Meetingrequest {
 						if ($isDelegate) {
 							$delegate = mapi_getprops($this->message, [PR_RECEIVED_BY_EMAIL_ADDRESS]);
 							$res = [
-								RES_PROPERTY, [
+								RES_PROPERTY,
+								[
 									RELOP => RELOP_NE,
 									ULPROPTAG => PR_EMAIL_ADDRESS,
 									VALUE => [PR_EMAIL_ADDRESS => $delegate[PR_RECEIVED_BY_EMAIL_ADDRESS]],
@@ -1431,9 +1454,9 @@ class Meetingrequest {
 		// https://msdn.microsoft.com/en-us/library/ee160198(v=exchg.80).aspx
 		$goid = pack('H*', '040000008200E00074C5B7101A82E00800000000');
 		/*
-		$year = gmdate("Y");
-		$month = gmdate("n");
-		$day = gmdate("j");
+		$year = gmdate('Y');
+		$month = gmdate('n');
+		$day = gmdate('j');
 		$goid .= pack('n', $year);
 		$goid .= pack('C', $month);
 		$goid .= pack('C', $day);
@@ -1496,8 +1519,8 @@ class Meetingrequest {
 		// Set ResponseStatus to olResponseNotResponded
 
 		/*
-		 * While sending recurrence meeting exceptions are not send as attachments
-		 * because first all exceptions are send and then recurrence meeting is sent.
+		 * While sending recurrence meeting exceptions are not sent as attachments
+		 * because first all exceptions are sent and then recurrence meeting is sent.
 		 */
 		if (isset($messageprops[$this->proptags['recurring']]) && $messageprops[$this->proptags['recurring']] && !$basedate) {
 			// Book resource
@@ -1525,7 +1548,7 @@ class Meetingrequest {
 			}
 		}
 		else {
-			// Basedate found, an exception is to be send
+			// Basedate found, an exception is to be sent
 			if ($basedate) {
 				$recurr = new Recurrence($this->openDefaultStore(), $this->message);
 
@@ -1571,56 +1594,6 @@ class Meetingrequest {
 		}
 
 		return true;
-	}
-
-	/**
-	 * This function will get freebusy data for user based on the timeframe passed in arguments.
-	 *
-	 * @param {HexString} $entryID Entryid of the user for which we need to get freebusy data
-	 * @param {Number} $start start offset for freebusy publish range
-	 * @param {Number} $end end offset for freebusy publish range
-	 *
-	 * @return {Array} freebusy blocks for passed publish range
-	 */
-	public function getFreeBusyInfo($entryID, $start, $end) {
-		$result = [];
-
-		$retval = mapi_getuseravailability($GLOBALS['mapisession']->getSession(), $entryID, $start, $end);
-		if (empty($retval)) {
-			return $result;
-		}
-		$freebusy = json_decode($retval, true);
-		if (strcasecmp($freebusy['permission'], 'none') == 0) {
-			return $result;
-		}
-		$last_end = $start;
-		foreach ($freebusy['events'] as $event) {
-			$blockItem = [];
-			$blockItem['start'] = $event['StartTime'];
-			$blockItem['end'] = $event['EndTime'];
-			if ($event['BusyType'] == 'Free') {
-				$blockItem['status'] = 0;
-			}
-			elseif ($event['BusyType'] == 'Tentative') {
-				$blockItem['status'] = 1;
-			}
-			elseif ($event['BusyType'] == 'Busy') {
-				$blockItem['status'] = 2;
-			}
-			elseif ($event['BusyType'] == 'OOF') {
-				$blockItem['status'] = 3;
-			}
-			elseif ($event['BusyType'] == 'WorkingElsewhere') {
-				$blockItem['status'] = 4;
-			}
-			else {
-				$blockItem['status'] = -1;
-			}
-			$last_end = $event['EndTime'];
-			$result[] = $blockItem;
-		}
-
-		return $result;
 	}
 
 	/**
@@ -1972,7 +1945,8 @@ class Meetingrequest {
 	 * @param mixed $calFolder
 	 */
 	public function createResponse($status, $proposeNewTimeProps = [], $body = false, $store, $basedate = false, $calFolder) {
-		$messageprops = mapi_getprops($this->message, [PR_SENT_REPRESENTING_ENTRYID,
+		$messageprops = mapi_getprops($this->message, [
+			PR_SENT_REPRESENTING_ENTRYID,
 			PR_SENT_REPRESENTING_EMAIL_ADDRESS,
 			PR_SENT_REPRESENTING_ADDRTYPE,
 			PR_SENT_REPRESENTING_NAME,
@@ -2156,15 +2130,14 @@ class Meetingrequest {
 		}
 
 		// Find the item by restricting all items to the correct ID
-		$restrict = [RES_AND, [
-			[RES_PROPERTY,
-				[
-					RELOP => RELOP_EQ,
-					ULPROPTAG => ($useCleanGlobalId === true ? $this->proptags['goid2'] : $this->proptags['goid']),
-					VALUE => $goid,
-				],
+		$restrict = [
+			RES_PROPERTY,
+			[
+				RELOP => RELOP_EQ,
+				ULPROPTAG => ($useCleanGlobalId === true ? $this->proptags['goid2'] : $this->proptags['goid']),
+				VALUE => $goid,
 			],
-		]];
+		];
 
 		$calendarcontents = mapi_folder_getcontentstable($calendar);
 
@@ -2372,7 +2345,7 @@ class Meetingrequest {
 	}
 
 	/**
-	 * Function which sets basedate in globalID of changed occurrence which is to be send.
+	 * Function which sets basedate in globalID of changed occurrence which is to be sent.
 	 *
 	 *@param binary $goid globalID
 	 *@param string basedate of changed occurrence
@@ -2382,9 +2355,9 @@ class Meetingrequest {
 	 */
 	public function setBasedateInGlobalID($goid, $basedate = false) {
 		$hexguid = bin2hex($goid);
-		$year = $basedate ? sprintf('%04s', dechex(date('Y', $basedate))) : '0000';
-		$month = $basedate ? sprintf('%02s', dechex(date('m', $basedate))) : '00';
-		$day = $basedate ? sprintf('%02s', dechex(date('d', $basedate))) : '00';
+		$year = $basedate ? sprintf('%04s', dechex(gmdate('Y', $basedate))) : '0000';
+		$month = $basedate ? sprintf('%02s', dechex(gmdate('m', $basedate))) : '00';
+		$day = $basedate ? sprintf('%02s', dechex(gmdate('d', $basedate))) : '00';
 
 		return hex2bin(strtoupper(substr($hexguid, 0, 32) . $year . $month . $day . substr($hexguid, 40)));
 	}
@@ -2446,11 +2419,13 @@ class Meetingrequest {
 		// If delegate, then do not add the delegate in recipients
 		if ($isDelegate) {
 			$delegate = mapi_getprops($copyFrom, [PR_RECEIVED_BY_EMAIL_ADDRESS]);
-			$res = [RES_PROPERTY, [
-				RELOP => RELOP_NE,
-				ULPROPTAG => PR_EMAIL_ADDRESS,
-				VALUE => [PR_EMAIL_ADDRESS => $delegate[PR_RECEIVED_BY_EMAIL_ADDRESS]],
-			],
+			$res = [
+				RES_PROPERTY,
+				[
+					RELOP => RELOP_NE,
+					ULPROPTAG => PR_EMAIL_ADDRESS,
+					VALUE => [PR_EMAIL_ADDRESS => $delegate[PR_RECEIVED_BY_EMAIL_ADDRESS]],
+				],
 			];
 			$recipients = mapi_table_queryallrows($recipientTable, $this->recipprops, $res);
 		}
@@ -2509,13 +2484,13 @@ class Meetingrequest {
 		}
 
 		// Get resource recipients
-		$getResourcesRestriction = [RES_AND,
-			[[RES_PROPERTY,
-				[RELOP => RELOP_EQ,	// Equals recipient type 3: Resource
-					ULPROPTAG => PR_RECIPIENT_TYPE,
-					VALUE => [PR_RECIPIENT_TYPE => MAPI_BCC],
-				],
-			]],
+		$getResourcesRestriction = [
+			RES_PROPERTY,
+			[
+				RELOP => RELOP_EQ,	// Equals recipient type 3: Resource
+				ULPROPTAG => PR_RECIPIENT_TYPE,
+				VALUE => [PR_RECIPIENT_TYPE => MAPI_BCC],
+			],
 		];
 		$recipienttable = mapi_message_getrecipienttable($message);
 		$resourceRecipients = mapi_table_queryallrows($recipienttable, $this->recipprops, $getResourcesRestriction);
@@ -2557,7 +2532,7 @@ class Meetingrequest {
 				 * Get the LocalFreebusy message that contains the properties that
 				 * are set to accept or decline resource meeting requests.
 				 */
-				$localFreebusyMsg = freebusy::getLocalFreeBusyMessage($userStore);
+				$localFreebusyMsg = FreeBusy::getLocalFreeBusyMessage($userStore);
 				if ($localFreebusyMsg) {
 					$props = mapi_getprops($localFreebusyMsg, [PR_SCHDINFO_AUTO_ACCEPT_APPTS, PR_SCHDINFO_DISALLOW_RECURRING_APPTS, PR_SCHDINFO_DISALLOW_OVERLAPPING_APPTS]);
 
@@ -2785,13 +2760,13 @@ class Meetingrequest {
 		 * Set the BCC-recipients (resources) tackstatus to accepted.
 		 */
 		// Get resource recipients
-		$getResourcesRestriction = [RES_AND,
-			[[RES_PROPERTY,
-				[RELOP => RELOP_EQ,	// Equals recipient type 3: Resource
-					ULPROPTAG => PR_RECIPIENT_TYPE,
-					VALUE => [PR_RECIPIENT_TYPE => MAPI_BCC],
-				],
-			]],
+		$getResourcesRestriction = [
+			RES_PROPERTY,
+			[
+				RELOP => RELOP_EQ,	// Equals recipient type 3: Resource
+				ULPROPTAG => PR_RECIPIENT_TYPE,
+				VALUE => [PR_RECIPIENT_TYPE => MAPI_BCC],
+			],
 		];
 		$recipienttable = mapi_message_getrecipienttable($message);
 		$resourceRecipients = mapi_table_queryallrows($recipienttable, $this->recipprops, $getResourcesRestriction);
@@ -2830,11 +2805,13 @@ class Meetingrequest {
 		// If delegate, then do not add the delegate in recipients
 		if ($isDelegate) {
 			$delegate = mapi_getprops($this->message, [PR_RECEIVED_BY_EMAIL_ADDRESS]);
-			$res = [RES_PROPERTY, [
-				RELOP => RELOP_NE,
-				ULPROPTAG => PR_EMAIL_ADDRESS,
-				VALUE => [PR_EMAIL_ADDRESS => $delegate[PR_RECEIVED_BY_EMAIL_ADDRESS]],
-			],
+			$res = [
+				RES_PROPERTY,
+				[
+					RELOP => RELOP_NE,
+					ULPROPTAG => PR_EMAIL_ADDRESS,
+					VALUE => [PR_EMAIL_ADDRESS => $delegate[PR_RECEIVED_BY_EMAIL_ADDRESS]],
+				],
 			];
 			$recips = mapi_table_queryallrows($reciptable, $this->recipprops, $res);
 		}
@@ -2932,12 +2909,12 @@ class Meetingrequest {
 	/**
 	 * Function which submits meeting request based on arguments passed to it.
 	 *
-	 * @param resource $message        MAPI_message whose meeting request is to be send
+	 * @param resource $message        MAPI_message whose meeting request is to be sent
 	 * @param bool     $cancel         if true send request, else send cancellation
 	 * @param string   $prefix         subject prefix
 	 * @param int      $basedate       basedate for an occurrence
 	 * @param object   $recurObject    recurrence object of mr
-	 * @param bool     $copyExceptions When sending update mail for recurring item then we dont send exceptions in attachments
+	 * @param bool     $copyExceptions When sending update mail for recurring item then we don't send exceptions in attachments
 	 * @param mixed    $modifiedRecips
 	 * @param mixed    $deletedRecips
 	 */
@@ -2977,16 +2954,19 @@ class Meetingrequest {
 			$newmessageprops[PR_OWNER_APPT_ID] = $messageprops[PR_OWNER_APPT_ID];
 
 			// Get deleted recipiets from exception msg
-			$restriction = [RES_AND,
+			$restriction = [
+				RES_AND,
 				[
-					[RES_BITMASK,
+					[
+						RES_BITMASK,
 						[
 							ULTYPE => BMR_NEZ,
 							ULPROPTAG => PR_RECIPIENT_FLAGS,
 							ULMASK => recipExceptionalDeleted,
 						],
 					],
-					[RES_BITMASK,
+					[
+						RES_BITMASK,
 						[
 							ULTYPE => BMR_EQZ,
 							ULPROPTAG => PR_RECIPIENT_FLAGS,
@@ -2998,8 +2978,10 @@ class Meetingrequest {
 
 			// In direct-booking mode, we don't need to send cancellations to resources
 			if ($this->enableDirectBooking) {
-				$restriction[1][] = [RES_PROPERTY,
-					[RELOP => RELOP_NE,	// Does not equal recipient type: MAPI_BCC (Resource)
+				$restriction[1][] = [
+					RES_PROPERTY,
+					[
+						RELOP => RELOP_NE,	// Does not equal recipient type: MAPI_BCC (Resource)
 						ULPROPTAG => PR_RECIPIENT_TYPE,
 						VALUE => [PR_RECIPIENT_TYPE => MAPI_BCC],
 					],
@@ -3075,16 +3057,21 @@ class Meetingrequest {
 		$this->replaceAttachments($message, $new, $copyExceptions);
 
 		// Retrieve only those recipient who should receive this meeting request.
-		$stripResourcesRestriction = [RES_AND,
+		$stripResourcesRestriction = [
+			RES_AND,
 			[
-				[RES_BITMASK,
-					[ULTYPE => BMR_EQZ,
+				[
+					RES_BITMASK,
+					[
+						ULTYPE => BMR_EQZ,
 						ULPROPTAG => PR_RECIPIENT_FLAGS,
 						ULMASK => recipExceptionalDeleted,
 					],
 				],
-				[RES_BITMASK,
-					[ULTYPE => BMR_EQZ,
+				[
+					RES_BITMASK,
+					[
+						ULTYPE => BMR_EQZ,
 						ULPROPTAG => PR_RECIPIENT_FLAGS,
 						ULMASK => recipOrganizer,
 					],
@@ -3094,13 +3081,14 @@ class Meetingrequest {
 
 		// In direct-booking mode, resources do not receive a meeting request
 		if ($this->enableDirectBooking) {
-			$stripResourcesRestriction[1][] =
-									[RES_PROPERTY,
-										[RELOP => RELOP_NE,	// Does not equal recipient type: MAPI_BCC (Resource)
-											ULPROPTAG => PR_RECIPIENT_TYPE,
-											VALUE => [PR_RECIPIENT_TYPE => MAPI_BCC],
-										],
-									];
+			$stripResourcesRestriction[1][] = [
+				RES_PROPERTY,
+				[
+					RELOP => RELOP_NE,	// Does not equal recipient type: MAPI_BCC (Resource)
+					ULPROPTAG => PR_RECIPIENT_TYPE,
+					VALUE => [PR_RECIPIENT_TYPE => MAPI_BCC],
+				],
+			];
 		}
 
 		// If no recipients were explicitly provided, we will send the update to all
@@ -3165,7 +3153,7 @@ class Meetingrequest {
 		}
 
 		// Search through the deleted recipients, and see if any of them is also
-		// listed as a recipient to whom we have send an update. As we don't
+		// listed as a recipient to whom we have sent an update. As we don't
 		// want to send a cancellation message to recipients who will also receive
 		// an meeting update, we have to filter those recipients out.
 		if ($deletedRecips) {
@@ -3249,8 +3237,8 @@ class Meetingrequest {
 	 * Ref: MS-OXCICAL 2.2.1.20.20 Property: RECURRENCE-ID.
 	 *
 	 * @param object $recurObject     instance of recurrence class for this message
-	 * @param array  $messageprops    properties of meeting object that is going to be send
-	 * @param array  $newmessageprops properties of meeting request/response that is going to be send
+	 * @param array  $messageprops    properties of meeting object that is going to be sent
+	 * @param array  $newmessageprops properties of meeting request/response that is going to be sent
 	 */
 	public function generateRecurDates($recurObject, $messageprops, &$newmessageprops) {
 		if ($messageprops[$this->proptags['startdate']] && $messageprops[$this->proptags['duedate']]) {
@@ -3624,7 +3612,7 @@ class Meetingrequest {
 		$props = mapi_getprops($this->message, [PR_RCVD_REPRESENTING_ENTRYID, $this->proptags['recurring']]);
 
 		// check if the passed item is recurring series
-		if ($props[$this->proptags['recurring']] !== false) {
+		if (isset($props[$this->proptags['recurring']]) && $props[$this->proptags['recurring']] !== false) {
 			return false;
 		}
 

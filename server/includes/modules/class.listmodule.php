@@ -849,7 +849,7 @@
 				}
 
 				// get localfreebusy message
-				$this->localFreeBusyMessage = freebusy::getLocalFreeBusyMessage($store);
+				$this->localFreeBusyMessage = FreeBusy::getLocalFreeBusyMessage($store);
 			}
 			catch (MAPIException $e) {
 				// we got some error, but we don't care about that error instead just continue

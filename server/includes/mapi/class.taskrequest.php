@@ -1,4 +1,9 @@
 <?php
+/*
+ * SPDX-License-Identifier: AGPL-3.0-only
+ * SPDX-FileCopyrightText: Copyright 2005-2016 Zarafa Deutschland GmbH
+ * SPDX-FileCopyrightText: Copyright 2020-2022 grommunio GmbH
+ */
 
 	/*
 	* In general
@@ -73,6 +78,12 @@
 	define('ICON_TASK_ASSIGNER', 0x00000503);
 
 	class TaskRequest {
+		private $props;
+		private $store;
+		private $message;
+		private $session;
+		private $taskCommentsInfo;
+
 		// All recipient properties
 		public $recipProps = [
 			PR_ENTRYID,
@@ -222,9 +233,13 @@
 			$goid = $props[$this->props['task_goid']];
 
 			// Find the task by looking for the task_goid
-			$restriction = [RES_PROPERTY, [RELOP => RELOP_EQ,
-				ULPROPTAG => $this->props['task_goid'],
-				VALUE => $goid, ],
+			$restriction = [
+				RES_PROPERTY,
+				[
+					RELOP => RELOP_EQ,
+					ULPROPTAG => $this->props['task_goid'],
+					VALUE => $goid,
+				],
 			];
 
 			$contents = mapi_folder_getcontentstable($taskFolder);
@@ -239,7 +254,7 @@
 
 				$task = mapi_folder_createmessage($taskFolder);
 
-				$sub = $this->getEmbeddedTask($this->message);
+				$sub = $this->getEmbeddedTask();
 				mapi_copyto($sub, [], [$this->props['categories']], $task);
 
 				$senderProps = [
@@ -288,9 +303,13 @@
 				$goid = $props[$this->props['task_goid']];
 
 				// Find the task by looking for the task_goid
-				$restriction = [RES_PROPERTY, [RELOP => RELOP_EQ,
-					ULPROPTAG => $this->props['task_goid'],
-					VALUE => $goid, ],
+				$restriction = [
+					RES_PROPERTY,
+					[
+						RELOP => RELOP_EQ,
+						ULPROPTAG => $this->props['task_goid'],
+						VALUE => $goid,
+					],
 				];
 
 				$table = mapi_folder_getcontentstable($folder, MAPI_DEFERRED_ERRORS | SHOW_SOFT_DELETES);
@@ -333,7 +352,7 @@
 			mapi_savechanges($this->message);
 
 			// Get the embedded task information.
-			$sub = $this->getEmbeddedTask($this->message);
+			$sub = $this->getEmbeddedTask();
 			// OL saves the task related properties in the embedded message
 			$subProps = mapi_getprops($sub, [$this->props["taskupdates"]]);
 
@@ -375,10 +394,12 @@
 					break;
 			}
 
-			$props = [$this->props['taskhistory'] => $taskHistory,
+			$props = [
+				$this->props['taskhistory'] => $taskHistory,
 				$this->props['taskstate'] => $taskState,
 				$this->props['task_acceptance_state'] => $taskAcceptanceState,
-				$this->props['ownership'] => $taskOwner, ];
+				$this->props['ownership'] => $taskOwner,
+			];
 
 			// Get the task for this response
 			$task = $this->getAssociatedTask($isCreateAssociatedTask);
@@ -466,9 +487,13 @@
 			}
 
 			// Find the task by looking for the task_goid
-			$restriction = [RES_PROPERTY, [RELOP => RELOP_EQ,
-				ULPROPTAG => $this->props['task_goid'],
-				VALUE => $props[$this->props['task_goid']], ],
+			$restriction = [
+				RES_PROPERTY,
+				[
+					RELOP => RELOP_EQ,
+					ULPROPTAG => $this->props['task_goid'],
+					VALUE => $props[$this->props['task_goid']],
+				],
 			];
 
 			$contentsTable = mapi_folder_getcontentstable($sentFolder);
@@ -746,6 +771,8 @@
 			elseif ($props[$this->props['complete']]) {
 				$this->sendResponse(tdmtTaskUpd, _("Task Completed:") . " ");
 			}
+
+			return true;
 		}
 
 		/**
@@ -927,7 +954,7 @@
 			// edit response before sending task response.
 			if ($this->taskCommentsInfo) {
 				$comments = $this->getTaskCommentsInfo();
-				$stream = mapi_openproperty($outgoing, PR_BODY, IID_IStream, 0, MAPI_CREATE | MAPI_MODIFY);
+				$stream = mapi_openproperty($outgoing, PR_BODY, IID_IStream, STGM_TRANSACTED, MAPI_CREATE | MAPI_MODIFY);
 				mapi_stream_setsize($stream, strlen($comments));
 				mapi_stream_write($stream, $comments);
 				mapi_stream_commit($stream);
@@ -970,11 +997,9 @@
 		 * Function used to get the embedded task of task request. Which further used to
 		 * Create/Update associated task of assigner/assignee.
 		 *
-		 * @param object $message which contains embedded task
-		 *
 		 * @return false|object $task if found embedded task else false
 		 */
-		public function getEmbeddedTask($message) {
+		public function getEmbeddedTask() {
 			$task = false;
 			$goid = mapi_getprops($this->message, [$this->props["task_goid"]]);
 			$attachmentTable = mapi_message_getattachmenttable($this->message);
@@ -1028,10 +1053,18 @@
 
 			if ($this->isTaskRequest()) {
 				$task = $this->getAssociatedTask(false);
-				mapi_setprops($task, [$this->props["tasklastuser"] => $username, $this->props["tasklastdelegate"] => $delegate, $this->props['task_assigned_time'] => time()]);
+				mapi_setprops($task, [
+					$this->props["tasklastuser"] => $username,
+					$this->props["tasklastdelegate"] => $delegate,
+					$this->props['task_assigned_time'] => time(),
+				]);
 				mapi_savechanges($task);
 			}
-			mapi_setprops($this->message, [$this->props["tasklastuser"] => $username, $this->props["tasklastdelegate"] => $delegate, $this->props['task_assigned_time'] => time()]);
+			mapi_setprops($this->message, [
+				$this->props["tasklastuser"] => $username,
+				$this->props["tasklastdelegate"] => $delegate,
+				$this->props['task_assigned_time'] => time(),
+			]);
 		}
 
 		/**
@@ -1066,18 +1099,31 @@
 			$recipTable = mapi_message_getrecipienttable($task);
 
 			// Delete all MAPI_TO recipients
-			$recips = mapi_table_queryallrows($recipTable, [PR_ROWID], [RES_PROPERTY,
-				[RELOP => RELOP_EQ,
+			$recips = mapi_table_queryallrows($recipTable, [PR_ROWID], [
+				RES_PROPERTY,
+				[
+					RELOP => RELOP_EQ,
 					ULPROPTAG => PR_RECIPIENT_TYPE,
 					VALUE => MAPI_TO,
-				], ]);
+				],
+			]);
 			foreach ($recips as $recip) {
 				mapi_message_modifyrecipients($task, MODRECIP_REMOVE, [$recip]);
 			}
 
 			$recips = [];
-			$taskReqProps = mapi_getprops($this->message, [PR_SENT_REPRESENTING_NAME, PR_SENT_REPRESENTING_EMAIL_ADDRESS, PR_SENT_REPRESENTING_ENTRYID, PR_SENT_REPRESENTING_ADDRTYPE, PR_SENT_REPRESENTING_SEARCH_KEY]);
-			$associatedTaskProps = mapi_getprops($task, [$this->props['taskupdates'], $this->props['tasksoc'], $this->props['taskmultrecips']]);
+			$taskReqProps = mapi_getprops($this->message, [
+				PR_SENT_REPRESENTING_NAME,
+				PR_SENT_REPRESENTING_EMAIL_ADDRESS,
+				PR_SENT_REPRESENTING_ENTRYID,
+				PR_SENT_REPRESENTING_ADDRTYPE,
+				PR_SENT_REPRESENTING_SEARCH_KEY
+			]);
+			$associatedTaskProps = mapi_getprops($task, [
+				$this->props['taskupdates'],
+				$this->props['tasksoc'],
+				$this->props['taskmultrecips']
+			]);
 
 			// Build assignor info
 			$assignor = [
@@ -1126,10 +1172,13 @@
 			$goid = $props[$this->props['task_goid']];
 
 			// Find the task by looking for the task_goid
-			$restriction = [RES_PROPERTY,
-				[RELOP => RELOP_EQ,
+			$restriction = [
+				RES_PROPERTY,
+				[
+					RELOP => RELOP_EQ,
 					ULPROPTAG => $this->props['task_goid'],
-					VALUE => $goid, ],
+					VALUE => $goid,
+				],
 			];
 
 			$contents = mapi_folder_getcontentstable($inbox);
@@ -1153,7 +1202,7 @@
 		 *
 		 * If it is a task update, then only recipient type MAPI_CC are taken from the task message.
 		 *
-		 * If it is accept/decline response, then PR_SENT_REPRESENTATION_XXXX are taken as recipient.
+		 * If it is accept/decline response, then PR_SENT_REPRESENTATING_XXXX are taken as recipient.
 		 *
 		 *@param $outgoing MAPI_message outgoing mapi message
 		 *@param $responseType String response type
@@ -1168,8 +1217,10 @@
 				$isComplete = $props[$this->props['complete']];
 
 				$recipTable = mapi_message_getrecipienttable($this->message);
-				$recips = mapi_table_queryallrows($recipTable, $this->recipProps, [RES_PROPERTY,
-					[RELOP => RELOP_EQ,
+				$recips = mapi_table_queryallrows($recipTable, $this->recipProps, [
+					RES_PROPERTY,
+					[
+						RELOP => RELOP_EQ,
 						ULPROPTAG => PR_RECIPIENT_TYPE,
 						VALUE => ($isComplete ? MAPI_BCC : MAPI_CC),
 					],
@@ -1188,7 +1239,14 @@
 				return true;
 			}
 
-			$orgprops = mapi_getprops($this->message, [PR_SENT_REPRESENTING_NAME, PR_SENT_REPRESENTING_EMAIL_ADDRESS, PR_SENT_REPRESENTING_ADDRTYPE, PR_SENT_REPRESENTING_ENTRYID, PR_SUBJECT]);
+			$orgprops = mapi_getprops($this->message, [
+				PR_SENT_REPRESENTING_NAME,
+				PR_SENT_REPRESENTING_EMAIL_ADDRESS,
+				PR_SENT_REPRESENTING_ADDRTYPE,
+				PR_SENT_REPRESENTING_ENTRYID,
+				PR_SUBJECT
+			]);
+
 			$recip = [
 				PR_DISPLAY_NAME => $orgprops[PR_SENT_REPRESENTING_NAME],
 				PR_EMAIL_ADDRESS => $orgprops[PR_SENT_REPRESENTING_EMAIL_ADDRESS],
@@ -1228,12 +1286,14 @@
 				return false; // Can only decline assignee task
 			}
 
-			mapi_setprops($this->message, [$this->props['complete'] => true,
+			mapi_setprops($this->message, [
+				$this->props['complete'] => true,
 				$this->props['datecompleted'] => time(),
 				$this->props['status'] => 2,
-				$this->props['percent_complete'] => 1, ]);
+				$this->props['percent_complete'] => 1,
+			]);
 
-			$this->doUpdate();
+			return $this->doUpdate();
 		}
 
 		/**

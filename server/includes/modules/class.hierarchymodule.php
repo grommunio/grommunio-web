@@ -730,7 +730,7 @@
 			if ($root) {
 				$rootProps = mapi_getprops($root, [PR_IPM_APPOINTMENT_ENTRYID]);
 				if ($folderProps[PR_ENTRYID] == $rootProps[PR_IPM_APPOINTMENT_ENTRYID]) {
-					$freebusy = freebusy::getLocalFreeBusyFolder($store);
+					$freebusy = FreeBusy::getLocalFreeBusyFolder($store);
 				}
 			}
 
@@ -797,7 +797,7 @@
 				mapi_zarafa_setpermissionrules($folder, $curAcls);
 
 				// $freebusy is only set when the calendar folder permissions is updated
-				if (isset($freebusy)) {
+				if (isset($freebusy) && $freebusy !== false) {
 					// set permissions on free/busy message
 					foreach ($curAcls as $key => &$acl) {
 						if ($acl['type'] == ACCESS_TYPE_GRANT && ($acl['rights'] & ecRightsEditOwned)) {
