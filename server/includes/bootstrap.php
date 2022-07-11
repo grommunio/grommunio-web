@@ -34,7 +34,6 @@
 
 	// Include the files
 	require_once BASE_PATH . 'server/includes/mapi/mapi.util.php';
-	require_once BASE_PATH . 'server/includes/mapi/mapicode.php';
 	require_once BASE_PATH . 'server/includes/mapi/mapidefs.php';
 	require_once BASE_PATH . 'server/includes/mapi/mapitags.php';
 	require_once BASE_PATH . 'server/includes/mapi/mapiguid.php';

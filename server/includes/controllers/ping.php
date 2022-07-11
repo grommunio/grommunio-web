@@ -7,7 +7,7 @@
 
 	// Include the files that this script need
 	require_once BASE_PATH . 'server/includes/core/class.webappauthentication.php';
-	require_once BASE_PATH . 'server/includes/mapi/mapicode.php';
+	require_once BASE_PATH . 'server/includes/mapi/mapi.util.php';
 
 	$pingTag = [
 		'info' => [

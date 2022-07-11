@@ -1,6 +1,6 @@
 <?php
 
-require_once BASE_PATH . 'server/includes/mapi/mapicode.php';
+require_once BASE_PATH . 'server/includes/mapi/mapi.util.php';
 
 require_once BASE_PATH . 'server/includes/core/class.encryptionstore.php';
 require_once BASE_PATH . 'server/includes/core/class.webappsession.php';

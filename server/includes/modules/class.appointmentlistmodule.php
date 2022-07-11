@@ -239,8 +239,8 @@
 		public function getCalendarItems($store, $entryid, $start, $end) {
 			// Create mapping for restriction used properties which should not be send to the client.
 			$properties = [
-				"clipstart" => "PT_SYSTIME:PSETID_Appointment:0x8235",
-				"clipend" => "PT_SYSTIME:PSETID_Appointment:0x8236",
+				"clipstart" => "PT_SYSTIME:PSETID_Appointment:".PidLidClipStart,
+				"clipend" => "PT_SYSTIME:PSETID_Appointment:".PidLidClipEnd,
 			];
 			$properties = getPropIdsFromStrings($store, $properties);
 

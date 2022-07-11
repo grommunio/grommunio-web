@@ -7,7 +7,6 @@ require "defaults.php";
 
 // Include the files
 require "server/includes/mapi/mapi.util.php";
-require "server/includes/mapi/mapicode.php";
 require "server/includes/mapi/mapidefs.php";
 require "server/includes/mapi/mapitags.php";
 require "server/includes/mapi/mapiguid.php";
