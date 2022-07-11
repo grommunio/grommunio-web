@@ -188,7 +188,7 @@ class TodoList {
 		$properties = [
 			'taskstate' => "PT_LONG:PSETID_Task:0x8113",
 			'taskaccepted' => "PT_BOOLEAN:PSETID_Task:0x8108",
-			'taskstatus' => "PT_LONG:PSETID_Task:0x8101",
+			'taskstatus' => "PT_LONG:PSETID_Task:".PidLidTaskStatus,
 		];
 		$propertyIds = getPropIdsFromStrings($userStore, $properties);
 

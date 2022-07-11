@@ -21,10 +21,11 @@
 			$this->properties = array_merge($this->properties, [
 				'body' => PR_BODY,
 				'html_body' => PR_HTML,
-				'startdate' => "PT_SYSTIME:PSETID_Appointment:0x820d",
-				'duedate' => "PT_SYSTIME:PSETID_Appointment:0x820e",
+				'startdate' => "PT_SYSTIME:PSETID_Appointment:".PidLidAppointmentStartWhole,
+				'duedate' => "PT_SYSTIME:PSETID_Appointment:".PidLidAppointmentEndWhole,
 				'creation_time' => PR_CREATION_TIME,
-				"task_duedate" => "PT_SYSTIME:PSETID_Task:0x8105", ]);
+				"task_duedate" => "PT_SYSTIME:PSETID_Task:".PidLidTaskDueDate,
+			]);
 			$this->properties = getPropIdsFromStrings($GLOBALS["mapisession"]->getDefaultMessageStore(), $this->properties);
 		}
 
