@@ -46,39 +46,24 @@ Zarafa.common.rules.ui.RulesPanel = Ext.extend(Ext.Container, {
 	createComboboxStore: function()
 	{
 		var hierarchyStore = container.getHierarchyStore();
-		var data = [{name: _('myself'), value: hierarchyStore.getDefaultStore().get('store_entryid') }];
-		var sharedStores = container.getSettingsModel().get('zarafa/v1/contexts/hierarchy/shared_stores', true);
+		var myStoreEntryId = hierarchyStore.getDefaultStore().get('store_entryid');
+		var data = [{name: _('myself'), value: myStoreEntryId }];
+		var processedStores = [];
 
-		for (var user in sharedStores) {
-			// Skip not fully opened stores
-			if (!sharedStores[user].hasOwnProperty("all")) {
-				continue;
+		hierarchyStore.getStores().forEach(function(store) {
+			var subtree = store.getSubtreeFolder();
+			var hasSufficientPermission = (subtree.get('rights') & Zarafa.core.mapi.Rights.RIGHTS_OWNER) === Zarafa.core.mapi.Rights.RIGHTS_OWNER;
+			var storeEntryId = store.get('store_entryid');
+			if (storeEntryId != myStoreEntryId && hasSufficientPermission && store.get('mailbox_owner_name')) {
+				data = data.concat({ name: store.get('mailbox_owner_name'), value: storeEntryId });
+				processedStores.push(Zarafa.core.Util.bin2hex(store.get('user_name')));
 			}
+		});
 
-			hierarchyStore.getStores().forEach(function(store) {
-				if (store.get('user_name') === user) {
-					// Saving rules only works with owner permissions on the full store.
-					// Note: Rules are stored on the default received folder (inbox). The grommunio Web backend will
-					// not check the rights and allows saving rules when the user has folder rights on the
-					// inbox (because that's what Gromox needs).
-					var subtree = store.getSubtreeFolder();
-					var inbox = store.getDefaultFolder('inbox');
-					if (
-						(subtree.get('rights') & Zarafa.core.mapi.Rights.RIGHTS_OWNER) === Zarafa.core.mapi.Rights.RIGHTS_OWNER &&
-						(inbox && inbox.get('rights') & Zarafa.core.mapi.Rights.RIGHTS_FOLDER_ACCESS)
-					) {
-						data = data.concat({name: store.get('mailbox_owner_name'), value: store.get('store_entryid') });
-					}
-				}
-			});
-
-		}
-
-		return {
-			xtype: 'jsonstore',
+		return new Ext.data.JsonStore({
 			fields: ['name', 'value'],
 			data: data
-		};
+		});
 	},
 
 	/**
@@ -91,34 +76,36 @@ Zarafa.common.rules.ui.RulesPanel = Ext.extend(Ext.Container, {
 	{
 		var items = [];
 		// Only create the combolist when the setting is enabled in config.php
-		if (container.getServerConfig().isSharedRulesEnabled()) {
+		if(container.getServerConfig().isSharedRulesEnabled()) {
 			var comboStore = this.createComboboxStore();
-			items.push({
-				xtype: 'container',
-				cls: 'k-store-picker',
-				border: false,
-				layout: 'form',
-				hidden: !Ext.isDefined(comboStore.data[1]),
-				labelWidth: '-', // Anything but a number to make sure Ext does not set a width
-				items: {
-					xtype: 'combo',
-					mode: 'local',
-					store: comboStore,
-					fieldLabel: _('Update rules for'),
-					triggerAction: 'all',
-					displayField: 'name',
-					valueField: 'value',
-					lazyInit: false,
-					forceSelection: true,
-					value: comboStore.data[0].value,
-					editable: false,
-					listeners: {
-						beforeselect: this.onBeforeUserSelect,
-						select: this.onUserSelect,
-						scope: this
+			if (comboStore.getCount() > 1) {
+	
+				items.push({
+					xtype: 'container',
+					cls: 'k-store-picker',
+					border: false,
+					layout: 'form',
+					labelWidth: '-', // Anything but a number to make sure Ext does not set a width
+					items: {
+						xtype: 'combo',
+						mode: 'local',
+						store: comboStore,
+						fieldLabel: _('Update rules for'),
+						triggerAction: 'all',
+						displayField: 'name',
+						valueField: 'value',
+						lazyInit: false,
+						forceSelection: true,
+						value: comboStore.getAt(0).get('value'),
+						editable: false,
+						listeners: {
+							beforeselect: this.onBeforeUserSelect,
+							select: this.onUserSelect,
+							scope: this
+						}
 					}
-				}
-			});
+				});
+			}
 		}
 
 		items.push({
@@ -153,15 +140,15 @@ Zarafa.common.rules.ui.RulesPanel = Ext.extend(Ext.Container, {
 	 * @return {Mixed} False if there are pending changes. The selecting will then be
 	 * handled by {#applyChanges}. Undefined otherwise.
 	 */
-	onBeforeUserSelect: function(field, record, index)
+	onBeforeUserSelect: function(field, nextRecord, index)
 	{
 		var context = container.getContextByName('settings');
 		var model = context.getModel();
-		if (model.dirty) {
+		if (model.hasChanges()) {
 			Ext.MessageBox.show({
 				title: _('Apply changes'),
 				msg: _('Do you wish to apply the changes?'),
-				fn: this.applyChanges.createDelegate(this, [ model, field, record ], 1),
+				fn: this.applyChanges.createDelegate(this, [ model, field, nextRecord ], 1),
 				buttons: Ext.MessageBox.YESNOCANCEL
 			});
 
