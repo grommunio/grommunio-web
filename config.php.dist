@@ -24,6 +24,9 @@
 	// Set to 'false' to disable secure session cookies and to allow log-in without HTTPS.
 	define("SECURE_COOKIES", TRUE);
 
+	// Enable shared rules
+	define("ENABLE_SHARED_RULES", TRUE);
+
 	// The timeout (in seconds) for the session. User will be logged out of grommunio Web
 	// when he has not actively used grommunio Web for this time.
 	// Set to 0 (or remove) for no timeout during browser session.
