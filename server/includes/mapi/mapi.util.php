@@ -213,12 +213,12 @@ function DTE_LOCAL($value) {
 function getCalendarItems($store, $calendar, $viewstart, $viewend, $propsrequested) {
 	$result = [];
 	$properties = getPropIdsFromStrings($store, [
-		"duedate" => "PT_SYSTIME:PSETID_Appointment:".PidLidAppointmentEndWhole,
-		"startdate" => "PT_SYSTIME:PSETID_Appointment:".PidLidAppointmentStartWhole,
-		"enddate_recurring" => "PT_SYSTIME:PSETID_Appointment:".PidLidClipEnd,
-		"recurring" => "PT_BOOLEAN:PSETID_Appointment:".PidLidRecurring,
-		"recurring_data" => "PT_BINARY:PSETID_Appointment:".PidLidAppointmentRecur,
-		"timezone_data" => "PT_BINARY:PSETID_Appointment:".PidLidTimeZoneStruct,
+		"duedate" => "PT_SYSTIME:PSETID_Appointment:" . PidLidAppointmentEndWhole,
+		"startdate" => "PT_SYSTIME:PSETID_Appointment:" . PidLidAppointmentStartWhole,
+		"enddate_recurring" => "PT_SYSTIME:PSETID_Appointment:" . PidLidClipEnd,
+		"recurring" => "PT_BOOLEAN:PSETID_Appointment:" . PidLidRecurring,
+		"recurring_data" => "PT_BINARY:PSETID_Appointment:" . PidLidAppointmentRecur,
+		"timezone_data" => "PT_BINARY:PSETID_Appointment:" . PidLidTimeZoneStruct,
 		"label" => "PT_LONG:PSETID_Appointment:0x8214",
 	]);
 

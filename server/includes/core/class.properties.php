@@ -238,45 +238,45 @@
 				$properties["meetingrecurring"] = "PT_BOOLEAN:PSETID_Meeting:0x5";
 				$properties["attendee_critical_change"] = "PT_SYSTIME:PSETID_Meeting:0x1";
 				$properties["owner_critical_change"] = "PT_SYSTIME:PSETID_Meeting:0x1a";
-				$properties["meetingstatus"] = "PT_LONG:PSETID_Appointment:".PidLidAppointmentStateFlags;
+				$properties["meetingstatus"] = "PT_LONG:PSETID_Appointment:" . PidLidAppointmentStateFlags;
 				$properties["responsestatus"] = "PT_LONG:PSETID_Appointment:0x8218";
 				$properties["reply_time"] = "PT_SYSTIME:PSETID_Appointment:0x8220";
 				$properties["reply_name"] = "PT_STRING8:PSETID_Appointment:0x8230";
-				$properties["recurrence_data"] = "PT_BINARY:PSETID_Appointment:".PidLidAppointmentRecur;
-				$properties["reminderminutes"] = "PT_LONG:PSETID_Common:".PidLidReminderDelta;
-				$properties["reminderset"] = "PT_BOOLEAN:PSETID_Common:".PidLidReminderSet;
-				$properties["flag_request"] = "PT_STRING8:PSETID_Common:".PidLidFlagRequest;
-				$properties["flag_due_by"] = "PT_SYSTIME:PSETID_Common:".PidLidReminderSignalTime;
-				$properties["updatecounter"] = "PT_LONG:PSETID_Appointment:".PidLidAppointmentSequence;                                     // AppointmentSequenceNumber
+				$properties["recurrence_data"] = "PT_BINARY:PSETID_Appointment:" . PidLidAppointmentRecur;
+				$properties["reminderminutes"] = "PT_LONG:PSETID_Common:" . PidLidReminderDelta;
+				$properties["reminderset"] = "PT_BOOLEAN:PSETID_Common:" . PidLidReminderSet;
+				$properties["flag_request"] = "PT_STRING8:PSETID_Common:" . PidLidFlagRequest;
+				$properties["flag_due_by"] = "PT_SYSTIME:PSETID_Common:" . PidLidReminderSignalTime;
+				$properties["updatecounter"] = "PT_LONG:PSETID_Appointment:" . PidLidAppointmentSequence;                                     // AppointmentSequenceNumber
 				$properties["last_updatecounter"] = "PT_LONG:PSETID_Appointment:0x8203";                        // AppointmentLastSequence
-				$properties["busystatus"] = "PT_LONG:PSETID_Appointment:".PidLidBusyStatus;
-				$properties["intendedbusystatus"] = "PT_LONG:PSETID_Appointment:".PidLidIntendedBusyStatus;
-				$properties["start"] = "PT_SYSTIME:PSETID_Appointment:".PidLidAppointmentStartWhole;
+				$properties["busystatus"] = "PT_LONG:PSETID_Appointment:" . PidLidBusyStatus;
+				$properties["intendedbusystatus"] = "PT_LONG:PSETID_Appointment:" . PidLidIntendedBusyStatus;
+				$properties["start"] = "PT_SYSTIME:PSETID_Appointment:" . PidLidAppointmentStartWhole;
 				$properties["responselocation"] = "PT_STRING8:PSETID_Meeting:0x2";
-				$properties["location"] = "PT_STRING8:PSETID_Appointment:".PidLidLocation;
+				$properties["location"] = "PT_STRING8:PSETID_Appointment:" . PidLidLocation;
 				$properties["requestsent"] = "PT_BOOLEAN:PSETID_Appointment:0x8229";            // PidLidFInvited, MeetingRequestWasSent
-				$properties["startdate"] = "PT_SYSTIME:PSETID_Appointment:".PidLidAppointmentStartWhole;
-				$properties["duedate"] = "PT_SYSTIME:PSETID_Appointment:".PidLidAppointmentEndWhole;
+				$properties["startdate"] = "PT_SYSTIME:PSETID_Appointment:" . PidLidAppointmentStartWhole;
+				$properties["duedate"] = "PT_SYSTIME:PSETID_Appointment:" . PidLidAppointmentEndWhole;
 				$properties["commonstart"] = "PT_SYSTIME:PSETID_Common:0x8516";
 				$properties["commonend"] = "PT_SYSTIME:PSETID_Common:0x8517";
-				$properties["recurring"] = "PT_BOOLEAN:PSETID_Appointment:".PidLidRecurring;
-				$properties["clipstart"] = "PT_SYSTIME:PSETID_Appointment:".PidLidClipStart;
-				$properties["clipend"] = "PT_SYSTIME:PSETID_Appointment:".PidLidClipEnd;
+				$properties["recurring"] = "PT_BOOLEAN:PSETID_Appointment:" . PidLidRecurring;
+				$properties["clipstart"] = "PT_SYSTIME:PSETID_Appointment:" . PidLidClipStart;
+				$properties["clipend"] = "PT_SYSTIME:PSETID_Appointment:" . PidLidClipEnd;
 				$properties["start_recur_date"] = "PT_LONG:PSETID_Meeting:0xD";                         // StartRecurTime
 				$properties["start_recur_time"] = "PT_LONG:PSETID_Meeting:0xE";                         // StartRecurTime
 				$properties["end_recur_date"] = "PT_LONG:PSETID_Meeting:0xF";                           // EndRecurDate
 				$properties["end_recur_time"] = "PT_LONG:PSETID_Meeting:0x10";                          // EndRecurTime
 				$properties["is_exception"] = "PT_BOOLEAN:PSETID_Meeting:0xA";                          // LID_IS_EXCEPTION
 				// Propose new time properties
-				$properties["proposed_start_whole"] = "PT_SYSTIME:PSETID_Appointment:".PidLidAppointmentProposedStartWhole;
-				$properties["proposed_end_whole"] = "PT_SYSTIME:PSETID_Appointment:".PidLidAppointmentProposedEndWhole;
+				$properties["proposed_start_whole"] = "PT_SYSTIME:PSETID_Appointment:" . PidLidAppointmentProposedStartWhole;
+				$properties["proposed_end_whole"] = "PT_SYSTIME:PSETID_Appointment:" . PidLidAppointmentProposedEndWhole;
 				$properties["proposed_duration"] = "PT_LONG:PSETID_Appointment:0x8256";
-				$properties["counter_proposal"] = "PT_BOOLEAN:PSETID_Appointment:".PidLidAppointmentCounterProposal;
+				$properties["counter_proposal"] = "PT_BOOLEAN:PSETID_Appointment:" . PidLidAppointmentCounterProposal;
 				$properties["recurring_pattern"] = "PT_STRING8:PSETID_Appointment:0x8232";
-				$properties["basedate"] = "PT_SYSTIME:PSETID_Appointment:".PidLidExceptionReplaceTime;
+				$properties["basedate"] = "PT_SYSTIME:PSETID_Appointment:" . PidLidExceptionReplaceTime;
 				$properties["meetingtype"] = "PT_LONG:PSETID_Meeting:0x26";
-				$properties["timezone_data"] = "PT_BINARY:PSETID_Appointment:".PidLidTimeZoneStruct;
-				$properties["timezone"] = "PT_STRING8:PSETID_Appointment:".PidLidTimeZoneDescription;
+				$properties["timezone_data"] = "PT_BINARY:PSETID_Appointment:" . PidLidTimeZoneStruct;
+				$properties["timezone"] = "PT_STRING8:PSETID_Appointment:" . PidLidTimeZoneDescription;
 
 				$this->mapping[$this->storeMapping]['meeting'] = getPropIdsFromStrings($this->store, $properties);
 			}
@@ -324,31 +324,31 @@
 				$properties["sender_entryid"] = PR_SENDER_ENTRYID;
 				$properties["sender_search_key"] = PR_SENDER_SEARCH_KEY;
 
-				$properties["startdate"] = "PT_SYSTIME:PSETID_Appointment:".PidLidAppointmentStartWhole;
-				$properties["duedate"] = "PT_SYSTIME:PSETID_Appointment:".PidLidAppointmentEndWhole;
-				$properties["recurring"] = "PT_BOOLEAN:PSETID_Appointment:".PidLidRecurring;
-				$properties["recurring_data"] = "PT_BINARY:PSETID_Appointment:".PidLidAppointmentRecur;
+				$properties["startdate"] = "PT_SYSTIME:PSETID_Appointment:" . PidLidAppointmentStartWhole;
+				$properties["duedate"] = "PT_SYSTIME:PSETID_Appointment:" . PidLidAppointmentEndWhole;
+				$properties["recurring"] = "PT_BOOLEAN:PSETID_Appointment:" . PidLidRecurring;
+				$properties["recurring_data"] = "PT_BINARY:PSETID_Appointment:" . PidLidAppointmentRecur;
 				$properties["recurring_pattern"] = "PT_STRING8:PSETID_Appointment:0x8232";
-				$properties["busystatus"] = "PT_LONG:PSETID_Appointment:".PidLidBusyStatus;
-				$properties["intendedbusystatus"] = "PT_LONG:PSETID_Appointment:".PidLidIntendedBusyStatus;
+				$properties["busystatus"] = "PT_LONG:PSETID_Appointment:" . PidLidBusyStatus;
+				$properties["intendedbusystatus"] = "PT_LONG:PSETID_Appointment:" . PidLidIntendedBusyStatus;
 				$properties["label"] = "PT_LONG:PSETID_Appointment:0x8214";
-				$properties["alldayevent"] = "PT_BOOLEAN:PSETID_Appointment:".PidLidAppointmentSubType;
-				$properties["private"] = "PT_BOOLEAN:PSETID_Common:".PidLidPrivate;
-				$properties["meeting"] = "PT_LONG:PSETID_Appointment:".PidLidAppointmentStateFlags;
-				$properties["startdate_recurring"] = "PT_SYSTIME:PSETID_Appointment:".PidLidClipStart;
-				$properties["enddate_recurring"] = "PT_SYSTIME:PSETID_Appointment:".PidLidClipEnd;
-				$properties["location"] = "PT_STRING8:PSETID_Appointment:".PidLidLocation;
-				$properties["duration"] = "PT_LONG:PSETID_Appointment:".PidLidAppointmentDuration;
+				$properties["alldayevent"] = "PT_BOOLEAN:PSETID_Appointment:" . PidLidAppointmentSubType;
+				$properties["private"] = "PT_BOOLEAN:PSETID_Common:" . PidLidPrivate;
+				$properties["meeting"] = "PT_LONG:PSETID_Appointment:" . PidLidAppointmentStateFlags;
+				$properties["startdate_recurring"] = "PT_SYSTIME:PSETID_Appointment:" . PidLidClipStart;
+				$properties["enddate_recurring"] = "PT_SYSTIME:PSETID_Appointment:" . PidLidClipEnd;
+				$properties["location"] = "PT_STRING8:PSETID_Appointment:" . PidLidLocation;
+				$properties["duration"] = "PT_LONG:PSETID_Appointment:" . PidLidAppointmentDuration;
 				$properties["responsestatus"] = "PT_LONG:PSETID_Appointment:0x8218";
-				$properties["reminder"] = "PT_BOOLEAN:PSETID_Common:".PidLidReminderSet;
-				$properties["reminder_minutes"] = "PT_LONG:PSETID_Common:".PidLidReminderDelta;
+				$properties["reminder"] = "PT_BOOLEAN:PSETID_Common:" . PidLidReminderSet;
+				$properties["reminder_minutes"] = "PT_LONG:PSETID_Common:" . PidLidReminderDelta;
 				$properties["categories"] = "PT_MV_STRING8:PS_PUBLIC_STRINGS:Keywords";
-				$properties["reminder_time"] = "PT_SYSTIME:PSETID_Common:".PidLidReminderTime;
-				$properties["flagdueby"] = "PT_SYSTIME:PSETID_Common:".PidLidReminderSignalTime;
+				$properties["reminder_time"] = "PT_SYSTIME:PSETID_Common:" . PidLidReminderTime;
+				$properties["flagdueby"] = "PT_SYSTIME:PSETID_Common:" . PidLidReminderSignalTime;
 				$properties["commonstart"] = "PT_SYSTIME:PSETID_Common:0x8516";
 				$properties["commonend"] = "PT_SYSTIME:PSETID_Common:0x8517";
-				$properties["basedate"] = "PT_SYSTIME:PSETID_Appointment:".PidLidExceptionReplaceTime;
-				$properties["timezone_data"] = "PT_BINARY:PSETID_Appointment:".PidLidTimeZoneStruct;
+				$properties["basedate"] = "PT_SYSTIME:PSETID_Appointment:" . PidLidExceptionReplaceTime;
+				$properties["timezone_data"] = "PT_BINARY:PSETID_Appointment:" . PidLidTimeZoneStruct;
 				$properties["auxiliary_flags"] = "PT_LONG:PSETID_Appointment:0x8207";
 				$properties["commonassign"] = "PT_LONG:PSETID_Common:0x8518";
 				$properties["last_modification_time"] = PR_LAST_MODIFICATION_TIME;
@@ -360,14 +360,14 @@
 				$properties["goid2"] = "PT_BINARY:PSETID_Meeting:0x23";
 
 				// Propose new time properties
-				$properties["proposed_start_date"] = "PT_SYSTIME:PSETID_Appointment:".PidLidAppointmentProposedStartWhole;
-				$properties["proposed_end_date"] = "PT_SYSTIME:PSETID_Appointment:".PidLidAppointmentProposedEndWhole;
+				$properties["proposed_start_date"] = "PT_SYSTIME:PSETID_Appointment:" . PidLidAppointmentProposedStartWhole;
+				$properties["proposed_end_date"] = "PT_SYSTIME:PSETID_Appointment:" . PidLidAppointmentProposedEndWhole;
 				$properties["proposed_duration"] = "PT_LONG:PSETID_Appointment:0x8256";
-				$properties["counter_proposal"] = "PT_BOOLEAN:PSETID_Appointment:".PidLidAppointmentCounterProposal;
-				// $properties["proposal_number"] = "PT_BOOLEAN:PSETID_Appointment:".PidLidAppointmentCounterProposal;
+				$properties["counter_proposal"] = "PT_BOOLEAN:PSETID_Appointment:" . PidLidAppointmentCounterProposal;
+				// $properties["proposal_number"] = "PT_BOOLEAN:PSETID_Appointment:" . PidLidAppointmentCounterProposal;
 
 				$properties["deleted_on"] = PR_DELETED_ON;
-				$properties["updatecounter"] = "PT_LONG:PSETID_Appointment:".PidLidAppointmentSequence;
+				$properties["updatecounter"] = "PT_LONG:PSETID_Appointment:" . PidLidAppointmentSequence;
 				$properties["reply_time"] = "PT_SYSTIME:PSETID_Appointment:0x8220";
 				$properties["reply_name"] = "PT_STRING8:PSETID_Appointment:0x8230";
 
@@ -410,36 +410,36 @@
 				$properties["display_to"] = PR_DISPLAY_TO;
 				$properties["importance"] = PR_IMPORTANCE;
 				$properties["sensitivity"] = PR_SENSITIVITY;
-				$properties["startdate"] = "PT_SYSTIME:PSETID_Appointment:".PidLidAppointmentStartWhole;
-				$properties["duedate"] = "PT_SYSTIME:PSETID_Appointment:".PidLidAppointmentEndWhole;
-				$properties["recurring"] = "PT_BOOLEAN:PSETID_Appointment:".PidLidRecurring;
-				$properties["recurring_data"] = "PT_BINARY:PSETID_Appointment:".PidLidAppointmentRecur;
-				$properties["busystatus"] = "PT_LONG:PSETID_Appointment:".PidLidBusyStatus;
+				$properties["startdate"] = "PT_SYSTIME:PSETID_Appointment:" . PidLidAppointmentStartWhole;
+				$properties["duedate"] = "PT_SYSTIME:PSETID_Appointment:" . PidLidAppointmentEndWhole;
+				$properties["recurring"] = "PT_BOOLEAN:PSETID_Appointment:" . PidLidRecurring;
+				$properties["recurring_data"] = "PT_BINARY:PSETID_Appointment:" . PidLidAppointmentRecur;
+				$properties["busystatus"] = "PT_LONG:PSETID_Appointment:" . PidLidBusyStatus;
 				$properties["label"] = "PT_LONG:PSETID_Appointment:0x8214";
-				$properties["alldayevent"] = "PT_BOOLEAN:PSETID_Appointment:".PidLidAppointmentSubType;
-				$properties["private"] = "PT_BOOLEAN:PSETID_Common:".PidLidPrivate;
-				$properties["meeting"] = "PT_LONG:PSETID_Appointment:".PidLidAppointmentStateFlags;
-				$properties["startdate_recurring"] = "PT_SYSTIME:PSETID_Appointment:".PidLidClipStart;
-				$properties["enddate_recurring"] = "PT_SYSTIME:PSETID_Appointment:".PidLidClipEnd;
+				$properties["alldayevent"] = "PT_BOOLEAN:PSETID_Appointment:" . PidLidAppointmentSubType;
+				$properties["private"] = "PT_BOOLEAN:PSETID_Common:" . PidLidPrivate;
+				$properties["meeting"] = "PT_LONG:PSETID_Appointment:" . PidLidAppointmentStateFlags;
+				$properties["startdate_recurring"] = "PT_SYSTIME:PSETID_Appointment:" . PidLidClipStart;
+				$properties["enddate_recurring"] = "PT_SYSTIME:PSETID_Appointment:" . PidLidClipEnd;
 				$properties["recurring_pattern"] = "PT_STRING8:PSETID_Appointment:0x8232";
-				$properties["location"] = "PT_STRING8:PSETID_Appointment:".PidLidLocation;
-				$properties["duration"] = "PT_LONG:PSETID_Appointment:".PidLidAppointmentDuration;
+				$properties["location"] = "PT_STRING8:PSETID_Appointment:" . PidLidLocation;
+				$properties["duration"] = "PT_LONG:PSETID_Appointment:" . PidLidAppointmentDuration;
 				$properties["responsestatus"] = "PT_LONG:PSETID_Appointment:0x8218";
-				$properties["reminder"] = "PT_BOOLEAN:PSETID_Common:".PidLidReminderSet;
-				$properties["reminder_minutes"] = "PT_LONG:PSETID_Common:".PidLidReminderDelta;
+				$properties["reminder"] = "PT_BOOLEAN:PSETID_Common:" . PidLidReminderSet;
+				$properties["reminder_minutes"] = "PT_LONG:PSETID_Common:" . PidLidReminderDelta;
 				$properties["recurrencetype"] = "PT_LONG:PSETID_Appointment:0x8231";
 				$properties["contacts"] = "PT_MV_STRING8:PSETID_Common:0x853a";
 				$properties["contacts_string"] = "PT_STRING8:PSETID_Common:0x8586";
 				$properties["categories"] = "PT_MV_STRING8:PS_PUBLIC_STRINGS:Keywords";
-				$properties["reminder_time"] = "PT_SYSTIME:PSETID_Common:".PidLidReminderTime;
+				$properties["reminder_time"] = "PT_SYSTIME:PSETID_Common:" . PidLidReminderTime;
 				$properties["commonstart"] = "PT_SYSTIME:PSETID_Common:0x8516";
 				$properties["commonend"] = "PT_SYSTIME:PSETID_Common:0x8517";
-				$properties["basedate"] = "PT_SYSTIME:PSETID_Appointment:".PidLidExceptionReplaceTime;
-				$properties["timezone_data"] = "PT_BINARY:PSETID_Appointment:".PidLidTimeZoneStruct;
-				$properties["timezone"] = "PT_STRING8:PSETID_Appointment:".PidLidTimeZoneDescription;
-				$properties["flagdueby"] = "PT_SYSTIME:PSETID_Common:".PidLidReminderSignalTime;
+				$properties["basedate"] = "PT_SYSTIME:PSETID_Appointment:" . PidLidExceptionReplaceTime;
+				$properties["timezone_data"] = "PT_BINARY:PSETID_Appointment:" . PidLidTimeZoneStruct;
+				$properties["timezone"] = "PT_STRING8:PSETID_Appointment:" . PidLidTimeZoneDescription;
+				$properties["flagdueby"] = "PT_SYSTIME:PSETID_Common:" . PidLidReminderSignalTime;
 				$properties["side_effects"] = "PT_LONG:PSETID_Common:0x8510";
-				$properties["hideattachments"] = "PT_BOOLEAN:PSETID_Common:".PidLidSmartNoAttach;
+				$properties["hideattachments"] = "PT_BOOLEAN:PSETID_Common:" . PidLidSmartNoAttach;
 
 				$this->mapping[$this->storeMapping]['recurrence'] = getPropIdsFromStrings($this->store, $properties);
 			}
@@ -457,9 +457,9 @@
 
 			if (!isset($this->mapping[$this->storeMapping]['busytime'])) {
 				$properties = [];
-				$properties["startdate"] = "PT_SYSTIME:PSETID_Appointment:".PidLidAppointmentStartWhole;
-				$properties["duedate"] = "PT_SYSTIME:PSETID_Appointment:".PidLidAppointmentEndWhole;
-				$properties["busystatus"] = "PT_LONG:PSETID_Appointment:".PidLidBusyStatus;
+				$properties["startdate"] = "PT_SYSTIME:PSETID_Appointment:" . PidLidAppointmentStartWhole;
+				$properties["duedate"] = "PT_SYSTIME:PSETID_Appointment:" . PidLidAppointmentEndWhole;
+				$properties["busystatus"] = "PT_LONG:PSETID_Appointment:" . PidLidBusyStatus;
 
 				$this->mapping[$this->storeMapping]['busytime'] = getPropIdsFromStrings($this->store, $properties);
 			}
@@ -513,32 +513,32 @@
 				$properties["fileas"] = "PT_STRING8:PSETID_Address:0x8005";
 				$properties["fileas_selection"] = "PT_LONG:PSETID_Address:0x8006";
 				$properties["business_address"] = "PT_STRING8:PSETID_Address:0x801b";
-				$properties["email_address_1"] = "PT_STRING8:PSETID_Address:".PidLidEmail1EmailAddress;
+				$properties["email_address_1"] = "PT_STRING8:PSETID_Address:" . PidLidEmail1EmailAddress;
 				$properties["email_address_entryid_1"] = "PT_BINARY:PSETID_Address:0x8085";
-				$properties["email_address_display_name_1"] = "PT_STRING8:PSETID_Address:".PidLidEmail1DisplayName;
+				$properties["email_address_display_name_1"] = "PT_STRING8:PSETID_Address:" . PidLidEmail1DisplayName;
 				$properties["email_address_display_name_email_1"] = "PT_STRING8:PSETID_Address:0x8084";
-				$properties["email_address_type_1"] = "PT_STRING8:PSETID_Address:".PidLidEmail1AddressType;
-				$properties["email_address_2"] = "PT_STRING8:PSETID_Address:".PidLidEmail2EmailAddress;
+				$properties["email_address_type_1"] = "PT_STRING8:PSETID_Address:" . PidLidEmail1AddressType;
+				$properties["email_address_2"] = "PT_STRING8:PSETID_Address:" . PidLidEmail2EmailAddress;
 				$properties["email_address_entryid_2"] = "PT_BINARY:PSETID_Address:0x8095";
-				$properties["email_address_display_name_2"] = "PT_STRING8:PSETID_Address:".PidLidEmail2DisplayName;
+				$properties["email_address_display_name_2"] = "PT_STRING8:PSETID_Address:" . PidLidEmail2DisplayName;
 				$properties["email_address_display_name_email_2"] = "PT_STRING8:PSETID_Address:0x8094";
-				$properties["email_address_type_2"] = "PT_STRING8:PSETID_Address:".PidLidEmail2AddressType;
-				$properties["email_address_3"] = "PT_STRING8:PSETID_Address:".PidLidEmail3EmailAddress;
+				$properties["email_address_type_2"] = "PT_STRING8:PSETID_Address:" . PidLidEmail2AddressType;
+				$properties["email_address_3"] = "PT_STRING8:PSETID_Address:" . PidLidEmail3EmailAddress;
 				$properties["email_address_entryid_3"] = "PT_BINARY:PSETID_Address:0x80a5";
-				$properties["email_address_display_name_3"] = "PT_STRING8:PSETID_Address:".PidLidEmail3DisplayName;
+				$properties["email_address_display_name_3"] = "PT_STRING8:PSETID_Address:" . PidLidEmail3DisplayName;
 				$properties["email_address_display_name_email_3"] = "PT_STRING8:PSETID_Address:0x80a4";
-				$properties["email_address_type_3"] = "PT_STRING8:PSETID_Address:".PidLidEmail3AddressType;
+				$properties["email_address_type_3"] = "PT_STRING8:PSETID_Address:" . PidLidEmail3AddressType;
 				$properties["home_address"] = "PT_STRING8:PSETID_Address:0x801a";
 				$properties["other_address"] = "PT_STRING8:PSETID_Address:0x801c";
 				$properties["mailing_address"] = "PT_LONG:PSETID_Address:0x8022";
-				$properties["im"] = "PT_STRING8:PSETID_Address:".PidLidInstantMessagingAddress;
+				$properties["im"] = "PT_STRING8:PSETID_Address:" . PidLidInstantMessagingAddress;
 				$properties["webpage"] = "PT_STRING8:PSETID_Address:0x802b";
 				$properties["business_home_page"] = PR_BUSINESS_HOME_PAGE;
 				$properties["address_book_mv"] = "PT_MV_LONG:PSETID_Address:0x8028";
 				$properties["address_book_long"] = "PT_LONG:PSETID_Address:0x8029";
 				$properties["oneoff_members"] = "PT_MV_BINARY:PSETID_Address:0x8054";
 				$properties["members"] = "PT_MV_BINARY:PSETID_Address:0x8055";
-				$properties["private"] = "PT_BOOLEAN:PSETID_Common:".PidLidPrivate;
+				$properties["private"] = "PT_BOOLEAN:PSETID_Common:" . PidLidPrivate;
 				$properties["categories"] = "PT_MV_STRING8:PS_PUBLIC_STRINGS:Keywords";
 				$properties["last_modification_time"] = PR_LAST_MODIFICATION_TIME;
 				$properties["creation_time"] = PR_CREATION_TIME;
@@ -576,7 +576,7 @@
 				$properties["fax_3_original_entryid"] = "PT_BINARY:PSETID_Address:0x80D5";
 
 				$properties["has_picture"] = "PT_BOOLEAN:PSETID_Address:0x8015";
-				$properties["hide_attachments"] = "PT_BOOLEAN:PSETID_Common:".PidLidSmartNoAttach;
+				$properties["hide_attachments"] = "PT_BOOLEAN:PSETID_Common:" . PidLidSmartNoAttach;
 
 				// Properties for addresses
 				// Home address
@@ -592,11 +592,11 @@
 				$properties["other_address_postal_code"] = PR_OTHER_ADDRESS_POSTAL_CODE;
 				$properties["other_address_country"] = PR_OTHER_ADDRESS_COUNTRY;
 				// Business address
-				$properties["business_address_street"] = "PT_STRING8:PSETID_Address:".PidLidWorkAddressStreet;
-				$properties["business_address_city"] = "PT_STRING8:PSETID_Address:".PidLidWorkAddressCity;
-				$properties["business_address_state"] = "PT_STRING8:PSETID_Address:".PidLidWorkAddressState;
-				$properties["business_address_postal_code"] = "PT_STRING8:PSETID_Address:".PidLidWorkAddressPostalCode;
-				$properties["business_address_country"] = "PT_STRING8:PSETID_Address:".PidLidWorkAddressCountry;
+				$properties["business_address_street"] = "PT_STRING8:PSETID_Address:" . PidLidWorkAddressStreet;
+				$properties["business_address_city"] = "PT_STRING8:PSETID_Address:" . PidLidWorkAddressCity;
+				$properties["business_address_state"] = "PT_STRING8:PSETID_Address:" . PidLidWorkAddressState;
+				$properties["business_address_postal_code"] = "PT_STRING8:PSETID_Address:" . PidLidWorkAddressPostalCode;
+				$properties["business_address_country"] = "PT_STRING8:PSETID_Address:" . PidLidWorkAddressCountry;
 				// Mailing address
 				$properties["country"] = PR_COUNTRY;
 				$properties["city"] = PR_LOCALITY;
@@ -647,18 +647,18 @@
 				$properties["smtp_address"] = PR_SMTP_ADDRESS;
 				$properties["object_type"] = PR_OBJECT_TYPE;
 				$properties["fileas"] = "PT_STRING8:PSETID_Address:0x8005";
-				$properties["email_address_1"] = "PT_STRING8:PSETID_Address:".PidLidEmail1EmailAddress;
-				$properties["email_address_display_name_1"] = "PT_STRING8:PSETID_Address:".PidLidEmail1DisplayName;
-				$properties["email_address_2"] = "PT_STRING8:PSETID_Address:".PidLidEmail2EmailAddress;
-				$properties["email_address_display_name_2"] = "PT_STRING8:PSETID_Address:".PidLidEmail2DisplayName;
-				$properties["email_address_3"] = "PT_STRING8:PSETID_Address:".PidLidEmail3EmailAddress;
-				$properties["email_address_display_name_3"] = "PT_STRING8:PSETID_Address:".PidLidEmail3DisplayName;
+				$properties["email_address_1"] = "PT_STRING8:PSETID_Address:" . PidLidEmail1EmailAddress;
+				$properties["email_address_display_name_1"] = "PT_STRING8:PSETID_Address:" . PidLidEmail1DisplayName;
+				$properties["email_address_2"] = "PT_STRING8:PSETID_Address:" . PidLidEmail2EmailAddress;
+				$properties["email_address_display_name_2"] = "PT_STRING8:PSETID_Address:" . PidLidEmail2DisplayName;
+				$properties["email_address_3"] = "PT_STRING8:PSETID_Address:" . PidLidEmail3EmailAddress;
+				$properties["email_address_display_name_3"] = "PT_STRING8:PSETID_Address:" . PidLidEmail3DisplayName;
 				$properties["email_address_entryid_1"] = "PT_BINARY:PSETID_Address:0x8085";
 				$properties["email_address_entryid_2"] = "PT_BINARY:PSETID_Address:0x8095";
 				$properties["email_address_entryid_3"] = "PT_BINARY:PSETID_Address:0x80A5";
-				$properties["email_address_type_1"] = "PT_STRING8:PSETID_Address:".PidLidEmail1AddressType;
-				$properties["email_address_type_2"] = "PT_STRING8:PSETID_Address:".PidLidEmail2AddressType;
-				$properties["email_address_type_3"] = "PT_STRING8:PSETID_Address:".PidLidEmail3AddressType;
+				$properties["email_address_type_1"] = "PT_STRING8:PSETID_Address:" . PidLidEmail1AddressType;
+				$properties["email_address_type_2"] = "PT_STRING8:PSETID_Address:" . PidLidEmail2AddressType;
+				$properties["email_address_type_3"] = "PT_STRING8:PSETID_Address:" . PidLidEmail3AddressType;
 				$properties["address_book_mv"] = "PT_MV_LONG:PSETID_Address:0x8028";
 				$properties["address_book_long"] = "PT_LONG:PSETID_Address:0x8029";
 
@@ -671,7 +671,7 @@
 				$properties["members"] = "PT_MV_BINARY:PSETID_Address:0x8055";
 				$properties["categories"] = "PT_MV_STRING8:PS_PUBLIC_STRINGS:Keywords";
 				$properties["sensitivity"] = PR_SENSITIVITY;
-				$properties["private"] = "PT_BOOLEAN:PSETID_Common:".PidLidPrivate;
+				$properties["private"] = "PT_BOOLEAN:PSETID_Common:" . PidLidPrivate;
 				$properties["deleted_on"] = PR_DELETED_ON;
 
 				$this->mapping[$this->storeMapping]['abcontact'] = getPropIdsFromStrings($this->store, $properties);
@@ -708,7 +708,7 @@
 				$properties["members"] = "PT_MV_BINARY:PSETID_Address:0x8055";
 				$properties["categories"] = "PT_MV_STRING8:PS_PUBLIC_STRINGS:Keywords";
 				$properties["sensitivity"] = PR_SENSITIVITY;
-				$properties["private"] = "PT_BOOLEAN:PSETID_Common:".PidLidPrivate;
+				$properties["private"] = "PT_BOOLEAN:PSETID_Common:" . PidLidPrivate;
 				$properties["creation_time"] = PR_CREATION_TIME;
 				$properties["deleted_on"] = PR_DELETED_ON;
 
@@ -752,7 +752,7 @@
 				$properties["department_name"] = PR_DEPARTMENT_NAME;
 				$properties["normalized_subject"] = PR_NORMALIZED_SUBJECT;
 				$properties["original_display_name"] = PR_ORIGINAL_DISPLAY_NAME;
-				$properties["private"] = "PT_BOOLEAN:PSETID_Common:".PidLidPrivate;
+				$properties["private"] = "PT_BOOLEAN:PSETID_Common:" . PidLidPrivate;
 
 				$this->mapping[$this->storeMapping]['addressbook'] = getPropIdsFromStrings($this->store, $properties);
 			}
@@ -932,12 +932,12 @@
 				$properties["flag_complete_time"] = PR_FLAG_COMPLETE_TIME;
 				$properties["flag_icon"] = PR_FOLLOWUP_ICON;
 				$properties["block_status"] = PR_BLOCK_STATUS;
-				$properties["reminder_time"] = "PT_SYSTIME:PSETID_Common:".PidLidReminderTime;
-				$properties["reminder"] = "PT_BOOLEAN:PSETID_Common:".PidLidReminderSet;
-				$properties["flag_request"] = "PT_STRING8:PSETID_Common:".PidLidFlagRequest;
-				$properties["flag_due_by"] = "PT_SYSTIME:PSETID_Common:".PidLidReminderSignalTime;
-				$properties["duedate"] = "PT_SYSTIME:PSETID_Task:".PidLidTaskDueDate;
-				$properties["startdate"] = "PT_SYSTIME:PSETID_Task:".PidLidTaskStartDate;
+				$properties["reminder_time"] = "PT_SYSTIME:PSETID_Common:" . PidLidReminderTime;
+				$properties["reminder"] = "PT_BOOLEAN:PSETID_Common:" . PidLidReminderSet;
+				$properties["flag_request"] = "PT_STRING8:PSETID_Common:" . PidLidFlagRequest;
+				$properties["flag_due_by"] = "PT_SYSTIME:PSETID_Common:" . PidLidReminderSignalTime;
+				$properties["duedate"] = "PT_SYSTIME:PSETID_Task:" . PidLidTaskDueDate;
+				$properties["startdate"] = "PT_SYSTIME:PSETID_Task:" . PidLidTaskStartDate;
 				$properties["reply_requested"] = PR_REPLY_REQUESTED;
 				$properties["reply_time"] = PR_REPLY_TIME;
 				$properties["response_requested"] = PR_RESPONSE_REQUESTED;
@@ -950,24 +950,24 @@
 				$properties["deferred_send_time"] = PR_DEFERRED_SEND_TIME;
 
 				// Corresponding appointment related properties
-				$properties["appointment_startdate"] = "PT_SYSTIME:PSETID_Appointment:".PidLidAppointmentStartWhole;
-				$properties["appointment_duedate"] = "PT_SYSTIME:PSETID_Appointment:".PidLidAppointmentEndWhole;
-				$properties["appointment_location"] = "PT_STRING8:PSETID_Appointment:".PidLidLocation;
+				$properties["appointment_startdate"] = "PT_SYSTIME:PSETID_Appointment:" . PidLidAppointmentStartWhole;
+				$properties["appointment_duedate"] = "PT_SYSTIME:PSETID_Appointment:" . PidLidAppointmentEndWhole;
+				$properties["appointment_location"] = "PT_STRING8:PSETID_Appointment:" . PidLidLocation;
 				$properties["appointment_recurring_pattern"] = "PT_STRING8:PSETID_Appointment:0x8232";
-				$properties["appointment_recurring"] = "PT_BOOLEAN:PSETID_Appointment:".PidLidRecurring;
-				$properties["appointment_startdate_recurring"] = "PT_SYSTIME:PSETID_Appointment:".PidLidClipStart;	// ClipStart
-				$properties["appointment_enddate_recurring"] = "PT_SYSTIME:PSETID_Appointment:".PidLidClipEnd;		// ClipEnd
+				$properties["appointment_recurring"] = "PT_BOOLEAN:PSETID_Appointment:" . PidLidRecurring;
+				$properties["appointment_startdate_recurring"] = "PT_SYSTIME:PSETID_Appointment:" . PidLidClipStart;	// ClipStart
+				$properties["appointment_enddate_recurring"] = "PT_SYSTIME:PSETID_Appointment:" . PidLidClipEnd;		// ClipEnd
 				$properties["appointment_exception"] = "PT_BOOLEAN:PSETID_Meeting:0xA";						// LID_IS_EXCEPTION
-				$properties["appointment_location"] = "PT_STRING8:PSETID_Appointment:".PidLidLocation;
+				$properties["appointment_location"] = "PT_STRING8:PSETID_Appointment:" . PidLidLocation;
 				// Propose new time properties
-				$properties["proposed_start_date"] = "PT_SYSTIME:PSETID_Appointment:".PidLidAppointmentProposedStartWhole;
-				$properties["proposed_end_date"] = "PT_SYSTIME:PSETID_Appointment:".PidLidAppointmentProposedEndWhole;
+				$properties["proposed_start_date"] = "PT_SYSTIME:PSETID_Appointment:" . PidLidAppointmentProposedStartWhole;
+				$properties["proposed_end_date"] = "PT_SYSTIME:PSETID_Appointment:" . PidLidAppointmentProposedEndWhole;
 				$properties["proposed_duration"] = "PT_LONG:PSETID_Appointment:0x8256";
-				$properties["counter_proposal"] = "PT_BOOLEAN:PSETID_Appointment:".PidLidAppointmentCounterProposal;
+				$properties["counter_proposal"] = "PT_BOOLEAN:PSETID_Appointment:" . PidLidAppointmentCounterProposal;
 
 				$properties["deleted_on"] = PR_DELETED_ON;
-				$properties["updatecounter"] = "PT_LONG:PSETID_Appointment:".PidLidAppointmentSequence;
-				$properties["hide_attachments"] = "PT_BOOLEAN:PSETID_Common:".PidLidSmartNoAttach;
+				$properties["updatecounter"] = "PT_LONG:PSETID_Appointment:" . PidLidAppointmentSequence;
+				$properties["hide_attachments"] = "PT_BOOLEAN:PSETID_Common:" . PidLidSmartNoAttach;
 
 				// meeting request properties
 				$properties["responsestatus"] = "PT_LONG:PSETID_Appointment:0x8218";
@@ -1077,33 +1077,33 @@
 				$properties["last_modification_time"] = PR_LAST_MODIFICATION_TIME;
 				$properties["creation_time"] = PR_CREATION_TIME;
 				$properties["hasattach"] = PR_HASATTACH;
-				$properties["complete"] = "PT_BOOLEAN:PSETID_Task:".PidLidTaskComplete;
-				$properties["duedate"] = "PT_SYSTIME:PSETID_Task:".PidLidTaskDueDate;
-				$properties["status"] = "PT_LONG:PSETID_Task:".PidLidTaskStatus;
-				$properties["percent_complete"] = "PT_DOUBLE:PSETID_Task:".PidLidPercentComplete;
-				$properties["hide_attachments"] = "PT_BOOLEAN:PSETID_Common:".PidLidSmartNoAttach;
-				$properties["startdate"] = "PT_SYSTIME:PSETID_Task:".PidLidTaskStartDate;
+				$properties["complete"] = "PT_BOOLEAN:PSETID_Task:" . PidLidTaskComplete;
+				$properties["duedate"] = "PT_SYSTIME:PSETID_Task:" . PidLidTaskDueDate;
+				$properties["status"] = "PT_LONG:PSETID_Task:" . PidLidTaskStatus;
+				$properties["percent_complete"] = "PT_DOUBLE:PSETID_Task:" . PidLidPercentComplete;
+				$properties["hide_attachments"] = "PT_BOOLEAN:PSETID_Common:" . PidLidSmartNoAttach;
+				$properties["startdate"] = "PT_SYSTIME:PSETID_Task:" . PidLidTaskStartDate;
 				$properties["owner"] = "PT_STRING8:PSETID_Task:0x811f";
-				$properties["reminder_minutes"] = "PT_LONG:PSETID_Common:".PidLidReminderDelta;
-				$properties["reminder_time"] = "PT_SYSTIME:PSETID_Common:".PidLidReminderTime;
-				$properties["reminder"] = "PT_BOOLEAN:PSETID_Common:".PidLidReminderSet;
+				$properties["reminder_minutes"] = "PT_LONG:PSETID_Common:" . PidLidReminderDelta;
+				$properties["reminder_time"] = "PT_SYSTIME:PSETID_Common:" . PidLidReminderTime;
+				$properties["reminder"] = "PT_BOOLEAN:PSETID_Common:" . PidLidReminderSet;
 				$properties["reset_reminder"] = "PT_BOOLEAN:PSETID_Task:0x8107";
-				$properties["date_completed"] = "PT_SYSTIME:PSETID_Task:".PidLidTaskDateCompleted;
+				$properties["date_completed"] = "PT_SYSTIME:PSETID_Task:" . PidLidTaskDateCompleted;
 				$properties["totalwork"] = "PT_LONG:PSETID_Task:0x8111";
 				$properties["actualwork"] = "PT_LONG:PSETID_Task:0x8110";
 				$properties["companies"] = "PT_MV_STRING8:PSETID_Common:0x8539";
 				$properties["mileage"] = "PT_STRING8:PSETID_Common:0x8534";
 				$properties["billing_information"] = "PT_STRING8:PSETID_Common:0x8535";
-				$properties["private"] = "PT_BOOLEAN:PSETID_Common:".PidLidPrivate;
+				$properties["private"] = "PT_BOOLEAN:PSETID_Common:" . PidLidPrivate;
 				$properties["categories"] = "PT_MV_STRING8:PS_PUBLIC_STRINGS:Keywords";
 				$properties["commonstart"] = "PT_SYSTIME:PSETID_Common:0x8516";
 				$properties["commonend"] = "PT_SYSTIME:PSETID_Common:0x8517";
 				$properties["commonassign"] = "PT_LONG:PSETID_Common:0x8518";
 				$properties["flag_icon"] = PR_FOLLOWUP_ICON;
-				$properties["flag_due_by"] = "PT_SYSTIME:PSETID_Common:".PidLidReminderSignalTime;
+				$properties["flag_due_by"] = "PT_SYSTIME:PSETID_Common:" . PidLidReminderSignalTime;
 				$properties["flag_status"] = PR_FLAG_STATUS;
 				$properties["flag_complete_time"] = PR_FLAG_COMPLETE_TIME;
-				$properties["flag_request"] = "PT_STRING8:PSETID_Common:".PidLidFlagRequest;
+				$properties["flag_request"] = "PT_STRING8:PSETID_Common:" . PidLidFlagRequest;
 				$properties["recurring"] = "PT_BOOLEAN:PSETID_Task:0x8126";
 				$properties["recurring_data"] = "PT_BINARY:PSETID_Task:0x8116";
 				$properties["dead_occurrence"] = "PT_BOOLEAN:PSETID_Task:0x8109";
@@ -1243,25 +1243,25 @@
 				$properties["subject"] = PR_SUBJECT;
 				$properties["object_type"] = PR_OBJECT_TYPE;
 
-				$properties["reminder"] = "PT_BOOLEAN:PSETID_Common:".PidLidReminderSet;				// PidLidReminderSet
-				$properties["reminder_minutes"] = "PT_LONG:PSETID_Common:".PidLidReminderDelta;			// PidLidReminderDelta
-				$properties["reminder_time"] = "PT_SYSTIME:PSETID_Common:".PidLidReminderTime;			// PidLidReminderTime
-				$properties["flagdueby"] = "PT_SYSTIME:PSETID_Common:".PidLidReminderSignalTime;				// PidLidReminderSignalTime
+				$properties["reminder"] = "PT_BOOLEAN:PSETID_Common:" . PidLidReminderSet;				// PidLidReminderSet
+				$properties["reminder_minutes"] = "PT_LONG:PSETID_Common:" . PidLidReminderDelta;			// PidLidReminderDelta
+				$properties["reminder_time"] = "PT_SYSTIME:PSETID_Common:" . PidLidReminderTime;			// PidLidReminderTime
+				$properties["flagdueby"] = "PT_SYSTIME:PSETID_Common:" . PidLidReminderSignalTime;				// PidLidReminderSignalTime
 
-				$properties["task_duedate"] = "PT_SYSTIME:PSETID_Task:".PidLidTaskDueDate;				// PidLidTaskDueDate
-				$properties["task_startdate"] = "PT_SYSTIME:PSETID_Task:".PidLidTaskStartDate;			// PidLidTaskStartDate
+				$properties["task_duedate"] = "PT_SYSTIME:PSETID_Task:" . PidLidTaskDueDate;				// PidLidTaskDueDate
+				$properties["task_startdate"] = "PT_SYSTIME:PSETID_Task:" . PidLidTaskStartDate;			// PidLidTaskStartDate
 				$properties["task_resetreminder"] = "PT_BOOLEAN:PSETID_Task:0x8107";		// PidLidTaskResetReminder
 				$properties["task_recurring"] = "PT_BOOLEAN:PSETID_Task:0x8126";			// PidLidTaskFRecurring
 				$properties["taskmode"] = "PT_LONG:PSETID_Common:0x8518";
 
-				$properties["appointment_recurring"] = "PT_BOOLEAN:PSETID_Appointment:".PidLidRecurring;			// PidLidRecurring
-				$properties["appointment_startdate"] = "PT_SYSTIME:PSETID_Appointment:".PidLidAppointmentStartWhole;
-				$properties["appointment_enddate"] = "PT_SYSTIME:PSETID_Appointment:".PidLidAppointmentEndWhole;
-				$properties["appointment_startdate_recurring"] = "PT_SYSTIME:PSETID_Appointment:".PidLidClipStart;
-				$properties["appointment_recurring_data"] = "PT_BINARY:PSETID_Appointment:".PidLidAppointmentRecur;
-				$properties["appointment_timezone_data"] = "PT_BINARY:PSETID_Appointment:".PidLidTimeZoneStruct;
-				$properties["appointment_enddate_recurring"] = "PT_SYSTIME:PSETID_Appointment:".PidLidClipEnd;
-				$properties["location"] = "PT_STRING8:PSETID_Appointment:".PidLidLocation;
+				$properties["appointment_recurring"] = "PT_BOOLEAN:PSETID_Appointment:" . PidLidRecurring;			// PidLidRecurring
+				$properties["appointment_startdate"] = "PT_SYSTIME:PSETID_Appointment:" . PidLidAppointmentStartWhole;
+				$properties["appointment_enddate"] = "PT_SYSTIME:PSETID_Appointment:" . PidLidAppointmentEndWhole;
+				$properties["appointment_startdate_recurring"] = "PT_SYSTIME:PSETID_Appointment:" . PidLidClipStart;
+				$properties["appointment_recurring_data"] = "PT_BINARY:PSETID_Appointment:" . PidLidAppointmentRecur;
+				$properties["appointment_timezone_data"] = "PT_BINARY:PSETID_Appointment:" . PidLidTimeZoneStruct;
+				$properties["appointment_enddate_recurring"] = "PT_SYSTIME:PSETID_Appointment:" . PidLidClipEnd;
+				$properties["location"] = "PT_STRING8:PSETID_Appointment:" . PidLidLocation;
 
 				$this->mapping[$this->storeMapping]['reminder'] = getPropIdsFromStrings($this->store, $properties);
 			}

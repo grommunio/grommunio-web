@@ -101,7 +101,7 @@ class IndexSqlite extends SQLite3 {
 		}
 		if (isset($unread) || isset($has_attachments)) {
 			if (!isset($this->hide_attachments_proptag)) {
-				$mapping = ["hide_attachments" => "PT_BOOLEAN:PSETID_Common:".PidLidSmartNoAttach];
+				$mapping = ["hide_attachments" => "PT_BOOLEAN:PSETID_Common:" . PidLidSmartNoAttach];
 				$properties = getPropIdsFromStrings($this->store, $mapping);
 				$this->hide_attachments_proptag = $properties['hide_attachments'];
 			}
@@ -324,13 +324,13 @@ class IndexSqlite extends SQLite3 {
 		$mapping = [
 			"categories" => "PT_MV_STRING8:PS_PUBLIC_STRINGS:Keywords",
 			"fileas" => "PT_STRING8:PSETID_Address:0x8005",
-			"location" => "PT_STRING8:PSETID_Appointment:".PidLidLocation,
-			"email1" => "PT_STRING8:PSETID_Address:".PidLidEmail1EmailAddress,
-			"emai1_name" => "PT_STRING8:PSETID_Address:".PidLidEmail1DisplayName,
-			"email2" => "PT_STRING8:PSETID_Address:".PidLidEmail2EmailAddress,
-			"email2_name" => "PT_STRING8:PSETID_Address:".PidLidEmail2DisplayName,
-			"email3" => "PT_STRING8:PSETID_Address:".PidLidEmail3EmailAddress,
-			"email3_name" => "PT_STRING8:PSETID_Address:".PidLidEmail3DisplayName,
+			"location" => "PT_STRING8:PSETID_Appointment:" . PidLidLocation,
+			"email1" => "PT_STRING8:PSETID_Address:" . PidLidEmail1EmailAddress,
+			"emai1_name" => "PT_STRING8:PSETID_Address:" . PidLidEmail1DisplayName,
+			"email2" => "PT_STRING8:PSETID_Address:" . PidLidEmail2EmailAddress,
+			"email2_name" => "PT_STRING8:PSETID_Address:" . PidLidEmail2DisplayName,
+			"email3" => "PT_STRING8:PSETID_Address:" . PidLidEmail3EmailAddress,
+			"email3_name" => "PT_STRING8:PSETID_Address:" . PidLidEmail3DisplayName,
 			"home_address" => "PT_STRING8:PSETID_Address:0x801a",
 			"other_address" => "PT_STRING8:PSETID_Address:0x801c",
 			"work_address" => "PT_STRING8:PSETID_Address:0x801b",

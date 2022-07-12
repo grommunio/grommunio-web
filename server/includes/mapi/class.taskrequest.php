@@ -130,7 +130,7 @@
 			$properties["taskhistory"] = "PT_LONG:PSETID_Task:0x811a";
 			$properties["taskmode"] = "PT_LONG:PSETID_Common:0x8518";
 			$properties["task_goid"] = "PT_BINARY:PSETID_Common:0x8519";
-			$properties["complete"] = "PT_BOOLEAN:PSETID_Common:".PidLidTaskComplete;
+			$properties["complete"] = "PT_BOOLEAN:PSETID_Common:" . PidLidTaskComplete;
 			$properties["task_assigned_time"] = "PT_SYSTIME:PSETID_Task:0x8115";
 			$properties["taskfcreator"] = "PT_BOOLEAN:PSETID_Task:0x0x811e";
 			$properties["tasklastuser"] = "PT_STRING8:PSETID_Task:0x8122";
@@ -139,13 +139,13 @@
 			$properties["task_acceptance_state"] = "PT_LONG:PSETID_Task:0x812a";
 			$properties["ownership"] = "PT_LONG:PSETID_Task:0x8129";
 
-			$properties["complete"] = "PT_BOOLEAN:PSETID_Task:".PidLidTaskComplete;
-			$properties["datecompleted"] = "PT_SYSTIME:PSETID_Task:".PidLidTaskDateCompleted;
+			$properties["complete"] = "PT_BOOLEAN:PSETID_Task:" . PidLidTaskComplete;
+			$properties["datecompleted"] = "PT_SYSTIME:PSETID_Task:" . PidLidTaskDateCompleted;
 			$properties["recurring"] = "PT_BOOLEAN:PSETID_Task:0x8126";
-			$properties["startdate"] = "PT_SYSTIME:PSETID_Task:".PidLidTaskStartDate;
-			$properties["duedate"] = "PT_SYSTIME:PSETID_Task:".PidLidTaskDueDate;
-			$properties["status"] = "PT_LONG:PSETID_Task:".PidLidTaskStatus;
-			$properties["percent_complete"] = "PT_DOUBLE:PSETID_Task:".PidLidPercentComplete;
+			$properties["startdate"] = "PT_SYSTIME:PSETID_Task:" . PidLidTaskStartDate;
+			$properties["duedate"] = "PT_SYSTIME:PSETID_Task:" . PidLidTaskDueDate;
+			$properties["status"] = "PT_LONG:PSETID_Task:" . PidLidTaskStatus;
+			$properties["percent_complete"] = "PT_DOUBLE:PSETID_Task:" . PidLidPercentComplete;
 			$properties["totalwork"] = "PT_LONG:PSETID_Task:0x8111";
 			$properties["actualwork"] = "PT_LONG:PSETID_Task:0x8110";
 			$properties["categories"] = "PT_MV_STRING8:PS_PUBLIC_STRINGS:Keywords";
@@ -1117,12 +1117,12 @@
 				PR_SENT_REPRESENTING_EMAIL_ADDRESS,
 				PR_SENT_REPRESENTING_ENTRYID,
 				PR_SENT_REPRESENTING_ADDRTYPE,
-				PR_SENT_REPRESENTING_SEARCH_KEY
+				PR_SENT_REPRESENTING_SEARCH_KEY,
 			]);
 			$associatedTaskProps = mapi_getprops($task, [
 				$this->props['taskupdates'],
 				$this->props['tasksoc'],
-				$this->props['taskmultrecips']
+				$this->props['taskmultrecips'],
 			]);
 
 			// Build assignor info
@@ -1244,7 +1244,7 @@
 				PR_SENT_REPRESENTING_EMAIL_ADDRESS,
 				PR_SENT_REPRESENTING_ADDRTYPE,
 				PR_SENT_REPRESENTING_ENTRYID,
-				PR_SUBJECT
+				PR_SUBJECT,
 			]);
 
 			$recip = [
@@ -1320,13 +1320,13 @@
 			$subProperties = [];
 			$subProperties["subject"] = PR_SUBJECT;
 			$subProperties["convtopic"] = PR_CONVERSATION_TOPIC;
-			$subProperties["complete"] = "PT_BOOLEAN:PSETID_Task:".PidLidTaskComplete;
-			$subProperties["datecompleted"] = "PT_SYSTIME:PSETID_Task:".PidLidTaskDateCompleted;
+			$subProperties["complete"] = "PT_BOOLEAN:PSETID_Task:" . PidLidTaskComplete;
+			$subProperties["datecompleted"] = "PT_SYSTIME:PSETID_Task:" . PidLidTaskDateCompleted;
 			$subProperties["recurring"] = "PT_BOOLEAN:PSETID_Task:0x8126";
-			$subProperties["startdate"] = "PT_SYSTIME:PSETID_Task:".PidLidTaskStartDate;
-			$subProperties["duedate"] = "PT_SYSTIME:PSETID_Task:".PidLidTaskDueDate;
-			$subProperties["status"] = "PT_LONG:PSETID_Task:".PidLidTaskStatus;
-			$subProperties["percent_complete"] = "PT_DOUBLE:PSETID_Task:".PidLidPercentComplete;
+			$subProperties["startdate"] = "PT_SYSTIME:PSETID_Task:" . PidLidTaskStartDate;
+			$subProperties["duedate"] = "PT_SYSTIME:PSETID_Task:" . PidLidTaskDueDate;
+			$subProperties["status"] = "PT_LONG:PSETID_Task:" . PidLidTaskStatus;
+			$subProperties["percent_complete"] = "PT_DOUBLE:PSETID_Task:" . PidLidPercentComplete;
 			$subProperties["totalwork"] = "PT_LONG:PSETID_Task:0x8111";
 			$subProperties["actualwork"] = "PT_LONG:PSETID_Task:0x8110";
 			$subProperties["categories"] = "PT_MV_STRING8:PS_PUBLIC_STRINGS:Keywords";

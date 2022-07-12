@@ -27,26 +27,26 @@
 			$properties["importance"] = PR_IMPORTANCE;
 			$properties["sensitivity"] = PR_SENSITIVITY;
 			$properties["last_modification_time"] = PR_LAST_MODIFICATION_TIME;
-			$properties["status"] = "PT_LONG:PSETID_Task:".PidLidTaskStatus;
-			$properties["percent_complete"] = "PT_DOUBLE:PSETID_Task:".PidLidPercentComplete;
-			$properties["startdate"] = "PT_SYSTIME:PSETID_Task:".PidLidTaskStartDate;
-			$properties["duedate"] = "PT_SYSTIME:PSETID_Task:".PidLidTaskDueDate;
+			$properties["status"] = "PT_LONG:PSETID_Task:" . PidLidTaskStatus;
+			$properties["percent_complete"] = "PT_DOUBLE:PSETID_Task:" . PidLidPercentComplete;
+			$properties["startdate"] = "PT_SYSTIME:PSETID_Task:" . PidLidTaskStartDate;
+			$properties["duedate"] = "PT_SYSTIME:PSETID_Task:" . PidLidTaskDueDate;
 			$properties["reset_reminder"] = "PT_BOOLEAN:PSETID_Task:0x8107";
 			$properties["dead_occurrence"] = "PT_BOOLEAN:PSETID_Task:0x8109";
-			$properties["datecompleted"] = "PT_SYSTIME:PSETID_Task:".PidLidTaskDateCompleted;
+			$properties["datecompleted"] = "PT_SYSTIME:PSETID_Task:" . PidLidTaskDateCompleted;
 			$properties["recurring_data"] = "PT_BINARY:PSETID_Task:0x8116";
 			$properties["actualwork"] = "PT_LONG:PSETID_Task:0x8110";
 			$properties["totalwork"] = "PT_LONG:PSETID_Task:0x8111";
-			$properties["complete"] = "PT_BOOLEAN:PSETID_Task:".PidLidTaskComplete;
+			$properties["complete"] = "PT_BOOLEAN:PSETID_Task:" . PidLidTaskComplete;
 			$properties["task_f_creator"] = "PT_BOOLEAN:PSETID_Task:0x811e";
 			$properties["owner"] = "PT_STRING8:PSETID_Task:0x811f";
 			$properties["recurring"] = "PT_BOOLEAN:PSETID_Task:0x8126";
 
-			$properties["reminder_minutes"] = "PT_LONG:PSETID_Common:".PidLidReminderDelta;
-			$properties["reminder_time"] = "PT_SYSTIME:PSETID_Common:".PidLidReminderTime;
-			$properties["reminder"] = "PT_BOOLEAN:PSETID_Common:".PidLidReminderSet;
+			$properties["reminder_minutes"] = "PT_LONG:PSETID_Common:" . PidLidReminderDelta;
+			$properties["reminder_time"] = "PT_SYSTIME:PSETID_Common:" . PidLidReminderTime;
+			$properties["reminder"] = "PT_BOOLEAN:PSETID_Common:" . PidLidReminderSet;
 
-			$properties["private"] = "PT_BOOLEAN:PSETID_Common:".PidLidPrivate;
+			$properties["private"] = "PT_BOOLEAN:PSETID_Common:" . PidLidPrivate;
 			$properties["contacts"] = "PT_MV_STRING8:PSETID_Common:0x853a";
 			$properties["contacts_string"] = "PT_STRING8:PSETID_Common:0x8586";
 			$properties["categories"] = "PT_MV_STRING8:PS_PUBLIC_STRINGS:Keywords";
@@ -54,7 +54,7 @@
 			$properties["commonstart"] = "PT_SYSTIME:PSETID_Common:0x8516";
 			$properties["commonend"] = "PT_SYSTIME:PSETID_Common:0x8517";
 			$properties["commonassign"] = "PT_LONG:PSETID_Common:0x8518";
-			$properties["flagdueby"] = "PT_SYSTIME:PSETID_Common:".PidLidReminderSignalTime;
+			$properties["flagdueby"] = "PT_SYSTIME:PSETID_Common:" . PidLidReminderSignalTime;
 			$properties["side_effects"] = "PT_LONG:PSETID_Common:0x8510";
 
 			$this->proptags = getPropIdsFromStrings($store, $properties);

@@ -400,12 +400,12 @@ class UploadAttachment {
 		$properties["address_book_long"] = "PT_LONG:PSETID_Address:0x8029";
 		$properties["business_address"] = "PT_STRING8:PSETID_Address:0x801b";
 		$properties["email_address_entryid_1"] = "PT_BINARY:PSETID_Address:0x8085";
-		$properties["email_address_display_name_1"] = "PT_STRING8:PSETID_Address:".PidLidEmail1DisplayName;
-		$properties["business_address_street"] = "PT_STRING8:PSETID_Address:".PidLidWorkAddressStreet;
-		$properties["business_address_city"] = "PT_STRING8:PSETID_Address:".PidLidWorkAddressCity;
-		$properties["business_address_state"] = "PT_STRING8:PSETID_Address:".PidLidWorkAddressState;
-		$properties["business_address_postal_code"] = "PT_STRING8:PSETID_Address:".PidLidWorkAddressPostalCode;
-		$properties["business_address_country"] = "PT_STRING8:PSETID_Address:".PidLidWorkAddressCountry;
+		$properties["email_address_display_name_1"] = "PT_STRING8:PSETID_Address:" . PidLidEmail1DisplayName;
+		$properties["business_address_street"] = "PT_STRING8:PSETID_Address:" . PidLidWorkAddressStreet;
+		$properties["business_address_city"] = "PT_STRING8:PSETID_Address:" . PidLidWorkAddressCity;
+		$properties["business_address_state"] = "PT_STRING8:PSETID_Address:" . PidLidWorkAddressState;
+		$properties["business_address_postal_code"] = "PT_STRING8:PSETID_Address:" . PidLidWorkAddressPostalCode;
+		$properties["business_address_country"] = "PT_STRING8:PSETID_Address:" . PidLidWorkAddressCountry;
 
 		$properties = getPropIdsFromStrings($store, $properties);
 
