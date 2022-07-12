@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: grommunio Web Ukrainian (Ukraine)\n"
 "Report-Msgid-Bugs-To: dev@grommunio.com\n"
 "POT-Creation-Date: 2019-09-25 14:32+0200\n"
-"PO-Revision-Date: 2022-07-06 20:16+0000\n"
+"PO-Revision-Date: 2022-07-13 07:16+0000\n"
 "Last-Translator: Artem <artem@molotov.work>\n"
 "Language-Team: Ukrainian <https://hosted.weblate.org/projects/grommunio/"
 "grommunio-web/uk/>\n"
@@ -15,23 +15,23 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
 "%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 4.13.1-dev\n"
+"X-Generator: Weblate 4.14-dev\n"
 
 #. TRANSLATORS: This message is used as label for the column which indicates the week number of the month in date picker. and 'Wk' stands for week
 msgid "Wk"
-msgstr ""
+msgstr "Тиж"
 
 msgid "Now"
-msgstr ""
+msgstr "Зараз"
 
 msgid "Value must be between 0% to 100%"
-msgstr ""
+msgstr "Значення повинно бути від 0% до 100%"
 
 msgid "Number must be higher than zero"
-msgstr ""
+msgstr "Число повинне бути більше нуля"
 
 msgid "More options"
-msgstr ""
+msgstr "Більше"
 
 msgid "{0} byte"
 msgid_plural "{0} bytes"
@@ -112,25 +112,25 @@ msgid "Saturday"
 msgstr "Субота"
 
 msgid "Sun"
-msgstr ""
+msgstr "Нд"
 
 msgid "Mon"
-msgstr ""
+msgstr "Пн"
 
 msgid "Tue"
-msgstr ""
+msgstr "Вт"
 
 msgid "Wed"
-msgstr ""
+msgstr "Ср"
 
 msgid "Thu"
-msgstr ""
+msgstr "Чт"
 
 msgid "Fri"
-msgstr ""
+msgstr "Пт"
 
 msgid "Sat"
-msgstr ""
+msgstr "Сб"
 
 msgid "January"
 msgstr "Січень"
@@ -212,7 +212,7 @@ msgstr "Ця дата більше максимальної"
 
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "d/m/Y"
-msgstr ""
+msgstr "d/m/Y"
 
 msgid "Disabled"
 msgstr "Відключено"
@@ -227,16 +227,16 @@ msgid "Choose a month (Control+Up/Down to move years)"
 msgstr "Вибір місяця (Ctrl+Вверх/Вниз для вибору року)"
 
 msgid "Sort Ascending"
-msgstr ""
+msgstr "Впорядкувати за зростанням"
 
 msgid "Sort Descending"
-msgstr ""
+msgstr "Впорядкувати за спаданням"
 
 msgid "Columns"
-msgstr ""
+msgstr "Стовпці"
 
 msgid "Group By This Field"
-msgstr ""
+msgstr "Скупчити за цим полем"
 
 msgid "Show in Groups"
 msgstr ""
