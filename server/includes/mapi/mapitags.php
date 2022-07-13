@@ -15,12 +15,6 @@ define('PR_RULE_ATMOST_MESSAGE_SIZEUNIT', mapi_prop_tag(PT_STRING8, 0x6717));
 define('PR_RULE_EXCEPTION_ATLEAST_MESSAGE_SIZEUNIT', mapi_prop_tag(PT_STRING8, 0x6718));
 define('PR_RULE_EXCEPTION_ATMOST_MESSAGE_SIZEUNIT', mapi_prop_tag(PT_STRING8, 0x6719));
 
-/* Server version */
-define('PR_EC_SERVER_VERSION', mapi_prop_tag(PT_STRING8, 0x6716));
-
-/* storage for the user language and timezone */
-define('PR_EC_USER_LANGUAGE', mapi_prop_tag(PT_STRING8, 0x6770));
-
 /* storage for the settings for the webaccess 7.xx */
 define('PR_EC_RECIPIENT_HISTORY_JSON', mapi_prop_tag(PT_STRING8, 0x6773));
 
