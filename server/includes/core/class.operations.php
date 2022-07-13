@@ -87,7 +87,7 @@
 					$storeUserName = $GLOBALS["mapisession"]->getUserNameOfStore($msgstore_props[PR_ENTRYID]);
 				}
 				else {
-					$storeUserName = $msgstore_props[PR_USER_NAME];
+					$storeUserName = $msgstore_props[PR_USER_NAME] ?? $GLOBALS["mapisession"]->getUserName();
 				}
 
 				$storeData = [
