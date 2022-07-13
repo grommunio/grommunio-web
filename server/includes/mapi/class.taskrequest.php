@@ -103,7 +103,8 @@
 			PR_SEARCH_KEY,
 		];
 
-		/* Constructor
+		/**
+		 * Constructor
 		 *
 		 * Constructs a TaskRequest object for the specified message. This can be either the task request
 		 * message itself (in the inbox) or the task in the tasks folder, depending on the action to be performed.
@@ -111,9 +112,9 @@
 		 * As a general rule, the object message passed is the object 'in view' when the user performs one of the
 		 * actions in this class.
 		 *
-		 * @param $store store MAPI Store in which $message resides. This is also the store where the tasks folder is assumed to be in
-		 * @param $message message MAPI Message to which the task request refers (can be an email or a task)
-		 * @param $session session MAPI Session which is used to open tasks folders for delegated task requests or responses
+		 * @param resource $store   MAPI Store in which $message resides. This is also the store where the tasks folder is assumed to be in
+		 * @param resource $message MAPI Message to which the task request refers (can be an email or a task)
+		 * @param resource $session MAPI Session which is used to open tasks folders for delegated task requests or responses
 		 */
 		public function __construct($store, $message, $session) {
 			$this->store = $store;
@@ -121,6 +122,7 @@
 			$this->session = $session;
 			$this->taskCommentsInfo = false;
 
+			$properties = [];
 			$properties["owner"] = "PT_STRING8:PSETID_Task:0x811f";
 			$properties["updatecount"] = "PT_LONG:PSETID_Task:0x8112";
 			$properties["taskstate"] = "PT_LONG:PSETID_Task:0x8113";
@@ -162,9 +164,9 @@
 		 * Returns TRUE if the message pointed to is an incoming task request and should
 		 * therefore be replied to with doAccept or doDecline().
 		 *
-		 * @param string $messageClass message class to use for checking
+		 * @param mixed $messageClass message class to use for checking
 		 *
-		 * @return bool returns true if this is a task request else false
+		 * @return bool true if this is a task request else false
 		 */
 		public function isTaskRequest($messageClass = false) {
 			if ($messageClass === false) {
@@ -182,9 +184,9 @@
 		/**
 		 * Returns TRUE if the message pointed to is a returning task request response.
 		 *
-		 * @param string $messageClass message class to use for checking
+		 * @param mixed $messageClass message class to use for checking
 		 *
-		 * @return bool returns true if this is a task request else false
+		 * @return bool true if this is a task request else false
 		 */
 		public function isTaskRequestResponse($messageClass = false) {
 			if ($messageClass === false) {
@@ -204,7 +206,7 @@
 		 *
 		 * @param array $props The MAPI properties to check message is an incoming task request/response
 		 *
-		 * @return bool Returns true if this is an incoming task request/response. else false.
+		 * @return bool true if this is an incoming task request/response else false
 		 */
 		public function isReceivedItem($props) {
 			return isset($props[PR_MESSAGE_TO_ME]) ? $props[PR_MESSAGE_TO_ME] : false;
@@ -216,10 +218,10 @@
 		 * If the task does not exist yet, it is created, using the attachment object in the
 		 * task request item.
 		 *
-		 * @param bool $create false to find the associated task in user's task folder. true to
-		 *                     create task in user's task folder if task is not exist in task folder.
+		 * @param bool $create true - try create task in user's task folder if task does not exist
+		 *                     false - find the associated task in user's task folder
 		 *
-		 * @return false|MAPIMessage Return associated task of task request else false
+		 * @return resource|bool associated task of task request else false
 		 */
 		public function getAssociatedTask($create) {
 			$props = mapi_getprops($this->message, [PR_MESSAGE_CLASS, $this->props['task_goid']]);
@@ -512,10 +514,13 @@
 			return true;
 		}
 
-		/* Create a new message in the current user's outbox and submit it
+		/**
+		 * Creates a new message in the current user's outbox and submits it.
 		 *
 		 * Takes the task passed in the constructor as the task to be sent; recipient should
 		 * be pre-existing. The task request will be sent to all recipients.
+		 *
+		 * @param string $prefix
 		 */
 		public function sendTaskRequest($prefix) {
 			// Generate a TaskGlobalObjectId
@@ -524,13 +529,13 @@
 
 			// Set properties on Task Request
 			mapi_setprops($this->message, [
-				$this->props['task_goid'] => $taskid, /* our new task_goid */
-				$this->props['taskstate'] => tdsACC, 		/* state for our outgoing request */
-				$this->props['taskmode'] => tdmtNothing, 	/* we're not sending a change */
-				$this->props['updatecount'] => 2,			/* version 2 (no idea) */
-				$this->props['task_acceptance_state'] => olTaskDelegationUnknown, /* no reply yet */
-				$this->props['ownership'] => olDelegatedTask, /* Task has been assigned */
-				$this->props['taskhistory'] => thAssigned,	/* Task has been assigned */
+				$this->props['task_goid'] => $taskid, // our new task_goid
+				$this->props['taskstate'] => tdsACC, // state for our outgoing request
+				$this->props['taskmode'] => tdmtNothing, // we're not sending a change
+				$this->props['updatecount'] => 2, // version 2 (no idea)
+				$this->props['task_acceptance_state'] => olTaskDelegationUnknown, // no reply yet
+				$this->props['ownership'] => olDelegatedTask, // Task has been assigned
+				$this->props['taskhistory'] => thAssigned, // Task has been assigned
 				PR_CONVERSATION_TOPIC => $messageprops[PR_SUBJECT],
 				PR_ICON_INDEX => ICON_TASK_ASSIGNER,
 			]);
@@ -547,10 +552,10 @@
 
 			// Make it a task request, and put it in sent items after it is sent
 			mapi_setprops($outgoing, [
-				PR_MESSAGE_CLASS => "IPM.TaskRequest", 		/* class is task request */
-				$this->props['taskstate'] => tdsOWN, 	    /* for the recipient he is the task owner */
-				$this->props['taskmode'] => tdmtTaskReq,	/* for the recipient it's a request */
-				$this->props['updatecount'] => 1,			/* version 2 is in the attachment */
+				PR_MESSAGE_CLASS => "IPM.TaskRequest", // class is task request
+				$this->props['taskstate'] => tdsOWN, // for the recipient he is the task owner
+				$this->props['taskmode'] => tdmtTaskReq, // for the recipient it's a request
+				$this->props['updatecount'] => 1, // version 2 is in the attachment
 				PR_SUBJECT_PREFIX => $prefix,
 				PR_SUBJECT => $prefix . $messageprops[PR_SUBJECT],
 			]);
@@ -578,9 +583,10 @@
 
 		// Assignee functions (called by the assignee)
 
-		/* Update task version counter
+		/**
+		 * Updates task version counter.
 		 *
-		 * Must be called before each update to increase counter
+		 * Must be called before each update to increase counter.
 		 */
 		public function updateTaskRequest() {
 			$messageprops = mapi_getprops($this->message, [$this->props['updatecount']]);
@@ -595,10 +601,13 @@
 			mapi_setprops($this->message, $messageprops);
 		}
 
-		/* Process a task request
+		/**
+		 * Processes a task request.
 		 *
 		 * Message passed should be an IPM.TaskRequest message. The task request is then processed to create
 		 * the task in the tasks folder if needed.
+		 *
+		 * @return bool
 		 */
 		public function processTaskRequest() {
 			if (!$this->isTaskRequest()) {
@@ -652,14 +661,14 @@
 		}
 
 		/**
-		 * Accept a task request and send the response.
+		 * Accepts a task request and sends the response.
 		 *
 		 * Message passed should be an IPM.Task (eg the task from getAssociatedTask())
 		 *
 		 * Copies the task to the user's task folder, sets it to accepted, and sends the acceptation
 		 * message back to the organizer. The caller is responsible for removing the message.
 		 *
-		 * @return entryid EntryID of the accepted task
+		 * @return array|bool PR_ENTRYID, PR_STORE_ENTRYID and PR_PARENT_ENTRYID of the task
 		 */
 		public function doAccept() {
 			$prefix = _("Task Accepted:") . " ";
@@ -702,13 +711,14 @@
 			return $this->deleteReceivedTR();
 		}
 
-		/* Decline a task request and send the response.
+		/**
+		 * Declines a task request and sends the response.
 		 *
 		 * Passed message must be a task request message, ie isTaskRequest() must return TRUE.
 		 *
 		 * Sends the decline message back to the organizer. The caller is responsible for removing the message.
 		 *
-		 * @return boolean TRUE on success, FALSE on failure
+		 * @return array|bool TRUE on success, FALSE on failure
 		 */
 		public function doDecline() {
 			$prefix = _("Task Declined:") . " ";
@@ -743,7 +753,7 @@
 		}
 
 		/**
-		 * Send an update of the task if requested, and send the Status-On-Completion report if complete and requested.
+		 * Sends an update of the task if requested, and sends the Status-On-Completion report if complete and requested.
 		 *
 		 * If no updates were requested from the organizer, this function does nothing.
 		 *
@@ -776,7 +786,7 @@
 		}
 
 		/**
-		 * Get the store associated with the task.
+		 * Gets the store associated with the task.
 		 *
 		 * Normally this will just open the store that the processed message is in. However, if the message is opened
 		 * by a delegate, this function opens the store that the message was delegated from.
@@ -817,7 +827,7 @@
 		}
 
 		/**
-		 * Open the default task folder for the current user, or the specified user if passed.
+		 * Opens the default task folder for the current user, or the specified user if passed.
 		 */
 		public function getDefaultTasksFolder() {
 			$store = $this->getTaskFolderStore();
@@ -832,9 +842,9 @@
 		}
 
 		/**
-		 * Function prepare the sent representing properties from given MAPI store.
+		 * Prepares the sent representing properties from given MAPI store.
 		 *
-		 * @param $store MAPI store object
+		 * @param mixed $store MAPI store object
 		 *
 		 * @return array|bool if store is not mail box owner entryid then
 		 *                    return false else prepare the sent representing props and return it
@@ -889,9 +899,9 @@
 		}
 
 		/**
-		 * Send a response message (from assignee back to organizer).
+		 * Sends a response message (from assignee back to organizer).
 		 *
-		 * @param $type int Type of response (tdmtTaskAcc, tdmtTaskDec, tdmtTaskUpd);
+		 * @param int $type Type of response (tdmtTaskAcc, tdmtTaskDec, tdmtTaskUpd)
 		 * @param mixed $prefix
 		 *
 		 * @return bool TRUE on success
@@ -994,10 +1004,10 @@
 		}
 
 		/**
-		 * Function used to get the embedded task of task request. Which further used to
-		 * Create/Update associated task of assigner/assignee.
+		 * Gets the embedded task of task request. Further used to
+		 * create/update associated task of assigner/assignee.
 		 *
-		 * @return false|object $task if found embedded task else false
+		 * @return resource|bool embedded task if found else false
 		 */
 		public function getEmbeddedTask() {
 			$task = false;
@@ -1036,8 +1046,8 @@
 		}
 
 		/**
-		 * Function was used to set the user name who has last used this task also it was
-		 * update the  tasklastdelegate and task_assigned_time.
+		 * Sets the user name who has last used this task. Update the
+		 * tasklastdelegate and task_assigned_time.
 		 */
 		public function setLastUser() {
 			$delegatestore = $this->getDefaultStore();
@@ -1068,8 +1078,9 @@
 		}
 
 		/**
-		 * Assignee becomes the owner when a user/assignor assigns any task to someone. Also there can be more than one assignee.
-		 * This function sets assignee as owner in the assignor's copy of task.
+		 * Sets assignee as owner in the assignor's copy of task.
+		 * Assignee becomes the owner when a user/assignor assigns any task to someone.
+		 * There can be more than one assignee.
 		 */
 		public function setOwnerForAssignor() {
 			$recipTable = mapi_message_getrecipienttable($this->message);
@@ -1093,7 +1104,7 @@
 		 *
 		 * Also if assignor has request SOC then the assignor is also add as recipient type MAPI_BCC
 		 *
-		 * @param $task message MAPI message which assignee's copy of task
+		 * @param mixed $task assignee's copy of task
 		 */
 		public function setAssignorInRecipients($task) {
 			$recipTable = mapi_message_getrecipienttable($task);
@@ -1157,7 +1168,7 @@
 		/**
 		 * Deletes incoming task request from Inbox.
 		 *
-		 * @returns array returns PR_ENTRYID, PR_STORE_ENTRYID and PR_PARENT_ENTRYID of the deleted task request
+		 * @returns array|bool PR_ENTRYID, PR_STORE_ENTRYID and PR_PARENT_ENTRYID of the deleted task request
 		 */
 		public function deleteReceivedTR() {
 			$store = $this->getTaskFolderStore();
@@ -1204,8 +1215,8 @@
 		 *
 		 * If it is accept/decline response, then PR_SENT_REPRESENTATING_XXXX are taken as recipient.
 		 *
-		 *@param $outgoing MAPI_message outgoing mapi message
-		 *@param $responseType String response type
+		 * @param mixed $outgoing outgoing mapi message
+		 * @param int $responseType response type (tdmtTaskAcc, tdmtTaskDec, tdmtTaskUpd)
 		 */
 		public function setRecipientsForResponse($outgoing, $responseType) {
 			// Clear recipients from outgoing msg
@@ -1262,7 +1273,7 @@
 		/**
 		 * Deletes all recipients from given message object.
 		 *
-		 * @param $message MAPI message from which recipients are to be removed
+		 * @param mixed $message MAPI message from which recipients are to be removed
 		 */
 		public function deleteAllRecipients($message) {
 			$recipTable = mapi_message_getrecipienttable($message);
@@ -1274,7 +1285,7 @@
 		}
 
 		/**
-		 * Function used to mark the record to complete and send complete update
+		 * Marks the record to complete and send complete update
 		 * notification to assigner.
 		 *
 		 * @return bool TRUE if the update succeeded, FALSE otherwise
@@ -1297,17 +1308,17 @@
 		}
 
 		/**
-		 * Function returns extra info about task request comments along with message body
+		 * Returns extra info about task request comments along with message body
 		 * which will be included in body while sending task request/response.
 		 *
-		 * @return string info about task request comments along with message body
+		 * @return string|bool info about task request comments along with message body
 		 */
 		public function getTaskCommentsInfo() {
 			return $this->taskCommentsInfo;
 		}
 
 		/**
-		 * Function sets extra info about task request comments along with message body
+		 * Sets an extra info about task request comments along with message body
 		 * which will be included in body while sending task request/response.
 		 *
 		 * @param string $taskCommentsInfo info about task request comments along with message body

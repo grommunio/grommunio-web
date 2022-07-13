@@ -24,8 +24,9 @@ mapi_load_mapidefs(1);
  * A GUID is normally represented in the following form:
  * 	{00062008-0000-0000-C000-000000000046}
  *
- * @param string GUID
- * @param mixed $guid
+ * @param string $guid
+ *
+ * @return string|false
  */
 function makeGuid($guid) {
 	return pack("vvvv", hexdec(substr($guid, 5, 4)), hexdec(substr($guid, 1, 4)), hexdec(substr($guid, 10, 4)), hexdec(substr($guid, 15, 4))) . hex2bin(substr($guid, 20, 4)) . hex2bin(substr($guid, 25, 12));
@@ -34,9 +35,9 @@ function makeGuid($guid) {
 /**
  * Function to get a human readable string from a MAPI error code.
  *
- *@param int $errcode the MAPI error code, if not given, we use mapi_last_hresult
+ * @param mixed $errcode the MAPI error code, if not given, we use mapi_last_hresult
  *
- *@return string The defined name for the MAPI error code
+ * @return string The defined name for the MAPI error code
  */
 function get_mapi_error_name($errcode = null) {
 	if ($errcode === null) {
@@ -76,10 +77,10 @@ function get_mapi_error_name($errcode = null) {
  * or a string with format "PT_TYPE:{GUID}:StringId" or "PT_TYPE:{GUID}:0xXXXX" for named
  * properties.
  *
- * @returns array of properties
- *
  * @param mixed $store
  * @param mixed $mapping
+ *
+ * @return array
  */
 function getPropIdsFromStrings($store, $mapping) {
 	$props = [];
@@ -154,10 +155,10 @@ function getPropIdsFromStrings($store, $mapping) {
  * and returns error for that particular property, probable errors
  * that can be returned as value can be MAPI_E_NOT_FOUND, MAPI_E_NOT_ENOUGH_MEMORY.
  *
- * @param long  $property  Property to check for error
+ * @param int $property Property to check for error
  * @param array $propArray An array of properties
  *
- * @return mixed Gives back false when there is no error, if there is, gives the error
+ * @return mixed|bool Gives back false when there is no error, if there is, gives the error
  */
 function propIsError($property, $propArray) {
 	if (array_key_exists(mapi_prop_tag(PT_ERROR, mapi_prop_id($property)), $propArray)) {
@@ -165,33 +166,6 @@ function propIsError($property, $propArray) {
 	}
 
 	return false;
-}
-
-/* Macro Functions for PR_DISPLAY_TYPE_EX values */
-/**
- * check addressbook object is a remote mailuser.
- *
- * @param mixed $value
- */
-function DTE_IS_REMOTE_VALID($value) {
-	return (bool) ($value & DTE_FLAG_REMOTE_VALID);
-}
-
-/**
- * check addressbook object is able to receive permissions.
- *
- * @param mixed $value
- */
-function DTE_IS_ACL_CAPABLE($value) {
-	return (bool) ($value & DTE_FLAG_ACL_CAPABLE);
-}
-
-function DTE_REMOTE($value) {
-	return ($value & DTE_MASK_REMOTE) >> 8;
-}
-
-function DTE_LOCAL($value) {
-	return $value & DTE_MASK_LOCAL;
 }
 
 /**
@@ -202,13 +176,13 @@ function DTE_LOCAL($value) {
  * is <08:00 - 14:00>, the item [6:00 - 8:00> is NOT included, nor is the item [14:00 - 16:00>. However, the item
  * [7:00 - 9:00> is included as a whole, and is NOT capped to [8:00 - 9:00>.
  *
- * @param $store resource The store in which the calendar resides
- * @param $calendar resource The calendar to get the items from
- * @param $viewstart int Timestamp of beginning of view window
- * @param $viewend int Timestamp of end of view window
- * @param $propsrequested array Array of properties to return
- * @param $rows array Array of rowdata as if they were returned directly from mapi_table_queryrows. Each recurring item is
- *                    expanded so that it seems that there are only many single appointments in the table.
+ * @param resource $store The store in which the calendar resides
+ * @param resource $calendar The calendar to get the items from
+ * @param int $viewstart Timestamp of beginning of view window
+ * @param int $viewend Timestamp of end of view window
+ * @param array $propsrequested Array of properties to return
+ *
+ * @return array
  */
 function getCalendarItems($store, $calendar, $viewstart, $viewend, $propsrequested) {
 	$result = [];
@@ -304,12 +278,10 @@ function getCalendarItems($store, $calendar, $viewstart, $viewend, $propsrequest
 	 * Compares two entryIds. It is possible to have two different entryIds that should match as they
 	 * represent the same object (in multiserver environments).
 	 *
-	 * @param {String} entryId1 EntryID
-	 * @param {String} entryId2 EntryID
-	 * @param mixed $entryId1
-	 * @param mixed $entryId2
+	 * @param string $entryId1 EntryID
+	 * @param string $entryId2 EntryID
 	 *
-	 * @return {Boolean} Result of the comparison
+	 * @return bool Result of the comparison
 	 */
 	function compareEntryIds($entryId1, $entryId2) {
 		if (!is_string($entryId1) || !is_string($entryId2)) {
@@ -327,7 +299,7 @@ function getCalendarItems($store, $calendar, $viewstart, $viewend, $propsrequest
 	/**
 	 * Creates a goid from an ical uuid.
 	 *
-	 * @param $uid
+	 * @param string $uid
 	 *
 	 * @return string binary string representation of goid
 	 */
@@ -339,9 +311,9 @@ function getCalendarItems($store, $calendar, $viewstart, $viewend, $propsrequest
 	/**
 	 * Creates an ical uuid from a goid.
 	 *
-	 * @param $goid
+	 * @param string $goid
 	 *
-	 * @return string ical uuid
+	 * @return string|null ical uuid
 	 */
 	function getUidFromGoid($goid) {
 		// check if "vCal-Uid" is somewhere in outlookid case-insensitive
@@ -359,7 +331,7 @@ function getCalendarItems($store, $calendar, $viewstart, $viewend, $propsrequest
 	/**
 	 * Returns an error message from error code.
 	 *
-	 * @param $e error code
+	 * @param int $e error code
 	 *
 	 * @return string error message
 	 */
