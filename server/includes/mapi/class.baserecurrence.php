@@ -10,14 +10,14 @@
 	 * this class is superclass for recurrence for appointments and tasks. This class provides all
 	 * basic features of recurrence.
 	 */
-	class BaseRecurrence {
+	abstract class BaseRecurrence {
 		/**
-		 * @var object Mapi Message Store (may be null if readonly)
+		 * @var resource Mapi Message Store (may be null if readonly)
 		 */
 		public $store;
 
 		/**
-		 * @var object Mapi Message (may be null if readonly)
+		 * @var mixed Mapi Message (may be null if readonly)
 		 */
 		public $message;
 
@@ -32,12 +32,12 @@
 		public $proptags;
 
 		/**
-		 * @var recurrence data of this calendar item
+		 * @var mixed recurrence data of this calendar item
 		 */
 		public $recur;
 
 		/**
-		 * @var Timezone data of this calendar item
+		 * @var mixed Timezone data of this calendar item
 		 */
 		public $tz;
 
@@ -45,8 +45,8 @@
 		 * Constructor.
 		 *
 		 * @param resource $store      MAPI Message Store Object
-		 * @param resource $message    the MAPI (appointment) message
-		 * @param array    $properties the list of MAPI properties the message has
+		 * @param mixed $message    the MAPI (appointment) message
+		 *
 		 */
 		public function __construct($store, $message) {
 			$this->store = $store;
@@ -149,6 +149,7 @@
 				return;
 			}
 
+			$ret = [];
 			$ret["changed_occurrences"] = [];
 			$ret["deleted_occurrences"] = [];
 
@@ -597,10 +598,6 @@
 						$rdata .= pack("VVVV", (6 * 24 * 60), 1, 0, 0x3E);
 					}
 					else {
-						// Daily every N days (everyN in minutes)
-
-						$everyn = ((int) $this->recur["everyn"]) / 1440;
-
 						// Calc first occ
 						$firstocc = $this->unixDataToRecurData($this->recur["start"]) % ((int) $this->recur["everyn"]);
 
@@ -1398,7 +1395,7 @@
 		 *
 		 * @author Johnny Biemans
 		 *
-		 * @param Date $date the date which will be converted
+		 * @param int $date the date which will be converted
 		 *
 		 * @return int the converted date in minutes
 		 */
@@ -1428,9 +1425,9 @@
 		 *
 		 * @author Steve Hardy
 		 *
-		 * @param Date $time
+		 * @param int $time
 		 *
-		 * @return Date GMT Time
+		 * @return array GMT Time
 		 */
 		public function gmtime($time) {
 			$TZOffset = $this->GetTZOffset($time);
@@ -1470,7 +1467,7 @@
 		 * @param int $day
 		 * @param int $hour
 		 *
-		 * @return returns the timestamp of the given date, timezone-independent
+		 * @return int the timestamp of the given date, timezone-independent
 		 */
 		public function getDateByYearMonthWeekDayHour($year, $month, $week, $day, $hour) {
 			// get first day of month
@@ -1618,9 +1615,9 @@
 		/**
 		 * Function to get timestamp of the beginning of the day of the timestamp given.
 		 *
-		 * @param date $date
+		 * @param mixed $date
 		 *
-		 * @return date timestamp referring to same day but at 00:00:00
+		 * @return int|false timestamp referring to same day but at 00:00:00
 		 */
 		public function dayStartOf($date) {
 			$time1 = $this->gmtime($date);
@@ -1631,9 +1628,9 @@
 		/**
 		 * Function to get timestamp of the beginning of the month of the timestamp given.
 		 *
-		 * @param date $date
+		 * @param mixed $date
 		 *
-		 * @return date Timestamp referring to same month but on the first day, and at 00:00:00
+		 * @return int|false Timestamp referring to same month but on the first day, and at 00:00:00
 		 */
 		public function monthStartOf($date) {
 			$time1 = $this->gmtime($date);
@@ -1644,9 +1641,9 @@
 		/**
 		 * Function to get timestamp of the beginning of the year of the timestamp given.
 		 *
-		 * @param date $date
+		 * @param mixed $date
 		 *
-		 * @return date Timestamp referring to the same year but on Jan 01, at 00:00:00
+		 * @return int|false Timestamp referring to the same year but on Jan 01, at 00:00:00
 		 */
 		public function yearStartOf($date) {
 			$time1 = $this->gmtime($date);
@@ -1658,12 +1655,12 @@
 		 * Function which returns the items in a given interval. This included expansion of the recurrence and
 		 * processing of exceptions (modified and deleted).
 		 *
-		 * @param string $entryid       the entryid of the message
-		 * @param array  $props         the properties of the message
-		 * @param date   $start         start time of the interval (GMT)
-		 * @param date   $end           end time of the interval (GMT)
+		 * @param int   $start         start time of the interval (GMT)
+		 * @param int   $end           end time of the interval (GMT)
 		 * @param mixed  $limit
 		 * @param mixed  $remindersonly
+		 *
+		 * @return array
 		 */
 		public function getItems($start, $end, $limit = 0, $remindersonly = false) {
 			$items = [];
@@ -1808,7 +1805,7 @@
 
 								// If nday is not set to the last day in the month
 								if ($this->recur["nday"] < 5) {
-									// keep the track of no. of time correct selection pattern(like 2nd weekday, 4th fiday, etc.)is matched
+									// keep the track of no. of time correct selection pattern (like 2nd weekday, 4th friday, etc.) is matched
 									$ndaycounter = 0;
 									// Find matching weekday in this month
 									for ($day = 0, $total = $this->daysInMonth($now, 1); $day < $total; ++$day) {
@@ -1941,7 +1938,8 @@
 		 * @param int $date   specified date as timestamp from which you want to know the number
 		 *                    of days in the month
 		 * @param int $months number of months you want to know the number of days in
-		 * @returns Integer Number of days in the specified amount of months.
+		 *
+		 * @return int Number of days in the specified amount of months.
 		 */
 		public function daysInMonth($date, $months) {
 			$days = 0;
@@ -1967,4 +1965,58 @@
 		public function sortExceptionStart($a, $b) {
 			return $a["start"] == $b["start"] ? 0 : ($a["start"] > $b["start"] ? 1 : -1);
 		}
+
+		/**
+		 * Function to get all properties of a single changed exception.
+		 *
+		 * @param mixed $exception
+		 *
+		 * @return array associative array of properties for the exception, compatible with
+		 */
+		public function getExceptionProperties($exception) {
+			// Exception has same properties as main object, with some properties overridden:
+			$item = $this->messageprops;
+
+			// Special properties
+			$item["exception"] = true;
+			$item["basedate"] = $exception["basedate"]; // note that the basedate is always in local time !
+
+			// MAPI-compatible properties (you can handle an exception as a normal calendar item like this)
+			$item[$this->proptags["startdate"]] = $this->toGMT($this->tz, $exception["start"]);
+			$item[$this->proptags["duedate"]] = $this->toGMT($this->tz, $exception["end"]);
+			$item[$this->proptags["commonstart"]] = $item[$this->proptags["startdate"]];
+			$item[$this->proptags["commonend"]] = $item[$this->proptags["duedate"]];
+
+			if (isset($exception["subject"])) {
+				$item[$this->proptags["subject"]] = $exception["subject"];
+			}
+
+			if (isset($exception["label"])) {
+				$item[$this->proptags["label"]] = $exception["label"];
+			}
+
+			if (isset($exception["alldayevent"])) {
+				$item[$this->proptags["alldayevent"]] = $exception["alldayevent"];
+			}
+
+			if (isset($exception["location"])) {
+				$item[$this->proptags["location"]] = $exception["location"];
+			}
+
+			if (isset($exception["remind_before"])) {
+				$item[$this->proptags["reminder_minutes"]] = $exception["remind_before"];
+			}
+
+			if (isset($exception["reminder_set"])) {
+				$item[$this->proptags["reminder"]] = $exception["reminder_set"];
+			}
+
+			if (isset($exception["busystatus"])) {
+				$item[$this->proptags["busystatus"]] = $exception["busystatus"];
+			}
+
+			return $item;
+		}
+
+		abstract public function processOccurrenceItem(&$items, $start, $end, $basedate, $startocc, $endocc, $tz, $reminderonly);
 	}

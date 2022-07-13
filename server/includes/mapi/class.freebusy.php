@@ -20,9 +20,9 @@ class FreeBusy {
 	/**
 	 * Function will return resource of the local freebusy message of the user's store.
 	 *
-	 * @param {MAPIStore} $store (optional) user's store
+	 * @param mixed $store (optional) user's store
 	 *
-	 * @return {MAPIMessage/Boolean} local freebusy message, otherwise false if message not found
+	 * @return resource|bool local freebusy message, otherwise false if message not found
 	 */
 	public static function getLocalFreeBusyMessage($store = false) {
 		if (!$store) {
@@ -85,9 +85,9 @@ class FreeBusy {
 	/**
 	 * Function will return resource of the freebusy folder of the user's store.
 	 *
-	 * @param {MAPIStore} $store (optional) user's store
+	 * @param mixed $store (optional) user's store
 	 *
-	 * @return {MAPIFolder} freebusy folder
+	 * @return resource|bool freebusy folder
 	 */
 	public static function getLocalFreeBusyFolder($store = false) {
 		if (!$store) {
