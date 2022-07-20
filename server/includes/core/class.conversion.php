@@ -1,7 +1,7 @@
 <?php
 /**
-* Conversion utility functions for converting various data types and structures.
-*/
+ * Conversion utility functions for converting various data types and structures.
+ */
 class Conversion {
 	/**
 	 * Converts a COleDateTime binary string to an unix timestamp.
@@ -86,7 +86,7 @@ class Conversion {
 							}
 						}
 
-						$properties[($mapi_property & ~MV_INSTANCE)] = !empty($values) ? $values : [];
+						$properties[$mapi_property & ~MV_INSTANCE] = !empty($values) ? $values : [];
 						break;
 
 					case PT_MV_BINARY:
@@ -156,7 +156,7 @@ class Conversion {
 		$properties = ["props" => []];
 
 		foreach ($props as $name => $property) {
-			if (isset($message_properties[($property & ~MVI_FLAG)])) {
+			if (isset($message_properties[$property & ~MVI_FLAG])) {
 				$property = ($property & ~MVI_FLAG);
 			}
 			elseif (!isset($message_properties[$property])) {
@@ -203,10 +203,7 @@ class Conversion {
 				case PT_ACTIONS:
 					$value = Conversion::actions2json($value);
 					break;
-
-				default:
-					// One-to-one mapping for all other types
-						}
+			}
 
 			if (isset($idProps[$property])) {
 				// put identification properties to root level
@@ -284,18 +281,14 @@ class Conversion {
 	 */
 	public static function property2json($property) {
 		if (is_integer($property)) {
-			// Retrieve constants categories, mapi error names are defined
-			// in the 'user' category, since grommunio Web code defines it in mapitags.php.
-			foreach (get_defined_constants(true)['user'] as $key => $value) {
-				if ($property == $value) {
-					$prefix = substr($key, 0, 3);
-					if ($prefix == 'PR_') {
-						return $key;
-					}
+			// Retrieve constants categories, zcore provides them in 'Core'
+			foreach (get_defined_constants(true)['Core'] as $key => $value) {
+				if ($property == $value && substr($key, 0, 3) == 'PR_') {
+					return $key;
 				}
 			}
 
-			return '0x' . strtoupper(str_pad(dechex_32($property), 8, '0', STR_PAD_LEFT));
+			return sprintf("0x%08X", $property);
 		}
 
 		return $property;

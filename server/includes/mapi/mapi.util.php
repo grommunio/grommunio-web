@@ -26,7 +26,7 @@ mapi_load_mapidefs(1);
  *
  * @param string $guid
  *
- * @return string|false
+ * @return false|string
  */
 function makeGuid($guid) {
 	return pack("vvvv", hexdec(substr($guid, 5, 4)), hexdec(substr($guid, 1, 4)), hexdec(substr($guid, 10, 4)), hexdec(substr($guid, 15, 4))) . hex2bin(substr($guid, 20, 4)) . hex2bin(substr($guid, 25, 12));
@@ -46,7 +46,7 @@ function get_mapi_error_name($errcode = null) {
 
 	if ($errcode !== 0) {
 		// Retrieve constants categories, MAPI error names are defined in gromox.
-		foreach (get_defined_constants(true)['user'] as $key => $value) {
+		foreach (get_defined_constants(true)['Core'] as $key => $value) {
 			/*
 			 * If PHP encounters a number beyond the bounds of the integer type,
 			 * it will be interpreted as a float instead, so when comparing these error codes
@@ -155,10 +155,10 @@ function getPropIdsFromStrings($store, $mapping) {
  * and returns error for that particular property, probable errors
  * that can be returned as value can be MAPI_E_NOT_FOUND, MAPI_E_NOT_ENOUGH_MEMORY.
  *
- * @param int $property Property to check for error
+ * @param int   $property  Property to check for error
  * @param array $propArray An array of properties
  *
- * @return mixed|bool Gives back false when there is no error, if there is, gives the error
+ * @return bool|mixed Gives back false when there is no error, if there is, gives the error
  */
 function propIsError($property, $propArray) {
 	if (array_key_exists(mapi_prop_tag(PT_ERROR, mapi_prop_id($property)), $propArray)) {
@@ -176,11 +176,11 @@ function propIsError($property, $propArray) {
  * is <08:00 - 14:00>, the item [6:00 - 8:00> is NOT included, nor is the item [14:00 - 16:00>. However, the item
  * [7:00 - 9:00> is included as a whole, and is NOT capped to [8:00 - 9:00>.
  *
- * @param resource $store The store in which the calendar resides
- * @param resource $calendar The calendar to get the items from
- * @param int $viewstart Timestamp of beginning of view window
- * @param int $viewend Timestamp of end of view window
- * @param array $propsrequested Array of properties to return
+ * @param resource $store          The store in which the calendar resides
+ * @param resource $calendar       The calendar to get the items from
+ * @param int      $viewstart      Timestamp of beginning of view window
+ * @param int      $viewend        Timestamp of end of view window
+ * @param array    $propsrequested Array of properties to return
  *
  * @return array
  */
@@ -274,221 +274,221 @@ function getCalendarItems($store, $calendar, $viewstart, $viewend, $propsrequest
 	return $result;
 }
 
-	/**
-	 * Compares two entryIds. It is possible to have two different entryIds that should match as they
-	 * represent the same object (in multiserver environments).
-	 *
-	 * @param string $entryId1 EntryID
-	 * @param string $entryId2 EntryID
-	 *
-	 * @return bool Result of the comparison
-	 */
-	function compareEntryIds($entryId1, $entryId2) {
-		if (!is_string($entryId1) || !is_string($entryId2)) {
-			return false;
-		}
-
-		if ($entryId1 === $entryId2) {
-			// if normal comparison succeeds then we can directly say that entryids are same
-			return true;
-		}
-
+/**
+ * Compares two entryIds. It is possible to have two different entryIds that should match as they
+ * represent the same object (in multiserver environments).
+ *
+ * @param string $entryId1 EntryID
+ * @param string $entryId2 EntryID
+ *
+ * @return bool Result of the comparison
+ */
+function compareEntryIds($entryId1, $entryId2) {
+	if (!is_string($entryId1) || !is_string($entryId2)) {
 		return false;
 	}
 
-	/**
-	 * Creates a goid from an ical uuid.
-	 *
-	 * @param string $uid
-	 *
-	 * @return string binary string representation of goid
-	 */
-	function getGoidFromUid($uid) {
-		return hex2bin("040000008200E00074C5B7101A82E0080000000000000000000000000000000000000000" .
-					bin2hex(pack("V", 12 + strlen($uid)) . "vCal-Uid" . pack("V", 1) . $uid));
+	if ($entryId1 === $entryId2) {
+		// if normal comparison succeeds then we can directly say that entryids are same
+		return true;
 	}
 
-	/**
-	 * Creates an ical uuid from a goid.
-	 *
-	 * @param string $goid
-	 *
-	 * @return string|null ical uuid
-	 */
-	function getUidFromGoid($goid) {
-		// check if "vCal-Uid" is somewhere in outlookid case-insensitive
-		$uid = stristr($goid, "vCal-Uid");
-		if ($uid !== false) {
-			// get the length of the ical id - go back 4 position from where "vCal-Uid" was found
-			$begin = unpack("V", substr($goid, strlen($uid) * (-1) - 4, 4));
-			// remove "vCal-Uid" and packed "1" and use the ical id length
-			return substr($uid, 12, ($begin[1] - 12));
-		}
+	return false;
+}
 
-		return null;
+/**
+ * Creates a goid from an ical uuid.
+ *
+ * @param string $uid
+ *
+ * @return string binary string representation of goid
+ */
+function getGoidFromUid($uid) {
+	return hex2bin("040000008200E00074C5B7101A82E0080000000000000000000000000000000000000000" .
+				bin2hex(pack("V", 12 + strlen($uid)) . "vCal-Uid" . pack("V", 1) . $uid));
+}
+
+/**
+ * Creates an ical uuid from a goid.
+ *
+ * @param string $goid
+ *
+ * @return null|string ical uuid
+ */
+function getUidFromGoid($goid) {
+	// check if "vCal-Uid" is somewhere in outlookid case-insensitive
+	$uid = stristr($goid, "vCal-Uid");
+	if ($uid !== false) {
+		// get the length of the ical id - go back 4 position from where "vCal-Uid" was found
+		$begin = unpack("V", substr($goid, strlen($uid) * (-1) - 4, 4));
+		// remove "vCal-Uid" and packed "1" and use the ical id length
+		return substr($uid, 12, $begin[1] - 12);
 	}
 
-	/**
-	 * Returns an error message from error code.
-	 *
-	 * @param int $e error code
-	 *
-	 * @return string error message
-	 */
-	function mapi_strerror($e) {
-		switch ($e) {
-			case 0: return "success";
+	return null;
+}
 
-			case MAPI_E_CALL_FAILED: return "An error of unexpected or unknown origin occurred";
+/**
+ * Returns an error message from error code.
+ *
+ * @param int $e error code
+ *
+ * @return string error message
+ */
+function mapi_strerror($e) {
+	switch ($e) {
+		case 0: return "success";
 
-			case MAPI_E_NOT_ENOUGH_MEMORY: return "Not enough memory was available to complete the operation";
+		case MAPI_E_CALL_FAILED: return "An error of unexpected or unknown origin occurred";
 
-			case MAPI_E_INVALID_PARAMETER: return "An invalid parameter was passed to a function or remote procedure call";
+		case MAPI_E_NOT_ENOUGH_MEMORY: return "Not enough memory was available to complete the operation";
 
-			case MAPI_E_INTERFACE_NOT_SUPPORTED: return "MAPI interface not supported";
+		case MAPI_E_INVALID_PARAMETER: return "An invalid parameter was passed to a function or remote procedure call";
 
-			case MAPI_E_NO_ACCESS: return "An attempt was made to access a message store or object for which the user has insufficient permissions";
+		case MAPI_E_INTERFACE_NOT_SUPPORTED: return "MAPI interface not supported";
 
-			case MAPI_E_NO_SUPPORT: return "Function is not implemented";
+		case MAPI_E_NO_ACCESS: return "An attempt was made to access a message store or object for which the user has insufficient permissions";
 
-			case MAPI_E_BAD_CHARWIDTH: return "An incompatibility exists in the character sets supported by the caller and the implementation";
+		case MAPI_E_NO_SUPPORT: return "Function is not implemented";
 
-			case MAPI_E_STRING_TOO_LONG: return "In the context of this method call, a string exceeds the maximum permitted length";
+		case MAPI_E_BAD_CHARWIDTH: return "An incompatibility exists in the character sets supported by the caller and the implementation";
 
-			case MAPI_E_UNKNOWN_FLAGS: return "One or more values for a flags parameter were not valid";
+		case MAPI_E_STRING_TOO_LONG: return "In the context of this method call, a string exceeds the maximum permitted length";
 
-			case MAPI_E_INVALID_ENTRYID: return "invalid entryid";
+		case MAPI_E_UNKNOWN_FLAGS: return "One or more values for a flags parameter were not valid";
 
-			case MAPI_E_INVALID_OBJECT: return "A method call was made using a reference to an object that has been destroyed or is not in a viable state";
+		case MAPI_E_INVALID_ENTRYID: return "invalid entryid";
 
-			case MAPI_E_OBJECT_CHANGED: return "An attempt to commit changes failed because the object was changed separately";
+		case MAPI_E_INVALID_OBJECT: return "A method call was made using a reference to an object that has been destroyed or is not in a viable state";
 
-			case MAPI_E_OBJECT_DELETED: return "An operation failed because the object was deleted separately";
+		case MAPI_E_OBJECT_CHANGED: return "An attempt to commit changes failed because the object was changed separately";
 
-			case MAPI_E_BUSY: return "A table operation failed because a separate operation was in progress at the same time";
+		case MAPI_E_OBJECT_DELETED: return "An operation failed because the object was deleted separately";
 
-			case MAPI_E_NOT_ENOUGH_DISK: return "Not enough disk space was available to complete the operation";
+		case MAPI_E_BUSY: return "A table operation failed because a separate operation was in progress at the same time";
 
-			case MAPI_E_NOT_ENOUGH_RESOURCES: return "Not enough system resources were available to complete the operation";
+		case MAPI_E_NOT_ENOUGH_DISK: return "Not enough disk space was available to complete the operation";
 
-			case MAPI_E_NOT_FOUND: return "The requested object could not be found at the server";
+		case MAPI_E_NOT_ENOUGH_RESOURCES: return "Not enough system resources were available to complete the operation";
 
-			case MAPI_E_VERSION: return "Client and server versions are not compatible";
+		case MAPI_E_NOT_FOUND: return "The requested object could not be found at the server";
 
-			case MAPI_E_LOGON_FAILED: return "A client was unable to log on to the server";
+		case MAPI_E_VERSION: return "Client and server versions are not compatible";
 
-			case MAPI_E_SESSION_LIMIT: return "A server or service is unable to create any more sessions";
+		case MAPI_E_LOGON_FAILED: return "A client was unable to log on to the server";
 
-			case MAPI_E_USER_CANCEL: return "An operation failed because a user cancelled it";
+		case MAPI_E_SESSION_LIMIT: return "A server or service is unable to create any more sessions";
 
-			case MAPI_E_UNABLE_TO_ABORT: return "A ropAbort or ropAbortSubmit ROP request was unsuccessful";
+		case MAPI_E_USER_CANCEL: return "An operation failed because a user cancelled it";
 
-			case MAPI_E_NETWORK_ERROR: return "An operation was unsuccessful because of a problem with network operations or services";
+		case MAPI_E_UNABLE_TO_ABORT: return "A ropAbort or ropAbortSubmit ROP request was unsuccessful";
 
-			case MAPI_E_DISK_ERROR: return "There was a problem writing to or reading from disk";
+		case MAPI_E_NETWORK_ERROR: return "An operation was unsuccessful because of a problem with network operations or services";
 
-			case MAPI_E_TOO_COMPLEX: return "The operation requested is too complex for the server to handle (often w.r.t. restrictions)";
+		case MAPI_E_DISK_ERROR: return "There was a problem writing to or reading from disk";
 
-			case MAPI_E_BAD_COLUMN: return "The column requested is not allowed in this type of table";
+		case MAPI_E_TOO_COMPLEX: return "The operation requested is too complex for the server to handle (often w.r.t. restrictions)";
 
-			case MAPI_E_EXTENDED_ERROR: return "extended error";
+		case MAPI_E_BAD_COLUMN: return "The column requested is not allowed in this type of table";
 
-			case MAPI_E_COMPUTED: return "A property cannot be updated because it is read-only, computed by the server";
+		case MAPI_E_EXTENDED_ERROR: return "extended error";
 
-			case MAPI_E_CORRUPT_DATA: return "There is an internal inconsistency in a database, or in a complex property value";
+		case MAPI_E_COMPUTED: return "A property cannot be updated because it is read-only, computed by the server";
 
-			case MAPI_E_UNCONFIGURED: return "unconfigured";
+		case MAPI_E_CORRUPT_DATA: return "There is an internal inconsistency in a database, or in a complex property value";
 
-			case MAPI_E_FAILONEPROVIDER: return "failoneprovider";
+		case MAPI_E_UNCONFIGURED: return "unconfigured";
 
-			case MAPI_E_UNKNOWN_CPID: return "The server is not configured to support the code page requested by the client";
+		case MAPI_E_FAILONEPROVIDER: return "failoneprovider";
 
-			case MAPI_E_UNKNOWN_LCID: return "The server is not configured to support the locale requested by the client";
+		case MAPI_E_UNKNOWN_CPID: return "The server is not configured to support the code page requested by the client";
 
-			case MAPI_E_PASSWORD_CHANGE_REQUIRED: return "password change required";
+		case MAPI_E_UNKNOWN_LCID: return "The server is not configured to support the locale requested by the client";
 
-			case MAPI_E_PASSWORD_EXPIRED: return "password expired";
+		case MAPI_E_PASSWORD_CHANGE_REQUIRED: return "password change required";
 
-			case MAPI_E_INVALID_WORKSTATION_ACCOUNT: return "invalid workstation account";
+		case MAPI_E_PASSWORD_EXPIRED: return "password expired";
 
-			case MAPI_E_INVALID_ACCESS_TIME: return "The operation failed due to clock skew between servers";
+		case MAPI_E_INVALID_WORKSTATION_ACCOUNT: return "invalid workstation account";
 
-			case MAPI_E_ACCOUNT_DISABLED: return "account disabled";
+		case MAPI_E_INVALID_ACCESS_TIME: return "The operation failed due to clock skew between servers";
 
-			case MAPI_E_END_OF_SESSION: return "The server session has been destroyed, possibly by a server restart";
+		case MAPI_E_ACCOUNT_DISABLED: return "account disabled";
 
-			case MAPI_E_UNKNOWN_ENTRYID: return "The EntryID passed to OpenEntry was created by a different MAPI provider";
+		case MAPI_E_END_OF_SESSION: return "The server session has been destroyed, possibly by a server restart";
 
-			case MAPI_E_MISSING_REQUIRED_COLUMN: return "missing required column";
+		case MAPI_E_UNKNOWN_ENTRYID: return "The EntryID passed to OpenEntry was created by a different MAPI provider";
 
-			case MAPI_W_NO_SERVICE: return "no service";
+		case MAPI_E_MISSING_REQUIRED_COLUMN: return "missing required column";
 
-			case MAPI_E_BAD_VALUE: return "bad value";
+		case MAPI_W_NO_SERVICE: return "no service";
 
-			case MAPI_E_INVALID_TYPE: return "invalid type";
+		case MAPI_E_BAD_VALUE: return "bad value";
 
-			case MAPI_E_TYPE_NO_SUPPORT: return "type no support";
+		case MAPI_E_INVALID_TYPE: return "invalid type";
 
-			case MAPI_E_UNEXPECTED_TYPE: return "unexpected_type";
+		case MAPI_E_TYPE_NO_SUPPORT: return "type no support";
 
-			case MAPI_E_TOO_BIG: return "The table is too big for the requested operation to complete";
+		case MAPI_E_UNEXPECTED_TYPE: return "unexpected_type";
 
-			case MAPI_E_DECLINE_COPY: return "The provider implements this method by calling a support object method, and the caller has passed the MAPI_DECLINE_OK flag";
+		case MAPI_E_TOO_BIG: return "The table is too big for the requested operation to complete";
 
-			case MAPI_E_UNEXPECTED_ID: return "unexpected id";
+		case MAPI_E_DECLINE_COPY: return "The provider implements this method by calling a support object method, and the caller has passed the MAPI_DECLINE_OK flag";
 
-			case MAPI_W_ERRORS_RETURNED: return "The call succeeded, but the message store provider has error information available";
+		case MAPI_E_UNEXPECTED_ID: return "unexpected id";
 
-			case MAPI_E_UNABLE_TO_COMPLETE: return "A complex operation such as building a table row set could not be completed";
+		case MAPI_W_ERRORS_RETURNED: return "The call succeeded, but the message store provider has error information available";
 
-			case MAPI_E_TIMEOUT: return "An asynchronous operation did not succeed within the specified time-out";
+		case MAPI_E_UNABLE_TO_COMPLETE: return "A complex operation such as building a table row set could not be completed";
 
-			case MAPI_E_TABLE_EMPTY: return "A table essential to the operation is empty";
+		case MAPI_E_TIMEOUT: return "An asynchronous operation did not succeed within the specified time-out";
 
-			case MAPI_E_TABLE_TOO_BIG: return "The table is too big for the requested operation to complete";
+		case MAPI_E_TABLE_EMPTY: return "A table essential to the operation is empty";
 
-			case MAPI_E_INVALID_BOOKMARK: return "The bookmark passed to a table operation was not created on the same table";
+		case MAPI_E_TABLE_TOO_BIG: return "The table is too big for the requested operation to complete";
 
-			case MAPI_W_POSITION_CHANGED: return "position changed";
+		case MAPI_E_INVALID_BOOKMARK: return "The bookmark passed to a table operation was not created on the same table";
 
-			case MAPI_W_APPROX_COUNT: return "approx count";
+		case MAPI_W_POSITION_CHANGED: return "position changed";
 
-			case MAPI_E_WAIT: return "A wait time-out has expired";
+		case MAPI_W_APPROX_COUNT: return "approx count";
 
-			case MAPI_E_CANCEL: return "The operation had to be canceled";
+		case MAPI_E_WAIT: return "A wait time-out has expired";
 
-			case MAPI_E_NOT_ME: return "not me";
+		case MAPI_E_CANCEL: return "The operation had to be canceled";
 
-			case MAPI_W_CANCEL_MESSAGE: return "cancel message";
+		case MAPI_E_NOT_ME: return "not me";
 
-			case MAPI_E_CORRUPT_STORE: return "corrupt store";
+		case MAPI_W_CANCEL_MESSAGE: return "cancel message";
 
-			case MAPI_E_NOT_IN_QUEUE: return "not in queue";
+		case MAPI_E_CORRUPT_STORE: return "corrupt store";
 
-			case MAPI_E_NO_SUPPRESS: return "The server does not support the suppression of read receipts";
+		case MAPI_E_NOT_IN_QUEUE: return "not in queue";
 
-			case MAPI_E_COLLISION: return "A folder or item cannot be created because one with the same name or other criteria already exists";
+		case MAPI_E_NO_SUPPRESS: return "The server does not support the suppression of read receipts";
 
-			case MAPI_E_NOT_INITIALIZED: return "The subsystem is not ready";
+		case MAPI_E_COLLISION: return "A folder or item cannot be created because one with the same name or other criteria already exists";
 
-			case MAPI_E_NON_STANDARD: return "non standard";
+		case MAPI_E_NOT_INITIALIZED: return "The subsystem is not ready";
 
-			case MAPI_E_NO_RECIPIENTS: return "A message cannot be sent because it has no recipients";
+		case MAPI_E_NON_STANDARD: return "non standard";
 
-			case MAPI_E_SUBMITTED: return "A message cannot be opened for modification because it has already been sent";
+		case MAPI_E_NO_RECIPIENTS: return "A message cannot be sent because it has no recipients";
 
-			case MAPI_E_HAS_FOLDERS: return "A folder cannot be deleted because it still contains subfolders";
+		case MAPI_E_SUBMITTED: return "A message cannot be opened for modification because it has already been sent";
 
-			case MAPI_E_HAS_MESSAGES: return "A folder cannot be deleted because it still contains messages";
+		case MAPI_E_HAS_FOLDERS: return "A folder cannot be deleted because it still contains subfolders";
 
-			case MAPI_E_FOLDER_CYCLE: return "A folder move or copy operation would create a cycle";
+		case MAPI_E_HAS_MESSAGES: return "A folder cannot be deleted because it still contains messages";
 
-			case MAPI_W_PARTIAL_COMPLETION: return "The call succeeded, but not all entries were successfully operated on";
+		case MAPI_E_FOLDER_CYCLE: return "A folder move or copy operation would create a cycle";
 
-			case MAPI_E_AMBIGUOUS_RECIP: return "An unresolved recipient matches more than one directory entry";
+		case MAPI_W_PARTIAL_COMPLETION: return "The call succeeded, but not all entries were successfully operated on";
 
-			case MAPI_E_STORE_FULL: return "Store full";
+		case MAPI_E_AMBIGUOUS_RECIP: return "An unresolved recipient matches more than one directory entry";
 
-			default: return sprintf("%xh", $e);
-		}
+		case MAPI_E_STORE_FULL: return "Store full";
+
+		default: return sprintf("%xh", $e);
 	}
+}
