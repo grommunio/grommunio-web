@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: grommunio Web Ukrainian (Ukraine)\n"
 "Report-Msgid-Bugs-To: dev@grommunio.com\n"
 "POT-Creation-Date: 2019-09-25 14:32+0200\n"
-"PO-Revision-Date: 2022-07-18 08:20+0000\n"
+"PO-Revision-Date: 2022-07-22 17:03+0000\n"
 "Last-Translator: Artem <artem@molotov.work>\n"
 "Language-Team: Ukrainian <https://hosted.weblate.org/projects/grommunio/"
 "grommunio-web/uk/>\n"
@@ -312,92 +312,92 @@ msgid "Value"
 msgstr "Значення"
 
 msgid "true"
-msgstr ""
+msgstr "істина"
 
 msgid "false"
-msgstr ""
+msgstr "хиба"
 
 msgid ""
 "This field should be an e-mail address in the format \"user@example.com\""
-msgstr ""
+msgstr "В цьому полі повинна бути адреса ел. пошти у форматі «user@example.com»"
 
 msgid "This field should be a URL in the format \"{0}\""
-msgstr ""
+msgstr "У цьому полі повинна бути URL-адреса у форматі «{0}»"
 
 msgid "This field should only contain letters and _"
-msgstr ""
+msgstr "У цьому полі повинні містити ся лише літери і «_»"
 
 msgid "This field should only contain letters, numbers and _"
-msgstr ""
+msgstr "У цьому полі повинні містити ся лише літери, числини і «_»"
 
 msgid "Email Addresses"
-msgstr ""
+msgstr "Адреси ел. пошти"
 
 msgid "Email addresses"
-msgstr ""
+msgstr "Адреси ел. пошти"
 
 msgid "Group details"
-msgstr ""
+msgstr "Відомости про спільноту"
 
 msgid "General"
-msgstr ""
+msgstr "Основне"
 
 msgid "Display Name"
-msgstr ""
+msgstr "Відображуване ім'я"
 
 msgid "Alias"
-msgstr ""
+msgstr "Прізвисько"
 
 msgid "Owner"
 msgstr "Власник"
 
 msgid "Notes"
-msgstr ""
+msgstr "Примітки"
 
 msgid "Members"
-msgstr ""
+msgstr "Учасники"
 
 msgid "Email Address"
-msgstr ""
+msgstr "Адреса ел. пошти"
 
 msgid "Account"
-msgstr ""
+msgstr "Облік. запис"
 
 msgid "Member Of"
-msgstr ""
+msgstr "Спільноти"
 
 msgid "Group Membership"
-msgstr ""
+msgstr "Членство в спільнотах"
 
 msgid "Address Book"
-msgstr ""
+msgstr "Адресна книга"
 
 msgid "User details"
-msgstr ""
+msgstr "Відомости про користувача"
 
 msgid "First name"
-msgstr ""
+msgstr "Ім'я"
 
 msgid "Last name"
-msgstr ""
+msgstr "Прізвище"
 
 msgid "Initials"
-msgstr ""
+msgstr "Перші букви"
 
 msgid "Display"
-msgstr ""
+msgstr "Показувати як"
 
 msgid "Addresses"
-msgstr ""
+msgstr "Адреси"
 
 msgid "Address"
-msgstr ""
+msgstr "Адреса"
 
 msgid "City"
-msgstr ""
+msgstr "Місто"
 
 msgid "State"
-msgstr ""
+msgstr "Область (повк)"
 
 msgid "Zip Code"
 msgstr ""
