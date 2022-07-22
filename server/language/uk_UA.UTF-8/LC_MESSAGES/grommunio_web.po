@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: grommunio Web Ukrainian (Ukraine)\n"
 "Report-Msgid-Bugs-To: dev@grommunio.com\n"
 "POT-Creation-Date: 2019-09-25 14:32+0200\n"
-"PO-Revision-Date: 2022-07-22 17:03+0000\n"
+"PO-Revision-Date: 2022-07-24 14:23+0000\n"
 "Last-Translator: Artem <artem@molotov.work>\n"
 "Language-Team: Ukrainian <https://hosted.weblate.org/projects/grommunio/"
 "grommunio-web/uk/>\n"
@@ -41,27 +41,27 @@ msgstr[2] "{0} байтів"
 
 msgid "{0} KB"
 msgid_plural "{0} KB"
-msgstr[0] "{0} Кб"
-msgstr[1] "{0} Кб"
-msgstr[2] "{0} Кб"
+msgstr[0] "{0} КБ"
+msgstr[1] "{0} КБ"
+msgstr[2] "{0} КБ"
 
 msgid "{0} MB"
 msgid_plural "{0} MB"
-msgstr[0] "{0} Mб"
-msgstr[1] "{0} Mб"
-msgstr[2] "{0} Mб"
+msgstr[0] "{0} MБ"
+msgstr[1] "{0} MБ"
+msgstr[2] "{0} MБ"
 
 msgid "{0} GB"
 msgid_plural "{0} GB"
-msgstr[0] "{0} Гб"
-msgstr[1] "{0} Гб"
-msgstr[2] "{0} Гб"
+msgstr[0] "{0} ГБ"
+msgstr[1] "{0} ГБ"
+msgstr[2] "{0} ГБ"
 
 msgid "{0} TB"
 msgid_plural "{0} TB"
-msgstr[0] "{0} Tб"
-msgstr[1] "{0} Tб"
-msgstr[2] "{0} Tб"
+msgstr[0] "{0} TБ"
+msgstr[1] "{0} TБ"
+msgstr[2] "{0} TБ"
 
 msgid "{0} minute"
 msgid_plural "{0} minutes"
@@ -242,37 +242,37 @@ msgid "Show in Groups"
 msgstr ""
 
 msgid "(None)"
-msgstr ""
+msgstr "(Немає)"
 
 msgid "Ok"
-msgstr ""
+msgstr "Добре"
 
 msgid "Yes"
-msgstr ""
+msgstr "Так"
 
 msgid "No"
-msgstr ""
+msgstr "Ні"
 
 msgid "Loading"
-msgstr ""
+msgstr "Завантаження"
 
 msgid "The value in this field is invalid"
-msgstr ""
+msgstr "Значення в полі є неприйнятним"
 
 msgid "The minimum length for this field is {0}"
-msgstr ""
+msgstr "Мінімальна довжина поля становить {0}"
 
 msgid "The maximum length for this field is {0}"
-msgstr ""
+msgstr "Максимальна довжина поля становить {0}"
 
 msgid "This field is required"
-msgstr ""
+msgstr "Це обов'язкове поле"
 
 msgid "The minimum value for this field is {0}"
-msgstr ""
+msgstr "Мінімальне значення для поля становить {0}"
 
 msgid "The maximum value for this field is {0}"
-msgstr ""
+msgstr "Максимальне значення для поля становить {0}"
 
 msgid "{0} is not a valid number"
 msgstr ""
@@ -400,279 +400,277 @@ msgid "State"
 msgstr "Область (повк)"
 
 msgid "Zip Code"
-msgstr ""
+msgstr "Індекс"
 
 msgid "Country"
-msgstr ""
+msgstr "Країна"
 
 msgid "Professional"
-msgstr ""
+msgstr "Знавець"
 
 msgid "Title"
-msgstr ""
+msgstr "Посада"
 
 msgid "Company"
-msgstr ""
+msgstr "Установа"
 
 msgid "Department"
-msgstr ""
+msgstr "Відділ"
 
 msgid "Office"
-msgstr ""
+msgstr "Робітня"
 
 msgid "Assistant"
-msgstr ""
+msgstr "Помічник"
 
 msgid "Phone"
-msgstr ""
+msgstr "Телефон"
 
 msgid "Organization"
-msgstr ""
+msgstr "Установа"
 
 msgid "Manager"
-msgstr ""
+msgstr "Керівник"
 
 msgid "Direct reports"
-msgstr ""
+msgstr "Прямі звіти"
 
 msgid "Phone numbers"
-msgstr ""
+msgstr "Номери телефонів"
 
 msgid "Business"
-msgstr ""
+msgstr "Діловий"
 
 msgid "Business2"
-msgstr ""
+msgstr "Діловий 2"
 
 msgid "Fax"
-msgstr ""
+msgstr "Факс"
 
 msgid "Home"
-msgstr ""
+msgstr "Домівка"
 
 msgid "Home2"
-msgstr ""
+msgstr "Домівка 2"
 
 msgid "Mobile"
-msgstr ""
+msgstr "Мобільний"
 
 msgid "Pager"
-msgstr ""
+msgstr "Пейджер"
 
 msgid "No user selected"
 msgstr "Користувача не вибрано"
 
 msgid "You must select one or more users."
-msgstr ""
+msgstr "Оберіть одного або декількох користувачів."
 
 msgid "You must select a user."
-msgstr ""
+msgstr "Необхідно вибрати користувача."
 
 msgid "Select"
-msgstr ""
+msgstr "Обрати"
 
 msgid "Show Details"
-msgstr ""
+msgstr "Показати подробиці"
 
 msgid "Copy contact"
-msgstr ""
+msgstr "Копіювати контакт"
 
 msgid "Copy contacts"
-msgstr ""
+msgstr "Копіювати контакти"
 
 msgid ""
 "Showing only the first {0} names. Use search to find more specific results."
 msgstr ""
+"Показано лише перші {0} імен. Використайте пошук для більш точних "
+"результатів."
 
 msgid "Use the search bar to get results"
-msgstr ""
+msgstr "Використовуйте панель пошуку, щоб отримати результати"
 
 msgid "There are no items to show in this list"
-msgstr ""
+msgstr "Немає складників для показу"
 
 msgid "Show Names from the"
-msgstr ""
+msgstr "Показати імена з"
 
 msgid "Search..."
-msgstr ""
+msgstr "Пошук…"
 
 msgid "Sort by: Icon"
-msgstr ""
+msgstr "Сортувати за: Значком"
 
 msgid "Sort by: Name"
-msgstr ""
+msgstr "Сортувати за: Ім'ям"
 
 msgid "Sort by: Display Name"
-msgstr ""
+msgstr "Сортувати за: Відобр. ім'ям"
 
 msgid "File as"
-msgstr ""
+msgstr "Показувати як"
 
 msgid "Sort by: File As"
-msgstr ""
+msgstr "Сортувати за: Типом файлу"
 
 # 80%
-#, fuzzy
 msgid "First Name"
-msgstr "Перша сторінка"
+msgstr "Ім'я"
 
 msgid "Sort by: First Name"
-msgstr ""
+msgstr "Сортувати за: Ім'ям"
 
 # 77%
-#, fuzzy
 msgid "Last Name"
-msgstr "Остання сторінка"
+msgstr "Прізвище"
 
 # 77%
-#, fuzzy
 msgid "Sort by: Last Name"
-msgstr "Остання сторінка"
+msgstr "Сортувати за: Прізвищем"
 
 msgid "Sort by: Email Address"
-msgstr ""
+msgstr "Сортувати за: Ел. адресою"
 
 msgid "Job Title"
-msgstr ""
+msgstr "Назва посади"
 
 msgid "Sort by: Job Title"
-msgstr ""
+msgstr "Сортувати за: Назвою посади"
 
 msgid "Company Name"
-msgstr ""
+msgstr "Назва установи"
 
 msgid "Sort by: Company Name"
-msgstr ""
+msgstr "Сортувати за: Назвою установи"
 
 msgid "Sort by: Department"
-msgstr ""
+msgstr "Сортувати за: Відділом"
 
 msgid "Office Phone"
-msgstr ""
+msgstr "Службовий телефон"
 
 msgid "Sort by: Office Phone"
-msgstr ""
+msgstr "Сортувати за: Службовим телефоном"
 
 msgid "Sort by: Mobile"
-msgstr ""
+msgstr "Сортувати за: Мобільним"
 
 msgid "Home Phone"
-msgstr ""
+msgstr "Домашній телефон"
 
 msgid "Sort by: Home Phone"
-msgstr ""
+msgstr "Сортувати за: Домашнім телефоном"
 
 msgid "Sort by: Pager"
-msgstr ""
+msgstr "Сортувати за: Пейджером"
 
 msgid "Location"
-msgstr ""
+msgstr "Місцина"
 
 msgid "Sort by: Location"
-msgstr ""
+msgstr "Сортувати за: Місциною"
 
 msgid "Sort by: Fax"
-msgstr ""
+msgstr "Сортувати за: Факсом"
 
 msgid "Print single item"
-msgstr ""
+msgstr "Друкувати один складник"
 
 msgid "Print selected item"
-msgstr ""
+msgstr "Друкувати вибраний складник"
 
 msgid "Print"
-msgstr ""
+msgstr "Друкувати"
 
 msgid "No item selected"
-msgstr ""
+msgstr "Складник не вибрано"
 
 msgid "No preview"
-msgstr ""
+msgstr "Без доперегляду"
 
 msgid "Right preview"
-msgstr ""
+msgstr "Доперегляд справа"
 
 msgid "Bottom preview"
-msgstr ""
+msgstr "Доперегляд знизу"
 
 msgid "Any date"
-msgstr ""
+msgstr "Будь-яка дата"
 
 msgid "Past week"
-msgstr ""
+msgstr "Минулий тиждень"
 
 msgid "Past 2 weeks"
-msgstr ""
+msgstr "Останні 2 тижні"
 
 msgid "Past month"
-msgstr ""
+msgstr "Минулий місяць"
 
 msgid "Past 6 month"
-msgstr ""
+msgstr "Останні 6 місяців"
 
 msgid "Past year"
-msgstr ""
+msgstr "Минулий рік"
 
 msgid "Custom date"
-msgstr ""
+msgstr "Власна дата"
 
 msgid "Add to favorites"
-msgstr ""
+msgstr "Додати до обраного"
 
 msgid "Add"
-msgstr ""
+msgstr "Додати"
 
-#, fuzzy
 msgid "Empty folder name"
-msgstr "Не вдається очистити теку."
+msgstr "Порожня назва теки"
 
 msgid "You must specify a name."
-msgstr ""
+msgstr "Необхідно вказати ім'я."
 
 msgid "Add a folder to favorites based on your search query"
 msgstr ""
 
 msgid "Folder name"
-msgstr ""
+msgstr "Назва теки"
 
 msgid "Select Category"
-msgstr ""
+msgstr "Обрати категорію"
 
 msgid "Apply"
-msgstr ""
+msgstr "Застосувати"
 
 msgid "All folders are selected"
 msgstr "Вибрано всі теки"
 
 msgid "Reply"
-msgstr ""
+msgstr "Відповісти"
 
 msgid "Reply All"
-msgstr ""
+msgstr "Відповісти всім"
 
 msgid "Forward"
-msgstr ""
+msgstr "Переслати"
 
 msgid "Edit as New"
-msgstr ""
+msgstr "Змінити як новий"
 
 msgid "Search tools"
-msgstr ""
+msgstr "Інструменти пошуку"
 
 msgid "Folders"
-msgstr ""
+msgstr "Теки"
 
 msgid "Include subfolders"
-msgstr ""
+msgstr "Долучити підтеки"
 
 msgid "Show.."
-msgstr ""
+msgstr "Показати.."
 
 msgid "Mails"
-msgstr ""
+msgstr "Поштові скрині"
 
 msgid "Appointments"
-msgstr ""
+msgstr "Зустрічі"
 
 msgid "Contacts"
 msgstr "Контакти"
@@ -681,65 +679,63 @@ msgid "Tasks"
 msgstr "Завдання"
 
 msgid "Filter.."
-msgstr ""
+msgstr "Відсіяти.."
 
 msgid "Unread"
-msgstr ""
+msgstr "Непрочитані"
 
 msgid "Attachments"
-msgstr ""
+msgstr "Вкладення"
 
 msgid "Date"
-msgstr ""
+msgstr "Дата"
 
 msgctxt "search.date"
 msgid "From"
-msgstr ""
+msgstr "Від"
 
 msgctxt "search.date"
 msgid "To"
-msgstr ""
+msgstr "До"
 
 msgid "Filter category.."
-msgstr ""
+msgstr "Відсіяти категорію.."
 
-#, fuzzy
 msgid "Search.."
-msgstr "Березень"
+msgstr "Пошук.."
 
 msgid "Sender"
-msgstr ""
+msgstr "Відправник"
 
 msgid "Recipients"
-msgstr ""
+msgstr "Одержувачі"
 
 msgid "Subject"
-msgstr ""
+msgstr "Предмет"
 
 msgid "Body & Attachments"
-msgstr ""
+msgstr "Тіло листа та вкладення"
 
 msgid "Favorites"
 msgstr "Улюблене"
 
 msgid "Add a folder to favorites based on this search query"
-msgstr ""
+msgstr "Додати теку до обраного на основі цього пошукового запиту"
 
 msgid "Select Folder"
-msgstr ""
+msgstr "Виберіть теку"
 
 msgid "Delete search folder"
-msgstr ""
+msgstr "Видалити теку пошуку"
 
 msgid "Sort by: Date"
-msgstr ""
+msgstr "Сортувати за: Датою"
 
-#, fuzzy
 msgid "Loading Search results"
-msgstr "Не вдалося оновити результати пошуку."
+msgstr "Завантаження результатів пошуку"
 
 msgid "Sorting tip"
-msgstr ""
+msgstr "Підказки щодо сортування"
 
 msgid ""
 "You can sort by date if you narrow down your search results. Enable filters "
@@ -747,19 +743,19 @@ msgid ""
 msgstr ""
 
 msgid "Did you mean"
-msgstr ""
+msgstr "Ви мали на увазі"
 
 msgid "With"
-msgstr ""
+msgstr "З"
 
 msgid "To"
-msgstr ""
+msgstr "До"
 
 msgid "No date"
-msgstr ""
+msgstr "Без дати"
 
 msgid "Error"
-msgstr ""
+msgstr "Помилка"
 
 msgid ""
 "Could not accept proposal as this meeting is not available in calendar; It "
@@ -772,13 +768,13 @@ msgid ""
 msgstr ""
 
 msgid "Required"
-msgstr ""
+msgstr "Обов'язкове"
 
 msgid "Optional"
-msgstr ""
+msgstr "Необов'язкове"
 
 msgid "Resource"
-msgstr ""
+msgstr "Джерело"
 
 # 83%
 # 76%
@@ -788,37 +784,37 @@ msgid "Could not open store."
 msgstr "Не вдається відкрити сховище."
 
 msgid "Could not open default calendar folder."
-msgstr ""
+msgstr "Не вдалося відкрити усталену теку календаря."
 
 msgid "workday"
-msgstr ""
+msgstr "робочий день"
 
 msgid "day"
-msgstr ""
+msgstr "день"
 
 msgid "days"
-msgstr ""
+msgstr "дні"
 
 msgid "week"
-msgstr ""
+msgstr "тиждень"
 
 msgid "weeks"
-msgstr ""
+msgstr "тижні"
 
 msgid " on "
-msgstr ""
+msgstr " на "
 
 msgid "month"
-msgstr ""
+msgstr "місяць"
 
 msgid "months"
-msgstr ""
+msgstr "місяці"
 
 msgid "year"
-msgstr ""
+msgstr "рік"
 
 msgid "years"
-msgstr ""
+msgstr "роки"
 
 msgid "Occurs every {0} effective {1} from {2} to {3}."
 msgstr ""
@@ -871,143 +867,143 @@ msgid "Occurs every {0} {1} effective {2} until {3}."
 msgstr ""
 
 msgid "When"
-msgstr ""
+msgstr "Коли"
 
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "l jS F Y {0}"
-msgstr ""
+msgstr "l jS F Y {0}"
 
 msgid "Where"
-msgstr ""
+msgstr "Де"
 
 msgid "New Meeting Time Proposed"
 msgstr ""
 
 msgid "and "
-msgstr ""
+msgstr "і "
 
 msgid "Sort by: Attachment"
-msgstr ""
+msgstr "Сортувати за: Вкладенням"
 
 msgid "Sort by: Recurring"
-msgstr ""
+msgstr "Сортувати за: Повторенням"
 
 msgid "Sort by: Subject"
-msgstr ""
+msgstr "Сортувати за: Предметом"
 
 msgid "Start Date"
-msgstr ""
+msgstr "Дата початку"
 
 msgid "Sort by: Start Date"
-msgstr ""
+msgstr "Сортувати за: Датою початку"
 
 msgid "End Date"
-msgstr ""
+msgstr "Дата закінчення"
 
 msgid "Sort by: End Date"
-msgstr ""
+msgstr "Сортувати за: Датою закінчення"
 
 msgid "Organizer"
-msgstr ""
+msgstr "Призвідник"
 
 msgid "Required Attendee"
-msgstr ""
+msgstr "Обов'язковий учасник"
 
 msgid "Optional Attendee"
-msgstr ""
+msgstr "Необов'язковий учасник"
 
 msgid "Show Time As"
 msgstr ""
 
 msgid "Recurrence pattern"
-msgstr ""
+msgstr "Зразок повторення"
 
 msgid "All Day Event"
-msgstr ""
+msgstr "Подія на весь день"
 
 msgid "Add Shared Calendar"
-msgstr ""
+msgstr "Додати спільний календар"
 
 msgid "Remove From Calendar"
-msgstr ""
+msgstr "Видалити з календаря"
 
 msgid "No Response Required"
-msgstr ""
+msgstr "Відповідь не потрібна"
 
 msgid "Accept"
-msgstr ""
+msgstr "Прийняти"
 
 msgid "Accept Meeting Request"
-msgstr ""
+msgstr "Прийняти запрошення на зустріч"
 
 msgid "Tentative"
-msgstr ""
+msgstr "Попередньо"
 
 msgid "Tentatively Accept Meeting Request"
-msgstr ""
+msgstr "Попередньо прийняти запрошення на зустріч"
 
 msgid "Decline"
-msgstr ""
+msgstr "Відхилити"
 
 msgid "Decline Meeting Request"
-msgstr ""
+msgstr "Відхилити запрошення на зустріч"
 
 msgid "Propose New Time"
-msgstr ""
+msgstr "Запропонувати новий час"
 
 msgid "Propose New Time for Meeting Request"
-msgstr ""
+msgstr "Запропонувати новий час зустрічі"
 
 msgid "View All Proposals"
-msgstr ""
+msgstr "Переглянути всі пропозиції"
 
 msgid "Accept Proposal"
-msgstr ""
+msgstr "Прийняти пропозицію"
 
 msgid "Accept Proposed Time"
-msgstr ""
+msgstr "Прийняти запропонований час"
 
 msgid "View in calendar"
-msgstr ""
+msgstr "Переглянути в календарі"
 
 msgid "Day"
-msgstr ""
+msgstr "День"
 
 msgid "Workweek"
-msgstr ""
+msgstr "Робочий тиждень"
 
 msgid "Week"
-msgstr ""
+msgstr "Тиждень"
 
 msgid "Month"
-msgstr ""
+msgstr "Місяць"
 
 msgid "List"
-msgstr ""
+msgstr "Список"
 
 msgid "Appointment"
-msgstr ""
+msgstr "Зустріч"
 
 msgid "Meeting request"
-msgstr ""
+msgstr "Запрошення на зустріч"
 
 msgid "Print selected appointment"
-msgstr ""
+msgstr "Друкувати вибрану зустріч"
 
 msgid "No appointment selected"
-msgstr ""
+msgstr "Жодну зустріч не вибрано"
 
 msgid "Print overview"
-msgstr ""
+msgstr "Доперегляд друку"
 
 msgid "Create Appointment"
-msgstr ""
+msgstr "Створити зустріч"
 
 msgid "Calendar"
 msgstr "Календар"
 
 msgid "Create in other calendar"
-msgstr ""
+msgstr "Створити в іншому календарі"
 
 msgid ""
 "The selected calendar has \"read-only\" permissions. Instead you can create "
@@ -1015,67 +1011,67 @@ msgid ""
 msgstr ""
 
 msgid "What would you like?"
-msgstr ""
+msgstr "Чого б ви хотіли?"
 
 msgid "Own calendar"
-msgstr ""
+msgstr "Власний календар"
 
 msgid "F Y"
-msgstr ""
+msgstr "F Y"
 
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "l"
-msgstr ""
+msgstr "l"
 
 msgid "All text fields"
-msgstr ""
+msgstr "Усі текстові поля"
 
 msgid "Body"
-msgstr ""
+msgstr "Тіло"
 
 msgid "Subject or Sender"
-msgstr ""
+msgstr "Предмет або відправник"
 
 msgid "To or cc"
-msgstr ""
+msgstr "До або копія"
 
 msgid "Meeting"
-msgstr ""
+msgstr "Зустріч"
 
 msgctxt "calendar.dialog"
 msgid "Resources have been planned"
 msgstr ""
 
 msgid "Send update"
-msgstr ""
+msgstr "Надіслати оновлення"
 
 msgid "Do you want to send an update to all recipients?"
-msgstr ""
+msgstr "Бажаєте надіслати оновлення всім одержувачам?"
 
 msgid "Send update to attendees"
-msgstr ""
+msgstr "Надіслати оновлення учасникам"
 
 msgid ""
 "You have made changes to the list of attendees. What would you like to do?"
-msgstr ""
+msgstr "Ви внесли зміни до списку учасників. Що б ви хотіли зробити?"
 
 msgid "Send updates to only added or deleted attendees."
-msgstr ""
+msgstr "Надіслати оновлення лише доданим і видаленим учасникам."
 
 msgid "Send updates to all attendees."
-msgstr ""
+msgstr "Надіслати оновлення всім учасникам."
 
 msgid "Busy attendees"
-msgstr ""
+msgstr "Зайняті учасники"
 
 msgid "One or more attendees are busy. Are you sure to invite?"
-msgstr ""
+msgstr "Один або більше учасників зайняті. Ви впевнені, що слід запросити?"
 
 msgid "Scheduling"
-msgstr ""
+msgstr "Планування"
 
 msgid "Tracking"
-msgstr ""
+msgstr "Відстеження"
 
 msgctxt "calendar.dialog"
 msgid "Not all attendees could be resolved."
@@ -1715,9 +1711,8 @@ msgstr ""
 
 # 86%
 # 100%
-#, fuzzy
 msgid "Today {0} - {1}"
-msgstr "Стор. {A} з {0}"
+msgstr "Сьогодні {0} - {1}"
 
 msgid "Today (all day)"
 msgstr ""
@@ -1726,9 +1721,8 @@ msgstr ""
 # 100%
 #. TRANSLATORS: Display name of a folder: "FOLDERNAME - STORENAME".
 #. TRANSLATORS: Displayed on top of a tree with folders: "FOLDERNAME - USERNAME".
-#, fuzzy
 msgid "{0} - {1}"
-msgstr "Стор. {A} з {0}"
+msgstr "{0} - {1}"
 
 msgid "d/m/y {0}"
 msgstr ""
@@ -2388,9 +2382,8 @@ msgstr ""
 msgid "No Cc recipient configured"
 msgstr ""
 
-#, fuzzy
 msgid "Loading Cc recipients"
-msgstr "Не вдалося оновити результати пошуку."
+msgstr "Завантаження одержувачів копії"
 
 msgid "Reply Mail"
 msgstr ""
@@ -2567,12 +2560,11 @@ msgid "Not supported at the moment."
 msgstr ""
 
 # 88%
-#, fuzzy
 msgid "There is {0} reminder"
 msgid_plural "There are {0} reminders"
-msgstr[0] "Нагадування"
-msgstr[1] "Нагадування"
-msgstr[2] "Нагадування"
+msgstr[0] "Тут {0} нагадування"
+msgstr[1] "Тут {0} нагадування"
+msgstr[2] "Тут {0} нагадувань"
 
 msgid "Reminders"
 msgstr "Нагадування"
@@ -2881,9 +2873,8 @@ msgstr ""
 msgid "Other..."
 msgstr ""
 
-#, fuzzy
 msgid "Search in.."
-msgstr "Березень"
+msgstr "Пошук в.."
 
 msgid "Folder does not exist"
 msgstr ""
@@ -3152,27 +3143,24 @@ msgstr ""
 
 # 86%
 # 100%
-#, fuzzy
 msgid "Assigned by {0} on {1}."
-msgstr "Стор. {A} з {0}"
+msgstr "Присвоєно {0} на {1}."
 
 msgid "Waiting for response from recipient"
 msgstr ""
 
 # 86%
 # 100%
-#, fuzzy
 msgid "Accepted by {0} on {1}."
-msgstr "Стор. {A} з {0}"
+msgstr "Прийнято {0} для {1}."
 
 msgid "{0} has accepted on behalf of {1} {2}."
 msgstr ""
 
 # 86%
 # 100%
-#, fuzzy
 msgid "Declined by {0} on {1}."
-msgstr "Стор. {A} з {0}"
+msgstr "Відхилено {0} для {1}."
 
 msgid "{0} has declined on behalf of {1} {2}."
 msgstr ""
@@ -3879,9 +3867,8 @@ msgid "Not all recipients could be resolved"
 msgstr ""
 
 # 86%
-#, fuzzy
 msgid "Collapse hierarchy"
-msgstr "Не вдалося завантажити ієрархії."
+msgstr "Згорнути ієрархію"
 
 msgid "Expand hierarchy"
 msgstr ""
@@ -3897,9 +3884,8 @@ msgstr ""
 
 # 86%
 # 100%
-#, fuzzy
 msgid "Loaded {0} of {1}"
-msgstr "Стор. {A} з {0}"
+msgstr "Завантажено {0} з {1}"
 
 msgid "Saving"
 msgstr ""
@@ -3963,9 +3949,8 @@ msgid "Remove widget"
 msgstr ""
 
 # 86%
-#, fuzzy
 msgid "Collapse widget"
-msgstr "Не вдалося завантажити ієрархії."
+msgstr "Згорнути пристосунок"
 
 msgid "Expand widget"
 msgstr ""
@@ -4500,13 +4485,11 @@ msgstr ""
 msgid "Open Shared Mails"
 msgstr ""
 
-#, fuzzy
 msgid "Print single email"
-msgstr "Підкреслення виділеного тексту."
+msgstr "Друкувати одну ел. пошту"
 
-#, fuzzy
 msgid "Print selected email"
-msgstr "Підкреслення виділеного тексту."
+msgstr "Друкувати вибрану ел. пошту"
 
 msgid "Filter"
 msgstr ""
@@ -4768,9 +4751,8 @@ msgstr ""
 msgid "Quick Mail"
 msgstr ""
 
-#, fuzzy
 msgid "Print note"
-msgstr "Підкреслення виділеного тексту."
+msgstr "Друкувати примітку"
 
 msgid "Color"
 msgstr ""
@@ -4784,9 +4766,8 @@ msgstr ""
 msgid "Sticky note"
 msgstr ""
 
-#, fuzzy
 msgid "Print selected note"
-msgstr "Підкреслення виділеного тексту."
+msgstr "Друкувати вибрану примітку"
 
 msgid "No note selected"
 msgstr "Нотатку не вибрано"
@@ -5217,9 +5198,8 @@ msgid "Printed by: "
 msgstr ""
 
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
-#, fuzzy
 msgid "Printed on: "
-msgstr "Підкреслення виділеного тексту."
+msgstr "Надруковано на: "
 
 msgid "Percent complete"
 msgstr ""
@@ -7237,16 +7217,14 @@ msgstr "Не вдається відкрити повідомлення."
 # 75%
 # 90%
 # 98%
-#, fuzzy
 msgid "You have insufficient privileges to decline this Meeting Request"
-msgstr "У вас недостатньо прав, щоб зберегти це повідомлення."
+msgstr "У вас недостатньо прав, щоб відхилити це запрошення на зустріч"
 
 # 75%
 # 93%
 # 98%
-#, fuzzy
 msgid "You have insufficient privileges to accept this Meeting Request"
-msgstr "У вас недостатньо прав, щоб зберегти це повідомлення."
+msgstr "У вас недостатньо прав, щоб прийняти це запрошення на зустріч"
 
 # 83%
 # 76%
