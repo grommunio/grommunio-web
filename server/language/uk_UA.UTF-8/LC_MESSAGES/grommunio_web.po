@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: grommunio Web Ukrainian (Ukraine)\n"
 "Report-Msgid-Bugs-To: dev@grommunio.com\n"
 "POT-Creation-Date: 2019-09-25 14:32+0200\n"
-"PO-Revision-Date: 2022-07-24 14:23+0000\n"
+"PO-Revision-Date: 2022-07-26 15:19+0000\n"
 "Last-Translator: Artem <artem@molotov.work>\n"
 "Language-Team: Ukrainian <https://hosted.weblate.org/projects/grommunio/"
 "grommunio-web/uk/>\n"
@@ -1097,39 +1097,39 @@ msgstr ""
 
 msgctxt "calendar.dialog"
 msgid "Accepted on {0}"
-msgstr ""
+msgstr "Прийнято для {0}"
 
 msgctxt "calendar.dialog"
 msgid "Accepted by {0} on {1}"
-msgstr ""
+msgstr "Прийнято {0} для {1}"
 
 msgctxt "calendar.dialog"
 msgid "Tentatively Accepted on {0}"
-msgstr ""
+msgstr "Попередньо прийнято для {0}"
 
 msgctxt "calendar.dialog"
 msgid "Tentatively Accepted by {0} on {1}"
-msgstr ""
+msgstr "Попередньо прийнято {0} для {1}"
 
 msgctxt "calendar.dialog"
 msgid "This appointment occurs in the past."
-msgstr ""
+msgstr "Ця зустріч відбулась в минулому."
 
 msgctxt "calendar.dialog"
 msgid "Please respond."
-msgstr ""
+msgstr "Будь ласка, дайте відповідь."
 
 msgctxt "calendar.dialog"
 msgid "No responses have been received for this meeting."
-msgstr ""
+msgstr "Щодо цієї зустрічі відповідей не надійшло."
 
 msgctxt "calendar.dialog"
 msgid "Meeting has been canceled."
-msgstr ""
+msgstr "Зустріч скасована."
 
 msgctxt "calendar.dialog"
 msgid "Invitations have not been sent for this meeting."
-msgstr ""
+msgstr "Запрошення на цю зустріч не надсилалися."
 
 msgctxt "calendar.dialog"
 msgid ""
@@ -1672,42 +1672,43 @@ msgstr ""
 #. TRANSLATORS: This message is used as label for the field which to indicates to whom the given mail was sent
 msgctxt "mail.previewpanel"
 msgid "Location"
-msgstr ""
+msgstr "Місцина"
 
 msgid "No additional response required"
-msgstr ""
+msgstr "Додаткова відповідь не потрібна"
 
 msgid ""
 "Your calendar has been updated automatically. This meeting request will now "
 "be deleted."
 msgstr ""
+"Ваш календар самочинно оновлено. Це запрошення на зустріч буде видалено."
 
 msgid "Loading appointments..."
-msgstr ""
+msgstr "Завантаження зустрічей..."
 
 msgid "Please select a calendar via widget settings"
-msgstr ""
+msgstr "Будь ласка, виберіть календар через налаштування віджету"
 
 msgid "Number of days"
-msgstr ""
+msgstr "Кількість днів"
 
 msgid "day(s)"
-msgstr ""
+msgstr "день (дні)"
 
 msgid "{0}"
-msgstr ""
+msgstr "{0}"
 
 msgid "Upcoming Appointments"
-msgstr ""
+msgstr "Найближчі зустрічі"
 
 msgid "Appointments of {0}"
-msgstr ""
+msgstr "Зустрічі з {0}"
 
 msgid "Appointments of {0} - {1}"
-msgstr ""
+msgstr "Зустрічі з {0} по {1}"
 
 msgid "No appointments"
-msgstr ""
+msgstr "Жодних зустрічей"
 
 # 86%
 # 100%
@@ -1715,7 +1716,7 @@ msgid "Today {0} - {1}"
 msgstr "Сьогодні {0} - {1}"
 
 msgid "Today (all day)"
-msgstr ""
+msgstr "Сьогодні (весь день)"
 
 # 86%
 # 100%
@@ -1725,25 +1726,25 @@ msgid "{0} - {1}"
 msgstr "{0} - {1}"
 
 msgid "d/m/y {0}"
-msgstr ""
+msgstr "d/m/y {0}"
 
 msgid "{0} - {1} (all day)"
-msgstr ""
+msgstr "{0} - {1} (весь день)"
 
 msgid "d/m/y"
-msgstr ""
+msgstr "d/m/y"
 
 msgid "Select one..."
-msgstr ""
+msgstr "Оберіть одне..."
 
 msgid "Unnamed folder"
-msgstr ""
+msgstr "Тека без назви"
 
 msgid "Discard"
-msgstr ""
+msgstr "Скинути"
 
 msgid "Quick Appointment"
-msgstr ""
+msgstr "Швидка зустріч"
 
 msgid "Printing of multiple items has not been implemented."
 msgstr ""
