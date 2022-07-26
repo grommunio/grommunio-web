@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: grommunio Web Danish (Denmark)\n"
 "Report-Msgid-Bugs-To: dev@grommunio.com\n"
 "POT-Creation-Date: 2019-09-25 14:32+0200\n"
-"PO-Revision-Date: 2021-12-21 00:35+0000\n"
+"PO-Revision-Date: 2022-07-26 14:28+0200\n"
 "Last-Translator: Mike Williams <mike.williams@grammm.com>\n"
 "Language-Team: Danish <https://hosted.weblate.org/projects/grommunio/"
 "grommunio-web/da/>\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.10\n"
+"X-Generator: Weblate 4.14-dev\n"
 
 #. TRANSLATORS: This message is used as label for the column which indicates the week number of the month in date picker. and 'Wk' stands for week
 msgid "Wk"
@@ -226,7 +226,7 @@ msgid "Columns"
 msgstr "Kolonner"
 
 msgid "Group By This Field"
-msgstr "Grupper efter dette felt "
+msgstr "Grupper efter dette felt"
 
 msgid "Show in Groups"
 msgstr "Vis i grupper"
@@ -373,7 +373,7 @@ msgid "Last name"
 msgstr "Efternavn"
 
 msgid "Initials"
-msgstr ""
+msgstr "Initialer"
 
 msgid "Display"
 msgstr "Visning"
@@ -466,15 +466,20 @@ msgstr "Vælg"
 msgid "Show Details"
 msgstr "Vis detaljer"
 
+#, fuzzy
 msgid "Copy contact"
-msgstr ""
+msgstr "Kopier kontakt"
 
+#, fuzzy
 msgid "Copy contacts"
-msgstr ""
+msgstr "Kopier kontakter"
 
+#, fuzzy
 msgid ""
 "Showing only the first {0} names. Use search to find more specific results."
 msgstr ""
+"Viser kun de første {0} navne. Brug søgning for at finde mere specifikke "
+"resultater."
 
 msgid "Use the search bar to get results"
 msgstr "Brug søgefeltet for resultater"
@@ -560,8 +565,9 @@ msgstr "Sorter efter: Placering"
 msgid "Sort by: Fax"
 msgstr "Sorter efter: Fax"
 
+#, fuzzy
 msgid "Print single item"
-msgstr ""
+msgstr "Udskrive en enkelt vare"
 
 msgid "Print selected item"
 msgstr "Udskriv det valgte element"
@@ -687,9 +693,8 @@ msgctxt "search.date"
 msgid "To"
 msgstr "Til"
 
-#, fuzzy
 msgid "Filter category.."
-msgstr "Slet kategori"
+msgstr "Slet kategori.."
 
 msgid "Search.."
 msgstr "Søg.."
@@ -728,16 +733,19 @@ msgstr "Henter søgningsresultater"
 msgid "Sorting tip"
 msgstr "Sortering er ikke mulig"
 
+#, fuzzy
 msgid ""
 "You can sort by date if you narrow down your search results. Enable filters "
 "or adjust your input."
 msgstr ""
+"Du kan sortere efter dato, hvis du vil indsnævre dine søgeresultater. "
+"Aktiver filtre eller juster dine input."
 
 msgid "Did you mean"
 msgstr "Mente du"
 
 msgid "With"
-msgstr ""
+msgstr "Med"
 
 msgid "To"
 msgstr "Til"
@@ -769,7 +777,7 @@ msgid "Optional"
 msgstr "Valgfri"
 
 msgid "Resource"
-msgstr "Ressource "
+msgstr "Ressource"
 
 msgid "Could not open store."
 msgstr "Kan ikke åbne lager."
@@ -793,7 +801,7 @@ msgid "weeks"
 msgstr "uger"
 
 msgid " on "
-msgstr "på"
+msgstr " på "
 
 msgid "month"
 msgstr "måned"
@@ -819,27 +827,32 @@ msgstr "Forekommer hver {0} i kraft {1}"
 msgid "Occurs every {0} {1} effective {2}."
 msgstr "Forekommer hver {0} {1} i kraft {2}."
 
+#, fuzzy
 msgid "Occurs every {0} effective {1} for {2} occurrence from {3} to {4}."
 msgid_plural ""
 "Occurs every {0} effective {1} for {2} occurrences from {3} to {4}."
-msgstr[0] ""
+msgstr[0] "Forekommer hver {0} effektiv {1} for {2} forekomst fra {3} til {4}."
 msgstr[1] ""
+"Forekommer hver {0} effektiv {1} for {2} forekomster fra {3} til {4}."
 
+#, fuzzy
 msgid "Occurs every {0} {1} effective {2} for {3} occurrence from {4} to {5}."
 msgid_plural ""
 "Occurs every {0} {1} effective {2} for {3} occurrences {4} to {5}."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Opstår hver {0} {1} effektiv {2} for {3} forekomst fra {4} til {5}."
+msgstr[1] "Opstår hver {0} {1} effektiv {2} for {3} forekomster {4} til {5}."
 
+#, fuzzy
 msgid "Occurs every {0} effective {1} for {2} occurrence."
 msgid_plural "Occurs every {0} effective {1} for {2} occurrences."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Forekommer hver {0} effektiv {1} for {2} forekomst."
+msgstr[1] "Forekommer hver {0} effektiv {1} for {2} forekomster."
 
+#, fuzzy
 msgid "Occurs every {0} {1} effective {2} for {3} occurrence."
 msgid_plural "Occurs every {0} {1} effective {2} for {3} occurrences."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Opstår hver {0} {1} effektiv {2} for {3} forekomst."
+msgstr[1] "Opstår hver {0} {1} effektiv {2} for {3} forekomster."
 
 msgid "Occurs every {0} effective {1} until {2} from {3} to {4}."
 msgstr "Forekommer hver {0} i kraft {1} indtil {2} fra {3} til {4}."
@@ -857,8 +870,9 @@ msgid "When"
 msgstr "Når"
 
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
+#, fuzzy
 msgid "l jS F Y {0}"
-msgstr ""
+msgstr "l jS F Y {0}"
 
 msgid "Where"
 msgstr "Hvor"
@@ -867,7 +881,7 @@ msgid "New Meeting Time Proposed"
 msgstr "Forslag til nyt mødetidspunkt"
 
 msgid "and "
-msgstr "og"
+msgstr "og "
 
 msgid "Sort by: Attachment"
 msgstr "Sorter efter: Vedhæftning"
@@ -887,8 +901,9 @@ msgstr "Sorter efter: Startdato"
 msgid "End Date"
 msgstr "Slutdato"
 
+#, fuzzy
 msgid "Sort by: End Date"
-msgstr ""
+msgstr "Sorter efter: Slutdato"
 
 msgid "Organizer"
 msgstr "Arrangør"
@@ -924,7 +939,7 @@ msgid "Accept Meeting Request"
 msgstr "Accepter mødeindkaldelsen"
 
 msgid "Tentative"
-msgstr "Foreløbig "
+msgstr "Foreløbig"
 
 msgid "Tentatively Accept Meeting Request"
 msgstr "Foreløbig accepter mødeindkaldelsen"
@@ -983,9 +998,8 @@ msgstr "Ingen aftale er valgt"
 msgid "Print overview"
 msgstr "Udskriv overblik"
 
-#, fuzzy
 msgid "Create Appointment"
-msgstr "Privat aftale"
+msgstr "Opret en aftale"
 
 msgid "Calendar"
 msgstr "Kalender"
@@ -994,13 +1008,17 @@ msgstr "Kalender"
 msgid "Create in other calendar"
 msgstr "Vis i kalender"
 
+#, fuzzy
 msgid ""
 "The selected calendar has \"read-only\" permissions. Instead you can create "
 "an item in your own calendar."
 msgstr ""
+"Den valgte kalender har \"skrivebeskyttede\" tilladelser. Du kan i stedet "
+"oprette et element i din egen kalender."
 
+#, fuzzy
 msgid "What would you like?"
-msgstr ""
+msgstr "Hvad vil du gerne have?"
 
 #, fuzzy
 msgid "Own calendar"
@@ -1028,24 +1046,26 @@ msgstr "Til eller Cc"
 msgid "Meeting"
 msgstr "Møde"
 
-#, fuzzy
 msgctxt "calendar.dialog"
 msgid "Resources have been planned"
-msgstr "Ressourcerne er blevet planlagt. "
+msgstr "Ressourcerne er blevet planlagt"
 
 #, fuzzy
 msgid "Send update"
 msgstr "Send senere"
 
+#, fuzzy
 msgid "Do you want to send an update to all recipients?"
-msgstr ""
+msgstr "Ønsker du at sende en opdatering til alle modtagere?"
 
 msgid "Send update to attendees"
 msgstr "Send opdatering til deltagerne"
 
+#, fuzzy
 msgid ""
 "You have made changes to the list of attendees. What would you like to do?"
 msgstr ""
+"Du har foretaget ændringer i listen over deltagere. Hvad vil du gerne gøre?"
 
 msgid "Send updates to only added or deleted attendees."
 msgstr "Send kun opdateringer til tilføjede eller slettede deltagere."
@@ -1071,7 +1091,7 @@ msgstr "Sporing"
 
 msgctxt "calendar.dialog"
 msgid "Not all attendees could be resolved."
-msgstr "Ikke alle deltagere kunne findes"
+msgstr "Ikke alle deltagere kunne findes."
 
 msgctxt "calendar.dialog"
 msgid "{0} attendees accepted, {1} tentatively accepted, {2} declined."
@@ -1108,7 +1128,7 @@ msgstr "Foreløbigt accepteret d. {0}"
 
 msgctxt "calendar.dialog"
 msgid "Tentatively Accepted by {0} on {1}"
-msgstr "Foreløbig accepteret af {0} d. {1} "
+msgstr "Foreløbig accepteret af {0} d. {1}"
 
 msgctxt "calendar.dialog"
 msgid "This appointment occurs in the past."
@@ -1166,17 +1186,17 @@ msgstr "Vedhæftninger kunne ikke ændres for en enkelt hændelse"
 msgid "Type your message here..."
 msgstr "Indtast din besked her..."
 
-#, fuzzy
 msgid "Update location"
-msgstr "Opdater liste"
+msgstr "Opdater center"
 
 msgid ""
 "Do you want to update the location \"{0}\" with the new location \"{1}\"?"
 msgstr "Vil du opdateret placeringen \"{0}\" med den nye placering \"{1}\"?"
 
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
+#, fuzzy
 msgid "jS F Y {0}"
-msgstr ""
+msgstr "jS F Y {0}"
 
 msgid "None"
 msgstr "Ingen"
@@ -1202,8 +1222,9 @@ msgstr "Check navne"
 msgid "Addressbook"
 msgstr "Adressebog"
 
+#, fuzzy
 msgid "Open addressbook"
-msgstr ""
+msgstr "Åbn adressebog"
 
 msgid "Invite attendees"
 msgstr "Inviter deltagere"
@@ -1212,7 +1233,7 @@ msgid "Cancel invitation"
 msgstr "Fortryd invitation"
 
 msgid "High priority"
-msgstr "Høj prioritet "
+msgstr "Høj prioritet"
 
 msgid "Mark this appointment as high priority"
 msgstr "Marker denne aftale som høj prioritet"
@@ -1301,9 +1322,8 @@ msgstr ""
 "Dette møde er blevet afvist og vil blive flyttet til \"Slettede elementer\" "
 "mappen. Vil du skrive nogle kommentarer til dit svar?"
 
-#, fuzzy
 msgid "Edit the response before sending"
-msgstr "Ret svaret før afsendelse."
+msgstr "Ret svaret før afsendelse"
 
 msgid "Send the response now."
 msgstr "Send svar nu."
@@ -1338,8 +1358,9 @@ msgstr "Kopier det valgte element"
 msgid "Paste selected item"
 msgstr "Sæt det valgte element ind"
 
+#, fuzzy
 msgid "An overview of"
-msgstr ""
+msgstr "En oversigt over"
 
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "Start"
@@ -1351,27 +1372,29 @@ msgstr "Slut"
 
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for formatting instructions
+#, fuzzy
 msgid "Printed by"
-msgstr ""
+msgstr "Trykt af"
 
 msgid "at"
-msgstr ""
+msgstr "på"
 
 msgid "of"
-msgstr ""
+msgstr "af"
+
+msgid "Location: "
+msgstr "Sted: "
 
 #, fuzzy
-msgid "Location: "
-msgstr "Placering"
-
 msgid "j M {0}"
-msgstr ""
+msgstr "j M {0}"
 
+#, fuzzy
 msgid "l jS M Y {0}"
-msgstr ""
+msgstr "l jS M Y {0}"
 
 msgid "All day: "
-msgstr ""
+msgstr "Hele dagen: "
 
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for formatting instructions
@@ -1392,7 +1415,7 @@ msgid "Optional Attendees"
 msgstr "Valgfrie deltagere"
 
 msgid "Resources"
-msgstr "Ressourcer "
+msgstr "Ressourcer"
 
 msgid "Sensitivity"
 msgstr "Følsomhed"
@@ -1400,10 +1423,10 @@ msgstr "Følsomhed"
 msgid "Importance"
 msgstr "Vigtighed"
 
-msgid "M j"
-msgstr ""
-
 #, fuzzy
+msgid "M j"
+msgstr "M j"
+
 msgid "j"
 msgstr "j"
 
@@ -1426,12 +1449,12 @@ msgstr "Kalender tæthed"
 msgid "Default appointment duration {A} minutes"
 msgstr "Standard påmindelses tid for heldags aftaler"
 
-#, fuzzy
 msgid "Duration must be between 1 and 120 minutes."
-msgstr "Værdi skal være mellem 0% og 100%"
+msgstr "Værdi skal være mellem 0% og 100%."
 
+#, fuzzy
 msgid "Default status for all day appointment"
-msgstr ""
+msgstr "Standardstatus for hele dagen"
 
 msgid "Working days"
 msgstr "Arbejdsdage"
@@ -1439,12 +1462,11 @@ msgstr "Arbejdsdage"
 msgid "Show busy dates as bold in the date picker"
 msgstr "Vis optagede dage med fed i datovælgeren"
 
-#, fuzzy
 msgid ""
 "Free/Busy information is used by people sending meeting requests, to "
 "determine when you are available for meetings."
 msgstr ""
-"Fri/optaget information er brugt af andre når de sender mødeindkaldelser,"
+"Fri/optaget information er brugt af andre når de sender mødeindkaldelser."
 
 #, fuzzy
 msgid "Free/Busy publishing"
@@ -1506,9 +1528,8 @@ msgstr "Åben"
 msgid "Copy/Move"
 msgstr "Kopier/flyt"
 
-#, fuzzy
 msgid "Send to..."
-msgstr "Send"
+msgstr "Send..."
 
 msgid "Export as"
 msgstr "Eksporter som"
@@ -1583,17 +1604,21 @@ msgstr "Sorter efter: Valgfrie deltagere"
 msgid "Sort by: Resources"
 msgstr "Sorter efter: Ressourcer"
 
+#, fuzzy
 msgid "Recurring Start Date"
-msgstr ""
+msgstr "Tilbagevendende startdato"
 
+#, fuzzy
 msgid "Sort by: Recurring Start Date"
-msgstr ""
+msgstr "Sorter efter: Tilbagevendende startdato"
 
+#, fuzzy
 msgid "Recurring End Date"
-msgstr ""
+msgstr "Tilbagevendende slutdato"
 
+#, fuzzy
 msgid "Sort by: Recurring End Date"
-msgstr ""
+msgstr "Sorter efter: Tilbagevendende slutdato"
 
 msgid "Recurring Pattern"
 msgstr "Gentagelsesmønster"
@@ -1611,47 +1636,62 @@ msgid "Loading appointments"
 msgstr "Henter aftaler"
 
 msgid "Attendees"
-msgstr ""
+msgstr "Deltagere"
 
 msgid "Optional attendees"
 msgstr "Valgfrie deltagere"
 
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
+#, fuzzy
 msgid "jS F {0}"
-msgstr ""
+msgstr "jS F {0}"
 
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "jS F Y"
 msgstr "j F Y"
 
+#, fuzzy
 msgid ""
 "You have insufficient privileges to move and copy this item. Ask the folder "
 "owner to grant you permissions or contact your system administrator."
 msgstr ""
+"Du har ikke tilstrækkelige rettigheder til at flytte og kopiere dette emne. "
+"Bed ejeren af mappen om at give dig tilladelser, eller kontakt din "
+"systemadministrator."
 
+#, fuzzy
 msgid ""
 "You have insufficient privileges to copy this item. Ask the folder owner to "
 "grant you permissions or contact your system administrator."
 msgstr ""
+"Du har ikke tilstrækkelige rettigheder til at kopiere dette emne. Bed ejeren "
+"af mappen om at give dig tilladelser, eller kontakt din systemadministrator."
 
 msgid "Insufficient privileges"
 msgstr "Ikke tilstrækkelige rettigheder"
 
+#, fuzzy
 msgid ""
 "Copying this appointment will unset it as private. Are you sure you want to "
 "continue?"
 msgstr ""
+"Hvis du kopierer denne aftale, vil den ikke længere være privat. Er du "
+"sikker på, at du vil fortsætte?"
 
+#, fuzzy
 msgid "Private item"
-msgstr ""
+msgstr "Privat genstand"
 
 msgid "Copy"
 msgstr "Kopier"
 
+#, fuzzy
 msgid ""
 "Moving this appointment will unset it as private. Are you sure you want to "
 "continue?"
 msgstr ""
+"Hvis du flytter denne aftale, vil den ikke længere være privat. Er du sikker "
+"på, at du vil fortsætte?"
 
 msgid "Move"
 msgstr "Flyt"
@@ -1660,8 +1700,9 @@ msgstr "Flyt"
 msgid "Update recipients"
 msgstr "Ret modtager"
 
+#, fuzzy
 msgid "The time of the meeting has changed. What would you like to do?"
-msgstr ""
+msgstr "Tidspunktet for mødet er ændret. Hvad vil du gerne gøre?"
 
 msgid "Save changes and send an update to all recipients"
 msgstr "Gem ændringerne og send en opdatering til alle modtagerne"
@@ -1672,20 +1713,20 @@ msgstr "Åben mødeindkaldelse med ændringer"
 msgid "grommunio Web"
 msgstr "grommunio Web"
 
-#, fuzzy
 msgid ""
 "Please note that any changes you make will be overwritten when this meeting "
 "request is updated by the organizer. Would you like to move this meeting?"
 msgstr ""
 "Bemærk at ændringer du foretager vil blive overskrevet når denne "
-"mødeindkaldelse bliver opdateret af arrangøren"
+"mødeindkaldelse bliver opdateret af arrangøren?"
 
 #, fuzzy
 msgid "Don't move"
 msgstr "Send ikke"
 
+#, fuzzy
 msgid "Switch to day view to see all appointments"
-msgstr ""
+msgstr "Skift til dagsvisning for at se alle aftaler"
 
 #. TRANSLATORS: This message is used as label for the field which to indicates to whom the given mail was sent.
 msgctxt "mail.previewpanel"
@@ -1716,27 +1757,30 @@ msgstr ""
 msgid "Loading appointments..."
 msgstr "Henter aftaler..."
 
+#, fuzzy
 msgid "Please select a calendar via widget settings"
-msgstr ""
+msgstr "Vælg venligst en kalender via widget-indstillingerne"
 
 msgid "Number of days"
-msgstr ""
+msgstr "Antal dage"
 
 msgid "day(s)"
 msgstr "dag(e)"
 
+#, fuzzy
 msgid "{0}"
-msgstr ""
+msgstr "{0}"
+
+msgid "Upcoming Appointments"
+msgstr "Kommende aftaler"
 
 #, fuzzy
-msgid "Upcoming Appointments"
-msgstr "Henter aftaler"
-
 msgid "Appointments of {0}"
-msgstr ""
+msgstr "Udnævnelser af {0}"
 
+#, fuzzy
 msgid "Appointments of {0} - {1}"
-msgstr ""
+msgstr "Udnævnelser af {0} - {1}"
 
 #, fuzzy
 msgid "No appointments"
@@ -1746,8 +1790,9 @@ msgstr "Ny aftale"
 msgid "Today {0} - {1}"
 msgstr "I dag: {1} {0}"
 
+#, fuzzy
 msgid "Today (all day)"
-msgstr ""
+msgstr "I dag (hele dagen)"
 
 #. TRANSLATORS: Display name of a folder: "FOLDERNAME - STORENAME".
 #. TRANSLATORS: Displayed on top of a tree with folders: "FOLDERNAME - USERNAME".
@@ -1755,11 +1800,13 @@ msgstr ""
 msgid "{0} - {1}"
 msgstr "{0} i {1}"
 
+#, fuzzy
 msgid "d/m/y {0}"
-msgstr ""
+msgstr "d/m/y {0}"
 
+#, fuzzy
 msgid "{0} - {1} (all day)"
-msgstr ""
+msgstr "{0} - {1} (hele dagen)"
 
 #, fuzzy
 msgid "d/m/y"
@@ -1908,12 +1955,13 @@ msgstr "Slet og send et svar til mødearrangøren"
 msgid "Delete without sending"
 msgstr "Slet uden at sende"
 
-#, fuzzy
 msgid "Insufficient permissions"
-msgstr "Ikke tilstrækkelige rettigheder"
+msgstr "Utilstrækkelige tilladelser"
 
+#, fuzzy
 msgid "You have insufficient privileges to delete items in this folder."
 msgstr ""
+"Du har ikke tilstrækkelige rettigheder til at slette elementer i denne mappe."
 
 #, fuzzy
 msgid "Notify recipients"
@@ -1938,8 +1986,9 @@ msgstr "Afslå og slet"
 msgid "Mark complete and delete"
 msgstr "Marker som fuldført og slet"
 
+#, fuzzy
 msgid "Following recipients are already exists"
-msgstr ""
+msgstr "Følgende modtagere findes allerede"
 
 #, fuzzy
 msgid "Duplicate recipients"
@@ -1949,9 +1998,8 @@ msgstr "Ret modtager"
 msgid "Duplicate recipient"
 msgstr "Ret modtager"
 
-#, fuzzy
 msgid "Recipient already exists."
-msgstr "Brugeren eksistere allerede"
+msgstr "Brugeren eksistere allerede."
 
 #, fuzzy
 msgid "Notify sender"
@@ -1968,28 +2016,36 @@ msgstr ""
 msgid "Import"
 msgstr "Import"
 
+#, fuzzy
 msgid "Successfully imported item(s) to {0}"
-msgstr ""
-
-msgid "Failed to import item(s) to {0}"
-msgstr ""
+msgstr "Vellykket importeret vare(r) til {0}"
 
 #, fuzzy
+msgid "Failed to import item(s) to {0}"
+msgstr "Det lykkedes ikke at importere varen/varerne til {0}"
+
 msgid "Import error"
-msgstr "Vigtigt"
+msgstr "Import fejl"
 
+#, fuzzy
 msgid "Unable to import \"{0}\". The file is not valid"
-msgstr ""
+msgstr "Det er ikke muligt at importere \"{0}\". Filen er ikke gyldig"
 
+#, fuzzy
 msgid ""
 "You have insufficient privileges to move these items. Would you like to copy "
 "instead?"
 msgstr ""
+"Du har ikke tilstrækkelige rettigheder til at flytte disse elementer. Vil du "
+"gerne kopiere i stedet?"
 
+#, fuzzy
 msgid ""
 "You have insufficient privileges to move this item. Would you like to copy "
 "instead?"
 msgstr ""
+"Du har ikke tilstrækkelige rettigheder til at flytte dette emne. Vil du "
+"gerne kopiere i stedet?"
 
 msgid "Cc"
 msgstr "Cc"
@@ -2066,15 +2122,21 @@ msgstr "Download alt i en zipfil"
 msgid "Import to folder"
 msgstr "Tøm mappe"
 
+#, fuzzy
 msgid ""
 "In order to use the vCard import feature, upgrade your Gromox to version 0 "
 "or higher."
 msgstr ""
+"For at kunne bruge vCard-importfunktionen skal du opgradere din Gromox til "
+"version 0 eller højere."
 
+#, fuzzy
 msgid ""
 "In order to use the ICS / VCS import feature, upgrade your Gromox to version "
 "0 or higher."
 msgstr ""
+"For at kunne bruge ICS/VCS importfunktionen skal du opgradere din Gromox til "
+"version 0 eller højere."
 
 msgid "Attachment error"
 msgstr "Vedhæftningsfejl"
@@ -2082,8 +2144,9 @@ msgstr "Vedhæftningsfejl"
 msgid "Cannot create ZIP, The allowed maximum size is 30 MB."
 msgstr "Kan ikke oprette zipfil. Den højeste tilladte størrelse er 30 MB."
 
+#, fuzzy
 msgid "Unable to download"
-msgstr ""
+msgstr "Kan ikke downloade"
 
 msgid "Picture format is not supported. "
 msgstr "Billede formatet er ikke understøttet. "
@@ -2103,10 +2166,13 @@ msgstr "Ny"
 msgid "Delete Category"
 msgstr "Slet kategori"
 
+#, fuzzy
 msgid ""
 "Are you sure you want to delete the category \"{0}\"? Other items keep this "
 "category, but lose the assigned color."
 msgstr ""
+"Er du sikker på, at du ønsker at slette kategorien \"{0}\"? Andre elementer "
+"beholder denne kategori, men mister den tildelte farve."
 
 msgid "Rename Category"
 msgstr "Omdøb kategorien"
@@ -2123,32 +2189,44 @@ msgstr "Fastgør for hurtig adgang"
 msgid "Create"
 msgstr "Opret"
 
+#, fuzzy
 msgid ""
 "You must apply the changes you have made to the categories before you can "
 "create this category."
 msgstr ""
+"Du skal anvende de ændringer, du har foretaget i kategorierne, før du kan "
+"oprette denne kategori."
 
+#, fuzzy
 msgid "You already have a category named '{0}'. Please use another name."
 msgstr ""
+"Du har allerede en kategori med navnet \"{0}\". Brug venligst et andet navn."
 
+#, fuzzy
 msgid ""
 "You already have a category named '{0}' in your pending changes. Please use "
 "another name."
 msgstr ""
+"Du har allerede en kategori med navnet \"{0}\" i dine ventende ændringer. "
+"Brug venligst et andet navn."
 
 msgid "Rename"
 msgstr "Omdøb"
 
+#, fuzzy
 msgid "This is the first time you have used \"{0}\" category."
-msgstr ""
+msgstr "Det er første gang, at du bruger kategorien \"{0}\"."
 
 msgid "Do you want to rename it?"
 msgstr "Vil du give den et nyt navn?"
 
+#, fuzzy
 msgid ""
 "The category \"{0}\" already exists. Do you want to merge the \"{1}\" and "
 "\"{2}\" categories?"
 msgstr ""
+"Kategorien \"{0}\" findes allerede. Ønsker du at slå kategorierne \"{1}\" og "
+"\"{2}\" sammen?"
 
 msgid "Merge"
 msgstr "Slå sammen"
@@ -2228,13 +2306,17 @@ msgstr "Henter delegerede"
 msgid "Please select a delegate."
 msgstr "Vælg en delegeret."
 
+#, fuzzy
 msgid "Delegates can send items on your behalf."
-msgstr ""
+msgstr "Delegerede kan sende emner på dine vegne."
 
+#, fuzzy
 msgid ""
 "If you only want to set folder permissions, right-click on a folder to open "
 "the context menu and click on \"Share Folder...\""
 msgstr ""
+"Hvis du kun vil indstille mappetilladelser, skal du højreklikke på en mappe "
+"for at åbne kontekstmenuen og klikke på \"Share Folder...\" (Del mappe...)"
 
 msgid "Permission"
 msgstr "Tilladelse"
@@ -2263,30 +2345,41 @@ msgstr[1] "{0} meddelelser er valgt."
 msgid "Folder '{0}' selected."
 msgstr "Mappen '{0}' er valgt."
 
+#, fuzzy
 msgid ""
 "You have insufficient privileges to move this folder. Ask the folder owner "
 "to grant you permissions or contact your system administrator."
 msgstr ""
+"Du har ikke tilstrækkelige rettigheder til at flytte denne mappe. Bed "
+"mappens ejer om at give dig tilladelser, eller kontakt din "
+"systemadministrator."
 
+#, fuzzy
 msgid ""
 "You have insufficient privileges to copy this folder. Ask the folder owner "
 "to grant you permissions or contact your system administrator."
 msgstr ""
+"Du har ikke tilstrækkelige rettigheder til at kopiere denne mappe. Bed "
+"mappens ejer om at give dig tilladelser, eller kontakt din "
+"systemadministrator."
 
+#, fuzzy
 msgid "You have insufficient privileges to move following items."
 msgstr ""
+"Du har ikke tilstrækkelige rettigheder til at flytte følgende elementer."
 
 msgid "Subject:"
 msgstr "Emne:"
 
+#, fuzzy
 msgid "Would you like to copy instead?"
-msgstr ""
+msgstr "Vil du gerne kopiere i stedet?"
 
 msgid "Do not show this message again."
 msgstr "Vis ikke denne meddelelse igen."
 
 msgid "ICS"
-msgstr ""
+msgstr "ICS"
 
 #, fuzzy
 msgid "Set custom flag"
@@ -2307,9 +2400,8 @@ msgstr "Denne uge"
 msgid "Next week"
 msgstr "Næste uge"
 
-#, fuzzy
 msgid "Custom"
-msgstr "Selvvalgt dato"
+msgstr "Brugerdefineret"
 
 #, fuzzy
 msgid "Set reminder"
@@ -2337,9 +2429,8 @@ msgstr "Ret modtager"
 msgid "Copy email address"
 msgstr "Ny email adresse"
 
-#, fuzzy
 msgid "Set as required"
-msgstr "Dette felt er krævet"
+msgstr "Indstillingen \"%s\" er påkrævet"
 
 #, fuzzy
 msgid "Set as optional"
@@ -2445,17 +2536,21 @@ msgstr ""
 msgid "Add/Edit Cc recipient"
 msgstr "Ret modtager"
 
+#, fuzzy
 msgid "Disable for new mail"
-msgstr ""
+msgstr "Deaktivere for ny post"
 
+#, fuzzy
 msgid "Enable for new mail"
-msgstr ""
+msgstr "Aktiver for ny post"
 
+#, fuzzy
 msgid "Disable for replies"
-msgstr ""
+msgstr "Deaktivere for svar"
 
+#, fuzzy
 msgid "Enable for replies"
-msgstr ""
+msgstr "Aktiver for svar"
 
 #, fuzzy
 msgid "No Cc recipient configured"
@@ -2472,39 +2567,46 @@ msgstr "Svar alle"
 msgid "New Mail"
 msgstr "Ny mail"
 
-#, fuzzy
 msgid "Please select a Cc recipient record."
-msgstr "Vælg en modtager"
+msgstr "Vælg en modtager."
 
 #, fuzzy
 msgid "Manage Cc recipients"
 msgstr "Ret modtager"
 
+#, fuzzy
 msgid ""
 "Cc recipients can be used to set a default Cc user in new mail, replies or "
 "both."
 msgstr ""
+"Cc-modtagere kan bruges til at angive en standard Cc-bruger i nye mails, "
+"svar eller begge dele."
 
 msgid "Help"
 msgstr "Hjælp"
 
+#, fuzzy
 msgid "Web Manual"
-msgstr ""
+msgstr "Webmanual"
 
+#, fuzzy
 msgid "Item data"
-msgstr ""
+msgstr "Artikeloplysninger"
 
 msgid "INSERT"
 msgstr "INSERT"
 
+#, fuzzy
 msgid "Sort by: context.mail.griddefaultcolumn"
-msgstr ""
+msgstr "Sorter efter: context.mail.griddefaultcolumn"
 
+#, fuzzy
 msgid "ZDeveloper"
-msgstr ""
+msgstr "ZDeveloper"
 
+#, fuzzy
 msgid "grommunio Web print"
-msgstr ""
+msgstr "grommunio Web print"
 
 msgid "Display name"
 msgstr "Vist navn"
@@ -2536,8 +2638,9 @@ msgstr "Send email"
 msgid "Delete recipient from suggestion list"
 msgstr "Slet modtageren fra forslagslisten"
 
+#, fuzzy
 msgid "Copy all email addresses"
-msgstr ""
+msgstr "Kopier alle e-mail-adresser"
 
 msgid "View recipient"
 msgstr "Vis modtager"
@@ -2689,8 +2792,8 @@ msgstr "Udsæt"
 msgctxt "reminder.dialog"
 msgid "{0} reminder is selected."
 msgid_plural "{0} reminders are selected."
-msgstr[0] "{0} påmindelse er valgt"
-msgstr[1] "{0} påmindelser er valgt"
+msgstr[0] "{0} påmindelse er valgt."
+msgstr[1] "{0} påmindelser er valgt."
 
 msgid "Restore Softdeleted Items"
 msgstr "Genopret alle elementer som er \"soft deleted\""
@@ -2836,23 +2939,22 @@ msgstr "har mit navn i Til eller Cc-feltet"
 msgid "has my name in the To or Cc field"
 msgstr "har mit navn i Til eller Cc-feltet"
 
-#, fuzzy
 msgid "has sensitivity..."
-msgstr "har fortrolighed"
+msgstr "har fortrolighed..."
 
-#, fuzzy
 msgid "is received after..."
-msgstr "er modtaget efter"
+msgstr "er modtaget efter..."
+
+msgid "is received before..."
+msgstr "er modtaget før..."
 
 #, fuzzy
-msgid "is received before..."
-msgstr "er modtaget før"
-
 msgid "size is at least..."
-msgstr ""
+msgstr "størrelse er mindst..."
 
+#, fuzzy
 msgid "size is at most..."
-msgstr ""
+msgstr "størrelse er højst..."
 
 msgid "has my name in the To field"
 msgstr "har mit navn i Til-feltet"
@@ -2896,12 +2998,12 @@ msgstr "Når meddelelsen"
 msgid "Do the following"
 msgstr "Gør følgende"
 
-#, fuzzy
 msgid "Exceptions"
-msgstr "Muligheder"
+msgstr "Undtagelser"
 
+#, fuzzy
 msgid "Apply only when Out of Office is active"
-msgstr ""
+msgstr "Gælder kun, når Out of Office er aktiv"
 
 msgid "Stop processing more rules"
 msgstr "Stop udførsel af flere regler"
@@ -2957,17 +3059,21 @@ msgstr "Reglen har allerede den højeste prioritet."
 msgid "Rule already has lowest priority."
 msgstr "Reglen har allerede den laveste prioritet."
 
+#, fuzzy
 msgid "Always move messages from {0}"
-msgstr ""
+msgstr "Flyt altid meddelelser fra {0}"
 
+#, fuzzy
 msgid "Always move messages that are sent to <recipients>"
-msgstr ""
+msgstr "Flyt altid meddelelser, der er sendt til <recipients>"
 
+#, fuzzy
 msgid "Always move messages with this subject"
-msgstr ""
+msgstr "Flyt altid meddelelser med dette emne"
 
+#, fuzzy
 msgid "Create rule..."
-msgstr ""
+msgstr "Opret regel..."
 
 msgid "myself"
 msgstr "mig selv"
@@ -2994,10 +3100,12 @@ msgstr "Søg i.."
 msgid "Folder does not exist"
 msgstr "Mappen indeholder"
 
+#, fuzzy
 msgid ""
 "The folder you are searching through no longer exists. Please select another "
 "folder"
 msgstr ""
+"Den mappe, du søger i, findes ikke længere. Vælg venligst en anden mappe"
 
 msgid "Add/Edit sender"
 msgstr "Tilføj/Rediger afsender"
@@ -3008,17 +3116,20 @@ msgstr "Ingen afsenderadresse er valgt"
 msgid "Loading from addresses"
 msgstr "Henter afsenderadresse"
 
+#, fuzzy
 msgid "Forward Mail"
-msgstr ""
+msgstr "Videresendelse af post"
 
 msgid "Please select a from address record."
 msgstr "Vælg en afsenderadresse."
 
+#, fuzzy
 msgid "Add/Edit From recipient"
-msgstr ""
+msgstr "Tilføj/rediger fra modtager"
 
+#, fuzzy
 msgid "Manage the recipients used in the 'From' field"
-msgstr ""
+msgstr "Administrer de modtagere, der anvendes i feltet \"Fra"
 
 msgid "View"
 msgstr "Vis"
@@ -3032,26 +3143,33 @@ msgstr "Repræsentanter"
 msgid "Delegate settings"
 msgstr "Repræsentant indstillinger"
 
+#, fuzzy
 msgid "Desktop Notifications Settings"
-msgstr ""
+msgstr "Indstillinger for skrivebordsmeddelelser"
 
+#, fuzzy
 msgid "We need permissions to enable desktop notifications."
-msgstr ""
+msgstr "Vi har brug for tilladelser til at aktivere skrivebordsmeddelelser."
 
+#, fuzzy
 msgid "Request Permissions"
-msgstr ""
+msgstr "Anmodning om tilladelser"
 
+#, fuzzy
 msgid "Enable desktop notifications for new mail"
-msgstr ""
+msgstr "Aktiver skrivebordsmeddelelser for nye mails"
 
+#, fuzzy
 msgid "Enable desktop notifications for reminders"
-msgstr ""
+msgstr "Aktiver skrivebordsmeddelelser for påmindelser"
 
+#, fuzzy
 msgid "{A} Auto hide desktop notification after second(s) {B}"
-msgstr ""
+msgstr "{A} Skjul automatisk skrivebordsmeddelelse efter sekund(er) {B}"
 
+#, fuzzy
 msgid "Disable sound"
-msgstr ""
+msgstr "Deaktivere lyd"
 
 msgid "Notifications"
 msgstr "Notifikationer"
@@ -3080,16 +3198,18 @@ msgstr "Hjemmeside"
 msgid "IM Address"
 msgstr "IM adresse"
 
+#, fuzzy
 msgid "D, d-m-Y, {0}"
-msgstr ""
+msgstr "D, d-m-Y, {0}"
 
 msgid "{0} selected row"
 msgid_plural "{0} selected rows"
 msgstr[0] "{0} række er valgt"
 msgstr[1] "{0} rækker er valgt"
 
+#, fuzzy
 msgid "Reminder is set on: {0}, {1}"
-msgstr ""
+msgstr "Påmindelse er indstillet på: {0}, {1}"
 
 msgid "d-m-Y"
 msgstr "d.m.Y"
@@ -3097,11 +3217,13 @@ msgstr "d.m.Y"
 msgid "l d/m/Y"
 msgstr "l d/m/Y"
 
+#, fuzzy
 msgid "l d/m/Y {0}"
-msgstr ""
+msgstr "l d/m/Y {0}"
 
+#, fuzzy
 msgid "d-m-Y {0}"
-msgstr ""
+msgstr "d-m-Y {0}"
 
 msgid "Unknown"
 msgstr "Ukendt"
@@ -3115,8 +3237,9 @@ msgstr "{0} overskredet"
 msgid "Loading..."
 msgstr "Henter..."
 
+#, fuzzy
 msgid "Message could not be loaded"
-msgstr ""
+msgstr "Meddelelse kunne ikke indlæses"
 
 #. TRANSLATORS: This message is used as label for the field which indicates which attachments are inside the message
 msgctxt "mail.previewpanel"
@@ -3149,11 +3272,15 @@ msgctxt "mail.previewpanel"
 msgid "Please treat this as {0}."
 msgstr "Behandl dette som {0}."
 
+#, fuzzy
 msgctxt "mail.previewpanel"
 msgid ""
 "Click here to download pictures. To help protect your privacy, grommunio Web "
 "prevented automatic download of some pictures in this message."
 msgstr ""
+"Klik her for at downloade billeder. For at beskytte dit privatliv har "
+"grommunio Web forhindret automatisk download af nogle af billederne i denne "
+"besked."
 
 msgctxt "mail.previewpanel"
 msgid ""
@@ -3283,9 +3410,8 @@ msgstr "Sidste opdatering er sendt på {0}."
 msgid "{0} has updated on behalf of {1} {2}."
 msgstr "{0} har opdateret på vegne af {1} {2}."
 
-#, fuzzy
 msgid "Fix message"
-msgstr "besked"
+msgstr "Besked"
 
 msgid ""
 "We are going to try to fix a corrupted mail message, do you wish to continue?"
@@ -3331,9 +3457,8 @@ msgstr "Pop-ud"
 msgid "Mark as read"
 msgstr "Marker som læst"
 
-#, fuzzy
 msgid "Mark as unread"
-msgstr "Marker som ulæst"
+msgstr "Marker som ikke læst"
 
 msgid "in"
 msgstr "om"
@@ -3341,8 +3466,9 @@ msgstr "om"
 msgid "Root"
 msgstr "Rod"
 
+#, fuzzy
 msgid "Datepicker"
-msgstr ""
+msgstr "Datoviseren"
 
 msgid "File As"
 msgstr "Gemt som"
@@ -3589,23 +3715,21 @@ msgstr "Tilføj vedhæftning"
 msgid "Add attachments to this contact"
 msgstr "Tilføj vedhæftning til denne opgave"
 
-#, fuzzy
 msgid "Mark this contact as private"
-msgstr "Marker denne kontakt som privat."
+msgstr "Marker denne kontakt som privat"
 
 msgid "Distribution List"
 msgstr "Distributionsliste"
 
-#, fuzzy
 msgid "Mark this Distribution list as private"
-msgstr "Marker denne distributionsliste som privat."
+msgstr "Marker denne distributionsliste som privat"
 
 #, fuzzy
 msgid "New email address"
 msgstr "Ny email adresse"
 
 msgid "Please enter a valid email address"
-msgstr "Angiv venligst en gyldig e-mailadresse."
+msgstr "Angiv venligst en gyldig e-mailadresse"
 
 msgid "Select Members"
 msgstr "Vælg medlemmer"
@@ -3631,12 +3755,16 @@ msgstr "Vis e-mail 3 som"
 msgid "Loading contacts"
 msgstr "Henter kontakter"
 
+#, fuzzy
 msgid ""
 "There are no items to show in this list. Update the filter for more results."
 msgstr ""
+"Der er ingen emner, der skal vises på denne liste. Opdater filteret for at "
+"få flere resultater."
 
+#, fuzzy
 msgid "[Group]"
-msgstr ""
+msgstr "[Gruppe]"
 
 msgid "Work:"
 msgstr "Arbejde:"
@@ -3779,8 +3907,9 @@ msgstr "Ændre foto"
 msgid "Remove Picture"
 msgstr "Fjern billede"
 
+#, fuzzy
 msgid "VCF file(s)"
-msgstr ""
+msgstr "VCF-fil(er)"
 
 msgid "Quick Contact"
 msgstr "Hurtigkontakt"
@@ -3934,7 +4063,7 @@ msgid "Lime"
 msgstr "Limegrøn"
 
 msgid "Magenta"
-msgstr ""
+msgstr "Magenta"
 
 msgid "Orange"
 msgstr "Orange"
@@ -3948,13 +4077,11 @@ msgstr "Log ud"
 msgid "Switch view"
 msgstr "Skift visning"
 
-#, fuzzy
 msgid "Widgets"
-msgstr "Tilføj widgets"
+msgstr "Widgets"
 
-#, fuzzy
 msgid "Sending..."
-msgstr "Sender"
+msgstr "Sender..."
 
 msgid "Sent successfully"
 msgstr "Sendt med success"
@@ -3986,9 +4113,8 @@ msgstr "Send ikke"
 msgid "Send Anyway"
 msgstr "Send alligevel"
 
-#, fuzzy
 msgid "No subject"
-msgstr "intet emne"
+msgstr "Intet emne"
 
 msgid "Send this message without a subject?"
 msgstr "Send denne meddelelse uden emne?"
@@ -4013,9 +4139,8 @@ msgstr "Mappeliste"
 msgid "Copy Details"
 msgstr "Vis detaljer"
 
-#, fuzzy
 msgid "Hide Details"
-msgstr "Detaljer"
+msgstr "Skjul detaljer"
 
 msgid "Loaded {0} of {1}"
 msgstr "Hentet {0} af {1}"
@@ -4048,14 +4173,12 @@ msgstr "Elementet er blevet ændret. Er du sikker på du vil slette det?"
 msgid "Unsaved changes"
 msgstr "Ændringer gemt"
 
-msgid "Welcome to grommunio Web"
-msgstr ""
-
 #, fuzzy
+msgid "Welcome to grommunio Web"
+msgstr "Velkommen til grommunio Web"
+
 msgid "This is the first time you are using grommunio Web. "
-msgstr ""
-"Dette er den første gang du bruger grommunio Web. <br/>Tjek venligst de "
-"følgende indstillinger inden du fortsætter."
+msgstr "Dette er den første gang du bruger grommunio Web. "
 
 #, fuzzy
 msgid "Please check the following settings before continuing."
@@ -4063,9 +4186,8 @@ msgstr ""
 "Dette er den første gang du bruger grommunio Web. <br/>Tjek venligst de "
 "følgende indstillinger inden du fortsætter."
 
-#, fuzzy
 msgid "Widget height"
-msgstr "Tilføj widgets"
+msgstr "Widget højde"
 
 msgid "pixels"
 msgstr "billedpunkter"
@@ -4076,9 +4198,8 @@ msgstr "Konfigurer widget"
 msgid "Reload interval"
 msgstr "Genindlæsningsinterva"
 
-#, fuzzy
 msgid "seconds"
-msgstr "sekunder."
+msgstr "sekunder"
 
 msgid "Open in new tab"
 msgstr "Åbn et nyt faneblad"
@@ -4087,7 +4208,7 @@ msgid "Add widgets"
 msgstr "Tilføj widgets"
 
 msgid "No widgets installed."
-msgstr "Ingen widgets er installeret"
+msgstr "Ingen widgets er installeret."
 
 #, fuzzy
 msgid "Remove widget"
@@ -4101,8 +4222,9 @@ msgstr "Luk widget panel"
 msgid "Expand widget"
 msgstr "Udvid widget panel"
 
+#, fuzzy
 msgid "About this widget"
-msgstr ""
+msgstr "Om denne widget"
 
 #, fuzzy
 msgid "Add new widget"
@@ -4117,8 +4239,9 @@ msgstr "Udvid widget panel"
 msgid "Your changes will be lost if you leave this page now."
 msgstr "Dine ændringer vil gå tabt hvis du forlader siden nu."
 
+#, fuzzy
 msgid "D {0}"
-msgstr ""
+msgstr "D {0}"
 
 #, fuzzy
 msgid "D d-m"
@@ -4138,9 +4261,8 @@ msgstr ""
 "Du har ikke tilstrækkelige rettigheder til at åbne denne mappe, vil du "
 "fjerne den fra hierarkiet?"
 
-#, fuzzy
 msgid "Insufficient Permissions"
-msgstr "Ikke tilstrækkelige rettigheder"
+msgstr "Mangler rettigheder"
 
 msgid "Not enough permissions to open this folder."
 msgstr "Du har ikke tiltrækkelige rettigheder til at åbne denne mappe."
@@ -4159,7 +4281,6 @@ msgstr[1] "Der er {0} ulæste meddelelser i mappen {1}"
 msgid "Publishing Editor"
 msgstr "Ansvarshavende redaktør"
 
-#, fuzzy
 msgid "Editor"
 msgstr "Editor"
 
@@ -4178,18 +4299,20 @@ msgstr "Korrekturlæser"
 msgid "Contributor"
 msgstr "Bidragyder"
 
+#, fuzzy
 msgid "Free/Busy time, subject, location"
-msgstr ""
-
-msgid "Free/Busy time"
-msgstr ""
-
-msgid "Unable to import:"
-msgstr ""
+msgstr "Fri/optaget tid, emne, sted"
 
 #, fuzzy
+msgid "Free/Busy time"
+msgstr "Fri/optaget tid"
+
+#, fuzzy
+msgid "Unable to import:"
+msgstr "Kan ikke importere:"
+
 msgid "The files are not valid"
-msgstr "De vedhæftede filer er endnu ikke uploadet."
+msgstr "De vedhæftede filer er endnu ikke uploadet"
 
 msgid "Create New Folder"
 msgstr "Opret ny mappe"
@@ -4234,11 +4357,13 @@ msgstr "Type"
 msgid "Description"
 msgstr "Beskrivelse"
 
+#, fuzzy
 msgid "EntryID"
-msgstr ""
+msgstr "EntryID"
 
+#, fuzzy
 msgid "Parent EID"
-msgstr ""
+msgstr "Forældre EID"
 
 msgid "Folder size"
 msgstr "Mappestørrelse"
@@ -4294,8 +4419,9 @@ msgstr "Mappekontakt"
 msgid "Folder visible"
 msgstr "Folder synlig"
 
+#, fuzzy
 msgid "Apply (copy) changed permissions recursively"
-msgstr ""
+msgstr "Anvend (kopier) ændrede tilladelser rekursivt"
 
 msgid "User already exists"
 msgstr "Brugeren eksistere allerede"
@@ -4339,15 +4465,14 @@ msgstr "Sorter efter: Total størrelse (med undermapper)"
 msgid "Open Shared Folders"
 msgstr "Åbn delt mappe"
 
-#, fuzzy
 msgid "Unresolved user"
-msgstr "Kunne ikke finde bruger."
+msgstr "Kunne ikke finde bruger"
 
 msgid "Username '{0}' could not be resolved."
 msgstr "Brugernavn '{0}' kunne ikke findes."
 
 msgid "Invalid user"
-msgstr ""
+msgstr "Ugyldig bruger"
 
 msgid "Username '{0}' is not a valid user."
 msgstr "Brugernavn '{0}' er ikke en gyldig bruger."
@@ -4356,19 +4481,18 @@ msgstr "Brugernavn '{0}' er ikke en gyldig bruger."
 msgid "Own store"
 msgstr "Mangler postkasse"
 
-#, fuzzy
 msgid "It is not possible to open your own store twice."
-msgstr "Det er ikke muligt at åbne din egen postkasse to gange"
+msgstr "Det er ikke muligt at åbne din egen postkasse to gange."
 
-#, fuzzy
 msgid "Folder already open"
-msgstr "Den delte mappe er allerede åben."
+msgstr "Den delte mappe er allerede åben"
 
 msgid "This shared folder is already open."
 msgstr "Den delte mappe er allerede åben."
 
+#, fuzzy
 msgid "No user"
-msgstr ""
+msgstr "Ingen bruger"
 
 msgid "You must specify a user"
 msgstr "Du skal angive et navn"
@@ -4438,14 +4562,15 @@ msgid "Import appointments"
 msgstr "Ny aftale"
 
 msgid "Import contacts"
-msgstr ""
+msgstr "Importér kontakter"
 
 #, fuzzy
 msgid "Properties of {0}"
 msgstr "Egenskaber"
 
+#, fuzzy
 msgid "Share {0} with..."
-msgstr ""
+msgstr "Del {0} med..."
 
 #, fuzzy
 msgid "Properties of {0} - {1}"
@@ -4477,10 +4602,13 @@ msgstr "Vis alle"
 msgid "Show all folders"
 msgstr "Vis alle mapper"
 
+#, fuzzy
 msgid ""
 "You have insufficient privileges to move this folder. Would you like to copy "
 "instead?"
 msgstr ""
+"Du har ikke tilstrækkelige rettigheder til at flytte denne mappe. Vil du "
+"gerne kopiere i stedet?"
 
 msgid "CC"
 msgstr "CC"
@@ -4557,15 +4685,17 @@ msgstr "Gemning fejlede"
 msgid "Message Options"
 msgstr "Meddelelses muligheder"
 
+#, fuzzy
 msgid "This message will be flagged for follow up when it is sent."
 msgstr ""
+"Denne meddelelse vil blive markeret med henblik på opfølgning, når den "
+"sendes."
 
 msgid "Send Later"
 msgstr "Send senere"
 
-#, fuzzy
 msgid "Schedule your mail to be sent on a specific date and time"
-msgstr "Planlæg at sende emailen på et specifikt angivet dato og tidspunkt."
+msgstr "Planlæg at sende emailen på et specifikt angivet dato og tidspunkt"
 
 msgid "Add attachments to this email"
 msgstr "Tilføj vedhæftning til denne email"
@@ -4608,8 +4738,9 @@ msgstr "Vis Bcc"
 msgid "Show From field"
 msgstr "Vis fra"
 
+#, fuzzy
 msgid "Cannot save while attachment is being uploaded"
-msgstr ""
+msgstr "Kan ikke gemme, mens vedhæftede fil er ved at blive uploadet"
 
 msgid "Miscellaneous Options"
 msgstr "Diverse muligheder"
@@ -4679,17 +4810,20 @@ msgstr "SV"
 msgid "on behalf of"
 msgstr "på vegne af"
 
+#, fuzzy
 msgid "Safe Senders list is empty"
-msgstr ""
+msgstr "Listen over sikre afsendere er tom"
 
 msgid "Please select a safe sender record."
 msgstr "Vælg venligst en \"Send som\" række."
 
+#, fuzzy
 msgid "Delete all safe senders"
-msgstr ""
+msgstr "Slet alle sikre afsendere"
 
+#, fuzzy
 msgid "Are you sure you want to delete all safe senders?"
-msgstr ""
+msgstr "Er du sikker på, at du vil slette alle sikre afsendere?"
 
 msgid "HTML"
 msgstr "HTML"
@@ -4717,14 +4851,17 @@ msgstr "Bed altid om kvittering for læsning"
 msgid "{A}AutoSave unsent mail every {B} minute(s)"
 msgstr "{A}Gem automatisk usendt email hvert {B} minut(ter)"
 
+#, fuzzy
 msgid "Conversation view settings"
-msgstr ""
+msgstr "Indstillinger for konversationsvisning"
 
+#, fuzzy
 msgid "Enable conversation view"
-msgstr ""
+msgstr "Aktiver konversationsvisning"
 
+#, fuzzy
 msgid "Collapse conversation when selecting a different email"
-msgstr ""
+msgstr "Kollaps af samtalen, når der vælges en anden e-mail"
 
 msgid "Incoming mail"
 msgstr "Indkommende email"
@@ -4758,8 +4895,9 @@ msgstr "Bund"
 msgid "Location of preview pane"
 msgstr "Placering af forhåndsvisningsrude"
 
+#, fuzzy
 msgid "Use English abbreviations for forward (FW:) and reply (RE:)"
-msgstr ""
+msgstr "Brug engelske forkortelser for forward (FW:) og reply (RE:)"
 
 msgid "Close original message on reply or forward"
 msgstr ""
@@ -4777,8 +4915,9 @@ msgstr "grommunio Web fane"
 msgid "Browser window"
 msgstr "Browser vindue"
 
+#, fuzzy
 msgid "Update Out of Office settings for"
-msgstr ""
+msgstr "Opdatere indstillingerne for kontorbortrejse for"
 
 msgid "I am currently in the office"
 msgstr "Jeg er på kontoret"
@@ -4793,23 +4932,28 @@ msgstr "Jeg er tilbage på"
 msgid "Automatically reply once per day, per sender with the following text"
 msgstr "Autosvar hver afsender en gang med denne tekst"
 
+#, fuzzy
 msgid "Inside My Organization"
-msgstr ""
+msgstr "Inden for min organisation"
 
 msgid "User is currently out of office."
 msgstr "Jeg er ikke på kontoret."
 
+#, fuzzy
 msgid "Outside My Organization"
-msgstr ""
+msgstr "Uden for min organisation"
 
+#, fuzzy
 msgid "Auto-reply to people outside my organization"
-msgstr ""
+msgstr "Automatisk svar til personer uden for min organisation"
 
+#, fuzzy
 msgid "My contacts only"
-msgstr ""
+msgstr "Kun mine kontakter"
 
+#, fuzzy
 msgid "Anyone outside my organization"
-msgstr ""
+msgstr "Alle uden for min organisation"
 
 msgid ""
 "The time you entered is before the out of office date. Please reschedule."
@@ -4817,13 +4961,17 @@ msgstr ""
 "Tidspunktet som du har opgivet er før starten af dit fravær. Angiv venligst "
 "et nyt tidspunkt."
 
+#, fuzzy
 msgid "Safe Senders"
-msgstr ""
+msgstr "Sikre afsendere"
 
+#, fuzzy
 msgid ""
 "To protect your privacy email addresses or domains can only be added via the "
 "\"Add to safe sender list\" functionality in an opened email."
 msgstr ""
+"For at beskytte dit privatliv kan e-mail-adresser eller domæner kun tilføjes "
+"via funktionen \"Tilføj til liste over sikre afsendere\" i en åbnet e-mail."
 
 msgid "Delete all"
 msgstr "Slet alle"
@@ -4834,18 +4982,20 @@ msgstr "Signaturer"
 msgid "No signatures configured"
 msgstr "Ingen signatur er konfigureret"
 
+#, fuzzy
 msgid "New messages"
-msgstr ""
-
-msgid "Replies/forwards"
-msgstr ""
-
-msgid "Signature name:"
-msgstr ""
+msgstr "Nye meddelelser"
 
 #, fuzzy
+msgid "Replies/forwards"
+msgstr "Svar/forsendelser"
+
+#, fuzzy
+msgid "Signature name:"
+msgstr "Navn på signatur:"
+
 msgid "Save Signature"
-msgstr "Signaturer"
+msgstr "Gem signatur"
 
 msgid "You have unsaved changes. Do you wish to save the changes?"
 msgstr "Du har ugemte ændringer. Vil du gemme disse ændringer?"
@@ -4853,12 +5003,12 @@ msgstr "Du har ugemte ændringer. Vil du gemme disse ændringer?"
 msgid "New signature"
 msgstr "Ny signatur"
 
-msgid "EML file(s)"
-msgstr ""
-
 #, fuzzy
+msgid "EML file(s)"
+msgstr "EML-fil(er)"
+
 msgid "ZIP file"
-msgstr "Profil"
+msgstr "ZIP fil"
 
 msgid "max. "
 msgstr "maks "
@@ -4875,12 +5025,12 @@ msgstr "Sorter efter: Ændret"
 msgid "Flag"
 msgstr "Flag"
 
-msgid "Sort by: flag"
-msgstr ""
-
 #, fuzzy
+msgid "Sort by: flag"
+msgstr "Sorter efter: flag"
+
 msgid "Older"
-msgstr "Mapper"
+msgstr "Ældre"
 
 msgid "Yesterday"
 msgstr "I går"
@@ -4888,11 +5038,13 @@ msgstr "I går"
 msgid "Last Week"
 msgstr "Sidste uge"
 
+#, fuzzy
 msgid "Two Weeks Ago"
-msgstr ""
+msgstr "For to uger siden"
 
+#, fuzzy
 msgid "Three Weeks Ago"
-msgstr ""
+msgstr "For tre uger siden"
 
 msgid "Last Month"
 msgstr "Sidste måned"
@@ -4906,11 +5058,12 @@ msgstr "Mellem"
 msgid "Large"
 msgstr "Stor"
 
+#, fuzzy
 msgid "Very large"
-msgstr ""
+msgstr "Meget stor"
 
 msgid "Huge"
-msgstr ""
+msgstr "Kæmpe"
 
 msgid "Follow up"
 msgstr "Opfølgning"
@@ -4989,9 +5142,8 @@ msgid ""
 msgstr ""
 "For at ændringerne skal træde i kræft, skal du genindlæse grommunio Web."
 
-#, fuzzy
 msgid "Reload grommunio Web"
-msgstr "grommunio Web"
+msgstr "Genindlæs grommunio Web"
 
 msgid "Settings"
 msgstr "Indstillinger"
@@ -4999,8 +5151,9 @@ msgstr "Indstillinger"
 msgid "Basic"
 msgstr "Basal"
 
+#, fuzzy
 msgid "Account information - {0}"
-msgstr ""
+msgstr "Kontooplysninger - {0}"
 
 msgid "Profile Picture"
 msgstr "Profilfoto"
@@ -5026,11 +5179,13 @@ msgstr "Avancerede indstillinger"
 msgid "Developer tools"
 msgstr "Udviklerværktøjer"
 
+#, fuzzy
 msgid "Show insertion points in grommunio Web"
-msgstr ""
+msgstr "Vis indsættelsespunkter i grommunio Web"
 
+#, fuzzy
 msgid "Show \"item data\" button in context menu (mail only)"
-msgstr ""
+msgstr "Vis knappen \"emneoplysninger\" i kontekstmenuen (kun mail)"
 
 msgid "Edit setting"
 msgstr "Rediger indstilling"
@@ -5048,23 +5203,26 @@ msgstr "Ikoner"
 msgid "About"
 msgstr "Om"
 
+#, fuzzy
 msgid "I want to display date and time in this format:"
-msgstr ""
+msgstr "Jeg ønsker at vise dato og klokkeslæt i dette format:"
 
 msgid "Short"
-msgstr ""
+msgstr "Kort"
 
 msgid "Long"
-msgstr ""
+msgstr "Lang"
 
 msgid "Time format:"
 msgstr "Tidsformat:"
 
+#, fuzzy
 msgid "12h clock"
-msgstr ""
+msgstr "12h ur"
 
+#, fuzzy
 msgid "24h clock"
-msgstr ""
+msgstr "24-timers ur"
 
 #, fuzzy
 msgid "Favorite settings"
@@ -5074,23 +5232,29 @@ msgstr "Repræsentant indstillinger"
 msgid "Hide favorites"
 msgstr "Tilføj til favoritter"
 
+#, fuzzy
 msgid "Unpin favorites from top"
-msgstr ""
+msgstr "Fjern favoritter fra toppen"
 
+#, fuzzy
 msgid "Give unread items a colored border"
-msgstr ""
+msgstr "Giv ulæste emner en farvet kant"
 
+#, fuzzy
 msgid "Show 'help' button in top-right corner"
-msgstr ""
+msgstr "Vis knappen \"Hjælp\" i øverste højre hjørne"
 
+#, fuzzy
 msgid "Show unread mail counter in application title"
-msgstr ""
+msgstr "Vis tæller for ulæste mails i programmets titel"
 
+#, fuzzy
 msgid "Hide widget panel"
-msgstr ""
+msgstr "Skjul widget-panelet"
 
+#, fuzzy
 msgid "Show search bar above folder list"
-msgstr ""
+msgstr "Vis søgelinjen over mappelisten"
 
 msgid "Auto"
 msgstr "Auto"
@@ -5099,19 +5263,23 @@ msgid "Actual size"
 msgstr "Faktiske størrelse"
 
 msgid "Page width"
-msgstr ""
+msgstr "Sidebredde"
 
+#, fuzzy
 msgid "Attachment preview (PDF and Open formats)"
-msgstr ""
+msgstr "Visning af bilag (PDF og Open-formater)"
 
+#, fuzzy
 msgid "Document default zoom"
-msgstr ""
+msgstr "Standardzoom på dokumentet"
 
+#, fuzzy
 msgid "PDF zoom"
-msgstr ""
+msgstr "PDF-zoom"
 
+#, fuzzy
 msgid "File previewing"
-msgstr ""
+msgstr "Visning af filer"
 
 msgid "Inbox navigation"
 msgstr "Indbakke navigation"
@@ -5156,8 +5324,9 @@ msgstr "Slå standard genvejstaster til"
 msgid "All keyboard shortcuts on"
 msgstr "Slå alle genvejstaster til"
 
+#, fuzzy
 msgid "This change requires a reload of grommunio Web"
-msgstr ""
+msgstr "Denne ændring kræver en genindlæsning af grommunio Web"
 
 msgid "Plugins"
 msgstr "Udvidelser"
@@ -5180,25 +5349,31 @@ msgstr "Denne udvidelse kan ikke slås til"
 msgid "Mailbox Usage"
 msgstr "Postkasse forbrug"
 
+#, fuzzy
 msgid "A quota is not set on your store."
-msgstr ""
+msgstr "Der er ikke fastsat en kvote for din butik."
 
 msgid "{0} of mailbox space is used."
 msgstr "{0} af postkassen er brugt."
 
+#, fuzzy
 msgid "You have exceeded hard quota, you can not send or receive mails."
-msgstr ""
+msgstr "Du har overskredet hard quota, du kan ikke sende eller modtage mails."
 
 msgid "At {0} you won't be able to send mails."
 msgstr "På {0} vil du ikke kunne sende emails."
 
+#, fuzzy
 msgid ""
 "You can not send mails as you have exceeded soft quota, at {0} you won't be "
 "able to receive mails."
 msgstr ""
+"Du kan ikke sende mails, da du har overskredet den bløde kvote, ved {0} kan "
+"du ikke modtage mails."
 
+#, fuzzy
 msgid "At {0} you won't be able to send or receive mails."
-msgstr ""
+msgstr "Ved {0} vil du ikke kunne sende eller modtage mails."
 
 msgid "You can not send mails as you have exceeded soft quota."
 msgstr "Du kan ikke sende emails da du har overskredet kvoten."
@@ -5206,14 +5381,16 @@ msgstr "Du kan ikke sende emails da du har overskredet kvoten."
 msgid "Reset settings"
 msgstr "Nulstil indstillinger"
 
-#, fuzzy
 msgid "Reset settings to their original defaults."
-msgstr "Nulstil grommunio Webs indstillinger til de originale"
+msgstr "Nulstil grommunio Webs indstillinger til de originale."
 
+#, fuzzy
 msgid ""
 "This will close all opened shared stores and resets all settings to the "
 "default value."
 msgstr ""
+"Dette lukker alle åbne delte lagre og nulstiller alle indstillinger til "
+"standardværdien."
 
 #, fuzzy
 msgid ""
@@ -5245,8 +5422,11 @@ msgstr "Gromox"
 msgid "Delete confirmation"
 msgstr "Slet bekræftelse"
 
+#, fuzzy
 msgid "Deleting the item(s) will also delete the original item(s)."
 msgstr ""
+"Hvis du sletter elementet/elementerne, slettes også det/de oprindelige "
+"element(er)."
 
 msgid "Do you want to delete the item(s)?"
 msgstr "Vil du slette element(erne)?"
@@ -5320,8 +5500,9 @@ msgstr "Send svaret nu"
 msgid "Date Complete"
 msgstr "Dato fuldført"
 
+#, fuzzy
 msgid "Multiple companies name must be separated by"
-msgstr ""
+msgstr "Flere virksomhedsnavne skal adskilles med"
 
 msgid "Update List"
 msgstr "Opdater liste"
@@ -5332,8 +5513,9 @@ msgstr "Opret ikke-tildelt kopi"
 msgid "copy"
 msgstr "kopi"
 
+#, fuzzy
 msgid "Unable to send task request"
-msgstr ""
+msgstr "Kan ikke sende opgaveanmodning"
 
 msgid "You cannot send a task request to yourself."
 msgstr "Du kan ikke sende en opgaveforespørgsel til dig selv."
@@ -5396,14 +5578,12 @@ msgstr "Ny opgave"
 msgid "Completed"
 msgstr "Komplet"
 
-#, fuzzy
 msgid "Printed by: "
-msgstr "Sorter efter: Til"
+msgstr "Sorter efter: "
 
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
-#, fuzzy
 msgid "Printed on: "
-msgstr "Udskriv note"
+msgstr "Udskriv note: "
 
 msgid "Percent complete"
 msgstr "Procent udført"
@@ -5445,10 +5625,10 @@ msgid "Create task"
 msgstr "Opret opgave"
 
 msgid "Upcoming"
-msgstr ""
+msgstr "Kommende"
 
 msgid "Overdue"
-msgstr ""
+msgstr "Forfalden"
 
 msgid "Mark Complete"
 msgstr "Marker som fuldført"
@@ -5464,10 +5644,13 @@ msgstr "Fjern fra favoritter"
 msgid "Changes to assigned task"
 msgstr "Send opgave til modtagere"
 
+#, fuzzy
 msgid ""
 "Please note that assigned task(s) will be overwritten when the assignee "
 "makes changes."
 msgstr ""
+"Bemærk, at tildelte opgaver vil blive overskrevet, når den tildelte person "
+"foretager ændringer."
 
 msgid "Sort by: Complete"
 msgstr "Sorter efter: Komplet"
@@ -5513,7 +5696,7 @@ msgid "D d-m-Y"
 msgstr "D, d.m.Y"
 
 msgid "none"
-msgstr ""
+msgstr "ingen"
 
 msgid "Quick Task"
 msgstr "Hurtig opgave"
@@ -5521,41 +5704,57 @@ msgstr "Hurtig opgave"
 msgid "No tasks."
 msgstr "Ingen opgaver."
 
+#, fuzzy
 msgid "Tasks / To-Do"
-msgstr ""
+msgstr "Opgaver / To-Do"
 
 msgid "Import / Export"
 msgstr "Importer / Eksporter"
 
+#, fuzzy
 msgid ""
 "Calendar, contact and mail items can be imported and exported from and to "
 "grommunio Web."
 msgstr ""
+"Kalender-, kontakt- og mail-elementer kan importeres og eksporteres fra og "
+"til grommunio Web."
 
+#, fuzzy
 msgid ""
 "Right-click a folder and select the import button. Additionally, items can "
 "be imported from the attachment context menu."
 msgstr ""
+"Højreklik på en mappe, og vælg knappen Import. Derudover kan elementer "
+"importeres fra kontekstmenuen for vedhæftede filer."
 
+#, fuzzy
 msgid "Exporting can be done from the context menu of an item."
-msgstr ""
+msgstr "Eksport kan foretages fra et element i kontekstmenuen for et element."
 
 msgid "Icon packs"
 msgstr "Ikonpakke"
 
+#, fuzzy
 msgid ""
 "You can now choose between different icons. By default the new Breeze icons "
 "are enabled, but if you prefer the classic icons you can change this in the "
 "settings."
 msgstr ""
+"Du kan nu vælge mellem forskellige ikoner. Som standard er de nye Breeze-"
+"ikoner aktiveret, men hvis du foretrækker de klassiske ikoner, kan du ændre "
+"dette i indstillingerne."
 
+#, fuzzy
 msgid ""
 "Go to your settings, open the general tab and select an icon pack to your "
 "liking."
 msgstr ""
+"Gå til dine indstillinger, åbn fanen Generelt, og vælg en ikonpakke efter "
+"din smag."
 
+#, fuzzy
 msgid "Left: Breeze - Right: Classic"
-msgstr ""
+msgstr "Til venstre: Breeze - Til højre: Classic"
 
 msgid "What's new"
 msgstr "Nyheder"
@@ -5572,8 +5771,9 @@ msgstr "Forrige"
 msgid "Next"
 msgstr "Næste"
 
+#, fuzzy
 msgid "Click the link to open the URL in a new window."
-msgstr ""
+msgstr "Klik på linket for at åbne URL-adressen i et nyt vindue."
 
 msgid "The server reported an unknown error on your request."
 msgstr "Serveren svarede med en ukendt fejl på din forespørgsel."
@@ -5616,11 +5816,13 @@ msgid "Connection with server has been restored"
 msgstr "Forbindelsen til serveren er blevet genoptaget"
 
 #. TRANSLATORS: Example: HTTP 404
+#, fuzzy
 msgid "HTTP {0}"
-msgstr ""
+msgstr "HTTP {0}"
 
+#, fuzzy
 msgid "Invalid data received from the server"
-msgstr ""
+msgstr "Ugyldige data modtaget fra serveren"
 
 msgid "Missing store"
 msgstr "Mangler postkasse"
@@ -5696,494 +5898,618 @@ msgid "Out of Office is currently activated. Would you like to turn it off?"
 msgstr "\"Ude af kontoret\" er aktivt, vil du slå det fra?"
 
 msgid "Archive"
-msgstr ""
+msgstr "Arkiv"
 
 msgid "Open Chat at start"
 msgstr "Åbn chatten, når den er startet"
 
+#, fuzzy
 msgid "Desktop Notifications Plugin"
-msgstr ""
+msgstr "Plugin til skrivebordsmeddelelser"
 
+#, fuzzy
 msgid "Desktop Notifications"
-msgstr ""
+msgstr "Meddelelser på skrivebordet"
 
+#, fuzzy
 msgid "{A} Autohide desktop notification after second(s) {B}"
-msgstr ""
+msgstr "{A} Automatisk skjul skrivebordsmeddelelse efter sekund(er) {B}"
 
+#, fuzzy
 msgid "Files: ownCloud Backend"
-msgstr ""
+msgstr "Filer: ownCloud Backend"
 
+#, fuzzy
 msgid "Share with user/group"
-msgstr ""
+msgstr "Del med bruger/gruppe"
 
+#, fuzzy
 msgid "Share via link"
-msgstr ""
+msgstr "Del via link"
 
+#, fuzzy
 msgid "Public link"
-msgstr ""
+msgstr "Offentlig forbindelse"
 
+#, fuzzy
 msgid "Password protect"
-msgstr ""
+msgstr "Beskyttelse med adgangskode"
 
 msgid "Password"
 msgstr "Adgangskode"
 
+#, fuzzy
 msgid "Public upload"
-msgstr ""
+msgstr "Offentlig upload"
 
 msgid "Expiration date"
-msgstr ""
+msgstr "Udløbsdato"
 
+#, fuzzy
 msgid "More than 1 share link exists. Only showing the latest one"
-msgstr ""
+msgstr "Der findes mere end 1 delelink. Der vises kun det seneste"
 
+#, fuzzy
 msgid "Loading details..."
-msgstr ""
+msgstr "Indlæser oplysninger..."
 
+#, fuzzy
 msgid "Share Details"
-msgstr ""
+msgstr "Del detaljer"
 
+#, fuzzy
 msgid "Re-share"
-msgstr ""
+msgstr "Genudveksling"
 
 msgid "Change"
-msgstr ""
+msgstr "Ændre"
 
+#, fuzzy
 msgid "Share with"
-msgstr ""
+msgstr "Del med"
 
+#, fuzzy
 msgid "Sort by: Type"
-msgstr ""
+msgstr "Sorter efter: Type"
 
+#, fuzzy
 msgid "Loading users and groups"
-msgstr ""
+msgstr "Indlæsning af brugere og grupper"
 
+#, fuzzy
 msgid "Add users or groups to share files."
-msgstr ""
+msgstr "Tilføj brugere eller grupper til at dele filer."
 
 msgid "Type to search"
-msgstr ""
+msgstr "Skriv for at søge"
 
 msgid "No results"
-msgstr ""
+msgstr "Ingen resultater"
 
+#, fuzzy
 msgid "Add attachment from {0}"
-msgstr ""
+msgstr "Tilføj vedhæftede fil fra {0}"
 
+#, fuzzy
 msgid "Confirm deletion"
-msgstr ""
+msgstr "Bekræft sletning"
 
 msgid "Are you sure you want to delete {0}?"
-msgstr ""
+msgstr "Er du sikker på du vil slette {0}?"
 
+#, fuzzy
 msgid "Are you sure you want to delete {0} and all of its contents?"
-msgstr ""
+msgstr "Er du sikker på, at du vil slette {0} og alt dens indhold?"
 
+#, fuzzy
 msgid "Are you sure you want to delete {0} files?"
-msgstr ""
+msgstr "Er du sikker på, at du ønsker at slette {0} filer?"
 
+#, fuzzy
 msgid "Are you sure want to delete {0} folders and all of their contents?"
-msgstr ""
+msgstr "Er du sikker på, at du vil slette {0}-mapper og alt deres indhold?"
 
+#, fuzzy
 msgid ""
 "Are you sure want to delete the selected items and all of their contents?"
 msgstr ""
+"Er du sikker på, at du vil slette de valgte elementer og alt deres indhold?"
 
+#, fuzzy
 msgid "Confirm overwrite"
-msgstr ""
+msgstr "Bekræft overskrivning"
 
+#, fuzzy
 msgid "File already exists. Do you want to overwrite it?"
-msgstr ""
+msgstr "Filen findes allerede. Ønsker du at overskrive den?"
 
+#, fuzzy
 msgid "Please enter a new name"
-msgstr ""
+msgstr "Indtast venligst et nyt navn"
 
 msgid "Rename record"
-msgstr ""
+msgstr "Omdøb optagelse"
 
+#, fuzzy
 msgid "A file name should not be empty."
-msgstr ""
+msgstr "Et filnavn bør ikke være tomt."
 
+#, fuzzy
 msgid "Rename item"
-msgstr ""
+msgstr "Omdøb emne"
 
+#, fuzzy
 msgid "A file named \"{0}\" already exists. Please enter a different name."
 msgstr ""
+"Der findes allerede en fil med navnet \"{0}\". Indtast venligst et andet "
+"navn."
 
 msgid "Downloading"
-msgstr ""
+msgstr "Downloade"
 
+#, fuzzy
 msgid "Download started... please wait!"
-msgstr ""
+msgstr "Download er startet... vent venligst!"
 
 msgid "Upload"
-msgstr ""
+msgstr "Upload"
 
+#, fuzzy
 msgid "At least one file is too large! Maximum allowed filesize: {0}."
-msgstr ""
+msgstr "Mindst én fil er for stor! Maksimal tilladt filstørrelse: {0}."
 
+#, fuzzy
 msgid "Keep both"
-msgstr ""
+msgstr "Behold både"
 
 msgid "Overwrite"
-msgstr ""
+msgstr "Overskrive"
 
+#, fuzzy
 msgid "l d/m/Y G:i"
-msgstr ""
+msgstr "l d/m/Y G:i"
 
 msgid "Never"
-msgstr ""
+msgstr "Aldrig"
 
+#, fuzzy
 msgid "Add from Files"
-msgstr ""
+msgstr "Tilføj fra filer"
 
+#, fuzzy
 msgid "Add attachment from Files"
-msgstr ""
+msgstr "Tilføj vedhæftede filer fra filer"
 
+#, fuzzy
 msgid "Add to Files"
-msgstr ""
+msgstr "Tilføj til filer"
 
 msgid "Upload file"
-msgstr ""
+msgstr "Upload fil"
 
 msgid "Files"
-msgstr ""
+msgstr "Filer"
 
+#, fuzzy
 msgid "Files Plugin"
-msgstr ""
+msgstr "Plugin til filer"
 
 msgid "Manage Accounts"
-msgstr ""
+msgstr "Administrer konti"
 
+#, fuzzy
 msgid "Reset Files settings"
-msgstr ""
+msgstr "Nulstil indstillinger for filer"
 
+#, fuzzy
 msgid "Resets Files settings to their original defaults"
 msgstr ""
+"Nulstiller indstillingerne for filer til deres oprindelige "
+"standardindstillinger"
 
+#, fuzzy
 msgid "Are you sure to remove all settings and accounts?"
-msgstr ""
+msgstr "Er du sikker på, at du har fjernet alle indstillinger og konti?"
 
+#, fuzzy
 msgid ""
 "Accounts marked by your administrator as \"cannot be changed\" will not be "
 "removed."
 msgstr ""
+"Konti, der af din administrator er markeret som \"kan ikke ændres\", vil "
+"ikke blive fjernet."
 
+#, fuzzy
 msgid ""
 "grommunio Web will automatically restart in order for these changes to take "
 "effect."
 msgstr ""
+"grommunio Web genstartes automatisk for at disse ændringer kan træde i kraft."
 
+#, fuzzy
 msgid "grommunio Web is reloading, Please wait."
-msgstr ""
+msgstr "grommunio Web er ved at blive indlæst igen, vent venligst."
 
 msgid "Edit Account"
-msgstr ""
+msgstr "Rediger konto"
 
 msgid "Account Information"
-msgstr ""
+msgstr "Konto oplysninger"
 
 msgid "Account name"
-msgstr ""
+msgstr "Kontonavn"
 
+#, fuzzy
 msgid "Account Configuration"
-msgstr ""
+msgstr "Konfiguration af konto"
 
 msgid "Update"
-msgstr ""
+msgstr "Opdater"
 
 msgid "ID"
 msgstr "ID"
 
+#, fuzzy
 msgid "Sort by: ID"
-msgstr ""
+msgstr "Sorter efter: ID"
 
 msgid "Backend"
-msgstr ""
+msgstr "Backend"
 
+#, fuzzy
 msgid "Sort by: Backend"
-msgstr ""
+msgstr "Sorter efter: Backend"
 
 msgid "Features"
-msgstr ""
+msgstr "Funktioner"
 
+#, fuzzy
 msgid "Shows all available features of the backend."
-msgstr ""
+msgstr "Viser alle tilgængelige funktioner i backenden."
 
+#, fuzzy
 msgid "Show quota information"
-msgstr ""
+msgstr "Vis oplysninger om kvoter"
 
+#, fuzzy
 msgid "Show version information"
-msgstr ""
+msgstr "Vis oplysninger om version"
 
+#, fuzzy
 msgid "Share files"
-msgstr ""
+msgstr "Del filer"
 
+#, fuzzy
 msgid "Fast Down/Upload"
-msgstr ""
+msgstr "Hurtig ned/opload"
 
+#, fuzzy
 msgid "No account created!"
-msgstr ""
+msgstr "Ingen konto oprettet!"
 
+#, fuzzy
 msgid "Add Account"
-msgstr ""
+msgstr "Tilføj konto"
 
+#, fuzzy
 msgid "Remove Account"
-msgstr ""
+msgstr "Fjern konto"
 
+#, fuzzy
 msgid "Loading accounts"
-msgstr ""
+msgstr "Indlæsning af konti"
 
+#, fuzzy
 msgid "Do you really want to delete the account \"{0}\"?"
-msgstr ""
+msgstr "Ønsker du virkelig at slette kontoen \"{0}\"?"
 
+#, fuzzy
 msgid "Quota Information"
-msgstr ""
+msgstr "Oplysninger om kontingent"
 
 msgid "Used"
-msgstr ""
+msgstr "Brugt"
 
 msgid "Total"
-msgstr ""
+msgstr "Total"
 
+#, fuzzy
 msgid "Version Information"
-msgstr ""
+msgstr "Oplysninger om version"
 
 msgid "Filename"
-msgstr ""
+msgstr "Filnavn"
 
+#, fuzzy
 msgid "Sort by: Filename"
-msgstr ""
+msgstr "Sorter efter: Filename"
 
+#, fuzzy
 msgid "Loading files"
-msgstr ""
+msgstr "Indlæsning af filer"
 
+#, fuzzy
 msgid "The file {0} is too large!"
-msgstr ""
+msgstr "Filen {0} er for stor!"
 
 msgid "max"
-msgstr ""
+msgstr "max"
 
+#, fuzzy
 msgid "You have to choose at least one file!"
-msgstr ""
+msgstr "Du skal vælge mindst én fil!"
 
 msgid "Create New "
-msgstr ""
+msgstr "Opret ny "
 
+#, fuzzy
 msgid "Incorrect filename"
-msgstr ""
+msgstr "Forkert filnavn"
 
+#, fuzzy
 msgid "Error reaching office backend"
-msgstr ""
+msgstr "Fejl ved at nå office backend"
 
+#, fuzzy
 msgid "Folder already exists"
-msgstr ""
+msgstr "Mappen findes allerede"
 
+#, fuzzy
 msgid "Incorrect foldername"
-msgstr ""
+msgstr "Forkert foldernavn"
 
+#, fuzzy
 msgid "File information"
-msgstr ""
+msgstr "Oplysninger om filer"
 
 msgid "Select a file"
-msgstr ""
+msgstr "Vælg en fil"
 
+#, fuzzy
 msgid "Maximum upload size"
-msgstr ""
+msgstr "Maksimal upload-størrelse"
 
 msgid "Browse"
-msgstr ""
+msgstr "Gennemse"
 
+#, fuzzy
 msgid "Select upload folder"
-msgstr ""
+msgstr "Vælg upload-mappe"
 
+#, fuzzy
 msgid "File \"{0}\" is too large! Maximum allowed filesize: {1}."
-msgstr ""
+msgstr "Filen \"{0}\" er for stor! Maksimal tilladt filstørrelse: {1}."
 
+#, fuzzy
 msgid "Add item to Files"
-msgstr ""
+msgstr "Tilføj emne til filer"
 
+#, fuzzy
 msgid "You have to choose a folder!"
-msgstr ""
+msgstr "Du skal vælge en mappe!"
 
 msgid "Uploaded"
-msgstr ""
+msgstr "Uploadet"
 
+#, fuzzy
 msgid "Attachment successfully stored in Files"
-msgstr ""
+msgstr "Vedhæftede fil er gemt i Filer med succes"
 
+#, fuzzy
 msgid "Upload Failed"
-msgstr ""
+msgstr "Upload mislykkedes"
 
 msgid "Attachment could not be stored in Files! Error: "
-msgstr ""
+msgstr "Vedhæftede fil kunne ikke gemmes i Filer! Fejl: "
 
+#, fuzzy
 msgid "Share Files"
-msgstr ""
+msgstr "Del filer"
 
 msgid "Uploading files to "
-msgstr ""
+msgstr "Overførsel af filer til "
 
+#, fuzzy
 msgid "Starting upload"
-msgstr ""
+msgstr "Start af upload"
 
 msgid "Cancel upload"
-msgstr ""
+msgstr "Annuller upload"
 
+#, fuzzy
 msgid "- seconds left"
-msgstr ""
+msgstr "- sekunder tilbage"
 
+#, fuzzy
 msgid " seconds left"
-msgstr ""
+msgstr " sekunder tilbage"
 
 msgid " minutes left"
-msgstr ""
+msgstr " resterende minutter"
 
 msgid "Uploading: "
-msgstr ""
+msgstr "Overførsel: "
 
+#, fuzzy
 msgid "Upload status unavailable... please wait."
-msgstr ""
+msgstr "Upload-status er ikke tilgængelig... vent venligst."
 
+#, fuzzy
 msgid "Upload finished!"
-msgstr ""
+msgstr "Upload færdig!"
 
+#, fuzzy
 msgid "Upload aborted!"
-msgstr ""
+msgstr "Upload afbrudt!"
 
+#, fuzzy
 msgid "Upload failed!"
-msgstr ""
+msgstr "Upload mislykkedes!"
 
 msgid "Document"
-msgstr ""
+msgstr "Dokument"
 
 msgid "Presentation"
-msgstr ""
+msgstr "Præsentation"
 
 msgid "Spreadsheet"
-msgstr ""
+msgstr "Regneark"
 
 msgid "Upload files"
-msgstr ""
+msgstr "Upload filer"
 
+#, fuzzy
 msgid "Create document"
-msgstr ""
+msgstr "Opret dokument"
 
+#, fuzzy
 msgid "Create office document"
-msgstr ""
+msgstr "Opret kontordokument"
 
 msgid "Download files"
-msgstr ""
+msgstr "Download filer"
 
 msgid "Share"
-msgstr ""
+msgstr "Del"
 
+#, fuzzy
 msgid "Attach to mail"
-msgstr ""
+msgstr "Vedhæftes til mail"
 
+#, fuzzy
 msgid "Attach to mail as link"
-msgstr ""
+msgstr "Vedhæft til mail som link"
 
+#, fuzzy
 msgid "Attaching"
-msgstr ""
+msgstr "Fastgørelse af"
 
+#, fuzzy
 msgid "Creating email... Please wait!"
-msgstr ""
+msgstr "Oprettelse af e-mail... Vent venligst!"
 
+#, fuzzy
 msgid "Edit share"
-msgstr ""
+msgstr "Rediger andel"
 
+#, fuzzy
 msgid ""
 "There are no accounts added. Go to settings, Files tab and add an account"
 msgstr ""
+"Der er ikke tilføjet nogen konti. Gå til indstillinger, fanen Filer, og "
+"tilføj en konto"
 
+#, fuzzy
 msgid "Filesize"
-msgstr ""
+msgstr "Filstørrelse"
 
 msgid "Last modified"
-msgstr ""
+msgstr "Sidst ændret"
 
+#, fuzzy
 msgid "Is shared"
-msgstr ""
+msgstr "Er delt"
 
+#, fuzzy
 msgid "File preview"
-msgstr ""
+msgstr "Visning af filer"
 
+#, fuzzy
 msgid "Your browser does not support previewing of audio files!"
-msgstr ""
+msgstr "Din browser understøtter ikke visning af lydfiler!"
 
+#, fuzzy
 msgid "Your browser does not support previewing of video files!"
-msgstr ""
+msgstr "Din browser understøtter ikke visning af videofiler!"
 
+#, fuzzy
 msgid "d.m.Y G:i"
-msgstr ""
+msgstr "d.m.Y G:i"
 
 msgid "Folder"
-msgstr ""
+msgstr "Mappe"
 
+#, fuzzy
 msgid "File ({0})"
-msgstr ""
+msgstr "Fil ({0})"
 
+#, fuzzy
 msgid "Sort by: Path"
-msgstr ""
+msgstr "Sorter efter: Sti"
 
+#, fuzzy
 msgid "Sort by: Last modified"
-msgstr ""
+msgstr "Sorter efter: Sidst ændret"
 
+#, fuzzy
 msgid "Sort by: Shared"
-msgstr ""
+msgstr "Sorter efter: Delte"
 
+#, fuzzy
 msgid "There are no items to show in this view"
-msgstr ""
+msgstr "Der er ingen elementer, der skal vises i denne visning"
 
+#, fuzzy
 msgid "files selected"
-msgstr ""
+msgstr "valgte filer"
 
+#, fuzzy
 msgid "Authentication required, when using grommunio-files for the first time"
-msgstr ""
+msgstr "Godkendelse er påkrævet, når du bruger grommunio-files for første gang"
 
+#, fuzzy
 msgid "Intranet"
-msgstr ""
+msgstr "Intranet"
 
 msgid "number"
-msgstr ""
+msgstr "nummer"
 
 msgid "shadow"
-msgstr ""
+msgstr "skygge"
 
+#, fuzzy
 msgid "Openstreetmap"
-msgstr ""
+msgstr "Openstreetmap"
 
 #. TRANSLATORS: The map of earth
 msgid "Map"
-msgstr ""
+msgstr "Kort"
 
+#, fuzzy
 msgid "Mobile Device Manager"
-msgstr ""
+msgstr "Manager for mobile enheder"
 
+#, fuzzy
 msgid "Wiping device"
-msgstr ""
+msgstr "Tørreanordning"
 
+#, fuzzy
 msgid "Password incorrect"
-msgstr ""
+msgstr "Kodeord forkert"
 
+#, fuzzy
 msgid "Full resync in progress"
-msgstr ""
+msgstr "Fuld resynkronisering i gang"
 
+#, fuzzy
 msgid "Username or password incorrect"
-msgstr ""
+msgstr "Brugernavn eller adgangskode er forkert"
 
+#, fuzzy
 msgid "Not Applicable"
-msgstr ""
+msgstr "Ikke relevant"
 
+#, fuzzy
 msgid "Wipe Pending"
-msgstr ""
+msgstr "Tørres af i afventning"
 
+#, fuzzy
 msgid "Wipe Requested"
-msgstr ""
+msgstr "Anmodning om aftørring"
 
+#, fuzzy
 msgid "Wipe Executed"
-msgstr ""
+msgstr "Tørre udført"
 
 msgid "Not Available"
 msgstr "Ikke til rådighed"
@@ -6191,171 +6517,225 @@ msgstr "Ikke til rådighed"
 msgid "Device"
 msgstr "Enhed"
 
-#, fuzzy
 msgid "Operating System"
-msgstr "Operating system"
+msgstr "Operativsystem"
 
 msgid "User Agent"
 msgstr "Brugeragent"
 
+#, fuzzy
 msgid "MDM Plugin"
-msgstr ""
+msgstr "MDM-plugin"
 
+#, fuzzy
 msgid "Active Sync Version"
-msgstr ""
+msgstr "Version med aktiv synkronisering"
 
+#, fuzzy
 msgid "grommunio-sync Version"
-msgstr ""
+msgstr "grommunio-sync Version"
 
+#, fuzzy
 msgid "Policy name"
-msgstr ""
+msgstr "Politisk navn"
 
+#, fuzzy
 msgid "Outlook Extension"
-msgstr ""
+msgstr "Outlook-udvidelse"
 
 msgid "Build"
-msgstr ""
+msgstr "Nybyg"
 
 msgid "Last updated"
-msgstr ""
+msgstr "Sidst opdateret"
 
+#, fuzzy
 msgid "d F Y, H:i"
-msgstr ""
+msgstr "d F Y, H:i"
 
 msgid "Connected since"
-msgstr ""
+msgstr "Har været forbundet siden"
 
+#, fuzzy
 msgid "d F Y"
-msgstr ""
+msgstr "d F Y"
 
 msgid "Synchronize"
-msgstr ""
+msgstr "Synkroniser"
 
+#, fuzzy
 msgid "Manage Shared Folders"
-msgstr ""
+msgstr "Administrer delte mapper"
 
+#, fuzzy
 msgid ""
 "Select folders to sync to your device from the list below. To add additional "
 "mailboxes to the list, open them in grommunio Web first."
 msgstr ""
+"Vælg de mapper, der skal synkroniseres til din enhed, på listen nedenfor. "
+"Hvis du vil tilføje yderligere postkasser til listen, skal du først åbne dem "
+"i grommunio Web."
 
+#, fuzzy
 msgid "grommunio-sync"
-msgstr ""
+msgstr "grommunio-sync"
 
+#, fuzzy
 msgid "Mobile device management"
-msgstr ""
+msgstr "Styring af mobile enheder"
 
+#, fuzzy
 msgid "Mobile Devices"
-msgstr ""
+msgstr "Mobile enheder"
 
+#, fuzzy
 msgid ""
 "Unable to connect to the grommunio-sync server. Click {0} to enter your "
 "credentials"
 msgstr ""
+"Det er ikke muligt at oprette forbindelse til grommunio-sync-serveren. Klik "
+"på {0} for at indtaste dine legitimationsoplysninger"
 
 msgid "Devices"
 msgstr "Enheder"
 
+#, fuzzy
 msgid "No devices connected to your account"
-msgstr ""
+msgstr "Ingen enheder er forbundet til din konto"
 
+#, fuzzy
 msgid "Provisioning Status"
-msgstr ""
+msgstr "Status for tilrådighedsstillelse"
 
 msgid "Last Update"
 msgstr "Seneste opdatering"
 
 msgid "Device ID"
-msgstr ""
+msgstr "Enheds id"
 
+#, fuzzy
 msgid "Device OS"
-msgstr ""
+msgstr "Enhed OS"
 
+#, fuzzy
 msgid "Device Info"
-msgstr ""
+msgstr "Oplysninger om enheden"
 
+#, fuzzy
 msgid "First Sync time"
-msgstr ""
+msgstr "Første synkroniseringstid"
 
+#, fuzzy
 msgid "Wipe Device"
-msgstr ""
+msgstr "Tørre enhed"
 
+#, fuzzy
 msgid "Full resync"
-msgstr ""
+msgstr "Fuld resynkronisering"
 
 msgid "Remove device"
-msgstr ""
+msgstr "Fjern enhed"
 
+#, fuzzy
 msgid "Please enter your username and password"
-msgstr ""
+msgstr "Indtast venligst dit brugernavn og din adgangskode"
 
 msgid "Username"
 msgstr "Brugernavn"
 
+#, fuzzy
 msgid ""
 "Do you really want to wipe your device?\n"
 " Enter your password to confirm."
 msgstr ""
+"Ønsker du virkelig at slette din enhed?\n"
+" Indtast din adgangskode for at bekræfte."
 
+#, fuzzy
 msgid ""
 "Do you really want to remove your device?\n"
 " Enter your password to confirm."
 msgstr ""
+"Ønsker du virkelig at fjerne din enhed?\n"
+" Indtast din adgangskode for at bekræfte."
 
+#, fuzzy
 msgid "Add meeting"
-msgstr ""
+msgstr "Tilføj møde"
 
+#, fuzzy
 msgid "Room name:"
-msgstr ""
+msgstr "Værelsesnavn:"
 
+#, fuzzy
 msgid "Room URL:"
-msgstr ""
+msgstr "Værelses-URL:"
 
+#, fuzzy
 msgid "Shift-click for advanced settings"
-msgstr ""
+msgstr "Shift-klik for avancerede indstillinger"
 
+#, fuzzy
 msgid "Join webmeeting"
-msgstr ""
+msgstr "Deltag i webmøde"
 
+#, fuzzy
 msgid "Open meeting in:"
-msgstr ""
+msgstr "Åbent møde i:"
 
+#, fuzzy
 msgid "Web tab"
-msgstr ""
+msgstr "Fanen Web"
 
+#, fuzzy
 msgid "Hide the button in the main toolbar"
-msgstr ""
+msgstr "Skjul knappen i hovedværktøjslinjen"
 
+#, fuzzy
 msgid "Add the subject to the room name"
-msgstr ""
+msgstr "Tilføj emnet til rumnavnet"
 
+#, fuzzy
 msgid "Add the organizer name to the room name"
-msgstr ""
+msgstr "Tilføj arrangørens navn til rumnavnet"
 
+#, fuzzy
 msgid "Add the URL to the meeting location rather than overwriting it"
-msgstr ""
+msgstr "Tilføj URL'en til mødestedet i stedet for at overskrive den"
 
+#, fuzzy
 msgid ""
 "Prevent the URL in the meeting location from being overridden automatically "
 "(ex: when adding a meetingroom)"
 msgstr ""
+"Forhindrer, at URL-adressen i mødestedet tilsidesættes automatisk (f.eks. "
+"når du tilføjer et mødelokale)"
 
+#, fuzzy
 msgid "If you have problems when creating meetings, try disabling this setting"
 msgstr ""
+"Hvis du har problemer med at oprette møder, kan du prøve at deaktivere denne "
+"indstilling"
 
+#, fuzzy
 msgid "Add an invitation to the appointment description"
-msgstr ""
+msgstr "Tilføj en invitation til beskrivelsen af en aftale"
 
+#, fuzzy
 msgid "Invitation text"
-msgstr ""
+msgstr "Indbydelsestekst"
 
+#, fuzzy
 msgid ""
 "must contain %url% as a placeholder for the meeting link, empty the textbox "
 "to reset to default"
 msgstr ""
+"skal indeholde %url% som en pladsholder for linket til mødet, tøm "
+"tekstboksen for at nulstille til standardværdien"
 
+#, fuzzy
 msgid "An unknown error occurred while changing password."
-msgstr ""
+msgstr "Der opstod en ukendt fejl under ændring af adgangskode."
 
 msgid "Password is changed successfully."
 msgstr "Kodeord blev ændret."
@@ -6373,286 +6753,403 @@ msgid "New password"
 msgstr "Ny adgangskode"
 
 msgid "Retype new password"
-msgstr ""
+msgstr "Indtast ny adgangskode igen"
 
 msgid "New passwords do not match."
 msgstr "Adgangskoderne er ikke ens."
 
+#, fuzzy
 msgid "Current password is empty."
-msgstr ""
+msgstr "Den nuværende adgangskode er tom."
 
+#, fuzzy
 msgid "New password is empty."
-msgstr ""
+msgstr "Det nye password er tomt."
 
+#, fuzzy
 msgid "One or more fields does contain errors."
-msgstr ""
+msgstr "Et eller flere felter indeholder fejl."
 
+#, fuzzy
 msgid ""
 "Password is weak. Password should contain capital, non-capital letters and "
 "numbers. Password should have 8 to 20 characters."
 msgstr ""
+"Adgangskoden er svag. Adgangskoden skal indeholde store og små bogstaver "
+"samt tal. Adgangskoden skal have 8 til 20 tegn."
 
+#, fuzzy
 msgid "Change passphrase"
-msgstr ""
+msgstr "Ændre adgangsfrase"
 
+#, fuzzy
 msgid "Old passphrase"
-msgstr ""
+msgstr "Gammel adgangsfrase"
 
+#, fuzzy
 msgid "Wrong passphrase. Please try again"
-msgstr ""
+msgstr "Forkert adgangsfrase. Prøv venligst igen"
 
+#, fuzzy
 msgid "New passphrase"
-msgstr ""
+msgstr "Ny adgangsfrase"
 
+#, fuzzy
 msgid "Confirm new passphrase"
-msgstr ""
+msgstr "Bekræft den nye adgangsfrase"
 
+#, fuzzy
 msgid "The passphrases don't match. Please try again"
-msgstr ""
+msgstr "Passfraserne passer ikke sammen. Prøv venligst igen"
 
+#, fuzzy
 msgid "S/MIME Message"
-msgstr ""
+msgstr "S/MIME-meddelelse"
 
+#, fuzzy
 msgid "Passphrase changed succesfully"
-msgstr ""
+msgstr "Passphrase ændret med succes"
 
+#, fuzzy
 msgid "S/MIME Passphrase"
-msgstr ""
+msgstr "S/MIME-passfras"
 
 msgid "Submit"
-msgstr ""
+msgstr "Send"
 
+#, fuzzy
 msgid "Certificate passphrase"
-msgstr ""
+msgstr "Passphrase for certifikat"
 
+#, fuzzy
 msgid "The passphrase you typed is incorrect. Please try again."
-msgstr ""
+msgstr "Den adgangsfrase, du har indtastet, er forkert. Prøv venligst igen."
 
+#, fuzzy
 msgid "No certificates imported, please upload your private certificate"
-msgstr ""
+msgstr "Ingen certifikater importeret, upload venligst dit private certifikat"
 
+#, fuzzy
 msgid "Valid from"
-msgstr ""
+msgstr "Gyldig fra"
 
 msgid "Expires"
-msgstr ""
+msgstr "Udløber"
 
+#, fuzzy
 msgid "Loading certificates"
-msgstr ""
+msgstr "Indlæsning af certifikater"
 
+#, fuzzy
 msgid "S/MIME Plugin"
-msgstr ""
+msgstr "S/MIME-plugin"
 
+#, fuzzy
 msgid "Please select a certificate."
-msgstr ""
+msgstr "Vælg venligst et certifikat."
 
+#, fuzzy
 msgid ""
 "Do you really want to remove your private certificate? If you remove your "
 "certificate you will not be able to sign or decrypt S/MIME emails."
 msgstr ""
+"Ønsker du virkelig at fjerne dit private certifikat? Hvis du fjerner dit "
+"certifikat, kan du ikke underskrive eller dekryptere S/MIME-e-mails."
 
+#, fuzzy
 msgid "Certificate details"
-msgstr ""
+msgstr "Oplysninger om certifikatet"
 
+#, fuzzy
 msgid ""
 "Below you can view and delete public & private certificate(s) stored on the "
 "server."
 msgstr ""
+"Nedenfor kan du se og slette offentlige og private certifikater, der er gemt "
+"på serveren."
 
+#, fuzzy
 msgid "Filter on Email"
-msgstr ""
+msgstr "Filter på e-mail"
 
+#, fuzzy
 msgid "Public & Private certificates"
-msgstr ""
+msgstr "Offentlige og private certifikater"
 
+#, fuzzy
 msgid "S/MIME"
-msgstr ""
+msgstr "S/MIME"
 
+#, fuzzy
 msgid "You don't have a valid certificate corresponding to your account"
-msgstr ""
+msgstr "Du har ikke et gyldigt certifikat, der svarer til din konto"
 
+#, fuzzy
 msgid "Personal certificate"
-msgstr ""
+msgstr "Personligt certifikat"
 
+#, fuzzy
 msgid "Change passphrase for last certificate"
-msgstr ""
+msgstr "Ændre adgangsfrase for sidste certifikat"
 
+#, fuzzy
 msgid "You have a valid certificate corresponding to your account"
-msgstr ""
+msgstr "Du har et gyldigt certifikat, der svarer til din konto"
 
+#, fuzzy
 msgid "Upload your certificate"
-msgstr ""
+msgstr "Upload dit certifikat"
 
+#, fuzzy
 msgid ""
 "Below you can upload your private certificate in PKCS#12 format. grommunio "
 "Web only accepts certificates which are valid and only stores one private "
 "certificate on the server."
 msgstr ""
+"Nedenfor kan du uploade dit private certifikat i PKCS#12-format. grommunio "
+"Web accepterer kun certifikater, der er gyldige, og gemmer kun ét privat "
+"certifikat på serveren."
 
+#, fuzzy
 msgid "Private certificate"
-msgstr ""
+msgstr "Privat certifikat"
 
+#, fuzzy
 msgid "You must fill in the certificate passphrase to upload your certificate."
 msgstr ""
+"Du skal udfylde certifikatets passphrase for at uploade dit certifikat."
 
+#, fuzzy
 msgid "You must first select a valid private certificate in PKCS#12 format."
-msgstr ""
+msgstr "Du skal først vælge et gyldigt privat certifikat i PKCS#12-format."
 
+#, fuzzy
 msgid "Sign"
-msgstr ""
+msgstr "Skilt"
 
+#, fuzzy
 msgid "Sign message"
-msgstr ""
+msgstr "Skiltemeddelelse"
 
+#, fuzzy
 msgid ""
 "Ensure the authenticity of the message by adding a digital signature to this "
 "message. Any changes to the message will invalidate the signature."
 msgstr ""
+"Sikre meddelelsens ægthed ved at tilføje en digital signatur til denne "
+"meddelelse. Enhver ændring af meddelelsen vil ugyldiggøre signaturen."
 
+#, fuzzy
 msgid "Encrypt"
-msgstr ""
+msgstr "Krypter"
 
+#, fuzzy
 msgid "Encrypt message"
-msgstr ""
+msgstr "Kryptere besked"
 
+#, fuzzy
 msgid ""
 "Ensure the privacy of the message by encrypting its contents. Only the "
 "recipient of the message will be able to open it."
 msgstr ""
+"Sikre meddelelsens fortrolighed ved at kryptere dens indhold. Kun modtageren "
+"af meddelelsen kan åbne den."
 
+#, fuzzy
 msgid "What's going on with my email?"
-msgstr ""
+msgstr "Hvad sker der med min e-mail?"
 
+#, fuzzy
 msgid ""
 "grommunio Web can verify digital signatures of emails. A successful "
 "verification reassures you that the message has not been tampered with and "
 "validates the identity of the sender."
 msgstr ""
+"grommunio Web kan verificere digitale signaturer af e-mails. En vellykket "
+"verifikation forsikrer dig om, at der ikke er blevet manipuleret med "
+"meddelelsen, og bekræfter afsenderens identitet."
 
+#, fuzzy
 msgid ""
 "You are seeing this message because the verification of the digital signature"
-msgstr ""
+msgstr "Du får denne meddelelse, fordi verifikationen af den digitale signatur"
 
+#, fuzzy
 msgid " has failed"
-msgstr ""
+msgstr " er mislykkedes"
 
+#, fuzzy
 msgid " for this message."
-msgstr ""
+msgstr " for denne meddelelse."
 
+#, fuzzy
 msgid "What caused this issue?"
-msgstr ""
+msgstr "Hvad var årsagen til dette problem?"
 
+#, fuzzy
 msgid "What should I do?"
-msgstr ""
+msgstr "Hvad skal jeg gøre?"
 
+#, fuzzy
 msgid ""
 "You can continue to work. However, you should keep in mind that the identity "
 "and the authenticity of the message content could not be verified."
 msgstr ""
+"Du kan fortsætte med at arbejde. Du skal dog huske på, at meddelelsens "
+"identitet og ægthed ikke kan verificeres."
 
+#, fuzzy
 msgid ""
 "You can contact your helpdesk or system administrator if you are not sure "
 "what to do next."
 msgstr ""
+"Du kan kontakte din helpdesk eller systemadministrator, hvis du ikke er "
+"sikker på, hvad du skal gøre nu."
 
 msgid ""
 "grommunio Web can verify digital signatures of emails. A successful "
 "verification reassures you "
 msgstr ""
+"grommunio Web kan verificere digitale signaturer af e-mails. En vellykket "
+"verifikation sikrer dig "
 
+#, fuzzy
 msgid ""
 "that the message has not been tampered with and validates the identity of "
 "the sender."
 msgstr ""
+"at der ikke er blevet manipuleret med meddelelsen, og bekræfter afsenderens "
+"identitet."
 
+#, fuzzy
 msgid ""
 "The verification of the digital signature was successful for this email "
 "message."
 msgstr ""
+"Verifikationen af den digitale signatur var vellykket for denne e-mail-"
+"meddelelse."
 
+#, fuzzy
 msgid "grommunio Web could not find a public certificate for the recipient."
 msgstr ""
+"grommunio Web kunne ikke finde et offentligt certifikat for modtageren."
 
+#, fuzzy
 msgid ""
 "The identity of the sender and authenticity of the message content have been "
 "verified, but the certificate used to sign the message expired on [d-m-Y]."
 msgstr ""
+"Afsenderens identitet og meddelelsens indholds autenticitet er blevet "
+"verificeret, men det certifikat, der blev brugt til at underskrive "
+"meddelelsen, udløb den [d-m-Y]."
 
+#, fuzzy
 msgid "The digital signature could not be verified for unknown reasons."
-msgstr ""
+msgstr "Den digitale signatur kunne af ukendte årsager ikke verificeres."
 
+#, fuzzy
 msgid ""
 "The digital certificate used to sign this message has been revoked (i.e. the "
 "sender has marked it as compromised)"
 msgstr ""
+"Det digitale certifikat, der er brugt til at underskrive denne meddelelse, "
+"er blevet tilbagekaldt (dvs. afsenderen har markeret det som kompromitteret)"
 
+#, fuzzy
 msgid ""
 "The verification service of the certificate authority that signed the "
 "sender's certificate is not available. The validity of the certificate could "
 "not be verified."
 msgstr ""
+"Verifikationstjenesten for den certifikatudstedende myndighed, der har "
+"underskrevet afsenderens certifikat, er ikke tilgængelig. Certifikatets "
+"gyldighed kunne ikke verificeres."
 
+#, fuzzy
 msgid ""
 "The revocation status of the digital certificate used to sign this email is "
 "unknown (Server is unavailable or certificate does not support OCSP). The "
 "validity of the certificate could not be verified."
 msgstr ""
+"Tilbagekaldelsesstatus for det digitale certifikat, der er brugt til at "
+"underskrive denne e-mail, er ukendt (serveren er ikke tilgængelig, eller "
+"certifikatet understøtter ikke OCSP). Certifikatets gyldighed kunne ikke "
+"verificeres."
 
+#, fuzzy
 msgid ""
 "The revocation status of the digital certificate used to sign this email is "
 "disabled (OCSP). The validity of the certificate could not be verified."
 msgstr ""
+"Tilbagekaldelsesstatus for det digitale certifikat, der er brugt til at "
+"underskrive denne e-mail, er deaktiveret (OCSP). Certifikatets gyldighed "
+"kunne ikke verificeres."
 
+#, fuzzy
 msgid "The certificate verification server (OCSP) is temporarily offline."
-msgstr ""
+msgstr "Certifikatverifikationsserveren (OCSP) er midlertidigt offline."
 
+#, fuzzy
 msgid "Sender is removed from the server."
-msgstr ""
+msgstr "Afsenderen er fjernet fra serveren."
 
+#, fuzzy
 msgid "Signature verified successfully"
-msgstr ""
+msgstr "Signatur verificeret med succes"
 
+#, fuzzy
 msgid "Could not verify signature, missing public certificate"
-msgstr ""
+msgstr "Kunne ikke verificere signatur, manglende offentligt certifikat"
 
+#, fuzzy
 msgid "Signature verification successful, but certificate is expired"
-msgstr ""
+msgstr "Signaturverifikation vellykket, men certifikatet er udløbet"
 
+#, fuzzy
 msgid "Signature could not be verified"
-msgstr ""
+msgstr "Signaturen kunne ikke verificeres"
 
+#, fuzzy
 msgid "Certificate has been revoked"
-msgstr ""
+msgstr "Certifikatet er blevet tilbagekaldt"
 
+#, fuzzy
 msgid "Verification with Certificate Authority failed"
-msgstr ""
+msgstr "Verifikation med certifikatudstedende myndighed mislykkedes"
 
+#, fuzzy
 msgid "Message decrypted succesfully"
-msgstr ""
+msgstr "Meddelelsen er dekrypteret med succes"
 
+#, fuzzy
 msgid "Message decryption failed"
-msgstr ""
+msgstr "Afkodning af meddelelsen mislykkedes"
 
 msgid "Please"
-msgstr ""
+msgstr "Venligst"
 
 msgid "click here"
-msgstr ""
+msgstr "klik her"
 
+#, fuzzy
 msgid "to unlock your certificate"
-msgstr ""
+msgstr "for at låse dit certifikat op"
 
+#, fuzzy
 msgid "Cannot determine revocation status of certificate"
-msgstr ""
+msgstr "Kan ikke bestemme certifikatets tilbagekaldelsesstatus"
 
+#, fuzzy
 msgid "Signature verified (OCSP disabled)"
-msgstr ""
+msgstr "Signatur verificeret (OCSP deaktiveret)"
 
+#, fuzzy
 msgid "Unable to decrypt this message. Certificate does not match"
-msgstr ""
+msgstr "Kan ikke dekryptere denne meddelelse. Certifikatet passer ikke til"
 
+#, fuzzy
 msgid "Verification failed. User is removed from the server."
-msgstr ""
+msgstr "Verifikation mislykkedes. Brugeren er fjernet fra serveren."
 
 msgid "Charm pink"
 msgstr "Rosa"
@@ -6675,8 +7172,9 @@ msgstr "Mynte"
 msgid "Pearl aqua"
 msgstr "Lyseblå"
 
+#, fuzzy
 msgid "Grommunio blue"
-msgstr ""
+msgstr "Grommunio blå"
 
 msgid "Baby blue"
 msgstr "Babyblå"
@@ -6735,274 +7233,364 @@ msgstr "Venter"
 msgid "You have been automatically logged out"
 msgstr "Du er blevet logget ud automatisk"
 
+#, fuzzy
 msgid ""
 "Sorry, access to grommunio Web is not available with this user account. "
 "Please contact your system administrator."
 msgstr ""
+"Beklager, adgang til grommunio Web er ikke tilgængelig med denne "
+"brugerkonto. Kontakt venligst din systemadministrator."
 
+#, fuzzy
 msgid "With this backend, you can connect to any ownCloud server."
 msgstr ""
+"Med denne backend kan du oprette forbindelse til enhver ownCloud-server."
 
 msgid "Files ownCloud Backend: "
-msgstr ""
+msgstr "Filer ownCloud Backend: "
 
 msgid "Server address"
-msgstr ""
+msgstr "Server adresse"
 
+#, fuzzy
 msgid "Server port"
-msgstr ""
+msgstr "Serverport"
 
+#, fuzzy
 msgid "Use SSL"
-msgstr ""
+msgstr "Brug SSL"
 
+#, fuzzy
 msgid "Webdav base path"
-msgstr ""
+msgstr "Webdav-basesti"
 
+#, fuzzy
 msgid "Use grommunio credentials"
-msgstr ""
+msgstr "Brug grommunio legitimationsoplysninger"
 
+#, fuzzy
 msgid "php-curl is not available"
-msgstr ""
+msgstr "php-curl er ikke tilgængelig"
 
 msgid "Access denied"
-msgstr ""
+msgstr "Adgang nægtet"
 
+#, fuzzy
 msgid "Connection failed"
-msgstr ""
+msgstr "Forbindelsen mislykkedes"
 
+#, fuzzy
 msgid "Sabre error"
-msgstr ""
+msgstr "Sabre fejl"
 
+#, fuzzy
 msgid "Copying failed"
-msgstr ""
+msgstr "Kopiering mislykkedes"
 
 msgid "Unknown error"
-msgstr ""
+msgstr "Ukendt fejl"
 
+#, fuzzy
 msgid "Please contact your system administrator."
-msgstr ""
+msgstr "Kontakt venligst din systemadministrator."
 
+#, fuzzy
 msgid "Unauthorized. Wrong username or password."
-msgstr ""
+msgstr "Uautoriseret. Forkert brugernavn eller adgangskode."
 
+#, fuzzy
 msgid "File server is not reachable. Please verify the file server URL."
 msgstr ""
+"Der kan ikke opnås adgang til filserveren. Kontroller venligst URL'en til "
+"filserveren."
 
+#, fuzzy
 msgid "You don't have enough permissions to view this file or folder."
 msgstr ""
+"Du har ikke tilstrækkelige tilladelser til at se denne fil eller mappe."
 
+#, fuzzy
 msgid "The file or folder is not available anymore."
-msgstr ""
+msgstr "Filen eller mappen er ikke længere tilgængelig."
 
+#, fuzzy
 msgid "Connection to the file server timed out. Please check again later."
 msgstr ""
+"Forbindelsen til filserveren er gået ud i tid. Kontroller venligst igen "
+"senere."
 
+#, fuzzy
 msgid "This file is locked by another user. Please try again later."
-msgstr ""
+msgstr "Denne fil er låst af en anden bruger. Prøv venligst igen senere."
 
+#, fuzzy
 msgid "The request failed."
-msgstr ""
+msgstr "Anmodningen mislykkedes."
 
+#, fuzzy
 msgid "The file server encountered an internal problem."
-msgstr ""
+msgstr "Der er opstået et internt problem på filserveren."
 
+#, fuzzy
 msgid "We could not write to temporary directory."
-msgstr ""
+msgstr "Vi kunne ikke skrive til den midlertidige mappe."
 
+#, fuzzy
 msgid "We could not retrieve list of server features."
-msgstr ""
+msgstr "Vi kunne ikke hente listen over serverfunktioner."
 
+#, fuzzy
 msgid "PHP-Curl is not available."
-msgstr ""
+msgstr "PHP-Curl er ikke tilgængelig."
 
+#, fuzzy
 msgid "Unknown account ID"
-msgstr ""
+msgstr "Ukendt konto ID"
 
+#, fuzzy
 msgid "Feature \"Quota Information\" is not supported by this backend!"
 msgstr ""
+"Funktionen \"Quota Information\" er ikke understøttet af denne backend!"
 
+#, fuzzy
 msgid "Feature \"Version Information\" is not supported by this backend!"
-msgstr ""
+msgstr "Funktionen \"Version Information\" understøttes ikke af denne backend!"
 
+#, fuzzy
 msgid "Feature \"OAUTH\" is not supported by this backend!"
-msgstr ""
+msgstr "Funktionen \"OAUTH\" er ikke understøttet af denne backend!"
 
+#, fuzzy
 msgid "Moving between accounts is not implemented"
-msgstr ""
+msgstr "Flytning mellem konti er ikke implementeret"
 
+#, fuzzy
 msgid "Files plugin"
-msgstr ""
+msgstr "Filer plugin"
 
+#, fuzzy
 msgid "Unknown type - cannot save this file to the Files backend!"
-msgstr ""
+msgstr "Ukendt type - kan ikke gemme denne fil i Files backend!"
 
+#, fuzzy
 msgid "No record given!"
-msgstr ""
+msgstr "Der er ingen oplysninger!"
 
+#, fuzzy
 msgid "Fetching sharing information failed"
-msgstr ""
+msgstr "Hentning af oplysninger om deling mislykkedes"
 
+#, fuzzy
 msgid "Sharing failed"
-msgstr ""
+msgstr "Deling mislykkedes"
 
+#, fuzzy
 msgid "Updating share failed"
-msgstr ""
+msgstr "Opdatering af andel mislykkedes"
 
+#, fuzzy
 msgid "Deleting share failed"
-msgstr ""
+msgstr "Sletning af andel mislykkedes"
 
+#, fuzzy
 msgid "With this backend, you can connect to any WebDAV server."
-msgstr ""
+msgstr "Med denne backend kan du oprette forbindelse til enhver WebDAV-server."
 
 msgid "Files WebDAV Backend: "
-msgstr ""
+msgstr "Filer WebDAV Backend: "
 
+#, fuzzy
 msgid "PHP-CURL is not installed"
-msgstr ""
+msgstr "PHP-CURL er ikke installeret"
 
+#, fuzzy
 msgid "Directory creation failed"
-msgstr ""
+msgstr "Oprettelse af mappe mislykkedes"
 
+#, fuzzy
 msgid "Deletion failed"
-msgstr ""
+msgstr "Sletning mislykkedes"
 
+#, fuzzy
 msgid "Moving failed"
-msgstr ""
+msgstr "Flytning mislykkedes"
 
+#, fuzzy
 msgid "Temporary directory problems"
-msgstr ""
+msgstr "Problemer med midlertidige mapper"
 
+#, fuzzy
 msgid "File or folder not found"
-msgstr ""
+msgstr "Fil eller mappe ikke fundet"
 
+#, fuzzy
 msgid "Not implemented"
-msgstr ""
+msgstr "Ikke gennemført"
 
+#, fuzzy
 msgid "Please contact your system administrator"
-msgstr ""
+msgstr "Kontakt din systemadministrator"
 
+#, fuzzy
 msgid "File server is not reachable. Please verify the connection."
 msgstr ""
+"Der kan ikke opnås adgang til filserveren. Kontroller venligst forbindelsen."
 
+#, fuzzy
 msgid "PHP-CURL not installed"
-msgstr ""
+msgstr "PHP-CURL ikke installeret"
 
+#, fuzzy
 msgid "Account is ready to use."
-msgstr ""
+msgstr "Kontoen er klar til brug."
 
+#, fuzzy
 msgid "File backend not responding. Please try again later."
-msgstr ""
+msgstr "File backend reagerer ikke. Prøv venligst igen senere."
 
+#, fuzzy
 msgid "Zip file generation failed. Please inform the administrator."
-msgstr ""
+msgstr "Generering af zip-fil mislykkedes. Informer venligst administratoren."
 
+#, fuzzy
 msgid "This file is no longer available. Please reload the folder."
-msgstr ""
+msgstr "Denne fil er ikke længere tilgængelig. Genindlæs venligst mappen igen."
 
+#, fuzzy
 msgid "Mobile device management plugin"
-msgstr ""
+msgstr "Plugin til styring af mobile enheder"
 
-#, php-format
+#, fuzzy, php-format
 msgid ""
 "Unexpected error occurred. Please contact your system administrator. Error "
 "code: %s"
 msgstr ""
+"Der er opstået en uventet fejl. Kontakt venligst din systemadministrator. "
+"Fejlkode: %s"
 
+#, fuzzy
 msgid "No data received."
-msgstr ""
+msgstr "Ingen data modtaget."
 
+#, fuzzy
 msgid "Account is empty."
-msgstr ""
+msgstr "Kontoen er tom."
 
+#, fuzzy
 msgid "Current password does not match."
-msgstr ""
+msgstr "Den nuværende adgangskode passer ikke."
 
+#, fuzzy
 msgid ""
 "Your password is wrong or you have insufficient permission to change password"
 msgstr ""
+"Din adgangskode er forkert, eller du har ikke tilstrækkelig tilladelse til "
+"at ændre adgangskode"
 
+#, fuzzy
 msgid "Password is not changed."
-msgstr ""
+msgstr "Adgangskoden er ikke ændret."
 
+#, fuzzy
 msgid "Error changing password. Please contact the system administrator."
 msgstr ""
+"Fejl ved ændring af adgangskode. Kontakt venligst systemadministratoren."
 
+#, fuzzy
 msgid "Password has been changed successfully."
-msgstr ""
+msgstr "Adgangskoden er blevet ændret med succes."
 
+#, fuzzy
 msgid "No certificate avaliable"
-msgstr ""
+msgstr "Intet certifikat tilgængeligt"
 
+#, fuzzy
 msgid "Private certificate is not valid yet, unable to sign email"
-msgstr ""
+msgstr "Privat certifikat er ikke gyldigt endnu, kan ikke underskrive e-mail"
 
+#, fuzzy
 msgid "Private certificate has been expired, unable to sign email"
-msgstr ""
+msgstr "Privat certifikat er udløbet, kan ikke underskrive e-mail"
 
+#, fuzzy
 msgid "Private certificate does not match email address"
-msgstr ""
+msgstr "Privat certifikat passer ikke til e-mail-adressen"
 
 msgid "Missing public certificates for the following recipients: "
-msgstr ""
+msgstr "Der mangler offentlige certifikater for følgende modtagere: "
 
+#, fuzzy
 msgid ". Please contact your system administrator for details"
-msgstr ""
+msgstr ". Kontakt din systemadministrator for at få nærmere oplysninger"
 
+#, fuzzy
 msgid ""
 "Your public certificate is not installed. Without this certificate, you will "
 "not be able to read encrypted messages you have sent to others."
 msgstr ""
+"Dit offentlige certifikat er ikke installeret. Uden dette certifikat kan du "
+"ikke læse krypterede beskeder, som du har sendt til andre."
 
+#, fuzzy
 msgid "Certificate is already stored on the server"
-msgstr ""
+msgstr "Certifikatet er allerede gemt på serveren"
 
+#, fuzzy
 msgid "Unable to decrypt certificate"
-msgstr ""
+msgstr "Kan ikke dekryptere certifikat"
 
+#, fuzzy
 msgid "Private key can't be used to sign email"
-msgstr ""
+msgstr "Den private nøgle kan ikke bruges til at signere e-mail"
 
 msgid "Certificate email address doesn't match grommunio Web account "
-msgstr ""
+msgstr "Certifikatets e-mailadresse passer ikke til grommunio-webkontoen "
 
 msgid "Certificate was expired on "
-msgstr ""
+msgstr "Certifikatet er udløbet den "
 
+#, fuzzy
 msgid "Certificate has not been imported"
-msgstr ""
+msgstr "Certifikatet er ikke blevet importeret"
 
 msgid "Certificate is not yet valid "
-msgstr ""
+msgstr "Certifikatet er endnu ikke gyldigt "
 
+#, fuzzy
 msgid "Certificate is revoked"
-msgstr ""
+msgstr "Certifikatet er tilbagekaldt"
 
+#, fuzzy
 msgid "Unable to read public certificate"
-msgstr ""
+msgstr "Kan ikke læse offentligt certifikat"
 
+#, fuzzy
 msgid "Can't add data to bus, same action type is present in bus"
 msgstr ""
+"Kan ikke tilføje data til bussen, samme handlingstype er til stede i bussen"
 
+#, fuzzy
 msgid "Response data requested from bus but it doesn't have any data."
-msgstr ""
+msgstr "Der anmodes om svardata fra bussen, men den har ingen data."
 
-#, php-format
+#, fuzzy, php-format
 msgid "Unknown module '%s' with id '%s'"
-msgstr ""
+msgstr "Ukendt modul '%s' med id '%s'"
 
+#, fuzzy
 msgid ""
 "Server encountered some problem, so it was not able to handle the request."
-msgstr ""
+msgstr "Serveren stødte på et problem, så den kunne ikke behandle anmodningen."
 
-#, php-format
+#, fuzzy, php-format
 msgid "Unknown notifier '%s'"
-msgstr ""
+msgstr "Ukendt anmelder '%s'"
 
 msgid "An unexpected error has occurred"
 msgstr "Der opstod en uventet fejl"
 
 msgid "To-Do List"
-msgstr ""
+msgstr "To-Do liste"
 
 #. TRANSLATORS: This indicates that the opened folder belongs to a particular user,
 #. * for example: 'Calendar of Holiday', in this case %1$s is 'Calendar' (the foldername)
@@ -7010,13 +7598,15 @@ msgstr ""
 #.
 #, php-format
 msgid "%1$s of %2$s"
-msgstr ""
+msgstr "%1$s af %2$s"
 
+#, fuzzy
 msgid "Error retrieving existing settings"
-msgstr ""
+msgstr "Fejl ved hentning af eksisterende indstillinger"
 
+#, fuzzy
 msgid "Error retrieving existing persistent settings"
-msgstr ""
+msgstr "Fejl ved hentning af eksisterende vedvarende indstillinger"
 
 msgid "Logon failed. Please verify your credentials and try again."
 msgstr "Login fejlede. Check venligst dit brugernavn/adgangskode og prøv igen."
@@ -7024,39 +7614,48 @@ msgstr "Login fejlede. Check venligst dit brugernavn/adgangskode og prøv igen."
 msgid "Cannot connect to Gromox."
 msgstr "Kunne ikke forbinde til Gromox."
 
+#, fuzzy
 msgid ""
 "Login did not work due to a duplicate session. The issue was automatically "
 "resolved, please log in again."
 msgstr ""
+"Login virkede ikke på grund af en dobbelt session. Problemet blev automatisk "
+"løst, men du bedes logge ind igen."
 
 msgid "Unknown MAPI Error"
 msgstr "Ukendt MAPI fejl"
 
+#, fuzzy
 msgid "This external link will open in a new window"
-msgstr ""
+msgstr "Dette eksterne link åbnes i et nyt vindue"
 
+#, fuzzy
 msgid "Destination folder not found."
-msgstr ""
+msgstr "Destinationsmappe ikke fundet."
 
+#, fuzzy
 msgid "Eml is corrupted"
-msgstr ""
+msgstr "Eml er beskadiget"
 
+#, fuzzy
 msgid "The eml Attachment is not imported successfully"
-msgstr ""
+msgstr "Den eml Vedhæftede fil er ikke importeret med succes"
 
+#, fuzzy
 msgid "The vcf attachment is not imported successfully"
-msgstr ""
+msgstr "Den vedhæftede vcf-fil er ikke importeret med succes"
 
 #, php-format
 msgid "Unable to import '%s' to '%s'. "
-msgstr ""
+msgstr "Det er ikke muligt at importere '%s' til '%s'."
 
 #, fuzzy
 msgid "There is no appointment found in this file."
 msgstr "Denne aftale sker i fortiden."
 
+#, fuzzy
 msgid "The file is corrupt."
-msgstr ""
+msgstr "Filen er beskadiget."
 
 #, fuzzy
 msgid "The file is invalid."
@@ -7064,28 +7663,35 @@ msgstr "De vedhæftede filer er endnu ikke uploadet."
 
 #, php-format
 msgid "Unable to import '%s'. "
-msgstr ""
+msgstr "Det er ikke muligt at importere '%s'."
 
+#, fuzzy
 msgid "Please contact your system administrator if the problem persists."
-msgstr ""
+msgstr "Kontakt din systemadministrator, hvis problemet fortsætter."
 
+#, fuzzy
 msgid "Attachment is not imported successfully"
-msgstr ""
+msgstr "Vedhæftede fil er ikke importeret med succes"
 
+#, fuzzy
 msgid "Embedded attachment not found."
-msgstr ""
+msgstr "Indlejret vedhæftet fil ikke fundet."
 
+#, fuzzy
 msgid "ZIP is not created successfully"
-msgstr ""
+msgstr "ZIP er ikke oprettet med succes"
 
+#, fuzzy
 msgid "Attachments can not be downloaded"
-msgstr ""
+msgstr "Vedhæftede filer kan ikke downloades"
 
+#, fuzzy
 msgid "Could not find attachment."
-msgstr ""
+msgstr "Kunne ikke finde vedhæftede fil."
 
+#, fuzzy
 msgid "Operation failed"
-msgstr ""
+msgstr "Operationen mislykkedes"
 
 msgid "Sticky Note"
 msgstr "Fastgjort note"
@@ -7093,11 +7699,14 @@ msgstr "Fastgjort note"
 msgid "Task Request"
 msgstr "Opgaveforespørgsel"
 
+#, fuzzy
 msgid "Could not find message, either it has been moved or deleted."
 msgstr ""
+"Kunne ikke finde meddelelsen, enten er den blevet flyttet eller slettet."
 
+#, fuzzy
 msgid "Request is not available."
-msgstr ""
+msgstr "Anmodning er ikke tilgængelig."
 
 msgid "You have insufficient privileges to open this object."
 msgstr "Du har ikke tilstrækkelige rettigheder til at åbne dette objekt."
@@ -7124,8 +7733,9 @@ msgstr "Operation fejlet: Serveren har ikke nok hukommelse."
 msgid "Unknown MAPI Error: %s"
 msgstr "Ukendt MAPI fejl: %s"
 
+#, fuzzy
 msgid "Action is not performed correctly."
-msgstr ""
+msgstr "Handlingen er ikke udført korrekt."
 
 msgid "Tentatively accepted"
 msgstr "Foreløbigt accepteret"
@@ -7133,289 +7743,374 @@ msgstr "Foreløbigt accepteret"
 msgid "New Time Proposed"
 msgstr "Ny tid foreslået"
 
-#, php-format
+#, fuzzy, php-format
 msgid "Occurs every %s effective %s from %s to %s."
-msgstr ""
+msgstr "Opstår hver %s effektiv %s fra %s til %s."
 
-#, php-format
+#, fuzzy, php-format
 msgid "Occurs every %s %s effective %s from %s to %s."
-msgstr ""
+msgstr "Opstår hver %s %s effektiv %s fra %s til %s."
 
-#, php-format
+#, fuzzy, php-format
 msgid "Occurs every %s effective %s."
-msgstr ""
+msgstr "Opstår hver %s effektiv %s."
 
-#, php-format
+#, fuzzy, php-format
 msgid "Occurs every %s %s effective %s."
-msgstr ""
+msgstr "Opstår hver %s %s effektiv %s."
 
-#, php-format
+#, fuzzy, php-format
 msgid "Occurs every %s effective %s for %s occurrence from %s to %s."
 msgid_plural "Occurs every %s effective %s for %s occurrences from %s to %s."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Forekommer hver %s effektiv %s for %s forekomst fra %s til %s."
+msgstr[1] "Forekommer hver %s effektiv %s for %s forekomster fra %s til %s."
 
-#, php-format
+#, fuzzy, php-format
 msgid "Occurs every %s %s effective %s for %s occurrence from %s to %s."
 msgid_plural "Occurs every %s %s effective %s for %s occurrences %s to %s."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Forekommer hver %s %s effektiv %s for %s forekomst fra %s til %s."
+msgstr[1] "Forekommer hver %s %s effektiv %s for %s forekomster %s til %s."
 
-#, php-format
+#, fuzzy, php-format
 msgid "Occurs every %s effective %s for %s occurrence."
 msgid_plural "Occurs every %s effective %s for %s occurrences."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Forekommer hver %s effektiv %s for %s forekomst."
+msgstr[1] "Forekommer hver %s effektiv %s for %s forekomster."
 
-#, php-format
+#, fuzzy, php-format
 msgid "Occurs every %s %s effective %s for %s occurrence."
 msgid_plural "Occurs every %s %s effective %s for %s occurrences."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Forekommer hver %s %s effektiv %s for %s forekomst."
+msgstr[1] "Forekommer hver %s %s %s effektiv %s for %s forekomster."
 
-#, php-format
+#, fuzzy, php-format
 msgid "Occurs every %s effective %s until %s from %s to %s."
-msgstr ""
+msgstr "Opstår hver %s effektiv %s indtil %s fra %s til %s."
 
-#, php-format
+#, fuzzy, php-format
 msgid "Occurs every %s %s effective %s until %s from %s to %s."
-msgstr ""
+msgstr "Opstår hver %s %s effektiv %s indtil %s fra %s til %s."
 
-#, php-format
+#, fuzzy, php-format
 msgid "Occurs every %s effective %s until %s."
-msgstr ""
+msgstr "Indtræder hver %s effektiv %s indtil %s."
 
-#, php-format
+#, fuzzy, php-format
 msgid "Occurs every %s %s effective %s until %s."
-msgstr ""
+msgstr "Opstår hver %s %s effektiv %s indtil %s."
 
+#, fuzzy
 msgid "Task Accepted:"
-msgstr ""
+msgstr "Opgave accepteret:"
 
+#, fuzzy
 msgid "Task Declined:"
-msgstr ""
+msgstr "Opgave afvist:"
 
+#, fuzzy
 msgid "Task Updated:"
-msgstr ""
+msgstr "Opgave opdateret:"
 
+#, fuzzy
 msgid "Task Completed:"
-msgstr ""
+msgstr "Opgaven er afsluttet:"
 
 msgid "Contact not found"
-msgstr ""
+msgstr "Kontakt blev ikke fundet"
 
+#, fuzzy
 msgid ""
 "Contact information could not be displayed because the server had trouble "
 "retrieving the information."
 msgstr ""
+"Kontaktoplysningerne kunne ikke vises, fordi serveren havde problemer med at "
+"hente oplysningerne."
 
+#, fuzzy
 msgid "Could not handle this type of object."
-msgstr ""
+msgstr "Kunne ikke håndtere denne type objekt."
 
+#, fuzzy
 msgid "Could not open this object."
-msgstr ""
+msgstr "Kunne ikke åbne dette objekt."
 
+#, fuzzy
 msgid "Error in search, please try again"
-msgstr ""
+msgstr "Fejl i søgningen, prøv venligst igen"
 
+#, fuzzy
 msgid "Unable to perform search query, no permissions to create search folder."
 msgstr ""
+"Kan ikke udføre søgeforespørgsel, ingen tilladelser til at oprette søgemappe."
 
+#, fuzzy
 msgid "Unable to perform search query, search folder not found."
 msgstr ""
+"Det er ikke muligt at udføre en søgeforespørgsel, søgemappe ikke fundet."
 
+#, fuzzy
 msgid "Unable to perform search query, store might not support searching."
 msgstr ""
+"Det er ikke muligt at udføre en søgeforespørgsel, butikken understøtter "
+"muligvis ikke søgning."
 
+#, fuzzy
 msgid "Error in creating search folder."
-msgstr ""
+msgstr "Fejl ved oprettelse af søgemappe."
 
+#, fuzzy
 msgid "Could not open occurrence."
-msgstr ""
+msgstr "Kunne ikke åbne hændelsen."
 
+#, fuzzy
 msgid "Could not open occurrence, specific occurrence is probably deleted."
 msgstr ""
+"Kunne ikke åbne en forekomst, den pågældende forekomst er sandsynligvis "
+"slettet."
 
 msgid "a meeting request"
 msgstr "mødeindkaldelse"
 
+#, fuzzy
 msgid "an appointment"
-msgstr ""
+msgstr "en aftale"
 
 msgid "You have insufficient privileges to move "
-msgstr ""
+msgstr "Du har ikke tilstrækkelige rettigheder til at flytte "
 
+#, fuzzy
 msgid ""
 "Cannot set a reminder to appear before the previous occurrence. Reset "
 "reminder to save the change"
 msgstr ""
+"Kan ikke indstille en påmindelse til at blive vist før den foregående "
+"forekomst. Nulstil påmindelse for at gemme ændringen"
 
+#, fuzzy
 msgid "Two occurrences cannot occur on the same day"
-msgstr ""
+msgstr "To hændelser kan ikke finde sted på samme dag"
 
-#, php-format
+#, fuzzy, php-format
 msgid ""
 "You marked '%s' as a resource. You cannot schedule a meeting with '%s' "
 "because you do not have the appropriate permissions for that account. Either "
 "enter the name as a required or optional attendee or talk to your "
 "administrator about giving you permission to schedule '%s'."
 msgstr ""
+"Du har markeret \"%s\" som en ressource. Du kan ikke planlægge et møde med "
+"\"%s\", fordi du ikke har de rette tilladelser til denne konto. Du kan enten "
+"indtaste navnet som en obligatorisk eller valgfri deltager eller tale med "
+"din administrator om at give dig tilladelse til at planlægge \"%s\"."
 
 #, php-format
 msgid ""
 "'%s' has declined your meeting because '%s' does not automatically accept "
 "meeting requests."
 msgstr ""
+"'%s' har fravist dit møde, fordi '%s' ikke automatisk accepterer "
+"mødeindkaldelser."
 
-#, php-format
+#, fuzzy, php-format
 msgid ""
 "'%s' has declined your meeting because it is recurring. You must book each "
 "meeting separately with this resource."
 msgstr ""
+"'%s' har afvist dit møde, fordi det er tilbagevendende. Du skal booke hvert "
+"møde separat med denne ressource."
 
-#, php-format
+#, fuzzy, php-format
 msgid ""
 "'%s' is already booked for this specified time. You must use another time or "
 "find another resource."
 msgstr ""
+"'%s' er allerede booket på det angivne tidspunkt. Du skal bruge et andet "
+"tidspunkt eller finde en anden ressource."
 
+#, fuzzy
 msgid "Meeting was not scheduled."
-msgstr ""
+msgstr "Der var ikke planlagt et møde."
 
+#, fuzzy
 msgid "Meeting could not be sent."
-msgstr ""
+msgstr "Mødet kunne ikke sendes."
 
+#, fuzzy
 msgid "Meeting could not be saved."
-msgstr ""
+msgstr "Mødet kunne ikke reddes."
 
+#, fuzzy
 msgid "Private Appointment"
-msgstr ""
+msgstr "Privat aftale"
 
 #, php-format
 msgid "%s's Birthday"
-msgstr ""
+msgstr "%s' fødselsdag"
 
-#, php-format
+#, fuzzy, php-format
 msgid "%s's Anniversary"
-msgstr ""
+msgstr "%ss jubilæum"
 
+#, fuzzy
 msgid "You don't have the permission to complete this action"
-msgstr ""
+msgstr "Du har ikke tilladelse til at gennemføre denne handling"
 
+#, fuzzy
 msgid "Unknown user/group"
-msgstr ""
+msgstr "Ukendt bruger/gruppe"
 
+#, fuzzy
 msgid "Could not save delegate information."
-msgstr ""
+msgstr "Kunne ikke gemme delegerede oplysninger."
 
+#, fuzzy
 msgid "Could not delete delegate."
-msgstr ""
+msgstr "Kunne ikke slette delegat."
 
+#, fuzzy
 msgid "Can not get list of delegates."
-msgstr ""
+msgstr "Kan ikke få en liste over delegerede."
 
+#, fuzzy
 msgid "Could not load the hierarchy."
-msgstr ""
+msgstr "Kunne ikke indlæse hierarkiet."
 
+#, fuzzy
 msgid "Could not load folder properties."
-msgstr ""
+msgstr "Kunne ikke indlæse mappeegenskaber."
 
+#, fuzzy
 msgid "Could not remove folder from favorites."
-msgstr ""
+msgstr "Kunne ikke fjerne mappe fra favoritter."
 
+#, fuzzy
 msgid "You have insufficient privileges to delete folder."
-msgstr ""
+msgstr "Du har ikke tilstrækkelige rettigheder til at slette mappen."
 
+#, fuzzy
 msgid "Could not delete folder."
-msgstr ""
+msgstr "Kunne ikke slette mappe."
 
+#, fuzzy
 msgid "You have insufficient privileges to copy folder."
-msgstr ""
+msgstr "Du har ikke tilstrækkelige rettigheder til at kopiere mappen."
 
+#, fuzzy
 msgid "Could not copy folder."
-msgstr ""
+msgstr "Kunne ikke kopiere mappe."
 
+#, fuzzy
 msgid "You have insufficient privileges to move this folder."
-msgstr ""
+msgstr "Du har ikke tilstrækkelige rettigheder til at flytte denne mappe."
 
+#, fuzzy
 msgid "Could not move folder."
-msgstr ""
+msgstr "Kunne ikke flytte mappe."
 
+#, fuzzy
 msgid "You have insufficient privileges to delete items."
-msgstr ""
+msgstr "Du har ikke tilstrækkelige rettigheder til at slette elementer."
 
+#, fuzzy
 msgid "Could not empty folder."
-msgstr ""
+msgstr "Kunne ikke tømme mappe."
 
+#, fuzzy
 msgid "Could not perform action correctly."
-msgstr ""
+msgstr "Kunne ikke udføre handlingen korrekt."
 
+#, fuzzy
 msgid ""
 "A favorite folder with this name already exists, please use another name."
 msgstr ""
+"Der findes allerede en favoritmappe med dette navn, brug venligst et andet "
+"navn."
 
+#, fuzzy
 msgid "Could not add folder to favorites."
-msgstr ""
+msgstr "Kunne ikke tilføje mappe til favoritter."
 
+#, fuzzy
 msgid "You have insufficient privileges to set permissions for this folder."
 msgstr ""
+"Du har ikke tilstrækkelige rettigheder til at angive tilladelser til denne "
+"mappe."
 
+#, fuzzy
 msgid "Could not set folder permissions."
-msgstr ""
+msgstr "Kunne ikke indstille mappetilladelser."
 
+#, fuzzy
 msgid "You have insufficient privileges to rename this folder."
-msgstr ""
+msgstr "Du har ikke tilstrækkelige rettigheder til at omdøbe denne mappe."
 
+#, fuzzy
 msgid "A folder with this name already exists. Use another name."
-msgstr ""
+msgstr "Der findes allerede en mappe med dette navn. Brug et andet navn."
 
+#, fuzzy
 msgid "Could not rename folder."
-msgstr ""
+msgstr "Kunne ikke omdøbe mappe."
 
+#, fuzzy
 msgid "You have insufficient privileges to create this folder."
-msgstr ""
+msgstr "Du har ikke tilstrækkelige rettigheder til at oprette denne mappe."
 
+#, fuzzy
 msgid "Could not create folder."
-msgstr ""
+msgstr "Kunne ikke oprette mappe."
 
+#, fuzzy
 msgid "Could not close shared folder."
-msgstr ""
+msgstr "Kunne ikke lukke delt mappe."
 
+#, fuzzy
 msgid "User could not be resolved."
-msgstr ""
+msgstr "Brugeren kunne ikke løses."
 
-#, php-format
+#, fuzzy, php-format
 msgid ""
 "You have insufficient privileges to open this %1$s folder. The folder owner "
 "can set these using the 'permissions'-tab of the folder properties (right "
 "click the %1$s folder > properties > permissions)."
 msgstr ""
+"Du har ikke tilstrækkelige rettigheder til at åbne denne mappe %1$s. "
+"Mappeejeren kan indstille disse ved hjælp af fanen \"tilladelser\" i mappens "
+"egenskaber (højreklik på %1$s-mappen > egenskaber > tilladelser)."
 
 msgid "unknown"
 msgstr "ukendt"
 
+#, fuzzy
 msgid "Could not move folder"
-msgstr ""
+msgstr "Kunne ikke flytte mappe"
 
+#, fuzzy
 msgid "Could not copy folder"
-msgstr ""
+msgstr "Kunne ikke kopiere mappe"
 
 msgid "You have insufficient privileges to open this message."
 msgstr "Du har ikke tilstrækkelige rettigheder til at åbne dette objekt."
 
+#, fuzzy
 msgid ""
 "Could not find message, either it has been moved or deleted or you don't "
 "have access to open this message."
 msgstr ""
+"Kunne ikke finde meddelelsen, enten er den blevet flyttet eller slettet, "
+"eller du har ikke adgang til at åbne denne meddelelse."
 
 msgid "Could not open message."
 msgstr "Kunne ikke åbne meddelelsen."
 
+#, fuzzy
 msgid "You have insufficient privileges to decline this Meeting Request"
 msgstr ""
+"Du har ikke tilstrækkelige rettigheder til at afvise denne mødeanmodning"
 
+#, fuzzy
 msgid "You have insufficient privileges to accept this Meeting Request"
 msgstr ""
+"Du har ikke tilstrækkelige rettigheder til at acceptere denne mødeanmodning"
 
 msgid "Could not copy message"
 msgstr "Kunne ikke kopiere meddelelsen"
@@ -7423,173 +8118,248 @@ msgstr "Kunne ikke kopiere meddelelsen"
 msgid "Could not move message"
 msgstr "Kunne ikke flytte meddelelsen"
 
+#, fuzzy
 msgid "You have insufficient privileges to save items in this folder"
 msgstr ""
+"Du har ikke tilstrækkelige rettigheder til at gemme elementer i denne mappe"
 
 msgid "Could not save message"
 msgstr "Kunne ikke gemme meddelelsen"
 
+#, fuzzy
 msgid "You have insufficient privileges to remove item from the calendar."
 msgstr ""
+"Du har ikke tilstrækkelige rettigheder til at fjerne et emne fra kalenderen."
 
+#, fuzzy
 msgid ""
 "Message is no longer in the outgoing queue, typically because it has already "
 "been sent."
 msgstr ""
+"Meddelelsen er ikke længere i den udgående kø, typisk fordi den allerede er "
+"blevet sendt."
 
 #, fuzzy
 msgid "Message cannot be aborted"
 msgstr "Denne udvidelse kan ikke slås til"
 
+#, fuzzy
 msgid "You have insufficient privileges to delete items in this folder"
 msgstr ""
+"Du har ikke tilstrækkelige rettigheder til at slette elementer i denne mappe"
 
+#, fuzzy
 msgid "You have insufficient privileges to attach item as an attachment."
 msgstr ""
+"Du har ikke tilstrækkelige rettigheder til at vedhæfte et emne som en "
+"vedhæftet fil."
 
+#, fuzzy
 msgid "Could not attach item as an attachment."
-msgstr ""
+msgstr "Kunne ikke vedhæfte elementet som en vedhæftet fil."
 
+#, fuzzy
 msgid ""
 "You have insufficient privileges to reclaim the ownership for the Task "
 "Request."
 msgstr ""
+"Du har ikke tilstrækkelige rettigheder til at kræve ejerskabet til "
+"opgaveanmodningen tilbage."
 
+#, fuzzy
 msgid "Could not reclaim the ownership for the Task Request."
-msgstr ""
+msgstr "Det lykkedes ikke at genvinde ejerskabet til opgaveanmodningen."
 
+#, fuzzy
 msgid "You have insufficient privileges to accept this Task Request."
 msgstr ""
+"Du har ikke tilstrækkelige rettigheder til at acceptere denne "
+"opgaveanmodning."
 
+#, fuzzy
 msgid "Could not accept Task Request."
-msgstr ""
+msgstr "Kunne ikke acceptere opgaveanmodning."
 
+#, fuzzy
 msgid "You have insufficient privileges to decline this Task Request."
 msgstr ""
+"Du har ikke tilstrækkelige rettigheder til at afvise denne opgaveanmodning."
 
+#, fuzzy
 msgid "Could not decline Task Request."
-msgstr ""
+msgstr "Kunne ikke afvise opgaveanmodning."
 
+#, fuzzy
 msgid "Conflicts with another appointment."
-msgstr ""
+msgstr "Er i konflikt med en anden aftale."
 
-#, php-format
+#, fuzzy, php-format
 msgid ""
 "%s occurrence of this recurring appointment conflicts with other appointment."
 msgid_plural ""
 "%s occurrences of this recurring appointment conflicts with other "
 "appointments."
 msgstr[0] ""
+"%s forekomst af denne tilbagevendende aftale er i konflikt med en anden "
+"aftale."
 msgstr[1] ""
+"%s forekomster af denne tilbagevendende aftale er i konflikt med andre "
+"aftaler."
 
+#, fuzzy
 msgid "Your message did not reach some or all of the intended recipients"
 msgstr ""
+"Din meddelelse nåede ikke frem til nogle eller alle de ønskede modtagere"
 
+#, fuzzy
 msgid "The following recipient(s) could not be reached"
-msgstr ""
+msgstr "Følgende modtager(e) kunne ikke kontaktes"
 
+#, fuzzy
 msgid "You have insufficient privileges to see the contents of this folder."
 msgstr ""
+"Du har ikke tilstrækkelige rettigheder til at se indholdet af denne mappe."
 
+#, fuzzy
 msgid "Could not load the contents of this folder."
-msgstr ""
+msgstr "Kunne ikke indlæse indholdet af denne mappe."
 
+#, fuzzy
 msgid ""
 "You have insufficient privileges to perform search operation in this folder."
 msgstr ""
+"Du har ikke tilstrækkelige rettigheder til at udføre søgninger i denne mappe."
 
+#, fuzzy
 msgid "Could not update search results."
-msgstr ""
+msgstr "Kunne ikke opdatere søgeresultaterne."
 
+#, fuzzy
 msgid "Could not stop search operation."
-msgstr ""
+msgstr "Kunne ikke stoppe søgningen."
 
+#, fuzzy
 msgid "You have insufficient privileges to save this message."
-msgstr ""
+msgstr "Du har ikke tilstrækkelige rettigheder til at gemme denne meddelelse."
 
 msgid "Could not save message."
 msgstr "Kunne ikke gemme meddelelsen."
 
+#, fuzzy
 msgid "You have insufficient privileges to delete this message."
-msgstr ""
+msgstr "Du har ikke tilstrækkelige rettigheder til at slette denne meddelelse."
 
+#, fuzzy
 msgid "Could not delete message."
-msgstr ""
+msgstr "Kunne ikke slette besked."
 
+#, fuzzy
 msgid "You have insufficient privileges to cancel this Meeting Request."
 msgstr ""
+"Du har ikke tilstrækkelige rettigheder til at annullere denne mødeanmodning."
 
+#, fuzzy
 msgid "Could not cancel Meeting Request."
-msgstr ""
+msgstr "Kunne ikke annullere mødeanmodning."
 
+#, fuzzy
 msgid "You have insufficient privileges to decline this Meeting Request."
 msgstr ""
+"Du har ikke tilstrækkelige rettigheder til at afvise denne mødeanmodning."
 
+#, fuzzy
 msgid "Could not decline Meeting Request."
-msgstr ""
+msgstr "Kunne ikke afvise mødeanmodning."
 
+#, fuzzy
 msgid "You have insufficient privileges to accept this Meeting Request."
 msgstr ""
+"Du har ikke tilstrækkelige rettigheder til at acceptere denne mødeanmodning."
 
+#, fuzzy
 msgid "Could not accept Meeting Request."
-msgstr ""
+msgstr "Kunne ikke acceptere mødeanmodning."
 
+#, fuzzy
 msgid "You have insufficient privileges to cancel Meeting Request invitation."
 msgstr ""
+"Du har ikke tilstrækkelige rettigheder til at annullere invitationen til "
+"mødeanmodning."
 
+#, fuzzy
 msgid "Could not cancel Meeting Request invitations."
-msgstr ""
+msgstr "Kunne ikke annullere invitationer til mødeanmodning."
 
+#, fuzzy
 msgid "You can not continue search operation on this folder."
-msgstr ""
+msgstr "Du kan ikke fortsætte søgningen i denne mappe."
 
+#, fuzzy
 msgid "Error in search, please try again."
-msgstr ""
+msgstr "Fejl i søgningen, prøv venligst igen."
 
+#, fuzzy
 msgid "Error in distribution list expansion."
-msgstr ""
+msgstr "Fejl i udvidelsen af distributionslisten."
 
+#, fuzzy
 msgid "The message store has exceeded its hard quota limit."
-msgstr ""
+msgstr "Meddelelseslageret har overskredet sin hårde kvotegrænse."
 
+#, fuzzy
 msgid ""
 "To reduce the amount of data in this message store, select some items that "
 "you no longer need, delete them and cleanup your Deleted Items folder."
 msgstr ""
+"Hvis du vil reducere mængden af data i dette meddelelseslager, kan du vælge "
+"nogle elementer, som du ikke længere har brug for, slette dem og rydde op i "
+"mappen Slettede elementer."
 
+#, fuzzy
 msgid "The message store has exceeded its soft quota limit."
-msgstr ""
+msgstr "Meddelelseslageret har overskredet den bløde kvotegrænse."
 
+#, fuzzy
 msgid "Could not process request data properly."
-msgstr ""
+msgstr "Kunne ikke behandle anmodningsdata korrekt."
 
-#, php-format
+#, fuzzy, php-format
 msgid "Unknown action type specified - %s"
-msgstr ""
+msgstr "Ukendt handlingstype angivet - %s"
 
+#, fuzzy
 msgid "Cannot snooze the reminder. You may be reminded again."
 msgstr ""
+"Du kan ikke sætte påmindelsen på pause. Du kan blive mindet om det igen."
 
+#, fuzzy
 msgid "Cannot dismiss the reminder. You may be reminded again."
-msgstr ""
+msgstr "Kan ikke afvise påmindelsen. Du kan blive mindet om det igen."
 
+#, fuzzy
 msgid "You have insufficient privileges to perform this action."
-msgstr ""
+msgstr "Du har ikke tilstrækkelige rettigheder til at udføre denne handling."
 
+#, fuzzy
 msgid "Could not resolve user."
-msgstr ""
+msgstr "Kunne ikke finde en bruger."
 
+#, fuzzy
 msgid "Setting mail filters on the stores of other users is not allowed."
 msgstr ""
+"Det er ikke tilladt at indstille postfiltre på andre brugeres butikker."
 
+#, fuzzy
 msgid "Untitled rule"
-msgstr ""
+msgstr "Regel uden titel"
 
+#, fuzzy
 msgid "Could not load rules."
-msgstr ""
+msgstr "Kunne ikke indlæse regler."
 
+#, fuzzy
 msgid "Could not save rules."
-msgstr ""
+msgstr "Kunne ikke gemme regler."
 
 msgid "Task Request:"
 msgstr "Opgaveforespørgsel:"
@@ -7597,26 +8367,32 @@ msgstr "Opgaveforespørgsel:"
 msgid "Sign in"
 msgstr "Log ind"
 
+#, fuzzy
 msgid "File is not imported successfully"
-msgstr ""
+msgstr "Filen er ikke importeret med succes"
 
+#, fuzzy
 msgid "There is no contact found in this file."
-msgstr ""
+msgstr "Der findes ingen kontakt i denne fil."
 
+#, fuzzy
 msgid ""
 "grommunio Web does not support importing multiple VCF with this version."
 msgstr ""
+"grommunio Web understøtter ikke import af flere VCF-filer med denne version."
 
+#, fuzzy
 msgid ""
 "grommunio Web does not support importing multiple ICS with this version."
-msgstr ""
+msgstr "grommunio Web understøtter ikke import af flere ICS med denne version."
 
-#, php-format
+#, fuzzy, php-format
 msgid "Unable to import '%s'"
-msgstr ""
+msgstr "Det er ikke muligt at importere '%s'"
 
+#, fuzzy
 msgid "The EML is not valid"
-msgstr ""
+msgstr "EML er ikke gyldig"
 
 msgid "GB"
 msgstr "GB"
@@ -7630,24 +8406,29 @@ msgstr "KB"
 msgid "B"
 msgstr "B"
 
+#, fuzzy
 msgid "The maximum stack depth has been exceeded"
-msgstr ""
+msgstr "Den maksimale stakkedybde er overskredet"
 
+#, fuzzy
 msgid "Control character error, possibly incorrectly encoded"
-msgstr ""
+msgstr "Fejl i kontroltegn, muligvis forkert kodet"
 
+#, fuzzy
 msgid "Invalid or malformed JSON"
-msgstr ""
+msgstr "Ugyldig eller misdannet JSON"
 
 msgid "Syntax error"
-msgstr ""
+msgstr "Syntaksfejl"
 
+#, fuzzy
 msgid "Malformed UTF-8 characters, possibly incorrectly encoded"
-msgstr ""
+msgstr "Misdannede UTF-8-tegn, muligvis forkert kodet"
 
-#, php-format
+#, fuzzy, php-format
 msgid "JSON Error: - %s"
-msgstr ""
+msgstr "JSON-fejl: - %s"
 
+#, fuzzy
 msgid "Some problem encountered when encoding/decoding JSON data."
-msgstr ""
+msgstr "Der er opstået et problem ved kodning/afkodning af JSON-data."

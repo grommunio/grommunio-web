@@ -5,14 +5,15 @@ msgstr ""
 "Project-Id-Version: grommunio Web Turkish\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-25 14:32+0200\n"
-"PO-Revision-Date: 2017-10-03 21:34+0200\n"
+"PO-Revision-Date: 2022-07-26 19:43+0200\n"
 "Last-Translator: import\n"
+"Language-Team: \n"
 "Language: tr_TR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Weblate 2.4\n"
+"X-Generator: Weblate 4.14-dev\n"
 
 #. TRANSLATORS: This message is used as label for the column which indicates the week number of the month in date picker. and 'Wk' stands for week
 msgid "Wk"
@@ -184,7 +185,7 @@ msgid "Today"
 msgstr "Bugün"
 
 msgid "OK"
-msgstr ""
+msgstr "Tamam"
 
 msgid "Cancel"
 msgstr "Iptal et"
@@ -221,7 +222,7 @@ msgid "Sort Descending"
 msgstr "Azalan sıralama"
 
 msgid "Columns"
-msgstr "kolon"
+msgstr "Kolon"
 
 msgid "Group By This Field"
 msgstr "Bu alanı gruplandır"
@@ -302,10 +303,10 @@ msgid "Value"
 msgstr "Değer"
 
 msgid "true"
-msgstr "Doğru"
+msgstr "doğru"
 
 msgid "false"
-msgstr "Yanlış"
+msgstr "yanlış"
 
 msgid ""
 "This field should be an e-mail address in the format \"user@example.com\""
@@ -320,9 +321,8 @@ msgstr "Bu alan sadece harf ve _ içermeli"
 msgid "This field should only contain letters, numbers and _"
 msgstr "Bu alan sadece harf, rakam ve _ içermeli"
 
-#, fuzzy
 msgid "Email Addresses"
-msgstr "E-posta Adresleri"
+msgstr "E-mail adresleri"
 
 #, fuzzy
 msgid "Email addresses"
@@ -368,13 +368,14 @@ msgid "User details"
 msgstr "Kullanıcı detaylar"
 
 msgid "First name"
-msgstr ""
+msgstr "İsim"
 
 msgid "Last name"
-msgstr ""
+msgstr "Soyadı"
 
+#, fuzzy
 msgid "Initials"
-msgstr ""
+msgstr "Baş harfler"
 
 msgid "Display"
 msgstr "Görüntüle"
@@ -399,7 +400,7 @@ msgid "Country"
 msgstr "Ülke"
 
 msgid "Professional"
-msgstr ""
+msgstr "Profesyonel"
 
 msgid "Title"
 msgstr "Başlık"
@@ -456,9 +457,8 @@ msgstr "Ҫağrı cihazı"
 
 # 75%
 # 100%
-#, fuzzy
 msgid "No user selected"
-msgstr "Not seçilmedi"
+msgstr "Seçili kullanıcı yok"
 
 msgid "You must select one or more users."
 msgstr "Bir veya daha fazla kullanıcı seçmelisiniz."
@@ -472,18 +472,24 @@ msgstr "Seç"
 msgid "Show Details"
 msgstr "Detaylar göster"
 
+#, fuzzy
 msgid "Copy contact"
-msgstr ""
+msgstr "Kopya iletişim"
 
+#, fuzzy
 msgid "Copy contacts"
-msgstr ""
+msgstr "Kişileri kopyala"
 
+#, fuzzy
 msgid ""
 "Showing only the first {0} names. Use search to find more specific results."
 msgstr ""
+"Sadece ilk {0} isim gösteriliyor. Daha spesifik sonuçlar bulmak için aramayı "
+"kullanın."
 
+#, fuzzy
 msgid "Use the search bar to get results"
-msgstr ""
+msgstr "Sonuç almak için arama çubuğunu kullanın"
 
 #, fuzzy
 msgid "There are no items to show in this list"
@@ -493,7 +499,7 @@ msgid "Show Names from the"
 msgstr "İsimleri göster"
 
 msgid "Search..."
-msgstr ""
+msgstr "Ara..."
 
 msgid "Sort by: Icon"
 msgstr "Sıralama: Simge"
@@ -516,8 +522,9 @@ msgstr "Sıralama: Dosya Olarak"
 msgid "First Name"
 msgstr "Adı"
 
+#, fuzzy
 msgid "Sort by: First Name"
-msgstr ""
+msgstr "Sıralamaya göre: İlk İsim"
 
 # 77%
 msgid "Last Name"
@@ -579,8 +586,9 @@ msgstr "Sıralama: Konum"
 msgid "Sort by: Fax"
 msgstr "Sıralama: Faks"
 
+#, fuzzy
 msgid "Print single item"
-msgstr ""
+msgstr "Tek öğe yazdırma"
 
 # 78%
 msgid "Print selected item"
@@ -590,7 +598,7 @@ msgid "Print"
 msgstr "Yazdır"
 
 msgid "No item selected"
-msgstr ""
+msgstr "Herhangi bir öge seçilmemiş"
 
 msgid "No preview"
 msgstr "Önizleme yok"
@@ -603,29 +611,29 @@ msgstr "Alt önizleme"
 
 # 87%
 msgid "Any date"
-msgstr "herhangi bir tarih"
+msgstr "Herhangi bir tarih"
 
 msgid "Past week"
-msgstr "geçen hafta"
+msgstr "Geçen hafta"
 
 msgid "Past 2 weeks"
-msgstr "son 2 hafta"
+msgstr "Son 2 hafta"
 
 msgid "Past month"
-msgstr "geçen ay"
+msgstr "Geçen ay"
 
 msgid "Past 6 month"
-msgstr "son 6 ay"
+msgstr "Son 6 ay"
 
 msgid "Past year"
-msgstr "geçen sene"
+msgstr "Geçen Yıl"
 
 # 87%
 msgid "Custom date"
-msgstr "özel tarih"
+msgstr "Özel tarih"
 
 msgid "Add to favorites"
-msgstr ""
+msgstr "Favorilere ekle"
 
 msgid "Add"
 msgstr "Ekle"
@@ -637,22 +645,22 @@ msgstr "Klasörü boşalt"
 msgid "You must specify a name."
 msgstr "Bir isim belirtmelisiniz."
 
+#, fuzzy
 msgid "Add a folder to favorites based on your search query"
-msgstr ""
-
-msgid "Folder name"
-msgstr ""
+msgstr "Arama sorgunuza göre favorilere bir klasör ekleyin"
 
 #, fuzzy
+msgid "Folder name"
+msgstr "Klasör adı"
+
 msgid "Select Category"
-msgstr "Kategori ayarla"
+msgstr "Kategori seç"
 
 msgid "Apply"
 msgstr "Uygula"
 
-#, fuzzy
 msgid "All folders are selected"
-msgstr "Klasör '{0}' seçildi."
+msgstr "Tüm klasörleri göster"
 
 msgid "Reply"
 msgstr "Yanıtla"
@@ -668,25 +676,24 @@ msgid "Edit as New"
 msgstr "Yeni mesaj olarak düzenle"
 
 msgid "Search tools"
-msgstr "arama araçları"
+msgstr "Arama araçları"
 
 # 85%
 # 100%
 msgid "Folders"
-msgstr "klasörler"
+msgstr "Klasörler"
 
 #, fuzzy
 msgid "Include subfolders"
 msgstr "Alt klasörler oluştur"
 
 msgid "Show.."
-msgstr "göster.."
+msgstr "Göster.."
 
 msgid "Mails"
 msgstr "E-posta"
 
 # 91%
-#, fuzzy
 msgid "Appointments"
 msgstr "Randevular"
 
@@ -697,7 +704,7 @@ msgid "Tasks"
 msgstr "Görevler"
 
 msgid "Filter.."
-msgstr "filtrele.."
+msgstr "Filtrele.."
 
 msgid "Unread"
 msgstr "Okunmamış"
@@ -708,74 +715,75 @@ msgstr "Eklenti"
 msgid "Date"
 msgstr "Tarih"
 
-#, fuzzy
 msgctxt "search.date"
 msgid "From"
 msgstr "Kimden"
 
-#, fuzzy
 msgctxt "search.date"
 msgid "To"
 msgstr "Kime"
 
-#, fuzzy
 msgid "Filter category.."
-msgstr "filtrele.."
+msgstr "Filtrele.."
 
 msgid "Search.."
-msgstr "ara.."
+msgstr "Ara.."
 
 msgid "Sender"
 msgstr "Gönderen"
 
 msgid "Recipients"
-msgstr "alıcılar"
+msgstr "Alıcılar"
 
 msgid "Subject"
 msgstr "Konu"
 
 msgid "Body & Attachments"
-msgstr "esas kısım ve ekleri"
+msgstr "Esas kısım ve ekleri"
 
 msgid "Favorites"
 msgstr "Favoriler"
 
+#, fuzzy
 msgid "Add a folder to favorites based on this search query"
-msgstr ""
+msgstr "Bu arama sorgusuna göre favorilere bir klasör ekleyin"
 
 # 76%
 msgid "Select Folder"
 msgstr "Klasörü sil"
 
+#, fuzzy
 msgid "Delete search folder"
-msgstr ""
+msgstr "Arama klasörünü sil"
 
 msgid "Sort by: Date"
 msgstr "Sıralama: tarih"
 
 msgid "Loading Search results"
-msgstr "ara sonuçları yükleniyor"
+msgstr "Arama sonuçları yükleniyor"
+
+msgid "Sorting tip"
+msgstr "Sıralama ipucu"
 
 #, fuzzy
-msgid "Sorting tip"
-msgstr "sıralama yapılamıyor"
-
 msgid ""
 "You can sort by date if you narrow down your search results. Enable filters "
 "or adjust your input."
 msgstr ""
+"Arama sonuçlarınızı daraltırsanız tarihe göre sıralayabilirsiniz. Filtreleri "
+"etkinleştirin veya girişinizi ayarlayın."
 
 msgid "Did you mean"
-msgstr "ne demek istediniz"
+msgstr "Bunu mu demek istedin"
 
 msgid "With"
-msgstr ""
+msgstr "İle"
 
 msgid "To"
 msgstr "Kime"
 
 msgid "No date"
-msgstr ""
+msgstr "Tarih yok"
 
 msgid "Error"
 msgstr "Hata"
@@ -784,8 +792,8 @@ msgid ""
 "Could not accept proposal as this meeting is not available in calendar; It "
 "may have been moved or deleted."
 msgstr ""
-"Teklif kabul edilemiyor çünkü bu toplantı takvimde mevcut değil; Taşınmış "
-"veya silinmiş olunabilir"
+"Bu toplantı takvimde mevcut olmadığı için teklif kabul edilemedi; Taşınmış "
+"veya silinmiş olabilir."
 
 msgid ""
 "Could not view proposal as this meeting is not available in calendar; It may "
@@ -825,7 +833,7 @@ msgid "weeks"
 msgstr "hafta"
 
 msgid " on "
-msgstr ""
+msgstr " üzerinde "
 
 msgid "month"
 msgstr "ay"
@@ -851,27 +859,36 @@ msgstr "Her {0} gerçekleşir, başlangıç: {1}"
 msgid "Occurs every {0} {1} effective {2}."
 msgstr "Her {0} {1} gerçekleşir, başlangıç: {2}"
 
+#, fuzzy
 msgid "Occurs every {0} effective {1} for {2} occurrence from {3} to {4}."
 msgid_plural ""
 "Occurs every {0} effective {1} for {2} occurrences from {3} to {4}."
-msgstr[0] ""
+msgstr[0] "8}'den {4}'a kadar her {0} etkili {1} için {2} meydana gelir."
 msgstr[1] ""
+"8}'den {4}'a kadar {2} olay için her {0} etkili {1} olayda meydana gelir."
 
+#, fuzzy
 msgid "Occurs every {0} {1} effective {2} for {3} occurrence from {4} to {5}."
 msgid_plural ""
 "Occurs every {0} {1} effective {2} for {3} occurrences {4} to {5}."
 msgstr[0] ""
+"Her {0}'da bir gerçekleşir {4}'dan {5}'e kadar {3} oluşumu için {1} etkili "
+"{2}."
 msgstr[1] ""
+"Her {0}'da bir gerçekleşir {4} ila {5} arasındaki {3} olay için {1} etkili "
+"{2}."
 
+#, fuzzy
 msgid "Occurs every {0} effective {1} for {2} occurrence."
 msgid_plural "Occurs every {0} effective {1} for {2} occurrences."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "5} olay için her {0} etkili {1} olayda meydana gelir."
+msgstr[1] "5} olay için her {0} etkili {1} olayda meydana gelir."
 
+#, fuzzy
 msgid "Occurs every {0} {1} effective {2} for {3} occurrence."
 msgid_plural "Occurs every {0} {1} effective {2} for {3} occurrences."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Her {0}'te bir gerçekleşir {3} oluşumu için {1} etkili {2}."
+msgstr[1] "Her {0}'te bir gerçekleşir {3} olay için {1} etkili {2}."
 
 # 78%
 msgid "Occurs every {0} effective {1} until {2} from {3} to {4}."
@@ -893,8 +910,9 @@ msgid "When"
 msgstr "Ne zaman"
 
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
+#, fuzzy
 msgid "l jS F Y {0}"
-msgstr ""
+msgstr "l jS F Y {0}"
 
 msgid "Where"
 msgstr "Konum"
@@ -903,7 +921,7 @@ msgid "New Meeting Time Proposed"
 msgstr "Önerilen Yeni Toplantı Saati"
 
 msgid "and "
-msgstr ""
+msgstr "ve "
 
 msgid "Sort by: Attachment"
 msgstr "Sıralama: Ek"
@@ -922,10 +940,11 @@ msgstr "Sıralama: Başlangıç Tarihi"
 
 # 87%
 msgid "End Date"
-msgstr "bitiş tarihi"
+msgstr "Bitiş Tarihi"
 
+#, fuzzy
 msgid "Sort by: End Date"
-msgstr ""
+msgstr "Sıralamaya göre: Bitiş Tarihi"
 
 msgid "Organizer"
 msgstr "Düzenleyici"
@@ -949,7 +968,7 @@ msgstr "Tüm gün etkinlik"
 # 76%
 # 100%
 msgid "Add Shared Calendar"
-msgstr "paylaşılan takvim ekle"
+msgstr "Paylaşılan Takvim Ekle"
 
 msgid "Remove From Calendar"
 msgstr "Takvimden Sil"
@@ -993,7 +1012,7 @@ msgid "Accept Proposed Time"
 msgstr "Önerilmiş yeni zamanı kabul et"
 
 msgid "View in calendar"
-msgstr "takvim'de görüntüle"
+msgstr "Takvimde görüntüle"
 
 msgid "Day"
 msgstr "Gün"
@@ -1026,28 +1045,29 @@ msgstr "Seçilmiş randevu yok"
 msgid "Print overview"
 msgstr "Görünümü yazdır"
 
-#, fuzzy
 msgid "Create Appointment"
-msgstr "Özel Randevu"
+msgstr "Randevu Oluştur"
 
 msgid "Calendar"
 msgstr "Takvim"
 
-#, fuzzy
 msgid "Create in other calendar"
-msgstr "takvim'de görüntüle"
+msgstr "Diğer takvimde oluştur"
 
+#, fuzzy
 msgid ""
 "The selected calendar has \"read-only\" permissions. Instead you can create "
 "an item in your own calendar."
 msgstr ""
-
-msgid "What would you like?"
-msgstr ""
+"Seçilen takvimin \"salt okunur\" izinleri vardır. Bunun yerine kendi "
+"takviminizde bir öğe oluşturabilirsiniz."
 
 #, fuzzy
+msgid "What would you like?"
+msgstr "Sen ne istersin?"
+
 msgid "Own calendar"
-msgstr "takvim'de görüntüle"
+msgstr "Kendi takviminiz"
 
 msgid "F Y"
 msgstr "F Y"
@@ -1071,25 +1091,26 @@ msgstr "Kime veya cc"
 msgid "Meeting"
 msgstr "Toplantı"
 
-#, fuzzy
 msgctxt "calendar.dialog"
 msgid "Resources have been planned"
-msgstr "Kaynaklar planlanmıştır."
+msgstr "Kaynaklar planlandı"
 
 # 87%
 #, fuzzy
 msgid "Send update"
 msgstr "Bitiş tarihi"
 
+#, fuzzy
 msgid "Do you want to send an update to all recipients?"
-msgstr ""
+msgstr "Tüm alıcılara bir güncelleme göndermek istiyor musunuz?"
 
 msgid "Send update to attendees"
-msgstr "katılımcılara güncelleme gönder"
+msgstr "Katılımcılara güncelleme gönderin"
 
+#, fuzzy
 msgid ""
 "You have made changes to the list of attendees. What would you like to do?"
-msgstr ""
+msgstr "Katılımcı listesinde değişiklik yaptınız. Ne yapmak istiyorsunuz?"
 
 msgid "Send updates to only added or deleted attendees."
 msgstr "Güncellemeleri sadece eklenen veya silinen katılımcılara gönder."
@@ -1116,7 +1137,7 @@ msgstr "Yanıtları izle"
 # 75%
 msgctxt "calendar.dialog"
 msgid "Not all attendees could be resolved."
-msgstr "Bütün alıcılar eşleştirilmedi"
+msgstr "Tüm katılımcılar çözüme kavuşturulamamıştır."
 
 msgctxt "calendar.dialog"
 msgid "{0} attendees accepted, {1} tentatively accepted, {2} declined."
@@ -1170,7 +1191,7 @@ msgstr "Bu toplantı için yanıtlar alınmamıştır."
 
 msgctxt "calendar.dialog"
 msgid "Meeting has been canceled."
-msgstr "Toplantı iptal edildi"
+msgstr "Toplantı iptal edilmiştir."
 
 msgctxt "calendar.dialog"
 msgid "Invitations have not been sent for this meeting."
@@ -1212,9 +1233,8 @@ msgstr "Ekler tek bir olay için modifiye edilemez"
 msgid "Type your message here..."
 msgstr "Mesajınızı buraya yazın..."
 
-#, fuzzy
 msgid "Update location"
-msgstr "Listeyi Güncelle"
+msgstr "Yerini güncelle"
 
 msgid ""
 "Do you want to update the location \"{0}\" with the new location \"{1}\"?"
@@ -1223,8 +1243,9 @@ msgstr ""
 "\"{1}\"?"
 
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
+#, fuzzy
 msgid "jS F Y {0}"
-msgstr ""
+msgstr "jS F Y {0}"
 
 # 75%
 msgid "None"
@@ -1250,10 +1271,11 @@ msgid "Check names"
 msgstr "Adı kontrol et"
 
 msgid "Addressbook"
-msgstr ""
+msgstr "Adres Defteri"
 
+#, fuzzy
 msgid "Open addressbook"
-msgstr ""
+msgstr "Adres defterini aç"
 
 msgid "Invite attendees"
 msgstr "Katıllimcılar davet et"
@@ -1280,7 +1302,7 @@ msgstr "Kategoriler"
 
 # 96%
 msgid "Open the categories dialog"
-msgstr "Kategoriler iletişimi açın."
+msgstr "Kategoriler iletişim kutusunu açın"
 
 msgid "Private"
 msgstr "Özel"
@@ -1295,7 +1317,7 @@ msgid "Duration"
 msgstr "Süre"
 
 msgid "Proposed By"
-msgstr "tarafından Önerilen"
+msgstr "Tarafından Önerilen"
 
 msgid "Current Meeting Time"
 msgstr "Toplantı saati"
@@ -1323,7 +1345,7 @@ msgstr ""
 "Bu toplantı iptal edildi. İptaliniz hakkında yorum yazmak ister misiniz?"
 
 msgid "Edit the cancellation before Sending."
-msgstr "Göndermeden önce iptali düzenle"
+msgstr "Göndermeden önce iptali düzenleyin."
 
 msgid "Send the cancellation now."
 msgstr "İptali şimdi gönder."
@@ -1360,7 +1382,7 @@ msgid "Edit the response before sending"
 msgstr "Yanıtı göndermeden düzenle"
 
 msgid "Send the response now."
-msgstr "Yanıtı şimdi gönder"
+msgstr "Yanıtı şimdi gönderin."
 
 msgid "Don't send a response."
 msgstr "Yanıt göndermeyin."
@@ -1380,7 +1402,7 @@ msgid "New appointment"
 msgstr "Yeni randevu"
 
 msgid "Creating an item"
-msgstr "öğe oluşturma"
+msgstr "Bir öğe oluşturma"
 
 # 89%
 # 100%
@@ -1388,16 +1410,19 @@ msgid "New meeting request"
 msgstr "Yeni toplantı isteği"
 
 msgid "Switch calendar range back and forth"
-msgstr "takvim aralığını ileri geri değiştir"
+msgstr "Takvim aralığını ileri geri değiştirme"
 
+#, fuzzy
 msgid "Copy selected item"
-msgstr ""
+msgstr "Seçili öğeyi kopyala"
 
+#, fuzzy
 msgid "Paste selected item"
-msgstr ""
+msgstr "Seçili öğeyi yapıştır"
 
+#, fuzzy
 msgid "An overview of"
-msgstr ""
+msgstr "Genel bir bakış"
 
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "Start"
@@ -1409,27 +1434,29 @@ msgstr "Son"
 
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for formatting instructions
+#, fuzzy
 msgid "Printed by"
-msgstr ""
+msgstr "Tarafından basılmıştır"
 
 msgid "at"
-msgstr ""
+msgstr "at"
 
 msgid "of"
-msgstr ""
+msgstr "arasında"
+
+msgid "Location: "
+msgstr "Yer: "
 
 #, fuzzy
-msgid "Location: "
-msgstr "Konum"
-
 msgid "j M {0}"
-msgstr ""
+msgstr "j M {0}"
 
+#, fuzzy
 msgid "l jS M Y {0}"
-msgstr ""
+msgstr "l jS M Y {0}"
 
 msgid "All day: "
-msgstr ""
+msgstr "Bütün gün: "
 
 # 87%
 # 75%
@@ -1466,10 +1493,10 @@ msgstr "Hassaslık"
 msgid "Importance"
 msgstr "Önemli"
 
-msgid "M j"
-msgstr ""
-
 #, fuzzy
+msgid "M j"
+msgstr "M j"
+
 msgid "j"
 msgstr "j"
 
@@ -1492,40 +1519,39 @@ msgstr "Takvim çözünürlük"
 msgid "Default appointment duration {A} minutes"
 msgstr "Tüm gün randevular için varsayılan hatırlatma saatini"
 
-#, fuzzy
 msgid "Duration must be between 1 and 120 minutes."
-msgstr "Değer %0 ile %100 arasında olmalıdır"
+msgstr "Süre 1 ila 120 dakika arasında olmalıdır."
 
+#, fuzzy
 msgid "Default status for all day appointment"
-msgstr ""
+msgstr "Tüm gün randevusu için varsayılan durum"
 
 msgid "Working days"
-msgstr "iş günü"
+msgstr "Çalışma Günleri"
 
 msgid "Show busy dates as bold in the date picker"
 msgstr "Tarih seçiminde meşgul günleri kalın göster"
 
-#, fuzzy
 msgid ""
 "Free/Busy information is used by people sending meeting requests, to "
 "determine when you are available for meetings."
 msgstr ""
-"müsait / meşgul bilgisi toplantı isteği gönderen kişiler tarafından "
-"kullanılıyor, "
+"Boş/Meşgul bilgileri, toplantı isteği gönderen kişiler tarafından "
+"toplantılar için ne zaman müsait olduğunuzu belirlemek için kullanılır."
 
-#, fuzzy
 msgid "Free/Busy publishing"
-msgstr "müsait / meşgul izni"
+msgstr "Ücretsiz/ Meşgul yayıncılık"
 
 #, fuzzy
 msgid "Publish {A} month(s) of Calendar Free/Busy information on the server."
 msgstr "{A} ay takvim serbest/meşgul bilgisini sunucuda yayımla."
 
-#, fuzzy
 msgid ""
 "You can only publish a Free/Busy period from 0 to 36 months. 0 means Free/"
 "Busy information is not published."
-msgstr "sadece 1 ila 36 aylık müsait / meşgul periodu yayımlayabilirsin."
+msgstr ""
+"Yalnızca 0 ila 36 ay arasında bir Boş/Boş dönem yayınlayabilirsiniz. 0, "
+"Serbest/Boş bilgisinin yayınlanmayacağı anlamına gelir."
 
 msgid "Side-by-side mode"
 msgstr "Yan yana modu"
@@ -1571,14 +1597,14 @@ msgid "Open"
 msgstr "Aç"
 
 msgid "Copy/Move"
-msgstr "kopyala/kaydır"
+msgstr "Kopyala/Taşı"
+
+msgid "Send to..."
+msgstr "Şuraya gönder..."
 
 #, fuzzy
-msgid "Send to..."
-msgstr "Gönder"
-
 msgid "Export as"
-msgstr ""
+msgstr "Olarak dışa aktar"
 
 # 80%
 # 100%
@@ -1586,7 +1612,7 @@ msgid "Occurrence"
 msgstr "Tekrarlama"
 
 msgid "Series"
-msgstr "seri"
+msgstr "Seri"
 
 # 91%
 #, fuzzy
@@ -1597,16 +1623,16 @@ msgid "This appointment has been moved or deleted, do you want to continue?"
 msgstr "Bu randevu taşındı veya silindi, devam etmek istiyor musun?"
 
 msgid "All Day"
-msgstr "tüm gün"
+msgstr "Tüm Gün"
 
 msgid "Sort by: All Day"
 msgstr "Sıralama: Tüm Gün"
 
 msgid "Icon"
-msgstr "simge"
+msgstr "Simge"
 
 msgid "Recurring"
-msgstr "tekrar eden"
+msgstr "Tekrar Eden"
 
 # 80%
 # 76%
@@ -1660,17 +1686,21 @@ msgstr "Sıralama: Seçimsel Katılımcı"
 msgid "Sort by: Resources"
 msgstr "Sıralama: Kaynak"
 
+#, fuzzy
 msgid "Recurring Start Date"
-msgstr ""
+msgstr "Yinelenen Başlangıç Tarihi"
 
+#, fuzzy
 msgid "Sort by: Recurring Start Date"
-msgstr ""
+msgstr "Göre sırala: Yinelenen Başlangıç Tarihi"
 
+#, fuzzy
 msgid "Recurring End Date"
-msgstr ""
+msgstr "Yinelenen Bitiş Tarihi"
 
+#, fuzzy
 msgid "Sort by: Recurring End Date"
-msgstr ""
+msgstr "Göre sırala: Yinelenen Bitiş Tarihi"
 
 msgid "Recurring Pattern"
 msgstr "Yineleme Düzeni"
@@ -1689,48 +1719,64 @@ msgid "Loading appointments"
 msgstr "Randevular yükleniyor"
 
 msgid "Attendees"
-msgstr ""
+msgstr "Katılımcılar"
 
+#, fuzzy
 msgid "Optional attendees"
-msgstr ""
+msgstr "İsteğe bağlı katılımcılar"
 
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
+#, fuzzy
 msgid "jS F {0}"
-msgstr ""
+msgstr "jS F {0}"
 
 # 83%
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "jS F Y"
 msgstr "j F Y"
 
+#, fuzzy
 msgid ""
 "You have insufficient privileges to move and copy this item. Ask the folder "
 "owner to grant you permissions or contact your system administrator."
 msgstr ""
+"Bu öğeyi taşımak ve kopyalamak için yeterli ayrıcalığa sahip değilsiniz. "
+"Klasör sahibinden size izin vermesini isteyin veya sistem yöneticinize "
+"başvurun."
 
+#, fuzzy
 msgid ""
 "You have insufficient privileges to copy this item. Ask the folder owner to "
 "grant you permissions or contact your system administrator."
 msgstr ""
+"Bu öğeyi kopyalamak için yeterli ayrıcalığa sahip değilsiniz. Klasör "
+"sahibinden size izin vermesini isteyin veya sistem yöneticinize başvurun."
 
 msgid "Insufficient privileges"
-msgstr "yetersiz yetki"
+msgstr "Yetersiz ayrıcalıklar"
 
+#, fuzzy
 msgid ""
 "Copying this appointment will unset it as private. Are you sure you want to "
 "continue?"
 msgstr ""
+"Bu randevunun kopyalanması, özel olarak ayarlanmasını kaldıracaktır. Devam "
+"etmek istediğinizden emin misiniz?"
 
+#, fuzzy
 msgid "Private item"
-msgstr ""
+msgstr "Özel ürün"
 
 msgid "Copy"
 msgstr "Kopyala"
 
+#, fuzzy
 msgid ""
 "Moving this appointment will unset it as private. Are you sure you want to "
 "continue?"
 msgstr ""
+"Bu randevuyu taşımak, özel olarak ayarını kaldıracaktır. Devam etmek "
+"istediğinizden emin misiniz?"
 
 msgid "Move"
 msgstr "Kaydır"
@@ -1739,32 +1785,33 @@ msgstr "Kaydır"
 msgid "Update recipients"
 msgstr "Alıcı düzenle"
 
+#, fuzzy
 msgid "The time of the meeting has changed. What would you like to do?"
-msgstr ""
+msgstr "Toplantının saati değişti. Ne yapmak istersiniz?"
 
 msgid "Save changes and send an update to all recipients"
 msgstr "Değişiklikleri kaydet ve tüm alıcılara güncelleme gönder"
 
 msgid "Open meeting request with changes"
-msgstr "değişiklik yapılan toplantı isteğini aç"
+msgstr "Değişikliklerle birlikte açık toplantı talebi"
 
 msgid "grommunio Web"
 msgstr "grommunio Web"
 
-#, fuzzy
 msgid ""
 "Please note that any changes you make will be overwritten when this meeting "
 "request is updated by the organizer. Would you like to move this meeting?"
 msgstr ""
-"Toplantı isteği düzenleyen tarafından güncellendiğinde yapacağınız "
-"değişikliklerin üzerine yazılacaktır"
+"Bu toplantı talebi düzenleyici tarafından güncellendiğinde yaptığınız tüm "
+"değişikliklerin üzerine yazılacağını lütfen unutmayın. Bu toplantıyı taşımak "
+"ister misiniz?"
+
+msgid "Don't move"
+msgstr "Kımıldama"
 
 #, fuzzy
-msgid "Don't move"
-msgstr "gönderme"
-
 msgid "Switch to day view to see all appointments"
-msgstr ""
+msgstr "Tüm randevuları görmek için gün görünümüne geçin"
 
 #. TRANSLATORS: This message is used as label for the field which to indicates to whom the given mail was sent.
 msgctxt "mail.previewpanel"
@@ -1791,31 +1838,33 @@ msgid ""
 msgstr ""
 "Takviminiz otomatik olarak güncellendi. Bu toplantı isteği artık silinecek."
 
-#, fuzzy
 msgid "Loading appointments..."
-msgstr "Randevular yükleniyor"
+msgstr "Randevular yükleniyor..."
 
+#, fuzzy
 msgid "Please select a calendar via widget settings"
-msgstr ""
+msgstr "Lütfen widget ayarları üzerinden bir takvim seçin"
 
 msgid "Number of days"
-msgstr ""
+msgstr "Gün sayısı"
 
 msgid "day(s)"
-msgstr ""
-
-msgid "{0}"
-msgstr ""
+msgstr "gün(ler)"
 
 #, fuzzy
+msgid "{0}"
+msgstr "{0}"
+
 msgid "Upcoming Appointments"
-msgstr "Randevular yükleniyor"
+msgstr "Yaklaşan Randevular"
 
+#, fuzzy
 msgid "Appointments of {0}"
-msgstr ""
+msgstr "1}'in atamaları"
 
+#, fuzzy
 msgid "Appointments of {0} - {1}"
-msgstr ""
+msgstr "2} - {1} randevuları"
 
 # 93%
 # 100%
@@ -1827,8 +1876,9 @@ msgstr "Yeni randevu"
 msgid "Today {0} - {1}"
 msgstr "Bugün: {1} {0}"
 
+#, fuzzy
 msgid "Today (all day)"
-msgstr ""
+msgstr "Bugün (tüm gün)"
 
 # 100%
 #. TRANSLATORS: Display name of a folder: "FOLDERNAME - STORENAME".
@@ -1837,21 +1887,23 @@ msgstr ""
 msgid "{0} - {1}"
 msgstr "{0} - {1}"
 
+#, fuzzy
 msgid "d/m/y {0}"
-msgstr ""
+msgstr "d/m/y {0}"
 
+#, fuzzy
 msgid "{0} - {1} (all day)"
-msgstr ""
+msgstr "{0} - {1} (tüm gün)"
 
 #, fuzzy
 msgid "d/m/y"
 msgstr "d/m/Y"
 
 msgid "Select one..."
-msgstr "birini seç ..."
+msgstr "Birini seç..."
 
 msgid "Unnamed folder"
-msgstr "isimsiz klasör"
+msgstr "İsimsiz klasör"
 
 msgid "Discard"
 msgstr "Geri al"
@@ -1916,28 +1968,36 @@ msgstr "Bu olayı aç"
 msgid "Open the series"
 msgstr "Bu seriyi aç"
 
+#, fuzzy
 msgid "Paste Recurring {0}"
-msgstr ""
+msgstr "Yinelenen Yapıştır {0}"
 
+#, fuzzy
 msgid ""
 "This is a recurring {0}. Do you want to paste only this occurrence or the "
 "series?"
 msgstr ""
+"Bu yinelenen bir {0}. Sadece bu oluşumu mu yoksa seriyi mi yapıştırmak "
+"istiyorsunuz?"
 
 msgid "message"
-msgstr ""
+msgstr "mesaj"
 
+#, fuzzy
 msgid "meeting request"
-msgstr ""
+msgstr "toplantı talebi"
 
+#, fuzzy
 msgid "appointment"
-msgstr ""
+msgstr "randevu"
 
+#, fuzzy
 msgid "Paste this occurrence only"
-msgstr ""
+msgstr "Yalnızca bu oluşumu yapıştırın"
 
+#, fuzzy
 msgid "Paste the series..."
-msgstr ""
+msgstr "Seriyi yapıştırın..."
 
 msgid ""
 "This is a recurring message. Do you want to delete only this occurrence or "
@@ -1986,12 +2046,12 @@ msgstr "Toplantıyı sil ve düzenleyene bir yanıt gönder"
 msgid "Delete without sending"
 msgstr "Göndermeden sil"
 
-#, fuzzy
 msgid "Insufficient permissions"
-msgstr "yetersiz yetki"
+msgstr "Yetersiz yetkiler"
 
+#, fuzzy
 msgid "You have insufficient privileges to delete items in this folder."
-msgstr ""
+msgstr "Bu klasördeki öğeleri silmek için yeterli ayrıcalığa sahip değilsiniz."
 
 #, fuzzy
 msgid "Notify recipients"
@@ -2007,8 +2067,9 @@ msgstr ""
 msgid "Delete Incomplete Task"
 msgstr "Tamamlanan Görevler"
 
+#, fuzzy
 msgid "The task \"{0}\" has not been completed. What do you want to do?"
-msgstr ""
+msgstr "\"{0}\" görevi tamamlanmadı. Ne yapmak istiyorsunuz?"
 
 #, fuzzy
 msgid "Decline and delete"
@@ -2030,9 +2091,8 @@ msgstr "Alıcı düzenle"
 msgid "Duplicate recipient"
 msgstr "Alıcı düzenle"
 
-#, fuzzy
 msgid "Recipient already exists."
-msgstr "Kullanıcı zaten var"
+msgstr "Alıcı zaten mevcut."
 
 # 77%
 #, fuzzy
@@ -2047,32 +2107,40 @@ msgstr ""
 "Bu mesajın göndereni bu mesajı okuduğunuzda bildirilmesini istedi. Göndereni "
 "bildirmek istiyor musunuz?"
 
-#, fuzzy
 msgid "Import"
-msgstr "Önemli"
+msgstr "İçe Aktar"
 
+#, fuzzy
 msgid "Successfully imported item(s) to {0}"
-msgstr ""
+msgstr "Öğe(ler) {0}'e başarıyla aktarıldı"
 
+#, fuzzy
 msgid "Failed to import item(s) to {0}"
-msgstr ""
+msgstr "Öğe(ler) {0}'e aktarılamadı"
 
 #, fuzzy
 msgid "Import error"
 msgstr "Önemli"
 
+#, fuzzy
 msgid "Unable to import \"{0}\". The file is not valid"
-msgstr ""
+msgstr "\"{0}\" içe aktarılamıyor. Dosya geçerli değil"
 
+#, fuzzy
 msgid ""
 "You have insufficient privileges to move these items. Would you like to copy "
 "instead?"
 msgstr ""
+"Bu öğeleri taşımak için yeterli ayrıcalığa sahip değilsiniz. Bunun yerine "
+"kopyalamak ister misiniz?"
 
+#, fuzzy
 msgid ""
 "You have insufficient privileges to move this item. Would you like to copy "
 "instead?"
 msgstr ""
+"Bu öğeyi taşımak için yeterli ayrıcalığa sahip değilsiniz. Bunun yerine "
+"kopyalamak ister misiniz?"
 
 msgid "Cc"
 msgstr "Cc"
@@ -2084,20 +2152,20 @@ msgid "From"
 msgstr "Kimden"
 
 msgid "Insert item"
-msgstr "öğe ekle"
+msgstr "Öğe ekle"
 
 msgid "Insert as"
-msgstr "olarak ekle"
+msgstr "Olarak ekle"
 
 msgid "Text only"
-msgstr "yalnızca metin"
+msgstr "Yalnızca Metin"
 
 # 90%
 msgid "Attachment"
-msgstr "ek"
+msgstr "Ek"
 
 msgid "Attach Item"
-msgstr "öğe ekle"
+msgstr "Öğe Ekleme"
 
 msgid "No message selected"
 msgstr "Hiçbir mesaj seçilmedi"
@@ -2135,7 +2203,7 @@ msgid "File upload"
 msgstr "Dosya ekle"
 
 msgid "Attach item"
-msgstr "öğe ekle"
+msgstr "Öğeyi ekleyin"
 
 msgid "Preview"
 msgstr "Önizleme"
@@ -2144,21 +2212,27 @@ msgid "Download"
 msgstr "Indir"
 
 msgid "Download all as ZIP"
-msgstr "tümünü ZIP olarak indir"
+msgstr "Tümünü ZIP olarak indirin"
 
 #, fuzzy
 msgid "Import to folder"
 msgstr "Klasörü boşalt"
 
+#, fuzzy
 msgid ""
 "In order to use the vCard import feature, upgrade your Gromox to version 0 "
 "or higher."
 msgstr ""
+"VCard içe aktarma özelliğini kullanmak için Gromox'unuzu 0 veya daha yüksek "
+"bir sürüme yükseltin."
 
+#, fuzzy
 msgid ""
 "In order to use the ICS / VCS import feature, upgrade your Gromox to version "
 "0 or higher."
 msgstr ""
+"ICS / VCS içe aktarma özelliğini kullanmak için Gromox'unuzu 0 veya daha "
+"yüksek bir sürüme yükseltin."
 
 msgid "Attachment error"
 msgstr "Eklenti hatası"
@@ -2166,11 +2240,12 @@ msgstr "Eklenti hatası"
 msgid "Cannot create ZIP, The allowed maximum size is 30 MB."
 msgstr "ZIP oluşturulamıyor, izin verilen maksimum boyut 30 MB."
 
+#, fuzzy
 msgid "Unable to download"
-msgstr ""
+msgstr "İndirilemiyor"
 
 msgid "Picture format is not supported. "
-msgstr "resim formatı desteklenmiyor. "
+msgstr "Resim formatı desteklenmiyor. "
 
 msgid "Supported format for contact pictures are"
 msgstr "Kişi resimleri için desteklenen format"
@@ -2181,63 +2256,82 @@ msgid "Attachment Error"
 msgstr "Eklenti hatası"
 
 msgid "Manage Categories"
-msgstr ""
+msgstr "Kategorileri Yönetin"
 
 msgid "New"
 msgstr "Yeni"
 
 msgid "Delete Category"
-msgstr ""
+msgstr "Kategoriyi Sil"
 
+#, fuzzy
 msgid ""
 "Are you sure you want to delete the category \"{0}\"? Other items keep this "
 "category, but lose the assigned color."
 msgstr ""
+"\"{0}\" kategorisini silmek istediğinizden emin misiniz? Diğer öğeler bu "
+"kategoriyi korur, ancak atanan rengi kaybeder."
 
+#, fuzzy
 msgid "Rename Category"
-msgstr ""
+msgstr "Kategoriyi Yeniden Adlandır"
 
+#, fuzzy
 msgid "A category named \""
-msgstr ""
+msgstr "\" adlı bir kategori"
 
 msgid "Create New Category"
-msgstr ""
+msgstr "Yeni Kategori Oluştur"
 
+#, fuzzy
 msgid "Pin to quick access"
-msgstr ""
+msgstr "Hızlı erişim için sabitleyin"
 
 msgid "Create"
-msgstr ""
+msgstr "Oluştur"
 
+#, fuzzy
 msgid ""
 "You must apply the changes you have made to the categories before you can "
 "create this category."
 msgstr ""
+"Bu kategoriyi oluşturmadan önce kategorilerde yaptığınız değişiklikleri "
+"uygulamanız gerekir."
 
+#, fuzzy
 msgid "You already have a category named '{0}'. Please use another name."
 msgstr ""
+"Zaten '{0}' adında bir kategoriniz var. Lütfen başka bir isim kullanın."
 
+#, fuzzy
 msgid ""
 "You already have a category named '{0}' in your pending changes. Please use "
 "another name."
 msgstr ""
+"Bekleyen değişikliklerinizde zaten '{0}' adında bir kategoriniz var. Lütfen "
+"başka bir isim kullanın."
 
 msgid "Rename"
-msgstr ""
+msgstr "Yeniden Adlandır"
 
+#, fuzzy
 msgid "This is the first time you have used \"{0}\" category."
-msgstr ""
+msgstr "\"{0}\" kategorisini ilk kez kullanıyorsunuz."
 
+#, fuzzy
 msgid "Do you want to rename it?"
-msgstr ""
+msgstr "Adını değiştirmek ister misin?"
 
+#, fuzzy
 msgid ""
 "The category \"{0}\" already exists. Do you want to merge the \"{1}\" and "
 "\"{2}\" categories?"
 msgstr ""
+"\"{0}\" kategorisi zaten mevcut. \"{1}\" ve \"{2}\" kategorilerini "
+"birleştirmek istiyor musunuz?"
 
 msgid "Merge"
-msgstr ""
+msgstr "Birleştir"
 
 msgid "Remove"
 msgstr "Sil"
@@ -2314,13 +2408,17 @@ msgstr "Delegeler yükleniyor"
 msgid "Please select a delegate."
 msgstr "Lütfen delege seҫiniz."
 
+#, fuzzy
 msgid "Delegates can send items on your behalf."
-msgstr ""
+msgstr "Delegeler sizin adınıza ürün gönderebilir."
 
+#, fuzzy
 msgid ""
 "If you only want to set folder permissions, right-click on a folder to open "
 "the context menu and click on \"Share Folder...\""
 msgstr ""
+"Yalnızca klasör izinlerini ayarlamak istiyorsanız, içerik menüsünü açmak "
+"için bir klasöre sağ tıklayın ve \"Klasörü Paylaş...\" seçeneğine tıklayın"
 
 # 90%
 msgid "Permission"
@@ -2344,36 +2442,45 @@ msgstr "Hedef klasör"
 
 msgid "There is {0} message selected."
 msgid_plural "There are {0} messages selected."
-msgstr[0] "{0} mesaj seçilmiş bulunmaktadır"
-msgstr[1] "{0} mesaj seçilmiş bulunmaktadır"
+msgstr[0] "Seçili {0} mesaj var."
+msgstr[1] "{0} mesaj seçilmiş bulunmaktadır."
 
 msgid "Folder '{0}' selected."
 msgstr "Klasör '{0}' seçildi."
 
+#, fuzzy
 msgid ""
 "You have insufficient privileges to move this folder. Ask the folder owner "
 "to grant you permissions or contact your system administrator."
 msgstr ""
+"Bu klasörü taşımak için yeterli ayrıcalığa sahip değilsiniz. Klasör "
+"sahibinden size izin vermesini isteyin veya sistem yöneticinize başvurun."
 
+#, fuzzy
 msgid ""
 "You have insufficient privileges to copy this folder. Ask the folder owner "
 "to grant you permissions or contact your system administrator."
 msgstr ""
+"Bu klasörü kopyalamak için yeterli ayrıcalığınız yok. Klasör sahibinden size "
+"izin vermesini isteyin veya sistem yöneticinize başvurun."
 
+#, fuzzy
 msgid "You have insufficient privileges to move following items."
-msgstr ""
+msgstr "Aşağıdaki öğeleri taşımak için yeterli ayrıcalığa sahip değilsiniz."
 
 msgid "Subject:"
-msgstr ""
+msgstr "Konu:"
 
+#, fuzzy
 msgid "Would you like to copy instead?"
-msgstr ""
+msgstr "Bunun yerine kopyalamak ister misiniz?"
 
+#, fuzzy
 msgid "Do not show this message again."
-msgstr ""
+msgstr "Bu mesajı bir daha göstermeyin."
 
 msgid "ICS"
-msgstr ""
+msgstr "ICS"
 
 #, fuzzy
 msgid "Set custom flag"
@@ -2388,18 +2495,18 @@ msgid "End date"
 msgstr "Bitiş tarihi"
 
 msgid "Tomorrow"
-msgstr ""
+msgstr "Yarın"
 
 msgid "This week"
-msgstr ""
+msgstr "Bu hafta"
 
+#, fuzzy
 msgid "Next week"
-msgstr ""
+msgstr "Gelecek hafta"
 
 # 87%
-#, fuzzy
 msgid "Custom"
-msgstr "özel tarih"
+msgstr "Özel"
 
 #, fuzzy
 msgid "Set reminder"
@@ -2409,16 +2516,17 @@ msgid "Complete"
 msgstr "Tamamlandı"
 
 msgid "today"
-msgstr ""
+msgstr "bugün"
 
 msgid "tomorrow"
-msgstr ""
+msgstr "yarın"
 
 msgid "this week"
-msgstr ""
+msgstr "bu hafta"
 
+#, fuzzy
 msgid "next week"
-msgstr ""
+msgstr "gelecek hafta"
 
 msgid "Edit recipient"
 msgstr "Alıcı düzenle"
@@ -2427,9 +2535,8 @@ msgstr "Alıcı düzenle"
 msgid "Copy email address"
 msgstr "Yeni e-posta adresi"
 
-#, fuzzy
 msgid "Set as required"
-msgstr "Bu alan gereklidir"
+msgstr "Gerektiği gibi ayarlayın"
 
 #, fuzzy
 msgid "Set as optional"
@@ -2478,7 +2585,7 @@ msgid "Switch between different contexts e.g. inbox, calendar, etc."
 msgstr "Farklı içerikler arasında geçiş yap, örn. gelen kutusu, takvim, vb."
 
 msgid "Basic navigation"
-msgstr "temel navigasyon"
+msgstr "Temel navigasyon"
 
 msgid "Switch between different views"
 msgstr "Farklı görünümler arasında geçiş"
@@ -2490,41 +2597,41 @@ msgid "All views"
 msgstr "Tüm görünümler"
 
 msgid "Close tab"
-msgstr "sekmeyi kapat"
+msgstr "Sekmeyi kapat"
 
 msgid "Print item"
-msgstr "öğeyi yazdır"
+msgstr "Baskı öğesi"
 
 msgid "Items"
 msgstr "Öğeler"
 
 msgid "Save an item e.g. mail, contact, etc."
-msgstr "öğe kaydet, örn. e-posta, kişi, vb."
+msgstr "Posta, kişi vb. gibi bir öğeyi kaydedin."
 
 msgid "Send an item e.g. mail, meeting request, etc."
-msgstr "öğe gönder, örn. e-posta, toplantı isteği, vb."
+msgstr "Bir öğe gönderin, örneğin posta, toplantı talebi vb."
 
 msgid "Select all items"
 msgstr "Tüm öğeleri seç"
 
 msgid "Extend the selection to the first item in the list"
-msgstr "seçimi listedeki ilk öğeye yapılandır"
+msgstr "Seçimi listedeki ilk öğeye genişletme"
 
 msgid "Extend the selection to the last item in the list"
-msgstr "seçimi listedeki son öğeye yapılandır"
+msgstr "Seçimi listedeki son öğeye kadar genişletme"
 
 # 77%
 msgid "Open selected item"
-msgstr "seçili öğeyi aç"
+msgstr "Seçili öğeyi aç"
 
 msgid "Open dialog to categorize selected item"
-msgstr "seçili öğeyi kategorilemek için pencere aç"
+msgstr "Seçili öğeyi kategorize etmek için iletişim kutusunu aç"
 
 msgid "Print list"
-msgstr "listeyi yazdır"
+msgstr "Yazdırma listesi"
 
 msgid "Open copy/move dialog"
-msgstr "kopyala/taşı penceresini aç"
+msgstr "Kopyalama/taşıma iletişim kutusunu açma"
 
 # 77%
 # 75%
@@ -2532,26 +2639,33 @@ msgstr "kopyala/taşı penceresini aç"
 msgid "Delete selected item"
 msgstr "Seçili öğeyi sil"
 
+#, fuzzy
 msgid ""
 "Delete selected item without moving it to the Deleted Items folder. The "
 "deleted item can still be restored."
 msgstr ""
+"Seçili öğeyi Silinmiş Öğeler klasörüne taşımadan silin. Silinen öğe yine de "
+"geri yüklenebilir."
 
 #, fuzzy
 msgid "Add/Edit Cc recipient"
 msgstr "Alıcı düzenle"
 
+#, fuzzy
 msgid "Disable for new mail"
-msgstr ""
+msgstr "Yeni posta için devre dışı bırak"
 
+#, fuzzy
 msgid "Enable for new mail"
-msgstr ""
+msgstr "Yeni posta için etkinleştir"
 
+#, fuzzy
 msgid "Disable for replies"
-msgstr ""
+msgstr "Yanıtlar için devre dışı bırak"
 
+#, fuzzy
 msgid "Enable for replies"
-msgstr ""
+msgstr "Yanıtlar için etkinleştirin"
 
 #, fuzzy
 msgid "No Cc recipient configured"
@@ -2571,27 +2685,30 @@ msgid "New Mail"
 msgstr "Yeni E-posta"
 
 # 80%
-#, fuzzy
 msgid "Please select a Cc recipient record."
-msgstr "Bir alıcı belirtin"
+msgstr "Lütfen bir Cc alıcı kaydı seçin."
 
 #, fuzzy
 msgid "Manage Cc recipients"
 msgstr "Alıcı düzenle"
 
+#, fuzzy
 msgid ""
 "Cc recipients can be used to set a default Cc user in new mail, replies or "
 "both."
 msgstr ""
+"Cc alıcıları, yeni postalarda, yanıtlarda veya her ikisinde de varsayılan "
+"bir Cc kullanıcısı ayarlamak için kullanılabilir."
 
 msgid "Help"
-msgstr "yardım"
+msgstr "Yardım"
 
+#, fuzzy
 msgid "Web Manual"
-msgstr ""
+msgstr "Web Kılavuzu"
 
 msgid "Item data"
-msgstr ""
+msgstr "Öğe verileri"
 
 msgid "INSERT"
 msgstr "ekle"
@@ -2602,8 +2719,9 @@ msgstr "Sıralama: context.mail.griddefaultcolumn"
 msgid "ZDeveloper"
 msgstr "zdeveloper"
 
+#, fuzzy
 msgid "grommunio Web print"
-msgstr ""
+msgstr "grommunio Web baskısı"
 
 # 91%
 msgid "Display name"
@@ -2615,16 +2733,15 @@ msgstr "E-posta adres"
 
 # 78%
 # 100%
-#, fuzzy
 msgid "Expand distribution list"
-msgstr "yeni dağıtım listesi"
+msgstr "Dağıtım listesini genişletin"
 
 msgid ""
 "Distribution list will be replaced with its members. You will not be able to "
 "collapse it again."
 msgstr ""
-"dağıtım listesi üyeleri ile değiştirilecektir. Listeyi tekrar "
-"daraltamayacaksınız."
+"Dağıtım listesi üyeleriyle değiştirilecektir. Tekrar daraltmanız mümkün "
+"olmayacaktır."
 
 # 92%
 msgid "Edit Recipient"
@@ -2641,14 +2758,15 @@ msgstr "E-posta gönder"
 msgid "Delete recipient from suggestion list"
 msgstr "Bu dağıtım listesini sil"
 
+#, fuzzy
 msgid "Copy all email addresses"
-msgstr ""
+msgstr "Tüm e-posta adreslerini kopyalayın"
 
 msgid "View recipient"
 msgstr "Alıcı bilgileri"
 
 msgid "Weekday"
-msgstr "hafta içi gün"
+msgstr "Hafta içi"
 
 msgid "Weekend Day"
 msgstr "Haftasonu"
@@ -2667,7 +2785,7 @@ msgstr "Dördüncü"
 
 # 75%
 msgid "last"
-msgstr "Sonuncu"
+msgstr "son"
 
 msgid "Every {A} day(s)"
 msgstr "Her {A} gün"
@@ -2693,9 +2811,8 @@ msgstr "Randevu tekrarlama"
 msgid "Remove Recurrence"
 msgstr "Tekrarlamayı kaldır"
 
-#, fuzzy
 msgid "Reset recurring"
-msgstr "tekrar eden"
+msgstr "Yinelenenleri sıfırla"
 
 #, fuzzy
 msgid "This will reset every exception. Do you want to continue?"
@@ -2798,17 +2915,17 @@ msgstr "Geciktirme"
 msgctxt "reminder.dialog"
 msgid "{0} reminder is selected."
 msgid_plural "{0} reminders are selected."
-msgstr[0] "{0} hatırlatma seçildi"
-msgstr[1] "{0} hatırlatmalar seçildi"
+msgstr[0] "{0} hatırlatıcı seçilmiştir."
+msgstr[1] "{0} hatırlatmalar seçildi."
 
 msgid "Restore Softdeleted Items"
-msgstr "geçici silinmiş öğeleri geri yükle"
+msgstr "Yazılımla Silinen Öğeleri Geri Yükleme"
 
 msgid "Restore From {0}"
 msgstr "{0} 'den itibaren geri yükle"
 
 msgid "Restore"
-msgstr "eski durumuna getir"
+msgstr "Geri Yükle"
 
 msgid "Restore All"
 msgstr "Hepsini eski duruma getir"
@@ -2817,16 +2934,15 @@ msgid "Permanent Delete"
 msgstr "Daimi Sil"
 
 msgid "Delete All"
-msgstr "tümünü sil"
+msgstr "Tümünü Sil"
 
 # 75%
 # 100%
 msgid "Messages"
-msgstr "mesajlar"
+msgstr "Mesajlar"
 
-#, fuzzy
 msgid "Delete all items"
-msgstr "Tüm öğeleri seç"
+msgstr "Tüm ögeleri sil"
 
 #, fuzzy
 msgid "Are you sure you want to permanently delete all items?"
@@ -2840,10 +2956,11 @@ msgstr "Eski durumuna getir"
 msgid "Are you sure you want to restore all items?"
 msgstr "Tüm öğeleri geri yüklemek istediğinizden emin misiniz?"
 
+#, fuzzy
 msgid "Total {0} recoverable item"
 msgid_plural "Total {0} recoverable items"
-msgstr[0] "toplam {0} kurtarılabilir öğe"
-msgstr[1] ""
+msgstr[0] "Toplam {0} geri kazanılabilir kalem"
+msgstr[1] "Toplam {0} geri kazanılabilir kalemler"
 
 msgid "Deleted On"
 msgstr "Sil"
@@ -2854,7 +2971,7 @@ msgid "Sort by: Deleted On"
 msgstr "Sıralama: Silinme tarihi"
 
 msgid "Item Count"
-msgstr "öğe sayımı"
+msgstr "Öğe Sayısı"
 
 msgid "Sort by: Item Count"
 msgstr "Sıralama: Öğe sayımı"
@@ -2888,21 +3005,17 @@ msgstr "Klasörüne mesajı kopyala ..."
 msgid "Delete the message"
 msgstr "Mesajı sil"
 
-#, fuzzy
 msgid "Redirect the message to..."
-msgstr "mesajı yönlendir ..."
+msgstr "Mesajı şuraya yönlendirin..."
 
-#, fuzzy
 msgid "Forward the message to..."
-msgstr "mesajı ilet ..."
+msgstr "Mesajı şu kişiye iletin..."
 
-#, fuzzy
 msgid "Forward the message as attachment to..."
-msgstr "mesajı ek olarak ilet ..."
+msgstr "Mesajı ek olarak şu adrese iletin..."
 
-#, fuzzy
 msgid "Mark the message as read..."
-msgstr "mesajı ilet ..."
+msgstr "Mesajı okundu olarak işaretleyin..."
 
 #, fuzzy
 msgid "is received from..."
@@ -2947,7 +3060,7 @@ msgid "is sent only to me"
 msgstr "yalnızca bana gönderilen"
 
 msgid "has my name in the Cc field"
-msgstr "CC alanında adım olan"
+msgstr "CC alanında benim adım var"
 
 #, fuzzy
 msgid "does not have my name in the To or Cc field"
@@ -2956,90 +3069,88 @@ msgstr "alıcı veya CC alanında adım olan"
 msgid "has my name in the To or Cc field"
 msgstr "alıcı veya CC alanında adım olan"
 
-#, fuzzy
 msgid "has sensitivity..."
-msgstr "Hassaslığı var"
+msgstr "hassasiyeti var.."
 
-#, fuzzy
 msgid "is received after..."
-msgstr "sonra alınır"
+msgstr "sonra alınır..."
+
+msgid "is received before..."
+msgstr "önce alınır..."
 
 #, fuzzy
-msgid "is received before..."
-msgstr "önce alınır"
-
 msgid "size is at least..."
-msgstr ""
+msgstr "boyutu en azından..."
 
+#, fuzzy
 msgid "size is at most..."
-msgstr ""
+msgstr "boyut en fazla..."
 
 msgid "has my name in the To field"
 msgstr "alıcı alanında adım olan"
 
+#, fuzzy
 msgid "is received (all messages)"
-msgstr ""
+msgstr "alındı (tüm mesajlar)"
 
 msgid "Unknown condition"
-msgstr "bilinmeyen koşul"
+msgstr "Bilinmeyen durum"
 
 msgid "This condition for the current rule is unknown"
-msgstr "güncel kuralın bu koşulu bilinmiyor"
+msgstr "Mevcut kural için bu koşul bilinmemektedir"
 
 msgid "Add action"
-msgstr "eylem ekle"
+msgstr "Eylem ekle"
 
 msgid "Remove action"
-msgstr "eylem sil"
+msgstr "Eylemi kaldırın"
 
 msgid "Unknown action"
-msgstr "bilinmeyen eylem"
+msgstr "Bilinmeyen eylem"
 
 msgid "This action for the current rule is unknown"
-msgstr "güncel kuralın bu eylemi bilinmiyor"
+msgstr "Mevcut kural için bu eylem bilinmemektedir"
 
 msgid "Add condition"
-msgstr "koşul ekle"
+msgstr "Koşul ekle"
 
 msgid "Remove condition"
-msgstr "koşul sil"
+msgstr "Koşulu Sil"
 
 msgid "Inbox Rule"
 msgstr "'gelen kutusu' kuralı"
 
 msgid "Rule name"
-msgstr "kural adı"
+msgstr "Kural adı"
 
 msgid "When the message"
-msgstr "mesaj"
+msgstr "Mesaj gönderildiğinde"
 
 msgid "Do the following"
-msgstr "aşağıdakileri yapın"
+msgstr "Aşağıdakileri yapın"
 
 # 75%
-#, fuzzy
 msgid "Exceptions"
-msgstr "Ayarlar"
+msgstr "İstisnalar"
 
+#, fuzzy
 msgid "Apply only when Out of Office is active"
-msgstr ""
+msgstr "Yalnızca Ofis Dışında etkin olduğunda uygulanır"
 
 msgid "Stop processing more rules"
 msgstr "Daha fazla kural işlemeyi durdur"
 
-#, fuzzy
 msgid "Add exception"
-msgstr "eylem ekle"
+msgstr "İstisna ekleyin"
 
-#, fuzzy
 msgid "Remove exception"
-msgstr "eylem sil"
+msgstr "İstisnayı kaldır"
 
 msgid "Specify Words or Phrases"
-msgstr "kelime ve cümleler belirle"
+msgstr "Kelime veya İfadeleri Belirtin"
 
 msgid "Edit"
-msgstr "düzenle"
+msgstr "Düzenle"
 
 msgid "and"
 msgstr "ve"
@@ -3048,17 +3159,17 @@ msgid ""
 "Distribution lists are not supported in rules, would you like to replace the "
 "distribution list with its members?"
 msgstr ""
-"dağıtım listeleri kurallar içerisinde desteklenmemekte, dağıtım listesini "
-"üyelerle değiştirmek ister misiniz?"
+"Dağıtım listeleri kurallarda desteklenmez, dağıtım listesini üyeleriyle "
+"değiştirmek ister misiniz?"
 
 msgid "or"
 msgstr "veya"
 
 msgid "No rule exists"
-msgstr "kural yok"
+msgstr "Kural yok"
 
 msgid "Active"
-msgstr "aktif"
+msgstr "Aktif"
 
 #, fuzzy
 msgid "Out of office"
@@ -3066,11 +3177,11 @@ msgstr "Ofis dışında"
 
 # 80%
 msgid "Rule"
-msgstr "kural"
+msgstr "Kural"
 
 # 76%
 msgid "Loading rules"
-msgstr "kurallar yükleniyor"
+msgstr "Yükleme kuralları"
 
 # 76%
 msgid "Please select a rule."
@@ -3082,74 +3193,83 @@ msgstr "Kural halihazırda en yüksek önceliğe sahiptir."
 msgid "Rule already has lowest priority."
 msgstr "Kural halihazırda en düşük önceliğe sahiptir."
 
+#, fuzzy
 msgid "Always move messages from {0}"
-msgstr ""
+msgstr "Mesajları her zaman {0}'den taşıyın"
 
+#, fuzzy
 msgid "Always move messages that are sent to <recipients>"
-msgstr ""
+msgstr "Her zaman şu adrese gönderilen mesajları taşıyın <recipients>"
 
+#, fuzzy
 msgid "Always move messages with this subject"
-msgstr ""
+msgstr "Mesajları her zaman bu konuyla taşıyın"
 
+#, fuzzy
 msgid "Create rule..."
-msgstr ""
+msgstr "Kural oluşturun..."
 
 msgid "myself"
-msgstr ""
+msgstr "نفسي"
 
+#, fuzzy
 msgid "Update rules for"
-msgstr ""
+msgstr "Aşağıdakiler için kuralları güncelleyin"
 
+#, fuzzy
 msgid "Apply changes"
-msgstr ""
+msgstr "Değişiklikleri uygula"
 
 msgid "Do you wish to apply the changes?"
 msgstr "Değişiklikleri uygulamak istiyor musunuz?"
 
-#, fuzzy
 msgid "All folders"
-msgstr "tüm klasörlerim"
+msgstr "Tüm klasörler"
 
-#, fuzzy
 msgid "Other..."
-msgstr "Diyeri"
+msgstr "Diğer..."
 
-#, fuzzy
 msgid "Search in.."
-msgstr "ara.."
+msgstr "İçinde ara.."
+
+msgid "Folder does not exist"
+msgstr "Klasör bulunamadı"
 
 #, fuzzy
-msgid "Folder does not exist"
-msgstr "Klasör içerir"
-
 msgid ""
 "The folder you are searching through no longer exists. Please select another "
 "folder"
-msgstr ""
+msgstr "Aradığınız klasör artık mevcut değil. Lütfen başka bir klasör seçin"
 
 msgid "Add/Edit sender"
 msgstr "Gönderen ekle / düzenle"
 
+#, fuzzy
 msgid "No from addresses configured"
-msgstr ""
+msgstr "Yapılandırılmış from adresi yok"
 
+#, fuzzy
 msgid "Loading from addresses"
-msgstr ""
+msgstr "Adreslerden yükleniyor"
 
+#, fuzzy
 msgid "Forward Mail"
-msgstr ""
+msgstr "Posta İlet"
 
+#, fuzzy
 msgid "Please select a from address record."
-msgstr ""
+msgstr "Lütfen adres kaydından bir adres seçin."
 
+#, fuzzy
 msgid "Add/Edit From recipient"
-msgstr ""
+msgstr "Alıcıdan Ekle/Düzenle"
 
+#, fuzzy
 msgid "Manage the recipients used in the 'From' field"
-msgstr ""
+msgstr "'Kimden' alanında kullanılan alıcıları yönetme"
 
 msgid "View"
-msgstr "görünüm"
+msgstr "Görünüm"
 
 msgid "Please select a sendas record."
 msgstr "Lütfen 'farklı gönder' kaydı seçiniz."
@@ -3161,43 +3281,51 @@ msgstr "Delegeler"
 msgid "Delegate settings"
 msgstr "Delege ayarları"
 
+#, fuzzy
 msgid "Desktop Notifications Settings"
-msgstr ""
+msgstr "Masaüstü Bildirim Ayarları"
 
+#, fuzzy
 msgid "We need permissions to enable desktop notifications."
-msgstr ""
+msgstr "Masaüstü bildirimlerini etkinleştirmek için izinlere ihtiyacımız var."
 
+#, fuzzy
 msgid "Request Permissions"
-msgstr ""
+msgstr "İzin İste"
 
+#, fuzzy
 msgid "Enable desktop notifications for new mail"
-msgstr ""
+msgstr "Yeni postalar için masaüstü bildirimlerini etkinleştirin"
 
+#, fuzzy
 msgid "Enable desktop notifications for reminders"
-msgstr ""
+msgstr "Hatırlatıcılar için masaüstü bildirimlerini etkinleştirin"
 
+#, fuzzy
 msgid "{A} Auto hide desktop notification after second(s) {B}"
-msgstr ""
+msgstr "{A} Saniye(ler) sonra masaüstü bildirimini otomatik gizle {B}"
 
+#, fuzzy
 msgid "Disable sound"
-msgstr ""
+msgstr "Sesi devre dışı bırak"
 
 msgid "Notifications"
-msgstr ""
+msgstr "Bildirimler"
 
 # 80%
-#, fuzzy
 msgid "Rules"
-msgstr "kural"
+msgstr "Kurallar"
 
+#, fuzzy
 msgid "From Addresses"
-msgstr ""
+msgstr "Adreslerden"
 
+#, fuzzy
 msgid "From Addresses settings"
-msgstr ""
+msgstr "Adreslerden ayarları"
 
 msgid "Full name"
-msgstr "ad ve soyad"
+msgstr "Ad Soyad"
 
 # 92%
 msgid "Phone Numbers"
@@ -3215,8 +3343,9 @@ msgstr "Web sayfası"
 msgid "IM Address"
 msgstr "IM- Adres"
 
+#, fuzzy
 msgid "D, d-m-Y, {0}"
-msgstr ""
+msgstr "D, d-m-Y, {0}"
 
 # 76%
 msgid "{0} selected row"
@@ -3224,8 +3353,9 @@ msgid_plural "{0} selected rows"
 msgstr[0] "{0} seçili satır"
 msgstr[1] "{0} seçili satır"
 
+#, fuzzy
 msgid "Reminder is set on: {0}, {1}"
-msgstr ""
+msgstr "Hatırlatma açık olarak ayarlanmıştır: {0}, {1}"
 
 msgid "d-m-Y"
 msgstr "d-m-Y"
@@ -3233,11 +3363,13 @@ msgstr "d-m-Y"
 msgid "l d/m/Y"
 msgstr "l d-m-Y"
 
+#, fuzzy
 msgid "l d/m/Y {0}"
-msgstr ""
+msgstr "l d/m/Y {0}"
 
+#, fuzzy
 msgid "d-m-Y {0}"
-msgstr ""
+msgstr "d-m-Y {0}"
 
 msgid "Unknown"
 msgstr "Bilinmeyen"
@@ -3252,8 +3384,9 @@ msgstr "{0} vadesi geçmiş"
 msgid "Loading..."
 msgstr "Yükleniyor..."
 
+#, fuzzy
 msgid "Message could not be loaded"
-msgstr ""
+msgstr "Mesaj yüklenemedi"
 
 # 100%
 #. TRANSLATORS: This message is used as label for the field which indicates which attachments are inside the message
@@ -3287,11 +3420,15 @@ msgctxt "mail.previewpanel"
 msgid "Please treat this as {0}."
 msgstr "{0} olarak bu metni davranın."
 
+#, fuzzy
 msgctxt "mail.previewpanel"
 msgid ""
 "Click here to download pictures. To help protect your privacy, grommunio Web "
 "prevented automatic download of some pictures in this message."
 msgstr ""
+"Resimleri indirmek için buraya tıklayın. Gizliliğinizi korumaya yardımcı "
+"olmak için, grommunio Web bu mesajdaki bazı resimlerin otomatik olarak "
+"indirilmesini engellemiştir."
 
 msgctxt "mail.previewpanel"
 msgid ""
@@ -3302,7 +3439,7 @@ msgstr ""
 
 msgctxt "mail.previewpanel"
 msgid "{0} has accepted."
-msgstr "{0} kabul ettti"
+msgstr "{0} kabul etti."
 
 msgctxt "mail.previewpanel"
 msgid "{0} has accepted on behalf of {1}."
@@ -3322,7 +3459,7 @@ msgstr "{0} reddetti."
 
 msgctxt "mail.previewpanel"
 msgid "{0} has declined on behalf of {1}."
-msgstr "{1} adına {0} redetti"
+msgstr "{0}, {1} adına reddetmiştir."
 
 msgctxt "mail.previewpanel"
 msgid "{0} tentatively accepted and proposed a new time for this meeting."
@@ -3367,28 +3504,30 @@ msgstr "Katılımcının bu yanıtı gönderdikten sonra toplantı güncellendi"
 # 100%
 msgctxt "mail.previewpanel"
 msgid "This appointment occurs in the past."
-msgstr "Bu randevu geçmişte"
+msgstr "Bu randevu geçmişte gerçekleşmiştir."
 
 # 100%
 msgctxt "mail.previewpanel"
 msgid "Please respond."
-msgstr "Lütfen yanıt verin"
+msgstr "Lütfen cevap verin."
 
 msgctxt "mail.previewpanel"
 msgid "This is an update of a previously sent meeting request."
-msgstr "Bu daha önce gönderilen toplantı isteğinin bir güncelleşmiş şekli"
+msgstr "Bu, daha önce gönderilen bir toplantı talebinin güncellemesidir."
 
 msgctxt "mail.previewpanel"
 msgid "Received for {0}."
-msgstr "{0} için alınan"
+msgstr "{0} için alınan."
 
+#, fuzzy
 msgctxt "mail.previewpanel"
 msgid "You replied to this message."
-msgstr ""
+msgstr "Bu mesajı yanıtladınız."
 
+#, fuzzy
 msgctxt "mail.previewpanel"
 msgid "You forwarded this message."
-msgstr ""
+msgstr "Bu mesajı iletmişsiniz."
 
 msgctxt "mail.previewpanel"
 msgid "You replied to this message on {0}."
@@ -3398,32 +3537,29 @@ msgctxt "mail.previewpanel"
 msgid "You forwarded this message on {0}."
 msgstr "Bu mesajı {0} ilettiniz."
 
-#, fuzzy
 msgid "Assigned by {0} on {1}."
-msgstr "{0} {1} tarihte kabul etti"
+msgstr "{0} {1} tarihte kabul etti."
 
 #, fuzzy
 msgid "Waiting for response from recipient"
 msgstr "Alıcılardan okundu isteyi isteyin"
 
-#, fuzzy
 msgid "Accepted by {0} on {1}."
-msgstr "{0} {1} tarihte kabul etti"
+msgstr "{0} {1} tarihte kabul etti."
 
 #, fuzzy
 msgid "{0} has accepted on behalf of {1} {2}."
 msgstr "{1} adına {0} kabul etti."
 
-#, fuzzy
 msgid "Declined by {0} on {1}."
-msgstr "{0} {1} tarihte kabul etti"
+msgstr "{0} {1} tarihte kabul etti."
+
+msgid "{0} has declined on behalf of {1} {2}."
+msgstr "{1} adına {0} redetti."
 
 #, fuzzy
-msgid "{0} has declined on behalf of {1} {2}."
-msgstr "{1} adına {0} redetti"
-
 msgid "Last update sent on {0}."
-msgstr ""
+msgstr "Son güncelleme {0} tarihinde gönderildi."
 
 #, fuzzy
 msgid "{0} has updated on behalf of {1} {2}."
@@ -3439,8 +3575,9 @@ msgstr ""
 "Bozuk bir e-posta mesajını düzeltmeye çalışacağız, devam etmek istiyor "
 "musunuz?"
 
+#, fuzzy
 msgid "The matching task was not found in your task list."
-msgstr ""
+msgstr "Eşleşen görev, görev listenizde bulunamadı."
 
 # 100%
 msgctxt "mail.previewpanel"
@@ -3459,7 +3596,7 @@ msgstr "Bcc"
 
 msgctxt "mail.previewpanel"
 msgid "Categories"
-msgstr ""
+msgstr "Kategoriler"
 
 #. TRANSLATORS: This message is used as label for the field which to indicates to whom the given mail was sent
 msgctxt "mail.previewpanel"
@@ -3477,26 +3614,23 @@ msgctxt "mail.previewpanel"
 msgid "None"
 msgstr "Hiç"
 
-#, fuzzy
 msgid "Pop-out"
-msgstr "açılır pencere"
+msgstr "Açılır"
 
-#, fuzzy
 msgid "Mark as read"
-msgstr "Okunmamış İşaretle"
+msgstr "Okundu olarak işaretle"
 
-#, fuzzy
 msgid "Mark as unread"
-msgstr "Okunmamış İşaretle"
+msgstr "Okunmadı olarak işaretle"
 
 msgid "in"
-msgstr ""
+msgstr "içinde"
 
 msgid "Root"
 msgstr "Temel"
 
 msgid "Datepicker"
-msgstr ""
+msgstr "Tarih seçici"
 
 # 85%
 msgid "File As"
@@ -3529,7 +3663,7 @@ msgid "Assistant Phone"
 msgstr "Asistan telefonu"
 
 msgid "Company Main Phone"
-msgstr "şirket ana telefon"
+msgstr "Şirket Ana Telefonu"
 
 # 83%
 msgid "Home 2 Phone"
@@ -3548,7 +3682,7 @@ msgid "Other Phone"
 msgstr "Diğer Telefon"
 
 msgid "Primary Phone"
-msgstr "birincil telefon"
+msgstr "Ana Telefon"
 
 msgid "Telex"
 msgstr "Teleks"
@@ -3592,7 +3726,7 @@ msgid "Birthday"
 msgstr "Doğum günü"
 
 msgid "Wedding Anniversary"
-msgstr "evlilik yıldönümü"
+msgstr "Evlilik Yıldönümü"
 
 msgid "Spouse/Partner"
 msgstr "Eş / Partner"
@@ -3606,7 +3740,7 @@ msgstr "Asistan adı"
 # 94%
 # 77%
 msgid "Distribution List Name"
-msgstr "dağıtım listesi adı"
+msgstr "Dağıtım Listesi Adı"
 
 # 75%
 msgid "Open Shared Contacts"
@@ -3619,7 +3753,7 @@ msgid "Phone List"
 msgstr "Telefon listesi"
 
 msgid "Add to contacts"
-msgstr "kişilere ekle"
+msgstr "Kişilere ekle"
 
 # 77%
 msgid "Print selected contact"
@@ -3765,9 +3899,8 @@ msgid "Add attachments to this contact"
 msgstr "Bu kişiye eklentiler ekleyin"
 
 # 75%
-#, fuzzy
 msgid "Mark this contact as private"
-msgstr "Bu kişiyi özel olarak işaretle."
+msgstr "Bu kişiyi özel olarak işaretle"
 
 # 94%
 msgid "Distribution List"
@@ -3781,9 +3914,8 @@ msgstr "Bu dağıtım listesini özel olarak işaretle"
 msgid "New email address"
 msgstr "Yeni e-posta adresi"
 
-#, fuzzy
 msgid "Please enter a valid email address"
-msgstr "Geçerli bir e-posta adresine giriniz !"
+msgstr "Lütfen geçerli bir e-posta adresi girin"
 
 msgid "Select Members"
 msgstr "Üye seçin"
@@ -3792,15 +3924,15 @@ msgid "Add New"
 msgstr "Yeni ekle"
 
 msgid "Type your note here..."
-msgstr "notunu buraya yaz..."
+msgstr "Notunuzu buraya yazın…"
 
 msgid "New contact"
-msgstr "yeni kişi"
+msgstr "Yeni irtibat"
 
 # 78%
 # 100%
 msgid "New distribution list"
-msgstr "yeni dağıtım listesi"
+msgstr "Yeni dağıtım listesi"
 
 #, fuzzy
 msgid "Email 2 Display As"
@@ -3813,21 +3945,26 @@ msgstr "E-posta 3 olarak göster"
 msgid "Loading contacts"
 msgstr "Kişiler yükleniyor"
 
+#, fuzzy
 msgid ""
 "There are no items to show in this list. Update the filter for more results."
 msgstr ""
+"Bu listede gösterilecek öğe yok. Daha fazla sonuç için filtreyi güncelleyin."
 
+#, fuzzy
 msgid "[Group]"
-msgstr ""
+msgstr "[Grup]"
 
+#, fuzzy
 msgid "Work:"
-msgstr ""
+msgstr "Çalış:"
 
+#, fuzzy
 msgid "Primary:"
-msgstr ""
+msgstr "Birincil:"
 
 msgid "Mobile:"
-msgstr ""
+msgstr "Mobil:"
 
 msgid "Sort by: Full Name"
 msgstr "Sıralama: Ad"
@@ -3968,13 +4105,13 @@ msgid "Sort by: Telex Phone"
 msgstr "Sıralama: Teleks Telefon"
 
 msgid "Change Picture"
-msgstr "resmi değiştir"
+msgstr "Resmi Değiştir"
 
 msgid "Remove Picture"
-msgstr "resmi kaldır"
+msgstr "Resmi Kaldır"
 
 msgid "VCF file(s)"
-msgstr ""
+msgstr "VCF dosya(lar)ı"
 
 msgid "Quick Contact"
 msgstr "Hızlı kişi yap"
@@ -4117,16 +4254,17 @@ msgid "Deferred"
 msgstr "Ertelendi"
 
 msgid "Dark"
-msgstr "koyu"
+msgstr "Koyu"
 
 msgid "High Contrast"
-msgstr "yüksek kontrast"
+msgstr "Yüksek Kontrast"
 
 msgid "Lime"
-msgstr "kireç"
+msgstr "Limon"
 
+#, fuzzy
 msgid "Magenta"
-msgstr ""
+msgstr "Magenta"
 
 msgid "Orange"
 msgstr "Turuncu"
@@ -4140,13 +4278,11 @@ msgstr "Oturumu kapat"
 msgid "Switch view"
 msgstr "Görünüm değiştir"
 
-#, fuzzy
 msgid "Widgets"
-msgstr "Parçacık ekle"
+msgstr "Bileşenler"
 
-#, fuzzy
 msgid "Sending..."
-msgstr "Gönder"
+msgstr "Gönderiliyor..."
 
 # 94%
 msgid "Sent successfully"
@@ -4174,14 +4310,13 @@ msgid "Attachments not uploaded yet"
 msgstr "Ekler indirilemiyor"
 
 msgid "Don't Send"
-msgstr "gönderme"
+msgstr "Gönderme"
 
 msgid "Send Anyway"
-msgstr "her neyse gönder"
+msgstr "Her Neyse Gönder"
 
-#, fuzzy
 msgid "No subject"
-msgstr "konu yok"
+msgstr "Konu yok"
 
 msgid "Send this message without a subject?"
 msgstr "Bu mesajı konusuz gönder?"
@@ -4206,9 +4341,8 @@ msgstr "Klasör listesi"
 msgid "Copy Details"
 msgstr "Detaylar göster"
 
-#, fuzzy
 msgid "Hide Details"
-msgstr "Ayrıntılar"
+msgstr "Detayları Gizle"
 
 msgid "Loaded {0} of {1}"
 msgstr "{1} den {0} yüklendi"
@@ -4233,87 +4367,80 @@ msgstr ""
 msgid "grommunio Content Panel"
 msgstr "grommunio Content Panel"
 
-#, fuzzy
 msgid "Delete item"
-msgstr "Öğeleri sil"
+msgstr "Bu öğeyi sil"
 
 msgid "This item has been changed. Are you sure you want to delete it?"
 msgstr "Bu öğe değiştirildi. Silmek istediğinizden emin misiniz?"
 
 msgid "Unsaved changes"
-msgstr ""
+msgstr "Kaydedilmeyen değişiklikler"
 
+#, fuzzy
 msgid "Welcome to grommunio Web"
-msgstr ""
+msgstr "Grommunio Web'e hoş geldiniz"
 
-#, fuzzy
 msgid "This is the first time you are using grommunio Web. "
-msgstr ""
-"grommunio Web'i ilk defa kullanıyorsunuz. <br /> Devam etmeden önce lütfen "
-"aşağıdaki ayarları kontrol edin."
+msgstr "Grommunio Web'i ilk kez kullanıyorsunuz. "
 
-#, fuzzy
 msgid "Please check the following settings before continuing."
-msgstr ""
-"grommunio Web'i ilk defa kullanıyorsunuz. <br /> Devam etmeden önce lütfen "
-"aşağıdaki ayarları kontrol edin."
+msgstr "Devam etmeden önce lütfen aşağıdaki ayarları kontrol edin."
 
 #, fuzzy
 msgid "Widget height"
 msgstr "Parçacık ekle"
 
 msgid "pixels"
-msgstr ""
+msgstr "piksel"
 
 msgid "Configure widget"
 msgstr "Widget yapılandır"
 
+#, fuzzy
 msgid "Reload interval"
-msgstr ""
+msgstr "Yeniden yükleme aralığı"
 
 msgid "seconds"
-msgstr ""
+msgstr "saniye"
 
-#, fuzzy
 msgid "Open in new tab"
-msgstr "Yeni tarayıcı penceresinde aç"
+msgstr "Yeni sekmede aç"
 
 msgid "Add widgets"
 msgstr "Parçacık ekle"
 
 msgid "No widgets installed."
-msgstr "Widget kurulmamış"
+msgstr "Yüklü widget yok."
 
-#, fuzzy
 msgid "Remove widget"
-msgstr "resmi kaldır"
+msgstr "Bileşeni kaldır"
 
-#, fuzzy
 msgid "Collapse widget"
-msgstr "widget panosunu daralt"
+msgstr "Widget'ı daralt"
+
+msgid "Expand widget"
+msgstr "Widget'ı genişlet"
 
 #, fuzzy
-msgid "Expand widget"
-msgstr "widget panosunu genişlet"
-
 msgid "About this widget"
-msgstr ""
+msgstr "Bu widget hakkında"
 
 #, fuzzy
 msgid "Add new widget"
 msgstr "Parçacık ekle"
 
 msgid "Collapse widget panel"
-msgstr "widget panosunu daralt"
+msgstr "Widget panelini daraltma"
 
 msgid "Expand widget panel"
-msgstr "widget panosunu genişlet"
+msgstr "Widget panelini genişletme"
 
 msgid "Your changes will be lost if you leave this page now."
 msgstr "Bu sayfadan şimdi çıkarsanız değişiklikleriniz kaybolacaktır."
 
+#, fuzzy
 msgid "D {0}"
-msgstr ""
+msgstr "D {0}"
 
 #, fuzzy
 msgid "D d-m"
@@ -4332,12 +4459,11 @@ msgid ""
 msgstr ""
 "Bu klasör açmak için yeterli izininiz yok, hiyerarşi kaldırmak istiyorsunuz?"
 
-#, fuzzy
 msgid "Insufficient Permissions"
-msgstr "yetersiz yetki"
+msgstr "Yetersiz İzinler"
 
 msgid "Not enough permissions to open this folder."
-msgstr "Bu dizini görmek için yeterli izniniz yok"
+msgstr "Bu klasörü açmak için yeterli izin yok."
 
 #, fuzzy
 msgid "There is {0} unread message in the folder {1} of {2}"
@@ -4353,9 +4479,8 @@ msgstr[1] "Okunmamış {0} mesaj {1} klasörde bulunmaktadır"
 msgid "Publishing Editor"
 msgstr "Yayın Editorü"
 
-#, fuzzy
 msgid "Editor"
-msgstr "düzenle"
+msgstr "Editör"
 
 msgid "Publishing Author"
 msgstr "Yayın Yazarı"
@@ -4372,18 +4497,20 @@ msgstr "Gözden geçiren"
 msgid "Contributor"
 msgstr "Katkıda bulunan"
 
+#, fuzzy
 msgid "Free/Busy time, subject, location"
-msgstr ""
-
-msgid "Free/Busy time"
-msgstr ""
-
-msgid "Unable to import:"
-msgstr ""
+msgstr "Boş/Boş zaman, konu, konum"
 
 #, fuzzy
+msgid "Free/Busy time"
+msgstr "Boş / Meşgul zaman"
+
+#, fuzzy
+msgid "Unable to import:"
+msgstr "İçe aktarılamıyor:"
+
 msgid "The files are not valid"
-msgstr "Eklenen dosyalar henüz yüklenmedi."
+msgstr "Dosyalar geçerli değil"
 
 msgid "Create New Folder"
 msgstr "Yeni klasör oluştur"
@@ -4429,11 +4556,13 @@ msgstr "Tür"
 msgid "Description"
 msgstr "Açıklama"
 
+#, fuzzy
 msgid "EntryID"
-msgstr ""
+msgstr "EntryID"
 
+#, fuzzy
 msgid "Parent EID"
-msgstr ""
+msgstr "Ebeveyn EID"
 
 msgid "Folder size"
 msgstr "Klasör boyutu"
@@ -4489,8 +4618,9 @@ msgstr "Klasör bağlantısı"
 msgid "Folder visible"
 msgstr "Klasör görülebilir"
 
+#, fuzzy
 msgid "Apply (copy) changed permissions recursively"
-msgstr ""
+msgstr "Değiştirilen izinleri özyinelemeli olarak uygulama (kopyalama)"
 
 msgid "User already exists"
 msgstr "Kullanıcı zaten var"
@@ -4536,41 +4666,36 @@ msgstr "Sıralama: Toplam büyüklüğü (alt klasörler dahil)"
 msgid "Open Shared Folders"
 msgstr "Paylastığım klasörü aç"
 
-#, fuzzy
 msgid "Unresolved user"
-msgstr "Kullanıcı çözümlenemedi."
+msgstr "Çözülmemiş kullanıcı"
 
 msgid "Username '{0}' could not be resolved."
 msgstr "Kullanıcı adı '{0}' çözülemedi."
 
 msgid "Invalid user"
-msgstr ""
+msgstr "Geçersiz kullanıcı"
 
 msgid "Username '{0}' is not a valid user."
 msgstr "Kullanıcı ad '{0}' geçerli bir kullanıcı değil."
 
-#, fuzzy
 msgid "Own store"
-msgstr "mağaza eksik"
+msgstr "Kendi mağazamız"
 
-#, fuzzy
 msgid "It is not possible to open your own store twice."
-msgstr "Kendi mağazanı iki defa açmak mümkün değildir"
+msgstr "Kendi mağazanızı iki kez açmanız mümkün değil."
 
-#, fuzzy
 msgid "Folder already open"
-msgstr "Bu paylaşılan klasör zaten açık."
+msgstr "Klasör zaten açık"
 
 msgid "This shared folder is already open."
 msgstr "Bu paylaşılan klasör zaten açık."
 
 msgid "No user"
-msgstr ""
+msgstr "Kullanıcı yok"
 
 # 85%
-#, fuzzy
 msgid "You must specify a user"
-msgstr "Bir kullanıcı adı belirtmelisiniz."
+msgstr "Bir kullanıcı belirtmelisiniz"
 
 msgid "Folder type"
 msgstr "Klasör türü"
@@ -4579,25 +4704,21 @@ msgstr "Klasör türü"
 msgid "Show subfolders"
 msgstr "Alt klasörleri göster"
 
-#, fuzzy
 msgid "Open shared folder/store"
-msgstr "paylaşılan klasör/mağaza aç"
+msgstr "Paylaşılan klasörü/depoyu açın"
 
 msgid "Rename folder"
-msgstr ""
+msgstr "Klasörü yeniden adlandýr"
 
-#, fuzzy
 msgid "Empty folder"
-msgstr "Klasörü boşalt"
+msgstr "Boş klasör"
 
-#, fuzzy
 msgid "Empty Junk Email"
-msgstr "istenmeyen e-posta"
+msgstr "Önemsiz E-postaları Boşaltın"
 
 # 92%
-#, fuzzy
 msgid "Empty Deleted Items"
-msgstr "silinen öğeler"
+msgstr "Silinmiş Öğeleri Boşaltın"
 
 msgid "Rename Folder"
 msgstr "Klasörü yeniden adlandırma"
@@ -4623,17 +4744,16 @@ msgstr "Yeniden yükle"
 # 76%
 # 100%
 msgid "Select color"
-msgstr "renk seç"
+msgstr "Renk seç"
 
 msgid "Add to Favorites"
-msgstr "favorilere ekle"
+msgstr "Favorilere Ekle"
 
 msgid "Remove From Favorites"
-msgstr "favorilerden sil"
+msgstr "Favorilerden Sil"
 
-#, fuzzy
 msgid "Share folder..."
-msgstr "Başlangıҫ klasör"
+msgstr "Klasörü paylaş..."
 
 #, fuzzy
 msgid "Import emails"
@@ -4645,15 +4765,17 @@ msgstr "Önemli"
 msgid "Import appointments"
 msgstr "Yeni randevu"
 
+#, fuzzy
 msgid "Import contacts"
-msgstr ""
+msgstr "Kişileri içe aktarma"
 
 #, fuzzy
 msgid "Properties of {0}"
 msgstr "Özellikleri"
 
+#, fuzzy
 msgid "Share {0} with..."
-msgstr ""
+msgstr "1} ile paylaşın..."
 
 #, fuzzy
 msgid "Properties of {0} - {1}"
@@ -4680,15 +4802,18 @@ msgid "Are you sure you want to empty {0}?"
 msgstr "{0} Boşaltmak istediğinizden emin misiniz?"
 
 msgid "Show All"
-msgstr ""
+msgstr "Tümünü Göster"
 
 msgid "Show all folders"
 msgstr "Tüm klasörleri göster"
 
+#, fuzzy
 msgid ""
 "You have insufficient privileges to move this folder. Would you like to copy "
 "instead?"
 msgstr ""
+"Bu klasörü taşımak için yeterli ayrıcalığa sahip değilsiniz. Bunun yerine "
+"kopyalamak ister misiniz?"
 
 msgid "CC"
 msgstr "CC"
@@ -4713,67 +4838,76 @@ msgstr "Kırmızı"
 msgid "Original message"
 msgstr "Orijinal mesaj"
 
+#, fuzzy
 msgid "Schedule mail to be sent out"
-msgstr ""
+msgstr "Gönderilecek postaları planlayın"
 
+#, fuzzy
 msgid "Scheduled Items"
-msgstr ""
+msgstr "Planlanmış Öğeler"
 
 msgid "Your message will be sent at "
-msgstr ""
+msgstr "Mesajınız şu adrese gönderilecektir "
 
+#, fuzzy
 msgid "Go to your Outbox to edit your email."
-msgstr ""
+msgstr "E-postanızı düzenlemek için Giden Kutunuza gidin."
 
 msgid "hour(s)"
-msgstr ""
+msgstr "saat"
 
 msgid "month(s)"
-msgstr ""
+msgstr "ay(lar)"
 
+#, fuzzy
 msgid "at a specific time"
-msgstr ""
+msgstr "belirli bir zamanda"
 
+#, fuzzy
 msgid "The time you entered is in the past. Please reschedule your mail."
-msgstr ""
+msgstr "Girdiğiniz saat geçmişte kaldı. Lütfen postanızı yeniden planlayın."
 
 msgid "today  at "
-msgstr ""
+msgstr "bugün "
 
 msgid "tomorrow  at "
-msgstr ""
+msgstr "yarın "
 
 msgid "{0} at "
-msgstr ""
+msgstr "{0} adresinde "
 
+#, fuzzy
 msgid "at {0}"
-msgstr ""
+msgstr "at {0}"
 
+#, fuzzy
 msgid "Your email will be sent {0}{1}"
-msgstr ""
+msgstr "E-postanız {0}{1} gönderilecektir"
 
 msgid "Saving..."
-msgstr "kaydediliyor..."
+msgstr "Kaydediliyor..."
 
-#, fuzzy
 msgid "Saved at {0}"
-msgstr "mesaj {0}'da kaydedildi."
+msgstr "Mesaj {0}'da kaydedildi"
 
-#, fuzzy
 msgid "Saving failed"
-msgstr "işlem başarısız"
+msgstr "Kaydetme başarısız oldu"
 
 msgid "Message Options"
 msgstr "Mesaj ayarları"
 
+#, fuzzy
 msgid "This message will be flagged for follow up when it is sent."
-msgstr ""
+msgstr "Bu mesaj gönderildiğinde takip için işaretlenecektir."
 
+#, fuzzy
 msgid "Send Later"
-msgstr ""
+msgstr "Daha Sonra Gönder"
 
+#, fuzzy
 msgid "Schedule your mail to be sent on a specific date and time"
 msgstr ""
+"Postalarınızı belirli bir tarih ve saatte gönderilmek üzere programlayın"
 
 # 86%
 msgid "Add attachments to this email"
@@ -4796,10 +4930,10 @@ msgid "Set flag on this email"
 msgstr "Bu mesaja bayrak koy"
 
 msgid "Mark this mail as high priority"
-msgstr "e-posta'yı 'öncelik: yüksek' olarak işaretle"
+msgstr "Bu postayı yüksek öncelikli olarak işaretleyin"
 
 msgid "Mark this mail as low priority"
-msgstr "e-posta'yı 'öncelik: düşük' olarak işaretle"
+msgstr "Bu postayı düşük öncelikli olarak işaretleyin"
 
 msgid "Set read receipt"
 msgstr "Okundu bilgi isteme"
@@ -4818,8 +4952,9 @@ msgstr "Bcc göster"
 msgid "Show From field"
 msgstr "Gönderen göster"
 
+#, fuzzy
 msgid "Cannot save while attachment is being uploaded"
-msgstr ""
+msgstr "Ek yüklenirken kaydedilemiyor"
 
 msgid "Miscellaneous Options"
 msgstr "Diyer ayarlar"
@@ -4843,7 +4978,7 @@ msgid "Set Category"
 msgstr "Kategori ayarla"
 
 msgid "Pop-Out"
-msgstr "açılır pencere"
+msgstr "Açılır pencere"
 
 msgid "Mark Read"
 msgstr "Okunmuş İşaretle"
@@ -4854,7 +4989,7 @@ msgstr "Okunmamış İşaretle"
 # 87%
 # 100%
 msgid "New mail"
-msgstr "yeni e-posta"
+msgstr "Yeni E-posta"
 
 msgid "Mail"
 msgstr "E-posta"
@@ -4865,10 +5000,10 @@ msgid "Reply all"
 msgstr "Hepsini yanıtla"
 
 msgid "Toggle read/unread"
-msgstr "okundu/okunmadı arasında geçiş yap"
+msgstr "Okundu/okunmadı arasında geçiş yap"
 
 msgid "Toggle red/complete flag"
-msgstr "kırmızı/tamamlandı işareti arasında geçiş yap"
+msgstr "Kırmızı/tamamlandı bayrağını aç / kapat"
 
 # 76%
 msgid "Open Shared Mails"
@@ -4883,9 +5018,8 @@ msgstr "Tek bir e-posta yazdır"
 msgid "Print selected email"
 msgstr "Seçili öğeyi yazdır"
 
-#, fuzzy
 msgid "Filter"
-msgstr "filtrele.."
+msgstr "Filtre"
 
 msgid "FW"
 msgstr "İLT"
@@ -4893,20 +5027,25 @@ msgstr "İLT"
 msgid "RE"
 msgstr "YNT"
 
+#, fuzzy
 msgid "on behalf of"
-msgstr ""
+msgstr "adına"
 
+#, fuzzy
 msgid "Safe Senders list is empty"
-msgstr ""
+msgstr "Güvenli Gönderenler listesi boş"
 
+#, fuzzy
 msgid "Please select a safe sender record."
-msgstr ""
+msgstr "Lütfen güvenli bir gönderici kaydı seçin."
 
+#, fuzzy
 msgid "Delete all safe senders"
-msgstr ""
+msgstr "Tüm güvenli göndericileri sil"
 
+#, fuzzy
 msgid "Are you sure you want to delete all safe senders?"
-msgstr ""
+msgstr "Tüm güvenli göndericileri silmek istediğinizden emin misiniz?"
 
 msgid "HTML"
 msgstr "HTML"
@@ -4934,14 +5073,17 @@ msgstr "Her zaman okundu bilgisi istemek"
 msgid "{A}AutoSave unsent mail every {B} minute(s)"
 msgstr "gönderilemeyen e-postaları her {B} dakika {A}otomatik kaydet"
 
+#, fuzzy
 msgid "Conversation view settings"
-msgstr ""
+msgstr "Görüşme görünümü ayarları"
 
+#, fuzzy
 msgid "Enable conversation view"
-msgstr ""
+msgstr "Görüşme görünümünü etkinleştir"
 
+#, fuzzy
 msgid "Collapse conversation when selecting a different email"
-msgstr ""
+msgstr "Farklı bir e-posta seçerken görüşmeyi daraltma"
 
 msgid "Incoming mail"
 msgstr "Gelen mesaj"
@@ -4975,10 +5117,11 @@ msgstr "Alt"
 # 83%
 # 100%
 msgid "Location of preview pane"
-msgstr "önizleme paneli konumu"
+msgstr "Önizleme bölmesinin konumu"
 
+#, fuzzy
 msgid "Use English abbreviations for forward (FW:) and reply (RE:)"
-msgstr ""
+msgstr "İlet (FW:) ve yanıt (RE:) için İngilizce kısaltmalar kullanın"
 
 msgid "Close original message on reply or forward"
 msgstr "Yanıt veya iletilerde orijinal mesajı kapat"
@@ -4994,10 +5137,11 @@ msgid "grommunio Web tab"
 msgstr "grommunio Web sekmesi"
 
 msgid "Browser window"
-msgstr "tarayıcı penceresi"
+msgstr "Tarayıcı penceresi"
 
+#, fuzzy
 msgid "Update Out of Office settings for"
-msgstr ""
+msgstr "Aşağıdakiler için Ofis Dışında ayarlarını güncelleyin"
 
 msgid "I am currently in the office"
 msgstr "Şu anda ofisteyim"
@@ -5012,23 +5156,28 @@ msgstr "...geri döneceğim"
 msgid "Automatically reply once per day, per sender with the following text"
 msgstr "Her gönderene bir kere otomatik metin yanıtla"
 
+#, fuzzy
 msgid "Inside My Organization"
-msgstr ""
+msgstr "Kuruluşumun İçinde"
 
 msgid "User is currently out of office."
-msgstr "Kullanıcı şu anda ofis dışında"
+msgstr "Kullanıcı şu anda görevde değil."
 
+#, fuzzy
 msgid "Outside My Organization"
-msgstr ""
+msgstr "Kuruluşumun Dışında"
 
+#, fuzzy
 msgid "Auto-reply to people outside my organization"
-msgstr ""
+msgstr "Kuruluşum dışındaki kişilere otomatik yanıt verme"
 
+#, fuzzy
 msgid "My contacts only"
-msgstr ""
+msgstr "Yalnızca kişilerim"
 
+#, fuzzy
 msgid "Anyone outside my organization"
-msgstr ""
+msgstr "Kurumum dışındaki herkes"
 
 msgid ""
 "The time you entered is before the out of office date. Please reschedule."
@@ -5036,16 +5185,21 @@ msgstr ""
 "Girdiğiniz zaman, ofis dışında olacağınız tarih'ten önce. Lütfen yeniden "
 "planlayın."
 
+#, fuzzy
 msgid "Safe Senders"
-msgstr ""
+msgstr "Güvenli Göndericiler"
 
+#, fuzzy
 msgid ""
 "To protect your privacy email addresses or domains can only be added via the "
 "\"Add to safe sender list\" functionality in an opened email."
 msgstr ""
+"Gizliliğinizi korumak için e-posta adresleri veya alan adları yalnızca "
+"açılan bir e-postadaki \"Güvenli gönderen listesine ekle\" işlevi "
+"aracılığıyla eklenebilir."
 
 msgid "Delete all"
-msgstr ""
+msgstr "Tümünü sil"
 
 msgid "Signatures"
 msgstr "Imzalar"
@@ -5054,13 +5208,15 @@ msgid "No signatures configured"
 msgstr "Yapılandırılmış imzalar yok"
 
 msgid "New messages"
-msgstr ""
+msgstr "Yeni mesajlar"
 
+#, fuzzy
 msgid "Replies/forwards"
-msgstr ""
+msgstr "Yanıtlar/İletiler"
 
+#, fuzzy
 msgid "Signature name:"
-msgstr ""
+msgstr "İmza adı:"
 
 #, fuzzy
 msgid "Save Signature"
@@ -5073,8 +5229,9 @@ msgstr ""
 msgid "New signature"
 msgstr "Yeni imza"
 
+#, fuzzy
 msgid "EML file(s)"
-msgstr ""
+msgstr "EML dosya(ları)"
 
 #, fuzzy
 msgid "ZIP file"
@@ -5088,73 +5245,74 @@ msgid "Sort by: Sent"
 msgstr "Sıralama: Yollanan"
 
 msgid "Modified"
-msgstr "değiştirilmiş"
+msgstr "Değiştirilmiş"
 
 msgid "Sort by: Modified"
 msgstr "Sıralama: Değiştirilmiş"
 
 msgid "Flag"
-msgstr ""
+msgstr "Bayrak"
 
+#, fuzzy
 msgid "Sort by: flag"
-msgstr ""
+msgstr "Sıralama ölçütü: bayrak"
 
 # 85%
 # 100%
-#, fuzzy
 msgid "Older"
-msgstr "klasörler"
+msgstr "Daha Eski"
 
 msgid "Yesterday"
-msgstr ""
+msgstr "Dün"
 
-#, fuzzy
 msgid "Last Week"
-msgstr "geçen hafta"
-
-msgid "Two Weeks Ago"
-msgstr ""
-
-msgid "Three Weeks Ago"
-msgstr ""
+msgstr "Geçen hafta"
 
 #, fuzzy
+msgid "Two Weeks Ago"
+msgstr "İki Hafta Önce"
+
+#, fuzzy
+msgid "Three Weeks Ago"
+msgstr "Üç Hafta Önce"
+
 msgid "Last Month"
-msgstr "geçen ay"
+msgstr "Geçen Ay"
 
 msgid "Small"
-msgstr ""
+msgstr "Küçük"
 
 msgid "Medium"
-msgstr ""
+msgstr "Orta"
 
 msgid "Large"
-msgstr ""
+msgstr "Büyük"
 
+#, fuzzy
 msgid "Very large"
-msgstr ""
+msgstr "Çok büyük"
 
 msgid "Huge"
-msgstr ""
+msgstr "Dev"
 
+#, fuzzy
 msgid "Follow up"
-msgstr ""
+msgstr "Takip edin"
 
 msgid "Move to Junk Folder"
 msgstr "Önemsiz klasöre taşı"
 
-#, fuzzy
 msgid "Send to"
-msgstr "Gönder"
+msgstr "Gönderildi"
 
 msgid "Loading mail"
 msgstr "Mesaj yükleniyor"
 
 msgid "No unread mail."
-msgstr "okunmamış e-posta yok."
+msgstr "Okunmamış posta yok."
 
 msgid "Unread Mail"
-msgstr "okunmamış e-posta"
+msgstr "Okunmamış Posta"
 
 msgid "Quick Mail"
 msgstr "Hızlı mesaj"
@@ -5167,7 +5325,7 @@ msgid "Color"
 msgstr "Renk"
 
 msgid "New note"
-msgstr "yeni not"
+msgstr "Yeni not"
 
 msgid "Open Shared Notes"
 msgstr "Paylastığım notlari aç"
@@ -5196,7 +5354,7 @@ msgid "List Last Seven Days"
 msgstr "Son yedi günü listele"
 
 msgid "Created"
-msgstr "oluşturuldu"
+msgstr "Oluşturuldu"
 
 msgid "Sort by: Created"
 msgstr "Sıralama: Yazilimtarihi"
@@ -5220,21 +5378,21 @@ msgid ""
 msgstr ""
 "Değişikliklerin etkili olması için lütfen grommunio Web'i yeniden yükleyin."
 
-#, fuzzy
 msgid "Reload grommunio Web"
-msgstr "grommunio Web"
+msgstr "Grommunio Web'i yeniden yükle"
 
 msgid "Settings"
 msgstr "Ayarlar"
 
 msgid "Basic"
-msgstr "temel"
+msgstr "Temel"
 
+#, fuzzy
 msgid "Account information - {0}"
-msgstr ""
+msgstr "Hesap bilgileri - {0}"
 
 msgid "Profile Picture"
-msgstr ""
+msgstr "Profil Resmi"
 
 msgid "Language"
 msgstr "Dil"
@@ -5243,10 +5401,10 @@ msgid "Startup folder"
 msgstr "Başlangıҫ klasör"
 
 msgid "Theme"
-msgstr "tema"
+msgstr "Tema"
 
 msgid "Select Default Folder"
-msgstr "varsayılan klasör seç"
+msgstr "Varsayılan Klasörü Seçin"
 
 msgid "Advanced"
 msgstr "Gelişmiş"
@@ -5254,14 +5412,17 @@ msgstr "Gelişmiş"
 msgid "Advanced settings"
 msgstr "Gelişmiş ayarlar"
 
+#, fuzzy
 msgid "Developer tools"
-msgstr ""
+msgstr "Geliştirici araçları"
 
+#, fuzzy
 msgid "Show insertion points in grommunio Web"
-msgstr ""
+msgstr "Grommunio Web'de ekleme noktalarını göster"
 
+#, fuzzy
 msgid "Show \"item data\" button in context menu (mail only)"
-msgstr ""
+msgstr "İçerik menüsünde \"öğe verileri\" düğmesini göster (yalnızca posta)"
 
 msgid "Edit setting"
 msgstr "Ayar düzenle"
@@ -5277,25 +5438,29 @@ msgid "{0} Iconset"
 msgstr "Simgeler"
 
 msgid "About"
-msgstr "hakkında"
+msgstr "Hakkında"
 
+#, fuzzy
 msgid "I want to display date and time in this format:"
-msgstr ""
+msgstr "Tarih ve saati bu formatta görüntülemek istiyorum:"
 
 msgid "Short"
-msgstr ""
+msgstr "Kısa"
 
+#, fuzzy
 msgid "Long"
-msgstr ""
+msgstr "Uzun"
 
 msgid "Time format:"
-msgstr ""
+msgstr "Saat Formatı:"
 
+#, fuzzy
 msgid "12h clock"
-msgstr ""
+msgstr "12 saat"
 
+#, fuzzy
 msgid "24h clock"
-msgstr ""
+msgstr "24 saat"
 
 # 88%
 #, fuzzy
@@ -5306,59 +5471,70 @@ msgstr "Delege ayarları"
 msgid "Hide favorites"
 msgstr "Favoriler"
 
+#, fuzzy
 msgid "Unpin favorites from top"
-msgstr ""
+msgstr "Sık kullanılanları üstten kaldırın"
 
+#, fuzzy
 msgid "Give unread items a colored border"
-msgstr ""
+msgstr "Okunmamış öğelere renkli bir kenarlık verin"
 
+#, fuzzy
 msgid "Show 'help' button in top-right corner"
-msgstr ""
+msgstr "Sağ üst köşede 'yardım' düğmesini göster"
 
+#, fuzzy
 msgid "Show unread mail counter in application title"
-msgstr ""
+msgstr "Okunmamış posta sayacını uygulama başlığında gösterme"
 
+#, fuzzy
 msgid "Hide widget panel"
-msgstr ""
+msgstr "Widget panelini gizle"
 
+#, fuzzy
 msgid "Show search bar above folder list"
-msgstr ""
+msgstr "Arama çubuğunu klasör listesinin üzerinde göster"
 
 msgid "Auto"
-msgstr ""
+msgstr "Otomatik"
 
+#, fuzzy
 msgid "Actual size"
-msgstr ""
+msgstr "Gerçek boyut"
 
 msgid "Page width"
-msgstr ""
+msgstr "Sayfa genişliği"
 
+#, fuzzy
 msgid "Attachment preview (PDF and Open formats)"
-msgstr ""
+msgstr "Ek önizleme (PDF ve Open formatları)"
 
+#, fuzzy
 msgid "Document default zoom"
-msgstr ""
+msgstr "Belge varsayılan yakınlaştırma"
 
+#, fuzzy
 msgid "PDF zoom"
-msgstr ""
+msgstr "PDF yakınlaştırma"
 
+#, fuzzy
 msgid "File previewing"
-msgstr ""
+msgstr "Dosya önizleme"
 
 msgid "Inbox navigation"
-msgstr "gelen kutusu navigasyonu"
+msgstr "Gelen kutusunda gezinme"
 
 msgid "I want to navigate through my items by using."
 msgstr "...kullanarak öğelerim arasında gezinmek istiyorum."
 
 msgid "Infinite Scroll"
-msgstr "sonsuz kaydırma"
+msgstr "Sonsuz kaydırma"
 
 msgid "grommunio Web automatically loads additional items when you scroll down"
 msgstr "grommunio Web, aşağı kaydırdığınızda ek öğeleri otomatik olarak yükler"
 
 msgid "Pagination"
-msgstr "sayfalandırma"
+msgstr "Sayfalandırma"
 
 msgid ""
 "grommunio Web displays items on pages and you can use navigation controls to "
@@ -5368,10 +5544,10 @@ msgstr ""
 "kullanabilirsiniz"
 
 msgid "Load items in blocks of {A}"
-msgstr "öğeleri {A}'lı bloklarla yükle"
+msgstr "Öğeleri {A}'lık bloklar halinde yükleyin"
 
 msgid "Load {A} items per page."
-msgstr "sayfa başına {A} öğe yükle."
+msgstr "Sayfa başına {A} öğe yükleyin."
 
 msgid "Keyboard Shortcuts"
 msgstr "Klavye kısayolları"
@@ -5380,73 +5556,81 @@ msgid "Part of basic keyboard shortcuts"
 msgstr "Temel klavye kısayolları parçası"
 
 msgid "Keyboard shortcuts off"
-msgstr "klavye kısayolları kapalı"
+msgstr "Klavye kısayolları kapalı"
 
 msgid "Basic keyboard shortcuts on"
-msgstr "temel klavye kısayolları açık"
+msgstr "Temel klavye kısayolları"
 
 msgid "All keyboard shortcuts on"
 msgstr "Tüm klavye kısayolları açık"
 
+#, fuzzy
 msgid "This change requires a reload of grommunio Web"
-msgstr ""
+msgstr "Bu değişiklik grommunio Web'in yeniden yüklenmesini gerektirir"
 
 msgid "Plugins"
 msgstr "Eklentiler"
 
 msgid "Available plugins"
-msgstr "mevcut eklentiler"
+msgstr "Mevcut eklentiler"
 
 msgid "No plugins available"
 msgstr "Eklenti yok"
 
 msgid "Version"
-msgstr "versiyon"
+msgstr "Versiyon"
 
 msgid "This plugin cannot be disabled"
 msgstr "Bu eklenti görüntülenemiyor"
 
 msgid "This plugin cannot be enabled"
-msgstr "eklenti etkinleştirilemiyor"
+msgstr "Bu eklenti etkinleştirilemez"
 
 msgid "Mailbox Usage"
 msgstr "Posta kutusu kullanımı"
 
+#, fuzzy
 msgid "A quota is not set on your store."
-msgstr ""
+msgstr "Mağazanızda bir kota belirlenmemiştir."
 
 msgid "{0} of mailbox space is used."
 msgstr "Posta kutusu alanının {0} kadarı kullanıldı."
 
+#, fuzzy
 msgid "You have exceeded hard quota, you can not send or receive mails."
-msgstr ""
+msgstr "Sabit kotayı aştınız, posta gönderemez veya alamazsınız."
 
 msgid "At {0} you won't be able to send mails."
 msgstr "{0}'den sonra postalar göndermek mümkün olmayacaktır."
 
+#, fuzzy
 msgid ""
 "You can not send mails as you have exceeded soft quota, at {0} you won't be "
 "able to receive mails."
 msgstr ""
+"Yumuşak kotayı aştığınız için posta gönderemezsiniz, {0}'de posta "
+"alamazsınız."
 
+#, fuzzy
 msgid "At {0} you won't be able to send or receive mails."
-msgstr ""
+msgstr "1} konumunda posta gönderemez veya alamazsınız."
 
 msgid "You can not send mails as you have exceeded soft quota."
-msgstr "Ileti gönderilmiyor çünkü yumuşak kutunuzu aştınız"
+msgstr "Yumuşak kotayı aştığınız için posta gönderemezsiniz."
 
-#, fuzzy
 msgid "Reset settings"
-msgstr "Ayarları sil"
+msgstr "Ayarları sıfırla"
+
+msgid "Reset settings to their original defaults."
+msgstr "Ayarları orijinal varsayılanlarına sıfırlayın."
 
 #, fuzzy
-msgid "Reset settings to their original defaults."
-msgstr "grommunio Web ayarlarını varsayılan değerlerine sıfırlar"
-
 msgid ""
 "This will close all opened shared stores and resets all settings to the "
 "default value."
 msgstr ""
+"Bu, tüm açık paylaşılan depoları kapatır ve tüm ayarları varsayılan değere "
+"sıfırlar."
 
 #, fuzzy
 msgid ""
@@ -5457,7 +5641,7 @@ msgstr ""
 "yeniden başlar"
 
 msgid "Reset"
-msgstr "sıfırla"
+msgstr "Sıfırla"
 
 #, fuzzy
 msgid "Reloading, Please wait."
@@ -5473,16 +5657,19 @@ msgid "Version information"
 msgstr "Sürüm bilgileri"
 
 msgid "Gromox"
-msgstr "grommunio sunucusu"
+msgstr "Gromox"
 
+#, fuzzy
 msgid "Delete confirmation"
-msgstr ""
+msgstr "Onayı sil"
 
+#, fuzzy
 msgid "Deleting the item(s) will also delete the original item(s)."
-msgstr ""
+msgstr "Öğenin/öğelerin silinmesi orijinal öğeyi/öğeleri de silecektir."
 
+#, fuzzy
 msgid "Do you want to delete the item(s)?"
-msgstr ""
+msgstr "Öğeleri silmek istiyor musunuz?"
 
 msgid "Sort by: Priority"
 msgstr "Sıralama: Öncelik"
@@ -5506,11 +5693,11 @@ msgid "Sort by: Percent Completed"
 msgstr "Sıralama: Yüzde Tamamlandı"
 
 msgid "Task Status"
-msgstr "görev durumu"
+msgstr "Görev durumu"
 
 # 93%
 msgid "Percent Complete"
-msgstr "tamamlanma yüzdesi"
+msgstr "Tamamlanan Yüzde"
 
 msgid "Total Work"
 msgstr "Toplam Zaman"
@@ -5532,8 +5719,9 @@ msgstr "İlerleme"
 msgid "Accepting Task"
 msgstr "Etkin Görevler"
 
+#, fuzzy
 msgid "Declining Task"
-msgstr ""
+msgstr "Azalan Görev"
 
 #, fuzzy
 msgid ""
@@ -5559,8 +5747,9 @@ msgstr "Yanıtı şimdi gönder"
 msgid "Date Complete"
 msgstr "Tarih Tamamlandı"
 
+#, fuzzy
 msgid "Multiple companies name must be separated by"
-msgstr ""
+msgstr "Birden fazla şirket adı şu şekilde ayrılmalıdır"
 
 msgid "Update List"
 msgstr "Listeyi Güncelle"
@@ -5569,21 +5758,22 @@ msgid "Create Unassigned Copy"
 msgstr "Atanmamış Kopya oluştur"
 
 msgid "copy"
-msgstr ""
+msgstr "kopyala"
 
+#, fuzzy
 msgid "Unable to send task request"
-msgstr ""
+msgstr "Görev isteği gönderilemiyor"
 
+#, fuzzy
 msgid "You cannot send a task request to yourself."
-msgstr ""
+msgstr "Kendinize bir görev isteği gönderemezsiniz."
 
 #, fuzzy
 msgid "Multiple recipients"
 msgstr "Alıcı bilgileri"
 
-#, fuzzy
 msgid "A task request can only have one recipient."
-msgstr "Her zaman okundu bilgisi istemek"
+msgstr "Bir görev isteğinin yalnızca bir alıcısı olabilir."
 
 # 87%
 msgid "Due date"
@@ -5600,8 +5790,9 @@ msgstr "% Tamamlandı"
 msgid "Track progress"
 msgstr "Devam etmekte"
 
+#, fuzzy
 msgid "Keep updated copy of task and receive automated status reports"
-msgstr ""
+msgstr "Görevin güncel kopyasını saklayın ve otomatik durum raporları alın"
 
 #, fuzzy
 msgid "Send task to assignees"
@@ -5644,21 +5835,18 @@ msgid "Mark this task as private"
 msgstr "Bu görevi özel olarak işaretle"
 
 msgid "New task"
-msgstr "yeni görev"
+msgstr "Yeni görev"
 
-#, fuzzy
 msgid "Completed"
 msgstr "Tamamlandı"
 
 # 76%
-#, fuzzy
 msgid "Printed by: "
-msgstr "Sıralama: Kime"
+msgstr "Tarafından basıldı: "
 
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
-#, fuzzy
 msgid "Printed on: "
-msgstr "Bu notu yazdır"
+msgstr "Üzerine basılmış: "
 
 msgid "Percent complete"
 msgstr "Yüzde kaç tamamlama"
@@ -5680,11 +5868,12 @@ msgstr "{actualwork} saatler"
 msgid "Open Shared Tasks"
 msgstr "Paylastığım Notlari Aç"
 
+#, fuzzy
 msgid "Simple view"
-msgstr ""
+msgstr "Basit görünüm"
 
 msgid "Detailed view"
-msgstr ""
+msgstr "Ayrıntılı Görünüm"
 
 # 92%
 # 100%
@@ -5702,35 +5891,33 @@ msgid "Print task list"
 msgstr "Görevleri yazdır"
 
 msgid "Create task"
-msgstr "görev oluştur"
+msgstr "Görev oluştur"
 
 msgid "Upcoming"
-msgstr ""
+msgstr "Yaklaşan"
 
 msgid "Overdue"
-msgstr ""
+msgstr "Gecikmiş"
 
 msgid "Mark Complete"
-msgstr ""
+msgstr "Tamamlanmış Olarak İşaretle"
 
 msgid "Mark Incomplete"
-msgstr ""
+msgstr "Mark tamamlanmamış"
 
-#, fuzzy
 msgid "Remove from To-Do List"
-msgstr "favorilerden sil"
+msgstr "Yapılacaklar Listesinden Çıkar"
 
 #, fuzzy
 msgid "Changes to assigned task"
 msgstr "Görevi ataya gönder"
 
-#, fuzzy
 msgid ""
 "Please note that assigned task(s) will be overwritten when the assignee "
 "makes changes."
 msgstr ""
-"Toplantı isteği düzenleyen tarafından güncellendiğinde yapacağınız "
-"değişikliklerin üzerine yazılacaktır"
+"Atanan görev(ler)in, atanan kişi değişiklik yaptığında üzerine yazılacağını "
+"lütfen unutmayın."
 
 msgid "Sort by: Complete"
 msgstr "Sıralama: Tamamlanan"
@@ -5770,7 +5957,6 @@ msgstr "Tarih Tamamlandı"
 msgid "hours"
 msgstr "saat"
 
-#, fuzzy
 msgid "Billing information"
 msgstr "Fatura bilgileri"
 
@@ -5783,7 +5969,7 @@ msgid "D d-m-Y"
 msgstr "d-m-Y"
 
 msgid "none"
-msgstr ""
+msgstr "hiçbiri"
 
 msgid "Quick Task"
 msgstr "Hızlı görev"
@@ -5791,61 +5977,77 @@ msgstr "Hızlı görev"
 msgid "No tasks."
 msgstr "Görev yok."
 
+#, fuzzy
 msgid "Tasks / To-Do"
-msgstr ""
+msgstr "Görevler / Yapılacaklar"
+
+msgid "Import / Export"
+msgstr "İçe Aktar / Dışa Aktar"
 
 #, fuzzy
-msgid "Import / Export"
-msgstr "Önemli"
-
 msgid ""
 "Calendar, contact and mail items can be imported and exported from and to "
 "grommunio Web."
 msgstr ""
+"Takvim, kişi ve posta öğeleri grommunio Web'den içe ve dışa aktarılabilir."
 
+#, fuzzy
 msgid ""
 "Right-click a folder and select the import button. Additionally, items can "
 "be imported from the attachment context menu."
 msgstr ""
+"Bir klasöre sağ tıklayın ve içe aktar düğmesini seçin. Ayrıca, öğeler ek "
+"içerik menüsünden içe aktarılabilir."
 
+#, fuzzy
 msgid "Exporting can be done from the context menu of an item."
-msgstr ""
+msgstr "Dışa aktarma işlemi bir öğenin içerik menüsünden yapılabilir."
 
 #, fuzzy
 msgid "Icon packs"
 msgstr "Simgeler"
 
+#, fuzzy
 msgid ""
 "You can now choose between different icons. By default the new Breeze icons "
 "are enabled, but if you prefer the classic icons you can change this in the "
 "settings."
 msgstr ""
+"Artık farklı simgeler arasında seçim yapabilirsiniz. Varsayılan olarak yeni "
+"Breeze simgeleri etkindir, ancak klasik simgeleri tercih ederseniz bunu "
+"ayarlardan değiştirebilirsiniz."
 
+#, fuzzy
 msgid ""
 "Go to your settings, open the general tab and select an icon pack to your "
 "liking."
 msgstr ""
+"Ayarlarınıza gidin, genel sekmesini açın ve beğeninize göre bir simge paketi "
+"seçin."
 
+#, fuzzy
 msgid "Left: Breeze - Right: Classic"
-msgstr ""
+msgstr "Sol: Breeze - Sağ: Klasik"
 
 msgid "What's new"
-msgstr ""
+msgstr "Yenilikler"
 
+#, fuzzy
 msgid "Don't show me new features again."
-msgstr ""
+msgstr "Bana bir daha yeni özellikler gösterme."
 
 msgid "Skip"
-msgstr ""
+msgstr "Atla"
 
 msgid "Previous"
-msgstr ""
+msgstr "Önceki"
 
 msgid "Next"
-msgstr ""
+msgstr "Sonraki"
 
+#, fuzzy
 msgid "Click the link to open the URL in a new window."
-msgstr ""
+msgstr "URL'yi yeni bir pencerede açmak için bağlantıya tıklayın."
 
 msgid "The server reported an unknown error on your request."
 msgstr "Sunucu isteğinize bilinmeyen bir hata bildirdi."
@@ -5864,7 +6066,7 @@ msgstr ""
 "sekmesinden kapatıldı."
 
 msgid "Session expired"
-msgstr "oturum süresi doldu"
+msgstr "Oturum süresi doldu"
 
 msgid "Do you wish to be redirected to the logon page?"
 msgstr "Oturum açma sayfasına yönlendirilmek istiyor musunuz?"
@@ -5874,30 +6076,31 @@ msgstr ""
 "Yeniden doğrulama gerekli, oturum açma sayfasına dönmek için buraya tıklayın."
 
 msgid "Connection problem"
-msgstr "bağlantı problemi"
+msgstr "Bağlantı problemi"
 
 msgid "Could not connect to server, retrying in {0} second(s)"
-msgstr "sunucuya bağlanılamadı, {0} saniye içinde tekrar deneniyor"
+msgstr "Sunucuya bağlanılamadı, {0} saniye içinde yeniden deneniyor"
 
 msgid "Click to retry now"
-msgstr "şimdi yeniden denemek için tıklayın"
+msgstr "Şimdi yeniden denemek için tıklayın"
 
 msgid "Connection restored"
-msgstr "bağlantı yeniden sağlandı"
+msgstr "Bağlantı yeniden sağlandı"
 
 msgid "Connection with server has been restored"
 msgstr "Sunucu ile bağlantı yeniden sağlandı"
 
 #. TRANSLATORS: Example: HTTP 404
+#, fuzzy
 msgid "HTTP {0}"
-msgstr ""
-
-msgid "Invalid data received from the server"
-msgstr ""
+msgstr "HTTP {0}"
 
 #, fuzzy
+msgid "Invalid data received from the server"
+msgstr "Sunucudan geçersiz veri alındı"
+
 msgid "Missing store"
-msgstr "mağaza eksik"
+msgstr "Kayıp mağaza"
 
 #, fuzzy
 msgid "The default store is missing from the hierarchy."
@@ -5906,7 +6109,7 @@ msgstr "Varsayılan mağaza hiyerarşide bulunmuyor."
 msgid ""
 "Not all functionality of grommunio Web might be working properly because of "
 "this."
-msgstr "grommunio Web'in bazı işlevleri bu nedenle düzgün çalışmayabilir."
+msgstr "Bu nedenle grommunio Web'in tüm işlevleri düzgün çalışmıyor olabilir."
 
 # 100%
 msgctxt "hierarchy.foldername"
@@ -5915,16 +6118,16 @@ msgstr "Gelen Kutusu"
 
 msgctxt "hierarchy.foldername"
 msgid "Outbox"
-msgstr "giden kutusu"
+msgstr "Giden Kutusu"
 
 msgctxt "hierarchy.foldername"
 msgid "Sent Items"
-msgstr "gönderilen öğeler"
+msgstr "Gönderilen Öğeler"
 
 # 92%
 msgctxt "hierarchy.foldername"
 msgid "Deleted items"
-msgstr "silinen öğeler"
+msgstr "Silinmiş öğeler"
 
 # 100%
 msgctxt "hierarchy.foldername"
@@ -5938,7 +6141,7 @@ msgstr "Kişiler"
 
 msgctxt "hierarchy.foldername"
 msgid "Drafts"
-msgstr "taslaklar"
+msgstr "Taslaklar"
 
 # 100%
 msgctxt "hierarchy.foldername"
@@ -5955,18 +6158,18 @@ msgctxt "hierarchy.foldername"
 msgid "Tasks"
 msgstr "Görevler"
 
-#, fuzzy
 msgctxt "hierarchy.foldername"
 msgid "Junk Email"
-msgstr "istenmeyen e-posta"
+msgstr "Önemsiz E-posta"
 
 msgid "Missing folders"
-msgstr "eksik klasörler"
+msgstr "Eksik klasörler"
 
+#, fuzzy
 msgid "The following required folder is missing in the hierarchy: {0}"
 msgid_plural "The following required folders are missing in the hierarchy: {0}"
-msgstr[0] "aşağıdaki gerekli klasör hiyerarşide eksik: {0}"
-msgstr[1] ""
+msgstr[0] "Hiyerarşide aşağıdaki gerekli klasör eksik: {0}"
+msgstr[1] "Hiyerarşide aşağıdaki gerekli klasörler eksik: {0}"
 
 msgid "Loading model from server failed"
 msgstr "Sunucudan model yüklenmesi başarısız"
@@ -5976,962 +6179,1233 @@ msgid "Out of Office is currently activated. Would you like to turn it off?"
 msgstr "Ofis dışı bildirimi aktif. Kapatmak ister misiniz?"
 
 msgid "Archive"
-msgstr ""
+msgstr "Arşiv"
 
 msgid "Open Chat at start"
 msgstr "Başlatıldığında sohbeti aç"
 
+#, fuzzy
 msgid "Desktop Notifications Plugin"
-msgstr ""
+msgstr "Masaüstü Bildirimleri Eklentisi"
 
 msgid "Desktop Notifications"
-msgstr ""
+msgstr "Masaüstü Bildirimleri"
 
+#, fuzzy
 msgid "{A} Autohide desktop notification after second(s) {B}"
-msgstr ""
+msgstr "{A} Saniye(ler) sonra masaüstü bildirimini otomatik gizle {B}"
 
+#, fuzzy
 msgid "Files: ownCloud Backend"
-msgstr ""
+msgstr "Dosyalar: ownCloud Arka Uç"
 
+#, fuzzy
 msgid "Share with user/group"
-msgstr ""
+msgstr "Kullanıcı/grup ile paylaş"
 
+#, fuzzy
 msgid "Share via link"
-msgstr ""
+msgstr "Bağlantı üzerinden paylaş"
 
+#, fuzzy
 msgid "Public link"
-msgstr ""
+msgstr "Genel bağlantı"
 
+#, fuzzy
 msgid "Password protect"
-msgstr ""
+msgstr "Parola koruması"
 
 msgid "Password"
 msgstr "Parola"
 
+#, fuzzy
 msgid "Public upload"
-msgstr ""
+msgstr "Herkese açık yükleme"
 
 msgid "Expiration date"
-msgstr ""
+msgstr "Son kullanma tarihi"
 
+#, fuzzy
 msgid "More than 1 share link exists. Only showing the latest one"
-msgstr ""
+msgstr "1'den fazla paylaşım bağlantısı var. Sadece en sonuncusu gösteriliyor"
 
+#, fuzzy
 msgid "Loading details..."
-msgstr ""
+msgstr "Detaylar yükleniyor..."
 
+#, fuzzy
 msgid "Share Details"
-msgstr ""
+msgstr "Detayları Paylaş"
 
+#, fuzzy
 msgid "Re-share"
-msgstr ""
+msgstr "Yeniden paylaş"
 
 msgid "Change"
-msgstr ""
+msgstr "Değiştir"
 
 msgid "Share with"
-msgstr ""
+msgstr "PAYLAŞ"
 
+#, fuzzy
 msgid "Sort by: Type"
-msgstr ""
+msgstr "Sıralamaya göre: Tür"
 
+#, fuzzy
 msgid "Loading users and groups"
-msgstr ""
+msgstr "Kullanıcıları ve grupları yükleme"
 
+#, fuzzy
 msgid "Add users or groups to share files."
-msgstr ""
+msgstr "Dosya paylaşmak için kullanıcı veya grup ekleyin."
 
 msgid "Type to search"
-msgstr ""
+msgstr "Aramak için yazın"
 
 msgid "No results"
-msgstr ""
+msgstr "Sonuç yok"
 
+#, fuzzy
 msgid "Add attachment from {0}"
-msgstr ""
+msgstr "1}'den ek ekleyin"
 
 msgid "Confirm deletion"
-msgstr ""
+msgstr "Silmeyi onayla"
 
+#, fuzzy
 msgid "Are you sure you want to delete {0}?"
-msgstr ""
+msgstr "1} öğesini silmek istediğinizden emin misiniz?"
 
+#, fuzzy
 msgid "Are you sure you want to delete {0} and all of its contents?"
-msgstr ""
+msgstr "1} öğesini ve tüm içeriğini silmek istediğinizden emin misiniz?"
 
+#, fuzzy
 msgid "Are you sure you want to delete {0} files?"
-msgstr ""
+msgstr "1} dosyalarını silmek istediğinizden emin misiniz?"
 
+#, fuzzy
 msgid "Are you sure want to delete {0} folders and all of their contents?"
 msgstr ""
+"1} klasörlerini ve tüm içeriklerini silmek istediğinizden emin misiniz?"
 
+#, fuzzy
 msgid ""
 "Are you sure want to delete the selected items and all of their contents?"
-msgstr ""
+msgstr "Seçili öğeleri ve tüm içeriklerini silmek istediğinizden emin misiniz?"
 
+#, fuzzy
 msgid "Confirm overwrite"
-msgstr ""
+msgstr "Üzerine yazmayı onayla"
 
+#, fuzzy
 msgid "File already exists. Do you want to overwrite it?"
-msgstr ""
+msgstr "Dosya zaten mevcut. Üzerine yazmak istiyor musunuz?"
 
+#, fuzzy
 msgid "Please enter a new name"
-msgstr ""
+msgstr "Lütfen yeni bir isim girin"
 
+#, fuzzy
 msgid "Rename record"
-msgstr ""
+msgstr "Kaydı yeniden adlandır"
 
+#, fuzzy
 msgid "A file name should not be empty."
-msgstr ""
+msgstr "Bir dosya adı boş olmamalıdır."
 
+#, fuzzy
 msgid "Rename item"
-msgstr ""
+msgstr "Öğeyi yeniden adlandır"
 
+#, fuzzy
 msgid "A file named \"{0}\" already exists. Please enter a different name."
-msgstr ""
+msgstr "\"{0}\" adında bir dosya zaten mevcut. Lütfen farklı bir ad girin."
 
 msgid "Downloading"
-msgstr ""
+msgstr "İndiriliyor"
 
+#, fuzzy
 msgid "Download started... please wait!"
-msgstr ""
+msgstr "İndirme başladı... lütfen bekleyin!"
 
 msgid "Upload"
-msgstr ""
+msgstr "Yükle"
 
+#, fuzzy
 msgid "At least one file is too large! Maximum allowed filesize: {0}."
-msgstr ""
+msgstr "En az bir dosya çok büyük! İzin verilen maksimum dosya boyutu: {0}."
 
+#, fuzzy
 msgid "Keep both"
-msgstr ""
+msgstr "İkisi de kalsın"
 
 msgid "Overwrite"
-msgstr ""
+msgstr "Üzerine yaz"
 
+#, fuzzy
 msgid "l d/m/Y G:i"
-msgstr ""
+msgstr "l d/m/Y G:i"
 
 msgid "Never"
-msgstr ""
+msgstr "Asla"
 
+#, fuzzy
 msgid "Add from Files"
-msgstr ""
+msgstr "Dosyalardan Ekle"
 
+#, fuzzy
 msgid "Add attachment from Files"
-msgstr ""
+msgstr "Dosyalar'dan ek ekleme"
 
+#, fuzzy
 msgid "Add to Files"
-msgstr ""
+msgstr "Dosyalara Ekle"
 
 msgid "Upload file"
-msgstr ""
+msgstr "Dosya yükleme"
 
 msgid "Files"
-msgstr ""
+msgstr "Dosyalar"
 
+#, fuzzy
 msgid "Files Plugin"
-msgstr ""
+msgstr "Dosyalar Eklentisi"
 
 msgid "Manage Accounts"
-msgstr ""
+msgstr "Hesapları yönet"
 
+#, fuzzy
 msgid "Reset Files settings"
-msgstr ""
+msgstr "Dosya ayarlarını sıfırla"
 
+#, fuzzy
 msgid "Resets Files settings to their original defaults"
-msgstr ""
+msgstr "Dosya ayarlarını orijinal varsayılan değerlerine sıfırlar"
 
+#, fuzzy
 msgid "Are you sure to remove all settings and accounts?"
-msgstr ""
+msgstr "Tüm ayarları ve hesapları kaldırdığınızdan emin misiniz?"
 
+#, fuzzy
 msgid ""
 "Accounts marked by your administrator as \"cannot be changed\" will not be "
 "removed."
 msgstr ""
+"Yöneticiniz tarafından \"değiştirilemez\" olarak işaretlenen hesaplar "
+"kaldırılmayacaktır."
 
+#, fuzzy
 msgid ""
 "grommunio Web will automatically restart in order for these changes to take "
 "effect."
 msgstr ""
+"grommunio Web, bu değişikliklerin yürürlüğe girmesi için otomatik olarak "
+"yeniden başlatılacaktır."
 
+#, fuzzy
 msgid "grommunio Web is reloading, Please wait."
-msgstr ""
+msgstr "grommunio Web yeniden yükleniyor, Lütfen bekleyin."
 
 msgid "Edit Account"
-msgstr ""
+msgstr "Hesabı Düzenle"
 
 msgid "Account Information"
-msgstr ""
+msgstr "Hesap Bilgileri"
 
 msgid "Account name"
-msgstr ""
+msgstr "Hesap adı"
 
 msgid "Account Configuration"
-msgstr ""
+msgstr "Hesap Yapılandırması"
 
 msgid "Update"
-msgstr ""
+msgstr "Güncelle"
 
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
+#, fuzzy
 msgid "Sort by: ID"
-msgstr ""
+msgstr "Sıralamaya göre: KIMLIK"
 
 msgid "Backend"
-msgstr ""
+msgstr "Arka Ucu"
 
+#, fuzzy
 msgid "Sort by: Backend"
-msgstr ""
+msgstr "Sıralamaya göre: Arka uç"
 
 msgid "Features"
-msgstr ""
+msgstr "Özellikler"
 
+#, fuzzy
 msgid "Shows all available features of the backend."
-msgstr ""
+msgstr "Arka ucun mevcut tüm özelliklerini gösterir."
 
+#, fuzzy
 msgid "Show quota information"
-msgstr ""
+msgstr "Kota bilgilerini göster"
 
+#, fuzzy
 msgid "Show version information"
-msgstr ""
+msgstr "Sürüm bilgilerini göster"
 
+#, fuzzy
 msgid "Share files"
-msgstr ""
+msgstr "Dosyaları paylaşın"
 
+#, fuzzy
 msgid "Fast Down/Upload"
-msgstr ""
+msgstr "Hızlı İndirme/Yükleme"
 
+#, fuzzy
 msgid "No account created!"
-msgstr ""
+msgstr "Hesap oluşturulmadı!"
 
 msgid "Add Account"
-msgstr ""
+msgstr "Hesap ekle"
 
 msgid "Remove Account"
-msgstr ""
+msgstr "Hesabı kaldır"
 
+#, fuzzy
 msgid "Loading accounts"
-msgstr ""
+msgstr "Hesaplar yükleniyor"
 
+#, fuzzy
 msgid "Do you really want to delete the account \"{0}\"?"
-msgstr ""
+msgstr "\"{0}\" hesabını gerçekten silmek istiyor musunuz?"
 
+#, fuzzy
 msgid "Quota Information"
-msgstr ""
+msgstr "Kota Bilgileri"
 
 msgid "Used"
-msgstr ""
+msgstr "Kullanılmış"
 
 msgid "Total"
-msgstr ""
+msgstr "Toplam"
 
 msgid "Version Information"
-msgstr ""
+msgstr "Sürüm Bilgisi"
 
 msgid "Filename"
-msgstr ""
+msgstr "Dosya Adı"
 
+#, fuzzy
 msgid "Sort by: Filename"
-msgstr ""
+msgstr "Sıralamaya göre: Dosya adı"
 
+#, fuzzy
 msgid "Loading files"
-msgstr ""
+msgstr "Dosya yükleme"
 
+#, fuzzy
 msgid "The file {0} is too large!"
-msgstr ""
+msgstr "1} dosyası çok büyük!"
 
 msgid "max"
-msgstr ""
+msgstr "maks"
 
+#, fuzzy
 msgid "You have to choose at least one file!"
-msgstr ""
+msgstr "En az bir dosya seçmelisiniz!"
 
 msgid "Create New "
-msgstr ""
+msgstr "Yeni Oluştur "
 
+#, fuzzy
 msgid "Incorrect filename"
-msgstr ""
+msgstr "Yanlış dosya adı"
 
+#, fuzzy
 msgid "Error reaching office backend"
-msgstr ""
+msgstr "Ofis arka ucuna ulaşırken hata oluştu"
 
+#, fuzzy
 msgid "Folder already exists"
-msgstr ""
+msgstr "Klasör zaten mevcut"
 
+#, fuzzy
 msgid "Incorrect foldername"
-msgstr ""
+msgstr "Yanlış klasör adı"
 
 msgid "File information"
-msgstr ""
+msgstr "Dosya bilgileri"
 
 msgid "Select a file"
-msgstr ""
+msgstr "Bir dosya seçin"
 
 msgid "Maximum upload size"
-msgstr ""
+msgstr "Maksimum yükleme boyutu"
 
 msgid "Browse"
-msgstr ""
+msgstr "Gözat"
 
+#, fuzzy
 msgid "Select upload folder"
-msgstr ""
+msgstr "Yükleme klasörünü seçin"
 
+#, fuzzy
 msgid "File \"{0}\" is too large! Maximum allowed filesize: {1}."
-msgstr ""
+msgstr "Dosya \"{0}\" çok büyük! İzin verilen maksimum dosya boyutu: {1}."
 
+#, fuzzy
 msgid "Add item to Files"
-msgstr ""
+msgstr "Dosyalara öğe ekle"
 
+#, fuzzy
 msgid "You have to choose a folder!"
-msgstr ""
+msgstr "Bir klasör seçmelisiniz!"
 
 msgid "Uploaded"
-msgstr ""
+msgstr "Yüklendi"
 
+#, fuzzy
 msgid "Attachment successfully stored in Files"
-msgstr ""
+msgstr "Ek, Dosyalar'da başarıyla saklandı"
 
+#, fuzzy
 msgid "Upload Failed"
-msgstr ""
+msgstr "Yükleme Başarısız"
 
 msgid "Attachment could not be stored in Files! Error: "
-msgstr ""
+msgstr "Ek Dosyalar'da saklanamadı! Hata oluştu: "
 
+#, fuzzy
 msgid "Share Files"
-msgstr ""
+msgstr "Dosyaları Paylaş"
 
 msgid "Uploading files to "
-msgstr ""
+msgstr "Dosyaların yüklenmesi "
 
+#, fuzzy
 msgid "Starting upload"
-msgstr ""
+msgstr "Yüklemeye başlama"
 
 msgid "Cancel upload"
-msgstr ""
+msgstr "Yüklemeyi iptal et"
 
+#, fuzzy
 msgid "- seconds left"
-msgstr ""
+msgstr "- saniye kaldı"
 
+#, fuzzy
 msgid " seconds left"
-msgstr ""
+msgstr " saniye kaldı"
 
+#, fuzzy
 msgid " minutes left"
-msgstr ""
+msgstr " dakika kaldı"
 
 msgid "Uploading: "
-msgstr ""
+msgstr "Yükleniyor: "
 
+#, fuzzy
 msgid "Upload status unavailable... please wait."
-msgstr ""
+msgstr "Yükleme durumu kullanılamıyor... lütfen bekleyin."
 
+#, fuzzy
 msgid "Upload finished!"
-msgstr ""
+msgstr "Yükleme tamamlandı!"
 
+#, fuzzy
 msgid "Upload aborted!"
-msgstr ""
+msgstr "Yükleme iptal edildi!"
 
 msgid "Upload failed!"
-msgstr ""
+msgstr "Yükleme başarısız!"
 
 msgid "Document"
-msgstr ""
+msgstr "Belge"
 
 msgid "Presentation"
-msgstr ""
+msgstr "Sunum"
 
 msgid "Spreadsheet"
-msgstr ""
+msgstr "Çizelge"
 
 msgid "Upload files"
-msgstr ""
+msgstr "Dosyaları yükle"
 
+#, fuzzy
 msgid "Create document"
-msgstr ""
+msgstr "Belge oluştur"
 
+#, fuzzy
 msgid "Create office document"
-msgstr ""
+msgstr "Ofis belgesi oluşturma"
 
 msgid "Download files"
-msgstr ""
+msgstr "Dosyaları indir"
 
 msgid "Share"
-msgstr ""
+msgstr "Paylaş"
 
+#, fuzzy
 msgid "Attach to mail"
-msgstr ""
+msgstr "Postaya ekleyin"
 
+#, fuzzy
 msgid "Attach to mail as link"
-msgstr ""
+msgstr "Bağlantı olarak postaya ekleyin"
 
+#, fuzzy
 msgid "Attaching"
-msgstr ""
+msgstr "Ekleme"
 
+#, fuzzy
 msgid "Creating email... Please wait!"
-msgstr ""
+msgstr "E-posta oluşturuluyor... Lütfen bekleyin!"
 
+#, fuzzy
 msgid "Edit share"
-msgstr ""
+msgstr "Paylaşımı düzenle"
 
+#, fuzzy
 msgid ""
 "There are no accounts added. Go to settings, Files tab and add an account"
 msgstr ""
+"Eklenmiş hesap yok. Ayarlar, Dosyalar sekmesine gidin ve bir hesap ekleyin"
 
 msgid "Filesize"
-msgstr ""
+msgstr "Dosya boyutu"
 
 msgid "Last modified"
-msgstr ""
+msgstr "Son değiştirme"
 
+#, fuzzy
 msgid "Is shared"
-msgstr ""
+msgstr "Paylaşılıyor"
 
 msgid "File preview"
-msgstr ""
+msgstr "Dosya ön izlemesi"
 
+#, fuzzy
 msgid "Your browser does not support previewing of audio files!"
-msgstr ""
+msgstr "Tarayıcınız ses dosyalarının önizlenmesini desteklemiyor!"
 
+#, fuzzy
 msgid "Your browser does not support previewing of video files!"
-msgstr ""
+msgstr "Tarayıcınız video dosyalarının önizlemesini desteklemiyor!"
 
+#, fuzzy
 msgid "d.m.Y G:i"
-msgstr ""
+msgstr "d.m.Y G:i"
 
 msgid "Folder"
-msgstr ""
+msgstr "Klasör"
 
+#, fuzzy
 msgid "File ({0})"
-msgstr ""
+msgstr "Dosya ({0})"
 
+#, fuzzy
 msgid "Sort by: Path"
-msgstr ""
+msgstr "Sıralamaya göre: Yol"
 
+#, fuzzy
 msgid "Sort by: Last modified"
-msgstr ""
+msgstr "Sıralama ölçütü: Son değiştirilme tarihi"
 
+#, fuzzy
 msgid "Sort by: Shared"
-msgstr ""
+msgstr "Sıralamaya göre: Paylaşılan"
 
+#, fuzzy
 msgid "There are no items to show in this view"
-msgstr ""
+msgstr "Bu görünümde gösterilecek öğe yok"
 
 msgid "files selected"
-msgstr ""
+msgstr "dosyalar seçildi"
 
+#, fuzzy
 msgid "Authentication required, when using grommunio-files for the first time"
-msgstr ""
+msgstr "Grommunio-files ilk kez kullanılırken kimlik doğrulama gereklidir"
 
+#, fuzzy
 msgid "Intranet"
-msgstr ""
+msgstr "İntranet"
 
 msgid "number"
-msgstr ""
+msgstr "numara"
 
 msgid "shadow"
-msgstr ""
+msgstr "gölge"
 
+#, fuzzy
 msgid "Openstreetmap"
-msgstr ""
+msgstr "Openstreetmap"
 
 #. TRANSLATORS: The map of earth
 msgid "Map"
-msgstr ""
+msgstr "Konumu"
 
+#, fuzzy
 msgid "Mobile Device Manager"
-msgstr ""
+msgstr "Mobil Cihaz Yöneticisi"
 
+#, fuzzy
 msgid "Wiping device"
-msgstr ""
+msgstr "Silme cihazı"
 
+#, fuzzy
 msgid "Password incorrect"
-msgstr ""
+msgstr "Şifre yanlış"
 
+#, fuzzy
 msgid "Full resync in progress"
-msgstr ""
+msgstr "Tam yeniden senkronizasyon devam ediyor"
 
+#, fuzzy
 msgid "Username or password incorrect"
-msgstr ""
+msgstr "Kullanıcı adı veya şifre yanlış"
 
 msgid "Not Applicable"
-msgstr ""
+msgstr "Uygulanamaz"
 
+#, fuzzy
 msgid "Wipe Pending"
-msgstr ""
+msgstr "Silme Bekleniyor"
 
+#, fuzzy
 msgid "Wipe Requested"
-msgstr ""
+msgstr "Silme Talep Edildi"
 
+#, fuzzy
 msgid "Wipe Executed"
-msgstr ""
+msgstr "Silme Çalıştırıldı"
 
 msgid "Not Available"
-msgstr ""
+msgstr "Mevcut Değil"
 
 msgid "Device"
-msgstr ""
+msgstr "Cihaz"
 
 msgid "Operating System"
-msgstr ""
+msgstr "İşletim Sistemi"
 
 msgid "User Agent"
-msgstr ""
+msgstr "Kullanıcı"
 
+#, fuzzy
 msgid "MDM Plugin"
-msgstr ""
+msgstr "MDM Eklentisi"
 
+#, fuzzy
 msgid "Active Sync Version"
-msgstr ""
+msgstr "Aktif Senkronizasyon Sürümü"
 
+#, fuzzy
 msgid "grommunio-sync Version"
-msgstr ""
+msgstr "grommunio-sync Sürüm"
 
+#, fuzzy
 msgid "Policy name"
-msgstr ""
+msgstr "Politika adı"
 
+#, fuzzy
 msgid "Outlook Extension"
-msgstr ""
+msgstr "Outlook Uzantısı"
 
 msgid "Build"
-msgstr ""
+msgstr "Oluştur"
 
 msgid "Last updated"
-msgstr ""
+msgstr "Son güncelleme"
 
+#, fuzzy
 msgid "d F Y, H:i"
-msgstr ""
+msgstr "d F Y, H:i"
 
+#, fuzzy
 msgid "Connected since"
-msgstr ""
+msgstr "O zamandan beri bağlı"
 
+#, fuzzy
 msgid "d F Y"
-msgstr ""
+msgstr "d F Y"
 
 msgid "Synchronize"
-msgstr ""
+msgstr "Eşitle"
 
+#, fuzzy
 msgid "Manage Shared Folders"
-msgstr ""
+msgstr "Paylaşılan Klasörleri Yönetme"
 
+#, fuzzy
 msgid ""
 "Select folders to sync to your device from the list below. To add additional "
 "mailboxes to the list, open them in grommunio Web first."
 msgstr ""
+"Aşağıdaki listeden cihazınızla senkronize edilecek klasörleri seçin. Listeye "
+"ek posta kutuları eklemek için önce bunları grommunio Web'de açın."
 
+#, fuzzy
 msgid "grommunio-sync"
-msgstr ""
+msgstr "grommunio-sync"
 
+#, fuzzy
 msgid "Mobile device management"
-msgstr ""
+msgstr "Mobil cihaz yönetimi"
 
 msgid "Mobile Devices"
-msgstr ""
+msgstr "Mobil cihazlar"
 
+#, fuzzy
 msgid ""
 "Unable to connect to the grommunio-sync server. Click {0} to enter your "
 "credentials"
 msgstr ""
+"Grommunio-sync sunucusuna bağlanılamıyor. Kimlik bilgilerinizi girmek için "
+"{0}'e tıklayın"
 
 msgid "Devices"
-msgstr ""
+msgstr "Cihazlar"
 
+#, fuzzy
 msgid "No devices connected to your account"
-msgstr ""
+msgstr "Hesabınıza bağlı cihaz yok"
 
+#, fuzzy
 msgid "Provisioning Status"
-msgstr ""
+msgstr "Provizyon Durumu"
 
 msgid "Last Update"
-msgstr ""
+msgstr "Son Güncelleme"
 
+#, fuzzy
 msgid "Device ID"
-msgstr ""
+msgstr "Cihaz Kimliği"
 
+#, fuzzy
 msgid "Device OS"
-msgstr ""
+msgstr "Cihaz İşletim Sistemi"
 
+#, fuzzy
 msgid "Device Info"
-msgstr ""
+msgstr "Cihaz Bilgisi"
 
+#, fuzzy
 msgid "First Sync time"
-msgstr ""
+msgstr "İlk Senkronizasyon zamanı"
 
+#, fuzzy
 msgid "Wipe Device"
-msgstr ""
+msgstr "Silme Cihazı"
 
+#, fuzzy
 msgid "Full resync"
-msgstr ""
+msgstr "Tam yeniden senkronizasyon"
 
+#, fuzzy
 msgid "Remove device"
-msgstr ""
+msgstr "Cihazı çıkarın"
 
 msgid "Please enter your username and password"
-msgstr ""
+msgstr "Lütfen kullanıcı adınızı ve şifrenizi giriniz"
 
 msgid "Username"
 msgstr "Kullanıcı adı"
 
+#, fuzzy
 msgid ""
 "Do you really want to wipe your device?\n"
 " Enter your password to confirm."
 msgstr ""
+"Cihazınızı gerçekten silmek istiyor musunuz?\n"
+" Onaylamak için şifrenizi girin."
 
+#, fuzzy
 msgid ""
 "Do you really want to remove your device?\n"
 " Enter your password to confirm."
 msgstr ""
+"Cihazınızı gerçekten kaldırmak istiyor musunuz?\n"
+" Onaylamak için şifrenizi girin."
 
+#, fuzzy
 msgid "Add meeting"
-msgstr ""
+msgstr "Toplantı ekle"
 
+#, fuzzy
 msgid "Room name:"
-msgstr ""
+msgstr "Oda adı:"
 
+#, fuzzy
 msgid "Room URL:"
-msgstr ""
+msgstr "Oda URL'si:"
 
+#, fuzzy
 msgid "Shift-click for advanced settings"
-msgstr ""
+msgstr "Gelişmiş ayarlar için Shift tuşuna tıklayın"
 
+#, fuzzy
 msgid "Join webmeeting"
-msgstr ""
+msgstr "Web toplantısına katılın"
 
+#, fuzzy
 msgid "Open meeting in:"
-msgstr ""
+msgstr "Açık toplantı:"
 
+#, fuzzy
 msgid "Web tab"
-msgstr ""
+msgstr "Web sekmesi"
 
+#, fuzzy
 msgid "Hide the button in the main toolbar"
-msgstr ""
+msgstr "Ana araç çubuğundaki düğmeyi gizleme"
 
+#, fuzzy
 msgid "Add the subject to the room name"
-msgstr ""
+msgstr "Konuyu oda adına ekleyin"
 
+#, fuzzy
 msgid "Add the organizer name to the room name"
-msgstr ""
+msgstr "Oda adına düzenleyici adını ekleyin"
 
+#, fuzzy
 msgid "Add the URL to the meeting location rather than overwriting it"
-msgstr ""
+msgstr "URL'yi üzerine yazmak yerine toplantı konumuna ekleyin"
 
+#, fuzzy
 msgid ""
 "Prevent the URL in the meeting location from being overridden automatically "
 "(ex: when adding a meetingroom)"
 msgstr ""
+"Toplantı konumundaki URL'nin otomatik olarak geçersiz kılınmasını önleyin "
+"(örn: bir toplantı odası eklerken)"
 
+#, fuzzy
 msgid "If you have problems when creating meetings, try disabling this setting"
 msgstr ""
+"Toplantı oluştururken sorun yaşıyorsanız, bu ayarı devre dışı bırakmayı "
+"deneyin"
 
+#, fuzzy
 msgid "Add an invitation to the appointment description"
-msgstr ""
+msgstr "Randevu açıklamasına bir davetiye ekleyin"
 
+#, fuzzy
 msgid "Invitation text"
-msgstr ""
+msgstr "Davetiye metni"
 
+#, fuzzy
 msgid ""
 "must contain %url% as a placeholder for the meeting link, empty the textbox "
 "to reset to default"
 msgstr ""
+"toplantı bağlantısı için bir yer tutucu olarak %url% içermelidir, "
+"varsayılana sıfırlamak için metin kutusunu boşaltın"
 
+#, fuzzy
 msgid "An unknown error occurred while changing password."
-msgstr ""
+msgstr "Şifre değiştirilirken bilinmeyen bir hata oluştu."
 
 msgid "Password is changed successfully."
-msgstr ""
+msgstr "Şifre başarıyla değiştirildi."
 
 msgid "Success"
-msgstr ""
+msgstr "Başarılı"
 
 msgid "Change Password"
-msgstr ""
+msgstr "Şifre Değiştir"
 
 msgid "Current password"
-msgstr ""
+msgstr "Şimdiki Şifre"
 
 msgid "New password"
-msgstr ""
+msgstr "Yeni şifre"
 
+#, fuzzy
 msgid "Retype new password"
-msgstr ""
+msgstr "Yeni şifreyi yeniden yazın"
 
 msgid "New passwords do not match."
-msgstr ""
+msgstr "Yeni şifreler uyuşmuyor."
 
+#, fuzzy
 msgid "Current password is empty."
-msgstr ""
+msgstr "Geçerli şifre boş."
 
+#, fuzzy
 msgid "New password is empty."
-msgstr ""
+msgstr "Yeni şifre boş."
 
+#, fuzzy
 msgid "One or more fields does contain errors."
-msgstr ""
+msgstr "Bir veya daha fazla alan hata içeriyor."
 
+#, fuzzy
 msgid ""
 "Password is weak. Password should contain capital, non-capital letters and "
 "numbers. Password should have 8 to 20 characters."
 msgstr ""
+"Şifre zayıf. Şifre büyük, büyük olmayan harfler ve rakamlar içermelidir. "
+"Şifre 8 ila 20 karakterden oluşmalıdır."
 
+#, fuzzy
 msgid "Change passphrase"
-msgstr ""
+msgstr "Parolayı değiştir"
 
+#, fuzzy
 msgid "Old passphrase"
-msgstr ""
+msgstr "Eski parola"
 
+#, fuzzy
 msgid "Wrong passphrase. Please try again"
-msgstr ""
+msgstr "Yanlış parola. Lütfen tekrar deneyin"
 
+#, fuzzy
 msgid "New passphrase"
-msgstr ""
+msgstr "Yeni parola"
 
+#, fuzzy
 msgid "Confirm new passphrase"
-msgstr ""
+msgstr "Yeni parolayı onaylayın"
 
+#, fuzzy
 msgid "The passphrases don't match. Please try again"
-msgstr ""
+msgstr "Parolalar eşleşmiyor. Lütfen tekrar deneyin"
 
+#, fuzzy
 msgid "S/MIME Message"
-msgstr ""
+msgstr "S/MIME İletisi"
 
+#, fuzzy
 msgid "Passphrase changed succesfully"
-msgstr ""
+msgstr "Parola başarıyla değiştirildi"
 
+#, fuzzy
 msgid "S/MIME Passphrase"
-msgstr ""
+msgstr "S/MIME Parolası"
 
 msgid "Submit"
-msgstr ""
+msgstr "Gönder"
 
+#, fuzzy
 msgid "Certificate passphrase"
-msgstr ""
+msgstr "Sertifika parolası"
 
+#, fuzzy
 msgid "The passphrase you typed is incorrect. Please try again."
-msgstr ""
+msgstr "Yazdığınız parola yanlış. Lütfen tekrar deneyin."
 
+#, fuzzy
 msgid "No certificates imported, please upload your private certificate"
-msgstr ""
+msgstr "İçe aktarılan sertifika yok, lütfen özel sertifikanızı yükleyin"
 
 msgid "Valid from"
-msgstr ""
+msgstr "Geçerlilik başlangıcı"
 
 msgid "Expires"
-msgstr ""
+msgstr "Süre sonu"
 
+#, fuzzy
 msgid "Loading certificates"
-msgstr ""
+msgstr "Sertifikaların yüklenmesi"
 
+#, fuzzy
 msgid "S/MIME Plugin"
-msgstr ""
+msgstr "S/MIME Eklentisi"
 
+#, fuzzy
 msgid "Please select a certificate."
-msgstr ""
+msgstr "Lütfen bir sertifika seçiniz."
 
+#, fuzzy
 msgid ""
 "Do you really want to remove your private certificate? If you remove your "
 "certificate you will not be able to sign or decrypt S/MIME emails."
 msgstr ""
+"Özel sertifikanızı gerçekten kaldırmak istiyor musunuz? Sertifikanızı "
+"kaldırırsanız S/MIME e-postalarını imzalayamaz veya şifresini çözemezsiniz."
 
+#, fuzzy
 msgid "Certificate details"
-msgstr ""
+msgstr "Sertifika detayları"
 
+#, fuzzy
 msgid ""
 "Below you can view and delete public & private certificate(s) stored on the "
 "server."
 msgstr ""
+"Aşağıda, sunucuda depolanan genel ve özel sertifikaları görüntüleyebilir ve "
+"silebilirsiniz."
 
+#, fuzzy
 msgid "Filter on Email"
-msgstr ""
+msgstr "E-postada Filtre"
 
+#, fuzzy
 msgid "Public & Private certificates"
-msgstr ""
+msgstr "Kamu ve Özel Sertifikalar"
 
+#, fuzzy
 msgid "S/MIME"
-msgstr ""
+msgstr "S/MIME"
 
+#, fuzzy
 msgid "You don't have a valid certificate corresponding to your account"
-msgstr ""
+msgstr "Hesabınıza karşılık gelen geçerli bir sertifikanız yok"
 
+#, fuzzy
 msgid "Personal certificate"
-msgstr ""
+msgstr "Kişisel sertifika"
 
+#, fuzzy
 msgid "Change passphrase for last certificate"
-msgstr ""
+msgstr "Son sertifika için parolayı değiştirme"
 
+#, fuzzy
 msgid "You have a valid certificate corresponding to your account"
-msgstr ""
+msgstr "Hesabınıza karşılık gelen geçerli bir sertifikanız var"
 
+#, fuzzy
 msgid "Upload your certificate"
-msgstr ""
+msgstr "Sertifikanızı yükleyin"
 
+#, fuzzy
 msgid ""
 "Below you can upload your private certificate in PKCS#12 format. grommunio "
 "Web only accepts certificates which are valid and only stores one private "
 "certificate on the server."
 msgstr ""
+"Aşağıda özel sertifikanızı PKCS#12 formatında yükleyebilirsiniz. grommunio "
+"Web sadece geçerli olan sertifikaları kabul eder ve sunucuda sadece bir özel "
+"sertifika saklar."
 
+#, fuzzy
 msgid "Private certificate"
-msgstr ""
+msgstr "Özel sertifika"
 
+#, fuzzy
 msgid "You must fill in the certificate passphrase to upload your certificate."
-msgstr ""
+msgstr "Sertifikanızı yüklemek için sertifika parolasını doldurmanız gerekir."
 
+#, fuzzy
 msgid "You must first select a valid private certificate in PKCS#12 format."
-msgstr ""
+msgstr "Öncelikle PKCS#12 formatında geçerli bir özel sertifika seçmelisiniz."
 
 msgid "Sign"
-msgstr ""
+msgstr "İşaret"
 
+#, fuzzy
 msgid "Sign message"
-msgstr ""
+msgstr "İşaret mesajı"
 
+#, fuzzy
 msgid ""
 "Ensure the authenticity of the message by adding a digital signature to this "
 "message. Any changes to the message will invalidate the signature."
 msgstr ""
+"Bu mesaja bir dijital imza ekleyerek mesajın gerçekliğini sağlayın. Mesajda "
+"yapılacak herhangi bir değişiklik imzayı geçersiz kılacaktır."
 
+#, fuzzy
 msgid "Encrypt"
-msgstr ""
+msgstr "Şifreleme"
 
+#, fuzzy
 msgid "Encrypt message"
-msgstr ""
+msgstr "Mesajı şifrele"
 
+#, fuzzy
 msgid ""
 "Ensure the privacy of the message by encrypting its contents. Only the "
 "recipient of the message will be able to open it."
 msgstr ""
+"İçeriğini şifreleyerek mesajın gizliliğini sağlayın. Yalnızca mesajın "
+"alıcısı mesajı açabilecektir."
 
+#, fuzzy
 msgid "What's going on with my email?"
-msgstr ""
+msgstr "E-postama ne oldu?"
 
+#, fuzzy
 msgid ""
 "grommunio Web can verify digital signatures of emails. A successful "
 "verification reassures you that the message has not been tampered with and "
 "validates the identity of the sender."
 msgstr ""
+"grommunio Web e-postaların dijital imzalarını doğrulayabilir. Başarılı bir "
+"doğrulama, mesajın tahrif edilmediğine dair size güvence verir ve gönderenin "
+"kimliğini doğrular."
 
+#, fuzzy
 msgid ""
 "You are seeing this message because the verification of the digital signature"
-msgstr ""
+msgstr "Bu mesajı görüyorsunuz çünkü dijital imzanın doğrulanması"
 
+#, fuzzy
 msgid " has failed"
-msgstr ""
+msgstr " başarısız oldu"
 
+#, fuzzy
 msgid " for this message."
-msgstr ""
+msgstr " bu mesaj için."
 
+#, fuzzy
 msgid "What caused this issue?"
-msgstr ""
+msgstr "Bu soruna ne sebep oldu?"
 
+#, fuzzy
 msgid "What should I do?"
-msgstr ""
+msgstr "Ne yapmalıyım?"
 
+#, fuzzy
 msgid ""
 "You can continue to work. However, you should keep in mind that the identity "
 "and the authenticity of the message content could not be verified."
 msgstr ""
+"Çalışmaya devam edebilirsiniz. Ancak, mesaj içeriğinin kimliğinin ve "
+"gerçekliğinin doğrulanamadığını aklınızda bulundurmalısınız."
 
+#, fuzzy
 msgid ""
 "You can contact your helpdesk or system administrator if you are not sure "
 "what to do next."
 msgstr ""
+"Bundan sonra ne yapacağınızdan emin değilseniz yardım masanızla veya sistem "
+"yöneticinizle iletişime geçebilirsiniz."
 
 msgid ""
 "grommunio Web can verify digital signatures of emails. A successful "
 "verification reassures you "
 msgstr ""
+"grommunio Web, e-postaların dijital imzalarını doğrulayabilir. Başarılı bir "
+"doğrulama size güven verir "
 
+#, fuzzy
 msgid ""
 "that the message has not been tampered with and validates the identity of "
 "the sender."
 msgstr ""
+"mesajın tahrif edilmediğinden emin olur ve gönderenin kimliğini doğrular."
 
+#, fuzzy
 msgid ""
 "The verification of the digital signature was successful for this email "
 "message."
-msgstr ""
+msgstr "Bu e-posta iletisi için dijital imza doğrulaması başarılı oldu."
 
+#, fuzzy
 msgid "grommunio Web could not find a public certificate for the recipient."
-msgstr ""
+msgstr "grommunio Web alıcı için bir genel sertifika bulamadı."
 
+#, fuzzy
 msgid ""
 "The identity of the sender and authenticity of the message content have been "
 "verified, but the certificate used to sign the message expired on [d-m-Y]."
 msgstr ""
+"Gönderenin kimliği ve mesaj içeriğinin gerçekliği doğrulandı, ancak mesajı "
+"imzalamak için kullanılan sertifikanın süresi [d-m-Y] tarihinde doldu."
 
+#, fuzzy
 msgid "The digital signature could not be verified for unknown reasons."
-msgstr ""
+msgstr "Dijital imza bilinmeyen nedenlerden dolayı doğrulanamamıştır."
 
+#, fuzzy
 msgid ""
 "The digital certificate used to sign this message has been revoked (i.e. the "
 "sender has marked it as compromised)"
 msgstr ""
+"Bu mesajı imzalamak için kullanılan dijital sertifika iptal edilmiştir "
+"(yani, gönderen sertifika üzerinde gizlilik ihlali olduğunu belirtmiştir)"
 
+#, fuzzy
 msgid ""
 "The verification service of the certificate authority that signed the "
 "sender's certificate is not available. The validity of the certificate could "
 "not be verified."
 msgstr ""
+"Gönderenin sertifikasını imzalayan sertifika yetkilisinin doğrulama hizmeti "
+"mevcut değil. Sertifikanın geçerliliği doğrulanamadı."
 
+#, fuzzy
 msgid ""
 "The revocation status of the digital certificate used to sign this email is "
 "unknown (Server is unavailable or certificate does not support OCSP). The "
 "validity of the certificate could not be verified."
 msgstr ""
+"Bu e-postayı imzalamak için kullanılan dijital sertifikanın iptal durumu "
+"bilinmiyor (Sunucu kullanılamıyor veya sertifika OCSP'yi desteklemiyor). "
+"Sertifikanın geçerliliği doğrulanamadı."
 
+#, fuzzy
 msgid ""
 "The revocation status of the digital certificate used to sign this email is "
 "disabled (OCSP). The validity of the certificate could not be verified."
 msgstr ""
+"Bu e-postayı imzalamak için kullanılan dijital sertifikanın iptal durumu "
+"devre dışı (OCSP). Sertifikanın geçerliliği doğrulanamadı."
 
+#, fuzzy
 msgid "The certificate verification server (OCSP) is temporarily offline."
-msgstr ""
+msgstr "Sertifika doğrulama sunucusu (OCSP) geçici olarak çevrimdışıdır."
 
+#, fuzzy
 msgid "Sender is removed from the server."
-msgstr ""
+msgstr "Gönderici sunucudan kaldırılır."
 
+#, fuzzy
 msgid "Signature verified successfully"
-msgstr ""
+msgstr "İmza başarıyla doğrulandı"
 
+#, fuzzy
 msgid "Could not verify signature, missing public certificate"
-msgstr ""
+msgstr "İmza doğrulanamadı, eksik kamu sertifikası"
 
+#, fuzzy
 msgid "Signature verification successful, but certificate is expired"
-msgstr ""
+msgstr "İmza doğrulama başarılı, ancak sertifikanın süresi dolmuş"
 
+#, fuzzy
 msgid "Signature could not be verified"
-msgstr ""
+msgstr "İmza doğrulanamadı"
 
+#, fuzzy
 msgid "Certificate has been revoked"
-msgstr ""
+msgstr "Sertifika iptal edildi"
 
+#, fuzzy
 msgid "Verification with Certificate Authority failed"
-msgstr ""
+msgstr "Sertifika Yetkilisi ile doğrulama başarısız oldu"
 
+#, fuzzy
 msgid "Message decrypted succesfully"
-msgstr ""
+msgstr "Mesajın şifresi başarıyla çözüldü"
 
+#, fuzzy
 msgid "Message decryption failed"
-msgstr ""
+msgstr "Mesaj şifre çözme başarısız oldu"
 
 msgid "Please"
-msgstr ""
+msgstr "Lütfen"
 
 msgid "click here"
-msgstr ""
+msgstr "buraya tıkla"
 
+#, fuzzy
 msgid "to unlock your certificate"
-msgstr ""
+msgstr "sertifikanızın kilidini açmak için"
 
+#, fuzzy
 msgid "Cannot determine revocation status of certificate"
-msgstr ""
+msgstr "Sertifikanın iptal durumu belirlenemiyor"
 
+#, fuzzy
 msgid "Signature verified (OCSP disabled)"
-msgstr ""
+msgstr "İmza doğrulandı (OCSP devre dışı)"
 
+#, fuzzy
 msgid "Unable to decrypt this message. Certificate does not match"
-msgstr ""
+msgstr "Bu mesajın şifresi çözülemiyor. Sertifika eşleşmiyor"
 
+#, fuzzy
 msgid "Verification failed. User is removed from the server."
-msgstr ""
+msgstr "Doğrulama başarısız oldu. Kullanıcı sunucudan kaldırıldı."
 
 msgid "Charm pink"
 msgstr "Cazibeli pembe"
@@ -6940,31 +7414,32 @@ msgid "Cadmium red"
 msgstr "Kadmiyum kırmızı"
 
 msgid "Apricot"
-msgstr "kayısı"
+msgstr "Kayısı"
 
 msgid "California"
 msgstr "Kaliforniya"
 
 msgid "Soft green"
-msgstr "hafif yeşil"
+msgstr "Yumuşak yeşil"
 
 msgid "Mint"
 msgstr "Nane"
 
 msgid "Pearl aqua"
-msgstr "inci su"
+msgstr "İnci aqua"
 
+#, fuzzy
 msgid "Grommunio blue"
-msgstr ""
+msgstr "Grommunio mavi"
 
 msgid "Baby blue"
-msgstr "bebek mavisi"
+msgstr "Bebek mavisi"
 
 msgid "Mauve"
-msgstr "leylak"
+msgstr "Leylak rengi"
 
 msgid "Silver sand"
-msgstr "gümüş kum"
+msgstr "Gümüş Kum"
 
 msgid "Competition"
 msgstr "Rekabet"
@@ -7014,274 +7489,357 @@ msgstr "Bekleme"
 msgid "You have been automatically logged out"
 msgstr "Otomatik olarak çıkış yapıldı"
 
+#, fuzzy
 msgid ""
 "Sorry, access to grommunio Web is not available with this user account. "
 "Please contact your system administrator."
 msgstr ""
+"Üzgünüz, bu kullanıcı hesabıyla grommunio Web'e erişim sağlanamıyor. Lütfen "
+"sistem yöneticinizle iletişime geçin."
 
+#, fuzzy
 msgid "With this backend, you can connect to any ownCloud server."
-msgstr ""
+msgstr "Bu arka uç ile herhangi bir ownCloud sunucusuna bağlanabilirsiniz."
 
 msgid "Files ownCloud Backend: "
-msgstr ""
+msgstr "Dosyalar ownCloud Arka Uç: "
 
+#, fuzzy
 msgid "Server address"
-msgstr ""
+msgstr "Sunucu adresi"
 
 msgid "Server port"
-msgstr ""
+msgstr "Sunucu portu"
 
 msgid "Use SSL"
-msgstr ""
+msgstr "SSL kullanma"
 
+#, fuzzy
 msgid "Webdav base path"
-msgstr ""
+msgstr "Webdav temel yolu"
 
+#, fuzzy
 msgid "Use grommunio credentials"
-msgstr ""
+msgstr "Grommunio kimlik bilgilerini kullanın"
 
+#, fuzzy
 msgid "php-curl is not available"
-msgstr ""
+msgstr "php-curl mevcut değil"
 
 msgid "Access denied"
-msgstr ""
+msgstr "Erişim reddedildi"
 
+#, fuzzy
 msgid "Connection failed"
-msgstr ""
+msgstr "Bağlantı başarısız"
 
+#, fuzzy
 msgid "Sabre error"
-msgstr ""
+msgstr "Sabre hatası"
 
+#, fuzzy
 msgid "Copying failed"
-msgstr ""
+msgstr "Kopyalama başarısız oldu"
 
 msgid "Unknown error"
-msgstr ""
+msgstr "Bilinmeyen hata"
 
+#, fuzzy
 msgid "Please contact your system administrator."
-msgstr ""
+msgstr "Lütfen sistem yöneticinize başvurun."
 
+#, fuzzy
 msgid "Unauthorized. Wrong username or password."
-msgstr ""
+msgstr "Yetkisiz. Yanlış kullanıcı adı veya şifre."
 
+#, fuzzy
 msgid "File server is not reachable. Please verify the file server URL."
 msgstr ""
+"Dosya sunucusuna erişilemiyor. Lütfen dosya sunucusu URL'sini doğrulayın."
 
+#, fuzzy
 msgid "You don't have enough permissions to view this file or folder."
-msgstr ""
+msgstr "Bu dosya veya klasörü görüntülemek için yeterli izniniz yok."
 
+#, fuzzy
 msgid "The file or folder is not available anymore."
-msgstr ""
+msgstr "Dosya veya klasör artık mevcut değil."
 
+#, fuzzy
 msgid "Connection to the file server timed out. Please check again later."
 msgstr ""
+"Dosya sunucusuna bağlantı zaman aşımına uğradı. Lütfen daha sonra tekrar "
+"kontrol edin."
 
+#, fuzzy
 msgid "This file is locked by another user. Please try again later."
 msgstr ""
+"Bu dosya başka bir kullanıcı tarafından kilitlendi. Lütfen daha sonra tekrar "
+"deneyin."
 
+#, fuzzy
 msgid "The request failed."
-msgstr ""
+msgstr "İstek başarısız oldu."
 
+#, fuzzy
 msgid "The file server encountered an internal problem."
-msgstr ""
+msgstr "Dosya sunucusu dahili bir sorunla karşılaştı."
 
+#, fuzzy
 msgid "We could not write to temporary directory."
-msgstr ""
+msgstr "Geçici dizine yazamadık."
 
+#, fuzzy
 msgid "We could not retrieve list of server features."
-msgstr ""
+msgstr "Sunucu özelliklerinin listesini alamadık."
 
+#, fuzzy
 msgid "PHP-Curl is not available."
-msgstr ""
+msgstr "PHP-Curl mevcut değildir."
 
+#, fuzzy
 msgid "Unknown account ID"
-msgstr ""
+msgstr "Bilinmeyen hesap kimliği"
 
+#, fuzzy
 msgid "Feature \"Quota Information\" is not supported by this backend!"
-msgstr ""
+msgstr "\"Kota Bilgileri\" özelliği bu arka uç tarafından desteklenmiyor!"
 
+#, fuzzy
 msgid "Feature \"Version Information\" is not supported by this backend!"
-msgstr ""
+msgstr "\"Sürüm Bilgileri\" özelliği bu arka uç tarafından desteklenmiyor!"
 
+#, fuzzy
 msgid "Feature \"OAUTH\" is not supported by this backend!"
-msgstr ""
+msgstr "\"OAUTH\" özelliği bu arka uç tarafından desteklenmiyor!"
 
+#, fuzzy
 msgid "Moving between accounts is not implemented"
-msgstr ""
+msgstr "Hesaplar arasında geçiş uygulanmıyor"
 
+#, fuzzy
 msgid "Files plugin"
-msgstr ""
+msgstr "Dosyalar eklentisi"
 
+#, fuzzy
 msgid "Unknown type - cannot save this file to the Files backend!"
-msgstr ""
+msgstr "Bilinmeyen tür - bu dosya Dosyalar arka ucuna kaydedilemiyor!"
 
+#, fuzzy
 msgid "No record given!"
-msgstr ""
+msgstr "Kayıt yok!"
 
+#, fuzzy
 msgid "Fetching sharing information failed"
-msgstr ""
+msgstr "Paylaşım bilgisi getirme başarısız oldu"
 
+#, fuzzy
 msgid "Sharing failed"
-msgstr ""
+msgstr "Paylaşım başarısız oldu"
 
+#, fuzzy
 msgid "Updating share failed"
-msgstr ""
+msgstr "Paylaşım güncellenemedi"
 
+#, fuzzy
 msgid "Deleting share failed"
-msgstr ""
+msgstr "Paylaşım silme başarısız oldu"
 
+#, fuzzy
 msgid "With this backend, you can connect to any WebDAV server."
-msgstr ""
+msgstr "Bu arka uç ile herhangi bir WebDAV sunucusuna bağlanabilirsiniz."
 
 msgid "Files WebDAV Backend: "
-msgstr ""
+msgstr "Dosyalar WebDAV Arka Uç: "
 
+#, fuzzy
 msgid "PHP-CURL is not installed"
-msgstr ""
+msgstr "PHP-CURL yüklü değil"
 
+#, fuzzy
 msgid "Directory creation failed"
-msgstr ""
+msgstr "Dizin oluşturma başarısız oldu"
 
 msgid "Deletion failed"
-msgstr ""
+msgstr "Silme başarısız oldu"
 
+#, fuzzy
 msgid "Moving failed"
-msgstr ""
+msgstr "Taşınma başarısız oldu"
 
+#, fuzzy
 msgid "Temporary directory problems"
-msgstr ""
+msgstr "Geçici dizin sorunları"
 
+#, fuzzy
 msgid "File or folder not found"
-msgstr ""
+msgstr "Dosya veya klasör bulunamadı"
 
 msgid "Not implemented"
-msgstr ""
+msgstr "Uygulanmadı"
 
+#, fuzzy
 msgid "Please contact your system administrator"
-msgstr ""
+msgstr "Lütfen sistem yöneticinizle iletişime geçin"
 
+#, fuzzy
 msgid "File server is not reachable. Please verify the connection."
-msgstr ""
+msgstr "Dosya sunucusuna ulaşılamıyor. Lütfen bağlantıyı doğrulayın."
 
+#, fuzzy
 msgid "PHP-CURL not installed"
-msgstr ""
+msgstr "PHP-CURL yüklü değil"
 
+#, fuzzy
 msgid "Account is ready to use."
-msgstr ""
+msgstr "Hesap kullanıma hazırdır."
 
+#, fuzzy
 msgid "File backend not responding. Please try again later."
-msgstr ""
+msgstr "Dosya arka ucu yanıt vermiyor. Lütfen daha sonra tekrar deneyin."
 
+#, fuzzy
 msgid "Zip file generation failed. Please inform the administrator."
-msgstr ""
+msgstr "Zip dosyası oluşturma başarısız oldu. Lütfen yöneticiyi bilgilendirin."
 
+#, fuzzy
 msgid "This file is no longer available. Please reload the folder."
-msgstr ""
+msgstr "Bu dosya artık mevcut değil. Lütfen klasörü yeniden yükleyin."
 
+#, fuzzy
 msgid "Mobile device management plugin"
-msgstr ""
+msgstr "Mobil cihaz yönetimi eklentisi"
 
-#, php-format
+#, fuzzy, php-format
 msgid ""
 "Unexpected error occurred. Please contact your system administrator. Error "
 "code: %s"
 msgstr ""
+"Beklenmeyen bir hata oluştu. Lütfen sistem yöneticinize başvurun. Hata kodu: "
+"%s"
 
+#, fuzzy
 msgid "No data received."
-msgstr ""
+msgstr "Veri alınamadı."
 
+#, fuzzy
 msgid "Account is empty."
-msgstr ""
+msgstr "Hesap boş."
 
+#, fuzzy
 msgid "Current password does not match."
-msgstr ""
+msgstr "Geçerli şifre eşleşmiyor."
 
+#, fuzzy
 msgid ""
 "Your password is wrong or you have insufficient permission to change password"
-msgstr ""
+msgstr "Şifreniz yanlış veya şifre değiştirmek için yeterli izniniz yok"
 
+#, fuzzy
 msgid "Password is not changed."
-msgstr ""
+msgstr "Şifre değiştirilmemiştir."
 
+#, fuzzy
 msgid "Error changing password. Please contact the system administrator."
 msgstr ""
+"Parola değiştirilirken hata oluştu. Lütfen sistem yöneticisine başvurun."
 
+#, fuzzy
 msgid "Password has been changed successfully."
-msgstr ""
+msgstr "Şifre başarıyla değiştirildi."
 
+#, fuzzy
 msgid "No certificate avaliable"
-msgstr ""
+msgstr "Sertifika mevcut değil"
 
+#, fuzzy
 msgid "Private certificate is not valid yet, unable to sign email"
-msgstr ""
+msgstr "Özel sertifika henüz geçerli değil, e-posta imzalanamıyor"
 
+#, fuzzy
 msgid "Private certificate has been expired, unable to sign email"
-msgstr ""
+msgstr "Özel sertifikanın süresi doldu, e-posta imzalanamıyor"
 
+#, fuzzy
 msgid "Private certificate does not match email address"
-msgstr ""
+msgstr "Özel sertifika e-posta adresiyle eşleşmiyor"
 
 msgid "Missing public certificates for the following recipients: "
-msgstr ""
+msgstr "Aşağıdaki alıcılar için eksik kamu sertifikaları: "
 
+#, fuzzy
 msgid ". Please contact your system administrator for details"
-msgstr ""
+msgstr ". Ayrıntılar için lütfen sistem yöneticinize başvurun"
 
+#, fuzzy
 msgid ""
 "Your public certificate is not installed. Without this certificate, you will "
 "not be able to read encrypted messages you have sent to others."
 msgstr ""
+"Genel sertifikanız yüklü değil. Bu sertifika olmadan, başkalarına "
+"gönderdiğiniz şifreli mesajları okuyamazsınız."
 
+#, fuzzy
 msgid "Certificate is already stored on the server"
-msgstr ""
+msgstr "Sertifika zaten sunucuda depolanmıştır"
 
+#, fuzzy
 msgid "Unable to decrypt certificate"
-msgstr ""
+msgstr "Sertifikanın şifresi çözülemiyor"
 
+#, fuzzy
 msgid "Private key can't be used to sign email"
-msgstr ""
+msgstr "Özel anahtar e-posta imzalamak için kullanılamaz"
 
 msgid "Certificate email address doesn't match grommunio Web account "
-msgstr ""
+msgstr "Sertifika e-posta adresi grommunio Web hesabıyla eşleşmiyor "
 
 msgid "Certificate was expired on "
-msgstr ""
+msgstr "Sertifikanın geçerlilik süresi "
 
+#, fuzzy
 msgid "Certificate has not been imported"
-msgstr ""
+msgstr "Sertifika içe aktarılmadı"
 
 msgid "Certificate is not yet valid "
-msgstr ""
+msgstr "Sertifika henüz geçerli değil "
 
+#, fuzzy
 msgid "Certificate is revoked"
-msgstr ""
+msgstr "Sertifika iptal edildi"
 
+#, fuzzy
 msgid "Unable to read public certificate"
-msgstr ""
+msgstr "Genel sertifika okunamıyor"
 
+#, fuzzy
 msgid "Can't add data to bus, same action type is present in bus"
-msgstr ""
+msgstr "Veri yoluna veri eklenemiyor, aynı eylem türü veri yolunda mevcut"
 
+#, fuzzy
 msgid "Response data requested from bus but it doesn't have any data."
-msgstr ""
+msgstr "Veri yolundan yanıt verisi istendi ancak herhangi bir veri yok."
 
-#, php-format
+#, fuzzy, php-format
 msgid "Unknown module '%s' with id '%s'"
-msgstr ""
+msgstr "Bilinmeyen modül '%s' ile id '%s'"
 
+#, fuzzy
 msgid ""
 "Server encountered some problem, so it was not able to handle the request."
-msgstr ""
+msgstr "Sunucu bir sorunla karşılaştı, bu nedenle isteği işleyemedi."
 
-#, php-format
+#, fuzzy, php-format
 msgid "Unknown notifier '%s'"
-msgstr ""
+msgstr "Bilinmeyen bildirimci '%s'"
 
+#, fuzzy
 msgid "An unexpected error has occurred"
-msgstr ""
+msgstr "Beklenmeyen bir hata oluştu"
 
+#, fuzzy
 msgid "To-Do List"
-msgstr ""
+msgstr "Yapılacaklar Listesi"
 
 #. TRANSLATORS: This indicates that the opened folder belongs to a particular user,
 #. * for example: 'Calendar of Holiday', in this case %1$s is 'Calendar' (the foldername)
@@ -7289,13 +7847,15 @@ msgstr ""
 #.
 #, php-format
 msgid "%1$s of %2$s"
-msgstr ""
+msgstr "%1$s - %2$s"
 
+#, fuzzy
 msgid "Error retrieving existing settings"
-msgstr ""
+msgstr "Mevcut ayarlar alınırken hata oluştu"
 
+#, fuzzy
 msgid "Error retrieving existing persistent settings"
-msgstr ""
+msgstr "Mevcut kalıcı ayarlar alınırken hata oluştu"
 
 # 93%
 msgid "Logon failed. Please verify your credentials and try again."
@@ -7304,41 +7864,50 @@ msgstr ""
 
 # 83%
 msgid "Cannot connect to Gromox."
-msgstr "grommunio sunucuya bağlanamıyor."
+msgstr "Gromox'a bağlanılamıyor."
 
+#, fuzzy
 msgid ""
 "Login did not work due to a duplicate session. The issue was automatically "
 "resolved, please log in again."
 msgstr ""
+"Yinelenen bir oturum nedeniyle giriş çalışmadı. Sorun otomatik olarak "
+"çözüldü, lütfen tekrar giriş yapın."
 
 msgid "Unknown MAPI Error"
 msgstr "Bilinmeyen MAPI hatası"
 
+#, fuzzy
 msgid "This external link will open in a new window"
-msgstr ""
+msgstr "Bu harici bağlantı yeni bir pencerede açılacaktır"
 
+#, fuzzy
 msgid "Destination folder not found."
-msgstr ""
+msgstr "Hedef klasör bulunamadı."
 
+#, fuzzy
 msgid "Eml is corrupted"
-msgstr ""
+msgstr "Eml bozuk"
 
+#, fuzzy
 msgid "The eml Attachment is not imported successfully"
-msgstr ""
+msgstr "Eml Eki başarıyla içe aktarılmadı"
 
+#, fuzzy
 msgid "The vcf attachment is not imported successfully"
-msgstr ""
+msgstr "Vcf eki başarıyla içe aktarılmadı"
 
 #, php-format
 msgid "Unable to import '%s' to '%s'. "
-msgstr ""
+msgstr "'%s' öğesi '%s' öğesine aktarılamıyor. "
 
 #, fuzzy
 msgid "There is no appointment found in this file."
 msgstr "Bu toplantı geçmişte."
 
+#, fuzzy
 msgid "The file is corrupt."
-msgstr ""
+msgstr "Dosya bozuk."
 
 #, fuzzy
 msgid "The file is invalid."
@@ -7346,40 +7915,49 @@ msgstr "Eklenen dosyalar henüz yüklenmedi."
 
 #, php-format
 msgid "Unable to import '%s'. "
-msgstr ""
+msgstr "'%s' içe aktarılamıyor. "
 
+#, fuzzy
 msgid "Please contact your system administrator if the problem persists."
-msgstr ""
+msgstr "Sorun devam ederse lütfen sistem yöneticinize başvurun."
 
+#, fuzzy
 msgid "Attachment is not imported successfully"
-msgstr ""
+msgstr "Ek başarıyla içe aktarılmadı"
 
+#, fuzzy
 msgid "Embedded attachment not found."
-msgstr ""
+msgstr "Gömülü ek bulunamadı."
 
+#, fuzzy
 msgid "ZIP is not created successfully"
-msgstr ""
+msgstr "ZIP başarıyla oluşturulmadı"
 
+#, fuzzy
 msgid "Attachments can not be downloaded"
-msgstr ""
+msgstr "Ekler indirilemiyor"
 
+#, fuzzy
 msgid "Could not find attachment."
-msgstr ""
+msgstr "Ek bulunamadı."
 
 msgid "Operation failed"
-msgstr ""
+msgstr "Işlem başarısız oldu"
 
 msgid "Sticky Note"
-msgstr ""
+msgstr "Yapışkan not"
 
+#, fuzzy
 msgid "Task Request"
-msgstr ""
+msgstr "Görev Talebi"
 
+#, fuzzy
 msgid "Could not find message, either it has been moved or deleted."
-msgstr ""
+msgstr "Mesaj bulunamadı, ya taşındı ya da silindi."
 
+#, fuzzy
 msgid "Request is not available."
-msgstr ""
+msgstr "İstek mevcut değil."
 
 # 90%
 msgid "You have insufficient privileges to open this object."
@@ -7391,10 +7969,10 @@ msgstr "Oturum açma başarısız. Lütfen adınızı / şifrenizi kontrol edin.
 
 # 83%
 msgid "Can not connect to Gromox."
-msgstr "grommunio sunucuya bağlanamıyor."
+msgstr "Gromox'a bağlanılamıyor."
 
 msgid "Can not open object with provided id."
-msgstr "nesne paylaşılan id ile açılamıyor."
+msgstr "Verilen kimliğe sahip nesne açılamıyor."
 
 msgid "There are no recipients in the message."
 msgstr "Mesajda alıcı yok."
@@ -7409,14 +7987,15 @@ msgstr "İşlem başarısız: Sunucuda yeterli bellek yok."
 msgid "Unknown MAPI Error: %s"
 msgstr "Bilinmeyen MAPI hatası: %s"
 
+#, fuzzy
 msgid "Action is not performed correctly."
-msgstr ""
+msgstr "Eylem doğru şekilde gerçekleştirilmemiştir."
 
 msgid "Tentatively accepted"
 msgstr "Geçici olarak kabul edildi"
 
 msgid "New Time Proposed"
-msgstr "yeni zaman önerildi"
+msgstr "Yeni Saat Önerisi"
 
 # 78%
 # 76%
@@ -7439,29 +8018,29 @@ msgstr "Her %s gerçekleşir, efektif %s."
 msgid "Occurs every %s %s effective %s."
 msgstr "Her %s %s gerçekleşir, efektif %s."
 
-#, php-format
+#, fuzzy, php-format
 msgid "Occurs every %s effective %s for %s occurrence from %s to %s."
 msgid_plural "Occurs every %s effective %s for %s occurrences from %s to %s."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "3}'ten %s'e kadar her %s etkili %s için %s meydana gelir."
+msgstr[1] "3}'ten %s'e kadar %s olay için her %s etkili %s'de meydana gelir."
 
-#, php-format
+#, fuzzy, php-format
 msgid "Occurs every %s %s effective %s for %s occurrence from %s to %s."
 msgid_plural "Occurs every %s %s effective %s for %s occurrences %s to %s."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Her %s %s etkili %s için %s %s ile %s arasında meydana gelir."
+msgstr[1] "Her %s %s etkin %s için %s %s ila %s arasında meydana gelir."
 
-#, php-format
+#, fuzzy, php-format
 msgid "Occurs every %s effective %s for %s occurrence."
 msgid_plural "Occurs every %s effective %s for %s occurrences."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "2} olay için her %s etkili %s olayda meydana gelir."
+msgstr[1] "2} olay için her %s etkili %s olayda meydana gelir."
 
-#, php-format
+#, fuzzy, php-format
 msgid "Occurs every %s %s effective %s for %s occurrence."
 msgid_plural "Occurs every %s %s effective %s for %s occurrences."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Her %s %s etkin %s için %s meydana gelir."
+msgstr[1] "3} olay için her %s %s etkili %s olayda meydana gelir."
 
 # 78%
 # 76%
@@ -7491,224 +8070,300 @@ msgstr "Her {0} gerçekleşir, başlangıç: {1}, bitiş: {2}."
 msgid "Occurs every %s %s effective %s until %s."
 msgstr "Her {0} gerçekleşir, başlangıç: {1}, bitiş: {2}."
 
+#, fuzzy
 msgid "Task Accepted:"
-msgstr ""
+msgstr "Görev Kabul Edildi:"
 
+#, fuzzy
 msgid "Task Declined:"
-msgstr ""
+msgstr "Görev reddedildi:"
 
+#, fuzzy
 msgid "Task Updated:"
-msgstr ""
+msgstr "Görev Güncellendi:"
 
+#, fuzzy
 msgid "Task Completed:"
-msgstr ""
+msgstr "Görev Tamamlandı:"
 
 msgid "Contact not found"
-msgstr ""
+msgstr "İletişim bulunamadı"
 
+#, fuzzy
 msgid ""
 "Contact information could not be displayed because the server had trouble "
 "retrieving the information."
 msgstr ""
+"Sunucu bilgileri alırken sorun yaşadığı için iletişim bilgileri "
+"görüntülenemedi."
 
+#, fuzzy
 msgid "Could not handle this type of object."
-msgstr ""
+msgstr "Bu tür bir nesne işlenemedi."
 
+#, fuzzy
 msgid "Could not open this object."
-msgstr ""
+msgstr "Bu nesne açılamadı."
 
+#, fuzzy
 msgid "Error in search, please try again"
-msgstr ""
+msgstr "Aramada hata oluştu, lütfen tekrar deneyin"
 
+#, fuzzy
 msgid "Unable to perform search query, no permissions to create search folder."
-msgstr ""
+msgstr "Arama sorgusu gerçekleştirilemiyor, arama klasörü oluşturma izni yok."
 
+#, fuzzy
 msgid "Unable to perform search query, search folder not found."
-msgstr ""
+msgstr "Arama sorgusu gerçekleştirilemiyor, arama klasörü bulunamadı."
 
+#, fuzzy
 msgid "Unable to perform search query, store might not support searching."
 msgstr ""
+"Arama sorgusu gerçekleştirilemiyor, mağaza aramayı desteklemiyor olabilir."
 
+#, fuzzy
 msgid "Error in creating search folder."
-msgstr ""
+msgstr "Arama klasörü oluşturulurken hata oluştu."
 
+#, fuzzy
 msgid "Could not open occurrence."
-msgstr ""
+msgstr "Olay açılamadı."
 
+#, fuzzy
 msgid "Could not open occurrence, specific occurrence is probably deleted."
-msgstr ""
+msgstr "Olay açılamadı, belirli olay muhtemelen silindi."
 
+#, fuzzy
 msgid "a meeting request"
-msgstr ""
+msgstr "bir toplantı talebi"
 
+#, fuzzy
 msgid "an appointment"
-msgstr ""
+msgstr "bir randevu"
 
 msgid "You have insufficient privileges to move "
-msgstr ""
+msgstr "Hareket etmek için yeterli ayrıcalığınız yok "
 
+#, fuzzy
 msgid ""
 "Cannot set a reminder to appear before the previous occurrence. Reset "
 "reminder to save the change"
 msgstr ""
+"Önceki olaydan önce görünecek bir hatırlatıcı ayarlanamıyor. Değişikliği "
+"kaydetmek için hatırlatıcıyı sıfırla"
 
+#, fuzzy
 msgid "Two occurrences cannot occur on the same day"
-msgstr ""
+msgstr "İki olay aynı gün gerçekleşemez"
 
-#, php-format
+#, fuzzy, php-format
 msgid ""
 "You marked '%s' as a resource. You cannot schedule a meeting with '%s' "
 "because you do not have the appropriate permissions for that account. Either "
 "enter the name as a required or optional attendee or talk to your "
 "administrator about giving you permission to schedule '%s'."
 msgstr ""
+"'%s' hesabını kaynak olarak işaretlediniz. '%s' ile bir toplantı "
+"planlayamazsınız çünkü bu hesap için uygun izinlere sahip değilsiniz. Ya adı "
+"zorunlu ya da isteğe bağlı katılımcı olarak girin ya da yöneticinizle '%s'yi "
+"planlamak için size izin vermesi konusunda konuşun."
 
-#, php-format
+#, fuzzy, php-format
 msgid ""
 "'%s' has declined your meeting because '%s' does not automatically accept "
 "meeting requests."
 msgstr ""
+"'%s' toplantınızı reddetti çünkü '%s' toplantı taleplerini otomatik olarak "
+"kabul etmiyor."
 
-#, php-format
+#, fuzzy, php-format
 msgid ""
 "'%s' has declined your meeting because it is recurring. You must book each "
 "meeting separately with this resource."
 msgstr ""
+"'%s' yinelenen bir toplantı olduğu için toplantınızı reddetti. Bu kaynakla "
+"her toplantı için ayrı ayrı rezervasyon yapmalısınız."
 
-#, php-format
+#, fuzzy, php-format
 msgid ""
 "'%s' is already booked for this specified time. You must use another time or "
 "find another resource."
 msgstr ""
+"'%s' belirtilen bu zaman için zaten rezerve edilmiştir. Başka bir zaman "
+"kullanmalı veya başka bir kaynak bulmalısınız."
 
+#, fuzzy
 msgid "Meeting was not scheduled."
-msgstr ""
+msgstr "Toplantı planlanmamıştı."
 
+#, fuzzy
 msgid "Meeting could not be sent."
-msgstr ""
+msgstr "Toplantı gönderilemedi."
 
+#, fuzzy
 msgid "Meeting could not be saved."
-msgstr ""
+msgstr "Toplantı kurtarılamadı."
 
+#, fuzzy
 msgid "Private Appointment"
-msgstr ""
+msgstr "Özel Randevu"
 
-#, php-format
+#, fuzzy, php-format
 msgid "%s's Birthday"
-msgstr ""
+msgstr "%s'ın Doğum Günü"
 
-#, php-format
+#, fuzzy, php-format
 msgid "%s's Anniversary"
-msgstr ""
+msgstr "%s'ın Yıldönümü"
 
+#, fuzzy
 msgid "You don't have the permission to complete this action"
-msgstr ""
+msgstr "Bu eylemi tamamlamak için izniniz yok"
 
+#, fuzzy
 msgid "Unknown user/group"
-msgstr ""
+msgstr "Bilinmeyen kullanıcı/grup"
 
+#, fuzzy
 msgid "Could not save delegate information."
-msgstr ""
+msgstr "Temsilci bilgileri kaydedilemedi."
 
+#, fuzzy
 msgid "Could not delete delegate."
-msgstr ""
+msgstr "Temsilci silinemedi."
 
+#, fuzzy
 msgid "Can not get list of delegates."
-msgstr ""
+msgstr "Delegelerin listesi alınamıyor."
 
+#, fuzzy
 msgid "Could not load the hierarchy."
-msgstr ""
+msgstr "Hiyerarşi yüklenemedi."
 
+#, fuzzy
 msgid "Could not load folder properties."
-msgstr ""
+msgstr "Klasör özellikleri yüklenemedi."
 
+#, fuzzy
 msgid "Could not remove folder from favorites."
-msgstr ""
+msgstr "Klasör favorilerden kaldırılamadı."
 
+#, fuzzy
 msgid "You have insufficient privileges to delete folder."
-msgstr ""
+msgstr "Klasörü silmek için yeterli ayrıcalığa sahip değilsiniz."
 
 msgid "Could not delete folder."
-msgstr ""
+msgstr "Klasör silinemedi."
 
+#, fuzzy
 msgid "You have insufficient privileges to copy folder."
-msgstr ""
+msgstr "Klasörü kopyalamak için yeterli ayrıcalığa sahip değilsiniz."
 
+#, fuzzy
 msgid "Could not copy folder."
-msgstr ""
+msgstr "Klasör kopyalanamadı."
 
+#, fuzzy
 msgid "You have insufficient privileges to move this folder."
-msgstr ""
+msgstr "Bu klasörü taşımak için yeterli ayrıcalığa sahip değilsiniz."
 
+#, fuzzy
 msgid "Could not move folder."
-msgstr ""
+msgstr "Klasör taşınamadı."
 
+#, fuzzy
 msgid "You have insufficient privileges to delete items."
-msgstr ""
+msgstr "Öğeleri silmek için yeterli ayrıcalığa sahip değilsiniz."
 
+#, fuzzy
 msgid "Could not empty folder."
-msgstr ""
+msgstr "Klasör boşaltılamadı."
 
+#, fuzzy
 msgid "Could not perform action correctly."
-msgstr ""
+msgstr "Eylem doğru şekilde gerçekleştirilemedi."
 
+#, fuzzy
 msgid ""
 "A favorite folder with this name already exists, please use another name."
 msgstr ""
+"Bu isimde bir favori klasörü zaten mevcut, lütfen başka bir isim kullanın."
 
+#, fuzzy
 msgid "Could not add folder to favorites."
-msgstr ""
+msgstr "Sık kullanılanlara klasör eklenemedi."
 
+#, fuzzy
 msgid "You have insufficient privileges to set permissions for this folder."
 msgstr ""
+"Bu klasörün izinlerini ayarlamak için yeterli ayrıcalığa sahip değilsiniz."
 
+#, fuzzy
 msgid "Could not set folder permissions."
-msgstr ""
+msgstr "Klasör izinleri ayarlanamadı."
 
+#, fuzzy
 msgid "You have insufficient privileges to rename this folder."
 msgstr ""
+"Bu klasörü yeniden adlandırmak için yeterli ayrıcalığa sahip değilsiniz."
 
+#, fuzzy
 msgid "A folder with this name already exists. Use another name."
-msgstr ""
+msgstr "Bu isimde bir klasör zaten mevcut. Başka bir isim kullanın."
 
+#, fuzzy
 msgid "Could not rename folder."
-msgstr ""
+msgstr "Klasör yeniden adlandırılamadı."
 
+#, fuzzy
 msgid "You have insufficient privileges to create this folder."
-msgstr ""
+msgstr "Bu klasörü oluşturmak için yeterli ayrıcalığa sahip değilsiniz."
 
+#, fuzzy
 msgid "Could not create folder."
-msgstr ""
+msgstr "Klasör oluşturulamadı."
 
+#, fuzzy
 msgid "Could not close shared folder."
-msgstr ""
+msgstr "Paylaşılan klasör kapatılamadı."
 
+#, fuzzy
 msgid "User could not be resolved."
-msgstr ""
+msgstr "Kullanıcı çözümlenemedi."
 
-#, php-format
+#, fuzzy, php-format
 msgid ""
 "You have insufficient privileges to open this %1$s folder. The folder owner "
 "can set these using the 'permissions'-tab of the folder properties (right "
 "click the %1$s folder > properties > permissions)."
 msgstr ""
+"Bu %1$s klasörünü açmak için yeterli ayrıcalığa sahip değilsiniz. Klasör "
+"sahibi bunları klasör özelliklerinin 'izinler' sekmesini kullanarak "
+"ayarlayabilir (%1$s klasörüne sağ tıklayın > özellikler > izinler)."
 
 msgid "unknown"
-msgstr ""
+msgstr "bilinmeyen"
 
+#, fuzzy
 msgid "Could not move folder"
-msgstr ""
+msgstr "Klasör taşınamadı"
 
+#, fuzzy
 msgid "Could not copy folder"
-msgstr ""
+msgstr "Klasör kopyalanamadı"
 
+#, fuzzy
 msgid "You have insufficient privileges to open this message."
-msgstr ""
+msgstr "Bu mesajı açmak için yeterli ayrıcalığa sahip değilsiniz."
 
+#, fuzzy
 msgid ""
 "Could not find message, either it has been moved or deleted or you don't "
 "have access to open this message."
 msgstr ""
+"Mesaj bulunamadı, ya taşındı ya da silindi ya da bu mesajı açmak için "
+"erişiminiz yok."
 
 # 78%
 msgid "Could not open message."
@@ -7734,7 +8389,7 @@ msgstr "Mesaj kaydırılmıyor"
 
 # 81%
 msgid "You have insufficient privileges to save items in this folder"
-msgstr "Bu klasöre öğe kaydetmek için yeterli ayrıcalıklara sahip deyilsiniz."
+msgstr "Bu klasördeki öğeleri kaydetmek için yeterli ayrıcalığınız yok"
 
 # 78%
 msgid "Could not save message"
@@ -7743,34 +8398,34 @@ msgstr "Mesaj kaydedilmedi"
 msgid "You have insufficient privileges to remove item from the calendar."
 msgstr "Bu takvimden öğeyi silmek için yeterli yetkiye sahip değilsiniz."
 
+#, fuzzy
 msgid ""
 "Message is no longer in the outgoing queue, typically because it has already "
 "been sent."
 msgstr ""
+"Mesaj, genellikle zaten gönderilmiş olduğu için artık giden kuyruğunda "
+"değildir."
 
-#, fuzzy
 msgid "Message cannot be aborted"
-msgstr "eklenti etkinleştirilemiyor"
+msgstr "Mesaj iptal edilemiyor"
 
 # 81%
 msgid "You have insufficient privileges to delete items in this folder"
 msgstr "Bu klasörde öğe silmek için yeterli yetkiye sahip değilsiniz"
 
 msgid "You have insufficient privileges to attach item as an attachment."
-msgstr "Eklenti eklemek için yeterli ayrıcalıklara sahip deyilsiniz"
+msgstr "Öğeyi ek olarak eklemek için yeterli ayrıcalığa sahip değilsiniz."
 
 msgid "Could not attach item as an attachment."
-msgstr "Öğe eklenti olarak eklenemedi"
+msgstr "Öğe ek olarak eklenemedi."
 
 msgid ""
 "You have insufficient privileges to reclaim the ownership for the Task "
 "Request."
-msgstr ""
-"Yeniden görev İsteğinin sahibi olmak için yeterli ayrıcalıklara sahip "
-"deyilsiniz"
+msgstr "Görev Talebinin sahipliğini geri almak için yeterli ayrıcalığınız yok."
 
 msgid "Could not reclaim the ownership for the Task Request."
-msgstr "Yeniden görev İsteğinin sahibi olunamıyor"
+msgstr "Görev Talebi için sahiplik geri alınamadı."
 
 # 89%
 msgid "You have insufficient privileges to accept this Task Request."
@@ -7779,19 +8434,18 @@ msgstr ""
 
 # 78%
 msgid "Could not accept Task Request."
-msgstr "Toplantı İsteği kabul edilmiyor"
+msgstr "Görev İsteği kabul edilemedi."
 
 # 89%
 msgid "You have insufficient privileges to decline this Task Request."
-msgstr ""
-"Bu Toplantı isteği reddetmek için yeterli ayrıcalıklara sahip deyilsiniz"
+msgstr "Bu Görev Talebini reddetmek için yeterli ayrıcalığa sahip değilsiniz."
 
 # 79%
 msgid "Could not decline Task Request."
-msgstr "Toplantı isteği reddettilmiyor"
+msgstr "Görev Talebi reddedilemedi."
 
 msgid "Conflicts with another appointment."
-msgstr "bir diğer toplantı ile çelişiyor."
+msgstr "Başka bir randevu ile çakışıyor."
 
 #, fuzzy, php-format
 msgid ""
@@ -7810,166 +8464,221 @@ msgstr "İletiniz, belirtilen alıcıların bazılarına veya tümüne ulaşmad�
 msgid "The following recipient(s) could not be reached"
 msgstr "Aşağıdaki alıcı (lar) ulaşılamadı"
 
+#, fuzzy
 msgid "You have insufficient privileges to see the contents of this folder."
-msgstr ""
+msgstr "Bu klasörün içeriğini görmek için yeterli ayrıcalığa sahip değilsiniz."
 
+#, fuzzy
 msgid "Could not load the contents of this folder."
-msgstr ""
+msgstr "Bu klasörün içeriği yüklenemedi."
 
+#, fuzzy
 msgid ""
 "You have insufficient privileges to perform search operation in this folder."
 msgstr ""
+"Bu klasörde arama işlemi gerçekleştirmek için yeterli ayrıcalığa sahip "
+"değilsiniz."
 
+#, fuzzy
 msgid "Could not update search results."
-msgstr ""
+msgstr "Arama sonuçları güncellenemedi."
 
+#, fuzzy
 msgid "Could not stop search operation."
-msgstr ""
+msgstr "Arama işlemi durdurulamadı."
 
+#, fuzzy
 msgid "You have insufficient privileges to save this message."
-msgstr ""
+msgstr "Bu mesajı kaydetmek için yeterli ayrıcalığa sahip değilsiniz."
 
+#, fuzzy
 msgid "Could not save message."
-msgstr ""
+msgstr "Mesaj kaydedilemedi."
 
+#, fuzzy
 msgid "You have insufficient privileges to delete this message."
-msgstr ""
+msgstr "Bu mesajı silmek için yeterli yetkiye sahip değilsiniz."
 
+#, fuzzy
 msgid "Could not delete message."
-msgstr ""
+msgstr "Mesaj silinemedi."
 
+#, fuzzy
 msgid "You have insufficient privileges to cancel this Meeting Request."
 msgstr ""
+"Bu Toplantı Talebini iptal etmek için yeterli ayrıcalığa sahip değilsiniz."
 
+#, fuzzy
 msgid "Could not cancel Meeting Request."
-msgstr ""
+msgstr "Toplantı Talebi iptal edilemedi."
 
+#, fuzzy
 msgid "You have insufficient privileges to decline this Meeting Request."
 msgstr ""
+"Bu Toplantı Talebini reddetmek için yeterli ayrıcalığa sahip değilsiniz."
 
+#, fuzzy
 msgid "Could not decline Meeting Request."
-msgstr ""
+msgstr "Toplantı Talebi reddedilemedi."
 
+#, fuzzy
 msgid "You have insufficient privileges to accept this Meeting Request."
 msgstr ""
+"Bu Toplantı Talebini kabul etmek için yeterli ayrıcalığa sahip değilsiniz."
 
+#, fuzzy
 msgid "Could not accept Meeting Request."
-msgstr ""
+msgstr "Toplantı Talebi kabul edilemedi."
 
+#, fuzzy
 msgid "You have insufficient privileges to cancel Meeting Request invitation."
 msgstr ""
+"Toplantı Talebi davetini iptal etmek için yeterli ayrıcalığa sahip "
+"değilsiniz."
 
+#, fuzzy
 msgid "Could not cancel Meeting Request invitations."
-msgstr ""
+msgstr "Toplantı Talebi davetleri iptal edilemedi."
 
+#, fuzzy
 msgid "You can not continue search operation on this folder."
-msgstr ""
+msgstr "Bu klasörde arama işlemine devam edemezsiniz."
 
+#, fuzzy
 msgid "Error in search, please try again."
-msgstr ""
+msgstr "Aramada hata oluştu, lütfen tekrar deneyin."
 
+#, fuzzy
 msgid "Error in distribution list expansion."
-msgstr ""
+msgstr "Dağıtım listesi genişletmesinde hata."
 
+#, fuzzy
 msgid "The message store has exceeded its hard quota limit."
-msgstr ""
+msgstr "Mesaj deposu sabit kota sınırını aştı."
 
+#, fuzzy
 msgid ""
 "To reduce the amount of data in this message store, select some items that "
 "you no longer need, delete them and cleanup your Deleted Items folder."
 msgstr ""
+"Bu mesaj deposundaki veri miktarını azaltmak için, artık ihtiyacınız olmayan "
+"bazı öğeleri seçin, silin ve Silinmiş Öğeler klasörünüzü temizleyin."
 
+#, fuzzy
 msgid "The message store has exceeded its soft quota limit."
-msgstr ""
+msgstr "Mesaj deposu yazılım kotası sınırını aştı."
 
+#, fuzzy
 msgid "Could not process request data properly."
-msgstr ""
+msgstr "İstek verileri düzgün işlenemedi."
 
-#, php-format
+#, fuzzy, php-format
 msgid "Unknown action type specified - %s"
-msgstr ""
+msgstr "Bilinmeyen eylem türü belirtildi - %s"
 
+#, fuzzy
 msgid "Cannot snooze the reminder. You may be reminded again."
-msgstr ""
+msgstr "Hatırlatma ertelenemez. Tekrar hatırlatılabilirsiniz."
 
+#, fuzzy
 msgid "Cannot dismiss the reminder. You may be reminded again."
-msgstr ""
+msgstr "Hatırlatmayı iptal edemezsiniz. Tekrar hatırlatılabilirsiniz."
 
+#, fuzzy
 msgid "You have insufficient privileges to perform this action."
-msgstr ""
+msgstr "Bu eylemi gerçekleştirmek için yeterli ayrıcalığa sahip değilsiniz."
 
+#, fuzzy
 msgid "Could not resolve user."
-msgstr ""
+msgstr "Kullanıcı çözümlenemedi."
 
+#, fuzzy
 msgid "Setting mail filters on the stores of other users is not allowed."
 msgstr ""
+"Diğer kullanıcıların mağazalarında posta filtreleri ayarlanmasına izin "
+"verilmez."
 
+#, fuzzy
 msgid "Untitled rule"
-msgstr ""
+msgstr "İsimsiz kural"
 
+#, fuzzy
 msgid "Could not load rules."
-msgstr ""
+msgstr "Kurallar yüklenemedi."
 
+#, fuzzy
 msgid "Could not save rules."
-msgstr ""
+msgstr "Kurallar kaydedilemedi."
 
+#, fuzzy
 msgid "Task Request:"
-msgstr ""
+msgstr "Görev Talebi:"
 
 msgid "Sign in"
-msgstr ""
+msgstr "Giriş Yap"
 
+#, fuzzy
 msgid "File is not imported successfully"
-msgstr ""
+msgstr "Dosya başarıyla içe aktarılmadı"
 
+#, fuzzy
 msgid "There is no contact found in this file."
-msgstr ""
+msgstr "Bu dosyada herhangi bir kişi bulunamamıştır."
 
+#, fuzzy
 msgid ""
 "grommunio Web does not support importing multiple VCF with this version."
 msgstr ""
+"grommunio Web bu sürümde birden fazla VCF'nin içe aktarılmasını desteklemez."
 
+#, fuzzy
 msgid ""
 "grommunio Web does not support importing multiple ICS with this version."
 msgstr ""
+"grommunio Web bu sürümde birden fazla ICS'nin içe aktarılmasını desteklemez."
 
-#, php-format
+#, fuzzy, php-format
 msgid "Unable to import '%s'"
-msgstr ""
+msgstr "'%s' içe aktarılamıyor"
 
+#, fuzzy
 msgid "The EML is not valid"
-msgstr ""
+msgstr "EML geçerli değil"
 
 msgid "GB"
-msgstr ""
+msgstr "GB"
 
 msgid "MB"
-msgstr ""
+msgstr "MB"
 
 msgid "KB"
-msgstr ""
+msgstr "KB"
 
 msgid "B"
-msgstr ""
+msgstr "B"
 
 msgid "The maximum stack depth has been exceeded"
-msgstr ""
+msgstr "Maximum Yükleme Boyutu Aşıldı"
 
+#, fuzzy
 msgid "Control character error, possibly incorrectly encoded"
-msgstr ""
+msgstr "Kontrol karakteri hatası, muhtemelen yanlış kodlanmış"
 
+#, fuzzy
 msgid "Invalid or malformed JSON"
-msgstr ""
+msgstr "Geçersiz veya hatalı biçimlendirilmiş JSON"
 
+#, fuzzy
 msgid "Syntax error"
-msgstr ""
+msgstr "Sözdizimi hatası"
 
 msgid "Malformed UTF-8 characters, possibly incorrectly encoded"
-msgstr ""
+msgstr "Hatalı biçimde kodlanmış, hatalı biçimlendirilmiş UTF-8 karakterleri"
 
-#, php-format
+#, fuzzy, php-format
 msgid "JSON Error: - %s"
-msgstr ""
+msgstr "JSON Hatası: - %s"
 
+#, fuzzy
 msgid "Some problem encountered when encoding/decoding JSON data."
-msgstr ""
+msgstr "JSON verilerini kodlarken/kod çözerken bazı sorunlarla karşılaşıldı."

@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: grommunio Web Hungarian\n"
 "Report-Msgid-Bugs-To: dev@grommunio.com\n"
 "POT-Creation-Date: 2019-09-25 14:32+0200\n"
-"PO-Revision-Date: 2021-12-27 21:50+0000\n"
+"PO-Revision-Date: 2022-07-26 16:08+0200\n"
 "Last-Translator: f3rr31 <5920873@disroot.org>\n"
 "Language-Team: Hungarian <https://hosted.weblate.org/projects/grommunio/"
 "grommunio-web/hu/>\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.10.1\n"
+"X-Generator: Weblate 4.14-dev\n"
 
 #. TRANSLATORS: This message is used as label for the column which indicates the week number of the month in date picker. and 'Wk' stands for week
 msgid "Wk"
@@ -81,25 +81,25 @@ msgid "The quick brown fox jumps over the lazy dog"
 msgstr "Árvíztűrő tükörfúrógép"
 
 msgid "Sunday"
-msgstr "vasárnap"
+msgstr "Vasárnap"
 
 msgid "Monday"
-msgstr "hétfő"
+msgstr "Hétfő"
 
 msgid "Tuesday"
-msgstr "kedd"
+msgstr "Kedd"
 
 msgid "Wednesday"
-msgstr "szerda"
+msgstr "Szerda"
 
 msgid "Thursday"
-msgstr "csütörtök"
+msgstr "Csütörtök"
 
 msgid "Friday"
-msgstr "péntek"
+msgstr "Péntek"
 
 msgid "Saturday"
-msgstr "szombat"
+msgstr "Szombat"
 
 msgid "Sun"
 msgstr "Vas"
@@ -108,7 +108,7 @@ msgid "Mon"
 msgstr "Hét"
 
 msgid "Tue"
-msgstr "kedd"
+msgstr "Kedd"
 
 msgid "Wed"
 msgstr "Szer"
@@ -328,14 +328,12 @@ msgid "This field should only contain letters, numbers and _"
 msgstr "A mező csak betűket, számokat, és _ jelet tartalmazhat"
 
 # 81%
-#, fuzzy
 msgid "Email Addresses"
-msgstr "E-mail címek"
+msgstr "Email címek"
 
 # 75%
-#, fuzzy
 msgid "Email addresses"
-msgstr "E-mail címek"
+msgstr "Email címek"
 
 msgid "Group details"
 msgstr "Csoport részletek"
@@ -379,13 +377,14 @@ msgid "User details"
 msgstr "Felhasználói adatlap"
 
 msgid "First name"
-msgstr ""
+msgstr "Keresztnév"
 
 msgid "Last name"
-msgstr ""
+msgstr "Vezetéknév"
 
+#, fuzzy
 msgid "Initials"
-msgstr ""
+msgstr "Kezdőbetűk"
 
 msgid "Display"
 msgstr "Megjelenő"
@@ -409,7 +408,7 @@ msgid "Country"
 msgstr "Ország"
 
 msgid "Professional"
-msgstr ""
+msgstr "Céges"
 
 msgid "Title"
 msgstr "Titulus"
@@ -481,15 +480,20 @@ msgstr "Választ"
 msgid "Show Details"
 msgstr "Részletek megjelenítése"
 
+#, fuzzy
 msgid "Copy contact"
-msgstr ""
+msgstr "Kapcsolat másolása"
 
+#, fuzzy
 msgid "Copy contacts"
-msgstr ""
+msgstr "Kapcsolattartók másolása"
 
+#, fuzzy
 msgid ""
 "Showing only the first {0} names. Use search to find more specific results."
 msgstr ""
+"Csak az első {0} nevek megjelenítése. Használja a keresést a pontosabb "
+"eredmények megtalálásához."
 
 msgid "Use the search bar to get results"
 msgstr "Használja a keresőt, hogy találatokat kapjon"
@@ -587,8 +591,9 @@ msgstr "Rendezés: Helyszín"
 msgid "Sort by: Fax"
 msgstr "Rendezés: Fax"
 
+#, fuzzy
 msgid "Print single item"
-msgstr ""
+msgstr "Egyetlen elem nyomtatása"
 
 # 78%
 msgid "Print selected item"
@@ -597,8 +602,9 @@ msgstr "Kijelölt elem nyomtatása"
 msgid "Print"
 msgstr "Nyomtatás"
 
+#, fuzzy
 msgid "No item selected"
-msgstr ""
+msgstr "Nincs kiválasztott elem"
 
 msgid "No preview"
 msgstr "Nincs előnézet"
@@ -650,9 +656,8 @@ msgstr "Mappa hozzáadása a kedvencekhez a keresés alapján"
 msgid "Folder name"
 msgstr "Mappa név"
 
-#, fuzzy
 msgid "Select Category"
-msgstr "Kategória beállítása"
+msgstr "Kategória kiválasztása"
 
 msgid "Apply"
 msgstr "Alkalmaz"
@@ -712,19 +717,16 @@ msgstr "Mellékletek"
 msgid "Date"
 msgstr "Dátum"
 
-#, fuzzy
 msgctxt "search.date"
 msgid "From"
-msgstr "Feladó"
+msgstr "Ettől"
 
-#, fuzzy
 msgctxt "search.date"
 msgid "To"
 msgstr "Címzett"
 
-#, fuzzy
 msgid "Filter category.."
-msgstr "Kategória törlése"
+msgstr "Kategória törlése.."
 
 msgid "Search.."
 msgstr "Keresés.."
@@ -765,16 +767,19 @@ msgstr "Keresési eredmények betöltése"
 msgid "Sorting tip"
 msgstr "Rendezési tipp"
 
+#, fuzzy
 msgid ""
 "You can sort by date if you narrow down your search results. Enable filters "
 "or adjust your input."
 msgstr ""
+"Ha szűkíti a keresési eredményeket, dátum szerint is rendezheti. "
+"Engedélyezze a szűrőket, vagy állítsa be a bevitelt."
 
 msgid "Did you mean"
 msgstr "Arra gondolt, hogy"
 
 msgid "With"
-msgstr ""
+msgstr "Ezzel"
 
 msgid "To"
 msgstr "Címzett"
@@ -864,27 +869,35 @@ msgstr "Előfordulás minden {0} érvényes {1}."
 msgid "Occurs every {0} {1} effective {2}."
 msgstr "Ismétlődik minden {0} {1} érvényes {2}."
 
+#, fuzzy
 msgid "Occurs every {0} effective {1} for {2} occurrence from {3} to {4}."
 msgid_plural ""
 "Occurs every {0} effective {1} for {2} occurrences from {3} to {4}."
 msgstr[0] ""
+"Minden {0} tényleges {1} alkalommal {3}-tól {4}-ig {2} előfordulása esetén."
 msgstr[1] ""
+"Minden {0} tényleges {1} alkalommal {3}-tól {4}-ig {2} alkalommal történik."
 
+#, fuzzy
 msgid "Occurs every {0} {1} effective {2} for {3} occurrence from {4} to {5}."
 msgid_plural ""
 "Occurs every {0} {1} effective {2} for {3} occurrences {4} to {5}."
-msgstr[0] ""
+msgstr[0] "Minden {0} {1} hatékony {2} a {3} előfordulásért {4}-től {5}-ig."
 msgstr[1] ""
+"Minden {0} {1} hatékony {2} a {3} {4}-től {5}-ig terjedő előfordulásoknál."
 
+#, fuzzy
 msgid "Occurs every {0} effective {1} for {2} occurrence."
 msgid_plural "Occurs every {0} effective {1} for {2} occurrences."
 msgstr[0] ""
-msgstr[1] ""
+"Minden {0} tényleges {1} alkalommal történik {2} előfordulás esetén."
+msgstr[1] "Minden {0} tényleges {1} alkalommal történik {2} alkalommal."
 
+#, fuzzy
 msgid "Occurs every {0} {1} effective {2} for {3} occurrence."
 msgid_plural "Occurs every {0} {1} effective {2} for {3} occurrences."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Minden {0} {1} hatékony {2} a {3} előforduláshoz."
+msgstr[1] "Minden {0} {1} hatékony {2} a {3} előfordulás esetén."
 
 # Have to look at it in action.
 # 78%
@@ -913,8 +926,9 @@ msgid "When"
 msgstr "Mikor"
 
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
+#, fuzzy
 msgid "l jS F Y {0}"
-msgstr ""
+msgstr "l jS F Y {0}"
 
 msgid "Where"
 msgstr "Hol"
@@ -947,8 +961,9 @@ msgstr "Rendezés: Kezdő dátum szerint"
 msgid "End Date"
 msgstr "Befejezés dátuma"
 
+#, fuzzy
 msgid "Sort by: End Date"
-msgstr ""
+msgstr "Rendezés: Dátum szerint: Végdátum"
 
 msgid "Organizer"
 msgstr "Szervező"
@@ -1047,9 +1062,8 @@ msgstr "Nincs kiválasztott találkozó"
 msgid "Print overview"
 msgstr "Nyomtatási áttekintés"
 
-#, fuzzy
 msgid "Create Appointment"
-msgstr "Magán találkozó"
+msgstr "Foglalás létrehozása"
 
 # 88%
 msgid "Calendar"
@@ -1059,13 +1073,17 @@ msgstr "Naptár"
 msgid "Create in other calendar"
 msgstr "Megtekintés a naptárban"
 
+#, fuzzy
 msgid ""
 "The selected calendar has \"read-only\" permissions. Instead you can create "
 "an item in your own calendar."
 msgstr ""
+"A kiválasztott naptár \"csak olvasási\" jogosultságokkal rendelkezik. "
+"Ehelyett létrehozhat egy elemet a saját naptárában."
 
+#, fuzzy
 msgid "What would you like?"
-msgstr ""
+msgstr "Mit szeretnél?"
 
 #, fuzzy
 msgid "Own calendar"
@@ -1094,24 +1112,25 @@ msgid "Meeting"
 msgstr "Találkozó"
 
 # Have to take a look at it in action.
-#, fuzzy
 msgctxt "calendar.dialog"
 msgid "Resources have been planned"
-msgstr "Erőforrások lefoglalása megtörtént."
+msgstr "Erőforrások lefoglalása megtörtént"
 
 #, fuzzy
 msgid "Send update"
 msgstr "Küldés később"
 
+#, fuzzy
 msgid "Do you want to send an update to all recipients?"
-msgstr ""
+msgstr "Szeretne frissítést küldeni az összes címzettnek?"
 
 msgid "Send update to attendees"
 msgstr "Frissítés küldése a résztvevőknek"
 
+#, fuzzy
 msgid ""
 "You have made changes to the list of attendees. What would you like to do?"
-msgstr ""
+msgstr "Módosította a résztvevők listáját. Mit szeretne tenni?"
 
 msgid "Send updates to only added or deleted attendees."
 msgstr "Frissítés küldése csak a hozzáadott vagy törölt résztvevők részére."
@@ -1207,13 +1226,13 @@ msgstr ""
 "frissíti az értekezletet"
 
 msgid "Create in"
-msgstr "Létrehozás ebben:"
+msgstr "Létrehozás ebben"
 
 msgid "Time"
 msgstr "Idő"
 
 msgid "until"
-msgstr "Vége"
+msgstr "vége"
 
 msgid "Recurrence"
 msgstr "Ismétlődés"
@@ -1233,17 +1252,17 @@ msgstr "A mellékletet nem lehet csak egy előfordulásnál módosítani"
 msgid "Type your message here..."
 msgstr "Írja be üzenetét..."
 
-#, fuzzy
 msgid "Update location"
-msgstr "Lista frissítése"
+msgstr "Hely frissítése"
 
 msgid ""
 "Do you want to update the location \"{0}\" with the new location \"{1}\"?"
 msgstr "Ki akarja cserélni a \"{0}\" helyszínt az új \"{1}\" helyszínnel?"
 
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
+#, fuzzy
 msgid "jS F Y {0}"
-msgstr ""
+msgstr "jS F Y {0}"
 
 # 75%
 msgid "None"
@@ -1268,11 +1287,13 @@ msgstr "Melléklet hozzáadása"
 msgid "Check names"
 msgstr "Nevek ellenőrzése"
 
+#, fuzzy
 msgid "Addressbook"
-msgstr ""
+msgstr "Címjegyzék"
 
+#, fuzzy
 msgid "Open addressbook"
-msgstr ""
+msgstr "Címjegyzék megnyitása"
 
 msgid "Invite attendees"
 msgstr "Résztvevők meghívása"
@@ -1374,9 +1395,8 @@ msgstr ""
 "Ezt az értekezletet elutasította, és a Törölt mappába helyezte. Kíván "
 "megjegyzést fűzni a válaszához?"
 
-#, fuzzy
 msgid "Edit the response before sending"
-msgstr "Válasz szerkesztése elküldés előtt."
+msgstr "Válasz szerkesztése elküldés előtt"
 
 msgid "Send the response now."
 msgstr "Válasz elküldése azonnal."
@@ -1415,8 +1435,9 @@ msgstr "Kijelölt elem másolása"
 msgid "Paste selected item"
 msgstr "Kijelölt elem beillesztése"
 
+#, fuzzy
 msgid "An overview of"
-msgstr ""
+msgstr "A következők áttekintése"
 
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "Start"
@@ -1428,27 +1449,29 @@ msgstr "Vége"
 
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for formatting instructions
+#, fuzzy
 msgid "Printed by"
-msgstr ""
+msgstr "Nyomtatta"
 
 msgid "at"
-msgstr ""
+msgstr "ekkor"
 
 msgid "of"
-msgstr ""
+msgstr "/"
+
+msgid "Location: "
+msgstr "Helyszín: "
 
 #, fuzzy
-msgid "Location: "
-msgstr "Helyszín"
-
 msgid "j M {0}"
-msgstr ""
+msgstr "j M {0}"
 
+#, fuzzy
 msgid "l jS M Y {0}"
-msgstr ""
+msgstr "l jS M Y {0}"
 
 msgid "All day: "
-msgstr ""
+msgstr "Egész nap: "
 
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for formatting instructions
@@ -1484,10 +1507,10 @@ msgstr "Információ érzékenysége"
 msgid "Importance"
 msgstr "Fontosság"
 
-msgid "M j"
-msgstr ""
-
 #, fuzzy
+msgid "M j"
+msgstr "M j"
+
 msgid "j"
 msgstr "j"
 
@@ -1512,8 +1535,9 @@ msgstr "Alapértelmezett találkozó időtartam: {A} perc"
 msgid "Duration must be between 1 and 120 minutes."
 msgstr "Az időtartamnak 1 és 120 perc között kell lennie."
 
+#, fuzzy
 msgid "Default status for all day appointment"
-msgstr ""
+msgstr "Alapértelmezett státusz az egész napos kinevezéshez"
 
 msgid "Working days"
 msgstr "Munkanapok"
@@ -1521,11 +1545,13 @@ msgstr "Munkanapok"
 msgid "Show busy dates as bold in the date picker"
 msgstr "Foglalt dátumokat kiemelten jelenítse meg a dátumválasztóban"
 
-#, fuzzy
 msgid ""
 "Free/Busy information is used by people sending meeting requests, to "
 "determine when you are available for meetings."
-msgstr "Elérhetőségéhez hozzáférhetnek mások, "
+msgstr ""
+"Az elfoglaltsági adatokat az értekezlet-összehívásokat küldő emberek "
+"használják annak meghatározására, hogy Ön mikor áll rendelkezésre a "
+"megbeszélésekre."
 
 #, fuzzy
 msgid "Free/Busy publishing"
@@ -1588,9 +1614,8 @@ msgid "Copy/Move"
 msgstr "Másolás/mozgatás"
 
 # 75%
-#, fuzzy
 msgid "Send to..."
-msgstr "Továbbítás mellékletként"
+msgstr "Továbbítás mellékletként..."
 
 msgid "Export as"
 msgstr "Exportálás mint"
@@ -1675,17 +1700,21 @@ msgstr "Rendezés: Opcionális résztvevő szerint"
 msgid "Sort by: Resources"
 msgstr "Rendezés: Erőforrások szerint"
 
+#, fuzzy
 msgid "Recurring Start Date"
-msgstr ""
+msgstr "Ismétlődő kezdőnap"
 
+#, fuzzy
 msgid "Sort by: Recurring Start Date"
-msgstr ""
+msgstr "Rendezés: Kezdeti dátum szerint: Ismétlődő kezdeti dátum"
 
+#, fuzzy
 msgid "Recurring End Date"
-msgstr ""
+msgstr "Ismétlődő végdátum"
 
+#, fuzzy
 msgid "Sort by: Recurring End Date"
-msgstr ""
+msgstr "Rendezés: Megosztás: Ismétlődő végdátum"
 
 msgid "Recurring Pattern"
 msgstr "Ismétlődési minta"
@@ -1704,47 +1733,63 @@ msgid "Loading appointments"
 msgstr "Találkozók betöltése"
 
 msgid "Attendees"
-msgstr ""
+msgstr "Résztvevők"
 
+#, fuzzy
 msgid "Optional attendees"
-msgstr ""
+msgstr "Fakultatív résztvevők"
 
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
+#, fuzzy
 msgid "jS F {0}"
-msgstr ""
+msgstr "jS F {0}"
 
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "jS F Y"
 msgstr "Y. F j"
 
+#, fuzzy
 msgid ""
 "You have insufficient privileges to move and copy this item. Ask the folder "
 "owner to grant you permissions or contact your system administrator."
 msgstr ""
+"Nincs elegendő jogosultsága az elem mozgatásához és másolásához. Kérje meg a "
+"mappa tulajdonosát, hogy adjon engedélyeket, vagy forduljon a "
+"rendszergazdához."
 
+#, fuzzy
 msgid ""
 "You have insufficient privileges to copy this item. Ask the folder owner to "
 "grant you permissions or contact your system administrator."
 msgstr ""
+"Nincs elegendő jogosultsága az elem másolásához. Kérje meg a mappa "
+"tulajdonosát, hogy adjon engedélyeket, vagy forduljon a rendszergazdához."
 
 msgid "Insufficient privileges"
 msgstr "Nincs elég jogosultsága"
 
+#, fuzzy
 msgid ""
 "Copying this appointment will unset it as private. Are you sure you want to "
 "continue?"
 msgstr ""
+"A kinevezés másolásával a kinevezés nem lesz magánjellegű. Biztos, hogy "
+"folytatni szeretné?"
 
+#, fuzzy
 msgid "Private item"
-msgstr ""
+msgstr "Magántétel"
 
 msgid "Copy"
 msgstr "Másolás"
 
+#, fuzzy
 msgid ""
 "Moving this appointment will unset it as private. Are you sure you want to "
 "continue?"
 msgstr ""
+"A kinevezés áthelyezésével ez a kinevezés nem lesz magánjellegű. Biztos, "
+"hogy folytatni szeretné?"
 
 msgid "Move"
 msgstr "Áthelyezés"
@@ -1753,8 +1798,9 @@ msgstr "Áthelyezés"
 msgid "Update recipients"
 msgstr "Címzett szerkesztése"
 
+#, fuzzy
 msgid "The time of the meeting has changed. What would you like to do?"
-msgstr ""
+msgstr "A találkozó időpontja megváltozott. Mit szeretnél csinálni?"
 
 msgid "Save changes and send an update to all recipients"
 msgstr "Változások elmentése, és frissítés elküldése a résztvevőknek"
@@ -1765,20 +1811,20 @@ msgstr "Értekezlet meghívó megnyitása a változásokkal"
 msgid "grommunio Web"
 msgstr "grommunio Web"
 
-#, fuzzy
 msgid ""
 "Please note that any changes you make will be overwritten when this meeting "
 "request is updated by the organizer. Would you like to move this meeting?"
 msgstr ""
-"Bármely most végbevitt változtatás felülíródik, ha az értekezlet szervezője "
-"frissíti az értekezletet"
+"Kérjük, vegye figyelembe, hogy az Ön által végrehajtott módosítások "
+"felülíródnak, amikor a szervező frissíti az értekezlet-összehívást. Szeretné "
+"áthelyezni ezt a találkozót?"
+
+msgid "Don't move"
+msgstr "Ne mozdulj"
 
 #, fuzzy
-msgid "Don't move"
-msgstr "Ne Küldje"
-
 msgid "Switch to day view to see all appointments"
-msgstr ""
+msgstr "Váltson át a napi nézetre az összes találkozó megtekintéséhez"
 
 #. TRANSLATORS: This message is used as label for the field which to indicates to whom the given mail was sent.
 msgctxt "mail.previewpanel"
@@ -1806,44 +1852,47 @@ msgstr ""
 "A naptára automatikusan frissítésre került. A találkozási kérelem most "
 "törlésre kerül."
 
-#, fuzzy
 msgid "Loading appointments..."
-msgstr "Találkozók betöltése"
+msgstr "Találkozók betöltése..."
 
+#, fuzzy
 msgid "Please select a calendar via widget settings"
-msgstr ""
+msgstr "Kérjük, válasszon ki egy naptárat a widget beállításain keresztül"
 
+#, fuzzy
 msgid "Number of days"
-msgstr ""
+msgstr "Napok száma"
 
 msgid "day(s)"
 msgstr "nap múlva"
 
+#, fuzzy
 msgid "{0}"
-msgstr ""
+msgstr "{0}"
+
+msgid "Upcoming Appointments"
+msgstr "Következő időpontok"
 
 #, fuzzy
-msgid "Upcoming Appointments"
-msgstr "Találkozók betöltése"
-
 msgid "Appointments of {0}"
-msgstr ""
+msgstr "A {0} kinevezések"
 
+#, fuzzy
 msgid "Appointments of {0} - {1}"
-msgstr ""
+msgstr "{0} - {1} kinevezések"
 
 # 93%
 # 100%
-#, fuzzy
 msgid "No appointments"
-msgstr "Új találkozó"
+msgstr "Nincsenek időpontfoglalások"
 
 #, fuzzy
 msgid "Today {0} - {1}"
 msgstr "Ma: {1} {0}"
 
+#, fuzzy
 msgid "Today (all day)"
-msgstr ""
+msgstr "Ma (egész nap)"
 
 # 80%
 # 100%
@@ -1853,11 +1902,13 @@ msgstr ""
 msgid "{0} - {1}"
 msgstr "{1} - {0}"
 
+#, fuzzy
 msgid "d/m/y {0}"
-msgstr ""
+msgstr "d/m/y {0}"
 
+#, fuzzy
 msgid "{0} - {1} (all day)"
-msgstr ""
+msgstr "{0} - {1} (egész nap)"
 
 #, fuzzy
 msgid "d/m/y"
@@ -1934,13 +1985,17 @@ msgstr "Ennek az előfordulásnak a megnyitása"
 msgid "Open the series"
 msgstr "Sorozat megnyitása"
 
+#, fuzzy
 msgid "Paste Recurring {0}"
-msgstr ""
+msgstr "Ismétlődő beillesztés {0}"
 
+#, fuzzy
 msgid ""
 "This is a recurring {0}. Do you want to paste only this occurrence or the "
 "series?"
 msgstr ""
+"Ez egy visszatérő {0}. Csak ezt az eseményt vagy az egész sorozatot szeretné "
+"beilleszteni?"
 
 msgid "message"
 msgstr "üzenet"
@@ -1951,11 +2006,13 @@ msgstr "értekezlet-összehívás"
 msgid "appointment"
 msgstr "találkozó"
 
+#, fuzzy
 msgid "Paste this occurrence only"
-msgstr ""
+msgstr "Csak ezt az eseményt illessze be"
 
+#, fuzzy
 msgid "Paste the series..."
-msgstr ""
+msgstr "Beilleszteni a sorozatot..."
 
 msgid ""
 "This is a recurring message. Do you want to delete only this occurrence or "
@@ -2010,8 +2067,11 @@ msgstr "Törlés küldés nélkül"
 msgid "Insufficient permissions"
 msgstr "Nincs elég jogosultsága"
 
+#, fuzzy
 msgid "You have insufficient privileges to delete items in this folder."
 msgstr ""
+"Nem rendelkezik elegendő jogosultsággal az ebben a mappában lévő elemek "
+"törléséhez."
 
 #, fuzzy
 msgid "Notify recipients"
@@ -2047,9 +2107,8 @@ msgstr "Címzett szerkesztése"
 msgid "Duplicate recipient"
 msgstr "Címzett szerkesztése"
 
-#, fuzzy
 msgid "Recipient already exists."
-msgstr "A felhasználó már létezik"
+msgstr "A felhasználó már létezik."
 
 # 77%
 #, fuzzy
@@ -2067,28 +2126,36 @@ msgstr ""
 msgid "Import"
 msgstr "Importálás"
 
+#, fuzzy
 msgid "Successfully imported item(s) to {0}"
-msgstr ""
+msgstr "Sikeresen importált elem(ek) {0}"
 
+#, fuzzy
 msgid "Failed to import item(s) to {0}"
-msgstr ""
+msgstr "Nem sikerült importálni a tétel(eke)t a {0}-be"
 
 #, fuzzy
 msgid "Import error"
 msgstr "Importálás ebbe"
 
+#, fuzzy
 msgid "Unable to import \"{0}\". The file is not valid"
-msgstr ""
+msgstr "Nem sikerült importálni a \"{0}\" fájlt. A fájl nem érvényes"
 
+#, fuzzy
 msgid ""
 "You have insufficient privileges to move these items. Would you like to copy "
 "instead?"
 msgstr ""
+"Nem rendelkezik elegendő jogosultsággal ahhoz, hogy ezeket az elemeket "
+"áthelyezze. Szeretne inkább másolni?"
 
+#, fuzzy
 msgid ""
 "You have insufficient privileges to move this item. Would you like to copy "
 "instead?"
 msgstr ""
+"Nincs elegendő jogosultsága az elem mozgatásához. Szeretne inkább másolni?"
 
 # 100%
 msgid "Cc"
@@ -2167,15 +2234,21 @@ msgstr "Összes letöltése ZIP-ként"
 msgid "Import to folder"
 msgstr "Importálás mappába"
 
+#, fuzzy
 msgid ""
 "In order to use the vCard import feature, upgrade your Gromox to version 0 "
 "or higher."
 msgstr ""
+"A vCard importálási funkció használatához frissítse a Gromoxot a 0. vagy "
+"magasabb verzióra."
 
+#, fuzzy
 msgid ""
 "In order to use the ICS / VCS import feature, upgrade your Gromox to version "
 "0 or higher."
 msgstr ""
+"Az ICS / VCS importálási funkció használatához frissítse a Gromoxot a 0 vagy "
+"magasabb verzióra."
 
 msgid "Attachment error"
 msgstr "Csatolmány hiba"
@@ -2184,8 +2257,9 @@ msgid "Cannot create ZIP, The allowed maximum size is 30 MB."
 msgstr ""
 "Nem sikerült létrehozni a ZIP-fájlt, a maximális megengedett méret 30 MB."
 
+#, fuzzy
 msgid "Unable to download"
-msgstr ""
+msgstr "Letöltés nem lehetséges"
 
 msgid "Picture format is not supported. "
 msgstr "Nem támogatott képformátum. "
@@ -2207,52 +2281,68 @@ msgstr "Új"
 msgid "Delete Category"
 msgstr "Kategória törlése"
 
+#, fuzzy
 msgid ""
 "Are you sure you want to delete the category \"{0}\"? Other items keep this "
 "category, but lose the assigned color."
 msgstr ""
+"Biztos, hogy törölni szeretné a \"{0}\" kategóriát? A többi elem megtartja "
+"ezt a kategóriát, de elveszíti a hozzárendelt színt."
 
 msgid "Rename Category"
 msgstr "Kategória átnevezése"
 
+#, fuzzy
 msgid "A category named \""
-msgstr ""
+msgstr "A kategória neve \""
 
 msgid "Create New Category"
 msgstr "Kategória létrehozása"
 
+#, fuzzy
 msgid "Pin to quick access"
-msgstr ""
+msgstr "Pin a gyors hozzáféréshez"
 
 msgid "Create"
 msgstr "Létrehoz"
 
+#, fuzzy
 msgid ""
 "You must apply the changes you have made to the categories before you can "
 "create this category."
 msgstr ""
+"A kategória létrehozása előtt alkalmaznia kell a kategóriákon elvégzett "
+"módosításokat."
 
+#, fuzzy
 msgid "You already have a category named '{0}'. Please use another name."
-msgstr ""
+msgstr "Már van egy '{0}' nevű kategóriája. Kérjük, használjon másik nevet."
 
+#, fuzzy
 msgid ""
 "You already have a category named '{0}' in your pending changes. Please use "
 "another name."
 msgstr ""
+"Már van egy '{0}' nevű kategória a függőben lévő módosítások között. Kérjük, "
+"használjon másik nevet."
 
 msgid "Rename"
 msgstr "Átnevezés"
 
+#, fuzzy
 msgid "This is the first time you have used \"{0}\" category."
-msgstr ""
+msgstr "Ez az első alkalom, hogy a \"{0}\" kategóriát használja."
 
 msgid "Do you want to rename it?"
 msgstr "Biztosan át akarja nevezni?"
 
+#, fuzzy
 msgid ""
 "The category \"{0}\" already exists. Do you want to merge the \"{1}\" and "
 "\"{2}\" categories?"
 msgstr ""
+"A \"{0}\" kategória már létezik. Össze szeretné vonni a \"{1}\" és \"{2}\" "
+"kategóriákat?"
 
 msgid "Merge"
 msgstr "Összevon"
@@ -2336,13 +2426,18 @@ msgstr "Meghatalmazottak betöltése"
 msgid "Please select a delegate."
 msgstr "Kérem válasszon meghatalmazottat."
 
+#, fuzzy
 msgid "Delegates can send items on your behalf."
-msgstr ""
+msgstr "A küldöttek az Ön nevében is küldhetnek tárgyakat."
 
+#, fuzzy
 msgid ""
 "If you only want to set folder permissions, right-click on a folder to open "
 "the context menu and click on \"Share Folder...\""
 msgstr ""
+"Ha csak a mappaengedélyeket szeretné beállítani, kattintson a jobb gombbal a "
+"mappára a kontextusmenü megnyitásához, és kattintson a \"Mappa megosztása..."
+"\" gombra"
 
 # 90%
 msgid "Permission"
@@ -2372,30 +2467,39 @@ msgstr[1] "{0} üzenet kiválasztva."
 msgid "Folder '{0}' selected."
 msgstr "'{0}' mappa kiválasztva."
 
+#, fuzzy
 msgid ""
 "You have insufficient privileges to move this folder. Ask the folder owner "
 "to grant you permissions or contact your system administrator."
 msgstr ""
+"Nincs elegendő jogosultsága a mappa áthelyezéséhez. Kérje meg a mappa "
+"tulajdonosát, hogy adjon engedélyeket, vagy forduljon a rendszergazdához."
 
+#, fuzzy
 msgid ""
 "You have insufficient privileges to copy this folder. Ask the folder owner "
 "to grant you permissions or contact your system administrator."
 msgstr ""
+"Nincs elegendő jogosultsága a mappa másolásához. Kérje meg a mappa "
+"tulajdonosát, hogy adjon engedélyeket, vagy forduljon a rendszergazdához."
 
+#, fuzzy
 msgid "You have insufficient privileges to move following items."
-msgstr ""
+msgstr "Nincs elegendő jogosultsága a következő elemek mozgatásához."
 
 msgid "Subject:"
-msgstr ""
+msgstr "Tárgy:"
 
+#, fuzzy
 msgid "Would you like to copy instead?"
-msgstr ""
+msgstr "Szeretne inkább másolni?"
 
 msgid "Do not show this message again."
 msgstr "Ne mutassa ezt az üzenetet többet."
 
+#, fuzzy
 msgid "ICS"
-msgstr ""
+msgstr "ICS"
 
 msgid "Set custom flag"
 msgstr "Egyedi jelölő beállítása"
@@ -2560,17 +2664,21 @@ msgstr ""
 msgid "Add/Edit Cc recipient"
 msgstr "Címzett szerkesztése"
 
+#, fuzzy
 msgid "Disable for new mail"
-msgstr ""
+msgstr "Letiltás új levelek esetén"
 
+#, fuzzy
 msgid "Enable for new mail"
-msgstr ""
+msgstr "Engedélyezés új levelek esetén"
 
+#, fuzzy
 msgid "Disable for replies"
-msgstr ""
+msgstr "Letiltás válaszok esetén"
 
+#, fuzzy
 msgid "Enable for replies"
-msgstr ""
+msgstr "Engedélyezés a válaszok számára"
 
 #, fuzzy
 msgid "No Cc recipient configured"
@@ -2590,27 +2698,31 @@ msgid "New Mail"
 msgstr "Új levél"
 
 # 80%
-#, fuzzy
 msgid "Please select a Cc recipient record."
-msgstr "Kérjem válasszon címzettet"
+msgstr "Kérjem válasszon címzettet."
 
 #, fuzzy
 msgid "Manage Cc recipients"
 msgstr "Címzett szerkesztése"
 
+#, fuzzy
 msgid ""
 "Cc recipients can be used to set a default Cc user in new mail, replies or "
 "both."
 msgstr ""
+"A Cc címzettek beállításával beállítható egy alapértelmezett Cc felhasználó "
+"az új levelekben, válaszokban vagy mindkettőben."
 
 msgid "Help"
 msgstr "Súgó"
 
+#, fuzzy
 msgid "Web Manual"
-msgstr ""
+msgstr "Webes kézikönyv"
 
+#, fuzzy
 msgid "Item data"
-msgstr ""
+msgstr "A tétel adatai"
 
 msgid "INSERT"
 msgstr "INSERT"
@@ -2621,8 +2733,9 @@ msgstr "Rendezés: tartalom.levél.rácsalapértelmezettoszlop"
 msgid "ZDeveloper"
 msgstr "ZDeveloper"
 
+#, fuzzy
 msgid "grommunio Web print"
-msgstr ""
+msgstr "grommunio Web print"
 
 # 91%
 msgid "Display name"
@@ -2660,8 +2773,9 @@ msgstr "Email küldése"
 msgid "Delete recipient from suggestion list"
 msgstr "Címzett törlése a javaslatok listájáról"
 
+#, fuzzy
 msgid "Copy all email addresses"
-msgstr ""
+msgstr "Minden e-mail cím másolása"
 
 msgid "View recipient"
 msgstr "Címzett megtekintése"
@@ -2975,23 +3089,22 @@ msgstr "címzettjei (To: Cc:) között szerepelek"
 msgid "has my name in the To or Cc field"
 msgstr "címzettjei (To: Cc:) között szerepelek"
 
-#, fuzzy
 msgid "has sensitivity..."
-msgstr "információinak érzékenysége"
+msgstr "információinak érzékenysége..."
 
-#, fuzzy
 msgid "is received after..."
-msgstr "később érkezett mint"
+msgstr "később érkezett mint..."
+
+msgid "is received before..."
+msgstr "korábban érkezett mint..."
 
 #, fuzzy
-msgid "is received before..."
-msgstr "korábban érkezett mint"
-
 msgid "size is at least..."
-msgstr ""
+msgstr "mérete legalább..."
 
+#, fuzzy
 msgid "size is at most..."
-msgstr ""
+msgstr "mérete legfeljebb..."
 
 msgid "has my name in the To field"
 msgstr "nekem lett címezve"
@@ -3036,12 +3149,12 @@ msgid "Do the following"
 msgstr "Tegye a következőket"
 
 # 75%
-#, fuzzy
 msgid "Exceptions"
-msgstr "Lehetőségek"
+msgstr "Kivételek"
 
+#, fuzzy
 msgid "Apply only when Out of Office is active"
-msgstr ""
+msgstr "Csak akkor alkalmazható, ha a Hivatalon kívül aktív"
 
 msgid "Stop processing more rules"
 msgstr "Állítsa meg a többi szabály feldolgozását"
@@ -3100,17 +3213,21 @@ msgstr "A szabály már a legmagasabb prioritású."
 msgid "Rule already has lowest priority."
 msgstr "A szabály már a legalacsonyabb prioritású."
 
+#, fuzzy
 msgid "Always move messages from {0}"
-msgstr ""
+msgstr "Az üzeneteket mindig a {0}"
 
+#, fuzzy
 msgid "Always move messages that are sent to <recipients>"
-msgstr ""
+msgstr "A következő címre küldött üzeneteket mindig áthelyezi <recipients>"
 
+#, fuzzy
 msgid "Always move messages with this subject"
-msgstr ""
+msgstr "Az ilyen tárgyú üzeneteket mindig áthelyezzük"
 
+#, fuzzy
 msgid "Create rule..."
-msgstr ""
+msgstr "Szabály létrehozása..."
 
 msgid "myself"
 msgstr "saját magam"
@@ -3119,7 +3236,7 @@ msgid "Update rules for"
 msgstr "Szabályok kezelése a következő felhasználó számára"
 
 msgid "Apply changes"
-msgstr ""
+msgstr "A változtatások elfogadása"
 
 msgid "Do you wish to apply the changes?"
 msgstr "Kívánja alkalmazni a változásokat?"
@@ -3137,31 +3254,38 @@ msgstr "Keresés.."
 msgid "Folder does not exist"
 msgstr "Mappa tartalmaz"
 
+#, fuzzy
 msgid ""
 "The folder you are searching through no longer exists. Please select another "
 "folder"
-msgstr ""
+msgstr "A keresett mappa már nem létezik. Kérjük, válasszon másik mappát"
 
 msgid "Add/Edit sender"
 msgstr "Küldő hozzáadása/módosítása"
 
+#, fuzzy
 msgid "No from addresses configured"
-msgstr ""
+msgstr "Nincsenek konfigurált from címek"
 
+#, fuzzy
 msgid "Loading from addresses"
-msgstr ""
+msgstr "Betöltés címekről"
 
+#, fuzzy
 msgid "Forward Mail"
-msgstr ""
+msgstr "Levél továbbítása"
 
+#, fuzzy
 msgid "Please select a from address record."
-msgstr ""
+msgstr "Kérjük, válasszon egy címrekordot."
 
+#, fuzzy
 msgid "Add/Edit From recipient"
-msgstr ""
+msgstr "Hozzáadás/módosítás Címzettől"
 
+#, fuzzy
 msgid "Manage the recipients used in the 'From' field"
-msgstr ""
+msgstr "A \"Címzett\" mezőben használt címzettek kezelése"
 
 msgid "View"
 msgstr "Nézet"
@@ -3176,38 +3300,47 @@ msgstr "Megbízottak"
 msgid "Delegate settings"
 msgstr "Meghatalmazottak beállításai"
 
+#, fuzzy
 msgid "Desktop Notifications Settings"
-msgstr ""
+msgstr "Asztali értesítések beállításai"
 
+#, fuzzy
 msgid "We need permissions to enable desktop notifications."
-msgstr ""
+msgstr "Az asztali értesítések engedélyezéséhez engedélyekre van szükségünk."
 
+#, fuzzy
 msgid "Request Permissions"
-msgstr ""
+msgstr "Engedélyek kérése"
 
+#, fuzzy
 msgid "Enable desktop notifications for new mail"
-msgstr ""
+msgstr "Az asztali értesítések engedélyezése az új levelekről"
 
+#, fuzzy
 msgid "Enable desktop notifications for reminders"
-msgstr ""
+msgstr "Az asztali értesítések engedélyezése az emlékeztetőkhöz"
 
+#, fuzzy
 msgid "{A} Auto hide desktop notification after second(s) {B}"
-msgstr ""
+msgstr "{A} Asztali értesítés automatikus elrejtése másodperc(ek) után {B}"
 
+#, fuzzy
 msgid "Disable sound"
-msgstr ""
+msgstr "Hang kikapcsolása"
 
 msgid "Notifications"
-msgstr ""
+msgstr "Értesítések"
 
 msgid "Rules"
 msgstr "Szabályok"
 
+#, fuzzy
 msgid "From Addresses"
-msgstr ""
+msgstr "Címekről"
 
+#, fuzzy
 msgid "From Addresses settings"
-msgstr ""
+msgstr "Címek beállításai"
 
 # 88%
 # 100%
@@ -3228,8 +3361,9 @@ msgstr "Weboldal"
 msgid "IM Address"
 msgstr "IM cím"
 
+#, fuzzy
 msgid "D, d-m-Y, {0}"
-msgstr ""
+msgstr "D, d-m-Y, {0}"
 
 # 76%
 msgid "{0} selected row"
@@ -3237,8 +3371,9 @@ msgid_plural "{0} selected rows"
 msgstr[0] "{0} kiválasztott sor"
 msgstr[1] "{0} kiválasztott sor"
 
+#, fuzzy
 msgid "Reminder is set on: {0}, {1}"
-msgstr ""
+msgstr "Az emlékeztető be van kapcsolva: {0}, {1}"
 
 msgid "d-m-Y"
 msgstr "Y-m-d"
@@ -3246,11 +3381,13 @@ msgstr "Y-m-d"
 msgid "l d/m/Y"
 msgstr "l Y/m/d"
 
+#, fuzzy
 msgid "l d/m/Y {0}"
-msgstr ""
+msgstr "l d/m/Y {0}"
 
+#, fuzzy
 msgid "d-m-Y {0}"
-msgstr ""
+msgstr "d-m-Y {0}"
 
 msgid "Unknown"
 msgstr "Ismeretlen"
@@ -3265,8 +3402,9 @@ msgstr "{0} lejárt"
 msgid "Loading..."
 msgstr "Betöltés..."
 
+#, fuzzy
 msgid "Message could not be loaded"
-msgstr ""
+msgstr "Az üzenet nem tölthető be"
 
 # 100%
 #. TRANSLATORS: This message is used as label for the field which indicates which attachments are inside the message
@@ -3300,11 +3438,15 @@ msgctxt "mail.previewpanel"
 msgid "Please treat this as {0}."
 msgstr "Kérem kezelje ezt, mint {0}."
 
+#, fuzzy
 msgctxt "mail.previewpanel"
 msgid ""
 "Click here to download pictures. To help protect your privacy, grommunio Web "
 "prevented automatic download of some pictures in this message."
 msgstr ""
+"Kattintson ide a képek letöltéséhez. A magánélet védelme érdekében a "
+"grommunio Web megakadályozta néhány kép automatikus letöltését ebben az "
+"üzenetben."
 
 msgctxt "mail.previewpanel"
 msgid ""
@@ -3434,16 +3576,16 @@ msgstr "Utolsó frissítés kiküldve: {0}."
 msgid "{0} has updated on behalf of {1} {2}."
 msgstr "{0} elfogadta {2} {1} nevében."
 
-#, fuzzy
 msgid "Fix message"
-msgstr "üzenet"
+msgstr "Üzenet javítása"
 
 msgid ""
 "We are going to try to fix a corrupted mail message, do you wish to continue?"
 msgstr "Sérült üzenet javítása, kívánja folytatni?"
 
+#, fuzzy
 msgid "The matching task was not found in your task list."
-msgstr ""
+msgstr "A megfelelő feladatot nem találtuk a feladatlistában."
 
 # 100%
 msgctxt "mail.previewpanel"
@@ -3482,23 +3624,21 @@ msgstr "Nincs"
 msgid "Pop-out"
 msgstr "Pop-Out"
 
-#, fuzzy
 msgid "Mark as read"
-msgstr "Megjelölés olvasatlanként"
+msgstr "Megjelölés olvasottként"
 
-#, fuzzy
 msgid "Mark as unread"
 msgstr "Megjelölés olvasatlanként"
 
 msgid "in"
-msgstr ""
+msgstr "ban/ben"
 
 # Gyökééééér... :D
 msgid "Root"
 msgstr "Legfelső szint"
 
 msgid "Datepicker"
-msgstr ""
+msgstr "Dátumválasztó"
 
 msgid "File As"
 msgstr "Fájl, mint"
@@ -3758,29 +3898,25 @@ msgid "Add Attachment"
 msgstr "Melléklet hozzáadása"
 
 # 81%
-#, fuzzy
 msgid "Add attachments to this contact"
-msgstr "Mellékletek hozzáadása a névjegyhez."
+msgstr "Mellékletek hozzáadása a névjegyhez"
 
 # 75%
-#, fuzzy
 msgid "Mark this contact as private"
-msgstr "Jelölje meg a névjegyet személyesként."
+msgstr "Jelölje meg a névjegyet személyesként"
 
 msgid "Distribution List"
 msgstr "Terjesztési lista"
 
-#, fuzzy
 msgid "Mark this Distribution list as private"
-msgstr "Jelölje meg a terjesztési listát személyesként."
+msgstr "Jelölje meg a terjesztési listát személyesként"
 
 #, fuzzy
 msgid "New email address"
 msgstr "Új e-mail cím"
 
-#, fuzzy
 msgid "Please enter a valid email address"
-msgstr "Kérem adjon meg valós e-mail címet!"
+msgstr "Kérjük, adjon meg egy érvényes e-mail címet"
 
 msgid "Select Members"
 msgstr "Tagok kiválasztása"
@@ -3810,21 +3946,27 @@ msgstr "E-mail 3 megjelenítés, mint"
 msgid "Loading contacts"
 msgstr "Kapcsolatok betöltése"
 
+#, fuzzy
 msgid ""
 "There are no items to show in this list. Update the filter for more results."
 msgstr ""
+"Ebben a listában nincsenek megjelenítendő elemek. Frissítse a szűrőt a "
+"további eredményekért."
 
+#, fuzzy
 msgid "[Group]"
-msgstr ""
+msgstr "[Csoport]"
 
+#, fuzzy
 msgid "Work:"
-msgstr ""
+msgstr "Munka:"
 
+#, fuzzy
 msgid "Primary:"
-msgstr ""
+msgstr "Elsődleges:"
 
 msgid "Mobile:"
-msgstr ""
+msgstr "Mobil:"
 
 msgid "Sort by: Full Name"
 msgstr "Rendezés: Teljes név"
@@ -3854,7 +3996,7 @@ msgid "Office Location"
 msgstr "Iroda hely"
 
 msgid "Sort by: Office Location"
-msgstr "rendezés: Iroda hely"
+msgstr "Rendezés: Iroda hely"
 
 msgid "Sort by: Profession"
 msgstr "Rendezés: Szakma"
@@ -4121,7 +4263,7 @@ msgid "Lime"
 msgstr "Lime"
 
 msgid "Magenta"
-msgstr ""
+msgstr "Magenta"
 
 msgid "Orange"
 msgstr "Narancs"
@@ -4136,13 +4278,11 @@ msgid "Switch view"
 msgstr "Nézet változtatása"
 
 # There's no synonim for Widget in Hungarian language.
-#, fuzzy
 msgid "Widgets"
-msgstr "Beépülő modul hozzáadása"
+msgstr "Widgetek"
 
-#, fuzzy
 msgid "Sending..."
-msgstr "Küldés"
+msgstr "Küldés..."
 
 msgid "Sent successfully"
 msgstr "Sikeresen elküldve"
@@ -4174,9 +4314,8 @@ msgstr "Ne Küldje"
 msgid "Send Anyway"
 msgstr "Küldés Mindenképp"
 
-#, fuzzy
 msgid "No subject"
-msgstr "nincs tárgy"
+msgstr "Nincs tárgy"
 
 msgid "Send this message without a subject?"
 msgstr "Üzenet küldése tárgy nélkül?"
@@ -4201,9 +4340,8 @@ msgstr "Mappák listája"
 msgid "Copy Details"
 msgstr "Részletek megjelenítése"
 
-#, fuzzy
 msgid "Hide Details"
-msgstr "Részletek"
+msgstr "Részletek rejtése"
 
 # 86%
 # 100%
@@ -4231,30 +4369,24 @@ msgstr ""
 msgid "grommunio Content Panel"
 msgstr "grommunio Content Panel"
 
-#, fuzzy
 msgid "Delete item"
-msgstr "Elemek törlése"
+msgstr "Elem törlése"
 
 msgid "This item has been changed. Are you sure you want to delete it?"
 msgstr "Ez az elem megváltozott. Biztosan törölni akarja?"
 
 msgid "Unsaved changes"
-msgstr ""
+msgstr "Nem mentett változások"
 
+#, fuzzy
 msgid "Welcome to grommunio Web"
-msgstr ""
+msgstr "Üdvözöljük a grommunio Web"
 
-#, fuzzy
 msgid "This is the first time you are using grommunio Web. "
-msgstr ""
-"Ön először használja a grommunio Webot. <br />Kérem, a folytatás előtt "
-"ellenőrizze az alábbiakat."
+msgstr "Ön először használja a grommunio Webot. "
 
-#, fuzzy
 msgid "Please check the following settings before continuing."
-msgstr ""
-"Ön először használja a grommunio Webot. <br />Kérem, a folytatás előtt "
-"ellenőrizze az alábbiakat."
+msgstr "Kérem, a folytatás előtt ellenőrizze az alábbiakat."
 
 # There's no synonim for Widget in Hungarian language.
 #, fuzzy
@@ -4262,7 +4394,7 @@ msgid "Widget height"
 msgstr "Beépülő modul hozzáadása"
 
 msgid "pixels"
-msgstr ""
+msgstr "pixel"
 
 msgid "Configure widget"
 msgstr "Widget beállítása"
@@ -4270,13 +4402,11 @@ msgstr "Widget beállítása"
 msgid "Reload interval"
 msgstr "Újratöltési intervallum"
 
-#, fuzzy
 msgid "seconds"
-msgstr "másodperc."
+msgstr "másodperc"
 
-#, fuzzy
 msgid "Open in new tab"
-msgstr "Megnyitás új ablakban"
+msgstr "Megnyitás új lapon"
 
 # There's no synonim for Widget in Hungarian language.
 msgid "Add widgets"
@@ -4285,9 +4415,8 @@ msgstr "Beépülő modul hozzáadása"
 msgid "No widgets installed."
 msgstr "Nincs beépülő modul telepítve."
 
-#, fuzzy
 msgid "Remove widget"
-msgstr "Kép eltávolítása"
+msgstr "Widget eltávolítása"
 
 #, fuzzy
 msgid "Collapse widget"
@@ -4297,8 +4426,9 @@ msgstr "Beépülő modul panel összezárása"
 msgid "Expand widget"
 msgstr "Beépülő modul panel szétnyitása"
 
+#, fuzzy
 msgid "About this widget"
-msgstr ""
+msgstr "Erről a widgetről"
 
 # There's no synonim for Widget in Hungarian language.
 #, fuzzy
@@ -4314,8 +4444,9 @@ msgstr "Beépülő modul panel szétnyitása"
 msgid "Your changes will be lost if you leave this page now."
 msgstr "A változtatásai elvesznek, ha most elhagyja ezt az oldalt."
 
+#, fuzzy
 msgid "D {0}"
-msgstr ""
+msgstr "D {0}"
 
 #, fuzzy
 msgid "D d-m"
@@ -4356,9 +4487,8 @@ msgstr[1] "{0} olvasatlan üzenete van a {1} mappában"
 msgid "Publishing Editor"
 msgstr "Kiadványszerkesztő"
 
-#, fuzzy
 msgid "Editor"
-msgstr "Szerkesztés"
+msgstr "Szerkesztő"
 
 msgid "Publishing Author"
 msgstr "Kiadványszerző"
@@ -4375,18 +4505,20 @@ msgstr "Véleményező"
 msgid "Contributor"
 msgstr "Hozzájáruló"
 
+#, fuzzy
 msgid "Free/Busy time, subject, location"
-msgstr ""
-
-msgid "Free/Busy time"
-msgstr ""
-
-msgid "Unable to import:"
-msgstr ""
+msgstr "Szabad/forgalmas idő, téma, helyszín"
 
 #, fuzzy
+msgid "Free/Busy time"
+msgstr "Szabad/forgalmas idő"
+
+#, fuzzy
+msgid "Unable to import:"
+msgstr "Importálás nem lehetséges:"
+
 msgid "The files are not valid"
-msgstr "A csatolandó fájlok még nincsenek feltöltve."
+msgstr "A csatolandó fájlok még nincsenek feltöltve"
 
 msgid "Create New Folder"
 msgstr "Új mappa"
@@ -4433,11 +4565,13 @@ msgstr "Típus"
 msgid "Description"
 msgstr "Leírás"
 
+#, fuzzy
 msgid "EntryID"
-msgstr ""
+msgstr "EntryID"
 
+#, fuzzy
 msgid "Parent EID"
-msgstr ""
+msgstr "Szülői EID"
 
 msgid "Folder size"
 msgstr "Mappa méret"
@@ -4493,8 +4627,9 @@ msgstr "Mappakapcsolat"
 msgid "Folder visible"
 msgstr "Mappa láthatóság"
 
+#, fuzzy
 msgid "Apply (copy) changed permissions recursively"
-msgstr ""
+msgstr "Megváltozott engedélyek rekurzív alkalmazása (másolása)"
 
 msgid "User already exists"
 msgstr "A felhasználó már létezik"
@@ -4539,15 +4674,14 @@ msgstr "Rendezés: teljes méret (almappákkal)"
 msgid "Open Shared Folders"
 msgstr "Megosztott mappák megnyitása"
 
-#, fuzzy
 msgid "Unresolved user"
-msgstr "A felhasználó nem feloldható."
+msgstr "A felhasználó nem feloldható"
 
 msgid "Username '{0}' could not be resolved."
 msgstr "'{0}' felhasználó nem feloldható."
 
 msgid "Invalid user"
-msgstr ""
+msgstr "Érvénytelen felhasználó"
 
 msgid "Username '{0}' is not a valid user."
 msgstr "'{0}' nem érvényes felhasználó."
@@ -4556,23 +4690,20 @@ msgstr "'{0}' nem érvényes felhasználó."
 msgid "Own store"
 msgstr "Hiányzó tároló"
 
-#, fuzzy
 msgid "It is not possible to open your own store twice."
-msgstr "Nem lehetséges a saját tárolót duplán megnyitni"
+msgstr "Nem lehetséges a saját tárolót duplán megnyitni."
 
-#, fuzzy
 msgid "Folder already open"
-msgstr "A megosztott mappa már meg van nyitva."
+msgstr "A megosztott mappa már meg van nyitva"
 
 msgid "This shared folder is already open."
 msgstr "A megosztott mappa már meg van nyitva."
 
 msgid "No user"
-msgstr ""
+msgstr "Nincsenek felhasználók"
 
-#, fuzzy
 msgid "You must specify a user"
-msgstr "Meg kell adnia egy felhasználónevet."
+msgstr "Meg kell adnia egy felhasználónevet"
 
 msgid "Folder type"
 msgstr "Mappa típus"
@@ -4584,7 +4715,7 @@ msgid "Open shared folder/store"
 msgstr "Megosztott mappa/tárhely megnyitása"
 
 msgid "Rename folder"
-msgstr ""
+msgstr "Mappa átnevezése"
 
 #, fuzzy
 msgid "Empty folder"
@@ -4629,9 +4760,8 @@ msgstr "Hozzáadás a kedvencekhez"
 msgid "Remove From Favorites"
 msgstr "Eltávolítás a kedvencekből"
 
-#, fuzzy
 msgid "Share folder..."
-msgstr "Kezdő mappa"
+msgstr "Kezdő mappa..."
 
 #, fuzzy
 msgid "Import emails"
@@ -4644,14 +4774,15 @@ msgid "Import appointments"
 msgstr "Új találkozó"
 
 msgid "Import contacts"
-msgstr ""
+msgstr "Névjegyek importálása"
 
 #, fuzzy
 msgid "Properties of {0}"
 msgstr "Tulajdonságok"
 
+#, fuzzy
 msgid "Share {0} with..."
-msgstr ""
+msgstr "Ossza meg {0} a..."
 
 #, fuzzy
 msgid "Properties of {0} - {1}"
@@ -4679,15 +4810,17 @@ msgid "Are you sure you want to empty {0}?"
 msgstr "Biztosan ki szeretné üríteni {0}?"
 
 msgid "Show All"
-msgstr ""
+msgstr "Összes mutatása"
 
 msgid "Show all folders"
 msgstr "Minden mappa megjelenítése"
 
+#, fuzzy
 msgid ""
 "You have insufficient privileges to move this folder. Would you like to copy "
 "instead?"
 msgstr ""
+"Nincs elegendő jogosultsága a mappa áthelyezéséhez. Szeretne inkább másolni?"
 
 msgid "CC"
 msgstr "CC"
@@ -4745,10 +4878,11 @@ msgid "tomorrow  at "
 msgstr "holnap "
 
 msgid "{0} at "
-msgstr ""
+msgstr "{0} at "
 
+#, fuzzy
 msgid "at {0}"
-msgstr ""
+msgstr "{0}"
 
 msgid "Your email will be sent {0}{1}"
 msgstr "A levél kiküldésének időpontja: {0}{1}"
@@ -4767,15 +4901,15 @@ msgstr "Művelet sikertelen"
 msgid "Message Options"
 msgstr "Üzenet beállítások"
 
+#, fuzzy
 msgid "This message will be flagged for follow up when it is sent."
-msgstr ""
+msgstr "Ez az üzenet elküldésekor nyomon követésre lesz jelölve."
 
 msgid "Send Later"
 msgstr "Küldés később"
 
-#, fuzzy
 msgid "Schedule your mail to be sent on a specific date and time"
-msgstr "Levél küldésének ütemezése előre megadott napon és időben."
+msgstr "Levél küldésének ütemezése előre megadott napon és időben"
 
 # 86%
 msgid "Add attachments to this email"
@@ -4820,8 +4954,9 @@ msgstr "Titkos címzettek megjelenítése"
 msgid "Show From field"
 msgstr "Feladó megjelenítése"
 
+#, fuzzy
 msgid "Cannot save while attachment is being uploaded"
-msgstr ""
+msgstr "Nem lehet menteni, miközben a melléklet feltöltése folyamatban van"
 
 msgid "Miscellaneous Options"
 msgstr "Vegyes beállítások"
@@ -4885,9 +5020,8 @@ msgstr "Email nyomtatása"
 msgid "Print selected email"
 msgstr "Kijelölt elem nyomtatása"
 
-#, fuzzy
 msgid "Filter"
-msgstr "Szűrés.."
+msgstr "Szűrő"
 
 msgid "FW"
 msgstr "FW"
@@ -4895,20 +5029,25 @@ msgstr "FW"
 msgid "RE"
 msgstr "RE"
 
+#, fuzzy
 msgid "on behalf of"
-msgstr ""
+msgstr "a"
 
+#, fuzzy
 msgid "Safe Senders list is empty"
-msgstr ""
+msgstr "A Biztonságos Küldők listája üres"
 
+#, fuzzy
 msgid "Please select a safe sender record."
-msgstr ""
+msgstr "Kérjük, válasszon egy biztonságos feladói rekordot."
 
+#, fuzzy
 msgid "Delete all safe senders"
-msgstr ""
+msgstr "Minden biztonságos feladó törlése"
 
+#, fuzzy
 msgid "Are you sure you want to delete all safe senders?"
-msgstr ""
+msgstr "Biztos, hogy az összes biztonságos feladó törlését szeretné?"
 
 msgid "HTML"
 msgstr "HTML"
@@ -4936,14 +5075,17 @@ msgstr "Mindig kérjen olvasási visszaigazolást"
 msgid "{A}AutoSave unsent mail every {B} minute(s)"
 msgstr "{A}Automata Mentés a nem elküldött leveleknél minden {B} percben"
 
+#, fuzzy
 msgid "Conversation view settings"
-msgstr ""
+msgstr "Beszélgetés nézet beállításai"
 
+#, fuzzy
 msgid "Enable conversation view"
-msgstr ""
+msgstr "Beszélgetés nézet engedélyezése"
 
+#, fuzzy
 msgid "Collapse conversation when selecting a different email"
-msgstr ""
+msgstr "Beszélgetés összecsukása másik e-mail kiválasztásakor"
 
 msgid "Incoming mail"
 msgstr "Bejövő levél"
@@ -4979,8 +5121,10 @@ msgstr "Alsó"
 msgid "Location of preview pane"
 msgstr "Előnézeti panel helyzete"
 
+#, fuzzy
 msgid "Use English abbreviations for forward (FW:) and reply (RE:)"
 msgstr ""
+"Használja az angol rövidítéseket a forward (FW:) és reply (RE:) kifejezésekre"
 
 msgid "Close original message on reply or forward"
 msgstr "Zárja be az eredeti üzenetet válasz küldése, vagy továbbítás után"
@@ -4997,8 +5141,9 @@ msgstr "grommunio Web fül"
 msgid "Browser window"
 msgstr "Böngésző ablak"
 
+#, fuzzy
 msgid "Update Out of Office settings for"
-msgstr ""
+msgstr "Az irodán kívüli beállítások frissítése"
 
 msgid "I am currently in the office"
 msgstr "Jelenleg házon belül tartózkodom"
@@ -5015,39 +5160,49 @@ msgstr ""
 "Az automata válasz csak egyszer legyen elküldve a feladóknak, a következő "
 "szöveggel"
 
+#, fuzzy
 msgid "Inside My Organization"
-msgstr ""
+msgstr "A szervezetemen belül"
 
 msgid "User is currently out of office."
 msgstr "A felhasználó jelenleg házon kívül van."
 
+#, fuzzy
 msgid "Outside My Organization"
-msgstr ""
+msgstr "A szervezetemen kívül"
 
+#, fuzzy
 msgid "Auto-reply to people outside my organization"
-msgstr ""
+msgstr "Automatikus válasz a szervezetemen kívüli személyeknek"
 
+#, fuzzy
 msgid "My contacts only"
-msgstr ""
+msgstr "Csak az én kapcsolataim"
 
+#, fuzzy
 msgid "Anyone outside my organization"
-msgstr ""
+msgstr "Bárki a szervezetemen kívül"
 
 msgid ""
 "The time you entered is before the out of office date. Please reschedule."
 msgstr ""
-"A megadott időpont a házon kívüli dátum előtt van. Adjon meg új időpontot!"
+"A megadott időpont a házon kívüli dátum előtt van. Adjon meg új időpontot."
 
+#, fuzzy
 msgid "Safe Senders"
-msgstr ""
+msgstr "Biztonságos feladó"
 
+#, fuzzy
 msgid ""
 "To protect your privacy email addresses or domains can only be added via the "
 "\"Add to safe sender list\" functionality in an opened email."
 msgstr ""
+"A magánélet védelme érdekében e-mail címeket vagy domaineket csak a "
+"\"Hozzáadás a biztonságos feladói listához\" funkcióval lehet hozzáadni egy "
+"megnyitott e-mailben."
 
 msgid "Delete all"
-msgstr ""
+msgstr "Összes törlése"
 
 msgid "Signatures"
 msgstr "Aláírások"
@@ -5055,14 +5210,17 @@ msgstr "Aláírások"
 msgid "No signatures configured"
 msgstr "Nincs aláírás beállítva"
 
+#, fuzzy
 msgid "New messages"
-msgstr ""
+msgstr "Új üzenetek"
 
+#, fuzzy
 msgid "Replies/forwards"
-msgstr ""
+msgstr "Válaszok/továbbküldések"
 
+#, fuzzy
 msgid "Signature name:"
-msgstr ""
+msgstr "Aláírás neve:"
 
 msgid "Save Signature"
 msgstr "Aláírás mentése"
@@ -5101,44 +5259,45 @@ msgstr "Rendezés: jelölő"
 
 # 85%
 # 100%
-#, fuzzy
 msgid "Older"
-msgstr "Mappák"
+msgstr "Régebbi"
 
 msgid "Yesterday"
-msgstr ""
+msgstr "Tegnap"
 
-#, fuzzy
 msgid "Last Week"
-msgstr "Múlt hét"
-
-msgid "Two Weeks Ago"
-msgstr ""
-
-msgid "Three Weeks Ago"
-msgstr ""
+msgstr "Előző hét"
 
 #, fuzzy
+msgid "Two Weeks Ago"
+msgstr "Két héttel ezelőtt"
+
+#, fuzzy
+msgid "Three Weeks Ago"
+msgstr "Három héttel ezelőtt"
+
 msgid "Last Month"
-msgstr "Múlt hónap"
+msgstr "Előző hónap"
 
 msgid "Small"
-msgstr ""
+msgstr "Kicsi"
 
 msgid "Medium"
-msgstr ""
+msgstr "Közepes"
 
 msgid "Large"
-msgstr ""
+msgstr "Nagy"
 
+#, fuzzy
 msgid "Very large"
-msgstr ""
+msgstr "Nagyon nagy"
 
 msgid "Huge"
-msgstr ""
+msgstr "Hatalmas"
 
+#, fuzzy
 msgid "Follow up"
-msgstr ""
+msgstr "Utánkövetés"
 
 msgid "Move to Junk Folder"
 msgstr "Levélszemét mappába mozgatás"
@@ -5219,9 +5378,8 @@ msgid ""
 "changes will be lost."
 msgstr "A beállítások frissítéséhez a grommunio Webot újra kell indítania."
 
-#, fuzzy
 msgid "Reload grommunio Web"
-msgstr "grommunio Web"
+msgstr "Újratöltés grommunio Web"
 
 msgid "Settings"
 msgstr "Beállítások"
@@ -5229,11 +5387,12 @@ msgstr "Beállítások"
 msgid "Basic"
 msgstr "Alap"
 
+#, fuzzy
 msgid "Account information - {0}"
-msgstr ""
+msgstr "Számlainformációk - {0}"
 
 msgid "Profile Picture"
-msgstr ""
+msgstr "Profil kép"
 
 msgid "Language"
 msgstr "Nyelv"
@@ -5253,14 +5412,17 @@ msgstr "Haladó"
 msgid "Advanced settings"
 msgstr "Haladó beállítások"
 
+#, fuzzy
 msgid "Developer tools"
-msgstr ""
+msgstr "Fejlesztői eszközök"
 
+#, fuzzy
 msgid "Show insertion points in grommunio Web"
-msgstr ""
+msgstr "Beillesztési pontok megjelenítése a grommunio Webben"
 
+#, fuzzy
 msgid "Show \"item data\" button in context menu (mail only)"
-msgstr ""
+msgstr "\"Elemadatok\" gomb megjelenítése a kontextusmenüben (csak e-mailben)"
 
 msgid "Edit setting"
 msgstr "Beállítás szerkesztése"
@@ -5278,8 +5440,9 @@ msgstr "Ikonok"
 msgid "About"
 msgstr "Rólunk"
 
+#, fuzzy
 msgid "I want to display date and time in this format:"
-msgstr ""
+msgstr "A dátumot és az időt ebben a formátumban szeretném megjeleníteni:"
 
 msgid "Short"
 msgstr "Rövid"
@@ -5288,13 +5451,15 @@ msgid "Long"
 msgstr "Hosszú"
 
 msgid "Time format:"
-msgstr ""
+msgstr "Időformátum:"
 
+#, fuzzy
 msgid "12h clock"
-msgstr ""
+msgstr "12 óra"
 
+#, fuzzy
 msgid "24h clock"
-msgstr ""
+msgstr "24 órás óra"
 
 # 88%
 #, fuzzy
@@ -5305,50 +5470,62 @@ msgstr "Meghatalmazottak beállításai"
 msgid "Hide favorites"
 msgstr "Hozzáadás a kedvencekhez"
 
+#, fuzzy
 msgid "Unpin favorites from top"
-msgstr ""
+msgstr "Kedvencek feltűzésének feloldása felülről"
 
+#, fuzzy
 msgid "Give unread items a colored border"
-msgstr ""
+msgstr "Színes keretet ad az olvasatlan elemeknek"
 
+#, fuzzy
 msgid "Show 'help' button in top-right corner"
-msgstr ""
+msgstr "Súgó gomb megjelenítése a jobb felső sarokban"
 
+#, fuzzy
 msgid "Show unread mail counter in application title"
-msgstr ""
+msgstr "Olvasatlan levelek számlálójának megjelenítése az alkalmazás címében"
 
+#, fuzzy
 msgid "Hide widget panel"
-msgstr ""
+msgstr "Widget panel elrejtése"
 
+#, fuzzy
 msgid "Show search bar above folder list"
-msgstr ""
+msgstr "Keresősáv megjelenítése a mappák listája felett"
 
 msgid "Auto"
-msgstr ""
+msgstr "Automatikus"
 
+#, fuzzy
 msgid "Actual size"
-msgstr ""
+msgstr "Tényleges méret"
 
+#, fuzzy
 msgid "Page width"
-msgstr ""
+msgstr "Oldal szélessége"
 
+#, fuzzy
 msgid "Attachment preview (PDF and Open formats)"
-msgstr ""
+msgstr "Csatolmány előnézet (PDF és Open formátum)"
 
+#, fuzzy
 msgid "Document default zoom"
-msgstr ""
+msgstr "Dokumentum alapértelmezett nagyítása"
 
+#, fuzzy
 msgid "PDF zoom"
-msgstr ""
+msgstr "PDF zoom"
 
+#, fuzzy
 msgid "File previewing"
-msgstr ""
+msgstr "Fájl előnézet"
 
 msgid "Inbox navigation"
 msgstr "Beérkező üzenetek közötti navigáció"
 
 msgid "I want to navigate through my items by using."
-msgstr "Az alábbi funkciók segítségével szeretnék az elemeim közt navigálni:"
+msgstr "Az alábbi funkciók segítségével szeretnék az elemeim közt navigálni."
 
 msgid "Infinite Scroll"
 msgstr "Végtelen görgetés"
@@ -5364,7 +5541,8 @@ msgid ""
 "grommunio Web displays items on pages and you can use navigation controls to "
 "navigate"
 msgstr ""
-"A WebbApp oldalakba rendezi az elemeket, az elemek között szabadon navigálhat"
+"A grommunio Web oldalakba rendezi az elemeket, az elemek között szabadon "
+"navigálhat"
 
 msgid "Load items in blocks of {A}"
 msgstr "Elemek betöltése {A} darabos blokkokban"
@@ -5387,8 +5565,9 @@ msgstr "Gyorsbillentyűk engedélyezése"
 msgid "All keyboard shortcuts on"
 msgstr "Minden gyorsbillentyű engedélyezése"
 
+#, fuzzy
 msgid "This change requires a reload of grommunio Web"
-msgstr ""
+msgstr "Ez a változás megköveteli a grommunio Web újratöltését"
 
 msgid "Plugins"
 msgstr "Bővítmények"
@@ -5411,41 +5590,48 @@ msgstr "Ezt a beépülőmodult nem lehet engedélyezni"
 msgid "Mailbox Usage"
 msgstr "Postafiók használtság"
 
+#, fuzzy
 msgid "A quota is not set on your store."
-msgstr ""
+msgstr "Az Ön áruházában nincs kvóta beállítva."
 
 msgid "{0} of mailbox space is used."
 msgstr "{0} felhasznált postafiók tárterület."
 
+#, fuzzy
 msgid "You have exceeded hard quota, you can not send or receive mails."
-msgstr ""
+msgstr "Túllépte a kemény kvótát, nem tud leveleket küldeni vagy fogadni."
 
 msgid "At {0} you won't be able to send mails."
 msgstr "{0}-kor nem fog tudni leveleket küldeni."
 
+#, fuzzy
 msgid ""
 "You can not send mails as you have exceeded soft quota, at {0} you won't be "
 "able to receive mails."
 msgstr ""
+"Nem tudsz leveleket küldeni, mivel túllépted a lágy kvótát, {0}-nél nem "
+"fogsz tudni leveleket fogadni."
 
+#, fuzzy
 msgid "At {0} you won't be able to send or receive mails."
-msgstr ""
+msgstr "{0}-nél nem fogsz tudni leveleket küldeni vagy fogadni."
 
 msgid "You can not send mails as you have exceeded soft quota."
 msgstr "Nem tud leveleket küldeni, mert elérte az alsó kvóta határt."
 
-#, fuzzy
 msgid "Reset settings"
-msgstr "Beállítások törlése"
+msgstr "Alapértelmezett beállítások visszaállítása"
+
+msgid "Reset settings to their original defaults."
+msgstr "A grommunio Web beállításokat alaphelyzetbe állítja."
 
 #, fuzzy
-msgid "Reset settings to their original defaults."
-msgstr "A grommunio Web beállításokat alaphelyzetbe állítja"
-
 msgid ""
 "This will close all opened shared stores and resets all settings to the "
 "default value."
 msgstr ""
+"Ez bezárja az összes megnyitott megosztott tárolót, és visszaállítja az "
+"összes beállítást az alapértelmezett értékre."
 
 #, fuzzy
 msgid ""
@@ -5477,11 +5663,13 @@ msgstr "Gromox"
 msgid "Delete confirmation"
 msgstr "Törlés megerősítése"
 
+#, fuzzy
 msgid "Deleting the item(s) will also delete the original item(s)."
-msgstr ""
+msgstr "Az elem(ek) törlése az eredeti elem(ek)et is törli."
 
+#, fuzzy
 msgid "Do you want to delete the item(s)?"
-msgstr ""
+msgstr "Törölni szeretné az elem(ek)et?"
 
 msgid "Sort by: Priority"
 msgstr "Rendezés: Prioritás szerint"
@@ -5553,8 +5741,9 @@ msgstr "Válasz elküldése azonnal"
 msgid "Date Complete"
 msgstr "Befejezés dátuma"
 
+#, fuzzy
 msgid "Multiple companies name must be separated by"
-msgstr ""
+msgstr "Több vállalat nevét el kell választani"
 
 msgid "Update List"
 msgstr "Lista frissítése"
@@ -5565,8 +5754,9 @@ msgstr "Nem hozzárendelt másolat készítése"
 msgid "copy"
 msgstr "másolás"
 
+#, fuzzy
 msgid "Unable to send task request"
-msgstr ""
+msgstr "Feladatkérés küldése nem lehetséges"
 
 msgid "You cannot send a task request to yourself."
 msgstr "Saját magának nem küldhet feladatot."
@@ -5591,8 +5781,11 @@ msgstr "% kész"
 msgid "Track progress"
 msgstr "Készültség nyomon követése"
 
+#, fuzzy
 msgid "Keep updated copy of task and receive automated status reports"
 msgstr ""
+"A feladat frissített másolatának vezetése és automatikus státuszjelentések "
+"fogadása"
 
 msgid "Send task to assignees"
 msgstr "Feladat elküldése a hozzárendelt személynek"
@@ -5635,19 +5828,16 @@ msgstr "Jelölje meg a feladatot személyesként"
 msgid "New task"
 msgstr "Új feladat"
 
-#, fuzzy
 msgid "Completed"
-msgstr "Kész"
+msgstr "Teljesítve"
 
 # 76%
-#, fuzzy
 msgid "Printed by: "
-msgstr "Rendezés: Címzett szerint"
+msgstr "Rendezés: "
 
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
-#, fuzzy
 msgid "Printed on: "
-msgstr "Jegyzet nyomtatása"
+msgstr "Nyomtatva: "
 
 msgid "Percent complete"
 msgstr "Százalékban kész"
@@ -5691,10 +5881,11 @@ msgid "Create task"
 msgstr "Feladat létrehozása"
 
 msgid "Upcoming"
-msgstr ""
+msgstr "Közelgő"
 
+#, fuzzy
 msgid "Overdue"
-msgstr ""
+msgstr "Késedelmes"
 
 msgid "Mark Complete"
 msgstr "Befejezettnek jelöl"
@@ -5710,13 +5901,12 @@ msgstr "Eltávolítás a kedvencekből"
 msgid "Changes to assigned task"
 msgstr "Feladat elküldése a hozzárendelt személynek"
 
-#, fuzzy
 msgid ""
 "Please note that assigned task(s) will be overwritten when the assignee "
 "makes changes."
 msgstr ""
 "Bármely most végbevitt változtatás felülíródik, ha az értekezlet szervezője "
-"frissíti az értekezletet"
+"frissíti az értekezletet."
 
 msgid "Sort by: Complete"
 msgstr "Rendezés: Elvégzett feladatok szerint"
@@ -5763,7 +5953,7 @@ msgid "D d-m-Y"
 msgstr "Y-m-d D"
 
 msgid "none"
-msgstr ""
+msgstr "nincs"
 
 msgid "Quick Task"
 msgstr "Gyors feladat"
@@ -5771,43 +5961,58 @@ msgstr "Gyors feladat"
 msgid "No tasks."
 msgstr "Nincsenek feladatok."
 
+#, fuzzy
 msgid "Tasks / To-Do"
-msgstr ""
+msgstr "Feladatok / teendők"
+
+msgid "Import / Export"
+msgstr "Import / Export"
 
 #, fuzzy
-msgid "Import / Export"
-msgstr "Importálás ebbe"
-
 msgid ""
 "Calendar, contact and mail items can be imported and exported from and to "
 "grommunio Web."
 msgstr ""
+"A naptár, a kapcsolatok és a levelek importálhatók és exportálhatók a "
+"grommunio Webről és a grommunio Webre."
 
+#, fuzzy
 msgid ""
 "Right-click a folder and select the import button. Additionally, items can "
 "be imported from the attachment context menu."
 msgstr ""
+"Kattintson a jobb gombbal egy mappára, és válassza az importálás gombot. "
+"Ezen kívül az elemek importálhatók a mellékletek kontextusmenüjéből is."
 
+#, fuzzy
 msgid "Exporting can be done from the context menu of an item."
-msgstr ""
+msgstr "Az exportálás egy elem kontextusmenüjéből végezhető el."
 
 #, fuzzy
 msgid "Icon packs"
 msgstr "Ikonok"
 
+#, fuzzy
 msgid ""
 "You can now choose between different icons. By default the new Breeze icons "
 "are enabled, but if you prefer the classic icons you can change this in the "
 "settings."
 msgstr ""
+"Mostantól különböző ikonok közül választhat. Alapértelmezés szerint az új "
+"Breeze ikonok vannak bekapcsolva, de ha a klasszikus ikonokat részesíti "
+"előnyben, a beállításokban módosíthatja ezt."
 
+#, fuzzy
 msgid ""
 "Go to your settings, open the general tab and select an icon pack to your "
 "liking."
 msgstr ""
+"Menj a beállításaidhoz, nyisd meg az általános lapot, és válassz ki egy "
+"tetszésednek megfelelő ikoncsomagot."
 
+#, fuzzy
 msgid "Left: Breeze - Right: Classic"
-msgstr ""
+msgstr "Balra: Breeze - Jobbra: Klasszikus"
 
 msgid "What's new"
 msgstr "Újdonságok"
@@ -5871,11 +6076,13 @@ msgid "Connection with server has been restored"
 msgstr "A kapcsolat a szerverrel helyreállt"
 
 #. TRANSLATORS: Example: HTTP 404
+#, fuzzy
 msgid "HTTP {0}"
-msgstr ""
+msgstr "HTTP {0}"
 
+#, fuzzy
 msgid "Invalid data received from the server"
-msgstr ""
+msgstr "Érvénytelen adatok érkeztek a kiszolgálótól"
 
 msgid "Missing store"
 msgstr "Hiányzó tároló"
@@ -5954,19 +6161,22 @@ msgid "Out of Office is currently activated. Would you like to turn it off?"
 msgstr "A házon kívüli üzenet be van kapcsolva. Szeretné kikapcsolni?"
 
 msgid "Archive"
-msgstr ""
+msgstr "Archívum"
 
 msgid "Open Chat at start"
 msgstr "Csevegés megnyitása indításkor"
 
+#, fuzzy
 msgid "Desktop Notifications Plugin"
-msgstr ""
+msgstr "Asztali értesítések plugin"
 
+#, fuzzy
 msgid "Desktop Notifications"
-msgstr ""
+msgstr "Asztali értesítések"
 
+#, fuzzy
 msgid "{A} Autohide desktop notification after second(s) {B}"
-msgstr ""
+msgstr "{A} Asztali értesítés automatikus elrejtése másodperc(ek) után {B}"
 
 msgid "Files: ownCloud Backend"
 msgstr "Fájlok: ownCloud beépülő"
@@ -5992,8 +6202,9 @@ msgstr "Publikus feltöltés"
 msgid "Expiration date"
 msgstr "Lejárati dátum"
 
+#, fuzzy
 msgid "More than 1 share link exists. Only showing the latest one"
-msgstr ""
+msgstr "Több mint 1 megosztási link létezik. Csak a legutóbbi jelenik meg"
 
 msgid "Loading details..."
 msgstr "Részletek betöltése..."
@@ -6018,14 +6229,15 @@ msgstr "Rendezés: Típus"
 msgid "Loading users and groups"
 msgstr "Felhasználók és csoportok betöltése"
 
+#, fuzzy
 msgid "Add users or groups to share files."
-msgstr ""
+msgstr "Felhasználók vagy csoportok hozzáadása a fájlok megosztásához."
 
 msgid "Type to search"
-msgstr ""
+msgstr "Írj a kereséshez"
 
 msgid "No results"
-msgstr ""
+msgstr "Nincs találat"
 
 msgid "Add attachment from {0}"
 msgstr "Melléklet hozzáadása innen: {0}"
@@ -6037,19 +6249,23 @@ msgstr "Törlés megerősítése"
 msgid "Are you sure you want to delete {0}?"
 msgstr "Mindenképpen törölni kívánja a fiókot ({0})?"
 
+#, fuzzy
 msgid "Are you sure you want to delete {0} and all of its contents?"
-msgstr ""
+msgstr "Biztos, hogy törölni akarja a {0} és annak minden tartalmát?"
 
 #, fuzzy
 msgid "Are you sure you want to delete {0} files?"
 msgstr "Mindenképpen törölni kívánja a fiókot ({0})?"
 
+#, fuzzy
 msgid "Are you sure want to delete {0} folders and all of their contents?"
-msgstr ""
+msgstr "Biztos, hogy törölni szeretné a {0} mappákat és azok összes tartalmát?"
 
+#, fuzzy
 msgid ""
 "Are you sure want to delete the selected items and all of their contents?"
 msgstr ""
+"Biztos, hogy törölni szeretné a kijelölt elemeket és azok összes tartalmát?"
 
 msgid "Confirm overwrite"
 msgstr "Felülírás megerősítése"
@@ -6060,17 +6276,21 @@ msgstr "A fájl már létezik. Felül kívánja írni?"
 msgid "Please enter a new name"
 msgstr "Adjon meg egy új nevet"
 
+#, fuzzy
 msgid "Rename record"
-msgstr ""
+msgstr "Rekord átnevezése"
 
+#, fuzzy
 msgid "A file name should not be empty."
-msgstr ""
+msgstr "A fájlnév nem lehet üres."
 
+#, fuzzy
 msgid "Rename item"
-msgstr ""
+msgstr "Elem átnevezése"
 
+#, fuzzy
 msgid "A file named \"{0}\" already exists. Please enter a different name."
-msgstr ""
+msgstr "A \"{0}\" nevű fájl már létezik. Kérjük, adjon meg egy másik nevet."
 
 msgid "Downloading"
 msgstr "Letöltés"
@@ -6084,12 +6304,12 @@ msgstr "Feltöltés"
 msgid "At least one file is too large! Maximum allowed filesize: {0}."
 msgstr "Valamelyik fájl túl nagy! A maximális engedélyezett fájlméret: {0}."
 
-msgid "Keep both"
-msgstr ""
-
 #, fuzzy
+msgid "Keep both"
+msgstr "Tartsa meg mindkettőt"
+
 msgid "Overwrite"
-msgstr "Felülírás megerősítése"
+msgstr "Felülírés"
 
 msgid "l d/m/Y G:i"
 msgstr "l Y/m/d G:i"
@@ -6124,21 +6344,29 @@ msgstr "Fájlok beállításainak visszaállítása"
 msgid "Resets Files settings to their original defaults"
 msgstr "Fájlok beállításainak alaphelyzetbe állítása"
 
+#, fuzzy
 msgid "Are you sure to remove all settings and accounts?"
-msgstr ""
+msgstr "Biztos, hogy minden beállítást és fiókot eltávolított?"
 
+#, fuzzy
 msgid ""
 "Accounts marked by your administrator as \"cannot be changed\" will not be "
 "removed."
 msgstr ""
+"A rendszergazda által \"nem módosítható\"-ként megjelölt fiókok nem kerülnek "
+"eltávolításra."
 
+#, fuzzy
 msgid ""
 "grommunio Web will automatically restart in order for these changes to take "
 "effect."
 msgstr ""
+"a grommunio Web automatikusan újraindul, hogy a módosítások hatályba "
+"lépjenek."
 
+#, fuzzy
 msgid "grommunio Web is reloading, Please wait."
-msgstr ""
+msgstr "grommunio A web újratöltődik, várjon."
 
 msgid "Edit Account"
 msgstr "Fiók szerkesztése"
@@ -6207,7 +6435,7 @@ msgid "Used"
 msgstr "Használatban"
 
 msgid "Total"
-msgstr ""
+msgstr "Összesen"
 
 msgid "Version Information"
 msgstr "Verzió információ"
@@ -6231,13 +6459,15 @@ msgid "You have to choose at least one file!"
 msgstr "Válasszon ki egy fájlt!"
 
 msgid "Create New "
-msgstr ""
+msgstr "Új létrehozása "
 
+#, fuzzy
 msgid "Incorrect filename"
-msgstr ""
+msgstr "Helytelen fájlnév"
 
+#, fuzzy
 msgid "Error reaching office backend"
-msgstr ""
+msgstr "Hiba az office backend elérésében"
 
 msgid "Folder already exists"
 msgstr "A mappa már létezik"
@@ -6318,22 +6548,25 @@ msgid "Upload failed!"
 msgstr "A feltöltés nem sikerült!"
 
 msgid "Document"
-msgstr ""
+msgstr "Dokumentum"
 
 msgid "Presentation"
-msgstr ""
+msgstr "Megjelenés"
 
+#, fuzzy
 msgid "Spreadsheet"
-msgstr ""
+msgstr "Táblázat"
 
 msgid "Upload files"
 msgstr "Fájlok feltöltése"
 
+#, fuzzy
 msgid "Create document"
-msgstr ""
+msgstr "Dokumentum létrehozása"
 
+#, fuzzy
 msgid "Create office document"
-msgstr ""
+msgstr "Irodai dokumentum létrehozása"
 
 msgid "Download files"
 msgstr "Fájlok letöltése"
@@ -6344,8 +6577,9 @@ msgstr "Megosztás"
 msgid "Attach to mail"
 msgstr "Emailhez csatolás"
 
+#, fuzzy
 msgid "Attach to mail as link"
-msgstr ""
+msgstr "Csatolja a levélhez linkként"
 
 msgid "Attaching"
 msgstr "Csatolás"
@@ -6356,10 +6590,11 @@ msgstr "Email létrehozása... Kérem várjon!"
 msgid "Edit share"
 msgstr "Megosztás szerkesztése"
 
-#, fuzzy
 msgid ""
 "There are no accounts added. Go to settings, Files tab and add an account"
-msgstr "Nincsen fiókok hozzáadva. A beállítások menüben adhat hozzá fiókokat!"
+msgstr ""
+"Nincsenek hozzáadott fiókok. Nyissa meg a beállításokat, a Fájlok lapot, és "
+"adjon hozzá egy fiókot"
 
 msgid "Filesize"
 msgstr "Fájl méret"
@@ -6403,24 +6638,28 @@ msgstr "Nincsenek megjeleníthető elemek ebben a nézetben"
 msgid "files selected"
 msgstr "fájlok kiválasztva"
 
+#, fuzzy
 msgid "Authentication required, when using grommunio-files for the first time"
-msgstr ""
+msgstr "Hitelesítés szükséges, ha először használja a grommunio-files-t"
 
+#, fuzzy
 msgid "Intranet"
-msgstr ""
+msgstr "Intranet"
 
+#, fuzzy
 msgid "number"
-msgstr ""
+msgstr "szám"
 
 msgid "shadow"
-msgstr ""
+msgstr "árnyék"
 
+#, fuzzy
 msgid "Openstreetmap"
-msgstr ""
+msgstr "Openstreetmap"
 
 #. TRANSLATORS: The map of earth
 msgid "Map"
-msgstr ""
+msgstr "Bản đồ"
 
 msgid "Mobile Device Manager"
 msgstr "Mobil eszköz kezelő"
@@ -6434,8 +6673,9 @@ msgstr "Hibás jelszó"
 msgid "Full resync in progress"
 msgstr "Teljes újraszinkronizálás folyamatban"
 
+#, fuzzy
 msgid "Username or password incorrect"
-msgstr ""
+msgstr "Hibás felhasználónév vagy jelszó"
 
 msgid "Not Applicable"
 msgstr "Nem alkalmazható"
@@ -6450,60 +6690,76 @@ msgid "Wipe Executed"
 msgstr "Törlés elindítva"
 
 msgid "Not Available"
-msgstr ""
+msgstr "Nem elérhető"
 
 msgid "Device"
 msgstr "Eszköz"
 
 msgid "Operating System"
-msgstr ""
+msgstr "Operációs rendszer"
 
 msgid "User Agent"
 msgstr "Felhasználói ügynök"
 
+#, fuzzy
 msgid "MDM Plugin"
-msgstr ""
+msgstr "MDM Plugin"
 
+#, fuzzy
 msgid "Active Sync Version"
-msgstr ""
+msgstr "Aktív szinkronizálás verzió"
 
+#, fuzzy
 msgid "grommunio-sync Version"
-msgstr ""
+msgstr "grommunio-sync Verzió"
 
+#, fuzzy
 msgid "Policy name"
-msgstr ""
+msgstr "Szabályzat neve"
 
+#, fuzzy
 msgid "Outlook Extension"
-msgstr ""
+msgstr "Outlook kiterjesztés"
 
 msgid "Build"
-msgstr ""
+msgstr "Épít"
 
+#, fuzzy
 msgid "Last updated"
-msgstr ""
+msgstr "Utolsó frissítés"
 
+#, fuzzy
 msgid "d F Y, H:i"
-msgstr ""
+msgstr "d F Y, H:i"
 
+#, fuzzy
 msgid "Connected since"
-msgstr ""
+msgstr "Csatlakoztatva, mivel"
 
+#, fuzzy
 msgid "d F Y"
-msgstr ""
+msgstr "d F Y"
 
+#, fuzzy
 msgid "Synchronize"
-msgstr ""
+msgstr "Szinkronizálás"
 
+#, fuzzy
 msgid "Manage Shared Folders"
-msgstr ""
+msgstr "Megosztott mappák kezelése"
 
+#, fuzzy
 msgid ""
 "Select folders to sync to your device from the list below. To add additional "
 "mailboxes to the list, open them in grommunio Web first."
 msgstr ""
+"Válassza ki a készülékkel szinkronizálandó mappákat az alábbi listából. Ha "
+"további postafiókokat szeretne hozzáadni a listához, először nyissa meg őket "
+"a grommunio Webben."
 
+#, fuzzy
 msgid "grommunio-sync"
-msgstr ""
+msgstr "grommunio-sync"
 
 msgid "Mobile device management"
 msgstr "Mobil eszköz kezelő"
@@ -6511,10 +6767,13 @@ msgstr "Mobil eszköz kezelő"
 msgid "Mobile Devices"
 msgstr "Mobil eszközök"
 
+#, fuzzy
 msgid ""
 "Unable to connect to the grommunio-sync server. Click {0} to enter your "
 "credentials"
 msgstr ""
+"Nem sikerült csatlakozni a grommunio-sync szerverhez. Kattintson a {0} "
+"gombra a hitelesítő adatok megadásához"
 
 msgid "Devices"
 msgstr "Eszközök"
@@ -6522,8 +6781,9 @@ msgstr "Eszközök"
 msgid "No devices connected to your account"
 msgstr "Nincsenek eszközök kapcsolva a fiókjához"
 
+#, fuzzy
 msgid "Provisioning Status"
-msgstr ""
+msgstr "Feltöltési állapot"
 
 msgid "Last Update"
 msgstr "Utolsó frissítés"
@@ -6550,7 +6810,7 @@ msgid "Remove device"
 msgstr "Eszköz eltávolítása"
 
 msgid "Please enter your username and password"
-msgstr ""
+msgstr "Kérlek írd be a felhasználó neved és jelszavad"
 
 msgid "Username"
 msgstr "Felhasználónév"
@@ -6560,120 +6820,160 @@ msgid ""
 " Enter your password to confirm."
 msgstr ""
 "Biztosan törölni szeretne minden adatot az eszközről?\n"
-" Adja meg a jelszavát a folytatáshoz!"
+" Adja meg a jelszavát a folytatáshoz."
 
+#, fuzzy
 msgid ""
 "Do you really want to remove your device?\n"
 " Enter your password to confirm."
 msgstr ""
+"Tényleg el akarja távolítani a készüléket?\n"
+" A megerősítéshez adja meg jelszavát."
 
+#, fuzzy
 msgid "Add meeting"
-msgstr ""
+msgstr "Találkozó hozzáadása"
 
+#, fuzzy
 msgid "Room name:"
-msgstr ""
+msgstr "Szoba neve:"
 
+#, fuzzy
 msgid "Room URL:"
-msgstr ""
+msgstr "Szoba URL:"
 
+#, fuzzy
 msgid "Shift-click for advanced settings"
-msgstr ""
+msgstr "Shift-kattintás a speciális beállításokhoz"
 
+#, fuzzy
 msgid "Join webmeeting"
-msgstr ""
+msgstr "Csatlakozzon a webmeetinghez"
 
+#, fuzzy
 msgid "Open meeting in:"
-msgstr ""
+msgstr "Nyílt találkozó:"
 
+#, fuzzy
 msgid "Web tab"
-msgstr ""
+msgstr "Web lap"
 
+#, fuzzy
 msgid "Hide the button in the main toolbar"
-msgstr ""
+msgstr "A gomb elrejtése a fő eszköztáron"
 
+#, fuzzy
 msgid "Add the subject to the room name"
-msgstr ""
+msgstr "Adja hozzá a tárgyat a szoba nevéhez"
 
+#, fuzzy
 msgid "Add the organizer name to the room name"
-msgstr ""
+msgstr "A szervező nevének hozzáadása a szoba nevéhez"
 
+#, fuzzy
 msgid "Add the URL to the meeting location rather than overwriting it"
-msgstr ""
+msgstr "Az URL hozzáadása a találkozó helyéhez ahelyett, hogy felülírná azt"
 
+#, fuzzy
 msgid ""
 "Prevent the URL in the meeting location from being overridden automatically "
 "(ex: when adding a meetingroom)"
 msgstr ""
+"Megakadályozhatja, hogy az értekezlet helyszínének URL-címe automatikusan "
+"felülíródjon (pl.: tárgyalóterem hozzáadásakor)"
 
+#, fuzzy
 msgid "If you have problems when creating meetings, try disabling this setting"
 msgstr ""
+"Ha problémák merülnek fel a találkozók létrehozásakor, próbálja meg "
+"letiltani ezt a beállítást"
 
+#, fuzzy
 msgid "Add an invitation to the appointment description"
-msgstr ""
+msgstr "Meghívó hozzáadása a találkozó leírásához"
 
+#, fuzzy
 msgid "Invitation text"
-msgstr ""
+msgstr "Meghívó szövege"
 
+#, fuzzy
 msgid ""
 "must contain %url% as a placeholder for the meeting link, empty the textbox "
 "to reset to default"
 msgstr ""
+"tartalmaznia kell %url% mint a találkozó linkjének helyőrzőjét, ürítse ki a "
+"szövegdobozt, hogy visszaállítsa az alapértelmezett értéket"
 
+#, fuzzy
 msgid "An unknown error occurred while changing password."
-msgstr ""
+msgstr "Ismeretlen hiba történt a jelszó módosítása közben."
 
+#, fuzzy
 msgid "Password is changed successfully."
-msgstr ""
+msgstr "A jelszó sikeresen megváltozott."
 
 msgid "Success"
-msgstr ""
+msgstr "Sikeres"
 
 msgid "Change Password"
-msgstr ""
+msgstr "Jelszó megváltoztatása"
 
 msgid "Current password"
-msgstr ""
+msgstr "Jelenlegi jelszó"
 
 msgid "New password"
-msgstr ""
+msgstr "Új jelszó"
 
+#, fuzzy
 msgid "Retype new password"
-msgstr ""
+msgstr "Új jelszó megismétlése"
 
 msgid "New passwords do not match."
-msgstr ""
+msgstr "Az új jelszavak nem egyeznek."
 
+#, fuzzy
 msgid "Current password is empty."
-msgstr ""
+msgstr "A jelenlegi jelszó üres."
 
+#, fuzzy
 msgid "New password is empty."
-msgstr ""
+msgstr "Az új jelszó üres."
 
+#, fuzzy
 msgid "One or more fields does contain errors."
-msgstr ""
+msgstr "Egy vagy több mező hibát tartalmaz."
 
+#, fuzzy
 msgid ""
 "Password is weak. Password should contain capital, non-capital letters and "
 "numbers. Password should have 8 to 20 characters."
 msgstr ""
+"A jelszó gyenge. A jelszónak nagybetűket, nem nagybetűket és számokat kell "
+"tartalmaznia. A jelszónak 8-20 karakterből kell állnia."
 
+#, fuzzy
 msgid "Change passphrase"
-msgstr ""
+msgstr "Jelszó módosítása"
 
+#, fuzzy
 msgid "Old passphrase"
-msgstr ""
+msgstr "Régi jelszó"
 
+#, fuzzy
 msgid "Wrong passphrase. Please try again"
-msgstr ""
+msgstr "Rossz jelszó. Kérjük, próbálja újra"
 
+#, fuzzy
 msgid "New passphrase"
-msgstr ""
+msgstr "Új jelszó"
 
+#, fuzzy
 msgid "Confirm new passphrase"
-msgstr ""
+msgstr "Új jelszó megerősítése"
 
+#, fuzzy
 msgid "The passphrases don't match. Please try again"
-msgstr ""
+msgstr "A jelszavak nem egyeznek. Kérjük, próbálja meg újra"
 
 msgid "S/MIME Message"
 msgstr "S/MIME üzenet"
@@ -6682,8 +6982,9 @@ msgstr "S/MIME üzenet"
 msgid "Passphrase changed succesfully"
 msgstr "Az üzenetet sikerült visszafejteni"
 
+#, fuzzy
 msgid "S/MIME Passphrase"
-msgstr ""
+msgstr "S/MIME jelszó"
 
 msgid "Submit"
 msgstr "Elküld"
@@ -6691,11 +6992,13 @@ msgstr "Elküld"
 msgid "Certificate passphrase"
 msgstr "Tanúsítvány jelszó"
 
+#, fuzzy
 msgid "The passphrase you typed is incorrect. Please try again."
-msgstr ""
+msgstr "A beírt jelszó helytelen. Kérjük, próbálja meg újra."
 
+#, fuzzy
 msgid "No certificates imported, please upload your private certificate"
-msgstr ""
+msgstr "Nincs importált tanúsítvány, kérjük, töltse fel a saját tanúsítványát"
 
 msgid "Valid from"
 msgstr "Érvényesség kezdete"
@@ -6744,8 +7047,9 @@ msgstr "Nincs érvényes tanúsítványa ehhez a fiókhoz"
 msgid "Personal certificate"
 msgstr "Személyes tanúsítvány"
 
+#, fuzzy
 msgid "Change passphrase for last certificate"
-msgstr ""
+msgstr "Az utolsó tanúsítvány jelszavának módosítása"
 
 msgid "You have a valid certificate corresponding to your account"
 msgstr "Rendelkezik érvényes tanúsítvánnyal ehhez a fiókhoz"
@@ -6753,20 +7057,28 @@ msgstr "Rendelkezik érvényes tanúsítvánnyal ehhez a fiókhoz"
 msgid "Upload your certificate"
 msgstr "Tanúsítvány feltöltése"
 
+#, fuzzy
 msgid ""
 "Below you can upload your private certificate in PKCS#12 format. grommunio "
 "Web only accepts certificates which are valid and only stores one private "
 "certificate on the server."
 msgstr ""
+"Az alábbiakban feltöltheti a privát tanúsítványát PKCS#12 formátumban.A "
+"grommunio Web csak érvényes tanúsítványokat fogad el, és csak egy privát "
+"tanúsítványt tárol a szerveren."
 
 msgid "Private certificate"
 msgstr "Privát tanúsítvány"
 
+#, fuzzy
 msgid "You must fill in the certificate passphrase to upload your certificate."
-msgstr ""
+msgstr "A tanúsítvány feltöltéséhez ki kell töltenie a tanúsítvány jelszavát."
 
+#, fuzzy
 msgid "You must first select a valid private certificate in PKCS#12 format."
 msgstr ""
+"Először ki kell választania egy érvényes PKCS#12 formátumú privát "
+"tanúsítványt."
 
 msgid "Sign"
 msgstr "Aláír"
@@ -6797,21 +7109,28 @@ msgstr ""
 msgid "What's going on with my email?"
 msgstr "Mi történik a levelemmel?"
 
+#, fuzzy
 msgid ""
 "grommunio Web can verify digital signatures of emails. A successful "
 "verification reassures you that the message has not been tampered with and "
 "validates the identity of the sender."
 msgstr ""
+"a grommunio Web képes ellenőrizni az e-mailek digitális aláírását. A sikeres "
+"ellenőrzés megnyugtatja Önt, hogy az üzenetet nem manipulálták, és igazolja "
+"a feladó személyazonosságát."
 
+#, fuzzy
 msgid ""
 "You are seeing this message because the verification of the digital signature"
-msgstr ""
+msgstr "Azért látja ezt az üzenetet, mert a digitális aláírás hitelesítése"
 
+#, fuzzy
 msgid " has failed"
-msgstr ""
+msgstr " kudarcot vallott"
 
+#, fuzzy
 msgid " for this message."
-msgstr ""
+msgstr " erre az üzenetre."
 
 msgid "What caused this issue?"
 msgstr "Mi okozta ezt a problémát?"
@@ -6819,69 +7138,102 @@ msgstr "Mi okozta ezt a problémát?"
 msgid "What should I do?"
 msgstr "Mit tegyek?"
 
+#, fuzzy
 msgid ""
 "You can continue to work. However, you should keep in mind that the identity "
 "and the authenticity of the message content could not be verified."
 msgstr ""
+"Folytathatja a munkát. Ne feledje azonban, hogy az üzenet tartalmának "
+"személyazonosságát és hitelességét nem lehetett ellenőrizni."
 
+#, fuzzy
 msgid ""
 "You can contact your helpdesk or system administrator if you are not sure "
 "what to do next."
 msgstr ""
+"Ha nem tudja, hogy mi a következő lépés, forduljon a helpdeskhez vagy a "
+"rendszergazdához."
 
 msgid ""
 "grommunio Web can verify digital signatures of emails. A successful "
 "verification reassures you "
 msgstr ""
+"A grommunio Web képes ellenőrizni az e-mailek digitális aláírását. A sikeres "
+"ellenőrzés megnyugtatja Önt"
 
+#, fuzzy
 msgid ""
 "that the message has not been tampered with and validates the identity of "
 "the sender."
 msgstr ""
+"hogy az üzenetet nem manipulálták, és érvényesíti a feladó "
+"személyazonosságát."
 
+#, fuzzy
 msgid ""
 "The verification of the digital signature was successful for this email "
 "message."
 msgstr ""
+"A digitális aláírás ellenőrzése sikeres volt ennél az e-mail üzenetnél."
 
+#, fuzzy
 msgid "grommunio Web could not find a public certificate for the recipient."
-msgstr ""
+msgstr "a grommunio Web nem talált nyilvános tanúsítványt a címzett számára."
 
+#, fuzzy
 msgid ""
 "The identity of the sender and authenticity of the message content have been "
 "verified, but the certificate used to sign the message expired on [d-m-Y]."
 msgstr ""
+"A feladó személyazonosságát és az üzenet tartalmának hitelességét "
+"ellenőrizték, de az üzenet aláírásához használt tanúsítvány [d-m-Y] lejárt."
 
+#, fuzzy
 msgid "The digital signature could not be verified for unknown reasons."
-msgstr ""
+msgstr "A digitális aláírást ismeretlen okokból nem lehetett ellenőrizni."
 
+#, fuzzy
 msgid ""
 "The digital certificate used to sign this message has been revoked (i.e. the "
 "sender has marked it as compromised)"
 msgstr ""
+"Az üzenet aláírásához használt digitális tanúsítványt visszavonták (azaz a "
+"feladó veszélyeztetettnek jelölte meg)"
 
+#, fuzzy
 msgid ""
 "The verification service of the certificate authority that signed the "
 "sender's certificate is not available. The validity of the certificate could "
 "not be verified."
 msgstr ""
+"A feladó tanúsítványát aláíró tanúsítványkiadó hitelesítési szolgáltatása "
+"nem elérhető. A tanúsítvány érvényességét nem sikerült ellenőrizni."
 
+#, fuzzy
 msgid ""
 "The revocation status of the digital certificate used to sign this email is "
 "unknown (Server is unavailable or certificate does not support OCSP). The "
 "validity of the certificate could not be verified."
 msgstr ""
+"Az e-mail aláírásához használt digitális tanúsítvány visszavonási státusza "
+"ismeretlen (a kiszolgáló nem elérhető, vagy a tanúsítvány nem támogatja az "
+"OCSP-t). A tanúsítvány érvényessége nem volt ellenőrizhető."
 
+#, fuzzy
 msgid ""
 "The revocation status of the digital certificate used to sign this email is "
 "disabled (OCSP). The validity of the certificate could not be verified."
 msgstr ""
+"Az e-mail aláírásához használt digitális tanúsítvány visszavonási státusza "
+"letiltott (OCSP). A tanúsítvány érvényessége nem volt ellenőrizhető."
 
+#, fuzzy
 msgid "The certificate verification server (OCSP) is temporarily offline."
-msgstr ""
+msgstr "A tanúsítványhitelesítési kiszolgáló (OCSP) átmenetileg nem elérhető."
 
+#, fuzzy
 msgid "Sender is removed from the server."
-msgstr ""
+msgstr "A feladó eltávolításra kerül a kiszolgálóról."
 
 msgid "Signature verified successfully"
 msgstr "A tanúsítvány ellenőrzése sikeres"
@@ -6901,8 +7253,9 @@ msgstr "Aláírás érvényessége nem ellenőrizhető"
 msgid "Certificate has been revoked"
 msgstr "A tanúsítványt visszavonták"
 
+#, fuzzy
 msgid "Verification with Certificate Authority failed"
-msgstr ""
+msgstr "A hitelesítés sikertelen a Tanúsítvány-engedélyezővel"
 
 msgid "Message decrypted succesfully"
 msgstr "Az üzenetet sikerült visszafejteni"
@@ -6911,26 +7264,31 @@ msgid "Message decryption failed"
 msgstr "Az üzenet visszafejtése nem sikerült"
 
 msgid "Please"
-msgstr ""
+msgstr "Kérjük"
 
 msgid "click here"
-msgstr ""
+msgstr "kattints ide"
+
+msgid "to unlock your certificate"
+msgstr "a tanúsítvány feloldásához"
 
 #, fuzzy
-msgid "to unlock your certificate"
-msgstr "Tanúsítvány feltöltése"
-
 msgid "Cannot determine revocation status of certificate"
-msgstr ""
+msgstr "Nem lehet meghatározni a tanúsítvány visszavonási státuszát"
 
+#, fuzzy
 msgid "Signature verified (OCSP disabled)"
-msgstr ""
+msgstr "Aláírás ellenőrizve (OCSP letiltva)"
 
+#, fuzzy
 msgid "Unable to decrypt this message. Certificate does not match"
 msgstr ""
+"Nem sikerült visszafejteni ezt az üzenetet. A tanúsítvány nem felel meg"
 
+#, fuzzy
 msgid "Verification failed. User is removed from the server."
 msgstr ""
+"Az ellenőrzés sikertelen. A felhasználót eltávolították a kiszolgálóról."
 
 msgid "Charm pink"
 msgstr "Rózsaszín"
@@ -6953,8 +7311,9 @@ msgstr "Menta"
 msgid "Pearl aqua"
 msgstr "Világoskék"
 
+#, fuzzy
 msgid "Grommunio blue"
-msgstr ""
+msgstr "Grommunio kék"
 
 msgid "Baby blue"
 msgstr "Babakék"
@@ -7013,16 +7372,20 @@ msgstr "Várakozás"
 msgid "You have been automatically logged out"
 msgstr "Automatikusan ki lett jelentkeztetve"
 
+#, fuzzy
 msgid ""
 "Sorry, access to grommunio Web is not available with this user account. "
 "Please contact your system administrator."
 msgstr ""
+"Sajnáljuk, a grommunio Web nem érhető el ezzel a felhasználói fiókkal. "
+"Kérjük, lépjen kapcsolatba a rendszergazdával."
 
+#, fuzzy
 msgid "With this backend, you can connect to any ownCloud server."
-msgstr ""
+msgstr "Ezzel a háttértárral bármelyik ownCloud-kiszolgálóhoz csatlakozhat."
 
 msgid "Files ownCloud Backend: "
-msgstr ""
+msgstr "Fájlok ownCloud Backend: "
 
 msgid "Server address"
 msgstr "Szerver címe"
@@ -7039,59 +7402,78 @@ msgstr "Webdav alap elérési út"
 msgid "Use grommunio credentials"
 msgstr "grommunio hitelesítési adatainak használata"
 
+#, fuzzy
 msgid "php-curl is not available"
-msgstr ""
+msgstr "php-curl nem elérhető"
 
 msgid "Access denied"
-msgstr ""
+msgstr "Hozzáférés megtagadva"
 
 msgid "Connection failed"
-msgstr ""
+msgstr "Kapcsolat nem sikerült"
 
+#, fuzzy
 msgid "Sabre error"
-msgstr ""
+msgstr "Sabre hiba"
 
+#, fuzzy
 msgid "Copying failed"
-msgstr ""
+msgstr "A másolás sikertelen"
 
 msgid "Unknown error"
 msgstr "Ismeretlen hiba"
 
+#, fuzzy
 msgid "Please contact your system administrator."
-msgstr ""
+msgstr "Kérjük, forduljon a rendszergazdához."
 
 msgid "Unauthorized. Wrong username or password."
 msgstr "Hibás felhasználónév vagy jelszó."
 
+#, fuzzy
 msgid "File server is not reachable. Please verify the file server URL."
 msgstr ""
+"A fájlkiszolgáló nem érhető el. Kérjük, ellenőrizze a fájlkiszolgáló URL-"
+"címét."
 
+#, fuzzy
 msgid "You don't have enough permissions to view this file or folder."
-msgstr ""
+msgstr "Nincs elég jogosultsága a fájl vagy mappa megtekintéséhez."
 
+#, fuzzy
 msgid "The file or folder is not available anymore."
-msgstr ""
+msgstr "A fájl vagy mappa már nem elérhető."
 
+#, fuzzy
 msgid "Connection to the file server timed out. Please check again later."
 msgstr ""
+"A fájlkiszolgálóval való kapcsolat megszakadt. Kérjük, később ellenőrizze "
+"újra."
 
+#, fuzzy
 msgid "This file is locked by another user. Please try again later."
 msgstr ""
+"Ezt a fájlt egy másik felhasználó zárolta. Kérjük, próbálja meg később újra."
 
+#, fuzzy
 msgid "The request failed."
-msgstr ""
+msgstr "A kérés sikertelen volt."
 
+#, fuzzy
 msgid "The file server encountered an internal problem."
-msgstr ""
+msgstr "A fájlkiszolgáló belső problémába ütközött."
 
+#, fuzzy
 msgid "We could not write to temporary directory."
-msgstr ""
+msgstr "Nem tudtunk írni az ideiglenes könyvtárba."
 
+#, fuzzy
 msgid "We could not retrieve list of server features."
-msgstr ""
+msgstr "Nem tudtuk lekérdezni a kiszolgáló jellemzőinek listáját."
 
+#, fuzzy
 msgid "PHP-Curl is not available."
-msgstr ""
+msgstr "A PHP-Curl nem érhető el."
 
 msgid "Unknown account ID"
 msgstr "Ismeretlen fiók ID"
@@ -7105,17 +7487,20 @@ msgstr "Ez a backend nem támogatja a verzió információkat!"
 msgid "Feature \"OAUTH\" is not supported by this backend!"
 msgstr "Ez a backend nem támogatja az \"OAUTH\" hitelesítést!"
 
+#, fuzzy
 msgid "Moving between accounts is not implemented"
-msgstr ""
+msgstr "A számlák közötti mozgás nem valósul meg"
 
+#, fuzzy
 msgid "Files plugin"
-msgstr ""
+msgstr "Fájlok plugin"
 
 msgid "Unknown type - cannot save this file to the Files backend!"
 msgstr "Ismeretlen típus - nem lehet menteni a fájl a Fájlokba!"
 
+#, fuzzy
 msgid "No record given!"
-msgstr ""
+msgstr "Nincs rekord megadva!"
 
 msgid "Fetching sharing information failed"
 msgstr "Megosztási információk betöltése sikertelen"
@@ -7129,41 +7514,51 @@ msgstr "Megosztás frissítése sikertelen"
 msgid "Deleting share failed"
 msgstr "Megosztás eltávolítása sikertelen"
 
+#, fuzzy
 msgid "With this backend, you can connect to any WebDAV server."
-msgstr ""
+msgstr "Ezzel a háttértárral bármilyen WebDAV-kiszolgálóhoz csatlakozhat."
 
 msgid "Files WebDAV Backend: "
-msgstr ""
+msgstr "Fájlok WebDAV Backend: "
 
+#, fuzzy
 msgid "PHP-CURL is not installed"
-msgstr ""
+msgstr "A PHP-CURL nincs telepítve"
 
+#, fuzzy
 msgid "Directory creation failed"
-msgstr ""
+msgstr "A könyvtár létrehozása sikertelen"
 
 msgid "Deletion failed"
-msgstr ""
+msgstr "Törlés sikertelen"
 
+#, fuzzy
 msgid "Moving failed"
-msgstr ""
+msgstr "A költözés nem sikerült"
 
+#, fuzzy
 msgid "Temporary directory problems"
-msgstr ""
+msgstr "Ideiglenes könyvtár problémák"
 
+#, fuzzy
 msgid "File or folder not found"
-msgstr ""
+msgstr "Fájl vagy mappa nem található"
 
+#, fuzzy
 msgid "Not implemented"
-msgstr ""
+msgstr "Nincs végrehajtva"
 
+#, fuzzy
 msgid "Please contact your system administrator"
-msgstr ""
+msgstr "Kérjük, forduljon a rendszergazdához"
 
+#, fuzzy
 msgid "File server is not reachable. Please verify the connection."
-msgstr ""
+msgstr "A fájlkiszolgáló nem érhető el. Kérjük, ellenőrizze a kapcsolatot."
 
+#, fuzzy
 msgid "PHP-CURL not installed"
-msgstr ""
+msgstr "PHP-CURL nincs telepítve"
 
 msgid "Account is ready to use."
 msgstr "A fiók már használatban van."
@@ -7177,36 +7572,49 @@ msgstr "A zip fájl készítése sikertelen. Kérjük értesítse a rendszergazd
 msgid "This file is no longer available. Please reload the folder."
 msgstr "Ez a fájl már nem elérhető. Frissítse a mappát."
 
+#, fuzzy
 msgid "Mobile device management plugin"
-msgstr ""
+msgstr "Mobileszköz-kezelő plugin"
 
-#, php-format
+#, fuzzy, php-format
 msgid ""
 "Unexpected error occurred. Please contact your system administrator. Error "
 "code: %s"
 msgstr ""
+"Váratlan hiba történt. Kérjük, lépjen kapcsolatba a rendszergazdával. "
+"Hibakód: %s"
 
+#, fuzzy
 msgid "No data received."
-msgstr ""
+msgstr "Nem érkezett adat."
 
+#, fuzzy
 msgid "Account is empty."
-msgstr ""
+msgstr "A fiók üres."
 
+#, fuzzy
 msgid "Current password does not match."
-msgstr ""
+msgstr "Az aktuális jelszó nem egyezik."
 
+#, fuzzy
 msgid ""
 "Your password is wrong or you have insufficient permission to change password"
 msgstr ""
+"A jelszava rossz, vagy nincs elegendő jogosultsága a jelszó "
+"megváltoztatásához"
 
+#, fuzzy
 msgid "Password is not changed."
-msgstr ""
+msgstr "A jelszó nem változik."
 
+#, fuzzy
 msgid "Error changing password. Please contact the system administrator."
 msgstr ""
+"Hiba a jelszó megváltoztatásában. Kérjük, forduljon a rendszergazdához."
 
+#, fuzzy
 msgid "Password has been changed successfully."
-msgstr ""
+msgstr "A jelszó módosítása sikeresen megtörtént."
 
 msgid "No certificate avaliable"
 msgstr "Nem áll rendelkezésre tanúsítvány"
@@ -7222,33 +7630,39 @@ msgid "Private certificate does not match email address"
 msgstr "A személyes tanúsítvány nem egyezik meg az email címmel"
 
 msgid "Missing public certificates for the following recipients: "
-msgstr ""
+msgstr "Hiányzó nyilvános tanúsítványok a következő címzettek esetében: "
 
 msgid ". Please contact your system administrator for details"
 msgstr "Kérem, vegye fel a kapcsolatot a rendszergazdával a részletekért"
 
+#, fuzzy
 msgid ""
 "Your public certificate is not installed. Without this certificate, you will "
 "not be able to read encrypted messages you have sent to others."
 msgstr ""
+"A nyilvános tanúsítvány nincs telepítve. E tanúsítvány nélkül nem tudja "
+"elolvasni a másoknak küldött titkosított üzeneteket."
 
+#, fuzzy
 msgid "Certificate is already stored on the server"
-msgstr ""
+msgstr "A tanúsítvány már tárolva van a kiszolgálón"
 
+#, fuzzy
 msgid "Unable to decrypt certificate"
-msgstr ""
+msgstr "Nem sikerült visszafejteni a tanúsítványt"
 
 msgid "Private key can't be used to sign email"
 msgstr "Privát kulccsal nem lehet üzenetet aláírni"
 
 msgid "Certificate email address doesn't match grommunio Web account "
-msgstr ""
+msgstr "A tanúsítvány e-mail címe nem egyezik a grommunio Web fiókkal "
 
 msgid "Certificate was expired on "
 msgstr "A tanúsítvány lejárt ekkor: "
 
+#, fuzzy
 msgid "Certificate has not been imported"
-msgstr ""
+msgstr "A tanúsítványt nem importálták"
 
 msgid "Certificate is not yet valid "
 msgstr "A tanúsítvány még nem érvényes "
@@ -7256,32 +7670,39 @@ msgstr "A tanúsítvány még nem érvényes "
 msgid "Certificate is revoked"
 msgstr "A tanúsítványt visszavonták"
 
+#, fuzzy
 msgid "Unable to read public certificate"
-msgstr ""
+msgstr "Nem lehet nyilvános tanúsítványt olvasni"
 
+#, fuzzy
 msgid "Can't add data to bus, same action type is present in bus"
 msgstr ""
+"Nem lehet adatot hozzáadni a buszhoz, ha ugyanaz a művelettípus van a buszban"
 
+#, fuzzy
 msgid "Response data requested from bus but it doesn't have any data."
-msgstr ""
+msgstr "A buszról kért válaszadatok, de nincs adat."
 
-#, php-format
+#, fuzzy, php-format
 msgid "Unknown module '%s' with id '%s'"
-msgstr ""
+msgstr "Ismeretlen '%s' modul '%s' azonosítóval"
 
+#, fuzzy
 msgid ""
 "Server encountered some problem, so it was not able to handle the request."
 msgstr ""
+"A kiszolgáló valamilyen problémába ütközött, ezért nem tudta kezelni a "
+"kérést."
 
-#, php-format
+#, fuzzy, php-format
 msgid "Unknown notifier '%s'"
-msgstr ""
+msgstr "Ismeretlen bejelentő '%s'"
 
 msgid "An unexpected error has occurred"
-msgstr ""
+msgstr "Váratlan hiba történt"
 
 msgid "To-Do List"
-msgstr ""
+msgstr "Teendőlista"
 
 #. TRANSLATORS: This indicates that the opened folder belongs to a particular user,
 #. * for example: 'Calendar of Holiday', in this case %1$s is 'Calendar' (the foldername)
@@ -7289,13 +7710,15 @@ msgstr ""
 #.
 #, php-format
 msgid "%1$s of %2$s"
-msgstr ""
+msgstr "%1$s / %2$s"
 
+#, fuzzy
 msgid "Error retrieving existing settings"
-msgstr ""
+msgstr "Hiba a meglévő beállítások lekérdezésében"
 
+#, fuzzy
 msgid "Error retrieving existing persistent settings"
-msgstr ""
+msgstr "Hiba a meglévő tartós beállítások lekérdezésében"
 
 # 93%
 msgid "Logon failed. Please verify your credentials and try again."
@@ -7306,40 +7729,47 @@ msgstr ""
 msgid "Cannot connect to Gromox."
 msgstr "Nem sikerült csatlakozni a grommunio szerverhez."
 
+#, fuzzy
 msgid ""
 "Login did not work due to a duplicate session. The issue was automatically "
 "resolved, please log in again."
 msgstr ""
+"A bejelentkezés nem működött egy duplikált munkamenet miatt. A probléma "
+"automatikusan megoldódott, kérjük, jelentkezzen be újra."
 
 msgid "Unknown MAPI Error"
 msgstr "Ismeretlen MAPI hiba: %s"
 
+#, fuzzy
 msgid "This external link will open in a new window"
-msgstr ""
+msgstr "Ez a külső link új ablakban fog megnyílni"
 
+#, fuzzy
 msgid "Destination folder not found."
-msgstr ""
+msgstr "A célmappa nem található."
 
+#, fuzzy
 msgid "Eml is corrupted"
-msgstr ""
+msgstr "Eml sérült"
 
+#, fuzzy
 msgid "The eml Attachment is not imported successfully"
-msgstr ""
+msgstr "Az eml csatolmányt nem sikerül importálni"
 
+#, fuzzy
 msgid "The vcf attachment is not imported successfully"
-msgstr ""
+msgstr "A vcf csatolmányt nem sikerül importálni"
 
 #, php-format
 msgid "Unable to import '%s' to '%s'. "
-msgstr ""
+msgstr "Nem sikerült a '%s' importálása a '%s'-be. "
 
 #, fuzzy
 msgid "There is no appointment found in this file."
 msgstr "A találkozó időpontja a múltban van."
 
-#, fuzzy
 msgid "The file is corrupt."
-msgstr "Az EML fájl sérült"
+msgstr "A fájl sérült."
 
 #, fuzzy
 msgid "The file is invalid."
@@ -7347,40 +7777,51 @@ msgstr "A csatolandó fájlok még nincsenek feltöltve."
 
 #, php-format
 msgid "Unable to import '%s'. "
-msgstr ""
+msgstr "'%s' nem importálható. "
 
+#, fuzzy
 msgid "Please contact your system administrator if the problem persists."
-msgstr ""
+msgstr "Ha a probléma továbbra is fennáll, forduljon a rendszergazdához."
 
+#, fuzzy
 msgid "Attachment is not imported successfully"
-msgstr ""
+msgstr "A melléklet importálása nem sikeres"
 
+#, fuzzy
 msgid "Embedded attachment not found."
-msgstr ""
+msgstr "Beágyazott melléklet nem található."
 
+#, fuzzy
 msgid "ZIP is not created successfully"
-msgstr ""
+msgstr "A ZIP nem jött létre sikeresen"
 
+#, fuzzy
 msgid "Attachments can not be downloaded"
-msgstr ""
+msgstr "A mellékletek nem tölthetők le"
 
+#, fuzzy
 msgid "Could not find attachment."
-msgstr ""
+msgstr "Nem találta a mellékletet."
 
+#, fuzzy
 msgid "Operation failed"
-msgstr ""
+msgstr "A művelet sikertelen"
 
+#, fuzzy
 msgid "Sticky Note"
-msgstr ""
+msgstr "Ragadós jegyzet"
 
+#, fuzzy
 msgid "Task Request"
-msgstr ""
+msgstr "Feladat kérés"
 
+#, fuzzy
 msgid "Could not find message, either it has been moved or deleted."
-msgstr ""
+msgstr "Nem találta az üzenetet, vagy áthelyezték, vagy törölték."
 
+#, fuzzy
 msgid "Request is not available."
-msgstr ""
+msgstr "A kérelem nem áll rendelkezésre."
 
 # 94%
 # 90%
@@ -7411,8 +7852,9 @@ msgstr "Művelet sikertelen: A kiszolgáló nem rendelkezik elegendő memóriáv
 msgid "Unknown MAPI Error: %s"
 msgstr "Ismeretlen MAPI hiba: %s"
 
+#, fuzzy
 msgid "Action is not performed correctly."
-msgstr ""
+msgstr "A művelet nem megfelelően történik."
 
 msgid "Tentatively accepted"
 msgstr "Feltételesen elfogadta"
@@ -7440,33 +7882,38 @@ msgid "Occurs every %s effective %s."
 msgstr "Előfordulása %s, kezdete: %s."
 
 # 75%
-#, php-format
+#, fuzzy, php-format
 msgid "Occurs every %s %s effective %s."
-msgstr ""
+msgstr "Minden %s %s tényleges %s alkalommal előfordul."
 
-#, php-format
+#, fuzzy, php-format
 msgid "Occurs every %s effective %s for %s occurrence from %s to %s."
 msgid_plural "Occurs every %s effective %s for %s occurrences from %s to %s."
 msgstr[0] ""
+"Minden %s tényleges %s alkalommal %s előfordulás esetén %s-tól %s-ig."
 msgstr[1] ""
+"Minden %s tényleges %s alkalommal %s előfordulás esetén %s-tól %s-ig "
+"előfordul."
 
-#, php-format
+#, fuzzy, php-format
 msgid "Occurs every %s %s effective %s for %s occurrence from %s to %s."
 msgid_plural "Occurs every %s %s effective %s for %s occurrences %s to %s."
 msgstr[0] ""
+"Minden %s %s tényleges %s %s előfordulás esetén %s-től %s-ig előfordul."
 msgstr[1] ""
+"Minden %s %s %s alkalommal %s alkalommal %s és %s között jelentkezik."
 
-#, php-format
+#, fuzzy, php-format
 msgid "Occurs every %s effective %s for %s occurrence."
 msgid_plural "Occurs every %s effective %s for %s occurrences."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Minden %s tényleges %s %s előfordulás esetén előfordul."
+msgstr[1] "Minden %s tényleges %s alkalommal %s alkalommal fordul elő."
 
-#, php-format
+#, fuzzy, php-format
 msgid "Occurs every %s %s effective %s for %s occurrence."
 msgid_plural "Occurs every %s %s effective %s for %s occurrences."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Minden %s %s tényleges %s %s előfordulásnál előfordul."
+msgstr[1] "Minden %s %s %s tényleges %s alkalommal fordul elő."
 
 # Have to look at it in action.
 # 76%
@@ -7500,224 +7947,304 @@ msgstr "Ismétlődés minden {0} érvényes {1} {2}-tól/től {3}-ig."
 msgid "Occurs every %s %s effective %s until %s."
 msgstr "Ismétlődés minden {0} érvényes {1} {2}-tól/től {3}-ig."
 
+#, fuzzy
 msgid "Task Accepted:"
-msgstr ""
+msgstr "Feladat elfogadva:"
 
+#, fuzzy
 msgid "Task Declined:"
-msgstr ""
+msgstr "Feladat elutasítva:"
 
+#, fuzzy
 msgid "Task Updated:"
-msgstr ""
+msgstr "Feladat frissítve:"
 
+#, fuzzy
 msgid "Task Completed:"
-msgstr ""
+msgstr "Befejezett feladat:"
 
 msgid "Contact not found"
-msgstr ""
+msgstr "Kapcsolat nem található"
 
+#, fuzzy
 msgid ""
 "Contact information could not be displayed because the server had trouble "
 "retrieving the information."
 msgstr ""
+"Az elérhetőségi adatok nem jelenhettek meg, mert a kiszolgálónak gondjai "
+"voltak az információk lekérdezésével."
 
+#, fuzzy
 msgid "Could not handle this type of object."
-msgstr ""
+msgstr "Nem tudta kezelni ezt az objektumtípust."
 
+#, fuzzy
 msgid "Could not open this object."
-msgstr ""
+msgstr "Nem sikerült megnyitni ezt az objektumot."
 
+#, fuzzy
 msgid "Error in search, please try again"
-msgstr ""
+msgstr "Hiba a keresésben, kérjük, próbálja újra"
 
+#, fuzzy
 msgid "Unable to perform search query, no permissions to create search folder."
 msgstr ""
+"Nem lehet keresési lekérdezést végrehajtani, nincsenek jogosultságok a "
+"keresési mappa létrehozásához."
 
+#, fuzzy
 msgid "Unable to perform search query, search folder not found."
 msgstr ""
+"Nem lehet keresési lekérdezést végrehajtani, a keresési mappa nem található."
 
+#, fuzzy
 msgid "Unable to perform search query, store might not support searching."
 msgstr ""
+"Nem lehet keresési lekérdezést végrehajtani, az áruház lehet, hogy nem "
+"támogatja a keresést."
 
+#, fuzzy
 msgid "Error in creating search folder."
-msgstr ""
+msgstr "Hiba a keresési mappa létrehozásakor."
 
+#, fuzzy
 msgid "Could not open occurrence."
-msgstr ""
+msgstr "Nem tudta megnyitni az eseményt."
 
+#, fuzzy
 msgid "Could not open occurrence, specific occurrence is probably deleted."
 msgstr ""
+"Nem sikerült megnyitni az eseményt, az adott eseményt valószínűleg törölték."
 
+#, fuzzy
 msgid "a meeting request"
-msgstr ""
+msgstr "egy találkozóra vonatkozó kérés"
 
+#, fuzzy
 msgid "an appointment"
-msgstr ""
+msgstr "egy találkozó"
 
 msgid "You have insufficient privileges to move "
-msgstr ""
+msgstr "Nincs elegendő jogosultsága a mozgáshoz "
 
+#, fuzzy
 msgid ""
 "Cannot set a reminder to appear before the previous occurrence. Reset "
 "reminder to save the change"
 msgstr ""
+"Nem lehet beállítani, hogy az emlékeztető az előző esemény előtt jelenjen "
+"meg. Emlékeztető visszaállítása a módosítás mentéséhez"
 
+#, fuzzy
 msgid "Two occurrences cannot occur on the same day"
-msgstr ""
+msgstr "Két esemény nem történhet ugyanazon a napon"
 
-#, php-format
+#, fuzzy, php-format
 msgid ""
 "You marked '%s' as a resource. You cannot schedule a meeting with '%s' "
 "because you do not have the appropriate permissions for that account. Either "
 "enter the name as a required or optional attendee or talk to your "
 "administrator about giving you permission to schedule '%s'."
 msgstr ""
+"Ön a '%s'-t jelölte meg erőforrásként. Nem tud megbeszélést szervezni a '%s'-"
+"vel, mert nem rendelkezik a megfelelő jogosultságokkal a fiókhoz. Vagy adja "
+"meg a nevet kötelező vagy választható résztvevőként, vagy beszéljen a "
+"rendszergazdával, hogy engedélyt kapjon a '%s' időpontjának megadására."
 
-#, php-format
+#, fuzzy, php-format
 msgid ""
 "'%s' has declined your meeting because '%s' does not automatically accept "
 "meeting requests."
 msgstr ""
+"'%s' elutasította a találkozót, mivel '%s' nem fogadja el automatikusan a "
+"találkozóra vonatkozó kéréseket."
 
-#, php-format
+#, fuzzy, php-format
 msgid ""
 "'%s' has declined your meeting because it is recurring. You must book each "
 "meeting separately with this resource."
 msgstr ""
+"'%s' visszautasította a találkozót, mert az ismétlődő. Minden egyes "
+"találkozót külön kell lefoglalnia ezzel az erőforrással."
 
-#, php-format
+#, fuzzy, php-format
 msgid ""
 "'%s' is already booked for this specified time. You must use another time or "
 "find another resource."
 msgstr ""
+"'%s' már foglalt erre a megadott időpontra. Más időpontot kell használnia, "
+"vagy másik erőforrást kell találnia."
 
+#, fuzzy
 msgid "Meeting was not scheduled."
-msgstr ""
+msgstr "A találkozót nem tűzték ki."
 
+#, fuzzy
 msgid "Meeting could not be sent."
-msgstr ""
+msgstr "A találkozót nem lehetett elküldeni."
 
+#, fuzzy
 msgid "Meeting could not be saved."
-msgstr ""
+msgstr "A találkozót nem lehetett megmenteni."
 
+#, fuzzy
 msgid "Private Appointment"
-msgstr ""
+msgstr "Privát találkozó"
 
-#, php-format
+#, fuzzy, php-format
 msgid "%s's Birthday"
-msgstr ""
+msgstr "%s születésnapja"
 
-#, php-format
+#, fuzzy, php-format
 msgid "%s's Anniversary"
-msgstr ""
+msgstr "%s évfordulója"
 
+#, fuzzy
 msgid "You don't have the permission to complete this action"
-msgstr ""
+msgstr "Nincs jogosultsága a művelet végrehajtásához"
 
+#, fuzzy
 msgid "Unknown user/group"
-msgstr ""
+msgstr "Ismeretlen felhasználó/csoport"
 
+#, fuzzy
 msgid "Could not save delegate information."
-msgstr ""
+msgstr "Nem sikerült elmenteni a delegáltak adatait."
 
+#, fuzzy
 msgid "Could not delete delegate."
-msgstr ""
+msgstr "Nem sikerült törölni a delegáltat."
 
+#, fuzzy
 msgid "Can not get list of delegates."
-msgstr ""
+msgstr "Nem kapja meg a küldöttek listáját."
 
+#, fuzzy
 msgid "Could not load the hierarchy."
-msgstr ""
+msgstr "Nem sikerült betölteni a hierarchiát."
 
+#, fuzzy
 msgid "Could not load folder properties."
-msgstr ""
+msgstr "Nem sikerült betölteni a mappa tulajdonságait."
 
+#, fuzzy
 msgid "Could not remove folder from favorites."
-msgstr ""
+msgstr "Nem sikerült eltávolítani a mappát a kedvencek közül."
 
+#, fuzzy
 msgid "You have insufficient privileges to delete folder."
-msgstr ""
+msgstr "Nincs elegendő jogosultsága a mappa törléséhez."
 
+#, fuzzy
 msgid "Could not delete folder."
-msgstr ""
+msgstr "Nem sikerült törölni a mappát."
 
+#, fuzzy
 msgid "You have insufficient privileges to copy folder."
-msgstr ""
+msgstr "Nincs elegendő jogosultsága a mappa másolásához."
 
+#, fuzzy
 msgid "Could not copy folder."
-msgstr ""
+msgstr "Nem sikerült mappát másolni."
 
+#, fuzzy
 msgid "You have insufficient privileges to move this folder."
-msgstr ""
+msgstr "Nincs elegendő jogosultsága a mappa áthelyezéséhez."
 
+#, fuzzy
 msgid "Could not move folder."
-msgstr ""
+msgstr "Nem tudta áthelyezni a mappát."
 
+#, fuzzy
 msgid "You have insufficient privileges to delete items."
-msgstr ""
+msgstr "Nincs elegendő jogosultsága az elemek törléséhez."
 
+#, fuzzy
 msgid "Could not empty folder."
-msgstr ""
+msgstr "Nem sikerült kiüríteni a mappát."
 
+#, fuzzy
 msgid "Could not perform action correctly."
-msgstr ""
+msgstr "Nem tudta megfelelően végrehajtani a műveletet."
 
+#, fuzzy
 msgid ""
 "A favorite folder with this name already exists, please use another name."
 msgstr ""
+"Egy ilyen nevű kedvenc mappa már létezik, kérjük, használjon más nevet."
 
+#, fuzzy
 msgid "Could not add folder to favorites."
-msgstr ""
+msgstr "Nem tudott mappát hozzáadni a kedvencekhez."
 
+#, fuzzy
 msgid "You have insufficient privileges to set permissions for this folder."
-msgstr ""
+msgstr "Nincs elegendő jogosultsága a mappa engedélyeinek beállításához."
 
+#, fuzzy
 msgid "Could not set folder permissions."
-msgstr ""
+msgstr "Nem sikerült beállítani a mappaengedélyeket."
 
+#, fuzzy
 msgid "You have insufficient privileges to rename this folder."
-msgstr ""
+msgstr "Nincs elegendő jogosultsága a mappa átnevezéséhez."
 
+#, fuzzy
 msgid "A folder with this name already exists. Use another name."
-msgstr ""
+msgstr "Egy ilyen nevű mappa már létezik. Használjon másik nevet."
 
+#, fuzzy
 msgid "Could not rename folder."
-msgstr ""
+msgstr "Nem sikerült átnevezni a mappát."
 
+#, fuzzy
 msgid "You have insufficient privileges to create this folder."
-msgstr ""
+msgstr "Nincs elegendő jogosultsága a mappa létrehozásához."
 
+#, fuzzy
 msgid "Could not create folder."
-msgstr ""
+msgstr "Nem sikerült mappát létrehozni."
 
+#, fuzzy
 msgid "Could not close shared folder."
-msgstr ""
+msgstr "Nem sikerült bezárni a megosztott mappát."
 
+#, fuzzy
 msgid "User could not be resolved."
-msgstr ""
+msgstr "A felhasználó nem volt megoldható."
 
-#, php-format
+#, fuzzy, php-format
 msgid ""
 "You have insufficient privileges to open this %1$s folder. The folder owner "
 "can set these using the 'permissions'-tab of the folder properties (right "
 "click the %1$s folder > properties > permissions)."
 msgstr ""
+"Nincs elegendő jogosultsága a %1$s mappa megnyitásához. A mappa tulajdonosa "
+"ezeket a mappa tulajdonságainak \"engedélyek\" lapján állíthatja be (jobb "
+"klikk a %1$s mappára > tulajdonságok > engedélyek)."
 
 msgid "unknown"
-msgstr ""
+msgstr "ismeretlen"
 
+#, fuzzy
 msgid "Could not move folder"
-msgstr ""
+msgstr "Nem tudta áthelyezni a mappát"
 
+#, fuzzy
 msgid "Could not copy folder"
-msgstr ""
+msgstr "Nem sikerült mappát másolni"
 
+#, fuzzy
 msgid "You have insufficient privileges to open this message."
-msgstr ""
+msgstr "Nincs elegendő jogosultsága az üzenet megnyitásához."
 
+#, fuzzy
 msgid ""
 "Could not find message, either it has been moved or deleted or you don't "
 "have access to open this message."
 msgstr ""
+"Nem találta az üzenetet, vagy áthelyezték vagy törölték, vagy nincs "
+"hozzáférése az üzenet megnyitásához."
 
 msgid "Could not open message."
 msgstr "Az üzenetet nem lehet megnyitni."
@@ -7811,166 +8338,227 @@ msgstr "Az üzenet nem ért el pár címzettet"
 msgid "The following recipient(s) could not be reached"
 msgstr "Az alábbi címzet(tek) nem érhető(ek) el"
 
+#, fuzzy
 msgid "You have insufficient privileges to see the contents of this folder."
 msgstr ""
+"Nem rendelkezik elegendő jogosultsággal ahhoz, hogy megnézze a mappa "
+"tartalmát."
 
+#, fuzzy
 msgid "Could not load the contents of this folder."
-msgstr ""
+msgstr "Nem sikerült betölteni a mappa tartalmát."
 
+#, fuzzy
 msgid ""
 "You have insufficient privileges to perform search operation in this folder."
 msgstr ""
+"Nincs elegendő jogosultsága a keresési művelet végrehajtásához ebben a "
+"mappában."
 
+#, fuzzy
 msgid "Could not update search results."
-msgstr ""
+msgstr "Nem sikerült frissíteni a keresési eredményeket."
 
+#, fuzzy
 msgid "Could not stop search operation."
-msgstr ""
+msgstr "Nem sikerült leállítani a keresési műveletet."
 
+#, fuzzy
 msgid "You have insufficient privileges to save this message."
-msgstr ""
+msgstr "Nincs elegendő jogosultsága az üzenet mentéséhez."
 
+#, fuzzy
 msgid "Could not save message."
-msgstr ""
+msgstr "Nem sikerült elmenteni az üzenetet."
 
+#, fuzzy
 msgid "You have insufficient privileges to delete this message."
-msgstr ""
+msgstr "Nincs elegendő jogosultsága az üzenet törléséhez."
 
+#, fuzzy
 msgid "Could not delete message."
-msgstr ""
+msgstr "Nem sikerült törölni az üzenetet."
 
+#, fuzzy
 msgid "You have insufficient privileges to cancel this Meeting Request."
 msgstr ""
+"Nem rendelkezik elegendő jogosultsággal ahhoz, hogy törölje ezt a "
+"találkozási kérelmet."
 
+#, fuzzy
 msgid "Could not cancel Meeting Request."
-msgstr ""
+msgstr "Nem sikerült törölni az értekezletkérelmet."
 
+#, fuzzy
 msgid "You have insufficient privileges to decline this Meeting Request."
 msgstr ""
+"Nem rendelkezik elegendő jogosultsággal ahhoz, hogy elutasítsa ezt a "
+"találkozási kérelmet."
 
+#, fuzzy
 msgid "Could not decline Meeting Request."
-msgstr ""
+msgstr "Nem tudta elutasítani a találkozó iránti kérelmet."
 
+#, fuzzy
 msgid "You have insufficient privileges to accept this Meeting Request."
 msgstr ""
+"Nem rendelkezik elegendő jogosultsággal ahhoz, hogy elfogadja ezt a "
+"találkozási kérelmet."
 
+#, fuzzy
 msgid "Could not accept Meeting Request."
-msgstr ""
+msgstr "Nem tudta elfogadni a találkozó iránti kérelmet."
 
+#, fuzzy
 msgid "You have insufficient privileges to cancel Meeting Request invitation."
 msgstr ""
+"Nem rendelkezik elegendő jogosultsággal ahhoz, hogy lemondja a találkozói "
+"meghívást."
 
+#, fuzzy
 msgid "Could not cancel Meeting Request invitations."
-msgstr ""
+msgstr "Nem tudta törölni a találkozói meghívásokat."
 
+#, fuzzy
 msgid "You can not continue search operation on this folder."
-msgstr ""
+msgstr "Nem folytathatja a keresési műveletet ebben a mappában."
 
+#, fuzzy
 msgid "Error in search, please try again."
-msgstr ""
+msgstr "Hiba a keresésben, kérjük, próbálja újra."
 
+#, fuzzy
 msgid "Error in distribution list expansion."
-msgstr ""
+msgstr "Hiba az elosztási lista bővítésében."
 
+#, fuzzy
 msgid "The message store has exceeded its hard quota limit."
-msgstr ""
+msgstr "Az üzenettároló túllépte a kemény kvótakorlátot."
 
+#, fuzzy
 msgid ""
 "To reduce the amount of data in this message store, select some items that "
 "you no longer need, delete them and cleanup your Deleted Items folder."
 msgstr ""
+"Az üzenettároló adatmennyiségének csökkentéséhez válasszon ki néhány olyan "
+"elemet, amelyre már nincs szüksége, törölje őket, és tisztítsa meg a Törölt "
+"elemek mappát."
 
+#, fuzzy
 msgid "The message store has exceeded its soft quota limit."
-msgstr ""
+msgstr "Az üzenettároló túllépte a puha kvótakorlátot."
 
+#, fuzzy
 msgid "Could not process request data properly."
-msgstr ""
+msgstr "Nem sikerült megfelelően feldolgozni a kérés adatait."
 
-#, php-format
+#, fuzzy, php-format
 msgid "Unknown action type specified - %s"
-msgstr ""
+msgstr "Ismeretlen művelettípus megadva - %s"
 
+#, fuzzy
 msgid "Cannot snooze the reminder. You may be reminded again."
-msgstr ""
+msgstr "Nem lehet szundi az emlékeztetőt. Önt újra emlékeztetheti."
 
+#, fuzzy
 msgid "Cannot dismiss the reminder. You may be reminded again."
-msgstr ""
+msgstr "Az emlékeztetőt nem lehet elutasítani. Önt újra emlékeztetheti."
 
+#, fuzzy
 msgid "You have insufficient privileges to perform this action."
-msgstr ""
+msgstr "Nem rendelkezik elegendő jogosultsággal a művelet végrehajtásához."
 
+#, fuzzy
 msgid "Could not resolve user."
-msgstr ""
+msgstr "Nem sikerült feloldani a felhasználót."
 
+#, fuzzy
 msgid "Setting mail filters on the stores of other users is not allowed."
 msgstr ""
+"A levelezési szűrők beállítása más felhasználók tárolóin nem megengedett."
 
+#, fuzzy
 msgid "Untitled rule"
-msgstr ""
+msgstr "Cím nélküli szabály"
 
+#, fuzzy
 msgid "Could not load rules."
-msgstr ""
+msgstr "Nem sikerült betölteni a szabályokat."
 
+#, fuzzy
 msgid "Could not save rules."
-msgstr ""
+msgstr "Nem tudta elmenteni a szabályokat."
 
+#, fuzzy
 msgid "Task Request:"
-msgstr ""
+msgstr "Feladatkérés:"
 
 msgid "Sign in"
-msgstr ""
+msgstr "Bejelentkezés"
 
+#, fuzzy
 msgid "File is not imported successfully"
-msgstr ""
+msgstr "A fájl importálása nem sikeres"
 
+#, fuzzy
 msgid "There is no contact found in this file."
-msgstr ""
+msgstr "Ebben a fájlban nem található kapcsolat."
 
+#, fuzzy
 msgid ""
 "grommunio Web does not support importing multiple VCF with this version."
-msgstr ""
+msgstr "a grommunio Web ebben a verzióban nem támogatja több VCF importálását."
 
+#, fuzzy
 msgid ""
 "grommunio Web does not support importing multiple ICS with this version."
-msgstr ""
+msgstr "a grommunio Web ebben a verzióban nem támogatja több ICS importálását."
 
-#, php-format
+#, fuzzy, php-format
 msgid "Unable to import '%s'"
-msgstr ""
+msgstr "Nem sikerült importálni a '%s'"
 
+#, fuzzy
 msgid "The EML is not valid"
-msgstr ""
+msgstr "Az EML nem érvényes"
 
 msgid "GB"
-msgstr ""
+msgstr "GB"
 
 msgid "MB"
-msgstr ""
+msgstr "MB"
 
 msgid "KB"
-msgstr ""
+msgstr "KB"
 
 msgid "B"
-msgstr ""
+msgstr "B"
 
+#, fuzzy
 msgid "The maximum stack depth has been exceeded"
-msgstr ""
+msgstr "A maximális kötegmélység túllépésre került"
 
+#, fuzzy
 msgid "Control character error, possibly incorrectly encoded"
-msgstr ""
+msgstr "Vezérlő karakter hiba, esetleg helytelenül kódolva"
 
+#, fuzzy
 msgid "Invalid or malformed JSON"
-msgstr ""
+msgstr "Érvénytelen vagy rosszul formázott JSON"
 
+#, fuzzy
 msgid "Syntax error"
-msgstr ""
+msgstr "Szintaxis hiba"
 
+#, fuzzy
 msgid "Malformed UTF-8 characters, possibly incorrectly encoded"
-msgstr ""
+msgstr "Rosszul formázott UTF-8 karakterek, esetleg helytelenül kódolva"
 
-#, php-format
+#, fuzzy, php-format
 msgid "JSON Error: - %s"
-msgstr ""
+msgstr "JSON hiba: - %s"
 
+#, fuzzy
 msgid "Some problem encountered when encoding/decoding JSON data."
 msgstr ""
+"A JSON-adatok kódolásakor/dekódolásakor valamilyen probléma merült fel."

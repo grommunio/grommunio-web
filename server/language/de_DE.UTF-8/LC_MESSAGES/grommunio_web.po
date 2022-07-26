@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: grommunio Web German (Germany)\n"
 "Report-Msgid-Bugs-To: dev@grommunio.com\n"
 "POT-Creation-Date: 2019-09-25 14:32+0200\n"
-"PO-Revision-Date: 2022-05-04 11:28+0000\n"
+"PO-Revision-Date: 2022-07-26 14:32+0200\n"
 "Last-Translator: Mike Williams <mike.williams@grammm.com>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/grommunio/"
 "grommunio-web/de/>\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.12.1\n"
+"X-Generator: Weblate 4.14-dev\n"
 
 #. TRANSLATORS: This message is used as label for the column which indicates the week number of the month in date picker. and 'Wk' stands for week
 msgid "Wk"
@@ -1116,7 +1116,7 @@ msgid "Send updates to all attendees."
 msgstr "Aktualisierung an alle Teilnehmer versenden."
 
 msgid "Busy attendees"
-msgstr "beschäftigte Teilnehmer"
+msgstr "Beschäftigte Teilnehmer"
 
 msgid "One or more attendees are busy. Are you sure to invite?"
 msgstr ""
@@ -4177,13 +4177,13 @@ msgid "Attachments not uploaded yet"
 msgstr "Anhänge sind noch nicht hochgeladen"
 
 msgid "Don't Send"
-msgstr "nicht senden"
+msgstr "Nicht senden"
 
 msgid "Send Anyway"
-msgstr "trotzdem senden"
+msgstr "Trotzdem senden"
 
 msgid "No subject"
-msgstr "kein Betreff"
+msgstr "Kein Betreff"
 
 msgid "Send this message without a subject?"
 msgstr "Diese Nachricht ohne einen Betreff verschicken?"
@@ -5331,10 +5331,10 @@ msgid "Inbox navigation"
 msgstr "Navigation im Posteingang"
 
 msgid "I want to navigate through my items by using."
-msgstr "Meine Elemente möchte ich:"
+msgstr "Ich möchte durch meine Elemente navigieren durch Verwendung von"
 
 msgid "Infinite Scroll"
-msgstr "in einer kompletten Liste sehen"
+msgstr "Endlosem Scrolling"
 
 # 98%
 # 100%
@@ -5344,7 +5344,7 @@ msgstr ""
 "scrollen"
 
 msgid "Pagination"
-msgstr "in einer Seitenansicht sehen"
+msgstr "Seitenunterteilung"
 
 msgid ""
 "grommunio Web displays items on pages and you can use navigation controls to "
@@ -5366,7 +5366,7 @@ msgid "Part of basic keyboard shortcuts"
 msgstr "In Basis-Tastenkombinationen enthalten"
 
 msgid "Keyboard shortcuts off"
-msgstr "keine Tastenkombinationen nutzen"
+msgstr "Keine Tastenkombinationen nutzen"
 
 msgid "Basic keyboard shortcuts on"
 msgstr "Basis-Tastenkombinationen nutzen"
@@ -5381,7 +5381,7 @@ msgid "Plugins"
 msgstr "Plugins"
 
 msgid "Available plugins"
-msgstr "verfügbare Plugins"
+msgstr "Verfügbare Plugins"
 
 msgid "No plugins available"
 msgstr "Keine Plugins vorhanden"
@@ -6014,7 +6014,7 @@ msgid "Share Details"
 msgstr "Freigabedetails"
 
 msgid "Re-share"
-msgstr "erneut freigeben"
+msgstr "Erneut freigeben"
 
 msgid "Change"
 msgstr "Ändern"
@@ -6430,10 +6430,10 @@ msgid "Intranet"
 msgstr "Intranet"
 
 msgid "number"
-msgstr ""
+msgstr "Nummer"
 
 msgid "shadow"
-msgstr ""
+msgstr "Schatten"
 
 msgid "Openstreetmap"
 msgstr "Openstreetmap"
@@ -6637,7 +6637,7 @@ msgstr ""
 msgid "If you have problems when creating meetings, try disabling this setting"
 msgstr ""
 "Falls Sie Probleme beim Erstellen von Meetings haben, versuchen Sie diese "
-"Option zu deaktivieren."
+"Option zu deaktivieren"
 
 msgid "Add an invitation to the appointment description"
 msgstr "Einladung an die Terminbeschreibung hinzufügen"
@@ -7112,7 +7112,7 @@ msgid "Webdav base path"
 msgstr "WebDAV Basispfad"
 
 msgid "Use grommunio credentials"
-msgstr "grommunio Zugangsdaten verwenden"
+msgstr "Verwendung von grommunio Zugangsdaten"
 
 msgid "php-curl is not available"
 msgstr "php-curl ist nicht verfügbar"
@@ -7358,8 +7358,7 @@ msgstr "Kann öffentliches Zertifikat nicht lesen"
 
 msgid "Can't add data to bus, same action type is present in bus"
 msgstr ""
-"Konnte Daten nicht zum Bus hinzufügen, selbe Aktion ist auf dem Bus "
-"vorhanden."
+"Konnte Daten nicht zum Bus hinzufügen, selbe Aktion ist auf dem Bus vorhanden"
 
 msgid "Response data requested from bus but it doesn't have any data."
 msgstr "Antwortdaten vom Bus angefragt aber es enthält keine Daten."
@@ -7565,10 +7564,8 @@ msgstr[1] ""
 #, php-format
 msgid "Occurs every %s effective %s for %s occurrence."
 msgid_plural "Occurs every %s effective %s for %s occurrences."
-msgstr[0] ""
-"Findet jeden %s statt, beginnend am %s für %s Wiederholung von %s bis %s."
-msgstr[1] ""
-"Findet jeden %s statt, beginnend am %s für %s Wiederholungen von %s bis %s."
+msgstr[0] "Findet jeden %s statt, beginnend am %s für %s Wiederholung."
+msgstr[1] "Findet jeden %s statt, beginnend am %s für %s Wiederholungen."
 
 #, php-format
 msgid "Occurs every %s %s effective %s for %s occurrence."
@@ -7682,9 +7679,9 @@ msgid ""
 "enter the name as a required or optional attendee or talk to your "
 "administrator about giving you permission to schedule '%s'."
 msgstr ""
-"Sie haben '%S' als Ressource markiert. Sie können keinen Termin mit '%' "
+"Sie haben '%s' als Ressource markiert. Sie können keinen Termin mit '%s' "
 "erstellen, da Sie nicht die notwendigen Berechtigungen für das Konto "
-"besitzen. Entwederfügen Sie den Namen als erforderlichen oder optionalen "
+"besitzen. Entweder fügen Sie den Namen als erforderlichen oder optionalen "
 "Teilnehmer hinzu oder sprechen mit Ihrem Administrator um die Erteilung der "
 "Berechtigung '%s' zu planen."
 
@@ -7726,7 +7723,7 @@ msgstr "Privater Termin"
 
 #, php-format
 msgid "%s's Birthday"
-msgstr "%'s Geburtstag"
+msgstr "%s' Geburtstag"
 
 #, php-format
 msgid "%s's Anniversary"
@@ -7819,7 +7816,7 @@ msgstr ""
 "Sie haben nicht genügend Berechtigungen um das Verzeichnis zu erstellen."
 
 msgid "Could not create folder."
-msgstr "Konnte Verzeichnis nicht erstellen"
+msgstr "Konnte Verzeichnis nicht erstellen."
 
 msgid "Could not close shared folder."
 msgstr "Konnte geteiltes Verzeichnis nicht schließen."
