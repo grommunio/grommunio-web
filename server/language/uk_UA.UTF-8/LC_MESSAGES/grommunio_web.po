@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: grommunio Web Ukrainian (Ukraine)\n"
 "Report-Msgid-Bugs-To: dev@grommunio.com\n"
 "POT-Creation-Date: 2019-09-25 14:32+0200\n"
-"PO-Revision-Date: 2022-07-26 15:19+0000\n"
+"PO-Revision-Date: 2022-07-26 17:57+0000\n"
 "Last-Translator: Artem <artem@molotov.work>\n"
 "Language-Team: Ukrainian <https://hosted.weblate.org/projects/grommunio/"
 "grommunio-web/uk/>\n"
@@ -1612,7 +1612,7 @@ msgid ""
 msgstr ""
 
 msgid "Insufficient privileges"
-msgstr "Недостатньо привілеїв"
+msgstr "Недостатньо прав"
 
 msgid ""
 "Copying this appointment will unset it as private. Are you sure you want to "
@@ -1750,121 +1750,133 @@ msgid "Printing of multiple items has not been implemented."
 msgstr ""
 
 msgid "Printing of this item is not yet available"
-msgstr ""
+msgstr "Друк цього складника ще недоступний"
 
 msgid "Item type: "
-msgstr ""
+msgstr "Тип складника: "
 
 msgid "Printing of this view is not yet available"
-msgstr ""
+msgstr "Друк цього подання ще недоступний"
 
 msgid "Recurring Message"
-msgstr ""
+msgstr "Повторюване повідомлення"
 
 msgid ""
 "This is a recurring message. Do you want to open only this occurrence or the "
 "series?"
 msgstr ""
+"Це повторюване повідомлення. Хочете відкрити тільки цю подію чи цілу низку?"
 
 msgid "Recurring Appointment"
-msgstr ""
+msgstr "Повторювана зустріч"
 
 msgid ""
 "This is a recurring appointment. Do you want to open only this occurrence or "
 "the series?"
-msgstr ""
+msgstr "Це повторювана зустріч. Хочете відкрити тільки цю подію чи цілу низку?"
 
 msgid "Recurring Meeting Request"
-msgstr ""
+msgstr "Повторюване запрошення на зустріч"
 
 msgid ""
 "This is a recurring meeting request. Do you want to open only this "
 "occurrence or the series?"
 msgstr ""
+"Це повторюване запрошення на зустріч. Ви хочете відкрити лише цю подію чи "
+"цілу низку?"
 
 msgid "Recurring Task Request"
-msgstr ""
+msgstr "Повторюване запрошення на завдання"
 
 msgid ""
 "This is a recurring task request. Do you want to open only this occurrence "
 "or the series?"
 msgstr ""
+"Це повторюваний запит на завдання. Ви хочете відкрити тільки цю подію чи "
+"цілу низку?"
 
 msgid "Open this occurrence"
-msgstr ""
+msgstr "Відкрити цю подію"
 
 msgid "Open the series"
-msgstr ""
+msgstr "Відкрити низку подій"
 
 msgid "Paste Recurring {0}"
-msgstr ""
+msgstr "Вставити повторюване {0}"
 
 msgid ""
 "This is a recurring {0}. Do you want to paste only this occurrence or the "
 "series?"
-msgstr ""
+msgstr "Це повторюване {0}. Ви хочете вставити тільки цю подію чи цілу низку?"
 
 msgid "message"
-msgstr ""
+msgstr "повідомлення"
 
 msgid "meeting request"
-msgstr ""
+msgstr "запрошення на зустріч"
 
 msgid "appointment"
-msgstr ""
+msgstr "зустріч"
 
 msgid "Paste this occurrence only"
-msgstr ""
+msgstr "Вставити лише цю подію"
 
 msgid "Paste the series..."
-msgstr ""
+msgstr "Вставити низку подій..."
 
 msgid ""
 "This is a recurring message. Do you want to delete only this occurrence or "
 "the series?"
 msgstr ""
+"Це повторюване повідомлення. Ви хочете видалити тільки цю подію чи цілу "
+"низку?"
 
 msgid ""
 "This is a recurring appointment. Do you want to delete only this occurrence "
 "or the series?"
 msgstr ""
+"Це повторювана зустріч. Ви хочете видалити тільки цю подію чи цілу низку?"
 
 msgid ""
 "This is a recurring meeting request. Do you want to delete only this "
 "occurrence or the series?"
 msgstr ""
+"Це повторюване запрошення на зустріч. Ви хочете видалити лише цю подію чи "
+"цілу низку?"
 
 msgid ""
 "This is a recurring task request. Do you want to delete only this occurrence "
 "or the series?"
 msgstr ""
+"Це повторюване запрошення на завдання. Ви хочете видалити тільки цю подію чи "
+"цілу низку?"
 
 msgid "Delete this occurrence"
-msgstr ""
+msgstr "Видалити цю подію"
 
 msgid "Delete the series"
-msgstr ""
+msgstr "Видалити низку подій"
 
 msgid "Confirm Delete"
-msgstr ""
+msgstr "Підтвердьте видалення"
 
 msgid "This \"{0}\" meeting was already accepted."
-msgstr ""
+msgstr "Зустріч «{0}» вже була прийнята."
 
 msgid "You have not responded to the meeting request \"{0}\"."
-msgstr ""
+msgstr "Ви не відповіли щодо запрошення на зустріч «{0}»."
 
 msgid "Delete and send a response to the meeting organizer"
-msgstr ""
+msgstr "Видалити та надіслати відповідь призвіднику зустрічі"
 
 msgid "Delete without sending"
-msgstr ""
+msgstr "Видалити без надсилання"
 
 msgid "Insufficient permissions"
 msgstr "Недостатньо дозволів"
 
 msgid "You have insufficient privileges to delete items in this folder."
-msgstr ""
+msgstr "У вас недостатньо прав для видалення складників у цій теці."
 
 msgid "Notify recipients"
 msgstr ""
@@ -2011,16 +2023,16 @@ msgid ""
 msgstr ""
 
 msgid "Attachment error"
-msgstr ""
+msgstr "Помилка вкладення"
 
 msgid "Cannot create ZIP, The allowed maximum size is 30 MB."
-msgstr ""
+msgstr "Не вдається створити ZIP архів, максимальний дозволений розмір - 30 МБ."
 
 msgid "Unable to download"
-msgstr ""
+msgstr "Не вдається завантажити"
 
 msgid "Picture format is not supported. "
-msgstr ""
+msgstr "Первостать зображення не підтримується. "
 
 msgid "Supported format for contact pictures are"
 msgstr ""
@@ -2032,10 +2044,10 @@ msgid "Manage Categories"
 msgstr ""
 
 msgid "New"
-msgstr ""
+msgstr "Створити"
 
 msgid "Delete Category"
-msgstr ""
+msgstr "Видалити категорію"
 
 msgid ""
 "Are you sure you want to delete the category \"{0}\"? Other items keep this "
@@ -6893,7 +6905,7 @@ msgstr ""
 
 # 90%
 msgid "You have insufficient privileges to open this object."
-msgstr "У вас недостатньо привілеїв, щоб відкрити цей об'єкт."
+msgstr "У вас недостатньо прав, щоб відкрити цей об'єкт."
 
 # 93%
 #, fuzzy
@@ -7240,7 +7252,7 @@ msgstr "Не вдається перемістити повідомлення"
 
 # 81%
 msgid "You have insufficient privileges to save items in this folder"
-msgstr "У вас недостатньо привілеїв, щоб зберегти елементи в цю теку"
+msgstr "У вас недостатньо прав, щоб зберегти складники в цю теку"
 
 # 83%
 # 76%
@@ -7260,7 +7272,7 @@ msgstr ""
 
 # 81%
 msgid "You have insufficient privileges to delete items in this folder"
-msgstr "У вас недостатньо привілеїв, щоб видалити елементи з цієї теки"
+msgstr "У вас недостатньо прав, щоб видалити складники з цієї теки"
 
 msgid "You have insufficient privileges to attach item as an attachment."
 msgstr ""
