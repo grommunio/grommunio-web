@@ -120,7 +120,7 @@
 						else {
 							$e->setDisplayMessage(_("Could not save message."));
 						}
-							$e->allowToShowDetailMessage = true;
+						$e->allowToShowDetailMessage = true;
 						break;
 
 					case "delete":
@@ -393,7 +393,7 @@
 		 *
 		 * @param array $action the XML data retrieved from the client
 		 *
-		 * @return object MAPI Message Store Object, false if entryid is not found in the $action variable
+		 * @return mixed MAPI Message Store Object, false if entryid is not found in the $action variable
 		 */
 		public function getActionEntryID($action) {
 			$entryid = false;

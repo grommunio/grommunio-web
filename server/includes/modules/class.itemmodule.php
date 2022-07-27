@@ -152,7 +152,7 @@
 													$GLOBALS["bus"]->notify(bin2hex($messageProps[PR_PARENT_ENTRYID]), TABLE_SAVE, $messageProps);
 												}
 
-											break;
+												break;
 
 											case "acceptTaskRequest":
 											case "declineTaskRequest":
@@ -177,7 +177,7 @@
 												}
 
 												$this->sendFeedback(true);
-												if ($result) {
+												if ($result !== false) {
 													$GLOBALS["bus"]->notify(bin2hex($result[PR_PARENT_ENTRYID]), TABLE_DELETE, $result);
 												}
 
@@ -186,7 +186,7 @@
 													unset($props[PR_MESSAGE_CLASS]);
 													$GLOBALS["bus"]->notify(bin2hex($props[PR_PARENT_ENTRYID]), $isAccept ? TABLE_SAVE : TABLE_DELETE, $props);
 												}
-											break;
+												break;
 
 											case "copy":
 											case "move":
@@ -619,7 +619,7 @@
 
 					// Save message
 					if (!empty($props)) {
-						$result = $GLOBALS["operations"]->saveMessage($store, $entryid, $parententryid, $props, $messageProps, [], (!empty($action['attachments']) ? $action['attachments'] : []));
+						$result = $GLOBALS["operations"]->saveMessage($store, $entryid, $parententryid, $props, $messageProps, [], !empty($action['attachments']) ? $action['attachments'] : []);
 					}
 
 					if ($result) {
@@ -819,7 +819,7 @@
 
 				$basedate = $meetingRequestObject->getBasedateFromGlobalID($messageProps[$meetingRequestObject->proptags['goid']]);
 
-				if ($basedate) {
+				if ($basedate !== false) {
 					$props['appointment_basedate'] = $basedate;
 
 					// if basedate is provided then it is exception, so get update counter of the exception
