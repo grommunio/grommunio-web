@@ -2675,7 +2675,7 @@ class Meetingrequest {
 					$addrInfo = $this->getOwnerAddress($this->store);
 
 					if (!empty($addrInfo)) {
-						list($ownername, $owneremailaddr, $owneraddrtype, $ownerentryid, $ownersearchkey) = $addrinfo;
+						list($ownername, $owneremailaddr, $owneraddrtype, $ownerentryid, $ownersearchkey) = $addrInfo;
 
 						$messageprops[PR_SENDER_EMAIL_ADDRESS] = $owneremailaddr;
 						$messageprops[PR_SENDER_NAME] = $ownername;
