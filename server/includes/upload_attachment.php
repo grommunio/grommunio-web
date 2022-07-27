@@ -127,6 +127,41 @@ class UploadAttachment {
 				// validate the FILE object to see if the size doesn't exceed
 				// the configured MAX_FILE_SIZE
 				$fileSize = $_FILES['attachments']['size'][$key];
+				if (isset($_FILES['attachments']['error'][$key]) && $_FILES['attachments']['error'][$key] > 0) {
+					$errorTitle = _("File is not imported successfully");
+
+					switch ($_FILES['attachments']['error'][$key]) {
+						case UPLOAD_ERR_INI_SIZE:
+							$errorTitle = _('The uploaded file exceeds the upload_max_filesize directive in php.ini.');
+							break;
+
+						case UPLOAD_ERR_FORM_SIZE:
+							$errorTitle = _('The uploaded file exceeds the MAX_FILE_SIZE directive that was specified in the HTML form.');
+							break;
+
+						case UPLOAD_ERR_PARTIAL:
+							$errorTitle = _('The uploaded file was only partially uploaded.');
+							break;
+
+						case UPLOAD_ERR_NO_FILE:
+							$errorTitle = _('No file was uploaded. .');
+							break;
+
+						case UPLOAD_ERR_NO_TMP_DIR:
+							$errorTitle = _('Missing a temporary folder.');
+							break;
+
+						case UPLOAD_ERR_CANT_WRITE:
+							$errorTitle = _('Failed to write file to disk.');
+							break;
+
+						case UPLOAD_ERR_EXTENSION:
+							$errorTitle = _('A PHP extension stopped the file upload. PHP does not provide a way to ascertain which extension caused the file upload to stop; examining the list of loaded extensions with phpinfo() may help.');
+							break;
+					}
+
+					throw new ZarafaException($errorTitle);
+				}
 				if (isset($fileSize) && !(isset($_POST['MAX_FILE_SIZE']) && $fileSize > $_POST['MAX_FILE_SIZE'])) {
 					// Parse the filename, strip it from
 					// any illegal characters.
