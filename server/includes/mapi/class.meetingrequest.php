@@ -269,7 +269,7 @@ class Meetingrequest {
 	/**
 	 * Function is used to get the last update counter of meeting request.
 	 *
-	 * @return int|bool false when last_updatecounter not found else return last_updatecounter
+	 * @return bool|int false when last_updatecounter not found else return last_updatecounter
 	 */
 	public function getLastUpdateCounter() {
 		$calendarItemProps = mapi_getprops($this->message, [$this->proptags['last_updatecounter']]);
@@ -353,7 +353,7 @@ class Meetingrequest {
 	 * in your calendar to show whether the user has accepted or declined.
 	 *
 	 * @param resource $store        contains the userStore in which the meeting is created
-	 * @param resource $calendarItem resource of the calendar item for which this response has arrived
+	 * @param mixed    $calendarItem resource of the calendar item for which this response has arrived
 	 * @param mixed    $basedate     if present the create an exception
 	 * @param array    $messageprops contains message properties
 	 */
@@ -631,7 +631,7 @@ class Meetingrequest {
 	 * @param mixed $basedate             start of day of occurrence for which user has accepted the recurrent meeting
 	 * @param bool  $isImported           true to indicate that MR is imported from .ics or .vcs file else it false.
 	 *
-	 * @return string|bool $entryid entryid of item which created/updated in calendar
+	 * @return bool|string $entryid entryid of item which created/updated in calendar
 	 */
 	public function doAccept($tentative, $sendresponse, $move, $newProposedStartTime = false, $newProposedEndTime = false, $body = false, $userAction = false, $store = false, $basedate = false, $isImported = false) {
 		if ($this->isLocalOrganiser()) {
@@ -815,7 +815,7 @@ class Meetingrequest {
 					else {
 						$props[$this->proptags['busystatus']] = $props[$this->proptags['intendedbusystatus']];
 					}
-					// we already have intendedbusystatus value in $props so no need to copy it
+				// we already have intendedbusystatus value in $props so no need to copy it
 				}
 				else {
 					$props[$this->proptags['busystatus']] = $tentative ? fbTentative : fbBusy;
@@ -1061,7 +1061,7 @@ class Meetingrequest {
 							else {
 								$props[$this->proptags['busystatus']] = $props[$this->proptags['intendedbusystatus']];
 							}
-							// we already have intendedbusystatus value in $props so no need to copy it
+						// we already have intendedbusystatus value in $props so no need to copy it
 						}
 						else {
 							$props[$this->proptags['busystatus']] = $tentative ? fbTentative : fbBusy;
@@ -1427,7 +1427,7 @@ class Meetingrequest {
 	 * the start of January 1, 1601.
 	 * https://msdn.microsoft.com/en-us/library/office/cc765906.aspx.
 	 *
-	 * @param int the current epoch
+	 * @param int $epoch the current epoch
 	 *
 	 * @return int the MAPI FileTime equalevent to the given epoch time
 	 */
@@ -1727,7 +1727,7 @@ class Meetingrequest {
 	 *
 	 * @param mixed $store {optional} user store whose default calendar should be opened
 	 *
-	 * @return resource default calendar folder of store
+	 * @return bool|string default calendar folder of store
 	 */
 	public function getDefaultWastebasketEntryID($store = false) {
 		return $this->getBaseEntryID(PR_IPM_WASTEBASKET_ENTRYID, $store);
@@ -1738,7 +1738,7 @@ class Meetingrequest {
 	 *
 	 * @param mixed $store {optional} user store whose default sent mail should be opened
 	 *
-	 * @return resource default sent mail folder of store
+	 * @return bool|string default sent mail folder of store
 	 */
 	public function getDefaultSentmailEntryID($store = false) {
 		return $this->getBaseEntryID(PR_IPM_SENTMAIL_ENTRYID, $store);
@@ -1752,7 +1752,7 @@ class Meetingrequest {
 	 * @param int   $prop  proptag of the folder for which we want to get entryid
 	 * @param mixed $store {optional} user store from which we need to get entryid of default folder
 	 *
-	 * @return string|bool entryid of folder pointed by $prop
+	 * @return bool|string entryid of folder pointed by $prop
 	 */
 	public function getDefaultFolderEntryID($prop, $store = false) {
 		try {
@@ -1800,7 +1800,7 @@ class Meetingrequest {
 	 * @param int   $prop  proptag of the folder whose entryid we want to get
 	 * @param mixed $store {optional} user store from which we need to get entryid of default folder
 	 *
-	 * @return string|bool entryid of default folder from store
+	 * @return bool|string entryid of default folder from store
 	 */
 	public function getBaseEntryID($prop, $store = false) {
 		$storeprops = mapi_getprops($store ? $store : $this->store, [$prop]);
@@ -1938,7 +1938,7 @@ class Meetingrequest {
 	 * @param array $proposeNewTimeProps properties of attendee's proposal
 	 * @param mixed $body
 	 * @param mixed $store
-	 * @param int   $basedate            date of occurrence which attendee has responded
+	 * @param mixed $basedate            date of occurrence which attendee has responded
 	 * @param mixed $calFolder
 	 */
 	public function createResponse($status, $proposeNewTimeProps = [], $body = false, $store, $basedate = false, $calFolder) {
@@ -2050,6 +2050,7 @@ class Meetingrequest {
 		$recip[PR_SEARCH_KEY] = $messageprops[PR_SENT_REPRESENTING_SEARCH_KEY];
 
 		$subjectprefix = '';
+
 		switch ($status) {
 			case olResponseAccepted:
 				$classpostfix = 'Pos';
@@ -2123,7 +2124,7 @@ class Meetingrequest {
 	 * @param mixed  $calendar         MAPI_folder of user (optional)
 	 * @param bool   $useCleanGlobalId if true then search should be performed on cleanGlobalId(0x23) else globalId(0x3)
 	 *
-	 * @return array
+	 * @return mixed
 	 */
 	public function findCalendarItems($goid, $calendar = false, $useCleanGlobalId = false) {
 		if ($calendar === false) {
@@ -2208,7 +2209,7 @@ class Meetingrequest {
 	 * Gets the properties associated with the owner of the passed store:
 	 * PR_DISPLAY_NAME, PR_EMAIL_ADDRESS, PR_ADDRTYPE, PR_ENTRYID, PR_SEARCH_KEY.
 	 *
-	 * @param mixed $store message store
+	 * @param mixed $store                  message store
 	 * @param bool  $fallbackToLoggedInUser If true then return properties of logged in user instead of mailbox owner.
 	 *                                      Not used when passed store is public store.
 	 *                                      For public store we are always returning logged in user's info.
@@ -2317,7 +2318,7 @@ class Meetingrequest {
 	 * when a meeting cancellation of an occurrence is processed.
 	 *
 	 * @param mixed    $basedate basedate of an occurrence
-	 * @param resource $message  recurring item from which occurrence has to be deleted
+	 * @param mixed    $message  recurring item from which occurrence has to be deleted
 	 * @param resource $store    MAPI_MSG_Store which contains the item
 	 */
 	public function doRemoveExceptionFromCalendar($basedate, $message, $store) {
@@ -2331,7 +2332,7 @@ class Meetingrequest {
 	 *
 	 * @param string $goid globalID
 	 *
-	 * @return int|bool true if basedate is found else false it not found
+	 * @return bool|int true if basedate is found else false it not found
 	 */
 	public function getBasedateFromGlobalID($goid) {
 		$hexguid = bin2hex($goid);
@@ -2350,10 +2351,10 @@ class Meetingrequest {
 	/**
 	 * Function which sets basedate in globalID of changed occurrence which is to be sent.
 	 *
-	 * @param string $goid globalID
+	 * @param string $goid     globalID
 	 * @param mixed  $basedate of changed occurrence
 	 *
-	 * @return string|bool globalID with basedate in it
+	 * @return bool|string globalID with basedate in it
 	 */
 	public function setBasedateInGlobalID($goid, $basedate = false) {
 		$hexguid = bin2hex($goid);
@@ -2367,8 +2368,8 @@ class Meetingrequest {
 	/**
 	 * Function which replaces attachments with copy_from in copy_to.
 	 *
-	 * @param mixed $copyFrom      MAPI_message from which attachments are to be copied
-	 * @param mixed $copyTo        MAPI_message to which attachment are to be copied
+	 * @param mixed $copyFrom       MAPI_message from which attachments are to be copied
+	 * @param mixed $copyTo         MAPI_message to which attachment are to be copied
 	 * @param bool  $copyExceptions if true then all exceptions should also be sent as attachments
 	 */
 	public function replaceAttachments($copyFrom, $copyTo, $copyExceptions = true) {
@@ -2646,7 +2647,7 @@ class Meetingrequest {
 					// get delegate information
 					$addrInfo = $this->getOwnerAddress($defaultStore, false);
 
-					if ($addrInfo) {
+					if (!empty($addrInfo)) {
 						list($ownername, $owneremailaddr, $owneraddrtype, $ownerentryid, $ownersearchkey) = $addrInfo;
 
 						$messageprops[PR_SENDER_EMAIL_ADDRESS] = $owneremailaddr;
@@ -2659,7 +2660,7 @@ class Meetingrequest {
 					// get delegator information
 					$addrInfo = $this->getOwnerAddress($this->store, false);
 
-					if ($addrInfo) {
+					if (!empty($addrInfo)) {
 						list($ownername, $owneremailaddr, $owneraddrtype, $ownerentryid, $ownersearchkey) = $addrInfo;
 
 						$messageprops[PR_SENT_REPRESENTING_EMAIL_ADDRESS] = $owneremailaddr;
@@ -2671,9 +2672,9 @@ class Meetingrequest {
 				}
 				else {
 					// get organizer information
-					$addrinfo = $this->getOwnerAddress($this->store);
+					$addrInfo = $this->getOwnerAddress($this->store);
 
-					if ($addrinfo) {
+					if (!empty($addrInfo)) {
 						list($ownername, $owneremailaddr, $owneraddrtype, $ownerentryid, $ownersearchkey) = $addrinfo;
 
 						$messageprops[PR_SENDER_EMAIL_ADDRESS] = $owneremailaddr;
@@ -2836,7 +2837,7 @@ class Meetingrequest {
 			else {
 				$exception_props[$this->proptags['busystatus']] = $exception_props[$this->proptags['intendedbusystatus']];
 			}
-			// we already have intendedbusystatus value in $exception_props so no need to copy it
+		// we already have intendedbusystatus value in $exception_props so no need to copy it
 		}
 		else {
 			$exception_props[$this->proptags['busystatus']] = $tentative ? fbTentative : fbBusy;
@@ -3262,7 +3263,7 @@ class Meetingrequest {
 	 * Function will create a new outgoing message that will be used to send meeting mail.
 	 *
 	 * @param mixed $store (optional) store that is used when creating response, if delegate is creating outgoing mail
-	 *                         then this would point to delegate store
+	 *                     then this would point to delegate store
 	 *
 	 * @return resource outgoing mail that is created and can be used for sending it
 	 */
@@ -3286,7 +3287,7 @@ class Meetingrequest {
 				// get the delegator properties and set it into outgoing mail
 				$delegatorDetails = $this->getOwnerAddress($store, false);
 
-				if ($delegatorDetails) {
+				if (!empty($delegatorDetails)) {
 					list($ownername, $owneremailaddr, $owneraddrtype, $ownerentryid, $ownersearchkey) = $delegatorDetails;
 					$sentprops[PR_SENT_REPRESENTING_EMAIL_ADDRESS] = $owneremailaddr;
 					$sentprops[PR_SENT_REPRESENTING_NAME] = $ownername;
@@ -3298,7 +3299,7 @@ class Meetingrequest {
 				// get the delegate properties and set it into outgoing mail
 				$delegateDetails = $this->getOwnerAddress($userStore, false);
 
-				if ($delegateDetails) {
+				if (!empty($delegateDetails)) {
 					list($ownername, $owneremailaddr, $owneraddrtype, $ownerentryid, $ownersearchkey) = $delegateDetails;
 					$sentprops[PR_SENDER_EMAIL_ADDRESS] = $owneremailaddr;
 					$sentprops[PR_SENDER_NAME] = $ownername;
@@ -3312,7 +3313,7 @@ class Meetingrequest {
 			// normal user is sending mail, so both set of properties will be same
 			$userDetails = $this->getOwnerAddress($userStore);
 
-			if ($userDetails) {
+			if (!empty($userDetails)) {
 				list($ownername, $owneremailaddr, $owneraddrtype, $ownerentryid, $ownersearchkey) = $userDetails;
 				$sentprops[PR_SENT_REPRESENTING_EMAIL_ADDRESS] = $owneremailaddr;
 				$sentprops[PR_SENT_REPRESENTING_NAME] = $ownername;
@@ -3362,7 +3363,7 @@ class Meetingrequest {
 
 		// if basedate is provided and we could not find the item then it could be that we are checking
 		// an exception so get the exception and check it
-		if ($basedate && $calendarItem !== false) {
+		if ($basedate !== false && $calendarItem !== false) {
 			$exception = $this->getExceptionItem($calendarItem, $basedate);
 
 			if ($exception !== false) {
@@ -3370,8 +3371,8 @@ class Meetingrequest {
 				$calendarItem = $exception;
 			}
 			// we are not able to find exception, could mean that a significant change has occurred on series
-				// and it deleted all exceptions, so compare with series
-				// $calendarItem already contains reference to series
+			// and it deleted all exceptions, so compare with series
+			// $calendarItem already contains reference to series
 		}
 
 		if ($calendarItem !== false) {
@@ -3424,8 +3425,8 @@ class Meetingrequest {
 					$calendarItem = $exception;
 				}
 				// we are not able to find exception, could mean that a significant change has occurred on series
-					// and it deleted all exceptions, so compare with series
-					// $calendarItem already contains reference to series
+				// and it deleted all exceptions, so compare with series
+				// $calendarItem already contains reference to series
 			}
 
 			if ($calendarItem !== false) {
@@ -3490,16 +3491,16 @@ class Meetingrequest {
 		}
 
 		if (($newProps[$this->proptags['startdate']] != $oldProps[$this->proptags['startdate']]) ||
-			($newProps[$this->proptags['duedate']] != $oldProps[$this->proptags['duedate']]) ||
-			$isRecurrenceChanged) {
-				$this->clearRecipientResponse($message);
+				($newProps[$this->proptags['duedate']] != $oldProps[$this->proptags['duedate']]) ||
+				$isRecurrenceChanged) {
+			$this->clearRecipientResponse($message);
 
-				mapi_setprops($message, [$this->proptags['owner_critical_change'] => time()]);
+			mapi_setprops($message, [$this->proptags['owner_critical_change'] => time()]);
 
-				mapi_savechanges($message);
-				if ($attach) { // Also save attachment Object.
-					mapi_savechanges($attach);
-				}
+			mapi_savechanges($message);
+			if ($attach) { // Also save attachment Object.
+				mapi_savechanges($attach);
+			}
 		}
 	}
 
@@ -3536,7 +3537,7 @@ class Meetingrequest {
 	 *
 	 * @param bool $open boolean to indicate the function should return entryid or MAPIMessage. Defaults to true.
 	 *
-	 * @return resource|bool resource of calendar item
+	 * @return bool|resource resource of calendar item
 	 */
 	public function getCorrespondentCalendarItem($open = true) {
 		$props = mapi_getprops($this->message, [PR_MESSAGE_CLASS, $this->proptags['goid'], $this->proptags['goid2'], PR_RCVD_REPRESENTING_ENTRYID]);
@@ -3575,7 +3576,7 @@ class Meetingrequest {
 		 * that one up by searching for the $cleanGlobalId.
 		 */
 		$entryids = $this->findCalendarItems($globalId, $calFolder);
-		if ($basedate && empty($entryids)) {
+		if ($basedate !== false && empty($entryids)) {
 			$entryids = $this->findCalendarItems($cleanGlobalId, $calFolder, true);
 		}
 
@@ -3830,7 +3831,7 @@ class Meetingrequest {
 	 * Function returns extra info about meeting timing along with message body
 	 * which will be included in body while sending meeting request/response.
 	 *
-	 * @return string|bool $meetingTimeInfo info about meeting timing along with message body
+	 * @return bool|string $meetingTimeInfo info about meeting timing along with message body
 	 */
 	public function getMeetingTimeInfo() {
 		return $this->meetingTimeInfo;

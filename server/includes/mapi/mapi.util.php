@@ -278,8 +278,8 @@ function getCalendarItems($store, $calendar, $viewstart, $viewend, $propsrequest
  * Compares two entryIds. It is possible to have two different entryIds that should match as they
  * represent the same object (in multiserver environments).
  *
- * @param string $entryId1 EntryID
- * @param string $entryId2 EntryID
+ * @param mixed $entryId1 EntryID
+ * @param mixed $entryId2 EntryID
  *
  * @return bool Result of the comparison
  */

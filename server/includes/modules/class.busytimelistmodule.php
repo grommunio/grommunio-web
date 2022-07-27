@@ -36,8 +36,8 @@
 		 * @param array  $calendaritems array of appointments retrieved from the mapi tablwe
 		 * @param object $store         message store
 		 * @param object $calendar      folder
-		 * @param date   $start         startdate of the interval
-		 * @param date   $end           enddate of the interval
+		 * @param int    $start         startdate of the interval
+		 * @param int    $end           enddate of the interval
 		 * @param mixed  $entryid
 		 *
 		 * @return array $items processed items
