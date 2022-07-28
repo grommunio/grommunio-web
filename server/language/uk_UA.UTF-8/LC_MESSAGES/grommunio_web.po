@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: grommunio Web Ukrainian (Ukraine)\n"
 "Report-Msgid-Bugs-To: dev@grommunio.com\n"
 "POT-Creation-Date: 2019-09-25 14:32+0200\n"
-"PO-Revision-Date: 2022-07-26 17:57+0000\n"
+"PO-Revision-Date: 2022-07-29 11:19+0000\n"
 "Last-Translator: Artem <artem@molotov.work>\n"
 "Language-Team: Ukrainian <https://hosted.weblate.org/projects/grommunio/"
 "grommunio-web/uk/>\n"
@@ -275,16 +275,16 @@ msgid "The maximum value for this field is {0}"
 msgstr "Максимальне значення для поля становить {0}"
 
 msgid "{0} is not a valid number"
-msgstr ""
+msgstr "Число {0} неприйнятне"
 
 msgid "The date in this field must be equal to or after {0}"
-msgstr ""
+msgstr "Дата у цьому полі повинна бути рівною або пізнішою, ніж {0}"
 
 msgid "The date in this field must be equal to or before {0}"
 msgstr ""
 
 msgid "{0} is not a valid date - it must be in the format {1}"
-msgstr ""
+msgstr "{0} не є прийнятною датою - повинна бути у форматі {1}"
 
 msgid "You must select at least one item in this group"
 msgstr "Ви повинні вибрати принаймні один елемент цієї купи"
@@ -877,7 +877,7 @@ msgid "Where"
 msgstr "Де"
 
 msgid "New Meeting Time Proposed"
-msgstr ""
+msgstr "Запропоновано новий час зустрічі"
 
 msgid "and "
 msgstr "і "
@@ -913,7 +913,7 @@ msgid "Optional Attendee"
 msgstr "Необов'язковий учасник"
 
 msgid "Show Time As"
-msgstr ""
+msgstr "Показувати час як"
 
 msgid "Recurrence pattern"
 msgstr "Зразок повторення"
@@ -1040,7 +1040,7 @@ msgstr "Зустріч"
 
 msgctxt "calendar.dialog"
 msgid "Resources have been planned"
-msgstr ""
+msgstr "Ресурси замірено"
 
 msgid "Send update"
 msgstr "Надіслати оновлення"
@@ -1075,11 +1075,11 @@ msgstr "Відстеження"
 
 msgctxt "calendar.dialog"
 msgid "Not all attendees could be resolved."
-msgstr ""
+msgstr "Не всіх учасників вдалося визначити."
 
 msgctxt "calendar.dialog"
 msgid "{0} attendees accepted, {1} tentatively accepted, {2} declined."
-msgstr ""
+msgstr "{0} прийняли, {1} попередньо прийняли, {2} відхилили."
 
 msgctxt "calendar.dialog"
 msgid ""
@@ -1089,11 +1089,11 @@ msgstr ""
 
 msgctxt "calendar.dialog"
 msgid "You proposed a new time for this meeting on {0}"
-msgstr ""
+msgstr "Ви запропонували новий час для цієї зустрічі на {0}"
 
 msgctxt "calendar.dialog"
 msgid "{0} proposed a new time for this meeting on {1}"
-msgstr ""
+msgstr "{0} запропонував новий час для цієї зустрічі на {1}"
 
 msgctxt "calendar.dialog"
 msgid "Accepted on {0}"
@@ -1138,27 +1138,26 @@ msgid ""
 msgstr ""
 
 msgid "Create in"
-msgstr ""
+msgstr "Створити в"
 
 msgid "Time"
-msgstr ""
+msgstr "Час"
 
 msgid "until"
-msgstr ""
+msgstr "кінець"
 
 msgid "Recurrence"
-msgstr ""
+msgstr "Повторення"
 
 # 88%
-#, fuzzy
 msgid "Reminder"
 msgstr "Нагадування"
 
 msgid "Show as"
-msgstr ""
+msgstr "Показати як"
 
 msgid "Warning"
-msgstr ""
+msgstr "Застереження"
 
 msgid "Attachments cannot be modified for a single occurence"
 msgstr ""
@@ -2032,7 +2031,7 @@ msgid "Unable to download"
 msgstr "Не вдається завантажити"
 
 msgid "Picture format is not supported. "
-msgstr "Первостать зображення не підтримується. "
+msgstr "Формат зображення не підтримується. "
 
 msgid "Supported format for contact pictures are"
 msgstr ""
@@ -2496,7 +2495,7 @@ msgid "Every weekday"
 msgstr ""
 
 msgid "Regenerate new task {A} day(s) after each task is completed"
-msgstr ""
+msgstr "Повторно створювати завдання через {A} день(ів) після його завершення"
 
 msgid "Day {A} of every {B} month(s)"
 msgstr ""
@@ -2505,7 +2504,7 @@ msgid "The {A} {B} of every {C} month(s)"
 msgstr ""
 
 msgid "Regenerate new task {A} month(s) after each task is completed"
-msgstr ""
+msgstr "Повторно створювати завдання через {A} місяць(ів) після його завершення"
 
 msgid "Appointment Recurrence"
 msgstr ""
@@ -2541,7 +2540,7 @@ msgid "No end date"
 msgstr ""
 
 msgid "End after {A} occurrences"
-msgstr ""
+msgstr "Завершити після {A} повторень"
 
 msgid "End by {A}"
 msgstr ""
@@ -2556,6 +2555,7 @@ msgstr ""
 
 msgid "Regenerate new task {A} week(s) after each task is completed"
 msgstr ""
+"Повторно створювати завдання через {A} тиждень(ів) після його завершення"
 
 msgid "Every {A} {B}"
 msgstr ""
@@ -2564,7 +2564,7 @@ msgid "The {A} {B} of {C}"
 msgstr ""
 
 msgid "Regenerate new task {A} year(s) after each task is completed"
-msgstr ""
+msgstr "Повторно створювати завдання через {A} роки(ів) після його завершення"
 
 msgid "Info"
 msgstr ""
@@ -2747,7 +2747,7 @@ msgid "has sensitivity..."
 msgstr ""
 
 msgid "is received after..."
-msgstr ""
+msgstr "отримано після..."
 
 msgid "is received before..."
 msgstr ""
@@ -2947,6 +2947,7 @@ msgstr ""
 
 msgid "{A} Auto hide desktop notification after second(s) {B}"
 msgstr ""
+"{A} Саморушно приховувати сповіщення на робочому столі через {B} секунд(и)"
 
 msgid "Disable sound"
 msgstr ""
@@ -3113,6 +3114,8 @@ msgid ""
 "This meeting request was updated after this message was sent. You should "
 "open the latest update or open the item from the calendar."
 msgstr ""
+"Після надсилання повідомлення було оновлено запрошення на цю зустріч. Вам "
+"слід відкрити останнє оновлення або складник з календаря."
 
 msgctxt "mail.previewpanel"
 msgid "As the meeting organizer, you do not need to respond to the meeting"
@@ -3120,7 +3123,7 @@ msgstr ""
 
 msgctxt "mail.previewpanel"
 msgid "The meeting was updated after the attendee sent this response"
-msgstr ""
+msgstr "Після того, як учасник надіслав цю відповідь, запрошення було оновлене"
 
 msgctxt "mail.previewpanel"
 msgid "This appointment occurs in the past."
@@ -4207,7 +4210,7 @@ msgid "Invalid user"
 msgstr ""
 
 msgid "Username '{0}' is not a valid user."
-msgstr ""
+msgstr "Прізвисько «{0}» не є прийнятним."
 
 msgid "Own store"
 msgstr ""
@@ -4581,7 +4584,7 @@ msgstr ""
 #. TRANSLATORS: The {A} _must_ always be at the start of the translation
 #. The '{B}' represents the number of seconds which the user will type in.
 msgid "{A}Automatically mark mail as read after {B} second(s)"
-msgstr ""
+msgstr "{A}Саморушно позначати лист як прочитаний через {B} секунд(и)"
 
 msgid "Off"
 msgstr ""
@@ -5509,7 +5512,7 @@ msgid "Desktop Notifications"
 msgstr ""
 
 msgid "{A} Autohide desktop notification after second(s) {B}"
-msgstr ""
+msgstr "{A} Саморушно приховувати сповіщення на роб. столі через {B} секунд(и)"
 
 msgid "Files: ownCloud Backend"
 msgstr ""
