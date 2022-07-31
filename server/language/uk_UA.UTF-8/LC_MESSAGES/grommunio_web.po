@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: grommunio Web Ukrainian (Ukraine)\n"
 "Report-Msgid-Bugs-To: dev@grommunio.com\n"
 "POT-Creation-Date: 2019-09-25 14:32+0200\n"
-"PO-Revision-Date: 2022-07-29 11:19+0000\n"
+"PO-Revision-Date: 2022-08-01 06:26+0000\n"
 "Last-Translator: Artem <artem@molotov.work>\n"
 "Language-Team: Ukrainian <https://hosted.weblate.org/projects/grommunio/"
 "grommunio-web/uk/>\n"
@@ -1204,25 +1204,25 @@ msgid "Open addressbook"
 msgstr ""
 
 msgid "Invite attendees"
-msgstr ""
+msgstr "Запросити учасників"
 
 msgid "Cancel invitation"
-msgstr ""
+msgstr "Скасувати запрошення"
 
 msgid "High priority"
-msgstr ""
+msgstr "Висока першорядність"
 
 msgid "Mark this appointment as high priority"
-msgstr ""
+msgstr "Позначити зустріч високою першорядністю"
 
 msgid "Low priority"
-msgstr ""
+msgstr "Низька першорядність"
 
 msgid "Mark this appointment as low priority"
-msgstr ""
+msgstr "Позначити зустріч низькою першорядністю"
 
 msgid "Categories"
-msgstr ""
+msgstr "Категорії"
 
 msgid "Open the categories dialog"
 msgstr ""
