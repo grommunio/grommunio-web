@@ -277,6 +277,8 @@
 				$properties["meetingtype"] = "PT_LONG:PSETID_Meeting:0x26";
 				$properties["timezone_data"] = "PT_BINARY:PSETID_Appointment:" . PidLidTimeZoneStruct;
 				$properties["timezone"] = "PT_STRING8:PSETID_Appointment:" . PidLidTimeZoneDescription;
+				$properties["tzdefstart"] = "PT_BINARY:PSETID_Appointment:" . PidLidAppointmentTimeZoneDefinitionStartDisplay;
+				$properties["tzdefend"] = "PT_BINARY:PSETID_Appointment:" . PidLidAppointmentTimeZoneDefinitionEndDisplay;
 
 				$this->mapping[$this->storeMapping]['meeting'] = getPropIdsFromStrings($this->store, $properties);
 			}
@@ -354,6 +356,8 @@
 				$properties["last_modification_time"] = PR_LAST_MODIFICATION_TIME;
 				$properties["creation_time"] = PR_CREATION_TIME;
 				$properties["request_sent"] = "PT_BOOLEAN:PSETID_Appointment:0x8229";
+				$properties["tzdefstart"] = "PT_BINARY:PSETID_Appointment:" . PidLidAppointmentTimeZoneDefinitionStartDisplay;
+				$properties["tzdefend"] = "PT_BINARY:PSETID_Appointment:" . PidLidAppointmentTimeZoneDefinitionEndDisplay;
 
 				// Meeting properties
 				$properties["goid"] = "PT_BINARY:PSETID_Meeting:0x3";
@@ -440,6 +444,8 @@
 				$properties["flagdueby"] = "PT_SYSTIME:PSETID_Common:" . PidLidReminderSignalTime;
 				$properties["side_effects"] = "PT_LONG:PSETID_Common:0x8510";
 				$properties["hideattachments"] = "PT_BOOLEAN:PSETID_Common:" . PidLidSmartNoAttach;
+				$properties["tzdefstart"] = "PT_BINARY:PSETID_Appointment:" . PidLidAppointmentTimeZoneDefinitionStartDisplay;
+				$properties["tzdefend"] = "PT_BINARY:PSETID_Appointment:" . PidLidAppointmentTimeZoneDefinitionEndDisplay;
 
 				$this->mapping[$this->storeMapping]['recurrence'] = getPropIdsFromStrings($this->store, $properties);
 			}

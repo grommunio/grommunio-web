@@ -2215,6 +2215,16 @@
 				$recips = false;
 			}
 
+			// Set PidLidAppointmentTimeZoneDefinitionStartDisplay and
+			// PidLidAppointmentTimeZoneDefinitionEndDisplay so that the allday
+			// events are displayed correctly
+			if (isset($action['props']['timezone_iana'])) {
+				$tzdef = mapi_ianatz_to_tzdef($action['props']['timezone_iana']);
+				if ($tzdef !== false) {
+					$action['props']['tzdefstart'] = $action['props']['tzdefend'] = bin2hex($tzdef);
+				}
+			}
+
 			if ($store && $parententryid) {
 				// @FIXME: check for $action['props'] array
 				if (isset($entryid) && $entryid) {
