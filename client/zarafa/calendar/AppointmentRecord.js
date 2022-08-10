@@ -72,7 +72,8 @@ Zarafa.calendar.AppointmentRecordFields = [
 	{name: 'timezone_dststartmonth', mapping: 'dststartmonth', type: 'int', forceProtocol: true},
 	{name: 'timezone_dststartweek', mapping: 'dststartweek', type: 'int', forceProtocol: true},
 	{name: 'timezone_dststartday', mapping: 'dststartday', type: 'int', forceProtocol: true},
-	{name: 'timezone_dststarthour', mapping: 'dststarthour', type: 'int', forceProtocol: true}
+	{name: 'timezone_dststarthour', mapping: 'dststarthour', type: 'int', forceProtocol: true},
+	{name: 'timezone_iana', type: 'string', forceProtocol: true}
 ];
 
 /**
@@ -127,6 +128,8 @@ Zarafa.core.data.RecordFactory.addListenerToMessageClass('IPM.Appointment', 'cre
 			record.set('flagdueby', startDate.add(Date.MINUTE, -record.get('reminder_minutes')));
 		}
 	}
+
+	record.set('timezone_iana', Intl.DateTimeFormat().resolvedOptions().timeZone);
 
 	record.endEdit();
 });
