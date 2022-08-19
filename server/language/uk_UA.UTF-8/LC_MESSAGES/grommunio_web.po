@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: grommunio Web Ukrainian (Ukraine)\n"
 "Report-Msgid-Bugs-To: dev@grommunio.com\n"
 "POT-Creation-Date: 2019-09-25 14:32+0200\n"
-"PO-Revision-Date: 2022-08-18 20:18+0000\n"
+"PO-Revision-Date: 2022-08-20 16:19+0000\n"
 "Last-Translator: Artem <artem@molotov.work>\n"
 "Language-Team: Ukrainian <https://hosted.weblate.org/projects/grommunio/"
 "grommunio-web/uk/>\n"
@@ -281,7 +281,7 @@ msgid "The date in this field must be equal to or after {0}"
 msgstr "Дата у цьому полі повинна бути рівною або пізнішою, ніж {0}"
 
 msgid "The date in this field must be equal to or before {0}"
-msgstr ""
+msgstr "Дата у цьому полі повинна бути рівною або передувати {0}"
 
 msgid "{0} is not a valid date - it must be in the format {1}"
 msgstr "{0} не є прийнятною датою - повинна бути у форматі {1}"
@@ -628,7 +628,7 @@ msgid "You must specify a name."
 msgstr "Необхідно вказати ім'я."
 
 msgid "Add a folder to favorites based on your search query"
-msgstr ""
+msgstr "Додати теку до вподобань на основі вашого пошукового запиту"
 
 msgid "Folder name"
 msgstr "Назва теки"
@@ -1163,7 +1163,7 @@ msgid "Attachments cannot be modified for a single occurence"
 msgstr ""
 
 msgid "Type your message here..."
-msgstr ""
+msgstr "Введіть текст вашого повідомлення..."
 
 msgid "Update location"
 msgstr ""
@@ -1174,31 +1174,31 @@ msgstr ""
 
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "jS F Y {0}"
-msgstr ""
+msgstr "l jS F Y {0}"
 
 msgid "None"
-msgstr ""
+msgstr "Немає"
 
 msgid "Send"
-msgstr ""
+msgstr "Надіслати"
 
 msgid "Save"
 msgstr "Зберегти"
 
 msgid "Close"
-msgstr ""
+msgstr "Затулити"
 
 msgid "Delete"
-msgstr ""
+msgstr "Видалити"
 
 msgid "Add attachment"
-msgstr ""
+msgstr "Додати вкладення"
 
 msgid "Check names"
 msgstr ""
 
 msgid "Addressbook"
-msgstr ""
+msgstr "Адресна книга"
 
 msgid "Open addressbook"
 msgstr ""
@@ -1228,7 +1228,7 @@ msgid "Open the categories dialog"
 msgstr ""
 
 msgid "Private"
-msgstr ""
+msgstr "Особисте"
 
 msgid "Mark this appointment as private"
 msgstr ""
@@ -1237,7 +1237,7 @@ msgid "Proposed Date and Time"
 msgstr ""
 
 msgid "Duration"
-msgstr ""
+msgstr "Тривалість"
 
 msgid "Proposed By"
 msgstr ""
@@ -1249,13 +1249,13 @@ msgid "Show only working hours"
 msgstr ""
 
 msgid "Start time"
-msgstr ""
+msgstr "Час початку"
 
 msgid "End time"
-msgstr ""
+msgstr "Час закінчення"
 
 msgid "Comment"
-msgstr ""
+msgstr "Догук"
 
 msgid "Send Meeting Request Cancellation"
 msgstr ""
@@ -1263,7 +1263,7 @@ msgstr ""
 msgid ""
 "This meeting will be cancelled. Do you want to include comments with your "
 "cancellation?"
-msgstr ""
+msgstr "Ця зустріч буде скасована. Ви бажаєте долучити догуки до скасування?"
 
 msgid "Edit the cancellation before Sending."
 msgstr ""
@@ -1278,16 +1278,22 @@ msgid ""
 "This meeting will be accepted and moved to your calendar. Do you want to "
 "include comments with your response?"
 msgstr ""
+"Цю зустріч буде прийнято та переміщено до вашого календаря. Бажаєте долучити "
+"догуки до відповіді?"
 
 msgid ""
 "This meeting will be tentatively accepted and moved to your calendar. Do you "
 "want to include comments with your response?"
 msgstr ""
+"Цю зустріч буде попередньо прийнято та переміщено до вашого календаря. "
+"Бажаєте долучити догуки до відповіді?"
 
 msgid ""
 "This meeting will be declined and moved to your Deleted Items folder. Do you "
 "want to include comments with your response?"
 msgstr ""
+"Цю зустріч буде відхилено та переміщено до теки «Видалене». Бажаєте долучити "
+"догуки до відповіді?"
 
 msgid "Edit the response before sending"
 msgstr ""
@@ -1348,13 +1354,13 @@ msgid "of"
 msgstr ""
 
 msgid "Location: "
-msgstr ""
+msgstr "Місцина: "
 
 msgid "j M {0}"
 msgstr ""
 
 msgid "l jS M Y {0}"
-msgstr ""
+msgstr "l jS F Y {0}"
 
 msgid "All day: "
 msgstr ""
@@ -1372,13 +1378,13 @@ msgid "Meeting status"
 msgstr ""
 
 msgid "Required Attendees"
-msgstr ""
+msgstr "Обов'язкові учасники"
 
 msgid "Optional Attendees"
-msgstr ""
+msgstr "Необов'язкові учасники"
 
 msgid "Resources"
-msgstr ""
+msgstr "Ресурси"
 
 msgid "Sensitivity"
 msgstr ""
@@ -1417,7 +1423,7 @@ msgid "Default status for all day appointment"
 msgstr ""
 
 msgid "Working days"
-msgstr ""
+msgstr "Робочих днів"
 
 msgid "Show busy dates as bold in the date picker"
 msgstr ""
@@ -1479,7 +1485,7 @@ msgid "New Meeting Request"
 msgstr ""
 
 msgid "Open"
-msgstr ""
+msgstr "Відкрити"
 
 msgid "Copy/Move"
 msgstr ""
@@ -3211,12 +3217,12 @@ msgstr ""
 
 msgctxt "mail.previewpanel"
 msgid "Categories"
-msgstr ""
+msgstr "Категорії"
 
 #. TRANSLATORS: This message is used as label for the field which to indicates to whom the given mail was sent
 msgctxt "mail.previewpanel"
 msgid "Recipients"
-msgstr ""
+msgstr "Одержувачі"
 
 #. TRANSLATORS: check if the mail is send by some delegator or not. if then display "on behalf of".
 msgctxt "mail.previewpanel"
@@ -3226,52 +3232,52 @@ msgstr ""
 #. TRANSLATORS: This message is used to indicate that no sent date is available for the message (because it has not been sent yet).
 msgctxt "mail.previewpanel"
 msgid "None"
-msgstr ""
+msgstr "Немає"
 
 msgid "Pop-out"
 msgstr ""
 
 msgid "Mark as read"
-msgstr ""
+msgstr "Позначити прочитаним"
 
 msgid "Mark as unread"
-msgstr ""
+msgstr "Позначити непрочитаним"
 
 msgid "in"
 msgstr ""
 
 msgid "Root"
-msgstr ""
+msgstr "Корінь"
 
 msgid "Datepicker"
-msgstr ""
+msgstr "Вибір дати"
 
 msgid "File As"
 msgstr ""
 
 msgid "Full Name"
-msgstr ""
+msgstr "Повне ім'я"
 
 msgid "Department Name"
 msgstr ""
 
 msgid "Home Address"
-msgstr ""
+msgstr "Домашня адреса"
 
 msgid "Business Address"
-msgstr ""
+msgstr "Робоча адреса"
 
 msgid "Other Address"
-msgstr ""
+msgstr "Інша адреса"
 
 msgid "Business Phone"
-msgstr ""
+msgstr "Робочий телефон"
 
 msgid "Business 2 Phone"
-msgstr ""
+msgstr "Робочий телефон 2"
 
 msgid "Assistant Phone"
-msgstr ""
+msgstr "Телефон помічника"
 
 msgid "Company Main Phone"
 msgstr ""
@@ -5123,6 +5129,8 @@ msgid ""
 "This task will be accepted and moved to your task folder. Do you want to "
 "include comments with your response?"
 msgstr ""
+"Це завдання буде прийнято та переміщено до теки завдань. Бажаєте долучити "
+"догуки до відповіді?"
 
 msgid ""
 "This task will be declined and moved into the Deleted Items folder. Do you "
