@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: grommunio Web Ukrainian (Ukraine)\n"
 "Report-Msgid-Bugs-To: dev@grommunio.com\n"
 "POT-Creation-Date: 2019-09-25 14:32+0200\n"
-"PO-Revision-Date: 2022-08-20 16:19+0000\n"
+"PO-Revision-Date: 2022-08-23 04:19+0000\n"
 "Last-Translator: Artem <artem@molotov.work>\n"
 "Language-Team: Ukrainian <https://hosted.weblate.org/projects/grommunio/"
 "grommunio-web/uk/>\n"
@@ -1336,11 +1336,11 @@ msgstr ""
 
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "Start"
-msgstr ""
+msgstr "Розпочати"
 
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "End"
-msgstr ""
+msgstr "Кінець"
 
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for formatting instructions
@@ -1351,7 +1351,7 @@ msgid "at"
 msgstr ""
 
 msgid "of"
-msgstr ""
+msgstr "з"
 
 msgid "Location: "
 msgstr "Місцина: "
@@ -1494,13 +1494,13 @@ msgid "Send to..."
 msgstr ""
 
 msgid "Export as"
-msgstr ""
+msgstr "Експортувати як"
 
 msgid "Occurrence"
 msgstr ""
 
 msgid "Series"
-msgstr ""
+msgstr "Низка"
 
 msgid "Appointment not found"
 msgstr ""
@@ -1509,13 +1509,13 @@ msgid "This appointment has been moved or deleted, do you want to continue?"
 msgstr ""
 
 msgid "All Day"
-msgstr ""
+msgstr "Весь день"
 
 msgid "Sort by: All Day"
 msgstr ""
 
 msgid "Icon"
-msgstr ""
+msgstr "Значок"
 
 msgid "Recurring"
 msgstr ""
@@ -1536,7 +1536,7 @@ msgid "Sort by: Categories"
 msgstr ""
 
 msgid "Created On"
-msgstr ""
+msgstr "Створено в"
 
 msgid "Sort by: Created On"
 msgstr ""
@@ -1548,7 +1548,7 @@ msgid "Sort by: Due By"
 msgstr ""
 
 msgid "Label"
-msgstr ""
+msgstr "Мітка"
 
 msgid "Sort by: Label"
 msgstr ""
@@ -1590,13 +1590,13 @@ msgid "Sort by: Sensitivity"
 msgstr ""
 
 msgid "Loading appointments"
-msgstr ""
+msgstr "Завантаження зустрічей"
 
 msgid "Attendees"
 msgstr ""
 
 msgid "Optional attendees"
-msgstr ""
+msgstr "Необов'язкові учасники"
 
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "jS F {0}"
@@ -1628,7 +1628,7 @@ msgid "Private item"
 msgstr ""
 
 msgid "Copy"
-msgstr ""
+msgstr "Копіювати"
 
 msgid ""
 "Moving this appointment will unset it as private. Are you sure you want to "
@@ -1636,7 +1636,7 @@ msgid ""
 msgstr ""
 
 msgid "Move"
-msgstr ""
+msgstr "Перемістити"
 
 msgid "Update recipients"
 msgstr ""
@@ -1659,7 +1659,7 @@ msgid ""
 msgstr ""
 
 msgid "Don't move"
-msgstr ""
+msgstr "Не переміщувати"
 
 msgid "Switch to day view to see all appointments"
 msgstr ""
@@ -1672,7 +1672,7 @@ msgstr ""
 #. TRANSLATORS: This message is used as label for the field which to indicates to whom the given mail was sent
 msgctxt "mail.previewpanel"
 msgid "When"
-msgstr ""
+msgstr "Час"
 
 #. TRANSLATORS: This message is used as label for the field which to indicates to whom the given mail was sent
 msgctxt "mail.previewpanel"
@@ -1924,19 +1924,19 @@ msgid ""
 msgstr ""
 
 msgid "Import"
-msgstr ""
+msgstr "Внесення"
 
 msgid "Successfully imported item(s) to {0}"
-msgstr ""
+msgstr "Успішно внесено складник(и) до {0}"
 
 msgid "Failed to import item(s) to {0}"
-msgstr ""
+msgstr "Не вдалося внести складник(и) до {0}"
 
 msgid "Import error"
-msgstr ""
+msgstr "Помилка внесення"
 
 msgid "Unable to import \"{0}\". The file is not valid"
-msgstr ""
+msgstr "Не вдається внести «{0}». Файл неприйнятний"
 
 msgid ""
 "You have insufficient privileges to move these items. Would you like to copy "
@@ -1955,7 +1955,7 @@ msgid "Bcc"
 msgstr ""
 
 msgid "From"
-msgstr ""
+msgstr "Від"
 
 msgid "Insert item"
 msgstr ""
@@ -1964,10 +1964,10 @@ msgid "Insert as"
 msgstr ""
 
 msgid "Text only"
-msgstr ""
+msgstr "Лише текст"
 
 msgid "Attachment"
-msgstr ""
+msgstr "Вкладення"
 
 msgid "Attach Item"
 msgstr ""
@@ -1979,13 +1979,13 @@ msgid "Import to"
 msgstr ""
 
 msgid "New folder"
-msgstr ""
+msgstr "Нова тека"
 
 msgid "Download as ZIP"
-msgstr ""
+msgstr "Завантажити як ZIP"
 
 msgid "Continue"
-msgstr ""
+msgstr "Продовжити"
 
 msgid ""
 "These attachments have an unsupported file type and can not be added to the "
@@ -2000,16 +2000,16 @@ msgid ""
 msgstr ""
 
 msgid "File upload"
-msgstr ""
+msgstr "Відвантаження файлу"
 
 msgid "Attach item"
 msgstr ""
 
 msgid "Preview"
-msgstr ""
+msgstr "Попередній перегляд"
 
 msgid "Download"
-msgstr ""
+msgstr "Завантажити"
 
 msgid "Download all as ZIP"
 msgstr ""
@@ -2043,7 +2043,7 @@ msgid "Supported format for contact pictures are"
 msgstr ""
 
 msgid "Attachment Error"
-msgstr ""
+msgstr "Помилка вкладення"
 
 msgid "Manage Categories"
 msgstr ""
@@ -2060,19 +2060,19 @@ msgid ""
 msgstr ""
 
 msgid "Rename Category"
-msgstr ""
+msgstr "Перейменувати категорію"
 
 msgid "A category named \""
 msgstr ""
 
 msgid "Create New Category"
-msgstr ""
+msgstr "Створити нову категорію"
 
 msgid "Pin to quick access"
 msgstr ""
 
 msgid "Create"
-msgstr ""
+msgstr "Створити"
 
 msgid ""
 "You must apply the changes you have made to the categories before you can "
@@ -2088,7 +2088,7 @@ msgid ""
 msgstr ""
 
 msgid "Rename"
-msgstr ""
+msgstr "Перейменувати"
 
 msgid "This is the first time you have used \"{0}\" category."
 msgstr ""
@@ -2105,7 +2105,7 @@ msgid "Merge"
 msgstr ""
 
 msgid "Remove"
-msgstr ""
+msgstr "Видалити"
 
 msgid "Check Names"
 msgstr ""
@@ -2114,7 +2114,7 @@ msgid "Select an address to use"
 msgstr ""
 
 msgid "Email"
-msgstr ""
+msgstr "Ел. пошта"
 
 msgid "More than one '{0}' found."
 msgstr ""
@@ -2132,10 +2132,10 @@ msgid "Contact"
 msgstr ""
 
 msgid "Journal"
-msgstr ""
+msgstr "Денник"
 
 msgid "Note"
-msgstr ""
+msgstr "Примітка"
 
 msgid "Task"
 msgstr ""
@@ -2185,7 +2185,7 @@ msgid ""
 msgstr ""
 
 msgid "Permission"
-msgstr ""
+msgstr "Дозвіл"
 
 msgid "Duplicate delegate"
 msgstr ""
@@ -2200,7 +2200,7 @@ msgid "Copy/Move Messages"
 msgstr ""
 
 msgid "Destination folder"
-msgstr ""
+msgstr "Тека призначення"
 
 msgid "There is {0} message selected."
 msgid_plural "There are {0} messages selected."
@@ -2225,13 +2225,13 @@ msgid "You have insufficient privileges to move following items."
 msgstr ""
 
 msgid "Subject:"
-msgstr ""
+msgstr "Суть:"
 
 msgid "Would you like to copy instead?"
 msgstr ""
 
 msgid "Do not show this message again."
-msgstr ""
+msgstr "Більше не показувати це повідомлення."
 
 msgid "ICS"
 msgstr ""
@@ -2240,16 +2240,16 @@ msgid "Set custom flag"
 msgstr ""
 
 msgid "Start date"
-msgstr ""
+msgstr "Дата початку"
 
 msgid "End date"
-msgstr ""
+msgstr "Дата завершення"
 
 msgid "Tomorrow"
-msgstr ""
+msgstr "Завтра"
 
 msgid "This week"
-msgstr ""
+msgstr "Цього тижня"
 
 msgid "Next week"
 msgstr ""
@@ -2263,16 +2263,16 @@ msgid "Set reminder"
 msgstr "Нагадування"
 
 msgid "Complete"
-msgstr ""
+msgstr "Довершено"
 
 msgid "today"
-msgstr ""
+msgstr "сьогодні"
 
 msgid "tomorrow"
-msgstr ""
+msgstr "завтра"
 
 msgid "this week"
-msgstr ""
+msgstr "цього тижня"
 
 msgid "next week"
 msgstr ""
@@ -2299,7 +2299,7 @@ msgid "Suggested Times"
 msgstr ""
 
 msgid "Busy"
-msgstr ""
+msgstr "Зайнято"
 
 msgid "Out of Office"
 msgstr ""
@@ -2333,19 +2333,19 @@ msgid "Switch between different views"
 msgstr ""
 
 msgid "New item"
-msgstr ""
+msgstr "Новий складник"
 
 msgid "All views"
 msgstr ""
 
 msgid "Close tab"
-msgstr ""
+msgstr "Закрити вкладку"
 
 msgid "Print item"
 msgstr ""
 
 msgid "Items"
-msgstr ""
+msgstr "Складники"
 
 msgid "Save an item e.g. mail, contact, etc."
 msgstr ""
@@ -2354,7 +2354,7 @@ msgid "Send an item e.g. mail, meeting request, etc."
 msgstr ""
 
 msgid "Select all items"
-msgstr ""
+msgstr "Вибрати всі складники"
 
 msgid "Extend the selection to the first item in the list"
 msgstr ""
@@ -2375,7 +2375,7 @@ msgid "Open copy/move dialog"
 msgstr ""
 
 msgid "Delete selected item"
-msgstr ""
+msgstr "Видалити вибраний складник"
 
 msgid ""
 "Delete selected item without moving it to the Deleted Items folder. The "
@@ -2421,7 +2421,7 @@ msgid ""
 msgstr ""
 
 msgid "Help"
-msgstr ""
+msgstr "Довідка"
 
 msgid "Web Manual"
 msgstr ""
@@ -2442,10 +2442,10 @@ msgid "grommunio Web print"
 msgstr ""
 
 msgid "Display name"
-msgstr ""
+msgstr "Відображуване ім'я"
 
 msgid "Email address"
-msgstr ""
+msgstr "Адреса ел. пошти"
 
 msgid "Expand distribution list"
 msgstr ""
@@ -2462,7 +2462,7 @@ msgid "Copy email addresses"
 msgstr ""
 
 msgid "Send email"
-msgstr ""
+msgstr "Надіслати повідомлення"
 
 msgid "Delete recipient from suggestion list"
 msgstr ""
@@ -2474,22 +2474,22 @@ msgid "View recipient"
 msgstr ""
 
 msgid "Weekday"
-msgstr ""
+msgstr "Будній"
 
 msgid "Weekend Day"
-msgstr ""
+msgstr "Вихідний"
 
 msgid "1st"
-msgstr ""
+msgstr "1ий"
 
 msgid "2nd"
-msgstr ""
+msgstr "2ий"
 
 msgid "3rd"
-msgstr ""
+msgstr "3ій"
 
 msgid "4th"
-msgstr ""
+msgstr "4ий"
 
 msgid "last"
 msgstr ""
@@ -2528,16 +2528,16 @@ msgid "Task Recurrence"
 msgstr ""
 
 msgid "Daily"
-msgstr ""
+msgstr "Щоденно"
 
 msgid "Weekly"
-msgstr ""
+msgstr "Щотижнево"
 
 msgid "Monthly"
-msgstr ""
+msgstr "Щомісячно"
 
 msgid "Yearly"
-msgstr ""
+msgstr "Щорічно"
 
 msgid "Range of recurrence"
 msgstr ""
@@ -2573,7 +2573,7 @@ msgid "Regenerate new task {A} year(s) after each task is completed"
 msgstr "Повторно створювати завдання через {A} роки(ів) після його завершення"
 
 msgid "Info"
-msgstr ""
+msgstr "Відомости"
 
 msgid "Not supported at the moment."
 msgstr ""
@@ -2596,7 +2596,7 @@ msgstr ""
 
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "Due"
-msgstr ""
+msgstr "Термін платежу"
 
 msgid "Reminder time"
 msgstr ""
@@ -2608,7 +2608,7 @@ msgid "Open Item"
 msgstr ""
 
 msgid "Dismiss"
-msgstr ""
+msgstr "Відхилити"
 
 msgid "Click Snooze to be reminded again in"
 msgstr ""
@@ -2630,7 +2630,7 @@ msgid "Restore From {0}"
 msgstr ""
 
 msgid "Restore"
-msgstr ""
+msgstr "Відновити"
 
 msgid "Restore All"
 msgstr ""
@@ -2639,22 +2639,22 @@ msgid "Permanent Delete"
 msgstr ""
 
 msgid "Delete All"
-msgstr ""
+msgstr "Видалити все"
 
 msgid "Messages"
-msgstr ""
+msgstr "Повідомлення"
 
 msgid "Delete all items"
-msgstr ""
+msgstr "Видалити всі складники"
 
 msgid "Are you sure you want to permanently delete all items?"
-msgstr ""
+msgstr "Ви дійсно бажаєте остаточно видалити цей список?"
 
 msgid "Restore all items"
-msgstr ""
+msgstr "Відновити всі складники"
 
 msgid "Are you sure you want to restore all items?"
-msgstr ""
+msgstr "Ви дійсно бажаєте відновити всі складники?"
 
 msgid "Total {0} recoverable item"
 msgid_plural "Total {0} recoverable items"
