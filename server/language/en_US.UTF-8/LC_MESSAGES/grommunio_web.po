@@ -3,16 +3,18 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web English (United States)\n"
-"Report-Msgid-Bugs-To: \n"
+"Report-Msgid-Bugs-To: dev@grommunio.com\n"
 "POT-Creation-Date: 2019-09-25 14:32+0200\n"
-"PO-Revision-Date: 2020-10-12 11:10+0000\n"
-"Last-Translator: import\n"
+"PO-Revision-Date: 2022-08-27 18:15+0000\n"
+"Last-Translator: Mike Williams <mike.williams@grammm.com>\n"
+"Language-Team: English (United States) <https://hosted.weblate.org/projects/"
+"grommunio/grommunio-web/en_US/>\n"
 "Language: en_US\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.4\n"
+"X-Generator: Weblate 4.14.1-dev\n"
 
 #. TRANSLATORS: This message is used as label for the column which indicates the week number of the month in date picker. and 'Wk' stands for week
 msgid "Wk"
@@ -364,7 +366,7 @@ msgid "User details"
 msgstr ""
 
 msgid "First name"
-msgstr ""
+msgstr "First name"
 
 msgid "Last name"
 msgstr ""
@@ -957,7 +959,7 @@ msgid "List"
 msgstr "List"
 
 msgid "Appointment"
-msgstr ""
+msgstr "Appointment"
 
 msgid "Meeting request"
 msgstr ""
@@ -4756,7 +4758,7 @@ msgid "Reload grommunio Web"
 msgstr ""
 
 msgid "Settings"
-msgstr ""
+msgstr "Settings"
 
 msgid "Basic"
 msgstr ""
@@ -6016,7 +6018,7 @@ msgid ""
 msgstr ""
 
 msgid "Devices"
-msgstr ""
+msgstr "Devices"
 
 msgid "No devices connected to your account"
 msgstr ""
@@ -6132,7 +6134,7 @@ msgid "Current password"
 msgstr ""
 
 msgid "New password"
-msgstr ""
+msgstr "New password"
 
 msgid "Retype new password"
 msgstr ""
