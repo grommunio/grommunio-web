@@ -1120,7 +1120,7 @@ class Pluginsmime extends Plugin {
 				}
 			}
 			catch (MAPIException $e) {
-				Log::write(LOGLEVEL_ERROR, sprintf("%s %s", $e, $userProps[PR_SENT_REPRESENTING_NAME]));
+				error_log(sprintf("[smime] getSenderAddress(): Exception %s", $e));
 			}
 
 			return $senderStructure;
