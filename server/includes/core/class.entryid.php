@@ -768,7 +768,90 @@
 
 			return $res;
 		}
+
+		/**
+		 * Creates an array that has split up all the components of a timezone
+		 * definition binary.
+		 *
+		 * Timezone definition structure:
+		 *
+		 * Major ver : UINT, 1 byte,  2 hex characters
+		 * Minor ver : UINT, 1 byte,  2 hex characters
+		 * cbHeader  : UINT, 2 bytes, 4 hex characters
+		 * Reserved  : UINT, 2 bytes, 4 hex characters
+		 * cchKeyName: UINT, 2 bytes, 4 hex characters
+		 * KeyName   : CHAR, variable length (defined by cckeyname value)
+		 * cRules    : UINT, 2 bytes, 4 hex characters
+		 * rules     : STRUCT, variable length (defined by cRules value):
+		 *   Major ver     : UINT, 1 byte,  2 hex characters
+		 *   Minor ver     : UINT, 1 byte,  2 hex characters
+		 *   Reserved      : UINT, 2 bytes, 4 hex characters
+		 *   TZRule flags  : UINT, 2 bytes, 4 hex characters
+		 *   wYear         : UINT, 2 bytes, 4 hex characters
+		 *   X             : TCHAR[14]
+		 *   lBias         : LONG, 4 bytes, 8 hex characters
+		 *   lStandardBias : LONG, 4 bytes, 8 hex characters
+		 *   lDaylightBias : LONG, 4 bytes, 8 hex characters
+		 *   stStandardDate: STRUCT
+		 *   stDaylightDate: STRUCT
+		 *
+		 * stStandardDate/stDaylightDate:
+		 *   wYear        : UINT, 2 bytes, 4 hex characters
+		 *   wMonth       : UINT, 2 bytes, 4 hex characters
+		 *   wDayOfWeek   : UINT, 2 bytes, 4 hex characters
+		 *   wDay         : UINT, 2 bytes, 4 hex characters
+		 *   wHour        : UINT, 2 bytes, 4 hex characters
+		 *   wMinute      : UINT, 2 bytes, 4 hex characters
+		 *   wSecond      : UINT, 2 bytes, 4 hex characters
+		 *   wMilliseconds: UINT, 2 bytes, 4 hex characters
+		 *
+		 * @param string $tzdef Timezone definition binary
+		 *
+		 * @return array timezone definition array
+		 */
+		public function createTimezoneDefinitionObject($tzdef) {
+			if (!$tzdef) {
+				return [];
+			}
+
+			$offset = 0;
+
+			$res = unpack("Cmajorver/Cminorver/vcbheader/vreserved/vcchkeyname", substr($tzdef, $offset, 8));
+			$offset += 8;
+
+			$cchKeyName = $res['cchkeyname'] * 2;
+			$data = unpack("a{$cchKeyName}keyname/vcrules", substr($tzdef, $offset, $cchKeyName + 2));
+			$res['keyname'] = $data['keyname'];
+			$res['crules'] = $data['crules'];
+			$offset += $cchKeyName + 2;
+
+			for ($i = 0; $i < $res['crules']; ++$i) {
+				$rule = [];
+				$rule = unpack(
+					"Cmajorver/Cminorver/vreserved/vtzruleflags/vwyear/a14x/lbias/lstdbias/ldstbias/",
+					substr($tzdef, $offset, 34)
+				);
+				$offset += 34;
+
+				$rule['stStandardDate'] = unpack(
+					"vyear/vmonth/vdayofweek/vday/vhour/vminute/vsecond/vmiliseconds/",
+					substr($tzdef, $offset, 16)
+				);
+				$offset += 16;
+
+				$rule['stDaylightDate'] = unpack(
+					"vyear/vmonth/vdayofweek/vday/vhour/vminute/vsecond/vmiliseconds/",
+					substr($tzdef, $offset, 16)
+				);
+				$offset += 16;
+
+				$res['rules'][] = $rule;
+			}
+
+			return $res;
+		}
 	}
 
 	// Create global entryId object
+
 	$GLOBALS["entryid"] = new EntryId();

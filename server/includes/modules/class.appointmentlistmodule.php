@@ -15,6 +15,36 @@
 		private $enddate;
 
 		/**
+		 * @var bool|string client timezone definition
+		 */
+		protected $tzdef;
+
+		/**
+		 * @var bool|array client timezone definition array
+		 */
+		protected $tzdefObj;
+
+		/**
+		 * @var mixed client timezone effective rule id
+		 */
+		protected $tzEffRuleIdx;
+
+		/**
+		 * @var array list of days of week
+		 */
+		private $daysOfWeek;
+
+		/**
+		 * @var array list of months names starting at 1
+		 */
+		private $monthNames;
+
+		/**
+		 * @var array list of relative days of week:
+		 */
+		private $relDaysOfWeek;
+
+		/**
 		 * Constructor.
 		 *
 		 * @param int   $id   unique id
@@ -27,6 +57,18 @@
 
 			$this->startdate = false;
 			$this->enddate = false;
+			$this->tzdef = false;
+			$this->tzdefObj = false;
+			$this->daysOfWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+			$this->monthNames = [1 => "January", "February", "March", "April", "May", "June",
+				"July", "August", "September", "October", "November", "December", ];
+			$this->relDaysOfWeek = [
+				1 => 'first',
+				2 => 'second',
+				3 => 'third',
+				4 => 'fourth',
+				5 => 'last',
+			];
 		}
 
 		/**
@@ -106,6 +148,10 @@
 					if (isset($action["restriction"]["duedate"])) {
 						$this->enddate = $action["restriction"]["duedate"];
 					}
+				}
+
+				if (!empty($action["timezone_iana"])) {
+					$this->tzdef = mapi_ianatz_to_tzdef($action['timezone_iana']);
 				}
 
 				if ($this->startdate && $this->enddate) {
@@ -362,6 +408,10 @@
 
 			foreach ($calendaritems as $calendaritem) {
 				$item = null;
+				// Fix for all-day events which have a different timezone than the user's browser
+				if ($calendaritem[$this->properties["alldayevent"]] == true && $this->tzdef !== false) {
+					$this->processAllDayItem($store, $calendaritem, $openedMessages);
+				}
 				if (isset($calendaritem[$this->properties["recurring"]]) && $calendaritem[$this->properties["recurring"]]) {
 					$recurrence = new Recurrence($store, $calendaritem, $proptags);
 					$recuritems = $recurrence->getItems($start, $end);
@@ -491,5 +541,152 @@
 			}
 
 			return ($start_a < $start_b) ? -1 : 1;
+		}
+
+		/**
+		 * Formats time string for DateTime object, e.g.
+		 * last Sunday of March 2022 02:00
+		 */
+		private function formatDateTimeString($relDayofWeek, $dayOfWeek, $month, $year, $hour, $minute) {
+			return sprintf("%s %s of %s %04d %02d:%02d", $relDayofWeek, $dayOfWeek, $month, $year, $hour, $minute);
+		}
+
+		/**
+		 * Processes an all-day item and calculates the correct starttime if necessary.
+		 * 
+		 * @param object $store
+		 * @param array  $calendaritem
+		 * @param array  $openedMessages
+		 */
+		private function processAllDayItem($store, &$calendaritem, &$openedMessages) {
+			if (!isset($calendaritem[$this->properties["tzdefstart"]])) {
+				return;
+			}
+			$appStartDate = getdate($calendaritem[$this->properties["startdate"]]);
+
+			// queryrows only returns 510 chars max, so if tzdef is longer than that
+			// it was probably silently truncated. In such case we need to open
+			// the message and read the prop value as stream.
+			if (strlen($calendaritem[$this->properties["tzdefstart"]]) > 500) {
+				$message = mapi_msgstore_openentry($store, $calendaritem[$this->properties["entryid"]]);
+				$calendaritem[$this->properties["tzdefstart"]] = streamProperty($message, $this->properties["tzdefstart"]);
+				$openedMessages[bin2hex($calendaritem[$this->properties["entryid"]])] = $message;
+			}
+
+			// Compare the timezone definitions of the client and the appointment.
+			// Further processing is only required if they don't match.
+			if (!$GLOBALS["entryid"]->compareEntryIds($this->tzdef, $calendaritem[$this->properties["tzdefstart"]])) {
+				if ($this->tzdefObj === false) {
+					$this->tzdefObj = $GLOBALS["entryid"]->createTimezoneDefinitionObject($this->tzdef);
+					foreach ($this->tzdefObj['rules'] as $idx => $tzDefRule) {
+						if ($tzDefRule['tzruleflags'] & TZRULE_FLAG_EFFECTIVE_TZREG) {
+							$this->tzEffRuleIdx = $idx;
+							break;
+						}
+					}
+				}
+				$appTzDefStart = $GLOBALS["entryid"]->createTimezoneDefinitionObject($calendaritem[$this->properties["tzdefstart"]]);
+
+				// Find TZRULE_FLAG_EFFECTIVE_TZREG rule for the appointment's timezone
+				foreach ($appTzDefStart['rules'] as $idx => $tzDefRule) {
+					if ($tzDefRule['tzruleflags'] & TZRULE_FLAG_EFFECTIVE_TZREG) {
+						$appTzEffRuleIdx = $idx;
+						break;
+					}
+				}
+				if (isset($this->tzEffRuleIdx, $appTzEffRuleIdx)) {
+					// first apply the bias of the appointment timezone and the bias of the browser
+					$localStart = $calendaritem[$this->properties["startdate"]] - $appTzDefStart['rules'][$appTzEffRuleIdx]['bias'] * 60 + $this->tzdefObj['rules'][$this->tzEffRuleIdx]['bias'] * 60;
+
+					// Apply dstbias if necessary
+					// 1. Check if the appointment timezone defines std and dst times
+					// 2. Get the std and dst start in UTC
+					// 3. Check if the appointment is in dst:
+					// 	- dst start > std start and not (std start < app time < dst start)
+					// 	- dst start < std start and std start > app time > dst start
+					if (array_sum($appTzDefStart['rules'][$appTzEffRuleIdx]['stStandardDate']) != 0 &&
+								array_sum($appTzDefStart['rules'][$appTzEffRuleIdx]['stDaylightDate']) != 0) {
+						$appTzStd = $appTzDefStart['rules'][$appTzEffRuleIdx]['stStandardDate'];
+						$appTzDst = $appTzDefStart['rules'][$appTzEffRuleIdx]['stDaylightDate'];
+
+						$f = $this->formatDateTimeString(
+							$this->relDaysOfWeek[$appTzStd['day']],
+							$this->daysOfWeek[$appTzStd['dayofweek']],
+							$this->monthNames[$appTzStd['month']],
+							$appStartDate['year'],
+							$appTzStd['hour'],
+							$appTzStd['minute'],
+						);
+
+						$dtStd = new DateTime($f, new DateTimeZone("UTC"));
+
+						$f = $this->formatDateTimeString(
+							$this->relDaysOfWeek[$appTzDst['day']],
+							$this->daysOfWeek[$appTzDst['dayofweek']],
+							$this->monthNames[$appTzDst['month']],
+							$appStartDate['year'],
+							$appTzDst['hour'],
+							$appTzDst['minute'],
+						);
+
+						$dtDst = new DateTime($f, new DateTimeZone("UTC"));
+
+						$appTzStdStart = $dtStd->getTimestamp();
+						$appTzDstStart = $dtDst->getTimestamp();
+
+						if ((($appTzDstStart > $appTzStdStart) &&
+							!($calendaritem[$this->properties["startdate"]] > $appTzStdStart &&
+							$calendaritem[$this->properties["startdate"]] < $appTzDstStart)) ||
+							(($appTzDstStart < $appTzStdStart) &&
+							($calendaritem[$this->properties["startdate"]] < $appTzStdStart &&
+							$calendaritem[$this->properties["startdate"]] > $appTzDstStart))
+						) {
+							$localStart = $localStart - $appTzDefStart['rules'][$appTzEffRuleIdx]['dstbias'] * 60;
+						}
+					}
+					if (array_sum($this->tzdefObj['rules'][$this->tzEffRuleIdx]['stStandardDate']) != 0 &&
+								array_sum($this->tzdefObj['rules'][$this->tzEffRuleIdx]['stDaylightDate']) != 0) {
+						$tzStd = $this->tzdefObj['rules'][$this->tzEffRuleIdx]['stStandardDate'];
+						$tzDst = $this->tzdefObj['rules'][$this->tzEffRuleIdx]['stDaylightDate'];
+
+						$f = $this->formatDateTimeString(
+							$this->relDaysOfWeek[$tzStd['day']],
+							$this->daysOfWeek[$tzStd['dayofweek']],
+							$this->monthNames[$tzStd['month']],
+							$appStartDate['year'],
+							$tzStd['hour'],
+							$tzStd['minute'],
+						);
+						$dtStd = new DateTime($f, new DateTimeZone("UTC"));
+
+						$f = $this->formatDateTimeString(
+							$this->relDaysOfWeek[$tzDst['day']],
+							$this->daysOfWeek[$tzDst['dayofweek']],
+							$this->monthNames[$tzDst['month']],
+							$appStartDate['year'],
+							$tzDst['hour'],
+							$tzDst['minute'],
+						);
+						$dtDst = new DateTime($f, new DateTimeZone("UTC"));
+
+						$tzStdStart = $dtStd->getTimestamp();
+						$tzDstStart = $dtDst->getTimestamp();
+
+						if (
+							(($tzDstStart > $tzStdStart) &&
+							!($calendaritem[$this->properties["startdate"]] > $tzStdStart &&
+							$calendaritem[$this->properties["startdate"]] < $tzDstStart)) ||
+							(($tzDstStart < $tzStdStart) &&
+							($calendaritem[$this->properties["startdate"]] < $tzStdStart &&
+							$calendaritem[$this->properties["startdate"]] > $tzDstStart))
+						) {
+							$localStart -= $this->tzdefObj['rules'][$this->tzEffRuleIdx]['dstbias'] * 60;
+						}
+					}
+					$duration = $calendaritem[$this->properties["duedate"]] - $calendaritem[$this->properties["startdate"]];
+					$calendaritem[$this->properties["startdate"]] = $localStart;
+					$calendaritem[$this->properties["duedate"]] = $localStart + $duration;
+				}
+			}
 		}
 	}

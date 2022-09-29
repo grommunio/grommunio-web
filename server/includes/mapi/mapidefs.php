@@ -672,3 +672,6 @@ define('wblNormalFolder', 0x00000000);
 define('wblSearchFolder', 0x00000001);
 define('wblSharedFolder', 0x00000002);
 define('wblHeader', 0x00000004);
+
+define('TZRULE_FLAG_RECUR_CURRENT_TZREG', 0x0001);
+define('TZRULE_FLAG_EFFECTIVE_TZREG', 0x0002);
