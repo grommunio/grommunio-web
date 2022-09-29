@@ -458,6 +458,8 @@ Zarafa.core.data.ListModuleStore = Ext.extend(Zarafa.core.data.IPMStore, {
 			delete options.params.restriction.search;
 		}
 
+		options.params.timezone_iana = Intl.DateTimeFormat().resolvedOptions().timeZone;
+
 		return Zarafa.core.data.ListModuleStore.superclass.load.call(this, options);
 	},
 
