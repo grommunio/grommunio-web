@@ -1223,6 +1223,6 @@ Ext.apply(Zarafa, {
 	supportsPopOut: function()
 	{
 		// Currently, we do not support the popout in case of IE/Edge.
-		return (!(Ext.isIE || Ext.isEdge));
+		return (!(Ext.isIE || Ext.isEdge || navigator.userAgent.includes('grommunio')));
 	}
 });
