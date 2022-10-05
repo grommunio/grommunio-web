@@ -58,13 +58,12 @@ Zarafa.settings.ui.SettingsQuotaInfoWidget = Ext.extend(Zarafa.settings.ui.Setti
 		var storeSize = defaultMesageStore.get('store_size');
 		var softQuota = defaultMesageStore.get('quota_soft');
 		var hardQuota = defaultMesageStore.get('quota_hard');
-		var warnQuota = defaultMesageStore.get('quota_warning');
 
 		// Create quota-info string to display in displayfield.
 		var quotaInfo = String.format(_('{0} of mailbox space is used.'), Ext.util.Format.fileSize(storeSize * 1024));
 		var quotaInfoHTML = '<span class="zarafa-quota-string">' + quotaInfo + '</span>';
 
-		if(softQuota || hardQuota || warnQuota) {
+		if(softQuota || hardQuota) {
 			// If soft or hard quota is set then show quotabar.
 			this.quotaBar.setVisible(true);
 			this.unavailableQuotaInfo.setVisible(false);

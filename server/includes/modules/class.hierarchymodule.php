@@ -580,7 +580,7 @@
 			$store_props = mapi_getprops($store, [PR_IPM_SUBTREE_ENTRYID]);
 			if ($data["entryid"] == bin2hex($store_props[PR_IPM_SUBTREE_ENTRYID])) {
 				$store_props = mapi_getprops($store, [PR_DISPLAY_NAME, PR_MESSAGE_SIZE_EXTENDED,
-					PR_CONTENT_COUNT, PR_QUOTA_WARNING_THRESHOLD, PR_QUOTA_SEND_THRESHOLD, PR_QUOTA_RECEIVE_THRESHOLD, ]);
+					PR_CONTENT_COUNT, PR_QUOTA_WARNING_THRESHOLD, PR_PROHIBIT_SEND_QUOTA, PR_PROHIBIT_RECEIVE_QUOTA, ]);
 				$data["props"]["display_name"] = $store_props[PR_DISPLAY_NAME];
 				$data["props"]["message_size"] = round($store_props[PR_MESSAGE_SIZE_EXTENDED]);
 				$data["props"]["content_count"] = $store_props[PR_CONTENT_COUNT];
@@ -589,11 +589,11 @@
 				if (isset($store_props[PR_QUOTA_WARNING_THRESHOLD])) {
 					$data["props"]["quota_warning"] = round($store_props[PR_QUOTA_WARNING_THRESHOLD]);
 				}
-				if (isset($store_props[PR_QUOTA_SEND_THRESHOLD])) {
-					$data["props"]["quota_soft"] = round($store_props[PR_QUOTA_SEND_THRESHOLD]);
+				if (isset($store_props[PR_PROHIBIT_SEND_QUOTA])) {
+					$data["props"]["quota_soft"] = round($store_props[PR_PROHIBIT_SEND_QUOTA]);
 				}
-				if (isset($store_props[PR_QUOTA_RECEIVE_THRESHOLD])) {
-					$data["props"]["quota_hard"] = round($store_props[PR_QUOTA_RECEIVE_THRESHOLD]);
+				if (isset($store_props[PR_PROHIBIT_RECEIVE_QUOTA])) {
+					$data["props"]["quota_hard"] = round($store_props[PR_PROHIBIT_RECEIVE_QUOTA]);
 				}
 			}
 

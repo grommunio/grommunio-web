@@ -155,7 +155,7 @@
 
 					// Send notification for any changes in store's properties
 					if ($store) {
-						$storeProps = mapi_getprops($store, [PR_ENTRYID, PR_STORE_ENTRYID, PR_MDB_PROVIDER, PR_OBJECT_TYPE, PR_QUOTA_WARNING_THRESHOLD, PR_QUOTA_SEND_THRESHOLD, PR_QUOTA_RECEIVE_THRESHOLD, PR_MESSAGE_SIZE_EXTENDED]);
+						$storeProps = mapi_getprops($store, [PR_ENTRYID, PR_STORE_ENTRYID, PR_MDB_PROVIDER, PR_OBJECT_TYPE, PR_PROHIBIT_SEND_QUOTA, PR_QUOTA_WARNING_THRESHOLD, PR_PROHIBIT_RECEIVE_QUOTA, PR_MESSAGE_SIZE_EXTENDED]);
 
 						$storeSize = round($storeProps[PR_MESSAGE_SIZE_EXTENDED] / 1024);
 
@@ -168,8 +168,8 @@
 							$data["props"]["object_type"] = $storeProps[PR_OBJECT_TYPE];
 							$data["props"]["store_size"] = $storeSize;
 							$data["props"]["quota_warning"] = isset($storeProps[PR_QUOTA_WARNING_THRESHOLD]) ? $storeProps[PR_QUOTA_WARNING_THRESHOLD] : 0;
-							$data["props"]["quota_soft"] = isset($storeProps[PR_QUOTA_SEND_THRESHOLD]) ? $storeProps[PR_QUOTA_SEND_THRESHOLD] : 0;
-							$data["props"]["quota_hard"] = isset($storeProps[PR_QUOTA_RECEIVE_THRESHOLD]) ? $storeProps[PR_QUOTA_RECEIVE_THRESHOLD] : 0;
+							$data["props"]["quota_soft"] = isset($storeProps[PR_PROHIBIT_SEND_QUOTA]) ? $storeProps[PR_PROHIBIT_SEND_QUOTA] : 0;
+							$data["props"]["quota_hard"] = isset($storeProps[PR_PROHIBIT_RECEIVE_QUOTA]) ? $storeProps[PR_PROHIBIT_RECEIVE_QUOTA] : 0;
 
 							$this->addNotificationActionData("stores", ["item" => [$data]]);
 							$GLOBALS["bus"]->addData($this->createNotificationResponseData());
