@@ -211,7 +211,7 @@
 								$data["info"]['display_message'] = _("You don't have the permission to complete this action");
 								$this->addActionData("error", $data);
 							}
-							if($error === "0x000004d9") { # FIXME: Use const variable instead of this
+							if($error === "ecQuotaExceeded") {
 								// Handling error: Send quota error
 								$data = [];
 								$data["type"] = 1; // MAPI
