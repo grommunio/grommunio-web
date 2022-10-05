@@ -44,6 +44,10 @@ function get_mapi_error_name($errcode = null) {
 		$errcode = mapi_last_hresult();
 	}
 
+	if (strcasecmp(substr($errcode, 0, 2), '0x') === 0) {
+		$errcode = hexdec($errcode);
+	}
+
 	if ($errcode !== 0) {
 		// Retrieve constants categories, MAPI error names are defined in gromox.
 		foreach (get_defined_constants(true)['Core'] as $key => $value) {
@@ -57,6 +61,10 @@ function get_mapi_error_name($errcode = null) {
 				// Check that we have an actual MAPI error or warning definition
 				$prefix = substr($key, 0, 7);
 				if ($prefix == "MAPI_E_" || $prefix == "MAPI_W_") {
+					return $key;
+				}
+				$prefix = substr($key, 0, 2);
+				if ($prefix == "ec") {
 					return $key;
 				}
 			}
