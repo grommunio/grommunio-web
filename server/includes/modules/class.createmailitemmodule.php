@@ -211,6 +211,15 @@
 								$data["info"]['display_message'] = _("You don't have the permission to complete this action");
 								$this->addActionData("error", $data);
 							}
+							if($error === "0x000004d9") { # FIXME: Use const variable instead of this
+								// Handling error: Send quota error
+								$data = [];
+								$data["type"] = 1; // MAPI
+								$data["info"] = [];
+								$data["info"]['title'] = _("Quota error");
+								$data["info"]['display_message'] = _("Send quota limit reached");
+								$this->addActionData("error", $data);
+							}
 						}
 					}
 					else {
