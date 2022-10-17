@@ -5,6 +5,24 @@
  * SPDX-FileCopyrightText: Copyright 2020-2022 grommunio GmbH
  */
 
+define('CAL_DEFAULT', 0);
+define('CAL_GREGORIAN', 1);
+define('IDC_RCEV_PAT_ORB_DAILY', 0x0a);
+define('IDC_RCEV_PAT_ORB_WEEKLY', 0x0b);
+define('IDC_RCEV_PAT_ORB_MONTHLY', 0x0c);
+define('IDC_RCEV_PAT_ORB_YEARLY', 0x0d);
+define('IDC_RCEV_PAT_ERB_END', 0x21);
+define('IDC_RCEV_PAT_ERB_AFTERNOCCUR', 0x22);
+define('IDC_RCEV_PAT_ERB_NOEND', 0x23);
+define('rptDay', 0); // rptMinute in mfcmapi
+define('rptWeek', 1);
+define('rptMonth', 2);
+define('rptMonthNth', 3);
+define('rptMonthEnd', 4);
+define('rptHjMonth', 10);
+define('rptHjMonthNth', 11);
+define('rptHjMonthEnd', 12);
+
 	/**
 	 * BaseRecurrence
 	 * this class is superclass for recurrence for appointments and tasks. This class provides all
@@ -160,8 +178,7 @@
 			$rdata = substr($rdata, 10);
 
 			switch ($data["rtype"]) {
-				case 0x0A:
-					// Daily
+				case IDC_RCEV_PAT_ORB_DAILY:
 					if (strlen($rdata) < 12) {
 						return $ret;
 					}
@@ -171,19 +188,17 @@
 					$ret["regen"] = $data["regen"];
 
 					switch ($ret["subtype"]) {
-						case 0:
+						case rptDay:
 							$rdata = substr($rdata, 12);
 							break;
-
-						case 1:
+						case rptWeek:
 							$rdata = substr($rdata, 16);
 							break;
 					}
 
 					break;
 
-				case 0x0B:
-					// Weekly
+				case IDC_RCEV_PAT_ORB_WEEKLY:
 					if (strlen($rdata) < 16) {
 						return $ret;
 					}
@@ -203,8 +218,7 @@
 					}
 					break;
 
-				case 0x0C:
-					// Monthly
+				case IDC_RCEV_PAT_ORB_MONTHLY:
 					if (strlen($rdata) < 16) {
 						return $ret;
 					}
@@ -214,7 +228,7 @@
 					$ret["everyn"] = $data["everyn"];
 					$ret["regen"] = $data["regen"];
 
-					if ($ret["subtype"] == 3) {
+					if ($ret["subtype"] == rptMonthNth) {
 						$ret["weekdays"] = $data["monthday"];
 					}
 					else {
@@ -222,16 +236,14 @@
 					}
 
 					$rdata = substr($rdata, 16);
-
-					if ($ret["subtype"] == 3) {
+					if ($ret["subtype"] == rptMonthNth) {
 						$data = unpack("Vnday", $rdata);
 						$ret["nday"] = $data["nday"];
 						$rdata = substr($rdata, 4);
 					}
 					break;
 
-				case 0x0D:
-					// Yearly
+				case IDC_RCEV_PAT_ORB_YEARLY:
 					if (strlen($rdata) < 16) {
 						return $ret;
 					}
@@ -242,7 +254,7 @@
 					$ret["everyn"] = $data["everyn"];
 					$ret["regen"] = $data["regen"];
 
-					if ($ret["subtype"] == 3) {
+					if ($ret["subtype"] == rptMonthNth) {
 						$ret["weekdays"] = $data["monthday"];
 					}
 					else {
@@ -251,7 +263,7 @@
 
 					$rdata = substr($rdata, 16);
 
-					if ($ret["subtype"] == 3) {
+					if ($ret["subtype"] == rptMonthNth) {
 						$data = unpack("Vnday", $rdata);
 						$ret["nday"] = $data["nday"];
 						$rdata = substr($rdata, 4);
@@ -587,13 +599,12 @@
 			$term = (int) $this->recur["type"];
 
 			switch ($term) {
-				case 0x0A:
-					// Daily
+				case IDC_RCEV_PAT_ORB_DAILY:
 					if (!isset($this->recur["everyn"])) {
 						return;
 					}
 
-					if ($this->recur["subtype"] == 1) {
+					if ($this->recur["subtype"] == rptWeek) {
 						// Daily every workday
 						$rdata .= pack("VVVV", (6 * 24 * 60), 1, 0, 0x3E);
 					}
@@ -605,8 +616,7 @@
 					}
 					break;
 
-				case 0x0B:
-					// Weekly
+				case IDC_RCEV_PAT_ORB_WEEKLY:
 					if (!isset($this->recur["everyn"])) {
 						return;
 					}
@@ -642,7 +652,7 @@
 
 						// Check if the recurrence ends after a number of occurrences, in that case we must calculate the
 						// remaining occurrences based on the start of the recurrence.
-						if (((int) $this->recur["term"]) == 0x22) {
+						if (((int) $this->recur["term"]) == IDC_RCEV_PAT_ERB_AFTERNOCCUR) {
 							// $weekskip is the amount of weeks to skip from the startdate before the first occurrence
 							// $forwardcount is the maximum number of week occurrences we can go ahead after the first occurrence that
 							// is still inside the recurrence. We subtract one to make sure that the last week is never forwarded over
@@ -674,18 +684,16 @@
 					}
 					break;
 
-				case 0x0C:
-					// Monthly
-				case 0x0D:
-					// Yearly
+				case IDC_RCEV_PAT_ORB_MONTHLY:
+				case IDC_RCEV_PAT_ORB_YEARLY:
 					if (!isset($this->recur["everyn"])) {
 						return;
 					}
-					if ($term == 0x0D /* yearly */ && !isset($this->recur["month"])) {
+					if ($term == IDC_RCEV_PAT_ORB_YEARLY && !isset($this->recur["month"])) {
 						return;
 					}
 
-					if ($term == 0x0C /* monthly */) {
+					if ($term == IDC_RCEV_PAT_ORB_MONTHLY) {
 						$everyn = (int) $this->recur["everyn"];
 					}
 					else {
@@ -699,20 +707,20 @@
 
 					// Check if the recurrence ends after a number of occurrences, in that case we must calculate the
 					// remaining occurrences based on the start of the recurrence.
-					if (((int) $this->recur["term"]) == 0x22) {
+					if (((int) $this->recur["term"]) == IDC_RCEV_PAT_ERB_AFTERNOCCUR) {
 						// $forwardcount is the number of occurrences we can skip and still be inside the recurrence range (minus
 						// one to make sure there are always at least one occurrence left)
 						$forwardcount = ((((int) $this->recur["numoccur"]) - 1) * $everyn);
 					}
 
 					// Get month for yearly on D'th day of month M
-					if ($term == 0x0D /* yearly */) {
+					if ($term == IDC_RCEV_PAT_ORB_YEARLY) {
 						$selmonth = floor(((int) $this->recur["month"]) / (24 * 60 * 29)) + 1; // 1=jan, 2=feb, eg
 					}
 
 					switch ((int) $this->recur["subtype"]) {
 						// on D day of every M month
-						case 2:
+						case rptMonth:
 							if (!isset($this->recur["monthday"])) {
 								return;
 							}
@@ -726,9 +734,9 @@
 							$this->recur["start"] += (((int) $this->recur["monthday"]) - 1) * 24 * 60 * 60;
 
 							// If the previous calculation gave us a start date different than the original start date, then we need to skip to the first occurrence
-							if (($term == 0x0C /* monthly */ && ((int) $this->recur["monthday"]) < $curmonthday) ||
-								($term == 0x0D /* yearly */ && ($selmonth != $curmonth || ($selmonth == $curmonth && ((int) $this->recur["monthday"]) < $curmonthday)))) {
-								if ($term == 0x0D /* yearly */) {
+							if (($term == IDC_RCEV_PAT_ORB_MONTHLY && ((int) $this->recur["monthday"]) < $curmonthday) ||
+							    ($term == IDC_RCEV_PAT_ORB_YEARLY && ($selmonth != $curmonth || ($selmonth == $curmonth && ((int) $this->recur["monthday"]) < $curmonthday)))) {
+								if ($term == IDC_RCEV_PAT_ORB_YEARLY) {
 									if ($curmonth > $selmonth) {// go to next occurrence in 'everyn' months minus difference in first occurrence and original date
 										$count = $everyn - ($curmonth - $selmonth);
 									}
@@ -769,8 +777,7 @@
 							}
 
 							// "start" is now the first occurrence
-
-							if ($term == 0x0C /* monthly */) {
+							if ($term == IDC_RCEV_PAT_ORB_MONTHLY) {
 								// Calc first occ
 								$monthIndex = ((((12 % $everyn) * ((((int) gmdate("Y", $this->recur["start"])) - 1601) % $everyn)) % $everyn) + (((int) gmdate("n", $this->recur["start"])) - 1)) % $everyn;
 
@@ -793,7 +800,7 @@
 							}
 							break;
 
-						case 3:
+						case rptMonthNth:
 							// monthly: on Nth weekday of every M month
 							// yearly: on Nth weekday of M month
 							if (!isset($this->recur["weekdays"], $this->recur["nday"])) {
@@ -815,7 +822,7 @@
 								$monthbegindow -= ((gmdate("j", $monthbegindow) - 1) * 24 * 60 * 60);
 							}
 
-							if ($term == 0x0D /* yearly */) {
+							if ($term == IDC_RCEV_PAT_ORB_YEARLY) {
 								// Set on right month
 								if ($selmonth < $curmonth) {
 									$tmp = 12 - $curmonth + $selmonth;
@@ -899,8 +906,7 @@
 							}
 
 							$firstocc = 0;
-
-							if ($term == 0x0C /* monthly */) {
+							if ($term == IDC_RCEV_PAT_ORB_MONTHLY) {
 								// Calc first occ
 								$monthIndex = ((((12 % $everyn) * (((int) gmdate("Y", $this->recur["start"]) - 1601) % $everyn)) % $everyn) + (((int) gmdate("n", $this->recur["start"])) - 1)) % $everyn;
 
@@ -935,11 +941,11 @@
 
 			switch ($term) {
 				// After the given enddate
-				case 0x21:
+				case IDC_RCEV_PAT_ERB_END:
 					$rdata .= pack("V", 10);
 					break;
 				// After a number of times
-				case 0x22:
+				case IDC_RCEV_PAT_ERB_AFTERNOCCUR:
 					if (!isset($this->recur["numoccur"])) {
 						return;
 					}
@@ -947,13 +953,13 @@
 					$rdata .= pack("V", (int) $this->recur["numoccur"]);
 					break;
 				// Never ends
-				case 0x23:
+				case IDC_RCEV_PAT_ERB_NOEND:
 					$rdata .= pack("V", 0);
 					break;
 			}
 
 			// Strange little thing for the recurrence type "every workday"
-			if (((int) $this->recur["type"]) == 0x0B && ((int) $this->recur["subtype"]) == 1) {
+			if (((int) $this->recur["type"]) == IDC_RCEV_PAT_ORB_WEEKLY && ((int) $this->recur["subtype"]) == 1) {
 				$rdata .= pack("V", 1);
 			}
 			else { // Other recurrences
@@ -1002,17 +1008,17 @@
 			// Set enddate
 			switch ($term) {
 				// After the given enddate
-				case 0x21:
+				case IDC_RCEV_PAT_ERB_END:
 					$rdata .= pack("V", $this->unixDataToRecurData((int) $this->recur["end"]));
 					break;
 				// After a number of times
-				case 0x22:
+				case IDC_RCEV_PAT_ERB_AFTERNOCCUR:
 					// @todo: calculate enddate with intval($this->recur["startocc"]) + intval($this->recur["duration"]) > 24 hour
 					$occenddate = (int) $this->recur["start"];
 
 					switch ((int) $this->recur["type"]) {
-						case 0x0A: // daily
-							if ($this->recur["subtype"] == 1) {
+						case IDC_RCEV_PAT_ORB_DAILY:
+							if ($this->recur["subtype"] == rptWeek) {
 								// Daily every workday
 								$restocc = (int) $this->recur["numoccur"];
 
@@ -1040,7 +1046,7 @@
 							}
 							break;
 
-						case 0x0B: // weekly
+						case IDC_RCEV_PAT_ORB_WEEKLY:
 							// Needed values
 							// $forwardcount - number of weeks we can skip forward
 							// $restocc - number of remaining occurrences after the week skip
@@ -1068,14 +1074,14 @@
 
 							break;
 
-						case 0x0C: // monthly
-						case 0x0D: // yearly
+						case IDC_RCEV_PAT_ORB_MONTHLY:
+						case IDC_RCEV_PAT_ORB_YEARLY:
 							$curyear = gmdate("Y", (int) $this->recur["start"]);
 							$curmonth = gmdate("n", (int) $this->recur["start"]);
 							// $forwardcount = months
 
 							switch ((int) $this->recur["subtype"]) {
-								case 2: // on D day of every M month
+								case rptMonth: // on D day of every M month
 									while ($forwardcount > 0) {
 										$occenddate += $this->getMonthInSeconds($curyear, $curmonth);
 
@@ -1102,7 +1108,7 @@
 
 									break;
 
-								case 3: // on Nth weekday of every M month
+								case rptMonthNth: // on Nth weekday of every M month
 									$nday = (int) $this->recur["nday"]; // 1 tot 5
 									$weekdays = (int) $this->recur["weekdays"];
 
@@ -1140,7 +1146,7 @@
 										}
 									}
 
-								break; // case 3:
+								break; // case rptMonthNth
 								}
 
 							break;
@@ -1155,7 +1161,7 @@
 					$rdata .= pack("V", $this->unixDataToRecurData((int) $this->recur["end"]));
 					break;
 				// Never ends
-				case 0x23:
+				case IDC_RCEV_PAT_ERB_NOEND:
 				default:
 					$this->recur["end"] = 0x7FFFFFFF; // max date -> 2038
 					$rdata .= pack("V", 0x5AE980DF);
@@ -1724,13 +1730,12 @@
 				// Loop through the entire recurrence range of dates, and check for each occurrence whether it is in the view range.
 
 				switch ($this->recur["type"]) {
-					case 10:
-						// Daily
+					case IDC_RCEV_PAT_ORB_DAILY:
 						if ($this->recur["everyn"] <= 0) {
 							$this->recur["everyn"] = 1440;
 						}
 
-						if ($this->recur["subtype"] == 0) {
+						if ($this->recur["subtype"] == rptDay) {
 							// Every Nth day
 							for ($now = $daystart; $now <= $dayend && ($limit == 0 || count($items) < $limit); $now += 60 * $this->recur["everyn"]) {
 								$this->processOccurrenceItem($items, $start, $end, $now, $this->recur["startocc"], $this->recur["endocc"], $this->tz, $remindersonly);
@@ -1747,8 +1752,7 @@
 						}
 						break;
 
-					case 11:
-						// Weekly
+					case IDC_RCEV_PAT_ORB_WEEKLY:
 						if ($this->recur["everyn"] <= 0) {
 							$this->recur["everyn"] = 1;
 						}
@@ -1778,8 +1782,7 @@
 						}
 						break;
 
-					case 12:
-						// Monthly
+					case IDC_RCEV_PAT_ORB_MONTHLY:
 						if ($this->recur["everyn"] <= 0) {
 							$this->recur["everyn"] = 1;
 						}
@@ -1854,8 +1857,7 @@
 						}
 						break;
 
-					case 13:
-					// Yearly
+					case IDC_RCEV_PAT_ORB_YEARLY:
 					if ($this->recur["everyn"] <= 0) {
 						$this->recur["everyn"] = 12;
 					}
