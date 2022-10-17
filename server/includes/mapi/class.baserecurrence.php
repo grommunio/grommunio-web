@@ -153,7 +153,7 @@
 			$ret["changed_occurrences"] = [];
 			$ret["deleted_occurrences"] = [];
 
-			$data = unpack("Vconst1/Crtype/Cconst2/Vrtype2", $rdata);
+			$data = unpack("vReaderVersion/vWriterVersion/Crtype/Cconst2/vrtype2/vCalendarType", $rdata);
 
 			$ret["type"] = $data["rtype"];
 			$ret["subtype"] = $data["rtype2"];
