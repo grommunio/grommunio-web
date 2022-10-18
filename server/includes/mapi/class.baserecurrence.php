@@ -7,13 +7,13 @@
 
 define('CAL_DEFAULT', 0);
 define('CAL_GREGORIAN', 1);
-define('IDC_RCEV_PAT_ORB_DAILY', 0x0a);
-define('IDC_RCEV_PAT_ORB_WEEKLY', 0x0b);
-define('IDC_RCEV_PAT_ORB_MONTHLY', 0x0c);
-define('IDC_RCEV_PAT_ORB_YEARLY', 0x0d);
-define('IDC_RCEV_PAT_ERB_END', 0x21);
-define('IDC_RCEV_PAT_ERB_AFTERNOCCUR', 0x22);
-define('IDC_RCEV_PAT_ERB_NOEND', 0x23);
+define('IDC_RCEV_PAT_ORB_DAILY', 0x200a);
+define('IDC_RCEV_PAT_ORB_WEEKLY', 0x200b);
+define('IDC_RCEV_PAT_ORB_MONTHLY', 0x200c);
+define('IDC_RCEV_PAT_ORB_YEARLY', 0x200d);
+define('IDC_RCEV_PAT_ERB_END', 0x2021);
+define('IDC_RCEV_PAT_ERB_AFTERNOCCUR', 0x2022);
+define('IDC_RCEV_PAT_ERB_NOEND', 0x2023);
 define('rptDay', 0); // rptMinute in mfcmapi
 define('rptWeek', 1);
 define('rptMonth', 2);
@@ -171,10 +171,10 @@ define('rptHjMonthEnd', 12);
 			$ret["changed_occurrences"] = [];
 			$ret["deleted_occurrences"] = [];
 
-			$data = unpack("vReaderVersion/vWriterVersion/Crtype/Cconst2/vrtype2/vCalendarType", $rdata);
-
+			$data = unpack("vReaderVersion/vWriterVersion/vrtype/vrtype2/vCalendarType", $rdata);
 			$ret["type"] = $data["rtype"];
 			$ret["subtype"] = $data["rtype2"];
+			// assert that CalendarType == CAL_DEFAULT || CAL_GREGORIAN
 			$rdata = substr($rdata, 10);
 
 			switch ($data["rtype"]) {
@@ -275,8 +275,7 @@ define('rptHjMonthEnd', 12);
 				return $ret;
 			}
 
-			$data = unpack("Cterm/C3const1/Vnumoccur/Vconst2/Vnumexcept", $rdata);
-
+			$data = unpack("Vterm/Vnumoccur/Vconst2/Vnumexcept", $rdata);
 			$rdata = substr($rdata, 16);
 
 			$ret["term"] = $data["term"];
@@ -589,8 +588,7 @@ define('rptHjMonthEnd', 12);
 				return;
 			}
 
-			$rdata = pack("CCCCCCV", 0x04, 0x30, 0x04, 0x30, (int) $this->recur["type"], 0x20, (int) $this->recur["subtype"]);
-
+			$rdata = pack("vvvvv", 0x3004, 0x3004, (int) $this->recur["type"], (int) $this->recur["subtype"], CAL_DEFAULT);
 			$weekstart = 1; // monday
 			$forwardcount = 0;
 			$restocc = 0;
@@ -937,7 +935,7 @@ define('rptHjMonthEnd', 12);
 
 			// Terminate
 			$term = (int) $this->recur["term"];
-			$rdata .= pack("CCCC", $term, 0x20, 0x00, 0x00);
+			$rdata .= pack("V", $term);
 
 			switch ($term) {
 				// After the given enddate
@@ -1241,8 +1239,7 @@ define('rptHjMonthEnd', 12);
 
 			// Default data
 			// Second item (0x08) indicates the Outlook version (see documentation at the bottom of this file for more information)
-			$rdata .= pack("VCCCC", 0x00003006, 0x08, 0x30, 0x00, 0x00);
-
+			$rdata .= pack("VV", 0x3006, 0x3008);
 			if (isset($this->recur["startocc"], $this->recur["endocc"])) {
 				// Set start and endtime in minutes
 				$rdata .= pack("VV", (int) $this->recur["startocc"], (int) $this->recur["endocc"]);
