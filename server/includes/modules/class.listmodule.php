@@ -73,7 +73,7 @@
 		/**
 		 * Executes all the actions in the $data variable.
 		 *
-		 * @return bool true on success of false on fialure
+		 * @return bool true on success or false on failure
 		 */
 		public function execute() {
 			foreach ($this->data as $actionType => $action) {
@@ -117,13 +117,14 @@
 		 */
 		public function handleException(&$e, $actionType = null, $store = null, $parententryid = null, $entryid = null, $action = null) {
 			if (is_null($e->displayMessage)) {
+				$hexEntryid = $entryid != null ? bin2hex($entryid) : 'null';
 				switch ($actionType) {
 					case "list":
 						if ($e->getCode() == MAPI_E_NO_ACCESS) {
-							$e->setDisplayMessage(_("You have insufficient privileges to see the contents of this folder."));
+							$e->setDisplayMessage(_("You have insufficient privileges to see the contents of this folder.") . " ($hexEntryid)");
 						}
 						else {
-							$e->setDisplayMessage(_("Could not load the contents of this folder."));
+							$e->setDisplayMessage(_("Could not load the contents of this folder.") . " ($hexEntryid)");
 						}
 						break;
 				}
