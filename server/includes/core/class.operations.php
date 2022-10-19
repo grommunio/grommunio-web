@@ -782,7 +782,7 @@
 				}
 				else {
 					$storeObj = $GLOBALS["mapisession"]->openMessageStore($linkMessageProps[PR_WLINK_STORE_ENTRYID]);
-					if ($storeObj == MAPI_E_CALL_FAILED || $storeObj == MAPI_E_NOT_FOUND) {
+					if (!is_resource($storeObj)) {
 						return false;
 					}
 					$folderObj = mapi_msgstore_openentry($storeObj, $linkMessageProps[PR_WLINK_ENTRYID]);
