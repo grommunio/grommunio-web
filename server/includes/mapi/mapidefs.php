@@ -675,3 +675,22 @@ define('wblHeader', 0x00000004);
 
 define('TZRULE_FLAG_RECUR_CURRENT_TZREG', 0x0001);
 define('TZRULE_FLAG_EFFECTIVE_TZREG', 0x0002);
+
+/* RecurrencePattern related values */
+define('CAL_DEFAULT', 0);
+define('CAL_GREGORIAN', 1);
+define('IDC_RCEV_PAT_ORB_DAILY', 0x200A);
+define('IDC_RCEV_PAT_ORB_WEEKLY', 0x200B);
+define('IDC_RCEV_PAT_ORB_MONTHLY', 0x200C);
+define('IDC_RCEV_PAT_ORB_YEARLY', 0x200D);
+define('IDC_RCEV_PAT_ERB_END', 0x2021);
+define('IDC_RCEV_PAT_ERB_AFTERNOCCUR', 0x2022);
+define('IDC_RCEV_PAT_ERB_NOEND', 0x2023);
+define('rptDay', 0); // rptMinute in mfcmapi
+define('rptWeek', 1);
+define('rptMonth', 2);
+define('rptMonthNth', 3);
+define('rptMonthEnd', 4);
+define('rptHjMonth', 0xA);
+define('rptHjMonthNth', 0xB);
+define('rptHjMonthEnd', 0xC);
