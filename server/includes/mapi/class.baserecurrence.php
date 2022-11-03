@@ -5,24 +5,6 @@
  * SPDX-FileCopyrightText: Copyright 2020-2022 grommunio GmbH
  */
 
-define('CAL_DEFAULT', 0);
-define('CAL_GREGORIAN', 1);
-define('IDC_RCEV_PAT_ORB_DAILY', 0x200a);
-define('IDC_RCEV_PAT_ORB_WEEKLY', 0x200b);
-define('IDC_RCEV_PAT_ORB_MONTHLY', 0x200c);
-define('IDC_RCEV_PAT_ORB_YEARLY', 0x200d);
-define('IDC_RCEV_PAT_ERB_END', 0x2021);
-define('IDC_RCEV_PAT_ERB_AFTERNOCCUR', 0x2022);
-define('IDC_RCEV_PAT_ERB_NOEND', 0x2023);
-define('rptDay', 0); // rptMinute in mfcmapi
-define('rptWeek', 1);
-define('rptMonth', 2);
-define('rptMonthNth', 3);
-define('rptMonthEnd', 4);
-define('rptHjMonth', 10);
-define('rptHjMonthNth', 11);
-define('rptHjMonthEnd', 12);
-
 	/**
 	 * BaseRecurrence
 	 * this class is superclass for recurrence for appointments and tasks. This class provides all
@@ -172,9 +154,26 @@ define('rptHjMonthEnd', 12);
 			$ret["deleted_occurrences"] = [];
 
 			$data = unpack("vReaderVersion/vWriterVersion/vrtype/vrtype2/vCalendarType", $rdata);
+
+			// Do some recurrence validity checks
+			if ($data['ReaderVersion'] != 0x3004 || $data['WriterVersion'] != 0x3004) {
+				return $ret;
+			}
+
+			if (!in_array($data["rtype"], [IDC_RCEV_PAT_ORB_DAILY, IDC_RCEV_PAT_ORB_WEEKLY, IDC_RCEV_PAT_ORB_MONTHLY, IDC_RCEV_PAT_ORB_YEARLY])) {
+				return $ret;
+			}
+
+			if (!in_array($data["rtype2"], [rptDay, rptWeek, rptMonth, rptMonthNth, rptMonthEnd, rptHjMonth, rptHjMonthNth, rptHjMonthEnd])) {
+				return $ret;
+			}
+
+			if (!in_array($data['CalendarType'], [CAL_DEFAULT, CAL_GREGORIAN])) {
+				return $ret;
+			}
+
 			$ret["type"] = $data["rtype"];
 			$ret["subtype"] = $data["rtype2"];
-			// assert that CalendarType == CAL_DEFAULT || CAL_GREGORIAN
 			$rdata = substr($rdata, 10);
 
 			switch ($data["rtype"]) {
@@ -184,6 +183,9 @@ define('rptHjMonthEnd', 12);
 					}
 
 					$data = unpack("Vunknown/Veveryn/Vregen", $rdata);
+					if ($data["everyn"] > 1438560) { // minutes for 999 days
+						return $ret;
+					}
 					$ret["everyn"] = $data["everyn"];
 					$ret["regen"] = $data["regen"];
 
@@ -204,6 +206,10 @@ define('rptHjMonthEnd', 12);
 					}
 
 					$data = unpack("Vconst1/Veveryn/Vregen", $rdata);
+					if ($data["everyn"] > 99) {
+						return $ret;
+					}
+
 					$rdata = substr($rdata, 12);
 
 					$ret["everyn"] = $data["everyn"];
@@ -224,6 +230,9 @@ define('rptHjMonthEnd', 12);
 					}
 
 					$data = unpack("Vconst1/Veveryn/Vregen/Vmonthday", $rdata);
+					if ($data["everyn"] > 99) {
+						return $ret;
+					}
 
 					$ret["everyn"] = $data["everyn"];
 					$ret["regen"] = $data["regen"];
@@ -249,6 +258,13 @@ define('rptHjMonthEnd', 12);
 					}
 
 					$data = unpack("Vmonth/Veveryn/Vregen/Vmonthday", $rdata);
+					// recurring yearly tasks have a period in months multiple by 12
+					if ($data['regen'] && $data["everyn"] % 12 != 0) {
+						return $ret;
+					}
+					elseif (!$data['regen'] && $data["everyn"] != 12) {
+						return $ret;
+					}
 
 					$ret["month"] = $data["month"];
 					$ret["everyn"] = $data["everyn"];
@@ -277,6 +293,9 @@ define('rptHjMonthEnd', 12);
 
 			$data = unpack("Vterm/Vnumoccur/Vconst2/Vnumexcept", $rdata);
 			$rdata = substr($rdata, 16);
+			if (!in_array($data["term"], [IDC_RCEV_PAT_ERB_END, IDC_RCEV_PAT_ERB_AFTERNOCCUR, IDC_RCEV_PAT_ERB_NOEND, 0xFFFFFFFF])) {
+				return $ret;
+			}
 
 			$ret["term"] = $data["term"];
 			$ret["numoccur"] = $data["numoccur"];
@@ -588,17 +607,26 @@ define('rptHjMonthEnd', 12);
 				return;
 			}
 
-			$rdata = pack("vvvvv", 0x3004, 0x3004, (int) $this->recur["type"], (int) $this->recur["subtype"], CAL_DEFAULT);
+			$rtype = 0x2000 + (int) $this->recur["type"];
+
+			// Don't allow invalid type and subtype values
+			if (!in_array($rtype, [IDC_RCEV_PAT_ORB_DAILY, IDC_RCEV_PAT_ORB_WEEKLY, IDC_RCEV_PAT_ORB_MONTHLY, IDC_RCEV_PAT_ORB_YEARLY])) {
+				return;
+			}
+
+			if (!in_array((int) $this->recur["subtype"], [rptDay, rptWeek, rptMonth, rptMonthNth, rptMonthEnd, rptHjMonth, rptHjMonthNth, rptHjMonthEnd])) {
+				return;
+			}
+
+			$rdata = pack("vvvvv", 0x3004, 0x3004, $rtype, (int) $this->recur["subtype"], CAL_DEFAULT);
 			$weekstart = 1; // monday
 			$forwardcount = 0;
 			$restocc = 0;
 			$dayofweek = (int) gmdate("w", (int) $this->recur["start"]); // 0 (for Sunday) through 6 (for Saturday)
 
-			$term = (int) $this->recur["type"];
-
-			switch ($term) {
+			switch ($rtype) {
 				case IDC_RCEV_PAT_ORB_DAILY:
-					if (!isset($this->recur["everyn"])) {
+					if (!isset($this->recur["everyn"]) || (int) $this->recur["everyn"] > 1438560 || (int) $this->recur["everyn"] < 0) { // minutes for 999 days
 						return;
 					}
 
@@ -615,7 +643,7 @@ define('rptHjMonthEnd', 12);
 					break;
 
 				case IDC_RCEV_PAT_ORB_WEEKLY:
-					if (!isset($this->recur["everyn"])) {
+					if (!isset($this->recur["everyn"]) || $this->recur["everyn"] > 99 || (int) $this->recur["everyn"] < 0) {
 						return;
 					}
 
@@ -687,12 +715,15 @@ define('rptHjMonthEnd', 12);
 					if (!isset($this->recur["everyn"])) {
 						return;
 					}
-					if ($term == IDC_RCEV_PAT_ORB_YEARLY && !isset($this->recur["month"])) {
+					if ($rtype == IDC_RCEV_PAT_ORB_YEARLY && !isset($this->recur["month"])) {
 						return;
 					}
 
-					if ($term == IDC_RCEV_PAT_ORB_MONTHLY) {
+					if ($rtype == IDC_RCEV_PAT_ORB_MONTHLY) {
 						$everyn = (int) $this->recur["everyn"];
+						if ($everyn > 99 || $everyn < 0) {
+							return;
+						}
 					}
 					else {
 						$everyn = $this->recur["regen"] ? ((int) $this->recur["everyn"]) * 12 : 12;
@@ -712,7 +743,7 @@ define('rptHjMonthEnd', 12);
 					}
 
 					// Get month for yearly on D'th day of month M
-					if ($term == IDC_RCEV_PAT_ORB_YEARLY) {
+					if ($rtype == IDC_RCEV_PAT_ORB_YEARLY) {
 						$selmonth = floor(((int) $this->recur["month"]) / (24 * 60 * 29)) + 1; // 1=jan, 2=feb, eg
 					}
 
@@ -732,9 +763,9 @@ define('rptHjMonthEnd', 12);
 							$this->recur["start"] += (((int) $this->recur["monthday"]) - 1) * 24 * 60 * 60;
 
 							// If the previous calculation gave us a start date different than the original start date, then we need to skip to the first occurrence
-							if (($term == IDC_RCEV_PAT_ORB_MONTHLY && ((int) $this->recur["monthday"]) < $curmonthday) ||
-							    ($term == IDC_RCEV_PAT_ORB_YEARLY && ($selmonth != $curmonth || ($selmonth == $curmonth && ((int) $this->recur["monthday"]) < $curmonthday)))) {
-								if ($term == IDC_RCEV_PAT_ORB_YEARLY) {
+							if (($rtype == IDC_RCEV_PAT_ORB_MONTHLY && ((int) $this->recur["monthday"]) < $curmonthday) ||
+							    ($rtype == IDC_RCEV_PAT_ORB_YEARLY && ($selmonth != $curmonth || ($selmonth == $curmonth && ((int) $this->recur["monthday"]) < $curmonthday)))) {
+								if ($rtype == IDC_RCEV_PAT_ORB_YEARLY) {
 									if ($curmonth > $selmonth) {// go to next occurrence in 'everyn' months minus difference in first occurrence and original date
 										$count = $everyn - ($curmonth - $selmonth);
 									}
@@ -775,7 +806,7 @@ define('rptHjMonthEnd', 12);
 							}
 
 							// "start" is now the first occurrence
-							if ($term == IDC_RCEV_PAT_ORB_MONTHLY) {
+							if ($rtype == IDC_RCEV_PAT_ORB_MONTHLY) {
 								// Calc first occ
 								$monthIndex = ((((12 % $everyn) * ((((int) gmdate("Y", $this->recur["start"])) - 1601) % $everyn)) % $everyn) + (((int) gmdate("n", $this->recur["start"])) - 1)) % $everyn;
 
@@ -820,7 +851,7 @@ define('rptHjMonthEnd', 12);
 								$monthbegindow -= ((gmdate("j", $monthbegindow) - 1) * 24 * 60 * 60);
 							}
 
-							if ($term == IDC_RCEV_PAT_ORB_YEARLY) {
+							if ($rtype == IDC_RCEV_PAT_ORB_YEARLY) {
 								// Set on right month
 								if ($selmonth < $curmonth) {
 									$tmp = 12 - $curmonth + $selmonth;
@@ -904,7 +935,7 @@ define('rptHjMonthEnd', 12);
 							}
 
 							$firstocc = 0;
-							if ($term == IDC_RCEV_PAT_ORB_MONTHLY) {
+							if ($rtype == IDC_RCEV_PAT_ORB_MONTHLY) {
 								// Calc first occ
 								$monthIndex = ((((12 % $everyn) * (((int) gmdate("Y", $this->recur["start"]) - 1601) % $everyn)) % $everyn) + (((int) gmdate("n", $this->recur["start"])) - 1)) % $everyn;
 
@@ -934,7 +965,7 @@ define('rptHjMonthEnd', 12);
 			}
 
 			// Terminate
-			$term = (int) $this->recur["term"];
+			$term = 0x2000 + (int) $this->recur["term"];
 			$rdata .= pack("V", $term);
 
 			switch ($term) {
@@ -957,7 +988,7 @@ define('rptHjMonthEnd', 12);
 			}
 
 			// Strange little thing for the recurrence type "every workday"
-			if (((int) $this->recur["type"]) == IDC_RCEV_PAT_ORB_WEEKLY && ((int) $this->recur["subtype"]) == 1) {
+			if ($rtype == IDC_RCEV_PAT_ORB_WEEKLY && ((int) $this->recur["subtype"]) == 1) {
 				$rdata .= pack("V", 1);
 			}
 			else { // Other recurrences
@@ -1014,7 +1045,7 @@ define('rptHjMonthEnd', 12);
 					// @todo: calculate enddate with intval($this->recur["startocc"]) + intval($this->recur["duration"]) > 24 hour
 					$occenddate = (int) $this->recur["start"];
 
-					switch ((int) $this->recur["type"]) {
+					switch ($rtype) {
 						case IDC_RCEV_PAT_ORB_DAILY:
 							if ($this->recur["subtype"] == rptWeek) {
 								// Daily every workday
