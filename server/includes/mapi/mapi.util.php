@@ -317,6 +317,23 @@ function getGoidFromUid($uid) {
 }
 
 /**
+ * Returns zero terminated goid. It is required for backwards compatibility.
+ * 
+ *
+ * @param string $icalUid an appointment uid as HEX
+ *
+ * @return string an OL compatible GlobalObjectID
+ */
+function getGoidFromUidZero($uid) {
+	if (strlen($uid) <= 64) {
+		return hex2bin("040000008200E00074C5B7101A82E0080000000000000000000000000000000000000000" .
+			bin2hex(pack("V", 13 + strlen($uid)) . "vCal-Uid" . pack("V", 1) . $uid) . "00");
+	}
+
+	return hex2bin($uid);
+}
+
+/**
  * Creates an ical uuid from a goid.
  *
  * @param string $goid
@@ -330,7 +347,7 @@ function getUidFromGoid($goid) {
 		// get the length of the ical id - go back 4 position from where "vCal-Uid" was found
 		$begin = unpack("V", substr($goid, strlen($uid) * (-1) - 4, 4));
 		// remove "vCal-Uid" and packed "1" and use the ical id length
-		return substr($uid, 12, $begin[1] - 12);
+		return trim(substr($uid, 12, $begin[1] - 12));
 	}
 
 	return null;
