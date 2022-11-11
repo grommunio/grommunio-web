@@ -270,46 +270,40 @@
 						// Open the whole store and be done with it
 						if ($openWholeStore) {
 							try {
-								if ($storeType != ZARAFA_STORE_PUBLIC_GUID) {
-									// Update the store properties to refer to the shared folder,
-									// note that we don't care if we have access to the folder or not.
-									$storeData["props"]["shared_folder_all"] = bin2hex($subtreeFolderEntryID);
-									$this->getSubFolders($subtreeFolder, $store, $properties, $storeData);
+								// Update the store properties to refer to the shared folder,
+								// note that we don't care if we have access to the folder or not.
+								$storeData["props"]["shared_folder_all"] = bin2hex($subtreeFolderEntryID);
+								$this->getSubFolders($subtreeFolder, $store, $properties, $storeData);
 
-									if ($storeType == ZARAFA_SERVICE_GUID) {
-										// If store type ZARAFA_SERVICE_GUID (own store) then get the
-										// IPM_COMMON_VIEWS folder and set it to folders array.
-										$storeData["favorites"] = ["item" => []];
-										$commonViewFolderEntryid = $msgstore_props[PR_COMMON_VIEWS_ENTRYID];
+								if ($storeType == ZARAFA_SERVICE_GUID) {
+									// If store type ZARAFA_SERVICE_GUID (own store) then get the
+									// IPM_COMMON_VIEWS folder and set it to folders array.
+									$storeData["favorites"] = ["item" => []];
+									$commonViewFolderEntryid = $msgstore_props[PR_COMMON_VIEWS_ENTRYID];
 
-										$this->setDefaultFavoritesFolder($commonViewFolderEntryid, $store, $storeData);
+									$this->setDefaultFavoritesFolder($commonViewFolderEntryid, $store, $storeData);
 
-										$commonViewFolder = mapi_msgstore_openentry($store, $commonViewFolderEntryid);
-										$this->getFavoritesFolders($commonViewFolder, $storeData);
+									$commonViewFolder = mapi_msgstore_openentry($store, $commonViewFolderEntryid);
+									$this->getFavoritesFolders($commonViewFolder, $storeData);
 
-										$commonViewFolderProps = mapi_getprops($commonViewFolder);
-										array_push($storeData["folders"]["item"], $this->setFolder($commonViewFolderProps));
+									$commonViewFolderProps = mapi_getprops($commonViewFolder);
+									array_push($storeData["folders"]["item"], $this->setFolder($commonViewFolderProps));
 
-										// Get the To-do list folder and add it to the hierarchy
-										$todoSearchFolder = todoList::getTodoSearchFolder($store);
-										if ($todoSearchFolder) {
-											$todoSearchFolderProps = mapi_getprops($todoSearchFolder);
+									// Get the To-do list folder and add it to the hierarchy
+									$todoSearchFolder = todoList::getTodoSearchFolder($store);
+									if ($todoSearchFolder) {
+										$todoSearchFolderProps = mapi_getprops($todoSearchFolder);
 
-											// Change the parent so the folder will be shown in the hierarchy
-											$todoSearchFolderProps[PR_PARENT_ENTRYID] = $subtreeFolderEntryID;
-											// Change the display name of the folder
-											$todoSearchFolderProps[PR_DISPLAY_NAME] = _('To-Do List');
-											// Never show unread content for the To-do list
-											$todoSearchFolderProps[PR_CONTENT_UNREAD] = 0;
-											$todoSearchFolderProps[PR_CONTENT_COUNT] = 0;
-											array_push($storeData["folders"]["item"], $this->setFolder($todoSearchFolderProps));
-											$storeData["props"]['default_folder_todolist'] = bin2hex($todoSearchFolderProps[PR_ENTRYID]);
-										}
+										// Change the parent so the folder will be shown in the hierarchy
+										$todoSearchFolderProps[PR_PARENT_ENTRYID] = $subtreeFolderEntryID;
+										// Change the display name of the folder
+										$todoSearchFolderProps[PR_DISPLAY_NAME] = _('To-Do List');
+										// Never show unread content for the To-do list
+										$todoSearchFolderProps[PR_CONTENT_UNREAD] = 0;
+										$todoSearchFolderProps[PR_CONTENT_COUNT] = 0;
+										array_push($storeData["folders"]["item"], $this->setFolder($todoSearchFolderProps));
+										$storeData["props"]['default_folder_todolist'] = bin2hex($todoSearchFolderProps[PR_ENTRYID]);
 									}
-								}
-								else {
-									// Recursively add all subfolders
-									$this->getSubFoldersPublic($subtreeFolder, $store, $properties, $storeData);
 								}
 							}
 							catch (MAPIException $e) {
@@ -465,118 +459,6 @@
 					$subfolder[PR_PARENT_ENTRYID] = $parentEntryid;
 				}
 				array_push($storeData["folders"]["item"], $this->setFolder($subfolder));
-			}
-		}
-
-		/**
-		 * Helper function to get the subfolders of a Public Store.
-		 *
-		 * @param object $folder     mapi Folder Object
-		 * @param object $store      Message Store Object
-		 * @param array  $properties MAPI property mappings for folders
-		 * @param array  $storeData  Reference to an array. The folder properties are added to this array.
-		 */
-		public function getSubFoldersPublic($folder, $store, $properties, &$storeData) {
-			$expand = [
-				[
-					'folder' => $folder,
-					'props' => mapi_getprops($folder, [PR_ENTRYID, PR_SUBFOLDERS]),
-				],
-			];
-
-			/**
-			 * remove hidden folders, folders with PR_ATTR_HIDDEN property set
-			 * should not be shown to the client.
-			 */
-			$restriction = [RES_OR, [
-				[RES_PROPERTY,
-					[
-						RELOP => RELOP_EQ,
-						ULPROPTAG => PR_ATTR_HIDDEN,
-						VALUE => [PR_ATTR_HIDDEN => false],
-					],
-				],
-				[RES_NOT,
-					[
-						[RES_EXIST,
-							[
-								ULPROPTAG => PR_ATTR_HIDDEN,
-							],
-						],
-					],
-				],
-			]];
-
-			// CONVENIENT_DEPTH doesn't work on the IPM_SUBTREE, hence we will be recursively
-			// walking through the hierarchy. However, we have some special folders like the
-			// "Favorites" and "Public Folders" from where we can switch to using
-			// CONVENIENT_DEPTH. Obtain these special cases here.
-			$specialEntryids = mapi_getprops($store, [
-				PR_IPM_FAVORITES_ENTRYID,
-				PR_IPM_PUBLIC_FOLDERS_ENTRYID,
-			]);
-
-			// Start looping through the $expand array, during each loop we grab the first item in
-			// the array and obtain the hierarchy table for that particular folder. If one of those
-			// subfolders has subfolders of its own, it will be appended to $expand again to ensure
-			// it will be expanded later.
-			while (!empty($expand)) {
-				$item = array_shift($expand);
-				$columns = $properties;
-
-				$hierarchyTable = mapi_folder_gethierarchytable($item['folder'], MAPI_DEFERRED_ERRORS);
-				mapi_table_restrict($hierarchyTable, $restriction, TBL_BATCH);
-
-				mapi_table_setcolumns($hierarchyTable, $columns);
-				$columns = null;
-
-				// Load the hierarchy in bulks
-				$rows = mapi_table_queryrows($hierarchyTable, $columns, 0, 0x7FFFFFFF);
-
-				foreach ($rows as $subfolder) {
-					$specialFolder = false;
-
-					// Check if this folder is special...
-					if (!empty($specialEntryids)) {
-						foreach ($specialEntryids as $key => $value) {
-							// No need to do compareEntryId(), the special folders have static
-							// entryids, and can be compared using ===.
-							if (bin2hex($subfolder[PR_ENTRYID]) === bin2hex($value)) {
-								// This is a special folder, obtain the $subfolder properties
-								// using mapi_getprops() because of bug ZCP-10426 which says that
-								// the wrong value for PR_ACCESS is returned in the hierarchytable.
-								$specialFolder = mapi_msgstore_openentry($store, $subfolder[PR_ENTRYID]);
-								$subfolder = mapi_getprops($specialFolder, $properties);
-
-								// We found the folder, no need to loop over it next time.
-								unset($specialEntryids[$key]);
-								break;
-							}
-						}
-					}
-
-					// If the subfolders has subfolders of its own, append the folder
-					// to the $expand array, so it can be expanded in the next loop.
-					if ($subfolder[PR_SUBFOLDERS]) {
-						if ($specialFolder) {
-							// Special folders can be redirected again to getSubFolders(),
-							// we need to pass the PR_ENTRYID of the folder in order to
-							// fix the PR_PARENT_ENTRYID of the first layer of subfolders.
-							$this->getSubFolders($specialFolder, $store, $properties, $storeData, $subfolder[PR_ENTRYID]);
-						}
-						else {
-							$folderObject = mapi_msgstore_openentry($store, $subfolder[PR_ENTRYID]);
-							array_push($expand, ['folder' => $folderObject, 'props' => $subfolder]);
-						}
-					}
-
-					// Subfolders in the Public store have the issue that the PR_PARENT_ENTRYID
-					// doesn't need to be the same as the real parent. So fix that here...
-					$subfolder[PR_PARENT_ENTRYID] = $item['props'][PR_ENTRYID];
-
-					// Add the folder to the return list.
-					array_push($storeData["folders"]["item"], $this->setFolder($subfolder));
-				}
 			}
 		}
 

@@ -527,12 +527,7 @@ class PluginMDMModule extends Module {
 						$e->setHandled();
 					}
 
-					if ($storeType != ZARAFA_STORE_PUBLIC_GUID) {
-						$this->getSubFolders($subtreeFolder, $store, $properties, $storeData, $storeUserName);
-					}
-					else {
-						$this->getSubFoldersPublic($subtreeFolder, $store, $properties, $storeData, $storeUserName);
-					}
+					$this->getSubFolders($subtreeFolder, $store, $properties, $storeData, $storeUserName);
 				}
 			}
 		}
@@ -729,118 +724,6 @@ class PluginMDMModule extends Module {
 						$folderObject = mapi_msgstore_openentry($store, $subfolder[PR_ENTRYID]);
 						array_push($expand, ['folder' => $folderObject, 'props' => $subfolder]);
 					}
-					$subfolder["user"] = $storeUserName;
-					// Add the folder to the return list.
-					array_push($storeData, $subfolder);
-				}
-
-				// When the server returned a different number of rows then was requested,
-				// we have reached the end of the table and we should exit the loop.
-			}
-			while (count($rows) === $batchcount);
-		}
-	}
-
-	/**
-	 * Helper function to get the subfolders of a Public Store.
-	 *
-	 * @param object $folder        mapi Folder Object
-	 * @param object $store         Message Store Object
-	 * @param array  $properties    MAPI property mappings for folders
-	 * @param array  $storeData     Reference to an array. The folder properties are added to this array.
-	 * @param string $storeUserName owner name of store
-	 */
-	public function getSubFoldersPublic($folder, $store, $properties, &$storeData, $storeUserName) {
-		$expand = [
-			[
-				'folder' => $folder,
-				'props' => mapi_getprops($folder, [PR_ENTRYID, PR_SUBFOLDERS]),
-			],
-		];
-
-		/**
-		 * remove hidden folders, folders with PR_ATTR_HIDDEN property set
-		 * should not be shown to the client.
-		 */
-		$restriction = [RES_OR, [
-			[RES_PROPERTY,
-				[
-					RELOP => RELOP_EQ,
-					ULPROPTAG => PR_ATTR_HIDDEN,
-					VALUE => [PR_ATTR_HIDDEN => false],
-				],
-			],
-			[RES_NOT,
-				[
-					[RES_EXIST,
-						[
-							ULPROPTAG => PR_ATTR_HIDDEN,
-						],
-					],
-				],
-			],
-		]];
-
-		// CONVENIENT_DEPTH doesn't work on the IPM_SUBTREE, hence we will be recursively
-		// walking through the hierarchy. However, we have some special folders like the
-		// "Favorites" and "Public Folders" from where we can switch to using
-		// CONVENIENT_DEPTH. Obtain these special cases here.
-		$specialEntryids = mapi_getprops($store, [
-			PR_IPM_FAVORITES_ENTRYID,
-			PR_IPM_PUBLIC_FOLDERS_ENTRYID,
-		]);
-
-		// Start looping through the $expand array, during each loop we grab the first item in
-		// the array and obtain the hierarchy table for that particular folder. If one of those
-		// subfolders has subfolders of its own, it will be appended to $expand again to ensure
-		// it will be expanded later.
-		while (!empty($expand)) {
-			$item = array_shift($expand);
-			$columns = $properties;
-			$hierarchyTable = mapi_folder_gethierarchytable($item['folder'], MAPI_DEFERRED_ERRORS);
-
-			mapi_table_restrict($hierarchyTable, $restriction, TBL_BATCH);
-
-			mapi_table_setcolumns($hierarchyTable, $columns);
-			$columns = null;
-
-			// Load the hierarchy in small batches
-			$batchcount = 100;
-			do {
-				$rows = mapi_table_queryrows($hierarchyTable, $columns, 0, $batchcount);
-
-				foreach ($rows as $subfolder) {
-					$specialFolder = false;
-
-					// Check if this folder is special...
-					if (!empty($specialEntryids)) {
-						foreach ($specialEntryids as $key => $value) {
-							// No need to do compareEntryId(), the special folders have static
-							// entryids, and can be compared using ===.
-							if (bin2hex($subfolder[PR_ENTRYID]) === bin2hex($value)) {
-								$specialFolder = mapi_msgstore_openentry($store, $subfolder[PR_ENTRYID]);
-								$subfolder = mapi_getprops($specialFolder, $properties);
-
-								// We found the folder, no need to loop over it next time.
-								unset($specialEntryids[$key]);
-								break;
-							}
-						}
-					}
-
-					// If the subfolders has subfolders of its own, append the folder
-					// to the $expand array, so it can be expanded in the next loop.
-					if ($subfolder[PR_SUBFOLDERS]) {
-						if ($specialFolder) {
-							// Special folders can be redirected again to getSubFolders(),
-							$this->getSubFolders($specialFolder, $store, $properties, $storeData, $storeUserName);
-						}
-						else {
-							$folderObject = mapi_msgstore_openentry($store, $subfolder[PR_ENTRYID]);
-							array_push($expand, ['folder' => $folderObject, 'props' => $subfolder]);
-						}
-					}
-
 					$subfolder["user"] = $storeUserName;
 					// Add the folder to the return list.
 					array_push($storeData, $subfolder);
