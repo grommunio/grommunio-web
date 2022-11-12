@@ -2336,7 +2336,7 @@ msgid "Please select a delegate."
 msgstr "Bitte wählen Sie einen Stellvertreter."
 
 msgid "Delegates can send items on your behalf."
-msgstr "Ein Vertreter kann Nachrichten in deinem Auftrag versenden."
+msgstr "Ein Vertreter kann Nachrichten in Ihrem Auftrag versenden."
 
 msgid ""
 "If you only want to set folder permissions, right-click on a folder to open "
