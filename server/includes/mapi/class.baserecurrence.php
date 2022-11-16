@@ -172,7 +172,7 @@
 				return $ret;
 			}
 
-			$ret["type"] = $data["rtype"];
+			$ret["type"] = (int) $data["rtype"] > 0x2000 ? (int) $data["rtype"] - 0x2000 : $data["rtype"];
 			$ret["subtype"] = $data["rtype2"];
 			$rdata = substr($rdata, 10);
 
@@ -297,7 +297,7 @@
 				return $ret;
 			}
 
-			$ret["term"] = $data["term"];
+			$ret["term"] = (int) $data["term"] > 0x2000 ? (int) $data["term"] - 0x2000 : $data["term"];
 			$ret["numoccur"] = $data["numoccur"];
 			$ret["numexcept"] = $data["numexcept"];
 
@@ -518,7 +518,7 @@
 			$ret["changed_occurrences"] = $exc_changed_details;
 
 			// enough data for normal exception (no extended data)
-			if (strlen($rdata) < 16) {
+			if (strlen($rdata) < 8) {
 				return $ret;
 			}
 
@@ -624,6 +624,9 @@
 			$restocc = 0;
 			$dayofweek = (int) gmdate("w", (int) $this->recur["start"]); // 0 (for Sunday) through 6 (for Saturday)
 
+			// Terminate
+			$term = (int) $this->recur["term"] < 0x2000 ? 0x2000 + (int) $this->recur["term"] : (int) $this->recur["term"];
+
 			switch ($rtype) {
 				case IDC_RCEV_PAT_ORB_DAILY:
 					if (!isset($this->recur["everyn"]) || (int) $this->recur["everyn"] > 1438560 || (int) $this->recur["everyn"] < 0) { // minutes for 999 days
@@ -678,7 +681,7 @@
 
 						// Check if the recurrence ends after a number of occurrences, in that case we must calculate the
 						// remaining occurrences based on the start of the recurrence.
-						if (((int) $this->recur["term"]) == IDC_RCEV_PAT_ERB_AFTERNOCCUR) {
+						if ($term == IDC_RCEV_PAT_ERB_AFTERNOCCUR) {
 							// $weekskip is the amount of weeks to skip from the startdate before the first occurrence
 							// $forwardcount is the maximum number of week occurrences we can go ahead after the first occurrence that
 							// is still inside the recurrence. We subtract one to make sure that the last week is never forwarded over
@@ -736,7 +739,7 @@
 
 					// Check if the recurrence ends after a number of occurrences, in that case we must calculate the
 					// remaining occurrences based on the start of the recurrence.
-					if (((int) $this->recur["term"]) == IDC_RCEV_PAT_ERB_AFTERNOCCUR) {
+					if ($term == IDC_RCEV_PAT_ERB_AFTERNOCCUR) {
 						// $forwardcount is the number of occurrences we can skip and still be inside the recurrence range (minus
 						// one to make sure there are always at least one occurrence left)
 						$forwardcount = ((((int) $this->recur["numoccur"]) - 1) * $everyn);
@@ -964,8 +967,6 @@
 				return;
 			}
 
-			// Terminate
-			$term = 0x2000 + (int) $this->recur["term"];
 			$rdata .= pack("V", $term);
 
 			switch ($term) {
@@ -1756,8 +1757,8 @@
 				$dayend = $this->dayStartOf($this->fromGMT($this->tz, $rangeend));
 
 				// Loop through the entire recurrence range of dates, and check for each occurrence whether it is in the view range.
-
-				switch ($this->recur["type"]) {
+				$recurType = (int) $this->recur["type"] < 0x2000 ? (int) $this->recur["type"] + 0x2000 : (int) $this->recur["type"];
+				switch ($recurType) {
 					case IDC_RCEV_PAT_ORB_DAILY:
 						if ($this->recur["everyn"] <= 0) {
 							$this->recur["everyn"] = 1440;
