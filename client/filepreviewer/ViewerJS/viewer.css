@@ -951,6 +951,10 @@ html[dir='rtl'] .dropdownToolbarButton {
     height: 100% !important;
 }
 
+select#scaleSelect {
+    color: #aaa;
+}
+
 @media print {
     .no-print, .no-print * {
         display: none !important;
