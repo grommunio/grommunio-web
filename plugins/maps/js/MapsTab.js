@@ -133,7 +133,7 @@ Zarafa.plugins.maps.MapsTab=Ext.extend(Ext.Panel, {
 						record.get('country');
 					if (!Ext.isEmpty(abContactAddress.trim()))
 					{
-						this.showOnMap(abContactAddress);
+						this.showOnMap(abContactAddress _('Address'));
 					}
 				}
 				break;
