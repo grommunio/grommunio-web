@@ -51,7 +51,7 @@ class Pluginmaps extends Plugin {
 		if ($GLOBALS['settings']->get('zarafa/v1/plugins/maps/enable') == true) {
 			// removing https: provides protocols compatibility, especially in IE9
 			$data['files'][] = 'plugins/maps/js/external/leaflet.js';
-			$data['files'][] = 'plugins/maps/js/external/geocoder.js';
+			$data['files'][] = 'plugins/maps/js/external/geosearch.umd.js';
 		}
 	}
 
