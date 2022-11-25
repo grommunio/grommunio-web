@@ -130,7 +130,7 @@ body.login #form-container.loading,
 
 body.login #form-container.loading .right,
 #loading-mask #form-container.loading .right {
-  background:url(../../images/loading_m.png) no-repeat center center;
+  background:url(../../images/load.gif) no-repeat center center;
   animation:rotate 1.3s 0s infinite ease
 }
 
