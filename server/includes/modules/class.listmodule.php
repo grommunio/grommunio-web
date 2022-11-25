@@ -199,6 +199,12 @@
 				// do it here
 				$data["item"] = array_values($data["item"]);
 
+				if (isset($action['use_searchfolder']) && $action['use_searchfolder'] === true) {
+					$data["search_meta"] = [];
+					$data["search_meta"]["search_store_entryid"] = $action["store_entryid"];
+					$data["search_meta"]["results"] = count($data["item"]);
+				}
+
 				$this->addActionData($actionType, $data);
 				$GLOBALS["bus"]->addData($this->getResponseData());
 			}
