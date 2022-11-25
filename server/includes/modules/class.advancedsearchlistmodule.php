@@ -254,7 +254,7 @@
 			if ($store_props[PR_MDB_PROVIDER] == ZARAFA_STORE_PUBLIC_GUID ||
 				empty($store_props[PR_DEFAULT_STORE]) || !$store_props[PR_DEFAULT_STORE]) {
 				// public store or share store do not support search folders
-				return parent::messageList($store, $entryid, $action, "list");
+				return parent::messageList($store, $entryid, $action, "search");
 			}
 			if ($GLOBALS['entryid']->compareEntryIds(bin2hex($entryid), bin2hex(TodoList::getEntryId()))) {
 				// todo list do not need to perform full text index search
