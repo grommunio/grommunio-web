@@ -558,7 +558,7 @@ class FileLoader {
 
 		list($extjsFiles, $webappFiles, $pluginFiles, $remoteFiles) = $this->getJsFiles();
 
-		$jsTemplate = "\t\t<script type=\"text/javascript\" src=\"{file}\"></script>";
+		$jsTemplate = "\t\t<script src=\"{file}\"></script>";
 		$this->printFiles($extjsFiles, $jsTemplate);
 		$this->printFiles($webappFiles, $jsTemplate);
 		$this->printFiles($pluginFiles, $jsTemplate);
