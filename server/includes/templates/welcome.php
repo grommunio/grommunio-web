@@ -35,7 +35,7 @@ $serverConfig = [
 		<!-- load the login css first as we need it immediately! -->
 		<link rel="stylesheet" href="client/resources/css/external/login.css" >
 
-		<script type="text/javascript"><?php require BASE_PATH . 'client/fingerprint.js'; ?></script>
+		<script><?php require BASE_PATH . 'client/fingerprint.js'; ?></script>
 		<?php
 			$loader->cssOrder();
 			echo Theming::getStyles($theme);
@@ -56,14 +56,14 @@ $serverConfig = [
 			</div>
 		</div>
 
-		<script type="text/javascript"><?php require BASE_PATH . 'client/resize.js'; ?></script>
+		<script><?php require BASE_PATH . 'client/resize.js'; ?></script>
 
 		<!-- Translations -->
-		<script type="text/javascript" src="index.php?version=<?php echo getWebappVersion(); ?>&load=translations.js&lang=<?php echo $Language->getSelected(); ?>"></script>
+		<script src="index.php?version=<?php echo getWebappVersion(); ?>&load=translations.js&lang=<?php echo $Language->getSelected(); ?>"></script>
 		<!-- JS Files -->
 		<?php $loader->jsOrder(); ?>
 
-		<script type="text/javascript">
+		<script>
 			settings 		= <?php echo $GLOBALS["settings"]->getJSON(); ?>;
 			languages 		= <?php echo $Language->getJSON(); ?>;
 			user 			= <?php echo json_encode($GLOBALS['mapisession']->getUserInfo()); ?>;

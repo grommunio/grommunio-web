@@ -70,7 +70,7 @@ if (defined('ADDITIONAL_CATEGORIES')) {
 		<link rel="icon" href="<?php echo $favicon; ?>" type="image/x-icon">
 		<link rel="shortcut icon" href="<?php echo $favicon; ?>" type="image/x-icon">
 
-		<script type="text/javascript"><?php require BASE_PATH . 'client/fingerprint.js'; ?></script>
+		<script><?php require BASE_PATH . 'client/fingerprint.js'; ?></script>
 
 		<!-- load the login css first as we need it immediately! -->
 		<link rel="stylesheet" href="client/resources/css/external/login.css" >
@@ -97,7 +97,7 @@ if (defined('ADDITIONAL_CATEGORIES')) {
 		</div>
 
 		<!-- Translations -->
-		<script type="text/javascript" src="index.php?version=<?php echo $loader->getVersion(); ?>&load=translations.js&lang=<?php echo $Language->getSelected(); ?>"></script>
+		<script src="index.php?version=<?php echo $loader->getVersion(); ?>&load=translations.js&lang=<?php echo $Language->getSelected(); ?>"></script>
 		<!-- JS Files -->
 		<?php
 			$loader->jsOrder();
@@ -111,8 +111,8 @@ if (defined('ADDITIONAL_CATEGORIES')) {
 			}
 		?>
 
-		<script type="text/javascript"><?php require BASE_PATH . 'client/resize.js'; ?></script>
-		<script type="text/javascript">
+		<script><?php require BASE_PATH . 'client/resize.js'; ?></script>
+		<script>
 			settings 		= <?php echo $GLOBALS["settings"]->getJSON(); ?>;
 			persistentsettings      = <?php echo $GLOBALS["settings"]->getPersistentSettingsJSON(); ?>;
 			languages 		= <?php echo $Language->getJSON(); ?>;

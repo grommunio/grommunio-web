@@ -23,7 +23,7 @@ $loader = new FileLoader();
 
 	<body class="theme-<?php echo strtolower($theme ? $theme : 'basic'); ?>">
 		<?php
-			$jsTemplate = "\t\t<script type=\"text/javascript\" src=\"{file}\"></script>";
+			$jsTemplate = "\t\t<script src=\"{file}\"></script>";
 				if (DEBUG_LOADER === LOAD_RELEASE) {
 					$extjsFiles[] = "client/tinymce/tinymce.min.js";
 				}

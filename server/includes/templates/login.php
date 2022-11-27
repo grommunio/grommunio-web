@@ -22,7 +22,7 @@
 			echo Theming::getStyles($theme);
 		?>
 
-		<script type="text/javascript"><?php require BASE_PATH . 'client/fingerprint.js'; ?></script>
+		<script><?php require BASE_PATH . 'client/fingerprint.js'; ?></script>
 	</head>
 
 	<body class="login theme-<?php echo strtolower($theme ? $theme : 'basic'); ?>">
@@ -49,8 +49,8 @@
 				</div>
 			</div>
 		</div>
-		<script type="text/javascript"><?php require BASE_PATH . 'client/resize.js'; ?></script>
-		<script type="text/javascript">
+		<script><?php require BASE_PATH . 'client/resize.js'; ?></script>
+		<script>
 			// Set focus on the correct form element
 			function onLoad() {
 				if (document.getElementById("username").value == "") {
