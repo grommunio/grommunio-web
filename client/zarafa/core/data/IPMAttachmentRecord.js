@@ -171,8 +171,9 @@ Zarafa.core.data.IPMAttachmentRecord = Ext.extend(Ext.data.Record, {
 	 */
 	isICSAttachment: function()
 	{
-		var fileExtension = this.get('extension').toLowerCase();
+		var fileExtension = this.get('extension');
 		if (!Ext.isEmpty(fileExtension)) {
+			fileExtension = fileExtension.split(".").pop().toLowerCase();
 			return fileExtension === 'ics' || fileExtension === 'vcs';
 		}
 
