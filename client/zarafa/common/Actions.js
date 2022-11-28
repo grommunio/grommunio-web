@@ -1472,7 +1472,7 @@ Zarafa.common.Actions = {
 				this.isSingleImport = true;
 			}
 			splittedContent.forEach(function(contact) {
-				this.isBrokenICSVCS(files[index], contact, rawHeaders);
+				this.isBrokenICSVCS(files[index], contact);
 			}, this);
 		} else if (this.isVCFFile(files[index])) {
 			splittedContent = splittedContent.toUpperCase();
@@ -1504,30 +1504,10 @@ Zarafa.common.Actions = {
 	 * @param {String} splittedContent The formatted content of ics/vcs file.
 	 * @param {Array} rawHeaders The keys array of ics/vcs file contains.
 	 */
-	isBrokenICSVCS: function(file, splittedContent, rawHeaders)
+	isBrokenICSVCS: function(file, splittedContent)
 	{
-		var begins = rawHeaders.filter(function(header) {return header === "BEGIN:";});
-		var end = rawHeaders.filter(function(header) {return header === "END:";});
-
-		// IF Appointment was updated then there may be chances that VTIMEZONE property exists in ICS/VCS file
-		// VTIMEZONE block must have to DTSTART if not then we consider that ICS/VCS is invalid.
-		// Also check that VEVENT block must have 'DTSTART;TZID'/'DTSTART;VALUE' and 'DTEND;TZID'/'DTEND;VALUE' properties.
-		var hasTimeZoneProperty = splittedContent.search(/VTIMEZONE(\r\n|\n|\r)/);
-		if (hasTimeZoneProperty !== -1) {
-			var icsRawHeaders = splittedContent.match(/([^\n=:^]+)/g);
-			var hasStartAndEndDate = this.isPropertyExists(icsRawHeaders, ['DTSTART;TZID', 'DTEND;TZID', 'DTSTART;VALUE', 'DTEND;VALUE']);
-			var hasStartDate = this.isPropertyExists(icsRawHeaders, 'DTSTART');
-			// Check that any of the condition is true then we consider that ICS/VCS file is
-			// broken
-			if (begins.length !== end.length || !hasStartDate || !hasStartAndEndDate) {
-				this.brokenFiles.push(file);
-			}
-		} else {
-			var hasStartDate = this.isPropertyExists(rawHeaders, ['DTSTART;VALUE=DATE:','DTSTART;VALUE=DATE-TIME:', 'DTSTART:']);
-			var hasEndDate = this.isPropertyExists(rawHeaders, ['DTEND;VALUE=DATE:','DTEND;VALUE=DATE-TIME:', 'DTEND:']);
-			if (begins.length !== end.length || !hasStartDate || !hasEndDate) {
-				this.brokenFiles.push(file);
-			}
+		if (splittedContent.search(/VCALENDAR(\r\n|\n|\r)/) === -1) {
+			this.brokenFiles.push(file);
 		}
 	},
 

@@ -566,7 +566,26 @@ class UploadAttachment {
 		if (is_array($events) && !empty($events)) {
 			$newEvents = [];
 			$store = $GLOBALS["mapisession"]->getDefaultMessageStore();
+			$propTags = array(
+				"commonstart" => "PT_SYSTIME:PSETID_Common:0x8516",
+				"commonend" => "PT_SYSTIME:PSETID_Common:0x8517",
+				"message_class" => PR_MESSAGE_CLASS,
+				"startdate" => "PT_SYSTIME:PSETID_Appointment:0x820d",
+				"duedate" => "PT_SYSTIME:PSETID_Appointment:0x820e"
+			);
+			$properties = getPropIdsFromStrings($store, $propTags);
 			foreach ($events as $event) {
+				$newMessageProps = mapi_getprops($event, $properties);
+				// Need to set the common start and end date if it is not set because
+				// common start and end dates are required fields.
+
+				if (!isset($newMessageProps[$properties["commonstart"]], $newMessageProps[$properties["commonend"]])) {
+					mapi_setprops($event, array(
+						$properties["commonstart"] => $newMessageProps[$properties["startdate"]],
+						$properties["commonend"] => $newMessageProps[$properties["duedate"]]
+					));
+				}
+
 				// Save newly imported event
 				mapi_message_savechanges($event);
 
