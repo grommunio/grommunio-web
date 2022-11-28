@@ -20,7 +20,7 @@ function MultimediaViewerPlugin() {
         videoElement.setAttribute('preload', 'auto');
         videoElement.setAttribute('id', 'multimedia_viewer');
         videoElement.setAttribute('controls', 'controls');
-        videoElement.setAttribute('class', 'video-js vjs-default-skin');
+        videoElement.setAttribute('class', 'video-js vjs-theme-sea');
 
         videoSource = document.createElement("source");
         videoSource.setAttribute('src', documentUrl);
