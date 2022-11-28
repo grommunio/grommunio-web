@@ -418,13 +418,6 @@ Zarafa.common.ui.HtmlEditor = Ext.extend(Ext.ux.form.TinyMCETextArea, {
 			parentNode.removeChild(parentNode.lastChild);
 		}
 
-		/*
-		 * Particularly, somehow in IE11 current selection changed to the newly created BR tag instead of SPAN.
-		 * The cursor must have to point to the proper element to keep the default formatting.
-		 */
-		if(Ext.isIE11){
-			editor.selection.setCursorLocation(node, 0);
-		}
 	},
 
 	/**
@@ -477,15 +470,6 @@ Zarafa.common.ui.HtmlEditor = Ext.extend(Ext.ux.form.TinyMCETextArea, {
 			var focusedElement = document.activeElement;
 			tinymceEditor.selection.setCursorLocation(tinymceEditor.getBody().firstChild, 0);
 			this.composeDefaultFormatting(tinymceEditor);
-
-			// Somehow tinymce fire focus event after setting range selection,
-			// Therefor in IE11 focus is on editor so,
-			// Force fully set focus on the previously focused element field.
-			if (Ext.isIE11) {
-				Ext.defer(function () {
-					focusedElement.focus();
-				}, 1, this);
-			}
 
 			// HTML styles will be applied while selecting default values from comboboxes.
 			// We need to set those styles into the record to avoid change detection in record.
@@ -608,7 +592,7 @@ Zarafa.common.ui.HtmlEditor = Ext.extend(Ext.ux.form.TinyMCETextArea, {
 			 * Somehow tinymce selection range not selecting whole body.
 			 * Selecting whole body content manually before deleting all content.
 			 */
-			if (Ext.isIE11 || Ext.isEdge) {
+			if (Ext.isEdge) {
 				var oldRange = editor.selection.getRng();
 				var editorBodyElement = editor.getBody();
 				if (oldRange.startContainer === editorBodyElement) {

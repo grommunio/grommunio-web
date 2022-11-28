@@ -183,7 +183,7 @@ class UploadAttachment {
 
 					// Don't go to extract attachID as passing it from client end is not
 					// possible with IE/Edge.
-					if (!isIE11() && !isEdge() && $this->ignoreExtractAttachid === false) {
+					if (!isEdge() && $this->ignoreExtractAttachid === false) {
 						$attachID = substr($filename, -8);
 						$filename = substr($filename, 0, -8);
 					}

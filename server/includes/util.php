@@ -301,20 +301,11 @@
 	 */
 	function browserDependingHTTPHeaderEncode($input) {
 		$input = preg_replace("/\r|\n/", "", $input);
-		if (!isIE11() && !isEdge()) {
+		if (!isEdge()) {
 			return $input;
 		}
 
 		return rawurlencode($input);
-	}
-
-	/**
-	 * Helps to detect if the request came from IE11 or not.
-	 *
-	 * @return bool true if IE11 is the requester, position of the word otherwise
-	 */
-	function isIE11() {
-		return strpos($_SERVER['HTTP_USER_AGENT'], 'Trident') !== false;
 	}
 
 	/**

@@ -33,14 +33,11 @@ Zarafa.plugins.desktopnotifications.DesktopNotificationsPlugin = Ext.extend(Zara
 	}
 });
 
-// Don't load the plugin if browser is IE
-if (!Ext.isIE) {
-	Zarafa.onReady(function() {
-		container.registerPlugin(new Zarafa.core.PluginMetaData({
-			name : 'desktopnotifications',
-			displayName : _('Desktop Notifications Plugin'),
-			about : Zarafa.plugins.desktopnotifications.ABOUT,
-			pluginConstructor : Zarafa.plugins.desktopnotifications.DesktopNotificationsPlugin
-		}));
-	});
-}
+Zarafa.onReady(function() {
+	container.registerPlugin(new Zarafa.core.PluginMetaData({
+		name : 'desktopnotifications',
+		displayName : _('Desktop Notifications Plugin'),
+		about : Zarafa.plugins.desktopnotifications.ABOUT,
+		pluginConstructor : Zarafa.plugins.desktopnotifications.DesktopNotificationsPlugin
+	}));
+});
