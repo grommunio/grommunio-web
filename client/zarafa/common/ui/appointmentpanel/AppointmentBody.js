@@ -98,13 +98,11 @@ Zarafa.common.ui.appointmentpanel.AppointmentBody = Ext.extend(Ext.form.FormPane
 
 		var startDate = record.get('startdate');
 		if (Ext.isDate(startDate)) {
-			startDate = startDate.toUTC(); // The startdate is an UTC representation
 			this.startDate.setValue(startDate);
 		}
 
 		var dueDate = record.get('duedate');
 		if (Ext.isDate(dueDate)) {
-			dueDate = dueDate.toUTC(); // The duedate is an UTC representation
 			this.endDate.setValue(dueDate);
 		}
 	}
