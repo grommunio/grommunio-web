@@ -289,6 +289,62 @@ class DownloadAttachment extends DownloadBase {
 	}
 
 	/**
+	 * Function will set the first and last bytes of a range, with a range
+	 * specified as string and size of the attachment.
+	 *
+	 * If $first is greater than $last, the request returns 416 (not satisfiable)
+	 * If no end of range is specified or larger than the length, $last is set as end
+	 * If no beginning of range is specified, get last x bytes of attachment
+	 *
+	 * @param mixed $range
+	 * @param mixed $filesize
+	 * @param mixed $first
+	 * @param mixed $last
+	 */
+	public function downloadSetRange($range, $filesize, &$first, &$last) {
+		$dash = strpos($range, '-');
+		$first = trim(substr($range, 0, $dash));
+		$last = trim(substr($range, $dash + 1));
+
+		if ($first == '') {
+			// suffix byte range: gets last x bytes
+			$suffix = $last;
+			$last = $filesize - 1;
+			$first = $filesize - $suffix;
+			if ($first < 0) {
+				$first = 0;
+			}
+		}
+		elseif ($last == '' || $last > $filesize - 1) {
+			$last = $filesize - 1;
+		}
+
+		if ($first > $last) {
+			http_response_code(416);
+			header("Status: 416 Requested range not satisfiable");
+			header("Content-Range: */{$filesize}");
+		}
+	}
+
+	/**
+	 * Function will output $bytes of attachment stream with $buffer_size read ahead.
+	 *
+	 * @param mixed $stream
+	 * @param mixed $bytes
+	 * @param mixed $buffer_size
+	 */
+	public function downloadBufferedRead($stream, $bytes, $buffer_size = 1024) {
+		$bytes_left = $bytes;
+		while ($bytes_left > 0) {
+			$bytes_to_read = min($buffer_size, $bytes_left);
+			$bytes_left -= $bytes_to_read;
+			$contents = mapi_stream_read($stream, $bytes_to_read);
+			echo $contents;
+			flush();
+		}
+	}
+
+	/**
 	 * Function will open passed attachment and generate response for that attachment to send it to client.
 	 * This should only be used to download attachment that is already saved in MAPIMessage.
 	 *
@@ -334,18 +390,6 @@ class DownloadAttachment extends DownloadBase {
 				$contentType = $props[PR_ATTACH_MIME_TAG];
 			}
 
-			$contentIsSentAsUTF8 = false;
-			// For ODF files we must change the content type because otherwise
-			// IE<11 cannot properly read it in the xmlhttprequest object
-			// NOTE: We only need to check for IE<=10, so no need to check for TRIDENT (IE11)
-			preg_match('/MSIE (.*?);/', $_SERVER['HTTP_USER_AGENT'], $matches);
-			if (count($matches) > 1) {
-				if (strpos($contentType, 'application/vnd.oasis.opendocument.') !== false) {
-					$contentType = 'text/plain; charset=UTF-8';
-					$contentIsSentAsUTF8 = true;
-				}
-			}
-
 			// Set the headers
 			header('Pragma: public');
 			header('Expires: 0'); // set expiration time
@@ -357,20 +401,71 @@ class DownloadAttachment extends DownloadBase {
 			// Open a stream to get the attachment data
 			$stream = mapi_openproperty($attachment, PR_ATTACH_DATA_BIN, IID_IStream, 0, 0);
 			$stat = mapi_stream_stat($stream);
-			// File length
-			header('Content-Length: ' . $stat['cb']);
 
-			// Read the attachment content from the stream
-			$body = '';
-			for ($i = 0; $i < $stat['cb']; $i += BLOCK_SIZE) {
-				$body .= mapi_stream_read($stream, BLOCK_SIZE);
+			$bodyoffset = 0;
+			$ranges = null;
+
+			$bodysize = $stat['cb'];
+
+			if ($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_SERVER['HTTP_RANGE']) && $range = stristr(trim($_SERVER['HTTP_RANGE']), 'bytes=')) {
+				$range = substr($range, 6);
+				$boundary = bin2hex(random_bytes(48));
+				$ranges = explode(',', $range);
 			}
 
-			// Convert the content to UTF-8 if we want to send it like that
-			if ($contentIsSentAsUTF8) {
-				$body = mb_convert_encoding($body, 'UTF-8');
+			if ($ranges && count($ranges)) {
+				http_response_code(206);
+				header("Accept-Ranges: bytes");
+				if (count($ranges) > 1) {
+					// More than one range specified
+					$content_length = 0;
+					foreach ($ranges as $range) {
+						$this->downloadSetRange($range, $stat['cb'], $first, $last);
+						$content_length += strlen("\r\n--{$boundary}\r\n");
+						$content_length += strlen("Content-Type: {$contentType}\r\n");
+						$content_length += strlen("Content-Range: bytes {$first}-{$last}/{$bodysize}\r\n\r\n");
+						$content_length += $last - $first + 1;
+					}
+					$content_length += strlen("\r\n--{$boundary}--\r\n");
+
+					// Header output
+					header("Content-Length: {$content_length}");
+					header("Content-Type: multipart/x-byteranges; boundary={$boundary}");
+
+					// Content output
+					foreach ($ranges as $range) {
+						$this->downloadSetRange($range, $stat['cb'], $first, $last);
+						echo "\r\n--{$boundary}\r\n";
+						echo "Content-Type: {$contentType}\r\n";
+						echo "Content-Range: bytes {$first}-{$last}/{$bodysize}\r\n\r\n";
+						mapi_stream_seek($stream, $first + $bodyoffset);
+						$this->downloadBufferedRead($stream, $last - $first + 1);
+					}
+					echo "\r\n--{$boundary}--\r\n";
+				}
+				else {
+					// Single range specified
+					$range = $ranges[0];
+					$this->downloadSetRange($range, $bodysize, $first, $last);
+					header("Content-Length: " . ($last - $first + 1));
+					header("Content-Range: bytes {$first}-{$last}/{$bodysize}");
+					header("Content-Type: {$contentType}");
+					mapi_stream_seek($stream, $first + $bodyoffset);
+					$this->downloadBufferedRead($stream, $last - $first + 1);
+				}
 			}
-			echo $body;
+			else {
+				// File length
+				header('Content-Length: ' . $stat['cb']);
+
+				// Read the attachment content from the stream
+				$body = '';
+				for ($i = 0; $i < $stat['cb']; $i += BLOCK_SIZE) {
+					$body .= mapi_stream_read($stream, BLOCK_SIZE);
+				}
+
+				echo $body;
+			}
 		}
 	}
 
@@ -553,13 +648,13 @@ class DownloadAttachment extends DownloadBase {
 					throw new ZarafaException(_("Eml is corrupted"));
 				}
 
-					try {
-						// Convert an RFC822-formatted e-mail to a MAPI Message
-						$ok = mapi_inetmapi_imtomapi($GLOBALS['mapisession']->getSession(), $this->store, $addrBook, $newMessage, $attachmentStream, []);
-					}
-					catch (Exception $e) {
-						throw new ZarafaException(_("The eml Attachment is not imported successfully"));
-					}
+				try {
+					// Convert an RFC822-formatted e-mail to a MAPI Message
+					$ok = mapi_inetmapi_imtomapi($GLOBALS['mapisession']->getSession(), $this->store, $addrBook, $newMessage, $attachmentStream, []);
+				}
+				catch (Exception $e) {
+					throw new ZarafaException(_("The eml Attachment is not imported successfully"));
+				}
 
 				break;
 
