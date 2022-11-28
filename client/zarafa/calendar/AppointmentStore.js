@@ -196,6 +196,8 @@ Zarafa.calendar.AppointmentStore = Ext.extend(Zarafa.core.data.ListModuleStore, 
 					results.records.push(storeRec);
 					results.updatedRecords.push(record);
 				}
+
+				this.reload();
 			}
 		}
 
