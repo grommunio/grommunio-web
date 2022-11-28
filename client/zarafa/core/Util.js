@@ -653,13 +653,18 @@ Zarafa.core.Util =
 	 */
 	copyToClipboard: function (text)
 	{
-		var textArea = document.createElement("textarea");
-		textArea.setAttribute("id","copyTextArea");
-		document.body.appendChild(textArea);
+		var doc = document;
+		if (Zarafa.core.BrowserWindowMgr.isMainWindowActive() === false) {
+			doc = Zarafa.core.BrowserWindowMgr.getActive().document;
+		}
+
+		var textArea = doc.createElement("textarea");
+		textArea.setAttribute("id", "copyTextArea");
+		doc.body.appendChild(textArea);
 		textArea.innerText = text;
 		textArea.select();
-		document.execCommand("copy");
-		document.body.removeChild(textArea);
+		doc.execCommand("copy");
+		doc.body.removeChild(textArea);
 	},
 
 	/**
