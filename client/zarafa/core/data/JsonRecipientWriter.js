@@ -47,6 +47,14 @@ Zarafa.core.data.JsonRecipientWriter = Ext.extend(Zarafa.core.data.JsonWriter, {
 					continue;
 				}
 
+				var isModifiedRecipientInDeletedList = function (item) {
+					return item.get('entryid') === recipient.get('entryid') && item.phantom !== recipient.phantom;
+				};
+
+				if (deletedRecords.some(isModifiedRecipientInDeletedList)) {
+					continue;
+				}
+
 				if (Ext.isEmpty(recipient.get('rowid'))) {
 					// If recipient does not have a rowid the recipient is new
 					if(!Ext.isDefined(hash.recipients.add)) {
@@ -71,6 +79,14 @@ Zarafa.core.data.JsonRecipientWriter = Ext.extend(Zarafa.core.data.JsonWriter, {
 
 				if(recipient.isMeetingOrganizer()) {
 					// organizer information shouldn't be passed in recipient table at all
+					continue;
+				}
+
+				var isDeletedRecipientInModifiedList = function (item) {
+					return item.get('entryid') === recipient.get('entryid') && item.phantom !== recipient.phantom;
+				};
+
+				if (modifiedRecords.some(isDeletedRecipientInModifiedList)) {
 					continue;
 				}
 
