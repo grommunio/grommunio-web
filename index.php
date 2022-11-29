@@ -218,7 +218,7 @@
 	}
 
 	$Language->setLanguage($lang);
-	setcookie('lang', $lang, time() + 31536000, '/', '', getRequestProtocol() === 'https');
+	setcookie('lang', $lang, [ 'lifetime' => time() + 31536000, 'path' => '/', 'domain' => '', 'secure' => true, 'httponly' => true, 'samesite' => 'Strict' ]);
 
 	// add extra header
 	header("X-grommunio: " . trim(file_get_contents('version')));
