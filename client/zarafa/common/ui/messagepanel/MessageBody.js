@@ -11,7 +11,7 @@ Zarafa.common.ui.messagepanel.MessageBody = Ext.extend(Ext.Container, {
 	 * for the contents of the {@link #iframe} when the record has been opened, and it contains a plain-text
 	 * body. The data passed to this template will be the 'body' field which must be loaded as body.
 	 */
-	plaintextTemplate: '<html><body><pre>{body}</pre></body></html>',
+	plaintextTemplate: '<!DOCTYPE html><html><body><pre>{body}</pre></body></html>',
 
 	/**
 	 * The {RegExp} of emailPattern, this regular expression finds mailto links or email address
@@ -211,7 +211,7 @@ Zarafa.common.ui.messagepanel.MessageBody = Ext.extend(Ext.Container, {
 			// Display a 'loading' message. If the message is in HTML we can directly render it,
 			// otherwise we have to surround it with HTML tags for displaying plain-text.
 			html = record.get('isHTML');
-			body = record.getBody(html);
+			body = "<!DOCTYPE html>" + record.getBody(html);
 			if (html) {
 				if (container.getServerConfig().getDOMPurifyEnabled()) {
 					body = record.cleanupOutlookStyles(DOMPurify.sanitize(body, {USE_PROFILES: {html: true}}));
@@ -227,11 +227,6 @@ Zarafa.common.ui.messagepanel.MessageBody = Ext.extend(Ext.Container, {
 			}
 		}
 
-		// In Firefox, the frame's content seems to not be recognized when no initial content has been set.
-		if (Ext.isGecko) {
-			iframeDocument.open();
-			iframeDocument.close();
-		}
 		var htmlBody = iframeDocument.getElementsByTagName('body')[0];
 		htmlBody.innerHTML = body;
 
