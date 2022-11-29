@@ -211,12 +211,12 @@ Zarafa.common.ui.messagepanel.MessageBody = Ext.extend(Ext.Container, {
 			// Display a 'loading' message. If the message is in HTML we can directly render it,
 			// otherwise we have to surround it with HTML tags for displaying plain-text.
 			html = record.get('isHTML');
-			body = "<!DOCTYPE html>" + record.getBody(html);
+			body = record.getBody(html);
 			if (html) {
 				if (container.getServerConfig().getDOMPurifyEnabled()) {
-					body = record.cleanupOutlookStyles(DOMPurify.sanitize(body, {USE_PROFILES: {html: true}}));
+					body = "<!DOCTYPE html>" + record.cleanupOutlookStyles(DOMPurify.sanitize(body, {USE_PROFILES: {html: true}}));
 				} else {
-					body = record.cleanupOutlookStyles(body);
+					body = "<!DOCTYPE html>" + record.cleanupOutlookStyles(body);
 				}
 			}
 
