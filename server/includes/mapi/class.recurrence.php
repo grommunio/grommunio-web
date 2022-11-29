@@ -373,7 +373,7 @@ class Recurrence extends BaseRecurrence {
 	 * @returns boolean if the reminder minutes value valid (FALSE if either of the rules above are FALSE)
 	 */
 	public function isValidReminderTime($basedate, $reminderminutes, $startdate) {
-		// get all occurrence items before the seleceted items occurrence starttime
+		// get all occurrence items before the selected items occurrence starttime
 		$occitems = $this->getItems($this->messageprops[$this->proptags["startdate"]], $this->toGMT($this->tz, $basedate));
 
 		if (!empty($occitems)) {

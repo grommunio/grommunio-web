@@ -2410,7 +2410,7 @@ class Meetingrequest {
 	 *
 	 * @param mixed $copyFrom   MAPI_message from which recipients are to be copied
 	 * @param mixed $copyTo     MAPI_message to which recipients are to be copied
-	 * @param bool  $isDelegate indicates wheter delegate is processing
+	 * @param bool  $isDelegate indicates whether delegate is processing
 	 *                          so don't copy delegate information to recipient table
 	 */
 	public function replaceRecipients($copyFrom, $copyTo, $isDelegate = false) {

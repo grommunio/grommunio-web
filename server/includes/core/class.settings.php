@@ -267,7 +267,7 @@
 		/**
 		 * Get all settings as a Javascript script.
 		 *
-		 * This function will output all settings as a JSON object, allowing easy inclusing in client-side javascript.
+		 * This function will output all settings as a JSON object, allowing easy including in client-side javascript.
 		 *
 		 * @return string json encoded php array
 		 */
@@ -282,7 +282,7 @@
 		/**
 		 * Get all persistent settings as a Javascript script.
 		 *
-		 * This function will output all persistent settings as a JSON object, allowing easy inclusing in client-side
+		 * This function will output all persistent settings as a JSON object, allowing easy including in client-side
 		 * javascript.
 		 *
 		 * @return string json encoded php array

@@ -393,7 +393,7 @@ class FileLoader {
 				}
 			}
 
-			// Add the file dependencies that have beed added by using #dependsFile in the file.
+			// Add the file dependencies that have been added by using #dependsFile in the file.
 			for ($i = 0, $len = count($fileData['dependsFile']); $i < $len; ++$i) {
 				$dependencyFilename = $fileData['dependsFile'][$i];
 				// Check if the file exists to prevent non-existent dependencies

@@ -90,7 +90,7 @@
 
 		/**
 		 * If an event elsewhere has occurred, it enters in this method. This method
-		 * executes one ore more actions, depends on the event.
+		 * executes one or more actions, depends on the event.
 		 *
 		 * @param int    $event   event
 		 * @param string $entryid entryid
