@@ -9,12 +9,10 @@
 [![code with love by grommunio](https://img.shields.io/badge/%3C%2F%3E%20with%20%E2%99%A5%20by-grommunio-ff1414.svg)](https://grommunio.com)
 [![twitter](https://img.shields.io/twitter/follow/grommunio?style=social)](https://twitter.com/grommunio)
 
-**grommunio Web is an open-source application to Webhronize Exchange ActiveSync (EAS) compatible devices such as mobile phones and tablets.**
+**grommunio Web is on open-source web application and provides all the familiar email, advanced calendaring and contact features you need to be productive. It is the main web application for access to your productivity workspace, including email, calendar, contacts, tasks, notes and more.**
 
 ![grommunio web-ui](docs/grommunio-web-ui.png)
 ![grommunio web-ui alternative](docs/grommunio-web-ui-alt.png)
-
-**grommunio Web is on open-source web application and provides all the familiar email, advanced calendaring and contact features you need to be productive. It is the main web application for access to your productivity workspace, including email, calendar, contacts, tasks, notes and more.**
 
 _grommunio Web is also the basis for grommunio Desktop, a cross-platform client designed to run on your desktop without any specific browser requirements._
 
