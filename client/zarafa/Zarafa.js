@@ -867,8 +867,6 @@ Ext.apply(Zarafa, {
 		// Start loading all plugins
 		Zarafa.fireReady();
 
-		Zarafa.whatsnew.Actions.openWhatsNewDialog();
-
 		// We need to register the event handler for outOfOfficeStore on load to check if user is out of office
 		// and ask them if they want to switch it off.
 		var oofStore = container.getOutOfOfficeStore();

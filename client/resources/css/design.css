@@ -6319,53 +6319,6 @@ body .k-category-block {
   margin-left: 3px;
 }
 
-/* line 2, ../scss/components/_whatsnew.scss */
-#k-whatsnew-window .k-whatsnew-feature-number {
-  padding: 1px 9px 0;
-}
-/* line 6, ../scss/components/_whatsnew.scss */
-#k-whatsnew-window .k-whatsnew-feature-text {
-  padding: 12px 12px 0;
-}
-/* line 9, ../scss/components/_whatsnew.scss */
-#k-whatsnew-window .k-whatsnew-feature-text .k-whatsnew-feature-icon {
-  margin-bottom: 12px;
-  max-height: 100px;
-  max-width: 200px;
-}
-/* line 15, ../scss/components/_whatsnew.scss */
-#k-whatsnew-window .k-whatsnew-feature-text h2.k-whatsnew-text-title {
-  font-size: 18px !important;
-  margin-bottom: 9px;
-}
-/* line 20, ../scss/components/_whatsnew.scss */
-#k-whatsnew-window .k-whatsnew-feature-text .k-whatsnew-text-description {
-  line-height: 18px;
-}
-/* line 24, ../scss/components/_whatsnew.scss */
-#k-whatsnew-window .k-whatsnew-feature-image {
-  padding: 12px 0 0;
-  text-align: center;
-}
-/* line 28, ../scss/components/_whatsnew.scss */
-#k-whatsnew-window .k-whatsnew-feature-image img {
-  max-width: 420px;
-  max-height: 275px;
-}
-/* line 34, ../scss/components/_whatsnew.scss */
-#k-whatsnew-window .k-whatsnew-navbar {
-  border: none;
-}
-/* line 37, ../scss/components/_whatsnew.scss */
-#k-whatsnew-window .k-whatsnew-navbar .x-item-disabled {
-  visibility: hidden;
-}
-/* line 43, ../scss/components/_whatsnew.scss */
-#k-whatsnew-window .k-whatsnew-checkbox label {
-  line-height: 100%;
-  margin-left: 9px;
-}
-
 /*
  * To make sure that the tinymce skin styling is loaded before the editor
  * is rendered, we import it ourself so we don't have to wait for the

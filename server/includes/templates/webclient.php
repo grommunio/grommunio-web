@@ -13,7 +13,6 @@ $serverConfig = array_merge($serverConfig, [
 	'plugin_webappmanual_url' => PLUGIN_WEBAPPMANUAL_URL,
 	'enable_shared_rules' => ENABLE_SHARED_RULES,
 	'always_enabled_plugins' => $GLOBALS['PluginManager']->expandPluginList(ALWAYS_ENABLED_PLUGINS_LIST),
-	'enable_whats_new_dialog' => ENABLE_WHATS_NEW_DIALOG,
 	'enable_advanced_settings' => ENABLE_ADVANCED_SETTINGS ? true : false,
 	'post_max_size' => getMaxPostRequestSize(),
 	'max_file_uploads' => getMaxFileUploads(),

@@ -85,14 +85,6 @@ Zarafa.core.data.ServerConfig = Ext.extend(Object, {
 	},
 
 	/**
-	 * @return {Boolean} True if the What's New dialog is disabled
-	 */
-	isWhatsNewDialogDisabled: function()
-	{
-		return this.meta.enable_whats_new_dialog === false;
-	},
-
-	/**
 	 * @return {Boolean} True if Advanced Settings are enabled
 	 */
 	isAdvancedSettingsEnabled: function()

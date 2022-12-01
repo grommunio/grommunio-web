@@ -99,13 +99,6 @@ if (!defined("ENABLE_WELCOME_SCREEN")) {
 }
 
 /*
- * Set to true to disable the "What's new dialog" that will be shown to users to introduce new features.
- */
-if (!defined("ENABLE_WHATS_NEW_DIALOG")) {
-	define("ENABLE_WHATS_NEW_DIALOG", true);
-}
-
-/*
  * By default we won't disable the FULL GAB, as it is a performance option
  * which, when enabled, prevents the full GAB to be loaded'
  */

@@ -77,10 +77,6 @@
 	// The title that will be shown in the title bar of the browser
 	define("WEBAPP_TITLE", "grommunio Web");
 
-	// Set to false to disable the "What's new dialog" that will be shown to users to introduce new features.
-	// Overrides defaults.php
-	define("ENABLE_WHATS_NEW_DIALOG", false);
-
 	// Enable widgets/today context.
 	// Overrides defaults.php
 	define("ENABLE_WIDGETS", false);
