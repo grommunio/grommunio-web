@@ -338,6 +338,6 @@ Zarafa.ABOUT = ""
 
 	+ "<h1>PDF.js</h1>"
 
-	+ "<p>Copyright (C) Mozilla and individual contributors</p>"
+	+ "<p>Copyright (C) Mozilla and individual contributors</p><p>Licensed under the Apache License, version 2.0.</p>"
 
 	+ "</div>";

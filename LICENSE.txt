@@ -283,4 +283,6 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 PDF.js
 Copyright (C) Mozilla and individual contributors 
 
+Licensed under the Apache License, version 2.0.
+
 ===============================================================================
