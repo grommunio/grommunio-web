@@ -11,7 +11,6 @@
 	 * @todo This class is bloated. It also returns data in various arbitrary formats
 	 * that other functions depend on, making lots of code almost completely unreadable.
 	 */
-	require_once BASE_PATH . 'server/includes/core/class.filter.php';
 
 	class Operations {
 		/**
@@ -1594,8 +1593,6 @@
 							$htmlcontent = '';
 						}
 						else {
-							$filter = new filter();
-							$htmlcontent = $filter->safeHTML($htmlcontent);
 							$props["props"]["isHTML"] = true;
 						}
 					}

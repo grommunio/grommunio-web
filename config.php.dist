@@ -124,9 +124,6 @@
 	// Overrides defaults.php
 	define("PREFETCH_EMAIL_COUNT", 0);
 
-	// indicate whether not to use magicHTML as html filter, magicHTML is very slow, so by the default we disable it
-	define('ENABLE_HTMLBODY_FILTER', false);
-
 	// The grommunio admin API status endpoint
 	define('ADMIN_API_STATUS_ENDPOINT', 'http://[::1]:8080/api/v1/status');
 
