@@ -14,7 +14,7 @@
 ![grommunio web-ui](docs/grommunio-web-ui.png)
 ![grommunio web-ui alternative](docs/grommunio-web-ui-alt.png)
 
-**grommunio Web is on open-source web application and provides all the familiar email, advanced calendaring and contact features you need to be productive. It is the main web application for access to your productivity workspace, including email, calendar, contacts, tasks, notes and more.
+**grommunio Web is on open-source web application and provides all the familiar email, advanced calendaring and contact features you need to be productive. It is the main web application for access to your productivity workspace, including email, calendar, contacts, tasks, notes and more.**
 
 _grommunio Web is also the basis for grommunio Desktop, a cross-platform client designed to run on your desktop without any specific browser requirements._
 
