@@ -1,6 +1,6 @@
 # grommunio Web
 
-[![project license](https://img.shields.io/github/license/grommunio/grommunio-web.svg)](LICENSE)
+[![project license](https://img.shields.io/github/license/grommunio/grommunio-web.svg)](LICENSE.txt)
 [![latest version](https://shields.io/github/v/tag/grommunio/grommunio-web)](https://github.com/grommunio/grommunio-web/tags)
 [![scrutinizer](https://img.shields.io/scrutinizer/build/g/grommunio/grommunio-web)](https://scrutinizer-ci.com/g/grommunio/grommunio-web/)
 [![code size](https://img.shields.io/github/languages/code-size/grommunio/grommunio-web)](https://github.com/grommunio/grommunio-web)
@@ -137,4 +137,4 @@ The translations are managed by [Weblate](https://hosted.weblate.org/projects/gr
 
 This project is licensed under the **GNU Affero General Public License v3**.
 
-See [LICENSE](LICENSE) for more information.
+See [LICENSE.txt](LICENSE.txt) for more information.
