@@ -1,6 +1,6 @@
 # grommunio Web
 
-[![project license](https://img.shields.io/github/license/grommunio/grommunio-web.svg)](LICENSE.txt)
+[![project license](https://img.shields.io/badge/license-AGPL--3.0-orange)]
 [![latest version](https://shields.io/github/v/tag/grommunio/grommunio-web)](https://github.com/grommunio/grommunio-web/tags)
 [![scrutinizer](https://img.shields.io/scrutinizer/build/g/grommunio/grommunio-web)](https://scrutinizer-ci.com/g/grommunio/grommunio-web/)
 [![code size](https://img.shields.io/github/languages/code-size/grommunio/grommunio-web)](https://github.com/grommunio/grommunio-web)
