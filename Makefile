@@ -76,7 +76,7 @@ deploy: server client plugins css
 build: node_modules deploy
 test: jstest
 
-server: $(MOS) $(LANGTXTDEST) $(PHPFILES) $(DISTFILES) $(ROBOTS) $(DESTDIR)/version $(DESTDIR)/cachebuster $(SERVERROOTFILES)
+server: $(MOS) $(LANGTXTDEST) $(PHPFILES) $(DISTFILES) $(DESTDIR)/version $(DESTDIR)/cachebuster $(SERVERROOTFILES)
 
 client: $(CSSDEST) $(ICONSETSDEST) $(IMAGESDEST) js
 	cp -r client/resources/fonts $(DESTDIR)/client/resources/
@@ -104,9 +104,6 @@ js: $(JSDEPLOY)/fingerprint.js $(JSDEPLOY)/resize.js $(TEMPATEJSDEST) $(JSDEPLOY
 $(DESTDIR)/%.php: %.php
 	php -l $<
 	mkdir -p $$(dirname $@)
-	cp $< $@
-
-$(ROBOTS): robots.txt
 	cp $< $@
 
 $(DESTDIR)/%.mo : %.po
