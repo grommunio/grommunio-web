@@ -139,13 +139,43 @@ To get started, make sure you have a working set of the following components:
 - php-mapi
 - nginx
 
-Checkout the repository into a new directory, e.g. "/usr/share/grommunio-web-dev". The new path of grommunio-web is now "/usr/share/grommunio-web-dev/".
+Checkout the repository into a new directory, e.g. ```/usr/share/grommunio-web-dev```. The new path of grommunio-web is now ```/usr/share/grommunio-web-dev```.
 
-If you want to use the existing grommunio-web config, point config.php to it: ```ln -s /etc/grommunio-web/config.php /opt/grommunio-web/config.php``` or use the "config.php.dist": ```cp -p /usr/share/grommunio-web-dev/config.php.dist /usr/share/grommunio-web-dev/config.php```.
+If you want to use the existing grommunio-web config, point config.php to it:
 
-Also, copy the defaults.php: ```ln -s /etc/grommunio-web/defaults.php /opt/grommunio-web/defaults.php``` or use the "defaults.php.dist": ```cp -p /usr/share/grommunio-web-dev/defaults.php.dist /usr/share/grommunio-web-dev/defaults.php```. Finally, make sure to adjust "/usr/share/grommunio-web-dev/defaults.php" to use sources instead of the release version. Search for ```if(!defined('DEBUG_LOADER')) define('DEBUG_LOADER', LOAD_RELEASE);``` and replace it with ```if(!defined('DEBUG_LOADER')) define('DEBUG_LOADER', LOAD_SOURCE);```. 
+```ln -s /etc/grommunio-web/config.php /usr/share/grommunio-web-dev/config.php```
 
-At last, adjust (or copy) the nginx config file "/usr/share/grommunio-common/nginx/locations.d/grommunio-web.conf" by replacing ```alias /usr/share/grommunio-web/;``` with ```alias /usr/share/grommunio-web-dev/;```. Reload nginx: ```systemctl reload nginx```.
+or use the "config.php.dist":
+
+```cp -p /usr/share/grommunio-web-dev/config.php.dist /usr/share/grommunio-web-dev/config.php```
+
+Also, copy the defaults.php:
+
+```ln -s /etc/grommunio-web/defaults.php /usr/share/grommunio-web-dev/defaults.php```
+
+or use the "defaults.php.dist":
+
+```cp -p /usr/share/grommunio-web-dev/defaults.php.dist /usr/share/grommunio-web-dev/defaults.php```
+
+Finally, make sure to adjust ```/usr/share/grommunio-web-dev/defaults.php``` to use sources instead of the release version:
+
+Search for
+
+```if(!defined('DEBUG_LOADER')) define('DEBUG_LOADER', LOAD_RELEASE);```
+
+and replace it with
+
+```if(!defined('DEBUG_LOADER')) define('DEBUG_LOADER', LOAD_SOURCE);```
+
+At last, adjust (or copy) the nginx config file ```/usr/share/grommunio-common/nginx/locations.d/grommunio-web.conf``` by replacing
+
+```alias /usr/share/grommunio-web/;```
+
+with
+
+```alias /usr/share/grommunio-web-dev/;```
+
+After changing the configuration, validate your nginx configuration with ```nginx -t``` and reload with ```systemctl reload nginx```.
 
 ## Translators
 
