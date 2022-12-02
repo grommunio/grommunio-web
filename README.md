@@ -28,6 +28,7 @@ _grommunio Web is also the basis for grommunio Desktop, a cross-platform client 
 - [Support](#support)
 - [Project assistance](#project-assistance)
 - [Contributing](#contributing)
+  - [Additional notesg](#additional-notes)
 - [Security](#security)
 - [Development](#development)
   - [Coding style](#coding-style)
@@ -97,6 +98,26 @@ Together, we can make grommunio Web **better**!
 ## Contributing
 
 First off, thanks for taking the time to contribute! Contributions are what make the open-source community such an amazing place to learn, inspire, and create. Any contributions you make will benefit everybody else and are **greatly appreciated**.
+
+If you have found an issue and want to report an issue, either reach out to us in our [community](https://community.grommunio.com), or, if you have a subscription, open up a [support case](https://grommunio.com/).
+
+To provide changesets,
+
+- Clone the repository from https://github.com/grommunio/grommunio-web.git
+- Commit and sign your work (```git commit -s```).
+
+Then, either
+
+- create a pull request towards the master branch.
+
+or
+
+- upload commits to a git store of your choosing, or export the series as a patchset using [git format-patch](https://git-scm.com/docs/git-format-patch).
+- send the patch(es) or git link to [dev@grommunio.com](mailto:dev@grommunio.com) and we will consider the submission.
+
+### Additional notes
+
+- If possible, please only work on one issue per commit.
 
 ## Security
 
