@@ -2565,7 +2565,7 @@ msgstr ""
 "zu verschieben. Das gelöschte Element kann wiederhergestellt werden."
 
 msgid "Add/Edit Cc recipient"
-msgstr "Cc Empfänger Hinzufügen/bearbeiten"
+msgstr "CC-Empfänger hinzufügen/bearbeiten"
 
 msgid "Disable for new mail"
 msgstr "Deaktivieren für neue Mail"
@@ -2580,10 +2580,10 @@ msgid "Enable for replies"
 msgstr "Aktivieren für Antworten"
 
 msgid "No Cc recipient configured"
-msgstr "Kein Cc Empfänger konfiguriert"
+msgstr "Kein CC-Empfänger konfiguriert"
 
 msgid "Loading Cc recipients"
-msgstr "Lade Cc Empfänger"
+msgstr "Lade CC-Empfänger"
 
 # 88%
 # 100%
@@ -2595,16 +2595,16 @@ msgstr "Neue E-Mail"
 
 # 80%
 msgid "Please select a Cc recipient record."
-msgstr "Bitte wählen Sie einen Cc Empfänger aus."
+msgstr "Bitte wählen Sie einen CC-Empfänger aus."
 
 msgid "Manage Cc recipients"
-msgstr "Cc Empfänger verwalten"
+msgstr "CC-Empfänger verwalten"
 
 msgid ""
 "Cc recipients can be used to set a default Cc user in new mail, replies or "
 "both."
 msgstr ""
-"Cc Empfänger können verwendet werden, um einen standard Cc Benutzer für neue "
+"CC-Empfänger können verwendet werden, um einen Standard CC-Benutzer für neue "
 "E-Mails, Antworten oder beides festzulegen."
 
 msgid "Help"
