@@ -185,7 +185,7 @@ class WebAppAuthentication {
 				WebAppAuthentication::_storeMAPISession(WebAppAuthentication::$_mapiSession->getSession());
 				$tmp = explode('@', $username);
 				if (count($tmp) == 2) {
-					setcookie('domainname', $tmp[1], [ 'lifetime' => time() + 31536000, 'path' => '/', 'domain' => '', 'secure' => true, 'httponly' => true, 'samesite' => 'Strict' ]);
+					setcookie('domainname', $tmp[1], [ 'expires' => time() + 31536000, 'path' => '/', 'domain' => '', 'secure' => true, 'httponly' => true, 'samesite' => 'Strict' ]);
 				}
 				$wa_title = WebAppAuthentication::$_mapiSession->getFullName();
 				$companyname = WebAppAuthentication::$_mapiSession->getCompanyName();
@@ -193,7 +193,7 @@ class WebAppAuthentication {
 					$wa_title .= " ({$companyname})";
 				}
 				if (strlen($wa_title) != 0) {
-					setcookie('webapp_title', $wa_title, [ 'lifetime' => time() + 31536000, 'path' => '/', 'domain' => '', 'secure' => true, 'httponly' => true, 'samesite' => 'Strict' ]);
+					setcookie('webapp_title', $wa_title, [ 'expires' => time() + 31536000, 'path' => '/', 'domain' => '', 'secure' => true, 'httponly' => true, 'samesite' => 'Strict' ]);
 				}
 			}
 			elseif (WebAppAuthentication::$_errorCode == MAPI_E_LOGON_FAILED || WebAppAuthentication::$_errorCode == MAPI_E_UNCONFIGURED) {
