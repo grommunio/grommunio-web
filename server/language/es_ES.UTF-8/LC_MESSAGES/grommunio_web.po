@@ -5113,10 +5113,10 @@ msgstr "Imprimir tareas seleccionadas"
 msgid "Filter"
 msgstr "Filtro"
 
-msgid "FW"
+msgid "Fwd"
 msgstr "RV"
 
-msgid "RE"
+msgid "Re"
 msgstr "RE"
 
 #, fuzzy
@@ -5214,8 +5214,8 @@ msgid "Location of preview pane"
 msgstr "Ubicación del panel de vista previa"
 
 #, fuzzy
-msgid "Use English abbreviations for forward (FW:) and reply (RE:)"
-msgstr "Utiliza las abreviaturas en inglés de forward (FW:) y reply (RE:)"
+msgid "Use subject prefixes in accordance with RFC 5256/5322"
+msgstr ""
 
 #, fuzzy
 msgid "Close original message on reply or forward"

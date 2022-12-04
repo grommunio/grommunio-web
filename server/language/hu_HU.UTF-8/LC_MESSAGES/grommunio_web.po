@@ -5023,11 +5023,11 @@ msgstr "Kijelölt elem nyomtatása"
 msgid "Filter"
 msgstr "Szűrő"
 
-msgid "FW"
-msgstr "FW"
+msgid "Fwd"
+msgstr "Továbbítás"
 
-msgid "RE"
-msgstr "RE"
+msgid "Re"
+msgstr "Vá"
 
 #, fuzzy
 msgid "on behalf of"
@@ -5122,9 +5122,8 @@ msgid "Location of preview pane"
 msgstr "Előnézeti panel helyzete"
 
 #, fuzzy
-msgid "Use English abbreviations for forward (FW:) and reply (RE:)"
+msgid "Use subject prefixes in accordance with RFC 5256/5322"
 msgstr ""
-"Használja az angol rövidítéseket a forward (FW:) és reply (RE:) kifejezésekre"
 
 msgid "Close original message on reply or forward"
 msgstr "Zárja be az eredeti üzenetet válasz küldése, vagy továbbítás után"

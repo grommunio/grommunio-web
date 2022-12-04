@@ -698,7 +698,7 @@ Zarafa.settings.data.SettingsDefaultValue = function(){
 								 * @property
 								 * @type Boolean
 								 */
-								'use_english_abbreviations': false,
+								'use_english_abbreviations': true,
 
 								/**
 								 * zarafa/v1/contexts/mail/close_on_respond

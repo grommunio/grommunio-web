@@ -4570,10 +4570,10 @@ msgstr "打印选定的电子邮件"
 msgid "Filter"
 msgstr "筛选"
 
-msgid "FW"
+msgid "Fwd"
 msgstr "转发"
 
-msgid "RE"
+msgid "Re"
 msgstr "回复"
 
 #, fuzzy
@@ -4659,8 +4659,8 @@ msgstr "底部"
 msgid "Location of preview pane"
 msgstr "预览面板的位置"
 
-msgid "Use English abbreviations for forward (FW:) and reply (RE:)"
-msgstr "使用转发(FW:)和回复(RE:)的英文缩写"
+msgid "Use subject prefixes in accordance with RFC 5256/5322"
+msgstr ""
 
 msgid "Close original message on reply or forward"
 msgstr "在回复或转发时关闭原始消息"

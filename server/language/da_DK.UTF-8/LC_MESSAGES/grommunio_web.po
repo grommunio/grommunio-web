@@ -4801,10 +4801,10 @@ msgstr "Udskriv det valgte element"
 msgid "Filter"
 msgstr "Filtrer"
 
-msgid "FW"
+msgid "Fwd"
 msgstr "VS"
 
-msgid "RE"
+msgid "Re"
 msgstr "SV"
 
 msgid "on behalf of"
@@ -4895,9 +4895,8 @@ msgstr "Bund"
 msgid "Location of preview pane"
 msgstr "Placering af forhåndsvisningsrude"
 
-#, fuzzy
-msgid "Use English abbreviations for forward (FW:) and reply (RE:)"
-msgstr "Brug engelske forkortelser for forward (FW:) og reply (RE:)"
+msgid "Use subject prefixes in accordance with RFC 5256/5322"
+msgstr "Brug emnepræfikser ifølge RFC 5256/5322"
 
 msgid "Close original message on reply or forward"
 msgstr ""

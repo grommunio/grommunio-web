@@ -163,9 +163,9 @@ Zarafa.mail.MailContextModel = Ext.extend(Zarafa.core.ContextModel, {
 
 		if (isMultipleItems) {
 			if (container.getSettingsModel().get('zarafa/v1/contexts/mail/use_english_abbreviations')) {
-				responseRecord.set('subject', ('FW') + ': ');
+				responseRecord.set('subject', ('Fwd') + ': ');
 			} else {
-				responseRecord.set('subject', _('FW') + ': ');
+				responseRecord.set('subject', _('Fwd') + ': ');
 			}
 		}
 
@@ -215,7 +215,7 @@ Zarafa.mail.MailContextModel = Ext.extend(Zarafa.core.ContextModel, {
 
 	/**
 	 * Initialize the {@link Zarafa.core.data.IPMRecord record} with an updated
-	 * subject. This will prefix the previous subject with 'RE' or 'FW',
+	 * subject. This will prefix the previous subject with 'Re' or 'Fwd',
 	 * depending on the given action type.
 	 *
 	 * @param {Zarafa.core.data.IPMRecord} record The record to initialize
@@ -235,17 +235,17 @@ Zarafa.mail.MailContextModel = Ext.extend(Zarafa.core.ContextModel, {
 			case Zarafa.mail.data.ActionTypes.REPLY:
 			case Zarafa.mail.data.ActionTypes.REPLYALL:
 				if (english_abb) {
-					subjectPrefix = ('RE') + ': ';
+					subjectPrefix = ('Re') + ': ';
 				} else {
-					subjectPrefix = _('RE') + ': ';
+					subjectPrefix = _('Re') + ': ';
 				}
 				break;
 			case Zarafa.mail.data.ActionTypes.FORWARD:
 			case Zarafa.mail.data.ActionTypes.FORWARD_ATTACH:
 				if (english_abb) {
-					subjectPrefix = ('FW') + ': ';
+					subjectPrefix = ('Fwd') + ': ';
 				} else {
-					subjectPrefix = _('FW') + ': ';
+					subjectPrefix = _('Fwd') + ': ';
 				}
 				break;
 			case Zarafa.mail.data.ActionTypes.EDIT_AS_NEW:
@@ -253,7 +253,7 @@ Zarafa.mail.MailContextModel = Ext.extend(Zarafa.core.ContextModel, {
 				break;
 			default:
 				// FIXME: Error message?
-				subjectPrefix = _('RE') + ': ';
+				subjectPrefix = _('Re') + ': ';
 				break;
 		}
 

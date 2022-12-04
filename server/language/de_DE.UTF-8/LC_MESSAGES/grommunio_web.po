@@ -4865,10 +4865,10 @@ msgstr "Ausgewähltes Element drucken"
 msgid "Filter"
 msgstr "Filter"
 
-msgid "FW"
+msgid "Fwd"
 msgstr "WG"
 
-msgid "RE"
+msgid "Re"
 msgstr "AW"
 
 msgid "on behalf of"
@@ -4956,9 +4956,8 @@ msgstr "Unten"
 msgid "Location of preview pane"
 msgstr "Position des Vorschaufensters"
 
-msgid "Use English abbreviations for forward (FW:) and reply (RE:)"
-msgstr ""
-"Englische Abkürzungen für Weiterleiten (FW:) und Antworten (AW:) benutzen"
+msgid "Use subject prefixes in accordance with RFC 5256/5322"
+msgstr "Verwende Betreffzeilenpräfixe gemäß RFC 5256/5322"
 
 msgid "Close original message on reply or forward"
 msgstr ""

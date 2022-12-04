@@ -5134,11 +5134,11 @@ msgstr "Tulosta valitut tehtävät"
 msgid "Filter"
 msgstr "Suodatin"
 
-msgid "FW"
-msgstr "FW"
+msgid "Fwd"
+msgstr "VL"
 
-msgid "RE"
-msgstr "RE"
+msgid "Re"
+msgstr "VS"
 
 #, fuzzy
 msgid "on behalf of"
@@ -5234,9 +5234,8 @@ msgstr "Alareuna"
 msgid "Location of preview pane"
 msgstr "Sijainnin esikatseluruutu"
 
-#, fuzzy
-msgid "Use English abbreviations for forward (FW:) and reply (RE:)"
-msgstr "Käytä englanninkielisiä lyhenteitä forward (FW:) ja reply (RE:)"
+msgid "Use subject prefixes in accordance with RFC 5256/5322"
+msgstr ""
 
 #, fuzzy
 msgid "Close original message on reply or forward"

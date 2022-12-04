@@ -5021,10 +5021,10 @@ msgstr "Seçili öğeyi yazdır"
 msgid "Filter"
 msgstr "Filtre"
 
-msgid "FW"
+msgid "Fwd"
 msgstr "İLT"
 
-msgid "RE"
+msgid "Re"
 msgstr "YNT"
 
 #, fuzzy
@@ -5119,9 +5119,8 @@ msgstr "Alt"
 msgid "Location of preview pane"
 msgstr "Önizleme bölmesinin konumu"
 
-#, fuzzy
-msgid "Use English abbreviations for forward (FW:) and reply (RE:)"
-msgstr "İlet (FW:) ve yanıt (RE:) için İngilizce kısaltmalar kullanın"
+msgid "Use subject prefixes in accordance with RFC 5256/5322"
+msgstr ""
 
 msgid "Close original message on reply or forward"
 msgstr "Yanıt veya iletilerde orijinal mesajı kapat"

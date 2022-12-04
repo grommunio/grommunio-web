@@ -4828,10 +4828,10 @@ msgstr "Stampa email selezionata"
 msgid "Filter"
 msgstr "Filtro"
 
-msgid "FW"
+msgid "Fwd"
 msgstr "I"
 
-msgid "RE"
+msgid "Re"
 msgstr "R"
 
 msgid "on behalf of"
@@ -4919,8 +4919,8 @@ msgstr "In basso"
 msgid "Location of preview pane"
 msgstr "Posizione pannello anteprima"
 
-msgid "Use English abbreviations for forward (FW:) and reply (RE:)"
-msgstr "Usa le abbreviazioni inglesi per forward (FW:) e rispondi (RE:)"
+msgid "Use subject prefixes in accordance with RFC 5256/5322"
+msgstr ""
 
 msgid "Close original message on reply or forward"
 msgstr "Chiudi messaggio originale alla risposta o inoltro"

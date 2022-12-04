@@ -4910,11 +4910,11 @@ msgstr "Print de geselecteerde email"
 msgid "Filter"
 msgstr "Filter"
 
-msgid "FW"
-msgstr "FW"
+msgid "Fwd"
+msgstr "Doorst"
 
-msgid "RE"
-msgstr "AW"
+msgid "Re"
+msgstr "Antw"
 
 msgid "on behalf of"
 msgstr "namens"
@@ -5000,9 +5000,8 @@ msgstr "Onder"
 msgid "Location of preview pane"
 msgstr "Locatie voorbeeld venster"
 
-msgid "Use English abbreviations for forward (FW:) and reply (RE:)"
-msgstr ""
-"Gebruik Engelse afkortingen voor doorsturen (FW:) en beantwoorden (RE:)"
+msgid "Use subject prefixes in accordance with RFC 5256/5322"
+msgstr "Gebruik onderwerpvoorvoegsels volgens RFC 5256/5322"
 
 msgid "Close original message on reply or forward"
 msgstr "Originele bericht sluiten bij reageren of doorsturen"

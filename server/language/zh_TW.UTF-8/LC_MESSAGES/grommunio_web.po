@@ -4733,10 +4733,10 @@ msgstr "列印此任務"
 msgid "Filter"
 msgstr ""
 
-msgid "FW"
+msgid "Fwd"
 msgstr "轉寄"
 
-msgid "RE"
+msgid "Re"
 msgstr "回覆"
 
 msgid "on behalf of"
@@ -4824,7 +4824,7 @@ msgstr "底"
 msgid "Location of preview pane"
 msgstr "位置預覽面板"
 
-msgid "Use English abbreviations for forward (FW:) and reply (RE:)"
+msgid "Use subject prefixes in accordance with RFC 5256/5322"
 msgstr ""
 
 msgid "Close original message on reply or forward"

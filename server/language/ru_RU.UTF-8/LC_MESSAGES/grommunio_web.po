@@ -4898,11 +4898,11 @@ msgstr "Печать выбранного письма"
 msgid "Filter"
 msgstr "Фильтр"
 
-msgid "FW"
-msgstr "FW"
+msgid "Fwd"
+msgstr "Fwd"
 
-msgid "RE"
-msgstr "RE"
+msgid "Re"
+msgstr "Re"
 
 #, fuzzy
 msgid "on behalf of"
@@ -4996,11 +4996,8 @@ msgstr "Снизу"
 msgid "Location of preview pane"
 msgstr "Место панели предпросмотра"
 
-#, fuzzy
-msgid "Use English abbreviations for forward (FW:) and reply (RE:)"
+msgid "Use subject prefixes in accordance with RFC 5256/5322"
 msgstr ""
-"Используйте английские аббревиатуры для прямого (FW:) и обратного (RE:) "
-"ответа"
 
 msgid "Close original message on reply or forward"
 msgstr "Закрывать текущее письмо при ответе или пересылке"

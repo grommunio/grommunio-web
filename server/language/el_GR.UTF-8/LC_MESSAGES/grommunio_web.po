@@ -5655,12 +5655,12 @@ msgid "Filter"
 msgstr "Φίλτρο"
 
 #, fuzzy
-msgid "FW"
-msgstr "FW"
+msgid "Fwd"
+msgstr "ΠΡΘ"
 
 #, fuzzy
-msgid "RE"
-msgstr "RE"
+msgid "Re"
+msgstr "ΑΠ"
 
 #, fuzzy
 msgid "on behalf of"
@@ -5766,10 +5766,8 @@ msgstr "Κάτω"
 msgid "Location of preview pane"
 msgstr "Τοποθεσία του παραθύρου προεπισκόπησης"
 
-#, fuzzy
-msgid "Use English abbreviations for forward (FW:) and reply (RE:)"
+msgid "Use subject prefixes in accordance with RFC 5256/5322"
 msgstr ""
-"Χρησιμοποιήστε αγγλικές συντομογραφίες για forward (FW:) και reply (RE:)"
 
 #, fuzzy
 msgid "Close original message on reply or forward"

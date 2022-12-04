@@ -4554,11 +4554,11 @@ msgstr "Prenta valinn tölvupóst"
 msgid "Filter"
 msgstr "Sía"
 
-msgid "FW"
-msgstr "ÁFRAM"
+msgid "Fwd"
+msgstr "FS"
 
-msgid "RE"
-msgstr "SVAR"
+msgid "Re"
+msgstr "SV"
 
 msgid "on behalf of"
 msgstr ""
@@ -4642,8 +4642,8 @@ msgstr "Neðst"
 msgid "Location of preview pane"
 msgstr "Staðsetning forsýnarskika"
 
-msgid "Use English abbreviations for forward (FW:) and reply (RE:)"
-msgstr "Nota enskar skammstafanir fyrir áframsendingu (FW:) og svar (RE:)"
+msgid "Use subject prefixes in accordance with RFC 5256/5322"
+msgstr ""
 
 msgid "Close original message on reply or forward"
 msgstr "Loka upprunalegum skilaboðum við svar eða áframsendingu"

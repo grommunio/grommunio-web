@@ -4982,11 +4982,11 @@ msgstr "Imprimer l'élément sélectionnée"
 msgid "Filter"
 msgstr "Filtre"
 
-msgid "FW"
+msgid "Fwd"
 msgstr "TR"
 
-msgid "RE"
-msgstr "RE"
+msgid "Re"
+msgstr "REF"
 
 msgid "on behalf of"
 msgstr "pour le compte de"
@@ -5080,10 +5080,8 @@ msgstr "Inférieur"
 msgid "Location of preview pane"
 msgstr "Emplacement de la fenêtre d'affichage"
 
-#, fuzzy
-msgid "Use English abbreviations for forward (FW:) and reply (RE:)"
-msgstr ""
-"Utilisez les abréviations anglaises pour forward (FW :) et reply (RE :)"
+msgid "Use subject prefixes in accordance with RFC 5256/5322"
+msgstr "Utilisez des préfixes de sujet conformément à la RFC 5256/5322"
 
 msgid "Close original message on reply or forward"
 msgstr "Fermer le  message original lors des réponses ou transferts"

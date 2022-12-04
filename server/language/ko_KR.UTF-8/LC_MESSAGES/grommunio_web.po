@@ -4417,11 +4417,11 @@ msgstr ""
 msgid "Filter"
 msgstr ""
 
-msgid "FW"
-msgstr ""
+msgid "Fwd"
+msgstr "전달"
 
-msgid "RE"
-msgstr ""
+msgid "Re"
+msgstr "회신"
 
 msgid "on behalf of"
 msgstr ""
@@ -4505,7 +4505,7 @@ msgstr ""
 msgid "Location of preview pane"
 msgstr ""
 
-msgid "Use English abbreviations for forward (FW:) and reply (RE:)"
+msgid "Use subject prefixes in accordance with RFC 5256/5322"
 msgstr ""
 
 msgid "Close original message on reply or forward"

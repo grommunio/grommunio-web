@@ -5042,11 +5042,11 @@ msgstr "選択したタスクを印刷"
 msgid "Filter"
 msgstr "フィルター"
 
-msgid "FW"
-msgstr "FW"
+msgid "Fwd"
+msgstr "転送"
 
-msgid "RE"
-msgstr "RE"
+msgid "Re"
+msgstr "返信"
 
 #, fuzzy
 msgid "on behalf of"
@@ -5142,9 +5142,8 @@ msgstr "ボタン"
 msgid "Location of preview pane"
 msgstr "プレビュー画面の位置"
 
-#, fuzzy
-msgid "Use English abbreviations for forward (FW:) and reply (RE:)"
-msgstr "転送（FW:）、返信（RE:）は英語の略語を使用する。"
+msgid "Use subject prefixes in accordance with RFC 5256/5322"
+msgstr ""
 
 #, fuzzy
 msgid "Close original message on reply or forward"

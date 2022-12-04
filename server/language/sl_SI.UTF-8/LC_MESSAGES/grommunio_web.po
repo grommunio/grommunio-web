@@ -5140,10 +5140,10 @@ msgstr "Natisni izbrano nalogo"
 msgid "Filter"
 msgstr "Filter"
 
-msgid "FW"
+msgid "Fwd"
 msgstr "Posreduj"
 
-msgid "RE"
+msgid "Re"
 msgstr "Ponovno"
 
 #, fuzzy
@@ -5241,9 +5241,8 @@ msgstr "Na dno"
 msgid "Location of preview pane"
 msgstr "Lokacija panela predogleda"
 
-#, fuzzy
-msgid "Use English abbreviations for forward (FW:) and reply (RE:)"
-msgstr "Uporabite angleške kratice za posredovanje (FW:) in odgovor (RE:)"
+msgid "Use subject prefixes in accordance with RFC 5256/5322"
+msgstr ""
 
 #, fuzzy
 msgid "Close original message on reply or forward"

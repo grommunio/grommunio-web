@@ -4563,11 +4563,11 @@ msgstr "طباعة الموعد المحدد"
 msgid "Filter"
 msgstr "تصفية..."
 
-msgid "FW"
-msgstr ""
+msgid "Fwd"
+msgstr "إعادة توجيه"
 
-msgid "RE"
-msgstr ""
+msgid "Re"
+msgstr "رد"
 
 msgid "on behalf of"
 msgstr ""
@@ -4651,7 +4651,7 @@ msgstr ""
 msgid "Location of preview pane"
 msgstr ""
 
-msgid "Use English abbreviations for forward (FW:) and reply (RE:)"
+msgid "Use subject prefixes in accordance with RFC 5256/5322"
 msgstr ""
 
 msgid "Close original message on reply or forward"

@@ -4859,11 +4859,11 @@ msgstr "נבחר פריט {0}"
 msgid "Filter"
 msgstr ""
 
-msgid "FW"
+msgid "Fwd"
 msgstr "הועבר"
 
-msgid "RE"
-msgstr "תגובה"
+msgid "Re"
+msgstr "השב"
 
 msgid "on behalf of"
 msgstr ""
@@ -4947,7 +4947,7 @@ msgstr "תחתית"
 msgid "Location of preview pane"
 msgstr ""
 
-msgid "Use English abbreviations for forward (FW:) and reply (RE:)"
+msgid "Use subject prefixes in accordance with RFC 5256/5322"
 msgstr ""
 
 msgid "Close original message on reply or forward"

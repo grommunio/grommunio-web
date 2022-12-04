@@ -4702,11 +4702,11 @@ msgstr "Skriv ut valgt e-post"
 msgid "Filter"
 msgstr "Filter"
 
-msgid "FW"
-msgstr "FW"
+msgid "Fwd"
+msgstr "VS"
 
-msgid "RE"
-msgstr "RE"
+msgid "Re"
+msgstr "SV"
 
 msgid "on behalf of"
 msgstr ""
@@ -4790,8 +4790,8 @@ msgstr "Under"
 msgid "Location of preview pane"
 msgstr "Plassering av forhåndsvisningsrute"
 
-msgid "Use English abbreviations for forward (FW:) and reply (RE:)"
-msgstr "Bruk de engelske forkortningene for Videresending (FW:) og Svar (RE:)"
+msgid "Use subject prefixes in accordance with RFC 5256/5322"
+msgstr "Bruk emneprefisker ifølge RFC 5256/5322"
 
 msgid "Close original message on reply or forward"
 msgstr "Lukk original melding etter at du har svart eller videresendt den"

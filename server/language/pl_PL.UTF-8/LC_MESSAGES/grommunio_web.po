@@ -4667,11 +4667,11 @@ msgstr "Drukuj wybrany element"
 msgid "Filter"
 msgstr "Filtruj"
 
-msgid "FW"
+msgid "Fwd"
 msgstr "PD"
 
-msgid "RE"
-msgstr "RE"
+msgid "Re"
+msgstr "Odp"
 
 #, fuzzy
 msgid "on behalf of"
@@ -4756,8 +4756,8 @@ msgstr "Na dole"
 msgid "Location of preview pane"
 msgstr "Pozycja okna podglądu"
 
-msgid "Use English abbreviations for forward (FW:) and reply (RE:)"
-msgstr "Użyj angielskich skrótów do przesyłania dalej (FW:) i odpowiedzi (RE:)"
+msgid "Use subject prefixes in accordance with RFC 5256/5322"
+msgstr ""
 
 msgid "Close original message on reply or forward"
 msgstr ""

@@ -4591,11 +4591,11 @@ msgstr "Imprimir item selecionado"
 msgid "Filter"
 msgstr "Filtrar"
 
-msgid "FW"
-msgstr "FW"
+msgid "Fwd"
+msgstr "ENC"
 
-msgid "RE"
-msgstr "RE"
+msgid "Re"
+msgstr "RES"
 
 #, fuzzy
 msgid "on behalf of"
@@ -4680,8 +4680,8 @@ msgstr "Na parte inferior"
 msgid "Location of preview pane"
 msgstr "Localização do painel de leitura"
 
-msgid "Use English abbreviations for forward (FW:) and reply (RE:)"
-msgstr "Usar abreviações inglesas para reencaminhar (FW:) e responder (RE:)"
+msgid "Use subject prefixes in accordance with RFC 5256/5322"
+msgstr ""
 
 msgid "Close original message on reply or forward"
 msgstr "Fechar mensagem original ao responder ou reencaminhar"
