@@ -26,10 +26,10 @@ class IndexSqlite extends SQLite3 {
 		return $value;
 	}
 
-	public function __construct() {
-		$this->username = $GLOBALS["mapisession"]->getUserName();
-		$this->session = $GLOBALS["mapisession"]->getSession();
-		$this->store = $GLOBALS["mapisession"]->getDefaultMessageStore();
+	public function __construct($username = null, $session = null, $store = null) {
+		$this->username = $username ?? $GLOBALS["mapisession"]->getUserName();
+		$this->session = $session ?? $GLOBALS["mapisession"]->getSession();
+		$this->store = $store ?? $GLOBALS["mapisession"]->getDefaultMessageStore();
 	}
 
 	private function try_insert_content(
