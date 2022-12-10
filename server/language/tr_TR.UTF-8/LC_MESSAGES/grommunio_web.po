@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: grommunio Web Turkish\n"
 "Report-Msgid-Bugs-To: dev@grommunio.com\n"
 "POT-Creation-Date: 2019-09-25 14:32+0200\n"
-"PO-Revision-Date: 2022-12-10 17:22+0000\n"
+"PO-Revision-Date: 2022-12-10 18:18+0000\n"
 "Last-Translator: Orkan Eser <orkan.eser@grommunio.com>\n"
 "Language-Team: Turkish <https://hosted.weblate.org/projects/grommunio/"
 "grommunio-web/tr/>\n"
@@ -4511,7 +4511,6 @@ msgstr "Açıklama"
 msgid "EntryID"
 msgstr "Giriş kimliği"
 
-#, fuzzy
 msgid "Parent EID"
 msgstr "Ebeveyn EID"
 
@@ -4569,7 +4568,6 @@ msgstr "Klasör bağlantısı"
 msgid "Folder visible"
 msgstr "Klasör görülebilir"
 
-#, fuzzy
 msgid "Apply (copy) changed permissions recursively"
 msgstr "Değiştirilen izinleri özyinelemeli olarak uygulama (kopyalama)"
 
@@ -6779,7 +6777,6 @@ msgstr "Lütfen kullanıcı adınızı ve şifrenizi giriniz"
 msgid "Username"
 msgstr "Kullanıcı adı"
 
-#, fuzzy
 msgid ""
 "Do you really want to wipe your device?\n"
 " Enter your password to confirm."
@@ -6787,7 +6784,6 @@ msgstr ""
 "Cihazınızı gerçekten silmek istiyor musunuz?\n"
 " Onaylamak için şifrenizi girin."
 
-#, fuzzy
 msgid ""
 "Do you really want to remove your device?\n"
 " Enter your password to confirm."
@@ -6795,51 +6791,39 @@ msgstr ""
 "Cihazınızı gerçekten kaldırmak istiyor musunuz?\n"
 " Onaylamak için şifrenizi girin."
 
-#, fuzzy
 msgid "Add meeting"
 msgstr "Toplantı ekle"
 
-#, fuzzy
 msgid "Room name:"
 msgstr "Oda adı:"
 
-#, fuzzy
 msgid "Room URL:"
 msgstr "Oda URL'si:"
 
-#, fuzzy
 msgid "Shift-click for advanced settings"
 msgstr "Gelişmiş ayarlar için Shift tuşuna tıklayın"
 
-#, fuzzy
 msgid "Join webmeeting"
 msgstr "Web toplantısına katılın"
 
-#, fuzzy
 msgid "Open meeting in:"
-msgstr "Açık toplantı:"
+msgstr "Toplantıyı aç:"
 
-#, fuzzy
 msgid "Web tab"
 msgstr "Web sekmesi"
 
-#, fuzzy
 msgid "Hide the button in the main toolbar"
-msgstr "Ana araç çubuğundaki düğmeyi gizleme"
+msgstr "Ana araç çubuğundaki düğmeyi gizle"
 
-#, fuzzy
 msgid "Add the subject to the room name"
 msgstr "Konuyu oda adına ekleyin"
 
-#, fuzzy
 msgid "Add the organizer name to the room name"
-msgstr "Oda adına düzenleyici adını ekleyin"
+msgstr "Organizatörün adını oda adına ekleyin"
 
-#, fuzzy
 msgid "Add the URL to the meeting location rather than overwriting it"
 msgstr "URL'yi üzerine yazmak yerine toplantı konumuna ekleyin"
 
-#, fuzzy
 msgid ""
 "Prevent the URL in the meeting location from being overridden automatically "
 "(ex: when adding a meetingroom)"
@@ -6847,21 +6831,17 @@ msgstr ""
 "Toplantı konumundaki URL'nin otomatik olarak geçersiz kılınmasını önleyin "
 "(örn: bir toplantı odası eklerken)"
 
-#, fuzzy
 msgid "If you have problems when creating meetings, try disabling this setting"
 msgstr ""
-"Toplantı oluştururken sorun yaşıyorsanız, bu ayarı devre dışı bırakmayı "
+"Toplantı oluştururken sorun yaşıyorsanız bu ayarı devre dışı bırakmayı "
 "deneyin"
 
-#, fuzzy
 msgid "Add an invitation to the appointment description"
 msgstr "Randevu açıklamasına bir davetiye ekleyin"
 
-#, fuzzy
 msgid "Invitation text"
 msgstr "Davetiye metni"
 
-#, fuzzy
 msgid ""
 "must contain %url% as a placeholder for the meeting link, empty the textbox "
 "to reset to default"
@@ -6869,9 +6849,8 @@ msgstr ""
 "toplantı bağlantısı için bir yer tutucu olarak %url% içermelidir, "
 "varsayılana sıfırlamak için metin kutusunu boşaltın"
 
-#, fuzzy
 msgid "An unknown error occurred while changing password."
-msgstr "Şifre değiştirilirken bilinmeyen bir hata oluştu."
+msgstr "Parola değiştirilirken bilinmeyen bir hata oluştu."
 
 msgid "Password is changed successfully."
 msgstr "Şifre başarıyla değiştirildi."
@@ -6888,81 +6867,64 @@ msgstr "Şimdiki Şifre"
 msgid "New password"
 msgstr "Yeni şifre"
 
-#, fuzzy
 msgid "Retype new password"
-msgstr "Yeni şifreyi yeniden yazın"
+msgstr "Yeni şifrenizi tekrar yazınız"
 
 msgid "New passwords do not match."
 msgstr "Yeni şifreler uyuşmuyor."
 
-#, fuzzy
 msgid "Current password is empty."
-msgstr "Geçerli şifre boş."
+msgstr "Mevcut şifre boş."
 
-#, fuzzy
 msgid "New password is empty."
 msgstr "Yeni şifre boş."
 
-#, fuzzy
 msgid "One or more fields does contain errors."
 msgstr "Bir veya daha fazla alan hata içeriyor."
 
-#, fuzzy
 msgid ""
 "Password is weak. Password should contain capital, non-capital letters and "
 "numbers. Password should have 8 to 20 characters."
 msgstr ""
-"Şifre zayıf. Şifre büyük, büyük olmayan harfler ve rakamlar içermelidir. "
-"Şifre 8 ila 20 karakterden oluşmalıdır."
+"Şifre zayıf. Şifre büyük, küçük harfler ve rakamlar içermelidir. Şifre 8 ila "
+"20 karakterden oluşmalıdır."
 
-#, fuzzy
 msgid "Change passphrase"
 msgstr "Parolayı değiştir"
 
-#, fuzzy
 msgid "Old passphrase"
 msgstr "Eski parola"
 
-#, fuzzy
 msgid "Wrong passphrase. Please try again"
 msgstr "Yanlış parola. Lütfen tekrar deneyin"
 
-#, fuzzy
 msgid "New passphrase"
 msgstr "Yeni parola"
 
-#, fuzzy
 msgid "Confirm new passphrase"
 msgstr "Yeni parolayı onaylayın"
 
-#, fuzzy
 msgid "The passphrases don't match. Please try again"
 msgstr "Parolalar eşleşmiyor. Lütfen tekrar deneyin"
 
-#, fuzzy
 msgid "S/MIME Message"
 msgstr "S/MIME İletisi"
 
-#, fuzzy
 msgid "Passphrase changed succesfully"
 msgstr "Parola başarıyla değiştirildi"
 
-#, fuzzy
 msgid "S/MIME Passphrase"
 msgstr "S/MIME Parolası"
 
 msgid "Submit"
 msgstr "Gönder"
 
-#, fuzzy
 msgid "Certificate passphrase"
 msgstr "Sertifika parolası"
 
-#, fuzzy
 msgid "The passphrase you typed is incorrect. Please try again."
 msgstr "Yazdığınız parola yanlış. Lütfen tekrar deneyin."
 
-#, fuzzy
 msgid "No certificates imported, please upload your private certificate"
 msgstr "İçe aktarılan sertifika yok, lütfen özel sertifikanızı yükleyin"
 
@@ -6972,19 +6934,15 @@ msgstr "Geçerlilik başlangıcı"
 msgid "Expires"
 msgstr "Süre sonu"
 
-#, fuzzy
 msgid "Loading certificates"
-msgstr "Sertifikaların yüklenmesi"
+msgstr "Sertifikalar yükleniyor"
 
-#, fuzzy
 msgid "S/MIME Plugin"
 msgstr "S/MIME Eklentisi"
 
-#, fuzzy
 msgid "Please select a certificate."
 msgstr "Lütfen bir sertifika seçiniz."
 
-#, fuzzy
 msgid ""
 "Do you really want to remove your private certificate? If you remove your "
 "certificate you will not be able to sign or decrypt S/MIME emails."
@@ -6992,80 +6950,64 @@ msgstr ""
 "Özel sertifikanızı gerçekten kaldırmak istiyor musunuz? Sertifikanızı "
 "kaldırırsanız S/MIME e-postalarını imzalayamaz veya şifresini çözemezsiniz."
 
-#, fuzzy
 msgid "Certificate details"
 msgstr "Sertifika detayları"
 
-#, fuzzy
 msgid ""
 "Below you can view and delete public & private certificate(s) stored on the "
 "server."
 msgstr ""
-"Aşağıda, sunucuda depolanan genel ve özel sertifikaları görüntüleyebilir ve "
+"Sunucuda saklanan genel ve özel sertifikaları görüntüleyebilir ve "
 "silebilirsiniz."
 
-#, fuzzy
 msgid "Filter on Email"
 msgstr "E-postada Filtre"
 
-#, fuzzy
 msgid "Public & Private certificates"
-msgstr "Kamu ve Özel Sertifikalar"
+msgstr "Genel ve Özel sertifikalar"
 
-#, fuzzy
 msgid "S/MIME"
 msgstr "S/MIME"
 
-#, fuzzy
 msgid "You don't have a valid certificate corresponding to your account"
 msgstr "Hesabınıza karşılık gelen geçerli bir sertifikanız yok"
 
-#, fuzzy
 msgid "Personal certificate"
 msgstr "Kişisel sertifika"
 
-#, fuzzy
 msgid "Change passphrase for last certificate"
-msgstr "Son sertifika için parolayı değiştirme"
+msgstr "Son sertifika için parolayı değiştir"
 
-#, fuzzy
 msgid "You have a valid certificate corresponding to your account"
 msgstr "Hesabınıza karşılık gelen geçerli bir sertifikanız var"
 
-#, fuzzy
 msgid "Upload your certificate"
-msgstr "Sertifikanızı yükleyin"
+msgstr "Lütfen sertifikanızı yükleyin"
 
-#, fuzzy
 msgid ""
 "Below you can upload your private certificate in PKCS#12 format. grommunio "
 "Web only accepts certificates which are valid and only stores one private "
 "certificate on the server."
 msgstr ""
 "Aşağıda özel sertifikanızı PKCS#12 formatında yükleyebilirsiniz. grommunio "
-"Web sadece geçerli olan sertifikaları kabul eder ve sunucuda sadece bir özel "
-"sertifika saklar."
+"Web yalnızca geçerli olan sertifikaları kabul eder ve sunucuda yalnızca bir "
+"özel sertifika depolar."
 
-#, fuzzy
 msgid "Private certificate"
 msgstr "Özel sertifika"
 
-#, fuzzy
 msgid "You must fill in the certificate passphrase to upload your certificate."
-msgstr "Sertifikanızı yüklemek için sertifika parolasını doldurmanız gerekir."
+msgstr "Sertifikanızı yüklemek için sertifika parolasını girmelisiniz."
 
-#, fuzzy
 msgid "You must first select a valid private certificate in PKCS#12 format."
-msgstr "Öncelikle PKCS#12 formatında geçerli bir özel sertifika seçmelisiniz."
+msgstr "Önce PKCS#12 formatında geçerli bir özel sertifika seçmelisiniz."
 
 msgid "Sign"
 msgstr "İşaret"
 
-#, fuzzy
 msgid "Sign message"
 msgstr "İşaret mesajı"
 
-#, fuzzy
 msgid ""
 "Ensure the authenticity of the message by adding a digital signature to this "
 "message. Any changes to the message will invalidate the signature."
@@ -7073,15 +7015,12 @@ msgstr ""
 "Bu mesaja bir dijital imza ekleyerek mesajın gerçekliğini sağlayın. Mesajda "
 "yapılacak herhangi bir değişiklik imzayı geçersiz kılacaktır."
 
-#, fuzzy
 msgid "Encrypt"
 msgstr "Şifreleme"
 
-#, fuzzy
 msgid "Encrypt message"
 msgstr "Mesajı şifrele"
 
-#, fuzzy
 msgid ""
 "Ensure the privacy of the message by encrypting its contents. Only the "
 "recipient of the message will be able to open it."
@@ -7089,11 +7028,9 @@ msgstr ""
 "İçeriğini şifreleyerek mesajın gizliliğini sağlayın. Yalnızca mesajın "
 "alıcısı mesajı açabilecektir."
 
-#, fuzzy
 msgid "What's going on with my email?"
 msgstr "E-postama ne oldu?"
 
-#, fuzzy
 msgid ""
 "grommunio Web can verify digital signatures of emails. A successful "
 "verification reassures you that the message has not been tampered with and "
@@ -7103,41 +7040,34 @@ msgstr ""
 "doğrulama, mesajın tahrif edilmediğine dair size güvence verir ve gönderenin "
 "kimliğini doğrular."
 
-#, fuzzy
 msgid ""
 "You are seeing this message because the verification of the digital signature"
-msgstr "Bu mesajı görüyorsunuz çünkü dijital imzanın doğrulanması"
+msgstr "Dijital imzanın doğrulanması nedeniyle bu mesajı görüyorsunuz"
 
-#, fuzzy
 msgid " has failed"
 msgstr " başarısız oldu"
 
-#, fuzzy
 msgid " for this message."
 msgstr " bu mesaj için."
 
-#, fuzzy
 msgid "What caused this issue?"
 msgstr "Bu soruna ne sebep oldu?"
 
-#, fuzzy
 msgid "What should I do?"
 msgstr "Ne yapmalıyım?"
 
-#, fuzzy
 msgid ""
 "You can continue to work. However, you should keep in mind that the identity "
 "and the authenticity of the message content could not be verified."
 msgstr ""
 "Çalışmaya devam edebilirsiniz. Ancak, mesaj içeriğinin kimliğinin ve "
-"gerçekliğinin doğrulanamadığını aklınızda bulundurmalısınız."
+"orijinalliğinin doğrulanamayacağını unutmamalısınız."
 
-#, fuzzy
 msgid ""
 "You can contact your helpdesk or system administrator if you are not sure "
 "what to do next."
 msgstr ""
-"Bundan sonra ne yapacağınızdan emin değilseniz yardım masanızla veya sistem "
+"Bundan sonra ne yapacağınızdan emin değilseniz, yardım masanız veya sistem "
 "yöneticinizle iletişime geçebilirsiniz."
 
 msgid ""
@@ -7147,24 +7077,19 @@ msgstr ""
 "grommunio Web, e-postaların dijital imzalarını doğrulayabilir. Başarılı bir "
 "doğrulama size güven verir "
 
-#, fuzzy
 msgid ""
 "that the message has not been tampered with and validates the identity of "
 "the sender."
-msgstr ""
-"mesajın tahrif edilmediğinden emin olur ve gönderenin kimliğini doğrular."
+msgstr "Mesajın kurcalanmadığını ve gönderenin kimliğini doğrular."
 
-#, fuzzy
 msgid ""
 "The verification of the digital signature was successful for this email "
 "message."
-msgstr "Bu e-posta iletisi için dijital imza doğrulaması başarılı oldu."
+msgstr "E-posta mesajı için dijital imzanın doğrulanması başarılı oldu."
 
-#, fuzzy
 msgid "grommunio Web could not find a public certificate for the recipient."
-msgstr "grommunio Web alıcı için bir genel sertifika bulamadı."
+msgstr "grommunio Web, alıcı için genel bir sertifika bulamadı."
 
-#, fuzzy
 msgid ""
 "The identity of the sender and authenticity of the message content have been "
 "verified, but the certificate used to sign the message expired on [d-m-Y]."
@@ -7172,17 +7097,15 @@ msgstr ""
 "Gönderenin kimliği ve mesaj içeriğinin gerçekliği doğrulandı, ancak mesajı "
 "imzalamak için kullanılan sertifikanın süresi [d-m-Y] tarihinde doldu."
 
-#, fuzzy
 msgid "The digital signature could not be verified for unknown reasons."
 msgstr "Dijital imza bilinmeyen nedenlerden dolayı doğrulanamamıştır."
 
-#, fuzzy
 msgid ""
 "The digital certificate used to sign this message has been revoked (i.e. the "
 "sender has marked it as compromised)"
 msgstr ""
-"Bu mesajı imzalamak için kullanılan dijital sertifika iptal edilmiştir "
-"(yani, gönderen sertifika üzerinde gizlilik ihlali olduğunu belirtmiştir)"
+"Bu mesajı imzalamak için kullanılan dijital sertifika iptal edildi (yani, "
+"gönderen onu güvenliği aşılmış olarak işaretledi)"
 
 #, fuzzy
 msgid ""
