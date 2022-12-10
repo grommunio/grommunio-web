@@ -3,17 +3,18 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Turkish\n"
-"Report-Msgid-Bugs-To: \n"
+"Report-Msgid-Bugs-To: dev@grommunio.com\n"
 "POT-Creation-Date: 2019-09-25 14:32+0200\n"
-"PO-Revision-Date: 2022-07-26 19:43+0200\n"
-"Last-Translator: import\n"
-"Language-Team: \n"
+"PO-Revision-Date: 2022-12-10 17:22+0000\n"
+"Last-Translator: Orkan Eser <orkan.eser@grommunio.com>\n"
+"Language-Team: Turkish <https://hosted.weblate.org/projects/grommunio/"
+"grommunio-web/tr/>\n"
 "Language: tr_TR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Weblate 4.14-dev\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.15-dev\n"
 
 #. TRANSLATORS: This message is used as label for the column which indicates the week number of the month in date picker. and 'Wk' stands for week
 msgid "Wk"
@@ -77,7 +78,7 @@ msgstr[0] "{0} hafta"
 msgstr[1] "{0} hafta"
 
 msgid "The quick brown fox jumps over the lazy dog"
-msgstr "Tembel köpeğin üstünden hızlı kahverengi tilki atlar"
+msgstr "Hızlı kahverengi tilki tembel köpeğin üzerinden atlar"
 
 msgid "Sunday"
 msgstr "Pazar"
@@ -324,7 +325,6 @@ msgstr "Bu alan sadece harf, rakam ve _ içermeli"
 msgid "Email Addresses"
 msgstr "E-mail adresleri"
 
-#, fuzzy
 msgid "Email addresses"
 msgstr "E-posta adresleri"
 
@@ -373,7 +373,6 @@ msgstr "İsim"
 msgid "Last name"
 msgstr "Soyadı"
 
-#, fuzzy
 msgid "Initials"
 msgstr "Baş harfler"
 
@@ -472,28 +471,23 @@ msgstr "Seç"
 msgid "Show Details"
 msgstr "Detaylar göster"
 
-#, fuzzy
 msgid "Copy contact"
-msgstr "Kopya iletişim"
+msgstr "Kontağı kopyala"
 
-#, fuzzy
 msgid "Copy contacts"
-msgstr "Kişileri kopyala"
+msgstr "Kontaktları kopyala"
 
-#, fuzzy
 msgid ""
 "Showing only the first {0} names. Use search to find more specific results."
 msgstr ""
 "Sadece ilk {0} isim gösteriliyor. Daha spesifik sonuçlar bulmak için aramayı "
 "kullanın."
 
-#, fuzzy
 msgid "Use the search bar to get results"
 msgstr "Sonuç almak için arama çubuğunu kullanın"
 
-#, fuzzy
 msgid "There are no items to show in this list"
-msgstr "Bu görünümde gösterilecek öğe bulunmamaktadir"
+msgstr "Bu görünümde gösterilecek öğe bulunamadı"
 
 msgid "Show Names from the"
 msgstr "İsimleri göster"
@@ -522,9 +516,8 @@ msgstr "Sıralama: Dosya Olarak"
 msgid "First Name"
 msgstr "Adı"
 
-#, fuzzy
 msgid "Sort by: First Name"
-msgstr "Sıralamaya göre: İlk İsim"
+msgstr "Sıralamaya göre: İsim"
 
 # 77%
 msgid "Last Name"
@@ -586,7 +579,6 @@ msgstr "Sıralama: Konum"
 msgid "Sort by: Fax"
 msgstr "Sıralama: Faks"
 
-#, fuzzy
 msgid "Print single item"
 msgstr "Tek öğe yazdırma"
 
@@ -854,7 +846,7 @@ msgid "Occurs every {0} {1} effective {2} from {3} to {4}."
 msgstr "Her {0} {1} gerçekleşir, başlangıç: {2} saat {3} - {4} arası."
 
 msgid "Occurs every {0} effective {1}."
-msgstr "Her {0} gerçekleşir, başlangıç: {1}"
+msgstr "Her {0} etkili {1} kez gerçekleşir."
 
 msgid "Occurs every {0} {1} effective {2}."
 msgstr "Her {0} {1} gerçekleşir, başlangıç: {2}"
@@ -1412,15 +1404,12 @@ msgstr "Yeni toplantı isteği"
 msgid "Switch calendar range back and forth"
 msgstr "Takvim aralığını ileri geri değiştirme"
 
-#, fuzzy
 msgid "Copy selected item"
 msgstr "Seçili öğeyi kopyala"
 
-#, fuzzy
 msgid "Paste selected item"
 msgstr "Seçili öğeyi yapıştır"
 
-#, fuzzy
 msgid "An overview of"
 msgstr "Genel bir bakış"
 
@@ -1434,7 +1423,6 @@ msgstr "Son"
 
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for formatting instructions
-#, fuzzy
 msgid "Printed by"
 msgstr "Tarafından basılmıştır"
 
@@ -1447,11 +1435,9 @@ msgstr "arasında"
 msgid "Location: "
 msgstr "Yer: "
 
-#, fuzzy
 msgid "j M {0}"
 msgstr "j M {0}"
 
-#, fuzzy
 msgid "l jS M Y {0}"
 msgstr "l jS M Y {0}"
 
@@ -1493,7 +1479,6 @@ msgstr "Hassaslık"
 msgid "Importance"
 msgstr "Önemli"
 
-#, fuzzy
 msgid "M j"
 msgstr "M j"
 
@@ -1515,16 +1500,14 @@ msgstr "Iş gününün sonu"
 msgid "Calendar resolution"
 msgstr "Takvim çözünürlük"
 
-#, fuzzy
 msgid "Default appointment duration {A} minutes"
-msgstr "Tüm gün randevular için varsayılan hatırlatma saatini"
+msgstr "Varsayılan randevu süresi {A} dakika"
 
 msgid "Duration must be between 1 and 120 minutes."
 msgstr "Süre 1 ila 120 dakika arasında olmalıdır."
 
-#, fuzzy
 msgid "Default status for all day appointment"
-msgstr "Tüm gün randevusu için varsayılan durum"
+msgstr "Tüm gün randevu için varsayılan durum"
 
 msgid "Working days"
 msgstr "Çalışma Günleri"
@@ -1542,16 +1525,16 @@ msgstr ""
 msgid "Free/Busy publishing"
 msgstr "Ücretsiz/ Meşgul yayıncılık"
 
-#, fuzzy
 msgid "Publish {A} month(s) of Calendar Free/Busy information on the server."
-msgstr "{A} ay takvim serbest/meşgul bilgisini sunucuda yayımla."
+msgstr "{A} aylık Takvim Serbest/Meşgul bilgilerini sunucuda yayınlayın."
 
 msgid ""
 "You can only publish a Free/Busy period from 0 to 36 months. 0 means Free/"
 "Busy information is not published."
 msgstr ""
-"Yalnızca 0 ila 36 ay arasında bir Boş/Boş dönem yayınlayabilirsiniz. 0, "
-"Serbest/Boş bilgisinin yayınlanmayacağı anlamına gelir."
+"Yalnızca 0 ila 36 ay arasında bir \"serbest/meşgul\" dönem "
+"yayınlayabilirsiniz. 0 \"serbest/meşgul\" bilgisinin yayınlanmayacağı "
+"anlamına gelir."
 
 msgid "Side-by-side mode"
 msgstr "Yan yana modu"
@@ -1585,7 +1568,7 @@ msgstr "j"
 msgid "{0} selected item"
 msgid_plural "{0} selected items"
 msgstr[0] "{0} Seçili öğe"
-msgstr[1] "{0} Seçili öğe"
+msgstr[1] "{0} Seçili öğeler"
 
 msgid "New Appointment"
 msgstr "Yeni randevu"
@@ -1602,22 +1585,20 @@ msgstr "Kopyala/Taşı"
 msgid "Send to..."
 msgstr "Şuraya gönder..."
 
-#, fuzzy
 msgid "Export as"
-msgstr "Olarak dışa aktar"
+msgstr "..dışa aktar"
 
 # 80%
 # 100%
 msgid "Occurrence"
-msgstr "Tekrarlama"
+msgstr "Oluşum"
 
 msgid "Series"
 msgstr "Seri"
 
 # 91%
-#, fuzzy
 msgid "Appointment not found"
-msgstr "Randevular"
+msgstr "Randevu bulunamadı"
 
 msgid "This appointment has been moved or deleted, do you want to continue?"
 msgstr "Bu randevu taşındı veya silindi, devam etmek istiyor musun?"
@@ -3519,65 +3500,56 @@ msgctxt "mail.previewpanel"
 msgid "Received for {0}."
 msgstr "{0} için alınan."
 
-#, fuzzy
 msgctxt "mail.previewpanel"
 msgid "You replied to this message."
 msgstr "Bu mesajı yanıtladınız."
 
-#, fuzzy
 msgctxt "mail.previewpanel"
 msgid "You forwarded this message."
-msgstr "Bu mesajı iletmişsiniz."
+msgstr "Bu mesajı ilettin."
 
 msgctxt "mail.previewpanel"
 msgid "You replied to this message on {0}."
-msgstr "Bu mesajı {0}'dan cevapladınız."
+msgstr "Bu mesajı {0} tarihinde yanıtladınız."
 
 msgctxt "mail.previewpanel"
 msgid "You forwarded this message on {0}."
-msgstr "Bu mesajı {0} ilettiniz."
+msgstr "Bu mesajı {0} tarihinde yönlendirdiniz."
 
 msgid "Assigned by {0} on {1}."
-msgstr "{0} {1} tarihte kabul etti."
+msgstr "{0} tarafından {1} tarihinde atandı."
 
-#, fuzzy
 msgid "Waiting for response from recipient"
-msgstr "Alıcılardan okundu isteyi isteyin"
+msgstr "Alıcıdan yanıt bekleniyor"
 
 msgid "Accepted by {0} on {1}."
 msgstr "{0} {1} tarihte kabul etti."
 
-#, fuzzy
 msgid "{0} has accepted on behalf of {1} {2}."
-msgstr "{1} adına {0} kabul etti."
+msgstr "{0}, {1} {2} adına kabul etti."
 
 msgid "Declined by {0} on {1}."
 msgstr "{0} {1} tarihte kabul etti."
 
 msgid "{0} has declined on behalf of {1} {2}."
-msgstr "{1} adına {0} redetti."
+msgstr "{0}, {1} {2} adına reddetti."
 
-#, fuzzy
 msgid "Last update sent on {0}."
 msgstr "Son güncelleme {0} tarihinde gönderildi."
 
-#, fuzzy
 msgid "{0} has updated on behalf of {1} {2}."
-msgstr "{1} adına {0} kabul etti."
+msgstr "{0}, {1} {2} adına güncellendi."
 
-#, fuzzy
 msgid "Fix message"
-msgstr "Orijinal mesaj"
+msgstr "Mesajı düzelt"
 
 msgid ""
 "We are going to try to fix a corrupted mail message, do you wish to continue?"
 msgstr ""
-"Bozuk bir e-posta mesajını düzeltmeye çalışacağız, devam etmek istiyor "
-"musunuz?"
+"Bozuk bir posta mesajını düzeltmeye çalışacağız, devam etmek istiyor musunuz?"
 
-#, fuzzy
 msgid "The matching task was not found in your task list."
-msgstr "Eşleşen görev, görev listenizde bulunamadı."
+msgstr "Eşleşen görev listenizde bulunamadı."
 
 # 100%
 msgctxt "mail.previewpanel"
@@ -3587,12 +3559,12 @@ msgstr "Kime"
 # 100%
 msgctxt "mail.previewpanel"
 msgid "Cc"
-msgstr "Cc"
+msgstr "CC"
 
 # 100%
 msgctxt "mail.previewpanel"
 msgid "Bcc"
-msgstr "Bcc"
+msgstr "BCC"
 
 msgctxt "mail.previewpanel"
 msgid "Categories"
@@ -4262,9 +4234,8 @@ msgstr "Yüksek Kontrast"
 msgid "Lime"
 msgstr "Limon"
 
-#, fuzzy
 msgid "Magenta"
-msgstr "Magenta"
+msgstr "Eflatun"
 
 msgid "Orange"
 msgstr "Turuncu"
@@ -4288,13 +4259,11 @@ msgstr "Gönderiliyor..."
 msgid "Sent successfully"
 msgstr "Başarıyla gönderildi"
 
-#, fuzzy
 msgid "No recipient"
-msgstr "Alıcı düzenle"
+msgstr "Alıcı yok"
 
-#, fuzzy
 msgid "Please specify at least one recipient"
-msgstr "Bir alıcı belirtin"
+msgstr "Lütfen en az bir alıcı belirtin"
 
 msgid "Please specify a recipient"
 msgstr "Bir alıcı belirtin"
@@ -4305,9 +4274,8 @@ msgstr "Eklenen dosyalar henüz yüklenmedi."
 msgid "Do you want to send this message without attachments?"
 msgstr "Bu mesajı eksiz göndermek istiyor musunuz?"
 
-#, fuzzy
 msgid "Attachments not uploaded yet"
-msgstr "Ekler indirilemiyor"
+msgstr "Ekler henüz yüklenmedi"
 
 msgid "Don't Send"
 msgstr "Gönderme"
@@ -4321,9 +4289,8 @@ msgstr "Konu yok"
 msgid "Send this message without a subject?"
 msgstr "Bu mesajı konusuz gönder?"
 
-#, fuzzy
 msgid "Unresolved recipients"
-msgstr "Alıcı düzenle"
+msgstr "Çözülmemiş alıcılar"
 
 msgid "Not all recipients could be resolved"
 msgstr "Bütün alıcılar eşleştirilmedi"
@@ -4337,9 +4304,8 @@ msgstr "Hiyerarşi genişlet"
 msgid "Folders List"
 msgstr "Klasör listesi"
 
-#, fuzzy
 msgid "Copy Details"
-msgstr "Detaylar göster"
+msgstr "Detayları göster"
 
 msgid "Hide Details"
 msgstr "Detayları Gizle"
@@ -4357,7 +4323,6 @@ msgstr "Kaydedildi"
 msgid "Saved successfully"
 msgstr "Başarıyla kaydedildi"
 
-#, fuzzy
 msgid ""
 "You will lose all unsaved work. Are you sure you want to close this window?"
 msgstr ""
@@ -4365,7 +4330,7 @@ msgstr ""
 "istediğinizden emin misiniz?"
 
 msgid "grommunio Content Panel"
-msgstr "grommunio Content Panel"
+msgstr "grommunio İçerik Paneli"
 
 msgid "Delete item"
 msgstr "Bu öğeyi sil"
@@ -4376,7 +4341,6 @@ msgstr "Bu öğe değiştirildi. Silmek istediğinizden emin misiniz?"
 msgid "Unsaved changes"
 msgstr "Kaydedilmeyen değişiklikler"
 
-#, fuzzy
 msgid "Welcome to grommunio Web"
 msgstr "Grommunio Web'e hoş geldiniz"
 
@@ -4386,9 +4350,8 @@ msgstr "Grommunio Web'i ilk kez kullanıyorsunuz. "
 msgid "Please check the following settings before continuing."
 msgstr "Devam etmeden önce lütfen aşağıdaki ayarları kontrol edin."
 
-#, fuzzy
 msgid "Widget height"
-msgstr "Parçacık ekle"
+msgstr "Widget (araç) yüksekliği"
 
 msgid "pixels"
 msgstr "piksel"
@@ -4396,7 +4359,6 @@ msgstr "piksel"
 msgid "Configure widget"
 msgstr "Widget yapılandır"
 
-#, fuzzy
 msgid "Reload interval"
 msgstr "Yeniden yükleme aralığı"
 
@@ -4421,13 +4383,11 @@ msgstr "Widget'ı daralt"
 msgid "Expand widget"
 msgstr "Widget'ı genişlet"
 
-#, fuzzy
 msgid "About this widget"
-msgstr "Bu widget hakkında"
+msgstr "Bu widget (araç) hakkında"
 
-#, fuzzy
 msgid "Add new widget"
-msgstr "Parçacık ekle"
+msgstr "Widget (araç) ekle"
 
 msgid "Collapse widget panel"
 msgstr "Widget panelini daraltma"
@@ -4438,19 +4398,17 @@ msgstr "Widget panelini genişletme"
 msgid "Your changes will be lost if you leave this page now."
 msgstr "Bu sayfadan şimdi çıkarsanız değişiklikleriniz kaybolacaktır."
 
-#, fuzzy
 msgid "D {0}"
 msgstr "D {0}"
 
-#, fuzzy
 msgid "D d-m"
-msgstr "d-m-Y"
+msgstr "D d-m"
 
 msgid ""
 "Not enough permissions to open this store, do you want to remove it from the "
 "hierarchy?"
 msgstr ""
-"Bu mağazayı açmak için yeterli izininiz yok, hiyerarşi kaldırmak "
+"Bu mağazayı açmak için yeterli yetkiniz yok, hiyerarşi kaldırmak "
 "istiyorsunuz?"
 
 msgid ""
@@ -4465,16 +4423,15 @@ msgstr "Yetersiz İzinler"
 msgid "Not enough permissions to open this folder."
 msgstr "Bu klasörü açmak için yeterli izin yok."
 
-#, fuzzy
 msgid "There is {0} unread message in the folder {1} of {2}"
 msgid_plural "There are {0} unread messages in the folder {1} of {2}"
-msgstr[0] "Okunmamış {0} mesaj {1} klasörde bulunmaktadır"
-msgstr[1] "Okunmamış {0} mesaj {1} klasörde bulunmaktadır"
+msgstr[0] "{1}/{2} klasöründe {0} okunmamış mesaj var"
+msgstr[1] "{1}/{2} klasöründe {0} okunmamış mesajlar var"
 
 msgid "There is {0} unread message in the folder {1}"
 msgid_plural "There are {0} unread messages in the folder {1}"
-msgstr[0] "Okunmamış {0} mesaj {1} klasörde bulunmaktadır"
-msgstr[1] "Okunmamış {0} mesaj {1} klasörde bulunmaktadır"
+msgstr[0] "{1} klasöründe {0} okunmamış mesaj var"
+msgstr[1] "{1} klasöründe {0} okunmamış mesajlar var"
 
 msgid "Publishing Editor"
 msgstr "Yayın Editorü"
@@ -4492,20 +4449,17 @@ msgid "Nonediting Author"
 msgstr "Düzenlenmeyen Yazar"
 
 msgid "Reviewer"
-msgstr "Gözden geçiren"
+msgstr "İnceleyen"
 
 msgid "Contributor"
 msgstr "Katkıda bulunan"
 
-#, fuzzy
 msgid "Free/Busy time, subject, location"
-msgstr "Boş/Boş zaman, konu, konum"
+msgstr "Serbest/Meşgul zaman, konu, konum"
 
-#, fuzzy
 msgid "Free/Busy time"
-msgstr "Boş / Meşgul zaman"
+msgstr "Serbest/Meşgul zaman"
 
-#, fuzzy
 msgid "Unable to import:"
 msgstr "İçe aktarılamıyor:"
 
@@ -4536,13 +4490,11 @@ msgstr "Görev Öğeler"
 msgid "Select where to place the folder"
 msgstr "Klasörün yerleştirileceği yeri seç"
 
-#, fuzzy
 msgid "No folder name"
-msgstr "Klasör adı"
+msgstr "Klasör adı yok"
 
-#, fuzzy
 msgid "No destination"
-msgstr "Bilgi yok"
+msgstr "Hedef yok"
 
 msgid "You must select a destination folder."
 msgstr "Bir hedef klasörü seçmelisiniz."
@@ -4556,9 +4508,8 @@ msgstr "Tür"
 msgid "Description"
 msgstr "Açıklama"
 
-#, fuzzy
 msgid "EntryID"
-msgstr "EntryID"
+msgstr "Giriş kimliği"
 
 #, fuzzy
 msgid "Parent EID"
@@ -5009,14 +4960,12 @@ msgstr "Kırmızı/tamamlandı bayrağını aç / kapat"
 msgid "Open Shared Mails"
 msgstr "Paylastığım mesajları aç"
 
-#, fuzzy
 msgid "Print single email"
 msgstr "Tek bir e-posta yazdır"
 
 # 78%
-#, fuzzy
 msgid "Print selected email"
-msgstr "Seçili öğeyi yazdır"
+msgstr "Seçilen e-postayı yazdır"
 
 msgid "Filter"
 msgstr "Filtre"
@@ -5027,23 +4976,18 @@ msgstr "İLT"
 msgid "Re"
 msgstr "YNT"
 
-#, fuzzy
 msgid "on behalf of"
-msgstr "adına"
+msgstr "temsilen"
 
-#, fuzzy
 msgid "Safe Senders list is empty"
 msgstr "Güvenli Gönderenler listesi boş"
 
-#, fuzzy
 msgid "Please select a safe sender record."
 msgstr "Lütfen güvenli bir gönderici kaydı seçin."
 
-#, fuzzy
 msgid "Delete all safe senders"
 msgstr "Tüm güvenli göndericileri sil"
 
-#, fuzzy
 msgid "Are you sure you want to delete all safe senders?"
 msgstr "Tüm güvenli göndericileri silmek istediğinizden emin misiniz?"
 
@@ -5073,15 +5017,12 @@ msgstr "Her zaman okundu bilgisi istemek"
 msgid "{A}AutoSave unsent mail every {B} minute(s)"
 msgstr "gönderilemeyen e-postaları her {B} dakika {A}otomatik kaydet"
 
-#, fuzzy
 msgid "Conversation view settings"
 msgstr "Görüşme görünümü ayarları"
 
-#, fuzzy
 msgid "Enable conversation view"
 msgstr "Görüşme görünümünü etkinleştir"
 
-#, fuzzy
 msgid "Collapse conversation when selecting a different email"
 msgstr "Farklı bir e-posta seçerken görüşmeyi daraltma"
 
@@ -5120,7 +5061,7 @@ msgid "Location of preview pane"
 msgstr "Önizleme bölmesinin konumu"
 
 msgid "Use subject prefixes in accordance with RFC 5256/5322"
-msgstr ""
+msgstr "Konu öneklerini RFC 5256/5322'ye uygun olarak kullanın"
 
 msgid "Close original message on reply or forward"
 msgstr "Yanıt veya iletilerde orijinal mesajı kapat"
@@ -5128,9 +5069,8 @@ msgstr "Yanıt veya iletilerde orijinal mesajı kapat"
 msgid "General mail settings"
 msgstr "Genel mesaj ayarları"
 
-#, fuzzy
 msgid "Open or compose a mail item in a"
-msgstr "Bir e-posta öğesini ... içinde açın veya oluşturun"
+msgstr "Bir posta öğesi açın veya oluşturun"
 
 msgid "grommunio Web tab"
 msgstr "grommunio Web sekmesi"
@@ -5138,9 +5078,8 @@ msgstr "grommunio Web sekmesi"
 msgid "Browser window"
 msgstr "Tarayıcı penceresi"
 
-#, fuzzy
 msgid "Update Out of Office settings for"
-msgstr "Aşağıdakiler için Ofis Dışında ayarlarını güncelleyin"
+msgstr "Ofis dışında ayarlarını güncelleyin"
 
 msgid "I am currently in the office"
 msgstr "Şu anda ofisteyim"
@@ -5151,30 +5090,24 @@ msgstr "...itibariyle ofis dışındayım"
 msgid "I will be back on"
 msgstr "...geri döneceğim"
 
-#, fuzzy
 msgid "Automatically reply once per day, per sender with the following text"
-msgstr "Her gönderene bir kere otomatik metin yanıtla"
+msgstr "Gönderene otomatik olarak aşağıdaki metinle yanıtla"
 
-#, fuzzy
 msgid "Inside My Organization"
-msgstr "Kuruluşumun İçinde"
+msgstr "Kuruluşumun içinde"
 
 msgid "User is currently out of office."
 msgstr "Kullanıcı şu anda görevde değil."
 
-#, fuzzy
 msgid "Outside My Organization"
-msgstr "Kuruluşumun Dışında"
+msgstr "Kuruluşumun dışında"
 
-#, fuzzy
 msgid "Auto-reply to people outside my organization"
-msgstr "Kuruluşum dışındaki kişilere otomatik yanıt verme"
+msgstr "Kuruluşum dışındaki kişilere otomatik yanıtlama"
 
-#, fuzzy
 msgid "My contacts only"
-msgstr "Yalnızca kişilerim"
+msgstr "Sadece benim kişilerim"
 
-#, fuzzy
 msgid "Anyone outside my organization"
 msgstr "Kurumum dışındaki herkes"
 
@@ -5184,11 +5117,9 @@ msgstr ""
 "Girdiğiniz zaman, ofis dışında olacağınız tarih'ten önce. Lütfen yeniden "
 "planlayın."
 
-#, fuzzy
 msgid "Safe Senders"
 msgstr "Güvenli Göndericiler"
 
-#, fuzzy
 msgid ""
 "To protect your privacy email addresses or domains can only be added via the "
 "\"Add to safe sender list\" functionality in an opened email."
@@ -5209,15 +5140,12 @@ msgstr "Yapılandırılmış imzalar yok"
 msgid "New messages"
 msgstr "Yeni mesajlar"
 
-#, fuzzy
 msgid "Replies/forwards"
-msgstr "Yanıtlar/İletiler"
+msgstr "Yanıtla/İlet"
 
-#, fuzzy
 msgid "Signature name:"
 msgstr "İmza adı:"
 
-#, fuzzy
 msgid "Save Signature"
 msgstr "Imzalar"
 
@@ -5228,20 +5156,18 @@ msgstr ""
 msgid "New signature"
 msgstr "Yeni imza"
 
-#, fuzzy
 msgid "EML file(s)"
-msgstr "EML dosya(ları)"
+msgstr "EML dosyası(ları)"
 
-#, fuzzy
 msgid "ZIP file"
-msgstr "Profil"
+msgstr "ZIP dosyası"
 
 msgid "max. "
-msgstr "en çok "
+msgstr "maximum "
 
 # 75%
 msgid "Sort by: Sent"
-msgstr "Sıralama: Yollanan"
+msgstr "Sıralama: Gönderilmiş"
 
 msgid "Modified"
 msgstr "Değiştirilmiş"
@@ -5252,7 +5178,6 @@ msgstr "Sıralama: Değiştirilmiş"
 msgid "Flag"
 msgstr "Bayrak"
 
-#, fuzzy
 msgid "Sort by: flag"
 msgstr "Sıralama ölçütü: bayrak"
 
@@ -5265,13 +5190,11 @@ msgid "Yesterday"
 msgstr "Dün"
 
 msgid "Last Week"
-msgstr "Geçen hafta"
+msgstr "Geçen Hafta"
 
-#, fuzzy
 msgid "Two Weeks Ago"
 msgstr "İki Hafta Önce"
 
-#, fuzzy
 msgid "Three Weeks Ago"
 msgstr "Üç Hafta Önce"
 
@@ -5287,16 +5210,14 @@ msgstr "Orta"
 msgid "Large"
 msgstr "Büyük"
 
-#, fuzzy
 msgid "Very large"
 msgstr "Çok büyük"
 
 msgid "Huge"
-msgstr "Dev"
+msgstr "Aşırı büyük"
 
-#, fuzzy
 msgid "Follow up"
-msgstr "Takip edin"
+msgstr "Takip et"
 
 msgid "Move to Junk Folder"
 msgstr "Önemsiz klasöre taşı"
@@ -5316,9 +5237,8 @@ msgstr "Okunmamış Posta"
 msgid "Quick Mail"
 msgstr "Hızlı mesaj"
 
-#, fuzzy
 msgid "Print note"
-msgstr "Bu notu yazdır"
+msgstr "Notu yazdır"
 
 msgid "Color"
 msgstr "Renk"
@@ -5370,12 +5290,11 @@ msgstr "Notlar yükleniyor"
 msgid "Quick Note"
 msgstr "Hızlı Not"
 
-#, fuzzy
 msgid ""
 "You must reload grommunio Web for the changes to take effect. Unsaved "
 "changes will be lost."
 msgstr ""
-"Değişikliklerin etkili olması için lütfen grommunio Web'i yeniden yükleyin."
+"Değişikliklerin etkili olması için lütfen grommunio Web'i tekrar yenileyiniz."
 
 msgid "Reload grommunio Web"
 msgstr "Grommunio Web'i yeniden yükle"
@@ -5386,7 +5305,6 @@ msgstr "Ayarlar"
 msgid "Basic"
 msgstr "Temel"
 
-#, fuzzy
 msgid "Account information - {0}"
 msgstr "Hesap bilgileri - {0}"
 
@@ -5411,15 +5329,12 @@ msgstr "Gelişmiş"
 msgid "Advanced settings"
 msgstr "Gelişmiş ayarlar"
 
-#, fuzzy
 msgid "Developer tools"
 msgstr "Geliştirici araçları"
 
-#, fuzzy
 msgid "Show insertion points in grommunio Web"
 msgstr "Grommunio Web'de ekleme noktalarını göster"
 
-#, fuzzy
 msgid "Show \"item data\" button in context menu (mail only)"
 msgstr "İçerik menüsünde \"öğe verileri\" düğmesini göster (yalnızca posta)"
 
@@ -5432,91 +5347,73 @@ msgstr "Eski durumuna getir"
 msgid "Delete settings"
 msgstr "Ayarları sil"
 
-#, fuzzy
 msgid "{0} Iconset"
-msgstr "Simgeler"
+msgstr "{0} simgeler"
 
 msgid "About"
 msgstr "Hakkında"
 
-#, fuzzy
 msgid "I want to display date and time in this format:"
 msgstr "Tarih ve saati bu formatta görüntülemek istiyorum:"
 
 msgid "Short"
 msgstr "Kısa"
 
-#, fuzzy
 msgid "Long"
 msgstr "Uzun"
 
 msgid "Time format:"
 msgstr "Saat Formatı:"
 
-#, fuzzy
 msgid "12h clock"
 msgstr "12 saat"
 
-#, fuzzy
 msgid "24h clock"
 msgstr "24 saat"
 
 # 88%
-#, fuzzy
 msgid "Favorite settings"
-msgstr "Delege ayarları"
+msgstr "Favori ayarları"
 
-#, fuzzy
 msgid "Hide favorites"
-msgstr "Favoriler"
+msgstr "Favorileri gizle"
 
-#, fuzzy
 msgid "Unpin favorites from top"
-msgstr "Sık kullanılanları üstten kaldırın"
+msgstr "Favori sabitlemesini yukarıdan kaldır"
 
-#, fuzzy
 msgid "Give unread items a colored border"
-msgstr "Okunmamış öğelere renkli bir kenarlık verin"
+msgstr "Okunmamış öğelerin kenarlarını renklendirin"
 
-#, fuzzy
 msgid "Show 'help' button in top-right corner"
 msgstr "Sağ üst köşede 'yardım' düğmesini göster"
 
-#, fuzzy
 msgid "Show unread mail counter in application title"
 msgstr "Okunmamış posta sayacını uygulama başlığında gösterme"
 
-#, fuzzy
 msgid "Hide widget panel"
-msgstr "Widget panelini gizle"
+msgstr "Araç panelini gizle"
 
-#, fuzzy
 msgid "Show search bar above folder list"
 msgstr "Arama çubuğunu klasör listesinin üzerinde göster"
 
 msgid "Auto"
 msgstr "Otomatik"
 
-#, fuzzy
 msgid "Actual size"
 msgstr "Gerçek boyut"
 
 msgid "Page width"
 msgstr "Sayfa genişliği"
 
-#, fuzzy
 msgid "Attachment preview (PDF and Open formats)"
-msgstr "Ek önizleme (PDF ve Open formatları)"
+msgstr "Ek önizleme (PDF ve mümkün olan formatlar)"
 
-#, fuzzy
 msgid "Document default zoom"
-msgstr "Belge varsayılan yakınlaştırma"
+msgstr "Varsayılan yakınlaştırma"
 
-#, fuzzy
 msgid "PDF zoom"
 msgstr "PDF yakınlaştırma"
 
-#, fuzzy
 msgid "File previewing"
 msgstr "Dosya önizleme"
 
@@ -5563,9 +5460,8 @@ msgstr "Temel klavye kısayolları"
 msgid "All keyboard shortcuts on"
 msgstr "Tüm klavye kısayolları açık"
 
-#, fuzzy
 msgid "This change requires a reload of grommunio Web"
-msgstr "Bu değişiklik grommunio Web'in yeniden yüklenmesini gerektirir"
+msgstr "Bu değişiklik için grommunio Web'in yenilenmesi gerektirir"
 
 msgid "Plugins"
 msgstr "Eklentiler"
@@ -5588,31 +5484,25 @@ msgstr "Bu eklenti etkinleştirilemez"
 msgid "Mailbox Usage"
 msgstr "Posta kutusu kullanımı"
 
-#, fuzzy
 msgid "A quota is not set on your store."
-msgstr "Mağazanızda bir kota belirlenmemiştir."
+msgstr "Hesabınızda kota belirlenmemiştir."
 
 msgid "{0} of mailbox space is used."
 msgstr "Posta kutusu alanının {0} kadarı kullanıldı."
 
-#, fuzzy
 msgid "You have exceeded hard quota, you can not send or receive mails."
 msgstr "Sabit kotayı aştınız, posta gönderemez veya alamazsınız."
 
 msgid "At {0} you won't be able to send mails."
 msgstr "{0}'den sonra postalar göndermek mümkün olmayacaktır."
 
-#, fuzzy
 msgid ""
 "You can not send mails as you have exceeded soft quota, at {0} you won't be "
 "able to receive mails."
-msgstr ""
-"Yumuşak kotayı aştığınız için posta gönderemezsiniz, {0}'de posta "
-"alamazsınız."
+msgstr "Kotayı aştığınız için posta gönderemezsiniz, {0}'de posta alamazsınız."
 
-#, fuzzy
 msgid "At {0} you won't be able to send or receive mails."
-msgstr "1} konumunda posta gönderemez veya alamazsınız."
+msgstr "{0} konumunda posta gönderemez veya alamazsınız."
 
 msgid "You can not send mails as you have exceeded soft quota."
 msgstr "Yumuşak kotayı aştığınız için posta gönderemezsiniz."
@@ -5623,28 +5513,25 @@ msgstr "Ayarları sıfırla"
 msgid "Reset settings to their original defaults."
 msgstr "Ayarları orijinal varsayılanlarına sıfırlayın."
 
-#, fuzzy
 msgid ""
 "This will close all opened shared stores and resets all settings to the "
 "default value."
 msgstr ""
-"Bu, tüm açık paylaşılan depoları kapatır ve tüm ayarları varsayılan değere "
-"sıfırlar."
+"Tüm paylaşılan depoları kapatılır ve tüm ayarları varsayılan değere geri "
+"döner."
 
-#, fuzzy
 msgid ""
 "grommunio Web will automatically reload in order for these changes to take "
 "effect"
 msgstr ""
-"grommunio Web, bu değişikliklerin yürürlüğe girmesi için otomatik olarak "
+"grommunio Web, bu değişikliklerin aktivleşmesi girmesi için otomatik olarak "
 "yeniden başlar"
 
 msgid "Reset"
 msgstr "Sıfırla"
 
-#, fuzzy
 msgid "Reloading, Please wait."
-msgstr "Webapp yeniden yükleniyor, lütfen bekleyin."
+msgstr "yeniden yükleniyor, lütfen bekleyiniz."
 
 msgid "Setting"
 msgstr "Ayar"
@@ -5658,15 +5545,12 @@ msgstr "Sürüm bilgileri"
 msgid "Gromox"
 msgstr "Gromox"
 
-#, fuzzy
 msgid "Delete confirmation"
-msgstr "Onayı sil"
+msgstr "Onayı iptal et"
 
-#, fuzzy
 msgid "Deleting the item(s) will also delete the original item(s)."
 msgstr "Öğenin/öğelerin silinmesi orijinal öğeyi/öğeleri de silecektir."
 
-#, fuzzy
 msgid "Do you want to delete the item(s)?"
 msgstr "Öğeleri silmek istiyor musunuz?"
 
@@ -5714,41 +5598,35 @@ msgstr "Fatura bilgileri"
 msgid "Mileage"
 msgstr "İlerleme"
 
-#, fuzzy
 msgid "Accepting Task"
-msgstr "Etkin Görevler"
+msgstr "Görevi kabul et"
 
-#, fuzzy
 msgid "Declining Task"
-msgstr "Azalan Görev"
+msgstr "Reddedilen Görev"
 
-#, fuzzy
 msgid ""
 "This task will be accepted and moved to your task folder. Do you want to "
 "include comments with your response?"
 msgstr ""
-"Davetiye kabul edilmiştir ve takvimine geçiriliyor. Yanıta yorum eklemek "
-"istiyor musunuz?"
+"Bu görev kabul edilecek ve görev klasörünüze taşınacaktır. Yanıtınıza yorum "
+"eklemek ister misiniz?"
 
-#, fuzzy
 msgid ""
 "This task will be declined and moved into the Deleted Items folder. Do you "
 "want to edit the response before sending it?"
 msgstr ""
-"Bu toplantı reddetilmiştir ve silinmiş öğelere geçiriliyor. Yanıta yorum "
-"eklemek istiyor musunuz?"
+"Bu görev reddedilecek ve Silinmiş Öğeler klasörüne taşınacaktır. Yanıtı "
+"göndermeden önce düzenlemek istiyor musunuz?"
 
-#, fuzzy
 msgid "Send the response now"
-msgstr "Yanıtı şimdi gönder"
+msgstr "Cevabı şimdi gönder"
 
 # 92%
 msgid "Date Complete"
 msgstr "Tarih Tamamlandı"
 
-#, fuzzy
 msgid "Multiple companies name must be separated by"
-msgstr "Birden fazla şirket adı şu şekilde ayrılmalıdır"
+msgstr "Çoklu şirket adı ayrılmalıdır"
 
 msgid "Update List"
 msgstr "Listeyi Güncelle"
@@ -5759,17 +5637,14 @@ msgstr "Atanmamış Kopya oluştur"
 msgid "copy"
 msgstr "kopyala"
 
-#, fuzzy
 msgid "Unable to send task request"
 msgstr "Görev isteği gönderilemiyor"
 
-#, fuzzy
 msgid "You cannot send a task request to yourself."
 msgstr "Kendinize bir görev isteği gönderemezsiniz."
 
-#, fuzzy
 msgid "Multiple recipients"
-msgstr "Alıcı bilgileri"
+msgstr "Birden çok alıcı"
 
 msgid "A task request can only have one recipient."
 msgstr "Bir görev isteğinin yalnızca bir alıcısı olabilir."
@@ -5785,21 +5660,17 @@ msgstr "Öncelik"
 msgid "% Complete"
 msgstr "% Tamamlandı"
 
-#, fuzzy
 msgid "Track progress"
 msgstr "Devam etmekte"
 
-#, fuzzy
 msgid "Keep updated copy of task and receive automated status reports"
 msgstr "Görevin güncel kopyasını saklayın ve otomatik durum raporları alın"
 
-#, fuzzy
 msgid "Send task to assignees"
-msgstr "Görevi ataya gönder"
+msgstr "Atananlara görev gönder"
 
-#, fuzzy
 msgid "Restore to Task List"
-msgstr "Eski durumuna getir"
+msgstr "Görev Listesini eski durumuna getir"
 
 # 94%
 # 76%
