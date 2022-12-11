@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: grommunio Web Japanese\n"
 "Report-Msgid-Bugs-To: dev@grommunio.com\n"
 "POT-Creation-Date: 2019-09-25 14:32+0200\n"
-"PO-Revision-Date: 2022-12-11 12:14+0000\n"
+"PO-Revision-Date: 2022-12-11 14:49+0000\n"
 "Last-Translator: Orkan Eser <orkan.eser@grommunio.com>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/grommunio/"
 "grommunio-web/ja/>\n"
@@ -186,7 +186,7 @@ msgid "Today"
 msgstr "今日"
 
 msgid "OK"
-msgstr "OK"
+msgstr "わかった"
 
 msgid "Cancel"
 msgstr "キャンセル"
@@ -402,7 +402,7 @@ msgid "Professional"
 msgstr "プロフェッショナル"
 
 msgid "Title"
-msgstr "役職"
+msgstr "タイトル"
 
 msgid "Company"
 msgstr "会社"
@@ -4828,26 +4828,23 @@ msgstr "すべて表示"
 msgid "Show all folders"
 msgstr "全フォルダを表示する"
 
-#, fuzzy
 msgid ""
 "You have insufficient privileges to move this folder. Would you like to copy "
 "instead?"
-msgstr ""
-"このフォルダを移動するには、十分な権限がありません。代わりにコピーを行います"
-"か？"
+msgstr "このフォルダを移動する権限がありません。代わりにコピーしますか?"
 
 msgid "CC"
-msgstr "Cc"
+msgstr "シーシー"
 
 msgid "BCC"
 msgstr "Bcc"
 
 msgid "Sort by: Importance"
-msgstr "並べ替え：重要度"
+msgstr "並べ替え: 重要度"
 
 # 76%
 msgid "Sort by: To"
-msgstr "並べ替え：宛先"
+msgstr "並べ替え: に"
 
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "Sent"
@@ -4869,9 +4866,8 @@ msgstr "予定されている項目"
 msgid "Your message will be sent at "
 msgstr "メッセージは次の時間に送信されます "
 
-#, fuzzy
 msgid "Go to your Outbox to edit your email."
-msgstr "<b>送信済みフォルダ</b> を開き、メールを編集してください。"
+msgstr "送信トレイに移動して、メールを編集します。"
 
 msgid "hour(s)"
 msgstr "時間"
@@ -4915,9 +4911,8 @@ msgstr "保存に失敗しました"
 msgid "Message Options"
 msgstr "メッセージのオプション"
 
-#, fuzzy
 msgid "This message will be flagged for follow up when it is sent."
-msgstr "このメッセージは、送信時にフォローアップのためのフラグが立てられます。"
+msgstr "このメッセージは、送信時にフォローアップのためにフラグが立てられます。"
 
 msgid "Send Later"
 msgstr "後で送信"
@@ -4963,9 +4958,8 @@ msgstr "受信者に開封通知を要求する"
 msgid "Show Bcc"
 msgstr "Bccを表示"
 
-#, fuzzy
 msgid "Show Bcc field"
-msgstr "Bccを表示"
+msgstr "Bcc フィールドを表示"
 
 #, fuzzy
 msgid "Show From field"
@@ -4996,12 +4990,11 @@ msgstr "件名がありません"
 msgid "Set Category"
 msgstr "カテゴリーを設定"
 
-#, fuzzy
 msgid "Pop-Out"
-msgstr "ポップアウト"
+msgstr "飛び出る"
 
 msgid "Mark Read"
-msgstr "既読にする"
+msgstr "マーク・リード"
 
 msgid "Mark Unread"
 msgstr "未読にする"
@@ -5036,9 +5029,8 @@ msgid "Print single email"
 msgstr "メールを印刷する"
 
 # 78%
-#, fuzzy
 msgid "Print selected email"
-msgstr "選択したタスクを印刷"
+msgstr "選択したメールを印刷する"
 
 msgid "Filter"
 msgstr "フィルター"
@@ -5084,9 +5076,8 @@ msgstr "この形式でメールを構成する"
 msgid "Default font"
 msgstr "デフォルトフォント"
 
-#, fuzzy
 msgid "Default font size"
-msgstr "デフォルトのフォントサイズ"
+msgstr "デフォルトのフォント サイズ"
 
 msgid "Always request a read receipt"
 msgstr "常に開封確認の通知を要求をします"
@@ -5130,7 +5121,7 @@ msgid "{A}Automatically mark mail as read after {B} second(s)"
 msgstr "{B}秒後に自動的に既読にする。"
 
 msgid "Off"
-msgstr "Off"
+msgstr "オフ"
 
 msgid "Right"
 msgstr "右"
@@ -5175,7 +5166,7 @@ msgid "I will be back on"
 msgstr "に戻ってきます。"
 
 msgid "Automatically reply once per day, per sender with the following text"
-msgstr "1日1回、送信者ごとに以下のテキストで自動返信する。"
+msgstr "送信者ごとに 1 日 1 回、次のテキストを自動的に返信します"
 
 #, fuzzy
 msgid "Inside My Organization"
@@ -5229,9 +5220,8 @@ msgstr "署名が設定されていません"
 msgid "New messages"
 msgstr "新着メッセージ"
 
-#, fuzzy
 msgid "Replies/forwards"
-msgstr "返信・転送"
+msgstr "返信/転送"
 
 msgid "Signature name:"
 msgstr "署名の名前"
@@ -5271,9 +5261,8 @@ msgstr "並び替え修正済み"
 msgid "Flag"
 msgstr "フラグ"
 
-#, fuzzy
 msgid "Sort by: flag"
-msgstr "並び順：フラグ"
+msgstr "並べ替え: フラグ"
 
 # 85%
 # 100%
@@ -5313,12 +5302,11 @@ msgstr "非常に大きい"
 msgid "Huge"
 msgstr "超特大"
 
-#, fuzzy
 msgid "Follow up"
-msgstr "フォローアップ"
+msgstr "ファローアップ"
 
 msgid "Move to Junk Folder"
-msgstr "迷惑メールフォルダーに移動"
+msgstr "ジャンクフォルダに移動"
 
 # 75%
 msgid "Send to"
@@ -5361,9 +5349,8 @@ msgstr "選択したメモを印刷"
 
 # 75%
 # 100%
-#, fuzzy
 msgid "No note selected"
-msgstr "タスクが選択されていません"
+msgstr "メモが選択されていません"
 
 msgid "Icons"
 msgstr "アイコン"
@@ -5392,13 +5379,11 @@ msgstr "メモ読み込み"
 msgid "Quick Note"
 msgstr "クイック メモ"
 
-#, fuzzy
 msgid ""
 "You must reload grommunio Web for the changes to take effect. Unsaved "
 "changes will be lost."
-msgstr ""
-"変更を反映させるには、grommunio Webを再読み込みする必要があります。保存してい"
-"ない変更は失われます。"
+msgstr "変更を有効にするには、grommunio Web "
+"をリロードする必要があります。保存されていない変更は失われます。"
 
 msgid "Reload grommunio Web"
 msgstr "グロムニオ・ウェブのリロード"
@@ -5420,7 +5405,7 @@ msgid "Language"
 msgstr "言語"
 
 msgid "Startup folder"
-msgstr "初期フォルダー"
+msgstr "起動フォルダ"
 
 msgid "Theme"
 msgstr "テーマ"
