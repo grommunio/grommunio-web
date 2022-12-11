@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: grommunio Web Japanese\n"
 "Report-Msgid-Bugs-To: dev@grommunio.com\n"
 "POT-Creation-Date: 2019-09-25 14:32+0200\n"
-"PO-Revision-Date: 2022-12-11 14:49+0000\n"
+"PO-Revision-Date: 2022-12-11 15:08+0000\n"
 "Last-Translator: Orkan Eser <orkan.eser@grommunio.com>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/grommunio/"
 "grommunio-web/ja/>\n"
@@ -23,11 +23,9 @@ msgstr "週"
 msgid "Now"
 msgstr "現在"
 
-#, fuzzy
 msgid "Value must be between 0% to 100%"
-msgstr "0% to 100%の間の値であること"
+msgstr "値は0%から100%の間でなければならない"
 
-#, fuzzy
 msgid "Number must be higher than zero"
 msgstr "ゼロより大きい数値であること"
 
@@ -373,7 +371,6 @@ msgstr "名前 (名)"
 msgid "Last name"
 msgstr "姓"
 
-#, fuzzy
 msgid "Initials"
 msgstr "イニシャル"
 
@@ -471,26 +468,20 @@ msgstr "選択"
 msgid "Show Details"
 msgstr "詳細を表示"
 
-#, fuzzy
 msgid "Copy contact"
 msgstr "コピー連絡先"
 
-#, fuzzy
 msgid "Copy contacts"
 msgstr "連絡先をコピーする"
 
-#, fuzzy
 msgid ""
 "Showing only the first {0} names. Use search to find more specific results."
-msgstr ""
-"最初の{0}人の名前だけを表示しています。より具体的な結果を探すには、検索を使用"
+msgstr "最初の{0} の名前のみを表示します。より具体的な結果を見つけるには、検索を使用"
 "してください。"
 
-#, fuzzy
 msgid "Use the search bar to get results"
 msgstr "検索バーを使って結果を得る"
 
-#, fuzzy
 msgid "There are no items to show in this list"
 msgstr "このビューで表示するアイテムがありません"
 
@@ -521,7 +512,6 @@ msgstr "並べ替え：ファイル"
 msgid "First Name"
 msgstr "最初のページ"
 
-#, fuzzy
 msgid "Sort by: First Name"
 msgstr "並び順名前"
 
@@ -581,7 +571,6 @@ msgstr "並べ替え：場所"
 msgid "Sort by: Fax"
 msgstr "並べ替え：Fax"
 
-#, fuzzy
 msgid "Print single item"
 msgstr "単品印刷"
 
@@ -607,23 +596,18 @@ msgstr "下側プレビュー"
 msgid "Any date"
 msgstr "終了日"
 
-#, fuzzy
 msgid "Past week"
 msgstr "過去1週間"
 
-#, fuzzy
 msgid "Past 2 weeks"
 msgstr "過去2週間"
 
-#, fuzzy
 msgid "Past month"
 msgstr "前月"
 
-#, fuzzy
 msgid "Past 6 month"
 msgstr "過去6ヶ月間"
 
-#, fuzzy
 msgid "Past year"
 msgstr "過去1年間"
 
@@ -636,14 +620,12 @@ msgstr "お気に入りに追加"
 msgid "Add"
 msgstr "追加"
 
-#, fuzzy
 msgid "Empty folder name"
-msgstr "フォルダを空にする"
+msgstr "空のフォルダー名"
 
 msgid "You must specify a name."
 msgstr "名前を指定して下さい。"
 
-#, fuzzy
 msgid "Add a folder to favorites based on your search query"
 msgstr "検索クエリに基づいてフォルダをお気に入りに追加する"
 
@@ -668,11 +650,9 @@ msgstr "全員へ返信"
 msgid "Forward"
 msgstr "転送"
 
-#, fuzzy
 msgid "Edit as New"
-msgstr "編集設定"
+msgstr "新規に編集する"
 
-#, fuzzy
 msgid "Search tools"
 msgstr "検索ツール"
 
@@ -740,48 +720,39 @@ msgstr "本文及び添付ファイル"
 msgid "Favorites"
 msgstr "お気に入り"
 
-#, fuzzy
 msgid "Add a folder to favorites based on this search query"
 msgstr "この検索クエリに基づいて、フォルダをお気に入りに追加する"
 
 msgid "Select Folder"
 msgstr "フォルダ選択"
 
-#, fuzzy
 msgid "Delete search folder"
 msgstr "検索フォルダの削除"
 
-#, fuzzy
 msgid "Sort by: Date"
 msgstr "並び順日付"
 
-#, fuzzy
 msgid "Loading Search results"
 msgstr "読み込み 検索結果"
 
-#, fuzzy
 msgid "Sorting tip"
 msgstr "ソートチップ"
 
-#, fuzzy
 msgid ""
 "You can sort by date if you narrow down your search results. Enable filters "
 "or adjust your input."
-msgstr ""
-"検索結果を絞り込むと、日付順に並べ替えることができます。フィルターを有効にす"
+msgstr "検索結果を絞り込むと、日付順に並べ替えることができます。フィルターを有効にす"
 "るか、入力を調整します。"
 
 msgid "Did you mean"
 msgstr "もしかして"
 
-#, fuzzy
 msgid "With"
 msgstr "と"
 
 msgid "To"
 msgstr "宛先"
 
-#, fuzzy
 msgid "No date"
 msgstr "日付なし"
 
@@ -859,27 +830,23 @@ msgstr "毎{0}実施　有効{1}"
 msgid "Occurs every {0} {1} effective {2}."
 msgstr "毎{0}{1}実施　有効{2}"
 
-#, fuzzy
 msgid "Occurs every {0} effective {1} for {2} occurrence from {3} to {4}."
 msgid_plural ""
 "Occurs every {0} effective {1} for {2} occurrences from {3} to {4}."
-msgstr[0] "8}から{4}までの{2}の発生に対して、{0}ごとに有効な{1}を発生させる。"
+msgstr[0] "{2} の発生を{3} から{4} まで、{0} 有効な{1} ごとに発生します。"
 
-#, fuzzy
 msgid "Occurs every {0} {1} effective {2} for {3} occurrence from {4} to {5}."
 msgid_plural ""
 "Occurs every {0} {1} effective {2} for {3} occurrences {4} to {5}."
-msgstr[0] "6}ごとに発生{4}から{5}までの{3}の発生に対して{1}の効果的な{2}。"
+msgstr[0] "{3} の発生を{4} から{5} まで、{0} {1} 有効な{2} ごとに発生します。"
 
-#, fuzzy
 msgid "Occurs every {0} effective {1} for {2} occurrence."
 msgid_plural "Occurs every {0} effective {1} for {2} occurrences."
-msgstr[0] "3}ごとに発生し、{2}の発生には{1}が有効です。"
+msgstr[0] "{2} の発生に対して、{0} 有効な{1} 毎に発生します。"
 
-#, fuzzy
 msgid "Occurs every {0} {1} effective {2} for {3} occurrence."
 msgid_plural "Occurs every {0} {1} effective {2} for {3} occurrences."
-msgstr[0] "4}回ごとに発生{1} {2}で{3}回発生します。"
+msgstr[0] "{3} の発生に対して、{0} {1} 有効な{2} 毎に発生します。"
 
 msgid "Occurs every {0} effective {1} until {2} from {3} to {4}."
 msgstr "毎{0}実施　{2}まで{3}から{4}まで{1}有効。"
@@ -900,9 +867,8 @@ msgid "When"
 msgstr "日時"
 
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
-#, fuzzy
 msgid "l jS F Y {0}"
-msgstr "l jS F Y {0}。"
+msgstr "l jS F Y{0}"
 
 msgid "Where"
 msgstr "場所"
@@ -934,7 +900,6 @@ msgstr "並べ替え：開始日"
 msgid "End Date"
 msgstr "終了日"
 
-#, fuzzy
 msgid "Sort by: End Date"
 msgstr "並び替え終了日"
 
@@ -1040,24 +1005,20 @@ msgstr "予約の作成"
 msgid "Calendar"
 msgstr "カレンダー"
 
-#, fuzzy
 msgid "Create in other calendar"
-msgstr "カレンダーを表示"
+msgstr "他のカレンダーで作成する"
 
-#, fuzzy
 msgid ""
 "The selected calendar has \"read-only\" permissions. Instead you can create "
 "an item in your own calendar."
-msgstr ""
-"選択されたカレンダーは、「読み取り専用」の権限を持っています。代わりに、自分"
+msgstr "選択されたカレンダーは、「読み取り専用」の権限を持っています。代わりに、自分"
 "のカレンダーに項目を作成することができます。"
 
 msgid "What would you like?"
 msgstr "- 何にしますか？"
 
-#, fuzzy
 msgid "Own calendar"
-msgstr "カレンダーを表示"
+msgstr "自社カレンダー"
 
 msgid "F Y"
 msgstr "Y年F"
@@ -1085,18 +1046,15 @@ msgctxt "calendar.dialog"
 msgid "Resources have been planned"
 msgstr "リソースが計画されている"
 
-#, fuzzy
 msgid "Send update"
-msgstr "後で送信"
+msgstr "アップデートを送信"
 
-#, fuzzy
 msgid "Do you want to send an update to all recipients?"
 msgstr "すべての受信者にアップデートを送信しますか？"
 
 msgid "Send update to attendees"
 msgstr "出席者へ更新情報を送信"
 
-#, fuzzy
 msgid ""
 "You have made changes to the list of attendees. What would you like to do?"
 msgstr "出席者リストを変更しました。どうしますか？"
@@ -1107,11 +1065,9 @@ msgstr "追加もしくは削除した出席者のみ更新情報を送信する
 msgid "Send updates to all attendees."
 msgstr "全ての出席者に更新情報を送信する。"
 
-#, fuzzy
 msgid "Busy attendees"
-msgstr "出席者を招待"
+msgstr "多忙な出席者"
 
-#, fuzzy
 msgid "One or more attendees are busy. Are you sure to invite?"
 msgstr "招待した出席者の中に既に予定ありの人がいます。招待しますか？"
 
@@ -1190,9 +1146,8 @@ msgstr ""
 "変更した内容は、主催者がこの会議依頼を更新した際に上書きされますのでご注意く"
 "ださい。"
 
-#, fuzzy
 msgid "Create in"
-msgstr "作成日"
+msgstr "で作成します。"
 
 msgid "Time"
 msgstr "時間"
@@ -1215,7 +1170,6 @@ msgstr "警告"
 msgid "Attachments cannot be modified for a single occurence"
 msgstr "出席者は単独のイベントの修正をすることはできません"
 
-#, fuzzy
 msgid "Type your message here..."
 msgstr "ここにメッセージを入力してください..."
 
@@ -1227,9 +1181,8 @@ msgid ""
 msgstr "開催場所{0}を{1}に変更しますか？"
 
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
-#, fuzzy
 msgid "jS F Y {0}"
-msgstr "jS F Y {0}。"
+msgstr "jS F Y{0}"
 
 # 75%
 msgid "None"
@@ -1255,11 +1208,9 @@ msgstr "添付ファイルを追加"
 msgid "Check names"
 msgstr "名前の確認"
 
-#, fuzzy
 msgid "Addressbook"
 msgstr "アドレス帳"
 
-#, fuzzy
 msgid "Open addressbook"
 msgstr "アドレス帳を開く"
 
@@ -1337,29 +1288,23 @@ msgstr "キャンセル通知を今すぐ送信。"
 msgid "Send Meeting Request Confirmation"
 msgstr "会議出席依頼への確認メールを送信する"
 
-#, fuzzy
 msgid ""
 "This meeting will be accepted and moved to your calendar. Do you want to "
 "include comments with your response?"
-msgstr ""
-"この会議は受諾され、自分のカレンダーに移動します。返信にコメントを含めます"
-"か？"
+msgstr "このミーティングは受付され、カレンダーに移動されます。回答にはコメントを添え"
+"ますか？"
 
-#, fuzzy
 msgid ""
 "This meeting will be tentatively accepted and moved to your calendar. Do you "
 "want to include comments with your response?"
-msgstr ""
-"この会議は仮受諾され、自分のカレンダーに移動します。返信にコメントを含めます"
-"か？"
+msgstr "この会議は仮受付され、あなたのカレンダーに移動されます。回答にはコメントを添"
+"えますか？"
 
-#, fuzzy
 msgid ""
 "This meeting will be declined and moved to your Deleted Items folder. Do you "
 "want to include comments with your response?"
-msgstr ""
-"この会議は辞退され、自分のカレンダーに移動します。返信にコメントを含めます"
-"か？"
+msgstr "このミーティングは拒否され、削除済みアイテムフォルダに移動されます。回答時に"
+"コメントを添えますか？"
 
 msgid "Edit the response before sending"
 msgstr "送信前にレスポンスを編集する"
@@ -1384,7 +1329,6 @@ msgstr "返答"
 msgid "New appointment"
 msgstr "新しい予定"
 
-#, fuzzy
 msgid "Creating an item"
 msgstr "アイテムの作成"
 
@@ -1393,19 +1337,15 @@ msgstr "アイテムの作成"
 msgid "New meeting request"
 msgstr "新しい会議出席依頼"
 
-#, fuzzy
 msgid "Switch calendar range back and forth"
 msgstr "カレンダーの範囲を前後に切り替え"
 
-#, fuzzy
 msgid "Copy selected item"
 msgstr "選択した項目をコピーする"
 
-#, fuzzy
 msgid "Paste selected item"
 msgstr "選択した項目を貼り付ける"
 
-#, fuzzy
 msgid "An overview of"
 msgstr "の概要"
 
