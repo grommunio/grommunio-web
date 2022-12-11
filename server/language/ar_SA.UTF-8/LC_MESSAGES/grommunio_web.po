@@ -3,17 +3,19 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Arabic\n"
-"Report-Msgid-Bugs-To: \n"
+"Report-Msgid-Bugs-To: dev@grommunio.com\n"
 "POT-Creation-Date: 2019-09-25 14:32+0200\n"
-"PO-Revision-Date: 2020-04-27 00:46+0000\n"
-"Last-Translator: import\n"
+"PO-Revision-Date: 2022-12-11 16:35+0000\n"
+"Last-Translator: Orkan Eser <orkan.eser@grommunio.com>\n"
+"Language-Team: Arabic (Saudi Arabia) <https://hosted.weblate.org/projects/"
+"grommunio/grommunio-web/ar_SA/>\n"
 "Language: ar_SA\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
 "&& n%100<=10 ? 3 : n%100>=11 ? 4 : 5;\n"
-"X-Generator: Weblate 2.4\n"
+"X-Generator: Weblate 4.15-dev\n"
 
 #. TRANSLATORS: This message is used as label for the column which indicates the week number of the month in date picker. and 'Wk' stands for week
 msgid "Wk"
@@ -221,10 +223,10 @@ msgid "Today"
 msgstr ""
 
 msgid "OK"
-msgstr ""
+msgstr "OK"
 
 msgid "Cancel"
-msgstr ""
+msgstr "يلغي"
 
 msgid "{0} (Spacebar)"
 msgstr ""
@@ -371,7 +373,7 @@ msgid "Display Name"
 msgstr ""
 
 msgid "Alias"
-msgstr ""
+msgstr "الاسم المستعار"
 
 msgid "Owner"
 msgstr ""
@@ -386,7 +388,7 @@ msgid "Email Address"
 msgstr ""
 
 msgid "Account"
-msgstr ""
+msgstr "الحساب"
 
 msgid "Member Of"
 msgstr ""
@@ -416,7 +418,7 @@ msgid "Addresses"
 msgstr ""
 
 msgid "Address"
-msgstr ""
+msgstr "عنوان"
 
 msgid "City"
 msgstr ""
@@ -639,7 +641,7 @@ msgid "Add to favorites"
 msgstr ""
 
 msgid "Add"
-msgstr ""
+msgstr "يضيف"
 
 msgid "Empty folder name"
 msgstr ""
@@ -1213,7 +1215,7 @@ msgid "Save"
 msgstr ""
 
 msgid "Close"
-msgstr ""
+msgstr "قريب"
 
 msgid "Delete"
 msgstr ""
@@ -2840,7 +2842,7 @@ msgid "Specify Words or Phrases"
 msgstr ""
 
 msgid "Edit"
-msgstr ""
+msgstr "يحرر"
 
 msgid "and"
 msgstr ""
@@ -2857,7 +2859,7 @@ msgid "No rule exists"
 msgstr ""
 
 msgid "Active"
-msgstr ""
+msgstr "نشط"
 
 msgid "Out of office"
 msgstr ""
@@ -3804,7 +3806,7 @@ msgid "Not responded"
 msgstr ""
 
 msgid "Accepted"
-msgstr ""
+msgstr "قبلت"
 
 msgid "Declined"
 msgstr ""
