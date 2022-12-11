@@ -186,7 +186,7 @@ msgid "Today"
 msgstr "I dag"
 
 msgid "OK"
-msgstr "Greit"
+msgstr "OK"
 
 msgid "Cancel"
 msgstr "Avbryt"
@@ -7732,3 +7732,6 @@ msgstr ""
 
 msgid "Some problem encountered when encoding/decoding JSON data."
 msgstr ""
+
+msgid "I want to navigate through my items by using."
+msgstr "Jeg vil navigerer i mine elementer ved å bruke."
