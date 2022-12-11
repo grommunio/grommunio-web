@@ -3,17 +3,18 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Dutch\n"
-"Report-Msgid-Bugs-To: \n"
+"Report-Msgid-Bugs-To: dev@grommunio.com\n"
 "POT-Creation-Date: 2019-09-25 14:32+0200\n"
-"PO-Revision-Date: 2022-07-26 17:02+0200\n"
-"Last-Translator: import\n"
-"Language-Team: \n"
+"PO-Revision-Date: 2022-12-11 14:12+0000\n"
+"Last-Translator: Orkan Eser <orkan.eser@grommunio.com>\n"
+"Language-Team: Dutch <https://hosted.weblate.org/projects/grommunio/"
+"grommunio-web/nl/>\n"
 "Language: nl_NL\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.14-dev\n"
+"X-Generator: Weblate 4.15-dev\n"
 
 #. TRANSLATORS: This message is used as label for the column which indicates the week number of the month in date picker. and 'Wk' stands for week
 msgid "Wk"
@@ -650,7 +651,7 @@ msgid "Add to favorites"
 msgstr "Voeg toe aan favorieten"
 
 msgid "Add"
-msgstr "Voeg toe"
+msgstr "Toevoegen"
 
 msgid "Empty folder name"
 msgstr "Geen folder naam"
@@ -1737,22 +1738,19 @@ msgstr ""
 msgid "Insufficient privileges"
 msgstr "Onvoldoende rechten"
 
-#, fuzzy
 msgid ""
 "Copying this appointment will unset it as private. Are you sure you want to "
 "continue?"
 msgstr ""
 "Als u deze afspraak kopieert, wordt deze ongedaan gemaakt als privé. Weet u "
-"zeker dat u wilt doorgaan?"
+"zeker dat u door wilt gaan?"
 
-#, fuzzy
 msgid "Private item"
 msgstr "Privéartikel"
 
 msgid "Copy"
 msgstr "Kopiëren"
 
-#, fuzzy
 msgid ""
 "Moving this appointment will unset it as private. Are you sure you want to "
 "continue?"
@@ -2171,7 +2169,6 @@ msgstr "Allen downloaden als ZIP"
 msgid "Import to folder"
 msgstr "Importeren naar map"
 
-#, fuzzy
 msgid ""
 "In order to use the vCard import feature, upgrade your Gromox to version 0 "
 "or higher."
@@ -2179,7 +2176,6 @@ msgstr ""
 "Om de vCard import functie te gebruiken, upgrade uw Gromox naar versie 0 of "
 "hoger."
 
-#, fuzzy
 msgid ""
 "In order to use the ICS / VCS import feature, upgrade your Gromox to version "
 "0 or higher."
@@ -2579,19 +2575,15 @@ msgstr ""
 msgid "Add/Edit Cc recipient"
 msgstr "Toevoegen/Wijzigen Cc ontvanger"
 
-#, fuzzy
 msgid "Disable for new mail"
 msgstr "Uitschakelen voor nieuwe mail"
 
-#, fuzzy
 msgid "Enable for new mail"
 msgstr "Inschakelen voor nieuwe mail"
 
-#, fuzzy
 msgid "Disable for replies"
 msgstr "Uitschakelen voor antwoorden"
 
-#, fuzzy
 msgid "Enable for replies"
 msgstr "Inschakelen voor antwoorden"
 
@@ -2626,7 +2618,6 @@ msgstr ""
 msgid "Help"
 msgstr "Hulp"
 
-#, fuzzy
 msgid "Web Manual"
 msgstr "Web Handleiding"
 
@@ -2642,7 +2633,6 @@ msgstr "Sorteren op: context.mail.griddefaultcolumn"
 msgid "ZDeveloper"
 msgstr "ZDeveloper"
 
-#, fuzzy
 msgid "grommunio Web print"
 msgstr "grommunio Web print"
 
@@ -3297,7 +3287,6 @@ msgctxt "mail.previewpanel"
 msgid "Please treat this as {0}."
 msgstr "Behandel deze tekst als {0}."
 
-#, fuzzy
 msgctxt "mail.previewpanel"
 msgid ""
 "Click here to download pictures. To help protect your privacy, grommunio Web "
@@ -3713,7 +3702,7 @@ msgstr "Extra informatie"
 
 # 80%
 msgid "Business 2"
-msgstr "Bedrijf 2"
+msgstr "Business 2"
 
 msgid "Callback"
 msgstr "Terugbellen"
@@ -4294,7 +4283,6 @@ msgstr "Dit item is gewijzigd. Ben je zeker dat je het wil verwijderen?"
 msgid "Unsaved changes"
 msgstr "Niet-opgeslagen aanpassingen"
 
-#, fuzzy
 msgid "Welcome to grommunio Web"
 msgstr "Welkom bij grommunio Web"
 
@@ -4404,16 +4392,14 @@ msgid "Nonediting Author"
 msgstr "Niet-redacterende auteur"
 
 msgid "Reviewer"
-msgstr "Tweede lezer"
+msgstr "Recensent"
 
 msgid "Contributor"
 msgstr "Bijdrager"
 
-#, fuzzy
 msgid "Free/Busy time, subject, location"
 msgstr "Vrije/Bezette tijd, onderwerp, plaats"
 
-#, fuzzy
 msgid "Free/Busy time"
 msgstr "Vrije/Bezette tijd"
 
@@ -4468,7 +4454,6 @@ msgstr "Omschrijving"
 msgid "EntryID"
 msgstr "EntryID"
 
-#, fuzzy
 msgid "Parent EID"
 msgstr "Ouder EID"
 
@@ -4526,7 +4511,6 @@ msgstr "Mapcontact"
 msgid "Folder visible"
 msgstr "Map zichtbaar"
 
-#, fuzzy
 msgid "Apply (copy) changed permissions recursively"
 msgstr "Toepassen (kopiëren) van gewijzigde permissies recursief"
 
@@ -5034,26 +5018,21 @@ msgid "Automatically reply once per day, per sender with the following text"
 msgstr ""
 "Antwoord automatisch eenmaal per dag naar elke afzender met de volgende tekst"
 
-#, fuzzy
 msgid "Inside My Organization"
-msgstr "Binnen mijn organisatie"
+msgstr "Binnen Mijn Organisatie"
 
 msgid "User is currently out of office."
 msgstr "Gebruiker is nu niet aanwezig."
 
-#, fuzzy
 msgid "Outside My Organization"
 msgstr "Buiten mijn organisatie"
 
-#, fuzzy
 msgid "Auto-reply to people outside my organization"
 msgstr "Automatisch antwoord aan mensen buiten mijn organisatie"
 
-#, fuzzy
 msgid "My contacts only"
 msgstr "Alleen mijn contacten"
 
-#, fuzzy
 msgid "Anyone outside my organization"
 msgstr "Iedereen buiten mijn organisatie"
 
@@ -5259,7 +5238,6 @@ msgstr "Opties"
 msgid "Basic"
 msgstr "Basis"
 
-#, fuzzy
 msgid "Account information - {0}"
 msgstr "Rekeninginformatie - {0}"
 
@@ -5419,7 +5397,6 @@ msgstr "Basis sneltoetsen ingeschakeld"
 msgid "All keyboard shortcuts on"
 msgstr "Alle sneltoetsen ingeschakeld"
 
-#, fuzzy
 msgid "This change requires a reload of grommunio Web"
 msgstr "Deze verandering vereist een herlading van grommunio Web"
 
@@ -5840,7 +5817,7 @@ msgid "Exporting can be done from the context menu of an item."
 msgstr "Exporteren kan gedaan worden via het rechtsklik menu van een item."
 
 msgid "Icon packs"
-msgstr "Icon packs"
+msgstr "Icoonpakketten"
 
 msgid ""
 "You can now choose between different icons. By default the new Breeze icons "
@@ -5922,11 +5899,9 @@ msgid "Connection with server has been restored"
 msgstr "De verbinding met de server is terug"
 
 #. TRANSLATORS: Example: HTTP 404
-#, fuzzy
 msgid "HTTP {0}"
 msgstr "HTTP {0}"
 
-#, fuzzy
 msgid "Invalid data received from the server"
 msgstr "Ongeldige gegevens ontvangen van de server"
 
@@ -6013,20 +5988,17 @@ msgstr "Archief"
 msgid "Open Chat at start"
 msgstr "Open chat wanneer gestart"
 
-#, fuzzy
 msgid "Desktop Notifications Plugin"
 msgstr "Desktop meldingen Plugin"
 
-#, fuzzy
 msgid "Desktop Notifications"
 msgstr "Desktop meldingen"
 
-#, fuzzy
 msgid "{A} Autohide desktop notification after second(s) {B}"
-msgstr "{A} Verberg bureaublad notificatie na seconde(s) {B}"
+msgstr "{A} Laat desktop notificaties verdwijnen na seconde(n) {B}"
 
 msgid "Files: ownCloud Backend"
-msgstr "Files: ownCloud Backend"
+msgstr "Bestanden: ownCloud Backend"
 
 msgid "Share with user/group"
 msgstr "Delen met gebruiker/groep"
@@ -6049,7 +6021,6 @@ msgstr "Publieke upload"
 msgid "Expiration date"
 msgstr "Verloopdatum"
 
-#, fuzzy
 msgid "More than 1 share link exists. Only showing the latest one"
 msgstr "Er bestaat meer dan 1 link om te delen. Toont alleen de laatste"
 
@@ -6189,15 +6160,12 @@ msgstr ""
 "Accounts door uw systeembeheerder gemarkeerd als \"kan niet gewijzigd worden"
 "\" zullen niet worden verwijderd."
 
-#, fuzzy
 msgid ""
 "grommunio Web will automatically restart in order for these changes to take "
 "effect."
 msgstr ""
-"grommunio Web zal automatisch herstarten om deze wijzigingen van kracht te "
-"laten worden."
+"grommunio Web zal automatisch herladen om deze wijzigingen door te voeren."
 
-#, fuzzy
 msgid "grommunio Web is reloading, Please wait."
 msgstr "grommunio Web is aan het herladen, Even geduld aub."
 
@@ -6294,11 +6262,9 @@ msgstr "Kies in ieder geval één bestand!"
 msgid "Create New "
 msgstr "Nieuwe creëren "
 
-#, fuzzy
 msgid "Incorrect filename"
 msgstr "Onjuiste bestandsnaam"
 
-#, fuzzy
 msgid "Error reaching office backend"
 msgstr "Fout bij het bereiken van de office backend"
 
@@ -6392,11 +6358,9 @@ msgstr "Spreadsheet"
 msgid "Upload files"
 msgstr "Bestanden uploaden"
 
-#, fuzzy
 msgid "Create document"
 msgstr "Document maken"
 
-#, fuzzy
 msgid "Create office document"
 msgstr "Een kantoordocument maken"
 
@@ -6409,9 +6373,8 @@ msgstr "Delen"
 msgid "Attach to mail"
 msgstr "Toevoegen aan mail"
 
-#, fuzzy
 msgid "Attach to mail as link"
-msgstr "Aan mail toevoegen als link"
+msgstr "Toevoegen aan e-mail als link"
 
 msgid "Attaching"
 msgstr "Toevoegen"
@@ -6470,23 +6433,19 @@ msgstr "Er zijn geen items te tonen in deze weergave"
 msgid "files selected"
 msgstr "bestanden geselecteerd"
 
-#, fuzzy
 msgid "Authentication required, when using grommunio-files for the first time"
 msgstr ""
 "Authenticatie vereist, wanneer u grommunio-files voor de eerste keer gebruikt"
 
-#, fuzzy
 msgid "Intranet"
 msgstr "Intranet"
 
 msgid "number"
 msgstr "nummer"
 
-#, fuzzy
 msgid "shadow"
 msgstr "shadow"
 
-#, fuzzy
 msgid "Openstreetmap"
 msgstr "Openstreetmap"
 
@@ -6545,7 +6504,6 @@ msgstr "grommunio-sync Versie"
 msgid "Policy name"
 msgstr "Policy naam"
 
-#, fuzzy
 msgid "Outlook Extension"
 msgstr "Outlook Uitbreiding"
 
@@ -6570,7 +6528,6 @@ msgstr "Synchroniseren"
 msgid "Manage Shared Folders"
 msgstr "Gedeelde map beheren"
 
-#, fuzzy
 msgid ""
 "Select folders to sync to your device from the list below. To add additional "
 "mailboxes to the list, open them in grommunio Web first."
@@ -6641,119 +6598,76 @@ msgstr ""
 "Weet u zeker dat u het apparaat wilt wissen?\n"
 " Voer uw wachtwoord in om te bevestigen."
 
-#, fuzzy
 msgid ""
 "Do you really want to remove your device?\n"
 " Enter your password to confirm."
 msgstr ""
-"Wilt u uw apparaat echt verwijderen?\n"
+"Weet u zeker dat u het apparaat wilt wissen?\n"
 " Voer uw wachtwoord in om te bevestigen."
 
-#, fuzzy
 msgid "Add meeting"
 msgstr "Vergadering toevoegen"
 
-#, fuzzy
 msgid "Room name:"
 msgstr "Naam van de kamer:"
 
-#, fuzzy
 msgid "Room URL:"
 msgstr "Kamer URL:"
 
-#, fuzzy
 msgid "Shift-click for advanced settings"
 msgstr "Shift-klik voor geavanceerde instellingen"
 
-#, fuzzy
 msgid "Join webmeeting"
 msgstr "Deelnemen aan webmeeting"
 
-#, fuzzy
 msgid "Open meeting in:"
 msgstr "Open bijeenkomst in:"
 
-#, fuzzy
 msgid "Web tab"
 msgstr "Web tab"
 
-#, fuzzy
 msgid "Hide the button in the main toolbar"
 msgstr "Verberg de knop in de hoofdwerkbalk"
 
-#, fuzzy
 msgid "Add the subject to the room name"
 msgstr "Voeg het onderwerp toe aan de kamernaam"
 
-#, fuzzy
 msgid "Add the organizer name to the room name"
 msgstr "Voeg de naam van de organisator toe aan de naam van de kamer"
 
-#, fuzzy
 msgid "Add the URL to the meeting location rather than overwriting it"
 msgstr ""
 "Voeg de URL toe aan de vergaderlocatie in plaats van deze te overschrijven"
 
-#, fuzzy
 msgid ""
 "Prevent the URL in the meeting location from being overridden automatically "
 "(ex: when adding a meetingroom)"
 msgstr ""
-"Voorkom dat de URL in de vergaderlocatie automatisch wordt overschreven "
-"(bijv. bij het toevoegen van een vergaderruimte)"
+"Voorkom dat de URL in de vergaderlocatie automatisch wordt overschreven ("
+"bijv. bij het toevoegen van een vergaderruimte)"
 
-#, fuzzy
 msgid "If you have problems when creating meetings, try disabling this setting"
 msgstr ""
 "Als u problemen ondervindt bij het maken van vergaderingen, probeer dan deze "
 "instelling uit te schakelen"
 
-#, fuzzy
 msgid "Add an invitation to the appointment description"
 msgstr "Voeg een uitnodiging toe aan de beschrijving van de afspraak"
 
 msgid "Invitation text"
-msgstr ""
-"Nieuwe distributiepartners\n"
-"\n"
-"Speciale aanbieding: Gratis deelname + Advertenties.\n"
-"\n"
-"Bizz247.com is speciaal ontworpen voor bedrijven die op zoek zijn naar "
-"nieuwe distributiekanalen.\n"
-"\n"
-"De website bemiddelt tussen vraag en aanbod in Nederland als ook "
-"wereldwijd.\n"
-"De site wordt aangeboden in 5 talen: Nederlands -Duits - Engels - Frans - "
-"Spaans.\n"
-"Als je je verkopen wilt uitbreiden, probeer het dan gratis.\n"
-"Start een advertentie en beschrijf je bedrijf en wat je zoekt of biedt.\n"
-"Er zijn geen beperkingen.\n"
-"Je gegevens zijn beveiligd met SSL-codering.\n"
-"\n"
-"Het plaatsen en tonen van je advertenties (we noemen ze pitches) zijn "
-"momenteel gratis.\n"
-"\n"
-"Als dit bericht nuttig was, wees zo vrij deze informatie te delen me je "
-"relaties.\n"
-"\n"
-"Welkom.\n"
-"Ronald Scholten\n"
-"Oprichter Bizz247.com"
+msgstr "Uitnodigingstekst"
 
-#, fuzzy
 msgid ""
 "must contain %url% as a placeholder for the meeting link, empty the textbox "
 "to reset to default"
 msgstr ""
-"moet %url% bevatten als een plaatshouder voor de vergaderingslink, leeg het "
-"tekstvak om terug te zetten naar standaard"
+"moet %url% bevatten als plaatshouder voor de vergaderlink, leeg het tekstvak "
+"om terug te zetten naar standaard"
 
-#, fuzzy
 msgid "An unknown error occurred while changing password."
 msgstr ""
 "Er is een onbekende fout opgetreden tijdens het wijzigen van het wachtwoord."
 
-#, fuzzy
 msgid "Password is changed successfully."
 msgstr "Wachtwoord is succesvol gewijzigd."
 
@@ -6775,19 +6689,15 @@ msgstr "Herhaal nieuw wachtwoord"
 msgid "New passwords do not match."
 msgstr "De nieuwe wachtwoorden komen niet met elkaar overeen."
 
-#, fuzzy
 msgid "Current password is empty."
 msgstr "Huidig wachtwoord is leeg."
 
-#, fuzzy
 msgid "New password is empty."
 msgstr "Nieuw wachtwoord is leeg."
 
-#, fuzzy
 msgid "One or more fields does contain errors."
 msgstr "Een of meer velden bevatten fouten."
 
-#, fuzzy
 msgid ""
 "Password is weak. Password should contain capital, non-capital letters and "
 "numbers. Password should have 8 to 20 characters."
@@ -6881,7 +6791,6 @@ msgstr "Er is geen geldig certificaat gekoppeld aan uw account"
 msgid "Personal certificate"
 msgstr "Persoonlijk certificaat"
 
-#, fuzzy
 msgid "Change passphrase for last certificate"
 msgstr "Wijzig passphrase voor laatste certificaat"
 
@@ -6891,15 +6800,14 @@ msgstr "Er is een geldig certificaat gekoppeld aan uw account"
 msgid "Upload your certificate"
 msgstr "Upload uw certificaat"
 
-#, fuzzy
 msgid ""
 "Below you can upload your private certificate in PKCS#12 format. grommunio "
 "Web only accepts certificates which are valid and only stores one private "
 "certificate on the server."
 msgstr ""
-"Hieronder kunt u uw privé-certificaat uploaden in PKCS#12-formaat. grommunio "
-"Web aanvaardt alleen certificaten die geldig zijn en slaat slechts één privé-"
-"certificaat op de server op."
+"Hier kunt u uw privé certificaat uploaden in PKCS#12 formaat. WebApp "
+"accepteert alleen geldige certificaten en kan één privécertificaat opslaan "
+"op de server."
 
 msgid "Private certificate"
 msgstr "Privé certificaat"
@@ -6941,15 +6849,14 @@ msgstr ""
 msgid "What's going on with my email?"
 msgstr "Wat gebeurt er met mijn email?"
 
-#, fuzzy
 msgid ""
 "grommunio Web can verify digital signatures of emails. A successful "
 "verification reassures you that the message has not been tampered with and "
 "validates the identity of the sender."
 msgstr ""
-"grommunio Web kan digitale handtekeningen van e-mails verifiëren. Een "
-"succesvolle verificatie verzekert u ervan dat er niet met het bericht is "
-"geknoeid en valideert de identiteit van de afzender."
+"WebApp kan digitale handtekeningen van emails valideren. Een succesvulle "
+"validatie toont aan dat het bericht niet is aangepast en bewijst de "
+"identiteit van de verzender."
 
 msgid ""
 "You are seeing this message because the verification of the digital signature"
@@ -7004,7 +6911,6 @@ msgstr ""
 "De validatie van de digitale handtekening was succesvol voor dit email "
 "bericht."
 
-#, fuzzy
 msgid "grommunio Web could not find a public certificate for the recipient."
 msgstr "grommunio Web kon geen publiek certificaat vinden voor de ontvanger."
 
@@ -7036,16 +6942,15 @@ msgstr ""
 "de verzender heeft ondertekend is niet beschikbaar. De geldigheid van het "
 "certificaat kon niet worden gevalideerd."
 
-#, fuzzy
 msgid ""
 "The revocation status of the digital certificate used to sign this email is "
 "unknown (Server is unavailable or certificate does not support OCSP). The "
 "validity of the certificate could not be verified."
 msgstr ""
-"De intrekkingsstatus van het digitale certificaat dat wordt gebruikt om deze "
-"e-mail te ondertekenen, is onbekend (server is niet beschikbaar of "
-"certificaat ondersteunt OCSP niet). De geldigheid van het certificaat kon "
-"niet worden geverifieerd."
+"De intrekkingsstatus van het digitale certificaat gebruikt om deze email te "
+"ondertekenen is niet bekend (server is niet beschikbaar of certificaat "
+"ondersteunt geen OCSP). De geldigheid van het certificaat kon niet worden "
+"gevalideerd."
 
 msgid ""
 "The revocation status of the digital certificate used to sign this email is "
@@ -7055,9 +6960,9 @@ msgstr ""
 "email te ondertekenen is uitgeschakeld (OCSP). De geldigheid van het "
 "certificaat kon niet worden gevalideerd."
 
-#, fuzzy
 msgid "The certificate verification server (OCSP) is temporarily offline."
-msgstr "De certificaatverificatieserver (OCSP) is tijdelijk offline."
+msgstr ""
+"De server voor het valideren van het certificaat (OCSP) is tijdelijk offline."
 
 msgid "Sender is removed from the server."
 msgstr "Verzender is verwijderd van de server."
@@ -7129,7 +7034,6 @@ msgstr "Munt"
 msgid "Pearl aqua"
 msgstr "Parel aqua"
 
-#, fuzzy
 msgid "Grommunio blue"
 msgstr "Grommunio blauw"
 
@@ -7238,9 +7142,8 @@ msgstr "Kopiëren gefaald"
 msgid "Unknown error"
 msgstr "Onbekende fout"
 
-#, fuzzy
 msgid "Please contact your system administrator."
-msgstr "Neem contact op met uw systeembeheerder."
+msgstr "Neem contact op met de systeembeheerder."
 
 msgid "Unauthorized. Wrong username or password."
 msgstr "Niet geauthoriseerd. Onjuiste gebruikersnaam of wachtwoord."
@@ -7374,34 +7277,27 @@ msgstr ""
 "Onverwachte fout opgetreden. Neem contact op met uw systeemadministrator. "
 "Foutmelding: %s"
 
-#, fuzzy
 msgid "No data received."
 msgstr "Geen gegevens ontvangen."
 
-#, fuzzy
 msgid "Account is empty."
 msgstr "De rekening is leeg."
 
-#, fuzzy
 msgid "Current password does not match."
 msgstr "Huidig wachtwoord komt niet overeen."
 
-#, fuzzy
 msgid ""
 "Your password is wrong or you have insufficient permission to change password"
 msgstr ""
 "Uw wachtwoord is verkeerd of u hebt onvoldoende toestemming om uw wachtwoord "
 "te wijzigen"
 
-#, fuzzy
 msgid "Password is not changed."
 msgstr "Wachtwoord is niet gewijzigd."
 
-#, fuzzy
 msgid "Error changing password. Please contact the system administrator."
 msgstr "Fout bij wijzigen wachtwoord. Neem contact op met de systeembeheerder."
 
-#, fuzzy
 msgid "Password has been changed successfully."
 msgstr "Wachtwoord is succesvol gewijzigd."
 
@@ -7460,31 +7356,27 @@ msgstr "Certificaat is ingetrokken"
 msgid "Unable to read public certificate"
 msgstr "Kan publiek certificaat niet lezen"
 
-#, fuzzy
 msgid "Can't add data to bus, same action type is present in bus"
 msgstr ""
 "Kan geen gegevens toevoegen aan bus, hetzelfde actietype is aanwezig in bus"
 
-#, fuzzy
 msgid "Response data requested from bus but it doesn't have any data."
 msgstr "Antwoordgegevens gevraagd van bus, maar deze heeft geen gegevens."
 
-#, fuzzy, php-format
+#, php-format
 msgid "Unknown module '%s' with id '%s'"
 msgstr "Onbekende module '%s' met id '%s'"
 
-#, fuzzy
 msgid ""
 "Server encountered some problem, so it was not able to handle the request."
 msgstr ""
 "De server ondervond een probleem, waardoor hij het verzoek niet kon "
 "verwerken."
 
-#, fuzzy, php-format
+#, php-format
 msgid "Unknown notifier '%s'"
-msgstr "Onbekende kennisgever '%s'"
+msgstr "Onbekende melder '%s'"
 
-#, fuzzy
 msgid "An unexpected error has occurred"
 msgstr "Er is een onverwachte fout opgetreden"
 
@@ -7499,11 +7391,9 @@ msgstr "Takenlijst"
 msgid "%1$s of %2$s"
 msgstr "%1$s van %2$s"
 
-#, fuzzy
 msgid "Error retrieving existing settings"
 msgstr "Fout bij ophalen bestaande instellingen"
 
-#, fuzzy
 msgid "Error retrieving existing persistent settings"
 msgstr "Fout bij ophalen bestaande persistente instellingen"
 
@@ -7526,23 +7416,18 @@ msgstr ""
 msgid "Unknown MAPI Error"
 msgstr "Onbekende MAPI-Fout"
 
-#, fuzzy
 msgid "This external link will open in a new window"
 msgstr "Deze externe link wordt in een nieuw venster geopend"
 
-#, fuzzy
 msgid "Destination folder not found."
 msgstr "Bestemmingsmap niet gevonden."
 
-#, fuzzy
 msgid "Eml is corrupted"
 msgstr "Eml is beschadigd"
 
-#, fuzzy
 msgid "The eml Attachment is not imported successfully"
 msgstr "De eml Bijlage is niet succesvol geïmporteerd"
 
-#, fuzzy
 msgid "The vcf attachment is not imported successfully"
 msgstr "De vcf bijlage is niet succesvol geïmporteerd"
 
@@ -7568,38 +7453,30 @@ msgstr ""
 "Neem contact op met uw systeem administrator als het probleem zich blijft "
 "voortdoen."
 
-#, fuzzy
 msgid "Attachment is not imported successfully"
 msgstr "Bijlage is niet succesvol geïmporteerd"
 
-#, fuzzy
 msgid "Embedded attachment not found."
 msgstr "Ingesloten bijlage niet gevonden."
 
-#, fuzzy
 msgid "ZIP is not created successfully"
 msgstr "ZIP is niet succesvol aangemaakt"
 
-#, fuzzy
 msgid "Attachments can not be downloaded"
 msgstr "Bijlagen kunnen niet worden gedownload"
 
-#, fuzzy
 msgid "Could not find attachment."
 msgstr "Kon bijlage niet vinden."
 
-#, fuzzy
 msgid "Operation failed"
 msgstr "Operatie mislukt"
 
 msgid "Sticky Note"
 msgstr "Post-It"
 
-#, fuzzy
 msgid "Task Request"
-msgstr "Taak Verzoek"
+msgstr "Toegewezen taak"
 
-#, fuzzy
 msgid "Could not find message, either it has been moved or deleted."
 msgstr "Bericht niet kunnen vinden, ofwel is het verplaatst of verwijderd."
 
@@ -7636,7 +7513,6 @@ msgstr "Operatie mislukt: Server heeft onvoldoende beschikbaar geheugen."
 msgid "Unknown MAPI Error: %s"
 msgstr "Onbekende MAPI-Fout: %s"
 
-#, fuzzy
 msgid "Action is not performed correctly."
 msgstr "Actie is niet correct uitgevoerd."
 
@@ -7717,27 +7593,21 @@ msgstr "Vind elke %s plaats vanaf %s tot %s."
 msgid "Occurs every %s %s effective %s until %s."
 msgstr "Elke %s %s met ingang van %s tot %s."
 
-#, fuzzy
 msgid "Task Accepted:"
 msgstr "Taak geaccepteerd:"
 
-#, fuzzy
 msgid "Task Declined:"
 msgstr "Taak geweigerd:"
 
-#, fuzzy
 msgid "Task Updated:"
 msgstr "Taak bijgewerkt:"
 
-#, fuzzy
 msgid "Task Completed:"
 msgstr "Taak volbracht:"
 
-#, fuzzy
 msgid "Contact not found"
 msgstr "Contact niet gevonden"
 
-#, fuzzy
 msgid ""
 "Contact information could not be displayed because the server had trouble "
 "retrieving the information."
@@ -7745,56 +7615,44 @@ msgstr ""
 "Contactinformatie kon niet worden weergegeven omdat de server moeite had de "
 "informatie op te halen."
 
-#, fuzzy
 msgid "Could not handle this type of object."
 msgstr "Kon dit type object niet verwerken."
 
-#, fuzzy
 msgid "Could not open this object."
 msgstr "Kon dit object niet openen."
 
-#, fuzzy
 msgid "Error in search, please try again"
 msgstr "Fout bij het zoeken, probeer opnieuw"
 
-#, fuzzy
 msgid "Unable to perform search query, no permissions to create search folder."
 msgstr "Kan geen zoekopdracht uitvoeren, geen rechten om zoekmap aan te maken."
 
-#, fuzzy
 msgid "Unable to perform search query, search folder not found."
 msgstr "Kan zoekopdracht niet uitvoeren, zoekmap niet gevonden."
 
-#, fuzzy
 msgid "Unable to perform search query, store might not support searching."
 msgstr ""
 "Kan geen zoekopdracht uitvoeren, winkel ondersteunt zoeken misschien niet."
 
-#, fuzzy
 msgid "Error in creating search folder."
 msgstr "Fout bij het aanmaken van de zoekmap."
 
-#, fuzzy
 msgid "Could not open occurrence."
 msgstr "Kon voorval niet openen."
 
-#, fuzzy
 msgid "Could not open occurrence, specific occurrence is probably deleted."
 msgstr ""
 "Kon voorval niet openen, specifieke voorval is waarschijnlijk verwijderd."
 
-#, fuzzy
 msgid "a meeting request"
 msgstr "een vergaderverzoek"
 
-#, fuzzy
 msgid "an appointment"
 msgstr "een afspraak"
 
 msgid "You have insufficient privileges to move "
 msgstr "Je hebt onvoldoende rechten om te bewegen "
 
-#, fuzzy
 msgid ""
 "Cannot set a reminder to appear before the previous occurrence. Reset "
 "reminder to save the change"
@@ -7802,11 +7660,10 @@ msgstr ""
 "Kan een herinnering niet instellen om te verschijnen vóór de vorige "
 "gebeurtenis. Herinnering resetten om de wijziging op te slaan"
 
-#, fuzzy
 msgid "Two occurrences cannot occur on the same day"
 msgstr "Twee voorvallen kunnen niet op dezelfde dag plaatsvinden"
 
-#, fuzzy, php-format
+#, php-format
 msgid ""
 "You marked '%s' as a resource. You cannot schedule a meeting with '%s' "
 "because you do not have the appropriate permissions for that account. Either "
@@ -7814,11 +7671,11 @@ msgid ""
 "administrator about giving you permission to schedule '%s'."
 msgstr ""
 "U heeft '%s' gemarkeerd als een resource. U kunt geen vergadering plannen "
-"met '%s' omdat u niet de juiste rechten hebt voor die account. Voer de naam "
-"in als een verplichte of optionele deelnemer of vraag uw beheerder om u "
-"toestemming te geven om '%s' in te plannen."
+"met '%s' omdat u niet de juiste permissies heeft voor die account. Voer de "
+"naam in als een verplichte of optionele deelnemer of overleg met uw "
+"beheerder om u toestemming te geven om '%s' te plannen."
 
-#, fuzzy, php-format
+#, php-format
 msgid ""
 "'%s' has declined your meeting because '%s' does not automatically accept "
 "meeting requests."
@@ -7826,185 +7683,151 @@ msgstr ""
 "%s' heeft uw vergadering geweigerd omdat %s' niet automatisch "
 "vergaderverzoeken accepteert."
 
-#, fuzzy, php-format
+#, php-format
 msgid ""
 "'%s' has declined your meeting because it is recurring. You must book each "
 "meeting separately with this resource."
 msgstr ""
-"%s' heeft uw vergadering geweigerd omdat het een terugkerende vergadering "
-"is. U moet elke vergadering apart boeken bij deze bron."
+"%s' heeft uw vergadering geweigerd omdat deze terugkerend is. U moet elke "
+"vergadering apart boeken bij deze bron."
 
-#, fuzzy, php-format
+#, php-format
 msgid ""
 "'%s' is already booked for this specified time. You must use another time or "
 "find another resource."
 msgstr ""
-"%s' is al geboekt voor dit tijdstip. U moet een andere tijd gebruiken of een "
-"andere bron vinden."
+"'%s' is al geboekt voor deze opgegeven tijd. U moet een andere tijd "
+"gebruiken of een andere bron vinden."
 
-#, fuzzy
 msgid "Meeting was not scheduled."
 msgstr "Vergadering was niet gepland."
 
-#, fuzzy
 msgid "Meeting could not be sent."
 msgstr "Vergadering kon niet worden verzonden."
 
-#, fuzzy
 msgid "Meeting could not be saved."
 msgstr "Vergadering kon niet worden gered."
 
-#, fuzzy
 msgid "Private Appointment"
 msgstr "Privé Afspraak"
 
-#, fuzzy, php-format
+#, php-format
 msgid "%s's Birthday"
-msgstr "%s's Verjaardag"
+msgstr "%s Verjaardag"
 
-#, fuzzy, php-format
+#, php-format
 msgid "%s's Anniversary"
 msgstr "%s's Verjaardag"
 
-#, fuzzy
 msgid "You don't have the permission to complete this action"
 msgstr "U heeft geen toestemming om deze actie uit te voeren"
 
-#, fuzzy
 msgid "Unknown user/group"
 msgstr "Onbekende gebruiker/groep"
 
-#, fuzzy
 msgid "Could not save delegate information."
 msgstr "Kon de delegatie informatie niet opslaan."
 
-#, fuzzy
 msgid "Could not delete delegate."
 msgstr "Kon de delegatie niet verwijderen."
 
-#, fuzzy
 msgid "Can not get list of delegates."
 msgstr "Ik kan de lijst van afgevaardigden niet krijgen."
 
-#, fuzzy
 msgid "Could not load the hierarchy."
 msgstr "Kon de hiërarchie niet laden."
 
-#, fuzzy
 msgid "Could not load folder properties."
 msgstr "Kon de map eigenschappen niet laden."
 
-#, fuzzy
 msgid "Could not remove folder from favorites."
 msgstr "Kon map niet verwijderen uit favorieten."
 
-#, fuzzy
 msgid "You have insufficient privileges to delete folder."
 msgstr "U hebt onvoldoende rechten om de map te verwijderen."
 
 msgid "Could not delete folder."
 msgstr "Kon de map niet verwijderen."
 
-#, fuzzy
 msgid "You have insufficient privileges to copy folder."
 msgstr "U hebt onvoldoende rechten om de map te kopiëren."
 
-#, fuzzy
 msgid "Could not copy folder."
 msgstr "Kon de map niet kopiëren."
 
-#, fuzzy
 msgid "You have insufficient privileges to move this folder."
 msgstr "U hebt onvoldoende rechten om deze map te verplaatsen."
 
-#, fuzzy
 msgid "Could not move folder."
 msgstr "Kon de map niet verplaatsen."
 
-#, fuzzy
 msgid "You have insufficient privileges to delete items."
 msgstr "U hebt onvoldoende rechten om items te verwijderen."
 
-#, fuzzy
 msgid "Could not empty folder."
 msgstr "Kon de map niet legen."
 
-#, fuzzy
 msgid "Could not perform action correctly."
 msgstr "Kon de actie niet correct uitvoeren."
 
-#, fuzzy
 msgid ""
 "A favorite folder with this name already exists, please use another name."
 msgstr ""
 "Een favoriete map met deze naam bestaat al, gebruik a.u.b. een andere naam."
 
-#, fuzzy
 msgid "Could not add folder to favorites."
 msgstr "Kon map niet toevoegen aan favorieten."
 
-#, fuzzy
 msgid "You have insufficient privileges to set permissions for this folder."
 msgstr "U hebt onvoldoende rechten om de rechten voor deze map in te stellen."
 
-#, fuzzy
 msgid "Could not set folder permissions."
 msgstr "Kon de mapmachtigingen niet instellen."
 
-#, fuzzy
 msgid "You have insufficient privileges to rename this folder."
 msgstr "U hebt onvoldoende rechten om deze map te hernoemen."
 
-#, fuzzy
 msgid "A folder with this name already exists. Use another name."
 msgstr "Er bestaat al een map met deze naam. Gebruik een andere naam."
 
-#, fuzzy
 msgid "Could not rename folder."
 msgstr "Kon map niet hernoemen."
 
-#, fuzzy
 msgid "You have insufficient privileges to create this folder."
 msgstr "U hebt onvoldoende rechten om deze map aan te maken."
 
 msgid "Could not create folder."
 msgstr "Kan geen map aanmaken."
 
-#, fuzzy
 msgid "Could not close shared folder."
 msgstr "Kon gedeelde map niet sluiten."
 
-#, fuzzy
 msgid "User could not be resolved."
 msgstr "Gebruiker kon niet worden opgelost."
 
-#, fuzzy, php-format
+#, php-format
 msgid ""
 "You have insufficient privileges to open this %1$s folder. The folder owner "
 "can set these using the 'permissions'-tab of the folder properties (right "
 "click the %1$s folder > properties > permissions)."
 msgstr ""
-"U heeft onvoldoende rechten om deze %1$s map te openen. De eigenaar van de "
-"map kan deze instellen via het 'machtigingen'-tabblad van de map-"
-"eigenschappen (klik met de rechtermuisknop op de %1$s map > eigenschappen > "
+"U hebt onvoldoende rechten om deze %1$s map te openen. De eigenaar van de "
+"map kan dit instellen via het tabblad 'machtigingen' van de eigenschappen "
+"van de map (klik met de rechtermuisknop op de map %1$s > eigenschappen > "
 "machtigingen)."
 
 msgid "unknown"
 msgstr "onbekend"
 
-#, fuzzy
 msgid "Could not move folder"
 msgstr "Kon de map niet verplaatsen"
 
-#, fuzzy
 msgid "Could not copy folder"
 msgstr "Kon map niet kopiëren"
 
-#, fuzzy
 msgid "You have insufficient privileges to open this message."
 msgstr "U hebt onvoldoende rechten om dit bericht te openen."
 
-#, fuzzy
 msgid ""
 "Could not find message, either it has been moved or deleted or you don't "
 "have access to open this message."
@@ -8115,94 +7938,72 @@ msgstr "Uw bericht is niet ontvangen door een of meerdere geadresseerden"
 msgid "The following recipient(s) could not be reached"
 msgstr "De volgende geadresseerde(n) kon(den) niet worden bereikt"
 
-#, fuzzy
 msgid "You have insufficient privileges to see the contents of this folder."
 msgstr "U hebt onvoldoende rechten om de inhoud van deze map te zien."
 
-#, fuzzy
 msgid "Could not load the contents of this folder."
 msgstr "Kon de inhoud van deze map niet laden."
 
-#, fuzzy
 msgid ""
 "You have insufficient privileges to perform search operation in this folder."
 msgstr "U hebt onvoldoende rechten om een zoekactie in deze map uit te voeren."
 
-#, fuzzy
 msgid "Could not update search results."
 msgstr "Kon zoekresultaten niet bijwerken."
 
-#, fuzzy
 msgid "Could not stop search operation."
 msgstr "Kon zoekactie niet stoppen."
 
-#, fuzzy
 msgid "You have insufficient privileges to save this message."
 msgstr "U hebt onvoldoende rechten om dit bericht op te slaan."
 
-#, fuzzy
 msgid "Could not save message."
 msgstr "Kon bericht niet opslaan."
 
-#, fuzzy
 msgid "You have insufficient privileges to delete this message."
 msgstr "U hebt onvoldoende rechten om dit bericht te verwijderen."
 
-#, fuzzy
 msgid "Could not delete message."
 msgstr "Kon bericht niet verwijderen."
 
-#, fuzzy
 msgid "You have insufficient privileges to cancel this Meeting Request."
-msgstr "U hebt onvoldoende rechten om dit vergaderverzoek te annuleren."
+msgstr "U heeft niet voldoende permissies om dit Vergaderverzoek te accepteren."
 
-#, fuzzy
 msgid "Could not cancel Meeting Request."
 msgstr "Kon vergaderverzoek niet annuleren."
 
-#, fuzzy
 msgid "You have insufficient privileges to decline this Meeting Request."
-msgstr "U hebt onvoldoende rechten om dit vergaderverzoek te weigeren."
+msgstr "U heeft niet voldoende permissies om dit Vergaderverzoek af te wijzen."
 
-#, fuzzy
 msgid "Could not decline Meeting Request."
 msgstr "Kon vergaderverzoek niet weigeren."
 
-#, fuzzy
 msgid "You have insufficient privileges to accept this Meeting Request."
-msgstr "U hebt onvoldoende rechten om dit vergaderverzoek te accepteren."
+msgstr "U heeft niet voldoende permissies om dit Vergaderverzoek te accepteren."
 
-#, fuzzy
 msgid "Could not accept Meeting Request."
 msgstr "Kon vergaderverzoek niet accepteren."
 
-#, fuzzy
 msgid "You have insufficient privileges to cancel Meeting Request invitation."
 msgstr ""
 "U hebt onvoldoende rechten om de uitnodiging voor een vergaderverzoek te "
 "annuleren."
 
-#, fuzzy
 msgid "Could not cancel Meeting Request invitations."
 msgstr "Kan uitnodigingen voor vergaderverzoeken niet annuleren."
 
-#, fuzzy
 msgid "You can not continue search operation on this folder."
-msgstr "U kunt niet doorgaan met zoeken in deze map."
+msgstr "U kunt niet verder zoeken in deze map."
 
-#, fuzzy
 msgid "Error in search, please try again."
 msgstr "Fout bij het zoeken, probeer opnieuw."
 
-#, fuzzy
 msgid "Error in distribution list expansion."
 msgstr "Fout in uitbreiding distributielijst."
 
-#, fuzzy
 msgid "The message store has exceeded its hard quota limit."
 msgstr "De berichtopslag heeft zijn harde quota limiet overschreden."
 
-#, fuzzy
 msgid ""
 "To reduce the amount of data in this message store, select some items that "
 "you no longer need, delete them and cleanup your Deleted Items folder."
@@ -8211,60 +8012,48 @@ msgstr ""
 "selecteert u enkele items die u niet langer nodig hebt, verwijdert u ze en "
 "ruimt u uw map Verwijderde items op."
 
-#, fuzzy
 msgid "The message store has exceeded its soft quota limit."
 msgstr "Het berichtenmagazijn heeft zijn zachte quotalimiet overschreden."
 
-#, fuzzy
 msgid "Could not process request data properly."
 msgstr "Kon de aanvraaggegevens niet goed verwerken."
 
-#, fuzzy, php-format
+#, php-format
 msgid "Unknown action type specified - %s"
 msgstr "Onbekend actietype opgegeven - %s"
 
-#, fuzzy
 msgid "Cannot snooze the reminder. You may be reminded again."
 msgstr "Kan de herinnering niet snoozen. U kunt opnieuw worden herinnerd."
 
-#, fuzzy
 msgid "Cannot dismiss the reminder. You may be reminded again."
 msgstr "U kunt de herinnering niet negeren. U kunt opnieuw worden herinnerd."
 
-#, fuzzy
 msgid "You have insufficient privileges to perform this action."
 msgstr "U hebt onvoldoende privileges om deze actie uit te voeren."
 
-#, fuzzy
 msgid "Could not resolve user."
 msgstr "Kon gebruiker niet oplossen."
 
-#, fuzzy
 msgid "Setting mail filters on the stores of other users is not allowed."
 msgstr ""
 "Het instellen van mailfilters op de stores van andere gebruikers is niet "
 "toegestaan."
 
-#, fuzzy
 msgid "Untitled rule"
 msgstr "Regel zonder titel"
 
-#, fuzzy
 msgid "Could not load rules."
 msgstr "Kon de regels niet laden."
 
-#, fuzzy
 msgid "Could not save rules."
 msgstr "Kon de regels niet opslaan."
 
-#, fuzzy
 msgid "Task Request:"
 msgstr "Taak Verzoek:"
 
 msgid "Sign in"
 msgstr "Inloggen"
 
-#, fuzzy
 msgid "File is not imported successfully"
 msgstr "Bestand is niet succesvol geïmporteerd"
 
@@ -8283,11 +8072,10 @@ msgstr ""
 "grommunio Web ondersteunt het importeren van meerdere ICS in één bestand "
 "niet in deze versie."
 
-#, fuzzy, php-format
+#, php-format
 msgid "Unable to import '%s'"
-msgstr "Kan '%s' niet importeren"
+msgstr "'%s' kan niet worden geïmporteerd"
 
-#, fuzzy
 msgid "The EML is not valid"
 msgstr "De EML is ongeldig"
 
@@ -8303,31 +8091,25 @@ msgstr "KB"
 msgid "B"
 msgstr "B"
 
-#, fuzzy
 msgid "The maximum stack depth has been exceeded"
 msgstr "De maximale stapeldiepte is overschreden"
 
-#, fuzzy
 msgid "Control character error, possibly incorrectly encoded"
 msgstr "Fout in controleteken, mogelijk verkeerd gecodeerd"
 
-#, fuzzy
 msgid "Invalid or malformed JSON"
 msgstr "Ongeldige of misvormde JSON"
 
-#, fuzzy
 msgid "Syntax error"
-msgstr "Syntaxisfout"
+msgstr "Syntaxis fout"
 
-#, fuzzy
 msgid "Malformed UTF-8 characters, possibly incorrectly encoded"
 msgstr "Misvormde UTF-8 tekens, mogelijk onjuist gecodeerd"
 
-#, fuzzy, php-format
+#, php-format
 msgid "JSON Error: - %s"
 msgstr "JSON Fout: - %s"
 
-#, fuzzy
 msgid "Some problem encountered when encoding/decoding JSON data."
 msgstr ""
 "Er is een probleem opgetreden bij het coderen/decoderen van JSON-gegevens."
