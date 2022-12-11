@@ -5,8 +5,8 @@ msgstr ""
 "Project-Id-Version: grommunio Web French (France)\n"
 "Report-Msgid-Bugs-To: dev@grommunio.com\n"
 "POT-Creation-Date: 2019-09-25 14:32+0200\n"
-"PO-Revision-Date: 2022-07-26 15:50+0200\n"
-"Last-Translator: Mike Williams <mike.williams@grammm.com>\n"
+"PO-Revision-Date: 2022-12-11 14:12+0000\n"
+"Last-Translator: Orkan Eser <orkan.eser@grommunio.com>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/grommunio/"
 "grommunio-web/fr/>\n"
 "Language: fr_FR\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 4.14-dev\n"
+"X-Generator: Weblate 4.15-dev\n"
 
 #. TRANSLATORS: This message is used as label for the column which indicates the week number of the month in date picker. and 'Wk' stands for week
 msgid "Wk"
@@ -2346,7 +2346,7 @@ msgstr ""
 
 # 90%
 msgid "Permission"
-msgstr "Permission"
+msgstr "Autorisation"
 
 msgid "Duplicate delegate"
 msgstr "Dupliquer le délégué"
@@ -3773,7 +3773,7 @@ msgid "Additional information"
 msgstr "Informations complémentaires"
 
 msgid "Business 2"
-msgstr "Entreprise 2"
+msgstr "Business 2"
 
 msgid "Callback"
 msgstr "Rappel"
@@ -4452,7 +4452,7 @@ msgid "Nonediting Author"
 msgstr "Auteur non éditeur"
 
 msgid "Reviewer"
-msgstr "Examinateur"
+msgstr "Critique"
 
 msgid "Contributor"
 msgstr "Contributeur"
@@ -4531,7 +4531,7 @@ msgid "Folder containing {0} Items"
 msgstr "Le dossier contient {0} éléments"
 
 msgid "Permissions"
-msgstr "Permissions"
+msgstr "Autorisation"
 
 msgid "No permissions granted"
 msgstr "Aucune autorisation accordée"
@@ -4546,7 +4546,7 @@ msgid "Read"
 msgstr "Lecture"
 
 msgid "Write"
-msgstr "Écriture"
+msgstr "Écrire"
 
 msgid "Create items"
 msgstr "Créer des éléments"
