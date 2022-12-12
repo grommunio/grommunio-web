@@ -534,7 +534,7 @@ msgid "Sort by: Last Name"
 msgstr "Ordina per: Cognome"
 
 msgid "Sort by: Email Address"
-msgstr "Ordina per: Indirizzo email"
+msgstr "Ordina per: Indirizzo e-mail"
 
 msgid "Job Title"
 msgstr "Qualifica"
@@ -2257,7 +2257,7 @@ msgid "Select an address to use"
 msgstr "Seleziona un indirizzo da utilizzare"
 
 msgid "Email"
-msgstr "Email"
+msgstr "E-mail"
 
 msgid "More than one '{0}' found."
 msgstr "Trovati risultati multipli per '{0}'."
@@ -2508,10 +2508,10 @@ msgid "Items"
 msgstr "Elementi"
 
 msgid "Save an item e.g. mail, contact, etc."
-msgstr "Salva un elemento (es. email, contatto, ecc.)."
+msgstr "Salva un elemento (es. e-mail, contatto, ecc.)."
 
 msgid "Send an item e.g. mail, meeting request, etc."
-msgstr "Invia un elemento (es. email, richiesta appuntamento, etc.)."
+msgstr "Invia un elemento (es. e-mail, richiesta appuntamento, etc.)."
 
 msgid "Select all items"
 msgstr "Selezione tutti gli elementi"
@@ -2546,7 +2546,7 @@ msgid ""
 "deleted item can still be restored."
 msgstr ""
 "Elimina l'elemento selezionato e spostalo nel cestino. L'elemento eliminato "
-"puo` essere ripristinato."
+"può essere ripristinato."
 
 msgid "Add/Edit Cc recipient"
 msgstr "Aggiungi/Modifica destinatario Cc"
@@ -2622,7 +2622,7 @@ msgid "Display name"
 msgstr "Nome visualizzato"
 
 msgid "Email address"
-msgstr "Indirizzo email"
+msgstr "Indirizzo e-mail"
 
 # 75%
 # 78%
@@ -2645,13 +2645,13 @@ msgid "Copy email addresses"
 msgstr "Copia gli indirizzi e-mail"
 
 msgid "Send email"
-msgstr "Invia email"
+msgstr "Invia e-mail"
 
 msgid "Delete recipient from suggestion list"
 msgstr "Elimina il destinatario dalla lista dei suggerimenti"
 
 msgid "Copy all email addresses"
-msgstr "Copia tutti gli indirizzi email"
+msgstr "Copia tutti gli indirizzi e-mail"
 
 msgid "View recipient"
 msgstr "Visualizza destinatario"
@@ -3115,7 +3115,7 @@ msgid "Loading from addresses"
 msgstr "Caricamento dagli indirizzi"
 
 msgid "Forward Mail"
-msgstr "Inoltra email"
+msgstr "Inoltra e-mail"
 
 msgid "Please select a from address record."
 msgstr "Prego selezionare un indirizzo del mittente."
@@ -3150,7 +3150,7 @@ msgid "Request Permissions"
 msgstr "Richiesta Permessi"
 
 msgid "Enable desktop notifications for new mail"
-msgstr "Abilita le notifiche desktop per la nuove email"
+msgstr "Abilita le notifiche desktop per la nuove e-mail"
 
 msgid "Enable desktop notifications for reminders"
 msgstr "Abilita le notifiche sul desktop per i promemoria"
@@ -3191,9 +3191,8 @@ msgstr "Sito web"
 msgid "IM Address"
 msgstr "Indirizzo IM"
 
-#, fuzzy
 msgid "D, d-m-Y, {0}"
-msgstr "D, d-m-Y, {0}"
+msgstr "D, d/m/Y, {0}"
 
 # 76%
 msgid "{0} selected row"
@@ -3210,13 +3209,11 @@ msgstr "d-m-Y"
 msgid "l d/m/Y"
 msgstr "l d/m/Y"
 
-#, fuzzy
 msgid "l d/m/Y {0}"
 msgstr "l d/m/Y {0}"
 
-#, fuzzy
 msgid "d-m-Y {0}"
-msgstr "d-m-Y {0}"
+msgstr "d/m/Y {0}"
 
 msgid "Unknown"
 msgstr "Sconosciuto"
@@ -3266,14 +3263,13 @@ msgctxt "mail.previewpanel"
 msgid "Please treat this as {0}."
 msgstr "Si prega di considerare questo messaggio come {0}."
 
-#, fuzzy
 msgctxt "mail.previewpanel"
 msgid ""
 "Click here to download pictures. To help protect your privacy, grommunio Web "
 "prevented automatic download of some pictures in this message."
 msgstr ""
-"Fare clic qui per scaricare le immagini. Per proteggere la vostra privacy, "
-"grommunio Web ha impedito il download automatico di alcune immagini in "
+"Fai clic qui per scaricare le immagini. Per proteggere la tua riservatezza, "
+"grommunio Web ha impedito la scaricamento automatico di alcune immagini in "
 "questo messaggio."
 
 msgctxt "mail.previewpanel"
@@ -3555,14 +3551,14 @@ msgid "Email Display As"
 msgstr "E-mail Visualizza come"
 
 msgid "Email 2"
-msgstr "Email 2"
+msgstr "E-mail 2"
 
 # 89%
 msgid "Email2 Display As"
 msgstr "E-mail 2 Visualizza come"
 
 msgid "Email 3"
-msgstr "Email 3"
+msgstr "E-mail 3"
 
 # 89%
 msgid "Email3 Display As"
@@ -3764,7 +3760,7 @@ msgid "New email address"
 msgstr "Nuovo indirizzo e-mail"
 
 msgid "Please enter a valid email address"
-msgstr "Inserire un indirizzo email valido"
+msgstr "Inserisci un indirizzo e-mail valido"
 
 msgid "Select Members"
 msgstr "Seleziona membri"
@@ -3815,10 +3811,10 @@ msgid "Sort by: Full Name"
 msgstr "Ordina per: Nome completo"
 
 msgid "Sort by: Email Address 2"
-msgstr "Ordina per: Indirizzo email 2"
+msgstr "Ordina per: Indirizzo e-mail 2"
 
 msgid "Sort by: Email Address 3"
-msgstr "Ordina per: Indirizzo email 3"
+msgstr "Ordina per: Indirizzo e-mail 3"
 
 msgid "Mobile Phone"
 msgstr "Cellulare"
@@ -4211,7 +4207,6 @@ msgstr "Questo elemento è stato modificato. Sei sicuro di volerlo eliminare?"
 msgid "Unsaved changes"
 msgstr "Modifiche non salvate"
 
-#, fuzzy
 msgid "Welcome to grommunio Web"
 msgstr "Benvenuti su grommunio Web"
 
@@ -4269,7 +4264,6 @@ msgstr "Espandi pannello widget"
 msgid "Your changes will be lost if you leave this page now."
 msgstr "Lasciando questa pagina, tutte le modifiche effettuate andranno perse."
 
-#, fuzzy
 msgid "D {0}"
 msgstr "D {0}"
 
@@ -4327,11 +4321,9 @@ msgstr "Recensore"
 msgid "Contributor"
 msgstr "Collaboratore"
 
-#, fuzzy
 msgid "Free/Busy time, subject, location"
 msgstr "Orario libero/occupato, soggetto, luogo"
 
-#, fuzzy
 msgid "Free/Busy time"
 msgstr "Tempo libero/occupato"
 
@@ -4383,11 +4375,9 @@ msgstr "Tipo"
 msgid "Description"
 msgstr "Descrizione"
 
-#, fuzzy
 msgid "EntryID"
 msgstr "ID voce"
 
-#, fuzzy
 msgid "Parent EID"
 msgstr "ID genitore"
 
@@ -4445,9 +4435,8 @@ msgstr "Contatto cartella"
 msgid "Folder visible"
 msgstr "Cartella visibile"
 
-#, fuzzy
 msgid "Apply (copy) changed permissions recursively"
-msgstr "Applicare (copiare) i permessi modificati in modo ricorsivo"
+msgstr "Applica (copia) i permessi modificati in modo ricorsivo"
 
 msgid "User already exists"
 msgstr "L'utente esiste già"
@@ -4582,7 +4571,7 @@ msgid "Share folder..."
 msgstr "Condividi cartella..."
 
 msgid "Import emails"
-msgstr "Importa email"
+msgstr "Importa e-mail"
 
 # 93%
 # 100%
@@ -4658,16 +4647,16 @@ msgid "Original message"
 msgstr "Messaggio originale"
 
 msgid "Schedule mail to be sent out"
-msgstr "Programma l'invio dell'email"
+msgstr "Programma l'invio dell'e-mail"
 
 msgid "Scheduled Items"
 msgstr "Invio Programmato"
 
 msgid "Your message will be sent at "
-msgstr "La tua email verrà inviata alle "
+msgstr "La tua e-mail verrà inviata alle "
 
 msgid "Go to your Outbox to edit your email."
-msgstr "Vai nella <b>Posta in uscita</b> per modificare l\\'email."
+msgstr "Vai nella <b>Posta in uscita</b> per modificare l\\'e-mail."
 
 msgid "hour(s)"
 msgstr "ora/e"
@@ -4695,7 +4684,7 @@ msgid "at {0}"
 msgstr "il {0}"
 
 msgid "Your email will be sent {0}{1}"
-msgstr "La tua email verrà inviata {0}{1}"
+msgstr "La tua e-mail verrà inviata {0}{1}"
 
 msgid "Saving..."
 msgstr "Salvataggio in corso..."
@@ -4718,11 +4707,11 @@ msgid "Send Later"
 msgstr "Programma"
 
 msgid "Schedule your mail to be sent on a specific date and time"
-msgstr "Programma l'invio dell'email in un momento specifico"
+msgstr "Programma l'invio dell'e-mail in un momento specifico"
 
 # 86%
 msgid "Add attachments to this email"
-msgstr "Aggiungi allegati a questa email"
+msgstr "Aggiungi allegati a questa e-mail"
 
 msgid "Add signature"
 msgstr "Aggiungi firma"
@@ -4737,7 +4726,7 @@ msgid "Set flag"
 msgstr "Imposta bandierina"
 
 msgid "Set flag on this email"
-msgstr "Imposta bandierina su questa email"
+msgstr "Imposta bandierina su questa e-mail"
 
 msgid "Mark this mail as high priority"
 msgstr "Contrassegna messaggio con priorità alta"
@@ -4823,7 +4812,7 @@ msgstr "Stampa singole e-mail"
 
 # 78%
 msgid "Print selected email"
-msgstr "Stampa email selezionata"
+msgstr "Stampa e-mail selezionata"
 
 msgid "Filter"
 msgstr "Filtro"
@@ -4856,10 +4845,10 @@ msgid "Plain Text"
 msgstr "Testo semplice"
 
 msgid "Compose mail settings"
-msgstr "Composizione email"
+msgstr "Composizione e-mail"
 
 msgid "Compose mail in this format"
-msgstr "Scrivi email in questo formato"
+msgstr "Scrivi e-mail in questo formato"
 
 msgid "Default font"
 msgstr "Carattere predefinito"
@@ -4882,7 +4871,7 @@ msgid "Enable conversation view"
 msgstr "Abilita la visualizzazione per conversazione"
 
 msgid "Collapse conversation when selecting a different email"
-msgstr "Comprimi la conversazione quando selezioni un'altra email"
+msgstr "Comprimi la conversazione quando selezioni un'altra e-mail"
 
 msgid "Incoming mail"
 msgstr "Posta in arrivo"
@@ -4990,11 +4979,11 @@ msgid ""
 "\"Add to safe sender list\" functionality in an opened email."
 msgstr ""
 "Per proteggere la tua privacy, gli indirizzi e-mail o domini possono essere "
-"aggiunti solo tramite la funzionalità \"Aggiungi all'elenco di mittenti "
-"attendibili\" in un'e-mail aperta."
+"aggiunti solo tramite la funzionalità «Aggiungi all'elenco di mittenti "
+"attendibili» in un'e-mail aperta."
 
 msgid "Delete all"
-msgstr "Cancella tutto"
+msgstr "Elimina tutto"
 
 msgid "Signatures"
 msgstr "Firme"
@@ -5100,7 +5089,7 @@ msgid "Unread Mail"
 msgstr "Messaggio non letto"
 
 msgid "Quick Mail"
-msgstr "E-Mail veloce"
+msgstr "Messaggio veloce"
 
 msgid "Print note"
 msgstr "Stampa nota"
@@ -5364,10 +5353,10 @@ msgid "{0} of mailbox space is used."
 msgstr "{0} di spazio utilizzato."
 
 msgid "You have exceeded hard quota, you can not send or receive mails."
-msgstr "Hai superato la quota hard, non puoi inviare o ricevere email."
+msgstr "Hai superato la quota, non puoi inviare o ricevere e-mail."
 
 msgid "At {0} you won't be able to send mails."
-msgstr "A {0} non potrai più inviare email."
+msgstr "A {0} non potrai più inviare e-mail."
 
 msgid ""
 "You can not send mails as you have exceeded soft quota, at {0} you won't be "
@@ -5377,12 +5366,12 @@ msgstr ""
 "grado di ricevere mail."
 
 msgid "At {0} you won't be able to send or receive mails."
-msgstr "Tra {0} non sarai in grado di inviare o ricevere email."
+msgstr "Tra {0} non sarai in grado di inviare o ricevere e-mail."
 
 msgid "You can not send mails as you have exceeded soft quota."
 msgstr ""
-"Non puoi più inviare email perché hai superato il limite di archiviazione di "
-"allarme."
+"Non puoi più inviare e-mail perché hai superato il limite di archiviazione "
+"di allarme."
 
 msgid "Reset settings"
 msgstr "Reset impostazioni"
@@ -6314,27 +6303,25 @@ msgid "Presentation"
 msgstr "Presentazione"
 
 msgid "Spreadsheet"
-msgstr "Spreadsheet"
+msgstr "Fogli di calcolo"
 
 msgid "Upload files"
-msgstr "Carica files"
+msgstr "Carica file"
 
-#, fuzzy
 msgid "Create document"
-msgstr "Creare un documento"
+msgstr "Crea un documento"
 
-#, fuzzy
 msgid "Create office document"
-msgstr "Creare un documento d'ufficio"
+msgstr "Crea un documento d'ufficio"
 
 msgid "Download files"
-msgstr "Scarica files"
+msgstr "Scarica file"
 
 msgid "Share"
 msgstr "Condividi"
 
 msgid "Attach to mail"
-msgstr "Allega all'email"
+msgstr "Allega all'e-mail"
 
 #, fuzzy
 msgid "Attach to mail as link"
@@ -6344,7 +6331,7 @@ msgid "Attaching"
 msgstr "Sto allegando"
 
 msgid "Creating email... Please wait!"
-msgstr "Creazione email in corso... Attendere prego!"
+msgstr "Creazione dell'e-mail… Attendere prego!"
 
 msgid "Edit share"
 msgstr "Modifica condivisione"
@@ -6773,7 +6760,7 @@ msgid ""
 "certificate you will not be able to sign or decrypt S/MIME emails."
 msgstr ""
 "Vuoi rimuovere il tuo certificato privato? Se rimuovi il tuo certificato non "
-"sarai piu` in grado di firmare o decriptare emails S/MIME."
+"sarai più in grado di firmare o decriptare e-mail S/MIME."
 
 msgid "Certificate details"
 msgstr "Dettagli certificato"
@@ -6786,7 +6773,7 @@ msgstr ""
 "server qui` sotto."
 
 msgid "Filter on Email"
-msgstr "Filtro su email"
+msgstr "Filtro su e-mail"
 
 msgid "Public & Private certificates"
 msgstr "Certificati pubblici e privati"
@@ -6862,7 +6849,7 @@ msgstr ""
 "destinatario del messaggio sara` in grado di aprirlo."
 
 msgid "What's going on with my email?"
-msgstr "Cosa succede con la mia email?"
+msgstr "Cosa succede con la mia e-mail?"
 
 #, fuzzy
 msgid ""
@@ -6898,16 +6885,15 @@ msgid ""
 "You can continue to work. However, you should keep in mind that the identity "
 "and the authenticity of the message content could not be verified."
 msgstr ""
-"Puoi continuare a lavorare. Tuttavia devi tenere presente che non e` stato "
-"possibile verificare l'identita` e l'autenticita` del contenuto del "
-"messaggio."
+"Puoi continuare a lavorare. Tuttavia devi tenere presente che non è stato "
+"possibile verificare l'identità e l'autenticità del contenuto del messaggio."
 
 msgid ""
 "You can contact your helpdesk or system administrator if you are not sure "
 "what to do next."
 msgstr ""
-"Puoi contattare l'helpdesk o l'amministratore del sistema se non sei sicuro "
-"di cosa fare."
+"Puoi contattare l'helpdesk o l'amministratore del sistema se non sei sicuro/"
+"sicura di cosa fare."
 
 msgid ""
 "grommunio Web can verify digital signatures of emails. A successful "
@@ -6975,9 +6961,9 @@ msgid ""
 "The revocation status of the digital certificate used to sign this email is "
 "disabled (OCSP). The validity of the certificate could not be verified."
 msgstr ""
-"Lo status della recova del certificato digitale usato per firmare questa "
-"email e` disabilitato (OCSP). Non e` stato possibile verificare la validita` "
-"del certificato."
+"Lo stato di revoca del certificato digitale utilizzato per firmare questa e-"
+"mail è disattivato (OCSP). Non è stato possibile verificare la validità del "
+"certificato."
 
 #, fuzzy
 msgid "The certificate verification server (OCSP) is temporarily offline."
@@ -7364,13 +7350,13 @@ msgstr "Nessun certificato disponibile"
 
 msgid "Private certificate is not valid yet, unable to sign email"
 msgstr ""
-"Il certificato privato non e` ancora valido, impossibile firmare l'email"
+"Il certificato privato non è ancora valido, impossibile firmare l'e-mail"
 
 msgid "Private certificate has been expired, unable to sign email"
-msgstr "Il certificato privato e` scaduto, impossibile firmare l'email"
+msgstr "Il certificato privato è scaduto, impossibile firmare l'e-mail"
 
 msgid "Private certificate does not match email address"
-msgstr "Il certificato privato non corrisponde all'indirizzo di email"
+msgstr "Il certificato privato non corrisponde all'indirizzo di e-mail"
 
 msgid "Missing public certificates for the following recipients: "
 msgstr "Certificato pubblico mancante per i seguenti destinatari: "
@@ -7395,7 +7381,7 @@ msgid "Unable to decrypt certificate"
 msgstr "Impossibile decriptare il certificato"
 
 msgid "Private key can't be used to sign email"
-msgstr "La chiave privata non puo` essere usata per firmare l'email"
+msgstr "La chiave privata non può essere usata per firmare l'e-mail"
 
 msgid "Certificate email address doesn't match grommunio Web account "
 msgstr ""
@@ -8297,3 +8283,6 @@ msgstr "Errore JSON: - %s"
 msgid "Some problem encountered when encoding/decoding JSON data."
 msgstr ""
 "Si è verificato un problema durante la codifica/decodifica dei dati JSON."
+
+msgid "I want to navigate through my items by using."
+msgstr "Modalità navigazione messaggi."
