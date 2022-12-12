@@ -310,11 +310,10 @@ msgstr "Falsch"
 msgid ""
 "This field should be an e-mail address in the format \"user@example.com\""
 msgstr ""
-"Dieses Feld sollte eine E-Mail-Adresse im Format \"user@example.com\" "
-"enthalten"
+"Dieses Feld sollte eine E-Mail-Adresse im Format «user@example.com» enthalten"
 
 msgid "This field should be a URL in the format \"{0}\""
-msgstr "Dieses Feld sollte eine URL im Format \"{0}\" enthalten"
+msgstr "Dieses Feld sollte eine URL im Format «{0}» enthalten"
 
 msgid "This field should only contain letters and _"
 msgstr "Diese Feld sollte nur Buchstaben und _ enthalten"
@@ -7985,3 +7984,6 @@ msgstr ""
 
 msgid "Some problem encountered when encoding/decoding JSON data."
 msgstr ""
+
+msgid "I want to navigate through my items by using."
+msgstr "Meine Elemente möchte ich:"
