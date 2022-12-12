@@ -673,7 +673,7 @@ msgid "Show.."
 msgstr "Afficher.."
 
 msgid "Mails"
-msgstr "Mails"
+msgstr "Courriels"
 
 msgid "Appointments"
 msgstr "Rendez-vous"
@@ -841,8 +841,10 @@ msgstr "Se répète tous les {0} {1} effectif le {2}."
 msgid "Occurs every {0} effective {1} for {2} occurrence from {3} to {4}."
 msgid_plural ""
 "Occurs every {0} effective {1} for {2} occurrences from {3} to {4}."
-msgstr[0] "Se produit chaque {0} effective {1} pour {2} occurrence de {3} à {4}."
-msgstr[1] "Se produit chaque {0} effective {1} pour {2} occurrences de {3} à {4}."
+msgstr[0] ""
+"Se produit chaque {0} effective {1} pour {2} occurrence de {3} à {4}."
+msgstr[1] ""
+"Se produit chaque {0} effective {1} pour {2} occurrences de {3} à {4}."
 
 msgid "Occurs every {0} {1} effective {2} for {3} occurrence from {4} to {5}."
 msgid_plural ""
@@ -1162,9 +1164,8 @@ msgstr ""
 "remplacées lorsque cette demande de réunion sera mise à jour par "
 "l'organisateur"
 
-#, fuzzy
 msgid "Create in"
-msgstr "Créer"
+msgstr "Créer dans"
 
 msgid "Time"
 msgstr "Temps"
@@ -1213,7 +1214,7 @@ msgid "Send"
 msgstr "Envoyer"
 
 msgid "Save"
-msgstr "Sauvez"
+msgstr "Enregistrer"
 
 msgid "Close"
 msgstr "Fermer"
@@ -1369,9 +1370,8 @@ msgstr "Copier l'élément sélectionné"
 msgid "Paste selected item"
 msgstr "Coller l'élément sélectionné"
 
-#, fuzzy
 msgid "An overview of"
-msgstr "Imprimer l'aperçu"
+msgstr "Un aperçu de"
 
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "Start"
@@ -2036,7 +2036,7 @@ msgid ""
 "the sender?"
 msgstr ""
 "L'expéditeur de ce message a demandé à demandé une confirmation de lecture. "
-"Souhaitez-vous notifier l'expéditeur ?"
+"Souhaitez-vous notifier l'expéditeur ?"
 
 msgid "Import"
 msgstr "Importer"
@@ -2446,9 +2446,8 @@ msgstr "la semaine prochaine"
 msgid "Edit recipient"
 msgstr "Modifier un destinataire"
 
-#, fuzzy
 msgid "Copy email address"
-msgstr "Nouvelle adresse électronique"
+msgstr "Copier l'adresse"
 
 msgid "Set as required"
 msgstr "Définir comme requis"
@@ -2519,10 +2518,10 @@ msgid "Items"
 msgstr "Éléments"
 
 msgid "Save an item e.g. mail, contact, etc."
-msgstr "Enregistrer un élément ex.: courrier, contact, etc."
+msgstr "Enregistrer un élément ex. : courrier, contact, etc."
 
 msgid "Send an item e.g. mail, meeting request, etc."
-msgstr "Envoyer un élément ex.: courrier, demande de réunion, etc."
+msgstr "Envoyer un élément ex. : courrier, demande de réunion, etc."
 
 msgid "Select all items"
 msgstr "Sélectionner tous les éléments"
@@ -2564,11 +2563,9 @@ msgstr ""
 msgid "Add/Edit Cc recipient"
 msgstr "Modifier un destinataire"
 
-#, fuzzy
 msgid "Disable for new mail"
 msgstr "Désactiver pour les nouveaux courriers"
 
-#, fuzzy
 msgid "Enable for new mail"
 msgstr "Activation pour le nouveau courrier"
 
@@ -2590,7 +2587,6 @@ msgstr "Modifier un destinataire"
 
 # 88%
 # 100%
-#, fuzzy
 msgid "Reply Mail"
 msgstr "Répondre à tous"
 
@@ -2604,7 +2600,6 @@ msgstr "Veuillez sélectionner un destinataire."
 msgid "Manage Cc recipients"
 msgstr "Modifier un destinataire"
 
-#, fuzzy
 msgid ""
 "Cc recipients can be used to set a default Cc user in new mail, replies or "
 "both."
@@ -3835,7 +3830,7 @@ msgid "New email address"
 msgstr "Nouvelle adresse email"
 
 msgid "Please enter a valid email address"
-msgstr "S'il vous plaît, mettez une adresse email valide"
+msgstr "Veuillez saisir une adresse électronique valide"
 
 msgid "Select Members"
 msgstr "Sélectionner les membres"
@@ -4793,7 +4788,7 @@ msgid "Original message"
 msgstr "Message initial"
 
 msgid "Schedule mail to be sent out"
-msgstr "Mail planifié pour envoi"
+msgstr "Courriel planifié pour envoi"
 
 #, fuzzy
 msgid "Scheduled Items"
@@ -4834,7 +4829,7 @@ msgid "at {0}"
 msgstr "à {0}"
 
 msgid "Your email will be sent {0}{1}"
-msgstr "Votre email sera envoyé {0}{1}"
+msgstr "Votre courriel sera envoyé {0}{1}"
 
 msgid "Saving..."
 msgstr "Enregistrement..."
@@ -5006,10 +5001,10 @@ msgid "Plain Text"
 msgstr "Text brut"
 
 msgid "Compose mail settings"
-msgstr "Paramètres de composition du courrier"
+msgstr "Paramètres de rédaction du courrier"
 
 msgid "Compose mail in this format"
-msgstr "Composer le courrier sous ce format"
+msgstr "Rédiger le courrier sous ce format"
 
 msgid "Default font"
 msgstr "Police par défaut"
@@ -5152,7 +5147,7 @@ msgstr ""
 "expéditeurs sûrs\" dans un courriel ouvert."
 
 msgid "Delete all"
-msgstr "Supprimer tout"
+msgstr "Tout supprimer"
 
 msgid "Signatures"
 msgstr "Signatures"
@@ -6591,12 +6586,11 @@ msgid "Spreadsheet"
 msgstr "Tableur"
 
 msgid "Upload files"
-msgstr "Envoyer des fichiers"
+msgstr "Téléverser des fichiers"
 
 msgid "Create document"
-msgstr "Créer document"
+msgstr "Créer un document"
 
-#, fuzzy
 msgid "Create office document"
 msgstr "Créer un document de bureau"
 
@@ -7099,9 +7093,9 @@ msgid ""
 "Do you really want to remove your private certificate? If you remove your "
 "certificate you will not be able to sign or decrypt S/MIME emails."
 msgstr ""
-"Voulez-vous vraiment supprimer votre certificat privé ? Si vous supprimez "
-"votre certificat vous ne serez plus en mesure de signer ou de décrypter des "
-"courriers S/MIME."
+"Voulez-vous vraiment supprimer votre certificat privé ? Si vous supprimez "
+"votre certificat vous ne serez plus en mesure de signer ou de déchiffrer des "
+"courriels S/MIME."
 
 msgid "Certificate details"
 msgstr "Détails du certificat"
@@ -7190,25 +7184,22 @@ msgstr ""
 "destinataire du message sera en mesure de l'ouvrir."
 
 msgid "What's going on with my email?"
-msgstr "Qu'est ce qui se passe avec mon courriel ?"
+msgstr "Qu'est-ce qui se passe avec mon courriel ?"
 
-#, fuzzy
 msgid ""
 "grommunio Web can verify digital signatures of emails. A successful "
 "verification reassures you that the message has not been tampered with and "
 "validates the identity of the sender."
 msgstr ""
-"grommunio Web peut vérifier les signatures numériques des e-mails. Une "
+"grommunio Web peut vérifier les signatures numériques des courriels. Une "
 "vérification réussie vous assure que le message n'a pas été falsifié et "
 "valide l'identité de l'expéditeur."
 
-#, fuzzy
 msgid ""
 "You are seeing this message because the verification of the digital signature"
 msgstr ""
 "Vous voyez ce message parce que la vérification de la signature numérique"
 
-#, fuzzy
 msgid " has failed"
 msgstr " a échoué"
 
@@ -7216,10 +7207,10 @@ msgid " for this message."
 msgstr " pour ce message."
 
 msgid "What caused this issue?"
-msgstr "Qu'est ce qui à causé ce problème ?"
+msgstr "Qu'est-ce qui a causé ce problème ?"
 
 msgid "What should I do?"
-msgstr "Que devrais-je faire ?"
+msgstr "Que devrais-je faire ?"
 
 msgid ""
 "You can continue to work. However, you should keep in mind that the identity "
@@ -8669,3 +8660,6 @@ msgstr "Erreur JSON : - %s"
 #, fuzzy
 msgid "Some problem encountered when encoding/decoding JSON data."
 msgstr "Un problème rencontré lors de l'encodage/décodage des données JSON."
+
+msgid "I want to navigate through my items by using."
+msgstr "Je veux naviguer à travers mes éléments en utilisant."
