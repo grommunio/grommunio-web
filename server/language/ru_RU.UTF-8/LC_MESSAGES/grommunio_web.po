@@ -5393,8 +5393,8 @@ msgstr "Предварительный просмотр файлов"
 msgid "Inbox navigation"
 msgstr "Отображение входящих"
 
-msgid "I want to navigate through my items by using."
-msgstr "При перемещение по папке использовать."
+msgid "I want to navigate through my items by using:"
+msgstr "При перемещение по папке использовать:"
 
 msgid "Infinite Scroll"
 msgstr "Бесконечная прокрутка"

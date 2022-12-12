@@ -5206,8 +5206,8 @@ msgstr "Dosya önizleme"
 msgid "Inbox navigation"
 msgstr "Gelen kutusunda gezinme"
 
-msgid "I want to navigate through my items by using."
-msgstr "...kullanarak öğelerim arasında gezinmek istiyorum."
+msgid "I want to navigate through my items by using:"
+msgstr "...kullanarak öğelerim arasında gezinmek istiyorum:"
 
 msgid "Infinite Scroll"
 msgstr "Sonsuz kaydırma"

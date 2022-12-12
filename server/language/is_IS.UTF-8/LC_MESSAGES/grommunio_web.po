@@ -4992,8 +4992,8 @@ msgstr ""
 msgid "Inbox navigation"
 msgstr "Innhólfsstiki"
 
-msgid "I want to navigate through my items by using."
-msgstr "Ég vil flakka um atriðin mín með því að nota."
+msgid "I want to navigate through my items by using:"
+msgstr "Ég vil flakka um atriðin mín með því að nota:"
 
 msgid "Infinite Scroll"
 msgstr "Óendanlegt skrun"

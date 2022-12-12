@@ -5354,8 +5354,8 @@ msgstr "Voorbeeldweergave van bestanden"
 msgid "Inbox navigation"
 msgstr "Inbox navigatie"
 
-msgid "I want to navigate through my items by using."
-msgstr "I wil navigeren door mijn items met."
+msgid "I want to navigate through my items by using:"
+msgstr "I wil navigeren door mijn items met:"
 
 msgid "Infinite Scroll"
 msgstr "Eindeloos bladeren"

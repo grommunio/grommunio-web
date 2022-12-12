@@ -4849,7 +4849,7 @@ msgstr ""
 msgid "Inbox navigation"
 msgstr ""
 
-msgid "I want to navigate through my items by using."
+msgid "I want to navigate through my items by using:"
 msgstr ""
 
 msgid "Infinite Scroll"

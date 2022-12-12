@@ -24,7 +24,7 @@ Zarafa.settings.ui.SettingsInboxNavigationWidget = Ext.extend(Zarafa.settings.ui
 			items: [{
 				xtype: 'displayfield',
 				hideLabel: true,
-				value: _('I want to navigate through my items by using.')
+				value: _('I want to navigate through my items by using:')
 			},{
 				xtype: 'radiogroup',
 				name: 'zarafa/v1/contexts/mail/enable_live_scroll',

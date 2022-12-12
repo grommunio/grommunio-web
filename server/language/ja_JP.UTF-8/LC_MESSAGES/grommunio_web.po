@@ -5470,7 +5470,7 @@ msgid "Inbox navigation"
 msgstr "受信トレイのナビゲーション"
 
 #, fuzzy
-msgid "I want to navigate through my items by using."
+msgid "I want to navigate through my items by using:"
 msgstr "使ってアイテムをナビゲートしたい。"
 
 msgid "Infinite Scroll"

@@ -5123,8 +5123,8 @@ msgstr "Podgląd plików"
 msgid "Inbox navigation"
 msgstr "Nawigacja w skrzynce odbiorczej"
 
-msgid "I want to navigate through my items by using."
-msgstr "Chcę poruszać się po moich przedmiotach za pomocą."
+msgid "I want to navigate through my items by using:"
+msgstr "Chcę poruszać się po moich przedmiotach za pomocą:"
 
 msgid "Infinite Scroll"
 msgstr "Nieskończone przewijania"

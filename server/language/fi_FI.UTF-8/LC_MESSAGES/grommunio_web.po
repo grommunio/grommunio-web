@@ -5656,8 +5656,8 @@ msgid "Inbox navigation"
 msgstr "Saapuneiden postilaatikoiden navigointi"
 
 #, fuzzy
-msgid "I want to navigate through my items by using."
-msgstr "Haluan navigoida kohteideni läpi käyttämällä."
+msgid "I want to navigate through my items by using:"
+msgstr "Haluan navigoida kohteideni läpi käyttämällä:"
 
 msgid "Infinite Scroll"
 msgstr "Ääretön scrollaus"

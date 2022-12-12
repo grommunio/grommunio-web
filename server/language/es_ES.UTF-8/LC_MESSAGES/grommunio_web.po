@@ -5625,8 +5625,8 @@ msgstr "Previsualización de archivos"
 msgid "Inbox navigation"
 msgstr "Navegación en la Bandeja de Entrada"
 
-msgid "I want to navigate through my items by using."
-msgstr "Deseo navegar a través de mis elementos usando."
+msgid "I want to navigate through my items by using:"
+msgstr "Deseo navegar a través de mis elementos usando:"
 
 msgid "Infinite Scroll"
 msgstr "Scroll infinito"

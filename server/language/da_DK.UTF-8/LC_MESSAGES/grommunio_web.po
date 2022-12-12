@@ -5283,8 +5283,8 @@ msgstr "Visning af filer"
 msgid "Inbox navigation"
 msgstr "Indbakke navigation"
 
-msgid "I want to navigate through my items by using."
-msgstr "Jeg vil navigere i mine elementer ved at bruge."
+msgid "I want to navigate through my items by using:"
+msgstr "Jeg vil navigere i mine elementer ved at bruge:"
 
 msgid "Infinite Scroll"
 msgstr "Uendelig rulning"

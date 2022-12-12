@@ -5291,8 +5291,8 @@ msgstr "Anteprima file"
 msgid "Inbox navigation"
 msgstr "Navigazione inbox"
 
-msgid "I want to navigate through my items by using."
-msgstr "Modalità navigazione messaggi."
+msgid "I want to navigate through my items by using:"
+msgstr "Modalità navigazione messaggi:"
 
 msgid "Infinite Scroll"
 msgstr "Scorrimento continuo"

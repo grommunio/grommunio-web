@@ -5658,8 +5658,8 @@ msgid "Inbox navigation"
 msgstr "Navigacija po mapi Prejeto"
 
 #, fuzzy
-msgid "I want to navigate through my items by using."
-msgstr "Po svojih predmetih želim krmariti z uporabo."
+msgid "I want to navigate through my items by using:"
+msgstr "Po svojih predmetih želim krmariti z uporabo:"
 
 msgid "Infinite Scroll"
 msgstr "Neskončno drsenje"

@@ -5022,8 +5022,8 @@ msgstr "文件预览"
 msgid "Inbox navigation"
 msgstr "收件箱导航"
 
-msgid "I want to navigate through my items by using."
-msgstr "我想使用...浏览我的项目。"
+msgid "I want to navigate through my items by using:"
+msgstr "我想使用...浏览我的项目"
 
 msgid "Infinite Scroll"
 msgstr "无限滚动"

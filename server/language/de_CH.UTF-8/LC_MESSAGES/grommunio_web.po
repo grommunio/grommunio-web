@@ -5299,8 +5299,8 @@ msgstr ""
 msgid "Inbox navigation"
 msgstr "Navigation im Posteingang"
 
-msgid "I want to navigate through my items by using."
-msgstr "Meine Elemente möchte ich:"
+msgid "I want to navigate through my items by using:"
+msgstr "Ich möchte wie folgt durch meine Elemente navigieren:"
 
 msgid "Infinite Scroll"
 msgstr "in einer kompletten Liste sehen"

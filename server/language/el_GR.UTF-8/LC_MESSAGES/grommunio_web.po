@@ -6205,8 +6205,8 @@ msgid "Inbox navigation"
 msgstr "Πλοήγηση στα εισερχόμενα"
 
 #, fuzzy
-msgid "I want to navigate through my items by using."
-msgstr "Θέλω να πλοηγηθώ στα στοιχεία μου χρησιμοποιώντας."
+msgid "I want to navigate through my items by using:"
+msgstr "Θέλω να πλοηγηθώ στα στοιχεία μου χρησιμοποιώντας:"
 
 msgid "Infinite Scroll"
 msgstr "Άπειρη κύλιση"

@@ -5146,8 +5146,8 @@ msgstr "Forhåndsvisning av fil"
 msgid "Inbox navigation"
 msgstr "Navigasjon i Innboks"
 
-msgid "I want to navigate through my items by using."
-msgstr "Jeg vil navigerer i mine elementer ved å bruke."
+msgid "I want to navigate through my items by using:"
+msgstr "Jeg vil navigerer i mine elementer ved å bruke:"
 
 msgid "Infinite Scroll"
 msgstr "Ubegrenset rulling"

@@ -5523,8 +5523,8 @@ msgstr "Fájl előnézet"
 msgid "Inbox navigation"
 msgstr "Beérkező üzenetek közötti navigáció"
 
-msgid "I want to navigate through my items by using."
-msgstr "Az alábbi funkciók segítségével szeretnék az elemeim közt navigálni."
+msgid "I want to navigate through my items by using:"
+msgstr "Az alábbi funkciók segítségével szeretnék az elemeim közt navigálni:"
 
 msgid "Infinite Scroll"
 msgstr "Végtelen görgetés"

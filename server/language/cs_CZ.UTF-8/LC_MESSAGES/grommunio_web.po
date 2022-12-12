@@ -5528,8 +5528,8 @@ msgid "Inbox navigation"
 msgstr "Navigace ve složce Doručená pošta"
 
 #, fuzzy
-msgid "I want to navigate through my items by using."
-msgstr "Chci procházet své položky pomocí."
+msgid "I want to navigate through my items by using:"
+msgstr "Chci procházet své položky pomocí:"
 
 msgid "Infinite Scroll"
 msgstr "Nekonečné načítání"

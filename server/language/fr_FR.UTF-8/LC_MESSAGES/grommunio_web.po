@@ -5476,8 +5476,8 @@ msgstr "Prévisualisation des fichiers"
 msgid "Inbox navigation"
 msgstr "Boîte de réception"
 
-msgid "I want to navigate through my items by using."
-msgstr "Je veux naviguer à travers mes éléments en utilisant."
+msgid "I want to navigate through my items by using:"
+msgstr "Je veux naviguer à travers mes éléments en utilisant:"
 
 msgid "Infinite Scroll"
 msgstr "Défilement Illimité"
