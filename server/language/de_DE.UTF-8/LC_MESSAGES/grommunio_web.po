@@ -2271,7 +2271,7 @@ msgid "Email"
 msgstr "E-Mail"
 
 msgid "More than one '{0}' found."
-msgstr "Mehr als ein \"{0}\" gefunden."
+msgstr "Mehr als ein „{0}“ gefunden."
 
 msgid "Alert"
 msgstr "Achtung"
@@ -2561,17 +2561,17 @@ msgid ""
 "Delete selected item without moving it to the Deleted Items folder. The "
 "deleted item can still be restored."
 msgstr ""
-"Das ausgewählte Element löschen, ohne es in den Ordner \"Gelöschte Objekte\" "
+"Das ausgewählte Element löschen, ohne es in den Ordner „Gelöschte Objekte“ "
 "zu verschieben. Das gelöschte Element kann wiederhergestellt werden."
 
 msgid "Add/Edit Cc recipient"
 msgstr "CC-Empfänger hinzufügen/bearbeiten"
 
 msgid "Disable for new mail"
-msgstr "Deaktivieren für neue Mail"
+msgstr "Für neue E-Mail deaktivieren"
 
 msgid "Enable for new mail"
-msgstr "Aktivieren für neue Mail"
+msgstr "Für neue E-Mail aktivieren"
 
 msgid "Disable for replies"
 msgstr "Deaktivieren für Antworten"
@@ -5023,8 +5023,8 @@ msgid ""
 "\"Add to safe sender list\" functionality in an opened email."
 msgstr ""
 "Zum Schutz Ihrer Privatsphäre können E-Mail-Adressen oder Domains nur über "
-"die Funktion \"Zur Liste sicherer Absender hinzufügen\" in einer geöffneten "
-"E-Mail hinzugefügt werden."
+"die Funktion „Zur Liste sicherer Absender hinzufügen“ in einer geöffneten E-"
+"Mail hinzugefügt werden."
 
 msgid "Delete all"
 msgstr "Alle löschen"
@@ -5127,7 +5127,7 @@ msgid "Send to"
 msgstr "Senden an"
 
 msgid "Loading mail"
-msgstr "Lade E-Mail"
+msgstr "E-Mail wird geladen"
 
 msgid "No unread mail."
 msgstr "Keine ungelesene E-Mail."
@@ -6362,13 +6362,13 @@ msgid "Attach to mail"
 msgstr "An E-Mail anhängen"
 
 msgid "Attach to mail as link"
-msgstr "An Mail als Link anhängen"
+msgstr "An E-Mail als Link anhängen"
 
 msgid "Attaching"
 msgstr "Anhängen"
 
 msgid "Creating email... Please wait!"
-msgstr "Erstelle Mail... Bitte warten!"
+msgstr "E-Mail wird erstellt … Bitte warten!"
 
 msgid "Edit share"
 msgstr "Freigabe bearbeiten"
@@ -8158,3 +8158,6 @@ msgstr "JSON Fehler - %s"
 
 msgid "Some problem encountered when encoding/decoding JSON data."
 msgstr "Ein Problem ist bei der En-/Dekodierung von JSON Daten aufgetreten."
+
+msgid "I want to navigate through my items by using."
+msgstr "Ich möchte durch meine Elemente navigieren."
