@@ -1,3 +1,11 @@
+## 8.1.3
+#### _"Don't throw the masks, yet."_
+##### 25 may 2022
+- __Core__
+  - Fixed #860 // Cache item throw an error on save with DateTimeImmutable date objects
+- __Drivers__
+  - Fixed #866 // Deprecated Method Cassandra\ExecutionOptions starting of Cassandra 1.3
+
 ## 8.1.2
 #### _"Free the masks"_
 ##### 04 march 2022

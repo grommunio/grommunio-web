@@ -25,7 +25,7 @@ const PFC_TESTS_DIR = __DIR__ . '/../../../tests/lib/';
 const PFC_TESTS_NS = 'Phpfastcache\\Tests\\';
 
 
-// \trigger_error('The legacy autoload will be removed in the next major release. Please include Phpfastcache through composer by running `composer require phpfastcache/phpfastcache`.', \E_USER_DEPRECATED);
+\trigger_error('The legacy autoload will be removed in the next major release. Please include Phpfastcache through composer by running `composer require phpfastcache/phpfastcache`.', \E_USER_DEPRECATED);
 /**
  * Register Autoload
  */
