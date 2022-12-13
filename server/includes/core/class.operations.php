@@ -4153,34 +4153,49 @@
 					continue;
 				}
 
-				// Handle malformed entryid's
+				// Handle malformed entryids
 				try {
 					$entry = mapi_ab_openentry($addressbook, $entryid);
+					$props = mapi_getprops($entry, [PR_ENTRYID, PR_SEARCH_KEY, PR_OBJECT_TYPE, PR_DISPLAY_NAME, PR_ADDRTYPE, PR_EMAIL_ADDRESS]);
+
+					// Put data in recipient array
+					$recipients[] = $this->composeRecipient(count($recipients), $props);
 				}
 				catch (MAPIException $e) {
-					Log::Write(LOGLEVEL_WARN, "readReplyRecipientEntry unable to open AB entry: " . get_mapi_error_name($e->getCode()), $e->getDisplayMessage());
+					$oneoff = mapi_parseoneoff($entryid);
+					if (!isset($oneoff['address'])) {
+						Log::Write(LOGLEVEL_WARN, "readReplyRecipientEntry unable to open AB entry and oneoff address is not available: " . get_mapi_error_name($e->getCode()), $e->getDisplayMessage());
 
-					continue;
+						continue;
+					}
+
+					$entryid = mapi_createoneoff($oneoff['name'] ?? '', $oneoff['type'] ?? 'SMTP', $oneoff['address']);
+					$props = [
+						PR_ENTRYID => $entryid,
+						PR_DISPLAY_NAME => !empty($oneoff['name']) ? $oneoff['name'] : $oneoff['address'],
+						PR_ADDRTYPE => $oneff['type'] ?? 'SMTP',
+						PR_EMAIL_ADDRESS => $oneoff['address'],
+					];
+					$recipients[] = $this->composeRecipient(count($recipients), $props);
 				}
-
-				$props = mapi_getprops($entry, [PR_ENTRYID, PR_SEARCH_KEY, PR_OBJECT_TYPE, PR_DISPLAY_NAME, PR_ADDRTYPE, PR_EMAIL_ADDRESS]);
-
-				// Put data in recipient array
-				$recipients[] = [
-					'rowid' => count($recipients),
-					'props' => [
-						'entryid' => bin2hex($props[PR_ENTRYID]),
-						'object_type' => isset($props[PR_OBJECT_TYPE]) ? $props[PR_OBJECT_TYPE] : MAPI_MAILUSER,
-						'search_key' => isset($props[PR_SEARCH_KEY]) ? $props[PR_SEARCH_KEY] : '',
-						'display_name' => isset($props[PR_DISPLAY_NAME]) ? $props[PR_DISPLAY_NAME] : '',
-						'address_type' => isset($props[PR_ADDRTYPE]) ? $props[PR_ADDRTYPE] : 'SMTP',
-						'email_address' => isset($props[PR_EMAIL_ADDRESS]) ? $props[PR_EMAIL_ADDRESS] : '',
-						'smtp_address' => isset($props[PR_EMAIL_ADDRESS]) ? $props[PR_EMAIL_ADDRESS] : '',
-					],
-				];
 			}
 
 			return $recipients;
+		}
+
+		private function composeRecipient($rowid, $props) {
+			return [
+				'rowid' => $rowid,
+				'props' => [
+					'entryid' => bin2hex($props[PR_ENTRYID]),
+					'object_type' => $props[PR_OBJECT_TYPE] ?? MAPI_MAILUSER,
+					'search_key' => $props[PR_SEARCH_KEY] ?? '',
+					'display_name' => $props[PR_DISPLAY_NAME] ?? $props[PR_EMAIL_ADDRESS],
+					'address_type' => $props[PR_ADDRTYPE] ?? 'SMTP',
+					'email_address' => $props[PR_EMAIL_ADDRESS] ?? '',
+					'smtp_address' => $props[PR_EMAIL_ADDRESS] ?? '',
+				],
+			];
 		}
 
 		/**
