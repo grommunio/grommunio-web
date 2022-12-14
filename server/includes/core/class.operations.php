@@ -4173,7 +4173,7 @@
 					$props = [
 						PR_ENTRYID => $entryid,
 						PR_DISPLAY_NAME => !empty($oneoff['name']) ? $oneoff['name'] : $oneoff['address'],
-						PR_ADDRTYPE => $oneff['type'] ?? 'SMTP',
+						PR_ADDRTYPE => $oneoff['type'] ?? 'SMTP',
 						PR_EMAIL_ADDRESS => $oneoff['address'],
 					];
 					$recipients[] = $this->composeRecipient(count($recipients), $props);
