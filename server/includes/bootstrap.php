@@ -33,21 +33,21 @@
 	}
 
 	// Include the files
-	require_once BASE_PATH . 'server/includes/mapi/mapi.util.php';
-	require_once BASE_PATH . 'server/includes/mapi/mapidefs.php';
-	require_once BASE_PATH . 'server/includes/mapi/mapitags.php';
-	require_once BASE_PATH . 'server/includes/mapi/mapiguid.php';
-	require_once BASE_PATH . 'server/includes/mapi/class.baseexception.php';
-	require_once BASE_PATH . 'server/includes/mapi/class.mapiexception.php';
+	require_once UMAPI_PATH . '/mapi.util.php';
+	require_once UMAPI_PATH . '/mapidefs.php';
+	require_once UMAPI_PATH . '/mapitags.php';
+	require_once UMAPI_PATH . '/mapiguid.php';
+	require_once UMAPI_PATH . '/class.baseexception.php';
+	require_once UMAPI_PATH . '/class.mapiexception.php';
 
 	require_once BASE_PATH . 'server/includes/exceptions/class.ZarafaException.php';
 	require_once BASE_PATH . 'server/includes/exceptions/class.ZarafaErrorException.php';
 	require_once BASE_PATH . 'server/includes/core/class.webappsession.php';
-	require_once BASE_PATH . 'server/includes/mapi/class.baserecurrence.php';
-	require_once BASE_PATH . 'server/includes/mapi/class.recurrence.php';
-	require_once BASE_PATH . 'server/includes/mapi/class.meetingrequest.php';
-	require_once BASE_PATH . 'server/includes/mapi/class.taskrecurrence.php';
-	require_once BASE_PATH . 'server/includes/mapi/class.taskrequest.php';
+	require_once UMAPI_PATH . '/class.baserecurrence.php';
+	require_once UMAPI_PATH . '/class.recurrence.php';
+	require_once UMAPI_PATH . '/class.meetingrequest.php';
+	require_once UMAPI_PATH . '/class.taskrecurrence.php';
+	require_once UMAPI_PATH . '/class.taskrequest.php';
 
 	require_once BASE_PATH . 'server/includes/util.php';
 	require_once BASE_PATH . 'server/includes/gettext.php';
@@ -72,7 +72,7 @@
 
 	require_once BASE_PATH . 'server/includes/core/class.todolist.php';
 
-	require_once BASE_PATH . 'server/includes/mapi/class.freebusy.php';
+	require_once UMAPI_PATH . '/class.freebusy.php';
 
 	require_once BASE_PATH . 'server/includes/core/class.theming.php';
 	require_once BASE_PATH . 'server/includes/core/class.iconsets.php';

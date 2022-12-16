@@ -1,6 +1,6 @@
 <?php
 
-require_once BASE_PATH . 'server/includes/mapi/mapi.util.php';
+require_once UMAPI_PATH . '/mapi.util.php';
 
 require_once BASE_PATH . 'server/includes/core/class.encryptionstore.php';
 require_once BASE_PATH . 'server/includes/core/class.webappsession.php';
@@ -36,7 +36,7 @@ class WebAppAuthentication {
 	/**
 	 * @var 0|int An code that reflects the latest error
 	 *
-	 * @see server/includes/mapi/mapicodes.php
+	 * @see $UMAPI_PATH/mapicodes.php
 	 */
 	private static $_errorCode = NOERROR;
 

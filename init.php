@@ -9,3 +9,4 @@
 
 	// Defines the base path on the server, terminated by a slash
 	define('BASE_PATH', realpath(dirname(__FILE__)) . '/');
+	define('UMAPI_PATH', '/usr/share/php-mapi');
