@@ -251,9 +251,8 @@
 				return parent::messageList($store, $entryid, $action, "list");
 			}
 			$store_props = mapi_getprops($store, [PR_MDB_PROVIDER, PR_DEFAULT_STORE]);
-			if ($store_props[PR_MDB_PROVIDER] == ZARAFA_STORE_PUBLIC_GUID ||
-				empty($store_props[PR_DEFAULT_STORE]) || !$store_props[PR_DEFAULT_STORE]) {
-				// public store or share store do not support search folders
+			if ($store_props[PR_MDB_PROVIDER] == ZARAFA_STORE_PUBLIC_GUID) {
+				// public store does not support search folders
 				return parent::messageList($store, $entryid, $action, "search");
 			}
 			if ($GLOBALS['entryid']->compareEntryIds(bin2hex($entryid), bin2hex(TodoList::getEntryId()))) {
@@ -369,7 +368,19 @@
 				unset($search_patterns['message_classes']);
 			}
 
-			$indexDB = new IndexSqlite();
+			if ($store_props[PR_MDB_PROVIDER] == ZARAFA_STORE_DELEGATE_GUID) {
+				$eidObj = $GLOBALS["entryid"]->createMsgStoreEntryIdObj(hex2bin($action['store_entryid']));
+				$username = $eidObj['ServerShortname'];
+				$session = $GLOBALS["mapisession"]->getSession();
+
+				if ($username) {
+					$indexDB = new IndexSqlite($username, $session, $store);
+				}
+			}
+			else {
+				$indexDB = new IndexSqlite();
+			}
+
 			if (!$indexDB->load()) {
 				// if error in creating search folder then send error to client
 				$errorInfo = [];
@@ -389,11 +400,11 @@
 				$search_patterns['others'],
 				$entryid,
 				$recursive,
-				$search_patterns['message_classes'],
-				$search_patterns['date_start'],
-				$search_patterns['date_end'],
-				$search_patterns['unread'],
-				$search_patterns['has_attachments']
+				$search_patterns['message_classes'] ?? null,
+				$search_patterns['date_start'] ?? null,
+				$search_patterns['date_end'] ?? null,
+				$search_patterns['unread'] ?? null,
+				$search_patterns['has_attachments'] ?? null
 			);
 			if ($search_result == false) {
 				// if error in creating search folder then send error to client
