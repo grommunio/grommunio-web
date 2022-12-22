@@ -181,7 +181,7 @@ class IndexSqlite extends SQLite3 {
 				return false;
 			}
 		}
-		$sql_string = "SELECT entryid, message_id, folder_id, sender, sending, " .
+		$sql_string = "SELECT DISTINCT(message_id), entryid, folder_id, sender, sending, " .
 			"recipients, subject, content, attachments, message_class, date FROM" .
 			" messages WHERE messages MATCH '";
 		$this->count = 0;
@@ -259,6 +259,7 @@ class IndexSqlite extends SQLite3 {
 			}
 			$sql_string .= "'";
 		}
+		$sql_string .= " GROUP BY message_id";
 		$results = $this->query($sql_string);
 		while (($row = $results->fetchArray(SQLITE3_ASSOC)) && !$this->result_full()) {
 			$this->try_insert_content(
