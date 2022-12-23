@@ -173,15 +173,6 @@
 		define('LANG', 'en_US.UTF-8'); // default fallback language
 	}
 
-	// List of languages that should be enabled in the logon
-	// screen's language drop down.  Languages should be specified
-	// using <languagecode>_<regioncode>[.UTF-8], and separated with
-	// semicolon.  A list of available languages can be found in
-	// the manual or by looking at the list of directories in
-	// /usr/share/grommunio-web/server/language .
-	// Overrides defaults.php
-	define("ENABLED_LANGUAGES", "ca_ES;cs_CZ;da_DK;de_DE;en_GB;en_US;es_ES;fi_FI;fr_FR;hu_HU;it_IT;ja_JP;nb_NO;nl_NL;pl_PL;pt_BR;ru_RU;sl_SI;tr_TR;zh_CN;zh_TW");
-
 	// Defines the default time zone
 	if (!ini_get('date.timezone')) {
 		date_default_timezone_set('Europe/Vienna');

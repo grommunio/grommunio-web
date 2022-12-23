@@ -150,33 +150,38 @@ if (!defined("ENABLE_DIRECT_BOOKING")) {
 }
 
 /*
- * Defines enabled languages
+ List of languages that should be enabled in the settings
+ language drop down. Languages should be specified
+ using <languagecode>_<regioncode>[.UTF-8], and separated with
+ semicolon. A list of available languages can be found in
+ the manual or by looking at the list of directories in
+ /usr/share/grommunio-web/server/language.
  */
 if (!defined('ENABLED_LANGUAGES')) {
 	define(
 		"ENABLED_LANGUAGES",
-		"af_ZA;am_ET;ar_SA;as_IN;az_AZ;" .
-	"be_BY;bg_BG;bn_BD;bn_IN;bs_BA;" .
-	"ca_ES;ca_ES@valencia;cs_CZ;cy_GB;" .
-	"da_DK;de_DE;el_GR;en_US;es_ES;et_EE;eu_ES;" .
-	"fa_IR;fi_FI;fil_PH;fr_FR;" .
-	"ga_IE;gd_GB;gl_ES;gu_IN;" .
-	"he_IL;hi_IN;hr_HR;hu_HU;hy_AM;" .
-	"id_ID;is_IS;it_IT;" .
-	"ja_JP;" .
-	"ka_GE;kk_KZ;km_KH;kn_IN;ko_KR;kok_IN;ky_KG;" .
-	"lb_LU;lt_LT;lv_LV;" .
-	"mi_NZ;mk_MK;ml_IN;mn_MN;mr_IN;ms_MY;mt_MT;" .
-	"nb_NO;ne_NP;nl_NL;nn_NO;" .
-	"or_IN;" .
-	"pa_IN;pl_PL;prs_AF;pt_BR;pt_PT;" .
-	"quz_PE;" .
-	"ro_RO;ru_RU;" .
-	"sd_IN;si_LK;sk_SK;sl_SI;sq_AL;sr_RS;sr_RS@latin;sv_SE;sw_KE;" .
-	"ta_IN;te_IN;th_TH;tk_TM;tr_TR;tt_RU;" .
-	"ug_CN;uk_UA;ur_PK;uz_UZ;" .
-	"vi_VN;" .
-	"zh_CN;zh_TW"
+		"af_ZA;am_ET;ar_DZ;ar_SA;as_IN;az_AZ;" .
+		"be_BY;bg_BG;bn_BD;bn_IN;bs_BA;" .
+		"ca_ES;ca_ES@valencia;cs_CZ;cy_GB;" .
+		"da_DK;de_CH;de_DE;el_GR;en_US;es_ES;et_EE;eu_ES;" .
+		"fa_IR;fi_FI;fil_PH;fr_FR;" .
+		"ga_IE;gd_GB;gl_ES;gu_IN;" .
+		"he_IL;hi_IN;hr_HR;hu_HU;hy_AM;" .
+		"id_ID;is_IS;it_IT;" .
+		"ja_JP;" .
+		"ka_GE;kk_KZ;km_KH;kn_IN;kok_IN;ko_KR;ky_KG;" .
+		"lb_LU;lt_LT;lv_LV;" .
+		"mi_NZ;mk_MK;ml_IN;mn_MN;mr_IN;ms_MY;mt_MT;" .
+		"nb_NO;ne_NP;nl_NL;nn_NO;" .
+		"or_IN;" .
+		"pa_IN;pl_PL;prs_AF;pt_BR;pt_PT;" .
+		"quz_PE;" .
+		"ro_RO;ru_RU;" .
+		"sd_IN;si_LK;sk_SK;sl_SI;sq_AL;sr_BA;sr_RS;sr_RS@latin;sv_SE;sw_KE;" .
+		"ta_IN;te_IN;th_TH;tk_TM;tr_TR;tt_RU;" .
+		"ug_CN;uk_UA;ur_PK;uz_UZ;" .
+		"vi_VN;" .
+		"zh_CN;zh_TW"
 	);
 }
 
