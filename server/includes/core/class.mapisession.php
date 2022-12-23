@@ -1208,4 +1208,15 @@
 
 			return $props[PR_EC_SERVER_VERSION];
 		}
+
+		/**
+		 * Checks if the entryid is of the public store.
+		 * 
+		 * @param string $entryid
+		 * 
+		 * @return bool true if public store entryid false otherwise
+		 */
+		public function isPublicStore($entryid) {
+			return $GLOBALS["entryid"]->compareStoreEntryIds(bin2hex($this->publicStore), $entryid);
+		}
 	}
