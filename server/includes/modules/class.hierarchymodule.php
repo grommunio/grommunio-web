@@ -1229,7 +1229,9 @@
 						$GLOBALS["bus"]->addData($this->getResponseData());
 					}
 					catch (MAPIException $e) {
-						if ($e->getCode() == MAPI_E_INVALID_ENTRYID) {
+						$exCode = $e->getCode();
+						// gromox throws MAPI_E_INVALID_PARAMETER if it's not able to open an entry
+						if ($exCode == MAPI_E_INVALID_ENTRYID || $exCode == MAPI_E_INVALID_PARAMETER) {
 							// Entryid of the folder might be change after move, so send delete notification for folder.
 							$GLOBALS["bus"]->notify(bin2hex($props[PR_ENTRYID]), OBJECT_DELETE, $props);
 						}
