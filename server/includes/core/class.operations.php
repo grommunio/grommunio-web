@@ -1355,6 +1355,8 @@
 					if ($moveFolder) {
 						mapi_folder_copyfolder($sourceparentfolder, $sourcefolderentryid, $destfolder, $props[PR_DISPLAY_NAME], FOLDER_MOVE);
 						$folderProps = mapi_getprops($folder, [PR_ENTRYID, PR_STORE_ENTRYID]);
+						// In some cases PR_PARENT_ENTRYID is not available in mapi_getprops, add it manually
+						$folderProps[PR_PARENT_ENTRYID] = $destfolderentryid;
 						$result = true;
 					}
 					else {
