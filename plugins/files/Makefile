@@ -92,7 +92,7 @@ COPYFILES = manifest.xml config.php \
         js/external/Ext.ux.form.MetaForm.js \
         $(shell find resources/icons/ -type f \( -name '*.png' -o -name '*.gif' -o -name '*.jpg' \) ) \
         $(wildcard resources/images/**/*.png) \
-        $(shell find php/ -type f \! -name '.*' -not -path '*/tests/*' -not -path '*/examples/*' )
+        $(shell find php/ -type f \! -name '.*' -not -path '*/tests/*' -not -path '*/examples/*' -not -path '*/vendor/bin/*' -not -path '*/.github/*')
 
 CSSFILES = resources/css/files-main.css \
         resources/css/icons.css \
