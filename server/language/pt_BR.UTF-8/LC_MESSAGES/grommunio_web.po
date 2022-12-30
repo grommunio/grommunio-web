@@ -452,8 +452,6 @@ msgstr "Celular"
 msgid "Pager"
 msgstr "Pager"
 
-# 75%
-# 100%
 #, fuzzy
 msgid "No user selected"
 msgstr "Nenhuma tarefa selecionada"
@@ -570,7 +568,6 @@ msgstr "Ordenar por: Fax"
 msgid "Print single item"
 msgstr ""
 
-# 78%
 #, fuzzy
 msgid "Print selected item"
 msgstr "Imprimir tarefas selecionadas"
@@ -659,8 +656,6 @@ msgstr "Editar como nova mensagem"
 msgid "Search tools"
 msgstr ""
 
-# 85%
-# 100%
 #, fuzzy
 msgid "Folders"
 msgstr "Pasta"
@@ -737,7 +732,6 @@ msgstr "Favoritos"
 msgid "Add a folder to favorites based on this search query"
 msgstr ""
 
-# 76%
 msgid "Select Folder"
 msgstr "Selecionar Pasta"
 
@@ -832,14 +826,9 @@ msgstr "ano"
 msgid "years"
 msgstr "anos"
 
-# 77%
-# 76%
-# 86%
 msgid "Occurs every {0} effective {1} from {2} to {3}."
 msgstr "Ocorre cada {0} efetivamente {1} de {2} até {3}."
 
-# 77%
-# 76%
 msgid "Occurs every {0} {1} effective {2} from {3} to {4}."
 msgstr "Ocorre cada {0} {1} efetivamente {2} de {3} até {4}."
 
@@ -871,23 +860,15 @@ msgid_plural "Occurs every {0} {1} effective {2} for {3} occurrences."
 msgstr[0] ""
 msgstr[1] ""
 
-# 77%
-# 76%
-# 75%
 msgid "Occurs every {0} effective {1} until {2} from {3} to {4}."
 msgstr "Ocorre cada {0} efetivamente {1} até {2} de {3} até {4}."
 
-# 77%
-# 76%
-# 80%
 msgid "Occurs every {0} {1} effective {2} until {3} from {4} to {5}."
 msgstr "Ocorre cada {0} {1} efetivamente {2} até {3} de {4} até {5}."
 
-# 75%
 msgid "Occurs every {0} effective {1} until {2}."
 msgstr "Ocorre cada {0} efetivamente {1} até {2}."
 
-# 77%
 msgid "Occurs every {0} {1} effective {2} until {3}."
 msgstr "Ocorre cada {0} {1} efetivamente {2} até {3}."
 
@@ -904,8 +885,6 @@ msgstr "Onde"
 msgid "New Meeting Time Proposed"
 msgstr "Novo horário para a reunião proposto"
 
-# 75%
-# 100%
 #, fuzzy
 msgid "and "
 msgstr "e"
@@ -949,8 +928,6 @@ msgstr "Padrão de recorrência"
 msgid "All Day Event"
 msgstr "Evento diurno"
 
-# 76%
-# 100%
 #, fuzzy
 msgid "Add Shared Calendar"
 msgstr "Abrir Calendários Compartilhados"
@@ -1136,7 +1113,6 @@ msgctxt "calendar.dialog"
 msgid "You proposed a new time for this meeting on {0}"
 msgstr "Você propôs uma nova hora para essa reunião em {0}"
 
-# 91%
 msgctxt "calendar.dialog"
 msgid "{0} proposed a new time for this meeting on {1}"
 msgstr "{0} propôs uma nova hora para essa reunião em {1}"
@@ -1153,7 +1129,6 @@ msgctxt "calendar.dialog"
 msgid "Tentatively Accepted on {0}"
 msgstr "Temporariamente aceito em {0}"
 
-# 76%
 msgctxt "calendar.dialog"
 msgid "Tentatively Accepted by {0} on {1}"
 msgstr "Temporariamente aceito por {0} em {1}"
@@ -1306,7 +1281,6 @@ msgstr "Hora final"
 msgid "Comment"
 msgstr "Comentário"
 
-# 84%
 msgid "Send Meeting Request Cancellation"
 msgstr "Envie pedido de cancelamento de reunião"
 
@@ -1360,7 +1334,6 @@ msgstr "Enviar a resposta agora."
 msgid "Don't send a response."
 msgstr "Não enviar resposta."
 
-# 91%
 msgid "The following responses for this meeting have been received"
 msgstr "As seguintes respostas para esta reunião foram recebidas"
 
@@ -1370,8 +1343,6 @@ msgstr "Comparecimento"
 msgid "Response"
 msgstr "Resposta"
 
-# 93%
-# 100%
 #, fuzzy
 msgid "New appointment"
 msgstr "Novo Compromisso"
@@ -1379,8 +1350,6 @@ msgstr "Novo Compromisso"
 msgid "Creating an item"
 msgstr ""
 
-# 89%
-# 100%
 #, fuzzy
 msgid "New meeting request"
 msgstr "Novo pedido de reunião"
@@ -1429,8 +1398,6 @@ msgstr ""
 msgid "All day: "
 msgstr ""
 
-# 87%
-# 75%
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for formatting instructions
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
@@ -1564,8 +1531,6 @@ msgstr "Enviar"
 msgid "Export as"
 msgstr ""
 
-# 80%
-# 100%
 #, fuzzy
 msgid "Occurrence"
 msgstr "Recorrência"
@@ -1595,7 +1560,6 @@ msgstr "Ícones"
 msgid "Recurring"
 msgstr "Recorrência"
 
-# 82%
 msgid "Sort by: Duration"
 msgstr "Ordenar por: Duração"
 
@@ -1614,21 +1578,18 @@ msgstr "Ordenar por: Categorias"
 msgid "Created On"
 msgstr "Criado em"
 
-# 84%
 msgid "Sort by: Created On"
 msgstr "Ordenar por: Criado Em"
 
 msgid "Due By"
 msgstr "Devido em"
 
-# 76%
 msgid "Sort by: Due By"
 msgstr "Ordenar por: Devido Em"
 
 msgid "Label"
 msgstr "Característica"
 
-# 78%
 msgid "Sort by: Label"
 msgstr "Ordenar por: Rótulo"
 
@@ -1662,7 +1623,6 @@ msgstr "Padrão recorrente"
 msgid "Sort by: Recurring Pattern"
 msgstr "Ordenar por: Padrão Recorrente"
 
-# 77%
 msgid "Sort by: Reminder"
 msgstr "Ordenar por: Lembrete"
 
@@ -1682,7 +1642,6 @@ msgstr ""
 msgid "jS F {0}"
 msgstr ""
 
-# 83%
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "jS F Y"
 msgstr "j F Y"
@@ -1798,8 +1757,6 @@ msgstr ""
 msgid "Appointments of {0} - {1}"
 msgstr ""
 
-# 93%
-# 100%
 #, fuzzy
 msgid "No appointments"
 msgstr "Novo Compromisso"
@@ -1811,7 +1768,6 @@ msgstr "Hoje: {1} {0}"
 msgid "Today (all day)"
 msgstr ""
 
-# 100%
 #. TRANSLATORS: Display name of a folder: "FOLDERNAME - STORENAME".
 #. TRANSLATORS: Displayed on top of a tree with folders: "FOLDERNAME - USERNAME".
 #, fuzzy
@@ -2019,7 +1975,6 @@ msgstr "Editar destinatário"
 msgid "Recipient already exists."
 msgstr "Usuário já existe"
 
-# 77%
 #, fuzzy
 msgid "Notify sender"
 msgstr "Ordenar por: Lembrete"
@@ -2077,7 +2032,6 @@ msgstr "Inserir como"
 msgid "Text only"
 msgstr "Somente texto"
 
-# 90%
 msgid "Attachment"
 msgstr "Anexo"
 
@@ -2156,8 +2110,6 @@ msgstr ""
 msgid "Supported format for contact pictures are"
 msgstr ""
 
-# 93%
-# 100%
 #, fuzzy
 msgid "Attachment Error"
 msgstr "Erro de anexo"
@@ -2304,7 +2256,6 @@ msgid ""
 "the context menu and click on \"Share Folder...\""
 msgstr ""
 
-# 90%
 msgid "Permission"
 msgstr "Permissão"
 
@@ -2433,12 +2384,9 @@ msgstr "Ausente"
 msgid "No Information"
 msgstr "Nenhuma Informação"
 
-# 82%
 msgid "Show non-working hours"
 msgstr "Mostrar horário não útil"
 
-# 82%
-# 81%
 msgid "Hide non-working hours"
 msgstr "Ocultar horário não útil"
 
@@ -2448,7 +2396,6 @@ msgstr "Informações de livre/ocupado indisponíveis para essa data"
 msgid "No suggestions available"
 msgstr "Nenhuma sugestão disponível"
 
-# 87%
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "l jS F Y"
 msgstr "l, j &#100;e F &#100;e Y"
@@ -2492,7 +2439,6 @@ msgstr ""
 msgid "Extend the selection to the last item in the list"
 msgstr ""
 
-# 77%
 #, fuzzy
 msgid "Open selected item"
 msgstr "{0} item selecionado"
@@ -2506,9 +2452,6 @@ msgstr ""
 msgid "Open copy/move dialog"
 msgstr ""
 
-# 77%
-# 75%
-# 100%
 #, fuzzy
 msgid "Delete selected item"
 msgstr "{0} item selecionado"
@@ -2542,8 +2485,6 @@ msgstr "Nenhuma assinatura configurada"
 msgid "Loading Cc recipients"
 msgstr "Editar destinatário"
 
-# 88%
-# 100%
 #, fuzzy
 msgid "Reply Mail"
 msgstr "Responder a todos"
@@ -2591,8 +2532,6 @@ msgstr "Nome para exibição"
 msgid "Email address"
 msgstr "Endereço de E-mail"
 
-# 78%
-# 100%
 #, fuzzy
 msgid "Expand distribution list"
 msgstr "Imprimir Lista de Distribuição"
@@ -2792,8 +2731,6 @@ msgstr "Excluir permanentemente"
 msgid "Delete All"
 msgstr "Excluir todos"
 
-# 75%
-# 100%
 #, fuzzy
 msgid "Messages"
 msgstr "mensagem"
@@ -2822,8 +2759,6 @@ msgstr[1] "No total {0} itens recuperáveis"
 msgid "Deleted On"
 msgstr "Excluído em"
 
-# 84%
-# 78%
 msgid "Sort by: Deleted On"
 msgstr "Ordenar por: Excluído Em"
 
@@ -2833,7 +2768,6 @@ msgstr "Número de Itens"
 msgid "Sort by: Item Count"
 msgstr "Ordenar por: Número de Itens"
 
-# 76%
 msgid "Sort by: From"
 msgstr "Ordenar por: De"
 
@@ -2880,14 +2814,10 @@ msgstr "Encaminhar a mensagem para ..."
 msgid "is received from..."
 msgstr "Foi recebido de ..."
 
-# 84%
-# 100%
 #, fuzzy
 msgid "includes these words in the sender's address..."
 msgstr "Inclui essas palavras no assunto ..."
 
-# 84%
-# 100%
 #, fuzzy
 msgid "includes these words in the recipient's address..."
 msgstr "Inclui essas palavras no assunto ..."
@@ -2896,14 +2826,10 @@ msgstr "Inclui essas palavras no assunto ..."
 msgid "includes these words in the subject..."
 msgstr "Inclui essas palavras no assunto ..."
 
-# 84%
-# 100%
 #, fuzzy
 msgid "includes these words in the body..."
 msgstr "Inclui essas palavras no assunto ..."
 
-# 84%
-# 100%
 #, fuzzy
 msgid "includes these words in the transport-headers..."
 msgstr "Inclui essas palavras no assunto ..."
@@ -3039,11 +2965,9 @@ msgstr "Ausente"
 msgid "Rule"
 msgstr "Regra"
 
-# 76%
 msgid "Loading rules"
 msgstr "Carregando regras"
 
-# 76%
 msgid "Please select a rule."
 msgstr "Por favor, selecione uma regra."
 
@@ -3128,7 +3052,6 @@ msgstr ""
 msgid "Delegates"
 msgstr "Delegados"
 
-# 88%
 msgid "Delegate settings"
 msgstr "Configurações de Delegados"
 
@@ -3266,7 +3189,6 @@ msgctxt "mail.previewpanel"
 msgid "{0} has accepted."
 msgstr "{0} aceitou."
 
-# 85%
 msgctxt "mail.previewpanel"
 msgid "{0} has accepted on behalf of {1}."
 msgstr "{0} aceitou em nome de {1}."
@@ -3375,7 +3297,6 @@ msgstr "Pedir confirmação de recebimento dos destinatários"
 msgid "Accepted by {0} on {1}."
 msgstr "Aceito por {0} em {1}"
 
-# 85%
 #, fuzzy
 msgid "{0} has accepted on behalf of {1} {2}."
 msgstr "{0} aceitou em nome de {1}."
@@ -3391,7 +3312,6 @@ msgstr "{0} recusou em nome de {1}."
 msgid "Last update sent on {0}."
 msgstr ""
 
-# 85%
 #, fuzzy
 msgid "{0} has updated on behalf of {1} {2}."
 msgstr "{0} aceitou em nome de {1}."
@@ -3411,12 +3331,10 @@ msgctxt "mail.previewpanel"
 msgid "To"
 msgstr "Para"
 
-# 100%
 msgctxt "mail.previewpanel"
 msgid "Cc"
 msgstr "Cc"
 
-# 100%
 msgctxt "mail.previewpanel"
 msgid "Bcc"
 msgstr "Cco"
@@ -3481,18 +3399,15 @@ msgstr "Outro Endereço"
 msgid "Business Phone"
 msgstr "Telefone Comercial"
 
-# 87%
 msgid "Business 2 Phone"
 msgstr "Telefone Comercial 2"
 
-# 88%
 msgid "Assistant Phone"
 msgstr "Telefone do Assistente"
 
 msgid "Company Main Phone"
 msgstr "Telefone Empresarial Padrão "
 
-# 83%
 msgid "Home 2 Phone"
 msgstr "Telefone residencial 2"
 
@@ -3526,21 +3441,18 @@ msgstr "Outro Fax"
 msgid "Home Fax"
 msgstr "Fax Residencial"
 
-# 94%
 msgid "Email Display As"
 msgstr "Exibir Como - E-Mail 1"
 
 msgid "Email 2"
 msgstr "E-Mail 2"
 
-# 89%
 msgid "Email2 Display As"
 msgstr "Exibir Como - E-Mail 2"
 
 msgid "Email 3"
 msgstr "E-Mail 3"
 
-# 89%
 msgid "Email3 Display As"
 msgstr "Exibir Como - E-Mail 3"
 
@@ -3560,7 +3472,6 @@ msgstr "Profissão"
 msgid "Assistant's Name"
 msgstr "Nome do Assistente"
 
-# 77%
 msgid "Distribution List Name"
 msgstr "Noma da Lista de Distribuição"
 
@@ -3713,7 +3624,6 @@ msgstr "Adicionar Anexos"
 msgid "Add attachments to this contact"
 msgstr "Adicionar anexos ao contato."
 
-# 75%
 #, fuzzy
 msgid "Mark this contact as private"
 msgstr "Marcar contato como particular."
@@ -3745,8 +3655,6 @@ msgstr ""
 msgid "New contact"
 msgstr ""
 
-# 78%
-# 100%
 #, fuzzy
 msgid "New distribution list"
 msgstr "Imprimir Lista de Distribuição"
@@ -3959,7 +3867,6 @@ msgstr ""
 msgid "{0} on behalf of {1}"
 msgstr "{0} em nome de {1}"
 
-# 75%
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "jS F"
 msgstr "j F"
@@ -4081,7 +3988,6 @@ msgstr "Adicionar widgets"
 msgid "Sending..."
 msgstr "Enviando"
 
-# 94%
 msgid "Sent successfully"
 msgstr "Enviado com sucesso"
 
@@ -4089,12 +3995,10 @@ msgstr "Enviado com sucesso"
 msgid "No recipient"
 msgstr "Editar destinatário"
 
-# 77%
 #, fuzzy
 msgid "Please specify at least one recipient"
 msgstr "Por favor, especifique um destinatário"
 
-# 77%
 msgid "Please specify a recipient"
 msgstr "Por favor, especifique um destinatário"
 
@@ -4128,7 +4032,6 @@ msgstr "Editar destinatário"
 msgid "Not all recipients could be resolved"
 msgstr "Nem todos os destinatários puderam ser localizados"
 
-# 86%
 #, fuzzy
 msgid "Collapse hierarchy"
 msgstr "Não foi possível carregar a hierarquia."
@@ -4156,7 +4059,6 @@ msgstr "Salvando"
 msgid "Saved"
 msgstr "Salvo"
 
-# 94%
 msgid "Saved successfully"
 msgstr "Salvo com sucesso"
 
@@ -4218,7 +4120,6 @@ msgstr "Nenhum widgets instalado."
 msgid "Remove widget"
 msgstr "Remover"
 
-# 86%
 #, fuzzy
 msgid "Collapse widget"
 msgstr "Não foi possível carregar a hierarquia."
@@ -4520,7 +4421,6 @@ msgstr "Esvaziar pastas"
 msgid "Empty Junk Email"
 msgstr "Lixo Eletrônico"
 
-# 92%
 #, fuzzy
 msgid "Empty Deleted Items"
 msgstr "Itens Excluídos"
@@ -4546,8 +4446,6 @@ msgstr "Fechar pasta"
 msgid "Reload"
 msgstr "Recarregar"
 
-# 76%
-# 100%
 #, fuzzy
 msgid "Select color"
 msgstr "Selecionar Pasta"
@@ -4568,8 +4466,6 @@ msgstr "Pasta inicial"
 msgid "Import emails"
 msgstr "Importante"
 
-# 93%
-# 100%
 #, fuzzy
 msgid "Import appointments"
 msgstr "Novo Compromisso"
@@ -4780,8 +4676,6 @@ msgstr "Marcar como lida"
 msgid "Mark Unread"
 msgstr "Marcar como não lida"
 
-# 87%
-# 100%
 #, fuzzy
 msgid "New mail"
 msgstr "Novo E-mail"
@@ -4789,8 +4683,6 @@ msgstr "Novo E-mail"
 msgid "Mail"
 msgstr "E-Mail"
 
-# 88%
-# 100%
 #, fuzzy
 msgid "Reply all"
 msgstr "Responder a todos"
@@ -4808,7 +4700,6 @@ msgstr "Abrir E-Mail compartilhado"
 msgid "Print single email"
 msgstr "Imprimir único E-Mail"
 
-# 78%
 #, fuzzy
 msgid "Print selected email"
 msgstr "Imprimir tarefas selecionadas"
@@ -4858,7 +4749,6 @@ msgstr ""
 msgid "Always request a read receipt"
 msgstr "Sempre solicitar a confirmação de leitura"
 
-# 93%
 #. TRANSLATORS: The {A} _must_ always be at the start of the translation
 #. The '{B}' represents the number of minutes which the user will type in.
 msgid "{A}AutoSave unsent mail every {B} minute(s)"
@@ -4903,8 +4793,6 @@ msgstr "À direita"
 msgid "Bottom"
 msgstr "Na parte inferior"
 
-# 83%
-# 100%
 #, fuzzy
 msgid "Location of preview pane"
 msgstr "Localização do painel de visualização"
@@ -5032,8 +4920,6 @@ msgstr ""
 msgid "Sort by: flag"
 msgstr ""
 
-# 85%
-# 100%
 #, fuzzy
 msgid "Older"
 msgstr "Pasta"
@@ -5108,15 +4994,10 @@ msgstr "Abrir Notas compartilhadas"
 msgid "Sticky note"
 msgstr "Nota fixa"
 
-# 78%
-# 84%
-# 100%
 #, fuzzy
 msgid "Print selected note"
 msgstr "Imprimir tarefas selecionadas"
 
-# 75%
-# 100%
 #, fuzzy
 msgid "No note selected"
 msgstr "Nenhuma tarefa selecionada"
@@ -5230,7 +5111,6 @@ msgstr ""
 msgid "24h clock"
 msgstr ""
 
-# 88%
 #, fuzzy
 msgid "Favorite settings"
 msgstr "Configurações de Delegados"
@@ -5440,7 +5320,6 @@ msgstr "Ordenar por: Porcentagem Concluída"
 msgid "Task Status"
 msgstr "Status da Tarefa"
 
-# 93%
 msgid "Percent Complete"
 msgstr "Porcentagem Concluída"
 
@@ -5539,8 +5418,6 @@ msgstr "Enviar tarefa para pessoa atribuída"
 msgid "Restore to Task List"
 msgstr "Restaurar os padrões"
 
-# 76%
-# 100%
 #, fuzzy
 msgid "Delete this task"
 msgstr "Excluir este item."
@@ -5554,8 +5431,6 @@ msgstr "Marcar como concluído"
 msgid "Mark this task as complete"
 msgstr "Marcar esta tarefa como concluída"
 
-# 75%
-# 100%
 #, fuzzy
 msgid "Print this task"
 msgstr "Imprimir este E-mail"
@@ -5566,9 +5441,6 @@ msgstr "Atribuir Tarefas"
 msgid "Cancel Assignment"
 msgstr "Cancelar atribuição"
 
-# 75%
-# 79%
-# 100%
 #, fuzzy
 msgid "Mark this task as private"
 msgstr "Marcar contato como particular."
@@ -5827,7 +5699,6 @@ msgid ""
 msgstr ""
 "Assim, algumas funcionalidades do grommunio Web poderão ser comprometidas."
 
-# 100%
 msgctxt "hierarchy.foldername"
 msgid "Inbox"
 msgstr "Caixa de Entrada"
@@ -5840,17 +5711,14 @@ msgctxt "hierarchy.foldername"
 msgid "Sent Items"
 msgstr "Itens Enviados"
 
-# 92%
 msgctxt "hierarchy.foldername"
 msgid "Deleted items"
 msgstr "Itens Excluídos"
 
-# 100%
 msgctxt "hierarchy.foldername"
 msgid "Calendar"
 msgstr "Calendário"
 
-# 100%
 msgctxt "hierarchy.foldername"
 msgid "Contacts"
 msgstr "Contatos"
@@ -5859,17 +5727,14 @@ msgctxt "hierarchy.foldername"
 msgid "Drafts"
 msgstr "Rascunhos"
 
-# 100%
 msgctxt "hierarchy.foldername"
 msgid "Journal"
 msgstr "Diário"
 
-# 100%
 msgctxt "hierarchy.foldername"
 msgid "Notes"
 msgstr "Notas"
 
-# 100%
 msgctxt "hierarchy.foldername"
 msgid "Tasks"
 msgstr "Tarefas"
@@ -7227,12 +7092,10 @@ msgstr ""
 msgid "Error retrieving existing persistent settings"
 msgstr ""
 
-# 93%
 #, fuzzy
 msgid "Logon failed. Please verify your credentials and try again."
 msgstr "Falha ao registrar. Por favor, verifique o seu nome/senha."
 
-# 83%
 #, fuzzy
 msgid "Cannot connect to Gromox."
 msgstr "Não foi possível conectar no servidor grommunio."
@@ -7313,15 +7176,12 @@ msgstr ""
 msgid "Request is not available."
 msgstr ""
 
-# 90%
 msgid "You have insufficient privileges to open this object."
 msgstr "Você não possui privilégios suficientes para abrir esse objeto."
 
-# 93%
 msgid "Logon Failed. Please check your name/password."
 msgstr "Falha ao registrar. Por favor, verifique o seu nome/senha."
 
-# 83%
 #, fuzzy
 msgid "Can not connect to Gromox."
 msgstr "Não foi possível conectar no servidor grommunio."
@@ -7351,27 +7211,18 @@ msgstr "Provisoriamente aceito"
 msgid "New Time Proposed"
 msgstr "Novo horário proposto"
 
-# 75%
-# 78%
-# 76%
 #, php-format
 msgid "Occurs every %s effective %s from %s to %s."
 msgstr "Ocorre cada %s efetivamente %s de %s até %s."
 
-# 77%
-# 76%
-# 79%
-# 88%
 #, php-format
 msgid "Occurs every %s %s effective %s from %s to %s."
 msgstr "Ocorre cada %s %s efetivamente %s de %s até %s."
 
-# 80%
 #, php-format
 msgid "Occurs every %s effective %s."
 msgstr "Ocorre cada %s efetivamente %s."
 
-# 75%
 #, php-format
 msgid "Occurs every %s %s effective %s."
 msgstr "Ocorre cada %s %s efetivamente %s."
@@ -7400,30 +7251,18 @@ msgid_plural "Occurs every %s %s effective %s for %s occurrences."
 msgstr[0] ""
 msgstr[1] ""
 
-# 77%
-# 76%
-# 75%
 #, php-format
 msgid "Occurs every %s effective %s until %s from %s to %s."
 msgstr "Ocorre cada %s efetivamente %s para %s ocorrência de %s até %s."
 
-# 77%
-# 76%
-# 75%
-# 94%
 #, php-format
 msgid "Occurs every %s %s effective %s until %s from %s to %s."
 msgstr "Ocorre cada %s %s efetivamente %s até %s de %s até %s."
 
-# 75%
-# 78%
 #, php-format
 msgid "Occurs every %s effective %s until %s."
 msgstr "Ocorre cada %s efetivamente %s até %s."
 
-# 75%
-# 78%
-# 92%
 #, php-format
 msgid "Occurs every %s %s effective %s until %s."
 msgstr "Ocorre cada %s %s efetivamente %s até %s."
@@ -7650,12 +7489,10 @@ msgstr ""
 msgid "Could not open message."
 msgstr "Não foi possível abrir essa mensagem."
 
-# 98%
 msgid "You have insufficient privileges to decline this Meeting Request"
 msgstr ""
 "Você não possui privilégios suficientes para recusar esse Pedido de Reunião."
 
-# 98%
 msgid "You have insufficient privileges to accept this Meeting Request"
 msgstr ""
 "Você não possui privilégios suficientes para aceitar esse Pedido de Reunião."

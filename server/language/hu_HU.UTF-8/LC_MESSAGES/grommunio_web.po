@@ -327,11 +327,9 @@ msgstr "A mező csak betűket és _ jelet tartalmazhat"
 msgid "This field should only contain letters, numbers and _"
 msgstr "A mező csak betűket, számokat, és _ jelet tartalmazhat"
 
-# 81%
 msgid "Email Addresses"
 msgstr "Email címek"
 
-# 75%
 msgid "Email addresses"
 msgstr "Email címek"
 
@@ -350,7 +348,6 @@ msgstr "Álnév"
 msgid "Owner"
 msgstr "Tulajdonos"
 
-# 80%
 msgid "Notes"
 msgstr "Jegyzetek"
 
@@ -443,7 +440,6 @@ msgstr "Telefonszámok"
 msgid "Business"
 msgstr "Üzleti"
 
-# 88%
 msgid "Business2"
 msgstr "Üzleti 2"
 
@@ -462,8 +458,6 @@ msgstr "Mobil"
 msgid "Pager"
 msgstr "Személyhívó"
 
-# 75%
-# 100%
 #, fuzzy
 msgid "No user selected"
 msgstr "Nincs kiválasztott jegyzet"
@@ -511,33 +505,27 @@ msgstr "Keresés..."
 msgid "Sort by: Icon"
 msgstr "Rendezés ikon szerint"
 
-# 76%
 msgid "Sort by: Name"
 msgstr "Rendezés: Név"
 
-# 76%
 msgid "Sort by: Display Name"
 msgstr "Rendezés: Megjelenő név"
 
 msgid "File as"
 msgstr "Mappába rendetés mint"
 
-# 75%
 msgid "Sort by: File As"
 msgstr "Rendezés: Fájl"
 
-# 80%
 msgid "First Name"
 msgstr "Vezetéknév"
 
 msgid "Sort by: First Name"
 msgstr "Rendezés: Vezetéknév"
 
-# 77%
 msgid "Last Name"
 msgstr "Keresztnév"
 
-# 76%
 msgid "Sort by: Last Name"
 msgstr "Rendezés: Vezetéknév"
 
@@ -553,7 +541,6 @@ msgstr "Rendezés: Beosztás"
 msgid "Company Name"
 msgstr "Cégnév"
 
-# 76%
 msgid "Sort by: Company Name"
 msgstr "Rendezés: Cégnév"
 
@@ -575,19 +562,15 @@ msgstr "Otthoni telefon"
 msgid "Sort by: Home Phone"
 msgstr "Rendezés: Otthoni telefon"
 
-# 78%
 msgid "Sort by: Pager"
 msgstr "Rendezés: Személyhívó"
 
 msgid "Location"
 msgstr "Helyszín"
 
-# 80%
-# 76%
 msgid "Sort by: Location"
 msgstr "Rendezés: Helyszín"
 
-# 76%
 msgid "Sort by: Fax"
 msgstr "Rendezés: Fax"
 
@@ -595,7 +578,6 @@ msgstr "Rendezés: Fax"
 msgid "Print single item"
 msgstr "Egyetlen elem nyomtatása"
 
-# 78%
 msgid "Print selected item"
 msgstr "Kijelölt elem nyomtatása"
 
@@ -615,7 +597,6 @@ msgstr "Jobb oldali előnézet"
 msgid "Bottom preview"
 msgstr "Alsó előnézet"
 
-# 87%
 msgid "Any date"
 msgstr "Bármelyik dátum"
 
@@ -681,8 +662,6 @@ msgstr "Szerkesztés új üzenetként"
 msgid "Search tools"
 msgstr "Keresőeszközök"
 
-# 85%
-# 100%
 msgid "Folders"
 msgstr "Mappák"
 
@@ -755,9 +734,6 @@ msgstr "Mappa választás"
 msgid "Delete search folder"
 msgstr "Keresési mappa törlése"
 
-# 76%
-# 84%
-# 100%
 msgid "Sort by: Date"
 msgstr "Rendezés: Dátum"
 
@@ -828,24 +804,18 @@ msgstr "nap"
 msgid "days"
 msgstr "napok"
 
-# 75%
 msgid "week"
 msgstr "hét"
 
-# 75%
-# 80%
 msgid "weeks"
 msgstr "hetek"
 
 msgid " on "
 msgstr "  "
 
-# 80%
 msgid "month"
 msgstr "hónap"
 
-# 80%
-# 83%
 msgid "months"
 msgstr "hónapok"
 
@@ -900,25 +870,18 @@ msgstr[0] "Minden {0} {1} hatékony {2} a {3} előforduláshoz."
 msgstr[1] "Minden {0} {1} hatékony {2} a {3} előfordulás esetén."
 
 # Have to look at it in action.
-# 78%
 msgid "Occurs every {0} effective {1} until {2} from {3} to {4}."
 msgstr "Ismétlődés minden {0} érvényes {1} {2}-ig {3}-tól {4}-ig."
 
 # Have to look at it in action.
-# 78%
-# 86%
 msgid "Occurs every {0} {1} effective {2} until {3} from {4} to {5}."
 msgstr "Ismétlődés minden {0} {1} érvényes {2} {3}-ig {4}tól/től {5}-ig."
 
 # Have to look at it in action.
-# 86%
-# 76%
 msgid "Occurs every {0} effective {1} until {2}."
 msgstr "Ismétlődés minden {0} érvényes {1} {2}-ig."
 
 # Have to look at it in action.
-# 86%
-# 76%
 msgid "Occurs every {0} {1} effective {2} until {3}."
 msgstr "Ismétlődés minden {0} {1} érvényes {2}-tól/től {3}-ig."
 
@@ -936,8 +899,6 @@ msgstr "Hol"
 msgid "New Meeting Time Proposed"
 msgstr "Új felajánlott értekezlet időpont"
 
-# 75%
-# 100%
 msgid "and "
 msgstr "és "
 
@@ -957,7 +918,6 @@ msgstr "Kezdési időpont"
 msgid "Sort by: Start Date"
 msgstr "Rendezés: Kezdő dátum szerint"
 
-# 87%
 msgid "End Date"
 msgstr "Befejezés dátuma"
 
@@ -983,8 +943,6 @@ msgstr "Ismétlődési minta"
 msgid "All Day Event"
 msgstr "Egész napos esemény"
 
-# 76%
-# 100%
 msgid "Add Shared Calendar"
 msgstr "Megosztott naptárak megnyitása"
 
@@ -994,7 +952,6 @@ msgstr "Eltávolítás a naptárból"
 msgid "No Response Required"
 msgstr "Nem igényel választ"
 
-# 75%
 msgid "Accept"
 msgstr "Elfogad"
 
@@ -1065,7 +1022,6 @@ msgstr "Nyomtatási áttekintés"
 msgid "Create Appointment"
 msgstr "Foglalás létrehozása"
 
-# 88%
 msgid "Calendar"
 msgstr "Naptár"
 
@@ -1152,7 +1108,6 @@ msgstr "Ütemezés"
 msgid "Tracking"
 msgstr "Követés"
 
-# 75%
 msgctxt "calendar.dialog"
 msgid "Not all attendees could be resolved."
 msgstr "Nem minden címzett található meg."
@@ -1174,7 +1129,6 @@ msgctxt "calendar.dialog"
 msgid "You proposed a new time for this meeting on {0}"
 msgstr "Új időpontot ajánlott fel az értekezletre: {0}"
 
-# 91%
 msgctxt "calendar.dialog"
 msgid "{0} proposed a new time for this meeting on {1}"
 msgstr "{0} új időpontot ajánlott fel az értekezletre erre a dátumra {1}"
@@ -1191,7 +1145,6 @@ msgctxt "calendar.dialog"
 msgid "Tentatively Accepted on {0}"
 msgstr "Feltételesen elfogadva: {0}"
 
-# 76%
 msgctxt "calendar.dialog"
 msgid "Tentatively Accepted by {0} on {1}"
 msgstr "Feltételesen elfogadva {0} által ekkor: {1}"
@@ -1264,11 +1217,9 @@ msgstr "Ki akarja cserélni a \"{0}\" helyszínt az új \"{1}\" helyszínnel?"
 msgid "jS F Y {0}"
 msgstr "jS F Y {0}"
 
-# 75%
 msgid "None"
 msgstr "Nincs"
 
-# 75%
 msgid "Send"
 msgstr "Küldés"
 
@@ -1304,14 +1255,12 @@ msgstr "Meghívás törlése"
 msgid "High priority"
 msgstr "Sürgős"
 
-# 76%
 msgid "Mark this appointment as high priority"
 msgstr "Találkozó sürgősnek jelölése"
 
 msgid "Low priority"
 msgstr "Nem sürgős"
 
-# 78%
 msgid "Mark this appointment as low priority"
 msgstr "Találkozó nem sürgősnek jelölése"
 
@@ -1413,16 +1362,12 @@ msgstr "Részvétel"
 msgid "Response"
 msgstr "Válasz"
 
-# 93%
-# 100%
 msgid "New appointment"
 msgstr "Új találkozó"
 
 msgid "Creating an item"
 msgstr "Elem készítése"
 
-# 89%
-# 100%
 msgid "New meeting request"
 msgstr "Új találkozó kérelem"
 
@@ -1479,23 +1424,18 @@ msgstr "Egész nap: "
 msgid "l jS F"
 msgstr "F j. l"
 
-# 88%
 msgid "Organiser"
 msgstr "Szervező"
 
-# 92%
 msgid "Meeting status"
 msgstr "Értekezlet állapota"
 
-# 94%
 msgid "Required Attendees"
 msgstr "Kötelező résztvevő"
 
-# 94%
 msgid "Optional Attendees"
 msgstr "Opcionális résztvevő"
 
-# 88%
 msgid "Resources"
 msgstr "Erőforrások"
 
@@ -1613,15 +1553,12 @@ msgstr "Megnyitás"
 msgid "Copy/Move"
 msgstr "Másolás/mozgatás"
 
-# 75%
 msgid "Send to..."
 msgstr "Továbbítás mellékletként..."
 
 msgid "Export as"
 msgstr "Exportálás mint"
 
-# 80%
-# 100%
 msgid "Occurrence"
 msgstr "Ismétlődés"
 
@@ -1648,9 +1585,6 @@ msgstr "Ikon"
 msgid "Recurring"
 msgstr "Ismétlődés"
 
-# 80%
-# 76%
-# 82%
 msgid "Sort by: Duration"
 msgstr "Rendezés: Időtartam szerint"
 
@@ -1669,22 +1603,18 @@ msgstr "Rendezés: Kategóriák"
 msgid "Created On"
 msgstr "Létrehozva"
 
-# 84%
 msgid "Sort by: Created On"
 msgstr "Rendezés: Létrehozás dátuma szerint"
 
 msgid "Due By"
 msgstr "Határidő"
 
-# 76%
 msgid "Sort by: Due By"
 msgstr "Rendezés: Határidő szerint"
 
 msgid "Label"
 msgstr "Címke"
 
-# 76%
-# 78%
 msgid "Sort by: Label"
 msgstr "Rendezés: Címke szerint"
 
@@ -1722,7 +1652,6 @@ msgstr "Ismétlődési minta"
 msgid "Sort by: Recurring Pattern"
 msgstr "Rendezés: Ismétlődési minta szerint"
 
-# 77%
 msgid "Sort by: Reminder"
 msgstr "Rendezés: Emlékeztető szerint"
 
@@ -1881,8 +1810,6 @@ msgstr "A {0} kinevezések"
 msgid "Appointments of {0} - {1}"
 msgstr "{0} - {1} kinevezések"
 
-# 93%
-# 100%
 msgid "No appointments"
 msgstr "Nincsenek időpontfoglalások"
 
@@ -1894,8 +1821,6 @@ msgstr "Ma: {1} {0}"
 msgid "Today (all day)"
 msgstr "Ma (egész nap)"
 
-# 80%
-# 100%
 #. TRANSLATORS: Display name of a folder: "FOLDERNAME - STORENAME".
 #. TRANSLATORS: Displayed on top of a tree with folders: "FOLDERNAME - USERNAME".
 #, fuzzy
@@ -1958,7 +1883,6 @@ msgstr ""
 "Ez egy ismétlődő időpont. Csak ezt az egy időpontot akarja megnyitni, vagy "
 "az egész sorozatot?"
 
-# 80%
 msgid "Recurring Meeting Request"
 msgstr "Ismétlődő értekezlet összehívás"
 
@@ -2110,7 +2034,6 @@ msgstr "Címzett szerkesztése"
 msgid "Recipient already exists."
 msgstr "A felhasználó már létezik."
 
-# 77%
 #, fuzzy
 msgid "Notify sender"
 msgstr "Rendezés: Emlékeztető szerint"
@@ -2157,11 +2080,9 @@ msgid ""
 msgstr ""
 "Nincs elegendő jogosultsága az elem mozgatásához. Szeretne inkább másolni?"
 
-# 100%
 msgid "Cc"
 msgstr "Cc"
 
-# 100%
 msgid "Bcc"
 msgstr "Bcc"
 
@@ -2177,7 +2098,6 @@ msgstr "Beillesztés, mint"
 msgid "Text only"
 msgstr "Csak szöveg"
 
-# 90%
 msgid "Attachment"
 msgstr "Melléklet"
 
@@ -2190,8 +2110,6 @@ msgstr "Nincs kiválasztott üzenet"
 msgid "Import to"
 msgstr "Importálás ebbe"
 
-# 90%
-# 100%
 msgid "New folder"
 msgstr "Új mappa"
 
@@ -2267,8 +2185,6 @@ msgstr "Nem támogatott képformátum. "
 msgid "Supported format for contact pictures are"
 msgstr "A támogatott képformátumok"
 
-# 93%
-# 100%
 msgid "Attachment Error"
 msgstr "Csatolmány hiba"
 
@@ -2350,14 +2266,12 @@ msgstr "Összevon"
 msgid "Remove"
 msgstr "Eltávolítás"
 
-# 90%
 msgid "Check Names"
 msgstr "Nevek ellenőrzése"
 
 msgid "Select an address to use"
 msgstr "Válassza ki a használni kívánt címet"
 
-# 83%
 msgid "Email"
 msgstr "E-mail"
 
@@ -2367,7 +2281,6 @@ msgstr "Több, mint egy '{0}' találat."
 msgid "Alert"
 msgstr "Riasztás"
 
-# 80%
 msgid "Please select a recipient"
 msgstr "Kérjem válasszon címzettet"
 
@@ -2422,7 +2335,6 @@ msgstr "Nincs aláírás beállítva"
 msgid "Loading delegates"
 msgstr "Meghatalmazottak betöltése"
 
-# 76%
 msgid "Please select a delegate."
 msgstr "Kérem válasszon meghatalmazottat."
 
@@ -2439,7 +2351,6 @@ msgstr ""
 "mappára a kontextusmenü megnyitásához, és kattintson a \"Mappa megosztása..."
 "\" gombra"
 
-# 90%
 msgid "Permission"
 msgstr "Hozzáférés"
 
@@ -2504,11 +2415,9 @@ msgstr "ICS"
 msgid "Set custom flag"
 msgstr "Egyedi jelölő beállítása"
 
-# 90%
 msgid "Start date"
 msgstr "Kezdő dátum"
 
-# 87%
 msgid "End date"
 msgstr "Befejezés dátuma"
 
@@ -2576,12 +2485,9 @@ msgstr "Házon kívül"
 msgid "No Information"
 msgstr "Nincs információ"
 
-# 82%
 msgid "Show non-working hours"
 msgstr "Munkaszüneti órák megjelenítése"
 
-# 82%
-# 81%
 msgid "Hide non-working hours"
 msgstr "Munkaszüneti órák elrejtése"
 
@@ -2634,7 +2540,6 @@ msgstr "Kijelőlés kiterjesztése a lista első eleméig"
 msgid "Extend the selection to the last item in the list"
 msgstr "Kijelölés kiterjesztése a lista utolsó eleméig"
 
-# 77%
 msgid "Open selected item"
 msgstr "Kiválasztott elem megnyitása"
 
@@ -2647,9 +2552,6 @@ msgstr "Lista nyomtatása"
 msgid "Open copy/move dialog"
 msgstr "Másolás/mozgatás dialógusablak megnyitása"
 
-# 77%
-# 75%
-# 100%
 msgid "Delete selected item"
 msgstr "Kiválasztott elem törlése"
 
@@ -2688,8 +2590,6 @@ msgstr "Nincs aláírás beállítva"
 msgid "Loading Cc recipients"
 msgstr "Címzett szerkesztése"
 
-# 88%
-# 100%
 #, fuzzy
 msgid "Reply Mail"
 msgstr "Válasz mindenkinek"
@@ -2697,7 +2597,6 @@ msgstr "Válasz mindenkinek"
 msgid "New Mail"
 msgstr "Új levél"
 
-# 80%
 msgid "Please select a Cc recipient record."
 msgstr "Kérjem válasszon címzettet."
 
@@ -2737,16 +2636,12 @@ msgstr "ZDeveloper"
 msgid "grommunio Web print"
 msgstr "grommunio Web print"
 
-# 91%
 msgid "Display name"
 msgstr "Megjelenő név"
 
-# 92%
 msgid "Email address"
 msgstr "E-mail-cím"
 
-# 78%
-# 100%
 #, fuzzy
 msgid "Expand distribution list"
 msgstr "Új terjesztési lista"
@@ -2758,7 +2653,6 @@ msgstr ""
 "A terjesztési lista tagjainak megjelenítése. A lista összecsukására nem lesz "
 "lehetősége."
 
-# 92%
 msgid "Edit Recipient"
 msgstr "Címzett szerkesztése"
 
@@ -2766,7 +2660,6 @@ msgstr "Címzett szerkesztése"
 msgid "Copy email addresses"
 msgstr "E-mail cím másolása"
 
-# 90%
 msgid "Send email"
 msgstr "Email küldése"
 
@@ -2798,7 +2691,6 @@ msgstr "3."
 msgid "4th"
 msgstr "4."
 
-# 75%
 msgid "last"
 msgstr "utolsó"
 
@@ -2819,7 +2711,6 @@ msgstr "Minden {B} hónap(ok) {A} napja"
 msgid "The {A} {B} of every {C} month(s)"
 msgstr "Minden {C} hónap(ok) {A} {B}"
 
-# 91%
 msgid "Regenerate new task {A} month(s) after each task is completed"
 msgstr "Feladat újragenerálása {A} hónappal a feladatok elvégzése után"
 
@@ -2872,7 +2763,6 @@ msgstr "Előfordulás időtartama: {D} {H} {M}"
 msgid "Every {A} week(s) on"
 msgstr "Minden {A} héten"
 
-# 93%
 msgid "Regenerate new task {A} week(s) after each task is completed"
 msgstr "Feladat újragenerálása {A} héttel később a feladatok elvégzése után"
 
@@ -2882,7 +2772,6 @@ msgstr "Minden {A} {B}"
 msgid "The {A} {B} of {C}"
 msgstr "A(z) {A} {B} a(z) {C}"
 
-# 95%
 msgid "Regenerate new task {A} year(s) after each task is completed"
 msgstr "Feladat újragenerálása {A} évvel később a feladatok elvégzése után"
 
@@ -2898,7 +2787,6 @@ msgid_plural "There are {0} reminders"
 msgstr[0] "{0} emlékeztető van"
 msgstr[1] "{0} emlékeztető van"
 
-# 88%
 msgid "Reminders"
 msgstr "Emlékeztetők"
 
@@ -2913,7 +2801,6 @@ msgstr "Esedékes -kor"
 msgid "Due"
 msgstr "Esedékesség"
 
-# 92%
 msgid "Reminder time"
 msgstr "Emlékeztető időpontja"
 
@@ -2958,8 +2845,6 @@ msgstr "Végleges törlés"
 msgid "Delete All"
 msgstr "Mindegyik törlése"
 
-# 75%
-# 100%
 msgid "Messages"
 msgstr "Üzenetek"
 
@@ -2987,8 +2872,6 @@ msgstr[1] "Összesen {0} helyreállítható elem"
 msgid "Deleted On"
 msgstr "Törölve lett"
 
-# 84%
-# 78%
 msgid "Sort by: Deleted On"
 msgstr "Rendezés: Törlés ideje szerint"
 
@@ -2998,7 +2881,6 @@ msgstr "Elemszám"
 msgid "Sort by: Item Count"
 msgstr "Rendezés: Elem száma szerint"
 
-# 76%
 msgid "Sort by: From"
 msgstr "Rendezés: Küldő szerint"
 
@@ -3148,7 +3030,6 @@ msgstr "Ha az üzenet"
 msgid "Do the following"
 msgstr "Tegye a következőket"
 
-# 75%
 msgid "Exceptions"
 msgstr "Kivételek"
 
@@ -3196,11 +3077,9 @@ msgstr "Aktív"
 msgid "Out of office"
 msgstr "Házon kívül"
 
-# 80%
 msgid "Rule"
 msgstr "Szabály"
 
-# 76%
 msgid "Loading rules"
 msgstr "Szabályok betöltése"
 
@@ -3296,7 +3175,6 @@ msgstr "Válasszon egy feladó címet."
 msgid "Delegates"
 msgstr "Megbízottak"
 
-# 88%
 msgid "Delegate settings"
 msgstr "Meghatalmazottak beállításai"
 
@@ -3342,16 +3220,12 @@ msgstr "Címekről"
 msgid "From Addresses settings"
 msgstr "Címek beállításai"
 
-# 88%
-# 100%
 msgid "Full name"
 msgstr "Teljes név"
 
 msgid "Phone Numbers"
 msgstr "Telefonszámok"
 
-# 80%
-# 75%
 msgid "Business Fax"
 msgstr "Üzleti Fax"
 
@@ -3365,7 +3239,6 @@ msgstr "IM cím"
 msgid "D, d-m-Y, {0}"
 msgstr "D, d-m-Y, {0}"
 
-# 76%
 msgid "{0} selected row"
 msgid_plural "{0} selected rows"
 msgstr[0] "{0} kiválasztott sor"
@@ -3392,7 +3265,6 @@ msgstr "d-m-Y {0}"
 msgid "Unknown"
 msgstr "Ismeretlen"
 
-# 88%
 msgid "Meeting Organizer"
 msgstr "Értekezlet szervező"
 
@@ -3406,7 +3278,6 @@ msgstr "Betöltés..."
 msgid "Message could not be loaded"
 msgstr "Az üzenet nem tölthető be"
 
-# 100%
 #. TRANSLATORS: This message is used as label for the field which indicates which attachments are inside the message
 msgctxt "mail.previewpanel"
 msgid "Attachments"
@@ -3523,7 +3394,6 @@ msgctxt "mail.previewpanel"
 msgid "This appointment occurs in the past."
 msgstr "A találkozó időpontja a múltban van."
 
-# 100%
 msgctxt "mail.previewpanel"
 msgid "Please respond."
 msgstr "Kérem válaszoljon."
@@ -3587,7 +3457,6 @@ msgstr "Sérült üzenet javítása, kívánja folytatni?"
 msgid "The matching task was not found in your task list."
 msgstr "A megfelelő feladatot nem találtuk a feladatlistában."
 
-# 100%
 msgctxt "mail.previewpanel"
 msgid "To"
 msgstr "Címzett"
@@ -3614,7 +3483,6 @@ msgctxt "mail.previewpanel"
 msgid "on behalf of"
 msgstr "nevében"
 
-# 75%
 #. TRANSLATORS: This message is used to indicate that no sent date is available for the message (because it has not been sent yet).
 msgctxt "mail.previewpanel"
 msgid "None"
@@ -3661,18 +3529,15 @@ msgstr "Egyéb cím"
 msgid "Business Phone"
 msgstr "Üzleti telefon"
 
-# 100%
 msgid "Business 2 Phone"
 msgstr "Üzleti 2 telefonszám"
 
-# 88%
 msgid "Assistant Phone"
 msgstr "Másodlagos telefonszám"
 
 msgid "Company Main Phone"
 msgstr "Cég központi telefonszáma"
 
-# 83%
 msgid "Home 2 Phone"
 msgstr "Otthoni 2 telefonszám"
 
@@ -3706,25 +3571,18 @@ msgstr "Egyéb Fax"
 msgid "Home Fax"
 msgstr "Otthoni Fax"
 
-# 100%
 msgid "Email Display As"
 msgstr "E-mail megjelenítése, mint"
 
-# 75%
-# 87%
 msgid "Email 2"
 msgstr "E-mail 2"
 
-# 89%
 msgid "Email2 Display As"
 msgstr "E-mail2 megjelenítés, mint"
 
-# 75%
-# 87%
 msgid "Email 3"
 msgstr "E-mail 3"
 
-# 89%
 msgid "Email3 Display As"
 msgstr "Email 3 megjelenítés, mint"
 
@@ -3744,11 +3602,9 @@ msgstr "Szakma"
 msgid "Assistant's Name"
 msgstr "Asszisztens neve"
 
-# 100%
 msgid "Distribution List Name"
 msgstr "Terjesztési lista neve"
 
-# 75%
 msgid "Open Shared Contacts"
 msgstr "Megosztott kapcsolatok megnyitása"
 
@@ -3761,7 +3617,6 @@ msgstr "Telefon lista"
 msgid "Add to contacts"
 msgstr "Hozzáadás a névjegyekhez"
 
-# 77%
 msgid "Print selected contact"
 msgstr "Kijelölt kapcsolat nyomtatása"
 
@@ -3844,7 +3699,6 @@ msgstr "Fotó"
 msgid "Additional information"
 msgstr "Kiegészítő információk"
 
-# 80%
 msgid "Business 2"
 msgstr "Üzleti 2"
 
@@ -3872,7 +3726,6 @@ msgstr "Keresztnév"
 msgid "Middle"
 msgstr "Középső"
 
-# 75%
 msgid "Last"
 msgstr "Vezetéknév"
 
@@ -3897,11 +3750,9 @@ msgstr "Kiterjesztés"
 msgid "Add Attachment"
 msgstr "Melléklet hozzáadása"
 
-# 81%
 msgid "Add attachments to this contact"
 msgstr "Mellékletek hozzáadása a névjegyhez"
 
-# 75%
 msgid "Mark this contact as private"
 msgstr "Jelölje meg a névjegyet személyesként"
 
@@ -3930,8 +3781,6 @@ msgstr "Ide írja be a szövegét..."
 msgid "New contact"
 msgstr "Új névjegy"
 
-# 78%
-# 100%
 msgid "New distribution list"
 msgstr "Új terjesztési lista"
 
@@ -4010,7 +3859,6 @@ msgstr "Rendezés: Igazgató neve"
 msgid "Sort by: Assistant's Name"
 msgstr "Rendezés: Asszisztens neve"
 
-# 76%
 msgid "Sort by: Nickname"
 msgstr "Rendezés: Becenév"
 
@@ -4041,7 +3889,6 @@ msgstr "Rendezés: Levelezési cím"
 msgid "Sort by: IM Address"
 msgstr "Rendezés: IM cím"
 
-# 75%
 msgid "Sort by: Webpage"
 msgstr "Rendezés: Weboldal"
 
@@ -4078,7 +3925,6 @@ msgstr "Rendezés: Otthoni telefon 2"
 msgid "Sort by: Home Fax"
 msgstr "Rendezés: Otthoni Fax"
 
-# 76%
 msgid "Sort by: ISDN"
 msgstr "Rendezés: ISDN"
 
@@ -4205,8 +4051,6 @@ msgstr "Normál"
 msgid "High"
 msgstr "Magas"
 
-# 75%
-# 80%
 msgid "Canceled"
 msgstr "Megszakítva"
 
@@ -4249,7 +4093,6 @@ msgstr "Folyamatban"
 msgid "Wait for other person"
 msgstr "Másik személyre vár"
 
-# 87%
 msgid "Deferred"
 msgstr "Elhalasztott"
 
@@ -4343,16 +4186,12 @@ msgstr "Részletek megjelenítése"
 msgid "Hide Details"
 msgstr "Részletek rejtése"
 
-# 86%
-# 100%
-# 76%
 msgid "Loaded {0} of {1}"
 msgstr "{0}/{1} elem betöltve"
 
 msgid "Saving"
 msgstr "Mentés"
 
-# 80%
 msgid "Saved"
 msgstr "Mentett"
 
@@ -4670,7 +4509,6 @@ msgstr "Teljes méret"
 msgid "Sort by: Total size (including subfolders)"
 msgstr "Rendezés: teljes méret (almappákkal)"
 
-# 78%
 msgid "Open Shared Folders"
 msgstr "Megosztott mappák megnyitása"
 
@@ -4749,8 +4587,6 @@ msgstr "Mappa bezárása"
 msgid "Reload"
 msgstr "Frissítés"
 
-# 76%
-# 100%
 msgid "Select color"
 msgstr "Válasszon színt"
 
@@ -4767,8 +4603,6 @@ msgstr "Kezdő mappa..."
 msgid "Import emails"
 msgstr "Importálás ebbe"
 
-# 93%
-# 100%
 #, fuzzy
 msgid "Import appointments"
 msgstr "Új találkozó"
@@ -4831,7 +4665,6 @@ msgstr "BCC"
 msgid "Sort by: Importance"
 msgstr "Rendezés: Fontosság szerint"
 
-# 76%
 msgid "Sort by: To"
 msgstr "Rendezés: Címzett szerint"
 
@@ -4839,7 +4672,6 @@ msgstr "Rendezés: Címzett szerint"
 msgid "Sent"
 msgstr "Elküldött"
 
-# 75%
 msgid "Red"
 msgstr "Vörös"
 
@@ -4911,14 +4743,12 @@ msgstr "Küldés később"
 msgid "Schedule your mail to be sent on a specific date and time"
 msgstr "Levél küldésének ütemezése előre megadott napon és időben"
 
-# 86%
 msgid "Add attachments to this email"
 msgstr "Mellékletek hozzáadása az emailhez"
 
 msgid "Add signature"
 msgstr "Aláírás hozzáadása"
 
-# 75%
 msgid "Options"
 msgstr "Lehetőségek"
 
@@ -4988,16 +4818,12 @@ msgstr "Megjelölés olvasottként"
 msgid "Mark Unread"
 msgstr "Megjelölés olvasatlanként"
 
-# 87%
-# 100%
 msgid "New mail"
 msgstr "Új levél"
 
 msgid "Mail"
 msgstr "Levél"
 
-# 88%
-# 100%
 msgid "Reply all"
 msgstr "Válasz mindenkinek"
 
@@ -5007,7 +4833,6 @@ msgstr "Megjelölés olvasottként/olvasatlanként"
 msgid "Toggle red/complete flag"
 msgstr "Megjelölés piros/elvégzett zászlóval"
 
-# 82%
 msgid "Open Shared Mails"
 msgstr "Megosztott levelezés megnyitása"
 
@@ -5015,7 +4840,6 @@ msgstr "Megosztott levelezés megnyitása"
 msgid "Print single email"
 msgstr "Email nyomtatása"
 
-# 78%
 #, fuzzy
 msgid "Print selected email"
 msgstr "Kijelölt elem nyomtatása"
@@ -5116,8 +4940,6 @@ msgstr "Jobb"
 msgid "Bottom"
 msgstr "Alsó"
 
-# 83%
-# 100%
 msgid "Location of preview pane"
 msgstr "Előnézeti panel helyzete"
 
@@ -5240,7 +5062,6 @@ msgstr "ZIP archívum"
 msgid "max. "
 msgstr "max. "
 
-# 75%
 msgid "Sort by: Sent"
 msgstr "Rendezés: Elküldés szerint"
 
@@ -5256,8 +5077,6 @@ msgstr "Jelölő"
 msgid "Sort by: flag"
 msgstr "Rendezés: jelölő"
 
-# 85%
-# 100%
 msgid "Older"
 msgstr "Régebbi"
 
@@ -5301,7 +5120,6 @@ msgstr "Utánkövetés"
 msgid "Move to Junk Folder"
 msgstr "Levélszemét mappába mozgatás"
 
-# 75%
 msgid "Send to"
 msgstr "Továbbítás mellékletként"
 
@@ -5333,14 +5151,9 @@ msgstr "Megosztott jegyzetek megnyitása"
 msgid "Sticky note"
 msgstr "Öntapadós jegyzet"
 
-# 78%
-# 84%
-# 100%
 msgid "Print selected note"
 msgstr "Kijelölt jegyzet nyomtatása"
 
-# 75%
-# 100%
 msgid "No note selected"
 msgstr "Nincs kiválasztott jegyzet"
 
@@ -5460,7 +5273,6 @@ msgstr "12 óra"
 msgid "24h clock"
 msgstr "24 órás óra"
 
-# 88%
 #, fuzzy
 msgid "Favorite settings"
 msgstr "Meghatalmazottak beállításai"
@@ -5694,7 +5506,6 @@ msgstr "Rendezés: Készenléti állapot szerint"
 msgid "Task Status"
 msgstr "Feladat állapota"
 
-# 93%
 msgid "Percent Complete"
 msgstr "Készültség Szintje"
 
@@ -5773,7 +5584,6 @@ msgstr "Határidő"
 msgid "Priority"
 msgstr "Prioritás"
 
-# 80%
 msgid "% Complete"
 msgstr "% kész"
 
@@ -5792,9 +5602,6 @@ msgstr "Feladat elküldése a hozzárendelt személynek"
 msgid "Restore to Task List"
 msgstr "Visszaállítás a Feladatlistába"
 
-# 94%
-# 76%
-# 100%
 msgid "Delete this task"
 msgstr "Feladat törlése"
 
@@ -5807,8 +5614,6 @@ msgstr "Késznek jelöl"
 msgid "Mark this task as complete"
 msgstr "Feladat késznek jelölése"
 
-# 75%
-# 100%
 msgid "Print this task"
 msgstr "Feladat nyomtatása"
 
@@ -5818,9 +5623,6 @@ msgstr "Feladat hozzárendelése"
 msgid "Cancel Assignment"
 msgstr "Hozzárendelés törlése"
 
-# 75%
-# 79%
-# 100%
 msgid "Mark this task as private"
 msgstr "Jelölje meg a feladatot személyesként"
 
@@ -5830,7 +5632,6 @@ msgstr "Új feladat"
 msgid "Completed"
 msgstr "Teljesítve"
 
-# 76%
 msgid "Printed by: "
 msgstr "Rendezés: "
 
@@ -5862,8 +5663,6 @@ msgstr "Egyszerű nézet"
 msgid "Detailed view"
 msgstr "Részletes nézet"
 
-# 92%
-# 100%
 msgid "Task request"
 msgstr "Feladat kiosztás"
 
@@ -6110,8 +5909,6 @@ msgctxt "hierarchy.foldername"
 msgid "Deleted items"
 msgstr "Törölt elemek"
 
-# 88%
-# 100%
 msgctxt "hierarchy.foldername"
 msgid "Calendar"
 msgstr "Naptár"
@@ -6128,13 +5925,10 @@ msgctxt "hierarchy.foldername"
 msgid "Journal"
 msgstr "Napló"
 
-# 80%
-# 100%
 msgctxt "hierarchy.foldername"
 msgid "Notes"
 msgstr "Jegyzet"
 
-# 100%
 msgctxt "hierarchy.foldername"
 msgid "Tasks"
 msgstr "Feladatok"
@@ -7719,12 +7513,10 @@ msgstr "Hiba a meglévő beállítások lekérdezésében"
 msgid "Error retrieving existing persistent settings"
 msgstr "Hiba a meglévő tartós beállítások lekérdezésében"
 
-# 93%
 msgid "Logon failed. Please verify your credentials and try again."
 msgstr ""
 "Sikertelen bejelentkezés. Kérem, ellenőrizze felhasználónevét/jelszavát."
 
-# 83%
 msgid "Cannot connect to Gromox."
 msgstr "Nem sikerült csatlakozni a grommunio szerverhez."
 
@@ -7822,16 +7614,12 @@ msgstr "Nem találta az üzenetet, vagy áthelyezték, vagy törölték."
 msgid "Request is not available."
 msgstr "A kérelem nem áll rendelkezésre."
 
-# 94%
-# 90%
 msgid "You have insufficient privileges to open this object."
 msgstr "Nincs elegendő jogosultsága az elem megnyitásához."
 
-# 93%
 msgid "Logon Failed. Please check your name/password."
 msgstr "Bejelentkezés nem sikerült. Ellenőrizze felhasználónevét/jelszavát."
 
-# 83%
 msgid "Can not connect to Gromox."
 msgstr "Nem lehet a grommunio kiszolgálóhoz csatlakozni."
 
@@ -7862,25 +7650,19 @@ msgid "New Time Proposed"
 msgstr "Új időpont javaslat"
 
 # Have to look at it in action.
-# 86%
-# 76%
-# 78%
 #, php-format
 msgid "Occurs every %s effective %s from %s to %s."
 msgstr "Előfordulása %s, Érvénybe lép %s, kezdete: %s, vége: %s."
 
 # Have to look at it in action.
-# 77%
 #, fuzzy, php-format
 msgid "Occurs every %s %s effective %s from %s to %s."
 msgstr "Ismétlődés minden {0} érvényes {1} {2}-tól/től {3}-ig."
 
-# 80%
 #, php-format
 msgid "Occurs every %s effective %s."
 msgstr "Előfordulása %s, kezdete: %s."
 
-# 75%
 #, fuzzy, php-format
 msgid "Occurs every %s %s effective %s."
 msgstr "Minden %s %s tényleges %s alkalommal előfordul."
@@ -7915,33 +7697,21 @@ msgstr[0] "Minden %s %s tényleges %s %s előfordulásnál előfordul."
 msgstr[1] "Minden %s %s %s tényleges %s alkalommal fordul elő."
 
 # Have to look at it in action.
-# 76%
-# 75%
 #, fuzzy, php-format
 msgid "Occurs every %s effective %s until %s from %s to %s."
 msgstr "Ismétlődés minden {0} érvényes {1} {2}-tól/től {3}-ig."
 
 # Have to look at it in action.
-# 76%
-# 75%
-# 94%
 #, fuzzy, php-format
 msgid "Occurs every %s %s effective %s until %s from %s to %s."
 msgstr "Ismétlődés minden {0} érvényes {1} {2}-tól/től {3}-ig."
 
 # Have to look at it in action.
-# 86%
-# 76%
-# 78%
 #, fuzzy, php-format
 msgid "Occurs every %s effective %s until %s."
 msgstr "Ismétlődés minden {0} érvényes {1} {2}-tól/től {3}-ig."
 
 # Have to look at it in action.
-# 86%
-# 76%
-# 78%
-# 92%
 #, fuzzy, php-format
 msgid "Occurs every %s %s effective %s until %s."
 msgstr "Ismétlődés minden {0} érvényes {1} {2}-tól/től {3}-ig."
@@ -8248,15 +8018,9 @@ msgstr ""
 msgid "Could not open message."
 msgstr "Az üzenetet nem lehet megnyitni."
 
-# 75%
-# 80%
-# 98%
 msgid "You have insufficient privileges to decline this Meeting Request"
 msgstr "Nincs elég jogosultsága az értekezlet visszautasításához"
 
-# 75%
-# 89%
-# 98%
 msgid "You have insufficient privileges to accept this Meeting Request"
 msgstr "Nincs elég jogosultsága az értekezlet elfogadásához"
 
@@ -8302,20 +8066,15 @@ msgstr "Nincs megfelelő jogosultsága, hogy magához rendelje a feladatot."
 msgid "Could not reclaim the ownership for the Task Request."
 msgstr "A feladat feletti tulajdonjog átruházása sikertelen."
 
-# 75%
 msgid "You have insufficient privileges to accept this Task Request."
 msgstr "Nincs elég jogosultsága az üzenet megnyitásához."
 
-# 78%
 msgid "Could not accept Task Request."
 msgstr "Nem tudja elfogadni a feladatot."
 
-# 75%
-# 90%
 msgid "You have insufficient privileges to decline this Task Request."
 msgstr "Nincs elég jogosultsága a feladat lemondásához."
 
-# 79%
 msgid "Could not decline Task Request."
 msgstr "Nem tudja elutasítani a feladatot."
 

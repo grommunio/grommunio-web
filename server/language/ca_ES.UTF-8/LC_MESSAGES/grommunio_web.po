@@ -380,7 +380,6 @@ msgstr ""
 msgid "Display"
 msgstr "Mostrar"
 
-# 77%
 msgid "Addresses"
 msgstr "Dirección"
 
@@ -435,7 +434,6 @@ msgstr "Números de Teléfono"
 msgid "Business"
 msgstr "Negocios"
 
-# 88%
 msgid "Business2"
 msgstr "Negocios2"
 
@@ -496,33 +494,27 @@ msgstr ""
 msgid "Sort by: Icon"
 msgstr "Ordenar por. Icono"
 
-# 76%
 msgid "Sort by: Name"
 msgstr "Ordenar por: Nombre"
 
-# 76%
 msgid "Sort by: Display Name"
 msgstr "Ordenar por: Nombre"
 
 msgid "File as"
 msgstr "Archivar como"
 
-# 75%
 msgid "Sort by: File As"
 msgstr "Ordenar por: Archivar como"
 
-# 80%
 msgid "First Name"
 msgstr "Nombre"
 
 msgid "Sort by: First Name"
 msgstr ""
 
-# 77%
 msgid "Last Name"
 msgstr "Apellido"
 
-# 76%
 #, fuzzy
 msgid "Sort by: Last Name"
 msgstr "Ordenar por: Nombre"
@@ -539,7 +531,6 @@ msgstr "Ordenar por: Empleo"
 msgid "Company Name"
 msgstr "Nombre Empresa"
 
-# 76%
 msgid "Sort by: Company Name"
 msgstr "Ordenar por: Nombre Empresa"
 
@@ -562,26 +553,21 @@ msgstr "Teléfono Casa"
 msgid "Sort by: Home Phone"
 msgstr "Ordenar por: Teléfono Casa"
 
-# 78%
 msgid "Sort by: Pager"
 msgstr "Ordenar por: Buscapersonas"
 
 msgid "Location"
 msgstr "Ubicación"
 
-# 80%
-# 76%
 msgid "Sort by: Location"
 msgstr "Ordenar por: Ubicación"
 
-# 76%
 msgid "Sort by: Fax"
 msgstr "Ordenar por: Fax"
 
 msgid "Print single item"
 msgstr ""
 
-# 78%
 #, fuzzy
 msgid "Print selected item"
 msgstr "Imprimir tareas seleccionadas"
@@ -605,7 +591,6 @@ msgstr "Botón vista previa"
 msgid "Any date"
 msgstr "Fecha de finalización"
 
-# 75%
 #, fuzzy
 msgid "Past week"
 msgstr "Semana"
@@ -613,7 +598,6 @@ msgstr "Semana"
 msgid "Past 2 weeks"
 msgstr ""
 
-# 80%
 #, fuzzy
 msgid "Past month"
 msgstr "Mes"
@@ -676,8 +660,6 @@ msgstr "Mensaje Correo Electrónico"
 msgid "Search tools"
 msgstr "Buscar en"
 
-# 85%
-# 100%
 #, fuzzy
 msgid "Folders"
 msgstr "Carpeta"
@@ -737,7 +719,6 @@ msgstr "Buscar en"
 msgid "Sender"
 msgstr "Remitente"
 
-# 92%
 #, fuzzy
 msgid "Recipients"
 msgstr "Editar recipiente"
@@ -755,7 +736,6 @@ msgstr "Favoritos"
 msgid "Add a folder to favorites based on this search query"
 msgstr ""
 
-# 76%
 msgid "Select Folder"
 msgstr "Seleccionar Carpeta"
 
@@ -766,7 +746,6 @@ msgstr ""
 msgid "Sort by: Date"
 msgstr "Ordenar por. Fecha de vencimiento"
 
-# 76%
 #, fuzzy
 msgid "Loading Search results"
 msgstr "Cargando notas"
@@ -830,24 +809,18 @@ msgstr "Día"
 msgid "days"
 msgstr "días"
 
-# 75%
 msgid "week"
 msgstr "Semana"
 
-# 75%
-# 80%
 msgid "weeks"
 msgstr "Semanas"
 
 msgid " on "
 msgstr ""
 
-# 80%
 msgid "month"
 msgstr "Mes"
 
-# 80%
-# 83%
 msgid "months"
 msgstr "Meses"
 
@@ -934,7 +907,6 @@ msgstr "Fecha de inicio"
 msgid "Sort by: Start Date"
 msgstr "Ordenar por. Fecha de inicio"
 
-# 87%
 #, fuzzy
 msgid "End Date"
 msgstr "Fecha de finalización"
@@ -970,7 +942,6 @@ msgstr "Eliminar del calendario"
 msgid "No Response Required"
 msgstr "La respuesta no es requerida"
 
-# 75%
 msgid "Accept"
 msgstr "Aceptar"
 
@@ -983,7 +954,6 @@ msgstr "Tentativa"
 msgid "Tentatively Accept Meeting Request"
 msgstr "Tentativa de Solicitud de Reunión aceptada"
 
-# 87%
 msgid "Decline"
 msgstr "Rehusar"
 
@@ -1125,7 +1095,6 @@ msgstr "Programación"
 msgid "Tracking"
 msgstr "Seguimiento"
 
-# 75%
 msgctxt "calendar.dialog"
 msgid "Not all attendees could be resolved."
 msgstr "No todos los asistentes pudieron resolver."
@@ -1234,11 +1203,9 @@ msgstr "¿Desea actualizar la ubicación \"{0}\" con la nueva ubicación \"{1}\"
 msgid "jS F Y {0}"
 msgstr ""
 
-# 75%
 msgid "None"
 msgstr "Nada"
 
-# 75%
 msgid "Send"
 msgstr "Enviar"
 
@@ -1272,14 +1239,12 @@ msgstr "Cancelar invitación"
 msgid "High priority"
 msgstr "Prioridad alta"
 
-# 76%
 msgid "Mark this appointment as high priority"
 msgstr "Marcar esta cita como prioridad alta"
 
 msgid "Low priority"
 msgstr "Prioridad baja"
 
-# 78%
 msgid "Mark this appointment as low priority"
 msgstr "Marcar esta cita como prioridad baja"
 
@@ -1381,8 +1346,6 @@ msgstr "Asistencia"
 msgid "Response"
 msgstr "Respuesta"
 
-# 93%
-# 100%
 #, fuzzy
 msgid "New appointment"
 msgstr "Nueva cita"
@@ -1390,8 +1353,6 @@ msgstr "Nueva cita"
 msgid "Creating an item"
 msgstr ""
 
-# 89%
-# 100%
 #, fuzzy
 msgid "New meeting request"
 msgstr "Nueva solicitud de Reunión"
@@ -1440,37 +1401,30 @@ msgstr ""
 msgid "All day: "
 msgstr ""
 
-# 75%
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for formatting instructions
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "l jS F"
 msgstr "js F Y"
 
-# 88%
 msgid "Organiser"
 msgstr "Organizador"
 
-# 92%
 msgid "Meeting status"
 msgstr "Estado de la reunión"
 
-# 94%
 msgid "Required Attendees"
 msgstr "Asistentes requeridos"
 
-# 94%
 msgid "Optional Attendees"
 msgstr "Asistentes opcionales"
 
-# 88%
 msgid "Resources"
 msgstr "Recursos"
 
 msgid "Sensitivity"
 msgstr "Sensibilidad"
 
-# 80%
 msgid "Importance"
 msgstr "Importacia"
 
@@ -1574,7 +1528,6 @@ msgstr "Abrir"
 msgid "Copy/Move"
 msgstr "Copiar/Mover"
 
-# 75%
 #, fuzzy
 msgid "Send to..."
 msgstr "Enviar"
@@ -1612,9 +1565,6 @@ msgstr "Iconos"
 msgid "Recurring"
 msgstr "Repetición"
 
-# 80%
-# 76%
-# 82%
 #, fuzzy
 msgid "Sort by: Duration"
 msgstr "Ordenar por: Ubicación"
@@ -1634,22 +1584,18 @@ msgstr "Ordenar por. Categorías"
 msgid "Created On"
 msgstr "Creado en"
 
-# 84%
 msgid "Sort by: Created On"
 msgstr "Ordenar por: Creado"
 
 msgid "Due By"
 msgstr "Gracias Por"
 
-# 76%
 msgid "Sort by: Due By"
 msgstr "Ordenar por: Fecha de vencimiento"
 
 msgid "Label"
 msgstr "Etiqueta"
 
-# 76%
-# 78%
 #, fuzzy
 msgid "Sort by: Label"
 msgstr "Ordenar por: Tamaño"
@@ -1678,14 +1624,12 @@ msgstr ""
 msgid "Sort by: Recurring End Date"
 msgstr ""
 
-# 77%
 msgid "Recurring Pattern"
 msgstr "Patrón recurrente"
 
 msgid "Sort by: Recurring Pattern"
 msgstr "Ordenar por: Patrón Recurrente"
 
-# 77%
 #, fuzzy
 msgid "Sort by: Reminder"
 msgstr "Ordenar por: Recordatorio de Tiempo"
@@ -1720,8 +1664,6 @@ msgid ""
 "grant you permissions or contact your system administrator."
 msgstr ""
 
-# 80%
-# 84%
 #, fuzzy
 msgid "Insufficient privileges"
 msgstr "No tiene privilegios necesarios para guardar objetos en esta carpeta"
@@ -1824,14 +1766,10 @@ msgstr ""
 msgid "Appointments of {0} - {1}"
 msgstr ""
 
-# 93%
-# 100%
 #, fuzzy
 msgid "No appointments"
 msgstr "Nueva cita"
 
-# 86%
-# 100%
 #, fuzzy
 msgid "Today {0} - {1}"
 msgstr "Página {A} de {0}"
@@ -1839,7 +1777,6 @@ msgstr "Página {A} de {0}"
 msgid "Today (all day)"
 msgstr ""
 
-# 100%
 #. TRANSLATORS: Display name of a folder: "FOLDERNAME - STORENAME".
 #. TRANSLATORS: Displayed on top of a tree with folders: "FOLDERNAME - USERNAME".
 #, fuzzy
@@ -1900,7 +1837,6 @@ msgstr ""
 "Esta es una cita recurrente. ¿Desea abrir solamente esta ocurrencia o la "
 "serie?"
 
-# 80%
 #, fuzzy
 msgid "Recurring Meeting Request"
 msgstr "Rechazar solicitud de reunión"
@@ -2000,8 +1936,6 @@ msgstr "Borrar y enviar una respuesta al organizador de la reunión"
 msgid "Delete without sending"
 msgstr "Borrar sin enviar"
 
-# 80%
-# 84%
 #, fuzzy
 msgid "Insufficient permissions"
 msgstr "No tiene privilegios necesarios para guardar objetos en esta carpeta"
@@ -2050,7 +1984,6 @@ msgstr "Editar recipiente"
 msgid "Recipient already exists."
 msgstr "Ya existe este Usuario"
 
-# 77%
 #, fuzzy
 msgid "Notify sender"
 msgstr "Ordenar por: Recordatorio de Tiempo"
@@ -2108,7 +2041,6 @@ msgstr ""
 msgid "Text only"
 msgstr ""
 
-# 90%
 #, fuzzy
 msgid "Attachment"
 msgstr "Adjuntos"
@@ -2123,8 +2055,6 @@ msgstr "No seleccionado mensaje"
 msgid "Import to"
 msgstr "Importante"
 
-# 90%
-# 100%
 #, fuzzy
 msgid "New folder"
 msgstr "Nueva Carpeta"
@@ -2192,8 +2122,6 @@ msgstr ""
 msgid "Supported format for contact pictures are"
 msgstr ""
 
-# 93%
-# 100%
 #, fuzzy
 msgid "Attachment Error"
 msgstr "Error"
@@ -2260,14 +2188,12 @@ msgstr ""
 msgid "Remove"
 msgstr "Eliminar"
 
-# 90%
 msgid "Check Names"
 msgstr "Comprobar Nombres"
 
 msgid "Select an address to use"
 msgstr ""
 
-# 83%
 msgid "Email"
 msgstr "Correo Electrónico"
 
@@ -2277,7 +2203,6 @@ msgstr ""
 msgid "Alert"
 msgstr "Advertencia"
 
-# 80%
 #, fuzzy
 msgid "Please select a recipient"
 msgstr "Por favor, especifique un destinatario"
@@ -2344,7 +2269,6 @@ msgid ""
 "the context menu and click on \"Share Folder...\""
 msgstr ""
 
-# 90%
 #, fuzzy
 msgid "Permission"
 msgstr "Permisos"
@@ -2474,13 +2398,10 @@ msgstr "Fuera de la oficina"
 msgid "No Information"
 msgstr "sin Información"
 
-# 82%
 #, fuzzy
 msgid "Show non-working hours"
 msgstr "Solo mostrar horas de trabajo"
 
-# 82%
-# 81%
 msgid "Hide non-working hours"
 msgstr "No mostrar en horas de trabajo"
 
@@ -2490,7 +2411,6 @@ msgstr ""
 msgid "No suggestions available"
 msgstr "No hay sugerencias disponibles"
 
-# 75%
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 #, fuzzy
 msgid "l jS F Y"
@@ -2535,7 +2455,6 @@ msgstr ""
 msgid "Extend the selection to the last item in the list"
 msgstr ""
 
-# 77%
 #, fuzzy
 msgid "Open selected item"
 msgstr "{0} ítem seleccionado"
@@ -2549,9 +2468,6 @@ msgstr ""
 msgid "Open copy/move dialog"
 msgstr ""
 
-# 77%
-# 75%
-# 100%
 #, fuzzy
 msgid "Delete selected item"
 msgstr "{0} ítem seleccionado"
@@ -2585,8 +2501,6 @@ msgstr "Firmas no configuradas"
 msgid "Loading Cc recipients"
 msgstr "Editar recipiente"
 
-# 88%
-# 100%
 #, fuzzy
 msgid "Reply Mail"
 msgstr "Responder a todos"
@@ -2594,7 +2508,6 @@ msgstr "Responder a todos"
 msgid "New Mail"
 msgstr "Nuevo Correo"
 
-# 80%
 #, fuzzy
 msgid "Please select a Cc recipient record."
 msgstr "Por favor, especifique un destinatario"
@@ -2629,15 +2542,12 @@ msgstr ""
 msgid "grommunio Web print"
 msgstr ""
 
-# 91%
 msgid "Display name"
 msgstr "Mostrar nombre"
 
 msgid "Email address"
 msgstr "Correo Electrónico"
 
-# 78%
-# 100%
 #, fuzzy
 msgid "Expand distribution list"
 msgstr "Imprimir lista de Distribución"
@@ -2647,7 +2557,6 @@ msgid ""
 "collapse it again."
 msgstr ""
 
-# 92%
 #, fuzzy
 msgid "Edit Recipient"
 msgstr "Editar recipiente"
@@ -2687,7 +2596,6 @@ msgstr "Tercero"
 msgid "4th"
 msgstr "Cuarto"
 
-# 75%
 msgid "last"
 msgstr "Último"
 
@@ -2782,7 +2690,6 @@ msgid_plural "There are {0} reminders"
 msgstr[0] "Hay {0} mensaje no leido en la carpeta {1}"
 msgstr[1] "Hay {0} mensajes no leidos en la carpeta {1}"
 
-# 88%
 #, fuzzy
 msgid "Reminders"
 msgstr "Recordatorio"
@@ -2797,7 +2704,6 @@ msgstr ""
 msgid "Due"
 msgstr "Vencimiento"
 
-# 92%
 #, fuzzy
 msgid "Reminder time"
 msgstr "Recordatorio de Tiempo"
@@ -2841,8 +2747,6 @@ msgstr "Eliminar permante"
 msgid "Delete All"
 msgstr ""
 
-# 75%
-# 100%
 #, fuzzy
 msgid "Messages"
 msgstr "Mensaje"
@@ -2873,8 +2777,6 @@ msgstr[1] ""
 msgid "Deleted On"
 msgstr ""
 
-# 84%
-# 78%
 #, fuzzy
 msgid "Sort by: Deleted On"
 msgstr "Ordenar por: Creado"
@@ -2885,7 +2787,6 @@ msgstr ""
 msgid "Sort by: Item Count"
 msgstr ""
 
-# 76%
 msgid "Sort by: From"
 msgstr "Ordenar por: De"
 
@@ -2946,7 +2847,6 @@ msgstr ""
 msgid "includes these words in the transport-headers..."
 msgstr ""
 
-# 80%
 #, fuzzy
 msgid "has importance..."
 msgstr "Importacia"
@@ -2954,7 +2854,6 @@ msgstr "Importacia"
 msgid "has an attachment"
 msgstr ""
 
-# 75%
 #, fuzzy
 msgid "is sent to..."
 msgstr "Enviar"
@@ -3029,7 +2928,6 @@ msgstr ""
 msgid "Do the following"
 msgstr ""
 
-# 75%
 #, fuzzy
 msgid "Exceptions"
 msgstr "Opciones"
@@ -3074,17 +2972,14 @@ msgstr ""
 msgid "Out of office"
 msgstr "Fuera de la oficina"
 
-# 80%
 #, fuzzy
 msgid "Rule"
 msgstr "Reglas"
 
-# 76%
 #, fuzzy
 msgid "Loading rules"
 msgstr "Cargando notas"
 
-# 76%
 #, fuzzy
 msgid "Please select a rule."
 msgstr "Por favor, seleccione un delegado."
@@ -3170,7 +3065,6 @@ msgstr ""
 msgid "Delegates"
 msgstr "Delegados"
 
-# 88%
 msgid "Delegate settings"
 msgstr "Configurar Delegados"
 
@@ -3198,7 +3092,6 @@ msgstr ""
 msgid "Notifications"
 msgstr ""
 
-# 80%
 #, fuzzy
 msgid "Rules"
 msgstr "Reglas"
@@ -3213,12 +3106,9 @@ msgstr ""
 msgid "Full name"
 msgstr "Nombre Completo"
 
-# 92%
 msgid "Phone Numbers"
 msgstr "Números de Teléfono"
 
-# 80%
-# 75%
 msgid "Business Fax"
 msgstr "Fax Trabajo"
 
@@ -3231,7 +3121,6 @@ msgstr "Dirección IM"
 msgid "D, d-m-Y, {0}"
 msgstr ""
 
-# 76%
 #, fuzzy
 msgid "{0} selected row"
 msgid_plural "{0} selected rows"
@@ -3256,7 +3145,6 @@ msgstr ""
 msgid "Unknown"
 msgstr "Desconocido"
 
-# 88%
 #, fuzzy
 msgid "Meeting Organizer"
 msgstr "Organizador de conferencia"
@@ -3270,7 +3158,6 @@ msgstr "Cargando…"
 msgid "Message could not be loaded"
 msgstr ""
 
-# 100%
 #. TRANSLATORS: This message is used as label for the field which indicates which attachments are inside the message
 msgctxt "mail.previewpanel"
 msgid "Attachments"
@@ -3334,7 +3221,6 @@ msgctxt "mail.previewpanel"
 msgid "{0} has declined."
 msgstr ""
 
-# 85%
 #, fuzzy
 msgctxt "mail.previewpanel"
 msgid "{0} has declined on behalf of {1}."
@@ -3376,12 +3262,10 @@ msgctxt "mail.previewpanel"
 msgid "The meeting was updated after the attendee sent this response"
 msgstr ""
 
-# 100%
 msgctxt "mail.previewpanel"
 msgid "This appointment occurs in the past."
 msgstr "Esta cita ha tenido lugar en el pasado."
 
-# 100%
 msgctxt "mail.previewpanel"
 msgid "Please respond."
 msgstr "Por favor, responda."
@@ -3431,7 +3315,6 @@ msgstr "{0} ha aceptado el nombre de {1}."
 msgid "Declined by {0} on {1}."
 msgstr "Aceptado por {0} en {1}"
 
-# 85%
 #, fuzzy
 msgid "{0} has declined on behalf of {1} {2}."
 msgstr "{0} ha aceptado el nombre de {1}."
@@ -3454,7 +3337,6 @@ msgstr ""
 msgid "The matching task was not found in your task list."
 msgstr ""
 
-# 100%
 msgctxt "mail.previewpanel"
 msgid "To"
 msgstr "A"
@@ -3463,7 +3345,6 @@ msgctxt "mail.previewpanel"
 msgid "Cc"
 msgstr "Cc"
 
-# 100%
 msgctxt "mail.previewpanel"
 msgid "Bcc"
 msgstr "Cco"
@@ -3482,7 +3363,6 @@ msgctxt "mail.previewpanel"
 msgid "on behalf of"
 msgstr ""
 
-# 75%
 #. TRANSLATORS: This message is used to indicate that no sent date is available for the message (because it has not been sent yet).
 msgctxt "mail.previewpanel"
 msgid "None"
@@ -3529,12 +3409,10 @@ msgstr "Otras Direcciones"
 msgid "Business Phone"
 msgstr "Teléfono Trabajo"
 
-# 87%
 #, fuzzy
 msgid "Business 2 Phone"
 msgstr "Teléfono Trabajo"
 
-# 88%
 #, fuzzy
 msgid "Assistant Phone"
 msgstr "Teléfono Asistente"
@@ -3542,7 +3420,6 @@ msgstr "Teléfono Asistente"
 msgid "Company Main Phone"
 msgstr ""
 
-# 83%
 #, fuzzy
 msgid "Home 2 Phone"
 msgstr "Teléfono Casa"
@@ -3578,27 +3455,20 @@ msgstr "Otro Fax"
 msgid "Home Fax"
 msgstr "Fax Casa"
 
-# 94%
 #, fuzzy
 msgid "Email Display As"
 msgstr "Mostrar E-mail como"
 
-# 75%
-# 87%
 msgid "Email 2"
 msgstr "Correo Electrónico 2"
 
-# 89%
 #, fuzzy
 msgid "Email2 Display As"
 msgstr "Mortrar E-Mail 2 como"
 
-# 75%
-# 87%
 msgid "Email 3"
 msgstr "Correo Electrónico 3"
 
-# 89%
 #, fuzzy
 msgid "Email3 Display As"
 msgstr "Mostrar E-Mail 3 como"
@@ -3619,13 +3489,10 @@ msgstr "Profesión"
 msgid "Assistant's Name"
 msgstr "Nombre Asistente"
 
-# 94%
-# 77%
 #, fuzzy
 msgid "Distribution List Name"
 msgstr "Lista de distribución"
 
-# 75%
 msgid "Open Shared Contacts"
 msgstr "Abrir Contactos Compartidos"
 
@@ -3638,7 +3505,6 @@ msgstr "Lista de Teléfonos"
 msgid "Add to contacts"
 msgstr ""
 
-# 77%
 msgid "Print selected contact"
 msgstr "Imprimir contacto seleccionado"
 
@@ -3660,7 +3526,6 @@ msgstr "Sr."
 msgid "Mrs."
 msgstr "Sra."
 
-# 75%
 #, fuzzy
 msgid "Ms."
 msgstr "Sra."
@@ -3698,16 +3563,13 @@ msgstr "Mostrar de nuevo si la dirección es incompleta o indefinida."
 msgid "Details"
 msgstr "Detalles"
 
-# 93%
 #, fuzzy
 msgid "Office location"
 msgstr "Ubicación Oficina"
 
-# 78%
 msgid "Manager's name"
 msgstr "Nombre del gerente"
 
-# 93%
 msgid "Assistant's name"
 msgstr "Nombre del asistente"
 
@@ -3727,7 +3589,6 @@ msgstr "Foto"
 msgid "Additional information"
 msgstr "Información adicional"
 
-# 80%
 msgid "Business 2"
 msgstr "Trabajo 2"
 
@@ -3738,7 +3599,6 @@ msgstr "Callback"
 msgid "Car"
 msgstr "Coche"
 
-# 83%
 msgid "Home 2"
 msgstr "Casa 2"
 
@@ -3757,11 +3617,9 @@ msgstr "Primero"
 msgid "Middle"
 msgstr "Medio"
 
-# 75%
 msgid "Last"
 msgstr "Último"
 
-# 88%
 #, fuzzy
 msgid "Show this again when name is incomplete or unclear."
 msgstr "Mostrar de nuevo si la dirección es incompleta o indefinida."
@@ -3784,17 +3642,14 @@ msgstr "Extensión"
 msgid "Add Attachment"
 msgstr "Añadir adjunto"
 
-# 81%
 #, fuzzy
 msgid "Add attachments to this contact"
 msgstr "Añadir adjuntos a esta tarea"
 
-# 75%
 #, fuzzy
 msgid "Mark this contact as private"
 msgstr "Marcar esta cita como privada."
 
-# 94%
 msgid "Distribution List"
 msgstr "Lista de distribución"
 
@@ -3822,8 +3677,6 @@ msgstr ""
 msgid "New contact"
 msgstr ""
 
-# 78%
-# 100%
 #, fuzzy
 msgid "New distribution list"
 msgstr "Imprimir lista de Distribución"
@@ -3897,7 +3750,6 @@ msgstr "Ordenar por: Nombre del Gestor"
 msgid "Sort by: Assistant's Name"
 msgstr "Ordenar por: Nombre Asistente"
 
-# 76%
 msgid "Sort by: Nickname"
 msgstr "Ordenar por: Apodo"
 
@@ -3928,7 +3780,6 @@ msgstr "Ordenar por: Dirección de Envío"
 msgid "Sort by: IM Address"
 msgstr "Ordenar por: Dirección IM"
 
-# 75%
 msgid "Sort by: Webpage"
 msgstr "Ordenar por: Página web"
 
@@ -3947,7 +3798,6 @@ msgstr "Ordenar por: Teléfono Empresa 2"
 msgid "Sort by: Callback"
 msgstr "Ordenar por: Teléfono Callback"
 
-# 78%
 msgid "Sort by: Car Phone"
 msgstr "Ordenar por: Teléfono Coche"
 
@@ -3957,36 +3807,30 @@ msgstr "Teléfono Empresa"
 msgid "Sort by: Company Main Phone"
 msgstr "Ordenar por: Teléfono principal de Empresa"
 
-# 83%
 msgid "Home Phone 2"
 msgstr "Teléfono Casa 2"
 
-# 90%
 msgid "Sort by: Home Phone 2"
 msgstr "Ordenar por: Teléfono Casa 2"
 
 msgid "Sort by: Home Fax"
 msgstr "Ordenar por: Fax Casa"
 
-# 76%
 msgid "Sort by: ISDN"
 msgstr "Ordenar por. RDSI"
 
-# 80%
 msgid "Sort by: Other Phone"
 msgstr "Ordenar por: Otro Teléfono"
 
 msgid "Radio Phone"
 msgstr "Radio Teléfono"
 
-# 76%
 msgid "Sort by: Radio Phone"
 msgstr "Ordenar por: Radio Teléfono"
 
 msgid "Sort by: TTY/TDD Phone"
 msgstr "Ordenar por: Teléfono TTY/TDD (Teletipo)"
 
-# 80%
 msgid "Sort by: Telex Phone"
 msgstr "Ordenar por: Teléfono Télex"
 
@@ -4084,8 +3928,6 @@ msgstr "Normal"
 msgid "High"
 msgstr "Alto"
 
-# 75%
-# 80%
 msgid "Canceled"
 msgstr "Cancelado"
 
@@ -4128,7 +3970,6 @@ msgstr "En Progreso"
 msgid "Wait for other person"
 msgstr "Espere a que otra persona"
 
-# 87%
 #, fuzzy
 msgid "Deferred"
 msgstr "diferido"
@@ -4227,8 +4068,6 @@ msgstr "Mostrar Detalles"
 msgid "Hide Details"
 msgstr "Detalles"
 
-# 86%
-# 100%
 #, fuzzy
 msgid "Loaded {0} of {1}"
 msgstr "Página {A} de {0}"
@@ -4236,7 +4075,6 @@ msgstr "Página {A} de {0}"
 msgid "Saving"
 msgstr "Grabando"
 
-# 80%
 msgid "Saved"
 msgstr "Guardado"
 
@@ -4346,8 +4184,6 @@ msgstr ""
 "No dispone de suficientes permisos para abrir la carpeta, ¿desea eliminarla "
 "de la jerarquía?"
 
-# 80%
-# 84%
 #, fuzzy
 msgid "Insufficient Permissions"
 msgstr "No tiene privilegios necesarios para guardar objetos en esta carpeta"
@@ -4542,11 +4378,9 @@ msgstr "Ordenar por: Tamaño (sin subcarpetas)"
 msgid "Total size"
 msgstr "Tamaño Total"
 
-# 78%
 msgid "Sort by: Total size (including subfolders)"
 msgstr "Ordenar por: Tamaño Total (subcarpetas incluidas)"
 
-# 78%
 #, fuzzy
 msgid "Open Shared Folders"
 msgstr "Abrir notas compartidas"
@@ -4581,7 +4415,6 @@ msgstr "La carpeta compartida ya se encuentra abierta."
 msgid "No user"
 msgstr ""
 
-# 85%
 #, fuzzy
 msgid "You must specify a user"
 msgstr "Ud. debe especificar un nombre."
@@ -4606,7 +4439,6 @@ msgstr "Carpeta vacía"
 msgid "Empty Junk Email"
 msgstr "papelera de reciclaje"
 
-# 92%
 #, fuzzy
 msgid "Empty Deleted Items"
 msgstr "Elementos eliminados"
@@ -4632,7 +4464,6 @@ msgstr "Cerrar carpeta"
 msgid "Reload"
 msgstr "Refrescar"
 
-# 76%
 #, fuzzy
 msgid "Select color"
 msgstr "Seleccionar Carpeta"
@@ -4653,8 +4484,6 @@ msgstr "Carpeta de inicio"
 msgid "Import emails"
 msgstr "Importante"
 
-# 93%
-# 100%
 #, fuzzy
 msgid "Import appointments"
 msgstr "Nueva cita"
@@ -4714,7 +4543,6 @@ msgstr "CCO"
 msgid "Sort by: Importance"
 msgstr "Ordenar por: Importancia"
 
-# 76%
 msgid "Sort by: To"
 msgstr "Ordenar por: Para"
 
@@ -4789,14 +4617,12 @@ msgstr ""
 msgid "Schedule your mail to be sent on a specific date and time"
 msgstr ""
 
-# 86%
 msgid "Add attachments to this email"
 msgstr "Añadir adjuntos a este Correo Electrónico"
 
 msgid "Add signature"
 msgstr "Añadir Firma"
 
-# 75%
 msgid "Options"
 msgstr "Opciones"
 
@@ -4865,8 +4691,6 @@ msgstr "Marcar como leído"
 msgid "Mark Unread"
 msgstr "Marcar como no Leído"
 
-# 87%
-# 100%
 #, fuzzy
 msgid "New mail"
 msgstr "Nuevo Correo"
@@ -4874,8 +4698,6 @@ msgstr "Nuevo Correo"
 msgid "Mail"
 msgstr "Correo"
 
-# 88%
-# 100%
 #, fuzzy
 msgid "Reply all"
 msgstr "Responder a todos"
@@ -4886,7 +4708,6 @@ msgstr ""
 msgid "Toggle red/complete flag"
 msgstr ""
 
-# 82%
 msgid "Open Shared Mails"
 msgstr "Abrir correos compartidos"
 
@@ -4894,7 +4715,6 @@ msgstr "Abrir correos compartidos"
 msgid "Print single email"
 msgstr "Imprimir solo este correo electrónico"
 
-# 78%
 #, fuzzy
 msgid "Print selected email"
 msgstr "Imprimir tareas seleccionadas"
@@ -4987,8 +4807,6 @@ msgstr "Derecho"
 msgid "Bottom"
 msgstr "Abajo"
 
-# 83%
-# 100%
 #, fuzzy
 msgid "Location of preview pane"
 msgstr "Ubicación del panel de vista previa"
@@ -5099,7 +4917,6 @@ msgstr "Perfil"
 msgid "max. "
 msgstr ""
 
-# 76%
 msgid "Sort by: Sent"
 msgstr "Ordenar por: Enviado"
 
@@ -5115,8 +4932,6 @@ msgstr ""
 msgid "Sort by: flag"
 msgstr ""
 
-# 85%
-# 100%
 #, fuzzy
 msgid "Older"
 msgstr "Carpeta"
@@ -5124,7 +4939,6 @@ msgstr "Carpeta"
 msgid "Yesterday"
 msgstr ""
 
-# 75%
 #, fuzzy
 msgid "Last Week"
 msgstr "Semana"
@@ -5135,7 +4949,6 @@ msgstr ""
 msgid "Three Weeks Ago"
 msgstr ""
 
-# 80%
 #, fuzzy
 msgid "Last Month"
 msgstr "Mes"
@@ -5161,7 +4974,6 @@ msgstr ""
 msgid "Move to Junk Folder"
 msgstr "Mover a Papelera"
 
-# 75%
 #, fuzzy
 msgid "Send to"
 msgstr "Enviar"
@@ -5194,7 +5006,6 @@ msgstr "Abrir notas compartidas"
 msgid "Sticky note"
 msgstr "Nota"
 
-# 78%
 #, fuzzy
 msgid "Print selected note"
 msgstr "Imprimir tareas seleccionadas"
@@ -5312,7 +5123,6 @@ msgstr ""
 msgid "24h clock"
 msgstr ""
 
-# 88%
 #, fuzzy
 msgid "Favorite settings"
 msgstr "Configurar Delegados"
@@ -5415,7 +5225,6 @@ msgstr "Plugins disponibles"
 msgid "No plugins available"
 msgstr "Plugins no disponibles"
 
-# 90%
 #, fuzzy
 msgid "Version"
 msgstr "Permisos"
@@ -5523,7 +5332,6 @@ msgstr "Ordenar por. Porcentaje completado"
 msgid "Task Status"
 msgstr ""
 
-# 93%
 msgid "Percent Complete"
 msgstr "Porcentaje Completado"
 
@@ -5622,9 +5430,6 @@ msgstr "Enviar la tarea al agente"
 msgid "Restore to Task List"
 msgstr "Restaurar por defecto"
 
-# 94%
-# 76%
-# 100%
 #, fuzzy
 msgid "Delete this task"
 msgstr "Borrar este elemento."
@@ -5638,8 +5443,6 @@ msgstr "Marcar como Completado"
 msgid "Mark this task as complete"
 msgstr "Marcar esta tarea como competada"
 
-# 75%
-# 100%
 #, fuzzy
 msgid "Print this task"
 msgstr "Imprimir este correo electrónico"
@@ -5650,9 +5453,6 @@ msgstr "Asignar Tarea"
 msgid "Cancel Assignment"
 msgstr "Cancelar Asignación"
 
-# 75%
-# 79%
-# 100%
 #, fuzzy
 msgid "Mark this task as private"
 msgstr "Marcar esta cita como privada."
@@ -5664,7 +5464,6 @@ msgstr ""
 msgid "Completed"
 msgstr "Completo"
 
-# 76%
 #, fuzzy
 msgid "Printed by: "
 msgstr "Ordenar por: Para"
@@ -5911,7 +5710,6 @@ msgid ""
 "this."
 msgstr ""
 
-# 100%
 msgctxt "hierarchy.foldername"
 msgid "Inbox"
 msgstr "Bandeja de entrada"
@@ -5924,17 +5722,14 @@ msgctxt "hierarchy.foldername"
 msgid "Sent Items"
 msgstr "Correos enviados"
 
-# 92%
 msgctxt "hierarchy.foldername"
 msgid "Deleted items"
 msgstr "Elementos eliminados"
 
-# 100%
 msgctxt "hierarchy.foldername"
 msgid "Calendar"
 msgstr "Calendario"
 
-# 100%
 msgctxt "hierarchy.foldername"
 msgid "Contacts"
 msgstr "Contactos"
@@ -5943,17 +5738,14 @@ msgctxt "hierarchy.foldername"
 msgid "Drafts"
 msgstr "Borradores"
 
-# 100%
 msgctxt "hierarchy.foldername"
 msgid "Journal"
 msgstr "Diario"
 
-# 100%
 msgctxt "hierarchy.foldername"
 msgid "Notes"
 msgstr "Notas"
 
-# 100%
 msgctxt "hierarchy.foldername"
 msgid "Tasks"
 msgstr "Tareas"
@@ -7384,8 +7176,6 @@ msgstr ""
 msgid "Request is not available."
 msgstr ""
 
-# 80%
-# 90%
 #, fuzzy
 msgid "You have insufficient privileges to open this object."
 msgstr "No tiene privilegios necesarios para guardar objetos en esta carpeta"
@@ -7422,23 +7212,18 @@ msgstr ""
 msgid "New Time Proposed"
 msgstr ""
 
-# 78%
-# 76%
 #, fuzzy, php-format
 msgid "Occurs every %s effective %s from %s to %s."
 msgstr "Ocurre cada {0} efectivo {1} mientras {2}."
 
-# 77%
 #, fuzzy, php-format
 msgid "Occurs every %s %s effective %s from %s to %s."
 msgstr "Ocurre cada {0} efectivo {1} para {2} ocurrencia."
 
-# 80%
 #, fuzzy, php-format
 msgid "Occurs every %s effective %s."
 msgstr "Ocurre cada {0} efectivo {1}."
 
-# 75%
 #, fuzzy, php-format
 msgid "Occurs every %s %s effective %s."
 msgstr "Ocurre cada {0} efectivo {1}."
@@ -7467,26 +7252,18 @@ msgid_plural "Occurs every %s %s effective %s for %s occurrences."
 msgstr[0] ""
 msgstr[1] ""
 
-# 76%
-# 75%
 #, fuzzy, php-format
 msgid "Occurs every %s effective %s until %s from %s to %s."
 msgstr "Ocurre cada {0}  efectiva {1} para {2} ocurrencia de {3} a {4}."
 
-# 76%
-# 75%
-# 94%
 #, fuzzy, php-format
 msgid "Occurs every %s %s effective %s until %s from %s to %s."
 msgstr "Ocurre cada {0}  efectiva {1} para {2} ocurrencia de {3} a {4}."
 
-# 78%
 #, fuzzy, php-format
 msgid "Occurs every %s effective %s until %s."
 msgstr "Ocurre cada {0} efectivo {1} mientras {2}."
 
-# 78%
-# 92%
 #, fuzzy, php-format
 msgid "Occurs every %s %s effective %s until %s."
 msgstr "Ocurre cada {0} efectivo {1} mientras {2}."
@@ -7710,36 +7487,26 @@ msgid ""
 "have access to open this message."
 msgstr ""
 
-# 78%
 msgid "Could not open message."
 msgstr "No se puede abrir mensaje"
 
-# 75%
-# 89%
 #, fuzzy
 msgid "You have insufficient privileges to decline this Meeting Request"
 msgstr "No tiene privilegios necesarios para guardar objetos en esta carpeta"
 
-# 75%
-# 92%
 #, fuzzy
 msgid "You have insufficient privileges to accept this Meeting Request"
 msgstr "No tiene privilegios necesarios para guardar objetos en esta carpeta"
 
-# 78%
-# 82%
 msgid "Could not copy message"
 msgstr "No se puede copiar el mensaje"
 
-# 78%
-# 82%
 msgid "Could not move message"
 msgstr "No se puede mover el mensaje"
 
 msgid "You have insufficient privileges to save items in this folder"
 msgstr "No tiene privilegios necesarios para guardar objetos en esta carpeta"
 
-# 78%
 msgid "Could not save message"
 msgstr "No se puede guardar el mensaje"
 
@@ -7772,7 +7539,6 @@ msgstr ""
 msgid "Could not reclaim the ownership for the Task Request."
 msgstr ""
 
-# 75%
 #, fuzzy
 msgid "You have insufficient privileges to accept this Task Request."
 msgstr "No tiene privilegios necesarios para guardar objetos en esta carpeta"
@@ -7780,8 +7546,6 @@ msgstr "No tiene privilegios necesarios para guardar objetos en esta carpeta"
 msgid "Could not accept Task Request."
 msgstr ""
 
-# 75%
-# 90%
 #, fuzzy
 msgid "You have insufficient privileges to decline this Task Request."
 msgstr "No tiene privilegios necesarios para guardar objetos en esta carpeta"

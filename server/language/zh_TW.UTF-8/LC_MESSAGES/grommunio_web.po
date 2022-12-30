@@ -443,8 +443,6 @@ msgstr "行動電話"
 msgid "Pager"
 msgstr "呼叫器"
 
-# 75%
-# 100%
 #, fuzzy
 msgid "No user selected"
 msgstr "沒有選擇的任務"
@@ -561,7 +559,6 @@ msgstr "依傳真排序"
 msgid "Print single item"
 msgstr ""
 
-# 78%
 #, fuzzy
 msgid "Print selected item"
 msgstr "列印此任務"
@@ -650,8 +647,6 @@ msgstr "編輯設定"
 msgid "Search tools"
 msgstr ""
 
-# 85%
-# 100%
 #, fuzzy
 msgid "Folders"
 msgstr "資料夾"
@@ -818,22 +813,15 @@ msgstr "年"
 msgid "years"
 msgstr "年"
 
-# 81%
-# 77%
 msgid "Occurs every {0} effective {1} from {2} to {3}."
 msgstr "Occurs every %s effective %s for %s occurences."
 
-# 77%
-# 79%
 msgid "Occurs every {0} {1} effective {2} from {3} to {4}."
 msgstr "Occurs every %s %s effective %s for %s occurences"
 
-# 80%
 msgid "Occurs every {0} effective {1}."
 msgstr "Occurs every %s effective %s."
 
-# 80%
-# 85%
 msgid "Occurs every {0} {1} effective {2}."
 msgstr "Occurs every %s effective %s."
 
@@ -855,21 +843,15 @@ msgid "Occurs every {0} {1} effective {2} for {3} occurrence."
 msgid_plural "Occurs every {0} {1} effective {2} for {3} occurrences."
 msgstr[0] ""
 
-# 76%
 msgid "Occurs every {0} effective {1} until {2} from {3} to {4}."
 msgstr "Occurs every %s effective %s for %s occurences from %s to %s."
 
-# 76%
-# 86%
 msgid "Occurs every {0} {1} effective {2} until {3} from {4} to {5}."
 msgstr "Occurs every %s effective %s for %s occurences from %s to %s."
 
-# 78%
 msgid "Occurs every {0} effective {1} until {2}."
 msgstr "Occurs every %s effective %s until %s"
 
-# 78%
-# 86%
 msgid "Occurs every {0} {1} effective {2} until {3}."
 msgstr "Occurs every %s effective %s until %s"
 
@@ -886,8 +868,6 @@ msgstr "哪裡"
 msgid "New Meeting Time Proposed"
 msgstr "建議新的會議時間"
 
-# 75%
-# 100%
 #, fuzzy
 msgid "and "
 msgstr "和"
@@ -907,7 +887,6 @@ msgstr "開始日期"
 msgid "Sort by: Start Date"
 msgstr "依開始日期排序"
 
-# 87%
 #, fuzzy
 msgid "End Date"
 msgstr "結束日期"
@@ -933,8 +912,6 @@ msgstr "循環模式"
 msgid "All Day Event"
 msgstr "全天事件"
 
-# 76%
-# 100%
 #, fuzzy
 msgid "Add Shared Calendar"
 msgstr "開啟共用行事曆"
@@ -1335,8 +1312,6 @@ msgstr "值班"
 msgid "Response"
 msgstr "回應"
 
-# 93%
-# 100%
 #, fuzzy
 msgid "New appointment"
 msgstr "新增約會"
@@ -1344,8 +1319,6 @@ msgstr "新增約會"
 msgid "Creating an item"
 msgstr ""
 
-# 89%
-# 100%
 #, fuzzy
 msgid "New meeting request"
 msgstr "新增會議"
@@ -1526,8 +1499,6 @@ msgstr "傳送"
 msgid "Export as"
 msgstr ""
 
-# 80%
-# 100%
 #, fuzzy
 msgid "Occurrence"
 msgstr "週期"
@@ -1556,7 +1527,6 @@ msgstr "圖示"
 msgid "Recurring"
 msgstr "週期"
 
-# 82%
 msgid "Sort by: Duration"
 msgstr "依期間排序"
 
@@ -1575,21 +1545,18 @@ msgstr "依類別排序"
 msgid "Created On"
 msgstr "建立於"
 
-# 84%
 msgid "Sort by: Created On"
 msgstr "依建立日期排序"
 
 msgid "Due By"
 msgstr "到期原因"
 
-# 76%
 msgid "Sort by: Due By"
 msgstr "依結束日期排序"
 
 msgid "Label"
 msgstr "標籤"
 
-# 78%
 msgid "Sort by: Label"
 msgstr "依標籤排序"
 
@@ -1623,7 +1590,6 @@ msgstr "循環模式"
 msgid "Sort by: Recurring Pattern"
 msgstr "依循環模式排序"
 
-# 77%
 msgid "Sort by: Reminder"
 msgstr "依提醒時間排序"
 
@@ -1756,8 +1722,6 @@ msgstr ""
 msgid "Appointments of {0} - {1}"
 msgstr ""
 
-# 93%
-# 100%
 #, fuzzy
 msgid "No appointments"
 msgstr "新增約會"
@@ -1769,7 +1733,6 @@ msgstr "今日: {1} {0}"
 msgid "Today (all day)"
 msgstr ""
 
-# 100%
 #. TRANSLATORS: Display name of a folder: "FOLDERNAME - STORENAME".
 #. TRANSLATORS: Displayed on top of a tree with folders: "FOLDERNAME - USERNAME".
 #, fuzzy
@@ -1826,7 +1789,6 @@ msgid ""
 "the series?"
 msgstr "約會通知，您要開啟此通知或序列嗎?"
 
-# 80%
 msgid "Recurring Meeting Request"
 msgstr "重覆的會議邀請"
 
@@ -1960,7 +1922,6 @@ msgstr "編輯收件者"
 msgid "Recipient already exists."
 msgstr "使用者已存在"
 
-# 77%
 #, fuzzy
 msgid "Notify sender"
 msgstr "依提醒時間排序"
@@ -2016,7 +1977,6 @@ msgstr ""
 msgid "Text only"
 msgstr ""
 
-# 90%
 #, fuzzy
 msgid "Attachment"
 msgstr "附件"
@@ -2031,8 +1991,6 @@ msgstr "沒有選擇的郵件"
 msgid "Import to"
 msgstr "重要的"
 
-# 90%
-# 100%
 #, fuzzy
 msgid "New folder"
 msgstr "新資料夾"
@@ -2099,8 +2057,6 @@ msgstr ""
 msgid "Supported format for contact pictures are"
 msgstr ""
 
-# 93%
-# 100%
 #, fuzzy
 msgid "Attachment Error"
 msgstr "附件錯誤"
@@ -2167,7 +2123,6 @@ msgstr ""
 msgid "Remove"
 msgstr "移除"
 
-# 90%
 msgid "Check Names"
 msgstr "檢查名稱"
 
@@ -2183,7 +2138,6 @@ msgstr "More than one '{0}' found"
 msgid "Alert"
 msgstr "警告"
 
-# 80%
 msgid "Please select a recipient"
 msgstr "請選擇一個收件人"
 
@@ -2374,12 +2328,9 @@ msgstr "不在辦公室"
 msgid "No Information"
 msgstr "無相關資訊"
 
-# 82%
 msgid "Show non-working hours"
 msgstr "顯示未工作小時"
 
-# 82%
-# 81%
 msgid "Hide non-working hours"
 msgstr "隱藏未工作小時"
 
@@ -2432,7 +2383,6 @@ msgstr ""
 msgid "Extend the selection to the last item in the list"
 msgstr ""
 
-# 77%
 #, fuzzy
 msgid "Open selected item"
 msgstr "{0} 選擇項目"
@@ -2446,9 +2396,6 @@ msgstr ""
 msgid "Open copy/move dialog"
 msgstr ""
 
-# 77%
-# 75%
-# 100%
 #, fuzzy
 msgid "Delete selected item"
 msgstr "{0} 選擇項目"
@@ -2482,8 +2429,6 @@ msgstr "沒有設定簽名檔"
 msgid "Loading Cc recipients"
 msgstr "編輯收件者"
 
-# 88%
-# 100%
 #, fuzzy
 msgid "Reply Mail"
 msgstr "回覆所有人"
@@ -2491,7 +2436,6 @@ msgstr "回覆所有人"
 msgid "New Mail"
 msgstr "新郵件"
 
-# 80%
 #, fuzzy
 msgid "Please select a Cc recipient record."
 msgstr "請選擇一個收件人"
@@ -2532,8 +2476,6 @@ msgstr "顯示名稱"
 msgid "Email address"
 msgstr "電子郵件地址"
 
-# 78%
-# 100%
 #, fuzzy
 msgid "Expand distribution list"
 msgstr "列印通訊群組列表"
@@ -2581,7 +2523,6 @@ msgstr "第三"
 msgid "4th"
 msgstr "第四"
 
-# 75%
 msgid "last"
 msgstr "最後"
 
@@ -2675,7 +2616,6 @@ msgid "There is {0} reminder"
 msgid_plural "There are {0} reminders"
 msgstr[0] "有 {0} 提醒"
 
-# 88%
 msgid "Reminders"
 msgstr "提醒"
 
@@ -2690,7 +2630,6 @@ msgstr "到期於"
 msgid "Due"
 msgstr "應有"
 
-# 92%
 msgid "Reminder time"
 msgstr "提醒時間"
 
@@ -2732,8 +2671,6 @@ msgstr "永久刪除"
 msgid "Delete All"
 msgstr ""
 
-# 75%
-# 100%
 #, fuzzy
 msgid "Messages"
 msgstr "郵件"
@@ -2761,8 +2698,6 @@ msgstr[0] ""
 msgid "Deleted On"
 msgstr "刪除"
 
-# 84%
-# 78%
 #, fuzzy
 msgid "Sort by: Deleted On"
 msgstr "依建立日期排序"
@@ -2819,14 +2754,10 @@ msgstr "轉送郵件到..."
 msgid "is received from..."
 msgstr "接收到來自..."
 
-# 84%
-# 100%
 #, fuzzy
 msgid "includes these words in the sender's address..."
 msgstr "主旨包含這些字"
 
-# 84%
-# 100%
 #, fuzzy
 msgid "includes these words in the recipient's address..."
 msgstr "主旨包含這些字"
@@ -2835,14 +2766,10 @@ msgstr "主旨包含這些字"
 msgid "includes these words in the subject..."
 msgstr "主旨包含這些字"
 
-# 84%
-# 100%
 #, fuzzy
 msgid "includes these words in the body..."
 msgstr "主旨包含這些字"
 
-# 84%
-# 100%
 #, fuzzy
 msgid "includes these words in the transport-headers..."
 msgstr "主旨包含這些字"
@@ -2975,11 +2902,9 @@ msgstr "啟動"
 msgid "Out of office"
 msgstr "不在辦公室"
 
-# 80%
 msgid "Rule"
 msgstr "規則"
 
-# 76%
 msgid "Loading rules"
 msgstr "載入規則"
 
@@ -3067,7 +2992,6 @@ msgstr ""
 msgid "Delegates"
 msgstr "代理人"
 
-# 88%
 msgid "Delegate settings"
 msgstr "刪除設定"
 
@@ -3095,7 +3019,6 @@ msgstr ""
 msgid "Notifications"
 msgstr ""
 
-# 80%
 #, fuzzy
 msgid "Rules"
 msgstr "規則"
@@ -3124,7 +3047,6 @@ msgstr "IM"
 msgid "D, d-m-Y, {0}"
 msgstr ""
 
-# 76%
 msgid "{0} selected row"
 msgid_plural "{0} selected rows"
 msgstr[0] "{0} 選擇項目"
@@ -3147,7 +3069,6 @@ msgstr ""
 msgid "Unknown"
 msgstr "未知的"
 
-# 88%
 msgid "Meeting Organizer"
 msgstr "會議主席"
 
@@ -3160,7 +3081,6 @@ msgstr "讀取中..."
 msgid "Message could not be loaded"
 msgstr ""
 
-# 100%
 #. TRANSLATORS: This message is used as label for the field which indicates which attachments are inside the message
 msgctxt "mail.previewpanel"
 msgid "Attachments"
@@ -3264,12 +3184,10 @@ msgctxt "mail.previewpanel"
 msgid "The meeting was updated after the attendee sent this response"
 msgstr "在本會議更新後，參與會議人員請回復會議"
 
-# 100%
 msgctxt "mail.previewpanel"
 msgid "This appointment occurs in the past."
 msgstr "此約會在過去的時間發生"
 
-# 100%
 msgctxt "mail.previewpanel"
 msgid "Please respond."
 msgstr "請回應"
@@ -3340,17 +3258,14 @@ msgstr ""
 msgid "The matching task was not found in your task list."
 msgstr ""
 
-# 100%
 msgctxt "mail.previewpanel"
 msgid "To"
 msgstr "收件人"
 
-# 100%
 msgctxt "mail.previewpanel"
 msgid "Cc"
 msgstr "副本"
 
-# 100%
 msgctxt "mail.previewpanel"
 msgid "Bcc"
 msgstr "密件副本"
@@ -3369,7 +3284,6 @@ msgctxt "mail.previewpanel"
 msgid "on behalf of"
 msgstr "代表人"
 
-# 100%
 #. TRANSLATORS: This message is used to indicate that no sent date is available for the message (because it has not been sent yet).
 msgctxt "mail.previewpanel"
 msgid "None"
@@ -3416,12 +3330,10 @@ msgstr "其他地址"
 msgid "Business Phone"
 msgstr "公司電話"
 
-# 87%
 #, fuzzy
 msgid "Business 2 Phone"
 msgstr "公司電話"
 
-# 88%
 #, fuzzy
 msgid "Assistant Phone"
 msgstr "助理電話"
@@ -3429,7 +3341,6 @@ msgstr "助理電話"
 msgid "Company Main Phone"
 msgstr ""
 
-# 83%
 #, fuzzy
 msgid "Home 2 Phone"
 msgstr "住家電話"
@@ -3464,7 +3375,6 @@ msgstr "其他傳真"
 msgid "Home Fax"
 msgstr "住家傳真"
 
-# 94%
 #, fuzzy
 msgid "Email Display As"
 msgstr "電子郵件顯示為"
@@ -3472,7 +3382,6 @@ msgstr "電子郵件顯示為"
 msgid "Email 2"
 msgstr "電子郵件2"
 
-# 89%
 #, fuzzy
 msgid "Email2 Display As"
 msgstr "電子郵件2顯示為"
@@ -3480,7 +3389,6 @@ msgstr "電子郵件2顯示為"
 msgid "Email 3"
 msgstr "電子郵件3"
 
-# 89%
 #, fuzzy
 msgid "Email3 Display As"
 msgstr "電子郵件3顯示為"
@@ -3501,7 +3409,6 @@ msgstr "專業"
 msgid "Assistant's Name"
 msgstr "助理名稱"
 
-# 77%
 #, fuzzy
 msgid "Distribution List Name"
 msgstr "通訊群組"
@@ -3686,8 +3593,6 @@ msgstr ""
 msgid "New contact"
 msgstr ""
 
-# 78%
-# 100%
 #, fuzzy
 msgid "New distribution list"
 msgstr "列印通訊群組列表"
@@ -3981,7 +3886,6 @@ msgstr "進行中"
 msgid "Wait for other person"
 msgstr "等待其他人"
 
-# 87%
 msgid "Deferred"
 msgstr "延期"
 
@@ -4385,7 +4289,6 @@ msgstr "全部大小"
 msgid "Sort by: Total size (including subfolders)"
 msgstr "排序方式: 全部大小 (包括子資料夾)"
 
-# 78%
 msgid "Open Shared Folders"
 msgstr "開啟共用資料夾"
 
@@ -4443,7 +4346,6 @@ msgstr "空的資料夾"
 msgid "Empty Junk Email"
 msgstr "垃圾郵件"
 
-# 92%
 #, fuzzy
 msgid "Empty Deleted Items"
 msgstr "刪除郵件"
@@ -4469,8 +4371,6 @@ msgstr "關閉資料夾"
 msgid "Reload"
 msgstr "刷新"
 
-# 76%
-# 100%
 #, fuzzy
 msgid "Select color"
 msgstr "選擇資料夾"
@@ -4491,8 +4391,6 @@ msgstr "開始資料夾"
 msgid "Import emails"
 msgstr "重要的"
 
-# 93%
-# 100%
 #, fuzzy
 msgid "Import appointments"
 msgstr "新增約會"
@@ -4697,8 +4595,6 @@ msgstr "標示已閱讀"
 msgid "Mark Unread"
 msgstr "標示未閱讀"
 
-# 87%
-# 100%
 #, fuzzy
 msgid "New mail"
 msgstr "新郵件"
@@ -4706,8 +4602,6 @@ msgstr "新郵件"
 msgid "Mail"
 msgstr "郵件"
 
-# 88%
-# 100%
 #, fuzzy
 msgid "Reply all"
 msgstr "回覆所有人"
@@ -4725,7 +4619,6 @@ msgstr "開啟共用郵件"
 msgid "Print single email"
 msgstr "列印單一電子郵件"
 
-# 78%
 #, fuzzy
 msgid "Print selected email"
 msgstr "列印此任務"
@@ -4818,8 +4711,6 @@ msgstr "右"
 msgid "Bottom"
 msgstr "底"
 
-# 83%
-# 100%
 #, fuzzy
 msgid "Location of preview pane"
 msgstr "位置預覽面板"
@@ -4944,8 +4835,6 @@ msgstr ""
 msgid "Sort by: flag"
 msgstr ""
 
-# 85%
-# 100%
 #, fuzzy
 msgid "Older"
 msgstr "資料夾"
@@ -5020,15 +4909,10 @@ msgstr "開啟共用筆記"
 msgid "Sticky note"
 msgstr "便條"
 
-# 78%
-# 84%
-# 100%
 #, fuzzy
 msgid "Print selected note"
 msgstr "列印此任務"
 
-# 75%
-# 100%
 #, fuzzy
 msgid "No note selected"
 msgstr "沒有選擇的任務"
@@ -5142,7 +5026,6 @@ msgstr ""
 msgid "24h clock"
 msgstr ""
 
-# 88%
 #, fuzzy
 msgid "Favorite settings"
 msgstr "刪除設定"
@@ -5348,7 +5231,6 @@ msgstr "依完成百分比排序"
 msgid "Task Status"
 msgstr ""
 
-# 93%
 msgid "Percent Complete"
 msgstr "完成百分比"
 
@@ -5443,8 +5325,6 @@ msgstr "傳送任務到委派者"
 msgid "Restore to Task List"
 msgstr "回復預設值"
 
-# 76%
-# 100%
 #, fuzzy
 msgid "Delete this task"
 msgstr "刪除此項目"
@@ -5458,8 +5338,6 @@ msgstr "標示已完成"
 msgid "Mark this task as complete"
 msgstr "標示此任務完成"
 
-# 75%
-# 100%
 #, fuzzy
 msgid "Print this task"
 msgstr "列印此郵件"
@@ -5470,8 +5348,6 @@ msgstr "分配任務"
 msgid "Cancel Assignment"
 msgstr "取消任務"
 
-# 79%
-# 100%
 #, fuzzy
 msgid "Mark this task as private"
 msgstr "標示此聯絡人為私人"
@@ -5516,8 +5392,6 @@ msgstr ""
 msgid "Detailed view"
 msgstr ""
 
-# 92%
-# 100%
 #, fuzzy
 msgid "Task request"
 msgstr "任務要求:"
@@ -5678,7 +5552,6 @@ msgstr "對於你的請求，系統發生一個未知的錯誤"
 msgid "The server reported an unspecified error on your request."
 msgstr "對於你的請求，系統發生一個未指定的錯誤"
 
-# 90%
 msgid "The session has expired, reauthentication is required."
 msgstr "作業階段已終止,需要重新認証"
 
@@ -5699,7 +5572,6 @@ msgstr "需要重新認証，請點選這裡回到登入畫面"
 msgid "Connection problem"
 msgstr "連線問題"
 
-# 75%
 msgid "Could not connect to server, retrying in {0} second(s)"
 msgstr "無法連線到伺服器，{0}秒後重試連線"
 
@@ -5730,7 +5602,6 @@ msgid ""
 "this."
 msgstr ""
 
-# 100%
 msgctxt "hierarchy.foldername"
 msgid "Inbox"
 msgstr "收件夾"
@@ -5743,17 +5614,14 @@ msgctxt "hierarchy.foldername"
 msgid "Sent Items"
 msgstr "寄件備份"
 
-# 92%
 msgctxt "hierarchy.foldername"
 msgid "Deleted items"
 msgstr "刪除郵件"
 
-# 100%
 msgctxt "hierarchy.foldername"
 msgid "Calendar"
 msgstr "行事曆"
 
-# 100%
 msgctxt "hierarchy.foldername"
 msgid "Contacts"
 msgstr "聯絡人"
@@ -5762,17 +5630,14 @@ msgctxt "hierarchy.foldername"
 msgid "Drafts"
 msgstr "草稿"
 
-# 100%
 msgctxt "hierarchy.foldername"
 msgid "Journal"
 msgstr "日誌"
 
-# 100%
 msgctxt "hierarchy.foldername"
 msgid "Notes"
 msgstr "筆記"
 
-# 100%
 msgctxt "hierarchy.foldername"
 msgid "Tasks"
 msgstr "任務"
@@ -7573,7 +7438,6 @@ msgid ""
 "have access to open this message."
 msgstr ""
 
-# 78%
 msgid "Could not open message."
 msgstr "無法開啟儲存庫"
 
@@ -7583,20 +7447,15 @@ msgstr "您沒有足夠權限拒絕此會議請求"
 msgid "You have insufficient privileges to accept this Meeting Request"
 msgstr "您沒有足夠權限接受此會議請求"
 
-# 78%
-# 82%
 msgid "Could not copy message"
 msgstr "無法複製郵件"
 
-# 78%
-# 82%
 msgid "Could not move message"
 msgstr "無法搬移郵件"
 
 msgid "You have insufficient privileges to save items in this folder"
 msgstr "您沒有足夠權限儲存此資料夾項目"
 
-# 78%
 msgid "Could not save message"
 msgstr "無法儲存郵件"
 

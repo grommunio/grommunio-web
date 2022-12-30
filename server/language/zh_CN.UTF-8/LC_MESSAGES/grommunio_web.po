@@ -422,7 +422,6 @@ msgstr "电话号码"
 msgid "Business"
 msgstr "企业电话"
 
-# 88%
 msgid "Business2"
 msgstr "企业电话2"
 
@@ -493,18 +492,15 @@ msgstr "归档为"
 msgid "Sort by: File As"
 msgstr "排序方式：归档为"
 
-# 80%
 msgid "First Name"
 msgstr "名"
 
 msgid "Sort by: First Name"
 msgstr "排序方式：名"
 
-# 77%
 msgid "Last Name"
 msgstr "姓"
 
-# 77%
 msgid "Sort by: Last Name"
 msgstr "排序方式：姓"
 
@@ -574,7 +570,6 @@ msgstr "右侧预览"
 msgid "Bottom preview"
 msgstr "底部预览"
 
-# 87%
 msgid "Any date"
 msgstr "任意日期"
 
@@ -593,7 +588,6 @@ msgstr "过去6个月"
 msgid "Past year"
 msgstr "去年"
 
-# 87%
 msgid "Custom date"
 msgstr "自定义日期"
 
@@ -639,8 +633,6 @@ msgstr "作为新邮件编辑"
 msgid "Search tools"
 msgstr "搜索工具"
 
-# 85%
-# 100%
 msgid "Folders"
 msgstr "文件夹"
 
@@ -754,7 +746,6 @@ msgstr "由于日历中没有此会议，因此无法查看提议；该提议可
 msgid "Required"
 msgstr "必填项"
 
-# 75%
 msgid "Optional"
 msgstr "可选项"
 
@@ -908,7 +899,6 @@ msgstr "从日历中删除"
 msgid "No Response Required"
 msgstr "无需回复"
 
-# 75%
 msgid "Accept"
 msgstr "接受"
 
@@ -921,7 +911,6 @@ msgstr "暂定"
 msgid "Tentatively Accept Meeting Request"
 msgstr "暂定接受会议请求"
 
-# 87%
 msgid "Decline"
 msgstr "拒绝"
 
@@ -1022,7 +1011,6 @@ msgctxt "calendar.dialog"
 msgid "Resources have been planned"
 msgstr "已规划资源"
 
-# 75%
 msgid "Send update"
 msgstr "发送更新"
 
@@ -1054,7 +1042,6 @@ msgstr "时序安排"
 msgid "Tracking"
 msgstr "跟踪"
 
-# 75%
 msgctxt "calendar.dialog"
 msgid "Not all attendees could be resolved."
 msgstr "不是所有的与会者都能成功解析。"
@@ -1158,11 +1145,9 @@ msgstr "您是否欲使用包含新位置\"{1}\"的位置\"{0}\"？"
 msgid "jS F Y {0}"
 msgstr "jS F Y {0}"
 
-# 75%
 msgid "None"
 msgstr "无"
 
-# 75%
 msgid "Send"
 msgstr "发送"
 
@@ -1196,21 +1181,12 @@ msgstr "取消邀请"
 msgid "High priority"
 msgstr "高优先级"
 
-# 76%
-# 79%
-# 75%
-# 100%
 msgid "Mark this appointment as high priority"
 msgstr "将此预约标记为高优先级"
 
 msgid "Low priority"
 msgstr "低优先级"
 
-# 76%
-# 79%
-# 75%
-# 78%
-# 100%
 msgid "Mark this appointment as low priority"
 msgstr "将此预约标记为低优先级"
 
@@ -1223,10 +1199,6 @@ msgstr "打开类别对话框"
 msgid "Private"
 msgstr "私人"
 
-# 76%
-# 79%
-# 75%
-# 100%
 msgid "Mark this appointment as private"
 msgstr "将此预约标记为私人"
 
@@ -1360,8 +1332,6 @@ msgstr "l jS M Y {1｝"
 msgid "All day: "
 msgstr "全天候。"
 
-# 83%
-# 75%
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for formatting instructions
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
@@ -1386,7 +1356,6 @@ msgstr "资源"
 msgid "Sensitivity"
 msgstr "敏感性"
 
-# 80%
 msgid "Importance"
 msgstr "重要性"
 
@@ -1486,7 +1455,6 @@ msgstr "打开"
 msgid "Copy/Move"
 msgstr "复制/移动"
 
-# 75%
 msgid "Send to..."
 msgstr "正在发送给收件人..."
 
@@ -1604,7 +1572,6 @@ msgstr "可选择的出席者"
 msgid "jS F {0}"
 msgstr "jS F {0}"
 
-# 83%
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "jS F Y"
 msgstr "jS F Y"
@@ -1725,16 +1692,12 @@ msgstr "{0}-{1}的预约"
 msgid "No appointments"
 msgstr "无任何预约"
 
-# 86%
-# 100%
 msgid "Today {0} - {1}"
 msgstr "今天{0}-{1}"
 
 msgid "Today (all day)"
 msgstr "今天（全天）"
 
-# 86%
-# 100%
 #. TRANSLATORS: Display name of a folder: "FOLDERNAME - STORENAME".
 #. TRANSLATORS: Displayed on top of a tree with folders: "FOLDERNAME - USERNAME".
 msgid "{0} - {1}"
@@ -2110,7 +2073,6 @@ msgstr "合并"
 msgid "Remove"
 msgstr "删除"
 
-# 90%
 msgid "Check Names"
 msgstr "检查姓名"
 
@@ -2126,14 +2088,12 @@ msgstr "找到多个'{0}'。"
 msgid "Alert"
 msgstr "警报"
 
-# 80%
 msgid "Please select a recipient"
 msgstr "请选择一个收件人"
 
 msgid "Mail and Post"
 msgstr "邮件和贴子"
 
-# 87%
 msgid "Contact"
 msgstr "联系人"
 
@@ -2146,7 +2106,6 @@ msgstr "便签"
 msgid "Task"
 msgstr "任务"
 
-# 100%
 msgid "Inbox"
 msgstr "收件箱"
 
@@ -2248,7 +2207,6 @@ msgstr "ICS"
 msgid "Set custom flag"
 msgstr "设置自定义标志"
 
-# 90%
 msgid "Start date"
 msgstr "开始日期"
 
@@ -2264,7 +2222,6 @@ msgstr "本周"
 msgid "Next week"
 msgstr "下周"
 
-# 87%
 msgid "Custom"
 msgstr "自定义"
 
@@ -2295,7 +2252,6 @@ msgstr "复制电子邮件地址"
 msgid "Set as required"
 msgstr "设为必填项"
 
-# 75%
 msgid "Set as optional"
 msgstr "设为可选项"
 
@@ -2329,8 +2285,6 @@ msgstr "此日期无可用的忙/闲信息"
 msgid "No suggestions available"
 msgstr "无任何可用的建议"
 
-# 83%
-# 75%
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "l jS F Y"
 msgstr "l jS F Y"
@@ -2425,11 +2379,9 @@ msgstr "回复邮件"
 msgid "New Mail"
 msgstr "新邮件"
 
-# 80%
 msgid "Please select a Cc recipient record."
 msgstr "请选择作为抄送对象的收件人记录。"
 
-# 80%
 msgid "Manage Cc recipients"
 msgstr "管理作为抄送对象的收件人"
 
@@ -2513,7 +2465,6 @@ msgstr "第3"
 msgid "4th"
 msgstr "第4"
 
-# 75%
 msgid "last"
 msgstr "最后一个"
 
@@ -2661,9 +2612,6 @@ msgstr "全部删除"
 msgid "Messages"
 msgstr "消息"
 
-# 94%
-# 76%
-# 100%
 msgid "Delete all items"
 msgstr "删除所有项目"
 
@@ -2746,14 +2694,12 @@ msgstr "在正文中包含这些词..."
 msgid "includes these words in the transport-headers..."
 msgstr "在传输标题中包含这些词..."
 
-# 80%
 msgid "has importance..."
 msgstr "具有重要性..."
 
 msgid "has an attachment"
 msgstr "有附件"
 
-# 75%
 msgid "is sent to..."
 msgstr "正在发送至..."
 
@@ -3003,8 +2949,6 @@ msgstr "全名"
 msgid "Phone Numbers"
 msgstr "电话号码"
 
-# 80%
-# 75%
 msgid "Business Fax"
 msgstr "企业传真"
 
@@ -3189,24 +3133,18 @@ msgctxt "mail.previewpanel"
 msgid "You forwarded this message on {0}."
 msgstr "您已于{0}转发了此消息。"
 
-# 86%
-# 100%
 msgid "Assigned by {0} on {1}."
 msgstr "由{0}于{1}分配。"
 
 msgid "Waiting for response from recipient"
 msgstr "正在等待收件人回复"
 
-# 86%
-# 100%
 msgid "Accepted by {0} on {1}."
 msgstr "由{0}于{1}接收。"
 
 msgid "{0} has accepted on behalf of {1} {2}."
 msgstr "{0}已代表{1}{2}接受。"
 
-# 86%
-# 100%
 msgid "Declined by {0} on {1}."
 msgstr "由{0}于{1}拒绝。"
 
@@ -3255,8 +3193,6 @@ msgctxt "mail.previewpanel"
 msgid "on behalf of"
 msgstr "代表"
 
-# 75%
-# 100%
 #. TRANSLATORS: This message is used to indicate that no sent date is available for the message (because it has not been sent yet).
 msgctxt "mail.previewpanel"
 msgid "None"
@@ -3471,7 +3407,6 @@ msgstr "照片"
 msgid "Additional information"
 msgstr "其它信息"
 
-# 80%
 msgid "Business 2"
 msgstr "企业电话2"
 
@@ -3499,7 +3434,6 @@ msgstr "第一个"
 msgid "Middle"
 msgstr "中间名"
 
-# 75%
 msgid "Last"
 msgstr "最后一个"
 
@@ -3524,21 +3458,15 @@ msgstr "扩展名"
 msgid "Add Attachment"
 msgstr "添加附件"
 
-# 81%
 msgid "Add attachments to this contact"
 msgstr "添加附件至此联系人"
 
-# 76%
-# 79%
-# 100%
 msgid "Mark this contact as private"
 msgstr "将此联系人标记为私人"
 
 msgid "Distribution List"
 msgstr "群发列表"
 
-# 76%
-# 100%
 msgid "Mark this Distribution list as private"
 msgstr "将此群发列表标记为私人"
 
@@ -3769,7 +3697,6 @@ msgstr "无法上传附件，附件总数为{0}，而单个请求中最多允许
 msgid "{0} on behalf of {1}"
 msgstr "{0}代表{1}"
 
-# 75%
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "jS F"
 msgstr "jS F"
@@ -3813,7 +3740,6 @@ msgstr "中"
 msgid "High"
 msgstr "高"
 
-# 75%
 msgid "Canceled"
 msgstr "已取消"
 
@@ -3856,7 +3782,6 @@ msgstr "进行中"
 msgid "Wait for other person"
 msgstr "等待其他人"
 
-# 87%
 msgid "Deferred"
 msgstr "已延期"
 
@@ -3890,7 +3815,6 @@ msgstr "小部件"
 msgid "Sending..."
 msgstr "正在发送..."
 
-# 94%
 msgid "Sent successfully"
 msgstr "已成功发送"
 
@@ -3909,7 +3833,6 @@ msgstr "尚未上传附件。"
 msgid "Do you want to send this message without attachments?"
 msgstr "您是否欲发送不带附件的此消息？"
 
-# 94%
 msgid "Attachments not uploaded yet"
 msgstr "尚未上传附件"
 
@@ -3925,7 +3848,6 @@ msgstr "无主题"
 msgid "Send this message without a subject?"
 msgstr "是否发送无主题的此消息?"
 
-# 80%
 msgid "Unresolved recipients"
 msgstr "未能解析收件人"
 
@@ -3947,19 +3869,15 @@ msgstr "复制详细信息"
 msgid "Hide Details"
 msgstr "隐藏详细信息"
 
-# 86%
-# 100%
 msgid "Loaded {0} of {1}"
 msgstr "已加载{1}的{0}"
 
 msgid "Saving"
 msgstr "正在保存"
 
-# 80%
 msgid "Saved"
 msgstr "已保存"
 
-# 94%
 msgid "Saved successfully"
 msgstr "已成功保存"
 
@@ -4470,7 +4388,6 @@ msgstr "稍后发送"
 msgid "Schedule your mail to be sent on a specific date and time"
 msgstr "安排您的邮件在特定的日期和时间发送"
 
-# 86%
 msgid "Add attachments to this email"
 msgstr "在这封电子邮件中添加附件"
 
@@ -4747,7 +4664,6 @@ msgstr "回复/转发"
 msgid "Signature name:"
 msgstr "签名名称。"
 
-# 88%
 msgid "Save Signature"
 msgstr "保存签名"
 
@@ -4781,8 +4697,6 @@ msgstr "标志"
 msgid "Sort by: flag"
 msgstr "排序方式：标志"
 
-# 85%
-# 100%
 msgid "Older"
 msgstr "更早的时间"
 
@@ -4822,7 +4736,6 @@ msgstr "跟进"
 msgid "Move to Junk Folder"
 msgstr "移至垃圾邮件文件夹"
 
-# 75%
 msgid "Send to"
 msgstr "发送至"
 
@@ -5243,14 +5156,12 @@ msgstr "多个收件人"
 msgid "A task request can only have one recipient."
 msgstr "一个任务请求只能有一个收件人。"
 
-# 87%
 msgid "Due date"
 msgstr "结束日期"
 
 msgid "Priority"
 msgstr "优先级"
 
-# 90%
 msgid "% Complete"
 msgstr "完成比例(%)"
 
@@ -5266,9 +5177,6 @@ msgstr "发送任务至代理人"
 msgid "Restore to Task List"
 msgstr "恢复任务列表"
 
-# 94%
-# 76%
-# 100%
 msgid "Delete this task"
 msgstr "删除此项目"
 
@@ -5290,8 +5198,6 @@ msgstr "分配任务"
 msgid "Cancel Assignment"
 msgstr "取消任务分配"
 
-# 76%
-# 100%
 msgid "Mark this task as private"
 msgstr "将此任务标记为私人"
 
@@ -5536,7 +5442,6 @@ msgid ""
 "this."
 msgstr "因此，并非grommunio Web的所有功能均能正常运行。"
 
-# 100%
 msgctxt "hierarchy.foldername"
 msgid "Inbox"
 msgstr "收件箱"
@@ -5553,12 +5458,10 @@ msgctxt "hierarchy.foldername"
 msgid "Deleted items"
 msgstr "已删除的项目"
 
-# 100%
 msgctxt "hierarchy.foldername"
 msgid "Calendar"
 msgstr "日历"
 
-# 100%
 msgctxt "hierarchy.foldername"
 msgid "Contacts"
 msgstr "联系人"
@@ -5571,12 +5474,10 @@ msgctxt "hierarchy.foldername"
 msgid "Journal"
 msgstr "日志"
 
-# 100%
 msgctxt "hierarchy.foldername"
 msgid "Notes"
 msgstr "便签"
 
-# 100%
 msgctxt "hierarchy.foldername"
 msgid "Tasks"
 msgstr "任务"

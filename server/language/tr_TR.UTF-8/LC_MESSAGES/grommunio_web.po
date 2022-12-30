@@ -258,11 +258,9 @@ msgstr "Bu alan icin en büyük boy {0}"
 msgid "This field is required"
 msgstr "Bu alan gereklidir"
 
-# 85%
 msgid "The minimum value for this field is {0}"
 msgstr "Bu alan icin en minimum değer {0}"
 
-# 85%
 msgid "The maximum value for this field is {0}"
 msgstr "Bu alan icin en maksimum değer {0}"
 
@@ -379,7 +377,6 @@ msgstr "Baş harfler"
 msgid "Display"
 msgstr "Görüntüle"
 
-# 77%
 msgid "Addresses"
 msgstr "Adres"
 
@@ -434,7 +431,6 @@ msgstr "Telefon numaraları"
 msgid "Business"
 msgstr "Şirket"
 
-# 88%
 msgid "Business2"
 msgstr "Şirket2"
 
@@ -444,7 +440,6 @@ msgstr "Faks"
 msgid "Home"
 msgstr "Ev"
 
-# 80%
 msgid "Home2"
 msgstr "Ev2"
 
@@ -454,8 +449,6 @@ msgstr "Cep telefonu"
 msgid "Pager"
 msgstr "Ҫağrı cihazı"
 
-# 75%
-# 100%
 msgid "No user selected"
 msgstr "Seçili kullanıcı yok"
 
@@ -498,11 +491,9 @@ msgstr "Ara..."
 msgid "Sort by: Icon"
 msgstr "Sıralama: Simge"
 
-# 76%
 msgid "Sort by: Name"
 msgstr "Sıralama: Ad"
 
-# 76%
 msgid "Sort by: Display Name"
 msgstr "Sıralama: Oturum Adı"
 
@@ -512,18 +503,15 @@ msgstr "Dosya olarak"
 msgid "Sort by: File As"
 msgstr "Sıralama: Dosya Olarak"
 
-# 80%
 msgid "First Name"
 msgstr "Adı"
 
 msgid "Sort by: First Name"
 msgstr "Sıralamaya göre: İsim"
 
-# 77%
 msgid "Last Name"
 msgstr "Soyadı"
 
-# 76%
 msgid "Sort by: Last Name"
 msgstr "Sıralama: Soyad"
 
@@ -539,7 +527,6 @@ msgstr "Sıralama: İş unvanı"
 msgid "Company Name"
 msgstr "Şirket adı"
 
-# 76%
 msgid "Sort by: Company Name"
 msgstr "Sıralama: Şirket adı"
 
@@ -558,31 +545,24 @@ msgstr "Sıralama: cep telefonu"
 msgid "Home Phone"
 msgstr "Ev telefonu"
 
-# 76%
 msgid "Sort by: Home Phone"
 msgstr "Sıralama: Ev Telefonu"
 
-# 76%
-# 78%
 msgid "Sort by: Pager"
 msgstr "Sıralama: Pager"
 
 msgid "Location"
 msgstr "Konum"
 
-# 80%
-# 76%
 msgid "Sort by: Location"
 msgstr "Sıralama: Konum"
 
-# 76%
 msgid "Sort by: Fax"
 msgstr "Sıralama: Faks"
 
 msgid "Print single item"
 msgstr "Tek öğe yazdırma"
 
-# 78%
 msgid "Print selected item"
 msgstr "Seçili öğeyi yazdır"
 
@@ -601,7 +581,6 @@ msgstr "Sağ önizleme"
 msgid "Bottom preview"
 msgstr "Alt önizleme"
 
-# 87%
 msgid "Any date"
 msgstr "Herhangi bir tarih"
 
@@ -620,7 +599,6 @@ msgstr "Son 6 ay"
 msgid "Past year"
 msgstr "Geçen Yıl"
 
-# 87%
 msgid "Custom date"
 msgstr "Özel tarih"
 
@@ -666,8 +644,6 @@ msgstr "Yeni Olarak Düzenle"
 msgid "Search tools"
 msgstr "Arama araçları"
 
-# 85%
-# 100%
 msgid "Folders"
 msgstr "Klasörler"
 
@@ -680,7 +656,6 @@ msgstr "Göster.."
 msgid "Mails"
 msgstr "E-posta"
 
-# 91%
 msgid "Appointments"
 msgstr "Randevular"
 
@@ -734,7 +709,6 @@ msgstr "Favoriler"
 msgid "Add a folder to favorites based on this search query"
 msgstr "Bu arama sorgusuna göre favorilere bir klasör ekleyin"
 
-# 76%
 msgid "Select Folder"
 msgstr "Klasörü sil"
 
@@ -866,11 +840,9 @@ msgid_plural "Occurs every {0} {1} effective {2} for {3} occurrences."
 msgstr[0] "{3} oluşumu için her {0} {1} etkili {2} oluşur."
 msgstr[1] ""
 
-# 78%
 msgid "Occurs every {0} effective {1} until {2} from {3} to {4}."
 msgstr "Her {0} gerçekleşir, başlangıç: {1}, bitiş: {2}, saat {3} - {4} arası."
 
-# 80%
 msgid "Occurs every {0} {1} effective {2} until {3} from {4} to {5}."
 msgstr ""
 "Her {0} {1} gerçekleşir, başlangıç: {2}, bitiş: {3}, saat {4} - {5} arası."
@@ -881,7 +853,6 @@ msgstr "Her {0} gerçekleşir, başlangıç: {1}, bitiş: {2}."
 msgid "Occurs every {0} {1} effective {2} until {3}."
 msgstr "Her {0} {1} gerçekleşir, başlangıç: {2}, bitiş: {3}."
 
-# 100%
 msgid "When"
 msgstr "Ne zaman"
 
@@ -913,7 +884,6 @@ msgstr "Başlangıç Tarihi"
 msgid "Sort by: Start Date"
 msgstr "Sıralama: Başlangıç Tarihi"
 
-# 87%
 msgid "End Date"
 msgstr "Bitiş Tarihi"
 
@@ -938,9 +908,6 @@ msgstr "Tekrarlama Düzeni"
 msgid "All Day Event"
 msgstr "Tüm gün etkinlik"
 
-# 78%
-# 76%
-# 100%
 msgid "Add Shared Calendar"
 msgstr "Paylaşılan Takvim Ekle"
 
@@ -950,7 +917,6 @@ msgstr "Takvimden Sil"
 msgid "No Response Required"
 msgstr "Cevaba gerek yok"
 
-# 75%
 msgid "Accept"
 msgstr "Kabul et"
 
@@ -963,7 +929,6 @@ msgstr "Geçici"
 msgid "Tentatively Accept Meeting Request"
 msgstr "Toplantı isteği geçici kabul et"
 
-# 87%
 msgid "Decline"
 msgstr "Reddedildi"
 
@@ -1003,7 +968,6 @@ msgstr "Ay"
 msgid "List"
 msgstr "Liste"
 
-# 91%
 msgid "Appointment"
 msgstr "Randevular"
 
@@ -1067,7 +1031,6 @@ msgctxt "calendar.dialog"
 msgid "Resources have been planned"
 msgstr "Kaynaklar planlandı"
 
-# 87%
 msgid "Send update"
 msgstr "Güncelleme gönder"
 
@@ -1099,7 +1062,6 @@ msgstr "Zamanlama"
 msgid "Tracking"
 msgstr "Yanıtları izle"
 
-# 75%
 msgctxt "calendar.dialog"
 msgid "Not all attendees could be resolved."
 msgstr "Tüm katılımcılar çözüme kavuşturulamamıştır."
@@ -1120,7 +1082,6 @@ msgctxt "calendar.dialog"
 msgid "You proposed a new time for this meeting on {0}"
 msgstr "Bu toplantı için yeni bir zaman önerildi {0}"
 
-# 91%
 msgctxt "calendar.dialog"
 msgid "{0} proposed a new time for this meeting on {1}"
 msgstr "{0} bu toplantı için yeni bir zaman önerdi {1}"
@@ -1137,7 +1098,6 @@ msgctxt "calendar.dialog"
 msgid "Tentatively Accepted on {0}"
 msgstr "Geçici kabul edilen {0}"
 
-# 76%
 msgctxt "calendar.dialog"
 msgid "Tentatively Accepted by {0} on {1}"
 msgstr "{0} {1} geçici kabul etti"
@@ -1210,14 +1170,12 @@ msgstr ""
 msgid "jS F Y {0}"
 msgstr "jS F Y {0}"
 
-# 75%
 msgid "None"
 msgstr "Yok"
 
 msgid "Send"
 msgstr "Gönder"
 
-# 80%
 msgid "Save"
 msgstr "Kaydet"
 
@@ -1248,21 +1206,18 @@ msgstr "Davetiyeyi iptal et"
 msgid "High priority"
 msgstr "Yüksek öncelik"
 
-# 76%
 msgid "Mark this appointment as high priority"
 msgstr "Bu randevuyu 'öncelik: yüksek' olarak işaretle"
 
 msgid "Low priority"
 msgstr "Düşük öncelik"
 
-# 78%
 msgid "Mark this appointment as low priority"
 msgstr "Bu randevuyu 'öncelik: düşük' olarak işaretle"
 
 msgid "Categories"
 msgstr "Kategoriler"
 
-# 96%
 msgid "Open the categories dialog"
 msgstr "Kategoriler iletişim kutusunu açın"
 
@@ -1296,7 +1251,6 @@ msgstr "Bitiş zamanı"
 msgid "Comment"
 msgstr "Yorum"
 
-# 84%
 msgid "Send Meeting Request Cancellation"
 msgstr "Toplantı isteği iptali gönder"
 
@@ -1354,16 +1308,12 @@ msgstr "Varlık"
 msgid "Response"
 msgstr "Yanıt ver"
 
-# 93%
-# 100%
 msgid "New appointment"
 msgstr "Yeni randevu"
 
 msgid "Creating an item"
 msgstr "Bir öğe oluşturma"
 
-# 89%
-# 100%
 msgid "New meeting request"
 msgstr "Yeni toplantı isteği"
 
@@ -1410,38 +1360,30 @@ msgstr "l jS M Y {0}"
 msgid "All day: "
 msgstr "Bütün gün: "
 
-# 87%
-# 75%
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for formatting instructions
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "l jS F"
 msgstr "l j F"
 
-# 88%
 msgid "Organiser"
 msgstr "Düzenleyici"
 
-# 92%
 msgid "Meeting status"
 msgstr "Toplantı Durumu"
 
-# 94%
 msgid "Required Attendees"
 msgstr "Gerekli katılımcı"
 
-# 94%
 msgid "Optional Attendees"
 msgstr "Seçimsel katılımcı"
 
-# 88%
 msgid "Resources"
 msgstr "Kaynak"
 
 msgid "Sensitivity"
 msgstr "Hassaslık"
 
-# 80%
 msgid "Importance"
 msgstr "Önemli"
 
@@ -1508,7 +1450,6 @@ msgstr "Yan yana modu"
 msgid "Overlay mode"
 msgstr "Kaplama modu"
 
-# 76%
 msgid "Calendar view settings"
 msgstr "Takvim görünüm ayarları"
 
@@ -1554,15 +1495,12 @@ msgstr "Şuraya gönder..."
 msgid "Export as"
 msgstr "..dışa aktar"
 
-# 80%
-# 100%
 msgid "Occurrence"
 msgstr "Oluşum"
 
 msgid "Series"
 msgstr "Seri"
 
-# 91%
 msgid "Appointment not found"
 msgstr "Randevu bulunamadı"
 
@@ -1581,9 +1519,6 @@ msgstr "Simge"
 msgid "Recurring"
 msgstr "Tekrar Eden"
 
-# 80%
-# 76%
-# 82%
 msgid "Sort by: Duration"
 msgstr "Sıralama: Süre"
 
@@ -1602,22 +1537,18 @@ msgstr "Sıralama: Kategoriler"
 msgid "Created On"
 msgstr "Oluşturulma"
 
-# 84%
 msgid "Sort by: Created On"
 msgstr "Sıralama: Yazilim Tarihi"
 
 msgid "Due By"
 msgstr "Bitiyor"
 
-# 76%
 msgid "Sort by: Due By"
 msgstr "Sıralama: Vadesi Geçcmiş"
 
 msgid "Label"
 msgstr "Etiket"
 
-# 76%
-# 78%
 msgid "Sort by: Label"
 msgstr "Sıralama: Etiket"
 
@@ -1651,7 +1582,6 @@ msgstr "Yineleme Düzeni"
 msgid "Sort by: Recurring Pattern"
 msgstr "Sıralama: Yineleme Düzeni"
 
-# 77%
 msgid "Sort by: Reminder"
 msgstr "Sıralama: Hatırlatma Zamanı"
 
@@ -1671,7 +1601,6 @@ msgstr "İsteğe bağlı katılımcılar"
 msgid "jS F {0}"
 msgstr "jS F {0}"
 
-# 83%
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "jS F Y"
 msgstr "j F Y"
@@ -1794,8 +1723,6 @@ msgstr "Atamaları {0}"
 msgid "Appointments of {0} - {1}"
 msgstr "Atamalar {0} - {1}"
 
-# 93%
-# 100%
 msgid "No appointments"
 msgstr "Randevu yok"
 
@@ -1805,7 +1732,6 @@ msgstr "Bugün {0} - {1}"
 msgid "Today (all day)"
 msgstr "Bugün (tüm gün)"
 
-# 100%
 #. TRANSLATORS: Display name of a folder: "FOLDERNAME - STORENAME".
 #. TRANSLATORS: Displayed on top of a tree with folders: "FOLDERNAME - USERNAME".
 msgid "{0} - {1}"
@@ -1862,7 +1788,6 @@ msgid ""
 msgstr ""
 "Bu bir dönüşümlü randevu. Seriden yalnızca bu olayı açmak istiyor musunuz?"
 
-# 80%
 msgid "Recurring Meeting Request"
 msgstr "Dönüşümlü toplantı İsteği"
 
@@ -2000,7 +1925,6 @@ msgstr "Mükerrer alıcı"
 msgid "Recipient already exists."
 msgstr "Alıcı zaten mevcut."
 
-# 77%
 msgid "Notify sender"
 msgstr "Gönderene bildir"
 
@@ -2058,7 +1982,6 @@ msgstr "Olarak ekle"
 msgid "Text only"
 msgstr "Yalnızca Metin"
 
-# 90%
 msgid "Attachment"
 msgstr "Ek"
 
@@ -2071,8 +1994,6 @@ msgstr "Hiçbir mesaj seçilmedi"
 msgid "Import to"
 msgstr "Şuraya aktar"
 
-# 90%
-# 100%
 msgid "New folder"
 msgstr "Yeni klasör"
 
@@ -2143,8 +2064,6 @@ msgstr "Resim formatı desteklenmiyor. "
 msgid "Supported format for contact pictures are"
 msgstr "Kişi resimleri için desteklenen format"
 
-# 93%
-# 100%
 msgid "Attachment Error"
 msgstr "Eklenti hatası"
 
@@ -2218,7 +2137,6 @@ msgstr "Birleştir"
 msgid "Remove"
 msgstr "Sil"
 
-# 90%
 msgid "Check Names"
 msgstr "Adı kontrol et"
 
@@ -2234,7 +2152,6 @@ msgstr "Birden fazla '{0}' bulundu."
 msgid "Alert"
 msgstr "Uyarı"
 
-# 80%
 msgid "Please select a recipient"
 msgstr "Bir alıcı belirtin"
 
@@ -2299,7 +2216,6 @@ msgstr ""
 "Yalnızca klasör izinlerini ayarlamak istiyorsanız, içerik menüsünü açmak "
 "için bir klasöre sağ tıklayın ve \"Klasörü Paylaş...\" seçeneğine tıklayın."
 
-# 90%
 msgid "Permission"
 msgstr "İzinler"
 
@@ -2358,11 +2274,9 @@ msgstr "ICS"
 msgid "Set custom flag"
 msgstr "Özel bayrak ayarlama"
 
-# 90%
 msgid "Start date"
 msgstr "Başlangıç ​​tarihi"
 
-# 87%
 msgid "End date"
 msgstr "Bitiş tarihi"
 
@@ -2375,7 +2289,6 @@ msgstr "Bu hafta"
 msgid "Next week"
 msgstr "Gelecek hafta"
 
-# 87%
 msgid "Custom"
 msgstr "Özel"
 
@@ -2427,12 +2340,9 @@ msgstr "Ofis dışında"
 msgid "No Information"
 msgstr "Bilgi yok"
 
-# 82%
 msgid "Show non-working hours"
 msgstr "Mesai saatleri dışındakilerinide göster"
 
-# 82%
-# 81%
 msgid "Hide non-working hours"
 msgstr "Sadece mesai saatlerini göster"
 
@@ -2442,7 +2352,6 @@ msgstr "Bu tarih için serbest meşgul bilgileri mevcut değil"
 msgid "No suggestions available"
 msgstr "Öneri yok"
 
-# 87%
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "l jS F Y"
 msgstr "l j F Y"
@@ -2486,7 +2395,6 @@ msgstr "Seçimi listedeki ilk öğeye genişletme"
 msgid "Extend the selection to the last item in the list"
 msgstr "Seçimi listedeki son öğeye kadar genişletme"
 
-# 77%
 msgid "Open selected item"
 msgstr "Seçili öğeyi aç"
 
@@ -2499,9 +2407,6 @@ msgstr "Yazdırma listesi"
 msgid "Open copy/move dialog"
 msgstr "Kopyalama/taşıma iletişim kutusunu açma"
 
-# 77%
-# 75%
-# 100%
 msgid "Delete selected item"
 msgstr "Seçili öğeyi sil"
 
@@ -2533,15 +2438,12 @@ msgstr "Yapılandırılmış Cc alıcısı yok"
 msgid "Loading Cc recipients"
 msgstr "Cc alıcıları yükleniyor"
 
-# 88%
-# 100%
 msgid "Reply Mail"
 msgstr "Cevap Maili"
 
 msgid "New Mail"
 msgstr "Yeni E-posta"
 
-# 80%
 msgid "Please select a Cc recipient record."
 msgstr "Lütfen bir Cc alıcı kaydı seçin."
 
@@ -2576,16 +2478,12 @@ msgstr "zdeveloper"
 msgid "grommunio Web print"
 msgstr "grommunio Web baskısı"
 
-# 91%
 msgid "Display name"
 msgstr "Ad Görüntüsü"
 
-# 92%
 msgid "Email address"
 msgstr "E-posta adres"
 
-# 78%
-# 100%
 msgid "Expand distribution list"
 msgstr "Dağıtım listesini genişletin"
 
@@ -2596,7 +2494,6 @@ msgstr ""
 "Dağıtım listesi üyeleriyle değiştirilecektir. Tekrar daraltmanız mümkün "
 "olmayacaktır."
 
-# 92%
 msgid "Edit Recipient"
 msgstr "Alıcı düzenle"
 
@@ -2633,7 +2530,6 @@ msgstr "Üçüncü"
 msgid "4th"
 msgstr "Dördüncü"
 
-# 75%
 msgid "last"
 msgstr "son"
 
@@ -2726,7 +2622,6 @@ msgid_plural "There are {0} reminders"
 msgstr[0] "{0} hatırlatma var"
 msgstr[1] ""
 
-# 88%
 msgid "Reminders"
 msgstr "Hatırlatmalar"
 
@@ -2740,7 +2635,6 @@ msgstr "Bitiyor"
 msgid "Due"
 msgstr "Bitiyor"
 
-# 92%
 msgid "Reminder time"
 msgstr "Hatırlatma zamanı"
 
@@ -2783,8 +2677,6 @@ msgstr "Daimi Sil"
 msgid "Delete All"
 msgstr "Tümünü Sil"
 
-# 75%
-# 100%
 msgid "Messages"
 msgstr "Mesajlar"
 
@@ -2808,8 +2700,6 @@ msgstr[1] ""
 msgid "Deleted On"
 msgstr "Sil"
 
-# 84%
-# 78%
 msgid "Sort by: Deleted On"
 msgstr "Sıralama: Silinme tarihi"
 
@@ -2819,7 +2709,6 @@ msgstr "Öğe Sayısı"
 msgid "Sort by: Item Count"
 msgstr "Sıralama: Öğe sayımı"
 
-# 76%
 msgid "Sort by: From"
 msgstr "Sıralama: Kimden"
 
@@ -2832,8 +2721,6 @@ msgstr "Sıralama: Alınan"
 msgid "Size"
 msgstr "Boyut"
 
-# 75%
-# 76%
 msgid "Sort by: Size"
 msgstr "Sıralama: Boyut"
 
@@ -2870,13 +2757,9 @@ msgstr "alıcının adresinde bu kelimeleri içerir..."
 msgid "includes these words in the subject..."
 msgstr "...konu içinde bu kelimeleri içerir..."
 
-# 84%
-# 100%
 msgid "includes these words in the body..."
 msgstr "bu kelimeleri içeriyor..."
 
-# 84%
-# 100%
 msgid "includes these words in the transport-headers..."
 msgstr "taşıma başlıklarında şu kelimeleri içerir..."
 
@@ -2958,7 +2841,6 @@ msgstr "Mesaj gönderildiğinde"
 msgid "Do the following"
 msgstr "Aşağıdakileri yapın"
 
-# 75%
 msgid "Exceptions"
 msgstr "İstisnalar"
 
@@ -3002,15 +2884,12 @@ msgstr "Aktif"
 msgid "Out of office"
 msgstr "Ofis dışında"
 
-# 80%
 msgid "Rule"
 msgstr "Kural"
 
-# 76%
 msgid "Loading rules"
 msgstr "Yükleme kuralları"
 
-# 76%
 msgid "Please select a rule."
 msgstr "Lütfen bir kural seҫiniz."
 
@@ -3091,7 +2970,6 @@ msgstr "Lütfen 'farklı gönder' kaydı seçiniz."
 msgid "Delegates"
 msgstr "Delegeler"
 
-# 88%
 msgid "Delegate settings"
 msgstr "Delege ayarları"
 
@@ -3119,7 +2997,6 @@ msgstr "Sesi devre dışı bırak"
 msgid "Notifications"
 msgstr "Bildirimler"
 
-# 80%
 msgid "Rules"
 msgstr "Kurallar"
 
@@ -3132,26 +3009,21 @@ msgstr "Adreslerden ayarları"
 msgid "Full name"
 msgstr "Ad Soyad"
 
-# 92%
 msgid "Phone Numbers"
 msgstr "Telefon numaraları"
 
-# 80%
-# 75%
 msgid "Business Fax"
 msgstr "Şirket faks"
 
 msgid "Webpage"
 msgstr "Web sayfası"
 
-# 75%
 msgid "IM Address"
 msgstr "IM- Adres"
 
 msgid "D, d-m-Y, {0}"
 msgstr "D, d-m-Y, {0}"
 
-# 76%
 msgid "{0} selected row"
 msgid_plural "{0} selected rows"
 msgstr[0] "{0} seçili satır"
@@ -3175,7 +3047,6 @@ msgstr "d-m-Y {0}"
 msgid "Unknown"
 msgstr "Bilinmeyen"
 
-# 88%
 msgid "Meeting Organizer"
 msgstr "Toplantı düzenleyen"
 
@@ -3188,7 +3059,6 @@ msgstr "Yükleniyor..."
 msgid "Message could not be loaded"
 msgstr "Mesaj yüklenemedi"
 
-# 100%
 #. TRANSLATORS: This message is used as label for the field which indicates which attachments are inside the message
 msgctxt "mail.previewpanel"
 msgid "Attachments"
@@ -3300,12 +3170,10 @@ msgctxt "mail.previewpanel"
 msgid "The meeting was updated after the attendee sent this response"
 msgstr "Katılımcının bu yanıtı gönderdikten sonra toplantı güncellendi"
 
-# 100%
 msgctxt "mail.previewpanel"
 msgid "This appointment occurs in the past."
 msgstr "Bu randevu geçmişte gerçekleşmiştir."
 
-# 100%
 msgctxt "mail.previewpanel"
 msgid "Please respond."
 msgstr "Lütfen cevap verin."
@@ -3369,17 +3237,14 @@ msgstr ""
 msgid "The matching task was not found in your task list."
 msgstr "Eşleşen görev listenizde bulunamadı."
 
-# 100%
 msgctxt "mail.previewpanel"
 msgid "To"
 msgstr "Kime"
 
-# 100%
 msgctxt "mail.previewpanel"
 msgid "Cc"
 msgstr "CC"
 
-# 100%
 msgctxt "mail.previewpanel"
 msgid "Bcc"
 msgstr "BCC"
@@ -3398,7 +3263,6 @@ msgctxt "mail.previewpanel"
 msgid "on behalf of"
 msgstr "adına yazıyorum"
 
-# 75%
 #. TRANSLATORS: This message is used to indicate that no sent date is available for the message (because it has not been sent yet).
 msgctxt "mail.previewpanel"
 msgid "None"
@@ -3422,7 +3286,6 @@ msgstr "Temel"
 msgid "Datepicker"
 msgstr "Tarih seçici"
 
-# 85%
 msgid "File As"
 msgstr "Dosya olarak"
 
@@ -3444,18 +3307,15 @@ msgstr "Diyer adres"
 msgid "Business Phone"
 msgstr "İş Telefonu"
 
-# 87%
 msgid "Business 2 Phone"
 msgstr "İş Telefonu 2"
 
-# 88%
 msgid "Assistant Phone"
 msgstr "Asistan telefonu"
 
 msgid "Company Main Phone"
 msgstr "Şirket Ana Telefonu"
 
-# 83%
 msgid "Home 2 Phone"
 msgstr "Ev telefonu 2"
 
@@ -3489,25 +3349,18 @@ msgstr "Diyer Faks"
 msgid "Home Fax"
 msgstr "Ev faks"
 
-# 94%
 msgid "Email Display As"
 msgstr "E-posta görüntüleme biçimi"
 
-# 75%
-# 87%
 msgid "Email 2"
 msgstr "E-posta 2"
 
-# 89%
 msgid "Email2 Display As"
 msgstr "E-posta 2 görüntüleme biçimi"
 
-# 75%
-# 87%
 msgid "Email 3"
 msgstr "E-posta 3"
 
-# 89%
 msgid "Email3 Display As"
 msgstr "E-posta 3 görüntüleme biçimi"
 
@@ -3527,12 +3380,9 @@ msgstr "Meslek"
 msgid "Assistant's Name"
 msgstr "Asistan adı"
 
-# 94%
-# 77%
 msgid "Distribution List Name"
 msgstr "Dağıtım Listesi Adı"
 
-# 75%
 msgid "Open Shared Contacts"
 msgstr "Paylastığım kişileri aç"
 
@@ -3545,7 +3395,6 @@ msgstr "Telefon listesi"
 msgid "Add to contacts"
 msgstr "Kişilere ekle"
 
-# 77%
 msgid "Print selected contact"
 msgstr "Seçtiğim kişiyi yazdır"
 
@@ -3579,7 +3428,6 @@ msgstr "Jr."
 msgid "Sr."
 msgstr "Sr."
 
-# 92%
 msgid "Phone number"
 msgstr "Telefon numara"
 
@@ -3629,7 +3477,6 @@ msgstr "Fotoğraf"
 msgid "Additional information"
 msgstr "Ek bilgiler"
 
-# 80%
 msgid "Business 2"
 msgstr "Şirket 2"
 
@@ -3639,8 +3486,6 @@ msgstr "Geri çağırım"
 msgid "Car"
 msgstr "Araba"
 
-# 80%
-# 83%
 msgid "Home 2"
 msgstr "Ev 2"
 
@@ -3683,15 +3528,12 @@ msgstr "Uzantı"
 msgid "Add Attachment"
 msgstr "Eklenti ekle"
 
-# 81%
 msgid "Add attachments to this contact"
 msgstr "Bu kişiye ekler ekleyin"
 
-# 75%
 msgid "Mark this contact as private"
 msgstr "Bu kişiyi özel olarak işaretle"
 
-# 94%
 msgid "Distribution List"
 msgstr "Dağıtım listesi"
 
@@ -3716,8 +3558,6 @@ msgstr "Notunuzu buraya yazın…"
 msgid "New contact"
 msgstr "Yeni irtibat"
 
-# 78%
-# 100%
 msgid "New distribution list"
 msgstr "Yeni dağıtım listesi"
 
@@ -3750,18 +3590,15 @@ msgstr "Mobil:"
 msgid "Sort by: Full Name"
 msgstr "Sıralama: Ad"
 
-# 91%
 msgid "Sort by: Email Address 2"
 msgstr "Sıralama: E-posta 2"
 
-# 91%
 msgid "Sort by: Email Address 3"
 msgstr "Sıralama: E-posta 3"
 
 msgid "Mobile Phone"
 msgstr "Cep Telefonu"
 
-# 80%
 msgid "Sort by: Mobile Phone"
 msgstr "Sıralama: Cep Telefonu"
 
@@ -3771,7 +3608,6 @@ msgstr "Sıralama: İş Telefonu"
 msgid "Sort by: Business Fax"
 msgstr "Sıralama: Şirket faks"
 
-# 79%
 msgid "Sort by: Department Name"
 msgstr "Sıralama: Bölüm Adı"
 
@@ -3793,7 +3629,6 @@ msgstr "Sıralama: Yönetici adı"
 msgid "Sort by: Assistant's Name"
 msgstr "Sıralama: Asistan adı"
 
-# 76%
 msgid "Sort by: Nickname"
 msgstr "Sıralama: Takma ad"
 
@@ -3809,22 +3644,18 @@ msgstr "Sıralama: Yıldönümü"
 msgid "Sort by: Business Address"
 msgstr "Sıralama: Iş Adresi"
 
-# 80%
 msgid "Sort by: Home Address"
 msgstr "Sıralama: Ev adresi"
 
-# 78%
 msgid "Sort by: Office Address"
 msgstr "Sıralama: Iş Adresi"
 
 msgid "Mailing Address"
 msgstr "Posta adres"
 
-# 79%
 msgid "Sort by: Mailing Address"
 msgstr "Sıralama: Posta adres"
 
-# 85%
 msgid "Sort by: IM Address"
 msgstr "Sıralama: IM-adres"
 
@@ -3864,18 +3695,15 @@ msgstr "Sıralama: Ev telefonu 2"
 msgid "Sort by: Home Fax"
 msgstr "Sıralama: Ev faks"
 
-# 76%
 msgid "Sort by: ISDN"
 msgstr "Sıralama: ISDN"
 
-# 76%
 msgid "Sort by: Other Phone"
 msgstr "Sıralama: Diğer Telefon"
 
 msgid "Radio Phone"
 msgstr "Telsiz telefon"
 
-# 76%
 msgid "Sort by: Radio Phone"
 msgstr "Sıralama: Telsiz telefon"
 
@@ -3943,7 +3771,6 @@ msgstr ""
 msgid "{0} on behalf of {1}"
 msgstr "{0} {1} adına"
 
-# 75%
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "jS F"
 msgstr "j F"
@@ -3987,7 +3814,6 @@ msgstr "Normal"
 msgid "High"
 msgstr "Yüksek"
 
-# 75%
 msgid "Canceled"
 msgstr "Iptal et"
 
@@ -4030,7 +3856,6 @@ msgstr "Devam etmekte"
 msgid "Wait for other person"
 msgstr "Diğer kişi için bekleyin"
 
-# 87%
 msgid "Deferred"
 msgstr "Ertelendi"
 
@@ -4064,7 +3889,6 @@ msgstr "Bileşenler"
 msgid "Sending..."
 msgstr "Gönderiliyor..."
 
-# 94%
 msgid "Sent successfully"
 msgstr "Başarıyla gönderildi"
 
@@ -4128,7 +3952,6 @@ msgstr "Kaydet"
 msgid "Saved"
 msgstr "Kaydedildi"
 
-# 94%
 msgid "Saved successfully"
 msgstr "Başarıyla kaydedildi"
 
@@ -4386,7 +4209,6 @@ msgstr "Kullanıcı zaten var"
 msgid "Group already exists"
 msgstr "Grup zaten var"
 
-# 90%
 msgid "Folder Size"
 msgstr "Klasör boyutu"
 
@@ -4420,7 +4242,6 @@ msgstr "Toplam büyüklüğü"
 msgid "Sort by: Total size (including subfolders)"
 msgstr "Sıralama: Toplam büyüklüğü (alt klasörler dahil)"
 
-# 78%
 msgid "Open Shared Folders"
 msgstr "Paylastığım klasörü aç"
 
@@ -4451,14 +4272,12 @@ msgstr "Bu paylaşılan klasör zaten açık."
 msgid "No user"
 msgstr "Kullanıcı yok"
 
-# 85%
 msgid "You must specify a user"
 msgstr "Bir kullanıcı belirtmelisiniz"
 
 msgid "Folder type"
 msgstr "Klasör türü"
 
-# 75%
 msgid "Show subfolders"
 msgstr "Alt klasörleri göster"
 
@@ -4474,7 +4293,6 @@ msgstr "Boş klasör"
 msgid "Empty Junk Email"
 msgstr "Önemsiz E-postaları Boşaltın"
 
-# 92%
 msgid "Empty Deleted Items"
 msgstr "Silinmiş Öğeleri Boşaltın"
 
@@ -4499,8 +4317,6 @@ msgstr "Klasörü kapat"
 msgid "Reload"
 msgstr "Yeniden yükle"
 
-# 76%
-# 100%
 msgid "Select color"
 msgstr "Renk seç"
 
@@ -4516,8 +4332,6 @@ msgstr "Klasörü paylaş..."
 msgid "Import emails"
 msgstr "E-postaları içe aktarma"
 
-# 93%
-# 100%
 msgid "Import appointments"
 msgstr "Randevuları içe aktarma"
 
@@ -4574,7 +4388,6 @@ msgstr "Gizli kopya"
 msgid "Sort by: Importance"
 msgstr "Sıralama: Önemi"
 
-# 76%
 msgid "Sort by: To"
 msgstr "Sıralama: Kime"
 
@@ -4649,14 +4462,12 @@ msgid "Schedule your mail to be sent on a specific date and time"
 msgstr ""
 "Postalarınızı belirli bir tarih ve saatte gönderilmek üzere programlayın"
 
-# 86%
 msgid "Add attachments to this email"
 msgstr "Bu e-postaya eklentiler ekleyin"
 
 msgid "Add signature"
 msgstr "Imza ekle"
 
-# 75%
 msgid "Options"
 msgstr "Ayarlar"
 
@@ -4723,16 +4534,12 @@ msgstr "Okunmuş İşaretle"
 msgid "Mark Unread"
 msgstr "Okunmamış İşaretle"
 
-# 87%
-# 100%
 msgid "New mail"
 msgstr "Yeni E-posta"
 
 msgid "Mail"
 msgstr "E-posta"
 
-# 88%
-# 100%
 msgid "Reply all"
 msgstr "Hepsini yanıtla"
 
@@ -4742,14 +4549,12 @@ msgstr "Okundu/okunmadı arasında geçiş yap"
 msgid "Toggle red/complete flag"
 msgstr "Kırmızı/tamamlandı bayrağını aç / kapat"
 
-# 76%
 msgid "Open Shared Mails"
 msgstr "Paylastığım mesajları aç"
 
 msgid "Print single email"
 msgstr "Tek bir e-posta yazdır"
 
-# 78%
 msgid "Print selected email"
 msgstr "Seçilen e-postayı yazdır"
 
@@ -4841,8 +4646,6 @@ msgstr "Sağ"
 msgid "Bottom"
 msgstr "Alt"
 
-# 83%
-# 100%
 msgid "Location of preview pane"
 msgstr "Önizleme bölmesinin konumu"
 
@@ -4951,7 +4754,6 @@ msgstr "ZIP dosyası"
 msgid "max. "
 msgstr "maximum "
 
-# 75%
 msgid "Sort by: Sent"
 msgstr "Sıralama: Gönderilmiş"
 
@@ -4967,8 +4769,6 @@ msgstr "Bayrak"
 msgid "Sort by: flag"
 msgstr "Sıralama ölçütü: bayrak"
 
-# 85%
-# 100%
 msgid "Older"
 msgstr "Daha Eski"
 
@@ -5038,14 +4838,9 @@ msgstr "Paylastığım notlari aç"
 msgid "Sticky note"
 msgstr "Not kağıtı"
 
-# 78%
-# 84%
-# 100%
 msgid "Print selected note"
 msgstr "Seçili notu yazdır"
 
-# 75%
-# 100%
 msgid "No note selected"
 msgstr "Not seçilmedi"
 
@@ -5157,7 +4952,6 @@ msgstr "12 saat"
 msgid "24h clock"
 msgstr "24 saat"
 
-# 88%
 msgid "Favorite settings"
 msgstr "Favori ayarları"
 
@@ -5364,14 +5158,12 @@ msgstr "Sıralama: Yüzde Tamamlandı"
 msgid "Task Status"
 msgstr "Görev durumu"
 
-# 93%
 msgid "Percent Complete"
 msgstr "Tamamlanan Yüzde"
 
 msgid "Total Work"
 msgstr "Toplam Zaman"
 
-# 90%
 msgid "Actual Work"
 msgstr "Fiili Ҫalışma"
 
@@ -5407,7 +5199,6 @@ msgstr ""
 msgid "Send the response now"
 msgstr "Cevabı şimdi gönder"
 
-# 92%
 msgid "Date Complete"
 msgstr "Tarih Tamamlandı"
 
@@ -5435,14 +5226,12 @@ msgstr "Birden çok alıcı"
 msgid "A task request can only have one recipient."
 msgstr "Bir görev isteğinin yalnızca bir alıcısı olabilir."
 
-# 87%
 msgid "Due date"
 msgstr "Bitiş tarihi"
 
 msgid "Priority"
 msgstr "Öncelik"
 
-# 90%
 msgid "% Complete"
 msgstr "% Tamamlandı"
 
@@ -5458,9 +5247,6 @@ msgstr "Atananlara görev gönder"
 msgid "Restore to Task List"
 msgstr "Görev Listesini eski durumuna getir"
 
-# 94%
-# 76%
-# 100%
 msgid "Delete this task"
 msgstr "Bu görevi sil"
 
@@ -5473,8 +5259,6 @@ msgstr "Tamamlanmış İşaretle"
 msgid "Mark this task as complete"
 msgstr "Bu görevi tamamlanmış işaretle"
 
-# 75%
-# 100%
 msgid "Print this task"
 msgstr "Bu görevi yazdır"
 
@@ -5484,9 +5268,6 @@ msgstr "Görev ver"
 msgid "Cancel Assignment"
 msgstr "Atamayı iptal et"
 
-# 75%
-# 79%
-# 100%
 msgid "Mark this task as private"
 msgstr "Bu görevi özel olarak işaretle"
 
@@ -5496,7 +5277,6 @@ msgstr "Yeni görev"
 msgid "Completed"
 msgstr "Tamamlandı"
 
-# 76%
 msgid "Printed by: "
 msgstr "Tarafından basıldı: "
 
@@ -5507,7 +5287,6 @@ msgstr "Üzerine basılmış: "
 msgid "Percent complete"
 msgstr "Yüzde kaç tamamlama"
 
-# 90%
 msgid "Total work"
 msgstr "Toplam Zaman"
 
@@ -5520,7 +5299,6 @@ msgstr "Fiili çalışma"
 msgid "{actualwork} hours"
 msgstr "{actualwork} saatler"
 
-# 76%
 msgid "Open Shared Tasks"
 msgstr "Paylastığım Notlari Aç"
 
@@ -5530,8 +5308,6 @@ msgstr "Basit görünüm"
 msgid "Detailed view"
 msgstr "Ayrıntılı Görünüm"
 
-# 92%
-# 100%
 msgid "Task request"
 msgstr "Görev talebi"
 
@@ -5587,8 +5363,6 @@ msgstr "Atanan"
 msgid "Sort by: Assignee"
 msgstr "Sıralama: Atanan"
 
-# 76%
-# 78%
 msgid "Sort by: Owner"
 msgstr "Sıralama: Sahibi"
 
@@ -5746,7 +5520,6 @@ msgid ""
 "this."
 msgstr "Bu nedenle grommunio Web'in tüm işlevleri düzgün çalışmıyor olabilir."
 
-# 100%
 msgctxt "hierarchy.foldername"
 msgid "Inbox"
 msgstr "Gelen Kutusu"
@@ -5759,17 +5532,14 @@ msgctxt "hierarchy.foldername"
 msgid "Sent Items"
 msgstr "Gönderilen Öğeler"
 
-# 92%
 msgctxt "hierarchy.foldername"
 msgid "Deleted items"
 msgstr "Silinmiş öğeler"
 
-# 100%
 msgctxt "hierarchy.foldername"
 msgid "Calendar"
 msgstr "Takvim"
 
-# 100%
 msgctxt "hierarchy.foldername"
 msgid "Contacts"
 msgstr "Kişiler"
@@ -5778,17 +5548,14 @@ msgctxt "hierarchy.foldername"
 msgid "Drafts"
 msgstr "Taslaklar"
 
-# 100%
 msgctxt "hierarchy.foldername"
 msgid "Journal"
 msgstr "Günlük"
 
-# 100%
 msgctxt "hierarchy.foldername"
 msgid "Notes"
 msgstr "Notlar"
 
-# 100%
 msgctxt "hierarchy.foldername"
 msgid "Tasks"
 msgstr "Görevler"
@@ -7198,12 +6965,10 @@ msgstr "Mevcut ayarlar alınırken hata oluştu"
 msgid "Error retrieving existing persistent settings"
 msgstr "Mevcut kalıcı ayarlar alınırken hata oluştu"
 
-# 93%
 msgid "Logon failed. Please verify your credentials and try again."
 msgstr ""
 "Oturum açma başarısız. Lütfen kimlik bilgilerinizi doğrulayıp tekrar deneyin."
 
-# 83%
 msgid "Cannot connect to Gromox."
 msgstr "Gromox'a bağlanılamıyor."
 
@@ -7282,15 +7047,12 @@ msgstr "Mesaj bulunamadı, ya taşındı ya da silindi."
 msgid "Request is not available."
 msgstr "İstek mevcut değil."
 
-# 90%
 msgid "You have insufficient privileges to open this object."
 msgstr "Bu nesneyi açmak için yeterli yetkiye sahip değilsiniz."
 
-# 93%
 msgid "Logon Failed. Please check your name/password."
 msgstr "Oturum açma başarısız. Lütfen adınızı / şifrenizi kontrol edin."
 
-# 83%
 msgid "Can not connect to Gromox."
 msgstr "Gromox'a bağlanılamıyor."
 
@@ -7319,23 +7081,18 @@ msgstr "Geçici olarak kabul edildi"
 msgid "New Time Proposed"
 msgstr "Yeni Saat Önerisi"
 
-# 78%
-# 76%
 #, php-format
 msgid "Occurs every %s effective %s from %s to %s."
 msgstr "Her %s etkin %s ile %s arasında %s gerçekleşir."
 
-# 77%
 #, php-format
 msgid "Occurs every %s %s effective %s from %s to %s."
 msgstr "Her %s %s etkin %s ile %s arasında %s gerçekleşir."
 
-# 80%
 #, php-format
 msgid "Occurs every %s effective %s."
 msgstr "Her %s gerçekleşir, efektif %s."
 
-# 75%
 #, php-format
 msgid "Occurs every %s %s effective %s."
 msgstr "Her %s %s gerçekleşir, efektif %s."
@@ -7364,28 +7121,18 @@ msgid_plural "Occurs every %s %s effective %s for %s occurrences."
 msgstr[0] "%s oluşumu için her %s %s etkili %s oluşur."
 msgstr[1] ""
 
-# 78%
-# 76%
-# 75%
 #, php-format
 msgid "Occurs every %s effective %s until %s from %s to %s."
 msgstr "Her %s etkili %s ile %s arasında %s ile %s arasında gerçekleşir."
 
-# 78%
-# 76%
-# 75%
-# 94%
 #, php-format
 msgid "Occurs every %s %s effective %s until %s from %s to %s."
 msgstr "Her %s %s etkili %s ile %s arasında %s ile %s arasında gerçekleşir."
 
-# 78%
 #, php-format
 msgid "Occurs every %s effective %s until %s."
 msgstr "Her %s etkin %s tarihinden %s tarihine kadar gerçekleşir."
 
-# 78%
-# 92%
 #, php-format
 msgid "Occurs every %s %s effective %s until %s."
 msgstr "Her %s %s etkin %s tarihinden %s tarihine kadar gerçekleşir."
@@ -7631,33 +7378,24 @@ msgstr ""
 "Mesaj bulunamadı, ya taşındı ya da silindi ya da bu mesajı açmak için "
 "erişiminiz yok."
 
-# 78%
 msgid "Could not open message."
 msgstr "Mesaj açılınamıyor."
 
-# 98%
 msgid "You have insufficient privileges to decline this Meeting Request"
 msgstr "Bu toplantı isteğini reddetmek için yeterli yetkiye sahip değilsiniz"
 
-# 98%
 msgid "You have insufficient privileges to accept this Meeting Request"
 msgstr "Bu toplantı isteğini kabul etmek için yeterli yetkiye sahip değilsiniz"
 
-# 78%
-# 82%
 msgid "Could not copy message"
 msgstr "Mesaj kopyalanmıyor"
 
-# 78%
-# 82%
 msgid "Could not move message"
 msgstr "Mesaj kaydırılmıyor"
 
-# 81%
 msgid "You have insufficient privileges to save items in this folder"
 msgstr "Bu klasördeki öğeleri kaydetmek için yeterli ayrıcalığınız yok"
 
-# 78%
 msgid "Could not save message"
 msgstr "Mesaj kaydedilmedi"
 
@@ -7674,7 +7412,6 @@ msgstr ""
 msgid "Message cannot be aborted"
 msgstr "Mesaj iptal edilemiyor"
 
-# 81%
 msgid "You have insufficient privileges to delete items in this folder"
 msgstr "Bu klasörde öğe silmek için yeterli yetkiye sahip değilsiniz"
 
@@ -7692,20 +7429,16 @@ msgstr "Görev Talebinin sahipliğini geri almak için yeterli ayrıcalığını
 msgid "Could not reclaim the ownership for the Task Request."
 msgstr "Görev Talebi için sahiplik geri alınamadı."
 
-# 89%
 msgid "You have insufficient privileges to accept this Task Request."
 msgstr ""
 "Bu toplantı İsteğini kabul etmek için yeterli ayrıcalıklara sahip deyilsiniz."
 
-# 78%
 msgid "Could not accept Task Request."
 msgstr "Görev İsteği kabul edilemedi."
 
-# 89%
 msgid "You have insufficient privileges to decline this Task Request."
 msgstr "Bu Görev Talebini reddetmek için yeterli ayrıcalığa sahip değilsiniz."
 
-# 79%
 msgid "Could not decline Task Request."
 msgstr "Görev Talebi reddedilemedi."
 

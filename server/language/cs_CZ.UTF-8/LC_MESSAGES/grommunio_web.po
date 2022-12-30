@@ -445,7 +445,6 @@ msgstr "Telefonní čísla"
 msgid "Business"
 msgstr "Firemní"
 
-# 88%
 msgid "Business2"
 msgstr "Firemní2"
 
@@ -464,8 +463,6 @@ msgstr "Mobil"
 msgid "Pager"
 msgstr "Pager"
 
-# 75%
-# 100%
 msgid "No user selected"
 msgstr "Nebyl vybrán žádný uživatel"
 
@@ -511,7 +508,6 @@ msgstr "Hledat..."
 msgid "Sort by: Icon"
 msgstr "Třídit podle: Ikony"
 
-# 76%
 msgid "Sort by: Name"
 msgstr "Třídit podle: Jméno"
 
@@ -521,22 +517,18 @@ msgstr "Třídit podle: Zobrazené jméno"
 msgid "File as"
 msgstr "Soubor jako"
 
-# 75%
 msgid "Sort by: File As"
 msgstr "Třídit podle: Soubor jako"
 
-# 80%
 msgid "First Name"
 msgstr "Jméno"
 
 msgid "Sort by: First Name"
 msgstr "Třídit podle křestního jména"
 
-# 77%
 msgid "Last Name"
 msgstr "Příjmení"
 
-# 76%
 msgid "Sort by: Last Name"
 msgstr "Třídit podle: Příjmení"
 
@@ -552,7 +544,6 @@ msgstr "Třídit podle: Pozice"
 msgid "Company Name"
 msgstr "Název společnosti"
 
-# 76%
 msgid "Sort by: Company Name"
 msgstr "Třídit podle: Název společnosti"
 
@@ -574,7 +565,6 @@ msgstr "Soukromý telefon"
 msgid "Sort by: Home Phone"
 msgstr "Třídit podle: Soukromý telefon"
 
-# 78%
 msgid "Sort by: Pager"
 msgstr "Třídit podle: Pager"
 
@@ -591,7 +581,6 @@ msgstr "Třídit podle: Fax"
 msgid "Print single item"
 msgstr "Tisk jednotlivých položek"
 
-# 78%
 msgid "Print selected item"
 msgstr "Tisknout vybrané položky"
 
@@ -676,8 +665,6 @@ msgstr "Upravit jako novou zprávu"
 msgid "Search tools"
 msgstr "Vyhledávací nástroje"
 
-# 85%
-# 100%
 msgid "Folders"
 msgstr "Složky"
 
@@ -744,7 +731,6 @@ msgstr "Oblíbené"
 msgid "Add a folder to favorites based on this search query"
 msgstr "Přidejte složku do oblíbených na základě vašeho vyhledávacího dotazu"
 
-# 76%
 msgid "Select Folder"
 msgstr "Vybrat složku"
 
@@ -910,8 +896,6 @@ msgstr "Kde"
 msgid "New Meeting Time Proposed"
 msgstr "Nově navrhovaný čas schůzky"
 
-# 75%
-# 100%
 msgid "and "
 msgstr "a "
 
@@ -930,7 +914,6 @@ msgstr "Počáteční datum"
 msgid "Sort by: Start Date"
 msgstr "Třídit podle: Počáteční datum"
 
-# 87%
 msgid "End Date"
 msgstr "Konečné datum"
 
@@ -956,8 +939,6 @@ msgstr "Pravidla opakování"
 msgid "All Day Event"
 msgstr "Celodenní akce"
 
-# 76%
-# 100%
 msgid "Add Shared Calendar"
 msgstr "Otevřít sdílený kalendář"
 
@@ -1120,7 +1101,6 @@ msgstr "Plánování"
 msgid "Tracking"
 msgstr "Sledování"
 
-# 75%
 msgctxt "calendar.dialog"
 msgid "Not all attendees could be resolved."
 msgstr "Nelze identifikovat všechny účastníky."
@@ -1232,11 +1212,9 @@ msgstr "jS F Y {0}"
 msgid "None"
 msgstr "Žádný"
 
-# 75%
 msgid "Send"
 msgstr "Odeslat"
 
-# 80%
 msgid "Save"
 msgstr "Uložit"
 
@@ -1268,14 +1246,12 @@ msgstr "Zrušit pozvánky"
 msgid "High priority"
 msgstr "Vysoká priorita"
 
-# 76%
 msgid "Mark this appointment as high priority"
 msgstr "Označit tuto schůzku jako vysoce prioritní"
 
 msgid "Low priority"
 msgstr "Nízká priorita"
 
-# 78%
 msgid "Mark this appointment as low priority"
 msgstr "Označit tuto schůzku jako méně prioritní"
 
@@ -1371,16 +1347,12 @@ msgstr "Účast"
 msgid "Response"
 msgstr "Odpověď"
 
-# 93%
-# 100%
 msgid "New appointment"
 msgstr "Nový termín"
 
 msgid "Creating an item"
 msgstr "Vytvoření položky"
 
-# 89%
-# 100%
 msgid "New meeting request"
 msgstr "Nová žádost o schůzku"
 
@@ -1437,30 +1409,24 @@ msgstr "Po celý den: "
 msgid "l jS F"
 msgstr "l j. F"
 
-# 88%
 msgid "Organiser"
 msgstr "Organizátor"
 
-# 92%
 msgid "Meeting status"
 msgstr "Status schůzky"
 
-# 94%
 msgid "Required Attendees"
 msgstr "Povinní účastníci"
 
-# 94%
 msgid "Optional Attendees"
 msgstr "Nepovinní účastníci"
 
-# 88%
 msgid "Resources"
 msgstr "Zdroje"
 
 msgid "Sensitivity"
 msgstr "Důvěrnost"
 
-# 80%
 msgid "Importance"
 msgstr "Důležitost"
 
@@ -1570,7 +1536,6 @@ msgstr "Otevřít"
 msgid "Copy/Move"
 msgstr "Kopírovat/Přesunout"
 
-# 75%
 msgid "Send to..."
 msgstr "Odeslat..."
 
@@ -1578,8 +1543,6 @@ msgstr "Odeslat..."
 msgid "Export as"
 msgstr "Exportovat jako"
 
-# 80%
-# 100%
 msgid "Occurrence"
 msgstr "Další výskyt"
 
@@ -1605,7 +1568,6 @@ msgstr "Ikona"
 msgid "Recurring"
 msgstr "Opakování"
 
-# 82%
 msgid "Sort by: Duration"
 msgstr "Třídit podle: Trvání"
 
@@ -1624,22 +1586,18 @@ msgstr "Třídit podle: Kategorie"
 msgid "Created On"
 msgstr "Vytvořeno"
 
-# 84%
 msgid "Sort by: Created On"
 msgstr "Třídit podle: Vytvořeno"
 
 msgid "Due By"
 msgstr "Termín dokončení"
 
-# 76%
 msgid "Sort by: Due By"
 msgstr "Třídit podle: Termín dokončení"
 
 msgid "Label"
 msgstr "Označení"
 
-# 76%
-# 78%
 msgid "Sort by: Label"
 msgstr "Třídit podle: Označení"
 
@@ -1677,7 +1635,6 @@ msgstr "Předloha opakování"
 msgid "Sort by: Recurring Pattern"
 msgstr "Třídit podle: Předloha opakování"
 
-# 77%
 msgid "Sort by: Reminder"
 msgstr "Třídit podle: Připomínka"
 
@@ -1837,8 +1794,6 @@ msgstr "Jmenování {0}"
 msgid "Appointments of {0} - {1}"
 msgstr "Jmenování {0} - {1}"
 
-# 93%
-# 100%
 #, fuzzy
 msgid "No appointments"
 msgstr "Nový termín"
@@ -1851,7 +1806,6 @@ msgstr "Dnes: {A} {0}"
 msgid "Today (all day)"
 msgstr "Dnes (celý den)"
 
-# 100%
 #. TRANSLATORS: Display name of a folder: "FOLDERNAME - STORENAME".
 #. TRANSLATORS: Displayed on top of a tree with folders: "FOLDERNAME - USERNAME".
 #, fuzzy
@@ -1912,7 +1866,6 @@ msgid ""
 msgstr ""
 "Toto je opakovaný termín. Přejete si otevřít pouze tento, anebo celou sérii?"
 
-# 80%
 msgid "Recurring Meeting Request"
 msgstr "Opakovaná žádost o schůzku"
 
@@ -2058,7 +2011,6 @@ msgstr "Upravit příjemce"
 msgid "Recipient already exists."
 msgstr "Uživatel již existuje."
 
-# 77%
 #, fuzzy
 msgid "Notify sender"
 msgstr "Třídit podle: Připomínka"
@@ -2105,7 +2057,6 @@ msgstr ""
 "Nemáte dostatečná oprávnění k přesunu této položky. Chcete místo toho "
 "kopírovat?"
 
-# 100%
 msgid "Cc"
 msgstr "Kopie"
 
@@ -2124,7 +2075,6 @@ msgstr "Vložit jako"
 msgid "Text only"
 msgstr "Jen text"
 
-# 90%
 msgid "Attachment"
 msgstr "Příloha"
 
@@ -2138,8 +2088,6 @@ msgstr "Nebyla vybrána žádná zpráva"
 msgid "Import to"
 msgstr "Importovat do"
 
-# 90%
-# 100%
 msgid "New folder"
 msgstr "Nová složka"
 
@@ -2215,8 +2163,6 @@ msgstr "Formát obrázku není podporován. "
 msgid "Supported format for contact pictures are"
 msgstr "Podporovaný formát pro kontaktní obrázky je"
 
-# 93%
-# 100%
 msgid "Attachment Error"
 msgstr "Chyba přílohy"
 
@@ -2294,14 +2240,12 @@ msgstr "Sloučit"
 msgid "Remove"
 msgstr "Odstranit"
 
-# 90%
 msgid "Check Names"
 msgstr "Zkontrolovat jména"
 
 msgid "Select an address to use"
 msgstr "Vyberte adresu"
 
-# 83%
 msgid "Email"
 msgstr "E-mail"
 
@@ -2311,7 +2255,6 @@ msgstr "Nalezeno více než jeden '{0}' ."
 msgid "Alert"
 msgstr "Varování"
 
-# 80%
 msgid "Please select a recipient"
 msgstr "Vyberte prosím příjemce"
 
@@ -2380,7 +2323,6 @@ msgstr ""
 "na složku, čímž otevřete kontextovou nabídku a klikněte na možnost \"Sdílet "
 "složku...\""
 
-# 90%
 msgid "Permission"
 msgstr "Oprávnění"
 
@@ -2515,7 +2457,6 @@ msgstr "Mimo kancelář"
 msgid "No Information"
 msgstr "Žádné informace"
 
-# 82%
 msgid "Show non-working hours"
 msgstr "Ukázat čas mimo pracovní dobu"
 
@@ -2571,7 +2512,6 @@ msgstr "Rozšířit výběr na první položku v seznamu"
 msgid "Extend the selection to the last item in the list"
 msgstr "Rozšířit výběr na poslední položku v seznamu"
 
-# 77%
 msgid "Open selected item"
 msgstr "Otevřít vybranou položku"
 
@@ -2584,9 +2524,6 @@ msgstr "Tisknout seznam"
 msgid "Open copy/move dialog"
 msgstr "Otevřít okno na kopírování/přesunování"
 
-# 77%
-# 75%
-# 100%
 msgid "Delete selected item"
 msgstr "Odstranit vybranou položku"
 
@@ -2626,8 +2563,6 @@ msgstr "Nejsou nastaveny podpisy"
 msgid "Loading Cc recipients"
 msgstr "Upravit příjemce"
 
-# 88%
-# 100%
 #, fuzzy
 msgid "Reply Mail"
 msgstr "Odpovědět všem"
@@ -2635,7 +2570,6 @@ msgstr "Odpovědět všem"
 msgid "New Mail"
 msgstr "Nová zpráva"
 
-# 80%
 msgid "Please select a Cc recipient record."
 msgstr "Vyberte prosím příjemce."
 
@@ -2677,15 +2611,12 @@ msgstr "ZDeveloper"
 msgid "grommunio Web print"
 msgstr "grommunio Web print"
 
-# 91%
 msgid "Display name"
 msgstr "Zobrazené jméno"
 
 msgid "Email address"
 msgstr "E-mailová adresa"
 
-# 78%
-# 100%
 #, fuzzy
 msgid "Expand distribution list"
 msgstr "Nový distribuční seznam"
@@ -2734,7 +2665,6 @@ msgstr "3."
 msgid "4th"
 msgstr "4."
 
-# 75%
 msgid "last"
 msgstr "poslední"
 
@@ -2830,7 +2760,6 @@ msgstr[0] "Existuje {0} připomínka"
 msgstr[1] "Existuje {0} připomínka"
 msgstr[2] "Existuje {0} připomínka"
 
-# 88%
 msgid "Reminders"
 msgstr "Připomínky"
 
@@ -2845,7 +2774,6 @@ msgstr "Dokončit během"
 msgid "Due"
 msgstr "K dokončení"
 
-# 92%
 msgid "Reminder time"
 msgstr "Čas připomínky"
 
@@ -2889,8 +2817,6 @@ msgstr "Odstranit trvale"
 msgid "Delete All"
 msgstr "Vymazat vše"
 
-# 75%
-# 100%
 msgid "Messages"
 msgstr "Zprávy"
 
@@ -2918,8 +2844,6 @@ msgstr[2] "Celkem {0} obnovitelných položek"
 msgid "Deleted On"
 msgstr "Smazáno na"
 
-# 84%
-# 78%
 msgid "Sort by: Deleted On"
 msgstr "Třídit podle: Smazáno na"
 
@@ -2929,7 +2853,6 @@ msgstr "Počet položek"
 msgid "Sort by: Item Count"
 msgstr "Třídit podle: Počet Položek"
 
-# 76%
 msgid "Sort by: From"
 msgstr "Třídit podle: Od"
 
@@ -2988,14 +2911,10 @@ msgstr "obsahuje tato slova v adese odesílatele ..."
 msgid "includes these words in the subject..."
 msgstr "obsahuje tato slova v předmětu ..."
 
-# 84%
-# 100%
 #, fuzzy
 msgid "includes these words in the body..."
 msgstr "obsahuje tato slova v obsahu ..."
 
-# 84%
-# 100%
 #, fuzzy
 msgid "includes these words in the transport-headers..."
 msgstr "obsahuje tato slova v obsahu ..."
@@ -3090,7 +3009,6 @@ msgstr "Jestliže zpráva"
 msgid "Do the following"
 msgstr "Provést následující"
 
-# 75%
 msgid "Exceptions"
 msgstr "Výjimky"
 
@@ -3138,15 +3056,12 @@ msgstr "Aktivní"
 msgid "Out of office"
 msgstr "Mimo kancelář"
 
-# 80%
 msgid "Rule"
 msgstr "Pravidlo"
 
-# 76%
 msgid "Loading rules"
 msgstr "Načítání pravidel"
 
-# 76%
 msgid "Please select a rule."
 msgstr "Vyberte prosím pravidlo."
 
@@ -3244,7 +3159,6 @@ msgstr "Prosím zvolte položku \"odeslat jako\"."
 msgid "Delegates"
 msgstr "Zástupce"
 
-# 88%
 msgid "Delegate settings"
 msgstr "Nastavení zástupce"
 
@@ -3279,7 +3193,6 @@ msgstr "Zakázat zvuk"
 msgid "Notifications"
 msgstr "Oznámení"
 
-# 80%
 msgid "Rules"
 msgstr "Pravidla"
 
@@ -3310,7 +3223,6 @@ msgstr "IM adresa"
 msgid "D, d-m-Y, {0}"
 msgstr "D, d-m-Y, {0}"
 
-# 76%
 msgid "{0} selected row"
 msgid_plural "{0} selected rows"
 msgstr[0] "{0} vybraný řádek"
@@ -3338,7 +3250,6 @@ msgstr "d-m-Y {0}"
 msgid "Unknown"
 msgstr "Neznámý"
 
-# 88%
 msgid "Meeting Organizer"
 msgstr "Organizátor schůzky"
 
@@ -3352,7 +3263,6 @@ msgstr "Načítám..."
 msgid "Message could not be loaded"
 msgstr "Zprávu se nepodařilo načíst"
 
-# 100%
 #. TRANSLATORS: This message is used as label for the field which indicates which attachments are inside the message
 msgctxt "mail.previewpanel"
 msgid "Attachments"
@@ -3471,12 +3381,10 @@ msgctxt "mail.previewpanel"
 msgid "The meeting was updated after the attendee sent this response"
 msgstr "Schůzka byla aktualizována poté, co účastník odeslal tuto odpověď"
 
-# 100%
 msgctxt "mail.previewpanel"
 msgid "This appointment occurs in the past."
 msgstr "Tato schůzka již proběhla."
 
-# 100%
 msgctxt "mail.previewpanel"
 msgid "Please respond."
 msgstr "Prosím o odpověď."
@@ -3550,7 +3458,6 @@ msgstr "Nyní proběhne pokus o opravu poškozené zprávy, chcete pokračovat?"
 msgid "The matching task was not found in your task list."
 msgstr "Odpovídající úkol nebyl ve vašem seznamu úkolů nalezen."
 
-# 100%
 msgctxt "mail.previewpanel"
 msgid "To"
 msgstr "Komu"
@@ -3559,7 +3466,6 @@ msgctxt "mail.previewpanel"
 msgid "Cc"
 msgstr "Kopie"
 
-# 100%
 msgctxt "mail.previewpanel"
 msgid "Bcc"
 msgstr "Skrytá kopie"
@@ -3578,7 +3484,6 @@ msgctxt "mail.previewpanel"
 msgid "on behalf of"
 msgstr "v zastoupení za"
 
-# 100%
 #. TRANSLATORS: This message is used to indicate that no sent date is available for the message (because it has not been sent yet).
 msgctxt "mail.previewpanel"
 msgid "None"
@@ -3624,11 +3529,9 @@ msgstr "Další adresa"
 msgid "Business Phone"
 msgstr "Telefon do zaměstnání"
 
-# 87%
 msgid "Business 2 Phone"
 msgstr "Telefon 2 do zaměstnání"
 
-# 88%
 #, fuzzy
 msgid "Assistant Phone"
 msgstr "Telefon asistenta"
@@ -3636,7 +3539,6 @@ msgstr "Telefon asistenta"
 msgid "Company Main Phone"
 msgstr "Hlavní telefon společnosti"
 
-# 83%
 msgid "Home 2 Phone"
 msgstr "Telefon domů 2"
 
@@ -3670,7 +3572,6 @@ msgstr "Další fax"
 msgid "Home Fax"
 msgstr "Fax domů"
 
-# 94%
 #, fuzzy
 msgid "Email Display As"
 msgstr "Ukázat E-mail jako"
@@ -3678,14 +3579,12 @@ msgstr "Ukázat E-mail jako"
 msgid "Email 2"
 msgstr "E-mail 2"
 
-# 89%
 msgid "Email2 Display As"
 msgstr "E-mail 2 ukázat jako"
 
 msgid "Email 3"
 msgstr "E-mail 3"
 
-# 89%
 #, fuzzy
 msgid "Email3 Display As"
 msgstr "E-mail 3 ukázat jako"
@@ -3706,11 +3605,9 @@ msgstr "Povolání"
 msgid "Assistant's Name"
 msgstr "Jméno asistenta"
 
-# 77%
 msgid "Distribution List Name"
 msgstr "Název distribučního seznamu"
 
-# 75%
 msgid "Open Shared Contacts"
 msgstr "Otevřít sdílené kontakty"
 
@@ -3723,7 +3620,6 @@ msgstr "Telefonní seznam"
 msgid "Add to contacts"
 msgstr "Přidat do kontaktů"
 
-# 77%
 msgid "Print selected contact"
 msgstr "Tisknout vybraný kontakt"
 
@@ -3806,7 +3702,6 @@ msgstr "Fotografie"
 msgid "Additional information"
 msgstr "Dodatečné informace"
 
-# 80%
 msgid "Business 2"
 msgstr "Zaměstnání 2"
 
@@ -3834,7 +3729,6 @@ msgstr "První"
 msgid "Middle"
 msgstr "Střední"
 
-# 75%
 msgid "Last"
 msgstr "Poslední"
 
@@ -3859,11 +3753,9 @@ msgstr "Linka"
 msgid "Add Attachment"
 msgstr "Přidat Přílohu"
 
-# 81%
 msgid "Add attachments to this contact"
 msgstr "Přidat přílohy k tomuto kontaktu"
 
-# 75%
 msgid "Mark this contact as private"
 msgstr "Označit tento kontakt jako soukromý"
 
@@ -3892,8 +3784,6 @@ msgstr "Zde napište poznámku..."
 msgid "New contact"
 msgstr "Nový kontakt"
 
-# 78%
-# 100%
 msgid "New distribution list"
 msgstr "Nový distribuční seznam"
 
@@ -4001,7 +3891,6 @@ msgstr "Třídit podle: Poštovní adresa"
 msgid "Sort by: IM Address"
 msgstr "Třídit podle: IM adresa"
 
-# 75%
 msgid "Sort by: Webpage"
 msgstr "Třídit podle: Webová stránka"
 
@@ -4038,7 +3927,6 @@ msgstr "Třídit podle: Telefon domů 2"
 msgid "Sort by: Home Fax"
 msgstr "Třídit podle: Fax domů"
 
-# 76%
 msgid "Sort by: ISDN"
 msgstr "Třídit podle: ISDN"
 
@@ -4202,7 +4090,6 @@ msgstr "Probíhá"
 msgid "Wait for other person"
 msgstr "Čekat na jinou osobu"
 
-# 87%
 msgid "Deferred"
 msgstr "Odloženo"
 
@@ -4258,7 +4145,6 @@ msgstr "Přiložené soubory ještě nejsou nahrány."
 msgid "Do you want to send this message without attachments?"
 msgstr "Chcete tuto zprávu odeslat bez příloh?"
 
-# 81%
 msgid "Attachments not uploaded yet"
 msgstr "Přidat přílohy k tomuto kontaktu"
 
@@ -4598,7 +4484,6 @@ msgstr "Uživatel již existuje"
 msgid "Group already exists"
 msgstr "Skupina již existuje"
 
-# 90%
 msgid "Folder Size"
 msgstr "Velikost složky"
 
@@ -4632,7 +4517,6 @@ msgstr "Celková velikost"
 msgid "Sort by: Total size (including subfolders)"
 msgstr "Třídit podle: Celková velikost (včetně podsložek)"
 
-# 78%
 msgid "Open Shared Folders"
 msgstr "Otevřít Sdílené složky"
 
@@ -4673,7 +4557,6 @@ msgstr "Musíte uvést jméno uživatele"
 msgid "Folder type"
 msgstr "Typ složky"
 
-# 75%
 msgid "Show subfolders"
 msgstr "Ukázat podsložky"
 
@@ -4718,8 +4601,6 @@ msgstr "Zavřít složku"
 msgid "Reload"
 msgstr "Znovu načíst"
 
-# 76%
-# 100%
 #, fuzzy
 msgid "Select color"
 msgstr "Vybrat složku"
@@ -4738,8 +4619,6 @@ msgstr "Výchozí adresář..."
 msgid "Import emails"
 msgstr "Důležitý"
 
-# 93%
-# 100%
 #, fuzzy
 msgid "Import appointments"
 msgstr "Nový termín"
@@ -4802,7 +4681,6 @@ msgstr "Skrytá kopie"
 msgid "Sort by: Importance"
 msgstr "Třídit podle: Důležitost"
 
-# 76%
 msgid "Sort by: To"
 msgstr "Třídit podle: Komu"
 
@@ -4889,14 +4767,12 @@ msgstr "Odeslat později"
 msgid "Schedule your mail to be sent on a specific date and time"
 msgstr "Naplánujte odeslání pošty na konkrétní datum a čas"
 
-# 86%
 msgid "Add attachments to this email"
 msgstr "Přidat přílohy k této zprávě"
 
 msgid "Add signature"
 msgstr "Přidat podpis"
 
-# 75%
 msgid "Options"
 msgstr "Možnosti"
 
@@ -4968,8 +4844,6 @@ msgstr "Označit jako přečtené"
 msgid "Mark Unread"
 msgstr "Označit jako nepřečtené"
 
-# 87%
-# 100%
 #, fuzzy
 msgid "New mail"
 msgstr "Nová zpráva"
@@ -4977,8 +4851,6 @@ msgstr "Nová zpráva"
 msgid "Mail"
 msgstr "Pošta"
 
-# 88%
-# 100%
 #, fuzzy
 msgid "Reply all"
 msgstr "Odpovědět všem"
@@ -4991,7 +4863,6 @@ msgstr "Přepínání přečtení/nepřečtení"
 msgid "Toggle red/complete flag"
 msgstr "Přepínání červeného/úplného praporku"
 
-# 82%
 msgid "Open Shared Mails"
 msgstr "Otevřít sdílenou poštu"
 
@@ -4999,7 +4870,6 @@ msgstr "Otevřít sdílenou poštu"
 msgid "Print single email"
 msgstr "Tisknout jedinou zprávu"
 
-# 78%
 #, fuzzy
 msgid "Print selected email"
 msgstr "Tisknout vybrané položky"
@@ -5103,8 +4973,6 @@ msgstr "Vpravo"
 msgid "Bottom"
 msgstr "Dole"
 
-# 83%
-# 100%
 #, fuzzy
 msgid "Location of preview pane"
 msgstr "Panel náhledu umístění"
@@ -5234,7 +5102,6 @@ msgstr "Profil"
 msgid "max. "
 msgstr "max. "
 
-# 76%
 msgid "Sort by: Sent"
 msgstr "Třídit podle: Odeslané"
 
@@ -5252,8 +5119,6 @@ msgstr "Vlajka"
 msgid "Sort by: flag"
 msgstr "Seřadit podle: vlajka"
 
-# 85%
-# 100%
 #, fuzzy
 msgid "Older"
 msgstr "Složka"
@@ -5298,7 +5163,6 @@ msgstr "Následná opatření"
 msgid "Move to Junk Folder"
 msgstr "Přesunout do složky Nevyžádané"
 
-# 75%
 msgid "Send to"
 msgstr "Poslat na"
 
@@ -5331,15 +5195,10 @@ msgstr "Otevřít sdílené poznámky"
 msgid "Sticky note"
 msgstr "Rychlá poznámka"
 
-# 78%
-# 84%
-# 100%
 #, fuzzy
 msgid "Print selected note"
 msgstr "Tisknout vybrané úlohy"
 
-# 75%
-# 100%
 #, fuzzy
 msgid "No note selected"
 msgstr "Žádná úloha není zvolena"
@@ -5464,7 +5323,6 @@ msgstr "12h hodiny"
 msgid "24h clock"
 msgstr "24 hodin denně"
 
-# 88%
 #, fuzzy
 msgid "Favorite settings"
 msgstr "Nastavení zástupce"
@@ -5709,7 +5567,6 @@ msgstr "Třídit podle: Dokončeno procent"
 msgid "Task Status"
 msgstr "Stav úkolu"
 
-# 93%
 msgid "Percent Complete"
 msgstr "Dokončeno procent"
 
@@ -5813,9 +5670,6 @@ msgstr "Odeslat úkol pověřené osobě"
 msgid "Restore to Task List"
 msgstr "Nastavit výchozí"
 
-# 94%
-# 76%
-# 100%
 msgid "Delete this task"
 msgstr "Smazat tuto položku"
 
@@ -5828,8 +5682,6 @@ msgstr "Označit jako Dokončené"
 msgid "Mark this task as complete"
 msgstr "Označit tento úkol jako dokončený"
 
-# 75%
-# 100%
 #, fuzzy
 msgid "Print this task"
 msgstr "Tisknout tuto zprávu"
@@ -5840,9 +5692,6 @@ msgstr "Přidělit úkol"
 msgid "Cancel Assignment"
 msgstr "Zrušit přidělení"
 
-# 75%
-# 79%
-# 100%
 msgid "Mark this task as private"
 msgstr "Označit tento kontakt jako soukromý"
 
@@ -5853,7 +5702,6 @@ msgstr "Nový úkol"
 msgid "Completed"
 msgstr "Dokončeno"
 
-# 76%
 msgid "Printed by: "
 msgstr "Třídit podle: Komu "
 
@@ -5886,8 +5734,6 @@ msgstr "Jednoduchý pohled"
 msgid "Detailed view"
 msgstr "Detailní pohled"
 
-# 92%
-# 100%
 msgid "Task request"
 msgstr "Zadání úkolu"
 
@@ -6135,7 +5981,6 @@ msgid ""
 "this."
 msgstr "Z tohoto důvodu nemusí správně fungovat všechny funkce webu grommunio."
 
-# 100%
 msgctxt "hierarchy.foldername"
 msgid "Inbox"
 msgstr "Doručená pošta"
@@ -6153,12 +5998,10 @@ msgctxt "hierarchy.foldername"
 msgid "Deleted items"
 msgstr "Odstraněné položky"
 
-# 100%
 msgctxt "hierarchy.foldername"
 msgid "Calendar"
 msgstr "Kalendář"
 
-# 100%
 msgctxt "hierarchy.foldername"
 msgid "Contacts"
 msgstr "Kontakty"
@@ -6167,22 +6010,18 @@ msgctxt "hierarchy.foldername"
 msgid "Drafts"
 msgstr "Koncepty"
 
-# 100%
 msgctxt "hierarchy.foldername"
 msgid "Journal"
 msgstr "Žurnál"
 
-# 100%
 msgctxt "hierarchy.foldername"
 msgid "Notes"
 msgstr "Poznámky"
 
-# 100%
 msgctxt "hierarchy.foldername"
 msgid "Tasks"
 msgstr "Úkoly"
 
-# 83%
 #, fuzzy
 msgctxt "hierarchy.foldername"
 msgid "Junk Email"
@@ -8042,25 +7881,18 @@ msgstr "Předběžně přijato"
 msgid "New Time Proposed"
 msgstr "Navržen nový čas"
 
-# 78%
-# 76%
 #, php-format
 msgid "Occurs every %s effective %s from %s to %s."
 msgstr "Opakuje se vždy v %s počínaje %s od %s do %s."
 
-# 78%
-# 76%
-# 93%
 #, php-format
 msgid "Occurs every %s %s effective %s from %s to %s."
 msgstr "Opakuje se vždy v %s %s počínaje %s od %s do %s."
 
-# 80%
 #, php-format
 msgid "Occurs every %s effective %s."
 msgstr "Opakuje se vždy v %s počínaje %s."
 
-# 75%
 #, php-format
 msgid "Occurs every %s %s effective %s."
 msgstr "Opakuje se vždy v %s %s počínaje %s."
@@ -8093,26 +7925,18 @@ msgstr[0] "Nastává každý %s %s účinný %s pro %s výskyt."
 msgstr[1] ""
 msgstr[2] ""
 
-# 76%
-# 75%
 #, php-format
 msgid "Occurs every %s effective %s until %s from %s to %s."
 msgstr "Opakuje se vždy v %s počínaje %s až do %s od %s do %s."
 
-# 76%
-# 75%
-# 94%
 #, php-format
 msgid "Occurs every %s %s effective %s until %s from %s to %s."
 msgstr "Opakuje se vždy v %s %s počínaje %s až do %s od %s do %s."
 
-# 78%
 #, php-format
 msgid "Occurs every %s effective %s until %s."
 msgstr "Opakuje se vždy v %s počínaje %s do %s."
 
-# 78%
-# 92%
 #, php-format
 msgid "Occurs every %s %s effective %s until %s."
 msgstr "Opakuje se vždy v %s %s počínaje %s do %s."
@@ -8413,7 +8237,6 @@ msgstr ""
 "Zprávu se nepodařilo najít, buď byla přesunuta nebo smazána, nebo nemáte "
 "přístup k otevření této zprávy."
 
-# 78%
 msgid "Could not open message."
 msgstr "Nelze otevřít zprávu."
 
@@ -8423,20 +8246,15 @@ msgstr "Nemáte oprávnění odmítnout tuto žádost o schůzku"
 msgid "You have insufficient privileges to accept this Meeting Request"
 msgstr "Nemáte oprávnění přijmout tuto žádost o schůzku"
 
-# 78%
-# 82%
 msgid "Could not copy message"
 msgstr "Nelze kopírovat zprávu"
 
-# 78%
-# 82%
 msgid "Could not move message"
 msgstr "Nelze přesunout zprávu"
 
 msgid "You have insufficient privileges to save items in this folder"
 msgstr "Nemáte oprávnění uložit položky v této složce"
 
-# 78%
 msgid "Could not save message"
 msgstr "Nelze uložit zprávu"
 

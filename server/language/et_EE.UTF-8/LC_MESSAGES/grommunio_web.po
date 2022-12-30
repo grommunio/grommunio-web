@@ -386,8 +386,6 @@ msgstr ""
 msgid "Display"
 msgstr ""
 
-# 77%
-# 100%
 #, fuzzy
 msgid "Addresses"
 msgstr "Aadress"
@@ -503,7 +501,6 @@ msgstr ""
 msgid "Sort by: Icon"
 msgstr "Sorteeri: ikooni järgi"
 
-# 76%
 #, fuzzy
 msgid "Sort by: Name"
 msgstr "Sorteeri: ikoon"
@@ -514,14 +511,10 @@ msgstr "Sorteeri: Kuvatava nime järgi"
 msgid "File as"
 msgstr ""
 
-# 76%
-# 82%
-# 100%
 #, fuzzy
 msgid "Sort by: File As"
 msgstr "Sorteeri: ikoon"
 
-# 80%
 #, fuzzy
 msgid "First Name"
 msgstr "Esimene leht"
@@ -529,12 +522,10 @@ msgstr "Esimene leht"
 msgid "Sort by: First Name"
 msgstr ""
 
-# 77%
 #, fuzzy
 msgid "Last Name"
 msgstr "Viimane leht"
 
-# 76%
 #, fuzzy
 msgid "Sort by: Last Name"
 msgstr "Sorteeri: ikoon"
@@ -551,8 +542,6 @@ msgstr ""
 msgid "Company Name"
 msgstr ""
 
-# 76%
-# 100%
 #, fuzzy
 msgid "Sort by: Company Name"
 msgstr "Sorteeri: Kuvatava nime järgi"
@@ -566,9 +555,6 @@ msgstr "Kontori telefon"
 msgid "Sort by: Office Phone"
 msgstr "Sorteeri: Kontrori telefoni järgi"
 
-# 76%
-# 82%
-# 100%
 #, fuzzy
 msgid "Sort by: Mobile"
 msgstr "Sorteeri: ikoon"
@@ -579,8 +565,6 @@ msgstr "Kodune telefon"
 msgid "Sort by: Home Phone"
 msgstr "Sorteeri: Koduse telefoni järgi"
 
-# 76%
-# 78%
 #, fuzzy
 msgid "Sort by: Pager"
 msgstr "Sorteeri: ikoon"
@@ -591,16 +575,12 @@ msgstr "Asukoht"
 msgid "Sort by: Location"
 msgstr "Sorteeri: Asukoha järgi"
 
-# 76%
 msgid "Sort by: Fax"
 msgstr "Sorteeri: Faksi järgi"
 
 msgid "Print single item"
 msgstr ""
 
-# 77%
-# 100%
-# 78%
 #, fuzzy
 msgid "Print selected item"
 msgstr "Trüki valitud kontakt"
@@ -694,9 +674,6 @@ msgstr ""
 msgid "Show.."
 msgstr ""
 
-# 80%
-# 75%
-# 100%
 #, fuzzy
 msgid "Mails"
 msgstr "E-post"
@@ -707,7 +684,6 @@ msgstr ""
 msgid "Contacts"
 msgstr "Kontaktid"
 
-# 100%
 msgid "Tasks"
 msgstr "Ülesanded"
 
@@ -948,9 +924,6 @@ msgstr ""
 msgid "All Day Event"
 msgstr ""
 
-# 78%
-# 76%
-# 100%
 #, fuzzy
 msgid "Add Shared Calendar"
 msgstr "Avada jagatud märkused"
@@ -961,7 +934,6 @@ msgstr ""
 msgid "No Response Required"
 msgstr ""
 
-# 75%
 #, fuzzy
 msgid "Accept"
 msgstr "Aktsepteeritud"
@@ -975,7 +947,6 @@ msgstr "Esialgne"
 msgid "Tentatively Accept Meeting Request"
 msgstr ""
 
-# 87%
 #, fuzzy
 msgid "Decline"
 msgstr "Keeldutud"
@@ -1035,7 +1006,6 @@ msgstr ""
 msgid "Create Appointment"
 msgstr "Kontaktide laadimine"
 
-# 100%
 msgid "Calendar"
 msgstr "Kalender"
 
@@ -1050,7 +1020,6 @@ msgstr ""
 msgid "What would you like?"
 msgstr ""
 
-# 100%
 #, fuzzy
 msgid "Own calendar"
 msgstr "Kalender"
@@ -1081,7 +1050,6 @@ msgctxt "calendar.dialog"
 msgid "Resources have been planned"
 msgstr ""
 
-# 75%
 #, fuzzy
 msgid "Send update"
 msgstr "Saadetud"
@@ -1114,7 +1082,6 @@ msgstr ""
 msgid "Tracking"
 msgstr ""
 
-# 75%
 #, fuzzy
 msgctxt "calendar.dialog"
 msgid "Not all attendees could be resolved."
@@ -1222,12 +1189,10 @@ msgstr ""
 msgid "None"
 msgstr "Puudub"
 
-# 75%
 #, fuzzy
 msgid "Send"
 msgstr "Saadetud"
 
-# 80%
 #, fuzzy
 msgid "Save"
 msgstr "Salvestatud"
@@ -1271,7 +1236,6 @@ msgstr ""
 msgid "Categories"
 msgstr "Kategooriad"
 
-# 96%
 #, fuzzy
 msgid "Open the categories dialog"
 msgstr "Ava kategooriate aken."
@@ -1409,7 +1373,6 @@ msgstr ""
 msgid "All day: "
 msgstr ""
 
-# 75%
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for formatting instructions
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
@@ -1435,7 +1398,6 @@ msgstr ""
 msgid "Sensitivity"
 msgstr ""
 
-# 80%
 #, fuzzy
 msgid "Importance"
 msgstr "Oluline"
@@ -1521,9 +1483,6 @@ msgstr ""
 msgid "jS"
 msgstr "jS"
 
-# 77%
-# 100%
-# 78%
 #, fuzzy
 msgid "{0} selected item"
 msgid_plural "{0} selected items"
@@ -1542,7 +1501,6 @@ msgstr "Ava"
 msgid "Copy/Move"
 msgstr ""
 
-# 75%
 #, fuzzy
 msgid "Send to..."
 msgstr "Saadetud"
@@ -1575,8 +1533,6 @@ msgstr "Ikoonid"
 msgid "Recurring"
 msgstr ""
 
-# 82%
-# 100%
 #, fuzzy
 msgid "Sort by: Duration"
 msgstr "Sorteeri: Asukoha järgi"
@@ -1596,7 +1552,6 @@ msgstr "Sorteeri: Kategooriate järgi"
 msgid "Created On"
 msgstr ""
 
-# 84%
 #, fuzzy
 msgid "Sort by: Created On"
 msgstr "Sorteeri: loomise kuupäev"
@@ -1610,8 +1565,6 @@ msgstr ""
 msgid "Label"
 msgstr ""
 
-# 76%
-# 78%
 #, fuzzy
 msgid "Sort by: Label"
 msgstr "Sorteeri: ikoon"
@@ -1732,13 +1685,11 @@ msgctxt "mail.previewpanel"
 msgid "Proposed"
 msgstr ""
 
-# 100%
 #. TRANSLATORS: This message is used as label for the field which to indicates to whom the given mail was sent
 msgctxt "mail.previewpanel"
 msgid "When"
 msgstr "Millal"
 
-# 100%
 #. TRANSLATORS: This message is used as label for the field which to indicates to whom the given mail was sent
 msgctxt "mail.previewpanel"
 msgid "Location"
@@ -1942,9 +1893,6 @@ msgid ""
 "continue?"
 msgstr ""
 
-# 94%
-# 76%
-# 100%
 #, fuzzy
 msgid "Delete Incomplete Task"
 msgstr "Kustuta see kirje"
@@ -2183,7 +2131,6 @@ msgstr ""
 msgid "Alert"
 msgstr ""
 
-# 80%
 #, fuzzy
 msgid "Please select a recipient"
 msgstr "Palun täpsusta saaja"
@@ -2194,20 +2141,16 @@ msgstr ""
 msgid "Contact"
 msgstr "Kontakt"
 
-# 100%
 msgid "Journal"
 msgstr "Päevaraamat"
 
 msgid "Note"
 msgstr "Märkus"
 
-# 80%
-# 100%
 #, fuzzy
 msgid "Task"
 msgstr "Ülesanded"
 
-# 100%
 msgid "Inbox"
 msgstr "Sisendkaust"
 
@@ -2346,8 +2289,6 @@ msgstr ""
 msgid "Edit recipient"
 msgstr ""
 
-# 87%
-# 100%
 #, fuzzy
 msgid "Copy email address"
 msgstr "E-posti aadressid"
@@ -2389,7 +2330,6 @@ msgstr ""
 msgid "No suggestions available"
 msgstr ""
 
-# 75%
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 #, fuzzy
 msgid "l jS F Y"
@@ -2434,9 +2374,6 @@ msgstr ""
 msgid "Extend the selection to the last item in the list"
 msgstr ""
 
-# 77%
-# 100%
-# 78%
 #, fuzzy
 msgid "Open selected item"
 msgstr "Trüki valitud kontakt"
@@ -2450,10 +2387,6 @@ msgstr ""
 msgid "Open copy/move dialog"
 msgstr ""
 
-# 77%
-# 100%
-# 78%
-# 75%
 #, fuzzy
 msgid "Delete selected item"
 msgstr "Trüki valitud kontakt"
@@ -2493,12 +2426,10 @@ msgstr ""
 msgid "New Mail"
 msgstr ""
 
-# 80%
 #, fuzzy
 msgid "Please select a Cc recipient record."
 msgstr "Palun täpsusta saaja"
 
-# 80%
 #, fuzzy
 msgid "Manage Cc recipients"
 msgstr "Palun täpsusta saaja"
@@ -2529,20 +2460,14 @@ msgstr ""
 msgid "grommunio Web print"
 msgstr ""
 
-# 91%
-# 100%
 #, fuzzy
 msgid "Display name"
 msgstr "Kuvatav nimi"
 
-# 92%
-# 100%
 #, fuzzy
 msgid "Email address"
 msgstr "E-posti aadress"
 
-# 76%
-# 100%
 #, fuzzy
 msgid "Expand distribution list"
 msgstr "Postiloend"
@@ -2555,8 +2480,6 @@ msgstr ""
 msgid "Edit Recipient"
 msgstr ""
 
-# 87%
-# 100%
 #, fuzzy
 msgid "Copy email addresses"
 msgstr "E-posti aadressid"
@@ -2740,8 +2663,6 @@ msgstr ""
 msgid "Messages"
 msgstr ""
 
-# 92%
-# 100%
 #, fuzzy
 msgid "Delete all items"
 msgstr "Kustutatud"
@@ -2764,8 +2685,6 @@ msgstr[1] ""
 msgid "Deleted On"
 msgstr ""
 
-# 84%
-# 78%
 #, fuzzy
 msgid "Sort by: Deleted On"
 msgstr "Sorteeri: loomise kuupäev"
@@ -2776,7 +2695,6 @@ msgstr ""
 msgid "Sort by: Item Count"
 msgstr ""
 
-# 76%
 #, fuzzy
 msgid "Sort by: From"
 msgstr "Sorteeri: ikoon"
@@ -2790,8 +2708,6 @@ msgstr ""
 msgid "Size"
 msgstr "Suurus"
 
-# 75%
-# 76%
 #, fuzzy
 msgid "Sort by: Size"
 msgstr "Sorteeri: pealkiri"
@@ -2835,7 +2751,6 @@ msgstr ""
 msgid "includes these words in the transport-headers..."
 msgstr ""
 
-# 80%
 #, fuzzy
 msgid "has importance..."
 msgstr "Oluline"
@@ -2843,7 +2758,6 @@ msgstr "Oluline"
 msgid "has an attachment"
 msgstr ""
 
-# 75%
 #, fuzzy
 msgid "is sent to..."
 msgstr "Saadetud"
@@ -2959,12 +2873,10 @@ msgstr ""
 msgid "Out of office"
 msgstr "Kontorist väljas"
 
-# 80%
 #, fuzzy
 msgid "Rule"
 msgstr "Reeglid"
 
-# 76%
 #, fuzzy
 msgid "Loading rules"
 msgstr "Laeb märkuseid"
@@ -3079,7 +2991,6 @@ msgstr ""
 msgid "Notifications"
 msgstr ""
 
-# 80%
 #, fuzzy
 msgid "Rules"
 msgstr "Reeglid"
@@ -3093,15 +3004,10 @@ msgstr ""
 msgid "Full name"
 msgstr "Täisnimi"
 
-# 92%
-# 100%
 #, fuzzy
 msgid "Phone Numbers"
 msgstr "Telefoninumbrid"
 
-# 90%
-# 75%
-# 100%
 #, fuzzy
 msgid "Business Fax"
 msgstr "Töö2"
@@ -3109,8 +3015,6 @@ msgstr "Töö2"
 msgid "Webpage"
 msgstr ""
 
-# 75%
-# 100%
 #, fuzzy
 msgid "IM Address"
 msgstr "SMTP Aadress"
@@ -3118,10 +3022,6 @@ msgstr "SMTP Aadress"
 msgid "D, d-m-Y, {0}"
 msgstr ""
 
-# 77%
-# 100%
-# 78%
-# 76%
 #, fuzzy
 msgid "{0} selected row"
 msgid_plural "{0} selected rows"
@@ -3146,7 +3046,6 @@ msgstr ""
 msgid "Unknown"
 msgstr "Tundmatu"
 
-# 88%
 #, fuzzy
 msgid "Meeting Organizer"
 msgstr "Koosoleku korraldaja"
@@ -3355,7 +3254,6 @@ msgctxt "mail.previewpanel"
 msgid "on behalf of"
 msgstr ""
 
-# 100%
 #. TRANSLATORS: This message is used to indicate that no sent date is available for the message (because it has not been sent yet).
 msgctxt "mail.previewpanel"
 msgid "None"
@@ -3409,8 +3307,6 @@ msgstr ""
 msgid "Company Main Phone"
 msgstr ""
 
-# 83%
-# 100%
 #, fuzzy
 msgid "Home 2 Phone"
 msgstr "Kodune telefon"
@@ -3476,14 +3372,10 @@ msgstr ""
 msgid "Assistant's Name"
 msgstr ""
 
-# 94%
-# 77%
-# 100%
 #, fuzzy
 msgid "Distribution List Name"
 msgstr "Postiloend"
 
-# 75%
 msgid "Open Shared Contacts"
 msgstr "Ava jagatud kontaktid"
 
@@ -3529,8 +3421,6 @@ msgstr ""
 msgid "Sr."
 msgstr ""
 
-# 92%
-# 100%
 #, fuzzy
 msgid "Phone number"
 msgstr "Telefoninumbrid"
@@ -3581,8 +3471,6 @@ msgstr ""
 msgid "Additional information"
 msgstr ""
 
-# 90%
-# 100%
 #, fuzzy
 msgid "Business 2"
 msgstr "Töö2"
@@ -3593,8 +3481,6 @@ msgstr ""
 msgid "Car"
 msgstr ""
 
-# 83%
-# 100%
 #, fuzzy
 msgid "Home 2"
 msgstr "Kodune2"
@@ -3644,22 +3530,14 @@ msgstr ""
 msgid "Mark this contact as private"
 msgstr ""
 
-# 94%
-# 100%
 #, fuzzy
 msgid "Distribution List"
 msgstr "Postiloend"
 
-# 76%
-# 78%
-# 79%
-# 100%
 #, fuzzy
 msgid "Mark this Distribution list as private"
 msgstr "Postiloend"
 
-# 92%
-# 100%
 #, fuzzy
 msgid "New email address"
 msgstr "E-posti aadress"
@@ -3679,8 +3557,6 @@ msgstr ""
 msgid "New contact"
 msgstr ""
 
-# 76%
-# 100%
 #, fuzzy
 msgid "New distribution list"
 msgstr "Postiloend"
@@ -3725,22 +3601,14 @@ msgstr "Mobiiltelefon"
 msgid "Sort by: Mobile Phone"
 msgstr "Sorteeri: Mobiiltelefoni järgi"
 
-# 78%
-# 76%
-# 100%
 #, fuzzy
 msgid "Sort by: Business Phone"
 msgstr "Sorteeri: E-post järgi"
 
-# 78%
-# 76%
-# 100%
 #, fuzzy
 msgid "Sort by: Business Fax"
 msgstr "Sorteeri: E-post järgi"
 
-# 79%
-# 100%
 #, fuzzy
 msgid "Sort by: Department Name"
 msgstr "Sorteeri: Osakonna järgi"
@@ -3763,7 +3631,6 @@ msgstr ""
 msgid "Sort by: Assistant's Name"
 msgstr ""
 
-# 76%
 #, fuzzy
 msgid "Sort by: Nickname"
 msgstr "Sorteeri: ikoon"
@@ -3777,21 +3644,14 @@ msgstr ""
 msgid "Sort by: Anniversary"
 msgstr ""
 
-# 78%
-# 76%
-# 100%
 #, fuzzy
 msgid "Sort by: Business Address"
 msgstr "Sorteeri: E-post järgi"
 
-# 80%
-# 100%
 #, fuzzy
 msgid "Sort by: Home Address"
 msgstr "Sorteeri: SMTP Aadressi järgi"
 
-# 78%
-# 100%
 #, fuzzy
 msgid "Sort by: Office Address"
 msgstr "Sorteeri: E-post järgi"
@@ -3799,22 +3659,14 @@ msgstr "Sorteeri: E-post järgi"
 msgid "Mailing Address"
 msgstr ""
 
-# 79%
-# 100%
 #, fuzzy
 msgid "Sort by: Mailing Address"
 msgstr "Sorteeri: E-post järgi"
 
-# 85%
-# 100%
 #, fuzzy
 msgid "Sort by: IM Address"
 msgstr "Sorteeri: SMTP Aadressi järgi"
 
-# 76%
-# 82%
-# 75%
-# 100%
 #, fuzzy
 msgid "Sort by: Webpage"
 msgstr "Sorteeri: ikoon"
@@ -3828,9 +3680,6 @@ msgstr ""
 msgid "Business Phone 2"
 msgstr ""
 
-# 78%
-# 76%
-# 100%
 #, fuzzy
 msgid "Sort by: Business Phone 2"
 msgstr "Sorteeri: E-post järgi"
@@ -3838,8 +3687,6 @@ msgstr "Sorteeri: E-post järgi"
 msgid "Sort by: Callback"
 msgstr ""
 
-# 78%
-# 100%
 #, fuzzy
 msgid "Sort by: Car Phone"
 msgstr "Sorteeri: Koduse telefoni järgi"
@@ -3850,14 +3697,10 @@ msgstr ""
 msgid "Sort by: Company Main Phone"
 msgstr ""
 
-# 83%
-# 100%
 #, fuzzy
 msgid "Home Phone 2"
 msgstr "Kodune telefon"
 
-# 90%
-# 100%
 #, fuzzy
 msgid "Sort by: Home Phone 2"
 msgstr "Sorteeri: Koduse telefoni järgi"
@@ -3865,12 +3708,9 @@ msgstr "Sorteeri: Koduse telefoni järgi"
 msgid "Sort by: Home Fax"
 msgstr ""
 
-# 76%
 msgid "Sort by: ISDN"
 msgstr "Sorteeri: ISDN'i järgi"
 
-# 80%
-# 100%
 #, fuzzy
 msgid "Sort by: Other Phone"
 msgstr "Sorteeri: Koduse telefoni järgi"
@@ -3878,8 +3718,6 @@ msgstr "Sorteeri: Koduse telefoni järgi"
 msgid "Radio Phone"
 msgstr ""
 
-# 76%
-# 100%
 #, fuzzy
 msgid "Sort by: Radio Phone"
 msgstr "Sorteeri: Kontrori telefoni järgi"
@@ -3887,8 +3725,6 @@ msgstr "Sorteeri: Kontrori telefoni järgi"
 msgid "Sort by: TTY/TDD Phone"
 msgstr ""
 
-# 80%
-# 100%
 #, fuzzy
 msgid "Sort by: Telex Phone"
 msgstr "Sorteeri: Koduse telefoni järgi"
@@ -3987,7 +3823,6 @@ msgstr "Tavaline"
 msgid "High"
 msgstr "Kõrge"
 
-# 75%
 #, fuzzy
 msgid "Canceled"
 msgstr "Tühista"
@@ -4031,7 +3866,6 @@ msgstr "Töös"
 msgid "Wait for other person"
 msgstr "Oodake teist isikut"
 
-# 87%
 #, fuzzy
 msgid "Deferred"
 msgstr "edasilükatud"
@@ -4039,8 +3873,6 @@ msgstr "edasilükatud"
 msgid "Dark"
 msgstr ""
 
-# 75%
-# 100%
 #, fuzzy
 msgid "High Contrast"
 msgstr "Minu kontaktid"
@@ -4107,7 +3939,6 @@ msgstr "Sorteeri: pealkiri"
 msgid "Send this message without a subject?"
 msgstr "Saadan selle kirja ilma pealkirjata?"
 
-# 80%
 #, fuzzy
 msgid "Unresolved recipients"
 msgstr "Palun täpsusta saaja"
@@ -4154,8 +3985,6 @@ msgstr ""
 msgid "grommunio Content Panel"
 msgstr ""
 
-# 92%
-# 100%
 #, fuzzy
 msgid "Delete item"
 msgstr "Kustutatud"
@@ -4375,8 +4204,6 @@ msgstr ""
 msgid "Edit all"
 msgstr ""
 
-# 92%
-# 100%
 #, fuzzy
 msgid "Delete items"
 msgstr "Kustutatud"
@@ -4438,7 +4265,6 @@ msgstr ""
 msgid "Sort by: Total size (including subfolders)"
 msgstr ""
 
-# 78%
 #, fuzzy
 msgid "Open Shared Folders"
 msgstr "Avada jagatud märkused"
@@ -4528,7 +4354,6 @@ msgstr ""
 msgid "Remove From Favorites"
 msgstr ""
 
-# 78%
 #, fuzzy
 msgid "Share folder..."
 msgstr "Avada jagatud märkused"
@@ -4590,7 +4415,6 @@ msgstr ""
 msgid "Sort by: Importance"
 msgstr ""
 
-# 76%
 #, fuzzy
 msgid "Sort by: To"
 msgstr "Sorteeri: ikoon"
@@ -4650,11 +4474,6 @@ msgstr ""
 msgid "Saved at {0}"
 msgstr ""
 
-# 76%
-# 84%
-# 85%
-# 78%
-# 100%
 #, fuzzy
 msgid "Saving failed"
 msgstr "Laeb märkuseid"
@@ -4746,9 +4565,6 @@ msgstr ""
 msgid "New mail"
 msgstr ""
 
-# 80%
-# 75%
-# 100%
 #, fuzzy
 msgid "Mail"
 msgstr "E-post"
@@ -4762,21 +4578,14 @@ msgstr ""
 msgid "Toggle red/complete flag"
 msgstr ""
 
-# 76%
 #, fuzzy
 msgid "Open Shared Mails"
 msgstr "Avada jagatud märkused"
 
-# 77%
-# 100%
-# 78%
 #, fuzzy
 msgid "Print single email"
 msgstr "Trüki valitud kontakt"
 
-# 77%
-# 100%
-# 78%
 #, fuzzy
 msgid "Print selected email"
 msgstr "Trüki valitud kontakt"
@@ -4973,7 +4782,6 @@ msgstr ""
 msgid "max. "
 msgstr ""
 
-# 75%
 #, fuzzy
 msgid "Sort by: Sent"
 msgstr "Sorteeri: pealkiri"
@@ -5031,16 +4839,10 @@ msgstr ""
 msgid "Move to Junk Folder"
 msgstr ""
 
-# 75%
 #, fuzzy
 msgid "Send to"
 msgstr "Saadetud"
 
-# 76%
-# 84%
-# 85%
-# 78%
-# 100%
 #, fuzzy
 msgid "Loading mail"
 msgstr "Laeb märkuseid"
@@ -5070,10 +4872,6 @@ msgstr "Avada jagatud märkused"
 msgid "Sticky note"
 msgstr "Kleepmärkus"
 
-# 77%
-# 100%
-# 78%
-# 84%
 #, fuzzy
 msgid "Print selected note"
 msgstr "Trüki valitud kontakt"
@@ -5384,8 +5182,6 @@ msgstr ""
 msgid "Sort by: Due Date"
 msgstr ""
 
-# 80%
-# 90%
 #, fuzzy
 msgid "% Completed"
 msgstr "Valmis"
@@ -5414,7 +5210,6 @@ msgstr ""
 msgid "Mileage"
 msgstr ""
 
-# 75%
 #, fuzzy
 msgid "Accepting Task"
 msgstr "Aktsepteeritud"
@@ -5468,7 +5263,6 @@ msgstr ""
 msgid "Priority"
 msgstr ""
 
-# 80%
 #, fuzzy
 msgid "% Complete"
 msgstr "Valmis"
@@ -5487,9 +5281,6 @@ msgstr ""
 msgid "Restore to Task List"
 msgstr "Taasta kirjed"
 
-# 94%
-# 76%
-# 100%
 #, fuzzy
 msgid "Delete this task"
 msgstr "Kustuta see kirje"
@@ -5522,7 +5313,6 @@ msgstr ""
 msgid "Completed"
 msgstr "Valmis"
 
-# 76%
 #, fuzzy
 msgid "Printed by: "
 msgstr "Sorteeri: ikoon"
@@ -5547,7 +5337,6 @@ msgstr ""
 msgid "{actualwork} hours"
 msgstr ""
 
-# 76%
 #, fuzzy
 msgid "Open Shared Tasks"
 msgstr "Avada jagatud märkused"
@@ -5558,13 +5347,10 @@ msgstr ""
 msgid "Detailed view"
 msgstr ""
 
-# 100%
 #, fuzzy
 msgid "Task request"
 msgstr "Ülesanded"
 
-# 77%
-# 100%
 #, fuzzy
 msgid "Print selected task"
 msgstr "Trüki valitud kontakt"
@@ -5602,8 +5388,6 @@ msgid ""
 "makes changes."
 msgstr ""
 
-# 76%
-# 100%
 #, fuzzy
 msgid "Sort by: Complete"
 msgstr "Sorteeri: Kuvatava nime järgi"
@@ -5620,14 +5404,10 @@ msgstr ""
 msgid "Sort by: Assignee"
 msgstr ""
 
-# 76%
-# 78%
 #, fuzzy
 msgid "Sort by: Owner"
 msgstr "Sorteeri: ikoon"
 
-# 76%
-# 100%
 #, fuzzy
 msgid "Sort by: Percentage Completed"
 msgstr "Sorteeri: Kuvatava nime järgi"
@@ -5638,8 +5418,6 @@ msgstr ""
 msgid "Loading tasks"
 msgstr ""
 
-# 80%
-# 90%
 #, fuzzy
 msgid "Date completed"
 msgstr "Valmis"
@@ -5813,7 +5591,6 @@ msgctxt "hierarchy.foldername"
 msgid "Journal"
 msgstr "Päevaraamat"
 
-# 100%
 msgctxt "hierarchy.foldername"
 msgid "Notes"
 msgstr "Märkmed"
@@ -6846,8 +6623,6 @@ msgstr ""
 msgid "Holiday Cards"
 msgstr ""
 
-# 75%
-# 100%
 #, fuzzy
 msgid "Hot Contacts"
 msgstr "Minu kontaktid"
@@ -7168,14 +6943,10 @@ msgstr ""
 msgid "Error retrieving existing persistent settings"
 msgstr ""
 
-# 93%
-# 100%
 #, fuzzy
 msgid "Logon failed. Please verify your credentials and try again."
 msgstr "Sisenemine ebaõnnestus, palun kontrollige oma kasutajanime/parooli."
 
-# 83%
-# 100%
 #, fuzzy
 msgid "Cannot connect to Gromox."
 msgstr "Ei saa ühendust grommunio serveriga."
@@ -7259,14 +7030,10 @@ msgstr ""
 msgid "You have insufficient privileges to open this object."
 msgstr ""
 
-# 93%
-# 100%
 #, fuzzy
 msgid "Logon Failed. Please check your name/password."
 msgstr "Sisenemine ebaõnnestus, palun kontrollige oma kasutajanime/parooli."
 
-# 83%
-# 100%
 #, fuzzy
 msgid "Can not connect to Gromox."
 msgstr "Ei saa ühendust grommunio serveriga."

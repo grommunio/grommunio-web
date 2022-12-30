@@ -56,29 +56,24 @@ msgid_plural "{0} TB"
 msgstr[0] ""
 msgstr[1] ""
 
-# 81%
-# 90%
 #, fuzzy
 msgid "{0} minute"
 msgid_plural "{0} minutes"
 msgstr[0] "{0} דקות"
 msgstr[1] ""
 
-# 88%
 #, fuzzy
 msgid "{0} hour"
 msgid_plural "{0} hours"
 msgstr[0] "{0} שעות"
 msgstr[1] ""
 
-# 87%
 #, fuzzy
 msgid "{0} day"
 msgid_plural "{0} days"
 msgstr[0] "{0} ימים"
 msgstr[1] ""
 
-# 88%
 #, fuzzy
 msgid "{0} week"
 msgid_plural "{0} weeks"
@@ -328,12 +323,10 @@ msgstr "בתחום זה יש להשתמש רק באותיות ו _"
 msgid "This field should only contain letters, numbers and _"
 msgstr "שדה זה צריך להכיל רק אותיות, מספרים ו _"
 
-# 81%
 #, fuzzy
 msgid "Email Addresses"
 msgstr "כתובות דואר אלקטרני"
 
-# 75%
 #, fuzzy
 msgid "Email addresses"
 msgstr "כתובות דואר אלקטרוני"
@@ -443,7 +436,6 @@ msgstr "מספרי טלפון"
 msgid "Business"
 msgstr "עסק"
 
-# 88%
 msgid "Business2"
 msgstr "טלפון בעסק 2"
 
@@ -501,11 +493,9 @@ msgstr "הצג שמות מה"
 msgid "Search..."
 msgstr ""
 
-# 76%
 msgid "Sort by: Icon"
 msgstr "מיין לפי: סמל"
 
-# 76%
 #, fuzzy
 msgid "Sort by: Name"
 msgstr "מיין לפי: גודל"
@@ -516,14 +506,10 @@ msgstr ""
 msgid "File as"
 msgstr "תייק כ"
 
-# 76%
-# 82%
-# 100%
 #, fuzzy
 msgid "Sort by: File As"
 msgstr "מיין לפי: גודל"
 
-# 80%
 #, fuzzy
 msgid "First Name"
 msgstr "עמוד ראשון"
@@ -531,12 +517,10 @@ msgstr "עמוד ראשון"
 msgid "Sort by: First Name"
 msgstr ""
 
-# 77%
 #, fuzzy
 msgid "Last Name"
 msgstr "עמוד אחרון"
 
-# 76%
 #, fuzzy
 msgid "Sort by: Last Name"
 msgstr "מיין לפי: גודל"
@@ -565,9 +549,6 @@ msgstr "טלפון במשרד"
 msgid "Sort by: Office Phone"
 msgstr ""
 
-# 76%
-# 82%
-# 100%
 #, fuzzy
 msgid "Sort by: Mobile"
 msgstr "מיין לפי: גודל"
@@ -578,8 +559,6 @@ msgstr "טלפון בבית"
 msgid "Sort by: Home Phone"
 msgstr ""
 
-# 76%
-# 78%
 #, fuzzy
 msgid "Sort by: Pager"
 msgstr "מיין לפי: גודל"
@@ -587,12 +566,10 @@ msgstr "מיין לפי: גודל"
 msgid "Location"
 msgstr "מיקום"
 
-# 76%
 #, fuzzy
 msgid "Sort by: Location"
 msgstr "מיין לפי: שינוי"
 
-# 76%
 #, fuzzy
 msgid "Sort by: Fax"
 msgstr "מיין לפי: מאת"
@@ -600,9 +577,6 @@ msgstr "מיין לפי: מאת"
 msgid "Print single item"
 msgstr ""
 
-# 77%
-# 78%
-# 100%
 #, fuzzy
 msgid "Print selected item"
 msgstr "נבחר פריט {0}"
@@ -622,7 +596,6 @@ msgstr "תצוגה מימין"
 msgid "Bottom preview"
 msgstr "תצוגה מלמטה"
 
-# 87%
 #, fuzzy
 msgid "Any date"
 msgstr "תאריך סיום"
@@ -642,7 +615,6 @@ msgstr ""
 msgid "Past year"
 msgstr ""
 
-# 87%
 #, fuzzy
 msgid "Custom date"
 msgstr "תאריך היעד"
@@ -692,8 +664,6 @@ msgstr ""
 msgid "Search tools"
 msgstr ""
 
-# 85%
-# 100%
 #, fuzzy
 msgid "Folders"
 msgstr "תיקיה"
@@ -770,7 +740,6 @@ msgstr "מועדפים"
 msgid "Add a folder to favorites based on this search query"
 msgstr ""
 
-# 76%
 #, fuzzy
 msgid "Select Folder"
 msgstr "מחק תיקיה"
@@ -841,7 +810,6 @@ msgstr "יום"
 msgid "days"
 msgstr "ימים"
 
-# 75%
 msgid "week"
 msgstr "שבוע"
 
@@ -851,7 +819,6 @@ msgstr "שבועות"
 msgid " on "
 msgstr ""
 
-# 80%
 msgid "month"
 msgstr "חודש"
 
@@ -932,7 +899,6 @@ msgstr "מיין לפי: קבצים מצורפים"
 msgid "Sort by: Recurring"
 msgstr ""
 
-# 81%
 msgid "Sort by: Subject"
 msgstr "מיין לפי: נושא"
 
@@ -942,7 +908,6 @@ msgstr "תאריך התחלה"
 msgid "Sort by: Start Date"
 msgstr ""
 
-# 87%
 #, fuzzy
 msgid "End Date"
 msgstr "תאריך סיום"
@@ -962,16 +927,12 @@ msgstr "משתתף אופציונלי"
 msgid "Show Time As"
 msgstr ""
 
-# 77%
 msgid "Recurrence pattern"
 msgstr "תבנית מופע חוזר"
 
 msgid "All Day Event"
 msgstr "אירוע של יום שלם"
 
-# 86%
-# 76%
-# 100%
 #, fuzzy
 msgid "Add Shared Calendar"
 msgstr "פתח תיקיות משותפות"
@@ -1097,7 +1058,6 @@ msgctxt "calendar.dialog"
 msgid "Resources have been planned"
 msgstr "תוכננו משאבים"
 
-# 87%
 #, fuzzy
 msgid "Send update"
 msgstr "תאריך סיום"
@@ -1132,7 +1092,6 @@ msgstr "מכניס ללוח הזמנים"
 msgid "Tracking"
 msgstr "במעקב"
 
-# 75%
 #, fuzzy
 msgctxt "calendar.dialog"
 msgid "Not all attendees could be resolved."
@@ -1152,7 +1111,6 @@ msgctxt "calendar.dialog"
 msgid "You proposed a new time for this meeting on {0}"
 msgstr "הצעת זמן חדש לפגישה זו {0}"
 
-# 91%
 #, fuzzy
 msgctxt "calendar.dialog"
 msgid "{0} proposed a new time for this meeting on {1}"
@@ -1170,7 +1128,6 @@ msgctxt "calendar.dialog"
 msgid "Tentatively Accepted on {0}"
 msgstr "התקבל בהיסוס ב {0}"
 
-# 76%
 #, fuzzy
 msgctxt "calendar.dialog"
 msgid "Tentatively Accepted by {0} on {1}"
@@ -1245,7 +1202,6 @@ msgstr ""
 msgid "None"
 msgstr "אף אחד"
 
-# 75%
 #, fuzzy
 msgid "Send"
 msgstr "נשלח"
@@ -1325,7 +1281,6 @@ msgstr "זמן סיום"
 msgid "Comment"
 msgstr "הערה"
 
-# 84%
 #, fuzzy
 msgid "Send Meeting Request Cancellation"
 msgstr "שלח אישור בקשת פגישה"
@@ -1377,7 +1332,6 @@ msgstr "שלח את התגובה כעת."
 msgid "Don't send a response."
 msgstr "אל תשלח תגובה."
 
-# 91%
 #, fuzzy
 msgid "The following responses for this meeting have been received"
 msgstr "התגובות הבואת לפגישה זו התקבלו"
@@ -1388,8 +1342,6 @@ msgstr "נוכחות"
 msgid "Response"
 msgstr "תגובה"
 
-# 93%
-# 100%
 #, fuzzy
 msgid "New appointment"
 msgstr "פגישה חדשה"
@@ -1397,8 +1349,6 @@ msgstr "פגישה חדשה"
 msgid "Creating an item"
 msgstr ""
 
-# 89%
-# 100%
 #, fuzzy
 msgid "New meeting request"
 msgstr "בקשה לפגישה חדשה"
@@ -1447,8 +1397,6 @@ msgstr ""
 msgid "All day: "
 msgstr ""
 
-# 87%
-# 75%
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for formatting instructions
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
@@ -1456,27 +1404,22 @@ msgstr ""
 msgid "l jS F"
 msgstr "l j F Y"
 
-# 88%
 #, fuzzy
 msgid "Organiser"
 msgstr "מארגן"
 
-# 92%
 #, fuzzy
 msgid "Meeting status"
 msgstr "מצב הפגישה"
 
-# 94%
 #, fuzzy
 msgid "Required Attendees"
 msgstr "משתתף דרוש"
 
-# 94%
 #, fuzzy
 msgid "Optional Attendees"
 msgstr "משתתף אופציונלי"
 
-# 88%
 #, fuzzy
 msgid "Resources"
 msgstr "משאב"
@@ -1484,7 +1427,6 @@ msgstr "משאב"
 msgid "Sensitivity"
 msgstr "רגישות"
 
-# 80%
 msgid "Importance"
 msgstr "חשיבות"
 
@@ -1585,7 +1527,6 @@ msgstr "פתח"
 msgid "Copy/Move"
 msgstr "העתק/העבר"
 
-# 75%
 #, fuzzy
 msgid "Send to..."
 msgstr "נשלח"
@@ -1593,8 +1534,6 @@ msgstr "נשלח"
 msgid "Export as"
 msgstr ""
 
-# 80%
-# 100%
 #, fuzzy
 msgid "Occurrence"
 msgstr "מופע חוזר"
@@ -1624,8 +1563,6 @@ msgstr "סמלים"
 msgid "Recurring"
 msgstr "מופע חוזר"
 
-# 76%
-# 82%
 #, fuzzy
 msgid "Sort by: Duration"
 msgstr "מיין לפי: שינוי"
@@ -1639,7 +1576,6 @@ msgstr ""
 msgid "Sort by: Show as"
 msgstr ""
 
-# 84%
 msgid "Sort by: Categories"
 msgstr "מיין לפי: קטגוריות"
 
@@ -1658,8 +1594,6 @@ msgstr ""
 msgid "Label"
 msgstr "תוית"
 
-# 76%
-# 78%
 #, fuzzy
 msgid "Sort by: Label"
 msgstr "מיין לפי: גודל"
@@ -1713,7 +1647,6 @@ msgstr ""
 msgid "jS F {0}"
 msgstr ""
 
-# 83%
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 #, fuzzy
 msgid "jS F Y"
@@ -1802,9 +1735,6 @@ msgid ""
 "be deleted."
 msgstr "לוח השנה שלך עודכן אוטומטית. בקשת פגישה זו תמחק עכשיו."
 
-# 93%
-# 100%
-# 80%
 #, fuzzy
 msgid "Loading appointments..."
 msgstr "פגישה חדשה"
@@ -1831,8 +1761,6 @@ msgstr ""
 msgid "Appointments of {0} - {1}"
 msgstr ""
 
-# 93%
-# 100%
 #, fuzzy
 msgid "No appointments"
 msgstr "פגישה חדשה"
@@ -1898,7 +1826,6 @@ msgid ""
 "the series?"
 msgstr ""
 
-# 80%
 msgid "Recurring Meeting Request"
 msgstr "מופע חוזר של בקשת פגישה"
 
@@ -2087,7 +2014,6 @@ msgstr ""
 msgid "Text only"
 msgstr ""
 
-# 90%
 #, fuzzy
 msgid "Attachment"
 msgstr "קבצים מצורפים"
@@ -2102,8 +2028,6 @@ msgstr ""
 msgid "Import to"
 msgstr "חשוב"
 
-# 90%
-# 100%
 #, fuzzy
 msgid "New folder"
 msgstr "תיקיה חדשה"
@@ -2170,8 +2094,6 @@ msgstr ""
 msgid "Supported format for contact pictures are"
 msgstr ""
 
-# 93%
-# 100%
 #, fuzzy
 msgid "Attachment Error"
 msgstr "שגיאת קובץ מצורף"
@@ -2238,7 +2160,6 @@ msgstr ""
 msgid "Remove"
 msgstr "הסר"
 
-# 90%
 msgid "Check Names"
 msgstr "בדוק שמות"
 
@@ -2254,14 +2175,12 @@ msgstr ""
 msgid "Alert"
 msgstr "אזהרה"
 
-# 80%
 msgid "Please select a recipient"
 msgstr "אנא בחר מען"
 
 msgid "Mail and Post"
 msgstr "דואר והודעות"
 
-# 87%
 msgid "Contact"
 msgstr "איש קשר"
 
@@ -2274,7 +2193,6 @@ msgstr "פתק"
 msgid "Task"
 msgstr "משימה"
 
-# 100%
 msgid "Inbox"
 msgstr "תיבת דואר נכנס"
 
@@ -2319,7 +2237,6 @@ msgid ""
 "the context menu and click on \"Share Folder...\""
 msgstr ""
 
-# 90%
 #, fuzzy
 msgid "Permission"
 msgstr "הרשאות"
@@ -2377,11 +2294,9 @@ msgstr ""
 msgid "Set custom flag"
 msgstr "הגדר דגל"
 
-# 90%
 msgid "Start date"
 msgstr "תאריך התחלה"
 
-# 87%
 msgid "End date"
 msgstr "תאריך סיום"
 
@@ -2394,7 +2309,6 @@ msgstr ""
 msgid "Next week"
 msgstr ""
 
-# 87%
 #, fuzzy
 msgid "Custom"
 msgstr "תאריך היעד"
@@ -2452,7 +2366,6 @@ msgstr "מחוץ למשרד"
 msgid "No Information"
 msgstr "אין מידע"
 
-# 82%
 msgid "Show non-working hours"
 msgstr "הצג שעות שלא עובדים בהן"
 
@@ -2465,7 +2378,6 @@ msgstr "אין מידע זמין אודות עסוק/פנוי בתאריך זה"
 msgid "No suggestions available"
 msgstr "אין הצעות זמינות"
 
-# 87%
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 #, fuzzy
 msgid "l jS F Y"
@@ -2510,7 +2422,6 @@ msgstr ""
 msgid "Extend the selection to the last item in the list"
 msgstr ""
 
-# 77%
 #, fuzzy
 msgid "Open selected item"
 msgstr "נבחר פריט {0}"
@@ -2524,9 +2435,6 @@ msgstr ""
 msgid "Open copy/move dialog"
 msgstr ""
 
-# 77%
-# 75%
-# 100%
 #, fuzzy
 msgid "Delete selected item"
 msgstr "נבחר פריט {0}"
@@ -2560,8 +2468,6 @@ msgstr "לא ניתן היה להגיע לכל הנמענים"
 msgid "Loading Cc recipients"
 msgstr "ערוך נמען"
 
-# 88%
-# 100%
 #, fuzzy
 msgid "Reply Mail"
 msgstr "השב לכולם"
@@ -2569,7 +2475,6 @@ msgstr "השב לכולם"
 msgid "New Mail"
 msgstr "דואר חדש"
 
-# 80%
 #, fuzzy
 msgid "Please select a Cc recipient record."
 msgstr "אנא בחר מען"
@@ -2604,17 +2509,12 @@ msgstr ""
 msgid "grommunio Web print"
 msgstr ""
 
-# 91%
 msgid "Display name"
 msgstr "שם תצוגה"
 
-# 92%
 msgid "Email address"
 msgstr "כתובת דואר אלקטרוני"
 
-# 75%
-# 78%
-# 100%
 #, fuzzy
 msgid "Expand distribution list"
 msgstr "צור רשימת תפוצה"
@@ -2755,7 +2655,6 @@ msgid_plural "There are {0} reminders"
 msgstr[0] "ישנה הודעה {0} שלא נקראה בתיקיה {1}"
 msgstr[1] "ישנן {0} הודעות שלא נקראו בתיקיה {1}"
 
-# 88%
 msgid "Reminders"
 msgstr "תזכורות"
 
@@ -2769,7 +2668,6 @@ msgstr ""
 msgid "Due"
 msgstr ""
 
-# 92%
 #, fuzzy
 msgid "Reminder time"
 msgstr "תזכורת זמן"
@@ -2813,8 +2711,6 @@ msgstr "מחק לצמיתות"
 msgid "Delete All"
 msgstr ""
 
-# 75%
-# 100%
 #, fuzzy
 msgid "Messages"
 msgstr "הודעה"
@@ -2913,7 +2809,6 @@ msgstr ""
 msgid "includes these words in the transport-headers..."
 msgstr ""
 
-# 80%
 #, fuzzy
 msgid "has importance..."
 msgstr "חשיבות"
@@ -2921,7 +2816,6 @@ msgstr "חשיבות"
 msgid "has an attachment"
 msgstr ""
 
-# 75%
 #, fuzzy
 msgid "is sent to..."
 msgstr "נשלח"
@@ -3040,7 +2934,6 @@ msgstr ""
 msgid "Out of office"
 msgstr "מחוץ למשרד"
 
-# 80%
 #, fuzzy
 msgid "Rule"
 msgstr "כללים"
@@ -3081,7 +2974,6 @@ msgstr ""
 msgid "Do you wish to apply the changes?"
 msgstr ""
 
-# 75%
 #, fuzzy
 msgid "All folders"
 msgstr "הצג תיקיות משנה"
@@ -3160,7 +3052,6 @@ msgstr ""
 msgid "Notifications"
 msgstr ""
 
-# 80%
 #, fuzzy
 msgid "Rules"
 msgstr "כללים"
@@ -3183,7 +3074,6 @@ msgstr "פקס בעסק"
 msgid "Webpage"
 msgstr "כתובת אתר אינטרנט"
 
-# 75%
 #, fuzzy
 msgid "IM Address"
 msgstr "כתובות SMTP"
@@ -3191,7 +3081,6 @@ msgstr "כתובות SMTP"
 msgid "D, d-m-Y, {0}"
 msgstr ""
 
-# 76%
 #, fuzzy
 msgid "{0} selected row"
 msgid_plural "{0} selected rows"
@@ -3228,7 +3117,6 @@ msgstr "טוען..."
 msgid "Message could not be loaded"
 msgstr ""
 
-# 100%
 #. TRANSLATORS: This message is used as label for the field which indicates which attachments are inside the message
 msgctxt "mail.previewpanel"
 msgid "Attachments"
@@ -3334,12 +3222,10 @@ msgctxt "mail.previewpanel"
 msgid "The meeting was updated after the attendee sent this response"
 msgstr ""
 
-# 100%
 msgctxt "mail.previewpanel"
 msgid "This appointment occurs in the past."
 msgstr "פגישה זו מתרחשת בעבר."
 
-# 100%
 msgctxt "mail.previewpanel"
 msgid "Please respond."
 msgstr "אנא הגב."
@@ -3375,7 +3261,6 @@ msgstr ""
 msgid "Waiting for response from recipient"
 msgstr "בקש קבלת קריאה מהמשתמש"
 
-# 76%
 #, fuzzy
 msgid "Accepted by {0} on {1}."
 msgstr "התקבל בהיסוס ב {0}"
@@ -3384,7 +3269,6 @@ msgstr "התקבל בהיסוס ב {0}"
 msgid "{0} has accepted on behalf of {1} {2}."
 msgstr "{0} קיבלו"
 
-# 76%
 #, fuzzy
 msgid "Declined by {0} on {1}."
 msgstr "התקבל בהיסוס ב {0}"
@@ -3410,7 +3294,6 @@ msgstr ""
 msgid "The matching task was not found in your task list."
 msgstr ""
 
-# 100%
 msgctxt "mail.previewpanel"
 msgid "To"
 msgstr "אל"
@@ -3419,7 +3302,6 @@ msgctxt "mail.previewpanel"
 msgid "Cc"
 msgstr "עותק נוסף"
 
-# 100%
 msgctxt "mail.previewpanel"
 msgid "Bcc"
 msgstr "עותק סודי"
@@ -3438,7 +3320,6 @@ msgctxt "mail.previewpanel"
 msgid "on behalf of"
 msgstr ""
 
-# 100%
 #. TRANSLATORS: This message is used to indicate that no sent date is available for the message (because it has not been sent yet).
 msgctxt "mail.previewpanel"
 msgid "None"
@@ -3464,7 +3345,6 @@ msgstr ""
 msgid "Datepicker"
 msgstr ""
 
-# 85%
 #, fuzzy
 msgid "File As"
 msgstr "תייק כ"
@@ -3487,12 +3367,10 @@ msgstr ""
 msgid "Business Phone"
 msgstr "טלפון בעסק"
 
-# 87%
 #, fuzzy
 msgid "Business 2 Phone"
 msgstr "טלפון בעסק"
 
-# 88%
 #, fuzzy
 msgid "Assistant Phone"
 msgstr "מספר טלפון של העוזר"
@@ -3500,7 +3378,6 @@ msgstr "מספר טלפון של העוזר"
 msgid "Company Main Phone"
 msgstr "הטלפון העיקרי של החברה"
 
-# 83%
 #, fuzzy
 msgid "Home 2 Phone"
 msgstr "טלפון בבית"
@@ -3563,20 +3440,14 @@ msgstr ""
 msgid "Profession"
 msgstr "מקצוע"
 
-# 76%
 #, fuzzy
 msgid "Assistant's Name"
 msgstr "מספר טלפון של העוזר"
 
-# 94%
-# 77%
 #, fuzzy
 msgid "Distribution List Name"
 msgstr "רשימת תפוצה"
 
-# 86%
-# 78%
-# 75%
 #, fuzzy
 msgid "Open Shared Contacts"
 msgstr "פתח תיקיות משותפות"
@@ -3590,9 +3461,6 @@ msgstr "רישמת טלפונים"
 msgid "Add to contacts"
 msgstr ""
 
-# 77%
-# 78%
-# 100%
 #, fuzzy
 msgid "Print selected contact"
 msgstr "נבחר פריט {0}"
@@ -3651,17 +3519,14 @@ msgstr "הצג הודעה זו שוב כאשר הכתובת אינה מלאה א
 msgid "Details"
 msgstr "פרטים"
 
-# 93%
 #, fuzzy
 msgid "Office location"
 msgstr "מיקום המשרד"
 
-# 78%
 #, fuzzy
 msgid "Manager's name"
 msgstr "שם המנהל"
 
-# 76%
 #, fuzzy
 msgid "Assistant's name"
 msgstr "מספר טלפון של העוזר"
@@ -3682,7 +3547,6 @@ msgstr "תמונה"
 msgid "Additional information"
 msgstr "מידע נוסף"
 
-# 80%
 msgid "Business 2"
 msgstr "טלפון בעסק 2"
 
@@ -3710,7 +3574,6 @@ msgstr "שם פרטי"
 msgid "Middle"
 msgstr "אמצעי"
 
-# 75%
 msgid "Last"
 msgstr "שם משפחה"
 
@@ -3735,17 +3598,14 @@ msgstr "תוספת"
 msgid "Add Attachment"
 msgstr "הוסף קובץ מצורף"
 
-# 81%
 #, fuzzy
 msgid "Add attachments to this contact"
 msgstr "הוסף קבצים מצורפים עבור איש קשר זה."
 
-# 75%
 #, fuzzy
 msgid "Mark this contact as private"
 msgstr "סמן את איש קשר זה כפרטי."
 
-# 94%
 #, fuzzy
 msgid "Distribution List"
 msgstr "רשימת תפוצה"
@@ -3774,9 +3634,6 @@ msgstr ""
 msgid "New contact"
 msgstr ""
 
-# 75%
-# 78%
-# 100%
 #, fuzzy
 msgid "New distribution list"
 msgstr "צור רשימת תפוצה"
@@ -3806,10 +3663,6 @@ msgstr ""
 msgid "Mobile:"
 msgstr ""
 
-# 76%
-# 82%
-# 77%
-# 100%
 #, fuzzy
 msgid "Sort by: Full Name"
 msgstr "מיין לפי: גודל"
@@ -3853,7 +3706,6 @@ msgstr ""
 msgid "Sort by: Assistant's Name"
 msgstr ""
 
-# 76%
 #, fuzzy
 msgid "Sort by: Nickname"
 msgstr "מיין לפי: גודל"
@@ -3885,10 +3737,6 @@ msgstr ""
 msgid "Sort by: IM Address"
 msgstr ""
 
-# 76%
-# 82%
-# 75%
-# 100%
 #, fuzzy
 msgid "Sort by: Webpage"
 msgstr "מיין לפי: גודל"
@@ -3926,7 +3774,6 @@ msgstr ""
 msgid "Sort by: Home Fax"
 msgstr ""
 
-# 76%
 #, fuzzy
 msgid "Sort by: ISDN"
 msgstr "מיין לפי: סמל"
@@ -3997,7 +3844,6 @@ msgstr ""
 msgid "{0} on behalf of {1}"
 msgstr ""
 
-# 75%
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 #, fuzzy
 msgid "jS F"
@@ -4084,7 +3930,6 @@ msgstr "בתהליך"
 msgid "Wait for other person"
 msgstr "חכה לאדם השני"
 
-# 87%
 #, fuzzy
 msgid "Deferred"
 msgstr "דחוי"
@@ -4121,7 +3966,6 @@ msgstr ""
 msgid "Sending..."
 msgstr "שומר..."
 
-# 94%
 #, fuzzy
 msgid "Sent successfully"
 msgstr "נשלח בהצלחה"
@@ -4143,7 +3987,6 @@ msgstr ""
 msgid "Do you want to send this message without attachments?"
 msgstr ""
 
-# 81%
 #, fuzzy
 msgid "Attachments not uploaded yet"
 msgstr "הוסף קבצים מצורפים עבור איש קשר זה."
@@ -4168,7 +4011,6 @@ msgstr "ערוך נמען"
 msgid "Not all recipients could be resolved"
 msgstr "לא ניתן היה להגיע לכל הנמענים"
 
-# 86%
 #, fuzzy
 msgid "Collapse hierarchy"
 msgstr "לא ניתן לטעון את ההיררכיה."
@@ -4196,7 +4038,6 @@ msgstr ""
 msgid "Saved"
 msgstr "נשמר"
 
-# 94%
 #, fuzzy
 msgid "Saved successfully"
 msgstr "נשמר בהצלחה"
@@ -4255,7 +4096,6 @@ msgstr ""
 msgid "Remove widget"
 msgstr "הסר"
 
-# 86%
 #, fuzzy
 msgid "Collapse widget"
 msgstr "לא ניתן לטעון את ההיררכיה."
@@ -4371,8 +4211,6 @@ msgstr "פריטי משימה"
 msgid "Select where to place the folder"
 msgstr "בחר היכן למקם את התיקיה"
 
-# 90%
-# 100%
 #, fuzzy
 msgid "No folder name"
 msgstr "תיקיה חדשה"
@@ -4462,7 +4300,6 @@ msgstr ""
 msgid "Group already exists"
 msgstr ""
 
-# 90%
 #, fuzzy
 msgid "Folder Size"
 msgstr "גודל התיקיה"
@@ -4482,7 +4319,6 @@ msgstr ""
 msgid "No subfolders present"
 msgstr ""
 
-# 80%
 #, fuzzy
 msgid "Subfolder"
 msgstr "תיקיות משנה"
@@ -4499,7 +4335,6 @@ msgstr ""
 msgid "Sort by: Total size (including subfolders)"
 msgstr ""
 
-# 86%
 msgid "Open Shared Folders"
 msgstr "פתח תיקיות משותפות"
 
@@ -4532,7 +4367,6 @@ msgstr ""
 msgid "No user"
 msgstr ""
 
-# 85%
 #, fuzzy
 msgid "You must specify a user"
 msgstr "עליך לציין שם."
@@ -4556,7 +4390,6 @@ msgstr "תיקיה ריקה"
 msgid "Empty Junk Email"
 msgstr ""
 
-# 92%
 #, fuzzy
 msgid "Empty Deleted Items"
 msgstr "מחק פריטים"
@@ -4582,8 +4415,6 @@ msgstr ""
 msgid "Reload"
 msgstr "טען מחדש"
 
-# 76%
-# 100%
 #, fuzzy
 msgid "Select color"
 msgstr "מחק תיקיה"
@@ -4596,7 +4427,6 @@ msgstr "הוסף לתיקיית המועדפים"
 msgid "Remove From Favorites"
 msgstr "הסר מלוח השנה"
 
-# 86%
 #, fuzzy
 msgid "Share folder..."
 msgstr "פתח תיקיות משותפות"
@@ -4605,8 +4435,6 @@ msgstr "פתח תיקיות משותפות"
 msgid "Import emails"
 msgstr "חשוב"
 
-# 93%
-# 100%
 #, fuzzy
 msgid "Import appointments"
 msgstr "פגישה חדשה"
@@ -4648,7 +4476,6 @@ msgstr "האם אתה בטוח כי ברצונך לרוקן את {0}?"
 msgid "Show All"
 msgstr ""
 
-# 75%
 #, fuzzy
 msgid "Show all folders"
 msgstr "הצג תיקיות משנה"
@@ -4740,7 +4567,6 @@ msgstr ""
 msgid "Schedule your mail to be sent on a specific date and time"
 msgstr ""
 
-# 86%
 msgid "Add attachments to this email"
 msgstr "הוסף קבצים מצורפים לדואר זה"
 
@@ -4814,8 +4640,6 @@ msgstr "סמן כנקרא"
 msgid "Mark Unread"
 msgstr "סמן כלא נקרא"
 
-# 87%
-# 100%
 #, fuzzy
 msgid "New mail"
 msgstr "דואר חדש"
@@ -4823,8 +4647,6 @@ msgstr "דואר חדש"
 msgid "Mail"
 msgstr "דואר"
 
-# 88%
-# 100%
 #, fuzzy
 msgid "Reply all"
 msgstr "השב לכולם"
@@ -4835,23 +4657,14 @@ msgstr ""
 msgid "Toggle red/complete flag"
 msgstr ""
 
-# 86%
-# 78%
-# 76%
 #, fuzzy
 msgid "Open Shared Mails"
 msgstr "פתח תיקיות משותפות"
 
-# 77%
-# 78%
-# 100%
 #, fuzzy
 msgid "Print single email"
 msgstr "נבחר פריט {0}"
 
-# 77%
-# 78%
-# 100%
 #, fuzzy
 msgid "Print selected email"
 msgstr "נבחר פריט {0}"
@@ -5029,7 +4842,6 @@ msgstr ""
 msgid "Signature name:"
 msgstr ""
 
-# 76%
 #, fuzzy
 msgid "Save Signature"
 msgstr "הוסף חתימה"
@@ -5037,7 +4849,6 @@ msgstr "הוסף חתימה"
 msgid "You have unsaved changes. Do you wish to save the changes?"
 msgstr ""
 
-# 76%
 #, fuzzy
 msgid "New signature"
 msgstr "הוסף חתימה"
@@ -5067,8 +4878,6 @@ msgstr ""
 msgid "Sort by: flag"
 msgstr ""
 
-# 85%
-# 100%
 #, fuzzy
 msgid "Older"
 msgstr "תיקיה"
@@ -5111,7 +4920,6 @@ msgstr ""
 msgid "Move to Junk Folder"
 msgstr "העבר לתיקית זבל"
 
-# 75%
 #, fuzzy
 msgid "Send to"
 msgstr "נשלח"
@@ -5128,10 +4936,6 @@ msgstr ""
 msgid "Quick Mail"
 msgstr ""
 
-# 77%
-# 78%
-# 100%
-# 84%
 #, fuzzy
 msgid "Print note"
 msgstr "נבחר פריט {0}"
@@ -5142,8 +4946,6 @@ msgstr "צבע"
 msgid "New note"
 msgstr ""
 
-# 86%
-# 78%
 #, fuzzy
 msgid "Open Shared Notes"
 msgstr "פתח תיקיות משותפות"
@@ -5151,10 +4953,6 @@ msgstr "פתח תיקיות משותפות"
 msgid "Sticky note"
 msgstr ""
 
-# 77%
-# 78%
-# 100%
-# 84%
 #, fuzzy
 msgid "Print selected note"
 msgstr "נבחר פריט {0}"
@@ -5458,7 +5256,6 @@ msgstr ""
 msgid "Status"
 msgstr "מצב"
 
-# 75%
 #, fuzzy
 msgid "Sort by: Status"
 msgstr "מיין לפי: מצב הדגל"
@@ -5550,7 +5347,6 @@ msgstr "הצג נמען"
 msgid "A task request can only have one recipient."
 msgstr ""
 
-# 87%
 #, fuzzy
 msgid "Due date"
 msgstr "תאריך היעד"
@@ -5576,9 +5372,6 @@ msgstr "שלח משימה לנמחה"
 msgid "Restore to Task List"
 msgstr "שחזר פריטים"
 
-# 94%
-# 76%
-# 100%
 #, fuzzy
 msgid "Delete this task"
 msgstr "מחק פריט זה."
@@ -5592,8 +5385,6 @@ msgstr "סמן כהושלמה"
 msgid "Mark this task as complete"
 msgstr "סמן משימה זו כהושלמה"
 
-# 75%
-# 100%
 #, fuzzy
 msgid "Print this task"
 msgstr "הדפס דואר זה"
@@ -5604,9 +5395,6 @@ msgstr "הקצה משימה"
 msgid "Cancel Assignment"
 msgstr "בטל משימה"
 
-# 75%
-# 79%
-# 100%
 #, fuzzy
 msgid "Mark this task as private"
 msgstr "סמן את איש קשר זה כפרטי."
@@ -5622,10 +5410,6 @@ msgstr "הושלם"
 msgid "Printed by: "
 msgstr "מיין לפי: אל"
 
-# 77%
-# 78%
-# 100%
-# 84%
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 #, fuzzy
 msgid "Printed on: "
@@ -5634,7 +5418,6 @@ msgstr "נבחר פריט {0}"
 msgid "Percent complete"
 msgstr ""
 
-# 90%
 #, fuzzy
 msgid "Total work"
 msgstr "סך הכל עבודה"
@@ -5642,7 +5425,6 @@ msgstr "סך הכל עבודה"
 msgid "{totalwork} hours"
 msgstr ""
 
-# 90%
 #, fuzzy
 msgid "Actual work"
 msgstr "עבודה בפועל"
@@ -5650,9 +5432,6 @@ msgstr "עבודה בפועל"
 msgid "{actualwork} hours"
 msgstr ""
 
-# 86%
-# 78%
-# 76%
 #, fuzzy
 msgid "Open Shared Tasks"
 msgstr "פתח תיקיות משותפות"
@@ -5663,15 +5442,10 @@ msgstr ""
 msgid "Detailed view"
 msgstr ""
 
-# 92%
-# 100%
 #, fuzzy
 msgid "Task request"
 msgstr "בקשת משימה:"
 
-# 77%
-# 78%
-# 100%
 #, fuzzy
 msgid "Print selected task"
 msgstr "נבחר פריט {0}"
@@ -5725,8 +5499,6 @@ msgstr "משויך אל"
 msgid "Sort by: Assignee"
 msgstr ""
 
-# 76%
-# 78%
 #, fuzzy
 msgid "Sort by: Owner"
 msgstr "מיין לפי: גודל"
@@ -5742,7 +5514,6 @@ msgstr "הקצה משימה"
 msgid "Loading tasks"
 msgstr ""
 
-# 92%
 #, fuzzy
 msgid "Date completed"
 msgstr "תאריך השלמה"
@@ -5883,7 +5654,6 @@ msgid ""
 "this."
 msgstr ""
 
-# 100%
 msgctxt "hierarchy.foldername"
 msgid "Inbox"
 msgstr "תיבת דואר נכנס"
@@ -5896,18 +5666,15 @@ msgctxt "hierarchy.foldername"
 msgid "Sent Items"
 msgstr ""
 
-# 92%
 #, fuzzy
 msgctxt "hierarchy.foldername"
 msgid "Deleted items"
 msgstr "מחק פריטים"
 
-# 100%
 msgctxt "hierarchy.foldername"
 msgid "Calendar"
 msgstr "לוח שנה"
 
-# 100%
 msgctxt "hierarchy.foldername"
 msgid "Contacts"
 msgstr "אנשי קשר"
@@ -5916,17 +5683,14 @@ msgctxt "hierarchy.foldername"
 msgid "Drafts"
 msgstr ""
 
-# 100%
 msgctxt "hierarchy.foldername"
 msgid "Journal"
 msgstr "יומן"
 
-# 100%
 msgctxt "hierarchy.foldername"
 msgid "Notes"
 msgstr "פתקים"
 
-# 100%
 msgctxt "hierarchy.foldername"
 msgid "Tasks"
 msgstr "משימות"
@@ -7272,12 +7036,10 @@ msgstr ""
 msgid "Error retrieving existing persistent settings"
 msgstr ""
 
-# 93%
 #, fuzzy
 msgid "Logon failed. Please verify your credentials and try again."
 msgstr "התחברות נכשלה , אנא בדוק את השם/סיסמא שלך."
 
-# 83%
 #, fuzzy
 msgid "Cannot connect to Gromox."
 msgstr "לא ניתן להתחבר לשרת של grommunio."
@@ -7358,18 +7120,14 @@ msgstr ""
 msgid "Request is not available."
 msgstr ""
 
-# 94%
-# 90%
 #, fuzzy
 msgid "You have insufficient privileges to open this object."
 msgstr "אין ברשותך הרשאות מספקות בכדי להעביר תיקיה."
 
-# 93%
 #, fuzzy
 msgid "Logon Failed. Please check your name/password."
 msgstr "התחברות נכשלה , אנא בדוק את השם/סיסמא שלך."
 
-# 83%
 #, fuzzy
 msgid "Can not connect to Gromox."
 msgstr "לא ניתן להתחבר לשרת של grommunio."
@@ -7399,23 +7157,18 @@ msgstr ""
 msgid "New Time Proposed"
 msgstr ""
 
-# 78%
-# 76%
 #, fuzzy, php-format
 msgid "Occurs every %s effective %s from %s to %s."
 msgstr "מופיע כל {0} החל מ{1} עד {2}."
 
-# 77%
 #, fuzzy, php-format
 msgid "Occurs every %s %s effective %s from %s to %s."
 msgstr "מופיע כל {0} החל מ {1} למופע {2}."
 
-# 80%
 #, fuzzy, php-format
 msgid "Occurs every %s effective %s."
 msgstr "מופיע כל {0} החל מ{1}"
 
-# 75%
 #, fuzzy, php-format
 msgid "Occurs every %s %s effective %s."
 msgstr "מופיע כל {0} החל מ{1}"
@@ -7444,26 +7197,18 @@ msgid_plural "Occurs every %s %s effective %s for %s occurrences."
 msgstr[0] ""
 msgstr[1] ""
 
-# 76%
-# 75%
 #, fuzzy, php-format
 msgid "Occurs every %s effective %s until %s from %s to %s."
 msgstr "מופיע כל {0} החל מ{1} עד {2} בין {3} ל {4}."
 
-# 76%
-# 75%
-# 94%
 #, fuzzy, php-format
 msgid "Occurs every %s %s effective %s until %s from %s to %s."
 msgstr "מופיע כל {0} החל מ{1} עד {2} בין {3} ל {4}."
 
-# 78%
 #, fuzzy, php-format
 msgid "Occurs every %s effective %s until %s."
 msgstr "מופיע כל {0} החל מ{1} עד {2}."
 
-# 78%
-# 92%
 #, fuzzy, php-format
 msgid "Occurs every %s %s effective %s until %s."
 msgstr "מופיע כל {0} החל מ{1} עד {2}."
@@ -7687,27 +7432,21 @@ msgid ""
 "have access to open this message."
 msgstr ""
 
-# 78%
 msgid "Could not open message."
 msgstr "לא ניתן לפתוח את ההודעה."
 
-# 98%
 #, fuzzy
 msgid "You have insufficient privileges to decline this Meeting Request"
 msgstr "אין ברשותך הרשאות מספקות בכדי לסרב לבקשת הפגישה הזו."
 
-# 98%
 #, fuzzy
 msgid "You have insufficient privileges to accept this Meeting Request"
 msgstr "אין ברשותך הרשאות מספקות בכדי לקבל את בקשת הפגישה הזו."
 
-# 78%
-# 82%
 #, fuzzy
 msgid "Could not copy message"
 msgstr "לא ניתן לפתוח את ההודעה."
 
-# 86%
 #, fuzzy
 msgid "Could not move message"
 msgstr "לא ניתן לשמור את הודעה זו."
@@ -7715,7 +7454,6 @@ msgstr "לא ניתן לשמור את הודעה זו."
 msgid "You have insufficient privileges to save items in this folder"
 msgstr "אין ברשותך הרשאות מספקות בכדי לשמור פריטים בתיקיה זו"
 
-# 95%
 #, fuzzy
 msgid "Could not save message"
 msgstr "לא ניתן לשמור את הודעה זו."

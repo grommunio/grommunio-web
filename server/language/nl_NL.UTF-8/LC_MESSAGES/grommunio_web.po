@@ -57,8 +57,6 @@ msgid_plural "{0} TB"
 msgstr[0] "{0} TB"
 msgstr[1] "{0} TB"
 
-# 81%
-# 90%
 msgid "{0} minute"
 msgid_plural "{0} minutes"
 msgstr[0] "{0} minuut"
@@ -201,7 +199,6 @@ msgid "This date is before the minimum date"
 msgstr "Het gekozen datum vindt voor de start datum plaats"
 
 # misschien is "minimum date" te letterlijk gekopieerd
-# 80%
 msgid "This date is after the maximum date"
 msgstr "Deze datum is later dan de maximumdatum"
 
@@ -330,11 +327,9 @@ msgstr "Dit veld mag alleen letters en _ bevatten"
 msgid "This field should only contain letters, numbers and _"
 msgstr "Dit veld mag alleen letters, cijfers en _ bevatten"
 
-# 87%
 msgid "Email Addresses"
 msgstr "Emailadressen"
 
-# 81%
 msgid "Email addresses"
 msgstr "Emailadressen"
 
@@ -359,7 +354,6 @@ msgstr "Notities"
 msgid "Members"
 msgstr "Leden"
 
-# 92%
 msgid "Email Address"
 msgstr "E-mailadres"
 
@@ -390,7 +384,6 @@ msgstr "Initialen"
 msgid "Display"
 msgstr "Tonen als"
 
-# 77%
 msgid "Addresses"
 msgstr "Adressen"
 
@@ -445,7 +438,6 @@ msgstr "Telefoonnummers"
 msgid "Business"
 msgstr "Bedrijf"
 
-# 88%
 msgid "Business2"
 msgstr "Bedrijf2"
 
@@ -464,8 +456,6 @@ msgstr "Mobiel"
 msgid "Pager"
 msgstr "Pieper"
 
-# 75%
-# 100%
 msgid "No user selected"
 msgstr "Geen gebruiker geselecteerd"
 
@@ -505,45 +495,33 @@ msgstr "Toon de namen van de"
 msgid "Search..."
 msgstr "Zoek..."
 
-# 76%
 msgid "Sort by: Icon"
 msgstr "Sorteer op: Icoon"
 
-# 76%
 msgid "Sort by: Name"
 msgstr "Sorteer op: Naam"
 
-# 75%
-# 95%
-# 85%
 msgid "Sort by: Display Name"
 msgstr "Sorteer op: Weergavenaam"
 
-# 85%
 msgid "File as"
 msgstr "Opslaan als"
 
-# 93%
-# 81%
 msgid "Sort by: File As"
 msgstr "Sorteer op: Opslaan Als"
 
-# 80%
 msgid "First Name"
 msgstr "Voornaam"
 
 msgid "Sort by: First Name"
 msgstr "Sorteer op: Voornaam"
 
-# 77%
 msgid "Last Name"
 msgstr "Achternaam"
 
-# 76%
 msgid "Sort by: Last Name"
 msgstr "Sorteer op: Achternaam"
 
-# 86%
 msgid "Sort by: Email Address"
 msgstr "Sorteer op: E-mailadres"
 
@@ -556,57 +534,42 @@ msgstr "Sorteer op: Functietitel"
 msgid "Company Name"
 msgstr "Bedrijfsnaam"
 
-# 95%
-# 85%
 msgid "Sort by: Company Name"
 msgstr "Sorteer op: Bedrijfsnaam"
 
-# 84%
 msgid "Sort by: Department"
 msgstr "Sorteer op: Afdeling"
 
 msgid "Office Phone"
 msgstr "Kantoortelefoon"
 
-# 90%
-# 75%
-# 85%
 msgid "Sort by: Office Phone"
 msgstr "Sorteer op: Kantoortelefoon"
 
 msgid "Sort by: Mobile"
 msgstr "Sorteer op: Mobiel"
 
-# 83%
 msgid "Home Phone"
 msgstr "Thuistelefoon"
 
-# 90%
-# 84%
 msgid "Sort by: Home Phone"
 msgstr "Sorteer op: Thuistelefoon"
 
-# 76%
-# 78%
 msgid "Sort by: Pager"
 msgstr "Sorteer op: Pager"
 
 msgid "Location"
 msgstr "Locatie"
 
-# 87%
-# 82%
 msgid "Sort by: Location"
 msgstr "Sorteer op: Locatie"
 
-# 76%
 msgid "Sort by: Fax"
 msgstr "Sorteer op: Fax"
 
 msgid "Print single item"
 msgstr "Print een losse item"
 
-# 78%
 msgid "Print selected item"
 msgstr "Druk geselecteerde item af"
 
@@ -625,7 +588,6 @@ msgstr "Voorbeeld rechts"
 msgid "Bottom preview"
 msgstr "Voorbeeld onder"
 
-# 87%
 msgid "Any date"
 msgstr "Elke datum"
 
@@ -689,8 +651,6 @@ msgstr "Als nieuw bewerken"
 msgid "Search tools"
 msgstr "Zoek opties"
 
-# 85%
-# 100%
 msgid "Folders"
 msgstr "Mappen"
 
@@ -756,16 +716,12 @@ msgstr "Favorieten"
 msgid "Add a folder to favorites based on this search query"
 msgstr "Voeg een folder toe aan favorieten gebaseerd op deze zoekopdracht"
 
-# 76%
 msgid "Select Folder"
 msgstr "Selecteer Map"
 
 msgid "Delete search folder"
 msgstr "Verwijder een zoekfolder"
 
-# 76%
-# 84%
-# 100%
 msgid "Sort by: Date"
 msgstr "Sorteer op: Datum"
 
@@ -814,7 +770,6 @@ msgstr ""
 msgid "Required"
 msgstr "Vereist"
 
-# 75%
 msgid "Optional"
 msgstr "Optioneel"
 
@@ -836,24 +791,18 @@ msgstr "dag"
 msgid "days"
 msgstr "dagen"
 
-# 75%
 msgid "week"
 msgstr "week"
 
-# 75%
-# 80%
 msgid "weeks"
 msgstr "weken"
 
 msgid " on "
 msgstr " aan "
 
-# 80%
 msgid "month"
 msgstr "maand"
 
-# 80%
-# 83%
 msgid "months"
 msgstr "maanden"
 
@@ -912,7 +861,6 @@ msgstr "Elke {0} met ingang van {1} tot en met {2}."
 msgid "Occurs every {0} {1} effective {2} until {3}."
 msgstr "Elke {0} {1} met ingang van {2} tot en met {3}."
 
-# 100%
 msgid "When"
 msgstr "Op"
 
@@ -926,8 +874,6 @@ msgstr "Locatie"
 msgid "New Meeting Time Proposed"
 msgstr "Nieuwe Tijd Voorgesteld"
 
-# 75%
-# 100%
 msgid "and "
 msgstr "en "
 
@@ -937,18 +883,15 @@ msgstr "Sorteer op: Bijlage"
 msgid "Sort by: Recurring"
 msgstr "Sorteer op: Herhalend"
 
-# 81%
 msgid "Sort by: Subject"
 msgstr "Sorteer op: Onderwerp"
 
 msgid "Start Date"
 msgstr "Begindatum"
 
-# 84%
 msgid "Sort by: Start Date"
 msgstr "Sorteer op: Startdatum"
 
-# 87%
 msgid "End Date"
 msgstr "Einddatum"
 
@@ -967,18 +910,12 @@ msgstr "Optionele Deelnemer"
 msgid "Show Time As"
 msgstr "Toon Tijd Als"
 
-# 77%
 msgid "Recurrence pattern"
 msgstr "Terugkeerpatroon"
 
 msgid "All Day Event"
 msgstr "Duurt Hele Dag"
 
-# 81%
-# 79%
-# 87%
-# 76%
-# 100%
 msgid "Add Shared Calendar"
 msgstr "Open gedeelde agenda"
 
@@ -988,11 +925,9 @@ msgstr "Verwijder Uit Agenda"
 msgid "No Response Required"
 msgstr "Geen Antwoord Nodig"
 
-# 75%
 msgid "Accept"
 msgstr "Accepteer"
 
-# 77%
 msgid "Accept Meeting Request"
 msgstr "Accepteer Vergaderverzoek"
 
@@ -1002,7 +937,6 @@ msgstr "Voorlopig bezet"
 msgid "Tentatively Accept Meeting Request"
 msgstr "Accepteer Vergaderverzoek Voorlopig"
 
-# 87%
 msgid "Decline"
 msgstr "Afwijzen"
 
@@ -1137,7 +1071,6 @@ msgstr "Planning"
 msgid "Tracking"
 msgstr "Reacties"
 
-# 75%
 msgctxt "calendar.dialog"
 msgid "Not all attendees could be resolved."
 msgstr "Niet alle genodigden konden worden opgelost."
@@ -1160,7 +1093,6 @@ msgctxt "calendar.dialog"
 msgid "You proposed a new time for this meeting on {0}"
 msgstr "U stelde een nieuwe tijd voor deze bijeenkomst voor op {0}"
 
-# 91%
 msgctxt "calendar.dialog"
 msgid "{0} proposed a new time for this meeting on {1}"
 msgstr "{0} stelde een nieuwe tijd voor deze bijeenkomst voor op {1}"
@@ -1177,7 +1109,6 @@ msgctxt "calendar.dialog"
 msgid "Tentatively Accepted on {0}"
 msgstr "Voorlopig Geaccepteerd op {0}"
 
-# 76%
 msgctxt "calendar.dialog"
 msgid "Tentatively Accepted by {0} on {1}"
 msgstr "Door {0} voorlopig geaccepteerd op {1}"
@@ -1210,7 +1141,6 @@ msgstr ""
 "Alle gemaakte wijzigingen zullen worden overschreven wanneer dit "
 "vergaderverzoek wordt bijgewerkt door de organisator"
 
-# 90%
 msgid "Create in"
 msgstr "Maak in"
 
@@ -1249,11 +1179,9 @@ msgstr "Wilt u de locatie \"{0}\" bijwerken met de nieuwe locatie \"{1}\"?"
 msgid "jS F Y {0}"
 msgstr "j F Y {0}"
 
-# 75%
 msgid "None"
 msgstr "Geen"
 
-# 75%
 msgid "Send"
 msgstr "Verzenden"
 
@@ -1287,14 +1215,12 @@ msgstr "Annuleer uitnodiging"
 msgid "High priority"
 msgstr "Hoge prioriteit"
 
-# 76%
 msgid "Mark this appointment as high priority"
 msgstr "Markeer deze afspraken als hoge prioriteit"
 
 msgid "Low priority"
 msgstr "Lage prioriteit"
 
-# 78%
 msgid "Mark this appointment as low priority"
 msgstr "Markeer deze afspraken als lage prioriteit"
 
@@ -1334,7 +1260,6 @@ msgstr "Eindtijd"
 msgid "Comment"
 msgstr "Opmerking"
 
-# 84%
 msgid "Send Meeting Request Cancellation"
 msgstr "Stuur Annulering Vergaderverzoek"
 
@@ -1384,7 +1309,6 @@ msgstr "Antwoord nu verzenden."
 msgid "Don't send a response."
 msgstr "Geen antwoord verzenden."
 
-# 91%
 msgid "The following responses for this meeting have been received"
 msgstr "De volgende antwoorden op dit vergaderverzoek werden ontvangen"
 
@@ -1394,16 +1318,12 @@ msgstr "Aanwezigheid"
 msgid "Response"
 msgstr "Antwoord"
 
-# 93%
-# 100%
 msgid "New appointment"
 msgstr "Nieuwe Afspraak"
 
 msgid "Creating an item"
 msgstr "Creëer een item"
 
-# 89%
-# 100%
 msgid "New meeting request"
 msgstr "Nieuw Vergaderverzoek"
 
@@ -1450,38 +1370,30 @@ msgstr "l j M Y {0}"
 msgid "All day: "
 msgstr "Gehele dag: "
 
-# 87%
-# 75%
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for formatting instructions
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "l jS F"
 msgstr "l j F"
 
-# 88%
 msgid "Organiser"
 msgstr "Organisator"
 
-# 92%
 msgid "Meeting status"
 msgstr "Status vergadering"
 
-# 94%
 msgid "Required Attendees"
 msgstr "Vereiste Deelnemers"
 
-# 94%
 msgid "Optional Attendees"
 msgstr "Optionele Deelnemers"
 
-# 88%
 msgid "Resources"
 msgstr "Middelen"
 
 msgid "Sensitivity"
 msgstr "Gevoeligheid"
 
-# 80%
 msgid "Importance"
 msgstr "Belangrijkheid"
 
@@ -1587,15 +1499,12 @@ msgstr "Openen"
 msgid "Copy/Move"
 msgstr "Kopiëren/Verplaatsen"
 
-# 75%
 msgid "Send to..."
 msgstr "Verzenden naar.."
 
 msgid "Export as"
 msgstr "Exporteren als"
 
-# 80%
-# 100%
 msgid "Occurrence"
 msgstr "Geval"
 
@@ -1620,8 +1529,6 @@ msgstr "Icoon"
 msgid "Recurring"
 msgstr "Terugkerend"
 
-# 87%
-# 82%
 msgid "Sort by: Duration"
 msgstr "Sorteer op: Duur"
 
@@ -1634,36 +1541,27 @@ msgstr "Sorteer op: Status"
 msgid "Sort by: Show as"
 msgstr "Sorteren op: Tonen als"
 
-# 84%
 msgid "Sort by: Categories"
 msgstr "Sorteer op: Categoriën"
 
-# 90%
 msgid "Created On"
 msgstr "Aangemaakt Op"
 
-# 81%
-# 84%
 msgid "Sort by: Created On"
 msgstr "Sorteer op: Aangemaakt Op"
 
 msgid "Due By"
 msgstr "Vervalt Op"
 
-# 82%
-# 76%
 msgid "Sort by: Due By"
 msgstr "Sorteer op: Vervaldatum"
 
 msgid "Label"
 msgstr "Label"
 
-# 76%
-# 78%
 msgid "Sort by: Label"
 msgstr "Sorteer op: Label"
 
-# 83%
 msgid "Sort by: Organizer"
 msgstr "Sorteer op: Organisator"
 
@@ -1694,15 +1592,12 @@ msgstr "Terugkeerpatroon"
 msgid "Sort by: Recurring Pattern"
 msgstr "Sorteer op: Herhaalpatroon"
 
-# 86%
-# 77%
 msgid "Sort by: Reminder"
 msgstr "Sorteer op: Herinnering"
 
 msgid "Sort by: Sensitivity"
 msgstr "Sorteer op: Prive"
 
-# 86%
 msgid "Loading appointments"
 msgstr "Afspraken laden"
 
@@ -1716,7 +1611,6 @@ msgstr "Optionele aanwezigen"
 msgid "jS F {0}"
 msgstr "j F {0}"
 
-# 83%
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "jS F Y"
 msgstr "j F Y"
@@ -1799,7 +1693,6 @@ msgctxt "mail.previewpanel"
 msgid "When"
 msgstr "Op"
 
-# 100%
 #. TRANSLATORS: This message is used as label for the field which to indicates to whom the given mail was sent
 msgctxt "mail.previewpanel"
 msgid "Location"
@@ -1814,7 +1707,6 @@ msgid ""
 msgstr ""
 "Uw agenda is automatisch bijgewerkt. Dit vergaderverzoek wordt nu verwijderd."
 
-# 86%
 msgid "Loading appointments..."
 msgstr "Afspraken laden..."
 
@@ -1830,7 +1722,6 @@ msgstr "dag(en)"
 msgid "{0}"
 msgstr "{0}"
 
-# 86%
 msgid "Upcoming Appointments"
 msgstr "Aankomende afspraken"
 
@@ -1840,8 +1731,6 @@ msgstr "Afspraken van {0}"
 msgid "Appointments of {0} - {1}"
 msgstr "Afspraken van {0} - {1}"
 
-# 93%
-# 100%
 msgid "No appointments"
 msgstr "Geen afspraken"
 
@@ -1851,7 +1740,6 @@ msgstr "Vandaag: {1} - {0}"
 msgid "Today (all day)"
 msgstr "Vandaag (gehele dag)"
 
-# 100%
 #. TRANSLATORS: Display name of a folder: "FOLDERNAME - STORENAME".
 #. TRANSLATORS: Displayed on top of a tree with folders: "FOLDERNAME - USERNAME".
 msgid "{0} - {1}"
@@ -1887,7 +1775,6 @@ msgstr "Dit item afdrukken is nog niet mogelijk"
 msgid "Item type: "
 msgstr "Item type: "
 
-# 92%
 msgid "Printing of this view is not yet available"
 msgstr "Deze weergave afdrukken is nog niet mogelijk"
 
@@ -1911,7 +1798,6 @@ msgstr ""
 "Dit is een herhalende afspraak. Wilt u alleen deze herhaling of de serie "
 "openen?"
 
-# 80%
 msgid "Recurring Meeting Request"
 msgstr "Herhalend Vergaderverzoek"
 
@@ -1932,7 +1818,6 @@ msgstr ""
 "Dit is een herhalend taakverzoek. Wilt u alleen deze herhaling of de serie "
 "openen?"
 
-# 95%
 msgid "Open this occurrence"
 msgstr "Open deze herhaling"
 
@@ -1992,7 +1877,6 @@ msgstr ""
 "Dit is een herhalend taakverzoek. Wilt u alleen deze herhaling of de serie "
 "verwijderen?"
 
-# 95%
 msgid "Delete this occurrence"
 msgstr "Verwijder deze herhaling"
 
@@ -2053,8 +1937,6 @@ msgstr "Identieke ontvanger"
 msgid "Recipient already exists."
 msgstr "Ontvanger bestaat al."
 
-# 86%
-# 77%
 msgid "Notify sender"
 msgstr "Stel afzender op de hoogte"
 
@@ -2111,7 +1993,6 @@ msgstr "Invoegen als"
 msgid "Text only"
 msgstr "Alleen tekst"
 
-# 90%
 msgid "Attachment"
 msgstr "Bijlage"
 
@@ -2124,8 +2005,6 @@ msgstr "Geen bericht geselecteerd"
 msgid "Import to"
 msgstr "Importeren naar"
 
-# 90%
-# 100%
 msgid "New folder"
 msgstr "Nieuwe Map"
 
@@ -2198,8 +2077,6 @@ msgstr "Formaat van de afbeelding wordt niet ondersteund. "
 msgid "Supported format for contact pictures are"
 msgstr "Ondersteunde formaten voor afbeeldingen van contactpersonen zijn"
 
-# 93%
-# 100%
 msgid "Attachment Error"
 msgstr "Fout in de bijlage"
 
@@ -2273,7 +2150,6 @@ msgstr "Voeg samen"
 msgid "Remove"
 msgstr "Verwijderen"
 
-# 90%
 msgid "Check Names"
 msgstr "Namen controleren"
 
@@ -2289,14 +2165,12 @@ msgstr "Meer dan een '{0}' gevonden."
 msgid "Alert"
 msgstr "Waarschuwing"
 
-# 80%
 msgid "Please select a recipient"
 msgstr "Geef een geadresseerde op"
 
 msgid "Mail and Post"
 msgstr "E-mail en Post"
 
-# 87%
 msgid "Contact"
 msgstr "Contactpersoon"
 
@@ -2357,7 +2231,6 @@ msgstr ""
 "Als u alleen folder rechten wilt geven, klik dan rechts op een folder om de "
 "context menu te openen en click op \"Deel folder...\""
 
-# 90%
 msgid "Permission"
 msgstr "Permissie"
 
@@ -2416,11 +2289,9 @@ msgstr "ICS"
 msgid "Set custom flag"
 msgstr "Speciale vlag instellen"
 
-# 90%
 msgid "Start date"
 msgstr "Begindatum"
 
-# 87%
 msgid "End date"
 msgstr "Einddatum"
 
@@ -2463,7 +2334,6 @@ msgstr "Emailadres kopiëren"
 msgid "Set as required"
 msgstr "Markeer als verplicht"
 
-# 75%
 msgid "Set as optional"
 msgstr "Markeer als optioneel"
 
@@ -2485,12 +2355,9 @@ msgstr "Niet Aanwezig"
 msgid "No Information"
 msgstr "Geen Informatie"
 
-# 82%
 msgid "Show non-working hours"
 msgstr "Toon ook niet-kantooruren"
 
-# 82%
-# 81%
 msgid "Hide non-working hours"
 msgstr "Toon alleen kantooruren"
 
@@ -2500,7 +2367,6 @@ msgstr "Geen beschikbaarheidsinformatie aanwezig voor deze datum"
 msgid "No suggestions available"
 msgstr "Geen suggesties beschikbaar"
 
-# 87%
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "l jS F Y"
 msgstr "l j F Y"
@@ -2545,7 +2411,6 @@ msgstr "Selectie uitbreiden tot het eerste item in de lijst"
 msgid "Extend the selection to the last item in the list"
 msgstr "Selectie uitbreiden tot het laatste item in de lijst"
 
-# 77%
 msgid "Open selected item"
 msgstr "Open geselecteerd item"
 
@@ -2559,9 +2424,6 @@ msgstr "Lijst afdrukken"
 msgid "Open copy/move dialog"
 msgstr "Open het dialoogvenster kopiëren/verplaatsen"
 
-# 77%
-# 75%
-# 100%
 msgid "Delete selected item"
 msgstr "Verwijder geselecteerd item"
 
@@ -2593,15 +2455,12 @@ msgstr "Geen Cc ontvanger geconfigureerd"
 msgid "Loading Cc recipients"
 msgstr "Laden van Cc ontvangers"
 
-# 88%
-# 100%
 msgid "Reply Mail"
 msgstr "Beantwoorden"
 
 msgid "New Mail"
 msgstr "Nieuwe email"
 
-# 80%
 msgid "Please select a Cc recipient record."
 msgstr "Selecteer een Cc ontvanger."
 
@@ -2636,17 +2495,12 @@ msgstr "ZDeveloper"
 msgid "grommunio Web print"
 msgstr "grommunio Web print"
 
-# 91%
 msgid "Display name"
 msgstr "Weergavenaam"
 
-# 85%
 msgid "Email address"
 msgstr "E-mailadres"
 
-# 75%
-# 78%
-# 100%
 msgid "Expand distribution list"
 msgstr "Distributielijst uitklappen"
 
@@ -2657,7 +2511,6 @@ msgstr ""
 "De distributielijst wordt vervangen door zijn leden. Deze actie kan niet "
 "ongedaan worden gemaakt."
 
-# 92%
 msgid "Edit Recipient"
 msgstr "Bewerk Geadresseerde"
 
@@ -2694,7 +2547,6 @@ msgstr "3de"
 msgid "4th"
 msgstr "4de"
 
-# 75%
 msgid "last"
 msgstr "laatste"
 
@@ -2755,7 +2607,6 @@ msgstr "Eindigt na {A} keer"
 msgid "End by {A}"
 msgstr "Hou op na {A}"
 
-# 96%
 #. TRANSLATORS: This informs the user what the exact duration of the appointment is. Where {D} represents the days, {H} the hours and {M} the minutes.
 #. For example: 'Occurence duration: 1 day 2 hours 45 minutes', or when the appointment is shorter then 1 day: 'Occurence duration: 1 hour'
 msgid "Occurrence duration: {D} {H} {M}"
@@ -2787,7 +2638,6 @@ msgid_plural "There are {0} reminders"
 msgstr[0] "Er is {0} herinnering"
 msgstr[1] "Er zijn {0} herinneringen"
 
-# 88%
 msgid "Reminders"
 msgstr "Herinneringen"
 
@@ -2801,7 +2651,6 @@ msgstr "Verloopt Over"
 msgid "Due"
 msgstr "Verloopt"
 
-# 92%
 msgid "Reminder time"
 msgstr "Herinneringstijd"
 
@@ -2844,9 +2693,6 @@ msgstr "Verwijder permanent"
 msgid "Delete All"
 msgstr "Alles verwijderen"
 
-# 85%
-# 75%
-# 100%
 msgid "Messages"
 msgstr "Berichten"
 
@@ -2870,9 +2716,6 @@ msgstr[1] "Er zijn {0} items die kunnen teruggezet worden"
 msgid "Deleted On"
 msgstr "Verwijderd op"
 
-# 81%
-# 84%
-# 78%
 msgid "Sort by: Deleted On"
 msgstr "Sorteer op: Verwijderd op"
 
@@ -2882,7 +2725,6 @@ msgstr "Aantal items"
 msgid "Sort by: Item Count"
 msgstr "Sorteer op: Aantal items"
 
-# 76%
 msgid "Sort by: From"
 msgstr "Sorteer op: Afzender"
 
@@ -2895,9 +2737,6 @@ msgstr "Sorteer op: Ontvangen"
 msgid "Size"
 msgstr "Grootte"
 
-# 81%
-# 75%
-# 76%
 msgid "Sort by: Size"
 msgstr "Sorteer op: Grootte"
 
@@ -2934,13 +2773,9 @@ msgstr "gebruik deze woorden in het adres van de afzender..."
 msgid "includes these words in the subject..."
 msgstr "bevat deze woorden in het onderwerp..."
 
-# 84%
-# 100%
 msgid "includes these words in the body..."
 msgstr "bevat deze woorden in de inhoud..."
 
-# 84%
-# 100%
 msgid "includes these words in the transport-headers..."
 msgstr "bevat deze woorden in de transport-headers..."
 
@@ -3065,15 +2900,12 @@ msgstr "Actief"
 msgid "Out of office"
 msgstr "Afwezigheid"
 
-# 80%
 msgid "Rule"
 msgstr "Regel"
 
-# 76%
 msgid "Loading rules"
 msgstr "Regels laden"
 
-# 76%
 msgid "Please select a rule."
 msgstr "Selecteer een regel."
 
@@ -3155,7 +2987,6 @@ msgstr "Selecteer een 'verzenden als' adres."
 msgid "Delegates"
 msgstr "Gemachtigden"
 
-# 88%
 msgid "Delegate settings"
 msgstr "Gemachtigdeninstellingen"
 
@@ -3183,7 +3014,6 @@ msgstr "Zet geluid uit"
 msgid "Notifications"
 msgstr "Notificaties"
 
-# 80%
 msgid "Rules"
 msgstr "Regels"
 
@@ -3193,26 +3023,18 @@ msgstr "Afzenders"
 msgid "From Addresses settings"
 msgstr "Afzenders instellingen"
 
-# 88%
-# 100%
 msgid "Full name"
 msgstr "Volledige naam"
 
-# 92%
 msgid "Phone Numbers"
 msgstr "Telefoonnummers"
 
-# 80%
-# 75%
 msgid "Business Fax"
 msgstr "Werkfax"
 
 msgid "Webpage"
 msgstr "Webpagina"
 
-# 85%
-# 75%
-# 83%
 msgid "IM Address"
 msgstr "IM-Adres"
 
@@ -3239,7 +3061,6 @@ msgstr "l d/m/Y {0}"
 msgid "d-m-Y {0}"
 msgstr "d-m-Y {0}"
 
-# 85%
 msgid "Unknown"
 msgstr "Onbekend"
 
@@ -3255,7 +3076,6 @@ msgstr "Laden..."
 msgid "Message could not be loaded"
 msgstr "Bericht kan niet geladen worden"
 
-# 100%
 #. TRANSLATORS: This message is used as label for the field which indicates which attachments are inside the message
 msgctxt "mail.previewpanel"
 msgid "Attachments"
@@ -3368,12 +3188,10 @@ msgctxt "mail.previewpanel"
 msgid "The meeting was updated after the attendee sent this response"
 msgstr "De afspraak is bijgewerkt nadat de genodigde dit antwoord stuurde"
 
-# 100%
 msgctxt "mail.previewpanel"
 msgid "This appointment occurs in the past."
 msgstr "Deze bijeenkomst is in het verleden."
 
-# 100%
 msgctxt "mail.previewpanel"
 msgid "Please respond."
 msgstr "Beantwoord alstublieft."
@@ -3438,17 +3256,14 @@ msgstr ""
 msgid "The matching task was not found in your task list."
 msgstr "De overeenkomstige taak is niet gevonden in uw takenlijst."
 
-# 100%
 msgctxt "mail.previewpanel"
 msgid "To"
 msgstr "Naar"
 
-# 100%
 msgctxt "mail.previewpanel"
 msgid "Cc"
 msgstr "Cc"
 
-# 100%
 msgctxt "mail.previewpanel"
 msgid "Bcc"
 msgstr "Bcc"
@@ -3467,8 +3282,6 @@ msgctxt "mail.previewpanel"
 msgid "on behalf of"
 msgstr "namens"
 
-# 75%
-# 100%
 #. TRANSLATORS: This message is used to indicate that no sent date is available for the message (because it has not been sent yet).
 msgctxt "mail.previewpanel"
 msgid "None"
@@ -3513,18 +3326,15 @@ msgstr "Overig Adres"
 msgid "Business Phone"
 msgstr "Werktelefoon"
 
-# 87%
 msgid "Business 2 Phone"
 msgstr "Werktelefoon 2"
 
-# 88%
 msgid "Assistant Phone"
 msgstr "Telefoon Assistent"
 
 msgid "Company Main Phone"
 msgstr "Hoofdnummer Bedrijf"
 
-# 83%
 msgid "Home 2 Phone"
 msgstr "Thuistelefoon 2"
 
@@ -3558,21 +3368,18 @@ msgstr "Overige Fax"
 msgid "Home Fax"
 msgstr "Thuisfax"
 
-# 94%
 msgid "Email Display As"
 msgstr "Toon E-mail Als"
 
 msgid "Email 2"
 msgstr "E-mail 2"
 
-# 89%
 msgid "Email2 Display As"
 msgstr "Toon e-mail 2 als"
 
 msgid "Email 3"
 msgstr "E-mail 3"
 
-# 89%
 msgid "Email3 Display As"
 msgstr "Toon E-mail 3 Als"
 
@@ -3589,18 +3396,12 @@ msgstr "Echtgenoot/Partner"
 msgid "Profession"
 msgstr "Beroep"
 
-# 87%
-# 93%
 msgid "Assistant's Name"
 msgstr "Naam Assistent"
 
-# 94%
-# 77%
 msgid "Distribution List Name"
 msgstr "Naam Distributielijst"
 
-# 78%
-# 86%
 msgid "Open Shared Contacts"
 msgstr "Open Gedeelde Contactpersonen"
 
@@ -3613,7 +3414,6 @@ msgstr "Telefoonlijst"
 msgid "Add to contacts"
 msgstr "Voeg toe aan contactpersonen"
 
-# 77%
 msgid "Print selected contact"
 msgstr "Druk geselecteerde contactpersoon af"
 
@@ -3647,7 +3447,6 @@ msgstr "Jr."
 msgid "Sr."
 msgstr "Sr."
 
-# 92%
 msgid "Phone number"
 msgstr "Telefoonnummer"
 
@@ -3672,15 +3471,12 @@ msgstr "Toon dit opnieuw als een adres incompleet of onduidelijk is."
 msgid "Details"
 msgstr "Details"
 
-# 93%
 msgid "Office location"
 msgstr "Kantoorlocatie"
 
-# 85%
 msgid "Manager's name"
 msgstr "Naam manager"
 
-# 87%
 msgid "Assistant's name"
 msgstr "Naam assistent"
 
@@ -3700,7 +3496,6 @@ msgstr "Foto"
 msgid "Additional information"
 msgstr "Extra informatie"
 
-# 80%
 msgid "Business 2"
 msgstr "Business 2"
 
@@ -3710,7 +3505,6 @@ msgstr "Terugbellen"
 msgid "Car"
 msgstr "Auto"
 
-# 83%
 msgid "Home 2"
 msgstr "Thuis 2"
 
@@ -3729,7 +3523,6 @@ msgstr "Voornaam"
 msgid "Middle"
 msgstr "Tussen"
 
-# 75%
 msgid "Last"
 msgstr "Achternaam"
 
@@ -3754,15 +3547,12 @@ msgstr "Extensie"
 msgid "Add Attachment"
 msgstr "Bijlage Toevoegen"
 
-# 81%
 msgid "Add attachments to this contact"
 msgstr "Voeg bijlagen toe aan deze contactpersoon"
 
-# 75%
 msgid "Mark this contact as private"
 msgstr "Markeer deze contactpersoon als privé"
 
-# 94%
 msgid "Distribution List"
 msgstr "Distributielijst"
 
@@ -3775,7 +3565,6 @@ msgstr "Nieuw emailadres"
 msgid "Please enter a valid email address"
 msgstr "Voer een geldig emailadres in"
 
-# 82%
 msgid "Select Members"
 msgstr "Selecteer Leden"
 
@@ -3788,9 +3577,6 @@ msgstr "Schrijf notitie hier..."
 msgid "New contact"
 msgstr "Nieuwe contactpersoon"
 
-# 75%
-# 78%
-# 100%
 msgid "New distribution list"
 msgstr "Nieuw distributielijst"
 
@@ -3800,8 +3586,6 @@ msgstr "Toon email2 als"
 msgid "Email 3 Display As"
 msgstr "Toon email3 als"
 
-# 75%
-# 80%
 msgid "Loading contacts"
 msgstr "Contactpersonen laden"
 
@@ -3826,184 +3610,126 @@ msgstr "Mobiel:"
 msgid "Sort by: Full Name"
 msgstr "Sorteer op: Volledige Naam"
 
-# 91%
-# 87%
 msgid "Sort by: Email Address 2"
 msgstr "Sorteer op: E-mailadres 2"
 
-# 91%
-# 87%
 msgid "Sort by: Email Address 3"
 msgstr "Sorteer op: E-mailadres 3"
 
 msgid "Mobile Phone"
 msgstr "Mobiele Telefoon"
 
-# 90%
-# 80%
-# 85%
 msgid "Sort by: Mobile Phone"
 msgstr "Sorteer op: Mobiele Telefoon"
 
-# 75%
-# 95%
-# 86%
 msgid "Sort by: Business Phone"
 msgstr "Sorteer op: Werktelefoon"
 
-# 75%
-# 95%
-# 77%
-# 85%
 msgid "Sort by: Business Fax"
 msgstr "Sorteer op: Werkfax"
 
-# 95%
-# 87%
 msgid "Sort by: Department Name"
 msgstr "Sorteer op: Afdelingsnaam"
 
 msgid "Office Location"
 msgstr "Kantoorlocatie"
 
-# 95%
-# 87%
 msgid "Sort by: Office Location"
 msgstr "Sorteer op: Kantoorlocatie"
 
-# 84%
 msgid "Sort by: Profession"
 msgstr "Sorteer op: Beroep"
 
 msgid "Manager Name"
 msgstr "Naam Manager"
 
-# 85%
 msgid "Sort by: Manager Name"
 msgstr "Sorteer op: Naam Manager"
 
-# 84%
-# 88%
 msgid "Sort by: Assistant's Name"
 msgstr "Sorteer op: Naam Assistent"
 
-# 93%
-# 82%
 msgid "Sort by: Nickname"
 msgstr "Sorteer op: Bijnaam"
 
 msgid "Sort by: Spouse/Partner Name"
 msgstr "Sorteer op: Naam Echtgenoot/Partner"
 
-# 93%
-# 82%
 msgid "Sort by: Birthday"
 msgstr "Sorteer op: Verjaardag"
 
 msgid "Sort by: Anniversary"
 msgstr "Sorteer op: Jubileum"
 
-# 95%
-# 88%
 msgid "Sort by: Business Address"
 msgstr "Sorteer op: Werkadres"
 
-# 76%
-# 85%
 msgid "Sort by: Home Address"
 msgstr "Sorteer op: Thuisadres"
 
-# 77%
-# 86%
 msgid "Sort by: Office Address"
 msgstr "Sorteer op: Kantooradres"
 
 msgid "Mailing Address"
 msgstr "Postadres"
 
-# 78%
-# 87%
 msgid "Sort by: Mailing Address"
 msgstr "Sorteer op: Postadres"
 
-# 76%
-# 85%
 msgid "Sort by: IM Address"
 msgstr "Sorteer op: IM-Adres"
 
-# 80%
-# 93%
-# 81%
 msgid "Sort by: Webpage"
 msgstr "Sorteer op: Webpagina"
 
 msgid "Assistant's Phone"
 msgstr "Telefoon Assistent"
 
-# 88%
 msgid "Sort by: Assistant's Phone"
 msgstr "Sorteer op: Telefoon Assistent"
 
-# 87%
 msgid "Business Phone 2"
 msgstr "Werktelefoon 2"
 
-# 75%
-# 87%
-# 88%
 msgid "Sort by: Business Phone 2"
 msgstr "Sorteer op: Werktelefoon 2"
 
-# 82%
 msgid "Sort by: Callback"
 msgstr "Sorteer op: Terugbeltelefoonnummer"
 
-# 83%
 msgid "Sort by: Car Phone"
 msgstr "Sorteer op: Autotelefoon"
 
 msgid "Company Phone"
 msgstr "Werktelefoon"
 
-# 88%
 msgid "Sort by: Company Main Phone"
 msgstr "Sorteer op: Hoofdtelefoonnummer Bedrijf"
 
 msgid "Home Phone 2"
 msgstr "Thuistelefoon 2"
 
-# 85%
 msgid "Sort by: Home Phone 2"
 msgstr "Sorteer op: Thuistelefoon 2"
 
-# 82%
 msgid "Sort by: Home Fax"
 msgstr "Sorteer op: Thuisfax"
 
-# 75%
-# 76%
 msgid "Sort by: ISDN"
 msgstr "Sorteer op: ISDN"
 
-# 78%
-# 85%
 msgid "Sort by: Other Phone"
 msgstr "Sorteer op: Overige Telefoon"
 
 msgid "Radio Phone"
 msgstr "Radiotelefoon"
 
-# 78%
-# 85%
 msgid "Sort by: Radio Phone"
 msgstr "Sorteer op: Radiotelefoon"
 
 msgid "Sort by: TTY/TDD Phone"
 msgstr "Sorteer op: TTY/TDD-telefoon"
 
-# 90%
-# 78%
-# 85%
 msgid "Sort by: Telex Phone"
 msgstr "Sorteer op: Telextelefoon"
 
@@ -4069,7 +3795,6 @@ msgstr ""
 msgid "{0} on behalf of {1}"
 msgstr "{0} namens {1}"
 
-# 75%
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "jS F"
 msgstr "j F"
@@ -4092,7 +3817,6 @@ msgstr "Vakantie"
 msgid "Travel Required"
 msgstr "Vereiste Reistijd"
 
-# 75%
 msgid "Preparation Required"
 msgstr "Voorbereiding Vereist"
 
@@ -4114,7 +3838,6 @@ msgstr "Normaal"
 msgid "High"
 msgstr "Hoog"
 
-# 75%
 msgid "Canceled"
 msgstr "Geannuleerd"
 
@@ -4157,14 +3880,12 @@ msgstr "Word uitgevoerd"
 msgid "Wait for other person"
 msgstr "Wacht op iemand anders"
 
-# 87%
 msgid "Deferred"
 msgstr "Uitgesteld"
 
 msgid "Dark"
 msgstr "Donker"
 
-# 75%
 msgid "High Contrast"
 msgstr "Hoog contrast"
 
@@ -4192,7 +3913,6 @@ msgstr "Widgets"
 msgid "Sending..."
 msgstr "Verzenden..."
 
-# 94%
 msgid "Sent successfully"
 msgstr "Succesvol verstuurd"
 
@@ -4232,7 +3952,6 @@ msgstr "Niet gevalideerde ontvangers"
 msgid "Not all recipients could be resolved"
 msgstr "Niet alle ontvangers konden worden gevalideerd"
 
-# 86%
 msgid "Collapse hierarchy"
 msgstr "Hiërarchie dichtklappen"
 
@@ -4248,20 +3967,15 @@ msgstr "Details Kopiëren"
 msgid "Hide Details"
 msgstr "Details verbergen"
 
-# 86%
-# 100%
-# 76%
 msgid "Loaded {0} of {1}"
 msgstr "Geladen {0} van {1}"
 
 msgid "Saving"
 msgstr "Opslaan"
 
-# 80%
 msgid "Saved"
 msgstr "Opgeslagen"
 
-# 94%
 msgid "Saved successfully"
 msgstr "Succesvol opgeslagen"
 
@@ -4520,7 +4234,6 @@ msgstr "Gebruiker bestaat al"
 msgid "Group already exists"
 msgstr "Groep bestaat al"
 
-# 90%
 msgid "Folder Size"
 msgstr "Mapgrootte"
 
@@ -4533,14 +4246,12 @@ msgstr "Grootte (zonder submappen)"
 msgid "Total size (including subfolders)"
 msgstr "Totale grootte (met submappen)"
 
-# 85%
 msgid "Loading subfolder sizes"
 msgstr "Inladen groottes submappen"
 
 msgid "No subfolders present"
 msgstr "Geen submappen aanwezig"
 
-# 80%
 msgid "Subfolder"
 msgstr "Submap"
 
@@ -4556,8 +4267,6 @@ msgstr "Totale grootte"
 msgid "Sort by: Total size (including subfolders)"
 msgstr "Sorteer op: Totale grootte (met submappen)"
 
-# 81%
-# 86%
 msgid "Open Shared Folders"
 msgstr "Open Gedeelde Mappen"
 
@@ -4588,7 +4297,6 @@ msgstr "Deze gedeelde map is al open."
 msgid "No user"
 msgstr "Geen gebruiker"
 
-# 85%
 msgid "You must specify a user"
 msgstr "U moet een gebruikersnaam opgeven"
 
@@ -4610,7 +4318,6 @@ msgstr "Leeg folder"
 msgid "Empty Junk Email"
 msgstr "Ongewenste Email legen"
 
-# 92%
 msgid "Empty Deleted Items"
 msgstr "Verwijderde items legen"
 
@@ -4635,8 +4342,6 @@ msgstr "Map sluiten"
 msgid "Reload"
 msgstr "Herladen"
 
-# 76%
-# 100%
 msgid "Select color"
 msgstr "Selecteer kleur"
 
@@ -4652,8 +4357,6 @@ msgstr "Deel folder..."
 msgid "Import emails"
 msgstr "Importeer emails"
 
-# 93%
-# 100%
 msgid "Import appointments"
 msgstr "Importeer afspraken"
 
@@ -4692,7 +4395,6 @@ msgstr "Weet u zeker dat u {0} wilt leegmaken?"
 msgid "Show All"
 msgstr "Toon alle"
 
-# 75%
 msgid "Show all folders"
 msgstr "Toon alle mappen"
 
@@ -4712,7 +4414,6 @@ msgstr "BCC"
 msgid "Sort by: Importance"
 msgstr "Sorteer op: Belangrijkheid"
 
-# 76%
 msgid "Sort by: To"
 msgstr "Sorteer op: Aan"
 
@@ -4787,7 +4488,6 @@ msgid "Schedule your mail to be sent on a specific date and time"
 msgstr ""
 "Plan uw bericht in om verstuurd te worden op een specifieke datum en tijdstip"
 
-# 86%
 msgid "Add attachments to this email"
 msgstr "Voeg bijlagen toe aan deze e-mail"
 
@@ -4860,16 +4560,12 @@ msgstr "Markeer Gelezen"
 msgid "Mark Unread"
 msgstr "Markeer Ongelezen"
 
-# 87%
-# 100%
 msgid "New mail"
 msgstr "Nieuwe e-mail"
 
 msgid "Mail"
 msgstr "E-mail"
 
-# 88%
-# 100%
 msgid "Reply all"
 msgstr "Allen beantwoorden"
 
@@ -4879,15 +4575,12 @@ msgstr "Gelezen/ongelezen wisselen"
 msgid "Toggle red/complete flag"
 msgstr "Markering rood/voltooid wisselen"
 
-# 80%
-# 85%
 msgid "Open Shared Mails"
 msgstr "Open Gedeelde E-mails"
 
 msgid "Print single email"
 msgstr "Print email"
 
-# 78%
 msgid "Print selected email"
 msgstr "Print de geselecteerde email"
 
@@ -4979,8 +4672,6 @@ msgstr "Rechts"
 msgid "Bottom"
 msgstr "Onder"
 
-# 83%
-# 100%
 msgid "Location of preview pane"
 msgstr "Locatie voorbeeld venster"
 
@@ -5074,7 +4765,6 @@ msgstr "Handtekening opslaan"
 msgid "You have unsaved changes. Do you wish to save the changes?"
 msgstr "U heeft niet-opgeslagen wijzigingen. Wilt u deze opslaan?"
 
-# 76%
 msgid "New signature"
 msgstr "Nieuwe handtekening"
 
@@ -5087,8 +4777,6 @@ msgstr "ZIP bestand"
 msgid "max. "
 msgstr "max. "
 
-# 81%
-# 75%
 msgid "Sort by: Sent"
 msgstr "Sorteer op: Verzonden"
 
@@ -5104,8 +4792,6 @@ msgstr "Opvolgen"
 msgid "Sort by: flag"
 msgstr "Sorteer op: opvolgen"
 
-# 85%
-# 100%
 msgid "Older"
 msgstr "Ouder"
 
@@ -5145,11 +4831,9 @@ msgstr "Opvolgen"
 msgid "Move to Junk Folder"
 msgstr "Verplaats naar Junk Folder"
 
-# 75%
 msgid "Send to"
 msgstr "Verzenden naar"
 
-# 80%
 msgid "Loading mail"
 msgstr "Bericht laden"
 
@@ -5171,21 +4855,15 @@ msgstr "Kleur"
 msgid "New note"
 msgstr "Nieuwe notitie"
 
-# 85%
 msgid "Open Shared Notes"
 msgstr "Open Gedeelde Notities"
 
 msgid "Sticky note"
 msgstr "Post-it"
 
-# 78%
-# 84%
-# 100%
 msgid "Print selected note"
 msgstr "Druk de geselecteerde notitie af"
 
-# 75%
-# 100%
 msgid "No note selected"
 msgstr "Geen notitie geselecteerd"
 
@@ -5201,20 +4879,15 @@ msgstr "Toon de Laatste Zeven Dagen"
 msgid "Created"
 msgstr "Gemaakt"
 
-# 81%
 msgid "Sort by: Created"
 msgstr "Sorteer op: Aanmaakdatum"
 
-# 78%
 msgid "Sort by: Color"
 msgstr "Sorteer op: Kleur"
 
-# 94%
-# 76%
 msgid "Loading Notes"
 msgstr "Notities Laden"
 
-# 76%
 msgid "Loading notes"
 msgstr "Notities laden"
 
@@ -5231,7 +4904,6 @@ msgstr ""
 msgid "Reload grommunio Web"
 msgstr "Herlaad grommunio Web"
 
-# 87%
 msgid "Settings"
 msgstr "Opties"
 
@@ -5274,7 +4946,6 @@ msgstr "Toon \"item data\" knop in context menu (alleen bij email)"
 msgid "Edit setting"
 msgstr "Aanpassen instelling"
 
-# 84%
 msgid "Restore to defaults"
 msgstr "Standaard herstellen"
 
@@ -5305,7 +4976,6 @@ msgstr "12‑uursnotatie"
 msgid "24h clock"
 msgstr "24‑uursnotatie"
 
-# 88%
 msgid "Favorite settings"
 msgstr "Instellingen voor favorieten"
 
@@ -5360,8 +5030,6 @@ msgstr "I wil navigeren door mijn items met:"
 msgid "Infinite Scroll"
 msgstr "Eindeloos bladeren"
 
-# 98%
-# 100%
 msgid "grommunio Web automatically loads additional items when you scroll down"
 msgstr ""
 "grommunio Web laadt automatisch nieuwe items wanneer u naar beneden scrollt"
@@ -5474,7 +5142,6 @@ msgstr "Herstel"
 msgid "Reloading, Please wait."
 msgstr "Herladen, moment geduld."
 
-# 75%
 msgid "Setting"
 msgstr "Instelling"
 
@@ -5497,35 +5164,30 @@ msgstr ""
 msgid "Do you want to delete the item(s)?"
 msgstr "Wilt u de item(s) verwijderen?"
 
-# 82%
 msgid "Sort by: Priority"
 msgstr "Sorteer op: Prioriteit"
 
 msgid "Status"
 msgstr "Status"
 
-# 80%
 msgid "Sort by: Status"
 msgstr "Sorteer op: Status"
 
 msgid "Due Date"
 msgstr "Einddatum"
 
-# 82%
 msgid "Sort by: Due Date"
 msgstr "Sorteer op: Vervaldatum"
 
 msgid "% Completed"
 msgstr "% Voltooid"
 
-# 88%
 msgid "Sort by: Percent Completed"
 msgstr "Sorteer op: Percentage Voltooid"
 
 msgid "Task Status"
 msgstr "Status taak"
 
-# 93%
 msgid "Percent Complete"
 msgstr "Percentage Afgerond"
 
@@ -5600,7 +5262,6 @@ msgstr "Verloopdatum"
 msgid "Priority"
 msgstr "Prioriteit"
 
-# 90%
 msgid "% Complete"
 msgstr "% Voltooid"
 
@@ -5615,13 +5276,9 @@ msgstr ""
 msgid "Send task to assignees"
 msgstr "Stuur taak naar geadresseerden"
 
-# 84%
 msgid "Restore to Task List"
 msgstr "Herstellen naar Takenlijst"
 
-# 94%
-# 76%
-# 100%
 msgid "Delete this task"
 msgstr "Verwijder deze taak"
 
@@ -5634,8 +5291,6 @@ msgstr "Markeer als Voltooid"
 msgid "Mark this task as complete"
 msgstr "Markeer deze taak als voltooid"
 
-# 75%
-# 100%
 msgid "Print this task"
 msgstr "Druk deze taak af"
 
@@ -5645,9 +5300,6 @@ msgstr "Wijs Taak Toe"
 msgid "Cancel Assignment"
 msgstr "Annuleer Toewijzing"
 
-# 75%
-# 79%
-# 100%
 msgid "Mark this task as private"
 msgstr "Markeer deze taak als privé"
 
@@ -5657,7 +5309,6 @@ msgstr "Nieuwe taak"
 msgid "Completed"
 msgstr "Afgerond"
 
-# 76%
 msgid "Printed by: "
 msgstr "Geprint door: "
 
@@ -5674,16 +5325,12 @@ msgstr "Totale hoeveelheid werk"
 msgid "{totalwork} hours"
 msgstr "{totalwork} uren"
 
-# 90%
 msgid "Actual work"
 msgstr "Werkelijk Verricht"
 
-# 83%
 msgid "{actualwork} hours"
 msgstr "{actualwork} uren"
 
-# 80%
-# 85%
 msgid "Open Shared Tasks"
 msgstr "Open Gedeelde Taken"
 
@@ -5693,8 +5340,6 @@ msgstr "Eenvoudige weergave"
 msgid "Detailed view"
 msgstr "Gedetailleerde weergave"
 
-# 92%
-# 100%
 msgid "Task request"
 msgstr "Toegewezen taak"
 
@@ -5735,40 +5380,33 @@ msgstr ""
 "Let op: alle gemaakte wijzigingen zullen worden overschreven wanneer de "
 "toegewezen taak wordt bijgewerkt door de geadresseerde."
 
-# 82%
 msgid "Sort by: Complete"
 msgstr "Sorteer op: Voltooid"
 
 msgid "Reminder Time"
 msgstr "Herinneringstijd"
 
-# 86%
 msgid "Sort by: Reminder Time"
 msgstr "Sorteer op: Herinneringstijd"
 
 msgid "Assigned To"
 msgstr "Toegewezen Aan"
 
-# 82%
 msgid "Sort by: Assignee"
 msgstr "Sorteer op: Toegewezene"
 
-# 78%
 msgid "Sort by: Owner"
 msgstr "Sorteer op: Eigenaar"
 
-# 88%
 msgid "Sort by: Percentage Completed"
 msgstr "Sorteer op: Percentage Voltooid"
 
 msgid "Assigned task changes"
 msgstr "Toegewezen taak veranderingen"
 
-# 76%
 msgid "Loading tasks"
 msgstr "Taken laden"
 
-# 92%
 msgid "Date completed"
 msgstr "Datum voltooid"
 
@@ -5856,7 +5494,6 @@ msgstr "Klik op de link om de URL in een nieuw venster te openen."
 msgid "The server reported an unknown error on your request."
 msgstr "De server rapporteerde een onbekende fout in het verzoek."
 
-# 84%
 msgid "The server reported an unspecified error on your request."
 msgstr "De server rapporteerde een onbekende fout in het verzoek."
 
@@ -5917,7 +5554,6 @@ msgid ""
 msgstr ""
 "Sommige functionaliteit van grommunio Web werkt hierdoor misschien niet goed."
 
-# 100%
 msgctxt "hierarchy.foldername"
 msgid "Inbox"
 msgstr "Postvak In"
@@ -5930,17 +5566,14 @@ msgctxt "hierarchy.foldername"
 msgid "Sent Items"
 msgstr "Verzonden Items"
 
-# 92%
 msgctxt "hierarchy.foldername"
 msgid "Deleted items"
 msgstr "Verwijderde items"
 
-# 100%
 msgctxt "hierarchy.foldername"
 msgid "Calendar"
 msgstr "Agenda"
 
-# 100%
 msgctxt "hierarchy.foldername"
 msgid "Contacts"
 msgstr "Contactpersonen"
@@ -5949,17 +5582,14 @@ msgctxt "hierarchy.foldername"
 msgid "Drafts"
 msgstr "Concepten"
 
-# 100%
 msgctxt "hierarchy.foldername"
 msgid "Journal"
 msgstr "Logboek"
 
-# 100%
 msgctxt "hierarchy.foldername"
 msgid "Notes"
 msgstr "Notities"
 
-# 100%
 msgctxt "hierarchy.foldername"
 msgid "Tasks"
 msgstr "Taken"
@@ -7058,7 +6688,6 @@ msgstr "Doelen/Doelstellingen"
 msgid "Holiday Cards"
 msgstr "Vakantiekaarten"
 
-# 75%
 msgid "Hot Contacts"
 msgstr "Belangrijke Contactpersonen"
 
@@ -7397,12 +7026,9 @@ msgstr "Fout bij ophalen bestaande instellingen"
 msgid "Error retrieving existing persistent settings"
 msgstr "Fout bij ophalen bestaande persistente instellingen"
 
-# 93%
 msgid "Logon failed. Please verify your credentials and try again."
 msgstr "Inloggen mislukt. Controleer inloggegevens en probeer opnieuw."
 
-# 94%
-# 83%
 msgid "Cannot connect to Gromox."
 msgstr "Kan niet verbinden met Gromox."
 
@@ -7483,17 +7109,12 @@ msgstr "Bericht niet kunnen vinden, ofwel is het verplaatst of verwijderd."
 msgid "Request is not available."
 msgstr "Request is niet beschikbaar."
 
-# 86%
-# 90%
 msgid "You have insufficient privileges to open this object."
 msgstr "U heeft onvoldoende rechten om dit object te openen."
 
-# 93%
 msgid "Logon Failed. Please check your name/password."
 msgstr "Inloggen mislukt. Controleer naam/wachtwoord."
 
-# 94%
-# 83%
 msgid "Can not connect to Gromox."
 msgstr "Kan geen verbinding maken met de grommunio server."
 
@@ -7522,23 +7143,18 @@ msgstr "Voorlopig geaccepteerd"
 msgid "New Time Proposed"
 msgstr "Nieuw tijd voor gesteld"
 
-# 78%
-# 76%
 #, php-format
 msgid "Occurs every %s effective %s from %s to %s."
 msgstr "Vind plaats elke %s vanaf %s van %s tot %s."
 
-# 77%
 #, php-format
 msgid "Occurs every %s %s effective %s from %s to %s."
 msgstr "Vind plaats elke %s %s vanaf %s van %s tot %s."
 
-# 80%
 #, php-format
 msgid "Occurs every %s effective %s."
 msgstr "Vind plaats elke %s vanaf %s."
 
-# 75%
 #, php-format
 msgid "Occurs every %s %s effective %s."
 msgstr "Vind plaats elke %s %s vanaf %s."
@@ -7567,28 +7183,18 @@ msgid_plural "Occurs every %s %s effective %s for %s occurrences."
 msgstr[0] "Vind iedere %s %s plaats, vanaf %s voor %s keer."
 msgstr[1] "Vind iedere %s %s plaats, vanaf %s voor %s keren."
 
-# 96%
-# 76%
-# 75%
 #, php-format
 msgid "Occurs every %s effective %s until %s from %s to %s."
 msgstr "Vind elke %s plaats vanaf %s tot %s van %s tot %s."
 
-# 96%
-# 76%
-# 75%
-# 94%
 #, php-format
 msgid "Occurs every %s %s effective %s until %s from %s to %s."
 msgstr "Vind elke %s %s plaats vanaf %s tot %s van %s tot %s."
 
-# 78%
 #, php-format
 msgid "Occurs every %s effective %s until %s."
 msgstr "Vind elke %s plaats vanaf %s tot %s."
 
-# 78%
-# 92%
 #, php-format
 msgid "Occurs every %s %s effective %s until %s."
 msgstr "Elke %s %s met ingang van %s tot %s."
@@ -7835,35 +7441,24 @@ msgstr ""
 "Kon het bericht niet vinden, ofwel is het verplaatst of verwijderd, ofwel "
 "hebt u geen toegang om dit bericht te openen."
 
-# 78%
 msgid "Could not open message."
 msgstr "Kon bericht niet openen."
 
-# 98%
 msgid "You have insufficient privileges to decline this Meeting Request"
 msgstr "U heeft niet voldoende permissies om dit Vergaderverzoek af te wijzen"
 
-# 98%
 msgid "You have insufficient privileges to accept this Meeting Request"
 msgstr "U heeft niet voldoende permissies om dit Vergaderverzoek te accepteren"
 
-# 78%
-# 82%
 msgid "Could not copy message"
 msgstr "Kon bericht niet kopiëren"
 
-# 78%
-# 82%
-# 86%
 msgid "Could not move message"
 msgstr "Kon bericht niet verplaatsen"
 
 msgid "You have insufficient privileges to save items in this folder"
 msgstr "U heeft niet voldoende permissies om items in deze map op te slaan"
 
-# 78%
-# 82%
-# 95%
 msgid "Could not save message"
 msgstr "Kon bericht niet opslaan"
 
@@ -7900,19 +7495,15 @@ msgstr ""
 msgid "Could not reclaim the ownership for the Task Request."
 msgstr "Kon niet opnieuw eigenaar worden van het Taakverzoek."
 
-# 89%
 msgid "You have insufficient privileges to accept this Task Request."
 msgstr "U heeft niet voldoende permissies om dit Taakverzoek te accepteren."
 
-# 78%
 msgid "Could not accept Task Request."
 msgstr "Kon Taakverzoek niet accepteren."
 
-# 89%
 msgid "You have insufficient privileges to decline this Task Request."
 msgstr "U heeft niet voldoende permissies om dit Taakverzoek af te wijzen."
 
-# 79%
 msgid "Could not decline Task Request."
 msgstr "Kon Taakverzoek niet afwijzen."
 

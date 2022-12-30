@@ -57,8 +57,6 @@ msgid_plural "{0} TB"
 msgstr[0] "{0} TB"
 msgstr[1] "{0} TB"
 
-# 81%
-# 90%
 msgid "{0} minute"
 msgid_plural "{0} minutes"
 msgstr[0] "{0} Minute"
@@ -381,7 +379,6 @@ msgstr "Initialien"
 msgid "Display"
 msgstr "Anzeige"
 
-# 77%
 msgid "Addresses"
 msgstr "Adressen"
 
@@ -436,7 +433,6 @@ msgstr "Telefonnummern"
 msgid "Business"
 msgstr "Geschäft"
 
-# 88%
 msgid "Business2"
 msgstr "Geschäftlich 2"
 
@@ -455,8 +451,6 @@ msgstr "Mobiltelefon"
 msgid "Pager"
 msgstr "Pager"
 
-# 75%
-# 100%
 msgid "No user selected"
 msgstr "Kein Benutzer ausgewählt"
 
@@ -496,41 +490,30 @@ msgstr "Zeige Namen aus der"
 msgid "Search..."
 msgstr "Suchen..."
 
-# 76%
 msgid "Sort by: Icon"
 msgstr "Sortieren nach: Symbol"
 
-# 81%
-# 75%
-# 76%
 msgid "Sort by: Name"
 msgstr "Sortieren nach: Name"
 
-# 76%
 msgid "Sort by: Display Name"
 msgstr "Sortieren nach: Anzeigename"
 
 msgid "File as"
 msgstr "Ablegen als"
 
-# 75%
 msgid "Sort by: File As"
 msgstr "Sortieren nach: Ablegen als"
 
-# 80%
 msgid "First Name"
 msgstr "Vorname"
 
 msgid "Sort by: First Name"
 msgstr "Sortieren: Vorname"
 
-# 77%
 msgid "Last Name"
 msgstr "Nachname"
 
-# 81%
-# 75%
-# 76%
 msgid "Sort by: Last Name"
 msgstr "Sortieren nach: Nachname"
 
@@ -546,7 +529,6 @@ msgstr "Nach Position sortieren"
 msgid "Company Name"
 msgstr "Firma"
 
-# 76%
 msgid "Sort by: Company Name"
 msgstr "Sortieren nach: Firma"
 
@@ -568,28 +550,21 @@ msgstr "Telefon privat"
 msgid "Sort by: Home Phone"
 msgstr "Sortieren nach: Telefon privat"
 
-# 81%
-# 75%
-# 76%
-# 78%
 msgid "Sort by: Pager"
 msgstr "Sortieren nach: Pager"
 
 msgid "Location"
 msgstr "Ort"
 
-# 76%
 msgid "Sort by: Location"
 msgstr "Sortieren nach: Ort"
 
-# 76%
 msgid "Sort by: Fax"
 msgstr "Sortieren nach: Fax"
 
 msgid "Print single item"
 msgstr "Einzelnes Element drucken"
 
-# 78%
 msgid "Print selected item"
 msgstr "Ausgewähltes Element drucken"
 
@@ -608,7 +583,6 @@ msgstr "Lesebereich rechts"
 msgid "Bottom preview"
 msgstr "Lesebereich unten"
 
-# 87%
 msgid "Any date"
 msgstr "Beliebiges Datum"
 
@@ -627,7 +601,6 @@ msgstr "Letzte sechs Monate"
 msgid "Past year"
 msgstr "Letztes Jahr"
 
-# 87%
 msgid "Custom date"
 msgstr "Benutzerdefiniertes Datum"
 
@@ -673,8 +646,6 @@ msgstr "Nachricht als neu bearbeiten"
 msgid "Search tools"
 msgstr "Suchwerkzeug"
 
-# 85%
-# 100%
 msgid "Folders"
 msgstr "Ordner"
 
@@ -740,18 +711,12 @@ msgstr "Favoriten"
 msgid "Add a folder to favorites based on this search query"
 msgstr "Einen Ordner basierend auf dieser Suche zu den Favoriten hinzufügen"
 
-# 76%
 msgid "Select Folder"
 msgstr "Ordner auswählen"
 
 msgid "Delete search folder"
 msgstr "Suchordner löschen"
 
-# 81%
-# 75%
-# 76%
-# 84%
-# 100%
 msgid "Sort by: Date"
 msgstr "Sortieren nach: Datum"
 
@@ -800,7 +765,6 @@ msgstr ""
 msgid "Required"
 msgstr "Benötigt"
 
-# 75%
 msgid "Optional"
 msgstr "Optional"
 
@@ -822,24 +786,18 @@ msgstr "Tag"
 msgid "days"
 msgstr "Tage"
 
-# 75%
 msgid "week"
 msgstr "Woche"
 
-# 75%
-# 80%
 msgid "weeks"
 msgstr "Wochen"
 
 msgid " on "
 msgstr " am "
 
-# 80%
 msgid "month"
 msgstr "Monat"
 
-# 80%
-# 83%
 msgid "months"
 msgstr "Monate"
 
@@ -918,8 +876,6 @@ msgstr "Wo"
 msgid "New Meeting Time Proposed"
 msgstr "Neuen Besprechungstermin vorgeschlagen"
 
-# 75%
-# 100%
 msgid "and "
 msgstr "und "
 
@@ -929,7 +885,6 @@ msgstr "Sortieren nach: Anhang"
 msgid "Sort by: Recurring"
 msgstr "Sortieren nach: Serienmuster"
 
-# 81%
 msgid "Sort by: Subject"
 msgstr "Sortieren nach: Betreff"
 
@@ -939,7 +894,6 @@ msgstr "Startdatum"
 msgid "Sort by: Start Date"
 msgstr "Sortieren nach: Startdatum"
 
-# 87%
 msgid "End Date"
 msgstr "Enddatum"
 
@@ -958,17 +912,12 @@ msgstr "Optionaler Teilnehmer"
 msgid "Show Time As"
 msgstr "Zeit anzeigen als"
 
-# 77%
 msgid "Recurrence pattern"
 msgstr "Serienmuster"
 
 msgid "All Day Event"
 msgstr "Ganztägiges Ereignis"
 
-# 81%
-# 86%
-# 76%
-# 100%
 msgid "Add Shared Calendar"
 msgstr "Gemeinsame Kalender öffnen"
 
@@ -981,7 +930,6 @@ msgstr "Keine Antwort erforderlich"
 msgid "Accept"
 msgstr "Akzeptieren"
 
-# 77%
 msgid "Accept Meeting Request"
 msgstr "Besprechungsanfrage akzeptieren"
 
@@ -1129,7 +1077,6 @@ msgstr "Planen"
 msgid "Tracking"
 msgstr "Verfolgen"
 
-# 75%
 msgctxt "calendar.dialog"
 msgid "Not all attendees could be resolved."
 msgstr "Nicht alle Teilnehmer konnten aufgelöst werden."
@@ -1151,7 +1098,6 @@ msgctxt "calendar.dialog"
 msgid "You proposed a new time for this meeting on {0}"
 msgstr "Sie haben für die Besprechung die neue Zeit {0} vorgeschlagen"
 
-# 91%
 msgctxt "calendar.dialog"
 msgid "{0} proposed a new time for this meeting on {1}"
 msgstr "{0} hat für die Besprechung am {1} eine neue Zeit vorgeschlagen"
@@ -1168,7 +1114,6 @@ msgctxt "calendar.dialog"
 msgid "Tentatively Accepted on {0}"
 msgstr "Unter Vorbehalt akzeptiert am {0}"
 
-# 76%
 msgctxt "calendar.dialog"
 msgid "Tentatively Accepted by {0} on {1}"
 msgstr "Von {0} unter Vorbehalt akzeptiert am {1}"
@@ -1239,11 +1184,9 @@ msgstr "Wollen Sie den Ort \"{0}\" mit dem neuen Ort \"{1}\" aktualisieren?"
 msgid "jS F Y {0}"
 msgstr "j. F Y {0}"
 
-# 75%
 msgid "None"
 msgstr "Nichts"
 
-# 75%
 msgid "Send"
 msgstr "Senden"
 
@@ -1277,14 +1220,12 @@ msgstr "Einladung absagen"
 msgid "High priority"
 msgstr "Hohe Priorität"
 
-# 76%
 msgid "Mark this appointment as high priority"
 msgstr "Diesen Termin mit hoher Priorität markieren"
 
 msgid "Low priority"
 msgstr "Niedrige Priorität"
 
-# 78%
 msgid "Mark this appointment as low priority"
 msgstr "Diesen Termin mit niedriger Priorität markieren"
 
@@ -1324,7 +1265,6 @@ msgstr "Endzeit"
 msgid "Comment"
 msgstr "Kommentar"
 
-# 84%
 msgid "Send Meeting Request Cancellation"
 msgstr "Absage der Besprechungsanfrage senden"
 
@@ -1374,7 +1314,6 @@ msgstr "Antwort sofort senden."
 msgid "Don't send a response."
 msgstr "Keine Antwort senden."
 
-# 91%
 msgid "The following responses for this meeting have been received"
 msgstr "Die folgenden Antworten wurden auf diese Besprechungsanfrage erhalten"
 
@@ -1384,16 +1323,12 @@ msgstr "Teilnahme"
 msgid "Response"
 msgstr "Antwort"
 
-# 93%
-# 100%
 msgid "New appointment"
 msgstr "Neuer Termin"
 
 msgid "Creating an item"
 msgstr "Element wird erstellt"
 
-# 89%
-# 100%
 msgid "New meeting request"
 msgstr "Neue Terminanfrage"
 
@@ -1447,30 +1382,24 @@ msgstr "Ganztägig: "
 msgid "l jS F"
 msgstr "l, j. F Y"
 
-# 88%
 msgid "Organiser"
 msgstr "Organisator"
 
-# 92%
 msgid "Meeting status"
 msgstr "Besprechungsstatus"
 
-# 94%
 msgid "Required Attendees"
 msgstr "Erforderliche Teilnehmer"
 
-# 94%
 msgid "Optional Attendees"
 msgstr "Optionale Teilnehmer"
 
-# 88%
 msgid "Resources"
 msgstr "Ressourcen"
 
 msgid "Sensitivity"
 msgstr "Vertraulichkeit"
 
-# 80%
 msgid "Importance"
 msgstr "Wichtigkeit"
 
@@ -1575,15 +1504,12 @@ msgstr "Öffnen"
 msgid "Copy/Move"
 msgstr "Kopieren/Verschieben"
 
-# 75%
 msgid "Send to..."
 msgstr "Senden an..."
 
 msgid "Export as"
 msgstr "Exportieren als"
 
-# 80%
-# 100%
 msgid "Occurrence"
 msgstr "Wiederholung"
 
@@ -1608,8 +1534,6 @@ msgstr "Symbol"
 msgid "Recurring"
 msgstr "Serienmuster"
 
-# 76%
-# 82%
 msgid "Sort by: Duration"
 msgstr "Sortieren nach: Dauer"
 
@@ -1622,32 +1546,24 @@ msgstr "Sortieren nach: Besprechungsstatus"
 msgid "Sort by: Show as"
 msgstr "Sortieren nach: Anzeigen als"
 
-# 84%
 msgid "Sort by: Categories"
 msgstr "Sortieren nach: Kategorie"
 
 msgid "Created On"
 msgstr "Erstellt am"
 
-# 81%
-# 84%
 msgid "Sort by: Created On"
 msgstr "Sortieren nach: Erstellt"
 
 msgid "Due By"
 msgstr "Fällig am"
 
-# 76%
 msgid "Sort by: Due By"
 msgstr "Sortieren nach: Fälligkeit"
 
 msgid "Label"
 msgstr "Beschriftung"
 
-# 81%
-# 75%
-# 76%
-# 78%
 msgid "Sort by: Label"
 msgstr "Sortieren nach: Beschriftung"
 
@@ -1681,7 +1597,6 @@ msgstr "Serienmuster"
 msgid "Sort by: Recurring Pattern"
 msgstr "Sorieren nach: Serienmuster"
 
-# 77%
 msgid "Sort by: Reminder"
 msgstr "Sortieren nach: Erinnerung"
 
@@ -1701,7 +1616,6 @@ msgstr "Optionale Teilnehmer"
 msgid "jS F {0}"
 msgstr "j. F {0}"
 
-# 83%
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "jS F Y"
 msgstr "j. F Y"
@@ -1787,7 +1701,6 @@ msgctxt "mail.previewpanel"
 msgid "When"
 msgstr "Wann"
 
-# 100%
 #. TRANSLATORS: This message is used as label for the field which to indicates to whom the given mail was sent
 msgctxt "mail.previewpanel"
 msgid "Location"
@@ -1827,8 +1740,6 @@ msgstr "Termine von {0}"
 msgid "Appointments of {0} - {1}"
 msgstr "Termine von {0} - {1}"
 
-# 93%
-# 100%
 msgid "No appointments"
 msgstr "Keine Termine"
 
@@ -1838,7 +1749,6 @@ msgstr "Heute: {0} - {1}"
 msgid "Today (all day)"
 msgstr "Heute (ganztägig)"
 
-# 100%
 #. TRANSLATORS: Display name of a folder: "FOLDERNAME - STORENAME".
 #. TRANSLATORS: Displayed on top of a tree with folders: "FOLDERNAME - USERNAME".
 msgid "{0} - {1}"
@@ -1874,7 +1784,6 @@ msgstr "Drucken ist für dieses Element noch nicht möglich"
 msgid "Item type: "
 msgstr "Art des Elements: "
 
-# 92%
 msgid "Printing of this view is not yet available"
 msgstr "Drucken ist für diese Ansicht noch nicht möglich"
 
@@ -1898,7 +1807,6 @@ msgstr ""
 "Dies ist ein Serientermin. Möchten Sie nur diesen Termin öffnen, oder die "
 "Serie?"
 
-# 80%
 msgid "Recurring Meeting Request"
 msgstr "Besprechungsanfrage für einen Serientermin"
 
@@ -1919,7 +1827,6 @@ msgstr ""
 "Dies ist eine Serienaufgabe. Möchten Sie nur diese Aufgabe öffnen, oder die "
 "Serie?"
 
-# 95%
 msgid "Open this occurrence"
 msgstr "Dieses Serienelement öffnen"
 
@@ -1979,7 +1886,6 @@ msgstr ""
 "Dies ist eine Serienaufgabe. Möchten Sie nur diese Aufgabe löschen, oder die "
 "Serie?"
 
-# 95%
 msgid "Delete this occurrence"
 msgstr "Dieses Serienelement löschen"
 
@@ -2040,7 +1946,6 @@ msgstr "Doppelter Empfänger"
 msgid "Recipient already exists."
 msgstr "Der Empfänger existiert bereits."
 
-# 77%
 msgid "Notify sender"
 msgstr "Absender benachrichtigen"
 
@@ -2096,7 +2001,6 @@ msgstr "Einfügen als"
 msgid "Text only"
 msgstr "Nur-Text"
 
-# 90%
 msgid "Attachment"
 msgstr "Anhang"
 
@@ -2109,8 +2013,6 @@ msgstr "Keine Nachricht ausgewählt"
 msgid "Import to"
 msgstr "Einfügen in"
 
-# 90%
-# 100%
 msgid "New folder"
 msgstr "Neuer Ordner"
 
@@ -2183,8 +2085,6 @@ msgstr "Bildformat wird nicht unterstützt. "
 msgid "Supported format for contact pictures are"
 msgstr "Die folgenden Formate werden für Kontaktbilder unterstützt"
 
-# 93%
-# 100%
 msgid "Attachment Error"
 msgstr "Problem mit dem Anhang"
 
@@ -2260,7 +2160,6 @@ msgstr "Zusammenführen"
 msgid "Remove"
 msgstr "Entfernen"
 
-# 90%
 msgid "Check Names"
 msgstr "Namen überprüfen"
 
@@ -2276,14 +2175,12 @@ msgstr "Mehr als ein „{0}“ gefunden."
 msgid "Alert"
 msgstr "Achtung"
 
-# 80%
 msgid "Please select a recipient"
 msgstr "Bitte wählen Sie einen Empfänger aus"
 
 msgid "Mail and Post"
 msgstr "E-Mail und Bereitstellung"
 
-# 87%
 msgid "Contact"
 msgstr "Kontakt"
 
@@ -2296,7 +2193,6 @@ msgstr "Notiz"
 msgid "Task"
 msgstr "Aufgabe"
 
-# 100%
 msgid "Inbox"
 msgstr "Posteingang"
 
@@ -2345,7 +2241,6 @@ msgstr ""
 "Wenn Sie lediglich Ordnerfreigaben erstellen wollen können Sie dies auch im "
 "Kontextmenü des Ordners unter \"Ordner freigeben\" verwalten"
 
-# 90%
 msgid "Permission"
 msgstr "Berechtigung"
 
@@ -2407,11 +2302,9 @@ msgstr "ICS"
 msgid "Set custom flag"
 msgstr "Zur Nachverfolgung kennzeichnen"
 
-# 90%
 msgid "Start date"
 msgstr "Startdatum"
 
-# 87%
 msgid "End date"
 msgstr "Enddatum"
 
@@ -2424,7 +2317,6 @@ msgstr "Diese Woche"
 msgid "Next week"
 msgstr "Nächste Woche"
 
-# 87%
 msgid "Custom"
 msgstr "Benutzerdefiniert"
 
@@ -2455,7 +2347,6 @@ msgstr "E-Mail-Adresse kopieren"
 msgid "Set as required"
 msgstr "Als erforderlich kennzeichnen"
 
-# 75%
 msgid "Set as optional"
 msgstr "Als optional kennzeichnen"
 
@@ -2477,12 +2368,9 @@ msgstr "Abwesend"
 msgid "No Information"
 msgstr "Keine Information"
 
-# 82%
 msgid "Show non-working hours"
 msgstr "Stunden außerhalb der Arbeitszeit anzeigen"
 
-# 82%
-# 81%
 msgid "Hide non-working hours"
 msgstr "Nur meine Arbeitsstunden anzeigen"
 
@@ -2493,7 +2381,6 @@ msgstr ""
 msgid "No suggestions available"
 msgstr "Keine Vorschläge vorhanden"
 
-# 87%
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "l jS F Y"
 msgstr "I j. F Y"
@@ -2538,7 +2425,6 @@ msgstr "Erweitern Sie die Auswahl auf das erste Element in der Liste"
 msgid "Extend the selection to the last item in the list"
 msgstr "Erweitern Sie die Auswahl auf das letzte Element in der Liste"
 
-# 77%
 msgid "Open selected item"
 msgstr "Ausgewähltes Element öffnen"
 
@@ -2551,9 +2437,6 @@ msgstr "Liste drucken"
 msgid "Open copy/move dialog"
 msgstr "Kopieren/Verschieben-Dialog öffnen"
 
-# 77%
-# 75%
-# 100%
 msgid "Delete selected item"
 msgstr "Ausgewähltes Element löschen"
 
@@ -2585,15 +2468,12 @@ msgstr "Kein CC-Empfänger konfiguriert"
 msgid "Loading Cc recipients"
 msgstr "Lade CC-Empfänger"
 
-# 88%
-# 100%
 msgid "Reply Mail"
 msgstr "Auf E-Mail antworten"
 
 msgid "New Mail"
 msgstr "Neue E-Mail"
 
-# 80%
 msgid "Please select a Cc recipient record."
 msgstr "Bitte wählen Sie einen CC-Empfänger aus."
 
@@ -2628,16 +2508,12 @@ msgstr "ZEntwickler"
 msgid "grommunio Web print"
 msgstr "grommunio Web Druck"
 
-# 91%
 msgid "Display name"
 msgstr "Anzeigename"
 
 msgid "Email address"
 msgstr "E-Mail-Adresse"
 
-# 75%
-# 78%
-# 100%
 msgid "Expand distribution list"
 msgstr "Verteilerliste erweitern"
 
@@ -2648,7 +2524,6 @@ msgstr ""
 "Die Verteilerliste wird durch ihre Mitglieder ersetzt. Sie kann anschließend "
 "nicht mehr zusammengeklappt werden."
 
-# 92%
 msgid "Edit Recipient"
 msgstr "Empfänger bearbeiten"
 
@@ -2685,7 +2560,6 @@ msgstr "dritten"
 msgid "4th"
 msgstr "vierten"
 
-# 75%
 msgid "last"
 msgstr "letzten"
 
@@ -2752,7 +2626,6 @@ msgstr "Endet nach {A} Terminen"
 msgid "End by {A}"
 msgstr "Endet am {A}"
 
-# 96%
 #. TRANSLATORS: This informs the user what the exact duration of the appointment is. Where {D} represents the days, {H} the hours and {M} the minutes.
 #. For example: 'Occurence duration: 1 day 2 hours 45 minutes', or when the appointment is shorter then 1 day: 'Occurence duration: 1 hour'
 msgid "Occurrence duration: {D} {H} {M}"
@@ -2788,7 +2661,6 @@ msgid_plural "There are {0} reminders"
 msgstr[0] "Es gibt {0} Erinnerung"
 msgstr[1] "Es gibt {0} Erinnerungen"
 
-# 88%
 msgid "Reminders"
 msgstr "Erinnerungen"
 
@@ -2802,7 +2674,6 @@ msgstr "Fällig in"
 msgid "Due"
 msgstr "Fällig"
 
-# 92%
 msgid "Reminder time"
 msgstr "Erinnerungszeit"
 
@@ -2845,8 +2716,6 @@ msgstr "Endgültig löschen"
 msgid "Delete All"
 msgstr "Alles löschen"
 
-# 75%
-# 100%
 msgid "Messages"
 msgstr "Nachrichten"
 
@@ -2870,9 +2739,6 @@ msgstr[1] "Insgesamt {0} wiederherstellbare Elemente"
 msgid "Deleted On"
 msgstr "Gelöscht am"
 
-# 81%
-# 84%
-# 78%
 msgid "Sort by: Deleted On"
 msgstr "Sortieren nach: Gelöscht am"
 
@@ -2882,7 +2748,6 @@ msgstr "Anzahl Elemente"
 msgid "Sort by: Item Count"
 msgstr "Sortieren nach: Anzahl Elemente"
 
-# 76%
 msgid "Sort by: From"
 msgstr "Sortieren nach: Von"
 
@@ -2895,9 +2760,6 @@ msgstr "Sortieren nach: Erhalten"
 msgid "Size"
 msgstr "Größe"
 
-# 81%
-# 75%
-# 76%
 msgid "Sort by: Size"
 msgstr "Sortieren nach: Größe"
 
@@ -2934,13 +2796,9 @@ msgstr "Enthält die folgenden Wörter in der Empfängeradresse..."
 msgid "includes these words in the subject..."
 msgstr "Enthält diese Wörter im Betreff..."
 
-# 84%
-# 100%
 msgid "includes these words in the body..."
 msgstr "Enthält diese Wörter im Text..."
 
-# 84%
-# 100%
 msgid "includes these words in the transport-headers..."
 msgstr "Enthält diese Wörter in den Transportkopf..."
 
@@ -3065,15 +2923,12 @@ msgstr "Aktiv"
 msgid "Out of office"
 msgstr "Abwesend"
 
-# 80%
 msgid "Rule"
 msgstr "Regel"
 
-# 76%
 msgid "Loading rules"
 msgstr "Lade Regeln"
 
-# 76%
 msgid "Please select a rule."
 msgstr "Bitte wählen Sie eine Regel aus."
 
@@ -3156,7 +3011,6 @@ msgstr "Bitte wählen Sie einen \"Senden als\"-Eintrag."
 msgid "Delegates"
 msgstr "Stellvertreter"
 
-# 88%
 msgid "Delegate settings"
 msgstr "Stellvertreter-Einstellungen"
 
@@ -3185,7 +3039,6 @@ msgstr "Ton deaktivieren"
 msgid "Notifications"
 msgstr "Benachrichtigungen"
 
-# 80%
 msgid "Rules"
 msgstr "Regeln"
 
@@ -3195,24 +3048,18 @@ msgstr "Absenderadressen"
 msgid "From Addresses settings"
 msgstr "Einstellung für Absenderadressen"
 
-# 88%
-# 100%
 msgid "Full name"
 msgstr "Vollständiger Name"
 
-# 92%
 msgid "Phone Numbers"
 msgstr "Telefonnummern"
 
-# 80%
-# 75%
 msgid "Business Fax"
 msgstr "Fax geschäftlich"
 
 msgid "Webpage"
 msgstr "Webseite"
 
-# 75%
 msgid "IM Address"
 msgstr "IM-Adresse"
 
@@ -3255,7 +3102,6 @@ msgstr "Laden ..."
 msgid "Message could not be loaded"
 msgstr "Nachricht kann nicht geladen werden"
 
-# 100%
 #. TRANSLATORS: This message is used as label for the field which indicates which attachments are inside the message
 msgctxt "mail.previewpanel"
 msgid "Attachments"
@@ -3374,12 +3220,10 @@ msgstr ""
 "Die Besprechungsanfrage wurde aktualisiert nachdem der Teilnehmer "
 "geantwortet hat"
 
-# 100%
 msgctxt "mail.previewpanel"
 msgid "This appointment occurs in the past."
 msgstr "Dieser Termin liegt in der Vergangenheit."
 
-# 100%
 msgctxt "mail.previewpanel"
 msgid "Please respond."
 msgstr "Bitte antworten."
@@ -3444,17 +3288,14 @@ msgstr ""
 msgid "The matching task was not found in your task list."
 msgstr "Es wurde keine passende Aufgabe in Ihrer Aufgabenliste gefunden."
 
-# 100%
 msgctxt "mail.previewpanel"
 msgid "To"
 msgstr "An"
 
-# 100%
 msgctxt "mail.previewpanel"
 msgid "Cc"
 msgstr "CC"
 
-# 100%
 msgctxt "mail.previewpanel"
 msgid "Bcc"
 msgstr "BCC"
@@ -3473,8 +3314,6 @@ msgctxt "mail.previewpanel"
 msgid "on behalf of"
 msgstr "im Auftrag von"
 
-# 75%
-# 100%
 #. TRANSLATORS: This message is used to indicate that no sent date is available for the message (because it has not been sent yet).
 msgctxt "mail.previewpanel"
 msgid "None"
@@ -3498,7 +3337,6 @@ msgstr "Basisordner"
 msgid "Datepicker"
 msgstr "Datumsauswahl"
 
-# 85%
 msgid "File As"
 msgstr "Ablegen als"
 
@@ -3520,18 +3358,15 @@ msgstr "Weitere Adresse"
 msgid "Business Phone"
 msgstr "Telefon geschäftlich"
 
-# 87%
 msgid "Business 2 Phone"
 msgstr "Geschäftlich 2"
 
-# 88%
 msgid "Assistant Phone"
 msgstr "Assistent"
 
 msgid "Company Main Phone"
 msgstr "Telefonzentrale"
 
-# 83%
 msgid "Home 2 Phone"
 msgstr "Privat 2"
 
@@ -3565,21 +3400,18 @@ msgstr "Weiteres Fax"
 msgid "Home Fax"
 msgstr "Privatfax"
 
-# 94%
 msgid "Email Display As"
 msgstr "Anzeigen als"
 
 msgid "Email 2"
 msgstr "E-Mail 2"
 
-# 89%
 msgid "Email2 Display As"
 msgstr "E-Mail 2 anzeigen als"
 
 msgid "Email 3"
 msgstr "E-Mail 3"
 
-# 89%
 msgid "Email3 Display As"
 msgstr "E-Mail 3 anzeigen als"
 
@@ -3596,19 +3428,12 @@ msgstr "(Ehe-) Partner"
 msgid "Profession"
 msgstr "Beruf"
 
-# 76%
 msgid "Assistant's Name"
 msgstr "Name Assistent"
 
-# 94%
-# 77%
 msgid "Distribution List Name"
 msgstr "Name der Verteilerliste"
 
-# 81%
-# 86%
-# 78%
-# 75%
 msgid "Open Shared Contacts"
 msgstr "Gemeinsame Kontakte öffnen"
 
@@ -3621,7 +3446,6 @@ msgstr "Telefonliste"
 msgid "Add to contacts"
 msgstr "Zu Kontakten hinzufügen"
 
-# 77%
 msgid "Print selected contact"
 msgstr "Diesen Kontakt drucken"
 
@@ -3673,22 +3497,18 @@ msgstr "PLZ"
 msgid "Country/Region"
 msgstr "Land/Region"
 
-# 88%
 msgid "Show this again when address is incomplete or unclear."
 msgstr "Diesen Dialog einblenden, wenn Name unvollständig oder unklar ist."
 
 msgid "Details"
 msgstr "Details"
 
-# 93%
 msgid "Office location"
 msgstr "Bürostandort"
 
-# 78%
 msgid "Manager's name"
 msgstr "Vorgesetzter"
 
-# 76%
 msgid "Assistant's name"
 msgstr "Name Assistent"
 
@@ -3708,18 +3528,15 @@ msgstr "Foto"
 msgid "Additional information"
 msgstr "Zusätzliche Informationen"
 
-# 80%
 msgid "Business 2"
 msgstr "Geschäftlich 2"
 
 msgid "Callback"
 msgstr "Rückruf"
 
-# 75%
 msgid "Car"
 msgstr "Auto"
 
-# 83%
 msgid "Home 2"
 msgstr "Privat 2"
 
@@ -3729,7 +3546,6 @@ msgstr "Primär"
 msgid "TTY/TDD"
 msgstr "Texttelefon"
 
-# 80%
 msgid "Check full name"
 msgstr "Namen überprüfen"
 
@@ -3739,7 +3555,6 @@ msgstr "Vorname"
 msgid "Middle"
 msgstr "Weitere Vornamen"
 
-# 75%
 msgid "Last"
 msgstr "Nachname"
 
@@ -3749,33 +3564,27 @@ msgstr "Dies wieder anzeigen, wenn der Name unvollständig oder unklar ist."
 msgid "Check phone number"
 msgstr "Telefonnummer prüfen"
 
-# 80%
 msgid "Country/Region code"
 msgstr "Landesvorwahl"
 
-# 80%
 msgid "City/Area code"
 msgstr "Vorwahl"
 
 msgid "Local number"
 msgstr "Ortsanschluss"
 
-# 80%
 msgid "Extension"
 msgstr "Durchwahl"
 
 msgid "Add Attachment"
 msgstr "Anhang hinzufügen"
 
-# 81%
 msgid "Add attachments to this contact"
 msgstr "Diesem Kontakt Anhänge hinzufügen"
 
-# 75%
 msgid "Mark this contact as private"
 msgstr "Diesen Kontakt als privat markieren"
 
-# 94%
 msgid "Distribution List"
 msgstr "Verteilerliste"
 
@@ -3800,9 +3609,6 @@ msgstr "Fügen Sie hier Notizen ein ..."
 msgid "New contact"
 msgstr "Neuer Kontakt"
 
-# 75%
-# 78%
-# 100%
 msgid "New distribution list"
 msgstr "Neue Verteilerliste"
 
@@ -3875,9 +3681,6 @@ msgstr "Sortieren nach: Vorgesetzter"
 msgid "Sort by: Assistant's Name"
 msgstr "Sortieren nach: Name Assistent"
 
-# 81%
-# 75%
-# 76%
 msgid "Sort by: Nickname"
 msgstr "Sortieren nach: Spitzname"
 
@@ -3908,7 +3711,6 @@ msgstr "Sortieren nach: Postanschrift"
 msgid "Sort by: IM Address"
 msgstr "Sortieren nach: IM-Adresse"
 
-# 75%
 msgid "Sort by: Webpage"
 msgstr "Sortieren nach: Webseite"
 
@@ -3918,7 +3720,6 @@ msgstr "Telefon Assistent"
 msgid "Sort by: Assistant's Phone"
 msgstr "Sortieren nach: Telefon Assistent"
 
-# 87%
 msgid "Business Phone 2"
 msgstr "Telefon Geschäftlich 2"
 
@@ -3928,7 +3729,6 @@ msgstr "Sortieren nach: Telefon Geschäftlich 2"
 msgid "Sort by: Callback"
 msgstr "Sortieren nach: Rückruf"
 
-# 78%
 msgid "Sort by: Car Phone"
 msgstr "Sortieren nach: Telefon Auto"
 
@@ -3938,7 +3738,6 @@ msgstr "Telefon Firma"
 msgid "Sort by: Company Main Phone"
 msgstr "Sortieren nach: Telefonzentrale"
 
-# 83%
 msgid "Home Phone 2"
 msgstr "Telefon Privat 2"
 
@@ -3948,25 +3747,21 @@ msgstr "Sortieren nach: Telefon Privat 2"
 msgid "Sort by: Home Fax"
 msgstr "Sortieren nach: Privatfax"
 
-# 76%
 msgid "Sort by: ISDN"
 msgstr "Sortieren nach: ISDN"
 
-# 80%
 msgid "Sort by: Other Phone"
 msgstr "Sortieren nach: Telefon (andere)"
 
 msgid "Radio Phone"
 msgstr "Radiotelefon"
 
-# 76%
 msgid "Sort by: Radio Phone"
 msgstr "Sortieren nach: Radiotelefon"
 
 msgid "Sort by: TTY/TDD Phone"
 msgstr "Sortieren nach: Fernschreibertelefon"
 
-# 80%
 msgid "Sort by: Telex Phone"
 msgstr "Sortieren nach: Telefon Telex"
 
@@ -4032,7 +3827,6 @@ msgstr ""
 msgid "{0} on behalf of {1}"
 msgstr "{0} im Auftrag von {1}"
 
-# 75%
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "jS F"
 msgstr "j. F"
@@ -4055,7 +3849,6 @@ msgstr "Feiertag"
 msgid "Travel Required"
 msgstr "Reisen erforderlich"
 
-# 75%
 msgid "Preparation Required"
 msgstr "Vorbereitung erforderlich"
 
@@ -4077,7 +3870,6 @@ msgstr "Normal"
 msgid "High"
 msgstr "Hoch"
 
-# 75%
 msgid "Canceled"
 msgstr "Abgebrochen"
 
@@ -4120,7 +3912,6 @@ msgstr "In Bearbeitung"
 msgid "Wait for other person"
 msgstr "Wartet auf jemand anderen"
 
-# 87%
 msgid "Deferred"
 msgstr "Zurückgestellt"
 
@@ -4154,7 +3945,6 @@ msgstr "Widgets"
 msgid "Sending..."
 msgstr "Senden..."
 
-# 94%
 msgid "Sent successfully"
 msgstr "Erfolgreich gesendet"
 
@@ -4194,7 +3984,6 @@ msgstr "Unaufgelöste Empfänger"
 msgid "Not all recipients could be resolved"
 msgstr "Nicht alle Empfänger konnten aufgelöst werden"
 
-# 86%
 msgid "Collapse hierarchy"
 msgstr "Hierarchieknoten zuklappen"
 
@@ -4210,20 +3999,15 @@ msgstr "Details kopieren"
 msgid "Hide Details"
 msgstr "Details verstecken"
 
-# 86%
-# 100%
-# 76%
 msgid "Loaded {0} of {1}"
 msgstr "{0} von {1} Elementen geladen"
 
 msgid "Saving"
 msgstr "Speichern"
 
-# 80%
 msgid "Saved"
 msgstr "Gespeichert"
 
-# 94%
 msgid "Saved successfully"
 msgstr "Erfolgreich gespeichert"
 
@@ -4484,7 +4268,6 @@ msgstr "Der Benutzer existiert bereits"
 msgid "Group already exists"
 msgstr "Die Gruppe existiert bereits"
 
-# 90%
 msgid "Folder Size"
 msgstr "Ordnergröße"
 
@@ -4503,7 +4286,6 @@ msgstr "Lade Größen der Unterordner"
 msgid "No subfolders present"
 msgstr "Keine Unterordner vorhanden"
 
-# 80%
 msgid "Subfolder"
 msgstr "Unterordner"
 
@@ -4516,12 +4298,9 @@ msgstr "Sortieren nach: Größe (ohne Unterverzeichnisse)"
 msgid "Total size"
 msgstr "Gesamtgröße"
 
-# 78%
 msgid "Sort by: Total size (including subfolders)"
 msgstr "Sortieren nach: Gesamtgröße (mit Unterordnern)"
 
-# 81%
-# 86%
 msgid "Open Shared Folders"
 msgstr "Gemeinsame Ordner öffnen"
 
@@ -4573,7 +4352,6 @@ msgstr "Ordner leeren"
 msgid "Empty Junk Email"
 msgstr "Junk-E-Mail Ordner leeren"
 
-# 92%
 msgid "Empty Deleted Items"
 msgstr "Gelöschte Objekte leeren"
 
@@ -4598,8 +4376,6 @@ msgstr "Ordner schließen"
 msgid "Reload"
 msgstr "Neu laden"
 
-# 76%
-# 100%
 msgid "Select color"
 msgstr "Farbe auswählen"
 
@@ -4615,8 +4391,6 @@ msgstr "Ordner teilen..."
 msgid "Import emails"
 msgstr "E-Mails importieren"
 
-# 93%
-# 100%
 msgid "Import appointments"
 msgstr "Termine importieren"
 
@@ -4655,7 +4429,6 @@ msgstr "Sind Sie sicher, dass {0} geleert werden soll?"
 msgid "Show All"
 msgstr "Alle Anzeigen"
 
-# 75%
 msgid "Show all folders"
 msgstr "Alle Unterordner anzeigen"
 
@@ -4675,7 +4448,6 @@ msgstr "BCC"
 msgid "Sort by: Importance"
 msgstr "Sortieren nach: Wichtigkeit"
 
-# 76%
 msgid "Sort by: To"
 msgstr "Sortien nach: An"
 
@@ -4736,8 +4508,6 @@ msgstr "Speichern..."
 msgid "Saved at {0}"
 msgstr "Nachricht gespeichert unter {0}"
 
-# 81%
-# 100%
 msgid "Saving failed"
 msgstr "Speichern fehlgeschlagen"
 
@@ -4756,7 +4526,6 @@ msgstr ""
 "Planen Sie den Versand Ihrer E-Mail zu einer festgelegten Zeit an einem "
 "festgelegten Datum"
 
-# 86%
 msgid "Add attachments to this email"
 msgstr "Dieser E-Mail einen Anhang hinzufügen"
 
@@ -4829,16 +4598,12 @@ msgstr "Als gelesen markieren"
 msgid "Mark Unread"
 msgstr "Als ungelesen markieren"
 
-# 87%
-# 100%
 msgid "New mail"
 msgstr "Neue E-Mail"
 
 msgid "Mail"
 msgstr "Mail"
 
-# 88%
-# 100%
 msgid "Reply all"
 msgstr "Allen antworten"
 
@@ -4848,17 +4613,12 @@ msgstr "Zwischen gelesen und ungelesen wechseln"
 msgid "Toggle red/complete flag"
 msgstr "Nachverfolgung ändern"
 
-# 81%
-# 86%
-# 78%
-# 76%
 msgid "Open Shared Mails"
 msgstr "Gemeinsame E-Mails öffnen"
 
 msgid "Print single email"
 msgstr "Einzelne E-Mail drucken"
 
-# 78%
 msgid "Print selected email"
 msgstr "Ausgewähltes Element drucken"
 
@@ -4907,7 +4667,6 @@ msgstr "Voreingestellte Schriftgröße"
 msgid "Always request a read receipt"
 msgstr "Immer eine Empfangsbestätigung anfordern"
 
-# 93%
 #. TRANSLATORS: The {A} _must_ always be at the start of the translation
 #. The '{B}' represents the number of minutes which the user will type in.
 msgid "{A}AutoSave unsent mail every {B} minute(s)"
@@ -4951,8 +4710,6 @@ msgstr "Rechts"
 msgid "Bottom"
 msgstr "Unten"
 
-# 83%
-# 100%
 msgid "Location of preview pane"
 msgstr "Position des Vorschaufensters"
 
@@ -5051,7 +4808,6 @@ msgid "You have unsaved changes. Do you wish to save the changes?"
 msgstr ""
 "Sie haben ungespeicherte Änderungen. Möchten Sie ihre Änderungen speichern?"
 
-# 76%
 msgid "New signature"
 msgstr "Neue Signatur"
 
@@ -5064,8 +4820,6 @@ msgstr "ZIP Datei"
 msgid "max. "
 msgstr "max. "
 
-# 81%
-# 75%
 msgid "Sort by: Sent"
 msgstr "Sortieren nach: Gesendet"
 
@@ -5081,8 +4835,6 @@ msgstr "Flagge"
 msgid "Sort by: flag"
 msgstr "Nach Flagge sortieren"
 
-# 85%
-# 100%
 msgid "Older"
 msgstr "Älter"
 
@@ -5122,7 +4874,6 @@ msgstr "Nachverfolgung"
 msgid "Move to Junk Folder"
 msgstr "Nach Junk-E-Mail verschieben"
 
-# 75%
 msgid "Send to"
 msgstr "Senden an"
 
@@ -5147,24 +4898,15 @@ msgstr "Farbe"
 msgid "New note"
 msgstr "Neue Notiz"
 
-# 81%
-# 86%
-# 78%
 msgid "Open Shared Notes"
 msgstr "Gemeinsame Notizen öffnen"
 
-# 70%
 msgid "Sticky note"
 msgstr "Gepinnte Notiz"
 
-# 78%
-# 84%
-# 100%
 msgid "Print selected note"
 msgstr "Ausgewähltes Element drucken"
 
-# 75%
-# 100%
 msgid "No note selected"
 msgstr "Keine Notiz ausgewählt"
 
@@ -5180,11 +4922,9 @@ msgstr "Anordnen nach den letzten sieben Tagen"
 msgid "Created"
 msgstr "Erstellt"
 
-# 81%
 msgid "Sort by: Created"
 msgstr "Nach Erstelldatum sortieren"
 
-# 78%
 msgid "Sort by: Color"
 msgstr "Nach Farbe sortieren"
 
@@ -5207,7 +4947,6 @@ msgstr ""
 msgid "Reload grommunio Web"
 msgstr "grommunio Web neu laden"
 
-# 87%
 msgid "Settings"
 msgstr "Einstellungen"
 
@@ -5280,7 +5019,6 @@ msgstr "12 Stunden"
 msgid "24h clock"
 msgstr "24 Stunden"
 
-# 88%
 msgid "Favorite settings"
 msgstr "Favoriten-Einstellungen"
 
@@ -5335,8 +5073,6 @@ msgstr "Ich möchte wie folgt durch meine Elemente navigieren:"
 msgid "Infinite Scroll"
 msgstr "Endlosem Scrolling"
 
-# 98%
-# 100%
 msgid "grommunio Web automatically loads additional items when you scroll down"
 msgstr ""
 "grommunio Web lädt automatisch neue Elemente nach während Sie nach unten "
@@ -5451,7 +5187,6 @@ msgstr "Zurücksetzen"
 msgid "Reloading, Please wait."
 msgstr "Webapp wird neu geladen. Bitte warten."
 
-# 75%
 msgid "Setting"
 msgstr "Einstellung"
 
@@ -5475,14 +5210,12 @@ msgstr ""
 msgid "Do you want to delete the item(s)?"
 msgstr "Möchten Sie diese Elemente löschen?"
 
-# 82%
 msgid "Sort by: Priority"
 msgstr "Nach Priorität sortieren"
 
 msgid "Status"
 msgstr "Status"
 
-# 75%
 msgid "Sort by: Status"
 msgstr "Sortieren nach: Status"
 
@@ -5501,7 +5234,6 @@ msgstr "Sortieren nach: Prozent erledigt"
 msgid "Task Status"
 msgstr "Aufgabe Status"
 
-# 93%
 msgid "Percent Complete"
 msgstr "Prozent erledigt"
 
@@ -5570,7 +5302,6 @@ msgstr "Mehrere Empfänger"
 msgid "A task request can only have one recipient."
 msgstr "Sie können eine Aufgabe nur an einen Empfänger zuweisen."
 
-# 87%
 msgid "Due date"
 msgstr "Fälligkeitsdatum"
 
@@ -5594,9 +5325,6 @@ msgstr "Aufgabe zuweisen"
 msgid "Restore to Task List"
 msgstr "In der Aufgabenliste wiederherstellen"
 
-# 94%
-# 76%
-# 100%
 msgid "Delete this task"
 msgstr "Dieses Element löschen"
 
@@ -5609,8 +5337,6 @@ msgstr "Als vollständig markieren"
 msgid "Mark this task as complete"
 msgstr "Diese Aufgabe als vollständig markieren"
 
-# 75%
-# 100%
 msgid "Print this task"
 msgstr "Diese E-Mail drucken"
 
@@ -5620,9 +5346,6 @@ msgstr "Aufgabe zuweisen"
 msgid "Cancel Assignment"
 msgstr "Zuordnung abbrechen"
 
-# 75%
-# 79%
-# 100%
 msgid "Mark this task as private"
 msgstr "Diese Aufgabe als privat markieren"
 
@@ -5632,7 +5355,6 @@ msgstr "Neue Aufgabe"
 msgid "Completed"
 msgstr "Abgeschlossen"
 
-# 76%
 msgid "Printed by: "
 msgstr "Gedruckt von: "
 
@@ -5643,24 +5365,18 @@ msgstr "Gedruckt am: "
 msgid "Percent complete"
 msgstr "Prozent erledigt"
 
-# 90%
 msgid "Total work"
 msgstr "Gesamtaufwand"
 
 msgid "{totalwork} hours"
 msgstr "{Gesamtaufwand} Stunden"
 
-# 90%
 msgid "Actual work"
 msgstr "Ist-Aufwand"
 
 msgid "{actualwork} hours"
 msgstr "{Ist-Aufwand} Stunden"
 
-# 81%
-# 86%
-# 78%
-# 76%
 msgid "Open Shared Tasks"
 msgstr "Gemeinsame Aufgaben öffnen"
 
@@ -5670,8 +5386,6 @@ msgstr "Einfache Ansicht"
 msgid "Detailed view"
 msgstr "Detaillierte Ansicht"
 
-# 92%
-# 100%
 msgid "Task request"
 msgstr "Aufgabendelegation"
 
@@ -5724,14 +5438,9 @@ msgstr "Sortieren nach: Erinnerungszeit"
 msgid "Assigned To"
 msgstr "Zugewiesen an"
 
-# 70%
 msgid "Sort by: Assignee"
 msgstr "Sortieren nach: Beauftragten"
 
-# 81%
-# 75%
-# 76%
-# 78%
 msgid "Sort by: Owner"
 msgstr "Sortieren nach: Besitzer"
 
@@ -5744,7 +5453,6 @@ msgstr "Änderung an delegierter Aufgabe"
 msgid "Loading tasks"
 msgstr "Lade Aufgaben"
 
-# 92%
 msgid "Date completed"
 msgstr "Erledigt am"
 
@@ -5898,7 +5606,6 @@ msgstr ""
 "Die vollständige Funktionalität von grommunio Web kann dadurch "
 "beeinträchtigt sein."
 
-# 100%
 msgctxt "hierarchy.foldername"
 msgid "Inbox"
 msgstr "Posteingang"
@@ -5911,17 +5618,14 @@ msgctxt "hierarchy.foldername"
 msgid "Sent Items"
 msgstr "Gesendete Objekte"
 
-# 92%
 msgctxt "hierarchy.foldername"
 msgid "Deleted items"
 msgstr "Gelöschte Objekte"
 
-# 100%
 msgctxt "hierarchy.foldername"
 msgid "Calendar"
 msgstr "Kalender"
 
-# 100%
 msgctxt "hierarchy.foldername"
 msgid "Contacts"
 msgstr "Kontakte"
@@ -5930,17 +5634,14 @@ msgctxt "hierarchy.foldername"
 msgid "Drafts"
 msgstr "Entwürfe"
 
-# 100%
 msgctxt "hierarchy.foldername"
 msgid "Journal"
 msgstr "Journal"
 
-# 100%
 msgctxt "hierarchy.foldername"
 msgid "Notes"
 msgstr "Notizen"
 
-# 100%
 msgctxt "hierarchy.foldername"
 msgid "Tasks"
 msgstr "Aufgaben"
@@ -7396,13 +7097,11 @@ msgstr "Fehler bei Abruf vorhandener Einstellungen"
 msgid "Error retrieving existing persistent settings"
 msgstr "Fehler bei Abrug vorhandener dauerhafter Einstellungen"
 
-# 93%
 msgid "Logon failed. Please verify your credentials and try again."
 msgstr ""
 "Login fehlgeschlagen. Überprüfen Sie Ihren Benutzernamen und/oder Ihr "
 "Passwort."
 
-# 83%
 msgid "Cannot connect to Gromox."
 msgstr "Konnte keine Verbindung zum grommunio-Server aufbauen."
 
@@ -7484,16 +7183,12 @@ msgstr ""
 msgid "Request is not available."
 msgstr "Anfrage ist nicht verfügbar."
 
-# 94%
-# 90%
 msgid "You have insufficient privileges to open this object."
 msgstr "Sie haben nicht genügend Berechtigungen, um dieses Objekt zu öffnen."
 
-# 93%
 msgid "Logon Failed. Please check your name/password."
 msgstr "Login fehlgeschlagen. Prüfen Sie Benutzernamen und Passwort."
 
-# 83%
 msgid "Can not connect to Gromox."
 msgstr "Konnte keine Verbindung mit Gromox aufbauen."
 
@@ -7522,23 +7217,18 @@ msgstr "Unter Vorbehalt"
 msgid "New Time Proposed"
 msgstr "Neue Zeit vorgeschlagen"
 
-# 78%
-# 76%
 #, php-format
 msgid "Occurs every %s effective %s from %s to %s."
 msgstr "Findet jeden %s statt, beginnend am %s von %s bis %s."
 
-# 77%
 #, php-format
 msgid "Occurs every %s %s effective %s from %s to %s."
 msgstr "Findet jeden %s %s statt, beginnend am %s von %s bis %s."
 
-# 80%
 #, php-format
 msgid "Occurs every %s effective %s."
 msgstr "Findet jeden %s statt, beginnend am %s."
 
-# 75%
 #, php-format
 msgid "Occurs every %s %s effective %s."
 msgstr "Findet jeden %s %s statt, beginnend am %s."
@@ -7572,28 +7262,18 @@ msgid_plural "Occurs every %s %s effective %s for %s occurrences."
 msgstr[0] "Findet jeden %s %s statt, beginnend am %s für %s Wiederholung."
 msgstr[1] "Findet jeden %s %s statt, beginnend am %s für %s Wiederholungen."
 
-# 96%
-# 76%
-# 75%
 #, php-format
 msgid "Occurs every %s effective %s until %s from %s to %s."
 msgstr "Findet jeden %s statt, beginnend am %s bis %s von %s bis %s."
 
-# 96%
-# 76%
-# 75%
-# 94%
 #, php-format
 msgid "Occurs every %s %s effective %s until %s from %s to %s."
 msgstr "Findet jeden %s %s statt, beginnend am %s bis %s von %s bis %s."
 
-# 78%
 #, php-format
 msgid "Occurs every %s effective %s until %s."
 msgstr "Findet jeden %s statt, beginnend am %s bis %s."
 
-# 78%
-# 92%
 #, php-format
 msgid "Occurs every %s %s effective %s until %s."
 msgstr "Findet jeden %s %s statt, beginnend am %s bis %s."
@@ -7852,45 +7532,29 @@ msgstr ""
 "Konnte die Nachricht nicht finden, entweder wurde Sie verschoben, gelöscht "
 "oder Siehaben nicht das Recht, diese Nachricht zu öffnen."
 
-# 78%
 msgid "Could not open message."
 msgstr "Die Nachricht konnte nicht geöffnet werden."
 
-# 75%
-# 80%
-# 98%
 msgid "You have insufficient privileges to decline this Meeting Request"
 msgstr ""
 "Sie haben nicht genügend Berechtigungen, um die Besprechungsanfrage "
 "abzulehnen"
 
-# 75%
-# 89%
-# 98%
 msgid "You have insufficient privileges to accept this Meeting Request"
 msgstr ""
 "Sie haben nicht genügend Berechtigungen, um der Besprechungsanfrage zuzusagen"
 
-# 78%
-# 82%
 msgid "Could not copy message"
 msgstr "Die Nachricht konnte nicht kopiert werden"
 
-# 78%
-# 82%
-# 86%
 msgid "Could not move message"
 msgstr "Die Nachricht konnte nicht verschoben werden"
 
-# 81%
 msgid "You have insufficient privileges to save items in this folder"
 msgstr ""
 "Sie haben nicht genügend Berechtigungen, um Elemente in dem Ordner zu "
 "speichern"
 
-# 78%
-# 82%
-# 95%
 msgid "Could not save message"
 msgstr "Die Nachricht konnte nicht gespeichert werden"
 
@@ -7908,7 +7572,6 @@ msgstr ""
 msgid "Message cannot be aborted"
 msgstr "Der Vorgang kann nicht abgebrochen werden"
 
-# 81%
 msgid "You have insufficient privileges to delete items in this folder"
 msgstr ""
 "Sie haben keine ausreichenden Berechtigungen, um Elemente in diesem Ordner "
@@ -7933,23 +7596,18 @@ msgid "Could not reclaim the ownership for the Task Request."
 msgstr ""
 "Die Besitzrechte der Aufgabenanfrage konnten nicht zurückgefordert werden."
 
-# 75%
 msgid "You have insufficient privileges to accept this Task Request."
 msgstr ""
 "Sie haben nicht genügend Berechtigungen, um die Aufgabenanfrage zu "
 "akzeptieren."
 
-# 78%
 msgid "Could not accept Task Request."
 msgstr "Der Aufgabenanfrage konnte nicht akzeptiert werden."
 
-# 75%
-# 90%
 msgid "You have insufficient privileges to decline this Task Request."
 msgstr ""
 "Sie haben nicht genügend Berechtigungen um die Aufgabenanfrage abzulehnen."
 
-# 79%
 msgid "Could not decline Task Request."
 msgstr "Die Aufgabenanfrage konnte nicht abgelehnt werden."
 

@@ -513,18 +513,15 @@ msgstr "Показувати як"
 msgid "Sort by: File As"
 msgstr "Сортувати за: Типом файлу"
 
-# 80%
 msgid "First Name"
 msgstr "Ім'я"
 
 msgid "Sort by: First Name"
 msgstr "Сортувати за: Ім'ям"
 
-# 77%
 msgid "Last Name"
 msgstr "Прізвище"
 
-# 77%
 msgid "Sort by: Last Name"
 msgstr "Сортувати за: Прізвищем"
 
@@ -776,10 +773,6 @@ msgstr "Необов'язкове"
 msgid "Resource"
 msgstr "Джерело"
 
-# 83%
-# 76%
-# 80%
-# 78%
 msgid "Could not open store."
 msgstr "Не вдається відкрити сховище."
 
@@ -1149,7 +1142,6 @@ msgstr "кінець"
 msgid "Recurrence"
 msgstr "Повторення"
 
-# 88%
 msgid "Reminder"
 msgstr "Нагадування"
 
@@ -1715,16 +1707,12 @@ msgstr "Зустрічі з {0} по {1}"
 msgid "No appointments"
 msgstr "Жодних зустрічей"
 
-# 86%
-# 100%
 msgid "Today {0} - {1}"
 msgstr "Сьогодні {0} - {1}"
 
 msgid "Today (all day)"
 msgstr "Сьогодні (весь день)"
 
-# 86%
-# 100%
 #. TRANSLATORS: Display name of a folder: "FOLDERNAME - STORENAME".
 #. TRANSLATORS: Displayed on top of a tree with folders: "FOLDERNAME - USERNAME".
 msgid "{0} - {1}"
@@ -2257,7 +2245,6 @@ msgstr ""
 msgid "Custom"
 msgstr "Нетиповий"
 
-# 88%
 #, fuzzy
 msgid "Set reminder"
 msgstr "Нагадування"
@@ -2578,7 +2565,6 @@ msgstr "Відомости"
 msgid "Not supported at the moment."
 msgstr ""
 
-# 88%
 msgid "There is {0} reminder"
 msgid_plural "There are {0} reminders"
 msgstr[0] "Тут {0} нагадування"
@@ -3009,7 +2995,6 @@ msgstr ""
 msgid "d-m-Y {0}"
 msgstr ""
 
-# 85%
 #, fuzzy
 msgid "Unknown"
 msgstr "невідомий"
@@ -3163,24 +3148,18 @@ msgctxt "mail.previewpanel"
 msgid "You forwarded this message on {0}."
 msgstr ""
 
-# 86%
-# 100%
 msgid "Assigned by {0} on {1}."
 msgstr "Присвоєно {0} на {1}."
 
 msgid "Waiting for response from recipient"
 msgstr ""
 
-# 86%
-# 100%
 msgid "Accepted by {0} on {1}."
 msgstr "Прийнято {0} для {1}."
 
 msgid "{0} has accepted on behalf of {1} {2}."
 msgstr ""
 
-# 86%
-# 100%
 msgid "Declined by {0} on {1}."
 msgstr "Відхилено {0} для {1}."
 
@@ -3772,7 +3751,6 @@ msgstr ""
 msgid "High"
 msgstr ""
 
-# 75%
 #, fuzzy
 msgid "Canceled"
 msgstr "Скасувати"
@@ -3888,7 +3866,6 @@ msgstr ""
 msgid "Not all recipients could be resolved"
 msgstr ""
 
-# 86%
 msgid "Collapse hierarchy"
 msgstr "Згорнути ієрархію"
 
@@ -3904,8 +3881,6 @@ msgstr ""
 msgid "Hide Details"
 msgstr ""
 
-# 86%
-# 100%
 msgid "Loaded {0} of {1}"
 msgstr "Завантажено {0} з {1}"
 
@@ -3970,7 +3945,6 @@ msgstr ""
 msgid "Remove widget"
 msgstr ""
 
-# 86%
 msgid "Collapse widget"
 msgstr "Згорнути пристосунок"
 
@@ -6830,12 +6804,10 @@ msgstr ""
 msgid "Error retrieving existing persistent settings"
 msgstr ""
 
-# 93%
 #, fuzzy
 msgid "Logon failed. Please verify your credentials and try again."
 msgstr "Вхід не вдався. Будь ласка, перевірте ваші ім'я та пароль."
 
-# 83%
 #, fuzzy
 msgid "Cannot connect to Gromox."
 msgstr "Неможливо підключитися до сервера grommunio."
@@ -6914,16 +6886,13 @@ msgstr ""
 msgid "Request is not available."
 msgstr ""
 
-# 90%
 msgid "You have insufficient privileges to open this object."
 msgstr "У вас недостатньо прав, щоб відкрити цей об'єкт."
 
-# 93%
 #, fuzzy
 msgid "Logon Failed. Please check your name/password."
 msgstr "Вхід не вдався. Будь ласка, перевірте ваші ім'я та пароль."
 
-# 83%
 #, fuzzy
 msgid "Can not connect to Gromox."
 msgstr "Неможливо підключитися до сервера grommunio."
@@ -7232,41 +7201,24 @@ msgid ""
 "have access to open this message."
 msgstr ""
 
-# 83%
-# 76%
-# 80%
 msgid "Could not open message."
 msgstr "Не вдається відкрити повідомлення."
 
-# 75%
-# 90%
-# 98%
 msgid "You have insufficient privileges to decline this Meeting Request"
 msgstr "У вас недостатньо прав, щоб відхилити це запрошення на зустріч"
 
-# 75%
-# 93%
-# 98%
 msgid "You have insufficient privileges to accept this Meeting Request"
 msgstr "У вас недостатньо прав, щоб прийняти це запрошення на зустріч"
 
-# 83%
-# 76%
-# 86%
 msgid "Could not copy message"
 msgstr "Не вдається скопіювати повідомлення"
 
-# 83%
-# 76%
 msgid "Could not move message"
 msgstr "Не вдається перемістити повідомлення"
 
-# 81%
 msgid "You have insufficient privileges to save items in this folder"
 msgstr "У вас недостатньо прав, щоб зберегти складники в цю теку"
 
-# 83%
-# 76%
 msgid "Could not save message"
 msgstr "Не вдається зберегти повідомлення"
 
@@ -7281,7 +7233,6 @@ msgstr ""
 msgid "Message cannot be aborted"
 msgstr ""
 
-# 81%
 msgid "You have insufficient privileges to delete items in this folder"
 msgstr "У вас недостатньо прав, щоб видалити складники з цієї теки"
 
@@ -7299,7 +7250,6 @@ msgstr ""
 msgid "Could not reclaim the ownership for the Task Request."
 msgstr ""
 
-# 75%
 #, fuzzy
 msgid "You have insufficient privileges to accept this Task Request."
 msgstr "У вас недостатньо прав, щоб відкрити це сховище."
@@ -7307,8 +7257,6 @@ msgstr "У вас недостатньо прав, щоб відкрити це 
 msgid "Could not accept Task Request."
 msgstr ""
 
-# 75%
-# 90%
 #, fuzzy
 msgid "You have insufficient privileges to decline this Task Request."
 msgstr "У вас недостатньо прав, щоб відкрити це сховище."

@@ -490,7 +490,6 @@ msgstr ""
 msgid "Sort by: File As"
 msgstr ""
 
-# 80%
 #, fuzzy
 msgid "First Name"
 msgstr "اولین صفحه"
@@ -498,12 +497,10 @@ msgstr "اولین صفحه"
 msgid "Sort by: First Name"
 msgstr ""
 
-# 77%
 #, fuzzy
 msgid "Last Name"
 msgstr "آخرین صفحه"
 
-# 77%
 #, fuzzy
 msgid "Sort by: Last Name"
 msgstr "آخرین صفحه"
@@ -3692,7 +3689,6 @@ msgstr ""
 msgid "High"
 msgstr ""
 
-# 75%
 #, fuzzy
 msgid "Canceled"
 msgstr "لغو"

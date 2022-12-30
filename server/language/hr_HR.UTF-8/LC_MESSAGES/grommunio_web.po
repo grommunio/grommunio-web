@@ -511,18 +511,15 @@ msgstr "Datoteka kao"
 msgid "Sort by: File As"
 msgstr "Razvrstaj po: datoteka kao"
 
-# 80%
 msgid "First Name"
 msgstr "Ime"
 
 msgid "Sort by: First Name"
 msgstr "Razvrstaj po: ime"
 
-# 77%
 msgid "Last Name"
 msgstr "Prezime"
 
-# 77%
 msgid "Sort by: Last Name"
 msgstr "Razvrstaj po: prezime"
 
@@ -3729,7 +3726,6 @@ msgstr ""
 msgid "High"
 msgstr ""
 
-# 75%
 msgid "Canceled"
 msgstr "Prekinuto"
 

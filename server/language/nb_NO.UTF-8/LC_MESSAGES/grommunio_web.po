@@ -320,11 +320,9 @@ msgstr "Dette feltet kan kun inneholde bokstaver og _"
 msgid "This field should only contain letters, numbers and _"
 msgstr "Dette feltet kan kun inneholde bokstaver, tall og _"
 
-# 87%
 msgid "Email Addresses"
 msgstr "E-postadresser"
 
-# 81%
 msgid "Email addresses"
 msgstr "E-postadresser"
 
@@ -349,7 +347,6 @@ msgstr "Notater"
 msgid "Members"
 msgstr "Medlemmer"
 
-# 92%
 msgid "Email Address"
 msgstr "E-postadresse"
 
@@ -428,14 +425,12 @@ msgstr "Leder"
 msgid "Direct reports"
 msgstr "Direkte underordnede"
 
-# 92%
 msgid "Phone numbers"
 msgstr "Telefonnummer"
 
 msgid "Business"
 msgstr "Arbeid"
 
-# 88%
 msgid "Business2"
 msgstr "Arbeid 2"
 
@@ -454,7 +449,6 @@ msgstr "Mobil"
 msgid "Pager"
 msgstr "Personsøker"
 
-# 75%
 msgid "No user selected"
 msgstr "Ingen bruker er valgt"
 
@@ -499,25 +493,21 @@ msgstr "Sorter på: ikon"
 msgid "Sort by: Name"
 msgstr "Sorter på: navn"
 
-# 76%
 msgid "Sort by: Display Name"
 msgstr "Sorter på: visningsnavn"
 
 msgid "File as"
 msgstr "Lagre som"
 
-# 75%
 msgid "Sort by: File As"
 msgstr "Sorter på: lagret som"
 
-# 80%
 msgid "First Name"
 msgstr "Fornavn"
 
 msgid "Sort by: First Name"
 msgstr "Sorter på: fornavn"
 
-# 77%
 msgid "Last Name"
 msgstr "Etternavn"
 
@@ -536,7 +526,6 @@ msgstr "Sorter på: stilling"
 msgid "Company Name"
 msgstr "Firmanavn"
 
-# 76%
 msgid "Sort by: Company Name"
 msgstr "Sorter på: firmanavn"
 
@@ -558,7 +547,6 @@ msgstr "Hjemmetelefon"
 msgid "Sort by: Home Phone"
 msgstr "Sorter på: hjemmetelefon"
 
-# 78%
 msgid "Sort by: Pager"
 msgstr "Sorter på: personsøker"
 
@@ -568,15 +556,12 @@ msgstr "Sted"
 msgid "Sort by: Location"
 msgstr "Sorter på: sted"
 
-# 76%
 msgid "Sort by: Fax"
 msgstr "Sorter på: faks"
 
 msgid "Print single item"
 msgstr "Skriv ut enkeltelement"
 
-# 77%
-# 84%
 msgid "Print selected item"
 msgstr "Skriv ut valgt notat"
 
@@ -595,29 +580,24 @@ msgstr "Forhåndsvisning på høyre side"
 msgid "Bottom preview"
 msgstr "Forhåndsvisning under"
 
-# 87%
 msgid "Any date"
 msgstr "Alle datoer"
 
 msgid "Past week"
 msgstr "Forrige uke"
 
-# 75%
 msgid "Past 2 weeks"
 msgstr "Forrige 2 uker"
 
 msgid "Past month"
 msgstr "Forrige måned"
 
-# 83%
 msgid "Past 6 month"
 msgstr "Forrige 6 måneder"
 
 msgid "Past year"
 msgstr "Forrige år"
 
-# 87%
-# 100%
 msgid "Custom date"
 msgstr "Selvvalgt dato"
 
@@ -630,7 +610,6 @@ msgstr "Legg til"
 msgid "Empty folder name"
 msgstr "Mangler mappenavn"
 
-# 85%
 msgid "You must specify a name."
 msgstr "Du må oppgi et navn."
 
@@ -652,7 +631,6 @@ msgstr "Alle mapper er valgt"
 msgid "Reply"
 msgstr "Svar"
 
-# 88%
 msgid "Reply All"
 msgstr "Svar til alle"
 
@@ -680,7 +658,6 @@ msgstr "E-post"
 msgid "Appointments"
 msgstr "Avtaler"
 
-# 100%
 msgid "Contacts"
 msgstr "Kontakter"
 
@@ -693,7 +670,6 @@ msgstr "Filter.."
 msgid "Unread"
 msgstr "Ulest"
 
-# 100%
 msgid "Attachments"
 msgstr "Vedlegg"
 
@@ -704,7 +680,6 @@ msgctxt "search.date"
 msgid "From"
 msgstr "Fra"
 
-# 100%
 msgctxt "search.date"
 msgid "To"
 msgstr "Til"
@@ -724,7 +699,6 @@ msgstr "Mottakere"
 msgid "Subject"
 msgstr "Emne"
 
-# 100%
 msgid "Body & Attachments"
 msgstr "Tekst & Vedlegg"
 
@@ -740,7 +714,6 @@ msgstr "Velg mappe"
 msgid "Delete search folder"
 msgstr "Slett søkemappe"
 
-# 84%
 msgid "Sort by: Date"
 msgstr "Sorter på: dato"
 
@@ -763,7 +736,6 @@ msgstr "Mente du"
 msgid "With"
 msgstr "Med"
 
-# 100%
 msgid "To"
 msgstr "Til"
 
@@ -790,14 +762,12 @@ msgstr ""
 msgid "Required"
 msgstr "Må komme"
 
-# 75%
 msgid "Optional"
 msgstr "Valgfri"
 
 msgid "Resource"
 msgstr "Ressurs"
 
-# 78%
 msgid "Could not open store."
 msgstr "Kunne ikke åpne e-postboksen."
 
@@ -944,13 +914,9 @@ msgstr "Fjern fra kalender"
 msgid "No Response Required"
 msgstr "Svar er ikke nødvendig"
 
-# 75%
 msgid "Accept"
 msgstr "Godta"
 
-# 89%
-# 77%
-# 100%
 msgid "Accept Meeting Request"
 msgstr "Godta møteinvitasjon"
 
@@ -960,7 +926,6 @@ msgstr "Foreløpig"
 msgid "Tentatively Accept Meeting Request"
 msgstr "Foreløpig godta møteinvitasjon"
 
-# 87%
 msgid "Decline"
 msgstr "Avslå"
 
@@ -1003,9 +968,6 @@ msgstr "Liste"
 msgid "Appointment"
 msgstr "Avtale"
 
-# 84%
-# 82%
-# 100%
 msgid "Meeting request"
 msgstr "Møteinvitasjon"
 
@@ -1099,8 +1061,6 @@ msgstr "Planlegging"
 msgid "Tracking"
 msgstr "Sporing"
 
-# 75%
-# 100%
 msgctxt "calendar.dialog"
 msgid "Not all attendees could be resolved."
 msgstr "Ikke alle deltakere kunne løses."
@@ -1121,8 +1081,6 @@ msgctxt "calendar.dialog"
 msgid "You proposed a new time for this meeting on {0}"
 msgstr "Du foreslo et nytt tidspunkt for dette møtet på {0}"
 
-# 91%
-# 100%
 msgctxt "calendar.dialog"
 msgid "{0} proposed a new time for this meeting on {1}"
 msgstr "{0} foreslo et nytt tidspunkt for dette møtet på {1}"
@@ -1143,7 +1101,6 @@ msgctxt "calendar.dialog"
 msgid "Tentatively Accepted by {0} on {1}"
 msgstr "Foreløpig godtatt av {0} på {1}"
 
-# 100%
 msgctxt "calendar.dialog"
 msgid "This appointment occurs in the past."
 msgstr "Denne avtalen finner sted i fortiden."
@@ -1184,7 +1141,6 @@ msgstr "til"
 msgid "Recurrence"
 msgstr "Regelmessighet"
 
-# 88%
 msgid "Reminder"
 msgstr "Påminnelse"
 
@@ -1211,11 +1167,9 @@ msgstr "Vil du oppdatere stedet \"{0}\" med nytt sted \"{1}\"?"
 msgid "jS F Y {0}"
 msgstr "j. F Y {0}"
 
-# 75%
 msgid "None"
 msgstr "Ingen"
 
-# 75%
 msgid "Send"
 msgstr "Send"
 
@@ -1267,9 +1221,6 @@ msgstr "Åpne dialogboksen Kategori"
 msgid "Private"
 msgstr "Privat"
 
-# 76%
-# 79%
-# 75%
 msgid "Mark this appointment as private"
 msgstr "Marker denne avtalen som privat"
 
@@ -1285,7 +1236,6 @@ msgstr "Foreslått av"
 msgid "Current Meeting Time"
 msgstr "Gjeldene møtetidspunkt"
 
-# 82%
 msgid "Show only working hours"
 msgstr "Vis bare arbeidstid"
 
@@ -1298,7 +1248,6 @@ msgstr "Sluttidspunkt"
 msgid "Comment"
 msgstr "Kommentar"
 
-# 84%
 msgid "Send Meeting Request Cancellation"
 msgstr "Send annullering på møteinvitasjon"
 
@@ -1415,22 +1364,18 @@ msgstr "Heldag: "
 msgid "l jS F"
 msgstr "l, j. F Y"
 
-# 88%
 msgid "Organiser"
 msgstr "Organisator"
 
 msgid "Meeting status"
 msgstr "Møtestatus"
 
-# 94%
 msgid "Required Attendees"
 msgstr "Obligatoriske deltakere"
 
-# 94%
 msgid "Optional Attendees"
 msgstr "Valgfrie deltakere"
 
-# 88%
 msgid "Resources"
 msgstr "Ressurser"
 
@@ -1524,19 +1469,14 @@ msgstr "Standard påminnelsestid for heldagsavtale"
 msgid "jS"
 msgstr "j."
 
-# 77%
-# 84%
-# 78%
 msgid "{0} selected item"
 msgid_plural "{0} selected items"
 msgstr[0] "{0} valgt element"
 msgstr[1] "{0} valgte elementer"
 
-# 93%
 msgid "New Appointment"
 msgstr "Ny avtale"
 
-# 89%
 msgid "New Meeting Request"
 msgstr "Ny møteinvitasjon"
 
@@ -1546,14 +1486,12 @@ msgstr "Åpne"
 msgid "Copy/Move"
 msgstr "Kopier/flytt"
 
-# 75%
 msgid "Send to..."
 msgstr "Send til .."
 
 msgid "Export as"
 msgstr "Eksporter som"
 
-# 80%
 msgid "Occurrence"
 msgstr "Forekomst"
 
@@ -1578,12 +1516,9 @@ msgstr "Ikoner"
 msgid "Recurring"
 msgstr "Regelmessighet"
 
-# 82%
-# 100%
 msgid "Sort by: Duration"
 msgstr "Sorter på: varighet"
 
-# 92%
 msgid "Meeting Status"
 msgstr "Møtestatus"
 
@@ -1599,22 +1534,18 @@ msgstr "Sorter på: kategorier"
 msgid "Created On"
 msgstr "Opprettet på"
 
-# 84%
 msgid "Sort by: Created On"
 msgstr "Sorter på: opprettet på"
 
 msgid "Due By"
 msgstr "Forfaller på"
 
-# 84%
-# 76%
 msgid "Sort by: Due By"
 msgstr "Sorter på: forfallsdato"
 
 msgid "Label"
 msgstr "Etikett"
 
-# 78%
 msgid "Sort by: Label"
 msgstr "Sorter på: etikett"
 
@@ -1642,14 +1573,12 @@ msgstr "Gjentakende sluttdato"
 msgid "Sort by: Recurring End Date"
 msgstr "Sorter på: Gjentakende sluttdato"
 
-# 77%
 msgid "Recurring Pattern"
 msgstr "Regelmessig mønster"
 
 msgid "Sort by: Recurring Pattern"
 msgstr "Sorter på: regelmessig mønster"
 
-# 77%
 msgid "Sort by: Reminder"
 msgstr "Sorter på: påminnelse"
 
@@ -1992,7 +1921,6 @@ msgstr "Duplikat mottaker"
 msgid "Recipient already exists."
 msgstr "Mottaker finnes allerede."
 
-# 77%
 msgid "Notify sender"
 msgstr "Informer sender"
 
@@ -2065,7 +1993,6 @@ msgstr "Importer til"
 msgid "New folder"
 msgstr "Ny mappe"
 
-# 78%
 msgid "Download as ZIP"
 msgstr "Last ned som ZIP"
 
@@ -2116,7 +2043,6 @@ msgid ""
 "0 or higher."
 msgstr ""
 
-# 93%
 msgid "Attachment error"
 msgstr "Feil med vedlegg"
 
@@ -2202,16 +2128,12 @@ msgstr "Slå sammen"
 msgid "Remove"
 msgstr "Fjern"
 
-# 90%
 msgid "Check Names"
 msgstr "Kontroller navn"
 
 msgid "Select an address to use"
 msgstr "Velg en adresse å bruke"
 
-# 87%
-# 75%
-# 83%
 msgid "Email"
 msgstr "E-post"
 
@@ -2230,7 +2152,6 @@ msgstr "E-post og innlegg"
 msgid "Contact"
 msgstr "Kontakt"
 
-# 100%
 msgid "Journal"
 msgstr "Journal"
 
@@ -2274,7 +2195,6 @@ msgstr "Ingen representant er konfigurert"
 msgid "Loading delegates"
 msgstr "Laster inn representanter"
 
-# 76%
 msgid "Please select a delegate."
 msgstr "Vennligst velg en representant."
 
@@ -2349,7 +2269,6 @@ msgstr "Sett selvvalgt flagg"
 msgid "Start date"
 msgstr "Startdato"
 
-# 87%
 msgid "End date"
 msgstr "Sluttdato"
 
@@ -2362,15 +2281,12 @@ msgstr "Denne uken"
 msgid "Next week"
 msgstr "Neste uke"
 
-# 87%
-# 100%
 msgid "Custom"
 msgstr "Selvvalgt"
 
 msgid "Set reminder"
 msgstr "Sett påminnelse"
 
-# 80%
 msgid "Complete"
 msgstr "Ferdig"
 
@@ -2395,7 +2311,6 @@ msgstr "Kopier e-postadresse"
 msgid "Set as required"
 msgstr "Marker som obligatorisk"
 
-# 75%
 msgid "Set as optional"
 msgstr "Marker som valgfritt"
 
@@ -2472,9 +2387,6 @@ msgstr "Utvid utvalget til det første elementet i listen"
 msgid "Extend the selection to the last item in the list"
 msgstr "Utvid utvalget til det siste elementet i listen"
 
-# 77%
-# 84%
-# 78%
 msgid "Open selected item"
 msgstr "Åpne valgte element"
 
@@ -2487,9 +2399,6 @@ msgstr "Skriv ut liste"
 msgid "Open copy/move dialog"
 msgstr "Åpne dialogboksen Kopier/flytt"
 
-# 77%
-# 84%
-# 75%
 msgid "Delete selected item"
 msgstr "Slett valgte element"
 
@@ -2524,7 +2433,6 @@ msgstr "Laster inn kopi-mottaker"
 msgid "Reply Mail"
 msgstr "Svar på e-post"
 
-# 87%
 msgid "New Mail"
 msgstr "Ny e-post"
 
@@ -2565,11 +2473,9 @@ msgstr ""
 msgid "Display name"
 msgstr "Visningsnavn"
 
-# 85%
 msgid "Email address"
 msgstr "E-postadresse"
 
-# 78%
 msgid "Expand distribution list"
 msgstr "Utvid distribusjonsliste"
 
@@ -2586,7 +2492,6 @@ msgstr "Rediger mottaker"
 msgid "Copy email addresses"
 msgstr "Kopier e-postadresser"
 
-# 81%
 msgid "Send email"
 msgstr "Send e-post"
 
@@ -2786,8 +2691,6 @@ msgstr[1] "Totalt {0} gjenopprettelige elementer"
 msgid "Deleted On"
 msgstr "Slettet på"
 
-# 84%
-# 78%
 msgid "Sort by: Deleted On"
 msgstr "Sorter på: slettet på"
 
@@ -2908,7 +2811,6 @@ msgstr "Fjern handling"
 msgid "Unknown action"
 msgstr "Ukjent handling"
 
-# 89%
 msgid "This action for the current rule is unknown"
 msgstr "Handlingen for gjeldende regel er ukjent"
 
@@ -2921,7 +2823,6 @@ msgstr "Fjern betingelse"
 msgid "Inbox Rule"
 msgstr "Innboksregel"
 
-# 77%
 msgid "Rule name"
 msgstr "Regelnavn"
 
@@ -3137,7 +3038,6 @@ msgstr "d.m.Y {0}"
 msgid "Unknown"
 msgstr "Ukjent"
 
-# 88%
 msgid "Meeting Organizer"
 msgstr "Møtearrangør"
 
@@ -3355,7 +3255,6 @@ msgctxt "mail.previewpanel"
 msgid "on behalf of"
 msgstr "på vegne av"
 
-# 75%
 #. TRANSLATORS: This message is used to indicate that no sent date is available for the message (because it has not been sent yet).
 msgctxt "mail.previewpanel"
 msgid "None"
@@ -3379,7 +3278,6 @@ msgstr "Basismappe"
 msgid "Datepicker"
 msgstr "Datovelger"
 
-# 85%
 msgid "File As"
 msgstr "Lagre som"
 
@@ -3401,7 +3299,6 @@ msgstr "Andre adresser"
 msgid "Business Phone"
 msgstr "Telefon, arbeid"
 
-# 87%
 msgid "Business 2 Phone"
 msgstr "Telefon, arbeid 2"
 
@@ -3411,7 +3308,6 @@ msgstr "Assistent, telefon"
 msgid "Company Main Phone"
 msgstr "Hovedtelefon for firma"
 
-# 83%
 msgid "Home 2 Phone"
 msgstr "Hjemmetelefon 2"
 
@@ -3476,12 +3372,9 @@ msgstr "Yrke"
 msgid "Assistant's Name"
 msgstr "Assistentens navn"
 
-# 77%
 msgid "Distribution List Name"
 msgstr "Navn på distribusjonsliste"
 
-# 76%
-# 75%
 msgid "Open Shared Contacts"
 msgstr "Åpne delte kontakter"
 
@@ -3527,7 +3420,6 @@ msgstr "Jr."
 msgid "Sr."
 msgstr "Sr."
 
-# 84%
 msgid "Phone number"
 msgstr "Telefonnummer"
 
@@ -3577,7 +3469,6 @@ msgstr "Foto"
 msgid "Additional information"
 msgstr "Ytterligere informasjon"
 
-# 80%
 msgid "Business 2"
 msgstr "Arbeid 2"
 
@@ -3629,12 +3520,9 @@ msgstr "Direktevalg"
 msgid "Add Attachment"
 msgstr "Legg til vedlegg"
 
-# 81%
 msgid "Add attachments to this contact"
 msgstr "Legg til et vedlegg til denne kontakten"
 
-# 76%
-# 79%
 msgid "Mark this contact as private"
 msgstr "Marker denne kontakten som privat"
 
@@ -3662,7 +3550,6 @@ msgstr "Skriv ditt notat her..."
 msgid "New contact"
 msgstr "Ny kontakt"
 
-# 78%
 msgid "New distribution list"
 msgstr "Ny distribusjonsliste"
 
@@ -3709,7 +3596,6 @@ msgstr "Sorter på: mobiltelefon"
 msgid "Sort by: Business Phone"
 msgstr "Sorter på: telefon, arbeid"
 
-# 78%
 msgid "Sort by: Business Fax"
 msgstr "Sorter på: faks, arbeid"
 
@@ -3734,7 +3620,6 @@ msgstr "Sorter på: leders navn"
 msgid "Sort by: Assistant's Name"
 msgstr "Sorter på: assistentens navn"
 
-# 76%
 msgid "Sort by: Nickname"
 msgstr "Sorter på: kallenavn"
 
@@ -3747,29 +3632,24 @@ msgstr "Sorter på: fødselsdag"
 msgid "Sort by: Anniversary"
 msgstr "Sorter på: jubileumsdato"
 
-# 76%
 msgid "Sort by: Business Address"
 msgstr "Sorter på: kontorsted"
 
 msgid "Sort by: Home Address"
 msgstr "Sorter på: hjemmeadresse"
 
-# 78%
 msgid "Sort by: Office Address"
 msgstr "Sorter på: kontorsted"
 
 msgid "Mailing Address"
 msgstr "Postadresse"
 
-# 79%
 msgid "Sort by: Mailing Address"
 msgstr "Sorter på: postadresse"
 
-# 85%
 msgid "Sort by: IM Address"
 msgstr "Sorter på: IM adresse"
 
-# 75%
 msgid "Sort by: Webpage"
 msgstr "Sorter på: nettside"
 
@@ -3779,18 +3659,15 @@ msgstr "Assistentens telefon"
 msgid "Sort by: Assistant's Phone"
 msgstr "Sorter på: assistentens telefon"
 
-# 87%
 msgid "Business Phone 2"
 msgstr "Telefon, arbeid 2"
 
-# 92%
 msgid "Sort by: Business Phone 2"
 msgstr "Sorter på: telefon, arbeid 2"
 
 msgid "Sort by: Callback"
 msgstr "Sorter på: tilbakeringing"
 
-# 78%
 msgid "Sort by: Car Phone"
 msgstr "Sorter på: biltelefon"
 
@@ -3800,36 +3677,30 @@ msgstr "Firmatelefon"
 msgid "Sort by: Company Main Phone"
 msgstr "Sorter på: hovedtelefon for firma"
 
-# 83%
 msgid "Home Phone 2"
 msgstr "Hjemmetelefon 2"
 
-# 90%
 msgid "Sort by: Home Phone 2"
 msgstr "Sorter på: hjemmetelefon 2"
 
 msgid "Sort by: Home Fax"
 msgstr "Sorter på: hjemmefaks"
 
-# 76%
 msgid "Sort by: ISDN"
 msgstr "Sorter på: ISDN"
 
-# 80%
 msgid "Sort by: Other Phone"
 msgstr "Sorter på: annen telefon"
 
 msgid "Radio Phone"
 msgstr "Radiotelefon"
 
-# 76%
 msgid "Sort by: Radio Phone"
 msgstr "Sorter på: radiotelefon"
 
 msgid "Sort by: TTY/TDD Phone"
 msgstr "Sorter på: TTY/TDD Phone"
 
-# 80%
 msgid "Sort by: Telex Phone"
 msgstr "Sorter på: fakstelefon"
 
@@ -3937,7 +3808,6 @@ msgstr "Normal"
 msgid "High"
 msgstr "Høy"
 
-# 75%
 msgid "Canceled"
 msgstr "Avbrutt"
 
@@ -3986,7 +3856,6 @@ msgstr "Utsatt"
 msgid "Dark"
 msgstr "Mørk"
 
-# 75%
 msgid "High Contrast"
 msgstr "Høykontrast"
 
@@ -4020,11 +3889,9 @@ msgstr "Meldingen ble sendt"
 msgid "No recipient"
 msgstr "Ingen mottaker"
 
-# 80%
 msgid "Please specify at least one recipient"
 msgstr "Vennligst velg minst en mottaker"
 
-# 80%
 msgid "Please specify a recipient"
 msgstr "Vennligst velg en mottaker"
 
@@ -4070,14 +3937,12 @@ msgstr "Kopier detaljer"
 msgid "Hide Details"
 msgstr "Skjul detaljer"
 
-# 76%
 msgid "Loaded {0} of {1}"
 msgstr "Lastet inn {0} av {1}"
 
 msgid "Saving"
 msgstr "Lagrer"
 
-# 80%
 msgid "Saved"
 msgstr "Lagret"
 
@@ -4093,7 +3958,6 @@ msgstr ""
 msgid "grommunio Content Panel"
 msgstr "grommunio innholdspanel"
 
-# 92%
 msgid "Delete item"
 msgstr "Slett element"
 
@@ -4277,14 +4141,12 @@ msgstr "EntryID"
 msgid "Parent EID"
 msgstr ""
 
-# 90%
 msgid "Folder size"
 msgstr "Mappestørrelse"
 
 msgid "Folder containing {0} Items"
 msgstr "Mappen inneholder {0} elementer"
 
-# 90%
 msgid "Permissions"
 msgstr "Rettigheter"
 
@@ -4315,7 +4177,6 @@ msgstr "Rediger egen"
 msgid "Edit all"
 msgstr "Rediger alle"
 
-# 92%
 msgid "Delete items"
 msgstr "Slette elementer"
 
@@ -4376,8 +4237,6 @@ msgstr "Total størrelse"
 msgid "Sort by: Total size (including subfolders)"
 msgstr "Sorter på: total størrelse (inkludert undermapper)"
 
-# 76%
-# 78%
 msgid "Open Shared Folders"
 msgstr "Åpne delte mapper"
 
@@ -4435,7 +4294,6 @@ msgstr "Tøm Slettede elementer"
 msgid "Rename Folder"
 msgstr "Gi nytt navn på mappe"
 
-# 90%
 msgid "New Folder"
 msgstr "Ny mappe"
 
@@ -4524,11 +4382,9 @@ msgstr "BCC"
 msgid "Sort by: Importance"
 msgstr "Sorter på: viktighet"
 
-# 76%
 msgid "Sort by: To"
 msgstr "Sorter på: til"
 
-# 100%
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "Sent"
 msgstr "Sendt"
@@ -4600,7 +4456,6 @@ msgstr "Send senere"
 msgid "Schedule your mail to be sent on a specific date and time"
 msgstr "Planlegg å sende e-posten på en angitt dato og tidspunkt"
 
-# 86%
 msgid "Add attachments to this email"
 msgstr "Legg til et vedlegg til denne e-posten"
 
@@ -4694,8 +4549,6 @@ msgstr "Åpne delt e-post"
 msgid "Print single email"
 msgstr "Skriv ut enkelt e-post"
 
-# 77%
-# 84%
 msgid "Print selected email"
 msgstr "Skriv ut valgt e-post"
 
@@ -4892,7 +4745,6 @@ msgstr "ZIP fil"
 msgid "max. "
 msgstr "maks. "
 
-# 75%
 msgid "Sort by: Sent"
 msgstr "Sorter på: sendt"
 
@@ -4947,7 +4799,6 @@ msgstr "Oppfølging"
 msgid "Move to Junk Folder"
 msgstr "Flytt til Søppel E-post"
 
-# 75%
 msgid "Send to"
 msgstr "Send til"
 
@@ -4972,18 +4823,15 @@ msgstr "Farge"
 msgid "New note"
 msgstr "Nytt notat"
 
-# 76%
 msgid "Open Shared Notes"
 msgstr "Åpne delte notater"
 
 msgid "Sticky note"
 msgstr "Klistrelapp"
 
-# 77%
 msgid "Print selected note"
 msgstr "Skriv ut denne notaten"
 
-# 75%
 msgid "No note selected"
 msgstr "Intet notat er valgt"
 
@@ -5045,7 +4893,6 @@ msgstr "Oppstartsmappe"
 msgid "Theme"
 msgstr "Tema"
 
-# 76%
 msgid "Select Default Folder"
 msgstr "Velg standardmappe"
 
@@ -5070,7 +4917,6 @@ msgstr "Rediger innstillinger"
 msgid "Restore to defaults"
 msgstr "Bruk standardinnstillinger"
 
-# 88%
 msgid "Delete settings"
 msgstr "Slett innstillinger"
 
@@ -5233,7 +5079,6 @@ msgstr ""
 msgid "You can not send mails as you have exceeded soft quota."
 msgstr "Du har oversteget din myk-kvotegrense, så du kan ikke sende e-post."
 
-# 88%
 msgid "Reset settings"
 msgstr "Nullstill innstillinger"
 
@@ -5293,8 +5138,6 @@ msgstr "Sorter på: status"
 msgid "Due Date"
 msgstr "Forfallsdato"
 
-# 84%
-# 76%
 msgid "Sort by: Due Date"
 msgstr "Sorter på: forfallsdato"
 
@@ -5307,7 +5150,6 @@ msgstr "Sorter på: prosent utført"
 msgid "Task Status"
 msgstr "Statusrapport"
 
-# 93%
 msgid "Percent Complete"
 msgstr "Prosent utført"
 
@@ -5376,8 +5218,6 @@ msgstr "Flere mottakere"
 msgid "A task request can only have one recipient."
 msgstr "En oppgaveforespørsel kan kun ha en mottaker."
 
-# 87%
-# 100%
 msgid "Due date"
 msgstr "Forfallssdato"
 
@@ -5399,7 +5239,6 @@ msgstr "Send oppgave til tilordnede"
 msgid "Restore to Task List"
 msgstr "Gjenopprett til oppgaveliste"
 
-# 81%
 msgid "Delete this task"
 msgstr "Slett denne oppgaven"
 
@@ -5421,18 +5260,15 @@ msgstr "Tilordne oppgaven"
 msgid "Cancel Assignment"
 msgstr "Avbryt tildeling"
 
-# 76%
 msgid "Mark this task as private"
 msgstr "Marker denne oppgaven som privat"
 
 msgid "New task"
 msgstr "Ny oppgave"
 
-# 80%
 msgid "Completed"
 msgstr "Ferdig"
 
-# 76%
 msgid "Printed by: "
 msgstr "Skrevet ut: "
 
@@ -5455,7 +5291,6 @@ msgstr "Faktisk tid"
 msgid "{actualwork} hours"
 msgstr "{faktisktid} timer"
 
-# 82%
 msgid "Open Shared Tasks"
 msgstr "Åpne delte oppgaver"
 
@@ -5468,7 +5303,6 @@ msgstr "Detaljert visning"
 msgid "Task request"
 msgstr "Oppgaveforespørsel"
 
-# 77%
 msgid "Print selected task"
 msgstr "Skriv ut denne oppgaven"
 
@@ -5509,7 +5343,6 @@ msgstr ""
 msgid "Sort by: Complete"
 msgstr "Sorter på: komplett"
 
-# 92%
 msgid "Reminder Time"
 msgstr "Påminnelsestidspunkt"
 
@@ -5714,7 +5547,6 @@ msgctxt "hierarchy.foldername"
 msgid "Journal"
 msgstr "Journal"
 
-# 100%
 msgctxt "hierarchy.foldername"
 msgid "Notes"
 msgstr "Notater"
@@ -6747,7 +6579,6 @@ msgstr "Mål/Målsetting"
 msgid "Holiday Cards"
 msgstr "Feriekort"
 
-# 75%
 msgid "Hot Contacts"
 msgstr "Ofte brukte kontakter"
 
@@ -7073,7 +6904,6 @@ msgstr ""
 msgid "Logon failed. Please verify your credentials and try again."
 msgstr "Pålogging mislyktes. Vennligst sjekk ditt brukernavn/passord."
 
-# 83%
 msgid "Cannot connect to Gromox."
 msgstr "Kunne ikke koble til Gromox."
 
@@ -7106,7 +6936,6 @@ msgstr ""
 msgid "Unable to import '%s' to '%s'. "
 msgstr "Kunne ikke importere '%s' til '%s'. "
 
-# 100%
 msgid "There is no appointment found in this file."
 msgstr "Fant ingen avtaler i denne filen."
 
@@ -7153,14 +6982,12 @@ msgstr ""
 msgid "Request is not available."
 msgstr "Forespørselen er ikke tilgjengelig."
 
-# 87%
 msgid "You have insufficient privileges to open this object."
 msgstr "Du har ikke tilstrekkelige rettigheter til å åpne dette objektet."
 
 msgid "Logon Failed. Please check your name/password."
 msgstr "Pålogging mislyktes. Vennligst sjekk ditt brukernavn/passord."
 
-# 83%
 msgid "Can not connect to Gromox."
 msgstr "Kunne ikke koble til Gromox."
 
@@ -7526,26 +7353,19 @@ msgstr ""
 msgid "Could not reclaim the ownership for the Task Request."
 msgstr "Kunne ikke ta tilbake eierskap for denne oppgaveforespørselen."
 
-# 98%
-# 89%
 msgid "You have insufficient privileges to accept this Task Request."
 msgstr ""
 "Du har ikke tilstrekkelige rettigheter til å kunne godta denne "
 "oppgaveforespørsel."
 
-# 87%
-# 78%
 msgid "Could not accept Task Request."
 msgstr "Kunne ikke godta oppgaveforespørsel."
 
-# 98%
-# 89%
 msgid "You have insufficient privileges to decline this Task Request."
 msgstr ""
 "Du har ikke tilstrekkelige rettigheter til å kunne avslå denne "
 "oppgaveforespørsel."
 
-# 79%
 msgid "Could not decline Task Request."
 msgstr "Kunne ikke avslå oppgaveforespørsel."
 
