@@ -488,7 +488,7 @@ msgid "Show Names from the"
 msgstr "Zeige Namen aus der"
 
 msgid "Search..."
-msgstr "Suchen..."
+msgstr "Suchen…"
 
 msgid "Sort by: Icon"
 msgstr "Sortieren nach: Symbol"
@@ -653,7 +653,7 @@ msgid "Include subfolders"
 msgstr "Unterordner einbeziehen"
 
 msgid "Show.."
-msgstr "Zeige..."
+msgstr "Zeige…"
 
 msgid "Mails"
 msgstr "E-Mails"
@@ -668,7 +668,7 @@ msgid "Tasks"
 msgstr "Aufgaben"
 
 msgid "Filter.."
-msgstr "Eingrenzen ..."
+msgstr "Eingrenzen…"
 
 msgid "Unread"
 msgstr "Ungelesen"
@@ -688,10 +688,10 @@ msgid "To"
 msgstr "Bis"
 
 msgid "Filter category.."
-msgstr "Kategorie filtern.."
+msgstr "Kategorie filtern…"
 
 msgid "Search.."
-msgstr "Suche in ..."
+msgstr "Suche in…"
 
 msgid "Sender"
 msgstr "Absender"
@@ -1171,7 +1171,7 @@ msgid "Attachments cannot be modified for a single occurence"
 msgstr "In einer einzelnen Wiederholung kann ein Anhang nicht geändert werden"
 
 msgid "Type your message here..."
-msgstr "Fügen Sie hier Notizen ein ..."
+msgstr "Fügen Sie hier Notizen ein…"
 
 msgid "Update location"
 msgstr "Ort aktualisieren"
@@ -1505,7 +1505,7 @@ msgid "Copy/Move"
 msgstr "Kopieren/Verschieben"
 
 msgid "Send to..."
-msgstr "Senden an..."
+msgstr "Senden an…"
 
 msgid "Export as"
 msgstr "Exportieren als"
@@ -1717,7 +1717,7 @@ msgstr ""
 "jetzt gelöscht."
 
 msgid "Loading appointments..."
-msgstr "Termine werden geladen..."
+msgstr "Termine werden geladen…"
 
 msgid "Please select a calendar via widget settings"
 msgstr "Bitte wählen Sie einen Kalender über die Widget-Einstellungen"
@@ -1764,7 +1764,7 @@ msgid "d/m/y"
 msgstr "d.m.Y"
 
 msgid "Select one..."
-msgstr "Auswählen ..."
+msgstr "Auswählen…"
 
 msgid "Unnamed folder"
 msgstr "Unbenannter Ordner"
@@ -1856,7 +1856,7 @@ msgid "Paste this occurrence only"
 msgstr "Nur diese Wiederholung einfügen"
 
 msgid "Paste the series..."
-msgstr "Die Terminserie einfügen..."
+msgstr "Die Terminserie einfügen…"
 
 msgid ""
 "This is a recurring message. Do you want to delete only this occurrence or "
@@ -2764,52 +2764,52 @@ msgid "Sort by: Size"
 msgstr "Sortieren nach: Größe"
 
 msgid "Move the message to folder..."
-msgstr "Nachricht in Ordner verschieben..."
+msgstr "Nachricht in Ordner verschieben…"
 
 msgid "Copy the message to folder..."
-msgstr "Nachricht in Ordner kopieren..."
+msgstr "Nachricht in Ordner kopieren…"
 
 msgid "Delete the message"
 msgstr "Nachricht löschen"
 
 msgid "Redirect the message to..."
-msgstr "Nachricht umleiten an..."
+msgstr "Nachricht umleiten an…"
 
 msgid "Forward the message to..."
-msgstr "Nachricht weiterleiten an..."
+msgstr "Nachricht weiterleiten an…"
 
 msgid "Forward the message as attachment to..."
-msgstr "Nachricht als Anhang weiterleiten an..."
+msgstr "Nachricht als Anhang weiterleiten an…"
 
 msgid "Mark the message as read..."
-msgstr "Nachricht als gelesen markieren..."
+msgstr "Nachricht als gelesen markieren…"
 
 msgid "is received from..."
-msgstr "Erhalten von..."
+msgstr "Erhalten von…"
 
 msgid "includes these words in the sender's address..."
-msgstr "Enthält die folgenden Wörter in der Absenderadresse..."
+msgstr "Enthält die folgenden Wörter in der Absenderadresse…"
 
 msgid "includes these words in the recipient's address..."
-msgstr "Enthält die folgenden Wörter in der Empfängeradresse..."
+msgstr "Enthält die folgenden Wörter in der Empfängeradresse…"
 
 msgid "includes these words in the subject..."
-msgstr "Enthält diese Wörter im Betreff..."
+msgstr "Enthält diese Wörter im Betreff…"
 
 msgid "includes these words in the body..."
-msgstr "Enthält diese Wörter im Text..."
+msgstr "Enthält diese Wörter im Text…"
 
 msgid "includes these words in the transport-headers..."
-msgstr "Enthält diese Wörter in den Transportkopf..."
+msgstr "Enthält diese Wörter in den Transportkopf…"
 
 msgid "has importance..."
-msgstr "als wichtig markiert..."
+msgstr "als wichtig markiert…"
 
 msgid "has an attachment"
 msgstr "enthält einen Anhang"
 
 msgid "is sent to..."
-msgstr "wurde gesendet an ..."
+msgstr "wurde gesendet an…"
 
 msgid "is sent only to me"
 msgstr "Nur an mich gesendet"
@@ -2824,19 +2824,19 @@ msgid "has my name in the To or Cc field"
 msgstr "enthält meinen Namen im An- oder CC-Feld"
 
 msgid "has sensitivity..."
-msgstr "ist vertraulich..."
+msgstr "ist vertraulich…"
 
 msgid "is received after..."
-msgstr "wurde empfangen nach dem..."
+msgstr "wurde empfangen nach dem…"
 
 msgid "is received before..."
-msgstr "wurde empfangen vor dem..."
+msgstr "wurde empfangen vor dem…"
 
 msgid "size is at least..."
-msgstr "hat mindestens die folgende Grö­ße..."
+msgstr "hat mindestens die folgende Grö­ße…"
 
 msgid "size is at most..."
-msgstr "hat maximal die folgende Grö­ße..."
+msgstr "hat maximal die folgende Grö­ße…"
 
 msgid "has my name in the To field"
 msgstr "enthält meinen Namen im An-Feld"
@@ -2948,7 +2948,7 @@ msgid "Always move messages with this subject"
 msgstr "Verschiebe Nachrichten mit diesem Betreff"
 
 msgid "Create rule..."
-msgstr "Erstelle eine Regel..."
+msgstr "Erstelle eine Regel…"
 
 msgid "myself"
 msgstr "mich selbst"
@@ -2966,10 +2966,10 @@ msgid "All folders"
 msgstr "Alle Ordner"
 
 msgid "Other..."
-msgstr "Andere..."
+msgstr "Andere…"
 
 msgid "Search in.."
-msgstr "Suche in ..."
+msgstr "Suche in…"
 
 msgid "Folder does not exist"
 msgstr "Ordner existiert nicht"
@@ -3097,7 +3097,7 @@ msgid "{0} overdue"
 msgstr "{0} überfällig"
 
 msgid "Loading..."
-msgstr "Laden ..."
+msgstr "Laden…"
 
 msgid "Message could not be loaded"
 msgstr "Nachricht kann nicht geladen werden"
@@ -3604,7 +3604,7 @@ msgid "Add New"
 msgstr "Hinzufügen"
 
 msgid "Type your note here..."
-msgstr "Fügen Sie hier Notizen ein ..."
+msgstr "Fügen Sie hier Notizen ein…"
 
 msgid "New contact"
 msgstr "Neuer Kontakt"
@@ -3943,7 +3943,7 @@ msgid "Widgets"
 msgstr "Widgets"
 
 msgid "Sending..."
-msgstr "Senden..."
+msgstr "Senden…"
 
 msgid "Sent successfully"
 msgstr "Erfolgreich gesendet"
@@ -4386,7 +4386,7 @@ msgid "Remove From Favorites"
 msgstr "Aus den Favoriten entfernen"
 
 msgid "Share folder..."
-msgstr "Ordner teilen..."
+msgstr "Ordner teilen…"
 
 msgid "Import emails"
 msgstr "E-Mails importieren"
@@ -4401,7 +4401,7 @@ msgid "Properties of {0}"
 msgstr "Eigenschaften von {0}"
 
 msgid "Share {0} with..."
-msgstr "{0} teilen mit..."
+msgstr "{0} teilen mit…"
 
 msgid "Properties of {0} - {1}"
 msgstr "Eigenschaften von {0} - {1}"
@@ -4503,7 +4503,7 @@ msgid "Your email will be sent {0}{1}"
 msgstr "Ihre E-Mail wird versendet {0}{1}"
 
 msgid "Saving..."
-msgstr "Speichern..."
+msgstr "Speichern…"
 
 msgid "Saved at {0}"
 msgstr "Nachricht gespeichert unter {0}"
@@ -5708,7 +5708,7 @@ msgid "More than 1 share link exists. Only showing the latest one"
 msgstr "Es besteht mehr als ein geteilter Link. Nur der letzte wird angezeigt"
 
 msgid "Loading details..."
-msgstr "Lade Details..."
+msgstr "Lade Details…"
 
 msgid "Share Details"
 msgstr "Freigabedetails"
