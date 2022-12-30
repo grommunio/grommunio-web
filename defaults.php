@@ -163,7 +163,7 @@ if (!defined('ENABLED_LANGUAGES')) {
 		"af_ZA;am_ET;ar_DZ;ar_SA;as_IN;az_AZ;" .
 		"be_BY;bg_BG;bn_BD;bn_IN;bs_BA;" .
 		"ca_ES;ca_ES@valencia;cs_CZ;cy_GB;" .
-		"da_DK;de_CH;de_DE;el_GR;en_US;es_ES;et_EE;eu_ES;" .
+		"da_DK;de_CH;de_DE;el_GR;en_GB;en_US;es_ES;et_EE;eu_ES;" .
 		"fa_IR;fi_FI;fil_PH;fr_FR;" .
 		"ga_IE;gd_GB;gl_ES;gu_IN;" .
 		"he_IL;hi_IN;hr_HR;hu_HU;hy_AM;" .
