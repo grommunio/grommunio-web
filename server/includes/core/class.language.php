@@ -5,7 +5,6 @@
 	 */
 	class Language {
 		private $languages = ["en_US.UTF-8" => "English"];
-		private $languagetable = ["en_US" => "eng_USA"];
 		private $lang;
 		private $loaded = false;
 
@@ -52,15 +51,12 @@
 					if (is_dir(LANGUAGE_DIR . $entry . "/LC_MESSAGES") && is_file(LANGUAGE_DIR . $entry . "/language.txt")) {
 						$fh = fopen(LANGUAGE_DIR . $entry . "/language.txt", "r");
 						$lang_title = fgets($fh);
-						$lang_table = fgets($fh);
 						fclose($fh);
 						$this->languages[$entry] = "{$langcode}: " . trim($lang_title);
-						$this->languagetable[$entry] = trim($lang_table);
 					}
 				}
 			}
 			asort($this->languages, SORT_LOCALE_STRING);
-			asort($this->languagetable, SORT_LOCALE_STRING);
 			$this->loaded = true;
 		}
 
