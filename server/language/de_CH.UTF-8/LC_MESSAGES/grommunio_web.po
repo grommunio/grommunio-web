@@ -5015,13 +5015,13 @@ msgid "Show unread mail counter in application title"
 msgstr ""
 
 msgid "Hide widget panel"
-msgstr ""
+msgstr "Widget-Panel verstecken"
 
 msgid "Show search bar above folder list"
 msgstr ""
 
 msgid "Auto"
-msgstr ""
+msgstr "Automatisch"
 
 msgid "Actual size"
 msgstr ""
@@ -5036,7 +5036,7 @@ msgid "Document default zoom"
 msgstr ""
 
 msgid "PDF zoom"
-msgstr ""
+msgstr "PDF-Zoom"
 
 msgid "File previewing"
 msgstr ""
@@ -5770,7 +5770,7 @@ msgid "Upload"
 msgstr "Hochladen"
 
 msgid "At least one file is too large! Maximum allowed filesize: {0}."
-msgstr "Mindestens eine der Dateien ist zu gross! Die Maximalgrösse ist: {0}."
+msgstr "Mindestens eine der Dateien ist zu gross! Erlaubt sind höchstens {0}."
 
 msgid "Keep both"
 msgstr "Beide behalten"
@@ -5826,6 +5826,7 @@ msgid ""
 "grommunio Web will automatically restart in order for these changes to take "
 "effect."
 msgstr ""
+"grommunio Web wird automatisch neu starten, um diese Änderungen anzuwenden."
 
 msgid "grommunio Web is reloading, Please wait."
 msgstr ""
@@ -5921,13 +5922,13 @@ msgid "You have to choose at least one file!"
 msgstr "Sie müssen mindestens eine Datei auswählen!"
 
 msgid "Create New "
-msgstr ""
+msgstr "Neu erstellen "
 
 msgid "Incorrect filename"
 msgstr ""
 
 msgid "Error reaching office backend"
-msgstr ""
+msgstr "Fehler beim Erreichen des Office-Backend"
 
 msgid "Folder already exists"
 msgstr "Ordner existiert bereits"
@@ -5951,7 +5952,7 @@ msgid "Select upload folder"
 msgstr "Ordner zum Hochladen auswählen"
 
 msgid "File \"{0}\" is too large! Maximum allowed filesize: {1}."
-msgstr "Datei «{0}» ist zu gross! Die Maximalgrösse ist: {1}."
+msgstr "Datei «{0}» ist zu gross! Erlaubt sind höchstens {1}."
 
 msgid "Add item to Files"
 msgstr "Element dem Files-Backend hinzufügen"
@@ -5963,7 +5964,7 @@ msgid "Uploaded"
 msgstr "Hochgeladen"
 
 msgid "Attachment successfully stored in Files"
-msgstr "Anhang wurde erfolgreich in Files gepeichert"
+msgstr "Anhang wurde erfolgreich in Files gespeichert"
 
 msgid "Upload Failed"
 msgstr "Hochladen fehlgeschlagen"
@@ -5996,7 +5997,7 @@ msgid "Uploading: "
 msgstr "Lade hoch: "
 
 msgid "Upload status unavailable... please wait."
-msgstr "Status des Hochladens nicht verfügbar... bitte warten."
+msgstr "Status des Hochladens nicht verfügbar… bitte warten."
 
 msgid "Upload finished!"
 msgstr "Hochladen vollständig!"
@@ -6065,10 +6066,10 @@ msgid "File preview"
 msgstr "Dateivorschau"
 
 msgid "Your browser does not support previewing of audio files!"
-msgstr "Ihr Browser unterstützt nicht die Vorschau von Audio-Dateien!"
+msgstr "Ihr Browser unterstützt die Vorschau von Audio-Dateien nicht!"
 
 msgid "Your browser does not support previewing of video files!"
-msgstr "Ihr Browser unterstützt nicht die Vorschau von Video-Dateien!"
+msgstr "Ihr Browser unterstützt die Vorschau von Video-Dateien nicht!"
 
 msgid "d.m.Y G:i"
 msgstr "d.m.Y G:i"
@@ -6101,13 +6102,13 @@ msgid "Intranet"
 msgstr ""
 
 msgid "number"
-msgstr ""
+msgstr "Zahl"
 
 msgid "shadow"
 msgstr ""
 
 msgid "Openstreetmap"
-msgstr ""
+msgstr "OpenStreetMap"
 
 #. TRANSLATORS: The map of earth
 msgid "Map"
@@ -6150,22 +6151,22 @@ msgid "Operating System"
 msgstr "Betriebssystem"
 
 msgid "User Agent"
-msgstr "User Agent"
+msgstr "User-Agent"
 
 msgid "MDM Plugin"
-msgstr "MDM Plugin"
+msgstr "MDM-Plugin"
 
 msgid "Active Sync Version"
-msgstr "Active Sync Version"
+msgstr "ActiveSync-Version"
 
 msgid "grommunio-sync Version"
-msgstr "grommunio-sync Version"
+msgstr "grommunio-sync-Version"
 
 msgid "Policy name"
-msgstr "Richtlinien Name"
+msgstr "Richtlinienname"
 
 msgid "Outlook Extension"
-msgstr ""
+msgstr "Outlook-Erweiterung"
 
 msgid "Build"
 msgstr "Build"
@@ -6209,8 +6210,8 @@ msgid ""
 "Unable to connect to the grommunio-sync server. Click {0} to enter your "
 "credentials"
 msgstr ""
-"Verbindung zum grommunio-sync-Server kann nicht hergestellt werden. Klicken "
-"Sie auf {0}, um Ihre Anmeldeinformationen einzugeben"
+"Konnte keine Verbindung zum grommunio-sync-Server herstellen. Klicken Sie auf "
+"{0}, um Ihre Zugangsdaten einzugeben"
 
 msgid "Devices"
 msgstr "Geräte"
@@ -6219,19 +6220,19 @@ msgid "No devices connected to your account"
 msgstr "Es sind keine Geräte mit Ihrem Account verbunden"
 
 msgid "Provisioning Status"
-msgstr "Status des Provisioning"
+msgstr "Status der Provisionierung"
 
 msgid "Last Update"
 msgstr "Letzte Aktualisierung"
 
 msgid "Device ID"
-msgstr "Geräte ID"
+msgstr "Geräte-ID"
 
 msgid "Device OS"
-msgstr "Geräte Betriebssystem"
+msgstr "Gerätebetriebssystem"
 
 msgid "Device Info"
-msgstr "Geräte Informationen"
+msgstr "Geräteinfo"
 
 msgid "First Sync time"
 msgstr "Erste Synchronisation"
@@ -6255,27 +6256,27 @@ msgid ""
 "Do you really want to wipe your device?\n"
 " Enter your password to confirm."
 msgstr ""
-"Möchten Sie wirklich Ihre Gerät löschen?\n"
+"Möchten Sie wirklich Ihr Gerät löschen?\n"
 " Bitte geben Sie Ihr Passwort zur Bestätigung ein."
 
 msgid ""
 "Do you really want to remove your device?\n"
 " Enter your password to confirm."
 msgstr ""
-"Möchten Sie wirklich Ihre Gerät entfernen?\n"
+"Möchten Sie wirklich Ihr Gerät entfernen?\n"
 " Bitte geben Sie Ihr Passwort zur Bestätigung ein."
 
 msgid "Add meeting"
 msgstr ""
 
 msgid "Room name:"
-msgstr ""
+msgstr "Raumname:"
 
 msgid "Room URL:"
-msgstr ""
+msgstr "Raum-URL:"
 
 msgid "Shift-click for advanced settings"
-msgstr ""
+msgstr "Weitere Einstellungen mit Shift-Click"
 
 msgid "Join webmeeting"
 msgstr ""
@@ -6287,7 +6288,7 @@ msgid "Web tab"
 msgstr ""
 
 msgid "Hide the button in the main toolbar"
-msgstr ""
+msgstr "Schaltfläche im Hauptmenü verstecken"
 
 msgid "Add the subject to the room name"
 msgstr ""
@@ -6296,18 +6297,22 @@ msgid "Add the organizer name to the room name"
 msgstr ""
 
 msgid "Add the URL to the meeting location rather than overwriting it"
-msgstr ""
+msgstr "URL zum Meeting-Standort hinzufügen, anstatt die URL zu überschreiben"
 
 msgid ""
 "Prevent the URL in the meeting location from being overridden automatically "
 "(ex: when adding a meetingroom)"
 msgstr ""
+"Verhindern, dass die URL automatisch überschrieben wird (z.B. durch "
+"hinzufügen eines Meetingraums)"
 
 msgid "If you have problems when creating meetings, try disabling this setting"
 msgstr ""
+"Falls Sie Probleme beim Erstellen von Meetings haben, versuchen Sie, diese "
+"Option zu deaktivieren"
 
 msgid "Add an invitation to the appointment description"
-msgstr ""
+msgstr "Einladung der Terminbeschreibung hinzufügen"
 
 msgid "Invitation text"
 msgstr ""
@@ -6316,12 +6321,14 @@ msgid ""
 "must contain %url% as a placeholder for the meeting link, empty the textbox "
 "to reset to default"
 msgstr ""
+"muss den Parameter %url% als Platzhalter für den Meeting-Link enthalten; "
+"leeren Sie das Textfeld, um den Inhalt zurückzusetzen"
 
 msgid "An unknown error occurred while changing password."
-msgstr ""
+msgstr "Ein unbekannter Fehler ist bei der Passwortänderung aufgetreten."
 
 msgid "Password is changed successfully."
-msgstr ""
+msgstr "Passwort wurde erfolgreich gesetzt."
 
 msgid "Success"
 msgstr ""
@@ -6374,16 +6381,16 @@ msgid "The passphrases don't match. Please try again"
 msgstr ""
 
 msgid "S/MIME Message"
-msgstr ""
+msgstr "S/MIME-Nachricht"
 
 msgid "Passphrase changed succesfully"
 msgstr ""
 
 msgid "S/MIME Passphrase"
-msgstr ""
+msgstr "S/MIME-Passwort"
 
 msgid "Submit"
-msgstr ""
+msgstr "Absenden"
 
 msgid "Certificate passphrase"
 msgstr ""
