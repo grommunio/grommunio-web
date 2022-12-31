@@ -248,22 +248,22 @@ msgid "The value in this field is invalid"
 msgstr "Der Wert dieses Feldes ist ungültig"
 
 msgid "The minimum length for this field is {0}"
-msgstr "Die minimal erlaubte Länge dieses Feldes ist {0}"
+msgstr "Die Mindestlänge für dieses Feld ist {0}"
 
 msgid "The maximum length for this field is {0}"
-msgstr "Die maximal erlaubte Länge dieses Feldes ist {0}"
+msgstr "Die Maximallänge für dieses Feld ist {0}"
 
 msgid "This field is required"
 msgstr "Dieses Feld ist auszufüllen"
 
 msgid "The minimum value for this field is {0}"
-msgstr "Der kleinste erlaubte Wert dieses Feldes ist {0}"
+msgstr "Der Mindestwert für dieses Feld ist {0}"
 
 msgid "The maximum value for this field is {0}"
-msgstr "Der grösste erlaubte Wert dieses Feldes ist {0}"
+msgstr "Der Höchstwert für dieses Feld ist {0}"
 
 msgid "{0} is not a valid number"
-msgstr "{0} ist keine gültige Nummer"
+msgstr "{0} ist keine gültige Zahl"
 
 msgid "The date in this field must be equal to or after {0}"
 msgstr "Das Datum in diesem Feld muss identisch mit oder nach {0} sein"
@@ -300,10 +300,10 @@ msgid "Value"
 msgstr "Wert"
 
 msgid "true"
-msgstr "Wahr"
+msgstr "wahr"
 
 msgid "false"
-msgstr "Falsch"
+msgstr "falsch"
 
 msgid ""
 "This field should be an e-mail address in the format \"user@example.com\""
@@ -476,7 +476,7 @@ msgstr ""
 "weitere Ergebnisse."
 
 msgid "Use the search bar to get results"
-msgstr "Nutzen Sie eine Suchanfrage, um Ergebniss zu erhalten"
+msgstr "Nutzen Sie die Suchleiste, um Ergebnisse zu erhalten"
 
 msgid "There are no items to show in this list"
 msgstr "In dieser Liste gibt es keine Elemente anzuzeigen"
@@ -641,7 +641,7 @@ msgid "Edit as New"
 msgstr "Nachricht als Neu bearbeiten"
 
 msgid "Search tools"
-msgstr "Suchwerkzeug"
+msgstr "Suchwerkzeuge"
 
 msgid "Folders"
 msgstr "Ordner"
@@ -749,8 +749,8 @@ msgid ""
 "Could not accept proposal as this meeting is not available in calendar; It "
 "may have been moved or deleted."
 msgstr ""
-"Konnte Vorschlag nicht akzeptieren, da dieses Meeting nicht im Kalender "
-"verfügbar ist; Sie könnte verschoben oder gelöscht worden sein."
+"Konnte Vorschlag nicht akzeptieren, da diese Besprechung nicht im Kalender "
+"verfügbar ist; sie könnte verschoben oder gelöscht worden sein."
 
 msgid ""
 "Could not view proposal as this meeting is not available in calendar; It may "
@@ -760,7 +760,7 @@ msgstr ""
 "Kalender verfügbar ist; sie könnte verschoben oder gelöscht worden sein."
 
 msgid "Required"
-msgstr "Benötigt"
+msgstr "Erforderlich"
 
 msgid "Optional"
 msgstr "Optional"
@@ -865,7 +865,7 @@ msgid "Where"
 msgstr "Wo"
 
 msgid "New Meeting Time Proposed"
-msgstr "Neuen Besprechungstermin vorgeschlagen"
+msgstr "Neue Besprechungszeit vorgeschlagen"
 
 msgid "and "
 msgstr "und "
@@ -1135,7 +1135,7 @@ msgid ""
 "request is updated by the organizer"
 msgstr ""
 "Bitte beachten Sie, dass alle von Ihnen gemachten Änderungen überschrieben "
-"werden, wenn der Organisator den Termin aktualisiert"
+"werden, wenn der Organisator die Besprechung aktualisiert"
 
 msgid "Create in"
 msgstr "Erstellen in"
@@ -1422,7 +1422,7 @@ msgid "Duration must be between 1 and 120 minutes."
 msgstr "Der Wert muss zwischen 1 und 120 Minuten liegen."
 
 msgid "Default status for all day appointment"
-msgstr "Standardstatus für ganztägigen Termin"
+msgstr "Standardstatus für ganztägige Termine"
 
 msgid "Working days"
 msgstr "Arbeitstage"
@@ -1434,11 +1434,11 @@ msgid ""
 "Free/Busy information is used by people sending meeting requests, to "
 "determine when you are available for meetings."
 msgstr ""
-"Die Frei/Gebucht Informationen können von Benutzern verwendet werden um zu "
-"sehen wann Sie verfügbar sind."
+"Die Frei/Gebucht-Informationen können von Benutzern verwendet werden, um zu "
+"sehen, wann Sie verfügbar sind."
 
 msgid "Free/Busy publishing"
-msgstr "Frei/Gebucht Veröffentlichung"
+msgstr "Frei/Gebucht-Veröffentlichung"
 
 msgid "Publish {A} month(s) of Calendar Free/Busy information on the server."
 msgstr "Frei-/Gebucht Informationen für {A} Monat(e) veröffentlichen."
@@ -1571,16 +1571,16 @@ msgid "Sort by: Resources"
 msgstr "Sortieren nach: Ressourcen"
 
 msgid "Recurring Start Date"
-msgstr ""
+msgstr "Start der Terminserie"
 
 msgid "Sort by: Recurring Start Date"
-msgstr ""
+msgstr "Sortieren nach: Start der Terminserie"
 
 msgid "Recurring End Date"
-msgstr ""
+msgstr "Enddatum der Terminserie"
 
 msgid "Sort by: Recurring End Date"
-msgstr ""
+msgstr "Sortieren nach: Enddatum der Terminserie"
 
 msgid "Recurring Pattern"
 msgstr "Serienmuster"
@@ -1673,7 +1673,7 @@ msgid ""
 "request is updated by the organizer. Would you like to move this meeting?"
 msgstr ""
 "Bitte beachten Sie, dass alle von Ihnen gemachten Änderungen überschrieben "
-"werden, wenn der Organisator den Termin aktualisiert. Möchten Sie den Termin "
+"werden, wenn der Organisator die Besprechung aktualisiert. Möchten Sie den Termin "
 "dennoch verschieben?"
 
 msgid "Don't move"
@@ -2060,8 +2060,7 @@ msgstr "Problem mit dem Anhang"
 
 msgid "Cannot create ZIP, The allowed maximum size is 30 MB."
 msgstr ""
-"ZIP-Datei konnte nicht erstellt werden. Die maximal erlaubte Grösse ist 30 "
-"MB."
+"ZIP-Datei konnte nicht erstellt werden. Die Grösse ist auf 30 MB beschränkt."
 
 msgid "Unable to download"
 msgstr "Download nicht möglich"
@@ -2269,7 +2268,7 @@ msgstr ""
 "wenden Sie sich an Ihren Systemadministrator."
 
 msgid "You have insufficient privileges to move following items."
-msgstr "Sie haben keine Berechtigung, die folgenden Elemente zu verschieben."
+msgstr "Sie haben keine Berechtigung, folgende Elemente zu verschieben."
 
 msgid "Subject:"
 msgstr "Betreff:"
@@ -2475,7 +2474,7 @@ msgid "Help"
 msgstr "Hilfe"
 
 msgid "Web Manual"
-msgstr ""
+msgstr "Web-Handbuch"
 
 msgid "Item data"
 msgstr ""
@@ -2521,7 +2520,7 @@ msgid "Delete recipient from suggestion list"
 msgstr "Empfänger von der Liste mit Empfehlungen löschen"
 
 msgid "Copy all email addresses"
-msgstr ""
+msgstr "Alle E-Mail-Adressen kopieren"
 
 msgid "View recipient"
 msgstr "Empfänger anzeigen"
@@ -2772,10 +2771,10 @@ msgid "is received from..."
 msgstr "Erhalten von…"
 
 msgid "includes these words in the sender's address..."
-msgstr "Enthält die folgenden Wörter in der Absenderadresse…"
+msgstr "Enthält folgende Wörter in der Absenderadresse…"
 
 msgid "includes these words in the recipient's address..."
-msgstr "Enthält die folgenden Wörter in der Empfängeradresse…"
+msgstr "Enthält folgende Wörter in der Empfängeradresse…"
 
 msgid "includes these words in the subject..."
 msgstr "Enthält diese Wörter im Betreff…"
@@ -2817,10 +2816,10 @@ msgid "is received before..."
 msgstr "wurde empfangen vor dem…"
 
 msgid "size is at least..."
-msgstr "hat mindestens die folgende Grösse…"
+msgstr "hat mindestens folgende Grösse…"
 
 msgid "size is at most..."
-msgstr "hat maximal die folgende Grösse…"
+msgstr "hat höchstens folgende Grösse…"
 
 msgid "has my name in the To field"
 msgstr "enthält meinen Namen im An-Feld"
@@ -2868,7 +2867,7 @@ msgid "Exceptions"
 msgstr "Ausnahmen"
 
 msgid "Apply only when Out of Office is active"
-msgstr "Nur anwenden wenn Abwesenheitsbenachrichtigung aktiv ist"
+msgstr "Nur anwenden, wenn Abwesenheitsbenachrichtigung aktiv ist"
 
 msgid "Stop processing more rules"
 msgstr "Keine weiteren Regeln anwenden"
@@ -3002,16 +3001,16 @@ msgid "Desktop Notifications Settings"
 msgstr "Einstellungen für Desktopbenachrichtigungen"
 
 msgid "We need permissions to enable desktop notifications."
-msgstr "Zum Aktivieren der Desktopbenachrichtigungen wird Erlaubnis benötigt."
+msgstr "Zum Aktivieren der Desktopbenachrichtigungen werden Berechtigungen benötigt."
 
 msgid "Request Permissions"
 msgstr "Erlaubnis anfordern"
 
 msgid "Enable desktop notifications for new mail"
-msgstr "Desktopbenachrichtigung für neue E-Mail aktivieren"
+msgstr "Desktopbenachrichtigungen für neue E-Mail aktivieren"
 
 msgid "Enable desktop notifications for reminders"
-msgstr "Desktopbenachrichtigung für Erinnerungen aktivieren"
+msgstr "Desktopbenachrichtigungen für Erinnerungen aktivieren"
 
 msgid "{A} Auto-hide desktop notification after second(s) {B}"
 msgstr "{A} Desktopbenachrichtigung automatisch nach … Sekunden ausblenden {B}"
@@ -3777,15 +3776,15 @@ msgstr ""
 msgid ""
 "Cannot upload attachment, attachment is {0} while the allowed maximum is {1}."
 msgstr ""
-"Der Anhang kann nicht hochgeladen werden. Der Anhang ist {0}, maximal "
-"erlaubt sind {1}."
+"Der Anhang kann nicht hochgeladen werden. Der Anhang ist {0}, "
+"erlaubt sind höchstens {1}."
 
 msgid ""
 "Cannot upload attachment, the total attachment size is {0} while the allowed "
 "maximum is {1}"
 msgstr ""
 "Der Anhang konnte nicht hochgeladen werden. Die gesamte Anhangsgrösse ist "
-"{0}, erlaubt sind maximal {1}"
+"{0}, erlaubt sind höchstens {1}"
 
 msgid ""
 "Cannot upload attachment, total attachment is {0} while the allowed maximum "
@@ -4016,7 +4015,7 @@ msgid "This is the first time you are using grommunio Web. "
 msgstr "Sie verwenden grommunio Web zum ersten Mal. "
 
 msgid "Please check the following settings before continuing."
-msgstr "Bitte überprüfen Sie die folgenden Einstellungen bevor Sie fortfahren."
+msgstr "Bitte überprüfen Sie folgende Einstellungen bevor Sie fortfahren."
 
 msgid "Widget height"
 msgstr "Höhe des Widget"
@@ -4124,10 +4123,10 @@ msgid "Contributor"
 msgstr "Mitwirkender"
 
 msgid "Free/Busy time, subject, location"
-msgstr ""
+msgstr "Frei/Gebucht-Zeiten, Betreff, Ort"
 
 msgid "Free/Busy time"
-msgstr ""
+msgstr "Frei/Gebucht-Zeiten"
 
 msgid "Unable to import:"
 msgstr "Import nicht möglich:"
@@ -4405,7 +4404,7 @@ msgid "Are you sure you want to empty {0}?"
 msgstr "Sind Sie sicher, dass {0} geleert werden soll?"
 
 msgid "Show All"
-msgstr ""
+msgstr "Alle anzeigen"
 
 msgid "Show all folders"
 msgstr "Alle Unterordner anzeigen"
@@ -4742,7 +4741,7 @@ msgid "My contacts only"
 msgstr ""
 
 msgid "Anyone outside my organization"
-msgstr ""
+msgstr "Jedem ausserhalb meiner Organisation"
 
 msgid ""
 "The time you entered is before the out of office date. Please reschedule."
@@ -4956,7 +4955,7 @@ msgid "Advanced settings"
 msgstr "Erweiterte Einstellungen"
 
 msgid "Developer tools"
-msgstr ""
+msgstr "Entwicklerwerkzeuge"
 
 msgid "Show insertion points in grommunio Web"
 msgstr ""
