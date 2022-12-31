@@ -6741,29 +6741,29 @@ msgid ""
 "Sorry, access to grommunio Web is not available with this user account. "
 "Please contact your system administrator."
 msgstr ""
-"Der Zugriff auf die grommunio Web ist mit diesem Benutzer nicht möglich. "
+"Der Zugriff auf grommunio Web ist mit diesem Benutzer nicht möglich. "
 "Bitte wenden Sie sich an Ihren Administrator."
 
 msgid "With this backend, you can connect to any ownCloud server."
-msgstr ""
+msgstr "Mit diesem Backend können Sie ownCloud-Server einbinden."
 
 msgid "Files ownCloud Backend: "
-msgstr ""
+msgstr "Files' ownCloud-Backend: "
 
 msgid "Server address"
-msgstr "Server Adresse"
+msgstr "Serveradresse"
 
 msgid "Server port"
-msgstr "Server Port"
+msgstr "Serverport"
 
 msgid "Use TLS"
 msgstr "TLS verwenden"
 
 msgid "Webdav base path"
-msgstr "WebDAV Basispfad"
+msgstr "WebDAV-Basispfad"
 
 msgid "Use grommunio credentials"
-msgstr "grommunio Zugangsdaten verwenden"
+msgstr "grommunio-Zugangsdaten verwenden"
 
 msgid "php-curl is not available"
 msgstr ""
@@ -6775,10 +6775,10 @@ msgid "Connection failed"
 msgstr "Verbindung fehlgeschlagen"
 
 msgid "Sabre error"
-msgstr "Sabre Fehler"
+msgstr "Sabre-Fehler"
 
 msgid "Copying failed"
-msgstr "Kopieren fehlgeschlagen"
+msgstr "Kopiervorgang fehlgeschlagen"
 
 msgid "Unknown error"
 msgstr "Unbekannter Fehler"
@@ -6824,7 +6824,7 @@ msgid "We could not retrieve list of server features."
 msgstr "Die Liste der Serverfunktionen konnte nicht abgerufen werden."
 
 msgid "PHP-Curl is not available."
-msgstr "PHP-CURL ist nicht verfügbar."
+msgstr "php-curl ist nicht verfügbar."
 
 msgid "Unknown account ID"
 msgstr "Unbekannte Account-ID"
@@ -6843,7 +6843,7 @@ msgid "Moving between accounts is not implemented"
 msgstr "Verschieben zwischen Konten ist nicht implementiert"
 
 msgid "Files plugin"
-msgstr "Files plugin"
+msgstr "Files-Plugin"
 
 msgid "Unknown type - cannot save this file to the Files backend!"
 msgstr "Diese Datei kann nicht im Files-Backend gespeichert werden!"
@@ -6864,19 +6864,19 @@ msgid "Deleting share failed"
 msgstr "Löschen der Freigabe fehlgeschlagen"
 
 msgid "With this backend, you can connect to any WebDAV server."
-msgstr "Mit diesem Backend können Sie zu jedem WebDAV Server verbinden."
+msgstr "Mit diesem Backend können Sie WebDAV-Server einbinden."
 
 msgid "Files WebDAV Backend: "
-msgstr "Files WebDAV Backend: "
+msgstr "Files' WebDAV-Backend: "
 
 msgid "PHP-CURL is not installed"
-msgstr "PHP-CURL ist nicht installiert"
+msgstr "php-curl ist nicht installiert"
 
 msgid "Directory creation failed"
 msgstr "Ordner erstellen fehlgeschlagen"
 
 msgid "Deletion failed"
-msgstr "Löschen fehlgeschlagen"
+msgstr "Löschung fehlgeschlagen"
 
 msgid "Moving failed"
 msgstr "Verschieben fehlgeschlagen"
@@ -6897,13 +6897,13 @@ msgid "File server is not reachable. Please verify the connection."
 msgstr "Dateiserver ist nicht erreichbar. Bitte überprüfen Sie die Verbindung."
 
 msgid "PHP-CURL not installed"
-msgstr "PHP-CURL ist nicht installiert"
+msgstr "php-curl ist nicht installiert"
 
 msgid "Account is ready to use."
 msgstr "Account ist einsatzbereit."
 
 msgid "File backend not responding. Please try again later."
-msgstr "Backend antwortet nicht. Bitte versuchen Sie es später erneut."
+msgstr "Das Dateibackend antwortet nicht. Versuchen Sie es später erneut."
 
 msgid "Zip file generation failed. Please inform the administrator."
 msgstr ""
@@ -6914,7 +6914,7 @@ msgid "This file is no longer available. Please reload the folder."
 msgstr "Diese Datei existiert nicht mehr. Bitte den Ordner neu laden."
 
 msgid "Mobile device management plugin"
-msgstr "Mobile Device Management Plugin"
+msgstr "Plugin für Mobile Device Management"
 
 #, php-format
 msgid ""
@@ -6965,7 +6965,7 @@ msgid "Private certificate does not match email address"
 msgstr "Persönliches Zertifikat stimmt nicht mit der E-Mail-Adresse überein"
 
 msgid "Missing public certificates for the following recipients: "
-msgstr "Für die folgenden Empfänger fehlen die öffentlichen Zertifikate: "
+msgstr "Für folgenden Empfänger fehlen die öffentlichen Zertifikate: "
 
 msgid ". Please contact your system administrator for details"
 msgstr ""
@@ -6982,7 +6982,7 @@ msgid "Unable to decrypt certificate"
 msgstr ""
 
 msgid "Private key can't be used to sign email"
-msgstr ""
+msgstr "Privater Schlüssel kann nicht zum Signieren verwendet werden"
 
 msgid "Certificate email address doesn't match grommunio Web account "
 msgstr ""
@@ -7006,7 +7006,7 @@ msgid "Can't add data to bus, same action type is present in bus"
 msgstr ""
 
 msgid "Response data requested from bus but it doesn't have any data."
-msgstr ""
+msgstr "Antwortdaten vom Bus angefragt, enthalten aber keine Daten."
 
 #, php-format
 msgid "Unknown module '%s' with id '%s'"
@@ -7015,6 +7015,8 @@ msgstr ""
 msgid ""
 "Server encountered some problem, so it was not able to handle the request."
 msgstr ""
+"Der Server ist auf ein Problem gestossen und die Anfrage konnte nicht "
+"verarbeitet werden."
 
 #, php-format
 msgid "Unknown notifier '%s'"
@@ -7024,7 +7026,7 @@ msgid "An unexpected error has occurred"
 msgstr ""
 
 msgid "To-Do List"
-msgstr ""
+msgstr "To-Do-Liste"
 
 #. TRANSLATORS: This indicates that the opened folder belongs to a particular user,
 #. * for example: 'Calendar of Holiday', in this case %1$s is 'Calendar' (the foldername)
@@ -7035,10 +7037,10 @@ msgid "%1$s of %2$s"
 msgstr ""
 
 msgid "Error retrieving existing settings"
-msgstr ""
+msgstr "Fehler beim Abruf vorhandener Einstellungen"
 
 msgid "Error retrieving existing persistent settings"
-msgstr ""
+msgstr "Fehler beim Abruf vorhandener dauerhafter Einstellungen"
 
 msgid "Logon failed. Please verify your credentials and try again."
 msgstr ""
@@ -7052,7 +7054,7 @@ msgid ""
 "Login did not work due to a duplicate session. The issue was automatically "
 "resolved, please log in again."
 msgstr ""
-"Die Anmeldung ist auf Grund einer bereits bestehenden Sitzung "
+"Die Anmeldung ist aufgrund einer bereits bestehenden Sitzung "
 "fehlgeschlagen. Das Problem wurde automatisch behoben, bitte erneut anmelden."
 
 msgid "Unknown MAPI Error"
@@ -7065,7 +7067,7 @@ msgid "Destination folder not found."
 msgstr "Zielordner nicht gefunden."
 
 msgid "Eml is corrupted"
-msgstr ""
+msgstr "EML ist korrupt"
 
 msgid "The eml Attachment is not imported successfully"
 msgstr ""
@@ -7092,7 +7094,7 @@ msgstr "Konnte «%s» nicht importieren. "
 
 msgid "Please contact your system administrator if the problem persists."
 msgstr ""
-"Bitte kontaktieren Sie Ihren lokalen Administrator falls das Problem "
+"Bitte kontaktieren Sie Ihren lokalen Administrator, falls das Problem "
 "wiederholt auftritt."
 
 msgid "Attachment is not imported successfully"
@@ -7121,6 +7123,7 @@ msgstr ""
 
 msgid "Could not find message, either it has been moved or deleted."
 msgstr ""
+"Konnte Nachricht nicht finden; entweder wurde sie verschoben oder gelöscht."
 
 msgid "Request is not available."
 msgstr "Anfrage ist nicht verfügbar."
@@ -7234,15 +7237,17 @@ msgid ""
 "Contact information could not be displayed because the server had trouble "
 "retrieving the information."
 msgstr ""
+"Kontaktinformationen konnten nicht dargestellt werden, da der Server Probleme "
+"hatte, die Information einzuholen."
 
 msgid "Could not handle this type of object."
 msgstr ""
 
 msgid "Could not open this object."
-msgstr ""
+msgstr "Konnte dieses Objekt nicht öffnen."
 
 msgid "Error in search, please try again"
-msgstr ""
+msgstr "Fehler bei der Suche; versuchen Sie es erneut"
 
 msgid "Unable to perform search query, no permissions to create search folder."
 msgstr "Fehler bei der Suche; keine Berechtigungen, um Suchordner anzulegen."
@@ -7261,6 +7266,7 @@ msgstr ""
 
 msgid "Could not open occurrence, specific occurrence is probably deleted."
 msgstr ""
+"Konnte Ereignis nicht öffnen, da das spezifische Ereignis vermutlich gelöscht wurde."
 
 msgid "a meeting request"
 msgstr "eine Besprechungsanfrage"
@@ -7275,6 +7281,8 @@ msgid ""
 "Cannot set a reminder to appear before the previous occurrence. Reset "
 "reminder to save the change"
 msgstr ""
+"Kann keine Erinnerung vor dem vorherigen Ereignis setzen. Setzen Sie die "
+"Erinnerung zurück, um die Änderung zu speichern"
 
 msgid "Two occurrences cannot occur on the same day"
 msgstr ""
@@ -7286,6 +7294,11 @@ msgid ""
 "enter the name as a required or optional attendee or talk to your "
 "administrator about giving you permission to schedule '%s'."
 msgstr ""
+"Sie haben «%s» als Ressource markiert. Sie können keinen Termin mit «%s» "
+"erstellen, da Sie keine Berechtigung für das Konto "
+"besitzen. Fügen Sie entweder den Namen als erforderlichen oder optionalen "
+"Teilnehmer hinzu, oder sprechen Sie mit Ihrem Administrator über die Erteilung der "
+"Berechtigung, «%s» zu planen."
 
 #, php-format
 msgid ""
@@ -7300,7 +7313,7 @@ msgid ""
 "'%s' has declined your meeting because it is recurring. You must book each "
 "meeting separately with this resource."
 msgstr ""
-"«%s» hat Ihre Besprechungsanfrage abgelehnt, da es ein wiederholender Termin ist. "
+"«%s» hat Ihre Besprechungsanfrage abgelehnt, da es ein wiederkehrender Termin ist. "
 "Sie müssen jede Besprechungsanfrage mit dieser Ressource separat buchen."
 
 #, php-format
