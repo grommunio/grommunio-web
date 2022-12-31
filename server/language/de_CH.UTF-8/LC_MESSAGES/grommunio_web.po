@@ -7322,7 +7322,7 @@ msgid ""
 "find another resource."
 msgstr ""
 "«%s» ist bereits zu der spezifizierten Zeit gebucht. Sie müssen entweder "
-"eine andere Zeit oder eine andere Ressource aufsuchen."
+"eine andere Zeit oder eine andere Ressource finden."
 
 msgid "Meeting was not scheduled."
 msgstr ""
@@ -7345,10 +7345,10 @@ msgid "%s's Anniversary"
 msgstr "%ss Jahrestag"
 
 msgid "You don't have the permission to complete this action"
-msgstr ""
+msgstr "Sie haben keine Berechtigung, diese Aktion auszuführen"
 
 msgid "Unknown user/group"
-msgstr ""
+msgstr "Unbekannte(r) Benutzer/Gruppe"
 
 msgid "Could not save delegate information."
 msgstr ""
@@ -7357,7 +7357,7 @@ msgid "Could not delete delegate."
 msgstr ""
 
 msgid "Can not get list of delegates."
-msgstr ""
+msgstr "Konnte die Stellvertreterliste nicht abrufen."
 
 msgid "Could not load the hierarchy."
 msgstr ""
@@ -7461,6 +7461,8 @@ msgid ""
 "Could not find message, either it has been moved or deleted or you don't "
 "have access to open this message."
 msgstr ""
+"Konnte die Nachricht nicht finden. Entweder wurde sie verschoben, gelöscht, "
+"oder Sie haben keine Berechtigung, diese Nachricht zu öffnen."
 
 msgid "Could not open message."
 msgstr "Die Nachricht konnte nicht geöffnet werden."
@@ -7490,7 +7492,7 @@ msgid ""
 "Message is no longer in the outgoing queue, typically because it has already "
 "been sent."
 msgstr ""
-"Die Nachricht ist nicht mehr in der Outgoing Queue, sie wurde wahrscheinlich "
+"Die Nachricht ist nicht mehr im Postausgang; sie wurde wahrscheinlich "
 "schon verschickt."
 
 msgid "Message cannot be aborted"
@@ -7505,7 +7507,7 @@ msgid "You have insufficient privileges to attach item as an attachment."
 msgstr "Sie haben keine Berechtigung, dieses Element anzuhängen."
 
 msgid "Could not attach item as an attachment."
-msgstr "Das Element konnte nicht als Anhang angehängt werden."
+msgstr "Das Element konnte nicht angehängt werden."
 
 msgid ""
 "You have insufficient privileges to reclaim the ownership for the Task "
@@ -7542,16 +7544,15 @@ msgid_plural ""
 "%s occurrences of this recurring appointment conflicts with other "
 "appointments."
 msgstr[0] ""
-"%s Zeitpunkt dieses wiederkehrenden Termins kollidiert mit einem anderen "
-"Termin."
+"%s Termin dieser Serie kollidiert mit einem anderen "
 msgstr[1] ""
-"%s Zeitpunkte dieses wiederkehrenden Termins kollidiert mit anderen Terminen."
+"%s Termine dieser Serie kollidieren mit anderen Terminen."
 
 msgid "Your message did not reach some or all of the intended recipients"
 msgstr "Die Nachricht hat einen oder mehrere Empfänger nicht erreicht"
 
 msgid "The following recipient(s) could not be reached"
-msgstr "Der/die folgenden Empfänger konnten nicht erreicht werden"
+msgstr "Folgende Empfänger konnten nicht erreicht werden"
 
 msgid "You have insufficient privileges to see the contents of this folder."
 msgstr "Sie haben keine Berechtigung, Inhalte dieses Ordners zu sehen."
@@ -7609,10 +7610,10 @@ msgid "You can not continue search operation on this folder."
 msgstr "Sie können keine weiteren Suchoperationen in diesem Ordner durchführen."
 
 msgid "Error in search, please try again."
-msgstr ""
+msgstr "Fehler bei der Suche; versuchen Sie es erneut."
 
 msgid "Error in distribution list expansion."
-msgstr ""
+msgstr "Fehler beim Nachschlagen der Verteilerliste."
 
 msgid "The message store has exceeded its hard quota limit."
 msgstr "Das Postfach hat das Speicherplatzkontingent erreicht."
@@ -7649,6 +7650,7 @@ msgstr ""
 
 msgid "Setting mail filters on the stores of other users is not allowed."
 msgstr ""
+"Das Setzen von Mailfiltern auf anderen Postfächern ist nicht erlaubt."
 
 msgid "Untitled rule"
 msgstr ""
@@ -7674,19 +7676,19 @@ msgstr "In der Datei wurde kein Kontakt gefunden."
 msgid ""
 "grommunio Web does not support importing multiple VCF with this version."
 msgstr ""
-"grommunio Web unterstützt das Importieren mehrerer VCF mit dieser Version "
-"nicht."
+"grommunio Web unterstützt den Import von mehreren VCF-Objekte aus einer einzeln Datei mit dieser Version nicht."
 
 msgid ""
 "grommunio Web does not support importing multiple ICS with this version."
 msgstr ""
+"grommunio Web unterstützt den Import von mehreren ICS-Objekten aus einer einzelnen Datei mit dieser Version nicht."
 
 #, php-format
 msgid "Unable to import '%s'"
 msgstr ""
 
 msgid "The EML is not valid"
-msgstr ""
+msgstr "Der Inhalt der EML-Datei ist ungültig"
 
 msgid "GB"
 msgstr ""
@@ -7707,20 +7709,20 @@ msgid "Control character error, possibly incorrectly encoded"
 msgstr ""
 
 msgid "Invalid or malformed JSON"
-msgstr "Ungültiges oder missgebildetes JSON"
+msgstr "Ungültiges/kaputtes JSON"
 
 msgid "Syntax error"
 msgstr ""
 
 msgid "Malformed UTF-8 characters, possibly incorrectly encoded"
-msgstr ""
+msgstr "Ungültiges UTF-8-Zeichen, möglicherweise falsch enkodiert"
 
 #, php-format
 msgid "JSON Error: - %s"
-msgstr ""
+msgstr "JSON-Fehler: %s"
 
 msgid "Some problem encountered when encoding/decoding JSON data."
-msgstr ""
+msgstr "Bei der En-/Dekodierung von JSON-Daten ist ein Problem aufgetreten."
 
 msgid "I want to navigate through my items by using."
 msgstr "Meine Elemente möchte ich:"

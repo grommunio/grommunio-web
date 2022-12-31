@@ -7364,7 +7364,7 @@ msgid ""
 "find another resource."
 msgstr ""
 "„%s“ ist bereits zu der spezifizierten Zeit gebucht. Sie müssen entweder "
-"eine andere Zeit oder eine andere Ressource aufsuchen."
+"eine andere Zeit oder eine andere Ressource finden."
 
 msgid "Meeting was not scheduled."
 msgstr "Termin wurde nicht geplant."
@@ -7387,10 +7387,10 @@ msgid "%s's Anniversary"
 msgstr "%ss Jahrestag"
 
 msgid "You don't have the permission to complete this action"
-msgstr "Sie haben nicht die Berechtigung um diese Aktion auszuführen"
+msgstr "Sie haben keine Berechtigung, diese Aktion auszuführen"
 
 msgid "Unknown user/group"
-msgstr "Unbekannter Benutzer/Gruppe"
+msgstr "Unbekannte(r) Benutzer/Gruppe"
 
 msgid "Could not save delegate information."
 msgstr "Konnte Stellvertreterinformation nicht speichern."
@@ -7399,7 +7399,7 @@ msgid "Could not delete delegate."
 msgstr "Konnte Stellvertreter nicht löschen."
 
 msgid "Can not get list of delegates."
-msgstr "Konnte keine Liste von Stellvertreter einholen."
+msgstr "Konnte die Stellvertreterliste nicht abrufen."
 
 msgid "Could not load the hierarchy."
 msgstr "Konnte die Hierarchie nicht laden."
@@ -7503,8 +7503,8 @@ msgid ""
 "Could not find message, either it has been moved or deleted or you don't "
 "have access to open this message."
 msgstr ""
-"Konnte die Nachricht nicht finden, entweder wurde Sie verschoben, gelöscht "
-"oder Siehaben nicht das Recht, diese Nachricht zu öffnen."
+"Konnte die Nachricht nicht finden. Entweder wurde sie verschoben, gelöscht, "
+"oder Sie haben keine Berechtigung, diese Nachricht zu öffnen."
 
 msgid "Could not open message."
 msgstr "Die Nachricht konnte nicht geöffnet werden."
@@ -7534,7 +7534,7 @@ msgid ""
 "Message is no longer in the outgoing queue, typically because it has already "
 "been sent."
 msgstr ""
-"Die Nachricht ist nicht mehr in der Outgoing Queue, sie wurde wahrscheinlich "
+"Die Nachricht ist nicht mehr im Postausgang; sie wurde wahrscheinlich "
 "schon verschickt."
 
 msgid "Message cannot be aborted"
@@ -7549,7 +7549,7 @@ msgid "You have insufficient privileges to attach item as an attachment."
 msgstr "Sie haben keine Berechtigung, dieses Element anzuhängen."
 
 msgid "Could not attach item as an attachment."
-msgstr "Das Element konnte nicht als Anhang angehängt werden."
+msgstr "Das Element konnte nicht angehängt werden."
 
 msgid ""
 "You have insufficient privileges to reclaim the ownership for the Task "
@@ -7586,16 +7586,16 @@ msgid_plural ""
 "%s occurrences of this recurring appointment conflicts with other "
 "appointments."
 msgstr[0] ""
-"%s Zeitpunkt dieses wiederkehrenden Termins kollidiert mit einem anderen "
+"%s Termin dieser Serie kollidiert mit einem anderen "
 "Termin."
 msgstr[1] ""
-"%s Zeitpunkte dieses wiederkehrenden Termins kollidiert mit anderen Terminen."
+"%s Termine dieser Serie kollidieren mit anderen Terminen."
 
 msgid "Your message did not reach some or all of the intended recipients"
 msgstr "Die Nachricht hat einen oder mehrere Empfänger nicht erreicht"
 
 msgid "The following recipient(s) could not be reached"
-msgstr "Der/die folgenden Empfänger konnten nicht erreicht werden"
+msgstr "Folgende Empfänger konnten nicht erreicht werden"
 
 msgid "You have insufficient privileges to see the contents of this folder."
 msgstr "Sie haben keine Berechtigung, Inhalte dieses Ordners zu sehen."
@@ -7654,10 +7654,10 @@ msgstr ""
 "Sie können keine weiteren Suchoperationen in diesem Ordner durchführen."
 
 msgid "Error in search, please try again."
-msgstr "Fehler in der Suche, bitte versuchen Sie es erneut."
+msgstr "Fehler bei der Suche; versuchen Sie es erneut."
 
 msgid "Error in distribution list expansion."
-msgstr "Fehler in der Auflösung der Verteilerliste."
+msgstr "Fehler beim Nachschlagen der Verteilerliste."
 
 msgid "The message store has exceeded its hard quota limit."
 msgstr "Das Postfach hat das Speicherplatzkontingent erreicht."
@@ -7696,7 +7696,7 @@ msgstr "Konnte Benutzer nicht auflösen."
 
 msgid "Setting mail filters on the stores of other users is not allowed."
 msgstr ""
-"Das setzen von Mailfilter auf andere Benutzerspeicher ist nicht erlaubt."
+"Das Setzen von Mailfiltern auf anderen Postfächern ist nicht erlaubt."
 
 msgid "Untitled rule"
 msgstr "Regel ohne Titel"
@@ -7722,20 +7722,19 @@ msgstr "In der Datei wurde kein Kontakt gefunden."
 msgid ""
 "grommunio Web does not support importing multiple VCF with this version."
 msgstr ""
-"grommunio Web unterstützt das Importieren mehrerer VCF mit dieser Version "
-"nicht."
+"grommunio Web unterstützt den Import von mehreren VCF-Objekte aus einer einzeln Datei mit dieser Version nicht."
 
 msgid ""
 "grommunio Web does not support importing multiple ICS with this version."
 msgstr ""
-"grommunio Web unterstützt derzeit nicht den Import von mehreren ICS Dateien."
+"grommunio Web unterstützt den Import von mehreren ICS-Objekten aus einer einzelnen Datei mit dieser Version nicht."
 
 #, php-format
 msgid "Unable to import '%s'"
 msgstr "Konnte „%s“ nicht importieren"
 
 msgid "The EML is not valid"
-msgstr "Die EML ist nicht zulässig"
+msgstr "Der Inhalt der EML-Datei ist ungültig"
 
 msgid "GB"
 msgstr "GB"
@@ -7756,20 +7755,20 @@ msgid "Control character error, possibly incorrectly encoded"
 msgstr "Kontrollzeichen-Fehler, möglicherweise falsch enkodiert"
 
 msgid "Invalid or malformed JSON"
-msgstr "Ungültiges oder missgebildetes JSON"
+msgstr "Ungültiges/kaputtes JSON"
 
 msgid "Syntax error"
 msgstr "Syntaxfehler"
 
 msgid "Malformed UTF-8 characters, possibly incorrectly encoded"
-msgstr "Missgebildete UTF-8 Zeichen, möglicherweise falsch enkodiert"
+msgstr "Ungültiges UTF-8-Zeichen, möglicherweise falsch enkodiert"
 
 #, php-format
 msgid "JSON Error: - %s"
-msgstr "JSON Fehler - %s"
+msgstr "JSON-Fehler: %s"
 
 msgid "Some problem encountered when encoding/decoding JSON data."
-msgstr "Ein Problem ist bei der En-/Dekodierung von JSON Daten aufgetreten."
+msgstr "Bei der En-/Dekodierung von JSON-Daten ist ein Problem aufgetreten."
 
 msgid "I want to navigate through my items by using."
 msgstr "Ich möchte durch meine Elemente navigieren."
