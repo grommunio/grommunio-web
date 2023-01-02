@@ -309,10 +309,10 @@ msgstr "falskt"
 
 msgid ""
 "This field should be an e-mail address in the format \"user@example.com\""
-msgstr "Dette feltet må være en e-postadresse på formen \"user@example.com\""
+msgstr "Dette feltet må være en e-postadresse på formen «user@example.com»"
 
 msgid "This field should be a URL in the format \"{0}\""
-msgstr "Dette feltet må være en URL på formen \"{0}\""
+msgstr "Dette feltet må være en URL på formen «{0}»"
 
 msgid "This field should only contain letters and _"
 msgstr "Dette feltet kan kun inneholde bokstaver og _"
@@ -1161,7 +1161,7 @@ msgstr "Oppdater lokasjon"
 
 msgid ""
 "Do you want to update the location \"{0}\" with the new location \"{1}\"?"
-msgstr "Vil du oppdatere stedet \"{0}\" med nytt sted \"{1}\"?"
+msgstr "Vil du oppdatere stedet «{0}» med nytt sted «{1}»?"
 
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "jS F Y {0}"
@@ -1871,10 +1871,10 @@ msgid "Confirm Delete"
 msgstr "Bekreft sletting"
 
 msgid "This \"{0}\" meeting was already accepted."
-msgstr "Dette \"{0}\" møte er allerede godtatt."
+msgstr "Dette «{0}» møte er allerede godtatt."
 
 msgid "You have not responded to the meeting request \"{0}\"."
-msgstr "Du har ikke svart på møteinvitasjon \"{0}\"."
+msgstr "Du har ikke svart på møteinvitasjon «{0}»."
 
 msgid "Delete and send a response to the meeting organizer"
 msgstr "Slett og send svar til møtearrangør"
@@ -1901,7 +1901,7 @@ msgid "Delete Incomplete Task"
 msgstr "Slett ufullstendige oppgave"
 
 msgid "The task \"{0}\" has not been completed. What do you want to do?"
-msgstr "Oppgaven \"{0}\" er ikke ferdig. Hva vil du gjøre?"
+msgstr "Oppgaven «{0}» er ikke ferdig. Hva vil du gjøre?"
 
 msgid "Decline and delete"
 msgstr "Avslå og slett"
@@ -1944,7 +1944,7 @@ msgid "Import error"
 msgstr "Feil ved import"
 
 msgid "Unable to import \"{0}\". The file is not valid"
-msgstr "Kunne ikke importere \"{0}\". Filen er ikke gyldig"
+msgstr "Kunne ikke importere «{0}». Filen er ikke gyldig"
 
 msgid ""
 "You have insufficient privileges to move these items. Would you like to copy "
@@ -2097,20 +2097,20 @@ msgstr ""
 "Du må først aktivere endringene i denne kategorien før du kan lagre den."
 
 msgid "You already have a category named '{0}'. Please use another name."
-msgstr "Du har allerede en kategori som heter '{0}'. Bruk et annet navn."
+msgstr "Du har allerede en kategori som heter «{0}». Bruk et annet navn."
 
 msgid ""
 "You already have a category named '{0}' in your pending changes. Please use "
 "another name."
 msgstr ""
-"Du har allerede en kategori som heter '{0}' i listen over ting som skal taes "
+"Du har allerede en kategori som heter «{0}» i listen over ting som skal taes "
 "i bruk. Bruk et annet navn."
 
 msgid "Rename"
 msgstr "Gi nytt navn"
 
 msgid "This is the first time you have used \"{0}\" category."
-msgstr "Dette er første gangen du bruker kategorien \"{0}\"."
+msgstr "Dette er første gangen du bruker kategorien «{0}»."
 
 msgid "Do you want to rename it?"
 msgstr "Vil du gi den nytt navn?"
@@ -2119,8 +2119,8 @@ msgid ""
 "The category \"{0}\" already exists. Do you want to merge the \"{1}\" and "
 "\"{2}\" categories?"
 msgstr ""
-"Kategorien \"{0}\" finnes allerede. Vil du slå sammen kategoriene \"{1}\" og "
-"\"{2}\"?"
+"Kategorien «{0}» finnes allerede. Vil du slå sammen kategoriene «{1}» og "
+"«{2}»?"
 
 msgid "Merge"
 msgstr "Slå sammen"
@@ -2138,7 +2138,7 @@ msgid "Email"
 msgstr "E-post"
 
 msgid "More than one '{0}' found."
-msgstr "Flere enn en '{0}' funnet."
+msgstr "Flere enn en «{0}» funnet."
 
 msgid "Alert"
 msgstr "Advarsel"
@@ -2206,7 +2206,7 @@ msgid ""
 "the context menu and click on \"Share Folder...\""
 msgstr ""
 "Om du kun ønsker å endre rettigheter, så høyre-klikker du på mappen, og "
-"åpner hurtigmeny, der trykker du på \"Delte mapper\""
+"åpner hurtigmeny, der trykker du på «Delte mapper»"
 
 msgid "Permission"
 msgstr "Rettigheter"
@@ -2232,7 +2232,7 @@ msgstr[0] "Det er {0} melding valgt."
 msgstr[1] "Det er {0} meldinger valgt."
 
 msgid "Folder '{0}' selected."
-msgstr "Mappe '{0}' valgt."
+msgstr "Mappe «{0}» valgt."
 
 msgid ""
 "You have insufficient privileges to move this folder. Ask the folder owner "
@@ -2406,7 +2406,7 @@ msgid ""
 "Delete selected item without moving it to the Deleted Items folder. The "
 "deleted item can still be restored."
 msgstr ""
-"Slett merkede elementer uten å først flytte dem til Slette Elementer. De "
+"Slett merkede elementer uten å først flytte dem til Slettede Elementer. De "
 "slettede elementene kan allikevel bli gjenopprettet."
 
 msgid "Add/Edit Cc recipient"
@@ -2956,7 +2956,7 @@ msgid "View"
 msgstr "Visning"
 
 msgid "Please select a sendas record."
-msgstr "Vennligst velg et \"Send som\" valg."
+msgstr "Vennligst velg et «Send som» valg."
 
 msgid "Delegates"
 msgstr "Representanter"
@@ -4244,13 +4244,13 @@ msgid "Unresolved user"
 msgstr "Kunne ikke finne bruker"
 
 msgid "Username '{0}' could not be resolved."
-msgstr "Brukernavnet '{0}' ble ikke funnet."
+msgstr "Brukernavnet «{0}» ble ikke funnet."
 
 msgid "Invalid user"
 msgstr "Ugyldig bruker"
 
 msgid "Username '{0}' is not a valid user."
-msgstr "Brukernavnet '{0}' er ikke en gyldig bruker."
+msgstr "Brukernavnet «{0}» er ikke en gyldig bruker."
 
 msgid "Own store"
 msgstr "Egen e-postboks"
@@ -4347,14 +4347,14 @@ msgid ""
 "the \"{0}\" folder?"
 msgstr ""
 "Er du sikker på at du vil slette permanent alle elementer og undermapper i "
-"\"{0}\" mappen?"
+"«{0}» mappen?"
 
 msgid ""
 "Are you sure you want to delete the folder \"{0}\" and move all of its "
 "contents into the Deleted Items folder?"
 msgstr ""
-"Er du sikker på at vil slette mappen \"{0}\" og flytte hele dens innhold inn "
-"i \"Slettede elementer\" mappen?"
+"Er du sikker på at vil slette mappen «{0}» og flytte hele dens innhold inn "
+"i «Slettede elementer» mappen?"
 
 msgid "Delete folder"
 msgstr "Slett mappe"
@@ -5108,7 +5108,7 @@ msgid "Setting"
 msgstr "Innstilling"
 
 msgid "The setting '{0}' can not be edited"
-msgstr "Innstillingen '{0}' kan ikke redigeres"
+msgstr "Innstillingen «{0}» kan ikke redigeres"
 
 msgid "Version information"
 msgstr "Versjonsinformasjon"
@@ -5814,7 +5814,7 @@ msgid "Loading accounts"
 msgstr "Laster inn konto"
 
 msgid "Do you really want to delete the account \"{0}\"?"
-msgstr "Vil du virkelig slette kontoen \"{0}\"?"
+msgstr "Vil du virkelig slette kontoen «{0}»?"
 
 msgid "Quota Information"
 msgstr "Kvoteinformajon"
@@ -5877,7 +5877,7 @@ msgid "Select upload folder"
 msgstr "Velg mappe som skal lastes opp"
 
 msgid "File \"{0}\" is too large! Maximum allowed filesize: {1}."
-msgstr "Filen \"{0}\" er for stor! Maksimum størrelse er: {1}."
+msgstr "Filen «{0}» er for stor! Maksimum størrelse er {1}."
 
 msgid "Add item to Files"
 msgstr ""
