@@ -3011,6 +3011,7 @@ msgid "Enable desktop notifications for new mail"
 msgstr "Desktopbenachrichtigung für neue E-Mail aktivieren"
 
 msgid "Enable desktop notifications for reminders"
+msgstr "Desktopbenachrichtigung für Erinnerungen aktivieren"
 
 msgid "{A} Auto-hide desktop notification after second(s) {B}"
 msgstr "{A} Desktopbenachrichtigung automatisch nach … Sekunden ausblenden {B}"
