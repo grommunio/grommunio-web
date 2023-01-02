@@ -605,7 +605,7 @@ msgid "Custom date"
 msgstr "Benutzerdefiniertes Datum"
 
 msgid "Add to favorites"
-msgstr "Zu Favoriten hinzufügen"
+msgstr "Den Favoriten hinzufügen"
 
 msgid "Add"
 msgstr "Hinzufügen"
@@ -617,7 +617,7 @@ msgid "You must specify a name."
 msgstr "Sie müssen einen Namen angeben."
 
 msgid "Add a folder to favorites based on your search query"
-msgstr "Einen Ordner basierend auf dieser Suche zu den Favoriten hinzufügen"
+msgstr "Einen Ordner basierend auf dieser Suche den Favoriten hinzufügen"
 
 msgid "Folder name"
 msgstr "Ordnername"
@@ -709,7 +709,7 @@ msgid "Favorites"
 msgstr "Favoriten"
 
 msgid "Add a folder to favorites based on this search query"
-msgstr "Einen Ordner basierend auf dieser Suche zu den Favoriten hinzufügen"
+msgstr "Einen Ordner basierend auf dieser Suche den Favoriten hinzufügen"
 
 msgid "Select Folder"
 msgstr "Ordner auswählen"
