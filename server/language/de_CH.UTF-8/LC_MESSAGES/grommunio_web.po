@@ -2238,7 +2238,7 @@ msgid "Copy/Move Messages"
 msgstr "Nachrichten kopieren/verschieben"
 
 msgid "Destination folder"
-msgstr "Zielverzeichnis"
+msgstr "Zielordner"
 
 msgid "There is {0} message selected."
 msgid_plural "There are {0} messages selected."
@@ -4267,7 +4267,7 @@ msgid "Sort by: Name of the subfolder"
 msgstr "Sortieren nach: Name des Unterordners"
 
 msgid "Sort by: Size (without subfolders)"
-msgstr "Sortieren nach: Grösse (ohne Unterverzeichnisse)"
+msgstr "Sortieren nach: Grösse (ohne Unterordner)"
 
 msgid "Total size"
 msgstr "Gesamtgrösse"
@@ -6187,7 +6187,10 @@ msgstr "Gemeinsame Ordner verwalten"
 msgid ""
 "Select folders to sync to your device from the list below. To add additional "
 "mailboxes to the list, open them in grommunio Web first."
-msgstr ""
+msgstr
+"Wählen Sie die Ordner zur Synchronisation auf Ihr Gerät aus der Liste "
+"aus. Um zusätzliche Postfächer zur Liste hinzuzufügen, öffnen Sie diese "
+"zunächst in grommunio Web."
 
 msgid "grommunio-sync"
 msgstr "grommunio-sync"
@@ -6772,7 +6775,7 @@ msgid "The file server encountered an internal problem."
 msgstr "Der Dateiserver hat ein internes Problem festgestellt."
 
 msgid "We could not write to temporary directory."
-msgstr "Es konnte nicht in ein temporäres Verzeichnis geschrieben werden."
+msgstr "Es konnte nicht ins temporäres Verzeichnis geschrieben werden."
 
 msgid "We could not retrieve list of server features."
 msgstr "Die Liste der Serverfunktionen konnte nicht abgerufen werden."
@@ -6827,7 +6830,7 @@ msgid "PHP-CURL is not installed"
 msgstr "PHP-CURL ist nicht installiert"
 
 msgid "Directory creation failed"
-msgstr "Verzeichnis erstellen fehlgeschlagen"
+msgstr "Ordner erstellen fehlgeschlagen"
 
 msgid "Deletion failed"
 msgstr "Löschen fehlgeschlagen"
@@ -7012,7 +7015,7 @@ msgid "This external link will open in a new window"
 msgstr ""
 
 msgid "Destination folder not found."
-msgstr ""
+msgstr "Zielordner nicht gefunden."
 
 msgid "Eml is corrupted"
 msgstr ""
@@ -7204,7 +7207,7 @@ msgid "Unable to perform search query, store might not support searching."
 msgstr "Fehler bei der Suche; Postfach könnte Suche möglicherweise nicht unterstützen."
 
 msgid "Error in creating search folder."
-msgstr ""
+msgstr "Fehler bei der Erstellung des Suchordners."
 
 msgid "Could not open occurrence."
 msgstr ""
@@ -7294,34 +7297,34 @@ msgid "Could not load the hierarchy."
 msgstr ""
 
 msgid "Could not load folder properties."
-msgstr ""
+msgstr "Konnte die Ordnereigenschaften nicht laden."
 
 msgid "Could not remove folder from favorites."
-msgstr ""
+msgstr "Konnte den Ordner nicht aus den Favoriten entfernen."
 
 msgid "You have insufficient privileges to delete folder."
 msgstr "Sie haben keine Berechtigung, diesen Ordner zu löschen."
 
 msgid "Could not delete folder."
-msgstr ""
+msgstr "Konnte Ordner nicht löschen."
 
 msgid "You have insufficient privileges to copy folder."
 msgstr "Sie haben keine Berechtigung, diesen Ordner zu kopieren."
 
 msgid "Could not copy folder."
-msgstr ""
+msgstr "Konnte Ordner nicht kopieren."
 
 msgid "You have insufficient privileges to move this folder."
 msgstr "Sie haben keine Berechtigung, diesen Ordner zu verschieben."
 
 msgid "Could not move folder."
-msgstr ""
+msgstr "Konnte Ordner nicht verschieben."
 
 msgid "You have insufficient privileges to delete items."
 msgstr "Sie haben keine Berechtigung, Elemente zu löschen."
 
 msgid "Could not empty folder."
-msgstr ""
+msgstr "Konnte Ordner nicht leeren."
 
 msgid "Could not perform action correctly."
 msgstr ""
@@ -7329,9 +7332,11 @@ msgstr ""
 msgid ""
 "A favorite folder with this name already exists, please use another name."
 msgstr ""
+"Ein Favoritenordner mit diesem Namen existiert bereits; verwenden Sie "
+"einen anderen Namen."
 
 msgid "Could not add folder to favorites."
-msgstr ""
+msgstr "Konnte Ordner nicht den Favoriten hinzufügen."
 
 msgid "You have insufficient privileges to set permissions for this folder."
 msgstr ""
@@ -7339,25 +7344,27 @@ msgstr ""
 "Ordner zu ändern."
 
 msgid "Could not set folder permissions."
-msgstr ""
+msgstr "Konnte Ordnerberechtigungen nicht setzen."
 
 msgid "You have insufficient privileges to rename this folder."
 msgstr "Sie haben keine Berechtigung, den Ordner umzubenennen."
 
 msgid "A folder with this name already exists. Use another name."
 msgstr ""
+"Ein Ordner mit diesem Namen existiert bereits. Verwenden Sie einen "
+"anderen Namen."
 
 msgid "Could not rename folder."
-msgstr ""
+msgstr "Konnte Ordner nicht umbenennen."
 
 msgid "You have insufficient privileges to create this folder."
 msgstr "Sie haben keine Berechtigung, diesen Ordner zu erstellen."
 
 msgid "Could not create folder."
-msgstr ""
+msgstr "Konnte Ordner nicht erstellen."
 
 msgid "Could not close shared folder."
-msgstr ""
+msgstr "Konnte geteilten Ordner nicht schließen."
 
 msgid "User could not be resolved."
 msgstr ""
@@ -7370,16 +7377,16 @@ msgid ""
 msgstr ""
 "Sie haben keine Berechtigung, diesen %1$s-Ordner zu "
 "öffnen. Der Eigentümer kann diese innerhalb des Berechtigungs-Tabs einstellen "
-"(Rechtsklick auf den %1$s-Ordner ▶ Eigenschaften ▶ Berechtigung)."
+"(Rechtsklick auf den %1$s-Ordner ▶ Eigenschaften ▶ Berechtigung)."
 
 msgid "unknown"
 msgstr ""
 
 msgid "Could not move folder"
-msgstr ""
+msgstr "Konnte Ordner nicht verschieben"
 
 msgid "Could not copy folder"
-msgstr ""
+msgstr "Konnte Ordner nicht kopieren"
 
 msgid "You have insufficient privileges to open this message."
 msgstr "Sie haben keine Berechtigung, diese Nachricht zu öffnen."
@@ -7533,7 +7540,7 @@ msgid "Could not cancel Meeting Request invitations."
 msgstr ""
 
 msgid "You can not continue search operation on this folder."
-msgstr ""
+msgstr "Sie können keine weiteren Suchoperationen in diesem Ordner durchführen."
 
 msgid "Error in search, please try again."
 msgstr ""
@@ -7548,6 +7555,9 @@ msgid ""
 "To reduce the amount of data in this message store, select some items that "
 "you no longer need, delete them and cleanup your Deleted Items folder."
 msgstr ""
+"Um die Menge in Ihrem Postfach zu reduzieren, wählen Sie Elemente aus, die "
+"Sie nicht mehr benötigen. Löschen Sie diese und bereinigen Sie den "
+"«Gelöschten Elemente»-Ordner."
 
 msgid "The message store has exceeded its soft quota limit."
 msgstr ""
