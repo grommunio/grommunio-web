@@ -88,7 +88,7 @@ class Backend extends \Files\Backend\Webdav\Backend implements iFeatureSharing {
 			],
 			[
 				"name" => "server_ssl",
-				"fieldLabel" => _('Use SSL'),
+				"fieldLabel" => _('Use TLS'),
 				"editor" => [
 					"xtype" => "checkbox",
 					"listeners" => [

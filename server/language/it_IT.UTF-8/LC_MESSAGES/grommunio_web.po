@@ -6897,8 +6897,8 @@ msgstr "Indirizzo server"
 msgid "Server port"
 msgstr "Porta server"
 
-msgid "Use SSL"
-msgstr "Utilizza SSL"
+msgid "Use TLS"
+msgstr "Utilizza TLS"
 
 msgid "Webdav base path"
 msgstr "Percorso base WebDAV"

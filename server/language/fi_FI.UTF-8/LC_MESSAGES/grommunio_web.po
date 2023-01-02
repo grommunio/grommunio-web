@@ -7508,8 +7508,8 @@ msgstr "Palvelimen osoite"
 msgid "Server port"
 msgstr "Palvelimen portti"
 
-msgid "Use SSL"
-msgstr "Käytä SSL:ää"
+msgid "Use TLS"
+msgstr "Käytä TLS:ää"
 
 #, fuzzy
 msgid "Webdav base path"

@@ -7485,8 +7485,8 @@ msgid "Server port"
 msgstr "Vrata strežnika"
 
 #, fuzzy
-msgid "Use SSL"
-msgstr "Uporaba protokola SSL"
+msgid "Use TLS"
+msgstr "Uporaba protokola TLS"
 
 #, fuzzy
 msgid "Webdav base path"

@@ -7146,8 +7146,8 @@ msgstr "サーバアドレス"
 msgid "Server port"
 msgstr "サーバポート"
 
-msgid "Use SSL"
-msgstr "SSLを使用する"
+msgid "Use TLS"
+msgstr "TLSを使用する"
 
 msgid "Webdav base path"
 msgstr "WebDavベースパス"

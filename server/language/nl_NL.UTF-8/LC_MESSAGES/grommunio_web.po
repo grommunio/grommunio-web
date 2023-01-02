@@ -6744,8 +6744,8 @@ msgstr "Serveradres"
 msgid "Server port"
 msgstr "Serverpoort"
 
-msgid "Use SSL"
-msgstr "Gebruik SSL"
+msgid "Use TLS"
+msgstr "Gebruik TLS"
 
 msgid "Webdav base path"
 msgstr "WebDAV basispad"

@@ -6801,8 +6801,8 @@ msgstr "Endereço do servidor"
 msgid "Server port"
 msgstr "Porta do servidor"
 
-msgid "Use SSL"
-msgstr "Usar SSL"
+msgid "Use TLS"
+msgstr "Usar TLS"
 
 msgid "Webdav base path"
 msgstr "Caminho webdav base"

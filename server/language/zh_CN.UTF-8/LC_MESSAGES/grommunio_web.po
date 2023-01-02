@@ -6776,8 +6776,8 @@ msgstr "服务器地址"
 msgid "Server port"
 msgstr "服务器端口"
 
-msgid "Use SSL"
-msgstr "使用 SSL"
+msgid "Use TLS"
+msgstr "使用 TLS"
 
 #, fuzzy
 msgid "Webdav base path"

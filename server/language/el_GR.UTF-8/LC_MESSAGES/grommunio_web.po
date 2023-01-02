@@ -8351,8 +8351,8 @@ msgid "Server port"
 msgstr "Θύρα διακομιστή"
 
 #, fuzzy
-msgid "Use SSL"
-msgstr "Χρήση SSL"
+msgid "Use TLS"
+msgstr "Χρήση TLS"
 
 #, fuzzy
 msgid "Webdav base path"

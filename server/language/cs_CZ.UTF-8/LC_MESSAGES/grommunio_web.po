@@ -7395,8 +7395,8 @@ msgstr "Adresa serveru"
 msgid "Server port"
 msgstr "Port serveru"
 
-msgid "Use SSL"
-msgstr "Použít SSL"
+msgid "Use TLS"
+msgstr "Použít TLS"
 
 #, fuzzy
 msgid "Webdav base path"

@@ -7186,8 +7186,8 @@ msgstr "Szerver címe"
 msgid "Server port"
 msgstr "Szerver port"
 
-msgid "Use SSL"
-msgstr "SSL használata"
+msgid "Use TLS"
+msgstr "TLS használata"
 
 msgid "Webdav base path"
 msgstr "Webdav alap elérési út"

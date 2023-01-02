@@ -6826,7 +6826,7 @@ msgstr ""
 msgid "Server port"
 msgstr ""
 
-msgid "Use SSL"
+msgid "Use TLS"
 msgstr ""
 
 msgid "Webdav base path"

@@ -7255,9 +7255,8 @@ msgstr "Server adresse"
 msgid "Server port"
 msgstr "Serverport"
 
-#, fuzzy
-msgid "Use SSL"
-msgstr "Brug SSL"
+msgid "Use TLS"
+msgstr "Brug TLS"
 
 #, fuzzy
 msgid "Webdav base path"

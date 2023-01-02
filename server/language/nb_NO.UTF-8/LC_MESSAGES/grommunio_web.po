@@ -6634,8 +6634,8 @@ msgstr "Serveradresse"
 msgid "Server port"
 msgstr "Server port"
 
-msgid "Use SSL"
-msgstr "Bruk SSL"
+msgid "Use TLS"
+msgstr "Bruk TLS"
 
 msgid "Webdav base path"
 msgstr "Webdav basis sti"

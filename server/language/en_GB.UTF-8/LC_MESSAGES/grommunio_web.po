@@ -6710,8 +6710,8 @@ msgstr "Server address"
 msgid "Server port"
 msgstr "Server port"
 
-msgid "Use SSL"
-msgstr "Use SSL"
+msgid "Use TLS"
+msgstr "Use TLS"
 
 msgid "Webdav base path"
 msgstr "Webdav base path"

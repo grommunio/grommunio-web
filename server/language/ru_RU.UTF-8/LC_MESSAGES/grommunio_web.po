@@ -7095,8 +7095,8 @@ msgstr "Адрес сервера"
 msgid "Server port"
 msgstr "Порт сервера"
 
-msgid "Use SSL"
-msgstr "Использовать SSL"
+msgid "Use TLS"
+msgstr "Использовать TLS"
 
 msgid "Webdav base path"
 msgstr "Путь webdav"

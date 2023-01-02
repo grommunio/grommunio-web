@@ -6633,8 +6633,8 @@ msgstr "Netfang netþjóns"
 msgid "Server port"
 msgstr "Samskiptagátt netþjóns"
 
-msgid "Use SSL"
-msgstr "Nota SSL"
+msgid "Use TLS"
+msgstr "Nota TLS"
 
 msgid "Webdav base path"
 msgstr "Grunnslóð webdav"

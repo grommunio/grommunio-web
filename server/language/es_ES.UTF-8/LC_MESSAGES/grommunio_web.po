@@ -7424,8 +7424,8 @@ msgstr "Dirección del servidor"
 msgid "Server port"
 msgstr "Puerto del servidor"
 
-msgid "Use SSL"
-msgstr "Uso SSL"
+msgid "Use TLS"
+msgstr "Uso TLS"
 
 #, fuzzy
 msgid "Webdav base path"

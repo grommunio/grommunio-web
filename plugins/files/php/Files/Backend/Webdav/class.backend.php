@@ -144,7 +144,7 @@ class Backend extends AbstractBackend implements iFeatureQuota, iFeatureVersionI
 			],
 			[
 				"name" => "server_ssl",
-				"fieldLabel" => _('Use SSL'),
+				"fieldLabel" => _('Use TLS'),
 				"editor" => [
 					"xtype" => "checkbox",
 					"listeners" => [

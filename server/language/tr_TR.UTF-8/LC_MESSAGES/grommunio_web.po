@@ -6689,8 +6689,8 @@ msgstr "Sunucu adresi"
 msgid "Server port"
 msgstr "Sunucu portu"
 
-msgid "Use SSL"
-msgstr "SSL kullanma"
+msgid "Use TLS"
+msgstr "TLS kullanma"
 
 msgid "Webdav base path"
 msgstr "Webdav temel yolu"
