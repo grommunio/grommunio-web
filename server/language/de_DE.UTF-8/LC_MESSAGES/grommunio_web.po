@@ -808,10 +808,10 @@ msgid "years"
 msgstr "Jahre"
 
 msgid "Occurs every {0} effective {1} from {2} to {3}."
-msgstr "Findet jeden {0} statt, beginnend am {1} von {2} bis {3}."
+msgstr "Findet jeden {0} von {2} bis {3} statt, beginnend am {1}."
 
 msgid "Occurs every {0} {1} effective {2} from {3} to {4}."
-msgstr "Findet jeden {0} {1} statt, beginnend am {2} von {3} bis {4}."
+msgstr "Findet jeden {0} {1} von {3} bis {4} statt, beginnend am {2}."
 
 msgid "Occurs every {0} effective {1}."
 msgstr "Findet jeden {0} statt, beginnend am {1}."
@@ -823,45 +823,39 @@ msgid "Occurs every {0} effective {1} for {2} occurrence from {3} to {4}."
 msgid_plural ""
 "Occurs every {0} effective {1} for {2} occurrences from {3} to {4}."
 msgstr[0] ""
-"Findet jeden {0} statt, beginnend am {1} von {2} Wiederholung von {3} bis "
-"{4}."
+"Findet jeden {0} von {3} bis {4} statt, beginnend am {1} für {2} Termin."
 msgstr[1] ""
-"Findet jeden {0} statt, beginnend am {1} von {2} Wiederholung von {3} bis "
-"{4}."
+"Findet jeden {0} von {3} bis {4} statt, beginnend am {1} für {2} Termine."
 
 msgid "Occurs every {0} {1} effective {2} for {3} occurrence from {4} to {5}."
 msgid_plural ""
 "Occurs every {0} {1} effective {2} for {3} occurrences {4} to {5}."
 msgstr[0] ""
-"Findet jeden {0} {1} statt, beginnend am {2} von {3} Wiederholung von {4} "
-"bis {5}."
+"Findet jeden {0} {1} von {4} bis {5} statt, beginnend am {2} für {3} Termin."
 msgstr[1] ""
-"Findet jeden {0} {1} statt, beginnend am {2} von {3} Wiederholung von {4} "
-"bis {5}."
+"Findet jeden {0} {1} von {4} bis {5} statt, beginnend am {2} für {3} Termine."
 
 msgid "Occurs every {0} effective {1} for {2} occurrence."
 msgid_plural "Occurs every {0} effective {1} for {2} occurrences."
-msgstr[0] "Findet jeden {0} statt, beginnend am {1} für {2} Wiederholungen."
-msgstr[1] "Findet jeden {0} statt, beginnend am {1} für {2} Wiederholungen."
+msgstr[0] "Findet jeden {0} statt, beginnend am {1} für {2} Termin."
+msgstr[1] "Findet jeden {0} statt, beginnend am {1} für {2} Termine."
 
 msgid "Occurs every {0} {1} effective {2} for {3} occurrence."
 msgid_plural "Occurs every {0} {1} effective {2} for {3} occurrences."
-msgstr[0] ""
-"Findet jeden {0} {1} statt, beginnend am {2} für {3} Wiederholungen."
-msgstr[1] ""
-"Findet jeden {0} {1} statt, beginnend am {2} für {3} Wiederholungen."
+msgstr[0] "Findet jeden {0} {1} statt, beginnend am {2} für {3} Termin."
+msgstr[1] "Findet jeden {0} {1} statt, beginnend am {2} für {3} Termine."
 
 msgid "Occurs every {0} effective {1} until {2} from {3} to {4}."
-msgstr "Findet jeden {0} statt, beginnend am {1} bis {2} von {3} bis {4}."
+msgstr "Findet im Zeitraum vom {1} bis {2} jeden {0} von {3} bis {4} statt."
 
 msgid "Occurs every {0} {1} effective {2} until {3} from {4} to {5}."
-msgstr "Findet jeden {0} {1} statt, beginnend am {2} bis {3} von {4} bis {5}."
+msgstr "Findet im Zeitruam vom {2} bis {3} jeden {0} {1} von {4} bis {5} statt."
 
 msgid "Occurs every {0} effective {1} until {2}."
-msgstr "Findet jeden {0} statt, beginnend am {1} bis {2}."
+msgstr "Findet im Zeitraum vom {1} bis einschließlich {2} jeden {0} statt."
 
 msgid "Occurs every {0} {1} effective {2} until {3}."
-msgstr "Findet jeden {0} {1} statt, beginnend am {2} bis {3}."
+msgstr "Findet im Zeitraum vom {2} bis einschließlich {3} jeden {0} {1} statt."
 
 msgid "When"
 msgstr "Wann"
@@ -7219,11 +7213,11 @@ msgstr "Neue Zeit vorgeschlagen"
 
 #, php-format
 msgid "Occurs every %s effective %s from %s to %s."
-msgstr "Findet jeden %s statt, beginnend am %s von %s bis %s."
+msgstr "Findet jeden %1$s von %3$s bis %4$s statt, beginnend am %2$s."
 
 #, php-format
 msgid "Occurs every %s %s effective %s from %s to %s."
-msgstr "Findet jeden %s %s statt, beginnend am %s von %s bis %s."
+msgstr "Findet jeden %1$s %2$s von %4$s bis %5$s statt, beginnend am %3$s."
 
 #, php-format
 msgid "Occurs every %s effective %s."
@@ -7236,47 +7230,42 @@ msgstr "Findet jeden %s %s statt, beginnend am %s."
 #, php-format
 msgid "Occurs every %s effective %s for %s occurrence from %s to %s."
 msgid_plural "Occurs every %s effective %s for %s occurrences from %s to %s."
-msgstr[0] ""
-"Findet jeden %s statt, beginnend am %s für %s Wiederholung von %s bis %s."
-msgstr[1] ""
-"Findet jeden %s statt, beginnend am %s für %s Wiederholungen von %s bis %s."
+msgstr[0] "Findet jeden %1$s von %4$s bis %5$s statt, beginnend am %2$s für %3$s Termin."
+msgstr[1] "Findet jeden %1$s von %4$s bis %5$s statt, beginnend am %2$s für %3$s Termine."
 
 #, php-format
 msgid "Occurs every %s %s effective %s for %s occurrence from %s to %s."
 msgid_plural "Occurs every %s %s effective %s for %s occurrences %s to %s."
-msgstr[0] ""
-"Findet jeden %s %s statt, beginnend am %s für %s Wiederholung von %s bis %s."
-msgstr[1] ""
-"Findet jeden %s %s statt, beginnend am %s für %s Wiederholungen von %s bis "
-"%s."
+msgstr[0] "Findet jeden %1$s %2$s von %5$s bis %6$s statt, beginnend am %3$s für %4$s Termin."
+msgstr[1] "Findet jeden %1$s %2$s von %5$s bis %6$s statt, beginnend am %3$s für %4$s Termine."
 
 #, php-format
 msgid "Occurs every %s effective %s for %s occurrence."
 msgid_plural "Occurs every %s effective %s for %s occurrences."
-msgstr[0] "Findet jeden %s statt, beginnend am %s für %s Wiederholung."
-msgstr[1] "Findet jeden %s statt, beginnend am %s für %s Wiederholungen."
+msgstr[0] "Findet jeden %s statt, beginnend am %s für %s Termin."
+msgstr[1] "Findet jeden %s statt, beginnend am %s für %s Termine."
 
 #, php-format
 msgid "Occurs every %s %s effective %s for %s occurrence."
 msgid_plural "Occurs every %s %s effective %s for %s occurrences."
-msgstr[0] "Findet jeden %s %s statt, beginnend am %s für %s Wiederholung."
-msgstr[1] "Findet jeden %s %s statt, beginnend am %s für %s Wiederholungen."
+msgstr[0] "Findet jeden %s %s statt, beginnend am %s für %s Termin."
+msgstr[1] "Findet jeden %s %s statt, beginnend am %s für %s Termine."
 
 #, php-format
 msgid "Occurs every %s effective %s until %s from %s to %s."
-msgstr "Findet jeden %s statt, beginnend am %s bis %s von %s bis %s."
+msgstr "Findet jeden %1$s von %4$s bis %5$s statt, im Zeitraum vom %2$s bis %3$s."
 
 #, php-format
 msgid "Occurs every %s %s effective %s until %s from %s to %s."
-msgstr "Findet jeden %s %s statt, beginnend am %s bis %s von %s bis %s."
+msgstr "Findet jeden %1$s %2$s von %5$s bis %6$s statt, im Zeitraum vom %3$s bis %4$s."
 
 #, php-format
 msgid "Occurs every %s effective %s until %s."
-msgstr "Findet jeden %s statt, beginnend am %s bis %s."
+msgstr "Findet jeden %s statt, im Zeitraum vom %s bis %s."
 
 #, php-format
 msgid "Occurs every %s %s effective %s until %s."
-msgstr "Findet jeden %s %s statt, beginnend am %s bis %s."
+msgstr "Findet jeden %s %s statt, im Zeitraum vom %s bis %s."
 
 msgid "Task Accepted:"
 msgstr "Aufgabe akzeptiert:"
