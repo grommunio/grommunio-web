@@ -2999,28 +2999,27 @@ msgid "Delegate settings"
 msgstr "Stellvertreter-Einstellungen"
 
 msgid "Desktop Notifications Settings"
-msgstr "Einstellungen für Desktop-Benachrichtigungen"
+msgstr "Einstellungen für Desktopbenachrichtigungen"
 
 msgid "We need permissions to enable desktop notifications."
-msgstr ""
+msgstr "Zum Aktivieren der Desktopbenachrichtigungen wird Erlaubnis benötigt."
 
 msgid "Request Permissions"
-msgstr ""
+msgstr "Erlaubnis anfordern"
 
 msgid "Enable desktop notifications for new mail"
-msgstr ""
+msgstr "Desktopbenachrichtigung für neue E-Mail aktivieren"
 
 msgid "Enable desktop notifications for reminders"
-msgstr ""
 
-msgid "{A} Auto hide desktop notification after second(s) {B}"
-msgstr ""
+msgid "{A} Auto-hide desktop notification after second(s) {B}"
+msgstr "{A} Desktopbenachrichtigung automatisch nach … Sekunden ausblenden {B}"
 
 msgid "Disable sound"
-msgstr ""
+msgstr "Ton deaktivieren"
 
 msgid "Notifications"
-msgstr ""
+msgstr "Benachrichtigungen"
 
 msgid "Rules"
 msgstr "Regeln"
@@ -5650,13 +5649,10 @@ msgid "Open Chat at start"
 msgstr ""
 
 msgid "Desktop Notifications Plugin"
-msgstr ""
+msgstr "Desktopbenachrichtigungs-Plugin"
 
 msgid "Desktop Notifications"
-msgstr ""
-
-msgid "{A} Autohide desktop notification after second(s) {B}"
-msgstr ""
+msgstr "Desktopbenachrichtigungen"
 
 msgid "Files: ownCloud Backend"
 msgstr "Files: ownCloud Backend"

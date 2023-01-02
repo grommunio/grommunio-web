@@ -91,7 +91,7 @@ Zarafa.common.settings.SettingsDesktopNotificationsWidget = Ext.extend(Zarafa.se
 				xtype: 'zarafa.compositefield',
 				defaultMargins: '0 0 0 0',
 				plugins: [ 'zarafa.splitfieldlabeler' ],
-				fieldLabel: _('{A} Auto hide desktop notification after second(s) {B}'),
+				fieldLabel: _('{A} Auto-hide desktop notification after second(s) {B}'),
 				labelWidth: 300,
 				combineErrors: false,
 				ref: '../autoHideFieldLabel',
