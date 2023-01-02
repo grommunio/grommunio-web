@@ -3163,9 +3163,8 @@ msgstr "Aktiver skrivebordsmeddelelser for nye mails"
 msgid "Enable desktop notifications for reminders"
 msgstr "Aktiver skrivebordsmeddelelser for påmindelser"
 
-#, fuzzy
-msgid "{A} Auto hide desktop notification after second(s) {B}"
-msgstr "{A} Skjul automatisk skrivebordsmeddelelse efter sekund(er) {B}"
+msgid "{A} Auto-hide desktop notification after second(s) {B}"
+msgstr "{A} Skjul skrivebordsmeddelelse automatisk efter sekund(er) {B}"
 
 #, fuzzy
 msgid "Disable sound"
@@ -5909,10 +5908,6 @@ msgstr "Plugin til skrivebordsmeddelelser"
 #, fuzzy
 msgid "Desktop Notifications"
 msgstr "Meddelelser på skrivebordet"
-
-#, fuzzy
-msgid "{A} Autohide desktop notification after second(s) {B}"
-msgstr "{A} Automatisk skjul skrivebordsmeddelelse efter sekund(er) {B}"
 
 #, fuzzy
 msgid "Files: ownCloud Backend"

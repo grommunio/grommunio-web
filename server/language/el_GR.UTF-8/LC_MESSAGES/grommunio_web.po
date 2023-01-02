@@ -3698,7 +3698,7 @@ msgid "Enable desktop notifications for reminders"
 msgstr "Ενεργοποίηση ειδοποιήσεων επιφάνειας εργασίας για υπενθυμίσεις"
 
 #, fuzzy
-msgid "{A} Auto hide desktop notification after second(s) {B}"
+msgid "{A} Auto-hide desktop notification after second(s) {B}"
 msgstr ""
 "{A} Αυτόματη απόκρυψη ειδοποίησης επιφάνειας εργασίας μετά από "
 "δευτερόλεπτο(α) {B}"
@@ -6947,12 +6947,6 @@ msgstr "Plugin ειδοποιήσεων επιφάνειας εργασίας"
 #, fuzzy
 msgid "Desktop Notifications"
 msgstr "Ειδοποιήσεις επιφάνειας εργασίας"
-
-#, fuzzy
-msgid "{A} Autohide desktop notification after second(s) {B}"
-msgstr ""
-"{A} Αυτόματη απόκρυψη ειδοποίησης επιφάνειας εργασίας μετά από δευτερόλεπτα "
-"{B}"
 
 #, fuzzy
 msgid "Files: ownCloud Backend"

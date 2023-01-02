@@ -3033,7 +3033,7 @@ msgstr "Abilita le notifiche desktop per la nuove e-mail"
 msgid "Enable desktop notifications for reminders"
 msgstr "Abilita le notifiche sul desktop per i promemoria"
 
-msgid "{A} Auto hide desktop notification after second(s) {B}"
+msgid "{A} Auto-hide desktop notification after second(s) {B}"
 msgstr "{A} Nascondi automaticamente notifica desktop dopo secondi {B}"
 
 msgid "Disable sound"
@@ -5688,11 +5688,6 @@ msgstr "Plugin per le notifiche sul desktop"
 
 msgid "Desktop Notifications"
 msgstr "Notifiche desktop"
-
-#, fuzzy
-msgid "{A} Autohide desktop notification after second(s) {B}"
-msgstr ""
-"{A} Nascondi automaticamente la notifica sul desktop dopo un secondo {B}"
 
 msgid "Files: ownCloud Backend"
 msgstr "Files: Backend ownCloud"

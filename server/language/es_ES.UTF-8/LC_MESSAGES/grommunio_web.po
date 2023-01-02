@@ -3244,7 +3244,7 @@ msgid "Enable desktop notifications for reminders"
 msgstr "Activar las notificaciones de escritorio para los recordatorios"
 
 #, fuzzy
-msgid "{A} Auto hide desktop notification after second(s) {B}"
+msgid "{A} Auto-hide desktop notification after second(s) {B}"
 msgstr ""
 "{A} Ocultar automáticamente la notificación del escritorio después de un "
 "segundo(s) {B}"
@@ -6092,12 +6092,6 @@ msgstr "Plugin de notificaciones de escritorio"
 
 msgid "Desktop Notifications"
 msgstr "Notificaciones de Escritorio"
-
-#, fuzzy
-msgid "{A} Autohide desktop notification after second(s) {B}"
-msgstr ""
-"{A} Ocultar automáticamente la notificación del escritorio después de un "
-"segundo(s) {B}"
 
 #, fuzzy
 msgid "Files: ownCloud Backend"

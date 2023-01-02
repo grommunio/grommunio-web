@@ -3065,7 +3065,7 @@ msgstr "Włączanie powiadomień na pulpicie dla nowej poczty"
 msgid "Enable desktop notifications for reminders"
 msgstr "Włączanie powiadomień o przypomnieniach na pulpicie"
 
-msgid "{A} Auto hide desktop notification after second(s) {B}"
+msgid "{A} Auto-hide desktop notification after second(s) {B}"
 msgstr ""
 "{A} Automatyczne ukrywanie powiadomienia z pulpitu po sekundzie (sekundach) "
 "{B}"
@@ -5729,12 +5729,6 @@ msgstr "Wtyczka do powiadomień z pulpitu"
 #, fuzzy
 msgid "Desktop Notifications"
 msgstr "Powiadomienia z pulpitu"
-
-#, fuzzy
-msgid "{A} Autohide desktop notification after second(s) {B}"
-msgstr ""
-"{A} Automatyczne ukrywanie powiadomień na pulpicie po sekundzie (sekundach) "
-"{B}"
 
 #, fuzzy
 msgid "Files: ownCloud Backend"

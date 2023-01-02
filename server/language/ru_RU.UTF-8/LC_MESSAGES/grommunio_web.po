@@ -3141,7 +3141,7 @@ msgid "Enable desktop notifications for reminders"
 msgstr "Включите уведомления на рабочем столе для напоминаний"
 
 #, fuzzy
-msgid "{A} Auto hide desktop notification after second(s) {B}"
+msgid "{A} Auto-hide desktop notification after second(s) {B}"
 msgstr ""
 "{A} Автоматическое скрытие уведомлений на рабочем столе через секунду "
 "(секунды) {B}"
@@ -5868,12 +5868,6 @@ msgstr "Плагин уведомлений для рабочего стола"
 #, fuzzy
 msgid "Desktop Notifications"
 msgstr "Уведомления на рабочем столе"
-
-#, fuzzy
-msgid "{A} Autohide desktop notification after second(s) {B}"
-msgstr ""
-"{A} Автоматическое скрытие уведомления рабочего стола через секунду "
-"(секунды) {B}"
 
 msgid "Files: ownCloud Backend"
 msgstr "Файлы: сервер ownCloud"

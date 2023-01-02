@@ -3135,12 +3135,6 @@ msgid "Enable desktop notifications for reminders"
 msgstr "リマインダーのデスクトップ通知を有効にする"
 
 #, fuzzy
-msgid "{A} Auto hide desktop notification after second(s) {B}"
-msgstr ""
-"{A} デスクトップ通知を 1 秒後に自動で隠す {B} デスクトップ通知を 1 秒後に自動"
-"で隠す"
-
-#, fuzzy
 msgid "Disable sound"
 msgstr "サウンドを無効にする"
 
@@ -5944,7 +5938,7 @@ msgid "Desktop Notifications"
 msgstr "デスクトップ通知"
 
 #, fuzzy
-msgid "{A} Autohide desktop notification after second(s) {B}"
+msgid "{A} Auto-hide desktop notification after second(s) {B}"
 msgstr "{A} デスクトップ通知を秒単位で自動非表示にする{B}。"
 
 #, fuzzy

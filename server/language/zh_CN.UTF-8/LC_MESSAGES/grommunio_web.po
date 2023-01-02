@@ -2924,8 +2924,8 @@ msgid "Enable desktop notifications for reminders"
 msgstr "启用提醒的桌面通知"
 
 #, fuzzy
-msgid "{A} Auto hide desktop notification after second(s) {B}"
-msgstr "{A} 在一秒后自动隐藏桌面通知 {B} 在一秒后自动隐藏桌面通知。"
+msgid "{A} Auto-hide desktop notification after second(s) {B}"
+msgstr "{A} 在一秒钟后自动隐藏桌面通知 {B} 自动隐藏桌面通知。"
 
 #, fuzzy
 msgid "Disable sound"
@@ -5512,10 +5512,6 @@ msgstr "桌面通知插件"
 
 msgid "Desktop Notifications"
 msgstr "桌面通知"
-
-#, fuzzy
-msgid "{A} Autohide desktop notification after second(s) {B}"
-msgstr "{A} 在一秒钟后自动隐藏桌面通知 {B} 自动隐藏桌面通知。"
 
 #, fuzzy
 msgid "Files: ownCloud Backend"

@@ -3282,10 +3282,6 @@ msgid "Enable desktop notifications for reminders"
 msgstr "Omogočanje namiznih obvestil za opomnike"
 
 #, fuzzy
-msgid "{A} Auto hide desktop notification after second(s) {B}"
-msgstr "{A} Samodejno skrijte obvestilo namizja po sekundi (sekundah) {B}"
-
-#, fuzzy
 msgid "Disable sound"
 msgstr "Onemogočite zvok"
 
@@ -6138,7 +6134,7 @@ msgid "Desktop Notifications"
 msgstr "Obvestila namizja"
 
 #, fuzzy
-msgid "{A} Autohide desktop notification after second(s) {B}"
+msgid "{A} Auto-hide desktop notification after second(s) {B}"
 msgstr "{A} Avtomatsko skrivanje obvestila o namizju po sekundi (sekundah) {B}"
 
 #, fuzzy

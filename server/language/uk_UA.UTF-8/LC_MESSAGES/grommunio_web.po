@@ -2937,7 +2937,7 @@ msgstr ""
 msgid "Enable desktop notifications for reminders"
 msgstr ""
 
-msgid "{A} Auto hide desktop notification after second(s) {B}"
+msgid "{A} Auto-hide desktop notification after second(s) {B}"
 msgstr ""
 "{A} Саморушно приховувати сповіщення на робочому столі через {B} секунд(и)"
 
@@ -5492,9 +5492,6 @@ msgstr ""
 
 msgid "Desktop Notifications"
 msgstr ""
-
-msgid "{A} Autohide desktop notification after second(s) {B}"
-msgstr "{A} Саморушно приховувати сповіщення на роб. столі через {B} секунд(и)"
 
 msgid "Files: ownCloud Backend"
 msgstr ""

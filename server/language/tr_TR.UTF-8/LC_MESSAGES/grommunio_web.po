@@ -2988,7 +2988,7 @@ msgstr "Yeni postalar için masaüstü bildirimlerini etkinleştirin"
 msgid "Enable desktop notifications for reminders"
 msgstr "Hatırlatıcılar için masaüstü bildirimlerini etkinleştirin"
 
-msgid "{A} Auto hide desktop notification after second(s) {B}"
+msgid "{A} Auto-hide desktop notification after second(s) {B}"
 msgstr "{A} Saniye(ler) sonra masaüstü bildirimini otomatik gizle {B}"
 
 msgid "Disable sound"
@@ -5589,9 +5589,6 @@ msgstr "Masaüstü Bildirimleri Eklentisi"
 
 msgid "Desktop Notifications"
 msgstr "Masaüstü Bildirimleri"
-
-msgid "{A} Autohide desktop notification after second(s) {B}"
-msgstr "{A} Saniye(ler) sonra masaüstü bildirimini otomatik gizle {B}"
 
 msgid "Files: ownCloud Backend"
 msgstr "Dosyalar: ownCloud Arka Uç"

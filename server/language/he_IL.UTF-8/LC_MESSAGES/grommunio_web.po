@@ -3043,7 +3043,7 @@ msgstr ""
 msgid "Enable desktop notifications for reminders"
 msgstr ""
 
-msgid "{A} Auto hide desktop notification after second(s) {B}"
+msgid "{A} Auto-hide desktop notification after second(s) {B}"
 msgstr ""
 
 msgid "Disable sound"
@@ -5724,9 +5724,6 @@ msgid "Desktop Notifications Plugin"
 msgstr ""
 
 msgid "Desktop Notifications"
-msgstr ""
-
-msgid "{A} Autohide desktop notification after second(s) {B}"
 msgstr ""
 
 msgid "Files: ownCloud Backend"

@@ -3183,7 +3183,7 @@ msgid "Enable desktop notifications for reminders"
 msgstr "Povolení upozornění na ploše pro připomenutí"
 
 #, fuzzy
-msgid "{A} Auto hide desktop notification after second(s) {B}"
+msgid "{A} Auto-hide desktop notification after second(s) {B}"
 msgstr "{A} Automatické skrytí oznámení na ploše po sekundě (sekundách) {B}"
 
 #, fuzzy
@@ -6058,10 +6058,6 @@ msgstr "Plugin Oznámení na plochu"
 #, fuzzy
 msgid "Desktop Notifications"
 msgstr "Oznámení na ploše"
-
-#, fuzzy
-msgid "{A} Autohide desktop notification after second(s) {B}"
-msgstr "{A} Automatické skrytí oznámení na ploše po sekundě (sekundách) {B}"
 
 #, fuzzy
 msgid "Files: ownCloud Backend"

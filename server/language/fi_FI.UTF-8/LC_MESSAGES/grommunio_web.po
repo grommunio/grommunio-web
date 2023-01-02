@@ -3273,12 +3273,6 @@ msgid "Enable desktop notifications for reminders"
 msgstr "Ota työpöytäilmoitukset käyttöön muistutuksia varten"
 
 #, fuzzy
-msgid "{A} Auto hide desktop notification after second(s) {B}"
-msgstr ""
-"{A} Piilota työpöytäilmoitus automaattisesti sekunnin (sekuntien) kuluttua "
-"{B}"
-
-#, fuzzy
 msgid "Disable sound"
 msgstr "Poista ääni käytöstä"
 
@@ -6161,7 +6155,7 @@ msgid "Desktop Notifications"
 msgstr "Työpöydän ilmoitukset"
 
 #, fuzzy
-msgid "{A} Autohide desktop notification after second(s) {B}"
+msgid "{A} Auto-hide desktop notification after second(s) {B}"
 msgstr ""
 "{A} Työpöytäilmoituksen automaattinen piilottaminen sekunnin (sekuntien) "
 "jälkeen {B}"
