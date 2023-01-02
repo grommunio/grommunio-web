@@ -5112,13 +5112,15 @@ msgid "Mailbox Usage"
 msgstr "Postfachbelegung"
 
 msgid "A quota is not set on your store."
-msgstr "Für Ihr Postfach ist kein Kontingent festgelegt."
+msgstr "Für Ihr Postfach ist kein Speicherplatzkontingent festgelegt."
 
 msgid "{0} of mailbox space is used."
 msgstr "{0} des Postfachs sind belegt."
 
 msgid "You have exceeded hard quota, you can not send or receive mails."
 msgstr ""
+"Sie haben Ihr Speicherplatzkontingent überschritten. Sie können keine weiteren Mails senden "
+"oder empfangen."
 
 msgid "At {0} you won't be able to send mails."
 msgstr "Ab {0} können Sie keine E-Mails mehr senden."
@@ -5127,13 +5129,15 @@ msgid ""
 "You can not send mails as you have exceeded soft quota, at {0} you won't be "
 "able to receive mails."
 msgstr ""
+"Sie können keine Mails schicken, weil das Speicherplatzkontingent erreicht wurde. Ab "
+"{0} werden Sie ebenfalls keine zusätzlichen Mails empfangen können."
 
 msgid "At {0} you won't be able to send or receive mails."
-msgstr ""
+msgstr "Ab {0} werden Sie keine Mails senden oder empfangen können."
 
 msgid "You can not send mails as you have exceeded soft quota."
 msgstr ""
-"Sie haben die Soft-Quota überschritten und können keine E-Mails mehr "
+"Ihr Speicherplatzkontingent wurde erreicht und Sie können keine E-Mails mehr "
 "versenden."
 
 msgid "Reset settings"
@@ -5864,7 +5868,7 @@ msgid "Shows all available features of the backend."
 msgstr "Zeigt alle verfügbaren Funktionen des Backends."
 
 msgid "Show quota information"
-msgstr "Quotainformationen anzeigen"
+msgstr "Informationen zum Speicherplatzkontingent anzeigen"
 
 msgid "Show version information"
 msgstr "Versionsinformationen anzeigen"
@@ -5891,7 +5895,7 @@ msgid "Do you really want to delete the account \"{0}\"?"
 msgstr "Wollen Sie den Account «{0}» wirklich entfernen?"
 
 msgid "Quota Information"
-msgstr "Quotainformationen"
+msgstr "Informationen zum Speicherplatzkontingent"
 
 msgid "Used"
 msgstr "Belegt"
@@ -6791,7 +6795,7 @@ msgid "Unknown account ID"
 msgstr "Unbekannte Account-ID"
 
 msgid "Feature \"Quota Information\" is not supported by this backend!"
-msgstr "Quota Informationen werden von diesem Backend nicht unterstützt!"
+msgstr "Speicherplatzkontingente werden von diesem Backend nicht unterstützt."
 
 msgid "Feature \"Version Information\" is not supported by this backend!"
 msgstr ""
@@ -7553,7 +7557,7 @@ msgid "Error in distribution list expansion."
 msgstr ""
 
 msgid "The message store has exceeded its hard quota limit."
-msgstr ""
+msgstr "Das Postfach hat das Speicherplatzkontingent erreicht."
 
 msgid ""
 "To reduce the amount of data in this message store, select some items that "
@@ -7564,7 +7568,7 @@ msgstr ""
 "«Gelöschten Elemente»-Ordner."
 
 msgid "The message store has exceeded its soft quota limit."
-msgstr ""
+msgstr "Das Postfach hat das Speicherplatzkontingent erreicht."
 
 msgid "Could not process request data properly."
 msgstr ""
