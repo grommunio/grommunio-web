@@ -5336,7 +5336,7 @@ msgid "Assign Task"
 msgstr "Aufgabe zuweisen"
 
 msgid "Cancel Assignment"
-msgstr "Zuordnung abbrechen"
+msgstr "Zuweisung aufheben"
 
 msgid "Mark this task as private"
 msgstr "Diese Aufgabe als privat markieren"
@@ -7652,7 +7652,7 @@ msgid "You have insufficient privileges to cancel Meeting Request invitation."
 msgstr "Sie haben keine Berechtigung, diese Termineinladung abzusagen."
 
 msgid "Could not cancel Meeting Request invitations."
-msgstr "Konnte Termineinladung nicht abbrechen."
+msgstr "Konnte Termineinladung nicht absagen."
 
 msgid "You can not continue search operation on this folder."
 msgstr ""
