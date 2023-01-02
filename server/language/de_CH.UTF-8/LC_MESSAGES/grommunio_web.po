@@ -3424,7 +3424,7 @@ msgid "Phone List"
 msgstr "Telefonliste"
 
 msgid "Add to contacts"
-msgstr "Zu Kontakten hinzufügen"
+msgstr "Den Kontakten hinzufügen"
 
 msgid "Print selected contact"
 msgstr "Diesen Kontakt drucken"
@@ -5707,7 +5707,7 @@ msgid "Loading users and groups"
 msgstr "Lade Benutzer und Gruppen"
 
 msgid "Add users or groups to share files."
-msgstr "Benutzer oder Gruppen zur Freigabe hinzufügen."
+msgstr "Teilen Sie Dateien, indem Sie Benutzer oder Gruppen hinzufügen."
 
 msgid "Type to search"
 msgstr "Suchbegriff eingeben"
@@ -5795,7 +5795,7 @@ msgid "Add attachment from Files"
 msgstr "Anhang aus Files hinzufügen"
 
 msgid "Add to Files"
-msgstr "Zu Files hinzufügen"
+msgstr "Dem Files-Backend hinzufügen"
 
 msgid "Upload file"
 msgstr "Datei hochladen"
@@ -5958,7 +5958,7 @@ msgid "File \"{0}\" is too large! Maximum allowed filesize: {1}."
 msgstr "Datei «{0}» ist zu gross! Die Maximalgrösse ist: {1}."
 
 msgid "Add item to Files"
-msgstr "Element zu Files hinzufügen"
+msgstr "Element dem Files-Backend hinzufügen"
 
 msgid "You have to choose a folder!"
 msgstr "Sie müssen einen Ordner auswählen!"
