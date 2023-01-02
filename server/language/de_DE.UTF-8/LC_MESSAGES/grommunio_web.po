@@ -2974,7 +2974,7 @@ msgstr ""
 "einen anderen"
 
 msgid "Add/Edit sender"
-msgstr "Versender hinzufügen/ändern"
+msgstr "Absender hinzufügen/ändern"
 
 msgid "No from addresses configured"
 msgstr "Keine Adresse konfiguriert"
