@@ -6195,7 +6195,7 @@ msgstr "Gemeinsame Ordner verwalten"
 msgid ""
 "Select folders to sync to your device from the list below. To add additional "
 "mailboxes to the list, open them in grommunio Web first."
-msgstr
+msgstr ""
 "Wählen Sie die Ordner zur Synchronisation auf Ihr Gerät aus der Liste "
 "aus. Um zusätzliche Postfächer zur Liste hinzuzufügen, öffnen Sie diese "
 "zunächst in grommunio Web."
