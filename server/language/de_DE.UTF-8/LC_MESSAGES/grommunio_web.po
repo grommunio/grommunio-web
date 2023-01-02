@@ -7297,17 +7297,13 @@ msgid "Error in search, please try again"
 msgstr "Fehler in der Suche, bitte versuchen Sie es erneut"
 
 msgid "Unable to perform search query, no permissions to create search folder."
-msgstr ""
-"Fehler die Suchanfrage durchzuführen, keine Berechtigungen um "
-"Suchverzeichnisse anzulegen."
+msgstr "Fehler bei der Suche; keine Berechtigungen, um Suchordner anzulegen."
 
 msgid "Unable to perform search query, search folder not found."
-msgstr "Fehler die Suchanfrage durchzuführen, Suchverzeichnis nicht gefunden."
+msgstr "Fehler bei der Suche; Suchordner nicht gefunden."
 
 msgid "Unable to perform search query, store might not support searching."
-msgstr ""
-"Fehler die Suchanfrage durchzuführen, Speicher könnte Suche nicht "
-"unterstützen."
+msgstr "Fehler bei der Suche; Postfach könnte Suche möglicherweise nicht unterstützen."
 
 msgid "Error in creating search folder."
 msgstr "Fehler in der Erstellung des Suchverzeichnisses."
