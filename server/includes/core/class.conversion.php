@@ -794,15 +794,21 @@ class Conversion {
 		if ($charset !== false) {
 			return $charset;
 		}
-		// Let's try them all
-		foreach (Conversion::$_CODEPAGES as $code => $cs) {
-			if (strlen(iconv($cs, $cs, $string)) === strlen($string)) {
-				return $cs;
-			}
-		}
-
-		// No charset found
-		return false;
+		// Trying every encoding from $_CODEPAGES is pointless. There
+		// is at least one encoding where all imaginable input byte
+		// sequences are valid, and a heuristic would pick that even if
+		// it is completely inaccurate. So just return a fixed charset
+		// here.
+		//
+		// With
+		// https://en.wikipedia.org/wiki/Popularity_of_text_encodings
+		// in mind, we want to pick an ASCII-compatible encoding so
+		// that not everything becomes illegible (like with "cp037"),
+		// but where codepage mismatch is otherwise apparent. This
+		// necessitates a non-poular charset, so iso-8859-1/15,
+		// cp1251/1252, utf-8 are all ruled out.
+		//
+		return "cp850";
 	}
 
 	/**
