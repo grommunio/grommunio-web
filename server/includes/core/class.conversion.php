@@ -817,7 +817,9 @@ class Conversion {
 		$charset = Conversion::getCodepageCharset($codepage);
 
 		// Sometimes a mail identifies itself with a charset that it really isn't, so let's do an extra check
-		if (strlen(iconv($charset, $charset, $string)) !== strlen($string)) {
+		// Only do the extra check if iconv was able to convert string. See grommunio-web#142
+		$converted = iconv($charset, $charset, $string);
+		if ($converted !== false && strlen($converted) !== strlen($string)) {
 			$foundCharset = Conversion::findCharSet($string);
 			if ($foundCharset) {
 				$charset = $foundCharset;
