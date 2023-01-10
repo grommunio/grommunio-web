@@ -658,11 +658,11 @@
 				$rows = mapi_table_queryrows($table, [PR_DISPLAY_NAME, PR_ENTRYID], 0, 0xFFFF);
 				foreach ($rows as $row) {
 					if (strcasecmp($folderName, $row[PR_DISPLAY_NAME]) == 0) {
-						mapi_folder_deletefolder($searchFolderRoot, $row[PR_ENTRYID], DEL_FOLDERS | DEL_MESSAGES);
+						mapi_folder_deletefolder($searchFolderRoot, $row[PR_ENTRYID], DEL_FOLDERS | DEL_MESSAGES | DELETE_HARD_DELETE);
 						break;
 					}
 				}
-				$searchFolder = mapi_folder_createfolder($searchFolderRoot, $folderName, null, 0, FOLDER_SEARCH);
+				$searchFolder = mapi_folder_createfolder($searchFolderRoot, $folderName, null, OPEN_IF_EXISTS, FOLDER_SEARCH);
 
 				$props = mapi_getprops($searchFolder, [PR_ENTRYID]);
 				$this->sessionData['searchFolderEntryId'] = bin2hex($props[PR_ENTRYID]);
