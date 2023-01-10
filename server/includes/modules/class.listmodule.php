@@ -878,12 +878,14 @@
 		 */
 		public function filterPrivateItems($data) {
 			// Disable private items
-			for ($index = 0, $len = count($data["item"]); $index < $len; ++$index) {
-				$data["item"][$index] = $this->processPrivateItem($data["item"][$index]);
+			if (isset($data["item"]) && is_array($data["item"])) {
+				for ($index = 0, $len = count($data["item"]); $index < $len; ++$index) {
+					$data["item"][$index] = $this->processPrivateItem($data["item"][$index]);
 
-				if (empty($data["item"][$index])) {
-					// remove empty results from data
-					unset($data["item"][$index]);
+					if (empty($data["item"][$index])) {
+						// remove empty results from data
+						unset($data["item"][$index]);
+					}
 				}
 			}
 
