@@ -621,6 +621,9 @@
 		 */
 		private function getAndCheckComponents($entryId, $start, $len, $checkValue, &$res, $key) {
 			$val = substr($entryId, $start, $len);
+			if (is_int($checkValue)) {
+				$val = intval($val);
+			}
 			if (is_array($checkValue)) {
 				if (!in_array($val, $checkValue)) {
 					error_log(sprintf(
