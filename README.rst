@@ -1,10 +1,10 @@
 grommunio Web
 =============
 
-grommunio Web is an open-source web application and provides all the familiar
+**grommunio Web is an open-source web application and provides all the familiar
 email, advanced calendaring and contact features you need to be productive. It
 is the main web application for access to your productivity workspace,
-including email, calendar, contacts, tasks, notes and more.
+including email, calendar, contacts, tasks, notes and more.**
 
 |shield-agpl| |shield-release|_ |shield-scrut|_ |shield-loc|
 
@@ -55,9 +55,9 @@ Getting started
 Prerequisites
 -------------
 
-* A working web server (nginx is recommended), with a working TLS configuration
-* PHP, preferably with the FPM executor
-* Zcore MAPI transport (provided by `Gromox
+* A working **web server** (nginx is recommended), with a working TLS configuration
+* **PHP**, preferably with the FPM executor
+* **Zcore** MAPI transport (provided by `Gromox
   <https://github.com/grommunio/gromox>`_)
 
 Installation
@@ -127,19 +127,13 @@ or use the ``config.php.dist`` file:
 
 	cp -p /usr/share/grommunio-web-dev/config.php.dist /usr/share/grommunio-web-dev/config.php
 
-Also, copy the ``defaults.php`` file:
+If you want to use the existing grommunio-web defaults, copy the ``defaults.php`` file:
 
 .. code-block:: sh
 
-	ln -s /etc/grommunio-web/defaults.php /usr/share/grommunio-web-dev/defaults.php
+	cp -p /usr/share/grommunio-web/defaults.php /usr/share/grommunio-web-dev/defaults.php
 
-or use the ``defaults.php.dist`` file:
-
-.. code-block:: sh
-
-	cp -p /usr/share/grommunio-web-dev/defaults.php.dist /usr/share/grommunio-web-dev/defaults.php
-
-Finally, make sure to adjust ```/usr/share/grommunio-web-dev/defaults.php``` to
+Make sure to adjust ``/usr/share/grommunio-web-dev/defaults.php`` to
 use sources instead of the release variant as follows: Search for…
 
 .. code-block:: php
@@ -152,8 +146,14 @@ and replace it with
 
 	if (!defined('DEBUG_LOADER')) define('DEBUG_LOADER', LOAD_SOURCE);
 
+For debugging purposes it might make sense to enable ``debug.php`` file:
+
+.. code-block:: sh
+
+	cp -p /usr/share/grommunio-web-dev/debug.php.dist /usr/share/grommunio-web-dev/debug.php
+
 At last, adjust (or copy) the nginx config file
-```/usr/share/grommunio-common/nginx/locations.d/grommunio-web.conf``` by
+``/usr/share/grommunio-common/nginx/locations.d/grommunio-web.conf`` by
 replacing
 
 .. code-block:: text
