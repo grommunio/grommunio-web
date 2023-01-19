@@ -3142,7 +3142,7 @@
 		 * @param AttachmentState $attachment_state the state object in which the attachments are saved
 		 *                                          between different requests
 		 */
-		public function setAttachments($message, $attachments = [], $attachment_state) {
+		public function setAttachments($message, $attachments, $attachment_state) {
 			// Check if attachments should be deleted. This is set in the "upload_attachment.php" file
 			if (isset($attachments['dialog_attachments'])) {
 				$deleted = $attachment_state->getDeletedAttachments($attachments['dialog_attachments']);
@@ -3344,7 +3344,7 @@
 		 *                                                   between different requests
 		 * @param mixed           $attachments
 		 */
-		public function copyAttachments($message, $attachments = false, $copyFromMessage = false, $copyInlineAttachmentsOnly = false, $attachment_state) {
+		public function copyAttachments($message, $attachments, $copyFromMessage, $copyInlineAttachmentsOnly, $attachment_state) {
 			$attachmentTable = mapi_message_getattachmenttable($copyFromMessage);
 			if ($attachmentTable && isset($attachments['dialog_attachments'])) {
 				$existingAttachments = mapi_table_queryallrows($attachmentTable, [PR_ATTACH_NUM, PR_ATTACH_SIZE, PR_ATTACH_LONG_FILENAME, PR_ATTACHMENT_HIDDEN, PR_DISPLAY_NAME, PR_ATTACH_METHOD, PR_ATTACH_CONTENT_ID]);

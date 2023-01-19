@@ -23,7 +23,7 @@ class ZarafaErrorException extends BaseException {
 	 * @param string     $displayMessage the exception message to show at client side
 	 * @param null|mixed $errorContext
 	 */
-	public function __construct($errorMessage, $code = 0, $filename, $lineno, $errorContext = null, $displayMessage = null) {
+	public function __construct($errorMessage, $code, $filename, $lineno, $errorContext = null, $displayMessage = null) {
 		$this->errorContext = $errorContext;
 
 		if (!$displayMessage) {
