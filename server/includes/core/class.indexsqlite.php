@@ -518,7 +518,7 @@ class IndexSqlite extends SQLite3 {
 		if (isset($propvals[PR_HTML])) {
 			$cpid = $propvals[PR_INTERNET_CPID];
 			if (empty($cpid)) {
-				$cpid = 1252;
+				$cpid = 65001;
 			}
 			$html = Conversion::convertCodepageStringToUtf8($cpid, $propvals[PR_HTML]);
 		}
