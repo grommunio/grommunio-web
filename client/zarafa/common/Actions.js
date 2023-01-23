@@ -258,7 +258,7 @@ Zarafa.common.Actions = {
 				// to open it, and obtain all details. However, we also need to
 				// find a point where we can remove it again.
 				container.getShadowStore().add(recipient);
-			} else if (!recipient.isOneOff()) {
+			} else if (!recipient.isOneOff() && recipient.get('address_type') !== 'ZARAFA') {
 				// A addressbook item needs to be converted to a AddressBook record so the correct dialog is shown.
 				recipient = recipient.convertToABRecord();
 				// FIXME: We put the abRecord into the ShadowStore to be able
