@@ -3681,7 +3681,7 @@
 						$props['entryid'] = bin2hex($recipientRow[PR_ENTRYID]);
 
 						// Get the SMTP address from the addressbook if no address is found
-						if (empty($props['smtp_address']) && $recipientRow[PR_ADDRTYPE] == 'EX') {
+						if (empty($props['smtp_address']) && ($recipientRow[PR_ADDRTYPE] == 'EX' || $props['address_type'] === 'ZARAFA')) {
 							$recipientSearchKey = isset($recipientRow[PR_SEARCH_KEY]) ? $recipientRow[PR_SEARCH_KEY] : false;
 							$props['smtp_address'] = $this->getEmailAddress($recipientRow[PR_ENTRYID], $recipientSearchKey);
 						}
@@ -3695,8 +3695,10 @@
 
 					// PST importer imports items without an entryid and as SMTP recipient, this causes issues for
 					// opening meeting requests with removed users as recipient.
-					if (empty($props['entryid']) && $props['address_type'] === 'SMTP') {
-						$props['entryid'] = bin2hex(mapi_createoneoff($props['display_name'], $props['address_type'], $props['email_address'], MAPI_UNICODE));
+					// gromox-kdb2mt might import items without an entryid and
+					// PR_ADDRTYPE 'ZARAFA' which causes issues when opening such messages.
+					if (empty($props['entryid']) && ($props['address_type'] === 'SMTP' || $props['address_type'] === 'ZARAFA')) {
+						$props['entryid'] = bin2hex(mapi_createoneoff($props['display_name'], $props['address_type'], $props['smtp_address'], MAPI_UNICODE));
 					}
 
 					// Set propose new time properties
