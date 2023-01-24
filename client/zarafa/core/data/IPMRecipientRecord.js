@@ -132,7 +132,7 @@ Zarafa.core.data.IPMRecipientRecord = Ext.extend(Ext.data.Record, {
 		if (Ext.isEmpty(this.get('entryid'))) {
 			return false;
 		}
-		if (!this.isOneOff()) {
+		if (!this.isOneOff() && this.get('address_type') !== 'ZARAFA') {
 			return true;
 		}
 
