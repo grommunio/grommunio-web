@@ -222,6 +222,9 @@
 						for ($i = 0, $c = count($entryid); $i < $c; ++$i) {
 							$newItems = $GLOBALS["operations"]->getTable($store[$i], $entryid[$i], $this->properties, $this->sort, $this->start, $limit, $this->restriction);
 							$items = array_merge($items, $newItems['item']);
+							if (isset($newItems['page']['totalrowcount']) && $newItems['page']['totalrowcount'] > $limit) {
+								$data['page'] = $newItems['page'];
+							}
 						}
 
 						// If the request come from search folder then no need to send folder information
