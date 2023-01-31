@@ -244,7 +244,7 @@ Zarafa.hierarchy.ui.FolderNodeUI = Ext.extend(Ext.tree.TreeNodeUI, {
 					elNode.addClass('zarafa-hierarchy-node-withcounter');
 				}
 				counterNode.removeClass('zarafa-hierarchy-node-nopadding');
-				counterNode.update(folder.getCounterValue());
+				counterNode.update("[" + folder.getCounterValue() + "]");
 				counterNode.repaint();
 				break;
 			case Zarafa.hierarchy.data.CounterTypes.UNREAD:
