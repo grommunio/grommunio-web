@@ -416,8 +416,6 @@ class Backend extends \Files\Backend\Webdav\Backend implements iFeatureSharing {
 		}
 		$shares = $this->ocs_client->getAllShares();
 
-		$this->log('[GETSHARES]: found ' . count($shares) . ' shares for folder: ' . $path);
-
 		$result[$path] = [];
 		if ($shares !== false) {
 			foreach ($shares as $id => $options) {
