@@ -75,23 +75,18 @@ class PluginMDMModule extends Module {
 		$deviceStateFolder = $this->deviceStates[$deviceid];
 		if ($deviceStateFolder) {
 			try {
-				// get the device data message and empty the folder contents
-				// create a new message in the folder and copy the device data message to it
-				// preventing the devicedata removal for resync
+				// find all messages that are not 'devicedata' and remove them
 				$deviceStateFolderContents = mapi_folder_getcontentstable($deviceStateFolder, MAPI_ASSOCIATED);
-				$restriction = $this->getStateMessageRestriction("devicedata");
+				$restriction = $this->getStateMessageRestriction("devicedata", RELOP_NE);
 				mapi_table_restrict($deviceStateFolderContents, $restriction);
-				if (mapi_table_getrowcount($deviceStateFolderContents) == 1) {
-					$rows = mapi_table_queryrows($deviceStateFolderContents, [PR_ENTRYID], 0, 1);
-					$store = $GLOBALS["mapisession"]->getDefaultMessageStore();
-					$message = mapi_msgstore_openentry($store, $rows[0][PR_ENTRYID]);
-					mapi_folder_emptyfolder($deviceStateFolder, DEL_ASSOCIATED);
 
-					$devicedata = mapi_folder_createmessage($deviceStateFolder, MAPI_ASSOCIATED);
-					mapi_copyto($message, [], [], $devicedata);
-					mapi_setprops($devicedata, [PR_MESSAGE_CLASS => 'IPM.Note.GrommunioState']);
-					mapi_savechanges($devicedata);
-
+				$rows = mapi_table_queryallrows($deviceStateFolderContents, [PR_ENTRYID, PR_DISPLAY_NAME]);
+				$messages = [];
+				foreach ($rows as $row) {
+					$messages[] = $row[PR_ENTRYID];
+				}
+				mapi_folder_deletemessages($deviceStateFolder, $messages, DEL_ASSOCIATED | DELETE_HARD_DELETE);
+				if (mapi_last_hresult() == NOERROR) {
 					return true;
 				}
 			}
@@ -356,7 +351,7 @@ class PluginMDMModule extends Module {
 		switch ($type) {
 			case SYNC_FOLDER_TYPE_APPOINTMENT:
 			case SYNC_FOLDER_TYPE_USER_APPOINTMENT:
-					$folderType = "Calendars";
+				$folderType = "Calendars";
 				break;
 
 			case SYNC_FOLDER_TYPE_CONTACT:
@@ -820,13 +815,14 @@ class PluginMDMModule extends Module {
 	 * Returns the restriction for the associated message in the state folder.
 	 *
 	 * @param string $messageName the message name
+	 * @param int    $op          comparison operation
 	 *
 	 * @return array
 	 */
-	public function getStateMessageRestriction($messageName) {
+	public function getStateMessageRestriction($messageName, $op = RELOP_EQ) {
 		return [RES_AND, [
 			[RES_PROPERTY,
-				[RELOP => RELOP_EQ,
+				[RELOP => $op,
 					ULPROPTAG => PR_DISPLAY_NAME,
 					VALUE => $messageName,
 				],
