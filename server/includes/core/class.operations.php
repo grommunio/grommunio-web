@@ -2100,7 +2100,10 @@
 			// PidLidAppointmentTimeZoneDefinitionEndDisplay so that the allday
 			// events are displayed correctly
 			if (!empty($action['props']['timezone_iana'])) {
-				$tzdef = mapi_ianatz_to_tzdef($action['props']['timezone_iana']);
+				try {
+					$tzdef = mapi_ianatz_to_tzdef($action['props']['timezone_iana']);
+				} catch (Exception $e) {
+				}
 				if ($tzdef !== false) {
 					$action['props']['tzdefstart'] = $action['props']['tzdefend'] = bin2hex($tzdef);
 				}
