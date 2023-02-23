@@ -151,7 +151,10 @@
 				}
 
 				if (!empty($action["timezone_iana"])) {
-					$this->tzdef = mapi_ianatz_to_tzdef($action['timezone_iana']);
+					try {
+						$this->tzdef = mapi_ianatz_to_tzdef($action['timezone_iana']);
+					} catch (Exception $e) {
+					}
 				}
 
 				if ($this->startdate && $this->enddate) {
