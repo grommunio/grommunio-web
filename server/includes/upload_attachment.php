@@ -311,6 +311,9 @@ class UploadAttachment {
 				return $this->importVCFFile($attachmentStream, $filename);
 				break;
 		}
+
+		return false;
+
 	}
 
 	/**
