@@ -43,8 +43,6 @@ Object.defineProperty(exports, "__esModule", ({
   value: true
 }));
 exports.VerbosityLevel = exports.Util = exports.UnknownErrorException = exports.UnexpectedResponseException = exports.UNSUPPORTED_FEATURES = exports.TextRenderingMode = exports.RenderingIntentFlag = exports.PermissionFlag = exports.PasswordResponses = exports.PasswordException = exports.PageActionEventType = exports.OPS = exports.MissingPDFException = exports.LINE_FACTOR = exports.LINE_DESCENT_FACTOR = exports.InvalidPDFException = exports.ImageKind = exports.IDENTITY_MATRIX = exports.FormatError = exports.FeatureTest = exports.FONT_IDENTITY_MATRIX = exports.DocumentActionEventType = exports.CMapCompressionType = exports.BaseException = exports.BASELINE_FACTOR = exports.AnnotationType = exports.AnnotationStateModelType = exports.AnnotationReviewState = exports.AnnotationReplyType = exports.AnnotationMode = exports.AnnotationMarkedState = exports.AnnotationFlag = exports.AnnotationFieldFlag = exports.AnnotationEditorType = exports.AnnotationEditorPrefix = exports.AnnotationEditorParamsType = exports.AnnotationBorderStyleType = exports.AnnotationActionEventType = exports.AbortException = void 0;
-exports.arrayByteLength = arrayByteLength;
-exports.arraysToBytes = arraysToBytes;
 exports.assert = assert;
 exports.bytesToString = bytesToString;
 exports.createPromiseCapability = createPromiseCapability;
@@ -564,41 +562,6 @@ function stringToBytes(str) {
     bytes[i] = str.charCodeAt(i) & 0xff;
   }
   return bytes;
-}
-function arrayByteLength(arr) {
-  if (arr.length !== undefined) {
-    return arr.length;
-  }
-  if (arr.byteLength !== undefined) {
-    return arr.byteLength;
-  }
-  unreachable("Invalid argument for arrayByteLength");
-}
-function arraysToBytes(arr) {
-  const length = arr.length;
-  if (length === 1 && arr[0] instanceof Uint8Array) {
-    return arr[0];
-  }
-  let resultLength = 0;
-  for (let i = 0; i < length; i++) {
-    resultLength += arrayByteLength(arr[i]);
-  }
-  let pos = 0;
-  const data = new Uint8Array(resultLength);
-  for (let i = 0; i < length; i++) {
-    let item = arr[i];
-    if (!(item instanceof Uint8Array)) {
-      if (typeof item === "string") {
-        item = stringToBytes(item);
-      } else {
-        item = new Uint8Array(item);
-      }
-    }
-    const itemLength = item.byteLength;
-    data.set(item, pos);
-    pos += itemLength;
-  }
-  return data;
 }
 function string32(value) {
   return String.fromCharCode(value >> 24 & 0xff, value >> 16 & 0xff, value >> 8 & 0xff, value & 0xff);
@@ -4332,18 +4295,14 @@ var _metadata = __w_pdfjs_require__(148);
 var _optional_content_config = __w_pdfjs_require__(149);
 var _transport_stream = __w_pdfjs_require__(150);
 var _xfa_text = __w_pdfjs_require__(151);
+function _classPrivateFieldSet(receiver, privateMap, value) { var descriptor = _classExtractFieldDescriptor(receiver, privateMap, "set"); _classApplyDescriptorSet(receiver, descriptor, value); return value; }
+function _classApplyDescriptorSet(receiver, descriptor, value) { if (descriptor.set) { descriptor.set.call(receiver, value); } else { if (!descriptor.writable) { throw new TypeError("attempted to set read only private field"); } descriptor.value = value; } }
 function _classPrivateMethodInitSpec(obj, privateSet) { _checkPrivateRedeclaration(obj, privateSet); privateSet.add(obj); }
-function _classPrivateMethodGet(receiver, privateSet, fn) { if (!privateSet.has(receiver)) { throw new TypeError("attempted to get private field on non-instance"); } return fn; }
 function _classPrivateFieldInitSpec(obj, privateMap, value) { _checkPrivateRedeclaration(obj, privateMap); privateMap.set(obj, value); }
 function _checkPrivateRedeclaration(obj, privateCollection) { if (privateCollection.has(obj)) { throw new TypeError("Cannot initialize the same private elements twice on an object"); } }
-function _classPrivateFieldSet(receiver, privateMap, value) { var descriptor = _classExtractFieldDescriptor(receiver, privateMap, "set"); _classApplyDescriptorSet(receiver, descriptor, value); return value; }
+function _classPrivateMethodGet(receiver, privateSet, fn) { if (!privateSet.has(receiver)) { throw new TypeError("attempted to get private field on non-instance"); } return fn; }
 function _classPrivateFieldGet(receiver, privateMap) { var descriptor = _classExtractFieldDescriptor(receiver, privateMap, "get"); return _classApplyDescriptorGet(receiver, descriptor); }
 function _classExtractFieldDescriptor(receiver, privateMap, action) { if (!privateMap.has(receiver)) { throw new TypeError("attempted to " + action + " private field on non-instance"); } return privateMap.get(receiver); }
-function _classStaticPrivateFieldSpecSet(receiver, classConstructor, descriptor, value) { _classCheckPrivateStaticAccess(receiver, classConstructor); _classCheckPrivateStaticFieldDescriptor(descriptor, "set"); _classApplyDescriptorSet(receiver, descriptor, value); return value; }
-function _classApplyDescriptorSet(receiver, descriptor, value) { if (descriptor.set) { descriptor.set.call(receiver, value); } else { if (!descriptor.writable) { throw new TypeError("attempted to set read only private field"); } descriptor.value = value; } }
-function _classStaticPrivateFieldSpecGet(receiver, classConstructor, descriptor) { _classCheckPrivateStaticAccess(receiver, classConstructor); _classCheckPrivateStaticFieldDescriptor(descriptor, "get"); return _classApplyDescriptorGet(receiver, descriptor); }
-function _classCheckPrivateStaticFieldDescriptor(descriptor, action) { if (descriptor === undefined) { throw new TypeError("attempted to " + action + " private static field before its declaration"); } }
-function _classCheckPrivateStaticAccess(receiver, classConstructor) { if (receiver !== classConstructor) { throw new TypeError("Private static access of wrong provenance"); } }
 function _classApplyDescriptorGet(receiver, descriptor) { if (descriptor.get) { return descriptor.get.call(receiver); } return descriptor.value; }
 const DEFAULT_RANGE_CHUNK_SIZE = 65536;
 const RENDERING_CANCELLED_TIMEOUT = 100;
@@ -4407,131 +4366,114 @@ function getDocument(src) {
     throw new Error("Invalid parameter object: need either .data, .range or .url");
   }
   const task = new PDFDocumentLoadingTask();
-  const params = Object.create(null);
-  let rangeTransport = null,
-    worker = null;
-  for (const key in src) {
-    const val = src[key];
-    switch (key) {
-      case "url":
-        if (val instanceof URL) {
-          params[key] = val.href;
-          continue;
-        }
-        try {
-          params[key] = new URL(val, window.location).href;
-          continue;
-        } catch (ex) {
-          if (_is_node.isNodeJS && typeof val === "string") {
-            break;
-          }
-        }
-        throw new Error("Invalid PDF url data: " + "either string or URL-object is expected in the url property.");
-      case "range":
-        rangeTransport = val;
-        continue;
-      case "worker":
-        worker = val;
-        continue;
-      case "data":
-        if (_is_node.isNodeJS && typeof Buffer !== "undefined" && val instanceof Buffer) {
-          params[key] = new Uint8Array(val);
-        } else if (val instanceof Uint8Array && val.byteLength === val.buffer.byteLength) {
-          break;
-        } else if (typeof val === "string") {
-          params[key] = (0, _util.stringToBytes)(val);
-        } else if (typeof val === "object" && val !== null && !isNaN(val.length) || (0, _util.isArrayBuffer)(val)) {
-          params[key] = new Uint8Array(val);
-        } else {
-          throw new Error("Invalid PDF binary data: either TypedArray, " + "string, or array-like object is expected in the data property.");
-        }
-        continue;
-    }
-    params[key] = val;
-  }
-  params.CMapReaderFactory = params.CMapReaderFactory || DefaultCMapReaderFactory;
-  params.StandardFontDataFactory = params.StandardFontDataFactory || DefaultStandardFontDataFactory;
-  params.ignoreErrors = params.stopAtErrors !== true;
-  params.fontExtraProperties = params.fontExtraProperties === true;
-  params.pdfBug = params.pdfBug === true;
-  params.enableXfa = params.enableXfa === true;
-  if (!Number.isInteger(params.rangeChunkSize) || params.rangeChunkSize < 1) {
-    params.rangeChunkSize = DEFAULT_RANGE_CHUNK_SIZE;
-  }
-  if (typeof params.docBaseUrl !== "string" || (0, _display_utils.isDataScheme)(params.docBaseUrl)) {
-    params.docBaseUrl = null;
-  }
-  if (!Number.isInteger(params.maxImageSize) || params.maxImageSize < -1) {
-    params.maxImageSize = -1;
-  }
-  if (typeof params.cMapUrl !== "string") {
-    params.cMapUrl = null;
-  }
-  if (typeof params.standardFontDataUrl !== "string") {
-    params.standardFontDataUrl = null;
-  }
-  if (typeof params.useWorkerFetch !== "boolean") {
-    params.useWorkerFetch = params.CMapReaderFactory === _display_utils.DOMCMapReaderFactory && params.StandardFontDataFactory === _display_utils.DOMStandardFontDataFactory && (0, _display_utils.isValidFetchUrl)(params.cMapUrl, document.baseURI) && (0, _display_utils.isValidFetchUrl)(params.standardFontDataUrl, document.baseURI);
-  }
-  if (typeof params.isEvalSupported !== "boolean") {
-    params.isEvalSupported = true;
-  }
-  if (typeof params.isOffscreenCanvasSupported !== "boolean") {
-    params.isOffscreenCanvasSupported = !_is_node.isNodeJS;
-  }
-  if (typeof params.disableFontFace !== "boolean") {
-    params.disableFontFace = _is_node.isNodeJS;
-  }
-  if (typeof params.useSystemFonts !== "boolean") {
-    params.useSystemFonts = !_is_node.isNodeJS && !params.disableFontFace;
-  }
-  if (typeof params.ownerDocument !== "object" || params.ownerDocument === null) {
-    params.ownerDocument = globalThis.document;
-  }
-  if (typeof params.disableRange !== "boolean") {
-    params.disableRange = false;
-  }
-  if (typeof params.disableStream !== "boolean") {
-    params.disableStream = false;
-  }
-  if (typeof params.disableAutoFetch !== "boolean") {
-    params.disableAutoFetch = false;
-  }
-  (0, _util.setVerbosityLevel)(params.verbosity);
+  const url = src.url ? getUrlProp(src.url) : null;
+  const data = src.data ? getDataProp(src.data) : null;
+  const httpHeaders = src.httpHeaders || null;
+  const withCredentials = src.withCredentials === true;
+  const password = src.password ?? null;
+  const rangeTransport = src.range instanceof PDFDataRangeTransport ? src.range : null;
+  const rangeChunkSize = Number.isInteger(src.rangeChunkSize) && src.rangeChunkSize > 0 ? src.rangeChunkSize : DEFAULT_RANGE_CHUNK_SIZE;
+  let worker = src.worker instanceof PDFWorker ? src.worker : null;
+  const verbosity = src.verbosity;
+  const docBaseUrl = typeof src.docBaseUrl === "string" && !(0, _display_utils.isDataScheme)(src.docBaseUrl) ? src.docBaseUrl : null;
+  const cMapUrl = typeof src.cMapUrl === "string" ? src.cMapUrl : null;
+  const cMapPacked = src.cMapPacked !== false;
+  const CMapReaderFactory = src.CMapReaderFactory || DefaultCMapReaderFactory;
+  const standardFontDataUrl = typeof src.standardFontDataUrl === "string" ? src.standardFontDataUrl : null;
+  const StandardFontDataFactory = src.StandardFontDataFactory || DefaultStandardFontDataFactory;
+  const ignoreErrors = src.stopAtErrors !== true;
+  const maxImageSize = Number.isInteger(src.maxImageSize) && src.maxImageSize > -1 ? src.maxImageSize : -1;
+  const isEvalSupported = src.isEvalSupported !== false;
+  const isOffscreenCanvasSupported = typeof src.isOffscreenCanvasSupported === "boolean" ? src.isOffscreenCanvasSupported : !_is_node.isNodeJS;
+  const disableFontFace = typeof src.disableFontFace === "boolean" ? src.disableFontFace : _is_node.isNodeJS;
+  const fontExtraProperties = src.fontExtraProperties === true;
+  const enableXfa = src.enableXfa === true;
+  const ownerDocument = src.ownerDocument || globalThis.document;
+  const disableRange = src.disableRange === true;
+  const disableStream = src.disableStream === true;
+  const disableAutoFetch = src.disableAutoFetch === true;
+  const pdfBug = src.pdfBug === true;
+  const length = rangeTransport ? rangeTransport.length : src.length ?? NaN;
+  const useSystemFonts = typeof src.useSystemFonts === "boolean" ? src.useSystemFonts : !_is_node.isNodeJS && !disableFontFace;
+  const useWorkerFetch = typeof src.useWorkerFetch === "boolean" ? src.useWorkerFetch : CMapReaderFactory === _display_utils.DOMCMapReaderFactory && StandardFontDataFactory === _display_utils.DOMStandardFontDataFactory && (0, _display_utils.isValidFetchUrl)(cMapUrl, document.baseURI) && (0, _display_utils.isValidFetchUrl)(standardFontDataUrl, document.baseURI);
+  const styleElement = null;
+  (0, _util.setVerbosityLevel)(verbosity);
+  const transportFactory = useWorkerFetch ? null : {
+    cMapReaderFactory: new CMapReaderFactory({
+      baseUrl: cMapUrl,
+      isCompressed: cMapPacked
+    }),
+    standardFontDataFactory: new StandardFontDataFactory({
+      baseUrl: standardFontDataUrl
+    })
+  };
   if (!worker) {
     const workerParams = {
-      verbosity: params.verbosity,
+      verbosity,
       port: _worker_options.GlobalWorkerOptions.workerPort
     };
     worker = workerParams.port ? PDFWorker.fromPort(workerParams) : new PDFWorker(workerParams);
     task._worker = worker;
   }
   const docId = task.docId;
+  const fetchDocParams = {
+    docId,
+    apiVersion: '3.4.120',
+    data,
+    password,
+    disableAutoFetch,
+    rangeChunkSize,
+    length,
+    docBaseUrl,
+    enableXfa,
+    evaluatorOptions: {
+      maxImageSize,
+      disableFontFace,
+      ignoreErrors,
+      isEvalSupported,
+      isOffscreenCanvasSupported,
+      fontExtraProperties,
+      useSystemFonts,
+      cMapUrl: useWorkerFetch ? cMapUrl : null,
+      standardFontDataUrl: useWorkerFetch ? standardFontDataUrl : null
+    }
+  };
+  const transportParams = {
+    ignoreErrors,
+    isEvalSupported,
+    disableFontFace,
+    fontExtraProperties,
+    enableXfa,
+    ownerDocument,
+    disableAutoFetch,
+    pdfBug,
+    styleElement
+  };
   worker.promise.then(function () {
     if (task.destroyed) {
       throw new Error("Loading aborted");
     }
-    const workerIdPromise = _fetchDocument(worker, params, rangeTransport, docId);
+    const workerIdPromise = _fetchDocument(worker, fetchDocParams);
     const networkStreamPromise = new Promise(function (resolve) {
       let networkStream;
       if (rangeTransport) {
         networkStream = new _transport_stream.PDFDataTransportStream({
-          length: params.length,
-          initialData: params.initialData,
-          progressiveDone: params.progressiveDone,
-          contentDispositionFilename: params.contentDispositionFilename,
-          disableRange: params.disableRange,
-          disableStream: params.disableStream
+          length,
+          initialData: rangeTransport.initialData,
+          progressiveDone: rangeTransport.progressiveDone,
+          contentDispositionFilename: rangeTransport.contentDispositionFilename,
+          disableRange,
+          disableStream
         }, rangeTransport);
-      } else if (!params.data) {
+      } else if (!data) {
         networkStream = createPDFNetworkStream({
-          url: params.url,
-          length: params.length,
-          httpHeaders: params.httpHeaders,
-          withCredentials: params.withCredentials,
-          rangeChunkSize: params.rangeChunkSize,
-          disableRange: params.disableRange,
-          disableStream: params.disableStream
+          url,
+          length,
+          httpHeaders,
+          withCredentials,
+          rangeChunkSize,
+          disableRange,
+          disableStream
         });
       }
       resolve(networkStream);
@@ -4542,73 +4484,70 @@ function getDocument(src) {
         throw new Error("Loading aborted");
       }
       const messageHandler = new _message_handler.MessageHandler(docId, workerId, worker.port);
-      const transport = new WorkerTransport(messageHandler, task, networkStream, params);
+      const transport = new WorkerTransport(messageHandler, task, networkStream, transportParams, transportFactory);
       task._transport = transport;
       messageHandler.send("Ready", null);
     });
   }).catch(task._capability.reject);
   return task;
 }
-async function _fetchDocument(worker, source, pdfDataRangeTransport, docId) {
+async function _fetchDocument(worker, source) {
   if (worker.destroyed) {
     throw new Error("Worker was destroyed");
   }
-  if (pdfDataRangeTransport) {
-    source.length = pdfDataRangeTransport.length;
-    source.initialData = pdfDataRangeTransport.initialData;
-    source.progressiveDone = pdfDataRangeTransport.progressiveDone;
-    source.contentDispositionFilename = pdfDataRangeTransport.contentDispositionFilename;
-  }
-  const transfers = source.data ? [source.data.buffer] : null;
-  const workerId = await worker.messageHandler.sendWithPromise("GetDocRequest", {
-    docId,
-    apiVersion: '3.3.122',
-    data: source.data,
-    password: source.password,
-    disableAutoFetch: source.disableAutoFetch,
-    rangeChunkSize: source.rangeChunkSize,
-    length: source.length,
-    docBaseUrl: source.docBaseUrl,
-    enableXfa: source.enableXfa,
-    evaluatorOptions: {
-      maxImageSize: source.maxImageSize,
-      disableFontFace: source.disableFontFace,
-      ignoreErrors: source.ignoreErrors,
-      isEvalSupported: source.isEvalSupported,
-      isOffscreenCanvasSupported: source.isOffscreenCanvasSupported,
-      fontExtraProperties: source.fontExtraProperties,
-      useSystemFonts: source.useSystemFonts,
-      cMapUrl: source.useWorkerFetch ? source.cMapUrl : null,
-      standardFontDataUrl: source.useWorkerFetch ? source.standardFontDataUrl : null
-    }
-  }, transfers);
+  const workerId = await worker.messageHandler.sendWithPromise("GetDocRequest", source, source.data ? [source.data.buffer] : null);
   if (worker.destroyed) {
     throw new Error("Worker was destroyed");
   }
   return workerId;
 }
-var _onUnsupportedFeature = /*#__PURE__*/new WeakMap();
+function getUrlProp(val) {
+  if (val instanceof URL) {
+    return val.href;
+  }
+  try {
+    return new URL(val, window.location).href;
+  } catch (ex) {
+    if (_is_node.isNodeJS && typeof val === "string") {
+      return val;
+    }
+  }
+  throw new Error("Invalid PDF url data: " + "either string or URL-object is expected in the url property.");
+}
+function getDataProp(val) {
+  if (_is_node.isNodeJS && typeof Buffer !== "undefined" && val instanceof Buffer) {
+    (0, _display_utils.deprecated)("Please provide binary data as `Uint8Array`, rather than `Buffer`.");
+    return new Uint8Array(val);
+  }
+  if (val instanceof Uint8Array && val.byteLength === val.buffer.byteLength) {
+    return val;
+  }
+  if (typeof val === "string") {
+    return (0, _util.stringToBytes)(val);
+  }
+  if (typeof val === "object" && !isNaN(val === null || val === void 0 ? void 0 : val.length) || (0, _util.isArrayBuffer)(val)) {
+    return new Uint8Array(val);
+  }
+  throw new Error("Invalid PDF binary data: either TypedArray, " + "string, or array-like object is expected in the data property.");
+}
 class PDFDocumentLoadingTask {
+  static #docId = 0;
+  #onUnsupportedFeature = null;
   constructor() {
-    var _PDFDocumentLoadingTa, _PDFDocumentLoadingTa2;
-    _classPrivateFieldInitSpec(this, _onUnsupportedFeature, {
-      writable: true,
-      value: null
-    });
     this._capability = (0, _util.createPromiseCapability)();
     this._transport = null;
     this._worker = null;
-    this.docId = `d${(_classStaticPrivateFieldSpecSet(PDFDocumentLoadingTask, PDFDocumentLoadingTask, _docId, (_PDFDocumentLoadingTa = _classStaticPrivateFieldSpecGet(PDFDocumentLoadingTask, PDFDocumentLoadingTask, _docId), _PDFDocumentLoadingTa2 = _PDFDocumentLoadingTa++, _PDFDocumentLoadingTa)), _PDFDocumentLoadingTa2)}`;
+    this.docId = `d${PDFDocumentLoadingTask.#docId++}`;
     this.destroyed = false;
     this.onPassword = null;
     this.onProgress = null;
   }
   get onUnsupportedFeature() {
-    return _classPrivateFieldGet(this, _onUnsupportedFeature);
+    return this.#onUnsupportedFeature;
   }
   set onUnsupportedFeature(callback) {
     (0, _display_utils.deprecated)("The PDFDocumentLoadingTask onUnsupportedFeature property will be removed in the future.");
-    _classPrivateFieldSet(this, _onUnsupportedFeature, callback);
+    this.#onUnsupportedFeature = callback;
   }
   get promise() {
     return this._capability.promise;
@@ -4625,10 +4564,6 @@ class PDFDocumentLoadingTask {
   }
 }
 exports.PDFDocumentLoadingTask = PDFDocumentLoadingTask;
-var _docId = {
-  writable: true,
-  value: 0
-};
 class PDFDataRangeTransport {
   constructor(length, initialData) {
     let progressiveDone = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : false;
@@ -4805,7 +4740,6 @@ class PDFPageProxy {
     this._pdfBug = pdfBug;
     this.commonObjs = transport.commonObjs;
     this.objs = new PDFObjects();
-    this._bitmaps = new Set();
     this.cleanupAfterRender = false;
     this.pendingCleanup = false;
     this._intentStates = new Map();
@@ -5067,10 +5001,6 @@ class PDFPageProxy {
       }
     }
     this.objs.clear();
-    for (const bitmap of this._bitmaps) {
-      bitmap.close();
-    }
-    this._bitmaps.clear();
     this.pendingCleanup = false;
     return Promise.all(waitOn);
   }
@@ -5097,10 +5027,6 @@ class PDFPageProxy {
     if (resetStats && this._stats) {
       this._stats = new _display_utils.StatTimer();
     }
-    for (const bitmap of this._bitmaps) {
-      bitmap.close();
-    }
-    this._bitmaps.clear();
     this.pendingCleanup = false;
     return true;
   }
@@ -5231,38 +5157,27 @@ class PDFPageProxy {
   }
 }
 exports.PDFPageProxy = PDFPageProxy;
-var _listeners = /*#__PURE__*/new WeakMap();
-var _deferred = /*#__PURE__*/new WeakMap();
 class LoopbackPort {
-  constructor() {
-    _classPrivateFieldInitSpec(this, _listeners, {
-      writable: true,
-      value: []
-    });
-    _classPrivateFieldInitSpec(this, _deferred, {
-      writable: true,
-      value: Promise.resolve()
-    });
-  }
+  #listeners = new Set();
+  #deferred = Promise.resolve();
   postMessage(obj, transfers) {
     const event = {
       data: structuredClone(obj, transfers)
     };
-    _classPrivateFieldGet(this, _deferred).then(() => {
-      for (const listener of _classPrivateFieldGet(this, _listeners)) {
+    this.#deferred.then(() => {
+      for (const listener of this.#listeners) {
         listener.call(this, event);
       }
     });
   }
   addEventListener(name, listener) {
-    _classPrivateFieldGet(this, _listeners).push(listener);
+    this.#listeners.add(listener);
   }
   removeEventListener(name, listener) {
-    const i = _classPrivateFieldGet(this, _listeners).indexOf(listener);
-    _classPrivateFieldGet(this, _listeners).splice(i, 1);
+    this.#listeners.delete(listener);
   }
   terminate() {
-    _classPrivateFieldGet(this, _listeners).length = 0;
+    this.#listeners.clear();
   }
 }
 exports.LoopbackPort = LoopbackPort;
@@ -5302,13 +5217,14 @@ exports.PDFWorkerUtil = PDFWorkerUtil;
   };
 }
 class PDFWorker {
+  static #workerPorts = new WeakMap();
   constructor() {
     let {
       name = null,
       port = null,
       verbosity = (0, _util.getVerbosityLevel)()
     } = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
-    if (port && _classStaticPrivateFieldSpecGet(PDFWorker, PDFWorker, _workerPorts).has(port)) {
+    if (port && PDFWorker.#workerPorts.has(port)) {
       throw new Error("Cannot use more than one PDFWorker per port.");
     }
     this.name = name;
@@ -5319,7 +5235,7 @@ class PDFWorker {
     this._webWorker = null;
     this._messageHandler = null;
     if (port) {
-      _classStaticPrivateFieldSpecGet(PDFWorker, PDFWorker, _workerPorts).set(port, this);
+      PDFWorker.#workerPorts.set(port, this);
       this._initializeFromPort(port);
       return;
     }
@@ -5445,7 +5361,7 @@ class PDFWorker {
       this._webWorker.terminate();
       this._webWorker = null;
     }
-    _classStaticPrivateFieldSpecGet(PDFWorker, PDFWorker, _workerPorts).delete(this._port);
+    PDFWorker.#workerPorts.delete(this._port);
     this._port = null;
     if (this._messageHandler) {
       this._messageHandler.destroy();
@@ -5456,8 +5372,8 @@ class PDFWorker {
     if (!(params !== null && params !== void 0 && params.port)) {
       throw new Error("PDFWorker.fromPort - invalid method signature.");
     }
-    if (_classStaticPrivateFieldSpecGet(this, PDFWorker, _workerPorts).has(params.port)) {
-      return _classStaticPrivateFieldSpecGet(this, PDFWorker, _workerPorts).get(params.port);
+    if (this.#workerPorts.has(params.port)) {
+      return this.#workerPorts.get(params.port);
     }
     return new PDFWorker(params);
   }
@@ -5498,15 +5414,17 @@ class PDFWorker {
   }
 }
 exports.PDFWorker = PDFWorker;
-var _workerPorts = {
-  writable: true,
-  value: new WeakMap()
-};
+var _methodPromises = /*#__PURE__*/new WeakMap();
 var _pageCache = /*#__PURE__*/new WeakMap();
 var _pagePromises = /*#__PURE__*/new WeakMap();
-var _metadataPromise = /*#__PURE__*/new WeakMap();
+var _cacheSimpleMethod = /*#__PURE__*/new WeakSet();
 class WorkerTransport {
-  constructor(messageHandler, loadingTask, networkStream, params) {
+  constructor(messageHandler, loadingTask, networkStream, params, factory) {
+    _classPrivateMethodInitSpec(this, _cacheSimpleMethod);
+    _classPrivateFieldInitSpec(this, _methodPromises, {
+      writable: true,
+      value: new Map()
+    });
     _classPrivateFieldInitSpec(this, _pageCache, {
       writable: true,
       value: new Map()
@@ -5514,10 +5432,6 @@ class WorkerTransport {
     _classPrivateFieldInitSpec(this, _pagePromises, {
       writable: true,
       value: new Map()
-    });
-    _classPrivateFieldInitSpec(this, _metadataPromise, {
-      writable: true,
-      value: null
     });
     this.messageHandler = messageHandler;
     this.loadingTask = loadingTask;
@@ -5528,15 +5442,8 @@ class WorkerTransport {
       styleElement: params.styleElement
     });
     this._params = params;
-    if (!params.useWorkerFetch) {
-      this.CMapReaderFactory = new params.CMapReaderFactory({
-        baseUrl: params.cMapUrl,
-        isCompressed: params.cMapPacked
-      });
-      this.StandardFontDataFactory = new params.StandardFontDataFactory({
-        baseUrl: params.standardFontDataUrl
-      });
-    }
+    this.cMapReaderFactory = factory === null || factory === void 0 ? void 0 : factory.cMapReaderFactory;
+    this.standardFontDataFactory = factory === null || factory === void 0 ? void 0 : factory.standardFontDataFactory;
     this.destroyed = false;
     this.destroyCapability = null;
     this._passwordCapability = null;
@@ -5616,9 +5523,7 @@ class WorkerTransport {
     Promise.all(waitOn).then(() => {
       this.commonObjs.clear();
       this.fontLoader.clear();
-      _classPrivateFieldSet(this, _metadataPromise, null);
-      this._getFieldObjectsPromise = null;
-      this._hasJSActionsPromise = null;
+      _classPrivateFieldGet(this, _methodPromises).clear();
       if (this._networkStream) {
         this._networkStream.cancelAllRequests(new _util.AbortException("Worker was terminated."));
       }
@@ -5866,12 +5771,10 @@ class WorkerTransport {
             let length;
             if (imageData.bitmap) {
               const {
-                bitmap,
                 width,
                 height
               } = imageData;
               length = width * height * 4;
-              pageProxy._bitmaps.add(bitmap);
             } else {
               var _imageData$data;
               length = ((_imageData$data = imageData.data) === null || _imageData$data === void 0 ? void 0 : _imageData$data.length) || 0;
@@ -5903,19 +5806,19 @@ class WorkerTransport {
       if (this.destroyed) {
         return Promise.reject(new Error("Worker was destroyed."));
       }
-      if (!this.CMapReaderFactory) {
+      if (!this.cMapReaderFactory) {
         return Promise.reject(new Error("CMapReaderFactory not initialized, see the `useWorkerFetch` parameter."));
       }
-      return this.CMapReaderFactory.fetch(data);
+      return this.cMapReaderFactory.fetch(data);
     });
     messageHandler.on("FetchStandardFontData", data => {
       if (this.destroyed) {
         return Promise.reject(new Error("Worker was destroyed."));
       }
-      if (!this.StandardFontDataFactory) {
+      if (!this.standardFontDataFactory) {
         return Promise.reject(new Error("StandardFontDataFactory not initialized, see the `useWorkerFetch` parameter."));
       }
-      return this.StandardFontDataFactory.fetch(data);
+      return this.standardFontDataFactory.fetch(data);
     });
   }
   _onUnsupportedFeature(_ref13) {
@@ -5983,10 +5886,10 @@ class WorkerTransport {
     });
   }
   getFieldObjects() {
-    return this._getFieldObjectsPromise || (this._getFieldObjectsPromise = this.messageHandler.sendWithPromise("GetFieldObjects", null));
+    return _classPrivateMethodGet(this, _cacheSimpleMethod, _cacheSimpleMethod2).call(this, "GetFieldObjects");
   }
   hasJSActions() {
-    return this._hasJSActionsPromise || (this._hasJSActionsPromise = this.messageHandler.sendWithPromise("HasJSActions", null));
+    return _classPrivateMethodGet(this, _cacheSimpleMethod, _cacheSimpleMethod2).call(this, "HasJSActions");
   }
   getCalculationOrderIds() {
     return this.messageHandler.sendWithPromise("GetCalculationOrderIds", null);
@@ -6048,7 +5951,12 @@ class WorkerTransport {
     return this.messageHandler.sendWithPromise("GetPermissions", null);
   }
   getMetadata() {
-    return _classPrivateFieldGet(this, _metadataPromise) || _classPrivateFieldSet(this, _metadataPromise, this.messageHandler.sendWithPromise("GetMetadata", null).then(results => {
+    const name = "GetMetadata",
+      cachedPromise = _classPrivateFieldGet(this, _methodPromises).get(name);
+    if (cachedPromise) {
+      return cachedPromise;
+    }
+    const promise = this.messageHandler.sendWithPromise(name, null).then(results => {
       var _this$_fullReader2, _this$_fullReader3;
       return {
         info: results[0],
@@ -6056,7 +5964,9 @@ class WorkerTransport {
         contentDispositionFilename: ((_this$_fullReader2 = this._fullReader) === null || _this$_fullReader2 === void 0 ? void 0 : _this$_fullReader2.filename) ?? null,
         contentLength: ((_this$_fullReader3 = this._fullReader) === null || _this$_fullReader3 === void 0 ? void 0 : _this$_fullReader3.contentLength) ?? null
       };
-    }));
+    });
+    _classPrivateFieldGet(this, _methodPromises).set(name, promise);
+    return promise;
   }
   getMarkInfo() {
     return this.messageHandler.sendWithPromise("GetMarkInfo", null);
@@ -6077,17 +5987,28 @@ class WorkerTransport {
     if (!keepLoadedFonts) {
       this.fontLoader.clear();
     }
-    _classPrivateFieldSet(this, _metadataPromise, null);
-    this._getFieldObjectsPromise = null;
-    this._hasJSActionsPromise = null;
+    _classPrivateFieldGet(this, _methodPromises).clear();
   }
   get loadingParams() {
-    const params = this._params;
+    const {
+      disableAutoFetch,
+      enableXfa
+    } = this._params;
     return (0, _util.shadow)(this, "loadingParams", {
-      disableAutoFetch: params.disableAutoFetch,
-      enableXfa: params.enableXfa
+      disableAutoFetch,
+      enableXfa
     });
   }
+}
+function _cacheSimpleMethod2(name) {
+  let data = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : null;
+  const cachedPromise = _classPrivateFieldGet(this, _methodPromises).get(name);
+  if (cachedPromise) {
+    return cachedPromise;
+  }
+  const promise = this.messageHandler.sendWithPromise(name, data);
+  _classPrivateFieldGet(this, _methodPromises).set(name, promise);
+  return promise;
 }
 var _objs = /*#__PURE__*/new WeakMap();
 var _ensureObj = /*#__PURE__*/new WeakSet();
@@ -6123,6 +6044,13 @@ class PDFObjects {
     obj.capability.resolve();
   }
   clear() {
+    for (const objId in _classPrivateFieldGet(this, _objs)) {
+      var _data$bitmap;
+      const {
+        data
+      } = _classPrivateFieldGet(this, _objs)[objId];
+      data === null || data === void 0 ? void 0 : (_data$bitmap = data.bitmap) === null || _data$bitmap === void 0 ? void 0 : _data$bitmap.close();
+    }
     _classPrivateFieldSet(this, _objs, Object.create(null));
   }
 }
@@ -6136,38 +6064,35 @@ function _ensureObj2(objId) {
     data: null
   };
 }
-var _internalRenderTask = /*#__PURE__*/new WeakMap();
 class RenderTask {
+  #internalRenderTask = null;
   constructor(internalRenderTask) {
-    _classPrivateFieldInitSpec(this, _internalRenderTask, {
-      writable: true,
-      value: null
-    });
-    _classPrivateFieldSet(this, _internalRenderTask, internalRenderTask);
+    this.#internalRenderTask = internalRenderTask;
     this.onContinue = null;
   }
   get promise() {
-    return _classPrivateFieldGet(this, _internalRenderTask).capability.promise;
+    return this.#internalRenderTask.capability.promise;
   }
   cancel() {
     let extraDelay = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 0;
-    _classPrivateFieldGet(this, _internalRenderTask).cancel(null, extraDelay);
+    this.#internalRenderTask.cancel(null, extraDelay);
   }
   get separateAnnots() {
     const {
       separateAnnots
-    } = _classPrivateFieldGet(this, _internalRenderTask).operatorList;
+    } = this.#internalRenderTask.operatorList;
     if (!separateAnnots) {
       return false;
     }
     const {
       annotationCanvasMap
-    } = _classPrivateFieldGet(this, _internalRenderTask);
+    } = this.#internalRenderTask;
     return separateAnnots.form || separateAnnots.canvas && (annotationCanvasMap === null || annotationCanvasMap === void 0 ? void 0 : annotationCanvasMap.size) > 0;
   }
 }
 exports.RenderTask = RenderTask;
 class InternalRenderTask {
+  static #canvasInUse = new WeakSet();
   constructor(_ref14) {
     let {
       callback,
@@ -6219,10 +6144,10 @@ class InternalRenderTask {
       return;
     }
     if (this._canvas) {
-      if (_classStaticPrivateFieldSpecGet(InternalRenderTask, InternalRenderTask, _canvasInUse).has(this._canvas)) {
+      if (InternalRenderTask.#canvasInUse.has(this._canvas)) {
         throw new Error("Cannot use the same canvas during multiple render() operations. " + "Use different canvas or ensure previous operations were " + "cancelled or completed.");
       }
-      _classStaticPrivateFieldSpecGet(InternalRenderTask, InternalRenderTask, _canvasInUse).add(this._canvas);
+      InternalRenderTask.#canvasInUse.add(this._canvas);
     }
     if (this._pdfBug && (_globalThis$StepperMa = globalThis.StepperManager) !== null && _globalThis$StepperMa !== void 0 && _globalThis$StepperMa.enabled) {
       this.stepper = globalThis.StepperManager.create(this._pageIndex);
@@ -6256,7 +6181,7 @@ class InternalRenderTask {
     this.cancelled = true;
     (_this$gfx = this.gfx) === null || _this$gfx === void 0 ? void 0 : _this$gfx.endDrawing();
     if (this._canvas) {
-      _classStaticPrivateFieldSpecGet(InternalRenderTask, InternalRenderTask, _canvasInUse).delete(this._canvas);
+      InternalRenderTask.#canvasInUse.delete(this._canvas);
     }
     this.callback(error || new _display_utils.RenderingCancelledException(`Rendering cancelled, page ${this._pageIndex + 1}`, "canvas", extraDelay));
   }
@@ -6304,20 +6229,16 @@ class InternalRenderTask {
       if (this.operatorList.lastChunk) {
         this.gfx.endDrawing();
         if (this._canvas) {
-          _classStaticPrivateFieldSpecGet(InternalRenderTask, InternalRenderTask, _canvasInUse).delete(this._canvas);
+          InternalRenderTask.#canvasInUse.delete(this._canvas);
         }
         this.callback();
       }
     }
   }
 }
-var _canvasInUse = {
-  writable: true,
-  value: new WeakSet()
-};
-const version = '3.3.122';
+const version = '3.4.120';
 exports.version = version;
-const build = '562045607';
+const build = 'af6414988';
 exports.build = build;
 
 /***/ }),
@@ -6412,6 +6333,11 @@ class AnnotationStorage {
   getAll() {
     return _classPrivateFieldGet(this, _storage).size > 0 ? (0, _util.objectFromMap)(_classPrivateFieldGet(this, _storage)) : null;
   }
+  setAll(obj) {
+    for (const [key, val] of Object.entries(obj)) {
+      this.setValue(key, val);
+    }
+  }
   get size() {
     return _classPrivateFieldGet(this, _storage).size;
   }
@@ -6459,21 +6385,17 @@ function _setModified2() {
     }
   }
 }
-var _serializable = /*#__PURE__*/new WeakMap();
 class PrintAnnotationStorage extends AnnotationStorage {
+  #serializable = null;
   constructor(parent) {
     super();
-    _classPrivateFieldInitSpec(this, _serializable, {
-      writable: true,
-      value: null
-    });
-    _classPrivateFieldSet(this, _serializable, structuredClone(parent.serializable));
+    this.#serializable = structuredClone(parent.serializable);
   }
   get print() {
     (0, _util.unreachable)("Should not call PrintAnnotationStorage.print");
   }
   get serializable() {
-    return _classPrivateFieldGet(this, _serializable);
+    return this.#serializable;
   }
 }
 exports.PrintAnnotationStorage = PrintAnnotationStorage;
@@ -6491,49 +6413,17 @@ Object.defineProperty(exports, "__esModule", ({
 exports.AnnotationEditor = void 0;
 var _tools = __w_pdfjs_require__(138);
 var _util = __w_pdfjs_require__(1);
-function _defineProperty(obj, key, value) { key = _toPropertyKey(key); if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-function _toPropertyKey(arg) { var key = _toPrimitive(arg, "string"); return typeof key === "symbol" ? key : String(key); }
-function _toPrimitive(input, hint) { if (typeof input !== "object" || input === null) return input; var prim = input[Symbol.toPrimitive]; if (prim !== undefined) { var res = prim.call(input, hint || "default"); if (typeof res !== "object") return res; throw new TypeError("@@toPrimitive must return a primitive value."); } return (hint === "string" ? String : Number)(input); }
-function _classPrivateFieldInitSpec(obj, privateMap, value) { _checkPrivateRedeclaration(obj, privateMap); privateMap.set(obj, value); }
-function _checkPrivateRedeclaration(obj, privateCollection) { if (privateCollection.has(obj)) { throw new TypeError("Cannot initialize the same private elements twice on an object"); } }
-function _classPrivateFieldSet(receiver, privateMap, value) { var descriptor = _classExtractFieldDescriptor(receiver, privateMap, "set"); _classApplyDescriptorSet(receiver, descriptor, value); return value; }
-function _classApplyDescriptorSet(receiver, descriptor, value) { if (descriptor.set) { descriptor.set.call(receiver, value); } else { if (!descriptor.writable) { throw new TypeError("attempted to set read only private field"); } descriptor.value = value; } }
-function _classPrivateFieldGet(receiver, privateMap) { var descriptor = _classExtractFieldDescriptor(receiver, privateMap, "get"); return _classApplyDescriptorGet(receiver, descriptor); }
-function _classExtractFieldDescriptor(receiver, privateMap, action) { if (!privateMap.has(receiver)) { throw new TypeError("attempted to " + action + " private field on non-instance"); } return privateMap.get(receiver); }
-function _classApplyDescriptorGet(receiver, descriptor) { if (descriptor.get) { return descriptor.get.call(receiver); } return descriptor.value; }
-var _boundFocusin = /*#__PURE__*/new WeakMap();
-var _boundFocusout = /*#__PURE__*/new WeakMap();
-var _hasBeenSelected = /*#__PURE__*/new WeakMap();
-var _isEditing = /*#__PURE__*/new WeakMap();
-var _isInEditMode = /*#__PURE__*/new WeakMap();
-var _zIndex = /*#__PURE__*/new WeakMap();
 class AnnotationEditor {
+  #boundFocusin = this.focusin.bind(this);
+  #boundFocusout = this.focusout.bind(this);
+  #hasBeenSelected = false;
+  #isEditing = false;
+  #isInEditMode = false;
+  _uiManager = null;
+  #zIndex = AnnotationEditor._zIndex++;
+  static _colorManager = new _tools.ColorManager();
+  static _zIndex = 1;
   constructor(parameters) {
-    _classPrivateFieldInitSpec(this, _boundFocusin, {
-      writable: true,
-      value: this.focusin.bind(this)
-    });
-    _classPrivateFieldInitSpec(this, _boundFocusout, {
-      writable: true,
-      value: this.focusout.bind(this)
-    });
-    _classPrivateFieldInitSpec(this, _hasBeenSelected, {
-      writable: true,
-      value: false
-    });
-    _classPrivateFieldInitSpec(this, _isEditing, {
-      writable: true,
-      value: false
-    });
-    _classPrivateFieldInitSpec(this, _isInEditMode, {
-      writable: true,
-      value: false
-    });
-    _defineProperty(this, "_uiManager", null);
-    _classPrivateFieldInitSpec(this, _zIndex, {
-      writable: true,
-      value: AnnotationEditor._zIndex++
-    });
     if (this.constructor === AnnotationEditor) {
       (0, _util.unreachable)("Cannot initialize AnnotationEditor.");
     }
@@ -6574,7 +6464,7 @@ class AnnotationEditor {
     this.div.style.zIndex = 0;
   }
   setInForeground() {
-    this.div.style.zIndex = _classPrivateFieldGet(this, _zIndex);
+    this.div.style.zIndex = this.#zIndex;
   }
   setParent(parent) {
     if (parent !== null) {
@@ -6584,10 +6474,10 @@ class AnnotationEditor {
     this.parent = parent;
   }
   focusin(event) {
-    if (!_classPrivateFieldGet(this, _hasBeenSelected)) {
+    if (!this.#hasBeenSelected) {
       this.parent.setSelected(this);
     } else {
-      _classPrivateFieldSet(this, _hasBeenSelected, false);
+      this.#hasBeenSelected = false;
     }
   }
   focusout(event) {
@@ -6701,8 +6591,8 @@ class AnnotationEditor {
     this.div.setAttribute("id", this.id);
     this.div.setAttribute("tabIndex", 0);
     this.setInForeground();
-    this.div.addEventListener("focusin", _classPrivateFieldGet(this, _boundFocusin));
-    this.div.addEventListener("focusout", _classPrivateFieldGet(this, _boundFocusout));
+    this.div.addEventListener("focusin", this.#boundFocusin);
+    this.div.addEventListener("focusout", this.#boundFocusout);
     const [tx, ty] = this.getInitialTranslation();
     this.translate(tx, ty);
     (0, _tools.bindEvents)(this, this.div, ["dragstart", "pointerdown"]);
@@ -6721,7 +6611,7 @@ class AnnotationEditor {
     } else {
       this.parent.setSelected(this);
     }
-    _classPrivateFieldSet(this, _hasBeenSelected, true);
+    this.#hasBeenSelected = true;
   }
   getRect(tx, ty) {
     const scale = this.parentScale;
@@ -6768,13 +6658,13 @@ class AnnotationEditor {
     return false;
   }
   enableEditMode() {
-    _classPrivateFieldSet(this, _isInEditMode, true);
+    this.#isInEditMode = true;
   }
   disableEditMode() {
-    _classPrivateFieldSet(this, _isInEditMode, false);
+    this.#isInEditMode = false;
   }
   isInEditMode() {
-    return _classPrivateFieldGet(this, _isInEditMode);
+    return this.#isInEditMode;
   }
   shouldGetKeyboardEvents() {
     return false;
@@ -6784,7 +6674,7 @@ class AnnotationEditor {
   }
   rebuild() {
     var _this$div;
-    (_this$div = this.div) === null || _this$div === void 0 ? void 0 : _this$div.addEventListener("focusin", _classPrivateFieldGet(this, _boundFocusin));
+    (_this$div = this.div) === null || _this$div === void 0 ? void 0 : _this$div.addEventListener("focusin", this.#boundFocusin);
   }
   serialize() {
     (0, _util.unreachable)("An editor must be serializable");
@@ -6805,8 +6695,8 @@ class AnnotationEditor {
     return editor;
   }
   remove() {
-    this.div.removeEventListener("focusin", _classPrivateFieldGet(this, _boundFocusin));
-    this.div.removeEventListener("focusout", _classPrivateFieldGet(this, _boundFocusout));
+    this.div.removeEventListener("focusin", this.#boundFocusin);
+    this.div.removeEventListener("focusout", this.#boundFocusout);
     if (!this.isEmpty()) {
       this.commit();
     }
@@ -6830,10 +6720,10 @@ class AnnotationEditor {
     return this.div;
   }
   get isEditing() {
-    return _classPrivateFieldGet(this, _isEditing);
+    return this.#isEditing;
   }
   set isEditing(value) {
-    _classPrivateFieldSet(this, _isEditing, value);
+    this.#isEditing = value;
     if (value) {
       this.parent.setSelected(this);
       this.parent.setActiveEditor(this);
@@ -6843,8 +6733,6 @@ class AnnotationEditor {
   }
 }
 exports.AnnotationEditor = AnnotationEditor;
-_defineProperty(AnnotationEditor, "_colorManager", new _tools.ColorManager());
-_defineProperty(AnnotationEditor, "_zIndex", 1);
 
 /***/ }),
 /* 138 */
@@ -6864,15 +6752,15 @@ var _display_utils = __w_pdfjs_require__(139);
 function _defineProperty(obj, key, value) { key = _toPropertyKey(key); if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 function _toPropertyKey(arg) { var key = _toPrimitive(arg, "string"); return typeof key === "symbol" ? key : String(key); }
 function _toPrimitive(input, hint) { if (typeof input !== "object" || input === null) return input; var prim = input[Symbol.toPrimitive]; if (prim !== undefined) { var res = prim.call(input, hint || "default"); if (typeof res !== "object") return res; throw new TypeError("@@toPrimitive must return a primitive value."); } return (hint === "string" ? String : Number)(input); }
-function _classPrivateMethodInitSpec(obj, privateSet) { _checkPrivateRedeclaration(obj, privateSet); privateSet.add(obj); }
-function _classPrivateMethodGet(receiver, privateSet, fn) { if (!privateSet.has(receiver)) { throw new TypeError("attempted to get private field on non-instance"); } return fn; }
 function _classPrivateFieldInitSpec(obj, privateMap, value) { _checkPrivateRedeclaration(obj, privateMap); privateMap.set(obj, value); }
-function _checkPrivateRedeclaration(obj, privateCollection) { if (privateCollection.has(obj)) { throw new TypeError("Cannot initialize the same private elements twice on an object"); } }
-function _classPrivateFieldSet(receiver, privateMap, value) { var descriptor = _classExtractFieldDescriptor(receiver, privateMap, "set"); _classApplyDescriptorSet(receiver, descriptor, value); return value; }
-function _classApplyDescriptorSet(receiver, descriptor, value) { if (descriptor.set) { descriptor.set.call(receiver, value); } else { if (!descriptor.writable) { throw new TypeError("attempted to set read only private field"); } descriptor.value = value; } }
 function _classPrivateFieldGet(receiver, privateMap) { var descriptor = _classExtractFieldDescriptor(receiver, privateMap, "get"); return _classApplyDescriptorGet(receiver, descriptor); }
-function _classExtractFieldDescriptor(receiver, privateMap, action) { if (!privateMap.has(receiver)) { throw new TypeError("attempted to " + action + " private field on non-instance"); } return privateMap.get(receiver); }
 function _classApplyDescriptorGet(receiver, descriptor) { if (descriptor.get) { return descriptor.get.call(receiver); } return descriptor.value; }
+function _classPrivateFieldSet(receiver, privateMap, value) { var descriptor = _classExtractFieldDescriptor(receiver, privateMap, "set"); _classApplyDescriptorSet(receiver, descriptor, value); return value; }
+function _classExtractFieldDescriptor(receiver, privateMap, action) { if (!privateMap.has(receiver)) { throw new TypeError("attempted to " + action + " private field on non-instance"); } return privateMap.get(receiver); }
+function _classApplyDescriptorSet(receiver, descriptor, value) { if (descriptor.set) { descriptor.set.call(receiver, value); } else { if (!descriptor.writable) { throw new TypeError("attempted to set read only private field"); } descriptor.value = value; } }
+function _classPrivateMethodInitSpec(obj, privateSet) { _checkPrivateRedeclaration(obj, privateSet); privateSet.add(obj); }
+function _checkPrivateRedeclaration(obj, privateCollection) { if (privateCollection.has(obj)) { throw new TypeError("Cannot initialize the same private elements twice on an object"); } }
+function _classPrivateMethodGet(receiver, privateSet, fn) { if (!privateSet.has(receiver)) { throw new TypeError("attempted to get private field on non-instance"); } return fn; }
 function bindEvents(obj, element, names) {
   for (const name of names) {
     element.addEventListener(name, obj[name].bind(obj));
@@ -6881,43 +6769,20 @@ function bindEvents(obj, element, names) {
 function opacityToHex(opacity) {
   return Math.round(Math.min(255, Math.max(1, 255 * opacity))).toString(16).padStart(2, "0");
 }
-var _id = /*#__PURE__*/new WeakMap();
 class IdManager {
-  constructor() {
-    _classPrivateFieldInitSpec(this, _id, {
-      writable: true,
-      value: 0
-    });
-  }
+  #id = 0;
   getId() {
-    var _this$id, _this$id2;
-    return `${_util.AnnotationEditorPrefix}${(_classPrivateFieldSet(this, _id, (_this$id = _classPrivateFieldGet(this, _id), _this$id2 = _this$id++, _this$id)), _this$id2)}`;
+    return `${_util.AnnotationEditorPrefix}${this.#id++}`;
   }
 }
-var _commands = /*#__PURE__*/new WeakMap();
-var _locked = /*#__PURE__*/new WeakMap();
-var _maxSize = /*#__PURE__*/new WeakMap();
-var _position = /*#__PURE__*/new WeakMap();
 class CommandManager {
+  #commands = [];
+  #locked = false;
+  #maxSize;
+  #position = -1;
   constructor() {
     let maxSize = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 128;
-    _classPrivateFieldInitSpec(this, _commands, {
-      writable: true,
-      value: []
-    });
-    _classPrivateFieldInitSpec(this, _locked, {
-      writable: true,
-      value: false
-    });
-    _classPrivateFieldInitSpec(this, _maxSize, {
-      writable: true,
-      value: void 0
-    });
-    _classPrivateFieldInitSpec(this, _position, {
-      writable: true,
-      value: -1
-    });
-    _classPrivateFieldSet(this, _maxSize, maxSize);
+    this.#maxSize = maxSize;
   }
   add(_ref) {
     let {
@@ -6931,7 +6796,7 @@ class CommandManager {
     if (mustExec) {
       cmd();
     }
-    if (_classPrivateFieldGet(this, _locked)) {
+    if (this.#locked) {
       return;
     }
     const save = {
@@ -6939,57 +6804,57 @@ class CommandManager {
       undo,
       type
     };
-    if (_classPrivateFieldGet(this, _position) === -1) {
-      if (_classPrivateFieldGet(this, _commands).length > 0) {
-        _classPrivateFieldGet(this, _commands).length = 0;
+    if (this.#position === -1) {
+      if (this.#commands.length > 0) {
+        this.#commands.length = 0;
       }
-      _classPrivateFieldSet(this, _position, 0);
-      _classPrivateFieldGet(this, _commands).push(save);
+      this.#position = 0;
+      this.#commands.push(save);
       return;
     }
-    if (overwriteIfSameType && _classPrivateFieldGet(this, _commands)[_classPrivateFieldGet(this, _position)].type === type) {
+    if (overwriteIfSameType && this.#commands[this.#position].type === type) {
       if (keepUndo) {
-        save.undo = _classPrivateFieldGet(this, _commands)[_classPrivateFieldGet(this, _position)].undo;
+        save.undo = this.#commands[this.#position].undo;
       }
-      _classPrivateFieldGet(this, _commands)[_classPrivateFieldGet(this, _position)] = save;
+      this.#commands[this.#position] = save;
       return;
     }
-    const next = _classPrivateFieldGet(this, _position) + 1;
-    if (next === _classPrivateFieldGet(this, _maxSize)) {
-      _classPrivateFieldGet(this, _commands).splice(0, 1);
+    const next = this.#position + 1;
+    if (next === this.#maxSize) {
+      this.#commands.splice(0, 1);
     } else {
-      _classPrivateFieldSet(this, _position, next);
-      if (next < _classPrivateFieldGet(this, _commands).length) {
-        _classPrivateFieldGet(this, _commands).splice(next);
+      this.#position = next;
+      if (next < this.#commands.length) {
+        this.#commands.splice(next);
       }
     }
-    _classPrivateFieldGet(this, _commands).push(save);
+    this.#commands.push(save);
   }
   undo() {
-    if (_classPrivateFieldGet(this, _position) === -1) {
+    if (this.#position === -1) {
       return;
     }
-    _classPrivateFieldSet(this, _locked, true);
-    _classPrivateFieldGet(this, _commands)[_classPrivateFieldGet(this, _position)].undo();
-    _classPrivateFieldSet(this, _locked, false);
-    _classPrivateFieldSet(this, _position, _classPrivateFieldGet(this, _position) - 1);
+    this.#locked = true;
+    this.#commands[this.#position].undo();
+    this.#locked = false;
+    this.#position -= 1;
   }
   redo() {
-    if (_classPrivateFieldGet(this, _position) < _classPrivateFieldGet(this, _commands).length - 1) {
-      _classPrivateFieldSet(this, _position, _classPrivateFieldGet(this, _position) + 1);
-      _classPrivateFieldSet(this, _locked, true);
-      _classPrivateFieldGet(this, _commands)[_classPrivateFieldGet(this, _position)].cmd();
-      _classPrivateFieldSet(this, _locked, false);
+    if (this.#position < this.#commands.length - 1) {
+      this.#position += 1;
+      this.#locked = true;
+      this.#commands[this.#position].cmd();
+      this.#locked = false;
     }
   }
   hasSomethingToUndo() {
-    return _classPrivateFieldGet(this, _position) !== -1;
+    return this.#position !== -1;
   }
   hasSomethingToRedo() {
-    return _classPrivateFieldGet(this, _position) < _classPrivateFieldGet(this, _commands).length - 1;
+    return this.#position < this.#commands.length - 1;
   }
   destroy() {
-    _classPrivateFieldSet(this, _commands, null);
+    this.#commands = null;
   }
 }
 exports.CommandManager = CommandManager;
@@ -7049,6 +6914,7 @@ function _serialize2(event) {
   return str;
 }
 class ColorManager {
+  static _colorsMapping = new Map([["CanvasText", [0, 0, 0]], ["Canvas", [255, 255, 255]]]);
   get _colors() {
     const colors = new Map([["CanvasText", null], ["Canvas", null]]);
     (0, _display_utils.getColorValues)(colors);
@@ -7075,7 +6941,6 @@ class ColorManager {
   }
 }
 exports.ColorManager = ColorManager;
-_defineProperty(ColorManager, "_colorsMapping", new Map([["CanvasText", [0, 0, 0]], ["Canvas", [255, 255, 255]]]));
 var _activeEditor = /*#__PURE__*/new WeakMap();
 var _allEditors = /*#__PURE__*/new WeakMap();
 var _allLayers = /*#__PURE__*/new WeakMap();
@@ -7714,17 +7579,15 @@ exports.loadScript = loadScript;
 exports.setLayerDimensions = setLayerDimensions;
 var _base_factory = __w_pdfjs_require__(140);
 var _util = __w_pdfjs_require__(1);
-function _defineProperty(obj, key, value) { key = _toPropertyKey(key); if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-function _toPropertyKey(arg) { var key = _toPrimitive(arg, "string"); return typeof key === "symbol" ? key : String(key); }
-function _toPrimitive(input, hint) { if (typeof input !== "object" || input === null) return input; var prim = input[Symbol.toPrimitive]; if (prim !== undefined) { var res = prim.call(input, hint || "default"); if (typeof res !== "object") return res; throw new TypeError("@@toPrimitive must return a primitive value."); } return (hint === "string" ? String : Number)(input); }
 const SVG_NS = "http://www.w3.org/2000/svg";
 const AnnotationPrefix = "pdfjs_internal_id_";
 exports.AnnotationPrefix = AnnotationPrefix;
-class PixelsPerInch {}
+class PixelsPerInch {
+  static CSS = 96.0;
+  static PDF = 72.0;
+  static PDF_TO_CSS_UNITS = this.CSS / this.PDF;
+}
 exports.PixelsPerInch = PixelsPerInch;
-_defineProperty(PixelsPerInch, "CSS", 96.0);
-_defineProperty(PixelsPerInch, "PDF", 72.0);
-_defineProperty(PixelsPerInch, "PDF_TO_CSS_UNITS", PixelsPerInch.CSS / PixelsPerInch.PDF);
 class DOMCanvasFactory extends _base_factory.BaseCanvasFactory {
   constructor() {
     let {
@@ -7963,10 +7826,8 @@ function getPdfFilenameFromUrl(url) {
   return suggestedFilename || defaultFilename;
 }
 class StatTimer {
-  constructor() {
-    _defineProperty(this, "started", Object.create(null));
-    _defineProperty(this, "times", []);
-  }
+  started = Object.create(null);
+  times = [];
   time(name) {
     if (name in this.started) {
       (0, _util.warn)(`Timer is already running for ${name}`);
@@ -8218,7 +8079,7 @@ class BaseCMapReaderFactory {
   constructor(_ref) {
     let {
       baseUrl = null,
-      isCompressed = false
+      isCompressed = true
     } = _ref;
     if (this.constructor === BaseCMapReaderFactory) {
       (0, _util.unreachable)("Cannot initialize BaseCMapReaderFactory.");
@@ -11921,43 +11782,28 @@ Object.defineProperty(exports, "__esModule", ({
 }));
 exports.Metadata = void 0;
 var _util = __w_pdfjs_require__(1);
-function _classPrivateFieldInitSpec(obj, privateMap, value) { _checkPrivateRedeclaration(obj, privateMap); privateMap.set(obj, value); }
-function _checkPrivateRedeclaration(obj, privateCollection) { if (privateCollection.has(obj)) { throw new TypeError("Cannot initialize the same private elements twice on an object"); } }
-function _classPrivateFieldGet(receiver, privateMap) { var descriptor = _classExtractFieldDescriptor(receiver, privateMap, "get"); return _classApplyDescriptorGet(receiver, descriptor); }
-function _classApplyDescriptorGet(receiver, descriptor) { if (descriptor.get) { return descriptor.get.call(receiver); } return descriptor.value; }
-function _classPrivateFieldSet(receiver, privateMap, value) { var descriptor = _classExtractFieldDescriptor(receiver, privateMap, "set"); _classApplyDescriptorSet(receiver, descriptor, value); return value; }
-function _classExtractFieldDescriptor(receiver, privateMap, action) { if (!privateMap.has(receiver)) { throw new TypeError("attempted to " + action + " private field on non-instance"); } return privateMap.get(receiver); }
-function _classApplyDescriptorSet(receiver, descriptor, value) { if (descriptor.set) { descriptor.set.call(receiver, value); } else { if (!descriptor.writable) { throw new TypeError("attempted to set read only private field"); } descriptor.value = value; } }
-var _metadataMap = /*#__PURE__*/new WeakMap();
-var _data = /*#__PURE__*/new WeakMap();
 class Metadata {
+  #metadataMap;
+  #data;
   constructor(_ref) {
     let {
       parsedData,
       rawData
     } = _ref;
-    _classPrivateFieldInitSpec(this, _metadataMap, {
-      writable: true,
-      value: void 0
-    });
-    _classPrivateFieldInitSpec(this, _data, {
-      writable: true,
-      value: void 0
-    });
-    _classPrivateFieldSet(this, _metadataMap, parsedData);
-    _classPrivateFieldSet(this, _data, rawData);
+    this.#metadataMap = parsedData;
+    this.#data = rawData;
   }
   getRaw() {
-    return _classPrivateFieldGet(this, _data);
+    return this.#data;
   }
   get(name) {
-    return _classPrivateFieldGet(this, _metadataMap).get(name) ?? null;
+    return this.#metadataMap.get(name) ?? null;
   }
   getAll() {
-    return (0, _util.objectFromMap)(_classPrivateFieldGet(this, _metadataMap));
+    return (0, _util.objectFromMap)(this.#metadataMap);
   }
   has(name) {
-    return _classPrivateFieldGet(this, _metadataMap).has(name);
+    return this.#metadataMap.has(name);
   }
 }
 exports.Metadata = Metadata;
@@ -11976,33 +11822,29 @@ exports.OptionalContentConfig = void 0;
 var _util = __w_pdfjs_require__(1);
 var _murmurhash = __w_pdfjs_require__(141);
 function _classPrivateMethodInitSpec(obj, privateSet) { _checkPrivateRedeclaration(obj, privateSet); privateSet.add(obj); }
-function _classPrivateMethodGet(receiver, privateSet, fn) { if (!privateSet.has(receiver)) { throw new TypeError("attempted to get private field on non-instance"); } return fn; }
 function _classPrivateFieldInitSpec(obj, privateMap, value) { _checkPrivateRedeclaration(obj, privateMap); privateMap.set(obj, value); }
 function _checkPrivateRedeclaration(obj, privateCollection) { if (privateCollection.has(obj)) { throw new TypeError("Cannot initialize the same private elements twice on an object"); } }
-function _classPrivateFieldSet(receiver, privateMap, value) { var descriptor = _classExtractFieldDescriptor(receiver, privateMap, "set"); _classApplyDescriptorSet(receiver, descriptor, value); return value; }
-function _classApplyDescriptorSet(receiver, descriptor, value) { if (descriptor.set) { descriptor.set.call(receiver, value); } else { if (!descriptor.writable) { throw new TypeError("attempted to set read only private field"); } descriptor.value = value; } }
+function _classPrivateMethodGet(receiver, privateSet, fn) { if (!privateSet.has(receiver)) { throw new TypeError("attempted to get private field on non-instance"); } return fn; }
 function _classPrivateFieldGet(receiver, privateMap) { var descriptor = _classExtractFieldDescriptor(receiver, privateMap, "get"); return _classApplyDescriptorGet(receiver, descriptor); }
-function _classExtractFieldDescriptor(receiver, privateMap, action) { if (!privateMap.has(receiver)) { throw new TypeError("attempted to " + action + " private field on non-instance"); } return privateMap.get(receiver); }
 function _classApplyDescriptorGet(receiver, descriptor) { if (descriptor.get) { return descriptor.get.call(receiver); } return descriptor.value; }
+function _classPrivateFieldSet(receiver, privateMap, value) { var descriptor = _classExtractFieldDescriptor(receiver, privateMap, "set"); _classApplyDescriptorSet(receiver, descriptor, value); return value; }
+function _classExtractFieldDescriptor(receiver, privateMap, action) { if (!privateMap.has(receiver)) { throw new TypeError("attempted to " + action + " private field on non-instance"); } return privateMap.get(receiver); }
+function _classApplyDescriptorSet(receiver, descriptor, value) { if (descriptor.set) { descriptor.set.call(receiver, value); } else { if (!descriptor.writable) { throw new TypeError("attempted to set read only private field"); } descriptor.value = value; } }
 const INTERNAL = Symbol("INTERNAL");
-var _visible = /*#__PURE__*/new WeakMap();
 class OptionalContentGroup {
+  #visible = true;
   constructor(name, intent) {
-    _classPrivateFieldInitSpec(this, _visible, {
-      writable: true,
-      value: true
-    });
     this.name = name;
     this.intent = intent;
   }
   get visible() {
-    return _classPrivateFieldGet(this, _visible);
+    return this.#visible;
   }
   _setVisible(internal, visible) {
     if (internal !== INTERNAL) {
       (0, _util.unreachable)("Internal method `_setVisible` called.");
     }
-    _classPrivateFieldSet(this, _visible, visible);
+    this.#visible = visible;
   }
 }
 var _cachedGetHash = /*#__PURE__*/new WeakMap();
@@ -14035,6 +13877,7 @@ class TextLayerRenderTask {
     this._container = this._rootContainer = container;
     this._textDivs = textDivs || [];
     this._textContentItemsStr = textContentItemsStr || [];
+    this._isOffscreenCanvasSupported = isOffscreenCanvasSupported;
     this._fontInspectorEnabled = !!((_globalThis$FontInspe = globalThis.FontInspector) !== null && _globalThis$FontInspe !== void 0 && _globalThis$FontInspe.enabled);
     this._reader = null;
     this._textDivProperties = textDivProperties || new WeakMap();
@@ -14277,6 +14120,9 @@ class AnnotationEditorLayer {
     _classPrivateFieldSet(this, _accessibilityManager, options.accessibilityManager);
     _classPrivateFieldGet(this, _uiManager).addLayer(this);
   }
+  get isEmpty() {
+    return _classPrivateFieldGet(this, _editors).size === 0;
+  }
   updateToolbar(mode) {
     _classPrivateFieldGet(this, _uiManager).updateToolbar(mode);
   }
@@ -14290,8 +14136,11 @@ class AnnotationEditorLayer {
       this.enableClick();
     }
     _classPrivateFieldGet(this, _uiManager).unselectAll();
-    this.div.classList.toggle("freeTextEditing", mode === _util.AnnotationEditorType.FREETEXT);
-    this.div.classList.toggle("inkEditing", mode === _util.AnnotationEditorType.INK);
+    if (mode !== _util.AnnotationEditorType.NONE) {
+      this.div.classList.toggle("freeTextEditing", mode === _util.AnnotationEditorType.FREETEXT);
+      this.div.classList.toggle("inkEditing", mode === _util.AnnotationEditorType.INK);
+      this.div.hidden = false;
+    }
   }
   addInkEditorIfNeeded(isCommitting) {
     if (!isCommitting && _classPrivateFieldGet(this, _uiManager).getMode() !== _util.AnnotationEditorType.INK) {
@@ -14327,6 +14176,10 @@ class AnnotationEditorLayer {
     this.div.style.pointerEvents = "none";
     for (const editor of _classPrivateFieldGet(this, _editors).values()) {
       editor.disableEditing();
+    }
+    _classPrivateMethodGet(this, _cleanup, _cleanup2).call(this);
+    if (this.isEmpty) {
+      this.div.hidden = true;
     }
   }
   setActiveEditor(editor) {
@@ -16128,9 +15981,6 @@ var _scripting_utils = __w_pdfjs_require__(165);
 var _xfa_layer = __w_pdfjs_require__(166);
 function _classStaticPrivateMethodGet(receiver, classConstructor, method) { _classCheckPrivateStaticAccess(receiver, classConstructor); return method; }
 function _classCheckPrivateStaticAccess(receiver, classConstructor) { if (receiver !== classConstructor) { throw new TypeError("Private static access of wrong provenance"); } }
-function _defineProperty(obj, key, value) { key = _toPropertyKey(key); if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-function _toPropertyKey(arg) { var key = _toPrimitive(arg, "string"); return typeof key === "symbol" ? key : String(key); }
-function _toPrimitive(input, hint) { if (typeof input !== "object" || input === null) return input; var prim = input[Symbol.toPrimitive]; if (prim !== undefined) { var res = prim.call(input, hint || "default"); if (typeof res !== "object") return res; throw new TypeError("@@toPrimitive must return a primitive value."); } return (hint === "string" ? String : Number)(input); }
 function _classPrivateMethodInitSpec(obj, privateSet) { _checkPrivateRedeclaration(obj, privateSet); privateSet.add(obj); }
 function _checkPrivateRedeclaration(obj, privateCollection) { if (privateCollection.has(obj)) { throw new TypeError("Cannot initialize the same private elements twice on an object"); } }
 function _classPrivateMethodGet(receiver, privateSet, fn) { if (!privateSet.has(receiver)) { throw new TypeError("attempted to get private field on non-instance"); } return fn; }
@@ -17547,7 +17397,7 @@ class ChoiceWidgetAnnotationElement extends WidgetAnnotationElement {
           }
         });
       });
-      this._setEventListeners(selectElement, [["focus", "Focus"], ["blur", "Blur"], ["mousedown", "Mouse Down"], ["mouseenter", "Mouse Enter"], ["mouseleave", "Mouse Exit"], ["mouseup", "Mouse Up"], ["input", "Action"]], event => event.target.checked);
+      this._setEventListeners(selectElement, [["focus", "Focus"], ["blur", "Blur"], ["mousedown", "Mouse Down"], ["mouseenter", "Mouse Enter"], ["mouseleave", "Mouse Exit"], ["mouseup", "Mouse Up"], ["input", "Action"], ["input", "Validate"]], event => event.target.value);
     } else {
       selectElement.addEventListener("input", function (event) {
         storage.setValue(id, {
@@ -17565,6 +17415,7 @@ class ChoiceWidgetAnnotationElement extends WidgetAnnotationElement {
   }
 }
 class PopupAnnotationElement extends AnnotationElement {
+  static IGNORE_TYPES = new Set(["Line", "Square", "Circle", "PolyLine", "Polygon", "Ink"]);
   constructor(parameters) {
     var _data$titleObj, _data$contentsObj, _data$richText;
     const {
@@ -17606,7 +17457,6 @@ class PopupAnnotationElement extends AnnotationElement {
     return this.container;
   }
 }
-_defineProperty(PopupAnnotationElement, "IGNORE_TYPES", new Set(["Line", "Square", "Circle", "PolyLine", "Polygon", "Ink"]));
 class PopupElement {
   constructor(parameters) {
     this.container = parameters.container;
@@ -19836,6 +19686,12 @@ Object.defineProperty(exports, "CMapCompressionType", ({
     return _util.CMapCompressionType;
   }
 }));
+Object.defineProperty(exports, "FeatureTest", ({
+  enumerable: true,
+  get: function () {
+    return _util.FeatureTest;
+  }
+}));
 Object.defineProperty(exports, "GlobalWorkerOptions", ({
   enumerable: true,
   get: function () {
@@ -20038,8 +19894,8 @@ var _annotation_layer = __w_pdfjs_require__(164);
 var _worker_options = __w_pdfjs_require__(146);
 var _svg = __w_pdfjs_require__(167);
 var _xfa_layer = __w_pdfjs_require__(166);
-const pdfjsVersion = '3.3.122';
-const pdfjsBuild = '562045607';
+const pdfjsVersion = '3.4.120';
+const pdfjsBuild = 'af6414988';
 })();
 
 /******/ 	return __webpack_exports__;
