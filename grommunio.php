@@ -18,7 +18,7 @@
 
 	// Globals suck, but we use it still in many files, so we will
 	// store the mapisession as global
-	$GLOBALS["mapisession"] = WebAppAuthentication::getMapiSession();
+	$GLOBALS["mapisession"] = WebAppAuthentication::getMAPISession();
 
 	// Get the language from the session
 	// before we close the session.

@@ -29,7 +29,7 @@ class WebAppAuthentication {
 	private static $_phpSession;
 
 	/**
-	 * @var null|MapiSession A reference to the MapiSession object
+	 * @var null|MAPISession A reference to the MAPISession object
 	 */
 	private static $_mapiSession;
 
@@ -48,7 +48,7 @@ class WebAppAuthentication {
 	/**
 	 * Returns the only instance of the WebAppAuthentication class.
 	 * If it does not exist yet, it will create an instance, and
-	 * also an MapiSession object, and it will start a php session
+	 * also an MAPISession object, and it will start a php session
 	 * by instantiating a WebAppSession.
 	 *
 	 * @return self
@@ -62,7 +62,7 @@ class WebAppAuthentication {
 			WebAppAuthentication::$_instance = new WebAppAuthentication();
 
 			// Instantiate the mapiSession
-			WebAppAuthentication::$_mapiSession = new MapiSession();
+			WebAppAuthentication::$_mapiSession = new MAPISession();
 
 			// Check if MAPI Saving session support exists
 			WebAppAuthentication::$_sessionSaveSupport = function_exists('kc_session_save') && function_exists('kc_session_restore');
@@ -111,22 +111,22 @@ class WebAppAuthentication {
 	}
 
 	/**
-	 * Returns the MapiSession instance.
+	 * Returns the MAPISession instance.
 	 *
 	 * @see server/includes/core/class.mapisession.php
 	 *
-	 * @return MapiSession
+	 * @return MAPISession
 	 */
-	public static function getMapiSession() {
+	public static function getMAPISession() {
 		return WebAppAuthentication::$_mapiSession;
 	}
 
 	/**
-	 * Set the MapiSession instance.
+	 * Set the MAPISession instance.
 	 *
 	 * @param MAPISession $session the mapisession to set
 	 */
-	public static function setMapiSession($session) {
+	public static function setMAPISession($session) {
 		WebAppAuthentication::$_mapiSession->setSession($session);
 	}
 
@@ -168,7 +168,7 @@ class WebAppAuthentication {
 	 */
 	public static function login($username, $password) {
 		if (!WebAppAuthentication::_restoreMAPISession()) {
-			// TODO: move logon from MapiSession to here
+			// TODO: move logon from MAPISession to here
 			WebAppAuthentication::$_errorCode = WebAppAuthentication::$_mapiSession->logon(
 				$username,
 				$password,
@@ -237,7 +237,7 @@ class WebAppAuthentication {
 		if (kc_session_restore(hex2bin($encryptionStore->get('savedsession')), $session) === NOERROR) {
 			WebAppAuthentication::$_errorCode = NOERROR;
 			WebAppAuthentication::$_authenticated = true;
-			WebAppAuthentication::setMapiSession($session);
+			WebAppAuthentication::setMAPISession($session);
 
 			return true;
 		}
@@ -348,7 +348,7 @@ class WebAppAuthentication {
 			session_regenerate_id();
 		}
 
-		WebAppAuthentication::$_errorCode = WebAppAuthentication::getMapiSession()->logon(
+		WebAppAuthentication::$_errorCode = WebAppAuthentication::getMAPISession()->logon(
 			$_POST['username'],
 			$_POST['token'],
 			DEFAULT_SERVER,

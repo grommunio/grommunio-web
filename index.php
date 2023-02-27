@@ -146,9 +146,9 @@
 	}
 
 	// TODO: we could replace all references to $GLOBALS['mapisession']
-	// with WebAppAuthentication::getMapiSession(), that way we would
+	// with WebAppAuthentication::getMAPISession(), that way we would
 	// lose at least one GLOBAL (because globals suck)
-	$GLOBALS['mapisession'] = WebAppAuthentication::getMapiSession();
+	$GLOBALS['mapisession'] = WebAppAuthentication::getMAPISession();
 
 	// check if it's DB or LDAP for the password plugin
 	$result = @json_decode(@file_get_contents(ADMIN_API_STATUS_ENDPOINT, false), true);
