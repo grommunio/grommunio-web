@@ -42,7 +42,7 @@ set_error_handler("grommunio_error_handler");
 * Custom error handler, here we check to see if it is a MAPI error and dump all info
 * to the dump file, and finally we redirect the error back to PHP
 */
-function grommunio_error_handler($errno, $errstr, $errfile, $errline, $errorContext)
+function grommunio_error_handler($errno, $errstr, $errfile, $errline, $errorContext = [])
 {
 	$error = array("msg"=>$errstr, "file"=>$errfile.":".$errline);
 
