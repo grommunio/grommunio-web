@@ -16,7 +16,7 @@
 	// Defines the default domain of email addresses to login with
 	// If this is set, you can login with only the user part of an email.
 	// Examples: define("DEFAULT_DOMAIN", "example.com");
-	define("DEFAULT_DOMAIN", "");
+	//define("DEFAULT_DOMAIN", "");
 
 	// Name of the cookie that is used for the session
 	define("COOKIE_NAME", "GROMMUNIO_WEB");
