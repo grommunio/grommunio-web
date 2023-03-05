@@ -163,7 +163,7 @@ msgid "Displaying messages {0} - {1} of {2}"
 msgstr "Zeige Nachricht {0} - {1} von {2}"
 
 msgid "No messages to display"
-msgstr "Keine Nachrichten zum anzeigen"
+msgstr "Keine Nachrichten zum Anzeigen"
 
 msgid "First Page"
 msgstr "Erste Seite"
@@ -212,7 +212,7 @@ msgid "Previous Month (Control+Left)"
 msgstr "Vorheriger Monat (Ctrl+Links)"
 
 msgid "Choose a month (Control+Up/Down to move years)"
-msgstr "Monat auswählen (Ctrl+Hoch/Runter um Jahr zu wählen)"
+msgstr "Monat auswählen (Strg+Auf/Ab, um Jahr zu wählen)"
 
 msgid "Sort Ascending"
 msgstr "Aufsteigend sortieren"
@@ -455,7 +455,7 @@ msgid "You must select one or more users."
 msgstr "Sie müssen einen oder mehrere Benutzer auswählen."
 
 msgid "You must select a user."
-msgstr "Sie müssen einen Nutzer auswählen."
+msgstr "Sie müssen einen Benutzer auswählen."
 
 msgid "Select"
 msgstr "Auswählen"
@@ -700,7 +700,7 @@ msgid "Subject"
 msgstr "Betreff"
 
 msgid "Body & Attachments"
-msgstr "Text & Anhängen"
+msgstr "Text & Anhänge"
 
 msgid "Favorites"
 msgstr "Favoriten"
@@ -973,7 +973,7 @@ msgid "Appointment"
 msgstr "Termin"
 
 msgid "Meeting request"
-msgstr "Terminanfrage"
+msgstr "Besprechungsanfrage"
 
 msgid "Print selected appointment"
 msgstr "Ausgewählten Termin drucken"
@@ -997,8 +997,8 @@ msgid ""
 "The selected calendar has \"read-only\" permissions. Instead you can create "
 "an item in your own calendar."
 msgstr ""
-"Sie haben auf den ausgewählten Kalender nur Leserechte. Sie können Element "
-"stattdessen in Ihrem eigenen Kalender anlegen."
+"Sie haben auf den ausgewählten Kalender nur Leserechte. Sie können "
+"stattdessen ein Element in Ihrem eigenen Kalender anlegen."
 
 msgid "What would you like?"
 msgstr "Was möchten Sie?"
@@ -1033,7 +1033,7 @@ msgid "Resources have been planned"
 msgstr "Die Ressourcen wurden geplant"
 
 msgid "Send update"
-msgstr "Update verschicken"
+msgstr "Aktualisierung senden"
 
 msgid "Do you want to send an update to all recipients?"
 msgstr "Möchten Sie eine Aktualisierung an alle Teilnehmer senden?"
@@ -1044,7 +1044,7 @@ msgstr "Aktualisierung an Teilnehmer versenden"
 msgid ""
 "You have made changes to the list of attendees. What would you like to do?"
 msgstr ""
-"Sie haben Änderungen an der Teilnehmerliste vorgenommen. Was würden Sie "
+"Sie haben Änderungen an der Teilnehmerliste vorgenommen. Was möchten Sie "
 "gerne tun?"
 
 msgid "Send updates to only added or deleted attendees."
@@ -1083,7 +1083,7 @@ msgid ""
 "for details."
 msgstr ""
 "{0} Teilnehmer haben eine neue Zeit vorgeschlagen. Klicken Sie für Details "
-"auf den Planungstab."
+"auf die Planungsregisterkarte."
 
 msgctxt "calendar.dialog"
 msgid "You proposed a new time for this meeting on {0}"
@@ -1321,7 +1321,7 @@ msgid "Creating an item"
 msgstr "Element wird erstellt"
 
 msgid "New meeting request"
-msgstr "Neue Terminanfrage"
+msgstr "Neue Besprechungsanfrage"
 
 msgid "Switch calendar range back and forth"
 msgstr "Kalenderblätter wechseln"
@@ -1487,7 +1487,7 @@ msgid "New Appointment"
 msgstr "Neuer Termin"
 
 msgid "New Meeting Request"
-msgstr "Neue Terminanfrage"
+msgstr "Neue Besprechungsanfrage"
 
 msgid "Open"
 msgstr "Öffnen"
@@ -1838,7 +1838,7 @@ msgid "message"
 msgstr "Nachricht"
 
 msgid "meeting request"
-msgstr "Termineinladung"
+msgstr "Besprechungsanfrage"
 
 msgid "appointment"
 msgstr "Termin"
@@ -1893,7 +1893,7 @@ msgid "You have not responded to the meeting request \"{0}\"."
 msgstr "Sie haben noch nicht auf die Besprechungsanfrage «{0}» geantwortet."
 
 msgid "Delete and send a response to the meeting organizer"
-msgstr "Löschen und dem Organisator eine Antwort schicken"
+msgstr "Löschen und dem Organisator eine Antwort senden"
 
 msgid "Delete without sending"
 msgstr "Löschen ohne Antwort"
@@ -2398,7 +2398,7 @@ msgid "Save an item e.g. mail, contact, etc."
 msgstr "Element speichern, z.B. E-Mail, Kontakt, usw."
 
 msgid "Send an item e.g. mail, meeting request, etc."
-msgstr "Element senden, z.B. E-Mail, Termineinladung, usw."
+msgstr "Element senden, z.B. E-Mail, Besprechungsanfrage, usw."
 
 msgid "Select all items"
 msgstr "Alle Elemente auswählen"
@@ -3210,7 +3210,7 @@ msgstr "Bitte antworten."
 
 msgctxt "mail.previewpanel"
 msgid "This is an update of a previously sent meeting request."
-msgstr "Dies ist eine Aktualisierung für eine zuvor gesendete Termineinladung."
+msgstr "Dies ist eine Aktualisierung für eine zuvor gesendete Besprechungsanfrage."
 
 msgctxt "mail.previewpanel"
 msgid "Received for {0}."
@@ -3954,7 +3954,7 @@ msgid "No subject"
 msgstr "kein Betreff"
 
 msgid "Send this message without a subject?"
-msgstr "Diese Nachricht ohne einen Betreff verschicken?"
+msgstr "Diese Nachricht ohne einen Betreff versenden?"
 
 msgid "Unresolved recipients"
 msgstr "Unaufgelöste Empfänger"
@@ -4497,7 +4497,7 @@ msgstr ""
 "Diese Nachricht wird beim Absenden als zur Nachverfolgung gekennzeichnet."
 
 msgid "Send Later"
-msgstr "Später verschicken"
+msgstr "Später versenden"
 
 msgid "Schedule your mail to be sent on a specific date and time"
 msgstr ""
@@ -4989,7 +4989,7 @@ msgid "Long"
 msgstr "Langform"
 
 msgid "Time format:"
-msgstr "Zeit Format:"
+msgstr "Zeitformat:"
 
 msgid "12h clock"
 msgstr "12 Stunden"
@@ -5129,7 +5129,7 @@ msgid ""
 "You can not send mails as you have exceeded soft quota, at {0} you won't be "
 "able to receive mails."
 msgstr ""
-"Sie können keine Mails schicken, weil das Speicherplatzkontingent erreicht wurde. Ab "
+"Sie können keine Mails versenden, weil das Speicherplatzkontingent erreicht wurde. Ab "
 "{0} werden Sie ebenfalls keine zusätzlichen Mails empfangen können."
 
 msgid "At {0} you won't be able to send or receive mails."
@@ -5495,7 +5495,7 @@ msgid ""
 "liking."
 msgstr ""
 "Wechseln Sie in den Einstellungen auf die Registerkarte «Allgemein» und wählen "
-"das Symbolpaket das Ihnen zusagt."
+"Sie ein Symbolpaket, das Ihnen zusagt."
 
 msgid "Left: Breeze - Right: Classic"
 msgstr "Links: Breeze - Rechts: Klassisch"
@@ -5533,18 +5533,18 @@ msgid ""
 "The session in the current browser window has been closed from another "
 "browser window or tab."
 msgstr ""
-"Die Sitzung im aktuellen Fenster wurde durch einen anderen Browser oder Registerkarte "
-"geschlossen."
+"Die Sitzung im aktuellen Fenster wurde in einem anderen Browserfenster "
+"oder -registerkarte geschlossen."
 
 msgid "Session expired"
 msgstr "Sitzung abgelaufen"
 
 msgid "Do you wish to be redirected to the logon page?"
-msgstr "Möchten Sie zur Login-Seite weitergeleitet werden?"
+msgstr "Möchten Sie zur Anmeldeseite umgeleitet werden?"
 
 msgid "Reauthentication required, click here to go to back to logon page."
 msgstr ""
-"Erneute Anmeldung erforderlich. Klicken Sie bitte hier, um zur Login-Seite "
+"Erneute Anmeldung erforderlich. Klicken Sie hier, um zur Anmeldeseite "
 "weitergeleitet zu werden."
 
 msgid "Connection problem"
@@ -7000,7 +7000,7 @@ msgstr ""
 
 msgid "Logon failed. Please verify your credentials and try again."
 msgstr ""
-"Login fehlgeschlagen. Überprüfen Sie Ihren Benutzernamen und/oder Ihr "
+"Anmeldung fehlgeschlagen. Überprüfen Sie den Benutzernamen und "
 "Passwort."
 
 msgid "Cannot connect to Gromox."
@@ -7087,7 +7087,7 @@ msgid "You have insufficient privileges to open this object."
 msgstr "Sie haben keine Berechtigung, dieses Objekt zu öffnen."
 
 msgid "Logon Failed. Please check your name/password."
-msgstr "Login fehlgeschlagen. Prüfen Sie Benutzernamen und Passwort."
+msgstr "Anmeldung fehlgeschlagen. Bitte prüfen Sie Benutzernamen und Passwort."
 
 msgid "Can not connect to Gromox."
 msgstr "Konnte keine Verbindung mit Gromox aufbauen."
@@ -7221,7 +7221,7 @@ msgid "Could not open occurrence, specific occurrence is probably deleted."
 msgstr ""
 
 msgid "a meeting request"
-msgstr ""
+msgstr "eine Besprechungsanfrage"
 
 msgid "an appointment"
 msgstr ""
@@ -7250,18 +7250,24 @@ msgid ""
 "'%s' has declined your meeting because '%s' does not automatically accept "
 "meeting requests."
 msgstr ""
+"«%s» hat Ihre Besprechungsanfrage abgelehnt, da «%s» nicht automatisch "
+"Besprechungsanfragen akzeptiert."
 
 #, php-format
 msgid ""
 "'%s' has declined your meeting because it is recurring. You must book each "
 "meeting separately with this resource."
 msgstr ""
+"«%s» hat Ihre Besprechungsanfrage abgelehnt, da es ein wiederholender Termin ist. "
+"Sie müssen jede Besprechungsanfrage mit dieser Ressource separat buchen."
 
 #, php-format
 msgid ""
 "'%s' is already booked for this specified time. You must use another time or "
 "find another resource."
 msgstr ""
+"«%s» ist bereits zu der spezifizierten Zeit gebucht. Sie müssen entweder "
+"eine andere Zeit oder eine andere Ressource aufsuchen."
 
 msgid "Meeting was not scheduled."
 msgstr ""
@@ -7277,11 +7283,11 @@ msgstr ""
 
 #, php-format
 msgid "%s's Birthday"
-msgstr ""
+msgstr "%ss Geburtstag"
 
 #, php-format
 msgid "%s's Anniversary"
-msgstr ""
+msgstr "%ss Jahrestag"
 
 msgid "You don't have the permission to complete this action"
 msgstr ""
@@ -7521,28 +7527,28 @@ msgid "Could not delete message."
 msgstr ""
 
 msgid "You have insufficient privileges to cancel this Meeting Request."
-msgstr "Sie haben keine Berechtigung, diese Terminanfrage abzusagen."
+msgstr "Sie haben keine Berechtigung, diese Besprechungsanfrage abzusagen."
 
 msgid "Could not cancel Meeting Request."
-msgstr ""
+msgstr "Konnte Besprechungsanfrage nicht absagen."
 
 msgid "You have insufficient privileges to decline this Meeting Request."
-msgstr "Sie haben keine Berechtigung, diese Terminanfrage abzulehnen."
+msgstr "Sie haben keine Berechtigung, diese Besprechungsanfrage abzulehnen."
 
 msgid "Could not decline Meeting Request."
-msgstr ""
+msgstr "Konnte Besprechungsanfrage nicht ablehnen."
 
 msgid "You have insufficient privileges to accept this Meeting Request."
-msgstr "Sie haben keine Berechtigung, dieser Terminanfrage zuzusagen."
+msgstr "Sie haben keine Berechtigung, dieser Besprechungsanfrage zuzusagen."
 
 msgid "Could not accept Meeting Request."
-msgstr ""
+msgstr "Konnte Besprechungsanfrage nicht akzeptieren."
 
 msgid "You have insufficient privileges to cancel Meeting Request invitation."
-msgstr "Sie haben keine Berechtigung, diese Termineinladung abzusagen."
+msgstr "Sie haben keine Berechtigung, diese Besprechungsanfrage abzusagen."
 
 msgid "Could not cancel Meeting Request invitations."
-msgstr "Konnte Termineinladung nicht absagen."
+msgstr "Konnte Besprechungsanfrage nicht absagen."
 
 msgid "You can not continue search operation on this folder."
 msgstr "Sie können keine weiteren Suchoperationen in diesem Ordner durchführen."
@@ -7646,7 +7652,7 @@ msgid "Control character error, possibly incorrectly encoded"
 msgstr ""
 
 msgid "Invalid or malformed JSON"
-msgstr ""
+msgstr "Ungültiges oder missgebildetes JSON"
 
 msgid "Syntax error"
 msgstr ""
