@@ -214,7 +214,7 @@ msgid "Previous Month (Control+Left)"
 msgstr "Vorheriger Monat (Strg+Links)"
 
 msgid "Choose a month (Control+Up/Down to move years)"
-msgstr "Monat auswählen (Strg+Auf/Ab um Jahr zu wählen)"
+msgstr "Monat auswählen (Strg+Auf/Ab, um Jahr zu wählen)"
 
 msgid "Sort Ascending"
 msgstr "Aufsteigend sortieren"
@@ -1036,7 +1036,7 @@ msgid "Resources have been planned"
 msgstr "Die Ressourcen wurden geplant"
 
 msgid "Send update"
-msgstr "Aktualisierung versenden"
+msgstr "Aktualisierung senden"
 
 msgid "Do you want to send an update to all recipients?"
 msgstr "Möchten Sie eine Aktualisierung an alle Teilnehmer senden?"
@@ -5508,7 +5508,7 @@ msgid ""
 "liking."
 msgstr ""
 "Wechseln Sie in den Einstellungen auf die Registerkarte „Allgemein“ und "
-"wählen das Symbolpaket das Ihnen zusagt."
+"wählen ein Symbolpaket, das Ihnen zusagt."
 
 msgid "Left: Breeze - Right: Classic"
 msgstr "Links: Breeze - Rechts: Klassisch"
@@ -5546,18 +5546,18 @@ msgid ""
 "The session in the current browser window has been closed from another "
 "browser window or tab."
 msgstr ""
-"Die Sitzung im aktuellen Fenster wurde in einem anderen Browser-Fenster "
-"oder -Registerkarte geschlossen."
+"Die Sitzung im aktuellen Fenster wurde in einem anderen Browserfenster "
+"oder -registerkarte geschlossen."
 
 msgid "Session expired"
 msgstr "Sitzung abgelaufen"
 
 msgid "Do you wish to be redirected to the logon page?"
-msgstr "Möchten Sie zur Anmeldeseite weitergeleitet werden?"
+msgstr "Möchten Sie zur Anmeldeseite umgeleitet werden?"
 
 msgid "Reauthentication required, click here to go to back to logon page."
 msgstr ""
-"Erneute Anmeldung erforderlich. Klicken Sie bitte hier, um zur Anmeldeseite "
+"Erneute Anmeldung erforderlich. Klicken Sie hier, um zur Anmeldeseite "
 "weitergeleitet zu werden."
 
 msgid "Connection problem"
@@ -7087,7 +7087,7 @@ msgstr "Fehler bei Abrug vorhandener dauerhafter Einstellungen"
 
 msgid "Logon failed. Please verify your credentials and try again."
 msgstr ""
-"Anmeldung fehlgeschlagen. Überprüfen Sie Ihren Benutzernamen und/oder Ihr "
+"Anmeldung fehlgeschlagen. Überprüfen Sie den Benutzernamen und "
 "Passwort."
 
 msgid "Cannot connect to Gromox."
@@ -7348,7 +7348,7 @@ msgid ""
 "'%s' has declined your meeting because '%s' does not automatically accept "
 "meeting requests."
 msgstr ""
-"„%s“ hat Ihre Besprechungsanfrage abgelehnt da „%s“ nicht automatisch "
+"„%s“ hat Ihre Besprechungsanfrage abgelehnt, da „%s“ nicht automatisch "
 "Besprechungsanfragen akzeptiert."
 
 #, php-format
@@ -7356,7 +7356,7 @@ msgid ""
 "'%s' has declined your meeting because it is recurring. You must book each "
 "meeting separately with this resource."
 msgstr ""
-"„%s“ hat Ihre Besprechungsanfrage abgelehnt da es ein wiederholender Termin ist. "
+"„%s“ hat Ihre Besprechungsanfrage abgelehnt, da es ein wiederholender Termin ist. "
 "Sie müssen jede Besprechungsanfrage mit dieser Ressource separat buchen."
 
 #, php-format
@@ -7364,7 +7364,7 @@ msgid ""
 "'%s' is already booked for this specified time. You must use another time or "
 "find another resource."
 msgstr ""
-"„%s“ ist bereits gebucht zu der spezifizierten Zeit. Sie müssen entweder "
+"„%s“ ist bereits zu der spezifizierten Zeit gebucht. Sie müssen entweder "
 "eine andere Zeit oder eine andere Ressource aufsuchen."
 
 msgid "Meeting was not scheduled."
@@ -7381,11 +7381,11 @@ msgstr "Privater Termin"
 
 #, php-format
 msgid "%s's Birthday"
-msgstr "%s' Geburtstag"
+msgstr "%ss Geburtstag"
 
 #, php-format
 msgid "%s's Anniversary"
-msgstr "%s's Jahrestag"
+msgstr "%ss Jahrestag"
 
 msgid "You don't have the permission to complete this action"
 msgstr "Sie haben nicht die Berechtigung um diese Aktion auszuführen"
