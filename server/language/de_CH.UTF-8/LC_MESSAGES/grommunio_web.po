@@ -6463,7 +6463,7 @@ msgid "You don't have a valid certificate corresponding to your account"
 msgstr "Sie haben kein Ihrem Benutzer zugeordnetes gültiges Zertifikat"
 
 msgid "Personal certificate"
-msgstr ""
+msgstr "Persönliches Zertifikat"
 
 msgid "Change passphrase for last certificate"
 msgstr "Passphrase für letztes Zertifikat ändern"
@@ -6472,7 +6472,7 @@ msgid "You have a valid certificate corresponding to your account"
 msgstr "Sie haben ein gültiges Zertifikat, das zu Ihrem Account passt"
 
 msgid "Upload your certificate"
-msgstr ""
+msgstr "Zertifikat hochladen"
 
 msgid ""
 "Below you can upload your private certificate in PKCS#12 format. grommunio "
@@ -6494,10 +6494,10 @@ msgid "You must first select a valid private certificate in PKCS#12 format."
 msgstr "Sie müssen zuerst ein gültiges persönliches Zertifikat im PKCS#12-Format auswählen."
 
 msgid "Sign"
-msgstr ""
+msgstr "Signieren"
 
 msgid "Sign message"
-msgstr ""
+msgstr "Nachricht signieren"
 
 msgid ""
 "Ensure the authenticity of the message by adding a digital signature to this "
@@ -6507,10 +6507,10 @@ msgstr ""
 "hinzugefügt wird. Nur für die unveränderte Nachricht ist die Signatur gültig."
 
 msgid "Encrypt"
-msgstr ""
+msgstr "Verschlüsseln"
 
 msgid "Encrypt message"
-msgstr ""
+msgstr "Nachricht verschlüsseln"
 
 msgid ""
 "Ensure the privacy of the message by encrypting its contents. Only the "
@@ -6520,7 +6520,7 @@ msgstr ""
 "der Empfänger kann die Nachricht öffnen."
 
 msgid "What's going on with my email?"
-msgstr ""
+msgstr "Was geschieht mit meiner E-Mail?"
 
 msgid ""
 "grommunio Web can verify digital signatures of emails. A successful "
@@ -6540,13 +6540,13 @@ msgid " has failed"
 msgstr " nicht funktioniert hat"
 
 msgid " for this message."
-msgstr ""
+msgstr " für diese Nachricht."
 
 msgid "What caused this issue?"
 msgstr "Was ist die Ursache dafür?"
 
 msgid "What should I do?"
-msgstr ""
+msgstr "Was kann ich machen?"
 
 msgid ""
 "You can continue to work. However, you should keep in mind that the identity "
@@ -6559,6 +6559,8 @@ msgid ""
 "You can contact your helpdesk or system administrator if you are not sure "
 "what to do next."
 msgstr ""
+"Kontaktieren Sie Ihre Supporthotline oder den Systemadministrator, "
+"wenn Sie sich unsicher sind."
 
 msgid ""
 "grommunio Web can verify digital signatures of emails. A successful "
@@ -6571,6 +6573,8 @@ msgid ""
 "that the message has not been tampered with and validates the identity of "
 "the sender."
 msgstr ""
+"dass die E-Mail nach dem Versand nicht verändert wurde und wirklich vom "
+"angegebenen Absender kommt."
 
 msgid ""
 "The verification of the digital signature was successful for this email "
@@ -6580,6 +6584,7 @@ msgstr ""
 
 msgid "grommunio Web could not find a public certificate for the recipient."
 msgstr ""
+"grommunio Web konnte kein öffentliches Zertifikat für den Empfänger finden."
 
 msgid ""
 "The identity of the sender and authenticity of the message content have been "
@@ -6604,6 +6609,9 @@ msgid ""
 "sender's certificate is not available. The validity of the certificate could "
 "not be verified."
 msgstr ""
+"Der Überprüfungsdienst der Zertifizierungsstelle, die das Zertifikat des "
+"Absenders signiert hat, ist nicht verfügbar. Die Gültigkeit des Zertifikats "
+"konnte nicht überprüft werden."
 
 msgid ""
 "The revocation status of the digital certificate used to sign this email is "
@@ -6619,54 +6627,59 @@ msgid ""
 "The revocation status of the digital certificate used to sign this email is "
 "disabled (OCSP). The validity of the certificate could not be verified."
 msgstr ""
+"Der Sperrstatus des zum Signieren dieser E-Mail verwendeten digitalen "
+"Zertifikats ist deaktiviert (OCSP). Die Gültigkeit des Zertifikats konnte "
+"nicht überprüft werden."
 
 msgid "The certificate verification server (OCSP) is temporarily offline."
-msgstr ""
+msgstr "Der Zertifikatsüberprüfungsserver (OCSP) ist vorübergehend offline."
 
 msgid "Sender is removed from the server."
-msgstr ""
+msgstr "Der Absender wurde vom Server entfernt."
 
 msgid "Signature verified successfully"
 msgstr "Die Signatur hat die Prüfung bestanden"
 
 msgid "Could not verify signature, missing public certificate"
-msgstr ""
+"Die Signatur konnte nicht überprüft werden, weil das öffentliche Zertifikat "
+"fehlt"
 
 msgid "Signature verification successful, but certificate is expired"
 "Die Signatur hat die Prüfung bestanden, aber das Zertifikat ist abgelaufen"
 
 msgid "Signature could not be verified"
-msgstr ""
+msgstr "Die Signatur konnte nicht überprüft werden"
 
 msgid "Certificate has been revoked"
-msgstr ""
+msgstr "Das Zertifikat wurde widerrufen"
 
 msgid "Verification with Certificate Authority failed"
-msgstr ""
+msgstr "Überprüfung bei der Zertifizierungsstelle fehlgeschlagen"
 
 msgid "Message decrypted succesfully"
-msgstr ""
+msgstr "Nachricht wurde erfolgreich entschlüsselt"
 
 msgid "Message decryption failed"
-msgstr ""
+msgstr "Entschlüsseln der Nachricht ist fehlgeschlagen"
 
 msgid "Please"
-msgstr ""
+msgstr "Bitte"
 
 msgid "click here"
 msgstr "klicken Sie hier,"
 
 msgid "to unlock your certificate"
-msgstr ""
+msgstr "um Ihr Zertifikat zu entsperren"
 
 msgid "Cannot determine revocation status of certificate"
-msgstr ""
+msgstr "Sperrstatus des Zertifikats kann nicht ermittelt werden"
 
 msgid "Signature verified (OCSP disabled)"
-msgstr ""
+msgstr "Signatur überprüft (OCSP deaktiviert)"
 
 msgid "Unable to decrypt this message. Certificate does not match"
-msgstr ""
+"Die Nachricht kann nicht entschlüsselt werden. Das Zertifikat stimmt nicht "
+"überein"
 
 msgid "Verification failed. User is removed from the server."
 msgstr "Überprüfung fehlgeschlagen. Benutzer wurde vom Server entfernt."
@@ -6781,7 +6794,7 @@ msgid "Use grommunio credentials"
 msgstr "grommunio-Zugangsdaten verwenden"
 
 msgid "php-curl is not available"
-msgstr ""
+msgstr "php-curl ist nicht verfügbar"
 
 msgid "Access denied"
 msgstr "Zugriff verweigert"
@@ -6940,13 +6953,13 @@ msgstr ""
 "Administrator. Fehlercode: %s"
 
 msgid "No data received."
-msgstr ""
+msgstr "Keine Daten erhalten."
 
 msgid "Account is empty."
-msgstr ""
+msgstr "Konto ist leer."
 
 msgid "Current password does not match."
-msgstr ""
+msgstr "Aktuelle Passwörter stimmen nicht überein."
 
 msgid ""
 "Your password is wrong or you have insufficient permission to change password"
@@ -6955,16 +6968,17 @@ msgstr ""
 "Passwörter zu ändern"
 
 msgid "Password is not changed."
-msgstr ""
+msgstr "Passwort ist unverändert."
 
 msgid "Error changing password. Please contact the system administrator."
-msgstr ""
+"Fehler beim Ändern des Passwortes. Bitte kontaktieren Sie Ihren "
+"Systemadministrator."
 
 msgid "Password has been changed successfully."
-msgstr ""
+msgstr "Passwort wurde erfolgreich geändert."
 
 msgid "No certificate avaliable"
-msgstr ""
+msgstr "Kein Zertifikat verfügbar"
 
 msgid "Private certificate is not valid yet, unable to sign email"
 msgstr ""
