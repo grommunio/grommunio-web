@@ -6641,10 +6641,12 @@ msgid "Signature verified successfully"
 msgstr "Die Signatur hat die Prüfung bestanden"
 
 msgid "Could not verify signature, missing public certificate"
+msgstr ""
 "Die Signatur konnte nicht überprüft werden, weil das öffentliche Zertifikat "
 "fehlt"
 
 msgid "Signature verification successful, but certificate is expired"
+msgstr ""
 "Die Signatur hat die Prüfung bestanden, aber das Zertifikat ist abgelaufen"
 
 msgid "Signature could not be verified"
@@ -6678,6 +6680,7 @@ msgid "Signature verified (OCSP disabled)"
 msgstr "Signatur überprüft (OCSP deaktiviert)"
 
 msgid "Unable to decrypt this message. Certificate does not match"
+msgstr ""
 "Die Nachricht kann nicht entschlüsselt werden. Das Zertifikat stimmt nicht "
 "überein"
 
@@ -6971,6 +6974,7 @@ msgid "Password is not changed."
 msgstr "Passwort ist unverändert."
 
 msgid "Error changing password. Please contact the system administrator."
+msgstr ""
 "Fehler beim Ändern des Passwortes. Bitte kontaktieren Sie Ihren "
 "Systemadministrator."
 
