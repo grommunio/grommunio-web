@@ -849,10 +849,10 @@ msgid "Occurs every {0} {1} effective {2} until {3} from {4} to {5}."
 msgstr "Findet im Zeitruam vom {2} bis {3} jeden {0} {1} von {4} bis {5} statt."
 
 msgid "Occurs every {0} effective {1} until {2}."
-msgstr "Findet im Zeitraum vom {1} bis einschließlich {2} jeden {0} statt."
+msgstr "Findet im Zeitraum vom {1} bis einschliesslich {2} jeden {0} statt."
 
 msgid "Occurs every {0} {1} effective {2} until {3}."
-msgstr "Findet im Zeitraum vom {2} bis einschließlich {3} jeden {0} {1} statt."
+msgstr "Findet im Zeitraum vom {2} bis einschliesslich {3} jeden {0} {1} statt."
 
 msgid "When"
 msgstr "Wann"
@@ -6465,7 +6465,7 @@ msgid ""
 "certificate on the server."
 msgstr ""
 "Hier können Sie Ihr persönliches Zertifikat im PKCS#12-Format hochladen. "
-"grommunio Web akzeptiert ausschließlich gültige Zertifikate und speichert "
+"grommunio Web akzeptiert ausschliesslich gültige Zertifikate und speichert "
 "das persönliche Zertifikat auf dem Server."
 
 msgid "Private certificate"
@@ -7430,7 +7430,7 @@ msgid "Could not create folder."
 msgstr "Konnte Ordner nicht erstellen."
 
 msgid "Could not close shared folder."
-msgstr "Konnte geteilten Ordner nicht schließen."
+msgstr "Konnte geteilten Ordner nicht schliessen."
 
 msgid "User could not be resolved."
 msgstr ""
