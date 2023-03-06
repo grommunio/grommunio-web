@@ -2052,14 +2052,14 @@ msgid ""
 "In order to use the vCard import feature, upgrade your Gromox to version 0 "
 "or higher."
 msgstr ""
-"Um das vCard Import-Feature zu nutzen, aktualisieren Sie Gromox zur Version "
+"Um das vCard-Importfeature zu nutzen, aktualisieren Sie Gromox auf Version "
 "0 oder höher."
 
 msgid ""
 "In order to use the ICS / VCS import feature, upgrade your Gromox to version "
 "0 or higher."
 msgstr ""
-"Um das ICS/VCS Import-Feature zu nutzen, aktualisieren Sie gromox zur "
+"Um das ICS/VCS-Importfeature zu nutzen, aktualisieren Sie gromox zur "
 "Version 0 oder höher."
 
 msgid "Attachment error"
@@ -2498,7 +2498,7 @@ msgid "ZDeveloper"
 msgstr "ZEntwickler"
 
 msgid "grommunio Web print"
-msgstr "grommunio Web Druck"
+msgstr "grommunio-Web-Druck"
 
 msgid "Display name"
 msgstr "Anzeigename"
@@ -3091,7 +3091,7 @@ msgid "Loading..."
 msgstr "Laden…"
 
 msgid "Message could not be loaded"
-msgstr "Nachricht kann nicht geladen werden"
+msgstr "Nachricht konnte nicht geladen werden"
 
 #. TRANSLATORS: This message is used as label for the field which indicates which attachments are inside the message
 msgctxt "mail.previewpanel"
@@ -4023,7 +4023,7 @@ msgid "Unsaved changes"
 msgstr "Ungespeicherte Änderungen"
 
 msgid "Welcome to grommunio Web"
-msgstr "Willkommen zu grommunio Web"
+msgstr "Willkommen bei grommunio Web"
 
 msgid "This is the first time you are using grommunio Web. "
 msgstr "Sie verwenden grommunio Web zum ersten Mal. "
@@ -5585,7 +5585,7 @@ msgid "Invalid data received from the server"
 msgstr "Ungültige Daten vom Server erhalten"
 
 msgid "Missing store"
-msgstr "Fehlender Store"
+msgstr "Fehlendes Postfach"
 
 msgid "The default store is missing from the hierarchy."
 msgstr "Der Standard-Store fehlt in der Hierarchie."
@@ -5940,7 +5940,7 @@ msgid "Create New "
 msgstr "Neu erstellen "
 
 msgid "Incorrect filename"
-msgstr "Inkorrekter Dateiname"
+msgstr "Fehlerhafter Dateiname"
 
 msgid "Error reaching office backend"
 msgstr "Fehler beim Erreichen des Office-Backend"
@@ -6283,7 +6283,7 @@ msgstr ""
 " Bitte geben Sie Ihr Passwort zur Bestätigung ein."
 
 msgid "Add meeting"
-msgstr "Meeting hinzufügen"
+msgstr "Besprechung hinzufügen"
 
 msgid "Room name:"
 msgstr "Raumname:"
@@ -6298,7 +6298,7 @@ msgid "Join webmeeting"
 msgstr "Webmeeting beitreten"
 
 msgid "Open meeting in:"
-msgstr "Meeting öffnen in:"
+msgstr "Besprechung öffnen in:"
 
 msgid "Web tab"
 msgstr "Web-Registerkarte"
@@ -6381,19 +6381,19 @@ msgstr ""
 "Zahlen enthalten. Passwort sollte zwischen 8 und 20 Zeichen enthalten."
 
 msgid "Change passphrase"
-msgstr "Passwort ändern"
+msgstr "Passphrase ändern"
 
 msgid "Old passphrase"
-msgstr "Bisheriges Passwort"
+msgstr "Bisherige Passphrase"
 
 msgid "Wrong passphrase. Please try again"
-msgstr "Falsches Passwort. Bitte probieren Sie erneut"
+msgstr "Falsche Passphrase. Bitte probieren Sie erneut"
 
 msgid "New passphrase"
-msgstr "Neues Passwort"
+msgstr "Neue Passphrase"
 
 msgid "Confirm new passphrase"
-msgstr "Neues Passwort bestätigen"
+msgstr "Neue Passphrase bestätigen"
 
 msgid "The passphrases don't match. Please try again"
 msgstr "Die Passphrasen stimmen nicht überein. Bitte versuchen Sie es erneut"
@@ -6411,11 +6411,11 @@ msgid "Submit"
 msgstr "Absenden"
 
 msgid "Certificate passphrase"
-msgstr "Passwort des Zertifikates"
+msgstr "Passphrase des Zertifikates"
 
 msgid "The passphrase you typed is incorrect. Please try again."
 msgstr ""
-"Die von Ihnen eingegebene Passphrase ist falsch. Bitte versuchen Sie es "
+"Die von Ihnen eingegebene Passphrase ist falsch. Versuchen Sie es "
 "erneut."
 
 msgid "No certificates imported, please upload your private certificate"
@@ -6446,7 +6446,7 @@ msgstr ""
 "signieren können."
 
 msgid "Certificate details"
-msgstr "Details zum Zertifikat"
+msgstr "Zertifikatsdetails"
 
 msgid ""
 "Below you can view and delete public & private certificate(s) stored on the "
@@ -6564,7 +6564,7 @@ msgid ""
 "You can contact your helpdesk or system administrator if you are not sure "
 "what to do next."
 msgstr ""
-"Bitte kontaktieren Sie Ihre Supporthotline oder den Systemadministrator, "
+"Kontaktieren Sie Ihre Supporthotline oder den Systemadministrator, "
 "wenn Sie sich unsicher sind."
 
 msgid ""
@@ -7052,7 +7052,7 @@ msgstr "Antwortdaten vom Bus angefragt, enthalten aber keine Daten."
 
 #, php-format
 msgid "Unknown module '%s' with id '%s'"
-msgstr "Unbekanntes Modul „%s“ mit id „%s“"
+msgstr "Unbekanntes Modul „%s“ mit ID „%s“"
 
 msgid ""
 "Server encountered some problem, so it was not able to handle the request."
@@ -7065,7 +7065,7 @@ msgid "Unknown notifier '%s'"
 msgstr "Unbekannter Identifikator „%s“"
 
 msgid "An unexpected error has occurred"
-msgstr "Ein unbekannter Fehler ist aufgetreten"
+msgstr "Ein unerwarteter Fehler ist aufgetreten"
 
 msgid "To-Do List"
 msgstr "To-Do-Liste"
@@ -7103,7 +7103,7 @@ msgid "Unknown MAPI Error"
 msgstr "Unbekannter MAPI-Fehler"
 
 msgid "This external link will open in a new window"
-msgstr "Dieser externe Link wird in einem separaten Fenster geöffnet"
+msgstr "Dieser externe Link wird in einem getrennten Fenster geöffnet"
 
 msgid "Destination folder not found."
 msgstr "Zielordner nicht gefunden."
@@ -7146,7 +7146,7 @@ msgid "Embedded attachment not found."
 msgstr "Eingebetteter Anhang nicht gefunden."
 
 msgid "ZIP is not created successfully"
-msgstr "ZIP wurde nicht erfolgreich erstellt"
+msgstr "ZIP-Datei wurde nicht erfolgreich erstellt"
 
 msgid "Attachments can not be downloaded"
 msgstr "Anhänge können nicht heruntergeladen werden"
@@ -7283,7 +7283,7 @@ msgstr ""
 "hatte, die Information einzuholen."
 
 msgid "Could not handle this type of object."
-msgstr "Konnte diese Form des Objekts nicht verarbeiten."
+msgstr "Konnte diese Objektart nicht verarbeiten."
 
 msgid "Could not open this object."
 msgstr "Konnte dieses Objekt nicht öffnen."
@@ -7327,7 +7327,7 @@ msgstr ""
 "Erinnerung zurück, um die Änderung zu speichern"
 
 msgid "Two occurrences cannot occur on the same day"
-msgstr "Zwei Ergegnisse können nicht am selben Tag stattfinden"
+msgstr "Zwei Ereignisse können nicht am selben Tag stattfinden"
 
 #, php-format
 msgid ""
@@ -7370,7 +7370,7 @@ msgid "Meeting was not scheduled."
 msgstr "Termin wurde nicht geplant."
 
 msgid "Meeting could not be sent."
-msgstr "Termin konnte nicht versendet werden."
+msgstr "Termin konnte nicht versandt werden."
 
 msgid "Meeting could not be saved."
 msgstr "Termin konnte nicht gespeichert werden."
@@ -7601,7 +7601,7 @@ msgid "You have insufficient privileges to see the contents of this folder."
 msgstr "Sie haben keine Berechtigung, Inhalte dieses Ordners zu sehen."
 
 msgid "Could not load the contents of this folder."
-msgstr "Konnte den Inhalt des Ordners nicht laden."
+msgstr "Konnte die Inhalte des Ordners nicht laden."
 
 msgid ""
 "You have insufficient privileges to perform search operation in this folder."

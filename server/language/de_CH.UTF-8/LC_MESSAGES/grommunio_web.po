@@ -2049,11 +2049,15 @@ msgid ""
 "In order to use the vCard import feature, upgrade your Gromox to version 0 "
 "or higher."
 msgstr ""
+"Um das vCard-Importfeature zu nutzen, aktualisieren Sie Gromox auf Version "
+"0 oder höher."
 
 msgid ""
 "In order to use the ICS / VCS import feature, upgrade your Gromox to version "
 "0 or higher."
 msgstr ""
+"Um das ICS/VCS-Importfeature zu nutzen, aktualisieren Sie Gromox auf "
+"Version 0 oder höher."
 
 msgid "Attachment error"
 msgstr "Problem mit dem Anhang"
@@ -2446,10 +2450,10 @@ msgid "Enable for replies"
 msgstr ""
 
 msgid "No Cc recipient configured"
-msgstr "Kein Cc Empfänger konfiguriert"
+msgstr "Kein CC-Empfänger konfiguriert"
 
 msgid "Loading Cc recipients"
-msgstr "Lade Cc Empfänger"
+msgstr "Lade CC-Empfänger"
 
 msgid "Reply Mail"
 msgstr "Auf E-Mail antworten"
@@ -2489,7 +2493,7 @@ msgid "ZDeveloper"
 msgstr "ZEntwickler"
 
 msgid "grommunio Web print"
-msgstr ""
+msgstr "grommunio-Web-Druck"
 
 msgid "Display name"
 msgstr "Anzeigename"
@@ -3082,7 +3086,7 @@ msgid "Loading..."
 msgstr "Laden…"
 
 msgid "Message could not be loaded"
-msgstr ""
+msgstr "Nachricht konnte nicht geladen werden"
 
 #. TRANSLATORS: This message is used as label for the field which indicates which attachments are inside the message
 msgctxt "mail.previewpanel"
@@ -4009,7 +4013,7 @@ msgid "Unsaved changes"
 msgstr "Ungespeicherte Änderungen"
 
 msgid "Welcome to grommunio Web"
-msgstr ""
+msgstr "Willkommen bei grommunio Web"
 
 msgid "This is the first time you are using grommunio Web. "
 msgstr "Sie verwenden grommunio Web zum ersten Mal. "
@@ -5571,7 +5575,7 @@ msgid "Invalid data received from the server"
 msgstr ""
 
 msgid "Missing store"
-msgstr "Fehlender Store"
+msgstr "Fehlendes Postfach"
 
 msgid "The default store is missing from the hierarchy."
 msgstr "Der Standard-Store fehlt in der Hierarchie."
@@ -5925,7 +5929,7 @@ msgid "Create New "
 msgstr "Neu erstellen "
 
 msgid "Incorrect filename"
-msgstr ""
+msgstr "Fehlerhafter Dateiname"
 
 msgid "Error reaching office backend"
 msgstr "Fehler beim Erreichen des Office-Backend"
@@ -6267,7 +6271,7 @@ msgstr ""
 " Bitte geben Sie Ihr Passwort zur Bestätigung ein."
 
 msgid "Add meeting"
-msgstr ""
+msgstr "Besprechung hinzufügen"
 
 msgid "Room name:"
 msgstr "Raumname:"
@@ -6282,7 +6286,7 @@ msgid "Join webmeeting"
 msgstr ""
 
 msgid "Open meeting in:"
-msgstr ""
+msgstr "Besprechung öffnen in:"
 
 msgid "Web tab"
 msgstr ""
@@ -6363,19 +6367,19 @@ msgid ""
 msgstr ""
 
 msgid "Change passphrase"
-msgstr ""
+msgstr "Passphrase ändern"
 
 msgid "Old passphrase"
-msgstr ""
+msgstr "Bisherige Passphrase"
 
 msgid "Wrong passphrase. Please try again"
-msgstr ""
+msgstr "Falsche Passphrase. Bitte probieren Sie erneut"
 
 msgid "New passphrase"
-msgstr ""
+msgstr "Neue Passphrase"
 
 msgid "Confirm new passphrase"
-msgstr ""
+msgstr "Neue Passphrase bestätigen"
 
 msgid "The passphrases don't match. Please try again"
 msgstr ""
@@ -6393,10 +6397,12 @@ msgid "Submit"
 msgstr "Absenden"
 
 msgid "Certificate passphrase"
-msgstr ""
+msgstr "Passphrase des Zertifikates"
 
 msgid "The passphrase you typed is incorrect. Please try again."
 msgstr ""
+"Die von Ihnen eingegebene Passphrase ist falsch. Versuchen Sie es "
+"erneut."
 
 msgid "No certificates imported, please upload your private certificate"
 msgstr ""
@@ -6426,7 +6432,7 @@ msgstr ""
 "signieren können."
 
 msgid "Certificate details"
-msgstr ""
+msgstr "Zertifikatsdetails"
 
 msgid ""
 "Below you can view and delete public & private certificate(s) stored on the "
@@ -6969,6 +6975,8 @@ msgstr "Für folgenden Empfänger fehlen die öffentlichen Zertifikate: "
 
 msgid ". Please contact your system administrator for details"
 msgstr ""
+"Kontaktieren Sie Ihre Supporthotline oder den Systemadministrator, "
+"wenn Sie sich unsicher sind."
 
 msgid ""
 "Your public certificate is not installed. Without this certificate, you will "
@@ -7010,7 +7018,7 @@ msgstr "Antwortdaten vom Bus angefragt, enthalten aber keine Daten."
 
 #, php-format
 msgid "Unknown module '%s' with id '%s'"
-msgstr ""
+msgstr "Unbekanntes Modul «%s» mit ID «%s»"
 
 msgid ""
 "Server encountered some problem, so it was not able to handle the request."
@@ -7023,7 +7031,7 @@ msgid "Unknown notifier '%s'"
 msgstr ""
 
 msgid "An unexpected error has occurred"
-msgstr ""
+msgstr "Ein unerwarteter Fehler ist aufgetreten"
 
 msgid "To-Do List"
 msgstr "To-Do-Liste"
@@ -7061,7 +7069,7 @@ msgid "Unknown MAPI Error"
 msgstr "Unbekannter MAPI-Fehler"
 
 msgid "This external link will open in a new window"
-msgstr ""
+msgstr "Dieser externe Link wird in einem getrennten Fenster geöffnet"
 
 msgid "Destination folder not found."
 msgstr "Zielordner nicht gefunden."
@@ -7104,7 +7112,7 @@ msgid "Embedded attachment not found."
 msgstr ""
 
 msgid "ZIP is not created successfully"
-msgstr ""
+msgstr "ZIP-Datei wurde nicht erfolgreich erstellt"
 
 msgid "Attachments can not be downloaded"
 msgstr ""
@@ -7241,7 +7249,7 @@ msgstr ""
 "hatte, die Information einzuholen."
 
 msgid "Could not handle this type of object."
-msgstr ""
+msgstr "Konnte diese Objektart nicht verarbeiten."
 
 msgid "Could not open this object."
 msgstr "Konnte dieses Objekt nicht öffnen."
@@ -7285,7 +7293,7 @@ msgstr ""
 "Erinnerung zurück, um die Änderung zu speichern"
 
 msgid "Two occurrences cannot occur on the same day"
-msgstr ""
+msgstr "Zwei Ereignisse können nicht am selben Tag stattfinden"
 
 #, php-format
 msgid ""
