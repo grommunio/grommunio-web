@@ -6471,7 +6471,7 @@ msgid "Personal certificate"
 msgstr "Persönliches Zertifikat"
 
 msgid "Change passphrase for last certificate"
-msgstr "Passwort für letztes Zertifikat ändern"
+msgstr "Passphrase für letztes Zertifikat ändern"
 
 msgid "You have a valid certificate corresponding to your account"
 msgstr "Sie haben ein gültiges Zertifikat, das zu Ihrem Account passt"
@@ -6643,7 +6643,7 @@ msgid "Sender is removed from the server."
 msgstr "Der Absender wurde vom Server entfernt."
 
 msgid "Signature verified successfully"
-msgstr "Die Signatur wurde erfolgreich überprüft"
+msgstr "Die Signatur hat die Prüfung bestanden"
 
 msgid "Could not verify signature, missing public certificate"
 msgstr ""
@@ -6652,7 +6652,7 @@ msgstr ""
 
 msgid "Signature verification successful, but certificate is expired"
 msgstr ""
-"Die Signatur wurde erfolgreich überprüft, aber das Zertifikat ist abgelaufen"
+"Die Signatur hat die Prüfung bestanden, aber das Zertifikat ist abgelaufen"
 
 msgid "Signature could not be verified"
 msgstr "Die Signatur konnte nicht überprüft werden"
@@ -6690,7 +6690,7 @@ msgstr ""
 "überein"
 
 msgid "Verification failed. User is removed from the server."
-msgstr "Überprüfung fehlgeschlagen. Benutzer wird vom Server entfernt."
+msgstr "Überprüfung fehlgeschlagen. Benutzer wurde vom Server entfernt."
 
 msgid "Charm pink"
 msgstr "Rosa"
@@ -6820,7 +6820,7 @@ msgid "Unknown error"
 msgstr "Unbekannter Fehler"
 
 msgid "Please contact your system administrator."
-msgstr "Bitte kontaktieren Sie Ihren Systemadministrator."
+msgstr "Kontaktieren Sie Ihren Systemadministrator."
 
 msgid "Unauthorized. Wrong username or password."
 msgstr "Nicht angemeldet. Benutzername oder Passwort falsch."
