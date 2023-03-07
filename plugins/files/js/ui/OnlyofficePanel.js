@@ -40,7 +40,7 @@ Zarafa.plugins.files.ui.OnlyofficePanel = Ext.extend(Ext.Panel, {
 				id: this.iframeId,
 				cls: 'files-iframe',
 				src: baseUrl + fileid + "?filePath=%2F" + filePath,
-				style: 'position:absolute;display:block;top:-45px;height:calc(100% + 45px);',
+				style: 'position:absolute;display:block;top:-50px;height:calc(100% + 50px);',
 			},
 			listeners: {
 				afterrender: this.onAfterRender,
