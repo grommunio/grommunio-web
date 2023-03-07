@@ -39,7 +39,7 @@ class Account {
 	 * @param mixed $sequence
 	 * @param mixed $cannot_change
 	 */
-	public function __construct($id, $name, $status, $statusDescription, $backend, $backendConfig, $features = [], $sequence, $cannot_change) {
+	public function __construct($id, $name, $status, $statusDescription, $backend, $backendConfig, $features, $sequence, $cannot_change) {
 		$this->id = $id;
 		$this->name = $name;
 		$this->status = $status;

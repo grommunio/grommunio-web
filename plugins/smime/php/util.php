@@ -149,7 +149,7 @@ function der2pem($certificate) {
  *
  * @return {Boolean} true is OCSP verification has succeeded or when there is no OCSP support, false if it hasn't
  */
-function verifyOCSP($certificate, $extracerts = [], &$message) {
+function verifyOCSP($certificate, $extracerts, &$message) {
 	if (!PLUGIN_SMIME_ENABLE_OCSP) {
 		$message['success'] = SMIME_STATUS_SUCCESS;
 		$message['info'] = SMIME_OCSP_DISABLED;
@@ -164,6 +164,9 @@ function verifyOCSP($certificate, $extracerts = [], &$message) {
 	 * chain.
 	 */
 	$parent = $pubcert;
+	if (!isset($extracerts) || !is_array($extracerts)) {
+		$extracerts = [];
+	}
 	while ($cert = array_shift($extracerts)) {
 		$cert = new Certificate($cert);
 
