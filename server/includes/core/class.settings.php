@@ -563,8 +563,15 @@
 		 * @return array associative array with 'lang' entry
 		 */
 		public function getSessionSettings($Language) {
-			$lang = $this->get('zarafa/v1/main/language', LANG);
-			$lang = $Language->resolveLanguage($lang);
+			$store = $GLOBALS['mapisession']->getDefaultMessageStore();
+			$storeProps = mapi_getprops($store, [PR_EC_USER_LANGUAGE]);
+			if (!empty($storeProps[PR_EC_USER_LANGUAGE])) {
+				$lang = $storeProps[PR_EC_USER_LANGUAGE];
+			}
+			else {
+				$lang = $this->get('zarafa/v1/main/language', LANG);
+				$lang = $Language->resolveLanguage($lang);
+			}
 
 			return [
 				'lang' => $lang,
