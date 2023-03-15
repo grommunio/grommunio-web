@@ -248,16 +248,11 @@
 				$limit = $GLOBALS['settings']->get('zarafa/v1/main/page_size', 50);
 			}
 
-			$folder = mapi_msgstore_openentry($store, $entryid);
+			$getHierarchy = isset($action["itemType"]) && $action["itemType"] == "folder";
 
-			if (isset($action["itemType"]) && $action["itemType"] == "folder") {
-				$table = mapi_folder_gethierarchytable($folder, MAPI_DEFERRED_ERRORS | SHOW_SOFT_DELETES);
-			}
-			else {
-				$table = mapi_folder_getcontentstable($folder, MAPI_DEFERRED_ERRORS | SHOW_SOFT_DELETES);
-			}
-
-			$data = $GLOBALS["operations"]->getTableContent($table, $this->properties, $this->sort, $this->start, $limit, $this->restriction);
+			$data = $GLOBALS["operations"]->getTable($store, $entryid, $this->properties,
+				$this->sort, $this->start, $limit, $this->restriction,
+				$getHierarchy, MAPI_DEFERRED_ERRORS | SHOW_SOFT_DELETES);
 
 			$this->addActionData("list", $data);
 			$GLOBALS["bus"]->addData($this->getResponseData());

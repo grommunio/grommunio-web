@@ -1405,12 +1405,12 @@
 		 *
 		 * @return array XML array structure with row data
 		 */
-		public function getTable($store, $entryid, $properties, $sort, $start, $rowcount = false, $restriction = false) {
+		public function getTable($store, $entryid, $properties, $sort, $start, $rowcount = false, $restriction = false, $getHierarchy = false, $flags = MAPI_DEFERRED_ERRORS) {
 			$data = [];
 			$folder = mapi_msgstore_openentry($store, $entryid);
 
 			if ($folder) {
-				$table = mapi_folder_getcontentstable($folder, MAPI_DEFERRED_ERRORS);
+				$table = $getHierarchy ? mapi_folder_gethierarchytable($folder, $flags) : mapi_folder_getcontentstable($folder, $flags);
 
 				if (!$rowcount) {
 					$rowcount = $GLOBALS['settings']->get('zarafa/v1/main/page_size', 50);
