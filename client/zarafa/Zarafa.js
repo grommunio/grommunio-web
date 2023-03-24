@@ -424,7 +424,9 @@ Ext.apply(Zarafa, {
 		// See web issue #113
 		if (Ext.isDefined(args.sendRecords) && Ext.isArray(args.sendRecords)) {
 			args.sendRecords.forEach(record => {
-				if (!record.isMeetingSent() && record.hasMessageAction('send')) {
+				if (typeof record.isMeetingSent === 'function' &&
+				    !record?.isMeetingSent() &&
+				    record?.hasMessageAction('send')) {
 					record.deleteMessageAction('send');
 				}
 			});
