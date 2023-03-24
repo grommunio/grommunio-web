@@ -211,13 +211,22 @@
 								$data["info"]['display_message'] = _("You don't have the permission to complete this action");
 								$this->addActionData("error", $data);
 							}
-							if($error === "ecQuotaExceeded") {
+							if ($error === "ecQuotaExceeded") {
 								// Handling error: Send quota error
 								$data = [];
 								$data["type"] = 1; // MAPI
 								$data["info"] = [];
 								$data["info"]['title'] = _("Quota error");
 								$data["info"]['display_message'] = _("Send quota limit reached");
+								$this->addActionData("error", $data);
+							}
+							if ($error === "ecRpcFailed") {
+								// Handling error: mapi_message_submitmessage failed
+								$data = [];
+								$data["type"] = 1; // MAPI
+								$data["info"] = [];
+								$data["info"]['title'] = _("Operation failed");
+								$data["info"]['display_message'] = _("Email sending failed. Check the log files for more information.");
 								$this->addActionData("error", $data);
 							}
 						}
