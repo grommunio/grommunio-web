@@ -8650,3 +8650,6 @@ msgstr "JSON-virhe: - %s"
 #, fuzzy
 msgid "Some problem encountered when encoding/decoding JSON data."
 msgstr "JSON-tietojen koodauksessa/dekoodauksessa ilmeni ongelmia."
+
+msgid "Restore items"
+msgstr "Palauta kohteita"

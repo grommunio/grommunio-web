@@ -8530,3 +8530,6 @@ msgstr "Chyba JSON: - %s"
 #, fuzzy
 msgid "Some problem encountered when encoding/decoding JSON data."
 msgstr "Při kódování/dekódování dat JSON se vyskytl nějaký problém."
+
+msgid "Restore items"
+msgstr "Obnovit položky"

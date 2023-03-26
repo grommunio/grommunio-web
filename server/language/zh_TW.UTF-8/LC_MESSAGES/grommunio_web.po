@@ -7681,3 +7681,6 @@ msgstr ""
 
 msgid "Some problem encountered when encoding/decoding JSON data."
 msgstr ""
+
+msgid "Restore items"
+msgstr "回復項目"

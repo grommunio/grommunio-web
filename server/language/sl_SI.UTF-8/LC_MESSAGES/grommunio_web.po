@@ -8631,3 +8631,6 @@ msgstr "Napaka JSON: - %s"
 #, fuzzy
 msgid "Some problem encountered when encoding/decoding JSON data."
 msgstr "Pri kodiranju/dekodiranju podatkov JSON je prišlo do težav."
+
+msgid "Restore items"
+msgstr "Obnovi predmete"

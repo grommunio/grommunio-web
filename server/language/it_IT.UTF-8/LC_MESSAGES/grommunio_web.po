@@ -8033,3 +8033,6 @@ msgstr ""
 
 msgid "I want to navigate through my items by using."
 msgstr "Modalità navigazione messaggi."
+
+msgid "Restore items"
+msgstr "Ripristina elementi"

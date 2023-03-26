@@ -8205,3 +8205,6 @@ msgstr "JSON Error: - %s"
 #, fuzzy
 msgid "Some problem encountered when encoding/decoding JSON data."
 msgstr "Jakiś problem napotkany podczas kodowania/dekodowania danych JSON."
+
+msgid "Restore items"
+msgstr "Przywróć elementy"

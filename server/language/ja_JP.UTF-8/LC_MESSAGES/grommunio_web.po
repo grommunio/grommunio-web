@@ -8237,3 +8237,6 @@ msgstr "JSON Error: - %s"
 #, fuzzy
 msgid "Some problem encountered when encoding/decoding JSON data."
 msgstr "JSONデータのエンコード/デコード時に何らかの問題が発生した。"
+
+msgid "Restore items"
+msgstr "アイテムを回復する"

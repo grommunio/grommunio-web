@@ -7552,3 +7552,6 @@ msgstr ""
 
 msgid "I want to navigate through my items by using."
 msgstr "Jeg vil navigerer i mine elementer ved å bruke."
+
+msgid "Restore items"
+msgstr "Gjenopprett elementer"

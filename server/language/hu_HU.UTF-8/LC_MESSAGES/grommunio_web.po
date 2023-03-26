@@ -8316,3 +8316,6 @@ msgstr "JSON hiba: - %s"
 msgid "Some problem encountered when encoding/decoding JSON data."
 msgstr ""
 "A JSON-adatok kódolásakor/dekódolásakor valamilyen probléma merült fel."
+
+msgid "Restore items"
+msgstr "Elemek helyreállítása"

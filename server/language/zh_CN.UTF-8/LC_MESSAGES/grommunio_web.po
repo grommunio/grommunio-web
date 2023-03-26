@@ -7830,3 +7830,6 @@ msgstr "JSON错误: - %s"
 #, fuzzy
 msgid "Some problem encountered when encoding/decoding JSON data."
 msgstr "在对JSON数据进行编码/解码时遇到了一些问题。"
+
+msgid "Restore items"
+msgstr "恢复项目"

@@ -7701,3 +7701,6 @@ msgstr "JSON Fout: - %s"
 msgid "Some problem encountered when encoding/decoding JSON data."
 msgstr ""
 "Er is een probleem opgetreden bij het coderen/decoderen van JSON-gegevens."
+
+msgid "Restore items"
+msgstr "Herstel items"

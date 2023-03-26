@@ -7629,3 +7629,6 @@ msgstr "JSON Hatası: - %s"
 
 msgid "Some problem encountered when encoding/decoding JSON data."
 msgstr "JSON verilerini kodlarken/kod çözerken bazı sorunlarla karşılaşıldı."
+
+msgid "Restore items"
+msgstr "Eski durumuna getir"

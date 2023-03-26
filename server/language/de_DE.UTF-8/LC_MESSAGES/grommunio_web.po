@@ -7772,3 +7772,6 @@ msgstr "Bei der En-/Dekodierung von JSON-Daten ist ein Problem aufgetreten."
 
 msgid "I want to navigate through my items by using."
 msgstr "Ich möchte durch meine Elemente navigieren."
+
+msgid "Restore items"
+msgstr "Elemente wiederherstellen"

@@ -8424,3 +8424,6 @@ msgstr "Un problème rencontré lors de l'encodage/décodage des données JSON."
 
 msgid "I want to navigate through my items by using."
 msgstr "Je veux naviguer à travers mes éléments en utilisant."
+
+msgid "Restore items"
+msgstr "Restaurer les éléments"
