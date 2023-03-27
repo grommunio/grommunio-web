@@ -117,7 +117,7 @@ Zarafa.common.rules.dialogs.FolderSelectionLink = Ext.extend(Ext.BoxComponent, {
 		Zarafa.hierarchy.Actions.openFolderSelectionContent({
 			folder: this.folder,
 			hideTodoList: true,
-			IPMSubTreeFilter: this.storeEntryId,
+			// IPMSubTreeFilter: this.storeEntryId, // do not filter shared private stores
 			callback: function(folder) {
 				this.folder = folder;
 				this.isModified = true;
