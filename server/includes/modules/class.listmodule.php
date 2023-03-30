@@ -65,7 +65,10 @@
 			$this->localFreeBusyMessage = false;
 			$this->storeProviderGuid = false;
 
-			$this->sort = [];
+			$this->sort = [
+				PR_IMPORTANCE => TABLE_SORT_DESCEND,
+				PR_MESSAGE_DELIVERY_TIME => TABLE_SORT_DESCEND,
+			];
 
 			parent::__construct($id, $data);
 		}
