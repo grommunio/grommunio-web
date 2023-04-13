@@ -2117,6 +2117,14 @@
 
 					if ($message) {
 						$props = mapi_getprops($message, $properties);
+						// Do not update timezone information if the appointment times haven't changed
+						if (!isset($action['props']['commonstart']) &&
+						    !isset($action['props']['commonend']) &&
+						    !isset($action['props']['startdate']) &&
+						    !isset($action['props']['enddate'])
+							) {
+							unset($action['props']['tzdefstart'], $action['props']['tzdefend']);
+						}
 						// Check if appointment is an exception to a recurring item
 						if (isset($action['basedate']) && $action['basedate'] > 0) {
 							// Create recurrence object
