@@ -847,7 +847,7 @@
 	/**
 	 * Helper function which return the webapp version.
 	 *
-	 * @returns String webapp version.
+	 * @return String webapp version.
 	 */
 	function getWebappVersion() {
 		return trim(file_get_contents('version'));
@@ -883,3 +883,114 @@
 			$attachmentStream = join("\n", $rows);
 		}
 	}
+
+	/**
+	 * Formats time string for DateTime object, e.g.
+	 * last Sunday of March 2022 02:00.
+	 *
+	 * @param mixed $relDayofWeek
+	 * @param mixed $dayOfWeek
+	 * @param mixed $month
+	 * @param mixed $year
+	 * @param mixed $hour
+	 * @param mixed $minute
+	 */
+	function formatDateTimeString($relDayofWeek, $dayOfWeek, $month, $year, $hour, $minute) {
+
+		return sprintf("%s %s of %s %04d %02d:%02d", $relDayofWeek, $dayOfWeek, $month, $year, $hour, $minute);
+	}
+
+	/**
+	 * Converts offset minutes to PHP TimeZone offset (+0200/-0530).
+	 *
+	 * Note: it is necessary to invert the bias sign in order to receive
+	 * the correct offset (-60 => +0100).
+	 *
+	 * @param int $minutes
+	 *
+	 * @return string PHP TimeZone offset
+	 */
+	function convertOffset($minutes) {
+		$m = abs($minutes);
+		return sprintf("%s%02d%02d", $minutes > 0 ? '-' : '+', intdiv($m, 60), $m % 60);
+	}
+
+	/**
+	 * Returns the index of effective rule (TZRULE_FLAG_EFFECTIVE_TZREG).
+	 *
+	 * @param array $tzrules
+	 *
+	 * @return int|null
+	 */
+	function getEffectiveTzreg($tzrules) {
+		foreach ($tzrules as $idx => $tzDefRule) {
+			if ($tzDefRule['tzruleflags'] & TZRULE_FLAG_EFFECTIVE_TZREG) {
+				return $idx;
+			}
+		}
+		return null;
+	}
+
+	/**
+	 * Returns the timestamp of std or dst start
+	 *
+	 * @param array $tzrule
+	 * @param int $year
+	 * @param string $fOffset
+	 *
+	 * @return int
+	 */
+	function getRuleStart($tzrule, $year, $fOffset) {
+		$daysOfWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+		$monthNames = [1 => "January", "February", "March", "April", "May", "June",
+			"July", "August", "September", "October", "November", "December", ];
+		$relDaysOfWeek = [
+			1 => 'first',
+			2 => 'second',
+			3 => 'third',
+			4 => 'fourth',
+			5 => 'last',
+		];
+
+		$f = formatDateTimeString(
+			$relDaysOfWeek[$tzrule['day']],
+			$daysOfWeek[$tzrule['dayofweek']],
+			$monthNames[$tzrule['month']],
+			$year,
+			$tzrule['hour'],
+			$tzrule['minute'],
+		);
+		$dt = new DateTime($f, new DateTimeZone($fOffset));
+
+		return $dt->getTimestamp();
+	}
+
+	/**
+	 * Returns TRUE if DST is in effect.
+	 *
+	 * 1. Check if the timezone defines std and dst times
+	 * 2. Get the std and dst start in UTC
+	 * 3. Check if the appointment is in dst:
+	 *    - dst start > std start and not (std start < app time < dst start)
+	 *    - dst start < std start and std start > app time > dst start
+	 *
+	 * @param array $tzrules
+	 * @param int $startdate
+	 *
+	 * @return bool
+	 */
+
+	 function isDst($tzrules, $startdate) {
+		if (array_sum($tzrules['stStandardDate']) == 0 || array_sum($tzrules['stDaylightDate']) == 0) {
+			return false;
+		}
+		$appStartDate = getdate($startdate);
+		$fOffset = convertOffset($tzrules['bias']);
+
+		$tzStdStart = getRuleStart($tzrules['stStandardDate'], $appStartDate['year'], $fOffset);
+		$tzDstStart = getRuleStart($tzrules['stDaylightDate'], $appStartDate['year'], $fOffset);
+
+		return
+			(($tzDstStart > $tzStdStart) && !($startdate > $tzStdStart && $startdate < $tzDstStart)) ||
+			(($tzDstStart < $tzStdStart) && ($startdate < $tzStdStart && $startdate > $tzDstStart));
+	 }

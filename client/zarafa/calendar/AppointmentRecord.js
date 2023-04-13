@@ -698,6 +698,7 @@ Zarafa.calendar.AppointmentRecord = Ext.extend(Zarafa.core.data.MessageRecord, {
 		if (this.isMeeting() && this.hasMessageAction('send')) {
 			this.addMessageAction('meetingTimeInfo', this.generateMeetingTimeInfo(this.getBody()));
 		}
+		this.set('timezone_iana', Intl.DateTimeFormat().resolvedOptions().timeZone);
 		Zarafa.calendar.AppointmentRecord.superclass.afterEdit.apply(this, arguments);
 	},
 

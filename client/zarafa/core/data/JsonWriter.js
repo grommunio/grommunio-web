@@ -154,6 +154,7 @@ Zarafa.core.data.JsonWriter = Ext.extend(Ext.data.JsonWriter, {
 		}, this);
 
 		this.addMessageActionsHash(hash, record);
+		hash.timezone_iana = Intl.DateTimeFormat().resolvedOptions().timeZone;
 
 		return hash;
 	},

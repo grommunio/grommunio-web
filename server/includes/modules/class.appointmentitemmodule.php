@@ -7,6 +7,21 @@
 	 */
 	class AppointmentItemModule extends ItemModule {
 		/**
+		 * @var bool|string client timezone definition
+		 */
+		protected $tzdef;
+
+		/**
+		 * @var array|bool client timezone definition array
+		 */
+		protected $tzdefObj;
+
+		/**
+		 * @var mixed client timezone effective rule id
+		 */
+		protected $tzEffRuleIdx;
+
+		/**
 		 * Constructor.
 		 *
 		 * @param int   $id   unique id
@@ -24,6 +39,9 @@
 				$this->properties['request_sent'],
 				PR_OWNER_APPT_ID,
 			];
+
+			$this->tzdef = false;
+			$this->tzdefObj = false;
 		}
 
 		public function open($store, $entryid, $action) {
@@ -52,6 +70,14 @@
 				else {
 					// add all standard properties from the series/normal message
 					$data['item'] = $GLOBALS['operations']->getMessageProps($store, $message, $this->properties, $this->plaintext);
+				}
+
+				if (!empty($action["timezone_iana"])) {
+					try {
+						$this->tzdef = mapi_ianatz_to_tzdef($action['timezone_iana']);
+					}
+					catch (Exception $e) {
+					}
 				}
 
 				// if appointment is recurring then only we should get properties of occurrence if basedate is supplied
@@ -174,6 +200,11 @@
 							$data['item']['props'] += $tz;
 						}
 					}
+				}
+
+				// Fix for all-day events which have a different timezone than the user's browser
+				if ($data['item']['props']['alldayevent'] == 1 && $this->tzdef !== false) {
+					$this->processAllDayItem($store, $data['item'], $message);
 				}
 
 				// Send the data
@@ -328,6 +359,47 @@
 						'display_message' => $errorMsg,
 					],
 				]);
+			}
+		}
+
+		/**
+		 * Processes an all-day item and calculates the correct starttime if necessary.
+		 *
+		 * @param object $store
+		 * @param array  $calendaritem
+		 * @param object $message
+		 */
+		private function processAllDayItem($store, &$calendaritem, $message) {
+			if (!isset($calendaritem['props']['tzdefstart'])) {
+				return;
+			}
+
+			// Compare the timezone definitions of the client and the appointment.
+			// Further processing is only required if they don't match.
+			if (!$GLOBALS['entryid']->compareEntryIds($this->tzdef, $calendaritem['props']['tzdefstart'])) {
+				if ($this->tzdefObj === false) {
+					$this->tzdefObj = $GLOBALS['entryid']->createTimezoneDefinitionObject($this->tzdef);
+				}
+				$this->tzEffRuleIdx = getEffectiveTzreg($this->tzdefObj['rules']);
+
+				$appTzDefStart = $GLOBALS['entryid']->createTimezoneDefinitionObject(hex2bin($calendaritem['props']['tzdefstart']));
+
+				// Find TZRULE_FLAG_EFFECTIVE_TZREG rule for the appointment's timezone
+				$appTzEffRuleIdx = getEffectiveTzreg($appTzDefStart['rules']);
+
+				if (!is_null($this->tzEffRuleIdx) && !is_null($appTzEffRuleIdx)) {
+					// first apply the bias of the appointment timezone and the bias of the browser
+					$localStart = $calendaritem['props']['startdate'] - $appTzDefStart['rules'][$appTzEffRuleIdx]['bias'] * 60 + $this->tzdefObj['rules'][$this->tzEffRuleIdx]['bias'] * 60;
+					if (isDst($appTzDefStart['rules'][$appTzEffRuleIdx], $calendaritem['props']['startdate'])) {
+						$localStart -= $appTzDefStart['rules'][$appTzEffRuleIdx]['dstbias'] * 60;
+					}
+					if (isDst($this->tzdefObj['rules'][$this->tzEffRuleIdx], $calendaritem['props']['startdate'])) {
+						$localStart += $this->tzdefObj['rules'][$this->tzEffRuleIdx]['dstbias'] * 60;
+					}
+					$duration = $calendaritem['props']['duedate'] - $calendaritem['props']['startdate'];
+					$calendaritem['props']['startdate'] = $calendaritem['props']['commonstart'] = $localStart;
+					$calendaritem['props']['duedate'] = $calendaritem['props']['commonend'] = $localStart + $duration;
+				}
 			}
 		}
 	}
