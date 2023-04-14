@@ -69,10 +69,11 @@ Zarafa.plugins.mdm.data.MDMResponseHandler = Ext.extend(Zarafa.core.data.Abstrac
 	{
 		if (response.wipe === true) {
 			container.getNotifier().notify('info.mdm', _('Mobile Device Manager'), _('Wiping device'));
+			this.successCallback();
 		} else if (!response.wipe) {
 			container.getNotifier().notify('info.mdm', _('Mobile Device Manager'), _('Password incorrect'));
 		} else {
-			this.processAuthResponse (response, this.failureCallback, 'wipe');
+			this.processAuthResponse(response, this.failureCallback, 'wipe');
 		}
 	},
 

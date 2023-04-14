@@ -124,7 +124,7 @@ Zarafa.plugins.mdm.dialogs.MDMDeviceGeneralTab = Ext.extend(Ext.form.FormPanel, 
 					fieldLabel: _('Tasks'),
 					name: 'tasksfolder'
 				},
-                    // this.createSharedFolderInfoPanel()
+				// this.createSharedFolderInfoPanel()
 				]
 			}]
 		};

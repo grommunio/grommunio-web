@@ -29,18 +29,39 @@ Zarafa.plugins.mdm.data.ProvisioningStatus = Zarafa.core.Enum.create({
 	'WIPE_PENDING' : 2,
 
 	/**
-	 * Denotes that the Wipe is requested.
+	 * Denotes that the wipe is requested.
 	 * @property
 	 * @type Number
 	 */
 	'WIPE_REQUESTED' : 4,
 
 	/**
-	 * Denotes that the Wipe is executed.
+	 * Denotes that the wipe is executed.
 	 * @property
 	 * @type Number
 	 */
 	'WIPE_EXECUTED' : 8,
+
+	/**
+	 * Denotes that the account only wipe is pending.
+	 * @property
+	 * @type Number
+	 */
+	'WIPE_PENDING_ACCOUNT_ONLY' : 16,
+
+	/**
+	 * Denotes that the account only wipe is requested.
+	 * @property
+	 * @type Number
+	 */
+	'WIPE_REQUESTED_ACCOUNT_ONLY' : 32,
+
+	/**
+	 * Denotes that the account only wipe is executed.
+	 * @property
+	 * @type Number
+	 */
+	'WIPE_EXECUTED_ACCOUNT_ONLY' : 64,
 
 	/**
 	 * Return the display name for the given provisioning Status
@@ -60,6 +81,12 @@ Zarafa.plugins.mdm.data.ProvisioningStatus = Zarafa.core.Enum.create({
 				return _('Wipe Requested');
 			case Zarafa.plugins.mdm.data.ProvisioningStatus.WIPE_EXECUTED:
 				return _('Wipe Executed');
+			case Zarafa.plugins.mdm.data.ProvisioningStatus.WIPE_PENDING_ACCOUNT_ONLY:
+				return _('Account Only Wipe Pending');
+			case Zarafa.plugins.mdm.data.ProvisioningStatus.WIPE_REQUESTED_ACCOUNT_ONLY:
+				return _('Account Only Wipe Requested');
+			case Zarafa.plugins.mdm.data.ProvisioningStatus.WIPE_EXECUTED_ACCOUNT_ONLY:
+				return _('Account Only Wipe Executed');
 			default:
 				return _('Not Available');
 		}
