@@ -11,6 +11,7 @@ return $config->
 		'blank_line_before_statement' => ['statements' => ['case', 'continue',
 			'declare', 'default', 'exit', 'goto', 'phpdoc', 'return', 'switch', 'throw', 'try', 'yield', ]],
 		'braces' => ['position_after_functions_and_oop_constructs' => 'same'],
+		'curly_braces_position' => ['functions_opening_brace' => 'same_line', 'classes_opening_brace' => 'same_line'],
 		'concat_space' => ['spacing' => 'one'],
 		'control_structure_continuation_position' => ['position' => 'next_line'],
 		'indentation_type' => true,
