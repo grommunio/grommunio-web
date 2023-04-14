@@ -169,8 +169,8 @@ Zarafa.plugins.mdm.settings.MDMSettingsWidget = Ext.extend(Zarafa.settings.ui.Se
 	 */
 	showPasswordMessageBox : function(message, callbackFn, actionType)
 	{
-		var customCfg = this.getCustomItemsAndButtons(actionType);
-		var msgbox = new Zarafa.common.dialogs.CustomMessageBox({
+		var customCfg = this.getCustomItemsAndButtons(actionType, this);
+		new Zarafa.common.dialogs.CustomMessageBox({
 			title:  _('Mobile Device Manager'),
 			msg: message,
 			buttonAlign: 'left',
@@ -194,9 +194,10 @@ Zarafa.plugins.mdm.settings.MDMSettingsWidget = Ext.extend(Zarafa.settings.ui.Se
 	 * based on actiontype.
 	 *
 	 * @param {String} actionType action for which message dialog is needed to be shown.
+	 * @param {Object} scope scope of the action.
 	 * @return {Object} object which contains custom items and custom buttons.
 	 */
-	getCustomItemsAndButtons : function(actionType)
+	getCustomItemsAndButtons : function(actionType, scope)
 	{
 		var customCfg = {};
 		var isAuthenticateAction = actionType === 'authenticate';
@@ -220,6 +221,36 @@ Zarafa.plugins.mdm.settings.MDMSettingsWidget = Ext.extend(Zarafa.settings.ui.Se
 			name: 'passwordField',
 			ref: 'passwordField'
 		}];
+
+		var asVersion = scope?.deviceGrid?.getSelectionModel()?.getSelected()?.get('asversion');
+		if (asVersion !== undefined && parseFloat(asVersion) >= 16.1 && actionType === 'wipe') {
+			customItems.push(
+				{
+					xtype: 'radiogroup',
+					name: 'wipeType',
+					ref: 'wipeType',
+					columns: 1,
+					hideLabel: true,
+					style: 'margin-top: 8px',
+					value: 'accountonly',
+					items: [{
+						xtype: 'radio',
+						name: 'wipeType',
+						inputValue: 'accountonly',
+						boxLabel: _('Wipe only data related to this account'),
+					},{
+						xtype: 'radio',
+						name: 'wipeType',
+						inputValue: 'alldata',
+						boxLabel: _('Wipe all data')
+					}],
+					listeners: {
+						change: scope.onRadioChange,
+						scope: this
+					}
+				}
+			);
+		}
 
 		// For 'authenticate' action username is required in messagebox.
 		if (isAuthenticateAction) {
@@ -303,8 +334,15 @@ Zarafa.plugins.mdm.settings.MDMSettingsWidget = Ext.extend(Zarafa.settings.ui.Se
 				container.getRequest().singleRequest(
 					'pluginmdmmodule',
 					'wipe',
-					{ 'deviceid' : record.get('entryid'), 'password': inputValues.passwordField },
+					{
+						'deviceid' : record.get('entryid'),
+						'password': inputValues.passwordField,
+						'wipetype': inputValues.wipeType == 'accountonly' ?
+							Zarafa.plugins.mdm.data.ProvisioningStatus.WIPE_PENDING_ACCOUNT_ONLY :
+							Zarafa.plugins.mdm.data.ProvisioningStatus.WIPE_PENDING
+					},
 					new Zarafa.plugins.mdm.data.MDMResponseHandler({
+						successCallback : mdmWidgetScope.refreshGrid,
 						failureCallback : mdmWidgetScope.checkAuthentication,
 						mdmWidgetScope : mdmWidgetScope
 					})
@@ -396,6 +434,14 @@ Zarafa.plugins.mdm.settings.MDMSettingsWidget = Ext.extend(Zarafa.settings.ui.Se
 	{
 		this.deviceGrid.getStore().load();
 	},
+	/**
+	 * Function which refreshes the store records from the server after remote
+	 * wipe of a device.
+	 */
+	refreshGrid : function()
+	{
+		this.mdmWidgetScope.deviceGrid.getStore().load();
+	},
 
 	/**
 	 * Function is called if a row in the grid gets double clicked.
@@ -423,6 +469,21 @@ Zarafa.plugins.mdm.settings.MDMSettingsWidget = Ext.extend(Zarafa.settings.ui.Se
 	{
 		var record = grid.getStore().getAt(rowIndex);
 		this.wipeBtn.setDisabled(!Ext.isDefined(record.get('wipestatus')));
+	},
+
+	/**
+	 * Event handler which is fired when a {@link Ext.form.Radio} in the
+	 * {@link Ext.form.RadioGroup} has been changed. This will set the value
+	 * selected by user in settingsModel.
+	 * @param {Ext.form.RadioGroup} group The radio group which fired the event
+	 * @param {Ext.form.Radio} radio The radio which was enabled
+	 * @private
+	 */
+	onRadioChange: function(group, radio)
+	{
+		if (this.model && (this.model.get(group.name) !== radio.inputValue)) {
+			this.model.set(group.name, radio.inputValue);
+		}
 	}
 });
 

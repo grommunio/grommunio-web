@@ -12,6 +12,10 @@ class PluginMDMModule extends Module {
 	public const FOLDERTYPE = 2;
 	public const FOLDERBACKENDID = 5;
 
+	private $stateFolder;
+	private $deviceStates;
+	private $devices;
+
 	/**
 	 * Constructor.
 	 *
@@ -106,10 +110,11 @@ class PluginMDMModule extends Module {
 	 *
 	 * @param string $deviceid of phone which has to be wiped
 	 * @param string $password user password
+	 * @param int    $wipeType remove account only or all data
 	 *
 	 * @return json $response object contains the response of the soap request from grommunio-sync
 	 */
-	public function wipeDevice($deviceid, $password) {
+	public function wipeDevice($deviceid, $password, $wipeType = SYNC_PROVISION_RWSTATUS_PENDING) {
 		$opts = ['http' => [
 			'method' => 'POST',
 			'header' => 'Content-Type: application/json',
@@ -118,15 +123,16 @@ class PluginMDMModule extends Module {
 				[
 					'password' => $password,
 					'remoteIP' => '[::1]',
-					'status' => SYNC_PROVISION_RWSTATUS_PENDING,
+					'status' => $wipeType,
 					'time' => time(),
 				]
 			),
 		],
 		];
 		$ret = file_get_contents(PLUGIN_MDM_ADMIN_API_WIPE_ENDPOINT . $GLOBALS["mapisession"]->getUserName() . "?devices=" . $deviceid, false, stream_context_create($opts));
+		$ret = json_decode($ret, true);
 
-		return $ret;
+		return strncasecmp('success', $ret['message'], 7) === 0;
 	}
 
 	/**
@@ -205,10 +211,10 @@ class PluginMDMModule extends Module {
 				try {
 					switch ($actionType) {
 						case 'wipe':
-							$this->wipeDevice($actionData['deviceid'], $actionData['password']);
+							// $this->wipeDevice($actionData['deviceid'], $actionData['password'], $actionData['wipetype']);
 							$this->addActionData('wipe', [
 								'type' => 3,
-								'wipe' => $this->wipeDevice($actionData['deviceid'], $actionData['password']),
+								'wipe' => $this->wipeDevice($actionData['deviceid'], $actionData['password'], $actionData['wipetype']),
 							]);
 							$GLOBALS['bus']->addData($this->getResponseData());
 							break;

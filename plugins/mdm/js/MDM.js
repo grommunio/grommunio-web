@@ -98,7 +98,7 @@ Zarafa.plugins.mdm.MDM = Ext.extend(Zarafa.core.Plugin, {
 			value : version
 		};
 	}
-        
+
 });
 
 Zarafa.onReady(function() {
