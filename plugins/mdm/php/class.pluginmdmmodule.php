@@ -73,7 +73,7 @@ class PluginMDMModule extends Module {
 	 *
 	 * @param string $deviceid of phone which has to be resynced
 	 *
-	 * @return bool|json $response object contains the response of the soap request from grommunio-sync or false on failure
+	 * @return bool $response true if removing states succeeded or false on failure
 	 */
 	public function resyncDevice($deviceid) {
 		$deviceStateFolder = $this->deviceStates[$deviceid];
@@ -138,10 +138,10 @@ class PluginMDMModule extends Module {
 	/**
 	 * Function which triggers removal of a device.
 	 *
-	 * @param string $deviceid of phone which has to be wiped
+	 * @param string $deviceid of phone which has to be removed
 	 * @param string $password user password
 	 *
-	 * @return bool|json $response object contains the response of the soap request from grommunio-sync or false on failure
+	 * @return bool|string $response object contains the response of the soap request from grommunio-sync or false on failure
 	 */
 	public function removeDevice($deviceid, $password) {
 		// TODO remove the device from device / user list
