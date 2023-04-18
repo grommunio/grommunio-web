@@ -10,11 +10,6 @@ Ext.namespace('Zarafa.plugins.mdm.dialogs');
 Zarafa.plugins.mdm.dialogs.MDMDevicePanel = Ext.extend(Ext.Panel, {
 
 	/**
-	 * @cfg {Boolean} isKoe True if device has Outlook Extension information.
-	 */
-	isKoe : false,
-
-	/**
 	 * @constructor
 	 * @param {Object} config configuration object.
 	 */
@@ -35,12 +30,10 @@ Zarafa.plugins.mdm.dialogs.MDMDevicePanel = Ext.extend(Ext.Panel, {
 					xtype: 'mdmplugin.mdmdevicegeneraltab',
 					record: config.record,
 					title: _('General'),
-					isKoe : config.isKoe
 				}, {
 					xtype: 'mdmplugin.mdmdevicedetailstab',
 					record: config.record,
 					title: _('Details'),
-					isKoe : config.isKoe
 				}]
 			}]
 		});

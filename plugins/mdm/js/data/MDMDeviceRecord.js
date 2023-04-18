@@ -25,9 +25,6 @@ Zarafa.plugins.mdm.data.MDMDeviceRecordFields = [
 	{name: 'tasksfolder', type: 'string', defaultValue:'0'},
 	{name: 'calendarsfolder', type: 'string', defaultValue:'0'},
 	{name: 'notesfolder', type: 'string', defaultValue:'0'},
-	{name: 'koeversion', type: 'string'},
-	{name: 'koebuild', type: 'string'},
-	{name: 'koebuilddate', type: 'date', dateFormat: 'timestamp'},
 	{name: 'message_class', type: 'string', defaultValue:"IPM.MDM"}
 ];
 

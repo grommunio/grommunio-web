@@ -10,11 +10,6 @@ Ext.namespace('Zarafa.plugins.mdm.dialogs');
 Zarafa.plugins.mdm.dialogs.MDMDeviceGeneralTab = Ext.extend(Ext.form.FormPanel, {
 
 	/**
-	 * @cfg {Boolean} isKoe True if device has Outlook Extension information.
-	 */
-	isKoe: false,
-
-	/**
 	 * @constructor
 	 * @param {Object} config Configuration object
 	 */
@@ -70,7 +65,6 @@ Zarafa.plugins.mdm.dialogs.MDMDeviceGeneralTab = Ext.extend(Ext.form.FormPanel, 
 				value: String.format(_('{0}'), new Date(config.record.get('lastupdatetime')).format(_('d F Y, H:i')))
 			}, {
 				fieldLabel: _('Status'),
-				hidden: config.isKoe,
 				listeners: {
 					afterrender: this.onAfterRenderStatus,
 					scope: this
