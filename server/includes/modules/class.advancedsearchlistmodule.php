@@ -328,7 +328,10 @@
 
 			// check if there is need to set searchcriteria again
 			if (!isset($this->sessionData['searchCriteriaCheck']) || $restrictionCheck != $this->sessionData['searchCriteriaCheck']) {
-				if (!empty($this->sessionData['searchOriginalEntryids'])) {
+				if (!empty($this->sessionData['searchOriginalEntryids']) &&
+					isset($action['entryid']) &&
+					in_array($action['entryid'], $this->sessionData['searchOriginalEntryids'])
+				) {
 					// get entryids of original folders, and use it to set new search criteria
 					$entryids = [];
 					for ($index = 0; $index < count($this->sessionData['searchOriginalEntryids']); ++$index) {
