@@ -16,7 +16,6 @@ Zarafa.plugins.mdm.dialogs.MDMDeviceContentPanel = Ext.extend(Zarafa.core.ui.Rec
 	constructor: function (config)
 	{
 		config = config || {};
-		var isKOE = config.record && config.record.get('koeversion') ? true : false;
 		Ext.applyIf(config, {
 			xtype: 'mdmplugin.devicecontentpanel',
 			modal: true,
@@ -30,12 +29,11 @@ Zarafa.plugins.mdm.dialogs.MDMDeviceContentPanel = Ext.extend(Zarafa.core.ui.Rec
 			stateful: false,
 			showInfoMask : false,
 			showLoadMask: false,
-			width: isKOE ? 440 : 405,
-			height: isKOE ? 450 : 420,
+			width: 405,
+			height: 420,
 			items: [{
 				xtype: 'mdmplugin.mdmdevicepanel',
 				record: config.record,
-				isKoe: isKOE,
 				buttons: [{
 					text: _('Ok'),
 					handler: this.onOk,

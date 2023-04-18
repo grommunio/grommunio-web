@@ -10,11 +10,6 @@ Ext.namespace('Zarafa.plugins.mdm.dialogs');
 Zarafa.plugins.mdm.dialogs.MDMDeviceDetailsTab = Ext.extend(Ext.form.FormPanel, {
 
 	/**
-	 * @cfg {Boolean} isKoe True if device has Outlook Extension information.
-	 */
-	isKoe : false,
-
-	/**
 	 * @constructor
 	 * @param {Object} config
 	 */
@@ -34,24 +29,19 @@ Zarafa.plugins.mdm.dialogs.MDMDeviceDetailsTab = Ext.extend(Ext.form.FormPanel, 
 			},
 			plugins : ['zarafa.recordcomponentupdaterplugin'],
 			items: [
-				this.createDeviceInfoPanel(config.isKoe),
-				this.createVersionInfoPanel(config.isKoe)
+				this.createDeviceInfoPanel(),
+				this.createVersionInfoPanel()
 			]
 		});
 
-		// KOE information
-		if (config.isKoe) {
-			config.items.push(this.createKOEInfoPanel(config.record));
-		}
 		Zarafa.plugins.mdm.dialogs.MDMDeviceDetailsTab.superclass.constructor.call(this, config);
 	},
 	/**
 	 * Function which is use to create device information panel
-	 * @param {Boolean} isKoe True if device has Outlook Extension information, false otherwise.
 	 * @return {Object} Configuration object for the panel which shows device properties
 	 * @private
 	 */
-	createDeviceInfoPanel: function (isKoe)
+	createDeviceInfoPanel: function ()
 	{
 		return {
 			cls : 'mdm-device-panel',
@@ -69,7 +59,6 @@ Zarafa.plugins.mdm.dialogs.MDMDeviceDetailsTab = Ext.extend(Ext.form.FormPanel, 
 				name: 'devicetype'
 			}, {
 				fieldLabel: _('Operating System'),
-				hidden: isKoe,
 				name: 'deviceos'
 			}, {
 				fieldLabel: _('ID'),
@@ -83,11 +72,10 @@ Zarafa.plugins.mdm.dialogs.MDMDeviceDetailsTab = Ext.extend(Ext.form.FormPanel, 
 
 	/**
 	 * Function which is use to create version information panel.
-	 * @param {Boolean} isKoe True if device has Outlook Extension information, false otherwise.
 	 * @return {Object} Configuration object for the panel which shows versions properties
 	 * @private
 	 */
-	createVersionInfoPanel: function (isKoe)
+	createVersionInfoPanel: function ()
 	{
 		return {
 			defaultType: 'displayfield',
@@ -110,39 +98,6 @@ Zarafa.plugins.mdm.dialogs.MDMDeviceDetailsTab = Ext.extend(Ext.form.FormPanel, 
 			}, {
 				fieldLabel: _('Policy name'),
 				name: 'policyname'
-			}]
-		};
-	},
-
-	/**
-	 * Function which is use to create Outlook Extension panel
-	 * @param {Zarafa.plugins.mdm.data.MDMDeviceRecord} record The device record.s
-	 * @return {Object} Configuration object for the panel which shows Outlook Extension properties
-	 * @private
-	 */
-	createKOEInfoPanel: function (record)
-	{
-		return {
-			cls : 'mdm-device-panel mdm-field-sep',
-			defaults: {
-				disabled: true
-			},
-			defaultType: 'displayfield',
-			items: [{
-				cls: 'mdm-display-name',
-				value: _('Outlook Extension'),
-				htmlEncode: true,
-				hideLabel: true,
-				disabled: false
-			}, {
-				fieldLabel: _('Version'),
-				name: "koeversion"
-			}, {
-				fieldLabel: _('Build'),
-				name: "koebuild"
-			}, {
-				fieldLabel: _('Last updated'),
-				value: String.format('{0}', new Date(record.get('koebuilddate')).format(_('d F Y, H:i')))
 			}]
 		};
 	},
