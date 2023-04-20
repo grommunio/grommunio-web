@@ -54,8 +54,8 @@ function resolve(string $basePath, string $newPath): string
             $path = $delta['path'];
         } else {
             // Removing last component from base path.
-            $path = $base['path'];
-            $length = strrpos((string) $path, '/');
+            $path = (string) $base['path'];
+            $length = strrpos($path, '/');
             if (false !== $length) {
                 $path = substr($path, 0, $length);
             }
@@ -69,7 +69,7 @@ function resolve(string $basePath, string $newPath): string
     $newPathParts = [];
     foreach ($pathParts as $pathPart) {
         switch ($pathPart) {
-            //case '' :
+            // case '' :
             case '.':
                 break;
             case '..':
@@ -174,13 +174,16 @@ function normalize(string $uri): string
  * Unlike PHP's parse_url, it will also convert any non-ascii characters to
  * percent-encoded strings. PHP's parse_url corrupts these characters on OS X.
  *
- * @return array<string, string>
+ * In the return array, key "port" is an int value. Other keys have a string value.
+ * "Unused" keys have value null.
+ *
+ * @return array{scheme: string|null, host: string|null, path: string|null, port: positive-int|null, user: string|null, query: string|null, fragment: string|null}
  *
  * @throws InvalidUriException
  */
 function parse(string $uri): array
 {
-    // Normally a URI must be ASCII, however. However, often it's not and
+    // Normally a URI must be ASCII. However, often it's not and
     // parse_url might corrupt these strings.
     //
     // For that reason we take any non-ascii characters from the uri and
@@ -193,11 +196,25 @@ function parse(string $uri): array
         $uri
     );
 
+    if (null === $uri) {
+        throw new InvalidUriException('Invalid, or could not parse URI');
+    }
+
     $result = parse_url($uri);
     if (!$result) {
         $result = _parse_fallback($uri);
     }
 
+    /*
+     * phpstan is not able to process all the things that happen while this function
+     * constructs the result array. It only understands the $result is
+     * non-empty-array<string, mixed>
+     *
+     * But the detail of the returned array is correctly specified in the PHPdoc
+     * above the function call.
+     *
+     * @phpstan-ignore-next-line
+     */
     return
          $result + [
             'scheme' => null,
@@ -309,6 +326,10 @@ function _parse_fallback(string $uri): array
         $uri
     );
 
+    if (null === $uri) {
+        throw new InvalidUriException('Invalid, or could not parse URI');
+    }
+
     $result = [
         'scheme' => null,
         'host' => null,
@@ -341,15 +362,13 @@ function _parse_fallback(string $uri): array
         $result['host'] = '';
     } elseif ('//' === substr($uri, 0, 2)) {
         // Uris that have an authority part.
-        $regex = '
-          %^
+        $regex = '%^
             //
             (?: (?<user> [^:@]+) (: (?<pass> [^@]+)) @)?
             (?<host> ( [^:/]* | \[ [^\]]+ \] ))
             (?: : (?<port> [0-9]+))?
             (?<path> / .*)?
-          $%x
-        ';
+          $%x';
         if (!preg_match($regex, $uri, $matches)) {
             throw new InvalidUriException('Invalid, or could not parse URI');
         }
