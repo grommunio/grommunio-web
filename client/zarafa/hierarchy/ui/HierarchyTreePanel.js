@@ -31,7 +31,7 @@ Zarafa.hierarchy.ui.HierarchyTreePanel = Ext.extend(Zarafa.hierarchy.ui.Tree, {
 	 * By default the xtype in this object is set to zarafa.hierarchytreebottombar.
 	 */
 	bbarConfig: undefined,
-	
+
 	/**
 	 *@cfg {String} filterSearchBoxValue will contain the current value of {@link Ext.form.textfield filterSearchTextBox}.
 	 * This will be used in {@link #setSearchFilter} to check whether the value is changed.
@@ -43,7 +43,7 @@ Zarafa.hierarchy.ui.HierarchyTreePanel = Ext.extend(Zarafa.hierarchy.ui.Tree, {
 	 * {@link #showAllFoldersCheckbox checkbox} as {@link Ext.form.Checkbox#checked checked}.
 	 */
 	showAllFoldersDefaultValue: false,
-	
+
 	/**
 	 * @constructor
 	 * @param {Object} config Configuration object
@@ -57,7 +57,7 @@ Zarafa.hierarchy.ui.HierarchyTreePanel = Ext.extend(Zarafa.hierarchy.ui.Tree, {
 
 		// Check user setting to add treeFIlter.
 		var treeFilter = container.getSettingsModel().get('zarafa/v1/contexts/hierarchy/show_searchbar', true, false);
-		
+
 		Ext.applyIf(config, {
 			xtype: 'zarafa.hierarchytreepanel',
 			baseCls: 'zarafa-hierarchy-treepanel',
@@ -433,75 +433,70 @@ Zarafa.hierarchy.ui.HierarchyTreePanel = Ext.extend(Zarafa.hierarchy.ui.Tree, {
 			var targetFolder = targetNode.getFolder();
 			var store = sourceNodes[0].getStore();
 
-			var isWasteBasket = targetFolder.isSpecialFolder('wastebasket');
 			var cloneSourceNodes = sourceNodes.clone();
-			if (isWasteBasket) {
-				Zarafa.common.Actions.deleteRecords(cloneSourceNodes);
-			} else {
-				var isCtrlKeyPress = dropEvent.rawEvent.ctrlKey;
-				var noAccessRecord = [];
+			var isCtrlKeyPress = dropEvent.rawEvent.ctrlKey;
+			var noAccessRecord = [];
 
-				// Check folder has create item rights.
-				if (!targetFolder.hasCreateRights()) {
-					var message = _("You have insufficient privileges to move and copy this item. Ask the folder owner to grant you permissions or contact your system administrator.");
-					if (isCtrlKeyPress) {
-						message = _("You have insufficient privileges to copy this item. Ask the folder owner to grant you permissions or contact your system administrator.");
-					}
-					container.getNotifier().notify('error', _("Insufficient privileges"), message);
-					return false;
+			// Check folder has create item rights.
+			if (!targetFolder.hasCreateRights()) {
+				var message = _("You have insufficient privileges to move and copy this item. Ask the folder owner to grant you permissions or contact your system administrator.");
+				if (isCtrlKeyPress) {
+					message = _("You have insufficient privileges to copy this item. Ask the folder owner to grant you permissions or contact your system administrator.");
 				}
-
-				var sourceNode = this.getNodeById(cloneSourceNodes[0].get('parent_entryid'));
-				var sourceFolder = sourceNode.getFolder();
-
-				// If targetFolder has create item rights and source folder does not have delete item rights,
-				// in that case move operation is not possible, therefore show message box which indicate that
-				// move operation is not possible and ask user to copy the item.
-				if (targetFolder.hasCreateRights() && !sourceFolder.hasDeleteOwnRights() && !isCtrlKeyPress) {
-					Zarafa.common.Actions.showMessageBox(cloneSourceNodes, targetFolder, store, undefined, this);
-					return false;
-				}
-
-				cloneSourceNodes.forEach(function (sourceNode, index) {
-					if (isCtrlKeyPress) {
-						sourceNode.copyTo(targetFolder);
-					} else {
-						// Check record access. If record has no delete access (record not belongs to user)
-						// user can't move this item.
-						if (!sourceNode.hasDeleteAccess()) {
-							noAccessRecord.push({
-								record: sourceNode,
-								index:index
-							});
-						} else {
-							sourceNode.moveTo(targetFolder);
-						}
-					}
-				}, this);
-
-				// Show detailed warning message when record have no access to delete
-				// ask user to copy that records.
-				if (!Ext.isEmpty(noAccessRecord)) {
-					var msg = undefined;
-					if (noAccessRecord.length > 1) {
-						msg = _("You have insufficient privileges to move following items.");
-						msg += "<br/><br/>";
-						noAccessRecord.forEach(function (item) {
-							cloneSourceNodes.splice(item.index, 1);
-							var subject = item.record.get('subject');
-							subject = !Ext.isEmpty(subject) ? subject : _("None");
-							msg += "<b>" +_("Subject:") + "</b> " + subject ;
-							msg += "<br/>";
-						}, this);
-						msg += "<br/>" + _("Would you like to copy instead?");
-					}
-					var records = Ext.pluck(noAccessRecord, "record");
-					Zarafa.common.Actions.showMessageBox(records, targetFolder, store, msg, this);
-				}
+				container.getNotifier().notify('error', _("Insufficient privileges"), message);
+				return false;
 			}
 
-			// Don't call store.save if folder is waste basket or is cloneSourceNodes is empty array.
-			if(!isWasteBasket && !Ext.isEmpty(cloneSourceNodes)) {
+			var sourceNode = this.getNodeById(cloneSourceNodes[0].get('parent_entryid'));
+			var sourceFolder = sourceNode.getFolder();
+
+			// If targetFolder has create item rights and source folder does not have delete item rights,
+			// in that case move operation is not possible, therefore show message box which indicate that
+			// move operation is not possible and ask user to copy the item.
+			if (targetFolder.hasCreateRights() && !sourceFolder.hasDeleteOwnRights() && !isCtrlKeyPress) {
+				Zarafa.common.Actions.showMessageBox(cloneSourceNodes, targetFolder, store, undefined, this);
+				return false;
+			}
+
+			cloneSourceNodes.forEach(function (sourceNode, index) {
+				if (isCtrlKeyPress) {
+					sourceNode.copyTo(targetFolder);
+				} else {
+					// Check record access. If record has no delete access (record not belongs to user)
+					// user can't move this item.
+					if (!sourceNode.hasDeleteAccess()) {
+						noAccessRecord.push({
+							record: sourceNode,
+							index:index
+						});
+					} else {
+						sourceNode.moveTo(targetFolder);
+					}
+				}
+			}, this);
+
+			// Show detailed warning message when record have no access to delete
+			// ask user to copy that records.
+			if (!Ext.isEmpty(noAccessRecord)) {
+				var msg = undefined;
+				if (noAccessRecord.length > 1) {
+					msg = _("You have insufficient privileges to move following items.");
+					msg += "<br/><br/>";
+					noAccessRecord.forEach(function (item) {
+						cloneSourceNodes.splice(item.index, 1);
+						var subject = item.record.get('subject');
+						subject = !Ext.isEmpty(subject) ? subject : _("None");
+						msg += "<b>" +_("Subject:") + "</b> " + subject ;
+						msg += "<br/>";
+					}, this);
+					msg += "<br/>" + _("Would you like to copy instead?");
+				}
+				var records = Ext.pluck(noAccessRecord, "record");
+				Zarafa.common.Actions.showMessageBox(records, targetFolder, store, msg, this);
+			}
+
+			// Don't call store.save if cloneSourceNodes is empty array.
+			if(!Ext.isEmpty(cloneSourceNodes)) {
 				store.save(cloneSourceNodes);
 			}
 		}
