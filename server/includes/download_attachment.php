@@ -366,9 +366,13 @@ class DownloadAttachment extends DownloadBase {
 			// Set filename
 			if ($inline) {
 				/*
-				 * Inline attachments are set to "inline.txt" by Gromox, see inetmapi/VMIMEToMAPI.cpp and search for inline.txt.
-				 * Gromox would have to extract the alt/title tag from the img tag when converting it to MAPI. Since it
-				 * does not handle this, set the filename to CONTENT_ID plus mime tag.
+				 * Inline attachments are set to "inline.txt"
+				 * by e.g. KGWC (but not Gromox), see
+				 * inetmapi/VMIMEToMAPI.cpp and search for
+				 * inline.txt. KGWC would have to extract the
+				 * alt/title tag from the img tag when converting
+				 * it to MAPI. Since it does not handle this,
+				 * set the filename to CONTENT_ID plus mime tag.
 				 */
 				$tags = explode('/', $props[PR_ATTACH_MIME_TAG]);
 				// IE 11 is weird, when a user renames the file it's not saved as in image, when
