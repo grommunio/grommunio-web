@@ -3,17 +3,18 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Spanish (Spain)\n"
-"Report-Msgid-Bugs-To: \n"
+"Report-Msgid-Bugs-To: dev@grommunio.com\n"
 "POT-Creation-Date: 2019-09-25 14:32+0200\n"
-"PO-Revision-Date: 2022-07-26 15:07+0200\n"
-"Last-Translator: import\n"
-"Language-Team: \n"
+"PO-Revision-Date: 2023-05-23 07:51+0000\n"
+"Last-Translator: David Thomas <david.thomas@grommunio.com>\n"
+"Language-Team: Spanish <https://hosted.weblate.org/projects/grommunio/"
+"grommunio-web/es/>\n"
 "Language: es_ES\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.14-dev\n"
+"X-Generator: Weblate 4.18-dev\n"
 
 #. TRANSLATORS: This message is used as label for the column which indicates the week number of the month in date picker. and 'Wk' stands for week
 msgid "Wk"
@@ -621,7 +622,7 @@ msgid "Add to favorites"
 msgstr "Añadir a favoritos"
 
 msgid "Add"
-msgstr "Añadir"
+msgstr "Añada"
 
 #, fuzzy
 msgid "Empty folder name"
@@ -5305,7 +5306,7 @@ msgid "Profile Picture"
 msgstr "Foto de perfil"
 
 msgid "Language"
-msgstr "Lenguaje"
+msgstr "Idioma"
 
 msgid "Startup folder"
 msgstr "Carpeta de inicio"
