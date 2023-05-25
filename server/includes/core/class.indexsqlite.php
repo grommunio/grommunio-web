@@ -708,6 +708,6 @@ class IndexSqlite extends SQLite3 {
 	}
 
 	private function quote_words($search_string) {
-		return '"' . preg_replace("/(\\s+)/", '*" "', $search_string) . '*"';
+		return '"' . preg_replace("/(\\s+)/", '*" "', trim($search_string)) . '"*';
 	}
 }
