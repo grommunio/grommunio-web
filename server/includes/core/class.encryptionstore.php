@@ -115,7 +115,14 @@ class EncryptionStore {
 		}
 		$path = ini_get('session.cookie_path');
 		$domain = ini_get('session.cookie_domain');
-		setcookie($cookieName, bin2hex(EncryptionStore::$_encryptionKey), 0, $path, $domain, $secure, true);
+		setcookie($cookieName, bin2hex(EncryptionStore::$_encryptionKey), [
+			'expires' => 0,
+			'path' => $path,
+			'domain' => $domain,
+			'secure' => $secure,
+			'httponly' => true,
+			'samesite' => 'None',
+		]);
 	}
 
 	/**
