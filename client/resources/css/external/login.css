@@ -76,8 +76,8 @@ body.login #form-container #bg
 
 body.login #form-container #content,
 #loading-mask #form-container #content {
-  padding: 30px 25px;
-  background:rgba(255, 255, 255, 0.5);
+  padding: 35px 25px;
+  background:rgba(243, 243, 243, 1.0);
   position:relative;
   min-width: 350px;
 }
