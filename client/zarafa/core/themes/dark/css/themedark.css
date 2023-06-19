@@ -2,6 +2,16 @@
 you can find the grommunio css overrides at the bottom of the file
 
 grommunio: variables
+
+/* Background image of the login screen */
+body.login,
+#loading-mask,
+#bg,
+/* Background image of the Welcome screen */
+body.zarafa-welcome {
+  background: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGlkPSJMYXllcl8xIiB2aWV3Qm94PSIwIDAgMTkyMCAxMDgwIj48ZGVmcz48c3R5bGU+LmNscy0xe2ZpbGw6I2NjYztvcGFjaXR5Oi4wNX08L3N0eWxlPjwvZGVmcz48cGF0aCBkPSJNMCAwaDE5MjB2MTA4MEgweiIgc3R5bGU9ImZpbGw6IzI5MmIzMCIvPjxwYXRoIGQ9Ik0wIDI2NS4xNnMyLjU3LTIuOTMgMjEuNjEgMTUuOTNsMzY0Ljg0IDM2MS41NyAzNjQuODQgMzYxLjU3YzMwLjcxIDMwLjQzIDI4LjM4IDc1Ljc0IDI4LjM4IDc1Ljc0SDBWMjY1LjE2WiIgY2xhc3M9ImNscy0xIi8+PHBhdGggZD0iTTAgMHY2MjRsMTM0LjM5IDEzMy4wN2MxOS4wMyAxOC44NiA0My45OCAyOC4zIDY4LjkzIDI4LjNzNDkuOS05LjQzIDY4LjkzLTI4LjNMNjM3LjA5IDM5NS41bDM2NC44NC0zNjEuNThDMTAyOC4yOSAxMS42NiAxMDI0IDAgMTAyNCAwSDBaTTE5MjAgMTA4MGgtMzc3bC0xNDUuNzEtMTQ2LjFjLTE4Ljk0LTE5LjEyLTI4LjQyLTQ0LjE3LTI4LjQyLTY5LjIyIDAtMjUuMDUgOS40Ny01MC4xMSAyOC40Mi02OS4yMkwxOTIwIDI2OHY4MTJaIiBjbGFzcz0iY2xzLTEiLz48L3N2Zz4=) no-repeat center center;
+  background-size: cover;
+}
 ------------------------------*/
 
 :root {
