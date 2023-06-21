@@ -220,7 +220,6 @@ Zarafa.plugins.files.ui.dialogs.UploadStatusPanel = Ext.extend(Ext.form.FormPane
 			this.xhr[index].addEventListener("abort", this.onUploadAborted.createDelegate(this, [index], true), false);
 
 			// Set headers - important for the php backend!
-			this.xhr[index].setRequestHeader("Content-Type", "multipart/form-data");
 			this.xhr[index].setRequestHeader("X-FILE-NAME", encodeURIComponent(file.name));
 			this.xhr[index].setRequestHeader("X-FILE-SIZE", file.size);
 			this.xhr[index].setRequestHeader("X-FILE-TYPE", file.type);
