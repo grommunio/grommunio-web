@@ -488,13 +488,13 @@
 					$req = new Meetingrequest($store, $message, $GLOBALS['mapisession']->getSession(), $this->directBookingMeetingRequest);
 
 					try {
-						if ($req->isMeetingRequestResponse()) {
+						if ($req->isMeetingRequestResponse($messageClass)) {
 							if ($req->isLocalOrganiser()) {
 								// We received a meeting request response, and we're the delegate/organiser
 								$req->processMeetingRequestResponse();
 							}
 						}
-						elseif ($req->isMeetingRequest()) {
+						elseif ($req->isMeetingRequest($messageClass)) {
 							if (!$req->isLocalOrganiser()) {
 								if ($req->isMeetingOutOfDate()) {
 									// we know that meeting is out of date so directly set this properties
