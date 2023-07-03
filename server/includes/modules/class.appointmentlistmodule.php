@@ -265,13 +265,6 @@
 		 * @param mixed  $entryid
 		 */
 		public function getCalendarItems($store, $entryid, $start, $end) {
-			// Create mapping for restriction used properties which should not be send to the client.
-			$properties = [
-				"clipstart" => "PT_SYSTIME:PSETID_Appointment:" . PidLidClipStart,
-				"clipend" => "PT_SYSTIME:PSETID_Appointment:" . PidLidClipEnd,
-			];
-			$properties = getPropIdsFromStrings($store, $properties);
-
 			$restriction =
 				// OR
 				//  - Either we want all appointments which fall within the given range
@@ -335,6 +328,9 @@
 						],
 						// OR
 						// (item[isRecurring] == true)
+						// Add one day to the start and the end of the periods to avoid
+						// timezone offset related differences between start/clipstart
+						// and end/clipend.
 						[RES_AND,
 							[
 								[RES_PROPERTY,
@@ -347,14 +343,14 @@
 									[
 										[RES_PROPERTY,
 											[RELOP => RELOP_GT,
-												ULPROPTAG => $properties["clipend"],
-												VALUE => $start,
+												ULPROPTAG => $this->properties["enddate_recurring"],
+												VALUE => (int) $start - 86400,
 											],
 										],
 										[RES_PROPERTY,
 											[RELOP => RELOP_LT,
-												ULPROPTAG => $properties["clipstart"],
-												VALUE => $end,
+												ULPROPTAG => $this->properties["startdate_recurring"],
+												VALUE => (int) $end + 86400,
 											],
 										],
 									],
