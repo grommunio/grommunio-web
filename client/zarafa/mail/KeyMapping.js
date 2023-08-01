@@ -106,6 +106,15 @@ Zarafa.mail.KeyMapping = Ext.extend(Object, {
 				description: _('Toggle red/complete flag'),
 				category: _('Mail')
 			}
+		},{
+			key: Ext.EventObject.CONTEXT_MENU,
+			ctrl: false,
+			alt: false,
+			shift: false,
+			stopEvent: true,
+			handler: this.onContextMenuKey,
+			scope: this,
+			basic: true
 		}];
 
 		Zarafa.core.KeyMapMgr.register('global', newMailKeys);
@@ -129,6 +138,16 @@ Zarafa.mail.KeyMapping = Ext.extend(Object, {
 	onNewMail: function(key, event, component)
 	{
 		Zarafa.mail.Actions.openCreateMailContent(container.getContextByName('mail').getModel());
+	},
+
+	onContextMenuKey: function(keyCode, key, component)
+	{
+		var records = component.getSelectionModel().getSelections();
+		Zarafa.core.data.UIFactory.openDefaultContextMenu(records, {
+			position: component.getEl().getXY(),
+			context: this.context,
+			actsOnTodoListFolder: component.model.getDefaultFolder().isTodoListFolder()
+		});
 	},
 
 	/**
