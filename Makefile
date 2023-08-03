@@ -34,7 +34,7 @@ LANGTXT = $(wildcard server/language/*/language.txt)
 LANGTXTDEST = $(addprefix $(DESTDIR)/, $(LANGTXT))
 POS = $(wildcard server/language/*/LC_MESSAGES/grommunio_web.po)
 MOS = $(patsubst %.po,$(DESTDIR)/%.mo,$(POS))
-INCLUDES = $(shell find server/includes -name '*.php')
+INCLUDES = $(sort $(shell find server/includes -name '*.php'))
 PHPFILES = $(filter-out $(DESTDIR)/config.php, $(filter-out $(DESTDIR)/debug.php, $(patsubst %.php,$(DESTDIR)/%.php,$(wildcard *.php) $(INCLUDES))))
 SERVERROOTFILES = $(addprefix $(DESTDIR)/,server/manifest.dtd)
 IS_SUPPORTED_BUILD ?= $(if $(filter 1, $(SUPPORTED_BUILD)), supported validate-supported)
@@ -57,13 +57,13 @@ ICONSETSDEST = $(addprefix $(DESTDIR)/client/resources/iconsets/, $(ICONSETS))
 ICONSETSCSS = $(foreach iconsetdir,$(ICONSETS),client/resources/iconsets/$(iconsetdir)/$(iconsetdir)-icons.css)
 ICONSETSCSSDEST = $(addprefix $(DESTDIR)/, $(ICONSETSCSS))
 EXTJS = client/extjs/ext-base.js client/extjs/ext-all.js
-THIRDPARTY = $(shell find client/third-party -name '*.js') client/third-party/tokenizr/tokenizr.js
+THIRDPARTY = $(sort $(shell find client/third-party -name '*.js')) client/third-party/tokenizr/tokenizr.js
 
 PURIFYJS = client/dompurify/purify.min.js
 DEPLOYPURIFYJS = $(DEPLOYPURIFY)/purify.js
 
 POFILES = $(wildcard server/language/*/*/*.po)
-JSFILES = $(shell find client/zarafa -name '*.js')
+JSFILES = $(sort $(shell find client/zarafa -name '*.js'))
 
 # Build
 
