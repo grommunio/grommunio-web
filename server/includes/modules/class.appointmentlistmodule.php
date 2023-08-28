@@ -258,11 +258,10 @@
 		 * Function to return all Calendar items in a given timeframe. This
 		 * function also takes recurring items into account.
 		 *
-		 * @param object $store    message store
-		 * @param object $calendar folder
-		 * @param date   $start    startdate of the interval
-		 * @param date   $end      enddate of the interval
-		 * @param mixed  $entryid
+		 * @param object $store   message store
+		 * @param mixed  $entryid entryid of the folder
+		 * @param mixed  $start   startdate of the interval
+		 * @param mixed  $end     enddate of the interval
 		 */
 		public function getCalendarItems($store, $entryid, $start, $end) {
 			$restriction =
@@ -360,11 +359,21 @@
 					],
 				]; // global OR
 
-			$folder = mapi_msgstore_openentry($store, $entryid);
-			$table = mapi_folder_getcontentstable($folder, MAPI_DEFERRED_ERRORS);
-			$calendaritems = mapi_table_queryallrows($table, $this->properties, $restriction);
+			try {
+				$folder = mapi_msgstore_openentry($store, $entryid);
+				$table = mapi_folder_getcontentstable($folder, MAPI_DEFERRED_ERRORS);
+				$calendaritems = mapi_table_queryallrows($table, $this->properties, $restriction);
 
-			return $this->processItems($calendaritems, $store, $entryid, $start, $end);
+				return $this->processItems($calendaritems, $store, $entryid, $start, $end);
+			}
+			catch (Exception $e) {
+				// MAPI_E_NOT_FOUND means missing permissions, try to get items via freebusy
+				if ($e->getCode() == MAPI_E_NOT_FOUND) {
+					return $this->getFreebusyItems($store, $entryid, $start, $end);
+				}
+			}
+
+			return [];
 		}
 
 		/**
@@ -372,10 +381,9 @@
 		 *
 		 * @param array  $calendaritems array of appointments retrieved from the mapi tablwe
 		 * @param object $store         message store
-		 * @param object $calendar      folder
-		 * @param date   $start         startdate of the interval
-		 * @param date   $end           enddate of the interval
 		 * @param mixed  $entryid
+		 * @param mixed  $start         startdate of the interval
+		 * @param mixed  $end           enddate of the interval
 		 *
 		 * @return array $items processed items
 		 */
@@ -574,5 +582,82 @@
 					$calendaritem['props']['duedate'] = $calendaritem['props']['commonend'] = $localStart + $duration;
 				}
 			}
+		}
+
+		/**
+		 * Gets items using freebusy entry point.
+		 *
+		 * @param object $store         message store
+		 * @param mixed  $folderEntryid entryid of the folder
+		 * @param mixed  $start         startdate of the interval
+		 * @param mixed  $end           enddate of the interval
+		 */
+		public function getFreebusyItems($store, $folderEntryid, $start, $end) {
+			$items = [];
+			$storeProps = mapi_getprops($store, [PR_ENTRYID, PR_MAILBOX_OWNER_ENTRYID]);
+			$folderEntryid = bin2hex($folderEntryid);
+			$storeEntryid = bin2hex($storeProps[PR_ENTRYID]);
+			// if start was not set, get items one month back
+			if ($start === false) {
+				$start = time() - 2592000;
+			}
+			// if end was not set, get items 3 months ahead
+			if ($end === false) {
+				$end = time() + 7776000;
+			}
+			$fbdata = mapi_getuserfreebusy($GLOBALS['mapisession']->getSession(), $storeProps[PR_MAILBOX_OWNER_ENTRYID], $start, $end);
+			if (!empty($fbdata['fbevents'])) {
+				foreach ($fbdata['fbevents'] as $fbEvent) {
+					// check if the event is in start - end range
+					if ($fbEvent['end'] < $start || $fbEvent['start'] > $end) {
+						continue;
+					}
+					$items[] = [
+						// entryid is required, generate a fake one if a real is not available
+						'entryid' => isset($fbEvent['id']) ? bin2hex($fbEvent['id']) : bin2hex(random_bytes(16)),
+						'parent_entryid' => $folderEntryid,
+						'store_entryid' => $storeEntryid,
+						'props' => [
+							'access' => 0,
+							'subject' => $fbEvent['subject'] ?? _('Busy'),
+							'normalized_subject' => $fbEvent['subject'] ?? _('Busy'),
+							'location' => $fbEvent['location'] ?? '',
+							'startdate' => $fbEvent['start'],
+							'duedate' => $fbEvent['end'],
+							'commonstart' => $fbEvent['start'],
+							'commonend' => $fbEvent['end'],
+							'message_class' => 'IPM.Appointment',
+							'object_type' => MAPI_MESSAGE,
+							'icon_index' => 1024,
+							'display_to' => '',
+							'display_cc' => '',
+							'display_bcc' => '',
+							'importance' => 1,
+							'sensitivity' => 0,
+							'message_size' => 0,
+							'hasattach' => false,
+							'sent_representing_entryid' => '',
+							'sent_representing_name' => '',
+							'sent_representing_address_type' => '',
+							'sent_representing_email_address' => '',
+							'sent_representing_search_key' => '',
+							'sender_email_address' => '',
+							'sender_name' => '',
+							'sender_address_type' => '',
+							'sender_entryid' => '',
+							'sender_search_key' => '',
+							'recurring' => false,
+							'recurring_data' => '',
+							'recurring_pattern' => '',
+							'label' => 0,
+							'meeting' => $fbEvent['meeting'],
+							'reminder' => 0,
+							'reminder_minutes' => 0,
+						]
+					];
+				}
+			}
+
+			return $items;
 		}
 	}
