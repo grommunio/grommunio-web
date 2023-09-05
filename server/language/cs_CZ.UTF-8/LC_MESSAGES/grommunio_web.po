@@ -634,9 +634,6 @@ msgstr "Vyprázdnit složku"
 msgid "You must specify a name."
 msgstr "Musíte uvést název."
 
-msgid "Add a folder to favorites based on your search query"
-msgstr "Přidejte složku do oblíbených na základě vašeho vyhledávacího dotazu"
-
 msgid "Folder name"
 msgstr "Název složky"
 
@@ -728,7 +725,7 @@ msgstr "Obsah zprávy & přílohy"
 msgid "Favorites"
 msgstr "Oblíbené"
 
-msgid "Add a folder to favorites based on this search query"
+msgid "Add a folder to favorites based on search query"
 msgstr "Přidejte složku do oblíbených na základě vašeho vyhledávacího dotazu"
 
 msgid "Select Folder"

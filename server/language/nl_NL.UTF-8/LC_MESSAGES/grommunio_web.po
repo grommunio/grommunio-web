@@ -621,9 +621,6 @@ msgstr "Geen folder naam"
 msgid "You must specify a name."
 msgstr "Specificeer een naam."
 
-msgid "Add a folder to favorites based on your search query"
-msgstr "Voeg een folder toe aan favorieten gebaseerd op uw zoekopdracht"
-
 msgid "Folder name"
 msgstr "Foldernaam"
 
@@ -713,7 +710,7 @@ msgstr "Inhoud & bijlagen"
 msgid "Favorites"
 msgstr "Favorieten"
 
-msgid "Add a folder to favorites based on this search query"
+msgid "Add a folder to favorites based on search query"
 msgstr "Voeg een folder toe aan favorieten gebaseerd op deze zoekopdracht"
 
 msgid "Select Folder"

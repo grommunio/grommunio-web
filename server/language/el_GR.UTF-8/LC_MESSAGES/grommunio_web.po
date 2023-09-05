@@ -745,11 +745,6 @@ msgid "You must specify a name."
 msgstr "Πρέπει να καθορίσετε ένα όνομα."
 
 #, fuzzy
-msgid "Add a folder to favorites based on your search query"
-msgstr ""
-"Προσθέστε έναν φάκελο στα αγαπημένα σας με βάση το ερώτημα αναζήτησής σας"
-
-#, fuzzy
 msgid "Folder name"
 msgstr "Όνομα φακέλου"
 
@@ -849,7 +844,7 @@ msgid "Favorites"
 msgstr "Αγαπημένα"
 
 #, fuzzy
-msgid "Add a folder to favorites based on this search query"
+msgid "Add a folder to favorites based on search query"
 msgstr "Προσθέστε έναν φάκελο στα αγαπημένα με βάση αυτό το ερώτημα αναζήτησης"
 
 #, fuzzy

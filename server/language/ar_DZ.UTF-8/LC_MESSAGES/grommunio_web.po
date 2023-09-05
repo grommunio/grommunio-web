@@ -651,9 +651,6 @@ msgstr "أسم المجلد"
 msgid "You must specify a name."
 msgstr "يجب عليك تحديد اسم"
 
-msgid "Add a folder to favorites based on your search query"
-msgstr "أضف مجلدًا إلى المفضلة استنادًا إلى استعلام البحث الخاص بك"
-
 msgid "Folder name"
 msgstr "أسم المجلد"
 
@@ -743,7 +740,7 @@ msgstr "الهيئة و المرفقات"
 msgid "Favorites"
 msgstr "الإهتمامات"
 
-msgid "Add a folder to favorites based on this search query"
+msgid "Add a folder to favorites based on search query"
 msgstr "أضف مجلدًا إلى المفضلة بناءً على طلب البحث هذا"
 
 msgid "Select Folder"

@@ -618,9 +618,6 @@ msgstr "Nome cartella vuota"
 msgid "You must specify a name."
 msgstr "Devi specificare un nome."
 
-msgid "Add a folder to favorites based on your search query"
-msgstr "Aggiungi una cartella ai favoriti basata sulla query di ricerca"
-
 msgid "Folder name"
 msgstr "Nome della cartella"
 
@@ -710,7 +707,7 @@ msgstr "Corpo ed Allegati"
 msgid "Favorites"
 msgstr "Preferiti"
 
-msgid "Add a folder to favorites based on this search query"
+msgid "Add a folder to favorites based on search query"
 msgstr "Aggiungi un folder ai favoriti basato su questa query di ricerca"
 
 msgid "Select Folder"

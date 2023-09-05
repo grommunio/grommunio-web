@@ -622,9 +622,6 @@ msgstr "Ime prazne mape"
 msgid "You must specify a name."
 msgstr "Moraš zadati ime."
 
-msgid "Add a folder to favorites based on your search query"
-msgstr "Dodaj mapu u favorite na temelju tvog upita za pretraživanje"
-
 msgid "Folder name"
 msgstr "Ime mape"
 
@@ -714,7 +711,7 @@ msgstr "Sadržaj poruke i privici"
 msgid "Favorites"
 msgstr "Favoriti"
 
-msgid "Add a folder to favorites based on this search query"
+msgid "Add a folder to favorites based on search query"
 msgstr "Dodaj mapu u favorite na osnovi ovog upita za pretraživanje"
 
 msgid "Select Folder"

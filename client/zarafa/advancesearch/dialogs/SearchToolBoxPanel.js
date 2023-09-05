@@ -490,7 +490,7 @@ Zarafa.advancesearch.dialogs.SearchToolBoxPanel = Ext.extend(Ext.Panel, {
 				text: '<span>' + _('Favorites') + '</span>',
 				handler: this.onClickFavorites,
 				tooltip: {
-					text: _('Add a folder to favorites based on this search query'),
+					text: _('Add a folder to favorites based on search query'),
 					width: 350
 				},
 				scope: this

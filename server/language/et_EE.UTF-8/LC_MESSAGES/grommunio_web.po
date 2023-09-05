@@ -634,9 +634,6 @@ msgstr "Kadunud kaustad"
 msgid "You must specify a name."
 msgstr ""
 
-msgid "Add a folder to favorites based on your search query"
-msgstr ""
-
 msgid "Folder name"
 msgstr ""
 
@@ -730,7 +727,7 @@ msgstr ""
 msgid "Favorites"
 msgstr "Lemmikud"
 
-msgid "Add a folder to favorites based on this search query"
+msgid "Add a folder to favorites based on search query"
 msgstr ""
 
 msgid "Select Folder"

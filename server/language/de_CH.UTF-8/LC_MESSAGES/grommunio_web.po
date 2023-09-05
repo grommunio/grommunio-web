@@ -613,9 +613,6 @@ msgstr "Leerer Ordnername"
 msgid "You must specify a name."
 msgstr "Sie müssen einen Namen angeben."
 
-msgid "Add a folder to favorites based on your search query"
-msgstr "Einen Ordner basierend auf dieser Suche den Favoriten hinzufügen"
-
 msgid "Folder name"
 msgstr "Ordnername"
 
@@ -705,7 +702,7 @@ msgstr "Text & Anhänge"
 msgid "Favorites"
 msgstr "Favoriten"
 
-msgid "Add a folder to favorites based on this search query"
+msgid "Add a folder to favorites based on search query"
 msgstr "Einen Ordner basierend auf dieser Suche den Favoriten hinzufügen"
 
 msgid "Select Folder"

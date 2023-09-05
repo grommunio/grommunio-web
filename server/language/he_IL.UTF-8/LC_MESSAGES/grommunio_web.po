@@ -632,9 +632,6 @@ msgstr "תיקיה ריקה"
 msgid "You must specify a name."
 msgstr "עליך לציין שם."
 
-msgid "Add a folder to favorites based on your search query"
-msgstr ""
-
 msgid "Folder name"
 msgstr ""
 
@@ -737,7 +734,7 @@ msgstr "קבצים מצורפים"
 msgid "Favorites"
 msgstr "מועדפים"
 
-msgid "Add a folder to favorites based on this search query"
+msgid "Add a folder to favorites based on search query"
 msgstr ""
 
 #, fuzzy

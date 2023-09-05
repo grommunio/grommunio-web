@@ -638,10 +638,6 @@ msgid "You must specify a name."
 msgstr "Nimi on määriteltävä."
 
 #, fuzzy
-msgid "Add a folder to favorites based on your search query"
-msgstr "Lisää kansio suosikkeihin hakukyselyn perusteella"
-
-#, fuzzy
 msgid "Folder name"
 msgstr "Kansion nimi"
 
@@ -737,7 +733,7 @@ msgid "Favorites"
 msgstr "Suosikit"
 
 #, fuzzy
-msgid "Add a folder to favorites based on this search query"
+msgid "Add a folder to favorites based on search query"
 msgstr "Lisää kansio suosikkeihin tämän hakukyselyn perusteella"
 
 msgid "Select Folder"

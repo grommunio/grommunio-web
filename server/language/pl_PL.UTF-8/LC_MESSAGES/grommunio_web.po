@@ -634,9 +634,6 @@ msgstr "Opróżnij folder"
 msgid "You must specify a name."
 msgstr "Musisz podać nazwę."
 
-msgid "Add a folder to favorites based on your search query"
-msgstr "Dodaj folder do ulubionych na podstawie zapytania wyszukiwania"
-
 msgid "Folder name"
 msgstr "Nazwa folderu"
 
@@ -726,7 +723,7 @@ msgstr "Treść & Załączniki"
 msgid "Favorites"
 msgstr "Ulubione"
 
-msgid "Add a folder to favorites based on this search query"
+msgid "Add a folder to favorites based on search query"
 msgstr "Dodaj folder do ulubionych na podstawie tego zapytania wyszukiwania"
 
 msgid "Select Folder"

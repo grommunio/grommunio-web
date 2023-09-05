@@ -618,9 +618,6 @@ msgstr "Vider le nom du dossier"
 msgid "You must specify a name."
 msgstr "Vous devez spécifier un nom."
 
-msgid "Add a folder to favorites based on your search query"
-msgstr "Ajouter un dossier aux favoris basé sur votre requête de recherche"
-
 msgid "Folder name"
 msgstr "Nom du dossier"
 
@@ -710,7 +707,7 @@ msgstr "Corps du message et pièces jointes"
 msgid "Favorites"
 msgstr "Favoris"
 
-msgid "Add a folder to favorites based on this search query"
+msgid "Add a folder to favorites based on search query"
 msgstr "Ajouter un dossier aux favoris basé sur cette requête de recherche"
 
 msgid "Select Folder"

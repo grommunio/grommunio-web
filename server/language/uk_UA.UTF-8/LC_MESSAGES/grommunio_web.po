@@ -624,9 +624,6 @@ msgstr "Порожня назва теки"
 msgid "You must specify a name."
 msgstr "Необхідно вказати ім'я."
 
-msgid "Add a folder to favorites based on your search query"
-msgstr "Додати теку до вподобань на основі вашого пошукового запиту"
-
 msgid "Folder name"
 msgstr "Назва теки"
 
@@ -716,7 +713,7 @@ msgstr "Тіло листа та вкладення"
 msgid "Favorites"
 msgstr "Улюблене"
 
-msgid "Add a folder to favorites based on this search query"
+msgid "Add a folder to favorites based on search query"
 msgstr "Додати теку до обраного на основі цього пошукового запиту"
 
 msgid "Select Folder"

@@ -603,9 +603,6 @@ msgstr "空文件夹名称"
 msgid "You must specify a name."
 msgstr "您必须指定一个名称。"
 
-msgid "Add a folder to favorites based on your search query"
-msgstr "根据您的搜索查询将文件夹添加至收藏夹"
-
 msgid "Folder name"
 msgstr "文件夹名称"
 
@@ -695,7 +692,7 @@ msgstr "正文和附件"
 msgid "Favorites"
 msgstr "收藏夹"
 
-msgid "Add a folder to favorites based on this search query"
+msgid "Add a folder to favorites based on search query"
 msgstr "根据此搜索查询将文件夹添加至收藏夹"
 
 msgid "Select Folder"

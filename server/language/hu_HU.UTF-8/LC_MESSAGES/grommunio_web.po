@@ -631,9 +631,6 @@ msgstr "Importálás mappába"
 msgid "You must specify a name."
 msgstr "Meg kell adnia egy nevet."
 
-msgid "Add a folder to favorites based on your search query"
-msgstr "Mappa hozzáadása a kedvencekhez a keresés alapján"
-
 msgid "Folder name"
 msgstr "Mappa név"
 
@@ -725,7 +722,7 @@ msgstr "Üzenettörzs és mellékletek"
 msgid "Favorites"
 msgstr "Kedvencek"
 
-msgid "Add a folder to favorites based on this search query"
+msgid "Add a folder to favorites based on search query"
 msgstr "Keresés alapján mappa létrehozása a kedvencekben"
 
 msgid "Select Folder"

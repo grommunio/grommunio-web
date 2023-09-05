@@ -22,7 +22,7 @@ Zarafa.advancesearch.dialogs.CreateSearchFolderPanel = Ext.extend(Ext.form.FormP
 			border: false,
 			items: [{
 				xtype: 'displayfield',
-				value: _('Add a folder to favorites based on your search query'),
+				value: _('Add a folder to favorites based on search query'),
 				hideLabel: true,
 				margins: '0 0 9 0',
 				anchor: '100%'

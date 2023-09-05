@@ -613,9 +613,6 @@ msgstr "Mangler mappenavn"
 msgid "You must specify a name."
 msgstr "Du må oppgi et navn."
 
-msgid "Add a folder to favorites based on your search query"
-msgstr "Legg en mappe til dine favoritter basert på dine søkeresultat"
-
 msgid "Folder name"
 msgstr "Mappenavn"
 
@@ -705,8 +702,8 @@ msgstr "Tekst & Vedlegg"
 msgid "Favorites"
 msgstr "Favoritter"
 
-msgid "Add a folder to favorites based on this search query"
-msgstr "Legg en mappe til dine favoritter basert på dette søkeresultat"
+msgid "Add a folder to favorites based on search query"
+msgstr "Legg en mappe til favoritter basert på søkeresultatet"
 
 msgid "Select Folder"
 msgstr "Velg mappe"

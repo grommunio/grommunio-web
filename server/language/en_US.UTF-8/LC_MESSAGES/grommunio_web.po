@@ -614,9 +614,6 @@ msgstr "Empty folder name"
 msgid "You must specify a name."
 msgstr "You must specify a name."
 
-msgid "Add a folder to favorites based on your search query"
-msgstr "Add a folder to favorites based on your search query"
-
 msgid "Folder name"
 msgstr "Folder name"
 
@@ -706,8 +703,8 @@ msgstr "Body & Attachments"
 msgid "Favorites"
 msgstr "Favourites"
 
-msgid "Add a folder to favorites based on this search query"
-msgstr "Add a folder to favorites based on this search query"
+msgid "Add a folder to favorites based on search query"
+msgstr "Add a folder to favorites based on search query"
 
 msgid "Select Folder"
 msgstr "Select Folder"

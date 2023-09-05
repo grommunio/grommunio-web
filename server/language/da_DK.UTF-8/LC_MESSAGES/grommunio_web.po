@@ -621,9 +621,6 @@ msgstr "Tøm mappe"
 msgid "You must specify a name."
 msgstr "Du skal angive et navn."
 
-msgid "Add a folder to favorites based on your search query"
-msgstr "Tilføj en mappe til dine favoritter baseret på dit søgeresultat"
-
 msgid "Folder name"
 msgstr "Mappenavn"
 
@@ -714,7 +711,7 @@ msgstr "Brevkrop & vedhæftninger"
 msgid "Favorites"
 msgstr "Favoritter"
 
-msgid "Add a folder to favorites based on this search query"
+msgid "Add a folder to favorites based on search query"
 msgstr "Tilføj en mappe til dine favoritter baseret på dette søgeresultat"
 
 msgid "Select Folder"

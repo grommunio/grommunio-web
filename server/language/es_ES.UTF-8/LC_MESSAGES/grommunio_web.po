@@ -631,11 +631,6 @@ msgstr "Vaciar Carpeta"
 msgid "You must specify a name."
 msgstr "Ud. debe especificar un nombre."
 
-#, fuzzy
-msgid "Add a folder to favorites based on your search query"
-msgstr ""
-"Añadir una carpeta a los favoritos en función de su consulta de búsqueda"
-
 msgid "Folder name"
 msgstr "Nombre de carpeta"
 
@@ -732,7 +727,7 @@ msgid "Favorites"
 msgstr "Favoritos"
 
 #, fuzzy
-msgid "Add a folder to favorites based on this search query"
+msgid "Add a folder to favorites based on search query"
 msgstr ""
 "Añadir una carpeta a los favoritos en función de esta consulta de búsqueda"
 

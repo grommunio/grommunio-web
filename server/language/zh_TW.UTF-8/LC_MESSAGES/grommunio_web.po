@@ -614,9 +614,6 @@ msgstr "空的資料夾"
 msgid "You must specify a name."
 msgstr "您必須指定一個名字"
 
-msgid "Add a folder to favorites based on your search query"
-msgstr ""
-
 msgid "Folder name"
 msgstr ""
 
@@ -720,7 +717,7 @@ msgstr "附件"
 msgid "Favorites"
 msgstr "我的最愛"
 
-msgid "Add a folder to favorites based on this search query"
+msgid "Add a folder to favorites based on search query"
 msgstr ""
 
 msgid "Select Folder"

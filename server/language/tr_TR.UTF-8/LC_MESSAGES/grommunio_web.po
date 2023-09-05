@@ -614,9 +614,6 @@ msgstr "Boş klasör adı"
 msgid "You must specify a name."
 msgstr "Bir isim belirtmelisiniz."
 
-msgid "Add a folder to favorites based on your search query"
-msgstr "Arama sorgunuza göre favorilere bir klasör ekleyin"
-
 msgid "Folder name"
 msgstr "Klasör adı"
 
@@ -706,7 +703,7 @@ msgstr "Esas kısım ve ekleri"
 msgid "Favorites"
 msgstr "Favoriler"
 
-msgid "Add a folder to favorites based on this search query"
+msgid "Add a folder to favorites based on search query"
 msgstr "Bu arama sorgusuna göre favorilere bir klasör ekleyin"
 
 msgid "Select Folder"

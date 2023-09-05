@@ -661,10 +661,6 @@ msgid "You must specify a name."
 msgstr "Specificirati morate ime."
 
 #, fuzzy
-msgid "Add a folder to favorites based on your search query"
-msgstr "Dodajanje mape v priljubljene na podlagi iskalne poizvedbe"
-
-#, fuzzy
 msgid "Folder name"
 msgstr "Ime mape"
 
@@ -759,7 +755,7 @@ msgid "Favorites"
 msgstr "Priljubljene"
 
 #, fuzzy
-msgid "Add a folder to favorites based on this search query"
+msgid "Add a folder to favorites based on search query"
 msgstr "Dodajanje mape v priljubljene na podlagi te iskalne poizvedbe"
 
 msgid "Select Folder"

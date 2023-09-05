@@ -611,9 +611,6 @@ msgstr "空のフォルダー名"
 msgid "You must specify a name."
 msgstr "名前を指定して下さい。"
 
-msgid "Add a folder to favorites based on your search query"
-msgstr "検索クエリに基づいてフォルダをお気に入りに追加する"
-
 msgid "Folder name"
 msgstr "フォルダ名"
 
@@ -703,7 +700,7 @@ msgstr "本文及び添付ファイル"
 msgid "Favorites"
 msgstr "お気に入り"
 
-msgid "Add a folder to favorites based on this search query"
+msgid "Add a folder to favorites based on search query"
 msgstr "この検索クエリに基づいて、フォルダをお気に入りに追加する"
 
 msgid "Select Folder"

@@ -626,9 +626,6 @@ msgstr "Carpeta vacía"
 msgid "You must specify a name."
 msgstr "Ud. debe especificar un nombre."
 
-msgid "Add a folder to favorites based on your search query"
-msgstr ""
-
 msgid "Folder name"
 msgstr ""
 
@@ -733,7 +730,7 @@ msgstr "Adjuntos"
 msgid "Favorites"
 msgstr "Favoritos"
 
-msgid "Add a folder to favorites based on this search query"
+msgid "Add a folder to favorites based on search query"
 msgstr ""
 
 msgid "Select Folder"

@@ -631,9 +631,6 @@ msgstr "Очистить папку"
 msgid "You must specify a name."
 msgstr "Вы должны указать имя."
 
-msgid "Add a folder to favorites based on your search query"
-msgstr "Добавить папку в избранное на основе поискового запроса"
-
 msgid "Folder name"
 msgstr "Имя папки"
 
@@ -723,7 +720,7 @@ msgstr "Тело письма и Вложения"
 msgid "Favorites"
 msgstr "Избранное"
 
-msgid "Add a folder to favorites based on this search query"
+msgid "Add a folder to favorites based on search query"
 msgstr "Добавить папку в избранное на основе этого поискового запроса"
 
 msgid "Select Folder"

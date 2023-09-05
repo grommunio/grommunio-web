@@ -623,9 +623,6 @@ msgstr "Esvaziar pastas"
 msgid "You must specify a name."
 msgstr "É necessário especificar um nome."
 
-msgid "Add a folder to favorites based on your search query"
-msgstr ""
-
 msgid "Folder name"
 msgstr ""
 
@@ -729,7 +726,7 @@ msgstr "Anexos"
 msgid "Favorites"
 msgstr "Favoritos"
 
-msgid "Add a folder to favorites based on this search query"
+msgid "Add a folder to favorites based on search query"
 msgstr ""
 
 msgid "Select Folder"

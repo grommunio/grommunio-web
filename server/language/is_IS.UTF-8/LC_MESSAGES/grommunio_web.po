@@ -611,9 +611,6 @@ msgstr "Tómt möppuheiti"
 msgid "You must specify a name."
 msgstr "Þú verður að tilgreina nafn."
 
-msgid "Add a folder to favorites based on your search query"
-msgstr "Bæta möppu við í uppáhald miðað við leitina þína"
-
 msgid "Folder name"
 msgstr "Möppuheiti"
 
@@ -703,7 +700,7 @@ msgstr "Innihald og viðhengi"
 msgid "Favorites"
 msgstr "Uppáhald"
 
-msgid "Add a folder to favorites based on this search query"
+msgid "Add a folder to favorites based on search query"
 msgstr "Bæta möppu við í uppáhald út frá þessari leit"
 
 msgid "Select Folder"
