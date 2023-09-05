@@ -3,10 +3,10 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Norwegian (Bokmål)\n"
-"Report-Msgid-Bugs-To: \n"
+"Report-Msgid-Bugs-To: dev@grommunio.com\n"
 "POT-Creation-Date: 2019-09-25 14:32+0200\n"
-"PO-Revision-Date: 2021-12-07 16:51+0000\n"
-"Last-Translator: Allan Nordhøy <epost@anotheragency.no>\n"
+"PO-Revision-Date: 2023-09-06 16:56+0000\n"
+"Last-Translator: Jan Engelhardt <jengelh@inai.de>\n"
 "Language-Team: Norwegian Bokmål <https://hosted.weblate.org/projects/"
 "grommunio/grommunio-web/nb_NO/>\n"
 "Language: nb_NO\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.10-dev\n"
+"X-Generator: Weblate 5.0.1-dev\n"
 
 #. TRANSLATORS: This message is used as label for the column which indicates the week number of the month in date picker. and 'Wk' stands for week
 msgid "Wk"
@@ -393,7 +393,7 @@ msgid "Zip Code"
 msgstr "Postnummer"
 
 msgid "Country"
-msgstr "Land"
+msgstr "land"
 
 msgid "Professional"
 msgstr ""
@@ -402,7 +402,7 @@ msgid "Title"
 msgstr "Tittel"
 
 msgid "Company"
-msgstr "Firma"
+msgstr "bedrift"
 
 msgid "Department"
 msgstr "Avdeling"
@@ -411,7 +411,7 @@ msgid "Office"
 msgstr "Kontor"
 
 msgid "Assistant"
-msgstr "Assistent"
+msgstr "assistent"
 
 msgid "Phone"
 msgstr "Telefon"
@@ -960,7 +960,7 @@ msgid "List"
 msgstr "Liste"
 
 msgid "Appointment"
-msgstr "Avtale"
+msgstr "avtale"
 
 msgid "Meeting request"
 msgstr "Møteinvitasjon"
@@ -1240,7 +1240,7 @@ msgid "End time"
 msgstr "Sluttidspunkt"
 
 msgid "Comment"
-msgstr "Kommentar"
+msgstr "kommentar"
 
 msgid "Send Meeting Request Cancellation"
 msgstr "Send annullering på møteinvitasjon"
@@ -2144,7 +2144,7 @@ msgid "Mail and Post"
 msgstr "E-post og innlegg"
 
 msgid "Contact"
-msgstr "Kontakt"
+msgstr "kontakter"
 
 msgid "Journal"
 msgstr "Journal"
@@ -4064,7 +4064,7 @@ msgid "Publishing Author"
 msgstr "Publiserende forfatter"
 
 msgid "Author"
-msgstr "Forfatter"
+msgstr "forfatter"
 
 msgid "Nonediting Author"
 msgstr "Ikke-redigerende forfatter"
@@ -4073,7 +4073,7 @@ msgid "Reviewer"
 msgstr ""
 
 msgid "Contributor"
-msgstr "Bidragsyter"
+msgstr "bidragsyter"
 
 msgid "Free/Busy time, subject, location"
 msgstr ""
@@ -4127,7 +4127,7 @@ msgid "Type"
 msgstr "Type"
 
 msgid "Description"
-msgstr "Beskrivelse"
+msgstr "beskrivning"
 
 msgid "EntryID"
 msgstr "EntryID"
@@ -4172,7 +4172,7 @@ msgid "Edit all"
 msgstr "Rediger alle"
 
 msgid "Delete items"
-msgstr "Slette elementer"
+msgstr "Slett elementer"
 
 msgid "Own"
 msgstr "Egne"
@@ -4368,7 +4368,7 @@ msgid ""
 msgstr ""
 
 msgid "CC"
-msgstr "CC"
+msgstr "kopi"
 
 msgid "BCC"
 msgstr "BCC"
@@ -5261,7 +5261,7 @@ msgid "New task"
 msgstr "Ny oppgave"
 
 msgid "Completed"
-msgstr "Ferdig"
+msgstr "ferdig"
 
 msgid "Printed by: "
 msgstr "Skrevet ut: "
@@ -5769,7 +5769,7 @@ msgid "Sort by: ID"
 msgstr "Sorter på: ID"
 
 msgid "Backend"
-msgstr "Serverdel"
+msgstr "backend"
 
 msgid "Sort by: Backend"
 msgstr "Sorter på: serverdel"
