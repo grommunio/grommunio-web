@@ -484,7 +484,7 @@ msgstr "Det finnes ingen elementer å vise i denne visningstypen"
 msgid "Show Names from the"
 msgstr "Vis navn fra"
 
-msgid "Search..."
+msgid "Search…"
 msgstr "Søk…"
 
 msgid "Sort by: Icon"
@@ -646,7 +646,7 @@ msgstr "Mapper"
 msgid "Include subfolders"
 msgstr "Inkluder undermapper"
 
-msgid "Show.."
+msgid "Show…"
 msgstr "Vis…"
 
 msgid "Mails"
@@ -661,7 +661,7 @@ msgstr "Kontakter"
 msgid "Tasks"
 msgstr "Oppgaver"
 
-msgid "Filter.."
+msgid "Filter…"
 msgstr "Filter…"
 
 msgid "Unread"
@@ -681,11 +681,8 @@ msgctxt "search.date"
 msgid "To"
 msgstr "Til"
 
-msgid "Filter category.."
+msgid "Filter category…"
 msgstr "Filtrerings kategori…"
-
-msgid "Search.."
-msgstr "Søk…"
 
 msgid "Sender"
 msgstr "Avsender"
@@ -1150,7 +1147,7 @@ msgstr "Advarsel"
 msgid "Attachments cannot be modified for a single occurence"
 msgstr "Vedlegg kan ikke endres for en enkelt gjentakelse"
 
-msgid "Type your message here..."
+msgid "Type your message here…"
 msgstr "Skiv din melding her…"
 
 msgid "Update location"
@@ -1483,7 +1480,7 @@ msgstr "Åpne"
 msgid "Copy/Move"
 msgstr "Kopier/flytt"
 
-msgid "Send to..."
+msgid "Send to…"
 msgstr "Send til…"
 
 msgid "Export as"
@@ -1688,7 +1685,7 @@ msgstr ""
 "Din kalender har blitt automatisk oppdatert. Denne møteinvitasjonen vil bli "
 "slettet."
 
-msgid "Loading appointments..."
+msgid "Loading appointments…"
 msgstr "Laster inn avtaler…"
 
 msgid "Please select a calendar via widget settings"
@@ -1735,7 +1732,7 @@ msgstr "{0} - {1} (hele dagen)"
 msgid "d/m/y"
 msgstr "d.m.Y"
 
-msgid "Select one..."
+msgid "Select one…"
 msgstr "Merk…"
 
 msgid "Unnamed folder"
@@ -1827,7 +1824,7 @@ msgstr "avtale"
 msgid "Paste this occurrence only"
 msgstr "Lim inn kun dette tilfellet"
 
-msgid "Paste the series..."
+msgid "Paste the series…"
 msgstr "Lim inn serien…"
 
 msgid ""
@@ -2200,10 +2197,10 @@ msgstr "Representanter kan sende e-post på dine vegne."
 
 msgid ""
 "If you only want to set folder permissions, right-click on a folder to open "
-"the context menu and click on \"Share Folder...\""
+"the context menu and click on \"Share folder…\""
 msgstr ""
 "Om du kun ønsker å endre rettigheter, så høyre-klikker du på mappen, og "
-"åpner hurtigmeny, der trykker du på «Delte mapper»"
+"åpner hurtigmeny, der trykker du på «Del mappen…»"
 
 msgid "Permission"
 msgstr "Rettigheter"
@@ -2712,52 +2709,52 @@ msgstr "Størrelse"
 msgid "Sort by: Size"
 msgstr "Sorter på: størrelse"
 
-msgid "Move the message to folder..."
+msgid "Move the message to folder…"
 msgstr "Flytt melding til mappe…"
 
-msgid "Copy the message to folder..."
+msgid "Copy the message to folder…"
 msgstr "Kopier melding til mappe…"
 
 msgid "Delete the message"
 msgstr "Slett meldingen"
 
-msgid "Redirect the message to..."
+msgid "Redirect the message to…"
 msgstr "Omdiriger meldingen til…"
 
-msgid "Forward the message to..."
+msgid "Forward the message to…"
 msgstr "Videresend meldingen til…"
 
-msgid "Forward the message as attachment to..."
+msgid "Forward the message as attachment to…"
 msgstr "Videresend meldingen som vedlegg til…"
 
-msgid "Mark the message as read..."
+msgid "Mark the message as read…"
 msgstr "Marker meldingen som lest…"
 
-msgid "is received from..."
+msgid "is received from…"
 msgstr "er mottatt fra…"
 
-msgid "includes these words in the sender's address..."
+msgid "includes these words in the sender's address…"
 msgstr "inneholder følgende ord i avsenders adresse…"
 
-msgid "includes these words in the recipient's address..."
+msgid "includes these words in the recipient's address…"
 msgstr "inneholder følgende ord i mottakers adresse…"
 
-msgid "includes these words in the subject..."
+msgid "includes these words in the subject…"
 msgstr "inneholder følgende ord i emnefeltet…"
 
-msgid "includes these words in the body..."
+msgid "includes these words in the body…"
 msgstr "inneholder følgende ord i meldingsteksten…"
 
-msgid "includes these words in the transport-headers..."
-msgstr "inkluder disse ordene i transport-headers…"
+msgid "includes these words in the transport headers…"
+msgstr "inkluder disse ordene i transport headerene…"
 
-msgid "has importance..."
+msgid "has importance…"
 msgstr "har viktighet…"
 
 msgid "has an attachment"
 msgstr "har et vedlegg"
 
-msgid "is sent to..."
+msgid "is sent to…"
 msgstr "er sendt til…"
 
 msgid "is sent only to me"
@@ -2772,19 +2769,19 @@ msgstr "inneholder ikke mitt navn i Til eller Cc-feltet"
 msgid "has my name in the To or Cc field"
 msgstr "har mitt navn i Til eller Cc-feltet"
 
-msgid "has sensitivity..."
+msgid "has sensitivity…"
 msgstr "har fortrolighet…"
 
-msgid "is received after..."
+msgid "is received after…"
 msgstr "er mottatt etter…"
 
-msgid "is received before..."
+msgid "is received before…"
 msgstr "er mottatt før…"
 
-msgid "size is at least..."
+msgid "size is at least…"
 msgstr "minimum størrelse…"
 
-msgid "size is at most..."
+msgid "size is at most…"
 msgstr "maksimum størrelse…"
 
 msgid "has my name in the To field"
@@ -2896,7 +2893,7 @@ msgstr "Alltid flytt meldinger som er sendt til <mottakere>"
 msgid "Always move messages with this subject"
 msgstr "Alltid flytt meldinger med dette emne"
 
-msgid "Create rule..."
+msgid "Create rule…"
 msgstr "Lag regel…"
 
 msgid "myself"
@@ -2914,11 +2911,11 @@ msgstr "Ønsker du å bruke disse endringene?"
 msgid "All folders"
 msgstr "Alle mapper"
 
-msgid "Other..."
+msgid "Other…"
 msgstr "Andre…"
 
-msgid "Search in.."
-msgstr "Søk i.."
+msgid "Search in…"
+msgstr "Søk i…"
 
 msgid "Folder does not exist"
 msgstr "Mappen finnes ikke"
@@ -3041,7 +3038,7 @@ msgstr "Møtearrangør"
 msgid "{0} overdue"
 msgstr "{0} forfall"
 
-msgid "Loading..."
+msgid "Loading…"
 msgstr "Laster inn…"
 
 msgid "Message could not be loaded"
@@ -3541,7 +3538,7 @@ msgstr "Velg medlemmer"
 msgid "Add New"
 msgstr "Legg til ny"
 
-msgid "Type your note here..."
+msgid "Type your note here…"
 msgstr "Skriv ditt notat her…"
 
 msgid "New contact"
@@ -3877,7 +3874,7 @@ msgstr "Bytt visningsmodus"
 msgid "Widgets"
 msgstr "Miniprogram"
 
-msgid "Sending..."
+msgid "Sending…"
 msgstr "Sender…"
 
 msgid "Sent successfully"
@@ -4318,7 +4315,7 @@ msgstr "Legg til i favoritt-mapper"
 msgid "Remove From Favorites"
 msgstr "Fjern fra favoritter"
 
-msgid "Share folder..."
+msgid "Share folder…"
 msgstr "Del mappe…"
 
 msgid "Import emails"
@@ -4333,7 +4330,7 @@ msgstr "Importer kontakter"
 msgid "Properties of {0}"
 msgstr "Egenskaper til {0}"
 
-msgid "Share {0} with..."
+msgid "Share {0} with…"
 msgstr "Del {0} med…"
 
 msgid "Properties of {0} - {1}"
@@ -4431,7 +4428,7 @@ msgstr "om {0}"
 msgid "Your email will be sent {0}{1}"
 msgstr "Din e-post vil bli sendt {0}{1}"
 
-msgid "Saving..."
+msgid "Saving…"
 msgstr "Lagre…"
 
 msgid "Saved at {0}"
@@ -5609,7 +5606,7 @@ msgstr "Utløpsdato"
 msgid "More than 1 share link exists. Only showing the latest one"
 msgstr ""
 
-msgid "Loading details..."
+msgid "Loading details…"
 msgstr "Laster inn detaljer…"
 
 msgid "Share Details"

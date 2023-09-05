@@ -622,13 +622,13 @@ Zarafa.advancesearch.dialogs.SearchPanel = Ext.extend(Ext.Panel, {
 	/**
 	 * Event handler triggered before selection performs in {@link Zarafa.common.searchfield.ui.SearchFolderCombo SearchFolderCombo}
 	 * Will open {@link Zarafa.advancesearch.dialogs.SelectFolderContentPanel SelectFolderContentPanel}, if
-	 * "Other.." option was selected. also it will check select folder from {@link Zarafa.common.searchfield.ui.SearchFolderCombo SearchFolderCombo}
+	 * "Other…" option was selected. also it will check select folder from {@link Zarafa.common.searchfield.ui.SearchFolderCombo SearchFolderCombo}
 	 * is supports search folder if not we hide the {@link Ext.form.FieldSet IncludeSubFolderFieldSet}.
 	 *
 	 * @param {Zarafa.common.searchfield.ui.SearchFolderCombo} combo The combo which fired the event.
 	 * @param {Ext.data.Record} record The data record returned from the underlying store
 	 * @param {number} index The index of the selected item in the dropdown list
-	 * @return {boolean} true if selected record is not 'Other...' else false.
+	 * @return {boolean} true if selected record is not 'Other…' else false.
 	 */
 	onBeforeSelectSearchFolder: function (combo, record, index)
 	{

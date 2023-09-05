@@ -11818,7 +11818,7 @@ function() {
          * <li>timeout : <b>Number</b><p class="sub-desc">The number of seconds to wait for a response before
          * timing out (defaults to {@link Ext.Updater.defaults#timeout}).</p></li>
          * <li>text : <b>String</b><p class="sub-desc">The text to use as the innerHTML of the
-         * {@link Ext.Updater.defaults#indicatorText} div (defaults to 'Loading...').  To replace the entire div, not
+         * {@link Ext.Updater.defaults#indicatorText} div (defaults to 'Loading…').  To replace the entire div, not
          * just the text, override {@link Ext.Updater.defaults#indicatorText} directly.</p></li>
          * <li>nocache : <b>Boolean</b><p class="sub-desc">Only needed for GET
          * requests, this option causes an extra, auto-generated parameter to be appended to the request
@@ -11833,7 +11833,7 @@ function() {
         scope: yourObject, //(optional scope)
         discardUrl: true,
         nocache: true,
-        text: "Loading...",
+        text: "Loading…",
         timeout: 60,
         scripts: false // Save time by avoiding RegExp execution.
     });
@@ -12036,10 +12036,10 @@ Ext.Updater.defaults = {
      */
     showLoadIndicator : true,
     /**
-     * Text for loading indicator (defaults to '&lt;div class="loading-indicator"&gt;Loading...&lt;/div&gt;').
+     * Text for loading indicator (defaults to '&lt;div class="loading-indicator"&gt;Loading…&lt;/div&gt;').
      * @type String
      */
-    indicatorText : '<div class="loading-indicator">Loading...</div>',
+    indicatorText : '<div class="loading-indicator">Loading…</div>',
      /**
      * True to process scripts by default (defaults to false).
      * @type Boolean
@@ -27991,7 +27991,7 @@ panel.load({
     scope: yourObject, // optional scope for the callback
     discardUrl: false,
     nocache: false,
-    text: 'Loading...',
+    text: 'Loading…',
     timeout: 30,
     scripts: false
 });
@@ -29511,9 +29511,9 @@ Ext.LoadMask.prototype = {
      */
     /**
      * @cfg {String} msg
-     * The text to display in a centered loading message box (defaults to 'Loading...')
+     * The text to display in a centered loading message box (defaults to 'Loading…')
      */
-    msg : 'Loading...',
+    msg : 'Loading…',
     /**
      * @cfg {String} msgCls
      * The CSS class to apply to the loading message element (defaults to "x-mask-loading")
@@ -63662,9 +63662,9 @@ Ext.form.ComboBox = Ext.extend(Ext.form.TriggerField, {
     queryParam : 'query',
     /**
      * @cfg {String} loadingText The text to display in the dropdown list while data is loading.  Only applies
-     * when <tt>{@link #mode} = 'remote'</tt> (defaults to <tt>'Loading...'</tt>)
+     * when <tt>{@link #mode} = 'remote'</tt> (defaults to <tt>'Loading…'</tt>)
      */
-    loadingText : 'Loading...',
+    loadingText : 'Loading…',
     /**
      * @cfg {Boolean} resizable <tt>true</tt> to add a resize handle to the bottom of the dropdown list
      * (creates an {@link Ext.Resizable} with 'se' {@link Ext.Resizable#pinned pinned} handles).

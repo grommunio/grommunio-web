@@ -582,8 +582,8 @@ msgstr "Δεν υπάρχουν στοιχεία για εμφάνιση σε α
 msgid "Show Names from the"
 msgstr "Εμφάνιση ονομάτων από το"
 
-msgid "Search..."
-msgstr "Αναζήτηση..."
+msgid "Search…"
+msgstr "Αναζήτηση…"
 
 #, fuzzy
 msgid "Sort by: Icon"
@@ -783,8 +783,8 @@ msgid "Include subfolders"
 msgstr "Συμπεριλάβετε υποφακέλους"
 
 #, fuzzy
-msgid "Show.."
-msgstr "Εμφάνιση.."
+msgid "Show…"
+msgstr "Εμφάνιση…"
 
 #, fuzzy
 msgid "Mails"
@@ -800,8 +800,8 @@ msgid "Tasks"
 msgstr "Εργασίες"
 
 #, fuzzy
-msgid "Filter.."
-msgstr "Φίλτρο.."
+msgid "Filter…"
+msgstr "Φίλτρο…"
 
 msgid "Unread"
 msgstr "Αδιάβαστο"
@@ -821,11 +821,8 @@ msgid "To"
 msgstr "Προς"
 
 #, fuzzy
-msgid "Filter category.."
-msgstr "Κατηγορία φίλτρου.."
-
-msgid "Search.."
-msgstr "Αναζήτηση.."
+msgid "Filter category…"
+msgstr "Κατηγορία φίλτρου…"
 
 msgid "Sender"
 msgstr "Αποστολέας"
@@ -1399,8 +1396,8 @@ msgstr "Προσοχή"
 msgid "Attachments cannot be modified for a single occurence"
 msgstr "Τα συνημμένα δεν μπορούν να τροποποιηθούν για μία μόνο περίπτωση"
 
-msgid "Type your message here..."
-msgstr "Πληκτρολογήστε το μήνυμα σας εδώ..."
+msgid "Type your message here…"
+msgstr "Πληκτρολογήστε το μήνυμα σας εδώ…"
 
 msgid "Update location"
 msgstr "Ενημέρωση τοποθεσίας"
@@ -1805,8 +1802,8 @@ msgid "Copy/Move"
 msgstr "Αντιγραφή/Μεταφορά"
 
 #, fuzzy
-msgid "Send to..."
-msgstr "Στείλτε στο..."
+msgid "Send to…"
+msgstr "Στείλτε στο…"
 
 #, fuzzy
 msgid "Export as"
@@ -2064,8 +2061,8 @@ msgstr ""
 "διαγραφεί."
 
 #, fuzzy
-msgid "Loading appointments..."
-msgstr "Φόρτωση ραντεβού..."
+msgid "Loading appointments…"
+msgstr "Φόρτωση ραντεβού…"
 
 #, fuzzy
 msgid "Please select a calendar via widget settings"
@@ -2120,8 +2117,8 @@ msgstr "{0} - {1} (όλη την ημέρα)"
 msgid "d/m/y"
 msgstr "d/m/y"
 
-msgid "Select one..."
-msgstr "Επιλέξτε ένα..."
+msgid "Select one…"
+msgstr "Επιλέξτε ένα…"
 
 #, fuzzy
 msgid "Unnamed folder"
@@ -2234,8 +2231,8 @@ msgid "Paste this occurrence only"
 msgstr "Επικολλήστε μόνο αυτό το περιστατικό"
 
 #, fuzzy
-msgid "Paste the series..."
-msgstr "Επικολλήστε τη σειρά..."
+msgid "Paste the series…"
+msgstr "Επικολλήστε τη σειρά…"
 
 #, fuzzy
 msgid ""
@@ -2698,11 +2695,11 @@ msgstr "Οι αντιπρόσωποι μπορούν να στέλνουν αν�
 #, fuzzy
 msgid ""
 "If you only want to set folder permissions, right-click on a folder to open "
-"the context menu and click on \"Share Folder...\""
+"the context menu and click on \"Share folder…\""
 msgstr ""
 "Αν θέλετε να ορίσετε μόνο δικαιώματα φακέλου, κάντε δεξί κλικ σε έναν φάκελο "
 "για να ανοίξετε το μενού περιβάλλοντος και κάντε κλικ στο \"Κοινή χρήση "
-"φακέλου...\""
+"φακέλου…\""
 
 msgid "Permission"
 msgstr "Δικαίωμα"
@@ -3352,68 +3349,68 @@ msgid "Sort by: Size"
 msgstr "Ταξινόμηση κατά: Μέγεθος"
 
 #, fuzzy
-msgid "Move the message to folder..."
-msgstr "Μετακινήστε το μήνυμα σε φάκελο..."
+msgid "Move the message to folder…"
+msgstr "Μετακινήστε το μήνυμα σε φάκελο…"
 
 #, fuzzy
-msgid "Copy the message to folder..."
-msgstr "Αντιγράψτε το μήνυμα στο φάκελο..."
+msgid "Copy the message to folder…"
+msgstr "Αντιγράψτε το μήνυμα στο φάκελο…"
 
 #, fuzzy
 msgid "Delete the message"
 msgstr "Διαγράψτε το μήνυμα"
 
 #, fuzzy
-msgid "Redirect the message to..."
-msgstr "Επανακατευθύνετε το μήνυμα σε..."
+msgid "Redirect the message to…"
+msgstr "Επανακατευθύνετε το μήνυμα σε…"
 
 #, fuzzy
-msgid "Forward the message to..."
-msgstr "Προωθήστε το μήνυμα στο..."
+msgid "Forward the message to…"
+msgstr "Προωθήστε το μήνυμα στο…"
 
 #, fuzzy
-msgid "Forward the message as attachment to..."
-msgstr "Προωθήστε το μήνυμα ως συνημμένο στη διεύθυνση..."
+msgid "Forward the message as attachment to…"
+msgstr "Προωθήστε το μήνυμα ως συνημμένο στη διεύθυνση…"
 
 #, fuzzy
-msgid "Mark the message as read..."
-msgstr "Σημειώστε το μήνυμα ως αναγνωσμένο..."
+msgid "Mark the message as read…"
+msgstr "Σημειώστε το μήνυμα ως αναγνωσμένο…"
 
 #, fuzzy
-msgid "is received from..."
-msgstr "λαμβάνεται από..."
+msgid "is received from…"
+msgstr "λαμβάνεται από…"
 
 #, fuzzy
-msgid "includes these words in the sender's address..."
-msgstr "περιλαμβάνει αυτές τις λέξεις στη διεύθυνση του αποστολέα..."
+msgid "includes these words in the sender's address…"
+msgstr "περιλαμβάνει αυτές τις λέξεις στη διεύθυνση του αποστολέα…"
 
 #, fuzzy
-msgid "includes these words in the recipient's address..."
-msgstr "περιλαμβάνει αυτές τις λέξεις στη διεύθυνση του παραλήπτη..."
+msgid "includes these words in the recipient's address…"
+msgstr "περιλαμβάνει αυτές τις λέξεις στη διεύθυνση του παραλήπτη…"
 
 #, fuzzy
-msgid "includes these words in the subject..."
-msgstr "περιλαμβάνει αυτές τις λέξεις στο θέμα..."
+msgid "includes these words in the subject…"
+msgstr "περιλαμβάνει αυτές τις λέξεις στο θέμα…"
 
 #, fuzzy
-msgid "includes these words in the body..."
-msgstr "περιλαμβάνει αυτές τις λέξεις στο σώμα..."
+msgid "includes these words in the body…"
+msgstr "περιλαμβάνει αυτές τις λέξεις στο σώμα…"
 
 #, fuzzy
-msgid "includes these words in the transport-headers..."
-msgstr "περιλαμβάνει αυτές τις λέξεις στις επικεφαλίδες μεταφοράς..."
+msgid "includes these words in the transport headers…"
+msgstr "περιλαμβάνει αυτές τις λέξεις στις επικεφαλίδες μεταφοράς…"
 
 #, fuzzy
-msgid "has importance..."
-msgstr "έχει σημασία..."
+msgid "has importance…"
+msgstr "έχει σημασία…"
 
 #, fuzzy
 msgid "has an attachment"
 msgstr "έχει ένα συνημμένο"
 
 #, fuzzy
-msgid "is sent to..."
-msgstr "αποστέλλεται στο..."
+msgid "is sent to…"
+msgstr "αποστέλλεται στο…"
 
 #, fuzzy
 msgid "is sent only to me"
@@ -3432,24 +3429,24 @@ msgid "has my name in the To or Cc field"
 msgstr "έχει το όνομά μου στο πεδίο To ή Cc"
 
 #, fuzzy
-msgid "has sensitivity..."
-msgstr "έχει ευαισθησία..."
+msgid "has sensitivity…"
+msgstr "έχει ευαισθησία…"
 
 #, fuzzy
-msgid "is received after..."
-msgstr "λαμβάνεται μετά..."
+msgid "is received after…"
+msgstr "λαμβάνεται μετά…"
 
 #, fuzzy
-msgid "is received before..."
-msgstr "λαμβάνεται πριν..."
+msgid "is received before…"
+msgstr "λαμβάνεται πριν…"
 
 #, fuzzy
-msgid "size is at least..."
-msgstr "μέγεθος είναι τουλάχιστον..."
+msgid "size is at least…"
+msgstr "μέγεθος είναι τουλάχιστον…"
 
 #, fuzzy
-msgid "size is at most..."
-msgstr "μέγεθος είναι το πολύ..."
+msgid "size is at most…"
+msgstr "μέγεθος είναι το πολύ…"
 
 #, fuzzy
 msgid "has my name in the To field"
@@ -3587,8 +3584,8 @@ msgid "Always move messages with this subject"
 msgstr "Πάντα να μετακινείτε μηνύματα με αυτό το θέμα"
 
 #, fuzzy
-msgid "Create rule..."
-msgstr "Δημιουργήστε κανόνα..."
+msgid "Create rule…"
+msgstr "Δημιουργήστε κανόνα…"
 
 #, fuzzy
 msgid "myself"
@@ -3610,12 +3607,12 @@ msgid "All folders"
 msgstr "Όλοι οι φάκελοι"
 
 #, fuzzy
-msgid "Other..."
-msgstr "Άλλα..."
+msgid "Other…"
+msgstr "Άλλα…"
 
 #, fuzzy
-msgid "Search in.."
-msgstr "Αναζήτηση σε.."
+msgid "Search in…"
+msgstr "Αναζήτηση σε…"
 
 #, fuzzy
 msgid "Folder does not exist"
@@ -3779,8 +3776,8 @@ msgstr "Διοργανωτής συνάντησης"
 msgid "{0} overdue"
 msgstr "{0} ληξιπρόθεσμο"
 
-msgid "Loading..."
-msgstr "Γίνεται φόρτωση..."
+msgid "Loading…"
+msgstr "Γίνεται φόρτωση…"
 
 #, fuzzy
 msgid "Message could not be loaded"
@@ -4387,8 +4384,8 @@ msgid "Add New"
 msgstr "Προσθήκη Νέου"
 
 #, fuzzy
-msgid "Type your note here..."
-msgstr "Πληκτρολογήστε το σημείωμά σας εδώ..."
+msgid "Type your note here…"
+msgstr "Πληκτρολογήστε το σημείωμά σας εδώ…"
 
 msgid "New contact"
 msgstr "Νέα επαφή"
@@ -4795,8 +4792,8 @@ msgstr "Προβολή διακόπτη"
 msgid "Widgets"
 msgstr "Μικροεφαρμογές"
 
-msgid "Sending..."
-msgstr "Αποστέλλεται τώρα..."
+msgid "Sending…"
+msgstr "Αποστέλλεται τώρα…"
 
 #, fuzzy
 msgid "Sent successfully"
@@ -5353,8 +5350,8 @@ msgid "Remove From Favorites"
 msgstr "Αφαίρεση από τα αγαπημένα"
 
 #, fuzzy
-msgid "Share folder..."
-msgstr "Φάκελος κοινής χρήσης..."
+msgid "Share folder…"
+msgstr "Φάκελος κοινής χρήσης…"
 
 #, fuzzy
 msgid "Import emails"
@@ -5373,8 +5370,8 @@ msgid "Properties of {0}"
 msgstr "Ιδιότητες του {0}"
 
 #, fuzzy
-msgid "Share {0} with..."
-msgstr "Μοιραστείτε {0} με..."
+msgid "Share {0} with…"
+msgstr "Μοιραστείτε {0} με…"
 
 #, fuzzy
 msgid "Properties of {0} - {1}"
@@ -5497,8 +5494,8 @@ msgstr "στο {0}"
 msgid "Your email will be sent {0}{1}"
 msgstr "Το email σας θα σταλεί {0}{1}"
 
-msgid "Saving..."
-msgstr "Αποθήκευση..."
+msgid "Saving…"
+msgstr "Αποθήκευση…"
 
 #, fuzzy
 msgid "Saved at {0}"
@@ -6980,8 +6977,8 @@ msgstr ""
 "τελευταίο"
 
 #, fuzzy
-msgid "Loading details..."
-msgstr "Φόρτωση λεπτομερειών..."
+msgid "Loading details…"
+msgstr "Φόρτωση λεπτομερειών…"
 
 #, fuzzy
 msgid "Share Details"

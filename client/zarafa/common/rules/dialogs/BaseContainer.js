@@ -94,7 +94,7 @@ Zarafa.common.rules.dialogs.BaseContainer = Ext.extend(Ext.Container, {
         lazyInit: false,
         forceSelection: true,
         editable: false,
-        value: _('Select one...'),
+        value: _('Select one…'),
         listeners: {
           'select': this.onComboSelect,
           'scope': this

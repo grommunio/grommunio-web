@@ -521,8 +521,8 @@ msgstr "لا يوجد عناصر لإظهارها في هذه القائمة"
 msgid "Show Names from the"
 msgstr "إظهار الاسماء من ال"
 
-msgid "Search..."
-msgstr "البحث..."
+msgid "Search…"
+msgstr "البحث…"
 
 msgid "Sort by: Icon"
 msgstr "ترتيب حسب: الايقونة"
@@ -684,8 +684,8 @@ msgstr "المجلدات"
 msgid "Include subfolders"
 msgstr "تضمين المجلدات الفرعية"
 
-msgid "Show.."
-msgstr "إظهار"
+msgid "Show…"
+msgstr "إظهار…"
 
 msgid "Mails"
 msgstr "البرايد"
@@ -699,8 +699,8 @@ msgstr "الاسماء"
 msgid "Tasks"
 msgstr "المهام"
 
-msgid "Filter.."
-msgstr "تصفية..."
+msgid "Filter…"
+msgstr "تصفية…"
 
 msgid "Unread"
 msgstr "غير مقروء"
@@ -719,11 +719,8 @@ msgctxt "search.date"
 msgid "To"
 msgstr "إلى"
 
-msgid "Filter category.."
-msgstr "تصفية الفئة.."
-
-msgid "Search.."
-msgstr "بحث.."
+msgid "Filter category…"
+msgstr "تصفية الفئة…"
 
 msgid "Sender"
 msgstr "المرسل"
@@ -1194,8 +1191,8 @@ msgstr "تحذير"
 msgid "Attachments cannot be modified for a single occurence"
 msgstr "لا يمكن تعديل المرفقات لحدث واحد"
 
-msgid "Type your message here..."
-msgstr "أكتب رسالتك هنا..."
+msgid "Type your message here…"
+msgstr "أكتب رسالتك هنا…"
 
 #, fuzzy
 msgid "Update location"
@@ -1521,7 +1518,7 @@ msgstr ""
 msgid "Copy/Move"
 msgstr ""
 
-msgid "Send to..."
+msgid "Send to…"
 msgstr ""
 
 msgid "Export as"
@@ -1721,8 +1718,8 @@ msgid ""
 msgstr ""
 
 #, fuzzy
-msgid "Loading appointments..."
-msgstr "المواعيد"
+msgid "Loading appointments…"
+msgstr "المواعيد…"
 
 msgid "Please select a calendar via widget settings"
 msgstr ""
@@ -1771,7 +1768,7 @@ msgstr ""
 msgid "d/m/y"
 msgstr "ي/ش/س"
 
-msgid "Select one..."
+msgid "Select one…"
 msgstr ""
 
 msgid "Unnamed folder"
@@ -1853,7 +1850,7 @@ msgstr ""
 msgid "Paste this occurrence only"
 msgstr ""
 
-msgid "Paste the series..."
+msgid "Paste the series…"
 msgstr ""
 
 msgid ""
@@ -2204,7 +2201,7 @@ msgstr ""
 
 msgid ""
 "If you only want to set folder permissions, right-click on a folder to open "
-"the context menu and click on \"Share Folder...\""
+"the context menu and click on \"Share folder…\""
 msgstr ""
 
 msgid "Permission"
@@ -2730,52 +2727,52 @@ msgstr ""
 msgid "Sort by: Size"
 msgstr ""
 
-msgid "Move the message to folder..."
+msgid "Move the message to folder…"
 msgstr ""
 
-msgid "Copy the message to folder..."
+msgid "Copy the message to folder…"
 msgstr ""
 
 msgid "Delete the message"
 msgstr ""
 
-msgid "Redirect the message to..."
+msgid "Redirect the message to…"
 msgstr ""
 
-msgid "Forward the message to..."
+msgid "Forward the message to…"
 msgstr ""
 
-msgid "Forward the message as attachment to..."
+msgid "Forward the message as attachment to…"
 msgstr ""
 
-msgid "Mark the message as read..."
+msgid "Mark the message as read…"
 msgstr ""
 
-msgid "is received from..."
+msgid "is received from…"
 msgstr ""
 
-msgid "includes these words in the sender's address..."
+msgid "includes these words in the sender's address…"
 msgstr ""
 
-msgid "includes these words in the recipient's address..."
+msgid "includes these words in the recipient's address…"
 msgstr ""
 
-msgid "includes these words in the subject..."
+msgid "includes these words in the subject…"
 msgstr ""
 
-msgid "includes these words in the body..."
+msgid "includes these words in the body…"
 msgstr ""
 
-msgid "includes these words in the transport-headers..."
+msgid "includes these words in the transport headers…"
 msgstr ""
 
-msgid "has importance..."
+msgid "has importance…"
 msgstr ""
 
 msgid "has an attachment"
 msgstr ""
 
-msgid "is sent to..."
+msgid "is sent to…"
 msgstr ""
 
 msgid "is sent only to me"
@@ -2790,19 +2787,19 @@ msgstr ""
 msgid "has my name in the To or Cc field"
 msgstr ""
 
-msgid "has sensitivity..."
+msgid "has sensitivity…"
 msgstr ""
 
-msgid "is received after..."
+msgid "is received after…"
 msgstr ""
 
-msgid "is received before..."
+msgid "is received before…"
 msgstr ""
 
-msgid "size is at least..."
+msgid "size is at least…"
 msgstr ""
 
-msgid "size is at most..."
+msgid "size is at most…"
 msgstr ""
 
 msgid "has my name in the To field"
@@ -2914,7 +2911,7 @@ msgstr ""
 msgid "Always move messages with this subject"
 msgstr ""
 
-msgid "Create rule..."
+msgid "Create rule…"
 msgstr ""
 
 msgid "myself"
@@ -2932,10 +2929,10 @@ msgstr ""
 msgid "All folders"
 msgstr ""
 
-msgid "Other..."
+msgid "Other…"
 msgstr ""
 
-msgid "Search in.."
+msgid "Search in…"
 msgstr ""
 
 msgid "Folder does not exist"
@@ -3063,7 +3060,7 @@ msgstr ""
 msgid "{0} overdue"
 msgstr ""
 
-msgid "Loading..."
+msgid "Loading…"
 msgstr ""
 
 msgid "Message could not be loaded"
@@ -3554,7 +3551,7 @@ msgstr ""
 msgid "Add New"
 msgstr ""
 
-msgid "Type your note here..."
+msgid "Type your note here…"
 msgstr ""
 
 msgid "New contact"
@@ -3880,7 +3877,7 @@ msgstr ""
 msgid "Widgets"
 msgstr ""
 
-msgid "Sending..."
+msgid "Sending…"
 msgstr ""
 
 msgid "Sent successfully"
@@ -4326,7 +4323,7 @@ msgstr ""
 msgid "Remove From Favorites"
 msgstr ""
 
-msgid "Share folder..."
+msgid "Share folder…"
 msgstr ""
 
 msgid "Import emails"
@@ -4342,7 +4339,7 @@ msgstr ""
 msgid "Properties of {0}"
 msgstr ""
 
-msgid "Share {0} with..."
+msgid "Share {0} with…"
 msgstr ""
 
 msgid "Properties of {0} - {1}"
@@ -4437,7 +4434,7 @@ msgstr ""
 msgid "Your email will be sent {0}{1}"
 msgstr ""
 
-msgid "Saving..."
+msgid "Saving…"
 msgstr ""
 
 msgid "Saved at {0}"
@@ -4558,7 +4555,7 @@ msgstr "طباعة الموعد المحدد"
 
 #, fuzzy
 msgid "Filter"
-msgstr "تصفية..."
+msgstr "تصفية"
 
 msgid "Fwd"
 msgstr "إعادة توجيه"
@@ -5598,7 +5595,7 @@ msgstr ""
 msgid "More than 1 share link exists. Only showing the latest one"
 msgstr ""
 
-msgid "Loading details..."
+msgid "Loading details…"
 msgstr ""
 
 msgid "Share Details"

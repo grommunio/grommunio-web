@@ -502,8 +502,8 @@ msgstr "V tomto náhledu není žádná položka k zobrazení"
 msgid "Show Names from the"
 msgstr "Ukázat jména od"
 
-msgid "Search..."
-msgstr "Hledat..."
+msgid "Search…"
+msgstr "Hledat…"
 
 msgid "Sort by: Icon"
 msgstr "Třídit podle: Ikony"
@@ -668,8 +668,8 @@ msgstr "Složky"
 msgid "Include subfolders"
 msgstr "Vytvořit podsložky"
 
-msgid "Show.."
-msgstr "Ukázat.."
+msgid "Show…"
+msgstr "Ukázat…"
 
 msgid "Mails"
 msgstr "Zprávy"
@@ -683,8 +683,8 @@ msgstr "Kontakty"
 msgid "Tasks"
 msgstr "Úkoly"
 
-msgid "Filter.."
-msgstr "Filtrovat.."
+msgid "Filter…"
+msgstr "Filtrovat…"
 
 msgid "Unread"
 msgstr "Nepřečtené"
@@ -704,11 +704,8 @@ msgid "To"
 msgstr "Do"
 
 #, fuzzy
-msgid "Filter category.."
-msgstr "Filtrovat.."
-
-msgid "Search.."
-msgstr "Hledat v.."
+msgid "Filter category…"
+msgstr "Filtrovat…"
 
 msgid "Sender"
 msgstr "Odesílatel"
@@ -1191,8 +1188,8 @@ msgstr "Varování"
 msgid "Attachments cannot be modified for a single occurence"
 msgstr "Přílohy nemohou být modifikovány pro jedno opakování"
 
-msgid "Type your message here..."
-msgstr "Zde napište svou zprávu..."
+msgid "Type your message here…"
+msgstr "Zde napište svou zprávu…"
 
 msgid "Update location"
 msgstr "Aktualizovat lokalitu"
@@ -1533,8 +1530,8 @@ msgstr "Otevřít"
 msgid "Copy/Move"
 msgstr "Kopírovat/Přesunout"
 
-msgid "Send to..."
-msgstr "Odeslat..."
+msgid "Send to…"
+msgstr "Odeslat…"
 
 #, fuzzy
 msgid "Export as"
@@ -1763,8 +1760,8 @@ msgstr ""
 "Váš kalendář bude automaticky aktualizován. Tato žádost o schůzku bude "
 "odstraněna."
 
-msgid "Loading appointments..."
-msgstr "Načítání schůzek..."
+msgid "Loading appointments…"
+msgstr "Načítání schůzek…"
 
 #, fuzzy
 msgid "Please select a calendar via widget settings"
@@ -1821,8 +1818,8 @@ msgstr "{0} - {1} (celý den)"
 msgid "d/m/y"
 msgstr "d. m. Y"
 
-msgid "Select one..."
-msgstr "Vybrat jednu..."
+msgid "Select one…"
+msgstr "Vybrat jednu…"
 
 msgid "Unnamed folder"
 msgstr "Nepojmenovaná složka"
@@ -1912,8 +1909,8 @@ msgstr "událost"
 msgid "Paste this occurrence only"
 msgstr "Vložte pouze tento výskyt"
 
-msgid "Paste the series..."
-msgstr "Vložte sérii..."
+msgid "Paste the series…"
+msgstr "Vložte sérii…"
 
 msgid ""
 "This is a recurring message. Do you want to delete only this occurrence or "
@@ -2314,11 +2311,11 @@ msgstr "Delegáti mohou odesílat položky vaším jménem."
 #, fuzzy
 msgid ""
 "If you only want to set folder permissions, right-click on a folder to open "
-"the context menu and click on \"Share Folder...\""
+"the context menu and click on \"Share folder…\""
 msgstr ""
 "Pokud chcete nastavit pouze oprávnění složky, klikněte pravým tlačítkem myši "
 "na složku, čímž otevřete kontextovou nabídku a klikněte na možnost \"Sdílet "
-"složku...\""
+"složku…\""
 
 msgid "Permission"
 msgstr "Oprávnění"
@@ -2866,67 +2863,67 @@ msgid "Sort by: Size"
 msgstr "Třídit podle: Velikost"
 
 #, fuzzy
-msgid "Move the message to folder..."
-msgstr "Přesunout zprávu do složky ..."
+msgid "Move the message to folder…"
+msgstr "Přesunout zprávu do složky…"
 
 #, fuzzy
-msgid "Copy the message to folder..."
-msgstr "Kopírovat zprávu do složky ..."
+msgid "Copy the message to folder…"
+msgstr "Kopírovat zprávu do složky…"
 
 msgid "Delete the message"
 msgstr "Vymazat zprávu"
 
 #, fuzzy
-msgid "Redirect the message to..."
-msgstr "Přesměrovat zprávu k ..."
+msgid "Redirect the message to…"
+msgstr "Přesměrovat zprávu k…"
 
 #, fuzzy
-msgid "Forward the message to..."
-msgstr "Přeposlat zprávu k ..."
+msgid "Forward the message to…"
+msgstr "Přeposlat zprávu k…"
 
 #, fuzzy
-msgid "Forward the message as attachment to..."
-msgstr "Přeposlat zprávu jako přílohu k ..."
+msgid "Forward the message as attachment to…"
+msgstr "Přeposlat zprávu jako přílohu k …"
 
 #, fuzzy
-msgid "Mark the message as read..."
-msgstr "Přeposlat zprávu k ..."
+msgid "Mark the message as read…"
+msgstr "Přeposlat zprávu k…"
 
 #, fuzzy
-msgid "is received from..."
-msgstr "je přijato od..."
+msgid "is received from…"
+msgstr "je přijato od…"
 
 #, fuzzy
-msgid "includes these words in the sender's address..."
-msgstr "obsahuje tato slova v adese odesílatele ..."
+msgid "includes these words in the sender's address…"
+msgstr "obsahuje tato slova v adese odesílatele…"
 
 #, fuzzy
-msgid "includes these words in the recipient's address..."
-msgstr "obsahuje tato slova v adese odesílatele ..."
+msgid "includes these words in the recipient's address…"
+msgstr "obsahuje tato slova v adese odesílatele…"
 
 #, fuzzy
-msgid "includes these words in the subject..."
-msgstr "obsahuje tato slova v předmětu ..."
+msgid "includes these words in the subject…"
+msgstr "obsahuje tato slova v předmětu…"
 
 #, fuzzy
-msgid "includes these words in the body..."
-msgstr "obsahuje tato slova v obsahu ..."
+msgid "includes these words in the body…"
+msgstr "obsahuje tato slova v obsahu…"
 
 #, fuzzy
-msgid "includes these words in the transport-headers..."
-msgstr "obsahuje tato slova v obsahu ..."
+msgid "includes these words in the transport headers…"
+msgstr "obsahuje tato slova v obsahu…"
 
 #, fuzzy
-msgid "has importance..."
-msgstr "má důležitost ..."
+msgid "has importance…"
+msgstr "má důležitost…"
 
 #, fuzzy
 msgid "has an attachment"
 msgstr "má přílohu"
 
 #, fuzzy
-msgid "is sent to..."
-msgstr "je poslán ..."
+msgid "is sent to…"
+msgstr "je poslán…"
 
 msgid "is sent only to me"
 msgstr "je poslán pouze mně"
@@ -2943,24 +2940,24 @@ msgstr "neobsahuje mé jméno v poli To nebo Cc"
 msgid "has my name in the To or Cc field"
 msgstr "má mé jméno v poli To nebo Cc"
 
-msgid "has sensitivity..."
-msgstr "Důvěrnost..."
+msgid "has sensitivity…"
+msgstr "Důvěrnost…"
 
 #, fuzzy
-msgid "is received after..."
-msgstr "je přijato od..."
+msgid "is received after…"
+msgstr "je přijato od…"
 
 #, fuzzy
-msgid "is received before..."
-msgstr "je přijato od..."
+msgid "is received before…"
+msgstr "je přijato od…"
 
 #, fuzzy
-msgid "size is at least..."
-msgstr "velikost je minimálně..."
+msgid "size is at least…"
+msgstr "velikost je minimálně…"
 
 #, fuzzy
-msgid "size is at most..."
-msgstr "velikost je maximálně..."
+msgid "size is at most…"
+msgstr "velikost je maximálně…"
 
 #, fuzzy
 msgid "has my name in the To field"
@@ -3081,8 +3078,8 @@ msgid "Always move messages with this subject"
 msgstr "Vždy přesouvejte zprávy s tímto předmětem"
 
 #, fuzzy
-msgid "Create rule..."
-msgstr "Vytvořit pravidlo..."
+msgid "Create rule…"
+msgstr "Vytvořit pravidlo…"
 
 #, fuzzy
 msgid "myself"
@@ -3102,12 +3099,11 @@ msgstr "Chcete použít tyto změny?"
 msgid "All folders"
 msgstr "Všechny moje složky"
 
-msgid "Other..."
-msgstr "Další..."
+msgid "Other…"
+msgstr "Další…"
 
-#, fuzzy
-msgid "Search in.."
-msgstr "Hledat v.."
+msgid "Search in…"
+msgstr "Hledat v…"
 
 #, fuzzy
 msgid "Folder does not exist"
@@ -3253,8 +3249,8 @@ msgstr "Organizátor schůzky"
 msgid "{0} overdue"
 msgstr "{0} zpožděný"
 
-msgid "Loading..."
-msgstr "Načítám..."
+msgid "Loading…"
+msgstr "Načítám…"
 
 #, fuzzy
 msgid "Message could not be loaded"
@@ -3775,8 +3771,8 @@ msgstr "Vybrat členy"
 msgid "Add New"
 msgstr "Přidat Nové"
 
-msgid "Type your note here..."
-msgstr "Zde napište poznámku..."
+msgid "Type your note here…"
+msgstr "Zde napište poznámku…"
 
 msgid "New contact"
 msgstr "Nový kontakt"
@@ -4117,8 +4113,8 @@ msgstr "Přepnout náhled"
 msgid "Widgets"
 msgstr "Widgety"
 
-msgid "Sending..."
-msgstr "Odesílání..."
+msgid "Sending…"
+msgstr "Odesílání…"
 
 msgid "Sent successfully"
 msgstr "Odesláno úspěšně"
@@ -4609,8 +4605,8 @@ msgstr "Přidat do oblíbených"
 msgid "Remove From Favorites"
 msgstr "Odstranit z kalendáře"
 
-msgid "Share folder..."
-msgstr "Výchozí adresář..."
+msgid "Share folder…"
+msgstr "Výchozí adresář…"
 
 #, fuzzy
 msgid "Import emails"
@@ -4629,8 +4625,8 @@ msgid "Properties of {0}"
 msgstr "Vlastnosti"
 
 #, fuzzy
-msgid "Share {0} with..."
-msgstr "Sdílejte {0} s..."
+msgid "Share {0} with…"
+msgstr "Sdílejte {0} s…"
 
 #, fuzzy
 msgid "Properties of {0} - {1}"
@@ -4739,7 +4735,7 @@ msgstr "na {0}"
 msgid "Your email will be sent {0}{1}"
 msgstr "Váš e-mail bude odeslán {0}{1}"
 
-msgid "Saving..."
+msgid "Saving…"
 msgstr "Ukládám…"
 
 #, fuzzy
@@ -6092,8 +6088,8 @@ msgstr ""
 "Existuje více než 1 odkaz na sdílení. Zobrazuje se pouze ten nejnovější"
 
 #, fuzzy
-msgid "Loading details..."
-msgstr "Načítání podrobností..."
+msgid "Loading details…"
+msgstr "Načítání podrobností…"
 
 #, fuzzy
 msgid "Share Details"

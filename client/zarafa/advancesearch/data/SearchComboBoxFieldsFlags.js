@@ -27,7 +27,7 @@ Zarafa.advancesearch.data.SearchComboBoxFieldsFlags = Zarafa.core.Enum.create({
 	CURRENT_SELECTED_FOLDER: 1,
 
 	/**
-	 * Indicate that folder is added in search combo box using 'Other...' option in search combo box.
+	 * Indicate that folder is added in search combo box using 'Other…' option in search combo box.
 	 *
 	 * @property
 	 * @type Number

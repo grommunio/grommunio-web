@@ -485,7 +485,7 @@ msgstr "There are no items to show in this list"
 msgid "Show Names from the"
 msgstr "Show Names from the"
 
-msgid "Search..."
+msgid "Search…"
 msgstr "Search…"
 
 msgid "Sort by: Icon"
@@ -647,8 +647,8 @@ msgstr "Folders"
 msgid "Include subfolders"
 msgstr "Include subfolders"
 
-msgid "Show.."
-msgstr "Show.."
+msgid "Show…"
+msgstr "Show…"
 
 msgid "Mails"
 msgstr "Mails"
@@ -662,8 +662,8 @@ msgstr "Contacts"
 msgid "Tasks"
 msgstr "Tasks"
 
-msgid "Filter.."
-msgstr "Filter.."
+msgid "Filter…"
+msgstr "Filter…"
 
 msgid "Unread"
 msgstr "Unread"
@@ -682,11 +682,8 @@ msgctxt "search.date"
 msgid "To"
 msgstr "To"
 
-msgid "Filter category.."
-msgstr "Filter category.."
-
-msgid "Search.."
-msgstr "Search.."
+msgid "Filter category…"
+msgstr "Filter category…"
 
 msgid "Sender"
 msgstr "Sender"
@@ -1151,7 +1148,7 @@ msgstr "Warning"
 msgid "Attachments cannot be modified for a single occurence"
 msgstr "Attachments cannot be modified for a single occurence"
 
-msgid "Type your message here..."
+msgid "Type your message here…"
 msgstr "Type your message here…"
 
 msgid "Update location"
@@ -1483,7 +1480,7 @@ msgstr "Open"
 msgid "Copy/Move"
 msgstr "Copy/Move"
 
-msgid "Send to..."
+msgid "Send to…"
 msgstr "Send to…"
 
 msgid "Export as"
@@ -1692,7 +1689,7 @@ msgstr ""
 "Your calendar has been updated automatically. This meeting request will now "
 "be deleted."
 
-msgid "Loading appointments..."
+msgid "Loading appointments…"
 msgstr "Loading appointments…"
 
 msgid "Please select a calendar via widget settings"
@@ -1739,7 +1736,7 @@ msgstr "{0} - {1} (all day)"
 msgid "d/m/y"
 msgstr "d/m/y"
 
-msgid "Select one..."
+msgid "Select one…"
 msgstr "Select one…"
 
 msgid "Unnamed folder"
@@ -1831,7 +1828,7 @@ msgstr "appointment"
 msgid "Paste this occurrence only"
 msgstr "Paste this occurrence only"
 
-msgid "Paste the series..."
+msgid "Paste the series…"
 msgstr "Paste the series…"
 
 msgid ""
@@ -2210,10 +2207,10 @@ msgstr "Delegates can send items on your behalf."
 
 msgid ""
 "If you only want to set folder permissions, right-click on a folder to open "
-"the context menu and click on \"Share Folder...\""
+"the context menu and click on \"Share folder…\""
 msgstr ""
 "If you only want to set folder permissions, right-click on a folder to open "
-"the context menu and click on \"Share Folder...\""
+"the context menu and click on \"Share folder…\""
 
 msgid "Permission"
 msgstr "Permission"
@@ -2721,52 +2718,52 @@ msgstr "Size"
 msgid "Sort by: Size"
 msgstr "Sort by: Size"
 
-msgid "Move the message to folder..."
+msgid "Move the message to folder…"
 msgstr "Move the message to folder…"
 
-msgid "Copy the message to folder..."
+msgid "Copy the message to folder…"
 msgstr "Copy the message to folder…"
 
 msgid "Delete the message"
 msgstr "Delete the message"
 
-msgid "Redirect the message to..."
+msgid "Redirect the message to…"
 msgstr "Redirect the message to…"
 
-msgid "Forward the message to..."
+msgid "Forward the message to…"
 msgstr "Forward the message to…"
 
-msgid "Forward the message as attachment to..."
+msgid "Forward the message as attachment to…"
 msgstr "Forward the message as attachment to…"
 
-msgid "Mark the message as read..."
+msgid "Mark the message as read…"
 msgstr "Mark the message as read…"
 
-msgid "is received from..."
+msgid "is received from…"
 msgstr "is received from…"
 
-msgid "includes these words in the sender's address..."
+msgid "includes these words in the sender's address…"
 msgstr "includes these words in the sender's address…"
 
-msgid "includes these words in the recipient's address..."
+msgid "includes these words in the recipient's address…"
 msgstr "includes these words in the recipient's address…"
 
-msgid "includes these words in the subject..."
+msgid "includes these words in the subject…"
 msgstr "includes these words in the subject…"
 
-msgid "includes these words in the body..."
+msgid "includes these words in the body…"
 msgstr "includes these words in the body…"
 
-msgid "includes these words in the transport-headers..."
-msgstr "includes these words in the transport-headers…"
+msgid "includes these words in the transport headers…"
+msgstr "includes these words in the transport headers…"
 
-msgid "has importance..."
+msgid "has importance…"
 msgstr "has importance…"
 
 msgid "has an attachment"
 msgstr "has an attachment"
 
-msgid "is sent to..."
+msgid "is sent to…"
 msgstr "is sent to…"
 
 msgid "is sent only to me"
@@ -2781,19 +2778,19 @@ msgstr "does not have my name in the To or Cc field"
 msgid "has my name in the To or Cc field"
 msgstr "has my name in the To or Cc field"
 
-msgid "has sensitivity..."
+msgid "has sensitivity…"
 msgstr "has sensitivity…"
 
-msgid "is received after..."
+msgid "is received after…"
 msgstr "is received after…"
 
-msgid "is received before..."
+msgid "is received before…"
 msgstr "is received before…"
 
-msgid "size is at least..."
+msgid "size is at least…"
 msgstr "size is at least…"
 
-msgid "size is at most..."
+msgid "size is at most…"
 msgstr "size is at most…"
 
 msgid "has my name in the To field"
@@ -2905,7 +2902,7 @@ msgstr "Always move messages that are sent to <recipients>"
 msgid "Always move messages with this subject"
 msgstr "Always move messages with this subject"
 
-msgid "Create rule..."
+msgid "Create rule…"
 msgstr "Create rule…"
 
 msgid "myself"
@@ -2923,11 +2920,11 @@ msgstr "Do you wish to apply the changes?"
 msgid "All folders"
 msgstr "All folders"
 
-msgid "Other..."
+msgid "Other…"
 msgstr "Other…"
 
-msgid "Search in.."
-msgstr "Search in.."
+msgid "Search in…"
+msgstr "Search in…"
 
 msgid "Folder does not exist"
 msgstr "Folder does not exist"
@@ -3057,7 +3054,7 @@ msgstr "Meeting Organiser"
 msgid "{0} overdue"
 msgstr "{0} overdue"
 
-msgid "Loading..."
+msgid "Loading…"
 msgstr "Loading…"
 
 msgid "Message could not be loaded"
@@ -3554,7 +3551,7 @@ msgstr "Select Members"
 msgid "Add New"
 msgstr "Add New"
 
-msgid "Type your note here..."
+msgid "Type your note here…"
 msgstr "Type your note here…"
 
 msgid "New contact"
@@ -3893,7 +3890,7 @@ msgstr "Switch view"
 msgid "Widgets"
 msgstr "Widgets"
 
-msgid "Sending..."
+msgid "Sending…"
 msgstr "Sending…"
 
 msgid "Sent successfully"
@@ -4335,7 +4332,7 @@ msgstr "Add to Favorites"
 msgid "Remove From Favorites"
 msgstr "Remove From Favorites"
 
-msgid "Share folder..."
+msgid "Share folder…"
 msgstr "Share folder…"
 
 msgid "Import emails"
@@ -4350,7 +4347,7 @@ msgstr "Import contacts"
 msgid "Properties of {0}"
 msgstr "Properties of {0}"
 
-msgid "Share {0} with..."
+msgid "Share {0} with…"
 msgstr "Share {0} with…"
 
 msgid "Properties of {0} - {1}"
@@ -4449,7 +4446,7 @@ msgstr "at {0}"
 msgid "Your email will be sent {0}{1}"
 msgstr "Your email will be sent {0}{1}"
 
-msgid "Saving..."
+msgid "Saving…"
 msgstr "Saving…"
 
 msgid "Saved at {0}"
@@ -5627,7 +5624,7 @@ msgstr "Expiration date"
 msgid "More than 1 share link exists. Only showing the latest one"
 msgstr "More than 1 share link exists. Only showing the latest one"
 
-msgid "Loading details..."
+msgid "Loading details…"
 msgstr "Loading details…"
 
 msgid "Share Details"

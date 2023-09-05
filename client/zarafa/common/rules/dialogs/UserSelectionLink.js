@@ -10,7 +10,7 @@ Zarafa.common.rules.dialogs.UserSelectionLink = Ext.extend(Ext.BoxComponent, {
 	 * @cfg {String} fieldLabel The label which must be applied to template
 	 * as a prefix to the list of attachments.
 	 */
-	emptyText:_('Select one...'),
+	emptyText:_('Select one…'),
 
 	/**
 	 * @cfg {String} userStringSeparator The separator which is used to separate list

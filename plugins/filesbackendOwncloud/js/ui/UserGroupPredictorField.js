@@ -42,7 +42,7 @@ Zarafa.plugins.files.backend.Owncloud.ui.UserGroupPredictorField = Ext.extend(Ex
 			mode: 'remote',
 			minChars: 2,
 			emptyText: _('Type to search'),
-			loadingText: _('Loading...'),
+			loadingText: _('Loading…'),
 			listEmptyText: _('No results'),
 			itemSelector: 'div.ugpredic_search_item',
 			tpl: new Ext.XTemplate(

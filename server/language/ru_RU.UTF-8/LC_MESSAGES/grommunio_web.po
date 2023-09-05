@@ -500,8 +500,8 @@ msgstr "Нет элементов для отображения"
 msgid "Show Names from the"
 msgstr "Показать имена"
 
-msgid "Search..."
-msgstr "Поиск..."
+msgid "Search…"
+msgstr "Поиск…"
 
 msgid "Sort by: Icon"
 msgstr "Сортировать по иконке"
@@ -664,8 +664,8 @@ msgstr "Папки"
 msgid "Include subfolders"
 msgstr "Включая подпапки"
 
-msgid "Show.."
-msgstr "Показать.."
+msgid "Show…"
+msgstr "Показать…"
 
 msgid "Mails"
 msgstr "Почтовые ящики"
@@ -679,8 +679,8 @@ msgstr "Контакты"
 msgid "Tasks"
 msgstr "Задачи"
 
-msgid "Filter.."
-msgstr "Фильтр.."
+msgid "Filter…"
+msgstr "Фильтр…"
 
 msgid "Unread"
 msgstr "Непрочитанные"
@@ -699,11 +699,8 @@ msgctxt "search.date"
 msgid "To"
 msgstr "Кому"
 
-msgid "Filter category.."
-msgstr "Отфильтровать категорию.."
-
-msgid "Search.."
-msgstr "Поиск.."
+msgid "Filter category…"
+msgstr "Отфильтровать категорию…"
 
 msgid "Sender"
 msgstr "Отправитель"
@@ -1185,8 +1182,8 @@ msgstr "Предупреждение"
 msgid "Attachments cannot be modified for a single occurence"
 msgstr "Вложения не могут быть изменены для одного события"
 
-msgid "Type your message here..."
-msgstr "Напишите ваша сообщение здесь..."
+msgid "Type your message here…"
+msgstr "Напишите ваша сообщение здесь…"
 
 msgid "Update location"
 msgstr "Обновление местоположения"
@@ -1526,8 +1523,8 @@ msgstr "Открыть"
 msgid "Copy/Move"
 msgstr "Копировать/Переместить"
 
-msgid "Send to..."
-msgstr "Отправить на..."
+msgid "Send to…"
+msgstr "Отправить на…"
 
 msgid "Export as"
 msgstr "Экспортировать как"
@@ -1754,8 +1751,8 @@ msgstr ""
 "Ваш календарь был автоматически обновлён. Это приглашение на собрание будет "
 "удалено."
 
-msgid "Loading appointments..."
-msgstr "Загрузка встреч..."
+msgid "Loading appointments…"
+msgstr "Загрузка встреч…"
 
 #, fuzzy
 msgid "Please select a calendar via widget settings"
@@ -1810,8 +1807,8 @@ msgstr "{0} - {1} (весь день)"
 msgid "d/m/y"
 msgstr "d/m/Y"
 
-msgid "Select one..."
-msgstr "Выбор..."
+msgid "Select one…"
+msgstr "Выбор…"
 
 msgid "Unnamed folder"
 msgstr "Безымянная папка"
@@ -1901,8 +1898,8 @@ msgstr "встреча"
 msgid "Paste this occurrence only"
 msgstr "Добавить только это событие"
 
-msgid "Paste the series..."
-msgstr "Добавить серию..."
+msgid "Paste the series…"
+msgstr "Добавить серию…"
 
 msgid ""
 "This is a recurring message. Do you want to delete only this occurrence or "
@@ -2296,11 +2293,11 @@ msgstr "Делегаты могут отправлять предметы от �
 #, fuzzy
 msgid ""
 "If you only want to set folder permissions, right-click on a folder to open "
-"the context menu and click on \"Share Folder...\""
+"the context menu and click on \"Share folder…\""
 msgstr ""
 "Если вы хотите установить разрешения только для папок, щелкните правой "
 "кнопкой мыши на папке, чтобы открыть контекстное меню, и выберите "
-"\"Поделиться папкой...\""
+"\"Поделиться папкой…\""
 
 msgid "Permission"
 msgstr "Разрешения"
@@ -2846,65 +2843,65 @@ msgid "Sort by: Size"
 msgstr "Сортировка по: Размеру"
 
 #, fuzzy
-msgid "Move the message to folder..."
-msgstr "Переместить сообщение в каталог..."
+msgid "Move the message to folder…"
+msgstr "Переместить сообщение в каталог…"
 
 #, fuzzy
-msgid "Copy the message to folder..."
-msgstr "Скопировать сообщение в каталог..."
+msgid "Copy the message to folder…"
+msgstr "Скопировать сообщение в каталог…"
 
 msgid "Delete the message"
 msgstr "Удалить сообщение"
 
 #, fuzzy
-msgid "Redirect the message to..."
-msgstr "Перенаправить сообщение..."
+msgid "Redirect the message to…"
+msgstr "Перенаправить сообщение…"
 
 #, fuzzy
-msgid "Forward the message to..."
-msgstr "Переслать сообщение..."
+msgid "Forward the message to…"
+msgstr "Переслать сообщение…"
 
 #, fuzzy
-msgid "Forward the message as attachment to..."
-msgstr "Переслать сообщение как вложение..."
+msgid "Forward the message as attachment to…"
+msgstr "Переслать сообщение как вложение…"
 
 #, fuzzy
-msgid "Mark the message as read..."
-msgstr "Переслать сообщение..."
+msgid "Mark the message as read…"
+msgstr "Переслать сообщение…"
 
-msgid "is received from..."
-msgstr "получен от..."
-
-#, fuzzy
-msgid "includes these words in the sender's address..."
-msgstr "содержит слова в адресе отправителя ..."
+msgid "is received from…"
+msgstr "получен от…"
 
 #, fuzzy
-msgid "includes these words in the recipient's address..."
-msgstr "содержит слова в адресе отправителя ..."
+msgid "includes these words in the sender's address…"
+msgstr "содержит слова в адресе отправителя…"
 
 #, fuzzy
-msgid "includes these words in the subject..."
-msgstr "содержит слова в теме письма..."
+msgid "includes these words in the recipient's address…"
+msgstr "содержит слова в адресе отправителя…"
 
 #, fuzzy
-msgid "includes these words in the body..."
-msgstr "содержит слова в теле письма..."
+msgid "includes these words in the subject…"
+msgstr "содержит слова в теме письма…"
 
 #, fuzzy
-msgid "includes these words in the transport-headers..."
-msgstr "содержит слова в технических заголовках письма..."
+msgid "includes these words in the body…"
+msgstr "содержит слова в теле письма…"
 
 #, fuzzy
-msgid "has importance..."
-msgstr "имеет важность..."
+msgid "includes these words in the transport headers…"
+msgstr "содержит слова в технических заголовках письма…"
+
+#, fuzzy
+msgid "has importance…"
+msgstr "имеет важность…"
 
 msgid "has an attachment"
 msgstr "имеет вложение"
 
 #, fuzzy
-msgid "is sent to..."
-msgstr "отправлено ..."
+msgid "is sent to…"
+msgstr "отправлено…"
 
 msgid "is sent only to me"
 msgstr "отправлено только мне"
@@ -2919,20 +2916,20 @@ msgstr "моё имя в поле кому(To) или копия(Cc)"
 msgid "has my name in the To or Cc field"
 msgstr "моё имя в поле кому(To) или копия(Cc)"
 
-msgid "has sensitivity..."
-msgstr "обладает чувствительностью..."
+msgid "has sensitivity…"
+msgstr "обладает чувствительностью…"
 
-msgid "is received after..."
-msgstr "получен после..."
+msgid "is received after…"
+msgstr "получен после…"
 
-msgid "is received before..."
-msgstr "получен до..."
+msgid "is received before…"
+msgstr "получен до…"
 
-msgid "size is at least..."
-msgstr "размер не менее..."
+msgid "size is at least…"
+msgstr "размер не менее…"
 
-msgid "size is at most..."
-msgstr "размер не более..."
+msgid "size is at most…"
+msgstr "размер не более…"
 
 msgid "has my name in the To field"
 msgstr "моё имя в поле Кому(To)"
@@ -3049,8 +3046,8 @@ msgid "Always move messages with this subject"
 msgstr "Всегда перемещайте сообщения с этой темой"
 
 #, fuzzy
-msgid "Create rule..."
-msgstr "Создайте правило..."
+msgid "Create rule…"
+msgstr "Создайте правило…"
 
 msgid "myself"
 msgstr "сам"
@@ -3067,11 +3064,11 @@ msgstr "Вы хотите применить изменения?"
 msgid "All folders"
 msgstr "Все папки"
 
-msgid "Other..."
-msgstr "Другие..."
+msgid "Other…"
+msgstr "Другие…"
 
-msgid "Search in.."
-msgstr "Поиск в.."
+msgid "Search in…"
+msgstr "Поиск в…"
 
 msgid "Folder does not exist"
 msgstr "Папки не существует"
@@ -3210,8 +3207,8 @@ msgstr "Организатор встречи"
 msgid "{0} overdue"
 msgstr "{0} просрочены"
 
-msgid "Loading..."
-msgstr "Загрузка..."
+msgid "Loading…"
+msgstr "Загрузка…"
 
 #, fuzzy
 msgid "Message could not be loaded"
@@ -3713,8 +3710,8 @@ msgstr "Выбрать участников"
 msgid "Add New"
 msgstr "Добавить"
 
-msgid "Type your note here..."
-msgstr "Напишите заметку здесь..."
+msgid "Type your note here…"
+msgstr "Напишите заметку здесь…"
 
 msgid "New contact"
 msgstr "Новый контакт"
@@ -4056,8 +4053,8 @@ msgstr "Переключить вид"
 msgid "Widgets"
 msgstr "Виджеты"
 
-msgid "Sending..."
-msgstr "Отправка..."
+msgid "Sending…"
+msgstr "Отправка…"
 
 msgid "Sent successfully"
 msgstr "Успешно отправлено"
@@ -4521,8 +4518,8 @@ msgstr "Добавить в «Избранное»"
 msgid "Remove From Favorites"
 msgstr "Удалить из «Избранное»"
 
-msgid "Share folder..."
-msgstr "Поделиться папкой..."
+msgid "Share folder…"
+msgstr "Поделиться папкой…"
 
 msgid "Import emails"
 msgstr "Импортировать письма"
@@ -4538,8 +4535,8 @@ msgstr "Импорт контактов"
 msgid "Properties of {0}"
 msgstr "Свойства {0}"
 
-msgid "Share {0} with..."
-msgstr "Поделиться {0} с..."
+msgid "Share {0} with…"
+msgstr "Поделиться {0} с…"
 
 msgid "Properties of {0} - {1}"
 msgstr "Свойства {0} - {1}"
@@ -4640,8 +4637,8 @@ msgstr "в {0}"
 msgid "Your email will be sent {0}{1}"
 msgstr "Ваше письмо будет отправлено {0}{1}"
 
-msgid "Saving..."
-msgstr "Сохранение..."
+msgid "Saving…"
+msgstr "Сохранение…"
 
 #, fuzzy
 msgid "Saved at {0}"
@@ -5895,8 +5892,8 @@ msgid "More than 1 share link exists. Only showing the latest one"
 msgstr ""
 "Существует более 1 ссылки на общий доступ. Показывается только последняя"
 
-msgid "Loading details..."
-msgstr "Загрузка подробностей..."
+msgid "Loading details…"
+msgstr "Загрузка подробностей…"
 
 msgid "Share Details"
 msgstr "Общий доступ"

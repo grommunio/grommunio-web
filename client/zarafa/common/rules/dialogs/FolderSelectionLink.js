@@ -15,7 +15,7 @@ Zarafa.common.rules.dialogs.FolderSelectionLink = Ext.extend(Ext.BoxComponent, {
 	 * @cfg {String} fieldLabel The label which must be applied to template
 	 * as a prefix to the list of attachments.
 	 */
-	emptyText:_('Select one...'),
+	emptyText:_('Select one…'),
 
 	/**
 	 * The folder which was selected by the user

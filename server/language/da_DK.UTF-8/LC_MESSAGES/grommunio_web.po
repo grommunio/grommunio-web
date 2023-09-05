@@ -490,8 +490,8 @@ msgstr "Der findes ingen elementer at vise i denne visningstype"
 msgid "Show Names from the"
 msgstr "Vis navne fra"
 
-msgid "Search..."
-msgstr "Søg ..."
+msgid "Search…"
+msgstr "Søg…"
 
 msgid "Sort by: Icon"
 msgstr "Sorter efter: Ikon"
@@ -655,8 +655,8 @@ msgstr "Mapper"
 msgid "Include subfolders"
 msgstr "Inkluder undermapper"
 
-msgid "Show.."
-msgstr "Vis.."
+msgid "Show…"
+msgstr "Vis…"
 
 msgid "Mails"
 msgstr "Meddelelser"
@@ -670,8 +670,8 @@ msgstr "Kontakter"
 msgid "Tasks"
 msgstr "Opgaver"
 
-msgid "Filter.."
-msgstr "Filtrer.."
+msgid "Filter…"
+msgstr "Filtrer…"
 
 msgid "Unread"
 msgstr "Ulæst"
@@ -690,11 +690,8 @@ msgctxt "search.date"
 msgid "To"
 msgstr "Til"
 
-msgid "Filter category.."
-msgstr "Slet kategori.."
-
-msgid "Search.."
-msgstr "Søg.."
+msgid "Filter category…"
+msgstr "Slet kategori…"
 
 msgid "Sender"
 msgstr "Afsender"
@@ -1180,8 +1177,8 @@ msgstr "Advarsel"
 msgid "Attachments cannot be modified for a single occurence"
 msgstr "Vedhæftninger kunne ikke ændres for en enkelt hændelse"
 
-msgid "Type your message here..."
-msgstr "Indtast din besked her..."
+msgid "Type your message here…"
+msgstr "Indtast din besked her…"
 
 msgid "Update location"
 msgstr "Opdater center"
@@ -1525,8 +1522,8 @@ msgstr "Åben"
 msgid "Copy/Move"
 msgstr "Kopier/flyt"
 
-msgid "Send to..."
-msgstr "Send..."
+msgid "Send to…"
+msgstr "Send…"
 
 msgid "Export as"
 msgstr "Eksporter som"
@@ -1751,8 +1748,8 @@ msgstr ""
 "Din kalender er blevet opdateret automatisk. Denne mødeindkaldelse vil nu "
 "blive slettet."
 
-msgid "Loading appointments..."
-msgstr "Henter aftaler..."
+msgid "Loading appointments…"
+msgstr "Henter aftaler…"
 
 #, fuzzy
 msgid "Please select a calendar via widget settings"
@@ -1809,8 +1806,8 @@ msgstr "{0} - {1} (hele dagen)"
 msgid "d/m/y"
 msgstr "d/m/Y"
 
-msgid "Select one..."
-msgstr "Vælg en..."
+msgid "Select one…"
+msgstr "Vælg en…"
 
 msgid "Unnamed folder"
 msgstr "Unavngivet folder"
@@ -1900,8 +1897,8 @@ msgstr "aftale"
 msgid "Paste this occurrence only"
 msgstr "Indsæt kun denne hændelse"
 
-msgid "Paste the series..."
-msgstr "Indsæt serien..."
+msgid "Paste the series…"
+msgstr "Indsæt serien…"
 
 msgid ""
 "This is a recurring message. Do you want to delete only this occurrence or "
@@ -2310,10 +2307,10 @@ msgstr "Delegerede kan sende emner på dine vegne."
 #, fuzzy
 msgid ""
 "If you only want to set folder permissions, right-click on a folder to open "
-"the context menu and click on \"Share Folder...\""
+"the context menu and click on \"Share folder…\""
 msgstr ""
 "Hvis du kun vil indstille mappetilladelser, skal du højreklikke på en mappe "
-"for at åbne kontekstmenuen og klikke på \"Share Folder...\" (Del mappe...)"
+"for at åbne kontekstmenuen og klikke på \"Del mappe…\""
 
 msgid "Permission"
 msgstr "Tilladelse"
@@ -2862,66 +2859,65 @@ msgid "Sort by: Size"
 msgstr "Sorter efter: Størrelse"
 
 #, fuzzy
-msgid "Move the message to folder..."
-msgstr "Flyt meddelelsen til mappen ..."
+msgid "Move the message to folder…"
+msgstr "Flyt meddelelsen til mappen…"
 
 #, fuzzy
-msgid "Copy the message to folder..."
-msgstr "Kopier meddelelsen til mappen ..."
+msgid "Copy the message to folder…"
+msgstr "Kopier meddelelsen til mappen…"
 
 msgid "Delete the message"
 msgstr "Slet denne meddelelse"
 
 #, fuzzy
-msgid "Redirect the message to..."
-msgstr "Viderestil meddelelsen til ..."
+msgid "Redirect the message to…"
+msgstr "Viderestil meddelelsen til…"
 
 #, fuzzy
-msgid "Forward the message to..."
-msgstr "Videresend meddelelsen til ..."
+msgid "Forward the message to…"
+msgstr "Videresend meddelelsen til…"
 
 #, fuzzy
-msgid "Forward the message as attachment to..."
-msgstr "Videresend meddelelsen som vedhæftning til ..."
+msgid "Forward the message as attachment to…"
+msgstr "Videresend meddelelsen som vedhæftning til …"
 
 #, fuzzy
-msgid "Mark the message as read..."
-msgstr "Videresend meddelelsen til ..."
+msgid "Mark the message as read…"
+msgstr "Videresend meddelelsen til…"
 
 #, fuzzy
-msgid "is received from..."
-msgstr "er modtaget fra ..."
+msgid "is received from…"
+msgstr "er modtaget fra…"
 
 #, fuzzy
-msgid "includes these words in the sender's address..."
-msgstr "inkluder disse ord i afsenderens adresse ..."
+msgid "includes these words in the sender's address…"
+msgstr "inkluder disse ord i afsenderens adresse…"
 
 #, fuzzy
-msgid "includes these words in the recipient's address..."
-msgstr "inkluder disse ord i afsenderens adresse ..."
+msgid "includes these words in the recipient's address…"
+msgstr "inkluder disse ord i afsenderens adresse…"
 
 #, fuzzy
-msgid "includes these words in the subject..."
-msgstr "inkluder disse ord i emnet ..."
+msgid "includes these words in the subject…"
+msgstr "inkluder disse ord i emnet…"
 
 #, fuzzy
-msgid "includes these words in the body..."
-msgstr "inkluder disse ord i brevkroppen ..."
+msgid "includes these words in the body…"
+msgstr "inkluder disse ord i brevkroppen…"
 
 #, fuzzy
-msgid "includes these words in the transport-headers..."
-msgstr "inkluder disse ord i brevkroppen ..."
+msgid "includes these words in the transport-headers…"
+msgstr "inkluder disse ord i brevkroppen…"
 
 #, fuzzy
-msgid "has importance..."
-msgstr "har vigtighed ..."
+msgid "has importance…"
+msgstr "har vigtighed…"
 
 msgid "has an attachment"
 msgstr "har en vedhæftning"
 
-#, fuzzy
-msgid "is sent to..."
-msgstr "er sendt til ..."
+msgid "is sent to…"
+msgstr "er sendt til…"
 
 msgid "is sent only to me"
 msgstr "er kun sendt til mig"
@@ -2936,22 +2932,22 @@ msgstr "har mit navn i Til eller Cc-feltet"
 msgid "has my name in the To or Cc field"
 msgstr "har mit navn i Til eller Cc-feltet"
 
-msgid "has sensitivity..."
-msgstr "har fortrolighed..."
+msgid "has sensitivity…"
+msgstr "har fortrolighed…"
 
-msgid "is received after..."
-msgstr "er modtaget efter..."
+msgid "is received after…"
+msgstr "er modtaget efter…"
 
-msgid "is received before..."
-msgstr "er modtaget før..."
-
-#, fuzzy
-msgid "size is at least..."
-msgstr "størrelse er mindst..."
+msgid "is received before…"
+msgstr "er modtaget før…"
 
 #, fuzzy
-msgid "size is at most..."
-msgstr "størrelse er højst..."
+msgid "size is at least…"
+msgstr "størrelse er mindst…"
+
+#, fuzzy
+msgid "size is at most…"
+msgstr "størrelse er højst…"
 
 msgid "has my name in the To field"
 msgstr "har mit navn i Til-feltet"
@@ -3069,8 +3065,8 @@ msgid "Always move messages with this subject"
 msgstr "Flyt altid meddelelser med dette emne"
 
 #, fuzzy
-msgid "Create rule..."
-msgstr "Opret regel..."
+msgid "Create rule…"
+msgstr "Opret regel…"
 
 msgid "myself"
 msgstr "mig selv"
@@ -3087,11 +3083,11 @@ msgstr "Vil du anvende ændringerne?"
 msgid "All folders"
 msgstr "Alle mapper"
 
-msgid "Other..."
-msgstr "Andre..."
+msgid "Other…"
+msgstr "Andre…"
 
-msgid "Search in.."
-msgstr "Søg i.."
+msgid "Search in…"
+msgstr "Søg i…"
 
 #, fuzzy
 msgid "Folder does not exist"
@@ -3230,8 +3226,8 @@ msgstr "Mødearrangør"
 msgid "{0} overdue"
 msgstr "{0} overskredet"
 
-msgid "Loading..."
-msgstr "Henter..."
+msgid "Loading…"
+msgstr "Henter…"
 
 #, fuzzy
 msgid "Message could not be loaded"
@@ -3733,8 +3729,8 @@ msgstr "Vælg medlemmer"
 msgid "Add New"
 msgstr "Tilføj ny"
 
-msgid "Type your note here..."
-msgstr "Indtast din note her..."
+msgid "Type your note here…"
+msgstr "Indtast din note her…"
 
 msgid "New contact"
 msgstr "Ny kontakt"
@@ -4076,8 +4072,8 @@ msgstr "Skift visning"
 msgid "Widgets"
 msgstr "Widgets"
 
-msgid "Sending..."
-msgstr "Sender..."
+msgid "Sending…"
+msgstr "Sender…"
 
 msgid "Sent successfully"
 msgstr "Sendt med success"
@@ -4546,8 +4542,8 @@ msgstr "Tilføj til favoritter"
 msgid "Remove From Favorites"
 msgstr "Fjern fra favoritter"
 
-msgid "Share folder..."
-msgstr "Delingsmappe..."
+msgid "Share folder…"
+msgstr "Del mappe…"
 
 #, fuzzy
 msgid "Import emails"
@@ -4565,8 +4561,8 @@ msgid "Properties of {0}"
 msgstr "Egenskaber"
 
 #, fuzzy
-msgid "Share {0} with..."
-msgstr "Del {0} med..."
+msgid "Share {0} with…"
+msgstr "Del {0} med…"
 
 #, fuzzy
 msgid "Properties of {0} - {1}"
@@ -4668,8 +4664,8 @@ msgstr "om {0}"
 msgid "Your email will be sent {0}{1}"
 msgstr "Din email vil blive sendt {0}{1}"
 
-msgid "Saving..."
-msgstr "Gemmer..."
+msgid "Saving…"
+msgstr "Gemmer…"
 
 #, fuzzy
 msgid "Saved at {0}"
@@ -5941,8 +5937,8 @@ msgid "More than 1 share link exists. Only showing the latest one"
 msgstr "Der findes mere end 1 delelink. Der vises kun det seneste"
 
 #, fuzzy
-msgid "Loading details..."
-msgstr "Indlæser oplysninger..."
+msgid "Loading details…"
+msgstr "Indlæser oplysninger…"
 
 #, fuzzy
 msgid "Share Details"

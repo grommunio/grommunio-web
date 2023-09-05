@@ -497,9 +497,6 @@ msgstr "Ei näytettäviä kohteita tässä näkymässä"
 msgid "Show Names from the"
 msgstr "Näytä nimet kohteesta"
 
-msgid "Search..."
-msgstr "Etsi..."
-
 msgid "Sort by: Icon"
 msgstr "Järjestä: Ikonit"
 
@@ -674,8 +671,8 @@ msgstr "Kansiot"
 msgid "Include subfolders"
 msgstr "Luo alikansioita"
 
-msgid "Show.."
-msgstr "Näytä.."
+msgid "Show…"
+msgstr "Näytä…"
 
 #, fuzzy
 msgid "Mails"
@@ -690,8 +687,8 @@ msgstr "Yhteystiedot"
 msgid "Tasks"
 msgstr "Tehtävät"
 
-msgid "Filter.."
-msgstr "Suodatetaan..."
+msgid "Filter…"
+msgstr "Suodatetaan…"
 
 msgid "Unread"
 msgstr "Lukematon"
@@ -710,11 +707,11 @@ msgctxt "search.date"
 msgid "To"
 msgstr "Vastaanottaja"
 
-msgid "Filter category.."
-msgstr "Määritä kategoria.."
+msgid "Filter category…"
+msgstr "Määritä kategoria…"
 
-msgid "Search.."
-msgstr "Hae.."
+msgid "Search…"
+msgstr "Hae…"
 
 msgid "Sender"
 msgstr "Lähettäjä"
@@ -1209,7 +1206,7 @@ msgstr "Varoitus"
 msgid "Attachments cannot be modified for a single occurence"
 msgstr "Liitteitä ei voi muokata yksittäistä tapaamista koskien"
 
-msgid "Type your message here..."
+msgid "Type your message here…"
 msgstr "Kirjoita viestisi tähän…"
 
 #, fuzzy
@@ -1567,8 +1564,8 @@ msgstr "Avaa"
 msgid "Copy/Move"
 msgstr "Kopioi/Siirrä"
 
-msgid "Send to..."
-msgstr "Lähetä..."
+msgid "Send to…"
+msgstr "Lähetä…"
 
 msgid "Export as"
 msgstr "Vie muodossa"
@@ -1795,8 +1792,8 @@ msgid ""
 "be deleted."
 msgstr "Kalenterisi on päivitetty automaattisesti. Kokouskutsu poistetaan."
 
-msgid "Loading appointments..."
-msgstr "Ladataan tapaamisia..."
+msgid "Loading appointments…"
+msgstr "Ladataan tapaamisia…"
 
 #, fuzzy
 msgid "Please select a calendar via widget settings"
@@ -1853,8 +1850,8 @@ msgstr "{0} - {1} (koko päivä)"
 msgid "d/m/y"
 msgstr "d.m.Y"
 
-msgid "Select one..."
-msgstr "Valitse yksi..."
+msgid "Select one…"
+msgstr "Valitse yksi…"
 
 msgid "Unnamed folder"
 msgstr "Nimeämätön kansio"
@@ -1950,8 +1947,8 @@ msgid "Paste this occurrence only"
 msgstr "Liitä vain tämä esiintymä"
 
 #, fuzzy
-msgid "Paste the series..."
-msgstr "Liitä sarja..."
+msgid "Paste the series…"
+msgstr "Liitä sarja…"
 
 msgid ""
 "This is a recurring message. Do you want to delete only this occurrence or "
@@ -2375,10 +2372,10 @@ msgstr "Valtuutetut voivat lähettää lähetyksiä puolestasi."
 #, fuzzy
 msgid ""
 "If you only want to set folder permissions, right-click on a folder to open "
-"the context menu and click on \"Share Folder...\""
+"the context menu and click on \"Share folder…\""
 msgstr ""
 "Jos haluat määrittää vain kansioiden käyttöoikeudet, avaa kontekstivalikko "
-"napsauttamalla kansiota hiiren kakkospainikkeella ja valitse \"Jaa kansio..."
+"napsauttamalla kansiota hiiren kakkospainikkeella ja valitse \"Jaa kansio…"
 "\""
 
 msgid "Permission"
@@ -2953,67 +2950,67 @@ msgid "Sort by: Size"
 msgstr "Järjestä: Koko"
 
 #, fuzzy
-msgid "Move the message to folder..."
-msgstr "Siirrä viesti kansioon ..."
+msgid "Move the message to folder…"
+msgstr "Siirrä viesti kansioon…"
 
 #, fuzzy
-msgid "Copy the message to folder..."
-msgstr "Kopioi viesti kansioon ..."
+msgid "Copy the message to folder…"
+msgstr "Kopioi viesti kansioon…"
 
 msgid "Delete the message"
 msgstr "Poista viesti"
 
 #, fuzzy
-msgid "Redirect the message to..."
-msgstr "Ohjaa viesti käyttäjälle ..."
+msgid "Redirect the message to…"
+msgstr "Ohjaa viesti käyttäjälle…"
 
 #, fuzzy
-msgid "Forward the message to..."
-msgstr "Välitä viesti käyttäjälle ..."
+msgid "Forward the message to…"
+msgstr "Välitä viesti käyttäjälle…"
 
 #, fuzzy
-msgid "Forward the message as attachment to..."
-msgstr "Välitä viesti liitteenä käyttäjälle ..."
+msgid "Forward the message as attachment to…"
+msgstr "Välitä viesti liitteenä käyttäjälle…"
 
 #, fuzzy
-msgid "Mark the message as read..."
-msgstr "Välitä viesti käyttäjälle ..."
+msgid "Mark the message as read…"
+msgstr "Välitä viesti käyttäjälle…"
 
 #, fuzzy
-msgid "is received from..."
-msgstr "on vastaanotettu kohteesta ..."
+msgid "is received from…"
+msgstr "on vastaanotettu kohteesta…"
 
 #, fuzzy
-msgid "includes these words in the sender's address..."
-msgstr "aihe sisältää sanat ..."
+msgid "includes these words in the sender's address…"
+msgstr "aihe sisältää sanat…"
 
 #, fuzzy
-msgid "includes these words in the recipient's address..."
-msgstr "aihe sisältää sanat ..."
+msgid "includes these words in the recipient's address…"
+msgstr "aihe sisältää sanat…"
 
 #, fuzzy
-msgid "includes these words in the subject..."
-msgstr "aihe sisältää sanat ..."
+msgid "includes these words in the subject…"
+msgstr "aihe sisältää sanat…"
 
 #, fuzzy
-msgid "includes these words in the body..."
-msgstr "aihe sisältää sanat ..."
+msgid "includes these words in the body…"
+msgstr "aihe sisältää sanat…"
 
 #, fuzzy
-msgid "includes these words in the transport-headers..."
-msgstr "aihe sisältää sanat ..."
+msgid "includes these words in the transport headers…"
+msgstr "aihe sisältää sanat…"
 
 #, fuzzy
-msgid "has importance..."
-msgstr "on tärkeydeltään ..."
+msgid "has importance…"
+msgstr "on tärkeydeltään…"
 
 #, fuzzy
 msgid "has an attachment"
 msgstr "on liitetiedosto"
 
 #, fuzzy
-msgid "is sent to..."
-msgstr "on lähetetty vastaanottajalle ..."
+msgid "is sent to…"
+msgstr "on lähetetty vastaanottajalle…"
 
 msgid "is sent only to me"
 msgstr "on lähetetty vain minulle"
@@ -3030,24 +3027,24 @@ msgstr "to- tai Cc-kentässä ei ole nimeäni"
 msgid "has my name in the To or Cc field"
 msgstr "to- tai Cc-kentässä on nimeni"
 
-msgid "has sensitivity..."
-msgstr "herkkyys..."
+msgid "has sensitivity…"
+msgstr "herkkyys…"
 
 #, fuzzy
-msgid "is received after..."
-msgstr "on vastaanotettu kohteesta ..."
+msgid "is received after…"
+msgstr "on vastaanotettu kohteesta…"
 
 #, fuzzy
-msgid "is received before..."
-msgstr "on vastaanotettu kohteesta ..."
+msgid "is received before…"
+msgstr "on vastaanotettu kohteesta…"
 
 #, fuzzy
-msgid "size is at least..."
-msgstr "koko on vähintään..."
+msgid "size is at least…"
+msgstr "koko on vähintään…"
 
 #, fuzzy
-msgid "size is at most..."
-msgstr "koko on enintään..."
+msgid "size is at most…"
+msgstr "koko on enintään…"
 
 #, fuzzy
 msgid "has my name in the To field"
@@ -3169,8 +3166,8 @@ msgid "Always move messages with this subject"
 msgstr "Siirrä aina tämän aiheen sisältävät viestit"
 
 #, fuzzy
-msgid "Create rule..."
-msgstr "Luo sääntö..."
+msgid "Create rule…"
+msgstr "Luo sääntö…"
 
 #, fuzzy
 msgid "myself"
@@ -3191,11 +3188,11 @@ msgstr "Haluatko tallentaa muutokset?"
 msgid "All folders"
 msgstr "Näytä kaikki kansiot"
 
-msgid "Other..."
-msgstr "Muu..."
+msgid "Other…"
+msgstr "Muu…"
 
-msgid "Search in.."
-msgstr "Hae kohteesta.."
+msgid "Search in…"
+msgstr "Hae kohteesta…"
 
 #, fuzzy
 msgid "Folder does not exist"
@@ -3337,8 +3334,8 @@ msgstr "Kokouksen järjestäjä"
 msgid "{0} overdue"
 msgstr "{0} erääntynyt"
 
-msgid "Loading..."
-msgstr "Ladataan..."
+msgid "Loading…"
+msgstr "Ladataan…"
 
 #, fuzzy
 msgid "Message could not be loaded"
@@ -3868,8 +3865,8 @@ msgid "Add New"
 msgstr "Lisää uusi"
 
 #, fuzzy
-msgid "Type your note here..."
-msgstr "Kirjoita viestisi tähän..."
+msgid "Type your note here…"
+msgstr "Kirjoita viestisi tähän…"
 
 msgid "New contact"
 msgstr "Uusi kontakti"
@@ -4222,7 +4219,7 @@ msgstr "Vaihda näkymää"
 msgid "Widgets"
 msgstr "Vimpaimet"
 
-msgid "Sending..."
+msgid "Sending…"
 msgstr "Lähetetään…"
 
 msgid "Sent successfully"
@@ -4712,8 +4709,8 @@ msgstr "Lisää suosikkikansioihin"
 msgid "Remove From Favorites"
 msgstr "Poista kalenterista"
 
-msgid "Share folder..."
-msgstr "Aloitus kansio..."
+msgid "Share folder…"
+msgstr "Aloitus kansio…"
 
 #, fuzzy
 msgid "Import emails"
@@ -4732,8 +4729,8 @@ msgid "Properties of {0}"
 msgstr "Ominaisuudet"
 
 #, fuzzy
-msgid "Share {0} with..."
-msgstr "Jaa {0}..."
+msgid "Share {0} with…"
+msgstr "Jaa {0}…"
 
 #, fuzzy
 msgid "Properties of {0} - {1}"
@@ -4843,7 +4840,7 @@ msgstr "{0}"
 msgid "Your email will be sent {0}{1}"
 msgstr "Sähköpostisi lähetetään {0}{1}"
 
-msgid "Saving..."
+msgid "Saving…"
 msgstr "Tallennetaan…"
 
 #, fuzzy
@@ -6191,8 +6188,8 @@ msgid "More than 1 share link exists. Only showing the latest one"
 msgstr "On olemassa useampi kuin 1 jakolinkki. Näyttää vain viimeisimmän"
 
 #, fuzzy
-msgid "Loading details..."
-msgstr "Ladataan yksityiskohtia..."
+msgid "Loading details…"
+msgstr "Ladataan yksityiskohtia…"
 
 #, fuzzy
 msgid "Share Details"

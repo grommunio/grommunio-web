@@ -482,7 +482,7 @@ msgstr "このビューで表示するアイテムがありません"
 msgid "Show Names from the"
 msgstr "連絡先の取得元"
 
-msgid "Search..."
+msgid "Search…"
 msgstr "検索…"
 
 msgid "Sort by: Icon"
@@ -644,8 +644,8 @@ msgstr "フォルダ"
 msgid "Include subfolders"
 msgstr "サブフォルダーを含める"
 
-msgid "Show.."
-msgstr "表示.."
+msgid "Show…"
+msgstr "表示…"
 
 msgid "Mails"
 msgstr "メール"
@@ -659,8 +659,8 @@ msgstr "コンタクト"
 msgid "Tasks"
 msgstr "タスク"
 
-msgid "Filter.."
-msgstr "フィルター。"
+msgid "Filter…"
+msgstr "フィルターする…"
 
 msgid "Unread"
 msgstr "未読"
@@ -679,11 +679,8 @@ msgctxt "search.date"
 msgid "To"
 msgstr "まで"
 
-msgid "Filter category.."
-msgstr "フィルターカテゴリー..."
-
-msgid "Search.."
-msgstr "検索.."
+msgid "Filter category…"
+msgstr "フィルターカテゴリー…"
 
 msgid "Sender"
 msgstr "送信者"
@@ -1140,8 +1137,8 @@ msgstr "警告"
 msgid "Attachments cannot be modified for a single occurence"
 msgstr "出席者は単独のイベントの修正をすることはできません"
 
-msgid "Type your message here..."
-msgstr "ここにメッセージを入力してください..."
+msgid "Type your message here…"
+msgstr "ここにメッセージを入力してください…"
 
 msgid "Update location"
 msgstr "地域を更新"
@@ -1480,8 +1477,8 @@ msgstr "開く"
 msgid "Copy/Move"
 msgstr "コピー/移動"
 
-msgid "Send to..."
-msgstr "送信する..."
+msgid "Send to…"
+msgstr "送信する…"
 
 #, fuzzy
 msgid "Export as"
@@ -1705,8 +1702,8 @@ msgid ""
 "be deleted."
 msgstr "カレンダーは自動的に更新されました。この会議出席依頼は削除されます。"
 
-msgid "Loading appointments..."
-msgstr "予定を読み込む..."
+msgid "Loading appointments…"
+msgstr "予定を読み込む…"
 
 #, fuzzy
 msgid "Please select a calendar via widget settings"
@@ -1759,8 +1756,8 @@ msgstr "{0} - {1} (終日)"
 msgid "d/m/y"
 msgstr "Y/m/d"
 
-msgid "Select one..."
-msgstr "１つ選択"
+msgid "Select one…"
+msgstr "１つ選択…"
 
 msgid "Unnamed folder"
 msgstr "名前の設定がないフォルダ"
@@ -1857,8 +1854,8 @@ msgid "Paste this occurrence only"
 msgstr "このオカレンスだけを貼り付ける"
 
 #, fuzzy
-msgid "Paste the series..."
-msgstr "シリーズを貼り付ける..."
+msgid "Paste the series…"
+msgstr "シリーズを貼り付ける…"
 
 msgid ""
 "This is a recurring message. Do you want to delete only this occurrence or "
@@ -2273,10 +2270,10 @@ msgstr "代表者が代理でアイテムを送信することができます。
 #, fuzzy
 msgid ""
 "If you only want to set folder permissions, right-click on a folder to open "
-"the context menu and click on \"Share Folder...\""
+"the context menu and click on \"Share folder…\""
 msgstr ""
 "フォルダーの権限設定のみを行う場合は、フォルダーを右クリックしてコンテキスト"
-"メニューを開き、\"Share Folder... \"をクリックします。"
+"メニューを開き、「フォルダーを共有する…」をクリックします。"
 
 msgid "Permission"
 msgstr "許可"
@@ -2829,62 +2826,60 @@ msgstr "サイズ"
 msgid "Sort by: Size"
 msgstr "並べ替え順 : サイズ"
 
-#, fuzzy
-msgid "Move the message to folder..."
-msgstr "メッセージをフォルダに移動しています..."
+msgid "Move the message to folder…"
+msgstr "メッセージをフォルダに移動する…"
 
-#, fuzzy
-msgid "Copy the message to folder..."
-msgstr "メッセージをフォルダーにコピーしています ..."
+msgid "Copy the message to folder…"
+msgstr "メッセージをフォルダーにコピーする…"
 
 msgid "Delete the message"
 msgstr "メッセージを削除します"
 
-msgid "Redirect the message to..."
-msgstr "メッセージをリダイレクトする..."
+msgid "Redirect the message to…"
+msgstr "メッセージをリダイレクトする…"
 
-msgid "Forward the message to..."
-msgstr "メッセージを転送する..."
+msgid "Forward the message to…"
+msgstr "メッセージを転送する…"
 
-msgid "Forward the message as attachment to..."
-msgstr "添付ファイルとしてメッセージを転送する..."
+msgid "Forward the message as attachment to…"
+msgstr "添付ファイルとしてメッセージを転送する…"
 
-msgid "Mark the message as read..."
-msgstr "メッセージを既読にする..."
+msgid "Mark the message as read…"
+msgstr "メッセージを既読にする…"
 
-msgid "is received from..."
-msgstr "が受信されます。"
-
-#, fuzzy
-msgid "includes these words in the sender's address..."
-msgstr "件名にこれらの言葉が含まれています。"
+msgid "is received from…"
+msgstr "が受信される…"
 
 #, fuzzy
-msgid "includes these words in the recipient's address..."
-msgstr "件名にこれらの言葉が含まれています。"
+msgid "includes these words in the sender's address…"
+msgstr "件名にこれらの言葉が含まれている…"
 
 #, fuzzy
-msgid "includes these words in the subject..."
-msgstr "件名にこれらの言葉が含まれています。"
+msgid "includes these words in the recipient's address…"
+msgstr "件名にこれらの言葉が含まれている…"
 
 #, fuzzy
-msgid "includes these words in the body..."
-msgstr "件名にこれらの言葉が含まれています。"
+msgid "includes these words in the subject…"
+msgstr "件名にこれらの言葉が含まれている…"
 
 #, fuzzy
-msgid "includes these words in the transport-headers..."
-msgstr "件名にこれらの言葉が含まれています。"
+msgid "includes these words in the body…"
+msgstr "件名にこれらの言葉が含まれている…"
 
 #, fuzzy
-msgid "has importance..."
-msgstr "重要度 ..."
+msgid "includes these words in the transport headers…"
+msgstr "件名にこれらの言葉が含まれている…"
+
+#, fuzzy
+msgid "has importance…"
+msgstr "重要度…"
 
 #, fuzzy
 msgid "has an attachment"
 msgstr "付いている"
 
-msgid "is sent to..."
-msgstr "が送信されます..."
+msgid "is sent to…"
+msgstr "が送信されます…"
 
 msgid "is sent only to me"
 msgstr "自分だけに送信された"
@@ -2898,22 +2893,22 @@ msgstr "ToとCcの欄に私の名前がない"
 msgid "has my name in the To or Cc field"
 msgstr "がToまたはCcフィールドに私の名前を含んでいます。"
 
-msgid "has sensitivity..."
-msgstr "は感性が..."
+msgid "has sensitivity…"
+msgstr "は感性が…"
 
-msgid "is received after..."
-msgstr "が受信された後、..."
+msgid "is received after…"
+msgstr "が受信された後、…"
 
-msgid "is received before..."
-msgstr "が受信される前に、..."
-
-#, fuzzy
-msgid "size is at least..."
-msgstr "大きさは少なくとも..."
+msgid "is received before…"
+msgstr "が受信される前に、…"
 
 #, fuzzy
-msgid "size is at most..."
-msgstr "大きさはせいぜい..."
+msgid "size is at least…"
+msgstr "大きさは少なくとも…"
+
+#, fuzzy
+msgid "size is at most…"
+msgstr "大きさはせいぜい…"
 
 msgid "has my name in the To field"
 msgstr "は、宛先欄に私の名前があります。"
@@ -3034,8 +3029,8 @@ msgid "Always move messages with this subject"
 msgstr "常にこの件名でメッセージを移動する"
 
 #, fuzzy
-msgid "Create rule..."
-msgstr "ルール作成..."
+msgid "Create rule…"
+msgstr "ルール作成…"
 
 #, fuzzy
 msgid "myself"
@@ -3055,12 +3050,12 @@ msgstr "変更を適用してもよろしいですか？"
 msgid "All folders"
 msgstr "全フォルダを表示する"
 
-msgid "Other..."
-msgstr "その他..."
+msgid "Other…"
+msgstr "その他…"
 
 #, fuzzy
-msgid "Search in.."
-msgstr "検索.."
+msgid "Search in…"
+msgstr "検索…"
 
 #, fuzzy
 msgid "Folder does not exist"
@@ -3199,8 +3194,8 @@ msgstr "会議の主催者"
 msgid "{0} overdue"
 msgstr "{0}期限切れ"
 
-msgid "Loading..."
-msgstr "読み込み中"
+msgid "Loading…"
+msgstr "読み込み中…"
 
 #, fuzzy
 msgid "Message could not be loaded"
@@ -3721,8 +3716,8 @@ msgid "Add New"
 msgstr "新規追加"
 
 #, fuzzy
-msgid "Type your note here..."
-msgstr "ここにメモを入力する..."
+msgid "Type your note here…"
+msgstr "ここにメモを入力する…"
 
 #, fuzzy
 msgid "New contact"
@@ -4073,7 +4068,7 @@ msgstr "ビューを切替"
 msgid "Widgets"
 msgstr "ウィジェット"
 
-msgid "Sending..."
+msgid "Sending…"
 msgstr "送信中……"
 
 msgid "Sent successfully"
@@ -4558,8 +4553,8 @@ msgstr "お気に入りへ追加する"
 msgid "Remove From Favorites"
 msgstr "カレンダーから削除する"
 
-msgid "Share folder..."
-msgstr "共有フォルダー..."
+msgid "Share folder…"
+msgstr "フォルダーを共有する…"
 
 #, fuzzy
 msgid "Import emails"
@@ -4578,8 +4573,8 @@ msgid "Properties of {0}"
 msgstr "プロパティ"
 
 #, fuzzy
-msgid "Share {0} with..."
-msgstr "1}を共有する..."
+msgid "Share {0} with…"
+msgstr "1}を共有する…"
 
 #, fuzzy
 msgid "Properties of {0} - {1}"
@@ -4678,8 +4673,8 @@ msgstr "の {0}"
 msgid "Your email will be sent {0}{1}"
 msgstr "あなたのメールは {0}{1} に送信されます"
 
-msgid "Saving..."
-msgstr "保存中..."
+msgid "Saving…"
+msgstr "保存中…"
 
 #, fuzzy
 msgid "Saved at {0}"
@@ -5972,8 +5967,8 @@ msgid "More than 1 share link exists. Only showing the latest one"
 msgstr "共有リンクが1つ以上存在する。最新のもののみ表示"
 
 #, fuzzy
-msgid "Loading details..."
-msgstr "詳細を読み込む..."
+msgid "Loading details…"
+msgstr "詳細を読み込む…"
 
 #, fuzzy
 msgid "Share Details"

@@ -127,7 +127,7 @@ Zarafa.mail.dialogs.MailCreateContentPanel = Ext.extend(Zarafa.core.ui.MessageCo
 		}
 
 		if (this.isSaving && !this.isSending) {
-			this.savingEl = container.getNotifier().notify('info.mailsaving', _('Saving...'), {
+			this.savingEl = container.getNotifier().notify('info.mailsaving', _('Saving…'), {
 				toolbar: this.mainPanel.getTopToolbar()
 			});
 		} else {

@@ -6,10 +6,10 @@ Ext.ns('Zarafa.common.searchfield.ui');
  * @xtype zarafa.searchfoldercombo
  *
  * This class can be used to construct a search folder combo box which
- * manly contains 'All folders', 'Current folder', 'Imported folder' and 'Other..' options.
+ * manly contains 'All folders', 'Current folder', 'Imported folder' and 'Other…' options.
  * which represent IPM_SUBTREE, currently selected folder in hierarchy, folder which imported
  * in search folder combo box using {@link Zarafa.advancesearch.dialogs.SelectFolderContentPanel SelectFolderContentPanel}
- * respectively. while 'Other...' option used to open the {@link Zarafa.advancesearch.dialogs.SelectFolderContentPanel SelectFolderContentPanel}
+ * respectively. while 'Other…' option used to open the {@link Zarafa.advancesearch.dialogs.SelectFolderContentPanel SelectFolderContentPanel}
  */
 Zarafa.common.searchfield.ui.SearchFolderCombo = Ext.extend(Ext.form.ComboBox, {
 
@@ -151,7 +151,7 @@ Zarafa.common.searchfield.ui.SearchFolderCombo = Ext.extend(Ext.form.ComboBox, {
 			'include_subfolder': false,
 			'flag': Zarafa.advancesearch.data.SearchComboBoxFieldsFlags.CURRENT_SELECTED_FOLDER
 		}, {
-			'name': _('Other...'),
+			'name': _('Other…'),
 			'value': 'other'
 		}];
 
@@ -177,12 +177,12 @@ Zarafa.common.searchfield.ui.SearchFolderCombo = Ext.extend(Ext.form.ComboBox, {
 	/**
 	 * Event handler triggered before selection performs in search folder combo
 	 * Will open {@link Zarafa.advancesearch.dialogs.SelectFolderContentPanel SelectFolderContentPanel}, if
-	 * "Other.." option was selected.
+	 * "Other…" option was selected.
 	 *
 	 * @param {Zarafa.common.searchfield.ui.SearchFolderCombo} combo The combo which fired the event.
 	 * @param {Ext.data.Record} record The data record returned from the underlying store
 	 * @param {number} index The index of the selected item in the dropdown list
-	 * @return {boolean} true if selected record is not 'Other...' else false.
+	 * @return {boolean} true if selected record is not 'Other…' else false.
 	 */
 	onBeforeSelectSearchFolder: function (combo, record, index)
 	{

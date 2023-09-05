@@ -52,7 +52,7 @@ Zarafa.calendar.widget.AppointmentsWidget = Ext.extend(Zarafa.core.ui.widget.Abs
 				hideHeaders: true,
 				ref: 'appointmentsGrid',
 				loadMask: {
-					msg: _('Loading appointments...')
+					msg: _('Loading appointments…')
 				},
 				sm: new Zarafa.common.ui.grid.RowSelectionModel({
 					singleSelect: true

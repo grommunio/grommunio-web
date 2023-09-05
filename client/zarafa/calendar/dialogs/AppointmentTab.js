@@ -623,7 +623,7 @@ Zarafa.calendar.dialogs.AppointmentTab = Ext.extend(Ext.form.FormPanel, {
 					// Use the afterrender event to place the placeholder attribute
 					afterrender: function(){
 						this.editorField.getEditor().getEl().set({
-							placeholder: _('Type your message here...')
+							placeholder: _('Type your message here…')
 						});
 					},
 					change: this.onBodyChange,

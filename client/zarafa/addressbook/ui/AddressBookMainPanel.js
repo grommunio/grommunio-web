@@ -219,7 +219,7 @@ Zarafa.addressbook.ui.AddressBookMainPanel = Ext.extend(Ext.Panel, {
 	 */
 	onRenderSearchField: function(triggerField)
 	{
-		triggerField.getEl().set({'placeholder': _('Search...')});
+		triggerField.getEl().set({'placeholder': _('Search…')});
 	},
 
 	/**

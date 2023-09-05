@@ -490,9 +490,6 @@ msgstr "אין פריטים להצגה בתצוגה זו"
 msgid "Show Names from the"
 msgstr "הצג שמות מה"
 
-msgid "Search..."
-msgstr ""
-
 msgid "Sort by: Icon"
 msgstr "מיין לפי: סמל"
 
@@ -670,8 +667,8 @@ msgid "Include subfolders"
 msgstr "צור תיקיות משנה"
 
 #, fuzzy
-msgid "Show.."
-msgstr "הראה כ"
+msgid "Show…"
+msgstr "הראה כ…"
 
 #, fuzzy
 msgid "Mails"
@@ -687,7 +684,7 @@ msgstr "אנשי קשר"
 msgid "Tasks"
 msgstr "משימות"
 
-msgid "Filter.."
+msgid "Filter…"
 msgstr ""
 
 msgid "Unread"
@@ -710,12 +707,12 @@ msgid "To"
 msgstr "אל"
 
 #, fuzzy
-msgid "Filter category.."
-msgstr "הגדר קטגוריה"
+msgid "Filter category…"
+msgstr "הגדר קטגוריה…"
 
 #, fuzzy
-msgid "Search.."
-msgstr "מרץ"
+msgid "Search…"
+msgstr "מרץ…"
 
 msgid "Sender"
 msgstr "שולח"
@@ -1181,7 +1178,7 @@ msgstr ""
 msgid "Attachments cannot be modified for a single occurence"
 msgstr ""
 
-msgid "Type your message here..."
+msgid "Type your message here…"
 msgstr ""
 
 #, fuzzy
@@ -1525,8 +1522,8 @@ msgid "Copy/Move"
 msgstr "העתק/העבר"
 
 #, fuzzy
-msgid "Send to..."
-msgstr "נשלח"
+msgid "Send to…"
+msgstr "נשלח…"
 
 msgid "Export as"
 msgstr ""
@@ -1733,8 +1730,8 @@ msgid ""
 msgstr "לוח השנה שלך עודכן אוטומטית. בקשת פגישה זו תמחק עכשיו."
 
 #, fuzzy
-msgid "Loading appointments..."
-msgstr "פגישה חדשה"
+msgid "Loading appointments…"
+msgstr "פגישה חדשה…"
 
 msgid "Please select a calendar via widget settings"
 msgstr ""
@@ -1783,7 +1780,7 @@ msgstr ""
 msgid "d/m/y"
 msgstr ""
 
-msgid "Select one..."
+msgid "Select one…"
 msgstr ""
 
 msgid "Unnamed folder"
@@ -1865,7 +1862,7 @@ msgstr ""
 msgid "Paste this occurrence only"
 msgstr ""
 
-msgid "Paste the series..."
+msgid "Paste the series…"
 msgstr ""
 
 msgid ""
@@ -2231,7 +2228,7 @@ msgstr ""
 
 msgid ""
 "If you only want to set folder permissions, right-click on a folder to open "
-"the context menu and click on \"Share Folder...\""
+"the context menu and click on \"Share folder…\""
 msgstr ""
 
 #, fuzzy
@@ -2762,60 +2759,60 @@ msgid "Sort by: Size"
 msgstr "מיין לפי: גודל"
 
 #, fuzzy
-msgid "Move the message to folder..."
-msgstr "סמן את כל ההודעות כנקראו"
+msgid "Move the message to folder…"
+msgstr "סמן את כל ההודעות כנקראו…"
 
 #, fuzzy
-msgid "Copy the message to folder..."
-msgstr "סמן את כל ההודעות כנקראו"
+msgid "Copy the message to folder…"
+msgstr "סמן את כל ההודעות כנקראו…"
 
 msgid "Delete the message"
 msgstr ""
 
 #, fuzzy
-msgid "Redirect the message to..."
-msgstr "סמן את כל ההודעות כנקראו"
+msgid "Redirect the message to…"
+msgstr "סמן את כל ההודעות כנקראו…"
 
 #, fuzzy
-msgid "Forward the message to..."
-msgstr "סמן את כל ההודעות כנקראו"
+msgid "Forward the message to…"
+msgstr "סמן את כל ההודעות כנקראו…"
 
 #, fuzzy
-msgid "Forward the message as attachment to..."
-msgstr "סמן את כל ההודעות כנקראו"
+msgid "Forward the message as attachment to…"
+msgstr "סמן את כל ההודעות כנקראו…"
 
 #, fuzzy
-msgid "Mark the message as read..."
-msgstr "סמן את כל ההודעות כנקראו"
+msgid "Mark the message as read…"
+msgstr "סמן את כל ההודעות כנקראו…"
 
-msgid "is received from..."
+msgid "is received from…"
 msgstr ""
 
-msgid "includes these words in the sender's address..."
+msgid "includes these words in the sender's address…"
 msgstr ""
 
-msgid "includes these words in the recipient's address..."
+msgid "includes these words in the recipient's address…"
 msgstr ""
 
-msgid "includes these words in the subject..."
+msgid "includes these words in the subject…"
 msgstr ""
 
-msgid "includes these words in the body..."
+msgid "includes these words in the body…"
 msgstr ""
 
-msgid "includes these words in the transport-headers..."
+msgid "includes these words in the transport headers…"
 msgstr ""
 
 #, fuzzy
-msgid "has importance..."
-msgstr "חשיבות"
+msgid "has importance…"
+msgstr "חשיבות…"
 
 msgid "has an attachment"
 msgstr ""
 
 #, fuzzy
-msgid "is sent to..."
-msgstr "נשלח"
+msgid "is sent to…"
+msgstr "נשלח…"
 
 msgid "is sent only to me"
 msgstr ""
@@ -2830,19 +2827,19 @@ msgid "has my name in the To or Cc field"
 msgstr ""
 
 #, fuzzy
-msgid "has sensitivity..."
-msgstr "רגישות"
+msgid "has sensitivity…"
+msgstr "רגישות…"
 
-msgid "is received after..."
+msgid "is received after…"
 msgstr ""
 
-msgid "is received before..."
+msgid "is received before…"
 msgstr ""
 
-msgid "size is at least..."
+msgid "size is at least…"
 msgstr ""
 
-msgid "size is at most..."
+msgid "size is at most…"
 msgstr ""
 
 msgid "has my name in the To field"
@@ -2956,7 +2953,7 @@ msgstr ""
 msgid "Always move messages with this subject"
 msgstr ""
 
-msgid "Create rule..."
+msgid "Create rule…"
 msgstr ""
 
 msgid "myself"
@@ -2976,12 +2973,12 @@ msgid "All folders"
 msgstr "הצג תיקיות משנה"
 
 #, fuzzy
-msgid "Other..."
-msgstr "אחר"
+msgid "Other…"
+msgstr "אחר…"
 
 #, fuzzy
-msgid "Search in.."
-msgstr "מרץ"
+msgid "Search in…"
+msgstr "מרץ…"
 
 #, fuzzy
 msgid "Folder does not exist"
@@ -3108,8 +3105,8 @@ msgstr "מארגן הפגישה"
 msgid "{0} overdue"
 msgstr ""
 
-msgid "Loading..."
-msgstr "טוען..."
+msgid "Loading…"
+msgstr "טוען…"
 
 msgid "Message could not be loaded"
 msgstr ""
@@ -3625,7 +3622,7 @@ msgstr ""
 msgid "Add New"
 msgstr ""
 
-msgid "Type your note here..."
+msgid "Type your note here…"
 msgstr ""
 
 msgid "New contact"
@@ -3960,8 +3957,8 @@ msgid "Widgets"
 msgstr ""
 
 #, fuzzy
-msgid "Sending..."
-msgstr "שומר..."
+msgid "Sending…"
+msgstr "שומר…"
 
 #, fuzzy
 msgid "Sent successfully"
@@ -4425,8 +4422,8 @@ msgid "Remove From Favorites"
 msgstr "הסר מלוח השנה"
 
 #, fuzzy
-msgid "Share folder..."
-msgstr "פתח תיקיות משותפות"
+msgid "Share folder…"
+msgstr "פתח תיקיות משותפות…"
 
 #, fuzzy
 msgid "Import emails"
@@ -4443,7 +4440,7 @@ msgstr ""
 msgid "Properties of {0}"
 msgstr "מאפיינים"
 
-msgid "Share {0} with..."
+msgid "Share {0} with…"
 msgstr ""
 
 #, fuzzy
@@ -4543,8 +4540,8 @@ msgstr ""
 msgid "Your email will be sent {0}{1}"
 msgstr ""
 
-msgid "Saving..."
-msgstr "שומר..."
+msgid "Saving…"
+msgstr "שומר…"
 
 msgid "Saved at {0}"
 msgstr ""
@@ -5750,7 +5747,7 @@ msgstr ""
 msgid "More than 1 share link exists. Only showing the latest one"
 msgstr ""
 
-msgid "Loading details..."
+msgid "Loading details…"
 msgstr ""
 
 msgid "Share Details"

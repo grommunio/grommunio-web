@@ -495,9 +495,6 @@ msgstr "Selles vaates pole hetkel kirjeid kuvamiseks"
 msgid "Show Names from the"
 msgstr "Kuvage nimesid"
 
-msgid "Search..."
-msgstr ""
-
 msgid "Sort by: Icon"
 msgstr "Sorteeri: ikooni järgi"
 
@@ -668,7 +665,7 @@ msgstr ""
 msgid "Include subfolders"
 msgstr ""
 
-msgid "Show.."
+msgid "Show…"
 msgstr ""
 
 #, fuzzy
@@ -684,7 +681,7 @@ msgstr "Kontaktid"
 msgid "Tasks"
 msgstr "Ülesanded"
 
-msgid "Filter.."
+msgid "Filter…"
 msgstr ""
 
 msgid "Unread"
@@ -705,12 +702,12 @@ msgid "To"
 msgstr ""
 
 #, fuzzy
-msgid "Filter category.."
-msgstr "Määra kategooria"
+msgid "Filter category…"
+msgstr "Määra kategooria…"
 
 #, fuzzy
-msgid "Search.."
-msgstr "Märts"
+msgid "Search…"
+msgstr "Märts…"
 
 msgid "Sender"
 msgstr ""
@@ -1168,7 +1165,7 @@ msgstr ""
 msgid "Attachments cannot be modified for a single occurence"
 msgstr ""
 
-msgid "Type your message here..."
+msgid "Type your message here…"
 msgstr ""
 
 #, fuzzy
@@ -1499,8 +1496,8 @@ msgid "Copy/Move"
 msgstr ""
 
 #, fuzzy
-msgid "Send to..."
-msgstr "Saadetud"
+msgid "Send to…"
+msgstr "Saadetud…"
 
 msgid "Export as"
 msgstr ""
@@ -1701,8 +1698,8 @@ msgid ""
 msgstr ""
 
 #, fuzzy
-msgid "Loading appointments..."
-msgstr "Kontaktide laadimine"
+msgid "Loading appointments…"
+msgstr "Kontaktide laadimine…"
 
 msgid "Please select a calendar via widget settings"
 msgstr ""
@@ -1749,7 +1746,7 @@ msgstr ""
 msgid "d/m/y"
 msgstr "d/m/Y"
 
-msgid "Select one..."
+msgid "Select one…"
 msgstr ""
 
 msgid "Unnamed folder"
@@ -1831,7 +1828,7 @@ msgstr ""
 msgid "Paste this occurrence only"
 msgstr ""
 
-msgid "Paste the series..."
+msgid "Paste the series…"
 msgstr ""
 
 msgid ""
@@ -2189,7 +2186,7 @@ msgstr ""
 
 msgid ""
 "If you only want to set folder permissions, right-click on a folder to open "
-"the context menu and click on \"Share Folder...\""
+"the context menu and click on \"Share folder…\""
 msgstr ""
 
 msgid "Permission"
@@ -2709,55 +2706,55 @@ msgstr "Suurus"
 msgid "Sort by: Size"
 msgstr "Sorteeri: pealkiri"
 
-msgid "Move the message to folder..."
+msgid "Move the message to folder…"
 msgstr ""
 
-msgid "Copy the message to folder..."
+msgid "Copy the message to folder…"
 msgstr ""
 
 msgid "Delete the message"
 msgstr ""
 
-msgid "Redirect the message to..."
+msgid "Redirect the message to…"
 msgstr ""
 
-msgid "Forward the message to..."
+msgid "Forward the message to…"
 msgstr ""
 
-msgid "Forward the message as attachment to..."
+msgid "Forward the message as attachment to…"
 msgstr ""
 
-msgid "Mark the message as read..."
+msgid "Mark the message as read…"
 msgstr ""
 
-msgid "is received from..."
+msgid "is received from…"
 msgstr ""
 
-msgid "includes these words in the sender's address..."
+msgid "includes these words in the sender's address…"
 msgstr ""
 
-msgid "includes these words in the recipient's address..."
+msgid "includes these words in the recipient's address…"
 msgstr ""
 
-msgid "includes these words in the subject..."
+msgid "includes these words in the subject…"
 msgstr ""
 
-msgid "includes these words in the body..."
+msgid "includes these words in the body…"
 msgstr ""
 
-msgid "includes these words in the transport-headers..."
+msgid "includes these words in the transport headers…"
 msgstr ""
 
 #, fuzzy
-msgid "has importance..."
-msgstr "Oluline"
+msgid "has importance…"
+msgstr "Oluline…"
 
 msgid "has an attachment"
 msgstr ""
 
 #, fuzzy
-msgid "is sent to..."
-msgstr "Saadetud"
+msgid "is sent to…"
+msgstr "Saadetud…"
 
 msgid "is sent only to me"
 msgstr ""
@@ -2771,19 +2768,19 @@ msgstr ""
 msgid "has my name in the To or Cc field"
 msgstr ""
 
-msgid "has sensitivity..."
+msgid "has sensitivity…"
 msgstr ""
 
-msgid "is received after..."
+msgid "is received after…"
 msgstr ""
 
-msgid "is received before..."
+msgid "is received before…"
 msgstr ""
 
-msgid "size is at least..."
+msgid "size is at least…"
 msgstr ""
 
-msgid "size is at most..."
+msgid "size is at most…"
 msgstr ""
 
 msgid "has my name in the To field"
@@ -2896,7 +2893,7 @@ msgstr ""
 msgid "Always move messages with this subject"
 msgstr ""
 
-msgid "Create rule..."
+msgid "Create rule…"
 msgstr ""
 
 msgid "myself"
@@ -2915,12 +2912,12 @@ msgstr ""
 msgid "All folders"
 msgstr "Kadunud kaustad"
 
-msgid "Other..."
+msgid "Other…"
 msgstr ""
 
 #, fuzzy
-msgid "Search in.."
-msgstr "Märts"
+msgid "Search in…"
+msgstr "Märts…"
 
 #, fuzzy
 msgid "Folder does not exist"
@@ -3050,7 +3047,7 @@ msgstr "Koosoleku korraldaja"
 msgid "{0} overdue"
 msgstr ""
 
-msgid "Loading..."
+msgid "Loading…"
 msgstr ""
 
 msgid "Message could not be loaded"
@@ -3548,7 +3545,7 @@ msgstr ""
 msgid "Add New"
 msgstr ""
 
-msgid "Type your note here..."
+msgid "Type your note here…"
 msgstr ""
 
 msgid "New contact"
@@ -3897,8 +3894,8 @@ msgid "Widgets"
 msgstr "Lisa vidinaid"
 
 #, fuzzy
-msgid "Sending..."
-msgstr "Saatmine"
+msgid "Sending…"
+msgstr "Saatmine…"
 
 msgid "Sent successfully"
 msgstr "Edukalt saadetud"
@@ -4352,8 +4349,8 @@ msgid "Remove From Favorites"
 msgstr ""
 
 #, fuzzy
-msgid "Share folder..."
-msgstr "Avada jagatud märkused"
+msgid "Share folder…"
+msgstr "Avada jagatud märkused…"
 
 #, fuzzy
 msgid "Import emails"
@@ -4369,7 +4366,7 @@ msgstr ""
 msgid "Properties of {0}"
 msgstr ""
 
-msgid "Share {0} with..."
+msgid "Share {0} with…"
 msgstr ""
 
 msgid "Properties of {0} - {1}"
@@ -4465,7 +4462,7 @@ msgstr ""
 msgid "Your email will be sent {0}{1}"
 msgstr ""
 
-msgid "Saving..."
+msgid "Saving…"
 msgstr ""
 
 msgid "Saved at {0}"
@@ -5656,7 +5653,7 @@ msgstr ""
 msgid "More than 1 share link exists. Only showing the latest one"
 msgstr ""
 
-msgid "Loading details..."
+msgid "Loading details…"
 msgstr ""
 
 msgid "Share Details"

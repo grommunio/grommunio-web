@@ -12,7 +12,7 @@ Zarafa.common.ui.LoadMask = Ext.extend(Ext.LoadMask, {
 	 * @cfg {String} msg message that will be displayed in {@link Zarafa.common.ui.LoadMask LoadMask}
 	 * when the {@link Zarafa.core.data.MAPIStore MAPIStore} is loading data.
 	 */
-	msg: _('Loading...'),
+	msg: _('Loading…'),
 
 	/**
 	 * @cfg {Boolean} isLoading it was by default false which represent that loading mask

@@ -28,7 +28,7 @@ Zarafa.core.ui.MessageContentPanel = Ext.extend(Zarafa.core.ui.RecordContentPane
 	 * will be shown when the message is being sent. When an object is provided which contains
 	 * the 'msg' fields respectively.
 	 */
-	sendingText: { msg: _('Sending...') },
+	sendingText: { msg: _('Sending…') },
 
 	/**
 	 * @cfg {String/Object} sendingDoneText When {@link #showInfoMask} is true, this text
@@ -341,7 +341,7 @@ Zarafa.core.ui.MessageContentPanel = Ext.extend(Zarafa.core.ui.RecordContentPane
 	 * It will call {@link Zarafa.core.data.MAPIRecord.clearMessageActions clearMessageActions}(i.e. send=true),
 	 * so when we get response of send request there will be no reference of the send request in record.
 	 * So we will not be able to perform {@link #aftersendrecord} event functionalities like,
-	 * Closing the dialog, Showing the 'Sent Successfully' notification, hiding the 'Sending...' notification.
+	 * Closing the dialog, Showing the 'Sent Successfully' notification, hiding the 'Sending…' notification.
 	 *
 	 * @param {Zarafa.core.ui.RecordContentPanel} contentpanel The contentpanel from where the record is saved
 	 * @param {Zarafa.core.data.IPMRecord} record The record which has been saved

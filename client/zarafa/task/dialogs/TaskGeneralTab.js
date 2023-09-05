@@ -581,7 +581,7 @@ Zarafa.task.dialogs.TaskGeneralTab = Ext.extend(Ext.form.FormPanel, {
 		if ( this.editorField.getEditor().readOnly ){
 			this.editorField.getEditor().getEl().set({placeholder: ''});
 		} else {
-			this.editorField.getEditor().getEl().set({placeholder: _('Type your message here...')});
+			this.editorField.getEditor().getEl().set({placeholder: _('Type your message here…')});
 		}
 
 		if(layout) {

@@ -40,7 +40,7 @@ Zarafa.common.searchfield.ui.SearchTextField = Ext.extend(Ext.form.TextField, {
 			listeners: {
 				afterrender: function(searchField){
 					searchField.getEl().set({
-						placeholder: _('Search in..')
+						placeholder: _('Search in…')
 					});
 				},
 				scope: this

@@ -414,7 +414,7 @@ Zarafa.plugins.files.backend.Owncloud.ui.FilesShareDialogPanel = Ext.extend(Zara
 	 */
 	checkSharedRecord: function () {
 		// init loading mask after the panel was rendered
-		this.loadMask = new Ext.LoadMask(this.getEl(), {msg: _("Loading details...")});
+		this.loadMask = new Ext.LoadMask(this.getEl(), {msg: _("Loading details…")});
 
 		// check if we have a shared record where we should load details
 		if (Ext.isDefined(this.parentRecord)) {

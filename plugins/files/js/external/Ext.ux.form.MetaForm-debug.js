@@ -75,15 +75,15 @@ Ext.ux.form.MetaForm = Ext.extend(Ext.form.FormPanel, {
 
 	/**
 	 * @cfg {String} loadingText
-	 * Localizable text for "Loading..."
+	 * Localizable text for "Loading…"
 	 */
-	, loadingText: 'Loading...'
+	, loadingText: 'Loading…'
 
 	/**
 	 * @cfg {String} savingText
-	 * Localizable text for "Saving..."
+	 * Localizable text for "Saving…"
 	 */
-	, savingText: 'Saving...'
+	, savingText: 'Saving…'
 
 	/**
 	 * @cfg {Number} buttonMinWidth

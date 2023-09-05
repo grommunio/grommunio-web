@@ -516,8 +516,8 @@ msgstr "V tem pogledu ni elementov za prikaz"
 msgid "Show Names from the"
 msgstr "Pokaži imena iz"
 
-msgid "Search..."
-msgstr "Išči..."
+msgid "Search…"
+msgstr "Išči…"
 
 msgid "Sort by: Icon"
 msgstr "Razvrsti po: Ikoni"
@@ -697,8 +697,8 @@ msgstr "Mape"
 msgid "Include subfolders"
 msgstr "Ustvari podmape"
 
-msgid "Show.."
-msgstr "Prikaži.."
+msgid "Show…"
+msgstr "Prikaži…"
 
 msgid "Mails"
 msgstr "E-poštna sporočila"
@@ -712,8 +712,8 @@ msgstr "Kontakti"
 msgid "Tasks"
 msgstr "Naloge"
 
-msgid "Filter.."
-msgstr "Filtriraj po.."
+msgid "Filter…"
+msgstr "Filtriraj po…"
 
 msgid "Unread"
 msgstr "Neprebrano"
@@ -732,11 +732,8 @@ msgctxt "search.date"
 msgid "To"
 msgstr "Do"
 
-msgid "Filter category.."
-msgstr "Filtrirajte kategorijo.."
-
-msgid "Search.."
-msgstr "Išči.."
+msgid "Filter category…"
+msgstr "Filtrirajte kategorijo…"
 
 msgid "Sender"
 msgstr "Pošiljatelj"
@@ -1239,7 +1236,7 @@ msgstr "Opozorilo"
 msgid "Attachments cannot be modified for a single occurence"
 msgstr "Priloge ne morejo biti spremenjene za enkratno pojavljanje"
 
-msgid "Type your message here..."
+msgid "Type your message here…"
 msgstr "Napiši svoje sporočilo…"
 
 #, fuzzy
@@ -1596,8 +1593,8 @@ msgstr "Odpri"
 msgid "Copy/Move"
 msgstr "Kopiraj/Premakni"
 
-msgid "Send to..."
-msgstr "Pošlji na..."
+msgid "Send to…"
+msgstr "Pošlji na…"
 
 #, fuzzy
 msgid "Export as"
@@ -1829,8 +1826,8 @@ msgstr ""
 "Vaš koledar je bil avtomatsko posodobljen. Ta zahteva za sestanek bo sedaj "
 "izbrisana."
 
-msgid "Loading appointments..."
-msgstr "Nalaganje sestankov..."
+msgid "Loading appointments…"
+msgstr "Nalaganje sestankov…"
 
 #, fuzzy
 msgid "Please select a calendar via widget settings"
@@ -1886,8 +1883,8 @@ msgstr "{0} - {1} (ves dan)"
 msgid "d/m/y"
 msgstr "d/m/Y"
 
-msgid "Select one..."
-msgstr "Izberi eno ..."
+msgid "Select one…"
+msgstr "Izberi eno…"
 
 msgid "Unnamed folder"
 msgstr "Neimenovana mapa"
@@ -1983,8 +1980,8 @@ msgid "Paste this occurrence only"
 msgstr "Prilepite samo ta pojav"
 
 #, fuzzy
-msgid "Paste the series..."
-msgstr "Prilepite serijo..."
+msgid "Paste the series…"
+msgstr "Prilepite serijo…"
 
 msgid ""
 "This is a recurring message. Do you want to delete only this occurrence or "
@@ -2403,10 +2400,10 @@ msgstr "Delegati lahko pošiljajo elemente v vašem imenu."
 #, fuzzy
 msgid ""
 "If you only want to set folder permissions, right-click on a folder to open "
-"the context menu and click on \"Share Folder...\""
+"the context menu and click on \"Share folder…\""
 msgstr ""
 "Če želite nastaviti le dovoljenja za mape, z desnim gumbom miške kliknite na "
-"mapo, da se odpre kontekstni meni, in kliknite \"Skupna raba mape...\""
+"mapo, da se odpre kontekstni meni, in kliknite \"Skupna raba mape…\""
 
 msgid "Permission"
 msgstr "Dovoljenje"
@@ -2566,7 +2563,7 @@ msgid "l jS F Y"
 msgstr "1 jS F Y"
 
 msgid "Switch between different contexts e.g. inbox, calendar, etc."
-msgstr "Menjaj med različnimi konteksti kot npr. Prejeto, koledar, itd.."
+msgstr "Menjaj med različnimi konteksti kot npr. Prejeto, koledar, itd."
 
 msgid "Basic navigation"
 msgstr "Osnovna navigacija"
@@ -2970,59 +2967,59 @@ msgid "Sort by: Size"
 msgstr "Razvrsti po: Velikosti"
 
 #, fuzzy
-msgid "Move the message to folder..."
-msgstr "Premakni sporočilo v mapo ..."
+msgid "Move the message to folder…"
+msgstr "Premakni sporočilo v mapo…"
 
 #, fuzzy
-msgid "Copy the message to folder..."
-msgstr "Kopiraj sporočilo v mapo ..."
+msgid "Copy the message to folder…"
+msgstr "Kopiraj sporočilo v mapo…"
 
 msgid "Delete the message"
 msgstr "Izbriši sporočilo"
 
 #, fuzzy
-msgid "Redirect the message to..."
-msgstr "Preusmeri sporočilo na ..."
+msgid "Redirect the message to…"
+msgstr "Preusmeri sporočilo na…"
 
 #, fuzzy
-msgid "Forward the message to..."
-msgstr "Posreduj sporočilo do ..."
+msgid "Forward the message to…"
+msgstr "Posreduj sporočilo do…"
 
 #, fuzzy
-msgid "Forward the message as attachment to..."
-msgstr "Posreduj sporočilo kot prilogo do ..."
+msgid "Forward the message as attachment to…"
+msgstr "Posreduj sporočilo kot prilogo do…"
 
 #, fuzzy
-msgid "Mark the message as read..."
-msgstr "Posreduj sporočilo do ..."
+msgid "Mark the message as read…"
+msgstr "Posreduj sporočilo do…"
 
 #, fuzzy
-msgid "is received from..."
-msgstr "je prejeto od ..."
+msgid "is received from…"
+msgstr "je prejeto od…"
 
-msgid "includes these words in the sender's address..."
-msgstr "v naslov pošiljatelja vključite te besede..."
+msgid "includes these words in the sender's address…"
+msgstr "v naslov pošiljatelja vključite te besede…"
 
-msgid "includes these words in the recipient's address..."
-msgstr "v naslovu prejemnika navede te besede..."
+msgid "includes these words in the recipient's address…"
+msgstr "v naslovu prejemnika navede te besede…"
 
-msgid "includes these words in the subject..."
-msgstr "vsebuje te besede v predmetu..."
+msgid "includes these words in the subject…"
+msgstr "vsebuje te besede v predmetu…"
 
-msgid "includes these words in the body..."
-msgstr "te besede so vključene v telo..."
+msgid "includes these words in the body…"
+msgstr "te besede so vključene v telo…"
 
-msgid "includes these words in the transport-headers..."
-msgstr "vsebuje te besede v glavici transportnega sporočila..."
+msgid "includes these words in the transport headers…"
+msgstr "vsebuje te besede v glavici transportnega sporočila…"
 
-msgid "has importance..."
-msgstr "ima pomen..."
+msgid "has importance…"
+msgstr "ima pomen…"
 
 msgid "has an attachment"
 msgstr "ima priponko"
 
-msgid "is sent to..."
-msgstr "se pošlje na..."
+msgid "is sent to…"
+msgstr "se pošlje na…"
 
 msgid "is sent only to me"
 msgstr "je poslano samo meni"
@@ -3040,24 +3037,24 @@ msgid "has my name in the To or Cc field"
 msgstr "ima moje ime v polju Za ali Cc"
 
 #, fuzzy
-msgid "has sensitivity..."
-msgstr "Občutljivost"
+msgid "has sensitivity…"
+msgstr "Občutljivost…"
 
 #, fuzzy
-msgid "is received after..."
-msgstr "je prejeto od ..."
+msgid "is received after…"
+msgstr "je prejeto od…"
 
 #, fuzzy
-msgid "is received before..."
-msgstr "je prejeto od ..."
+msgid "is received before…"
+msgstr "je prejeto od…"
 
 #, fuzzy
-msgid "size is at least..."
-msgstr "velikost je vsaj..."
+msgid "size is at least…"
+msgstr "velikost je vsaj…"
 
 #, fuzzy
-msgid "size is at most..."
-msgstr "velikost je največ..."
+msgid "size is at most…"
+msgstr "velikost je največ…"
 
 #, fuzzy
 msgid "has my name in the To field"
@@ -3180,8 +3177,8 @@ msgid "Always move messages with this subject"
 msgstr "Vedno premaknite sporočila s tem predmetom"
 
 #, fuzzy
-msgid "Create rule..."
-msgstr "Ustvarite pravilo..."
+msgid "Create rule…"
+msgstr "Ustvarite pravilo…"
 
 #, fuzzy
 msgid "myself"
@@ -3201,11 +3198,11 @@ msgstr "Ali želite uporabiti spremembe?"
 msgid "All folders"
 msgstr "Pokaži vse mape"
 
-msgid "Other..."
-msgstr "Drugo..."
+msgid "Other…"
+msgstr "Drugo…"
 
-msgid "Search in.."
-msgstr "Iskanje v.."
+msgid "Search in…"
+msgstr "Iskanje v…"
 
 #, fuzzy
 msgid "Folder does not exist"
@@ -3348,8 +3345,8 @@ msgstr "Organizator sestanka"
 msgid "{0} overdue"
 msgstr "{0} zapadlo"
 
-msgid "Loading..."
-msgstr "Nalaganje..."
+msgid "Loading…"
+msgstr "Nalaganje…"
 
 #, fuzzy
 msgid "Message could not be loaded"
@@ -3875,8 +3872,8 @@ msgid "Add New"
 msgstr "Dodaj novo"
 
 #, fuzzy
-msgid "Type your note here..."
-msgstr "Tukaj vpišite svojo opombo..."
+msgid "Type your note here…"
+msgstr "Tukaj vpišite svojo opombo…"
 
 #, fuzzy
 msgid "New contact"
@@ -4224,8 +4221,8 @@ msgstr "Preklopi pogled"
 msgid "Widgets"
 msgstr "Gradniki"
 
-msgid "Sending..."
-msgstr "Pošiljanje..."
+msgid "Sending…"
+msgstr "Pošiljanje…"
 
 msgid "Sent successfully"
 msgstr "Pošiljanje uspešno"
@@ -4706,8 +4703,8 @@ msgstr "Dodaj v mapo priljubljeno"
 msgid "Remove From Favorites"
 msgstr "Odstrani s koledarja"
 
-msgid "Share folder..."
-msgstr "Mapa za deljenje..."
+msgid "Share folder…"
+msgstr "Mapa za deljenje…"
 
 msgid "Import emails"
 msgstr "Uvoz e-poštnih sporočil"
@@ -4724,8 +4721,8 @@ msgid "Properties of {0}"
 msgstr "Lastnosti"
 
 #, fuzzy
-msgid "Share {0} with..."
-msgstr "Delite {0} z..."
+msgid "Share {0} with…"
+msgstr "Delite {0} z…"
 
 #, fuzzy
 msgid "Properties of {0} - {1}"
@@ -4832,8 +4829,8 @@ msgstr "pri {0}"
 msgid "Your email will be sent {0}{1}"
 msgstr "Vaše e-poštno sporočilo bo poslano {0}{1}"
 
-msgid "Saving..."
-msgstr "Shranjujem ..."
+msgid "Saving…"
+msgstr "Shranjujem…"
 
 #, fuzzy
 msgid "Saved at {0}"
@@ -6167,8 +6164,8 @@ msgid "More than 1 share link exists. Only showing the latest one"
 msgstr "Obstaja več kot 1 povezava za skupno rabo. Prikaže se samo zadnja"
 
 #, fuzzy
-msgid "Loading details..."
-msgstr "Nalaganje podrobnosti..."
+msgid "Loading details…"
+msgstr "Nalaganje podrobnosti…"
 
 #, fuzzy
 msgid "Share Details"
@@ -8385,7 +8382,7 @@ msgid "Could not accept Task Request."
 msgstr "Sprejetje zahtevka za nalogo ni bilo mogoče."
 
 msgid "You have insufficient privileges to decline this Task Request."
-msgstr "Nimate dovolj dovoljenj za zavrnitev zahtevka za to nalogo.."
+msgstr "Nimate dovolj dovoljenj za zavrnitev zahtevka za to nalogo."
 
 msgid "Could not decline Task Request."
 msgstr "Zavrnitev zahtevka za nalogo ni bila mogoča."

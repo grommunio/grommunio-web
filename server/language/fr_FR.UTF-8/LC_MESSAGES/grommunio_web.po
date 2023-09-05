@@ -489,8 +489,8 @@ msgstr "Il n'y a aucun élément à afficher dans cette liste"
 msgid "Show Names from the"
 msgstr "Afficher les noms de"
 
-msgid "Search..."
-msgstr "Rechercher..."
+msgid "Search…"
+msgstr "Rechercher…"
 
 msgid "Sort by: Icon"
 msgstr "Trier par : Icône"
@@ -651,8 +651,8 @@ msgstr "Dossiers"
 msgid "Include subfolders"
 msgstr "Inclure les sous-répertoires"
 
-msgid "Show.."
-msgstr "Afficher.."
+msgid "Show…"
+msgstr "Afficher…"
 
 msgid "Mails"
 msgstr "Courriels"
@@ -666,8 +666,8 @@ msgstr "Contacts"
 msgid "Tasks"
 msgstr "Tâches"
 
-msgid "Filter.."
-msgstr "Filtrer.."
+msgid "Filter…"
+msgstr "Filtrer…"
 
 msgid "Unread"
 msgstr "Non lu(s)"
@@ -686,11 +686,8 @@ msgctxt "search.date"
 msgid "To"
 msgstr "À"
 
-msgid "Filter category.."
-msgstr "Filtre de catégorie.."
-
-msgid "Search.."
-msgstr "Rechercher.."
+msgid "Filter category…"
+msgstr "Filtre de catégorie…"
 
 msgid "Sender"
 msgstr "Expéditeur"
@@ -1165,8 +1162,8 @@ msgid "Attachments cannot be modified for a single occurence"
 msgstr ""
 "Les pièces jointes ne peuvent pas être modifiées pour une seule occurrence"
 
-msgid "Type your message here..."
-msgstr "Inscrire votre message ici..."
+msgid "Type your message here…"
+msgstr "Inscrire votre message ici…"
 
 msgid "Update location"
 msgstr "Mettre à jour localisation"
@@ -1509,8 +1506,8 @@ msgstr "Ouvrir"
 msgid "Copy/Move"
 msgstr "Copier/Déplacer"
 
-msgid "Send to..."
-msgstr "Envoyer à..."
+msgid "Send to…"
+msgstr "Envoyer à…"
 
 msgid "Export as"
 msgstr "Exporter en tant que"
@@ -1730,8 +1727,8 @@ msgstr ""
 "Votre agenda a été automatiquement actualisé. Cette demande de réunion va "
 "être supprimée."
 
-msgid "Loading appointments..."
-msgstr "Chargement des rendez-vous..."
+msgid "Loading appointments…"
+msgstr "Chargement des rendez-vous…"
 
 #, fuzzy
 msgid "Please select a calendar via widget settings"
@@ -1787,8 +1784,8 @@ msgstr "{0} - {1} (toute la journée)"
 msgid "d/m/y"
 msgstr "d/m/Y"
 
-msgid "Select one..."
-msgstr "Choisir un..."
+msgid "Select one…"
+msgstr "Choisir un…"
 
 msgid "Unnamed folder"
 msgstr "Dossier sans nom"
@@ -1880,8 +1877,8 @@ msgstr "rendez-Vous"
 msgid "Paste this occurrence only"
 msgstr "Coller uniquement cette occurrence"
 
-msgid "Paste the series..."
-msgstr "Coller la série..."
+msgid "Paste the series…"
+msgstr "Coller la série…"
 
 msgid ""
 "This is a recurring message. Do you want to delete only this occurrence or "
@@ -2274,11 +2271,11 @@ msgstr "Les délégués peuvent envoyer des éléments en votre nom."
 
 msgid ""
 "If you only want to set folder permissions, right-click on a folder to open "
-"the context menu and click on \"Share Folder...\""
+"the context menu and click on \"Share folder…\""
 msgstr ""
 "Si vous souhaitez uniquement définir les permissions, cliquez avec le bouton "
-"droit pour ouvrir le menu contextuel et cliquez sur \"Partager le "
-"répertoire...\""
+"droit pour ouvrir le menu contextuel et cliquez sur \"Partager "
+"dossier…\""
 
 msgid "Permission"
 msgstr "Autorisation"
@@ -2827,67 +2824,65 @@ msgstr "Taille"
 msgid "Sort by: Size"
 msgstr "Trier par: Taille"
 
-#, fuzzy
-msgid "Move the message to folder..."
-msgstr "Déplacer le message vers le dossier ..."
+msgid "Move the message to folder…"
+msgstr "Déplacer le message vers le dossier…"
 
-#, fuzzy
-msgid "Copy the message to folder..."
-msgstr "Copier le message vers le dossier ..."
+msgid "Copy the message to folder…"
+msgstr "Copier le message vers le dossier…"
 
 msgid "Delete the message"
 msgstr "Supprimer le message"
 
 #, fuzzy
-msgid "Redirect the message to..."
-msgstr "Rediriger le message vers ..."
+msgid "Redirect the message to…"
+msgstr "Rediriger le message vers…"
 
 #, fuzzy
-msgid "Forward the message to..."
-msgstr "Faire suivre le message vers ..."
+msgid "Forward the message to…"
+msgstr "Faire suivre le message vers…"
 
 #, fuzzy
-msgid "Forward the message as attachment to..."
-msgstr "Faire suivre le message en tant que pièce jointe vers ..."
+msgid "Forward the message as attachment to…"
+msgstr "Faire suivre le message en tant que pièce jointe vers…"
 
 #, fuzzy
-msgid "Mark the message as read..."
-msgstr "Faire suivre le message vers ..."
+msgid "Mark the message as read…"
+msgstr "Faire suivre le message vers…"
 
 #, fuzzy
-msgid "is received from..."
-msgstr "est reçu de ..."
+msgid "is received from…"
+msgstr "est reçu de…"
 
 #, fuzzy
-msgid "includes these words in the sender's address..."
-msgstr "inclut ces mots dans l'adresse de l'expéditeur ..."
+msgid "includes these words in the sender's address…"
+msgstr "inclut ces mots dans l'adresse de l'expéditeur…"
 
 #, fuzzy
-msgid "includes these words in the recipient's address..."
-msgstr "inclut ces mots dans l'adresse de l'expéditeur ..."
+msgid "includes these words in the recipient's address…"
+msgstr "inclut ces mots dans l'adresse de l'expéditeur…"
 
 #, fuzzy
-msgid "includes these words in the subject..."
-msgstr "inclut ces mots dans le sujet ..."
+msgid "includes these words in the subject…"
+msgstr "inclut ces mots dans le sujet…"
 
 #, fuzzy
-msgid "includes these words in the body..."
-msgstr "inclut ces mots dans le corps ..."
+msgid "includes these words in the body…"
+msgstr "inclut ces mots dans le corps…"
 
 #, fuzzy
-msgid "includes these words in the transport-headers..."
-msgstr "inclut ces mots dans le corps ..."
+msgid "includes these words in the transport headers…"
+msgstr "inclut ces mots dans le corps…"
 
 #, fuzzy
-msgid "has importance..."
-msgstr "est important ..."
+msgid "has importance…"
+msgstr "est important…"
 
 msgid "has an attachment"
 msgstr "a une pièce jointe"
 
 #, fuzzy
-msgid "is sent to..."
-msgstr "est envoyé à ..."
+msgid "is sent to…"
+msgstr "est envoyé à…"
 
 msgid "is sent only to me"
 msgstr "est envoyé seulement à moi"
@@ -2902,22 +2897,22 @@ msgstr "a mon nom dans les champs À ou Cc"
 msgid "has my name in the To or Cc field"
 msgstr "a mon nom dans les champs À ou Cc"
 
-msgid "has sensitivity..."
-msgstr "sensibilité..."
+msgid "has sensitivity…"
+msgstr "sensibilité…"
 
-msgid "is received after..."
-msgstr "a été reçu après..."
+msgid "is received after…"
+msgstr "a été reçu après…"
 
-msgid "is received before..."
-msgstr "a été reçu avant..."
-
-#, fuzzy
-msgid "size is at least..."
-msgstr "la taille est au moins..."
+msgid "is received before…"
+msgstr "a été reçu avant…"
 
 #, fuzzy
-msgid "size is at most..."
-msgstr "la taille est au maximum..."
+msgid "size is at least…"
+msgstr "la taille est au moins…"
+
+#, fuzzy
+msgid "size is at most…"
+msgstr "la taille est au maximum…"
 
 msgid "has my name in the To field"
 msgstr "a mon nom dans le champ À"
@@ -3036,8 +3031,8 @@ msgid "Always move messages with this subject"
 msgstr "Toujours déplacer les messages avec ce sujet"
 
 #, fuzzy
-msgid "Create rule..."
-msgstr "Créer une règle..."
+msgid "Create rule…"
+msgstr "Créer une règle…"
 
 msgid "myself"
 msgstr "moi-même"
@@ -3056,12 +3051,11 @@ msgstr "Souhaitez-vous appliquer les modifications?"
 msgid "All folders"
 msgstr "Afficher tous les répertoires"
 
-msgid "Other..."
-msgstr "Autre..."
+msgid "Other…"
+msgstr "Autre…"
 
-#, fuzzy
-msgid "Search in.."
-msgstr "Rechercher..."
+msgid "Search in…"
+msgstr "Rechercher dans…"
 
 msgid "Folder does not exist"
 msgstr "Le dossier n'existe pas"
@@ -3209,8 +3203,8 @@ msgstr "Organisateur de la réunion"
 msgid "{0} overdue"
 msgstr "{0} en retard"
 
-msgid "Loading..."
-msgstr "Chargement..."
+msgid "Loading…"
+msgstr "Chargement…"
 
 #, fuzzy
 msgid "Message could not be loaded"
@@ -3738,8 +3732,8 @@ msgstr "Sélectionner les membres"
 msgid "Add New"
 msgstr "Ajouter nouveau"
 
-msgid "Type your note here..."
-msgstr "Saisir votre note ici..."
+msgid "Type your note here…"
+msgstr "Saisir votre note ici…"
 
 msgid "New contact"
 msgstr "Nouveau contact"
@@ -4086,8 +4080,8 @@ msgstr "Changer de vue"
 msgid "Widgets"
 msgstr "Widgets"
 
-msgid "Sending..."
-msgstr "Envoi..."
+msgid "Sending…"
+msgstr "Envoi…"
 
 msgid "Sent successfully"
 msgstr "Envoyé avec succès"
@@ -4558,8 +4552,8 @@ msgstr "Ajouter aux Favoris"
 msgid "Remove From Favorites"
 msgstr "Supprimer des Favoris"
 
-msgid "Share folder..."
-msgstr "Dossier de démarrage..."
+msgid "Share folder…"
+msgstr "Partager dossier…"
 
 #, fuzzy
 msgid "Import emails"
@@ -4578,8 +4572,8 @@ msgid "Properties of {0}"
 msgstr "Propriétés"
 
 #, fuzzy
-msgid "Share {0} with..."
-msgstr "Partagez {0} avec..."
+msgid "Share {0} with…"
+msgstr "Partagez {0} avec…"
 
 #, fuzzy
 msgid "Properties of {0} - {1}"
@@ -4685,8 +4679,8 @@ msgstr "à {0}"
 msgid "Your email will be sent {0}{1}"
 msgstr "Votre courriel sera envoyé {0}{1}"
 
-msgid "Saving..."
-msgstr "Enregistrement..."
+msgid "Saving…"
+msgstr "Enregistrement…"
 
 #, fuzzy
 msgid "Saved at {0}"
@@ -5997,8 +5991,8 @@ msgid "More than 1 share link exists. Only showing the latest one"
 msgstr "Il existe plus d'un lien de partage. N'affiche que le dernier lien"
 
 #, fuzzy
-msgid "Loading details..."
-msgstr "Chargement des détails..."
+msgid "Loading details…"
+msgstr "Chargement des détails…"
 
 #, fuzzy
 msgid "Share Details"

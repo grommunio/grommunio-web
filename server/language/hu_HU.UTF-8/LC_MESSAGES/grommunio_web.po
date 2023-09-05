@@ -499,8 +499,8 @@ msgstr "Nincsenek megjeleníthető elemek ebben a nézetben"
 msgid "Show Names from the"
 msgstr "Nevek megjelenítése következőből"
 
-msgid "Search..."
-msgstr "Keresés..."
+msgid "Search…"
+msgstr "Keresés…"
 
 msgid "Sort by: Icon"
 msgstr "Rendezés ikon szerint"
@@ -665,8 +665,8 @@ msgstr "Mappák"
 msgid "Include subfolders"
 msgstr "Almappákban is"
 
-msgid "Show.."
-msgstr "Mutasd.."
+msgid "Show…"
+msgstr "Mutasd…"
 
 msgid "Mails"
 msgstr "Levelek"
@@ -681,8 +681,8 @@ msgstr "Névjegyzék"
 msgid "Tasks"
 msgstr "Feladatok"
 
-msgid "Filter.."
-msgstr "Szűrés.."
+msgid "Filter…"
+msgstr "Szűrés…"
 
 msgid "Unread"
 msgstr "Olvasatlan"
@@ -701,11 +701,8 @@ msgctxt "search.date"
 msgid "To"
 msgstr "Címzett"
 
-msgid "Filter category.."
-msgstr "Kategória törlése.."
-
-msgid "Search.."
-msgstr "Keresés.."
+msgid "Filter category…"
+msgstr "Kategória törlése…"
 
 msgid "Sender"
 msgstr "Feladó"
@@ -1199,8 +1196,8 @@ msgstr "Figyelmeztetés"
 msgid "Attachments cannot be modified for a single occurence"
 msgstr "A mellékletet nem lehet csak egy előfordulásnál módosítani"
 
-msgid "Type your message here..."
-msgstr "Írja be üzenetét..."
+msgid "Type your message here…"
+msgstr "Írja be üzenetét…"
 
 msgid "Update location"
 msgstr "Hely frissítése"
@@ -1550,8 +1547,8 @@ msgstr "Megnyitás"
 msgid "Copy/Move"
 msgstr "Másolás/mozgatás"
 
-msgid "Send to..."
-msgstr "Továbbítás mellékletként..."
+msgid "Send to…"
+msgstr "Továbbítás mellékletként…"
 
 msgid "Export as"
 msgstr "Exportálás mint"
@@ -1778,8 +1775,8 @@ msgstr ""
 "A naptára automatikusan frissítésre került. A találkozási kérelem most "
 "törlésre kerül."
 
-msgid "Loading appointments..."
-msgstr "Találkozók betöltése..."
+msgid "Loading appointments…"
+msgstr "Találkozók betöltése…"
 
 #, fuzzy
 msgid "Please select a calendar via widget settings"
@@ -1836,8 +1833,8 @@ msgstr "{0} - {1} (egész nap)"
 msgid "d/m/y"
 msgstr "Y/m/d"
 
-msgid "Select one..."
-msgstr "Válaszon egy..."
+msgid "Select one…"
+msgstr "Válaszon egy…"
 
 msgid "Unnamed folder"
 msgstr "Névtelen mappa"
@@ -1932,8 +1929,8 @@ msgid "Paste this occurrence only"
 msgstr "Csak ezt az eseményt illessze be"
 
 #, fuzzy
-msgid "Paste the series..."
-msgstr "Beilleszteni a sorozatot..."
+msgid "Paste the series…"
+msgstr "Beilleszteni a sorozatot…"
 
 msgid ""
 "This is a recurring message. Do you want to delete only this occurrence or "
@@ -2342,10 +2339,10 @@ msgstr "A küldöttek az Ön nevében is küldhetnek tárgyakat."
 #, fuzzy
 msgid ""
 "If you only want to set folder permissions, right-click on a folder to open "
-"the context menu and click on \"Share Folder...\""
+"the context menu and click on \"Share folder…\""
 msgstr ""
 "Ha csak a mappaengedélyeket szeretné beállítani, kattintson a jobb gombbal a "
-"mappára a kontextusmenü megnyitásához, és kattintson a \"Mappa megosztása..."
+"mappára a kontextusmenü megnyitásához, és kattintson a \"Mappa megosztása…"
 "\" gombra"
 
 msgid "Permission"
@@ -2894,66 +2891,66 @@ msgid "Sort by: Size"
 msgstr "Rendezés: Méret"
 
 #, fuzzy
-msgid "Move the message to folder..."
-msgstr "Üzenet áthelyezése ebbe a mappába ..."
+msgid "Move the message to folder…"
+msgstr "Üzenet áthelyezése ebbe a mappába…"
 
 #, fuzzy
-msgid "Copy the message to folder..."
-msgstr "Üzenet másolása ebbe a mappába ..."
+msgid "Copy the message to folder…"
+msgstr "Üzenet másolása ebbe a mappába…"
 
 msgid "Delete the message"
 msgstr "Üzenet törlése"
 
 #, fuzzy
-msgid "Redirect the message to..."
-msgstr "Üzenet átirányítása ..."
+msgid "Redirect the message to…"
+msgstr "Üzenet átirányítása…"
 
 #, fuzzy
-msgid "Forward the message to..."
-msgstr "Üzenet továbbítása ..."
+msgid "Forward the message to…"
+msgstr "Üzenet továbbítása…"
 
 #, fuzzy
-msgid "Forward the message as attachment to..."
-msgstr "Üzenet továbbítása mellékletként ..."
+msgid "Forward the message as attachment to…"
+msgstr "Üzenet továbbítása mellékletként…"
 
 #, fuzzy
-msgid "Mark the message as read..."
-msgstr "Üzenet továbbítása ..."
+msgid "Mark the message as read…"
+msgstr "Üzenet továbbítása…"
 
 #, fuzzy
-msgid "is received from..."
-msgstr "küldője..."
+msgid "is received from…"
+msgstr "küldője…"
 
 #, fuzzy
-msgid "includes these words in the sender's address..."
-msgstr "küldőjének címe tartalmazza ezeket a szavakat ..."
+msgid "includes these words in the sender's address…"
+msgstr "küldőjének címe tartalmazza ezeket a szavakat…"
 
 #, fuzzy
-msgid "includes these words in the recipient's address..."
-msgstr "küldőjének címe tartalmazza ezeket a szavakat ..."
+msgid "includes these words in the recipient's address…"
+msgstr "küldőjének címe tartalmazza ezeket a szavakat…"
 
 #, fuzzy
-msgid "includes these words in the subject..."
-msgstr "tárgya tartalmazza ezeket a szavakat ..."
+msgid "includes these words in the subject…"
+msgstr "tárgya tartalmazza ezeket a szavakat…"
 
 #, fuzzy
-msgid "includes these words in the body..."
-msgstr "levéltörzse tartalmazza ezeket a szavakat..."
+msgid "includes these words in the body…"
+msgstr "levéltörzse tartalmazza ezeket a szavakat…"
 
 #, fuzzy
-msgid "includes these words in the transport-headers..."
-msgstr "a levél fejléce tartalmazza ezeket a szavakat..."
+msgid "includes these words in the transport headers…"
+msgstr "a levél fejléce tartalmazza ezeket a szavakat…"
 
 #, fuzzy
-msgid "has importance..."
-msgstr "prioritása ..."
+msgid "has importance…"
+msgstr "prioritása…"
 
 msgid "has an attachment"
 msgstr "mellékletet tartalmaz"
 
 #, fuzzy
-msgid "is sent to..."
-msgstr "címzettje (To:, Cc:) a következő cím..."
+msgid "is sent to…"
+msgstr "címzettje (To:, Cc:) a következő cím…"
 
 msgid "is sent only to me"
 msgstr "kizárólag nekem van címezve"
@@ -2968,22 +2965,22 @@ msgstr "címzettjei (To: Cc:) között szerepelek"
 msgid "has my name in the To or Cc field"
 msgstr "címzettjei (To: Cc:) között szerepelek"
 
-msgid "has sensitivity..."
-msgstr "információinak érzékenysége..."
+msgid "has sensitivity…"
+msgstr "információinak érzékenysége…"
 
-msgid "is received after..."
-msgstr "később érkezett mint..."
+msgid "is received after…"
+msgstr "később érkezett mint…"
 
-msgid "is received before..."
-msgstr "korábban érkezett mint..."
-
-#, fuzzy
-msgid "size is at least..."
-msgstr "mérete legalább..."
+msgid "is received before…"
+msgstr "korábban érkezett mint…"
 
 #, fuzzy
-msgid "size is at most..."
-msgstr "mérete legfeljebb..."
+msgid "size is at least…"
+msgstr "mérete legalább…"
+
+#, fuzzy
+msgid "size is at most…"
+msgstr "mérete legfeljebb…"
 
 msgid "has my name in the To field"
 msgstr "nekem lett címezve"
@@ -3102,8 +3099,8 @@ msgid "Always move messages with this subject"
 msgstr "Az ilyen tárgyú üzeneteket mindig áthelyezzük"
 
 #, fuzzy
-msgid "Create rule..."
-msgstr "Szabály létrehozása..."
+msgid "Create rule…"
+msgstr "Szabály létrehozása…"
 
 msgid "myself"
 msgstr "saját magam"
@@ -3120,11 +3117,11 @@ msgstr "Kívánja alkalmazni a változásokat?"
 msgid "All folders"
 msgstr "Összes mappa"
 
-msgid "Other..."
-msgstr "Egyéb..."
+msgid "Other…"
+msgstr "Egyéb…"
 
-msgid "Search in.."
-msgstr "Keresés.."
+msgid "Search in…"
+msgstr "Keresés…"
 
 #, fuzzy
 msgid "Folder does not exist"
@@ -3268,8 +3265,8 @@ msgstr "Értekezlet szervező"
 msgid "{0} overdue"
 msgstr "{0} lejárt"
 
-msgid "Loading..."
-msgstr "Betöltés..."
+msgid "Loading…"
+msgstr "Betöltés…"
 
 #, fuzzy
 msgid "Message could not be loaded"
@@ -3772,8 +3769,8 @@ msgstr "Tagok kiválasztása"
 msgid "Add New"
 msgstr "Új"
 
-msgid "Type your note here..."
-msgstr "Ide írja be a szövegét..."
+msgid "Type your note here…"
+msgstr "Ide írja be a szövegét…"
 
 msgid "New contact"
 msgstr "Új névjegy"
@@ -4121,8 +4118,8 @@ msgstr "Nézet változtatása"
 msgid "Widgets"
 msgstr "Widgetek"
 
-msgid "Sending..."
-msgstr "Küldés..."
+msgid "Sending…"
+msgstr "Küldés…"
 
 msgid "Sent successfully"
 msgstr "Sikeresen elküldve"
@@ -4593,8 +4590,8 @@ msgstr "Hozzáadás a kedvencekhez"
 msgid "Remove From Favorites"
 msgstr "Eltávolítás a kedvencekből"
 
-msgid "Share folder..."
-msgstr "Kezdő mappa..."
+msgid "Share folder…"
+msgstr "Kezdő mappa…"
 
 #, fuzzy
 msgid "Import emails"
@@ -4612,8 +4609,8 @@ msgid "Properties of {0}"
 msgstr "Tulajdonságok"
 
 #, fuzzy
-msgid "Share {0} with..."
-msgstr "Ossza meg {0} a..."
+msgid "Share {0} with…"
+msgstr "Ossza meg {0} a…"
 
 #, fuzzy
 msgid "Properties of {0} - {1}"
@@ -4716,8 +4713,8 @@ msgstr "{0}"
 msgid "Your email will be sent {0}{1}"
 msgstr "A levél kiküldésének időpontja: {0}{1}"
 
-msgid "Saving..."
-msgstr "Mentés..."
+msgid "Saving…"
+msgstr "Mentés…"
 
 #, fuzzy
 msgid "Saved at {0}"
@@ -5992,8 +5989,8 @@ msgstr "Lejárati dátum"
 msgid "More than 1 share link exists. Only showing the latest one"
 msgstr "Több mint 1 megosztási link létezik. Csak a legutóbbi jelenik meg"
 
-msgid "Loading details..."
-msgstr "Részletek betöltése..."
+msgid "Loading details…"
+msgstr "Részletek betöltése…"
 
 #, fuzzy
 msgid "Share Details"

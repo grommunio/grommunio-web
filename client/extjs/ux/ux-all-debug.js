@@ -3312,9 +3312,9 @@ Ext.ux.menu.ListMenu = Ext.extend(Ext.menu.Menu, {
     labelField :  'text',
     /**
      * @cfg {String} paramPrefix
-     * Defaults to 'Loading...'.
+     * Defaults to 'Loading…'.
      */
-    loadingText : 'Loading...',
+    loadingText : 'Loading…',
     /**
      * @cfg {Boolean} loadOnShow
      * Defaults to true.
@@ -6768,9 +6768,9 @@ Ext.ux.ProgressBarPager  = Ext.extend(Object, {
 	progBarWidth   : 225,
 	/**
  	* @cfg {String} defaultText
-	* <p>The text to display while the store is loading.  Default is 'Loading...'</p>
+	* <p>The text to display while the store is loading.  Default is 'Loading…'</p>
  	*/
-	defaultText    : 'Loading...',
+	defaultText    : 'Loading…',
     	/**
  	* @cfg {Object} defaultAnimCfg 
  	* <p>A {@link Ext.Fx Ext.Fx} configuration object.  Default is  { duration : 1, easing : 'bounceOut' }.</p>
@@ -8837,11 +8837,11 @@ sb.setStatus({
     /**
      * @cfg {String} busyText
      * The default <code>{@link #text}</code> applied when calling
-     * <code>{@link #showBusy}</code> (defaults to <tt>'Loading...'</tt>).
+     * <code>{@link #showBusy}</code> (defaults to <tt>'Loading…'</tt>).
      * It can be overridden at any time by passing the <code>text</code>
      * argument into <code>{@link #showBusy}</code>.
      */
-    busyText : 'Loading...',
+    busyText : 'Loading…',
     /**
      * @cfg {Number} autoClear
      * The number of milliseconds to wait after setting the status via
@@ -9677,9 +9677,9 @@ Ext.ux.ValidationStatus = Ext.extend(Ext.Component, {
     /**
      * @cfg {String} showText
      * The {@link #text} value to be applied when there is a form validation error.
-     * Defaults to <tt>'The form has errors (click for details...)'</tt>.
+     * Defaults to <tt>'The form has errors (click for details…)'</tt>.
      */
-    showText : 'The form has errors (click for details...)',
+    showText : 'The form has errors (click for details…)',
     /**
      * @cfg {String} showText
      * The {@link #text} value to display when the error list is displayed.
@@ -9689,9 +9689,9 @@ Ext.ux.ValidationStatus = Ext.extend(Ext.Component, {
     /**
      * @cfg {String} submitText
      * The {@link #text} value to be applied when the form is being submitted.
-     * Defaults to <tt>'Saving...'</tt>.
+     * Defaults to <tt>'Saving…'</tt>.
      */
-    submitText : 'Saving...',
+    submitText : 'Saving…',
     
     // private
     init : function(sb){

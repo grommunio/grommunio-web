@@ -74,7 +74,7 @@ Zarafa.common.rules.ui.RulesContextMenu = Ext.extend(Zarafa.core.ui.menu.Conditi
 				handler: this.onCreateRuleForSubject,
 				scope: this
 			},{
-				text: _('Create rule...'),
+				text: _('Create rule…'),
 				handler: this.onCreateRule,
 				scope: this
 			}]
@@ -142,7 +142,7 @@ Zarafa.common.rules.ui.RulesContextMenu = Ext.extend(Zarafa.core.ui.menu.Conditi
 	},
 
 	/**
-	 * Event handler which is called when the user selects the 'Create rule..'
+	 * Event handler which is called when the user selects the "Create rule…"
 	 * item in the sub context menu. This will open the rule dialog for creating new rule.
 	 * @private
 	 */

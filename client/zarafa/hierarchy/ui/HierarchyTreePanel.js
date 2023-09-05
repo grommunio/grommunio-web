@@ -83,7 +83,7 @@ Zarafa.hierarchy.ui.HierarchyTreePanel = Ext.extend(Zarafa.hierarchy.ui.Tree, {
 				width: 20
 			}, {
 				xtype: 'textfield',
-				emptyText: _('Search...'),
+				emptyText: _('Search…'),
 				cls: 'k-searchfolder-field',
 				doLayout: this.onLayoutSearchField.createDelegate(this),
 				hidden: !treeFilter,

@@ -177,7 +177,7 @@ Zarafa.calendar.ui.CalendarContextMenu = Ext.extend(Zarafa.core.ui.menu.Conditio
 			}
 		},{
 			xtype: 'zarafa.conditionalitem',
-			text: _('Send to...'),
+			text: _('Send to…'),
 			iconCls: 'icon_embedded_attachment',
 			singleSelectOnly: true,
 			beforeShow: this.beforeShowItem,

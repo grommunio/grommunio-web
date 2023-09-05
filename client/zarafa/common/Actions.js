@@ -597,7 +597,7 @@ Zarafa.common.Actions = {
 				showButtonText: 'ok',
 				hideButtonText: 'next'
 			},{
-				boxLabel: _('Paste the series...'),
+				boxLabel: _('Paste the series…'),
 				id: 'recurrence_series',
 				name: 'select',
 				showButtonText: 'next',

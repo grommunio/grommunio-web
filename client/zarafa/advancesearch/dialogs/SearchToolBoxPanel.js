@@ -220,7 +220,7 @@ Zarafa.advancesearch.dialogs.SearchToolBoxPanel = Ext.extend(Ext.Panel, {
 			xtype:'fieldset',
 			width: 156,
 			border: false,
-			title: _('Show..'),
+			title: _('Show…'),
 			items: [{
 				xtype: 'checkboxgroup',
 				ref: '../../messageTypeCheckboxGroup',
@@ -272,7 +272,7 @@ Zarafa.advancesearch.dialogs.SearchToolBoxPanel = Ext.extend(Ext.Panel, {
 			xtype:'fieldset',
 			width: 156,
 			border: false,
-			title: _('Filter..'),
+			title: _('Filter…'),
 			items: [{
 				xtype: 'checkboxgroup',
 				columns: 1,
@@ -375,7 +375,7 @@ Zarafa.advancesearch.dialogs.SearchToolBoxPanel = Ext.extend(Ext.Panel, {
 			xtype: 'fieldset',
 			border: false,
 			cls: 'k-category-filter',
-			title: _('Filter category..'),
+			title: _('Filter category…'),
 			autoHeight: true,
 			ref: '../categoryFilterFieldSet',
 			items: [{
@@ -432,7 +432,7 @@ Zarafa.advancesearch.dialogs.SearchToolBoxPanel = Ext.extend(Ext.Panel, {
 			xtype:'fieldset',
 			width: 160,
 			border: false,
-			title: _('Search..'),
+			title: _('Search…'),
 			ref: '../searchInFieldset',
 			items: [{
 				xtype: 'checkboxgroup',

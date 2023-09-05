@@ -45,7 +45,7 @@ Zarafa.settings.ui.SettingsAdvancedCategory = Ext.extend(Zarafa.settings.ui.Sett
 					region:'center',
 					items: [{
 						xtype: 'textfield',
-						emptyText: _('Search...'),
+						emptyText: _('Search…'),
 						anchor: '100%',
 						cls: 'k-settings-search-field',
 						enableKeyEvents: true,

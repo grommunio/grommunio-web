@@ -282,7 +282,7 @@ Zarafa.hierarchy.ui.ContextMenu = Ext.extend(Zarafa.core.ui.menu.ConditionalMenu
 			},
 			handler: this.onContextItemFavoritesRemove
 		},{
-			text: _('Share folder...'),
+			text: _('Share folder…'),
 			iconCls: 'icon_share',
 			name: 'shareFolder',
 			beforeShow: this.onBeforeContextItem,
@@ -343,7 +343,7 @@ Zarafa.hierarchy.ui.ContextMenu = Ext.extend(Zarafa.core.ui.menu.ConditionalMenu
 	},
 
 	/**
-	 * Fires on selecting 'Share folder...' or 'Properties' menu option from
+	 * Fires on selecting 'Share folder…' or 'Properties' menu option from
 	 * {@link Zarafa.hierarchy.ui.ContextMenu ContextMenu} Opens
 	 * {@link Zarafa.hierarchy.dialogs.FolderPropertiesContent FolderPropertiesContent}
 	 *
@@ -372,10 +372,10 @@ Zarafa.hierarchy.ui.ContextMenu = Ext.extend(Zarafa.core.ui.menu.ConditionalMenu
 		if (mapiStore.isDefaultStore() || isIPMSubTree) {
 			var text = isIPMSubTree ? storeName : folderName;
 			formattedTitle = String.format(_('Properties of {0}'), text);
-			emptyText = String.format(_('Share {0} with...'), text);
+			emptyText = String.format(_('Share {0} with…'), text);
 		} else {
 			formattedTitle = String.format(_('Properties of {0} - {1}'), folderName, storeName);
-			emptyText = String.format(_('Share {0} with...'), folderName);
+			emptyText = String.format(_('Share {0} with…'), folderName);
 		}
 
 		var config = {
@@ -393,7 +393,7 @@ Zarafa.hierarchy.ui.ContextMenu = Ext.extend(Zarafa.core.ui.menu.ConditionalMenu
 	},
 
 	/**
-	 * Event handler triggered before the "Shared folder..." or "Properties"
+	 * Event handler triggered before the "Share folder…" or "Properties"
 	 * context menu item show.
 	 *
 	 * @param {Ext.Button} item The item which is going to show.

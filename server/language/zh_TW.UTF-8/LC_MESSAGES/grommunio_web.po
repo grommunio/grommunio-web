@@ -479,9 +479,6 @@ msgstr "目前視圖沒有項目可顯示"
 msgid "Show Names from the"
 msgstr "顯示名稱從"
 
-msgid "Search..."
-msgstr ""
-
 msgid "Sort by: Icon"
 msgstr "依圖示排序"
 
@@ -653,8 +650,8 @@ msgid "Include subfolders"
 msgstr "建立子資料夾"
 
 #, fuzzy
-msgid "Show.."
-msgstr "顯示"
+msgid "Show…"
+msgstr "顯示…"
 
 #, fuzzy
 msgid "Mails"
@@ -670,7 +667,7 @@ msgstr "聯絡人"
 msgid "Tasks"
 msgstr "任務"
 
-msgid "Filter.."
+msgid "Filter…"
 msgstr ""
 
 msgid "Unread"
@@ -693,12 +690,12 @@ msgid "To"
 msgstr "收件人"
 
 #, fuzzy
-msgid "Filter category.."
-msgstr "設定類別"
+msgid "Filter category…"
+msgstr "設定類別…"
 
 #, fuzzy
-msgid "Search.."
-msgstr "搜尋"
+msgid "Search…"
+msgstr "搜尋…"
 
 msgid "Sender"
 msgstr "寄件者"
@@ -1159,7 +1156,7 @@ msgstr "警告"
 msgid "Attachments cannot be modified for a single occurence"
 msgstr "無法單一修改附件"
 
-msgid "Type your message here..."
+msgid "Type your message here…"
 msgstr ""
 
 #, fuzzy
@@ -1490,8 +1487,8 @@ msgid "Copy/Move"
 msgstr "複製/移動"
 
 #, fuzzy
-msgid "Send to..."
-msgstr "傳送"
+msgid "Send to…"
+msgstr "傳送…"
 
 msgid "Export as"
 msgstr ""
@@ -1694,8 +1691,8 @@ msgid ""
 msgstr "你的行事曆已自動更新。此會議邀請將會刪除"
 
 #, fuzzy
-msgid "Loading appointments..."
-msgstr "載入會議中"
+msgid "Loading appointments…"
+msgstr "載入會議中…"
 
 msgid "Please select a calendar via widget settings"
 msgstr ""
@@ -1746,8 +1743,8 @@ msgstr ""
 msgid "d/m/y"
 msgstr "d/m/Y"
 
-msgid "Select one..."
-msgstr "選擇一個..."
+msgid "Select one…"
+msgstr "選擇一個…"
 
 msgid "Unnamed folder"
 msgstr "未命名的資料夾"
@@ -1828,7 +1825,7 @@ msgstr ""
 msgid "Paste this occurrence only"
 msgstr ""
 
-msgid "Paste the series..."
+msgid "Paste the series…"
 msgstr ""
 
 msgid ""
@@ -2195,7 +2192,7 @@ msgstr ""
 
 msgid ""
 "If you only want to set folder permissions, right-click on a folder to open "
-"the context menu and click on \"Share Folder...\""
+"the context menu and click on \"Share folder…\""
 msgstr ""
 
 msgid "Permission"
@@ -2721,66 +2718,65 @@ msgid "Sort by: Size"
 msgstr "依大小排序"
 
 #, fuzzy
-msgid "Move the message to folder..."
-msgstr "移動郵件到資料夾..."
+msgid "Move the message to folder…"
+msgstr "移動郵件到資料夾…"
 
 #, fuzzy
-msgid "Copy the message to folder..."
-msgstr "複制郵件到資料夾..."
+msgid "Copy the message to folder…"
+msgstr "複制郵件到資料夾…"
 
 msgid "Delete the message"
 msgstr "刪除郵件"
 
 #, fuzzy
-msgid "Redirect the message to..."
-msgstr "重新轉寄郵件到..."
+msgid "Redirect the message to…"
+msgstr "重新轉寄郵件到…"
 
 #, fuzzy
-msgid "Forward the message to..."
-msgstr "轉送郵件到..."
+msgid "Forward the message to…"
+msgstr "轉送郵件到…"
 
 #, fuzzy
-msgid "Forward the message as attachment to..."
-msgstr "轉送附檔到..."
+msgid "Forward the message as attachment to…"
+msgstr "轉送附檔到…"
 
 #, fuzzy
-msgid "Mark the message as read..."
-msgstr "轉送郵件到..."
+msgid "Mark the message as read…"
+msgstr "轉送郵件到…"
 
 #, fuzzy
-msgid "is received from..."
-msgstr "接收到來自..."
+msgid "is received from…"
+msgstr "接收到來自…"
 
 #, fuzzy
-msgid "includes these words in the sender's address..."
-msgstr "主旨包含這些字"
+msgid "includes these words in the sender's address…"
+msgstr "主旨包含這些字…"
 
 #, fuzzy
-msgid "includes these words in the recipient's address..."
-msgstr "主旨包含這些字"
+msgid "includes these words in the recipient's address…"
+msgstr "主旨包含這些字…"
 
 #, fuzzy
-msgid "includes these words in the subject..."
-msgstr "主旨包含這些字"
+msgid "includes these words in the subject…"
+msgstr "主旨包含這些字…"
 
 #, fuzzy
-msgid "includes these words in the body..."
-msgstr "主旨包含這些字"
+msgid "includes these words in the body…"
+msgstr "主旨包含這些字…"
 
 #, fuzzy
-msgid "includes these words in the transport-headers..."
-msgstr "主旨包含這些字"
+msgid "includes these words in the transport headers…"
+msgstr "主旨包含這些字…"
 
-#, fuzzy
-msgid "has importance..."
-msgstr "has importance ..."
+msgid "has importance…"
+msgstr ""
 
 msgid "has an attachment"
 msgstr ""
 
 #, fuzzy
-msgid "is sent to..."
-msgstr "傳送到..."
+msgid "is sent to…"
+msgstr "傳送到…"
 
 msgid "is sent only to me"
 msgstr "只傳送給自己"
@@ -2795,21 +2791,21 @@ msgid "has my name in the To or Cc field"
 msgstr ""
 
 #, fuzzy
-msgid "has sensitivity..."
-msgstr "敏感度"
+msgid "has sensitivity…"
+msgstr "敏感度…"
 
 #, fuzzy
-msgid "is received after..."
-msgstr "接收到來自..."
+msgid "is received after…"
+msgstr "接收到來自…"
 
 #, fuzzy
-msgid "is received before..."
-msgstr "接收到來自..."
+msgid "is received before…"
+msgstr "接收到來自…"
 
-msgid "size is at least..."
+msgid "size is at least…"
 msgstr ""
 
-msgid "size is at most..."
+msgid "size is at most…"
 msgstr ""
 
 msgid "has my name in the To field"
@@ -2923,7 +2919,7 @@ msgstr ""
 msgid "Always move messages with this subject"
 msgstr ""
 
-msgid "Create rule..."
+msgid "Create rule…"
 msgstr ""
 
 msgid "myself"
@@ -2943,12 +2939,12 @@ msgid "All folders"
 msgstr "顯示所有資料夾"
 
 #, fuzzy
-msgid "Other..."
-msgstr "其他"
+msgid "Other…"
+msgstr "其他…"
 
 #, fuzzy
-msgid "Search in.."
-msgstr "搜尋"
+msgid "Search in…"
+msgstr "搜尋…"
 
 #, fuzzy
 msgid "Folder does not exist"
@@ -3069,8 +3065,8 @@ msgstr "會議主席"
 msgid "{0} overdue"
 msgstr "{0} 過期"
 
-msgid "Loading..."
-msgstr "讀取中..."
+msgid "Loading…"
+msgstr "讀取中…"
 
 msgid "Message could not be loaded"
 msgstr ""
@@ -3581,7 +3577,7 @@ msgstr "選擇成員"
 msgid "Add New"
 msgstr "新增新的"
 
-msgid "Type your note here..."
+msgid "Type your note here…"
 msgstr ""
 
 msgid "New contact"
@@ -3913,8 +3909,8 @@ msgid "Widgets"
 msgstr "新增小工具"
 
 #, fuzzy
-msgid "Sending..."
-msgstr "傳送中"
+msgid "Sending…"
+msgstr "傳送中…"
 
 msgid "Sent successfully"
 msgstr "傳送成功"
@@ -4378,8 +4374,8 @@ msgid "Remove From Favorites"
 msgstr "從行事曆上移除"
 
 #, fuzzy
-msgid "Share folder..."
-msgstr "開始資料夾"
+msgid "Share folder…"
+msgstr "開始資料夾…"
 
 #, fuzzy
 msgid "Import emails"
@@ -4396,7 +4392,7 @@ msgstr ""
 msgid "Properties of {0}"
 msgstr "屬性"
 
-msgid "Share {0} with..."
+msgid "Share {0} with…"
 msgstr ""
 
 #, fuzzy
@@ -4492,7 +4488,7 @@ msgstr ""
 msgid "Your email will be sent {0}{1}"
 msgstr ""
 
-msgid "Saving..."
+msgid "Saving…"
 msgstr ""
 
 #, fuzzy
@@ -5697,7 +5693,7 @@ msgstr ""
 msgid "More than 1 share link exists. Only showing the latest one"
 msgstr ""
 
-msgid "Loading details..."
+msgid "Loading details…"
 msgstr ""
 
 msgid "Share Details"

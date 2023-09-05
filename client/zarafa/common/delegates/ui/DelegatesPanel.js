@@ -57,7 +57,7 @@ Zarafa.common.delegates.ui.DelegatesPanel = Ext.extend(Ext.Panel, {
 	{
 		return [{
 			xtype: 'displayfield',
-			value: '<b>' + _('Delegates can send items on your behalf.') + '</b> <br>' + _('If you only want to set folder permissions, right-click on a folder to open the context menu and click on "Share Folder..."'),
+			value: '<b>' + _('Delegates can send items on your behalf.') + '</b> <br>' + _('If you only want to set folder permissions, right-click on a folder to open the context menu and click on "Share folder…"'),
 			fieldClass: 'x-form-display-field zarafa-settings-widget-extrainfo'
 		}, {
 			xtype: 'container',
