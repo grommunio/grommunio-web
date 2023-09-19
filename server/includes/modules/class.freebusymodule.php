@@ -13,7 +13,7 @@ class FreeBusyModule extends Module {
 			if (isset($actionType)) {
 				try {
 					switch ($actionType) {
-						case "list":
+						case 'list':
 							$this->addUserData($selUser);
 							break;
 
@@ -35,44 +35,25 @@ class FreeBusyModule extends Module {
 	 * @param {Array} $selUser User that should be resolved
 	 */
 	public function addUserData($selUser) {
-		$data = [];
-		$data["users"] = [];
+		$data = [
+			'users' => [],
+		];
 
-		foreach ($selUser["users"] as $fbUser) {
-			$user = [];
-
+		foreach ($selUser['users'] as $fbUser) {
 			// Copy the identifier of the user.
-			$user["userid"] = $fbUser["userid"];
-			$user["entryid"] = $fbUser["entryid"];
+			$user = [
+				'userid' => $fbUser['userid'],
+				'entryid' => $fbUser['entryid'],
+			];
 
 			// Obtain the Freebusy data for this user
-			$busyArray = $this->getFreeBusyInfo($fbUser["entryid"], $selUser["start"], $selUser["end"]);
-
-			if ($busyArray) {
-				// We have freebusy information, go over the data
-				// and insert the blocks into the user object.
-				foreach ($busyArray as $busyItem) {
-					$busy = [];
-					$busy["status"] = $busyItem["status"];
-					$busy["start"] = $busyItem["start"];
-					$busy["isRestrictedRange"] = isset($busyItem["isRestrictedRange"]) ? $busyItem["isRestrictedRange"] : false;
-					$busy["end"] = $busyItem["end"];
-					$user["items"][] = $busy;
-				}
-			}
-			else {
-				// No freebusy data available, create a single empty block
-				$busy["status"] = -1;
-				$busy["start"] = $selUser["start"];
-				$busy["end"] = $selUser["end"];
-				$user["items"][] = $busy;
-			}
-
-			$data["users"][] = $user;
+			$busyArray = $this->getFreeBusyInfo($fbUser['entryid'], $selUser['start'], $selUser['end']);
+			$user['items'] = $busyArray;
+			$data['users'][] = $user;
 		}
 
-		$this->addActionData("list", $data);
-		$GLOBALS["bus"]->addData($this->getResponseData());
+		$this->addActionData('list', $data);
+		$GLOBALS['bus']->addData($this->getResponseData());
 	}
 
 	/**
@@ -89,28 +70,13 @@ class FreeBusyModule extends Module {
 
 		$fbdata = mapi_getuserfreebusy($GLOBALS['mapisession']->getSession(), hex2bin($entryID), $start, $end);
 
-		if (empty($fbdata['fbevents'])) {
-			return $result;
-		}
-		$last_end = $start;
 		foreach ($fbdata['fbevents'] as $event) {
-			$blockItem = [];
-			$blockItem['start'] = $event['start'];
-			$blockItem['end'] = $event['end'];
-			$blockItem['status'] = $event['busystatus'];
-			$last_end = $event['end'];
-			$result[] = $blockItem;
+			$result[] = [
+				'start' => $event['start'],
+				'end' => $event['end'],
+				'status' => $event['busystatus'],
+			];
 		}
-
-		// Add restricted Free/Busy range information for recipient.
-		$noInfoItem = [];
-		$noInfoItem["status"] = -1;
-		$noInfoItem["isRestrictedRange"] = true;
-		// Last day of visible Free/Busy range was first day of restricted Free/Busy range.
-		$noInfoItem["start"] = $last_end;
-		// Scheduler's last day.
-		$noInfoItem["end"] = $end;
-		$result[] = $noInfoItem;
 
 		return $result;
 	}
