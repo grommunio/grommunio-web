@@ -81,7 +81,6 @@ client: $(CSSDEST) $(ICONSETSDEST) $(IMAGESDEST) html js
 	cp -r client/zarafa/core/themes $(DESTDIR)/client/
 	rm -rf $(DESTDIR)/client/themes/*/js
 	cp -r client/resources/scss $(DESTDIR)/client/resources/scss
-	cp -r LICENSE.TXT $(DESTDIR)/
 
 css:
 	find $(DESTDIR)/client -name "*.css" -exec $(CSSCOMPILER) $(CSSOPTIONS) --output {}.min {} \; -exec mv {}.min {} \;
