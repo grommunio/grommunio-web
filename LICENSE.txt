@@ -1,6 +1,6 @@
 grommunio Web
 
-Copyright (C) 2020 - 2022 grommunio GmbH
+Copyright (C) 2020 - 2023 grommunio GmbH
 
 This program is free software: you can redistribute it and/or modify it under 
 the terms of the GNU Affero General Public License as published by the Free 
@@ -18,46 +18,46 @@ with this program. If not, see http://www.gnu.org/licenses/.
 grommunio Web contains the following components:
 
 grommunio Web
-Copyright (C) 2020 - 2022 grommunio GmbH
+Copyright (C) 2020 - 2023 grommunio GmbH
 Copyright (C) 2016        Kopano and its licensors
 Copyright (C) 2005 - 2016 Zarafa B.V. and its licensors
 
 grommunio Web Desktop Notifications Plugin
-Copyright (C) 2020 - 2022 grommunio GmbH
+Copyright (C) 2020 - 2023 grommunio GmbH
 Copyright (C) 2016        Kopano and its licensors
 Copyright (C) 2013        Saket Patel
 
 grommunio Web Meet Plugin
-Copyright (C) 2020 - 2022 grommunio GmbH
+Copyright (C) 2020 - 2023 grommunio GmbH
 Copyright (C) 2020        Siedl Networks
 Copyright (C) 2017        Kopano and its licensors
 
 grommunio Web Password Plugin
-Copyright (C) 2020 - 2022 grommunio GmbH
+Copyright (C) 2020 - 2023 grommunio GmbH
 Copyright (C) 2017        Kopano and its licensors
 Copyright (C) 2013 - 2017 Saket Patel
 
 grommunio Web Mobile Device Management Plugin
-Copyright (C) 2020 - 2022 grommunio GmbH
+Copyright (C) 2020 - 2023 grommunio GmbH
 Copyright (C) 2016        Kopano and its licensors
 Copyright (C) 2005 - 2016 Zarafa B.V. and its licensors
 
 grommunio Web Chat Plugin
-Copyright (C) 2020 - 2022 grommunio GmbH
+Copyright (C) 2020 - 2023 grommunio GmbH
 Copyright (C) 2017        Kopano and its licensors
 
 grommunio Web Maps Plugin
-Copyright (C) 2020 - 2022 grommunio GmbH
+Copyright (C) 2020 - 2023 grommunio GmbH
 Copyright (C) 2016        Kopano and its licensors
 Copyright (C) 2005 - 2016 Zarafa B.V. and its licensors
 
 grommunio Web Files & Backend Plugin
-Copyright (C) 2020 - 2022 grommunio GmbH
+Copyright (C) 2020 - 2023 grommunio GmbH
 Copyright (C) 2016        Kopano and its licensors
 Copyright (C) 2016        Zarafa B.V. and its licensors
 
 grommunio Web Intranet Plugin
-Copyright (C) 2020 - 2022 grommunio GmbH
+Copyright (C) 2020 - 2023 grommunio GmbH
 Copyright (C) 2017        Kopano and its licensors
 
 This program is free software: you can redistribute it and/or modify it under 

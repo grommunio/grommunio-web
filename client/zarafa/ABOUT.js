@@ -9,7 +9,7 @@ Ext.namespace('Zarafa');
 
 Zarafa.ABOUT = ""
 	+ "<style>div.atxt h1{font-weight:inherit;font-style:italic;}</style><div class=\"atxt\">"
-	+ "<p>Copyright (C) 2020 - 2022 grommunio GmbH</p>"
+	+ "<p>Copyright (C) 2020 - 2023 grommunio GmbH</p>"
 
 	+ "<p>This program is free software: you can redistribute it and/or modify "
 	+ "it under the terms of the GNU Affero General Public License as "
@@ -30,60 +30,60 @@ Zarafa.ABOUT = ""
 
 	+ "<h1>grommunio Web</h1>"
 
-	+ "<p>Copyright (C) 2020 - 2022 grommunio GmbH<br>"
+	+ "<p>Copyright (C) 2020 - 2023 grommunio GmbH<br>"
 	+ "Copyright (C) 2016 Kopano and its licensors<br>"
 	+ "Copyright (C) 2005 - 2016 Zarafa B.V. and its licensors</p>"
 
 	+ "<h1>grommunio Web File Previewer Plugin</h1>"
 
-	+ "<p>Copyright (C) 2020 - 2022 grommunio GmbH<br>"
+	+ "<p>Copyright (C) 2020 - 2023 grommunio GmbH<br>"
 	+ "Copyright (C) 2016 Kopano and its licensors<br>"
 	+ "Copyright (C) 2016 Zarafa B.V. and its licensors</p>"
 
 	+ "<h1>grommunio Web Desktop Notifications Plugin</h1>"
 
-	+ "<p>Copyright (C) 2020 - 2022 grommunio GmbH<br>"
+	+ "<p>Copyright (C) 2020 - 2023 grommunio GmbH<br>"
 	+ "Copyright (C) 2016 Kopano and its licensors<br>"
 	+ "Copyright (C) 2013 Saket Patel</p>"
 
 	+ "<h1>grommunio Web Meet Plugin</h1>"
 
-	+ "<p>Copyright (C) 2020 - 2022 grommunio GmbH<br>"
+	+ "<p>Copyright (C) 2020 - 2023 grommunio GmbH<br>"
 	+ "Copyright (C) 2020 Siedl Networks<br>"
 	+ "Copyright (C) 2017 Kopano and its licensors</p>"
 
 	+ "<h1>grommunio Web Password Plugin</h1>"
 
-	+ "<p>Copyright (C) 2020 - 2022 grommunio GmbH<br>"
+	+ "<p>Copyright (C) 2020 - 2023 grommunio GmbH<br>"
 	+ "Copyright (C) 2017 Kopano and its licensors<br>"
 	+ "Copyright (C) 2013 - 2017 Saket Patel</p>"
 
 	+ "<h1>grommunio Web Device Management Plugin</h1>"
 
-	+ "<p>Copyright (C) 2020 - 2022 grommunio GmbH<br>"
+	+ "<p>Copyright (C) 2020 - 2023 grommunio GmbH<br>"
 	+ "Copyright (C) 2016 Kopano and its licensors<br>"
 	+ "Copyright (C) 2005 - 2016 Zarafa B.V. and its licensors</p>"
 
 	+ "<h1>grommunio Web Chat Plugin</h1>"
 
-	+ "<p>Copyright (C) 2020 - 2022 grommunio GmbH<br>"
+	+ "<p>Copyright (C) 2020 - 2023 grommunio GmbH<br>"
 	+ "Copyright (C) 2017 Kopano and its licensors</p>"
 
 	+ "<h1>grommunio Web Maps Plugin</h1>"
 
-	+ "<p>Copyright (C) 2020 - 2022 grommunio GmbH<br>"
+	+ "<p>Copyright (C) 2020 - 2023 grommunio GmbH<br>"
 	+ "Copyright (C) 2016 Kopano and its licensors<br>"
 	+ "Copyright (C) 2005 - 2016 Zarafa B.V. and its licensors</p>"
 
 	+ "<h1>grommunio Web Files & Backend Plugin</h1>"
 
-	+ "<p>Copyright (C) 2020 - 2022 grommunio GmbH<br>"
+	+ "<p>Copyright (C) 2020 - 2023 grommunio GmbH<br>"
 	+ "Copyright (C) 2016 Kopano and its licensors<br>"
 	+ "Copyright (C) 2016 Zarafa B.V. and its licensors</p>"
 
 	+ "<h1>grommunio Web Intranet Plugin</h1>"
 
-	+ "<p>Copyright (C) 2020 - 2022 grommunio GmbH<br>"
+	+ "<p>Copyright (C) 2020 - 2023 grommunio GmbH<br>"
 	+ "Copyright (C) 2017 Kopano and its licensors</p>"
 
 	+ "<p>This program is free software: you can redistribute it and/or modify "
