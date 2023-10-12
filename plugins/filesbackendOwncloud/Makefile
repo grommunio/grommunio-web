@@ -26,10 +26,7 @@ all: $(COPYFILESDEST) $(JSDEPLOY)/filesbackendOwncloud.js
 
 $(JSDEPLOY)/filesbackendOwncloud.js: $(JSFILES)
 	mkdir -p $(DESTDIR)/js
-	cat $(JSFILES) > $(JSDEPLOY)/filesbackendOwncloud-debug.js
-	$(JSCOMPILER) --js $(@:.js=-debug.js) --js_output_file $@ \
-		--source_map_location_mapping=$(JSDEPLOY)/js/\| \
-		--output_wrapper="%output%//# sourceMappingURL=$(shell basename $@.map)" \
-		--create_source_map $@.map \
-		$(JSOPTIONS)
-
+	cat $(JSFILES) > $(@:.js=-debug.js)
+	$(JSCOMPILER) $(@:.js=-debug.js) --output $@ \
+		--source-map "url='$(shell basename $@.map)'" \
+	        $(JSOPTIONS)

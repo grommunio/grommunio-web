@@ -3,8 +3,8 @@ include ../shared.mk
 MSGFMT ?= msgfmt
 
 JSFILES = js/ArchivePlugin.js \
-		js/ui/ContentPanel.js \
-		js/ui/Panel.js
+	js/ui/ContentPanel.js \
+	js/ui/Panel.js
 
 COPYFILES = manifest.xml config.php \
 	$(wildcard resources/css/*.css) \
@@ -16,9 +16,7 @@ all: $(COPYFILESDEST) $(JSDEPLOY)/archive.js
 
 $(JSDEPLOY)/archive.js: $(JSFILES)
 	mkdir -p $(DESTDIR)/js
-	cat $(JSFILES) > $(JSDEPLOY)/archive-debug.js
-	$(JSCOMPILER) --js $(@:.js=-debug.js) --js_output_file $@ \
-		--source_map_location_mapping=$(JSDEPLOY)/js/\| \
-		--output_wrapper="%output%//# sourceMappingURL=$(shell basename $@.map)" \
-		--create_source_map $@.map \
-		$(JSOPTIONS)
+	cat $(JSFILES) > $(@:.js=-debug.js)
+	$(JSCOMPILER) $(@:.js=-debug.js) --output $@ \
+		--source-map "url='$(shell basename $@.map)'" \
+	        $(JSOPTIONS)

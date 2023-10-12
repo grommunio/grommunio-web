@@ -108,13 +108,10 @@ all: $(COPYFILESDEST) $(JSDEPLOY)/files.js $(CSSDEPLOY)/files.css
 
 $(JSDEPLOY)/files.js: $(JSFILES)
 	mkdir -p $(DESTDIR)/js
-	cat $(JSFILES) > $(JSDEPLOY)/files-debug.js
-	$(JSCOMPILER) --js $(@:.js=-debug.js) --js_output_file $@ \
-		--source_map_location_mapping=$(JSDEPLOY)/js/\| \
-		--output_wrapper="%output%//# sourceMappingURL=$(shell basename $@.map)" \
-		--create_source_map $@.map \
-		$(JSOPTIONS)
-	sed -i 's#sourceMappingURL=files.js.map#sourceMappingURL=../js/files.js.map#' $@
+	cat $(JSFILES) > $(@:.js=-debug.js)
+	$(JSCOMPILER) $(@:.js=-debug.js) --output $@ \
+		--source-map "url='$(shell basename $@.map)'" \
+	        $(JSOPTIONS)
 
 $(CSSDEPLOY)/files.css: $(CSSFILES)
 	mkdir -p $(CSSDEPLOY)

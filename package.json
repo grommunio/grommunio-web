@@ -18,8 +18,8 @@
 	"devDependencies": {
 		"@babel/cli": "^7.16.0",
 		"@babel/core": "^7.16.0",
-		"babelify": "^10.0.0",
 		"@babel/preset-env": "^7.16.4",
+		"babelify": "^10.0.0",
 		"browserify": "^16.5.2",
 		"browserify-derequire": "^1.1.1",
 		"eslint": "^5.16.0",
@@ -34,6 +34,13 @@
 		"karma-spec-reporter": "^0.0.34"
 	},
 	"dependencies": {
+		"cssnano": "^6.0.1",
+		"html-minifier-terser": "^7.2.0",
+		"postcss": "^8.4.31",
+		"postcss-cli": "^10.1.0",
+		"postcss-preset-env": "^9.2.0",
+		"svgo": "^3.0.2",
+		"terser": "^5.21.0",
 		"tokenizr": "^1.5.3"
 	}
 }

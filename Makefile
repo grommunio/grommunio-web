@@ -15,16 +15,14 @@ DESTDIR ?= deploy
 JSDEPLOY = $(DESTDIR)/client
 DEPLOYPURIFY = $(JSDEPLOY)/dompurify
 
-JSCOMPILER ?= $(JAVA) -jar tools/lib/compiler.jar
-CSSCOMPILER ?= $(JAVA) -jar tools/lib/yuicompressor-2.4.8.jar
+JSCOMPILER ?= node_modules/terser/bin/terser
+CSSCOMPILER ?= node_modules/postcss-cli/index.js
+HTMLCOMPILER ?= node_modules/html-minifier-terser/cli.js
+SVGCOMPRESS ?= node_modules/svgo/bin/svgo
 
-JSOPTIONS = --externs client/externs.js \
-	--compilation_level SIMPLE --warning_level VERBOSE --jscomp_off=es5Strict --strict_mode_input=false \
-	--jscomp_off=globalThis --jscomp_off=misplacedTypeAnnotation --jscomp_off=nonStandardJsDocs \
-	--jscomp_off=missingProperties --jscomp_off=invalidCasts --jscomp_off=checkTypes \
-	--jscomp_warning=visibility --jscomp_warning=unknownDefines --jscomp_warning=undefinedVars \
-	--jscomp_warning=strictModuleDepCheck --jscomp_warning=deprecated \
-	--jscomp_error=checkVars --jscomp_warning=checkRegExp --jscomp_warning=accessControls
+JSOPTIONS = --compress ecma=2015,computed_props=false --mangle reserved=['FormData','Ext','Zarafa','container','settings','properties','languages','serverconfig','user','version','urlActionData','console','Tokenizr','module','define','global','require','proxy','_','dgettext','dngettext','dnpgettext','ngettext','pgettext','onResize','tinymce','resizeLoginBox','userManager','DOMPurify','PDFJS','odf','L','GeoSearch']
+CSSOPTIONS = --no-map --use postcss-preset-env --use cssnano --verbose
+HTMLOPTIONS = --collapse-whitespace --remove-comments
 
 # Server files
 
@@ -71,35 +69,39 @@ JSFILES = $(sort $(shell find client/zarafa -name '*.js'))
 
 all: deploy
 
-deploy: server client plugins css
+deploy: node_modules server client plugins css clearartifacts
 
 build: node_modules deploy
+
 test: jstest
 
-server: $(MOS) $(LANGTXTDEST) $(PHPFILES) $(DISTFILES) $(DESTDIR)/version $(DESTDIR)/cachebuster $(SERVERROOTFILES)
+server: $(MOS) $(LANGTXTDEST) $(PHPFILES) $(DISTFILES) $(DESTDIR)/version $(SERVERROOTFILES)
 
-client: $(CSSDEST) $(ICONSETSDEST) $(IMAGESDEST) js
+client: $(CSSDEST) $(ICONSETSDEST) $(IMAGESDEST) html js
 	cp -r client/resources/fonts $(DESTDIR)/client/resources/
 	cp -r client/zarafa/core/themes $(DESTDIR)/client/
 	rm -rf $(DESTDIR)/client/themes/*/js
 	cp -r client/resources/scss $(DESTDIR)/client/resources/scss
-	# TODO use separate targets
 
 css:
-	find $(DESTDIR)/client -name "*.css" -exec $(CSSCOMPILER) -o {}.min {} \; -exec mv {}.min {} \;
-	find $(DESTDIR)/plugins -name "*.css" -exec $(CSSCOMPILER) -o {}.min {} \; -exec mv {}.min {} \;
+	find $(DESTDIR)/client -name "*.css" -exec $(CSSCOMPILER) $(CSSOPTIONS) --output {}.min {} \; -exec mv {}.min {} \;
+	find $(DESTDIR)/plugins -name "*.css" -exec $(CSSCOMPILER) $(CSSOPTIONS) --output {}.min {} \; -exec mv {}.min {} \;
 
-js: $(JSDEPLOY)/fingerprint.js $(JSDEPLOY)/resize.js $(TEMPATEJSDEST) $(JSDEPLOY)/grommunio.js $(JSDEPLOY)/extjs-mod/extjs-mod.js $(JSDEPLOY)/extjs/ext-base-all.js $(DESTDIR)/client/third-party/ux-thirdparty.js $(DEPLOYPURIFYJS) $(JSDEPLOY)/filepreviewer/pdfjs/build/pdf.worker.js $(JSDEPLOY)/filepreviewer/pdfjs/build/pdf.js $(JSDEPLOY)/filepreviewer/pdfjs/web/viewer.js
-	cp -r client/tinymce $(DESTDIR)/client/
-	cp -r client/tinymce-languages $(DESTDIR)/client/
-	cp -r client/tinymce-plugins $(DESTDIR)/client/
-	cp -r client/extjs $(DESTDIR)/client/
-	cp -r client/filepreviewer $(DESTDIR)/client/
-	rm $(DESTDIR)/client/extjs/ext-base.js
-	rm $(DESTDIR)/client/extjs/ext-all.js
-	rm $(DESTDIR)/client/extjs/resources/css/reset-min.css
-	rm $(DESTDIR)/client/extjs/resources/css/xtheme-blue.css
-	# TODO use separate targets
+svgo: node_modules
+	find client plugins -type f -name "*.svg" -exec $(SVGCOMPRESS) --multipass {} \;
+
+clearartifacts:
+	find $(DESTDIR) -iname "*readme*" -exec rm -f {} \;
+	find $(DESTDIR) -iname "*license*.txt" -exec rm -f {} \;
+	find $(DESTDIR) -iname "*gpl*.txt" -exec rm -f {} \;
+
+js: $(JSDEPLOY)/fingerprint.js $(JSDEPLOY)/resize.js $(JSDEPLOY)/grommunio.js $(JSDEPLOY)/extjs-mod/extjs-mod.js $(JSDEPLOY)/extjs/ext-base-all.js $(DESTDIR)/client/third-party/ux-thirdparty.js $(DEPLOYPURIFYJS) $(JSDEPLOY)/filepreviewer/pdfjs/build/pdf.sandbox.js $(JSDEPLOY)/filepreviewer/pdfjs/build/pdf.worker.js $(JSDEPLOY)/filepreviewer/pdfjs/build/pdf.js $(JSDEPLOY)/filepreviewer/pdfjs/web/viewer.js $(JSDEPLOY)/filepreviewer/ViewerJS/ImageViewerPlugin.js $(JSDEPLOY)/filepreviewer/ViewerJS/MultimediaViewerPlugin.js $(JSDEPLOY)/filepreviewer/ViewerJS/ODFViewerPlugin.js $(JSDEPLOY)/filepreviewer/ViewerJS/UnknownFilePlugin.js $(JSDEPLOY)/filepreviewer/ViewerJS/viewer.js
+	cp -rn client/tinymce $(DESTDIR)/client/
+	cp -rn client/tinymce-languages $(DESTDIR)/client/
+	cp -rn client/tinymce-plugins $(DESTDIR)/client/
+	cp -rn client/extjs $(DESTDIR)/client/
+	cp -rn client/filepreviewer $(DESTDIR)/client/
+	rm $(DESTDIR)/client/extjs/ext-base.js $(DESTDIR)/client/extjs/ext-base-debug.js $(DESTDIR)/client/extjs/ext-all.js $(DESTDIR)/client/extjs/resources/css/reset-min.css $(DESTDIR)/client/extjs/resources/css/xtheme-blue.css $(DESTDIR)/client/filepreviewer/pdfjs/web/debugger.js
 
 $(DESTDIR)/%.php: %.php
 	php -l $<
@@ -115,6 +117,7 @@ $(DESTDIR)/%: %
 	cp $< $@
 
 $(DESTDIR)/version: version
+	git describe --abbrev=7 --always  --long | sed 's#grommunio-web-##' > version
 	cp $< $@
 
 $(DESTDIR)/client/extjs/ext-base-all.js: $(EXTJS)
@@ -122,81 +125,129 @@ $(DESTDIR)/client/extjs/ext-base-all.js: $(EXTJS)
 
 $(JSDEPLOY)/fingerprint.js: client/fingerprint.js
 	mkdir -p $(JSDEPLOY)
-	cat client/fingerprint.js > $(JSDEPLOY)/fingerprint-debug.js
-	$(JSCOMPILER) --js $< --js_output_file $@ $(JSOPTIONS)
+	cat $^ > $(@:.js=-debug.js)
+	$(JSCOMPILER) $(@:.js=-debug.js) --output $@ \
+		--source-map "url='$(shell basename $@.map)'" \
+	        $(JSOPTIONS)
 
 $(JSDEPLOY)/grommunio.js: $(JSFILES)
 	$(PHP) tools/loadorder.php grommunio $(@:.js=-debug.js)
-	$(JSCOMPILER) --js $(@:.js=-debug.js) --js_output_file $@ \
-		--source_map_location_mapping=$(JSDEPLOY)/\| \
-		--output_wrapper="%output%//# sourceMappingURL=$(shell basename $@.map)" \
-		--create_source_map $@.map \
-		$(JSOPTIONS)
+	$(JSCOMPILER) $(@:.js=-debug.js) --output $@ \
+		--source-map "url='$(shell basename $@.map)'" \
+	        $(JSOPTIONS)
 
 $(JSDEPLOY)/extjs-mod/extjs-mod.js: $(EXTJSMODFILES)
 	mkdir -p $(JSDEPLOY)/extjs-mod
 	$(PHP) tools/loadorder.php extjs $(@:.js=-debug.js)
-	$(JSCOMPILER) --js $(@:.js=-debug.js) --js_output_file $@ \
-		--source_map_location_mapping=$(JSDEPLOY)/extjs-mod/\| \
-		--output_wrapper="%output%//# sourceMappingURL=$(shell basename $@.map)" \
-		--create_source_map $@.map $(JSOPTIONS)
+	$(JSCOMPILER) $(@:.js=-debug.js) --output $@ \
+		--source-map "url='$(shell basename $@.map)'" \
+	        $(JSOPTIONS)
 
 $(JSDEPLOY)/resize.js: client/resize.js
 	mkdir -p $(JSDEPLOY)
-	cat client/resize.js > $(JSDEPLOY)/resize-debug.js
-	$(JSCOMPILER) --js $(@:.js=-debug.js) --js_output_file $@
+	cat $^ > $(@:.js=-debug.js)
+	$(JSCOMPILER) $(@:.js=-debug.js) --output $@ \
+		--source-map "url='$(shell basename $@.map)'" \
+	        $(JSOPTIONS)
 
 $(JSDEPLOY)/filepreviewer/pdfjs/build/pdf.worker.js: client/filepreviewer/pdfjs/build/pdf.worker.js
 	mkdir -p $(JSDEPLOY)/filepreviewer/pdfjs/build
 	cat $^ > $(@:.js=-debug.js)
-	$(JSCOMPILER) --js $(@:.js=-debug.js) --js_output_file $@ \
-		--source_map_location_mapping=$(JSDEPLOY)/\| \
-		--output_wrapper="%output%//# sourceMappingURL=$(shell basename $@.map)" \
-		--create_source_map $@.map \
-		$(JSOPTIONS) --jscomp_off=checkVars
+	$(JSCOMPILER) $(@:.js=-debug.js) --output $@ \
+		--source-map "url='$(shell basename $@.map)'" \
+	        $(JSOPTIONS)
+
+$(JSDEPLOY)/filepreviewer/pdfjs/build/pdf.sandbox.js: client/filepreviewer/pdfjs/build/pdf.sandbox.js
+	mkdir -p $(JSDEPLOY)/filepreviewer/pdfjs/build
+	cat $^ > $(@:.js=-debug.js)
+	$(JSCOMPILER) $(@:.js=-debug.js) --output $@ \
+		--source-map "url='$(shell basename $@.map)'" \
+	        $(JSOPTIONS)
 
 $(JSDEPLOY)/filepreviewer/pdfjs/build/pdf.js: client/filepreviewer/pdfjs/build/pdf.js
 	mkdir -p $(JSDEPLOY)/filepreviewer/pdfjs/build
 	cat $^ > $(@:.js=-debug.js)
-	$(JSCOMPILER) --js $(@:.js=-debug.js) --js_output_file $@ \
-		--source_map_location_mapping=$(JSDEPLOY)/\| \
-		--output_wrapper="%output%//# sourceMappingURL=$(shell basename $@.map)" \
-		--create_source_map $@.map \
-		$(JSOPTIONS) --jscomp_off=checkVars
+	$(JSCOMPILER) $(@:.js=-debug.js) --output $@ \
+		--source-map "url='$(shell basename $@.map)'" \
+	        $(JSOPTIONS)
 
 $(JSDEPLOY)/filepreviewer/pdfjs/web/viewer.js: client/filepreviewer/pdfjs/web/viewer.js
 	mkdir -p $(JSDEPLOY)/filepreviewer/pdfjs/web
 	cat $^ > $(@:.js=-debug.js)
-	$(JSCOMPILER) --js $(@:.js=-debug.js) --js_output_file $@ \
-		--source_map_location_mapping=$(JSDEPLOY)/\| \
-		--output_wrapper="%output%//# sourceMappingURL=$(shell basename $@.map)" \
-		--create_source_map $@.map \
-		$(JSOPTIONS) --jscomp_off=checkVars
+	$(JSCOMPILER) $(@:.js=-debug.js) --output $@ \
+		--source-map "url='$(shell basename $@.map)'" \
+	        $(JSOPTIONS)
+
+$(JSDEPLOY)/filepreviewer/ViewerJS/ImageViewerPlugin.js: client/filepreviewer/ViewerJS/ImageViewerPlugin.js
+	mkdir -p $(JSDEPLOY)/filepreviewer/ViewerJS
+	cat $^ > $(@:.js=-debug.js)
+	$(JSCOMPILER) $(@:.js=-debug.js) --output $@ \
+		--source-map "url='$(shell basename $@.map)'" \
+	        $(JSOPTIONS)
+
+$(JSDEPLOY)/filepreviewer/ViewerJS/MultimediaViewerPlugin.js: client/filepreviewer/ViewerJS/MultimediaViewerPlugin.js
+	mkdir -p $(JSDEPLOY)/filepreviewer/ViewerJS
+	cat $^ > $(@:.js=-debug.js)
+	$(JSCOMPILER) $(@:.js=-debug.js) --output $@ \
+		--source-map "url='$(shell basename $@.map)'" \
+	        $(JSOPTIONS)
+
+$(JSDEPLOY)/filepreviewer/ViewerJS/ODFViewerPlugin.js: client/filepreviewer/ViewerJS/ODFViewerPlugin.js
+	mkdir -p $(JSDEPLOY)/filepreviewer/ViewerJS
+	cat $^ > $(@:.js=-debug.js)
+	$(JSCOMPILER) $(@:.js=-debug.js) --output $@ \
+		--source-map "url='$(shell basename $@.map)'" \
+	        $(JSOPTIONS)
+
+$(JSDEPLOY)/filepreviewer/ViewerJS/UnknownFilePlugin.js: client/filepreviewer/ViewerJS/UnknownFilePlugin.js
+	mkdir -p $(JSDEPLOY)/filepreviewer/ViewerJS
+	cat $^ > $(@:.js=-debug.js)
+	$(JSCOMPILER) $(@:.js=-debug.js) --output $@ \
+		--source-map "url='$(shell basename $@.map)'" \
+	        $(JSOPTIONS)
+
+$(JSDEPLOY)/filepreviewer/ViewerJS/viewer.js: client/filepreviewer/ViewerJS/viewer.js
+	mkdir -p $(JSDEPLOY)/filepreviewer/ViewerJS
+	cat $^ > $(@:.js=-debug.js)
+	$(JSCOMPILER) $(@:.js=-debug.js) --output $@ \
+		--source-map "url='$(shell basename $@.map)'" \
+	        $(JSOPTIONS)
 
 $(DEPLOYPURIFYJS): $(PURIFYJS)
 	mkdir -p $(DEPLOYPURIFY)
 	# concatenate using cat
 	cat $^ > $(@:.js=-debug.js)
-	$(JSCOMPILER) --js $(@:.js=-debug.js) --js_output_file $@ \
-		--source_map_location_mapping=$(JSDEPLOY)/\| \
-		--output_wrapper="%output%//# sourceMappingURL=$(shell basename $@.map)" \
-		--create_source_map $@.map \
-		$(JSOPTIONS) --jscomp_off=checkVars
+	$(JSCOMPILER) $(@:.js=-debug.js) --output $@ \
+		--source-map "url='$(shell basename $@.map)'" \
+	        $(JSOPTIONS)
 
 $(JSDEPLOY)/third-party/ux-thirdparty.js: $(THIRDPARTY)
 	mkdir -p $(JSDEPLOY)/third-party
-	# concatenate using cat
 	cat $^ > $(@:.js=-debug.js)
-	$(JSCOMPILER) --js $(@:.js=-debug.js) --js_output_file $@ \
-		--source_map_location_mapping=$(JSDEPLOY)/\| \
-		--output_wrapper="%output%//# sourceMappingURL=$(shell basename $@.map)" \
-		--create_source_map $@.map \
-		$(JSOPTIONS) --jscomp_off=checkVars
+	$(JSCOMPILER) $(@:.js=-debug.js) --output $@ \
+		--source-map "url='$(shell basename $@.map)'" \
+	        $(JSOPTIONS)
 
 $(JSDEPLOY)/third-party/TinyMceTextArea-debug.js: client/third-party/tinymce/TinyMceTextArea.js
 	mkdir -p $(JSDEPLOY)/third-party
-	cp $< $@
-	$(JSCOMPILER) --js $< --js_output_file $@
+	cat $^ > $(@:.js=-debug.js)
+	$(JSCOMPILER) $(@:.js=-debug.js) --output $@ \
+		--source-map "url='$(shell basename $@.map)'" \
+	        $(JSOPTIONS)
+
+html: $(DESTDIR)/client/filepreviewer/pdfjs/web/viewer.html $(DESTDIR)/client/filepreviewer/ViewerJS/index.html
+
+$(DESTDIR)/client/filepreviewer/pdfjs/web/viewer.html: client/filepreviewer/pdfjs/web/viewer.html
+	mkdir -p $(JSDEPLOY)/filepreviewer/pdfjs/web
+	cat $^ > $(@:.html=-orig.html)
+	$(HTMLCOMPILER) $(HTMLOPTIONS) --output $@ $(@:.html=-orig.html)
+	rm $(@:.html=-orig.html)
+
+$(DESTDIR)/client/filepreviewer/ViewerJS/index.html: client/filepreviewer/ViewerJS/index.html
+	mkdir -p $(JSDEPLOY)/filepreviewer/ViewerJS
+	cat $^ > $(@:.html=-orig.html)
+	$(HTMLCOMPILER) $(HTMLOPTIONS) --output $@ $(@:.html=-orig.html)
+	rm $(@:.html=-orig.html)
 
 config:
 	cp $(DESTDIR)/config.php.dist $(DESTDIR)/config.php
