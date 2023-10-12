@@ -4,7 +4,6 @@ PHPMD ?= phpmd
 NPM ?= npm
 MSGFMT ?= msgfmt
 PHP ?= php
-JAVA ?= java
 
 # Variables
 
