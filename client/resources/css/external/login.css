@@ -68,8 +68,6 @@ body.login #form-container #bg
   position:absolute;
   left:0;
   top:0;
-  -webkit-filter:blur(10px);
-  filter:blur(10px);
   width: 400px;
   height: 320px;
 }

@@ -1818,17 +1818,6 @@ Including the navigation panel tree
 
 
 
-/*----------------------------------------------------------------------------------------------------------------------
-PNG images
-----------------------------------------------------------------------------------------------------------------------*/
-.icon_mdm_settings {
-	/* Rotate from #3e3e3f to blue #006699 approximately */
-	filter: brightness(90%) sepia(100) saturate(100) hue-rotate(195deg);
-}
-.default_contact_photo {
-	filter: brightness(50%);
-}
-
 /* Reminder */
 .x-panel.zarafa-reminder-dialog-active-reminder.x-panel-noborder.x-box-item {
 	color: #ffffff
