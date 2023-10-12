@@ -16,4 +16,3 @@ all:
 update:
 	echo $(VERSION)
 	curl -L $(URL) | tar -C . --strip-components 2 --wildcards "*/dist/purify.js*" --wildcards "*/dist/purify.min.js*" -xzvf -
-	@echo "# DOMPurify library\n\nTaken from $(URL)" > README.md
