@@ -201,4 +201,11 @@ body.login>#form-container #submitbutton:focus {
   box-shadow:0 0 0 1px #fff inset
 }
 
+.disclaimer {
+  text-align: center;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+
 /*# sourceMappingURL=login.css.map */

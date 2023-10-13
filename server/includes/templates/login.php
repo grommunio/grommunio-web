@@ -83,5 +83,10 @@
 				return false;
 			};
 		</script>
+		<?php if (file_exists('disclaimer.html')) { ?>
+		<div class="disclaimer">
+			<?php include('disclaimer.html'); ?>
+		</div>
+		<?php } ?>
 	</body>
 </html>
