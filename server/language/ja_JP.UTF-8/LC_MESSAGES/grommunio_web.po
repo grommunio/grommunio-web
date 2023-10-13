@@ -7010,7 +7010,7 @@ msgstr "証明書をアップロード"
 msgid "Cannot determine revocation status of certificate"
 msgstr "証明書の取り消しステータスを確認することができません"
 
-msgid "Signature verified (OCSP disabled)"
+msgid "Signature verified"
 msgstr "署名が確認されました (OCSP 無効)"
 
 #, fuzzy

@@ -6655,7 +6655,7 @@ msgid "Cannot determine revocation status of certificate"
 msgstr "无法确定证书的废止状态"
 
 #, fuzzy
-msgid "Signature verified (OCSP disabled)"
+msgid "Signature verified"
 msgstr "签名验证（禁用OCSP）"
 
 #, fuzzy

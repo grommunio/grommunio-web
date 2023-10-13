@@ -6659,7 +6659,7 @@ msgstr ""
 msgid "Cannot determine revocation status of certificate"
 msgstr ""
 
-msgid "Signature verified (OCSP disabled)"
+msgid "Signature verified"
 msgstr ""
 
 msgid "Unable to decrypt this message. Certificate does not match"

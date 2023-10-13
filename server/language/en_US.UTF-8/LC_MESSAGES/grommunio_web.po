@@ -6592,8 +6592,8 @@ msgstr "to unlock your certificate"
 msgid "Cannot determine revocation status of certificate"
 msgstr "Cannot determine revocation status of certificate"
 
-msgid "Signature verified (OCSP disabled)"
-msgstr "Signature verified (OCSP disabled)"
+msgid "Signature verified"
+msgstr "Signature verified"
 
 msgid "Unable to decrypt this message. Certificate does not match"
 msgstr "Unable to decrypt this message. Certificate does not match"

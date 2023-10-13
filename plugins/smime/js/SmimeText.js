@@ -99,7 +99,7 @@ Zarafa.plugins.smime.SmimeText = function () {
 				case 9:
 					return _('Cannot determine revocation status of certificate');
 				case 10:
-					return _('Signature verified (OCSP disabled)');
+					return _('Signature verified');
 				case 11:
 					return _('Cannot determine revocation status of certificate');
 				case 12:

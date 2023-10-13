@@ -6680,7 +6680,7 @@ msgstr "para desbloquear o seu certificado"
 msgid "Cannot determine revocation status of certificate"
 msgstr "Não é possível determinar o estado de revogação do certificado"
 
-msgid "Signature verified (OCSP disabled)"
+msgid "Signature verified"
 msgstr "Assinatura validada (OCSP desativado)"
 
 msgid "Unable to decrypt this message. Certificate does not match"

@@ -6960,7 +6960,7 @@ msgid "Cannot determine revocation status of certificate"
 msgstr "Невозможно определить статус отзыва сертификата"
 
 #, fuzzy
-msgid "Signature verified (OCSP disabled)"
+msgid "Signature verified"
 msgstr "Подпись проверена (OCSP отключен)"
 
 #, fuzzy

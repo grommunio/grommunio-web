@@ -7127,7 +7127,7 @@ msgid "Cannot determine revocation status of certificate"
 msgstr "Kan ikke bestemme certifikatets tilbagekaldelsesstatus"
 
 #, fuzzy
-msgid "Signature verified (OCSP disabled)"
+msgid "Signature verified"
 msgstr "Signatur verificeret (OCSP deaktiveret)"
 
 #, fuzzy

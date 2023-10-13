@@ -7348,7 +7348,7 @@ msgid "Cannot determine revocation status of certificate"
 msgstr "Ni mogoče določiti statusa preklica potrdila"
 
 #, fuzzy
-msgid "Signature verified (OCSP disabled)"
+msgid "Signature verified"
 msgstr "Preverjen podpis (OCSP onemogočen)"
 
 #, fuzzy

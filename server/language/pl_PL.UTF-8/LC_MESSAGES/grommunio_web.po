@@ -6929,7 +6929,7 @@ msgid "Cannot determine revocation status of certificate"
 msgstr "Nie można ustalić statusu unieważnienia certyfikatu"
 
 #, fuzzy
-msgid "Signature verified (OCSP disabled)"
+msgid "Signature verified"
 msgstr "Podpis zweryfikowany (OCSP wyłączone)"
 
 #, fuzzy

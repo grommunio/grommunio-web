@@ -7060,7 +7060,7 @@ msgid "Cannot determine revocation status of certificate"
 msgstr "Nem lehet meghatározni a tanúsítvány visszavonási státuszát"
 
 #, fuzzy
-msgid "Signature verified (OCSP disabled)"
+msgid "Signature verified"
 msgstr "Aláírás ellenőrizve (OCSP letiltva)"
 
 #, fuzzy

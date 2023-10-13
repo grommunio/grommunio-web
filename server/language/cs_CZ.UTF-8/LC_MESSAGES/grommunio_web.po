@@ -7261,7 +7261,7 @@ msgid "Cannot determine revocation status of certificate"
 msgstr "Nelze určit stav odvolání certifikátu"
 
 #, fuzzy
-msgid "Signature verified (OCSP disabled)"
+msgid "Signature verified"
 msgstr "Ověření podpisu (OCSP vypnuto)"
 
 #, fuzzy

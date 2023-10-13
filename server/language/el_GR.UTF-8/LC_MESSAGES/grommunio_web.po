@@ -8200,7 +8200,7 @@ msgid "Cannot determine revocation status of certificate"
 msgstr "Δεν μπορεί να προσδιοριστεί η κατάσταση ανάκλησης του πιστοποιητικού"
 
 #, fuzzy
-msgid "Signature verified (OCSP disabled)"
+msgid "Signature verified"
 msgstr "Επαλήθευση υπογραφής (OCSP απενεργοποιημένο)"
 
 #, fuzzy

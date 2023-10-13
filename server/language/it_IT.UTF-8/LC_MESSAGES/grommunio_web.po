@@ -6774,7 +6774,7 @@ msgstr "carica il tuo certificato"
 msgid "Cannot determine revocation status of certificate"
 msgstr "Non e` possibile determinare lo status della revoca del certificato"
 
-msgid "Signature verified (OCSP disabled)"
+msgid "Signature verified"
 msgstr "Firma verificata (OCSP disabilitato)"
 
 #, fuzzy

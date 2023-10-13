@@ -7291,7 +7291,7 @@ msgid "Cannot determine revocation status of certificate"
 msgstr "No se puede determinar el estado de revocación del certificado"
 
 #, fuzzy
-msgid "Signature verified (OCSP disabled)"
+msgid "Signature verified"
 msgstr "Firma verificada (OCSP desactivado)"
 
 #, fuzzy
