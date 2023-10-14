@@ -7262,7 +7262,7 @@ msgstr "Nelze určit stav odvolání certifikátu"
 
 #, fuzzy
 msgid "Signature verified"
-msgstr "Ověření podpisu (OCSP vypnuto)"
+msgstr "Ověření podpisu"
 
 #, fuzzy
 msgid "Unable to decrypt this message. Certificate does not match"

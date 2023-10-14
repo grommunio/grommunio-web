@@ -7128,7 +7128,7 @@ msgstr "Kan ikke bestemme certifikatets tilbagekaldelsesstatus"
 
 #, fuzzy
 msgid "Signature verified"
-msgstr "Signatur verificeret (OCSP deaktiveret)"
+msgstr "Signatur verificeret"
 
 #, fuzzy
 msgid "Unable to decrypt this message. Certificate does not match"

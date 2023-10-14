@@ -7349,7 +7349,7 @@ msgstr "Ni mogoče določiti statusa preklica potrdila"
 
 #, fuzzy
 msgid "Signature verified"
-msgstr "Preverjen podpis (OCSP onemogočen)"
+msgstr "Preverjen podpis"
 
 #, fuzzy
 msgid "Unable to decrypt this message. Certificate does not match"

@@ -6961,7 +6961,7 @@ msgstr "Невозможно определить статус отзыва се
 
 #, fuzzy
 msgid "Signature verified"
-msgstr "Подпись проверена (OCSP отключен)"
+msgstr "Подпись проверена"
 
 #, fuzzy
 msgid "Unable to decrypt this message. Certificate does not match"

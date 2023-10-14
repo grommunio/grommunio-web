@@ -7369,7 +7369,7 @@ msgstr "Varmenteen peruutustilaa ei voida määrittää"
 
 #, fuzzy
 msgid "Signature verified"
-msgstr "Allekirjoitus tarkistettu (OCSP poistettu käytöstä)"
+msgstr "Allekirjoitus tarkistettu"
 
 #, fuzzy
 msgid "Unable to decrypt this message. Certificate does not match"

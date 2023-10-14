@@ -6930,7 +6930,7 @@ msgstr "Nie można ustalić statusu unieważnienia certyfikatu"
 
 #, fuzzy
 msgid "Signature verified"
-msgstr "Podpis zweryfikowany (OCSP wyłączone)"
+msgstr "Podpis zweryfikowany"
 
 #, fuzzy
 msgid "Unable to decrypt this message. Certificate does not match"

@@ -6676,7 +6676,7 @@ msgid "Cannot determine revocation status of certificate"
 msgstr "Sperrstatus des Zertifikats kann nicht ermittelt werden"
 
 msgid "Signature verified"
-msgstr "Signatur überprüft (OCSP deaktiviert)"
+msgstr "Signatur überprüft"
 
 msgid "Unable to decrypt this message. Certificate does not match"
 msgstr ""

@@ -6572,7 +6572,7 @@ msgid "Cannot determine revocation status of certificate"
 msgstr "Sertifikanın iptal durumu belirlenemiyor"
 
 msgid "Signature verified"
-msgstr "İmza doğrulandı (OCSP devre dışı)"
+msgstr "İmza doğrulandı"
 
 msgid "Unable to decrypt this message. Certificate does not match"
 msgstr "Bu mesajın şifresi çözülemiyor. Sertifika eşleşmiyor"

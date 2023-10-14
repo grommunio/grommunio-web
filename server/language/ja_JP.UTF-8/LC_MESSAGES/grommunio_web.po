@@ -7011,7 +7011,7 @@ msgid "Cannot determine revocation status of certificate"
 msgstr "証明書の取り消しステータスを確認することができません"
 
 msgid "Signature verified"
-msgstr "署名が確認されました (OCSP 無効)"
+msgstr "署名が確認されました"
 
 #, fuzzy
 msgid "Unable to decrypt this message. Certificate does not match"

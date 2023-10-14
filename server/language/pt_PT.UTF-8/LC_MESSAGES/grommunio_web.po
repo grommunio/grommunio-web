@@ -6681,7 +6681,7 @@ msgid "Cannot determine revocation status of certificate"
 msgstr "Não é possível determinar o estado de revogação do certificado"
 
 msgid "Signature verified"
-msgstr "Assinatura validada (OCSP desativado)"
+msgstr "Assinatura validada"
 
 msgid "Unable to decrypt this message. Certificate does not match"
 msgstr ""

@@ -6626,7 +6626,7 @@ msgid "Cannot determine revocation status of certificate"
 msgstr "Kan intrekkingsstatus van het certificaat niet vaststellen"
 
 msgid "Signature verified"
-msgstr "Handtekening gevalideerd (OCSP uitgeschakeld)"
+msgstr "Handtekening gevalideerd"
 
 msgid "Unable to decrypt this message. Certificate does not match"
 msgstr "Kan het bericht niet ontsleutelen. Certificaat komt niet overeen"

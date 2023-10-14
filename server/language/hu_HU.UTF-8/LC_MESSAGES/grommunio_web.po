@@ -7061,7 +7061,7 @@ msgstr "Nem lehet meghatározni a tanúsítvány visszavonási státuszát"
 
 #, fuzzy
 msgid "Signature verified"
-msgstr "Aláírás ellenőrizve (OCSP letiltva)"
+msgstr "Aláírás ellenőrizve"
 
 #, fuzzy
 msgid "Unable to decrypt this message. Certificate does not match"

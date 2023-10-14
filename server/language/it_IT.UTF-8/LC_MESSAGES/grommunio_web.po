@@ -6775,7 +6775,7 @@ msgid "Cannot determine revocation status of certificate"
 msgstr "Non e` possibile determinare lo status della revoca del certificato"
 
 msgid "Signature verified"
-msgstr "Firma verificata (OCSP disabilitato)"
+msgstr "Firma verificata"
 
 #, fuzzy
 msgid "Unable to decrypt this message. Certificate does not match"
