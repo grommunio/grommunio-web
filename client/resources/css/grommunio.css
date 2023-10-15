@@ -986,6 +986,7 @@ td.x-grid3-hd-menu-open .x-grid3-hd-inner {
   border-top: none;
   border-left: none;
   border-color: #e6e6e6;
+  border-bottom: 1px dotted #e6e6e6;
   /*
    * exception for the categories column which has labels that will be truncated when too long
    * so truncating the cell itself will cause strange behaviour.
