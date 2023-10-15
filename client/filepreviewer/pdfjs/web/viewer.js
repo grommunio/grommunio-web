@@ -5870,7 +5870,7 @@ const defaultOptions = {
     kind: OptionKind.VIEWER
   };
   defaultOptions.locale = {
-    value: navigator.language || "en-US",
+    value: (window.self !== window.top ? new URLSearchParams(window.location.search) : new URLSearchParams(window.parent.location.search)).get('file') && new URLSearchParams(decodeURIComponent((window.self !== window.top ? new URLSearchParams(window.location.search) : new URLSearchParams(window.parent.location.search)).get('file'))).get('locale') || navigator.language || 'en-US',
     kind: OptionKind.VIEWER
   };
   defaultOptions.sandboxBundleSrc = {

@@ -161,19 +161,20 @@ Zarafa.common.previewer.ui.ViewerContainer = Ext.extend(Zarafa.core.ui.ContentPa
 	{
 		var root = container.getBasePath();
 		var options = '';
+		var pdfJSlang = container.getSettingsModel().get('zarafa/v1/main/language').split('.')[0].replace('_', '-');
 		if(Ext.isDefined(extension)) {
 			if (extension === 'pdf') {
 				options += '#zoom=' + container.getSettingsModel().get('zarafa/v1/main/file_previewer/pdf_zoom');
 				// Add the filename to the url to make sure that the pdfjs viewer will use it when downloaded.
 				// Replace the hashes because otherwise pdfjs viewer will strip everything after it.
-				url += '&filename=' + this.title.replace('#', '-');
+				url += '&filename=' + this.title.replace('#', '-') + '&locale=' + pdfJSlang;
 				return root + this.pdfjsPath + '?file=' + encodeURIComponent(url) + options;
 			} else if((/(od[tps])$/i).test(extension)) {
-				options += '?zoom=' + container.getSettingsModel().get('zarafa/v1/main/file_previewer/odf_zoom');
+				options += '?zoom=' + container.getSettingsModel().get('zarafa/v1/main/file_previewer/odf_zoom') + '&locale=' + pdfJSlang;
 			} else {
 				// ViewerJS does not provide zooming options for images, instead sets the width. 
 				// Hence, we only keep the 'auto' option for images.
-				options += '?zoom=auto';
+				options += '?zoom=auto' + '&locale=' + pdfJSlang;
 			}
 			options += '&type=' + extension;
 		}
