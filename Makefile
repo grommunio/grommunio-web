@@ -94,7 +94,7 @@ clearartifacts:
 	find $(DESTDIR) -iname "*license*.txt" -exec rm -f {} \;
 	find $(DESTDIR) -iname "*gpl*.txt" -exec rm -f {} \;
 
-js: $(JSDEPLOY)/fingerprint.js $(JSDEPLOY)/resize.js $(JSDEPLOY)/grommunio.js $(JSDEPLOY)/extjs-mod/extjs-mod.js $(JSDEPLOY)/extjs/ext-base-all.js $(DESTDIR)/client/third-party/ux-thirdparty.js $(DEPLOYPURIFYJS) $(JSDEPLOY)/filepreviewer/pdfjs/build/pdf.sandbox.js $(JSDEPLOY)/filepreviewer/pdfjs/build/pdf.worker.js $(JSDEPLOY)/filepreviewer/pdfjs/build/pdf.js $(JSDEPLOY)/filepreviewer/pdfjs/web/viewer.js $(JSDEPLOY)/filepreviewer/ViewerJS/ImageViewerPlugin.js $(JSDEPLOY)/filepreviewer/ViewerJS/MultimediaViewerPlugin.js $(JSDEPLOY)/filepreviewer/ViewerJS/ODFViewerPlugin.js $(JSDEPLOY)/filepreviewer/ViewerJS/UnknownFilePlugin.js $(JSDEPLOY)/filepreviewer/ViewerJS/viewer.js
+js: $(JSDEPLOY)/fingerprint.js $(JSDEPLOY)/resize.js $(JSDEPLOY)/grommunio.js $(JSDEPLOY)/extjs-mod/extjs-mod.js $(JSDEPLOY)/extjs/ext-base-all.js $(DESTDIR)/client/third-party/ux-thirdparty.js $(DEPLOYPURIFYJS) $(JSDEPLOY)/filepreviewer/pdfjs/build/pdf.sandbox.js $(JSDEPLOY)/filepreviewer/pdfjs/build/pdf.worker.js $(JSDEPLOY)/filepreviewer/pdfjs/build/pdf.js $(JSDEPLOY)/filepreviewer/pdfjs/web/viewer.js $(JSDEPLOY)/filepreviewer/ViewerJS/ImageViewerPlugin.js $(JSDEPLOY)/filepreviewer/ViewerJS/MultimediaViewerPlugin.js $(JSDEPLOY)/filepreviewer/ViewerJS/ODFViewerPlugin.js $(JSDEPLOY)/filepreviewer/ViewerJS/UnknownFilePlugin.js $(JSDEPLOY)/filepreviewer/ViewerJS/viewer.js $(JSDEPLOY)/filepreviewer/ViewerJS/video-js/video.js
 	cp -rn client/tinymce $(DESTDIR)/client/
 	cp -rn client/tinymce-languages $(DESTDIR)/client/
 	cp -rn client/tinymce-plugins $(DESTDIR)/client/
@@ -207,6 +207,13 @@ $(JSDEPLOY)/filepreviewer/ViewerJS/UnknownFilePlugin.js: client/filepreviewer/Vi
 
 $(JSDEPLOY)/filepreviewer/ViewerJS/viewer.js: client/filepreviewer/ViewerJS/viewer.js
 	mkdir -p $(JSDEPLOY)/filepreviewer/ViewerJS
+	cat $^ > $(@:.js=-debug.js)
+	$(JSCOMPILER) $(@:.js=-debug.js) --output $@ \
+		--source-map "url='$(shell basename $@.map)'" \
+	        $(JSOPTIONS)
+
+$(JSDEPLOY)/filepreviewer/ViewerJS/video-js/video.js: client/filepreviewer/ViewerJS/video-js/video.js
+	mkdir -p $(JSDEPLOY)/filepreviewer/ViewerJS/video-js
 	cat $^ > $(@:.js=-debug.js)
 	$(JSCOMPILER) $(@:.js=-debug.js) --output $@ \
 		--source-map "url='$(shell basename $@.map)'" \
