@@ -100,7 +100,7 @@ js: $(JSDEPLOY)/fingerprint.js $(JSDEPLOY)/resize.js $(JSDEPLOY)/grommunio.js $(
 	cp -rn client/tinymce-plugins $(DESTDIR)/client/
 	cp -rn client/extjs $(DESTDIR)/client/
 	cp -rn client/filepreviewer $(DESTDIR)/client/
-	rm $(DESTDIR)/client/extjs/ext-base.js $(DESTDIR)/client/extjs/ext-base-debug.js $(DESTDIR)/client/extjs/ext-all.js $(DESTDIR)/client/extjs/resources/css/reset-min.css $(DESTDIR)/client/extjs/resources/css/xtheme-blue.css $(DESTDIR)/client/filepreviewer/pdfjs/web/debugger.js
+	rm $(DESTDIR)/client/extjs/ext-base.js $(DESTDIR)/client/extjs/ext-base-debug.js $(DESTDIR)/client/extjs/ext-all.js $(DESTDIR)/client/filepreviewer/pdfjs/web/debugger.js
 
 $(DESTDIR)/%.php: %.php
 	php -l $<
