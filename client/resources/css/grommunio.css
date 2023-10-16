@@ -463,7 +463,10 @@ button::-moz-focus-inner {
 
 /* focused normal button */
 .x-btn.x-btn-focus:not(.zarafa-action):not(.x-btn-click) .x-btn-small, .x-btn.x-btn-focus:not(.zarafa-action):not(.x-btn-click) .x-btn-medium, .x-btn.x-btn-focus:not(.zarafa-action):not(.x-btn-click) .x-btn-large {
-  border: 1px solid #3094e3 !important; }
+  border: 1px solid #3094e3 !important;
+  z-index: 99;
+  position: relative;
+}
 
 /* small button */
 .x-btn .x-btn-small button.x-btn-text {
@@ -908,7 +911,9 @@ body.Safari input[type="radio"] {
   padding: 0 6px; }
 
 .x-form-text.x-form-focus:not(.x-trigger-noedit) {
-  border-color: #3094e3 !important; }
+  border-color: #3094e3 !important;
+  position: relative;
+  z-index: 99 }
 
 .x-form-field-wrap.x-trigger-wrap-focus:not(.x-freebusy-userlist-container) {
   border-color: #3094e3; }
@@ -1977,7 +1982,7 @@ Note: Does not work in IE11 */
     border-bottom: 1px solid #e6e6e6;
     z-index: 99; } }
 .zarafa-tree-ipm-subtree-container, .zarafa-tree-ipm-subtree-favorites-container {
-  padding: 12px 0 6px; }
+  margin: 12px 0 6px; }
 
 .zarafa-tree-ipm-subtree-container:last-child, .zarafa-tree-ipm-subtree-favorites-container:last-child {
   padding-bottom: 12px; }
@@ -2167,6 +2172,12 @@ Note: Does not work in IE11 */
 .preview-header-recipients .preview-recipient-data,
 .preview-header-attachments .preview-attachment-data {
   overflow-y: auto; }
+
+/* Sent infobox */
+.zarafa-sentinfo-link {
+    display: flow-root;
+    margin-top: 4px;
+}
 
 /* Attachments: */
 .preview-header-attachmentbox {

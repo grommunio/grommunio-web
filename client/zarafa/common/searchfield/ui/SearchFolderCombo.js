@@ -24,7 +24,7 @@ Zarafa.common.searchfield.ui.SearchFolderCombo = Ext.extend(Ext.form.ComboBox, {
 	 * @cfg {Number} minListWidth The minimum width of the dropdown list in pixels (defaults to <tt>70</tt>, will
 	 * be ignored if <tt>{@link #listWidth}</tt> has a higher value)
 	 */
-	minListWidth: 150,
+	minListWidth: 160,
 
 	/**
 	 * @cfg {Number} ellipsisStringStartLength maximum length of text allowed before truncations,
@@ -114,8 +114,8 @@ Zarafa.common.searchfield.ui.SearchFolderCombo = Ext.extend(Ext.form.ComboBox, {
 			store: searchFolderStore,
 			triggerAction: 'all',
 			editable: false,
-			width: 100,
-			listWidth: 150,
+			width: 200,
+			listWidth: 250,
 			listeners: {
 				expand: this.onExpandComboBox,
 				beforeRender: this.onBeforeRender,
@@ -343,7 +343,7 @@ Zarafa.common.searchfield.ui.SearchFolderCombo = Ext.extend(Ext.form.ComboBox, {
 
 			// Set maximum width in between minimum list width and text width,
 			// Where as text width also have actual list width with padding.
-			listWidth = Math.max(this.minListWidth, listWidth + 25);
+			listWidth = Math.max(this.minListWidth, listWidth + 100);
 			this.list.setWidth(listWidth);
 			this.innerList.setWidth(listWidth - this.list.getFrameWidth('lr'));
 		}

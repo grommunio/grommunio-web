@@ -568,7 +568,7 @@ span.error_files {
 /* other */
 
 .files-context-navigation-node {
-	padding: 12px 0 6px;
+	margin: 12px 0 6px;
 	border-right-style: none;
 	border-left-style: none;
 }
@@ -583,7 +583,7 @@ span.error_files {
 }
 
 .files-create-folder-tree-panel {
-	padding: 12px 0 6px;
+	margin: 12px 0 6px;
 }
 
 .files-create-folder-tree-panel .x-tree-node-el {

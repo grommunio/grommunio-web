@@ -2495,7 +2495,7 @@ Note: Does not work in IE11 */
 }
 /* line 44, ../scss/components/_hierarchy.scss */
 .zarafa-tree-ipm-subtree-container, .zarafa-tree-ipm-subtree-favorites-container {
-  padding: 12px 0 6px;
+  margin: 12px 0 6px;
 }
 
 /* line 48, ../scss/components/_hierarchy.scss */
