@@ -469,6 +469,11 @@ button::-moz-focus-inner {
 .x-btn .x-btn-small button.x-btn-text {
   height: 24px; }
 
+/* mail header space */
+.x-btn-noicon {
+    display: block;
+}
+
 /* small button with text */
 .x-btn.x-btn-noicon .x-btn-small button, .x-btn.x-btn-text-icon .x-btn-small button {
   min-width: 84px;
@@ -2062,10 +2067,6 @@ Note: Does not work in IE11 */
   padding: 0 4px 0 9px;
   border-bottom: 1px solid #e6e6e6; }
 
-.preview-header .x-panel-body {
-  /* we cannot set this padding on the .preview-header because it will fuck up the collapse/expand animation */
-  padding-bottom: 6px; }
-
 /***************************************
  *  scrollbars for Webkit
  ***************************************/
@@ -2241,7 +2242,9 @@ span.preview-header-sender-image {
   padding: 1px 5px;
   margin: 1px;
   box-shadow: 0 0 1px #ddd inset;
-  cursor: pointer; }
+  cursor: pointer;
+  display: inline-flex;
+}
 
 .preview-header-attachments .zarafa-attachment-link-over {
   background-color: #ddd; }

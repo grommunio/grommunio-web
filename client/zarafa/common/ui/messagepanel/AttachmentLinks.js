@@ -27,7 +27,7 @@ Zarafa.common.ui.messagepanel.AttachmentLinks = Ext.extend(Ext.DataView, {
 	 * @cfg {Number} maxHeight The maximum height the element which holds all
 	 * recipient is allowed to take before a scrollbar will be shown.
 	 */
-	maxHeight: 50,
+	maxHeight: 72,
 
 	/**
 	 * @cfg {String} fieldLabel The label which must be applied to template
