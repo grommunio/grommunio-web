@@ -4443,12 +4443,33 @@ body .k-category-block {
 .preview-recipient-data .zarafa-recipient-link:not(:first-child) .zarafa-presence-status-icon {
   margin-left: 3px; }
 
-/*
- * To make sure that the tinymce skin styling is loaded before the editor
- * is rendered, we import it ourself so we don't have to wait for the
- * dynamic loading of it.
- * This way the toolbar will have the correct height when the editor is
- * initialized, and the editor will be sized to the correct height.
- */
+/* modern scrollbar */
+* {
+  scrollbar-color: #1f1f1f transparent;
+}
+
+*::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+  background: transparent;
+}
+
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #c0c0c0;
+  border-radius: 20px;
+  min-height: 100px;
+}
+
+.x-grid3-scroller {
+  overflow-y: hidden !important;
+}
+
+.x-grid3-scroller:hover {
+  overflow-y: auto !important;
+}
 
 /*# sourceMappingURL=grommunio.css.map */

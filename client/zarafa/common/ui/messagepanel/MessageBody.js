@@ -412,6 +412,8 @@ Zarafa.common.ui.messagepanel.MessageBody = Ext.extend(Ext.Container, {
 			// Scale images
 			'p > span > img, div > img, p > img { max-width: 100%; height: auto !important; }' +
 			'@media screen and (max-width: 250px) { p > span > img, div > img, p > img { max-width: 250px; } }' +
+			// modern scrollbar
+			'* { scrollbar-color: #1f1f1f transparent; } *::-webkit-scrollbar { width: 6px; height: 6px; background: transparent; } *::-webkit-scrollbar-track { background: transparent; } ::-webkit-scrollbar-thumb { background: #c0c0c0; border-radius: 20px; min-height: 100px; }' +
 
 			// Elements that should not have the max-width style
 			// k-original: class that we set on img click
