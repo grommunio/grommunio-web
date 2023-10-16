@@ -2714,7 +2714,6 @@ a.x-grid3-hd-btn:hover {
 	text-overflow: ellipsis;
 	font-size: 11px;
 	line-height: 13px;
-	font-family: tahoma;
 }
 
 .x-pivotgrid .x-grid3-row-headers {
@@ -2734,7 +2733,6 @@ a.x-grid3-hd-btn:hover {
 	text-align: right;
 	text-overflow: ellipsis;
 	font-size: 11px;
-	font-family: tahoma;
 }
 
 .ext-gecko .x-pivotgrid .x-grid3-row-headers table td {
@@ -2747,7 +2745,6 @@ a.x-grid3-hd-btn:hover {
 	position: absolute;
 	text-align: center;
 	vertical-align: middle;
-	font-family: tahoma;
 	font-size: 11px;
 	padding: 0 1px;
 	display: table-cell;
@@ -3201,7 +3198,7 @@ table.x-date-inner {
 
 .x-date-mp td {
 	padding:2px;
-	font:normal 11px Arial,Helvetica,"Helvetica Neue",sans-serif;
+	font-size:11px;
 }
 
 td.x-date-mp-month,td.x-date-mp-year,td.x-date-mp-ybtn {

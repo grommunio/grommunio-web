@@ -71,7 +71,7 @@ td.ux-grid-hd-group-cell {
 	text-overflow: ellipsis;
 	padding:3px 3px 3px 5px;
 	white-space: nowrap;
-	font:normal 11px Arial,Helvetica,"Helvetica Neue",sans-serif;
+	font-size: 11px;
 }
 
 .x-tree-headers {
@@ -287,7 +287,6 @@ li.x-menu-list-item div {
 	white-space: nowrap;
 	display: block;
 	color: #DFE8F6;
-	font-family: Arial, Helvetica, "Helvetica Neue", sans-serif;
 	font-weight: bold;
 	text-decoration: none;
 }
@@ -490,7 +489,7 @@ li.x-menu-list-item div {
 }
 
 .ux-mselect-item{
-	font:normal 12px Arial,Helvetica,"Helvetica Neue",sans-serif;
+	font-size:12px;
 	padding:2px;
 	border:1px solid #fff;
 	white-space: nowrap;
@@ -750,7 +749,7 @@ li.x-menu-list-item div {
 }
 
 .x-status-error-list {
-	font: 11px Arial,Helvetica,"Helvetica Neue",sans-serif;
+	font-size: 11px;
 	position: absolute;
 	z-index: 9999;
 	border-top: 1px solid;

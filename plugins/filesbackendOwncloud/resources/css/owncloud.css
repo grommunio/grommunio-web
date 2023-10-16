@@ -57,7 +57,7 @@
  */
 
 .ugpredic_search_item {
-	font:normal 11px Arial,Helvetica,"Helvetica Neue",sans-serif;
+	font-size:11px;
 	padding:3px 10px 3px 10px;
 	border:1px solid #fff;
 	border-bottom:1px solid #eeeeee;

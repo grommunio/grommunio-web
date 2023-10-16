@@ -407,12 +407,12 @@ Zarafa.common.ui.messagepanel.MessageBody = Ext.extend(Ext.Container, {
 			// Make the blockquote element not use the default right margin of 40px
 			'blockquote { margin-right: 0px; }' +
 			// Make text in pre tags wrapped if too long for a line
-			'pre { white-space: pre-wrap; margin: 0; font-family:monospace; }' +
+			"pre { white-space: pre-wrap; margin: 0; font-family:'Roboto', sans-serif; }" +
 
 			// Scale images
 			'p > span > img, div > img, p > img { max-width: 100%; height: auto !important; }' +
 			'@media screen and (max-width: 250px) { p > span > img, div > img, p > img { max-width: 250px; } }' +
-			// modern scrollbar
+			// Modern scrollbar
 			'* { scrollbar-color: #1f1f1f transparent; } *::-webkit-scrollbar { width: 6px; height: 6px; background: transparent; } *::-webkit-scrollbar-track { background: transparent; } ::-webkit-scrollbar-thumb { background: #c0c0c0; border-radius: 20px; min-height: 100px; }' +
 
 			// Elements that should not have the max-width style

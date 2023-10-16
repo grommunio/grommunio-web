@@ -469,7 +469,6 @@
   line-height: 1;
   font-weight: normal;
   font-style: normal;
-  font-family: Arial, Helvetica, sans-serif;
   word-break: initial;
 }
 .video-js:-moz-full-screen {
@@ -626,7 +625,6 @@ body.vjs-pip-window .video-js {
   color: #fff;
   background-color: #000;
   font-size: 18px;
-  font-family: Arial, Helvetica, sans-serif;
   text-align: center;
   width: 300px;
   height: 150px;
@@ -748,7 +746,6 @@ body.vjs-pip-window .video-js {
   display: block;
   padding: 0;
   margin: 0;
-  font-family: Arial, Helvetica, sans-serif;
   overflow: auto;
 }
 
@@ -1083,7 +1080,6 @@ body.vjs-pip-window .video-js {
   border-radius: 0.3em;
   color: #000;
   float: right;
-  font-family: Arial, Helvetica, sans-serif;
   font-size: 1em;
   padding: 6px 8px 8px 8px;
   pointer-events: none;
@@ -1317,7 +1313,6 @@ body.vjs-pip-window .video-js {
   border-radius: 0.3em;
   color: #000;
   float: right;
-  font-family: Arial, Helvetica, sans-serif;
   font-size: 1em;
   padding: 6px 8px 8px 8px;
   pointer-events: none;
@@ -1588,7 +1583,6 @@ video::-webkit-media-text-track-display {
 .vjs-error .vjs-error-display:before {
   color: #fff;
   content: "X";
-  font-family: Arial, Helvetica, sans-serif;
   font-size: 4em;
   left: 0;
   line-height: 1;
