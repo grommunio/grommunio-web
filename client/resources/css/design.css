@@ -2634,7 +2634,7 @@ Note: Does not work in IE11 */
 
 /* line 1, ../scss/components/_preview_panel.scss */
 .preview-header {
-  padding: 0 4px 0 9px;
+  padding: 0;
   border-bottom: 1px solid #e6e6e6;
 }
 
@@ -2749,6 +2749,7 @@ Note: Does not work in IE11 */
 .preview-header-recipients, .preview-header-meeting, .preview-header-attachments {
   display: block;
   margin-top: 6px;
+  margin-left: 10px;
 }
 
 /* line 112, ../scss/components/_preview_panel.scss */
