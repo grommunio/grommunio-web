@@ -26,7 +26,19 @@
 	</head>
 
 	<body class="login theme-<?php echo strtolower($theme ? $theme : 'basic'); ?>">
-		<div id="form-container">
+
+	<?php
+		$keycloak = KeyCloak::getInstance();
+		if (!is_null($keycloak) && (!defined('DISABLE_KEYCLOAK') || !DISABLE_KEYCLOAK)) {
+	?>
+	<meta http-equiv='Refresh' content="1;URL='<?php echo $keycloak->login_url($keycloak->redirect_url); ?>'"/>
+	<?php
+			echo "<div id='form-container' class='loading' >";
+		}
+		else {
+			echo "<div id='form-container'>";
+		}
+	?>
 			<div id="bg"></div>
 			<div id="content">
 				<div class="left">
@@ -85,7 +97,7 @@
 		</script>
 		<?php if (file_exists('disclaimer.html')) { ?>
 		<div class="disclaimer">
-			<?php include('disclaimer.html'); ?>
+			<?php include 'disclaimer.html'; ?>
 		</div>
 		<?php } ?>
 	</body>

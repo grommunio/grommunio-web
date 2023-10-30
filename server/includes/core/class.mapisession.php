@@ -109,6 +109,32 @@
 		}
 
 		/**
+		 * Logons to gromox using the access token.
+		 * 
+		 * @param mixed $email     the username/email of the user
+		 * @param mixed $token     the access token
+		 * 
+		 * @return int 0 on no error, otherwise a MAPI error code
+		 */
+		public function logon_token($email = null, $token = null) {
+			$result = NOERROR;
+			$email = (string) $email;
+			$token = (string) $token;
+
+			try {
+				$this->session = mapi_logon_token($token);
+				if ($this->session !== false) {
+					$this->session_info["username"] = $email;
+				}
+			}
+			catch (MAPIException $e) {
+				$result = $e->getCode();
+			}
+
+			return $result;
+		}
+
+		/**
 		 * Get the user MAPI Object.
 		 *
 		 * @param string $userEntryid The user entryid which is going to open. default is false.
@@ -1211,9 +1237,9 @@
 
 		/**
 		 * Checks if the entryid is of the public store.
-		 * 
+		 *
 		 * @param string $entryid
-		 * 
+		 *
 		 * @return bool true if public store entryid false otherwise
 		 */
 		public function isPublicStore($entryid) {

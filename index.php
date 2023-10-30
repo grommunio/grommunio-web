@@ -46,15 +46,22 @@
 	// If the user wants to logout (and is not using single-signon)
 	// then destroy the session and redirect to this page, so the login page
 	// will be shown
-	if (isset($_GET['logout'])) {
-		// GET variable user will be set when the user was logged out because of session timeout
-		// or because he logged out in another window.
-		$username = sanitizeGetValue('user', '', USERNAME_REGEX);
-		$webappSession->destroy();
-		$location = rtrim(dirname($_SERVER['PHP_SELF']), '/') . '/';
-		header('Location: ' . $location . ($username ? '?user=' . rawurlencode($username) : ''), true, 303);
 
-		exit();
+	if (isset($_GET['logout'])) {
+		if (isset($_SESSION['_keycloak_auth'])) {
+			$keycloak_auth = $_SESSION['_keycloak_auth']->logout();
+			header("Location:" . $keycloak_auth . "");
+		}
+		else {
+			// GET variable user will be set when the user was logged out because of session timeout
+			// or because he logged out in another window.
+			$username = sanitizeGetValue('user', '', USERNAME_REGEX);
+			$location = rtrim(dirname($_SERVER['PHP_SELF']), '/') . '/';
+			header('Location: ' . $location . ($username ? '?user=' . rawurlencode($username) : ''), true, 303);
+		}
+		$webappSession->destroy();
+
+		exit;
 	}
 
 	// Check if an action GET-parameter was sent with the request.
@@ -91,7 +98,7 @@
 		if (isset($_GET['load']) && $_GET['load'] !== 'logon') {
 			include BASE_PATH . 'server/includes/load.php';
 
-			exit();
+			exit;
 		}
 
 		// Set some template variables for the login page
@@ -111,7 +118,7 @@
 				include BASE_PATH . 'server/includes/templates/BadRequest.php';
 				error_log("Rejected insecure request as configuration for 'SECURE_COOKIES' is true.");
 
-				exit();
+				exit;
 			}
 		}
 
@@ -129,20 +136,19 @@
 		$favicon = getFavicon(Theming::getActiveTheme());
 		include BASE_PATH . 'server/includes/templates/login.php';
 
-		exit();
+		exit;
 	}
 
 	// The user is authenticated! Let's get ready to start the webapp.
-
 	// If the user just logged in or if url data was stored in the session,
 	// we will redirect to make sure that a browser refresh will not post
 	// the credentials again, and that the url data is taken away from the
 	// url in the address bar (so a browser refresh will not pass them again)
-	if (WebAppAuthentication::isUsingLoginForm() || isset($_GET['action']) && !empty($_GET['action'])) {
+	if (isset($_GET['code']) || (WebAppAuthentication::isUsingLoginForm() || isset($_GET['action']) && !empty($_GET['action']))) {
 		$location = rtrim(dirname($_SERVER['PHP_SELF']), '/') . '/';
 		header('Location: ' . $location, true, 303);
 
-		exit();
+		exit;
 	}
 
 	// TODO: we could replace all references to $GLOBALS['mapisession']
@@ -190,7 +196,7 @@
 		// Include the login template
 		include BASE_PATH . 'server/includes/templates/login.php';
 
-		exit();
+		exit;
 	}
 
 	$Language = new Language();
@@ -234,7 +240,7 @@
 	if (isset($_GET['load'])) {
 		include BASE_PATH . 'server/includes/load.php';
 
-		exit();
+		exit;
 	}
 
 	if (ENABLE_WELCOME_SCREEN && $GLOBALS["settings"]->get("zarafa/v1/main/show_welcome") !== false) {
