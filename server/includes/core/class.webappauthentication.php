@@ -1,17 +1,18 @@
 <?php
 
 require_once UMAPI_PATH . '/mapi.util.php';
+require_once UMAPI_PATH . '/class.keycloak.php';
 
 require_once BASE_PATH . 'server/includes/core/class.encryptionstore.php';
 require_once BASE_PATH . 'server/includes/core/class.webappsession.php';
 require_once BASE_PATH . 'server/includes/core/class.mapisession.php';
 require_once BASE_PATH . 'server/includes/core/class.browserfingerprint.php';
 
-/**
- * Class that handles authentication.
- *
- * @singleton
- */
+/*
+* Class that handles authentication.
+*
+* @singleton
+*/
 class WebAppAuthentication {
 	/**
 	 * @var null|self A reference to the only instance of this class
@@ -137,14 +138,37 @@ class WebAppAuthentication {
 	 * php session.
 	 */
 	public static function authenticate() {
-		if (WebAppAuthentication::isUsingLoginForm()) {
+		WebAppAuthentication::regenerate_access_token();
+		if (isset($_GET['code']) && (!defined('DISABLE_KEYCLOAK') || !DISABLE_KEYCLOAK)) {
+			WebAppAuthentication::authenticateWithAccessToken($_GET['code']);
+		}
+		elseif (WebAppAuthentication::isUsingLoginForm()) {
 			WebAppAuthentication::authenticateWithPostedCredentials();
-
+		}
 		// At last check if we have credentials in the session
 		// and if found, try to login with those
-		}
 		else {
 			WebAppAuthentication::_authenticateWithSession();
+		}
+	}
+
+	/*
+	* Checks if keycloak features are enabled and regenerates
+	* the access token before expiration.
+	*/
+	public static function regenerate_access_token() {
+		if (isset($_SESSION['_keycloak_auth'])) {
+			$_keycloak_auth = $_SESSION['_keycloak_auth'];
+			if (time() - $_keycloak_auth->get_last_refresh_time() > 280) {
+				if (!$_keycloak_auth->refresh_grant_req() && !$_keycloak_auth->validate_grant()) {
+					header('Location:' . $_keycloak_auth->login_url($_keycloak_auth->redirect_url) . '');
+				}
+				$token = $_keycloak_auth->access_token->get_payload();
+				$user = $_keycloak_auth->access_token->get_claims('email');
+				WebAppAuthentication::_storeCredentialsInSession($user, $token);
+				$_keycloak_auth->set_last_refresh_time(time());
+				$_SESSION['_keycloak_auth'] = $_keycloak_auth;
+			}
 		}
 	}
 
@@ -158,34 +182,32 @@ class WebAppAuthentication {
 	}
 
 	/**
-	 * Tries to logon to Gromox with the given username and password. Returns
+	 * Tries to logon to Gromox with the given username and password/token. Returns
 	 * the error code that was given back.
 	 *
 	 * @param string $username The username
-	 * @param string $password The password
+	 * @param string $pass     The password/token
 	 *
 	 * @return int
 	 */
-	public static function login($username, $password) {
+	public static function login($username, $pass) {
 		if (!WebAppAuthentication::_restoreMAPISession()) {
 			// TODO: move logon from MAPISession to here
-			WebAppAuthentication::$_errorCode = WebAppAuthentication::$_mapiSession->logon(
-				$username,
-				$password,
-				DEFAULT_SERVER
-			);
+
+			WebAppAuthentication::$_errorCode = isset($_SESSION['_keycloak_auth']) ?
+				WebAppAuthentication::$_mapiSession->logon_token($username, $pass) :
+				WebAppAuthentication::$_mapiSession->logon($username, $pass, DEFAULT_SERVER);
 
 			// Include external login plugins to be loaded
 			if (file_exists(BASE_PATH . 'extlogin.php')) {
 				include BASE_PATH . 'extlogin.php';
 			}
-
 			if (WebAppAuthentication::$_errorCode === NOERROR) {
 				WebAppAuthentication::$_authenticated = true;
 				WebAppAuthentication::_storeMAPISession(WebAppAuthentication::$_mapiSession->getSession());
 				$tmp = explode('@', $username);
 				if (count($tmp) == 2) {
-					setcookie('domainname', $tmp[1], [ 'expires' => time() + 31536000, 'path' => '/', 'domain' => '', 'secure' => true, 'httponly' => true, 'samesite' => 'Strict' ]);
+					setcookie('domainname', $tmp[1], ['expires' => time() + 31536000, 'path' => '/', 'domain' => '', 'secure' => true, 'httponly' => true, 'samesite' => 'Strict']);
 				}
 				$wa_title = WebAppAuthentication::$_mapiSession->getFullName();
 				$companyname = WebAppAuthentication::$_mapiSession->getCompanyName();
@@ -193,7 +215,7 @@ class WebAppAuthentication {
 					$wa_title .= " ({$companyname})";
 				}
 				if (strlen($wa_title) != 0) {
-					setcookie('webapp_title', $wa_title, [ 'expires' => time() + 31536000, 'path' => '/', 'domain' => '', 'secure' => true, 'httponly' => true, 'samesite' => 'Strict' ]);
+					setcookie('webapp_title', $wa_title, ['expires' => time() + 31536000, 'path' => '/', 'domain' => '', 'secure' => true, 'httponly' => true, 'samesite' => 'Strict']);
 				}
 			}
 			elseif (WebAppAuthentication::$_errorCode == MAPI_E_LOGON_FAILED || WebAppAuthentication::$_errorCode == MAPI_E_UNCONFIGURED) {
@@ -288,7 +310,6 @@ class WebAppAuthentication {
 
 			return WebAppAuthentication::getErrorCode();
 		}
-
 		// Check if a session is already running and if the credentials match
 		$encryptionStore = EncryptionStore::getInstance();
 		$username = $encryptionStore->get('username');
@@ -316,6 +337,65 @@ class WebAppAuthentication {
 		// Store the credentials in the session if logging in was successful
 		if (WebAppAuthentication::$_errorCode === NOERROR) {
 			WebAppAuthentication::_storeCredentialsInSession($email, $_POST['password']);
+
+			return WebAppAuthentication::getErrorCode();
+		}
+
+		return WebAppAuthentication::getErrorCode();
+	}
+
+	/**
+	 * Login with Oauth2.0 keycloak access token.
+	 * User selects login with keycloak, then gets redirected to keycloak server.
+	 * If login is successful, the user is redirected with code grant back to gromox server.
+	 * gromox requests access token with the received grant.
+	 * keycloak server verifies grant, and sends access token.
+	 * access token is used to authenticate user.
+	 *
+	 * @param mixed $code
+	 */
+	public static function authenticateWithAccessToken($code) {
+		$keycloak = KeyCloak::getInstance();
+		if (!is_null($keycloak)) {
+			if ($keycloak->client_credential_grant_req($code) && $keycloak->validate_grant()) {
+				$keycloak->set_last_refresh_time(time());
+				$_SESSION['_keycloak_auth'] = $keycloak;
+
+				if (isset($_SESSION['_keycloak_auth'])) {
+					$email = appendDefaultDomain($_SESSION['_keycloak_auth']->access_token->get_claims('email'));
+					$token = $_SESSION['_keycloak_auth']->access_token->get_payload();
+
+					// Check if a session is already running and if the credentials match
+					$encryptionStore = EncryptionStore::getInstance();
+					$username = $encryptionStore->get('username');
+					$password = $encryptionStore->get('password');
+
+					if (!is_null($username) && !is_null($password)) {
+						if ($username != $email || $password != $token) {
+							WebAppAuthentication::$_errorCode = MAPI_E_INVALID_WORKSTATION_ACCOUNT;
+							WebAppAuthentication::$_phpSession->destroy();
+
+							return WebAppAuthentication::getErrorCode();
+						}
+					}
+					else {
+						// If no session is currently running, then store a fingerprint of the requester
+						// in the session.
+						$_SESSION['fingerprint'] = BrowserFingerprint::getFingerprint();
+					}
+					// Give the session a new id
+					session_regenerate_id();
+
+					WebAppAuthentication::login($email, $token);
+					// Store the credentials in the session if logging in was successful
+					if (WebAppAuthentication::$_errorCode === NOERROR) {
+						WebAppAuthentication::_storeCredentialsInSession($email, $token);
+
+						return WebAppAuthentication::getErrorCode();
+					}
+				}
+			}
+			header('Location:' . $keycloak->login_url($keycloak->redirect_url) . '');
 		}
 
 		return WebAppAuthentication::getErrorCode();
@@ -402,7 +482,7 @@ class WebAppAuthentication {
 			// We will delete the session and stop the script without any error message
 			WebAppAuthentication::$_phpSession->destroy();
 
-			exit();
+			exit;
 		}
 
 		return WebAppAuthentication::login($username, $password);
