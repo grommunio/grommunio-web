@@ -1,3 +1,12 @@
+v3.5 (2023-10-31)
+=================
+* Modern authentication system using keycloak open-ID connect workflow
+  (requires php-mapi-header 1.3)
+* Style updates
+* Update Video.js to 8.6.1
+* Update phpfastcache to 8.1.4
+* Update sabredev dependencies
+
 v3.4 (2023-10-13)
 =================
 * ViewerJS uses correct CSS class
