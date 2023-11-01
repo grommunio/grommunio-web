@@ -3055,13 +3055,10 @@
 			}
 
 			if (array_search(strtolower($foldername), $folderNames) !== false) {
-				$i = 1;
-
-				while (array_search((strtolower($foldername) . $i), $folderNames) !== false) {
+				$i = 2;
+				while (array_search(strtolower($foldername)." ($i)", $folderNames) !== false)
 					++$i;
-				}
-
-				$foldername .= $i;
+				$foldername .= " ($i)";
 			}
 
 			return $foldername;
