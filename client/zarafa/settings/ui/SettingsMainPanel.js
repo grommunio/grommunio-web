@@ -64,7 +64,7 @@ Zarafa.settings.ui.SettingsMainPanel = Ext.extend(Zarafa.common.ui.ContextMainPa
 			},
 			items: [{
 				xtype: 'zarafa.settingscategorypanel',
-				width: 200,
+				width: 250,
 				context: config.context,
 				autoScroll: true,
 				items: tabs

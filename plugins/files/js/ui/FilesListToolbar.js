@@ -144,7 +144,7 @@ Zarafa.plugins.files.ui.FilesListToolbar = Ext.extend(Zarafa.core.ui.ContentPane
 			ref : 'attachLinkToMailBtn',
 			text : _('Attach to mail as link'),
 			overflowText : _('Attach to mail as link'),
-			iconCls : 'files_icon_action files_icon_action_attach_to_mail',
+			iconCls : 'files_icon_action files_icon_action_attach_to_mail_link',
 			handler : this.onFileLinkAddToMail,
 			disabled : true,
 			scope : this

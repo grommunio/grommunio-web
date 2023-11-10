@@ -142,7 +142,7 @@ Zarafa.common.categories.ui.CategoriesContextMenu = Ext.extend(Ext.menu.Menu, {
 	onAfterRenderCategoriesMenuItem: function(item)
 	{
 		var icon = item.el.down('img');
-		var svgIcon = Zarafa.common.categories.Util.getCategoryIconSVG(item.color);
+		var svgIcon = Zarafa.common.categories.Util.getCategoryIconSVG(item.color,'24');
 		Ext.DomHelper.insertHtml('beforeBegin', icon.dom, svgIcon);
 	},
 

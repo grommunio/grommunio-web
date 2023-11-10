@@ -23,8 +23,7 @@ Zarafa.settings.ui.SettingsKeyShortcutWidget = Ext.extend(Zarafa.settings.ui.Set
 			items: [{
 				xtype: 'zarafa.compositefield',
 				hideLabel: true,
-				// FIXME: Set height for IE 11, since otherwise it won't resize properly and leaves a huge empty gap...
-				height: 60,
+				height: 75,
 				items: [{
 					xtype: 'radiogroup',
 					ref: '../keyShortcutGroup',

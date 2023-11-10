@@ -44,7 +44,7 @@ Zarafa.core.ui.MainViewSidebar = Ext.extend(Ext.Panel, {
 			collapsible: true,
 			collapsed: false,
 			split: true,
-			width: 242,
+			width: 300,
 			minSize: 150
 		});
 

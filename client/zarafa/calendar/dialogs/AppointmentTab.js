@@ -198,7 +198,7 @@ Zarafa.calendar.dialogs.AppointmentTab = Ext.extend(Ext.form.FormPanel, {
 			xtype: 'zarafa.resizablecompositefield',
 			cls: 'k-field-to',
 			ref: 'recipientPanel',
-			anchor: '100%',
+			anchor: '99%',
 			autoHeight: false,
 			items: [{
 				xtype: 'button',
@@ -234,7 +234,7 @@ Zarafa.calendar.dialogs.AppointmentTab = Ext.extend(Ext.form.FormPanel, {
 				xtype: 'textfield',
 				name: 'subject',
 				fieldLabel: _('Subject'),
-				anchor: '100%',
+				anchor: '99%',
 				listeners: {
 					change: this.onFieldChange,
 					scope: this
@@ -263,7 +263,7 @@ Zarafa.calendar.dialogs.AppointmentTab = Ext.extend(Ext.form.FormPanel, {
 				xtype: 'textfield',
 				name: 'location',
 				fieldLabel: _('Location'),
-				anchor: '100%',
+				anchor: '99%',
 				enableKeyEvents: true,
 				listeners: {
 					change: this.onFieldChange,
@@ -290,7 +290,7 @@ Zarafa.calendar.dialogs.AppointmentTab = Ext.extend(Ext.form.FormPanel, {
 			autoHeight: true,
 			layout: {
 				type: 'table',
-				columns: 2
+				columns: 1
 			},
 			items: [
 				{
@@ -302,12 +302,7 @@ Zarafa.calendar.dialogs.AppointmentTab = Ext.extend(Ext.form.FormPanel, {
 					]
 				},
 				this.createBusyStatusPanel(),
-
 				this.createReminderPanel(),
-				{
-					xtype: 'container',
-					cls: 'filler'
-				}
 			]
 		};
 	},
@@ -343,10 +338,10 @@ Zarafa.calendar.dialogs.AppointmentTab = Ext.extend(Ext.form.FormPanel, {
 			xtype: 'panel',
 			cls: 'k-createin-panel',
 			layout: 'form',
-			labelWidth: 85,
+			labelWidth: 92,
 			labelAlign: 'left',
-            ref: 'createInPanel',
-            autoHeight: true,
+			ref: 'createInPanel',
+			autoHeight: true,
 			border: false,
 			items: [{
 				xtype: 'combo',
@@ -409,13 +404,13 @@ Zarafa.calendar.dialogs.AppointmentTab = Ext.extend(Ext.form.FormPanel, {
 				},
 				startFieldConfig: {
 					fieldLabel: _('Time'),
-					labelWidth: 84,
+					labelWidth: 85,
 
 					cls: 'from-field'
 				},
 				endFieldConfig: {
 					fieldLabel: _('until'),
-					labelWidth: 84,
+					labelWidth: 42,
 					cls: 'to-field'
 				}
 			},{
@@ -485,7 +480,7 @@ Zarafa.calendar.dialogs.AppointmentTab = Ext.extend(Ext.form.FormPanel, {
 					xtype: 'checkbox',
 					name: 'reminder',
 					boxLabel: _('Reminder') + ':',
-					width: 79,
+					labelWidth: 85,
 					handler: this.onToggleReminder,
 					scope: this
 				},{
@@ -530,6 +525,7 @@ Zarafa.calendar.dialogs.AppointmentTab = Ext.extend(Ext.form.FormPanel, {
 			autoHeight: true,
 			border: false,
 			labelAlign: 'left',
+			labelWidth: 79,
 			items: [{
 				xtype: 'combo',
 				ref: '../../comboBusyStatus',
@@ -561,7 +557,7 @@ Zarafa.calendar.dialogs.AppointmentTab = Ext.extend(Ext.form.FormPanel, {
 		return {
 			xtype: 'zarafa.resizablecompositefield',
 			hideLabel: true,
-			anchor: '100%',
+			anchor: '99%',
 			cls: 'k-field-attachments',
 			autoHeight: true,
 			items: [{

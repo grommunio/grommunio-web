@@ -26,7 +26,7 @@ Zarafa.plugins.files.backend.Owncloud.ui.FilesShareUserEditContentPanel = Ext.ex
 			closeOnSave: true,
 			model      : true,
 			autoSave   : false,
-			width      : 480,
+			width      : 550,
 			height     : 445,
 			items:{
 				xtype : 'filesplugin.owncloud.filesshareusereditpanel',

@@ -234,7 +234,7 @@ Zarafa.task.dialogs.TaskGeneralTab = Ext.extend(Ext.form.FormPanel, {
 				},
 				endFieldConfig: {
 					fieldLabel: _('Due date'),
-					labelWidth: 84,
+					labelWidth: 110,
 					cls: 'to-field',
 					width: 200
 				}
@@ -408,7 +408,7 @@ Zarafa.task.dialogs.TaskGeneralTab = Ext.extend(Ext.form.FormPanel, {
 				tooltip: _('Keep updated copy of task and receive automated status reports'),
 				plugins: 'zarafa.formfieldtooltipplugin',
 				name: 'taskupdates',
-				width: 125,
+				width: 200,
 				listeners:{
 					'change': this.onPropertyChange,
 					scope: this

@@ -107,7 +107,7 @@ Zarafa.plugins.files.ui.FilesMainContextMenu = Ext.extend(Zarafa.core.ui.menu.Co
 			xtype : 'zarafa.conditionalitem',
 			cls : 'files_icon_actionbutton',
 			text : _('Attach to mail as link'),
-			iconCls : 'files_icon_action files_icon_action_attach_to_mail',
+			iconCls : 'files_icon_action files_icon_action_attach_to_mail_link',
 			handler : this.onFileLinkAddToMail,
 			scope : this,
 			beforeShow: function (item, records) {

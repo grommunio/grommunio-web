@@ -1,22 +1,18 @@
 .zarafa-settings-category-passwd {
-    background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCIgdmlld0JveD0iMCAwIDEwOC4wNSAxMjIuODgiPjxwYXRoIGQ9Ik0yLjg5IDU2LjA0aDE0Ljkzdi0xLjA4LTE3Ljg0YzAtMTAuMjEgNC4xOC0xOS40OCAxMC45LTI2LjIxdi0uMDFDMzUuNDQgNC4xOCA0NC43MyAwIDU0Ljk0IDBjMTAuMiAwIDE5LjQ4IDQuMTggMjYuMjEgMTAuOWwuMDEuMDFjNi43MiA2LjcyIDEwLjkgMTYgMTAuOSAyNi4yMXYxNy44NCAxLjA3aDEzLjExYTIuOSAyLjkgMCAwIDEgMi44OSAyLjg5djYxLjA2YTIuOSAyLjkgMCAwIDEtMi44OSAyLjg5SDIuODlBMi45IDIuOSAwIDAgMSAwIDExOS45OFY1OC45M2EyLjkgMi45IDAgMCAxIDIuODktMi44OWgwIDB6bTIyLjkgMjkuNzVhNy45MiA3LjkyIDAgMCAxIDcuOTIgNy45MSA3LjkyIDcuOTIgMCAxIDEtMTUuODQgMGMwLTQuMzcgMy41NC03LjkxIDcuOTItNy45MWgwem01Ni40OCAwYTcuOTEgNy45MSAwIDAgMSA3LjkxIDcuOTEgNy45MiA3LjkyIDAgMCAxLTcuOTEgNy45MiA3LjkyIDcuOTIgMCAwIDEtNy45Mi03LjkyIDcuOTIgNy45MiAwIDAgMSA3LjkyLTcuOTFoMHptLTI4LjI0IDBhNy45MSA3LjkxIDAgMCAxIDcuOTEgNy45MSA3LjkyIDcuOTIgMCAwIDEtNy45MSA3LjkyIDcuOTIgNy45MiAwIDAgMS03LjkyLTcuOTJjMC00LjM3IDMuNTQtNy45MSA3LjkyLTcuOTFoMHptLTM4LjQ0LTUuODNoNzYuODZhNy40NyA3LjQ3IDAgMCAxIDcuNDUgNy40NFYxMDBhNy40NyA3LjQ3IDAgMCAxLTcuNDUgNy40NEgxNS41OWMtNC4wOSAwLTcuNDQtMy4zNS03LjQ0LTcuNDRWODcuNGMwLTQuMDkgMy4zNS03LjQ0IDcuNDQtNy40NGgwem0xNi42NS0yMy45Mmg0NS4zOXYtMS4wOC0xOC4wNWMwLTYuMjQtMi41NS0xMS45Mi02LjY2LTE2LjAzaDBjLTQuMTEtNC4xMS05Ljc5LTYuNjctMTYuMDItNi42Ny02LjI0IDAtMTEuOTIgMi41NS0xNi4wMyA2LjY2cy02LjY2IDkuNzktNi42NiAxNi4wM3YxOC4wNWwtLjAyIDEuMDloMCAweiIgZmlsbD0iIzZkNmQ3MCIgZmlsbC1ydWxlPSJldmVub2RkIi8+PC9zdmc+) !important;
+    background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgZmlsbD0ibm9uZSI+PHBhdGggZmlsbD0iIzIxMjEyMSIgZD0iTTExLjc4IDEwLjIyYS43NS43NSAwIDAgMC0xLjA2IDEuMDZsLjcyLjcyLS43Mi43MmEuNzUuNzUgMCAxIDAgMS4wNiAxLjA2bC43Mi0uNzIuNzIuNzJhLjc1Ljc1IDAgMCAwIDEuMDYtMS4wNjJMMTMuNTYxIDEybC43Mi0uNzJhLjc1Ljc1IDAgMSAwLTEuMDYxLTEuMDZsLS43Mi43Mi0uNzItLjcyWm0tNi41NiAwYS43NS43NSAwIDAgMSAxLjA2IDBsLjcyLjcyLjcyLS43MmEuNzUuNzUgMCAxIDEgMS4wNiAxLjA2bC0uNzE5LjcyLjcyLjcxOEEuNzUuNzUgMCAxIDEgNy43MiAxMy43OEw3IDEzLjA2bC0uNzIuNzJhLjc1Ljc1IDAgMCAxLTEuMDYtMS4wNmwuNzItLjcyLS43Mi0uNzJhLjc1Ljc1IDAgMCAxIDAtMS4wNlpNMTYuNSAxMy41YS43NS43NSAwIDAgMCAwIDEuNWgxLjc1YS43NS43NSAwIDAgMCAwLTEuNUgxNi41WiIvPjxwYXRoIGZpbGw9IiMyMTIxMjEiIGQ9Ik01LjI1IDVBMy4yNSAzLjI1IDAgMCAwIDIgOC4yNXY3LjVBMy4yNSAzLjI1IDAgMCAwIDUuMjUgMTloMTMuNUEzLjI1IDMuMjUgMCAwIDAgMjIgMTUuNzV2LTcuNUEzLjI1IDMuMjUgMCAwIDAgMTguNzUgNUg1LjI1Wk0zLjUgOC4yNWMwLS45NjcuNzgzLTEuNzUgMS43NS0xLjc1aDEzLjVjLjk2NyAwIDEuNzUuNzgzIDEuNzUgMS43NXY3LjVhMS43NSAxLjc1IDAgMCAxLTEuNzUgMS43NUg1LjI1YTEuNzUgMS43NSAwIDAgMS0xLjc1LTEuNzV2LTcuNVoiLz48L3N2Zz4=) !important;
 }
 
-/* STYLES FOR THE PASSWORD METER */
 .x-form-strengthmeter {
     width : 100%;
     height: 5px;
-    /*float: right;*/
-    background: #ff4c00; /* Old browsers */
-    /* IE9 SVG, needs conditional override of 'filter' to 'none' */
+    background: #ff4c00;
     background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIxMDAlIiB5Mj0iMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2ZmNGMwMCIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjUwJSIgc3RvcC1jb2xvcj0iI2VkZDcxMiIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiMxYWZmMDAiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
-    background: -moz-linear-gradient(left,  #ff4c00 0%, #edd712 50%, #1aff00 100%); /* FF3.6+ */
-    background: -webkit-gradient(linear, left top, right top, color-stop(0%,#ff4c00), color-stop(50%,#edd712), color-stop(100%,#1aff00)); /* Chrome,Safari4+ */
-    background: -webkit-linear-gradient(left,  #ff4c00 0%,#edd712 50%,#1aff00 100%); /* Chrome10+,Safari5.1+ */
-    background: -o-linear-gradient(left,  #ff4c00 0%,#edd712 50%,#1aff00 100%); /* Opera 11.10+ */
-    background: -ms-linear-gradient(left,  #ff4c00 0%,#edd712 50%,#1aff00 100%); /* IE10+ */
-    background: linear-gradient(to left,  #ff4c00 0%,#edd712 50%,#1aff00 100%); /* W3C */
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff4c00', endColorstr='#1aff00',GradientType=1 ); /* IE6-8 */
+    background: -moz-linear-gradient(left,  #ff4c00 0%, #edd712 50%, #1aff00 100%);
+    background: -webkit-gradient(linear, left top, right top, color-stop(0%,#ff4c00), color-stop(50%,#edd712), color-stop(100%,#1aff00));
+    background: -webkit-linear-gradient(left,  #ff4c00 0%,#edd712 50%,#1aff00 100%);
+    background: -o-linear-gradient(left,  #ff4c00 0%,#edd712 50%,#1aff00 100%);
+    background: -ms-linear-gradient(left,  #ff4c00 0%,#edd712 50%,#1aff00 100%);
+    background: linear-gradient(to left,  #ff4c00 0%,#edd712 50%,#1aff00 100%);
 }
 
 .x-form-strengthmeter-scorebar {

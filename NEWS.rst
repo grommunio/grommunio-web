@@ -1,3 +1,17 @@
+v3.6 (2023-11-10)
+=================
+* Nav-Model following WCAG 2.1, style adoption for enhanced accessibility
+* Navigation-pane redesign
+* New default modern iconset, overwriting default breeze (based on FluentUI)
+* Design overhaul (including dark mode)
+* Navigation pane fixes (static positioning in tasks)
+* Default settings validation (width)
+* Replacement of mixed fontsets (now Roboto)
+* Furthering of flat design principle (removing over-bordering)
+* Spacing adaptions with languages such as spanish, french and german
+* Display fixes for files (previewer and nav)
+* Cleaning of unused content from repo
+
 v3.5 (2023-10-31)
 =================
 * Modern authentication system using keycloak open-ID connect workflow

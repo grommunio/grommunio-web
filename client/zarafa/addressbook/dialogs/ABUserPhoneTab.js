@@ -138,16 +138,22 @@ Zarafa.addressbook.dialogs.ABUserPhoneTab = Ext.extend(Ext.form.FormPanel, {
 	createNoteFieldset: function()
 	{
 		return [{
-			xtype: 'displayfield',
-			value: _('Notes') + ':',
-			hideLabel: true
-		},{
-			xtype: 'textarea',
-			hideLabel: true,
-			name: 'comment',
-			readOnly: true,
+			xtype: 'fieldset',
+			title: _('Notes'),
+			border: true,
+			cls: 'zarafa-fieldset',
+			layout: 'column',
 			columnWidth: 1,
-			flex: 1
+			autoHeight: true,
+			anchor: '100%',
+			items: [{
+				xtype: 'textarea',
+				hideLabel: true,
+				name: 'comment',
+				readOnly: true,
+				columnWidth: 1,
+				flex: 1
+			}]
 		}];
 	},
 

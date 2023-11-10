@@ -2,7 +2,7 @@ Ext.namespace('Zarafa.plugins.files.ui');
 
 Zarafa.plugins.files.ui.FilesRecordDetailsPanel = Ext.extend(Ext.form.FormPanel, {
 
-	defaultPreviewImage: 'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMjIuODc5IiBoZWlnaHQ9Ijc5LjY5OSI+PHBhdGggZD0iTS45NTUgMzcuMzI2YTk0LjYgOTQuNiAwIDAgMSA5LjE1MS05LjYyNUMyNC40NDEgMTQuNjU0IDQxLjQ2MiA3LjY4NCA1OS4wMSA3LjMzNGM2LjU2MS0uMTMxIDEzLjE4NS42NjUgMTkuNzU3IDIuNDE2bC01LjkwNCA1LjkwNGMtNC41ODEtLjkxNi05LjE2OC0xLjMyNC0xMy43MTQtMS4yMzMtMTUuODExLjMxNi0zMS4yMTUgNi42NTctNDQuMjYyIDE4LjUzM2gwYy0yLjMyNCAyLjExNS00LjU2MiA0LjM5LTYuNzAyIDYuODIgNC4wNzEgNC43MjEgOC42IDguODAxIDEzLjQ1MiAxMi4yMjcgMi45ODggMi4xMTEgNi4wOTcgMy45NzMgOS4yOTYgNS41ODZsLTUuMjYyIDUuMjYyYy0yLjc4Mi0xLjUwNC01LjQ5NC0zLjE4NC04LjEyLTUuMDM5LTYuMTQzLTQuMzM4LTExLjgxMy05LjYyOS0xNi43OC0xNS44NS0xLjEwOS0xLjM5Ny0uOTk5LTMuMzcuMTg0LTQuNjM0aDAgMHpNOTYuMDMgMGw1Ljg5MyA1Ljg5My03My44MDQgNzMuODA2LTUuODk0LTUuODk1TDk2LjAzIDBoMHptMS42OSAxNy42MDljNC40MjMgMi41MjcgOC43NjcgNS41MjggMTIuOTk0IDkuMDE0IDMuODc3IDMuMTk2IDcuNjM1IDYuNzczIDExLjI0IDEwLjczNWEzLjU1IDMuNTUgMCAwIDEgLjIyNiA0LjUwN2MtNC4xMzEgNS44MzQtOC44NzYgMTAuODE2LTE0LjA2OSAxNC45NjMtMTIuOTkyIDEwLjM3MS0yOC43NzMgMTUuNDc3LTQ0Ljc1OSAxNS41NDktNi4xMTQuMDI3LTkuNzk4LTMuMTQxLTE1LjgyNS00LjU3NmwzLjU0NS0zLjU0M2M0LjA2NS43MDUgOC4xNjcgMS4wNDkgMTIuMjUyIDEuMDMxIDE0LjQyMS0uMDY0IDI4LjY1My00LjY2OCA0MC4zNjYtMTQuMDIgMy45OTgtMy4xOTEgNy43MDYtNi45MzkgMTEuMDI4LTExLjI1NC0yLjc4Ny0yLjkwNS01LjYyNy01LjU0My04LjUwOC03LjkxOC00LjQ1NS0zLjY3My05LjA0Mi02Ljc1OS0xMy43MDctOS4yNzNsNS4yMTctNS4yMTVoMHptLTM2LjI4LjUzNGEyMS42OCAyMS42OCAwIDAgMSA3LjU3NiAxLjM1OWwtNS42ODkgNS42ODljLS42MTktLjA3OS0xLjI0OC0uMTE5LTEuODg2LS4xMTlBMTQuNzMgMTQuNzMgMCAwIDAgNTAuOTkyIDI5LjRjLTIuNjc0IDIuNjc0LTQuMzI4IDYuMzY5LTQuMzI4IDEwLjQ1IDAgLjYzOS4wNCAxLjI2OC4xMTkgMS44ODVsLTUuNjg5IDUuNjkxYy0uODc5LTIuMzU5LTEuMzU5LTQuOTEyLTEuMzU5LTcuNTc2YTIxLjY0IDIxLjY0IDAgMCAxIDYuMzU4LTE1LjM0OWMzLjkyNy0zLjkyOSA5LjM1My02LjM1OCAxNS4zNDctNi4zNThoMHptMjAuNjczIDE1LjA3M2EyMS43IDIxLjcgMCAwIDEgMS4wMzIgNi42MzRBMjEuNjQgMjEuNjQgMCAwIDEgNjEuNDQgNjEuNTU1Yy0yLjMxMyAwLTQuNTQyLS4zNjEtNi42MzMtMS4wMzNsNS45MTQtNS45MTRjLjIzOC4wMTIuNDc4LjAxOC43MTkuMDE4IDQuMDgxIDAgNy43NzUtMS42NTIgMTAuNDQ5LTQuMzI2YTE0LjczIDE0LjczIDAgMCAwIDQuMzI4LTEwLjQ0OWMwLS4yNDEtLjAwNi0uNDgtLjAxOC0uNzJsNS45MTQtNS45MTVoMHoiIGZpbGw9IiM2ZDZkNzAiLz48L3N2Zz4K',
+	defaultPreviewImage: 'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgZmlsbD0ibm9uZSI+PHBhdGggZmlsbD0iIzg4OCIgZD0iTTIuMjIgMi4yMmEuNzUuNzUgMCAwIDAtLjA3My45NzZsLjA3My4wODQgNC4wMzQgNC4wMzVhOS45ODYgOS45ODYgMCAwIDAtMy45NTUgNS43NS43NS43NSAwIDAgMCAxLjQ1NS4zNjQgOC40OSA4LjQ5IDAgMCAxIDMuNTgtNS4wMzRsMS44MSAxLjgxQTQgNCAwIDAgMCAxNC44IDE1Ljg2bDUuOTE5IDUuOTJhLjc1Ljc1IDAgMCAwIDEuMTMzLS45NzdsLS4wNzMtLjA4NC02LjExMy02LjExNC4wMDEtLjAwMi0xLjItMS4xOTgtMi44Ny0yLjg3aC4wMDJsLTIuODgtMi44NzcuMDAxLS4wMDItMS4xMzMtMS4xM0wzLjI4IDIuMjJhLjc1Ljc1IDAgMCAwLTEuMDYgMFptNy45ODQgOS4wNDUgMy41MzUgMy41MzZhMi41IDIuNSAwIDAgMS0zLjUzNS0zLjUzNVpNMTIgNS41Yy0xIDAtMS45Ny4xNDgtMi44ODkuNDI1bDEuMjM3IDEuMjM2YTguNTAzIDguNTAzIDAgMCAxIDkuODk5IDYuMjcyLjc1Ljc1IDAgMCAwIDEuNDU1LS4zNjNBMTAuMDAzIDEwLjAwMyAwIDAgMCAxMiA1LjVabS4xOTUgMy41MSAzLjgwMSAzLjhhNC4wMDMgNC4wMDMgMCAwIDAtMy44MDEtMy44WiIvPjwvc3ZnPg==',
 
 	record : undefined,
 
@@ -35,7 +35,7 @@ Zarafa.plugins.files.ui.FilesRecordDetailsPanel = Ext.extend(Ext.form.FormPanel,
 		});
 		// FixME : Listener is used when user use info button
 		// in context menu. we can avoid this code by either using
-		// initEvents function or by 'previewrecordchange' which was fire
+		// initEvents function or by 'previewrecordchange' which was fired
 		// from setPreviewRecord function of Zarafa.core.ContextModel
 		if (Ext.isDefined(config.record)) {
 			config = Ext.applyIf(config, {
@@ -57,52 +57,88 @@ Zarafa.plugins.files.ui.FilesRecordDetailsPanel = Ext.extend(Ext.form.FormPanel,
 	},
 
 	fieldSetFileInfo: function () {
-		return {
-			xtype   : 'fieldset',
-			title   : _('File information'),
-			height  : 170,
-			width   : 300,
-			defaults: {
-				anchor: '-3'
-			},
-			items   : [{
-				xtype     : 'textfield',
-				fieldLabel: _('Filename'),
-				ref       : '../filename',
-				value     : "unknown",
-				readOnly  : true
-			},
-				{
-					xtype     : 'textfield',
-					fieldLabel: _('Filesize'),
-					ref       : '../filesize',
-					value     : "unknown",
-					readOnly  : true
-				},
-				{
-					xtype     : 'textfield',
-					fieldLabel: _('Last modified'),
-					ref       : '../lastmodified',
-					value     : "unknown",
-					readOnly  : true
-				},
-				{
-					xtype     : 'textfield',
-					fieldLabel: _('Type'),
-					ref       : '../type',
-					value     : "unknown",
-					readOnly  : true
-				},
-				{
-					xtype     : 'textfield',
-					fieldLabel: _('Is shared'),
-					ref       : '../shared',
-					hidden    : true,
-					value     : "unknown",
-					readOnly  : true
-				}]
-		};
-	},
+    return {
+        xtype: 'fieldset',
+        title: _('File information'),
+        border: false,
+        defaults: {
+            anchor: '100%',
+            readOnly: true
+        },
+        items: [{
+            xtype: 'container',
+            layout: 'hbox',
+            items: [{
+                xtype: 'label',
+                text: _('Filename'),
+                width: 125
+            }, {
+                xtype: 'textfield',
+                ref: '../../filename',
+                value: "unknown",
+                flex: 1
+            }]
+        }, {
+            xtype: 'container',
+            ref: '../filesizeContainer',
+            layout: 'hbox',
+            items: [{
+                xtype: 'label',
+                text: _('Filesize'),
+                width: 125
+            }, {
+                xtype: 'textfield',
+                ref: '../../filesize',
+                value: "unknown",
+                flex: 1
+            }]
+        }, {
+            xtype: 'container',
+            layout: 'hbox',
+            items: [{
+                xtype: 'label',
+                text: _('Last modified'),
+                width: 125
+            }, {
+                xtype: 'textfield',
+                ref: '../../lastmodified',
+                value: "unknown",
+                flex: 1
+            }]
+        }, {
+            xtype: 'container',
+            layout: 'hbox',
+            items: [{
+                xtype: 'label',
+                text: _('Type'),
+                width: 125
+            }, {
+                xtype: 'textfield',
+                ref: '../../type',
+                value: "unknown",
+                flex: 1
+            }]
+        }, {
+	    xtype: 'container',
+	    ref: '../sharedContainer',
+	    layout: 'hbox',
+	    items: [{
+		xtype: 'label',
+		text: _('Is shared'),
+		width: 125
+	    }, {
+		xtype: 'checkbox',
+		ref: '../../shared',
+		flex: 1,
+		inputValue: _('Yes'),
+		uncheckedValue: _('No'),
+		readOnly: true,
+		checked: ("unknown" === _("Yes")) ? true : false
+	    }]
+        }]
+    };
+},
+
 
 	fieldSetFilePreview: function () {
 		var context = Zarafa.plugins.files.data.ComponentBox.getContext();
@@ -291,7 +327,7 @@ Zarafa.plugins.files.ui.FilesRecordDetailsPanel = Ext.extend(Ext.form.FormPanel,
 		this.filename.setValue(record.get('filename'));
 
 		var recordType = record.get('type') == Zarafa.plugins.files.data.FileTypes.FILE;
-		this.filesize.setVisible(recordType);
+		this.filesizeContainer.setVisible(recordType);
 		if (recordType) {
 			this.filesize.setValue(Zarafa.plugins.files.data.Utils.Format.fileSize(record.get('message_size')));
 		}
@@ -307,7 +343,7 @@ Zarafa.plugins.files.ui.FilesRecordDetailsPanel = Ext.extend(Ext.form.FormPanel,
 		this.type.setValue(type);
 
 		var supportSharing = record.getAccount().supportsFeature(Zarafa.plugins.files.data.AccountRecordFeature.SHARING);
-		this.shared.setVisible(supportSharing);
+		this.sharedContainer.setVisible(supportSharing);
 		if (supportSharing) {
 			this.shared.setValue(record.get("isshared") ? _('Yes') : _('No'));
 		}

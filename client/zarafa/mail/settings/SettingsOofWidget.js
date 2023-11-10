@@ -38,7 +38,7 @@ Zarafa.mail.settings.SettingsOofWidget = Ext.extend(Zarafa.settings.ui.SettingsW
 			ref: '../outOfOfficeWidget',
 			cls: 'zarafa-settings-widget',
 			layout: 'form',
-			labelWidth: 200,
+			labelWidth: 225,
 			items: this.getNewConfig()
 		});
 
@@ -94,7 +94,7 @@ Zarafa.mail.settings.SettingsOofWidget = Ext.extend(Zarafa.settings.ui.SettingsW
 				cls: 'k-store-picker',
 				border: false,
 				layout: 'form',
-				labelWidth: 200,
+				labelWidth: 225,
 				items: {
 					xtype: 'combo',
 					mode: 'local',
@@ -168,7 +168,7 @@ Zarafa.mail.settings.SettingsOofWidget = Ext.extend(Zarafa.settings.ui.SettingsW
 						invalidClass: 'zarafa-settings-oof-invalid'
 					},
 					fieldLabel: '',
-					width: 200,
+					width: 225,
 					hideLabel: true,
 					dateFormat: _('d/m/Y'),
 					minValue: new Date(),
@@ -207,7 +207,7 @@ Zarafa.mail.settings.SettingsOofWidget = Ext.extend(Zarafa.settings.ui.SettingsW
 				timeFieldConfig: {
 					invalidClass: 'zarafa-settings-oof-invalid'
 				},
-				width: 200,
+				width: 225,
 				disabled: true,
 				hideLabel: true,
 				dateFormat: _('d/m/Y'),

@@ -34,6 +34,7 @@ Zarafa.calendar.settings.SettingsReminderWidget = Ext.extend(Zarafa.settings.ui.
 			},{
 				xtype: 'combo',
 				ref: 'timeCombo',
+				labelWidth: 275,
 				fieldLabel: _('Default reminder time'),
 				name: 'zarafa/v1/contexts/calendar/default_reminder_time',
 				store: {
@@ -56,6 +57,7 @@ Zarafa.calendar.settings.SettingsReminderWidget = Ext.extend(Zarafa.settings.ui.
 			},{
 				xtype: 'combo',
 				ref: 'alldayTimeCombo',
+				labelWidth: 275,
 				fieldLabel: _('Default all-day appointment reminder time'),
 				name: 'zarafa/v1/contexts/calendar/default_allday_reminder_time',
 				store: {

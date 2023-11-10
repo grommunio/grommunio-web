@@ -54,7 +54,7 @@ Zarafa.contact.dialogs.ContactDetailTab = Ext.extend(Ext.form.FormPanel, {
 		return {
 			defaultType: 'textfield',
 			defaults: {
-				anchor: '100%'
+				anchor: '99%'
 			},
 			items: [{
 				fieldLabel: _('Department'),
@@ -91,7 +91,7 @@ Zarafa.contact.dialogs.ContactDetailTab = Ext.extend(Ext.form.FormPanel, {
 		return {
 			defaultType: 'textfield',
 			defaults: {
-				anchor: '100%'
+				anchor: '99%'
 			},
 			items: [{
 				fieldLabel: _('Manager\'s name'),
@@ -123,7 +123,7 @@ Zarafa.contact.dialogs.ContactDetailTab = Ext.extend(Ext.form.FormPanel, {
 		return {
 			defaultType: 'textfield',
 			defaults: {
-				anchor: '100%'
+				anchor: '99%'
 			},
 			items: [{
 				fieldLabel: _('Nickname'),
@@ -188,7 +188,7 @@ Zarafa.contact.dialogs.ContactDetailTab = Ext.extend(Ext.form.FormPanel, {
 		return {
 			defaultType: 'textfield',
 			defaults: {
-				anchor: '100%'
+				anchor: '99%'
 			},
 			items: [{
 				fieldLabel: _('Spouse/Partner'),

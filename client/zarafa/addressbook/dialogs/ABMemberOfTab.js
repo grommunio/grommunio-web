@@ -22,6 +22,7 @@ Zarafa.addressbook.dialogs.ABMemberOfTab = Ext.extend(Ext.form.FormPanel, {
 		Ext.applyIf(config, {
 			xtype: 'zarafa.abmemberoftab',
 			title: _('Member Of'),
+			style: 'padding: 8px;',
 			layout: {
 				type: 'vbox',
 				align: 'stretch'

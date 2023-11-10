@@ -83,7 +83,6 @@ Zarafa.calendar.settings.SettingsCalendarWidget = Ext.extend(Zarafa.settings.ui.
 				defaultValue: new Zarafa.core.DateRange(),
 				defaultPeriod: 1,
 				defaultPeriodType: Date.HOUR,
-				labelWidth: 200,
 				startFieldConfig: {
 					fieldLabel: _('Start of workday'),
 					name: 'zarafa/v1/main/start_working_hour',

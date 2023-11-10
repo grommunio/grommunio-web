@@ -30,7 +30,7 @@ Zarafa.common.categories.Util = {
 		'<tpl if="!Ext.isEmpty(values)">' +
 			'<tpl for=".">' +
 				'<span class="k-category-block {colorClass}" '+
-						'<tpl if="!Ext.isEmpty(values.backgroundColor)">style="background-color:{backgroundColor};"</tpl>'+
+						'<tpl if="!Ext.isEmpty(values.backgroundColor)">style="background-color:{backgroundColor}!important;"</tpl>'+
 				'>' +
 					'{name}' +
 				'</span>' +
@@ -433,15 +433,9 @@ Zarafa.common.categories.Util = {
 	 * @param {String} color The CSS color value of the category
 	 * @return {String} The string with the SVG element tag
 	 */
-	getCategoryIconSVG: function(color)
+	getCategoryIconSVG: function(color,size)
 	{
-		return '<svg width="15" height="13">' +
-					'<g transform="translate(-333.71338,-339.93452)">' +
-						'<path ' +
-							'style="color:'+color+';fill:currentColor;fill-opacity:1;stroke:none;stroke-width:1;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate" ' +
-							'd="m 333.71339,346.76581 6.16871,6.16871 6.83128,-6.83128 -0.0914,-6.07732 -6.07732,-0.0914 -6.83128,6.83128 z m 8.86467,-5.02636 c 0.64351,-0.64352 1.68689,-0.64352 2.3304,0 0.64352,0.64351 0.64352,1.68689 0,2.3304 -0.64351,0.64352 -1.68689,0.64352 -2.3304,0 -0.64352,-0.64351 -0.64352,-1.68689 0,-2.3304 z" />' +
-					'</g>' +
-				'</svg>';
+		return '<svg width="'+size+'" height="'+size+'" fill="none" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19.75 2A2.25 2.25 0 0 1 22 4.25v5.462a3.25 3.25 0 0 1-.952 2.298l-8.5 8.503a3.255 3.255 0 0 1-4.597.001L3.489 16.06a3.25 3.25 0 0 1-.003-4.596l8.5-8.51A3.25 3.25 0 0 1 14.284 2h5.465Zm0 1.5h-5.465c-.465 0-.91.185-1.239.513l-8.512 8.523a1.75 1.75 0 0 0 .015 2.462l4.461 4.454a1.755 1.755 0 0 0 2.477 0l8.5-8.503a1.75 1.75 0 0 0 .513-1.237V4.25a.75.75 0 0 0-.75-.75ZM17 5.502a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3Z" fill="'+color+'"/></svg>';
 	},
 
 	/**

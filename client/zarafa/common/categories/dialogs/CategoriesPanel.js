@@ -122,7 +122,7 @@ Zarafa.common.categories.dialogs.CategoriesPanel = Ext.extend(Ext.Panel, {
 			columns: [
 				selectionModel,
 				{
-					id			: 'color',
+					id		: 'color',
 					dataIndex	: 'color',
 					sortable	: false,
 					width		: 25,
@@ -165,7 +165,7 @@ Zarafa.common.categories.dialogs.CategoriesPanel = Ext.extend(Ext.Panel, {
 	 */
 	categoryColorRenderer: function(color, metaData, record)
 	{
-		var html = Zarafa.common.categories.Util.getCategoryIconSVG(color);
+		var html = Zarafa.common.categories.Util.getCategoryIconSVG(color,'16');
 
 		var cls = Ext.isNumber(record.get('standardIndex')) ? ' k-category-fixed' : '';
 		html += '<div class="k-colorpicker-ct' + cls + '" style="background-color:'+color+';"></div>';

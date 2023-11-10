@@ -82,7 +82,6 @@
 	".icon_distlist": ".icon_contact_distlist",
 
 	".icon_checked": [
-		".icon_all_day",
 		".icon_complete",
 		".x-grid3-check-col-on",
 		".x-menu-item-checked .x-menu-item.x-menu-check-item .x-menu-item-icon",
@@ -104,6 +103,7 @@
 	".icon_funnel": ".zarafa-settings-category-rules",
 	".icon_calendar": ".zarafa-settings-category-calendar",
 	".delegates_s": ".zarafa-settings-category-delegate",
+	".icon_safesenders": ".zarafa-settings-category-safesenders",
 	".icon_sendas": ".zarafa-settings-category-sendas",
 	".icon_plug": ".zarafa-settings-category-plugins",
 	".icon_shortcuts": ".zarafa-settings-category-keyshortcut",

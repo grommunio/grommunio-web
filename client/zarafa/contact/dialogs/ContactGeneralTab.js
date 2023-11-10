@@ -36,7 +36,7 @@ Zarafa.contact.dialogs.ContactGeneralTab = Ext.extend(Ext.form.FormPanel, {
 
 		// make sure it is first applied in the config before used
 		Ext.applyIf(config, {
-			labelWidth: 128,
+			labelWidth: 150,
 			labelAlign: 'left'
 		});
 
@@ -92,7 +92,7 @@ Zarafa.contact.dialogs.ContactGeneralTab = Ext.extend(Ext.form.FormPanel, {
 			title: _('Name'),
 			defaultType: 'zarafa.compositefield',
 			defaults: {
-				anchor: '100%'
+				anchor: '99%'
 			},
 			items: [{
 				hideLabel: true,
@@ -202,7 +202,7 @@ Zarafa.contact.dialogs.ContactGeneralTab = Ext.extend(Ext.form.FormPanel, {
 			defaultType: 'zarafa.compositefield',
 			defaults: {
 				hideLabel: true,
-				anchor: '100%'
+				anchor: '99%'
 			},
 			items: [{
 				items: [{
@@ -292,7 +292,7 @@ Zarafa.contact.dialogs.ContactGeneralTab = Ext.extend(Ext.form.FormPanel, {
 			title: _('Email'),
 			items: [{
 				xtype: 'zarafa.compositefield',
-				anchor: '100%',
+				anchor: '99%',
 				hideLabel: true,
 					items: [{
 						xtype: 'splitbutton',
@@ -314,7 +314,7 @@ Zarafa.contact.dialogs.ContactGeneralTab = Ext.extend(Ext.form.FormPanel, {
 			}, {
 				xtype: 'textfield',
 				flex: 1,
-				anchor: '100%',
+				anchor: '99%',
 				name: 'email_address_display_name_1',
 				fieldLabel: _('Display name'),
 				ref: '../mailDisplayNameField',
@@ -323,7 +323,7 @@ Zarafa.contact.dialogs.ContactGeneralTab = Ext.extend(Ext.form.FormPanel, {
 				xtype: 'textfield',
 				ref: '../webpageField',
 				flex: 1,
-				anchor: '100%',
+				anchor: '99%',
 				fieldLabel: _('Webpage'),
 				name: 'webpage',
 				listeners: {
@@ -333,7 +333,7 @@ Zarafa.contact.dialogs.ContactGeneralTab = Ext.extend(Ext.form.FormPanel, {
 			}, {
 				xtype: 'textfield',
 				flex: 1,
-				anchor: '100%',
+				anchor: '99%',
 				fieldLabel: _('IM Address'),
 				name: 'im',
 				listeners: {
@@ -357,7 +357,7 @@ Zarafa.contact.dialogs.ContactGeneralTab = Ext.extend(Ext.form.FormPanel, {
 			defaultType: 'zarafa.compositefield',
 			defaults: {
 				hideLabel: true,
-				anchor: '100%'
+				anchor: '99%'
 			},
 			items: [{
 				items: [{
@@ -415,7 +415,7 @@ Zarafa.contact.dialogs.ContactGeneralTab = Ext.extend(Ext.form.FormPanel, {
 				xtype: 'zarafa.editorfield',
 				useHtml: false,
 				ref: '../editorField',
-				anchor: '100% 100%',
+				anchor: '99% 99%',
 				height: 120,
 				listeners: {
 					change: this.onBodyChange,
@@ -440,7 +440,7 @@ Zarafa.contact.dialogs.ContactGeneralTab = Ext.extend(Ext.form.FormPanel, {
 			defaultType: 'zarafa.resizablecompositefield',
 			defaults: {
 				hideLabel: true,
-				anchor: '100%'
+				anchor: '99%'
 			},
 			items: [{
 				cls: 'zarafa-contactcreatepanel-field-attachments',

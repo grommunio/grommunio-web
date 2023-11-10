@@ -6,22 +6,6 @@
 * php-openssl
 * php-curl
 
-## Tests
-
-Run the basic unit tests. (requires libfaketime)
-
-	make test
-
-Coverage is located in htmlcov or can be viewed using
-
-	make open-coverage
-
-## Linting
-
-S/MIME uses eslint, simply run the following command for linting.
-
-	make lint
-
 ## S/MIME Certificate Storage
 
 S/MIME Certificate private/public are stored in the users store in the root folder in the associated messages.
@@ -71,4 +55,3 @@ step certificate create user1 user1.crt user1.key --ca root-ca.crt --ca-key root
 ```
 openssl pkcs12 -export -in user1.crt -inkey user1.key -out user1.p12
 ```
-
