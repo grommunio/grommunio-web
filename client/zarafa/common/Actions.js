@@ -1881,8 +1881,8 @@ Zarafa.common.Actions = {
 		if (!settingsModel.get(baseSettingPath + 'disable_sound')) {
 			this.audioTag = Ext.getBody().createChild({
 				tag: 'audio',
-				type: 'audio/ogg',
-				src: 'plugins/desktopnotifications/resources/audio.ogg',
+				type: 'audio/webm',
+				src: 'plugins/desktopnotifications/resources/audio.webm',
 				autoplay: true
 			});
 

@@ -128,8 +128,8 @@ Zarafa.plugins.desktopnotifications.js.DesktopNotification = (function() {
 			// give audio feedback
 			this.audioTag = Ext.getBody().createChild({
 				tag : 'audio',
-				type : 'audio/ogg',
-				src : 'plugins/desktopnotifications/resources/audio.ogg',
+				type : 'audio/webm',
+				src : 'plugins/desktopnotifications/resources/audio.webm',
 				autoplay : true
 			});
 
