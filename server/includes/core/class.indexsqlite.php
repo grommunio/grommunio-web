@@ -27,7 +27,7 @@ class IndexSqlite extends SQLite3 {
 	}
 
 	public function __construct($username = null, $session = null, $store = null) {
-		$this->username = $username ?? $GLOBALS["mapisession"]->getUserName();
+		$this->username = $username ?? $GLOBALS["mapisession"]->getSMTPAddress();
 		$this->session = $session ?? $GLOBALS["mapisession"]->getSession();
 		$this->store = $store ?? $GLOBALS["mapisession"]->getDefaultMessageStore();
 	}
@@ -317,6 +317,7 @@ class IndexSqlite extends SQLite3 {
 
 			return false;
 		}
+
 		// refresh the index sqlite database
 		return $this->refresh();
 	}
