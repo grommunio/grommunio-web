@@ -34,7 +34,7 @@
 		if (empty($user)) {
 			return '';
 		}
-		if (!defined('DEFAULT_DOMAIN') || strpos($user, '@') !== false) {
+		if (!defined('DEFAULT_DOMAIN') || empty(DEFAULT_DOMAIN) || strpos($user, '@') !== false) {
 			return $user;
 		}
 
