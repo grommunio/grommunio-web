@@ -702,7 +702,7 @@ class DownloadAttachment extends DownloadBase {
 						$message .= _("The file is invalid.");
 					}
 					else {
-						$message = sprintf(_("Unable to import '%s'. "), $attachmentProps[PR_ATTACH_LONG_FILENAME]) . _("Please contact your system administrator if the problem persists.");
+						$message = sprintf(_("Unable to import '%s'. "), $attachmentProps[PR_ATTACH_LONG_FILENAME]) . $e->getMessage();
 					}
 
 					$e = new ZarafaException($message);

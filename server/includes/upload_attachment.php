@@ -363,7 +363,7 @@ class UploadAttachment {
 				$message .= _("The file is invalid.");
 			}
 			else {
-				$message = sprintf(_("Unable to import '%s'. "), $filename) . _("Please contact your system administrator if the problem persists.");
+				$message = sprintf(_("Unable to import '%s'. "), $filename) . $e->getMessage();
 			}
 
 			$e = new ZarafaException($message);
@@ -557,7 +557,7 @@ class UploadAttachment {
 				$message .= _("The file is invalid.");
 			}
 			else {
-				$message = sprintf(_("Unable to import '%s'. "), $filename) . _("Please contact your system administrator if the problem persists.");
+				$message = sprintf(_("Unable to import '%s'. "), $filename) . $e->getMessage();
 			}
 
 			$e = new ZarafaException($message);
