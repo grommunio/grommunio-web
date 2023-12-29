@@ -3639,33 +3639,14 @@
 					$props = [];
 					$props['rowid'] = $recipientRow[PR_ROWID];
 					$props['search_key'] = isset($recipientRow[PR_SEARCH_KEY]) ? bin2hex($recipientRow[PR_SEARCH_KEY]) : '';
-					$props['display_name'] = isset($recipientRow[PR_DISPLAY_NAME]) ? $recipientRow[PR_DISPLAY_NAME] : '';
-					$props['email_address'] = isset($recipientRow[PR_EMAIL_ADDRESS]) ? $recipientRow[PR_EMAIL_ADDRESS] : '';
-					$props['smtp_address'] = isset($recipientRow[PR_SMTP_ADDRESS]) ? $recipientRow[PR_SMTP_ADDRESS] : '';
-					$props['address_type'] = isset($recipientRow[PR_ADDRTYPE]) ? $recipientRow[PR_ADDRTYPE] : '';
-					$props['object_type'] = isset($recipientRow[PR_OBJECT_TYPE]) ? $recipientRow[PR_OBJECT_TYPE] : MAPI_MAILUSER;
+					$props['display_name'] = $recipientRow[PR_DISPLAY_NAME] ?? '';
+					$props['email_address'] = $recipientRow[PR_EMAIL_ADDRESS] ?? '';
+					$props['smtp_address'] = $recipientRow[PR_SMTP_ADDRESS] ?? '';
+					$props['address_type'] = $recipientRow[PR_ADDRTYPE] ?? '';
+					$props['object_type'] = $recipientRow[PR_OBJECT_TYPE] ?? MAPI_MAILUSER;
 					$props['recipient_type'] = $recipientRow[PR_RECIPIENT_TYPE];
-					$props['display_type'] = isset($recipientRow[PR_DISPLAY_TYPE]) ? $recipientRow[PR_DISPLAY_TYPE] : DT_MAILUSER;
-
-					// PR_DISPLAY_TYPE_EX is special property and is not present in ContentsTable so we need to
-					// get it by using OpenEntry
-					$props['display_type_ex'] = DT_MAILUSER;
-					if ($props['address_type'] === 'EX') {
-						try {
-							$mailuser = mapi_ab_openentry($GLOBALS["mapisession"]->getAddressbook(), $recipientRow[PR_ENTRYID]);
-							$userprops = mapi_getprops($mailuser, [PR_DISPLAY_TYPE_EX]);
-							if (isset($userprops[PR_DISPLAY_TYPE_EX])) {
-								$props['display_type_ex'] = $userprops[PR_DISPLAY_TYPE_EX];
-							}
-						}
-						catch (MAPIException $e) {
-							// if any invalid entryid is passed in this function then it should silently ignore it
-							// and continue with execution
-							if ($e->getCode() == MAPI_E_UNKNOWN_ENTRYID) {
-								$e->setHandled();
-							}
-						}
-					}
+					$props['display_type'] = $recipientRow[PR_DISPLAY_TYPE] ?? DT_MAILUSER;
+					$props['display_type_ex'] = $recipientRow[PR_DISPLAY_TYPE_EX] ?? DT_MAILUSER;
 
 					if (isset($recipientRow[PR_RECIPIENT_FLAGS])) {
 						$props['recipient_flags'] = $recipientRow[PR_RECIPIENT_FLAGS];
@@ -3705,8 +3686,8 @@
 						$props['proposednewtime'] = false;
 					}
 
-					$props['recipient_trackstatus'] = !empty($recipientRow[PR_RECIPIENT_TRACKSTATUS]) ? $recipientRow[PR_RECIPIENT_TRACKSTATUS] : olRecipientTrackStatusNone;
-					$props['recipient_trackstatus_time'] = !empty($recipientRow[PR_RECIPIENT_TRACKSTATUS_TIME]) ? $recipientRow[PR_RECIPIENT_TRACKSTATUS_TIME] : null;
+					$props['recipient_trackstatus'] = $recipientRow[PR_RECIPIENT_TRACKSTATUS] ?? olRecipientTrackStatusNone;
+					$props['recipient_trackstatus_time'] = $recipientRow[PR_RECIPIENT_TRACKSTATUS_TIME] ?? null;
 
 					array_push($recipientsInfo, ["props" => $props]);
 				}
