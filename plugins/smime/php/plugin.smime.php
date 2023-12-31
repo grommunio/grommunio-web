@@ -162,9 +162,11 @@ class Pluginsmime extends Plugin {
 
 		$messageClass = mapi_getprops($message, [PR_MESSAGE_CLASS]);
 		$messageClass = $messageClass[PR_MESSAGE_CLASS];
-		if ($messageClass !== 'IPM.Note.SMIME' && $messageClass !== 'IPM.Note.SMIME.SignedEncrypt') {
+		if ($messageClass !== 'IPM.Note.SMIME' &&
+		    $messageClass !== 'IPM.Note.SMIME.SignedEncrypt' &&
+		    $messageClass !== 'IPM.Note.deferSMIME' &&
+		    $messageClass !== 'IPM.Note.deferSMIME.SignedEncrypt')
 			return;
-		}
 
 		$recipients = $data['action']['props']['smime'];
 		$missingCerts = [];
@@ -602,16 +604,21 @@ class Pluginsmime extends Plugin {
 		$props = mapi_getprops($message, [PR_MESSAGE_CLASS]);
 		$messageClass = $props[PR_MESSAGE_CLASS];
 
-		if (!isset($messageClass) || stripos($messageClass, 'IPM.Note.SMIME') === false)
+		if (!isset($messageClass))
+			return;
+		if (stripos($messageClass, 'IPM.Note.deferSMIME') === false &&
+		    stripos($messageClass, 'IPM.Note.SMIME') === false)
 			return;
 
 		// FIXME: for now return when we are going to sign but we don't have the passphrase set
 		// This should never happen sign
 		$encryptionStore = \EncryptionStore::getInstance();
-		if (($messageClass === 'IPM.Note.SMIME.SignedEncrypt' || $messageClass === 'IPM.Note.SMIME.MultipartSigned') &&
-			!$encryptionStore->get('smime')) {
+		if (($messageClass === 'IPM.Note.deferSMIME.SignedEncrypt' ||
+		    $messageClass === 'IPM.Note.deferSMIME.MultipartSigned' ||
+		    $messageClass === 'IPM.Note.SMIME.SignedEncrypt' ||
+		    $messageClass === 'IPM.Note.SMIME.MultipartSigned') &&
+		    !$encryptionStore->get('smime'))
 			return;
-		}
 		// NOTE: setting message class to IPM.Note, so that mapi_inetmapi_imtoinet converts the message to plain email
 		// and doesn't fail when handling the attachments.
 		mapi_setprops($message, [PR_MESSAGE_CLASS => 'IPM.Note']);
@@ -656,6 +663,7 @@ class Pluginsmime extends Plugin {
 
 		// Sign then Encrypt email
 		switch ($messageClass) {
+		case 'IPM.Note.deferSMIME.SignedEncrypt':
 		case 'IPM.Note.SMIME.SignedEncrypt':
 			$tmpFile = tempnam(sys_get_temp_dir(), true);
 			$this->sign($tmpSendEmail, $tmpFile, $message, $signedAttach, $smimeProps);
@@ -663,10 +671,12 @@ class Pluginsmime extends Plugin {
 			unlink($tmpFile);
 			break;
 
+		case 'IPM.Note.deferSMIME.MultipartSigned':
 		case 'IPM.Note.SMIME.MultipartSigned':
 			$this->sign($tmpSendEmail, $tmpSendSmimeEmail, $message, $signedAttach, $smimeProps);
 			break;
 
+		case 'IPM.Note.deferSMIME':
 		case 'IPM.Note.SMIME':
 			$this->encrypt($tmpSendEmail, $tmpSendSmimeEmail, $message, $signedAttach, $smimeProps);
 			break;

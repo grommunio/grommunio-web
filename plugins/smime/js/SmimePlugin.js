@@ -66,7 +66,7 @@ Zarafa.plugins.smime.SmimePlugin = Ext.extend(Zarafa.core.Plugin, {
 	},
 
 	/**
-	 * Create button which sets the MessageClass to IPM.Note.SMIME.MultiPartSigned
+	 * Create button which sets the MessageClass to IPM.Note.deferSMIME.MultiPartSigned
 	 * when creating an email.
 	 * If certificate is unlocked we can display the Sign button, else a blank label
 	 *
@@ -93,7 +93,7 @@ Zarafa.plugins.smime.SmimePlugin = Ext.extend(Zarafa.core.Plugin, {
 	},
 
 	/**
-	 * Create button which sets the MessageClass to IPM.Note.SMIME
+	 * Create button which sets the MessageClass to IPM.Note.deferSMIME
 	 * when creating an email in context.mail.mailcreatecontentpanel.toolbar.option
 	 *
 	 * @return {Object} creates a button for encrypting an email
@@ -130,17 +130,17 @@ Zarafa.plugins.smime.SmimePlugin = Ext.extend(Zarafa.core.Plugin, {
 		var dialog = this.getRespectiveDialog(button);
 		var record = dialog.record;
 		switch(record.get('message_class')) {
-		case 'IPM.Note.SMIME':
+		case 'IPM.Note.deferSMIME':
 			if (button.iconCls === 'icon_smime_encrypt') {
 				button.setIconClass('icon_smime_encrypt_selected');
 			}
 			break;
-		case 'IPM.Note.SMIME.MultipartSigned':
+		case 'IPM.Note.deferSMIME.MultipartSigned':
 			if (button.iconCls === 'icon_smime_sign') {
 				button.setIconClass('icon_smime_sign_selected');
 			}
 			break;
-		case 'IPM.Note.SMIME.SignedEncrypt':
+		case 'IPM.Note.deferSMIME.SignedEncrypt':
 			if (button.iconCls === 'icon_smime_sign') {
 				button.setIconClass('icon_smime_sign_selected');
 			} else {
@@ -292,8 +292,8 @@ Zarafa.plugins.smime.SmimePlugin = Ext.extend(Zarafa.core.Plugin, {
 			return;
 		switch (record.get('message_class')) {
 		// Sign and Encrypt
-		case 'IPM.Note.SMIME.MultipartSigned':
-			record.set('message_class', 'IPM.Note.SMIME.SignedEncrypt');
+		case 'IPM.Note.deferSMIME.MultipartSigned':
+			record.set('message_class', 'IPM.Note.deferSMIME.SignedEncrypt');
 			button.setIconClass('icon_smime_encrypt_selected');
 
 			// Add event to check if all recipients have a public key
@@ -302,16 +302,16 @@ Zarafa.plugins.smime.SmimePlugin = Ext.extend(Zarafa.core.Plugin, {
 		// We want to encrypt
 		case 'IPM.Note':
 			button.setIconClass('icon_smime_encrypt_selected');
-			record.set('message_class', 'IPM.Note.SMIME');
+			record.set('message_class', 'IPM.Note.deferSMIME');
 
 			// Add event to check if all recipients have a public key
 			dialog.on('beforesendrecord', this.onBeforeSendRecord ,this);
 			break;
 		// Unselecting encrypt functionality
-		case 'IPM.Note.SMIME':
-		case 'IPM.Note.SMIME.SignedEncrypt':
-			if (record.get('message_class') === 'IPM.Note.SMIME.SignedEncrypt') {
-				record.set('message_class', 'IPM.Note.SMIME.MultipartSigned');
+		case 'IPM.Note.deferSMIME':
+		case 'IPM.Note.deferSMIME.SignedEncrypt':
+			if (record.get('message_class') === 'IPM.Note.deferSMIME.SignedEncrypt') {
+				record.set('message_class', 'IPM.Note.deferSMIME.MultipartSigned');
 			} else {
 				record.set('message_class', 'IPM.Note');
 			}
@@ -361,21 +361,21 @@ Zarafa.plugins.smime.SmimePlugin = Ext.extend(Zarafa.core.Plugin, {
 		switch (record.get('message_class')) {
 		// We want to sign
 		case 'IPM.Note':
-			button.message_class = 'IPM.Note.SMIME.MultipartSigned';
+			button.message_class = 'IPM.Note.deferSMIME.MultipartSigned';
 			request();
 			break;
 		// Encrypt + Sign
-		case 'IPM.Note.SMIME':
-			button.message_class = 'IPM.Note.SMIME.SignedEncrypt';
+		case 'IPM.Note.deferSMIME':
+			button.message_class = 'IPM.Note.deferSMIME.SignedEncrypt';
 			request();
 			break;
-		case 'IPM.Note.SMIME.MultipartSigned':
+		case 'IPM.Note.deferSMIME.MultipartSigned':
 			button.setIconClass('icon_smime_sign');
 			record.set('message_class', 'IPM.Note');
 			break;
-		case 'IPM.Note.SMIME.SignedEncrypt':
+		case 'IPM.Note.deferSMIME.SignedEncrypt':
 			button.setIconClass('icon_smime_sign');
-			record.set('message_class', 'IPM.Note.SMIME');
+			record.set('message_class', 'IPM.Note.deferSMIME');
 			break;
 		}
 		dialog.saveRecord();
@@ -452,9 +452,9 @@ Zarafa.plugins.smime.SmimePlugin = Ext.extend(Zarafa.core.Plugin, {
 			sortable : false,
 			renderer :  function(value, p, record) {
 				var messageClass = record.get('message_class');
-				if(messageClass == 'IPM.Note.SMIME' || messageClass == 'IPM.Note.SMIME.SignedEncrypt') {
+				if(messageClass == 'IPM.Note.deferSMIME' || messageClass == 'IPM.Note.deferSMIME.SignedEncrypt') {
 					p.css = 'icon_smime_encrypt';
-				} else if(messageClass == 'IPM.Note.SMIME.MultipartSigned') {
+				} else if(messageClass == 'IPM.Note.deferSMIME.MultipartSigned') {
 					p.css = 'icon_smime_sign';
 				}
 				return '';
@@ -475,9 +475,9 @@ Zarafa.plugins.smime.SmimePlugin = Ext.extend(Zarafa.core.Plugin, {
 	showMessageClass : function(insertionPoint, record) {
 		var messageClass = record.get('message_class');
 		var icon = "";
-		if (messageClass == 'IPM.Note.SMIME' || messageClass == 'IPM.Note.SMIME.SignedEncrypt') {
+		if (messageClass == 'IPM.Note.deferSMIME' || messageClass == 'IPM.Note.deferSMIME.SignedEncrypt') {
 			icon = 'icon_smime_encrypt';
-		} else if (messageClass == 'IPM.Note.SMIME.MultipartSigned') {
+		} else if (messageClass == 'IPM.Note.deferSMIME.MultipartSigned') {
 			icon = 'icon_smime_sign';
 		}
 
