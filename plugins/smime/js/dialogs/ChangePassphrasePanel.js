@@ -115,17 +115,17 @@ Zarafa.plugins.smime.dialogs.ChangePassphrasePanel = Ext.extend(Ext.Panel, {
 	 */
 	changePassphrasePanel: function()
 	{
-			container.getRequest().singleRequest(
-				'pluginsmimemodule',
-				'changepassphrase',
-				{
-					'passphrase': this.old_passphrase.getValue(),
-					'new_passphrase': this.new_passphrase.getValue()
-				},
-				new Zarafa.plugins.smime.data.SmimeResponseHandler({
-					successCallback : this.onChangePassphraseRequest.createDelegate(this)
-				})
-			);
+		container.getRequest().singleRequest(
+			'pluginsmimemodule',
+			'changepassphrase',
+			{
+				'passphrase': this.old_passphrase.getValue(),
+				'new_passphrase': this.new_passphrase.getValue()
+			},
+			new Zarafa.plugins.smime.data.SmimeResponseHandler({
+				successCallback : this.onChangePassphraseRequest.createDelegate(this)
+			})
+		);
 	},
 
 	/**

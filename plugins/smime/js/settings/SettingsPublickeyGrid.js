@@ -186,17 +186,17 @@ Zarafa.plugins.smime.settings.PublickeyGrid = Ext.extend(Ext.grid.GridPanel, {
 	{
 		var selectionModel = this.getSelectionModel();
 		var certificate = selectionModel.getSelected();
-		if(Ext.isDefined(certificate)) {
-			// TODO: use ExtJS form?
-			
-			var text = "Email: " + certificate.get('email') + "</br>" +
-				"Serial: " + certificate.get('serial') + "</br>" +
-				"Issued by: " + certificate.get('issued_by') + "</br>" +
-				"Issued to: " + certificate.get('issued_to') + "</br>" +
-				"SHA1 Fingerprint: " + certificate.get('fingerprint_sha1') + "</br>" +
-				"MD5 Fingerprint: " + certificate.get('fingerprint_md5') + "</br>";
-			Ext.Msg.alert(_('Certificate details'), text);
-		}
+		if (!Ext.isDefined(certificate))
+			return;
+		// TODO: use ExtJS form?
+		
+		var text = "Email: " + certificate.get('email') + "</br>" +
+			"Serial: " + certificate.get('serial') + "</br>" +
+			"Issued by: " + certificate.get('issued_by') + "</br>" +
+			"Issued to: " + certificate.get('issued_to') + "</br>" +
+			"SHA1 Fingerprint: " + certificate.get('fingerprint_sha1') + "</br>" +
+			"MD5 Fingerprint: " + certificate.get('fingerprint_md5') + "</br>";
+		Ext.Msg.alert(_('Certificate details'), text);
 	}
 
 });

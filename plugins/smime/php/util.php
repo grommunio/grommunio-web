@@ -98,20 +98,20 @@ function readPrivateCert($store, $passphrase, $singleCert = true) {
 	// Get messages from certificates
 	foreach ($privateCerts as $privateCert) {
 		$privateCertMessage = mapi_msgstore_openentry($store, $privateCert[PR_ENTRYID]);
-		if ($privateCertMessage !== false) {
-			$pkcs12 = "";
-			$certs = [];
-			// Read pkcs12 cert from message
-			$stream = mapi_openproperty($privateCertMessage, PR_BODY, IID_IStream, 0, 0);
-			$stat = mapi_stream_stat($stream);
-			mapi_stream_seek($stream, 0, STREAM_SEEK_SET);
-			for ($i = 0; $i < $stat['cb']; $i += 1024) {
-				$pkcs12 .= mapi_stream_read($stream, 1024);
-			}
-			$ok = openssl_pkcs12_read(base64_decode($pkcs12), $certs, $passphrase);
-			if ($ok !== false) {
-				array_push($unlockedCerts, $certs);
-			}
+		if ($privateCertMessage === false)
+			continue;
+		$pkcs12 = "";
+		$certs = [];
+		// Read pkcs12 cert from message
+		$stream = mapi_openproperty($privateCertMessage, PR_BODY, IID_IStream, 0, 0);
+		$stat = mapi_stream_stat($stream);
+		mapi_stream_seek($stream, 0, STREAM_SEEK_SET);
+		for ($i = 0; $i < $stat['cb']; $i += 1024) {
+			$pkcs12 .= mapi_stream_read($stream, 1024);
+		}
+		$ok = openssl_pkcs12_read(base64_decode($pkcs12), $certs, $passphrase);
+		if ($ok !== false) {
+			array_push($unlockedCerts, $certs);
 		}
 	}
 

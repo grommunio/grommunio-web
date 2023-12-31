@@ -130,23 +130,23 @@ Zarafa.plugins.smime.SmimePlugin = Ext.extend(Zarafa.core.Plugin, {
 		var dialog = this.getRespectiveDialog(button);
 		var record = dialog.record;
 		switch(record.get('message_class')) {
-			case 'IPM.Note.SMIME':
-				if (button.iconCls === 'icon_smime_encrypt') {
-					button.setIconClass('icon_smime_encrypt_selected');
-				}
-				break;
-			case 'IPM.Note.SMIME.MultipartSigned':
-				if (button.iconCls === 'icon_smime_sign') {
-					button.setIconClass('icon_smime_sign_selected');
-				}
-				break;
-			case 'IPM.Note.SMIME.SignedEncrypt':
-				if (button.iconCls === 'icon_smime_sign') {
-					button.setIconClass('icon_smime_sign_selected');
-				} else {
-					button.setIconClass('icon_smime_encrypt_selected');
-				}
-				break;
+		case 'IPM.Note.SMIME':
+			if (button.iconCls === 'icon_smime_encrypt') {
+				button.setIconClass('icon_smime_encrypt_selected');
+			}
+			break;
+		case 'IPM.Note.SMIME.MultipartSigned':
+			if (button.iconCls === 'icon_smime_sign') {
+				button.setIconClass('icon_smime_sign_selected');
+			}
+			break;
+		case 'IPM.Note.SMIME.SignedEncrypt':
+			if (button.iconCls === 'icon_smime_sign') {
+				button.setIconClass('icon_smime_sign_selected');
+			} else {
+				button.setIconClass('icon_smime_encrypt_selected');
+			}
+			break;
 		}
 	},
 
@@ -158,29 +158,29 @@ Zarafa.plugins.smime.SmimePlugin = Ext.extend(Zarafa.core.Plugin, {
 	onSmimeButton: function(button)
 	{
 		var smimeInfo = button.record.get('smime');
-		if(button.record.isOpened() && smimeInfo) {
-			switch(smimeInfo.type) {
-				case 'encrypted':
-					if (smimeInfo.success !== Zarafa.plugins.smime.SMIME_STATUS_GOOD) {
-						var user = container.getUser();
-						container.getRequest().singleRequest(
-							'pluginsmimemodule',
-							'certificate',
-							{
-								'user' : user.getSMTPAddress()
-							},
-							new Zarafa.plugins.smime.data.SmimeResponseHandler({
-								successCallback : this.onCertificateCallback.createDelegate(button.record)
-							})
-						);
-					}
-					break;
-				case 'signed':
-				case 'encryptsigned':
-					container.getNotifier().notify(Zarafa.plugins.smime.SmimeText.getPopupStatus(smimeInfo.success),
-							_('What\'s going on with my email?'), Zarafa.plugins.smime.SmimeText.getPopupText(smimeInfo.info));
-					break;
-			}
+		if (!button.record.isOpened() || !smimeInfo)
+			return;
+		switch (smimeInfo.type) {
+		case 'encrypted':
+			if (smimeInfo.success === Zarafa.plugins.smime.SMIME_STATUS_GOOD)
+				break;
+			var user = container.getUser();
+			container.getRequest().singleRequest(
+				'pluginsmimemodule',
+				'certificate',
+				{
+					'user' : user.getSMTPAddress()
+				},
+				new Zarafa.plugins.smime.data.SmimeResponseHandler({
+					successCallback : this.onCertificateCallback.createDelegate(button.record)
+				})
+			);
+			break;
+		case 'signed':
+		case 'encryptsigned':
+			container.getNotifier().notify(Zarafa.plugins.smime.SmimeText.getPopupStatus(smimeInfo.success),
+					_('What\'s going on with my email?'), Zarafa.plugins.smime.SmimeText.getPopupText(smimeInfo.info));
+			break;
 		}
 	},
 
@@ -207,36 +207,36 @@ Zarafa.plugins.smime.SmimePlugin = Ext.extend(Zarafa.core.Plugin, {
 
 		// retrieve smime json object
 		var smimeInfo = record.get('smime');
-		if(record.isOpened() && smimeInfo) {
-			var sender = record.getSender();
+		if (!record.isOpened() || !smimeInfo)
+			return;
+		var sender = record.getSender();
 
-			// FIXME: refactor success, to status since that's probably a better description of the variable
-			smimeInfoBox.addClass(Zarafa.plugins.smime.SmimeText.getStatusMessageClass(smimeInfo.success));
-			var message = Zarafa.plugins.smime.SmimeText.getMessageInfo(smimeInfo.info);
-			var isDecryptedSuccessfully = (smimeInfo.info === Zarafa.plugins.smime.SMIME_DECRYPT_SUCCESS);
-			switch(smimeInfo.type) {
-				case 'encrypted':
-					// Empty smimeInfoBox
-					if( smimeInfo.success === Zarafa.plugins.smime.SMIME_STATUS_BAD) {
-						smimeInfoBox.update('<div class="icon_smime_encr_content"></div> ' + message);
-					} else {
-						var smimeInfoIcon = isDecryptedSuccessfully ? 'icon_smime_decr_content' : 'icon_smime_encr_content';
-						smimeInfoBox.update(String.format(' {0} &lt{1}&gt <div class="{2}"></div> {3}', sender.get('display_name'), sender.get('smtp_address'), smimeInfoIcon, message));
-						// Force the Attachmentlinks component to update, to view the attachments
-						this.ownerCt.findByType('zarafa.attachmentlinks')[0].update(record, true);
-					}
-					break;
-				case 'signed':
-					smimeInfoBox.update(String.format('{0} &lt{1}&gt <div class="icon_smime_sign_content"></div> {2}', sender.get('display_name'), sender.get('smtp_address'), message));
-					break;
-				case 'encryptsigned':
-					smimeInfoBox.update(String.format('{0} &lt{1}&gt <div class="icon_smime_sign_content"></div> <div class="icon_smime_decr_content"></div> {2}', sender.get('display_name'), sender.get('smtp_address'), message));
-					if(smimeInfo.success !== Zarafa.plugins.smime.SMIME_STATUS_BAD) {
-						// Force the Attachmentlinks component to update, to view the attachments
-						this.ownerCt.findByType('zarafa.attachmentlinks')[0].update(record, true);
-					}
-					break;
+		// FIXME: refactor success, to status since that's probably a better description of the variable
+		smimeInfoBox.addClass(Zarafa.plugins.smime.SmimeText.getStatusMessageClass(smimeInfo.success));
+		var message = Zarafa.plugins.smime.SmimeText.getMessageInfo(smimeInfo.info);
+		var isDecryptedSuccessfully = (smimeInfo.info === Zarafa.plugins.smime.SMIME_DECRYPT_SUCCESS);
+		switch (smimeInfo.type) {
+		case 'encrypted':
+			// Empty smimeInfoBox
+			if (smimeInfo.success === Zarafa.plugins.smime.SMIME_STATUS_BAD) {
+				smimeInfoBox.update('<div class="icon_smime_encr_content"></div> ' + message);
+				break;
 			}
+			var smimeInfoIcon = isDecryptedSuccessfully ? 'icon_smime_decr_content' : 'icon_smime_encr_content';
+			smimeInfoBox.update(String.format(' {0} &lt{1}&gt <div class="{2}"></div> {3}', sender.get('display_name'), sender.get('smtp_address'), smimeInfoIcon, message));
+			// Force the Attachmentlinks component to update, to view the attachments
+			this.ownerCt.findByType('zarafa.attachmentlinks')[0].update(record, true);
+			break;
+		case 'signed':
+			smimeInfoBox.update(String.format('{0} &lt{1}&gt <div class="icon_smime_sign_content"></div> {2}', sender.get('display_name'), sender.get('smtp_address'), message));
+			break;
+		case 'encryptsigned':
+			smimeInfoBox.update(String.format('{0} &lt{1}&gt <div class="icon_smime_sign_content"></div> <div class="icon_smime_decr_content"></div> {2}', sender.get('display_name'), sender.get('smtp_address'), message));
+			if (smimeInfo.success !== Zarafa.plugins.smime.SMIME_STATUS_BAD) {
+				// Force the Attachmentlinks component to update, to view the attachments
+				this.ownerCt.findByType('zarafa.attachmentlinks')[0].update(record, true);
+			}
+			break;
 		}
 	},
 
@@ -288,45 +288,45 @@ Zarafa.plugins.smime.SmimePlugin = Ext.extend(Zarafa.core.Plugin, {
 	{
 		var dialog = this.getRespectiveDialog(button);
 		var record = dialog.record;
-		if(record) {
-			switch(record.get('message_class')) {
-				// Sign and Encrypt
-				case 'IPM.Note.SMIME.MultipartSigned':
-					record.set('message_class', 'IPM.Note.SMIME.SignedEncrypt');
-					button.setIconClass('icon_smime_encrypt_selected');
+		if (!record)
+			return;
+		switch (record.get('message_class')) {
+		// Sign and Encrypt
+		case 'IPM.Note.SMIME.MultipartSigned':
+			record.set('message_class', 'IPM.Note.SMIME.SignedEncrypt');
+			button.setIconClass('icon_smime_encrypt_selected');
 
-					// Add event to check if all recipients have a public key
-					dialog.on('beforesendrecord', this.onBeforeSendRecord ,this);
-					break;
-				// We want to encrypt
-				case 'IPM.Note':
-					button.setIconClass('icon_smime_encrypt_selected');
-					record.set('message_class', 'IPM.Note.SMIME');
+			// Add event to check if all recipients have a public key
+			dialog.on('beforesendrecord', this.onBeforeSendRecord ,this);
+			break;
+		// We want to encrypt
+		case 'IPM.Note':
+			button.setIconClass('icon_smime_encrypt_selected');
+			record.set('message_class', 'IPM.Note.SMIME');
 
-					// Add event to check if all recipients have a public key
-					dialog.on('beforesendrecord', this.onBeforeSendRecord ,this);
-					break;
-				// Unselecting encrypt functionality
-				case 'IPM.Note.SMIME':
-				case 'IPM.Note.SMIME.SignedEncrypt':
-					if (record.get('message_class') === 'IPM.Note.SMIME.SignedEncrypt') {
-						record.set('message_class', 'IPM.Note.SMIME.MultipartSigned');
-					} else {
-						record.set('message_class', 'IPM.Note');
-					}
-
-					button.setIconClass('icon_smime_encrypt');
-					// Reset smime property
-					record.set('smime','');
-					// Reset send action, otherwise the saveRecord will trigger a send when the user deselects encryption
-					record.actions = {};
-
-					// Remove event
-					dialog.un('beforesendrecord', this.onBeforeSendRecord ,this);
-					break;
+			// Add event to check if all recipients have a public key
+			dialog.on('beforesendrecord', this.onBeforeSendRecord ,this);
+			break;
+		// Unselecting encrypt functionality
+		case 'IPM.Note.SMIME':
+		case 'IPM.Note.SMIME.SignedEncrypt':
+			if (record.get('message_class') === 'IPM.Note.SMIME.SignedEncrypt') {
+				record.set('message_class', 'IPM.Note.SMIME.MultipartSigned');
+			} else {
+				record.set('message_class', 'IPM.Note');
 			}
-			dialog.saveRecord();
+
+			button.setIconClass('icon_smime_encrypt');
+			// Reset smime property
+			record.set('smime','');
+			// Reset send action, otherwise the saveRecord will trigger a send when the user deselects encryption
+			record.actions = {};
+
+			// Remove event
+			dialog.un('beforesendrecord', this.onBeforeSendRecord ,this);
+			break;
 		}
+		dialog.saveRecord();
 	},
 
 	/**
@@ -340,41 +340,43 @@ Zarafa.plugins.smime.SmimePlugin = Ext.extend(Zarafa.core.Plugin, {
 	{
 		var dialog = this.getRespectiveDialog(button);
 		var record = dialog.record;
-		if(record) {
-			var plugin = this;
-			var user = container.getUser();
-			var request = function() {
-				container.getRequest().singleRequest(
-					'pluginsmimemodule',
-					'certificate',
-					{
-						'user' : user.getSMTPAddress()
-					},
-					new Zarafa.plugins.smime.data.SmimeResponseHandler({
-						successCallback : plugin.onCertificateCallback.createDelegate(button)
-					})
-				);
-			};
-			switch(record.get('message_class')) {
-				// We want to sign
-				case 'IPM.Note':
-					button.message_class = 'IPM.Note.SMIME.MultipartSigned';
-					request();
-					break;
-				// Encrypt + Sign
-				case 'IPM.Note.SMIME':
-					button.message_class = 'IPM.Note.SMIME.SignedEncrypt';
-					request();
-					break;
-				case 'IPM.Note.SMIME.MultipartSigned':
-					button.setIconClass('icon_smime_sign');
-					record.set('message_class', 'IPM.Note');
-					break;
-				case 'IPM.Note.SMIME.SignedEncrypt':
-					button.setIconClass('icon_smime_sign');
-					record.set('message_class', 'IPM.Note.SMIME');
-					break;
-			}
+		if (!record) {
+			dialog.saveRecord();
+			return;
+		}
+		var plugin = this;
+		var user = container.getUser();
+		var request = function() {
+			container.getRequest().singleRequest(
+				'pluginsmimemodule',
+				'certificate',
+				{
+					'user' : user.getSMTPAddress()
+				},
+				new Zarafa.plugins.smime.data.SmimeResponseHandler({
+					successCallback : plugin.onCertificateCallback.createDelegate(button)
+				})
+			);
+		};
+		switch (record.get('message_class')) {
+		// We want to sign
+		case 'IPM.Note':
+			button.message_class = 'IPM.Note.SMIME.MultipartSigned';
+			request();
+			break;
+		// Encrypt + Sign
+		case 'IPM.Note.SMIME':
+			button.message_class = 'IPM.Note.SMIME.SignedEncrypt';
+			request();
+			break;
+		case 'IPM.Note.SMIME.MultipartSigned':
+			button.setIconClass('icon_smime_sign');
+			record.set('message_class', 'IPM.Note');
+			break;
+		case 'IPM.Note.SMIME.SignedEncrypt':
+			button.setIconClass('icon_smime_sign');
+			record.set('message_class', 'IPM.Note.SMIME');
+			break;
 		}
 		dialog.saveRecord();
 	},
@@ -406,12 +408,12 @@ Zarafa.plugins.smime.SmimePlugin = Ext.extend(Zarafa.core.Plugin, {
 		var bid = -1;
 
 		switch(type) {
-			case Zarafa.core.data.SharedComponentType['plugin.smime.dialog.passphrasewindow']:
-				bid = 1;
-				break;
-			case Zarafa.core.data.SharedComponentType['plugin.smime.dialog.changepassphrasecontentpanel']:
-				bid = 1;
-				break;
+		case Zarafa.core.data.SharedComponentType['plugin.smime.dialog.passphrasewindow']:
+			bid = 1;
+			break;
+		case Zarafa.core.data.SharedComponentType['plugin.smime.dialog.changepassphrasecontentpanel']:
+			bid = 1;
+			break;
 		}
 		return bid;
 	},
@@ -426,12 +428,12 @@ Zarafa.plugins.smime.SmimePlugin = Ext.extend(Zarafa.core.Plugin, {
 		var component;
 
 		switch(type) {
-			case Zarafa.core.data.SharedComponentType['plugin.smime.dialog.passphrasewindow']:
-				component = Zarafa.plugins.smime.dialogs.PassphraseContentPanel;
-				break;
-			case Zarafa.core.data.SharedComponentType['plugin.smime.dialog.changepassphrasecontentpanel']:
-				component = Zarafa.plugins.smime.dialogs.ChangePassphraseContentPanel;
-				break;
+		case Zarafa.core.data.SharedComponentType['plugin.smime.dialog.passphrasewindow']:
+			component = Zarafa.plugins.smime.dialogs.PassphraseContentPanel;
+			break;
+		case Zarafa.core.data.SharedComponentType['plugin.smime.dialog.changepassphrasecontentpanel']:
+			component = Zarafa.plugins.smime.dialogs.ChangePassphraseContentPanel;
+			break;
 		}
 
 		return component;

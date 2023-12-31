@@ -72,12 +72,12 @@ Zarafa.plugins.smime.settings.SettingsSmimeWidget = Ext.extend(Zarafa.settings.u
 		if(index === -1) {
 			this.certificateField.disable();
 			this.setCertificateButtonLabel(this.defaultButtonLabel);
-		} else {
-			this.certificateField.enable();
-			this.record = this.store.getAt(index);
-			// TODO: add validity message
-			this.setCertificateButtonLabel(_('You have a valid certificate corresponding to your account'));
+			return;
 		}
+		this.certificateField.enable();
+		this.record = this.store.getAt(index);
+		// TODO: add validity message
+		this.setCertificateButtonLabel(_('You have a valid certificate corresponding to your account'));
 	},
 
 	/**

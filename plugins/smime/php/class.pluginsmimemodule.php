@@ -25,72 +25,70 @@ class PluginSmimeModule extends Module {
 	 * @return bool true on success or false on failure
 	 */
 	public function execute() {
-		foreach ($this->data as $actionType => $actionData) {
-			if (isset($actionType)) {
-				try {
-					switch ($actionType) {
-						case 'certificate':
-							$data = $this->verifyCertificate($actionData);
-							$response = [
-								'type' => 3,
-								'status' => $data['status'],
-								'message' => $data['message'],
-								'data' => $data['data'],
-							];
-							$this->addActionData('certificate', $response);
-							$GLOBALS['bus']->addData($this->getResponseData());
-							break;
+		foreach ($this->data as $actionType => $actionData) try {
+			if (!isset($actionType))
+				continue;
+			switch ($actionType) {
+			case 'certificate':
+				$data = $this->verifyCertificate($actionData);
+				$response = [
+					'type' => 3,
+					'status' => $data['status'],
+					'message' => $data['message'],
+					'data' => $data['data'],
+				];
+				$this->addActionData('certificate', $response);
+				$GLOBALS['bus']->addData($this->getResponseData());
+				break;
 
-						case 'passphrase':
-							$data = $this->verifyPassphrase($actionData);
-							$response = [
-								'type' => 3,
-								'status' => $data['status'],
-							];
-							$this->addActionData('passphrase', $response);
-							$GLOBALS['bus']->addData($this->getResponseData());
-							break;
+			case 'passphrase':
+				$data = $this->verifyPassphrase($actionData);
+				$response = [
+					'type' => 3,
+					'status' => $data['status'],
+				];
+				$this->addActionData('passphrase', $response);
+				$GLOBALS['bus']->addData($this->getResponseData());
+				break;
 
-						case 'changepassphrase':
-							$data = $this->changePassphrase($actionData);
-							if ($data === CHANGE_PASSPHRASE_SUCCESS) {
-								// Reset cached passphrase.
-								$encryptionStore = EncryptionStore::getInstance();
-								withPHPSession(function () use ($encryptionStore) {
-									$encryptionStore->add('smime', '');
-								});
-							}
-							$response = [
-								'type' => 3,
-								'code' => $data,
-							];
-							$this->addActionData('changepassphrase', $response);
-							$GLOBALS['bus']->addData($this->getResponseData());
-							break;
-
-						case 'list':
-							$data = $this->getPublicCertificates();
-							$this->addActionData('list', $data);
-							$GLOBALS['bus']->addData($this->getResponseData());
-							break;
-
-						case 'delete':
-							// FIXME: handle multiple deletes? Separate function?
-							$entryid = $actionData['entryid'];
-							$root = mapi_msgstore_openentry($this->store, null);
-							mapi_folder_deletemessages($root, [hex2bin($entryid)]);
-
-							$this->sendFeedback(true);
-							break;
-
-						default:
-							$this->handleUnknownActionType($actionType);
-					}
+			case 'changepassphrase':
+				$data = $this->changePassphrase($actionData);
+				if ($data === CHANGE_PASSPHRASE_SUCCESS) {
+					// Reset cached passphrase.
+					$encryptionStore = EncryptionStore::getInstance();
+					withPHPSession(function () use ($encryptionStore) {
+						$encryptionStore->add('smime', '');
+					});
 				}
-				catch (Exception $e) {
-					$this->sendFeedback(false, parent::errorDetailsFromException($e));
-				}
+				$response = [
+					'type' => 3,
+					'code' => $data,
+				];
+				$this->addActionData('changepassphrase', $response);
+				$GLOBALS['bus']->addData($this->getResponseData());
+				break;
+
+			case 'list':
+				$data = $this->getPublicCertificates();
+				$this->addActionData('list', $data);
+				$GLOBALS['bus']->addData($this->getResponseData());
+				break;
+
+			case 'delete':
+				// FIXME: handle multiple deletes? Separate function?
+				$entryid = $actionData['entryid'];
+				$root = mapi_msgstore_openentry($this->store, null);
+				mapi_folder_deletemessages($root, [hex2bin($entryid)]);
+
+				$this->sendFeedback(true);
+				break;
+
+			default:
+				$this->handleUnknownActionType($actionType);
 			}
+		}
+		catch (Exception $e) {
+			$this->sendFeedback(false, parent::errorDetailsFromException($e));
 		}
 	}
 

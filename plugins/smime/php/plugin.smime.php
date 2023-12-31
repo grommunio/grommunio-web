@@ -91,47 +91,46 @@ class Pluginsmime extends Plugin {
 	 */
 	public function execute($eventID, &$data) {
 		switch ($eventID) {
-			// Register plugin
-			case 'server.core.settings.init.before':
-				$this->onBeforeSettingsInit($data);
-				break;
-			// Verify a signed or encrypted message when an email is opened
-			case 'server.util.parse_smime.signed':
-				$this->onSignedMessage($data);
-				break;
+		// Register plugin
+		case 'server.core.settings.init.before':
+			$this->onBeforeSettingsInit($data);
+			break;
+		// Verify a signed or encrypted message when an email is opened
+		case 'server.util.parse_smime.signed':
+			$this->onSignedMessage($data);
+			break;
 
-			case 'server.util.parse_smime.encrypted':
-				$this->onEncrypted($data);
-				break;
-			// Add S/MIME property, which is send to the client
-			case 'server.module.itemmodule.open.after':
-				$this->onAfterOpen($data);
-				break;
-			// Catch uploaded certificate
-			case 'server.upload_attachment.upload':
-				$this->onUploadCertificate($data);
-				break;
-			// Sign email before sending
-			case 'server.core.operations.submitmessage':
-				$this->onBeforeSend($data);
-				break;
-			// Verify that we have public certificates for all recipients
-			case 'server.module.createmailitemmodule.beforesend':
-				$this->onCertificateCheck($data);
-				break;
+		case 'server.util.parse_smime.encrypted':
+			$this->onEncrypted($data);
+			break;
+		// Add S/MIME property, which is send to the client
+		case 'server.module.itemmodule.open.after':
+			$this->onAfterOpen($data);
+			break;
+		// Catch uploaded certificate
+		case 'server.upload_attachment.upload':
+			$this->onUploadCertificate($data);
+			break;
+		// Sign email before sending
+		case 'server.core.operations.submitmessage':
+			$this->onBeforeSend($data);
+			break;
+		// Verify that we have public certificates for all recipients
+		case 'server.module.createmailitemmodule.beforesend':
+			$this->onCertificateCheck($data);
+			break;
 
-			case 'server.index.load.custom':
-				if ($data['name'] === 'smime_passphrase') {
-					include 'templates/passphrase.tpl.php';
-
-					exit();
-				}
-				if ($data['name'] === 'smime_passphrasecheck') {
-					// No need to do anything, this is just used to trigger
-					// the browser's autofill save password dialog.
-					exit();
-				}
-				break;
+		case 'server.index.load.custom':
+			if ($data['name'] === 'smime_passphrase') {
+				include 'templates/passphrase.tpl.php';
+				exit();
+			}
+			if ($data['name'] === 'smime_passphrasecheck') {
+				// No need to do anything, this is just used to trigger
+				// the browser's autofill save password dialog.
+				exit();
+			}
+			break;
 		}
 	}
 
@@ -299,20 +298,22 @@ class Pluginsmime extends Plugin {
 				$importCert = file_get_contents($outcert);
 				$parsedImportCert = openssl_x509_parse($importCert);
 				$parsedUserCert = openssl_x509_parse($userCert);
-				if ($signed_ok && $openssl_error_code !== OPENSSL_CA_VERIFY_FAIL) { // CA Checks out
-					$caCerts = $this->extractCAs($tmpfname);
-					// If validTo and validFrom are more in the future, emailAddress matches and OCSP check is valid, import newer certificate
-					if ($parsedImportCert['validTo'] > $parsedUserCert['validTo'] && $parsedImportCert['validFrom'] > $parsedUserCert['validFrom'] &&
-						getCertEmail($parsedImportCert) === getCertEmail($parsedUserCert) && verifyOCSP($importCert, $caCerts, $this->message) &&
-						$importMessageCert !== false) {
-						// Redundant
-						$importMessageCert = true;
-					}
-					else {
-						$importMessageCert = false;
-						verifyOCSP($userCert, $caCerts, $this->message);
-						break;
-					}
+				if (!$signed_ok || $openssl_error_code === OPENSSL_CA_VERIFY_FAIL)
+					continue;
+
+				// CA Checks out
+				$caCerts = $this->extractCAs($tmpfname);
+				// If validTo and validFrom are more in the future, emailAddress matches and OCSP check is valid, import newer certificate
+				if ($parsedImportCert['validTo'] > $parsedUserCert['validTo'] && $parsedImportCert['validFrom'] > $parsedUserCert['validFrom'] &&
+					getCertEmail($parsedImportCert) === getCertEmail($parsedUserCert) && verifyOCSP($importCert, $caCerts, $this->message) &&
+					$importMessageCert !== false) {
+					// Redundant
+					$importMessageCert = true;
+				}
+				else {
+					$importMessageCert = false;
+					verifyOCSP($userCert, $caCerts, $this->message);
+					break;
 				}
 			}
 		}
@@ -481,21 +482,21 @@ class Pluginsmime extends Plugin {
 		if ($openssl_return === -1) {
 			$this->message['info'] = SMIME_ERROR;
 			$this->message['success'] = SMIME_STATUS_FAIL;
+			return;
 		// Verification was successful
 		}
 		elseif ($openssl_return) {
 			$this->message['info'] = SMIME_SUCCESS;
 			$this->message['success'] = SMIME_STATUS_SUCCESS;
+			return;
 		// Verification was not successful, display extra information.
 		}
-		else {
-			$this->message['success'] = SMIME_STATUS_FAIL;
-			if ($openssl_errors === OPENSSL_CA_VERIFY_FAIL) {
-				$this->message['info'] = SMIME_CA;
-			}
-			else { // Catch general errors
-				$this->message['info'] = SMIME_ERROR;
-			}
+		$this->message['success'] = SMIME_STATUS_FAIL;
+		if ($openssl_errors === OPENSSL_CA_VERIFY_FAIL) {
+			$this->message['info'] = SMIME_CA;
+		}
+		else { // Catch general errors
+			$this->message['info'] = SMIME_ERROR;
 		}
 	}
 
@@ -525,65 +526,65 @@ class Pluginsmime extends Plugin {
 	 * @param {mixed} $data
 	 */
 	public function onUploadCertificate($data) {
-		if ($data['sourcetype'] === 'certificate') {
-			$passphrase = $_POST['passphrase'];
-			$saveCert = false;
-			$tmpname = $data['tmpname'];
-			$message = '';
+		if ($data['sourcetype'] !== 'certificate')
+			return;
+		$passphrase = $_POST['passphrase'];
+		$saveCert = false;
+		$tmpname = $data['tmpname'];
+		$message = '';
 
-			$certificate = file_get_contents($tmpname);
-			$emailAddress = $GLOBALS['mapisession']->getSMTPAddress();
-			list($message, $publickey, $publickeyData) = validateUploadedPKCS($certificate, $passphrase, $emailAddress);
+		$certificate = file_get_contents($tmpname);
+		$emailAddress = $GLOBALS['mapisession']->getSMTPAddress();
+		list($message, $publickey, $publickeyData) = validateUploadedPKCS($certificate, $passphrase, $emailAddress);
 
-			// All checks completed successful
-			// Store private cert in users associated store (check for duplicates)
-			if (empty($message)) {
-				$certMessage = getMAPICert($this->getStore());
-				// TODO: update to serialNumber check
-				if ($certMessage && $certMessage[0][PR_MESSAGE_DELIVERY_TIME] == $publickeyData['validTo_time_t']) {
-					$message = _('Certificate is already stored on the server');
-				}
-				else {
-					$saveCert = true;
-					$root = mapi_msgstore_openentry($this->getStore(), null);
-					// Remove old certificate
-					/*
-					if($certMessage) {
-						// Delete private key
-						mapi_folder_deletemessages($root, array($certMessage[PR_ENTRYID]));
-
-						// Delete public key
-						$pubCert = getMAPICert($this->getStore, 'WebApp.Security.Public', getCertEmail($certMessage));
-						if($pubCert) {
-							mapi_folder_deletemessages($root, array($pubCert[PR_ENTRYID]));
-						}
-						$message = _('New certificate uploaded');
-					} else {
-						$message = _('Certificate uploaded');
-					}*/
-
-					$this->importCertificate($certificate, $publickeyData, 'private');
-
-					// Check if the user has a public key in the GAB.
-					$store_props = mapi_getprops($this->getStore(), [PR_USER_ENTRYID]);
-					$user = mapi_ab_openentry($GLOBALS['mapisession']->getAddressbook(), $store_props[PR_USER_ENTRYID]);
-
-					$this->importCertificate($publickey, $publickeyData, 'public', true);
-				}
+		// All checks completed successful
+		// Store private cert in users associated store (check for duplicates)
+		if (empty($message)) {
+			$certMessage = getMAPICert($this->getStore());
+			// TODO: update to serialNumber check
+			if ($certMessage && $certMessage[0][PR_MESSAGE_DELIVERY_TIME] == $publickeyData['validTo_time_t']) {
+				$message = _('Certificate is already stored on the server');
 			}
+			else {
+				$saveCert = true;
+				$root = mapi_msgstore_openentry($this->getStore(), null);
+				// Remove old certificate
+				/*
+				if($certMessage) {
+					// Delete private key
+					mapi_folder_deletemessages($root, array($certMessage[PR_ENTRYID]));
 
-			$returnfiles = [];
-			$returnfiles[] = [
-				'props' => [
-					'attach_num' => -1,
-					'size' => $data['size'],
-					'name' => $data['name'],
-					'cert' => $saveCert,
-					'cert_warning' => $message,
-				],
-			];
-			$data['returnfiles'] = $returnfiles;
+					// Delete public key
+					$pubCert = getMAPICert($this->getStore, 'WebApp.Security.Public', getCertEmail($certMessage));
+					if($pubCert) {
+						mapi_folder_deletemessages($root, array($pubCert[PR_ENTRYID]));
+					}
+					$message = _('New certificate uploaded');
+				} else {
+					$message = _('Certificate uploaded');
+				}*/
+
+				$this->importCertificate($certificate, $publickeyData, 'private');
+
+				// Check if the user has a public key in the GAB.
+				$store_props = mapi_getprops($this->getStore(), [PR_USER_ENTRYID]);
+				$user = mapi_ab_openentry($GLOBALS['mapisession']->getAddressbook(), $store_props[PR_USER_ENTRYID]);
+
+				$this->importCertificate($publickey, $publickeyData, 'public', true);
+			}
 		}
+
+		$returnfiles = [];
+		$returnfiles[] = [
+			'props' => [
+				'attach_num' => -1,
+				'size' => $data['size'],
+				'name' => $data['name'],
+				'cert' => $saveCert,
+				'cert_warning' => $message,
+			],
+		];
+		$data['returnfiles'] = $returnfiles;
 	}
 
 	/**
@@ -601,92 +602,93 @@ class Pluginsmime extends Plugin {
 		$props = mapi_getprops($message, [PR_MESSAGE_CLASS]);
 		$messageClass = $props[PR_MESSAGE_CLASS];
 
-		if (isset($messageClass) && (stripos($messageClass, 'IPM.Note.SMIME') !== false)) {
-			// FIXME: for now return when we are going to sign but we don't have the passphrase set
-			// This should never happen sign
-			$encryptionStore = \EncryptionStore::getInstance();
-			if (($messageClass === 'IPM.Note.SMIME.SignedEncrypt' || $messageClass === 'IPM.Note.SMIME.MultipartSigned') &&
-				!$encryptionStore->get('smime')) {
-				return;
-			}
-			// NOTE: setting message class to IPM.Note, so that mapi_inetmapi_imtoinet converts the message to plain email
-			// and doesn't fail when handling the attachments.
-			mapi_setprops($message, [PR_MESSAGE_CLASS => 'IPM.Note']);
-			mapi_savechanges($message);
+		if (!isset($messageClass) || stripos($messageClass, 'IPM.Note.SMIME') === false)
+			return;
 
-			// Read the message as RFC822-formatted e-mail stream.
-			$emlMessageStream = mapi_inetmapi_imtoinet($GLOBALS['mapisession']->getSession(), $GLOBALS['mapisession']->getAddressbook(), $message, []);
-
-			// Remove all attachments, since they are stored in the attached signed message
-			$atable = mapi_message_getattachmenttable($message);
-			$rows = mapi_table_queryallrows($atable, [PR_ATTACH_MIME_TAG, PR_ATTACH_NUM]);
-			foreach ($rows as $row) {
-				$attnum = $row[PR_ATTACH_NUM];
-				mapi_message_deleteattach($message, $attnum);
-			}
-
-			// create temporary files
-			$tmpSendEmail = tempnam(sys_get_temp_dir(), true);
-			$tmpSendSmimeEmail = tempnam(sys_get_temp_dir(), true);
-
-			// Save message stream to a file
-			$stat = mapi_stream_stat($emlMessageStream);
-
-			$fhandle = fopen($tmpSendEmail, 'w');
-			$buffer = null;
-			for ($i = 0; $i < $stat["cb"]; $i += BLOCK_SIZE) {
-				// Write stream
-				$buffer = mapi_stream_read($emlMessageStream, BLOCK_SIZE);
-				fwrite($fhandle, $buffer, strlen($buffer));
-			}
-			fclose($fhandle);
-
-			// Create attachment for S/MIME message
-			$signedAttach = mapi_message_createattach($message);
-			$smimeProps = [
-				PR_ATTACH_LONG_FILENAME => 'smime.p7m',
-				PR_DISPLAY_NAME => 'smime.p7m',
-				PR_ATTACH_METHOD => ATTACH_BY_VALUE,
-				PR_ATTACH_MIME_TAG => 'multipart/signed',
-				PR_ATTACHMENT_HIDDEN => true,
-			];
-
-			// Sign then Encrypt email
-			switch ($messageClass) {
-				case 'IPM.Note.SMIME.SignedEncrypt':
-					$tmpFile = tempnam(sys_get_temp_dir(), true);
-					$this->sign($tmpSendEmail, $tmpFile, $message, $signedAttach, $smimeProps);
-					$this->encrypt($tmpFile, $tmpSendSmimeEmail, $message, $signedAttach, $smimeProps);
-					unlink($tmpFile);
-					break;
-
-				case 'IPM.Note.SMIME.MultipartSigned':
-					$this->sign($tmpSendEmail, $tmpSendSmimeEmail, $message, $signedAttach, $smimeProps);
-					break;
-
-				case 'IPM.Note.SMIME':
-					$this->encrypt($tmpSendEmail, $tmpSendSmimeEmail, $message, $signedAttach, $smimeProps);
-					break;
-			}
-
-			// Save the signed message as attachment of the send email
-			$stream = mapi_openproperty($signedAttach, PR_ATTACH_DATA_BIN, IID_IStream, 0, MAPI_CREATE | MAPI_MODIFY);
-			$handle = fopen($tmpSendSmimeEmail, 'r');
-			while (!feof($handle)) {
-				$contents = fread($handle, BLOCK_SIZE);
-				mapi_stream_write($stream, $contents);
-			}
-			fclose($handle);
-
-			mapi_stream_commit($stream);
-
-			// remove tmp files
-			unlink($tmpSendSmimeEmail);
-			unlink($tmpSendEmail);
-
-			mapi_savechanges($signedAttach);
-			mapi_savechanges($message);
+		// FIXME: for now return when we are going to sign but we don't have the passphrase set
+		// This should never happen sign
+		$encryptionStore = \EncryptionStore::getInstance();
+		if (($messageClass === 'IPM.Note.SMIME.SignedEncrypt' || $messageClass === 'IPM.Note.SMIME.MultipartSigned') &&
+			!$encryptionStore->get('smime')) {
+			return;
 		}
+		// NOTE: setting message class to IPM.Note, so that mapi_inetmapi_imtoinet converts the message to plain email
+		// and doesn't fail when handling the attachments.
+		mapi_setprops($message, [PR_MESSAGE_CLASS => 'IPM.Note']);
+		mapi_savechanges($message);
+
+		// Read the message as RFC822-formatted e-mail stream.
+		$emlMessageStream = mapi_inetmapi_imtoinet($GLOBALS['mapisession']->getSession(), $GLOBALS['mapisession']->getAddressbook(), $message, []);
+
+		// Remove all attachments, since they are stored in the attached signed message
+		$atable = mapi_message_getattachmenttable($message);
+		$rows = mapi_table_queryallrows($atable, [PR_ATTACH_MIME_TAG, PR_ATTACH_NUM]);
+		foreach ($rows as $row) {
+			$attnum = $row[PR_ATTACH_NUM];
+			mapi_message_deleteattach($message, $attnum);
+		}
+
+		// create temporary files
+		$tmpSendEmail = tempnam(sys_get_temp_dir(), true);
+		$tmpSendSmimeEmail = tempnam(sys_get_temp_dir(), true);
+
+		// Save message stream to a file
+		$stat = mapi_stream_stat($emlMessageStream);
+
+		$fhandle = fopen($tmpSendEmail, 'w');
+		$buffer = null;
+		for ($i = 0; $i < $stat["cb"]; $i += BLOCK_SIZE) {
+			// Write stream
+			$buffer = mapi_stream_read($emlMessageStream, BLOCK_SIZE);
+			fwrite($fhandle, $buffer, strlen($buffer));
+		}
+		fclose($fhandle);
+
+		// Create attachment for S/MIME message
+		$signedAttach = mapi_message_createattach($message);
+		$smimeProps = [
+			PR_ATTACH_LONG_FILENAME => 'smime.p7m',
+			PR_DISPLAY_NAME => 'smime.p7m',
+			PR_ATTACH_METHOD => ATTACH_BY_VALUE,
+			PR_ATTACH_MIME_TAG => 'multipart/signed',
+			PR_ATTACHMENT_HIDDEN => true,
+		];
+
+		// Sign then Encrypt email
+		switch ($messageClass) {
+		case 'IPM.Note.SMIME.SignedEncrypt':
+			$tmpFile = tempnam(sys_get_temp_dir(), true);
+			$this->sign($tmpSendEmail, $tmpFile, $message, $signedAttach, $smimeProps);
+			$this->encrypt($tmpFile, $tmpSendSmimeEmail, $message, $signedAttach, $smimeProps);
+			unlink($tmpFile);
+			break;
+
+		case 'IPM.Note.SMIME.MultipartSigned':
+			$this->sign($tmpSendEmail, $tmpSendSmimeEmail, $message, $signedAttach, $smimeProps);
+			break;
+
+		case 'IPM.Note.SMIME':
+			$this->encrypt($tmpSendEmail, $tmpSendSmimeEmail, $message, $signedAttach, $smimeProps);
+			break;
+		}
+
+		// Save the signed message as attachment of the send email
+		$stream = mapi_openproperty($signedAttach, PR_ATTACH_DATA_BIN, IID_IStream, 0, MAPI_CREATE | MAPI_MODIFY);
+		$handle = fopen($tmpSendSmimeEmail, 'r');
+		while (!feof($handle)) {
+			$contents = fread($handle, BLOCK_SIZE);
+			mapi_stream_write($stream, $contents);
+		}
+		fclose($handle);
+
+		mapi_stream_commit($stream);
+
+		// remove tmp files
+		unlink($tmpSendSmimeEmail);
+		unlink($tmpSendEmail);
+
+		mapi_savechanges($signedAttach);
+		mapi_savechanges($message);
 	}
 
 	/**
@@ -850,16 +852,16 @@ class Pluginsmime extends Plugin {
 			foreach ($certs as $cert) {
 				$pubkey = mapi_msgstore_openentry($this->getStore(), $cert[PR_ENTRYID]);
 				$certificate = "";
-				if ($pubkey != false) {
-					// retrieve pkcs#11 certificate from body
-					$stream = mapi_openproperty($pubkey, PR_BODY, IID_IStream, 0, 0);
-					$stat = mapi_stream_stat($stream);
-					mapi_stream_seek($stream, 0, STREAM_SEEK_SET);
-					for ($i = 0; $i < $stat['cb']; $i += 1024) {
-						$certificate .= mapi_stream_read($stream, 1024);
-					}
-					array_push($certificates, $certificate);
+				if ($pubkey == false)
+					continue;
+				// retrieve pkcs#11 certificate from body
+				$stream = mapi_openproperty($pubkey, PR_BODY, IID_IStream, 0, 0);
+				$stat = mapi_stream_stat($stream);
+				mapi_stream_seek($stream, 0, STREAM_SEEK_SET);
+				for ($i = 0; $i < $stat['cb']; $i += 1024) {
+					$certificate .= mapi_stream_read($stream, 1024);
 				}
+				array_push($certificates, $certificate);
 			}
 		}
 
@@ -973,34 +975,34 @@ class Pluginsmime extends Plugin {
 	 */
 	public function importCertificate($cert, $certData, $type = 'public', $force = false) {
 		$certEmail = getCertEmail($certData);
-		if (!$this->pubcertExists($certEmail) || $force || $type === 'private') {
-			$issued_by = "";
-			foreach (array_keys($certData['issuer']) as $key) {
-				$issued_by .= $key . '=' . $certData['issuer'][$key] . "\n";
-			}
-
-			$root = mapi_msgstore_openentry($this->getStore(), null);
-			$assocMessage = mapi_folder_createmessage($root, MAPI_ASSOCIATED);
-			// TODO: write these properties down.
-			mapi_setprops($assocMessage, [
-				PR_SUBJECT => $certEmail,
-				PR_MESSAGE_CLASS => $type == 'public' ? 'WebApp.Security.Public' : 'WebApp.Security.Private',
-				PR_MESSAGE_DELIVERY_TIME => $certData['validTo_time_t'],
-				PR_CLIENT_SUBMIT_TIME => $certData['validFrom_time_t'],
-				PR_SENDER_NAME => $certData['serialNumber'], // serial
-				PR_SENDER_EMAIL_ADDRESS => $issued_by, // Issuer To
-				PR_SUBJECT_PREFIX => '',
-				PR_RECEIVED_BY_NAME => $this->fingerprint_cert($cert, 'sha1'), // SHA1 Fingerprint
-				PR_INTERNET_MESSAGE_ID => $this->fingerprint_cert($cert), // MD5 FingerPrint
-			]);
-			// Save attachment
-			$msgBody = base64_encode($cert);
-			$stream = mapi_openproperty($assocMessage, PR_BODY, IID_IStream, 0, MAPI_CREATE | MAPI_MODIFY);
-			mapi_stream_setsize($stream, strlen($msgBody));
-			mapi_stream_write($stream, $msgBody);
-			mapi_stream_commit($stream);
-			mapi_message_savechanges($assocMessage);
+		if ($this->pubcertExists($certEmail) && !$force && $type !== 'private')
+			return;
+		$issued_by = "";
+		foreach (array_keys($certData['issuer']) as $key) {
+			$issued_by .= $key . '=' . $certData['issuer'][$key] . "\n";
 		}
+
+		$root = mapi_msgstore_openentry($this->getStore(), null);
+		$assocMessage = mapi_folder_createmessage($root, MAPI_ASSOCIATED);
+		// TODO: write these properties down.
+		mapi_setprops($assocMessage, [
+			PR_SUBJECT => $certEmail,
+			PR_MESSAGE_CLASS => $type == 'public' ? 'WebApp.Security.Public' : 'WebApp.Security.Private',
+			PR_MESSAGE_DELIVERY_TIME => $certData['validTo_time_t'],
+			PR_CLIENT_SUBMIT_TIME => $certData['validFrom_time_t'],
+			PR_SENDER_NAME => $certData['serialNumber'], // serial
+			PR_SENDER_EMAIL_ADDRESS => $issued_by, // Issuer To
+			PR_SUBJECT_PREFIX => '',
+			PR_RECEIVED_BY_NAME => $this->fingerprint_cert($cert, 'sha1'), // SHA1 Fingerprint
+			PR_INTERNET_MESSAGE_ID => $this->fingerprint_cert($cert), // MD5 FingerPrint
+		]);
+		// Save attachment
+		$msgBody = base64_encode($cert);
+		$stream = mapi_openproperty($assocMessage, PR_BODY, IID_IStream, 0, MAPI_CREATE | MAPI_MODIFY);
+		mapi_stream_setsize($stream, strlen($msgBody));
+		mapi_stream_write($stream, $msgBody);
+		mapi_stream_commit($stream);
+		mapi_message_savechanges($assocMessage);
 	}
 
 	/**
@@ -1098,34 +1100,33 @@ class Pluginsmime extends Plugin {
 	 * @return array with properties
 	 */
 	public function getSenderAddress($mapiMessage) {
-		if (!method_exists($GLOBALS['operations'], 'getSenderAddress')) {
-			$messageProps = mapi_getprops($mapiMessage, [PR_SENT_REPRESENTING_ENTRYID, PR_SENDER_ENTRYID]);
-			$senderEntryID = isset($messageProps[PR_SENT_REPRESENTING_ENTRYID]) ? $messageProps[PR_SENT_REPRESENTING_ENTRYID] : $messageProps[PR_SENDER_ENTRYID];
+		if (method_exists($GLOBALS['operations'], 'getSenderAddress'))
+			return $GLOBALS["operations"]->getSenderAddress($mapiMessage);
 
-			try {
-				$senderUser = mapi_ab_openentry($GLOBALS["mapisession"]->getAddressbook(), $senderEntryID);
-				if ($senderUser) {
-					$userprops = mapi_getprops($senderUser, [PR_ADDRTYPE, PR_DISPLAY_NAME, PR_EMAIL_ADDRESS, PR_SMTP_ADDRESS, PR_OBJECT_TYPE, PR_RECIPIENT_TYPE, PR_DISPLAY_TYPE, PR_DISPLAY_TYPE_EX, PR_ENTRYID]);
+		$messageProps = mapi_getprops($mapiMessage, [PR_SENT_REPRESENTING_ENTRYID, PR_SENDER_ENTRYID]);
+		$senderEntryID = isset($messageProps[PR_SENT_REPRESENTING_ENTRYID]) ? $messageProps[PR_SENT_REPRESENTING_ENTRYID] : $messageProps[PR_SENDER_ENTRYID];
 
-					$senderStructure = [];
-					$senderStructure["props"]['entryid'] = bin2hex($userprops[PR_ENTRYID]);
-					$senderStructure["props"]['display_name'] = isset($userprops[PR_DISPLAY_NAME]) ? $userprops[PR_DISPLAY_NAME] : '';
-					$senderStructure["props"]['email_address'] = isset($userprops[PR_EMAIL_ADDRESS]) ? $userprops[PR_EMAIL_ADDRESS] : '';
-					$senderStructure["props"]['smtp_address'] = isset($userprops[PR_SMTP_ADDRESS]) ? $userprops[PR_SMTP_ADDRESS] : '';
-					$senderStructure["props"]['address_type'] = isset($userprops[PR_ADDRTYPE]) ? $userprops[PR_ADDRTYPE] : '';
-					$senderStructure["props"]['object_type'] = $userprops[PR_OBJECT_TYPE];
-					$senderStructure["props"]['recipient_type'] = MAPI_TO;
-					$senderStructure["props"]['display_type'] = isset($userprops[PR_DISPLAY_TYPE]) ? $userprops[PR_DISPLAY_TYPE] : MAPI_MAILUSER;
-					$senderStructure["props"]['display_type_ex'] = isset($userprops[PR_DISPLAY_TYPE_EX]) ? $userprops[PR_DISPLAY_TYPE_EX] : MAPI_MAILUSER;
-				}
+		try {
+			$senderUser = mapi_ab_openentry($GLOBALS["mapisession"]->getAddressbook(), $senderEntryID);
+			if ($senderUser) {
+				$userprops = mapi_getprops($senderUser, [PR_ADDRTYPE, PR_DISPLAY_NAME, PR_EMAIL_ADDRESS, PR_SMTP_ADDRESS, PR_OBJECT_TYPE, PR_RECIPIENT_TYPE, PR_DISPLAY_TYPE, PR_DISPLAY_TYPE_EX, PR_ENTRYID]);
+
+				$senderStructure = [];
+				$senderStructure["props"]['entryid'] = bin2hex($userprops[PR_ENTRYID]);
+				$senderStructure["props"]['display_name'] = isset($userprops[PR_DISPLAY_NAME]) ? $userprops[PR_DISPLAY_NAME] : '';
+				$senderStructure["props"]['email_address'] = isset($userprops[PR_EMAIL_ADDRESS]) ? $userprops[PR_EMAIL_ADDRESS] : '';
+				$senderStructure["props"]['smtp_address'] = isset($userprops[PR_SMTP_ADDRESS]) ? $userprops[PR_SMTP_ADDRESS] : '';
+				$senderStructure["props"]['address_type'] = isset($userprops[PR_ADDRTYPE]) ? $userprops[PR_ADDRTYPE] : '';
+				$senderStructure["props"]['object_type'] = $userprops[PR_OBJECT_TYPE];
+				$senderStructure["props"]['recipient_type'] = MAPI_TO;
+				$senderStructure["props"]['display_type'] = isset($userprops[PR_DISPLAY_TYPE]) ? $userprops[PR_DISPLAY_TYPE] : MAPI_MAILUSER;
+				$senderStructure["props"]['display_type_ex'] = isset($userprops[PR_DISPLAY_TYPE_EX]) ? $userprops[PR_DISPLAY_TYPE_EX] : MAPI_MAILUSER;
 			}
-			catch (MAPIException $e) {
-				error_log(sprintf("[smime] getSenderAddress(): Exception %s", $e));
-			}
-
-			return $senderStructure;
+		}
+		catch (MAPIException $e) {
+			error_log(sprintf("[smime] getSenderAddress(): Exception %s", $e));
 		}
 
-		return $GLOBALS["operations"]->getSenderAddress($mapiMessage);
+		return $senderStructure;
 	}
 }
