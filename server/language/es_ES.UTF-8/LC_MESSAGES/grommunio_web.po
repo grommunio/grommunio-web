@@ -5,8 +5,8 @@ msgstr ""
 "Project-Id-Version: grommunio Web Spanish (Spain)\n"
 "Report-Msgid-Bugs-To: dev@grommunio.com\n"
 "POT-Creation-Date: 2019-09-25 14:32+0200\n"
-"PO-Revision-Date: 2023-05-23 07:51+0000\n"
-"Last-Translator: David Thomas <david.thomas@grommunio.com>\n"
+"PO-Revision-Date: 2024-01-03 16:10+0000\n"
+"Last-Translator: gallegonovato <fran-carro@hotmail.es>\n"
 "Language-Team: Spanish <https://hosted.weblate.org/projects/grommunio/"
 "grommunio-web/es/>\n"
 "Language: es_ES\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.18-dev\n"
+"X-Generator: Weblate 5.4-dev\n"
 
 #. TRANSLATORS: This message is used as label for the column which indicates the week number of the month in date picker. and 'Wk' stands for week
 msgid "Wk"
@@ -6875,7 +6875,7 @@ msgid "Add an invitation to the appointment description"
 msgstr "Añadir una invitación a la descripción de la cita"
 
 msgid "Invitation text"
-msgstr ""
+msgstr "Texto de la invitación"
 
 #, fuzzy
 msgid ""
