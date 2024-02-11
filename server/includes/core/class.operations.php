@@ -2600,7 +2600,7 @@
 		 * @param bool        $copyInlineAttachmentsOnly if true then copy only inline attachments
 		 * @param bool        $isPlainText               if true then message body will be generated using PR_BODY otherwise PR_HTML will be used in saveMessage() function
 		 *
-		 * @return bool false if action succeeded, true if not
+		 * @return bool false if action succeeded, anything else indicates an error (e.g. a string)
 		 */
 		public function submitMessage($store, $entryid, $props, &$messageProps, $recipients = [], $attachments = [], $copyFromMessage = false, $copyAttachments = false, $copyRecipients = false, $copyInlineAttachmentsOnly = false, $isPlainText = false) {
 			$message = false;
@@ -2611,203 +2611,202 @@
 			$storeprops = mapi_getprops($store, [PR_IPM_OUTBOX_ENTRYID, PR_IPM_SENTMAIL_ENTRYID, PR_ENTRYID]);
 			$origStoreprops = mapi_getprops($origStore, [PR_ENTRYID]);
 
-			if (isset($storeprops[PR_IPM_OUTBOX_ENTRYID])) {
-				if (isset($storeprops[PR_IPM_SENTMAIL_ENTRYID])) {
-					$props[PR_SENTMAIL_ENTRYID] = $storeprops[PR_IPM_SENTMAIL_ENTRYID];
-				}
+			if (!isset($storeprops[PR_IPM_OUTBOX_ENTRYID]))
+				return false;
+			if (isset($storeprops[PR_IPM_SENTMAIL_ENTRYID])) {
+				$props[PR_SENTMAIL_ENTRYID] = $storeprops[PR_IPM_SENTMAIL_ENTRYID];
+			}
 
-				// Check if replying then set PR_INTERNET_REFERENCES and PR_IN_REPLY_TO_ID properties in props.
-				// flag is probably used wrong here but the same flag indicates if this is reply or replyall
-				if ($copyInlineAttachmentsOnly) {
-					$origMsgProps = mapi_getprops($copyFromMessage, [PR_INTERNET_MESSAGE_ID, PR_INTERNET_REFERENCES]);
-					if (isset($origMsgProps[PR_INTERNET_MESSAGE_ID])) {
-						// The references header should indicate the message-id of the original
-						// header plus any of the references which were set on the previous mail.
-						$props[PR_INTERNET_REFERENCES] = $origMsgProps[PR_INTERNET_MESSAGE_ID];
-						if (isset($origMsgProps[PR_INTERNET_REFERENCES])) {
-							$props[PR_INTERNET_REFERENCES] = $origMsgProps[PR_INTERNET_REFERENCES] . ' ' . $props[PR_INTERNET_REFERENCES];
-						}
-						$props[PR_IN_REPLY_TO_ID] = $origMsgProps[PR_INTERNET_MESSAGE_ID];
+			// Check if replying then set PR_INTERNET_REFERENCES and PR_IN_REPLY_TO_ID properties in props.
+			// flag is probably used wrong here but the same flag indicates if this is reply or replyall
+			if ($copyInlineAttachmentsOnly) {
+				$origMsgProps = mapi_getprops($copyFromMessage, [PR_INTERNET_MESSAGE_ID, PR_INTERNET_REFERENCES]);
+				if (isset($origMsgProps[PR_INTERNET_MESSAGE_ID])) {
+					// The references header should indicate the message-id of the original
+					// header plus any of the references which were set on the previous mail.
+					$props[PR_INTERNET_REFERENCES] = $origMsgProps[PR_INTERNET_MESSAGE_ID];
+					if (isset($origMsgProps[PR_INTERNET_REFERENCES])) {
+						$props[PR_INTERNET_REFERENCES] = $origMsgProps[PR_INTERNET_REFERENCES] . ' ' . $props[PR_INTERNET_REFERENCES];
 					}
-				}
-
-				if (!$GLOBALS["entryid"]->compareStoreEntryIds(bin2hex($origStoreprops[PR_ENTRYID]), bin2hex($storeprops[PR_ENTRYID]))) {
-					// set properties for "on behalf of" mails
-					$origStoreProps = mapi_getprops($origStore, [PR_MAILBOX_OWNER_ENTRYID, PR_MDB_PROVIDER]);
-
-					// set PR_SENDER_* properties, which contains currently logged users data
-					$ab = $GLOBALS['mapisession']->getAddressbook();
-					$abitem = mapi_ab_openentry($ab, $GLOBALS["mapisession"]->getUserEntryID());
-					$abitemprops = mapi_getprops($abitem, [PR_DISPLAY_NAME, PR_EMAIL_ADDRESS, PR_SEARCH_KEY]);
-
-					$props[PR_SENDER_ENTRYID] = $GLOBALS["mapisession"]->getUserEntryID();
-					$props[PR_SENDER_NAME] = $abitemprops[PR_DISPLAY_NAME];
-					$props[PR_SENDER_EMAIL_ADDRESS] = $abitemprops[PR_EMAIL_ADDRESS];
-					$props[PR_SENDER_ADDRTYPE] = "EX";
-					$props[PR_SENDER_SEARCH_KEY] = $abitemprops[PR_SEARCH_KEY];
-
-					/*
-					 * if delegate store then set PR_SENT_REPRESENTING_* properties
-					 * based on delegate store's owner data
-					 * if public store then set PR_SENT_REPRESENTING_* properties based on
-					 * default store's owner data
-					 */
-					if ($origStoreProps[PR_MDB_PROVIDER] === ZARAFA_STORE_DELEGATE_GUID) {
-						$abitem = mapi_ab_openentry($ab, $origStoreProps[PR_MAILBOX_OWNER_ENTRYID]);
-						$abitemprops = mapi_getprops($abitem, [PR_DISPLAY_NAME, PR_EMAIL_ADDRESS, PR_SEARCH_KEY]);
-
-						$props[PR_SENT_REPRESENTING_ENTRYID] = $origStoreProps[PR_MAILBOX_OWNER_ENTRYID];
-						$props[PR_SENT_REPRESENTING_NAME] = $abitemprops[PR_DISPLAY_NAME];
-						$props[PR_SENT_REPRESENTING_EMAIL_ADDRESS] = $abitemprops[PR_EMAIL_ADDRESS];
-						$props[PR_SENT_REPRESENTING_ADDRTYPE] = "EX";
-						$props[PR_SENT_REPRESENTING_SEARCH_KEY] = $abitemprops[PR_SEARCH_KEY];
-					}
-					elseif ($origStoreProps[PR_MDB_PROVIDER] === ZARAFA_STORE_PUBLIC_GUID) {
-						$props[PR_SENT_REPRESENTING_ENTRYID] = $props[PR_SENDER_ENTRYID];
-						$props[PR_SENT_REPRESENTING_NAME] = $props[PR_SENDER_NAME];
-						$props[PR_SENT_REPRESENTING_EMAIL_ADDRESS] = $props[PR_SENDER_EMAIL_ADDRESS];
-						$props[PR_SENT_REPRESENTING_ADDRTYPE] = $props[PR_SENDER_ADDRTYPE];
-						$props[PR_SENT_REPRESENTING_SEARCH_KEY] = $props[PR_SEARCH_KEY];
-					}
-
-					/**
-					 * we are sending mail from delegate's account, so we can't use delegate's outbox and sent items folder
-					 * so we have to copy the mail from delegate's store to logged user's store and in outbox folder and then
-					 * we can send mail from logged user's outbox folder.
-					 *
-					 * if we set $entryid to false before passing it to saveMessage function then it will assume
-					 * that item doesn't exist and it will create a new item (in outbox of logged in user)
-					 */
-					if ($entryid) {
-						$oldEntryId = $entryid;
-						$entryid = false;
-
-						// if we are sending mail from drafts folder then we have to copy
-						// its recipients and attachments also. $origStore and $oldEntryId points to mail
-						// saved in delegators draft folder
-						if ($copyFromMessage === false) {
-							$copyFromMessage = mapi_msgstore_openentry($origStore, $oldEntryId);
-							$copyRecipients = true;
-
-							// Decode smime signed messages on this message
-							parse_smime($origStore, $copyFromMessage);
-						}
-					}
-
-					if ($copyFromMessage) {
-						// Get properties of original message, to copy recipients and attachments in new message
-						$copyMessageProps = mapi_getprops($copyFromMessage);
-						$oldParentEntryId = $copyMessageProps[PR_PARENT_ENTRYID];
-
-						// unset id properties before merging the props, so we will be creating new item instead of sending same item
-						unset($copyMessageProps[PR_ENTRYID], $copyMessageProps[PR_PARENT_ENTRYID], $copyMessageProps[PR_STORE_ENTRYID]);
-
-						// grommunio generates PR_HTML on the fly, but it's necessary to unset it
-						// if the original message didn't have PR_HTML property.
-						if (!isset($props[PR_HTML]) && isset($copyMessageProps[PR_HTML])) {
-							unset($copyMessageProps[PR_HTML]);
-						}
-						// Merge original message props with props sent by client
-						$props = $props + $copyMessageProps;
-					}
-
-					// Save the new message properties
-					$message = $this->saveMessage($store, $entryid, $storeprops[PR_IPM_OUTBOX_ENTRYID], $props, $messageProps, $recipients, $attachments, [], $copyFromMessage, $copyAttachments, $copyRecipients, $copyInlineAttachmentsOnly, true, true, $isPlainText);
-
-					// FIXME: currently message is deleted from original store and new message is created
-					// in current user's store, but message should be moved
-
-					// delete message from it's original location
-					if (!empty($oldEntryId) && !empty($oldParentEntryId)) {
-						$folder = mapi_msgstore_openentry($origStore, $oldParentEntryId);
-						mapi_folder_deletemessages($folder, [$oldEntryId], DELETE_HARD_DELETE);
-					}
-				}
-				else {
-					// When the message is in your own store, just move it to your outbox. We move it manually so we know the new entryid after it has been moved.
-					$outbox = mapi_msgstore_openentry($store, $storeprops[PR_IPM_OUTBOX_ENTRYID]);
-
-					// Open the old and the new message
-					$newmessage = mapi_folder_createmessage($outbox);
-					$oldEntryId = $entryid;
-
-					// Remember the new entryid
-					$newprops = mapi_getprops($newmessage, [PR_ENTRYID]);
-					$entryid = $newprops[PR_ENTRYID];
-
-					if (!empty($oldEntryId)) {
-						$message = mapi_msgstore_openentry($store, $oldEntryId);
-						// Copy the entire message
-						mapi_copyto($message, [], [], $newmessage);
-						$tmpProps = mapi_getprops($message);
-						$oldParentEntryId = $tmpProps[PR_PARENT_ENTRYID];
-						if ($storeprops[PR_IPM_OUTBOX_ENTRYID] == $oldParentEntryId) {
-							$folder = $outbox;
-						}
-						else {
-							$folder = mapi_msgstore_openentry($store, $oldParentEntryId);
-						}
-
-						// Copy message_class for S/MIME plugin
-						if (isset($tmpProps[PR_MESSAGE_CLASS])) {
-							$props[PR_MESSAGE_CLASS] = $tmpProps[PR_MESSAGE_CLASS];
-						}
-						// Delete the old message
-						mapi_folder_deletemessages($folder, [$oldEntryId]);
-					}
-
-					// save changes to new message created in outbox
-					mapi_savechanges($newmessage);
-
-					$reprProps = mapi_getprops($newmessage, [PR_SENT_REPRESENTING_EMAIL_ADDRESS, PR_SENDER_EMAIL_ADDRESS, PR_SENT_REPRESENTING_ENTRYID]);
-					if (isset($reprProps[PR_SENT_REPRESENTING_EMAIL_ADDRESS], $reprProps[PR_SENDER_EMAIL_ADDRESS], $reprProps[PR_SENT_REPRESENTING_ENTRYID]) &&
-						strcasecmp($reprProps[PR_SENT_REPRESENTING_EMAIL_ADDRESS], $reprProps[PR_SENDER_EMAIL_ADDRESS]) != 0) {
-						$ab = $GLOBALS['mapisession']->getAddressbook();
-						$abitem = mapi_ab_openentry($ab, $reprProps[PR_SENT_REPRESENTING_ENTRYID]);
-						$abitemprops = mapi_getprops($abitem, [PR_DISPLAY_NAME, PR_EMAIL_ADDRESS, PR_SEARCH_KEY]);
-
-						$props[PR_SENT_REPRESENTING_NAME] = $abitemprops[PR_DISPLAY_NAME];
-						$props[PR_SENT_REPRESENTING_EMAIL_ADDRESS] = $abitemprops[PR_EMAIL_ADDRESS];
-						$props[PR_SENT_REPRESENTING_ADDRTYPE] = "EX";
-						$props[PR_SENT_REPRESENTING_SEARCH_KEY] = $abitemprops[PR_SEARCH_KEY];
-					}
-					// Save the new message properties
-					$message = $this->saveMessage($store, $entryid, $storeprops[PR_IPM_OUTBOX_ENTRYID], $props, $messageProps, $recipients, $attachments, [], $copyFromMessage, $copyAttachments, $copyRecipients, $copyInlineAttachmentsOnly, true, true, $isPlainText);
-				}
-
-				if ($message) {
-					// Allowing to hook in just before the data sent away to be sent to the client
-					$GLOBALS['PluginManager']->triggerHook('server.core.operations.submitmessage', [
-						'moduleObject' => $this,
-						'store' => $store,
-						'entryid' => $entryid,
-						'message' => &$message,
-					]);
-					// Submit the message (send)
-					try {
-						mapi_message_submitmessage($message);
-					}
-					catch (MAPIException $e) {
-						$username = $GLOBALS["mapisession"]->getUserName();
-						$errorName = get_mapi_error_name($e->getCode());
-						error_log(sprintf(
-							'Unable to submit message for %s, MAPI error: %s. ' .
-							'SMTP server may be down or it refused the message or the message' .
-							' is too large to submit or user does not have the permission ...',
-							$username,
-							$errorName
-						));
-
-						return $errorName;
-					}
-
-					$tmp_props = mapi_getprops($message, [PR_PARENT_ENTRYID]);
-					$messageProps[PR_PARENT_ENTRYID] = $tmp_props[PR_PARENT_ENTRYID];
-
-					$this->addRecipientsToRecipientHistory($this->getRecipientsInfo($message));
+					$props[PR_IN_REPLY_TO_ID] = $origMsgProps[PR_INTERNET_MESSAGE_ID];
 				}
 			}
 
+			if (!$GLOBALS["entryid"]->compareStoreEntryIds(bin2hex($origStoreprops[PR_ENTRYID]), bin2hex($storeprops[PR_ENTRYID]))) {
+				// set properties for "on behalf of" mails
+				$origStoreProps = mapi_getprops($origStore, [PR_MAILBOX_OWNER_ENTRYID, PR_MDB_PROVIDER]);
+
+				// set PR_SENDER_* properties, which contains currently logged users data
+				$ab = $GLOBALS['mapisession']->getAddressbook();
+				$abitem = mapi_ab_openentry($ab, $GLOBALS["mapisession"]->getUserEntryID());
+				$abitemprops = mapi_getprops($abitem, [PR_DISPLAY_NAME, PR_EMAIL_ADDRESS, PR_SEARCH_KEY]);
+
+				$props[PR_SENDER_ENTRYID] = $GLOBALS["mapisession"]->getUserEntryID();
+				$props[PR_SENDER_NAME] = $abitemprops[PR_DISPLAY_NAME];
+				$props[PR_SENDER_EMAIL_ADDRESS] = $abitemprops[PR_EMAIL_ADDRESS];
+				$props[PR_SENDER_ADDRTYPE] = "EX";
+				$props[PR_SENDER_SEARCH_KEY] = $abitemprops[PR_SEARCH_KEY];
+
+				/*
+				 * if delegate store then set PR_SENT_REPRESENTING_* properties
+				 * based on delegate store's owner data
+				 * if public store then set PR_SENT_REPRESENTING_* properties based on
+				 * default store's owner data
+				 */
+				if ($origStoreProps[PR_MDB_PROVIDER] === ZARAFA_STORE_DELEGATE_GUID) {
+					$abitem = mapi_ab_openentry($ab, $origStoreProps[PR_MAILBOX_OWNER_ENTRYID]);
+					$abitemprops = mapi_getprops($abitem, [PR_DISPLAY_NAME, PR_EMAIL_ADDRESS, PR_SEARCH_KEY]);
+
+					$props[PR_SENT_REPRESENTING_ENTRYID] = $origStoreProps[PR_MAILBOX_OWNER_ENTRYID];
+					$props[PR_SENT_REPRESENTING_NAME] = $abitemprops[PR_DISPLAY_NAME];
+					$props[PR_SENT_REPRESENTING_EMAIL_ADDRESS] = $abitemprops[PR_EMAIL_ADDRESS];
+					$props[PR_SENT_REPRESENTING_ADDRTYPE] = "EX";
+					$props[PR_SENT_REPRESENTING_SEARCH_KEY] = $abitemprops[PR_SEARCH_KEY];
+				}
+				elseif ($origStoreProps[PR_MDB_PROVIDER] === ZARAFA_STORE_PUBLIC_GUID) {
+					$props[PR_SENT_REPRESENTING_ENTRYID] = $props[PR_SENDER_ENTRYID];
+					$props[PR_SENT_REPRESENTING_NAME] = $props[PR_SENDER_NAME];
+					$props[PR_SENT_REPRESENTING_EMAIL_ADDRESS] = $props[PR_SENDER_EMAIL_ADDRESS];
+					$props[PR_SENT_REPRESENTING_ADDRTYPE] = $props[PR_SENDER_ADDRTYPE];
+					$props[PR_SENT_REPRESENTING_SEARCH_KEY] = $props[PR_SEARCH_KEY];
+				}
+
+				/**
+				 * we are sending mail from delegate's account, so we can't use delegate's outbox and sent items folder
+				 * so we have to copy the mail from delegate's store to logged user's store and in outbox folder and then
+				 * we can send mail from logged user's outbox folder.
+				 *
+				 * if we set $entryid to false before passing it to saveMessage function then it will assume
+				 * that item doesn't exist and it will create a new item (in outbox of logged in user)
+				 */
+				if ($entryid) {
+					$oldEntryId = $entryid;
+					$entryid = false;
+
+					// if we are sending mail from drafts folder then we have to copy
+					// its recipients and attachments also. $origStore and $oldEntryId points to mail
+					// saved in delegators draft folder
+					if ($copyFromMessage === false) {
+						$copyFromMessage = mapi_msgstore_openentry($origStore, $oldEntryId);
+						$copyRecipients = true;
+
+						// Decode smime signed messages on this message
+						parse_smime($origStore, $copyFromMessage);
+					}
+				}
+
+				if ($copyFromMessage) {
+					// Get properties of original message, to copy recipients and attachments in new message
+					$copyMessageProps = mapi_getprops($copyFromMessage);
+					$oldParentEntryId = $copyMessageProps[PR_PARENT_ENTRYID];
+
+					// unset id properties before merging the props, so we will be creating new item instead of sending same item
+					unset($copyMessageProps[PR_ENTRYID], $copyMessageProps[PR_PARENT_ENTRYID], $copyMessageProps[PR_STORE_ENTRYID]);
+
+					// grommunio generates PR_HTML on the fly, but it's necessary to unset it
+					// if the original message didn't have PR_HTML property.
+					if (!isset($props[PR_HTML]) && isset($copyMessageProps[PR_HTML])) {
+						unset($copyMessageProps[PR_HTML]);
+					}
+					// Merge original message props with props sent by client
+					$props = $props + $copyMessageProps;
+				}
+
+				// Save the new message properties
+				$message = $this->saveMessage($store, $entryid, $storeprops[PR_IPM_OUTBOX_ENTRYID], $props, $messageProps, $recipients, $attachments, [], $copyFromMessage, $copyAttachments, $copyRecipients, $copyInlineAttachmentsOnly, true, true, $isPlainText);
+
+				// FIXME: currently message is deleted from original store and new message is created
+				// in current user's store, but message should be moved
+
+				// delete message from it's original location
+				if (!empty($oldEntryId) && !empty($oldParentEntryId)) {
+					$folder = mapi_msgstore_openentry($origStore, $oldParentEntryId);
+					mapi_folder_deletemessages($folder, [$oldEntryId], DELETE_HARD_DELETE);
+				}
+			}
+			else {
+				// When the message is in your own store, just move it to your outbox. We move it manually so we know the new entryid after it has been moved.
+				$outbox = mapi_msgstore_openentry($store, $storeprops[PR_IPM_OUTBOX_ENTRYID]);
+
+				// Open the old and the new message
+				$newmessage = mapi_folder_createmessage($outbox);
+				$oldEntryId = $entryid;
+
+				// Remember the new entryid
+				$newprops = mapi_getprops($newmessage, [PR_ENTRYID]);
+				$entryid = $newprops[PR_ENTRYID];
+
+				if (!empty($oldEntryId)) {
+					$message = mapi_msgstore_openentry($store, $oldEntryId);
+					// Copy the entire message
+					mapi_copyto($message, [], [], $newmessage);
+					$tmpProps = mapi_getprops($message);
+					$oldParentEntryId = $tmpProps[PR_PARENT_ENTRYID];
+					if ($storeprops[PR_IPM_OUTBOX_ENTRYID] == $oldParentEntryId) {
+						$folder = $outbox;
+					}
+					else {
+						$folder = mapi_msgstore_openentry($store, $oldParentEntryId);
+					}
+
+					// Copy message_class for S/MIME plugin
+					if (isset($tmpProps[PR_MESSAGE_CLASS])) {
+						$props[PR_MESSAGE_CLASS] = $tmpProps[PR_MESSAGE_CLASS];
+					}
+					// Delete the old message
+					mapi_folder_deletemessages($folder, [$oldEntryId]);
+				}
+
+				// save changes to new message created in outbox
+				mapi_savechanges($newmessage);
+
+				$reprProps = mapi_getprops($newmessage, [PR_SENT_REPRESENTING_EMAIL_ADDRESS, PR_SENDER_EMAIL_ADDRESS, PR_SENT_REPRESENTING_ENTRYID]);
+				if (isset($reprProps[PR_SENT_REPRESENTING_EMAIL_ADDRESS], $reprProps[PR_SENDER_EMAIL_ADDRESS], $reprProps[PR_SENT_REPRESENTING_ENTRYID]) &&
+					strcasecmp($reprProps[PR_SENT_REPRESENTING_EMAIL_ADDRESS], $reprProps[PR_SENDER_EMAIL_ADDRESS]) != 0) {
+					$ab = $GLOBALS['mapisession']->getAddressbook();
+					$abitem = mapi_ab_openentry($ab, $reprProps[PR_SENT_REPRESENTING_ENTRYID]);
+					$abitemprops = mapi_getprops($abitem, [PR_DISPLAY_NAME, PR_EMAIL_ADDRESS, PR_SEARCH_KEY]);
+
+					$props[PR_SENT_REPRESENTING_NAME] = $abitemprops[PR_DISPLAY_NAME];
+					$props[PR_SENT_REPRESENTING_EMAIL_ADDRESS] = $abitemprops[PR_EMAIL_ADDRESS];
+					$props[PR_SENT_REPRESENTING_ADDRTYPE] = "EX";
+					$props[PR_SENT_REPRESENTING_SEARCH_KEY] = $abitemprops[PR_SEARCH_KEY];
+				}
+				// Save the new message properties
+				$message = $this->saveMessage($store, $entryid, $storeprops[PR_IPM_OUTBOX_ENTRYID], $props, $messageProps, $recipients, $attachments, [], $copyFromMessage, $copyAttachments, $copyRecipients, $copyInlineAttachmentsOnly, true, true, $isPlainText);
+			}
+
+			if (!$message)
+				return false;
+			// Allowing to hook in just before the data sent away to be sent to the client
+			$GLOBALS['PluginManager']->triggerHook('server.core.operations.submitmessage', [
+				'moduleObject' => $this,
+				'store' => $store,
+				'entryid' => $entryid,
+				'message' => &$message,
+			]);
+			// Submit the message (send)
+			try {
+				mapi_message_submitmessage($message);
+			}
+			catch (MAPIException $e) {
+				$username = $GLOBALS["mapisession"]->getUserName();
+				$errorName = get_mapi_error_name($e->getCode());
+				error_log(sprintf(
+					'Unable to submit message for %s, MAPI error: %s. ' .
+					'SMTP server may be down or it refused the message or the message' .
+					' is too large to submit or user does not have the permission ...',
+					$username,
+					$errorName
+				));
+
+				return $errorName;
+			}
+
+			$tmp_props = mapi_getprops($message, [PR_PARENT_ENTRYID]);
+			$messageProps[PR_PARENT_ENTRYID] = $tmp_props[PR_PARENT_ENTRYID];
+
+			$this->addRecipientsToRecipientHistory($this->getRecipientsInfo($message));
 			return false;
 		}
 
