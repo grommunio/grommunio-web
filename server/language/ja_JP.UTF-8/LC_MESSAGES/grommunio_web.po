@@ -1721,13 +1721,11 @@ msgstr "{0}"
 msgid "Upcoming Appointments"
 msgstr "ご予約状況"
 
-#, fuzzy
 msgid "Appointments of {0}"
-msgstr "1}のアポイントメント"
+msgstr "{0}のアポイントメント"
 
-#, fuzzy
 msgid "Appointments of {0} - {1}"
-msgstr "2} - {1}のアポイントメント。"
+msgstr "{1}の{0}のアポイントメント"
 
 msgid "No appointments"
 msgstr "アポイントはありません"
@@ -1965,21 +1963,18 @@ msgstr ""
 msgid "Import"
 msgstr "インポート"
 
-#, fuzzy
 msgid "Successfully imported item(s) to {0}"
-msgstr "1}へのインポートに成功しました。"
+msgstr "{0}へのインポートに成功しました。"
 
-#, fuzzy
 msgid "Failed to import item(s) to {0}"
-msgstr "1} へのアイテムのインポートに失敗しました。"
+msgstr "{0}へのアイテムのインポートに失敗しました。"
 
 #, fuzzy
 msgid "Import error"
 msgstr "重要"
 
-#, fuzzy
 msgid "Unable to import \"{0}\". The file is not valid"
-msgstr "1}\"をインポートできません。ファイルが有効ではありません"
+msgstr "「{0}」をインポートできません。ファイルが有効ではありません"
 
 #, fuzzy
 msgid ""
@@ -2171,20 +2166,18 @@ msgstr ""
 msgid "Rename"
 msgstr "名前変更"
 
-#, fuzzy
 msgid "This is the first time you have used \"{0}\" category."
-msgstr "1}」のカテゴリーを使用するのは初めてです。"
+msgstr "「{0}」のカテゴリーを使用するのは初めてです。"
 
 #, fuzzy
 msgid "Do you want to rename it?"
 msgstr "名前を変更しますか？"
 
-#, fuzzy
 msgid ""
 "The category \"{0}\" already exists. Do you want to merge the \"{1}\" and "
 "\"{2}\" categories?"
 msgstr ""
-"カテゴリ「{0}」はすでに存在しています。4}」と「{2}」のカテゴリを統合します"
+"カテゴリ「{0}」はすでに存在しています。「{1}」と「{2}」のカテゴリを統合します"
 "か？"
 
 msgid "Merge"
@@ -2760,9 +2753,8 @@ msgstr[0] "{0}個のリマインダーが選択されました。"
 msgid "Restore Softdeleted Items"
 msgstr "ソフト削除された項目を復元する"
 
-#, fuzzy
 msgid "Restore From {0}"
-msgstr "1}からのリストア"
+msgstr "「{0}」からのリストア"
 
 msgid "Restore"
 msgstr "リストア"
@@ -4133,9 +4125,8 @@ msgstr "詳細を表示"
 msgid "Hide Details"
 msgstr "詳細を非表示"
 
-#, fuzzy
 msgid "Loaded {0} of {1}"
-msgstr "3}の{0}をロード。"
+msgstr "{1}個の{0}個がロードした。"
 
 msgid "Saving"
 msgstr "保存中"
@@ -4572,13 +4563,11 @@ msgstr "コンタクトのインポート"
 msgid "Properties of {0}"
 msgstr "プロパティ"
 
-#, fuzzy
 msgid "Share {0} with…"
-msgstr "1}を共有する…"
+msgstr "{0}を共有する…"
 
-#, fuzzy
 msgid "Properties of {0} - {1}"
-msgstr "プロパティ"
+msgstr "{0}〜{1}のプロパティ"
 
 msgid ""
 "Are you sure you want to permanently delete all the items and subfolders in "
@@ -5375,9 +5364,8 @@ msgstr ""
 "ソフトクオータを超えたのでメールを送信できません、{0}でメールを受信できなくな"
 "ります。"
 
-#, fuzzy
 msgid "At {0} you won't be able to send or receive mails."
-msgstr "1}では、メールの送受信ができなくなります。"
+msgstr "{0}では、メールの送受信ができなくなります。"
 
 msgid "You can not send mails as you have exceeded soft quota."
 msgstr "ソフト割当量を超えたためメール送信できません。"
@@ -6049,10 +6037,9 @@ msgstr "ファイル名は空であってはならない。"
 msgid "Rename item"
 msgstr "アイテムの名前変更"
 
-#, fuzzy
 msgid "A file named \"{0}\" already exists. Please enter a different name."
 msgstr ""
-"1}」という名前のファイルがすでに存在しています。別の名前を入力してください。"
+"「{0}」という名前のファイルがすでに存在しています。別の名前を入力してください。"
 
 msgid "Downloading"
 msgstr "ダウンロード中です"
@@ -6535,7 +6522,7 @@ msgid ""
 "Unable to connect to the grommunio-sync server. Click {0} to enter your "
 "credentials"
 msgstr ""
-"grommunio-syncサーバーに接続できません。1}をクリックして、認証情報を入力して"
+"grommunio-syncサーバーに接続できません。{0}をクリックして、認証情報を入力して"
 "ください。"
 
 msgid "Devices"
@@ -7610,25 +7597,25 @@ msgstr "Occurs every %s effective %s."
 msgid "Occurs every %s %s effective %s."
 msgstr "Occurs every %s %s effective %s."
 
-#, fuzzy, php-format
+#, php-format
 msgid "Occurs every %s effective %s for %s occurrence from %s to %s."
 msgid_plural "Occurs every %s effective %s for %s occurrences from %s to %s."
-msgstr[0] "3}から%sまでの%s回の発生に対して、%s回の有効な%s回ごとに発生する。"
+msgstr[0] "%4sから%5sまでの%3s回の発生に対して、%1回の有効な%2回ごとに発生する。"
 
-#, fuzzy, php-format
+#, php-format
 msgid "Occurs every %s %s effective %s for %s occurrence from %s to %s."
 msgid_plural "Occurs every %s %s effective %s for %s occurrences %s to %s."
-msgstr[0] "4}から%sまでの%sの発生に対して%s%s有効な%sごとに発生する。"
+msgstr[0] "%5sから%6sまでの%4sの発生に対して、%1s%2s有効な%3sごとに発生する。"
 
-#, fuzzy, php-format
+#, php-format
 msgid "Occurs every %s effective %s for %s occurrence."
 msgid_plural "Occurs every %s effective %s for %s occurrences."
-msgstr[0] "2}の発生に対して%sの効果があるごとに発生する。"
+msgstr[0] "%3s回の発生に対して、%1s回の有効な%2s回ごとに発生する。"
 
-#, fuzzy, php-format
+#, php-format
 msgid "Occurs every %s %s effective %s for %s occurrence."
 msgid_plural "Occurs every %s %s effective %s for %s occurrences."
-msgstr[0] "0} %sごとに発生し、%s発生時には%sが有効です。"
+msgstr[0] "%4s回の発生に対して、%1s%2s回の有効な%2s回ごとに発生する。"
 
 #, php-format
 msgid "Occurs every %s effective %s until %s from %s to %s."
@@ -7744,12 +7731,12 @@ msgstr ""
 "ションの出席者として入力するか、'%s'をスケジュールする権限を与えるよう管理者"
 "に相談してください。"
 
-#, fuzzy, php-format
+#, php-format
 msgid ""
 "'%s' has declined your meeting because '%s' does not automatically accept "
 "meeting requests."
 msgstr ""
-"1}」はミーティングリクエストを自動的に受け入れないため、「%s」はミーティング"
+"「%s」はミーティングリクエストを自動的に受け入れないため、「%s」はミーティング"
 "を拒否しました。"
 
 #, fuzzy, php-format
