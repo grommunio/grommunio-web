@@ -2708,6 +2708,9 @@
 					if (!isset($props[PR_HTML]) && isset($copyMessageProps[PR_HTML])) {
 						unset($copyMessageProps[PR_HTML]);
 					}
+					/* New EMAIL_ADDRESSes were set (various cases above), kill off old SMTP_ADDRESS. */
+					unset($copyMessageProps[PR_SENDER_SMTP_ADDRESS]);
+					unset($copyMessageProps[PR_SENT_REPRESENTING_SMTP_ADDRESS]);
 					// Merge original message props with props sent by client
 					$props = $props + $copyMessageProps;
 				}
