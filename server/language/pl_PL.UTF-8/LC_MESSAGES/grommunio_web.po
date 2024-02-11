@@ -3283,7 +3283,7 @@ msgid "You forwarded this message on {0}."
 msgstr "Dni wysłałeś tę wiadomość dalej dnia{0}."
 
 msgid "Assigned by {0} on {1}."
-msgstr "Przydzielona przez {0} dnia 1}."
+msgstr "Przydzielona przez {0} dnia {1}."
 
 msgid "Waiting for response from recipient"
 msgstr "Czekaj na odpowiedź od odbiorcy"
