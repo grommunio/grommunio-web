@@ -3,8 +3,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Danish (Denmark)\n"
-"Report-Msgid-Bugs-To: dev@grommunio.com\n"
-"POT-Creation-Date: 2019-09-25 14:32+0200\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-02-12 02:01+0100\n"
 "PO-Revision-Date: 2022-07-26 14:28+0200\n"
 "Last-Translator: Mike Williams <mike.williams@grammm.com>\n"
 "Language-Team: Danish <https://hosted.weblate.org/projects/grommunio/"
@@ -621,6 +621,9 @@ msgstr "Tøm mappe"
 msgid "You must specify a name."
 msgstr "Du skal angive et navn."
 
+msgid "Add a folder to favorites based on search query"
+msgstr "Tilføj en mappe til dine favoritter baseret på dette søgeresultat"
+
 msgid "Folder name"
 msgstr "Mappenavn"
 
@@ -707,9 +710,6 @@ msgstr "Brevkrop & vedhæftninger"
 
 msgid "Favorites"
 msgstr "Favoritter"
-
-msgid "Add a folder to favorites based on search query"
-msgstr "Tilføj en mappe til dine favoritter baseret på dette søgeresultat"
 
 msgid "Select Folder"
 msgstr "Vælg mappe"
@@ -1077,6 +1077,9 @@ msgstr ""
 "En eller flere deltagere, du har inviteret, er optaget. Er du sikker på du "
 "vil invitere?"
 
+msgid "Preview"
+msgstr "Forhåndsvisning"
+
 msgid "Scheduling"
 msgstr "Planlægning"
 
@@ -1097,8 +1100,8 @@ msgid ""
 "{0} attendees proposed a new time for this meeting. Click the Scheduling tab "
 "for details."
 msgstr ""
-"{0} deltagere har foreslået en nyt tid for dette møde. Tryk på \"Planlægnings"
-"\"-fanen for detaljer."
+"{0} deltagere har foreslået en nyt tid for dette møde. Tryk på "
+"\"Planlægnings\"-fanen for detaljer."
 
 msgctxt "calendar.dialog"
 msgid "You proposed a new time for this meeting on {0}"
@@ -2103,9 +2106,6 @@ msgstr "Fil upload"
 msgid "Attach item"
 msgstr "Vedhæft element"
 
-msgid "Preview"
-msgstr "Forhåndsvisning"
-
 msgid "Download"
 msgstr "Download"
 
@@ -2905,9 +2905,8 @@ msgstr "inkluder disse ord i emnet…"
 msgid "includes these words in the body…"
 msgstr "inkluder disse ord i brevkroppen…"
 
-#, fuzzy
-msgid "includes these words in the transport-headers…"
-msgstr "inkluder disse ord i brevkroppen…"
+msgid "includes these words in the transport headers…"
+msgstr ""
 
 #, fuzzy
 msgid "has importance…"
@@ -4533,6 +4532,9 @@ msgstr "Luk folder"
 msgid "Reload"
 msgstr "Opdater"
 
+msgid "Restore items"
+msgstr "Genskab elementer"
+
 msgid "Select color"
 msgstr "Vælg farve"
 
@@ -5699,69 +5701,6 @@ msgstr "Ingen opgaver."
 msgid "Tasks / To-Do"
 msgstr "Opgaver / To-Do"
 
-msgid "Import / Export"
-msgstr "Importer / Eksporter"
-
-#, fuzzy
-msgid ""
-"Calendar, contact and mail items can be imported and exported from and to "
-"grommunio Web."
-msgstr ""
-"Kalender-, kontakt- og mail-elementer kan importeres og eksporteres fra og "
-"til grommunio Web."
-
-#, fuzzy
-msgid ""
-"Right-click a folder and select the import button. Additionally, items can "
-"be imported from the attachment context menu."
-msgstr ""
-"Højreklik på en mappe, og vælg knappen Import. Derudover kan elementer "
-"importeres fra kontekstmenuen for vedhæftede filer."
-
-#, fuzzy
-msgid "Exporting can be done from the context menu of an item."
-msgstr "Eksport kan foretages fra et element i kontekstmenuen for et element."
-
-msgid "Icon packs"
-msgstr "Ikonpakke"
-
-#, fuzzy
-msgid ""
-"You can now choose between different icons. By default the new Breeze icons "
-"are enabled, but if you prefer the classic icons you can change this in the "
-"settings."
-msgstr ""
-"Du kan nu vælge mellem forskellige ikoner. Som standard er de nye Breeze-"
-"ikoner aktiveret, men hvis du foretrækker de klassiske ikoner, kan du ændre "
-"dette i indstillingerne."
-
-#, fuzzy
-msgid ""
-"Go to your settings, open the general tab and select an icon pack to your "
-"liking."
-msgstr ""
-"Gå til dine indstillinger, åbn fanen Generelt, og vælg en ikonpakke efter "
-"din smag."
-
-#, fuzzy
-msgid "Left: Breeze - Right: Classic"
-msgstr "Til venstre: Breeze - Til højre: Classic"
-
-msgid "What's new"
-msgstr "Nyheder"
-
-msgid "Don't show me new features again."
-msgstr "Vis mig ikke nye features igen."
-
-msgid "Skip"
-msgstr "Skip"
-
-msgid "Previous"
-msgstr "Forrige"
-
-msgid "Next"
-msgstr "Næste"
-
 #, fuzzy
 msgid "Click the link to open the URL in a new window."
 msgstr "Klik på linket for at åbne URL-adressen i et nyt vindue."
@@ -6448,12 +6387,6 @@ msgstr "Godkendelse er påkrævet, når du bruger grommunio-files for første ga
 msgid "Intranet"
 msgstr "Intranet"
 
-msgid "number"
-msgstr "nummer"
-
-msgid "shadow"
-msgstr "skygge"
-
 #, fuzzy
 msgid "Openstreetmap"
 msgstr "Openstreetmap"
@@ -6498,6 +6431,15 @@ msgstr "Anmodning om aftørring"
 msgid "Wipe Executed"
 msgstr "Tørre udført"
 
+msgid "Account Only Wipe Pending"
+msgstr ""
+
+msgid "Account Only Wipe Requested"
+msgstr ""
+
+msgid "Account Only Wipe Executed"
+msgstr ""
+
 msgid "Not Available"
 msgstr "Ikke til rådighed"
 
@@ -6526,12 +6468,12 @@ msgstr "grommunio-sync Version"
 msgid "Policy name"
 msgstr "Politisk navn"
 
-#, fuzzy
-msgid "Outlook Extension"
-msgstr "Outlook-udvidelse"
+msgid "Connected since"
+msgstr "Har været forbundet siden"
 
-msgid "Build"
-msgstr "Nybyg"
+#, fuzzy
+msgid "d F Y"
+msgstr "d F Y"
 
 msgid "Last updated"
 msgstr "Sidst opdateret"
@@ -6539,13 +6481,6 @@ msgstr "Sidst opdateret"
 #, fuzzy
 msgid "d F Y, H:i"
 msgstr "d F Y, H:i"
-
-msgid "Connected since"
-msgstr "Har været forbundet siden"
-
-#, fuzzy
-msgid "d F Y"
-msgstr "d F Y"
 
 msgid "Synchronize"
 msgstr "Synkroniser"
@@ -6626,6 +6561,12 @@ msgstr "Fjern enhed"
 #, fuzzy
 msgid "Please enter your username and password"
 msgstr "Indtast venligst dit brugernavn og din adgangskode"
+
+msgid "Wipe only data related to this account"
+msgstr ""
+
+msgid "Wipe all data"
+msgstr ""
 
 msgid "Username"
 msgstr "Brugernavn"
@@ -7612,10 +7553,6 @@ msgid "Unknown MAPI Error"
 msgstr "Ukendt MAPI fejl"
 
 #, fuzzy
-msgid "This external link will open in a new window"
-msgstr "Dette eksterne link åbnes i et nyt vindue"
-
-#, fuzzy
 msgid "Destination folder not found."
 msgstr "Destinationsmappe ikke fundet."
 
@@ -7650,10 +7587,6 @@ msgstr "De vedhæftede filer er endnu ikke uploadet."
 #, php-format
 msgid "Unable to import '%s'. "
 msgstr "Det er ikke muligt at importere '%s'."
-
-#, fuzzy
-msgid "Please contact your system administrator if the problem persists."
-msgstr "Kontakt din systemadministrator, hvis problemet fortsætter."
 
 #, fuzzy
 msgid "Attachment is not imported successfully"
@@ -7723,84 +7656,6 @@ msgstr "Ukendt MAPI fejl: %s"
 msgid "Action is not performed correctly."
 msgstr "Handlingen er ikke udført korrekt."
 
-msgid "Tentatively accepted"
-msgstr "Foreløbigt accepteret"
-
-msgid "New Time Proposed"
-msgstr "Ny tid foreslået"
-
-#, fuzzy, php-format
-msgid "Occurs every %s effective %s from %s to %s."
-msgstr "Opstår hver %s effektiv %s fra %s til %s."
-
-#, fuzzy, php-format
-msgid "Occurs every %s %s effective %s from %s to %s."
-msgstr "Opstår hver %s %s effektiv %s fra %s til %s."
-
-#, fuzzy, php-format
-msgid "Occurs every %s effective %s."
-msgstr "Opstår hver %s effektiv %s."
-
-#, fuzzy, php-format
-msgid "Occurs every %s %s effective %s."
-msgstr "Opstår hver %s %s effektiv %s."
-
-#, fuzzy, php-format
-msgid "Occurs every %s effective %s for %s occurrence from %s to %s."
-msgid_plural "Occurs every %s effective %s for %s occurrences from %s to %s."
-msgstr[0] "Forekommer hver %s effektiv %s for %s forekomst fra %s til %s."
-msgstr[1] "Forekommer hver %s effektiv %s for %s forekomster fra %s til %s."
-
-#, fuzzy, php-format
-msgid "Occurs every %s %s effective %s for %s occurrence from %s to %s."
-msgid_plural "Occurs every %s %s effective %s for %s occurrences %s to %s."
-msgstr[0] "Forekommer hver %s %s effektiv %s for %s forekomst fra %s til %s."
-msgstr[1] "Forekommer hver %s %s effektiv %s for %s forekomster %s til %s."
-
-#, fuzzy, php-format
-msgid "Occurs every %s effective %s for %s occurrence."
-msgid_plural "Occurs every %s effective %s for %s occurrences."
-msgstr[0] "Forekommer hver %s effektiv %s for %s forekomst."
-msgstr[1] "Forekommer hver %s effektiv %s for %s forekomster."
-
-#, fuzzy, php-format
-msgid "Occurs every %s %s effective %s for %s occurrence."
-msgid_plural "Occurs every %s %s effective %s for %s occurrences."
-msgstr[0] "Forekommer hver %s %s effektiv %s for %s forekomst."
-msgstr[1] "Forekommer hver %s %s %s effektiv %s for %s forekomster."
-
-#, fuzzy, php-format
-msgid "Occurs every %s effective %s until %s from %s to %s."
-msgstr "Opstår hver %s effektiv %s indtil %s fra %s til %s."
-
-#, fuzzy, php-format
-msgid "Occurs every %s %s effective %s until %s from %s to %s."
-msgstr "Opstår hver %s %s effektiv %s indtil %s fra %s til %s."
-
-#, fuzzy, php-format
-msgid "Occurs every %s effective %s until %s."
-msgstr "Indtræder hver %s effektiv %s indtil %s."
-
-#, fuzzy, php-format
-msgid "Occurs every %s %s effective %s until %s."
-msgstr "Opstår hver %s %s effektiv %s indtil %s."
-
-#, fuzzy
-msgid "Task Accepted:"
-msgstr "Opgave accepteret:"
-
-#, fuzzy
-msgid "Task Declined:"
-msgstr "Opgave afvist:"
-
-#, fuzzy
-msgid "Task Updated:"
-msgstr "Opgave opdateret:"
-
-#, fuzzy
-msgid "Task Completed:"
-msgstr "Opgaven er afsluttet:"
-
 msgid "Contact not found"
 msgstr "Kontakt blev ikke fundet"
 
@@ -7811,6 +7666,10 @@ msgid ""
 msgstr ""
 "Kontaktoplysningerne kunne ikke vises, fordi serveren havde problemer med at "
 "hente oplysningerne."
+
+#, fuzzy
+msgid "Please contact your system administrator if the problem persists."
+msgstr "Kontakt din systemadministrator, hvis problemet fortsætter."
 
 #, fuzzy
 msgid "Could not handle this type of object."
@@ -7939,6 +7798,15 @@ msgstr "%ss jubilæum"
 #, fuzzy
 msgid "You don't have the permission to complete this action"
 msgstr "Du har ikke tilladelse til at gennemføre denne handling"
+
+msgid "Quota error"
+msgstr ""
+
+msgid "Send quota limit reached"
+msgstr ""
+
+msgid "Email sending failed. Check the log files for more information."
+msgstr ""
 
 #, fuzzy
 msgid "Unknown user/group"
@@ -8357,6 +8225,32 @@ msgstr "Log ind"
 msgid "File is not imported successfully"
 msgstr "Filen er ikke importeret med succes"
 
+msgid "The uploaded file exceeds the upload_max_filesize directive in php.ini."
+msgstr ""
+
+msgid ""
+"The uploaded file exceeds the MAX_FILE_SIZE directive that was specified in "
+"the HTML form."
+msgstr ""
+
+msgid "The uploaded file was only partially uploaded."
+msgstr ""
+
+msgid "No file was uploaded. ."
+msgstr ""
+
+msgid "Missing a temporary folder."
+msgstr ""
+
+msgid "Failed to write file to disk."
+msgstr ""
+
+msgid ""
+"A PHP extension stopped the file upload. PHP does not provide a way to "
+"ascertain which extension caused the file upload to stop; examining the list "
+"of loaded extensions with phpinfo() may help."
+msgstr ""
+
 #, fuzzy
 msgid "There is no contact found in this file."
 msgstr "Der findes ingen kontakt i denne fil."
@@ -8371,10 +8265,6 @@ msgstr ""
 msgid ""
 "grommunio Web does not support importing multiple ICS with this version."
 msgstr "grommunio Web understøtter ikke import af flere ICS med denne version."
-
-#, fuzzy, php-format
-msgid "Unable to import '%s'"
-msgstr "Det er ikke muligt at importere '%s'"
 
 #, fuzzy
 msgid "The EML is not valid"
@@ -8418,6 +8308,3 @@ msgstr "JSON-fejl: - %s"
 #, fuzzy
 msgid "Some problem encountered when encoding/decoding JSON data."
 msgstr "Der er opstået et problem ved kodning/afkodning af JSON-data."
-
-msgid "Restore items"
-msgstr "Genskab elementer"

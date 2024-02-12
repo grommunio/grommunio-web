@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Portuguese (Portugal)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-09-25 14:32+0200\n"
+"POT-Creation-Date: 2024-02-12 02:01+0100\n"
 "PO-Revision-Date: 2022-07-26 18:47+0200\n"
 "Last-Translator: import\n"
 "Language-Team: \n"
@@ -614,6 +614,9 @@ msgstr "Esvaziar nome da pasta"
 msgid "You must specify a name."
 msgstr "Tem que especificar um nome."
 
+msgid "Add a folder to favorites based on search query"
+msgstr "Adicionar uma pasta aos favoritos baseada nesta procura"
+
 msgid "Folder name"
 msgstr "Nome da pasta"
 
@@ -699,9 +702,6 @@ msgstr "Corpo e anexos"
 
 msgid "Favorites"
 msgstr "Favoritos"
-
-msgid "Add a folder to favorites based on search query"
-msgstr "Adicionar uma pasta aos favoritos baseada nesta procura"
 
 msgid "Select Folder"
 msgstr "Selecionar pasta"
@@ -1050,6 +1050,9 @@ msgstr "Participantes ocupados"
 msgid "One or more attendees are busy. Are you sure to invite?"
 msgstr ""
 "Um ou mais participantes estão ocupados. Tem a certeza que quer convidá-los?"
+
+msgid "Preview"
+msgstr "Pré-visualização"
 
 msgid "Scheduling"
 msgstr "Agendamento"
@@ -2016,9 +2019,6 @@ msgstr "Enviar ficheiro"
 
 msgid "Attach item"
 msgstr "Anexar item"
-
-msgid "Preview"
-msgstr "Pré-visualização"
 
 msgid "Download"
 msgstr "Transferir"
@@ -4342,6 +4342,9 @@ msgstr "Fechar pasta"
 msgid "Reload"
 msgstr "Recarregar"
 
+msgid "Restore items"
+msgstr "Restaurar Itens"
+
 msgid "Select color"
 msgstr "Selecionar Cor"
 
@@ -5438,62 +5441,6 @@ msgstr "Sem tarefas."
 msgid "Tasks / To-Do"
 msgstr "Tarefas a fazer"
 
-msgid "Import / Export"
-msgstr "Importar / Exportar"
-
-msgid ""
-"Calendar, contact and mail items can be imported and exported from and to "
-"grommunio Web."
-msgstr ""
-"Itens de Calendário, Contactos e Correio podem ser importados e exportados "
-"para a e da grommunio Web."
-
-msgid ""
-"Right-click a folder and select the import button. Additionally, items can "
-"be imported from the attachment context menu."
-msgstr ""
-"Use o botão direito numa pasta e selecione o botão de importar. "
-"Adicionalmente podem ser importados itens do menu de contexto dos anexos."
-
-msgid "Exporting can be done from the context menu of an item."
-msgstr "Exportar pode ser realizado do menu de contexto de um item."
-
-msgid "Icon packs"
-msgstr "Pacote de ícones"
-
-msgid ""
-"You can now choose between different icons. By default the new Breeze icons "
-"are enabled, but if you prefer the classic icons you can change this in the "
-"settings."
-msgstr ""
-"Agora pode escolher entre diferentes ícones. Por defeito os novos ícones "
-"Breeze estão ativos, mas se preferir os ícones clássicos pode alterar nas "
-"definições."
-
-msgid ""
-"Go to your settings, open the general tab and select an icon pack to your "
-"liking."
-msgstr ""
-"Vá às definições, e na aba Geral selecione o pacote de ícones que desejar."
-
-msgid "Left: Breeze - Right: Classic"
-msgstr "Esquerda: Breeze - Direita: Clássico"
-
-msgid "What's new"
-msgstr "Novidades"
-
-msgid "Don't show me new features again."
-msgstr "Não voltar a mostar novas funcionalidades."
-
-msgid "Skip"
-msgstr "Saltar"
-
-msgid "Previous"
-msgstr "Anterior"
-
-msgid "Next"
-msgstr "Seguinte"
-
 msgid "Click the link to open the URL in a new window."
 msgstr "Este Link vai abrir numa nova janela."
 
@@ -6090,13 +6037,6 @@ msgstr ""
 msgid "Intranet"
 msgstr "Intranet"
 
-msgid "number"
-msgstr "número"
-
-#, fuzzy
-msgid "shadow"
-msgstr "sombra"
-
 #, fuzzy
 msgid "Openstreetmap"
 msgstr "Openstreetmap"
@@ -6132,6 +6072,15 @@ msgstr "Limpeza pedida"
 msgid "Wipe Executed"
 msgstr "Limpeza efetuada"
 
+msgid "Account Only Wipe Pending"
+msgstr ""
+
+msgid "Account Only Wipe Requested"
+msgstr ""
+
+msgid "Account Only Wipe Executed"
+msgstr ""
+
 msgid "Not Available"
 msgstr "Não disponível"
 
@@ -6156,24 +6105,17 @@ msgstr "grommunio-sync Versão"
 msgid "Policy name"
 msgstr "Nome da Politica"
 
-#, fuzzy
-msgid "Outlook Extension"
-msgstr "Extensão da perspectiva"
+msgid "Connected since"
+msgstr "Ligado desde"
 
-msgid "Build"
-msgstr "Compilação"
+msgid "d F Y"
+msgstr "d F Y"
 
 msgid "Last updated"
 msgstr "Última vez atualizado"
 
 msgid "d F Y, H:i"
 msgstr "d F Y, H:i"
-
-msgid "Connected since"
-msgstr "Ligado desde"
-
-msgid "d F Y"
-msgstr "d F Y"
 
 msgid "Synchronize"
 msgstr "Sincronizar"
@@ -6241,6 +6183,12 @@ msgstr "Remover dispositivo"
 
 msgid "Please enter your username and password"
 msgstr "Por favor introduza o seu utilizador e palavra-passe"
+
+msgid "Wipe only data related to this account"
+msgstr ""
+
+msgid "Wipe all data"
+msgstr ""
 
 msgid "Username"
 msgstr "Utilizador"
@@ -7113,10 +7061,6 @@ msgid "Unknown MAPI Error"
 msgstr "Erro MAPI desconhecido"
 
 #, fuzzy
-msgid "This external link will open in a new window"
-msgstr "Esta ligação externa irá abrir-se numa nova janela"
-
-#, fuzzy
 msgid "Destination folder not found."
 msgstr "Pasta de destino não encontrada."
 
@@ -7148,10 +7092,6 @@ msgstr "O ficheiro é inválido."
 #, php-format
 msgid "Unable to import '%s'. "
 msgstr "Não foi possível importar '%s' "
-
-msgid "Please contact your system administrator if the problem persists."
-msgstr ""
-"Por favor contacte o seu administrador de sistema se o problema persistir."
 
 #, fuzzy
 msgid "Attachment is not imported successfully"
@@ -7223,84 +7163,6 @@ msgstr "Erro MAPI desconhecido: %s"
 msgid "Action is not performed correctly."
 msgstr "A acção não é executada correctamente."
 
-msgid "Tentatively accepted"
-msgstr "Aceite em modo tentativa"
-
-msgid "New Time Proposed"
-msgstr "Nova data proposta"
-
-#, php-format
-msgid "Occurs every %s effective %s from %s to %s."
-msgstr "Acontece a cada %s a partir de %s de %s até %s."
-
-#, php-format
-msgid "Occurs every %s %s effective %s from %s to %s."
-msgstr "Acontece a cada %s %s a partir de %s de %s até %s."
-
-#, php-format
-msgid "Occurs every %s effective %s."
-msgstr "Acontece a cada %s a partir de %s."
-
-#, php-format
-msgid "Occurs every %s %s effective %s."
-msgstr "Acontece a cada %s %s a partir de %s."
-
-#, php-format
-msgid "Occurs every %s effective %s for %s occurrence from %s to %s."
-msgid_plural "Occurs every %s effective %s for %s occurrences from %s to %s."
-msgstr[0] "Acontece a cada %s a partir de %s por %s vez de %s até %s."
-msgstr[1] "Acontece a cada %s a partir de %s por %s vezes de %s até %s."
-
-#, php-format
-msgid "Occurs every %s %s effective %s for %s occurrence from %s to %s."
-msgid_plural "Occurs every %s %s effective %s for %s occurrences %s to %s."
-msgstr[0] "Acontece a cada %s %s a partir de %s por %s vez de %s até %s."
-msgstr[1] "Acontece a cada %s %s a partir de %s por %s vezes de %s até %s."
-
-#, php-format
-msgid "Occurs every %s effective %s for %s occurrence."
-msgid_plural "Occurs every %s effective %s for %s occurrences."
-msgstr[0] "Acontece a cada %s a partir de %s por %s vez."
-msgstr[1] "Acontece a cada %s a partir de %s por %s vezes."
-
-#, php-format
-msgid "Occurs every %s %s effective %s for %s occurrence."
-msgid_plural "Occurs every %s %s effective %s for %s occurrences."
-msgstr[0] "Acontece a cada %s %s a partir de %s por %s vez."
-msgstr[1] "Acontece a cada %s %s a partir de %s por %s vezes."
-
-#, php-format
-msgid "Occurs every %s effective %s until %s from %s to %s."
-msgstr "Acontece %s a cada %s a partir de %s de %s até %s."
-
-#, php-format
-msgid "Occurs every %s %s effective %s until %s from %s to %s."
-msgstr "Acontece %s a cada %s %s a partir de %s de %s até %s."
-
-#, php-format
-msgid "Occurs every %s effective %s until %s."
-msgstr "Acontece a cada %s a partir de %s até %s."
-
-#, php-format
-msgid "Occurs every %s %s effective %s until %s."
-msgstr "Acontece a cada %s %s a partir de %s até %s."
-
-#, fuzzy
-msgid "Task Accepted:"
-msgstr "Tarefa Aceite:"
-
-#, fuzzy
-msgid "Task Declined:"
-msgstr "Tarefa Declinada:"
-
-#, fuzzy
-msgid "Task Updated:"
-msgstr "Tarefa Actualizada:"
-
-#, fuzzy
-msgid "Task Completed:"
-msgstr "Tarefa Concluída:"
-
 msgid "Contact not found"
 msgstr "Contacto Não Encontrado"
 
@@ -7311,6 +7173,10 @@ msgid ""
 msgstr ""
 "As informações de contacto não puderam ser exibidas porque o servidor teve "
 "dificuldades na recuperação das informações."
+
+msgid "Please contact your system administrator if the problem persists."
+msgstr ""
+"Por favor contacte o seu administrador de sistema se o problema persistir."
 
 #, fuzzy
 msgid "Could not handle this type of object."
@@ -7438,6 +7304,15 @@ msgstr "%s's Anniversary"
 #, fuzzy
 msgid "You don't have the permission to complete this action"
 msgstr "Não tem a permissão para completar esta acção"
+
+msgid "Quota error"
+msgstr ""
+
+msgid "Send quota limit reached"
+msgstr ""
+
+msgid "Email sending failed. Check the log files for more information."
+msgstr ""
 
 #, fuzzy
 msgid "Unknown user/group"
@@ -7820,6 +7695,32 @@ msgstr "Entrar"
 msgid "File is not imported successfully"
 msgstr "O ficheiro não é importado com sucesso"
 
+msgid "The uploaded file exceeds the upload_max_filesize directive in php.ini."
+msgstr ""
+
+msgid ""
+"The uploaded file exceeds the MAX_FILE_SIZE directive that was specified in "
+"the HTML form."
+msgstr ""
+
+msgid "The uploaded file was only partially uploaded."
+msgstr ""
+
+msgid "No file was uploaded. ."
+msgstr ""
+
+msgid "Missing a temporary folder."
+msgstr ""
+
+msgid "Failed to write file to disk."
+msgstr ""
+
+msgid ""
+"A PHP extension stopped the file upload. PHP does not provide a way to "
+"ascertain which extension caused the file upload to stop; examining the list "
+"of loaded extensions with phpinfo() may help."
+msgstr ""
+
 msgid "There is no contact found in this file."
 msgstr "Não foram encontrados contactos no ficheiro."
 
@@ -7832,10 +7733,6 @@ msgid ""
 "grommunio Web does not support importing multiple ICS with this version."
 msgstr ""
 "grommunio Web não suporta a importação de múltiplas ICS com esta versão."
-
-#, fuzzy, php-format
-msgid "Unable to import '%s'"
-msgstr "Incapaz de importar '%s'"
 
 #, fuzzy
 msgid "The EML is not valid"
@@ -7880,6 +7777,3 @@ msgstr "Erro JSON: - %s"
 #, fuzzy
 msgid "Some problem encountered when encoding/decoding JSON data."
 msgstr "Alguns problemas encontrados ao codificar/descodificar dados JSON."
-
-msgid "Restore items"
-msgstr "Restaurar Itens"

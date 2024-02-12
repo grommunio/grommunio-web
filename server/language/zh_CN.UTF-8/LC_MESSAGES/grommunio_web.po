@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Chinese (Simplified)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-09-25 14:32+0200\n"
+"POT-Creation-Date: 2024-02-12 02:01+0100\n"
 "PO-Revision-Date: 2022-07-26 18:09+0200\n"
 "Last-Translator: import\n"
 "Language-Team: \n"
@@ -603,6 +603,9 @@ msgstr "空文件夹名称"
 msgid "You must specify a name."
 msgstr "您必须指定一个名称。"
 
+msgid "Add a folder to favorites based on search query"
+msgstr "根据此搜索查询将文件夹添加至收藏夹"
+
 msgid "Folder name"
 msgstr "文件夹名称"
 
@@ -688,9 +691,6 @@ msgstr "正文和附件"
 
 msgid "Favorites"
 msgstr "收藏夹"
-
-msgid "Add a folder to favorites based on search query"
-msgstr "根据此搜索查询将文件夹添加至收藏夹"
 
 msgid "Select Folder"
 msgstr "选择文件夹"
@@ -1029,6 +1029,9 @@ msgstr "忙碌的与会者"
 
 msgid "One or more attendees are busy. Are you sure to invite?"
 msgstr "一个或多个与会者为忙碌状态。您是否确定邀请他们？"
+
+msgid "Preview"
+msgstr "预览"
 
 msgid "Scheduling"
 msgstr "时序安排"
@@ -1960,9 +1963,6 @@ msgstr "文件上传"
 
 msgid "Attach item"
 msgstr "附加项目"
-
-msgid "Preview"
-msgstr "预览"
 
 msgid "Download"
 msgstr "下载"
@@ -4242,6 +4242,9 @@ msgstr "关闭文件夹"
 msgid "Reload"
 msgstr "重新加载"
 
+msgid "Restore items"
+msgstr "恢复项目"
+
 msgid "Select color"
 msgstr "选择颜色"
 
@@ -5324,57 +5327,6 @@ msgstr "无任务。"
 msgid "Tasks / To-Do"
 msgstr "任务/待办事项"
 
-msgid "Import / Export"
-msgstr "导入/导出"
-
-msgid ""
-"Calendar, contact and mail items can be imported and exported from and to "
-"grommunio Web."
-msgstr "日历、联系人和邮件项目均可通过grommunio Web导入和导出至grommunio Web。"
-
-msgid ""
-"Right-click a folder and select the import button. Additionally, items can "
-"be imported from the attachment context menu."
-msgstr ""
-"右键单击一个文件夹，然后选择导入按钮。此外，可通过附件上下文菜单导入项目。"
-
-msgid "Exporting can be done from the context menu of an item."
-msgstr "可通过项目的上下文菜单中完成执行导出。"
-
-msgid "Icon packs"
-msgstr "图标包"
-
-msgid ""
-"You can now choose between different icons. By default the new Breeze icons "
-"are enabled, but if you prefer the classic icons you can change this in the "
-"settings."
-msgstr ""
-"您现在可在不同图标之间进行选择。默认情况下，新的“微风”图标已启用，但如果您喜"
-"欢经典图标，则可在设置中更改。"
-
-msgid ""
-"Go to your settings, open the general tab and select an icon pack to your "
-"liking."
-msgstr "转至您的设置，打开常规选项卡，然后根据自己的喜好选择图标包。"
-
-msgid "Left: Breeze - Right: Classic"
-msgstr "左：微风 - 右：经典"
-
-msgid "What's new"
-msgstr "最新消息"
-
-msgid "Don't show me new features again."
-msgstr "不再显示新功能。"
-
-msgid "Skip"
-msgstr "跳过"
-
-msgid "Previous"
-msgstr "前一个"
-
-msgid "Next"
-msgstr "下一个"
-
 msgid "Click the link to open the URL in a new window."
 msgstr "点击此链接以在新窗口中打开URL。"
 
@@ -6029,12 +5981,6 @@ msgstr "第一次使用grommunio-files时，需要进行认证"
 msgid "Intranet"
 msgstr "内联网"
 
-msgid "number"
-msgstr "数值"
-
-msgid "shadow"
-msgstr "阴影"
-
 #, fuzzy
 msgid "Openstreetmap"
 msgstr "开放式街道地图"
@@ -6076,6 +6022,15 @@ msgstr "要求擦拭"
 msgid "Wipe Executed"
 msgstr "擦拭已执行"
 
+msgid "Account Only Wipe Pending"
+msgstr ""
+
+msgid "Account Only Wipe Requested"
+msgstr ""
+
+msgid "Account Only Wipe Executed"
+msgstr ""
+
 msgid "Not Available"
 msgstr "不可用"
 
@@ -6104,12 +6059,11 @@ msgstr "grommunio-sync版本"
 msgid "Policy name"
 msgstr "政策名称"
 
-#, fuzzy
-msgid "Outlook Extension"
-msgstr "Outlook扩展"
+msgid "Connected since"
+msgstr "自连接以来"
 
-msgid "Build"
-msgstr "建立"
+msgid "d F Y"
+msgstr "d F Y"
 
 msgid "Last updated"
 msgstr "最近更新"
@@ -6117,12 +6071,6 @@ msgstr "最近更新"
 #, fuzzy
 msgid "d F Y, H:i"
 msgstr "d F Y, H:i"
-
-msgid "Connected since"
-msgstr "自连接以来"
-
-msgid "d F Y"
-msgstr "d F Y"
 
 msgid "Synchronize"
 msgstr "同步"
@@ -6198,6 +6146,12 @@ msgstr "删除设备"
 
 msgid "Please enter your username and password"
 msgstr "请输入您的用户名和密码"
+
+msgid "Wipe only data related to this account"
+msgstr ""
+
+msgid "Wipe all data"
+msgstr ""
 
 msgid "Username"
 msgstr "用户名"
@@ -7112,10 +7066,6 @@ msgid "Unknown MAPI Error"
 msgstr "未知的应用程序编程接口（MAPI）错误"
 
 #, fuzzy
-msgid "This external link will open in a new window"
-msgstr "这个外部链接将在一个新窗口中打开"
-
-#, fuzzy
 msgid "Destination folder not found."
 msgstr "未找到目标文件夹。"
 
@@ -7145,9 +7095,6 @@ msgstr "该文件无效。"
 #, php-format
 msgid "Unable to import '%s'. "
 msgstr "无法导入‘%s’。 "
-
-msgid "Please contact your system administrator if the problem persists."
-msgstr "如果该问题仍然存在，请联系您的系统管理员。"
 
 #, fuzzy
 msgid "Attachment is not imported successfully"
@@ -7215,76 +7162,6 @@ msgstr "未知的邮件应用程序编程接口（MAPI）错误：%s"
 msgid "Action is not performed correctly."
 msgstr "行动没有正确执行。"
 
-msgid "Tentatively accepted"
-msgstr "已暂时接受"
-
-msgid "New Time Proposed"
-msgstr "提议的新时间"
-
-#, php-format
-msgid "Occurs every %s effective %s from %s to %s."
-msgstr "从%s到%s每个%s有效的%s均发生。"
-
-#, php-format
-msgid "Occurs every %s %s effective %s from %s to %s."
-msgstr "从%s到%s每个%s%s有效的%s均发生。"
-
-#, php-format
-msgid "Occurs every %s effective %s."
-msgstr "每个%s有效的%s均发生。"
-
-#, php-format
-msgid "Occurs every %s %s effective %s."
-msgstr "每个%s%s有效的%s均发生。"
-
-#, fuzzy, php-format
-msgid "Occurs every %s effective %s for %s occurrence from %s to %s."
-msgid_plural "Occurs every %s effective %s for %s occurrences from %s to %s."
-msgstr[0] "从%s到%s，每%s有效%s，%s发生。"
-
-#, fuzzy, php-format
-msgid "Occurs every %s %s effective %s for %s occurrence from %s to %s."
-msgid_plural "Occurs every %s %s effective %s for %s occurrences %s to %s."
-msgstr[0] "从%s到%s，每%s%s有效%s，%s发生。"
-
-#, fuzzy, php-format
-msgid "Occurs every %s effective %s for %s occurrence."
-msgid_plural "Occurs every %s effective %s for %s occurrences."
-msgstr[0] "每%s发生一次，对%s发生的%s有效。"
-
-#, fuzzy, php-format
-msgid "Occurs every %s %s effective %s for %s occurrence."
-msgid_plural "Occurs every %s %s effective %s for %s occurrences."
-msgstr[0] "每%s%s发生一次，%s有效，为%s发生。"
-
-#, php-format
-msgid "Occurs every %s effective %s until %s from %s to %s."
-msgstr "从%s至%s，每个%s有效的%s均发生，直至%s。"
-
-#, php-format
-msgid "Occurs every %s %s effective %s until %s from %s to %s."
-msgstr "从%s至%s，每个%s%s有效的%s均发生，直至%s。"
-
-#, php-format
-msgid "Occurs every %s effective %s until %s."
-msgstr "每个%s有效的%s均发生，直至%s。"
-
-#, php-format
-msgid "Occurs every %s %s effective %s until %s."
-msgstr "每个%s%s有效的%s均发生，直至%s。"
-
-msgid "Task Accepted:"
-msgstr "接受的任务。"
-
-msgid "Task Declined:"
-msgstr "任务被拒绝。"
-
-msgid "Task Updated:"
-msgstr "任务更新。"
-
-msgid "Task Completed:"
-msgstr "任务完成。"
-
 msgid "Contact not found"
 msgstr "接触未找到"
 
@@ -7293,6 +7170,9 @@ msgid ""
 "Contact information could not be displayed because the server had trouble "
 "retrieving the information."
 msgstr "联系信息无法显示，因为服务器在检索信息时出现问题。"
+
+msgid "Please contact your system administrator if the problem persists."
+msgstr "如果该问题仍然存在，请联系您的系统管理员。"
 
 #, fuzzy
 msgid "Could not handle this type of object."
@@ -7406,6 +7286,15 @@ msgstr "%s的周年纪念日"
 #, fuzzy
 msgid "You don't have the permission to complete this action"
 msgstr "你没有权限完成这个动作"
+
+msgid "Quota error"
+msgstr ""
+
+msgid "Send quota limit reached"
+msgstr ""
+
+msgid "Email sending failed. Check the log files for more information."
+msgstr ""
 
 #, fuzzy
 msgid "Unknown user/group"
@@ -7770,6 +7659,32 @@ msgstr "登录"
 msgid "File is not imported successfully"
 msgstr "文件没有被成功导入"
 
+msgid "The uploaded file exceeds the upload_max_filesize directive in php.ini."
+msgstr ""
+
+msgid ""
+"The uploaded file exceeds the MAX_FILE_SIZE directive that was specified in "
+"the HTML form."
+msgstr ""
+
+msgid "The uploaded file was only partially uploaded."
+msgstr ""
+
+msgid "No file was uploaded. ."
+msgstr ""
+
+msgid "Missing a temporary folder."
+msgstr ""
+
+msgid "Failed to write file to disk."
+msgstr ""
+
+msgid ""
+"A PHP extension stopped the file upload. PHP does not provide a way to "
+"ascertain which extension caused the file upload to stop; examining the list "
+"of loaded extensions with phpinfo() may help."
+msgstr ""
+
 msgid "There is no contact found in this file."
 msgstr "未能在此文件中找到任何联系人。"
 
@@ -7781,10 +7696,6 @@ msgstr "grommunio Web不支持使用此版本导入多个VCF。"
 msgid ""
 "grommunio Web does not support importing multiple ICS with this version."
 msgstr "grommunio Web在这个版本中不支持导入多个ICS。"
-
-#, fuzzy, php-format
-msgid "Unable to import '%s'"
-msgstr "无法导入'%s'。"
 
 #, fuzzy
 msgid "The EML is not valid"
@@ -7824,6 +7735,3 @@ msgstr "JSON错误: - %s"
 #, fuzzy
 msgid "Some problem encountered when encoding/decoding JSON data."
 msgstr "在对JSON数据进行编码/解码时遇到了一些问题。"
-
-msgid "Restore items"
-msgstr "恢复项目"

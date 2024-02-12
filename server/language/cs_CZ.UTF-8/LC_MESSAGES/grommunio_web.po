@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Czech\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-09-25 14:32+0200\n"
+"POT-Creation-Date: 2024-02-12 02:01+0100\n"
 "PO-Revision-Date: 2022-07-26 14:09+0200\n"
 "Last-Translator: import\n"
 "Language-Team: \n"
@@ -634,6 +634,9 @@ msgstr "Vyprázdnit složku"
 msgid "You must specify a name."
 msgstr "Musíte uvést název."
 
+msgid "Add a folder to favorites based on search query"
+msgstr "Přidejte složku do oblíbených na základě vašeho vyhledávacího dotazu"
+
 msgid "Folder name"
 msgstr "Název složky"
 
@@ -721,9 +724,6 @@ msgstr "Obsah zprávy & přílohy"
 
 msgid "Favorites"
 msgstr "Oblíbené"
-
-msgid "Add a folder to favorites based on search query"
-msgstr "Přidejte složku do oblíbených na základě vašeho vyhledávacího dotazu"
 
 msgid "Select Folder"
 msgstr "Vybrat složku"
@@ -1088,6 +1088,9 @@ msgstr "Pozvat účastníky"
 msgid "One or more attendees are busy. Are you sure to invite?"
 msgstr ""
 "Jeden či více pozvaných účastníků je zaneprázdněno. Chcete přesto pozvat?"
+
+msgid "Preview"
+msgstr "Náhled"
 
 msgid "Scheduling"
 msgstr "Plánování"
@@ -2111,9 +2114,6 @@ msgstr "Nahrát soubor"
 
 msgid "Attach item"
 msgstr "Přidat přílohu"
-
-msgid "Preview"
-msgstr "Náhled"
 
 msgid "Download"
 msgstr "Stáhnout"
@@ -4594,6 +4594,9 @@ msgstr "Zavřít složku"
 msgid "Reload"
 msgstr "Znovu načíst"
 
+msgid "Restore items"
+msgstr "Obnovit položky"
+
 #, fuzzy
 msgid "Select color"
 msgstr "Vybrat složku"
@@ -5830,71 +5833,6 @@ msgstr "Žádné úkoly."
 msgid "Tasks / To-Do"
 msgstr "Úkoly / To-Do"
 
-msgid "Import / Export"
-msgstr "Import / Export"
-
-#, fuzzy
-msgid ""
-"Calendar, contact and mail items can be imported and exported from and to "
-"grommunio Web."
-msgstr ""
-"Položky kalendáře, kontaktů a pošty lze importovat a exportovat z a do "
-"aplikace grommunio Web."
-
-#, fuzzy
-msgid ""
-"Right-click a folder and select the import button. Additionally, items can "
-"be imported from the attachment context menu."
-msgstr ""
-"Klikněte pravým tlačítkem myši na složku a vyberte tlačítko importovat. "
-"Kromě toho lze položky importovat z kontextové nabídky přílohy."
-
-#, fuzzy
-msgid "Exporting can be done from the context menu of an item."
-msgstr "Export lze provést z kontextové nabídky položky."
-
-#, fuzzy
-msgid "Icon packs"
-msgstr "Ikony"
-
-#, fuzzy
-msgid ""
-"You can now choose between different icons. By default the new Breeze icons "
-"are enabled, but if you prefer the classic icons you can change this in the "
-"settings."
-msgstr ""
-"Nyní si můžete vybrat z různých ikon. Ve výchozím nastavení jsou povoleny "
-"nové ikony Breeze, ale pokud dáváte přednost klasickým ikonám, můžete to "
-"změnit v nastavení."
-
-#, fuzzy
-msgid ""
-"Go to your settings, open the general tab and select an icon pack to your "
-"liking."
-msgstr ""
-"Přejděte do nastavení, otevřete kartu Obecné a vyberte balíček ikon podle "
-"svých představ."
-
-#, fuzzy
-msgid "Left: Breeze - Right: Classic"
-msgstr "Vlevo: Breeze - vpravo: Classic"
-
-msgid "What's new"
-msgstr "Co je nového"
-
-#, fuzzy
-msgid "Don't show me new features again."
-msgstr "Už mi neukazujte nové funkce."
-
-msgid "Skip"
-msgstr "Přeskočit"
-
-msgid "Previous"
-msgstr "Předchozí"
-
-msgid "Next"
-msgstr "Další"
-
 #, fuzzy
 msgid "Click the link to open the URL in a new window."
 msgstr "Kliknutím na odkaz otevřete adresu URL v novém okně."
@@ -6592,13 +6530,6 @@ msgstr "Při prvním použití grommunio-files je vyžadováno ověření totož
 msgid "Intranet"
 msgstr "Intranet"
 
-msgid "number"
-msgstr "číslo"
-
-#, fuzzy
-msgid "shadow"
-msgstr "stín"
-
 #, fuzzy
 msgid "Openstreetmap"
 msgstr "Openstreetmap"
@@ -6641,6 +6572,15 @@ msgstr "Požadované utření"
 msgid "Wipe Executed"
 msgstr "Vymazání provedeno"
 
+msgid "Account Only Wipe Pending"
+msgstr ""
+
+msgid "Account Only Wipe Requested"
+msgstr ""
+
+msgid "Account Only Wipe Executed"
+msgstr ""
+
 msgid "Not Available"
 msgstr "Není k dispozici"
 
@@ -6670,11 +6610,12 @@ msgid "Policy name"
 msgstr "Název politiky"
 
 #, fuzzy
-msgid "Outlook Extension"
-msgstr "Rozšíření aplikace Outlook"
+msgid "Connected since"
+msgstr "Připojeno od"
 
-msgid "Build"
-msgstr "Verze"
+#, fuzzy
+msgid "d F Y"
+msgstr "d F Y"
 
 msgid "Last updated"
 msgstr "Naposledy aktualizováno"
@@ -6682,14 +6623,6 @@ msgstr "Naposledy aktualizováno"
 #, fuzzy
 msgid "d F Y, H:i"
 msgstr "d F Y, H:i"
-
-#, fuzzy
-msgid "Connected since"
-msgstr "Připojeno od"
-
-#, fuzzy
-msgid "d F Y"
-msgstr "d F Y"
 
 msgid "Synchronize"
 msgstr "Synchronizovat"
@@ -6770,6 +6703,12 @@ msgstr "Odstranění zařízení"
 
 msgid "Please enter your username and password"
 msgstr "Zadejte své uživatelské jméno a heslo"
+
+msgid "Wipe only data related to this account"
+msgstr ""
+
+msgid "Wipe all data"
+msgstr ""
 
 msgid "Username"
 msgstr "Jméno uživatele"
@@ -7752,10 +7691,6 @@ msgid "Unknown MAPI Error"
 msgstr "Neznámá MAPI chyba: %s"
 
 #, fuzzy
-msgid "This external link will open in a new window"
-msgstr "Tento externí odkaz se otevře v novém okně"
-
-#, fuzzy
 msgid "Destination folder not found."
 msgstr "Cílová složka nebyla nalezena."
 
@@ -7789,10 +7724,6 @@ msgstr "{0} není platný čas."
 #, php-format
 msgid "Unable to import '%s'. "
 msgstr "Nelze importovat '%s'. "
-
-#, fuzzy
-msgid "Please contact your system administrator if the problem persists."
-msgstr "Pokud problém přetrvává, obraťte se na správce systému."
 
 #, fuzzy
 msgid "Attachment is not imported successfully"
@@ -7864,88 +7795,6 @@ msgstr "Neznámá MAPI chyba: %s"
 msgid "Action is not performed correctly."
 msgstr "Akce není provedena správně."
 
-msgid "Tentatively accepted"
-msgstr "Předběžně přijato"
-
-msgid "New Time Proposed"
-msgstr "Navržen nový čas"
-
-#, php-format
-msgid "Occurs every %s effective %s from %s to %s."
-msgstr "Opakuje se vždy v %s počínaje %s od %s do %s."
-
-#, php-format
-msgid "Occurs every %s %s effective %s from %s to %s."
-msgstr "Opakuje se vždy v %s %s počínaje %s od %s do %s."
-
-#, php-format
-msgid "Occurs every %s effective %s."
-msgstr "Opakuje se vždy v %s počínaje %s."
-
-#, php-format
-msgid "Occurs every %s %s effective %s."
-msgstr "Opakuje se vždy v %s %s počínaje %s."
-
-#, fuzzy, php-format
-msgid "Occurs every %s effective %s for %s occurrence from %s to %s."
-msgid_plural "Occurs every %s effective %s for %s occurrences from %s to %s."
-msgstr[0] "Nastává vždy po %s účinných %s pro %s výskyt od %s do %s."
-msgstr[1] ""
-msgstr[2] ""
-
-#, fuzzy, php-format
-msgid "Occurs every %s %s effective %s for %s occurrence from %s to %s."
-msgid_plural "Occurs every %s %s effective %s for %s occurrences %s to %s."
-msgstr[0] "Nastává každý %s %s účinný %s pro %s výskyt od %s do %s."
-msgstr[1] ""
-msgstr[2] ""
-
-#, fuzzy, php-format
-msgid "Occurs every %s effective %s for %s occurrence."
-msgid_plural "Occurs every %s effective %s for %s occurrences."
-msgstr[0] "Nastává každý %s účinný %s pro %s výskyt."
-msgstr[1] ""
-msgstr[2] ""
-
-#, fuzzy, php-format
-msgid "Occurs every %s %s effective %s for %s occurrence."
-msgid_plural "Occurs every %s %s effective %s for %s occurrences."
-msgstr[0] "Nastává každý %s %s účinný %s pro %s výskyt."
-msgstr[1] ""
-msgstr[2] ""
-
-#, php-format
-msgid "Occurs every %s effective %s until %s from %s to %s."
-msgstr "Opakuje se vždy v %s počínaje %s až do %s od %s do %s."
-
-#, php-format
-msgid "Occurs every %s %s effective %s until %s from %s to %s."
-msgstr "Opakuje se vždy v %s %s počínaje %s až do %s od %s do %s."
-
-#, php-format
-msgid "Occurs every %s effective %s until %s."
-msgstr "Opakuje se vždy v %s počínaje %s do %s."
-
-#, php-format
-msgid "Occurs every %s %s effective %s until %s."
-msgstr "Opakuje se vždy v %s %s počínaje %s do %s."
-
-#, fuzzy
-msgid "Task Accepted:"
-msgstr "Úkol přijat:"
-
-#, fuzzy
-msgid "Task Declined:"
-msgstr "Úkol odmítnut:"
-
-#, fuzzy
-msgid "Task Updated:"
-msgstr "Úkol aktualizován:"
-
-#, fuzzy
-msgid "Task Completed:"
-msgstr "Úkol splněn:"
-
 #, fuzzy
 msgid "Contact not found"
 msgstr "Kontakt nebyl nalezen"
@@ -7957,6 +7806,10 @@ msgid ""
 msgstr ""
 "Kontaktní informace nebylo možné zobrazit, protože server měl potíže s "
 "jejich načtením."
+
+#, fuzzy
+msgid "Please contact your system administrator if the problem persists."
+msgstr "Pokud problém přetrvává, obraťte se na správce systému."
 
 #, fuzzy
 msgid "Could not handle this type of object."
@@ -8082,6 +7935,15 @@ msgstr "výročí %s"
 #, fuzzy
 msgid "You don't have the permission to complete this action"
 msgstr "K dokončení této akce nemáte oprávnění"
+
+msgid "Quota error"
+msgstr ""
+
+msgid "Send quota limit reached"
+msgstr ""
+
+msgid "Email sending failed. Check the log files for more information."
+msgstr ""
 
 #, fuzzy
 msgid "Unknown user/group"
@@ -8462,6 +8324,32 @@ msgstr "Přihlásit se"
 msgid "File is not imported successfully"
 msgstr "Soubor se nepodařilo úspěšně importovat"
 
+msgid "The uploaded file exceeds the upload_max_filesize directive in php.ini."
+msgstr ""
+
+msgid ""
+"The uploaded file exceeds the MAX_FILE_SIZE directive that was specified in "
+"the HTML form."
+msgstr ""
+
+msgid "The uploaded file was only partially uploaded."
+msgstr ""
+
+msgid "No file was uploaded. ."
+msgstr ""
+
+msgid "Missing a temporary folder."
+msgstr ""
+
+msgid "Failed to write file to disk."
+msgstr ""
+
+msgid ""
+"A PHP extension stopped the file upload. PHP does not provide a way to "
+"ascertain which extension caused the file upload to stop; examining the list "
+"of loaded extensions with phpinfo() may help."
+msgstr ""
+
 #, fuzzy
 msgid "There is no contact found in this file."
 msgstr "V tomto souboru nebyl nalezen žádný kontakt."
@@ -8475,10 +8363,6 @@ msgstr "grommunio Web v této verzi nepodporuje import více VCF."
 msgid ""
 "grommunio Web does not support importing multiple ICS with this version."
 msgstr "grommunio Web v této verzi nepodporuje import více ICS."
-
-#, fuzzy, php-format
-msgid "Unable to import '%s'"
-msgstr "Nelze importovat '%s'"
 
 #, fuzzy
 msgid "The EML is not valid"
@@ -8523,6 +8407,3 @@ msgstr "Chyba JSON: - %s"
 #, fuzzy
 msgid "Some problem encountered when encoding/decoding JSON data."
 msgstr "Při kódování/dekódování dat JSON se vyskytl nějaký problém."
-
-msgid "Restore items"
-msgstr "Obnovit položky"

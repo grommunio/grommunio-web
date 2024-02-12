@@ -3,8 +3,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Spanish (Spain)\n"
-"Report-Msgid-Bugs-To: dev@grommunio.com\n"
-"POT-Creation-Date: 2019-09-25 14:32+0200\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-02-12 02:01+0100\n"
 "PO-Revision-Date: 2024-01-03 16:10+0000\n"
 "Last-Translator: gallegonovato <fran-carro@hotmail.es>\n"
 "Language-Team: Spanish <https://hosted.weblate.org/projects/grommunio/"
@@ -631,6 +631,11 @@ msgstr "Vaciar Carpeta"
 msgid "You must specify a name."
 msgstr "Ud. debe especificar un nombre."
 
+#, fuzzy
+msgid "Add a folder to favorites based on search query"
+msgstr ""
+"Añadir una carpeta a los favoritos en función de esta consulta de búsqueda"
+
 msgid "Folder name"
 msgstr "Nombre de carpeta"
 
@@ -722,11 +727,6 @@ msgstr "Adjuntos"
 
 msgid "Favorites"
 msgstr "Favoritos"
-
-#, fuzzy
-msgid "Add a folder to favorites based on search query"
-msgstr ""
-"Añadir una carpeta a los favoritos en función de esta consulta de búsqueda"
 
 msgid "Select Folder"
 msgstr "Seleccionar Carpeta"
@@ -1094,6 +1094,9 @@ msgid "One or more attendees are busy. Are you sure to invite?"
 msgstr ""
 "Uno o más asistentes que usted ha invitado están ocupados. ¿Está usted "
 "seguro de invitarlos?"
+
+msgid "Preview"
+msgstr "Vista Previa"
 
 msgid "Scheduling"
 msgstr "Programación"
@@ -2148,9 +2151,6 @@ msgstr "Subir archivo"
 
 msgid "Attach item"
 msgstr "Adjuntar elemento"
-
-msgid "Preview"
-msgstr "Vista Previa"
 
 msgid "Download"
 msgstr "Descarga"
@@ -4658,6 +4658,9 @@ msgstr "Cerrar carpeta"
 msgid "Reload"
 msgstr "Refrescar"
 
+msgid "Restore items"
+msgstr "Restaurar elementos"
+
 msgid "Select color"
 msgstr "Seleccionar un color"
 
@@ -5025,7 +5028,6 @@ msgstr "Abajo"
 msgid "Location of preview pane"
 msgstr "Ubicación del panel de vista previa"
 
-#, fuzzy
 msgid "Use subject prefixes in accordance with RFC 5256/5322"
 msgstr ""
 
@@ -5878,73 +5880,6 @@ msgstr "No hay tareas."
 msgid "Tasks / To-Do"
 msgstr "Tareas / To-Do"
 
-msgid "Import / Export"
-msgstr "Importar / Exportar"
-
-#, fuzzy
-msgid ""
-"Calendar, contact and mail items can be imported and exported from and to "
-"grommunio Web."
-msgstr ""
-"Los elementos del calendario, los contactos y el correo pueden importarse y "
-"exportarse desde y hacia grommunio Web."
-
-#, fuzzy
-msgid ""
-"Right-click a folder and select the import button. Additionally, items can "
-"be imported from the attachment context menu."
-msgstr ""
-"Haga clic con el botón derecho del ratón en una carpeta y seleccione el "
-"botón de importación. Además, los elementos pueden importarse desde el menú "
-"contextual de los archivos adjuntos."
-
-#, fuzzy
-msgid "Exporting can be done from the context menu of an item."
-msgstr ""
-"La exportación puede realizarse desde el menú contextual de un elemento."
-
-#, fuzzy
-msgid "Icon packs"
-msgstr "Iconos"
-
-#, fuzzy
-msgid ""
-"You can now choose between different icons. By default the new Breeze icons "
-"are enabled, but if you prefer the classic icons you can change this in the "
-"settings."
-msgstr ""
-"Ahora puedes elegir entre diferentes iconos. Por defecto están activados los "
-"nuevos iconos de Breeze, pero si prefieres los iconos clásicos puedes "
-"cambiarlos en la configuración."
-
-#, fuzzy
-msgid ""
-"Go to your settings, open the general tab and select an icon pack to your "
-"liking."
-msgstr ""
-"Ve a tus ajustes, abre la pestaña general y selecciona un paquete de iconos "
-"a tu gusto."
-
-#, fuzzy
-msgid "Left: Breeze - Right: Classic"
-msgstr "Izquierda: Breeze - Derecha: Classic"
-
-msgid "What's new"
-msgstr "Qué hay de nuevo"
-
-#, fuzzy
-msgid "Don't show me new features again."
-msgstr "No vuelvas a mostrarme nuevas características."
-
-msgid "Skip"
-msgstr "Saltar"
-
-msgid "Previous"
-msgstr "Anterior"
-
-msgid "Next"
-msgstr "Siguiente"
-
 #, fuzzy
 msgid "Click the link to open the URL in a new window."
 msgstr "Haga clic en el enlace para abrir la URL en una nueva ventana."
@@ -6619,13 +6554,6 @@ msgstr ""
 msgid "Intranet"
 msgstr "Intranet"
 
-msgid "number"
-msgstr "número"
-
-#, fuzzy
-msgid "shadow"
-msgstr "sombra"
-
 #, fuzzy
 msgid "Openstreetmap"
 msgstr "Openstreetmap"
@@ -6668,6 +6596,15 @@ msgstr "Limpieza solicitada"
 msgid "Wipe Executed"
 msgstr "Borrado ejecutado"
 
+msgid "Account Only Wipe Pending"
+msgstr ""
+
+msgid "Account Only Wipe Requested"
+msgstr ""
+
+msgid "Account Only Wipe Executed"
+msgstr ""
+
 msgid "Not Available"
 msgstr "No disponible"
 
@@ -6696,11 +6633,12 @@ msgid "Policy name"
 msgstr "Política de nombres"
 
 #, fuzzy
-msgid "Outlook Extension"
-msgstr "Extensión de Outlook"
+msgid "Connected since"
+msgstr "Conectado desde"
 
-msgid "Build"
-msgstr "Construir"
+#, fuzzy
+msgid "d F Y"
+msgstr "d F Y"
 
 msgid "Last updated"
 msgstr "Última actualización"
@@ -6708,14 +6646,6 @@ msgstr "Última actualización"
 #, fuzzy
 msgid "d F Y, H:i"
 msgstr "d F Y, H:i"
-
-#, fuzzy
-msgid "Connected since"
-msgstr "Conectado desde"
-
-#, fuzzy
-msgid "d F Y"
-msgstr "d F Y"
 
 msgid "Synchronize"
 msgstr "Sincronizar"
@@ -6794,6 +6724,12 @@ msgstr "Quitar el dispositivo"
 
 msgid "Please enter your username and password"
 msgstr "Por favor, introduce tu usuario y contraseña"
+
+msgid "Wipe only data related to this account"
+msgstr ""
+
+msgid "Wipe all data"
+msgstr ""
 
 msgid "Username"
 msgstr "Nombre de usuario"
@@ -7795,10 +7731,6 @@ msgid "Unknown MAPI Error"
 msgstr "Usuario/Grupo desconocido"
 
 #, fuzzy
-msgid "This external link will open in a new window"
-msgstr "Este enlace externo se abrirá en una nueva ventana"
-
-#, fuzzy
 msgid "Destination folder not found."
 msgstr "Carpeta de destino no encontrada."
 
@@ -7833,11 +7765,6 @@ msgstr "Los archivos adjuntos no han sido subidos aún."
 #, php-format
 msgid "Unable to import '%s'. "
 msgstr "No se pudo importar '%s'. "
-
-#, fuzzy
-msgid "Please contact your system administrator if the problem persists."
-msgstr ""
-"Póngase en contacto con el administrador del sistema si el problema persiste."
 
 #, fuzzy
 msgid "Attachment is not imported successfully"
@@ -7912,86 +7839,6 @@ msgid "Action is not performed correctly."
 msgstr "La acción no se realiza correctamente."
 
 #, fuzzy
-msgid "Tentatively accepted"
-msgstr "Aceptado provisionalmente"
-
-#, fuzzy
-msgid "New Time Proposed"
-msgstr "Se propone un nuevo horario"
-
-#, fuzzy, php-format
-msgid "Occurs every %s effective %s from %s to %s."
-msgstr "Ocurre cada {0} efectivo {1} mientras {2}."
-
-#, fuzzy, php-format
-msgid "Occurs every %s %s effective %s from %s to %s."
-msgstr "Ocurre cada {0} efectivo {1} para {2} ocurrencia."
-
-#, fuzzy, php-format
-msgid "Occurs every %s effective %s."
-msgstr "Ocurre cada {0} efectivo {1}."
-
-#, fuzzy, php-format
-msgid "Occurs every %s %s effective %s."
-msgstr "Ocurre cada {0} efectivo {1}."
-
-#, fuzzy, php-format
-msgid "Occurs every %s effective %s for %s occurrence from %s to %s."
-msgid_plural "Occurs every %s effective %s for %s occurrences from %s to %s."
-msgstr[0] "Ocurre cada %s efectivo %s para %s ocurrencia de %s a %s."
-msgstr[1] "Ocurre cada %s efectivo %s para %s ocurrencias de %s a %s."
-
-#, fuzzy, php-format
-msgid "Occurs every %s %s effective %s for %s occurrence from %s to %s."
-msgid_plural "Occurs every %s %s effective %s for %s occurrences %s to %s."
-msgstr[0] "Ocurre cada %s %s efectivo %s para %s ocurrencia de %s a %s."
-msgstr[1] "Ocurre cada %s %s efectivo %s para %s ocurrencias %s a %s."
-
-#, fuzzy, php-format
-msgid "Occurs every %s effective %s for %s occurrence."
-msgid_plural "Occurs every %s effective %s for %s occurrences."
-msgstr[0] "Ocurre cada %s efectivo %s para %s ocurrencia."
-msgstr[1] "Ocurre cada %s efectivo %s para %s ocurrencias."
-
-#, fuzzy, php-format
-msgid "Occurs every %s %s effective %s for %s occurrence."
-msgid_plural "Occurs every %s %s effective %s for %s occurrences."
-msgstr[0] "Ocurre cada %s %s efectivo %s para %s ocurrencia."
-msgstr[1] "Ocurre cada %s %s efectivo %s para %s ocurrencias."
-
-#, fuzzy, php-format
-msgid "Occurs every %s effective %s until %s from %s to %s."
-msgstr "Ocurre cada {0}  efectiva {1} para {2} ocurrencia de {3} a {4}."
-
-#, fuzzy, php-format
-msgid "Occurs every %s %s effective %s until %s from %s to %s."
-msgstr "Ocurre cada {0}  efectiva {1} para {2} ocurrencia de {3} a {4}."
-
-#, fuzzy, php-format
-msgid "Occurs every %s effective %s until %s."
-msgstr "Ocurre cada {0} efectivo {1} mientras {2}."
-
-#, fuzzy, php-format
-msgid "Occurs every %s %s effective %s until %s."
-msgstr "Ocurre cada {0} efectivo {1} mientras {2}."
-
-#, fuzzy
-msgid "Task Accepted:"
-msgstr "Tarea aceptada:"
-
-#, fuzzy
-msgid "Task Declined:"
-msgstr "Tarea rechazada:"
-
-#, fuzzy
-msgid "Task Updated:"
-msgstr "Tarea actualizada:"
-
-#, fuzzy
-msgid "Task Completed:"
-msgstr "Tarea completada:"
-
-#, fuzzy
 msgid "Contact not found"
 msgstr "Contacto no encontrado"
 
@@ -8002,6 +7849,11 @@ msgid ""
 msgstr ""
 "La información de contacto no pudo ser mostrada porque el servidor tuvo "
 "problemas para recuperar la información."
+
+#, fuzzy
+msgid "Please contact your system administrator if the problem persists."
+msgstr ""
+"Póngase en contacto con el administrador del sistema si el problema persiste."
 
 #, fuzzy
 msgid "Could not handle this type of object."
@@ -8134,6 +7986,15 @@ msgstr "aniversario de %s"
 msgid "You don't have the permission to complete this action"
 msgstr "No tienes permiso para completar esta acción"
 
+msgid "Quota error"
+msgstr ""
+
+msgid "Send quota limit reached"
+msgstr ""
+
+msgid "Email sending failed. Check the log files for more information."
+msgstr ""
+
 #, fuzzy
 msgid "Unknown user/group"
 msgstr "Usuario/grupo desconocido"
@@ -8254,9 +8115,9 @@ msgid ""
 "click the %1$s folder > properties > permissions)."
 msgstr ""
 "No tiene suficientes privilegios para abrir esta carpeta %1$s. El "
-"propietario de la carpeta puede establecerlos mediante la pestaña \"permisos"
-"\" de las propiedades de la carpeta (haga clic con el botón derecho en la "
-"carpeta %1$s > propiedades > permisos)."
+"propietario de la carpeta puede establecerlos mediante la pestaña "
+"\"permisos\" de las propiedades de la carpeta (haga clic con el botón "
+"derecho en la carpeta %1$s > propiedades > permisos)."
 
 msgid "unknown"
 msgstr "desconocido"
@@ -8541,6 +8402,32 @@ msgstr "Iniciar sesión"
 msgid "File is not imported successfully"
 msgstr "El archivo no se importa con éxito"
 
+msgid "The uploaded file exceeds the upload_max_filesize directive in php.ini."
+msgstr ""
+
+msgid ""
+"The uploaded file exceeds the MAX_FILE_SIZE directive that was specified in "
+"the HTML form."
+msgstr ""
+
+msgid "The uploaded file was only partially uploaded."
+msgstr ""
+
+msgid "No file was uploaded. ."
+msgstr ""
+
+msgid "Missing a temporary folder."
+msgstr ""
+
+msgid "Failed to write file to disk."
+msgstr ""
+
+msgid ""
+"A PHP extension stopped the file upload. PHP does not provide a way to "
+"ascertain which extension caused the file upload to stop; examining the list "
+"of loaded extensions with phpinfo() may help."
+msgstr ""
+
 #, fuzzy
 msgid "There is no contact found in this file."
 msgstr "No se ha encontrado ningún contacto en este archivo."
@@ -8556,10 +8443,6 @@ msgid ""
 "grommunio Web does not support importing multiple ICS with this version."
 msgstr ""
 "grommunio Web no soporta la importación de múltiples ICS con esta versión."
-
-#, fuzzy, php-format
-msgid "Unable to import '%s'"
-msgstr "No se puede importar '%s'"
 
 #, fuzzy
 msgid "The EML is not valid"
@@ -8606,6 +8489,3 @@ msgstr "Error JSON: - %s"
 #, fuzzy
 msgid "Some problem encountered when encoding/decoding JSON data."
 msgstr "Algún problema encontrado al codificar/decodificar datos JSON."
-
-msgid "Restore items"
-msgstr "Restaurar elementos"

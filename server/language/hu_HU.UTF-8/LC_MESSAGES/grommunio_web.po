@@ -3,8 +3,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Hungarian\n"
-"Report-Msgid-Bugs-To: dev@grommunio.com\n"
-"POT-Creation-Date: 2019-09-25 14:32+0200\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-02-12 02:01+0100\n"
 "PO-Revision-Date: 2022-07-26 16:08+0200\n"
 "Last-Translator: f3rr31 <5920873@disroot.org>\n"
 "Language-Team: Hungarian <https://hosted.weblate.org/projects/grommunio/"
@@ -631,6 +631,9 @@ msgstr "Importálás mappába"
 msgid "You must specify a name."
 msgstr "Meg kell adnia egy nevet."
 
+msgid "Add a folder to favorites based on search query"
+msgstr "Keresés alapján mappa létrehozása a kedvencekben"
+
 msgid "Folder name"
 msgstr "Mappa név"
 
@@ -718,9 +721,6 @@ msgstr "Üzenettörzs és mellékletek"
 
 msgid "Favorites"
 msgstr "Kedvencek"
-
-msgid "Add a folder to favorites based on search query"
-msgstr "Keresés alapján mappa létrehozása a kedvencekben"
 
 msgid "Select Folder"
 msgstr "Mappa választás"
@@ -1095,6 +1095,9 @@ msgstr "Résztvevők meghívása"
 #, fuzzy
 msgid "One or more attendees are busy. Are you sure to invite?"
 msgstr "Egy, vagy több meghívott elfoglalt. Biztosan meghívja őket?"
+
+msgid "Preview"
+msgstr "Előnézet"
 
 msgid "Scheduling"
 msgstr "Ütemezés"
@@ -2134,9 +2137,6 @@ msgstr "Fájl feltöltés"
 msgid "Attach item"
 msgstr "Elem csatolása"
 
-msgid "Preview"
-msgstr "Előnézet"
-
 msgid "Download"
 msgstr "Letöltés"
 
@@ -2342,8 +2342,8 @@ msgid ""
 "the context menu and click on \"Share folder…\""
 msgstr ""
 "Ha csak a mappaengedélyeket szeretné beállítani, kattintson a jobb gombbal a "
-"mappára a kontextusmenü megnyitásához, és kattintson a \"Mappa megosztása…"
-"\" gombra"
+"mappára a kontextusmenü megnyitásához, és kattintson a \"Mappa megosztása…\" "
+"gombra"
 
 msgid "Permission"
 msgstr "Hozzáférés"
@@ -4581,6 +4581,9 @@ msgstr "Mappa bezárása"
 msgid "Reload"
 msgstr "Frissítés"
 
+msgid "Restore items"
+msgstr "Elemek helyreállítása"
+
 msgid "Select color"
 msgstr "Válasszon színt"
 
@@ -4937,7 +4940,6 @@ msgstr "Alsó"
 msgid "Location of preview pane"
 msgstr "Előnézeti panel helyzete"
 
-#, fuzzy
 msgid "Use subject prefixes in accordance with RFC 5256/5322"
 msgstr ""
 
@@ -5757,70 +5759,6 @@ msgstr "Nincsenek feladatok."
 msgid "Tasks / To-Do"
 msgstr "Feladatok / teendők"
 
-msgid "Import / Export"
-msgstr "Import / Export"
-
-#, fuzzy
-msgid ""
-"Calendar, contact and mail items can be imported and exported from and to "
-"grommunio Web."
-msgstr ""
-"A naptár, a kapcsolatok és a levelek importálhatók és exportálhatók a "
-"grommunio Webről és a grommunio Webre."
-
-#, fuzzy
-msgid ""
-"Right-click a folder and select the import button. Additionally, items can "
-"be imported from the attachment context menu."
-msgstr ""
-"Kattintson a jobb gombbal egy mappára, és válassza az importálás gombot. "
-"Ezen kívül az elemek importálhatók a mellékletek kontextusmenüjéből is."
-
-#, fuzzy
-msgid "Exporting can be done from the context menu of an item."
-msgstr "Az exportálás egy elem kontextusmenüjéből végezhető el."
-
-#, fuzzy
-msgid "Icon packs"
-msgstr "Ikonok"
-
-#, fuzzy
-msgid ""
-"You can now choose between different icons. By default the new Breeze icons "
-"are enabled, but if you prefer the classic icons you can change this in the "
-"settings."
-msgstr ""
-"Mostantól különböző ikonok közül választhat. Alapértelmezés szerint az új "
-"Breeze ikonok vannak bekapcsolva, de ha a klasszikus ikonokat részesíti "
-"előnyben, a beállításokban módosíthatja ezt."
-
-#, fuzzy
-msgid ""
-"Go to your settings, open the general tab and select an icon pack to your "
-"liking."
-msgstr ""
-"Menj a beállításaidhoz, nyisd meg az általános lapot, és válassz ki egy "
-"tetszésednek megfelelő ikoncsomagot."
-
-#, fuzzy
-msgid "Left: Breeze - Right: Classic"
-msgstr "Balra: Breeze - Jobbra: Klasszikus"
-
-msgid "What's new"
-msgstr "Újdonságok"
-
-msgid "Don't show me new features again."
-msgstr "Ne mutassa az újdonságokat többször."
-
-msgid "Skip"
-msgstr "Kihagy"
-
-msgid "Previous"
-msgstr "Előző"
-
-msgid "Next"
-msgstr "Következő"
-
 msgid "Click the link to open the URL in a new window."
 msgstr "Kattintson a linkre az új ablakban való megnyitáshoz."
 
@@ -6430,13 +6368,6 @@ msgid "Intranet"
 msgstr "Intranet"
 
 #, fuzzy
-msgid "number"
-msgstr "szám"
-
-msgid "shadow"
-msgstr "árnyék"
-
-#, fuzzy
 msgid "Openstreetmap"
 msgstr "Openstreetmap"
 
@@ -6472,6 +6403,15 @@ msgstr "Eszköz törlése kérvényezve"
 msgid "Wipe Executed"
 msgstr "Törlés elindítva"
 
+msgid "Account Only Wipe Pending"
+msgstr ""
+
+msgid "Account Only Wipe Requested"
+msgstr ""
+
+msgid "Account Only Wipe Executed"
+msgstr ""
+
 msgid "Not Available"
 msgstr "Nem elérhető"
 
@@ -6501,11 +6441,12 @@ msgid "Policy name"
 msgstr "Szabályzat neve"
 
 #, fuzzy
-msgid "Outlook Extension"
-msgstr "Outlook kiterjesztés"
+msgid "Connected since"
+msgstr "Csatlakoztatva, mivel"
 
-msgid "Build"
-msgstr "Épít"
+#, fuzzy
+msgid "d F Y"
+msgstr "d F Y"
 
 #, fuzzy
 msgid "Last updated"
@@ -6514,14 +6455,6 @@ msgstr "Utolsó frissítés"
 #, fuzzy
 msgid "d F Y, H:i"
 msgstr "d F Y, H:i"
-
-#, fuzzy
-msgid "Connected since"
-msgstr "Csatlakoztatva, mivel"
-
-#, fuzzy
-msgid "d F Y"
-msgstr "d F Y"
 
 #, fuzzy
 msgid "Synchronize"
@@ -6594,6 +6527,12 @@ msgstr "Eszköz eltávolítása"
 
 msgid "Please enter your username and password"
 msgstr "Kérlek írd be a felhasználó neved és jelszavad"
+
+msgid "Wipe only data related to this account"
+msgstr ""
+
+msgid "Wipe all data"
+msgstr ""
 
 msgid "Username"
 msgstr "Felhasználónév"
@@ -7522,10 +7461,6 @@ msgid "Unknown MAPI Error"
 msgstr "Ismeretlen MAPI hiba: %s"
 
 #, fuzzy
-msgid "This external link will open in a new window"
-msgstr "Ez a külső link új ablakban fog megnyílni"
-
-#, fuzzy
 msgid "Destination folder not found."
 msgstr "A célmappa nem található."
 
@@ -7559,10 +7494,6 @@ msgstr "A csatolandó fájlok még nincsenek feltöltve."
 #, php-format
 msgid "Unable to import '%s'. "
 msgstr "'%s' nem importálható. "
-
-#, fuzzy
-msgid "Please contact your system administrator if the problem persists."
-msgstr "Ha a probléma továbbra is fennáll, forduljon a rendszergazdához."
 
 #, fuzzy
 msgid "Attachment is not imported successfully"
@@ -7633,95 +7564,6 @@ msgstr "Ismeretlen MAPI hiba: %s"
 msgid "Action is not performed correctly."
 msgstr "A művelet nem megfelelően történik."
 
-msgid "Tentatively accepted"
-msgstr "Feltételesen elfogadta"
-
-msgid "New Time Proposed"
-msgstr "Új időpont javaslat"
-
-# Have to look at it in action.
-#, php-format
-msgid "Occurs every %s effective %s from %s to %s."
-msgstr "Előfordulása %s, Érvénybe lép %s, kezdete: %s, vége: %s."
-
-# Have to look at it in action.
-#, fuzzy, php-format
-msgid "Occurs every %s %s effective %s from %s to %s."
-msgstr "Ismétlődés minden {0} érvényes {1} {2}-tól/től {3}-ig."
-
-#, php-format
-msgid "Occurs every %s effective %s."
-msgstr "Előfordulása %s, kezdete: %s."
-
-#, fuzzy, php-format
-msgid "Occurs every %s %s effective %s."
-msgstr "Minden %s %s tényleges %s alkalommal előfordul."
-
-#, fuzzy, php-format
-msgid "Occurs every %s effective %s for %s occurrence from %s to %s."
-msgid_plural "Occurs every %s effective %s for %s occurrences from %s to %s."
-msgstr[0] ""
-"Minden %s tényleges %s alkalommal %s előfordulás esetén %s-tól %s-ig."
-msgstr[1] ""
-"Minden %s tényleges %s alkalommal %s előfordulás esetén %s-tól %s-ig "
-"előfordul."
-
-#, fuzzy, php-format
-msgid "Occurs every %s %s effective %s for %s occurrence from %s to %s."
-msgid_plural "Occurs every %s %s effective %s for %s occurrences %s to %s."
-msgstr[0] ""
-"Minden %s %s tényleges %s %s előfordulás esetén %s-től %s-ig előfordul."
-msgstr[1] ""
-"Minden %s %s %s alkalommal %s alkalommal %s és %s között jelentkezik."
-
-#, fuzzy, php-format
-msgid "Occurs every %s effective %s for %s occurrence."
-msgid_plural "Occurs every %s effective %s for %s occurrences."
-msgstr[0] "Minden %s tényleges %s %s előfordulás esetén előfordul."
-msgstr[1] "Minden %s tényleges %s alkalommal %s alkalommal fordul elő."
-
-#, fuzzy, php-format
-msgid "Occurs every %s %s effective %s for %s occurrence."
-msgid_plural "Occurs every %s %s effective %s for %s occurrences."
-msgstr[0] "Minden %s %s tényleges %s %s előfordulásnál előfordul."
-msgstr[1] "Minden %s %s %s tényleges %s alkalommal fordul elő."
-
-# Have to look at it in action.
-#, fuzzy, php-format
-msgid "Occurs every %s effective %s until %s from %s to %s."
-msgstr "Ismétlődés minden {0} érvényes {1} {2}-tól/től {3}-ig."
-
-# Have to look at it in action.
-#, fuzzy, php-format
-msgid "Occurs every %s %s effective %s until %s from %s to %s."
-msgstr "Ismétlődés minden {0} érvényes {1} {2}-tól/től {3}-ig."
-
-# Have to look at it in action.
-#, fuzzy, php-format
-msgid "Occurs every %s effective %s until %s."
-msgstr "Ismétlődés minden {0} érvényes {1} {2}-tól/től {3}-ig."
-
-# Have to look at it in action.
-#, fuzzy, php-format
-msgid "Occurs every %s %s effective %s until %s."
-msgstr "Ismétlődés minden {0} érvényes {1} {2}-tól/től {3}-ig."
-
-#, fuzzy
-msgid "Task Accepted:"
-msgstr "Feladat elfogadva:"
-
-#, fuzzy
-msgid "Task Declined:"
-msgstr "Feladat elutasítva:"
-
-#, fuzzy
-msgid "Task Updated:"
-msgstr "Feladat frissítve:"
-
-#, fuzzy
-msgid "Task Completed:"
-msgstr "Befejezett feladat:"
-
 msgid "Contact not found"
 msgstr "Kapcsolat nem található"
 
@@ -7732,6 +7574,10 @@ msgid ""
 msgstr ""
 "Az elérhetőségi adatok nem jelenhettek meg, mert a kiszolgálónak gondjai "
 "voltak az információk lekérdezésével."
+
+#, fuzzy
+msgid "Please contact your system administrator if the problem persists."
+msgstr "Ha a probléma továbbra is fennáll, forduljon a rendszergazdához."
 
 #, fuzzy
 msgid "Could not handle this type of object."
@@ -7861,6 +7707,15 @@ msgstr "%s évfordulója"
 #, fuzzy
 msgid "You don't have the permission to complete this action"
 msgstr "Nincs jogosultsága a művelet végrehajtásához"
+
+msgid "Quota error"
+msgstr ""
+
+msgid "Send quota limit reached"
+msgstr ""
+
+msgid "Email sending failed. Check the log files for more information."
+msgstr ""
 
 #, fuzzy
 msgid "Unknown user/group"
@@ -8248,6 +8103,32 @@ msgstr "Bejelentkezés"
 msgid "File is not imported successfully"
 msgstr "A fájl importálása nem sikeres"
 
+msgid "The uploaded file exceeds the upload_max_filesize directive in php.ini."
+msgstr ""
+
+msgid ""
+"The uploaded file exceeds the MAX_FILE_SIZE directive that was specified in "
+"the HTML form."
+msgstr ""
+
+msgid "The uploaded file was only partially uploaded."
+msgstr ""
+
+msgid "No file was uploaded. ."
+msgstr ""
+
+msgid "Missing a temporary folder."
+msgstr ""
+
+msgid "Failed to write file to disk."
+msgstr ""
+
+msgid ""
+"A PHP extension stopped the file upload. PHP does not provide a way to "
+"ascertain which extension caused the file upload to stop; examining the list "
+"of loaded extensions with phpinfo() may help."
+msgstr ""
+
 #, fuzzy
 msgid "There is no contact found in this file."
 msgstr "Ebben a fájlban nem található kapcsolat."
@@ -8261,10 +8142,6 @@ msgstr "a grommunio Web ebben a verzióban nem támogatja több VCF importálás
 msgid ""
 "grommunio Web does not support importing multiple ICS with this version."
 msgstr "a grommunio Web ebben a verzióban nem támogatja több ICS importálását."
-
-#, fuzzy, php-format
-msgid "Unable to import '%s'"
-msgstr "Nem sikerült importálni a '%s'"
 
 #, fuzzy
 msgid "The EML is not valid"
@@ -8310,6 +8187,3 @@ msgstr "JSON hiba: - %s"
 msgid "Some problem encountered when encoding/decoding JSON data."
 msgstr ""
 "A JSON-adatok kódolásakor/dekódolásakor valamilyen probléma merült fel."
-
-msgid "Restore items"
-msgstr "Elemek helyreállítása"

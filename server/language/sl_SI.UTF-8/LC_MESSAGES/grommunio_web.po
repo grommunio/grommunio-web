@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Slovenian (Slovenia)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-09-25 14:32+0200\n"
+"POT-Creation-Date: 2024-02-12 02:01+0100\n"
 "PO-Revision-Date: 2022-07-26 19:05+0200\n"
 "Last-Translator: import\n"
 "Language-Team: \n"
@@ -12,8 +12,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n"
-"%100==4 ? 2 : 3);\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || "
+"n%100==4 ? 2 : 3);\n"
 "X-Generator: Weblate 4.14-dev\n"
 
 #. TRANSLATORS: This message is used as label for the column which indicates the week number of the month in date picker. and 'Wk' stands for week
@@ -661,6 +661,10 @@ msgid "You must specify a name."
 msgstr "Specificirati morate ime."
 
 #, fuzzy
+msgid "Add a folder to favorites based on search query"
+msgstr "Dodajanje mape v priljubljene na podlagi te iskalne poizvedbe"
+
+#, fuzzy
 msgid "Folder name"
 msgstr "Ime mape"
 
@@ -750,10 +754,6 @@ msgstr "Priloge"
 
 msgid "Favorites"
 msgstr "Priljubljene"
-
-#, fuzzy
-msgid "Add a folder to favorites based on search query"
-msgstr "Dodajanje mape v priljubljene na podlagi te iskalne poizvedbe"
 
 msgid "Select Folder"
 msgstr "Izberi mapo"
@@ -1135,6 +1135,9 @@ msgid "One or more attendees are busy. Are you sure to invite?"
 msgstr ""
 "Eden ali več povabljencev, ki ste jih povabili, so zasedeni. Ali ste "
 "prepričani, da jih želite povabiti?"
+
+msgid "Preview"
+msgstr "Predogled"
 
 msgid "Scheduling"
 msgstr "Razporejanje"
@@ -2191,9 +2194,6 @@ msgstr "Nalaganje datoteke"
 
 msgid "Attach item"
 msgstr "Pripni datoteko"
-
-msgid "Preview"
-msgstr "Predogled"
 
 msgid "Download"
 msgstr "Naloži"
@@ -3273,6 +3273,10 @@ msgstr "Omogočanje namiznih obvestil za novo pošto"
 #, fuzzy
 msgid "Enable desktop notifications for reminders"
 msgstr "Omogočanje namiznih obvestil za opomnike"
+
+#, fuzzy
+msgid "{A} Auto-hide desktop notification after second(s) {B}"
+msgstr "{A} Avtomatsko skrivanje obvestila o namizju po sekundi (sekundah) {B}"
 
 #, fuzzy
 msgid "Disable sound"
@@ -4692,6 +4696,9 @@ msgstr "Zapri mapo"
 msgid "Reload"
 msgstr "Ponovno naloži"
 
+msgid "Restore items"
+msgstr "Obnovi predmete"
+
 msgid "Select color"
 msgstr "Izberi barvo"
 
@@ -5918,70 +5925,6 @@ msgstr "Ni nalog."
 msgid "Tasks / To-Do"
 msgstr "Naloge / To-Do"
 
-msgid "Import / Export"
-msgstr "Uvozi / Izvozi"
-
-#, fuzzy
-msgid ""
-"Calendar, contact and mail items can be imported and exported from and to "
-"grommunio Web."
-msgstr ""
-"Koledar, stike in poštne elemente lahko uvozite in izvozite iz in v program "
-"grommunio Web."
-
-#, fuzzy
-msgid ""
-"Right-click a folder and select the import button. Additionally, items can "
-"be imported from the attachment context menu."
-msgstr ""
-"Z desno tipko miške kliknite mapo in izberite gumb za uvoz. Poleg tega lahko "
-"elemente uvozite iz kontekstnega menija priponke."
-
-#, fuzzy
-msgid "Exporting can be done from the context menu of an item."
-msgstr "Izvoz lahko opravite iz kontekstnega menija elementa."
-
-#, fuzzy
-msgid "Icon packs"
-msgstr "Ikone"
-
-#, fuzzy
-msgid ""
-"You can now choose between different icons. By default the new Breeze icons "
-"are enabled, but if you prefer the classic icons you can change this in the "
-"settings."
-msgstr ""
-"Zdaj lahko izbirate med različnimi ikonami. Privzeto so omogočene nove ikone "
-"Breeze, če pa imate raje klasične ikone, lahko to spremenite v nastavitvah."
-
-#, fuzzy
-msgid ""
-"Go to your settings, open the general tab and select an icon pack to your "
-"liking."
-msgstr ""
-"Pojdite v nastavitve, odprite zavihek Splošno in izberite ustrezen paket "
-"ikon."
-
-#, fuzzy
-msgid "Left: Breeze - Right: Classic"
-msgstr "Levo: Breeze - desno: Classic"
-
-msgid "What's new"
-msgstr "Kaj je novega"
-
-#, fuzzy
-msgid "Don't show me new features again."
-msgstr "Ne pokažite mi več novih funkcij."
-
-msgid "Skip"
-msgstr "Preskoči"
-
-msgid "Previous"
-msgstr "Prejšnje"
-
-msgid "Next"
-msgstr "Naprej"
-
 #, fuzzy
 msgid "Click the link to open the URL in a new window."
 msgstr "Kliknite povezavo, da se URL odpre v novem oknu."
@@ -6125,10 +6068,6 @@ msgstr "Vtičnik za obvestila za namizje"
 #, fuzzy
 msgid "Desktop Notifications"
 msgstr "Obvestila namizja"
-
-#, fuzzy
-msgid "{A} Auto-hide desktop notification after second(s) {B}"
-msgstr "{A} Avtomatsko skrivanje obvestila o namizju po sekundi (sekundah) {B}"
 
 #, fuzzy
 msgid "Files: ownCloud Backend"
@@ -6674,13 +6613,6 @@ msgstr "Ob prvi uporabi programa grommunio-files je potrebna avtentikacija"
 msgid "Intranet"
 msgstr "Intranet"
 
-msgid "number"
-msgstr "število vnesenih znakov"
-
-#, fuzzy
-msgid "shadow"
-msgstr "senca"
-
 #, fuzzy
 msgid "Openstreetmap"
 msgstr "Openstreetmap"
@@ -6724,6 +6656,15 @@ msgstr "Zahtevano brisanje"
 msgid "Wipe Executed"
 msgstr "Izvedeno brisanje"
 
+msgid "Account Only Wipe Pending"
+msgstr ""
+
+msgid "Account Only Wipe Requested"
+msgstr ""
+
+msgid "Account Only Wipe Executed"
+msgstr ""
+
 msgid "Not Available"
 msgstr "Ni na voljo"
 
@@ -6754,12 +6695,12 @@ msgid "Policy name"
 msgstr "Ime politike"
 
 #, fuzzy
-msgid "Outlook Extension"
-msgstr "Razširitev programa Outlook"
+msgid "Connected since"
+msgstr "Povezan od"
 
 #, fuzzy
-msgid "Build"
-msgstr "Sestavite"
+msgid "d F Y"
+msgstr "d F Y"
 
 msgid "Last updated"
 msgstr "Zadnjič posodobljeno"
@@ -6767,14 +6708,6 @@ msgstr "Zadnjič posodobljeno"
 #, fuzzy
 msgid "d F Y, H:i"
 msgstr "d F Y, H:i"
-
-#, fuzzy
-msgid "Connected since"
-msgstr "Povezan od"
-
-#, fuzzy
-msgid "d F Y"
-msgstr "d F Y"
 
 msgid "Synchronize"
 msgstr "Sinhroniziraj"
@@ -6856,6 +6789,12 @@ msgstr "Odstranitev naprave"
 
 msgid "Please enter your username and password"
 msgstr "Prosim, vnesite vaše uporabniško ime in geslo"
+
+msgid "Wipe only data related to this account"
+msgstr ""
+
+msgid "Wipe all data"
+msgstr ""
 
 msgid "Username"
 msgstr "Uporabniško ime"
@@ -7842,10 +7781,6 @@ msgid "Unknown MAPI Error"
 msgstr "Neznana MAPI napaka: %s"
 
 #, fuzzy
-msgid "This external link will open in a new window"
-msgstr "Ta zunanja povezava se bo odprla v novem oknu"
-
-#, fuzzy
 msgid "Destination folder not found."
 msgstr "Ciljna mapa ni bila najdena."
 
@@ -7880,10 +7815,6 @@ msgstr "Priložene datoteke še niso bile naložene."
 #, php-format
 msgid "Unable to import '%s'. "
 msgstr "Ni mogoče uvoziti '%s'. "
-
-#, fuzzy
-msgid "Please contact your system administrator if the problem persists."
-msgstr "Če težava še vedno obstaja, se obrnite na skrbnika sistema."
 
 #, fuzzy
 msgid "Attachment is not imported successfully"
@@ -7956,92 +7887,6 @@ msgstr "Neznana MAPI napaka: %s"
 msgid "Action is not performed correctly."
 msgstr "Ukrep se ne izvede pravilno."
 
-msgid "Tentatively accepted"
-msgstr "Pogojno sprejeto"
-
-msgid "New Time Proposed"
-msgstr "Predlagan novi čas"
-
-#, php-format
-msgid "Occurs every %s effective %s from %s to %s."
-msgstr "Pojavi se vsakih %s efektivno %s od %s do %s."
-
-#, php-format
-msgid "Occurs every %s %s effective %s from %s to %s."
-msgstr "Pojavi se vsakih %s %s efektivno %s od %s do  %s."
-
-#, php-format
-msgid "Occurs every %s effective %s."
-msgstr "Pojavi se vsakih %s efektivno %s."
-
-#, php-format
-msgid "Occurs every %s %s effective %s."
-msgstr "Pojavi se vsakih %s %s efektivno %s."
-
-#, fuzzy, php-format
-msgid "Occurs every %s effective %s for %s occurrence from %s to %s."
-msgid_plural "Occurs every %s effective %s for %s occurrences from %s to %s."
-msgstr[0] "Pojavi se vsako %s učinkovito %s za %s pojavitev od %s do %s."
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
-
-#, fuzzy, php-format
-msgid "Occurs every %s %s effective %s for %s occurrence from %s to %s."
-msgid_plural "Occurs every %s %s effective %s for %s occurrences %s to %s."
-msgstr[0] "Pojavi se vsak %s %s učinkovit %s za %s pojav od %s do %s."
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
-
-#, fuzzy, php-format
-msgid "Occurs every %s effective %s for %s occurrence."
-msgid_plural "Occurs every %s effective %s for %s occurrences."
-msgstr[0] "Pojavi se vsak %s učinkovit %s za %s pojavitev."
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
-
-#, fuzzy, php-format
-msgid "Occurs every %s %s effective %s for %s occurrence."
-msgid_plural "Occurs every %s %s effective %s for %s occurrences."
-msgstr[0] "Pojavi se vsak %s %s učinkovit %s za %s pojav."
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
-
-#, php-format
-msgid "Occurs every %s effective %s until %s from %s to %s."
-msgstr "Pojavi se vsakih %s efektivno %s dokler %s od %s do %s."
-
-#, php-format
-msgid "Occurs every %s %s effective %s until %s from %s to %s."
-msgstr "Pojavi se vsakih %s %s efektivno %s dokler %s od %s do %s."
-
-#, php-format
-msgid "Occurs every %s effective %s until %s."
-msgstr "Pojavi se vsakih %s efektivno %s dokler %s."
-
-#, php-format
-msgid "Occurs every %s %s effective %s until %s."
-msgstr "Pojavi se vsakih %s %s efektivno %s dokler %s."
-
-#, fuzzy
-msgid "Task Accepted:"
-msgstr "Sprejeta naloga:"
-
-#, fuzzy
-msgid "Task Declined:"
-msgstr "Naloga je bila zavrnjena:"
-
-#, fuzzy
-msgid "Task Updated:"
-msgstr "Naloga je posodobljena:"
-
-#, fuzzy
-msgid "Task Completed:"
-msgstr "Naloga je zaključena:"
-
 #, fuzzy
 msgid "Contact not found"
 msgstr "Kontakt ni najden"
@@ -8053,6 +7898,10 @@ msgid ""
 msgstr ""
 "Kontaktnih informacij ni bilo mogoče prikazati, ker je imel strežnik težave "
 "s pridobivanjem informacij."
+
+#, fuzzy
+msgid "Please contact your system administrator if the problem persists."
+msgstr "Če težava še vedno obstaja, se obrnite na skrbnika sistema."
 
 #, fuzzy
 msgid "Could not handle this type of object."
@@ -8179,6 +8028,15 @@ msgstr "obletnica %s"
 #, fuzzy
 msgid "You don't have the permission to complete this action"
 msgstr "Nimate dovoljenja za dokončanje tega dejanja"
+
+msgid "Quota error"
+msgstr ""
+
+msgid "Send quota limit reached"
+msgstr ""
+
+msgid "Email sending failed. Check the log files for more information."
+msgstr ""
 
 #, fuzzy
 msgid "Unknown user/group"
@@ -8563,6 +8421,32 @@ msgstr "Prijava"
 msgid "File is not imported successfully"
 msgstr "Datoteka ni uspešno uvožena"
 
+msgid "The uploaded file exceeds the upload_max_filesize directive in php.ini."
+msgstr ""
+
+msgid ""
+"The uploaded file exceeds the MAX_FILE_SIZE directive that was specified in "
+"the HTML form."
+msgstr ""
+
+msgid "The uploaded file was only partially uploaded."
+msgstr ""
+
+msgid "No file was uploaded. ."
+msgstr ""
+
+msgid "Missing a temporary folder."
+msgstr ""
+
+msgid "Failed to write file to disk."
+msgstr ""
+
+msgid ""
+"A PHP extension stopped the file upload. PHP does not provide a way to "
+"ascertain which extension caused the file upload to stop; examining the list "
+"of loaded extensions with phpinfo() may help."
+msgstr ""
+
 #, fuzzy
 msgid "There is no contact found in this file."
 msgstr "V tej datoteki ni nobenega stika."
@@ -8576,10 +8460,6 @@ msgstr "grommunio Web v tej različici ne podpira uvoza več VCF."
 msgid ""
 "grommunio Web does not support importing multiple ICS with this version."
 msgstr "grommunio Web v tej različici ne podpira uvoza več ICS."
-
-#, fuzzy, php-format
-msgid "Unable to import '%s'"
-msgstr "Ni mogoče uvoziti '%s'"
 
 #, fuzzy
 msgid "The EML is not valid"
@@ -8624,6 +8504,3 @@ msgstr "Napaka JSON: - %s"
 #, fuzzy
 msgid "Some problem encountered when encoding/decoding JSON data."
 msgstr "Pri kodiranju/dekodiranju podatkov JSON je prišlo do težav."
-
-msgid "Restore items"
-msgstr "Obnovi predmete"

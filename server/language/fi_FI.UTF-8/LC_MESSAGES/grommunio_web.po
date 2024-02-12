@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Finnish (Finland)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-09-25 14:32+0200\n"
+"POT-Creation-Date: 2024-02-12 02:01+0100\n"
 "PO-Revision-Date: 2022-07-26 15:25+0200\n"
 "Last-Translator: import\n"
 "Language-Team: \n"
@@ -497,6 +497,9 @@ msgstr "Ei näytettäviä kohteita tässä näkymässä"
 msgid "Show Names from the"
 msgstr "Näytä nimet kohteesta"
 
+msgid "Search…"
+msgstr "Hae…"
+
 msgid "Sort by: Icon"
 msgstr "Järjestä: Ikonit"
 
@@ -635,6 +638,10 @@ msgid "You must specify a name."
 msgstr "Nimi on määriteltävä."
 
 #, fuzzy
+msgid "Add a folder to favorites based on search query"
+msgstr "Lisää kansio suosikkeihin tämän hakukyselyn perusteella"
+
+#, fuzzy
 msgid "Folder name"
 msgstr "Kansion nimi"
 
@@ -710,9 +717,6 @@ msgstr "Vastaanottaja"
 msgid "Filter category…"
 msgstr "Määritä kategoria…"
 
-msgid "Search…"
-msgstr "Hae…"
-
 msgid "Sender"
 msgstr "Lähettäjä"
 
@@ -728,10 +732,6 @@ msgstr "Liitetiedostot"
 
 msgid "Favorites"
 msgstr "Suosikit"
-
-#, fuzzy
-msgid "Add a folder to favorites based on search query"
-msgstr "Lisää kansio suosikkeihin tämän hakukyselyn perusteella"
 
 msgid "Select Folder"
 msgstr "Valitse kansio"
@@ -1105,6 +1105,9 @@ msgid "One or more attendees are busy. Are you sure to invite?"
 msgstr ""
 "Yksi tai useampi kutsutuista osallistujista on varattu. Haluatko varmasti "
 "kutsua?"
+
+msgid "Preview"
+msgstr "Esikatselu"
 
 msgid "Scheduling"
 msgstr "Aikataulu"
@@ -2162,9 +2165,6 @@ msgstr "Tiedoston lataus"
 msgid "Attach item"
 msgstr "Kiinnitä tuote"
 
-msgid "Preview"
-msgstr "Esikatselu"
-
 msgid "Download"
 msgstr "Lataus"
 
@@ -2375,8 +2375,7 @@ msgid ""
 "the context menu and click on \"Share folder…\""
 msgstr ""
 "Jos haluat määrittää vain kansioiden käyttöoikeudet, avaa kontekstivalikko "
-"napsauttamalla kansiota hiiren kakkospainikkeella ja valitse \"Jaa kansio…"
-"\""
+"napsauttamalla kansiota hiiren kakkospainikkeella ja valitse \"Jaa kansio…\""
 
 msgid "Permission"
 msgstr "Oikeudet"
@@ -3264,6 +3263,12 @@ msgstr "Ota käyttöön työpöydän ilmoitukset uudesta sähköpostista"
 #, fuzzy
 msgid "Enable desktop notifications for reminders"
 msgstr "Ota työpöytäilmoitukset käyttöön muistutuksia varten"
+
+#, fuzzy
+msgid "{A} Auto-hide desktop notification after second(s) {B}"
+msgstr ""
+"{A} Työpöytäilmoituksen automaattinen piilottaminen sekunnin (sekuntien) "
+"jälkeen {B}"
 
 #, fuzzy
 msgid "Disable sound"
@@ -4697,6 +4702,9 @@ msgstr "Sulje kansio"
 msgid "Reload"
 msgstr "Lataa uudelleen"
 
+msgid "Restore items"
+msgstr "Palauta kohteita"
+
 #, fuzzy
 msgid "Select color"
 msgstr "Valitse kansio"
@@ -5940,71 +5948,6 @@ msgstr "Ei tehtäviä."
 msgid "Tasks / To-Do"
 msgstr "Tehtävät / To-Do"
 
-msgid "Import / Export"
-msgstr "Tuonti/Vienti"
-
-#, fuzzy
-msgid ""
-"Calendar, contact and mail items can be imported and exported from and to "
-"grommunio Web."
-msgstr ""
-"Kalenteri-, yhteystieto- ja sähköpostikohteita voidaan tuoda ja viedä "
-"grommunio Webistä ja grommunio Webiin."
-
-#, fuzzy
-msgid ""
-"Right-click a folder and select the import button. Additionally, items can "
-"be imported from the attachment context menu."
-msgstr ""
-"Napsauta kansiota hiiren kakkospainikkeella ja valitse tuontipainike. "
-"Lisäksi kohteita voidaan tuoda liitetiedoston kontekstivalikosta."
-
-#, fuzzy
-msgid "Exporting can be done from the context menu of an item."
-msgstr "Vienti voidaan tehdä kohteen kontekstivalikosta."
-
-#, fuzzy
-msgid "Icon packs"
-msgstr "Ikonit"
-
-#, fuzzy
-msgid ""
-"You can now choose between different icons. By default the new Breeze icons "
-"are enabled, but if you prefer the classic icons you can change this in the "
-"settings."
-msgstr ""
-"Voit nyt valita eri kuvakkeiden välillä. Oletusarvoisesti uudet Breeze-"
-"kuvakkeet ovat käytössä, mutta jos pidät enemmän klassisista kuvakkeista, "
-"voit muuttaa tämän asetuksista."
-
-#, fuzzy
-msgid ""
-"Go to your settings, open the general tab and select an icon pack to your "
-"liking."
-msgstr ""
-"Mene asetuksiin, avaa Yleiset-välilehti ja valitse haluamasi kuvakepaketti."
-
-#, fuzzy
-msgid "Left: Breeze - Right: Classic"
-msgstr "Vasen: Breeze - Oikea: Classic"
-
-#, fuzzy
-msgid "What's new"
-msgstr "Mitä uutta"
-
-#, fuzzy
-msgid "Don't show me new features again."
-msgstr "Älä enää näytä minulle uusia ominaisuuksia."
-
-msgid "Skip"
-msgstr "Ohita"
-
-msgid "Previous"
-msgstr "Edellinen"
-
-msgid "Next"
-msgstr "Seuraava"
-
 #, fuzzy
 msgid "Click the link to open the URL in a new window."
 msgstr "Avaa URL-osoite uuteen ikkunaan napsauttamalla linkkiä."
@@ -6146,12 +6089,6 @@ msgstr "Työpöydän ilmoitukset Plugin"
 #, fuzzy
 msgid "Desktop Notifications"
 msgstr "Työpöydän ilmoitukset"
-
-#, fuzzy
-msgid "{A} Auto-hide desktop notification after second(s) {B}"
-msgstr ""
-"{A} Työpöytäilmoituksen automaattinen piilottaminen sekunnin (sekuntien) "
-"jälkeen {B}"
 
 #, fuzzy
 msgid "Files: ownCloud Backend"
@@ -6694,13 +6631,6 @@ msgstr ""
 msgid "Intranet"
 msgstr "Intranet"
 
-msgid "number"
-msgstr "numero"
-
-#, fuzzy
-msgid "shadow"
-msgstr "varjo"
-
 #, fuzzy
 msgid "Openstreetmap"
 msgstr "Openstreetmap"
@@ -6745,6 +6675,15 @@ msgstr "Pyyhintä pyydetty"
 msgid "Wipe Executed"
 msgstr "Pyyhi suoritettu"
 
+msgid "Account Only Wipe Pending"
+msgstr ""
+
+msgid "Account Only Wipe Requested"
+msgstr ""
+
+msgid "Account Only Wipe Executed"
+msgstr ""
+
 msgid "Not Available"
 msgstr "Ei saatavilla"
 
@@ -6773,11 +6712,12 @@ msgid "Policy name"
 msgstr "Ehtojen nimi"
 
 #, fuzzy
-msgid "Outlook Extension"
-msgstr "Outlook-laajennus"
+msgid "Connected since"
+msgstr "Yhdistetty vuodesta"
 
-msgid "Build"
-msgstr "Suorita"
+#, fuzzy
+msgid "d F Y"
+msgstr "d F Y"
 
 msgid "Last updated"
 msgstr "Päivitetty viimeksi"
@@ -6785,14 +6725,6 @@ msgstr "Päivitetty viimeksi"
 #, fuzzy
 msgid "d F Y, H:i"
 msgstr "d F Y, H:i"
-
-#, fuzzy
-msgid "Connected since"
-msgstr "Yhdistetty vuodesta"
-
-#, fuzzy
-msgid "d F Y"
-msgstr "d F Y"
 
 msgid "Synchronize"
 msgstr "Synkronoida"
@@ -6873,6 +6805,12 @@ msgstr "Poista laite"
 
 msgid "Please enter your username and password"
 msgstr "Kirjoita käyttäjänimesi ja salasanasi"
+
+msgid "Wipe only data related to this account"
+msgstr ""
+
+msgid "Wipe all data"
+msgstr ""
 
 msgid "Username"
 msgstr "Käyttäjätunnus"
@@ -7867,10 +7805,6 @@ msgid "Unknown MAPI Error"
 msgstr "Tuntematon MAPI-virhe: %s"
 
 #, fuzzy
-msgid "This external link will open in a new window"
-msgstr "Tämä ulkoinen linkki avautuu uuteen ikkunaan"
-
-#, fuzzy
 msgid "Destination folder not found."
 msgstr "Kohdekansiota ei löydy."
 
@@ -7904,10 +7838,6 @@ msgstr "Tiedosto on virheellinen."
 #, php-format
 msgid "Unable to import '%s'. "
 msgstr "Tuonti '%s' ei onnistu. "
-
-#, fuzzy
-msgid "Please contact your system administrator if the problem persists."
-msgstr "Ota yhteyttä järjestelmänvalvojaan, jos ongelma jatkuu."
 
 #, fuzzy
 msgid "Attachment is not imported successfully"
@@ -7980,86 +7910,6 @@ msgstr "Tuntematon MAPI-virhe: %s"
 msgid "Action is not performed correctly."
 msgstr "Toimintaa ei suoriteta oikein."
 
-msgid "Tentatively accepted"
-msgstr "Hyväksyi alustavasti"
-
-msgid "New Time Proposed"
-msgstr "Uutta aikaa ehdotettu"
-
-#, php-format
-msgid "Occurs every %s effective %s from %s to %s."
-msgstr "Tapahtuu joka %s voimassa %s alkaen %s päättyen %s."
-
-#, php-format
-msgid "Occurs every %s %s effective %s from %s to %s."
-msgstr "Tapahtuu joka %s %s voimassa %s alkaen %s päättyen %s."
-
-#, php-format
-msgid "Occurs every %s effective %s."
-msgstr "Tapahtuu joka %s voimassa %s."
-
-#, php-format
-msgid "Occurs every %s %s effective %s."
-msgstr "Tapahtuu joka %s %s voimassa %s."
-
-#, fuzzy, php-format
-msgid "Occurs every %s effective %s for %s occurrence from %s to %s."
-msgid_plural "Occurs every %s effective %s for %s occurrences from %s to %s."
-msgstr[0] ""
-"Esiintyy joka %s tehokkaan %s %s esiintymisen jälkeen %s:sta %s:ään."
-msgstr[1] "Esiintyy joka %s tehokkaan %s %s esiintymän ajan %s:sta %s:ään."
-
-#, fuzzy, php-format
-msgid "Occurs every %s %s effective %s for %s occurrence from %s to %s."
-msgid_plural "Occurs every %s %s effective %s for %s occurrences %s to %s."
-msgstr[0] ""
-"Esiintyy joka %s %s tehokkaan %s %s esiintymisen jälkeen %s:stä %s:een."
-msgstr[1] "Tapahtuu joka %s %s kerta %s %s kerran %s - %s."
-
-#, fuzzy, php-format
-msgid "Occurs every %s effective %s for %s occurrence."
-msgid_plural "Occurs every %s effective %s for %s occurrences."
-msgstr[0] "Esiintyy joka %s tehokkaan %s %s esiintymisen jälkeen."
-msgstr[1] "Esiintyy joka %s tehokkaan %s %s tapahtuman ajan."
-
-#, fuzzy, php-format
-msgid "Occurs every %s %s effective %s for %s occurrence."
-msgid_plural "Occurs every %s %s effective %s for %s occurrences."
-msgstr[0] "Esiintyy joka %s %s tehokkaan %s %s esiintymisen jälkeen."
-msgstr[1] "Tapahtuu joka %s %s %s %s esiintymiskerran jälkeen."
-
-#, php-format
-msgid "Occurs every %s effective %s until %s from %s to %s."
-msgstr "Tapahtuu joka %s voimassa %s päättyen %s alkaen %s %s asti."
-
-#, php-format
-msgid "Occurs every %s %s effective %s until %s from %s to %s."
-msgstr "Tapahtuu joka %s %s voimassa %s päättyen %s alkaen %s %s asti."
-
-#, php-format
-msgid "Occurs every %s effective %s until %s."
-msgstr "Tapahtuu joka %s voimassa %s päättyen %s."
-
-#, php-format
-msgid "Occurs every %s %s effective %s until %s."
-msgstr "Tapahtuu joka %s %s voimassa %s päättyen %s."
-
-#, fuzzy
-msgid "Task Accepted:"
-msgstr "Tehtävä hyväksytty:"
-
-#, fuzzy
-msgid "Task Declined:"
-msgstr "Tehtävä hylätty:"
-
-#, fuzzy
-msgid "Task Updated:"
-msgstr "Tehtävä päivitetty:"
-
-#, fuzzy
-msgid "Task Completed:"
-msgstr "Tehtävä suoritettu:"
-
 msgid "Contact not found"
 msgstr "Henkilöä ei löytynyt"
 
@@ -8070,6 +7920,10 @@ msgid ""
 msgstr ""
 "Yhteystietoja ei voitu näyttää, koska palvelimella oli ongelmia tietojen "
 "hakemisessa."
+
+#, fuzzy
+msgid "Please contact your system administrator if the problem persists."
+msgstr "Ota yhteyttä järjestelmänvalvojaan, jos ongelma jatkuu."
 
 #, fuzzy
 msgid "Could not handle this type of object."
@@ -8195,6 +8049,15 @@ msgstr "%s:n vuosipäivä"
 msgid "You don't have the permission to complete this action"
 msgstr "Sinulla ei ole lupaa suorittaa tätä toimintoa"
 
+msgid "Quota error"
+msgstr ""
+
+msgid "Send quota limit reached"
+msgstr ""
+
+msgid "Email sending failed. Check the log files for more information."
+msgstr ""
+
 #, fuzzy
 msgid "Unknown user/group"
 msgstr "Tuntematon käyttäjä/ryhmä"
@@ -8314,9 +8177,9 @@ msgid ""
 "click the %1$s folder > properties > permissions)."
 msgstr ""
 "Sinulla ei ole riittäviä oikeuksia tämän %1$s-kansion avaamiseen. Kansion "
-"omistaja voi määrittää nämä oikeudet kansion ominaisuuksien \"käyttöoikeudet"
-"\"-välilehdellä (napsauta %1$s-kansiota hiiren oikealla painikkeella > "
-"ominaisuudet > käyttöoikeudet)."
+"omistaja voi määrittää nämä oikeudet kansion ominaisuuksien "
+"\"käyttöoikeudet\"-välilehdellä (napsauta %1$s-kansiota hiiren oikealla "
+"painikkeella > ominaisuudet > käyttöoikeudet)."
 
 msgid "unknown"
 msgstr "tuntematon"
@@ -8582,6 +8445,32 @@ msgstr "Kirjaudu sisään"
 msgid "File is not imported successfully"
 msgstr "Tiedostoa ei ole tuotu onnistuneesti"
 
+msgid "The uploaded file exceeds the upload_max_filesize directive in php.ini."
+msgstr ""
+
+msgid ""
+"The uploaded file exceeds the MAX_FILE_SIZE directive that was specified in "
+"the HTML form."
+msgstr ""
+
+msgid "The uploaded file was only partially uploaded."
+msgstr ""
+
+msgid "No file was uploaded. ."
+msgstr ""
+
+msgid "Missing a temporary folder."
+msgstr ""
+
+msgid "Failed to write file to disk."
+msgstr ""
+
+msgid ""
+"A PHP extension stopped the file upload. PHP does not provide a way to "
+"ascertain which extension caused the file upload to stop; examining the list "
+"of loaded extensions with phpinfo() may help."
+msgstr ""
+
 #, fuzzy
 msgid "There is no contact found in this file."
 msgstr "Tässä tiedostossa ei ole yhteystietoja."
@@ -8595,10 +8484,6 @@ msgstr "grommunio Web ei tue useiden VCF-tiedostojen tuomista tässä versiossa.
 msgid ""
 "grommunio Web does not support importing multiple ICS with this version."
 msgstr "grommunio Web ei tue useiden ICS:ien tuomista tässä versiossa."
-
-#, fuzzy, php-format
-msgid "Unable to import '%s'"
-msgstr "Tuonti '%s' ei onnistu"
 
 #, fuzzy
 msgid "The EML is not valid"
@@ -8643,6 +8528,3 @@ msgstr "JSON-virhe: - %s"
 #, fuzzy
 msgid "Some problem encountered when encoding/decoding JSON data."
 msgstr "JSON-tietojen koodauksessa/dekoodauksessa ilmeni ongelmia."
-
-msgid "Restore items"
-msgstr "Palauta kohteita"

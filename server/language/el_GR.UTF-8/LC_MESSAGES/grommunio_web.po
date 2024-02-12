@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Greek\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-09-25 14:32+0200\n"
+"POT-Creation-Date: 2024-02-12 02:01+0100\n"
 "PO-Revision-Date: 2022-07-26 14:49+0200\n"
 "Last-Translator: import\n"
 "Language-Team: \n"
@@ -745,6 +745,10 @@ msgid "You must specify a name."
 msgstr "Πρέπει να καθορίσετε ένα όνομα."
 
 #, fuzzy
+msgid "Add a folder to favorites based on search query"
+msgstr "Προσθέστε έναν φάκελο στα αγαπημένα με βάση αυτό το ερώτημα αναζήτησης"
+
+#, fuzzy
 msgid "Folder name"
 msgstr "Όνομα φακέλου"
 
@@ -839,10 +843,6 @@ msgstr "Σώμα & εξαρτήματα"
 
 msgid "Favorites"
 msgstr "Αγαπημένα"
-
-#, fuzzy
-msgid "Add a folder to favorites based on search query"
-msgstr "Προσθέστε έναν φάκελο στα αγαπημένα με βάση αυτό το ερώτημα αναζήτησης"
 
 #, fuzzy
 msgid "Select Folder"
@@ -1278,6 +1278,9 @@ msgid "One or more attendees are busy. Are you sure to invite?"
 msgstr ""
 "Ένας ή περισσότεροι συμμετέχοντες είναι απασχολημένοι. Είστε σίγουροι για "
 "την πρόσκληση"
+
+msgid "Preview"
+msgstr "Προεπισκόπηση"
 
 msgid "Scheduling"
 msgstr "Χρονοδρομολόγηση"
@@ -2463,9 +2466,6 @@ msgstr "Ανέβασμα αρχείου"
 #, fuzzy
 msgid "Attach item"
 msgstr "Επισυνάψτε το αντικείμενο"
-
-msgid "Preview"
-msgstr "Προεπισκόπηση"
 
 msgid "Download"
 msgstr "Λήψη"
@@ -5339,6 +5339,9 @@ msgstr "Κλείσιμο φακέλου"
 msgid "Reload"
 msgstr "Επαναφόρτωση"
 
+msgid "Restore items"
+msgstr ""
+
 msgid "Select color"
 msgstr "Επιλογή χρώματος"
 
@@ -6705,72 +6708,6 @@ msgstr "Δεν υπάρχουν καθήκοντα."
 msgid "Tasks / To-Do"
 msgstr "Εργασίες / To-Do"
 
-msgid "Import / Export"
-msgstr "Εισαγωγή / Εξαγωγή"
-
-#, fuzzy
-msgid ""
-"Calendar, contact and mail items can be imported and exported from and to "
-"grommunio Web."
-msgstr ""
-"Τα στοιχεία ημερολογίου, επαφών και αλληλογραφίας μπορούν να εισαχθούν και "
-"να εξαχθούν από και προς το grommunio Web."
-
-#, fuzzy
-msgid ""
-"Right-click a folder and select the import button. Additionally, items can "
-"be imported from the attachment context menu."
-msgstr ""
-"Κάντε δεξί κλικ σε έναν φάκελο και επιλέξτε το κουμπί εισαγωγής. Επιπλέον, "
-"τα στοιχεία μπορούν να εισαχθούν από το μενού περιβάλλοντος του συνημμένου."
-
-#, fuzzy
-msgid "Exporting can be done from the context menu of an item."
-msgstr "Η εξαγωγή μπορεί να γίνει από το μενού περιβάλλοντος ενός στοιχείου."
-
-#, fuzzy
-msgid "Icon packs"
-msgstr "Πακέτα εικονιδίων"
-
-#, fuzzy
-msgid ""
-"You can now choose between different icons. By default the new Breeze icons "
-"are enabled, but if you prefer the classic icons you can change this in the "
-"settings."
-msgstr ""
-"Μπορείτε τώρα να επιλέξετε μεταξύ διαφορετικών εικονιδίων. Από προεπιλογή "
-"είναι ενεργοποιημένα τα νέα εικονίδια Breeze, αλλά αν προτιμάτε τα κλασικά "
-"εικονίδια μπορείτε να το αλλάξετε στις ρυθμίσεις."
-
-#, fuzzy
-msgid ""
-"Go to your settings, open the general tab and select an icon pack to your "
-"liking."
-msgstr ""
-"Μεταβείτε στις ρυθμίσεις σας, ανοίξτε την καρτέλα \"Γενικά\" και επιλέξτε "
-"ένα πακέτο εικονιδίων της αρεσκείας σας."
-
-#, fuzzy
-msgid "Left: Breeze - Right: Classic"
-msgstr "Αριστερά: Breeze - Δεξιά: Κλασικό"
-
-#, fuzzy
-msgid "What's new"
-msgstr "Τι νέο υπάρχει"
-
-#, fuzzy
-msgid "Don't show me new features again."
-msgstr "Μην μου ξαναδείξετε νέα χαρακτηριστικά."
-
-msgid "Skip"
-msgstr "Παράλειψη"
-
-msgid "Previous"
-msgstr "Προηγούμενο"
-
-msgid "Next"
-msgstr "Επόμενο"
-
 #, fuzzy
 msgid "Click the link to open the URL in a new window."
 msgstr ""
@@ -7503,13 +7440,6 @@ msgstr ""
 msgid "Intranet"
 msgstr "Intranet"
 
-msgid "number"
-msgstr "αριθμός"
-
-#, fuzzy
-msgid "shadow"
-msgstr "σκιά"
-
 #, fuzzy
 msgid "Openstreetmap"
 msgstr "Openstreetmap"
@@ -7553,6 +7483,15 @@ msgstr "Ζητείται σκούπισμα"
 msgid "Wipe Executed"
 msgstr "Σκούπισμα Εκτελέστηκε"
 
+msgid "Account Only Wipe Pending"
+msgstr ""
+
+msgid "Account Only Wipe Requested"
+msgstr ""
+
+msgid "Account Only Wipe Executed"
+msgstr ""
+
 msgid "Not Available"
 msgstr "Μη διαθέσιμο"
 
@@ -7582,11 +7521,12 @@ msgid "Policy name"
 msgstr "Όνομα πολιτικής"
 
 #, fuzzy
-msgid "Outlook Extension"
-msgstr "Επέκταση του Outlook"
+msgid "Connected since"
+msgstr "Συνδεδεμένος από"
 
-msgid "Build"
-msgstr "Δημιουργία"
+#, fuzzy
+msgid "d F Y"
+msgstr "d F Y"
 
 msgid "Last updated"
 msgstr "Τελευταία ενημέρωση"
@@ -7594,14 +7534,6 @@ msgstr "Τελευταία ενημέρωση"
 #, fuzzy
 msgid "d F Y, H:i"
 msgstr "d F Y, H:i"
-
-#, fuzzy
-msgid "Connected since"
-msgstr "Συνδεδεμένος από"
-
-#, fuzzy
-msgid "d F Y"
-msgstr "d F Y"
 
 #, fuzzy
 msgid "Synchronize"
@@ -7683,6 +7615,12 @@ msgstr "Αφαίρεση της συσκευής"
 #, fuzzy
 msgid "Please enter your username and password"
 msgstr "Παρακαλώ εισάγετε το όνομα χρήστη και τον κωδικό πρόσβασής σας"
+
+msgid "Wipe only data related to this account"
+msgstr ""
+
+msgid "Wipe all data"
+msgstr ""
 
 msgid "Username"
 msgstr "Όνομα Χρήστη"
@@ -8740,10 +8678,6 @@ msgid "Unknown MAPI Error"
 msgstr "Άγνωστο σφάλμα MAPI"
 
 #, fuzzy
-msgid "This external link will open in a new window"
-msgstr "Αυτός ο εξωτερικός σύνδεσμος θα ανοίξει σε νέο παράθυρο"
-
-#, fuzzy
 msgid "Destination folder not found."
 msgstr "Ο φάκελος προορισμού δεν βρέθηκε."
 
@@ -8778,12 +8712,6 @@ msgstr "Το αρχείο είναι άκυρο."
 #, fuzzy, php-format
 msgid "Unable to import '%s'. "
 msgstr "Αδυναμία εισαγωγής '%s'"
-
-#, fuzzy
-msgid "Please contact your system administrator if the problem persists."
-msgstr ""
-"Επικοινωνήστε με το διαχειριστή του συστήματός σας εάν το πρόβλημα "
-"εξακολουθεί να υφίσταται."
 
 #, fuzzy
 msgid "Attachment is not imported successfully"
@@ -8863,102 +8791,6 @@ msgid "Action is not performed correctly."
 msgstr "Η ενέργεια δεν εκτελείται σωστά."
 
 #, fuzzy
-msgid "Tentatively accepted"
-msgstr "Προσωρινά αποδεκτή"
-
-#, fuzzy
-msgid "New Time Proposed"
-msgstr "Προτεινόμενη νέα ώρα"
-
-#, fuzzy, php-format
-msgid "Occurs every %s effective %s from %s to %s."
-msgstr "Εμφανίζεται κάθε %s αποτελεσματικό %s από %s έως %s."
-
-#, fuzzy, php-format
-msgid "Occurs every %s %s effective %s from %s to %s."
-msgstr "Εμφανίζεται κάθε %s %s αποτελεσματική %s από %s έως %s."
-
-#, fuzzy, php-format
-msgid "Occurs every %s effective %s."
-msgstr "Εμφανίζεται κάθε %s αποτελεσματική %s."
-
-#, fuzzy, php-format
-msgid "Occurs every %s %s effective %s."
-msgstr "Εμφανίζεται κάθε %s %s αποτελεσματική %s."
-
-#, fuzzy, php-format
-msgid "Occurs every %s effective %s for %s occurrence from %s to %s."
-msgid_plural "Occurs every %s effective %s for %s occurrences from %s to %s."
-msgstr[0] ""
-"Εμφανίζεται κάθε %s αποτελεσματική %s για %s εμφάνιση από %s έως %s."
-msgstr[1] ""
-"Εμφανίζεται κάθε %s αποτελεσματική %s για %s εμφανίσεις από %s έως %s."
-msgstr[2] ""
-msgstr[3] ""
-msgstr[4] ""
-
-#, fuzzy, php-format
-msgid "Occurs every %s %s effective %s for %s occurrence from %s to %s."
-msgid_plural "Occurs every %s %s effective %s for %s occurrences %s to %s."
-msgstr[0] ""
-"Εμφανίζεται κάθε %s %s αποτελεσματική %s για %s εμφάνιση από %s έως %s."
-msgstr[1] ""
-"Εμφανίζεται κάθε %s %s αποτελεσματική %s για %s εμφανίσεις %s έως %s."
-msgstr[2] ""
-msgstr[3] ""
-msgstr[4] ""
-
-#, fuzzy, php-format
-msgid "Occurs every %s effective %s for %s occurrence."
-msgid_plural "Occurs every %s effective %s for %s occurrences."
-msgstr[0] "Εμφανίζεται κάθε %s αποτελεσματική %s για %s εμφάνιση."
-msgstr[1] "Εμφανίζεται κάθε %s αποτελεσματική %s για %s εμφανίσεις."
-msgstr[2] ""
-msgstr[3] ""
-msgstr[4] ""
-
-#, fuzzy, php-format
-msgid "Occurs every %s %s effective %s for %s occurrence."
-msgid_plural "Occurs every %s %s effective %s for %s occurrences."
-msgstr[0] "Εμφανίζεται κάθε %s %s αποτελεσματική %s για %s εμφάνιση."
-msgstr[1] "Εμφανίζεται κάθε %s %s αποτελεσματική %s για %s εμφανίσεις."
-msgstr[2] ""
-msgstr[3] ""
-msgstr[4] ""
-
-#, fuzzy, php-format
-msgid "Occurs every %s effective %s until %s from %s to %s."
-msgstr "Εμφανίζεται κάθε %s από %s έως %s από %s έως %s."
-
-#, fuzzy, php-format
-msgid "Occurs every %s %s effective %s until %s from %s to %s."
-msgstr "Εμφανίζεται κάθε %s %s αποτελεσματική %s έως %s από %s έως %s."
-
-#, fuzzy, php-format
-msgid "Occurs every %s effective %s until %s."
-msgstr "Εμφανίζεται κάθε %s αποτελεσματική %s μέχρι %s."
-
-#, fuzzy, php-format
-msgid "Occurs every %s %s effective %s until %s."
-msgstr "Εμφανίζεται κάθε %s %s αποτελεσματική %s μέχρι %s."
-
-#, fuzzy
-msgid "Task Accepted:"
-msgstr "Εργασία Αποδεκτή:"
-
-#, fuzzy
-msgid "Task Declined:"
-msgstr "Απορρίφθηκε η εργασία:"
-
-#, fuzzy
-msgid "Task Updated:"
-msgstr "Task Ενημερώθηκε:"
-
-#, fuzzy
-msgid "Task Completed:"
-msgstr "Ολοκληρώθηκε η εργασία:"
-
-#, fuzzy
 msgid "Contact not found"
 msgstr "Επικοινωνία δεν βρέθηκε"
 
@@ -8969,6 +8801,12 @@ msgid ""
 msgstr ""
 "Οι πληροφορίες επικοινωνίας δεν ήταν δυνατό να εμφανιστούν επειδή ο "
 "διακομιστής είχε πρόβλημα με την ανάκτηση των πληροφοριών."
+
+#, fuzzy
+msgid "Please contact your system administrator if the problem persists."
+msgstr ""
+"Επικοινωνήστε με το διαχειριστή του συστήματός σας εάν το πρόβλημα "
+"εξακολουθεί να υφίσταται."
 
 #, fuzzy
 msgid "Could not handle this type of object."
@@ -9102,6 +8940,15 @@ msgstr "επέτειος του %s"
 #, fuzzy
 msgid "You don't have the permission to complete this action"
 msgstr "Δεν έχετε το δικαίωμα να ολοκληρώσετε αυτή την ενέργεια"
+
+msgid "Quota error"
+msgstr ""
+
+msgid "Send quota limit reached"
+msgstr ""
+
+msgid "Email sending failed. Check the log files for more information."
+msgstr ""
 
 #, fuzzy
 msgid "Unknown user/group"
@@ -9528,6 +9375,32 @@ msgstr "Σύνδεση"
 msgid "File is not imported successfully"
 msgstr "Το αρχείο δεν εισάγεται με επιτυχία"
 
+msgid "The uploaded file exceeds the upload_max_filesize directive in php.ini."
+msgstr ""
+
+msgid ""
+"The uploaded file exceeds the MAX_FILE_SIZE directive that was specified in "
+"the HTML form."
+msgstr ""
+
+msgid "The uploaded file was only partially uploaded."
+msgstr ""
+
+msgid "No file was uploaded. ."
+msgstr ""
+
+msgid "Missing a temporary folder."
+msgstr ""
+
+msgid "Failed to write file to disk."
+msgstr ""
+
+msgid ""
+"A PHP extension stopped the file upload. PHP does not provide a way to "
+"ascertain which extension caused the file upload to stop; examining the list "
+"of loaded extensions with phpinfo() may help."
+msgstr ""
+
 #, fuzzy
 msgid "There is no contact found in this file."
 msgstr "Δεν βρέθηκε καμία επαφή σε αυτό το αρχείο."
@@ -9545,10 +9418,6 @@ msgid ""
 msgstr ""
 "το grommunio Web δεν υποστηρίζει την εισαγωγή πολλαπλών ICS με αυτή την "
 "έκδοση."
-
-#, fuzzy, php-format
-msgid "Unable to import '%s'"
-msgstr "Αδυναμία εισαγωγής '%s'"
 
 #, fuzzy
 msgid "The EML is not valid"

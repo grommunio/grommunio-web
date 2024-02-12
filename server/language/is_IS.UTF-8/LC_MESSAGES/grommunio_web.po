@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Icelandic (Iceland)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-09-25 14:32+0200\n"
+"POT-Creation-Date: 2024-02-12 02:01+0100\n"
 "PO-Revision-Date: 2019-12-01 02:07+0000\n"
 "Last-Translator: import\n"
 "Language: is_IS\n"
@@ -611,6 +611,9 @@ msgstr "Tómt möppuheiti"
 msgid "You must specify a name."
 msgstr "Þú verður að tilgreina nafn."
 
+msgid "Add a folder to favorites based on search query"
+msgstr "Bæta möppu við í uppáhald út frá þessari leit"
+
 msgid "Folder name"
 msgstr "Möppuheiti"
 
@@ -696,9 +699,6 @@ msgstr "Innihald og viðhengi"
 
 msgid "Favorites"
 msgstr "Uppáhald"
-
-msgid "Add a folder to favorites based on search query"
-msgstr "Bæta möppu við í uppáhald út frá þessari leit"
 
 msgid "Select Folder"
 msgstr "Velja möppu"
@@ -1047,6 +1047,9 @@ msgid "One or more attendees are busy. Are you sure to invite?"
 msgstr ""
 "Einn eða fleiri þátttakendur eru uppteknir. Ertu viss um að þú viljir bjóða "
 "þeim?"
+
+msgid "Preview"
+msgstr "Forsýn"
 
 msgid "Scheduling"
 msgstr "Tímaáætlun"
@@ -2012,9 +2015,6 @@ msgstr "Skráarupphal"
 
 msgid "Attach item"
 msgstr "Hengja við"
-
-msgid "Preview"
-msgstr "Forsýn"
 
 msgid "Download"
 msgstr "Niðurhal"
@@ -4304,6 +4304,9 @@ msgstr "Loka möppu"
 msgid "Reload"
 msgstr "Endurhlaða"
 
+msgid "Restore items"
+msgstr "Endurheimta atriði"
+
 msgid "Select color"
 msgstr "Velja lit"
 
@@ -5390,62 +5393,6 @@ msgstr "Engin verk."
 msgid "Tasks / To-Do"
 msgstr "Verkskrá / Aðgerðalisti"
 
-msgid "Import / Export"
-msgstr "Flytja inn/út"
-
-msgid ""
-"Calendar, contact and mail items can be imported and exported from and to "
-"grommunio Web."
-msgstr ""
-"Dagatal, tengiliðir og póstar geta ekki verið fluttir inn og út í grommunio "
-"vefviðmótinu."
-
-msgid ""
-"Right-click a folder and select the import button. Additionally, items can "
-"be imported from the attachment context menu."
-msgstr ""
-"Hægrismelltu á möppu og veldu innflutningstakkann. Auk þess geta atriði "
-"verið flutt inn í gegnum viðhengisvalmyndina."
-
-msgid "Exporting can be done from the context menu of an item."
-msgstr "Útflutning er hægt að framkvæma í gegnum valmynd atriðis."
-
-msgid "Icon packs"
-msgstr "Teiknapakkar"
-
-msgid ""
-"You can now choose between different icons. By default the new Breeze icons "
-"are enabled, but if you prefer the classic icons you can change this in the "
-"settings."
-msgstr ""
-"Þú getur núna valið milli mismunandi teikna. Breeze-teikn eru sjálfgefið "
-"virkjuð en ef þú vilt klassísk teikn getur þú breytt því í stillingum."
-
-msgid ""
-"Go to your settings, open the general tab and select an icon pack to your "
-"liking."
-msgstr ""
-"Farðu í stillingarnar þínar og opnaðu almenna flipann til að velja "
-"teiknapakka sem þér líkar."
-
-msgid "Left: Breeze - Right: Classic"
-msgstr "Vinstri: Breeze - Hægri: Klassískt"
-
-msgid "What's new"
-msgstr "Hvað er nýtt"
-
-msgid "Don't show me new features again."
-msgstr "Ekki sýna mér tilkynningu um nýja virkni aftur."
-
-msgid "Skip"
-msgstr "Sleppa"
-
-msgid "Previous"
-msgstr "Fyrri"
-
-msgid "Next"
-msgstr "Næsta"
-
 msgid "Click the link to open the URL in a new window."
 msgstr "Smelltu á tengilinn til að opna vefslóðina í nýjum glugga."
 
@@ -6014,12 +5961,6 @@ msgstr ""
 msgid "Intranet"
 msgstr ""
 
-msgid "number"
-msgstr ""
-
-msgid "shadow"
-msgstr ""
-
 msgid "Openstreetmap"
 msgstr ""
 
@@ -6054,6 +5995,15 @@ msgstr "Eyða umbeðnu"
 msgid "Wipe Executed"
 msgstr "Eyða framkvæmdu"
 
+msgid "Account Only Wipe Pending"
+msgstr ""
+
+msgid "Account Only Wipe Requested"
+msgstr ""
+
+msgid "Account Only Wipe Executed"
+msgstr ""
+
 msgid "Not Available"
 msgstr "Ekki aðgengilegt"
 
@@ -6078,23 +6028,17 @@ msgstr "Útgáfa grommunio-sync"
 msgid "Policy name"
 msgstr "Nafn reglu"
 
-msgid "Outlook Extension"
-msgstr ""
+msgid "Connected since"
+msgstr "Tengt síðan"
 
-msgid "Build"
-msgstr "Samsetning"
+msgid "d F Y"
+msgstr "d F Y"
 
 msgid "Last updated"
 msgstr "Síðast uppfært"
 
 msgid "d F Y, H:i"
 msgstr "d F Y, H:i"
-
-msgid "Connected since"
-msgstr "Tengt síðan"
-
-msgid "d F Y"
-msgstr "d F Y"
 
 msgid "Synchronize"
 msgstr "Samstilla"
@@ -6155,6 +6099,12 @@ msgid "Remove device"
 msgstr "Fjarlægja tæki"
 
 msgid "Please enter your username and password"
+msgstr ""
+
+msgid "Wipe only data related to this account"
+msgstr ""
+
+msgid "Wipe all data"
 msgstr ""
 
 msgid "Username"
@@ -6907,9 +6857,6 @@ msgstr ""
 msgid "Unknown MAPI Error"
 msgstr "Óþekkt MAPI-villa"
 
-msgid "This external link will open in a new window"
-msgstr ""
-
 msgid "Destination folder not found."
 msgstr ""
 
@@ -6938,9 +6885,6 @@ msgstr "Skráin er ógild."
 #, php-format
 msgid "Unable to import '%s'. "
 msgstr "Gat ekki flutt inn '%s'. "
-
-msgid "Please contact your system administrator if the problem persists."
-msgstr "Láttu kerfisstjórn vita ef vandamálið heldur áfram."
 
 msgid "Attachment is not imported successfully"
 msgstr ""
@@ -7000,80 +6944,6 @@ msgstr "Óþekkt MAPI-villa: %s"
 msgid "Action is not performed correctly."
 msgstr ""
 
-msgid "Tentatively accepted"
-msgstr "Kannski"
-
-msgid "New Time Proposed"
-msgstr "Tillaga að nýrri tímasetningu"
-
-#, php-format
-msgid "Occurs every %s effective %s from %s to %s."
-msgstr "Endurtekið á %s fresti með upphaf %s frá %s til %s."
-
-#, php-format
-msgid "Occurs every %s %s effective %s from %s to %s."
-msgstr "Endurtekið á %s %s fresti með upphaf %s frá %s til %s."
-
-#, php-format
-msgid "Occurs every %s effective %s."
-msgstr "Endurtekið á %s fresti með upphaf %s."
-
-#, php-format
-msgid "Occurs every %s %s effective %s."
-msgstr "Endurtekið á %s %s fresti með upphaf %s."
-
-#, php-format
-msgid "Occurs every %s effective %s for %s occurrence from %s to %s."
-msgid_plural "Occurs every %s effective %s for %s occurrences from %s to %s."
-msgstr[0] ""
-msgstr[1] ""
-
-#, php-format
-msgid "Occurs every %s %s effective %s for %s occurrence from %s to %s."
-msgid_plural "Occurs every %s %s effective %s for %s occurrences %s to %s."
-msgstr[0] ""
-msgstr[1] ""
-
-#, php-format
-msgid "Occurs every %s effective %s for %s occurrence."
-msgid_plural "Occurs every %s effective %s for %s occurrences."
-msgstr[0] ""
-msgstr[1] ""
-
-#, php-format
-msgid "Occurs every %s %s effective %s for %s occurrence."
-msgid_plural "Occurs every %s %s effective %s for %s occurrences."
-msgstr[0] ""
-msgstr[1] ""
-
-#, php-format
-msgid "Occurs every %s effective %s until %s from %s to %s."
-msgstr "Endurtekið á %s fresti með upphaf %s og lýkur %s frá %s til %s."
-
-#, php-format
-msgid "Occurs every %s %s effective %s until %s from %s to %s."
-msgstr "Endurtekið á %s %s fresti með upphaf %s og lýkur %s frá %s til %s."
-
-#, php-format
-msgid "Occurs every %s effective %s until %s."
-msgstr "Endurtekið á %s fresti með upphaf %s og lýkur %s."
-
-#, php-format
-msgid "Occurs every %s %s effective %s until %s."
-msgstr "Endurtekið á %s %s fresti með upphaf %s og lýkur %s."
-
-msgid "Task Accepted:"
-msgstr ""
-
-msgid "Task Declined:"
-msgstr ""
-
-msgid "Task Updated:"
-msgstr ""
-
-msgid "Task Completed:"
-msgstr ""
-
 msgid "Contact not found"
 msgstr ""
 
@@ -7081,6 +6951,9 @@ msgid ""
 "Contact information could not be displayed because the server had trouble "
 "retrieving the information."
 msgstr ""
+
+msgid "Please contact your system administrator if the problem persists."
+msgstr "Láttu kerfisstjórn vita ef vandamálið heldur áfram."
 
 msgid "Could not handle this type of object."
 msgstr ""
@@ -7173,6 +7046,15 @@ msgid "%s's Anniversary"
 msgstr ""
 
 msgid "You don't have the permission to complete this action"
+msgstr ""
+
+msgid "Quota error"
+msgstr ""
+
+msgid "Send quota limit reached"
+msgstr ""
+
+msgid "Email sending failed. Check the log files for more information."
 msgstr ""
 
 msgid "Unknown user/group"
@@ -7476,6 +7358,32 @@ msgstr ""
 msgid "File is not imported successfully"
 msgstr ""
 
+msgid "The uploaded file exceeds the upload_max_filesize directive in php.ini."
+msgstr ""
+
+msgid ""
+"The uploaded file exceeds the MAX_FILE_SIZE directive that was specified in "
+"the HTML form."
+msgstr ""
+
+msgid "The uploaded file was only partially uploaded."
+msgstr ""
+
+msgid "No file was uploaded. ."
+msgstr ""
+
+msgid "Missing a temporary folder."
+msgstr ""
+
+msgid "Failed to write file to disk."
+msgstr ""
+
+msgid ""
+"A PHP extension stopped the file upload. PHP does not provide a way to "
+"ascertain which extension caused the file upload to stop; examining the list "
+"of loaded extensions with phpinfo() may help."
+msgstr ""
+
 msgid "There is no contact found in this file."
 msgstr "Það fannst enginn tengiliður í þessari skrá."
 
@@ -7485,10 +7393,6 @@ msgstr ""
 
 msgid ""
 "grommunio Web does not support importing multiple ICS with this version."
-msgstr ""
-
-#, php-format
-msgid "Unable to import '%s'"
 msgstr ""
 
 msgid "The EML is not valid"
@@ -7527,6 +7431,3 @@ msgstr ""
 
 msgid "Some problem encountered when encoding/decoding JSON data."
 msgstr ""
-
-msgid "Restore items"
-msgstr "Endurheimta atriði"

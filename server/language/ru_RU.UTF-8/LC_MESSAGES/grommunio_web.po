@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Russian\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-09-25 14:32+0200\n"
+"POT-Creation-Date: 2024-02-12 02:01+0100\n"
 "PO-Revision-Date: 2022-07-26 17:59+0200\n"
 "Last-Translator: Artem <Localizer_in_Russian@protonmail.com>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/grommunio/"
@@ -13,8 +13,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "X-Generator: Weblate 4.14-dev\n"
 
 #. TRANSLATORS: This message is used as label for the column which indicates the week number of the month in date picker. and 'Wk' stands for week
@@ -631,6 +631,9 @@ msgstr "Очистить папку"
 msgid "You must specify a name."
 msgstr "Вы должны указать имя."
 
+msgid "Add a folder to favorites based on search query"
+msgstr "Добавить папку в избранное на основе этого поискового запроса"
+
 msgid "Folder name"
 msgstr "Имя папки"
 
@@ -716,9 +719,6 @@ msgstr "Тело письма и Вложения"
 
 msgid "Favorites"
 msgstr "Избранное"
-
-msgid "Add a folder to favorites based on search query"
-msgstr "Добавить папку в избранное на основе этого поискового запроса"
 
 msgid "Select Folder"
 msgstr "Выбрать каталог"
@@ -1082,6 +1082,9 @@ msgstr "Пригласить участников"
 msgid "One or more attendees are busy. Are you sure to invite?"
 msgstr ""
 "Один или несколько приглашенных участников заняты. Подтверждаете приглашение?"
+
+msgid "Preview"
+msgstr "Предосмотр"
 
 msgid "Scheduling"
 msgstr "Планирование"
@@ -2097,9 +2100,6 @@ msgstr "Выгрузка файла"
 
 msgid "Attach item"
 msgstr "Вложить элемент"
-
-msgid "Preview"
-msgstr "Предосмотр"
 
 msgid "Download"
 msgstr "Загрузить"
@@ -4509,6 +4509,9 @@ msgstr "Закрыть каталог"
 msgid "Reload"
 msgstr "Перезагрузить"
 
+msgid "Restore items"
+msgstr "Восстановить элементы"
+
 msgid "Select color"
 msgstr "Выбрать цвет"
 
@@ -5660,70 +5663,6 @@ msgstr "Задач нет."
 msgid "Tasks / To-Do"
 msgstr "Задачи / To-Do"
 
-msgid "Import / Export"
-msgstr "Импорт / Экспорт"
-
-#, fuzzy
-msgid ""
-"Calendar, contact and mail items can be imported and exported from and to "
-"grommunio Web."
-msgstr ""
-"Элементы календаря, контактов и почты можно импортировать и экспортировать "
-"из grommunio Web и в него."
-
-#, fuzzy
-msgid ""
-"Right-click a folder and select the import button. Additionally, items can "
-"be imported from the attachment context menu."
-msgstr ""
-"Щелкните папку правой кнопкой мыши и выберите кнопку импорта. Кроме того, "
-"элементы можно импортировать из контекстного меню вложения."
-
-#, fuzzy
-msgid "Exporting can be done from the context menu of an item."
-msgstr "Экспорт можно выполнить из контекстного меню элемента."
-
-msgid "Icon packs"
-msgstr "Наборы иконок"
-
-#, fuzzy
-msgid ""
-"You can now choose between different icons. By default the new Breeze icons "
-"are enabled, but if you prefer the classic icons you can change this in the "
-"settings."
-msgstr ""
-"Теперь вы можете выбирать между различными иконками. По умолчанию включены "
-"новые значки Breeze, но если вы предпочитаете классические значки, вы можете "
-"изменить это в настройках."
-
-#, fuzzy
-msgid ""
-"Go to your settings, open the general tab and select an icon pack to your "
-"liking."
-msgstr ""
-"Зайдите в настройки, откройте вкладку \"Общие\" и выберите пакет иконок по "
-"своему вкусу."
-
-#, fuzzy
-msgid "Left: Breeze - Right: Classic"
-msgstr "Слева: Бриз - Справа: Классика"
-
-msgid "What's new"
-msgstr "Що нового"
-
-#, fuzzy
-msgid "Don't show me new features again."
-msgstr "Не показывайте мне больше новые возможности."
-
-msgid "Skip"
-msgstr "Пропустить"
-
-msgid "Previous"
-msgstr "Предыдущий"
-
-msgid "Next"
-msgstr "Следующий"
-
 #, fuzzy
 msgid "Click the link to open the URL in a new window."
 msgstr "Щелкните ссылку, чтобы открыть URL-адрес в новом окне."
@@ -6325,12 +6264,6 @@ msgstr "Требуется аутентификация при первом ис
 msgid "Intranet"
 msgstr "Интранет"
 
-msgid "number"
-msgstr "номер"
-
-msgid "shadow"
-msgstr "тень"
-
 #, fuzzy
 msgid "Openstreetmap"
 msgstr "Openstreetmap"
@@ -6367,6 +6300,15 @@ msgstr "Сброс запрошен"
 msgid "Wipe Executed"
 msgstr "Сброс выполнен"
 
+msgid "Account Only Wipe Pending"
+msgstr ""
+
+msgid "Account Only Wipe Requested"
+msgstr ""
+
+msgid "Account Only Wipe Executed"
+msgstr ""
+
 msgid "Not Available"
 msgstr "Недоступен"
 
@@ -6391,24 +6333,17 @@ msgstr "grommunio-sync Версия"
 msgid "Policy name"
 msgstr "Название политики"
 
-#, fuzzy
-msgid "Outlook Extension"
-msgstr "Расширение Outlook"
+msgid "Connected since"
+msgstr "Подключен"
 
-msgid "Build"
-msgstr "Сборка"
+msgid "d F Y"
+msgstr "d F Y"
 
 msgid "Last updated"
 msgstr "Последнее изменение"
 
 msgid "d F Y, H:i"
 msgstr "d F Y, H:i"
-
-msgid "Connected since"
-msgstr "Подключен"
-
-msgid "d F Y"
-msgstr "d F Y"
 
 msgid "Synchronize"
 msgstr "Синхронизировать"
@@ -6477,6 +6412,12 @@ msgstr "Удалить устройство"
 
 msgid "Please enter your username and password"
 msgstr "Введите имя пользователя и пароль"
+
+msgid "Wipe only data related to this account"
+msgstr ""
+
+msgid "Wipe all data"
+msgstr ""
 
 msgid "Username"
 msgstr "Имя пользователя"
@@ -7441,10 +7382,6 @@ msgid "Unknown MAPI Error"
 msgstr "Неизвестная ошибка MAPI: %s"
 
 #, fuzzy
-msgid "This external link will open in a new window"
-msgstr "Эта внешняя ссылка откроется в новом окне"
-
-#, fuzzy
 msgid "Destination folder not found."
 msgstr "Папка назначения не найдена."
 
@@ -7478,10 +7415,6 @@ msgstr "Файл недействителен."
 #, php-format
 msgid "Unable to import '%s'. "
 msgstr "Невозможно импортировать '%s'. "
-
-#, fuzzy
-msgid "Please contact your system administrator if the problem persists."
-msgstr "Если проблема сохраняется, обратитесь к системному администратору."
 
 #, fuzzy
 msgid "Attachment is not imported successfully"
@@ -7549,89 +7482,6 @@ msgstr "Неизвестная ошибка MAPI: %s"
 msgid "Action is not performed correctly."
 msgstr "Действие не завершено корректно."
 
-msgid "Tentatively accepted"
-msgstr "Предварительно принято"
-
-msgid "New Time Proposed"
-msgstr "Предложено новое время"
-
-#, fuzzy, php-format
-msgid "Occurs every %s effective %s from %s to %s."
-msgstr "Occurs every {0} effective {1} until {2}."
-
-#, fuzzy, php-format
-msgid "Occurs every %s %s effective %s from %s to %s."
-msgstr "Occurs every {0} effective {1} for {2} occurence."
-
-#, fuzzy, php-format
-msgid "Occurs every %s effective %s."
-msgstr "Occurs every {0} effective {1}."
-
-#, fuzzy, php-format
-msgid "Occurs every %s %s effective %s."
-msgstr "Occurs every {0} effective {1}."
-
-#, fuzzy, php-format
-msgid "Occurs every %s effective %s for %s occurrence from %s to %s."
-msgid_plural "Occurs every %s effective %s for %s occurrences from %s to %s."
-msgstr[0] "Происходит каждые %s эффективных %s для %s появления от %s до %s."
-msgstr[1] ""
-msgstr[2] ""
-
-#, fuzzy, php-format
-msgid "Occurs every %s %s effective %s for %s occurrence from %s to %s."
-msgid_plural "Occurs every %s %s effective %s for %s occurrences %s to %s."
-msgstr[0] ""
-"Происходит каждый %s %s эффективный %s для %s появления от %s до %s."
-msgstr[1] ""
-msgstr[2] ""
-
-#, fuzzy, php-format
-msgid "Occurs every %s effective %s for %s occurrence."
-msgid_plural "Occurs every %s effective %s for %s occurrences."
-msgstr[0] "Происходит каждые %s эффективных %s за %s появления."
-msgstr[1] ""
-msgstr[2] ""
-
-#, fuzzy, php-format
-msgid "Occurs every %s %s effective %s for %s occurrence."
-msgid_plural "Occurs every %s %s effective %s for %s occurrences."
-msgstr[0] "Происходит каждые %s %s эффективные %s для %s возникновения."
-msgstr[1] ""
-msgstr[2] ""
-
-#, fuzzy, php-format
-msgid "Occurs every %s effective %s until %s from %s to %s."
-msgstr "Occurs every {0} effective {1} for {2} occurence from {3} to {4}."
-
-#, fuzzy, php-format
-msgid "Occurs every %s %s effective %s until %s from %s to %s."
-msgstr "Occurs every {0} effective {1} for {2} occurence from {3} to {4}."
-
-#, fuzzy, php-format
-msgid "Occurs every %s effective %s until %s."
-msgstr "Occurs every {0} effective {1} until {2}."
-
-#, fuzzy, php-format
-msgid "Occurs every %s %s effective %s until %s."
-msgstr "Occurs every {0} effective {1} until {2}."
-
-#, fuzzy
-msgid "Task Accepted:"
-msgstr "Задача принята:"
-
-#, fuzzy
-msgid "Task Declined:"
-msgstr "Задание отклонено:"
-
-#, fuzzy
-msgid "Task Updated:"
-msgstr "Задание обновлено:"
-
-#, fuzzy
-msgid "Task Completed:"
-msgstr "Задание выполнено:"
-
 msgid "Contact not found"
 msgstr "Контакт не найден"
 
@@ -7642,6 +7492,10 @@ msgid ""
 msgstr ""
 "Контактная информация не может быть отображена, поскольку серверу не удалось "
 "получить информацию."
+
+#, fuzzy
+msgid "Please contact your system administrator if the problem persists."
+msgstr "Если проблема сохраняется, обратитесь к системному администратору."
 
 #, fuzzy
 msgid "Could not handle this type of object."
@@ -7772,6 +7626,15 @@ msgstr "юбилей %s"
 #, fuzzy
 msgid "You don't have the permission to complete this action"
 msgstr "У вас нет разрешения на выполнение этого действия"
+
+msgid "Quota error"
+msgstr ""
+
+msgid "Send quota limit reached"
+msgstr ""
+
+msgid "Email sending failed. Check the log files for more information."
+msgstr ""
 
 #, fuzzy
 msgid "Unknown user/group"
@@ -8158,6 +8021,32 @@ msgstr "Войти"
 msgid "File is not imported successfully"
 msgstr "Файл успешно не импортирован"
 
+msgid "The uploaded file exceeds the upload_max_filesize directive in php.ini."
+msgstr ""
+
+msgid ""
+"The uploaded file exceeds the MAX_FILE_SIZE directive that was specified in "
+"the HTML form."
+msgstr ""
+
+msgid "The uploaded file was only partially uploaded."
+msgstr ""
+
+msgid "No file was uploaded. ."
+msgstr ""
+
+msgid "Missing a temporary folder."
+msgstr ""
+
+msgid "Failed to write file to disk."
+msgstr ""
+
+msgid ""
+"A PHP extension stopped the file upload. PHP does not provide a way to "
+"ascertain which extension caused the file upload to stop; examining the list "
+"of loaded extensions with phpinfo() may help."
+msgstr ""
+
 #, fuzzy
 msgid "There is no contact found in this file."
 msgstr "В этом файле не найдено ни одного контакта."
@@ -8171,10 +8060,6 @@ msgstr "grommunio Web не поддерживает импорт несколь�
 msgid ""
 "grommunio Web does not support importing multiple ICS with this version."
 msgstr "grommunio Web не поддерживает импорт нескольких ICS в этой версии."
-
-#, fuzzy, php-format
-msgid "Unable to import '%s'"
-msgstr "Невозможно импортировать '%s'"
 
 #, fuzzy
 msgid "The EML is not valid"
@@ -8216,50 +8101,3 @@ msgstr "JSON Error: - %s"
 #, fuzzy
 msgid "Some problem encountered when encoding/decoding JSON data."
 msgstr "Возникла проблема при кодировании/декодировании данных JSON."
-
-msgid "Assistent"
-msgstr "Заместитель"
-
-#, fuzzy
-msgid ""
-"The revocation status of the digital certificate used to sign this email is "
-"unknown (Server is unavaliable or certificate does not support OCSP). The "
-"validity of the certificate could not be verified."
-msgstr ""
-"Статус отзыва цифрового сертификата, используемого для подписи этого "
-"сообщения электронной почты, неизвестен (сервер недоступен или сертификат не "
-"поддерживает OCSP). Действительность сертификата проверить не удалось."
-
-#, fuzzy
-msgid "The certificate verification server (OCSP) is temporarly offline."
-msgstr ""
-"Сервер проверки сертификатов (OCSP) временно находится в автономном режиме."
-
-#, fuzzy
-msgid "Signature verified succesfully"
-msgstr "Подпись проверена успешно"
-
-#, fuzzy
-msgid "Signature verification succesfull, but certificate is expired"
-msgstr "Проверка подписи прошла успешно, но срок действия сертификата истек"
-
-#, fuzzy
-msgid ""
-"Your password is wrong or you have insufficent permission to change password"
-msgstr "Ваш пароль неверен или у вас недостаточно прав для изменения пароля"
-
-#, fuzzy, php-format
-msgid ""
-"You marked '%s' as a resource. You cannot schedule a meeting with '%s' "
-"because you do not have the appropiate permissions for that account. Either "
-"enter the name as a required or optional attendee or talk to your "
-"administrator about giving you permission to schedule '%s'."
-msgstr ""
-"Вы отметили '%s' как ресурс. Вы не можете запланировать встречу с '%s', "
-"потому что у вас нет соответствующих прав для этой учетной записи. Либо "
-"введите это имя в качестве обязательного или необязательного участника, либо "
-"поговорите со своим администратором о предоставлении вам разрешения на "
-"планирование '%s'."
-
-msgid "Restore items"
-msgstr "Восстановить элементы"

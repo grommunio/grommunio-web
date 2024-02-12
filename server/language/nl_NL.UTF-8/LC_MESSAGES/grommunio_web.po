@@ -3,8 +3,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Dutch\n"
-"Report-Msgid-Bugs-To: dev@grommunio.com\n"
-"POT-Creation-Date: 2019-09-25 14:32+0200\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-02-12 02:01+0100\n"
 "PO-Revision-Date: 2022-12-11 14:12+0000\n"
 "Last-Translator: Orkan Eser <orkan.eser@grommunio.com>\n"
 "Language-Team: Dutch <https://hosted.weblate.org/projects/grommunio/"
@@ -621,6 +621,9 @@ msgstr "Geen folder naam"
 msgid "You must specify a name."
 msgstr "Specificeer een naam."
 
+msgid "Add a folder to favorites based on search query"
+msgstr "Voeg een folder toe aan favorieten gebaseerd op deze zoekopdracht"
+
 msgid "Folder name"
 msgstr "Foldernaam"
 
@@ -706,9 +709,6 @@ msgstr "Inhoud & bijlagen"
 
 msgid "Favorites"
 msgstr "Favorieten"
-
-msgid "Add a folder to favorites based on search query"
-msgstr "Voeg een folder toe aan favorieten gebaseerd op deze zoekopdracht"
 
 msgid "Select Folder"
 msgstr "Selecteer Map"
@@ -1058,6 +1058,9 @@ msgstr "Bezette genodigden"
 
 msgid "One or more attendees are busy. Are you sure to invite?"
 msgstr "Een of meerdere genodigden zijn bezig. Wilt u hen alsnog uitnodigen?"
+
+msgid "Preview"
+msgstr "Voorbeeld"
 
 msgid "Scheduling"
 msgstr "Planning"
@@ -2029,9 +2032,6 @@ msgstr "Bestand uploaden"
 
 msgid "Attach item"
 msgstr "Item invoegen"
-
-msgid "Preview"
-msgstr "Voorbeeld"
 
 msgid "Download"
 msgstr "Downloaden"
@@ -4336,6 +4336,9 @@ msgstr "Map sluiten"
 msgid "Reload"
 msgstr "Herladen"
 
+msgid "Restore items"
+msgstr "Herstel items"
+
 msgid "Select color"
 msgstr "Selecteer kleur"
 
@@ -5428,60 +5431,6 @@ msgstr "Geen taken."
 msgid "Tasks / To-Do"
 msgstr "Taken / To-Do"
 
-msgid "Import / Export"
-msgstr "Importeren/Exporteren"
-
-msgid ""
-"Calendar, contact and mail items can be imported and exported from and to "
-"grommunio Web."
-msgstr ""
-"Kalender, contacten en mail items kunnen geïmporteerd en geëxporteerd worden "
-"van en naar grommunio Web."
-
-msgid ""
-"Right-click a folder and select the import button. Additionally, items can "
-"be imported from the attachment context menu."
-msgstr ""
-"Klik met de rechtermuisknop en selecteer de importeer knop. Tevens kunnen "
-"items ook geïmporteerd worden via het rechtsklik menu van een bijlage."
-
-msgid "Exporting can be done from the context menu of an item."
-msgstr "Exporteren kan gedaan worden via het rechtsklik menu van een item."
-
-msgid "Icon packs"
-msgstr "Icoonpakketten"
-
-msgid ""
-"You can now choose between different icons. By default the new Breeze icons "
-"are enabled, but if you prefer the classic icons you can change this in the "
-"settings."
-msgstr ""
-"Je kan nu kiezen tussen verschillende iconen. Standaard zijn de Breeze icons "
-"enabled, maar de oude iconen kunnen via settings worden geactiveerd."
-
-msgid ""
-"Go to your settings, open the general tab and select an icon pack to your "
-"liking."
-msgstr "Ga naar settings, open de algemene tab en selecteer een icon pack."
-
-msgid "Left: Breeze - Right: Classic"
-msgstr "Links: Breeze - Rechts: Klassiek"
-
-msgid "What's new"
-msgstr "Wat is er nieuw"
-
-msgid "Don't show me new features again."
-msgstr "Toon me geen nieuwe features meer."
-
-msgid "Skip"
-msgstr "Sla over"
-
-msgid "Previous"
-msgstr "Vorige"
-
-msgid "Next"
-msgstr "Volgende"
-
 msgid "Click the link to open the URL in a new window."
 msgstr "Klik op de link om de URL in een nieuw venster te openen."
 
@@ -5778,8 +5727,8 @@ msgid ""
 "Accounts marked by your administrator as \"cannot be changed\" will not be "
 "removed."
 msgstr ""
-"Accounts door uw systeembeheerder gemarkeerd als \"kan niet gewijzigd worden"
-"\" zullen niet worden verwijderd."
+"Accounts door uw systeembeheerder gemarkeerd als \"kan niet gewijzigd "
+"worden\" zullen niet worden verwijderd."
 
 msgid ""
 "grommunio Web will automatically restart in order for these changes to take "
@@ -6061,12 +6010,6 @@ msgstr ""
 msgid "Intranet"
 msgstr "Intranet"
 
-msgid "number"
-msgstr "nummer"
-
-msgid "shadow"
-msgstr "shadow"
-
 msgid "Openstreetmap"
 msgstr "Openstreetmap"
 
@@ -6101,6 +6044,15 @@ msgstr "Wissen aangevraagd"
 msgid "Wipe Executed"
 msgstr "Wissen uitgevoerd"
 
+msgid "Account Only Wipe Pending"
+msgstr ""
+
+msgid "Account Only Wipe Requested"
+msgstr ""
+
+msgid "Account Only Wipe Executed"
+msgstr ""
+
 msgid "Not Available"
 msgstr "Niet Beschikbaar"
 
@@ -6125,23 +6077,17 @@ msgstr "grommunio-sync Versie"
 msgid "Policy name"
 msgstr "Policy naam"
 
-msgid "Outlook Extension"
-msgstr "Outlook Uitbreiding"
+msgid "Connected since"
+msgstr "Verbonden sinds"
 
-msgid "Build"
-msgstr "Build"
+msgid "d F Y"
+msgstr "d F Y"
 
 msgid "Last updated"
 msgstr "Laatst bijgewerkt"
 
 msgid "d F Y, H:i"
 msgstr "d F Y, H:i"
-
-msgid "Connected since"
-msgstr "Verbonden sinds"
-
-msgid "d F Y"
-msgstr "d F Y"
 
 msgid "Synchronize"
 msgstr "Synchroniseren"
@@ -6209,6 +6155,12 @@ msgstr "Apparaat verwijderen"
 msgid "Please enter your username and password"
 msgstr "Voer uw gebruikersnaam en wachtwoord in"
 
+msgid "Wipe only data related to this account"
+msgstr ""
+
+msgid "Wipe all data"
+msgstr ""
+
 msgid "Username"
 msgstr "Gebruikersnaam"
 
@@ -6264,8 +6216,8 @@ msgid ""
 "Prevent the URL in the meeting location from being overridden automatically "
 "(ex: when adding a meetingroom)"
 msgstr ""
-"Voorkom dat de URL in de vergaderlocatie automatisch wordt overschreven ("
-"bijv. bij het toevoegen van een vergaderruimte)"
+"Voorkom dat de URL in de vergaderlocatie automatisch wordt overschreven "
+"(bijv. bij het toevoegen van een vergaderruimte)"
 
 msgid "If you have problems when creating meetings, try disabling this setting"
 msgstr ""
@@ -7033,9 +6985,6 @@ msgstr ""
 msgid "Unknown MAPI Error"
 msgstr "Onbekende MAPI-Fout"
 
-msgid "This external link will open in a new window"
-msgstr "Deze externe link wordt in een nieuw venster geopend"
-
 msgid "Destination folder not found."
 msgstr "Bestemmingsmap niet gevonden."
 
@@ -7064,11 +7013,6 @@ msgstr "De bestanden zijn niet geldig."
 #, php-format
 msgid "Unable to import '%s'. "
 msgstr "'%s' kan niet worden geïmporteerd. "
-
-msgid "Please contact your system administrator if the problem persists."
-msgstr ""
-"Neem contact op met uw systeem administrator als het probleem zich blijft "
-"voortdoen."
 
 msgid "Attachment is not imported successfully"
 msgstr "Bijlage is niet succesvol geïmporteerd"
@@ -7128,80 +7072,6 @@ msgstr "Onbekende MAPI-Fout: %s"
 msgid "Action is not performed correctly."
 msgstr "Actie is niet correct uitgevoerd."
 
-msgid "Tentatively accepted"
-msgstr "Voorlopig geaccepteerd"
-
-msgid "New Time Proposed"
-msgstr "Nieuw tijd voor gesteld"
-
-#, php-format
-msgid "Occurs every %s effective %s from %s to %s."
-msgstr "Vind plaats elke %s vanaf %s van %s tot %s."
-
-#, php-format
-msgid "Occurs every %s %s effective %s from %s to %s."
-msgstr "Vind plaats elke %s %s vanaf %s van %s tot %s."
-
-#, php-format
-msgid "Occurs every %s effective %s."
-msgstr "Vind plaats elke %s vanaf %s."
-
-#, php-format
-msgid "Occurs every %s %s effective %s."
-msgstr "Vind plaats elke %s %s vanaf %s."
-
-#, php-format
-msgid "Occurs every %s effective %s for %s occurrence from %s to %s."
-msgid_plural "Occurs every %s effective %s for %s occurrences from %s to %s."
-msgstr[0] "Vind iedere %s plaats, vanaf %s voor %s keer van %s tot %s."
-msgstr[1] "Vind iedere %s plaats, vanaf %s voor %s keren van %s tot %s."
-
-#, php-format
-msgid "Occurs every %s %s effective %s for %s occurrence from %s to %s."
-msgid_plural "Occurs every %s %s effective %s for %s occurrences %s to %s."
-msgstr[0] "Vind plaats iedere %s %s, vanaf %s voor %s keer van %s tot %s."
-msgstr[1] "Vind plaats iedere %s %s, vanaf %s voor %s keren van %s tot %s."
-
-#, php-format
-msgid "Occurs every %s effective %s for %s occurrence."
-msgid_plural "Occurs every %s effective %s for %s occurrences."
-msgstr[0] "Vind iedere %s plaats, vanaf %s voor %s keer."
-msgstr[1] "Vind iedere %s plaats, vanaf %s voor %s keren."
-
-#, php-format
-msgid "Occurs every %s %s effective %s for %s occurrence."
-msgid_plural "Occurs every %s %s effective %s for %s occurrences."
-msgstr[0] "Vind iedere %s %s plaats, vanaf %s voor %s keer."
-msgstr[1] "Vind iedere %s %s plaats, vanaf %s voor %s keren."
-
-#, php-format
-msgid "Occurs every %s effective %s until %s from %s to %s."
-msgstr "Vind elke %s plaats vanaf %s tot %s van %s tot %s."
-
-#, php-format
-msgid "Occurs every %s %s effective %s until %s from %s to %s."
-msgstr "Vind elke %s %s plaats vanaf %s tot %s van %s tot %s."
-
-#, php-format
-msgid "Occurs every %s effective %s until %s."
-msgstr "Vind elke %s plaats vanaf %s tot %s."
-
-#, php-format
-msgid "Occurs every %s %s effective %s until %s."
-msgstr "Elke %s %s met ingang van %s tot %s."
-
-msgid "Task Accepted:"
-msgstr "Taak geaccepteerd:"
-
-msgid "Task Declined:"
-msgstr "Taak geweigerd:"
-
-msgid "Task Updated:"
-msgstr "Taak bijgewerkt:"
-
-msgid "Task Completed:"
-msgstr "Taak volbracht:"
-
 msgid "Contact not found"
 msgstr "Contact niet gevonden"
 
@@ -7211,6 +7081,11 @@ msgid ""
 msgstr ""
 "Contactinformatie kon niet worden weergegeven omdat de server moeite had de "
 "informatie op te halen."
+
+msgid "Please contact your system administrator if the problem persists."
+msgstr ""
+"Neem contact op met uw systeem administrator als het probleem zich blijft "
+"voortdoen."
 
 msgid "Could not handle this type of object."
 msgstr "Kon dit type object niet verwerken."
@@ -7318,6 +7193,15 @@ msgstr "%s's Verjaardag"
 
 msgid "You don't have the permission to complete this action"
 msgstr "U heeft geen toestemming om deze actie uit te voeren"
+
+msgid "Quota error"
+msgstr ""
+
+msgid "Send quota limit reached"
+msgstr ""
+
+msgid "Email sending failed. Check the log files for more information."
+msgstr ""
 
 msgid "Unknown user/group"
 msgstr "Onbekende gebruiker/groep"
@@ -7549,7 +7433,8 @@ msgid "Could not delete message."
 msgstr "Kon bericht niet verwijderen."
 
 msgid "You have insufficient privileges to cancel this Meeting Request."
-msgstr "U heeft niet voldoende permissies om dit Vergaderverzoek te accepteren."
+msgstr ""
+"U heeft niet voldoende permissies om dit Vergaderverzoek te accepteren."
 
 msgid "Could not cancel Meeting Request."
 msgstr "Kon vergaderverzoek niet annuleren."
@@ -7561,7 +7446,8 @@ msgid "Could not decline Meeting Request."
 msgstr "Kon vergaderverzoek niet weigeren."
 
 msgid "You have insufficient privileges to accept this Meeting Request."
-msgstr "U heeft niet voldoende permissies om dit Vergaderverzoek te accepteren."
+msgstr ""
+"U heeft niet voldoende permissies om dit Vergaderverzoek te accepteren."
 
 msgid "Could not accept Meeting Request."
 msgstr "Kon vergaderverzoek niet accepteren."
@@ -7639,6 +7525,32 @@ msgstr "Inloggen"
 msgid "File is not imported successfully"
 msgstr "Bestand is niet succesvol geïmporteerd"
 
+msgid "The uploaded file exceeds the upload_max_filesize directive in php.ini."
+msgstr ""
+
+msgid ""
+"The uploaded file exceeds the MAX_FILE_SIZE directive that was specified in "
+"the HTML form."
+msgstr ""
+
+msgid "The uploaded file was only partially uploaded."
+msgstr ""
+
+msgid "No file was uploaded. ."
+msgstr ""
+
+msgid "Missing a temporary folder."
+msgstr ""
+
+msgid "Failed to write file to disk."
+msgstr ""
+
+msgid ""
+"A PHP extension stopped the file upload. PHP does not provide a way to "
+"ascertain which extension caused the file upload to stop; examining the list "
+"of loaded extensions with phpinfo() may help."
+msgstr ""
+
 msgid "There is no contact found in this file."
 msgstr "Geen contact gevonden in dit bestand."
 
@@ -7653,10 +7565,6 @@ msgid ""
 msgstr ""
 "grommunio Web ondersteunt het importeren van meerdere ICS in één bestand "
 "niet in deze versie."
-
-#, php-format
-msgid "Unable to import '%s'"
-msgstr "'%s' kan niet worden geïmporteerd"
 
 msgid "The EML is not valid"
 msgstr "De EML is ongeldig"
@@ -7695,6 +7603,3 @@ msgstr "JSON Fout: - %s"
 msgid "Some problem encountered when encoding/decoding JSON data."
 msgstr ""
 "Er is een probleem opgetreden bij het coderen/decoderen van JSON-gegevens."
-
-msgid "Restore items"
-msgstr "Herstel items"

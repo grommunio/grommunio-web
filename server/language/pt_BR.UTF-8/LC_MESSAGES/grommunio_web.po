@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Portuguese (Brazil)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-09-25 14:32+0200\n"
+"POT-Creation-Date: 2024-02-12 02:01+0100\n"
 "PO-Revision-Date: 2017-10-03 21:54+0200\n"
 "Last-Translator: import\n"
 "Language: pt_BR\n"
@@ -309,8 +309,8 @@ msgstr "falso"
 msgid ""
 "This field should be an e-mail address in the format \"user@example.com\""
 msgstr ""
-"Este campo deve conter um endereço de email no formato \"usuario@exemplo.com"
-"\""
+"Este campo deve conter um endereço de email no formato \"usuario@exemplo."
+"com\""
 
 msgid "This field should be a URL in the format \"{0}\""
 msgstr "Este campo é uma URL e deve ser no formato \"{0}\""
@@ -488,6 +488,10 @@ msgstr "Não existem itens para exibir nessa visualização"
 msgid "Show Names from the"
 msgstr "Exibir nomes do"
 
+#, fuzzy
+msgid "Search…"
+msgstr "março…"
+
 msgid "Sort by: Icon"
 msgstr "Ordenar por: Ícone"
 
@@ -620,6 +624,9 @@ msgstr "Esvaziar pastas"
 msgid "You must specify a name."
 msgstr "É necessário especificar um nome."
 
+msgid "Add a folder to favorites based on search query"
+msgstr ""
+
 msgid "Folder name"
 msgstr ""
 
@@ -701,10 +708,6 @@ msgstr "Para"
 msgid "Filter category…"
 msgstr ""
 
-#, fuzzy
-msgid "Search…"
-msgstr "março…"
-
 msgid "Sender"
 msgstr "Remetente"
 
@@ -721,9 +724,6 @@ msgstr "Anexos"
 
 msgid "Favorites"
 msgstr "Favoritos"
-
-msgid "Add a folder to favorites based on search query"
-msgstr ""
 
 msgid "Select Folder"
 msgstr "Selecionar Pasta"
@@ -1078,6 +1078,9 @@ msgid "One or more attendees are busy. Are you sure to invite?"
 msgstr ""
 "Um ou mais participantes convidados estão ocupados. Tem certeza que quer "
 "continuar?"
+
+msgid "Preview"
+msgstr "Visualização"
 
 msgid "Scheduling"
 msgstr "Agendamento"
@@ -2064,9 +2067,6 @@ msgstr "Envio de arquivo"
 
 msgid "Attach item"
 msgstr "Anexar Ítem"
-
-msgid "Preview"
-msgstr "Visualização"
 
 msgid "Download"
 msgstr "Download"
@@ -4439,6 +4439,9 @@ msgstr "Fechar pasta"
 msgid "Reload"
 msgstr "Recarregar"
 
+msgid "Restore items"
+msgstr "Restaurar Itens"
+
 #, fuzzy
 msgid "Select color"
 msgstr "Selecionar Pasta"
@@ -5579,56 +5582,6 @@ msgstr "Sem tarefas."
 msgid "Tasks / To-Do"
 msgstr ""
 
-#, fuzzy
-msgid "Import / Export"
-msgstr "Importante"
-
-msgid ""
-"Calendar, contact and mail items can be imported and exported from and to "
-"grommunio Web."
-msgstr ""
-
-msgid ""
-"Right-click a folder and select the import button. Additionally, items can "
-"be imported from the attachment context menu."
-msgstr ""
-
-msgid "Exporting can be done from the context menu of an item."
-msgstr ""
-
-#, fuzzy
-msgid "Icon packs"
-msgstr "Ícones"
-
-msgid ""
-"You can now choose between different icons. By default the new Breeze icons "
-"are enabled, but if you prefer the classic icons you can change this in the "
-"settings."
-msgstr ""
-
-msgid ""
-"Go to your settings, open the general tab and select an icon pack to your "
-"liking."
-msgstr ""
-
-msgid "Left: Breeze - Right: Classic"
-msgstr ""
-
-msgid "What's new"
-msgstr ""
-
-msgid "Don't show me new features again."
-msgstr ""
-
-msgid "Skip"
-msgstr ""
-
-msgid "Previous"
-msgstr ""
-
-msgid "Next"
-msgstr ""
-
 msgid "Click the link to open the URL in a new window."
 msgstr ""
 
@@ -6208,12 +6161,6 @@ msgstr ""
 msgid "Intranet"
 msgstr ""
 
-msgid "number"
-msgstr ""
-
-msgid "shadow"
-msgstr ""
-
 msgid "Openstreetmap"
 msgstr ""
 
@@ -6248,6 +6195,15 @@ msgstr "Limpeza Requisitada"
 msgid "Wipe Executed"
 msgstr "Limpeza Executada"
 
+msgid "Account Only Wipe Pending"
+msgstr ""
+
+msgid "Account Only Wipe Requested"
+msgstr ""
+
+msgid "Account Only Wipe Executed"
+msgstr ""
+
 msgid "Not Available"
 msgstr ""
 
@@ -6272,22 +6228,16 @@ msgstr ""
 msgid "Policy name"
 msgstr ""
 
-msgid "Outlook Extension"
+msgid "Connected since"
 msgstr ""
 
-msgid "Build"
+msgid "d F Y"
 msgstr ""
 
 msgid "Last updated"
 msgstr ""
 
 msgid "d F Y, H:i"
-msgstr ""
-
-msgid "Connected since"
-msgstr ""
-
-msgid "d F Y"
 msgstr ""
 
 msgid "Synchronize"
@@ -6349,6 +6299,12 @@ msgid "Remove device"
 msgstr "Remover dispositivo"
 
 msgid "Please enter your username and password"
+msgstr ""
+
+msgid "Wipe only data related to this account"
+msgstr ""
+
+msgid "Wipe all data"
 msgstr ""
 
 msgid "Username"
@@ -7099,9 +7055,6 @@ msgstr ""
 msgid "Unknown MAPI Error"
 msgstr "Erro MAPI desconhecido: %s"
 
-msgid "This external link will open in a new window"
-msgstr ""
-
 msgid "Destination folder not found."
 msgstr ""
 
@@ -7131,9 +7084,6 @@ msgstr "{0} não é uma hora válida"
 
 #, php-format
 msgid "Unable to import '%s'. "
-msgstr ""
-
-msgid "Please contact your system administrator if the problem persists."
 msgstr ""
 
 msgid "Attachment is not imported successfully"
@@ -7195,86 +7145,15 @@ msgstr "Erro MAPI desconhecido: %s"
 msgid "Action is not performed correctly."
 msgstr ""
 
-msgid "Tentatively accepted"
-msgstr "Provisoriamente aceito"
-
-msgid "New Time Proposed"
-msgstr "Novo horário proposto"
-
-#, php-format
-msgid "Occurs every %s effective %s from %s to %s."
-msgstr "Ocorre cada %s efetivamente %s de %s até %s."
-
-#, php-format
-msgid "Occurs every %s %s effective %s from %s to %s."
-msgstr "Ocorre cada %s %s efetivamente %s de %s até %s."
-
-#, php-format
-msgid "Occurs every %s effective %s."
-msgstr "Ocorre cada %s efetivamente %s."
-
-#, php-format
-msgid "Occurs every %s %s effective %s."
-msgstr "Ocorre cada %s %s efetivamente %s."
-
-#, php-format
-msgid "Occurs every %s effective %s for %s occurrence from %s to %s."
-msgid_plural "Occurs every %s effective %s for %s occurrences from %s to %s."
-msgstr[0] ""
-msgstr[1] ""
-
-#, php-format
-msgid "Occurs every %s %s effective %s for %s occurrence from %s to %s."
-msgid_plural "Occurs every %s %s effective %s for %s occurrences %s to %s."
-msgstr[0] ""
-msgstr[1] ""
-
-#, php-format
-msgid "Occurs every %s effective %s for %s occurrence."
-msgid_plural "Occurs every %s effective %s for %s occurrences."
-msgstr[0] ""
-msgstr[1] ""
-
-#, php-format
-msgid "Occurs every %s %s effective %s for %s occurrence."
-msgid_plural "Occurs every %s %s effective %s for %s occurrences."
-msgstr[0] ""
-msgstr[1] ""
-
-#, php-format
-msgid "Occurs every %s effective %s until %s from %s to %s."
-msgstr "Ocorre cada %s efetivamente %s para %s ocorrência de %s até %s."
-
-#, php-format
-msgid "Occurs every %s %s effective %s until %s from %s to %s."
-msgstr "Ocorre cada %s %s efetivamente %s até %s de %s até %s."
-
-#, php-format
-msgid "Occurs every %s effective %s until %s."
-msgstr "Ocorre cada %s efetivamente %s até %s."
-
-#, php-format
-msgid "Occurs every %s %s effective %s until %s."
-msgstr "Ocorre cada %s %s efetivamente %s até %s."
-
-msgid "Task Accepted:"
-msgstr ""
-
-msgid "Task Declined:"
-msgstr ""
-
-msgid "Task Updated:"
-msgstr ""
-
-msgid "Task Completed:"
-msgstr ""
-
 msgid "Contact not found"
 msgstr ""
 
 msgid ""
 "Contact information could not be displayed because the server had trouble "
 "retrieving the information."
+msgstr ""
+
+msgid "Please contact your system administrator if the problem persists."
 msgstr ""
 
 msgid "Could not handle this type of object."
@@ -7368,6 +7247,15 @@ msgid "%s's Anniversary"
 msgstr ""
 
 msgid "You don't have the permission to complete this action"
+msgstr ""
+
+msgid "Quota error"
+msgstr ""
+
+msgid "Send quota limit reached"
+msgstr ""
+
+msgid "Email sending failed. Check the log files for more information."
 msgstr ""
 
 msgid "Unknown user/group"
@@ -7680,6 +7568,32 @@ msgstr ""
 msgid "File is not imported successfully"
 msgstr ""
 
+msgid "The uploaded file exceeds the upload_max_filesize directive in php.ini."
+msgstr ""
+
+msgid ""
+"The uploaded file exceeds the MAX_FILE_SIZE directive that was specified in "
+"the HTML form."
+msgstr ""
+
+msgid "The uploaded file was only partially uploaded."
+msgstr ""
+
+msgid "No file was uploaded. ."
+msgstr ""
+
+msgid "Missing a temporary folder."
+msgstr ""
+
+msgid "Failed to write file to disk."
+msgstr ""
+
+msgid ""
+"A PHP extension stopped the file upload. PHP does not provide a way to "
+"ascertain which extension caused the file upload to stop; examining the list "
+"of loaded extensions with phpinfo() may help."
+msgstr ""
+
 msgid "There is no contact found in this file."
 msgstr ""
 
@@ -7689,10 +7603,6 @@ msgstr ""
 
 msgid ""
 "grommunio Web does not support importing multiple ICS with this version."
-msgstr ""
-
-#, php-format
-msgid "Unable to import '%s'"
 msgstr ""
 
 msgid "The EML is not valid"
@@ -7731,6 +7641,3 @@ msgstr ""
 
 msgid "Some problem encountered when encoding/decoding JSON data."
 msgstr ""
-
-msgid "Restore items"
-msgstr "Restaurar Itens"

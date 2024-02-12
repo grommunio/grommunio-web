@@ -3,8 +3,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Japanese\n"
-"Report-Msgid-Bugs-To: dev@grommunio.com\n"
-"POT-Creation-Date: 2019-09-25 14:32+0200\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-02-12 02:01+0100\n"
 "PO-Revision-Date: 2022-12-12 13:00+0200\n"
 "Last-Translator: Jan Engelhardt <jengelh@inai.de>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/grommunio/"
@@ -470,7 +470,8 @@ msgstr "連絡先をコピーする"
 
 msgid ""
 "Showing only the first {0} names. Use search to find more specific results."
-msgstr "最初の{0} の名前のみを表示します。より具体的な結果を見つけるには、検索を使用"
+msgstr ""
+"最初の{0} の名前のみを表示します。より具体的な結果を見つけるには、検索を使用"
 "してください。"
 
 msgid "Use the search bar to get results"
@@ -611,6 +612,9 @@ msgstr "空のフォルダー名"
 msgid "You must specify a name."
 msgstr "名前を指定して下さい。"
 
+msgid "Add a folder to favorites based on search query"
+msgstr "この検索クエリに基づいて、フォルダをお気に入りに追加する"
+
 msgid "Folder name"
 msgstr "フォルダ名"
 
@@ -697,9 +701,6 @@ msgstr "本文及び添付ファイル"
 msgid "Favorites"
 msgstr "お気に入り"
 
-msgid "Add a folder to favorites based on search query"
-msgstr "この検索クエリに基づいて、フォルダをお気に入りに追加する"
-
 msgid "Select Folder"
 msgstr "フォルダ選択"
 
@@ -718,7 +719,8 @@ msgstr "ソートチップ"
 msgid ""
 "You can sort by date if you narrow down your search results. Enable filters "
 "or adjust your input."
-msgstr "検索結果を絞り込むと、日付順に並べ替えることができます。フィルターを有効にす"
+msgstr ""
+"検索結果を絞り込むと、日付順に並べ替えることができます。フィルターを有効にす"
 "るか、入力を調整します。"
 
 msgid "Did you mean"
@@ -979,7 +981,8 @@ msgstr "他のカレンダーで作成する"
 msgid ""
 "The selected calendar has \"read-only\" permissions. Instead you can create "
 "an item in your own calendar."
-msgstr "選択されたカレンダーは、「読み取り専用」の権限を持っています。代わりに、自分"
+msgstr ""
+"選択されたカレンダーは、「読み取り専用」の権限を持っています。代わりに、自分"
 "のカレンダーに項目を作成することができます。"
 
 msgid "What would you like?"
@@ -1038,6 +1041,9 @@ msgstr "多忙な出席者"
 
 msgid "One or more attendees are busy. Are you sure to invite?"
 msgstr "招待した出席者の中に既に予定ありの人がいます。招待しますか？"
+
+msgid "Preview"
+msgstr "プレビュー"
 
 msgid "Scheduling"
 msgstr "スケジュール"
@@ -1252,19 +1258,22 @@ msgstr "会議出席依頼への確認メールを送信する"
 msgid ""
 "This meeting will be accepted and moved to your calendar. Do you want to "
 "include comments with your response?"
-msgstr "このミーティングは受付され、カレンダーに移動されます。回答にはコメントを添え"
+msgstr ""
+"このミーティングは受付され、カレンダーに移動されます。回答にはコメントを添え"
 "ますか？"
 
 msgid ""
 "This meeting will be tentatively accepted and moved to your calendar. Do you "
 "want to include comments with your response?"
-msgstr "この会議は仮受付され、あなたのカレンダーに移動されます。回答にはコメントを添"
+msgstr ""
+"この会議は仮受付され、あなたのカレンダーに移動されます。回答にはコメントを添"
 "えますか？"
 
 msgid ""
 "This meeting will be declined and moved to your Deleted Items folder. Do you "
 "want to include comments with your response?"
-msgstr "このミーティングは拒否され、削除済みアイテムフォルダに移動されます。回答時に"
+msgstr ""
+"このミーティングは拒否され、削除済みアイテムフォルダに移動されます。回答時に"
 "コメントを添えますか？"
 
 msgid "Edit the response before sending"
@@ -2055,9 +2064,6 @@ msgstr "ファイルアップロード"
 msgid "Attach item"
 msgstr "添付ファイル"
 
-msgid "Preview"
-msgstr "プレビュー"
-
 msgid "Download"
 msgstr "ダウンロード"
 
@@ -2773,7 +2779,8 @@ msgid "Delete all items"
 msgstr "すべての項目を削除"
 
 msgid "Are you sure you want to permanently delete all items?"
-msgstr "フォルダ内のサブフォルダと全てのアイテムを完全削除しますがよろしいですか？"
+msgstr ""
+"フォルダ内のサブフォルダと全てのアイテムを完全削除しますがよろしいですか？"
 
 #, fuzzy
 msgid "Restore all items"
@@ -3109,6 +3116,10 @@ msgstr "新着メールのデスクトップ通知を有効にする"
 #, fuzzy
 msgid "Enable desktop notifications for reminders"
 msgstr "リマインダーのデスクトップ通知を有効にする"
+
+#, fuzzy
+msgid "{A} Auto-hide desktop notification after second(s) {B}"
+msgstr "{A} デスクトップ通知を秒単位で自動非表示にする{B}。"
 
 #, fuzzy
 msgid "Disable sound"
@@ -4525,6 +4536,9 @@ msgstr "フォルダを閉じる"
 msgid "Reload"
 msgstr "再読み込み"
 
+msgid "Restore items"
+msgstr "アイテムを回復する"
+
 msgid "Select color"
 msgstr "色を選択"
 
@@ -5116,8 +5130,9 @@ msgstr "クイック メモ"
 msgid ""
 "You must reload grommunio Web for the changes to take effect. Unsaved "
 "changes will be lost."
-msgstr "変更を有効にするには、grommunio Web "
-"をリロードする必要があります。保存されていない変更は失われます。"
+msgstr ""
+"変更を有効にするには、grommunio Web をリロードする必要があります。保存されて"
+"いない変更は失われます。"
 
 msgid "Reload grommunio Web"
 msgstr "グロムニオ・ウェブのリロード"
@@ -5706,69 +5721,6 @@ msgstr "タスクがありません。"
 msgid "Tasks / To-Do"
 msgstr "タスク／ToDo"
 
-msgid "Import / Export"
-msgstr "インポート/エクスポート"
-
-#, fuzzy
-msgid ""
-"Calendar, contact and mail items can be imported and exported from and to "
-"grommunio Web."
-msgstr ""
-"カレンダー、連絡先、メールなどをgrommunio Webから、またはgrommunio Webへイン"
-"ポート/エクスポートすることができます。"
-
-#, fuzzy
-msgid ""
-"Right-click a folder and select the import button. Additionally, items can "
-"be imported from the attachment context menu."
-msgstr ""
-"フォルダを右クリックし、インポートボタンを選択します。さらに、添付ファイルの"
-"コンテキストメニューからアイテムをインポートすることができます。"
-
-#, fuzzy
-msgid "Exporting can be done from the context menu of an item."
-msgstr "エクスポートは、アイテムのコンテキストメニューから行うことができます。"
-
-#, fuzzy
-msgid "Icon packs"
-msgstr "アイコン"
-
-#, fuzzy
-msgid ""
-"You can now choose between different icons. By default the new Breeze icons "
-"are enabled, but if you prefer the classic icons you can change this in the "
-"settings."
-msgstr ""
-"異なるアイコンを選択できるようになりました。デフォルトでは、新しいBreezeアイ"
-"コンが有効になっていますが、クラシックなアイコンをお好みの場合は、設定で変更"
-"することができます。"
-
-#, fuzzy
-msgid ""
-"Go to your settings, open the general tab and select an icon pack to your "
-"liking."
-msgstr "設定から一般タブを開き、お好みのアイコンパックを選択します。"
-
-#, fuzzy
-msgid "Left: Breeze - Right: Classic"
-msgstr "左：Breeze - 右：Classicクラシック"
-
-msgid "What's new"
-msgstr "新着情報"
-
-#, fuzzy
-msgid "Don't show me new features again."
-msgstr "もう新機能を見せないでくれ。"
-
-msgid "Skip"
-msgstr "スキップ"
-
-msgid "Previous"
-msgstr "前へ"
-
-msgid "Next"
-msgstr "次へ"
-
 #, fuzzy
 msgid "Click the link to open the URL in a new window."
 msgstr "リンクをクリックすると、新しいウィンドウでURLが表示されます。"
@@ -5908,10 +5860,6 @@ msgid "Desktop Notifications"
 msgstr "デスクトップ通知"
 
 #, fuzzy
-msgid "{A} Auto-hide desktop notification after second(s) {B}"
-msgstr "{A} デスクトップ通知を秒単位で自動非表示にする{B}。"
-
-#, fuzzy
 msgid "Files: ownCloud Backend"
 msgstr "ファイル：ownCloudバックエンド"
 
@@ -6029,7 +5977,8 @@ msgstr "アイテムの名前変更"
 
 msgid "A file named \"{0}\" already exists. Please enter a different name."
 msgstr ""
-"「{0}」という名前のファイルがすでに存在しています。別の名前を入力してください。"
+"「{0}」という名前のファイルがすでに存在しています。別の名前を入力してくださ"
+"い。"
 
 msgid "Downloading"
 msgstr "ダウンロード中です"
@@ -6382,13 +6331,6 @@ msgstr "grommunio-filesの初回使用時に認証が必要です。"
 msgid "Intranet"
 msgstr "イントラネット"
 
-msgid "number"
-msgstr "ナンバー"
-
-#, fuzzy
-msgid "shadow"
-msgstr "シャドウ"
-
 #, fuzzy
 msgid "Openstreetmap"
 msgstr "オープンストリートマップ"
@@ -6431,6 +6373,15 @@ msgstr "ワイプ要求"
 msgid "Wipe Executed"
 msgstr "ワイプ実行"
 
+msgid "Account Only Wipe Pending"
+msgstr ""
+
+msgid "Account Only Wipe Requested"
+msgstr ""
+
+msgid "Account Only Wipe Executed"
+msgstr ""
+
 msgid "Not Available"
 msgstr "使用不可"
 
@@ -6460,11 +6411,12 @@ msgid "Policy name"
 msgstr "ポリシー名"
 
 #, fuzzy
-msgid "Outlook Extension"
-msgstr "アウトルック エクステンション"
+msgid "Connected since"
+msgstr "接続開始"
 
-msgid "Build"
-msgstr "ビルド"
+#, fuzzy
+msgid "d F Y"
+msgstr "d F Y"
 
 msgid "Last updated"
 msgstr "最終更新日"
@@ -6472,14 +6424,6 @@ msgstr "最終更新日"
 #, fuzzy
 msgid "d F Y, H:i"
 msgstr "d F Y, H:i"
-
-#, fuzzy
-msgid "Connected since"
-msgstr "接続開始"
-
-#, fuzzy
-msgid "d F Y"
-msgstr "d F Y"
 
 msgid "Synchronize"
 msgstr "同期する"
@@ -6557,6 +6501,12 @@ msgstr "デバイスの取り外し"
 
 msgid "Please enter your username and password"
 msgstr "ログイン情報を入力してください"
+
+msgid "Wipe only data related to this account"
+msgstr ""
+
+msgid "Wipe all data"
+msgstr ""
 
 msgid "Username"
 msgstr "ユーザー名"
@@ -7454,10 +7404,6 @@ msgid "Unknown MAPI Error"
 msgstr "不明なMAPIエラー:%s"
 
 #, fuzzy
-msgid "This external link will open in a new window"
-msgstr "この外部リンクは新しいウィンドウで表示されます"
-
-#, fuzzy
 msgid "Destination folder not found."
 msgstr "保存先フォルダが見つかりません。"
 
@@ -7490,10 +7436,6 @@ msgstr "{0}は有効な時間ではありません。"
 #, php-format
 msgid "Unable to import '%s'. "
 msgstr "'%s' をインポートできません。 "
-
-#, fuzzy
-msgid "Please contact your system administrator if the problem persists."
-msgstr "問題が解決しない場合は、システム管理者にお問い合わせください。"
 
 #, fuzzy
 msgid "Attachment is not imported successfully"
@@ -7565,76 +7507,6 @@ msgstr "不明なMAPIエラー:%s"
 msgid "Action is not performed correctly."
 msgstr "動作が正しく行われない。"
 
-msgid "Tentatively accepted"
-msgstr "仮承諾"
-
-msgid "New Time Proposed"
-msgstr "新しい日時の提示"
-
-#, php-format
-msgid "Occurs every %s effective %s from %s to %s."
-msgstr "Occurs every %s effective %s from %s to %s."
-
-#, php-format
-msgid "Occurs every %s %s effective %s from %s to %s."
-msgstr "Occurs every %s %s effective %s from %s to %s."
-
-#, php-format
-msgid "Occurs every %s effective %s."
-msgstr "Occurs every %s effective %s."
-
-#, php-format
-msgid "Occurs every %s %s effective %s."
-msgstr "Occurs every %s %s effective %s."
-
-#, php-format
-msgid "Occurs every %s effective %s for %s occurrence from %s to %s."
-msgid_plural "Occurs every %s effective %s for %s occurrences from %s to %s."
-msgstr[0] "%4sから%5sまでの%3s回の発生に対して、%1回の有効な%2回ごとに発生する。"
-
-#, php-format
-msgid "Occurs every %s %s effective %s for %s occurrence from %s to %s."
-msgid_plural "Occurs every %s %s effective %s for %s occurrences %s to %s."
-msgstr[0] "%5sから%6sまでの%4sの発生に対して、%1s%2s有効な%3sごとに発生する。"
-
-#, php-format
-msgid "Occurs every %s effective %s for %s occurrence."
-msgid_plural "Occurs every %s effective %s for %s occurrences."
-msgstr[0] "%3s回の発生に対して、%1s回の有効な%2s回ごとに発生する。"
-
-#, php-format
-msgid "Occurs every %s %s effective %s for %s occurrence."
-msgid_plural "Occurs every %s %s effective %s for %s occurrences."
-msgstr[0] "%4s回の発生に対して、%1s%2s回の有効な%2s回ごとに発生する。"
-
-#, php-format
-msgid "Occurs every %s effective %s until %s from %s to %s."
-msgstr "Occurs every %s effective %s until %s from %s to %s."
-
-#, php-format
-msgid "Occurs every %s %s effective %s until %s from %s to %s."
-msgstr "Occurs every %s %s effective %s until %s from %s to %s."
-
-#, php-format
-msgid "Occurs every %s effective %s until %s."
-msgstr "Occurs every %s effective %s until %s."
-
-#, php-format
-msgid "Occurs every %s %s effective %s until %s."
-msgstr "Occurs every %s %s effective %s until %s."
-
-msgid "Task Accepted:"
-msgstr "タスクを受理した。"
-
-msgid "Task Declined:"
-msgstr "タスクの断念。"
-
-msgid "Task Updated:"
-msgstr "タスクを更新しました。"
-
-msgid "Task Completed:"
-msgstr "タスクを完了した。"
-
 #, fuzzy
 msgid "Contact not found"
 msgstr "連絡先が見つかりません"
@@ -7646,6 +7518,10 @@ msgid ""
 msgstr ""
 "連絡先情報の取得に問題があったため、連絡先情報を表示することができませんでし"
 "た。"
+
+#, fuzzy
+msgid "Please contact your system administrator if the problem persists."
+msgstr "問題が解決しない場合は、システム管理者にお問い合わせください。"
 
 #, fuzzy
 msgid "Could not handle this type of object."
@@ -7726,8 +7602,8 @@ msgid ""
 "'%s' has declined your meeting because '%s' does not automatically accept "
 "meeting requests."
 msgstr ""
-"「%s」はミーティングリクエストを自動的に受け入れないため、「%s」はミーティング"
-"を拒否しました。"
+"「%s」はミーティングリクエストを自動的に受け入れないため、「%s」はミーティン"
+"グを拒否しました。"
 
 #, fuzzy, php-format
 msgid ""
@@ -7771,6 +7647,15 @@ msgstr "%sの記念日"
 
 msgid "You don't have the permission to complete this action"
 msgstr "このアクションを完了する権限がありません"
+
+msgid "Quota error"
+msgstr ""
+
+msgid "Send quota limit reached"
+msgstr ""
+
+msgid "Email sending failed. Check the log files for more information."
+msgstr ""
 
 #, fuzzy
 msgid "Unknown user/group"
@@ -8146,6 +8031,32 @@ msgstr "サインイン"
 msgid "File is not imported successfully"
 msgstr "ファイルが正常にインポートされない"
 
+msgid "The uploaded file exceeds the upload_max_filesize directive in php.ini."
+msgstr ""
+
+msgid ""
+"The uploaded file exceeds the MAX_FILE_SIZE directive that was specified in "
+"the HTML form."
+msgstr ""
+
+msgid "The uploaded file was only partially uploaded."
+msgstr ""
+
+msgid "No file was uploaded. ."
+msgstr ""
+
+msgid "Missing a temporary folder."
+msgstr ""
+
+msgid "Failed to write file to disk."
+msgstr ""
+
+msgid ""
+"A PHP extension stopped the file upload. PHP does not provide a way to "
+"ascertain which extension caused the file upload to stop; examining the list "
+"of loaded extensions with phpinfo() may help."
+msgstr ""
+
 #, fuzzy
 msgid "There is no contact found in this file."
 msgstr "このファイルには、コンタクトが見当たりません。"
@@ -8161,10 +8072,6 @@ msgid ""
 "grommunio Web does not support importing multiple ICS with this version."
 msgstr ""
 "grommunio Web は、本バージョンで複数の ICS のインポートに対応していません。"
-
-#, fuzzy, php-format
-msgid "Unable to import '%s'"
-msgstr "Unable to import '%s'."
 
 #, fuzzy
 msgid "The EML is not valid"
@@ -8206,6 +8113,3 @@ msgstr "JSON Error: - %s"
 #, fuzzy
 msgid "Some problem encountered when encoding/decoding JSON data."
 msgstr "JSONデータのエンコード/デコード時に何らかの問題が発生した。"
-
-msgid "Restore items"
-msgstr "アイテムを回復する"

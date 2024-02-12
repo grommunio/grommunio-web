@@ -3,8 +3,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Turkish\n"
-"Report-Msgid-Bugs-To: dev@grommunio.com\n"
-"POT-Creation-Date: 2019-09-25 14:32+0200\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-02-12 02:01+0100\n"
 "PO-Revision-Date: 2022-12-10 22:44+0000\n"
 "Last-Translator: Orkan Eser <orkan.eser@grommunio.com>\n"
 "Language-Team: Turkish <https://hosted.weblate.org/projects/grommunio/"
@@ -614,6 +614,9 @@ msgstr "Boş klasör adı"
 msgid "You must specify a name."
 msgstr "Bir isim belirtmelisiniz."
 
+msgid "Add a folder to favorites based on search query"
+msgstr "Bu arama sorgusuna göre favorilere bir klasör ekleyin"
+
 msgid "Folder name"
 msgstr "Klasör adı"
 
@@ -699,9 +702,6 @@ msgstr "Esas kısım ve ekleri"
 
 msgid "Favorites"
 msgstr "Favoriler"
-
-msgid "Add a folder to favorites based on search query"
-msgstr "Bu arama sorgusuna göre favorilere bir klasör ekleyin"
 
 msgid "Select Folder"
 msgstr "Klasörü sil"
@@ -814,7 +814,8 @@ msgstr "Her {0} {1} gerçekleşir, başlangıç: {2}"
 msgid "Occurs every {0} effective {1} for {2} occurrence from {3} to {4}."
 msgid_plural ""
 "Occurs every {0} effective {1} for {2} occurrences from {3} to {4}."
-msgstr[0] "{3} ile {4} arasında her {0} etkili {1} {2} oluşumu için gerçekleşir."
+msgstr[0] ""
+"{3} ile {4} arasında her {0} etkili {1} {2} oluşumu için gerçekleşir."
 msgstr[1] ""
 
 msgid "Occurs every {0} {1} effective {2} for {3} occurrence from {4} to {5}."
@@ -1048,7 +1049,11 @@ msgid "Busy attendees"
 msgstr "Yoğun katılımcılar"
 
 msgid "One or more attendees are busy. Are you sure to invite?"
-msgstr "Bir veya daha fazla katılımcı meşgul. Davet edeceğinizden emin misiniz?"
+msgstr ""
+"Bir veya daha fazla katılımcı meşgul. Davet edeceğinizden emin misiniz?"
+
+msgid "Preview"
+msgstr "Önizleme"
 
 msgid "Scheduling"
 msgstr "Zamanlama"
@@ -2017,9 +2022,6 @@ msgstr "Dosya ekle"
 msgid "Attach item"
 msgstr "Öğeyi ekleyin"
 
-msgid "Preview"
-msgstr "Önizleme"
-
 msgid "Download"
 msgstr "Indir"
 
@@ -2100,7 +2102,8 @@ msgstr ""
 "uygulamanız gerekir."
 
 msgid "You already have a category named '{0}'. Please use another name."
-msgstr "Zaten '{0}' adında bir kategoriniz var. Lütfen başka bir isim kullanın."
+msgstr ""
+"Zaten '{0}' adında bir kategoriniz var. Lütfen başka bir isim kullanın."
 
 msgid ""
 "You already have a category named '{0}' in your pending changes. Please use "
@@ -4311,6 +4314,9 @@ msgstr "Klasörü kapat"
 msgid "Reload"
 msgstr "Yeniden yükle"
 
+msgid "Restore items"
+msgstr "Eski durumuna getir"
+
 msgid "Select color"
 msgstr "Renk seç"
 
@@ -5396,62 +5402,6 @@ msgstr "Görev yok."
 msgid "Tasks / To-Do"
 msgstr "Görevler / Yapılacaklar"
 
-msgid "Import / Export"
-msgstr "İçe Aktar / Dışa Aktar"
-
-msgid ""
-"Calendar, contact and mail items can be imported and exported from and to "
-"grommunio Web."
-msgstr ""
-"Takvim, kişi ve posta öğeleri grommunio Web'den içe ve dışa aktarılabilir."
-
-msgid ""
-"Right-click a folder and select the import button. Additionally, items can "
-"be imported from the attachment context menu."
-msgstr ""
-"Bir klasöre sağ tıklayın ve içe aktar düğmesini seçin. Ayrıca, öğeler ek "
-"içerik menüsünden içe aktarılabilir."
-
-msgid "Exporting can be done from the context menu of an item."
-msgstr "Dışa aktarma işlemi bir öğenin içerik menüsünden yapılabilir."
-
-msgid "Icon packs"
-msgstr "Simge paketleri"
-
-msgid ""
-"You can now choose between different icons. By default the new Breeze icons "
-"are enabled, but if you prefer the classic icons you can change this in the "
-"settings."
-msgstr ""
-"Artık farklı simgeler arasında seçim yapabilirsiniz. Varsayılan olarak yeni "
-"Breeze simgeleri etkindir, ancak klasik simgeleri tercih ederseniz bunu "
-"ayarlardan değiştirebilirsiniz."
-
-msgid ""
-"Go to your settings, open the general tab and select an icon pack to your "
-"liking."
-msgstr ""
-"Ayarlarınıza gidin, genel sekmesini açın ve beğeninize göre bir simge paketi "
-"seçin."
-
-msgid "Left: Breeze - Right: Classic"
-msgstr "Sol: Breeze - Sağ: Klasik"
-
-msgid "What's new"
-msgstr "Yenilikler"
-
-msgid "Don't show me new features again."
-msgstr "Bana bir daha yeni özellikler gösterme."
-
-msgid "Skip"
-msgstr "Atla"
-
-msgid "Previous"
-msgstr "Önceki"
-
-msgid "Next"
-msgstr "Sonraki"
-
 msgid "Click the link to open the URL in a new window."
 msgstr "URL'yi yeni bir pencerede açmak için bağlantıya tıklayın."
 
@@ -6025,12 +5975,6 @@ msgstr "grommunio-files ilk kez kullanılırken kimlik doğrulama gereklidir"
 msgid "Intranet"
 msgstr "İntranet"
 
-msgid "number"
-msgstr "numara"
-
-msgid "shadow"
-msgstr "gölge"
-
 msgid "Openstreetmap"
 msgstr "Açık sokak haritası"
 
@@ -6065,6 +6009,15 @@ msgstr "Silme Talep Edildi"
 msgid "Wipe Executed"
 msgstr "Silme Çalıştırıldı"
 
+msgid "Account Only Wipe Pending"
+msgstr ""
+
+msgid "Account Only Wipe Requested"
+msgstr ""
+
+msgid "Account Only Wipe Executed"
+msgstr ""
+
 msgid "Not Available"
 msgstr "Mevcut Değil"
 
@@ -6089,23 +6042,17 @@ msgstr "grommunio-sync Sürüm"
 msgid "Policy name"
 msgstr "Politika adı"
 
-msgid "Outlook Extension"
-msgstr "Outlook Uzantısı"
+msgid "Connected since"
+msgstr "O zamandan beri bağlı"
 
-msgid "Build"
-msgstr "Oluştur"
+msgid "d F Y"
+msgstr "d F Y"
 
 msgid "Last updated"
 msgstr "Son güncelleme"
 
 msgid "d F Y, H:i"
 msgstr "d F Y, H:i"
-
-msgid "Connected since"
-msgstr "O zamandan beri bağlı"
-
-msgid "d F Y"
-msgstr "d F Y"
 
 msgid "Synchronize"
 msgstr "Eşitle"
@@ -6171,6 +6118,12 @@ msgstr "Aygıtı kaldır"
 
 msgid "Please enter your username and password"
 msgstr "Lütfen kullanıcı adınızı ve şifrenizi giriniz"
+
+msgid "Wipe only data related to this account"
+msgstr ""
+
+msgid "Wipe all data"
+msgstr ""
 
 msgid "Username"
 msgstr "Kullanıcı adı"
@@ -6973,9 +6926,6 @@ msgstr ""
 msgid "Unknown MAPI Error"
 msgstr "Bilinmeyen MAPI hatası"
 
-msgid "This external link will open in a new window"
-msgstr "Bu harici bağlantı yeni bir pencerede açılacaktır"
-
 msgid "Destination folder not found."
 msgstr "Hedef klasör bulunamadı."
 
@@ -7004,9 +6954,6 @@ msgstr "Dosya geçersiz."
 #, php-format
 msgid "Unable to import '%s'. "
 msgstr "'%s' içe aktarılamıyor. "
-
-msgid "Please contact your system administrator if the problem persists."
-msgstr "Sorun devam ederse lütfen sistem yöneticinize başvurun."
 
 msgid "Attachment is not imported successfully"
 msgstr "Ek başarıyla içe aktarılmadı"
@@ -7066,80 +7013,6 @@ msgstr "Bilinmeyen MAPI hatası: %s"
 msgid "Action is not performed correctly."
 msgstr "Eylem doğru şekilde gerçekleştirilmemiştir."
 
-msgid "Tentatively accepted"
-msgstr "Geçici olarak kabul edildi"
-
-msgid "New Time Proposed"
-msgstr "Yeni Saat Önerisi"
-
-#, php-format
-msgid "Occurs every %s effective %s from %s to %s."
-msgstr "Her %s etkin %s ile %s arasında %s gerçekleşir."
-
-#, php-format
-msgid "Occurs every %s %s effective %s from %s to %s."
-msgstr "Her %s %s etkin %s ile %s arasında %s gerçekleşir."
-
-#, php-format
-msgid "Occurs every %s effective %s."
-msgstr "Her %s gerçekleşir, efektif %s."
-
-#, php-format
-msgid "Occurs every %s %s effective %s."
-msgstr "Her %s %s gerçekleşir, efektif %s."
-
-#, php-format
-msgid "Occurs every %s effective %s for %s occurrence from %s to %s."
-msgid_plural "Occurs every %s effective %s for %s occurrences from %s to %s."
-msgstr[0] "%s ile %s arasında her %s etkili %s %s oluşumu için gerçekleşir."
-msgstr[1] ""
-
-#, php-format
-msgid "Occurs every %s %s effective %s for %s occurrence from %s to %s."
-msgid_plural "Occurs every %s %s effective %s for %s occurrences %s to %s."
-msgstr[0] "%s ile %s arasında her %s %s etkili %s %s oluşumu için gerçekleşir."
-msgstr[1] ""
-
-#, php-format
-msgid "Occurs every %s effective %s for %s occurrence."
-msgid_plural "Occurs every %s effective %s for %s occurrences."
-msgstr[0] "%s oluşumu için her %s etkili %s oluşur."
-msgstr[1] ""
-
-#, php-format
-msgid "Occurs every %s %s effective %s for %s occurrence."
-msgid_plural "Occurs every %s %s effective %s for %s occurrences."
-msgstr[0] "%s oluşumu için her %s %s etkili %s oluşur."
-msgstr[1] ""
-
-#, php-format
-msgid "Occurs every %s effective %s until %s from %s to %s."
-msgstr "Her %s etkili %s ile %s arasında %s ile %s arasında gerçekleşir."
-
-#, php-format
-msgid "Occurs every %s %s effective %s until %s from %s to %s."
-msgstr "Her %s %s etkili %s ile %s arasında %s ile %s arasında gerçekleşir."
-
-#, php-format
-msgid "Occurs every %s effective %s until %s."
-msgstr "Her %s etkin %s tarihinden %s tarihine kadar gerçekleşir."
-
-#, php-format
-msgid "Occurs every %s %s effective %s until %s."
-msgstr "Her %s %s etkin %s tarihinden %s tarihine kadar gerçekleşir."
-
-msgid "Task Accepted:"
-msgstr "Görev Kabul Edildi:"
-
-msgid "Task Declined:"
-msgstr "Görev reddedildi:"
-
-msgid "Task Updated:"
-msgstr "Görev Güncellendi:"
-
-msgid "Task Completed:"
-msgstr "Görev Tamamlandı:"
-
 msgid "Contact not found"
 msgstr "İletişim bulunamadı"
 
@@ -7149,6 +7022,9 @@ msgid ""
 msgstr ""
 "Sunucu bilgileri alırken sorun yaşadığı için iletişim bilgileri "
 "görüntülenemedi."
+
+msgid "Please contact your system administrator if the problem persists."
+msgstr "Sorun devam ederse lütfen sistem yöneticinize başvurun."
 
 msgid "Could not handle this type of object."
 msgstr "Bu tür bir nesne işlenemedi."
@@ -7255,6 +7131,15 @@ msgstr "Yıldönümü: %s"
 
 msgid "You don't have the permission to complete this action"
 msgstr "Bu eylemi tamamlamak için izniniz yok"
+
+msgid "Quota error"
+msgstr ""
+
+msgid "Send quota limit reached"
+msgstr ""
+
+msgid "Email sending failed. Check the log files for more information."
+msgstr ""
 
 msgid "Unknown user/group"
 msgstr "Bilinmeyen kullanıcı/grup"
@@ -7482,7 +7367,8 @@ msgid "Could not delete message."
 msgstr "Mesaj silinemedi."
 
 msgid "You have insufficient privileges to cancel this Meeting Request."
-msgstr "Bu Toplantı Talebini iptal etmek için yeterli yetkiye sahip değilsiniz."
+msgstr ""
+"Bu Toplantı Talebini iptal etmek için yeterli yetkiye sahip değilsiniz."
 
 msgid "Could not cancel Meeting Request."
 msgstr "Toplantı Talebi iptal edilemedi."
@@ -7570,6 +7456,32 @@ msgstr "Giriş Yap"
 msgid "File is not imported successfully"
 msgstr "Dosya başarıyla içe aktarılmadı"
 
+msgid "The uploaded file exceeds the upload_max_filesize directive in php.ini."
+msgstr ""
+
+msgid ""
+"The uploaded file exceeds the MAX_FILE_SIZE directive that was specified in "
+"the HTML form."
+msgstr ""
+
+msgid "The uploaded file was only partially uploaded."
+msgstr ""
+
+msgid "No file was uploaded. ."
+msgstr ""
+
+msgid "Missing a temporary folder."
+msgstr ""
+
+msgid "Failed to write file to disk."
+msgstr ""
+
+msgid ""
+"A PHP extension stopped the file upload. PHP does not provide a way to "
+"ascertain which extension caused the file upload to stop; examining the list "
+"of loaded extensions with phpinfo() may help."
+msgstr ""
+
 msgid "There is no contact found in this file."
 msgstr "Bu dosyada herhangi bir kişi bulunamamıştır."
 
@@ -7582,10 +7494,6 @@ msgid ""
 "grommunio Web does not support importing multiple ICS with this version."
 msgstr ""
 "grommunio Web bu sürümde birden fazla ICS'nin içe aktarılmasını desteklemez."
-
-#, php-format
-msgid "Unable to import '%s'"
-msgstr "'%s' içe aktarılamıyor"
 
 msgid "The EML is not valid"
 msgstr "EML geçerli değil"
@@ -7623,6 +7531,3 @@ msgstr "JSON Hatası: - %s"
 
 msgid "Some problem encountered when encoding/decoding JSON data."
 msgstr "JSON verilerini kodlarken/kod çözerken bazı sorunlarla karşılaşıldı."
-
-msgid "Restore items"
-msgstr "Eski durumuna getir"
