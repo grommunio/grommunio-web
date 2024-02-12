@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Danish (Denmark)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-02-12 02:01+0100\n"
+"POT-Creation-Date: 2024-02-12 02:04+0100\n"
 "PO-Revision-Date: 2022-07-26 14:28+0200\n"
 "Last-Translator: Mike Williams <mike.williams@grammm.com>\n"
 "Language-Team: Danish <https://hosted.weblate.org/projects/grommunio/"
@@ -1458,27 +1458,6 @@ msgstr "Arbejdsdage"
 
 msgid "Show busy dates as bold in the date picker"
 msgstr "Vis optagede dage med fed i datovælgeren"
-
-msgid ""
-"Free/Busy information is used by people sending meeting requests, to "
-"determine when you are available for meetings."
-msgstr ""
-"Fri/optaget information er brugt af andre når de sender mødeindkaldelser."
-
-#, fuzzy
-msgid "Free/Busy publishing"
-msgstr "Fri/optaget tilladelser"
-
-#, fuzzy
-msgid "Publish {A} month(s) of Calendar Free/Busy information on the server."
-msgstr ""
-"Offentliggør {A} måned(er) af kalender fri/optaget information på serveren."
-
-#, fuzzy
-msgid ""
-"You can only publish a Free/Busy period from 0 to 36 months. 0 means Free/"
-"Busy information is not published."
-msgstr "Du kan kun offentliggøre en fri/optaget periode for 1 til 36 måneder."
 
 msgid "Side-by-side mode"
 msgstr "Side-ved-side mode"

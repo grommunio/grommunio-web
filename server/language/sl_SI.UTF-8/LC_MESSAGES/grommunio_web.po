@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Slovenian (Slovenia)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-02-12 02:01+0100\n"
+"POT-Creation-Date: 2024-02-12 02:04+0100\n"
 "PO-Revision-Date: 2022-07-26 19:05+0200\n"
 "Last-Translator: import\n"
 "Language-Team: \n"
@@ -1523,31 +1523,6 @@ msgstr "Delovniki"
 
 msgid "Show busy dates as bold in the date picker"
 msgstr "V zbirniku datumov prikaži zasedene datume krepko"
-
-#, fuzzy
-msgid ""
-"Free/Busy information is used by people sending meeting requests, to "
-"determine when you are available for meetings."
-msgstr ""
-"Podatke Free/Busy uporabljajo osebe, ki pošiljajo zahteve za sestanke, da "
-"ugotovijo, kdaj ste na voljo za sestanke."
-
-#, fuzzy
-msgid "Free/Busy publishing"
-msgstr "Prosto/zaposleno založništvo"
-
-#, fuzzy
-msgid "Publish {A} month(s) of Calendar Free/Busy information on the server."
-msgstr ""
-"V strežniku objavite informacije o {A} mesecih koledarja Prosti/zaposleni."
-
-#, fuzzy
-msgid ""
-"You can only publish a Free/Busy period from 0 to 36 months. 0 means Free/"
-"Busy information is not published."
-msgstr ""
-"Objavite lahko le obdobje Free/Busy od 0 do 36 mesecev. 0 pomeni, da "
-"informacije Free/Busy niso objavljene."
 
 msgid "Side-by-side mode"
 msgstr "Način drug-ob-drugem"

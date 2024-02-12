@@ -454,11 +454,6 @@
 
 			// Check if the settings have been changed.
 			if ($this->settings_string !== $settings) {
-				// Update the Free/Busy range of the login user when user gets login or update the free/busy months from settings.
-				if (isset($this->modified['zarafa/v1/contexts/calendar/free_busy_range'])) {
-					$GLOBALS["operations"]->publishFreeBusy($this->store);
-				}
-
 				if (isset($this->settings['zarafa']['v1']['main']['language'])) {
 					mapi_setprops($this->store, [PR_EC_USER_LANGUAGE => $this->settings['zarafa']['v1']['main']['language']]);
 				}

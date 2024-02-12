@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Greek\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-02-12 02:01+0100\n"
+"POT-Creation-Date: 2024-02-12 02:04+0100\n"
 "PO-Revision-Date: 2022-07-26 14:49+0200\n"
 "Last-Translator: import\n"
 "Language-Team: \n"
@@ -1718,32 +1718,6 @@ msgid "Show busy dates as bold in the date picker"
 msgstr ""
 "Εμφάνιση των ημερομηνιών που είναι κατειλημμένες με έντονη γραφή στον "
 "επιλογέα ημερομηνιών"
-
-#, fuzzy
-msgid ""
-"Free/Busy information is used by people sending meeting requests, to "
-"determine when you are available for meetings."
-msgstr ""
-"Οι πληροφορίες Free/Busy χρησιμοποιούνται από άτομα που στέλνουν αιτήματα "
-"για συναντήσεις, για να καθορίσουν πότε είστε διαθέσιμοι για συναντήσεις."
-
-#, fuzzy
-msgid "Free/Busy publishing"
-msgstr "Ελεύθερη/απασχολημένη δημοσίευση"
-
-#, fuzzy
-msgid "Publish {A} month(s) of Calendar Free/Busy information on the server."
-msgstr ""
-"Δημοσιεύστε {A} μήνα(-ους) πληροφοριών Ημερολογίου Ελεύθερο/Κατειλημμένο στο "
-"διακομιστή."
-
-#, fuzzy
-msgid ""
-"You can only publish a Free/Busy period from 0 to 36 months. 0 means Free/"
-"Busy information is not published."
-msgstr ""
-"Μπορείτε να δημοσιεύσετε μόνο μια περίοδο Ελεύθερου/Κατειλημμένου από 0 έως "
-"36 μήνες. το 0 σημαίνει ότι οι πληροφορίες Free/Busy δεν δημοσιεύονται."
 
 #, fuzzy
 msgid "Side-by-side mode"

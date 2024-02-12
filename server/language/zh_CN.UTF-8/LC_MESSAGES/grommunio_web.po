@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Chinese (Simplified)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-02-12 02:01+0100\n"
+"POT-Creation-Date: 2024-02-12 02:04+0100\n"
 "PO-Revision-Date: 2022-07-26 18:09+0200\n"
 "Last-Translator: import\n"
 "Language-Team: \n"
@@ -1391,22 +1391,6 @@ msgstr "工作日"
 
 msgid "Show busy dates as bold in the date picker"
 msgstr "在日期选择器中将忙碌日期显示为粗体"
-
-msgid ""
-"Free/Busy information is used by people sending meeting requests, to "
-"determine when you are available for meetings."
-msgstr "发送会议请求的人员使用忙/闲信息来确定您何时可以参加会议。"
-
-msgid "Free/Busy publishing"
-msgstr "忙/闲发布"
-
-msgid "Publish {A} month(s) of Calendar Free/Busy information on the server."
-msgstr "在服务器上发布{A}个月的日历忙/闲信息。"
-
-msgid ""
-"You can only publish a Free/Busy period from 0 to 36 months. 0 means Free/"
-"Busy information is not published."
-msgstr "您只能发布0到36个月的忙/闲时段。0表示不发布忙/闲信息。"
 
 msgid "Side-by-side mode"
 msgstr "并列模式"

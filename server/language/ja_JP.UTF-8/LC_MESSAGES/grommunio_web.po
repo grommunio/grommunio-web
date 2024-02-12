@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Japanese\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-02-12 02:01+0100\n"
+"POT-Creation-Date: 2024-02-12 02:04+0100\n"
 "PO-Revision-Date: 2022-12-12 13:00+0200\n"
 "Last-Translator: Jan Engelhardt <jengelh@inai.de>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/grommunio/"
@@ -1417,30 +1417,6 @@ msgstr "営業日"
 
 msgid "Show busy dates as bold in the date picker"
 msgstr "日付選択時に予定のある日付を太字で表示する"
-
-#, fuzzy
-msgid ""
-"Free/Busy information is used by people sending meeting requests, to "
-"determine when you are available for meetings."
-msgstr ""
-"フリー/ビジー情報は、ミーティングリクエストを送信する人が、あなたがミーティン"
-"グに参加できる時間を判断するために使用されます。"
-
-#, fuzzy
-msgid "Free/Busy publishing"
-msgstr "フリー/ビジー出版"
-
-#, fuzzy
-msgid "Publish {A} month(s) of Calendar Free/Busy information on the server."
-msgstr "サーバーに{A}月分のカレンダー空き/空き情報を公開する。"
-
-#, fuzzy
-msgid ""
-"You can only publish a Free/Busy period from 0 to 36 months. 0 means Free/"
-"Busy information is not published."
-msgstr ""
-"Free/Busy 期間は、0～36 ヶ月までしか公開できません。0はFree/Busy情報を公開し"
-"ないことを意味します。"
 
 msgid "Side-by-side mode"
 msgstr "左右に並べて表示"

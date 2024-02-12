@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Hungarian\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-02-12 02:01+0100\n"
+"POT-Creation-Date: 2024-02-12 02:04+0100\n"
 "PO-Revision-Date: 2022-07-26 16:08+0200\n"
 "Last-Translator: f3rr31 <5920873@disroot.org>\n"
 "Language-Team: Hungarian <https://hosted.weblate.org/projects/grommunio/"
@@ -1481,29 +1481,6 @@ msgstr "Munkanapok"
 
 msgid "Show busy dates as bold in the date picker"
 msgstr "Foglalt dátumokat kiemelten jelenítse meg a dátumválasztóban"
-
-msgid ""
-"Free/Busy information is used by people sending meeting requests, to "
-"determine when you are available for meetings."
-msgstr ""
-"Az elfoglaltsági adatokat az értekezlet-összehívásokat küldő emberek "
-"használják annak meghatározására, hogy Ön mikor áll rendelkezésre a "
-"megbeszélésekre."
-
-#, fuzzy
-msgid "Free/Busy publishing"
-msgstr "Elérhetőség mutatásának engedélyezése"
-
-#, fuzzy
-msgid "Publish {A} month(s) of Calendar Free/Busy information on the server."
-msgstr "{A} hónap elérhetőségének publikussá tétele a kiszolgálón."
-
-#, fuzzy
-msgid ""
-"You can only publish a Free/Busy period from 0 to 36 months. 0 means Free/"
-"Busy information is not published."
-msgstr ""
-"Csak az 1 és 36 hónap közti intervallumban tudja megadni elérhetőségét."
 
 msgid "Side-by-side mode"
 msgstr "Egymás melletti mód"

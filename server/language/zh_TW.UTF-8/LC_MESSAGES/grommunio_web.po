@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Chinese (Taiwan)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-02-12 02:01+0100\n"
+"POT-Creation-Date: 2024-02-12 02:04+0100\n"
 "PO-Revision-Date: 2022-08-27 18:15+0000\n"
 "Last-Translator: Hugel <qihu@nfschina.com>\n"
 "Language-Team: Chinese (Traditional) <https://hosted.weblate.org/projects/"
@@ -1428,22 +1428,6 @@ msgstr ""
 
 msgid "Show busy dates as bold in the date picker"
 msgstr "在日期選擇上顯示粗體的繁忙日期"
-
-msgid ""
-"Free/Busy information is used by people sending meeting requests, to "
-"determine when you are available for meetings."
-msgstr ""
-
-msgid "Free/Busy publishing"
-msgstr ""
-
-msgid "Publish {A} month(s) of Calendar Free/Busy information on the server."
-msgstr ""
-
-msgid ""
-"You can only publish a Free/Busy period from 0 to 36 months. 0 means Free/"
-"Busy information is not published."
-msgstr ""
 
 msgid "Side-by-side mode"
 msgstr "並列模式"

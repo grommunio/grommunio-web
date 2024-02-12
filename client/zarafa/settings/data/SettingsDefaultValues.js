@@ -587,13 +587,7 @@ Zarafa.settings.data.SettingsDefaultValue = function(){
 								 * @property
 								 * @type Boolean
 								 */
-								 'datepicker_show_busy': true,
-								/**
-								 * zarafa/v1/contexts/calendar/free_busy_range
-								 * @property
-								 * @type Number
-								 */
-								 'free_busy_range': 2
+								 'datepicker_show_busy': true
 							},
 
 							'contact': {

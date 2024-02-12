@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web French (France)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-02-12 02:01+0100\n"
+"POT-Creation-Date: 2024-02-12 02:04+0100\n"
 "PO-Revision-Date: 2022-12-11 16:35+0000\n"
 "Last-Translator: Orkan Eser <orkan.eser@grommunio.com>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/grommunio/"
@@ -1439,29 +1439,6 @@ msgstr "Jours de travail"
 
 msgid "Show busy dates as bold in the date picker"
 msgstr "Afficher les dates occupées en gras dans le sélectionneur de date"
-
-msgid ""
-"Free/Busy information is used by people sending meeting requests, to "
-"determine when you are available for meetings."
-msgstr ""
-"L'information de disponibilité est utilisé par les personnes qui envoient "
-"des demandes de réunion, afin de déterminer quand vous êtes disponible."
-
-#, fuzzy
-msgid "Free/Busy publishing"
-msgstr "Publication des disponibilités"
-
-msgid "Publish {A} month(s) of Calendar Free/Busy information on the server."
-msgstr ""
-"Publier {A} mois(s) d'informations de disponibilité du calendrier sur le "
-"serveur."
-
-msgid ""
-"You can only publish a Free/Busy period from 0 to 36 months. 0 means Free/"
-"Busy information is not published."
-msgstr ""
-"Vous pouvez uniquement publier une période de disponibilité de 1 à 36 mois. "
-"0 indique qu'aucune information de disponibilité n'est publiée."
 
 msgid "Side-by-side mode"
 msgstr "Mode côte à côte"
