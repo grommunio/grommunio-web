@@ -469,6 +469,7 @@
   line-height: 1;
   font-weight: normal;
   font-style: normal;
+  font-family: Arial, Helvetica, sans-serif;
   word-break: initial;
 }
 .video-js:-moz-full-screen {
@@ -625,6 +626,7 @@ body.vjs-pip-window .video-js {
   color: #fff;
   background-color: #000;
   font-size: 18px;
+  font-family: Arial, Helvetica, sans-serif;
   text-align: center;
   width: 300px;
   height: 150px;
@@ -681,7 +683,7 @@ body.vjs-pip-window .video-js {
   display: none;
 }
 
-.vjs-has-started.vjs-paused.vjs-show-big-play-button-on-pause .vjs-big-play-button {
+.vjs-has-started.vjs-paused.vjs-show-big-play-button-on-pause:not(.vjs-seeking, .vjs-scrubbing, .vjs-error) .vjs-big-play-button {
   display: block;
 }
 
@@ -746,6 +748,7 @@ body.vjs-pip-window .video-js {
   display: block;
   padding: 0;
   margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
   overflow: auto;
 }
 
@@ -1080,6 +1083,7 @@ body.vjs-pip-window .video-js {
   border-radius: 0.3em;
   color: #000;
   float: right;
+  font-family: Arial, Helvetica, sans-serif;
   font-size: 1em;
   padding: 6px 8px 8px 8px;
   pointer-events: none;
@@ -1313,6 +1317,7 @@ body.vjs-pip-window .video-js {
   border-radius: 0.3em;
   color: #000;
   float: right;
+  font-family: Arial, Helvetica, sans-serif;
   font-size: 1em;
   padding: 6px 8px 8px 8px;
   pointer-events: none;
@@ -1583,6 +1588,7 @@ video::-webkit-media-text-track-display {
 .vjs-error .vjs-error-display:before {
   color: #fff;
   content: "X";
+  font-family: Arial, Helvetica, sans-serif;
   font-size: 4em;
   left: 0;
   line-height: 1;
@@ -1614,7 +1620,9 @@ video::-webkit-media-text-track-display {
 
 .vjs-seeking .vjs-loading-spinner,
 .vjs-waiting .vjs-loading-spinner {
-  display: block;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   animation: vjs-spinner-show 0s linear 0.3s forwards;
 }
 
@@ -1626,7 +1634,6 @@ video::-webkit-media-text-track-display {
 .vjs-loading-spinner:after {
   content: "";
   position: absolute;
-  margin: -0.6em;
   box-sizing: inherit;
   width: inherit;
   height: inherit;
