@@ -407,7 +407,7 @@ Zarafa.common.ui.messagepanel.MessageBody = Ext.extend(Ext.Container, {
 			// Make the blockquote element not use the default right margin of 40px
 			'blockquote { margin-right: 0px; }' +
 			// Make text in pre tags wrapped if too long for a line
-			"pre { white-space: pre-wrap; margin: 0; font-family:'Roboto', sans-serif; }" +
+			"pre { white-space: pre-wrap; margin: 0; font-family: 'Fira Mono', monospace; }" +
 
 			// Scale images
 			'p > span > img, div > img, p > img { max-width: 100%; height: auto !important; }' +
