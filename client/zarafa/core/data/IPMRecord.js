@@ -356,6 +356,10 @@ Zarafa.core.data.IPMRecord = Ext.extend(Zarafa.core.data.MAPIRecord, {
 	{
 		return (this.get('message_flags') & Zarafa.core.mapi.MessageFlags.MSGFLAG_RN_PENDING) === Zarafa.core.mapi.MessageFlags.MSGFLAG_RN_PENDING;
 	},
+	needsNonReadReceipt: function()
+	{
+		return (this.get('message_flags') & Zarafa.core.mapi.MessageFlags.MSGFLAG_NRN_PENDING) === Zarafa.core.mapi.MessageFlags.MSGFLAG_NRN_PENDING;
+	},
 
 	/**
 	 * Convenience method for setting the read flag

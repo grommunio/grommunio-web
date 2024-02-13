@@ -816,6 +816,29 @@ Zarafa.common.Actions = {
 					store.remove(record);
 					saveRecords.push(record);
 				}
+			} else if (!record.isRead() && record.needsNonReadReceipt()) {
+				switch (container.getSettingsModel().get("zarafa/v1/contexts/mail/readreceipt_handling")) {
+				case 'never':
+					store.remove(record, undefined, false);
+					saveRecords.push(record);
+					break;
+				case 'always':
+					store.remove(record, undefined, true);
+					saveRecords.push(record);
+					break;
+				case 'ask':
+				default:
+					Ext.MessageBox.show({
+						title: _("Notify sender"),
+						msg: String.format(_("{0} has requested a notification be sent when message \"{1}\" is deleted without having been read. Do you want to send a receipt?"),
+						     record.get("sender_name") || record.get("sender_email_address"),
+						     record.get("subject")),
+						buttons: Ext.MessageBox.YESNO,
+						fn: this.deleteWithNonReadReceipt,
+						scope: record
+					});
+					break;
+				}
 			} else {
 				// normal delete action
 				store.remove(record);
@@ -929,6 +952,16 @@ Zarafa.common.Actions = {
 			// Here scope is record so this refers to Appointment Record.
 			this.cancelInvitation();
 		}
+	},
+	deleteWithNonReadReceipt: function(buttonClicked, text)
+	{
+		if (buttonClicked != "yes")
+			return;
+		// @this is a record
+		this.addMessageAction("non_read_notify", "1");
+		var store = this.getStore();
+		store.remove(this);
+		store.save(this);
 	},
 
 	/**
