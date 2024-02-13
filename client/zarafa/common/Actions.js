@@ -724,24 +724,24 @@ Zarafa.common.Actions = {
 		// Check if the records are deleted from the todolist
 		if (folder && folder.isTodoListFolder()) {
 			Zarafa.task.Actions.deleteRecordsFromTodoList(records);
-		} else {
-			if (Zarafa.core.EntryId.compareEntryIds(records[0].get('parent_entryid'), folderEntryid) === false) {
-				folderEntryid = records[0].get('parent_entryid');
-				folder = container.getHierarchyStore().getFolder(folderEntryid);
-			}
-
-			if (folder && folder.hasDeleteOwnRights() === false) {
-				Ext.MessageBox.show({
-					title : _('Insufficient permissions'),
-					msg : _("You have insufficient privileges to delete items in this folder."),
-					cls: Ext.MessageBox.ERROR_CLS,
-					buttons: Ext.MessageBox.OK
-				});
-				return;
-			}
-
-			this.doDeleteRecords(records, askOcc, softDelete);
+			return;
 		}
+		if (Zarafa.core.EntryId.compareEntryIds(records[0].get('parent_entryid'), folderEntryid) === false) {
+			folderEntryid = records[0].get('parent_entryid');
+			folder = container.getHierarchyStore().getFolder(folderEntryid);
+		}
+
+		if (folder && folder.hasDeleteOwnRights() === false) {
+			Ext.MessageBox.show({
+				title : _('Insufficient permissions'),
+				msg : _("You have insufficient privileges to delete items in this folder."),
+				cls: Ext.MessageBox.ERROR_CLS,
+				buttons: Ext.MessageBox.OK
+			});
+			return;
+		}
+
+		this.doDeleteRecords(records, askOcc, softDelete);
 	},
 
 	/**
@@ -834,11 +834,8 @@ Zarafa.common.Actions = {
 		}
 
 		// If number of delete records equal to total loaded records then show load mask until server send success response.
-		if(store.totalLoadedRecord) {
-			if (records.length === store.totalLoadedRecord) {
-				store.showLoadMask();
-			}
-		}
+		if (store.totalLoadedRecord && records.length === store.totalLoadedRecord)
+			store.showLoadMask();
 	},
 
 	/**
@@ -1091,53 +1088,52 @@ Zarafa.common.Actions = {
 			// If the read status already matches the desired state,
 			// we don't need to do anything.
 			if (read === record.isRead()) {
-		    	continue;
-   			}
-
-			if (read === true && record.needsReadReceipt()) {
-				switch (container.getSettingsModel().get('zarafa/v1/contexts/mail/readreceipt_handling')) {
-					case 'never':
-						record.setReadFlags(read);
-						// Never send a read receipt.
-						record.addMessageAction('send_read_receipt', false);
-
-						saveRecords.push(record);
-						break;
-					case 'always':
-						record.setReadFlags(read);
-						// Always send a read receipt.
-						record.addMessageAction('send_read_receipt', true);
-
-						saveRecords.push(record);
-						break;
-					case 'ask':
-						/* falls through*/
-					default:
-						const store = record.getStore();
-						// Ask if a read receipt must be send.
-						Ext.MessageBox.show({
-							title: _('Notify sender'),
-							msg: _('The sender of this email has requested a read receipt. Do you wish to notify the sender?'),
-							buttons: Ext.MessageBox.YESNO,
-							fn: // This function will execute when user provide some inputs,
-							// So other external changes should not affect the record.
-							function(buttonClicked) {
-							// If the mailgrid has reloaded, retrieve the newly updated record.
-								var record = this;
-								if (!record.getStore()) {
-									record = store.getById(record.id);
-								}
-								record.setReadFlags(read);
-								record.addMessageAction('send_read_receipt', buttonClicked !== 'no');
-								record.save();
-							},
-							scope: record
-						});
-						break;
-				}
-			} else {
+				continue;
+			}
+			if (read !== true || !record.needsReadReceipt()) {
 				record.setReadFlags(read);
 				saveRecords.push(record);
+				continue;
+			}
+			switch (container.getSettingsModel().get('zarafa/v1/contexts/mail/readreceipt_handling')) {
+			case 'never':
+				record.setReadFlags(read);
+				// Never send a read receipt.
+				record.addMessageAction('send_read_receipt', false);
+
+				saveRecords.push(record);
+				break;
+			case 'always':
+				record.setReadFlags(read);
+				// Always send a read receipt.
+				record.addMessageAction('send_read_receipt', true);
+
+				saveRecords.push(record);
+				break;
+			case 'ask':
+				/* falls through*/
+			default:
+				const store = record.getStore();
+				// Ask if a read receipt must be send.
+				Ext.MessageBox.show({
+					title: _('Notify sender'),
+					msg: _('The sender of this email has requested a read receipt. Do you wish to notify the sender?'),
+					buttons: Ext.MessageBox.YESNO,
+					fn: // This function will execute when user provide some inputs,
+					// So other external changes should not affect the record.
+					function(buttonClicked) {
+					// If the mailgrid has reloaded, retrieve the newly updated record.
+						var record = this;
+						if (!record.getStore()) {
+							record = store.getById(record.id);
+						}
+						record.setReadFlags(read);
+						record.addMessageAction('send_read_receipt', buttonClicked !== 'no');
+						record.save();
+					},
+					scope: record
+				});
+				break;
 			}
 		}
 
