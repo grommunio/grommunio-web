@@ -2709,7 +2709,7 @@ span.preview-header-sender-image {
   .zarafa-calendar-container-tabarea .zarafa-calendar-tab-contents.zarafa-with-close-icon.zarafa-with-separate-icon .zarafa-calendar-tab-icon-close {
     padding-right: 3px; }
   .zarafa-calendar-container-tabarea .zarafa-calendar-tab-contents.zarafa-with-close-icon.zarafa-with-separate-icon .zarafa-calendar-tab-icon-separate {
-    padding-left: 3px; }
+    padding: 0 6px 0 3px; }
   .zarafa-calendar-container-tabarea .zarafa-calendar-tab-contents.light-background .zarafa-calendar-tab-title {
     color: black; }
 
