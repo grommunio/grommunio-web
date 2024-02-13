@@ -4695,44 +4695,12 @@ body .k-category-block {
   overflow-y: auto !important;
 }
 
-img.x-tree-ec-icon.x-tree-elbow-plus {
-    float: right;
-    padding: 7px 0 7px 100px;
-}
-
-img.x-tree-ec-icon.x-tree-elbow-minus {
-    float: right;
-    padding: 7px 0 7px 100px;
-}
-
-img.x-tree-ec-icon.x-tree-elbow-end-plus {
-    float: right;
-    padding: 7px 0 7px 100px;
-}
-
-img.x-tree-ec-icon.x-tree-elbow-end-minus {
-    float: right;
-    padding: 7px 0 7px 100px;
-}
-
-.x-tree-node-collapsed .x-tree-node-icon, .x-tree-node-expanded .x-tree-node-icon {
-    margin-left: 16px;
-}
-
-.zarafa-hierarchy-node-foldername.zarafa-hierarchy-node-color {
-    margin-left: -2px;
-}
-
-.arrow_down_l, .preview-header-collapse-plus, .x-tree-lines .x-tree-elbow-end-minus, .x-tree-lines .x-tree-elbow-minus, .zarafa-rules-sequence-down, td.sort-desc .x-grid3-sort-icon {
-    background-position: calc(100% - 15px)!important;
-}
-
-.arrow_right_l, .light-background .zarafa-calendar-tab-icon-separate, .x-date-mp-ybtn a, .x-date-right a, .x-menu-item-arrow, .x-panel-header .x-tool.x-tool-collapse-east, .x-tab-scroller-right, .x-tree-lines .x-tree-elbow-end-plus, .x-tree-lines .x-tree-elbow-plus {
-    background-position: calc(100% - 15px)!important;
-}
-
 input.x-tree-node-cb {
     height: 36px;
+}
+
+.x-tree-lines .x-tree-elbow, .x-tree-lines .x-tree-elbow-end, .x-tree-lines .x-tree-elbow-line .arrow_right_l, .light-background .zarafa-calendar-tab-icon-separate, .x-date-mp-ybtn a, .x-date-right a, .x-layout-collapsed .x-tool.x-tool-expand-west, .x-layout-collapsed .x-tool.x-tool-toggle.x-tool-expand-west, .x-menu-item-arrow, .x-panel-header .x-tool.x-tool-collapse-east, .x-tab-scroller-right, .x-tool.x-tool-toggle.x-tool-collapse-east, .x-tree-lines .x-tree-elbow-end-plus, .x-tree-lines .x-tree-elbow-plus .arrow_down_l, .preview-header-collapse-plus, .x-panel-collapsed .x-tool.x-tool-toggle, .x-tree-lines .x-tree-elbow-end-minus, .x-tree-lines .x-tree-elbow-minus, .zarafa-rules-sequence-down, td.sort-desc .x-grid3-sort-icon .arrow_right_l, .light-background .zarafa-calendar-tab-icon-separate, .x-date-mp-ybtn a, .x-date-right a, .x-layout-collapsed .x-tool.x-tool-expand-west, .x-layout-collapsed .x-tool.x-tool-toggle.x-tool-expand-west, .x-menu-item-arrow, .x-panel-header .x-tool.x-tool-collapse-east, .x-tab-scroller-right, .x-tool.x-tool-toggle.x-tool-collapse-east, .x-tree-lines .x-tree-elbow-end-plus, .x-tree-lines .x-tree-elbow-plus {
+    padding: 6px;
 }
 
 .icon_attachment, .icon_pencil, .k-grid-button-edit {
