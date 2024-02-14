@@ -9,7 +9,7 @@ require_once __DIR__ . "/../Files/Backend/class.exception.php";
 require_once __DIR__ . "/../Files/Core/Util/class.logger.php";
 require_once __DIR__ . "/../Files/Core/Util/class.stringutil.php";
 
-require_once __DIR__ . "/../lib/phpfastcache/lib/Phpfastcache/Autoload/Autoload.php";
+require_once __DIR__ . "/../vendor/autoload.php";
 
 use Files\Core\Util\Logger;
 use Files\Core\Util\StringUtil;

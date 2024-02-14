@@ -13,7 +13,7 @@ require_once __DIR__ . "/Files/Core/Util/class.logger.php";
 require_once __DIR__ . "/Files/Core/Util/class.stringutil.php";
 require_once __DIR__ . "/Files/Core/Util/class.pathutil.php";
 
-require_once __DIR__ . "/lib/phpfastcache/lib/Phpfastcache/Autoload/Autoload.php";
+require_once __DIR__ . "/vendor/autoload.php";
 
 use Files\Backend\Exception as BackendException;
 use Files\Core\Exception as AccountException;
