@@ -231,10 +231,10 @@
 							$data["folder"]["content_unread"] = $contentUnread;
 						}
 
-						$items = $this->filterPrivateItems($items);
+						$items = $this->filterPrivateItems(['item' => $items]);
 						// unset will remove the value but will not regenerate array keys, so we need to
 						// do it here
-						$data["item"] = $items;
+						$data["item"] = array_values($items["item"]);
 
 						for ($i = 0, $c = count($entryid); $i < $c; ++$i) {
 							// Allowing to hook in just before the data sent away to be sent to the client
@@ -499,6 +499,7 @@
 			if ($this->startdate && $this->enddate) {
 				if ($this->checkPrivateItem($item)) {
 					$item['props']['subject'] = _('Private Appointment');
+					$item['props']['normalized_subject'] = _('Private Appointment');
 					$item['props']['location'] = '';
 					$item['props']['reminder'] = 0;
 					$item['props']['access'] = 0;
