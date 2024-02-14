@@ -2830,14 +2830,16 @@
 		 *
 		 * @return bool true if action succeeded, false if not
 		 */
-		public function deleteMessages($store, $parententryid, $entryids, $softDelete = false) {
+		public function deleteMessages($store, $parententryid, $entryids,
+		    $softDelete = false, $unread = false)
+		{
 			$result = false;
 			if (!is_array($entryids)) {
 				$entryids = [$entryids];
 			}
 
 			$folder = mapi_msgstore_openentry($store, $parententryid);
-
+			$flags = $unread ? GX_DELMSG_NOTIFY_UNREAD : 0;
 			$msgprops = mapi_getprops($store, [PR_IPM_WASTEBASKET_ENTRYID, PR_MDB_PROVIDER, PR_IPM_OUTBOX_ENTRYID]);
 
 			switch ($msgprops[PR_MDB_PROVIDER]) {
@@ -2846,7 +2848,7 @@
 				// with a store from an other user we need our own waste basket...
 				if (isset($msgprops[PR_IPM_WASTEBASKET_ENTRYID]) && $msgprops[PR_IPM_WASTEBASKET_ENTRYID] == $parententryid || $softDelete) {
 					// except when it is the waste basket itself
-					$result = mapi_folder_deletemessages($folder, $entryids);
+					$result = mapi_folder_deletemessages($folder, $entryids, $flags);
 					break;
 				}
 				$defaultstore = $GLOBALS["mapisession"]->getDefaultMessageStore();
@@ -2854,7 +2856,7 @@
 
 				if (!isset($msgprops[PR_IPM_WASTEBASKET_ENTRYID]) ||
 				    $msgprops[PR_IPM_WASTEBASKET_ENTRYID] == $parententryid) {
-					$result = mapi_folder_deletemessages($folder, $entryids);
+					$result = mapi_folder_deletemessages($folder, $entryids, $flags);
 					break;
 				}
 				try {
@@ -2863,20 +2865,20 @@
 				catch (MAPIException $e) {
 					$e->setHandled();
 					// if moving fails, try normal delete
-					$result = mapi_folder_deletemessages($folder, $entryids);
+					$result = mapi_folder_deletemessages($folder, $entryids, $flags);
 				}
 				break;
 
 			case ZARAFA_STORE_ARCHIVER_GUID:
 			case ZARAFA_STORE_PUBLIC_GUID:
 				// always delete in public store and archive store
-				$result = mapi_folder_deletemessages($folder, $entryids);
+				$result = mapi_folder_deletemessages($folder, $entryids, $flags);
 				break;
 
 			case ZARAFA_SERVICE_GUID:
 				// delete message when in your own waste basket, else move it to the waste basket
 				if (isset($msgprops[PR_IPM_WASTEBASKET_ENTRYID]) && $msgprops[PR_IPM_WASTEBASKET_ENTRYID] == $parententryid || $softDelete == true) {
-					$result = mapi_folder_deletemessages($folder, $entryids);
+					$result = mapi_folder_deletemessages($folder, $entryids, $flags);
 					break;
 				}
 				try {
@@ -2900,7 +2902,7 @@
 
 					$e->setHandled();
 					// if moving fails, try normal delete
-					$result = mapi_folder_deletemessages($folder, $entryids);
+					$result = mapi_folder_deletemessages($folder, $entryids, $flags);
 				}
 				break;
 			}

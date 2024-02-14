@@ -653,8 +653,12 @@
 			$storeprops = mapi_getprops($store, [PR_ENTRYID]);
 			$props[PR_STORE_ENTRYID] = $storeprops[PR_ENTRYID];
 
-			$result = $GLOBALS["operations"]->deleteMessages($store, $parententryid, $entryid, isset($action['message_action']['soft_delete']) ? $action['message_action']['soft_delete'] : false);
-
+			$soft = isset($action['message_action']['soft_delete']) ?
+			        $action['message_action']['soft_delete'] : false;
+			$unread = isset($action['message_action']['non_read_notify']) ?
+			        $action['message_action']['non_read_notify'] : false;
+			$result = $GLOBALS["operations"]->deleteMessages($store,
+			          $parententryid, $entryid, $soft, $unread);
 			if ($result) {
 				$GLOBALS["bus"]->notify(bin2hex($parententryid), TABLE_DELETE, $props);
 				$this->sendFeedback(true);
