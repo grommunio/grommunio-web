@@ -36,7 +36,7 @@
 		/**
 		 * Executes all the actions in the $data variable.
 		 *
-		 * @return bool true on success of false on fialure
+		 * @return bool true on success or false on failure
 		 */
 		public function execute() {
 			$GLOBALS['PluginManager']->triggerHook("server.module.maillistmodule.execute.before", ['moduleObject' => &$this]);

@@ -591,7 +591,7 @@ Zarafa.core.data.MAPIRecord = Ext.extend(Ext.data.Record, {
 		// @todo we don't want to send updates at this point since the record may not be complete. Needs a begin/end construct
 		// to work properly
 
-		// Notify modication change, but do not send a notification to the UI (since no UI has changed)
+		// Notify modification change, but do not send a notification to the UI (since no UI has changed)
 		if(Ext.isDefined(this.store) && this.store.modified.indexOf(this) == -1){
 			this.store.modified.push(this);
 		}

@@ -203,7 +203,7 @@ class PluginMDMModule extends Module {
 	/**
 	 * Executes all the actions in the $data variable.
 	 *
-	 * @return bool true on success of false on fialure
+	 * @return bool true on success or false on failure
 	 */
 	public function execute() {
 		foreach ($this->data as $actionType => $actionData) {
