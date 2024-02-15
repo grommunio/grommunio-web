@@ -262,7 +262,7 @@ html, body, html * {
   background-position: center center !important; }
 
 .arrow_menubar, .zarafa-maintabbar-maintab-active button.x-btn-text, .zarafa-maintabbar-maintab-active.x-btn-over button.x-btn-text, .zarafa-maintabbar-maintab-active.x-btn-over.x-btn-click button.x-btn-text {
-  background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMiIgaGVpZ2h0PSIxMiI+PHBhdGggZmlsbD0iIzIxMjEyMSIgZD0iTTIuMTQ4IDcuODUyYS40OTUuNDk1IDAgMCAwIC43MDQgMEw2IDQuNzA3bDMuMTQ4IDMuMTQ1YS40OTcuNDk3IDAgMCAwIC43MDQtLjcwNGwtMy41LTMuNWEuNDk1LjQ5NSAwIDAgMC0uNzA0IDBsLTMuNSAzLjVhLjQ5NS40OTUgMCAwIDAgMCAuNzA0Wm0wIDAiLz48L3N2Zz4=) !important;
+  background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgZmlsbD0ibm9uZSI+PHBhdGggZmlsbD0iIzJFQ0M3MCIgZD0iTTYuMTAyIDE2Ljk4MWMtMS4wNzQgMC0xLjY0OC0xLjI2NS0uOTQtMi4wNzNsNS41MjEtNi4zMWExLjc1IDEuNzUgMCAwIDEgMi42MzQgMGw1LjUyMiA2LjMxYy43MDcuODA5LjEzMyAyLjA3My0uOTQgMi4wNzNINi4xMDFaIi8+PC9zdmc+) !important;
   background-repeat: no-repeat !important;
   background-position: center center !important; }
 
@@ -1656,7 +1656,7 @@ body #zarafa-mainmenu.zarafa-maintabbar > .x-toolbar-ct {
       color: #ffffff;
       opacity: 1;
       font-weight: normal;
-      background-position: center bottom !important; }
+      background-position: bottom -10px center !important; }
   body #zarafa-mainmenu.zarafa-maintabbar > .x-toolbar-ct .x-toolbar-right button.x-btn-text {
     text-transform: none; }
   body #zarafa-mainmenu.zarafa-maintabbar > .x-toolbar-ct #mainmenu-button-settings em,
