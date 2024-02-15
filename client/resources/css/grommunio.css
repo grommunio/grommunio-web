@@ -4249,14 +4249,14 @@ body .k-category-block {
 
 .k-category-add {
   display: block;
-  visibility: hidden;
-  width: 21px;
-  height: 15px;
+  width: 24px;
+  height: 20px;
   cursor: pointer;
-  background-size: 16px; }
+  background-size: 24px; }
 
-.x-grid3-row-over .k-category-add {
-  visibility: visible; }
+.x-grid3-row:not(.x-grid3-row-over) .k-category-add,
+.x-grid3-row.k-conversation-header .k-category-add {
+  background-image: none !important; }
 
 /* In the (pre) view panel */
 .k-preview-header-categories {
