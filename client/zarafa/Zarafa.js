@@ -319,13 +319,8 @@ Ext.apply(Zarafa, {
 
 		// Don't disable the browser contextmenu for regular
 		// text inputs.
-		if ( el.dom.tagName.toUpperCase()==='INPUT' ){
-			var type = el.getAttribute('type') || '';
-			var readonly = !Ext.isEmpty(el.dom.attributes.readonly);
-			if ( type.toUpperCase() === 'TEXT' && !readonly ) {
-				return;
-			}
-		}
+		if (el.dom.tagName.toUpperCase() === 'INPUT')
+			return;
 
 		// Disable contextmenu.
 		event.preventDefault();
