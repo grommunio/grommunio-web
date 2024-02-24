@@ -1,3 +1,16 @@
+v3.7 (2024-02-25)
+=================
+* When a message draft is saved, recipients' icons erroneously switched,
+  which was fixed.
+* Avoid setting a bogus PR_MESSAGE_CLASS on message drafts where
+  the user has already selected SMIME-sign/encrypt options for later.
+* Eliminate inheriting old PR_SENDER_SMTP_ADDRESS when forwarding messages
+  from a non-default store used with send-on-behalf mode.
+* The encryption icon was missing in the folder view and put back.
+* The calendar widget (left pane) was missing the right arrow icon, which has
+  been restored.
+* Reenable X11 middle mouse pasting
+
 v3.6 (2023-11-10)
 =================
 * Nav-Model following WCAG 2.1, style adoption for enhanced accessibility
