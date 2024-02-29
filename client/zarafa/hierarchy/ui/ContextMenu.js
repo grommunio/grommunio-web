@@ -102,10 +102,6 @@ Zarafa.hierarchy.ui.ContextMenu = Ext.extend(Zarafa.core.ui.menu.ConditionalMenu
 				var access = record.get('access') & Zarafa.core.mapi.Access.ACCESS_MODIFY;
 				if (
           !access ||
-          record.isIPMSubTree() ||
-          record.isTodoListFolder() ||
-          record.isRSSFolder() ||
-          record.isDefaultFolder() ||
           !this.contextTree ||
           !this.contextNode
         ) {

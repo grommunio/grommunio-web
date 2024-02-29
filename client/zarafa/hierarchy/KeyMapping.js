@@ -93,7 +93,7 @@ Zarafa.hierarchy.KeyMapping = Ext.extend(Object, {
 	 */
 	forbiddenToRenameFolder : function(folder)
 	{
-		return folder.isDefaultFolder() || folder.isIPMSubTree() || folder.isTodoListFolder() || folder.isRSSFolder() || folder.isSearchFolder();
+		return false;
 	},
 
 	/**
