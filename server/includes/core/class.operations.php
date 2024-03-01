@@ -1057,37 +1057,36 @@
 		 * @return bool true if action succeeded, false if not
 		 */
 		public function renameFolder($store, $entryid, $name, &$folderProps) {
-			$result = false;
 			$folder = mapi_msgstore_openentry($store, $entryid);
-			if ($folder && !$this->isSpecialFolder($store, $entryid)) {
-				$folderProps = mapi_getprops($folder, [PR_ENTRYID, PR_STORE_ENTRYID, PR_DISPLAY_NAME]);
-				/*
-				 * If parent folder has any sub-folder with the same name than this will return
-				 * MAPI_E_COLLISION error while renaming folder, so show this error to client,
-				 * and revert changes in view.
-				 */
-				try {
-					mapi_setprops($folder, [PR_DISPLAY_NAME => $name]);
-					mapi_savechanges($folder);
-					$result = true;
-				}
-				catch (MAPIException $e) {
-					if ($e->getCode() == MAPI_E_COLLISION) {
-						/*
-						 * revert folder name to original one
-						 * There is a bug in php-mapi that updates folder name in hierarchy table with null value
-						 * so we need to revert those change by again setting the old folder name
-						 * (ZCP-11586)
-						 */
-						mapi_setprops($folder, [PR_DISPLAY_NAME => $folderProps[PR_DISPLAY_NAME]]);
-						mapi_savechanges($folder);
-					}
-
-					// rethrow exception so we will send error to client
-					throw $e;
-				}
+			if (!$folder || $this->isSpecialFolder($store, $entryid))
+				return false;
+			$result = false;
+			$folderProps = mapi_getprops($folder, [PR_ENTRYID, PR_STORE_ENTRYID, PR_DISPLAY_NAME]);
+			/*
+			 * If parent folder has any sub-folder with the same name than this will return
+			 * MAPI_E_COLLISION error while renaming folder, so show this error to client,
+			 * and revert changes in view.
+			 */
+			try {
+				mapi_setprops($folder, [PR_DISPLAY_NAME => $name]);
+				mapi_savechanges($folder);
+				$result = true;
 			}
+			catch (MAPIException $e) {
+				if ($e->getCode() == MAPI_E_COLLISION) {
+					/*
+					 * revert folder name to original one
+					 * There is a bug in php-mapi that updates folder name in hierarchy table with null value
+					 * so we need to revert those change by again setting the old folder name
+					 * (ZCP-11586)
+					 */
+					mapi_setprops($folder, [PR_DISPLAY_NAME => $folderProps[PR_DISPLAY_NAME]]);
+					mapi_savechanges($folder);
+				}
 
+				// rethrow exception so we will send error to client
+				throw $e;
+			}
 			return $result;
 		}
 
