@@ -1058,7 +1058,7 @@
 		 */
 		public function renameFolder($store, $entryid, $name, &$folderProps) {
 			$folder = mapi_msgstore_openentry($store, $entryid);
-			if (!$folder || $this->isSpecialFolder($store, $entryid))
+			if (!$folder)
 				return false;
 			$result = false;
 			$folderProps = mapi_getprops($folder, [PR_ENTRYID, PR_STORE_ENTRYID, PR_DISPLAY_NAME]);
