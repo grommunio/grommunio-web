@@ -8081,7 +8081,7 @@ Ext.apply(Ext, function(){
          * @type String
          */
         BLANK_IMAGE_URL : Ext.isIE6 || Ext.isIE7 || Ext.isAir ?
-                            'http:/' + '/www.extjs.com/s.gif' :
+                            'client/extjs/resources/images/default/s.gif' :
                             'data:image/gif;base64,R0lGODlhAQABAID/AMDAwAAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==',
 
         extendX : function(supr, fn){
