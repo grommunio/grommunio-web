@@ -1249,6 +1249,7 @@
 				$properties["subject"] = PR_SUBJECT;
 				$properties["object_type"] = PR_OBJECT_TYPE;
 
+				$properties["recurring"] = "PT_BOOLEAN:PSETID_Appointment:" . PidLidRecurring;
 				$properties["reminder"] = "PT_BOOLEAN:PSETID_Common:" . PidLidReminderSet;				// PidLidReminderSet
 				$properties["reminder_minutes"] = "PT_LONG:PSETID_Common:" . PidLidReminderDelta;			// PidLidReminderDelta
 				$properties["reminder_time"] = "PT_SYSTIME:PSETID_Common:" . PidLidReminderTime;			// PidLidReminderTime

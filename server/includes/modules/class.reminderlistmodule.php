@@ -139,6 +139,22 @@
 												VALUE => [$this->properties["reminder"] => true],
 											],
 										],
+										[RES_AND,
+											[
+												[RES_EXIST,
+													[
+														ULPROPTAG => $this->properties["recurring"],
+													],
+												],
+												[RES_PROPERTY,
+													[
+														RELOP => RELOP_EQ,
+														ULPROPTAG => $this->properties["recurring"],
+														VALUE => [$this->properties["recurring"] => true],
+													],
+												],
+											],
+										],
 									],
 								],
 							],
