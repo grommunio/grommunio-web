@@ -1939,3 +1939,7 @@ body.login #form-container #logo,
   background-color: var(--primary-paper-background)!important;
   color: var(--primary-foreground-color)!important;
 }
+
+.zarafa-calendar-container-body .k-html-body-appointment {
+    color: var(--primary-background-color)!important;
+}
