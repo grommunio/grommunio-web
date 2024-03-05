@@ -58,6 +58,7 @@
 			$rootProps = mapi_getprops($root, [PR_ADDITIONAL_REN_ENTRYIDS, PR_IPM_DRAFTS_ENTRYID]);
 
 			$folders = [];
+			/* The list of forbidden folders (MS-OXORMDR v14 §1.1) */
 			if (isset($storeProps[PR_IPM_WASTEBASKET_ENTRYID])) {
 				$folders[] = $storeProps[PR_IPM_WASTEBASKET_ENTRYID];
 			}
@@ -76,6 +77,9 @@
 			if (isset($rootProps[PR_ADDITIONAL_REN_ENTRYIDS]) && !empty($rootProps[PR_ADDITIONAL_REN_ENTRYIDS][2])) {
 				$folders[] = $rootProps[PR_ADDITIONAL_REN_ENTRYIDS][2];
 			} // local failures
+			if (isset($rootProps[PR_ADDITIONAL_REN_ENTRYIDS]) && !empty($rootProps[PR_ADDITIONAL_REN_ENTRYIDS][3])) {
+				$folders[] = $rootProps[PR_ADDITIONAL_REN_ENTRYIDS][3];
+			} // server failures
 			if (isset($rootProps[PR_ADDITIONAL_REN_ENTRYIDS]) && !empty($rootProps[PR_ADDITIONAL_REN_ENTRYIDS][1])) {
 				$folders[] = $rootProps[PR_ADDITIONAL_REN_ENTRYIDS][1];
 			} // sync issues
@@ -133,6 +137,22 @@
 												RELOP => RELOP_EQ,
 												ULPROPTAG => $this->properties["reminder"],
 												VALUE => [$this->properties["reminder"] => true],
+											],
+										],
+										[RES_AND,
+											[
+												[RES_EXIST,
+													[
+														ULPROPTAG => $this->properties["recurring"],
+													],
+												],
+												[RES_PROPERTY,
+													[
+														RELOP => RELOP_EQ,
+														ULPROPTAG => $this->properties["recurring"],
+														VALUE => [$this->properties["recurring"] => true],
+													],
+												],
 											],
 										],
 									],
