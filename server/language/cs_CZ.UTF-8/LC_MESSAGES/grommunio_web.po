@@ -3206,7 +3206,7 @@ msgid "Reminder is set on: {0}, {1}"
 msgstr "Připomenutí je nastaveno na: {0}, {1}"
 
 msgid "d-m-Y"
-msgstr "d-m-r"
+msgstr "d-m-Y"
 
 msgid "l d/m/Y"
 msgstr "l d. m. Y"
@@ -4267,7 +4267,7 @@ msgstr "D {0}"
 
 #, fuzzy
 msgid "D d-m"
-msgstr "d-m-r"
+msgstr "d-m"
 
 msgid ""
 "Not enough permissions to open this store, do you want to remove it from the "
@@ -5797,7 +5797,7 @@ msgstr "Aktualizovat seznam"
 
 #, fuzzy
 msgid "D d-m-Y"
-msgstr "d-m-r"
+msgstr "d-m-Y"
 
 msgid "none"
 msgstr "žádný"
