@@ -1571,7 +1571,7 @@
 
 				$htmlcontent = '';
 				$plaincontent = '';
-				if (!$plaintext) {
+				if (!$plaintext && isset($tmpProps[PR_HTML])) {
 					$cpprops = mapi_message_getprops($message, [PR_INTERNET_CPID]);
 					$codepage = isset($cpprops[PR_INTERNET_CPID]) ? $cpprops[PR_INTERNET_CPID] : 65001;
 					$htmlcontent = Conversion::convertCodepageStringToUtf8($codepage, $tmpProps[PR_HTML]);
