@@ -816,7 +816,8 @@ Zarafa.common.Actions = {
 					store.remove(record);
 					saveRecords.push(record);
 				}
-			} else if (!record.isRead() && record.needsNonReadReceipt()) {
+			} else if (!record.isRead() && record.needsNonReadReceipt() &&
+			    (softDelete || record.isInDeletedItems())) {
 				switch (container.getSettingsModel().get("zarafa/v1/contexts/mail/readreceipt_handling")) {
 				case 'never':
 					store.remove(record, undefined, false);
@@ -833,10 +834,12 @@ Zarafa.common.Actions = {
 						msg: String.format(_("{0} has requested a notification be sent when message \"{1}\" is deleted without having been read. Do you want to send a receipt?"),
 						     record.get("sender_name") || record.get("sender_email_address"),
 						     record.get("subject")),
-						buttons: Ext.MessageBox.YESNO,
+						buttons: Ext.MessageBox.YESNOCANCEL,
 						fn: this.deleteWithNonReadReceipt,
-						scope: record
+						scope: record,
+						softDelete: softDelete
 					});
+					saveRecords.push(record);
 					break;
 				}
 			} else {
@@ -953,12 +956,22 @@ Zarafa.common.Actions = {
 			this.cancelInvitation();
 		}
 	},
-	deleteWithNonReadReceipt: function(buttonClicked, text)
-	{
-		if (buttonClicked != "yes")
+
+	/**
+	 * Function displays a dialog for non read notify confirmation.
+	 * @param {String} buttonClicked The ID of the button pressed,'yes', 'no' or 'cancel'
+	 * @param {String} text Value of the input field, not used here
+	 * @param {Object} opt The config object passed to the messagebox
+	 */
+	deleteWithNonReadReceipt: function(buttonClicked, text, opt) {
+		if (buttonClicked == "cancel")
 			return;
 		// @this is a record
-		this.addMessageAction("non_read_notify", "1");
+		if (opt?.softDelete) {
+			this.addMessageAction("soft_delete", "1");
+		}
+		var non_read_notify = buttonClicked == "yes" ? "1" : "0";
+		this.addMessageAction("non_read_notify", non_read_notify);
 		var store = this.getStore();
 		store.remove(this);
 		store.save(this);

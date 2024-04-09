@@ -289,9 +289,12 @@
 						$this->addActionData('update', ['item' => $data]);
 					}
 				}
+				if ($result === false && isset($action['message_action']['soft_delete'])) {
+					$result = true;
+				}
 
 				// Feedback for successful save (without send)
-				if ($result && !$send) {
+				if ($result && !$send && isset($messageProps[PR_PARENT_ENTRYID])) {
 					$GLOBALS['bus']->notify(bin2hex($messageProps[PR_PARENT_ENTRYID]), TABLE_SAVE, $messageProps);
 				}
 

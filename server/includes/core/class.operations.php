@@ -2827,6 +2827,7 @@
 		 * @param string    $parententryid parent entryid of the messages to be deleted
 		 * @param array     $entryids      a list of entryids which will be deleted
 		 * @param bool      $softDelete    flag for soft-deleteing (when user presses Shift+Del)
+		 * @param bool      $unread        message is unread
 		 *
 		 * @return bool true if action succeeded, false if not
 		 */

@@ -356,6 +356,12 @@ Zarafa.core.data.IPMRecord = Ext.extend(Zarafa.core.data.MAPIRecord, {
 	{
 		return (this.get('message_flags') & Zarafa.core.mapi.MessageFlags.MSGFLAG_RN_PENDING) === Zarafa.core.mapi.MessageFlags.MSGFLAG_RN_PENDING;
 	},
+
+	/**
+	 * Convenience method for determining if the message needs a Non Read Receipt to be send when
+	 * deleting the message.
+	 * @return {Boolean} True if this item needs a non read receipt to be send.
+	 */
 	needsNonReadReceipt: function()
 	{
 		return (this.get('message_flags') & Zarafa.core.mapi.MessageFlags.MSGFLAG_NRN_PENDING) === Zarafa.core.mapi.MessageFlags.MSGFLAG_NRN_PENDING;
@@ -601,6 +607,24 @@ Zarafa.core.data.IPMRecord = Ext.extend(Zarafa.core.data.MAPIRecord, {
 	isPrivate: function()
 	{
 		return Ext.isDefined(this.get('private')) ? this.get('private') : false;
+	},
+
+	/**
+	 * Checks if the record is in deleted items or the folder containing the record
+	 * is in deleted items
+	 * @returns {Boolean} True if the record is in deleted items else false.
+	 */
+	isInDeletedItems: function() {
+		var deletedItems = container.getHierarchyStore().getDefaultFolder('wastebasket');
+		var parent_entryid = this.get('parent_entryid');
+		if (deletedItems && Zarafa.core.EntryId.compareEntryIds(deletedItems.get('entryid'), parent_entryid)) {
+			return true;
+		}
+		var folder = container.getHierarchyStore().getFolder(parent_entryid);
+		if (folder.isInDeletedItems()) {
+			return true;
+		}
+		return false;
 	}
 });
 
