@@ -561,7 +561,8 @@
 						// Find faulty link messages which does not linked to any message. if link message
 						// does not contains store entryid in which actual message is located then it consider as
 						// faulty link message.
-						if (isset($row[PR_WLINK_STORE_ENTRYID]) && empty($row[PR_WLINK_STORE_ENTRYID])) {
+						if (isset($row[PR_WLINK_STORE_ENTRYID]) && empty($row[PR_WLINK_STORE_ENTRYID]) ||
+							!isset($row[PR_WLINK_STORE_ENTRYID])) {
 							array_push($faultyLinkMsg, $row[PR_ENTRYID]);
 
 							continue;
