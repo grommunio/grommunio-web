@@ -37,7 +37,10 @@ class FilesWebDavClient extends \Sabre\DAV\Client {
 	 *
 	 * @return array
 	 */
-	public function getFile($url = '', $dstpath, $headers = []) {
+	public function getFile($url, $dstpath, $headers = []) {
+		if (empty($url)) {
+			throw new \Sabre\DAV\Exception('Empty path');
+		}
 		$url = $this->getAbsoluteUrl($url);
 		$file_handle = fopen($dstpath, "w");
 
