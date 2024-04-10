@@ -863,7 +863,7 @@ class DownloadAttachment extends DownloadBase {
 
 			// Create an open zip archive.
 			$zip = new ZipArchive();
-			$result = $zip->open($randomZipName, ZipArchive::CREATE);
+			$result = $zip->open($randomZipName, ZipArchive::OVERWRITE);
 
 			if ($result === true) {
 				// Check if attachments are of saved message.
