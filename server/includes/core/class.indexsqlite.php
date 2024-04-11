@@ -280,10 +280,9 @@ class IndexSqlite extends SQLite3 {
 
 	private function create() {
 		mkdir(SQLITE_INDEX_PATH . '/' . $this->username);
-		chmod(SQLITE_INDEX_PATH . '/' . $this->username, 0777);
+		chmod(SQLITE_INDEX_PATH . '/' . $this->username, 0770);
 		$this->open(SQLITE_INDEX_PATH . '/' . $this->username . '/index.sqlite3');
-		chmod(SQLITE_INDEX_PATH . '/' . $this->username . '/index.sqlite3', 0666);
-
+		chmod(SQLITE_INDEX_PATH . '/' . $this->username . '/index.sqlite3', 0660);
 		return true;
 	}
 
