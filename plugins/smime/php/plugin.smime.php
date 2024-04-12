@@ -455,8 +455,7 @@ class Pluginsmime extends Plugin {
 		else {
 			// it might also be a signed message only. Verify it.
 			$msg = tempnam(sys_get_temp_dir(), true);
-			$ret = openssl_pkcs7_verify($tmpFile, PKCS7_NOVERIFY, null);
-			openssl_pkcs7_verify($tmpFile, PKCS7_NOVERIFY, null, [], null, $msg);
+			$ret = openssl_pkcs7_verify($tmpFile, PKCS7_NOVERIFY, null, [], null, $msg);
 			$content = file_get_contents($msg);
 			unlink($tmpFile);
 			unlink($msg);
