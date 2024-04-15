@@ -384,19 +384,19 @@ class Pluginsmime extends Plugin {
 		$this->message['type'] = 'encrypted';
 		$encryptionStore = EncryptionStore::getInstance();
 		$pass = $encryptionStore->get('smime');
+
+		$tmpFile = tempnam(sys_get_temp_dir(), true);
+		// Write mime header. Because it's not provided in the attachment, otherwise openssl won't parse it
+		$fp = fopen($tmpFile, 'w');
+		fwrite($fp, "Content-Type: application/pkcs7-mime; name=\"smime.p7m\"; smime-type=enveloped-data\n");
+		fwrite($fp, "Content-Transfer-Encoding: base64\nContent-Disposition: attachment; filename=\"smime.p7m\"\n");
+		fwrite($fp, "Content-Description: S/MIME Encrypted Message\n\n");
+		fwrite($fp, chunk_split(base64_encode($data['data']), 72) . "\n");
+		fclose($fp);
 		if (isset($pass) && !empty($pass)) {
 			$certs = readPrivateCert($this->getStore(), $pass, false);
 			// create random file for saving the encrypted and body message
-			$tmpFile = tempnam(sys_get_temp_dir(), true);
 			$tmpDecrypted = tempnam(sys_get_temp_dir(), true);
-
-			// Write mime header. Because it's not provided in the attachment, otherwise openssl won't parse it
-			$fp = fopen($tmpFile, 'w');
-			fwrite($fp, "Content-Type: application/pkcs7-mime; name=\"smime.p7m\"; smime-type=enveloped-data\n");
-			fwrite($fp, "Content-Transfer-Encoding: base64\nContent-Disposition: attachment; filename=\"smime.p7m\"\n");
-			fwrite($fp, "Content-Description: S/MIME Encrypted Message\n\n");
-			fwrite($fp, chunk_split(base64_encode($data['data']), 72) . "\n");
-			fclose($fp);
 
 			$decryptStatus = false;
 			// If multiple private certs were decrypted with supplied password
@@ -453,7 +453,25 @@ class Pluginsmime extends Plugin {
 			}
 		}
 		else {
-			$this->message['info'] = SMIME_UNLOCK_CERT;
+			// it might also be a signed message only. Verify it.
+			$msg = tempnam(sys_get_temp_dir(), true);
+			$ret = openssl_pkcs7_verify($tmpFile, PKCS7_NOVERIFY, null, [], null, $msg);
+			$content = file_get_contents($msg);
+			unlink($tmpFile);
+			unlink($msg);
+			if ($ret === true && !empty($content)) {
+				$copyProps = mapi_getprops($data['message'], [PR_MESSAGE_DELIVERY_TIME, PR_SENDER_ENTRYID, PR_SENT_REPRESENTING_ENTRYID]);
+				mapi_inetmapi_imtomapi($GLOBALS['mapisession']->getSession(), $data['store'],
+					$GLOBALS['mapisession']->getAddressbook(), $data['message'], $content, ['parse_smime_signed' => true]);
+				// Manually set time back to the received time, since mapi_inetmapi_imtomapi overwrites this
+				mapi_setprops($data['message'], $copyProps);
+				$this->message['type'] = 'encryptsigned';
+				$this->message['info'] = SMIME_DECRYPT_SUCCESS;
+				$this->message['success'] = SMIME_STATUS_SUCCESS;
+			}
+			else {
+				$this->message['info'] = SMIME_UNLOCK_CERT;
+			}
 		}
 
 		if (!encryptionStoreExpirationSupport()) {
