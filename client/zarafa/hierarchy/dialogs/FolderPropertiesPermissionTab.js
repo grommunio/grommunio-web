@@ -17,12 +17,12 @@ Zarafa.hierarchy.dialogs.FolderPropertiesPermissionTab = Ext.extend(Ext.Panel, {
 	constructor: function(config)
 	{
 		config = config || {};
-		
+
 		config.plugins = Ext.value(config.plugins, []);
 		config.plugins.push('zarafa.recordcomponentupdaterplugin');
 		var emptyText = Ext.isDefined(config.emptyText) ? config.emptyText : _('No permissions granted');
 		var isAppointmentDialog = Ext.isDefined(config.isAppointmentDialog) ? config.isAppointmentDialog : false;
-		
+
 		Ext.applyIf(config, {
 			xtype: 'zarafa.folderpropertiespermissiontab',
 			cls: 'tab-permissions',
@@ -178,18 +178,17 @@ Zarafa.hierarchy.dialogs.FolderPropertiesPermissionTab = Ext.extend(Ext.Panel, {
 			name: 'allowread',
 			boxLabel: _('None'),
 			hideLabel: true,
-			disabled: true,
-			rightsValue: Zarafa.core.mapi.Rights.RIGHTS_NONE
+			rightsValue: Zarafa.core.mapi.Rights.RIGHTS_NO_RIGHTS
 		},{
 			name: 'allowread',
 			boxLabel: _('Free/Busy time'),
 			hideLabel: true,
-			rightsValue: Zarafa.core.mapi.Rights.RIGHTS_NONE | Zarafa.core.mapi.Rights.RIGHTS_CAL_FBSIMPLE
+			rightsValue: Zarafa.core.mapi.Rights.RIGHTS_CAL_FBSIMPLE
 		},{
 			name: 'allowread',
 			boxLabel: _('Free/Busy time, subject, location'),
 			hideLabel: true,
-			rightsValue: Zarafa.core.mapi.Rights.RIGHTS_NONE | Zarafa.core.mapi.Rights.RIGHTS_CAL_FBSIMPLE | Zarafa.core.mapi.Rights.RIGHTS_CAL_FBDETAILED
+			rightsValue: Zarafa.core.mapi.Rights.RIGHTS_CAL_FBSIMPLE | Zarafa.core.mapi.Rights.RIGHTS_CAL_FBDETAILED
 		},{
 			name: 'allowread',
 			boxLabel: _('Full Details'),
@@ -481,11 +480,16 @@ Zarafa.hierarchy.dialogs.FolderPropertiesPermissionTab = Ext.extend(Ext.Panel, {
 					fb.setValue(false);
 					all.setValue(false);
 					fbdetailed.setValue(true);
-				} else {
-					fb.setValue(true);
-					all.setValue(false);
-					fbdetailed.setValue(false);
+				} else if ((permissions & fb.rightsValue) === fb.rightsValue) {
 					none.setValue(false);
+					fbdetailed.setValue(false);
+					all.setValue(false);
+					fb.setValue(true);
+				} else {
+					fb.setValue(false);
+					fbdetailed.setValue(false);
+					all.setValue(false);
+					none.setValue(true);
 				}
 				// If in other dialog
 			} else if (items.get(2)){

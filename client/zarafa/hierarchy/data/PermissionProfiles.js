@@ -74,6 +74,9 @@ Zarafa.hierarchy.data.PermissionProfilesCalendar = [{
 	value: Zarafa.core.mapi.Rights.RIGHTS_CAL_FBSIMPLE,
 	name: _('Free/Busy time')
 },{
+	value: Zarafa.core.mapi.Rights.RIGHTS_NO_RIGHTS,
+	name: _('None')
+},{
 	value: null,
 	name: _('Custom')
 }];
