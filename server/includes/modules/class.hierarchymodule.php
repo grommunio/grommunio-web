@@ -750,7 +750,8 @@
 				foreach ($permissions['remove'] as $i => &$delAcl) {
 					$userid = hex2bin($delAcl['entryid']);
 					foreach ($curAcls as $aclIndex => &$curAcl) {
-						if ($curAcl['userid'] === $userid) {
+						// do not remove default and anonymous grants
+						if ($curAcl['userid'] === $userid && $curAcl['memberid'] != 0 && $curAcl['memberid'] != 0xFFFFFFFF) {
 							$curAcl['rights'] = ecRightsNone;
 							$curAcl['state'] = RIGHT_DELETED | RIGHT_AUTOUPDATE_DENIED;
 						}
