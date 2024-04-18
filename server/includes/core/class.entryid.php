@@ -853,6 +853,17 @@
 
 			return $res;
 		}
+
+		/**
+		 * Creates a Muidemsab entryid with provided parameters.
+		 *
+		 * @param $user {String} username
+		 *
+		 * @return {String} Muidemsab entryid
+		 */
+		public function createMuidemsabEntryid($user) {
+			return "00000000dca740c8c042101ab4b908002b2fe1820100000000000000" . bin2hex($user);
+		}
 	}
 
 	// Create global entryId object

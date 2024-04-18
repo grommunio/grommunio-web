@@ -699,10 +699,18 @@
 		}
 
 		public function getFolderPermissions($folder) {
+			$cnUserBase = '';
+			if (isset($this->data['open']['store_entryid'])) {
+				$eidObj = $GLOBALS["entryid"]->createMsgStoreEntryIdObj(hex2bin($this->data['open']['store_entryid']));
+				$cnUserPos = strrpos($eidObj['MailboxDN'], '/cn=');
+				if ($cnUserPos !== false) {
+					$cnUserBase = substr($eidObj['MailboxDN'], 0, $cnUserPos);
+				}
+			}
 			$grants = mapi_zarafa_getpermissionrules($folder, ACCESS_TYPE_GRANT);
 			foreach ($grants as $id => $grant) {
 				// The mapi_zarafa_getpermissionrules returns the entryid in the userid key
-				$userinfo = $this->getUserInfo($grant["userid"]);
+				$userinfo = $this->getUserInfo($grant["userid"], $grant["memberid"], $cnUserBase);
 
 				$rights = [];
 				$rights["entryid"] = $userinfo["entryid"];
@@ -742,7 +750,8 @@
 				foreach ($permissions['remove'] as $i => &$delAcl) {
 					$userid = hex2bin($delAcl['entryid']);
 					foreach ($curAcls as $aclIndex => &$curAcl) {
-						if ($curAcl['userid'] === $userid) {
+						// do not remove default and anonymous grants
+						if ($curAcl['userid'] === $userid && $curAcl['memberid'] != 0 && $curAcl['memberid'] != 0xFFFFFFFF) {
 							$curAcl['rights'] = ecRightsNone;
 							$curAcl['state'] = RIGHT_DELETED | RIGHT_AUTOUPDATE_DENIED;
 						}
@@ -821,29 +830,52 @@
 			return false;
 		}
 
-		public function getUserInfo($entryid) {
+		public function getUserInfo($entryid, $memberid, $cnUserBase) {
+			// Create fake entryids for default and anonymous permissions
+			if ($memberid == 0) {
+				return [
+					"fullname" => _("default"),
+					"username" => _("default"),
+					"entryid" => $GLOBALS["entryid"]->createMuidemsabEntryid($cnUserBase . '/cn=0000000000000000-default'),
+					"type" => MAPI_MAILUSER,
+					"id" => $memberid,
+				];
+			}
+
+			if ($memberid == 0xFFFFFFFF) {
+				return [
+					"fullname" => _("anonymous"),
+					"username" => _("anonymous"),
+					"entryid" => $GLOBALS["entryid"]->createMuidemsabEntryid($cnUserBase . '/cn=ffffffffffffffff-anonymous'),
+					"type" => MAPI_MAILUSER,
+					"id" => $memberid,
+				];
+			}
+
+			// open the addressbook
+			$ab = $GLOBALS["mapisession"]->getAddressbook();
+			$user = mapi_ab_openentry($ab, $entryid);
+			if ($user) {
+				$props = mapi_getprops($user, [PR_ACCOUNT, PR_DISPLAY_NAME, PR_OBJECT_TYPE]);
+				return [
+					"fullname" => $props[PR_DISPLAY_NAME],
+					"username" => $props[PR_ACCOUNT],
+					"entryid" => bin2hex($entryid),
+					"type" => $props[PR_OBJECT_TYPE],
+					"id" => $entryid,
+				];
+			}
+
+			error_log(sprintf("No user with the entryid %s found (memberid: %s)", bin2hex($entryid), $memberid));
+
 			// default return stuff
-			$result = ["fullname" => _("Unknown user/group"),
+			return [
+				"fullname" => _("Unknown user/group"),
 				"username" => _("unknown"),
 				"entryid" => null,
 				"type" => MAPI_MAILUSER,
 				"id" => $entryid,
 			];
-
-			// open the addressbook
-			$ab = $GLOBALS["mapisession"]->getAddressbook();
-
-			$user = mapi_ab_openentry($ab, $entryid);
-
-			if ($user) {
-				$props = mapi_getprops($user, [PR_ACCOUNT, PR_DISPLAY_NAME, PR_OBJECT_TYPE]);
-				$result["username"] = $props[PR_ACCOUNT];
-				$result["fullname"] = $props[PR_DISPLAY_NAME];
-				$result["entryid"] = bin2hex($entryid);
-				$result["type"] = $props[PR_OBJECT_TYPE];
-			}
-
-			return $result;
 		}
 
 		/**

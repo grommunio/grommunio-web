@@ -76,7 +76,7 @@ Zarafa.core.mapi.Rights = Zarafa.core.Enum.create({
 	 */
 	RIGHTS_FOLDER_VISIBLE		: 0x00000400,
 	/**
-	 * Denotes that detailed free/busy visibility rights are given
+	 * Denotes that simple free/busy visibility rights are given
 	 * @property
 	 * @type Number
 	 */
@@ -211,8 +211,7 @@ Zarafa.core.mapi.Rights.RIGHTS_OWNER			= Zarafa.core.mapi.Rights.RIGHTS_PUBLISHI
  * @property
  * @type Number
  */
-Zarafa.core.mapi.Rights.RIGHTS_CAL_FBSIMPLE		= Zarafa.core.mapi.Rights.RIGHTS_NONE |
-												Zarafa.core.mapi.Rights.RIGHTS_FBSIMPLE;
+Zarafa.core.mapi.Rights.RIGHTS_CAL_FBSIMPLE		= Zarafa.core.mapi.Rights.RIGHTS_FBSIMPLE;
 
 /**
  * Denotes that create rights are granted, this extends {@link #RIGHTS_NO_RIGHTS} with
@@ -220,8 +219,7 @@ Zarafa.core.mapi.Rights.RIGHTS_CAL_FBSIMPLE		= Zarafa.core.mapi.Rights.RIGHTS_NO
  * @property
  * @type Number
  */
-Zarafa.core.mapi.Rights.RIGHTS_CAL_FBDETAILED		= Zarafa.core.mapi.Rights.RIGHTS_NONE |
-												Zarafa.core.mapi.Rights.RIGHTS_FBSIMPLE |
+Zarafa.core.mapi.Rights.RIGHTS_CAL_FBDETAILED		= Zarafa.core.mapi.Rights.RIGHTS_FBSIMPLE |
 												Zarafa.core.mapi.Rights.RIGHTS_FBDETAILED;
 
 /**
