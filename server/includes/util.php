@@ -561,7 +561,11 @@
 					'data' => &$data,
 				]);
 
-				if (isSmimePluginEnabled()) {
+				// after decrypting $message is a IPM.Note message,
+				// deleting an attachment removes an actual attachment of the message
+				$mprops = mapi_getprops($message, [PR_MESSAGE_CLASS]);
+				if (isSmimePluginEnabled() && isset($mprops[PR_MESSAGE_CLASS]) &&
+					stripos($mprops[PR_MESSAGE_CLASS], 'IPM.Note.SMIME') !== false) {
 					mapi_message_deleteattach($message, $attnum);
 				}
 			}
