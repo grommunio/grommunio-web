@@ -580,6 +580,12 @@
 				'data' => &$data,
 			]);
 
+			// ugly workaround to show clip icon for the signed/encrypted emails
+			if (isset($data['item']['props']['smime'])) {
+				$data['item']['props']['hasattach'] = true;
+				unset($data['item']['props']['hide_attachments']);
+			}
+
 			$this->addActionData('item', $data);
 			$GLOBALS['bus']->addData($this->getResponseData());
 		}
