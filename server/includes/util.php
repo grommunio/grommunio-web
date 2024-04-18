@@ -512,18 +512,7 @@
 					'data' => &$data,
 				]);
 
-				// also copy recipients because they are lost after mapi_inetmapi_imtomapi
-				$recipienttable = mapi_message_getrecipienttable($message);
-				if (!isset($GLOBALS["properties"])) {
-					$GLOBALS["properties"] = new Properties();
-				}
-				$messageRecipients = mapi_table_queryallrows($recipienttable, $GLOBALS["properties"]->getRecipientProperties());
-
 				mapi_inetmapi_imtomapi($GLOBALS['mapisession']->getSession(), $store, $GLOBALS['mapisession']->getAddressbook(), $message, $data, ["parse_smime_signed" => 1]);
-
-				if (!empty($messageRecipients)) {
-					mapi_message_modifyrecipients($message, MODRECIP_ADD, $messageRecipients);
-				}
 
 				mapi_setprops($message, [
 					PR_MESSAGE_CLASS => $props[PR_MESSAGE_CLASS],
@@ -980,8 +969,7 @@
 	 *
 	 * @return bool
 	 */
-
-	 function isDst($tzrules, $startdate) {
+	function isDst($tzrules, $startdate) {
 		if (array_sum($tzrules['stStandardDate']) == 0 || array_sum($tzrules['stDaylightDate']) == 0) {
 			return false;
 		}
@@ -994,4 +982,4 @@
 		return
 			(($tzDstStart > $tzStdStart) && !($startdate > $tzStdStart && $startdate < $tzDstStart)) ||
 			(($tzDstStart < $tzStdStart) && ($startdate < $tzStdStart && $startdate > $tzDstStart));
-	 }
+	}
