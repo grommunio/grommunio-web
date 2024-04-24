@@ -6,15 +6,16 @@ email, advanced calendaring and contact features you need to be productive. It
 is the main web application for access to your productivity workspace,
 including email, calendar, contacts, tasks, notes and more.**
 
-|shield-agpl| |shield-release|_ |shield-scrut|_ |shield-loc|
+|shield-agpl| |shield-release| |shield-scrut| |shield-loc|
 
-.. |shield-agpl| image:: https://img.shields.io/badge/license-AGPL--3.0-green
-.. _shield-agpl: LICENSE.txt
+.. |shield-agpl| image:: https://img.shields.io/badge/license-AGPL--3%2E0-green
+                 :target: LICENSE.txt
 .. |shield-release| image:: https://shields.io/github/v/tag/grommunio/grommunio-web
-.. _shield-release: https://github.com/grommunio/grommunio-web/tags
+                    :target: https://github.com/grommunio/grommunio-web/tags
 .. |shield-scrut| image:: https://img.shields.io/scrutinizer/build/g/grommunio/grommunio-web
-.. _shield-scrut: https://scrutinizer-ci.com/g/grommunio/grommunio-web
+                  :target: https://scrutinizer-ci.com/g/grommunio/grommunio-web
 .. |shield-loc| image:: https://img.shields.io/github/languages/code-size/grommunio/grommunio-web
+                :target: https://github.com/grommunio/grommunio-web/
 
 .. image:: docs/grommunio-web-ui.png
    :alt: Web UI
