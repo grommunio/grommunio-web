@@ -1,6 +1,6 @@
 /**
  * @license
- * Video.js 8.9.0 <http://videojs.com/>
+ * Video.js 8.10.0 <http://videojs.com/>
  * Copyright Brightcove, Inc. <https://www.brightcove.com/>
  * Available under Apache License Version 2.0
  * <https://github.com/videojs/video.js/blob/main/LICENSE>
@@ -16,7 +16,7 @@
   (global = typeof globalThis !== 'undefined' ? globalThis : global || self, global.videojs = factory());
 })(this, (function () { 'use strict';
 
-  var version$5 = "8.9.0";
+  var version$5 = "8.10.0";
 
   /**
    * An Object that contains lifecycle hooks as keys which point to an array
@@ -19196,6 +19196,12 @@
      * @param {string} key
      *        Configuration key to use during creation.
      *
+     * @param {string} [legendId]
+     *        Id of associated <legend>.
+     *
+     * @param {string} [type=label]
+     *        Type of labelling element, `label` or `legend`
+     *
      * @return {string}
      *         An HTML string.
      *
@@ -19205,7 +19211,8 @@
       const config = selectConfigs[key];
       const id = config.id.replace('%s', this.id_);
       const selectLabelledbyIds = [legendId, id].join(' ').trim();
-      return [`<${type} id="${id}" class="${type === 'label' ? 'vjs-label' : ''}">`, this.localize(config.label), `</${type}>`, `<select aria-labelledby="${selectLabelledbyIds}">`].concat(config.options.map(o => {
+      const guid = `vjs_select_${newGUID()}`;
+      return [`<${type} id="${id}"${type === 'label' ? ` for="${guid}" class="vjs-label"` : ''}>`, this.localize(config.label), `</${type}>`, `<select aria-labelledby="${selectLabelledbyIds}" id="${guid}">`].concat(config.options.map(o => {
         const optionId = id + '-' + o[1].replace(/\W+/g, '');
         return [`<option id="${optionId}" value="${o[0]}" `, `aria-labelledby="${selectLabelledbyIds} ${optionId}">`, this.localize(o[1]), '</option>'].join('');
       })).concat('</select>').join('');
@@ -23379,6 +23386,26 @@
         log$1.warn('Using the tech directly can be dangerous. I hope you know what you\'re doing.\n' + 'See https://github.com/videojs/video.js/issues/2617 for more info.\n');
       }
       return this.tech_;
+    }
+
+    /**
+     * An object that contains Video.js version.
+     *
+     * @typedef {Object} PlayerVersion
+     *
+     * @property {string} 'video.js' - Video.js version
+     */
+
+    /**
+     * Returns an object with Video.js version.
+     *
+     * @return {PlayerVersion}
+     *          An object with Video.js version.
+     */
+    version() {
+      return {
+        'video.js': version$5
+      };
     }
 
     /**
@@ -39114,7 +39141,7 @@
   };
   var clock_1 = clock.ONE_SECOND_IN_TS;
 
-  /*! @name @videojs/http-streaming @version 3.9.1 @license Apache-2.0 */
+  /*! @name @videojs/http-streaming @version 3.10.0 @license Apache-2.0 */
 
   /**
    * @file resolve-url.js - Handling how URLs are resolved and manipulated
@@ -56949,9 +56976,14 @@
       if (sourceUpdater.codecs[type] === codec) {
         return;
       }
-      sourceUpdater.logger_(`changing ${type}Buffer codec from ${sourceUpdater.codecs[type]} to ${codec}`);
-      sourceBuffer.changeType(mime);
-      sourceUpdater.codecs[type] = codec;
+      sourceUpdater.logger_(`changing ${type}Buffer codec from ${sourceUpdater.codecs[type]} to ${codec}`); // check if change to the provided type is supported
+
+      try {
+        sourceBuffer.changeType(mime);
+        sourceUpdater.codecs[type] = codec;
+      } catch (e) {
+        videojs.log.warn(`Failed to changeType on ${type}Buffer`, e);
+      }
     }
   };
   const pushQueue = ({
@@ -57902,12 +57934,23 @@
         segment.empty = true;
         return;
       }
-      const timestampmap = segmentInfo.timestampmap;
-      const diff = timestampmap.MPEGTS / clock_1 - timestampmap.LOCAL + mappingObj.mapping;
+      const {
+        MPEGTS,
+        LOCAL
+      } = segmentInfo.timestampmap;
+      /**
+       * From the spec:
+       * The MPEGTS media timestamp MUST use a 90KHz timescale,
+       * even when non-WebVTT Media Segments use a different timescale.
+       */
+
+      const mpegTsInSeconds = MPEGTS / clock_1;
+      const diff = mpegTsInSeconds - LOCAL + mappingObj.mapping;
       segmentInfo.cues.forEach(cue => {
-        // First convert cue time to TS time using the timestamp-map provided within the vtt
-        cue.startTime += diff;
-        cue.endTime += diff;
+        const duration = cue.endTime - cue.startTime;
+        const startTime = MPEGTS === 0 ? cue.startTime + diff : this.handleRollover_(cue.startTime + diff, mappingObj.time);
+        cue.startTime = Math.max(startTime, 0);
+        cue.endTime = Math.max(startTime + duration, 0);
       });
       if (!playlist.syncInfo) {
         const firstStart = segmentInfo.cues[0].startTime;
@@ -57917,6 +57960,45 @@
           time: Math.min(firstStart, lastStart - segment.duration)
         };
       }
+    }
+    /**
+     * MPEG-TS PES timestamps are limited to 2^33.
+     * Once they reach 2^33, they roll over to 0.
+     * mux.js handles PES timestamp rollover for the following scenarios:
+     * [forward rollover(right)] ->
+     *    PES timestamps monotonically increase, and once they reach 2^33, they roll over to 0
+     * [backward rollover(left)] -->
+     *    we seek back to position before rollover.
+     *
+     * According to the HLS SPEC:
+     * When synchronizing WebVTT with PES timestamps, clients SHOULD account
+     * for cases where the 33-bit PES timestamps have wrapped and the WebVTT
+     * cue times have not.  When the PES timestamp wraps, the WebVTT Segment
+     * SHOULD have a X-TIMESTAMP-MAP header that maps the current WebVTT
+     * time to the new (low valued) PES timestamp.
+     *
+     * So we want to handle rollover here and align VTT Cue start/end time to the player's time.
+     */
+
+    handleRollover_(value, reference) {
+      if (reference === null) {
+        return value;
+      }
+      let valueIn90khz = value * clock_1;
+      const referenceIn90khz = reference * clock_1;
+      let offset;
+      if (referenceIn90khz < valueIn90khz) {
+        // - 2^33
+        offset = -8589934592;
+      } else {
+        // + 2^33
+        offset = 8589934592;
+      } // distance(value - reference) > 2^32
+
+      while (Math.abs(valueIn90khz - referenceIn90khz) > 4294967296) {
+        valueIn90khz += offset;
+      }
+      return valueIn90khz / clock_1;
     }
   }
 
@@ -63435,7 +63517,7 @@ Current map: `, currentMap);
   const reloadSourceOnError = function (options) {
     initPlugin(this, options);
   };
-  var version$4 = "3.9.1";
+  var version$4 = "3.10.0";
   var version$3 = "7.0.2";
   var version$2 = "1.3.0";
   var version$1 = "7.1.0";

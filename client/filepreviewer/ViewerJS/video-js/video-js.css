@@ -1585,22 +1585,6 @@ video::-webkit-media-text-track-display {
   text-align: center;
 }
 
-.vjs-error .vjs-error-display:before {
-  color: #fff;
-  content: "X";
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 4em;
-  left: 0;
-  line-height: 1;
-  margin-top: -0.5em;
-  position: absolute;
-  text-shadow: 0.05em 0.05em 0.1em #000;
-  text-align: center;
-  top: 50%;
-  vertical-align: middle;
-  width: 100%;
-}
-
 .vjs-loading-spinner {
   display: none;
   position: absolute;
