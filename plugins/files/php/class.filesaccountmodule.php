@@ -109,7 +109,7 @@ class FilesAccountModule extends ListModule {
 	}
 
 	/**
-	 * @param {Array} $actionData
+	 * @param array $actionData
 	 */
 	public function accountCreate($actionData) {
 		$response = [];
@@ -147,8 +147,8 @@ class FilesAccountModule extends ListModule {
 	/**
 	 * remove an account from the store and the MAPI settings.
 	 *
-	 * @param {String} $actionType
-	 * @param {Array} $actionData
+	 * @param string $actionType
+	 * @param array $actionData
 	 */
 	public function accountDelete($actionType, $actionData) {
 		$response = [];
@@ -173,8 +173,8 @@ class FilesAccountModule extends ListModule {
 	/**
 	 * loads content of current folder - list of folders and files from the Files backend.
 	 *
-	 * @param {String} $actionType
-	 * @param {Array} $actionData
+	 * @param string $actionType
+	 * @param array $actionData
 	 */
 	public function accountList($actionType, $actionData) {
 		$response = [];
@@ -233,7 +233,7 @@ class FilesAccountModule extends ListModule {
 	/**
 	 * update some values of an account.
 	 *
-	 * @param {Array} $actionData
+	 * @param array $actionData
 	 */
 	public function accountUpdate($actionData) {
 		$response = [];
@@ -287,7 +287,7 @@ class FilesAccountModule extends ListModule {
 	/**
 	 * Return all Information about the existing backends.
 	 *
-	 * @param {String} $actionType
+	 * @param string $actionType
 	 */
 	public function backendInformation($actionType) {
 		// find all registered backends
@@ -318,8 +318,8 @@ class FilesAccountModule extends ListModule {
 	/**
 	 * Return all quota information from specified account.
 	 *
-	 * @param {String} $actionType
-	 * @param {String} $actionData
+	 * @param string $actionType
+	 * @param string $actionData
 	 */
 	public function getQuotaInformation($actionType, $actionData) {
 		$response = [];
@@ -367,8 +367,8 @@ class FilesAccountModule extends ListModule {
 	/**
 	 * Return all quota information from specified account.
 	 *
-	 * @param {String} $actionType
-	 * @param {String} $actionData
+	 * @param string $actionType
+	 * @param string $actionData
 	 */
 	public function getVersionInformation($actionType, $actionData) {
 		$response = [];
@@ -415,8 +415,8 @@ class FilesAccountModule extends ListModule {
 	/**
 	 * Return all quota information from specified account.
 	 *
-	 * @param {String} $actionType
-	 * @param {String} $actionData
+	 * @param string $actionType
+	 * @param string $actionData
 	 */
 	public function updateOauthToken($actionType, $actionData) {
 		$response = [];

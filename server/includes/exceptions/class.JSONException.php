@@ -8,6 +8,5 @@ if (!class_exists('JSONException')) {
 	 * in server/util.php
 	 * getCode() method will return actual JSON error constant.
 	 */
-	class JSONException extends ZarafaException {
-	}
+	class JSONException extends ZarafaException {}
 }

@@ -111,7 +111,7 @@ class OutOfOfficeSettingsModule extends Module {
 	 * Function returns array of user stores who has given 'Owner' permission to logged in user.
 	 * Internal function to retrieve the shared stores with 'owner' permission.
 	 *
-	 * @return {Array} array of user stores who has given 'owner' permission
+	 * @return array array of user stores who has given 'owner' permission
 	 */
 	public function getOwnerPermissionStores() {
 		$stores = $GLOBALS['mapisession']->getOtherUserStore();

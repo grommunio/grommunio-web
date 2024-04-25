@@ -104,7 +104,7 @@ class HierarchyListModule extends FilesListModule {
 	/**
 	 * Function used to retrieve the child folders of given folder id.
 	 *
-	 * @param {Array} $action The action data which passed in request
+	 * @param array $action The action data which passed in request
 	 */
 	public function updateHierarchy($action) {
 		$nodeId = $action["folder_id"];

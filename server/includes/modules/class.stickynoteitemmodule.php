@@ -1,22 +1,22 @@
 <?php
 
+/**
+ * StickyNote ItemModule
+ * Module which openes, creates, saves and deletes an item. It
+ * extends the Module class.
+ */
+class StickyNoteItemModule extends ItemModule {
 	/**
-	 * StickyNote ItemModule
-	 * Module which openes, creates, saves and deletes an item. It
-	 * extends the Module class.
+	 * Constructor.
+	 *
+	 * @param int   $id   unique id
+	 * @param array $data list of all actions
 	 */
-	class StickyNoteItemModule extends ItemModule {
-		/**
-		 * Constructor.
-		 *
-		 * @param int   $id   unique id
-		 * @param array $data list of all actions
-		 */
-		public function __construct($id, $data) {
-			parent::__construct($id, $data);
+	public function __construct($id, $data) {
+		parent::__construct($id, $data);
 
-			$this->properties = $GLOBALS["properties"]->getStickyNoteProperties();
+		$this->properties = $GLOBALS["properties"]->getStickyNoteProperties();
 
-			$this->plaintext = true;
-		}
+		$this->plaintext = true;
 	}
+}

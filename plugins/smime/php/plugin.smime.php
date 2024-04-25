@@ -50,6 +50,11 @@ class Pluginsmime extends Plugin {
 	private $openssl_error = "";
 
 	/**
+	 * Cipher to use
+	 */
+	private $cipher = PLUGIN_SMIME_CIPHER;
+
+	/**
 	 * Called to initialize the plugin and register for hooks.
 	 */
 	public function init() {
@@ -64,9 +69,6 @@ class Pluginsmime extends Plugin {
 
 		if (version_compare(phpversion(), '5.4', '<')) {
 			$this->cipher = OPENSSL_CIPHER_3DES;
-		}
-		else {
-			$this->cipher = PLUGIN_SMIME_CIPHER;
 		}
 	}
 
@@ -259,7 +261,8 @@ class Pluginsmime extends Plugin {
 					$searchKeys = mapi_getprops($message, [PR_SEARCH_KEY, PR_SENT_REPRESENTING_SEARCH_KEY]);
 					$searchKey = $searchKeys[PR_SEARCH_KEY] ?? $searchKeys[PR_SENT_REPRESENTING_SEARCH_KEY];
 					if ($searchKey) {
-						$emailAddr = $trim(strtolower(explode(':', $searchKey)[1]));
+						$sk = strtolower(explode(':', $searchKey)[1]);
+						$emailAddr = trim($sk);
 					}
 				}
 			}
@@ -374,7 +377,7 @@ class Pluginsmime extends Plugin {
 	 * The key should be unlocked and stored in the EncryptionStore for a successful decrypt
 	 * If the key isn't in the session, we give the user a message to unlock his certificate.
 	 *
-	 * @param {mixed} $data array of data from hook
+	 * @param mixed $data array of data from hook
 	 */
 	public function onEncrypted($data) {
 		// Cert unlocked, decode message
@@ -484,7 +487,7 @@ class Pluginsmime extends Plugin {
 	/**
 	 * Function which calls verifyMessage to verify if the message isn't malformed during transport.
 	 *
-	 * @param {mixed} $data array of data from hook
+	 * @param mixed $data array of data from hook
 	 */
 	public function onSignedMessage($data) {
 		$this->message['type'] = 'signed';
@@ -528,7 +531,7 @@ class Pluginsmime extends Plugin {
 	 *
 	 * TODO: investigate if we can move away from this hook
 	 *
-	 * @param {mixed} $data
+	 * @param mixed $data
 	 */
 	public function onAfterOpen($data) {
 		if (isset($this->message) && !empty($this->message)) {
@@ -543,7 +546,7 @@ class Pluginsmime extends Plugin {
 	 * - Verifies that the email address is equal to the
 	 * - Verifies that the certificate isn't expired and inform user.
 	 *
-	 * @param {mixed} $data
+	 * @param mixed $data
 	 */
 	public function onUploadCertificate($data) {
 		if ($data['sourcetype'] !== 'certificate')
@@ -612,7 +615,7 @@ class Pluginsmime extends Plugin {
 	 * If the PR_MESSAGE_CLASS is set to a signed email (IPM.Note.SMIME.Multipartsigned), this function
 	 * will convert the mapi message to RFC822, sign the eml and attach the signed email to the mapi message.
 	 *
-	 * @param {mixed} $data from php hook
+	 * @param mixed $data from php hook
 	 */
 	public function onBeforeSend(&$data) {
 		$store = $data['store'];
@@ -722,8 +725,8 @@ class Pluginsmime extends Plugin {
 	/**
 	 * Function to sign an email.
 	 *
-	 * @param object $infile       File eml to be encrypted
-	 * @param object $outfile      File
+	 * @param string $infile       File eml to be encrypted
+	 * @param string $outfile      File
 	 * @param object $message      Mapi Message Object
 	 * @param object $signedAttach
 	 * @param array  $smimeProps
@@ -759,8 +762,8 @@ class Pluginsmime extends Plugin {
 	/**
 	 * Function to encrypt an email.
 	 *
-	 * @param object $infile       File eml to be encrypted
-	 * @param object $outfile      File
+	 * @param string $infile       File eml to be encrypted
+	 * @param string $outfile      File
 	 * @param object $message      Mapi Message Object
 	 * @param object $signedAttach
 	 * @param array  $smimeProps
@@ -865,11 +868,11 @@ class Pluginsmime extends Plugin {
 	 * Retrieves the public certificates stored in the MAPI UserStore and belonging to the
 	 * emailAdddress, returns "" if there is no certificate for that user.
 	 *
-	 * @param {String} emailAddress
+	 * @param string emailAddress
 	 * @param mixed $emailAddress
 	 * @param mixed $multiple
 	 *
-	 * @return {String} $certificate
+	 * @return string $certificate
 	 */
 	public function getPublicKey($emailAddress, $multiple = false) {
 		$certificates = [];
@@ -899,12 +902,12 @@ class Pluginsmime extends Plugin {
 	/**
 	 * Function which is used to check if there is a public certificate for the provided emailAddress.
 	 *
-	 * @param {String} emailAddress emailAddres of recipient
-	 * @param {Boolean} gabUser is the user of PR_ADDRTYPE == ZARAFA
+	 * @param string emailAddress emailAddres of recipient
+	 * @param bool gabUser is the user of PR_ADDRTYPE == ZARAFA
 	 * @param mixed $emailAddress
 	 * @param mixed $gabUser
 	 *
-	 * @return {Boolean} true if public certificate exists
+	 * @return bool true if public certificate exists
 	 */
 	public function pubcertExists($emailAddress, $gabUser = false) {
 		if ($gabUser) {
@@ -948,7 +951,7 @@ class Pluginsmime extends Plugin {
 	 * Example error from openssl_error_string(): error:21075075:PKCS7 routines:PKCS7_verify:certificate verify error
 	 * Note that openssl_error_string() returns an error when verifying is successful, this is a bug in PHP https://bugs.php.net/bug.php?id=50713.
 	 *
-	 * @return {String}
+	 * @return string
 	 */
 	public function extract_openssl_error() {
 		// TODO: should catch more errors by using while($error = @openssl_error_string())
@@ -1036,8 +1039,8 @@ class Pluginsmime extends Plugin {
 	/**
 	 * Function which returns the fingerprint (hash) of the certificate.
 	 *
-	 * @param {string} $cert certificate body as a string
-	 * @param {string} $hash optional hash algorithm
+	 * @param string $cert certificate body as a string
+	 * @param string $hash optional hash algorithm
 	 * @param mixed $body
 	 */
 	public function fingerprint_cert($body, $hash = 'md5') {
@@ -1103,7 +1106,7 @@ class Pluginsmime extends Plugin {
 	 * Called when the core Settings class is initialized and ready to accept sysadmin default
 	 * settings. Registers the sysadmin defaults for the example plugin.
 	 *
-	 * @param {mixed} $data Reference to the data of the triggered hook
+	 * @param mixed $data Reference to the data of the triggered hook
 	 */
 	public function onBeforeSettingsInit(&$data) {
 		$data['settingsObj']->addSysAdminDefaults([

@@ -66,7 +66,7 @@ class EncryptionStore {
 	 * Returns the only instance of this class.
 	 * Creates one if it doesn't exist yet.
 	 *
-	 * @return {EncryptionStore}
+	 * @return object
 	 */
 	public static function getInstance() {
 		if (is_null(EncryptionStore::$_instance)) {
@@ -90,7 +90,7 @@ class EncryptionStore {
 	 * Returns the initialization vector. If necessary it will try to find the vector
 	 * in the php session.
 	 *
-	 * @return {String}
+	 * @return string
 	 */
 	private function getInitializationVector() {
 		if (empty(EncryptionStore::$_initializionVector)) {
@@ -129,7 +129,7 @@ class EncryptionStore {
 	 * Returns the encryption key. If necessary it will try to find the key in
 	 * the cookie.
 	 *
-	 * @return {String}
+	 * @return string
 	 */
 	private function getEncryptionKey() {
 		if (empty(EncryptionStore::$_encryptionKey)) {
@@ -161,9 +161,9 @@ class EncryptionStore {
 	/**
 	 * Adds a key/value combination to the encryption store.
 	 *
-	 * @param {String} $key The key that will be added (or overwritten)
-	 * @param {String} $value The value that will be stored for the given $key
-	 * @param {String} $expiration The expiration time in epoch for the given $key
+	 * @param string $key The key that will be added (or overwritten)
+	 * @param string $value The value that will be stored for the given $key
+	 * @param string $expiration The expiration time in epoch for the given $key
 	 */
 	public function add($key, $value, $expiration = 0) {
 		$session_did_exists = $this->open_session();
@@ -178,10 +178,10 @@ class EncryptionStore {
 	/**
 	 * Returns the value that has been stored for the given $key.
 	 *
-	 * @param {String} The key for which the value will be retrieved\
+	 * @param string The key for which the value will be retrieved\
 	 * @param mixed $key
 	 *
-	 * @return {String|null}
+	 * @return null|string
 	 */
 	public function get($key) {
 		$session_did_exists = $this->open_session();
@@ -202,7 +202,7 @@ class EncryptionStore {
 	/**
 	 * Open the php session if it isn't open.
 	 *
-	 * @return {Boolean} return if the session was opened or not
+	 * @return bool return if the session was opened or not
 	 */
 	private function open_session() {
 		if (!$this->session_exists()) {
@@ -217,7 +217,7 @@ class EncryptionStore {
 	/**
 	 * Close session if it was explicitly opened.
 	 *
-	 * @param {Boolean} True if session was opened, false if not
+	 * @param bool True if session was opened, false if not
 	 * @param mixed $opened
 	 */
 	private function close_session($opened) {
@@ -229,7 +229,7 @@ class EncryptionStore {
 	/**
 	 * Returns true if the session exists otherwise false.
 	 *
-	 * @return {Boolean} true if session exists
+	 * @return bool true if session exists
 	 */
 	private function session_exists() {
 		return session_status() === PHP_SESSION_ACTIVE;
