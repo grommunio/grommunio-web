@@ -1,71 +1,71 @@
 <?php
 
+/**
+ * Contact Module.
+ */
+class ContactListModule extends ListModule {
 	/**
-	 * Contact Module.
+	 * Constructor.
+	 *
+	 * @param int   $id   unique id
+	 * @param array $data list of all actions
 	 */
-	class ContactListModule extends ListModule {
-		/**
-		 * Constructor.
-		 *
-		 * @param int   $id   unique id
-		 * @param array $data list of all actions
-		 */
-		public function __construct($id, $data) {
-			parent::__construct($id, $data);
+	public function __construct($id, $data) {
+		parent::__construct($id, $data);
 
-			$this->properties = $GLOBALS["properties"]->getContactListProperties();
+		$this->properties = $GLOBALS["properties"]->getContactListProperties();
 
-			$this->start = 0;
-		}
+		$this->start = 0;
+	}
 
-		/**
-		 * Creates the notifiers for this module,
-		 * and register them to the Bus.
-		 */
-		public function createNotifiers() {
-			$entryid = $this->getEntryID();
-			$GLOBALS["bus"]->registerNotifier('contactlistnotifier', $entryid);
-		}
+	/**
+	 * Creates the notifiers for this module,
+	 * and register them to the Bus.
+	 */
+	public function createNotifiers() {
+		$entryid = $this->getEntryID();
+		$GLOBALS["bus"]->registerNotifier('contactlistnotifier', $entryid);
+	}
 
-		/**
-		 * Executes all the actions in the $data variable.
-		 *
-		 * @return bool true on success or false on failure
-		 */
-		public function execute() {
-			foreach ($this->data as $actionType => $action) {
-				if (isset($actionType)) {
-					try {
-						$store = $this->getActionStore($action);
-						$entryid = $this->getActionEntryID($action);
+	/**
+	 * Executes all the actions in the $data variable.
+	 *
+	 * @return bool true on success or false on failure
+	 */
+	public function execute() {
+		foreach ($this->data as $actionType => $action) {
+			if (isset($actionType)) {
+				try {
+					$store = $this->getActionStore($action);
+					$entryid = $this->getActionEntryID($action);
 
-						switch ($actionType) {
-							case "list":
-								$this->getDelegateFolderInfo($store);
-								$this->messageList($store, $entryid, $action, $actionType);
-								break;
+					switch ($actionType) {
+						case "list":
+							$this->getDelegateFolderInfo($store);
+							$this->messageList($store, $entryid, $action, $actionType);
+							break;
 
-							case "search":
-								// @FIXME add handling for private items
-								$this->search($store, $entryid, $action, $actionType);
-								break;
+						case "search":
+							// @FIXME add handling for private items
+							$this->search($store, $entryid, $action, $actionType);
+							break;
 
-							case "updatesearch":
-								$this->updatesearch($store, $entryid, $action);
-								break;
+						case "updatesearch":
+							$this->updatesearch($store, $entryid, $action);
+							break;
 
-							case "stopsearch":
-								$this->stopSearch($store, $entryid, $action);
-								break;
+						case "stopsearch":
+							$this->stopSearch($store, $entryid, $action);
+							break;
 
-							default:
-								$this->handleUnknownActionType($actionType);
-						}
+						default:
+							$this->handleUnknownActionType($actionType);
 					}
-					catch (MAPIException $e) {
-						$this->processException($e, $actionType);
-					}
+				}
+				catch (MAPIException $e) {
+					$this->processException($e, $actionType);
 				}
 			}
 		}
 	}
+}

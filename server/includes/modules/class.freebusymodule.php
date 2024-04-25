@@ -32,7 +32,7 @@ class FreeBusyModule extends Module {
 	 * This function will get user info from address book and add freebusy data of the user to
 	 * response.
 	 *
-	 * @param {Array} $selUser User that should be resolved
+	 * @param array $selUser User that should be resolved
 	 */
 	public function addUserData($selUser) {
 		$data = [
@@ -59,11 +59,11 @@ class FreeBusyModule extends Module {
 	/**
 	 * This function will get freebusy data for user based on the timeframe passed in arguments.
 	 *
-	 * @param {String} $entryID Entryid of the user for which we need to get freebusy data
-	 * @param {Number} $start start offset for freebusy publish range
-	 * @param {Number} $end end offset for freebusy publish range
+	 * @param string $entryID Entryid of the user for which we need to get freebusy data
+	 * @param int $start start offset for freebusy publish range
+	 * @param int $end end offset for freebusy publish range
 	 *
-	 * @return {Array} freebusy blocks for passed publish range
+	 * @return array freebusy blocks for passed publish range
 	 */
 	public function getFreeBusyInfo($entryID, $start, $end) {
 		$result = [];

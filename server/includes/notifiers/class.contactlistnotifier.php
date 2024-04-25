@@ -1,21 +1,21 @@
 <?php
 
-	require_once __DIR__ . '/class.listnotifier.php';
+require_once __DIR__ . '/class.listnotifier.php';
 
+/**
+ * ContactListNotifier.
+ *
+ * Generates notifications for changes to the
+ * Contact Folder contents.
+ */
+class ContactListNotifier extends ListNotifier {
 	/**
-	 * ContactListNotifier.
+	 * Obtain the list of Message Properties which should be returned
+	 * to the client when a Message was changed.
 	 *
-	 * Generates notifications for changes to the
-	 * Contact Folder contents.
+	 * @return array The properties mapping
 	 */
-	class ContactListNotifier extends ListNotifier {
-		/**
-		 * Obtain the list of Message Properties which should be returned
-		 * to the client when a Message was changed.
-		 *
-		 * @return array The properties mapping
-		 */
-		protected function getPropertiesList() {
-			return $GLOBALS["properties"]->getContactListProperties();
-		}
+	protected function getPropertiesList() {
+		return $GLOBALS["properties"]->getContactListProperties();
 	}
+}

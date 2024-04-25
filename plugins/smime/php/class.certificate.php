@@ -63,7 +63,7 @@ class Certificate {
 	/**
 	 * The name of the certificate in DN notation.
 	 *
-	 * @return {string} the name of the certificate
+	 * @return string the name of the certificate
 	 */
 	public function getName() {
 		return $this->data['name'];
@@ -86,10 +86,10 @@ class Certificate {
 	/**
 	 * Converts X509 DER format string to PEM format.
 	 *
-	 * @param {string} X509 Certificate in DER format
+	 * @param string X509 Certificate in DER format
 	 * @param mixed $cert
 	 *
-	 * @return {string} X509 Certificate in PEM format
+	 * @return string X509 Certificate in PEM format
 	 */
 	protected function der2pem($cert) {
 		return "-----BEGIN CERTIFICATE-----\n" . chunk_split(base64_encode($cert), 64, "\n") . "-----END CERTIFICATE-----\n";
@@ -98,10 +98,10 @@ class Certificate {
 	/**
 	 * Converts X509 PEM format string to DER format.
 	 *
-	 * @param {string} X509 Certificate in PEM format
+	 * @param string X509 Certificate in PEM format
 	 * @param mixed $pem_data
 	 *
-	 * @return {string} X509 Certificate in DER format
+	 * @return string X509 Certificate in DER format
 	 */
 	protected function pem2der($pem_data) {
 		$begin = "CERTIFICATE-----";

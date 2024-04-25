@@ -43,12 +43,12 @@ class FilesListModule extends ListModule {
 	public $uid;
 
 	/**
-	 * @var {Object} The account store holding all available accounts
+	 * @var object The account store holding all available accounts
 	 */
 	public $accountStore;
 
 	/**
-	 * @var {Object} The backend store holding all available backends
+	 * @var object The backend store holding all available backends
 	 */
 	public $backendStore;
 
@@ -193,7 +193,7 @@ class FilesListModule extends ListModule {
 	 * Function used to get the sub folders of the given folder id.
 	 *
 	 * @param string $nodeId    the folder id which used to get sub folders
-	 * @param array  $backend   The backend which used to retrieve the folders
+	 * @param object  $backend   The backend which used to retrieve the folders
 	 * @param bool   $recursive the recursive true which get the sub folder recursively
 	 * @param array  $nodes     the nodes contains the array of nodes
 	 *
@@ -338,9 +338,9 @@ class FilesListModule extends ListModule {
 	/**
 	 * Function create the unique id.
 	 *
-	 * @param {string} $id The folder id
+	 * @param string $id The folder id
 	 *
-	 * @return return generated a hash value
+	 * @return string generated a hash value
 	 */
 	public function createId($id) {
 		return hash("tiger192,3", $id);
@@ -350,7 +350,7 @@ class FilesListModule extends ListModule {
 	 * Function will check that given folder has sub folder or not.
 	 * This will retrurn null when there's an exception retrieving folder data.
 	 *
-	 * @param {String} $id The $id is id of selected folder
+	 * @param string $id The $id is id of selected folder
 	 * @param $accountID
 	 * @param $backend
 	 *
@@ -555,9 +555,9 @@ class FilesListModule extends ListModule {
 	/**
 	 * Update the cache of renamed folder and it's sub folders.
 	 *
-	 * @param {String} $oldPath The $oldPath is path of folder before rename
-	 * @param {String} $newPath The $newPath is path of folder after rename
-	 * @param {String} $accountId The id of an account in which renamed folder is belongs
+	 * @param string $oldPath The $oldPath is path of folder before rename
+	 * @param string $newPath The $newPath is path of folder after rename
+	 * @param string $accountId The id of an account in which renamed folder is belongs
 	 */
 	public function updateCacheAfterRename($oldPath, $newPath, $accountId) {
 		// remove the trailing slash for the cache key
@@ -591,7 +591,7 @@ class FilesListModule extends ListModule {
 	/**
 	 * Function used to notify the sub folder of selected/modified folder.
 	 *
-	 * @param {String} $folderID The $folderID of a folder which is modified
+	 * @param string $folderID The $folderID of a folder which is modified
 	 */
 	public function notifySubFolders($folderID) {
 		$account = $this->accountFromNode($folderID);
@@ -606,9 +606,9 @@ class FilesListModule extends ListModule {
 	/**
 	 * Get the account id from a node id.
 	 *
-	 * @param {String} $nodeID Id of the file or folder to operate on
+	 * @param string $nodeID Id of the file or folder to operate on
 	 *
-	 * @return {String} The account id extracted from $nodeId
+	 * @return string The account id extracted from $nodeId
 	 */
 	public function accountIDFromNode($nodeID) {
 		return substr($nodeID, 3, (strpos($nodeID, '/') - 3)); // parse account id from node id
@@ -617,10 +617,10 @@ class FilesListModule extends ListModule {
 	/**
 	 * Get the account from a node id.
 	 *
-	 * @param {String} $nodeId ID of the file or folder to operate on
+	 * @param string $nodeId ID of the file or folder to operate on
 	 * @param mixed $nodeID
 	 *
-	 * @return {String} The account for $nodeId
+	 * @return object The account for $nodeId
 	 */
 	public function accountFromNode($nodeID) {
 		return $this->accountStore->getAccount($this->accountIDFromNode($nodeID));
@@ -629,10 +629,10 @@ class FilesListModule extends ListModule {
 	/**
 	 * Create a key used to store data in the cache.
 	 *
-	 * @param {String} $accountID Id of the account of the data to cache
-	 * @param {String} $path Path of the file or folder to create the cache element for
+	 * @param string $accountID Id of the account of the data to cache
+	 * @param string $path Path of the file or folder to create the cache element for
 	 *
-	 * @return {String} The created key
+	 * @return string The created key
 	 */
 	public function makeCacheKey($accountID, $path) {
 		return $this->uid . md5($accountID . $path);
@@ -641,10 +641,10 @@ class FilesListModule extends ListModule {
 	/**
 	 * Get version data form the cache.
 	 *
-	 * @param {String} $displayName display name of the backend or file plugin
-	 * @param {String} $accountID Id of the account of the data to cache
+	 * @param string $displayName display name of the backend or file plugin
+	 * @param string $accountID Id of the account of the data to cache
 	 *
-	 * @return {String} version data or null if nothing was found
+	 * @return string version data or null if nothing was found
 	 */
 	public function getVersionFromCache($displayName, $accountID = '') {
 		$key = $this->uid . $accountID . $displayName;
@@ -655,9 +655,9 @@ class FilesListModule extends ListModule {
 	/**
 	 * Set version data in the cache only when version data has been changed.
 	 *
-	 * @param {String} $displayName display name of the backend or file plugin
-	 * @param {String} $version version info of backend or file plugin which needs to be cached
-	 * @param {String} $accountID Id of the account of the data to cache
+	 * @param string $displayName display name of the backend or file plugin
+	 * @param string $version version info of backend or file plugin which needs to be cached
+	 * @param string $accountID Id of the account of the data to cache
 	 */
 	public function setVersionInCache($displayName, $version, $accountID = '') {
 		$olderVersionFromCache = $this->getVersionFromCache($displayName, $accountID);
@@ -673,10 +673,10 @@ class FilesListModule extends ListModule {
 	/**
 	 * Initialize the backend for the given account.
 	 *
-	 * @param {Object} $account The account object the backend should be initialized for
-	 * @param {Bool} $setID Should the accountID be set in the backend object, or not. Defaults to false.
+	 * @param object $account The account object the backend should be initialized for
+	 * @param bool $setID Should the accountID be set in the backend object, or not. Defaults to false.
 	 *
-	 * @return {Object} The initialized backend
+	 * @return object The initialized backend
 	 */
 	public function initializeBackend($account, $setID = false) {
 		$backend = $this->backendStore->getInstanceOfBackend($account->getBackend());
@@ -692,9 +692,9 @@ class FilesListModule extends ListModule {
 	/**
 	 * Save directory data in the cache.
 	 *
-	 * @param {String} $accountID Id of the account of the data to cache
-	 * @param {String} $path Path of the file or folder to create the cache element for
-	 * @param {String} $data Data to be cached
+	 * @param string $accountID Id of the account of the data to cache
+	 * @param string $path Path of the file or folder to create the cache element for
+	 * @param string $data Data to be cached
 	 */
 	public function setCache($accountID, $path, $data) {
 		$key = $this->makeCacheKey($accountID, $path);
@@ -705,10 +705,10 @@ class FilesListModule extends ListModule {
 	/**
 	 * Get directotry data form the cache.
 	 *
-	 * @param {String} $accountID Id of the account of the data to get
-	 * @param {String} $path Path of the file or folder to retrieve the cache element for
+	 * @param string $accountID Id of the account of the data to get
+	 * @param string $path Path of the file or folder to retrieve the cache element for
 	 *
-	 * @return {String} The directory data or null if nothing was found
+	 * @return iterable The directory data or null if nothing was found
 	 */
 	public function getCache($accountID, $path) {
 		$key = $this->makeCacheKey($accountID, $path);
@@ -720,8 +720,8 @@ class FilesListModule extends ListModule {
 	/**
 	 * Remove data from the cache.
 	 *
-	 * @param {String} $accountID Id of the account to delete the cache for
-	 * @param {String} $path Path of the file or folder to delete the cache element
+	 * @param string $accountID Id of the account to delete the cache for
+	 * @param string $path Path of the file or folder to delete the cache element
 	 */
 	public function deleteCache($accountID, $path) {
 		$key = $this->makeCacheKey($accountID, $path);

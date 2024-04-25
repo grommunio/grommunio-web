@@ -10,7 +10,7 @@
  * Function which extracts the email address from a certificate, and tries to get the subjectAltName if
  * subject/emailAddress is not set.
  *
- * @param {Mixed} $certificate certificate data
+ * @param mixed $certificate certificate data
  */
 function getCertEmail($certificate) {
 	$certEmailAddress = "";
@@ -33,11 +33,11 @@ function getCertEmail($certificate) {
 /**
  * Function that will return the private certificate of the user from the user store where it is stored in pkcs#12 format.
  *
- * @param {MAPIStore} $store user's store
- * @param {String} $type of message_class
- * @param {String} $emailAddress emailaddress to specify
+ * @param resource $store user's store
+ * @param string $type of message_class
+ * @param string $emailAddress emailaddress to specify
  *
- * @return {MAPIObject} the mapi message containing the private certificate, returns false if no certificate is found
+ * @return resource|bool the mapi message containing the private certificate, returns false if no certificate is found
  */
 function getMAPICert($store, $type = 'WebApp.Security.Private', $emailAddress = '') {
 	$root = mapi_msgstore_openentry($store, null);
@@ -81,11 +81,11 @@ function getMAPICert($store, $type = 'WebApp.Security.Private', $emailAddress = 
  * If multiple private certificates can be decrypted with the supplied password,
  * all of them will be returned, if $singleCert == false, otherwise only the first one.
  *
- * @param {MAPIStore} $store user's store
- * @param {String} $passphrase passphrase for private certificate
- * @param {boolean} $singleCert if true, returns the first certificate, which was successfully decrypted with $passphrase
+ * @param resource $store user's store
+ * @param string $passphrase passphrase for private certificate
+ * @param bool $singleCert if true, returns the first certificate, which was successfully decrypted with $passphrase
  *
- * @return {Mixed} collection of certificates, empty if none if decrypting fails or stored private certificate isn't found
+ * @return mixed collection of certificates, empty if none if decrypting fails or stored private certificate isn't found
  */
 function readPrivateCert($store, $passphrase, $singleCert = true) {
 	$unlockedCerts = [];
@@ -121,10 +121,10 @@ function readPrivateCert($store, $passphrase, $singleCert = true) {
 /**
  * Converts X509 DER format string to PEM format.
  *
- * @param {string} X509 Certificate in DER format
+ * @param string X509 Certificate in DER format
  * @param mixed $certificate
  *
- * @return {string} X509 Certificate in PEM format
+ * @return string X509 Certificate in PEM format
  */
 function der2pem($certificate) {
 	return "-----BEGIN CERTIFICATE-----\n" . chunk_split(base64_encode($certificate), 64, "\n") . "-----END CERTIFICATE-----\n";
@@ -143,11 +143,11 @@ function der2pem($certificate) {
  * We create the directory if it does not exists, check if the certificate is already stored. If it is already
  * stored we, use stat() to determine if it is not very old (> 1 Month) and otherwise fetch the certificate and store it.
  *
- * @param {String} $certificate
- * @param {Array} $extracerts an array of intermediate certificates
+ * @param string $certificate
+ * @param array $extracerts an array of intermediate certificates
  * @param mixed $message
  *
- * @return {Boolean} true is OCSP verification has succeeded or when there is no OCSP support, false if it hasn't
+ * @return bool true is OCSP verification has succeeded or when there is no OCSP support, false if it hasn't
  */
 function verifyOCSP($certificate, $extracerts, &$message) {
 	if (!PLUGIN_SMIME_ENABLE_OCSP) {

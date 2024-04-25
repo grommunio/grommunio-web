@@ -1016,8 +1016,8 @@ class FilesBrowserModule extends FilesListModule {
 	/**
 	 * Store the email as eml to a temporary directory and return its temporary filename.
 	 *
-	 * @param {string} $actionType
-	 * @param {array} $actionData
+	 * @param string $actionType
+	 * @param array $actionData
 	 * @param mixed $item
 	 *
 	 * @return array (tmpname, filename) or false on error

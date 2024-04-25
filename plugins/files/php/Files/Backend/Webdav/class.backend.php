@@ -256,7 +256,7 @@ class Backend extends AbstractBackend implements iFeatureQuota, iFeatureVersionI
 	/**
 	 * Set ssl.
 	 *
-	 * @param int /bool $ssl (1 = true, 0 = false)
+	 * @param mixed $ssl (1 = true, 0 = false)
 	 */
 	public function set_ssl($ssl) {
 		$this->ssl = $ssl ? true : false;

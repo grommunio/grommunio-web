@@ -115,10 +115,10 @@
 		/**
 		 * Logs a message with a given log level.
 		 *
-		 * @param {int} $logLevel The log level which will be configured in config file
-		 * @param {string} $message The log message which we want to log in user specific log file
-		 * @param {boolean|array} $detailMessage (optional) The detailed log message. it can be Error/Exception array.
-		 * @param {boolean|array} $request (optional) The request log the the request data which sent by the user
+		 * @param int $logLevel The log level which will be configured in config file
+		 * @param string $message The log message which we want to log in user specific log file
+		 * @param mixed $detailMessage (optional) The detailed log message. it can be Error/Exception array.
+		 * @param mixed $request (optional) The request log the the request data which sent by the user
 		 */
 		public function Log($logLevel, $message, $detailMessage = false, $request = false) {
 			if ($logLevel <= LOG_USER_LEVEL) {
@@ -131,7 +131,7 @@
 		/**
 		 * Returns the string representation of the given $loglevel.
 		 *
-		 * @param {int} $loglevel one of the LOGLEVELs
+		 * @param int $loglevel one of the LOGLEVELs
 		 *
 		 * @return string
 		 */
@@ -154,10 +154,10 @@
 		/**
 		 * Writes a log message to the general log.
 		 *
-		 * @param {int} $logLevel The log level which will be configured in config file
-		 * @param {string} $message The log message which we want to log in user specific log file
-		 * @param {boolean|array} $detailMessage (optional) The detailed log message. it can be Error/Exception array.
-		 * @param {boolean|array} $request (optional) The request log the the request data which sent by the user
+		 * @param int $logLevel The log level which will be configured in config file
+		 * @param string $message The log message which we want to log in user specific log file
+		 * @param mixed $detailMessage (optional) The detailed log message. it can be Error/Exception array.
+		 * @param mixed $request (optional) The request log the the request data which sent by the user
 		 */
 		abstract protected function Write($logLevel, $message, $detailMessage, $request);
 	}

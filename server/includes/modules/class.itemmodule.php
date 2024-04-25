@@ -42,8 +42,10 @@
 		 */
 		public function execute() {
 			foreach ($this->data as $actionType => $action) {
-				if (!isset($actionType))
+			if (!isset($actionType)) {
 					continue;
+			}
+
 				try {
 					$store = $this->getActionStore($action);
 					$parententryid = $this->getActionParentEntryID($action);
@@ -77,6 +79,7 @@
 							$this->save($store, $parententryid, $entryid, $action);
 							break;
 						}
+
 						switch ($action["message_action"]["action_type"]) {
 						case "declineMeetingRequest":
 						case "acceptMeetingRequest":
@@ -150,7 +153,7 @@
 							// the attach_num and basedate in messageProps.
 							if (isset($attach_num)) {
 								$messageProps[PR_ATTACH_NUM] = [$attach_num];
-								$messageProps[$properties["basedate"]] = $basedate;
+									$messageProps[$this->properties["basedate"]] = $basedate;
 							}
 
 							if ($delete) {
@@ -650,8 +653,9 @@
 		 * @return bool true on success or false on failure
 		 */
 		public function delete($store, $parententryid, $entryid, $action) {
-			if (!$store || !$parententryid || !$entryid)
+		if (!$store || !$parententryid || !$entryid) {
 				return;
+		}
 			$props = [];
 			$props[PR_PARENT_ENTRYID] = $parententryid;
 			$props[PR_ENTRYID] = $entryid;
@@ -723,11 +727,10 @@
 		/**
 		 * Function which copies or moves one or more items.
 		 *
-		 * @param MAPIStore $store         MAPI Message Store Object
-		 * @param binString $parententryid entryid of the folder
-		 * @param array     $entryid       list of entryids which will be copied or moved (in binary format)
-		 * @param array     $action        the action data, sent by the client
-		 * @param mixed     $entryids
+	 * @param resource $store         MAPI Message Store Object
+	 * @param string   $parententryid entryid of the folder
+	 * @param mixed    $entryids      list of entryids which will be copied or moved (in binary format)
+	 * @param array    $action        the action data, sent by the client
 		 *
 		 * @return bool true on success or false on failure
 		 */

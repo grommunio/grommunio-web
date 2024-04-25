@@ -7,10 +7,10 @@ if (!function_exists('pgettext')) {
 	/**
 	 * Gettext function.
 	 *
-	 * @param $msgctxt {string} The Context
-	 * @param $msgid {string} The message
+	 * @param string $msgctxt The Context
+	 * @param string $msgid   The message
 	 *
-	 * @return {string} The translation
+	 * @return string The translation
 	 */
 	function pgettext($msgctxt, $msgid) {
 		$contextString = "{$msgctxt}\004{$msgid}";
@@ -25,12 +25,12 @@ if (!function_exists('pgettext')) {
 	/**
 	 * Gettext function.
 	 *
-	 * @param $msgctxt {string} The Context
-	 * @param $msgid {string} The message
-	 * @param $msgid_plural {string} The plural text
-	 * @param $num {Number} The count
+	 * @param string $msgctxt      The Context
+	 * @param string $msgid        The message
+	 * @param string $msgid_plural The plural text
+	 * @param int    $num          The count
 	 *
-	 * @return {string} The translation
+	 * @return string The translation
 	 */
 	function npgettext($msgctxt, $msgid, $msgid_plural, $num) {
 		$contextString = "{$msgctxt}\004{$msgid}";
@@ -46,11 +46,11 @@ if (!function_exists('pgettext')) {
 	/**
 	 * Gettext function.
 	 *
-	 * @param $domain {string} The Domain
-	 * @param $msgctxt {string} The Context
-	 * @param $msgid {string} The message
+	 * @param string $domain  The Domain
+	 * @param string $msgctxt The Context
+	 * @param string $msgid   The message
 	 *
-	 * @return {string} The translation
+	 * @return string The translation
 	 */
 	function dpgettext($domain, $msgctxt, $msgid) {
 		$contextString = "{$msgctxt}\004{$msgid}";
@@ -65,12 +65,12 @@ if (!function_exists('pgettext')) {
 	/**
 	 * Gettext function.
 	 *
-	 * @param $domain {string} The Domain
-	 * @param $msgctxt {string} The Context
-	 * @param $msgid {string} The message
-	 * @param $category {Number} The category
+	 * @param string $domain   The Domain
+	 * @param string $msgctxt  The Context
+	 * @param string $msgid    The message
+	 * @param int    $category The category
 	 *
-	 * @return {string} The translation
+	 * @return string The translation
 	 */
 	function dcpgettext($domain, $msgctxt, $msgid, $category) {
 		$contextString = "{$msgctxt}\004{$msgid}";

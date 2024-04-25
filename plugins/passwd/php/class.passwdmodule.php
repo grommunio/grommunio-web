@@ -31,7 +31,7 @@ class PasswdModule extends Module {
 	 * Change the password of user. Do some calidation and call proper methods based on
 	 * zarafa setup.
 	 *
-	 * @param {Array} $data data sent by client
+	 * @param array $data data sent by client
 	 */
 	public function save($data) {
 		$errorMessage = '';
@@ -73,7 +73,7 @@ class PasswdModule extends Module {
 	/**
 	 * Function will try to change user's password via MAPI in SOAP connection.
 	 *
-	 * @param {Array} $data data sent by client
+	 * @param array $data data sent by client
 	 */
 	public function saveInDB($data) {
 		$errorMessage = '';

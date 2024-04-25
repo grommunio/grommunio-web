@@ -297,10 +297,10 @@ class Conversion {
 	/**
 	 * Convert an JSON restriction structure into a MAPI SRestriction array.
 	 *
-	 * @param {Array} $mapping An associative array mapping property keys to MAPI proptags
-	 * @param {Array} $json The parsed JSON array data
+	 * @param array $mapping An associative array mapping property keys to MAPI proptags
+	 * @param array $json The parsed JSON array data
 	 *
-	 * @return {Array} MAPI restriction array compatible with MAPI extension restriction format
+	 * @return array MAPI restriction array compatible with MAPI extension restriction format
 	 */
 	public static function json2restriction($mapping, $json) {
 		if (!is_array($json)) {
@@ -398,9 +398,9 @@ class Conversion {
 	/**
 	 * Convert a MAPI SRestriction array into an JSON restriction structure.
 	 *
-	 * @param {MAPISRestriction} $restriction The MAPI Restriction array
+	 * @param mixed $restriction The MAPI Restriction array
 	 *
-	 * @return {Array} Array structure that can be easily serialized to JSON format
+	 * @return array Array structure that can be easily serialized to JSON format
 	 */
 	public static function restriction2json($restriction) {
 		if (!is_array($restriction)) {
@@ -486,9 +486,9 @@ class Conversion {
 	 * Multivalued properties has different property tags in VALUES part
 	 * so we need to find that singlevalued property tag
 	 *
-	 * @param {Number} $propTag The multivalued property tag in string
+	 * @param int $propTag The multivalued property tag in string
 	 *
-	 * @return {Number} The singlevalued property tag
+	 * @return int The singlevalued property tag
 	 */
 	public static function convertToSingleValuedProperty($propTag) {
 		if (is_string($propTag)) {
@@ -512,10 +512,10 @@ class Conversion {
 	/**
 	 * Converts a JSON Representation of PT_ACTIONS value array to its MAPI form.
 	 *
-	 * @param {Array} $actions JSON representation PT_ACTIONS structure
+	 * @param array $actions JSON representation PT_ACTIONS structure
 	 * @param mixed $mapping
 	 *
-	 * @return {Array} Converted PT_ACTIONS structure that can be used in MAPI
+	 * @return array Converted PT_ACTIONS structure that can be used in MAPI
 	 */
 	public static function json2actions($mapping, $actions) {
 		foreach ($actions as &$action) {
@@ -562,9 +562,9 @@ class Conversion {
 	/**
 	 * Converts a MAPI PT_ACTIONS value array to its JSON representation.
 	 *
-	 * @param {Array} $actions MAPI PT_ACTIONS structure
+	 * @param array $actions MAPI PT_ACTIONS structure
 	 *
-	 * @return {Array} Converted PT_ACTIONS structure that can be used in javascript
+	 * @return array Converted PT_ACTIONS structure that can be used in javascript
 	 */
 	public static function actions2json($actions) {
 		foreach ($actions as &$action) {

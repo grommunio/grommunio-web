@@ -1,181 +1,181 @@
 <?php
 
-	/**
-	 * This file is the dispatcher of the whole application, every request for data enters
-	 * here. JSON is received and send to the client.
-	 */
+/**
+ * This file is the dispatcher of the whole application, every request for data enters
+ * here. JSON is received and send to the client.
+ */
 
-	// Bootstrap the script
-	require_once 'server/includes/bootstrap.grommunio.php';
+// Bootstrap the script
+require_once 'server/includes/bootstrap.grommunio.php';
 
-	// Callback function for unserialize
-	// Notifier objects of the previous request are stored in the session. With this
-	// function they are restored to PHP objects.
-	ini_set("unserialize_callback_func", "sessionNotifierLoader");
+// Callback function for unserialize
+// Notifier objects of the previous request are stored in the session. With this
+// function they are restored to PHP objects.
+ini_set("unserialize_callback_func", "sessionNotifierLoader");
 
-	// Try to authenticate the user
-	WebAppAuthentication::authenticate();
+// Try to authenticate the user
+WebAppAuthentication::authenticate();
 
-	// Globals suck, but we use it still in many files, so we will
-	// store the mapisession as global
-	$GLOBALS["mapisession"] = WebAppAuthentication::getMAPISession();
+// Globals suck, but we use it still in many files, so we will
+// store the mapisession as global
+$GLOBALS["mapisession"] = WebAppAuthentication::getMAPISession();
 
-	// Get the language from the session
-	// before we close the session.
-	if (isset($_SESSION["lang"])) {
-		$session_lang = $_SESSION["lang"];
+// Get the language from the session
+// before we close the session.
+if (isset($_SESSION["lang"])) {
+	$session_lang = $_SESSION["lang"];
+}
+else {
+	$session_lang = LANG;
+}
+
+// Set headers for JSON
+header("Content-Type: application/json; charset=utf-8");
+header("Expires: " . gmdate("D, d M Y H:i:s") . "GMT");
+header("Last-Modified: " . gmdate("D, d M Y H:i:s") . "GMT");
+header("Cache-Control: no-cache, must-revalidate");
+header("Pragma: no-cache");
+if (WebAppAuthentication::isAuthenticated()) {
+	header("X-grommunio: " . trim(file_get_contents(BASE_PATH . 'version')));
+}
+
+// If a service request was sent (a REST call), the service controller will handle it.
+if (isset($_GET['service'])) {
+	require_once BASE_PATH . 'server/includes/controllers/service.php';
+
+	exit;
+}
+
+// Close the session now, so we're not blocking other requests
+session_write_close();
+
+// If a ping request was sent, we the ping controller will handle it.
+if (isset($_GET['ping'])) {
+	require_once BASE_PATH . 'server/includes/controllers/ping.php';
+
+	exit;
+}
+
+if (!WebAppAuthentication::isAuthenticated()) {
+	if (WebAppAuthentication::getErrorCode() === MAPI_E_NETWORK_ERROR) {
+		// The user is not logged in because the Gromox server could not be reached.
+		// Return a HTTP 503 error so the client can act upon this event correctly.
+		header('HTTP/1.1 503 Service unavailable');
+		header("X-grommunio-Hresult: " . get_mapi_error_name(WebAppAuthentication::getErrorCode()));
 	}
 	else {
-		$session_lang = LANG;
+		// The session expired, or the user is otherwise not logged on.
+		// Return a HTTP 401 error so the client can act upon this event correctly.
+		header('HTTP/1.1 401 Unauthorized');
+		header("X-grommunio-Hresult: " . get_mapi_error_name(WebAppAuthentication::getErrorCode()));
 	}
 
-	// Set headers for JSON
-	header("Content-Type: application/json; charset=utf-8");
-	header("Expires: " . gmdate("D, d M Y H:i:s") . "GMT");
-	header("Last-Modified: " . gmdate("D, d M Y H:i:s") . "GMT");
-	header("Cache-Control: no-cache, must-revalidate");
-	header("Pragma: no-cache");
-	if (WebAppAuthentication::isAuthenticated()) {
-		header("X-grommunio: " . trim(file_get_contents(BASE_PATH . 'version')));
-	}
+	exit;
+}
 
-	// If a service request was sent (a REST call), the service controller will handle it.
-	if (isset($_GET['service'])) {
-		require_once BASE_PATH . 'server/includes/controllers/service.php';
+// Instantiate Plugin Manager
+$GLOBALS['PluginManager'] = new PluginManager(ENABLE_PLUGINS);
+$GLOBALS['PluginManager']->detectPlugins(DISABLED_PLUGINS_LIST);
 
-		exit();
-	}
+// Initialize plugins and prevent any output which might be written as
+// plugins might be uncleanly output white-space and other stuff. We must
+// not allow this here as it can destroy the response data.
+ob_start();
+$GLOBALS['PluginManager']->initPlugins(DEBUG_LOADER);
+ob_end_clean();
 
-	// Close the session now, so we're not blocking other requests
-	session_write_close();
+// Create global dispatcher object
+$GLOBALS["dispatcher"] = new Dispatcher();
 
-	// If a ping request was sent, we the ping controller will handle it.
-	if (isset($_GET['ping'])) {
-		require_once BASE_PATH . 'server/includes/controllers/ping.php';
+// Create global operations object
+$GLOBALS["operations"] = new Operations();
 
-		exit();
-	}
+// Create global language object
+$Language = new Language();
 
-	if (!WebAppAuthentication::isAuthenticated()) {
-		if (WebAppAuthentication::getErrorCode() === MAPI_E_NETWORK_ERROR) {
-			// The user is not logged in because the Gromox server could not be reached.
-			// Return a HTTP 503 error so the client can act upon this event correctly.
-			header('HTTP/1.1 503 Service unavailable');
-			header("X-grommunio-Hresult: " . get_mapi_error_name(WebAppAuthentication::getErrorCode()));
-		}
-		else {
-			// The session expired, or the user is otherwise not logged on.
-			// Return a HTTP 401 error so the client can act upon this event correctly.
-			header('HTTP/1.1 401 Unauthorized');
-			header("X-grommunio-Hresult: " . get_mapi_error_name(WebAppAuthentication::getErrorCode()));
-		}
+// Create global settings object
+$GLOBALS["settings"] = new Settings($Language);
 
-		exit();
-	}
+// Set the correct language
+$Language->setLanguage($session_lang);
 
-	// Instantiate Plugin Manager
-	$GLOBALS['PluginManager'] = new PluginManager(ENABLE_PLUGINS);
-	$GLOBALS['PluginManager']->detectPlugins(DISABLED_PLUGINS_LIST);
+// Get the state information for this subsystem
+$subsystem = sanitizeGetValue('subsystem', 'anonymous', ID_REGEX);
 
-	// Initialize plugins and prevent any output which might be written as
-	// plugins might be uncleanly output white-space and other stuff. We must
-	// not allow this here as it can destroy the response data.
-	ob_start();
-	$GLOBALS['PluginManager']->initPlugins(DEBUG_LOADER);
-	ob_end_clean();
+$state = new State($subsystem);
 
-	// Create global dispatcher object
-	$GLOBALS["dispatcher"] = new Dispatcher();
+// Lock the state of this subsystem
+$state->open();
 
-	// Create global operations object
-	$GLOBALS["operations"] = new Operations();
+// Get the bus object for this subsystem
+$bus = $state->read("bus");
 
-	// Create global language object
-	$Language = new Language();
+if (!$bus) {
+	// Create global bus object
+	$bus = new Bus();
+}
 
-	// Create global settings object
-	$GLOBALS["settings"] = new Settings($Language);
+// Make bus global
+$GLOBALS["bus"] = $bus;
 
-	// Set the correct language
-	$Language->setLanguage($session_lang);
+// Reset any spurious information in the bus state
+$GLOBALS["bus"]->reset();
 
-	// Get the state information for this subsystem
-	$subsystem = sanitizeGetValue('subsystem', 'anonymous', ID_REGEX);
+// Create global properties object
+$properties = $state->read("properties");
 
-	$state = new State($subsystem);
+if (!$properties) {
+	$properties = new Properties();
+}
+$GLOBALS["properties"] = $properties;
 
-	// Lock the state of this subsystem
-	$state->open();
+// Reset any spurious information in the properties state
+$GLOBALS["properties"]->reset();
 
-	// Get the bus object for this subsystem
-	$bus = $state->read("bus");
+// Create new request object
+$request = new JSONRequest();
 
-	if (!$bus) {
-		// Create global bus object
-		$bus = new Bus();
-	}
+// Get the JSON that the client sent with the request
+$json = readData();
 
-	// Make bus global
-	$GLOBALS["bus"] = $bus;
+if (DEBUG_JSONOUT) {
+	dump_json($json, "in"); // debugging
+}
 
-	// Reset any spurious information in the bus state
-	$GLOBALS["bus"]->reset();
+// Execute the request
+try {
+	$json = $request->execute($json);
+}
+catch (Exception $e) {
+	// invalid requestdata exception
+	dump($e);
+}
 
-	// Create global properties object
-	$properties = $state->read("properties");
+if (DEBUG_JSONOUT) {
+	dump_json($json, "out"); // debugging
+}
 
-	if (!$properties) {
-		$properties = new Properties();
-	}
-	$GLOBALS["properties"] = $properties;
+// Check if we can use gzip compression
+if (ENABLE_RESPONSE_COMPRESSION && function_exists("gzencode") && isset($_SERVER["HTTP_ACCEPT_ENCODING"]) && strpos($_SERVER["HTTP_ACCEPT_ENCODING"], "gzip") !== false) {
+	// Set the correct header and compress the response
+	header("Content-Encoding: gzip");
+	echo gzencode($json);
+}
+else {
+	echo $json;
+}
 
-	// Reset any spurious information in the properties state
-	$GLOBALS["properties"]->reset();
+// Reset the BUS, and save it to the state file
+$GLOBALS["bus"]->reset();
+$state->write("bus", $GLOBALS["bus"], false);
 
-	// Create new request object
-	$request = new JSONRequest();
+// Reset the properties and save it to the state file
+$GLOBALS["properties"]->reset();
+$state->write("properties", $GLOBALS["properties"], false);
 
-	// Get the JSON that the client sent with the request
-	$json = readData();
+// Write all changes to disk
+$state->flush();
 
-	if (DEBUG_JSONOUT) {
-		dump_json($json, "in"); // debugging
-	}
-
-	// Execute the request
-	try {
-		$json = $request->execute($json);
-	}
-	catch (Exception $e) {
-		// invalid requestdata exception
-		dump($e);
-	}
-
-	if (DEBUG_JSONOUT) {
-		dump_json($json, "out"); // debugging
-	}
-
-	// Check if we can use gzip compression
-	if (ENABLE_RESPONSE_COMPRESSION && function_exists("gzencode") && isset($_SERVER["HTTP_ACCEPT_ENCODING"]) && strpos($_SERVER["HTTP_ACCEPT_ENCODING"], "gzip") !== false) {
-		// Set the correct header and compress the response
-		header("Content-Encoding: gzip");
-		echo gzencode($json);
-	}
-	else {
-		echo $json;
-	}
-
-	// Reset the BUS, and save it to the state file
-	$GLOBALS["bus"]->reset();
-	$state->write("bus", $GLOBALS["bus"], false);
-
-	// Reset the properties and save it to the state file
-	$GLOBALS["properties"]->reset();
-	$state->write("properties", $GLOBALS["properties"], false);
-
-	// Write all changes to disk
-	$state->flush();
-
-	// You can skip this as well because the lock is freed after the PHP script ends
-	// anyway. (only for PHP < 5.3.2)
-	$state->close();
+// You can skip this as well because the lock is freed after the PHP script ends
+// anyway. (only for PHP < 5.3.2)
+$state->close();
