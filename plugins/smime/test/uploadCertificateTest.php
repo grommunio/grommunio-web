@@ -65,7 +65,7 @@ class UploadCertificateTest extends SMIMETest {
 	 */
 	public function testValidCert() {
 		$pkcs12 = $this->generatePKCS12();
-		list($message, $cert, $data) = validateUploadedPKCS($pkcs12, self::PASSPHRASE, self::EMAIL_ADDRESS);
+		list($message, $cert, $data, $imported) = validateUploadedPKCS($pkcs12, self::PASSPHRASE, self::EMAIL_ADDRESS);
 		$this->assertEquals($message, '');
 		$this->assertNotEmpty($cert);
 		$this->assertNotEmpty($data);
@@ -102,7 +102,7 @@ class UploadCertificateTest extends SMIMETest {
 	 */
 	public function testCertificateDateExpired() {
 		$pkcs12 = $this->generatePKCS12Faketime('-500d');
-		list($message, $cert, $data) = validateUploadedPKCS($pkcs12, self::PASSPHRASE, self::EMAIL_ADDRESS);
+		list($message, $cert, $data, $imported) = validateUploadedPKCS($pkcs12, self::PASSPHRASE, self::EMAIL_ADDRESS);
 		$validTo = date('Y-m-d', $data['validTo_time_t']);
 
 		$this->assertEquals($message, sprintf("Certificate was expired on %s. Certificate has not been imported", $validTo));
@@ -114,7 +114,7 @@ class UploadCertificateTest extends SMIMETest {
 	 */
 	public function testCertificateNotValid() {
 		$pkcs12 = $this->generatePKCS12Faketime('+500d');
-		list($message, $cert, $data) = validateUploadedPKCS($pkcs12, self::PASSPHRASE, self::EMAIL_ADDRESS);
+		list($message, $cert, $data, $imported) = validateUploadedPKCS($pkcs12, self::PASSPHRASE, self::EMAIL_ADDRESS);
 		$validFrom = date('Y-m-d', $data['validFrom_time_t']);
 
 		$this->assertEquals($message, sprintf("Certificate is not yet valid %s. Certificate has not been imported", $validFrom));

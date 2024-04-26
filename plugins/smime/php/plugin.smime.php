@@ -555,14 +555,15 @@ class Pluginsmime extends Plugin {
 		$saveCert = false;
 		$tmpname = $data['tmpname'];
 		$message = '';
+		$imported = false;
 
 		$certificate = file_get_contents($tmpname);
 		$emailAddress = $GLOBALS['mapisession']->getSMTPAddress();
-		list($message, $publickey, $publickeyData) = validateUploadedPKCS($certificate, $passphrase, $emailAddress);
+		list($message, $publickey, $publickeyData, $imported) = validateUploadedPKCS($certificate, $passphrase, $emailAddress);
 
 		// All checks completed successful
 		// Store private cert in users associated store (check for duplicates)
-		if (empty($message)) {
+		if ($imported) {
 			$certMessage = getMAPICert($this->getStore());
 			// TODO: update to serialNumber check
 			if ($certMessage && $certMessage[0][PR_MESSAGE_DELIVERY_TIME] == $publickeyData['validTo_time_t']) {
