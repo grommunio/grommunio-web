@@ -221,6 +221,7 @@ function validateUploadedPKCS($certificate, $passphrase, $emailAddress) {
 	$publickey = $certs['cert'];
 	$extracerts = isset($certs['extracerts']) ? $certs['extracerts'] : [];
 	$publickeyData = openssl_x509_parse($publickey);
+	$imported = false;
 
 	if ($publickeyData) {
 		$certEmailAddress = getCertEmail($publickeyData);
@@ -237,7 +238,8 @@ function validateUploadedPKCS($certificate, $passphrase, $emailAddress) {
 		}
 		// Check if certificate is not expired, still import the certificate since a user wants to decrypt his old email
 		elseif ($validTo < time()) {
-			$message = _('Certificate was expired on ') . date('Y-m-d', $validTo) . '. ' . _('Certificate has not been imported');
+			$message = _('Certificate was expired on ') . date('Y-m-d', $validTo) . '. ' . _('Certificate was imported.');
+			$imported = true;
 		}
 		// Check if the certificate is validFrom date is not in the future
 		elseif ($validFrom > time()) {
@@ -245,14 +247,19 @@ function validateUploadedPKCS($certificate, $passphrase, $emailAddress) {
 		}
 		// We allow users to import private certificate which have no OCSP support
 		elseif (!verifyOCSP($certs['cert'], $extracerts, $data)) {
-			$message = _('Certificate is revoked');
+			$message = _('Certificate is revoked, but was imported.');
+			$imported = true;
+		}
+		else {
+			$imported = true;
+			$message = _('Certificate was imported.');
 		}
 	}
 	else { // Can't parse public certificate pkcs#12 file might be corrupt
 		$message = _('Unable to read public certificate');
 	}
 
-	return [$message, $publickey, $publickeyData];
+	return [$message, $publickey, $publickeyData, $imported];
 }
 
 /**
