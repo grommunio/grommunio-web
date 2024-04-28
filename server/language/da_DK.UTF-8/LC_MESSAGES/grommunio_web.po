@@ -1,10 +1,11 @@
 # grommunio Web Danish (Denmark) translation.
 # Copyright (C) 2021
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Danish (Denmark)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-04-28 22:53+0200\n"
+"POT-Creation-Date: 2024-04-28 23:12+0200\n"
 "PO-Revision-Date: 2022-07-26 14:28+0200\n"
 "Last-Translator: Mike Williams <mike.williams@grammm.com>\n"
 "Language-Team: Danish <https://hosted.weblate.org/projects/grommunio/"
@@ -1958,6 +1959,8 @@ msgid ""
 "{0} has requested a notification be sent when message \"{1}\" is deleted "
 "without having been read. Do you want to send a receipt?"
 msgstr ""
+"{0} har bedt om at få tilsendt en meddelelse, når besked \"{1}\" slettes "
+"uden at være blevet læst. Ønsker du at sende en kvittering?"
 
 msgid "Delete Incomplete Task"
 msgstr "Slet ufuldstændig opgave"
@@ -2890,7 +2893,7 @@ msgid "includes these words in the body…"
 msgstr "inkluder disse ord i brevkroppen…"
 
 msgid "includes these words in the transport headers…"
-msgstr ""
+msgstr "indeholder disse ord i transportoverskrifterne..."
 
 #, fuzzy
 msgid "has importance…"
@@ -6416,13 +6419,13 @@ msgid "Wipe Executed"
 msgstr "Tørre udført"
 
 msgid "Account Only Wipe Pending"
-msgstr ""
+msgstr "Sletning af kun konto afventer"
 
 msgid "Account Only Wipe Requested"
-msgstr ""
+msgstr "Anmodning om sletning af kun konto"
 
 msgid "Account Only Wipe Executed"
-msgstr ""
+msgstr "Sletning af kun konto udført"
 
 msgid "Not Available"
 msgstr "Ikke til rådighed"
@@ -6547,10 +6550,10 @@ msgid "Please enter your username and password"
 msgstr "Indtast venligst dit brugernavn og din adgangskode"
 
 msgid "Wipe only data related to this account"
-msgstr ""
+msgstr "Slet kun data relateret til denne konto"
 
 msgid "Wipe all data"
-msgstr ""
+msgstr "Slet alle data"
 
 msgid "Username"
 msgstr "Brugernavn"
@@ -7461,7 +7464,7 @@ msgid "Certificate was expired on "
 msgstr "Certifikatet er udløbet den "
 
 msgid "Certificate was imported."
-msgstr ""
+msgstr "Certifikatet blev importeret."
 
 msgid "Certificate is not yet valid "
 msgstr "Certifikatet er endnu ikke gyldigt "
@@ -7471,7 +7474,7 @@ msgid "Certificate has not been imported"
 msgstr "Certifikatet er ikke blevet importeret"
 
 msgid "Certificate is revoked, but was imported."
-msgstr ""
+msgstr "Certifikatet er tilbagekaldt, men blev importeret."
 
 #, fuzzy
 msgid "Unable to read public certificate"
@@ -7786,13 +7789,14 @@ msgid "You don't have the permission to complete this action"
 msgstr "Du har ikke tilladelse til at gennemføre denne handling"
 
 msgid "Quota error"
-msgstr ""
+msgstr "Kvotefejl"
 
 msgid "Send quota limit reached"
-msgstr ""
+msgstr "Sendekvotens grænse er nået"
 
 msgid "Email sending failed. Check the log files for more information."
 msgstr ""
+"Afsendelse af e-mail mislykkedes. Tjek logfilerne for mere information."
 
 #, fuzzy
 msgid "Unknown user/group"
@@ -7918,10 +7922,10 @@ msgstr ""
 "egenskaber (højreklik på %1$s-mappen > egenskaber > tilladelser)."
 
 msgid "default"
-msgstr ""
+msgstr "standard"
 
 msgid "anonymous"
-msgstr ""
+msgstr "anonym"
 
 msgid "unknown"
 msgstr "ukendt"
@@ -8219,29 +8223,35 @@ msgstr "Filen er ikke importeret med succes"
 
 msgid "The uploaded file exceeds the upload_max_filesize directive in php.ini."
 msgstr ""
+"Den uploadede fil overskrider upload_max_filesize-direktivet i php.ini."
 
 msgid ""
 "The uploaded file exceeds the MAX_FILE_SIZE directive that was specified in "
 "the HTML form."
 msgstr ""
+"Den uploadede fil overskrider MAX_FILE_SIZE-direktivet, der blev angivet i "
+"HTML-formularen."
 
 msgid "The uploaded file was only partially uploaded."
-msgstr ""
+msgstr "Den uploadede fil blev kun delvist uploadet."
 
 msgid "No file was uploaded. ."
-msgstr ""
+msgstr "Der blev ikke uploadet nogen fil. ."
 
 msgid "Missing a temporary folder."
-msgstr ""
+msgstr "Mangler en midlertidig mappe."
 
 msgid "Failed to write file to disk."
-msgstr ""
+msgstr "Kunne ikke skrive filen til disken."
 
 msgid ""
 "A PHP extension stopped the file upload. PHP does not provide a way to "
 "ascertain which extension caused the file upload to stop; examining the list "
 "of loaded extensions with phpinfo() may help."
 msgstr ""
+"En PHP-udvidelse stoppede filoverførslen. PHP giver ikke mulighed for at "
+"fastslå, hvilken udvidelse der fik filoverførslen til at stoppe; at "
+"undersøge listen over indlæste udvidelser med phpinfo() kan hjælpe."
 
 #, fuzzy
 msgid "There is no contact found in this file."
