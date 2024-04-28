@@ -1,10 +1,11 @@
 # grommunio Web Turkish translation.
 # Copyright (C) 2021
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Turkish\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-04-28 22:53+0200\n"
+"POT-Creation-Date: 2024-04-28 23:59+0200\n"
 "PO-Revision-Date: 2022-12-10 22:44+0000\n"
 "Last-Translator: Orkan Eser <orkan.eser@grommunio.com>\n"
 "Language-Team: Turkish <https://hosted.weblate.org/projects/grommunio/"
@@ -1886,6 +1887,8 @@ msgid ""
 "{0} has requested a notification be sent when message \"{1}\" is deleted "
 "without having been read. Do you want to send a receipt?"
 msgstr ""
+"{0}, \"{1}\" mesajı okunmadan silindiğinde bir bildirim gönderilmesini talep "
+"etti. Bir makbuz göndermek istiyor musunuz?"
 
 msgid "Delete Incomplete Task"
 msgstr "Tamamlanmamış Görevi Sil"
@@ -5994,13 +5997,13 @@ msgid "Wipe Executed"
 msgstr "Silme Çalıştırıldı"
 
 msgid "Account Only Wipe Pending"
-msgstr ""
+msgstr "Yalnızca Hesap Silme Bekliyor"
 
 msgid "Account Only Wipe Requested"
-msgstr ""
+msgstr "Yalnızca Hesap Silme İstendi"
 
 msgid "Account Only Wipe Executed"
-msgstr ""
+msgstr "Yalnızca Hesap Silme Yürütüldü"
 
 msgid "Not Available"
 msgstr "Mevcut Değil"
@@ -6104,10 +6107,10 @@ msgid "Please enter your username and password"
 msgstr "Lütfen kullanıcı adınızı ve şifrenizi giriniz"
 
 msgid "Wipe only data related to this account"
-msgstr ""
+msgstr "Yalnızca bu hesapla ilgili verileri sil"
 
 msgid "Wipe all data"
-msgstr ""
+msgstr "Tüm verileri sil"
 
 msgid "Username"
 msgstr "Kullanıcı adı"
@@ -6844,7 +6847,7 @@ msgid "Certificate was expired on "
 msgstr "Sertifikanın geçerlilik süresi "
 
 msgid "Certificate was imported."
-msgstr ""
+msgstr "Sertifika ithal edildi."
 
 msgid "Certificate is not yet valid "
 msgstr "Sertifika henüz geçerli değil "
@@ -6853,7 +6856,7 @@ msgid "Certificate has not been imported"
 msgstr "Sertifika içe aktarılmadı"
 
 msgid "Certificate is revoked, but was imported."
-msgstr ""
+msgstr "Sertifika iptal edildi, ancak içe aktarıldı."
 
 msgid "Unable to read public certificate"
 msgstr "Genel sertifika okunamıyor"
@@ -7120,13 +7123,15 @@ msgid "You don't have the permission to complete this action"
 msgstr "Bu eylemi tamamlamak için izniniz yok"
 
 msgid "Quota error"
-msgstr ""
+msgstr "Kota hatası"
 
 msgid "Send quota limit reached"
-msgstr ""
+msgstr "Gönderme kotası sınırına ulaşıldı"
 
 msgid "Email sending failed. Check the log files for more information."
 msgstr ""
+"E-posta gönderimi başarısız oldu. Daha fazla bilgi için günlük dosyalarını "
+"kontrol edin."
 
 msgid "Unknown user/group"
 msgstr "Bilinmeyen kullanıcı/grup"
@@ -7223,10 +7228,10 @@ msgstr ""
 "ayarlayabilir ( %1$s klasörüne sağ tıklayın > özellikler > izinler)."
 
 msgid "default"
-msgstr ""
+msgstr "varsayılan"
 
 msgid "anonymous"
-msgstr ""
+msgstr "anonim"
 
 msgid "unknown"
 msgstr "bilinmeyen"
@@ -7451,29 +7456,34 @@ msgstr "Dosya başarıyla içe aktarılmadı"
 
 msgid "The uploaded file exceeds the upload_max_filesize directive in php.ini."
 msgstr ""
+"Yüklenen dosya php.ini dosyasındaki upload_max_filesize yönergesini aşıyor."
 
 msgid ""
 "The uploaded file exceeds the MAX_FILE_SIZE directive that was specified in "
 "the HTML form."
 msgstr ""
+"Yüklenen dosya, HTML formunda belirtilen MAX_FILE_SIZE yönergesini aşıyor."
 
 msgid "The uploaded file was only partially uploaded."
-msgstr ""
+msgstr "Yüklenen dosya yalnızca kısmen yüklendi."
 
 msgid "No file was uploaded. ."
-msgstr ""
+msgstr "Hiçbir dosya yüklenmedi. ."
 
 msgid "Missing a temporary folder."
-msgstr ""
+msgstr "Geçici bir klasör eksik."
 
 msgid "Failed to write file to disk."
-msgstr ""
+msgstr "Dosya diske yazılamadı."
 
 msgid ""
 "A PHP extension stopped the file upload. PHP does not provide a way to "
 "ascertain which extension caused the file upload to stop; examining the list "
 "of loaded extensions with phpinfo() may help."
 msgstr ""
+"Bir PHP eklentisi dosya yüklemesini durdurdu. PHP dosya yüklemenin hangi "
+"uzantı yüzünden durduğunu tespit etmek için bir yol sunmaz; phpinfo() ile "
+"yüklenmiş uzantıların listesini incelemek yardımcı olabilir."
 
 msgid "There is no contact found in this file."
 msgstr "Bu dosyada herhangi bir kişi bulunamamıştır."
