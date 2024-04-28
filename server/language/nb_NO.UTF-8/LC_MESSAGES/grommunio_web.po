@@ -1,10 +1,11 @@
 # grommunio Web Norwegian (Bokmål) translation.
 # Copyright (C) 2021
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Norwegian (Bokmål)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-04-28 22:53+0200\n"
+"POT-Creation-Date: 2024-04-28 23:51+0200\n"
 "PO-Revision-Date: 2023-09-06 16:56+0000\n"
 "Last-Translator: Jan Engelhardt <jengelh@inai.de>\n"
 "Language-Team: Norwegian Bokmål <https://hosted.weblate.org/projects/"
@@ -396,7 +397,7 @@ msgid "Country"
 msgstr "land"
 
 msgid "Professional"
-msgstr ""
+msgstr "Profesjonell"
 
 msgid "Title"
 msgstr "Tittel"
@@ -814,22 +815,24 @@ msgid "Occurs every {0} effective {1} for {2} occurrence from {3} to {4}."
 msgid_plural ""
 "Occurs every {0} effective {1} for {2} occurrences from {3} to {4}."
 msgstr[0] ""
+"Forekommer hver {0} effektive {1} for {2} forekomster fra {3} til {4}."
 msgstr[1] ""
 
 msgid "Occurs every {0} {1} effective {2} for {3} occurrence from {4} to {5}."
 msgid_plural ""
 "Occurs every {0} {1} effective {2} for {3} occurrences {4} to {5}."
 msgstr[0] ""
+"Forekommer hver {0} {1} effektive {2} for {3} forekomst fra {4} til {5}."
 msgstr[1] ""
 
 msgid "Occurs every {0} effective {1} for {2} occurrence."
 msgid_plural "Occurs every {0} effective {1} for {2} occurrences."
-msgstr[0] ""
+msgstr[0] "Oppstår hver {0} effektive {1} for {2} forekomst."
 msgstr[1] ""
 
 msgid "Occurs every {0} {1} effective {2} for {3} occurrence."
 msgid_plural "Occurs every {0} {1} effective {2} for {3} occurrences."
-msgstr[0] ""
+msgstr[0] "Forekommer hver {0} {1} effektive {2} for {3} forekomst."
 msgstr[1] ""
 
 msgid "Occurs every {0} effective {1} until {2} from {3} to {4}."
@@ -1347,10 +1350,10 @@ msgid "Location: "
 msgstr "Sted: "
 
 msgid "j M {0}"
-msgstr ""
+msgstr "j M {0}"
 
 msgid "l jS M Y {0}"
-msgstr ""
+msgstr "l jS M Y {0}"
 
 msgid "All day: "
 msgstr "Heldag: "
@@ -1600,9 +1603,11 @@ msgid ""
 "Copying this appointment will unset it as private. Are you sure you want to "
 "continue?"
 msgstr ""
+"Hvis du kopierer denne avtalen, vil den ikke lenger være privat. Er du "
+"sikker på at du vil fortsette?"
 
 msgid "Private item"
-msgstr ""
+msgstr "Privat gjenstand"
 
 msgid "Copy"
 msgstr "Kopier"
@@ -1611,6 +1616,8 @@ msgid ""
 "Moving this appointment will unset it as private. Are you sure you want to "
 "continue?"
 msgstr ""
+"Hvis du flytter denne avtalen, vil den ikke lenger være privat. Er du sikker "
+"på at du vil fortsette?"
 
 msgid "Move"
 msgstr "Flytt"
@@ -1687,10 +1694,10 @@ msgid "Upcoming Appointments"
 msgstr "Kommende avtaler"
 
 msgid "Appointments of {0}"
-msgstr ""
+msgstr "Utnevnelser av {0}"
 
 msgid "Appointments of {0} - {1}"
-msgstr ""
+msgstr "Utnevnelser av {0} - {1}"
 
 msgid "No appointments"
 msgstr "Ingen avtaler"
@@ -1864,6 +1871,7 @@ msgstr "Ikke tilstrekkelige rettigheter"
 
 msgid "You have insufficient privileges to delete items in this folder."
 msgstr ""
+"Du har ikke tilstrekkelige rettigheter til å slette elementer i denne mappen."
 
 msgid "Notify recipients"
 msgstr "Informer mottakere"
@@ -1881,6 +1889,8 @@ msgid ""
 "{0} has requested a notification be sent when message \"{1}\" is deleted "
 "without having been read. Do you want to send a receipt?"
 msgstr ""
+"{0} har bedt om å få tilsendt et varsel når meldingen \"{1}\" slettes uten å "
+"ha blitt lest. Ønsker du å sende en kvittering?"
 
 msgid "Delete Incomplete Task"
 msgstr "Slett ufullstendige oppgave"
@@ -2016,11 +2026,15 @@ msgid ""
 "In order to use the vCard import feature, upgrade your Gromox to version 0 "
 "or higher."
 msgstr ""
+"For å kunne bruke vCard-importfunksjonen må du oppgradere Gromox til versjon "
+"0 eller nyere."
 
 msgid ""
 "In order to use the ICS / VCS import feature, upgrade your Gromox to version "
 "0 or higher."
 msgstr ""
+"For å kunne bruke ICS/VCS-importfunksjonen må du oppgradere Gromox til "
+"versjon 0 eller høyere."
 
 msgid "Attachment error"
 msgstr "Feil med vedlegg"
@@ -2053,6 +2067,8 @@ msgid ""
 "Are you sure you want to delete the category \"{0}\"? Other items keep this "
 "category, but lose the assigned color."
 msgstr ""
+"Er du sikker på at du vil slette kategorien \"{0}\"? Andre elementer "
+"beholder denne kategorien, men mister den tildelte fargen."
 
 msgid "Rename Category"
 msgstr "Gi nytt navn til kategori"
@@ -2392,16 +2408,16 @@ msgid "Add/Edit Cc recipient"
 msgstr "Legg til/Rediger kopi-mottaker"
 
 msgid "Disable for new mail"
-msgstr ""
+msgstr "Deaktiver for ny e-post"
 
 msgid "Enable for new mail"
-msgstr ""
+msgstr "Aktiver for ny e-post"
 
 msgid "Disable for replies"
-msgstr ""
+msgstr "Deaktiver for svar"
 
 msgid "Enable for replies"
-msgstr ""
+msgstr "Aktiver for svar"
 
 msgid "No Cc recipient configured"
 msgstr "Ingen kopi-mottakere er konfigurert"
@@ -2432,10 +2448,10 @@ msgid "Help"
 msgstr "Hjelp"
 
 msgid "Web Manual"
-msgstr ""
+msgstr "Webhåndbok"
 
 msgid "Item data"
-msgstr ""
+msgstr "Varedata"
 
 msgid "INSERT"
 msgstr "INSERT"
@@ -2447,7 +2463,7 @@ msgid "ZDeveloper"
 msgstr "ZDeveloper"
 
 msgid "grommunio Web print"
-msgstr ""
+msgstr "grommunio Web print"
 
 msgid "Display name"
 msgstr "Visningsnavn"
@@ -2926,10 +2942,10 @@ msgid "Please select a from address record."
 msgstr "Velg en avsenderadresse."
 
 msgid "Add/Edit From recipient"
-msgstr ""
+msgstr "Legg til/rediger fra mottaker"
 
 msgid "Manage the recipients used in the 'From' field"
-msgstr ""
+msgstr "Administrer mottakerne som brukes i \"Fra\"-feltet"
 
 msgid "View"
 msgstr "Visning"
@@ -2950,13 +2966,13 @@ msgid "We need permissions to enable desktop notifications."
 msgstr "Vi trenger din tillatelse for å aktivere skrivebordsvarsler."
 
 msgid "Request Permissions"
-msgstr ""
+msgstr "Be om tillatelser"
 
 msgid "Enable desktop notifications for new mail"
-msgstr ""
+msgstr "Aktiver skrivebordsvarsler for ny e-post"
 
 msgid "Enable desktop notifications for reminders"
-msgstr ""
+msgstr "Aktiver skrivebordsvarsler for påminnelser"
 
 msgid "{A} Auto-hide desktop notification after second(s) {B}"
 msgstr "{A} Skjul skriverbordsvarsler automatisk etter sekunder {B}"
@@ -3027,7 +3043,7 @@ msgid "Loading…"
 msgstr "Laster inn…"
 
 msgid "Message could not be loaded"
-msgstr ""
+msgstr "Meldingen kunne ikke lastes inn"
 
 #. TRANSLATORS: This message is used as label for the field which indicates which attachments are inside the message
 msgctxt "mail.previewpanel"
@@ -3065,6 +3081,9 @@ msgid ""
 "Click here to download pictures. To help protect your privacy, grommunio Web "
 "prevented automatic download of some pictures in this message."
 msgstr ""
+"Klikk her for å laste ned bilder. For å beskytte personvernet ditt har "
+"grommunio Web forhindret automatisk nedlasting av enkelte bilder i denne "
+"meldingen."
 
 msgctxt "mail.previewpanel"
 msgid ""
@@ -3544,9 +3563,11 @@ msgstr "Laster inn kontakter"
 msgid ""
 "There are no items to show in this list. Update the filter for more results."
 msgstr ""
+"Det er ingen elementer å vise i denne listen. Oppdater filteret for å få "
+"flere resultater."
 
 msgid "[Group]"
-msgstr ""
+msgstr "[Gruppe]"
 
 msgid "Work:"
 msgstr "Jobb:"
@@ -3842,7 +3863,7 @@ msgid "Lime"
 msgstr "Limegrønn"
 
 msgid "Magenta"
-msgstr ""
+msgstr "Magenta"
 
 msgid "Orange"
 msgstr "Oransje"
@@ -3947,7 +3968,7 @@ msgid "Unsaved changes"
 msgstr "Ulagrede endringer"
 
 msgid "Welcome to grommunio Web"
-msgstr ""
+msgstr "Velkommen til grommunio Web"
 
 msgid "This is the first time you are using grommunio Web. "
 msgstr "Dette er første gangen du bruker grommunio Web. "
@@ -4055,16 +4076,16 @@ msgid "Nonediting Author"
 msgstr "Ikke-redigerende forfatter"
 
 msgid "Reviewer"
-msgstr ""
+msgstr "Anmelder"
 
 msgid "Contributor"
 msgstr "bidragsyter"
 
 msgid "Free/Busy time, subject, location"
-msgstr ""
+msgstr "Fri/opptatt tid, emne, sted"
 
 msgid "Free/Busy time"
-msgstr ""
+msgstr "Fri/opptatt tid"
 
 msgid "Unable to import:"
 msgstr "Kunne ikke importere:"
@@ -4118,7 +4139,7 @@ msgid "EntryID"
 msgstr "EntryID"
 
 msgid "Parent EID"
-msgstr ""
+msgstr "Foreldre EID"
 
 msgid "Folder size"
 msgstr "Mappestørrelse"
@@ -4175,7 +4196,7 @@ msgid "Folder visible"
 msgstr "Vise mapper"
 
 msgid "Apply (copy) changed permissions recursively"
-msgstr ""
+msgstr "Bruk (kopier) endrede tillatelser rekursivt"
 
 msgid "User already exists"
 msgstr "Bruker finnes allerede"
@@ -4259,7 +4280,7 @@ msgid "Open shared folder/store"
 msgstr "Åpne delt mappe/e-postboks"
 
 msgid "Rename folder"
-msgstr ""
+msgstr "Gi nytt navn til mappen"
 
 msgid "Empty folder"
 msgstr "Tøm mappen"
@@ -4354,6 +4375,8 @@ msgid ""
 "You have insufficient privileges to move this folder. Would you like to copy "
 "instead?"
 msgstr ""
+"Du har ikke tilstrekkelige rettigheter til å flytte denne mappen. Vil du "
+"kopiere i stedet?"
 
 msgid "CC"
 msgstr "kopi"
@@ -4544,7 +4567,7 @@ msgid "Re"
 msgstr "SV"
 
 msgid "on behalf of"
-msgstr ""
+msgstr "på vegne av"
 
 msgid "Safe Senders list is empty"
 msgstr "Liste over klarerte avsendere er tom"
@@ -4585,13 +4608,13 @@ msgid "{A}AutoSave unsent mail every {B} minute(s)"
 msgstr "{A}Autolagre usendt mail hvert {B} minutt(er)"
 
 msgid "Conversation view settings"
-msgstr ""
+msgstr "Innstillinger for samtalevisning"
 
 msgid "Enable conversation view"
-msgstr ""
+msgstr "Aktiver samtalevisning"
 
 msgid "Collapse conversation when selecting a different email"
-msgstr ""
+msgstr "Skjul samtalen når du velger en annen e-post"
 
 msgid "Incoming mail"
 msgstr "Innkommende e-post"
@@ -4660,22 +4683,22 @@ msgstr ""
 "Automatisk svar hver sender, men bare en gang per dag, med denne teksten"
 
 msgid "Inside My Organization"
-msgstr ""
+msgstr "Inne i organisasjonen min"
 
 msgid "User is currently out of office."
 msgstr "Jeg er ikke på kontoret."
 
 msgid "Outside My Organization"
-msgstr ""
+msgstr "Utenfor organisasjonen min"
 
 msgid "Auto-reply to people outside my organization"
-msgstr ""
+msgstr "Automatisk svar til personer utenfor organisasjonen min"
 
 msgid "My contacts only"
-msgstr ""
+msgstr "Kun mine kontakter"
 
 msgid "Anyone outside my organization"
-msgstr ""
+msgstr "Alle utenfor min organisasjon"
 
 msgid ""
 "The time you entered is before the out of office date. Please reschedule."
@@ -4690,6 +4713,9 @@ msgid ""
 "To protect your privacy email addresses or domains can only be added via the "
 "\"Add to safe sender list\" functionality in an opened email."
 msgstr ""
+"For å beskytte personvernet ditt kan e-postadresser eller domener bare "
+"legges til via funksjonen \"Legg til i sikker avsenderliste\" i en åpnet e-"
+"post."
 
 msgid "Delete all"
 msgstr "Slett alt"
@@ -4861,10 +4887,10 @@ msgid "Basic"
 msgstr "Standard"
 
 msgid "Account information - {0}"
-msgstr ""
+msgstr "Kontoinformasjon - {0}"
 
 msgid "Profile Picture"
-msgstr ""
+msgstr "Profilbilde"
 
 msgid "Language"
 msgstr "Språk"
@@ -4888,10 +4914,10 @@ msgid "Developer tools"
 msgstr "Utviklerverktøy"
 
 msgid "Show insertion points in grommunio Web"
-msgstr ""
+msgstr "Vis innsettingspunkter i grommunio Web"
 
 msgid "Show \"item data\" button in context menu (mail only)"
-msgstr ""
+msgstr "Vis \"elementdata\"-knappen i kontekstmenyen (kun e-post)"
 
 msgid "Edit setting"
 msgstr "Rediger innstillinger"
@@ -4939,34 +4965,34 @@ msgid "Give unread items a colored border"
 msgstr "Marker uleste meldinger med et farget omriss"
 
 msgid "Show 'help' button in top-right corner"
-msgstr ""
+msgstr "Vis \"hjelp\"-knappen øverst i høyre hjørne"
 
 msgid "Show unread mail counter in application title"
-msgstr ""
+msgstr "Vis telleren for ulest e-post i programtittelen"
 
 msgid "Hide widget panel"
-msgstr ""
+msgstr "Skjul widgetpanelet"
 
 msgid "Show search bar above folder list"
-msgstr ""
+msgstr "Vis søkefeltet over mappelisten"
 
 msgid "Auto"
-msgstr ""
+msgstr "Auto"
 
 msgid "Actual size"
-msgstr ""
+msgstr "Faktisk størrelse"
 
 msgid "Page width"
-msgstr ""
+msgstr "Sidebredde"
 
 msgid "Attachment preview (PDF and Open formats)"
-msgstr ""
+msgstr "Forhåndsvisning av vedlegg (PDF- og Open-format)"
 
 msgid "Document default zoom"
-msgstr ""
+msgstr "Dokumentets standard zoom"
 
 msgid "PDF zoom"
-msgstr ""
+msgstr "PDF-zoom"
 
 msgid "File previewing"
 msgstr "Forhåndsvisning av fil"
@@ -5015,7 +5041,7 @@ msgid "All keyboard shortcuts on"
 msgstr "Alle hurtigtaster skrudd på"
 
 msgid "This change requires a reload of grommunio Web"
-msgstr ""
+msgstr "Denne endringen krever en ny innlasting av grommunio Web"
 
 msgid "Plugins"
 msgstr "Plugins"
@@ -5046,6 +5072,7 @@ msgstr "{0} av e-postboks er brukt."
 
 msgid "You have exceeded hard quota, you can not send or receive mails."
 msgstr ""
+"Du har overskredet hardkvoten, og du kan ikke sende eller motta e-post."
 
 msgid "At {0} you won't be able to send mails."
 msgstr "På {0} vil du ikke kunne sende e-post."
@@ -5054,9 +5081,11 @@ msgid ""
 "You can not send mails as you have exceeded soft quota, at {0} you won't be "
 "able to receive mails."
 msgstr ""
+"Du kan ikke sende e-poster fordi du har overskredet den myke kvoten, og ved "
+"{0} vil du ikke kunne motta e-poster."
 
 msgid "At {0} you won't be able to send or receive mails."
-msgstr ""
+msgstr "Ved {0} vil du ikke kunne sende eller motta e-post."
 
 msgid "You can not send mails as you have exceeded soft quota."
 msgstr "Du har oversteget din myk-kvotegrense, så du kan ikke sende e-post."
@@ -5177,7 +5206,7 @@ msgid "Date Complete"
 msgstr "Dato fullført"
 
 msgid "Multiple companies name must be separated by"
-msgstr ""
+msgstr "Flere firmanavn må skilles fra hverandre med"
 
 msgid "Update List"
 msgstr "Oppdater liste"
@@ -5423,10 +5452,10 @@ msgstr "Forbindelse til server har blitt gjenopptatt"
 
 #. TRANSLATORS: Example: HTTP 404
 msgid "HTTP {0}"
-msgstr ""
+msgstr "HTTP {0}"
 
 msgid "Invalid data received from the server"
-msgstr ""
+msgstr "Ugyldige data mottatt fra serveren"
 
 msgid "Missing store"
 msgstr "Mangler e-postboks"
@@ -5500,16 +5529,16 @@ msgid "Out of Office is currently activated. Would you like to turn it off?"
 msgstr "Fraværendenotis er skrudd på. Vil du skru den av?"
 
 msgid "Archive"
-msgstr ""
+msgstr "Arkiv"
 
 msgid "Open Chat at start"
 msgstr "Åpne chat når du starter"
 
 msgid "Desktop Notifications Plugin"
-msgstr ""
+msgstr "Plugin for skrivebordsvarsler"
 
 msgid "Desktop Notifications"
-msgstr ""
+msgstr "Skrivebordsvarsler"
 
 msgid "Files: ownCloud Backend"
 msgstr "Filer: ownCloud serverdel"
@@ -5536,13 +5565,13 @@ msgid "Expiration date"
 msgstr "Utløpsdato"
 
 msgid "More than 1 share link exists. Only showing the latest one"
-msgstr ""
+msgstr "Det finnes mer enn én delingslenke. Viser bare den siste"
 
 msgid "Loading details…"
 msgstr "Laster inn detaljer…"
 
 msgid "Share Details"
-msgstr ""
+msgstr "Del detaljer"
 
 msgid "Re-share"
 msgstr "Del igjen"
@@ -5600,16 +5629,17 @@ msgid "Please enter a new name"
 msgstr "Vennligst oppgi et nytt navn"
 
 msgid "Rename record"
-msgstr ""
+msgstr "Gi nytt navn til posten"
 
 msgid "A file name should not be empty."
-msgstr ""
+msgstr "Et filnavn skal ikke være tomt."
 
 msgid "Rename item"
-msgstr ""
+msgstr "Gi nytt navn til elementet"
 
 msgid "A file named \"{0}\" already exists. Please enter a different name."
 msgstr ""
+"En fil med navnet \"{0}\" finnes allerede. Vennligst skriv inn et annet navn."
 
 msgid "Downloading"
 msgstr "Laster ned"
@@ -5661,6 +5691,7 @@ msgstr "Tilbakestill Filer"
 
 msgid "Resets Files settings to their original defaults"
 msgstr ""
+"Tilbakestiller filinnstillingene til de opprinnelige standardinnstillingene"
 
 #, fuzzy
 msgid "Are you sure to remove all settings and accounts?"
@@ -5670,14 +5701,18 @@ msgid ""
 "Accounts marked by your administrator as \"cannot be changed\" will not be "
 "removed."
 msgstr ""
+"Kontoer som er merket av administratoren som \"kan ikke endres\", vil ikke "
+"bli fjernet."
 
 msgid ""
 "grommunio Web will automatically restart in order for these changes to take "
 "effect."
 msgstr ""
+"grommunio Web vil automatisk starte på nytt for at disse endringene skal tre "
+"i kraft."
 
 msgid "grommunio Web is reloading, Please wait."
-msgstr ""
+msgstr "grommunio Nettet lastes inn på nytt, vennligst vent."
 
 msgid "Edit Account"
 msgstr "Rediger konto"
@@ -5722,7 +5757,7 @@ msgid "Share files"
 msgstr "Del filer"
 
 msgid "Fast Down/Upload"
-msgstr ""
+msgstr "Rask nedlasting/opplasting"
 
 msgid "No account created!"
 msgstr "Ingen konto ble opprettet!"
@@ -5752,13 +5787,13 @@ msgid "Version Information"
 msgstr "Versjonsinformasjon"
 
 msgid "Filename"
-msgstr ""
+msgstr "Filnavn"
 
 msgid "Sort by: Filename"
-msgstr ""
+msgstr "Sorter etter Filnavn"
 
 msgid "Loading files"
-msgstr ""
+msgstr "Laster inn filer"
 
 msgid "The file {0} is too large!"
 msgstr "Filen {0} er for stor!"
@@ -5770,13 +5805,13 @@ msgid "You have to choose at least one file!"
 msgstr "Du må velge minst en fil!"
 
 msgid "Create New "
-msgstr ""
+msgstr "Opprett ny"
 
 msgid "Incorrect filename"
-msgstr ""
+msgstr "Feil filnavn"
 
 msgid "Error reaching office backend"
-msgstr ""
+msgstr "Feil når office backend"
 
 msgid "Folder already exists"
 msgstr "Mappen finnes allerede"
@@ -5803,156 +5838,158 @@ msgid "File \"{0}\" is too large! Maximum allowed filesize: {1}."
 msgstr "Filen «{0}» er for stor! Maksimum størrelse er {1}."
 
 msgid "Add item to Files"
-msgstr ""
+msgstr "Legg til element i Filer"
 
 msgid "You have to choose a folder!"
-msgstr ""
+msgstr "Du må velge en mappe!"
 
 msgid "Uploaded"
 msgstr "Lastet opp"
 
 msgid "Attachment successfully stored in Files"
-msgstr ""
+msgstr "Vedlegget er vellykket lagret i Files"
 
 msgid "Upload Failed"
-msgstr ""
+msgstr "Opplasting mislyktes"
 
 msgid "Attachment could not be stored in Files! Error: "
-msgstr ""
+msgstr "Vedlegg kunne ikke lagres i Files! Feil!"
 
 msgid "Share Files"
-msgstr ""
+msgstr "Del filer"
 
 msgid "Uploading files to "
-msgstr ""
+msgstr "Laste opp filer til"
 
 msgid "Starting upload"
-msgstr ""
+msgstr "Starter opplasting"
 
 msgid "Cancel upload"
-msgstr ""
+msgstr "Avbryt opplasting"
 
 msgid "- seconds left"
-msgstr ""
+msgstr "- sekunder igjen"
 
 msgid " seconds left"
-msgstr ""
+msgstr " sekunder igjen"
 
 msgid " minutes left"
-msgstr ""
+msgstr " minutter igjen"
 
 msgid "Uploading: "
-msgstr ""
+msgstr "Opplasting:"
 
 msgid "Upload status unavailable... please wait."
-msgstr ""
+msgstr "Opplastingsstatus utilgjengelig... vennligst vent."
 
 msgid "Upload finished!"
-msgstr ""
+msgstr "Opplasting ferdig!"
 
 msgid "Upload aborted!"
-msgstr ""
+msgstr "Opplasting avbrutt!"
 
 msgid "Upload failed!"
-msgstr ""
+msgstr "Opplasting mislyktes!"
 
 msgid "Document"
-msgstr ""
+msgstr "Dokument"
 
 msgid "Presentation"
-msgstr ""
+msgstr "Presentasjon"
 
 msgid "Spreadsheet"
-msgstr ""
+msgstr "Regneark"
 
 msgid "Upload files"
-msgstr ""
+msgstr "Last opp filer"
 
 msgid "Create document"
-msgstr ""
+msgstr "Opprett dokument"
 
 msgid "Create office document"
-msgstr ""
+msgstr "Opprett kontordokument"
 
 msgid "Download files"
-msgstr ""
+msgstr "Last ned filer"
 
 msgid "Share"
 msgstr "Del"
 
 msgid "Attach to mail"
-msgstr ""
+msgstr "Legg ved e-post"
 
 msgid "Attach to mail as link"
-msgstr ""
+msgstr "Legg ved e-post som lenke"
 
 msgid "Attaching"
-msgstr ""
+msgstr "Festing"
 
 msgid "Creating email... Please wait!"
-msgstr ""
+msgstr "Opprette e-post... Vennligst vent!"
 
 msgid "Edit share"
-msgstr ""
+msgstr "Rediger andel"
 
 msgid ""
 "There are no accounts added. Go to settings, Files tab and add an account"
 msgstr ""
+"Det er ikke lagt til noen kontoer. Gå til innstillinger, fanen Filer og legg "
+"til en konto"
 
 msgid "Filesize"
-msgstr ""
+msgstr "Filstørrelse"
 
 msgid "Last modified"
-msgstr ""
+msgstr "Sist endret"
 
 msgid "Is shared"
-msgstr ""
+msgstr "Er delt"
 
 msgid "File preview"
-msgstr ""
+msgstr "Forhåndsvisning av fil"
 
 msgid "Your browser does not support previewing of audio files!"
-msgstr ""
+msgstr "Nettleseren din støtter ikke forhåndsvisning av lydfiler!"
 
 msgid "Your browser does not support previewing of video files!"
-msgstr ""
+msgstr "Nettleseren din støtter ikke forhåndsvisning av videofiler!"
 
 msgid "d.m.Y G:i"
-msgstr ""
+msgstr "d.m.Y G:i"
 
 msgid "Folder"
-msgstr ""
+msgstr "Mappe"
 
 msgid "File ({0})"
-msgstr ""
+msgstr "Fil ({0})"
 
 msgid "Sort by: Path"
-msgstr ""
+msgstr "Sorter etter: Sti"
 
 msgid "Sort by: Last modified"
-msgstr ""
+msgstr "Sorter etter Sist endret"
 
 msgid "Sort by: Shared"
-msgstr ""
+msgstr "Sorter etter Delt"
 
 msgid "There are no items to show in this view"
 msgstr "Det finnes ingen elementer å vise i denne visningstypen"
 
 msgid "files selected"
-msgstr ""
+msgstr "valgte filer"
 
 msgid "Authentication required, when using grommunio-files for the first time"
-msgstr ""
+msgstr "Autentisering kreves når grommunio-files brukes for første gang"
 
 msgid "Intranet"
-msgstr ""
+msgstr "Intranett"
 
 msgid "Openstreetmap"
-msgstr ""
+msgstr "Openstreetmap"
 
 #. TRANSLATORS: The map of earth
 msgid "Map"
-msgstr ""
+msgstr "Kart"
 
 msgid "Mobile Device Manager"
 msgstr "Mobile Device Manager"
@@ -5967,7 +6004,7 @@ msgid "Full resync in progress"
 msgstr "Fullstendig synkronisering pågår"
 
 msgid "Username or password incorrect"
-msgstr ""
+msgstr "Feil brukernavn eller passord"
 
 msgid "Not Applicable"
 msgstr "Gjelder ikke"
@@ -5982,13 +6019,13 @@ msgid "Wipe Executed"
 msgstr "Utvisking utført"
 
 msgid "Account Only Wipe Pending"
-msgstr ""
+msgstr "Kun konto Wipe Venter"
 
 msgid "Account Only Wipe Requested"
-msgstr ""
+msgstr "Kun sletting av konto forespurt"
 
 msgid "Account Only Wipe Executed"
-msgstr ""
+msgstr "Kun konto Wipe Utført"
 
 msgid "Not Available"
 msgstr "Ikke tilgjengelig"
@@ -6012,7 +6049,7 @@ msgid "grommunio-sync Version"
 msgstr "grommunio-sync Version"
 
 msgid "Policy name"
-msgstr ""
+msgstr "Navn på policy"
 
 msgid "Connected since"
 msgstr "Tilkoblet siden"
@@ -6036,6 +6073,9 @@ msgid ""
 "Select folders to sync to your device from the list below. To add additional "
 "mailboxes to the list, open them in grommunio Web first."
 msgstr ""
+"Velg mapper som skal synkroniseres til enheten din fra listen nedenfor. Hvis "
+"du vil legge til flere postkasser i listen, åpner du dem først i grommunio "
+"Web."
 
 msgid "grommunio-sync"
 msgstr "grommunio-sync"
@@ -6050,6 +6090,8 @@ msgid ""
 "Unable to connect to the grommunio-sync server. Click {0} to enter your "
 "credentials"
 msgstr ""
+"Kan ikke koble til grommunio-sync-serveren. Klikk {0} for å angi "
+"legitimasjonen din"
 
 msgid "Devices"
 msgstr "Enheter"
@@ -6085,13 +6127,13 @@ msgid "Remove device"
 msgstr "Fjern enhet"
 
 msgid "Please enter your username and password"
-msgstr ""
+msgstr "Vennligst skriv inn brukernavn og passord"
 
 msgid "Wipe only data related to this account"
-msgstr ""
+msgstr "Slett bare data som er relatert til denne kontoen"
 
 msgid "Wipe all data"
-msgstr ""
+msgstr "Slett alle data"
 
 msgid "Username"
 msgstr "Brukernavn"
@@ -6107,358 +6149,408 @@ msgid ""
 "Do you really want to remove your device?\n"
 " Enter your password to confirm."
 msgstr ""
+"Vil du virkelig fjerne enheten din?\n"
+" Skriv inn passordet ditt for å bekrefte."
 
 msgid "Add meeting"
-msgstr ""
+msgstr "Legg til møte"
 
 msgid "Room name:"
-msgstr ""
+msgstr "Navn på rommet:"
 
 msgid "Room URL:"
-msgstr ""
+msgstr "Rom-URL:"
 
 msgid "Shift-click for advanced settings"
-msgstr ""
+msgstr "Shift-klikk for avanserte innstillinger"
 
 msgid "Join webmeeting"
-msgstr ""
+msgstr "Bli med på nettmøte"
 
 msgid "Open meeting in:"
-msgstr ""
+msgstr "Åpent møte i:"
 
 msgid "Web tab"
-msgstr ""
+msgstr "Web-fanen"
 
 msgid "Hide the button in the main toolbar"
-msgstr ""
+msgstr "Skjul knappen i hovedverktøylinjen"
 
 msgid "Add the subject to the room name"
-msgstr ""
+msgstr "Legg til emnet i romnavnet"
 
 msgid "Add the organizer name to the room name"
-msgstr ""
+msgstr "Legg til arrangørens navn i romnavnet"
 
 msgid "Add the URL to the meeting location rather than overwriting it"
-msgstr ""
+msgstr "Legg til URL-adressen til møtestedet i stedet for å overskrive den"
 
 msgid ""
 "Prevent the URL in the meeting location from being overridden automatically "
 "(ex: when adding a meetingroom)"
 msgstr ""
+"Forhindre at URL-adressen i møtelokasjonen overstyres automatisk (f.eks. når "
+"du legger til et møterom)"
 
 msgid "If you have problems when creating meetings, try disabling this setting"
 msgstr ""
+"Hvis du har problemer når du oppretter møter, kan du prøve å deaktivere "
+"denne innstillingen"
 
 msgid "Add an invitation to the appointment description"
-msgstr ""
+msgstr "Legg til en invitasjon i avtalebeskrivelsen"
 
 msgid "Invitation text"
-msgstr ""
+msgstr "Invitasjonstekst"
 
 msgid ""
 "must contain %url% as a placeholder for the meeting link, empty the textbox "
 "to reset to default"
 msgstr ""
+"må inneholde %url% som en plassholder for møtelinken, tøm tekstboksen for å "
+"tilbakestille til standard"
 
 msgid "An unknown error occurred while changing password."
-msgstr ""
+msgstr "En ukjent feil oppstod under endring av passord."
 
 msgid "Password is changed successfully."
-msgstr ""
+msgstr "Passordet er vellykket endret."
 
 msgid "Success"
-msgstr ""
+msgstr "Suksess"
 
 msgid "Change Password"
-msgstr ""
+msgstr "Endre passord"
 
 msgid "Current password"
-msgstr ""
+msgstr "Gjeldende passord"
 
 msgid "New password"
-msgstr ""
+msgstr "Nytt passord"
 
 msgid "Retype new password"
-msgstr ""
+msgstr "Skriv inn nytt passord"
 
 msgid "New passwords do not match."
-msgstr ""
+msgstr "De nye passordene stemmer ikke overens."
 
 msgid "Current password is empty."
-msgstr ""
+msgstr "Gjeldende passord er tomt."
 
 msgid "New password is empty."
-msgstr ""
+msgstr "Det nye passordet er tomt."
 
 msgid "One or more fields does contain errors."
-msgstr ""
+msgstr "Ett eller flere felt inneholder feil."
 
 msgid ""
 "Password is weak. Password should contain capital, non-capital letters and "
 "numbers. Password should have 8 to 20 characters."
 msgstr ""
+"Passordet er svakt. Passordet bør inneholde store og små bokstaver og tall. "
+"Passordet bør bestå av 8 til 20 tegn."
 
 msgid "Change passphrase"
-msgstr ""
+msgstr "Endre passordfrasen"
 
 msgid "Old passphrase"
-msgstr ""
+msgstr "Gammel passordfrase"
 
 msgid "Wrong passphrase. Please try again"
-msgstr ""
+msgstr "Feil passordfrase. Vennligst prøv igjen"
 
 msgid "New passphrase"
-msgstr ""
+msgstr "Ny passordfrase"
 
 msgid "Confirm new passphrase"
-msgstr ""
+msgstr "Bekreft ny passordfrase"
 
 msgid "The passphrases don't match. Please try again"
-msgstr ""
+msgstr "Passordfrasen stemmer ikke overens. Vennligst prøv igjen"
 
 msgid "S/MIME Message"
-msgstr ""
+msgstr "S/MIME-melding"
 
 msgid "Passphrase changed succesfully"
-msgstr ""
+msgstr "Passordfrasen ble vellykket endret"
 
 msgid "S/MIME Passphrase"
-msgstr ""
+msgstr "S/MIME-passordfrase"
 
 msgid "Submit"
-msgstr ""
+msgstr "Send inn"
 
 msgid "Certificate passphrase"
-msgstr ""
+msgstr "Passordfrase for sertifikat"
 
 msgid "The passphrase you typed is incorrect. Please try again."
-msgstr ""
+msgstr "Passordfrasen du skrev inn er feil. Vennligst prøv igjen."
 
 msgid "No certificates imported, please upload your private certificate"
 msgstr ""
+"Ingen sertifikater importert, vennligst last opp ditt private sertifikat"
 
 msgid "Valid from"
-msgstr ""
+msgstr "Gyldig fra"
 
 msgid "Expires"
-msgstr ""
+msgstr "Utløper"
 
 msgid "Loading certificates"
-msgstr ""
+msgstr "Lasting av sertifikater"
 
 msgid "S/MIME Plugin"
-msgstr ""
+msgstr "S/MIME-plugin"
 
 msgid "Please select a certificate."
-msgstr ""
+msgstr "Vennligst velg et sertifikat."
 
 msgid ""
 "Do you really want to remove your private certificate? If you remove your "
 "certificate you will not be able to sign or decrypt S/MIME emails."
 msgstr ""
+"Vil du virkelig fjerne det private sertifikatet ditt? Hvis du fjerner "
+"sertifikatet ditt, vil du ikke kunne signere eller dekryptere S/MIME-e-post."
 
 msgid "Certificate details"
-msgstr ""
+msgstr "Detaljer om sertifikatet"
 
 msgid ""
 "Below you can view and delete public & private certificate(s) stored on the "
 "server."
 msgstr ""
+"Nedenfor kan du se og slette offentlige og private sertifikater som er "
+"lagret på serveren."
 
 msgid "Filter on Email"
-msgstr ""
+msgstr "Filter på e-post"
 
 msgid "Public & Private certificates"
-msgstr ""
+msgstr "Offentlige og private sertifikater"
 
 msgid "S/MIME"
-msgstr ""
+msgstr "S/MIME"
 
 msgid "You don't have a valid certificate corresponding to your account"
-msgstr ""
+msgstr "Du har ikke et gyldig sertifikat som svarer til kontoen din"
 
 msgid "Personal certificate"
-msgstr ""
+msgstr "Personlig sertifikat"
 
 msgid "Change passphrase for last certificate"
-msgstr ""
+msgstr "Endre passordfrase for siste sertifikat"
 
 msgid "You have a valid certificate corresponding to your account"
-msgstr ""
+msgstr "Du har et gyldig sertifikat som samsvarer med kontoen din"
 
 msgid "Upload your certificate"
-msgstr ""
+msgstr "Last opp sertifikatet ditt"
 
 msgid ""
 "Below you can upload your private certificate in PKCS#12 format. grommunio "
 "Web only accepts certificates which are valid and only stores one private "
 "certificate on the server."
 msgstr ""
+"Nedenfor kan du laste opp ditt private sertifikat i PKCS#12-format. "
+"grommunio Web godtar kun sertifikater som er gyldige og lagrer kun ett "
+"privat sertifikat på serveren."
 
 msgid "Private certificate"
-msgstr ""
+msgstr "Privat sertifikat"
 
 msgid "You must fill in the certificate passphrase to upload your certificate."
 msgstr ""
+"Du må fylle inn sertifikatets passordfrase for å laste opp sertifikatet ditt."
 
 msgid "You must first select a valid private certificate in PKCS#12 format."
-msgstr ""
+msgstr "Du må først velge et gyldig privat sertifikat i PKCS#12-format."
 
 msgid "Sign"
-msgstr ""
+msgstr "Skilt"
 
 msgid "Sign message"
-msgstr ""
+msgstr "Skiltmelding"
 
 msgid ""
 "Ensure the authenticity of the message by adding a digital signature to this "
 "message. Any changes to the message will invalidate the signature."
 msgstr ""
+"Sikre meldingens autentisitet ved å legge til en digital signatur til denne "
+"meldingen. Alle endringer i meldingen vil ugyldiggjøre signaturen."
 
 msgid "Encrypt"
-msgstr ""
+msgstr "Krypter"
 
 msgid "Encrypt message"
-msgstr ""
+msgstr "Krypter meldingen"
 
 msgid ""
 "Ensure the privacy of the message by encrypting its contents. Only the "
 "recipient of the message will be able to open it."
 msgstr ""
+"Sikre personvernet til meldingen ved å kryptere innholdet. Bare mottakeren "
+"av meldingen vil kunne åpne den."
 
 msgid "What's going on with my email?"
-msgstr ""
+msgstr "Hva skjer med e-posten min?"
 
 msgid ""
 "grommunio Web can verify digital signatures of emails. A successful "
 "verification reassures you that the message has not been tampered with and "
 "validates the identity of the sender."
 msgstr ""
+"grommunio Web kan verifisere digitale signaturer på e-postmeldinger. En "
+"vellykket verifisering forsikrer deg om at meldingen ikke har blitt tuklet "
+"med, og validerer avsenderens identitet."
 
 msgid ""
 "You are seeing this message because the verification of the digital signature"
-msgstr ""
+msgstr "Du ser denne meldingen fordi verifiseringen av den digitale signaturen"
 
 msgid " has failed"
-msgstr ""
+msgstr " har mislyktes"
 
 msgid " for this message."
-msgstr ""
+msgstr " for denne meldingen."
 
 msgid "What caused this issue?"
-msgstr ""
+msgstr "Hva forårsaket dette problemet?"
 
 msgid "What should I do?"
-msgstr ""
+msgstr "Hva skal jeg gjøre?"
 
 msgid ""
 "You can continue to work. However, you should keep in mind that the identity "
 "and the authenticity of the message content could not be verified."
 msgstr ""
+"Du kan fortsette å jobbe. Du bør imidlertid huske på at identiteten og "
+"ektheten til innholdet i meldingen ikke kan verifiseres."
 
 msgid ""
 "You can contact your helpdesk or system administrator if you are not sure "
 "what to do next."
 msgstr ""
+"Du kan kontakte brukerstøtten eller systemadministratoren hvis du er usikker "
+"på hva du skal gjøre videre."
 
 msgid ""
 "grommunio Web can verify digital signatures of emails. A successful "
 "verification reassures you "
 msgstr ""
+"grommunio Web kan verifisere digitale signaturer av e-post. En vellykket "
+"verifisering gir deg trygghet"
 
 msgid ""
 "that the message has not been tampered with and validates the identity of "
 "the sender."
 msgstr ""
+"at meldingen ikke har blitt tuklet med, og validerer avsenderens identitet."
 
 msgid ""
 "The verification of the digital signature was successful for this email "
 "message."
 msgstr ""
+"Verifiseringen av den digitale signaturen var vellykket for denne e-"
+"postmeldingen."
 
 msgid "grommunio Web could not find a public certificate for the recipient."
-msgstr ""
+msgstr "grommunio Web kunne ikke finne et offentlig sertifikat for mottakeren."
 
 msgid ""
 "The identity of the sender and authenticity of the message content have been "
 "verified, but the certificate used to sign the message expired on [d-m-Y]."
 msgstr ""
+"Identiteten til avsenderen og autentisiteten til innholdet i meldingen er "
+"verifisert, men sertifikatet som ble brukt til å signere meldingen, utløp "
+"den [d-m-Y]."
 
 msgid "The digital signature could not be verified for unknown reasons."
-msgstr ""
+msgstr "Den digitale signaturen kunne av ukjente årsaker ikke verifiseres."
 
 msgid ""
 "The digital certificate used to sign this message has been revoked (i.e. the "
 "sender has marked it as compromised)"
 msgstr ""
+"Det digitale sertifikatet som ble brukt til å signere denne meldingen, er "
+"tilbakekalt (dvs. avsenderen har merket det som kompromittert)"
 
 msgid ""
 "The verification service of the certificate authority that signed the "
 "sender's certificate is not available. The validity of the certificate could "
 "not be verified."
 msgstr ""
+"Verifiseringstjenesten til sertifikatmyndigheten som har signert avsenderens "
+"sertifikat, er ikke tilgjengelig. Sertifikatets gyldighet kunne ikke "
+"verifiseres."
 
 msgid ""
 "The revocation status of the digital certificate used to sign this email is "
 "unknown (Server is unavailable or certificate does not support OCSP). The "
 "validity of the certificate could not be verified."
 msgstr ""
+"Tilbakekallingsstatusen for det digitale sertifikatet som brukes til å "
+"signere denne e-posten, er ukjent (serveren er utilgjengelig eller "
+"sertifikatet støtter ikke OCSP). Gyldigheten til sertifikatet kunne ikke "
+"verifiseres."
 
 msgid ""
 "The revocation status of the digital certificate used to sign this email is "
 "disabled (OCSP). The validity of the certificate could not be verified."
 msgstr ""
+"Tilbakekallingsstatusen for det digitale sertifikatet som brukes til å "
+"signere denne e-posten, er deaktivert (OCSP). Gyldigheten til sertifikatet "
+"kunne ikke verifiseres."
 
 msgid "The certificate verification server (OCSP) is temporarily offline."
-msgstr ""
+msgstr "Sertifikatbekreftelsesserveren (OCSP) er midlertidig frakoblet."
 
 msgid "Sender is removed from the server."
-msgstr ""
+msgstr "Avsender fjernes fra serveren."
 
 msgid "Signature verified successfully"
-msgstr ""
+msgstr "Signatur verifisert med suksess"
 
 msgid "Could not verify signature, missing public certificate"
-msgstr ""
+msgstr "Kunne ikke verifisere signaturen, offentlig sertifikat mangler"
 
 msgid "Signature verification successful, but certificate is expired"
-msgstr ""
+msgstr "Signaturverifisering vellykket, men sertifikatet er utløpt"
 
 msgid "Signature could not be verified"
-msgstr ""
+msgstr "Signaturen kunne ikke verifiseres"
 
 msgid "Certificate has been revoked"
-msgstr ""
+msgstr "Sertifikatet har blitt tilbakekalt"
 
 msgid "Verification with Certificate Authority failed"
-msgstr ""
+msgstr "Verifisering med sertifikatmyndighet mislyktes"
 
 msgid "Message decrypted succesfully"
-msgstr ""
+msgstr "Meldingen ble dekryptert"
 
 msgid "Message decryption failed"
-msgstr ""
+msgstr "Dekryptering av melding mislyktes"
 
 msgid "Please"
-msgstr ""
+msgstr "Vær så snill"
 
 msgid "click here"
-msgstr ""
+msgstr "klikk her"
 
 msgid "to unlock your certificate"
-msgstr ""
+msgstr "for å låse opp sertifikatet ditt"
 
 msgid "Cannot determine revocation status of certificate"
-msgstr ""
+msgstr "Kan ikke fastslå tilbakekallingsstatus for sertifikatet"
 
 msgid "Signature verified"
-msgstr ""
+msgstr "Signatur verifisert"
 
 msgid "Unable to decrypt this message. Certificate does not match"
-msgstr ""
+msgstr "Kan ikke dekryptere denne meldingen. Sertifikatet stemmer ikke overens"
 
 msgid "Verification failed. User is removed from the server."
-msgstr ""
+msgstr "Verifisering mislyktes. Brukeren er fjernet fra serveren."
 
 msgid "Charm pink"
 msgstr "Rosa"
@@ -6482,7 +6574,7 @@ msgid "Pearl aqua"
 msgstr "Lyseblå"
 
 msgid "Grommunio blue"
-msgstr ""
+msgstr "Grommunio blå"
 
 msgid "Baby blue"
 msgstr "Babyblå"
@@ -6550,9 +6642,10 @@ msgstr ""
 
 msgid "With this backend, you can connect to any ownCloud server."
 msgstr ""
+"Med denne bakenden kan du koble deg til en hvilken som helst ownCloud-server."
 
 msgid "Files ownCloud Backend: "
-msgstr ""
+msgstr "Filer ownCloud Backend:"
 
 msgid "Server address"
 msgstr "Serveradresse"
@@ -6570,251 +6663,263 @@ msgid "Use grommunio credentials"
 msgstr "Bruk grommunio autentisering"
 
 msgid "php-curl is not available"
-msgstr ""
+msgstr "php-curl er ikke tilgjengelig"
 
 msgid "Access denied"
-msgstr ""
+msgstr "Tilgang avslått"
 
 msgid "Connection failed"
-msgstr ""
+msgstr "Tilkobling mislyktes"
 
 msgid "Sabre error"
-msgstr ""
+msgstr "Sabrefeil"
 
 msgid "Copying failed"
-msgstr ""
+msgstr "Kopieringen mislyktes"
 
 msgid "Unknown error"
 msgstr "Ukjent feil"
 
 msgid "Please contact your system administrator."
-msgstr ""
+msgstr "Ta kontakt med systemadministratoren din."
 
 msgid "Unauthorized. Wrong username or password."
 msgstr "Ikke autentisert. Feil brukernavn eller passord."
 
 msgid "File server is not reachable. Please verify the file server URL."
 msgstr ""
+"Det er ikke mulig å nå filserveren. Vennligst bekreft URL-adressen til "
+"filserveren."
 
 msgid "You don't have enough permissions to view this file or folder."
-msgstr ""
+msgstr "Du har ikke nok rettigheter til å vise denne filen eller mappen."
 
 msgid "The file or folder is not available anymore."
-msgstr ""
+msgstr "Filen eller mappen er ikke lenger tilgjengelig."
 
 msgid "Connection to the file server timed out. Please check again later."
 msgstr ""
+"Tilkoblingen til filserveren ble tidsavbrutt. Vennligst sjekk igjen senere."
 
 msgid "This file is locked by another user. Please try again later."
-msgstr ""
+msgstr "Denne filen er låst av en annen bruker. Vennligst prøv igjen senere."
 
 msgid "The request failed."
-msgstr ""
+msgstr "Forespørselen mislyktes."
 
 msgid "The file server encountered an internal problem."
-msgstr ""
+msgstr "Filserveren har støtt på et internt problem."
 
 msgid "We could not write to temporary directory."
-msgstr ""
+msgstr "Vi kunne ikke skrive til den midlertidige katalogen."
 
 msgid "We could not retrieve list of server features."
-msgstr ""
+msgstr "Vi kunne ikke hente listen over serverfunksjoner."
 
 msgid "PHP-Curl is not available."
-msgstr ""
+msgstr "PHP-Curl er ikke tilgjengelig."
 
 msgid "Unknown account ID"
-msgstr ""
+msgstr "Ukjent konto-ID"
 
 msgid "Feature \"Quota Information\" is not supported by this backend!"
-msgstr ""
+msgstr "Funksjonen \"Kvoteinformasjon\" støttes ikke av denne backend!"
 
 msgid "Feature \"Version Information\" is not supported by this backend!"
-msgstr ""
+msgstr "Funksjonen \"Versjonsinformasjon\" støttes ikke av denne backend!"
 
 msgid "Feature \"OAUTH\" is not supported by this backend!"
-msgstr ""
+msgstr "Funksjonen \"OAUTH\" støttes ikke av denne backend!"
 
 msgid "Moving between accounts is not implemented"
-msgstr ""
+msgstr "Flytting mellom kontoer er ikke implementert"
 
 msgid "Files plugin"
-msgstr ""
+msgstr "Filer-plugin"
 
 msgid "Unknown type - cannot save this file to the Files backend!"
-msgstr ""
+msgstr "Ukjent type - kan ikke lagre denne filen i Files-backend!"
 
 msgid "No record given!"
-msgstr ""
+msgstr "Ingen rekord gitt!"
 
 msgid "Fetching sharing information failed"
-msgstr ""
+msgstr "Henting av delingsinformasjon mislyktes"
 
 msgid "Sharing failed"
-msgstr ""
+msgstr "Deling mislyktes"
 
 msgid "Updating share failed"
-msgstr ""
+msgstr "Oppdatering av aksje mislyktes"
 
 msgid "Deleting share failed"
-msgstr ""
+msgstr "Sletting av deling mislyktes"
 
 msgid "With this backend, you can connect to any WebDAV server."
 msgstr ""
+"Med denne backend kan du koble deg til en hvilken som helst WebDAV-server."
 
 msgid "Files WebDAV Backend: "
-msgstr ""
+msgstr "Filer WebDAV Backend:"
 
 msgid "PHP-CURL is not installed"
-msgstr ""
+msgstr "PHP-CURL er ikke installert"
 
 msgid "Directory creation failed"
-msgstr ""
+msgstr "Opprettelse av katalog mislyktes"
 
 msgid "Deletion failed"
-msgstr ""
+msgstr "Sletting mislyktes"
 
 msgid "Moving failed"
-msgstr ""
+msgstr "Flytting mislyktes"
 
 msgid "Temporary directory problems"
-msgstr ""
+msgstr "Problemer med midlertidige kataloger"
 
 msgid "File or folder not found"
-msgstr ""
+msgstr "Fil eller mappe ble ikke funnet"
 
 msgid "Not implemented"
-msgstr ""
+msgstr "Ikke implementert"
 
 msgid "Please contact your system administrator"
-msgstr ""
+msgstr "Ta kontakt med systemadministratoren din"
 
 msgid "File server is not reachable. Please verify the connection."
-msgstr ""
+msgstr "Filserveren kan ikke nås. Vennligst bekreft tilkoblingen."
 
 msgid "PHP-CURL not installed"
-msgstr ""
+msgstr "PHP-CURL ikke installert"
 
 msgid "Account is ready to use."
-msgstr ""
+msgstr "Kontoen er klar til bruk."
 
 msgid "File backend not responding. Please try again later."
-msgstr ""
+msgstr "Filens backend svarer ikke. Vennligst prøv igjen senere."
 
 msgid "Zip file generation failed. Please inform the administrator."
-msgstr ""
+msgstr "Generering av zip-fil mislyktes. Vennligst informer administratoren."
 
 msgid "This file is no longer available. Please reload the folder."
 msgstr ""
 "Denne filen er ikke lenger tilgjengelig. Vennligst last inn mappa på nytt."
 
 msgid "Mobile device management plugin"
-msgstr ""
+msgstr "Plugin for administrasjon av mobile enheter"
 
 #, php-format
 msgid ""
 "Unexpected error occurred. Please contact your system administrator. Error "
 "code: %s"
 msgstr ""
+"Det oppstod en uventet feil. Vennligst kontakt systemadministratoren din. "
+"Feilkode: %s"
 
 msgid "No data received."
-msgstr ""
+msgstr "Ingen data mottatt."
 
 msgid "Account is empty."
-msgstr ""
+msgstr "Kontoen er tom."
 
 msgid "Current password does not match."
-msgstr ""
+msgstr "Gjeldende passord stemmer ikke overens."
 
 msgid ""
 "Your password is wrong or you have insufficient permission to change password"
 msgstr ""
+"Passordet ditt er feil, eller du har ikke tilstrekkelig tillatelse til å "
+"endre passord"
 
 msgid "Password is not changed."
-msgstr ""
+msgstr "Passordet er ikke endret."
 
 msgid "Error changing password. Please contact the system administrator."
-msgstr ""
+msgstr "Feil ved endring av passord. Vennligst kontakt systemadministratoren."
 
 msgid "Password has been changed successfully."
-msgstr ""
+msgstr "Passordet har blitt endret."
 
 msgid "No certificate avaliable"
-msgstr ""
+msgstr "Ingen sertifikat tilgjengelig"
 
 msgid "Private certificate is not valid yet, unable to sign email"
-msgstr ""
+msgstr "Privat sertifikat er ikke gyldig ennå, kan ikke signere e-post"
 
 msgid "Private certificate has been expired, unable to sign email"
-msgstr ""
+msgstr "Privat sertifikat er utløpt, kan ikke signere e-post"
 
 msgid "Private certificate does not match email address"
-msgstr ""
+msgstr "Privat sertifikat samsvarer ikke med e-postadressen"
 
 msgid "Missing public certificates for the following recipients: "
-msgstr ""
+msgstr "Mangler offentlige sertifikater for følgende mottakere:"
 
 msgid ". Please contact your system administrator for details"
-msgstr ""
+msgstr ". Kontakt systemadministratoren din for mer informasjon"
 
 msgid ""
 "Your public certificate is not installed. Without this certificate, you will "
 "not be able to read encrypted messages you have sent to others."
 msgstr ""
+"Det offentlige sertifikatet ditt er ikke installert. Uten dette sertifikatet "
+"vil du ikke kunne lese krypterte meldinger du har sendt til andre."
 
 msgid "Certificate is already stored on the server"
-msgstr ""
+msgstr "Sertifikatet er allerede lagret på serveren"
 
 msgid "Unable to decrypt certificate"
-msgstr ""
+msgstr "Kan ikke dekryptere sertifikatet"
 
 msgid "Private key can't be used to sign email"
-msgstr ""
+msgstr "Privat nøkkel kan ikke brukes til å signere e-post"
 
 msgid "Certificate email address doesn't match grommunio Web account "
 msgstr ""
+"E-postadressen til sertifikatet stemmer ikke overens med grommunio Web-konto"
 
 msgid "Certificate was expired on "
-msgstr ""
+msgstr "Sertifikatet ble utløpt den"
 
 msgid "Certificate was imported."
-msgstr ""
+msgstr "Sertifikatet ble importert."
 
 msgid "Certificate is not yet valid "
-msgstr ""
+msgstr "Sertifikatet er ikke gyldig ennå"
 
 msgid "Certificate has not been imported"
-msgstr ""
+msgstr "Sertifikatet har ikke blitt importert"
 
 msgid "Certificate is revoked, but was imported."
-msgstr ""
+msgstr "Sertifikatet er tilbakekalt, men ble importert."
 
 msgid "Unable to read public certificate"
-msgstr ""
+msgstr "Kan ikke lese offentlig sertifikat"
 
 msgid "Can't add data to bus, same action type is present in bus"
-msgstr ""
+msgstr "Kan ikke legge til data i bussen, samme handlingstype finnes i bussen"
 
 msgid "Response data requested from bus but it doesn't have any data."
-msgstr ""
+msgstr "Svardata forespurt fra bussen, men den har ingen data."
 
 #, php-format
 msgid "Unknown module '%s' with id '%s'"
-msgstr ""
+msgstr "Ukjent modul '%s' med id '%s'"
 
 msgid ""
 "Server encountered some problem, so it was not able to handle the request."
 msgstr ""
+"Serveren støtte på et problem, så den kunne ikke håndtere forespørselen."
 
 #, php-format
 msgid "Unknown notifier '%s'"
-msgstr ""
+msgstr "Ukjent varsler '%s'"
 
 msgid "An unexpected error has occurred"
-msgstr ""
+msgstr "En uventet feil har oppstått"
 
 msgid "To-Do List"
-msgstr ""
+msgstr "Oppgaveliste"
 
 #. TRANSLATORS: This indicates that the opened folder belongs to a particular user,
 #. * for example: 'Calendar of Holiday', in this case %1$s is 'Calendar' (the foldername)
@@ -6822,13 +6927,13 @@ msgstr ""
 #.
 #, php-format
 msgid "%1$s of %2$s"
-msgstr ""
+msgstr "%1$s av %2$s"
 
 msgid "Error retrieving existing settings"
-msgstr ""
+msgstr "Feil ved henting av eksisterende innstillinger"
 
 msgid "Error retrieving existing persistent settings"
-msgstr ""
+msgstr "Feil ved henting av eksisterende vedvarende innstillinger"
 
 msgid "Logon failed. Please verify your credentials and try again."
 msgstr "Pålogging mislyktes. Vennligst sjekk ditt brukernavn/passord."
@@ -6847,16 +6952,16 @@ msgid "Unknown MAPI Error"
 msgstr "Ukjent MAPI feil"
 
 msgid "Destination folder not found."
-msgstr ""
+msgstr "Målmappen ble ikke funnet."
 
 msgid "Eml is corrupted"
-msgstr ""
+msgstr "Eml er ødelagt"
 
 msgid "The eml Attachment is not imported successfully"
-msgstr ""
+msgstr "Importen av eml-vedlegget er ikke vellykket"
 
 msgid "The vcf attachment is not imported successfully"
-msgstr ""
+msgstr "Importen av vcf-vedlegget er ikke vellykket"
 
 #, php-format
 msgid "Unable to import '%s' to '%s'. "
@@ -6876,31 +6981,31 @@ msgid "Unable to import '%s'. "
 msgstr "Kunne ikke importere  '%s'. "
 
 msgid "Attachment is not imported successfully"
-msgstr ""
+msgstr "Vedlegget ble ikke importert"
 
 msgid "Embedded attachment not found."
-msgstr ""
+msgstr "Det innebygde vedlegget ble ikke funnet."
 
 msgid "ZIP is not created successfully"
-msgstr ""
+msgstr "ZIP-filen er ikke opprettet"
 
 msgid "Attachments can not be downloaded"
-msgstr ""
+msgstr "Vedlegg kan ikke lastes ned"
 
 msgid "Could not find attachment."
-msgstr ""
+msgstr "Fant ikke vedlegget."
 
 msgid "Operation failed"
-msgstr ""
+msgstr "Operasjonen mislyktes"
 
 msgid "Sticky Note"
-msgstr ""
+msgstr "Klistrelapp"
 
 msgid "Task Request"
-msgstr ""
+msgstr "Forespørsel om oppgave"
 
 msgid "Could not find message, either it has been moved or deleted."
-msgstr ""
+msgstr "Fant ikke meldingen, enten er den flyttet eller slettet."
 
 msgid "Request is not available."
 msgstr "Forespørselen er ikke tilgjengelig."
@@ -6931,62 +7036,68 @@ msgid "Unknown MAPI Error: %s"
 msgstr "Ukjent MAPI feil: %s"
 
 msgid "Action is not performed correctly."
-msgstr ""
+msgstr "Handlingen er ikke utført korrekt."
 
 msgid "Contact not found"
-msgstr ""
+msgstr "Kontakt ikke funnet"
 
 msgid ""
 "Contact information could not be displayed because the server had trouble "
 "retrieving the information."
 msgstr ""
+"Kontaktinformasjon kunne ikke vises fordi serveren hadde problemer med å "
+"hente informasjonen."
 
 msgid "Please contact your system administrator if the problem persists."
 msgstr "Ta kontakt med din systemadministrator om dette problemet vedvarer."
 
 msgid "Could not handle this type of object."
-msgstr ""
+msgstr "Kunne ikke håndtere denne typen objekt."
 
 msgid "Could not open this object."
-msgstr ""
+msgstr "Kunne ikke åpne dette objektet."
 
 msgid "Error in search, please try again"
-msgstr ""
+msgstr "Feil i søket, vennligst prøv igjen"
 
 msgid "Unable to perform search query, no permissions to create search folder."
-msgstr ""
+msgstr "Kan ikke utføre søk, ingen tillatelse til å opprette søkemappe."
 
 msgid "Unable to perform search query, search folder not found."
-msgstr ""
+msgstr "Kan ikke utføre søk, søkemappen ble ikke funnet."
 
 msgid "Unable to perform search query, store might not support searching."
-msgstr ""
+msgstr "Kan ikke utføre søk, butikken støtter kanskje ikke søk."
 
 msgid "Error in creating search folder."
-msgstr ""
+msgstr "Feil ved oppretting av søkemappe."
 
 msgid "Could not open occurrence."
-msgstr ""
+msgstr "Kunne ikke åpne hendelsen."
 
 msgid "Could not open occurrence, specific occurrence is probably deleted."
 msgstr ""
+"Kunne ikke åpne forekomsten, den spesifikke forekomsten er sannsynligvis "
+"slettet."
 
 msgid "a meeting request"
-msgstr ""
+msgstr "en møteforespørsel"
 
 msgid "an appointment"
-msgstr ""
+msgstr "en avtale"
 
 msgid "You have insufficient privileges to move "
-msgstr ""
+msgstr "Du har ikke tilstrekkelige rettigheter til å flytte"
 
 msgid ""
 "Cannot set a reminder to appear before the previous occurrence. Reset "
 "reminder to save the change"
 msgstr ""
+"Det er ikke mulig å angi at en påminnelse skal vises før forrige hendelse. "
+"Tilbakestill påminnelse for å lagre endringen"
 
 msgid "Two occurrences cannot occur on the same day"
-msgstr ""
+msgstr "To hendelser kan ikke inntreffe på samme dag"
 
 #, php-format
 msgid ""
@@ -6995,138 +7106,153 @@ msgid ""
 "enter the name as a required or optional attendee or talk to your "
 "administrator about giving you permission to schedule '%s'."
 msgstr ""
+"Du har merket \"%s\" som en ressurs. Du kan ikke planlegge et møte med "
+"\"%s\" fordi du ikke har de riktige tillatelsene for den kontoen. Angi enten "
+"navnet som en obligatorisk eller valgfri deltaker, eller snakk med "
+"administratoren din om å gi deg tillatelse til å planlegge \"%s\"."
 
 #, php-format
 msgid ""
 "'%s' has declined your meeting because '%s' does not automatically accept "
 "meeting requests."
 msgstr ""
+"'%s' har avvist møtet ditt fordi '%s' ikke automatisk godtar "
+"møteforespørsler."
 
 #, php-format
 msgid ""
 "'%s' has declined your meeting because it is recurring. You must book each "
 "meeting separately with this resource."
 msgstr ""
+"'%s' har avvist møtet ditt fordi det er et gjentakende møte. Du må bestille "
+"hvert møte separat med denne ressursen."
 
 #, php-format
 msgid ""
 "'%s' is already booked for this specified time. You must use another time or "
 "find another resource."
 msgstr ""
+"\"%s\" er allerede booket for dette angitte tidspunktet. Du må bruke et "
+"annet tidspunkt eller finne en annen ressurs."
 
 msgid "Meeting was not scheduled."
-msgstr ""
+msgstr "Det ble ikke avtalt noe møte."
 
 msgid "Meeting could not be sent."
-msgstr ""
+msgstr "Møtet kunne ikke sendes."
 
 msgid "Meeting could not be saved."
-msgstr ""
+msgstr "Møtet kunne ikke reddes."
 
 msgid "Private Appointment"
-msgstr ""
+msgstr "Privat avtale"
 
 #, php-format
 msgid "%s's Birthday"
-msgstr ""
+msgstr "%s' bursdag"
 
 #, php-format
 msgid "%s's Anniversary"
-msgstr ""
+msgstr "%s' jubileumsdag"
 
 msgid "You don't have the permission to complete this action"
-msgstr ""
+msgstr "Du har ikke tillatelse til å fullføre denne handlingen"
 
 msgid "Quota error"
-msgstr ""
+msgstr "Kvotefeil"
 
 msgid "Send quota limit reached"
-msgstr ""
+msgstr "Sendekvotens grense nådd"
 
 msgid "Email sending failed. Check the log files for more information."
-msgstr ""
+msgstr "Sending av e-post mislyktes. Sjekk loggfilene for mer informasjon."
 
 msgid "Unknown user/group"
-msgstr ""
+msgstr "Ukjent bruker/gruppe"
 
 msgid "Could not save delegate information."
-msgstr ""
+msgstr "Kunne ikke lagre delegatinformasjon."
 
 msgid "Could not delete delegate."
-msgstr ""
+msgstr "Kunne ikke slette delegaten."
 
 msgid "Can not get list of delegates."
-msgstr ""
+msgstr "Kan ikke få en liste over delegater."
 
 msgid "Could not load the hierarchy."
-msgstr ""
+msgstr "Kunne ikke laste inn hierarkiet."
 
 msgid "Could not load folder properties."
-msgstr ""
+msgstr "Kunne ikke laste inn mappeegenskaper."
 
 msgid "Could not remove folder from favorites."
-msgstr ""
+msgstr "Kunne ikke fjerne mappen fra favoritter."
 
 msgid "You have insufficient privileges to delete folder."
-msgstr ""
+msgstr "Du har ikke tilstrekkelige rettigheter til å slette mappen."
 
 msgid "Could not delete folder."
-msgstr ""
+msgstr "Kunne ikke slette mappen."
 
 msgid "You have insufficient privileges to copy folder."
-msgstr ""
+msgstr "Du har ikke tilstrekkelige rettigheter til å kopiere mappen."
 
 msgid "Could not copy folder."
-msgstr ""
+msgstr "Kunne ikke kopiere mappen."
 
 msgid "You have insufficient privileges to move this folder."
-msgstr ""
+msgstr "Du har ikke tilstrekkelige rettigheter til å flytte denne mappen."
 
 msgid "Could not move folder."
-msgstr ""
+msgstr "Kunne ikke flytte mappen."
 
 msgid "You have insufficient privileges to delete items."
-msgstr ""
+msgstr "Du har ikke tilstrekkelige rettigheter til å slette elementer."
 
 msgid "Could not empty folder."
-msgstr ""
+msgstr "Kunne ikke tømme mappen."
 
 msgid "Could not perform action correctly."
-msgstr ""
+msgstr "Kunne ikke utføre handlingen riktig."
 
 msgid ""
 "A favorite folder with this name already exists, please use another name."
 msgstr ""
+"Det finnes allerede en favorittmappe med dette navnet, vennligst bruk et "
+"annet navn."
 
 msgid "Could not add folder to favorites."
-msgstr ""
+msgstr "Kunne ikke legge til mapper i favoritter."
 
 msgid "You have insufficient privileges to set permissions for this folder."
 msgstr ""
+"Du har ikke tilstrekkelige rettigheter til å angi tillatelser for denne "
+"mappen."
 
 msgid "Could not set folder permissions."
-msgstr ""
+msgstr "Kunne ikke angi mappetillatelser."
 
 msgid "You have insufficient privileges to rename this folder."
 msgstr ""
+"Du har ikke tilstrekkelige rettigheter til å endre navn på denne mappen."
 
 msgid "A folder with this name already exists. Use another name."
-msgstr ""
+msgstr "Det finnes allerede en mappe med dette navnet. Bruk et annet navn."
 
 msgid "Could not rename folder."
-msgstr ""
+msgstr "Kunne ikke gi nytt navn til mappen."
 
 msgid "You have insufficient privileges to create this folder."
-msgstr ""
+msgstr "Du har ikke tilstrekkelige rettigheter til å opprette denne mappen."
 
 msgid "Could not create folder."
-msgstr ""
+msgstr "Kunne ikke opprette mappe."
 
 msgid "Could not close shared folder."
-msgstr ""
+msgstr "Kunne ikke lukke delt mappe."
 
 msgid "User could not be resolved."
-msgstr ""
+msgstr "Bruker kunne ikke løses."
 
 #, php-format
 msgid ""
@@ -7134,29 +7260,34 @@ msgid ""
 "can set these using the 'permissions'-tab of the folder properties (right "
 "click the %1$s folder > properties > permissions)."
 msgstr ""
+"Du har ikke tilstrekkelige rettigheter til å åpne mappen %1$s. Mappens eier "
+"kan angi disse ved å bruke \"tillatelser\"-fanen i mappeegenskapene "
+"(høyreklikk på mappen %1$s > egenskaper > tillatelser)."
 
 msgid "default"
-msgstr ""
+msgstr "standard"
 
 msgid "anonymous"
-msgstr ""
+msgstr "anonym"
 
 msgid "unknown"
-msgstr ""
+msgstr "ukjent"
 
 msgid "Could not move folder"
-msgstr ""
+msgstr "Kunne ikke flytte mappen"
 
 msgid "Could not copy folder"
-msgstr ""
+msgstr "Kunne ikke kopiere mappen"
 
 msgid "You have insufficient privileges to open this message."
-msgstr ""
+msgstr "Du har ikke tilstrekkelige rettigheter til å åpne denne meldingen."
 
 msgid ""
 "Could not find message, either it has been moved or deleted or you don't "
 "have access to open this message."
 msgstr ""
+"Fant ikke meldingen, enten har den blitt flyttet eller slettet, eller så har "
+"du ikke tilgang til å åpne denne meldingen."
 
 msgid "Could not open message."
 msgstr "Kunne ikke åpne meldingen."
@@ -7258,141 +7389,157 @@ msgstr "De følgende mottakere kunne ikke nåes"
 
 msgid "You have insufficient privileges to see the contents of this folder."
 msgstr ""
+"Du har ikke tilstrekkelige rettigheter til å se innholdet i denne mappen."
 
 msgid "Could not load the contents of this folder."
-msgstr ""
+msgstr "Kunne ikke laste inn innholdet i denne mappen."
 
 msgid ""
 "You have insufficient privileges to perform search operation in this folder."
 msgstr ""
+"Du har ikke tilstrekkelige rettigheter til å utføre søk i denne mappen."
 
 msgid "Could not update search results."
-msgstr ""
+msgstr "Søkeresultatene kunne ikke oppdateres."
 
 msgid "Could not stop search operation."
-msgstr ""
+msgstr "Kunne ikke stoppe søkeoperasjonen."
 
 msgid "You have insufficient privileges to save this message."
-msgstr ""
+msgstr "Du har ikke tilstrekkelige rettigheter til å lagre denne meldingen."
 
 msgid "Could not save message."
-msgstr ""
+msgstr "Kunne ikke lagre meldingen."
 
 msgid "You have insufficient privileges to delete this message."
-msgstr ""
+msgstr "Du har ikke tilstrekkelige rettigheter til å slette denne meldingen."
 
 msgid "Could not delete message."
-msgstr ""
+msgstr "Kunne ikke slette meldingen."
 
 msgid "You have insufficient privileges to cancel this Meeting Request."
 msgstr ""
+"Du har ikke tilstrekkelige rettigheter til å kansellere denne "
+"møteforespørselen."
 
 msgid "Could not cancel Meeting Request."
-msgstr ""
+msgstr "Kunne ikke avbryte møteforespørselen."
 
 msgid "You have insufficient privileges to decline this Meeting Request."
 msgstr ""
+"Du har ikke tilstrekkelige rettigheter til å avslå denne møteforespørselen."
 
 msgid "Could not decline Meeting Request."
-msgstr ""
+msgstr "Kunne ikke avslå møteforespørsel."
 
 msgid "You have insufficient privileges to accept this Meeting Request."
 msgstr ""
+"Du har ikke tilstrekkelige rettigheter til å godta denne møteforespørselen."
 
 msgid "Could not accept Meeting Request."
-msgstr ""
+msgstr "Kunne ikke godta møteforespørsel."
 
 msgid "You have insufficient privileges to cancel Meeting Request invitation."
-msgstr ""
+msgstr "Du har ikke tilstrekkelige rettigheter til å avbryte møteinvitasjonen."
 
 msgid "Could not cancel Meeting Request invitations."
-msgstr ""
+msgstr "Kunne ikke avbryte invitasjoner til møteforespørsler."
 
 msgid "You can not continue search operation on this folder."
-msgstr ""
+msgstr "Du kan ikke fortsette søket i denne mappen."
 
 msgid "Error in search, please try again."
-msgstr ""
+msgstr "Feil i søket, vennligst prøv igjen."
 
 msgid "Error in distribution list expansion."
-msgstr ""
+msgstr "Feil i utvidelsen av distribusjonslisten."
 
 msgid "The message store has exceeded its hard quota limit."
-msgstr ""
+msgstr "Meldingslageret har overskredet den harde kvotegrensen."
 
 msgid ""
 "To reduce the amount of data in this message store, select some items that "
 "you no longer need, delete them and cleanup your Deleted Items folder."
 msgstr ""
+"For å redusere datamengden i dette meldingslageret kan du velge ut noen "
+"elementer du ikke lenger trenger, slette dem og rydde opp i mappen Slettede "
+"elementer."
 
 msgid "The message store has exceeded its soft quota limit."
-msgstr ""
+msgstr "Meldingslageret har overskredet den myke kvotegrensen."
 
 msgid "Could not process request data properly."
-msgstr ""
+msgstr "Kunne ikke behandle forespørselsdata på riktig måte."
 
 #, php-format
 msgid "Unknown action type specified - %s"
-msgstr ""
+msgstr "Ukjent handlingstype angitt - %s"
 
 msgid "Cannot snooze the reminder. You may be reminded again."
-msgstr ""
+msgstr "Du kan ikke utsette påminnelsen. Du kan bli påminnet igjen."
 
 msgid "Cannot dismiss the reminder. You may be reminded again."
-msgstr ""
+msgstr "Du kan ikke avvise påminnelsen. Du kan bli påminnet på nytt."
 
 msgid "You have insufficient privileges to perform this action."
-msgstr ""
+msgstr "Du har ikke tilstrekkelige rettigheter til å utføre denne handlingen."
 
 msgid "Could not resolve user."
-msgstr ""
+msgstr "Kunne ikke løse brukeren."
 
 msgid "Setting mail filters on the stores of other users is not allowed."
 msgstr ""
+"Det er ikke tillatt å sette opp e-postfiltre på andre brukeres butikker."
 
 msgid "Untitled rule"
-msgstr ""
+msgstr "Regel uten tittel"
 
 msgid "Could not load rules."
-msgstr ""
+msgstr "Kunne ikke laste inn regler."
 
 msgid "Could not save rules."
-msgstr ""
+msgstr "Kunne ikke lagre regler."
 
 msgid "Task Request:"
-msgstr ""
+msgstr "Oppgaveforespørsel:"
 
 msgid "Sign in"
-msgstr ""
+msgstr "Logg inn"
 
 msgid "File is not imported successfully"
-msgstr ""
+msgstr "Filen ble ikke importert"
 
 msgid "The uploaded file exceeds the upload_max_filesize directive in php.ini."
 msgstr ""
+"Den opplastede filen overskrider upload_max_filesize-direktivet i php.ini."
 
 msgid ""
 "The uploaded file exceeds the MAX_FILE_SIZE directive that was specified in "
 "the HTML form."
 msgstr ""
+"Den opplastede filen overskrider MAX_FILE_SIZE-direktivet som ble angitt i "
+"HTML-skjemaet."
 
 msgid "The uploaded file was only partially uploaded."
-msgstr ""
+msgstr "Den opplastede filen ble bare delvis lastet opp."
 
 msgid "No file was uploaded. ."
-msgstr ""
+msgstr "Ingen fil ble lastet opp. ."
 
 msgid "Missing a temporary folder."
-msgstr ""
+msgstr "Mangler en midlertidig mappe."
 
 msgid "Failed to write file to disk."
-msgstr ""
+msgstr "Kunne ikke skrive fil til disk."
 
 msgid ""
 "A PHP extension stopped the file upload. PHP does not provide a way to "
 "ascertain which extension caused the file upload to stop; examining the list "
 "of loaded extensions with phpinfo() may help."
 msgstr ""
+"En PHP-utvidelse stoppet filopplastingen. PHP gir ikke en måte å finne ut "
+"hvilken utvidelse som forårsaket at filopplastingen stoppet; å undersøke "
+"listen over lastede utvidelser med phpinfo() kan hjelpe."
 
 msgid "There is no contact found in this file."
 msgstr "Fant ingen kontakter i denne filen."
@@ -7400,44 +7547,45 @@ msgstr "Fant ingen kontakter i denne filen."
 msgid ""
 "grommunio Web does not support importing multiple VCF with this version."
 msgstr ""
+"grommunio Web støtter ikke import av flere VCF-filer med denne versjonen."
 
 msgid ""
 "grommunio Web does not support importing multiple ICS with this version."
-msgstr ""
+msgstr "grommunio Web støtter ikke import av flere ICS med denne versjonen."
 
 msgid "The EML is not valid"
-msgstr ""
+msgstr "EML-en er ikke gyldig"
 
 msgid "GB"
-msgstr ""
+msgstr "GB"
 
 msgid "MB"
-msgstr ""
+msgstr "MB"
 
 msgid "KB"
-msgstr ""
+msgstr "KB"
 
 msgid "B"
-msgstr ""
+msgstr "B"
 
 msgid "The maximum stack depth has been exceeded"
-msgstr ""
+msgstr "Maksimal stakedybde er overskredet"
 
 msgid "Control character error, possibly incorrectly encoded"
-msgstr ""
+msgstr "Kontrolltegnfeil, muligens feilkodet"
 
 msgid "Invalid or malformed JSON"
-msgstr ""
+msgstr "Ugyldig eller feilformet JSON"
 
 msgid "Syntax error"
-msgstr ""
+msgstr "Syntaksfeil"
 
 msgid "Malformed UTF-8 characters, possibly incorrectly encoded"
-msgstr ""
+msgstr "Feil UTF-8-tegn, muligens feilkodet"
 
 #, php-format
 msgid "JSON Error: - %s"
-msgstr ""
+msgstr "JSON-feil: - %s"
 
 msgid "Some problem encountered when encoding/decoding JSON data."
-msgstr ""
+msgstr "Det oppstod et problem ved koding/avkoding av JSON-data."
