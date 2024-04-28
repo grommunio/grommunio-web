@@ -1,10 +1,11 @@
 # grommunio Web Russian translation.
 # Copyright (C) 2021
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Russian\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-04-28 22:53+0200\n"
+"POT-Creation-Date: 2024-04-28 23:57+0200\n"
 "PO-Revision-Date: 2022-07-26 17:59+0200\n"
 "Last-Translator: Artem <Localizer_in_Russian@protonmail.com>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/grommunio/"
@@ -1957,6 +1958,8 @@ msgid ""
 "{0} has requested a notification be sent when message \"{1}\" is deleted "
 "without having been read. Do you want to send a receipt?"
 msgstr ""
+"{0} попросил прислать уведомление, когда сообщение \"{1}\" будет удалено, не "
+"будучи прочитанным. Хотите ли вы отправить квитанцию?"
 
 msgid "Delete Incomplete Task"
 msgstr "Удалить незавершенную задачу"
@@ -4844,7 +4847,7 @@ msgid "Location of preview pane"
 msgstr "Место панели предпросмотра"
 
 msgid "Use subject prefixes in accordance with RFC 5256/5322"
-msgstr ""
+msgstr "Используйте префиксы тем в соответствии с RFC 5256/5322"
 
 msgid "Close original message on reply or forward"
 msgstr "Закрывать текущее письмо при ответе или пересылке"
@@ -6286,13 +6289,13 @@ msgid "Wipe Executed"
 msgstr "Сброс выполнен"
 
 msgid "Account Only Wipe Pending"
-msgstr ""
+msgstr "Только для учетной записи Ожидается стирание"
 
 msgid "Account Only Wipe Requested"
-msgstr ""
+msgstr "Запрошено стирание только учетной записи"
 
 msgid "Account Only Wipe Executed"
-msgstr ""
+msgstr "Выполнено стирание только учетной записи"
 
 msgid "Not Available"
 msgstr "Недоступен"
@@ -6399,10 +6402,10 @@ msgid "Please enter your username and password"
 msgstr "Введите имя пользователя и пароль"
 
 msgid "Wipe only data related to this account"
-msgstr ""
+msgstr "Стирайте только данные, относящиеся к этой учетной записи"
 
 msgid "Wipe all data"
-msgstr ""
+msgstr "Сотрите все данные"
 
 msgid "Username"
 msgstr "Имя пользователя"
@@ -7286,7 +7289,7 @@ msgid "Certificate was expired on "
 msgstr "Срок действия сертификата истек на "
 
 msgid "Certificate was imported."
-msgstr ""
+msgstr "Сертификат был импортирован."
 
 msgid "Certificate is not yet valid "
 msgstr "Сертификат еще не действителен "
@@ -7296,7 +7299,7 @@ msgid "Certificate has not been imported"
 msgstr "Сертификат не был импортирован"
 
 msgid "Certificate is revoked, but was imported."
-msgstr ""
+msgstr "Сертификат отозван, но был импортирован."
 
 #, fuzzy
 msgid "Unable to read public certificate"
@@ -7615,13 +7618,15 @@ msgid "You don't have the permission to complete this action"
 msgstr "У вас нет разрешения на выполнение этого действия"
 
 msgid "Quota error"
-msgstr ""
+msgstr "Ошибка квоты"
 
 msgid "Send quota limit reached"
-msgstr ""
+msgstr "Лимит квоты на отправку достигнут"
 
 msgid "Email sending failed. Check the log files for more information."
 msgstr ""
+"Не удалось отправить электронное письмо. Проверьте файлы журнала для "
+"получения дополнительной информации."
 
 #, fuzzy
 msgid "Unknown user/group"
@@ -7745,10 +7750,10 @@ msgstr ""
 "правой кнопкой мыши папку %1$s > свойства > разрешения)."
 
 msgid "default"
-msgstr ""
+msgstr "по умолчанию"
 
 msgid "anonymous"
-msgstr ""
+msgstr "аноним"
 
 msgid "unknown"
 msgstr "неизвестно"
@@ -8016,29 +8021,35 @@ msgstr "Файл успешно не импортирован"
 
 msgid "The uploaded file exceeds the upload_max_filesize directive in php.ini."
 msgstr ""
+"Размер загруженного файла превышает значение директивы upload_max_filesize в "
+"php.ini."
 
 msgid ""
 "The uploaded file exceeds the MAX_FILE_SIZE directive that was specified in "
 "the HTML form."
 msgstr ""
+"Загруженный файл превышает директиву MAX_FILE_SIZE, указанную в HTML-форме."
 
 msgid "The uploaded file was only partially uploaded."
-msgstr ""
+msgstr "Загруженный файл был загружен только частично."
 
 msgid "No file was uploaded. ."
-msgstr ""
+msgstr "Ни один файл не был загружен. ."
 
 msgid "Missing a temporary folder."
-msgstr ""
+msgstr "Отсутствует временная папка."
 
 msgid "Failed to write file to disk."
-msgstr ""
+msgstr "Не удалось записать файл на диск."
 
 msgid ""
 "A PHP extension stopped the file upload. PHP does not provide a way to "
 "ascertain which extension caused the file upload to stop; examining the list "
 "of loaded extensions with phpinfo() may help."
 msgstr ""
+"Расширение PHP остановило загрузку файла. PHP не предоставляет способа "
+"определить, какое расширение вызвало остановку загрузки файла; в этом может "
+"помочь изучение списка загруженных расширений с помощью phpinfo()."
 
 #, fuzzy
 msgid "There is no contact found in this file."
