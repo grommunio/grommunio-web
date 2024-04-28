@@ -1,10 +1,11 @@
 # grommunio Web German (Swiss) translation.
 # Copyright (C) 2021
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web German (Swiss)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-04-28 22:53+0200\n"
+"POT-Creation-Date: 2024-04-28 23:20+0200\n"
 "PO-Revision-Date: 2021-03-02 15:12+0000\n"
 "Last-Translator: import\n"
 "Language: de_CH\n"
@@ -1898,6 +1899,8 @@ msgid ""
 "{0} has requested a notification be sent when message \"{1}\" is deleted "
 "without having been read. Do you want to send a receipt?"
 msgstr ""
+"{0} hat um eine Benachrichtigung gebeten, wenn die Nachricht \"{1}\" "
+"ungelesen gelöscht wird. Möchten Sie eine Empfangsbestätigung senden?"
 
 msgid "Delete Incomplete Task"
 msgstr "Unfertige Aufgabe löschen"
@@ -6077,13 +6080,13 @@ msgid "Wipe Executed"
 msgstr "Löschauftrag ausgeführt"
 
 msgid "Account Only Wipe Pending"
-msgstr ""
+msgstr "Nur Konto löschen ausstehend"
 
 msgid "Account Only Wipe Requested"
-msgstr ""
+msgstr "Nur-Konto-Löschung angefordert"
 
 msgid "Account Only Wipe Executed"
-msgstr ""
+msgstr "Nur Konto löschen Ausgeführt"
 
 msgid "Not Available"
 msgstr "Nicht verfügbar"
@@ -6188,10 +6191,10 @@ msgid "Please enter your username and password"
 msgstr "Bitte geben Sie Ihren Benutzernamen und Passwort ein"
 
 msgid "Wipe only data related to this account"
-msgstr ""
+msgstr "Nur Daten zu diesem Konto löschen"
 
 msgid "Wipe all data"
-msgstr ""
+msgstr "Alle Daten löschen"
 
 msgid "Username"
 msgstr "Benutzername"
@@ -6962,7 +6965,7 @@ msgid "Certificate was expired on "
 msgstr "Zertifikat ist abgelaufen am "
 
 msgid "Certificate was imported."
-msgstr ""
+msgstr "Zertifikat wurde importiert."
 
 msgid "Certificate is not yet valid "
 msgstr "Zertifikat ist noch nicht gültig "
@@ -6971,7 +6974,7 @@ msgid "Certificate has not been imported"
 msgstr "Zertifikat wurde nicht importiert"
 
 msgid "Certificate is revoked, but was imported."
-msgstr ""
+msgstr "Das Zertifikat ist widerrufen, wurde aber importiert."
 
 msgid "Unable to read public certificate"
 msgstr "Kann öffentliches Zertifikat nicht lesen"
@@ -7249,13 +7252,15 @@ msgid "You don't have the permission to complete this action"
 msgstr "Sie haben keine Berechtigung, diese Aktion auszuführen"
 
 msgid "Quota error"
-msgstr ""
+msgstr "Quotenfehler"
 
 msgid "Send quota limit reached"
-msgstr ""
+msgstr "Sendekontingentgrenze erreicht"
 
 msgid "Email sending failed. Check the log files for more information."
 msgstr ""
+"Der E-Mail-Versand ist fehlgeschlagen. Prüfen Sie die Protokolldateien für "
+"weitere Informationen."
 
 msgid "Unknown user/group"
 msgstr "Unbekannte(r) Benutzer/Gruppe"
@@ -7355,10 +7360,10 @@ msgstr ""
 "auf den %1$s-Ordner ▶ Eigenschaften ▶ Berechtigung)."
 
 msgid "default"
-msgstr ""
+msgstr "Standard"
 
 msgid "anonymous"
-msgstr ""
+msgstr "anonyme"
 
 msgid "unknown"
 msgstr "unbekannt"
@@ -7583,29 +7588,37 @@ msgstr "Datei wurde nicht erfolgreich importiert"
 
 msgid "The uploaded file exceeds the upload_max_filesize directive in php.ini."
 msgstr ""
+"Die hochgeladene Datei überschreitet die Richtlinie upload_max_filesize in "
+"php.ini."
 
 msgid ""
 "The uploaded file exceeds the MAX_FILE_SIZE directive that was specified in "
 "the HTML form."
 msgstr ""
+"Die hochgeladene Datei überschreitet die im HTML-Formular angegebene "
+"Richtlinie MAX_FILE_SIZE."
 
 msgid "The uploaded file was only partially uploaded."
-msgstr ""
+msgstr "Die hochgeladene Datei wurde nur teilweise hochgeladen."
 
 msgid "No file was uploaded. ."
-msgstr ""
+msgstr "Es wurde keine Datei hochgeladen. ."
 
 msgid "Missing a temporary folder."
-msgstr ""
+msgstr "Es fehlt ein temporärer Ordner."
 
 msgid "Failed to write file to disk."
-msgstr ""
+msgstr "Die Datei konnte nicht auf die Festplatte geschrieben werden."
 
 msgid ""
 "A PHP extension stopped the file upload. PHP does not provide a way to "
 "ascertain which extension caused the file upload to stop; examining the list "
 "of loaded extensions with phpinfo() may help."
 msgstr ""
+"Eine PHP-Erweiterung hat den Datei-Upload gestoppt. PHP bietet keine "
+"Möglichkeit, herauszufinden, welche Erweiterung den Abbruch des Datei-"
+"Uploads verursacht hat; eine Untersuchung der Liste der geladenen "
+"Erweiterungen mit phpinfo() kann helfen."
 
 msgid "There is no contact found in this file."
 msgstr "In der Datei wurde kein Kontakt gefunden."
