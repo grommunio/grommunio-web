@@ -1,10 +1,11 @@
 # grommunio Web Dutch translation.
 # Copyright (C) 2021
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Dutch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-04-28 22:53+0200\n"
+"POT-Creation-Date: 2024-04-28 23:16+0200\n"
 "PO-Revision-Date: 2022-12-11 14:12+0000\n"
 "Last-Translator: Orkan Eser <orkan.eser@grommunio.com>\n"
 "Language-Team: Dutch <https://hosted.weblate.org/projects/grommunio/"
@@ -1896,6 +1897,9 @@ msgid ""
 "{0} has requested a notification be sent when message \"{1}\" is deleted "
 "without having been read. Do you want to send a receipt?"
 msgstr ""
+"{0} heeft gevraagd om een notificatie te sturen wanneer bericht \"{1}\" "
+"verwijderd wordt zonder gelezen te zijn. Wilt u een ontvangstbevestiging "
+"sturen?"
 
 msgid "Delete Incomplete Task"
 msgstr "Verwijder Onvoltooide Taak"
@@ -6029,13 +6033,13 @@ msgid "Wipe Executed"
 msgstr "Wissen uitgevoerd"
 
 msgid "Account Only Wipe Pending"
-msgstr ""
+msgstr "Alleen account wissen in afwachting"
 
 msgid "Account Only Wipe Requested"
-msgstr ""
+msgstr "Account alleen leegmaken aangevraagd"
 
 msgid "Account Only Wipe Executed"
-msgstr ""
+msgstr "Alleen account wissen uitgevoerd"
 
 msgid "Not Available"
 msgstr "Niet Beschikbaar"
@@ -6140,10 +6144,10 @@ msgid "Please enter your username and password"
 msgstr "Voer uw gebruikersnaam en wachtwoord in"
 
 msgid "Wipe only data related to this account"
-msgstr ""
+msgstr "Alleen gegevens met betrekking tot deze account wissen"
 
 msgid "Wipe all data"
-msgstr ""
+msgstr "Alle gegevens wissen"
 
 msgid "Username"
 msgstr "Gebruikersnaam"
@@ -6901,7 +6905,7 @@ msgid "Certificate was expired on "
 msgstr "Certificaat verlopen op "
 
 msgid "Certificate was imported."
-msgstr ""
+msgstr "Het certificaat is geïmporteerd."
 
 msgid "Certificate is not yet valid "
 msgstr "Certificaat is nog niet geldig "
@@ -6910,7 +6914,7 @@ msgid "Certificate has not been imported"
 msgstr "Certificaat is niet geïmporteerd"
 
 msgid "Certificate is revoked, but was imported."
-msgstr ""
+msgstr "Certificaat is ingetrokken, maar werd geïmporteerd."
 
 msgid "Unable to read public certificate"
 msgstr "Kan publiek certificaat niet lezen"
@@ -7182,13 +7186,15 @@ msgid "You don't have the permission to complete this action"
 msgstr "U heeft geen toestemming om deze actie uit te voeren"
 
 msgid "Quota error"
-msgstr ""
+msgstr "Quota fout"
 
 msgid "Send quota limit reached"
-msgstr ""
+msgstr "Limiet verzendquota bereikt"
 
 msgid "Email sending failed. Check the log files for more information."
 msgstr ""
+"Het verzenden van e-mail is mislukt. Controleer de logbestanden voor meer "
+"informatie."
 
 msgid "Unknown user/group"
 msgstr "Onbekende gebruiker/groep"
@@ -7285,10 +7291,10 @@ msgstr ""
 "machtigingen)."
 
 msgid "default"
-msgstr ""
+msgstr "standaard"
 
 msgid "anonymous"
-msgstr ""
+msgstr "anoniem"
 
 msgid "unknown"
 msgstr "onbekend"
@@ -7520,29 +7526,36 @@ msgstr "Bestand is niet succesvol geïmporteerd"
 
 msgid "The uploaded file exceeds the upload_max_filesize directive in php.ini."
 msgstr ""
+"Het geüploade bestand overschrijdt de upload_max_filesize richtlijn in php."
+"ini."
 
 msgid ""
 "The uploaded file exceeds the MAX_FILE_SIZE directive that was specified in "
 "the HTML form."
 msgstr ""
+"Het geüploade bestand overschrijdt de MAX_FILE_SIZE richtlijn die was "
+"opgegeven in het HTML-formulier."
 
 msgid "The uploaded file was only partially uploaded."
-msgstr ""
+msgstr "Het geüploade bestand is slechts gedeeltelijk geüpload."
 
 msgid "No file was uploaded. ."
-msgstr ""
+msgstr "Er is geen bestand geüpload. ."
 
 msgid "Missing a temporary folder."
-msgstr ""
+msgstr "Tijdelijke map ontbreekt."
 
 msgid "Failed to write file to disk."
-msgstr ""
+msgstr "Faalde om bestand naar schijf te schrijven."
 
 msgid ""
 "A PHP extension stopped the file upload. PHP does not provide a way to "
 "ascertain which extension caused the file upload to stop; examining the list "
 "of loaded extensions with phpinfo() may help."
 msgstr ""
+"Een PHP-extensie stopte het uploaden van het bestand. PHP biedt geen manier "
+"om vast te stellen welke extensie de upload van het bestand stopzette; de "
+"lijst met geladen extensies bekijken met phpinfo() kan helpen."
 
 msgid "There is no contact found in this file."
 msgstr "Geen contact gevonden in dit bestand."
