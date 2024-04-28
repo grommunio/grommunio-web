@@ -1,10 +1,11 @@
 # grommunio Web Japanese translation.
 # Copyright (C) 2022
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Japanese\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-04-28 22:53+0200\n"
+"POT-Creation-Date: 2024-04-28 23:08+0200\n"
 "PO-Revision-Date: 2022-12-12 13:00+0200\n"
 "Last-Translator: Jan Engelhardt <jengelh@inai.de>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/grommunio/"
@@ -1910,6 +1911,8 @@ msgid ""
 "{0} has requested a notification be sent when message \"{1}\" is deleted "
 "without having been read. Do you want to send a receipt?"
 msgstr ""
+"{0}は、メッセージ「{1}」が未読のまま削除された場合に通知を送信するよう要求し"
+"ました。レシートを送りますか？"
 
 #, fuzzy
 msgid "Delete Incomplete Task"
@@ -2768,7 +2771,7 @@ msgid "Restore all items"
 msgstr "アイテムを回復する"
 
 msgid "Are you sure you want to restore all items?"
-msgstr ""
+msgstr "本当に全アイテムを復元しますか？"
 
 msgid "Total {0} recoverable item"
 msgid_plural "Total {0} recoverable items"
@@ -4874,7 +4877,7 @@ msgid "Location of preview pane"
 msgstr "プレビュー画面の位置"
 
 msgid "Use subject prefixes in accordance with RFC 5256/5322"
-msgstr ""
+msgstr "RFC 5256/5322 に従った件名プレフィックスを使用する。"
 
 #, fuzzy
 msgid "Close original message on reply or forward"
@@ -6355,13 +6358,13 @@ msgid "Wipe Executed"
 msgstr "ワイプ実行"
 
 msgid "Account Only Wipe Pending"
-msgstr ""
+msgstr "アカウントのみワイプ保留"
 
 msgid "Account Only Wipe Requested"
-msgstr ""
+msgstr "アカウントのみのワイプ要求"
 
 msgid "Account Only Wipe Executed"
-msgstr ""
+msgstr "アカウントのみワイプ実行"
 
 msgid "Not Available"
 msgstr "使用不可"
@@ -6484,10 +6487,10 @@ msgid "Please enter your username and password"
 msgstr "ログイン情報を入力してください"
 
 msgid "Wipe only data related to this account"
-msgstr ""
+msgstr "このアカウントに関連するデータのみを消去する"
 
 msgid "Wipe all data"
-msgstr ""
+msgstr "すべてのデータを消去する"
 
 msgid "Username"
 msgstr "ユーザー名"
@@ -7307,7 +7310,7 @@ msgid "Certificate was expired on "
 msgstr "証明書の有効期限は次の通りです "
 
 msgid "Certificate was imported."
-msgstr ""
+msgstr "証明書がインポートされた。"
 
 msgid "Certificate is not yet valid "
 msgstr "証明書はまだ有効ではありません "
@@ -7316,7 +7319,7 @@ msgid "Certificate has not been imported"
 msgstr "証明書はインポートされていません"
 
 msgid "Certificate is revoked, but was imported."
-msgstr ""
+msgstr "証明書は失効しているが、インポートされた。"
 
 msgid "Unable to read public certificate"
 msgstr "公開鍵証明書を読み込むことができませんでした"
@@ -7633,13 +7636,13 @@ msgid "You don't have the permission to complete this action"
 msgstr "このアクションを完了する権限がありません"
 
 msgid "Quota error"
-msgstr ""
+msgstr "クォータエラー"
 
 msgid "Send quota limit reached"
-msgstr ""
+msgstr "送信クォータの上限に達した"
 
 msgid "Email sending failed. Check the log files for more information."
-msgstr ""
+msgstr "メール送信に失敗しました。詳細はログファイルを確認してください。"
 
 #, fuzzy
 msgid "Unknown user/group"
@@ -7762,10 +7765,10 @@ msgstr ""
 "フォルダを右クリック > プロパティ > アクセス権）。"
 
 msgid "default"
-msgstr ""
+msgstr "デフォルト"
 
 msgid "anonymous"
-msgstr ""
+msgstr "アノニマス"
 
 msgid "unknown"
 msgstr "不明"
@@ -8023,29 +8026,36 @@ msgstr "ファイルが正常にインポートされない"
 
 msgid "The uploaded file exceeds the upload_max_filesize directive in php.ini."
 msgstr ""
+"アップロードされたファイルが php.ini の upload_max_filesize ディレクティブを"
+"超えています。"
 
 msgid ""
 "The uploaded file exceeds the MAX_FILE_SIZE directive that was specified in "
 "the HTML form."
 msgstr ""
+"アップロードされたファイルが、HTMLフォームで指定されたMAX_FILE_SIZEディレク"
+"ティブを超えています。"
 
 msgid "The uploaded file was only partially uploaded."
-msgstr ""
+msgstr "アップロードされたファイルは部分的にしかアップロードされませんでした。"
 
 msgid "No file was uploaded. ."
-msgstr ""
+msgstr "ファイルがアップロードされませんでした。."
 
 msgid "Missing a temporary folder."
-msgstr ""
+msgstr "一時フォルダがない。"
 
 msgid "Failed to write file to disk."
-msgstr ""
+msgstr "ディスクへのファイルの書き込みに失敗しました。"
 
 msgid ""
 "A PHP extension stopped the file upload. PHP does not provide a way to "
 "ascertain which extension caused the file upload to stop; examining the list "
 "of loaded extensions with phpinfo() may help."
 msgstr ""
+"PHP の拡張モジュールがファイルのアップロードを停止しました。PHP は、どの拡張"
+"モジュールがファイルアップロードを停止させたのかを 確認する方法を提供していま"
+"せん。"
 
 #, fuzzy
 msgid "There is no contact found in this file."
