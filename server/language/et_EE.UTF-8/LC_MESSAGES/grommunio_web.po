@@ -1,10 +1,11 @@
 # grommunio Web Estonian (Estonia) translation.
 # Copyright (C) 2021
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Estonian (Estonia)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-04-28 22:53+0200\n"
+"POT-Creation-Date: 2024-04-28 23:29+0200\n"
 "PO-Revision-Date: 2017-07-06 15:09+0000\n"
 "Last-Translator: import\n"
 "Language: et_EE\n"
@@ -16,19 +17,19 @@ msgstr ""
 
 #. TRANSLATORS: This message is used as label for the column which indicates the week number of the month in date picker. and 'Wk' stands for week
 msgid "Wk"
-msgstr ""
+msgstr "Wk"
 
 msgid "Now"
-msgstr ""
+msgstr "Nüüd"
 
 msgid "Value must be between 0% to 100%"
-msgstr ""
+msgstr "Väärtus peab olema vahemikus 0% kuni 100%."
 
 msgid "Number must be higher than zero"
-msgstr ""
+msgstr "Number peab olema suurem kui null"
 
 msgid "More options"
-msgstr ""
+msgstr "Rohkem võimalusi"
 
 msgid "{0} byte"
 msgid_plural "{0} bytes"
@@ -57,22 +58,22 @@ msgstr[1] "{0} TB"
 
 msgid "{0} minute"
 msgid_plural "{0} minutes"
-msgstr[0] ""
+msgstr[0] "{0} minut"
 msgstr[1] ""
 
 msgid "{0} hour"
 msgid_plural "{0} hours"
-msgstr[0] ""
+msgstr[0] "{0} tund"
 msgstr[1] ""
 
 msgid "{0} day"
 msgid_plural "{0} days"
-msgstr[0] ""
+msgstr[0] "{0} päev"
 msgstr[1] ""
 
 msgid "{0} week"
 msgid_plural "{0} weeks"
-msgstr[0] ""
+msgstr[0] "{0} nädal"
 msgstr[1] ""
 
 #, fuzzy
@@ -107,25 +108,25 @@ msgid "Saturday"
 msgstr "Laupäev"
 
 msgid "Sun"
-msgstr ""
+msgstr "Sun"
 
 msgid "Mon"
-msgstr ""
+msgstr "Mon"
 
 msgid "Tue"
-msgstr ""
+msgstr "Te"
 
 msgid "Wed"
-msgstr ""
+msgstr "Ke"
 
 msgid "Thu"
-msgstr ""
+msgstr "Thu"
 
 msgid "Fri"
-msgstr ""
+msgstr "Fri"
 
 msgid "Sat"
-msgstr ""
+msgstr "Sat"
 
 msgid "January"
 msgstr "Jaanuar"
@@ -336,7 +337,7 @@ msgid "Email addresses"
 msgstr "E-posti aadressid"
 
 msgid "Group details"
-msgstr ""
+msgstr "Rühma andmed"
 
 msgid "General"
 msgstr "Üldine"
@@ -363,7 +364,7 @@ msgid "Account"
 msgstr "Konto"
 
 msgid "Member Of"
-msgstr ""
+msgstr "Member Of"
 
 msgid "Group Membership"
 msgstr "Grupi liikmelisus"
@@ -375,16 +376,16 @@ msgid "User details"
 msgstr "Kasutaja andmed"
 
 msgid "First name"
-msgstr ""
+msgstr "Eesnimi"
 
 msgid "Last name"
-msgstr ""
+msgstr "Perekonnanimi"
 
 msgid "Initials"
-msgstr ""
+msgstr "Initsiaalid"
 
 msgid "Display"
-msgstr ""
+msgstr "Näita"
 
 #, fuzzy
 msgid "Addresses"
@@ -406,7 +407,7 @@ msgid "Country"
 msgstr "Riik"
 
 msgid "Professional"
-msgstr ""
+msgstr "Professionaalne"
 
 msgid "Title"
 msgstr "Tiitel"
@@ -433,7 +434,7 @@ msgid "Manager"
 msgstr "Juhataja"
 
 msgid "Direct reports"
-msgstr ""
+msgstr "Otsesed aruanded"
 
 msgid "Phone numbers"
 msgstr "Telefoninumbrid"
@@ -476,17 +477,19 @@ msgid "Show Details"
 msgstr "Detailselt"
 
 msgid "Copy contact"
-msgstr ""
+msgstr "Koopia kontakt"
 
 msgid "Copy contacts"
-msgstr ""
+msgstr "Kontaktide kopeerimine"
 
 msgid ""
 "Showing only the first {0} names. Use search to find more specific results."
 msgstr ""
+"Näitab ainult esimesi {0} nimesid. Konkreetsemate tulemuste leidmiseks "
+"kasutage otsingut."
 
 msgid "Use the search bar to get results"
-msgstr ""
+msgstr "Tulemuste saamiseks kasutage otsinguriba"
 
 #, fuzzy
 msgid "There are no items to show in this list"
@@ -510,7 +513,7 @@ msgid "Sort by: Display Name"
 msgstr "Sorteeri: Kuvatava nime järgi"
 
 msgid "File as"
-msgstr ""
+msgstr "Faili kui"
 
 #, fuzzy
 msgid "Sort by: File As"
@@ -521,7 +524,7 @@ msgid "First Name"
 msgstr "Esimene leht"
 
 msgid "Sort by: First Name"
-msgstr ""
+msgstr "Sorteerimine: Nimi: Eesnimi"
 
 #, fuzzy
 msgid "Last Name"
@@ -535,13 +538,13 @@ msgid "Sort by: Email Address"
 msgstr "Sorteeri: E-post järgi"
 
 msgid "Job Title"
-msgstr ""
+msgstr "Töö nimetus"
 
 msgid "Sort by: Job Title"
-msgstr ""
+msgstr "Sorteerimine: Töö nimetus"
 
 msgid "Company Name"
-msgstr ""
+msgstr "Ettevõtte nimi"
 
 #, fuzzy
 msgid "Sort by: Company Name"
@@ -580,7 +583,7 @@ msgid "Sort by: Fax"
 msgstr "Sorteeri: Faksi järgi"
 
 msgid "Print single item"
-msgstr ""
+msgstr "Üksiku elemendi printimine"
 
 #, fuzzy
 msgid "Print selected item"
@@ -590,56 +593,56 @@ msgid "Print"
 msgstr "Trüki"
 
 msgid "No item selected"
-msgstr ""
+msgstr "Ei ole valitud"
 
 msgid "No preview"
-msgstr ""
+msgstr "Eelvaade puudub"
 
 msgid "Right preview"
-msgstr ""
+msgstr "Õige eelvaade"
 
 msgid "Bottom preview"
-msgstr ""
+msgstr "Alumine eelvaade"
 
 msgid "Any date"
-msgstr ""
+msgstr "Mis tahes kuupäev"
 
 msgid "Past week"
-msgstr ""
+msgstr "Eelmine nädal"
 
 msgid "Past 2 weeks"
-msgstr ""
+msgstr "Viimased 2 nädalat"
 
 msgid "Past month"
-msgstr ""
+msgstr "Eelmine kuu"
 
 msgid "Past 6 month"
-msgstr ""
+msgstr "Viimased 6 kuud"
 
 msgid "Past year"
-msgstr ""
+msgstr "Eelmine aasta"
 
 msgid "Custom date"
-msgstr ""
+msgstr "Kohandatud kuupäev"
 
 msgid "Add to favorites"
-msgstr ""
+msgstr "Lisa lemmikute hulka"
 
 msgid "Add"
-msgstr ""
+msgstr "Lisa"
 
 #, fuzzy
 msgid "Empty folder name"
 msgstr "Kadunud kaustad"
 
 msgid "You must specify a name."
-msgstr ""
+msgstr "Te peate määrama nime."
 
 msgid "Add a folder to favorites based on search query"
-msgstr ""
+msgstr "Kausta lisamine lemmikute hulka otsingupäringu alusel"
 
 msgid "Folder name"
-msgstr ""
+msgstr "Kausta nimi"
 
 #, fuzzy
 msgid "Select Category"
@@ -649,38 +652,38 @@ msgid "Apply"
 msgstr "Kohalda"
 
 msgid "All folders are selected"
-msgstr ""
+msgstr "Kõik kaustad on valitud"
 
 msgid "Reply"
-msgstr ""
+msgstr "Vastus"
 
 msgid "Reply All"
-msgstr ""
+msgstr "Vastus Kõik"
 
 msgid "Forward"
-msgstr ""
+msgstr "Edasi"
 
 msgid "Edit as New"
-msgstr ""
+msgstr "Muuda uueks"
 
 msgid "Search tools"
-msgstr ""
+msgstr "Otsinguvahendid"
 
 msgid "Folders"
-msgstr ""
+msgstr "Kaustad"
 
 msgid "Include subfolders"
-msgstr ""
+msgstr "Kaasa alamkataloogid"
 
 msgid "Show…"
-msgstr ""
+msgstr "Näita..."
 
 #, fuzzy
 msgid "Mails"
 msgstr "E-post"
 
 msgid "Appointments"
-msgstr ""
+msgstr "Kohtumised"
 
 msgid "Contacts"
 msgstr "Kontaktid"
@@ -689,75 +692,77 @@ msgid "Tasks"
 msgstr "Ülesanded"
 
 msgid "Filter…"
-msgstr ""
+msgstr "Filter..."
 
 msgid "Unread"
-msgstr ""
+msgstr "Lugemata"
 
 msgid "Attachments"
-msgstr ""
+msgstr "Lisad"
 
 msgid "Date"
-msgstr ""
+msgstr "Kuupäev"
 
 msgctxt "search.date"
 msgid "From"
-msgstr ""
+msgstr "Alates"
 
 msgctxt "search.date"
 msgid "To"
-msgstr ""
+msgstr "aadressile"
 
 #, fuzzy
 msgid "Filter category…"
 msgstr "Määra kategooria…"
 
 msgid "Sender"
-msgstr ""
+msgstr "Saatja"
 
 msgid "Recipients"
-msgstr ""
+msgstr "Vastuvõtjad"
 
 msgid "Subject"
-msgstr ""
+msgstr "Teema"
 
 msgid "Body & Attachments"
-msgstr ""
+msgstr "Korpus ja lisaseadmed"
 
 msgid "Favorites"
 msgstr "Lemmikud"
 
 msgid "Select Folder"
-msgstr ""
+msgstr "Valige kaust"
 
 msgid "Delete search folder"
-msgstr ""
+msgstr "Kustuta otsingukaust"
 
 msgid "Sort by: Date"
-msgstr ""
+msgstr "Sorteerimine: Kuupäev"
 
 msgid "Loading Search results"
-msgstr ""
+msgstr "Otsingutulemuste laadimine"
 
 msgid "Sorting tip"
-msgstr ""
+msgstr "Sorteerimisnõuanne"
 
 msgid ""
 "You can sort by date if you narrow down your search results. Enable filters "
 "or adjust your input."
 msgstr ""
+"Otsingutulemuste kitsendamisel saate sorteerida kuupäeva järgi. Lubage "
+"filtrid või kohandage oma sisendit."
 
 msgid "Did you mean"
-msgstr ""
+msgstr "Kas sa mõtlesid"
 
 msgid "With"
-msgstr ""
+msgstr "Koos"
 
 msgid "To"
-msgstr ""
+msgstr "aadressile"
 
 msgid "No date"
-msgstr ""
+msgstr "Kuupäev puudub"
 
 msgid "Error"
 msgstr "Viga"
@@ -766,26 +771,30 @@ msgid ""
 "Could not accept proposal as this meeting is not available in calendar; It "
 "may have been moved or deleted."
 msgstr ""
+"Ettepanekut ei saanud vastu võtta, kuna see koosolek ei ole kalendris "
+"kättesaadav; see võib olla viidud või kustutatud."
 
 msgid ""
 "Could not view proposal as this meeting is not available in calendar; It may "
 "have been moved or deleted."
 msgstr ""
+"Ettepanekut ei saanud vaadata, kuna see koosolek ei ole kalendris "
+"kättesaadav; see võib olla viidud või kustutatud."
 
 msgid "Required"
 msgstr "Nõutav"
 
 msgid "Optional"
-msgstr ""
+msgstr "Valikuline"
 
 msgid "Resource"
-msgstr ""
+msgstr "Ressurss"
 
 msgid "Could not open store."
-msgstr ""
+msgstr "Ei saanud kauplust avada."
 
 msgid "Could not open default calendar folder."
-msgstr ""
+msgstr "Ei saanud avada vaikimisi kalendrikausta."
 
 msgid "workday"
 msgstr "tööpäev"
@@ -803,7 +812,7 @@ msgid "weeks"
 msgstr "nädalad"
 
 msgid " on "
-msgstr ""
+msgstr " aadressil"
 
 msgid "month"
 msgstr "kuu"
@@ -818,156 +827,157 @@ msgid "years"
 msgstr "aastad"
 
 msgid "Occurs every {0} effective {1} from {2} to {3}."
-msgstr ""
+msgstr "Esineb iga {0} tõhusa {1} korral alates {2} kuni {3}."
 
 msgid "Occurs every {0} {1} effective {2} from {3} to {4}."
-msgstr ""
+msgstr "Esineb iga {0} {1} tõhusa {2} ajavahemikul {3} kuni {4}."
 
 msgid "Occurs every {0} effective {1}."
-msgstr ""
+msgstr "Esineb iga {0} tõhusa {1} korral."
 
 msgid "Occurs every {0} {1} effective {2}."
-msgstr ""
+msgstr "Esineb iga {0} {1} tõhusa {2} korral."
 
 msgid "Occurs every {0} effective {1} for {2} occurrence from {3} to {4}."
 msgid_plural ""
 "Occurs every {0} effective {1} for {2} occurrences from {3} to {4}."
-msgstr[0] ""
+msgstr[0] "Esineb iga {0} tõhusa {1} korral {2} korral alates {3} kuni {4}."
 msgstr[1] ""
 
 msgid "Occurs every {0} {1} effective {2} for {3} occurrence from {4} to {5}."
 msgid_plural ""
 "Occurs every {0} {1} effective {2} for {3} occurrences {4} to {5}."
 msgstr[0] ""
+"Esineb iga {0} {1} tõhusa {2} korral {3} korral alates {4} kuni {5}."
 msgstr[1] ""
 
 msgid "Occurs every {0} effective {1} for {2} occurrence."
 msgid_plural "Occurs every {0} effective {1} for {2} occurrences."
-msgstr[0] ""
+msgstr[0] "Esineb iga {0} tõhusa {1} korral {2} esinemise korral."
 msgstr[1] ""
 
 msgid "Occurs every {0} {1} effective {2} for {3} occurrence."
 msgid_plural "Occurs every {0} {1} effective {2} for {3} occurrences."
-msgstr[0] ""
+msgstr[0] "Esineb iga {0} {1} tõhusa {2} {3} esinemise korral."
 msgstr[1] ""
 
 msgid "Occurs every {0} effective {1} until {2} from {3} to {4}."
-msgstr ""
+msgstr "Toimub iga {0} alates {1} kuni {2} alates {3} kuni {4}."
 
 msgid "Occurs every {0} {1} effective {2} until {3} from {4} to {5}."
-msgstr ""
+msgstr "Esineb iga {0} {1} tõhusa {2} kuni {3} alates {4} kuni {5}."
 
 msgid "Occurs every {0} effective {1} until {2}."
-msgstr ""
+msgstr "Toimub iga {0} korral alates {1} kuni {2}."
 
 msgid "Occurs every {0} {1} effective {2} until {3}."
-msgstr ""
+msgstr "Esineb iga {0} {1} korral {2} kuni {3}."
 
 msgid "When"
 msgstr "Millal"
 
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "l jS F Y {0}"
-msgstr ""
+msgstr "l jS F Y {0}"
 
 msgid "Where"
 msgstr "Kus"
 
 msgid "New Meeting Time Proposed"
-msgstr ""
+msgstr "Kavandatud uus kohtumise aeg"
 
 msgid "and "
-msgstr ""
+msgstr "ja"
 
 msgid "Sort by: Attachment"
-msgstr ""
+msgstr "Sorteerimine: ."
 
 msgid "Sort by: Recurring"
-msgstr ""
+msgstr "Sorteerimine: ."
 
 msgid "Sort by: Subject"
 msgstr "Sorteeri: pealkiri"
 
 msgid "Start Date"
-msgstr ""
+msgstr "Alguskuupäev"
 
 msgid "Sort by: Start Date"
-msgstr ""
+msgstr "Sorteerimine: Alguskuupäev"
 
 msgid "End Date"
-msgstr ""
+msgstr "Lõppkuupäev"
 
 msgid "Sort by: End Date"
-msgstr ""
+msgstr "Sorteerimine: Lõppkuupäeva järgi: Lõppkuupäev"
 
 msgid "Organizer"
-msgstr ""
+msgstr "Korraldaja"
 
 msgid "Required Attendee"
-msgstr ""
+msgstr "Nõutav osaleja"
 
 msgid "Optional Attendee"
-msgstr ""
+msgstr "Vabatahtlik osaleja"
 
 msgid "Show Time As"
-msgstr ""
+msgstr "Näita aega kui"
 
 msgid "Recurrence pattern"
-msgstr ""
+msgstr "Kordumise muster"
 
 msgid "All Day Event"
-msgstr ""
+msgstr "Kogu päeva üritus"
 
 #, fuzzy
 msgid "Add Shared Calendar"
 msgstr "Avada jagatud märkused"
 
 msgid "Remove From Calendar"
-msgstr ""
+msgstr "Eemalda kalendrist"
 
 msgid "No Response Required"
-msgstr ""
+msgstr "Vastus ei ole nõutav"
 
 #, fuzzy
 msgid "Accept"
 msgstr "Aktsepteeritud"
 
 msgid "Accept Meeting Request"
-msgstr ""
+msgstr "Nõusoleku taotluse vastuvõtmine"
 
 msgid "Tentative"
 msgstr "Esialgne"
 
 msgid "Tentatively Accept Meeting Request"
-msgstr ""
+msgstr "Kohtumise taotluse esialgne vastuvõtmine"
 
 #, fuzzy
 msgid "Decline"
 msgstr "Keeldutud"
 
 msgid "Decline Meeting Request"
-msgstr ""
+msgstr "Koosolekutaotluse tagasilükkamine"
 
 msgid "Propose New Time"
-msgstr ""
+msgstr "Ettepanek uus aeg"
 
 msgid "Propose New Time for Meeting Request"
-msgstr ""
+msgstr "Ettepanek: uus aeg kohtumise taotlemiseks"
 
 msgid "View All Proposals"
-msgstr ""
+msgstr "Vaata kõiki ettepanekuid"
 
 msgid "Accept Proposal"
-msgstr ""
+msgstr "Ettepaneku vastuvõtmine"
 
 msgid "Accept Proposed Time"
-msgstr ""
+msgstr "Võtta vastu pakutud aeg"
 
 msgid "View in calendar"
-msgstr ""
+msgstr "Vaata kalendris"
 
 msgid "Day"
-msgstr ""
+msgstr "Päev"
 
 msgid "Workweek"
 msgstr "Töönädal"
@@ -979,22 +989,22 @@ msgid "Month"
 msgstr "Kuu"
 
 msgid "List"
-msgstr ""
+msgstr "Loetelu"
 
 msgid "Appointment"
-msgstr ""
+msgstr "Nimetus"
 
 msgid "Meeting request"
-msgstr ""
+msgstr "Koosoleku taotlus"
 
 msgid "Print selected appointment"
-msgstr ""
+msgstr "Valitud kohtumise printimine"
 
 msgid "No appointment selected"
-msgstr ""
+msgstr "Ei ole valitud ühtegi kohtumist"
 
 msgid "Print overview"
-msgstr ""
+msgstr "Ülevaade printimisest"
 
 #, fuzzy
 msgid "Create Appointment"
@@ -1004,15 +1014,17 @@ msgid "Calendar"
 msgstr "Kalender"
 
 msgid "Create in other calendar"
-msgstr ""
+msgstr "Luua teises kalendris"
 
 msgid ""
 "The selected calendar has \"read-only\" permissions. Instead you can create "
 "an item in your own calendar."
 msgstr ""
+"Valitud kalendril on ainult lugemisõigused. Selle asemel saate luua objekti "
+"oma kalendris."
 
 msgid "What would you like?"
-msgstr ""
+msgstr "Mida te tahaksite?"
 
 #, fuzzy
 msgid "Own calendar"
@@ -1023,61 +1035,61 @@ msgstr "F Y"
 
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "l"
-msgstr ""
+msgstr "l"
 
 msgid "All text fields"
 msgstr "Kõik tekstiväljad"
 
 msgid "Body"
-msgstr ""
+msgstr "Keha"
 
 msgid "Subject or Sender"
-msgstr ""
+msgstr "Teema või saatja"
 
 msgid "To or cc"
-msgstr ""
+msgstr "To või cc"
 
 msgid "Meeting"
 msgstr "Kohtumine"
 
 msgctxt "calendar.dialog"
 msgid "Resources have been planned"
-msgstr ""
+msgstr "Ressursid on kavandatud"
 
 #, fuzzy
 msgid "Send update"
 msgstr "Saadetud"
 
 msgid "Do you want to send an update to all recipients?"
-msgstr ""
+msgstr "Kas soovite saata uuenduse kõigile adressaatidele?"
 
 msgid "Send update to attendees"
-msgstr ""
+msgstr "Saatke osalejatele ajakohastatud teave"
 
 msgid ""
 "You have made changes to the list of attendees. What would you like to do?"
-msgstr ""
+msgstr "Te olete teinud muudatusi osalejate nimekirjas. Mida soovite teha?"
 
 msgid "Send updates to only added or deleted attendees."
-msgstr ""
+msgstr "Saatke uuendused ainult lisatud või kustutatud osalejatele."
 
 msgid "Send updates to all attendees."
-msgstr ""
+msgstr "Saatke kõigile osalejatele ajakohastused."
 
 msgid "Busy attendees"
-msgstr ""
+msgstr "Hõivatud osalejad"
 
 msgid "One or more attendees are busy. Are you sure to invite?"
-msgstr ""
+msgstr "Üks või mitu osalejat on hõivatud. Kas olete kindel, et kutsute?"
 
 msgid "Preview"
-msgstr ""
+msgstr "Eelvaade"
 
 msgid "Scheduling"
-msgstr ""
+msgstr "Ajaplaneerimine"
 
 msgid "Tracking"
-msgstr ""
+msgstr "Jälgimine"
 
 #, fuzzy
 msgctxt "calendar.dialog"
@@ -1087,89 +1099,95 @@ msgstr "Kõiki saajaid ei suudetud tuvastada"
 msgctxt "calendar.dialog"
 msgid "{0} attendees accepted, {1} tentatively accepted, {2} declined."
 msgstr ""
+"{0} osalejad on vastu võetud, {1} esialgu vastu võetud, {2} tagasi lükatud."
 
 msgctxt "calendar.dialog"
 msgid ""
 "{0} attendees proposed a new time for this meeting. Click the Scheduling tab "
 "for details."
 msgstr ""
+"{Osalejad tegid ettepaneku uue kellaaja määramiseks. Klõpsake üksikasjadeks "
+"vahekaardil Planeerimine."
 
 msgctxt "calendar.dialog"
 msgid "You proposed a new time for this meeting on {0}"
-msgstr ""
+msgstr "Te tegite ettepaneku selle kohtumise uueks ajaks {0}"
 
 msgctxt "calendar.dialog"
 msgid "{0} proposed a new time for this meeting on {1}"
 msgstr ""
+"{0} tegi ettepaneku uue aja määramiseks selle koosoleku toimumise ajaks {1}"
 
 msgctxt "calendar.dialog"
 msgid "Accepted on {0}"
-msgstr ""
+msgstr "Vastu võetud {0}"
 
 msgctxt "calendar.dialog"
 msgid "Accepted by {0} on {1}"
-msgstr ""
+msgstr "Vastu võetud {0} poolt {1}-l}"
 
 msgctxt "calendar.dialog"
 msgid "Tentatively Accepted on {0}"
-msgstr ""
+msgstr "Esialgselt vastu võetud {0}"
 
 msgctxt "calendar.dialog"
 msgid "Tentatively Accepted by {0} on {1}"
-msgstr ""
+msgstr "Esialgselt vastu võetud {0} poolt {1} päeval {0}"
 
 msgctxt "calendar.dialog"
 msgid "This appointment occurs in the past."
-msgstr ""
+msgstr "See kohtumine toimub minevikus."
 
 msgctxt "calendar.dialog"
 msgid "Please respond."
-msgstr ""
+msgstr "Palun vastake."
 
 msgctxt "calendar.dialog"
 msgid "No responses have been received for this meeting."
-msgstr ""
+msgstr "Selle kohtumise kohta ei ole vastuseid saadud."
 
 msgctxt "calendar.dialog"
 msgid "Meeting has been canceled."
-msgstr ""
+msgstr "Koosolek on tühistatud."
 
 msgctxt "calendar.dialog"
 msgid "Invitations have not been sent for this meeting."
-msgstr ""
+msgstr "Kutsed selleks kohtumiseks ei ole saadetud."
 
 msgctxt "calendar.dialog"
 msgid ""
 "Please note that any changes you make will be overwritten when this meeting "
 "request is updated by the organizer"
 msgstr ""
+"Pange tähele, et kõik teie tehtud muudatused kirjutatakse üle, kui "
+"korraldaja uuendab seda koosolekutaotlust."
 
 msgid "Create in"
-msgstr ""
+msgstr "Loo sisse"
 
 msgid "Time"
-msgstr ""
+msgstr "Aeg"
 
 msgid "until"
-msgstr ""
+msgstr "kuni"
 
 msgid "Recurrence"
-msgstr ""
+msgstr "Taastumine"
 
 msgid "Reminder"
-msgstr ""
+msgstr "Meeldetuletus"
 
 msgid "Show as"
-msgstr ""
+msgstr "Näita kui"
 
 msgid "Warning"
-msgstr ""
+msgstr "Hoiatus"
 
 msgid "Attachments cannot be modified for a single occurence"
-msgstr ""
+msgstr "Manuseid ei saa muuta ühe korra puhul."
 
 msgid "Type your message here…"
-msgstr ""
+msgstr "Kirjutage oma sõnum siia..."
 
 #, fuzzy
 msgid "Update location"
@@ -1177,11 +1195,11 @@ msgstr "Asukoht"
 
 msgid ""
 "Do you want to update the location \"{0}\" with the new location \"{1}\"?"
-msgstr ""
+msgstr "Kas soovite uuendada asukohta \"{0}\" uue asukohaga \"{1}\"?"
 
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "jS F Y {0}"
-msgstr ""
+msgstr "jS F Y {0}"
 
 msgid "None"
 msgstr "Puudub"
@@ -1195,40 +1213,40 @@ msgid "Save"
 msgstr "Salvestatud"
 
 msgid "Close"
-msgstr ""
+msgstr "Sulge"
 
 msgid "Delete"
 msgstr "Kustuta"
 
 msgid "Add attachment"
-msgstr ""
+msgstr "Lisa lisa"
 
 msgid "Check names"
-msgstr ""
+msgstr "Kontrollida nimesid"
 
 msgid "Addressbook"
-msgstr ""
+msgstr "Aadressiraamat"
 
 msgid "Open addressbook"
-msgstr ""
+msgstr "Avatud aadressiraamat"
 
 msgid "Invite attendees"
-msgstr ""
+msgstr "Kutsuge osalejaid"
 
 msgid "Cancel invitation"
-msgstr ""
+msgstr "Tühista kutse"
 
 msgid "High priority"
-msgstr ""
+msgstr "Kõrge prioriteet"
 
 msgid "Mark this appointment as high priority"
-msgstr ""
+msgstr "Märkige see kohtumine kõrge prioriteediga"
 
 msgid "Low priority"
-msgstr ""
+msgstr "Madal prioriteet"
 
 msgid "Mark this appointment as low priority"
-msgstr ""
+msgstr "Märkige see kohtumine madala prioriteediga"
 
 msgid "Categories"
 msgstr "Kategooriad"
@@ -1241,134 +1259,141 @@ msgid "Private"
 msgstr "Isiklik"
 
 msgid "Mark this appointment as private"
-msgstr ""
+msgstr "Märgista see kohtumine eraviisiliseks"
 
 msgid "Proposed Date and Time"
-msgstr ""
+msgstr "Kavandatud kuupäev ja kellaaeg"
 
 msgid "Duration"
-msgstr ""
+msgstr "Kestus"
 
 msgid "Proposed By"
-msgstr ""
+msgstr "Kavandanud"
 
 msgid "Current Meeting Time"
-msgstr ""
+msgstr "Praegune kohtumise aeg"
 
 msgid "Show only working hours"
-msgstr ""
+msgstr "Näita ainult tööaega"
 
 msgid "Start time"
-msgstr ""
+msgstr "Algusaeg"
 
 msgid "End time"
-msgstr ""
+msgstr "Lõpuaeg"
 
 msgid "Comment"
-msgstr ""
+msgstr "Kommentaar"
 
 msgid "Send Meeting Request Cancellation"
-msgstr ""
+msgstr "Saada koosoleku tühistamise taotlus"
 
 msgid ""
 "This meeting will be cancelled. Do you want to include comments with your "
 "cancellation?"
 msgstr ""
+"See koosolek jääb ära. Kas soovite lisada kommentaare koos oma tühistamisega?"
 
 msgid "Edit the cancellation before Sending."
-msgstr ""
+msgstr "Muuda tühistamist enne saatmist."
 
 msgid "Send the cancellation now."
-msgstr ""
+msgstr "Saatke tühistamine nüüd."
 
 msgid "Send Meeting Request Confirmation"
-msgstr ""
+msgstr "Kohtumise taotluse kinnituse saatmine"
 
 msgid ""
 "This meeting will be accepted and moved to your calendar. Do you want to "
 "include comments with your response?"
 msgstr ""
+"See koosolek võetakse vastu ja kantakse teie kalendrisse. Kas soovite lisada "
+"oma vastuse kommentaarid?"
 
 msgid ""
 "This meeting will be tentatively accepted and moved to your calendar. Do you "
 "want to include comments with your response?"
 msgstr ""
+"See kohtumine võetakse esialgu vastu ja kantakse teie kalendrisse. Kas "
+"soovite lisada oma kommentaarid koos vastusega?"
 
 msgid ""
 "This meeting will be declined and moved to your Deleted Items folder. Do you "
 "want to include comments with your response?"
 msgstr ""
+"See koosolek lükatakse tagasi ja viiakse teie kausta \"Kustutatud asjad\". "
+"Kas soovite lisada oma vastusele kommentaare?"
 
 msgid "Edit the response before sending"
-msgstr ""
+msgstr "Vastuse muutmine enne saatmist"
 
 msgid "Send the response now."
-msgstr ""
+msgstr "Saatke vastus nüüd."
 
 msgid "Don't send a response."
-msgstr ""
+msgstr "Ärge saatke vastust."
 
 msgid "The following responses for this meeting have been received"
-msgstr ""
+msgstr "Selle koosoleku kohta on saadud järgmised vastused"
 
 msgid "Attendance"
-msgstr ""
+msgstr "Osalemine"
 
 msgid "Response"
-msgstr ""
+msgstr "Vastus"
 
 msgid "New appointment"
-msgstr ""
+msgstr "Uus kohtumine"
 
 msgid "Creating an item"
-msgstr ""
+msgstr "Elemendi loomine"
 
 msgid "New meeting request"
-msgstr ""
+msgstr "Uus koosolekute taotlus"
 
 msgid "Switch calendar range back and forth"
-msgstr ""
+msgstr "Vahetage kalendrivahemikku edasi-tagasi"
 
 msgid "Copy selected item"
-msgstr ""
+msgstr "Valitud elemendi kopeerimine"
 
 msgid "Paste selected item"
-msgstr ""
+msgstr "Valitud elemendi kleepimine"
 
 msgid "An overview of"
-msgstr ""
+msgstr "Ülevaade"
 
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "Start"
-msgstr ""
+msgstr "Start"
 
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "End"
-msgstr ""
+msgstr "End"
 
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for formatting instructions
 msgid "Printed by"
-msgstr ""
+msgstr "Trükitud"
 
 msgid "at"
-msgstr ""
+msgstr "aadressil"
 
 msgid "of"
-msgstr ""
+msgstr "aadressilt"
 
 #, fuzzy
 msgid "Location: "
 msgstr "Asukoht"
 
 msgid "j M {0}"
-msgstr ""
+msgstr "j M {0}"
 
 msgid "l jS M Y {0}"
-msgstr ""
+msgstr "l jS M Y {0}"
 
 msgid "All day: "
-msgstr ""
+msgstr "Kogu päeva:"
 
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for formatting instructions
@@ -1378,87 +1403,87 @@ msgid "l jS F"
 msgstr "jS F Y"
 
 msgid "Organiser"
-msgstr ""
+msgstr "Korraldaja"
 
 msgid "Meeting status"
-msgstr ""
+msgstr "Kohtumise staatus"
 
 msgid "Required Attendees"
-msgstr ""
+msgstr "Vajalikud osalejad"
 
 msgid "Optional Attendees"
-msgstr ""
+msgstr "Vabatahtlikud osalejad"
 
 msgid "Resources"
-msgstr ""
+msgstr "Ressursid"
 
 msgid "Sensitivity"
-msgstr ""
+msgstr "Tundlikkus"
 
 #, fuzzy
 msgid "Importance"
 msgstr "Oluline"
 
 msgid "M j"
-msgstr ""
+msgstr "M j"
 
 #, fuzzy
 msgid "j"
 msgstr "jS"
 
 msgid "General calendar settings"
-msgstr ""
+msgstr "Üldised kalendri seaded"
 
 msgid "First day of the week"
-msgstr ""
+msgstr "Nädala esimene päev"
 
 msgid "Start of workday"
-msgstr ""
+msgstr "Tööpäeva algus"
 
 msgid "End of workday"
-msgstr ""
+msgstr "Tööpäeva lõpp"
 
 msgid "Calendar resolution"
-msgstr ""
+msgstr "Kalendri resolutsioon"
 
 msgid "Default appointment duration {A} minutes"
-msgstr ""
+msgstr "Kohtumise vaikimisi kestus {A} minutit"
 
 msgid "Duration must be between 1 and 120 minutes."
-msgstr ""
+msgstr "Kestus peab olema vahemikus 1-120 minutit."
 
 msgid "Default status for all day appointment"
-msgstr ""
+msgstr "Vaikimisi staatus kogu päeva kohtumise puhul"
 
 msgid "Working days"
-msgstr ""
+msgstr "Tööpäevad"
 
 msgid "Show busy dates as bold in the date picker"
-msgstr ""
+msgstr "Näita hõivatud kuupäevi rasvases kirjas kuupäevavalikus"
 
 msgid "Side-by-side mode"
-msgstr ""
+msgstr "Režiim \"Side-by-side"
 
 msgid "Overlay mode"
-msgstr ""
+msgstr "Overlay-režiim"
 
 msgid "Calendar view settings"
-msgstr ""
+msgstr "Kalendri vaate seaded"
 
 msgid "View multiple calendars in"
-msgstr ""
+msgstr "Mitme kalendri vaatamine"
 
 msgid "Reminder settings"
-msgstr ""
+msgstr "Meeldetuletuse seaded"
 
 msgid "Enable reminder for new appointments"
-msgstr ""
+msgstr "Võimaldage uute kohtumiste meeldetuletus"
 
 msgid "Default reminder time"
-msgstr ""
+msgstr "Vaikimisi meeldetuletuse aeg"
 
 msgid "Default all-day appointment reminder time"
-msgstr ""
+msgstr "Vaikimisi kogu päeva kestev meeldetuletuse aeg"
 
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "jS"
@@ -1471,133 +1496,133 @@ msgstr[0] "Trüki valitud kontakt"
 msgstr[1] ""
 
 msgid "New Appointment"
-msgstr ""
+msgstr "Uus kohtumine"
 
 msgid "New Meeting Request"
-msgstr ""
+msgstr "Uus kohtumise taotlus"
 
 msgid "Open"
 msgstr "Ava"
 
 msgid "Copy/Move"
-msgstr ""
+msgstr "Kopeeri/liiguta"
 
 #, fuzzy
 msgid "Send to…"
 msgstr "Saadetud…"
 
 msgid "Export as"
-msgstr ""
+msgstr "Eksportida kui"
 
 msgid "Occurrence"
-msgstr ""
+msgstr "Esinemine"
 
 msgid "Series"
-msgstr ""
+msgstr "Seeria"
 
 msgid "Appointment not found"
-msgstr ""
+msgstr "Kohtumist ei leitud"
 
 msgid "This appointment has been moved or deleted, do you want to continue?"
-msgstr ""
+msgstr "See kohtumine on ümber paigutatud või kustutatud, kas soovite jätkata?"
 
 msgid "All Day"
-msgstr ""
+msgstr "Kogu päev"
 
 msgid "Sort by: All Day"
-msgstr ""
+msgstr "Sorteerimine: Kogu päev"
 
 #, fuzzy
 msgid "Icon"
 msgstr "Ikoonid"
 
 msgid "Recurring"
-msgstr ""
+msgstr "Korduvad"
 
 #, fuzzy
 msgid "Sort by: Duration"
 msgstr "Sorteeri: Asukoha järgi"
 
 msgid "Meeting Status"
-msgstr ""
+msgstr "Koosoleku staatus"
 
 msgid "Sort by: Meeting Status"
-msgstr ""
+msgstr "Sorteerimine: Koosoleku staatus"
 
 msgid "Sort by: Show as"
-msgstr ""
+msgstr "Sorteerimine: Näita kui"
 
 msgid "Sort by: Categories"
 msgstr "Sorteeri: Kategooriate järgi"
 
 msgid "Created On"
-msgstr ""
+msgstr "Loodud"
 
 #, fuzzy
 msgid "Sort by: Created On"
 msgstr "Sorteeri: loomise kuupäev"
 
 msgid "Due By"
-msgstr ""
+msgstr "Due By"
 
 msgid "Sort by: Due By"
-msgstr ""
+msgstr "Sorteerimine: Sorteerimine: Due By"
 
 msgid "Label"
-msgstr ""
+msgstr "Silt"
 
 #, fuzzy
 msgid "Sort by: Label"
 msgstr "Sorteeri: ikoon"
 
 msgid "Sort by: Organizer"
-msgstr ""
+msgstr "Sorteerimine: Korraldaja"
 
 msgid "Sort by: Required Attendee"
-msgstr ""
+msgstr "Sorteerimine: Kohustuslik osaleja"
 
 msgid "Sort by: Optional Attendee"
-msgstr ""
+msgstr "Sorteerimine: Osaleja: Vabatahtlik osaleja"
 
 msgid "Sort by: Resources"
-msgstr ""
+msgstr "Sorteerimine: Ressursid"
 
 msgid "Recurring Start Date"
-msgstr ""
+msgstr "Korduv alguskuupäev"
 
 msgid "Sort by: Recurring Start Date"
-msgstr ""
+msgstr "Sorteerimine: Korduv alguskuupäev"
 
 msgid "Recurring End Date"
-msgstr ""
+msgstr "Korduv lõpptähtaeg"
 
 msgid "Sort by: Recurring End Date"
-msgstr ""
+msgstr "Sorteerimine: Järjekordne lõppkuupäev"
 
 msgid "Recurring Pattern"
-msgstr ""
+msgstr "Korduv muster"
 
 msgid "Sort by: Recurring Pattern"
-msgstr ""
+msgstr "Sorteerimine: Korduv muster"
 
 msgid "Sort by: Reminder"
-msgstr ""
+msgstr "Sorteerimine: Meeldetuletus"
 
 msgid "Sort by: Sensitivity"
-msgstr ""
+msgstr "Sorteerimine: Tundlikkus"
 
 msgid "Loading appointments"
-msgstr ""
+msgstr "Kohtumiste laadimine"
 
 msgid "Attendees"
-msgstr ""
+msgstr "Osalejad"
 
 msgid "Optional attendees"
-msgstr ""
+msgstr "Vabatahtlikud osalejad"
 
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "jS F {0}"
-msgstr ""
+msgstr "jS F {0}"
 
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "jS F Y"
@@ -1607,45 +1632,53 @@ msgid ""
 "You have insufficient privileges to move and copy this item. Ask the folder "
 "owner to grant you permissions or contact your system administrator."
 msgstr ""
+"Teil ei ole piisavalt õigusi selle objekti liigutamiseks ja kopeerimiseks. "
+"Paluge kausta omanikult õigused või võtke ühendust süsteemiadministraatoriga."
 
 msgid ""
 "You have insufficient privileges to copy this item. Ask the folder owner to "
 "grant you permissions or contact your system administrator."
 msgstr ""
+"Teil ei ole piisavalt õigusi selle objekti kopeerimiseks. Paluge kausta "
+"omanikult õigusi või võtke ühendust süsteemiadministraatoriga."
 
 msgid "Insufficient privileges"
-msgstr ""
+msgstr "Ebapiisavad õigused"
 
 msgid ""
 "Copying this appointment will unset it as private. Are you sure you want to "
 "continue?"
 msgstr ""
+"Selle kohtumise kopeerimine tühistab selle privaatse määramise. Kas olete "
+"kindel, et soovite jätkata?"
 
 msgid "Private item"
-msgstr ""
+msgstr "Eraldi objekt"
 
 msgid "Copy"
-msgstr ""
+msgstr "Koopia"
 
 msgid ""
 "Moving this appointment will unset it as private. Are you sure you want to "
 "continue?"
 msgstr ""
+"Selle kohtumise teisaldamine tühistab selle privaatsena. Kas olete kindel, "
+"et soovite jätkata?"
 
 msgid "Move"
-msgstr ""
+msgstr "Liikumine"
 
 msgid "Update recipients"
-msgstr ""
+msgstr "Ajakohastamise saajad"
 
 msgid "The time of the meeting has changed. What would you like to do?"
-msgstr ""
+msgstr "Koosoleku aeg on muutunud. Mida soovite teha?"
 
 msgid "Save changes and send an update to all recipients"
-msgstr ""
+msgstr "Salvesta muudatused ja saada ajakohastus kõigile adressaatidele."
 
 msgid "Open meeting request with changes"
-msgstr ""
+msgstr "Avatud koosoleku taotlus koos muudatustega"
 
 msgid "grommunio Web"
 msgstr "grommunio veebirakendus"
@@ -1654,17 +1687,20 @@ msgid ""
 "Please note that any changes you make will be overwritten when this meeting "
 "request is updated by the organizer. Would you like to move this meeting?"
 msgstr ""
+"Pange tähele, et kõik teie tehtud muudatused kirjutatakse üle, kui "
+"korraldaja seda koosolekutaotlust ajakohastab. Kas soovite seda koosolekut "
+"edasi lükata?"
 
 msgid "Don't move"
-msgstr ""
+msgstr "Ära liigu"
 
 msgid "Switch to day view to see all appointments"
-msgstr ""
+msgstr "Kõikide kohtumiste nägemiseks lülitage päevavaade"
 
 #. TRANSLATORS: This message is used as label for the field which to indicates to whom the given mail was sent.
 msgctxt "mail.previewpanel"
 msgid "Proposed"
-msgstr ""
+msgstr "Kavandatud"
 
 #. TRANSLATORS: This message is used as label for the field which to indicates to whom the given mail was sent
 msgctxt "mail.previewpanel"
@@ -1677,193 +1713,212 @@ msgid "Location"
 msgstr "Asukoht"
 
 msgid "No additional response required"
-msgstr ""
+msgstr "Täiendavat vastust ei ole vaja"
 
 msgid ""
 "Your calendar has been updated automatically. This meeting request will now "
 "be deleted."
 msgstr ""
+"Teie kalender on automaatselt uuendatud. See koosolekutaotlus kustutatakse "
+"nüüd."
 
 #, fuzzy
 msgid "Loading appointments…"
 msgstr "Kontaktide laadimine…"
 
 msgid "Please select a calendar via widget settings"
-msgstr ""
+msgstr "Palun valige kalender vidina seadete kaudu"
 
 msgid "Number of days"
-msgstr ""
+msgstr "Päevade arv"
 
 msgid "day(s)"
-msgstr ""
+msgstr "päev(ad)"
 
 msgid "{0}"
-msgstr ""
+msgstr "{0}"
 
 msgid "Upcoming Appointments"
-msgstr ""
+msgstr "Eelseisvad kohtumised"
 
 msgid "Appointments of {0}"
-msgstr ""
+msgstr "Nimetused {0}"
 
 msgid "Appointments of {0} - {1}"
-msgstr ""
+msgstr "Nimetused {0} - {1}"
 
 msgid "No appointments"
-msgstr ""
+msgstr "Ei ole kohtumisi"
 
 msgid "Today {0} - {1}"
-msgstr ""
+msgstr "Täna {0} - {1}"
 
 msgid "Today (all day)"
-msgstr ""
+msgstr "Täna (kogu päev)"
 
 #. TRANSLATORS: Display name of a folder: "FOLDERNAME - STORENAME".
 #. TRANSLATORS: Displayed on top of a tree with folders: "FOLDERNAME - USERNAME".
 msgid "{0} - {1}"
-msgstr ""
+msgstr "{0} - {1}"
 
 msgid "d/m/y {0}"
-msgstr ""
+msgstr "d/m/y {0}"
 
 msgid "{0} - {1} (all day)"
-msgstr ""
+msgstr "{0} - {1} (kogu päev)"
 
 #, fuzzy
 msgid "d/m/y"
 msgstr "d/m/Y"
 
 msgid "Select one…"
-msgstr ""
+msgstr "Valige üks..."
 
 msgid "Unnamed folder"
-msgstr ""
+msgstr "Nimetu kaust"
 
 msgid "Discard"
 msgstr "Loobu"
 
 msgid "Quick Appointment"
-msgstr ""
+msgstr "Kiire kohtumine"
 
 msgid "Printing of multiple items has not been implemented."
-msgstr ""
+msgstr "Mitme elemendi printimist ei ole rakendatud."
 
 msgid "Printing of this item is not yet available"
-msgstr ""
+msgstr "Selle toote trükkimine ei ole veel võimalik"
 
 msgid "Item type: "
-msgstr ""
+msgstr "Eseme tüüp:"
 
 msgid "Printing of this view is not yet available"
-msgstr ""
+msgstr "Selle vaate trükkimine ei ole veel võimalik"
 
 msgid "Recurring Message"
-msgstr ""
+msgstr "Korduv sõnum"
 
 msgid ""
 "This is a recurring message. Do you want to open only this occurrence or the "
 "series?"
 msgstr ""
+"See on korduv sõnum. Kas soovite avada ainult selle sündmuse või kogu seeria?"
 
 msgid "Recurring Appointment"
-msgstr ""
+msgstr "Korduv kohtumine"
 
 msgid ""
 "This is a recurring appointment. Do you want to open only this occurrence or "
 "the series?"
 msgstr ""
+"See on korduv kohtumine. Kas soovite avada ainult selle sündmuse või kogu "
+"seeria?"
 
 msgid "Recurring Meeting Request"
-msgstr ""
+msgstr "Korduva koosoleku taotlus"
 
 msgid ""
 "This is a recurring meeting request. Do you want to open only this "
 "occurrence or the series?"
 msgstr ""
+"See on korduv koosolekute taotlus. Kas soovite avada ainult selle sündmuse "
+"või kogu sarja?"
 
 msgid "Recurring Task Request"
-msgstr ""
+msgstr "Korduva ülesande taotlus"
 
 msgid ""
 "This is a recurring task request. Do you want to open only this occurrence "
 "or the series?"
 msgstr ""
+"Tegemist on korduva ülesandepäringuga. Kas soovite avada ainult selle "
+"sündmuse või kogu seeria?"
 
 msgid "Open this occurrence"
-msgstr ""
+msgstr "Avage see sündmus"
 
 msgid "Open the series"
-msgstr ""
+msgstr "Avage seeria"
 
 msgid "Paste Recurring {0}"
-msgstr ""
+msgstr "Paste Recurring {0}"
 
 msgid ""
 "This is a recurring {0}. Do you want to paste only this occurrence or the "
 "series?"
 msgstr ""
+"See on korduv {0}. Kas soovite kleepida ainult selle juhtumi või kogu seeria?"
 
 msgid "message"
-msgstr ""
+msgstr "sõnum"
 
 msgid "meeting request"
-msgstr ""
+msgstr "kohtumise taotlus"
 
 msgid "appointment"
-msgstr ""
+msgstr "kohtumine"
 
 msgid "Paste this occurrence only"
-msgstr ""
+msgstr "Paste see esinemine ainult"
 
 msgid "Paste the series…"
-msgstr ""
+msgstr "Liita seeria..."
 
 msgid ""
 "This is a recurring message. Do you want to delete only this occurrence or "
 "the series?"
 msgstr ""
+"See on korduv sõnum. Kas soovite kustutada ainult selle sündmuse või kogu "
+"seeria?"
 
 msgid ""
 "This is a recurring appointment. Do you want to delete only this occurrence "
 "or the series?"
 msgstr ""
+"See on korduv kohtumine. Kas soovite kustutada ainult selle sündmuse või "
+"kogu seeria?"
 
 msgid ""
 "This is a recurring meeting request. Do you want to delete only this "
 "occurrence or the series?"
 msgstr ""
+"See on korduv koosolekute taotlus. Kas soovite kustutada ainult selle "
+"sündmuse või kogu seeria?"
 
 msgid ""
 "This is a recurring task request. Do you want to delete only this occurrence "
 "or the series?"
 msgstr ""
+"Tegemist on korduva ülesandepäringuga. Kas soovite kustutada ainult selle "
+"sündmuse või kogu seeria?"
 
 msgid "Delete this occurrence"
-msgstr ""
+msgstr "Kustuta see sündmus"
 
 msgid "Delete the series"
-msgstr ""
+msgstr "Kustuta seeria"
 
 msgid "Confirm Delete"
-msgstr ""
+msgstr "Kinnita Kustuta"
 
 msgid "This \"{0}\" meeting was already accepted."
-msgstr ""
+msgstr "See \"{0}\" kohtumine oli juba heaks kiidetud."
 
 msgid "You have not responded to the meeting request \"{0}\"."
-msgstr ""
+msgstr "Te ei ole vastanud kohtumise taotlusele \"{0}\"."
 
 msgid "Delete and send a response to the meeting organizer"
-msgstr ""
+msgstr "Kustuta ja saada vastus koosoleku korraldajale."
 
 msgid "Delete without sending"
-msgstr ""
+msgstr "Kustuta ilma saatmiseta"
 
 msgid "Insufficient permissions"
-msgstr ""
+msgstr "Ebapiisavad load"
 
 msgid "You have insufficient privileges to delete items in this folder."
 msgstr ""
+"Teil ei ole piisavalt õigusi selles kaustas olevate objektide kustutamiseks."
 
 #, fuzzy
 msgid "Notify recipients"
@@ -1872,32 +1927,34 @@ msgstr "Palun täpsusta saaja"
 msgid ""
 "A cancellation message will be sent to all recipients, do you wish to "
 "continue?"
-msgstr ""
+msgstr "Kõikidele saajatele saadetakse tühistamise teade, kas soovite jätkata?"
 
 msgid "Notify sender"
-msgstr ""
+msgstr "Teavitage saatjat"
 
 msgid ""
 "{0} has requested a notification be sent when message \"{1}\" is deleted "
 "without having been read. Do you want to send a receipt?"
 msgstr ""
+"{0} on taotlenud teate saatmist, kui sõnum \"{1}\" on lugemata kustutatud. "
+"Kas soovite saata kviitungi?"
 
 #, fuzzy
 msgid "Delete Incomplete Task"
 msgstr "Kustuta see kirje"
 
 msgid "The task \"{0}\" has not been completed. What do you want to do?"
-msgstr ""
+msgstr "Ülesanne \"{0}\" ei ole lõpetatud. Mida te soovite teha?"
 
 #, fuzzy
 msgid "Decline and delete"
 msgstr "Keeldutud"
 
 msgid "Mark complete and delete"
-msgstr ""
+msgstr "Märgi täielik ja kustuta"
 
 msgid "Following recipients are already exists"
-msgstr ""
+msgstr "Järgmised abisaajad on juba olemas"
 
 #, fuzzy
 msgid "Duplicate recipients"
@@ -1908,218 +1965,237 @@ msgid "Duplicate recipient"
 msgstr "Keeldutud"
 
 msgid "Recipient already exists."
-msgstr ""
+msgstr "Saaja on juba olemas."
 
 msgid ""
 "The sender of this email has requested a read receipt. Do you wish to notify "
 "the sender?"
 msgstr ""
+"Selle e-kirja saatja on taotlenud lugemiskviitungi. Kas soovite saatjat "
+"teavitada?"
 
 #, fuzzy
 msgid "Import"
 msgstr "Oluline"
 
 msgid "Successfully imported item(s) to {0}"
-msgstr ""
+msgstr "Edukalt imporditud objekt(id) {0}"
 
 msgid "Failed to import item(s) to {0}"
-msgstr ""
+msgstr "Ebaõnnestus kirje(te) importimine {0}"
 
 #, fuzzy
 msgid "Import error"
 msgstr "Oluline"
 
 msgid "Unable to import \"{0}\". The file is not valid"
-msgstr ""
+msgstr "Ei ole võimalik importida \"{0}\". Fail ei ole kehtiv"
 
 msgid ""
 "You have insufficient privileges to move these items. Would you like to copy "
 "instead?"
 msgstr ""
+"Teil ei ole nende esemete liigutamiseks piisavalt õigusi. Kas soovite hoopis "
+"kopeerida?"
 
 msgid ""
 "You have insufficient privileges to move this item. Would you like to copy "
 "instead?"
 msgstr ""
+"Teil ei ole piisavalt õigusi selle objekti liigutamiseks. Kas soovite hoopis "
+"kopeerida?"
 
 msgid "Cc"
-msgstr ""
+msgstr "Cc"
 
 msgid "Bcc"
-msgstr ""
+msgstr "Bcc"
 
 msgid "From"
-msgstr ""
+msgstr "Alates"
 
 msgid "Insert item"
-msgstr ""
+msgstr "Sisesta kirje"
 
 msgid "Insert as"
-msgstr ""
+msgstr "Sisestage nagu"
 
 msgid "Text only"
-msgstr ""
+msgstr "Ainult tekst"
 
 msgid "Attachment"
-msgstr ""
+msgstr "Lisa"
 
 msgid "Attach Item"
-msgstr ""
+msgstr "Kinnitage objekt"
 
 msgid "No message selected"
-msgstr ""
+msgstr "Sõnum ei ole valitud"
 
 #, fuzzy
 msgid "Import to"
 msgstr "Oluline"
 
 msgid "New folder"
-msgstr ""
+msgstr "Uus kaust"
 
 msgid "Download as ZIP"
-msgstr ""
+msgstr "Lae alla ZIP-ina"
 
 msgid "Continue"
-msgstr ""
+msgstr "Jätka"
 
 msgid ""
 "These attachments have an unsupported file type and can not be added to the "
 "ZIP file:"
 msgstr ""
+"Nende manuste failitüüp ei ole toetatud ja neid ei saa ZIP-faili lisada:"
 
 msgid "Would you like to continue downloading without adding these files?"
-msgstr ""
+msgstr "Kas soovite jätkata allalaadimist ilma neid faile lisamata?"
 
 msgid ""
 "Always continue download of ZIP files without adding unsupported file types."
 msgstr ""
+"Jätkake alati ZIP-failide allalaadimist, lisamata mitte toetatud failitüüpe."
 
 msgid "File upload"
-msgstr ""
+msgstr "Faili üleslaadimine"
 
 msgid "Attach item"
-msgstr ""
+msgstr "Kinnitage objekt"
 
 msgid "Download"
-msgstr ""
+msgstr "Lae alla"
 
 msgid "Download all as ZIP"
-msgstr ""
+msgstr "Laadige kõik alla ZIP-ina"
 
 msgid "Import to folder"
-msgstr ""
+msgstr "Importimine kausta"
 
 msgid ""
 "In order to use the vCard import feature, upgrade your Gromox to version 0 "
 "or higher."
 msgstr ""
+"Selleks, et kasutada vCard'i impordi funktsiooni, uuendada oma Gromoxi "
+"versioonile 0 või uuemale."
 
 msgid ""
 "In order to use the ICS / VCS import feature, upgrade your Gromox to version "
 "0 or higher."
 msgstr ""
+"ICS / VCS impordifunktsiooni kasutamiseks uuendage oma Gromoxi versioonile 0 "
+"või uuemale."
 
 msgid "Attachment error"
-msgstr ""
+msgstr "Kinnitusviga"
 
 msgid "Cannot create ZIP, The allowed maximum size is 30 MB."
-msgstr ""
+msgstr "Ei saa luua ZIP-i, Lubatud maksimaalne suurus on 30 MB."
 
 msgid "Unable to download"
-msgstr ""
+msgstr "Allalaadimine ei ole võimalik"
 
 msgid "Picture format is not supported. "
-msgstr ""
+msgstr "Pildiformaat ei ole toetatud."
 
 msgid "Supported format for contact pictures are"
-msgstr ""
+msgstr "Toetatud kontaktpiltide vorming on"
 
 msgid "Attachment Error"
-msgstr ""
+msgstr "Kinnitusviga"
 
 msgid "Manage Categories"
-msgstr ""
+msgstr "Kategooriate haldamine"
 
 msgid "New"
-msgstr ""
+msgstr "Uus"
 
 msgid "Delete Category"
-msgstr ""
+msgstr "Kategooria kustutamine"
 
 msgid ""
 "Are you sure you want to delete the category \"{0}\"? Other items keep this "
 "category, but lose the assigned color."
 msgstr ""
+"Kas olete kindel, et soovite kategooria \"{0}\" kustutada? Teised elemendid "
+"säilitavad selle kategooria, kuid kaotavad määratud värvi."
 
 msgid "Rename Category"
-msgstr ""
+msgstr "Kategooria ümbernimetamine"
 
 msgid "A category named \""
-msgstr ""
+msgstr "Kategooria nimega \""
 
 msgid "Create New Category"
-msgstr ""
+msgstr "Uue kategooria loomine"
 
 msgid "Pin to quick access"
-msgstr ""
+msgstr "Pin kiireks juurdepääsuks"
 
 msgid "Create"
-msgstr ""
+msgstr "Loo"
 
 msgid ""
 "You must apply the changes you have made to the categories before you can "
 "create this category."
 msgstr ""
+"Enne selle kategooria loomist peate rakendama kategooriates tehtud muudatusi."
 
 msgid "You already have a category named '{0}'. Please use another name."
-msgstr ""
+msgstr "Teil on juba kategooria nimega '{0}'. Palun kasutage teist nime."
 
 msgid ""
 "You already have a category named '{0}' in your pending changes. Please use "
 "another name."
 msgstr ""
+"Teil on juba kategooria nimega '{0}' oma ootavate muudatuste hulgas. Palun "
+"kasutage teist nime."
 
 msgid "Rename"
-msgstr ""
+msgstr "Nimetage ümber"
 
 msgid "This is the first time you have used \"{0}\" category."
-msgstr ""
+msgstr "See on esimene kord, kui te kasutate kategooriat \"{0}\"."
 
 msgid "Do you want to rename it?"
-msgstr ""
+msgstr "Kas soovite seda ümber nimetada?"
 
 msgid ""
 "The category \"{0}\" already exists. Do you want to merge the \"{1}\" and "
 "\"{2}\" categories?"
 msgstr ""
+"Kategooria \"{0}\" on juba olemas. Kas soovite ühendada kategooriad \"{1}\" "
+"ja \"{2}\"?"
 
 msgid "Merge"
-msgstr ""
+msgstr "Ühinemine"
 
 msgid "Remove"
-msgstr ""
+msgstr "Eemaldage"
 
 msgid "Check Names"
-msgstr ""
+msgstr "Kontrollida nimesid"
 
 msgid "Select an address to use"
-msgstr ""
+msgstr "Valige kasutatav aadress"
 
 msgid "Email"
 msgstr "E-post"
 
 msgid "More than one '{0}' found."
-msgstr ""
+msgstr "Leitakse rohkem kui üks '{0}'."
 
 msgid "Alert"
-msgstr ""
+msgstr "Hoiatus"
 
 #, fuzzy
 msgid "Please select a recipient"
 msgstr "Palun täpsusta saaja"
 
 msgid "Mail and Post"
-msgstr ""
+msgstr "Post ja post"
 
 msgid "Contact"
 msgstr "Kontakt"
@@ -2138,139 +2214,147 @@ msgid "Inbox"
 msgstr "Sisendkaust"
 
 msgid "Entire Inbox"
-msgstr ""
+msgstr "Kogu postkast"
 
 msgid "Secretary"
-msgstr ""
+msgstr "Sekretär"
 
 msgid "Only read"
-msgstr ""
+msgstr "Loe ainult"
 
 msgid "Delegate Permissions"
-msgstr ""
+msgstr "Delegeerimisõigused"
 
 msgid "This delegate has the following permissions"
-msgstr ""
+msgstr "Sellel delegaadil on järgmised õigused"
 
 msgid "Delegate can see my private items."
-msgstr ""
+msgstr "Delegaat saab näha minu privaatseid objekte."
 
 msgid "Delegate receives copies of meeting-related messages sent to me."
-msgstr ""
+msgstr "Delegaat saab koopiad mulle saadetud koosolekuga seotud sõnumitest."
 
 msgid "Other"
-msgstr ""
+msgstr "Muud"
 
 msgid "No delegates configured"
-msgstr ""
+msgstr "Delegaate ei ole konfigureeritud"
 
 msgid "Loading delegates"
-msgstr ""
+msgstr "Delegaatide laadimine"
 
 msgid "Please select a delegate."
-msgstr ""
+msgstr "Palun valige delegaat."
 
 msgid "Delegates can send items on your behalf."
-msgstr ""
+msgstr "Delegaadid võivad teie nimel saadetisi saata."
 
 msgid ""
 "If you only want to set folder permissions, right-click on a folder to open "
 "the context menu and click on \"Share folder…\""
 msgstr ""
+"Kui soovite määrata ainult kaustade õigusi, avage kontekstmenüü "
+"paremklõpsuga kaustal ja klõpsake \"Jaga kaust...\"."
 
 msgid "Permission"
-msgstr ""
+msgstr "Luba"
 
 #, fuzzy
 msgid "Duplicate delegate"
 msgstr "Keeldutud"
 
 msgid "Delegate already exists in the list."
-msgstr ""
+msgstr "Delegaat on juba nimekirjas olemas."
 
 msgid "Copy/Move Folder"
-msgstr ""
+msgstr "Kausta kopeerimine/liigutamine"
 
 msgid "Copy/Move Messages"
-msgstr ""
+msgstr "Sõnumite kopeerimine/liigutamine"
 
 msgid "Destination folder"
-msgstr ""
+msgstr "Sihtkoha kaust"
 
 msgid "There is {0} message selected."
 msgid_plural "There are {0} messages selected."
-msgstr[0] ""
+msgstr[0] "Valitud on {0} sõnum."
 msgstr[1] ""
 
 msgid "Folder '{0}' selected."
-msgstr ""
+msgstr "Kaust '{0}' valitud."
 
 msgid ""
 "You have insufficient privileges to move this folder. Ask the folder owner "
 "to grant you permissions or contact your system administrator."
 msgstr ""
+"Teil ei ole selle kausta teisaldamiseks piisavalt õigusi. Paluge kausta "
+"omanikult, et ta annaks teile õigused, või võtke ühendust oma "
+"süsteemiadministraatoriga."
 
 msgid ""
 "You have insufficient privileges to copy this folder. Ask the folder owner "
 "to grant you permissions or contact your system administrator."
 msgstr ""
+"Teil ei ole selle kausta kopeerimiseks piisavalt õigusi. Paluge kausta "
+"omanikult, et ta annaks teile õigused või võtke ühendust oma "
+"süsteemiadministraatoriga."
 
 msgid "You have insufficient privileges to move following items."
-msgstr ""
+msgstr "Teil ei ole piisavalt õigusi järgmiste objektide liigutamiseks."
 
 msgid "Subject:"
-msgstr ""
+msgstr "Teema:"
 
 msgid "Would you like to copy instead?"
-msgstr ""
+msgstr "Kas soovite hoopis kopeerida?"
 
 msgid "Do not show this message again."
-msgstr ""
+msgstr "Ärge näidake seda teadet uuesti."
 
 msgid "ICS"
-msgstr ""
+msgstr "ICS"
 
 msgid "Set custom flag"
-msgstr ""
+msgstr "Määra kohandatud lipp"
 
 msgid "Start date"
-msgstr ""
+msgstr "Alguskuupäev"
 
 msgid "End date"
-msgstr ""
+msgstr "Lõppkuupäev"
 
 msgid "Tomorrow"
-msgstr ""
+msgstr "Homme"
 
 msgid "This week"
-msgstr ""
+msgstr "Sel nädalal"
 
 msgid "Next week"
-msgstr ""
+msgstr "Järgmine nädal"
 
 msgid "Custom"
-msgstr ""
+msgstr "Kohandatud"
 
 msgid "Set reminder"
-msgstr ""
+msgstr "Määra meeldetuletus"
 
 msgid "Complete"
 msgstr "Valmis"
 
 msgid "today"
-msgstr ""
+msgstr "täna"
 
 msgid "tomorrow"
-msgstr ""
+msgstr "homme"
 
 msgid "this week"
-msgstr ""
+msgstr "sel nädalal"
 
 msgid "next week"
-msgstr ""
+msgstr "järgmisel nädalal"
 
 msgid "Edit recipient"
-msgstr ""
+msgstr "Redigeeri vastuvõtja"
 
 #, fuzzy
 msgid "Copy email address"
@@ -2281,16 +2365,16 @@ msgid "Set as required"
 msgstr "See väli tuleb täita"
 
 msgid "Set as optional"
-msgstr ""
+msgstr "Määra vabatahtlikuks"
 
 msgid "Set as resource"
-msgstr ""
+msgstr "Määra ressursiks"
 
 msgid "Select attendees"
-msgstr ""
+msgstr "Valige osalejad"
 
 msgid "Suggested Times"
-msgstr ""
+msgstr "Soovituslikud ajad"
 
 msgid "Busy"
 msgstr "Hõivatud"
@@ -2299,19 +2383,19 @@ msgid "Out of Office"
 msgstr "Kontorist väljas"
 
 msgid "No Information"
-msgstr ""
+msgstr "Teave puudub"
 
 msgid "Show non-working hours"
-msgstr ""
+msgstr "Näita tööväliseid tunde"
 
 msgid "Hide non-working hours"
-msgstr ""
+msgstr "Varjata töövälised tunnid"
 
 msgid "No freebusy information available for this date"
-msgstr ""
+msgstr "Selle kuupäeva kohta ei ole vabavara teavet saadaval."
 
 msgid "No suggestions available"
-msgstr ""
+msgstr "Ettepanekud puuduvad"
 
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 #, fuzzy
@@ -2319,56 +2403,56 @@ msgid "l jS F Y"
 msgstr "jS F Y"
 
 msgid "Switch between different contexts e.g. inbox, calendar, etc."
-msgstr ""
+msgstr "Vahetus erinevate kontekstide vahel, nt postkast, kalender jne."
 
 msgid "Basic navigation"
-msgstr ""
+msgstr "Põhiline navigeerimine"
 
 msgid "Switch between different views"
-msgstr ""
+msgstr "Vaheta erinevate vaadete vahel"
 
 msgid "New item"
 msgstr "Uus kirje"
 
 msgid "All views"
-msgstr ""
+msgstr "Kõik seisukohad"
 
 msgid "Close tab"
-msgstr ""
+msgstr "Sulge vahekaart"
 
 msgid "Print item"
-msgstr ""
+msgstr "Prindi objekt"
 
 msgid "Items"
-msgstr ""
+msgstr "Artiklid"
 
 msgid "Save an item e.g. mail, contact, etc."
-msgstr ""
+msgstr "Salvesta objekt, nt post, kontakt jne."
 
 msgid "Send an item e.g. mail, meeting request, etc."
-msgstr ""
+msgstr "Saada kirje, nt posti, koosolekutaotluse jne."
 
 msgid "Select all items"
-msgstr ""
+msgstr "Valige kõik elemendid"
 
 msgid "Extend the selection to the first item in the list"
-msgstr ""
+msgstr "Laiendada valikut nimekirja esimese elemendini"
 
 msgid "Extend the selection to the last item in the list"
-msgstr ""
+msgstr "Laiendab valikut nimekirja viimase elemendini."
 
 #, fuzzy
 msgid "Open selected item"
 msgstr "Trüki valitud kontakt"
 
 msgid "Open dialog to categorize selected item"
-msgstr ""
+msgstr "Avage dialoog valitud elemendi kategoriseerimiseks"
 
 msgid "Print list"
-msgstr ""
+msgstr "Prindi nimekiri"
 
 msgid "Open copy/move dialog"
-msgstr ""
+msgstr "Avage kopeerimise/liigutamise dialoog"
 
 #, fuzzy
 msgid "Delete selected item"
@@ -2378,22 +2462,24 @@ msgid ""
 "Delete selected item without moving it to the Deleted Items folder. The "
 "deleted item can still be restored."
 msgstr ""
+"Kustutage valitud elementi ilma seda kustutatud objektide kausta "
+"liigutamata. Kustutatud objekti saab siiski taastada."
 
 #, fuzzy
 msgid "Add/Edit Cc recipient"
 msgstr "Vastus puudub"
 
 msgid "Disable for new mail"
-msgstr ""
+msgstr "Uute kirjade puhul keelata"
 
 msgid "Enable for new mail"
-msgstr ""
+msgstr "Võimaldab uue posti jaoks"
 
 msgid "Disable for replies"
-msgstr ""
+msgstr "Lülita vastuste jaoks välja"
 
 msgid "Enable for replies"
-msgstr ""
+msgstr "Vastuste lubamine"
 
 #, fuzzy
 msgid "No Cc recipient configured"
@@ -2404,10 +2490,10 @@ msgid "Loading Cc recipients"
 msgstr "Palun täpsusta saaja"
 
 msgid "Reply Mail"
-msgstr ""
+msgstr "Vastus Mail"
 
 msgid "New Mail"
-msgstr ""
+msgstr "Uus post"
 
 #, fuzzy
 msgid "Please select a Cc recipient record."
@@ -2421,27 +2507,29 @@ msgid ""
 "Cc recipients can be used to set a default Cc user in new mail, replies or "
 "both."
 msgstr ""
+"Cc-vastuvõtjaid saab kasutada vaikimisi Cc-kasutajate määramiseks uutes "
+"kirjades, vastustes või mõlemas."
 
 msgid "Help"
-msgstr ""
+msgstr "Abi"
 
 msgid "Web Manual"
-msgstr ""
+msgstr "Veebikäsiraamat"
 
 msgid "Item data"
-msgstr ""
+msgstr "Artikli andmed"
 
 msgid "INSERT"
-msgstr ""
+msgstr "INSERT"
 
 msgid "Sort by: context.mail.griddefaultcolumn"
-msgstr ""
+msgstr "Sorteerimine: context.mail.griddefaultcolumn"
 
 msgid "ZDeveloper"
-msgstr ""
+msgstr "ZDeveloper"
 
 msgid "grommunio Web print"
-msgstr ""
+msgstr "grommunio Web print"
 
 #, fuzzy
 msgid "Display name"
@@ -2459,234 +2547,235 @@ msgid ""
 "Distribution list will be replaced with its members. You will not be able to "
 "collapse it again."
 msgstr ""
+"Jaotusloend asendatakse selle liikmetega. Te ei saa seda enam kokku lükata."
 
 msgid "Edit Recipient"
-msgstr ""
+msgstr "Edit Recipient"
 
 #, fuzzy
 msgid "Copy email addresses"
 msgstr "E-posti aadressid"
 
 msgid "Send email"
-msgstr ""
+msgstr "Saada e-kiri"
 
 msgid "Delete recipient from suggestion list"
-msgstr ""
+msgstr "Kustuta saaja soovituste nimekirjast"
 
 msgid "Copy all email addresses"
-msgstr ""
+msgstr "Kopeeri kõik e-posti aadressid"
 
 msgid "View recipient"
-msgstr ""
+msgstr "Vaata vastuvõtjat"
 
 msgid "Weekday"
-msgstr ""
+msgstr "Nädalapäevad"
 
 msgid "Weekend Day"
-msgstr ""
+msgstr "Nädalavahetuse päev"
 
 msgid "1st"
-msgstr ""
+msgstr "1."
 
 msgid "2nd"
-msgstr ""
+msgstr "2."
 
 msgid "3rd"
-msgstr ""
+msgstr "Kolmas"
 
 msgid "4th"
-msgstr ""
+msgstr "Neljas"
 
 msgid "last"
-msgstr ""
+msgstr "viimane"
 
 msgid "Every {A} day(s)"
-msgstr ""
+msgstr "Iga {A} päev(ad)"
 
 msgid "Every weekday"
-msgstr ""
+msgstr "Iga argipäev"
 
 msgid "Regenerate new task {A} day(s) after each task is completed"
-msgstr ""
+msgstr "Loo uus ülesanne {A} päev(ad) pärast iga ülesande täitmist."
 
 msgid "Day {A} of every {B} month(s)"
-msgstr ""
+msgstr "Iga {B} kuu(de) {A} päev(ad)"
 
 msgid "The {A} {B} of every {C} month(s)"
-msgstr ""
+msgstr "{A} {B} iga {C} kuu(de)st"
 
 msgid "Regenerate new task {A} month(s) after each task is completed"
-msgstr ""
+msgstr "Loo uus ülesanne {A} kuu(d) pärast iga ülesande täitmist uuesti."
 
 msgid "Appointment Recurrence"
-msgstr ""
+msgstr "Nimetuse kordumine"
 
 msgid "Remove Recurrence"
-msgstr ""
+msgstr "Eemalda korduvkasutamine"
 
 msgid "Reset recurring"
-msgstr ""
+msgstr "Korduvate maksete lähtestamine"
 
 msgid "This will reset every exception. Do you want to continue?"
-msgstr ""
+msgstr "See nullib kõik erandid. Kas soovite jätkata?"
 
 msgid "Task Recurrence"
-msgstr ""
+msgstr "Ülesande korduvus"
 
 msgid "Daily"
-msgstr ""
+msgstr "Igapäevane"
 
 msgid "Weekly"
-msgstr ""
+msgstr "Nädalane"
 
 msgid "Monthly"
-msgstr ""
+msgstr "Igakuine"
 
 msgid "Yearly"
-msgstr ""
+msgstr "Aastane"
 
 msgid "Range of recurrence"
-msgstr ""
+msgstr "Kordumise ulatus"
 
 msgid "No end date"
-msgstr ""
+msgstr "Lõpptähtaeg puudub"
 
 msgid "End after {A} occurrences"
-msgstr ""
+msgstr "Lõpp pärast {A} esinemist"
 
 msgid "End by {A}"
-msgstr ""
+msgstr "Lõpeta {A}"
 
 #. TRANSLATORS: This informs the user what the exact duration of the appointment is. Where {D} represents the days, {H} the hours and {M} the minutes.
 #. For example: 'Occurence duration: 1 day 2 hours 45 minutes', or when the appointment is shorter then 1 day: 'Occurence duration: 1 hour'
 msgid "Occurrence duration: {D} {H} {M}"
-msgstr ""
+msgstr "Esinemise kestus: {D} {H} {M}"
 
 msgid "Every {A} week(s) on"
-msgstr ""
+msgstr "Iga {A} nädala(de) kohta"
 
 msgid "Regenerate new task {A} week(s) after each task is completed"
-msgstr ""
+msgstr "Loo uus ülesanne {A} nädal(ad) pärast iga ülesande täitmist."
 
 msgid "Every {A} {B}"
-msgstr ""
+msgstr "Iga {A} {B}"
 
 msgid "The {A} {B} of {C}"
-msgstr ""
+msgstr "{A} {B} {C}"
 
 msgid "Regenerate new task {A} year(s) after each task is completed"
-msgstr ""
+msgstr "Loo uus ülesanne {A} aasta(d) pärast iga ülesande täitmist."
 
 msgid "Info"
-msgstr ""
+msgstr "Info"
 
 msgid "Not supported at the moment."
-msgstr ""
+msgstr "Hetkel ei toetata."
 
 msgid "There is {0} reminder"
 msgid_plural "There are {0} reminders"
-msgstr[0] ""
+msgstr[0] "On olemas {0} meeldetuletus"
 msgstr[1] ""
 
 msgid "Reminders"
-msgstr ""
+msgstr "Meeldetuletused"
 
 msgid "There are no reminders"
-msgstr ""
+msgstr "Mingeid meeldetuletusi ei ole"
 
 msgid "Due In"
-msgstr ""
+msgstr "Due In"
 
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "Due"
-msgstr ""
+msgstr "Due"
 
 msgid "Reminder time"
-msgstr ""
+msgstr "Meeldetuletuse aeg"
 
 msgid "Dismiss All"
-msgstr ""
+msgstr "Lase kõik lahti"
 
 msgid "Open Item"
-msgstr ""
+msgstr "Avatud punkt"
 
 msgid "Dismiss"
-msgstr ""
+msgstr "Lase lahti"
 
 msgid "Click Snooze to be reminded again in"
-msgstr ""
+msgstr "Klõpsake nuppu Snooze, et teile uuesti meelde tuletada aastal"
 
 msgid "Snooze"
-msgstr ""
+msgstr "Snooze"
 
 msgctxt "reminder.dialog"
 msgid "{0} reminder is selected."
 msgid_plural "{0} reminders are selected."
-msgstr[0] ""
+msgstr[0] "{0} meeldetuletus on valitud."
 msgstr[1] ""
 
 msgid "Restore Softdeleted Items"
-msgstr ""
+msgstr "Taastada pehmelt kustutatud elemendid"
 
 msgid "Restore From {0}"
-msgstr ""
+msgstr "Restore From {0}"
 
 msgid "Restore"
-msgstr ""
+msgstr "Taasta"
 
 msgid "Restore All"
-msgstr ""
+msgstr "Taasta kõik"
 
 msgid "Permanent Delete"
-msgstr ""
+msgstr "Püsiv kustutamine"
 
 msgid "Delete All"
-msgstr ""
+msgstr "Kustuta kõik"
 
 msgid "Messages"
-msgstr ""
+msgstr "Sõnumid"
 
 #, fuzzy
 msgid "Delete all items"
 msgstr "Kustutatud"
 
 msgid "Are you sure you want to permanently delete all items?"
-msgstr ""
+msgstr "Kas olete kindel, et soovite kõik elemendid lõplikult kustutada?"
 
 #, fuzzy
 msgid "Restore all items"
 msgstr "Taasta kirjed"
 
 msgid "Are you sure you want to restore all items?"
-msgstr ""
+msgstr "Kas olete kindel, et soovite taastada kõik elemendid?"
 
 msgid "Total {0} recoverable item"
 msgid_plural "Total {0} recoverable items"
-msgstr[0] ""
+msgstr[0] "Kokku {0} sissenõutav objekt"
 msgstr[1] ""
 
 msgid "Deleted On"
-msgstr ""
+msgstr "Kustutatud On"
 
 #, fuzzy
 msgid "Sort by: Deleted On"
 msgstr "Sorteeri: loomise kuupäev"
 
 msgid "Item Count"
-msgstr ""
+msgstr "Esemete arv"
 
 msgid "Sort by: Item Count"
-msgstr ""
+msgstr "Sorteerimine: Järjestus: Esemete arv"
 
 #, fuzzy
 msgid "Sort by: From"
 msgstr "Sorteeri: ikoon"
 
 msgid "Received"
-msgstr ""
+msgstr "Saabunud"
 
 msgid "Sort by: Received"
-msgstr ""
+msgstr "Sorteerimine: Saabunud"
 
 msgid "Size"
 msgstr "Suurus"
@@ -2696,161 +2785,163 @@ msgid "Sort by: Size"
 msgstr "Sorteeri: pealkiri"
 
 msgid "Move the message to folder…"
-msgstr ""
+msgstr "Viige sõnum kausta..."
 
 msgid "Copy the message to folder…"
-msgstr ""
+msgstr "Kopeeri sõnum kausta..."
 
 msgid "Delete the message"
-msgstr ""
+msgstr "Kustuta sõnum"
 
 msgid "Redirect the message to…"
-msgstr ""
+msgstr "Suunake sõnum ümber..."
 
 msgid "Forward the message to…"
-msgstr ""
+msgstr "Edastage sõnum edasi..."
 
 msgid "Forward the message as attachment to…"
-msgstr ""
+msgstr "Edastage sõnum manusena aadressil..."
 
 msgid "Mark the message as read…"
-msgstr ""
+msgstr "Märgi sõnum loetud..."
 
 msgid "is received from…"
-msgstr ""
+msgstr "on saadud..."
 
 msgid "includes these words in the sender's address…"
-msgstr ""
+msgstr "sisaldab neid sõnu saatja aadressil..."
 
 msgid "includes these words in the recipient's address…"
-msgstr ""
+msgstr "sisaldab neid sõnu saaja aadressil..."
 
 msgid "includes these words in the subject…"
-msgstr ""
+msgstr "sisaldab neid sõnu teemas..."
 
 msgid "includes these words in the body…"
-msgstr ""
+msgstr "sisaldab järgmisi sõnu..."
 
 msgid "includes these words in the transport headers…"
-msgstr ""
+msgstr "sisaldab neid sõnu transpordi päises..."
 
 #, fuzzy
 msgid "has importance…"
 msgstr "Oluline…"
 
 msgid "has an attachment"
-msgstr ""
+msgstr "on kinnitus"
 
 #, fuzzy
 msgid "is sent to…"
 msgstr "Saadetud…"
 
 msgid "is sent only to me"
-msgstr ""
+msgstr "saadetakse ainult mulle"
 
 msgid "has my name in the Cc field"
-msgstr ""
+msgstr "on minu nimi Cc-väljal"
 
 msgid "does not have my name in the To or Cc field"
-msgstr ""
+msgstr "ei ole minu nime To- või Cc-väljal."
 
 msgid "has my name in the To or Cc field"
-msgstr ""
+msgstr "on minu nimi To- või Cc-väljal"
 
 msgid "has sensitivity…"
-msgstr ""
+msgstr "on tundlikkus..."
 
 msgid "is received after…"
-msgstr ""
+msgstr "saadakse pärast..."
 
 msgid "is received before…"
-msgstr ""
+msgstr "on saadud enne..."
 
 msgid "size is at least…"
-msgstr ""
+msgstr "suurus on vähemalt..."
 
 msgid "size is at most…"
-msgstr ""
+msgstr "suurus on maksimaalselt..."
 
 msgid "has my name in the To field"
-msgstr ""
+msgstr "on minu nimi väljal To"
 
 msgid "is received (all messages)"
-msgstr ""
+msgstr "on vastu võetud (kõik sõnumid)"
 
 msgid "Unknown condition"
-msgstr ""
+msgstr "Tundmatu seisund"
 
 msgid "This condition for the current rule is unknown"
-msgstr ""
+msgstr "See tingimus on praeguse reegli puhul teadmata."
 
 msgid "Add action"
-msgstr ""
+msgstr "Lisa tegevus"
 
 msgid "Remove action"
-msgstr ""
+msgstr "Eemaldage tegevus"
 
 msgid "Unknown action"
-msgstr ""
+msgstr "Tundmatu tegevus"
 
 msgid "This action for the current rule is unknown"
-msgstr ""
+msgstr "See tegevus praeguse reegli puhul on teadmata"
 
 msgid "Add condition"
-msgstr ""
+msgstr "Lisa tingimus"
 
 msgid "Remove condition"
-msgstr ""
+msgstr "Eemalda tingimus"
 
 msgid "Inbox Rule"
-msgstr ""
+msgstr "Postkasti reegel"
 
 msgid "Rule name"
-msgstr ""
+msgstr "Reegli nimi"
 
 msgid "When the message"
-msgstr ""
+msgstr "Kui sõnum"
 
 msgid "Do the following"
-msgstr ""
+msgstr "Tehke järgmist"
 
 msgid "Exceptions"
-msgstr ""
+msgstr "Erandid"
 
 msgid "Apply only when Out of Office is active"
-msgstr ""
+msgstr "Kohaldatakse ainult siis, kui kontoriväline teenus on aktiivne"
 
 msgid "Stop processing more rules"
-msgstr ""
+msgstr "Lõpeta rohkemate reeglite töötlemine"
 
 msgid "Add exception"
-msgstr ""
+msgstr "Lisa erand"
 
 msgid "Remove exception"
-msgstr ""
+msgstr "Erandi eemaldamine"
 
 msgid "Specify Words or Phrases"
-msgstr ""
+msgstr "Täpsustage sõnad või fraasid"
 
 msgid "Edit"
-msgstr ""
+msgstr "Muuda"
 
 msgid "and"
-msgstr ""
+msgstr "ja"
 
 msgid ""
 "Distribution lists are not supported in rules, would you like to replace the "
 "distribution list with its members?"
 msgstr ""
+"Jaotusnimekirjad ei ole reeglites toetatud, kas soovite asendada "
+"jaotusnimekirja koos selle liikmetega?"
 
 msgid "or"
-msgstr ""
+msgstr "või"
 
 msgid "No rule exists"
-msgstr ""
+msgstr "Reeglit ei ole olemas"
 
 msgid "Active"
-msgstr ""
+msgstr "Aktiivne"
 
 #, fuzzy
 msgid "Out of office"
@@ -2865,44 +2956,44 @@ msgid "Loading rules"
 msgstr "Laeb märkuseid"
 
 msgid "Please select a rule."
-msgstr ""
+msgstr "Palun valige reegel."
 
 msgid "Rule already has highest priority."
-msgstr ""
+msgstr "Reeglil on juba kõrgeim prioriteet."
 
 msgid "Rule already has lowest priority."
-msgstr ""
+msgstr "Reeglil on juba madalaim prioriteet."
 
 msgid "Always move messages from {0}"
-msgstr ""
+msgstr "Liiguta alati sõnumeid {0}"
 
 msgid "Always move messages that are sent to <recipients>"
-msgstr ""
+msgstr "Liiguta alati sõnumid, mis on saadetud <vastuvõtjatele>."
 
 msgid "Always move messages with this subject"
-msgstr ""
+msgstr "Liigutage alati selle teemaga sõnumeid"
 
 msgid "Create rule…"
-msgstr ""
+msgstr "Loo reegel..."
 
 msgid "myself"
-msgstr ""
+msgstr "ise"
 
 msgid "Update rules for"
-msgstr ""
+msgstr "Uuendage eeskirju"
 
 msgid "Apply changes"
-msgstr ""
+msgstr "Muudatuste rakendamine"
 
 msgid "Do you wish to apply the changes?"
-msgstr ""
+msgstr "Kas soovite muudatusi rakendada?"
 
 #, fuzzy
 msgid "All folders"
 msgstr "Kadunud kaustad"
 
 msgid "Other…"
-msgstr ""
+msgstr "Muud..."
 
 #, fuzzy
 msgid "Search in…"
@@ -2915,74 +3006,74 @@ msgstr "Kaustade nimekiri"
 msgid ""
 "The folder you are searching through no longer exists. Please select another "
 "folder"
-msgstr ""
+msgstr "Kaust, mida te otsite, ei ole enam olemas. Palun valige teine kaust"
 
 msgid "Add/Edit sender"
-msgstr ""
+msgstr "Saatja lisamine/muutmine"
 
 msgid "No from addresses configured"
-msgstr ""
+msgstr "Ei ole konfigureeritud aadressidelt"
 
 msgid "Loading from addresses"
-msgstr ""
+msgstr "Laadimine aadressidelt"
 
 msgid "Forward Mail"
-msgstr ""
+msgstr "Posti edastamine"
 
 msgid "Please select a from address record."
-msgstr ""
+msgstr "Palun valige aadressi kirje."
 
 msgid "Add/Edit From recipient"
-msgstr ""
+msgstr "Lisa/muuda saajalt"
 
 msgid "Manage the recipients used in the 'From' field"
-msgstr ""
+msgstr "Halda väljal \"From\" kasutatavaid adressaate."
 
 msgid "View"
-msgstr ""
+msgstr "Vaata"
 
 msgid "Please select a sendas record."
-msgstr ""
+msgstr "Palun valige sendas kirje."
 
 msgid "Delegates"
-msgstr ""
+msgstr "Delegaadid"
 
 msgid "Delegate settings"
-msgstr ""
+msgstr "Delegatsiooni seaded"
 
 msgid "Desktop Notifications Settings"
-msgstr ""
+msgstr "Töölaua teavituste seaded"
 
 msgid "We need permissions to enable desktop notifications."
-msgstr ""
+msgstr "Me vajame õigusi, et lubada töölauateateid."
 
 msgid "Request Permissions"
-msgstr ""
+msgstr "Õiguste taotlemine"
 
 msgid "Enable desktop notifications for new mail"
-msgstr ""
+msgstr "Töölaua teavituste lubamine uue posti kohta"
 
 msgid "Enable desktop notifications for reminders"
-msgstr ""
+msgstr "Lubage meeldetuletuste töölauateated meeldetuletuste jaoks"
 
 msgid "{A} Auto-hide desktop notification after second(s) {B}"
-msgstr ""
+msgstr "{A} Automaatne töölauateate peitmine sekundi(te) järel {B}"
 
 msgid "Disable sound"
-msgstr ""
+msgstr "Lülita heli välja"
 
 msgid "Notifications"
-msgstr ""
+msgstr "Teated"
 
 #, fuzzy
 msgid "Rules"
 msgstr "Reeglid"
 
 msgid "From Addresses"
-msgstr ""
+msgstr "Aadressidelt"
 
 msgid "From Addresses settings"
-msgstr ""
+msgstr "Aadresside seaded"
 
 msgid "Full name"
 msgstr "Täisnimi"
@@ -2996,14 +3087,14 @@ msgid "Business Fax"
 msgstr "Töö2"
 
 msgid "Webpage"
-msgstr ""
+msgstr "Veebileht"
 
 #, fuzzy
 msgid "IM Address"
 msgstr "SMTP Aadress"
 
 msgid "D, d-m-Y, {0}"
-msgstr ""
+msgstr "D, d-m-Y, {0}"
 
 #, fuzzy
 msgid "{0} selected row"
@@ -3012,19 +3103,19 @@ msgstr[0] "Trüki valitud kontakt"
 msgstr[1] ""
 
 msgid "Reminder is set on: {0}, {1}"
-msgstr ""
+msgstr "Meeldetuletus on sisse lülitatud: {0}, {1}"
 
 msgid "d-m-Y"
-msgstr ""
+msgstr "d-m-Y"
 
 msgid "l d/m/Y"
-msgstr ""
+msgstr "l d/m/Y"
 
 msgid "l d/m/Y {0}"
-msgstr ""
+msgstr "l d/m/Y {0}"
 
 msgid "d-m-Y {0}"
-msgstr ""
+msgstr "d-m-Y {0}"
 
 msgid "Unknown"
 msgstr "Tundmatu"
@@ -3034,27 +3125,27 @@ msgid "Meeting Organizer"
 msgstr "Koosoleku korraldaja"
 
 msgid "{0} overdue"
-msgstr ""
+msgstr "{0} üle tähtaja"
 
 msgid "Loading…"
-msgstr ""
+msgstr "Laadimine..."
 
 msgid "Message could not be loaded"
-msgstr ""
+msgstr "Sõnumit ei saanud laadida"
 
 #. TRANSLATORS: This message is used as label for the field which indicates which attachments are inside the message
 msgctxt "mail.previewpanel"
 msgid "Attachments"
-msgstr ""
+msgstr "Lisad"
 
 msgid "Download Pictures"
-msgstr ""
+msgstr "Piltide allalaadimine"
 
 msgid "Add Sender to Safe Senders List"
-msgstr ""
+msgstr "Lisa saatja turvaliste saatjate nimekirja"
 
 msgid "Add Domain to Safe Senders List"
-msgstr ""
+msgstr "Domeeni lisamine turvaliste saatjate nimekirja"
 
 #. TRANSLATORS: This sentence is given in the Email previewpanel, and indicates with which
 #. importance the message was sent. For example:
@@ -3062,7 +3153,7 @@ msgstr ""
 #. 'This message was sent with low importance.'
 msgctxt "mail.previewpanel"
 msgid "This message was sent with {0} importance."
-msgstr ""
+msgstr "See sõnum saadeti {0} tähtsusega."
 
 #. TRANSLATORS: This sentence is given in the Email previewpanel, and indicates which
 #. sensitivity level applies to the message. For example:
@@ -3071,171 +3162,181 @@ msgstr ""
 #. 'Please treat this as Confidential.'
 msgctxt "mail.previewpanel"
 msgid "Please treat this as {0}."
-msgstr ""
+msgstr "Palun käsitage seda kui {0}."
 
 msgctxt "mail.previewpanel"
 msgid ""
 "Click here to download pictures. To help protect your privacy, grommunio Web "
 "prevented automatic download of some pictures in this message."
 msgstr ""
+"Piltide allalaadimiseks klõpsake siin. Et aidata kaitsta teie privaatsust, "
+"grommunio Web takistas automaatne allalaadimine mõned pildid selles sõnumis."
 
 msgctxt "mail.previewpanel"
 msgid ""
 "This message is corrupt and will not be displayed correctly, Click here to "
 "fix it."
 msgstr ""
+"See sõnum on vigane ja seda ei kuvata õigesti, selle parandamiseks klõpsake "
+"siin."
 
 msgctxt "mail.previewpanel"
 msgid "{0} has accepted."
-msgstr ""
+msgstr "{0} on nõustunud."
 
 msgctxt "mail.previewpanel"
 msgid "{0} has accepted on behalf of {1}."
-msgstr ""
+msgstr "{0} on nõustunud {1} nimel."
 
 msgctxt "mail.previewpanel"
 msgid "{0} has tentatively accepted."
-msgstr ""
+msgstr "{0} on esialgu nõustunud."
 
 msgctxt "mail.previewpanel"
 msgid "{0} has tentatively accepted on behalf of {1}."
-msgstr ""
+msgstr "{0} on esialgse nõusoleku andnud {1} nimel."
 
 msgctxt "mail.previewpanel"
 msgid "{0} has declined."
-msgstr ""
+msgstr "{0} on vähenenud."
 
 msgctxt "mail.previewpanel"
 msgid "{0} has declined on behalf of {1}."
-msgstr ""
+msgstr "{0} on keeldunud {1} nimel."
 
 msgctxt "mail.previewpanel"
 msgid "{0} tentatively accepted and proposed a new time for this meeting."
-msgstr ""
+msgstr "{0} nõustusid esialgu ja tegid ettepaneku uue aja määramiseks."
 
 msgctxt "mail.previewpanel"
 msgid ""
 "{0} tentatively accepted on behalf of {1} and proposed a new time for this "
 "meeting."
 msgstr ""
+"{0} võttis {1} nimel esialgu vastu ja tegi ettepaneku uue aja määramiseks."
 
 msgctxt "mail.previewpanel"
 msgid "{0} declined and proposed a new time for this meeting."
-msgstr ""
+msgstr "{0} keeldus ja tegi ettepaneku uue aja määramiseks."
 
 msgctxt "mail.previewpanel"
 msgid "{0} declined on behalf of {1} and proposed a new time for this meeting."
-msgstr ""
+msgstr "{0} keeldus {1} nimel ja tegi ettepaneku määrata kohtumiseks uus aeg."
 
 msgctxt "mail.previewpanel"
 msgid "This meeting is not in the Calendar; it may have been moved or deleted."
 msgstr ""
+"Seda koosolekut ei ole kalendris; see on võib-olla ümber paigutatud või "
+"kustutatud."
 
 msgctxt "mail.previewpanel"
 msgid ""
 "This meeting request was updated after this message was sent. You should "
 "open the latest update or open the item from the calendar."
 msgstr ""
+"Seda koosolekutaotlust ajakohastati pärast selle sõnumi saatmist. Te "
+"peaksite avama viimase ajakohastatud versiooni või avama objekti kalendrist."
 
 msgctxt "mail.previewpanel"
 msgid "As the meeting organizer, you do not need to respond to the meeting"
-msgstr ""
+msgstr "Koosoleku korraldajana ei pea te vastama koosolekule"
 
 msgctxt "mail.previewpanel"
 msgid "The meeting was updated after the attendee sent this response"
 msgstr ""
+"Koosolekut ajakohastati pärast seda, kui osaleja saatis järgmise vastuse"
 
 msgctxt "mail.previewpanel"
 msgid "This appointment occurs in the past."
-msgstr ""
+msgstr "See kohtumine toimub minevikus."
 
 msgctxt "mail.previewpanel"
 msgid "Please respond."
-msgstr ""
+msgstr "Palun vastake."
 
 msgctxt "mail.previewpanel"
 msgid "This is an update of a previously sent meeting request."
-msgstr ""
+msgstr "See on varem saadetud koosoleku taotluse ajakohastatud versioon."
 
 msgctxt "mail.previewpanel"
 msgid "Received for {0}."
-msgstr ""
+msgstr "Saabunud {0}."
 
 msgctxt "mail.previewpanel"
 msgid "You replied to this message."
-msgstr ""
+msgstr "Te vastasite sellele sõnumile."
 
 msgctxt "mail.previewpanel"
 msgid "You forwarded this message."
-msgstr ""
+msgstr "Te edastasite selle sõnumi."
 
 msgctxt "mail.previewpanel"
 msgid "You replied to this message on {0}."
-msgstr ""
+msgstr "Sa vastasid sellele sõnumile {0}."
 
 msgctxt "mail.previewpanel"
 msgid "You forwarded this message on {0}."
-msgstr ""
+msgstr "Sa edastasid selle sõnumi {0}."
 
 msgid "Assigned by {0} on {1}."
-msgstr ""
+msgstr "Määratud {0} poolt {1}-le."
 
 msgid "Waiting for response from recipient"
-msgstr ""
+msgstr "Ootab vastuse saajalt"
 
 msgid "Accepted by {0} on {1}."
-msgstr ""
+msgstr "Aktsepteeritud {0} poolt {1}."
 
 msgid "{0} has accepted on behalf of {1} {2}."
-msgstr ""
+msgstr "{0} on nõustunud {1} nimel {1} {2}."
 
 msgid "Declined by {0} on {1}."
-msgstr ""
+msgstr "Tagasi lükatud {0} poolt {1} kohta."
 
 msgid "{0} has declined on behalf of {1} {2}."
-msgstr ""
+msgstr "{0} on keeldunud {1} nimel. {2}."
 
 msgid "Last update sent on {0}."
-msgstr ""
+msgstr "Viimane uuendus saadeti {0}."
 
 msgid "{0} has updated on behalf of {1} {2}."
-msgstr ""
+msgstr "{0} on ajakohastanud {1} nimel. {2}."
 
 msgid "Fix message"
-msgstr ""
+msgstr "Parandada sõnum"
 
 msgid ""
 "We are going to try to fix a corrupted mail message, do you wish to continue?"
-msgstr ""
+msgstr "Me üritame parandada rikutud kirjasõnumit, kas soovite jätkata?"
 
 msgid "The matching task was not found in your task list."
-msgstr ""
+msgstr "Vastavat ülesannet ei leitud teie ülesannete nimekirjast."
 
 msgctxt "mail.previewpanel"
 msgid "To"
-msgstr ""
+msgstr "aadressile"
 
 msgctxt "mail.previewpanel"
 msgid "Cc"
-msgstr ""
+msgstr "Cc"
 
 msgctxt "mail.previewpanel"
 msgid "Bcc"
-msgstr ""
+msgstr "Bcc"
 
 msgctxt "mail.previewpanel"
 msgid "Categories"
-msgstr ""
+msgstr "Kategooriad"
 
 #. TRANSLATORS: This message is used as label for the field which to indicates to whom the given mail was sent
 msgctxt "mail.previewpanel"
 msgid "Recipients"
-msgstr ""
+msgstr "Vastuvõtjad"
 
 #. TRANSLATORS: check if the mail is send by some delegator or not. if then display "on behalf of".
 msgctxt "mail.previewpanel"
 msgid "on behalf of"
-msgstr ""
+msgstr "järgmiste organisatsioonide nimel"
 
 #. TRANSLATORS: This message is used to indicate that no sent date is available for the message (because it has not been sent yet).
 msgctxt "mail.previewpanel"
@@ -3243,117 +3344,117 @@ msgid "None"
 msgstr "Puudub"
 
 msgid "Pop-out"
-msgstr ""
+msgstr "Pop-out"
 
 msgid "Mark as read"
-msgstr ""
+msgstr "Märgista kui loetud"
 
 msgid "Mark as unread"
-msgstr ""
+msgstr "Märgista lugemata"
 
 msgid "in"
-msgstr ""
+msgstr "aadressil"
 
 msgid "Root"
-msgstr ""
+msgstr "Juurde"
 
 msgid "Datepicker"
-msgstr ""
+msgstr "Datepicker"
 
 msgid "File As"
-msgstr ""
+msgstr "File As"
 
 msgid "Full Name"
 msgstr "Täisnimi"
 
 msgid "Department Name"
-msgstr ""
+msgstr "Osakonna nimi"
 
 msgid "Home Address"
-msgstr ""
+msgstr "Kodu aadress"
 
 msgid "Business Address"
-msgstr ""
+msgstr "Äriühingu aadress"
 
 msgid "Other Address"
-msgstr ""
+msgstr "Muu aadress"
 
 msgid "Business Phone"
-msgstr ""
+msgstr "Äritelefon"
 
 msgid "Business 2 Phone"
-msgstr ""
+msgstr "Business 2 Telefon"
 
 msgid "Assistant Phone"
-msgstr ""
+msgstr "Assistent Telefon"
 
 msgid "Company Main Phone"
-msgstr ""
+msgstr "Ettevõtte põhitelefon"
 
 #, fuzzy
 msgid "Home 2 Phone"
 msgstr "Kodune telefon"
 
 msgid "Car Phone"
-msgstr ""
+msgstr "Autotelefon"
 
 msgid "Radio"
-msgstr ""
+msgstr "Raadio"
 
 msgid "Callback Phone"
-msgstr ""
+msgstr "Tagasikutsumise telefon"
 
 msgid "Other Phone"
-msgstr ""
+msgstr "Muu telefon"
 
 msgid "Primary Phone"
-msgstr ""
+msgstr "Esmane telefon"
 
 msgid "Telex"
-msgstr ""
+msgstr "Telex"
 
 msgid "TTY/TDD Phone"
-msgstr ""
+msgstr "TTY/TDD telefon"
 
 msgid "ISDN"
 msgstr "ISDN"
 
 msgid "Other Fax"
-msgstr ""
+msgstr "Muu faks"
 
 msgid "Home Fax"
-msgstr ""
+msgstr "Faks koju"
 
 msgid "Email Display As"
-msgstr ""
+msgstr "E-posti kuvamine kui"
 
 msgid "Email 2"
 msgstr "E-post 2"
 
 msgid "Email2 Display As"
-msgstr ""
+msgstr "Email2 Näita kui"
 
 msgid "Email 3"
 msgstr "E-post 3"
 
 msgid "Email3 Display As"
-msgstr ""
+msgstr "Email3 Näita kui"
 
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "Birthday"
 msgstr "Sünnipäev"
 
 msgid "Wedding Anniversary"
-msgstr ""
+msgstr "Pulma-aastapäev"
 
 msgid "Spouse/Partner"
-msgstr ""
+msgstr "Abikaasa/partner"
 
 msgid "Profession"
-msgstr ""
+msgstr "Amet"
 
 msgid "Assistant's Name"
-msgstr ""
+msgstr "Assistendi nimi"
 
 #, fuzzy
 msgid "Distribution List Name"
@@ -3366,10 +3467,10 @@ msgid "Business Cards"
 msgstr "Visiitkaardid"
 
 msgid "Phone List"
-msgstr ""
+msgstr "Telefonide nimekiri"
 
 msgid "Add to contacts"
-msgstr ""
+msgstr "Lisa kontaktidele"
 
 msgid "Print selected contact"
 msgstr "Trüki valitud kontakt"
@@ -3381,88 +3482,88 @@ msgid "Distribution list"
 msgstr "Postiloend"
 
 msgid "Dr."
-msgstr ""
+msgstr "Dr."
 
 msgid "Miss"
-msgstr ""
+msgstr "Miss"
 
 msgid "Mr."
-msgstr ""
+msgstr "Hr."
 
 msgid "Mrs."
-msgstr ""
+msgstr "Mrs."
 
 msgid "Ms."
-msgstr ""
+msgstr "Ms."
 
 msgid "Prof."
-msgstr ""
+msgstr "Prof."
 
 msgid "Jr."
-msgstr ""
+msgstr "Jr."
 
 msgid "Sr."
-msgstr ""
+msgstr "Sr."
 
 #, fuzzy
 msgid "Phone number"
 msgstr "Telefoninumbrid"
 
 msgid "Check address"
-msgstr ""
+msgstr "Kontrollida aadressi"
 
 msgid "Street"
-msgstr ""
+msgstr "Street"
 
 msgid "State/Province"
-msgstr ""
+msgstr "Riik/provints"
 
 msgid "Zip/Postal code"
-msgstr ""
+msgstr "Postiindeks/Postkood"
 
 msgid "Country/Region"
-msgstr ""
+msgstr "Riik/piirkond"
 
 msgid "Show this again when address is incomplete or unclear."
-msgstr ""
+msgstr "Näita seda uuesti, kui aadress on ebatäielik või ebaselge."
 
 msgid "Details"
-msgstr ""
+msgstr "Üksikasjad"
 
 msgid "Office location"
-msgstr ""
+msgstr "Kontori asukoht"
 
 msgid "Manager's name"
-msgstr ""
+msgstr "Juhi nimi"
 
 msgid "Assistant's name"
-msgstr ""
+msgstr "Assistendi nimi"
 
 msgid "Nickname"
-msgstr ""
+msgstr "Hüüdnimi"
 
 msgid "Suffix"
-msgstr ""
+msgstr "Suffiks"
 
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "Anniversary"
-msgstr ""
+msgstr "Aastapäev"
 
 msgid "Photo"
-msgstr ""
+msgstr "Foto"
 
 msgid "Additional information"
-msgstr ""
+msgstr "Täiendav teave"
 
 #, fuzzy
 msgid "Business 2"
 msgstr "Töö2"
 
 msgid "Callback"
-msgstr ""
+msgstr "Tagasikutsumine"
 
 msgid "Car"
-msgstr ""
+msgstr "Auto"
 
 #, fuzzy
 msgid "Home 2"
@@ -3472,46 +3573,46 @@ msgid "Primary"
 msgstr "Esmane"
 
 msgid "TTY/TDD"
-msgstr ""
+msgstr "TTY/TDD"
 
 msgid "Check full name"
-msgstr ""
+msgstr "Kontrollida täisnime"
 
 msgid "First"
-msgstr ""
+msgstr "Esimene"
 
 msgid "Middle"
-msgstr ""
+msgstr "Keskmine"
 
 msgid "Last"
-msgstr ""
+msgstr "Viimane"
 
 msgid "Show this again when name is incomplete or unclear."
-msgstr ""
+msgstr "Näita seda uuesti, kui nimi on ebatäielik või ebaselge."
 
 msgid "Check phone number"
-msgstr ""
+msgstr "Kontrollida telefoninumbrit"
 
 msgid "Country/Region code"
-msgstr ""
+msgstr "Riigi/piirkonna kood"
 
 msgid "City/Area code"
-msgstr ""
+msgstr "Linna/piirkonna kood"
 
 msgid "Local number"
-msgstr ""
+msgstr "Kohalik number"
 
 msgid "Extension"
-msgstr ""
+msgstr "Pikendus"
 
 msgid "Add Attachment"
-msgstr ""
+msgstr "Lisa lisa"
 
 msgid "Add attachments to this contact"
-msgstr ""
+msgstr "Lisa sellele kontaktile manuseid"
 
 msgid "Mark this contact as private"
-msgstr ""
+msgstr "Märgi see kontakt privaatseks"
 
 #, fuzzy
 msgid "Distribution List"
@@ -3526,29 +3627,29 @@ msgid "New email address"
 msgstr "E-posti aadress"
 
 msgid "Please enter a valid email address"
-msgstr ""
+msgstr "Palun sisestage kehtiv e-posti aadress"
 
 msgid "Select Members"
-msgstr ""
+msgstr "Valige liikmed"
 
 msgid "Add New"
-msgstr ""
+msgstr "Lisa uus"
 
 msgid "Type your note here…"
-msgstr ""
+msgstr "Kirjutage oma märkus siia..."
 
 msgid "New contact"
-msgstr ""
+msgstr "Uus kontakt"
 
 #, fuzzy
 msgid "New distribution list"
 msgstr "Postiloend"
 
 msgid "Email 2 Display As"
-msgstr ""
+msgstr "E-post 2 Display As"
 
 msgid "Email 3 Display As"
-msgstr ""
+msgstr "E-post 3 Näita kui"
 
 msgid "Loading contacts"
 msgstr "Kontaktide laadimine"
@@ -3556,18 +3657,20 @@ msgstr "Kontaktide laadimine"
 msgid ""
 "There are no items to show in this list. Update the filter for more results."
 msgstr ""
+"Selles nimekirjas ei ole ühtegi näidatavat elementi. Värskendage filtrit, et "
+"saada rohkem tulemusi."
 
 msgid "[Group]"
-msgstr ""
+msgstr "[Grupp]"
 
 msgid "Work:"
-msgstr ""
+msgstr "Töö:"
 
 msgid "Primary:"
-msgstr ""
+msgstr "Esmane:"
 
 msgid "Mobile:"
-msgstr ""
+msgstr "Mobiilne:"
 
 msgid "Sort by: Full Name"
 msgstr "Sorteeri: Täisnime järgi"
@@ -3597,35 +3700,35 @@ msgid "Sort by: Department Name"
 msgstr "Sorteeri: Osakonna järgi"
 
 msgid "Office Location"
-msgstr ""
+msgstr "Büroo asukoht"
 
 msgid "Sort by: Office Location"
-msgstr ""
+msgstr "Sorteerimine: Asukoht"
 
 msgid "Sort by: Profession"
-msgstr ""
+msgstr "Sorteerimine: Amet"
 
 msgid "Manager Name"
-msgstr ""
+msgstr "Juhi nimi"
 
 msgid "Sort by: Manager Name"
-msgstr ""
+msgstr "Sorteerimine: Nimi: Juhi nimi"
 
 msgid "Sort by: Assistant's Name"
-msgstr ""
+msgstr "Sorteerimine: Nimi: Assistendi nimi"
 
 #, fuzzy
 msgid "Sort by: Nickname"
 msgstr "Sorteeri: ikoon"
 
 msgid "Sort by: Spouse/Partner Name"
-msgstr ""
+msgstr "Sorteerimine: Abikaasa/partneri nimi"
 
 msgid "Sort by: Birthday"
-msgstr ""
+msgstr "Sorteerimine: Sünnipäev"
 
 msgid "Sort by: Anniversary"
-msgstr ""
+msgstr "Sorteerimine: Aastapäev"
 
 #, fuzzy
 msgid "Sort by: Business Address"
@@ -3640,7 +3743,7 @@ msgid "Sort by: Office Address"
 msgstr "Sorteeri: E-post järgi"
 
 msgid "Mailing Address"
-msgstr ""
+msgstr "Postiaadress"
 
 #, fuzzy
 msgid "Sort by: Mailing Address"
@@ -3655,30 +3758,30 @@ msgid "Sort by: Webpage"
 msgstr "Sorteeri: ikoon"
 
 msgid "Assistant's Phone"
-msgstr ""
+msgstr "Assistendi telefon"
 
 msgid "Sort by: Assistant's Phone"
-msgstr ""
+msgstr "Sorteerimine: Telefoni järgi: assistendi telefon"
 
 msgid "Business Phone 2"
-msgstr ""
+msgstr "Äritelefon 2"
 
 #, fuzzy
 msgid "Sort by: Business Phone 2"
 msgstr "Sorteeri: E-post järgi"
 
 msgid "Sort by: Callback"
-msgstr ""
+msgstr "Sorteerimine: Tagasikutsumine"
 
 #, fuzzy
 msgid "Sort by: Car Phone"
 msgstr "Sorteeri: Koduse telefoni järgi"
 
 msgid "Company Phone"
-msgstr ""
+msgstr "Ettevõtte telefon"
 
 msgid "Sort by: Company Main Phone"
-msgstr ""
+msgstr "Sorteerimine: Ettevõtte põhitelefon"
 
 #, fuzzy
 msgid "Home Phone 2"
@@ -3689,7 +3792,7 @@ msgid "Sort by: Home Phone 2"
 msgstr "Sorteeri: Koduse telefoni järgi"
 
 msgid "Sort by: Home Fax"
-msgstr ""
+msgstr "Sorteerimine: Kodufaks"
 
 msgid "Sort by: ISDN"
 msgstr "Sorteeri: ISDN'i järgi"
@@ -3699,69 +3802,80 @@ msgid "Sort by: Other Phone"
 msgstr "Sorteeri: Koduse telefoni järgi"
 
 msgid "Radio Phone"
-msgstr ""
+msgstr "Raadiotelefon"
 
 #, fuzzy
 msgid "Sort by: Radio Phone"
 msgstr "Sorteeri: Kontrori telefoni järgi"
 
 msgid "Sort by: TTY/TDD Phone"
-msgstr ""
+msgstr "Sorteerimine: TTY/TDD telefon"
 
 #, fuzzy
 msgid "Sort by: Telex Phone"
 msgstr "Sorteeri: Koduse telefoni järgi"
 
 msgid "Change Picture"
-msgstr ""
+msgstr "Muuda pilti"
 
 msgid "Remove Picture"
-msgstr ""
+msgstr "Pildi eemaldamine"
 
 msgid "VCF file(s)"
-msgstr ""
+msgstr "VCF-fail(id)"
 
 msgid "Quick Contact"
-msgstr ""
+msgstr "Kiire kontakt"
 
 msgid "Open in new browser window"
-msgstr ""
+msgstr "Avaneb uues brauseriaknas"
 
 msgid ""
 "Your browser seems to have blocked one or more pop-ups. Please change your "
 "browser's settings to always allow pop-ups from grommunio Web."
 msgstr ""
+"Teie brauser näib olevat blokeerinud ühe või mitu hüpikaknaid. Palun muutke "
+"oma brauseri seadeid nii, et need lubaksid alati grommunio Webi hüpikaknad."
 
 msgid "Untitled"
-msgstr ""
+msgstr "Untitled"
 
 msgid ""
 "Cannot upload attachment, only {0} attachments are allowed to be added to "
 "the message"
 msgstr ""
+"Ei saa manuseid üles laadida, sõnumile on lubatud lisada ainult {0} manuseid."
 
 msgid ""
 "Cannot upload attachment, attachment is {0} while the allowed maximum is {1}."
 msgstr ""
+"Ei saa manustust üles laadida, manuse väärtus on {0}, samas kui lubatud "
+"maksimaalne väärtus on {1}."
 
 msgid ""
 "Cannot upload attachment, the total attachment size is {0} while the allowed "
 "maximum is {1}"
 msgstr ""
+"Manustet ei saa üles laadida, manuse kogusuurus on {0}, samas kui lubatud "
+"maksimumsuurus on {1}."
 
 msgid ""
 "Cannot upload attachment, total attachment is {0} while the allowed maximum "
 "attachment in single request is {1}."
 msgstr ""
+"Ei saa manuseid üles laadida, manuste koguarv on {0}, samas kui lubatud "
+"maksimaalne manuste arv ühes taotluses on {1}."
 
 msgid ""
 "Cannot upload attachment, total attachments are {0} files while the maximum "
 "{1} files are allowed in single request."
 msgstr ""
+"Manuseid ei saa üles laadida, manuseid on kokku {0} faili, samas kui ühe "
+"taotlusega on lubatud maksimaalselt {1} faili."
 
 #. TRANSLATORS: {0} indicates name/email address of secretary and {1} indicates boss' name/email address
 msgid "{0} on behalf of {1}"
-msgstr ""
+msgstr "{0} {1} nimel {0}"
 
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "jS F"
@@ -3854,23 +3968,23 @@ msgid "Deferred"
 msgstr "edasilükatud"
 
 msgid "Dark"
-msgstr ""
+msgstr "Tume"
 
 #, fuzzy
 msgid "High Contrast"
 msgstr "Minu kontaktid"
 
 msgid "Lime"
-msgstr ""
+msgstr "Lime"
 
 msgid "Magenta"
-msgstr ""
+msgstr "Magenta"
 
 msgid "Orange"
-msgstr ""
+msgstr "Oranž"
 
 msgid "Purple"
-msgstr ""
+msgstr "Lilla"
 
 msgid "Logout"
 msgstr "Välju"
@@ -3901,19 +4015,19 @@ msgid "Please specify a recipient"
 msgstr "Palun täpsusta saaja"
 
 msgid "The attached files are not uploaded yet."
-msgstr ""
+msgstr "Lisatud faile ei ole veel üles laaditud."
 
 msgid "Do you want to send this message without attachments?"
-msgstr ""
+msgstr "Kas soovite seda sõnumit ilma manusteta saata?"
 
 msgid "Attachments not uploaded yet"
-msgstr ""
+msgstr "Manuseid ei ole veel üles laaditud"
 
 msgid "Don't Send"
-msgstr ""
+msgstr "Ärge saatke"
 
 msgid "Send Anyway"
-msgstr ""
+msgstr "Saada niikuinii"
 
 #, fuzzy
 msgid "No subject"
@@ -3930,10 +4044,10 @@ msgid "Not all recipients could be resolved"
 msgstr "Kõiki saajaid ei suudetud tuvastada"
 
 msgid "Collapse hierarchy"
-msgstr ""
+msgstr "Kokkupõrge hierarhia"
 
 msgid "Expand hierarchy"
-msgstr ""
+msgstr "Laiendada hierarhiat"
 
 msgid "Folders List"
 msgstr "Kaustade nimekiri"
@@ -3947,7 +4061,7 @@ msgid "Hide Details"
 msgstr "Detailselt"
 
 msgid "Loaded {0} of {1}"
-msgstr ""
+msgstr "Laetud {0} {1}"
 
 msgid "Saving"
 msgstr "Salvestamine"
@@ -3966,45 +4080,45 @@ msgstr ""
 "sulgeda?"
 
 msgid "grommunio Content Panel"
-msgstr ""
+msgstr "grommunio sisupaneel"
 
 #, fuzzy
 msgid "Delete item"
 msgstr "Kustutatud"
 
 msgid "This item has been changed. Are you sure you want to delete it?"
-msgstr ""
+msgstr "Seda punkti on muudetud. Kas olete kindel, et soovite selle kustutada?"
 
 msgid "Unsaved changes"
-msgstr ""
+msgstr "Salvestamata muudatused"
 
 msgid "Welcome to grommunio Web"
-msgstr ""
+msgstr "Tere tulemast grommunio Web"
 
 msgid "This is the first time you are using grommunio Web. "
-msgstr ""
+msgstr "See on esimene kord, kui kasutate grommunio Webi."
 
 msgid "Please check the following settings before continuing."
-msgstr ""
+msgstr "Enne jätkamist kontrollige järgmisi seadeid."
 
 #, fuzzy
 msgid "Widget height"
 msgstr "Lisa vidinaid"
 
 msgid "pixels"
-msgstr ""
+msgstr "pikslid"
 
 msgid "Configure widget"
-msgstr ""
+msgstr "Vidina seadistamine"
 
 msgid "Reload interval"
-msgstr ""
+msgstr "Uuesti laadimise intervall"
 
 msgid "seconds"
-msgstr ""
+msgstr "sekundit"
 
 msgid "Open in new tab"
-msgstr ""
+msgstr "Avaneb uues vahekaardis"
 
 msgid "Add widgets"
 msgstr "Lisa vidinaid"
@@ -4013,287 +4127,291 @@ msgid "No widgets installed."
 msgstr "Vidinaid pole paigaldatud."
 
 msgid "Remove widget"
-msgstr ""
+msgstr "Eemalda vidin"
 
 msgid "Collapse widget"
-msgstr ""
+msgstr "Kokkupõrge vidin"
 
 #, fuzzy
 msgid "Expand widget"
 msgstr "Lisa vidinaid"
 
 msgid "About this widget"
-msgstr ""
+msgstr "Selle vidina kohta"
 
 #, fuzzy
 msgid "Add new widget"
 msgstr "Lisa vidinaid"
 
 msgid "Collapse widget panel"
-msgstr ""
+msgstr "Vidina paneeli kokkuvarisemine"
 
 msgid "Expand widget panel"
-msgstr ""
+msgstr "Laiendage vidina paneeli"
 
 msgid "Your changes will be lost if you leave this page now."
-msgstr ""
+msgstr "Teie muudatused lähevad kaduma, kui te lahkute sellelt lehelt nüüd."
 
 msgid "D {0}"
-msgstr ""
+msgstr "D {0}"
 
 msgid "D d-m"
-msgstr ""
+msgstr "D d-m"
 
 msgid ""
 "Not enough permissions to open this store, do you want to remove it from the "
 "hierarchy?"
 msgstr ""
+"Selle poe avamiseks ei ole piisavalt õigusi, kas soovite selle hierarhiast "
+"eemaldada?"
 
 msgid ""
 "Not enough permissions to open this folder, do you want to remove it from "
 "the hierarchy?"
 msgstr ""
+"Selle kausta avamiseks ei ole piisavalt õigusi, kas soovite selle kausta "
+"hierarhiast eemaldada?"
 
 msgid "Insufficient Permissions"
-msgstr ""
+msgstr "Ebapiisavad õigused"
 
 msgid "Not enough permissions to open this folder."
-msgstr ""
+msgstr "Selle kausta avamiseks ei ole piisavalt õigusi."
 
 msgid "There is {0} unread message in the folder {1} of {2}"
 msgid_plural "There are {0} unread messages in the folder {1} of {2}"
-msgstr[0] ""
+msgstr[0] "{2} kaustas {1} on {0} lugemata sõnum {1}."
 msgstr[1] ""
 
 msgid "There is {0} unread message in the folder {1}"
 msgid_plural "There are {0} unread messages in the folder {1}"
-msgstr[0] ""
+msgstr[0] "Kaustas {1} on {0} lugemata sõnumid."
 msgstr[1] ""
 
 msgid "Publishing Editor"
-msgstr ""
+msgstr "Kirjastuse toimetaja"
 
 msgid "Editor"
-msgstr ""
+msgstr "Toimetaja"
 
 msgid "Publishing Author"
-msgstr ""
+msgstr "Kirjastuse autor"
 
 msgid "Author"
-msgstr ""
+msgstr "Autor"
 
 msgid "Nonediting Author"
-msgstr ""
+msgstr "Mitte-toimetaja Autor"
 
 msgid "Reviewer"
-msgstr ""
+msgstr "Arvustaja"
 
 msgid "Contributor"
-msgstr ""
+msgstr "Toetaja"
 
 msgid "Free/Busy time, subject, location"
-msgstr ""
+msgstr "Vaba/vabas aeg, teema, asukoht"
 
 msgid "Free/Busy time"
-msgstr ""
+msgstr "Vaba/vaba aeg"
 
 msgid "Unable to import:"
-msgstr ""
+msgstr "Ei saa importida:"
 
 msgid "The files are not valid"
-msgstr ""
+msgstr "Failid ei ole kehtivad"
 
 msgid "Create New Folder"
-msgstr ""
+msgstr "Uue kausta loomine"
 
 msgid "Folder contains"
-msgstr ""
+msgstr "Kaust sisaldab"
 
 msgid "Calendar Items"
-msgstr ""
+msgstr "Kalendri esemed"
 
 msgid "Mail and Post Items"
-msgstr ""
+msgstr "Posti ja postisaadetised"
 
 msgid "Contacts Items"
-msgstr ""
+msgstr "Kontaktide esemed"
 
 msgid "Note Items"
-msgstr ""
+msgstr "Märkuse esemed"
 
 msgid "Task Items"
-msgstr ""
+msgstr "Tööülesanded"
 
 msgid "Select where to place the folder"
-msgstr ""
+msgstr "Valige, kuhu paigutada kaust"
 
 msgid "No folder name"
-msgstr ""
+msgstr "Kausta nimi puudub"
 
 msgid "No destination"
-msgstr ""
+msgstr "Sihtkoht puudub"
 
 msgid "You must select a destination folder."
-msgstr ""
+msgstr "Peate valima sihtkausta."
 
 msgid "Properties"
-msgstr ""
+msgstr "Omadused"
 
 msgid "Type"
-msgstr ""
+msgstr "Tüüp"
 
 msgid "Description"
-msgstr ""
+msgstr "Kirjeldus"
 
 msgid "EntryID"
-msgstr ""
+msgstr "EntryID"
 
 msgid "Parent EID"
-msgstr ""
+msgstr "Vanem EID"
 
 msgid "Folder size"
 msgstr "Kausta suurus"
 
 msgid "Folder containing {0} Items"
-msgstr ""
+msgstr "Kaust, mis sisaldab {0} objekte"
 
 msgid "Permissions"
-msgstr ""
+msgstr "Õigused"
 
 msgid "No permissions granted"
-msgstr ""
+msgstr "Lube ei ole antud"
 
 msgid "Profile"
-msgstr ""
+msgstr "Profiil"
 
 msgid "Full Details"
-msgstr ""
+msgstr "Täielikud üksikasjad"
 
 msgid "Read"
-msgstr ""
+msgstr "Loe"
 
 msgid "Write"
-msgstr ""
+msgstr "Kirjutage"
 
 msgid "Create items"
-msgstr ""
+msgstr "Loo objekte"
 
 msgid "Create subfolders"
-msgstr ""
+msgstr "Alamkaustade loomine"
 
 msgid "Edit own"
-msgstr ""
+msgstr "Muuda oma"
 
 msgid "Edit all"
-msgstr ""
+msgstr "Muuda kõiki"
 
 #, fuzzy
 msgid "Delete items"
 msgstr "Kustutatud"
 
 msgid "Own"
-msgstr ""
+msgstr "Oma"
 
 msgid "All"
-msgstr ""
+msgstr "Kõik"
 
 msgid "Folder owner"
-msgstr ""
+msgstr "Kausta omanik"
 
 msgid "Folder contact"
-msgstr ""
+msgstr "Kausta kontakt"
 
 msgid "Folder visible"
-msgstr ""
+msgstr "Kaustik nähtav"
 
 msgid "Apply (copy) changed permissions recursively"
-msgstr ""
+msgstr "Rakendada (kopeerida) muudetud õigusi rekursiivselt"
 
 msgid "User already exists"
-msgstr ""
+msgstr "Kasutaja on juba olemas"
 
 msgid "Group already exists"
-msgstr ""
+msgstr "Rühm on juba olemas"
 
 msgid "Folder Size"
 msgstr "Kausta suurus"
 
 msgid "Folder Name"
-msgstr ""
+msgstr "Kausta nimi"
 
 msgid "Size (without subfolders)"
-msgstr ""
+msgstr "Suurus (ilma alamkaustadeta)"
 
 msgid "Total size (including subfolders)"
-msgstr ""
+msgstr "Kogusuurus (koos alamkaustadega)"
 
 msgid "Loading subfolder sizes"
-msgstr ""
+msgstr "Alamkaustade suuruse laadimine"
 
 msgid "No subfolders present"
-msgstr ""
+msgstr "Alamkaustad puuduvad"
 
 msgid "Subfolder"
-msgstr ""
+msgstr "Alamkaust"
 
 msgid "Sort by: Name of the subfolder"
-msgstr ""
+msgstr "Sorteerimine: Alamkataloogi nimi"
 
 msgid "Sort by: Size (without subfolders)"
-msgstr ""
+msgstr "Sorteerimine: Suurus (ilma alamkataloogideta)"
 
 msgid "Total size"
-msgstr ""
+msgstr "Kogusuurus"
 
 msgid "Sort by: Total size (including subfolders)"
-msgstr ""
+msgstr "Sorteerimine: Kogusuurus (koos alamkataloogidega)"
 
 #, fuzzy
 msgid "Open Shared Folders"
 msgstr "Avada jagatud märkused"
 
 msgid "Unresolved user"
-msgstr ""
+msgstr "Lahendamata kasutaja"
 
 msgid "Username '{0}' could not be resolved."
-msgstr ""
+msgstr "Kasutajanime '{0}' ei õnnestunud lahendada."
 
 msgid "Invalid user"
-msgstr ""
+msgstr "Invaliidne kasutaja"
 
 msgid "Username '{0}' is not a valid user."
-msgstr ""
+msgstr "Kasutajanimi '{0}' ei ole kehtiv kasutaja."
 
 msgid "Own store"
-msgstr ""
+msgstr "Oma kauplus"
 
 msgid "It is not possible to open your own store twice."
-msgstr ""
+msgstr "Oma poodi ei ole võimalik avada kaks korda."
 
 msgid "Folder already open"
-msgstr ""
+msgstr "Kaust on juba avatud"
 
 msgid "This shared folder is already open."
-msgstr ""
+msgstr "See jagatud kaust on juba avatud."
 
 msgid "No user"
-msgstr ""
+msgstr "Kasutaja puudub"
 
 #, fuzzy
 msgid "You must specify a user"
 msgstr "Te peate valima kasutaja."
 
 msgid "Folder type"
-msgstr ""
+msgstr "Kausta tüüp"
 
 msgid "Show subfolders"
-msgstr ""
+msgstr "Näita alamkatalooge"
 
 msgid "Open shared folder/store"
-msgstr ""
+msgstr "Avage jagatud kaust/varamu"
 
 msgid "Rename folder"
-msgstr ""
+msgstr "Kausta ümbernimetamine"
 
 #, fuzzy
 msgid "Empty folder"
@@ -4308,37 +4426,37 @@ msgid "Empty Deleted Items"
 msgstr "Kustutatud"
 
 msgid "Rename Folder"
-msgstr ""
+msgstr "Kausta ümbernimetamine"
 
 msgid "New Folder"
-msgstr ""
+msgstr "Uus kaustik"
 
 msgid "Mark All Messages Read"
-msgstr ""
+msgstr "Märgi kõik sõnumid loetud"
 
 msgid "Delete Folder"
-msgstr ""
+msgstr "Kausta kustutamine"
 
 msgid "Close store"
-msgstr ""
+msgstr "Poe sulgemine"
 
 msgid "Close folder"
-msgstr ""
+msgstr "Sulge kaust"
 
 msgid "Reload"
-msgstr ""
+msgstr "Laadige uuesti"
 
 msgid "Restore items"
 msgstr "Taasta kirjed"
 
 msgid "Select color"
-msgstr ""
+msgstr "Valige värv"
 
 msgid "Add to Favorites"
-msgstr ""
+msgstr "Lisa lemmikute hulka"
 
 msgid "Remove From Favorites"
-msgstr ""
+msgstr "Eemalda lemmikutest"
 
 #, fuzzy
 msgid "Share folder…"
@@ -4353,53 +4471,59 @@ msgid "Import appointments"
 msgstr "Kontaktide laadimine"
 
 msgid "Import contacts"
-msgstr ""
+msgstr "Kontaktide importimine"
 
 msgid "Properties of {0}"
-msgstr ""
+msgstr "{0} omadused"
 
 msgid "Share {0} with…"
-msgstr ""
+msgstr "Jaga {0} koos..."
 
 msgid "Properties of {0} - {1}"
-msgstr ""
+msgstr "{0} - {1} omadused"
 
 msgid ""
 "Are you sure you want to permanently delete all the items and subfolders in "
 "the \"{0}\" folder?"
 msgstr ""
+"Kas olete kindel, et soovite kustutada lõplikult kõik elemendid ja "
+"alamkaustad kaustas \"{0}\"?"
 
 msgid ""
 "Are you sure you want to delete the folder \"{0}\" and move all of its "
 "contents into the Deleted Items folder?"
 msgstr ""
+"Kas olete kindel, et soovite kausta \"{0}\" kustutada ja kogu selle sisu "
+"liigutada kausta \"Kustutatud elemendid\"?"
 
 #, fuzzy
 msgid "Delete folder"
 msgstr "Kadunud kaustad"
 
 msgid "Are you sure you want to empty {0}?"
-msgstr ""
+msgstr "Kas olete kindel, et soovite tühjendada {0}?"
 
 msgid "Show All"
-msgstr ""
+msgstr "Näita kõiki"
 
 msgid "Show all folders"
-msgstr ""
+msgstr "Näita kõiki kaustu"
 
 msgid ""
 "You have insufficient privileges to move this folder. Would you like to copy "
 "instead?"
 msgstr ""
+"Teil ei ole selle kausta teisaldamiseks piisavalt õigusi. Kas soovite hoopis "
+"kopeerida?"
 
 msgid "CC"
-msgstr ""
+msgstr "CC"
 
 msgid "BCC"
-msgstr ""
+msgstr "BCC"
 
 msgid "Sort by: Importance"
-msgstr ""
+msgstr "Sorteerimine: Olulisus"
 
 #, fuzzy
 msgid "Sort by: To"
@@ -4410,159 +4534,159 @@ msgid "Sent"
 msgstr "Saadetud"
 
 msgid "Red"
-msgstr ""
+msgstr "Punane"
 
 msgid "Original message"
-msgstr ""
+msgstr "Algne sõnum"
 
 msgid "Schedule mail to be sent out"
-msgstr ""
+msgstr "Posti saatmise ajakava"
 
 msgid "Scheduled Items"
-msgstr ""
+msgstr "Planeeritud objektid"
 
 msgid "Your message will be sent at "
-msgstr ""
+msgstr "Teie sõnum saadetakse aadressil"
 
 msgid "Go to your Outbox to edit your email."
-msgstr ""
+msgstr "Mine oma väljaminevate kirjade muutmiseks postkasti."
 
 msgid "hour(s)"
-msgstr ""
+msgstr "tund(id)"
 
 msgid "month(s)"
-msgstr ""
+msgstr "kuu(d)"
 
 msgid "at a specific time"
-msgstr ""
+msgstr "konkreetsel ajal"
 
 msgid "The time you entered is in the past. Please reschedule your mail."
-msgstr ""
+msgstr "Teie sisestatud aeg on minevikus. Palun tehke oma postitus ümber."
 
 msgid "today  at "
-msgstr ""
+msgstr "täna aadressil"
 
 msgid "tomorrow  at "
-msgstr ""
+msgstr "homme kell"
 
 msgid "{0} at "
-msgstr ""
+msgstr "{0} kell"
 
 msgid "at {0}"
-msgstr ""
+msgstr "{0}"
 
 msgid "Your email will be sent {0}{1}"
-msgstr ""
+msgstr "Teie e-kiri saadetakse {0}{1}"
 
 msgid "Saving…"
-msgstr ""
+msgstr "Säästmine..."
 
 msgid "Saved at {0}"
-msgstr ""
+msgstr "Salvestatud aadressil {0}"
 
 #, fuzzy
 msgid "Saving failed"
 msgstr "Laeb märkuseid"
 
 msgid "Message Options"
-msgstr ""
+msgstr "Sõnumi valikud"
 
 msgid "This message will be flagged for follow up when it is sent."
-msgstr ""
+msgstr "See sõnum märgitakse järelmeetmete võtmiseks, kui see on saadetud."
 
 msgid "Send Later"
-msgstr ""
+msgstr "Saada hiljem"
 
 msgid "Schedule your mail to be sent on a specific date and time"
-msgstr ""
+msgstr "Ajastage oma posti saatmine konkreetsel kuupäeval ja kellaajal."
 
 msgid "Add attachments to this email"
-msgstr ""
+msgstr "Lisage sellele e-kirjale manuseid"
 
 msgid "Add signature"
-msgstr ""
+msgstr "Allkirja lisamine"
 
 msgid "Options"
 msgstr "Valikud"
 
 msgid "Open options dialog"
-msgstr ""
+msgstr "Avage valikute dialoog"
 
 msgid "Set flag"
-msgstr ""
+msgstr "Lipu seadmine"
 
 msgid "Set flag on this email"
-msgstr ""
+msgstr "Selle e-kirja lipu seadmine"
 
 msgid "Mark this mail as high priority"
-msgstr ""
+msgstr "Märgi see post kõrge prioriteediga"
 
 msgid "Mark this mail as low priority"
-msgstr ""
+msgstr "Märgista see post madala prioriteediga"
 
 msgid "Set read receipt"
-msgstr ""
+msgstr "Määra lugemise kviitung"
 
 msgid "Request read receipt from recipients"
-msgstr ""
+msgstr "Taotlus vastuvõtjate lugemiskviitungi saamiseks"
 
 msgid "Show Bcc"
-msgstr ""
+msgstr "Näita Bcc"
 
 msgid "Show Bcc field"
-msgstr ""
+msgstr "Näita Bcc-välja"
 
 msgid "Show From field"
-msgstr ""
+msgstr "Näita väljalt"
 
 msgid "Cannot save while attachment is being uploaded"
-msgstr ""
+msgstr "Manuse üleslaadimise ajal ei saa salvestada"
 
 msgid "Miscellaneous Options"
-msgstr ""
+msgstr "Mitmesugused valikud"
 
 msgid "Internet Headers"
-msgstr ""
+msgstr "Interneti-pealkirjad"
 
 msgid "Message Settings"
-msgstr ""
+msgstr "Sõnumite seaded"
 
 msgid "Tracking Options"
-msgstr ""
+msgstr "Jälgimisvõimalused"
 
 msgid "Request a read receipt for this message."
-msgstr ""
+msgstr "Taotleb selle sõnumi lugemiskviitungi."
 
 msgid "no subject"
-msgstr ""
+msgstr "ei ole teema"
 
 msgid "Set Category"
 msgstr "Määra kategooria"
 
 msgid "Pop-Out"
-msgstr ""
+msgstr "Pop-Out"
 
 msgid "Mark Read"
-msgstr ""
+msgstr "Mark Read"
 
 msgid "Mark Unread"
-msgstr ""
+msgstr "Märgi lugemata"
 
 msgid "New mail"
-msgstr ""
+msgstr "Uus post"
 
 #, fuzzy
 msgid "Mail"
 msgstr "E-post"
 
 msgid "Reply all"
-msgstr ""
+msgstr "Vasta kõigile"
 
 msgid "Toggle read/unread"
-msgstr ""
+msgstr "Vaheta loetud/lugemata"
 
 msgid "Toggle red/complete flag"
-msgstr ""
+msgstr "Punase/täieliku lipu ümberlülitamine"
 
 #, fuzzy
 msgid "Open Shared Mails"
@@ -4577,253 +4701,258 @@ msgid "Print selected email"
 msgstr "Trüki valitud kontakt"
 
 msgid "Filter"
-msgstr ""
+msgstr "Filter"
 
 msgid "Fwd"
-msgstr ""
+msgstr "Fwd"
 
 msgid "Re"
-msgstr ""
+msgstr "Re"
 
 msgid "on behalf of"
-msgstr ""
+msgstr "järgmiste organisatsioonide nimel"
 
 msgid "Safe Senders list is empty"
-msgstr ""
+msgstr "Turvaliste saatjate nimekiri on tühi"
 
 msgid "Please select a safe sender record."
-msgstr ""
+msgstr "Palun valige turvaline saatja kirje."
 
 msgid "Delete all safe senders"
-msgstr ""
+msgstr "Kustuta kõik turvalised saatjad"
 
 msgid "Are you sure you want to delete all safe senders?"
-msgstr ""
+msgstr "Kas olete kindel, et soovite kustutada kõik turvalised saatjad?"
 
 msgid "HTML"
-msgstr ""
+msgstr "HTML"
 
 msgid "Plain Text"
-msgstr ""
+msgstr "Lihtne tekst"
 
 msgid "Compose mail settings"
-msgstr ""
+msgstr "Posti koostamise seaded"
 
 msgid "Compose mail in this format"
-msgstr ""
+msgstr "Koostage post sellises formaadis"
 
 msgid "Default font"
-msgstr ""
+msgstr "Vaikimisi kirjatüüp"
 
 msgid "Default font size"
-msgstr ""
+msgstr "Vaikimisi kirjasuurus"
 
 msgid "Always request a read receipt"
-msgstr ""
+msgstr "Alati nõuda lugemiskviitungi"
 
 #. TRANSLATORS: The {A} _must_ always be at the start of the translation
 #. The '{B}' represents the number of minutes which the user will type in.
 msgid "{A}AutoSave unsent mail every {B} minute(s)"
-msgstr ""
+msgstr "{A}AutoSave saatmata posti iga {B} minuti(de) järel"
 
 msgid "Conversation view settings"
-msgstr ""
+msgstr "Vestlusvaate seaded"
 
 msgid "Enable conversation view"
-msgstr ""
+msgstr "Lubage vestluse vaade"
 
 msgid "Collapse conversation when selecting a different email"
-msgstr ""
+msgstr "Vestluse kokkuvarisemine teise e-posti valimisel"
 
 msgid "Incoming mail"
-msgstr ""
+msgstr "Saabuv post"
 
 msgid "How to respond to requests for read receipts"
-msgstr ""
+msgstr "Kuidas vastata lugemiskviitungite taotlustele"
 
 msgid "Always send a response"
-msgstr ""
+msgstr "Saada alati vastus"
 
 msgid "Never send a response"
-msgstr ""
+msgstr "Ärge kunagi saatke vastust"
 
 msgid "Ask me before sending a response"
-msgstr ""
+msgstr "Küsige minult enne vastuse saatmist"
 
 #. TRANSLATORS: The {A} _must_ always be at the start of the translation
 #. The '{B}' represents the number of seconds which the user will type in.
 msgid "{A}Automatically mark mail as read after {B} second(s)"
-msgstr ""
+msgstr "{A}Automaatselt posti lugemiseks märkimine pärast {B} sekund(id)"
 
 msgid "Off"
-msgstr ""
+msgstr "Väljaspool"
 
 msgid "Right"
-msgstr ""
+msgstr "Õigus"
 
 msgid "Bottom"
-msgstr ""
+msgstr "Alumine"
 
 msgid "Location of preview pane"
-msgstr ""
+msgstr "Eelvaateakna asukoht"
 
 msgid "Use subject prefixes in accordance with RFC 5256/5322"
-msgstr ""
+msgstr "Kasutage teemaprefiksid vastavalt RFC 5256/5322-le."
 
 msgid "Close original message on reply or forward"
-msgstr ""
+msgstr "Sulge algne sõnum vastamisel või edastamisel"
 
 msgid "General mail settings"
-msgstr ""
+msgstr "Üldised posti seaded"
 
 msgid "Open or compose a mail item in a"
-msgstr ""
+msgstr "Avage või koostage postisaadetis"
 
 msgid "grommunio Web tab"
-msgstr ""
+msgstr "grommunio Veebileht"
 
 msgid "Browser window"
-msgstr ""
+msgstr "Brauseri aken"
 
 msgid "Update Out of Office settings for"
-msgstr ""
+msgstr "Kontorivälised seaded uuendamine"
 
 msgid "I am currently in the office"
-msgstr ""
+msgstr "Ma olen praegu kontoris"
 
 #, fuzzy
 msgid "I am out of the office from"
 msgstr "Kontorist väljas on välja lülitatud"
 
 msgid "I will be back on"
-msgstr ""
+msgstr "Ma tulen tagasi"
 
 msgid "Automatically reply once per day, per sender with the following text"
 msgstr ""
+"Automaatselt vastata üks kord päevas, ühe saatja kohta, järgmise tekstiga"
 
 msgid "Inside My Organization"
-msgstr ""
+msgstr "Minu organisatsiooni sees"
 
 msgid "User is currently out of office."
-msgstr ""
+msgstr "Kasutaja on praegu töölt eemal."
 
 msgid "Outside My Organization"
-msgstr ""
+msgstr "Väljaspool minu organisatsiooni"
 
 msgid "Auto-reply to people outside my organization"
-msgstr ""
+msgstr "Automaatne vastus inimestele väljaspool minu organisatsiooni"
 
 msgid "My contacts only"
-msgstr ""
+msgstr "Ainult minu kontaktid"
 
 msgid "Anyone outside my organization"
-msgstr ""
+msgstr "Igaüks väljaspool minu organisatsiooni"
 
 msgid ""
 "The time you entered is before the out of office date. Please reschedule."
 msgstr ""
+"Sisestatud kellaaeg on enne tööaja lõppemise kuupäeva. Palun tehke uus "
+"ajakava."
 
 msgid "Safe Senders"
-msgstr ""
+msgstr "Turvalised saatjad"
 
 msgid ""
 "To protect your privacy email addresses or domains can only be added via the "
 "\"Add to safe sender list\" functionality in an opened email."
 msgstr ""
+"Teie privaatsuse kaitsmiseks saab e-posti aadresse või domeene lisada ainult "
+"avatud e-kirjade \"Lisa turvaliste saatjate nimekirja\" funktsiooni kaudu."
 
 msgid "Delete all"
-msgstr ""
+msgstr "Kustuta kõik"
 
 msgid "Signatures"
-msgstr ""
+msgstr "Allkirjad"
 
 msgid "No signatures configured"
-msgstr ""
+msgstr "Allkirjad ei ole konfigureeritud"
 
 msgid "New messages"
-msgstr ""
+msgstr "Uued sõnumid"
 
 msgid "Replies/forwards"
-msgstr ""
+msgstr "Vastused/täiendused"
 
 msgid "Signature name:"
-msgstr ""
+msgstr "Allkirja nimi:"
 
 #, fuzzy
 msgid "Save Signature"
 msgstr "Salvesta märkus"
 
 msgid "You have unsaved changes. Do you wish to save the changes?"
-msgstr ""
+msgstr "Teil on salvestamata muudatused. Kas soovite muudatused salvestada?"
 
 msgid "New signature"
-msgstr ""
+msgstr "Uus allkiri"
 
 msgid "EML file(s)"
-msgstr ""
+msgstr "EML fail(id)"
 
 msgid "ZIP file"
-msgstr ""
+msgstr "ZIP-fail"
 
 msgid "max. "
-msgstr ""
+msgstr "max."
 
 #, fuzzy
 msgid "Sort by: Sent"
 msgstr "Sorteeri: pealkiri"
 
 msgid "Modified"
-msgstr ""
+msgstr "Muudetud"
 
 msgid "Sort by: Modified"
-msgstr ""
+msgstr "Sorteerimine: Muudetud"
 
 msgid "Flag"
-msgstr ""
+msgstr "Lipu"
 
 msgid "Sort by: flag"
-msgstr ""
+msgstr "Sorteerimine: lipu järgi"
 
 msgid "Older"
-msgstr ""
+msgstr "Vanemad"
 
 msgid "Yesterday"
-msgstr ""
+msgstr "Eile"
 
 #, fuzzy
 msgid "Last Week"
 msgstr "Viimane lk."
 
 msgid "Two Weeks Ago"
-msgstr ""
+msgstr "Kaks nädalat tagasi"
 
 msgid "Three Weeks Ago"
-msgstr ""
+msgstr "Kolm nädalat tagasi"
 
 #, fuzzy
 msgid "Last Month"
 msgstr "Kuu"
 
 msgid "Small"
-msgstr ""
+msgstr "Väike"
 
 msgid "Medium"
-msgstr ""
+msgstr "Keskmine"
 
 msgid "Large"
-msgstr ""
+msgstr "Suur"
 
 msgid "Very large"
-msgstr ""
+msgstr "Väga suur"
 
 msgid "Huge"
-msgstr ""
+msgstr "Hiiglaslik"
 
 msgid "Follow up"
-msgstr ""
+msgstr "Järelmeetmed"
 
 msgid "Move to Junk Folder"
-msgstr ""
+msgstr "Liiguta prügikausta Junk Folder"
 
 #, fuzzy
 msgid "Send to"
@@ -4834,13 +4963,13 @@ msgid "Loading mail"
 msgstr "Laeb märkuseid"
 
 msgid "No unread mail."
-msgstr ""
+msgstr "Lugemata kirju ei ole."
 
 msgid "Unread Mail"
-msgstr ""
+msgstr "Lugemata kirjad"
 
 msgid "Quick Mail"
-msgstr ""
+msgstr "Kiire postitus"
 
 #, fuzzy
 msgid "Print note"
@@ -4850,7 +4979,7 @@ msgid "Color"
 msgstr "Värv"
 
 msgid "New note"
-msgstr ""
+msgstr "Uus märkus"
 
 msgid "Open Shared Notes"
 msgstr "Avada jagatud märkused"
@@ -4863,7 +4992,7 @@ msgid "Print selected note"
 msgstr "Trüki valitud kontakt"
 
 msgid "No note selected"
-msgstr ""
+msgstr "Märkus ei ole valitud"
 
 msgid "Icons"
 msgstr "Ikoonid"
@@ -4875,7 +5004,7 @@ msgid "List Last Seven Days"
 msgstr "Loetle viimased seitse päeva"
 
 msgid "Created"
-msgstr ""
+msgstr "Loodud"
 
 msgid "Sort by: Created"
 msgstr "Sorteeri: loomise kuupäev"
@@ -4890,147 +5019,149 @@ msgid "Loading notes"
 msgstr "Laeb märkuseid"
 
 msgid "Quick Note"
-msgstr ""
+msgstr "Kiire märkus"
 
 msgid ""
 "You must reload grommunio Web for the changes to take effect. Unsaved "
 "changes will be lost."
 msgstr ""
+"Muudatuste jõustumiseks peate grommunio Webi uuesti laadima. Salvestamata "
+"muudatused lähevad kaduma."
 
 #, fuzzy
 msgid "Reload grommunio Web"
 msgstr "grommunio veebirakendus"
 
 msgid "Settings"
-msgstr ""
+msgstr "Seaded"
 
 msgid "Basic"
-msgstr ""
+msgstr "Basic"
 
 msgid "Account information - {0}"
-msgstr ""
+msgstr "Kontoteave - {0}"
 
 msgid "Profile Picture"
-msgstr ""
+msgstr "Profiili pilt"
 
 msgid "Language"
-msgstr ""
+msgstr "Keel"
 
 msgid "Startup folder"
-msgstr ""
+msgstr "Käivituskaust"
 
 msgid "Theme"
-msgstr ""
+msgstr "Teema"
 
 msgid "Select Default Folder"
-msgstr ""
+msgstr "Valige vaikimisi kaust"
 
 msgid "Advanced"
-msgstr ""
+msgstr "Täiustatud"
 
 msgid "Advanced settings"
-msgstr ""
+msgstr "Täiustatud seaded"
 
 msgid "Developer tools"
-msgstr ""
+msgstr "Arendaja tööriistad"
 
 msgid "Show insertion points in grommunio Web"
-msgstr ""
+msgstr "Näita sisestuspunkte grommunio Webis"
 
 msgid "Show \"item data\" button in context menu (mail only)"
-msgstr ""
+msgstr "Näita nuppu \"elemendi andmed\" kontekstmenüüs (ainult posti)"
 
 msgid "Edit setting"
-msgstr ""
+msgstr "Seadistuse muutmine"
 
 msgid "Restore to defaults"
-msgstr ""
+msgstr "Taastada vaikimisi seadistused"
 
 msgid "Delete settings"
-msgstr ""
+msgstr "Kustuta seaded"
 
 #, fuzzy
 msgid "{0} Iconset"
 msgstr "Ikoonid"
 
 msgid "About"
-msgstr ""
+msgstr "kohta"
 
 msgid "I want to display date and time in this format:"
-msgstr ""
+msgstr "Ma tahan kuvada kuupäeva ja kellaaega selles formaadis:"
 
 msgid "Short"
-msgstr ""
+msgstr "Lühike"
 
 msgid "Long"
-msgstr ""
+msgstr "Pikk"
 
 msgid "Time format:"
-msgstr ""
+msgstr "Aja formaat:"
 
 msgid "12h clock"
-msgstr ""
+msgstr "12h kella"
 
 msgid "24h clock"
-msgstr ""
+msgstr "24h kella"
 
 msgid "Favorite settings"
-msgstr ""
+msgstr "Lemmik seaded"
 
 #, fuzzy
 msgid "Hide favorites"
 msgstr "Detailselt"
 
 msgid "Unpin favorites from top"
-msgstr ""
+msgstr "Unpin lemmikud ülevalt"
 
 msgid "Give unread items a colored border"
-msgstr ""
+msgstr "Anda lugemata objektidele värviline raam"
 
 msgid "Show 'help' button in top-right corner"
-msgstr ""
+msgstr "Näita 'abi' nuppu paremas ülanurgas"
 
 msgid "Show unread mail counter in application title"
-msgstr ""
+msgstr "Näita lugemata posti loendurit rakenduse pealkirjas"
 
 msgid "Hide widget panel"
-msgstr ""
+msgstr "Peida vidinapaneel"
 
 msgid "Show search bar above folder list"
-msgstr ""
+msgstr "Näita otsinguriba kaustade nimekirja kohal"
 
 msgid "Auto"
-msgstr ""
+msgstr "Auto"
 
 msgid "Actual size"
-msgstr ""
+msgstr "Tegelik suurus"
 
 msgid "Page width"
-msgstr ""
+msgstr "Lehekülje laius"
 
 msgid "Attachment preview (PDF and Open formats)"
-msgstr ""
+msgstr "Manuse eelvaade (PDF ja Open formaadid)"
 
 msgid "Document default zoom"
-msgstr ""
+msgstr "Dokumendi vaikimisi suumimine"
 
 msgid "PDF zoom"
-msgstr ""
+msgstr "PDF-suumimine"
 
 msgid "File previewing"
-msgstr ""
+msgstr "Faili eelvaade"
 
 msgid "Inbox navigation"
-msgstr ""
+msgstr "Postkasti navigatsioon"
 
 msgid "I want to navigate through my items by using:"
-msgstr ""
+msgstr "Ma tahan navigeerida oma esemete vahel, kasutades:"
 
 msgid "Infinite Scroll"
-msgstr ""
+msgstr "Lõpmatu kerimine"
 
 msgid "grommunio Web automatically loads additional items when you scroll down"
-msgstr ""
+msgstr "grommunio Web laeb automaatselt täiendavaid elemente, kui kerite alla"
 
 #, fuzzy
 msgid "Pagination"
@@ -5040,214 +5171,225 @@ msgid ""
 "grommunio Web displays items on pages and you can use navigation controls to "
 "navigate"
 msgstr ""
+"grommunio Web kuvab elemente lehekülgedel ja te saate "
+"navigeerimisfunktsioonide abil navigeerida"
 
 msgid "Load items in blocks of {A}"
-msgstr ""
+msgstr "Laadige objektid plokkidesse {A}"
 
 msgid "Load {A} items per page."
-msgstr ""
+msgstr "Laadige {A} elemente lehekülje kohta."
 
 msgid "Keyboard Shortcuts"
-msgstr ""
+msgstr "Klaviatuuri otseteed"
 
 msgid "Part of basic keyboard shortcuts"
-msgstr ""
+msgstr "Osa põhilistest klaviatuurikombinatsioonidest"
 
 msgid "Keyboard shortcuts off"
-msgstr ""
+msgstr "Klaviatuuri otseteed välja lülitatud"
 
 msgid "Basic keyboard shortcuts on"
-msgstr ""
+msgstr "Põhilised klaviatuurikombinatsioonid"
 
 msgid "All keyboard shortcuts on"
-msgstr ""
+msgstr "Kõik klaviatuurikombinatsioonid"
 
 msgid "This change requires a reload of grommunio Web"
-msgstr ""
+msgstr "See muudatus nõuab grommunio Webi uuesti laadimist."
 
 msgid "Plugins"
-msgstr ""
+msgstr "Plugins"
 
 msgid "Available plugins"
-msgstr ""
+msgstr "Saadaolevad pluginad"
 
 msgid "No plugins available"
-msgstr ""
+msgstr "Pistikprogrammid puuduvad"
 
 msgid "Version"
-msgstr ""
+msgstr "Versioon"
 
 msgid "This plugin cannot be disabled"
-msgstr ""
+msgstr "Seda pluginat ei saa keelata"
 
 msgid "This plugin cannot be enabled"
-msgstr ""
+msgstr "Seda pluginat ei saa lubada"
 
 msgid "Mailbox Usage"
-msgstr ""
+msgstr "Postkasti kasutamine"
 
 msgid "A quota is not set on your store."
-msgstr ""
+msgstr "Teie poes ei ole kvooti määratud."
 
 msgid "{0} of mailbox space is used."
-msgstr ""
+msgstr "{0} postkasti ruumi kasutatakse."
 
 msgid "You have exceeded hard quota, you can not send or receive mails."
-msgstr ""
+msgstr "Te olete ületanud kõva kvoodi, te ei saa saata ega vastu võtta kirju."
 
 msgid "At {0} you won't be able to send mails."
-msgstr ""
+msgstr "{0} juures ei saa te kirju saata."
 
 msgid ""
 "You can not send mails as you have exceeded soft quota, at {0} you won't be "
 "able to receive mails."
 msgstr ""
+"Sa ei saa saata kirju, kuna olete ületanud pehme kvoodi, {0} juures ei saa "
+"te kirju vastu võtta."
 
 msgid "At {0} you won't be able to send or receive mails."
-msgstr ""
+msgstr "{0} juures ei saa te saata ega vastu võtta kirju."
 
 msgid "You can not send mails as you have exceeded soft quota."
-msgstr ""
+msgstr "Te ei saa saata kirju, kuna olete ületanud pehme kvoodi."
 
 msgid "Reset settings"
-msgstr ""
+msgstr "Seadete lähtestamine"
 
 msgid "Reset settings to their original defaults."
-msgstr ""
+msgstr "Seadete lähtestamine algsetele vaikeseadetele."
 
 msgid ""
 "This will close all opened shared stores and resets all settings to the "
 "default value."
 msgstr ""
+"See sulgeb kõik avatud jagatud poed ja taastab kõik seaded vaikimisi "
+"väärtusele."
 
 msgid ""
 "grommunio Web will automatically reload in order for these changes to take "
 "effect"
 msgstr ""
+"grommunio Web laadib automaatselt uuesti, et need muudatused jõustuksid."
 
 msgid "Reset"
-msgstr ""
+msgstr "Reset"
 
 msgid "Reloading, Please wait."
-msgstr ""
+msgstr "Ümberlaadimine, palun oodake."
 
 msgid "Setting"
-msgstr ""
+msgstr "Seadistamine"
 
 msgid "The setting '{0}' can not be edited"
-msgstr ""
+msgstr "Seadistust '{0}' ei saa muuta."
 
 msgid "Version information"
-msgstr ""
+msgstr "Teave versiooni kohta"
 
 #, fuzzy
 msgid "Gromox"
 msgstr "grommunio"
 
 msgid "Delete confirmation"
-msgstr ""
+msgstr "Kustuta kinnitus"
 
 msgid "Deleting the item(s) will also delete the original item(s)."
-msgstr ""
+msgstr "Elemendi(te) kustutamine kustutab ka esialgse(d) elemendi(d)."
 
 msgid "Do you want to delete the item(s)?"
-msgstr ""
+msgstr "Kas soovite objekti(d) kustutada?"
 
 msgid "Sort by: Priority"
-msgstr ""
+msgstr "Sorteerimine: Prioriteet:"
 
 msgid "Status"
-msgstr ""
+msgstr "Staatus"
 
 msgid "Sort by: Status"
-msgstr ""
+msgstr "Sorteerimine: Staatus"
 
 msgid "Due Date"
-msgstr ""
+msgstr "Tähtaeg"
 
 msgid "Sort by: Due Date"
-msgstr ""
+msgstr "Sorteerimine: Nimekiri: Kuupäev"
 
 #, fuzzy
 msgid "% Completed"
 msgstr "Valmis"
 
 msgid "Sort by: Percent Completed"
-msgstr ""
+msgstr "Sorteerimine: Protsent lõpetatud"
 
 msgid "Task Status"
-msgstr ""
+msgstr "Ülesande staatus"
 
 msgid "Percent Complete"
-msgstr ""
+msgstr "Täielik protsent"
 
 msgid "Total Work"
-msgstr ""
+msgstr "Kogu töö"
 
 msgid "Actual Work"
-msgstr ""
+msgstr "Tegelik töö"
 
 msgid "Companies"
-msgstr ""
+msgstr "Ettevõtted"
 
 msgid "Billing Information"
-msgstr ""
+msgstr "Arveldusteave"
 
 msgid "Mileage"
-msgstr ""
+msgstr "Kilomeetrite arv"
 
 #, fuzzy
 msgid "Accepting Task"
 msgstr "Aktsepteeritud"
 
 msgid "Declining Task"
-msgstr ""
+msgstr "Langev ülesanne"
 
 msgid ""
 "This task will be accepted and moved to your task folder. Do you want to "
 "include comments with your response?"
 msgstr ""
+"See ülesanne võetakse vastu ja viiakse teie ülesannete kausta. Kas soovite "
+"lisada oma vastusele kommentaare?"
 
 msgid ""
 "This task will be declined and moved into the Deleted Items folder. Do you "
 "want to edit the response before sending it?"
 msgstr ""
+"See ülesanne lükatakse tagasi ja viiakse kausta \"Kustutatud elemendid\". "
+"Kas soovite vastust enne saatmist muuta?"
 
 msgid "Send the response now"
-msgstr ""
+msgstr "Saada vastus nüüd"
 
 msgid "Date Complete"
-msgstr ""
+msgstr "Kuupäev Täidetud"
 
 msgid "Multiple companies name must be separated by"
-msgstr ""
+msgstr "Mitme ettevõtte nimi peab olema eraldatud"
 
 msgid "Update List"
-msgstr ""
+msgstr "Nimekirja ajakohastamine"
 
 msgid "Create Unassigned Copy"
-msgstr ""
+msgstr "Loo määramata koopia"
 
 msgid "copy"
-msgstr ""
+msgstr "koopia"
 
 msgid "Unable to send task request"
-msgstr ""
+msgstr "Ülesandmistaotluse saatmine ei ole võimalik"
 
 msgid "You cannot send a task request to yourself."
-msgstr ""
+msgstr "Sa ei saa saata ülesande taotlust endale."
 
 msgid "Multiple recipients"
-msgstr ""
+msgstr "Mitu vastuvõtjat"
 
 msgid "A task request can only have one recipient."
-msgstr ""
+msgstr "Ülesandepäringul võib olla ainult üks saaja."
 
 msgid "Due date"
-msgstr ""
+msgstr "Tähtaeg"
 
 msgid "Priority"
-msgstr ""
+msgstr "Prioriteet"
 
 #, fuzzy
 msgid "% Complete"
@@ -5259,9 +5401,10 @@ msgstr "Töös"
 
 msgid "Keep updated copy of task and receive automated status reports"
 msgstr ""
+"Hoida ülesande ajakohastatud koopiat ja saada automaatseid olekuteateid"
 
 msgid "Send task to assignees"
-msgstr ""
+msgstr "Ülesande saatmine määratud isikutele"
 
 #, fuzzy
 msgid "Restore to Task List"
@@ -5272,28 +5415,28 @@ msgid "Delete this task"
 msgstr "Kustuta see kirje"
 
 msgid "Add attachments to this task"
-msgstr ""
+msgstr "Lisage sellele ülesandele manuseid"
 
 msgid "Mark as Complete"
-msgstr ""
+msgstr "Märgistada kui Täielik"
 
 msgid "Mark this task as complete"
-msgstr ""
+msgstr "Märgista see ülesanne lõpetatuks"
 
 msgid "Print this task"
-msgstr ""
+msgstr "Prindi see ülesanne"
 
 msgid "Assign Task"
-msgstr ""
+msgstr "Ülesande määramine"
 
 msgid "Cancel Assignment"
-msgstr ""
+msgstr "Tühista määramine"
 
 msgid "Mark this task as private"
-msgstr ""
+msgstr "Märgista see ülesanne privaatsena"
 
 msgid "New task"
-msgstr ""
+msgstr "Uus ülesanne"
 
 #, fuzzy
 msgid "Completed"
@@ -5309,29 +5452,29 @@ msgid "Printed on: "
 msgstr "Trüki see märkus"
 
 msgid "Percent complete"
-msgstr ""
+msgstr "Täielik protsent"
 
 msgid "Total work"
-msgstr ""
+msgstr "Kogu töö"
 
 msgid "{totalwork} hours"
-msgstr ""
+msgstr "{totalwork} tundi"
 
 msgid "Actual work"
-msgstr ""
+msgstr "Tegelik töö"
 
 msgid "{actualwork} hours"
-msgstr ""
+msgstr "{tegelik tööaeg} tundi"
 
 #, fuzzy
 msgid "Open Shared Tasks"
 msgstr "Avada jagatud märkused"
 
 msgid "Simple view"
-msgstr ""
+msgstr "Lihtne vaade"
 
 msgid "Detailed view"
-msgstr ""
+msgstr "Üksikasjalik vaade"
 
 #, fuzzy
 msgid "Task request"
@@ -5342,53 +5485,55 @@ msgid "Print selected task"
 msgstr "Trüki valitud kontakt"
 
 msgid "No task selected"
-msgstr ""
+msgstr "Ülesannet ei ole valitud"
 
 msgid "Print task list"
-msgstr ""
+msgstr "Ülesannete loetelu printimine"
 
 msgid "Create task"
-msgstr ""
+msgstr "Loo ülesanne"
 
 msgid "Upcoming"
-msgstr ""
+msgstr "Tulevased"
 
 msgid "Overdue"
-msgstr ""
+msgstr "Hilinenud"
 
 msgid "Mark Complete"
-msgstr ""
+msgstr "Mark Complete"
 
 msgid "Mark Incomplete"
-msgstr ""
+msgstr "Märgi mittetäielik"
 
 #, fuzzy
 msgid "Remove from To-Do List"
 msgstr "Taasta kirjed"
 
 msgid "Changes to assigned task"
-msgstr ""
+msgstr "Muudatused määratud ülesandes"
 
 msgid ""
 "Please note that assigned task(s) will be overwritten when the assignee "
 "makes changes."
 msgstr ""
+"Pange tähele, et määratud ülesanne(d) kirjutatakse üle, kui määratud isik "
+"teeb muudatusi."
 
 #, fuzzy
 msgid "Sort by: Complete"
 msgstr "Sorteeri: Kuvatava nime järgi"
 
 msgid "Reminder Time"
-msgstr ""
+msgstr "Meeldetuletus aeg"
 
 msgid "Sort by: Reminder Time"
-msgstr ""
+msgstr "Sorteerimine: Meeldetuletus aeg"
 
 msgid "Assigned To"
-msgstr ""
+msgstr "Assigned To"
 
 msgid "Sort by: Assignee"
-msgstr ""
+msgstr "Sorteerimine: Asendaja"
 
 #, fuzzy
 msgid "Sort by: Owner"
@@ -5399,41 +5544,41 @@ msgid "Sort by: Percentage Completed"
 msgstr "Sorteeri: Kuvatava nime järgi"
 
 msgid "Assigned task changes"
-msgstr ""
+msgstr "Määratud ülesande muutmine"
 
 msgid "Loading tasks"
-msgstr ""
+msgstr "Laadimisülesanded"
 
 #, fuzzy
 msgid "Date completed"
 msgstr "Valmis"
 
 msgid "hours"
-msgstr ""
+msgstr "tundi"
 
 msgid "Billing information"
-msgstr ""
+msgstr "Arveldusteave"
 
 msgid "Update list"
-msgstr ""
+msgstr "Nimekirja ajakohastamine"
 
 msgid "D d-m-Y"
-msgstr ""
+msgstr "D d-m-Y"
 
 msgid "none"
-msgstr ""
+msgstr "ei ole"
 
 msgid "Quick Task"
-msgstr ""
+msgstr "Kiire ülesanne"
 
 msgid "No tasks."
-msgstr ""
+msgstr "Ülesandeid ei ole."
 
 msgid "Tasks / To-Do"
-msgstr ""
+msgstr "Ülesanded / To-Do"
 
 msgid "Click the link to open the URL in a new window."
-msgstr ""
+msgstr "Klõpsake lingil, et avada URL-aadress uues aknas."
 
 msgid "The server reported an unknown error on your request."
 msgstr "Server vastas teie päringule tundmatu veaga."
@@ -5479,16 +5624,16 @@ msgstr "Ühendus serveriga on taastatud"
 
 #. TRANSLATORS: Example: HTTP 404
 msgid "HTTP {0}"
-msgstr ""
+msgstr "HTTP {0}"
 
 msgid "Invalid data received from the server"
-msgstr ""
+msgstr "Serverilt saadud valed andmed"
 
 msgid "Missing store"
-msgstr ""
+msgstr "Puuduv kauplus"
 
 msgid "The default store is missing from the hierarchy."
-msgstr ""
+msgstr "Vaikimisi pood puudub hierarhiast."
 
 msgid ""
 "Not all functionality of grommunio Web might be working properly because of "
@@ -5557,597 +5702,607 @@ msgstr ""
 "Kontorist väljas on hetkel sisse lülitatud. Kas soovite välja lülitada?"
 
 msgid "Archive"
-msgstr ""
+msgstr "Arhiiv"
 
 msgid "Open Chat at start"
-msgstr ""
+msgstr "Avatud vestlus alguses"
 
 msgid "Desktop Notifications Plugin"
-msgstr ""
+msgstr "Töölaua teavituste pistikprogramm"
 
 msgid "Desktop Notifications"
-msgstr ""
+msgstr "Töölaua teated"
 
 msgid "Files: ownCloud Backend"
-msgstr ""
+msgstr "Failid: ownCloud Backend"
 
 msgid "Share with user/group"
-msgstr ""
+msgstr "Jagage kasutajaga/grupiga"
 
 msgid "Share via link"
-msgstr ""
+msgstr "Jaga lingi kaudu"
 
 msgid "Public link"
-msgstr ""
+msgstr "Avalik link"
 
 msgid "Password protect"
-msgstr ""
+msgstr "Kaitseb salasõnaga"
 
 msgid "Password"
 msgstr "Parool"
 
 msgid "Public upload"
-msgstr ""
+msgstr "Avalik üleslaadimine"
 
 msgid "Expiration date"
-msgstr ""
+msgstr "Kehtivusaeg"
 
 msgid "More than 1 share link exists. Only showing the latest one"
-msgstr ""
+msgstr "Olemas on rohkem kui 1 jagamislink. Näitab ainult viimast"
 
 msgid "Loading details…"
-msgstr ""
+msgstr "Detailide laadimine..."
 
 msgid "Share Details"
-msgstr ""
+msgstr "Jaga üksikasjad"
 
 msgid "Re-share"
-msgstr ""
+msgstr "Re-share"
 
 msgid "Change"
-msgstr ""
+msgstr "Muuda"
 
 msgid "Share with"
-msgstr ""
+msgstr "Jagage koos"
 
 msgid "Sort by: Type"
-msgstr ""
+msgstr "Sorteerimine: Tüüp"
 
 msgid "Loading users and groups"
-msgstr ""
+msgstr "Kasutajate ja rühmade laadimine"
 
 msgid "Add users or groups to share files."
-msgstr ""
+msgstr "Kasutajate või rühmade lisamine failide jagamiseks."
 
 msgid "Type to search"
-msgstr ""
+msgstr "Tüüp otsinguks"
 
 msgid "No results"
-msgstr ""
+msgstr "Tulemusi ei ole"
 
 msgid "Add attachment from {0}"
-msgstr ""
+msgstr "Lisa manus alates {0}"
 
 msgid "Confirm deletion"
-msgstr ""
+msgstr "Kinnitage kustutamine"
 
 msgid "Are you sure you want to delete {0}?"
-msgstr ""
+msgstr "Kas olete kindel, et soovite kustutada {0}?"
 
 msgid "Are you sure you want to delete {0} and all of its contents?"
-msgstr ""
+msgstr "Kas olete kindel, et soovite kustutada {0} ja kogu selle sisu?"
 
 msgid "Are you sure you want to delete {0} files?"
-msgstr ""
+msgstr "Kas olete kindel, et soovite {0} faile kustutada?"
 
 msgid "Are you sure want to delete {0} folders and all of their contents?"
-msgstr ""
+msgstr "Kas olete kindel, et soovite {0} kaustu ja kogu selle sisu kustutada?"
 
 msgid ""
 "Are you sure want to delete the selected items and all of their contents?"
 msgstr ""
+"Kas olete kindel, et soovite valitud elemendid ja kogu nende sisu kustutada?"
 
 msgid "Confirm overwrite"
-msgstr ""
+msgstr "Kinnita ülekirjutamine"
 
 msgid "File already exists. Do you want to overwrite it?"
-msgstr ""
+msgstr "Fail on juba olemas. Kas soovite selle üle kirjutada?"
 
 msgid "Please enter a new name"
-msgstr ""
+msgstr "Palun sisestage uus nimi"
 
 msgid "Rename record"
-msgstr ""
+msgstr "Rekordi ümbernimetamine"
 
 msgid "A file name should not be empty."
-msgstr ""
+msgstr "Faili nimi ei tohiks olla tühi."
 
 msgid "Rename item"
-msgstr ""
+msgstr "Nimetage objekt ümber"
 
 msgid "A file named \"{0}\" already exists. Please enter a different name."
-msgstr ""
+msgstr "Fail nimega \"{0}\" on juba olemas. Palun sisestage teine nimi."
 
 msgid "Downloading"
-msgstr ""
+msgstr "Allalaadimine"
 
 msgid "Download started... please wait!"
-msgstr ""
+msgstr "Allalaadimine algas... palun oodake!"
 
 msgid "Upload"
-msgstr ""
+msgstr "Laadige üles"
 
 msgid "At least one file is too large! Maximum allowed filesize: {0}."
 msgstr ""
+"Vähemalt üks fail on liiga suur! Maksimaalne lubatud faili suurus: {0}."
 
 msgid "Keep both"
-msgstr ""
+msgstr "Hoidke mõlemad"
 
 msgid "Overwrite"
-msgstr ""
+msgstr "Ülekirjutamine"
 
 msgid "l d/m/Y G:i"
-msgstr ""
+msgstr "l d/m/Y G:i"
 
 msgid "Never"
-msgstr ""
+msgstr "Mitte kunagi"
 
 msgid "Add from Files"
-msgstr ""
+msgstr "Lisa failidest"
 
 msgid "Add attachment from Files"
-msgstr ""
+msgstr "Lisa manus failidest"
 
 msgid "Add to Files"
-msgstr ""
+msgstr "Lisa failidesse"
 
 msgid "Upload file"
-msgstr ""
+msgstr "Faili üleslaadimine"
 
 msgid "Files"
-msgstr ""
+msgstr "Failid"
 
 msgid "Files Plugin"
-msgstr ""
+msgstr "Failide pistikprogramm"
 
 msgid "Manage Accounts"
-msgstr ""
+msgstr "Kontode haldamine"
 
 msgid "Reset Files settings"
-msgstr ""
+msgstr "Failide seadete lähtestamine"
 
 msgid "Resets Files settings to their original defaults"
-msgstr ""
+msgstr "Taastab failide seaded algsetesse vaikeseadistustesse"
 
 msgid "Are you sure to remove all settings and accounts?"
-msgstr ""
+msgstr "Kas olete kindlasti eemaldanud kõik seaded ja kontod?"
 
 msgid ""
 "Accounts marked by your administrator as \"cannot be changed\" will not be "
 "removed."
 msgstr ""
+"Kontosid, mille administraator on märkinud \"ei saa muuta\", ei eemaldata."
 
 msgid ""
 "grommunio Web will automatically restart in order for these changes to take "
 "effect."
 msgstr ""
+"grommunio Web käivitub automaatselt uuesti, et need muudatused jõustuksid."
 
 msgid "grommunio Web is reloading, Please wait."
-msgstr ""
+msgstr "grommunio Web laadib ümber, Palun oota."
 
 msgid "Edit Account"
-msgstr ""
+msgstr "Konto muutmine"
 
 msgid "Account Information"
-msgstr ""
+msgstr "Kontoteave"
 
 msgid "Account name"
-msgstr ""
+msgstr "Konto nimi"
 
 msgid "Account Configuration"
-msgstr ""
+msgstr "Konto konfiguratsioon"
 
 msgid "Update"
-msgstr ""
+msgstr "Ajakohastamine"
 
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 msgid "Sort by: ID"
-msgstr ""
+msgstr "Sorteerimine: ID"
 
 msgid "Backend"
-msgstr ""
+msgstr "Backend"
 
 msgid "Sort by: Backend"
-msgstr ""
+msgstr "Sorteerimine: Backend"
 
 msgid "Features"
-msgstr ""
+msgstr "Omadused"
 
 msgid "Shows all available features of the backend."
-msgstr ""
+msgstr "Näitab kõiki tagakülje olemasolevaid funktsioone."
 
 msgid "Show quota information"
-msgstr ""
+msgstr "Näita kvootide teavet"
 
 msgid "Show version information"
-msgstr ""
+msgstr "Näita versiooni teavet"
 
 msgid "Share files"
-msgstr ""
+msgstr "Failide jagamine"
 
 msgid "Fast Down/Upload"
-msgstr ""
+msgstr "Kiire allalaadimine/laadimine"
 
 msgid "No account created!"
-msgstr ""
+msgstr "Kontot ei ole loodud!"
 
 msgid "Add Account"
-msgstr ""
+msgstr "Lisa konto"
 
 msgid "Remove Account"
-msgstr ""
+msgstr "Konto eemaldamine"
 
 msgid "Loading accounts"
-msgstr ""
+msgstr "Kontode laadimine"
 
 msgid "Do you really want to delete the account \"{0}\"?"
-msgstr ""
+msgstr "Kas te tõesti soovite konto \"{0}\" kustutada?"
 
 msgid "Quota Information"
-msgstr ""
+msgstr "Kvoodi teave"
 
 msgid "Used"
-msgstr ""
+msgstr "Kasutatud"
 
 msgid "Total"
-msgstr ""
+msgstr "Kokku"
 
 msgid "Version Information"
-msgstr ""
+msgstr "Versiooni teave"
 
 msgid "Filename"
-msgstr ""
+msgstr "Failinimi"
 
 msgid "Sort by: Filename"
-msgstr ""
+msgstr "Sorteerimine: Viitenimi"
 
 msgid "Loading files"
-msgstr ""
+msgstr "Failide laadimine"
 
 msgid "The file {0} is too large!"
-msgstr ""
+msgstr "Fail {0} on liiga suur!"
 
 msgid "max"
-msgstr ""
+msgstr "max"
 
 msgid "You have to choose at least one file!"
-msgstr ""
+msgstr "Sa pead valima vähemalt ühe faili!"
 
 msgid "Create New "
-msgstr ""
+msgstr "Loo uus"
 
 msgid "Incorrect filename"
-msgstr ""
+msgstr "Vale failinimi"
 
 msgid "Error reaching office backend"
-msgstr ""
+msgstr "Viga jõuab kontori backendini"
 
 msgid "Folder already exists"
-msgstr ""
+msgstr "Kaust on juba olemas"
 
 msgid "Incorrect foldername"
-msgstr ""
+msgstr "Vale foldername"
 
 msgid "File information"
-msgstr ""
+msgstr "Faili teave"
 
 msgid "Select a file"
-msgstr ""
+msgstr "Valige fail"
 
 msgid "Maximum upload size"
-msgstr ""
+msgstr "Maksimaalne üleslaadimise suurus"
 
 msgid "Browse"
-msgstr ""
+msgstr "Sirvi"
 
 msgid "Select upload folder"
-msgstr ""
+msgstr "Valige üleslaadimise kaust"
 
 msgid "File \"{0}\" is too large! Maximum allowed filesize: {1}."
-msgstr ""
+msgstr "Faili \"{0}\" on liiga suur! Maksimaalne lubatud faili suurus: {1}."
 
 msgid "Add item to Files"
-msgstr ""
+msgstr "Lisa objekt failidesse"
 
 msgid "You have to choose a folder!"
-msgstr ""
+msgstr "Sa pead valima kausta!"
 
 msgid "Uploaded"
-msgstr ""
+msgstr "Üleslaetud"
 
 msgid "Attachment successfully stored in Files"
-msgstr ""
+msgstr "Lisa edukalt salvestatud failides"
 
 msgid "Upload Failed"
-msgstr ""
+msgstr "Üleslaadimine ebaõnnestus"
 
 msgid "Attachment could not be stored in Files! Error: "
-msgstr ""
+msgstr "Manustust ei saanud salvestada failidesse! Viga:"
 
 msgid "Share Files"
-msgstr ""
+msgstr "Failide jagamine"
 
 msgid "Uploading files to "
-msgstr ""
+msgstr "Failide üleslaadimine"
 
 msgid "Starting upload"
-msgstr ""
+msgstr "Üleslaadimise alustamine"
 
 msgid "Cancel upload"
-msgstr ""
+msgstr "Tühista üleslaadimine"
 
 msgid "- seconds left"
-msgstr ""
+msgstr "- sekundit jäänud"
 
 msgid " seconds left"
-msgstr ""
+msgstr " sekundit jäänud"
 
 msgid " minutes left"
-msgstr ""
+msgstr " jäänud minutit"
 
 msgid "Uploading: "
-msgstr ""
+msgstr "Üleslaadimine:"
 
 msgid "Upload status unavailable... please wait."
-msgstr ""
+msgstr "Üleslaadimise staatus ei ole saadaval... palun oodake."
 
 msgid "Upload finished!"
-msgstr ""
+msgstr "Üleslaadimine lõpetatud!"
 
 msgid "Upload aborted!"
-msgstr ""
+msgstr "Üleslaadimine katkestatud!"
 
 msgid "Upload failed!"
-msgstr ""
+msgstr "Üleslaadimine ebaõnnestus!"
 
 msgid "Document"
-msgstr ""
+msgstr "Dokument"
 
 msgid "Presentation"
-msgstr ""
+msgstr "Esitlus"
 
 msgid "Spreadsheet"
-msgstr ""
+msgstr "Tabelarvutus"
 
 msgid "Upload files"
-msgstr ""
+msgstr "Failide üleslaadimine"
 
 msgid "Create document"
-msgstr ""
+msgstr "Dokumendi loomine"
 
 msgid "Create office document"
-msgstr ""
+msgstr "Büroodokumendi loomine"
 
 msgid "Download files"
-msgstr ""
+msgstr "Failide allalaadimine"
 
 msgid "Share"
-msgstr ""
+msgstr "Jaga"
 
 msgid "Attach to mail"
-msgstr ""
+msgstr "Lisage posti juurde"
 
 msgid "Attach to mail as link"
-msgstr ""
+msgstr "Lisage postitusele lingina"
 
 msgid "Attaching"
-msgstr ""
+msgstr "Kinnitamine"
 
 msgid "Creating email... Please wait!"
-msgstr ""
+msgstr "E-posti loomine... Palun oodake!"
 
 msgid "Edit share"
-msgstr ""
+msgstr "Muuda aktsiat"
 
 msgid ""
 "There are no accounts added. Go to settings, Files tab and add an account"
 msgstr ""
+"Kontosid ei ole lisatud. Minge seadistuste, failide vahekaardile ja lisage "
+"konto."
 
 msgid "Filesize"
-msgstr ""
+msgstr "Failide suurus"
 
 msgid "Last modified"
-msgstr ""
+msgstr "Viimati muudetud"
 
 msgid "Is shared"
-msgstr ""
+msgstr "Kas jagatakse"
 
 msgid "File preview"
-msgstr ""
+msgstr "Faili eelvaade"
 
 msgid "Your browser does not support previewing of audio files!"
-msgstr ""
+msgstr "Teie brauser ei toeta helifailide eelvaatlust!"
 
 msgid "Your browser does not support previewing of video files!"
-msgstr ""
+msgstr "Teie brauser ei toeta videofailide eelvaadet!"
 
 msgid "d.m.Y G:i"
-msgstr ""
+msgstr "d.m.Y G:i"
 
 msgid "Folder"
-msgstr ""
+msgstr "Kaustik"
 
 msgid "File ({0})"
-msgstr ""
+msgstr "Faili ({0})"
 
 msgid "Sort by: Path"
-msgstr ""
+msgstr "Sorteerimine: Järjestus:"
 
 msgid "Sort by: Last modified"
-msgstr ""
+msgstr "Sorteerimine: Viimati muudetud"
 
 msgid "Sort by: Shared"
-msgstr ""
+msgstr "Sorteerimine: jagatud"
 
 msgid "There are no items to show in this view"
-msgstr ""
+msgstr "Selles vaates ei ole näidatavaid objekte"
 
 msgid "files selected"
-msgstr ""
+msgstr "valitud failid"
 
 msgid "Authentication required, when using grommunio-files for the first time"
-msgstr ""
+msgstr "Vajalik autentimine, kui grommunio-faili kasutatakse esimest korda"
 
 msgid "Intranet"
-msgstr ""
+msgstr "Intranet"
 
 msgid "Openstreetmap"
-msgstr ""
+msgstr "Openstreetmap"
 
 #. TRANSLATORS: The map of earth
 msgid "Map"
-msgstr ""
+msgstr "Kaart"
 
 msgid "Mobile Device Manager"
-msgstr ""
+msgstr "Mobiilseadmete haldur"
 
 msgid "Wiping device"
-msgstr ""
+msgstr "Pühkimisseade"
 
 msgid "Password incorrect"
-msgstr ""
+msgstr "Parool vale"
 
 msgid "Full resync in progress"
-msgstr ""
+msgstr "Täielik resünkroniseerimine on käimas"
 
 msgid "Username or password incorrect"
-msgstr ""
+msgstr "Kasutajanimi või parool on vale"
 
 msgid "Not Applicable"
-msgstr ""
+msgstr "Ei kohaldata"
 
 msgid "Wipe Pending"
-msgstr ""
+msgstr "Pühkida ootab"
 
 msgid "Wipe Requested"
-msgstr ""
+msgstr "Taotletud pühkida"
 
 msgid "Wipe Executed"
-msgstr ""
+msgstr "Pühkida teostatud"
 
 msgid "Account Only Wipe Pending"
-msgstr ""
+msgstr "Ainult konto kustutamine ootel"
 
 msgid "Account Only Wipe Requested"
-msgstr ""
+msgstr "Ainult konto kustutamise taotlus"
 
 msgid "Account Only Wipe Executed"
-msgstr ""
+msgstr "Ainult konto kustutamine teostatud"
 
 msgid "Not Available"
-msgstr ""
+msgstr "Ei ole saadaval"
 
 msgid "Device"
-msgstr ""
+msgstr "Seade"
 
 msgid "Operating System"
-msgstr ""
+msgstr "Operatsioonisüsteem"
 
 msgid "User Agent"
-msgstr ""
+msgstr "Kasutaja agent"
 
 msgid "MDM Plugin"
-msgstr ""
+msgstr "MDM plugin"
 
 msgid "Active Sync Version"
-msgstr ""
+msgstr "Aktiivne sünkroonimisversioon"
 
 msgid "grommunio-sync Version"
-msgstr ""
+msgstr "grommunio-sync versioon"
 
 msgid "Policy name"
-msgstr ""
+msgstr "Poliitika nimi"
 
 msgid "Connected since"
-msgstr ""
+msgstr "Ühendatud alates"
 
 msgid "d F Y"
-msgstr ""
+msgstr "d F Y"
 
 msgid "Last updated"
-msgstr ""
+msgstr "Viimati uuendatud"
 
 msgid "d F Y, H:i"
-msgstr ""
+msgstr "d F Y, H:i"
 
 msgid "Synchronize"
-msgstr ""
+msgstr "Sünkroniseeri"
 
 msgid "Manage Shared Folders"
-msgstr ""
+msgstr "Jagatud kaustade haldamine"
 
 msgid ""
 "Select folders to sync to your device from the list below. To add additional "
 "mailboxes to the list, open them in grommunio Web first."
 msgstr ""
+"Valige seadmega sünkroniseeritavad kaustad allolevast loendist. Täiendavate "
+"postkastide lisamiseks loendisse avage need esmalt grommunio Webis."
 
 msgid "grommunio-sync"
-msgstr ""
+msgstr "grommunio-sync"
 
 msgid "Mobile device management"
-msgstr ""
+msgstr "Mobiilseadmete haldamine"
 
 msgid "Mobile Devices"
-msgstr ""
+msgstr "Mobiilsed seadmed"
 
 msgid ""
 "Unable to connect to the grommunio-sync server. Click {0} to enter your "
 "credentials"
 msgstr ""
+"Ei saa ühendust grommunio-sync serveriga. Klõpsake {0}, et sisestada oma "
+"volitused."
 
 msgid "Devices"
-msgstr ""
+msgstr "Seadmed"
 
 msgid "No devices connected to your account"
-msgstr ""
+msgstr "Teie kontoga ei ole ühendatud ühtegi seadet"
 
 msgid "Provisioning Status"
-msgstr ""
+msgstr "Provisionimise staatus"
 
 msgid "Last Update"
-msgstr ""
+msgstr "Viimane uuendus"
 
 msgid "Device ID"
-msgstr ""
+msgstr "Seadme ID"
 
 msgid "Device OS"
-msgstr ""
+msgstr "Seadme operatsioonisüsteem"
 
 msgid "Device Info"
-msgstr ""
+msgstr "Seadme info"
 
 msgid "First Sync time"
-msgstr ""
+msgstr "Esimene sünkroniseerimise aeg"
 
 msgid "Wipe Device"
-msgstr ""
+msgstr "Pühkige seade"
 
 msgid "Full resync"
-msgstr ""
+msgstr "Täielik resünkroniseerimine"
 
 msgid "Remove device"
-msgstr ""
+msgstr "Seadme eemaldamine"
 
 msgid "Please enter your username and password"
-msgstr ""
+msgstr "Palun sisestage oma kasutajanimi ja parool"
 
 msgid "Wipe only data related to this account"
-msgstr ""
+msgstr "Kustuta ainult selle kontoga seotud andmed"
 
 msgid "Wipe all data"
-msgstr ""
+msgstr "Kustuta kõik andmed"
 
 msgid "Username"
 msgstr "Kasutajanimi"
@@ -6156,717 +6311,775 @@ msgid ""
 "Do you really want to wipe your device?\n"
 " Enter your password to confirm."
 msgstr ""
+"Kas sa tõesti tahad oma seadet pühkida?\n"
+" Kinnitamiseks sisestage oma parool."
 
 msgid ""
 "Do you really want to remove your device?\n"
 " Enter your password to confirm."
 msgstr ""
+"Kas te tõesti soovite oma seadet eemaldada?\n"
+" Kinnitamiseks sisestage oma parool."
 
 msgid "Add meeting"
-msgstr ""
+msgstr "Kohtumise lisamine"
 
 msgid "Room name:"
-msgstr ""
+msgstr "Toa nimi:"
 
 msgid "Room URL:"
-msgstr ""
+msgstr "Toa URL:"
 
 msgid "Shift-click for advanced settings"
-msgstr ""
+msgstr "Shift-klikk edasiste seadete jaoks"
 
 msgid "Join webmeeting"
-msgstr ""
+msgstr "Liitu webmeetinguga"
 
 msgid "Open meeting in:"
-msgstr ""
+msgstr "Avatud koosolek:"
 
 msgid "Web tab"
-msgstr ""
+msgstr "Veebileht"
 
 msgid "Hide the button in the main toolbar"
-msgstr ""
+msgstr "Pea tööriistariba nupu peitmine"
 
 msgid "Add the subject to the room name"
-msgstr ""
+msgstr "Lisage teema ruumi nimele"
 
 msgid "Add the organizer name to the room name"
-msgstr ""
+msgstr "Lisa korraldaja nimi ruumi nimele"
 
 msgid "Add the URL to the meeting location rather than overwriting it"
-msgstr ""
+msgstr "Kohtumise asukoha URL-i lisamine, mitte selle ülekirjutamine"
 
 msgid ""
 "Prevent the URL in the meeting location from being overridden automatically "
 "(ex: when adding a meetingroom)"
 msgstr ""
+"Vältida koosoleku asukoha URL-i automaatset ületamist (nt: koosolekuruumi "
+"lisamisel)."
 
 msgid "If you have problems when creating meetings, try disabling this setting"
 msgstr ""
+"Kui teil on probleeme koosolekute loomisel, proovige seda seadistust keelata."
 
 msgid "Add an invitation to the appointment description"
-msgstr ""
+msgstr "Lisage kutse kohtumise kirjeldusele"
 
 msgid "Invitation text"
-msgstr ""
+msgstr "Kutse tekst"
 
 msgid ""
 "must contain %url% as a placeholder for the meeting link, empty the textbox "
 "to reset to default"
 msgstr ""
+"peab sisaldama %url% kui kohtumise lingi kohaomanikku, tühjendage tekstikast "
+"vaikimisi väärtuse taastamiseks"
 
 msgid "An unknown error occurred while changing password."
-msgstr ""
+msgstr "Parooli muutmisel tekkis tundmatu viga."
 
 msgid "Password is changed successfully."
-msgstr ""
+msgstr "Parool on edukalt muudetud."
 
 msgid "Success"
-msgstr ""
+msgstr "Edu"
 
 msgid "Change Password"
-msgstr ""
+msgstr "Muuda salasõna"
 
 msgid "Current password"
-msgstr ""
+msgstr "Praegune parool"
 
 msgid "New password"
-msgstr ""
+msgstr "Uus parool"
 
 msgid "Retype new password"
-msgstr ""
+msgstr "Kirjutage uuesti uus parool"
 
 msgid "New passwords do not match."
-msgstr ""
+msgstr "Uued paroolid ei sobi."
 
 msgid "Current password is empty."
-msgstr ""
+msgstr "Praegune parool on tühi."
 
 msgid "New password is empty."
-msgstr ""
+msgstr "Uus parool on tühi."
 
 msgid "One or more fields does contain errors."
-msgstr ""
+msgstr "Üks või mitu välja sisaldab vigu."
 
 msgid ""
 "Password is weak. Password should contain capital, non-capital letters and "
 "numbers. Password should have 8 to 20 characters."
 msgstr ""
+"Parool on nõrk. Salasõna peaks sisaldama suuri ja mitte suurtähed ning "
+"numbreid. Salasõna peaks olema 8-20 tähemärki."
 
 msgid "Change passphrase"
-msgstr ""
+msgstr "Muuda paroollauset"
 
 msgid "Old passphrase"
-msgstr ""
+msgstr "Vana salasõna"
 
 msgid "Wrong passphrase. Please try again"
-msgstr ""
+msgstr "Vale salasõna. Palun proovige uuesti"
 
 msgid "New passphrase"
-msgstr ""
+msgstr "Uus salasõna"
 
 msgid "Confirm new passphrase"
-msgstr ""
+msgstr "Kinnitage uus salasõna"
 
 msgid "The passphrases don't match. Please try again"
-msgstr ""
+msgstr "Salasõnad ei vasta. Palun proovige uuesti"
 
 msgid "S/MIME Message"
-msgstr ""
+msgstr "S/MIME sõnum"
 
 msgid "Passphrase changed succesfully"
-msgstr ""
+msgstr "Salasõna muudetud edukalt"
 
 msgid "S/MIME Passphrase"
-msgstr ""
+msgstr "S/MIME salasõna"
 
 msgid "Submit"
-msgstr ""
+msgstr "Esita"
 
 msgid "Certificate passphrase"
-msgstr ""
+msgstr "Sertifikaadi tunnussõna"
 
 msgid "The passphrase you typed is incorrect. Please try again."
-msgstr ""
+msgstr "Teie sisestatud salasõna on vale. Palun proovige uuesti."
 
 msgid "No certificates imported, please upload your private certificate"
 msgstr ""
+"Sertifikaate ei ole imporditud, palun laadige üles oma isiklik sertifikaat"
 
 msgid "Valid from"
-msgstr ""
+msgstr "Kehtib alates"
 
 msgid "Expires"
-msgstr ""
+msgstr "Aegub"
 
 msgid "Loading certificates"
-msgstr ""
+msgstr "Sertifikaatide laadimine"
 
 msgid "S/MIME Plugin"
-msgstr ""
+msgstr "S/MIME plugin"
 
 msgid "Please select a certificate."
-msgstr ""
+msgstr "Palun valige sertifikaat."
 
 msgid ""
 "Do you really want to remove your private certificate? If you remove your "
 "certificate you will not be able to sign or decrypt S/MIME emails."
 msgstr ""
+"Kas te tõesti soovite oma isikliku sertifikaadi eemaldada? Kui te eemaldate "
+"oma sertifikaadi, ei saa te S/MIME e-kirju allkirjastada ega dekrüpteerida."
 
 msgid "Certificate details"
-msgstr ""
+msgstr "Sertifikaadi üksikasjad"
 
 msgid ""
 "Below you can view and delete public & private certificate(s) stored on the "
 "server."
 msgstr ""
+"Allpool saate vaadata ja kustutada serverisse salvestatud avalikke ja "
+"privaatseid sertifikaate."
 
 msgid "Filter on Email"
-msgstr ""
+msgstr "Filtreeri e-kirju"
 
 msgid "Public & Private certificates"
-msgstr ""
+msgstr "Avalikud ja eratunnistused"
 
 msgid "S/MIME"
-msgstr ""
+msgstr "S/MIME"
 
 msgid "You don't have a valid certificate corresponding to your account"
-msgstr ""
+msgstr "Teil ei ole oma kontole vastavat kehtivat sertifikaati."
 
 msgid "Personal certificate"
-msgstr ""
+msgstr "Isiklik sertifikaat"
 
 msgid "Change passphrase for last certificate"
-msgstr ""
+msgstr "Viimase sertifikaadi paroolfraasi muutmine"
 
 msgid "You have a valid certificate corresponding to your account"
-msgstr ""
+msgstr "Teil on kehtiv sertifikaat, mis vastab teie kontole"
 
 msgid "Upload your certificate"
-msgstr ""
+msgstr "Laadige oma sertifikaat üles"
 
 msgid ""
 "Below you can upload your private certificate in PKCS#12 format. grommunio "
 "Web only accepts certificates which are valid and only stores one private "
 "certificate on the server."
 msgstr ""
+"Allpool saate oma privaatsertifikaadi PKCS#12 formaadis üles laadida. "
+"grommunio Web aktsepteerib ainult kehtivaid sertifikaate ja salvestab "
+"serveris ainult ühe privaatsertifikaadi."
 
 msgid "Private certificate"
-msgstr ""
+msgstr "Erasertifikaat"
 
 msgid "You must fill in the certificate passphrase to upload your certificate."
-msgstr ""
+msgstr "Sertifikaadi üleslaadimiseks peate täitma sertifikaadi salasõna."
 
 msgid "You must first select a valid private certificate in PKCS#12 format."
 msgstr ""
+"Kõigepealt peate valima kehtiva privaatse sertifikaadi PKCS#12 formaadis."
 
 msgid "Sign"
-msgstr ""
+msgstr "Allkiri"
 
 msgid "Sign message"
-msgstr ""
+msgstr "Märgi sõnum"
 
 msgid ""
 "Ensure the authenticity of the message by adding a digital signature to this "
 "message. Any changes to the message will invalidate the signature."
 msgstr ""
+"Tagada sõnumi autentsus, lisades sellele sõnumile digitaalallkirja. Sõnumi "
+"muutmine muudab allkirja kehtetuks."
 
 msgid "Encrypt"
-msgstr ""
+msgstr "Krüpteeri"
 
 msgid "Encrypt message"
-msgstr ""
+msgstr "Sõnumi krüpteerimine"
 
 msgid ""
 "Ensure the privacy of the message by encrypting its contents. Only the "
 "recipient of the message will be able to open it."
 msgstr ""
+"Tagage sõnumi privaatsus, krüpteerides selle sisu. Ainult sõnumi saaja saab "
+"seda avada."
 
 msgid "What's going on with my email?"
-msgstr ""
+msgstr "Mis toimub minu e-postiga?"
 
 msgid ""
 "grommunio Web can verify digital signatures of emails. A successful "
 "verification reassures you that the message has not been tampered with and "
 "validates the identity of the sender."
 msgstr ""
+"grommunio Web saab kontrollida e-kirjade digitaalallkirju. Edukas "
+"kontrollimine kinnitab, et sõnumit ei ole võltsitud, ja kinnitab saatja "
+"identiteedi."
 
 msgid ""
 "You are seeing this message because the verification of the digital signature"
-msgstr ""
+msgstr "Te näete seda teadet, sest digitaalallkirja kontrollimine"
 
 msgid " has failed"
-msgstr ""
+msgstr " on ebaõnnestunud"
 
 msgid " for this message."
-msgstr ""
+msgstr " selle sõnumi jaoks."
 
 msgid "What caused this issue?"
-msgstr ""
+msgstr "Mis selle probleemi põhjustas?"
 
 msgid "What should I do?"
-msgstr ""
+msgstr "Mida ma peaksin tegema?"
 
 msgid ""
 "You can continue to work. However, you should keep in mind that the identity "
 "and the authenticity of the message content could not be verified."
 msgstr ""
+"Võite jätkata tööd. Peaksite siiski meeles pidama, et sõnumi sisu "
+"identiteeti ja autentsust ei ole võimalik kontrollida."
 
 msgid ""
 "You can contact your helpdesk or system administrator if you are not sure "
 "what to do next."
 msgstr ""
+"Kui te ei ole kindel, mida edasi teha, võite võtta ühendust oma kasutajatoe "
+"või süsteemiadministraatoriga."
 
 msgid ""
 "grommunio Web can verify digital signatures of emails. A successful "
 "verification reassures you "
 msgstr ""
+"grommunio Web saab kontrollida e-kirjade digitaalallkirju. Edukas "
+"kontrollimine kinnitab teid"
 
 msgid ""
 "that the message has not been tampered with and validates the identity of "
 "the sender."
-msgstr ""
+msgstr "et sõnumit ei ole võltsitud ja kinnitab saatja identiteedi."
 
 msgid ""
 "The verification of the digital signature was successful for this email "
 "message."
-msgstr ""
+msgstr "Selle e-kirja digitaalallkirja kontrollimine oli edukas."
 
 msgid "grommunio Web could not find a public certificate for the recipient."
-msgstr ""
+msgstr "grommunio Web ei leidnud vastuvõtja jaoks avalikku sertifikaati."
 
 msgid ""
 "The identity of the sender and authenticity of the message content have been "
 "verified, but the certificate used to sign the message expired on [d-m-Y]."
 msgstr ""
+"Sõnumi saatja isik ja sõnumi sisu autentsus on kontrollitud, kuid sõnumi "
+"allkirjastamiseks kasutatud sertifikaat aegus [d-m-Y]."
 
 msgid "The digital signature could not be verified for unknown reasons."
-msgstr ""
+msgstr "Digitaalset allkirja ei olnud võimalik kontrollida teadmata põhjustel."
 
 msgid ""
 "The digital certificate used to sign this message has been revoked (i.e. the "
 "sender has marked it as compromised)"
 msgstr ""
+"Selle sõnumi allkirjastamiseks kasutatud digitaalne sertifikaat on kehtetuks "
+"tunnistatud (st saatja on märkinud selle kompromiteerituks)."
 
 msgid ""
 "The verification service of the certificate authority that signed the "
 "sender's certificate is not available. The validity of the certificate could "
 "not be verified."
 msgstr ""
+"Saatja sertifikaadi allkirjastanud sertifitseerimisasutuse kontrollteenus ei "
+"ole kättesaadav. Sertifikaadi kehtivust ei ole võimalik kontrollida."
 
 msgid ""
 "The revocation status of the digital certificate used to sign this email is "
 "unknown (Server is unavailable or certificate does not support OCSP). The "
 "validity of the certificate could not be verified."
 msgstr ""
+"Selle e-kirja allkirjastamiseks kasutatud digitaalse sertifikaadi "
+"tühistamise staatus on teadmata (server ei ole saadaval või sertifikaat ei "
+"toeta OCSP-d). Sertifikaadi kehtivust ei olnud võimalik kontrollida."
 
 msgid ""
 "The revocation status of the digital certificate used to sign this email is "
 "disabled (OCSP). The validity of the certificate could not be verified."
 msgstr ""
+"Selle e-kirja allkirjastamiseks kasutatud digitaalse sertifikaadi "
+"tühistamise staatus on keelatud (OCSP). Sertifikaadi kehtivust ei olnud "
+"võimalik kontrollida."
 
 msgid "The certificate verification server (OCSP) is temporarily offline."
-msgstr ""
+msgstr "Sertifikaadi kontrollserver (OCSP) on ajutiselt välja lülitatud."
 
 msgid "Sender is removed from the server."
-msgstr ""
+msgstr "Saatja eemaldatakse serverist."
 
 msgid "Signature verified successfully"
-msgstr ""
+msgstr "Allkiri edukalt kontrollitud"
 
 msgid "Could not verify signature, missing public certificate"
-msgstr ""
+msgstr "Allkirja ei ole võimalik kontrollida, puudub avalik sertifikaat"
 
 msgid "Signature verification successful, but certificate is expired"
-msgstr ""
+msgstr "Allkirja kontrollimine õnnestus, kuid sertifikaat on aegunud"
 
 msgid "Signature could not be verified"
-msgstr ""
+msgstr "Allkirja ei olnud võimalik kontrollida"
 
 msgid "Certificate has been revoked"
-msgstr ""
+msgstr "Sertifikaat on tühistatud"
 
 msgid "Verification with Certificate Authority failed"
-msgstr ""
+msgstr "Sertifitseerimisasutusega kontrollimine ebaõnnestus"
 
 msgid "Message decrypted succesfully"
-msgstr ""
+msgstr "Sõnum edukalt dekrüpteeritud"
 
 msgid "Message decryption failed"
-msgstr ""
+msgstr "Sõnumi dekrüpteerimine ebaõnnestus"
 
 msgid "Please"
-msgstr ""
+msgstr "Palun"
 
 msgid "click here"
-msgstr ""
+msgstr "kliki siia"
 
 msgid "to unlock your certificate"
-msgstr ""
+msgstr "et avada oma sertifikaat"
 
 msgid "Cannot determine revocation status of certificate"
-msgstr ""
+msgstr "Ei saa kindlaks teha sertifikaadi tühistamise staatust"
 
 msgid "Signature verified"
-msgstr ""
+msgstr "Allkiri kontrollitud"
 
 msgid "Unable to decrypt this message. Certificate does not match"
-msgstr ""
+msgstr "Seda sõnumit ei ole võimalik dekrüpteerida. Sertifikaat ei vasta"
 
 msgid "Verification failed. User is removed from the server."
-msgstr ""
+msgstr "Kontrollimine ebaõnnestus. Kasutaja on serverist eemaldatud."
 
 msgid "Charm pink"
-msgstr ""
+msgstr "Charm roosa"
 
 msgid "Cadmium red"
-msgstr ""
+msgstr "Kaadmiumi punane"
 
 msgid "Apricot"
-msgstr ""
+msgstr "Aprikoos"
 
 msgid "California"
-msgstr ""
+msgstr "California"
 
 msgid "Soft green"
-msgstr ""
+msgstr "Pehme roheline"
 
 msgid "Mint"
-msgstr ""
+msgstr "Mündi"
 
 msgid "Pearl aqua"
-msgstr ""
+msgstr "Pearl aqua"
 
 msgid "Grommunio blue"
-msgstr ""
+msgstr "Grommunio sinine"
 
 msgid "Baby blue"
-msgstr ""
+msgstr "Beebi sinine"
 
 msgid "Mauve"
-msgstr ""
+msgstr "Mauve"
 
 msgid "Silver sand"
-msgstr ""
+msgstr "Hõbedane liiv"
 
 msgid "Competition"
-msgstr ""
+msgstr "Konkurents"
 
 msgid "Gifts"
-msgstr ""
+msgstr "Kingitused"
 
 msgid "Goals/Objectives"
-msgstr ""
+msgstr "Eesmärgid/eesmärgid"
 
 msgid "Holiday Cards"
-msgstr ""
+msgstr "Pühadekaardid"
 
 #, fuzzy
 msgid "Hot Contacts"
 msgstr "Minu kontaktid"
 
 msgid "Ideas"
-msgstr ""
+msgstr "Ideed"
 
 msgid "International"
-msgstr ""
+msgstr "Rahvusvaheline"
 
 msgid "Key Customer"
-msgstr ""
+msgstr "Võtmeklient"
 
 msgid "Miscellaneous"
 msgstr "Muu"
 
 msgid "Phone Calls"
-msgstr ""
+msgstr "Telefonikõned"
 
 msgid "Strategies"
-msgstr ""
+msgstr "Strateegiad"
 
 msgid "Suppliers"
-msgstr ""
+msgstr "Tarnijad"
 
 msgid "Time & Expenses"
-msgstr ""
+msgstr "Aeg ja kulud"
 
 msgid "VIP"
-msgstr ""
+msgstr "VIP"
 
 msgid "Waiting"
-msgstr ""
+msgstr "Oodates"
 
 msgid "You have been automatically logged out"
-msgstr ""
+msgstr "Teid on automaatselt välja logitud"
 
 msgid ""
 "Sorry, access to grommunio Web is not available with this user account. "
 "Please contact your system administrator."
 msgstr ""
+"Vabandame, juurdepääs grommunio Webile ei ole selle kasutajakontoga "
+"saadaval. Palun võtke ühendust oma süsteemiadministraatoriga."
 
 msgid "With this backend, you can connect to any ownCloud server."
-msgstr ""
+msgstr "Selle backendiga saate luua ühenduse mis tahes ownCloudi serveriga."
 
 msgid "Files ownCloud Backend: "
-msgstr ""
+msgstr "Failid ownCloud Backend:"
 
 msgid "Server address"
-msgstr ""
+msgstr "Serveri aadress"
 
 msgid "Server port"
-msgstr ""
+msgstr "Serveri port"
 
 msgid "Use TLS"
-msgstr ""
+msgstr "Kasutage TLS-i"
 
 msgid "Webdav base path"
-msgstr ""
+msgstr "Webdav baasraja"
 
 msgid "Use grommunio credentials"
-msgstr ""
+msgstr "Kasutage grommunio volitusi"
 
 msgid "php-curl is not available"
-msgstr ""
+msgstr "php-curl ei ole saadaval"
 
 msgid "Access denied"
-msgstr ""
+msgstr "Juurdepääs keelatud"
 
 msgid "Connection failed"
-msgstr ""
+msgstr "Ühendus ebaõnnestus"
 
 msgid "Sabre error"
-msgstr ""
+msgstr "Sabre viga"
 
 msgid "Copying failed"
-msgstr ""
+msgstr "Kopeerimine ebaõnnestus"
 
 msgid "Unknown error"
-msgstr ""
+msgstr "Teadmata viga"
 
 msgid "Please contact your system administrator."
-msgstr ""
+msgstr "Palun võtke ühendust oma süsteemiadministraatoriga."
 
 msgid "Unauthorized. Wrong username or password."
-msgstr ""
+msgstr "Loata. Vale kasutajanimi või salasõna."
 
 msgid "File server is not reachable. Please verify the file server URL."
-msgstr ""
+msgstr "Failiserver ei ole kättesaadav. Palun kontrollige failiserveri URL-i."
 
 msgid "You don't have enough permissions to view this file or folder."
-msgstr ""
+msgstr "Teil ei ole selle faili või kausta vaatamiseks piisavalt õigusi."
 
 msgid "The file or folder is not available anymore."
-msgstr ""
+msgstr "Fail või kaust ei ole enam saadaval."
 
 msgid "Connection to the file server timed out. Please check again later."
-msgstr ""
+msgstr "Ühendus failiserveriga on aegunud. Palun kontrollige hiljem uuesti."
 
 msgid "This file is locked by another user. Please try again later."
 msgstr ""
+"See fail on lukustatud teise kasutaja poolt. Palun proovige hiljem uuesti."
 
 msgid "The request failed."
-msgstr ""
+msgstr "Taotlus ebaõnnestus."
 
 msgid "The file server encountered an internal problem."
-msgstr ""
+msgstr "Failiserveril tekkis sisemine probleem."
 
 msgid "We could not write to temporary directory."
-msgstr ""
+msgstr "Me ei saanud kirjutada ajutisse kataloogi."
 
 msgid "We could not retrieve list of server features."
-msgstr ""
+msgstr "Me ei suutnud saada serveri funktsioonide nimekirja."
 
 msgid "PHP-Curl is not available."
-msgstr ""
+msgstr "PHP-Curl ei ole saadaval."
 
 msgid "Unknown account ID"
-msgstr ""
+msgstr "Tundmatu konto ID"
 
 msgid "Feature \"Quota Information\" is not supported by this backend!"
 msgstr ""
+"Funktsioon \"Kvootide teave\" ei ole selle taustsüsteemi poolt toetatud!"
 
 msgid "Feature \"Version Information\" is not supported by this backend!"
 msgstr ""
+"Funktsioon \"Versiooniteave\" ei ole selle taustsüsteemi poolt toetatud!"
 
 msgid "Feature \"OAUTH\" is not supported by this backend!"
-msgstr ""
+msgstr "Funktsioon \"OAUTH\" ei toeta seda backend'i!"
 
 msgid "Moving between accounts is not implemented"
-msgstr ""
+msgstr "Kontode vahelist liikumist ei rakendata"
 
 msgid "Files plugin"
-msgstr ""
+msgstr "Failide plugin"
 
 msgid "Unknown type - cannot save this file to the Files backend!"
-msgstr ""
+msgstr "Tundmatu tüüp - seda faili ei saa salvestada failide taustsüsteemi!"
 
 msgid "No record given!"
-msgstr ""
+msgstr "Andmeid ei ole esitatud!"
 
 msgid "Fetching sharing information failed"
-msgstr ""
+msgstr "Andmete jagamine ebaõnnestus"
 
 msgid "Sharing failed"
-msgstr ""
+msgstr "Jagamine ebaõnnestus"
 
 msgid "Updating share failed"
-msgstr ""
+msgstr "Aktsia uuendamine ebaõnnestus"
 
 msgid "Deleting share failed"
-msgstr ""
+msgstr "Osakute kustutamine ebaõnnestus"
 
 msgid "With this backend, you can connect to any WebDAV server."
-msgstr ""
+msgstr "Selle backendiga saate luua ühenduse mis tahes WebDAV-serveriga."
 
 msgid "Files WebDAV Backend: "
-msgstr ""
+msgstr "Failid WebDAV Backend:"
 
 msgid "PHP-CURL is not installed"
-msgstr ""
+msgstr "PHP-CURL ei ole paigaldatud"
 
 msgid "Directory creation failed"
-msgstr ""
+msgstr "Kataloogi loomine ebaõnnestus"
 
 msgid "Deletion failed"
-msgstr ""
+msgstr "Kustutamine ebaõnnestus"
 
 msgid "Moving failed"
-msgstr ""
+msgstr "Liikumine ebaõnnestus"
 
 msgid "Temporary directory problems"
-msgstr ""
+msgstr "Ajutise kataloogi probleemid"
 
 msgid "File or folder not found"
-msgstr ""
+msgstr "Faili või kausta ei leitud"
 
 msgid "Not implemented"
-msgstr ""
+msgstr "Ei ole rakendatud"
 
 msgid "Please contact your system administrator"
-msgstr ""
+msgstr "Palun võtke ühendust oma süsteemiadministraatoriga"
 
 msgid "File server is not reachable. Please verify the connection."
-msgstr ""
+msgstr "Failiserver ei ole kättesaadav. Palun kontrollige ühendust."
 
 msgid "PHP-CURL not installed"
-msgstr ""
+msgstr "PHP-CURL ei ole paigaldatud"
 
 msgid "Account is ready to use."
-msgstr ""
+msgstr "Konto on kasutusvalmis."
 
 msgid "File backend not responding. Please try again later."
-msgstr ""
+msgstr "Faili backend ei reageeri. Palun proovige hiljem uuesti."
 
 msgid "Zip file generation failed. Please inform the administrator."
-msgstr ""
+msgstr "Zip-faili genereerimine ebaõnnestus. Palun teavitage administraatorit."
 
 msgid "This file is no longer available. Please reload the folder."
-msgstr ""
+msgstr "See fail ei ole enam saadaval. Palun laadige kaust uuesti."
 
 msgid "Mobile device management plugin"
-msgstr ""
+msgstr "Mobiilse seadme haldamise plugin"
 
 #, php-format
 msgid ""
 "Unexpected error occurred. Please contact your system administrator. Error "
 "code: %s"
 msgstr ""
+"Tekkis ootamatu viga. Palun võtke ühendust oma süsteemiadministraatoriga. "
+"Veakood: %s"
 
 msgid "No data received."
-msgstr ""
+msgstr "Andmeid ei ole saadud."
 
 msgid "Account is empty."
-msgstr ""
+msgstr "Konto on tühi."
 
 msgid "Current password does not match."
-msgstr ""
+msgstr "Praegune parool ei vasta."
 
 msgid ""
 "Your password is wrong or you have insufficient permission to change password"
 msgstr ""
+"Teie salasõna on vale või teil ei ole piisavalt õigusi salasõna muutmiseks."
 
 msgid "Password is not changed."
-msgstr ""
+msgstr "Salasõna ei ole muudetud."
 
 msgid "Error changing password. Please contact the system administrator."
 msgstr ""
+"Viga parooli muutmisel. Palun võtke ühendust süsteemi administraatoriga."
 
 msgid "Password has been changed successfully."
-msgstr ""
+msgstr "Parool on edukalt muudetud."
 
 msgid "No certificate avaliable"
-msgstr ""
+msgstr "Sertifikaat puudub"
 
 msgid "Private certificate is not valid yet, unable to sign email"
-msgstr ""
+msgstr "Erasertifikaat ei ole veel kehtiv, ei saa e-kirja allkirjastada"
 
 msgid "Private certificate has been expired, unable to sign email"
-msgstr ""
+msgstr "Erasertifikaat on aegunud, ei saa e-kirja allkirjastada"
 
 msgid "Private certificate does not match email address"
-msgstr ""
+msgstr "Erasertifikaat ei vasta e-posti aadressile"
 
 msgid "Missing public certificates for the following recipients: "
-msgstr ""
+msgstr "Puuduvad avalikud sertifikaadid järgmiste saajate puhul:"
 
 msgid ". Please contact your system administrator for details"
 msgstr ""
+". Palun võtke ühendust oma süsteemiadministraatoriga üksikasjade saamiseks"
 
 msgid ""
 "Your public certificate is not installed. Without this certificate, you will "
 "not be able to read encrypted messages you have sent to others."
 msgstr ""
+"Teie avalik sertifikaat ei ole paigaldatud. Ilma selle sertifikaadita ei saa "
+"te lugeda teistele saadetud krüpteeritud sõnumeid."
 
 msgid "Certificate is already stored on the server"
-msgstr ""
+msgstr "Sertifikaat on juba serveris salvestatud"
 
 msgid "Unable to decrypt certificate"
-msgstr ""
+msgstr "Sertifikaadi dekrüpteerimine ei ole võimalik"
 
 msgid "Private key can't be used to sign email"
-msgstr ""
+msgstr "Privaatvõtit ei saa kasutada e-kirjade allkirjastamiseks"
 
 msgid "Certificate email address doesn't match grommunio Web account "
-msgstr ""
+msgstr "Sertifikaadi e-posti aadress ei vasta grommunio veebikontole"
 
 msgid "Certificate was expired on "
-msgstr ""
+msgstr "Sertifikaadi kehtivusaeg lõppes"
 
 msgid "Certificate was imported."
-msgstr ""
+msgstr "Sertifikaat imporditi."
 
 msgid "Certificate is not yet valid "
-msgstr ""
+msgstr "Sertifikaat ei ole veel kehtiv"
 
 msgid "Certificate has not been imported"
-msgstr ""
+msgstr "Sertifikaati ei ole imporditud"
 
 msgid "Certificate is revoked, but was imported."
-msgstr ""
+msgstr "Sertifikaat on tühistatud, kuid see on imporditud."
 
 msgid "Unable to read public certificate"
-msgstr ""
+msgstr "Ei saa lugeda avalikku sertifikaati"
 
 msgid "Can't add data to bus, same action type is present in bus"
-msgstr ""
+msgstr "Ei saa lisada andmeid bussi, sama tegevuse tüüp on bussis olemas"
 
 msgid "Response data requested from bus but it doesn't have any data."
-msgstr ""
+msgstr "Vastusandmed, mida bussilt taotletakse, kuid sellel ei ole andmeid."
 
 #, php-format
 msgid "Unknown module '%s' with id '%s'"
-msgstr ""
+msgstr "Tundmatu moodul '%s' identifikaatoriga '%s'."
 
 msgid ""
 "Server encountered some problem, so it was not able to handle the request."
 msgstr ""
+"Serveril tekkis mingi probleem, mistõttu ta ei suutnud taotlust käsitleda."
 
 #, php-format
 msgid "Unknown notifier '%s'"
-msgstr ""
+msgstr "Tundmatu teavitaja '%s'"
 
 msgid "An unexpected error has occurred"
-msgstr ""
+msgstr "On ilmnenud ootamatu viga"
 
 msgid "To-Do List"
-msgstr ""
+msgstr "Tööde nimekiri"
 
 #. TRANSLATORS: This indicates that the opened folder belongs to a particular user,
 #. * for example: 'Calendar of Holiday', in this case %1$s is 'Calendar' (the foldername)
@@ -6874,13 +7087,13 @@ msgstr ""
 #.
 #, php-format
 msgid "%1$s of %2$s"
-msgstr ""
+msgstr "%1$s of %2$s"
 
 msgid "Error retrieving existing settings"
-msgstr ""
+msgstr "Olemasolevate seadete päringu viga"
 
 msgid "Error retrieving existing persistent settings"
-msgstr ""
+msgstr "Olemasolevate püsivate seadete päringu viga"
 
 #, fuzzy
 msgid "Logon failed. Please verify your credentials and try again."
@@ -6894,33 +7107,35 @@ msgid ""
 "Login did not work due to a duplicate session. The issue was automatically "
 "resolved, please log in again."
 msgstr ""
+"Sisselogimine ei toiminud dubleeritud seansi tõttu. Probleem lahendati "
+"automaatselt, palun logige uuesti sisse."
 
 #, fuzzy
 msgid "Unknown MAPI Error"
 msgstr "Tundmatu MAPI viga: %s"
 
 msgid "Destination folder not found."
-msgstr ""
+msgstr "Sihtkausta ei leitud."
 
 msgid "Eml is corrupted"
-msgstr ""
+msgstr "Eml on rikutud"
 
 msgid "The eml Attachment is not imported successfully"
-msgstr ""
+msgstr "EML manus ei ole edukalt imporditud"
 
 msgid "The vcf attachment is not imported successfully"
-msgstr ""
+msgstr "vcf manus ei ole edukalt imporditud"
 
 #, php-format
 msgid "Unable to import '%s' to '%s'. "
-msgstr ""
+msgstr "Ei ole võimalik importida '%s' aadressile '%s'."
 
 #, fuzzy
 msgid "There is no appointment found in this file."
 msgstr "Selles vaates pole hetkel kirjeid kuvamiseks"
 
 msgid "The file is corrupt."
-msgstr ""
+msgstr "Fail on vigane."
 
 #, fuzzy
 msgid "The file is invalid."
@@ -6928,40 +7143,40 @@ msgstr "{0} ei ole kehtiv aeg"
 
 #, php-format
 msgid "Unable to import '%s'. "
-msgstr ""
+msgstr "Ei ole võimalik importida '%s'."
 
 msgid "Attachment is not imported successfully"
-msgstr ""
+msgstr "Manus ei ole edukalt imporditud"
 
 msgid "Embedded attachment not found."
-msgstr ""
+msgstr "Varjatud manustust ei leitud."
 
 msgid "ZIP is not created successfully"
-msgstr ""
+msgstr "ZIP ei ole edukalt loodud"
 
 msgid "Attachments can not be downloaded"
-msgstr ""
+msgstr "Manuseid ei saa alla laadida"
 
 msgid "Could not find attachment."
-msgstr ""
+msgstr "Ei suutnud leida manustust."
 
 msgid "Operation failed"
-msgstr ""
+msgstr "Operatsioon ebaõnnestus"
 
 msgid "Sticky Note"
-msgstr ""
+msgstr "Kleepuv märkus"
 
 msgid "Task Request"
-msgstr ""
+msgstr "Ülesande taotlus"
 
 msgid "Could not find message, either it has been moved or deleted."
-msgstr ""
+msgstr "Ei leidnud sõnumit, kas see on ümber paigutatud või kustutatud."
 
 msgid "Request is not available."
-msgstr ""
+msgstr "Taotlus ei ole saadaval."
 
 msgid "You have insufficient privileges to open this object."
-msgstr ""
+msgstr "Teil ei ole selle objekti avamiseks piisavalt õigusi."
 
 #, fuzzy
 msgid "Logon Failed. Please check your name/password."
@@ -6972,78 +7187,83 @@ msgid "Can not connect to Gromox."
 msgstr "Ei saa ühendust grommunio serveriga."
 
 msgid "Can not open object with provided id."
-msgstr ""
+msgstr "Ei saa antud id-ga objekti avada."
 
 msgid "There are no recipients in the message."
-msgstr ""
+msgstr "Sõnumis ei ole ühtegi adressaati."
 
 msgid "Can not find object."
-msgstr ""
+msgstr "Ei leia objekti."
 
 msgid "Operation failed: Server does not have enough memory."
-msgstr ""
+msgstr "Operatsioon ebaõnnestus: Serveril ei ole piisavalt mälu."
 
 #, php-format
 msgid "Unknown MAPI Error: %s"
 msgstr "Tundmatu MAPI viga: %s"
 
 msgid "Action is not performed correctly."
-msgstr ""
+msgstr "Tegevus ei ole korrektselt sooritatud."
 
 msgid "Contact not found"
-msgstr ""
+msgstr "Kontakt ei leitud"
 
 msgid ""
 "Contact information could not be displayed because the server had trouble "
 "retrieving the information."
 msgstr ""
+"Kontaktandmeid ei saanud kuvada, sest serveril oli probleeme teabe "
+"kättesaamisega."
 
 msgid "Please contact your system administrator if the problem persists."
-msgstr ""
+msgstr "Kui probleem püsib, võtke ühendust oma süsteemiadministraatoriga."
 
 msgid "Could not handle this type of object."
-msgstr ""
+msgstr "Seda tüüpi objekti ei saanud käsitleda."
 
 msgid "Could not open this object."
-msgstr ""
+msgstr "Seda objekti ei saanud avada."
 
 msgid "Error in search, please try again"
-msgstr ""
+msgstr "Viga otsingus, palun proovige uuesti"
 
 msgid "Unable to perform search query, no permissions to create search folder."
-msgstr ""
+msgstr "Ei saa teha otsingupäringut, puuduvad õigused otsingukausta loomiseks."
 
 msgid "Unable to perform search query, search folder not found."
-msgstr ""
+msgstr "Otsingupäringut ei ole võimalik teha, otsingukausta ei leitud."
 
 msgid "Unable to perform search query, store might not support searching."
-msgstr ""
+msgstr "Otsingupäringut ei ole võimalik teha, pood ei pruugi toetada otsingut."
 
 msgid "Error in creating search folder."
-msgstr ""
+msgstr "Viga otsingukausta loomisel."
 
 msgid "Could not open occurrence."
-msgstr ""
+msgstr "Ei saanud avada juhtumit."
 
 msgid "Could not open occurrence, specific occurrence is probably deleted."
 msgstr ""
+"Ei saanud avada esinemist, konkreetne esinemine on tõenäoliselt kustutatud."
 
 msgid "a meeting request"
-msgstr ""
+msgstr "kohtumise taotlus"
 
 msgid "an appointment"
-msgstr ""
+msgstr "kohtumine"
 
 msgid "You have insufficient privileges to move "
-msgstr ""
+msgstr "Teil ei ole piisavalt õigusi, et liikuda"
 
 msgid ""
 "Cannot set a reminder to appear before the previous occurrence. Reset "
 "reminder to save the change"
 msgstr ""
+"Ei saa määrata meeldetuletust, mis ilmuks enne eelmist sündmust. Muudatuse "
+"salvestamiseks lähtestage meeldetuletus"
 
 msgid "Two occurrences cannot occur on the same day"
-msgstr ""
+msgstr "Kaks sündmust ei saa toimuda samal päeval."
 
 #, php-format
 msgid ""
@@ -7052,138 +7272,148 @@ msgid ""
 "enter the name as a required or optional attendee or talk to your "
 "administrator about giving you permission to schedule '%s'."
 msgstr ""
+"Sa märkisid ressursiks '%s'. Te ei saa planeerida koosolekut koos '%s', sest "
+"teil ei ole selle konto jaoks sobivaid õigusi. Sisestage nimi kas nõutava "
+"või vabatahtliku osalejana või rääkige oma administraatoriga, et saada teile "
+"luba \"%s\" ajakava koostamiseks."
 
 #, php-format
 msgid ""
 "'%s' has declined your meeting because '%s' does not automatically accept "
 "meeting requests."
 msgstr ""
+"'%s' on teie kohtumisest keeldunud, sest '%s' ei võta automaatselt vastu "
+"kohtumiste taotlusi."
 
 #, php-format
 msgid ""
 "'%s' has declined your meeting because it is recurring. You must book each "
 "meeting separately with this resource."
 msgstr ""
+"'%s' on teie kohtumisest keeldunud, sest see on korduv. Te peate broneerima "
+"iga kohtumise eraldi selle ressursi abil."
 
 #, php-format
 msgid ""
 "'%s' is already booked for this specified time. You must use another time or "
 "find another resource."
 msgstr ""
+"'%s' on juba broneeritud selleks määratud ajaks. Te peate kasutama teist "
+"aega või leidma teise ressursi."
 
 msgid "Meeting was not scheduled."
-msgstr ""
+msgstr "Kohtumine ei olnud kavandatud."
 
 msgid "Meeting could not be sent."
-msgstr ""
+msgstr "Koosolekut ei saanud saata."
 
 msgid "Meeting could not be saved."
-msgstr ""
+msgstr "Koosolekut ei saanud päästa."
 
 msgid "Private Appointment"
-msgstr ""
+msgstr "Privaatne kohtumine"
 
 #, php-format
 msgid "%s's Birthday"
-msgstr ""
+msgstr "%s sünnipäev"
 
 #, php-format
 msgid "%s's Anniversary"
-msgstr ""
+msgstr "%s aastapäev"
 
 msgid "You don't have the permission to complete this action"
-msgstr ""
+msgstr "Teil ei ole luba selle tegevuse lõpuleviimiseks."
 
 msgid "Quota error"
-msgstr ""
+msgstr "Kvoodi viga"
 
 msgid "Send quota limit reached"
-msgstr ""
+msgstr "Saatekvoodi limiit on saavutatud"
 
 msgid "Email sending failed. Check the log files for more information."
-msgstr ""
+msgstr "E-posti saatmine ebaõnnestus. Lisateabe saamiseks vaadake logifaile."
 
 msgid "Unknown user/group"
-msgstr ""
+msgstr "Tundmatu kasutaja/rühm"
 
 msgid "Could not save delegate information."
-msgstr ""
+msgstr "Ei õnnestunud salvestada delegaatide andmeid."
 
 msgid "Could not delete delegate."
-msgstr ""
+msgstr "Ei saanud delegaati kustutada."
 
 msgid "Can not get list of delegates."
-msgstr ""
+msgstr "Ei saa delegaatide nimekirja."
 
 msgid "Could not load the hierarchy."
-msgstr ""
+msgstr "Ei saanud hierarhiat laadida."
 
 msgid "Could not load folder properties."
-msgstr ""
+msgstr "Ei saanud laadida kausta omadusi."
 
 msgid "Could not remove folder from favorites."
-msgstr ""
+msgstr "Ei saanud kausta lemmikute hulgast eemaldada."
 
 msgid "You have insufficient privileges to delete folder."
-msgstr ""
+msgstr "Teil ei ole kausta kustutamiseks piisavalt õigusi."
 
 msgid "Could not delete folder."
-msgstr ""
+msgstr "Ei saanud kausta kustutada."
 
 msgid "You have insufficient privileges to copy folder."
-msgstr ""
+msgstr "Teil ei ole kausta kopeerimiseks piisavalt õigusi."
 
 msgid "Could not copy folder."
-msgstr ""
+msgstr "Ei saanud kausta kopeerida."
 
 msgid "You have insufficient privileges to move this folder."
-msgstr ""
+msgstr "Teil ei ole selle kausta teisaldamiseks piisavalt õigusi."
 
 msgid "Could not move folder."
-msgstr ""
+msgstr "Ei saanud kausta liigutada."
 
 msgid "You have insufficient privileges to delete items."
-msgstr ""
+msgstr "Teil ei ole piisavalt õigusi objektide kustutamiseks."
 
 msgid "Could not empty folder."
-msgstr ""
+msgstr "Ei saanud kausta tühjendada."
 
 msgid "Could not perform action correctly."
-msgstr ""
+msgstr "Ei suutnud toimingut õigesti sooritada."
 
 msgid ""
 "A favorite folder with this name already exists, please use another name."
-msgstr ""
+msgstr "Selle nimega lemmikkaust on juba olemas, palun kasutage teist nime."
 
 msgid "Could not add folder to favorites."
-msgstr ""
+msgstr "Ei saanud lisada kausta lemmikute hulka."
 
 msgid "You have insufficient privileges to set permissions for this folder."
-msgstr ""
+msgstr "Teil ei ole piisavalt õigusi selle kausta õiguste määramiseks."
 
 msgid "Could not set folder permissions."
-msgstr ""
+msgstr "Ei saanud määrata kausta õigusi."
 
 msgid "You have insufficient privileges to rename this folder."
-msgstr ""
+msgstr "Teil ei ole piisavalt õigusi selle kausta ümbernimetamiseks."
 
 msgid "A folder with this name already exists. Use another name."
-msgstr ""
+msgstr "Selle nimega kaust on juba olemas. Kasutage teist nime."
 
 msgid "Could not rename folder."
-msgstr ""
+msgstr "Ei saanud kausta ümber nimetada."
 
 msgid "You have insufficient privileges to create this folder."
-msgstr ""
+msgstr "Teil ei ole selle kausta loomiseks piisavalt õigusi."
 
 msgid "Could not create folder."
-msgstr ""
+msgstr "Ei suutnud luua kausta."
 
 msgid "Could not close shared folder."
-msgstr ""
+msgstr "Ei suutnud sulgeda jagatud kausta."
 
 msgid "User could not be resolved."
-msgstr ""
+msgstr "Kasutajat ei saanud lahendada."
 
 #, php-format
 msgid ""
@@ -7191,93 +7421,103 @@ msgid ""
 "can set these using the 'permissions'-tab of the folder properties (right "
 "click the %1$s folder > properties > permissions)."
 msgstr ""
+"Teil ei ole piisavalt õigusi selle %1$s kausta avamiseks. Kausta omanik saab "
+"neid määrata kausta omaduste vahekaardil \"õigused\" (paremklikk kaustale "
+"%1$s > omadused > õigused)."
 
 msgid "default"
-msgstr ""
+msgstr "vaikimisi"
 
 msgid "anonymous"
-msgstr ""
+msgstr "anonüümne"
 
 msgid "unknown"
-msgstr ""
+msgstr "unknown"
 
 msgid "Could not move folder"
-msgstr ""
+msgstr "Ei saanud kausta liigutada"
 
 msgid "Could not copy folder"
-msgstr ""
+msgstr "Ei saanud kopeerida kausta"
 
 msgid "You have insufficient privileges to open this message."
-msgstr ""
+msgstr "Teil ei ole selle sõnumi avamiseks piisavalt õigusi."
 
 msgid ""
 "Could not find message, either it has been moved or deleted or you don't "
 "have access to open this message."
 msgstr ""
+"Ei leidnud sõnumit, kas see on liigutatud või kustutatud või teil ei ole "
+"juurdepääsu selle sõnumi avamiseks."
 
 msgid "Could not open message."
-msgstr ""
+msgstr "Sõnumit ei saanud avada."
 
 msgid "You have insufficient privileges to decline this Meeting Request"
-msgstr ""
+msgstr "Teil ei ole piisavalt õigusi, et keelduda sellest koosolekutaotlusest."
 
 msgid "You have insufficient privileges to accept this Meeting Request"
-msgstr ""
+msgstr "Teil ei ole piisavalt õigusi, et seda koosolekutaotlust vastu võtta."
 
 msgid "Could not copy message"
-msgstr ""
+msgstr "Ei saanud kopeerida sõnumit"
 
 msgid "Could not move message"
-msgstr ""
+msgstr "Teade ei saanud liikuda"
 
 msgid "You have insufficient privileges to save items in this folder"
-msgstr ""
+msgstr "Teil ei ole piisavalt õigusi, et salvestada objekte sellesse kausta"
 
 msgid "Could not save message"
-msgstr ""
+msgstr "Ei saanud salvestada sõnumit"
 
 msgid "You have insufficient privileges to remove item from the calendar."
-msgstr ""
+msgstr "Teil ei ole piisavalt õigusi, et eemaldada kirje kalendrist."
 
 msgid ""
 "Message is no longer in the outgoing queue, typically because it has already "
 "been sent."
 msgstr ""
+"Sõnum ei ole enam väljaminevas järjekorras, tavaliselt seetõttu, et see on "
+"juba saadetud."
 
 msgid "Message cannot be aborted"
-msgstr ""
+msgstr "Sõnumit ei saa katkestada"
 
 msgid "You have insufficient privileges to delete items in this folder"
 msgstr ""
+"Teil ei ole piisavalt õigusi selles kaustas olevate objektide kustutamiseks."
 
 msgid "You have insufficient privileges to attach item as an attachment."
-msgstr ""
+msgstr "Teil ei ole piisavalt õigusi, et lisada objekt manusena."
 
 msgid "Could not attach item as an attachment."
-msgstr ""
+msgstr "Ei saanud objekti manusena lisada."
 
 msgid ""
 "You have insufficient privileges to reclaim the ownership for the Task "
 "Request."
 msgstr ""
+"Teil ei ole piisavalt õigusi, et nõuda ülesande taotluse omandiõigust tagasi."
 
 msgid "Could not reclaim the ownership for the Task Request."
-msgstr ""
+msgstr "Ei saanud tagasi nõuda ülesande taotluse omandiõigust."
 
 msgid "You have insufficient privileges to accept this Task Request."
-msgstr ""
+msgstr "Teil ei ole piisavalt õigusi selle ülesande taotluse vastuvõtmiseks."
 
 msgid "Could not accept Task Request."
-msgstr ""
+msgstr "Ei saanud vastu võtta ülesande taotlust."
 
 msgid "You have insufficient privileges to decline this Task Request."
 msgstr ""
+"Teil ei ole piisavalt õigusi selle ülesande taotluse tagasilükkamiseks."
 
 msgid "Could not decline Task Request."
-msgstr ""
+msgstr "Ei saanud keelduda ülesande taotlusest."
 
 msgid "Conflicts with another appointment."
-msgstr ""
+msgstr "Kokkupuude mõne teise kohtumisega."
 
 #, php-format
 msgid ""
@@ -7286,196 +7526,206 @@ msgid_plural ""
 "%s occurrences of this recurring appointment conflicts with other "
 "appointments."
 msgstr[0] ""
+"%s selle korduva kohtumise esinemine on vastuolus teiste kohtumistega."
 msgstr[1] ""
 
 msgid "Your message did not reach some or all of the intended recipients"
-msgstr ""
+msgstr "Teie sõnum ei jõudnud mõne või kõigi soovitud adressaatideni."
 
 msgid "The following recipient(s) could not be reached"
-msgstr ""
+msgstr "Järgmise(te)l vastuvõtja(te)ga ei olnud võimalik ühendust võtta."
 
 msgid "You have insufficient privileges to see the contents of this folder."
-msgstr ""
+msgstr "Teil ei ole selle kausta sisu nägemiseks piisavalt õigusi."
 
 msgid "Could not load the contents of this folder."
-msgstr ""
+msgstr "Selle kausta sisu ei õnnestunud laadida."
 
 msgid ""
 "You have insufficient privileges to perform search operation in this folder."
-msgstr ""
+msgstr "Teil ei ole selles kaustas otsingu teostamiseks piisavalt õigusi."
 
 msgid "Could not update search results."
-msgstr ""
+msgstr "Otsingutulemusi ei saanud uuendada."
 
 msgid "Could not stop search operation."
-msgstr ""
+msgstr "Ei saanud otsingut peatada."
 
 msgid "You have insufficient privileges to save this message."
-msgstr ""
+msgstr "Teil ei ole selle sõnumi salvestamiseks piisavalt õigusi."
 
 msgid "Could not save message."
-msgstr ""
+msgstr "Ei saanud salvestada sõnumit."
 
 msgid "You have insufficient privileges to delete this message."
-msgstr ""
+msgstr "Teil ei ole selle sõnumi kustutamiseks piisavalt õigusi."
 
 msgid "Could not delete message."
-msgstr ""
+msgstr "Ei saanud sõnumit kustutada."
 
 msgid "You have insufficient privileges to cancel this Meeting Request."
-msgstr ""
+msgstr "Teil ei ole piisavalt õigusi selle koosolekutaotluse tühistamiseks."
 
 msgid "Could not cancel Meeting Request."
-msgstr ""
+msgstr "Ei saanud tühistada koosolekutaotlust."
 
 msgid "You have insufficient privileges to decline this Meeting Request."
-msgstr ""
+msgstr "Teil ei ole piisavalt õigusi, et keelduda sellest koosolekutaotlusest."
 
 msgid "Could not decline Meeting Request."
-msgstr ""
+msgstr "Ei saanud keelduda kohtumise taotlusest."
 
 msgid "You have insufficient privileges to accept this Meeting Request."
-msgstr ""
+msgstr "Teil ei ole piisavalt õigusi selle koosolekutaotluse vastuvõtmiseks."
 
 msgid "Could not accept Meeting Request."
-msgstr ""
+msgstr "Ei saanud vastu võtta koosolekutaotlust."
 
 msgid "You have insufficient privileges to cancel Meeting Request invitation."
-msgstr ""
+msgstr "Teil ei ole piisavalt õigusi, et tühistada koosolekutaotluse kutse."
 
 msgid "Could not cancel Meeting Request invitations."
-msgstr ""
+msgstr "Ei saanud tühistada koosolekute kutsete taotlusi."
 
 msgid "You can not continue search operation on this folder."
-msgstr ""
+msgstr "Te ei saa jätkata otsingut selles kaustas."
 
 msgid "Error in search, please try again."
-msgstr ""
+msgstr "Otsinguviga, palun proovige uuesti."
 
 msgid "Error in distribution list expansion."
-msgstr ""
+msgstr "Viga levitamisloendi laiendamisel."
 
 msgid "The message store has exceeded its hard quota limit."
-msgstr ""
+msgstr "Sõnumihoidla on ületanud oma kõva kvoodi limiidi."
 
 msgid ""
 "To reduce the amount of data in this message store, select some items that "
 "you no longer need, delete them and cleanup your Deleted Items folder."
 msgstr ""
+"Selleks, et vähendada andmete hulka selles sõnumite hoidlas, valige välja "
+"mõned elemendid, mida te enam ei vaja, kustutage need ja puhastage oma kaust "
+"\"Kustutatud elemendid\"."
 
 msgid "The message store has exceeded its soft quota limit."
-msgstr ""
+msgstr "Sõnumihoidla on ületanud oma pehme kvoodi limiidi."
 
 msgid "Could not process request data properly."
-msgstr ""
+msgstr "Taotluse andmeid ei saanud nõuetekohaselt töödelda."
 
 #, php-format
 msgid "Unknown action type specified - %s"
-msgstr ""
+msgstr "Tundmatu tegevuse tüüp on määratud - %s"
 
 msgid "Cannot snooze the reminder. You may be reminded again."
-msgstr ""
+msgstr "Ei saa meeldetuletust torkida. Teid võidakse uuesti meelde tuletada."
 
 msgid "Cannot dismiss the reminder. You may be reminded again."
 msgstr ""
+"Ei saa jätta meeldetuletust kõrvale. Teid võidakse uuesti meelde tuletada."
 
 msgid "You have insufficient privileges to perform this action."
-msgstr ""
+msgstr "Teil ei ole selle toimingu sooritamiseks piisavalt õigusi."
 
 msgid "Could not resolve user."
-msgstr ""
+msgstr "Kasutaja ei suutnud lahendada."
 
 msgid "Setting mail filters on the stores of other users is not allowed."
 msgstr ""
+"Postifiltrite seadistamine teiste kasutajate kauplustele ei ole lubatud."
 
 msgid "Untitled rule"
-msgstr ""
+msgstr "Nimetu reegel"
 
 msgid "Could not load rules."
-msgstr ""
+msgstr "Ei saanud reegleid laadida."
 
 msgid "Could not save rules."
-msgstr ""
+msgstr "Ei suutnud reegleid salvestada."
 
 msgid "Task Request:"
-msgstr ""
+msgstr "Ülesande taotlus:"
 
 msgid "Sign in"
-msgstr ""
+msgstr "Logi sisse"
 
 msgid "File is not imported successfully"
-msgstr ""
+msgstr "Faili ei ole edukalt imporditud"
 
 msgid "The uploaded file exceeds the upload_max_filesize directive in php.ini."
-msgstr ""
+msgstr "Üleslaaditud fail ületab php.ini faili upload_max_filesize direktiivi."
 
 msgid ""
 "The uploaded file exceeds the MAX_FILE_SIZE directive that was specified in "
 "the HTML form."
 msgstr ""
+"Üleslaaditud fail ületab HTML-vormil määratud direktiivi MAX_FILE_SIZE."
 
 msgid "The uploaded file was only partially uploaded."
-msgstr ""
+msgstr "Üleslaaditud fail oli ainult osaliselt üleslaetud."
 
 msgid "No file was uploaded. ."
-msgstr ""
+msgstr "Ühtegi faili ei laaditud üles. ."
 
 msgid "Missing a temporary folder."
-msgstr ""
+msgstr "Puudub ajutine kaust."
 
 msgid "Failed to write file to disk."
-msgstr ""
+msgstr "Faili kirjutamine kettale ebaõnnestus."
 
 msgid ""
 "A PHP extension stopped the file upload. PHP does not provide a way to "
 "ascertain which extension caused the file upload to stop; examining the list "
 "of loaded extensions with phpinfo() may help."
 msgstr ""
+"PHP laiendus peatas faili üleslaadimise. PHP ei võimalda kindlaks teha, "
+"milline laiendus põhjustas faili üleslaadimise peatumise; phpinfo() abil "
+"võib aidata laadida laetud laienduste nimekirja."
 
 msgid "There is no contact found in this file."
-msgstr ""
+msgstr "Selles failis ei ole ühtegi kontakti leitud."
 
 msgid ""
 "grommunio Web does not support importing multiple VCF with this version."
-msgstr ""
+msgstr "grommunio Web ei toeta selle versiooniga mitme VCF-i importimist."
 
 msgid ""
 "grommunio Web does not support importing multiple ICS with this version."
-msgstr ""
+msgstr "grommunio Web ei toeta selle versiooniga mitme ICS-i importimist."
 
 msgid "The EML is not valid"
-msgstr ""
+msgstr "EML ei ole kehtiv"
 
 msgid "GB"
-msgstr ""
+msgstr "GB"
 
 msgid "MB"
-msgstr ""
+msgstr "MB"
 
 msgid "KB"
-msgstr ""
+msgstr "KB"
 
 msgid "B"
-msgstr ""
+msgstr "B"
 
 msgid "The maximum stack depth has been exceeded"
-msgstr ""
+msgstr "Maksimaalne virna sügavus on ületatud"
 
 msgid "Control character error, possibly incorrectly encoded"
-msgstr ""
+msgstr "Kontrollmärgi viga, võimalik, et valesti kodeeritud"
 
 msgid "Invalid or malformed JSON"
-msgstr ""
+msgstr "Vigane või valesti vormistatud JSON"
 
 msgid "Syntax error"
-msgstr ""
+msgstr "Süntaksi viga"
 
 msgid "Malformed UTF-8 characters, possibly incorrectly encoded"
-msgstr ""
+msgstr "Ebakorrektselt vormitud UTF-8 märgid, võimalik, et valesti kodeeritud"
 
 #, php-format
 msgid "JSON Error: - %s"
-msgstr ""
+msgstr "JSON-viga: - %s"
 
 msgid "Some problem encountered when encoding/decoding JSON data."
-msgstr ""
+msgstr "JSON-andmete kodeerimisel/dekodeerimisel on tekkinud mingi probleem."
