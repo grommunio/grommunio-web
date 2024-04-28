@@ -1,10 +1,11 @@
 # grommunio Web Portuguese (Brazil) translation.
 # Copyright (C) 2021
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Portuguese (Brazil)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-04-28 22:53+0200\n"
+"POT-Creation-Date: 2024-04-28 23:55+0200\n"
 "PO-Revision-Date: 2017-10-03 21:54+0200\n"
 "Last-Translator: import\n"
 "Language: pt_BR\n"
@@ -16,16 +17,16 @@ msgstr ""
 
 #. TRANSLATORS: This message is used as label for the column which indicates the week number of the month in date picker. and 'Wk' stands for week
 msgid "Wk"
-msgstr ""
+msgstr "Semana"
 
 msgid "Now"
 msgstr "Agora"
 
 msgid "Value must be between 0% to 100%"
-msgstr ""
+msgstr "O valor deve estar entre 0% e 100%"
 
 msgid "Number must be higher than zero"
-msgstr ""
+msgstr "O número deve ser maior que zero"
 
 #, fuzzy
 msgid "More options"
@@ -107,7 +108,7 @@ msgid "Mon"
 msgstr "Seg"
 
 msgid "Tue"
-msgstr ""
+msgstr "Terça-feira"
 
 msgid "Wed"
 msgstr "Qua"
@@ -119,7 +120,7 @@ msgid "Fri"
 msgstr "Sex"
 
 msgid "Sat"
-msgstr ""
+msgstr "Sábado"
 
 msgid "January"
 msgstr "janeiro"
@@ -369,13 +370,13 @@ msgid "User details"
 msgstr "Detalhes do usuário"
 
 msgid "First name"
-msgstr ""
+msgstr "Primeiro nome"
 
 msgid "Last name"
-msgstr ""
+msgstr "Sobrenome"
 
 msgid "Initials"
-msgstr ""
+msgstr "Iniciais"
 
 msgid "Display"
 msgstr "Exibir"
@@ -399,7 +400,7 @@ msgid "Country"
 msgstr "País"
 
 msgid "Professional"
-msgstr ""
+msgstr "Profissional"
 
 msgid "Title"
 msgstr "Título"
@@ -469,17 +470,19 @@ msgid "Show Details"
 msgstr "Mostrar Detalhes"
 
 msgid "Copy contact"
-msgstr ""
+msgstr "Copiar contato"
 
 msgid "Copy contacts"
-msgstr ""
+msgstr "Copiar contatos"
 
 msgid ""
 "Showing only the first {0} names. Use search to find more specific results."
 msgstr ""
+"Mostrando apenas os primeiros {0} nomes. Use a pesquisa para encontrar "
+"resultados mais específicos."
 
 msgid "Use the search bar to get results"
-msgstr ""
+msgstr "Use a barra de pesquisa para obter resultados"
 
 #, fuzzy
 msgid "There are no items to show in this list"
@@ -511,7 +514,7 @@ msgid "First Name"
 msgstr "Primeiro Nome"
 
 msgid "Sort by: First Name"
-msgstr ""
+msgstr "Ordenar por: Primeiro nome"
 
 msgid "Last Name"
 msgstr "Sobrenome"
@@ -567,7 +570,7 @@ msgid "Sort by: Fax"
 msgstr "Ordenar por: Fax"
 
 msgid "Print single item"
-msgstr ""
+msgstr "Imprimir item único"
 
 #, fuzzy
 msgid "Print selected item"
@@ -577,7 +580,7 @@ msgid "Print"
 msgstr "Imprimir"
 
 msgid "No item selected"
-msgstr ""
+msgstr "Nenhum item selecionado"
 
 msgid "No preview"
 msgstr "Sem visualização"
@@ -593,26 +596,26 @@ msgid "Any date"
 msgstr "Data final"
 
 msgid "Past week"
-msgstr ""
+msgstr "Semana passada"
 
 msgid "Past 2 weeks"
-msgstr ""
+msgstr "Últimas 2 semanas"
 
 msgid "Past month"
-msgstr ""
+msgstr "Mês passado"
 
 msgid "Past 6 month"
-msgstr ""
+msgstr "Últimos 6 meses"
 
 msgid "Past year"
-msgstr ""
+msgstr "Ano anterior"
 
 #, fuzzy
 msgid "Custom date"
 msgstr "Prazo final"
 
 msgid "Add to favorites"
-msgstr ""
+msgstr "Adicionar aos favoritos"
 
 msgid "Add"
 msgstr "Adicionar"
@@ -625,10 +628,10 @@ msgid "You must specify a name."
 msgstr "É necessário especificar um nome."
 
 msgid "Add a folder to favorites based on search query"
-msgstr ""
+msgstr "Adicionar uma pasta aos favoritos com base em uma consulta de pesquisa"
 
 msgid "Folder name"
-msgstr ""
+msgstr "Nome da pasta"
 
 #, fuzzy
 msgid "Select Category"
@@ -655,7 +658,7 @@ msgid "Edit as New"
 msgstr "Editar como nova mensagem"
 
 msgid "Search tools"
-msgstr ""
+msgstr "Ferramentas de pesquisa"
 
 #, fuzzy
 msgid "Folders"
@@ -684,7 +687,7 @@ msgid "Tasks"
 msgstr "Tarefas"
 
 msgid "Filter…"
-msgstr ""
+msgstr "Filtro..."
 
 msgid "Unread"
 msgstr "Não Lido"
@@ -706,7 +709,7 @@ msgid "To"
 msgstr "Para"
 
 msgid "Filter category…"
-msgstr ""
+msgstr "Categoria de filtro..."
 
 msgid "Sender"
 msgstr "Remetente"
@@ -729,33 +732,35 @@ msgid "Select Folder"
 msgstr "Selecionar Pasta"
 
 msgid "Delete search folder"
-msgstr ""
+msgstr "Excluir pasta de pesquisa"
 
 msgid "Sort by: Date"
-msgstr ""
+msgstr "Ordenar por: Data"
 
 msgid "Loading Search results"
-msgstr ""
+msgstr "Carregando os resultados da pesquisa"
 
 msgid "Sorting tip"
-msgstr ""
+msgstr "Dica de classificação"
 
 msgid ""
 "You can sort by date if you narrow down your search results. Enable filters "
 "or adjust your input."
 msgstr ""
+"Você pode classificar por data se quiser restringir os resultados da "
+"pesquisa. Ative os filtros ou ajuste sua entrada."
 
 msgid "Did you mean"
-msgstr ""
+msgstr "Você quis dizer"
 
 msgid "With"
-msgstr ""
+msgstr "Com"
 
 msgid "To"
 msgstr "Para"
 
 msgid "No date"
-msgstr ""
+msgstr "Sem data"
 
 msgid "Error"
 msgstr "Erro"
@@ -805,7 +810,7 @@ msgid "weeks"
 msgstr "semanas"
 
 msgid " on "
-msgstr ""
+msgstr " em"
 
 msgid "month"
 msgstr "mês"
@@ -834,23 +839,24 @@ msgstr "Ocorre cada {0} {1} efetivamente {2}."
 msgid "Occurs every {0} effective {1} for {2} occurrence from {3} to {4}."
 msgid_plural ""
 "Occurs every {0} effective {1} for {2} occurrences from {3} to {4}."
-msgstr[0] ""
+msgstr[0] "Ocorre a cada {0} efetivo {1} para {2} ocorrências de {3} a {4}."
 msgstr[1] ""
 
 msgid "Occurs every {0} {1} effective {2} for {3} occurrence from {4} to {5}."
 msgid_plural ""
 "Occurs every {0} {1} effective {2} for {3} occurrences {4} to {5}."
 msgstr[0] ""
+"Ocorre a cada {0} {1} efetivo {2} para {3} ocorrências de {4} a {5}."
 msgstr[1] ""
 
 msgid "Occurs every {0} effective {1} for {2} occurrence."
 msgid_plural "Occurs every {0} effective {1} for {2} occurrences."
-msgstr[0] ""
+msgstr[0] "Ocorre a cada {0} efetivo {1} para {2} ocorrências."
 msgstr[1] ""
 
 msgid "Occurs every {0} {1} effective {2} for {3} occurrence."
 msgid_plural "Occurs every {0} {1} effective {2} for {3} occurrences."
-msgstr[0] ""
+msgstr[0] "Ocorre a cada {0} {1} efetivo {2} para {3} ocorrências."
 msgstr[1] ""
 
 msgid "Occurs every {0} effective {1} until {2} from {3} to {4}."
@@ -870,7 +876,7 @@ msgstr "Quando"
 
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "l jS F Y {0}"
-msgstr ""
+msgstr "l jS F Y {0}"
 
 msgid "Where"
 msgstr "Onde"
@@ -901,7 +907,7 @@ msgid "End Date"
 msgstr "Data Final"
 
 msgid "Sort by: End Date"
-msgstr ""
+msgstr "Ordenar por: Data final"
 
 msgid "Organizer"
 msgstr "Organizador"
@@ -1013,9 +1019,11 @@ msgid ""
 "The selected calendar has \"read-only\" permissions. Instead you can create "
 "an item in your own calendar."
 msgstr ""
+"O calendário selecionado tem permissões de \"somente leitura\". Em vez "
+"disso, você pode criar um item em seu próprio calendário."
 
 msgid "What would you like?"
-msgstr ""
+msgstr "O que você gostaria de ter?"
 
 #, fuzzy
 msgid "Own calendar"
@@ -1053,7 +1061,7 @@ msgid "Send update"
 msgstr "Enviar Mais Tarde"
 
 msgid "Do you want to send an update to all recipients?"
-msgstr ""
+msgstr "Deseja enviar uma atualização para todos os destinatários?"
 
 msgid "Send update to attendees"
 msgstr "Enviar atualização para todos os participantes"
@@ -1061,6 +1069,7 @@ msgstr "Enviar atualização para todos os participantes"
 msgid ""
 "You have made changes to the list of attendees. What would you like to do?"
 msgstr ""
+"Você fez alterações na lista de participantes. O que você gostaria de fazer?"
 
 msgid "Send updates to only added or deleted attendees."
 msgstr ""
@@ -1154,6 +1163,8 @@ msgid ""
 "Please note that any changes you make will be overwritten when this meeting "
 "request is updated by the organizer"
 msgstr ""
+"Observe que todas as alterações que você fizer serão substituídas quando "
+"essa solicitação de reunião for atualizada pelo organizador"
 
 #, fuzzy
 msgid "Create in"
@@ -1163,7 +1174,7 @@ msgid "Time"
 msgstr "Hora"
 
 msgid "until"
-msgstr ""
+msgstr "até que"
 
 msgid "Recurrence"
 msgstr "Recorrência"
@@ -1181,7 +1192,7 @@ msgid "Attachments cannot be modified for a single occurence"
 msgstr "Anexos de uma ocorrência não podem ser modificados"
 
 msgid "Type your message here…"
-msgstr ""
+msgstr "Digite sua mensagem aqui..."
 
 #, fuzzy
 msgid "Update location"
@@ -1194,7 +1205,7 @@ msgstr ""
 
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "jS F Y {0}"
-msgstr ""
+msgstr "jS F Y {0}"
 
 msgid "None"
 msgstr "Nenhum"
@@ -1218,10 +1229,10 @@ msgid "Check names"
 msgstr "Conferir nomes"
 
 msgid "Addressbook"
-msgstr ""
+msgstr "Livro de endereços"
 
 msgid "Open addressbook"
-msgstr ""
+msgstr "Abrir catálogo de endereços"
 
 msgid "Invite attendees"
 msgstr "Convidar participantes"
@@ -1344,23 +1355,23 @@ msgid "New appointment"
 msgstr "Novo Compromisso"
 
 msgid "Creating an item"
-msgstr ""
+msgstr "Criação de um item"
 
 #, fuzzy
 msgid "New meeting request"
 msgstr "Novo pedido de reunião"
 
 msgid "Switch calendar range back and forth"
-msgstr ""
+msgstr "Alternar o intervalo do calendário para frente e para trás"
 
 msgid "Copy selected item"
-msgstr ""
+msgstr "Copiar item selecionado"
 
 msgid "Paste selected item"
-msgstr ""
+msgstr "Colar o item selecionado"
 
 msgid "An overview of"
-msgstr ""
+msgstr "Uma visão geral de"
 
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "Start"
@@ -1373,26 +1384,26 @@ msgstr "Fim"
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for formatting instructions
 msgid "Printed by"
-msgstr ""
+msgstr "Impresso por"
 
 msgid "at"
-msgstr ""
+msgstr "em"
 
 msgid "of"
-msgstr ""
+msgstr "de"
 
 #, fuzzy
 msgid "Location: "
 msgstr "Local"
 
 msgid "j M {0}"
-msgstr ""
+msgstr "j M {0}"
 
 msgid "l jS M Y {0}"
-msgstr ""
+msgstr "l jS M Y {0}"
 
 msgid "All day: "
-msgstr ""
+msgstr "O dia todo:"
 
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for formatting instructions
@@ -1422,7 +1433,7 @@ msgid "Importance"
 msgstr "Importância"
 
 msgid "M j"
-msgstr ""
+msgstr "M j"
 
 #, fuzzy
 msgid "j"
@@ -1448,13 +1459,13 @@ msgid "Default appointment duration {A} minutes"
 msgstr "Lembrete padrão para compromissos diurnos"
 
 msgid "Duration must be between 1 and 120 minutes."
-msgstr ""
+msgstr "A duração deve ser de 1 a 120 minutos."
 
 msgid "Default status for all day appointment"
-msgstr ""
+msgstr "Status padrão para compromissos de dia inteiro"
 
 msgid "Working days"
-msgstr ""
+msgstr "Dias úteis"
 
 msgid "Show busy dates as bold in the date picker"
 msgstr "Mostrar datas ocupadas em negrito no selecionador de datas"
@@ -1509,14 +1520,14 @@ msgid "Send to…"
 msgstr "Enviar…"
 
 msgid "Export as"
-msgstr ""
+msgstr "Exportar como"
 
 #, fuzzy
 msgid "Occurrence"
 msgstr "Recorrência"
 
 msgid "Series"
-msgstr ""
+msgstr "Série"
 
 #, fuzzy
 msgid "Appointment not found"
@@ -1550,7 +1561,7 @@ msgid "Sort by: Meeting Status"
 msgstr "Ordenar por: Status da Reunião"
 
 msgid "Sort by: Show as"
-msgstr ""
+msgstr "Ordenar por: Mostrar como"
 
 msgid "Sort by: Categories"
 msgstr "Ordenar por: Categorias"
@@ -1586,16 +1597,16 @@ msgid "Sort by: Resources"
 msgstr "Ordenar por: Recursos"
 
 msgid "Recurring Start Date"
-msgstr ""
+msgstr "Data de início recorrente"
 
 msgid "Sort by: Recurring Start Date"
-msgstr ""
+msgstr "Ordenar por: Data de início recorrente"
 
 msgid "Recurring End Date"
-msgstr ""
+msgstr "Data final recorrente"
 
 msgid "Sort by: Recurring End Date"
-msgstr ""
+msgstr "Ordenar por: Data final recorrente"
 
 msgid "Recurring Pattern"
 msgstr "Padrão recorrente"
@@ -1613,14 +1624,14 @@ msgid "Loading appointments"
 msgstr "Carregando compromissos"
 
 msgid "Attendees"
-msgstr ""
+msgstr "Participantes"
 
 msgid "Optional attendees"
-msgstr ""
+msgstr "Participantes opcionais"
 
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "jS F {0}"
-msgstr ""
+msgstr "jS F {0}"
 
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "jS F Y"
@@ -1630,22 +1641,30 @@ msgid ""
 "You have insufficient privileges to move and copy this item. Ask the folder "
 "owner to grant you permissions or contact your system administrator."
 msgstr ""
+"Você não tem privilégios suficientes para mover e copiar esse item. Peça ao "
+"proprietário da pasta que lhe conceda permissões ou entre em contato com o "
+"administrador do sistema."
 
 msgid ""
 "You have insufficient privileges to copy this item. Ask the folder owner to "
 "grant you permissions or contact your system administrator."
 msgstr ""
+"Você não tem privilégios suficientes para copiar esse item. Peça ao "
+"proprietário da pasta que lhe conceda permissões ou entre em contato com o "
+"administrador do sistema."
 
 msgid "Insufficient privileges"
-msgstr ""
+msgstr "Privilégios insuficientes"
 
 msgid ""
 "Copying this appointment will unset it as private. Are you sure you want to "
 "continue?"
 msgstr ""
+"A cópia desse compromisso o desmarcará como privado. Tem certeza de que "
+"deseja continuar?"
 
 msgid "Private item"
-msgstr ""
+msgstr "Item particular"
 
 msgid "Copy"
 msgstr "Copiar"
@@ -1654,6 +1673,8 @@ msgid ""
 "Moving this appointment will unset it as private. Are you sure you want to "
 "continue?"
 msgstr ""
+"Mover esse compromisso fará com que ele deixe de ser privado. Tem certeza de "
+"que deseja continuar?"
 
 msgid "Move"
 msgstr "Mover"
@@ -1663,7 +1684,7 @@ msgid "Update recipients"
 msgstr "Editar destinatário"
 
 msgid "The time of the meeting has changed. What would you like to do?"
-msgstr ""
+msgstr "O horário da reunião foi alterado. O que você gostaria de fazer?"
 
 msgid "Save changes and send an update to all recipients"
 msgstr "Salvar modificações e enviar uma atualização para todos os recipientes"
@@ -1678,12 +1699,15 @@ msgid ""
 "Please note that any changes you make will be overwritten when this meeting "
 "request is updated by the organizer. Would you like to move this meeting?"
 msgstr ""
+"Observe que todas as alterações que você fizer serão substituídas quando "
+"essa solicitação de reunião for atualizada pelo organizador. Você gostaria "
+"de transferir esta reunião?"
 
 msgid "Don't move"
-msgstr ""
+msgstr "Não se mova"
 
 msgid "Switch to day view to see all appointments"
-msgstr ""
+msgstr "Mude para a visualização do dia para ver todos os compromissos"
 
 #. TRANSLATORS: This message is used as label for the field which to indicates to whom the given mail was sent.
 msgctxt "mail.previewpanel"
@@ -1716,26 +1740,26 @@ msgid "Loading appointments…"
 msgstr "Carregando compromissos…"
 
 msgid "Please select a calendar via widget settings"
-msgstr ""
+msgstr "Selecione um calendário nas configurações do widget"
 
 msgid "Number of days"
-msgstr ""
+msgstr "Número de dias"
 
 msgid "day(s)"
 msgstr "dia(s)"
 
 msgid "{0}"
-msgstr ""
+msgstr "{0}"
 
 #, fuzzy
 msgid "Upcoming Appointments"
 msgstr "Carregando compromissos"
 
 msgid "Appointments of {0}"
-msgstr ""
+msgstr "Compromissos de {0}"
 
 msgid "Appointments of {0} - {1}"
-msgstr ""
+msgstr "Compromissos de {0} - {1}"
 
 #, fuzzy
 msgid "No appointments"
@@ -1746,7 +1770,7 @@ msgid "Today {0} - {1}"
 msgstr "Hoje: {1} {0}"
 
 msgid "Today (all day)"
-msgstr ""
+msgstr "Hoje (o dia todo)"
 
 #. TRANSLATORS: Display name of a folder: "FOLDERNAME - STORENAME".
 #. TRANSLATORS: Displayed on top of a tree with folders: "FOLDERNAME - USERNAME".
@@ -1755,10 +1779,10 @@ msgid "{0} - {1}"
 msgstr "{0} em {1}"
 
 msgid "d/m/y {0}"
-msgstr ""
+msgstr "d/m/y {0}"
 
 msgid "{0} - {1} (all day)"
-msgstr ""
+msgstr "{0} - {1} (o dia todo)"
 
 #, fuzzy
 msgid "d/m/y"
@@ -1835,27 +1859,29 @@ msgid "Open the series"
 msgstr "Abrir toda a série"
 
 msgid "Paste Recurring {0}"
-msgstr ""
+msgstr "Colar Recorrente {0}"
 
 msgid ""
 "This is a recurring {0}. Do you want to paste only this occurrence or the "
 "series?"
 msgstr ""
+"Este é um {0} recorrente. Você deseja colar somente essa ocorrência ou a "
+"série?"
 
 msgid "message"
-msgstr ""
+msgstr "mensagem"
 
 msgid "meeting request"
-msgstr ""
+msgstr "solicitação de reunião"
 
 msgid "appointment"
-msgstr ""
+msgstr "nomeação"
 
 msgid "Paste this occurrence only"
-msgstr ""
+msgstr "Cole apenas essa ocorrência"
 
 msgid "Paste the series…"
-msgstr ""
+msgstr "Cole a série..."
 
 msgid ""
 "This is a recurring message. Do you want to delete only this occurrence or "
@@ -1911,7 +1937,7 @@ msgid "Insufficient permissions"
 msgstr "Permissões da pasta"
 
 msgid "You have insufficient privileges to delete items in this folder."
-msgstr ""
+msgstr "Você não tem privilégios suficientes para excluir itens dessa pasta."
 
 #, fuzzy
 msgid "Notify recipients"
@@ -1932,13 +1958,15 @@ msgid ""
 "{0} has requested a notification be sent when message \"{1}\" is deleted "
 "without having been read. Do you want to send a receipt?"
 msgstr ""
+"{0} solicitou o envio de uma notificação quando a mensagem \"{1}\" for "
+"excluída sem ter sido lida. Deseja enviar um recibo?"
 
 #, fuzzy
 msgid "Delete Incomplete Task"
 msgstr "Tarefas Concluídas"
 
 msgid "The task \"{0}\" has not been completed. What do you want to do?"
-msgstr ""
+msgstr "A tarefa \"{0}\" não foi concluída. O que você deseja fazer?"
 
 #, fuzzy
 msgid "Decline and delete"
@@ -1977,27 +2005,31 @@ msgid "Import"
 msgstr "Importante"
 
 msgid "Successfully imported item(s) to {0}"
-msgstr ""
+msgstr "Item(ns) importado(s) com sucesso para {0}"
 
 msgid "Failed to import item(s) to {0}"
-msgstr ""
+msgstr "Falha ao importar item(ns) para {0}"
 
 #, fuzzy
 msgid "Import error"
 msgstr "Importante"
 
 msgid "Unable to import \"{0}\". The file is not valid"
-msgstr ""
+msgstr "Não foi possível importar \"{0}\". O arquivo não é válido"
 
 msgid ""
 "You have insufficient privileges to move these items. Would you like to copy "
 "instead?"
 msgstr ""
+"Você não tem privilégios suficientes para mover esses itens. Em vez disso, "
+"você gostaria de copiar?"
 
 msgid ""
 "You have insufficient privileges to move this item. Would you like to copy "
 "instead?"
 msgstr ""
+"Você não tem privilégios suficientes para mover este item. Em vez disso, "
+"gostaria de copiar?"
 
 msgid "Cc"
 msgstr "Cc"
@@ -2034,7 +2066,7 @@ msgid "New folder"
 msgstr "Nova pasta"
 
 msgid "Download as ZIP"
-msgstr ""
+msgstr "Baixar como ZIP"
 
 msgid "Continue"
 msgstr "Continuar"
@@ -2043,13 +2075,17 @@ msgid ""
 "These attachments have an unsupported file type and can not be added to the "
 "ZIP file:"
 msgstr ""
+"Esses anexos têm um tipo de arquivo não suportado e não podem ser "
+"adicionados ao arquivo ZIP:"
 
 msgid "Would you like to continue downloading without adding these files?"
-msgstr ""
+msgstr "Deseja continuar o download sem adicionar esses arquivos?"
 
 msgid ""
 "Always continue download of ZIP files without adding unsupported file types."
 msgstr ""
+"Sempre continue o download de arquivos ZIP sem adicionar tipos de arquivos "
+"não suportados."
 
 msgid "File upload"
 msgstr "Envio de arquivo"
@@ -2061,7 +2097,7 @@ msgid "Download"
 msgstr "Download"
 
 msgid "Download all as ZIP"
-msgstr ""
+msgstr "Baixar tudo como ZIP"
 
 #, fuzzy
 msgid "Import to folder"
@@ -2071,89 +2107,101 @@ msgid ""
 "In order to use the vCard import feature, upgrade your Gromox to version 0 "
 "or higher."
 msgstr ""
+"Para usar o recurso de importação de vCard, atualize seu Gromox para a "
+"versão 0 ou superior."
 
 msgid ""
 "In order to use the ICS / VCS import feature, upgrade your Gromox to version "
 "0 or higher."
 msgstr ""
+"Para usar o recurso de importação ICS / VCS, atualize seu Gromox para a "
+"versão 0 ou superior."
 
 msgid "Attachment error"
 msgstr "Erro de anexo"
 
 msgid "Cannot create ZIP, The allowed maximum size is 30 MB."
-msgstr ""
+msgstr "Não é possível criar ZIP, o tamanho máximo permitido é 30 MB."
 
 msgid "Unable to download"
-msgstr ""
+msgstr "Não é possível fazer o download"
 
 msgid "Picture format is not supported. "
-msgstr ""
+msgstr "O formato da imagem não é compatível."
 
 msgid "Supported format for contact pictures are"
-msgstr ""
+msgstr "Os formatos suportados para imagens de contato são"
 
 #, fuzzy
 msgid "Attachment Error"
 msgstr "Erro de anexo"
 
 msgid "Manage Categories"
-msgstr ""
+msgstr "Gerenciar categorias"
 
 msgid "New"
 msgstr "Novo"
 
 msgid "Delete Category"
-msgstr ""
+msgstr "Excluir categoria"
 
 msgid ""
 "Are you sure you want to delete the category \"{0}\"? Other items keep this "
 "category, but lose the assigned color."
 msgstr ""
+"Tem certeza de que deseja excluir a categoria \"{0}\"? Outros itens mantêm "
+"essa categoria, mas perdem a cor atribuída."
 
 msgid "Rename Category"
-msgstr ""
+msgstr "Renomear categoria"
 
 msgid "A category named \""
-msgstr ""
+msgstr "Uma categoria chamada \""
 
 msgid "Create New Category"
-msgstr ""
+msgstr "Criar nova categoria"
 
 msgid "Pin to quick access"
-msgstr ""
+msgstr "Pin para acesso rápido"
 
 msgid "Create"
-msgstr ""
+msgstr "Criar"
 
 msgid ""
 "You must apply the changes you have made to the categories before you can "
 "create this category."
 msgstr ""
+"Você deve aplicar as alterações feitas nas categorias antes de poder criar "
+"essa categoria."
 
 msgid "You already have a category named '{0}'. Please use another name."
-msgstr ""
+msgstr "Você já tem uma categoria chamada '{0}'. Por favor, use outro nome."
 
 msgid ""
 "You already have a category named '{0}' in your pending changes. Please use "
 "another name."
 msgstr ""
+"Você já tem uma categoria chamada '{0}' em suas alterações pendentes. Por "
+"favor, use outro nome."
 
 msgid "Rename"
 msgstr "Renomear"
 
 msgid "This is the first time you have used \"{0}\" category."
-msgstr ""
+msgstr "Esta é a primeira vez que você usa a categoria \"{0}\"."
 
 msgid "Do you want to rename it?"
-msgstr ""
+msgstr "Deseja renomeá-lo?"
 
 msgid ""
 "The category \"{0}\" already exists. Do you want to merge the \"{1}\" and "
 "\"{2}\" categories?"
 msgstr ""
+"A categoria \"{0}\" já existe. Você deseja mesclar as categorias \"{1}\" e "
+"\"{2}\"?"
 
 msgid "Merge"
-msgstr ""
+msgstr "Mesclar"
 
 msgid "Remove"
 msgstr "Remover"
@@ -2231,12 +2279,15 @@ msgid "Please select a delegate."
 msgstr "Por favor, selecione um delegado."
 
 msgid "Delegates can send items on your behalf."
-msgstr ""
+msgstr "Os delegados podem enviar itens em seu nome."
 
 msgid ""
 "If you only want to set folder permissions, right-click on a folder to open "
 "the context menu and click on \"Share folder…\""
 msgstr ""
+"Se você quiser apenas definir permissões de pasta, clique com o botão "
+"direito do mouse em uma pasta para abrir o menu de contexto e clique em "
+"\"Compartilhar pasta...\""
 
 msgid "Permission"
 msgstr "Permissão"
@@ -2269,26 +2320,32 @@ msgid ""
 "You have insufficient privileges to move this folder. Ask the folder owner "
 "to grant you permissions or contact your system administrator."
 msgstr ""
+"Você não tem privilégios suficientes para mover essa pasta. Peça ao "
+"proprietário da pasta que lhe conceda permissões ou entre em contato com o "
+"administrador do sistema."
 
 msgid ""
 "You have insufficient privileges to copy this folder. Ask the folder owner "
 "to grant you permissions or contact your system administrator."
 msgstr ""
+"Você não tem privilégios suficientes para copiar essa pasta. Peça ao "
+"proprietário da pasta que lhe conceda permissões ou entre em contato com o "
+"administrador do sistema."
 
 msgid "You have insufficient privileges to move following items."
-msgstr ""
+msgstr "Você não tem privilégios suficientes para mover os seguintes itens."
 
 msgid "Subject:"
-msgstr ""
+msgstr "Assunto:"
 
 msgid "Would you like to copy instead?"
-msgstr ""
+msgstr "Em vez disso, você gostaria de copiar?"
 
 msgid "Do not show this message again."
-msgstr ""
+msgstr "Não mostre essa mensagem novamente."
 
 msgid "ICS"
-msgstr ""
+msgstr "ICS"
 
 #, fuzzy
 msgid "Set custom flag"
@@ -2301,13 +2358,13 @@ msgid "End date"
 msgstr "Data final"
 
 msgid "Tomorrow"
-msgstr ""
+msgstr "Amanhã"
 
 msgid "This week"
-msgstr ""
+msgstr "Esta semana"
 
 msgid "Next week"
-msgstr ""
+msgstr "Próxima semana"
 
 #, fuzzy
 msgid "Custom"
@@ -2321,16 +2378,16 @@ msgid "Complete"
 msgstr "Concluído"
 
 msgid "today"
-msgstr ""
+msgstr "hoje"
 
 msgid "tomorrow"
-msgstr ""
+msgstr "amanhã"
 
 msgid "this week"
-msgstr ""
+msgstr "esta semana"
 
 msgid "next week"
-msgstr ""
+msgstr "na próxima semana"
 
 msgid "Edit recipient"
 msgstr "Editar destinatário"
@@ -2384,55 +2441,57 @@ msgstr "l, j &#100;e F &#100;e Y"
 
 msgid "Switch between different contexts e.g. inbox, calendar, etc."
 msgstr ""
+"Alternar entre diferentes contextos, por exemplo, caixa de entrada, "
+"calendário etc."
 
 msgid "Basic navigation"
-msgstr ""
+msgstr "Navegação básica"
 
 msgid "Switch between different views"
-msgstr ""
+msgstr "Alternar entre diferentes visualizações"
 
 msgid "New item"
 msgstr "Novo item"
 
 msgid "All views"
-msgstr ""
+msgstr "Todas as visualizações"
 
 msgid "Close tab"
-msgstr ""
+msgstr "Fechar guia"
 
 msgid "Print item"
-msgstr ""
+msgstr "Imprimir item"
 
 msgid "Items"
 msgstr "Itens"
 
 msgid "Save an item e.g. mail, contact, etc."
-msgstr ""
+msgstr "Salvar um item, por exemplo, e-mail, contato, etc."
 
 msgid "Send an item e.g. mail, meeting request, etc."
-msgstr ""
+msgstr "Enviar um item, por exemplo, correio, solicitação de reunião, etc."
 
 msgid "Select all items"
-msgstr ""
+msgstr "Selecionar todos os itens"
 
 msgid "Extend the selection to the first item in the list"
-msgstr ""
+msgstr "Estender a seleção até o primeiro item da lista"
 
 msgid "Extend the selection to the last item in the list"
-msgstr ""
+msgstr "Estender a seleção até o último item da lista"
 
 #, fuzzy
 msgid "Open selected item"
 msgstr "{0} item selecionado"
 
 msgid "Open dialog to categorize selected item"
-msgstr ""
+msgstr "Abra a caixa de diálogo para categorizar o item selecionado"
 
 msgid "Print list"
-msgstr ""
+msgstr "Imprimir lista"
 
 msgid "Open copy/move dialog"
-msgstr ""
+msgstr "Abrir a caixa de diálogo copiar/mover"
 
 #, fuzzy
 msgid "Delete selected item"
@@ -2442,22 +2501,24 @@ msgid ""
 "Delete selected item without moving it to the Deleted Items folder. The "
 "deleted item can still be restored."
 msgstr ""
+"Excluir o item selecionado sem movê-lo para a pasta Itens excluídos. O item "
+"excluído ainda pode ser restaurado."
 
 #, fuzzy
 msgid "Add/Edit Cc recipient"
 msgstr "Editar destinatário"
 
 msgid "Disable for new mail"
-msgstr ""
+msgstr "Desativar para novos e-mails"
 
 msgid "Enable for new mail"
-msgstr ""
+msgstr "Ativar para novos e-mails"
 
 msgid "Disable for replies"
-msgstr ""
+msgstr "Desativar para respostas"
 
 msgid "Enable for replies"
-msgstr ""
+msgstr "Habilitar para respostas"
 
 #, fuzzy
 msgid "No Cc recipient configured"
@@ -2486,27 +2547,29 @@ msgid ""
 "Cc recipients can be used to set a default Cc user in new mail, replies or "
 "both."
 msgstr ""
+"Os destinatários Cc podem ser usados para definir um usuário Cc padrão em "
+"novos e-mails, respostas ou ambos."
 
 msgid "Help"
 msgstr "Ajuda"
 
 msgid "Web Manual"
-msgstr ""
+msgstr "Manual da Web"
 
 msgid "Item data"
-msgstr ""
+msgstr "Dados do item"
 
 msgid "INSERT"
 msgstr "INSERIR"
 
 msgid "Sort by: context.mail.griddefaultcolumn"
-msgstr ""
+msgstr "Ordenar por: context.mail.griddefaultcolumn"
 
 msgid "ZDeveloper"
 msgstr "ZDeveloper"
 
 msgid "grommunio Web print"
-msgstr ""
+msgstr "grommunio Impressão na Web"
 
 msgid "Display name"
 msgstr "Nome para exibição"
@@ -2522,6 +2585,8 @@ msgid ""
 "Distribution list will be replaced with its members. You will not be able to "
 "collapse it again."
 msgstr ""
+"A lista de distribuição será substituída por seus membros. Você não poderá "
+"recolhê-la novamente."
 
 msgid "Edit Recipient"
 msgstr "Editar destinatário"
@@ -2538,7 +2603,7 @@ msgid "Delete recipient from suggestion list"
 msgstr "Remover a Lista de Distribuição."
 
 msgid "Copy all email addresses"
-msgstr ""
+msgstr "Copie todos os endereços de e-mail"
 
 msgid "View recipient"
 msgstr "Ver destinatário"
@@ -2696,7 +2761,7 @@ msgstr[0] "{0} lembrete está selecionado."
 msgstr[1] "{0} lembretes estão selecionados."
 
 msgid "Restore Softdeleted Items"
-msgstr ""
+msgstr "Restaurar itens excluídos por software"
 
 msgid "Restore From {0}"
 msgstr "Restaurar De {0}"
@@ -2821,7 +2886,7 @@ msgid "has importance…"
 msgstr "tem importância…"
 
 msgid "has an attachment"
-msgstr ""
+msgstr "tem um anexo"
 
 #, fuzzy
 msgid "is sent to…"
@@ -2831,13 +2896,13 @@ msgid "is sent only to me"
 msgstr "foi enviado somente para mim"
 
 msgid "has my name in the Cc field"
-msgstr ""
+msgstr "tem meu nome no campo Cc"
 
 msgid "does not have my name in the To or Cc field"
-msgstr ""
+msgstr "não tem meu nome no campo Para ou Cc"
 
 msgid "has my name in the To or Cc field"
-msgstr ""
+msgstr "tem meu nome no campo Para ou Cc"
 
 #, fuzzy
 msgid "has sensitivity…"
@@ -2852,16 +2917,16 @@ msgid "is received before…"
 msgstr "Foi recebido de…"
 
 msgid "size is at least…"
-msgstr ""
+msgstr "O tamanho é de pelo menos..."
 
 msgid "size is at most…"
-msgstr ""
+msgstr "O tamanho é de no máximo..."
 
 msgid "has my name in the To field"
-msgstr ""
+msgstr "tem meu nome no campo Para"
 
 msgid "is received (all messages)"
-msgstr ""
+msgstr "é recebido (todas as mensagens)"
 
 msgid "Unknown condition"
 msgstr "Condição desconhecida"
@@ -2904,7 +2969,7 @@ msgid "Exceptions"
 msgstr "Opções"
 
 msgid "Apply only when Out of Office is active"
-msgstr ""
+msgstr "Aplicar somente quando Out of Office estiver ativo"
 
 msgid "Stop processing more rules"
 msgstr "Parar o processamento de outras regras"
@@ -2930,6 +2995,8 @@ msgid ""
 "Distribution lists are not supported in rules, would you like to replace the "
 "distribution list with its members?"
 msgstr ""
+"As listas de distribuição não são compatíveis com as regras. Você gostaria "
+"de substituir a lista de distribuição por seus membros?"
 
 msgid "or"
 msgstr "ou"
@@ -2960,25 +3027,25 @@ msgid "Rule already has lowest priority."
 msgstr "Regra já tem prioridade mais baixa."
 
 msgid "Always move messages from {0}"
-msgstr ""
+msgstr "Sempre mova as mensagens de {0}"
 
 msgid "Always move messages that are sent to <recipients>"
-msgstr ""
+msgstr "Sempre mova as mensagens que são enviadas para <recipients>"
 
 msgid "Always move messages with this subject"
-msgstr ""
+msgstr "Sempre mova mensagens com esse assunto"
 
 msgid "Create rule…"
-msgstr ""
+msgstr "Criar regra..."
 
 msgid "myself"
-msgstr ""
+msgstr "eu mesmo"
 
 msgid "Update rules for"
-msgstr ""
+msgstr "Atualizar regras para"
 
 msgid "Apply changes"
-msgstr ""
+msgstr "Aplicar alterações"
 
 msgid "Do you wish to apply the changes?"
 msgstr "Você gostaria de aplicar as modificações?"
@@ -3003,33 +3070,35 @@ msgid ""
 "The folder you are searching through no longer exists. Please select another "
 "folder"
 msgstr ""
+"A pasta que você está pesquisando não existe mais. Por favor, selecione "
+"outra pasta"
 
 msgid "Add/Edit sender"
-msgstr ""
+msgstr "Adicionar/Editar remetente"
 
 msgid "No from addresses configured"
-msgstr ""
+msgstr "Nenhum endereço de origem configurado"
 
 msgid "Loading from addresses"
-msgstr ""
+msgstr "Carregando de endereços"
 
 msgid "Forward Mail"
-msgstr ""
+msgstr "Encaminhar correio"
 
 msgid "Please select a from address record."
-msgstr ""
+msgstr "Selecione um registro de endereço."
 
 msgid "Add/Edit From recipient"
-msgstr ""
+msgstr "Adicionar/Editar do destinatário"
 
 msgid "Manage the recipients used in the 'From' field"
-msgstr ""
+msgstr "Gerenciar os destinatários usados no campo \"From\" (De)"
 
 msgid "View"
-msgstr ""
+msgstr "Ver"
 
 msgid "Please select a sendas record."
-msgstr ""
+msgstr "Selecione um registro de sendas."
 
 msgid "Delegates"
 msgstr "Delegados"
@@ -3038,38 +3107,41 @@ msgid "Delegate settings"
 msgstr "Configurações de Delegados"
 
 msgid "Desktop Notifications Settings"
-msgstr ""
+msgstr "Configurações de notificações da área de trabalho"
 
 msgid "We need permissions to enable desktop notifications."
 msgstr ""
+"Precisamos de permissões para ativar as notificações na área de trabalho."
 
 msgid "Request Permissions"
-msgstr ""
+msgstr "Solicitar permissões"
 
 msgid "Enable desktop notifications for new mail"
-msgstr ""
+msgstr "Ativar notificações na área de trabalho para novos e-mails"
 
 msgid "Enable desktop notifications for reminders"
-msgstr ""
+msgstr "Ativar notificações na área de trabalho para lembretes"
 
 msgid "{A} Auto-hide desktop notification after second(s) {B}"
 msgstr ""
+"{A} Ocultar automaticamente a notificação da área de trabalho após um ou "
+"mais segundos {B}"
 
 msgid "Disable sound"
-msgstr ""
+msgstr "Desativar o som"
 
 msgid "Notifications"
-msgstr ""
+msgstr "Notificações"
 
 #, fuzzy
 msgid "Rules"
 msgstr "Regra"
 
 msgid "From Addresses"
-msgstr ""
+msgstr "Endereços de origem"
 
 msgid "From Addresses settings"
-msgstr ""
+msgstr "Configurações de endereços de origem"
 
 msgid "Full name"
 msgstr "Nome completo"
@@ -3087,7 +3159,7 @@ msgid "IM Address"
 msgstr "Endereço de IM"
 
 msgid "D, d-m-Y, {0}"
-msgstr ""
+msgstr "D, d-m-Y, {0}"
 
 msgid "{0} selected row"
 msgid_plural "{0} selected rows"
@@ -3095,7 +3167,7 @@ msgstr[0] "{0} selecionado"
 msgstr[1] "{0} selecionados"
 
 msgid "Reminder is set on: {0}, {1}"
-msgstr ""
+msgstr "O lembrete está definido em: {0}, {1}"
 
 msgid "d-m-Y"
 msgstr "d/m/Y"
@@ -3104,10 +3176,10 @@ msgid "l d/m/Y"
 msgstr "l d/m/Y"
 
 msgid "l d/m/Y {0}"
-msgstr ""
+msgstr "l d/m/Y {0}"
 
 msgid "d-m-Y {0}"
-msgstr ""
+msgstr "d-m-Y {0}"
 
 msgid "Unknown"
 msgstr "Desconhecido"
@@ -3122,7 +3194,7 @@ msgid "Loading…"
 msgstr "Carregando…"
 
 msgid "Message could not be loaded"
-msgstr ""
+msgstr "A mensagem não pôde ser carregada"
 
 #. TRANSLATORS: This message is used as label for the field which indicates which attachments are inside the message
 msgctxt "mail.previewpanel"
@@ -3160,12 +3232,17 @@ msgid ""
 "Click here to download pictures. To help protect your privacy, grommunio Web "
 "prevented automatic download of some pictures in this message."
 msgstr ""
+"Clique aqui para fazer o download das imagens. Para ajudar a proteger sua "
+"privacidade, a grommunio Web impediu o download automático de algumas "
+"imagens nesta mensagem."
 
 msgctxt "mail.previewpanel"
 msgid ""
 "This message is corrupt and will not be displayed correctly, Click here to "
 "fix it."
 msgstr ""
+"Esta mensagem está corrompida e não será exibida corretamente. Clique aqui "
+"para corrigi-la."
 
 msgctxt "mail.previewpanel"
 msgid "{0} has accepted."
@@ -3253,19 +3330,19 @@ msgstr "Recebido para {0}."
 
 msgctxt "mail.previewpanel"
 msgid "You replied to this message."
-msgstr ""
+msgstr "Você respondeu a esta mensagem."
 
 msgctxt "mail.previewpanel"
 msgid "You forwarded this message."
-msgstr ""
+msgstr "Você encaminhou esta mensagem."
 
 msgctxt "mail.previewpanel"
 msgid "You replied to this message on {0}."
-msgstr ""
+msgstr "Você respondeu a esta mensagem em {0}."
 
 msgctxt "mail.previewpanel"
 msgid "You forwarded this message on {0}."
-msgstr ""
+msgstr "Você encaminhou esta mensagem em {0}."
 
 #, fuzzy
 msgid "Assigned by {0} on {1}."
@@ -3292,7 +3369,7 @@ msgid "{0} has declined on behalf of {1} {2}."
 msgstr "{0} recusou em nome de {1}."
 
 msgid "Last update sent on {0}."
-msgstr ""
+msgstr "Última atualização enviada em {0}."
 
 #, fuzzy
 msgid "{0} has updated on behalf of {1} {2}."
@@ -3305,9 +3382,10 @@ msgstr "Mensagem original"
 msgid ""
 "We are going to try to fix a corrupted mail message, do you wish to continue?"
 msgstr ""
+"Vamos tentar corrigir uma mensagem de e-mail corrompida. Deseja continuar?"
 
 msgid "The matching task was not found in your task list."
-msgstr ""
+msgstr "A tarefa correspondente não foi encontrada em sua lista de tarefas."
 
 msgctxt "mail.previewpanel"
 msgid "To"
@@ -3323,7 +3401,7 @@ msgstr "Cco"
 
 msgctxt "mail.previewpanel"
 msgid "Categories"
-msgstr ""
+msgstr "Categorias"
 
 #. TRANSLATORS: This message is used as label for the field which to indicates to whom the given mail was sent
 msgctxt "mail.previewpanel"
@@ -3341,7 +3419,7 @@ msgid "None"
 msgstr "Nunca"
 
 msgid "Pop-out"
-msgstr ""
+msgstr "Pop-out"
 
 #, fuzzy
 msgid "Mark as read"
@@ -3352,13 +3430,13 @@ msgid "Mark as unread"
 msgstr "Marcar como não lida"
 
 msgid "in"
-msgstr ""
+msgstr "em"
 
 msgid "Root"
 msgstr "Raiz"
 
 msgid "Datepicker"
-msgstr ""
+msgstr "Marcador de data"
 
 msgid "File As"
 msgstr "Salvar Como"
@@ -3467,7 +3545,7 @@ msgid "Phone List"
 msgstr "Lista de telefone"
 
 msgid "Add to contacts"
-msgstr ""
+msgstr "Adicionar aos contatos"
 
 msgid "Print selected contact"
 msgstr "Imprimir contato selecionado"
@@ -3632,10 +3710,10 @@ msgid "Add New"
 msgstr "Adicionar novo(a)"
 
 msgid "Type your note here…"
-msgstr ""
+msgstr "Digite sua nota aqui..."
 
 msgid "New contact"
-msgstr ""
+msgstr "Novo contato"
 
 #, fuzzy
 msgid "New distribution list"
@@ -3655,18 +3733,20 @@ msgstr "Carregando contatos"
 msgid ""
 "There are no items to show in this list. Update the filter for more results."
 msgstr ""
+"Não há itens para mostrar nesta lista. Atualize o filtro para obter mais "
+"resultados."
 
 msgid "[Group]"
-msgstr ""
+msgstr "[Grupo]"
 
 msgid "Work:"
-msgstr ""
+msgstr "Trabalho:"
 
 msgid "Primary:"
-msgstr ""
+msgstr "Primário:"
 
 msgid "Mobile:"
-msgstr ""
+msgstr "Celular:"
 
 msgid "Sort by: Full Name"
 msgstr "Ordenar por: Nome Completo"
@@ -3795,24 +3875,26 @@ msgid "Sort by: Telex Phone"
 msgstr "Ordenar por: Telex"
 
 msgid "Change Picture"
-msgstr ""
+msgstr "Mudar o quadro"
 
 msgid "Remove Picture"
-msgstr ""
+msgstr "Remover imagem"
 
 msgid "VCF file(s)"
-msgstr ""
+msgstr "Arquivo(s) VCF"
 
 msgid "Quick Contact"
 msgstr "Contato Rápido"
 
 msgid "Open in new browser window"
-msgstr ""
+msgstr "Abrir em uma nova janela do navegador"
 
 msgid ""
 "Your browser seems to have blocked one or more pop-ups. Please change your "
 "browser's settings to always allow pop-ups from grommunio Web."
 msgstr ""
+"Seu navegador parece ter bloqueado um ou mais pop-ups. Altere as "
+"configurações de seu navegador para sempre permitir pop-ups da grommunio Web."
 
 msgid "Untitled"
 msgstr "Sem título"
@@ -3827,6 +3909,8 @@ msgstr ""
 msgid ""
 "Cannot upload attachment, attachment is {0} while the allowed maximum is {1}."
 msgstr ""
+"Não é possível carregar o anexo, o anexo é {0} enquanto o máximo permitido é "
+"{1}."
 
 msgid ""
 "Cannot upload attachment, the total attachment size is {0} while the allowed "
@@ -3839,11 +3923,15 @@ msgid ""
 "Cannot upload attachment, total attachment is {0} while the allowed maximum "
 "attachment in single request is {1}."
 msgstr ""
+"Não é possível fazer upload de anexo, o total de anexos é {0} enquanto o "
+"máximo permitido de anexos em uma única solicitação é {1}."
 
 msgid ""
 "Cannot upload attachment, total attachments are {0} files while the maximum "
 "{1} files are allowed in single request."
 msgstr ""
+"Não é possível carregar o anexo, o total de anexos é de {0} arquivos, "
+"enquanto o máximo de {1} arquivos é permitido em uma única solicitação."
 
 #. TRANSLATORS: {0} indicates name/email address of secretary and {1} indicates boss' name/email address
 msgid "{0} on behalf of {1}"
@@ -3938,17 +4026,17 @@ msgid "Deferred"
 msgstr "Deferido"
 
 msgid "Dark"
-msgstr ""
+msgstr "Escuro"
 
 #, fuzzy
 msgid "High Contrast"
 msgstr "Contatos importantes"
 
 msgid "Lime"
-msgstr ""
+msgstr "Cal"
 
 msgid "Magenta"
-msgstr ""
+msgstr "Magenta"
 
 msgid "Orange"
 msgstr "Laranja"
@@ -3985,20 +4073,20 @@ msgid "Please specify a recipient"
 msgstr "Por favor, especifique um destinatário"
 
 msgid "The attached files are not uploaded yet."
-msgstr ""
+msgstr "Os arquivos anexados ainda não foram carregados."
 
 msgid "Do you want to send this message without attachments?"
-msgstr ""
+msgstr "Deseja enviar esta mensagem sem anexos?"
 
 #, fuzzy
 msgid "Attachments not uploaded yet"
 msgstr "Adicionar anexos ao contato."
 
 msgid "Don't Send"
-msgstr ""
+msgstr "Não enviar"
 
 msgid "Send Anyway"
-msgstr ""
+msgstr "Enviar de qualquer forma"
 
 #, fuzzy
 msgid "No subject"
@@ -4019,7 +4107,7 @@ msgid "Collapse hierarchy"
 msgstr "Não foi possível carregar a hierarquia."
 
 msgid "Expand hierarchy"
-msgstr ""
+msgstr "Expandir a hierarquia"
 
 msgid "Folders List"
 msgstr "Lista de Pastas"
@@ -4033,7 +4121,7 @@ msgid "Hide Details"
 msgstr "Detalhes"
 
 msgid "Loaded {0} of {1}"
-msgstr ""
+msgstr "Carregado {0} de {1}"
 
 msgid "Saving"
 msgstr "Salvando"
@@ -4059,38 +4147,38 @@ msgid "Delete item"
 msgstr "Excluir itens"
 
 msgid "This item has been changed. Are you sure you want to delete it?"
-msgstr ""
+msgstr "Este item foi alterado. Tem certeza de que deseja excluí-lo?"
 
 msgid "Unsaved changes"
-msgstr ""
+msgstr "Alterações não salvas"
 
 msgid "Welcome to grommunio Web"
-msgstr ""
+msgstr "Bem-vindo ao grommunio Web"
 
 msgid "This is the first time you are using grommunio Web. "
-msgstr ""
+msgstr "Esta é a primeira vez que você está usando o grommunio Web."
 
 msgid "Please check the following settings before continuing."
-msgstr ""
+msgstr "Verifique as seguintes configurações antes de continuar."
 
 #, fuzzy
 msgid "Widget height"
 msgstr "Adicionar widgets"
 
 msgid "pixels"
-msgstr ""
+msgstr "pixels"
 
 msgid "Configure widget"
 msgstr "Configurar widgets"
 
 msgid "Reload interval"
-msgstr ""
+msgstr "Intervalo de recarga"
 
 msgid "seconds"
-msgstr ""
+msgstr "segundos"
 
 msgid "Open in new tab"
-msgstr ""
+msgstr "Abrir em uma nova guia"
 
 msgid "Add widgets"
 msgstr "Adicionar widgets"
@@ -4111,23 +4199,23 @@ msgid "Expand widget"
 msgstr "Adicionar widgets"
 
 msgid "About this widget"
-msgstr ""
+msgstr "Sobre este widget"
 
 #, fuzzy
 msgid "Add new widget"
 msgstr "Adicionar widgets"
 
 msgid "Collapse widget panel"
-msgstr ""
+msgstr "Recolher o painel do widget"
 
 msgid "Expand widget panel"
-msgstr ""
+msgstr "Expandir o painel de widgets"
 
 msgid "Your changes will be lost if you leave this page now."
-msgstr ""
+msgstr "Suas alterações serão perdidas se você sair desta página agora."
 
 msgid "D {0}"
-msgstr ""
+msgstr "D {0}"
 
 #, fuzzy
 msgid "D d-m"
@@ -4188,16 +4276,16 @@ msgid "Contributor"
 msgstr "Colaborador"
 
 msgid "Free/Busy time, subject, location"
-msgstr ""
+msgstr "Horário livre/ocupado, assunto, local"
 
 msgid "Free/Busy time"
-msgstr ""
+msgstr "Tempo livre/ocupado"
 
 msgid "Unable to import:"
-msgstr ""
+msgstr "Não foi possível importar:"
 
 msgid "The files are not valid"
-msgstr ""
+msgstr "Os arquivos não são válidos"
 
 msgid "Create New Folder"
 msgstr "Criar Nova Pasta"
@@ -4244,10 +4332,10 @@ msgid "Description"
 msgstr "Descrição"
 
 msgid "EntryID"
-msgstr ""
+msgstr "ID de entrada"
 
 msgid "Parent EID"
-msgstr ""
+msgstr "EID dos pais"
 
 msgid "Folder size"
 msgstr "Tamanho da pasta"
@@ -4304,7 +4392,7 @@ msgid "Folder visible"
 msgstr "Pasta visível"
 
 msgid "Apply (copy) changed permissions recursively"
-msgstr ""
+msgstr "Aplicar (copiar) permissões alteradas de forma recursiva"
 
 msgid "User already exists"
 msgstr "Usuário já existe"
@@ -4356,7 +4444,7 @@ msgid "Username '{0}' could not be resolved."
 msgstr "Usuário '{0}' não encontrado."
 
 msgid "Invalid user"
-msgstr ""
+msgstr "Usuário inválido"
 
 msgid "Username '{0}' is not a valid user."
 msgstr "Usuário '{0}' não é um usuário válido."
@@ -4377,7 +4465,7 @@ msgid "This shared folder is already open."
 msgstr "Esta pasta compartilhada já está aberta."
 
 msgid "No user"
-msgstr ""
+msgstr "Nenhum usuário"
 
 #, fuzzy
 msgid "You must specify a user"
@@ -4390,10 +4478,10 @@ msgid "Show subfolders"
 msgstr "Mostrar subpastas"
 
 msgid "Open shared folder/store"
-msgstr ""
+msgstr "Abra a pasta/loja compartilhada"
 
 msgid "Rename folder"
-msgstr ""
+msgstr "Renomear pasta"
 
 #, fuzzy
 msgid "Empty folder"
@@ -4456,14 +4544,14 @@ msgid "Import appointments"
 msgstr "Novo Compromisso"
 
 msgid "Import contacts"
-msgstr ""
+msgstr "Importar contatos"
 
 #, fuzzy
 msgid "Properties of {0}"
 msgstr "Propriedades"
 
 msgid "Share {0} with…"
-msgstr ""
+msgstr "Compartilhe {0} com..."
 
 #, fuzzy
 msgid "Properties of {0} - {1}"
@@ -4491,7 +4579,7 @@ msgid "Are you sure you want to empty {0}?"
 msgstr "Você tem certeza de que você quer esvaziar {0}?"
 
 msgid "Show All"
-msgstr ""
+msgstr "Mostrar tudo"
 
 msgid "Show all folders"
 msgstr "Todas as pastas"
@@ -4500,6 +4588,8 @@ msgid ""
 "You have insufficient privileges to move this folder. Would you like to copy "
 "instead?"
 msgstr ""
+"Você não tem privilégios suficientes para mover essa pasta. Em vez disso, "
+"gostaria de copiar?"
 
 msgid "CC"
 msgstr "CC"
@@ -4527,7 +4617,7 @@ msgid "Schedule mail to be sent out"
 msgstr "Agendar e-mail a ser enviado"
 
 msgid "Scheduled Items"
-msgstr ""
+msgstr "Itens programados"
 
 msgid "Your message will be sent at "
 msgstr "Sua mensagem será enviada ás "
@@ -4547,6 +4637,7 @@ msgstr "em uma hora específica"
 
 msgid "The time you entered is in the past. Please reschedule your mail."
 msgstr ""
+"O horário que você informou já passou. Agende novamente sua correspondência."
 
 msgid "today  at "
 msgstr "hoje às "
@@ -4578,7 +4669,7 @@ msgid "Message Options"
 msgstr "Opções da mensagem"
 
 msgid "This message will be flagged for follow up when it is sent."
-msgstr ""
+msgstr "Essa mensagem será sinalizada para acompanhamento quando for enviada."
 
 msgid "Send Later"
 msgstr "Enviar Mais Tarde"
@@ -4606,10 +4697,10 @@ msgid "Set flag on this email"
 msgstr "Definir bandeira neste E-Mail"
 
 msgid "Mark this mail as high priority"
-msgstr ""
+msgstr "Marcar essa correspondência como de alta prioridade"
 
 msgid "Mark this mail as low priority"
-msgstr ""
+msgstr "Marcar essa correspondência como de baixa prioridade"
 
 msgid "Set read receipt"
 msgstr "Definir confirmação de leitura"
@@ -4629,7 +4720,7 @@ msgid "Show From field"
 msgstr "Mostrar De"
 
 msgid "Cannot save while attachment is being uploaded"
-msgstr ""
+msgstr "Não é possível salvar enquanto o anexo está sendo carregado"
 
 msgid "Miscellaneous Options"
 msgstr "Outras Opções"
@@ -4653,7 +4744,7 @@ msgid "Set Category"
 msgstr "Definir Categoria"
 
 msgid "Pop-Out"
-msgstr ""
+msgstr "Pop-Out"
 
 msgid "Mark Read"
 msgstr "Marcar como lida"
@@ -4673,10 +4764,10 @@ msgid "Reply all"
 msgstr "Responder a todos"
 
 msgid "Toggle read/unread"
-msgstr ""
+msgstr "Alternar entre ler/não ler"
 
 msgid "Toggle red/complete flag"
-msgstr ""
+msgstr "Ativar a bandeira vermelha/completa"
 
 msgid "Open Shared Mails"
 msgstr "Abrir E-Mail compartilhado"
@@ -4690,7 +4781,7 @@ msgid "Print selected email"
 msgstr "Imprimir tarefas selecionadas"
 
 msgid "Filter"
-msgstr ""
+msgstr "Filtro"
 
 msgid "Fwd"
 msgstr "ENC"
@@ -4699,19 +4790,19 @@ msgid "Re"
 msgstr "RES"
 
 msgid "on behalf of"
-msgstr ""
+msgstr "em nome de"
 
 msgid "Safe Senders list is empty"
-msgstr ""
+msgstr "A lista de remetentes seguros está vazia"
 
 msgid "Please select a safe sender record."
-msgstr ""
+msgstr "Selecione um registro de remetente seguro."
 
 msgid "Delete all safe senders"
-msgstr ""
+msgstr "Excluir todos os remetentes seguros"
 
 msgid "Are you sure you want to delete all safe senders?"
-msgstr ""
+msgstr "Tem certeza de que deseja excluir todos os remetentes seguros?"
 
 msgid "HTML"
 msgstr "HTML"
@@ -4729,7 +4820,7 @@ msgid "Default font"
 msgstr "Fonte padrão"
 
 msgid "Default font size"
-msgstr ""
+msgstr "Tamanho padrão da fonte"
 
 msgid "Always request a read receipt"
 msgstr "Sempre solicitar a confirmação de leitura"
@@ -4741,13 +4832,13 @@ msgstr ""
 "{A}Salvar e-mails ainda não enviados automaticamente a cada : {B} minuto(s)"
 
 msgid "Conversation view settings"
-msgstr ""
+msgstr "Configurações de visualização de conversas"
 
 msgid "Enable conversation view"
-msgstr ""
+msgstr "Ativar a visualização de conversas"
 
 msgid "Collapse conversation when selecting a different email"
-msgstr ""
+msgstr "Recolher a conversa ao selecionar um e-mail diferente"
 
 msgid "Incoming mail"
 msgstr "E-Mail de entrada"
@@ -4783,16 +4874,16 @@ msgid "Location of preview pane"
 msgstr "Localização do painel de visualização"
 
 msgid "Use subject prefixes in accordance with RFC 5256/5322"
-msgstr ""
+msgstr "Use prefixos de assunto de acordo com a RFC 5256/5322"
 
 msgid "Close original message on reply or forward"
-msgstr ""
+msgstr "Fechar a mensagem original ao responder ou encaminhar"
 
 msgid "General mail settings"
 msgstr "Configurações gerais de E-mail"
 
 msgid "Open or compose a mail item in a"
-msgstr ""
+msgstr "Abra ou escreva um item de correio em um"
 
 #, fuzzy
 msgid "grommunio Web tab"
@@ -4803,7 +4894,7 @@ msgid "Browser window"
 msgstr "Procurar"
 
 msgid "Update Out of Office settings for"
-msgstr ""
+msgstr "Atualizar as configurações de ausência do escritório para"
 
 msgid "I am currently in the office"
 msgstr "Eu estou no escritório"
@@ -4813,7 +4904,7 @@ msgid "I am out of the office from"
 msgstr "Eu estou ausente do escritório"
 
 msgid "I will be back on"
-msgstr ""
+msgstr "Estarei de volta em"
 
 #, fuzzy
 msgid "Automatically reply once per day, per sender with the following text"
@@ -4822,37 +4913,42 @@ msgstr ""
 "texto"
 
 msgid "Inside My Organization"
-msgstr ""
+msgstr "Dentro da minha organização"
 
 msgid "User is currently out of office."
 msgstr "O usuário está fora do escritório."
 
 msgid "Outside My Organization"
-msgstr ""
+msgstr "Fora da minha organização"
 
 msgid "Auto-reply to people outside my organization"
-msgstr ""
+msgstr "Resposta automática a pessoas de fora da minha organização"
 
 msgid "My contacts only"
-msgstr ""
+msgstr "Somente meus contatos"
 
 msgid "Anyone outside my organization"
-msgstr ""
+msgstr "Qualquer pessoa fora de minha organização"
 
 msgid ""
 "The time you entered is before the out of office date. Please reschedule."
 msgstr ""
+"O horário informado é anterior à data de encerramento do expediente. Favor "
+"remarcar."
 
 msgid "Safe Senders"
-msgstr ""
+msgstr "Remetentes seguros"
 
 msgid ""
 "To protect your privacy email addresses or domains can only be added via the "
 "\"Add to safe sender list\" functionality in an opened email."
 msgstr ""
+"Para proteger sua privacidade, os endereços de e-mail ou domínios só podem "
+"ser adicionados por meio da funcionalidade \"Adicionar à lista de remetentes "
+"seguros\" em um e-mail aberto."
 
 msgid "Delete all"
-msgstr ""
+msgstr "Excluir tudo"
 
 msgid "Signatures"
 msgstr "Assinaturas"
@@ -4861,13 +4957,13 @@ msgid "No signatures configured"
 msgstr "Nenhuma assinatura configurada"
 
 msgid "New messages"
-msgstr ""
+msgstr "Novas mensagens"
 
 msgid "Replies/forwards"
-msgstr ""
+msgstr "Respostas/encaminhamentos"
 
 msgid "Signature name:"
-msgstr ""
+msgstr "Nome da assinatura:"
 
 #, fuzzy
 msgid "Save Signature"
@@ -4881,14 +4977,14 @@ msgid "New signature"
 msgstr "Nova assinatura"
 
 msgid "EML file(s)"
-msgstr ""
+msgstr "Arquivo(s) EML"
 
 #, fuzzy
 msgid "ZIP file"
 msgstr "Perfil"
 
 msgid "max. "
-msgstr ""
+msgstr "máximo."
 
 msgid "Sort by: Sent"
 msgstr "Ordenar por: Enviado"
@@ -4897,52 +4993,52 @@ msgid "Modified"
 msgstr "Modificado"
 
 msgid "Sort by: Modified"
-msgstr ""
+msgstr "Ordenar por: Modificado"
 
 msgid "Flag"
-msgstr ""
+msgstr "Bandeira"
 
 msgid "Sort by: flag"
-msgstr ""
+msgstr "Ordenar por: bandeira"
 
 #, fuzzy
 msgid "Older"
 msgstr "Pasta"
 
 msgid "Yesterday"
-msgstr ""
+msgstr "Ontem"
 
 #, fuzzy
 msgid "Last Week"
 msgstr "Última Página"
 
 msgid "Two Weeks Ago"
-msgstr ""
+msgstr "Duas semanas atrás"
 
 msgid "Three Weeks Ago"
-msgstr ""
+msgstr "Três semanas atrás"
 
 #, fuzzy
 msgid "Last Month"
 msgstr "Mês"
 
 msgid "Small"
-msgstr ""
+msgstr "Pequeno"
 
 msgid "Medium"
-msgstr ""
+msgstr "Médio"
 
 msgid "Large"
-msgstr ""
+msgstr "Grande"
 
 msgid "Very large"
-msgstr ""
+msgstr "Muito grande"
 
 msgid "Huge"
-msgstr ""
+msgstr "Enorme"
 
 msgid "Follow up"
-msgstr ""
+msgstr "Acompanhamento"
 
 msgid "Move to Junk Folder"
 msgstr "Mover para pasta de lixo eletrônico"
@@ -4971,7 +5067,7 @@ msgid "Color"
 msgstr "Cor"
 
 msgid "New note"
-msgstr ""
+msgstr "Nova nota"
 
 msgid "Open Shared Notes"
 msgstr "Abrir Notas compartilhadas"
@@ -5018,6 +5114,8 @@ msgid ""
 "You must reload grommunio Web for the changes to take effect. Unsaved "
 "changes will be lost."
 msgstr ""
+"Você deve recarregar o grommunio Web para que as alterações tenham efeito. "
+"As alterações não salvas serão perdidas."
 
 #, fuzzy
 msgid "Reload grommunio Web"
@@ -5027,13 +5125,13 @@ msgid "Settings"
 msgstr "Configurações"
 
 msgid "Basic"
-msgstr ""
+msgstr "Básico"
 
 msgid "Account information - {0}"
-msgstr ""
+msgstr "Informações da conta - {0}"
 
 msgid "Profile Picture"
-msgstr ""
+msgstr "Foto do perfil"
 
 msgid "Language"
 msgstr "Língua"
@@ -5042,7 +5140,7 @@ msgid "Startup folder"
 msgstr "Pasta inicial"
 
 msgid "Theme"
-msgstr ""
+msgstr "Tema"
 
 msgid "Select Default Folder"
 msgstr "Selecionar Pasta Padrão"
@@ -5054,13 +5152,14 @@ msgid "Advanced settings"
 msgstr "Configurações avançadas"
 
 msgid "Developer tools"
-msgstr ""
+msgstr "Ferramentas para desenvolvedores"
 
 msgid "Show insertion points in grommunio Web"
-msgstr ""
+msgstr "Mostrar pontos de inserção no grommunio Web"
 
 msgid "Show \"item data\" button in context menu (mail only)"
 msgstr ""
+"Mostrar o botão \"dados do item\" no menu de contexto (somente correio)"
 
 msgid "Edit setting"
 msgstr "Editar configuração"
@@ -5079,22 +5178,22 @@ msgid "About"
 msgstr "Sobre"
 
 msgid "I want to display date and time in this format:"
-msgstr ""
+msgstr "Quero exibir a data e a hora nesse formato:"
 
 msgid "Short"
-msgstr ""
+msgstr "Curto"
 
 msgid "Long"
-msgstr ""
+msgstr "Longo"
 
 msgid "Time format:"
-msgstr ""
+msgstr "Formato de hora:"
 
 msgid "12h clock"
-msgstr ""
+msgstr "Relógio de 12h"
 
 msgid "24h clock"
-msgstr ""
+msgstr "Relógio de 24 horas"
 
 #, fuzzy
 msgid "Favorite settings"
@@ -5105,55 +5204,57 @@ msgid "Hide favorites"
 msgstr "Favoritos"
 
 msgid "Unpin favorites from top"
-msgstr ""
+msgstr "Desafixar favoritos do topo"
 
 msgid "Give unread items a colored border"
-msgstr ""
+msgstr "Dê aos itens não lidos uma borda colorida"
 
 msgid "Show 'help' button in top-right corner"
-msgstr ""
+msgstr "Mostrar o botão \"ajuda\" no canto superior direito"
 
 msgid "Show unread mail counter in application title"
-msgstr ""
+msgstr "Mostrar contador de e-mails não lidos no título do aplicativo"
 
 msgid "Hide widget panel"
-msgstr ""
+msgstr "Ocultar painel de widgets"
 
 msgid "Show search bar above folder list"
-msgstr ""
+msgstr "Mostrar barra de pesquisa acima da lista de pastas"
 
 msgid "Auto"
-msgstr ""
+msgstr "Automotivo"
 
 msgid "Actual size"
-msgstr ""
+msgstr "Tamanho real"
 
 msgid "Page width"
-msgstr ""
+msgstr "Largura da página"
 
 msgid "Attachment preview (PDF and Open formats)"
-msgstr ""
+msgstr "Visualização do anexo (formatos PDF e Open)"
 
 msgid "Document default zoom"
-msgstr ""
+msgstr "Zoom padrão do documento"
 
 msgid "PDF zoom"
-msgstr ""
+msgstr "Zoom em PDF"
 
 msgid "File previewing"
-msgstr ""
+msgstr "Visualização de arquivos"
 
 msgid "Inbox navigation"
-msgstr ""
+msgstr "Navegação na caixa de entrada"
 
 msgid "I want to navigate through my items by using:"
-msgstr ""
+msgstr "Quero navegar pelos meus itens usando:"
 
 msgid "Infinite Scroll"
-msgstr ""
+msgstr "Rolagem infinita"
 
 msgid "grommunio Web automatically loads additional items when you scroll down"
 msgstr ""
+"O grommunio Web carrega automaticamente itens adicionais quando você rola a "
+"tela para baixo"
 
 #, fuzzy
 msgid "Pagination"
@@ -5163,12 +5264,14 @@ msgid ""
 "grommunio Web displays items on pages and you can use navigation controls to "
 "navigate"
 msgstr ""
+"O grommunio Web exibe itens em páginas e você pode usar os controles de "
+"navegação para navegar"
 
 msgid "Load items in blocks of {A}"
-msgstr ""
+msgstr "Carregar itens em blocos de {A}"
 
 msgid "Load {A} items per page."
-msgstr ""
+msgstr "Carregue {A} itens por página."
 
 msgid "Keyboard Shortcuts"
 msgstr "Atalhos no teclado"
@@ -5190,7 +5293,7 @@ msgid "All keyboard shortcuts on"
 msgstr "Atalhos no teclado"
 
 msgid "This change requires a reload of grommunio Web"
-msgstr ""
+msgstr "Essa alteração requer a recarga do grommunio Web"
 
 msgid "Plugins"
 msgstr "Plug-Ins"
@@ -5202,25 +5305,25 @@ msgid "No plugins available"
 msgstr "Nenhum plugin-in disponível"
 
 msgid "Version"
-msgstr ""
+msgstr "Versão"
 
 msgid "This plugin cannot be disabled"
 msgstr "Não é possível desabilitar este plug-in"
 
 msgid "This plugin cannot be enabled"
-msgstr ""
+msgstr "Esse plug-in não pode ser ativado"
 
 msgid "Mailbox Usage"
 msgstr "Cota da Caixa postal"
 
 msgid "A quota is not set on your store."
-msgstr ""
+msgstr "Não há uma cota definida em sua loja."
 
 msgid "{0} of mailbox space is used."
 msgstr "{0} do espaço da caixa está em uso."
 
 msgid "You have exceeded hard quota, you can not send or receive mails."
-msgstr ""
+msgstr "Você excedeu a cota de hard, não pode enviar ou receber e-mails."
 
 msgid "At {0} you won't be able to send mails."
 msgstr "Ao alcançar {0} não será possível enviar novos e-mails."
@@ -5229,9 +5332,11 @@ msgid ""
 "You can not send mails as you have exceeded soft quota, at {0} you won't be "
 "able to receive mails."
 msgstr ""
+"Não é possível enviar e-mails porque você excedeu a cota de soft, em {0} "
+"você não poderá receber e-mails."
 
 msgid "At {0} you won't be able to send or receive mails."
-msgstr ""
+msgstr "Em {0}, você não poderá enviar ou receber e-mails."
 
 msgid "You can not send mails as you have exceeded soft quota."
 msgstr "Você não pode enviar e-mails. Você excedeu a sua quota 'soft'."
@@ -5241,23 +5346,27 @@ msgid "Reset settings"
 msgstr "Remover configurações"
 
 msgid "Reset settings to their original defaults."
-msgstr ""
+msgstr "Redefinir as configurações para os padrões originais."
 
 msgid ""
 "This will close all opened shared stores and resets all settings to the "
 "default value."
 msgstr ""
+"Isso fechará todos os armazenamentos compartilhados abertos e redefinirá "
+"todas as configurações para o valor padrão."
 
 msgid ""
 "grommunio Web will automatically reload in order for these changes to take "
 "effect"
 msgstr ""
+"O grommunio Web será recarregado automaticamente para que essas alterações "
+"tenham efeito"
 
 msgid "Reset"
 msgstr "Redefinir"
 
 msgid "Reloading, Please wait."
-msgstr ""
+msgstr "Recarregando, aguarde."
 
 msgid "Setting"
 msgstr "Configuração"
@@ -5273,13 +5382,13 @@ msgid "Gromox"
 msgstr "grommunio"
 
 msgid "Delete confirmation"
-msgstr ""
+msgstr "Excluir confirmação"
 
 msgid "Deleting the item(s) will also delete the original item(s)."
-msgstr ""
+msgstr "A exclusão do(s) item(ns) também excluirá o(s) item(ns) original(is)."
 
 msgid "Do you want to delete the item(s)?"
-msgstr ""
+msgstr "Deseja excluir o(s) item(ns)?"
 
 msgid "Sort by: Priority"
 msgstr "Ordenar por: Prioridade"
@@ -5328,7 +5437,7 @@ msgid "Accepting Task"
 msgstr "Tarefas Ativas"
 
 msgid "Declining Task"
-msgstr ""
+msgstr "Tarefa em declínio"
 
 #, fuzzy
 msgid ""
@@ -5354,7 +5463,7 @@ msgid "Date Complete"
 msgstr "Data de Conclusão"
 
 msgid "Multiple companies name must be separated by"
-msgstr ""
+msgstr "O nome de várias empresas deve ser separado por"
 
 msgid "Update List"
 msgstr "Atualizar Lista"
@@ -5363,13 +5472,13 @@ msgid "Create Unassigned Copy"
 msgstr "Criar cópia não atribuída"
 
 msgid "copy"
-msgstr ""
+msgstr "cópia"
 
 msgid "Unable to send task request"
-msgstr ""
+msgstr "Não é possível enviar solicitação de tarefa"
 
 msgid "You cannot send a task request to yourself."
-msgstr ""
+msgstr "Você não pode enviar uma solicitação de tarefa para si mesmo."
 
 #, fuzzy
 msgid "Multiple recipients"
@@ -5394,6 +5503,8 @@ msgstr "Em progresso"
 
 msgid "Keep updated copy of task and receive automated status reports"
 msgstr ""
+"Mantenha uma cópia atualizada da tarefa e receba relatórios de status "
+"automatizados"
 
 #, fuzzy
 msgid "Send task to assignees"
@@ -5431,7 +5542,7 @@ msgid "Mark this task as private"
 msgstr "Marcar contato como particular."
 
 msgid "New task"
-msgstr ""
+msgstr "Nova tarefa"
 
 #, fuzzy
 msgid "Completed"
@@ -5465,10 +5576,10 @@ msgid "Open Shared Tasks"
 msgstr "Abrir Tarefas compartilhadas"
 
 msgid "Simple view"
-msgstr ""
+msgstr "Visualização simples"
 
 msgid "Detailed view"
-msgstr ""
+msgstr "Visualização detalhada"
 
 #, fuzzy
 msgid "Task request"
@@ -5484,19 +5595,19 @@ msgid "Print task list"
 msgstr "Imprimir lista de tarefas"
 
 msgid "Create task"
-msgstr ""
+msgstr "Criar tarefa"
 
 msgid "Upcoming"
-msgstr ""
+msgstr "Próximos"
 
 msgid "Overdue"
-msgstr ""
+msgstr "Vencido"
 
 msgid "Mark Complete"
-msgstr ""
+msgstr "Marca completa"
 
 msgid "Mark Incomplete"
-msgstr ""
+msgstr "Marcar Incompleto"
 
 #, fuzzy
 msgid "Remove from To-Do List"
@@ -5510,6 +5621,8 @@ msgid ""
 "Please note that assigned task(s) will be overwritten when the assignee "
 "makes changes."
 msgstr ""
+"Observe que as tarefas atribuídas serão substituídas quando o responsável "
+"fizer alterações."
 
 msgid "Sort by: Complete"
 msgstr "Ordenar por: Concluído"
@@ -5560,7 +5673,7 @@ msgid "D d-m-Y"
 msgstr "d/m/Y"
 
 msgid "none"
-msgstr ""
+msgstr "nenhum"
 
 msgid "Quick Task"
 msgstr "Tarefa Rápida"
@@ -5569,10 +5682,10 @@ msgid "No tasks."
 msgstr "Sem tarefas."
 
 msgid "Tasks / To-Do"
-msgstr ""
+msgstr "Tarefas / Tarefas pendentes"
 
 msgid "Click the link to open the URL in a new window."
-msgstr ""
+msgstr "Clique no link para abrir o URL em uma nova janela."
 
 msgid "The server reported an unknown error on your request."
 msgstr "O servidor relatou um erro desconhecido na última solicitação."
@@ -5617,10 +5730,10 @@ msgstr "A conexão com o servidor foi restabelecida"
 
 #. TRANSLATORS: Example: HTTP 404
 msgid "HTTP {0}"
-msgstr ""
+msgstr "HTTP {0}"
 
 msgid "Invalid data received from the server"
-msgstr ""
+msgstr "Dados inválidos recebidos do servidor"
 
 msgid "Missing store"
 msgstr "Caixa não encontrada"
@@ -5696,74 +5809,75 @@ msgid "Out of Office is currently activated. Would you like to turn it off?"
 msgstr "Fora do Escritório está ativado. Deseja desligá-lo?"
 
 msgid "Archive"
-msgstr ""
+msgstr "Arquivo"
 
 msgid "Open Chat at start"
 msgstr "Conversa aberta quando começou"
 
 msgid "Desktop Notifications Plugin"
-msgstr ""
+msgstr "Plug-in de notificações de desktop"
 
 msgid "Desktop Notifications"
-msgstr ""
+msgstr "Notificações na área de trabalho"
 
 msgid "Files: ownCloud Backend"
-msgstr ""
+msgstr "Arquivos: back-end do ownCloud"
 
 msgid "Share with user/group"
-msgstr ""
+msgstr "Compartilhar com usuário/grupo"
 
 msgid "Share via link"
-msgstr ""
+msgstr "Compartilhar via link"
 
 msgid "Public link"
-msgstr ""
+msgstr "Link público"
 
 msgid "Password protect"
-msgstr ""
+msgstr "Proteger com senha"
 
 msgid "Password"
 msgstr "Senha"
 
 msgid "Public upload"
-msgstr ""
+msgstr "Carregamento público"
 
 msgid "Expiration date"
-msgstr ""
+msgstr "Data de expiração"
 
 msgid "More than 1 share link exists. Only showing the latest one"
 msgstr ""
+"Existe mais de um link de compartilhamento. Somente o mais recente é exibido"
 
 msgid "Loading details…"
-msgstr ""
+msgstr "Carregando detalhes..."
 
 msgid "Share Details"
-msgstr ""
+msgstr "Compartilhar detalhes"
 
 #, fuzzy
 msgid "Re-share"
 msgstr "Compartilhar"
 
 msgid "Change"
-msgstr ""
+msgstr "Mudança"
 
 msgid "Share with"
-msgstr ""
+msgstr "Compartilhe com"
 
 msgid "Sort by: Type"
 msgstr "Ordenar por: Tipo"
 
 msgid "Loading users and groups"
-msgstr ""
+msgstr "Carregamento de usuários e grupos"
 
 msgid "Add users or groups to share files."
-msgstr ""
+msgstr "Adicione usuários ou grupos para compartilhar arquivos."
 
 msgid "Type to search"
-msgstr ""
+msgstr "Digite para pesquisar"
 
 msgid "No results"
-msgstr ""
+msgstr "Nenhum resultado"
 
 msgid "Add attachment from {0}"
 msgstr "Adicionar anexo de {0}"
@@ -5776,18 +5890,20 @@ msgid "Are you sure you want to delete {0}?"
 msgstr "Você realmente quer apagar a conta \"{0}\"?"
 
 msgid "Are you sure you want to delete {0} and all of its contents?"
-msgstr ""
+msgstr "Tem certeza de que deseja excluir {0} e todo o seu conteúdo?"
 
 #, fuzzy
 msgid "Are you sure you want to delete {0} files?"
 msgstr "Você realmente quer apagar a conta \"{0}\"?"
 
 msgid "Are you sure want to delete {0} folders and all of their contents?"
-msgstr ""
+msgstr "Tem certeza de que deseja excluir {0} pastas e todo o seu conteúdo?"
 
 msgid ""
 "Are you sure want to delete the selected items and all of their contents?"
 msgstr ""
+"Tem certeza de que deseja excluir os itens selecionados e todo o seu "
+"conteúdo?"
 
 msgid "Confirm overwrite"
 msgstr "Confirmar Sobrescrever"
@@ -5799,16 +5915,16 @@ msgid "Please enter a new name"
 msgstr "Por favor insira um novo nome"
 
 msgid "Rename record"
-msgstr ""
+msgstr "Renomear registro"
 
 msgid "A file name should not be empty."
-msgstr ""
+msgstr "O nome de um arquivo não deve estar vazio."
 
 msgid "Rename item"
-msgstr ""
+msgstr "Renomear item"
 
 msgid "A file named \"{0}\" already exists. Please enter a different name."
-msgstr ""
+msgstr "Já existe um arquivo chamado \"{0}\". Digite um nome diferente."
 
 msgid "Downloading"
 msgstr "Baixando"
@@ -5823,7 +5939,7 @@ msgid "At least one file is too large! Maximum allowed filesize: {0}."
 msgstr "Pelo menos um arquivo é muito grande! Tamanho máximo permitido: {0}."
 
 msgid "Keep both"
-msgstr ""
+msgstr "Manter ambos"
 
 #, fuzzy
 msgid "Overwrite"
@@ -5863,20 +5979,24 @@ msgid "Resets Files settings to their original defaults"
 msgstr "Redefine configurações de Arquivos para seus padrões originais"
 
 msgid "Are you sure to remove all settings and accounts?"
-msgstr ""
+msgstr "Você tem certeza de que removeu todas as configurações e contas?"
 
 msgid ""
 "Accounts marked by your administrator as \"cannot be changed\" will not be "
 "removed."
 msgstr ""
+"As contas marcadas por seu administrador como \"não podem ser alteradas\" "
+"não serão removidas."
 
 msgid ""
 "grommunio Web will automatically restart in order for these changes to take "
 "effect."
 msgstr ""
+"O grommunio Web será reiniciado automaticamente para que essas alterações "
+"tenham efeito."
 
 msgid "grommunio Web is reloading, Please wait."
-msgstr ""
+msgstr "grommunio O site está sendo recarregado, aguarde."
 
 msgid "Edit Account"
 msgstr "Editar Conta"
@@ -5945,7 +6065,7 @@ msgid "Used"
 msgstr "Usado"
 
 msgid "Total"
-msgstr ""
+msgstr "Total"
 
 msgid "Version Information"
 msgstr "Informações da versão"
@@ -5969,13 +6089,13 @@ msgid "You have to choose at least one file!"
 msgstr "Você tem que escolher pelo menos um arquivo!"
 
 msgid "Create New "
-msgstr ""
+msgstr "Criar novo"
 
 msgid "Incorrect filename"
-msgstr ""
+msgstr "Nome de arquivo incorreto"
 
 msgid "Error reaching office backend"
-msgstr ""
+msgstr "Erro ao acessar o back-end do Office"
 
 msgid "Folder already exists"
 msgstr "A pasta já existe"
@@ -6058,22 +6178,22 @@ msgid "Upload failed!"
 msgstr "Falha no carregamento!"
 
 msgid "Document"
-msgstr ""
+msgstr "Documento"
 
 msgid "Presentation"
-msgstr ""
+msgstr "Apresentação"
 
 msgid "Spreadsheet"
-msgstr ""
+msgstr "Planilha eletrônica"
 
 msgid "Upload files"
 msgstr "Carregar arquivos"
 
 msgid "Create document"
-msgstr ""
+msgstr "Criar documento"
 
 msgid "Create office document"
-msgstr ""
+msgstr "Criar documento de escritório"
 
 msgid "Download files"
 msgstr "Baixar arquivos"
@@ -6085,7 +6205,7 @@ msgid "Attach to mail"
 msgstr "Anexar ao e-mail"
 
 msgid "Attach to mail as link"
-msgstr ""
+msgstr "Anexar ao e-mail como link"
 
 msgid "Attaching"
 msgstr "Anexando"
@@ -6145,17 +6265,17 @@ msgid "files selected"
 msgstr "arquivos selecionados"
 
 msgid "Authentication required, when using grommunio-files for the first time"
-msgstr ""
+msgstr "Autenticação necessária ao usar o grommunio-files pela primeira vez"
 
 msgid "Intranet"
-msgstr ""
+msgstr "Intranet"
 
 msgid "Openstreetmap"
-msgstr ""
+msgstr "Openstreetmap"
 
 #. TRANSLATORS: The map of earth
 msgid "Map"
-msgstr ""
+msgstr "Mapa"
 
 msgid "Mobile Device Manager"
 msgstr "Gerenciador de Dispositivo Móvel"
@@ -6170,7 +6290,7 @@ msgid "Full resync in progress"
 msgstr "Ressincronização completa em andamento"
 
 msgid "Username or password incorrect"
-msgstr ""
+msgstr "Nome de usuário ou senha incorretos"
 
 msgid "Not Applicable"
 msgstr "Não Aplicável"
@@ -6185,63 +6305,66 @@ msgid "Wipe Executed"
 msgstr "Limpeza Executada"
 
 msgid "Account Only Wipe Pending"
-msgstr ""
+msgstr "Account Only Wipe Pending (Limpeza pendente somente da conta)"
 
 msgid "Account Only Wipe Requested"
-msgstr ""
+msgstr "Solicitação de limpeza somente da conta"
 
 msgid "Account Only Wipe Executed"
-msgstr ""
+msgstr "Account Only Wipe Executed (Limpeza somente da conta executada)"
 
 msgid "Not Available"
-msgstr ""
+msgstr "Não disponível"
 
 msgid "Device"
 msgstr "Dispositivo"
 
 msgid "Operating System"
-msgstr ""
+msgstr "Sistema operacional"
 
 msgid "User Agent"
 msgstr "Agente de Usuário"
 
 msgid "MDM Plugin"
-msgstr ""
+msgstr "Plug-in MDM"
 
 msgid "Active Sync Version"
-msgstr ""
+msgstr "Versão do Active Sync"
 
 msgid "grommunio-sync Version"
-msgstr ""
+msgstr "Versão do grommunio-sync"
 
 msgid "Policy name"
-msgstr ""
+msgstr "Nome da política"
 
 msgid "Connected since"
-msgstr ""
+msgstr "Conectado desde"
 
 msgid "d F Y"
-msgstr ""
+msgstr "d F Y"
 
 msgid "Last updated"
-msgstr ""
+msgstr "Última atualização"
 
 msgid "d F Y, H:i"
-msgstr ""
+msgstr "d F Y, H:i"
 
 msgid "Synchronize"
-msgstr ""
+msgstr "Sincronizar"
 
 msgid "Manage Shared Folders"
-msgstr ""
+msgstr "Gerenciar pastas compartilhadas"
 
 msgid ""
 "Select folders to sync to your device from the list below. To add additional "
 "mailboxes to the list, open them in grommunio Web first."
 msgstr ""
+"Selecione as pastas a serem sincronizadas com seu dispositivo na lista "
+"abaixo. Para adicionar outras caixas de correio à lista, abra-as primeiro no "
+"grommunio Web."
 
 msgid "grommunio-sync"
-msgstr ""
+msgstr "grommunio-sync"
 
 msgid "Mobile device management"
 msgstr "Gerenciamento de Dispositivo Móvel"
@@ -6253,6 +6376,8 @@ msgid ""
 "Unable to connect to the grommunio-sync server. Click {0} to enter your "
 "credentials"
 msgstr ""
+"Não foi possível conectar-se ao servidor grommunio-sync. Clique em {0} para "
+"inserir suas credenciais"
 
 msgid "Devices"
 msgstr "Dispositivos"
@@ -6288,13 +6413,13 @@ msgid "Remove device"
 msgstr "Remover dispositivo"
 
 msgid "Please enter your username and password"
-msgstr ""
+msgstr "Digite seu nome de usuário e senha"
 
 msgid "Wipe only data related to this account"
-msgstr ""
+msgstr "Limpar apenas os dados relacionados a essa conta"
 
 msgid "Wipe all data"
-msgstr ""
+msgstr "Limpar todos os dados"
 
 msgid "Username"
 msgstr "Nome de usuário"
@@ -6310,391 +6435,449 @@ msgid ""
 "Do you really want to remove your device?\n"
 " Enter your password to confirm."
 msgstr ""
+"Deseja realmente remover seu dispositivo?\n"
+" Digite sua senha para confirmar."
 
 msgid "Add meeting"
-msgstr ""
+msgstr "Adicionar reunião"
 
 msgid "Room name:"
-msgstr ""
+msgstr "Nome do quarto:"
 
 msgid "Room URL:"
-msgstr ""
+msgstr "URL da sala:"
 
 msgid "Shift-click for advanced settings"
-msgstr ""
+msgstr "Shift-click para configurações avançadas"
 
 msgid "Join webmeeting"
-msgstr ""
+msgstr "Participe da webmeeting"
 
 msgid "Open meeting in:"
-msgstr ""
+msgstr "Reunião aberta em:"
 
 msgid "Web tab"
-msgstr ""
+msgstr "Guia da Web"
 
 msgid "Hide the button in the main toolbar"
-msgstr ""
+msgstr "Ocultar o botão na barra de ferramentas principal"
 
 msgid "Add the subject to the room name"
-msgstr ""
+msgstr "Adicione o assunto ao nome da sala"
 
 msgid "Add the organizer name to the room name"
-msgstr ""
+msgstr "Adicione o nome do organizador ao nome da sala"
 
 msgid "Add the URL to the meeting location rather than overwriting it"
-msgstr ""
+msgstr "Adicione o URL ao local da reunião em vez de substituí-lo"
 
 msgid ""
 "Prevent the URL in the meeting location from being overridden automatically "
 "(ex: when adding a meetingroom)"
 msgstr ""
+"Impedir que a URL no local da reunião seja substituída automaticamente (por "
+"exemplo, ao adicionar uma sala de reunião)"
 
 msgid "If you have problems when creating meetings, try disabling this setting"
 msgstr ""
+"Se você tiver problemas ao criar reuniões, tente desativar essa configuração"
 
 msgid "Add an invitation to the appointment description"
-msgstr ""
+msgstr "Adicionar um convite à descrição do compromisso"
 
 msgid "Invitation text"
-msgstr ""
+msgstr "Texto do convite"
 
 msgid ""
 "must contain %url% as a placeholder for the meeting link, empty the textbox "
 "to reset to default"
 msgstr ""
+"deve conter %url% como um espaço reservado para o link da reunião; esvazie a "
+"caixa de texto para redefinir o padrão"
 
 msgid "An unknown error occurred while changing password."
-msgstr ""
+msgstr "Ocorreu um erro desconhecido ao alterar a senha."
 
 msgid "Password is changed successfully."
-msgstr ""
+msgstr "A senha foi alterada com êxito."
 
 msgid "Success"
-msgstr ""
+msgstr "Sucesso"
 
 msgid "Change Password"
-msgstr ""
+msgstr "Alterar senha"
 
 msgid "Current password"
-msgstr ""
+msgstr "Senha atual"
 
 msgid "New password"
-msgstr ""
+msgstr "Nova senha"
 
 msgid "Retype new password"
-msgstr ""
+msgstr "Digite novamente a nova senha"
 
 msgid "New passwords do not match."
-msgstr ""
+msgstr "As novas senhas não correspondem."
 
 msgid "Current password is empty."
-msgstr ""
+msgstr "A senha atual está vazia."
 
 msgid "New password is empty."
-msgstr ""
+msgstr "A nova senha está vazia."
 
 msgid "One or more fields does contain errors."
-msgstr ""
+msgstr "Um ou mais campos contêm erros."
 
 msgid ""
 "Password is weak. Password should contain capital, non-capital letters and "
 "numbers. Password should have 8 to 20 characters."
 msgstr ""
+"A senha é fraca. A senha deve conter letras maiúsculas, não maiúsculas e "
+"números. A senha deve ter de 8 a 20 caracteres."
 
 msgid "Change passphrase"
-msgstr ""
+msgstr "Alterar a senha"
 
 msgid "Old passphrase"
-msgstr ""
+msgstr "Senha antiga"
 
 msgid "Wrong passphrase. Please try again"
-msgstr ""
+msgstr "Frase secreta incorreta. Tente novamente"
 
 msgid "New passphrase"
-msgstr ""
+msgstr "Nova frase secreta"
 
 msgid "Confirm new passphrase"
-msgstr ""
+msgstr "Confirmar a nova frase secreta"
 
 msgid "The passphrases don't match. Please try again"
-msgstr ""
+msgstr "As frases-senha não correspondem. Tente novamente"
 
 msgid "S/MIME Message"
-msgstr ""
+msgstr "Mensagem S/MIME"
 
 msgid "Passphrase changed succesfully"
-msgstr ""
+msgstr "A senha foi alterada com sucesso"
 
 msgid "S/MIME Passphrase"
-msgstr ""
+msgstr "Senha S/MIME"
 
 msgid "Submit"
 msgstr "Submeter"
 
 msgid "Certificate passphrase"
-msgstr ""
+msgstr "Senha do certificado"
 
 msgid "The passphrase you typed is incorrect. Please try again."
-msgstr ""
+msgstr "A frase secreta que você digitou está incorreta. Tente novamente."
 
 msgid "No certificates imported, please upload your private certificate"
 msgstr ""
+"Nenhum certificado foi importado, faça o upload de seu certificado privado"
 
 msgid "Valid from"
-msgstr ""
+msgstr "Válido a partir de"
 
 msgid "Expires"
-msgstr ""
+msgstr "Expirações"
 
 msgid "Loading certificates"
-msgstr ""
+msgstr "Carregando certificados"
 
 msgid "S/MIME Plugin"
-msgstr ""
+msgstr "Plug-in S/MIME"
 
 msgid "Please select a certificate."
-msgstr ""
+msgstr "Selecione um certificado."
 
 msgid ""
 "Do you really want to remove your private certificate? If you remove your "
 "certificate you will not be able to sign or decrypt S/MIME emails."
 msgstr ""
+"Você realmente deseja remover seu certificado privado? Se você remover o "
+"certificado, não poderá assinar ou descriptografar e-mails S/MIME."
 
 msgid "Certificate details"
-msgstr ""
+msgstr "Detalhes do certificado"
 
 msgid ""
 "Below you can view and delete public & private certificate(s) stored on the "
 "server."
 msgstr ""
+"Abaixo, você pode visualizar e excluir os certificados públicos e privados "
+"armazenados no servidor."
 
 msgid "Filter on Email"
-msgstr ""
+msgstr "Filtro no e-mail"
 
 msgid "Public & Private certificates"
-msgstr ""
+msgstr "Certificados públicos e privados"
 
 msgid "S/MIME"
-msgstr ""
+msgstr "S/MIME"
 
 msgid "You don't have a valid certificate corresponding to your account"
-msgstr ""
+msgstr "Você não tem um certificado válido correspondente à sua conta"
 
 msgid "Personal certificate"
-msgstr ""
+msgstr "Certificado pessoal"
 
 msgid "Change passphrase for last certificate"
-msgstr ""
+msgstr "Alterar a senha do último certificado"
 
 msgid "You have a valid certificate corresponding to your account"
-msgstr ""
+msgstr "Você tem um certificado válido correspondente à sua conta"
 
 msgid "Upload your certificate"
-msgstr ""
+msgstr "Faça upload de seu certificado"
 
 msgid ""
 "Below you can upload your private certificate in PKCS#12 format. grommunio "
 "Web only accepts certificates which are valid and only stores one private "
 "certificate on the server."
 msgstr ""
+"Abaixo, você pode carregar seu certificado privado no formato PKCS#12. O "
+"grommunio Web só aceita certificados válidos e armazena apenas um "
+"certificado privado no servidor."
 
 msgid "Private certificate"
-msgstr ""
+msgstr "Certificado privado"
 
 msgid "You must fill in the certificate passphrase to upload your certificate."
 msgstr ""
+"Você deve preencher a frase secreta do certificado para carregar o "
+"certificado."
 
 msgid "You must first select a valid private certificate in PKCS#12 format."
 msgstr ""
+"Primeiro, você deve selecionar um certificado privado válido no formato "
+"PKCS#12."
 
 msgid "Sign"
-msgstr ""
+msgstr "Sinal"
 
 msgid "Sign message"
-msgstr ""
+msgstr "Mensagem de sinalização"
 
 msgid ""
 "Ensure the authenticity of the message by adding a digital signature to this "
 "message. Any changes to the message will invalidate the signature."
 msgstr ""
+"Garanta a autenticidade da mensagem adicionando uma assinatura digital a "
+"essa mensagem. Qualquer alteração na mensagem invalidará a assinatura."
 
 msgid "Encrypt"
-msgstr ""
+msgstr "Criptografar"
 
 msgid "Encrypt message"
-msgstr ""
+msgstr "Criptografar mensagem"
 
 msgid ""
 "Ensure the privacy of the message by encrypting its contents. Only the "
 "recipient of the message will be able to open it."
 msgstr ""
+"Garanta a privacidade da mensagem criptografando seu conteúdo. Somente o "
+"destinatário da mensagem poderá abri-la."
 
 msgid "What's going on with my email?"
-msgstr ""
+msgstr "O que está acontecendo com meu e-mail?"
 
 msgid ""
 "grommunio Web can verify digital signatures of emails. A successful "
 "verification reassures you that the message has not been tampered with and "
 "validates the identity of the sender."
 msgstr ""
+"O grommunio Web pode verificar assinaturas digitais de e-mails. Uma "
+"verificação bem-sucedida garante a você que a mensagem não foi adulterada e "
+"valida a identidade do remetente."
 
 msgid ""
 "You are seeing this message because the verification of the digital signature"
 msgstr ""
+"Você está vendo essa mensagem porque a verificação da assinatura digital"
 
 msgid " has failed"
-msgstr ""
+msgstr " falhou"
 
 msgid " for this message."
-msgstr ""
+msgstr " para esta mensagem."
 
 msgid "What caused this issue?"
-msgstr ""
+msgstr "O que causou esse problema?"
 
 msgid "What should I do?"
-msgstr ""
+msgstr "O que devo fazer?"
 
 msgid ""
 "You can continue to work. However, you should keep in mind that the identity "
 "and the authenticity of the message content could not be verified."
 msgstr ""
+"Você pode continuar trabalhando. No entanto, você deve ter em mente que a "
+"identidade e a autenticidade do conteúdo da mensagem não puderam ser "
+"verificadas."
 
 msgid ""
 "You can contact your helpdesk or system administrator if you are not sure "
 "what to do next."
 msgstr ""
+"Você pode entrar em contato com o helpdesk ou o administrador do sistema se "
+"não souber o que fazer em seguida."
 
 msgid ""
 "grommunio Web can verify digital signatures of emails. A successful "
 "verification reassures you "
 msgstr ""
+"O grommunio Web pode verificar assinaturas digitais de e-mails. Uma "
+"verificação bem-sucedida garante que você"
 
 msgid ""
 "that the message has not been tampered with and validates the identity of "
 "the sender."
-msgstr ""
+msgstr "que a mensagem não foi adulterada e valida a identidade do remetente."
 
 msgid ""
 "The verification of the digital signature was successful for this email "
 "message."
 msgstr ""
+"A verificação da assinatura digital foi bem-sucedida para essa mensagem de e-"
+"mail."
 
 msgid "grommunio Web could not find a public certificate for the recipient."
 msgstr ""
+"O grommunio Web não conseguiu encontrar um certificado público para o "
+"destinatário."
 
 msgid ""
 "The identity of the sender and authenticity of the message content have been "
 "verified, but the certificate used to sign the message expired on [d-m-Y]."
 msgstr ""
+"A identidade do remetente e a autenticidade do conteúdo da mensagem foram "
+"verificadas, mas o certificado usado para assinar a mensagem expirou em [d-m-"
+"Y]."
 
 msgid "The digital signature could not be verified for unknown reasons."
 msgstr ""
+"A assinatura digital não pôde ser verificada por motivos desconhecidos."
 
 msgid ""
 "The digital certificate used to sign this message has been revoked (i.e. the "
 "sender has marked it as compromised)"
 msgstr ""
+"O certificado digital usado para assinar esta mensagem foi revogado (ou "
+"seja, o remetente o marcou como comprometido)"
 
 msgid ""
 "The verification service of the certificate authority that signed the "
 "sender's certificate is not available. The validity of the certificate could "
 "not be verified."
 msgstr ""
+"O serviço de verificação da autoridade de certificação que assinou o "
+"certificado do remetente não está disponível. A validade do certificado não "
+"pôde ser verificada."
 
 msgid ""
 "The revocation status of the digital certificate used to sign this email is "
 "unknown (Server is unavailable or certificate does not support OCSP). The "
 "validity of the certificate could not be verified."
 msgstr ""
+"O status de revogação do certificado digital usado para assinar este e-mail "
+"é desconhecido (o servidor não está disponível ou o certificado não é "
+"compatível com OCSP). A validade do certificado não pôde ser verificada."
 
 msgid ""
 "The revocation status of the digital certificate used to sign this email is "
 "disabled (OCSP). The validity of the certificate could not be verified."
 msgstr ""
+"O status de revogação do certificado digital usado para assinar este e-mail "
+"está desativado (OCSP). A validade do certificado não pôde ser verificada."
 
 msgid "The certificate verification server (OCSP) is temporarily offline."
 msgstr ""
+"O servidor de verificação de certificados (OCSP) está temporariamente off-"
+"line."
 
 msgid "Sender is removed from the server."
-msgstr ""
+msgstr "O remetente é removido do servidor."
 
 msgid "Signature verified successfully"
-msgstr ""
+msgstr "Assinatura verificada com sucesso"
 
 msgid "Could not verify signature, missing public certificate"
-msgstr ""
+msgstr "Não foi possível verificar a assinatura, falta de certificado público"
 
 msgid "Signature verification successful, but certificate is expired"
 msgstr ""
+"A verificação da assinatura foi bem-sucedida, mas o certificado expirou"
 
 msgid "Signature could not be verified"
-msgstr ""
+msgstr "A assinatura não pôde ser verificada"
 
 msgid "Certificate has been revoked"
-msgstr ""
+msgstr "O certificado foi revogado"
 
 msgid "Verification with Certificate Authority failed"
-msgstr ""
+msgstr "Falha na verificação com a autoridade de certificação"
 
 msgid "Message decrypted succesfully"
-msgstr ""
+msgstr "Mensagem descriptografada com sucesso"
 
 msgid "Message decryption failed"
-msgstr ""
+msgstr "Falha na descriptografia da mensagem"
 
 msgid "Please"
-msgstr ""
+msgstr "Por favor"
 
 msgid "click here"
-msgstr ""
+msgstr "clique aqui"
 
 msgid "to unlock your certificate"
-msgstr ""
+msgstr "para desbloquear seu certificado"
 
 msgid "Cannot determine revocation status of certificate"
-msgstr ""
+msgstr "Não é possível determinar o status de revogação do certificado"
 
 msgid "Signature verified"
-msgstr ""
+msgstr "Assinatura verificada"
 
 msgid "Unable to decrypt this message. Certificate does not match"
 msgstr ""
+"Não é possível descriptografar esta mensagem. O certificado não corresponde"
 
 msgid "Verification failed. User is removed from the server."
-msgstr ""
+msgstr "A verificação falhou. O usuário foi removido do servidor."
 
 msgid "Charm pink"
-msgstr ""
+msgstr "Rosa charme"
 
 msgid "Cadmium red"
-msgstr ""
+msgstr "Vermelho cádmio"
 
 msgid "Apricot"
-msgstr ""
+msgstr "Damasco"
 
 msgid "California"
-msgstr ""
+msgstr "Califórnia"
 
 msgid "Soft green"
-msgstr ""
+msgstr "Verde suave"
 
 msgid "Mint"
-msgstr ""
+msgstr "Hortelã"
 
 msgid "Pearl aqua"
-msgstr ""
+msgstr "Pérola aqua"
 
 msgid "Grommunio blue"
-msgstr ""
+msgstr "Grommunio azul"
 
 msgid "Baby blue"
-msgstr ""
+msgstr "Azul bebê"
 
 msgid "Mauve"
-msgstr ""
+msgstr "Malva"
 
 msgid "Silver sand"
-msgstr ""
+msgstr "Areia prateada"
 
 msgid "Competition"
 msgstr "Completo"
@@ -6748,12 +6931,14 @@ msgid ""
 "Sorry, access to grommunio Web is not available with this user account. "
 "Please contact your system administrator."
 msgstr ""
+"Desculpe, o acesso ao grommunio Web não está disponível com esta conta de "
+"usuário. Entre em contato com o administrador do sistema."
 
 msgid "With this backend, you can connect to any ownCloud server."
-msgstr ""
+msgstr "Com esse backend, você pode se conectar a qualquer servidor ownCloud."
 
 msgid "Files ownCloud Backend: "
-msgstr ""
+msgstr "Arquivos ownCloud Backend:"
 
 msgid "Server address"
 msgstr "Endereço do servidor"
@@ -6771,58 +6956,64 @@ msgid "Use grommunio credentials"
 msgstr "Use credenciais grommunio"
 
 msgid "php-curl is not available"
-msgstr ""
+msgstr "O php-curl não está disponível"
 
 msgid "Access denied"
-msgstr ""
+msgstr "Acesso negado"
 
 msgid "Connection failed"
-msgstr ""
+msgstr "Falha na conexão"
 
 msgid "Sabre error"
-msgstr ""
+msgstr "Erro do Sabre"
 
 msgid "Copying failed"
-msgstr ""
+msgstr "Falha na cópia"
 
 msgid "Unknown error"
 msgstr "Erro desconhecido"
 
 msgid "Please contact your system administrator."
-msgstr ""
+msgstr "Entre em contato com o administrador do sistema."
 
 msgid "Unauthorized. Wrong username or password."
 msgstr "Não autorizado. Usuário ou senha errada."
 
 msgid "File server is not reachable. Please verify the file server URL."
 msgstr ""
+"O servidor de arquivos não pode ser acessado. Verifique o URL do servidor de "
+"arquivos."
 
 msgid "You don't have enough permissions to view this file or folder."
 msgstr ""
+"Você não tem permissões suficientes para visualizar esse arquivo ou pasta."
 
 msgid "The file or folder is not available anymore."
-msgstr ""
+msgstr "O arquivo ou a pasta não está mais disponível."
 
 msgid "Connection to the file server timed out. Please check again later."
 msgstr ""
+"O tempo de conexão com o servidor de arquivos expirou. Por favor, verifique "
+"novamente mais tarde."
 
 msgid "This file is locked by another user. Please try again later."
 msgstr ""
+"Este arquivo está bloqueado por outro usuário. Tente novamente mais tarde."
 
 msgid "The request failed."
-msgstr ""
+msgstr "A solicitação falhou."
 
 msgid "The file server encountered an internal problem."
-msgstr ""
+msgstr "O servidor de arquivos encontrou um problema interno."
 
 msgid "We could not write to temporary directory."
-msgstr ""
+msgstr "Não foi possível gravar no diretório temporário."
 
 msgid "We could not retrieve list of server features."
-msgstr ""
+msgstr "Não foi possível recuperar a lista de recursos do servidor."
 
 msgid "PHP-Curl is not available."
-msgstr ""
+msgstr "O PHP-Curl não está disponível."
 
 msgid "Unknown account ID"
 msgstr "ID da conta desconhecida"
@@ -6837,10 +7028,10 @@ msgid "Feature \"OAUTH\" is not supported by this backend!"
 msgstr "Recurso \"OAUTH\" não é suportado por este servidor!"
 
 msgid "Moving between accounts is not implemented"
-msgstr ""
+msgstr "A movimentação entre contas não está implementada"
 
 msgid "Files plugin"
-msgstr ""
+msgstr "Plug-in de arquivos"
 
 msgid "Unknown type - cannot save this file to the Files backend!"
 msgstr "Tipo desconhecido - não pode salvar este arquivo no servidor Arquivos!"
@@ -6861,40 +7052,40 @@ msgid "Deleting share failed"
 msgstr "Falha ao apagar compartilhamento"
 
 msgid "With this backend, you can connect to any WebDAV server."
-msgstr ""
+msgstr "Com esse backend, você pode se conectar a qualquer servidor WebDAV."
 
 msgid "Files WebDAV Backend: "
-msgstr ""
+msgstr "Backend WebDAV de arquivos:"
 
 msgid "PHP-CURL is not installed"
-msgstr ""
+msgstr "O PHP-CURL não está instalado"
 
 msgid "Directory creation failed"
-msgstr ""
+msgstr "Falha na criação do diretório"
 
 msgid "Deletion failed"
-msgstr ""
+msgstr "Falha na exclusão"
 
 msgid "Moving failed"
-msgstr ""
+msgstr "A mudança falhou"
 
 msgid "Temporary directory problems"
-msgstr ""
+msgstr "Problemas com o diretório temporário"
 
 msgid "File or folder not found"
-msgstr ""
+msgstr "Arquivo ou pasta não encontrado"
 
 msgid "Not implemented"
-msgstr ""
+msgstr "Não implementado"
 
 msgid "Please contact your system administrator"
-msgstr ""
+msgstr "Entre em contato com o administrador do sistema"
 
 msgid "File server is not reachable. Please verify the connection."
-msgstr ""
+msgstr "O servidor de arquivos não pode ser acessado. Verifique a conexão."
 
 msgid "PHP-CURL not installed"
-msgstr ""
+msgstr "PHP-CURL não instalado"
 
 msgid "Account is ready to use."
 msgstr "Conta pronta para uso."
@@ -6909,112 +7100,127 @@ msgid "This file is no longer available. Please reload the folder."
 msgstr "Este arquivo não está mais disponível. Por favor, recarregue a pasta."
 
 msgid "Mobile device management plugin"
-msgstr ""
+msgstr "Plug-in de gerenciamento de dispositivos móveis"
 
 #, php-format
 msgid ""
 "Unexpected error occurred. Please contact your system administrator. Error "
 "code: %s"
 msgstr ""
+"Ocorreu um erro inesperado. Entre em contato com o administrador do sistema. "
+"Código de erro: %s"
 
 msgid "No data received."
-msgstr ""
+msgstr "Nenhum dado recebido."
 
 msgid "Account is empty."
-msgstr ""
+msgstr "A conta está vazia."
 
 msgid "Current password does not match."
-msgstr ""
+msgstr "A senha atual não corresponde."
 
 msgid ""
 "Your password is wrong or you have insufficient permission to change password"
 msgstr ""
+"Sua senha está incorreta ou você não tem permissão suficiente para alterar a "
+"senha"
 
 msgid "Password is not changed."
-msgstr ""
+msgstr "A senha não foi alterada."
 
 msgid "Error changing password. Please contact the system administrator."
 msgstr ""
+"Erro ao alterar a senha. Entre em contato com o administrador do sistema."
 
 msgid "Password has been changed successfully."
-msgstr ""
+msgstr "A senha foi alterada com sucesso."
 
 msgid "No certificate avaliable"
-msgstr ""
+msgstr "Nenhum certificado disponível"
 
 msgid "Private certificate is not valid yet, unable to sign email"
 msgstr ""
+"O certificado privado ainda não é válido, não é possível assinar o e-mail"
 
 msgid "Private certificate has been expired, unable to sign email"
-msgstr ""
+msgstr "O certificado privado expirou, não é possível assinar o e-mail"
 
 msgid "Private certificate does not match email address"
-msgstr ""
+msgstr "O certificado privado não corresponde ao endereço de e-mail"
 
 msgid "Missing public certificates for the following recipients: "
-msgstr ""
+msgstr "Falta de certificados públicos para os seguintes destinatários:"
 
 msgid ". Please contact your system administrator for details"
-msgstr ""
+msgstr ". Entre em contato com o administrador do sistema para obter detalhes"
 
 msgid ""
 "Your public certificate is not installed. Without this certificate, you will "
 "not be able to read encrypted messages you have sent to others."
 msgstr ""
+"Seu certificado público não está instalado. Sem esse certificado, você não "
+"poderá ler as mensagens criptografadas que enviou a outras pessoas."
 
 msgid "Certificate is already stored on the server"
-msgstr ""
+msgstr "O certificado já está armazenado no servidor"
 
 msgid "Unable to decrypt certificate"
-msgstr ""
+msgstr "Não é possível descriptografar o certificado"
 
 msgid "Private key can't be used to sign email"
-msgstr ""
+msgstr "A chave privada não pode ser usada para assinar e-mails"
 
 msgid "Certificate email address doesn't match grommunio Web account "
 msgstr ""
+"O endereço de e-mail do certificado não corresponde à conta da Web do "
+"grommunio"
 
 msgid "Certificate was expired on "
-msgstr ""
+msgstr "O certificado expirou em"
 
 msgid "Certificate was imported."
-msgstr ""
+msgstr "O certificado foi importado."
 
 msgid "Certificate is not yet valid "
-msgstr ""
+msgstr "O certificado ainda não é válido"
 
 msgid "Certificate has not been imported"
-msgstr ""
+msgstr "O certificado não foi importado"
 
 msgid "Certificate is revoked, but was imported."
-msgstr ""
+msgstr "O certificado foi revogado, mas foi importado."
 
 msgid "Unable to read public certificate"
-msgstr ""
+msgstr "Não é possível ler o certificado público"
 
 msgid "Can't add data to bus, same action type is present in bus"
 msgstr ""
+"Não é possível adicionar dados ao barramento, pois o mesmo tipo de ação está "
+"presente no barramento"
 
 msgid "Response data requested from bus but it doesn't have any data."
 msgstr ""
+"Dados de resposta solicitados do barramento, mas ele não tem nenhum dado."
 
 #, php-format
 msgid "Unknown module '%s' with id '%s'"
-msgstr ""
+msgstr "Módulo desconhecido '%s' com id '%s'"
 
 msgid ""
 "Server encountered some problem, so it was not able to handle the request."
 msgstr ""
+"O servidor encontrou algum problema e, por isso, não pôde atender à "
+"solicitação."
 
 #, php-format
 msgid "Unknown notifier '%s'"
-msgstr ""
+msgstr "Notificador desconhecido '%s'"
 
 msgid "An unexpected error has occurred"
-msgstr ""
+msgstr "Ocorreu um erro inesperado"
 
 msgid "To-Do List"
-msgstr ""
+msgstr "Lista de tarefas"
 
 #. TRANSLATORS: This indicates that the opened folder belongs to a particular user,
 #. * for example: 'Calendar of Holiday', in this case %1$s is 'Calendar' (the foldername)
@@ -7022,13 +7228,13 @@ msgstr ""
 #.
 #, php-format
 msgid "%1$s of %2$s"
-msgstr ""
+msgstr "%1$s de %2$s"
 
 msgid "Error retrieving existing settings"
-msgstr ""
+msgstr "Erro ao recuperar configurações existentes"
 
 msgid "Error retrieving existing persistent settings"
-msgstr ""
+msgstr "Erro ao recuperar configurações persistentes existentes"
 
 #, fuzzy
 msgid "Logon failed. Please verify your credentials and try again."
@@ -7042,33 +7248,35 @@ msgid ""
 "Login did not work due to a duplicate session. The issue was automatically "
 "resolved, please log in again."
 msgstr ""
+"O login não funcionou devido a uma sessão duplicada. O problema foi "
+"resolvido automaticamente. Faça login novamente."
 
 #, fuzzy
 msgid "Unknown MAPI Error"
 msgstr "Erro MAPI desconhecido: %s"
 
 msgid "Destination folder not found."
-msgstr ""
+msgstr "Pasta de destino não encontrada."
 
 msgid "Eml is corrupted"
-msgstr ""
+msgstr "O Eml está corrompido"
 
 msgid "The eml Attachment is not imported successfully"
-msgstr ""
+msgstr "O anexo eml não foi importado com êxito"
 
 msgid "The vcf attachment is not imported successfully"
-msgstr ""
+msgstr "O anexo vcf não foi importado com êxito"
 
 #, php-format
 msgid "Unable to import '%s' to '%s'. "
-msgstr ""
+msgstr "Não foi possível importar '%s' para '%s'."
 
 #, fuzzy
 msgid "There is no appointment found in this file."
 msgstr "Este compromisso ocorre no passado."
 
 msgid "The file is corrupt."
-msgstr ""
+msgstr "O arquivo está corrompido."
 
 #, fuzzy
 msgid "The file is invalid."
@@ -7076,37 +7284,38 @@ msgstr "{0} não é uma hora válida"
 
 #, php-format
 msgid "Unable to import '%s'. "
-msgstr ""
+msgstr "Não foi possível importar '%s'."
 
 msgid "Attachment is not imported successfully"
-msgstr ""
+msgstr "O anexo não foi importado com êxito"
 
 msgid "Embedded attachment not found."
-msgstr ""
+msgstr "Anexo incorporado não encontrado."
 
 msgid "ZIP is not created successfully"
-msgstr ""
+msgstr "O ZIP não foi criado com êxito"
 
 msgid "Attachments can not be downloaded"
-msgstr ""
+msgstr "Os anexos não podem ser baixados"
 
 msgid "Could not find attachment."
-msgstr ""
+msgstr "Não foi possível encontrar o anexo."
 
 msgid "Operation failed"
-msgstr ""
+msgstr "Falha na operação"
 
 msgid "Sticky Note"
-msgstr ""
+msgstr "Nota adesiva"
 
 msgid "Task Request"
-msgstr ""
+msgstr "Solicitação de tarefa"
 
 msgid "Could not find message, either it has been moved or deleted."
 msgstr ""
+"Não foi possível encontrar a mensagem, pois ela foi movida ou excluída."
 
 msgid "Request is not available."
-msgstr ""
+msgstr "A solicitação não está disponível."
 
 msgid "You have insufficient privileges to open this object."
 msgstr "Você não possui privilégios suficientes para abrir esse objeto."
@@ -7128,69 +7337,82 @@ msgid "Can not find object."
 msgstr "Não foi possível localizar o objeto."
 
 msgid "Operation failed: Server does not have enough memory."
-msgstr ""
+msgstr "Falha na operação: O servidor não tem memória suficiente."
 
 #, php-format
 msgid "Unknown MAPI Error: %s"
 msgstr "Erro MAPI desconhecido: %s"
 
 msgid "Action is not performed correctly."
-msgstr ""
+msgstr "A ação não foi executada corretamente."
 
 msgid "Contact not found"
-msgstr ""
+msgstr "Contato não encontrado"
 
 msgid ""
 "Contact information could not be displayed because the server had trouble "
 "retrieving the information."
 msgstr ""
+"As informações de contato não puderam ser exibidas porque o servidor teve "
+"problemas para recuperar as informações."
 
 msgid "Please contact your system administrator if the problem persists."
 msgstr ""
+"Entre em contato com o administrador do sistema se o problema persistir."
 
 msgid "Could not handle this type of object."
-msgstr ""
+msgstr "Não foi possível lidar com esse tipo de objeto."
 
 msgid "Could not open this object."
-msgstr ""
+msgstr "Não foi possível abrir este objeto."
 
 msgid "Error in search, please try again"
-msgstr ""
+msgstr "Erro na pesquisa, tente novamente"
 
 msgid "Unable to perform search query, no permissions to create search folder."
 msgstr ""
+"Não é possível executar a consulta de pesquisa, não há permissões para criar "
+"a pasta de pesquisa."
 
 msgid "Unable to perform search query, search folder not found."
 msgstr ""
+"Não foi possível realizar a consulta de pesquisa, a pasta de pesquisa não "
+"foi encontrada."
 
 msgid "Unable to perform search query, store might not support searching."
 msgstr ""
+"Não foi possível realizar a consulta de pesquisa, pois a loja pode não "
+"suportar a pesquisa."
 
 msgid "Error in creating search folder."
-msgstr ""
+msgstr "Erro ao criar a pasta de pesquisa."
 
 msgid "Could not open occurrence."
-msgstr ""
+msgstr "Não foi possível abrir a ocorrência."
 
 msgid "Could not open occurrence, specific occurrence is probably deleted."
 msgstr ""
+"Não foi possível abrir a ocorrência, a ocorrência específica provavelmente "
+"foi excluída."
 
 msgid "a meeting request"
-msgstr ""
+msgstr "uma solicitação de reunião"
 
 msgid "an appointment"
-msgstr ""
+msgstr "um compromisso"
 
 msgid "You have insufficient privileges to move "
-msgstr ""
+msgstr "Você não tem privilégios suficientes para mover"
 
 msgid ""
 "Cannot set a reminder to appear before the previous occurrence. Reset "
 "reminder to save the change"
 msgstr ""
+"Não é possível definir um lembrete para aparecer antes da ocorrência "
+"anterior. Redefinir o lembrete para salvar a alteração"
 
 msgid "Two occurrences cannot occur on the same day"
-msgstr ""
+msgstr "Duas ocorrências não podem ocorrer no mesmo dia"
 
 #, php-format
 msgid ""
@@ -7199,138 +7421,151 @@ msgid ""
 "enter the name as a required or optional attendee or talk to your "
 "administrator about giving you permission to schedule '%s'."
 msgstr ""
+"Você marcou '%s' como um recurso. Não é possível agendar uma reunião com "
+"'%s' porque você não tem as permissões apropriadas para essa conta. Insira o "
+"nome como um participante obrigatório ou opcional ou converse com o "
+"administrador para obter permissão para agendar '%s'."
 
 #, php-format
 msgid ""
 "'%s' has declined your meeting because '%s' does not automatically accept "
 "meeting requests."
 msgstr ""
+"'%s' recusou sua reunião porque '%s' não aceita automaticamente solicitações "
+"de reunião."
 
 #, php-format
 msgid ""
 "'%s' has declined your meeting because it is recurring. You must book each "
 "meeting separately with this resource."
 msgstr ""
+"'%s' recusou sua reunião porque ela é recorrente. Você deve agendar cada "
+"reunião separadamente com esse recurso."
 
 #, php-format
 msgid ""
 "'%s' is already booked for this specified time. You must use another time or "
 "find another resource."
 msgstr ""
+"'%s' já está reservado para esse horário especificado. Você deve usar outro "
+"horário ou encontrar outro recurso."
 
 msgid "Meeting was not scheduled."
-msgstr ""
+msgstr "A reunião não foi agendada."
 
 msgid "Meeting could not be sent."
-msgstr ""
+msgstr "Não foi possível enviar a reunião."
 
 msgid "Meeting could not be saved."
-msgstr ""
+msgstr "A reunião não pôde ser salva."
 
 msgid "Private Appointment"
-msgstr ""
+msgstr "Compromisso particular"
 
 #, php-format
 msgid "%s's Birthday"
-msgstr ""
+msgstr "Aniversário de %s"
 
 #, php-format
 msgid "%s's Anniversary"
-msgstr ""
+msgstr "Aniversário de %s"
 
 msgid "You don't have the permission to complete this action"
-msgstr ""
+msgstr "Você não tem permissão para concluir esta ação"
 
 msgid "Quota error"
-msgstr ""
+msgstr "Erro de cota"
 
 msgid "Send quota limit reached"
-msgstr ""
+msgstr "Limite de cota de envio atingido"
 
 msgid "Email sending failed. Check the log files for more information."
 msgstr ""
+"Falha no envio de e-mail. Verifique os arquivos de registro para obter mais "
+"informações."
 
 msgid "Unknown user/group"
-msgstr ""
+msgstr "Usuário/grupo desconhecido"
 
 msgid "Could not save delegate information."
-msgstr ""
+msgstr "Não foi possível salvar as informações do delegado."
 
 msgid "Could not delete delegate."
-msgstr ""
+msgstr "Não foi possível excluir o delegado."
 
 msgid "Can not get list of delegates."
-msgstr ""
+msgstr "Não é possível obter a lista de delegados."
 
 msgid "Could not load the hierarchy."
-msgstr ""
+msgstr "Não foi possível carregar a hierarquia."
 
 msgid "Could not load folder properties."
-msgstr ""
+msgstr "Não foi possível carregar as propriedades da pasta."
 
 msgid "Could not remove folder from favorites."
-msgstr ""
+msgstr "Não foi possível remover a pasta dos favoritos."
 
 msgid "You have insufficient privileges to delete folder."
-msgstr ""
+msgstr "Você não tem privilégios suficientes para excluir a pasta."
 
 msgid "Could not delete folder."
-msgstr ""
+msgstr "Não foi possível excluir a pasta."
 
 msgid "You have insufficient privileges to copy folder."
-msgstr ""
+msgstr "Você não tem privilégios suficientes para copiar a pasta."
 
 msgid "Could not copy folder."
-msgstr ""
+msgstr "Não foi possível copiar a pasta."
 
 msgid "You have insufficient privileges to move this folder."
-msgstr ""
+msgstr "Você não tem privilégios suficientes para mover essa pasta."
 
 msgid "Could not move folder."
-msgstr ""
+msgstr "Não foi possível mover a pasta."
 
 msgid "You have insufficient privileges to delete items."
-msgstr ""
+msgstr "Você não tem privilégios suficientes para excluir itens."
 
 msgid "Could not empty folder."
-msgstr ""
+msgstr "Não foi possível esvaziar a pasta."
 
 msgid "Could not perform action correctly."
-msgstr ""
+msgstr "Não foi possível executar a ação corretamente."
 
 msgid ""
 "A favorite folder with this name already exists, please use another name."
-msgstr ""
+msgstr "Já existe uma pasta favorita com esse nome, por favor, use outro nome."
 
 msgid "Could not add folder to favorites."
-msgstr ""
+msgstr "Não foi possível adicionar a pasta aos favoritos."
 
 msgid "You have insufficient privileges to set permissions for this folder."
 msgstr ""
+"Você não tem privilégios suficientes para definir permissões para essa pasta."
 
 msgid "Could not set folder permissions."
-msgstr ""
+msgstr "Não foi possível definir as permissões de pasta."
 
 msgid "You have insufficient privileges to rename this folder."
-msgstr ""
+msgstr "Você não tem privilégios suficientes para renomear essa pasta."
 
 msgid "A folder with this name already exists. Use another name."
-msgstr ""
+msgstr "Já existe uma pasta com esse nome. Use outro nome."
 
 msgid "Could not rename folder."
-msgstr ""
+msgstr "Não foi possível renomear a pasta."
 
 msgid "You have insufficient privileges to create this folder."
-msgstr ""
+msgstr "Você não tem privilégios suficientes para criar essa pasta."
 
 msgid "Could not create folder."
-msgstr ""
+msgstr "Não foi possível criar a pasta."
 
 msgid "Could not close shared folder."
-msgstr ""
+msgstr "Não foi possível fechar a pasta compartilhada."
 
 msgid "User could not be resolved."
-msgstr ""
+msgstr "Não foi possível resolver o problema do usuário."
 
 #, php-format
 msgid ""
@@ -7338,29 +7573,35 @@ msgid ""
 "can set these using the 'permissions'-tab of the folder properties (right "
 "click the %1$s folder > properties > permissions)."
 msgstr ""
+"Você não tem privilégios suficientes para abrir essa pasta %1$s. O "
+"proprietário da pasta pode definir esses privilégios usando a guia "
+"\"permissões\" das propriedades da pasta (clique com o botão direito do "
+"mouse na pasta %1$s > propriedades > permissões)."
 
 msgid "default"
-msgstr ""
+msgstr "padrão"
 
 msgid "anonymous"
-msgstr ""
+msgstr "anônimo"
 
 msgid "unknown"
-msgstr ""
+msgstr "desconhecido"
 
 msgid "Could not move folder"
-msgstr ""
+msgstr "Não foi possível mover a pasta"
 
 msgid "Could not copy folder"
-msgstr ""
+msgstr "Não foi possível copiar a pasta"
 
 msgid "You have insufficient privileges to open this message."
-msgstr ""
+msgstr "Você não tem privilégios suficientes para abrir esta mensagem."
 
 msgid ""
 "Could not find message, either it has been moved or deleted or you don't "
 "have access to open this message."
 msgstr ""
+"Não foi possível encontrar a mensagem, pois ela foi movida ou excluída ou "
+"você não tem acesso para abrir essa mensagem."
 
 msgid "Could not open message."
 msgstr "Não foi possível abrir essa mensagem."
@@ -7392,6 +7633,7 @@ msgid ""
 "Message is no longer in the outgoing queue, typically because it has already "
 "been sent."
 msgstr ""
+"A mensagem não está mais na fila de saída, geralmente porque já foi enviada."
 
 #, fuzzy
 msgid "Message cannot be aborted"
@@ -7455,187 +7697,208 @@ msgid "The following recipient(s) could not be reached"
 msgstr "Os seguintes destinatários não puderam ser localizados"
 
 msgid "You have insufficient privileges to see the contents of this folder."
-msgstr ""
+msgstr "Você não tem privilégios suficientes para ver o conteúdo dessa pasta."
 
 msgid "Could not load the contents of this folder."
-msgstr ""
+msgstr "Não foi possível carregar o conteúdo dessa pasta."
 
 msgid ""
 "You have insufficient privileges to perform search operation in this folder."
 msgstr ""
+"Você não tem privilégios suficientes para executar a operação de pesquisa "
+"nessa pasta."
 
 msgid "Could not update search results."
-msgstr ""
+msgstr "Não foi possível atualizar os resultados da pesquisa."
 
 msgid "Could not stop search operation."
-msgstr ""
+msgstr "Não foi possível interromper a operação de pesquisa."
 
 msgid "You have insufficient privileges to save this message."
-msgstr ""
+msgstr "Você não tem privilégios suficientes para salvar esta mensagem."
 
 msgid "Could not save message."
-msgstr ""
+msgstr "Não foi possível salvar a mensagem."
 
 msgid "You have insufficient privileges to delete this message."
-msgstr ""
+msgstr "Você não tem privilégios suficientes para excluir esta mensagem."
 
 msgid "Could not delete message."
-msgstr ""
+msgstr "Não foi possível excluir a mensagem."
 
 msgid "You have insufficient privileges to cancel this Meeting Request."
 msgstr ""
+"Você não tem privilégios suficientes para cancelar esta Solicitação de "
+"Reunião."
 
 msgid "Could not cancel Meeting Request."
-msgstr ""
+msgstr "Não foi possível cancelar a solicitação de reunião."
 
 msgid "You have insufficient privileges to decline this Meeting Request."
 msgstr ""
+"Você não tem privilégios suficientes para recusar essa Solicitação de "
+"Reunião."
 
 msgid "Could not decline Meeting Request."
-msgstr ""
+msgstr "Não foi possível recusar a solicitação de reunião."
 
 msgid "You have insufficient privileges to accept this Meeting Request."
 msgstr ""
+"Você não tem privilégios suficientes para aceitar essa Solicitação de "
+"Reunião."
 
 msgid "Could not accept Meeting Request."
-msgstr ""
+msgstr "Não foi possível aceitar a solicitação de reunião."
 
 msgid "You have insufficient privileges to cancel Meeting Request invitation."
 msgstr ""
+"Você não tem privilégios suficientes para cancelar o convite de Solicitação "
+"de Reunião."
 
 msgid "Could not cancel Meeting Request invitations."
-msgstr ""
+msgstr "Não foi possível cancelar os convites de solicitação de reunião."
 
 msgid "You can not continue search operation on this folder."
-msgstr ""
+msgstr "Não é possível continuar a operação de pesquisa nessa pasta."
 
 msgid "Error in search, please try again."
-msgstr ""
+msgstr "Erro na pesquisa, tente novamente."
 
 msgid "Error in distribution list expansion."
-msgstr ""
+msgstr "Erro na expansão da lista de distribuição."
 
 msgid "The message store has exceeded its hard quota limit."
-msgstr ""
+msgstr "O armazenamento de mensagens excedeu o limite da cota rígida."
 
 msgid ""
 "To reduce the amount of data in this message store, select some items that "
 "you no longer need, delete them and cleanup your Deleted Items folder."
 msgstr ""
+"Para reduzir a quantidade de dados nesse armazenamento de mensagens, "
+"selecione alguns itens que não são mais necessários, exclua-os e limpe a "
+"pasta Itens excluídos."
 
 msgid "The message store has exceeded its soft quota limit."
-msgstr ""
+msgstr "O armazenamento de mensagens excedeu seu limite de cota flexível."
 
 msgid "Could not process request data properly."
-msgstr ""
+msgstr "Não foi possível processar adequadamente os dados da solicitação."
 
 #, php-format
 msgid "Unknown action type specified - %s"
-msgstr ""
+msgstr "Tipo de ação desconhecido especificado - %s"
 
 msgid "Cannot snooze the reminder. You may be reminded again."
-msgstr ""
+msgstr "Não é possível adiar o lembrete. Você pode ser lembrado novamente."
 
 msgid "Cannot dismiss the reminder. You may be reminded again."
-msgstr ""
+msgstr "Não é possível ignorar o lembrete. Você pode ser lembrado novamente."
 
 msgid "You have insufficient privileges to perform this action."
-msgstr ""
+msgstr "Você não tem privilégios suficientes para executar essa ação."
 
 msgid "Could not resolve user."
-msgstr ""
+msgstr "Não foi possível resolver o usuário."
 
 msgid "Setting mail filters on the stores of other users is not allowed."
 msgstr ""
+"Não é permitido definir filtros de e-mail nas lojas de outros usuários."
 
 msgid "Untitled rule"
-msgstr ""
+msgstr "Regra sem título"
 
 msgid "Could not load rules."
-msgstr ""
+msgstr "Não foi possível carregar as regras."
 
 msgid "Could not save rules."
-msgstr ""
+msgstr "Não foi possível salvar as regras."
 
 msgid "Task Request:"
-msgstr ""
+msgstr "Solicitação de tarefas:"
 
 msgid "Sign in"
-msgstr ""
+msgstr "Fazer login"
 
 msgid "File is not imported successfully"
-msgstr ""
+msgstr "O arquivo não foi importado com êxito"
 
 msgid "The uploaded file exceeds the upload_max_filesize directive in php.ini."
-msgstr ""
+msgstr "O arquivo carregado excede a diretiva upload_max_filesize no php.ini."
 
 msgid ""
 "The uploaded file exceeds the MAX_FILE_SIZE directive that was specified in "
 "the HTML form."
 msgstr ""
+"O arquivo carregado excede a diretiva MAX_FILE_SIZE que foi especificada no "
+"formulário HTML."
 
 msgid "The uploaded file was only partially uploaded."
-msgstr ""
+msgstr "O arquivo carregado foi carregado apenas parcialmente."
 
 msgid "No file was uploaded. ."
-msgstr ""
+msgstr "Nenhum arquivo foi carregado. ."
 
 msgid "Missing a temporary folder."
-msgstr ""
+msgstr "Falta de uma pasta temporária."
 
 msgid "Failed to write file to disk."
-msgstr ""
+msgstr "Falha ao gravar o arquivo no disco."
 
 msgid ""
 "A PHP extension stopped the file upload. PHP does not provide a way to "
 "ascertain which extension caused the file upload to stop; examining the list "
 "of loaded extensions with phpinfo() may help."
 msgstr ""
+"Uma extensão PHP interrompeu o upload do arquivo. O PHP não fornece uma "
+"maneira de verificar qual extensão causou a interrupção do upload do "
+"arquivo; examinar a lista de extensões carregadas com phpinfo() pode ajudar."
 
 msgid "There is no contact found in this file."
-msgstr ""
+msgstr "Não há nenhum contato encontrado nesse arquivo."
 
 msgid ""
 "grommunio Web does not support importing multiple VCF with this version."
 msgstr ""
+"O grommunio Web não é compatível com a importação de vários VCF nesta versão."
 
 msgid ""
 "grommunio Web does not support importing multiple ICS with this version."
 msgstr ""
+"O grommunio Web não é compatível com a importação de vários ICS nesta versão."
 
 msgid "The EML is not valid"
-msgstr ""
+msgstr "A EML não é válida"
 
 msgid "GB"
-msgstr ""
+msgstr "GB"
 
 msgid "MB"
-msgstr ""
+msgstr "MB"
 
 msgid "KB"
-msgstr ""
+msgstr "KB"
 
 msgid "B"
-msgstr ""
+msgstr "B"
 
 msgid "The maximum stack depth has been exceeded"
-msgstr ""
+msgstr "A profundidade máxima da pilha foi excedida"
 
 msgid "Control character error, possibly incorrectly encoded"
-msgstr ""
+msgstr "Erro de caractere de controle, possivelmente codificado incorretamente"
 
 msgid "Invalid or malformed JSON"
-msgstr ""
+msgstr "JSON inválido ou malformado"
 
 msgid "Syntax error"
-msgstr ""
+msgstr "Erro de sintaxe"
 
 msgid "Malformed UTF-8 characters, possibly incorrectly encoded"
-msgstr ""
+msgstr "Caracteres UTF-8 malformados, possivelmente codificados incorretamente"
 
 #, php-format
 msgid "JSON Error: - %s"
-msgstr ""
+msgstr "Erro JSON: - %s"
 
 msgid "Some problem encountered when encoding/decoding JSON data."
-msgstr ""
+msgstr "Foi encontrado algum problema ao codificar/decodificar dados JSON."
