@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Czech\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-02-12 02:04+0100\n"
+"POT-Creation-Date: 2024-04-28 22:53+0200\n"
 "PO-Revision-Date: 2022-07-26 14:09+0200\n"
 "Last-Translator: import\n"
 "Language-Team: \n"
@@ -1957,6 +1957,15 @@ msgid ""
 "continue?"
 msgstr "Zpráva o zrušení bude odeslána všem příjemcům. Přejete si pokračovat?"
 
+#, fuzzy
+msgid "Notify sender"
+msgstr "Třídit podle: Připomínka"
+
+msgid ""
+"{0} has requested a notification be sent when message \"{1}\" is deleted "
+"without having been read. Do you want to send a receipt?"
+msgstr ""
+
 msgid "Delete Incomplete Task"
 msgstr "Smazat nekompletní úlohu"
 
@@ -1986,10 +1995,6 @@ msgstr "Upravit příjemce"
 
 msgid "Recipient already exists."
 msgstr "Uživatel již existuje."
-
-#, fuzzy
-msgid "Notify sender"
-msgstr "Třídit podle: Připomínka"
 
 #, fuzzy
 msgid ""
@@ -7588,16 +7593,18 @@ msgstr "E-mailová adresa certifikátu neodpovídá webovému účtu grommunio W
 msgid "Certificate was expired on "
 msgstr "Platnost certifikátu vypršela dne "
 
-#, fuzzy
-msgid "Certificate has not been imported"
-msgstr "Certifikát nebyl importován"
+msgid "Certificate was imported."
+msgstr ""
 
 msgid "Certificate is not yet valid "
 msgstr "Certifikát ještě není platný "
 
 #, fuzzy
-msgid "Certificate is revoked"
-msgstr "Certifikát je zneplatněn"
+msgid "Certificate has not been imported"
+msgstr "Certifikát nebyl importován"
+
+msgid "Certificate is revoked, but was imported."
+msgstr ""
 
 #, fuzzy
 msgid "Unable to read public certificate"
@@ -8043,6 +8050,12 @@ msgstr ""
 "K otevření této složky %1$s nemáte dostatečná práva. Vlastník složky je může "
 "nastavit pomocí záložky \"oprávnění\" ve vlastnostech složky (klikněte "
 "pravým tlačítkem myši na složku %1$s > vlastnosti > oprávnění)."
+
+msgid "default"
+msgstr ""
+
+msgid "anonymous"
+msgstr ""
 
 msgid "unknown"
 msgstr "neznámý"

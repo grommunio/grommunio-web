@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Hungarian\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-02-12 02:04+0100\n"
+"POT-Creation-Date: 2024-04-28 22:53+0200\n"
 "PO-Revision-Date: 2022-07-26 16:08+0200\n"
 "Last-Translator: f3rr31 <5920873@disroot.org>\n"
 "Language-Team: Hungarian <https://hosted.weblate.org/projects/grommunio/"
@@ -1981,6 +1981,15 @@ msgid ""
 msgstr ""
 "A lemondó üzenet minden címzettnek el lesz küldve, biztosan folytatni akarja?"
 
+#, fuzzy
+msgid "Notify sender"
+msgstr "Rendezés: Emlékeztető szerint"
+
+msgid ""
+"{0} has requested a notification be sent when message \"{1}\" is deleted "
+"without having been read. Do you want to send a receipt?"
+msgstr ""
+
 msgid "Delete Incomplete Task"
 msgstr "Befejezetlen feladat törlése"
 
@@ -2007,10 +2016,6 @@ msgstr "Címzett szerkesztése"
 
 msgid "Recipient already exists."
 msgstr "A felhasználó már létezik."
-
-#, fuzzy
-msgid "Notify sender"
-msgstr "Rendezés: Emlékeztető szerint"
 
 #, fuzzy
 msgid ""
@@ -7359,15 +7364,18 @@ msgstr "A tanúsítvány e-mail címe nem egyezik a grommunio Web fiókkal "
 msgid "Certificate was expired on "
 msgstr "A tanúsítvány lejárt ekkor: "
 
-#, fuzzy
-msgid "Certificate has not been imported"
-msgstr "A tanúsítványt nem importálták"
+msgid "Certificate was imported."
+msgstr ""
 
 msgid "Certificate is not yet valid "
 msgstr "A tanúsítvány még nem érvényes "
 
-msgid "Certificate is revoked"
-msgstr "A tanúsítványt visszavonták"
+#, fuzzy
+msgid "Certificate has not been imported"
+msgstr "A tanúsítványt nem importálták"
+
+msgid "Certificate is revoked, but was imported."
+msgstr ""
 
 #, fuzzy
 msgid "Unable to read public certificate"
@@ -7813,6 +7821,12 @@ msgstr ""
 "Nincs elegendő jogosultsága a %1$s mappa megnyitásához. A mappa tulajdonosa "
 "ezeket a mappa tulajdonságainak \"engedélyek\" lapján állíthatja be (jobb "
 "klikk a %1$s mappára > tulajdonságok > engedélyek)."
+
+msgid "default"
+msgstr ""
+
+msgid "anonymous"
+msgstr ""
 
 msgid "unknown"
 msgstr "ismeretlen"

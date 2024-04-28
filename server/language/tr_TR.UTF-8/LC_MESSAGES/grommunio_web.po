@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Turkish\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-02-12 02:04+0100\n"
+"POT-Creation-Date: 2024-04-28 22:53+0200\n"
 "PO-Revision-Date: 2022-12-10 22:44+0000\n"
 "Last-Translator: Orkan Eser <orkan.eser@grommunio.com>\n"
 "Language-Team: Turkish <https://hosted.weblate.org/projects/grommunio/"
@@ -1879,6 +1879,14 @@ msgid ""
 msgstr ""
 "Bir iptal ileti tüm alıcılara gönderilecek, devam etmek istiyor musunuz?"
 
+msgid "Notify sender"
+msgstr "Gönderene bildir"
+
+msgid ""
+"{0} has requested a notification be sent when message \"{1}\" is deleted "
+"without having been read. Do you want to send a receipt?"
+msgstr ""
+
 msgid "Delete Incomplete Task"
 msgstr "Tamamlanmamış Görevi Sil"
 
@@ -1902,9 +1910,6 @@ msgstr "Mükerrer alıcı"
 
 msgid "Recipient already exists."
 msgstr "Alıcı zaten mevcut."
-
-msgid "Notify sender"
-msgstr "Gönderene bildir"
 
 msgid ""
 "The sender of this email has requested a read receipt. Do you wish to notify "
@@ -6838,14 +6843,17 @@ msgstr "Sertifika e-posta adresi grommunio Web hesabıyla eşleşmiyor "
 msgid "Certificate was expired on "
 msgstr "Sertifikanın geçerlilik süresi "
 
-msgid "Certificate has not been imported"
-msgstr "Sertifika içe aktarılmadı"
+msgid "Certificate was imported."
+msgstr ""
 
 msgid "Certificate is not yet valid "
 msgstr "Sertifika henüz geçerli değil "
 
-msgid "Certificate is revoked"
-msgstr "Sertifika iptal edildi"
+msgid "Certificate has not been imported"
+msgstr "Sertifika içe aktarılmadı"
+
+msgid "Certificate is revoked, but was imported."
+msgstr ""
 
 msgid "Unable to read public certificate"
 msgstr "Genel sertifika okunamıyor"
@@ -7213,6 +7221,12 @@ msgstr ""
 "Bu %1$s klasörünü açmak için yeterli ayrıcalığa sahip değilsiniz. Klasör "
 "sahibi bunları klasör özelliklerinin 'izinler' sekmesini kullanarak "
 "ayarlayabilir ( %1$s klasörüne sağ tıklayın > özellikler > izinler)."
+
+msgid "default"
+msgstr ""
+
+msgid "anonymous"
+msgstr ""
 
 msgid "unknown"
 msgstr "bilinmeyen"

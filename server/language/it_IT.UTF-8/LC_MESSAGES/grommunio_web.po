@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Italian (Italy)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-02-12 02:04+0100\n"
+"POT-Creation-Date: 2024-04-28 22:53+0200\n"
 "PO-Revision-Date: 2022-12-11 16:35+0000\n"
 "Last-Translator: Orkan Eser <orkan.eser@grommunio.com>\n"
 "Language-Team: Italian <https://hosted.weblate.org/projects/grommunio/"
@@ -1899,6 +1899,14 @@ msgid ""
 msgstr ""
 "Un messaggio di cancellazione sarà inviato a tutti i destinatari. Continuare?"
 
+msgid "Notify sender"
+msgstr "Notifica mittente"
+
+msgid ""
+"{0} has requested a notification be sent when message \"{1}\" is deleted "
+"without having been read. Do you want to send a receipt?"
+msgstr ""
+
 msgid "Delete Incomplete Task"
 msgstr "Elinima il Task incompleto"
 
@@ -1922,9 +1930,6 @@ msgstr "Destinatario duplicato"
 
 msgid "Recipient already exists."
 msgstr "Il destinatario esiste già."
-
-msgid "Notify sender"
-msgstr "Notifica mittente"
 
 msgid ""
 "The sender of this email has requested a read receipt. Do you wish to notify "
@@ -7077,14 +7082,17 @@ msgstr ""
 msgid "Certificate was expired on "
 msgstr "Il certificato e` scaduto il "
 
-msgid "Certificate has not been imported"
-msgstr "Il certificato non e` stato importato"
+msgid "Certificate was imported."
+msgstr ""
 
 msgid "Certificate is not yet valid "
 msgstr "Il certificato non e` ancora valido "
 
-msgid "Certificate is revoked"
-msgstr "Certificato revocato"
+msgid "Certificate has not been imported"
+msgstr "Il certificato non e` stato importato"
+
+msgid "Certificate is revoked, but was imported."
+msgstr ""
 
 msgid "Unable to read public certificate"
 msgstr "Non e` possibile leggere il certificato pubblico"
@@ -7534,6 +7542,12 @@ msgstr ""
 "proprietario della cartella può impostarli utilizzando la scheda "
 "\"permessi\" delle proprietà della cartella (fare clic con il pulsante "
 "destro del mouse sulla cartella %1$s > proprietà > permessi)."
+
+msgid "default"
+msgstr ""
+
+msgid "anonymous"
+msgstr ""
 
 msgid "unknown"
 msgstr "sconosciuto"

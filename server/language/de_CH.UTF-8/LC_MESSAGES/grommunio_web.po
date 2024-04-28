@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web German (Swiss)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-02-12 02:04+0100\n"
+"POT-Creation-Date: 2024-04-28 22:53+0200\n"
 "PO-Revision-Date: 2021-03-02 15:12+0000\n"
 "Last-Translator: import\n"
 "Language: de_CH\n"
@@ -1891,6 +1891,14 @@ msgid ""
 "continue?"
 msgstr "Eine Absage wird an alle Teilnehmer gesendet. Wollen Sie fortfahren?"
 
+msgid "Notify sender"
+msgstr "Absender benachrichtigen"
+
+msgid ""
+"{0} has requested a notification be sent when message \"{1}\" is deleted "
+"without having been read. Do you want to send a receipt?"
+msgstr ""
+
 msgid "Delete Incomplete Task"
 msgstr "Unfertige Aufgabe löschen"
 
@@ -1914,9 +1922,6 @@ msgstr "Doppelter Empfänger"
 
 msgid "Recipient already exists."
 msgstr "Der Empfänger existiert bereits."
-
-msgid "Notify sender"
-msgstr "Absender benachrichtigen"
 
 msgid ""
 "The sender of this email has requested a read receipt. Do you wish to notify "
@@ -6956,14 +6961,17 @@ msgstr "Zertifikats-E-Mail-Adresse passt nicht zum grommunio Web-Konto "
 msgid "Certificate was expired on "
 msgstr "Zertifikat ist abgelaufen am "
 
-msgid "Certificate has not been imported"
-msgstr "Zertifikat wurde nicht importiert"
+msgid "Certificate was imported."
+msgstr ""
 
 msgid "Certificate is not yet valid "
 msgstr "Zertifikat ist noch nicht gültig "
 
-msgid "Certificate is revoked"
-msgstr "Zertifikat wurde widerrufen"
+msgid "Certificate has not been imported"
+msgstr "Zertifikat wurde nicht importiert"
+
+msgid "Certificate is revoked, but was imported."
+msgstr ""
 
 msgid "Unable to read public certificate"
 msgstr "Kann öffentliches Zertifikat nicht lesen"
@@ -7345,6 +7353,12 @@ msgstr ""
 "Sie haben keine Berechtigung, diesen %1$s-Ordner zu öffnen. Der Eigentümer "
 "kann diese innerhalb der Berechtigungs-Registerkarte einstellen (Rechtsklick "
 "auf den %1$s-Ordner ▶ Eigenschaften ▶ Berechtigung)."
+
+msgid "default"
+msgstr ""
+
+msgid "anonymous"
+msgstr ""
 
 msgid "unknown"
 msgstr "unbekannt"

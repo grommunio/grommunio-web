@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Dutch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-02-12 02:04+0100\n"
+"POT-Creation-Date: 2024-04-28 22:53+0200\n"
 "PO-Revision-Date: 2022-12-11 14:12+0000\n"
 "Last-Translator: Orkan Eser <orkan.eser@grommunio.com>\n"
 "Language-Team: Dutch <https://hosted.weblate.org/projects/grommunio/"
@@ -1889,6 +1889,14 @@ msgid ""
 msgstr ""
 "Een annuleringsbericht wordt naar alle ontvangers verstuurd, wilt u doorgaan?"
 
+msgid "Notify sender"
+msgstr "Stel afzender op de hoogte"
+
+msgid ""
+"{0} has requested a notification be sent when message \"{1}\" is deleted "
+"without having been read. Do you want to send a receipt?"
+msgstr ""
+
 msgid "Delete Incomplete Task"
 msgstr "Verwijder Onvoltooide Taak"
 
@@ -1912,9 +1920,6 @@ msgstr "Identieke ontvanger"
 
 msgid "Recipient already exists."
 msgstr "Ontvanger bestaat al."
-
-msgid "Notify sender"
-msgstr "Stel afzender op de hoogte"
 
 # Nog ff niet vertalen, WA-2159 heeft het nodig!
 msgid ""
@@ -6895,14 +6900,17 @@ msgstr ""
 msgid "Certificate was expired on "
 msgstr "Certificaat verlopen op "
 
-msgid "Certificate has not been imported"
-msgstr "Certificaat is niet geïmporteerd"
+msgid "Certificate was imported."
+msgstr ""
 
 msgid "Certificate is not yet valid "
 msgstr "Certificaat is nog niet geldig "
 
-msgid "Certificate is revoked"
-msgstr "Certificaat is ingetrokken"
+msgid "Certificate has not been imported"
+msgstr "Certificaat is niet geïmporteerd"
+
+msgid "Certificate is revoked, but was imported."
+msgstr ""
 
 msgid "Unable to read public certificate"
 msgstr "Kan publiek certificaat niet lezen"
@@ -7275,6 +7283,12 @@ msgstr ""
 "map kan dit instellen via het tabblad 'machtigingen' van de eigenschappen "
 "van de map (klik met de rechtermuisknop op de map %1$s > eigenschappen > "
 "machtigingen)."
+
+msgid "default"
+msgstr ""
+
+msgid "anonymous"
+msgstr ""
 
 msgid "unknown"
 msgstr "onbekend"

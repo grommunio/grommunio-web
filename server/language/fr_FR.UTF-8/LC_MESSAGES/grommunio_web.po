@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web French (France)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-02-12 02:04+0100\n"
+"POT-Creation-Date: 2024-04-28 22:53+0200\n"
 "PO-Revision-Date: 2022-12-11 16:35+0000\n"
 "Last-Translator: Orkan Eser <orkan.eser@grommunio.com>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/grommunio/"
@@ -1927,6 +1927,14 @@ msgstr ""
 "Un message d'annulation sera envoyé à tous les destinataires, désirez-vous "
 "vraiment continuer ?"
 
+msgid "Notify sender"
+msgstr "Notifier l'expéditeur"
+
+msgid ""
+"{0} has requested a notification be sent when message \"{1}\" is deleted "
+"without having been read. Do you want to send a receipt?"
+msgstr ""
+
 msgid "Delete Incomplete Task"
 msgstr "Supprimer la tâche incomplète"
 
@@ -1953,9 +1961,6 @@ msgstr "Modifier un destinataire"
 
 msgid "Recipient already exists."
 msgstr "L'utilisateur existe déjà."
-
-msgid "Notify sender"
-msgstr "Notifier l'expéditeur"
 
 msgid ""
 "The sender of this email has requested a read receipt. Do you wish to notify "
@@ -7441,14 +7446,17 @@ msgstr ""
 msgid "Certificate was expired on "
 msgstr "Le certificat a expiré le "
 
-msgid "Certificate has not been imported"
-msgstr "Le certificat n'a pas été importé"
+msgid "Certificate was imported."
+msgstr ""
 
 msgid "Certificate is not yet valid "
 msgstr "Le certificat n'est pas encore valide "
 
-msgid "Certificate is revoked"
-msgstr "Le certificat est révoqué"
+msgid "Certificate has not been imported"
+msgstr "Le certificat n'a pas été importé"
+
+msgid "Certificate is revoked, but was imported."
+msgstr ""
 
 msgid "Unable to read public certificate"
 msgstr "Impossible de lire le certificat public"
@@ -7900,6 +7908,12 @@ msgstr ""
 "Le propriétaire du dossier peut les définir en utilisant l'onglet "
 "\"Permissions\" des propriétés du dossier (clic droit sur le dossier %1$s > "
 "propriétés > permissions)."
+
+msgid "default"
+msgstr ""
+
+msgid "anonymous"
+msgstr ""
 
 msgid "unknown"
 msgstr "inconnu"

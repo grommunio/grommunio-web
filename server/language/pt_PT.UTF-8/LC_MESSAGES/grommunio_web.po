@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Portuguese (Portugal)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-02-12 02:04+0100\n"
+"POT-Creation-Date: 2024-04-28 22:53+0200\n"
 "PO-Revision-Date: 2022-07-26 18:47+0200\n"
 "Last-Translator: import\n"
 "Language-Team: \n"
@@ -1876,6 +1876,14 @@ msgstr ""
 "Uma mensagem de cancelamento vai ser enviada a todos os destinatários. "
 "Deseja continuar?"
 
+msgid "Notify sender"
+msgstr "Notificar remetente"
+
+msgid ""
+"{0} has requested a notification be sent when message \"{1}\" is deleted "
+"without having been read. Do you want to send a receipt?"
+msgstr ""
+
 msgid "Delete Incomplete Task"
 msgstr "Eliminar tarefa por terminar"
 
@@ -1899,9 +1907,6 @@ msgstr "Destinatário duplicado"
 
 msgid "Recipient already exists."
 msgstr "Destinatário já existe."
-
-msgid "Notify sender"
-msgstr "Notificar remetente"
 
 msgid ""
 "The sender of this email has requested a read receipt. Do you wish to notify "
@@ -6959,14 +6964,17 @@ msgstr "Endereço de e-mail certificado não corresponde à conta Web grommunio 
 msgid "Certificate was expired on "
 msgstr "Certificado expirou em "
 
-msgid "Certificate has not been imported"
-msgstr "O certificado não foi importado"
+msgid "Certificate was imported."
+msgstr ""
 
 msgid "Certificate is not yet valid "
 msgstr "O certificado ainda não é válido "
 
-msgid "Certificate is revoked"
-msgstr "O certificado está revogado"
+msgid "Certificate has not been imported"
+msgstr "O certificado não foi importado"
+
+msgid "Certificate is revoked, but was imported."
+msgstr ""
 
 msgid "Unable to read public certificate"
 msgstr "Não é possível ler o certificado público"
@@ -7411,6 +7419,12 @@ msgstr ""
 "da pasta pode defini-los usando a tabulação 'permissões' das propriedades da "
 "pasta (clique com o botão direito do rato na pasta %1$s > propriedades > "
 "permissões)."
+
+msgid "default"
+msgstr ""
+
+msgid "anonymous"
+msgstr ""
 
 msgid "unknown"
 msgstr "desconhecido"

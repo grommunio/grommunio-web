@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web English (United States)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-02-12 02:04+0100\n"
+"POT-Creation-Date: 2024-04-28 22:53+0200\n"
 "PO-Revision-Date: 2022-08-27 18:15+0000\n"
 "Last-Translator: Jan Engelhardt <jengelh@inai.de>\n"
 "Language-Team: English (Briths) <https://hosted.weblate.org/projects/"
@@ -1882,6 +1882,14 @@ msgstr ""
 "A cancellation message will be sent to all recipients, do you wish to "
 "continue?"
 
+msgid "Notify sender"
+msgstr "Notify sender"
+
+msgid ""
+"{0} has requested a notification be sent when message \"{1}\" is deleted "
+"without having been read. Do you want to send a receipt?"
+msgstr ""
+
 msgid "Delete Incomplete Task"
 msgstr "Delete Incomplete Task"
 
@@ -1905,9 +1913,6 @@ msgstr "Duplicate recipient"
 
 msgid "Recipient already exists."
 msgstr "Recipient already exists."
-
-msgid "Notify sender"
-msgstr "Notify sender"
 
 msgid ""
 "The sender of this email has requested a read receipt. Do you wish to notify "
@@ -6849,14 +6854,17 @@ msgstr "Certificate email address does not match grommunio Web account "
 msgid "Certificate was expired on "
 msgstr "Certificate was expired on "
 
-msgid "Certificate has not been imported"
-msgstr "Certificate has not been imported"
+msgid "Certificate was imported."
+msgstr ""
 
 msgid "Certificate is not yet valid "
 msgstr "Certificate is not yet valid "
 
-msgid "Certificate is revoked"
-msgstr "Certificate was revoked"
+msgid "Certificate has not been imported"
+msgstr "Certificate has not been imported"
+
+msgid "Certificate is revoked, but was imported."
+msgstr ""
 
 msgid "Unable to read public certificate"
 msgstr "Unable to read public certificate"
@@ -7222,6 +7230,12 @@ msgstr ""
 "You have insufficient privileges to open the %1$s folder. The folder owner "
 "can set these using the 'permissions'-tab of the folder properties (right "
 "click the %1$s folder > properties > permissions)."
+
+msgid "default"
+msgstr ""
+
+msgid "anonymous"
+msgstr ""
 
 msgid "unknown"
 msgstr "unknown"

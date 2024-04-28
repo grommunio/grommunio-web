@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Icelandic (Iceland)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-02-12 02:04+0100\n"
+"POT-Creation-Date: 2024-04-28 22:53+0200\n"
 "PO-Revision-Date: 2019-12-01 02:07+0000\n"
 "Last-Translator: import\n"
 "Language: is_IS\n"
@@ -1873,6 +1873,14 @@ msgstr ""
 "Skilaboð um að hætt sé við verða send til allra viðtakenda, viltu halda "
 "áfram?"
 
+msgid "Notify sender"
+msgstr "Láta sendanda vita"
+
+msgid ""
+"{0} has requested a notification be sent when message \"{1}\" is deleted "
+"without having been read. Do you want to send a receipt?"
+msgstr ""
+
 msgid "Delete Incomplete Task"
 msgstr "Eyða ókláruðu verki"
 
@@ -1896,9 +1904,6 @@ msgstr "Fjölfalda viðtakanda"
 
 msgid "Recipient already exists."
 msgstr "Viðtakandi er þegar til."
-
-msgid "Notify sender"
-msgstr "Láta sendanda vita"
 
 msgid ""
 "The sender of this email has requested a read receipt. Do you wish to notify "
@@ -6770,13 +6775,16 @@ msgstr ""
 msgid "Certificate was expired on "
 msgstr ""
 
-msgid "Certificate has not been imported"
+msgid "Certificate was imported."
 msgstr ""
 
 msgid "Certificate is not yet valid "
 msgstr ""
 
-msgid "Certificate is revoked"
+msgid "Certificate has not been imported"
+msgstr ""
+
+msgid "Certificate is revoked, but was imported."
 msgstr ""
 
 msgid "Unable to read public certificate"
@@ -7124,6 +7132,12 @@ msgid ""
 "You have insufficient privileges to open this %1$s folder. The folder owner "
 "can set these using the 'permissions'-tab of the folder properties (right "
 "click the %1$s folder > properties > permissions)."
+msgstr ""
+
+msgid "default"
+msgstr ""
+
+msgid "anonymous"
 msgstr ""
 
 msgid "unknown"

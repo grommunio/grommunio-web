@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Slovenian (Slovenia)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-02-12 02:04+0100\n"
+"POT-Creation-Date: 2024-04-28 22:53+0200\n"
 "PO-Revision-Date: 2022-07-26 19:05+0200\n"
 "Last-Translator: import\n"
 "Language-Team: \n"
@@ -2028,6 +2028,15 @@ msgstr ""
 "Sporočilo o preklicu bo poslano vsem prejemnikom, ali želite nadaljevati?"
 
 #, fuzzy
+msgid "Notify sender"
+msgstr "Razvrsti po: Opomnik"
+
+msgid ""
+"{0} has requested a notification be sent when message \"{1}\" is deleted "
+"without having been read. Do you want to send a receipt?"
+msgstr ""
+
+#, fuzzy
 msgid "Delete Incomplete Task"
 msgstr "Dokončane naloge"
 
@@ -2057,10 +2066,6 @@ msgstr "Uredi prejemnika"
 
 msgid "Recipient already exists."
 msgstr "Prejemnik že obstaja."
-
-#, fuzzy
-msgid "Notify sender"
-msgstr "Razvrsti po: Opomnik"
 
 #, fuzzy
 msgid ""
@@ -7674,16 +7679,18 @@ msgstr "E-poštni naslov certifikata se ne ujema s spletnim računom grommunio "
 msgid "Certificate was expired on "
 msgstr "Potrdilo je poteklo dne "
 
-#, fuzzy
-msgid "Certificate has not been imported"
-msgstr "Potrdilo ni bilo uvoženo"
+msgid "Certificate was imported."
+msgstr ""
 
 msgid "Certificate is not yet valid "
 msgstr "Potrdilo še ni veljavno "
 
 #, fuzzy
-msgid "Certificate is revoked"
-msgstr "Potrdilo je preklicano"
+msgid "Certificate has not been imported"
+msgstr "Potrdilo ni bilo uvoženo"
+
+msgid "Certificate is revoked, but was imported."
+msgstr ""
 
 #, fuzzy
 msgid "Unable to read public certificate"
@@ -8131,6 +8138,12 @@ msgstr ""
 "Za odprtje te mape %1$s nimate zadostnih pravic. Lastnik mape jih lahko "
 "nastavi s pomočjo zavihka \"dovoljenja\" v lastnostih mape (desni klik na "
 "mapo %1$s > lastnosti > dovoljenja)."
+
+msgid "default"
+msgstr ""
+
+msgid "anonymous"
+msgstr ""
 
 msgid "unknown"
 msgstr "neznano"

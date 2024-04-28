@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Ukrainian (Ukraine)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-02-12 02:04+0100\n"
+"POT-Creation-Date: 2024-04-28 22:53+0200\n"
 "PO-Revision-Date: 2022-08-23 04:19+0000\n"
 "Last-Translator: Artem <artem@molotov.work>\n"
 "Language-Team: Ukrainian <https://hosted.weblate.org/projects/grommunio/"
@@ -1861,6 +1861,14 @@ msgid ""
 "continue?"
 msgstr ""
 
+msgid "Notify sender"
+msgstr ""
+
+msgid ""
+"{0} has requested a notification be sent when message \"{1}\" is deleted "
+"without having been read. Do you want to send a receipt?"
+msgstr ""
+
 msgid "Delete Incomplete Task"
 msgstr ""
 
@@ -1883,9 +1891,6 @@ msgid "Duplicate recipient"
 msgstr ""
 
 msgid "Recipient already exists."
-msgstr ""
-
-msgid "Notify sender"
 msgstr ""
 
 msgid ""
@@ -6690,13 +6695,16 @@ msgstr ""
 msgid "Certificate was expired on "
 msgstr ""
 
-msgid "Certificate has not been imported"
+msgid "Certificate was imported."
 msgstr ""
 
 msgid "Certificate is not yet valid "
 msgstr ""
 
-msgid "Certificate is revoked"
+msgid "Certificate has not been imported"
+msgstr ""
+
+msgid "Certificate is revoked, but was imported."
 msgstr ""
 
 msgid "Unable to read public certificate"
@@ -7046,6 +7054,12 @@ msgid ""
 "You have insufficient privileges to open this %1$s folder. The folder owner "
 "can set these using the 'permissions'-tab of the folder properties (right "
 "click the %1$s folder > properties > permissions)."
+msgstr ""
+
+msgid "default"
+msgstr ""
+
+msgid "anonymous"
 msgstr ""
 
 msgid "unknown"

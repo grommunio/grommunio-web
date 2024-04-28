@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Russian\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-02-12 02:04+0100\n"
+"POT-Creation-Date: 2024-04-28 22:53+0200\n"
 "PO-Revision-Date: 2022-07-26 17:59+0200\n"
 "Last-Translator: Artem <Localizer_in_Russian@protonmail.com>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/grommunio/"
@@ -1949,6 +1949,15 @@ msgid ""
 "continue?"
 msgstr "Отказное сообщение отошлется всем получателям, продолжить?"
 
+#, fuzzy
+msgid "Notify sender"
+msgstr "Сортировать по: Наличию напоминания"
+
+msgid ""
+"{0} has requested a notification be sent when message \"{1}\" is deleted "
+"without having been read. Do you want to send a receipt?"
+msgstr ""
+
 msgid "Delete Incomplete Task"
 msgstr "Удалить незавершенную задачу"
 
@@ -1975,10 +1984,6 @@ msgstr "Изменить получателя"
 
 msgid "Recipient already exists."
 msgstr "Получатель уже существует."
-
-#, fuzzy
-msgid "Notify sender"
-msgstr "Сортировать по: Наличию напоминания"
 
 #, fuzzy
 msgid ""
@@ -7280,16 +7285,18 @@ msgstr ""
 msgid "Certificate was expired on "
 msgstr "Срок действия сертификата истек на "
 
-#, fuzzy
-msgid "Certificate has not been imported"
-msgstr "Сертификат не был импортирован"
+msgid "Certificate was imported."
+msgstr ""
 
 msgid "Certificate is not yet valid "
 msgstr "Сертификат еще не действителен "
 
 #, fuzzy
-msgid "Certificate is revoked"
-msgstr "Сертификат отозван"
+msgid "Certificate has not been imported"
+msgstr "Сертификат не был импортирован"
+
+msgid "Certificate is revoked, but was imported."
+msgstr ""
 
 #, fuzzy
 msgid "Unable to read public certificate"
@@ -7736,6 +7743,12 @@ msgstr ""
 "У вас недостаточно прав для открытия этой папки %1$s. Владелец папки может "
 "установить их с помощью вкладки \"Разрешения\" в свойствах папки (щелкните "
 "правой кнопкой мыши папку %1$s > свойства > разрешения)."
+
+msgid "default"
+msgstr ""
+
+msgid "anonymous"
+msgstr ""
 
 msgid "unknown"
 msgstr "неизвестно"

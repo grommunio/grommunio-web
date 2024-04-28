@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Polish (Poland)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-02-12 02:04+0100\n"
+"POT-Creation-Date: 2024-04-28 22:53+0200\n"
 "PO-Revision-Date: 2022-07-26 17:49+0200\n"
 "Last-Translator: import\n"
 "Language-Team: \n"
@@ -1919,6 +1919,14 @@ msgid ""
 msgstr ""
 "Odmowa zostanie wysłana do wszystkich uczestników, czy chcesz kontynuować?"
 
+msgid "Notify sender"
+msgstr "Powiadomić nadawcę"
+
+msgid ""
+"{0} has requested a notification be sent when message \"{1}\" is deleted "
+"without having been read. Do you want to send a receipt?"
+msgstr ""
+
 msgid "Delete Incomplete Task"
 msgstr "Usuń nieukończone zadanie"
 
@@ -1942,9 +1950,6 @@ msgstr "Duplikat odbiorcy"
 
 msgid "Recipient already exists."
 msgstr "Odbiorca już istnieje."
-
-msgid "Notify sender"
-msgstr "Powiadomić nadawcę"
 
 msgid ""
 "The sender of this email has requested a read receipt. Do you wish to notify "
@@ -7262,16 +7267,18 @@ msgstr "Adres e-mail certyfikatu nie pasuje do konta grommunio Web "
 msgid "Certificate was expired on "
 msgstr "Certyfikat wygasł w dniu "
 
-#, fuzzy
-msgid "Certificate has not been imported"
-msgstr "Certyfikat nie został zaimportowany"
+msgid "Certificate was imported."
+msgstr ""
 
 msgid "Certificate is not yet valid "
 msgstr "Certyfikat nie jest jeszcze ważny "
 
 #, fuzzy
-msgid "Certificate is revoked"
-msgstr "Certyfikat został unieważniony"
+msgid "Certificate has not been imported"
+msgstr "Certyfikat nie został zaimportowany"
+
+msgid "Certificate is revoked, but was imported."
+msgstr ""
 
 #, fuzzy
 msgid "Unable to read public certificate"
@@ -7716,6 +7723,12 @@ msgstr ""
 "folderu może je ustawić za pomocą zakładki \"uprawnienia\" we właściwościach "
 "folderu (kliknij prawym przyciskiem myszy folder %1$s > właściwości > "
 "uprawnienia)."
+
+msgid "default"
+msgstr ""
+
+msgid "anonymous"
+msgstr ""
 
 msgid "unknown"
 msgstr "nieznana"

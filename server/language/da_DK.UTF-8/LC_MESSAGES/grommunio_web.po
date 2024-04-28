@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Danish (Denmark)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-02-12 02:04+0100\n"
+"POT-Creation-Date: 2024-04-28 22:53+0200\n"
 "PO-Revision-Date: 2022-07-26 14:28+0200\n"
 "Last-Translator: Mike Williams <mike.williams@grammm.com>\n"
 "Language-Team: Danish <https://hosted.weblate.org/projects/grommunio/"
@@ -1950,6 +1950,15 @@ msgstr ""
 "En aflysnings meddelelse vil blive sendt til alle modtagere, vil du "
 "fortsætte?"
 
+#, fuzzy
+msgid "Notify sender"
+msgstr "Sorter efter: Påmindelse"
+
+msgid ""
+"{0} has requested a notification be sent when message \"{1}\" is deleted "
+"without having been read. Do you want to send a receipt?"
+msgstr ""
+
 msgid "Delete Incomplete Task"
 msgstr "Slet ufuldstændig opgave"
 
@@ -1976,10 +1985,6 @@ msgstr "Ret modtager"
 
 msgid "Recipient already exists."
 msgstr "Brugeren eksistere allerede."
-
-#, fuzzy
-msgid "Notify sender"
-msgstr "Sorter efter: Påmindelse"
 
 #, fuzzy
 msgid ""
@@ -7455,16 +7460,18 @@ msgstr "Certifikatets e-mailadresse passer ikke til grommunio-webkontoen "
 msgid "Certificate was expired on "
 msgstr "Certifikatet er udløbet den "
 
-#, fuzzy
-msgid "Certificate has not been imported"
-msgstr "Certifikatet er ikke blevet importeret"
+msgid "Certificate was imported."
+msgstr ""
 
 msgid "Certificate is not yet valid "
 msgstr "Certifikatet er endnu ikke gyldigt "
 
 #, fuzzy
-msgid "Certificate is revoked"
-msgstr "Certifikatet er tilbagekaldt"
+msgid "Certificate has not been imported"
+msgstr "Certifikatet er ikke blevet importeret"
+
+msgid "Certificate is revoked, but was imported."
+msgstr ""
 
 #, fuzzy
 msgid "Unable to read public certificate"
@@ -7909,6 +7916,12 @@ msgstr ""
 "Du har ikke tilstrækkelige rettigheder til at åbne denne mappe %1$s. "
 "Mappeejeren kan indstille disse ved hjælp af fanen \"tilladelser\" i mappens "
 "egenskaber (højreklik på %1$s-mappen > egenskaber > tilladelser)."
+
+msgid "default"
+msgstr ""
+
+msgid "anonymous"
+msgstr ""
 
 msgid "unknown"
 msgstr "ukendt"

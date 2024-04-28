@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Japanese\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-02-12 02:04+0100\n"
+"POT-Creation-Date: 2024-04-28 22:53+0200\n"
 "PO-Revision-Date: 2022-12-12 13:00+0200\n"
 "Last-Translator: Jan Engelhardt <jengelh@inai.de>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/grommunio/"
@@ -1903,6 +1903,15 @@ msgid ""
 msgstr "メッセージのキャンセルは全受信者に送信されます。続行しますか？"
 
 #, fuzzy
+msgid "Notify sender"
+msgstr "並べ替え：リマインダー"
+
+msgid ""
+"{0} has requested a notification be sent when message \"{1}\" is deleted "
+"without having been read. Do you want to send a receipt?"
+msgstr ""
+
+#, fuzzy
 msgid "Delete Incomplete Task"
 msgstr "完了したタスク"
 
@@ -1930,10 +1939,6 @@ msgstr "受信者の重複"
 #, fuzzy
 msgid "Recipient already exists."
 msgstr "ユーザーは既に登録されています。"
-
-#, fuzzy
-msgid "Notify sender"
-msgstr "並べ替え：リマインダー"
 
 #, fuzzy
 msgid ""
@@ -7301,14 +7306,17 @@ msgstr "証明書のメールアドレスがgrommunioのWebアカウントと一
 msgid "Certificate was expired on "
 msgstr "証明書の有効期限は次の通りです "
 
-msgid "Certificate has not been imported"
-msgstr "証明書はインポートされていません"
+msgid "Certificate was imported."
+msgstr ""
 
 msgid "Certificate is not yet valid "
 msgstr "証明書はまだ有効ではありません "
 
-msgid "Certificate is revoked"
-msgstr "証明書は廃棄されました"
+msgid "Certificate has not been imported"
+msgstr "証明書はインポートされていません"
+
+msgid "Certificate is revoked, but was imported."
+msgstr ""
 
 msgid "Unable to read public certificate"
 msgstr "公開鍵証明書を読み込むことができませんでした"
@@ -7752,6 +7760,12 @@ msgstr ""
 "この %1$s フォルダーを開くには十分な権限がありません。フォルダの所有者は、"
 "フォルダのプロパティの「アクセス権」タブを使用してこれらを設定できます（%1$s "
 "フォルダを右クリック > プロパティ > アクセス権）。"
+
+msgid "default"
+msgstr ""
+
+msgid "anonymous"
+msgstr ""
 
 msgid "unknown"
 msgstr "不明"

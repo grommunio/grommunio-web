@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Chinese (Simplified)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-02-12 02:04+0100\n"
+"POT-Creation-Date: 2024-04-28 22:53+0200\n"
 "PO-Revision-Date: 2022-07-26 18:09+0200\n"
 "Last-Translator: import\n"
 "Language-Team: \n"
@@ -1834,6 +1834,14 @@ msgid ""
 "continue?"
 msgstr "取消消息将发送给所有收件人，您是否继续？"
 
+msgid "Notify sender"
+msgstr "通知发件人"
+
+msgid ""
+"{0} has requested a notification be sent when message \"{1}\" is deleted "
+"without having been read. Do you want to send a receipt?"
+msgstr ""
+
 msgid "Delete Incomplete Task"
 msgstr "删除不完整的任务"
 
@@ -1857,9 +1865,6 @@ msgstr "重复的收件人"
 
 msgid "Recipient already exists."
 msgstr "收件人已存在。"
-
-msgid "Notify sender"
-msgstr "通知发件人"
 
 msgid ""
 "The sender of this email has requested a read receipt. Do you wish to notify "
@@ -6977,16 +6982,18 @@ msgstr "证书的电子邮件地址与grommunio网络账户不一致 "
 msgid "Certificate was expired on "
 msgstr "证书过期时间为 "
 
-#, fuzzy
-msgid "Certificate has not been imported"
-msgstr "证书未被导入"
+msgid "Certificate was imported."
+msgstr ""
 
 msgid "Certificate is not yet valid "
 msgstr "证书尚未生效 "
 
 #, fuzzy
-msgid "Certificate is revoked"
-msgstr "证书被撤销"
+msgid "Certificate has not been imported"
+msgstr "证书未被导入"
+
+msgid "Certificate is revoked, but was imported."
+msgstr ""
 
 #, fuzzy
 msgid "Unable to read public certificate"
@@ -7396,6 +7403,12 @@ msgid ""
 msgstr ""
 "你没有足够的权限来打开这个%1$s文件夹。文件夹所有者可以通过文件夹属性的 \"权"
 "限 \"选项卡来设置这些权限（右击%1$s文件夹 > 属性 > 权限）。"
+
+msgid "default"
+msgstr ""
+
+msgid "anonymous"
+msgstr ""
 
 msgid "unknown"
 msgstr "未知"

@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Greek\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-02-12 02:04+0100\n"
+"POT-Creation-Date: 2024-04-28 22:53+0200\n"
 "PO-Revision-Date: 2022-07-26 14:49+0200\n"
 "Last-Translator: import\n"
 "Language-Team: \n"
@@ -2289,6 +2289,15 @@ msgstr ""
 "Θα σταλεί μήνυμα ακύρωσης σε όλους τους παραλήπτες, επιθυμείτε να συνεχίσετε"
 
 #, fuzzy
+msgid "Notify sender"
+msgstr "Ειδοποίηση αποστολέα"
+
+msgid ""
+"{0} has requested a notification be sent when message \"{1}\" is deleted "
+"without having been read. Do you want to send a receipt?"
+msgstr ""
+
+#, fuzzy
 msgid "Delete Incomplete Task"
 msgstr "Διαγραφή μη ολοκληρωμένης εργασίας"
 
@@ -2319,10 +2328,6 @@ msgstr "Διπλός παραλήπτης"
 #, fuzzy
 msgid "Recipient already exists."
 msgstr "Ο παραλήπτης υπάρχει ήδη."
-
-#, fuzzy
-msgid "Notify sender"
-msgstr "Ειδοποίηση αποστολέα"
 
 #, fuzzy
 msgid ""
@@ -8563,17 +8568,19 @@ msgstr ""
 msgid "Certificate was expired on "
 msgstr "Το πιστοποιητικό έληξε στις"
 
-#, fuzzy
-msgid "Certificate has not been imported"
-msgstr "Το πιστοποιητικό δεν έχει εισαχθεί"
+msgid "Certificate was imported."
+msgstr ""
 
 #, fuzzy
 msgid "Certificate is not yet valid "
 msgstr "Το πιστοποιητικό δεν είναι ακόμη έγκυρο"
 
 #, fuzzy
-msgid "Certificate is revoked"
-msgstr "Το πιστοποιητικό ανακαλείται"
+msgid "Certificate has not been imported"
+msgstr "Το πιστοποιητικό δεν έχει εισαχθεί"
+
+msgid "Certificate is revoked, but was imported."
+msgstr ""
 
 #, fuzzy
 msgid "Unable to read public certificate"
@@ -9045,6 +9052,12 @@ msgstr ""
 "ιδιοκτήτης του φακέλου μπορεί να τα ορίσει χρησιμοποιώντας την καρτέλα "
 "\"δικαιώματα\" των ιδιοτήτων του φακέλου (δεξί κλικ στο φάκελο %1$s > "
 "ιδιότητες > δικαιώματα)."
+
+msgid "default"
+msgstr ""
+
+msgid "anonymous"
+msgstr ""
 
 msgid "unknown"
 msgstr "άγνωστο"

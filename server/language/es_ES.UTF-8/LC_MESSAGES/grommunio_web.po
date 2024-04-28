@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Spanish (Spain)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-02-12 02:04+0100\n"
+"POT-Creation-Date: 2024-04-28 22:53+0200\n"
 "PO-Revision-Date: 2024-01-03 16:10+0000\n"
 "Last-Translator: gallegonovato <fran-carro@hotmail.es>\n"
 "Language-Team: Spanish <https://hosted.weblate.org/projects/grommunio/"
@@ -1987,6 +1987,15 @@ msgstr ""
 "continuar?"
 
 #, fuzzy
+msgid "Notify sender"
+msgstr "Ordenar por: Recordatorio de Tiempo"
+
+msgid ""
+"{0} has requested a notification be sent when message \"{1}\" is deleted "
+"without having been read. Do you want to send a receipt?"
+msgstr ""
+
+#, fuzzy
 msgid "Delete Incomplete Task"
 msgstr "Tareas completadas"
 
@@ -2016,10 +2025,6 @@ msgstr "Editar recipiente"
 
 msgid "Recipient already exists."
 msgstr "Ya existe este Usuario."
-
-#, fuzzy
-msgid "Notify sender"
-msgstr "Ordenar por: Recordatorio de Tiempo"
 
 #, fuzzy
 msgid ""
@@ -7619,16 +7624,18 @@ msgstr ""
 msgid "Certificate was expired on "
 msgstr "El certificado ha caducado el "
 
-#, fuzzy
-msgid "Certificate has not been imported"
-msgstr "El certificado no ha sido importado"
+msgid "Certificate was imported."
+msgstr ""
 
 msgid "Certificate is not yet valid "
 msgstr "El certificado aún no es válido "
 
 #, fuzzy
-msgid "Certificate is revoked"
-msgstr "El certificado está revocado"
+msgid "Certificate has not been imported"
+msgstr "El certificado no ha sido importado"
+
+msgid "Certificate is revoked, but was imported."
+msgstr ""
 
 #, fuzzy
 msgid "Unable to read public certificate"
@@ -8091,6 +8098,12 @@ msgstr ""
 "propietario de la carpeta puede establecerlos mediante la pestaña "
 "\"permisos\" de las propiedades de la carpeta (haga clic con el botón "
 "derecho en la carpeta %1$s > propiedades > permisos)."
+
+msgid "default"
+msgstr ""
+
+msgid "anonymous"
+msgstr ""
 
 msgid "unknown"
 msgstr "desconocido"

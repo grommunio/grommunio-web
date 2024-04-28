@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Chinese (Taiwan)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-02-12 02:04+0100\n"
+"POT-Creation-Date: 2024-04-28 22:53+0200\n"
 "PO-Revision-Date: 2022-08-27 18:15+0000\n"
 "Last-Translator: Hugel <qihu@nfschina.com>\n"
 "Language-Team: Chinese (Traditional) <https://hosted.weblate.org/projects/"
@@ -1873,6 +1873,15 @@ msgid ""
 msgstr "取消郵件將發送給所有接收者，你是否要繼續?"
 
 #, fuzzy
+msgid "Notify sender"
+msgstr "依提醒時間排序"
+
+msgid ""
+"{0} has requested a notification be sent when message \"{1}\" is deleted "
+"without having been read. Do you want to send a receipt?"
+msgstr ""
+
+#, fuzzy
 msgid "Delete Incomplete Task"
 msgstr "完成的任務"
 
@@ -1902,10 +1911,6 @@ msgstr "編輯收件者"
 #, fuzzy
 msgid "Recipient already exists."
 msgstr "使用者已存在"
-
-#, fuzzy
-msgid "Notify sender"
-msgstr "依提醒時間排序"
 
 #, fuzzy
 msgid ""
@@ -6928,13 +6933,16 @@ msgstr ""
 msgid "Certificate was expired on "
 msgstr ""
 
-msgid "Certificate has not been imported"
+msgid "Certificate was imported."
 msgstr ""
 
 msgid "Certificate is not yet valid "
 msgstr ""
 
-msgid "Certificate is revoked"
+msgid "Certificate has not been imported"
+msgstr ""
+
+msgid "Certificate is revoked, but was imported."
 msgstr ""
 
 msgid "Unable to read public certificate"
@@ -7285,6 +7293,12 @@ msgid ""
 "You have insufficient privileges to open this %1$s folder. The folder owner "
 "can set these using the 'permissions'-tab of the folder properties (right "
 "click the %1$s folder > properties > permissions)."
+msgstr ""
+
+msgid "default"
+msgstr ""
+
+msgid "anonymous"
 msgstr ""
 
 msgid "unknown"

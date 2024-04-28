@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Finnish (Finland)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-02-12 02:04+0100\n"
+"POT-Creation-Date: 2024-04-28 22:53+0200\n"
 "PO-Revision-Date: 2022-07-26 15:25+0200\n"
 "Last-Translator: import\n"
 "Language-Team: \n"
@@ -1993,6 +1993,15 @@ msgid ""
 msgstr "Peruutusviesti lähetetään kaikille vastaanottajille, haluatko jatkaa?"
 
 #, fuzzy
+msgid "Notify sender"
+msgstr "Järjestä: Muistutus"
+
+msgid ""
+"{0} has requested a notification be sent when message \"{1}\" is deleted "
+"without having been read. Do you want to send a receipt?"
+msgstr ""
+
+#, fuzzy
 msgid "Delete Incomplete Task"
 msgstr "Valmiit tehtävät"
 
@@ -2022,10 +2031,6 @@ msgstr "Muokkaa vastaanottajia"
 
 msgid "Recipient already exists."
 msgstr "Käyttäjä on jo olemassa."
-
-#, fuzzy
-msgid "Notify sender"
-msgstr "Järjestä: Muistutus"
 
 #, fuzzy
 msgid ""
@@ -7697,16 +7702,18 @@ msgstr "Varmenteen sähköpostiosoite ei vastaa grommunio Web-tiliä "
 msgid "Certificate was expired on "
 msgstr "Todistuksen voimassaolo päättyi "
 
-#, fuzzy
-msgid "Certificate has not been imported"
-msgstr "Todistusta ei ole tuotu"
+msgid "Certificate was imported."
+msgstr ""
 
 msgid "Certificate is not yet valid "
 msgstr "Todistus ei ole vielä voimassa "
 
 #, fuzzy
-msgid "Certificate is revoked"
-msgstr "Varmenne on peruutettu"
+msgid "Certificate has not been imported"
+msgstr "Todistusta ei ole tuotu"
+
+msgid "Certificate is revoked, but was imported."
+msgstr ""
 
 #, fuzzy
 msgid "Unable to read public certificate"
@@ -8154,6 +8161,12 @@ msgstr ""
 "omistaja voi määrittää nämä oikeudet kansion ominaisuuksien "
 "\"käyttöoikeudet\"-välilehdellä (napsauta %1$s-kansiota hiiren oikealla "
 "painikkeella > ominaisuudet > käyttöoikeudet)."
+
+msgid "default"
+msgstr ""
+
+msgid "anonymous"
+msgstr ""
 
 msgid "unknown"
 msgstr "tuntematon"
