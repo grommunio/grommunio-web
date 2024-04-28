@@ -1,10 +1,11 @@
 # grommunio Web Greek translation.
 # Copyright (C) 2022
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Greek\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-04-28 22:53+0200\n"
+"POT-Creation-Date: 2024-04-28 23:15+0200\n"
 "PO-Revision-Date: 2022-07-26 14:49+0200\n"
 "Last-Translator: import\n"
 "Language-Team: \n"
@@ -39,81 +40,54 @@ msgid "{0} byte"
 msgid_plural "{0} bytes"
 msgstr[0] "{0} byte"
 msgstr[1] "{0} bytes"
-msgstr[2] ""
-msgstr[3] ""
-msgstr[4] ""
 
 #, fuzzy
 msgid "{0} KB"
 msgid_plural "{0} KB"
 msgstr[0] "{0} KB"
 msgstr[1] "{0} KB"
-msgstr[2] ""
-msgstr[3] ""
-msgstr[4] ""
 
 #, fuzzy
 msgid "{0} MB"
 msgid_plural "{0} MB"
 msgstr[0] "{0} MB"
 msgstr[1] "{0} MB"
-msgstr[2] ""
-msgstr[3] ""
-msgstr[4] ""
 
 #, fuzzy
 msgid "{0} GB"
 msgid_plural "{0} GB"
 msgstr[0] "{0} GB"
 msgstr[1] "{0} GB"
-msgstr[2] ""
-msgstr[3] ""
-msgstr[4] ""
 
 #, fuzzy
 msgid "{0} TB"
 msgid_plural "{0} TB"
 msgstr[0] "{0} TB"
 msgstr[1] "{0} TB"
-msgstr[2] ""
-msgstr[3] ""
-msgstr[4] ""
 
 #, fuzzy
 msgid "{0} minute"
 msgid_plural "{0} minutes"
 msgstr[0] "{0} λεπτό"
 msgstr[1] "{0} λεπτά"
-msgstr[2] ""
-msgstr[3] ""
-msgstr[4] ""
 
 #, fuzzy
 msgid "{0} hour"
 msgid_plural "{0} hours"
 msgstr[0] "{0} ώρα"
 msgstr[1] "{0} ώρες"
-msgstr[2] ""
-msgstr[3] ""
-msgstr[4] ""
 
 #, fuzzy
 msgid "{0} day"
 msgid_plural "{0} days"
 msgstr[0] "{0} ημέρα"
 msgstr[1] "{0} ημέρες"
-msgstr[2] ""
-msgstr[3] ""
-msgstr[4] ""
 
 #, fuzzy
 msgid "{0} week"
 msgid_plural "{0} weeks"
 msgstr[0] "{0} εβδομάδα"
 msgstr[1] "{0} εβδομάδες"
-msgstr[2] ""
-msgstr[3] ""
-msgstr[4] ""
 
 #, fuzzy
 msgid "The quick brown fox jumps over the lazy dog"
@@ -977,9 +951,6 @@ msgstr[0] ""
 "Εμφανίζεται κάθε {0} αποτελεσματική {1} για {2} εμφάνιση από {3} έως {4}."
 msgstr[1] ""
 "Εμφανίζεται κάθε {0} αποτελεσματική {1} για {2} εμφανίσεις από {3} έως {4}."
-msgstr[2] ""
-msgstr[3] ""
-msgstr[4] ""
 
 #, fuzzy
 msgid "Occurs every {0} {1} effective {2} for {3} occurrence from {4} to {5}."
@@ -989,27 +960,18 @@ msgstr[0] ""
 "Εμφανίζεται κάθε {0} {1} αποτελεσματική {2} για {3} εμφάνιση από {4} έως {5}."
 msgstr[1] ""
 "Εμφανίζεται κάθε {0} {1} αποτελεσματική {2} για {3} εμφανίσεις {4} έως {5}."
-msgstr[2] ""
-msgstr[3] ""
-msgstr[4] ""
 
 #, fuzzy
 msgid "Occurs every {0} effective {1} for {2} occurrence."
 msgid_plural "Occurs every {0} effective {1} for {2} occurrences."
 msgstr[0] "Εμφανίζεται κάθε {0} αποτελεσματική {1} για {2} εμφάνιση."
 msgstr[1] "Εμφανίζεται κάθε {0} αποτελεσματική {1} για {2} εμφανίσεις."
-msgstr[2] ""
-msgstr[3] ""
-msgstr[4] ""
 
 #, fuzzy
 msgid "Occurs every {0} {1} effective {2} for {3} occurrence."
 msgid_plural "Occurs every {0} {1} effective {2} for {3} occurrences."
 msgstr[0] "Εμφανίζεται κάθε {0} {1} αποτελεσματική {2} για {3} εμφάνιση."
 msgstr[1] "Εμφανίζεται κάθε {0} {1} αποτελεσματική {2} για {3} εμφανίσεις."
-msgstr[2] ""
-msgstr[3] ""
-msgstr[4] ""
 
 #, fuzzy
 msgid "Occurs every {0} effective {1} until {2} from {3} to {4}."
@@ -1761,9 +1723,6 @@ msgid "{0} selected item"
 msgid_plural "{0} selected items"
 msgstr[0] "{0} επιλεγμένο στοιχείο"
 msgstr[1] "{0} επιλεγμένα στοιχεία"
-msgstr[2] ""
-msgstr[3] ""
-msgstr[4] ""
 
 msgid "New Appointment"
 msgstr "Νέο Ραντεβού"
@@ -2296,6 +2255,8 @@ msgid ""
 "{0} has requested a notification be sent when message \"{1}\" is deleted "
 "without having been read. Do you want to send a receipt?"
 msgstr ""
+"Ο {0} ζήτησε την αποστολή ειδοποίησης όταν το μήνυμα \"{1}\" διαγράφεται "
+"χωρίς να έχει διαβαστεί. Θέλετε να στείλετε μια απόδειξη;"
 
 #, fuzzy
 msgid "Delete Incomplete Task"
@@ -2708,9 +2669,6 @@ msgid "There is {0} message selected."
 msgid_plural "There are {0} messages selected."
 msgstr[0] "Υπάρχει {0} επιλεγμένο μήνυμα."
 msgstr[1] "Υπάρχουν {0} επιλεγμένα μηνύματα."
-msgstr[2] ""
-msgstr[3] ""
-msgstr[4] ""
 
 #, fuzzy
 msgid "Folder '{0}' selected."
@@ -3192,9 +3150,6 @@ msgid "There is {0} reminder"
 msgid_plural "There are {0} reminders"
 msgstr[0] "Υπάρχει {0} υπενθύμιση"
 msgstr[1] "Υπάρχουν {0} υπενθυμίσεις"
-msgstr[2] ""
-msgstr[3] ""
-msgstr[4] ""
 
 #, fuzzy
 msgid "Reminders"
@@ -3241,9 +3196,6 @@ msgid "{0} reminder is selected."
 msgid_plural "{0} reminders are selected."
 msgstr[0] "έχει επιλεγεί η υπενθύμιση {0}."
 msgstr[1] "{0} έχουν επιλεγεί υπενθυμίσεις."
-msgstr[2] ""
-msgstr[3] ""
-msgstr[4] ""
 
 #, fuzzy
 msgid "Restore Softdeleted Items"
@@ -3289,9 +3241,6 @@ msgid "Total {0} recoverable item"
 msgid_plural "Total {0} recoverable items"
 msgstr[0] "Σύνολο {0} ανακτήσιμο στοιχείο"
 msgstr[1] "Σύνολο {0} ανακτήσιμα στοιχεία"
-msgstr[2] ""
-msgstr[3] ""
-msgstr[4] ""
 
 #, fuzzy
 msgid "Deleted On"
@@ -3720,9 +3669,6 @@ msgid "{0} selected row"
 msgid_plural "{0} selected rows"
 msgstr[0] "{0} επιλεγμένη σειρά"
 msgstr[1] "{0} επιλεγμένες γραμμές"
-msgstr[2] ""
-msgstr[3] ""
-msgstr[4] ""
 
 #, fuzzy
 msgid "Reminder is set on: {0}, {1}"
@@ -4989,18 +4935,12 @@ msgid "There is {0} unread message in the folder {1} of {2}"
 msgid_plural "There are {0} unread messages in the folder {1} of {2}"
 msgstr[0] "Υπάρχει {0} αδιάβαστο μήνυμα στο φάκελο {1} του {2}"
 msgstr[1] "Υπάρχουν {0} αδιάβαστα μηνύματα στο φάκελο {1} του {2}"
-msgstr[2] ""
-msgstr[3] ""
-msgstr[4] ""
 
 #, fuzzy
 msgid "There is {0} unread message in the folder {1}"
 msgid_plural "There are {0} unread messages in the folder {1}"
 msgstr[0] "Υπάρχει {0} αδιάβαστο μήνυμα στο φάκελο {1}"
 msgstr[1] "Υπάρχουν {0} αδιάβαστα μηνύματα στο φάκελο {1}"
-msgstr[2] ""
-msgstr[3] ""
-msgstr[4] ""
 
 #, fuzzy
 msgid "Publishing Editor"
@@ -5319,7 +5259,7 @@ msgid "Reload"
 msgstr "Επαναφόρτωση"
 
 msgid "Restore items"
-msgstr ""
+msgstr "Επαναφορά αντικειμένων"
 
 msgid "Select color"
 msgstr "Επιλογή χρώματος"
@@ -5741,7 +5681,7 @@ msgid "Location of preview pane"
 msgstr "Τοποθεσία του παραθύρου προεπισκόπησης"
 
 msgid "Use subject prefixes in accordance with RFC 5256/5322"
-msgstr ""
+msgstr "Χρήση προθεμάτων θέματος σύμφωνα με το RFC 5256/5322"
 
 #, fuzzy
 msgid "Close original message on reply or forward"
@@ -6828,9 +6768,6 @@ msgid "The following required folder is missing in the hierarchy: {0}"
 msgid_plural "The following required folders are missing in the hierarchy: {0}"
 msgstr[0] "Ο ακόλουθος απαιτούμενος φάκελος λείπει από την ιεραρχία: {0}"
 msgstr[1] "Οι ακόλουθοι απαιτούμενοι φάκελοι λείπουν από την ιεραρχία: {0}"
-msgstr[2] ""
-msgstr[3] ""
-msgstr[4] ""
 
 #, fuzzy
 msgid "Loading model from server failed"
@@ -7463,13 +7400,13 @@ msgid "Wipe Executed"
 msgstr "Σκούπισμα Εκτελέστηκε"
 
 msgid "Account Only Wipe Pending"
-msgstr ""
+msgstr "Εκκρεμεί μόνο σκούπισμα λογαριασμού"
 
 msgid "Account Only Wipe Requested"
-msgstr ""
+msgstr "Ζητείται διαγραφή μόνο λογαριασμού"
 
 msgid "Account Only Wipe Executed"
-msgstr ""
+msgstr "Εκτέλεση διαγραφής μόνο λογαριασμού"
 
 msgid "Not Available"
 msgstr "Μη διαθέσιμο"
@@ -7596,10 +7533,10 @@ msgid "Please enter your username and password"
 msgstr "Παρακαλώ εισάγετε το όνομα χρήστη και τον κωδικό πρόσβασής σας"
 
 msgid "Wipe only data related to this account"
-msgstr ""
+msgstr "Διαγραφή μόνο των δεδομένων που σχετίζονται με αυτόν τον λογαριασμό"
 
 msgid "Wipe all data"
-msgstr ""
+msgstr "Διαγραφή όλων των δεδομένων"
 
 msgid "Username"
 msgstr "Όνομα Χρήστη"
@@ -8569,7 +8506,7 @@ msgid "Certificate was expired on "
 msgstr "Το πιστοποιητικό έληξε στις"
 
 msgid "Certificate was imported."
-msgstr ""
+msgstr "Το πιστοποιητικό εισήχθη."
 
 #, fuzzy
 msgid "Certificate is not yet valid "
@@ -8580,7 +8517,7 @@ msgid "Certificate has not been imported"
 msgstr "Το πιστοποιητικό δεν έχει εισαχθεί"
 
 msgid "Certificate is revoked, but was imported."
-msgstr ""
+msgstr "Το πιστοποιητικό έχει ανακληθεί, αλλά εισήχθη."
 
 #, fuzzy
 msgid "Unable to read public certificate"
@@ -8923,13 +8860,15 @@ msgid "You don't have the permission to complete this action"
 msgstr "Δεν έχετε το δικαίωμα να ολοκληρώσετε αυτή την ενέργεια"
 
 msgid "Quota error"
-msgstr ""
+msgstr "Σφάλμα ποσόστωσης"
 
 msgid "Send quota limit reached"
-msgstr ""
+msgstr "Επίτευξη ορίου ποσόστωσης αποστολής"
 
 msgid "Email sending failed. Check the log files for more information."
 msgstr ""
+"Η αποστολή email απέτυχε. Ελέγξτε τα αρχεία καταγραφής για περισσότερες "
+"πληροφορίες."
 
 #, fuzzy
 msgid "Unknown user/group"
@@ -9054,10 +8993,10 @@ msgstr ""
 "ιδιότητες > δικαιώματα)."
 
 msgid "default"
-msgstr ""
+msgstr "προεπιλογή"
 
 msgid "anonymous"
-msgstr ""
+msgstr "ανώνυμο"
 
 msgid "unknown"
 msgstr "άγνωστο"
@@ -9188,9 +9127,6 @@ msgstr[0] ""
 msgstr[1] ""
 "%s εμφανίσεις αυτού του επαναλαμβανόμενου ραντεβού συγκρούονται με άλλα "
 "ραντεβού."
-msgstr[2] ""
-msgstr[3] ""
-msgstr[4] ""
 
 #, fuzzy
 msgid "Your message did not reach some or all of the intended recipients"
@@ -9364,29 +9300,37 @@ msgstr "Το αρχείο δεν εισάγεται με επιτυχία"
 
 msgid "The uploaded file exceeds the upload_max_filesize directive in php.ini."
 msgstr ""
+"Το αρχείο που μεταφορτώθηκε υπερβαίνει την οδηγία upload_max_filesize στο "
+"php.ini."
 
 msgid ""
 "The uploaded file exceeds the MAX_FILE_SIZE directive that was specified in "
 "the HTML form."
 msgstr ""
+"Το αρχείο που μεταφορτώθηκε υπερβαίνει την οδηγία MAX_FILE_SIZE που "
+"καθορίστηκε στη φόρμα HTML."
 
 msgid "The uploaded file was only partially uploaded."
-msgstr ""
+msgstr "Το αρχείο που μεταφορτώθηκε μεταφορτώθηκε μόνο εν μέρει."
 
 msgid "No file was uploaded. ."
-msgstr ""
+msgstr "Δεν μεταφορτώθηκε κανένα αρχείο. ."
 
 msgid "Missing a temporary folder."
-msgstr ""
+msgstr "Λείπει ένας προσωρινός φάκελος."
 
 msgid "Failed to write file to disk."
-msgstr ""
+msgstr "Απέτυχε η εγγραφή αρχείου στο δίσκο."
 
 msgid ""
 "A PHP extension stopped the file upload. PHP does not provide a way to "
 "ascertain which extension caused the file upload to stop; examining the list "
 "of loaded extensions with phpinfo() may help."
 msgstr ""
+"Μια επέκταση PHP σταμάτησε το ανέβασμα του αρχείου. Η PHP δεν παρέχει έναν "
+"τρόπο για να εξακριβώσετε ποια επέκταση προκάλεσε τη διακοπή της "
+"μεταφόρτωσης του αρχείου- η εξέταση της λίστας των φορτωμένων επεκτάσεων με "
+"την phpinfo() μπορεί να βοηθήσει."
 
 #, fuzzy
 msgid "There is no contact found in this file."
