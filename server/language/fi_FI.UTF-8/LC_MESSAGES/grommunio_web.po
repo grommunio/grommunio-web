@@ -1,10 +1,11 @@
 # grommunio Web Finnish (Finland) translation.
 # Copyright (C) 2021
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Finnish (Finland)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-04-28 22:53+0200\n"
+"POT-Creation-Date: 2024-04-28 23:13+0200\n"
 "PO-Revision-Date: 2022-07-26 15:25+0200\n"
 "Last-Translator: import\n"
 "Language-Team: \n"
@@ -2000,6 +2001,8 @@ msgid ""
 "{0} has requested a notification be sent when message \"{1}\" is deleted "
 "without having been read. Do you want to send a receipt?"
 msgstr ""
+"{0} on pyytänyt ilmoituksen lähettämistä, kun viesti \"{1}\" poistetaan "
+"lukematta. Haluatko lähettää kuittauksen?"
 
 #, fuzzy
 msgid "Delete Incomplete Task"
@@ -5061,7 +5064,7 @@ msgid "Location of preview pane"
 msgstr "Sijainnin esikatseluruutu"
 
 msgid "Use subject prefixes in accordance with RFC 5256/5322"
-msgstr ""
+msgstr "Käytä aiheen etuliitteitä RFC 5256/5322:n mukaisesti."
 
 #, fuzzy
 msgid "Close original message on reply or forward"
@@ -6655,13 +6658,13 @@ msgid "Wipe Executed"
 msgstr "Pyyhi suoritettu"
 
 msgid "Account Only Wipe Pending"
-msgstr ""
+msgstr "Vain tilin pyyhkiminen vireillä"
 
 msgid "Account Only Wipe Requested"
-msgstr ""
+msgstr "Vain tilin pyyhkimistä pyydetty"
 
 msgid "Account Only Wipe Executed"
-msgstr ""
+msgstr "Vain tilin pyyhkiminen suoritettu"
 
 msgid "Not Available"
 msgstr "Ei saatavilla"
@@ -6786,10 +6789,10 @@ msgid "Please enter your username and password"
 msgstr "Kirjoita käyttäjänimesi ja salasanasi"
 
 msgid "Wipe only data related to this account"
-msgstr ""
+msgstr "Pyyhi vain tähän tiliin liittyvät tiedot"
 
 msgid "Wipe all data"
-msgstr ""
+msgstr "Pyyhi kaikki tiedot"
 
 msgid "Username"
 msgstr "Käyttäjätunnus"
@@ -7703,7 +7706,7 @@ msgid "Certificate was expired on "
 msgstr "Todistuksen voimassaolo päättyi "
 
 msgid "Certificate was imported."
-msgstr ""
+msgstr "Todistus tuotiin maahan."
 
 msgid "Certificate is not yet valid "
 msgstr "Todistus ei ole vielä voimassa "
@@ -7713,7 +7716,7 @@ msgid "Certificate has not been imported"
 msgstr "Todistusta ei ole tuotu"
 
 msgid "Certificate is revoked, but was imported."
-msgstr ""
+msgstr "Varmenne on peruutettu, mutta se tuotiin maahan."
 
 #, fuzzy
 msgid "Unable to read public certificate"
@@ -8031,13 +8034,14 @@ msgid "You don't have the permission to complete this action"
 msgstr "Sinulla ei ole lupaa suorittaa tätä toimintoa"
 
 msgid "Quota error"
-msgstr ""
+msgstr "Kiintiövirhe"
 
 msgid "Send quota limit reached"
-msgstr ""
+msgstr "Lähetyskiintiö saavutettu"
 
 msgid "Email sending failed. Check the log files for more information."
 msgstr ""
+"Sähköpostin lähetys epäonnistui. Tarkista lokitiedostoista lisätietoja."
 
 #, fuzzy
 msgid "Unknown user/group"
@@ -8163,10 +8167,10 @@ msgstr ""
 "painikkeella > ominaisuudet > käyttöoikeudet)."
 
 msgid "default"
-msgstr ""
+msgstr "oletus"
 
 msgid "anonymous"
-msgstr ""
+msgstr "anonyymi"
 
 msgid "unknown"
 msgstr "tuntematon"
@@ -8433,30 +8437,35 @@ msgid "File is not imported successfully"
 msgstr "Tiedostoa ei ole tuotu onnistuneesti"
 
 msgid "The uploaded file exceeds the upload_max_filesize directive in php.ini."
-msgstr ""
+msgstr "Ladattu tiedosto ylittää upload_max_filesize-direktiivin php.ini:ssä."
 
 msgid ""
 "The uploaded file exceeds the MAX_FILE_SIZE directive that was specified in "
 "the HTML form."
 msgstr ""
+"Ladattu tiedosto ylittää HTML-lomakkeessa määritetyn MAX_FILE_SIZE-"
+"direktiivin."
 
 msgid "The uploaded file was only partially uploaded."
-msgstr ""
+msgstr "Ladattu tiedosto ladattiin vain osittain."
 
 msgid "No file was uploaded. ."
-msgstr ""
+msgstr "Tiedostoa ei ladattu. ."
 
 msgid "Missing a temporary folder."
-msgstr ""
+msgstr "Väliaikainen kansio puuttuu."
 
 msgid "Failed to write file to disk."
-msgstr ""
+msgstr "Tiedoston kirjoittaminen levylle epäonnistui."
 
 msgid ""
 "A PHP extension stopped the file upload. PHP does not provide a way to "
 "ascertain which extension caused the file upload to stop; examining the list "
 "of loaded extensions with phpinfo() may help."
 msgstr ""
+"PHP-laajennus pysäytti tiedoston lataamisen. PHP ei tarjoa tapaa selvittää, "
+"mikä laajennus aiheutti tiedoston latauksen pysähtymisen; ladattujen "
+"laajennusten luettelon tutkiminen phpinfo()-ohjelmalla voi auttaa."
 
 #, fuzzy
 msgid "There is no contact found in this file."
