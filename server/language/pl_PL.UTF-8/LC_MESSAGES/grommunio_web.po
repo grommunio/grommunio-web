@@ -1,10 +1,11 @@
 # grommunio Web Polish (Poland) translation.
 # Copyright (C) 2021
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Polish (Poland)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-04-28 22:53+0200\n"
+"POT-Creation-Date: 2024-04-28 23:52+0200\n"
 "PO-Revision-Date: 2022-07-26 17:49+0200\n"
 "Last-Translator: import\n"
 "Language-Team: \n"
@@ -1926,6 +1927,8 @@ msgid ""
 "{0} has requested a notification be sent when message \"{1}\" is deleted "
 "without having been read. Do you want to send a receipt?"
 msgstr ""
+"{0} poprosił o wysłanie powiadomienia, gdy wiadomość \"{1}\" zostanie "
+"usunięta bez przeczytania. Czy chcesz wysłać potwierdzenie?"
 
 msgid "Delete Incomplete Task"
 msgstr "Usuń nieukończone zadanie"
@@ -4737,7 +4740,7 @@ msgid "Location of preview pane"
 msgstr "Pozycja okna podglądu"
 
 msgid "Use subject prefixes in accordance with RFC 5256/5322"
-msgstr ""
+msgstr "Używaj prefiksów tematów zgodnie z RFC 5256/5322"
 
 msgid "Close original message on reply or forward"
 msgstr ""
@@ -6234,13 +6237,13 @@ msgid "Wipe Executed"
 msgstr "Wykonano wycieranie"
 
 msgid "Account Only Wipe Pending"
-msgstr ""
+msgstr "Oczekiwanie na wyczyszczenie tylko konta"
 
 msgid "Account Only Wipe Requested"
-msgstr ""
+msgstr "Żądanie wyczyszczenia tylko konta"
 
 msgid "Account Only Wipe Executed"
-msgstr ""
+msgstr "Wykonano czyszczenie tylko konta"
 
 msgid "Not Available"
 msgstr "Niedostępne"
@@ -6362,10 +6365,10 @@ msgid "Please enter your username and password"
 msgstr "Proszę podaj nazwę użytkownika i hasło"
 
 msgid "Wipe only data related to this account"
-msgstr ""
+msgstr "Wyczyść tylko dane powiązane z tym kontem"
 
 msgid "Wipe all data"
-msgstr ""
+msgstr "Wyczyść wszystkie dane"
 
 msgid "Username"
 msgstr "Nazwa użytkownika"
@@ -7268,7 +7271,7 @@ msgid "Certificate was expired on "
 msgstr "Certyfikat wygasł w dniu "
 
 msgid "Certificate was imported."
-msgstr ""
+msgstr "Certyfikat został zaimportowany."
 
 msgid "Certificate is not yet valid "
 msgstr "Certyfikat nie jest jeszcze ważny "
@@ -7278,7 +7281,7 @@ msgid "Certificate has not been imported"
 msgstr "Certyfikat nie został zaimportowany"
 
 msgid "Certificate is revoked, but was imported."
-msgstr ""
+msgstr "Certyfikat został unieważniony, ale został zaimportowany."
 
 #, fuzzy
 msgid "Unable to read public certificate"
@@ -7596,13 +7599,15 @@ msgid "You don't have the permission to complete this action"
 msgstr "Nie masz uprawnień do wykonania tej czynności"
 
 msgid "Quota error"
-msgstr ""
+msgstr "Błąd limitu"
 
 msgid "Send quota limit reached"
-msgstr ""
+msgstr "Osiągnięto limit limitu wysyłania"
 
 msgid "Email sending failed. Check the log files for more information."
 msgstr ""
+"Wysyłanie wiadomości e-mail nie powiodło się. Sprawdź pliki dziennika, aby "
+"uzyskać więcej informacji."
 
 #, fuzzy
 msgid "Unknown user/group"
@@ -7725,10 +7730,10 @@ msgstr ""
 "uprawnienia)."
 
 msgid "default"
-msgstr ""
+msgstr "domyślny"
 
 msgid "anonymous"
-msgstr ""
+msgstr "anonimowy"
 
 msgid "unknown"
 msgstr "nieznana"
@@ -8002,30 +8007,36 @@ msgid "File is not imported successfully"
 msgstr "Plik nie został zaimportowany pomyślnie"
 
 msgid "The uploaded file exceeds the upload_max_filesize directive in php.ini."
-msgstr ""
+msgstr "Przesłany plik przekracza dyrektywę upload_max_filesize w php.ini."
 
 msgid ""
 "The uploaded file exceeds the MAX_FILE_SIZE directive that was specified in "
 "the HTML form."
 msgstr ""
+"Przesłany plik przekracza dyrektywę MAX_FILE_SIZE określoną w formularzu "
+"HTML."
 
 msgid "The uploaded file was only partially uploaded."
-msgstr ""
+msgstr "Przesłany plik został przesłany tylko częściowo."
 
 msgid "No file was uploaded. ."
-msgstr ""
+msgstr "Nie przesłano żadnego pliku. ."
 
 msgid "Missing a temporary folder."
-msgstr ""
+msgstr "Brak folderu tymczasowego."
 
 msgid "Failed to write file to disk."
-msgstr ""
+msgstr "Nie udało się zapisać pliku na dysku."
 
 msgid ""
 "A PHP extension stopped the file upload. PHP does not provide a way to "
 "ascertain which extension caused the file upload to stop; examining the list "
 "of loaded extensions with phpinfo() may help."
 msgstr ""
+"Rozszerzenie PHP zatrzymało wysyłanie pliku. PHP nie zapewnia sposobu na "
+"ustalenie, które rozszerzenie spowodowało zatrzymanie wysyłania pliku; "
+"pomocne może być sprawdzenie listy załadowanych rozszerzeń za pomocą "
+"phpinfo()."
 
 msgid "There is no contact found in this file."
 msgstr "W tym pliku nie ma żadnego kontaktu."
