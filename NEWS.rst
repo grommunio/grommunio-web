@@ -1,3 +1,19 @@
+v3.8 (2024-04-29)
+=================
+* Allow expired or revoked S/MIME certificates for decryption of older messages
+* Larger translation update, major updates in uk_UA, pt_BR, nb_NO, ko_KR and
+  et_EE
+* Introduced availability of default/anonymous ACLs
+* Correction of S/MIME attachment icon handling (matches OL 2019)
+* Support for Non-read receipts
+* Support for application/pkcs7-mime content type S/MIME mails
+* Natural folder sort based on used language
+* Files related fixes (Sabre/DAV, Sabre/XML)
+* Various smaller fixes, for example with inline attachment handling
+* Reminders do only popup where it should (e.g. not Trash folder)
+* Update dumpurify to 3.1.1
+* Update Video.js to 8.10.0
+
 v3.7 (2024-02-25)
 =================
 * When a message draft is saved, recipients' icons erroneously switched,
