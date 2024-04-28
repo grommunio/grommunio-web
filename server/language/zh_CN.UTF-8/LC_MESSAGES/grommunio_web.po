@@ -1,10 +1,11 @@
 # grommunio Web Chinese (Simplified) translation.
 # Copyright (C) 2021
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Chinese (Simplified)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-04-28 22:53+0200\n"
+"POT-Creation-Date: 2024-04-29 00:04+0200\n"
 "PO-Revision-Date: 2022-07-26 18:09+0200\n"
 "Last-Translator: import\n"
 "Language-Team: \n"
@@ -1840,7 +1841,7 @@ msgstr "通知发件人"
 msgid ""
 "{0} has requested a notification be sent when message \"{1}\" is deleted "
 "without having been read. Do you want to send a receipt?"
-msgstr ""
+msgstr "{0}请求在信息\"{1}\"未读即被删除时发送通知。您想发送收据吗？"
 
 msgid "Delete Incomplete Task"
 msgstr "删除不完整的任务"
@@ -4563,7 +4564,7 @@ msgid "Location of preview pane"
 msgstr "预览面板的位置"
 
 msgid "Use subject prefixes in accordance with RFC 5256/5322"
-msgstr ""
+msgstr "根据 RFC 5256/5322 使用主题前缀"
 
 msgid "Close original message on reply or forward"
 msgstr "在回复或转发时关闭原始消息"
@@ -6012,13 +6013,13 @@ msgid "Wipe Executed"
 msgstr "擦拭已执行"
 
 msgid "Account Only Wipe Pending"
-msgstr ""
+msgstr "仅帐户擦除待定"
 
 msgid "Account Only Wipe Requested"
-msgstr ""
+msgstr "请求只擦除帐户"
 
 msgid "Account Only Wipe Executed"
-msgstr ""
+msgstr "仅帐户擦除已执行"
 
 msgid "Not Available"
 msgstr "不可用"
@@ -6137,10 +6138,10 @@ msgid "Please enter your username and password"
 msgstr "请输入您的用户名和密码"
 
 msgid "Wipe only data related to this account"
-msgstr ""
+msgstr "只清除与此账户相关的数据"
 
 msgid "Wipe all data"
-msgstr ""
+msgstr "清除所有数据"
 
 msgid "Username"
 msgstr "用户名"
@@ -6983,7 +6984,7 @@ msgid "Certificate was expired on "
 msgstr "证书过期时间为 "
 
 msgid "Certificate was imported."
-msgstr ""
+msgstr "证书已导入。"
 
 msgid "Certificate is not yet valid "
 msgstr "证书尚未生效 "
@@ -6993,7 +6994,7 @@ msgid "Certificate has not been imported"
 msgstr "证书未被导入"
 
 msgid "Certificate is revoked, but was imported."
-msgstr ""
+msgstr "证书已废止，但已导入。"
 
 #, fuzzy
 msgid "Unable to read public certificate"
@@ -7279,13 +7280,13 @@ msgid "You don't have the permission to complete this action"
 msgstr "你没有权限完成这个动作"
 
 msgid "Quota error"
-msgstr ""
+msgstr "配额错误"
 
 msgid "Send quota limit reached"
-msgstr ""
+msgstr "达到发送配额限制"
 
 msgid "Email sending failed. Check the log files for more information."
-msgstr ""
+msgstr "电子邮件发送失败。请查看日志文件了解更多信息。"
 
 #, fuzzy
 msgid "Unknown user/group"
@@ -7405,10 +7406,10 @@ msgstr ""
 "限 \"选项卡来设置这些权限（右击%1$s文件夹 > 属性 > 权限）。"
 
 msgid "default"
-msgstr ""
+msgstr "默认"
 
 msgid "anonymous"
-msgstr ""
+msgstr "匿名"
 
 msgid "unknown"
 msgstr "未知"
@@ -7657,30 +7658,32 @@ msgid "File is not imported successfully"
 msgstr "文件没有被成功导入"
 
 msgid "The uploaded file exceeds the upload_max_filesize directive in php.ini."
-msgstr ""
+msgstr "上传的文件超出了 php.ini 中的 upload_max_filesize 指令。"
 
 msgid ""
 "The uploaded file exceeds the MAX_FILE_SIZE directive that was specified in "
 "the HTML form."
-msgstr ""
+msgstr "上传的文件超出了 HTML 表格中指定的 MAX_FILE_SIZE 指令。"
 
 msgid "The uploaded file was only partially uploaded."
-msgstr ""
+msgstr "上传的文件只上传了一部分。"
 
 msgid "No file was uploaded. ."
-msgstr ""
+msgstr "未上传文件。."
 
 msgid "Missing a temporary folder."
-msgstr ""
+msgstr "缺少临时文件夹。"
 
 msgid "Failed to write file to disk."
-msgstr ""
+msgstr "向磁盘写入文件失败。"
 
 msgid ""
 "A PHP extension stopped the file upload. PHP does not provide a way to "
 "ascertain which extension caused the file upload to stop; examining the list "
 "of loaded extensions with phpinfo() may help."
 msgstr ""
+"一个 PHP 扩展名停止了文件上传。PHP 没有提供确定是哪个扩展导致文件上传停止的方"
+"法；使用 phpinfo() 检查加载的扩展列表可能会有所帮助。"
 
 msgid "There is no contact found in this file."
 msgstr "未能在此文件中找到任何联系人。"
