@@ -1,10 +1,11 @@
 # grommunio Web Slovenian (Slovenia) translation.
 # Copyright (C) 2021
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Slovenian (Slovenia)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-04-28 22:53+0200\n"
+"POT-Creation-Date: 2024-04-28 23:58+0200\n"
 "PO-Revision-Date: 2022-07-26 19:05+0200\n"
 "Last-Translator: import\n"
 "Language-Team: \n"
@@ -2035,6 +2036,8 @@ msgid ""
 "{0} has requested a notification be sent when message \"{1}\" is deleted "
 "without having been read. Do you want to send a receipt?"
 msgstr ""
+"{0} je zahteval pošiljanje obvestila, ko je sporočilo \"{1}\" izbrisano, ne "
+"da bi bilo prebrano. Ali želite poslati potrdilo?"
 
 #, fuzzy
 msgid "Delete Incomplete Task"
@@ -5047,7 +5050,7 @@ msgid "Location of preview pane"
 msgstr "Lokacija panela predogleda"
 
 msgid "Use subject prefixes in accordance with RFC 5256/5322"
-msgstr ""
+msgstr "Uporaba predpon za predmete v skladu z RFC 5256/5322"
 
 #, fuzzy
 msgid "Close original message on reply or forward"
@@ -6637,13 +6640,13 @@ msgid "Wipe Executed"
 msgstr "Izvedeno brisanje"
 
 msgid "Account Only Wipe Pending"
-msgstr ""
+msgstr "Čaka samo na brisanje računa"
 
 msgid "Account Only Wipe Requested"
-msgstr ""
+msgstr "Zahtevano brisanje samo računa"
 
 msgid "Account Only Wipe Executed"
-msgstr ""
+msgstr "Izvedeno brisanje samo računa"
 
 msgid "Not Available"
 msgstr "Ni na voljo"
@@ -6771,10 +6774,10 @@ msgid "Please enter your username and password"
 msgstr "Prosim, vnesite vaše uporabniško ime in geslo"
 
 msgid "Wipe only data related to this account"
-msgstr ""
+msgstr "Izbrišite samo podatke, povezane s tem računom"
 
 msgid "Wipe all data"
-msgstr ""
+msgstr "Brisanje vseh podatkov"
 
 msgid "Username"
 msgstr "Uporabniško ime"
@@ -7680,7 +7683,7 @@ msgid "Certificate was expired on "
 msgstr "Potrdilo je poteklo dne "
 
 msgid "Certificate was imported."
-msgstr ""
+msgstr "Potrdilo je bilo uvoženo."
 
 msgid "Certificate is not yet valid "
 msgstr "Potrdilo še ni veljavno "
@@ -7690,7 +7693,7 @@ msgid "Certificate has not been imported"
 msgstr "Potrdilo ni bilo uvoženo"
 
 msgid "Certificate is revoked, but was imported."
-msgstr ""
+msgstr "Potrdilo je preklicano, vendar je bilo uvoženo."
 
 #, fuzzy
 msgid "Unable to read public certificate"
@@ -8012,13 +8015,14 @@ msgid "You don't have the permission to complete this action"
 msgstr "Nimate dovoljenja za dokončanje tega dejanja"
 
 msgid "Quota error"
-msgstr ""
+msgstr "Napaka kvote"
 
 msgid "Send quota limit reached"
-msgstr ""
+msgstr "Dosežena omejitev kvote za pošiljanje"
 
 msgid "Email sending failed. Check the log files for more information."
 msgstr ""
+"Pošiljanje e-pošte ni uspelo. Za več informacij preverite dnevniške datoteke."
 
 #, fuzzy
 msgid "Unknown user/group"
@@ -8140,10 +8144,10 @@ msgstr ""
 "mapo %1$s > lastnosti > dovoljenja)."
 
 msgid "default"
-msgstr ""
+msgstr "privzeto"
 
 msgid "anonymous"
-msgstr ""
+msgstr "anonimno"
 
 msgid "unknown"
 msgstr "neznano"
@@ -8410,30 +8414,35 @@ msgid "File is not imported successfully"
 msgstr "Datoteka ni uspešno uvožena"
 
 msgid "The uploaded file exceeds the upload_max_filesize directive in php.ini."
-msgstr ""
+msgstr "Prenesena datoteka presega direktivo upload_max_filesize v php.ini."
 
 msgid ""
 "The uploaded file exceeds the MAX_FILE_SIZE directive that was specified in "
 "the HTML form."
 msgstr ""
+"Prenesena datoteka presega direktivo MAX_FILE_SIZE, ki je bila določena v "
+"obrazcu HTML."
 
 msgid "The uploaded file was only partially uploaded."
-msgstr ""
+msgstr "Prenesena datoteka je bila naložena le delno."
 
 msgid "No file was uploaded. ."
-msgstr ""
+msgstr "Ni bila naložena nobena datoteka. ."
 
 msgid "Missing a temporary folder."
-msgstr ""
+msgstr "Manjka začasna mapa."
 
 msgid "Failed to write file to disk."
-msgstr ""
+msgstr "Ni uspelo zapisati datoteke na disk."
 
 msgid ""
 "A PHP extension stopped the file upload. PHP does not provide a way to "
 "ascertain which extension caused the file upload to stop; examining the list "
 "of loaded extensions with phpinfo() may help."
 msgstr ""
+"Razširitev PHP je ustavila prenos datoteke. PHP ne zagotavlja načina za "
+"ugotavljanje, katera razširitev je povzročila prekinitev prenosa datoteke; "
+"pomagal bi lahko pregled seznama naloženih razširitev s funkcijo phpinfo()."
 
 #, fuzzy
 msgid "There is no contact found in this file."
