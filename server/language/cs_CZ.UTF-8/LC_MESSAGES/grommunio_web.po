@@ -1,10 +1,11 @@
 # grommunio Web Czech translation.
 # Copyright (C) 2021
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Czech\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-04-28 22:53+0200\n"
+"POT-Creation-Date: 2024-04-28 23:19+0200\n"
 "PO-Revision-Date: 2022-07-26 14:09+0200\n"
 "Last-Translator: import\n"
 "Language-Team: \n"
@@ -1965,6 +1966,8 @@ msgid ""
 "{0} has requested a notification be sent when message \"{1}\" is deleted "
 "without having been read. Do you want to send a receipt?"
 msgstr ""
+"{0} požádal o zaslání oznámení, když je zpráva \"{1}\" smazána, aniž by byla "
+"přečtena. Chcete zaslat potvrzení?"
 
 msgid "Delete Incomplete Task"
 msgstr "Smazat nekompletní úlohu"
@@ -4858,10 +4861,10 @@ msgid "Filter"
 msgstr "Filtr"
 
 msgid "Fwd"
-msgstr ""
+msgstr "Fwd"
 
 msgid "Re"
-msgstr ""
+msgstr "Re"
 
 #, fuzzy
 msgid "on behalf of"
@@ -4958,7 +4961,7 @@ msgid "Location of preview pane"
 msgstr "Panel náhledu umístění"
 
 msgid "Use subject prefixes in accordance with RFC 5256/5322"
-msgstr ""
+msgstr "Používejte předpony předmětů v souladu s RFC 5256/5322."
 
 #, fuzzy
 msgid "Close original message on reply or forward"
@@ -6557,13 +6560,13 @@ msgid "Wipe Executed"
 msgstr "Vymazání provedeno"
 
 msgid "Account Only Wipe Pending"
-msgstr ""
+msgstr "Pouze vymazání účtu čekající na vymazání"
 
 msgid "Account Only Wipe Requested"
-msgstr ""
+msgstr "Požadováno pouze vymazání účtu"
 
 msgid "Account Only Wipe Executed"
-msgstr ""
+msgstr "Provedeno pouze vymazání účtu"
 
 msgid "Not Available"
 msgstr "Není k dispozici"
@@ -6689,10 +6692,10 @@ msgid "Please enter your username and password"
 msgstr "Zadejte své uživatelské jméno a heslo"
 
 msgid "Wipe only data related to this account"
-msgstr ""
+msgstr "Vymazat pouze data související s tímto účtem"
 
 msgid "Wipe all data"
-msgstr ""
+msgstr "Vymazání všech dat"
 
 msgid "Username"
 msgstr "Jméno uživatele"
@@ -7594,7 +7597,7 @@ msgid "Certificate was expired on "
 msgstr "Platnost certifikátu vypršela dne "
 
 msgid "Certificate was imported."
-msgstr ""
+msgstr "Certifikát byl importován."
 
 msgid "Certificate is not yet valid "
 msgstr "Certifikát ještě není platný "
@@ -7604,7 +7607,7 @@ msgid "Certificate has not been imported"
 msgstr "Certifikát nebyl importován"
 
 msgid "Certificate is revoked, but was imported."
-msgstr ""
+msgstr "Certifikát je odvolán, ale byl importován."
 
 #, fuzzy
 msgid "Unable to read public certificate"
@@ -7923,13 +7926,15 @@ msgid "You don't have the permission to complete this action"
 msgstr "K dokončení této akce nemáte oprávnění"
 
 msgid "Quota error"
-msgstr ""
+msgstr "Chyba kvóty"
 
 msgid "Send quota limit reached"
-msgstr ""
+msgstr "Dosažení limitu kvóty pro odesílání"
 
 msgid "Email sending failed. Check the log files for more information."
 msgstr ""
+"Odeslání e-mailu se nezdařilo. Další informace naleznete v souborech "
+"protokolu."
 
 #, fuzzy
 msgid "Unknown user/group"
@@ -8052,10 +8057,10 @@ msgstr ""
 "pravým tlačítkem myši na složku %1$s > vlastnosti > oprávnění)."
 
 msgid "default"
-msgstr ""
+msgstr "výchozí"
 
 msgid "anonymous"
-msgstr ""
+msgstr "anonymní"
 
 msgid "unknown"
 msgstr "neznámý"
@@ -8318,29 +8323,35 @@ msgstr "Soubor se nepodařilo úspěšně importovat"
 
 msgid "The uploaded file exceeds the upload_max_filesize directive in php.ini."
 msgstr ""
+"Nahrávaný soubor překračuje směrnici upload_max_filesize v souboru php.ini."
 
 msgid ""
 "The uploaded file exceeds the MAX_FILE_SIZE directive that was specified in "
 "the HTML form."
 msgstr ""
+"Nahraný soubor překračuje směrnici MAX_FILE_SIZE, která byla zadána ve "
+"formuláři HTML."
 
 msgid "The uploaded file was only partially uploaded."
-msgstr ""
+msgstr "Nahraný soubor byl nahrán pouze částečně."
 
 msgid "No file was uploaded. ."
-msgstr ""
+msgstr "Nebyl nahrán žádný soubor. ."
 
 msgid "Missing a temporary folder."
-msgstr ""
+msgstr "Chybí dočasná složka."
 
 msgid "Failed to write file to disk."
-msgstr ""
+msgstr "Nepodařilo se zapsat soubor na disk."
 
 msgid ""
 "A PHP extension stopped the file upload. PHP does not provide a way to "
 "ascertain which extension caused the file upload to stop; examining the list "
 "of loaded extensions with phpinfo() may help."
 msgstr ""
+"Odesílání souborů zastavilo rozšíření PHP. PHP neposkytuje způsob, jak "
+"zjistit, které rozšíření způsobilo zastavení nahrávání souboru; pomoci může "
+"prozkoumání seznamu načtených rozšíření pomocí funkce phpinfo()."
 
 #, fuzzy
 msgid "There is no contact found in this file."
