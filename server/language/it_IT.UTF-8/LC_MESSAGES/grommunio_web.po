@@ -1,10 +1,11 @@
 # grommunio Web Italian (Italy) translation.
 # Copyright (C) 2021
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Italian (Italy)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-04-28 22:53+0200\n"
+"POT-Creation-Date: 2024-04-28 23:34+0200\n"
 "PO-Revision-Date: 2022-12-11 16:35+0000\n"
 "Last-Translator: Orkan Eser <orkan.eser@grommunio.com>\n"
 "Language-Team: Italian <https://hosted.weblate.org/projects/grommunio/"
@@ -1906,6 +1907,8 @@ msgid ""
 "{0} has requested a notification be sent when message \"{1}\" is deleted "
 "without having been read. Do you want to send a receipt?"
 msgstr ""
+"{0} ha richiesto l'invio di una notifica quando il messaggio \"{1}\" viene "
+"cancellato senza essere stato letto. Si desidera inviare una ricevuta?"
 
 msgid "Delete Incomplete Task"
 msgstr "Elinima il Task incompleto"
@@ -6121,13 +6124,13 @@ msgid "Wipe Executed"
 msgstr "Reinizializzazione eseguita"
 
 msgid "Account Only Wipe Pending"
-msgstr ""
+msgstr "Cancellazione solo dell'account in attesa"
 
 msgid "Account Only Wipe Requested"
-msgstr ""
+msgstr "Richiesta di cancellazione del solo account"
 
 msgid "Account Only Wipe Executed"
-msgstr ""
+msgstr "Cancellazione del solo account eseguita"
 
 msgid "Not Available"
 msgstr "Non disponibile"
@@ -6243,10 +6246,10 @@ msgid "Please enter your username and password"
 msgstr "Inserisci username e password"
 
 msgid "Wipe only data related to this account"
-msgstr ""
+msgstr "Cancellare solo i dati relativi a questo account"
 
 msgid "Wipe all data"
-msgstr ""
+msgstr "Cancellare tutti i dati"
 
 msgid "Username"
 msgstr "Nome utente"
@@ -7083,7 +7086,7 @@ msgid "Certificate was expired on "
 msgstr "Il certificato e` scaduto il "
 
 msgid "Certificate was imported."
-msgstr ""
+msgstr "Il certificato è stato importato."
 
 msgid "Certificate is not yet valid "
 msgstr "Il certificato non e` ancora valido "
@@ -7092,7 +7095,7 @@ msgid "Certificate has not been imported"
 msgstr "Il certificato non e` stato importato"
 
 msgid "Certificate is revoked, but was imported."
-msgstr ""
+msgstr "Il certificato è revocato, ma è stato importato."
 
 msgid "Unable to read public certificate"
 msgstr "Non e` possibile leggere il certificato pubblico"
@@ -7412,13 +7415,15 @@ msgid "You don't have the permission to complete this action"
 msgstr "Non si ha l'autorizzazione per completare questa azione"
 
 msgid "Quota error"
-msgstr ""
+msgstr "Errore di quota"
 
 msgid "Send quota limit reached"
-msgstr ""
+msgstr "Raggiunto il limite della quota di invio"
 
 msgid "Email sending failed. Check the log files for more information."
 msgstr ""
+"L'invio dell'e-mail non è riuscito. Controllare i file di log per ulteriori "
+"informazioni."
 
 #, fuzzy
 msgid "Unknown user/group"
@@ -7544,10 +7549,10 @@ msgstr ""
 "destro del mouse sulla cartella %1$s > proprietà > permessi)."
 
 msgid "default"
-msgstr ""
+msgstr "predefinito"
 
 msgid "anonymous"
-msgstr ""
+msgstr "anonimo"
 
 msgid "unknown"
 msgstr "sconosciuto"
@@ -7827,30 +7832,36 @@ msgid "File is not imported successfully"
 msgstr "Il file non è stato importato correttamente"
 
 msgid "The uploaded file exceeds the upload_max_filesize directive in php.ini."
-msgstr ""
+msgstr "Il file caricato supera la direttiva upload_max_filesize in php.ini."
 
 msgid ""
 "The uploaded file exceeds the MAX_FILE_SIZE directive that was specified in "
 "the HTML form."
 msgstr ""
+"Il file caricato supera la direttiva MAX_FILE_SIZE specificata nel modulo "
+"HTML."
 
 msgid "The uploaded file was only partially uploaded."
-msgstr ""
+msgstr "Il file caricato è stato caricato solo parzialmente."
 
 msgid "No file was uploaded. ."
-msgstr ""
+msgstr "Non è stato caricato alcun file. ."
 
 msgid "Missing a temporary folder."
-msgstr ""
+msgstr "Manca una cartella temporanea."
 
 msgid "Failed to write file to disk."
-msgstr ""
+msgstr "Impossibile scrivere il file sul disco."
 
 msgid ""
 "A PHP extension stopped the file upload. PHP does not provide a way to "
 "ascertain which extension caused the file upload to stop; examining the list "
 "of loaded extensions with phpinfo() may help."
 msgstr ""
+"Un'estensione PHP ha interrotto il caricamento del file. PHP non fornisce un "
+"modo per accertare quale estensione abbia causato l'interruzione del "
+"caricamento del file; l'esame dell'elenco delle estensioni caricate con "
+"phpinfo() può essere d'aiuto."
 
 msgid "There is no contact found in this file."
 msgstr "Nessun contatto trovato in questo file."
