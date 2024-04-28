@@ -1,10 +1,11 @@
 # grommunio Web Hungarian translation.
 # Copyright (C) 2021
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Hungarian\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-04-28 22:53+0200\n"
+"POT-Creation-Date: 2024-04-28 23:33+0200\n"
 "PO-Revision-Date: 2022-07-26 16:08+0200\n"
 "Last-Translator: f3rr31 <5920873@disroot.org>\n"
 "Language-Team: Hungarian <https://hosted.weblate.org/projects/grommunio/"
@@ -1989,6 +1990,8 @@ msgid ""
 "{0} has requested a notification be sent when message \"{1}\" is deleted "
 "without having been read. Do you want to send a receipt?"
 msgstr ""
+"{0} értesítést kért, ha a \"{1}\" üzenet olvasatlanul törlődik. Szeretne "
+"nyugtát küldeni?"
 
 msgid "Delete Incomplete Task"
 msgstr "Befejezetlen feladat törlése"
@@ -4923,7 +4926,7 @@ msgid "Location of preview pane"
 msgstr "Előnézeti panel helyzete"
 
 msgid "Use subject prefixes in accordance with RFC 5256/5322"
-msgstr ""
+msgstr "Tárgy előtagok használata az RFC 5256/5322 szabványnak megfelelően."
 
 msgid "Close original message on reply or forward"
 msgstr "Zárja be az eredeti üzenetet válasz küldése, vagy továbbítás után"
@@ -6386,13 +6389,13 @@ msgid "Wipe Executed"
 msgstr "Törlés elindítva"
 
 msgid "Account Only Wipe Pending"
-msgstr ""
+msgstr "Csak fiók törlése függőben"
 
 msgid "Account Only Wipe Requested"
-msgstr ""
+msgstr "Csak fiók törlését kérte"
 
 msgid "Account Only Wipe Executed"
-msgstr ""
+msgstr "Csak fiók törlése végrehajtva"
 
 msgid "Not Available"
 msgstr "Nem elérhető"
@@ -6511,10 +6514,10 @@ msgid "Please enter your username and password"
 msgstr "Kérlek írd be a felhasználó neved és jelszavad"
 
 msgid "Wipe only data related to this account"
-msgstr ""
+msgstr "Csak az ehhez a fiókhoz kapcsolódó adatok törlése"
 
 msgid "Wipe all data"
-msgstr ""
+msgstr "Törölje az összes adatot"
 
 msgid "Username"
 msgstr "Felhasználónév"
@@ -7365,7 +7368,7 @@ msgid "Certificate was expired on "
 msgstr "A tanúsítvány lejárt ekkor: "
 
 msgid "Certificate was imported."
-msgstr ""
+msgstr "A tanúsítványt importálták."
 
 msgid "Certificate is not yet valid "
 msgstr "A tanúsítvány még nem érvényes "
@@ -7375,7 +7378,7 @@ msgid "Certificate has not been imported"
 msgstr "A tanúsítványt nem importálták"
 
 msgid "Certificate is revoked, but was imported."
-msgstr ""
+msgstr "A tanúsítványt visszavonták, de importálták."
 
 #, fuzzy
 msgid "Unable to read public certificate"
@@ -7694,13 +7697,15 @@ msgid "You don't have the permission to complete this action"
 msgstr "Nincs jogosultsága a művelet végrehajtásához"
 
 msgid "Quota error"
-msgstr ""
+msgstr "Kontingens hiba"
 
 msgid "Send quota limit reached"
-msgstr ""
+msgstr "Elérte a küldési kvótakorlátot"
 
 msgid "Email sending failed. Check the log files for more information."
 msgstr ""
+"Az e-mail küldése sikertelen. További információkért nézze meg a "
+"naplófájlokat."
 
 #, fuzzy
 msgid "Unknown user/group"
@@ -7823,10 +7828,10 @@ msgstr ""
 "klikk a %1$s mappára > tulajdonságok > engedélyek)."
 
 msgid "default"
-msgstr ""
+msgstr "alapértelmezett"
 
 msgid "anonymous"
-msgstr ""
+msgstr "anonymous"
 
 msgid "unknown"
 msgstr "ismeretlen"
@@ -8096,29 +8101,36 @@ msgstr "A fájl importálása nem sikeres"
 
 msgid "The uploaded file exceeds the upload_max_filesize directive in php.ini."
 msgstr ""
+"A feltöltött fájl meghaladja a php.ini fájlban található upload_max_filesize "
+"direktívát."
 
 msgid ""
 "The uploaded file exceeds the MAX_FILE_SIZE directive that was specified in "
 "the HTML form."
 msgstr ""
+"A feltöltött fájl meghaladja a HTML űrlapon megadott MAX_FILE_SIZE utasítást."
 
 msgid "The uploaded file was only partially uploaded."
-msgstr ""
+msgstr "A feltöltött fájl csak részben lett feltöltve."
 
 msgid "No file was uploaded. ."
-msgstr ""
+msgstr "Nem töltöttek fel fájlt. ."
 
 msgid "Missing a temporary folder."
-msgstr ""
+msgstr "Hiányzik egy ideiglenes mappa."
 
 msgid "Failed to write file to disk."
-msgstr ""
+msgstr "Sikertelenül írta a fájlt a lemezre."
 
 msgid ""
 "A PHP extension stopped the file upload. PHP does not provide a way to "
 "ascertain which extension caused the file upload to stop; examining the list "
 "of loaded extensions with phpinfo() may help."
 msgstr ""
+"Egy PHP-bővítmény megállította a fájlfeltöltést. A PHP nem ad módot annak "
+"megállapítására, hogy melyik kiterjesztés okozta a fájlfeltöltés leállását; "
+"a betöltött kiterjesztések listájának vizsgálata a phpinfo() segítségével "
+"segíthet."
 
 #, fuzzy
 msgid "There is no contact found in this file."
