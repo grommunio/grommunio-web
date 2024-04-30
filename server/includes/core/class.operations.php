@@ -4850,23 +4850,21 @@ class Operations {
 	 *
 	 * @param array  $recipientList a list of recipients as XML array structure
 	 * @param string $opType        the type of operation that will be performed on this recipient list (add, remove, modify)
+	 * @param bool   $isException   true if the recipients are for an exception of a recurring meeting,
+	 *                              the organizer is then skipped
 	 * @param bool   $send          true if we are going to send this message else false
-	 * @param mixed  $isException
 	 *
-	 * @return array list of recipients with the correct MAPI properties ready for mapi_message_modifyrecipients()
+	 * @return null|array list of recipients with the correct MAPI properties ready for mapi_message_modifyrecipients(),
+	 *                    null if $send is set and a recipient has neither an email address nor an entryid
 	 */
 	public function createRecipientList($recipientList, $opType = 'add', $isException = false, $send = false) {
 		$recipients = [];
 		$addrbook = $GLOBALS["mapisession"]->getAddressbook();
 
 		foreach ($recipientList as $recipientItem) {
-			if ($isException) {
-				// We do not add organizer to exception msg in organizer's calendar.
-				if (isset($recipientItem[PR_RECIPIENT_FLAGS]) && $recipientItem[PR_RECIPIENT_FLAGS] == (recipSendable | recipOrganizer)) {
-					continue;
-				}
-
-				$recipient[PR_RECIPIENT_FLAGS] = (recipSendable | recipExceptionalResponse | recipReserved);
+			// We do not add organizer to exception msg in organizer's calendar.
+			if ($isException && !empty($recipientItem["recipient_flags"]) && ((int) $recipientItem["recipient_flags"] & recipOrganizer)) {
+				continue;
 			}
 
 			if (!empty($recipientItem["smtp_address"]) && empty($recipientItem["email_address"])) {
@@ -4875,7 +4873,7 @@ class Operations {
 
 			// When saving a mail we can allow an empty email address or entryid, but not when sending it
 			if ($send && empty($recipientItem["email_address"]) && empty($recipientItem['entryid'])) {
-				return;
+				return null;
 			}
 
 			// to modify or remove recipients we need PR_ROWID property
