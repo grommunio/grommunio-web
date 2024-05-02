@@ -7253,7 +7253,7 @@ msgid "You don't have the permission to complete this action"
 msgstr "Sie haben keine Berechtigung, diese Aktion auszuführen"
 
 msgid "Quota error"
-msgstr "Quotenfehler"
+msgstr "Kontingentfehler"
 
 msgid "Send quota limit reached"
 msgstr "Sendekontingentgrenze erreicht"
