@@ -13,6 +13,10 @@ class MailListModule extends ListModule {
 
 	private $_inboxTotalUnread;
 
+	private $store;
+
+	private $currentActionData;
+
 	/**
 	 * Constructor.
 	 *

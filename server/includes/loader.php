@@ -5,6 +5,12 @@
  */
 class FileLoader {
 	private $source;
+	private $cacheFile;
+	private $cacheSum;
+	private $extjsFiles;
+	private $webappFiles;
+	private $pluginFiles;
+	private $remoteFiles;
 
 	public function __construct() {
 		// Unique cache file per grommunio Web location.
@@ -209,10 +215,10 @@ class FileLoader {
 	 * Scanning files and subdirectories that can be found within the supplied
 	 * path and add all located Javascript files to a list.
 	 *
-	 * @param $path String Path of the directory to scan
-	 * @param $recursive Boolean If set to true scans subdirectories as well
+	 * @param $path         String Path of the directory to scan
+	 * @param $recursive    Boolean If set to true scans subdirectories as well
 	 * @param $excludeFiles Array Optional Paths of files or directories that
-	 *                                     are excluded from the search
+	 *                      are excluded from the search
 	 *
 	 * @return array list of arrays containing the paths to files that have to be included
 	 */
@@ -226,10 +232,10 @@ class FileLoader {
 	 * Scanning files and subdirectories that can be found within the supplied
 	 * path and add all located CSS files to a list.
 	 *
-	 * @param $path String Path of the directory to scan
-	 * @param $recursive Boolean If set to true scans subdirectories as well
+	 * @param $path         String Path of the directory to scan
+	 * @param $recursive    Boolean If set to true scans subdirectories as well
 	 * @param $excludeFiles Array Optional Paths of files or directories that
-	 *                                     are excluded from the search
+	 *                      are excluded from the search
 	 *
 	 * @return array list of arrays containing the paths to files that have to be included
 	 */
@@ -243,11 +249,11 @@ class FileLoader {
 	 * Scanning files and subdirectories that can be found within the supplied
 	 * path and add the files to a list.
 	 *
-	 * @param $ext The extension of files that are included ("js" or "css")
-	 * @param $path String Path of the directory to scan
-	 * @param $recursive Boolean If set to true scans subdirectories as well
+	 * @param $ext          The extension of files that are included ("js" or "css")
+	 * @param $path         String Path of the directory to scan
+	 * @param $recursive    Boolean If set to true scans subdirectories as well
 	 * @param $excludeFiles Array Optional Paths of files or directories that
-	 *                                     are excluded from the search
+	 *                      are excluded from the search
 	 *
 	 * @return array list of arrays containing the paths to files that have to be included
 	 */
@@ -300,10 +306,10 @@ class FileLoader {
 	 * dependencies for each file. With that list the proper sequence of loading can be constructed.
 	 * Files that originate from any of the specified coreFiles folders will be marked as core files.
 	 *
-	 * @param $files Array List of files that have to be included
+	 * @param $files     Array List of files that have to be included
 	 * @param $coreFiles Array (Optional) List of folders that contain core files
-	 * @param $libFiles Array (Optional) List of files that is used as library (and can contain
-	 * classed which are depended upon by the given files)
+	 * @param $libFiles  Array (Optional) List of files that is used as library (and can contain
+	 *                   classed which are depended upon by the given files)
 	 *
 	 * @return array List of files that are sorted in the correct sequence
 	 */
@@ -428,10 +434,10 @@ class FileLoader {
 	 * be alphabetically.
 	 *
 	 * @param $fileData Array List of files with dependency data in the format of
-	 *                        $fileData[ FILENAME ] = Array(
-	 *                          'depends' => Array(FILENAME1, FILENAME2),
-	 *                          'core' => true|false
-	 *                        );
+	 *                  $fileData[ FILENAME ] = Array(
+	 *                  'depends' => Array(FILENAME1, FILENAME2),
+	 *                  'core' => true|false
+	 *                  );
 	 *
 	 * @return array List of filenames in the calculated loading sequence
 	 */
@@ -465,7 +471,7 @@ class FileLoader {
 							$fileDepths[$file] = $highestParentDepth + 1;
 							$changed = true;
 						}
-						// The node does not have any dependencies so its a root node.
+					// The node does not have any dependencies so its a root node.
 					}
 					else {
 						$fileDepths[$file] = 0;

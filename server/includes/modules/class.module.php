@@ -43,6 +43,16 @@ class Module {
 	public $sessionData;
 
 	/**
+	 * @var array list of the properties necessary for the module
+	 */
+	public $properties;
+
+	/**
+	 * @var list of the folder list properties
+	 */
+	public $list_properties;
+
+	/**
 	 * Constructor.
 	 *
 	 * @param int   $id   unique id

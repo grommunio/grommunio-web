@@ -80,6 +80,8 @@ class DownloadAttachment extends DownloadBase {
 	 */
 	private $otherStore;
 
+	private $messageSubject;
+
 	/**
 	 * Constructor.
 	 */
