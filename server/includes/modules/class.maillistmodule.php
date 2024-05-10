@@ -173,7 +173,7 @@ class MailListModule extends ListModule {
 	 */
 	public function getInboxTotalUnread($force = false) {
 		if ($this->_inboxTotalUnread === null || $force) {
-			$this->getIboxTotal($force);
+			$this->getInboxTotal($force);
 		}
 
 		return $this->_inboxTotalUnread;

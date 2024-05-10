@@ -788,8 +788,8 @@ class UploadAttachment {
 			// Move the uploaded file to the session
 			$this->attachment_state->addProvidedAttachmentFile($_REQUEST['attachment_id'], $filename, $providedFile, [
 				'name' => $filename,
-				'size' => filesize($tmpname),
-				'type' => mime_content_type($tmpname),
+				'size' => filesize($providedFile),
+				'type' => mime_content_type($providedFile),
 				'sourcetype' => 'default',
 			]);
 		}
