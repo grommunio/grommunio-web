@@ -16,8 +16,6 @@ class ResolveNamesModule extends Module {
 
 	/**
 	 * Executes all the actions in the $data variable.
-	 *
-	 * @return bool true on success or false on failure
 	 */
 	public function execute() {
 		foreach ($this->data as $actionType => $action) {
@@ -46,8 +44,6 @@ class ResolveNamesModule extends Module {
 	 * user list to check if the names are correct.
 	 *
 	 * @param array $action the action data, sent by the client
-	 *
-	 * @return bool true on success or false on failure
 	 */
 	public function checkNames($action) {
 		if (isset($action['resolverequests'])) {
@@ -93,10 +89,10 @@ class ResolveNamesModule extends Module {
 	 * This function searches the addressbook specified for users and returns an array with data
 	 * Please note that the returning array must be UTF8.
 	 *
-	 * @param resource $ab The addressbook
-	 * @param resource $ab_dir The addressbook container
-	 * @param string $query The search query, case is ignored
-	 * @param bool $excludeGABGroups flag to exclude groups from resolving
+	 * @param resource $ab               The addressbook
+	 * @param resource $ab_dir           The addressbook container
+	 * @param string   $query            The search query, case is ignored
+	 * @param bool     $excludeGABGroups flag to exclude groups from resolving
 	 */
 	public function searchAddressBook($ab, $ab_dir, $query, $excludeGABGroups) {
 		// Prefer resolving the email_address. This allows the user
@@ -216,9 +212,9 @@ class ResolveNamesModule extends Module {
 	 * returned an ambiguous result. It will find the Contact folders in the Addressbook and
 	 * apply a restriction to extract the entries.
 	 *
-	 * @param resource $ab The addressbook
-	 * @param string $query The search query, case is ignored
-	 * @param bool $excludeGABGroups flag to exclude groups from resolving
+	 * @param resource $ab               The addressbook
+	 * @param string   $query            The search query, case is ignored
+	 * @param bool     $excludeGABGroups flag to exclude groups from resolving
 	 */
 	public function getAmbigiousContactResolveResults($ab, $query, $excludeGABGroups) {
 		/* We need to look for the Contact folders at the bottom of the following tree.
@@ -277,9 +273,9 @@ class ResolveNamesModule extends Module {
 	/**
 	 * Setup the restriction used for resolving in the Contact folders or GAB.
 	 *
-	 * @param string $query The search query, case is ignored
-	 * @param bool $excludeGABGroups flag to exclude groups from resolving
-	 * @param int $content the PROPTAG to search in
+	 * @param string $query            The search query, case is ignored
+	 * @param bool   $excludeGABGroups flag to exclude groups from resolving
+	 * @param int    $content          the PROPTAG to search in
 	 */
 	public function getAmbigiousContactRestriction($query, $excludeGABGroups, $content) {
 		// only return users from who the displayName or the username starts with $name

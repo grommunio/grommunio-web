@@ -91,8 +91,6 @@ class TaskItemModule extends ItemModule {
 	 * @param string $parententryid parent entryid of the message
 	 * @param array  $action        the action data, sent by the client
 	 * @param mixed  $entryid
-	 *
-	 * @return bool true on success or false on failure
 	 */
 	public function save($store, $parententryid, $entryid, $action) {
 		if (isset($action["props"])) {
@@ -145,8 +143,6 @@ class TaskItemModule extends ItemModule {
 	 * @param string $parententryid parent entryid of the message
 	 * @param mixed  $entryids
 	 * @param array  $action        the action data, sent by the client
-	 *
-	 * @return bool true on success or false on failure
 	 */
 	public function delete($store, $parententryid, $entryids, $action) {
 		if ($store && $parententryid) {

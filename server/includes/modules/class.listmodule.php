@@ -75,8 +75,6 @@ class ListModule extends Module {
 
 	/**
 	 * Executes all the actions in the $data variable.
-	 *
-	 * @return bool true on success or false on failure
 	 */
 	public function execute() {
 		foreach ($this->data as $actionType => $action) {
@@ -144,8 +142,6 @@ class ListModule extends Module {
 	 * @param string $entryid    entryid of the folder
 	 * @param array  $action     the action data, sent by the client
 	 * @param string $actionType the action type, sent by the client
-	 *
-	 * @return bool true on success or false on failure
 	 */
 	public function messageList($store, $entryid, $action, $actionType) {
 		$this->searchFolderList = false; // Set to indicate this is not the search result, but a normal folder content

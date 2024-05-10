@@ -23,8 +23,6 @@ class ReminderItemModule extends ItemModule {
 	 * @param string $parententryid parent entryid of the message
 	 * @param string $entryid       entryid of the message
 	 * @param array  $action        the action data, sent by the client
-	 *
-	 * @return bool true on success or false on failure
 	 */
 	public function save($store, $parententryid, $entryid, $action) {
 		$this->properties = $GLOBALS['properties']->getMailProperties();
@@ -60,8 +58,6 @@ class ReminderItemModule extends ItemModule {
 	 * @param string $parententryid parent entryid of the message
 	 * @param string $entryid       entryid of the message
 	 * @param array  $action        the action data, sent by the client
-	 *
-	 * @return bool true on success or false on failure
 	 */
 	public function delete($store, $parententryid, $entryid, $action) {
 		$this->properties = $GLOBALS["properties"]->getReminderProperties();

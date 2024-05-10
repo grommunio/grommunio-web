@@ -25,8 +25,6 @@ class RulesModule extends Module {
 
 	/**
 	 * Executes all the actions in the $data variable.
-	 *
-	 * @return bool true on success or false on failure
 	 */
 	public function execute() {
 		foreach ($this->data as $actionType => $action) {
@@ -117,7 +115,7 @@ class RulesModule extends Module {
 	 * search.
 	 *
 	 * @return array The restriction which should be applied to the RulesTable
-	 * to obtain all the rules which should be shown to the user
+	 *               to obtain all the rules which should be shown to the user
 	 */
 	public function getRestriction() {
 		return [RES_CONTENT,
@@ -193,8 +191,8 @@ class RulesModule extends Module {
 	 * but for adding new rules Gromox automatically checks existence of rule id and if it si not then
 	 * use ROW_ADD flag.
 	 *
-	 * @param resource $store The store into which the rules must be saved
-	 * @param array $rulesData rules data that should be deleted
+	 * @param resource $store     The store into which the rules must be saved
+	 * @param array    $rulesData rules data that should be deleted
 	 */
 	public function saveRules($store, $rulesData) {
 		if (is_assoc_array($rulesData)) {

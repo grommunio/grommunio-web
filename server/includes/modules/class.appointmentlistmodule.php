@@ -57,8 +57,6 @@ class AppointmentListModule extends ListModule {
 
 	/**
 	 * Executes all the actions in the $data variable.
-	 *
-	 * @return bool true on success or false on failure
 	 */
 	public function execute() {
 		foreach ($this->data as $actionType => $action) {
@@ -106,8 +104,6 @@ class AppointmentListModule extends ListModule {
 	 * @param string $entryid    entryid of the folder
 	 * @param array  $action     the action data, sent by the client
 	 * @param string $actionType the action type, sent by the client
-	 *
-	 * @return bool true on success or false on failure
 	 */
 	public function messageList($store, $entryid, $action, $actionType) {
 		if ($store && $entryid) {

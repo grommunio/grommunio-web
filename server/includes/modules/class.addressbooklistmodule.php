@@ -26,8 +26,6 @@ class AddressbookListModule extends ListModule {
 
 	/**
 	 * Executes all the actions in the $data variable.
-	 *
-	 * @return bool true on success or false on failure
 	 */
 	public function execute() {
 		foreach ($this->data as $actionType => $action) {
@@ -868,7 +866,7 @@ class AddressbookListModule extends ListModule {
 	 *
 	 * @param bool $hide_companies true/false
 	 *
-	 * @return bool|array restriction for getting company info
+	 * @return array|bool restriction for getting company info
 	 */
 	public function createCompanyRestriction($hide_companies) {
 		$companyRestriction = false;
