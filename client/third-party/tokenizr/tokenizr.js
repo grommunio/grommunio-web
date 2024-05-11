@@ -1,13 +1,13 @@
 (function(f){if(typeof exports==="object"&&typeof module!=="undefined"){module.exports=f()}else if(typeof define==="function"&&define.amd){define([],f)}else{var g;if(typeof window!=="undefined"){g=window}else if(typeof global!=="undefined"){g=global}else if(typeof self!=="undefined"){g=self}else{g=this}g.Tokenizr = f()}})(function(){var define,module,exports;return (function(){function r(e,n,t){function o(i,f){if(!n[i]){if(!e[i]){var c="function"==typeof require&&require;if(!f&&c)return c(i,!0);if(u)return u(i,!0);var a=new Error("Cannot find module '"+i+"'");throw a.code="MODULE_NOT_FOUND",a}var p=n[i]={exports:{}};e[i][0].call(p.exports,function(r){var n=e[i][1][r];return o(n||r)},p,p.exports,r,e,n,t)}return n[i].exports}for(var u="function"==typeof require&&require,i=0;i<t.length;i++)o(t[i]);return o}return r})()({1:[function(_dereq_,module,exports){
 "use strict";
 
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); Object.defineProperty(subClass, "prototype", { writable: false }); if (superClass) _setPrototypeOf(subClass, superClass); }
-function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+function _callSuper(t, o, e) { return o = _getPrototypeOf(o), _possibleConstructorReturn(t, _isNativeReflectConstruct() ? Reflect.construct(o, e || [], _getPrototypeOf(t).constructor) : o.apply(t, e)); }
 function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } else if (call !== void 0) { throw new TypeError("Derived constructors may only return object or undefined"); } return _assertThisInitialized(self); }
 function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); Object.defineProperty(subClass, "prototype", { writable: false }); if (superClass) _setPrototypeOf(subClass, superClass); }
 function _wrapNativeSuper(Class) { var _cache = typeof Map === "function" ? new Map() : undefined; _wrapNativeSuper = function _wrapNativeSuper(Class) { if (Class === null || !_isNativeFunction(Class)) return Class; if (typeof Class !== "function") { throw new TypeError("Super expression must either be null or a function"); } if (typeof _cache !== "undefined") { if (_cache.has(Class)) return _cache.get(Class); _cache.set(Class, Wrapper); } function Wrapper() { return _construct(Class, arguments, _getPrototypeOf(this).constructor); } Wrapper.prototype = Object.create(Class.prototype, { constructor: { value: Wrapper, enumerable: false, writable: true, configurable: true } }); return _setPrototypeOf(Wrapper, Class); }; return _wrapNativeSuper(Class); }
-function _construct(Parent, args, Class) { if (_isNativeReflectConstruct()) { _construct = Reflect.construct.bind(); } else { _construct = function _construct(Parent, args, Class) { var a = [null]; a.push.apply(a, args); var Constructor = Function.bind.apply(Parent, a); var instance = new Constructor(); if (Class) _setPrototypeOf(instance, Class.prototype); return instance; }; } return _construct.apply(null, arguments); }
-function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
+function _construct(t, e, r) { if (_isNativeReflectConstruct()) return Reflect.construct.apply(null, arguments); var o = [null]; o.push.apply(o, e); var p = new (t.bind.apply(t, o))(); return r && _setPrototypeOf(p, r.prototype), p; }
+function _isNativeReflectConstruct() { try { var t = !Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); } catch (t) {} return (_isNativeReflectConstruct = function _isNativeReflectConstruct() { return !!t; })(); }
 function _isNativeFunction(fn) { try { return Function.toString.call(fn).indexOf("[native code]") !== -1; } catch (e) { return typeof fn === "function"; } }
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf ? Object.setPrototypeOf.bind() : function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf.bind() : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
@@ -15,11 +15,11 @@ function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, _toPropertyKey(descriptor.key), descriptor); } }
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
-function _toPropertyKey(arg) { var key = _toPrimitive(arg, "string"); return _typeof(key) === "symbol" ? key : String(key); }
-function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input === null) return input; var prim = input[Symbol.toPrimitive]; if (prim !== undefined) { var res = prim.call(input, hint || "default"); if (_typeof(res) !== "object") return res; throw new TypeError("@@toPrimitive must return a primitive value."); } return (hint === "string" ? String : Number)(input); }
+function _toPropertyKey(t) { var i = _toPrimitive(t, "string"); return "symbol" == _typeof(i) ? i : i + ""; }
+function _toPrimitive(t, r) { if ("object" != _typeof(t) || !t) return t; var e = t[Symbol.toPrimitive]; if (void 0 !== e) { var i = e.call(t, r || "default"); if ("object" != _typeof(i)) return i; throw new TypeError("@@toPrimitive must return a primitive value."); } return ("string" === r ? String : Number)(t); }
 /*
 **  Tokenizr -- String Tokenization Library
-**  Copyright (c) 2015-2023 Dr. Ralf S. Engelschall <rse@engelschall.com>
+**  Copyright (c) 2015-2024 Dr. Ralf S. Engelschall <rse@engelschall.com>
 **
 **  Permission is hereby granted, free of charge, to any person obtaining
 **  a copy of this software and associated documentation files (the
@@ -85,7 +85,7 @@ var Token = /*#__PURE__*/function () {
     this.line = line;
     this.column = column;
   }
-  _createClass(Token, [{
+  return _createClass(Token, [{
     key: "toString",
     value: function toString() {
       var colorize = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : function (type, text) {
@@ -101,17 +101,14 @@ var Token = /*#__PURE__*/function () {
       return true;
     }
   }]);
-  return Token;
 }();
 /*  internal helper class for tokenization error reporting  */
 var ParsingError = /*#__PURE__*/function (_Error) {
-  _inherits(ParsingError, _Error);
-  var _super = _createSuper(ParsingError);
   /*  construct and initialize object  */
   function ParsingError(message, pos, line, column, input) {
     var _this;
     _classCallCheck(this, ParsingError);
-    _this = _super.call(this, message);
+    _this = _callSuper(this, ParsingError, [message]);
     _this.name = "ParsingError";
     _this.message = message;
     _this.pos = pos;
@@ -122,7 +119,8 @@ var ParsingError = /*#__PURE__*/function (_Error) {
   }
 
   /*  render a useful string representation  */
-  _createClass(ParsingError, [{
+  _inherits(ParsingError, _Error);
+  return _createClass(ParsingError, [{
     key: "toString",
     value: function toString() {
       var l = excerpt(this.input, this.pos);
@@ -133,7 +131,6 @@ var ParsingError = /*#__PURE__*/function (_Error) {
       return msg;
     }
   }]);
-  return ParsingError;
 }( /*#__PURE__*/_wrapNativeSuper(Error));
 /*  internal helper class for action context  */
 var ActionContext = /*#__PURE__*/function () {
@@ -149,7 +146,7 @@ var ActionContext = /*#__PURE__*/function () {
   }
 
   /*  store and retrieve user data attached to context  */
-  _createClass(ActionContext, [{
+  return _createClass(ActionContext, [{
     key: "data",
     value: function data(key, value) {
       var valueOld = this._data[key];
@@ -259,7 +256,6 @@ var ActionContext = /*#__PURE__*/function () {
       return this;
     }
   }]);
-  return ActionContext;
 }();
 /*  external API class  */
 var Tokenizr = /*#__PURE__*/function () {
@@ -275,7 +271,7 @@ var Tokenizr = /*#__PURE__*/function () {
   }
 
   /*  reset the internal state  */
-  _createClass(Tokenizr, [{
+  return _createClass(Tokenizr, [{
     key: "reset",
     value: function reset() {
       this._input = "";
@@ -521,7 +517,7 @@ var Tokenizr = /*#__PURE__*/function () {
       this._log("    PROGRESS: characters: ".concat(until - from, ", ") + "from: <line ".concat(line, ", column ").concat(column, ">, ") + "to: <line ".concat(this._line, ", column ").concat(this._column, ">"));
     }
 
-    /*  determine and return the next token  */
+    /*  determine and provide the next token  */
   }, {
     key: "_tokenize",
     value: function _tokenize() {
@@ -665,7 +661,12 @@ var Tokenizr = /*#__PURE__*/function () {
     key: "peek",
     value: function peek(offset) {
       if (typeof offset === "undefined") offset = 0;
-      for (var i = 0; i < this._pending.length + offset; i++) this._tokenize();
+
+      /*  if no more tokens are pending, try to determine new ones  */
+      if (offset >= this._pending.length) {
+        if (this._pending.length === 0) this._tokenize();
+        for (var i = 0; i < offset - this._pending.length; i++) this._tokenize();
+      }
       if (offset >= this._pending.length) throw new Error("not enough tokens available for peek operation");
       this._log("PEEK: ".concat(this._pending[offset].toString()));
       return this._pending[offset];
@@ -779,7 +780,6 @@ var Tokenizr = /*#__PURE__*/function () {
       return result;
     }
   }]);
-  return Tokenizr;
 }();
 /*  expose the utility classes, too  */
 Tokenizr.Token = Token;
