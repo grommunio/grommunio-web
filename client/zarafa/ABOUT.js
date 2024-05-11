@@ -9,7 +9,7 @@ Ext.namespace('Zarafa');
 
 Zarafa.ABOUT = ""
 	+ "<style>div.atxt h1{font-weight:inherit;font-style:italic;}</style><div class=\"atxt\">"
-	+ "<p>Copyright (C) 2020 - 2023 grommunio GmbH</p>"
+	+ "<p>Copyright (C) 2020 - 2024 grommunio GmbH</p>"
 
 	+ "<p>This program is free software: you can redistribute it and/or modify "
 	+ "it under the terms of the GNU Affero General Public License as "
@@ -30,60 +30,60 @@ Zarafa.ABOUT = ""
 
 	+ "<h1>grommunio Web</h1>"
 
-	+ "<p>Copyright (C) 2020 - 2023 grommunio GmbH<br>"
+	+ "<p>Copyright (C) 2020 - 2024 grommunio GmbH<br>"
 	+ "Copyright (C) 2016 Kopano and its licensors<br>"
 	+ "Copyright (C) 2005 - 2016 Zarafa B.V. and its licensors</p>"
 
 	+ "<h1>grommunio Web File Previewer Plugin</h1>"
 
-	+ "<p>Copyright (C) 2020 - 2023 grommunio GmbH<br>"
+	+ "<p>Copyright (C) 2020 - 2024 grommunio GmbH<br>"
 	+ "Copyright (C) 2016 Kopano and its licensors<br>"
 	+ "Copyright (C) 2016 Zarafa B.V. and its licensors</p>"
 
 	+ "<h1>grommunio Web Desktop Notifications Plugin</h1>"
 
-	+ "<p>Copyright (C) 2020 - 2023 grommunio GmbH<br>"
+	+ "<p>Copyright (C) 2020 - 2024 grommunio GmbH<br>"
 	+ "Copyright (C) 2016 Kopano and its licensors<br>"
 	+ "Copyright (C) 2013 Saket Patel</p>"
 
 	+ "<h1>grommunio Web Meet Plugin</h1>"
 
-	+ "<p>Copyright (C) 2020 - 2023 grommunio GmbH<br>"
+	+ "<p>Copyright (C) 2020 - 2024 grommunio GmbH<br>"
 	+ "Copyright (C) 2020 Siedl Networks<br>"
 	+ "Copyright (C) 2017 Kopano and its licensors</p>"
 
 	+ "<h1>grommunio Web Password Plugin</h1>"
 
-	+ "<p>Copyright (C) 2020 - 2023 grommunio GmbH<br>"
+	+ "<p>Copyright (C) 2020 - 2024 grommunio GmbH<br>"
 	+ "Copyright (C) 2017 Kopano and its licensors<br>"
 	+ "Copyright (C) 2013 - 2017 Saket Patel</p>"
 
 	+ "<h1>grommunio Web Device Management Plugin</h1>"
 
-	+ "<p>Copyright (C) 2020 - 2023 grommunio GmbH<br>"
+	+ "<p>Copyright (C) 2020 - 2024 grommunio GmbH<br>"
 	+ "Copyright (C) 2016 Kopano and its licensors<br>"
 	+ "Copyright (C) 2005 - 2016 Zarafa B.V. and its licensors</p>"
 
 	+ "<h1>grommunio Web Chat Plugin</h1>"
 
-	+ "<p>Copyright (C) 2020 - 2023 grommunio GmbH<br>"
+	+ "<p>Copyright (C) 2020 - 2024 grommunio GmbH<br>"
 	+ "Copyright (C) 2017 Kopano and its licensors</p>"
 
 	+ "<h1>grommunio Web Maps Plugin</h1>"
 
-	+ "<p>Copyright (C) 2020 - 2023 grommunio GmbH<br>"
+	+ "<p>Copyright (C) 2020 - 2024 grommunio GmbH<br>"
 	+ "Copyright (C) 2016 Kopano and its licensors<br>"
 	+ "Copyright (C) 2005 - 2016 Zarafa B.V. and its licensors</p>"
 
 	+ "<h1>grommunio Web Files & Backend Plugin</h1>"
 
-	+ "<p>Copyright (C) 2020 - 2023 grommunio GmbH<br>"
+	+ "<p>Copyright (C) 2020 - 2024 grommunio GmbH<br>"
 	+ "Copyright (C) 2016 Kopano and its licensors<br>"
 	+ "Copyright (C) 2016 Zarafa B.V. and its licensors</p>"
 
 	+ "<h1>grommunio Web Intranet Plugin</h1>"
 
-	+ "<p>Copyright (C) 2020 - 2023 grommunio GmbH<br>"
+	+ "<p>Copyright (C) 2020 - 2024 grommunio GmbH<br>"
 	+ "Copyright (C) 2017 Kopano and its licensors</p>"
 
 	+ "<p>This program is free software: you can redistribute it and/or modify "
@@ -124,7 +124,7 @@ Zarafa.ABOUT = ""
 
 	+ "<h1>Phpfastcache</h1>"
 
-	+ "<p>Copyright (C) 2016 Phpfastcache</p>"
+	+ "<p>Copyright (c) 2023 Phpfastcache & its Extensions</p>"
 
 	+ "<p>Permission is hereby granted, free of charge, to any person obtaining a copy of "
 	+ "this software and associated documentation files (the Software), to deal in the "
@@ -253,7 +253,7 @@ Zarafa.ABOUT = ""
 
 	+ "<h1>Tokenizr</h1>"
 
-	+ "<p>Copyright (C) 2015-2018 Ralf S. Engelschall <a href=\"mailto:rse@engelschall.com\">rse@engelschall.com</a></p>"
+	+ "<p>Copyright (c) 2015-2024 Dr. Ralf S. Engelschall <a href=\"mailto:rse@engelschall.com\">rse@engelschall.com</a></p>"
 
 	+ "<p>Permission is hereby granted, free of charge, to any person obtaining"
 	+ "a copy of this software and associated documentation files (the"
@@ -277,7 +277,7 @@ Zarafa.ABOUT = ""
 
 	+ "<h1>DOMPurify</h1>"
 
-	+ "<p>Copyright 2015 Mario Heiderich.</p><p>Licensed under the Apache License, version 2.0.</p>"
+	+ "<p>Copyright 2024 Dr.-Ing. Mario Heiderich, Cure53</p><p>Licensed under the Apache License, version 2.0.</p>"
 
 
 	+ "<h1>ViewerJS</h1>"
@@ -287,7 +287,7 @@ Zarafa.ABOUT = ""
 
 	+ "<h1>Leaflet</h1>"
 
-	+ "<p>Copyright (C) 2010-2022 Vladimir Agafonkin</p>"
+	+ "<p>Copyright (C) 2010-2024 Vladimir Agafonkin</p>"
 	+ "<p>Copyright (C) 2010-2011 CloudMade</p>"
 
 	+ "<p>Redistribution and use in source and binary forms, with or without"
