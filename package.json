@@ -1,6 +1,6 @@
 {
 	"name": "grommunio-web",
-	"version": "2.6.0",
+	"version": "3.8.0",
 	"description": "Main grommunio web client",
 	"license": "AGPL-3.0",
 	"repository": "https://github.com/grommunio/grommunio-web",
