@@ -18,8 +18,6 @@ class RestoreItemsListModule extends ListModule {
 
 	/**
 	 * Executes all the actions in the $data variable.
-	 *
-	 * @return bool true on success or false on failure
 	 */
 	public function execute() {
 		foreach ($this->data as $actionType => $action) {
@@ -89,9 +87,9 @@ class RestoreItemsListModule extends ListModule {
 	/**
 	 * Function which permanently delete all folder or message items.
 	 *
-	 * @param object $store store object
+	 * @param object $store         store object
 	 * @param string $folderentryid entry id of that particular folder
-	 * @param object $action request data
+	 * @param object $action        request data
 	 */
 	public function deleteAll($store, $folderentryid, $action) {
 		$folder = mapi_msgstore_openentry($store, $folderentryid);
@@ -129,7 +127,7 @@ class RestoreItemsListModule extends ListModule {
 	/**
 	 * Function used to restore all folders.
 	 *
-	 * @param object $store store object
+	 * @param object $store  store object
 	 * @param object $folder folder data which needs to restore
 	 *
 	 * @throws MAPIException
@@ -202,9 +200,9 @@ class RestoreItemsListModule extends ListModule {
 	/**
 	 * Function restored restore all folder or message based on give itemType.
 	 *
-	 * @param object $store store object
+	 * @param object $store         store object
 	 * @param string $folderentryid entry id of that particular folder
-	 * @param object $action request data
+	 * @param object $action        request data
 	 *
 	 * @throws MAPIException
 	 */

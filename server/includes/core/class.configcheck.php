@@ -6,6 +6,9 @@
  */
 class ConfigCheck {
 	public $result;
+	public $haltOnError;
+	public $siteconfig;
+	public $phpini;
 
 	public function __construct($haltOnError = true) {
 		$this->haltOnError = $haltOnError;
@@ -275,6 +278,7 @@ class ConfigCheck {
 	 */
 	public function checkPHPsecurity($setting, $value_needed, $help_msg = "") {
 		$result = true;
+
 		// convert $value_needed
 		switch ($value_needed) {
 			case "on":

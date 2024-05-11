@@ -13,6 +13,10 @@ class MailListModule extends ListModule {
 
 	private $_inboxTotalUnread;
 
+	private $store;
+
+	private $currentActionData;
+
 	/**
 	 * Constructor.
 	 *
@@ -35,8 +39,6 @@ class MailListModule extends ListModule {
 
 	/**
 	 * Executes all the actions in the $data variable.
-	 *
-	 * @return bool true on success or false on failure
 	 */
 	public function execute() {
 		$GLOBALS['PluginManager']->triggerHook("server.module.maillistmodule.execute.before", ['moduleObject' => &$this]);
@@ -171,7 +173,7 @@ class MailListModule extends ListModule {
 	 */
 	public function getInboxTotalUnread($force = false) {
 		if ($this->_inboxTotalUnread === null || $force) {
-			$this->getIboxTotal($force);
+			$this->getInboxTotal($force);
 		}
 
 		return $this->_inboxTotalUnread;

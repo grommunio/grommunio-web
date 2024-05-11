@@ -6,6 +6,8 @@
  * TODO: add description
  */
 class ReminderListModule extends ListModule {
+	private $reminderEntryId;
+
 	/**
 	 * Constructor.
 	 *

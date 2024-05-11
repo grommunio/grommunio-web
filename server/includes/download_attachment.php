@@ -80,6 +80,8 @@ class DownloadAttachment extends DownloadBase {
 	 */
 	private $otherStore;
 
+	private $messageSubject;
+
 	/**
 	 * Constructor.
 	 */
@@ -350,8 +352,6 @@ class DownloadAttachment extends DownloadBase {
 	 *
 	 * @param MAPIAttach $attachment attachment which will be dumped to client side
 	 * @param bool       $inline     inline attachment or not
-	 *
-	 * @return Response response to sent to client including attachment data
 	 */
 	public function downloadSavedAttachment($attachment, $inline = false) {
 		// Check if the attachment is opened
@@ -546,8 +546,6 @@ class DownloadAttachment extends DownloadBase {
 	/**
 	 * Function will send attachment data to client side.
 	 * This should only be used to download attachment that is recently uploaded and not saved in MAPIMessage.
-	 *
-	 * @return Response response to sent to client including attachment data
 	 */
 	public function downloadUnsavedAttachment() {
 		// return recently uploaded file

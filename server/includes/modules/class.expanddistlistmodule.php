@@ -4,6 +4,8 @@
  * ExpandDistlist Module.
  */
 class ExpandDistlistModule extends Module {
+	private $addrbook;
+
 	/**
 	 * Constructor.
 	 *

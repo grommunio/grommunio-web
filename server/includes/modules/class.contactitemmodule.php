@@ -26,8 +26,6 @@ class ContactItemModule extends ItemModule {
 	 * @param object $store   MAPI Message Store Object
 	 * @param string $entryid entryid of the message
 	 * @param array  $action  the action data, sent by the client
-	 *
-	 * @return bool true on success or false on failure
 	 */
 	public function open($store, $entryid, $action) {
 		$data = [];
@@ -104,11 +102,9 @@ class ContactItemModule extends ItemModule {
 	 * @param string $parententryid parent entryid of the message
 	 * @param string $entryid       entryid of the message
 	 * @param array  $action        the action data, sent by the client
-	 *
-	 * @return bool true on success or false on failure
 	 */
 	public function save($store, $parententryid, $entryid, $action) {
-		$properiesToDelete = [];		// create an array of properties which should be deleted
+		$properiesToDelete = []; // create an array of properties which should be deleted
 		// this array is passed to $GLOBALS['operations']->saveMessage() function
 
 		if (!$store && !$parententryid) {
@@ -449,7 +445,7 @@ class ContactItemModule extends ItemModule {
 
 		// UTC time
 		$startDateUTC = $actionProps[$type];
-		$dueDateUTC = $actionProps[$type] + (24 * 60 * 60);	// ONE DAY is added to set duedate of item.
+		$dueDateUTC = $actionProps[$type] + (24 * 60 * 60); // ONE DAY is added to set duedate of item.
 
 		// get local time from UTC time
 		$recur = new Recurrence($store, []);

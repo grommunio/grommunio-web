@@ -50,8 +50,6 @@ class HierarchyModule extends Module {
 
 	/**
 	 * Executes all the actions in the $data variable.
-	 *
-	 * @return bool true on success or false on failure
 	 */
 	public function execute() {
 		foreach ($this->data as $actionType => $action) {
@@ -1119,8 +1117,6 @@ class HierarchyModule extends Module {
 	 * @param string $parententryid entryid of the parent folder
 	 * @param string $entryid       entryid of the folder
 	 * @param array  $action        the action data, sent by the client
-	 *
-	 * @return bool true on success or false on failure
 	 */
 	public function deleteFolder($store, $parententryid, $entryid, $action) {
 		$props = [];
@@ -1177,8 +1173,6 @@ class HierarchyModule extends Module {
 	 *
 	 * @param object $store   message Store Object
 	 * @param string $entryid entryid of the folder
-	 *
-	 * @return bool true on success or false on failure
 	 */
 	public function emptyFolder($store, $entryid) {
 		$props = [];
@@ -1231,8 +1225,6 @@ class HierarchyModule extends Module {
 	 * @param string $destfolderentryid   entryid of the destination folder
 	 * @param mixed  $deststore
 	 * @param mixed  $moveFolder
-	 *
-	 * @return bool true on success or false on failure
 	 */
 	public function copyFolder($store, $parententryid, $sourcefolderentryid, $destfolderentryid, $deststore, $moveFolder) {
 		$props = [];
@@ -1337,8 +1329,6 @@ class HierarchyModule extends Module {
 	 *
 	 * @param object $store   message Store Object
 	 * @param string $entryid entryid of the folder
-	 *
-	 * @return bool true on success or false on failure
 	 */
 	public function setReadFlags($store, $entryid) {
 		$props = [];

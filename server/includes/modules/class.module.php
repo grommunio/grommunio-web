@@ -43,6 +43,16 @@ class Module {
 	public $sessionData;
 
 	/**
+	 * @var array list of the properties necessary for the module
+	 */
+	public $properties;
+
+	/**
+	 * @var list of the folder list properties
+	 */
+	public $list_properties;
+
+	/**
 	 * Constructor.
 	 *
 	 * @param int   $id   unique id
@@ -74,8 +84,6 @@ class Module {
 
 	/**
 	 * Executes all the actions in the $data variable.
-	 *
-	 * @return bool true on success or false on failure
 	 */
 	public function execute() {
 		// you must implement this function for each module
@@ -433,8 +441,6 @@ class Module {
 	 *
 	 * @param string $actionType type of action that response data corresponds
 	 * @param mixed  $data
-	 *
-	 * @return array data object
 	 */
 	public function addActionData($actionType, $data) {
 		if (!isset($this->responseData[$actionType])) {

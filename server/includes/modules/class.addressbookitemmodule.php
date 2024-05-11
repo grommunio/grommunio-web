@@ -7,6 +7,7 @@ class AddressbookItemModule extends ItemModule {
 	private $userDetailProperties;
 	private $abObjectDetailProperties;
 	private $groupDetailProperties;
+
 	/**
 	 * Constructor.
 	 *
@@ -27,8 +28,6 @@ class AddressbookItemModule extends ItemModule {
 	 * @param object $store   MAPI Message Store Object
 	 * @param string $entryid entryid of the message
 	 * @param array  $action  the action data, sent by the client
-	 *
-	 * @return bool true on success or false on failure
 	 */
 	public function open($store, $entryid, $action) {
 		if ($entryid) {

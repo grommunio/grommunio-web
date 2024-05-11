@@ -52,8 +52,6 @@ class Notifier {
 	 *
 	 * @param string $actionType type of action that response data corresponds
 	 * @param mixed  $data
-	 *
-	 * @return array data object
 	 */
 	protected function addNotificationActionData($actionType, $data) {
 		if (!isset($this->responseNotificationData[$actionType])) {
