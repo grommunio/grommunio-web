@@ -146,68 +146,69 @@ class ListModule extends Module {
 	public function messageList($store, $entryid, $action, $actionType) {
 		$this->searchFolderList = false; // Set to indicate this is not the search result, but a normal folder content
 
-		if ($store && $entryid) {
-			// Restriction
-			$this->parseRestriction($action);
+		if (!$store || !$entryid)
+			return;
 
-			// Sort
-			$this->parseSortOrder($action, null, true);
+		// Restriction
+		$this->parseRestriction($action);
 
-			$limit = false;
-			if (isset($action['restriction']['limit'])) {
-				$limit = $action['restriction']['limit'];
-			}
-			else {
-				$limit = $GLOBALS['settings']->get('zarafa/v1/main/page_size', 50);
-			}
+		// Sort
+		$this->parseSortOrder($action, null, true);
 
-			$isSearchFolder = isset($action['search_folder_entryid']);
-			$entryid = $isSearchFolder ? hex2bin($action['search_folder_entryid']) : $entryid;
-
-			// Get the table and merge the arrays
-			$data = $GLOBALS["operations"]->getTable($store, $entryid, $this->properties, $this->sort, $this->start, $limit, $this->restriction);
-
-			// If the request come from search folder then no need to send folder information
-			if (!$isSearchFolder) {
-				// Open the folder.
-				$folder = mapi_msgstore_openentry($store, $entryid);
-				$data["folder"] = [];
-
-				// Obtain some statistics from the folder contents
-				$contentcount = mapi_getprops($folder, [PR_CONTENT_COUNT, PR_CONTENT_UNREAD]);
-				if (isset($contentcount[PR_CONTENT_COUNT])) {
-					$data["folder"]["content_count"] = $contentcount[PR_CONTENT_COUNT];
-				}
-
-				if (isset($contentcount[PR_CONTENT_UNREAD])) {
-					$data["folder"]["content_unread"] = $contentcount[PR_CONTENT_UNREAD];
-				}
-			}
-
-			$data = $this->filterPrivateItems($data);
-
-			// Allowing to hook in just before the data sent away to be sent to the client
-			$GLOBALS['PluginManager']->triggerHook('server.module.listmodule.list.after', [
-				'moduleObject' => &$this,
-				'store' => $store,
-				'entryid' => $entryid,
-				'action' => $action,
-				'data' => &$data,
-			]);
-
-			// unset will remove the value but will not regenerate array keys, so we need to
-			// do it here
-			$data["item"] = array_values($data["item"]);
-
-			if (isset($action['use_searchfolder']) && $action['use_searchfolder'] === true) {
-				$data["search_meta"] = [];
-				$data["search_meta"]["search_store_entryid"] = $action["store_entryid"];
-				$data["search_meta"]["results"] = count($data["item"]);
-			}
-
-			$this->addActionData($actionType, $data);
-			$GLOBALS["bus"]->addData($this->getResponseData());
+		$limit = false;
+		if (isset($action['restriction']['limit'])) {
+			$limit = $action['restriction']['limit'];
 		}
+		else {
+			$limit = $GLOBALS['settings']->get('zarafa/v1/main/page_size', 50);
+		}
+
+		$isSearchFolder = isset($action['search_folder_entryid']);
+		$entryid = $isSearchFolder ? hex2bin($action['search_folder_entryid']) : $entryid;
+
+		// Get the table and merge the arrays
+		$data = $GLOBALS["operations"]->getTable($store, $entryid, $this->properties, $this->sort, $this->start, $limit, $this->restriction);
+
+		// If the request come from search folder then no need to send folder information
+		if (!$isSearchFolder) {
+			// Open the folder.
+			$folder = mapi_msgstore_openentry($store, $entryid);
+			$data["folder"] = [];
+
+			// Obtain some statistics from the folder contents
+			$contentcount = mapi_getprops($folder, [PR_CONTENT_COUNT, PR_CONTENT_UNREAD]);
+			if (isset($contentcount[PR_CONTENT_COUNT])) {
+				$data["folder"]["content_count"] = $contentcount[PR_CONTENT_COUNT];
+			}
+
+			if (isset($contentcount[PR_CONTENT_UNREAD])) {
+				$data["folder"]["content_unread"] = $contentcount[PR_CONTENT_UNREAD];
+			}
+		}
+
+		$data = $this->filterPrivateItems($data);
+
+		// Allowing to hook in just before the data sent away to be sent to the client
+		$GLOBALS['PluginManager']->triggerHook('server.module.listmodule.list.after', [
+			'moduleObject' => &$this,
+			'store' => $store,
+			'entryid' => $entryid,
+			'action' => $action,
+			'data' => &$data,
+		]);
+
+		// unset will remove the value but will not regenerate array keys, so we need to
+		// do it here
+		$data["item"] = array_values($data["item"]);
+
+		if (isset($action['use_searchfolder']) && $action['use_searchfolder'] === true) {
+			$data["search_meta"] = [];
+			$data["search_meta"]["search_store_entryid"] = $action["store_entryid"];
+			$data["search_meta"]["results"] = count($data["item"]);
+		}
+
+		$this->addActionData($actionType, $data);
+		$GLOBALS["bus"]->addData($this->getResponseData());
 	}
 
 	/**
