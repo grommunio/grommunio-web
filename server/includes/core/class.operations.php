@@ -1401,73 +1401,73 @@ class Operations {
 		$data = [];
 		$folder = mapi_msgstore_openentry($store, $entryid);
 
-		if ($folder) {
-			$table = $getHierarchy ? mapi_folder_gethierarchytable($folder, $flags) : mapi_folder_getcontentstable($folder, $flags);
+		if (!$folder)
+			return $data;
 
-			if (!$rowcount) {
-				$rowcount = $GLOBALS['settings']->get('zarafa/v1/main/page_size', 50);
-			}
+		$table = $getHierarchy ? mapi_folder_gethierarchytable($folder, $flags) : mapi_folder_getcontentstable($folder, $flags);
 
-			if (is_array($restriction)) {
-				mapi_table_restrict($table, $restriction, TBL_BATCH);
-			}
-
-			if (is_array($sort) && !empty($sort)) {
-				/*
-				 * If the sort array contains the PR_SUBJECT column we should change this to
-				 * PR_NORMALIZED_SUBJECT to make sure that when sorting on subjects: "sweet" and
-				 * "RE: sweet", the first one is displayed before the latter one. If the subject
-				 * is used for sorting the PR_MESSAGE_DELIVERY_TIME must be added as well as
-				 * Outlook behaves the same way in this case.
-				 */
-				if (isset($sort[PR_SUBJECT])) {
-					$sortReplace = [];
-					foreach ($sort as $key => $value) {
-						if ($key == PR_SUBJECT) {
-							$sortReplace[PR_NORMALIZED_SUBJECT] = $value;
-							$sortReplace[PR_MESSAGE_DELIVERY_TIME] = TABLE_SORT_DESCEND;
-						}
-						else {
-							$sortReplace[$key] = $value;
-						}
-					}
-					$sort = $sortReplace;
-				}
-
-				mapi_table_sort($table, $sort, TBL_BATCH);
-			}
-
-			$data["item"] = [];
-
-			$rows = mapi_table_queryrows($table, $properties, $start, $rowcount);
-			foreach ($rows as $row) {
-				$itemData = Conversion::mapMAPI2XML($properties, $row);
-
-				// For ZARAFA type users the email_address properties are filled with the username
-				// Here we will copy that property to the *_username property for consistency with
-				// the getMessageProps() function
-				// We will not retrieve the real email address (like the getMessageProps function does)
-				// for all items because that would be a performance decrease!
-				if (isset($itemData['props']["sent_representing_email_address"])) {
-					$itemData['props']["sent_representing_username"] = $itemData['props']["sent_representing_email_address"];
-				}
-				if (isset($itemData['props']["sender_email_address"])) {
-					$itemData['props']["sender_username"] = $itemData['props']["sender_email_address"];
-				}
-				if (isset($itemData['props']["received_by_email_address"])) {
-					$itemData['props']["received_by_username"] = $itemData['props']["received_by_email_address"];
-				}
-
-				array_push($data["item"], $itemData);
-			}
-
-			// Update the page information
-			$data["page"] = [];
-			$data["page"]["start"] = $start;
-			$data["page"]["rowcount"] = $rowcount;
-			$data["page"]["totalrowcount"] = mapi_table_getrowcount($table);
+		if (!$rowcount) {
+			$rowcount = $GLOBALS['settings']->get('zarafa/v1/main/page_size', 50);
 		}
 
+		if (is_array($restriction)) {
+			mapi_table_restrict($table, $restriction, TBL_BATCH);
+		}
+
+		if (is_array($sort) && !empty($sort)) {
+			/*
+			 * If the sort array contains the PR_SUBJECT column we should change this to
+			 * PR_NORMALIZED_SUBJECT to make sure that when sorting on subjects: "sweet" and
+			 * "RE: sweet", the first one is displayed before the latter one. If the subject
+			 * is used for sorting the PR_MESSAGE_DELIVERY_TIME must be added as well as
+			 * Outlook behaves the same way in this case.
+			 */
+			if (isset($sort[PR_SUBJECT])) {
+				$sortReplace = [];
+				foreach ($sort as $key => $value) {
+					if ($key == PR_SUBJECT) {
+						$sortReplace[PR_NORMALIZED_SUBJECT] = $value;
+						$sortReplace[PR_MESSAGE_DELIVERY_TIME] = TABLE_SORT_DESCEND;
+					}
+					else {
+						$sortReplace[$key] = $value;
+					}
+				}
+				$sort = $sortReplace;
+			}
+
+			mapi_table_sort($table, $sort, TBL_BATCH);
+		}
+
+		$data["item"] = [];
+
+		$rows = mapi_table_queryrows($table, $properties, $start, $rowcount);
+		foreach ($rows as $row) {
+			$itemData = Conversion::mapMAPI2XML($properties, $row);
+
+			// For ZARAFA type users the email_address properties are filled with the username
+			// Here we will copy that property to the *_username property for consistency with
+			// the getMessageProps() function
+			// We will not retrieve the real email address (like the getMessageProps function does)
+			// for all items because that would be a performance decrease!
+			if (isset($itemData['props']["sent_representing_email_address"])) {
+				$itemData['props']["sent_representing_username"] = $itemData['props']["sent_representing_email_address"];
+			}
+			if (isset($itemData['props']["sender_email_address"])) {
+				$itemData['props']["sender_username"] = $itemData['props']["sender_email_address"];
+			}
+			if (isset($itemData['props']["received_by_email_address"])) {
+				$itemData['props']["received_by_username"] = $itemData['props']["received_by_email_address"];
+			}
+
+			array_push($data["item"], $itemData);
+		}
+
+		// Update the page information
+		$data["page"] = [];
+		$data["page"]["start"] = $start;
+		$data["page"]["rowcount"] = $rowcount;
+		$data["page"]["totalrowcount"] = mapi_table_getrowcount($table);
 		return $data;
 	}
 
