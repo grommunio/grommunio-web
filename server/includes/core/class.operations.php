@@ -1401,8 +1401,9 @@ class Operations {
 		$data = [];
 		$folder = mapi_msgstore_openentry($store, $entryid);
 
-		if (!$folder)
+		if (!$folder) {
 			return $data;
+		}
 
 		$table = $getHierarchy ? mapi_folder_gethierarchytable($folder, $flags) : mapi_folder_getcontentstable($folder, $flags);
 
@@ -1468,6 +1469,7 @@ class Operations {
 		$data["page"]["start"] = $start;
 		$data["page"]["rowcount"] = $rowcount;
 		$data["page"]["totalrowcount"] = mapi_table_getrowcount($table);
+
 		return $data;
 	}
 
@@ -4408,14 +4410,14 @@ class Operations {
 	/**
 	 * Function which fetches all members of a distribution list recursively.
 	 *
-	 * @param resource $store MAPI Message Store Object
-	 * @param resource $message the distribution list message
-	 * @param array $properties array of properties to get properties of distlist
-	 * @param bool $isRecursive function will be called recursively if there is/are
-	 * distribution list inside the distlist to expand all the members,
-	 * pass true to expand distlist recursively, false to not expand
-	 * @param array $listEntryIDs list of already expanded Distribution list from contacts folder,
-	 * This parameter is used for recursive call of the function
+	 * @param resource $store        MAPI Message Store Object
+	 * @param resource $message      the distribution list message
+	 * @param array    $properties   array of properties to get properties of distlist
+	 * @param bool     $isRecursive  function will be called recursively if there is/are
+	 *                               distribution list inside the distlist to expand all the members,
+	 *                               pass true to expand distlist recursively, false to not expand
+	 * @param array    $listEntryIDs list of already expanded Distribution list from contacts folder,
+	 *                               This parameter is used for recursive call of the function
 	 *
 	 * @return object $items all members of a distlist
 	 */
