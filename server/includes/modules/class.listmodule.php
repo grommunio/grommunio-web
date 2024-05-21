@@ -146,8 +146,9 @@ class ListModule extends Module {
 	public function messageList($store, $entryid, $action, $actionType) {
 		$this->searchFolderList = false; // Set to indicate this is not the search result, but a normal folder content
 
-		if (!$store || !$entryid)
+		if (!$store || !$entryid) {
 			return;
+		}
 
 		// Restriction
 		$this->parseRestriction($action);
