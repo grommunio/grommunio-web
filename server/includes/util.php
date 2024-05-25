@@ -633,7 +633,7 @@ function json_decode_data($jsonString, $toAssoc = false) {
 	}
 
 	if (!empty($errorString)) {
-		throw new JsonException(sprintf(_("JSON Error: - %s"), $errorString), json_last_error(), null, _("Some problem encountered when encoding/decoding JSON data."));
+		throw new JsonException(sprintf(_("Some problem encountered when encoding/decoding JSON data: - %s"), $errorString), json_last_error(), null);
 	}
 
 	return $data;
