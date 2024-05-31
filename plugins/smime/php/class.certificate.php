@@ -356,9 +356,14 @@ class Certificate {
 			],
 		];
 
+		$ocspUrl = $this->ocspURL();
+		// The OCSP URL is empty, import certificate, but show a warning.
+		if (strlen($ocspUrl) == 0) {
+			throw new OCSPException('The OCSP URL is empty', OCSP_NO_RESPONSE);
+		}
 		// Do the OCSP request
 		$context = stream_context_create($stream_options);
-		$derresponse = file_get_contents($this->ocspURL(), null, $context);
+		$derresponse = file_get_contents($ocspUrl, null, $context);
 		// OCSP service not available, import certificate, but show a warning.
 		if ($derresponse === false) {
 			throw new OCSPException('No response', OCSP_NO_RESPONSE);
