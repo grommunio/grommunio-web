@@ -7,6 +7,8 @@
  * - Check the code at deleteFolder and at copyFolder. Looks the same.
  */
 class HierarchyModule extends Module {
+	private $store_entryid;
+
 	/**
 	 * Constructor.
 	 *
@@ -58,6 +60,7 @@ class HierarchyModule extends Module {
 					$store = $this->getActionStore($action);
 					$parententryid = $this->getActionParentEntryID($action);
 					$entryid = $this->getActionEntryID($action);
+					$this->store_entryid = $action["store_entryid"] ?? '';
 
 					switch ($actionType) {
 						case "keepalive":
@@ -696,18 +699,13 @@ class HierarchyModule extends Module {
 	}
 
 	public function getFolderPermissions($folder) {
-		$cnUserBase = '';
-		if (isset($this->data['open']['store_entryid'])) {
-			$eidObj = $GLOBALS["entryid"]->createMsgStoreEntryIdObj(hex2bin($this->data['open']['store_entryid']));
-			$cnUserPos = strrpos($eidObj['MailboxDN'], '/cn=');
-			if ($cnUserPos !== false) {
-				$cnUserBase = substr($eidObj['MailboxDN'], 0, $cnUserPos);
-			}
-		}
+		$eidObj = $GLOBALS["entryid"]->createMsgStoreEntryIdObj(hex2bin($this->store_entryid));
+		$cnUserPos = strrpos($eidObj['MailboxDN'], '/cn=');
+		$cnUserBase = ($cnUserPos !== false) ? substr($eidObj['MailboxDN'], 0, $cnUserPos) : '';
 		$grants = mapi_zarafa_getpermissionrules($folder, ACCESS_TYPE_GRANT);
 		foreach ($grants as $id => $grant) {
 			// The mapi_zarafa_getpermissionrules returns the entryid in the userid key
-			$userinfo = $this->getUserInfo($grant["userid"], $grant["memberid"], $cnUserBase);
+			$userinfo = $this->getUserInfo($grant, $cnUserBase);
 
 			$rights = [];
 			$rights["entryid"] = $userinfo["entryid"];
@@ -727,7 +725,6 @@ class HierarchyModule extends Module {
 	public function setFolderPermissions($folder, $permissions) {
 		$folderProps = mapi_getprops($folder, [PR_DISPLAY_NAME, PR_STORE_ENTRYID, PR_ENTRYID]);
 		$store = $GLOBALS["mapisession"]->openMessageStore($folderProps[PR_STORE_ENTRYID]);
-		$storeProps = mapi_getprops($store, [PR_IPM_SUBTREE_ENTRYID]);
 		$currentPermissions = $this->getFolderPermissions($folder);
 
 		// check if the folder is the default calendar, if so we also need to set the same permissions on the freebusy folder
@@ -741,6 +738,12 @@ class HierarchyModule extends Module {
 
 		// first, get the current permissions because we need to delete all current acl's
 		$curAcls = mapi_zarafa_getpermissionrules($folder, ACCESS_TYPE_GRANT);
+		$eidObj = $GLOBALS["entryid"]->createMsgStoreEntryIdObj(hex2bin($this->store_entryid));
+		$cnUserPos = strrpos($eidObj['MailboxDN'], '/cn=');
+		$cnUserBase = ($cnUserPos !== false) ? substr($eidObj['MailboxDN'], 0, $cnUserPos) : '';
+		foreach ($curAcls as &$curAcl) {
+			$curAcl = $this->getUserInfo($curAcl, $cnUserBase);
+		}
 
 		// First check which permissions should be removed from the existing list
 		if (isset($permissions['remove']) && !empty($permissions['remove'])) {
@@ -779,6 +782,9 @@ class HierarchyModule extends Module {
 							$curAcl['rights'] = $modAcl['rights'];
 							$curAcl['state'] = RIGHT_MODIFY | RIGHT_AUTOUPDATE_DENIED;
 						}
+						if (isset($curAcl['memberid']) && ($curAcl['memberid'] == 0 || $curAcl['memberid'] == 0xFFFFFFFF)) {
+							$curAcl['userid'] = null;
+						}
 					}
 				}
 				unset($curAcl);
@@ -788,12 +794,18 @@ class HierarchyModule extends Module {
 
 		// Finally we check which permissions must be added to the existing list
 		if (isset($permissions['add']) && !empty($permissions['add'])) {
+			$cnt = count($curAcls);
 			foreach ($permissions['add'] as $i => &$addAcl) {
-				$curAcls[$addAcl['entryid']] = [
+				$memberid = $GLOBALS['entryid']->getMemberidFromEntryid(hex2bin($addAcl['entryid']));
+				if ($memberid === false) {
+					continue;
+				}
+				$curAcls[$cnt++] = [
 					'type' => ACCESS_TYPE_GRANT,
 					'userid' => hex2bin($addAcl['entryid']),
 					'rights' => $addAcl['rights'],
 					'state' => RIGHT_NEW | RIGHT_AUTOUPDATE_DENIED,
+					'memberid' => $memberid,
 				];
 			}
 			unset($addAcl);
@@ -811,15 +823,14 @@ class HierarchyModule extends Module {
 					}
 				}
 				unset($acl);
-
 				mapi_zarafa_setpermissionrules($freebusy, $curAcls);
 			}
 		}
 	}
 
 	public function idInCurrentPermissions($currentPermissions, $entryid) {
-		foreach ($currentPermissions as $key => $array) {
-			if ($array['entryid'] === $entryid) {
+		foreach ($currentPermissions as $permission) {
+			if ($permission['entryid'] === $entryid) {
 				return true;
 			}
 		}
@@ -827,44 +838,42 @@ class HierarchyModule extends Module {
 		return false;
 	}
 
-	public function getUserInfo($entryid, $memberid, $cnUserBase) {
+	public function getUserInfo($grant, $cnUserBase) {
 		// Create fake entryids for default and anonymous permissions
-		if ($memberid == 0) {
-			return [
-				"fullname" => _("default"),
-				"username" => _("default"),
-				"entryid" => $GLOBALS["entryid"]->createMuidemsabEntryid($cnUserBase . '/cn=0000000000000000-default'),
-				"type" => MAPI_MAILUSER,
-				"id" => $memberid,
-			];
+		if ($grant["memberid"] == 0) {
+			$entryid = $GLOBALS["entryid"]->createMuidemsabEntryid($cnUserBase . '/cn=0000000000000000-default');
+			$grant["fullname"] = _("default");
+			$grant["username"] = _("default");
+			$grant["entryid"] = $entryid;
+			$grant["userid"] = hex2bin($entryid);
+
+			return $grant;
 		}
 
-		if ($memberid == 0xFFFFFFFF) {
-			return [
-				"fullname" => _("anonymous"),
-				"username" => _("anonymous"),
-				"entryid" => $GLOBALS["entryid"]->createMuidemsabEntryid($cnUserBase . '/cn=ffffffffffffffff-anonymous'),
-				"type" => MAPI_MAILUSER,
-				"id" => $memberid,
-			];
+		if ($grant["memberid"] == 0xFFFFFFFF) {
+			$entryid = $GLOBALS["entryid"]->createMuidemsabEntryid($cnUserBase . '/cn=ffffffffffffffff-anonymous');
+			$grant["fullname"] = _("anonymous");
+			$grant["username"] = _("anonymous");
+			$grant["entryid"] = $entryid;
+			$grant["userid"] = hex2bin($entryid);
+
+			return $grant;
 		}
 
 		// open the addressbook
 		$ab = $GLOBALS["mapisession"]->getAddressbook();
-		$user = mapi_ab_openentry($ab, $entryid);
+		$user = mapi_ab_openentry($ab, $grant["userid"]);
 		if ($user) {
 			$props = mapi_getprops($user, [PR_ACCOUNT, PR_DISPLAY_NAME, PR_OBJECT_TYPE]);
 
-			return [
-				"fullname" => $props[PR_DISPLAY_NAME],
-				"username" => $props[PR_ACCOUNT],
-				"entryid" => bin2hex($entryid),
-				"type" => $props[PR_OBJECT_TYPE],
-				"id" => $entryid,
-			];
+			$grant["fullname"] = $props[PR_DISPLAY_NAME];
+			$grant["username"] = $props[PR_ACCOUNT];
+			$grant["entryid"] = bin2hex($grant["userid"]);
+
+			return $grant;
 		}
 
-		error_log(sprintf("No user with the entryid %s found (memberid: %s)", bin2hex($entryid), $memberid));
+		error_log(sprintf("No user with the entryid %s found (memberid: %s)", bin2hex($grant["userid"]), $grant["memberid"]));
 
 		// default return stuff
 		return [
@@ -872,7 +881,8 @@ class HierarchyModule extends Module {
 			"username" => _("unknown"),
 			"entryid" => null,
 			"type" => MAPI_MAILUSER,
-			"id" => $entryid,
+			"id" => $grant["userid"],
+			"userid" => null,
 		];
 	}
 

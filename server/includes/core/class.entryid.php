@@ -809,6 +809,29 @@ class EntryId {
 	public function createMuidemsabEntryid($user) {
 		return "00000000dca740c8c042101ab4b908002b2fe1820100000000000000" . bin2hex($user);
 	}
+
+	/**
+	 * Extracts user's memberid from their entryid.
+	 *
+	 * The ESSDN.User in Gromox for private forms ends with:
+	 * cn=<leuint32-domid><leuint32-userid>-<localpart>
+	 * This function gets the <leuint32-userid> part from the entryid.
+	 *
+	 * @param string $entryId
+	 *
+	 * @return bool|int memberid or false if not found
+	 */
+	public function getMemberidFromEntryid($entryId) {
+		$cnLastPos = strripos($entryId, 'cn=');
+
+		if ($cnLastPos === false) {
+			return false;
+		}
+
+		// PHP requires conversion to a binary string before the memberid may
+		// be unpacked using little endian byte order
+		return unpack('N', pack('L', intval(substr($entryId, $cnLastPos + 11, 8), 16)))[1];
+	}
 }
 
 // Create global entryId object
