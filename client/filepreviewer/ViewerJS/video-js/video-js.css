@@ -1541,6 +1541,11 @@ video::-webkit-media-text-track-display {
   transform: translateY(-1.5em);
 }
 
+.video-js.vjs-force-center-align-cues .vjs-text-track-cue {
+  text-align: center !important;
+  width: 80% !important;
+}
+
 .video-js .vjs-picture-in-picture-control {
   cursor: pointer;
   flex: none;
