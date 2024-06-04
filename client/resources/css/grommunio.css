@@ -4735,4 +4735,8 @@ input.x-tree-node-cb {
     background-image: none!important;
 }
 
+.x-menu .x-date-picker {
+    width: 210px !important;
+}
+
 /*# sourceMappingURL=grommunio.css.map */
