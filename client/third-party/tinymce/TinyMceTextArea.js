@@ -114,7 +114,8 @@ Ext.ux.form.TinyMCETextArea = Ext.extend(Ext.form.TextArea, {
 		Ext.applyIf(config.tinyMCEConfig, {
 			hideMode: 'offsets',
 			mode : 'exact',
-			resize : false
+			resize : false,
+			force_p_newlines : true
 		});
 
 		Ext.ux.form.TinyMCETextArea.superclass.constructor.call(this, config);
