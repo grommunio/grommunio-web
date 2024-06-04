@@ -17,9 +17,9 @@ including email, calendar, contacts, tasks, notes and more.**
 .. |shield-loc| image:: https://img.shields.io/github/languages/code-size/grommunio/grommunio-web
                 :target: https://github.com/grommunio/grommunio-web/
 
-.. image:: docs/grommunio-web-ui.png
+.. image:: doc/grommunio-web-ui.png
    :alt: Web UI
-.. image:: docs/grommunio-web-ui-alt.png
+.. image:: doc/grommunio-web-ui-alt.png
    :alt: Web UI alternative
 
 grommunio Web is also the basis for grommunio Desktop, a cross-platform client

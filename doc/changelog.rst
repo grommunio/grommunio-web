@@ -1,21 +1,54 @@
-v3.8 (2024-04-29)
-=================
+grommunio-web 3.9 (2024-06-04)
+==============================
+
+Fixes:
+
+* Fix saving permissions when a new permission user was added
+* Fix unwanted permission removal
+* Extend date picker widget width for full 7 day view on widechar months
+
+Enhancements:
+
+* Handle the case that the OCSP URL is empty, supporting rfc6960-violating CAs
+* Support for inline SVG and MathML in mail contents
+
+Changes:
+
+* JsonException constucur now handles exceptions correctly
+* Update domurify to 3.1.5
+* Update pdf.js to 4.3.136
+* Update tokenizr to 1.7.0
+* Update video.js to 8.12.0
+* Translation updates
+
+grommunio-web 3.8 (2024-04-29)
+==============================
+
+Fixes:
+
 * Allow expired or revoked S/MIME certificates for decryption of older messages
 * Larger translation update, major updates in uk_UA, pt_BR, nb_NO, ko_KR and
   et_EE
-* Introduced availability of default/anonymous ACLs
 * Correction of S/MIME attachment icon handling (matches OL 2019)
-* Support for Non-read receipts
-* Support for application/pkcs7-mime content type S/MIME mails
-* Natural folder sort based on used language
 * Files related fixes (Sabre/DAV, Sabre/XML)
 * Various smaller fixes, for example with inline attachment handling
-* Reminders do only popup where it should (e.g. not Trash folder)
 * Update dumpurify to 3.1.1
 * Update Video.js to 8.10.0
 
-v3.7 (2024-02-25)
-=================
+Enhancements:
+
+* Introduced availability of default/anonymous ACLs
+* Support for Non-read receipts
+* Support for application/pkcs7-mime content type S/MIME mails
+
+Changes:
+
+* Natural folder sort based on used language
+* Reminders do only popup where it should (e.g. not Trash folder)
+
+grommunio-web 3.7 (2024-02-25)
+==============================
+
 * When a message draft is saved, recipients' icons erroneously switched,
   which was fixed.
 * Avoid setting a bogus PR_MESSAGE_CLASS on message drafts where
@@ -27,8 +60,9 @@ v3.7 (2024-02-25)
   been restored.
 * Reenable X11 middle mouse pasting
 
-v3.6 (2023-11-10)
-=================
+grommunio-web 3.6 (2023-11-10)
+==============================
+
 * Nav-Model following WCAG 2.1, style adoption for enhanced accessibility
 * Navigation-pane redesign
 * New default modern iconset, overwriting default breeze (based on FluentUI)
@@ -41,8 +75,9 @@ v3.6 (2023-11-10)
 * Display fixes for files (previewer and nav)
 * Cleaning of unused content from repo
 
-v3.5 (2023-10-31)
-=================
+grommunio-web 3.5 (2023-10-31)
+==============================
+
 * Modern authentication system using keycloak open-ID connect workflow
   (requires php-mapi-header 1.3)
 * Style updates
@@ -50,8 +85,9 @@ v3.5 (2023-10-31)
 * Update phpfastcache to 8.1.4
 * Update sabredev dependencies
 
-v3.4 (2023-10-13)
-=================
+grommunio-web 3.4 (2023-10-13)
+==============================
+
 * ViewerJS uses correct CSS class
 * Update dompurify (XSS protection) to 3.0.6
 * Update tokenizr to 1.6.10
@@ -61,8 +97,8 @@ v3.4 (2023-10-13)
 * optimize SVG ressources
 * Modernized build process (no java components anymore)
 
-v3.3 (2023-09-23)
-=================
+grommunio-web 3.3 (2023-09-23)
+==============================
 
 * Freebusy is determined using mapi_getuserfreebusy PHP function
   (requires Gromox-2.11)
@@ -71,5 +107,3 @@ v3.3 (2023-09-23)
 * Copy-to-trash had erroneously moved the mail
 * Rules dialog no longer hides shared stores
 * Resolve "TypeError: g.isMeetingSent is not a function" dialog
-
-(v3.2 2023-02-27)
