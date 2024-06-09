@@ -796,16 +796,12 @@ class HierarchyModule extends Module {
 		if (isset($permissions['add']) && !empty($permissions['add'])) {
 			$cnt = count($curAcls);
 			foreach ($permissions['add'] as $i => &$addAcl) {
-				$memberid = $GLOBALS['entryid']->getMemberidFromEntryid(hex2bin($addAcl['entryid']));
-				if ($memberid === false) {
-					continue;
-				}
 				$curAcls[$cnt++] = [
 					'type' => ACCESS_TYPE_GRANT,
 					'userid' => hex2bin($addAcl['entryid']),
 					'rights' => $addAcl['rights'],
 					'state' => RIGHT_NEW | RIGHT_AUTOUPDATE_DENIED,
-					'memberid' => $memberid,
+					'memberid' => 0, // for new permissions memberid may be any number
 				];
 			}
 			unset($addAcl);
