@@ -272,7 +272,7 @@ class Properties {
 			$properties["proposed_end_whole"] = "PT_SYSTIME:PSETID_Appointment:" . PidLidAppointmentProposedEndWhole;
 			$properties["proposed_duration"] = "PT_LONG:PSETID_Appointment:0x8256";
 			$properties["counter_proposal"] = "PT_BOOLEAN:PSETID_Appointment:" . PidLidAppointmentCounterProposal;
-			$properties["recurring_pattern"] = "PT_STRING8:PSETID_Appointment:0x8232";
+			$properties["recurring_pattern"] = "PT_STRING8:PSETID_Appointment:" . PidLidRecurrencePattern;
 			$properties["basedate"] = "PT_SYSTIME:PSETID_Appointment:" . PidLidExceptionReplaceTime;
 			$properties["meetingtype"] = "PT_LONG:PSETID_Meeting:0x26";
 			$properties["timezone_data"] = "PT_BINARY:PSETID_Appointment:" . PidLidTimeZoneStruct;
@@ -330,7 +330,7 @@ class Properties {
 			$properties["duedate"] = "PT_SYSTIME:PSETID_Appointment:" . PidLidAppointmentEndWhole;
 			$properties["recurring"] = "PT_BOOLEAN:PSETID_Appointment:" . PidLidRecurring;
 			$properties["recurring_data"] = "PT_BINARY:PSETID_Appointment:" . PidLidAppointmentRecur;
-			$properties["recurring_pattern"] = "PT_STRING8:PSETID_Appointment:0x8232";
+			$properties["recurring_pattern"] = "PT_STRING8:PSETID_Appointment:" . PidLidRecurrencePattern;
 			$properties["busystatus"] = "PT_LONG:PSETID_Appointment:" . PidLidBusyStatus;
 			$properties["intendedbusystatus"] = "PT_LONG:PSETID_Appointment:" . PidLidIntendedBusyStatus;
 			$properties["label"] = "PT_LONG:PSETID_Appointment:0x8214";
@@ -425,7 +425,7 @@ class Properties {
 			$properties["meeting"] = "PT_LONG:PSETID_Appointment:" . PidLidAppointmentStateFlags;
 			$properties["startdate_recurring"] = "PT_SYSTIME:PSETID_Appointment:" . PidLidClipStart;
 			$properties["enddate_recurring"] = "PT_SYSTIME:PSETID_Appointment:" . PidLidClipEnd;
-			$properties["recurring_pattern"] = "PT_STRING8:PSETID_Appointment:0x8232";
+			$properties["recurring_pattern"] = "PT_STRING8:PSETID_Appointment:" . PidLidRecurrencePattern;
 			$properties["location"] = "PT_STRING8:PSETID_Appointment:" . PidLidLocation;
 			$properties["duration"] = "PT_LONG:PSETID_Appointment:" . PidLidAppointmentDuration;
 			$properties["responsestatus"] = "PT_LONG:PSETID_Appointment:0x8218";
@@ -959,7 +959,7 @@ class Properties {
 			$properties["appointment_startdate"] = "PT_SYSTIME:PSETID_Appointment:" . PidLidAppointmentStartWhole;
 			$properties["appointment_duedate"] = "PT_SYSTIME:PSETID_Appointment:" . PidLidAppointmentEndWhole;
 			$properties["appointment_location"] = "PT_STRING8:PSETID_Appointment:" . PidLidLocation;
-			$properties["appointment_recurring_pattern"] = "PT_STRING8:PSETID_Appointment:0x8232";
+			$properties["appointment_recurring_pattern"] = "PT_STRING8:PSETID_Appointment:" . PidLidRecurrencePattern;
 			$properties["appointment_recurring"] = "PT_BOOLEAN:PSETID_Appointment:" . PidLidRecurring;
 			$properties["appointment_startdate_recurring"] = "PT_SYSTIME:PSETID_Appointment:" . PidLidClipStart;	// ClipStart
 			$properties["appointment_enddate_recurring"] = "PT_SYSTIME:PSETID_Appointment:" . PidLidClipEnd;		// ClipEnd
@@ -1012,7 +1012,23 @@ class Properties {
 	public function getMailListProperties() {
 		$properties = $this->getMailProperties();
 
-		unset($properties['transport_message_headers'], $properties['appointment_startdate'], $properties['appointment_duedate'], $properties['appointment_location'], $properties['appointment_recurring_pattern'], $properties['appointment_startdate_recurring'], $properties['appointment_enddate_recurring'], $properties['appointment_exception'], $properties['appointment_location'], $properties['proposed_start_date'], $properties['proposed_end_date'], $properties['proposed_duration'], $properties['responsestatus'], $properties['meetingtype'], $properties['goid'], $properties['goid2']);
+		unset(
+			$properties['transport_message_headers'],
+			$properties['appointment_startdate'],
+			$properties['appointment_duedate'],
+			$properties['appointment_location'],
+			$properties['appointment_recurring_pattern'],
+			$properties['appointment_startdate_recurring'],
+			$properties['appointment_enddate_recurring'],
+			$properties['appointment_exception'],
+			$properties['proposed_start_date'],
+			$properties['proposed_end_date'],
+			$properties['proposed_duration'],
+			$properties['responsestatus'],
+			$properties['meetingtype'],
+			$properties['goid'],
+			$properties['goid2']
+		);
 
 		return $properties;
 	}
