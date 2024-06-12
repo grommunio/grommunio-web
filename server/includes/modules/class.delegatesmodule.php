@@ -446,6 +446,7 @@ class DelegatesModule extends Module {
 						'userid' => hex2bin($delegate['entryid']),
 						'rights' => $delegate['props']['rights_' . $folderName],
 						'state' => RIGHT_NEW | RIGHT_AUTOUPDATE_DENIED,
+						'memberid' => 0,
 					],
 				];
 
@@ -701,6 +702,7 @@ class DelegatesModule extends Module {
 					'userid' => hex2bin($delegate['entryid']),
 					'rights' => ecRightsNone,
 					'state' => RIGHT_DELETED | RIGHT_AUTOUPDATE_DENIED,
+					'memberid' => 0,
 				],
 			];
 
