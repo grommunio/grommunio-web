@@ -1,3 +1,10 @@
+grommunio-web 3.10 (unreleased)
+===============================
+
+Fixes:
+
+* Fix delegate permissions which have not been saved
+
 grommunio-web 3.9 (2024-06-04)
 ==============================
 
@@ -14,7 +21,7 @@ Enhancements:
 
 Changes:
 
-* JsonException constucur now handles exceptions correctly
+* JsonException constructor now handles exceptions correctly
 * Update domurify to 3.1.5
 * Update pdf.js to 4.3.136
 * Update tokenizr to 1.7.0
