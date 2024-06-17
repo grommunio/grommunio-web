@@ -210,7 +210,7 @@ Zarafa.contact.ContactContextModel = Ext.extend(Zarafa.core.ContextModel, {
 		var Factory = Zarafa.core.data.RestrictionFactory;
 		var Restrictions = Zarafa.core.mapi.Restrictions;
 		var restriction;
-		var fileAs = '0x80B5001E';
+		var fileAs = 'PT_STRING8:PSETID_Address:0x8005';
 
 		if (Ext.isEmpty(character)) {
 			character = this.current_character || '...';

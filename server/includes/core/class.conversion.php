@@ -233,11 +233,9 @@ class Conversion {
 	 * @example json2property('subject') => 0x0037001e
 	 * @example this also works json2property('PR_SUBJECT') => 0x0037001e
 	 *
-	 * @param array props A mapping of property names to their corresponding MAPI property tags
-	 * @param string property name
+	 * @param array $mapping props A mapping of property names to their corresponding MAPI property tags
+	 * @param string $prop property name
 	 * @param bool  $convertToSingleValued whether to convert the multi valued property tag to single valued or not
-	 * @param mixed $mapping
-	 * @param mixed $prop
 	 *
 	 * @return int The property tag
 	 */
@@ -251,6 +249,11 @@ class Conversion {
 		elseif (defined($prop)) {
 			// This is for cases where the proptag reference is defined as a constant, e.g. PR_BODY
 			$propTag = constant($prop);
+		}
+		elseif (substr_count($prop, ':') == 2) {
+			// This is for named properties, e.g. 'PT_STRING8:PSETID_Address:0x8005'
+			$props = getPropIdsFromStrings($GLOBALS["mapisession"]->getDefaultMessageStore(), [$prop]);
+			$propTag = $props[0];
 		}
 		else {
 			// In this case we expect the string to be a hex id of the proptag
