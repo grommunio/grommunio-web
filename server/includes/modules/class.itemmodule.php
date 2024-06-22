@@ -478,7 +478,7 @@ class ItemModule extends Module {
 		else {
 			// get message props of the message
 			$data['item'] = $GLOBALS['operations']->getMessageProps($store, $message, $this->properties, $this->plaintext);
-			$messageClass = !empty($data['item']['props']['message_class']) ? $data['item']['props']['message_class'] : '';
+			$messageClass = $data['item']['props']['message_class'] ?? '';
 
 			// Check for meeting request, do processing if necessary
 			if (stripos($messageClass, 'IPM.Schedule.Meeting') !== false) {
@@ -547,6 +547,10 @@ class ItemModule extends Module {
 						// re-throw the exception if it is not one of quota/calendar permission.
 						throw $e;
 					}
+				}
+				if (empty($data['item']['props']['appointment_recurring_pattern'])) {
+					$recurr = new Recurrence($store, $message);
+					$data['item']['props']['appointment_recurring_pattern'] = $recurr->saveRecurrencePattern();
 				}
 			}
 			elseif (stripos($messageClass, 'REPORT.IPM.NOTE.NDR') !== false) {
