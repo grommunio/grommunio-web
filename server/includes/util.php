@@ -483,8 +483,8 @@ function sanitizePostValue($key, $default = '', $regex = false) {
  */
 function parse_smime($store, $message) {
 	$props = mapi_getprops($message, [PR_MESSAGE_CLASS, PR_MESSAGE_FLAGS,
-		PR_SENT_REPRESENTING_NAME, PR_SENT_REPRESENTING_ENTRYID, PR_SENT_REPRESENTING_SEARCH_KEY,
-		PR_SENT_REPRESENTING_EMAIL_ADDRESS, PR_SENT_REPRESENTING_SMTP_ADDRESS, PR_SENT_REPRESENTING_ADDRTYPE, PR_CLIENT_SUBMIT_TIME, ]);
+	PR_SENT_REPRESENTING_NAME, PR_SENT_REPRESENTING_ENTRYID, PR_SENT_REPRESENTING_SEARCH_KEY,
+	PR_SENT_REPRESENTING_EMAIL_ADDRESS, PR_SENT_REPRESENTING_SMTP_ADDRESS, PR_SENT_REPRESENTING_ADDRTYPE, PR_CLIENT_SUBMIT_TIME, ]);
 	$read = $props[PR_MESSAGE_FLAGS] & MSGFLAG_READ;
 
 	if (isset($props[PR_MESSAGE_CLASS]) && stripos($props[PR_MESSAGE_CLASS], 'IPM.Note.SMIME.MultipartSigned') !== false) {
@@ -512,7 +512,20 @@ function parse_smime($store, $message) {
 				'data' => &$data,
 			]);
 
+			// also copy recipients because they are lost after mapi_inetmapi_imtomapi
+			$origRcptTable = mapi_message_getrecipienttable($message);
+			if (!isset($GLOBALS["properties"])) {
+				$GLOBALS["properties"] = new Properties();
+			}
+			$origRecipients = mapi_table_queryallrows($origRcptTable, $GLOBALS["properties"]->getRecipientProperties());
+
 			mapi_inetmapi_imtomapi($GLOBALS['mapisession']->getSession(), $store, $GLOBALS['mapisession']->getAddressbook(), $message, $data, ["parse_smime_signed" => 1]);
+
+			$decapRcptTable = mapi_message_getrecipienttable($message);
+			$decapRecipients = mapi_table_queryallrows($decapRcptTable, $GLOBALS["properties"]->getRecipientProperties());
+			if (empty($decapRecipients) && !empty($origRecipients)) {
+				mapi_message_modifyrecipients($message, MODRECIP_ADD, $origRecipients);
+			}
 
 			mapi_setprops($message, [
 				PR_MESSAGE_CLASS => $props[PR_MESSAGE_CLASS],
@@ -542,6 +555,13 @@ function parse_smime($store, $message) {
 			$att = mapi_message_openattach($message, $attnum);
 			$data = mapi_openproperty($att, PR_ATTACH_DATA_BIN);
 
+			// also copy recipients because they are lost after decrypting
+			$origRcptTable = mapi_message_getrecipienttable($message);
+			if (!isset($GLOBALS["properties"])) {
+				$GLOBALS["properties"] = new Properties();
+			}
+			$origRecipients = mapi_table_queryallrows($origRcptTable, $GLOBALS["properties"]->getRecipientProperties());
+
 			// Allowing to hook in before the encrypted attachment is removed
 			$GLOBALS['PluginManager']->triggerHook('server.util.parse_smime.encrypted', [
 				'store' => $store,
@@ -556,6 +576,12 @@ function parse_smime($store, $message) {
 			if (isSmimePluginEnabled() && isset($mprops[PR_MESSAGE_CLASS]) &&
 				stripos($mprops[PR_MESSAGE_CLASS], 'IPM.Note.SMIME') !== false) {
 				mapi_message_deleteattach($message, $attnum);
+			}
+
+			$decapRcptTable = mapi_message_getrecipienttable($message);
+			$decapRecipients = mapi_table_queryallrows($decapRcptTable, $GLOBALS["properties"]->getRecipientProperties());
+			if (empty($decapRecipients) && !empty($origRecipients)) {
+				mapi_message_modifyrecipients($message, MODRECIP_ADD, $origRecipients);
 			}
 		}
 	}
