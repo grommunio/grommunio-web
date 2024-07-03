@@ -548,7 +548,8 @@ class ItemModule extends Module {
 						throw $e;
 					}
 				}
-				if (empty($data['item']['props']['appointment_recurring_pattern'])) {
+				if (!empty($data['item']['props']['appointment_recurring']) &&
+					empty($data['item']['props']['appointment_recurring_pattern'])) {
 					$recurr = new Recurrence($store, $message);
 					$data['item']['props']['appointment_recurring_pattern'] = $recurr->saveRecurrencePattern();
 				}
