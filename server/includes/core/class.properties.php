@@ -333,7 +333,6 @@ class Properties {
 			$properties["recurring_pattern"] = "PT_STRING8:PSETID_Appointment:" . PidLidRecurrencePattern;
 			$properties["busystatus"] = "PT_LONG:PSETID_Appointment:" . PidLidBusyStatus;
 			$properties["intendedbusystatus"] = "PT_LONG:PSETID_Appointment:" . PidLidIntendedBusyStatus;
-			$properties["label"] = "PT_LONG:PSETID_Appointment:0x8214";
 			$properties["alldayevent"] = "PT_BOOLEAN:PSETID_Appointment:" . PidLidAppointmentSubType;
 			$properties["private"] = "PT_BOOLEAN:PSETID_Common:" . PidLidPrivate;
 			$properties["meeting"] = "PT_LONG:PSETID_Appointment:" . PidLidAppointmentStateFlags;
@@ -419,7 +418,6 @@ class Properties {
 			$properties["recurring"] = "PT_BOOLEAN:PSETID_Appointment:" . PidLidRecurring;
 			$properties["recurring_data"] = "PT_BINARY:PSETID_Appointment:" . PidLidAppointmentRecur;
 			$properties["busystatus"] = "PT_LONG:PSETID_Appointment:" . PidLidBusyStatus;
-			$properties["label"] = "PT_LONG:PSETID_Appointment:0x8214";
 			$properties["alldayevent"] = "PT_BOOLEAN:PSETID_Appointment:" . PidLidAppointmentSubType;
 			$properties["private"] = "PT_BOOLEAN:PSETID_Common:" . PidLidPrivate;
 			$properties["meeting"] = "PT_LONG:PSETID_Appointment:" . PidLidAppointmentStateFlags;

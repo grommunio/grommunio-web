@@ -647,7 +647,6 @@ class AppointmentListModule extends ListModule {
 						'recurring' => false,
 						'recurring_data' => '',
 						'recurring_pattern' => '',
-						'label' => 0,
 						'meeting' => $fbEvent['meeting'],
 						'reminder' => 0,
 						'reminder_minutes' => 0,
