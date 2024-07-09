@@ -806,7 +806,6 @@ class Properties {
 			$properties["ems_ab_reports_mv"] = PR_EMS_AB_REPORTS_MV;
 			$properties["ems_ab_is_member_of_dl"] = PR_EMS_AB_IS_MEMBER_OF_DL;
 			$properties["ems_ab_proxy_addresses"] = PR_EMS_AB_PROXY_ADDRESSES;
-			$properties["ems_ab_proxy_addresses_mv"] = PR_EMS_AB_PROXY_ADDRESSES_MV;
 			$properties["ems_ab_thumbnail_photo"] = PR_EMS_AB_THUMBNAIL_PHOTO;
 
 			// Allowing to hook in and add more properties
@@ -840,7 +839,6 @@ class Properties {
 			$properties["ems_ab_owner"] = PR_EMS_AB_OWNER;
 			$properties["ems_ab_is_member_of_dl"] = PR_EMS_AB_IS_MEMBER_OF_DL;
 			$properties["ems_ab_proxy_addresses"] = PR_EMS_AB_PROXY_ADDRESSES;
-			$properties["ems_ab_proxy_addresses_mv"] = PR_EMS_AB_PROXY_ADDRESSES_MV;
 
 			// Allowing to hook in and add more properties
 			$GLOBALS['PluginManager']->triggerHook("server.core.properties.addressbookitem.distlist", [
