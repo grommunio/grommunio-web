@@ -311,6 +311,10 @@ class AddressbookListModule extends ListModule {
 					// Use the original_display_name property to fill in the fileas column
 					$item['fileas'] = $user_data[$this->properties['original_display_name']] ?? $item['display_name'];
 					$item['address_type'] = isset($user_data[$this->properties['address_type']]) ? $user_data[$this->properties['address_type']] : 'SMTP';
+					// necessary to display the proper icon
+					if ($item['address_type'] === 'MAPIPDL') {
+						$item['display_type_ex'] = DTE_FLAG_ACL_CAPABLE | DT_MAILUSER | DT_DISTLIST;
+					}
 
 					if (isset($action["isSharedFolder"]) && $action["isSharedFolder"] === true) {
 						if (isset($action["sharedFolder"]) && !empty($action["sharedFolder"])) {
