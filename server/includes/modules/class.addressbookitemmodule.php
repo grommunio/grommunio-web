@@ -182,7 +182,7 @@ class AddressbookItemModule extends ItemModule {
 					}
 
 					// Remove the MV-flagged properties and also its single valued counterpart
-					unset($props['props']['ems_ab_is_member_of_dl'], $props['props']['business2_telephone_number_mv'], $props['props']['business2_telephone_number'], $props['props']['home2_telephone_number_mv'], $props['props']['home2_telephone_number'], $props['props']['ems_ab_proxy_addresses_mv'], $props['props']['ems_ab_proxy_addresses'], $props['props']['ems_ab_reports_mv'], $props['props']['ems_ab_reports'], $props['props']['ems_ab_owner'], $props['props']['ems_ab_manager']);
+					unset($props['props']['ems_ab_is_member_of_dl'], $props['props']['business2_telephone_number_mv'], $props['props']['business2_telephone_number'], $props['props']['home2_telephone_number_mv'], $props['props']['home2_telephone_number'], $props['props']['ems_ab_proxy_addresses'], $props['props']['ems_ab_reports_mv'], $props['props']['ems_ab_reports'], $props['props']['ems_ab_owner'], $props['props']['ems_ab_manager']);
 
 					// Allowing to hook in and add more properties
 					$GLOBALS['PluginManager']->triggerHook("server.module.addressbookitemmodule.open.props", [
@@ -284,17 +284,12 @@ class AddressbookItemModule extends ItemModule {
 	 * @return array List of addresses
 	 */
 	public function getProxyAddressesDetails($messageprops) {
-		$list = [];
-		if (isset($messageprops[$this->userDetailProperties['ems_ab_proxy_addresses']])) {
-			$list[] = $messageprops[$this->userDetailProperties['ems_ab_proxy_addresses']];
-		}
-		if (isset($messageprops[$this->userDetailProperties['ems_ab_proxy_addresses_mv']])) {
-			$list = array_merge($list, $messageprops[$this->userDetailProperties['ems_ab_proxy_addresses_mv']]);
-		}
-
 		$returnList = [];
-		for ($i = 0, $len = count($list); $i < $len; ++$i) {
-			array_push($returnList, ['address' => $list[$i]]);
+		if (isset($messageprops[$this->userDetailProperties['ems_ab_proxy_addresses']]) &&
+			is_array($messageprops[$this->userDetailProperties['ems_ab_proxy_addresses']])) {
+			foreach ($messageprops[$this->userDetailProperties['ems_ab_proxy_addresses']] as $eapa) {
+				$returnList[] = ['address' => $eapa];
+			}
 		}
 
 		return $returnList;
