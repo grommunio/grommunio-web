@@ -76,7 +76,7 @@ class HierarchyListModule extends FilesListModule {
 					$this->sendFeedback(false, [
 						'type' => ERROR_GENERAL,
 						'info' => [
-							'title' => $e->getTitle(),
+							'title' => _('Unknown error'),
 							'original_message' => $e->getMessage(),
 							'display_message' => $e->getMessage(),
 							'code' => $e->getCode(),
