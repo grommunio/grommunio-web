@@ -38,7 +38,7 @@ class NemidLogin {
 		foreach ($params as $name => $value) {
 			$normalized .= strtolower($name) . $value;
 		}
-		$normalized = utf8_encode($normalized);
+		$normalized = mb_convert_encoding($normalized, 'UTF-8', 'ISO-8859-1');
 		$paramsdigest = hash('sha256', $normalized, true);
 		$params['paramsdigest'] = base64_encode($paramsdigest);
 
