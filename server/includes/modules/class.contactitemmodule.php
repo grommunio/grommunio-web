@@ -454,8 +454,8 @@ class ContactItemModule extends ItemModule {
 
 		// Find the number of minutes since the start of the year to the given month,
 		// taking leap years into account.
-		$month = strftime('%m', $startDate);
-		$year = strftime('%y', $startDate);
+		$month = date('M', $startDate);
+		$year = date('y', $startDate);
 
 		$d1 = new DateTime();
 		$d1->setDate($year, 1, 1);
@@ -497,7 +497,7 @@ class ContactItemModule extends ItemModule {
 			'type' => 13,
 			'regen' => 0,
 			'month' => $month,
-			'monthday' => strftime('%e', $startDate),
+			'monthday' => date('j', $startDate),
 			'timezone' => $actionProps['timezone'],
 			'timezonedst' => $actionProps['timezonedst'],
 			'dststartmonth' => $actionProps['dststartmonth'],

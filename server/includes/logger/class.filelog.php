@@ -9,13 +9,12 @@ class FileLog extends Logger {
 	/**
 	 * Writes a log message to the general log.
 	 *
-	 * @param int        $loglevel       one of the defined LOGLEVELS
-	 * @param string        $message        The log message which we want to log in user specific log file
-	 * @param mixed $detailMessage  (optional) The detailed log message. it can be Error/Exception array.
-	 * @param mixed $request        (optional) The request log the the request data which sent by the user
-	 * @param mixed $logLevel
+	 * @param int    $logLevel      one of the defined LOGLEVELS
+	 * @param string $message       The log message which we want to log in user specific log file
+	 * @param mixed  $detailMessage (optional) The detailed log message. it can be Error/Exception array.
+	 * @param mixed  $request       (optional) The request log the the request data which sent by the user
 	 */
-	protected function Write($logLevel, $message, $detailMessage, $request) {
+	protected function Write($logLevel, $message, $detailMessage = false, $request = false) {
 		$dir = LOG_FILE_DIR;
 		if (substr(LOG_FILE_DIR, -1) != "/") {
 			$dir .= "/";
@@ -63,15 +62,15 @@ class FileLog extends Logger {
 	/**
 	 * Returns the string to be logged.
 	 *
-	 * @param int        $loglevel       one of the defined LOGLEVELS
-	 * @param string        $message        The log message which we want to log in user specific log file
-	 * @param mixed $detailMessage  (optional) The detailed log message. it can be Error/Exception array.
-	 * @param mixed $request        (optional) The request log the the request data which sent by the user
+	 * @param int    $loglevel      one of the defined LOGLEVELS
+	 * @param string $message       The log message which we want to log in user specific log file
+	 * @param mixed  $detailMessage (optional) The detailed log message. it can be Error/Exception array.
+	 * @param mixed  $request       (optional) The request log the the request data which sent by the user
 	 *
 	 * @return string
 	 */
 	public function BuildLogString($loglevel, $message, $detailMessage = false, $request = false) {
-		$dateTime = strftime("%d-%b-%Y %H:%M:%S");
+		$dateTime = date("d-M-Y H:i:s");
 		$log = "[" . $dateTime . "] ";
 		$log .= $this->GetLogLevelString($loglevel);
 		$log .= ' ' . $message;
