@@ -230,7 +230,7 @@ class NemidCertificateCheck {
 		];
 
 		$context = stream_context_create($stream_options);
-		$derresponse = file_get_contents($url, null, $context);
+		$derresponse = file_get_contents($url, false, $context);
 
 		$ocspresponse = $ocspclient->response($derresponse);
 
@@ -410,7 +410,7 @@ class NemidCertificateCheck {
 
 		$context = stream_context_create($stream_options);
 
-		$response = file_get_contents($config->server, null, $context);
+		$response = file_get_contents($config->server, false, $context);
 
 		$document->loadXML($response);
 		$xp = new \DOMXPath($document);

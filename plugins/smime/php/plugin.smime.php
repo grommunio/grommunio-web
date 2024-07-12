@@ -591,7 +591,7 @@ class Pluginsmime extends Plugin {
 			}
 			else {
 				$saveCert = true;
-				$root = mapi_msgstore_openentry($this->getStore(), null);
+				$root = mapi_msgstore_openentry($this->getStore());
 				// Remove old certificate
 				/*
 				if($certMessage) {
@@ -943,7 +943,7 @@ class Pluginsmime extends Plugin {
 			}
 		}
 
-		$root = mapi_msgstore_openentry($this->getStore(), null);
+		$root = mapi_msgstore_openentry($this->getStore());
 		$table = mapi_folder_getcontentstable($root, MAPI_ASSOCIATED);
 
 		// Restriction for public certificates which are from the recipient of the email, are active and have the correct message_class
@@ -1039,7 +1039,7 @@ class Pluginsmime extends Plugin {
 			$issued_by .= $key . '=' . $certData['issuer'][$key] . "\n";
 		}
 
-		$root = mapi_msgstore_openentry($this->getStore(), null);
+		$root = mapi_msgstore_openentry($this->getStore());
 		$assocMessage = mapi_folder_createmessage($root, MAPI_ASSOCIATED);
 		// TODO: write these properties down.
 		mapi_setprops($assocMessage, [

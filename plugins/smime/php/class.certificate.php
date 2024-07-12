@@ -363,7 +363,7 @@ class Certificate {
 		}
 		// Do the OCSP request
 		$context = stream_context_create($stream_options);
-		$derresponse = file_get_contents($ocspUrl, null, $context);
+		$derresponse = file_get_contents($ocspUrl, false, $context);
 		// OCSP service not available, import certificate, but show a warning.
 		if ($derresponse === false) {
 			throw new OCSPException('No response', OCSP_NO_RESPONSE);

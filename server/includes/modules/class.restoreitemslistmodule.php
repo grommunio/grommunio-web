@@ -147,7 +147,7 @@ class RestoreItemsListModule extends ListModule {
 				 * only we should check for the conflicting folder names and generate a new name
 				 * and restore folder with the generated name.
 				 */
-				mapi_folder_copyfolder($folder, $restoreItem, $folder, null, FOLDER_MOVE);
+				mapi_folder_copyfolder($folder, $restoreItem, $folder, '', FOLDER_MOVE);
 			}
 			catch (MAPIException $e) {
 				if ($e->getCode() == MAPI_E_COLLISION) {
@@ -356,7 +356,7 @@ class RestoreItemsListModule extends ListModule {
 			 * only we should check for the conflicting folder names and generate a new name
 			 * and restore folder with the generated name.
 			 */
-			mapi_folder_copyfolder($sfolder, $folderentryid, $sfolder, null, FOLDER_MOVE);
+			mapi_folder_copyfolder($sfolder, $folderentryid, $sfolder, '', FOLDER_MOVE);
 		}
 		catch (MAPIException $e) {
 			if ($e->getCode() == MAPI_E_COLLISION) {

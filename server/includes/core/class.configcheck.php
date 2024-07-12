@@ -18,8 +18,8 @@ class ConfigCheck {
 		// here we check our settings, changes to the config and
 		// additional checks must be added/changed here
 		$this->checkPHP("5.4", "You must upgrade PHP");
-		$this->checkExtension("mapi", null, "If you have upgraded Gromox, please restart nginx/php-fpm");
-		$this->checkExtension("gettext", null, "Install the gettext extension for PHP");
+		$this->checkExtension("mapi", "", "If you have upgraded Gromox, please restart nginx/php-fpm");
+		$this->checkExtension("gettext", "", "Install the gettext extension for PHP");
 		$this->checkPHPsetting("session.auto_start", "0", "Modify this setting in '%s'");
 		$this->checkPHPsetting("output_handler", "", "With this option set, it is unsure if the grommunio Web will work correctly");
 		$this->checkPHPsetting("zlib.output_handler", "", "With this option set, it is unsure if the grommunio Web will work correctly");

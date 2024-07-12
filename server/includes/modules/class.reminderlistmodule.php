@@ -44,7 +44,7 @@ class ReminderListModule extends ListModule {
 	}
 
 	public function getReminderFolderEntryId($store) {
-		$root = mapi_msgstore_openentry($store, null);
+		$root = mapi_msgstore_openentry($store);
 		$rootProps = mapi_getprops($root, [PR_REM_ONLINE_ENTRYID]);
 		if (isset($rootProps[PR_REM_ONLINE_ENTRYID])) {
 			return $rootProps[PR_REM_ONLINE_ENTRYID];
@@ -56,7 +56,7 @@ class ReminderListModule extends ListModule {
 
 	public function createReminderFolder($store) {
 		$storeProps = mapi_getprops($store, [PR_IPM_OUTBOX_ENTRYID, PR_IPM_WASTEBASKET_ENTRYID, PR_IPM_SUBTREE_ENTRYID]);
-		$root = mapi_msgstore_openentry($store, null);
+		$root = mapi_msgstore_openentry($store);
 		$rootProps = mapi_getprops($root, [PR_ADDITIONAL_REN_ENTRYIDS, PR_IPM_DRAFTS_ENTRYID]);
 
 		$folders = [];

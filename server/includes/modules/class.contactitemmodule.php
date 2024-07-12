@@ -434,7 +434,7 @@ class ContactItemModule extends ItemModule {
 	public function updateAppointments($store, $action, $type) {
 		$result = false;
 
-		$root = mapi_msgstore_openentry($store, null);
+		$root = mapi_msgstore_openentry($store);
 		$rootProps = mapi_getprops($root, [PR_IPM_APPOINTMENT_ENTRYID, PR_STORE_ENTRYID]);
 		$parentEntryId = bin2hex($rootProps[PR_IPM_APPOINTMENT_ENTRYID]);
 		$storeEntryId = bin2hex($rootProps[PR_STORE_ENTRYID]);
@@ -558,7 +558,7 @@ class ContactItemModule extends ItemModule {
 	 * @param        $entryid of the message with will be deleted,sent by the client
 	 */
 	public function deleteSpecialDateAppointment($store, $entryid) {
-		$root = mapi_msgstore_openentry($store, null);
+		$root = mapi_msgstore_openentry($store);
 		$rootProps = mapi_getprops($root, [PR_IPM_APPOINTMENT_ENTRYID, PR_STORE_ENTRYID]);
 		$parentEntryId = $rootProps[PR_IPM_APPOINTMENT_ENTRYID];
 		$storeEntryId = $rootProps[PR_STORE_ENTRYID];

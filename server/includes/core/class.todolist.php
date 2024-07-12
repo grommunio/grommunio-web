@@ -37,7 +37,7 @@ class TodoList {
 	private static function _retrieveEntryId() {
 		$userStore = $GLOBALS['mapisession']->getDefaultMessageStore();
 
-		$root = mapi_msgstore_openentry($userStore, null);
+		$root = mapi_msgstore_openentry($userStore);
 		$rootProperties = mapi_getprops($root, [PR_ADDITIONAL_REN_ENTRYIDS_EX]);
 		$additionalRenEntryidsEx = $rootProperties[PR_ADDITIONAL_REN_ENTRYIDS_EX];
 
@@ -78,13 +78,13 @@ class TodoList {
 	 */
 	public static function createTodoSearchFolder() {
 		$userStore = $GLOBALS['mapisession']->getDefaultMessageStore();
-		$root = mapi_msgstore_openentry($userStore, null);
+		$root = mapi_msgstore_openentry($userStore);
 		$props = mapi_getprops($userStore, [PR_IPM_SUBTREE_ENTRYID]);
 		$ipmSubTreeEntryId = $props[PR_IPM_SUBTREE_ENTRYID];
 		$entryid = false;
 
 		try {
-			if ($resource = mapi_folder_createfolder($root, 'To-do Search', null, OPEN_IF_EXISTS, FOLDER_SEARCH)) {
+			if ($resource = mapi_folder_createfolder($root, 'To-do Search', '', OPEN_IF_EXISTS, FOLDER_SEARCH)) {
 				mapi_setprops($resource, [PR_CONTAINER_CLASS => 'IPF.Task']);
 				mapi_folder_setsearchcriteria($resource, TodoList::_createRestriction(), [$ipmSubTreeEntryId], RECURSIVE_SEARCH);
 
@@ -174,7 +174,7 @@ class TodoList {
 
 		// First get some entryids that we need for the restriction
 		$storeProperties = mapi_getprops($userStore, [PR_IPM_OUTBOX_ENTRYID, PR_IPM_WASTEBASKET_ENTRYID]);
-		$root = mapi_msgstore_openentry($userStore, null);
+		$root = mapi_msgstore_openentry($userStore);
 		$rootProperties = mapi_getprops($root, [PR_IPM_DRAFTS_ENTRYID, PR_ADDITIONAL_REN_ENTRYIDS]);
 		$additionalRenEntryids = $rootProperties[PR_ADDITIONAL_REN_ENTRYIDS];
 		$entryIds = [
