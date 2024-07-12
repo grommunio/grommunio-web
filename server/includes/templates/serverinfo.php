@@ -7,7 +7,6 @@ if (empty($serverVersion)) {
 
 $versionInfo = [
 	'zcp' => $serverVersion,
-	'git' => DEBUG_LOADER === LOAD_SOURCE ? gitversion() : '',
 ];
 
 $serverConfig = [
