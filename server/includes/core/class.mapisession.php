@@ -594,7 +594,7 @@ class MAPISession {
 	public function getSearchKey() {
 		$this->retrieveUserData();
 
-		return array_key_exists("searchkey", $this->session_info) ? $this->session_info["searchkey"] : false;
+		return array_key_exists("searchkey", $this->session_info) ? $this->session_info["searchkey"] : '';
 	}
 
 	/**
