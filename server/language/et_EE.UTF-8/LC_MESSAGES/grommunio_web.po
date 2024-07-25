@@ -4822,9 +4822,11 @@ msgstr "Kontorist väljas on välja lülitatud"
 msgid "I will be back on"
 msgstr "Ma tulen tagasi"
 
-msgid "Automatically reply once per day, per sender with the following text"
+msgid "Automatically reply with the following message:"
+msgstr "Automaatselt vastata järgmise tekstiga:"
+
+msgid "(The frequency of replies is dependent on server configuration.)"
 msgstr ""
-"Automaatselt vastata üks kord päevas, ühe saatja kohta, järgmise tekstiga"
 
 msgid "Inside My Organization"
 msgstr "Minu organisatsiooni sees"

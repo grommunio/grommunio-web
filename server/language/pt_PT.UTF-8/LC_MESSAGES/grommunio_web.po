@@ -4693,10 +4693,11 @@ msgstr "Estou ausente do escritório de"
 msgid "I will be back on"
 msgstr "Volto em"
 
-msgid "Automatically reply once per day, per sender with the following text"
+msgid "Automatically reply with the following message:"
+msgstr "Responder automaticamente o seguinte texto:"
+
+msgid "(The frequency of replies is dependent on server configuration.)"
 msgstr ""
-"Responder automaticamente somente uma vez para cada remetente com o seguinte "
-"texto"
 
 #, fuzzy
 msgid "Inside My Organization"

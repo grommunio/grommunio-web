@@ -4908,9 +4908,11 @@ msgstr "Jeg er fraværende"
 msgid "I will be back on"
 msgstr "Jeg er tilbage på"
 
-#, fuzzy
-msgid "Automatically reply once per day, per sender with the following text"
-msgstr "Autosvar hver afsender en gang med denne tekst"
+msgid "Automatically reply with the following message:"
+msgstr "Autosvar med denne tekst:"
+
+msgid "(The frequency of replies is dependent on server configuration.)"
+msgstr "(Svarfrekvensen afhænger af serverkonfigurationen.)"
 
 #, fuzzy
 msgid "Inside My Organization"

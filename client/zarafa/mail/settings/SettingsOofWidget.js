@@ -229,7 +229,7 @@ Zarafa.mail.settings.SettingsOofWidget = Ext.extend(Zarafa.settings.ui.SettingsW
 			anchor: '100%',
 			cls: 'zarafa-settings-oof-autoreplay',
 			hideLabel: true,
-			value: _('Automatically reply once per day, per sender with the following text') + ':'
+			value: _('Automatically reply with the following message:') + ' ' + _("(The frequency of replies is dependent on server configuration.)")
 		},{
 			xtype: 'tabpanel',
 			ref: 'replyMessages',

@@ -5719,10 +5719,11 @@ msgstr "Είμαι εκτός γραφείου από"
 msgid "I will be back on"
 msgstr "Θα επιστρέψω στο"
 
-#, fuzzy
-msgid "Automatically reply once per day, per sender with the following text"
+msgid "Automatically reply with the following message:"
+msgstr "Απαντήστε αυτόματα με το ακόλουθο κείμενο:"
+
+msgid "(The frequency of replies is dependent on server configuration.)"
 msgstr ""
-"Απαντήστε αυτόματα μία φορά την ημέρα, ανά αποστολέα, με το ακόλουθο κείμενο"
 
 #, fuzzy
 msgid "Inside My Organization"

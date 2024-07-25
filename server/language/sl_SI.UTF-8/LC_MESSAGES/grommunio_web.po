@@ -5085,9 +5085,11 @@ msgstr "Trenutno sem odsoten-a"
 msgid "I will be back on"
 msgstr "Vrnil se bom na"
 
-#, fuzzy
-msgid "Automatically reply once per day, per sender with the following text"
-msgstr "Samodejni odgovor enkrat vsakemu pošiljatelju z naslednjim sporočilom"
+msgid "Automatically reply with the following message:"
+msgstr "Samodejni odgovor z naslednjim sporočilom:"
+
+msgid "(The frequency of replies is dependent on server configuration.)"
+msgstr ""
 
 #, fuzzy
 msgid "Inside My Organization"

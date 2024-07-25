@@ -4997,10 +4997,11 @@ msgstr "Jsem právě mimo kancelář"
 msgid "I will be back on"
 msgstr "Vrátím se na"
 
-#, fuzzy
-msgid "Automatically reply once per day, per sender with the following text"
+msgid "Automatically reply with the following message:"
+msgstr "Automatická odpověďět následujícím textem:"
+
+msgid "(The frequency of replies is dependent on server configuration.)"
 msgstr ""
-"Automatická odpověď, každému odesilateli pouze jednou, s následujícím textem"
 
 #, fuzzy
 msgid "Inside My Organization"

@@ -4690,9 +4690,11 @@ msgstr "Ik ben niet aanwezig van"
 msgid "I will be back on"
 msgstr "Ik ben terug op"
 
-msgid "Automatically reply once per day, per sender with the following text"
-msgstr ""
-"Antwoord automatisch eenmaal per dag naar elke afzender met de volgende tekst"
+msgid "Automatically reply with the following message:"
+msgstr "Antwoord automatisch met de volgende tekst:"
+
+msgid "(The frequency of replies is dependent on server configuration.)"
+msgstr "(De frequentie van antwoorden is afhankelijk van de serverconfiguratie.)"
 
 msgid "Inside My Organization"
 msgstr "Binnen Mijn Organisatie"

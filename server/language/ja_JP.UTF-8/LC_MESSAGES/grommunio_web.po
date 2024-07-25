@@ -4907,8 +4907,11 @@ msgstr "次の時間より外出中"
 msgid "I will be back on"
 msgstr "に戻ってきます。"
 
-msgid "Automatically reply once per day, per sender with the following text"
-msgstr "送信者ごとに 1 日 1 回、次のテキストを自動的に返信します"
+msgid "Automatically reply with the following message:"
+msgstr "自動的に下記のメッセージで返事します:"
+
+msgid "(The frequency of replies is dependent on server configuration.)"
+msgstr "(返事頻度はサーバーの構成によって決定されます。)"
 
 #, fuzzy
 msgid "Inside My Organization"

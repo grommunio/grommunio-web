@@ -4678,9 +4678,11 @@ msgstr "Jeg er fraværende"
 msgid "I will be back on"
 msgstr "Jeg er tilbake på"
 
-msgid "Automatically reply once per day, per sender with the following text"
-msgstr ""
-"Automatisk svar hver sender, men bare en gang per dag, med denne teksten"
+msgid "Automatically reply with the following message:"
+msgstr "Svar automatisk med denne teksten:"
+
+msgid "(The frequency of replies is dependent on server configuration.)"
+msgstr "(Svarhyppigheten er avhengig av serverkonfigurationen.)"
 
 msgid "Inside My Organization"
 msgstr "Inne i organisasjonen min"

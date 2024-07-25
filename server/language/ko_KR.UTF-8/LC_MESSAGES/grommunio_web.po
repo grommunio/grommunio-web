@@ -4609,8 +4609,11 @@ msgstr "다음 시간부터 부재 중입니다."
 msgid "I will be back on"
 msgstr "다시"
 
-msgid "Automatically reply once per day, per sender with the following text"
-msgstr "발신자당 하루에 한 번, 다음 텍스트로 자동 회신합니다."
+msgid "Automatically reply with the following message:"
+msgstr "다음 텍스트로 자동 회신합니다:"
+
+msgid "(The frequency of replies is dependent on server configuration.)"
+msgstr ""
 
 msgid "Inside My Organization"
 msgstr "내 조직 내부"

@@ -4666,8 +4666,11 @@ msgstr "...itibariyle ofis dışındayım"
 msgid "I will be back on"
 msgstr "...geri döneceğim"
 
-msgid "Automatically reply once per day, per sender with the following text"
-msgstr "Gönderene otomatik olarak aşağıdaki metinle yanıtla"
+msgid "Automatically reply with the following message:"
+msgstr "Gönderene otomatik metinle yanıtla:"
+
+msgid "(The frequency of replies is dependent on server configuration.)"
+msgstr ""
 
 msgid "Inside My Organization"
 msgstr "Kuruluşumun içinde"

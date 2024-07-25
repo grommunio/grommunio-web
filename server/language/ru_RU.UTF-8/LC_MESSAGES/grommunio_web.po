@@ -4877,9 +4877,11 @@ msgstr "Статус «Нет в офисе» установлен"
 msgid "I will be back on"
 msgstr "Я вернусь"
 
-msgid "Automatically reply once per day, per sender with the following text"
+msgid "Automatically reply with the following message:"
+msgstr "Автоматически отвечать со следующим текстом:"
+
+msgid "(The frequency of replies is dependent on server configuration.)"
 msgstr ""
-"Автоматически отвечать раз в день каждому отправителю со следующим тектом"
 
 #, fuzzy
 msgid "Inside My Organization"

@@ -4956,11 +4956,11 @@ msgstr "Jelenleg házon kívül tartózkodom"
 msgid "I will be back on"
 msgstr "Visszatérek"
 
-#, fuzzy
-msgid "Automatically reply once per day, per sender with the following text"
+msgid "Automatically reply with the following message:"
+msgstr "Automatikus válasz a következő szöveggel:"
+
+msgid "(The frequency of replies is dependent on server configuration.)"
 msgstr ""
-"Az automata válasz csak egyszer legyen elküldve a feladóknak, a következő "
-"szöveggel"
 
 #, fuzzy
 msgid "Inside My Organization"

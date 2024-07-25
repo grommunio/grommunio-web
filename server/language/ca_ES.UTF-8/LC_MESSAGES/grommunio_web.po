@@ -4829,9 +4829,11 @@ msgid "I will be back on"
 msgstr ""
 
 #, fuzzy
-msgid "Automatically reply once per day, per sender with the following text"
+msgid "Automatically reply with the following message:"
+msgstr "Respuesta automática con el siguiente texto:"
+
+msgid "(The frequency of replies is dependent on server configuration.)"
 msgstr ""
-"Respuesta automática sólo una vez a cada remitente con el siguiente texto"
 
 msgid "Inside My Organization"
 msgstr ""

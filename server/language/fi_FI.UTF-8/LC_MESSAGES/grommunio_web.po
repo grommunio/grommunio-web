@@ -5100,11 +5100,11 @@ msgstr "Olen poissa toimistolta"
 msgid "I will be back on"
 msgstr "Palaan takaisin"
 
-#, fuzzy
-msgid "Automatically reply once per day, per sender with the following text"
+msgid "Automatically reply with the following message:"
+msgstr "Automaattivastaus seuraavalla tekstillä:"
+
+msgid "(The frequency of replies is dependent on server configuration.)"
 msgstr ""
-"Automaattivastaus seuraavalla tekstillä lähetetään vain kerran kullekin "
-"lähettäjälle"
 
 #, fuzzy
 msgid "Inside My Organization"

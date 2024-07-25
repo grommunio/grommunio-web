@@ -4733,9 +4733,11 @@ msgstr "我現在不在辦公室"
 msgid "I will be back on"
 msgstr ""
 
-#, fuzzy
-msgid "Automatically reply once per day, per sender with the following text"
-msgstr "自動回覆以下文字給每一個寄件者"
+msgid "Automatically reply with the following message:"
+msgstr ""
+
+msgid "(The frequency of replies is dependent on server configuration.)"
+msgstr ""
 
 msgid "Inside My Organization"
 msgstr ""

@@ -4654,11 +4654,10 @@ msgstr "Ég er ekki í vinnunni frá"
 msgid "I will be back on"
 msgstr "Ég kem til baka"
 
-msgid "Automatically reply once per day, per sender with the following text"
-msgstr ""
-"Sjálfkrafa svara hverjum sendanda, einu sinni á dag, með eftirfarandi texta"
+msgid "Automatically reply with the following message:"
+msgstr "Svaraðu sjálfkrafa með eftirfarandi skilaboðum:"
 
-msgid "Inside My Organization"
+msgid "(The frequency of replies is dependent on server configuration.)"
 msgstr ""
 
 msgid "User is currently out of office."

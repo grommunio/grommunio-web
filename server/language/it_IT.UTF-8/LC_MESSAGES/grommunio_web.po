@@ -4732,9 +4732,11 @@ msgstr "Sarò fuori ufficio dal"
 msgid "I will be back on"
 msgstr "Rientrerò il"
 
-msgid "Automatically reply once per day, per sender with the following text"
+msgid "Automatically reply with the following message:"
+msgstr "Rispondi automaticamente con questo testo:"
+
+msgid "(The frequency of replies is dependent on server configuration.)"
 msgstr ""
-"Rispondi automaticamente ad ogni mittente una sola volta con questo testo"
 
 #, fuzzy
 msgid "Inside My Organization"

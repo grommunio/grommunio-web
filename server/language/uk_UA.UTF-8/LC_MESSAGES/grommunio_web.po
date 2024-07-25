@@ -4707,10 +4707,11 @@ msgstr "Мене немає в офісі з"
 msgid "I will be back on"
 msgstr "Я повернуся на"
 
-msgid "Automatically reply once per day, per sender with the following text"
+msgid "Automatically reply with the following message:"
+msgstr "Автоматично відповідати з наступним текстом:"
+
+msgid "(The frequency of replies is dependent on server configuration.)"
 msgstr ""
-"Автоматично відповідати один раз на день на кожного відправника з наступним "
-"текстом"
 
 msgid "Inside My Organization"
 msgstr "Всередині моєї організації"

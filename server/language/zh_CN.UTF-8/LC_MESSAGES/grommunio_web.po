@@ -4593,8 +4593,11 @@ msgstr "我自...时起不在公司"
 msgid "I will be back on"
 msgstr "我将在...时回来"
 
-msgid "Automatically reply once per day, per sender with the following text"
-msgstr "每个发件人每天自动回复一次，内容如下"
+msgid "Automatically reply with the following message:"
+msgstr ""
+
+msgid "(The frequency of replies is dependent on server configuration.)"
+msgstr ""
 
 #, fuzzy
 msgid "Inside My Organization"

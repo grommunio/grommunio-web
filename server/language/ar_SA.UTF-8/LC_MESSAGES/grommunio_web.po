@@ -4625,7 +4625,10 @@ msgstr ""
 msgid "I will be back on"
 msgstr ""
 
-msgid "Automatically reply once per day, per sender with the following text"
+msgid "Automatically reply with the following message:"
+msgstr ""
+
+msgid "(The frequency of replies is dependent on server configuration.)"
 msgstr ""
 
 msgid "Inside My Organization"

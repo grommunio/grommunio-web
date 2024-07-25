@@ -4724,8 +4724,11 @@ msgstr "Ich bin nicht im Büro vom"
 msgid "I will be back on"
 msgstr "Ich werde zurück sein am"
 
-msgid "Automatically reply once per day, per sender with the following text"
-msgstr "Jedem Absender nur einmal automatisch mit dem folgenden Text antworten"
+msgid "Automatically reply with the following message:"
+msgstr "Automatische Antwort mit folgender Nachricht:"
+
+msgid "(The frequency of replies is dependent on server configuration.)"
+msgstr "(Die Antworthäufigkeit ist durch die Serverkonfiguration bestimmt.)"
 
 msgid "Inside My Organization"
 msgstr "Innerhalb meiner Organisation"

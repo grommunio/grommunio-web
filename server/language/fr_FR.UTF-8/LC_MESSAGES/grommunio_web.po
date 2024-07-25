@@ -4924,11 +4924,11 @@ msgstr "Je serai absent(e) du bureau du"
 msgid "I will be back on"
 msgstr "Je serai de retour le"
 
-#, fuzzy
-msgid "Automatically reply once per day, per sender with the following text"
-msgstr ""
-"Réponse automatique une seule fois pour chaque expéditeur avec le texte "
-"suivant"
+msgid "Automatically reply with the following message:"
+msgstr "Réponse automatique avec le texte suivant:"
+
+msgid "(The frequency of replies is dependent on server configuration.)"
+msgstr "(La fréquence des réponses dépend de la configuration du serveur.)"
 
 #, fuzzy
 msgid "Inside My Organization"
