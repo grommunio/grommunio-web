@@ -867,13 +867,13 @@ class ItemModule extends Module {
 		if (empty($body)) {
 			$body = _("Your message did not reach some or all of the intended recipients") . "\n\n";
 			$body .= "\t" . _("Subject") . ": " . $message_props[PR_ORIGINAL_SUBJECT] . "\n";
-			$body .= "\t" . _("Sent") . ":    " . strftime("%a %x %X", $message_props[PR_ORIGINAL_SUBMIT_TIME]) . "\n\n";
+			$body .= "\t" . _("Sent") . ":    " . date(DATE_RFC2822, $message_props[PR_ORIGINAL_SUBMIT_TIME]) . "\n\n";
 			$body .= _("The following recipient(s) could not be reached") . ":\n";
 
 			$recipienttable = mapi_message_getrecipienttable($message);
 			$recipientrows = mapi_table_queryallrows($recipienttable, [PR_DISPLAY_NAME, PR_REPORT_TIME, PR_REPORT_TEXT]);
 			foreach ($recipientrows as $recipient) {
-				$body .= "\n\t" . $recipient[PR_DISPLAY_NAME] . " on " . strftime("%a %x %X", $recipient[PR_REPORT_TIME]) . "\n";
+				$body .= "\n\t" . $recipient[PR_DISPLAY_NAME] . " on " . date(DATE_RFC2822, $recipient[PR_REPORT_TIME]) . "\n";
 				$body .= "\t\t" . $recipient[PR_REPORT_TEXT] . "\n";
 			}
 		}

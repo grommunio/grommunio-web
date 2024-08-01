@@ -126,7 +126,7 @@ class Operations {
 				}
 			}
 
-			$root = mapi_msgstore_openentry($store, null);
+			$root = mapi_msgstore_openentry($store);
 			$rootProps = mapi_getprops($root, [PR_IPM_APPOINTMENT_ENTRYID, PR_IPM_CONTACT_ENTRYID, PR_IPM_DRAFTS_ENTRYID, PR_IPM_JOURNAL_ENTRYID, PR_IPM_NOTE_ENTRYID, PR_IPM_TASK_ENTRYID, PR_ADDITIONAL_REN_ENTRYIDS]);
 
 			$additional_ren_entryids = [];
@@ -1130,7 +1130,7 @@ class Operations {
 		}
 
 		// Check for the Special folders which are provided on the root folder
-		$root = mapi_msgstore_openentry($store, null);
+		$root = mapi_msgstore_openentry($store);
 		$rootProps = mapi_getprops($root, [
 			PR_IPM_APPOINTMENT_ENTRYID,
 			PR_IPM_CONTACT_ENTRYID,
@@ -4707,7 +4707,7 @@ class Operations {
 	}
 
 	public function getPropertiesFromStoreRoot($store, $props) {
-		$root = mapi_msgstore_openentry($store, null);
+		$root = mapi_msgstore_openentry($store);
 
 		return mapi_getprops($root, $props);
 	}

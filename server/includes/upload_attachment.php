@@ -452,21 +452,19 @@ class UploadAttachment {
 		$props = [];
 
 		// Addresses field value.
-		if (isset($contactProps[$properties["business_address_city"]]) && !empty($contactProps[$properties["business_address_city"]])) {
-			$businessAddressCity = utf8_decode($contactProps[$properties["business_address_city"]]);
+		$businessAddress = ($contactProps[$properties["business_address_street"]] ?? '' ) . "\n";
+		$businessAddress .= ($contactProps[$properties["business_address_city"]] ?? '') . " ";
+		$businessAddress .= ($contactProps[$properties["business_address_state"]] ?? '') . " ";
+		$businessAddress .= ($contactProps[$properties["business_address_postal_code"]] ?? '') . "\n";
+		$businessAddress .= ($contactProps[$properties["business_address_country"]] ?? '') . "\n";
 
-			$businessAddress = $contactProps[$properties["business_address_street"]] . "\n";
-			$businessAddress .= $businessAddressCity . " ";
-			$businessAddress .= $contactProps[$properties["business_address_state"]] . " " . $contactProps[$properties["business_address_postal_code"]] . "\n";
-			$businessAddress .= $contactProps[$properties["business_address_country"]] . "\n";
-
-			$props[$properties["business_address_city"]] = $businessAddressCity;
+		if (strlen(trim($businessAddress)) > 0) {
 			$props[$properties["business_address"]] = $businessAddress;
 		}
 
 		// File as field value generator.
 		if (isset($contactProps[PR_DISPLAY_NAME])) {
-			$displayName = isset($contactProps[PR_DISPLAY_NAME]) ? utf8_decode($contactProps[PR_DISPLAY_NAME]) : " ";
+			$displayName = $contactProps[PR_DISPLAY_NAME] ?? " ";
 			$displayName = str_replace("\xA0", " ", $displayName);
 			$str = explode(" ", $displayName);
 			$prefix = [_('Dr.'), _('Miss'), _('Mr.'), _('Mrs.'), _('Ms.'), _('Prof.')];

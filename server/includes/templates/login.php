@@ -43,9 +43,6 @@
 			<div id="content">
 				<div class="left">
 					<div id="logo"></div>
-					<?php if (!empty($branch)) { ?>
-					<h2><i><?php echo $branch; ?></i></h2>
-					<?php } ?>
 				</div>
 				<div class="right">
 					<form action="<?php echo $url; ?>" method="post">
@@ -74,7 +71,7 @@
 				}
 			}
 			window.onload = onLoad;
-			
+
 			// Show a spinner when submitting
 			var form = document.getElementsByTagName('form')[0];
 			// Some browsers need some time to draw the spinner (MS Edge!),

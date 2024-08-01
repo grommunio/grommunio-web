@@ -79,7 +79,7 @@ class MAPISession {
 	 *
 	 * @return int 0 on no error, otherwise a MAPI error code
 	 */
-	public function logon($username = null, $password = null, $server = DEFAULT_SERVER, $sslcert_file = null, $sslcert_pass = null, $flags = 0) {
+	public function logon($username = '', $password = '', $server = DEFAULT_SERVER, $sslcert_file = '', $sslcert_pass = '', $flags = 0) {
 		$result = NOERROR;
 		$username = (string) $username;
 		$password = (string) $password;
@@ -322,8 +322,7 @@ class MAPISession {
 	 */
 	public function getUserEntryID() {
 		$this->retrieveUserData();
-
-		return array_key_exists("userentryid", $this->session_info) ? $this->session_info["userentryid"] : false;
+		return $this->session_info["userentryid"] ?? '';
 	}
 
 	/**
@@ -594,7 +593,7 @@ class MAPISession {
 	public function getSearchKey() {
 		$this->retrieveUserData();
 
-		return array_key_exists("searchkey", $this->session_info) ? $this->session_info["searchkey"] : false;
+		return $this->session_info["searchkey"] ?? '';
 	}
 
 	/**
@@ -1078,7 +1077,7 @@ class MAPISession {
 					elseif (isset($sharedUserSetting['contact'])) {
 						// Add respective default contact folder which is opened.
 						// Get entryid of default contact folder from root.
-						$root = mapi_msgstore_openentry($openedUserStore, null);
+						$root = mapi_msgstore_openentry($openedUserStore);
 						$rootProps = mapi_getprops($root, [PR_IPM_CONTACT_ENTRYID]);
 
 						// Just add the default contact folder only.

@@ -240,7 +240,7 @@ class HierarchyModule extends Module {
 
 												// Create new search folder in FINDERS_ROOT folder and set the search
 												// criteria in newly created search folder.
-												$newSearchFolder = mapi_folder_createfolder($searchFolderRoot, $action["props"]["display_name"], null, 0, FOLDER_SEARCH);
+												$newSearchFolder = mapi_folder_createfolder($searchFolderRoot, $action["props"]["display_name"], '', 0, FOLDER_SEARCH);
 												$subfolder_flag = 0;
 												if (isset($action["subfolders"]) && $action["subfolders"] == "true") {
 													$subfolder_flag = RECURSIVE_SEARCH;
@@ -728,7 +728,7 @@ class HierarchyModule extends Module {
 		$currentPermissions = $this->getFolderPermissions($folder);
 
 		// check if the folder is the default calendar, if so we also need to set the same permissions on the freebusy folder
-		$root = mapi_msgstore_openentry($store, null);
+		$root = mapi_msgstore_openentry($store);
 		if ($root) {
 			$rootProps = mapi_getprops($root, [PR_IPM_APPOINTMENT_ENTRYID]);
 			if ($folderProps[PR_ENTRYID] == $rootProps[PR_IPM_APPOINTMENT_ENTRYID]) {
@@ -1196,7 +1196,7 @@ class HierarchyModule extends Module {
 			$emptySubFolders = true;
 		}
 		else {
-			$root = mapi_msgstore_openentry($store, null);
+			$root = mapi_msgstore_openentry($store);
 			$rootProps = mapi_getprops($root, [PR_ADDITIONAL_REN_ENTRYIDS]);
 			// check if selected folder is junk folder then make junk folder empty with
 			// it's child folder and it's contains.

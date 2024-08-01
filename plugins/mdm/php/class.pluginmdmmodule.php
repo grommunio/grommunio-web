@@ -560,7 +560,7 @@ class PluginMDMModule extends Module {
 			}
 		}
 
-		$root = mapi_msgstore_openentry($store, null);
+		$root = mapi_msgstore_openentry($store);
 		$rootProps = mapi_getprops($root, [PR_IPM_APPOINTMENT_ENTRYID, PR_IPM_CONTACT_ENTRYID, PR_IPM_DRAFTS_ENTRYID, PR_IPM_JOURNAL_ENTRYID, PR_IPM_NOTE_ENTRYID, PR_IPM_TASK_ENTRYID, PR_ADDITIONAL_REN_ENTRYIDS]);
 
 		$additional_ren_entryids = [];

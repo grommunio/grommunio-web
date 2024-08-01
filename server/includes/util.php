@@ -762,7 +762,7 @@ function updateHierarchyCounters($username = '', $folderType = '') {
  * @return mixed false if unable to correct otherwise return the subtree
  */
 function fix_ipmsubtree($store) {
-	$root = mapi_msgstore_openentry($store, null);
+	$root = mapi_msgstore_openentry($store);
 	$username = $GLOBALS["mapisession"]->getUserName();
 	$hierarchytable = mapi_folder_gethierarchytable($root);
 	mapi_table_restrict($hierarchytable, [RES_CONTENT,

@@ -6,9 +6,33 @@
 
 namespace Files\Backend\Webdav\sabredav;
 
+use Sabre\DAV\Client;
+use Sabre\DAV\Exception;
+use Sabre\DAV\Exception\BadRequest;
+use Sabre\DAV\Exception\Conflict;
+use Sabre\DAV\Exception\Forbidden;
+use Sabre\DAV\Exception\InsufficientStorage;
+use Sabre\DAV\Exception\MethodNotAllowed;
+use Sabre\DAV\Exception\NotAuthenticated;
+use Sabre\DAV\Exception\NotFound;
+use Sabre\DAV\Exception\NotImplemented;
+use Sabre\DAV\Exception\PaymentRequired;
+use Sabre\DAV\Exception\PreconditionFailed;
+use Sabre\DAV\Exception\RequestedRangeNotSatisfiable;
+
 include __DIR__ . "/vendor/autoload.php";
 
-class FilesWebDavClient extends \Sabre\DAV\Client {
+class FilesWebDavClient extends Client {
+	/**
+	 * @var string
+	 */
+	public $userName;
+
+	/**
+	 * @var string
+	 */
+	public $password;
+
 	public function __construct(array $settings) {
 		if (isset($settings['userName'])) {
 			$this->userName = $settings['userName'];
@@ -39,13 +63,13 @@ class FilesWebDavClient extends \Sabre\DAV\Client {
 	 */
 	public function getFile($url, $dstpath, $headers = []) {
 		if (empty($url)) {
-			throw new \Sabre\DAV\Exception('Empty path');
+			throw new Exception('Empty path');
 		}
 		$url = $this->getAbsoluteUrl($url);
 		$file_handle = fopen($dstpath, "w");
 
 		if (!$file_handle) {
-			throw new \Sabre\DAV\Exception('[CURL] Error writing to temporary file! (' . $dstpath . ')');
+			throw new Exception('[CURL] Error writing to temporary file! (' . $dstpath . ')');
 		}
 
 		// straight up curl instead of sabredav here, sabredav put's the entire get result in memory
@@ -77,43 +101,43 @@ class FilesWebDavClient extends \Sabre\DAV\Client {
 		if ($response['statusCode'] >= 400) {
 			switch ($response['statusCode']) {
 				case 400 :
-					throw new \Sabre\DAV\Exception\BadRequest('Bad request');
+					throw new BadRequest('Bad request');
 
 				case 401 :
-					throw new \Sabre\DAV\Exception\NotAuthenticated('Not authenticated');
+					throw new NotAuthenticated('Not authenticated');
 
 				case 402 :
-					throw new \Sabre\DAV\Exception\PaymentRequired('Payment required');
+					throw new PaymentRequired('Payment required');
 
 				case 403 :
-					throw new \Sabre\DAV\Exception\Forbidden('Forbidden');
+					throw new Forbidden('Forbidden');
 
 				case 404:
-					throw new \Sabre\DAV\Exception\NotFound('Resource not found.');
+					throw new NotFound('Resource not found.');
 
 				case 405 :
-					throw new \Sabre\DAV\Exception\MethodNotAllowed('Method not allowed');
+					throw new MethodNotAllowed('Method not allowed');
 
 				case 409 :
-					throw new \Sabre\DAV\Exception\Conflict('Conflict');
+					throw new Conflict('Conflict');
 
 				case 412 :
-					throw new \Sabre\DAV\Exception\PreconditionFailed('Precondition failed');
+					throw new PreconditionFailed('Precondition failed');
 
 				case 416 :
-					throw new \Sabre\DAV\Exception\RequestedRangeNotSatisfiable('Requested Range Not Satisfiable');
+					throw new RequestedRangeNotSatisfiable('Requested Range Not Satisfiable');
 
 				case 500 :
-					throw new \Sabre\DAV\Exception('Internal server error');
+					throw new Exception('Internal server error');
 
 				case 501 :
-					throw new \Sabre\DAV\Exception\NotImplemented('Not Implemented');
+					throw new NotImplemented('Not Implemented');
 
 				case 507 :
-					throw new \Sabre\DAV\Exception\InsufficientStorage('Insufficient storage');
+					throw new InsufficientStorage('Insufficient storage');
 
 				default:
-					throw new \Sabre\DAV\Exception('HTTP error response. (errorcode ' . $response['statusCode'] . ')');
+					throw new Exception('HTTP error response. (errorcode ' . $response['statusCode'] . ')');
 			}
 		}
 

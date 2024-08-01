@@ -105,8 +105,12 @@ class FilesListModule extends ListModule {
 		$versions = $GLOBALS['PluginManager']->getPluginsVersion();
 		$filesVersion = $versions['files'];
 
+		$filesVersionFromCache = $this->getVersionFromCache('files');
+		if (!is_string($filesVersionFromCache)) {
+			$filesVersionFromCache = '0';
+		}
 		// Clear cache when version gets changed and update 'files' version in cache.
-		if ($isReload || version_compare($this->getVersionFromCache('files'), $filesVersion) !== 0) {
+		if ($isReload || version_compare($filesVersionFromCache, $filesVersion) !== 0) {
 			$this->clearCache();
 			$this->setVersionInCache('files', $filesVersion);
 		}
@@ -215,6 +219,9 @@ class FilesListModule extends ListModule {
 		$backendDisplayName = $backend->backendDisplayName;
 		$backendVersion = $backend->backendVersion;
 		$cacheVersion = $this->getVersionFromCache($backendDisplayName, $accountID);
+		if(!is_string($cacheVersion)) {
+			$cacheVersion = '0';
+		}
 		$dir = $this->getCache($accountID, $cachePath);
 
 		// Get new data from backend when cache is empty or the version of backend got changed.
@@ -661,6 +668,9 @@ class FilesListModule extends ListModule {
 	 */
 	public function setVersionInCache($displayName, $version, $accountID = '') {
 		$olderVersionFromCache = $this->getVersionFromCache($displayName, $accountID);
+		if (!is_string($olderVersionFromCache)) {
+			$olderVersionFromCache = '0';
+		}
 		// If version of files/backend is same then return.
 		if (version_compare($olderVersionFromCache, $version) === 0) {
 			return;

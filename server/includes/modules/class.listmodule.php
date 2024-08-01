@@ -664,7 +664,7 @@ class ListModule extends Module {
 					break;
 				}
 			}
-			$searchFolder = mapi_folder_createfolder($searchFolderRoot, $folderName, null, OPEN_IF_EXISTS, FOLDER_SEARCH);
+			$searchFolder = mapi_folder_createfolder($searchFolderRoot, $folderName, '', OPEN_IF_EXISTS, FOLDER_SEARCH);
 
 			$props = mapi_getprops($searchFolder, [PR_ENTRYID]);
 			$this->sessionData['searchFolderEntryId'] = bin2hex($props[PR_ENTRYID]);

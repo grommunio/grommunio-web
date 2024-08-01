@@ -238,7 +238,7 @@ class WebAppAuthentication {
 		}
 
 		$encryptionStore = EncryptionStore::getInstance();
-
+		$data = '';
 		if (kc_session_save($session, $data) === NOERROR) {
 			$encryptionStore->add('savedsession', bin2hex($data));
 		}

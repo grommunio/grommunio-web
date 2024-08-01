@@ -67,6 +67,11 @@ class ocsclient {
 	private $shares;
 
 	/**
+	 * @var array
+	 */
+	private $sharesByPath;
+
+	/**
 	 * @var array default curl options used for all requests
 	 */
 	private $curlDefaultOptions = [

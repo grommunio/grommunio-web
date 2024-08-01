@@ -434,7 +434,7 @@ class ContactItemModule extends ItemModule {
 	public function updateAppointments($store, $action, $type) {
 		$result = false;
 
-		$root = mapi_msgstore_openentry($store, null);
+		$root = mapi_msgstore_openentry($store);
 		$rootProps = mapi_getprops($root, [PR_IPM_APPOINTMENT_ENTRYID, PR_STORE_ENTRYID]);
 		$parentEntryId = bin2hex($rootProps[PR_IPM_APPOINTMENT_ENTRYID]);
 		$storeEntryId = bin2hex($rootProps[PR_STORE_ENTRYID]);
@@ -454,8 +454,8 @@ class ContactItemModule extends ItemModule {
 
 		// Find the number of minutes since the start of the year to the given month,
 		// taking leap years into account.
-		$month = strftime('%m', $startDate);
-		$year = strftime('%y', $startDate);
+		$month = date('M', $startDate);
+		$year = date('y', $startDate);
 
 		$d1 = new DateTime();
 		$d1->setDate($year, 1, 1);
@@ -497,7 +497,7 @@ class ContactItemModule extends ItemModule {
 			'type' => 13,
 			'regen' => 0,
 			'month' => $month,
-			'monthday' => strftime('%e', $startDate),
+			'monthday' => date('j', $startDate),
 			'timezone' => $actionProps['timezone'],
 			'timezonedst' => $actionProps['timezonedst'],
 			'dststartmonth' => $actionProps['dststartmonth'],
@@ -558,7 +558,7 @@ class ContactItemModule extends ItemModule {
 	 * @param        $entryid of the message with will be deleted,sent by the client
 	 */
 	public function deleteSpecialDateAppointment($store, $entryid) {
-		$root = mapi_msgstore_openentry($store, null);
+		$root = mapi_msgstore_openentry($store);
 		$rootProps = mapi_getprops($root, [PR_IPM_APPOINTMENT_ENTRYID, PR_STORE_ENTRYID]);
 		$parentEntryId = $rootProps[PR_IPM_APPOINTMENT_ENTRYID];
 		$storeEntryId = $rootProps[PR_STORE_ENTRYID];

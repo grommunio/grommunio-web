@@ -38,7 +38,7 @@ class NemidLogin {
 		foreach ($params as $name => $value) {
 			$normalized .= strtolower($name) . $value;
 		}
-		$normalized = utf8_encode($normalized);
+		$normalized = mb_convert_encoding($normalized, 'UTF-8', 'ISO-8859-1');
 		$paramsdigest = hash('sha256', $normalized, true);
 		$params['paramsdigest'] = base64_encode($paramsdigest);
 
@@ -230,7 +230,7 @@ class NemidCertificateCheck {
 		];
 
 		$context = stream_context_create($stream_options);
-		$derresponse = file_get_contents($url, null, $context);
+		$derresponse = file_get_contents($url, false, $context);
 
 		$ocspresponse = $ocspclient->response($derresponse);
 
@@ -410,7 +410,7 @@ class NemidCertificateCheck {
 
 		$context = stream_context_create($stream_options);
 
-		$response = file_get_contents($config->server, null, $context);
+		$response = file_get_contents($config->server, false, $context);
 
 		$document->loadXML($response);
 		$xp = new \DOMXPath($document);

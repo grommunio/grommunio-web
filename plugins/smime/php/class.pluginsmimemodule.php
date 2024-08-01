@@ -77,7 +77,7 @@ class PluginSmimeModule extends Module {
 			case 'delete':
 				// FIXME: handle multiple deletes? Separate function?
 				$entryid = $actionData['entryid'];
-				$root = mapi_msgstore_openentry($this->store, null);
+				$root = mapi_msgstore_openentry($this->store);
 				mapi_folder_deletemessages($root, [hex2bin($entryid)]);
 
 				$this->sendFeedback(true);
@@ -191,7 +191,7 @@ class PluginSmimeModule extends Module {
 		$items = [];
 		$data['page'] = [];
 
-		$root = mapi_msgstore_openentry($this->store, null);
+		$root = mapi_msgstore_openentry($this->store);
 		$table = mapi_folder_getcontentstable($root, MAPI_ASSOCIATED);
 
 		// restriction for public/private certificates which are stored in the root associated folder

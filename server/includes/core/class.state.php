@@ -47,7 +47,7 @@ class State {
 	/**
 	 * The unserialized data as it has been read from the file.
 	 */
-	public $sessioncache;
+	public $sessioncache = [];
 
 	/**
 	 * The raw data as it has been read from the file.
@@ -73,7 +73,7 @@ class State {
 				mkdir($this->basedir, 0755, true /* recursive */);
 			}
 			$this->fp = fopen($this->filename, "a+");
-			$this->sessioncache = false;
+			$this->sessioncache = [];
 			flock($this->fp, LOCK_EX);
 		}
 	}
@@ -83,13 +83,13 @@ class State {
 	 *
 	 * @param string $name Name of the setting to retrieve
 	 *
-	 * @return string Value of the state value, or null if not found
+	 * @return null|string Value of the state value, or null if not found
 	 */
 	public function read($name) {
 		if ($this->fp !== false) {
 			// If the file has already been read, we only have to access
 			// our cache to obtain the requeste data.
-			if ($this->sessioncache === false) {
+			if (empty($this->sessioncache)) {
 				$this->contents = file_get_contents($this->filename);
 				$this->sessioncache = unserialize($this->contents);
 			}
@@ -101,8 +101,11 @@ class State {
 		else {
 			dump('[STATE ERROR] State file "' . $this->filename . '" isn\'t opened, Please open state file before reading it."');
 		}
+		if (empty($this->sessioncache)) {
+			$this->sessioncache = [];
+		}
 
-		return false;
+		return null;
 	}
 
 	/**
@@ -117,7 +120,7 @@ class State {
 		if ($this->fp !== false) {
 			// If the file has already been read, then we don't
 			// need to read the entire file again.
-			if ($this->sessioncache === false) {
+			if (empty($this->sessioncache)) {
 				$this->read($name);
 			}
 
@@ -139,7 +142,7 @@ class State {
 	 */
 	public function flush() {
 		if ($this->fp !== false) {
-			if ($this->sessioncache) {
+			if (!empty($this->sessioncache)) {
 				$contents = serialize($this->sessioncache);
 
 				if ($contents !== $this->contents) {

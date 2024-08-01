@@ -132,7 +132,7 @@ class DelegatesModule extends Module {
 			}
 
 			// Get root store
-			$root = mapi_msgstore_openentry($store, null);
+			$root = mapi_msgstore_openentry($store);
 
 			// Get Inbox folder
 			$inbox = mapi_msgstore_getreceivefolder($store);

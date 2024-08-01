@@ -40,7 +40,7 @@ function getCertEmail($certificate) {
  * @return resource|bool the mapi message containing the private certificate, returns false if no certificate is found
  */
 function getMAPICert($store, $type = 'WebApp.Security.Private', $emailAddress = '') {
-	$root = mapi_msgstore_openentry($store, null);
+	$root = mapi_msgstore_openentry($store);
 	$table = mapi_folder_getcontentstable($root, MAPI_ASSOCIATED);
 
 	$restrict = [RES_PROPERTY,
