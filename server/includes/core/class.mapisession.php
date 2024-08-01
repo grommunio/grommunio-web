@@ -322,8 +322,7 @@ class MAPISession {
 	 */
 	public function getUserEntryID() {
 		$this->retrieveUserData();
-
-		return array_key_exists("userentryid", $this->session_info) ? $this->session_info["userentryid"] : false;
+		return $this->session_info["userentryid"] ?? '';
 	}
 
 	/**
@@ -594,7 +593,7 @@ class MAPISession {
 	public function getSearchKey() {
 		$this->retrieveUserData();
 
-		return array_key_exists("searchkey", $this->session_info) ? $this->session_info["searchkey"] : '';
+		return $this->session_info["searchkey"] ?? '';
 	}
 
 	/**
