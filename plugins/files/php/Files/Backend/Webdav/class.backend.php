@@ -91,6 +91,11 @@ class Backend extends AbstractBackend implements iFeatureQuota, iFeatureVersionI
 	public $sabre_client;
 
 	/**
+	 * @var string Backend name used in translations
+	 */
+	public $backendTransName;
+
+	/**
 	 * @constructor
 	 */
 	public function __construct() {
