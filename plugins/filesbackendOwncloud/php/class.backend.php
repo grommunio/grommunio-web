@@ -178,7 +178,7 @@ class Backend extends \Files\Backend\Webdav\Backend implements iFeatureSharing {
 
 			return true;
 		}
-		catch (\Exception $e) {
+		catch (Exception $e) {
 			$this->log('Failed to open: ' . $e->getMessage());
 			if (intval($e->getHTTPCode()) == 401) {
 				$e = new BackendException($this->parseErrorCodeToMessage(self::WD_ERR_UNAUTHORIZED), $e->getHTTPCode());
