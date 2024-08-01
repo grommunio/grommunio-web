@@ -19,10 +19,10 @@ class ArrayUtil {
 		$key2sort = $key;
 
 		if ($dir == "DESC") {
-			usort($arr, ['self', 'invsort']);
+			usort($arr, self::class . '::invsort');
 		}
 		else {
-			usort($arr, ['self', 'sort']);
+			usort($arr, self::class . '::sort');
 		}
 
 		return $arr;
@@ -44,10 +44,10 @@ class ArrayUtil {
 		$key2sort = $key;
 
 		if ($dir == "DESC") {
-			usort($arr, ['self', 'invpropsort']);
+			usort($arr, self::class . '::invpropsort');
 		}
 		else {
-			usort($arr, ['self', 'propsort']);
+			usort($arr, self::class . '::propsort');
 		}
 
 		return $arr;
