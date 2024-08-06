@@ -330,7 +330,8 @@ class AdvancedSearchListModule extends ListModule {
 			) {
 				// get entryids of original folders, and use it to set new search criteria
 				$entryids = [];
-				for ($index = 0; $index < count($this->sessionData['searchOriginalEntryids']); ++$index) {
+				$entryIdsCount = count($this->sessionData['searchOriginalEntryids']);
+				for ($index = 0; $index < $entryIdsCount; ++$index) {
 					$entryids[] = hex2bin($this->sessionData['searchOriginalEntryids'][$index]);
 				}
 			}

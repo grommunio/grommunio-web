@@ -81,7 +81,8 @@ class Language {
 			$tmp_translations = $this->getTranslations();
 			$translations = [];
 			foreach ($tmp_translations as $resources) {
-				for ($i = 0; $i < count($resources); ++$i) {
+				$resourcesCount = count($resources);
+				for ($i = 0; $i < $resourcesCount; ++$i) {
 					$msgid = $resources[$i]['msgid'];
 					if (isset($msgid)) {
 						$translations[$msgid] = $resources[$i]['msgstr'];

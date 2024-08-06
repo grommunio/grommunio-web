@@ -114,7 +114,8 @@ class UploadHandler {
 		$items = [];
 
 		try {
-			for ($i = 0; $i < count($_FILES['attachments']['name']); ++$i) {
+			$attachmentsCount = count($_FILES['attachments']['name']);
+			for ($i = 0; $i < $attachmentsCount; ++$i) {
 				$targetPath = stringToUTF8Encode($relNodeId . $_FILES['attachments']['name'][$i]);
 
 				// upload the file

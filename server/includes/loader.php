@@ -457,7 +457,8 @@ class FileLoader {
 						$parentsDepthAssigned = true;
 						$highestParentDepth = 0;
 						// See if all the parents already have a depth assigned and if so take the highest one.
-						for ($i = 0; $i < count($dependencies); ++$i) {
+						$dependenciesCount = count($dependencies);
+						for ($i = 0; $i < $dependenciesCount; ++$i) {
 							// Not all parents depths have been assigned yet, wait another turn
 							if (!isset($fileDepths[$dependencies[$i]])) {
 								$parentsDepthAssigned = false;
@@ -516,7 +517,8 @@ class FileLoader {
 		// they are in the list. This order should still be alphabetically.
 		$fileSequence = [];
 		foreach ($fileWeights as $weight => $fileList) {
-			for ($i = 0; $i < count($fileList); ++$i) {
+			$fileListCount = count($fileList);
+			for ($i = 0; $i < $fileListCount; ++$i) {
 				$fileSequence[] = $fileList[$i];
 			}
 		}

@@ -25,7 +25,8 @@
  */
 function changeTranslationCharsetToUTF8($source, $charset) {
 	if (is_array($source)) {
-		for ($i = 0; $i < count($source); ++$i) {
+		$sourceCount = count($source);
+		for ($i = 0; $i < $sourceCount; ++$i) {
 			$source[$i] = iconv($charset, 'UTF-8//TRANSLIT', $source[$i]);
 		}
 	}
