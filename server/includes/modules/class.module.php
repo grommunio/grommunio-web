@@ -246,7 +246,7 @@ class Module {
 	 */
 	public function sendFeedback($success = false, $data = [], $addResponseDataToBus = true) {
 		// Send success/error message to client
-		$this->addActionData($success == true ? "success" : "error", $data);
+		$this->addActionData($success === true ? "success" : "error", $data);
 
 		if ($addResponseDataToBus) {
 			$GLOBALS["bus"]->addData($this->getResponseData());

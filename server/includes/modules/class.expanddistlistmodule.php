@@ -68,7 +68,7 @@ class ExpandDistlistModule extends Module {
 			for ($i = 0, $len = count($rows); $i < $len; ++$i) {
 				$memberProps = Conversion::mapMAPI2XML($this->properties, $rows[$i]);
 				$isDistlist = $memberProps['props']['object_type'] == MAPI_DISTLIST;
-				if ($isDistlist && $isRecurse == true) {
+				if ($isDistlist && $isRecurse === true) {
 					$data = array_merge($data, $this->expandDist(hex2bin($memberProps['entryid']), [], $isRecurse));
 				}
 				else {

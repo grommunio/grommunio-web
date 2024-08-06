@@ -76,7 +76,7 @@ class Operations {
 			 * storetype is public and if public folder is disabled
 			 * then continue in loop for next store.
 			 */
-			if ($storeType == ZARAFA_STORE_PUBLIC_GUID && ENABLE_PUBLIC_FOLDERS == false) {
+			if ($storeType == ZARAFA_STORE_PUBLIC_GUID && ENABLE_PUBLIC_FOLDERS === false) {
 				continue;
 			}
 
@@ -1671,7 +1671,7 @@ class Operations {
 						$cid_found = true;
 					}
 				}
-				if ($cid_found == true && isset($htmlcontent)) {
+				if ($cid_found === true && isset($htmlcontent)) {
 					preg_match_all('/src="cid:(.*)"/Uims', $htmlcontent, $matches);
 					if (count($matches) > 0) {
 						$search = [];
@@ -2890,7 +2890,7 @@ class Operations {
 
 			case ZARAFA_SERVICE_GUID:
 				// delete message when in your own waste basket, else move it to the waste basket
-				if (isset($msgprops[PR_IPM_WASTEBASKET_ENTRYID]) && $msgprops[PR_IPM_WASTEBASKET_ENTRYID] == $parententryid || $softDelete == true) {
+				if (isset($msgprops[PR_IPM_WASTEBASKET_ENTRYID]) && $msgprops[PR_IPM_WASTEBASKET_ENTRYID] == $parententryid || $softDelete === true) {
 					$result = mapi_folder_deletemessages($folder, $entryids, $flags);
 					break;
 				}
@@ -4323,7 +4323,7 @@ class Operations {
 						}
 					}
 
-					if ($l_bFoundInHistory == true) {
+					if ($l_bFoundInHistory === true) {
 						// Check if a name has been supplied.
 						$newDisplayName = trim($emailAddresses[$i]['display_name']);
 						if (!empty($newDisplayName)) {

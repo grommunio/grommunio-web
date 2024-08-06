@@ -192,7 +192,7 @@ class IndexSqlite extends SQLite3 {
 		else {
 			$first = true;
 			if (isset($sender)) {
-				if ($first == true) {
+				if ($first === true) {
 					$first = false;
 				}
 				else {
@@ -201,7 +201,7 @@ class IndexSqlite extends SQLite3 {
 				$sql_string .= 'sender:' . SQLite3::escapeString($this->quote_words($sender));
 			}
 			if (isset($sending)) {
-				if ($first == true) {
+				if ($first === true) {
 					$first = false;
 				}
 				else {
@@ -210,7 +210,7 @@ class IndexSqlite extends SQLite3 {
 				$sql_string .= 'sending:' . SQLite3::escapeString($this->quote_words($sending));
 			}
 			if (isset($recipients)) {
-				if ($first == true) {
+				if ($first === true) {
 					$first = false;
 				}
 				else {
@@ -219,7 +219,7 @@ class IndexSqlite extends SQLite3 {
 				$sql_string .= 'recipients:' . SQLite3::escapeString($this->quote_words($recipients));
 			}
 			if (isset($subject)) {
-				if ($first == true) {
+				if ($first === true) {
 					$first = false;
 				}
 				else {
@@ -228,7 +228,7 @@ class IndexSqlite extends SQLite3 {
 				$sql_string .= 'subject:' . SQLite3::escapeString($this->quote_words($subject));
 			}
 			if (isset($content)) {
-				if ($first == true) {
+				if ($first === true) {
 					$first = false;
 				}
 				else {
@@ -237,7 +237,7 @@ class IndexSqlite extends SQLite3 {
 				$sql_string .= 'content:' . SQLite3::escapeString($this->quote_words($content));
 			}
 			if (isset($attachments)) {
-				if ($first == true) {
+				if ($first === true) {
 					$first = false;
 				}
 				else {
@@ -246,7 +246,7 @@ class IndexSqlite extends SQLite3 {
 				$sql_string .= 'attachments:' . SQLite3::escapeString($this->quote_words($attachments));
 			}
 			if (isset($others)) {
-				if ($first == true) {
+				if ($first === true) {
 					$first = false;
 				}
 				else {
@@ -288,7 +288,7 @@ class IndexSqlite extends SQLite3 {
 
 	public function load() {
 		if (!is_file(SQLITE_INDEX_PATH . '/' . $this->username . '/index.sqlite3')) {
-			if ($this->create() == false) {
+			if ($this->create() === false) {
 				return false;
 			}
 		}
@@ -311,7 +311,7 @@ class IndexSqlite extends SQLite3 {
 				"message_class UNINDEXED," .
 				"date UNINDEXED, " .
 				"tokenize=" . SQLITE_FTS_TOKENIZER . ");";
-		if ($this->exec($sql_string) == false) {
+		if ($this->exec($sql_string) === false) {
 			error_log("fail to execute sqlite create table statemente, " . $this->lastErrorMsg());
 
 			return false;
