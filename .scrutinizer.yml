@@ -18,8 +18,15 @@ build:
             use_website_config: true
 filter:
   excluded_paths:
-    - "vendor"
-    - "*/vendor/*"
+    - "*/build/**"
+    - "*/vendor/**"
+    - "*.min.js"
+    - "*.tpl.php"
+    - "client/dompurify/**"
+    - "client/tinymce/**"
+    - "client/filepreviewer/pdfjs/**"
+    - "client/filepreviewer/ViewerJS/**"
+    - "plugins/files/php/Files/Backend/Webdav/sabredav/**"
 checks:
   php:
     code_rating: true
