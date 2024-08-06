@@ -321,7 +321,9 @@ class ConfigCheck {
 		$result = true;
 
 		if (!is_dir($dir)) {
-			@mkdir($dir); // try to create the directory
+			if (@mkdir($dir) === false) {
+				$this->error_directory($dir, "couldn't be created", $help_msg);
+			}
 		}
 
 		if (is_dir($dir)) {
