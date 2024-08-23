@@ -578,18 +578,6 @@ Zarafa.mail.ui.MailGrid = Ext.extend(Zarafa.common.ui.grid.MapiMessageGrid, {
 	{
 		if (activeTab.id === "zarafa-mainpanel-content") {
 			this.getView().setFocus();
-			// Force a redraw for Firefox
-			if (navigator.userAgent.toLowerCase().indexOf('firefox') > -1) {
-				var contentElement = activeTab.getEl().dom;
-
-				if (contentElement) {
-					setTimeout(function() {
-						contentElement.style.display = 'none';
-						contentElement.offsetHeight; // Trigger reflow
-						contentElement.style.display = '';
-					}, 50);
-				}
-			}
 		}
 	},
 
