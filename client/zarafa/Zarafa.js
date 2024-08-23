@@ -245,10 +245,10 @@ Ext.apply(Zarafa, {
 			// Default regEx of DOMPurify for uri does not allow some protocols like file, smb, etc.
 			// So we need to whitelist them by this new regEx.
 			ALLOWED_URI_REGEXP: Object.seal(/^(?:(?:(?:f|ht)tps?|mailto|elodms|msteams|webexteams|zoommtg|zoomus|gotomeeting|tel|callto|cid|xmpp|smb|file):|[^a-z]|[a-z]:|[a-z+.\-]+(?:[^a-z+.\-:]|$))/i),
-			ALLOW_DATA_ATTR: false,
+			ALLOW_DATA_ATTR: true,
+			ADD_DATA_URI_TAGS: [ 'a', 'img', 'image' ],
 			ADD_TAGS: ['svg', 'use', 'symbol'],
 			ADD_ATTRIBUTES: ['xlink', 'xlink:href', 'href'],
-			DATA_URI_TAGS: [ 'a', 'img', 'image' ]
 		});
 
 		DOMPurify.addHook('afterSanitizeAttributes', function(node) {
