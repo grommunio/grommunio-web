@@ -126,7 +126,7 @@ $(JSDEPLOY)/fingerprint.js: client/fingerprint.js
 	mkdir -p $(JSDEPLOY)
 	cat $^ > $(@:.js=-debug.js)
 	$(JSCOMPILER) $(@:.js=-debug.js) --output $@ \
-		--source-map "url='$(shell basename $@.map)'" \
+		--source-map "url='/web/client/$(shell basename $@.map)'" \
 	        $(JSOPTIONS)
 
 $(JSDEPLOY)/grommunio.js: $(JSFILES)
