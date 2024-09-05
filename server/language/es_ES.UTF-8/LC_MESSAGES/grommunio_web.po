@@ -4454,14 +4454,6 @@ msgstr "Tipo"
 msgid "Description"
 msgstr "Descripción"
 
-#, fuzzy
-msgid "EntryID"
-msgstr "EntryID"
-
-#, fuzzy
-msgid "Parent EID"
-msgstr "EID de los padres"
-
 msgid "Folder size"
 msgstr "Tamaño carpeta"
 
@@ -4849,9 +4841,6 @@ msgstr "Mostrar De"
 #, fuzzy
 msgid "Cannot save while attachment is being uploaded"
 msgstr "No se puede guardar mientras se carga el archivo adjunto"
-
-msgid "Miscellaneous Options"
-msgstr "Opciones varias"
 
 msgid "Internet Headers"
 msgstr "Encabezados de Internet"

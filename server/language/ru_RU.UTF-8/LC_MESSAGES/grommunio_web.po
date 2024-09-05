@@ -4317,14 +4317,6 @@ msgstr "Тип"
 msgid "Description"
 msgstr "Описание"
 
-#, fuzzy
-msgid "EntryID"
-msgstr "EntryID"
-
-#, fuzzy
-msgid "Parent EID"
-msgstr "EID родителя"
-
 msgid "Folder size"
 msgstr "Размер каталога"
 
@@ -4691,9 +4683,6 @@ msgstr "Показать поле «От»"
 
 msgid "Cannot save while attachment is being uploaded"
 msgstr "Нельзя сохранять, пока не загружены вложения"
-
-msgid "Miscellaneous Options"
-msgstr "Остальные параметры"
 
 msgid "Internet Headers"
 msgstr "Интернет-заголовки"

@@ -4124,12 +4124,6 @@ msgstr "Tür"
 msgid "Description"
 msgstr "Açıklama"
 
-msgid "EntryID"
-msgstr "Giriş kimliği"
-
-msgid "Parent EID"
-msgstr "Ebeveyn EID"
-
 msgid "Folder size"
 msgstr "Klasör boyutu"
 
@@ -4490,9 +4484,6 @@ msgstr "Kimden alanını göster"
 
 msgid "Cannot save while attachment is being uploaded"
 msgstr "Ek yüklenirken kaydedilemiyor"
-
-msgid "Miscellaneous Options"
-msgstr "Diyer ayarlar"
 
 msgid "Internet Headers"
 msgstr "İnternet Başlıkları"

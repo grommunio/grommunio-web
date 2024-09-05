@@ -4331,14 +4331,6 @@ msgstr "タイプ"
 msgid "Description"
 msgstr "説明"
 
-#, fuzzy
-msgid "EntryID"
-msgstr "エントリーID"
-
-#, fuzzy
-msgid "Parent EID"
-msgstr "親EID"
-
 msgid "Folder size"
 msgstr "フォルダサイズ"
 
@@ -4719,9 +4711,6 @@ msgstr "送信者を表示"
 #, fuzzy
 msgid "Cannot save while attachment is being uploaded"
 msgstr "添付ファイルのアップロード中に保存ができない"
-
-msgid "Miscellaneous Options"
-msgstr "その他オプション"
 
 msgid "Internet Headers"
 msgstr "インターネットヘッダー"

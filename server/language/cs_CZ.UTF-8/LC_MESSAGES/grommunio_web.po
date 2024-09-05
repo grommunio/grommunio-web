@@ -4392,14 +4392,6 @@ msgstr "Typ"
 msgid "Description"
 msgstr "Popis"
 
-#, fuzzy
-msgid "EntryID"
-msgstr "EntryID"
-
-#, fuzzy
-msgid "Parent EID"
-msgstr "Rodičovské EID"
-
 msgid "Folder size"
 msgstr "Velikost složky"
 
@@ -4796,9 +4788,6 @@ msgstr "Ukázat Od koho"
 #, fuzzy
 msgid "Cannot save while attachment is being uploaded"
 msgstr "Nelze uložit při nahrávání přílohy"
-
-msgid "Miscellaneous Options"
-msgstr "Různé možnosti"
 
 msgid "Internet Headers"
 msgstr "Záhlaví internetu"

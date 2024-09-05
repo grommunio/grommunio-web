@@ -4186,12 +4186,6 @@ msgstr "Tipo"
 msgid "Description"
 msgstr "Descrizione"
 
-msgid "EntryID"
-msgstr "ID voce"
-
-msgid "Parent EID"
-msgstr "ID genitore"
-
 msgid "Folder size"
 msgstr "Dimensione cartella"
 
@@ -4555,9 +4549,6 @@ msgstr "Mostra campo Da"
 
 msgid "Cannot save while attachment is being uploaded"
 msgstr "Impossibile salvare durante il caricamento dell'allegato"
-
-msgid "Miscellaneous Options"
-msgstr "Opzioni varie"
 
 msgid "Internet Headers"
 msgstr "Intestazioni"

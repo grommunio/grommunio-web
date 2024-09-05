@@ -4221,13 +4221,6 @@ msgstr "Typ"
 msgid "Description"
 msgstr "Nazwa"
 
-msgid "EntryID"
-msgstr "EntryID"
-
-#, fuzzy
-msgid "Parent EID"
-msgstr "Rodzic EID"
-
 msgid "Folder size"
 msgstr "Wielkość folderu"
 
@@ -4592,9 +4585,6 @@ msgstr "Pokaż Od"
 
 msgid "Cannot save while attachment is being uploaded"
 msgstr "Nie można go zapisać podczas ładowania załącznika"
-
-msgid "Miscellaneous Options"
-msgstr "Różne opcje"
 
 msgid "Internet Headers"
 msgstr "Nagłówki internetowe"

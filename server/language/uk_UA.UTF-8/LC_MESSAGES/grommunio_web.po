@@ -4163,12 +4163,6 @@ msgstr "Тип"
 msgid "Description"
 msgstr "Опис"
 
-msgid "EntryID"
-msgstr "EntryID"
-
-msgid "Parent EID"
-msgstr "Батьківський EID"
-
 msgid "Folder size"
 msgstr "Розмір папки"
 
@@ -4531,9 +4525,6 @@ msgstr "Показати з поля"
 
 msgid "Cannot save while attachment is being uploaded"
 msgstr "Неможливо зберегти під час завантаження вкладення"
-
-msgid "Miscellaneous Options"
-msgstr "Різні опції"
 
 msgid "Internet Headers"
 msgstr "Заголовки в Інтернеті"

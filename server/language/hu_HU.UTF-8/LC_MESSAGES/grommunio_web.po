@@ -4383,14 +4383,6 @@ msgstr "Típus"
 msgid "Description"
 msgstr "Leírás"
 
-#, fuzzy
-msgid "EntryID"
-msgstr "EntryID"
-
-#, fuzzy
-msgid "Parent EID"
-msgstr "Szülői EID"
-
 msgid "Folder size"
 msgstr "Mappa méret"
 
@@ -4769,9 +4761,6 @@ msgstr "Feladó megjelenítése"
 #, fuzzy
 msgid "Cannot save while attachment is being uploaded"
 msgstr "Nem lehet menteni, miközben a melléklet feltöltése folyamatban van"
-
-msgid "Miscellaneous Options"
-msgstr "Vegyes beállítások"
 
 msgid "Internet Headers"
 msgstr "Internetes fejlécek"

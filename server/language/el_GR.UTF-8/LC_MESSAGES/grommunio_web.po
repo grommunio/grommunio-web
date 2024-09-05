@@ -5035,14 +5035,6 @@ msgid "Description"
 msgstr "Περιγραφή"
 
 #, fuzzy
-msgid "EntryID"
-msgstr "EntryID"
-
-#, fuzzy
-msgid "Parent EID"
-msgstr "Γονέας EID"
-
-#, fuzzy
 msgid "Folder size"
 msgstr "Μέγεθος φακέλου"
 
@@ -5497,9 +5489,6 @@ msgstr "Εμφάνιση πεδίου From"
 #, fuzzy
 msgid "Cannot save while attachment is being uploaded"
 msgstr "Δεν είναι δυνατή η αποθήκευση κατά τη μεταφόρτωση του συνημμένου"
-
-msgid "Miscellaneous Options"
-msgstr "Διάφορες επιλογές"
 
 #, fuzzy
 msgid "Internet Headers"

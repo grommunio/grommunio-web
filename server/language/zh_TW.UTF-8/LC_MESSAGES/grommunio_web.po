@@ -4169,12 +4169,6 @@ msgstr "類型"
 msgid "Description"
 msgstr "描述"
 
-msgid "EntryID"
-msgstr ""
-
-msgid "Parent EID"
-msgstr ""
-
 msgid "Folder size"
 msgstr "資料夾大小"
 
@@ -4549,9 +4543,6 @@ msgstr "顯示寄件者"
 
 msgid "Cannot save while attachment is being uploaded"
 msgstr ""
-
-msgid "Miscellaneous Options"
-msgstr "其他選項"
 
 msgid "Internet Headers"
 msgstr "網際網路標題"

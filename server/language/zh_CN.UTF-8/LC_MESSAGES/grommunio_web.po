@@ -4050,13 +4050,6 @@ msgstr "类型"
 msgid "Description"
 msgstr "说明"
 
-msgid "EntryID"
-msgstr "条目ID"
-
-#, fuzzy
-msgid "Parent EID"
-msgstr "父母的EID"
-
 msgid "Folder size"
 msgstr "文件夹大小"
 
@@ -4416,9 +4409,6 @@ msgstr "显示来源字段"
 
 msgid "Cannot save while attachment is being uploaded"
 msgstr "附件上传时无法保存"
-
-msgid "Miscellaneous Options"
-msgstr "其它各种选项"
 
 msgid "Internet Headers"
 msgstr "因特网报头"

@@ -4493,14 +4493,6 @@ msgstr "Tip"
 msgid "Description"
 msgstr "Opis"
 
-#, fuzzy
-msgid "EntryID"
-msgstr "EntryID"
-
-#, fuzzy
-msgid "Parent EID"
-msgstr "EID staršev"
-
 msgid "Folder size"
 msgstr "Velikost mape"
 
@@ -4888,9 +4880,6 @@ msgstr "Pokaži Od"
 #, fuzzy
 msgid "Cannot save while attachment is being uploaded"
 msgstr "Ni mogoče shraniti med nalaganjem priponke"
-
-msgid "Miscellaneous Options"
-msgstr "Razne možnosti"
 
 msgid "Internet Headers"
 msgstr "Internetne glave"

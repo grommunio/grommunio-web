@@ -4260,12 +4260,6 @@ msgstr "Tipo"
 msgid "Description"
 msgstr "Descripción"
 
-msgid "EntryID"
-msgstr ""
-
-msgid "Parent EID"
-msgstr ""
-
 msgid "Folder size"
 msgstr "Tamaño carpeta"
 
@@ -4644,9 +4638,6 @@ msgstr "Mostrar De"
 
 msgid "Cannot save while attachment is being uploaded"
 msgstr ""
-
-msgid "Miscellaneous Options"
-msgstr "Opciones varias"
 
 msgid "Internet Headers"
 msgstr "Encabezados de Internet"

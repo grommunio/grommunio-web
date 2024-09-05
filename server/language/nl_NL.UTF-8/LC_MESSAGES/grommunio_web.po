@@ -4147,12 +4147,6 @@ msgstr "Type"
 msgid "Description"
 msgstr "Omschrijving"
 
-msgid "EntryID"
-msgstr "EntryID"
-
-msgid "Parent EID"
-msgstr "Ouder EID"
-
 msgid "Folder size"
 msgstr "Mapgrootte"
 
@@ -4514,9 +4508,6 @@ msgstr "Toon afzender"
 
 msgid "Cannot save while attachment is being uploaded"
 msgstr "Kan niet opslaan als bijlage aan het uploaden is"
-
-msgid "Miscellaneous Options"
-msgstr "Overige Opties"
 
 msgid "Internet Headers"
 msgstr "Internetkopregels"
