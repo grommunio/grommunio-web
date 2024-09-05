@@ -127,12 +127,8 @@ Zarafa.hierarchy.dialogs.FolderPropertiesGeneralTab = Ext.extend(Ext.form.FormPa
 				name: 'message_size'
 			},{
 				xtype : 'textfield',
-				fieldLabel : _('EntryID'),
-				name : 'entryid'
-			},{
-				xtype : 'textfield',
-				fieldLabel : _('Parent EID'),
-				name : 'parent_entryid'
+				fieldLabel : _('Object ID'),
+				name : 'x_fidtext'
 			}],
 			buttonAlign: 'left',
 			buttons: [{
@@ -193,6 +189,15 @@ Zarafa.hierarchy.dialogs.FolderPropertiesGeneralTab = Ext.extend(Ext.form.FormPa
 		this.record = record;
 		this.updateUI(record, contentReset);
 		this.getForm().loadRecord(record);
+
+		var entryid = record.get('entryid');
+		if (entryid) {
+			var provider = entryid.substr(8, 32);
+			var fdguid   = entryid.substr(44, 32);
+			var fidgcv   = parseInt(entryid.substr(76, 12), 16);
+			record.set('x_fidtext', fidgcv + "/0x" + fidgcv.toString(16) +
+				"; dbguid=" + fdguid + "; store=" + provider);
+		}
 	},
 
 	/**
