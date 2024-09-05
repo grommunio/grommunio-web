@@ -151,52 +151,6 @@ class EntryId {
 	}
 
 	/**
-	 * Wrapped store entryid.
-	 *
-	 * @param mixed $storeEntryId
-	 *
-	 * @return array
-	 */
-	private function getWrappedSEID($storeEntryId) {
-		$res = [];
-
-		$res['name'] = 'WrappedSEID';
-		$res['length'] = strlen($storeEntryId);
-
-		// always make entryids in uppercase so comparison will be case insensitive
-		$storeEntryId = strtoupper($storeEntryId);
-
-		$offset = 0;
-
-		$res['flags'] = substr($storeEntryId, $offset, 8);
-		$offset += 8;
-
-		$res['providerUID'] = substr($storeEntryId, $offset, 32);
-		$offset += 32;
-
-		$res['version'] = substr($storeEntryId, $offset, 2);
-		$offset += 2;
-
-		$res['type'] = substr($storeEntryId, $offset, 2);
-		$offset += 2;
-
-		// find length of dll name, find null character which indicates end of dll name after the current offset
-		$termCharIndex = strpos(substr($storeEntryId, $offset), '00');
-		$res['DLLFileName'] = substr($storeEntryId, $offset, $termCharIndex);
-		$offset += $termCharIndex;
-
-		$res['terminationChar'] = substr($storeEntryId, $offset, 2);
-		$offset += 2;
-
-		$res['unWrappedEntryId'] = substr($storeEntryId, $offset);
-
-		// unwrapped entryid is actually an object entryid so decompose it
-		$res['unWrappedEntryId'] = $this->createEntryIdObj($res['unWrappedEntryId']);
-
-		return $res;
-	}
-
-	/**
 	 * Addressbook Entryid.
 	 *
 	 * @param mixed $entryId
@@ -340,58 +294,6 @@ class EntryId {
 	}
 
 	/**
-	 * Checks if the given entryid is a oneoff entryid.
-	 *
-	 * @param mixed $entryId The entryid
-	 *
-	 * @return bool true if the entryid is a oneoff
-	 */
-	public function isOneOffEntryId($entryId) {
-		$entryIdObj = $this->createEntryIdObj($entryId);
-
-		return $entryIdObj['guid'] == self::MAPI_ONE_OFF_UID;
-	}
-
-	/**
-	 * Checks if the passed folder entryid is root favorites folder.
-	 *
-	 * @param mixed $entryId folder entryid
-	 *
-	 * @return bool true of folder is a root favorite folder else false
-	 */
-	public function isFavoriteRootFolder($entryId) {
-		$entryIdObj = $this->createEntryIdObj($entryId);
-
-		return $entryIdObj['uniqueId'] == self::STATIC_GUID_FAVORITE;
-	}
-
-	/**
-	 * Checks if the passed folder entryid is root public folder.
-	 *
-	 * @param mixed $entryId folder entryid
-	 *
-	 * @return bool true of folder is a root public folder else false
-	 */
-	public function isPublicRootFolder($entryId) {
-		$entryIdObj = $this->createEntryIdObj($entryId);
-
-		return $entryIdObj['uniqueId'] == self::STATIC_GUID_PUBLICFOLDER;
-	}
-
-	/**
-	 * Checks if the passed folder entryid is public subtree folder.
-	 *
-	 * @param mixed $entryId folder entryid
-	 *
-	 * @return bool true of folder is a root public folder else false
-	 */
-	public function isPublicSubtreeFolder($entryId) {
-		$entryIdObj = $this->createEntryIdObj($entryId);
-
-		return $entryIdObj['uniqueId'] == self::STATIC_GUID_FAVSUBTREE;
-	}
-
-	/**
 	 * Checks if the GUID part of the entryid is of the contact provider.
 	 *
 	 * @param mixed $entryId Addressbook entryid
@@ -428,25 +330,6 @@ class EntryId {
 		$entryIdObj = $this->createABEntryIdObj($entryId);
 
 		return $entryIdObj['guid'] == self::MUIDEMSAB;
-	}
-
-	/**
-	 * Checks if the GUID part of the entryid is of the Global Addressbook Container.
-	 *
-	 * @param mixed $entryId Address Book entryid
-	 *
-	 * @return bool true if guid matches the Global Addressbook Container else false
-	 */
-	public function isGlobalAddressbookContainer($entryId) {
-		// check for global addressbook entryid
-		if ($this->hasAddressBookGUID($entryId) === false) {
-			return false;
-		}
-
-		$entryIdObj = $this->createABEntryIdObj($entryId);
-
-		// check for object_type == MAPI_ABCONT and id == 1
-		return $entryIdObj['type'] == '04000000' && $entryIdObj['id'] == self::ZARAFA_UID_GLOBAL_ADDRESS_BOOK;
 	}
 
 	/**
