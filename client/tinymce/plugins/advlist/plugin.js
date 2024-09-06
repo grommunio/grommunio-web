@@ -1,160 +1,259 @@
+/**
+ * TinyMCE version 7.3.0 (2024-08-07)
+ */
+
 (function () {
-var advlist = (function () {
     'use strict';
 
-    var global = tinymce.util.Tools.resolve('tinymce.PluginManager');
+    var global$1 = tinymce.util.Tools.resolve('tinymce.PluginManager');
 
-    var global$1 = tinymce.util.Tools.resolve('tinymce.util.Tools');
-
-    var applyListFormat = function (editor, listName, styleValue) {
-      var cmd = listName === 'UL' ? 'InsertUnorderedList' : 'InsertOrderedList';
+    const applyListFormat = (editor, listName, styleValue) => {
+      const cmd = listName === 'UL' ? 'InsertUnorderedList' : 'InsertOrderedList';
       editor.execCommand(cmd, false, styleValue === false ? null : { 'list-style-type': styleValue });
     };
-    var Actions = { applyListFormat: applyListFormat };
 
-    var register = function (editor) {
-      editor.addCommand('ApplyUnorderedListStyle', function (ui, value) {
-        Actions.applyListFormat(editor, 'UL', value['list-style-type']);
+    const register$2 = editor => {
+      editor.addCommand('ApplyUnorderedListStyle', (ui, value) => {
+        applyListFormat(editor, 'UL', value['list-style-type']);
       });
-      editor.addCommand('ApplyOrderedListStyle', function (ui, value) {
-        Actions.applyListFormat(editor, 'OL', value['list-style-type']);
+      editor.addCommand('ApplyOrderedListStyle', (ui, value) => {
+        applyListFormat(editor, 'OL', value['list-style-type']);
       });
     };
-    var Commands = { register: register };
 
-    var getNumberStyles = function (editor) {
-      var styles = editor.getParam('advlist_number_styles', 'default,lower-alpha,lower-greek,lower-roman,upper-alpha,upper-roman');
-      return styles ? styles.split(/[ ,]/) : [];
+    const option = name => editor => editor.options.get(name);
+    const register$1 = editor => {
+      const registerOption = editor.options.register;
+      registerOption('advlist_number_styles', {
+        processor: 'string[]',
+        default: 'default,lower-alpha,lower-greek,lower-roman,upper-alpha,upper-roman'.split(',')
+      });
+      registerOption('advlist_bullet_styles', {
+        processor: 'string[]',
+        default: 'default,circle,square'.split(',')
+      });
     };
-    var getBulletStyles = function (editor) {
-      var styles = editor.getParam('advlist_bullet_styles', 'default,circle,disc,square');
-      return styles ? styles.split(/[ ,]/) : [];
-    };
-    var Settings = {
-      getNumberStyles: getNumberStyles,
-      getBulletStyles: getBulletStyles
+    const getNumberStyles = option('advlist_number_styles');
+    const getBulletStyles = option('advlist_bullet_styles');
+
+    const isNullable = a => a === null || a === undefined;
+    const isNonNullable = a => !isNullable(a);
+
+    var global = tinymce.util.Tools.resolve('tinymce.util.Tools');
+
+    class Optional {
+      constructor(tag, value) {
+        this.tag = tag;
+        this.value = value;
+      }
+      static some(value) {
+        return new Optional(true, value);
+      }
+      static none() {
+        return Optional.singletonNone;
+      }
+      fold(onNone, onSome) {
+        if (this.tag) {
+          return onSome(this.value);
+        } else {
+          return onNone();
+        }
+      }
+      isSome() {
+        return this.tag;
+      }
+      isNone() {
+        return !this.tag;
+      }
+      map(mapper) {
+        if (this.tag) {
+          return Optional.some(mapper(this.value));
+        } else {
+          return Optional.none();
+        }
+      }
+      bind(binder) {
+        if (this.tag) {
+          return binder(this.value);
+        } else {
+          return Optional.none();
+        }
+      }
+      exists(predicate) {
+        return this.tag && predicate(this.value);
+      }
+      forall(predicate) {
+        return !this.tag || predicate(this.value);
+      }
+      filter(predicate) {
+        if (!this.tag || predicate(this.value)) {
+          return this;
+        } else {
+          return Optional.none();
+        }
+      }
+      getOr(replacement) {
+        return this.tag ? this.value : replacement;
+      }
+      or(replacement) {
+        return this.tag ? this : replacement;
+      }
+      getOrThunk(thunk) {
+        return this.tag ? this.value : thunk();
+      }
+      orThunk(thunk) {
+        return this.tag ? this : thunk();
+      }
+      getOrDie(message) {
+        if (!this.tag) {
+          throw new Error(message !== null && message !== void 0 ? message : 'Called getOrDie on None');
+        } else {
+          return this.value;
+        }
+      }
+      static from(value) {
+        return isNonNullable(value) ? Optional.some(value) : Optional.none();
+      }
+      getOrNull() {
+        return this.tag ? this.value : null;
+      }
+      getOrUndefined() {
+        return this.value;
+      }
+      each(worker) {
+        if (this.tag) {
+          worker(this.value);
+        }
+      }
+      toArray() {
+        return this.tag ? [this.value] : [];
+      }
+      toString() {
+        return this.tag ? `some(${ this.value })` : 'none()';
+      }
+    }
+    Optional.singletonNone = new Optional(false);
+
+    const findUntil = (xs, pred, until) => {
+      for (let i = 0, len = xs.length; i < len; i++) {
+        const x = xs[i];
+        if (pred(x, i)) {
+          return Optional.some(x);
+        } else if (until(x, i)) {
+          break;
+        }
+      }
+      return Optional.none();
     };
 
-    var isChildOfBody = function (editor, elm) {
-      return editor.$.contains(editor.getBody(), elm);
+    const isCustomList = list => /\btox\-/.test(list.className);
+    const isChildOfBody = (editor, elm) => {
+      return editor.dom.isChildOf(elm, editor.getBody());
     };
-    var isTableCellNode = function (node) {
-      return node && /^(TH|TD)$/.test(node.nodeName);
+    const matchNodeNames = regex => node => isNonNullable(node) && regex.test(node.nodeName);
+    const isListNode = matchNodeNames(/^(OL|UL|DL)$/);
+    const isTableCellNode = matchNodeNames(/^(TH|TD)$/);
+    const inList = (editor, parents, nodeName) => findUntil(parents, parent => isListNode(parent) && !isCustomList(parent), isTableCellNode).exists(list => list.nodeName === nodeName && isChildOfBody(editor, list));
+    const getSelectedStyleType = editor => {
+      const listElm = editor.dom.getParent(editor.selection.getNode(), 'ol,ul');
+      const style = editor.dom.getStyle(listElm, 'listStyleType');
+      return Optional.from(style);
     };
-    var isListNode = function (editor) {
-      return function (node) {
-        return node && /^(OL|UL|DL)$/.test(node.nodeName) && isChildOfBody(editor, node);
-      };
+    const isWithinNonEditable = (editor, element) => element !== null && !editor.dom.isEditable(element);
+    const isWithinNonEditableList = (editor, element) => {
+      const parentList = editor.dom.getParent(element, 'ol,ul,dl');
+      return isWithinNonEditable(editor, parentList) && editor.selection.isEditable();
     };
-    var getSelectedStyleType = function (editor) {
-      var listElm = editor.dom.getParent(editor.selection.getNode(), 'ol,ul');
-      return editor.dom.getStyle(listElm, 'listStyleType') || '';
-    };
-    var ListUtils = {
-      isTableCellNode: isTableCellNode,
-      isListNode: isListNode,
-      getSelectedStyleType: getSelectedStyleType
+    const setNodeChangeHandler = (editor, nodeChangeHandler) => {
+      const initialNode = editor.selection.getNode();
+      nodeChangeHandler({
+        parents: editor.dom.getParents(initialNode),
+        element: initialNode
+      });
+      editor.on('NodeChange', nodeChangeHandler);
+      return () => editor.off('NodeChange', nodeChangeHandler);
     };
 
-    var styleValueToText = function (styleValue) {
-      return styleValue.replace(/\-/g, ' ').replace(/\b\w/g, function (chr) {
+    const styleValueToText = styleValue => {
+      return styleValue.replace(/\-/g, ' ').replace(/\b\w/g, chr => {
         return chr.toUpperCase();
       });
     };
-    var toMenuItems = function (styles) {
-      return global$1.map(styles, function (styleValue) {
-        var text = styleValueToText(styleValue);
-        var data = styleValue === 'default' ? '' : styleValue;
-        return {
-          text: text,
-          data: data
-        };
-      });
-    };
-    var ListStyles = { toMenuItems: toMenuItems };
-
-    var findIndex = function (list, predicate) {
-      for (var index = 0; index < list.length; index++) {
-        var element = list[index];
-        if (predicate(element)) {
-          return index;
-        }
-      }
-      return -1;
-    };
-    var listState = function (editor, listName) {
-      return function (e) {
-        var ctrl = e.control;
-        editor.on('NodeChange', function (e) {
-          var tableCellIndex = findIndex(e.parents, ListUtils.isTableCellNode);
-          var parents = tableCellIndex !== -1 ? e.parents.slice(0, tableCellIndex) : e.parents;
-          var lists = global$1.grep(parents, ListUtils.isListNode(editor));
-          ctrl.active(lists.length > 0 && lists[0].nodeName === listName);
-        });
+    const normalizeStyleValue = styleValue => isNullable(styleValue) || styleValue === 'default' ? '' : styleValue;
+    const makeSetupHandler = (editor, nodeName) => api => {
+      const updateButtonState = (editor, parents) => {
+        const element = editor.selection.getStart(true);
+        api.setActive(inList(editor, parents, nodeName));
+        api.setEnabled(!isWithinNonEditableList(editor, element) && editor.selection.isEditable());
       };
+      const nodeChangeHandler = e => updateButtonState(editor, e.parents);
+      return setNodeChangeHandler(editor, nodeChangeHandler);
     };
-    var updateSelection = function (editor) {
-      return function (e) {
-        var listStyleType = ListUtils.getSelectedStyleType(editor);
-        e.control.items().each(function (ctrl) {
-          ctrl.active(ctrl.settings.data === listStyleType);
-        });
-      };
-    };
-    var addSplitButton = function (editor, id, tooltip, cmd, nodeName, styles) {
-      editor.addButton(id, {
-        active: false,
-        type: 'splitbutton',
-        tooltip: tooltip,
-        menu: ListStyles.toMenuItems(styles),
-        onPostRender: listState(editor, nodeName),
-        onshow: updateSelection(editor),
-        onselect: function (e) {
-          Actions.applyListFormat(editor, nodeName, e.control.settings.data);
+    const addSplitButton = (editor, id, tooltip, cmd, nodeName, styles) => {
+      editor.ui.registry.addSplitButton(id, {
+        tooltip,
+        icon: nodeName === 'OL' ? 'ordered-list' : 'unordered-list',
+        presets: 'listpreview',
+        columns: 3,
+        fetch: callback => {
+          const items = global.map(styles, styleValue => {
+            const iconStyle = nodeName === 'OL' ? 'num' : 'bull';
+            const iconName = styleValue === 'disc' || styleValue === 'decimal' ? 'default' : styleValue;
+            const itemValue = normalizeStyleValue(styleValue);
+            const displayText = styleValueToText(styleValue);
+            return {
+              type: 'choiceitem',
+              value: itemValue,
+              icon: 'list-' + iconStyle + '-' + iconName,
+              text: displayText
+            };
+          });
+          callback(items);
         },
-        onclick: function () {
-          editor.execCommand(cmd);
-        }
+        onAction: () => editor.execCommand(cmd),
+        onItemAction: (_splitButtonApi, value) => {
+          applyListFormat(editor, nodeName, value);
+        },
+        select: value => {
+          const listStyleType = getSelectedStyleType(editor);
+          return listStyleType.map(listStyle => value === listStyle).getOr(false);
+        },
+        onSetup: makeSetupHandler(editor, nodeName)
       });
     };
-    var addButton = function (editor, id, tooltip, cmd, nodeName, styles) {
-      editor.addButton(id, {
+    const addButton = (editor, id, tooltip, cmd, nodeName, styleValue) => {
+      editor.ui.registry.addToggleButton(id, {
         active: false,
-        type: 'button',
-        tooltip: tooltip,
-        onPostRender: listState(editor, nodeName),
-        onclick: function () {
-          editor.execCommand(cmd);
-        }
+        tooltip,
+        icon: nodeName === 'OL' ? 'ordered-list' : 'unordered-list',
+        onSetup: makeSetupHandler(editor, nodeName),
+        onAction: () => editor.queryCommandState(cmd) || styleValue === '' ? editor.execCommand(cmd) : applyListFormat(editor, nodeName, styleValue)
       });
     };
-    var addControl = function (editor, id, tooltip, cmd, nodeName, styles) {
-      if (styles.length > 0) {
+    const addControl = (editor, id, tooltip, cmd, nodeName, styles) => {
+      if (styles.length > 1) {
         addSplitButton(editor, id, tooltip, cmd, nodeName, styles);
       } else {
-        addButton(editor, id, tooltip, cmd, nodeName);
+        addButton(editor, id, tooltip, cmd, nodeName, normalizeStyleValue(styles[0]));
       }
     };
-    var register$1 = function (editor) {
-      addControl(editor, 'numlist', 'Numbered list', 'InsertOrderedList', 'OL', Settings.getNumberStyles(editor));
-      addControl(editor, 'bullist', 'Bullet list', 'InsertUnorderedList', 'UL', Settings.getBulletStyles(editor));
+    const register = editor => {
+      addControl(editor, 'numlist', 'Numbered list', 'InsertOrderedList', 'OL', getNumberStyles(editor));
+      addControl(editor, 'bullist', 'Bullet list', 'InsertUnorderedList', 'UL', getBulletStyles(editor));
     };
-    var Buttons = { register: register$1 };
 
-    global.add('advlist', function (editor) {
-      var hasPlugin = function (editor, plugin) {
-        var plugins = editor.settings.plugins ? editor.settings.plugins : '';
-        return global$1.inArray(plugins.split(/[ ,]/), plugin) !== -1;
-      };
-      if (hasPlugin(editor, 'lists')) {
-        Buttons.register(editor);
-        Commands.register(editor);
-      }
-    });
-    function Plugin () {
-    }
+    var Plugin = () => {
+      global$1.add('advlist', editor => {
+        if (editor.hasPlugin('lists')) {
+          register$1(editor);
+          register(editor);
+          register$2(editor);
+        } else {
+          console.error('Please use the Lists plugin together with the List Styles plugin.');
+        }
+      });
+    };
 
-    return Plugin;
+    Plugin();
 
-}());
 })();
