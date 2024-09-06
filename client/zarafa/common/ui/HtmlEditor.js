@@ -1,7 +1,7 @@
 /*
  * #dependsFile client/zarafa/mail/data/ActionTypes.js
  */
-Ext.namespace('Zarafa.common.ui');
+Ext.namespace("Zarafa.common.ui");
 
 /**
  * @class Zarafa.common.ui.HtmlEditor
@@ -16,7 +16,6 @@ Ext.namespace('Zarafa.common.ui');
  * the right position of the toolbar.
  */
 Zarafa.common.ui.HtmlEditor = Ext.extend(Ext.ux.form.TinyMCETextArea, {
-
 	/**
 	 * defaultFontFamily The default font family set by the user.
 	 * @property
@@ -31,6 +30,42 @@ Zarafa.common.ui.HtmlEditor = Ext.extend(Ext.ux.form.TinyMCETextArea, {
 	 */
 	defaultFontSize: undefined,
 
+	processContentWithCSSTree: function(editor)
+	{
+		var content = editor.getContent();
+
+		try {
+			// Assuming inlineCSS is globally available or defined earlier
+			const inlinedContent = inlineCSS(content);
+			editor.setContent(inlinedContent);
+		} catch (error) {
+			console.error("Error inlining CSS with CSSTree:", error);
+			// Fallback to original content if an error occurs
+			editor.setContent(content);
+		}
+	},
+
+	// Add a flag to track processing
+	isProcessingContent: false,
+
+	processContentWithCSSTree: function(editor)
+	{
+		// Exit if already processing
+		if (this.isProcessingContent) return;
+				this.isProcessingContent = true;
+				var content = editor.getContent();
+		try {
+			const inlinedContent = inlineCSS(content);
+			editor.setContent(inlinedContent);
+		} catch (error) {
+			console.error("Error inlining CSS with CSSTree:", error);
+			// Fallback to original content if an error occurs
+			editor.setContent(content);
+		} finally {
+			this.isProcessingContent = false;
+		}
+	},
+
 	/**
 	 * @constructor
 	 * @param config configuration object
@@ -39,129 +74,88 @@ Zarafa.common.ui.HtmlEditor = Ext.extend(Ext.ux.form.TinyMCETextArea, {
 	constructor: function(config)
 	{
 		config = config || {};
-
-		// Get supported font families and sizes
-		var fontSizes = Zarafa.common.ui.htmleditor.Fonts.getFontSizeString();
+		// Get supported font families
 		var fontFamilies = Zarafa.common.ui.htmleditor.Fonts.getFontFamilies();
 
-		var powerpasteConfig = container.getServerConfig().getPowerpasteConfig();
-
 		var baseUrl = container.getServerConfig().getBaseUrl();
-		const cacheBuster = container.getVersion().getCachebuster();
+		const cacheBuster = "7.3.0";
 
-		var webdingsStyle = '';
-		if ( (Ext.isGecko && !Ext.isIE && !Ext.isEdge) || !Zarafa.wingdingsInstalled ){
-			webdingsStyle =
-				"@font-face {" +
-					"font-family: 'Wingdings';" +
-					"src: url('"+baseUrl+"client/resources/fonts/webappdings.eot');" +
-					"src: url('"+baseUrl+"client/resources/fonts/webappdings.eot?#iefix') format('embedded-opentype')," +
-						"url('"+baseUrl+"client/resources/fonts/webappdings.woff2') format('woff2')," +
-						"url('"+baseUrl+"client/resources/fonts/webappdings.woff') format('woff')," +
-						"url('"+baseUrl+"client/resources/fonts/webappdings.ttf') format('truetype');" +
-					"font-weight: normal;" +
-					"font-style: normal;" +
-				"}";
-		}
-
-		this.defaultFontFamily = container.getSettingsModel().get('zarafa/v1/main/default_font');
+		this.defaultFontFamily = container.getSettingsModel().get("zarafa/v1/main/default_font");
 		this.defaultFontSize = Zarafa.common.ui.htmleditor.Fonts.getDefaultFontSize();
-
 		config = Ext.applyIf(config, {
-			xtype: 'zarafa.tinymcetextarea',
+			xtype: "zarafa.tinymcetextarea",
 			hideLabel: true,
-			hideMode: 'offsets',
+			hideMode: "offsets",
 			readOnly: false,
-			tinyMCEConfig:{
+			tinyMCEConfig: {
 				delta_height: 1,
-				plugins: ["advlist directionality lists image charmap searchreplace textcolor table"],
-				// Add the powerpaste as an external plugin so we can update tinymce by just replacing
-				// the contents of its folder without removing the powerpaste plugin
-				// Note: the path is relative to the path of tinymce
+				plugins: "autolink directionality image link emoticons media charmap anchor lists advlist quickbars searchreplace visualchars",
+				quickbars_insert_toolbar: false,
 				cache_suffix: "?version=" + cacheBuster,
-				external_plugins: {
-					link: "../tinymce-plugins/link/plugin.js",
-					powerpaste: "../tinymce-plugins/powerpaste/plugin.min.js",
-				},
 				link_assume_external_targets: true,
-				powerpaste_word_import: powerpasteConfig.powerpaste_word_import,
-				powerpaste_html_import: powerpasteConfig.powerpaste_html_import,
-				powerpaste_allow_local_images: powerpasteConfig.powerpaste_allow_local_images,
-				toolbar1: "fontselect fontsizeselect | bold italic underline strikethrough | subscript superscript | forecolor backcolor | alignleft aligncenter alignright alignjustify | outdent indent | ltr rtl | bullist numlist | table | searchreplace | link unlink | undo redo | charmap image hr removeformat",
-				extended_valid_elements: 'a[name|href|target|title|onclick|dir],img[class|src|border=0|alt|title|hspace|vspace|width|height|align|onmouseover|onmouseout|name|style],table[style|dir|class|border=1|cellspacing|cellpadding|bgcolor|id],colgroup,col[style|dir|width],tbody,tr[style|dir|class],td[style|dir|class|colspan|rowspan|width|height],hr[class|width|size|noshade],font[face|size|color|style|dir],span[class|align|style|dir|br],p[class|style|dir|span|br]',
+				toolbar: "undo redo | fontfamily fontsizeinput bold italic underline strikethrough | backcolor forecolor removeformat | bullist numlist outdent indent align lineheight | ltr rtl | subscript superscript | link anchor image media | charmap emoticons | copy cut paste pastetext searchreplace",
+				quickbars_selection_toolbar: "fontsizeinput | bold italic underline strikethrough | backcolor forecolor removeformat | quicklink blockquote quickimage",
+				toolbar_mode: "sliding",
 				paste_data_images: true,
 				automatic_uploads: false,
 				remove_trailing_brs: false,
-				valid_children: '+body[style]',
 				font_formats: fontFamilies,
-				fontsize_formats: fontSizes,
+				font_size_input_default_unit: "pt",
 				browser_spellcheck: true,
+				width: "100%",
 				menubar: false,
 				statusbar: false,
-				// Note: When the skin is changed, be sure to also update the import statement in design.scss!
-				skin: 'white',
-				// Set our own class on anchor's to override TinyMCE's default anchor class.
-				visual_anchor_class: 'zarafa_tinymce_anchor',
+				skin: "oxide",
+				branding: false,
 				relative_urls: false,
 				remove_script_host: false,
-				// Using capital latter because value of forced_root_block config option used to compare
-				// node name at many places in tinymce library(specially in createNewTextBlock function
-				// of 'lists' plugin). Default value is small 'p'. Given the fact that node name comparison
-				// resulted in desired manner with capital node names.
-				forced_root_block: 'P',
-				forced_root_block_attrs: {
-					'style': 'padding: 0; margin: 0; '
-				},
-				content_style:
-					webdingsStyle +
-					'body{ '+
-						'word-wrap: break-word;' +
-					'}' +
-					'p,blockquote{'+
-						'font-family: initial;'+
-						'font-size: medium;'+
-					'}'+
-					'td, th, p{' +
-						'font-family: inherit !important;' +
-						'font-size: inherit !important;' +
-					'}' +
-					'.mce-content-body table { border-spacing:0; }',
+				contextmenu_never_use_native: true,
+				newline_behavior: "linebreak",
+				content_style: "body{ " + "word-wrap: break-word; margin: 1rem !important;" + "}",
 				table_default_styles: {
-					width: '10%'
-					// borderSpacing: 0
-				}
+					width: "10%"
+				},
+				setup: function(editor) {
+					editor.on("init", function() {
+						this.processContentWithCSSTree(editor);
+					}.bind(this));
+					editor.on("SetContent", function() {
+						this.processContentWithCSSTree(editor);
+					}.bind(this));
+				}.bind(this)
 			}
 		});
 
 		// Set the correct language for tinymce
-		var lang = container.getSettingsModel().get('zarafa/v1/main/language', true);
+		var lang = container.getSettingsModel().get("zarafa/v1/main/language", true);
 		var tinyLanguageCode = Zarafa.common.ui.htmleditor.LanguageMap.getTinyLanguageCode(lang);
-		if ( !Ext.isEmpty(tinyLanguageCode) ){
+		if (!Ext.isEmpty(tinyLanguageCode) && tinyLanguageCode !== "en_GB") {
 			config.tinyMCEConfig.language = tinyLanguageCode;
-			config.tinyMCEConfig.language_url = baseUrl + 'client/tinymce-languages/'+tinyLanguageCode+'.js';
+			config.tinyMCEConfig.language_url = baseUrl + "client/tinymce-languages/" + tinyLanguageCode + ".js";
 		}
 
-
 		// Give plugins the option to change the tinyMCE configuration
-		container.populateInsertionPoint('common.htmleditor.tinymceconfig', {scope: this, config: config.tinyMCEConfig});
+		container.populateInsertionPoint("common.htmleditor.tinymceconfig", {
+			scope: this,
+			config: config.tinyMCEConfig
+		});
 
 		this.addEvents(
-			/**
-			 * @event valuecorrection
-			 * Fires after {@link #setValue} has been called, and the given value has been
-			 * formatted by the browser or tinymce. This allows the user of this component
-			 * to better determine what the user-made changes were.
-			 * @param {Zarafa.common.ui.HtmlEditor} this The component which fired the event
-			 * @param {String} correctedValue The new (by browser corrected) value
-			 * @param {String} originalValue The value as set by the caller of setValue
-			 */
-			'valuecorrection'
-		);
+		/**
+		 * @event valuecorrection
+		 * Fires after {@link #setValue} has been called, and the given value has been
+		 * formatted by the browser or tinymce. This allows the user of this component
+		 * to better determine what the user-made changes were.
+		 * @param {Zarafa.common.ui.HtmlEditor} this The component which fired the event
+		 * @param {String} correctedValue The new (by browser corrected) value
+		 * @param {String} originalValue The value as set by the caller of setValue
+		 */
+		"valuecorrection");
 
 		Zarafa.common.ui.HtmlEditor.superclass.constructor.call(this, config);
 
-		this.on('initialized', this.onEditorInitialized, this);
-		this.on('beforedestroy', this.onBeforeDestroy, this);
+		this.on("initialized", this.onEditorInitialized, this);
+		this.on("beforedestroy", this.onBeforeDestroy, this);
 	},
 
 	/**
@@ -174,72 +168,41 @@ Zarafa.common.ui.HtmlEditor = Ext.extend(Ext.ux.form.TinyMCETextArea, {
 	{
 		var server = container.getServerConfig();
 		var clientTimeout = server.getClientTimeout();
-		if (clientTimeout){
+
+		if (clientTimeout) {
 			this.setIdleTimeEventListeners();
 		}
 
-		tinymceEditor.on('keydown', this.onKeyDown.createDelegate(this), this);
-		tinymceEditor.on('paste', this.onPaste.createDelegate(this), this);
-		tinymceEditor.on('mousedown', this.relayIframeEvent.createDelegate(this), this);
-
-		// Hack alert !
-		// hide the Cell menu item from table menu item.
-		var tableMenu = tinymceEditor.buttons.table.menu;
-		Ext.each(tableMenu, function(menu, i) {
-			if(menu.text === 'Cell') {
-				delete tinymceEditor.buttons.table.menu[i];
-			}
-		}, this);
-
-		// Listen for wheel event on underlying iframe as tinyMCE editor isn't providing
-		// wheel event.
-		if (Zarafa.isDeskApp) {
-			var iframeElement = this.getEditor().iframeElement;
-			iframeElement.contentWindow.addEventListener('wheel', this.relayIframeEvent.createDelegate(this), true);
-		}
+		tinymceEditor.on("keydown", this.onKeyDown.createDelegate(this), this);
+		tinymceEditor.on("paste", this.onPaste.createDelegate(this), this);
+		tinymceEditor.on("mousedown", this.relayIframeEvent.createDelegate(this), this);
 
 		if (Ext.isGecko) {
-			tinymceEditor.on('dblclick', this.onDBLClick.createDelegate(this));
-			// Get the tab panel only if mainPanel is available to prevent UI rendering
-			// while initializing tinymce to just load the source code of tinymce.
+			tinymceEditor.on("dblclick", this.onDBLClick.createDelegate(this));
 			if (container.mainPanel) {
 				var contentPanel = container.getTabPanel();
-				this.mon(contentPanel, 'beforetabchange', this.onBeforeTabChange, this);
+				this.mon(contentPanel, "beforetabchange", this.onBeforeTabChange, this);
 			}
 		}
 
 		var listeners = {
-			'blur': this.onBlur,
-			'focus': this.onFocus,
+			blur: this.onBlur,
+			focus: this.onFocus,
 			scope: this
 		};
 
 		Ext.EventManager.on(this.getEditor().getWin(), listeners);
+		tinymceEditor.on("focus", this.onFocus.createDelegate(this), this);
+		tinymceEditor.on("blur", this.onBlur.createDelegate(this), this);
 
-		/*
-		 * _hasCaretEvents config is used to initialize or avoid the 'disableCaretContainer' function on 'mouseup' and 'keydown'.
-		 * 'disableCaretContainer' function removes all elements with id as '_mce_caret'.
-		 * We needs to prevent the above mentioned mechanism to keep the first node until default formatting gets applied.
-		 */
-		tinymceEditor._hasCaretEvents = true;
-
-		tinymceEditor.on('focus', this.onFocus.createDelegate(this), this);
-		tinymceEditor.on('blur', this.onBlur.createDelegate(this), this);
-
-		/**
-		 * @FIXME: We don't have any way to get the font family and size combo box from tinyMCE,
-		 * so we have get combo box like this way.
-		 */
-		var toolbarGroup = tinymceEditor.theme.panel.find(".toolbar-grp")[0];
-		var buttonGroup = toolbarGroup.items()[0];
-		var firstGroup = buttonGroup.items();
-		var fontFamilyCombo = firstGroup[0];
-		var fontSizeCombo = firstGroup[1];
-
-		fontFamilyCombo.on('select', this.onFontFamilyChange.createDelegate(this), this);
-		fontSizeCombo.on('select', this.onFontSizeChange.createDelegate(this), this);
+		// Apply default formatting after initialization
 		this.applyFontStyles();
 		this.addDefaultFormatting();
+	},
+
+	isHtmlEditor: function()
+	{
+		return true;
 	},
 
 	/**
@@ -251,26 +214,23 @@ Zarafa.common.ui.HtmlEditor = Ext.extend(Ext.ux.form.TinyMCETextArea, {
 	setIdleTimeEventListeners: function()
 	{
 		var doc = this.getEditorDocument();
-
-		if ( !doc.addEventListener ) {
-			// User is using a browser that does not support addEventListener.
-			// Probably IE<9 which we don't support.
-			// However there is no reason to create errors for IE<9
-			// Client timeout will still be handled by the backend though,
-			// but the message will only be shown to the user when he tries to
-			// connect to the backend after the session has timed out.
+		if (!doc.addEventListener) {
+			/**
+			 * Client timeout will still be handled by the backend though,
+			 * but the message will only be shown to the user when he tries to
+			 * connect to the backend after the session has timed out.
+			*/
 			return;
 		}
-
-		doc.addEventListener('click', function(){
+		doc.addEventListener("click", (function() {
 			Zarafa.idleTime = 0;
-		}, true);
-		doc.addEventListener('mousemove', function(){
+		}), true);
+		doc.addEventListener("mousemove", (function() {
 			Zarafa.idleTime = 0;
-		}, true);
-		doc.addEventListener('keydown', function(){
+		}), true);
+		doc.addEventListener("keydown", (function() {
 			Zarafa.idleTime = 0;
-		}, true);
+		}), true);
 	},
 
 	/**
@@ -281,7 +241,7 @@ Zarafa.common.ui.HtmlEditor = Ext.extend(Ext.ux.form.TinyMCETextArea, {
 	{
 		var editor = this.getEditor();
 		// Check if the editor was activated
-		if ( editor ){
+				if (editor) {
 			editor.remove();
 		}
 	},
@@ -303,25 +263,27 @@ Zarafa.common.ui.HtmlEditor = Ext.extend(Ext.ux.form.TinyMCETextArea, {
 		 * check that current selected browser webkit supported. also check clipboardData and types are
 		 * there.
 		 */
-		if(editorMgr.Env.webkit && event.clipboardData && event.clipboardData.types) {
-			var clipboardHtmlContent = event.clipboardData.getData('text/html');
-			if(Ext.isEmpty(clipboardHtmlContent)) {
-				var clipboardContent = event.clipboardData.getData('text');
+		if (editorMgr.Env.webkit && event.clipboardData && event.clipboardData.types) {
+			var clipboardHtmlContent = event.clipboardData.getData("text/html");
+			if (Ext.isEmpty(clipboardHtmlContent)) {
+				var clipboardContent = event.clipboardData.getData("text");
 				if (clipboardContent && clipboardContent.length > 0) {
-					editor.once('BeforePastePreProcess', function(args){
-						var replaceCarriage = clipboardContent.replace(/\n/g, '<br/>');
-						var replaceWithSpace = replaceCarriage.replace(/\s/g,'&nbsp;');
+					editor.once("BeforePastePreProcess", (function(args) {
+						var replaceCarriage = clipboardContent.replace(/\n/g, "<br/>");
+						var replaceWithSpace = replaceCarriage.replace(/\s/g, "&nbsp;");
 						args.content = replaceWithSpace;
 						return args;
-					});
+					}));
 				}
 			}
 		}
 
-		// Tinymce parse url with some default entities which convert '&' to '&amp;'
-		// So here we just replace '&amp;' to '&' before inserting content into body.
-		editor.once('BeforeExecCommand', function (args) {
-			if (args.command === 'mceInsertContent') {
+		/**
+		 * Tinymce parse url with some default entities which convert '&' to '&amp;'
+		 * So here we just replace '&amp;' to '&' before inserting content into body.
+		 */
+		editor.once("BeforeExecCommand", (function(args) {
+			if (args.command === "mceInsertContent") {
 				var content = args.value.content;
 				// Get all anchor tags and replace '&amp;' to '&'.
 				var subStrings = content.match(/<a.*\/a>/g);
@@ -333,7 +295,7 @@ Zarafa.common.ui.HtmlEditor = Ext.extend(Ext.ux.form.TinyMCETextArea, {
 				}
 			}
 			return args;
-		});
+		}));
 
 		/**
 		 * If browser is IE then before the paste content in editor make it proper formatted content.
@@ -341,29 +303,27 @@ Zarafa.common.ui.HtmlEditor = Ext.extend(Ext.ux.form.TinyMCETextArea, {
 		if (Ext.isIE) {
 			var fontName = this.defaultFontFamily;
 			var fontSize = this.defaultFontSize;
-			editor.once('BeforePastePreProcess', function(args){
+			editor.once("BeforePastePreProcess", (function(args) {
 				var content = args.content;
-				var startingTags = "<p style=\"margin: 0px; padding: 0px; data-mce-style=\"margin: 0px; padding: 0px;\">";
-				startingTags += "<span style=\"font-family:"+ fontName +"; font-size:"+ fontSize +"; data-mce-style=\"font-family:"+ fontName +"; font-size:"+ fontSize +";>";
-				var closingTags = "<br data-mce-bogus=\"1\"></span></p>";
-
+				var startingTags = '<p style="margin: 0px; padding: 0px; data-mce-style="margin: 0px; padding: 0px;">';
+				startingTags += '<span style="font-family:' + fontName + "; font-size:" + fontSize + '; data-mce-style="font-family:' + fontName + "; font-size:" + fontSize + ";>";
+				var closingTags = '<br data-mce-bogus="1"></span></p>';
 				var replaceStartingTags = content.replace(/<p>|<P>/g, startingTags);
 				var formattedString = replaceStartingTags.replace(/<\/p>|<\/P>/g, closingTags);
-
 				args.content = formattedString;
 
 				/**
 				 * After the paste operation set the cursor position at proper place.
 				 */
-				editor.once('NodeChange', function(arg) {
+				editor.once("NodeChange", (function(arg) {
 					var node = editor.selection.getNode();
-					var parentNode = editor.dom.getParent(node, 'p');
-					if(parentNode && parentNode.nextSibling) {
-						editor.selection.setCursorLocation(parentNode.nextSibling.firstChild , 0);
+					var parentNode = editor.dom.getParent(node, "p");
+					if (parentNode && parentNode.nextSibling) {
+						editor.selection.setCursorLocation(parentNode.nextSibling.firstChild, 0);
 					}
-				});
+				}));
 				return args;
-			});
+			}));
 		}
 	},
 
@@ -393,8 +353,12 @@ Zarafa.common.ui.HtmlEditor = Ext.extend(Ext.ux.form.TinyMCETextArea, {
 	 */
 	composeDefaultFormatting: function(editor)
 	{
-		editor.execCommand('FontSize', false, this.defaultFontSize, {skip_focus: true});
-		editor.execCommand('FontName', false, this.defaultFontFamily, {skip_focus: true});
+		editor.execCommand("FontSize", false, this.defaultFontSize, {
+			skip_focus: true
+		});
+		editor.execCommand("FontName", false, this.defaultFontFamily, {
+			skip_focus: true
+		});
 		this.repositionBrTag(editor);
 	},
 
@@ -408,16 +372,11 @@ Zarafa.common.ui.HtmlEditor = Ext.extend(Ext.ux.form.TinyMCETextArea, {
 	repositionBrTag: function(editor)
 	{
 		var node = editor.selection.getNode();
-		if ( node.firstChild.textContent.length === 1 && node.firstChild.textContent.charCodeAt(0) === 65279 ) {
-			// tiny has added a BOM character. Let's remove it.
-			//node.removeChild(node.firstChild);
-		}
-		editor.dom.add(node, 'br');
-		var parentNode = editor.dom.getParent(node, 'p');
-		if(parentNode && parentNode.lastChild.nodeName === 'BR') {
+		editor.dom.add(node, "br");
+		var parentNode = editor.dom.getParent(node, "P");
+		if (parentNode && parentNode.lastChild.nodeName === "BR") {
 			parentNode.removeChild(parentNode.lastChild);
 		}
-
 	},
 
 	/**
@@ -426,14 +385,13 @@ Zarafa.common.ui.HtmlEditor = Ext.extend(Ext.ux.form.TinyMCETextArea, {
 	 * of {@link #checkValueCorrection}.
 	 * @param {String} value The value which was being set on the editor
 	 */
-	setValue: function (value)
+	setValue: function(value)
 	{
-		if ( Ext.isEmpty(value) ) {
+		if (Ext.isEmpty(value)) {
 			return;
 		}
-
 		var self = this;
-		this.withEd(function () {
+		this.withEd((function() {
 			var setValue = value;
 			var editor = self.getEditor();
 			if (editor) {
@@ -443,25 +401,25 @@ Zarafa.common.ui.HtmlEditor = Ext.extend(Ext.ux.form.TinyMCETextArea, {
 					return;
 				}
 			}
-
 			Zarafa.common.ui.HtmlEditor.superclass.setValue.call(this, setValue);
-
 			if (self.rendered) {
 				// checkValueCorrection function will be only called when editor is created and
 				// initialized. Otherwise, it will it wait for that.
 				self.checkValueCorrection(this, value);
 			}
-		});
+		}));
 	},
 
 	/**
 	 * Add the default formatting before composing a new mail.
 	 * @private
 	 */
-	addDefaultFormatting: function ()
+	addDefaultFormatting: function()
 	{
 		var tinymceEditor = this.getEditor();
-		if ( tinymceEditor.getContent({ format: "text" }).trim()) {
+		if (tinymceEditor.getContent({
+			format: "text"
+		}).trim()) {
 			// Only add default formatting when there is no content
 			// Otherwise is has already been added
 			return;
@@ -470,11 +428,9 @@ Zarafa.common.ui.HtmlEditor = Ext.extend(Ext.ux.form.TinyMCETextArea, {
 			var focusedElement = document.activeElement;
 			tinymceEditor.selection.setCursorLocation(tinymceEditor.getBody().firstChild, 0);
 			this.composeDefaultFormatting(tinymceEditor);
-
 			// HTML styles will be applied while selecting default values from comboboxes.
 			// We need to set those styles into the record to avoid change detection in record.
 			this.checkValueCorrection(this, "");
-
 			// Remove all the undo level from tinymce, so that user can't rollback the default HTML styles.
 			tinymceEditor.undoManager.clear();
 		}
@@ -486,16 +442,13 @@ Zarafa.common.ui.HtmlEditor = Ext.extend(Ext.ux.form.TinyMCETextArea, {
 	 */
 	enable: function()
 	{
-		if(this.disabled){
+		if (this.disabled) {
 			Zarafa.common.ui.HtmlEditor.superclass.enable.apply(this, arguments);
-
 			var editor = this.getEditor();
-
 			// Reset the remembered selection value to its default value, because the single instance of
 			// tinymce editor is being used by composing multiple signatures. it just enabled/disabled
 			// with new/updated content.
 			editor.selection.lastFocusBookmark = null;
-
 			// Apply default formatting for the signature editor.
 			if (Ext.isEmpty(editor.getContent())) {
 				this.addDefaultFormatting(editor);
@@ -519,9 +472,8 @@ Zarafa.common.ui.HtmlEditor = Ext.extend(Ext.ux.form.TinyMCETextArea, {
 	checkValueCorrection: function(editor, value)
 	{
 		var correctedValue = editor.getValue();
-
 		if (value !== correctedValue) {
-			editor.fireEvent('valuecorrection', editor, correctedValue, value);
+			editor.fireEvent("valuecorrection", editor, correctedValue, value);
 		}
 	},
 
@@ -531,13 +483,15 @@ Zarafa.common.ui.HtmlEditor = Ext.extend(Ext.ux.form.TinyMCETextArea, {
 	 * and P tag doesn't have formatting that's way default formatting will remove.
 	 * Handle above situation by setting up selection on Span tag then after fire nodechange event of editor.
 	 */
-	onDBLClick: function ()
+	onDBLClick: function()
 	{
 		var editor = this.getEditor();
 		var element = editor.selection.getStart();
 		// tinymce used zero width space characters as character container in empty line,
 		// So needs to verify body is empty or not.
-		var isEmptyBody = editor.selection.getContent({ format: 'text' }) === "";
+		var isEmptyBody = editor.selection.getContent({
+			format: "text"
+		}) === "";
 		if (element === editor.getBody().firstChild && isEmptyBody) {
 			editor.selection.setCursorLocation(element.firstChild.firstChild, 0);
 		}
@@ -563,19 +517,21 @@ Zarafa.common.ui.HtmlEditor = Ext.extend(Ext.ux.form.TinyMCETextArea, {
 	onKeyDown: function(event)
 	{
 		var editor = this.getEditor();
-
-		if(!Zarafa.core.BrowserWindowMgr.isMainWindowActive()) {
+		if (!Zarafa.core.BrowserWindowMgr.isMainWindowActive()) {
 			switch (event.keyCode) {
-				case 116: //F5 button
+			  case 116:
+				//F5 button
+				event.returnValue = false;
+				event.keyCode = 0;
+				return false;
+
+			  case 82:
+				//R button
+				if (event.ctrlKey) {
 					event.returnValue = false;
 					event.keyCode = 0;
 					return false;
-				case 82: //R button
-					if (event.ctrlKey) {
-						event.returnValue = false;
-						event.keyCode = 0;
-						return false;
-					}
+				}
 			}
 		}
 
@@ -601,34 +557,35 @@ Zarafa.common.ui.HtmlEditor = Ext.extend(Ext.ux.form.TinyMCETextArea, {
 					editor.selection.setRng(newRange);
 				}
 			}
-
-			(function(){
-				var content = editor.getContent({ format: 'text' });
+			(function() {
+				var content = editor.getContent({
+					format: "text"
+				});
 				var node;
-				if(Ext.isEmpty(content) || content === '\n' || content === ' &#13;') {
-					editor.setContent('');
+				if (Ext.isEmpty(content) || content === "\n" || content === " &#13;") {
+					editor.setContent("");
 					this.applyFontStyles();
 					editor.selection.setCursorLocation(editor.getBody().firstChild, 0);
 					this.composeDefaultFormatting(editor);
 				} else {
 					node = editor.selection.getNode();
-					if(node.nodeName === 'P') {
-						if(!node.hasChildNodes() || node.firstChild.nodeName === 'BR') {
+					if (node.nodeName === "P") {
+						if (!node.hasChildNodes() || node.firstChild.nodeName === "BR") {
 							this.composeDefaultFormatting(editor);
-							this.getEditorDocument().execCommand('Delete', false, null);
+							this.getEditorDocument().execCommand("Delete", false, null);
 						}
-					} else if(node.nodeName === 'SPAN' && node.hasChildNodes() && node.firstChild.nodeName === 'BR') {
-						var textNode = this.getEditorDocument().createTextNode('');
+					} else if (node.nodeName === "SPAN" && node.hasChildNodes() && node.firstChild.nodeName === "BR") {
+						var textNode = this.getEditorDocument().createTextNode("");
 						node.insertBefore(textNode, node.firstChild);
 					}
 				}
-			}.createDelegate(this)).defer(1);
+			}).createDelegate(this).defer(1);
 		}
 
-		if(event.keyCode === Ext.EventObject.ENTER) {
+		if (event.keyCode === Ext.EventObject.ENTER) {
 			// Ctrl + ENTER (and CMD + ENTER on a Mac) is the shortcut for sending an item. Because
 			// we do not want to add the ENTER to the content then, we stop processing the event.
-			if (event.ctrlKey || ( Ext.isMac && event.metaKey) ) {
+			if (event.ctrlKey || Ext.isMac && event.metaKey) {
 				event.preventDefault();
 				return false;
 			}
@@ -636,7 +593,7 @@ Zarafa.common.ui.HtmlEditor = Ext.extend(Ext.ux.form.TinyMCETextArea, {
 			// Check if we are in a blockquote, and if so break the blockquote,
 			// so the user can add his comments between the blockquotes.
 			var blockquote = this.inBlockquote(editor);
-			if ( blockquote ){
+			if (blockquote) {
 				// Prevent normal enter-behaviour as we will handle it
 				event.preventDefault();
 				this.handleEnterInBlockquote();
@@ -644,67 +601,54 @@ Zarafa.common.ui.HtmlEditor = Ext.extend(Ext.ux.form.TinyMCETextArea, {
 			}
 
 			// We will do this in a deferred function to make sure that tiny first adds the bogus BR element to empty paragraphs
-			(function(){
+			(function() {
 				var node = editor.selection.getNode();
-
 				// When we created an empty P tag by pressing ENTER we must apply default formatting to it.
 				// When we already have an empty SPAN with formatting in the P tag tiny adds a BR node with the attribute
 				// 'data-mce-bogus' because otherwise it is not possible to move the cursor there. Tiny will remove those
 				// bogus nodes when we get the content value. But we have removed the padding and margin of P-tags,
 				// resulting in empty P nodes not being visible to the user. That's why we will remove the attribute
 				// 'data-mce-bogus' of the BR nodes, so tiny will not remove them.
-				if(node.nodeName === 'P') {
-					if(!node.hasChildNodes() || node.firstChild.nodeName === 'BR') {
+				if (node.nodeName === "P") {
+					if (!node.hasChildNodes() || node.firstChild.nodeName === "BR") {
 						this.composeDefaultFormatting(editor);
 					}
-				} else if(node.nodeName === 'SPAN' && node.hasChildNodes() && node.firstChild.nodeName === 'BR') {
+				} else if (node.nodeName === "SPAN" && node.hasChildNodes() && node.firstChild.nodeName === "BR") {
 					// This one is for when we created an empty paragraph by pressing ENTER while on the cursor was on end of a line
-					node.firstChild.removeAttribute('data-mce-bogus');
+					node.firstChild.removeAttribute("data-mce-bogus");
 				}
-
 				// This one is for when we created an empty paragraph by pressing ENTER while the cursor was on the begin of a
 				// line that already contained text
-				var pNode = node.nodeName === 'P' ? node : editor.dom.getParent(node, 'p');
-				var prevPNode = editor.dom.getPrev(pNode, 'p');
-				if ( prevPNode && prevPNode.hasChildNodes() ){
-					if (
-						prevPNode.firstChild.nodeName === 'SPAN' &&
-						prevPNode.firstChild.hasChildNodes() &&
-						prevPNode.firstChild.firstChild.nodeName === 'BR'
-					) {
+				var pNode = node.nodeName === "P" ? node : editor.dom.getParent(node, "p");
+				var prevPNode = editor.dom.getPrev(pNode, "p");
+				if (prevPNode && prevPNode.hasChildNodes()) {
+					if (prevPNode.firstChild.nodeName === "SPAN" && prevPNode.firstChild.hasChildNodes() && prevPNode.firstChild.firstChild.nodeName === "BR") {
 						// When we have a paragraph on which we added our default formatting, there will be a SPAN
-						prevPNode.firstChild.firstChild.removeAttribute('data-mce-bogus');
-					} else if ( prevPNode.firstChild.nodeName === 'BR' ) {
+						prevPNode.firstChild.firstChild.removeAttribute("data-mce-bogus");
+					} else if (prevPNode.firstChild.nodeName === "BR") {
 						// When we have a plain paragraph without our crappy default formatting there will only be a BR
-						prevPNode.firstChild.removeAttribute('data-mce-bogus');
+						prevPNode.firstChild.removeAttribute("data-mce-bogus");
 					}
 				}
-			}.createDelegate(this)).defer(1);
+			}).createDelegate(this).defer(1);
 		}
 
 		/*
 		 * HACK: Prevent the tab event to stop moving focus out of the editor.
 		 * Instead of that, Insert four spaces while user presses TAB key.
 		 */
-		if ( event.keyCode === Ext.EventObject.TAB && !event.shiftKey ) {
-			var listElement = editor.dom.getParent(editor.selection.getStart(), 'LI,DT,DD');
-
+		if (event.keyCode === Ext.EventObject.TAB && !event.shiftKey) {
+			var listElement = editor.dom.getParent(editor.selection.getStart(), "LI,DT,DD");
 			// check if cursor is not pointing to any list element to allow increase/decrease
 			// indent of UL/OL instead of adding four white spaces.
-			if(!listElement) {
-				editor.dom.events.cancel(event);
-				/*
-				 * Need to insert four spaces one by one to update the range offset accordingly.
-				 * Inserting four space at once will throw error while changing font type
-				 * if there is no content in editor body.
-				 */
-				for (var i = 0; i <= 3; i++) {
-					editor.execCommand('mceInsertContent', false, "&nbsp;");
-				}
+			if (!listElement) {
+				event.preventDefault();
+				var bookmark = editor.selection.getBookmark(2);
+				editor.execCommand("mceInsertContent", false, "&nbsp;&nbsp;&nbsp;&nbsp;");
+				editor.selection.moveToBookmark(bookmark);
 			}
 			return;
 		}
-
 		this.fireEvent("keypress", this, Ext.EventObject);
 	},
 
@@ -717,13 +661,12 @@ Zarafa.common.ui.HtmlEditor = Ext.extend(Ext.ux.form.TinyMCETextArea, {
 	{
 		var blockquoteElement = null;
 		var node = editor.selection.getNode();
-		if ( node.nodeName === 'BLOCKQUOTE' ){
+		if (node.nodeName === "BLOCKQUOTE") {
 			blockquoteElement = node;
 		} else {
-			blockquoteElement = editor.dom.getParent(node, 'BLOCKQUOTE', editor.getBody());
+			blockquoteElement = editor.dom.getParent(node, "BLOCKQUOTE", editor.getBody());
 		}
-
-		return blockquoteElement!==null ? blockquoteElement : false;
+		return blockquoteElement !== null ? blockquoteElement : false;
 	},
 
 	/**
@@ -733,47 +676,31 @@ Zarafa.common.ui.HtmlEditor = Ext.extend(Ext.ux.form.TinyMCETextArea, {
 	 */
 	splitBlockquote: function(editor, blockquote)
 	{
-		// Add a node where we will split the blockquote
-		editor.selection.setContent('<span id="zarafa-splitter"></span>', {'format': 'raw'});
-		var splitElement = editor.dom.get('zarafa-splitter');
-		editor.dom.split(blockquote, splitElement);
-
-		var firstBlockquoteElement = editor.dom.getPrev(splitElement, 'blockquote');
-		var secondBlockquoteElement = editor.dom.getNext(splitElement, 'blockquote');
-
-		// Add some margin to the blockquotes for readability
-		if ( firstBlockquoteElement ){
-			editor.dom.setStyle(firstBlockquoteElement, 'margin-bottom', '1em');
-		}
-
-		// If the user pressed ENTER at the end of a blockquote, a new blockquote
-		// will not be created, so check if it exists
-		if ( secondBlockquoteElement ){
-			editor.dom.setStyle(secondBlockquoteElement, 'margin-top', '1em');
-
-			// Remove <br> from the beginning of the new blockquote, as we will have added one
-			var firstChild = secondBlockquoteElement.firstChild;
-			if ( firstChild ){
-				if ( firstChild.nodeName === 'DIV' && editor.dom.hasClass(firstChild, 'bodyclass') ){
-					firstChild = firstChild.firstChild;
-				}
-				if ( firstChild && firstChild.firstChild && firstChild.firstChild.nodeName==='BR' ){
-					editor.dom.remove(firstChild.firstChild);
-
-					// If the BR was the only child of a SPAN, then we can remove that SPAN
-					if ( firstChild.nodeName==='SPAN' && editor.dom.isEmpty(firstChild) ){
-						editor.dom.remove(firstChild);
-					}
-				}
-			}
-		}
-
-		// Put a default root block at the caret position
-		var bogusHtml = '<br data-mce-bogus="1" />';
-		var newNode = editor.dom.create('p', editor.settings.forced_root_block_attrs, bogusHtml);
-		editor.dom.replace(newNode, splitElement);
-		editor.selection.select(newNode);
-
+		// Save the current selection
+		const selection = editor.selection;
+		const range = selection.getRng(true);
+		// Create a marker element to preserve the cursor's location
+				const marker = editor.dom.create("span", {
+			id: "split-marker"
+		}, "");
+		range.insertNode(marker);
+		// Split the blockquote at the marker
+				const newBlockquote = editor.dom.split(blockquote, marker);
+		// Create a new paragraph with custom margin for the content after the split
+				const newParagraph = editor.dom.create("p", {
+			style: "margin: 10px 0 10px 0;"
+		}, '<br data-mce-bogus="1" />');
+		editor.dom.insertAfter(newParagraph, newBlockquote);
+		// Move the cursor to the new paragraph (between the split)
+				const newRange = editor.dom.createRng();
+		newRange.setStartAfter(marker);
+		newRange.setEndAfter(marker);
+		// Remove the marker after setting the range
+				editor.dom.remove(marker);
+		// Apply the new range
+				selection.setRng(newRange);
+		// Focus the editor to ensure the cursor is active
+				editor.focus();
 	},
 
 	/**
@@ -784,25 +711,13 @@ Zarafa.common.ui.HtmlEditor = Ext.extend(Ext.ux.form.TinyMCETextArea, {
 	{
 		var editor = this.getEditor();
 		var blockquote = this.inBlockquote(editor);
-
-		// Add an undo snapshot and do all other things in a transact,
-		// so we will add only one undo level for it
-		editor.undoManager.add();
-		editor.undoManager.transact(function(){
-
-			// Use a loop to split all blockquotes we're in, since we might in more
-			// than one when the user replies to a reply or forward.
-			while ( blockquote ){
+		// Add an undo level and wrap the split operation in a transaction
+				editor.undoManager.transact((() => {
+			if (blockquote) {
 				this.splitBlockquote(editor, blockquote);
-				blockquote = this.inBlockquote(editor);
 			}
-
-			// Set the cursor to the caret position
-			// This will set the correct font and size in the dropdowns of the editor
-			var newNode = editor.selection.getNode();
-			editor.selection.setCursorLocation(newNode);
-		}.createDelegate(this));
-		this.composeDefaultFormatting(editor);
+		}));
+		editor.focus();
 	},
 
 	/**
@@ -816,22 +731,21 @@ Zarafa.common.ui.HtmlEditor = Ext.extend(Ext.ux.form.TinyMCETextArea, {
 	{
 		// if container of HtmlEditor, i.e. dialog, is closed then component is
 		// also destroyed or removed and we won't be able to get value/content.
-		if(this.isDestroyed === true || this.getEditor().removed ) {
+		if (this.isDestroyed === true || this.getEditor().removed) {
 			return;
 		}
-
 		// This event can be triggered multiple times, so we don't need to check
 		// for changed when we blur without being focused. However, we do want to
 		// invoke the 'blur' event since that will produce a consistent behavior
 		// with other UI components from ExtJs.
-		if (this.hasFocus === true) {
+				if (this.hasFocus === true) {
 			var v = this.getRawValue();
 			if (v.length !== this.originalValue.length || v !== this.originalValue) {
-				this.fireEvent('change', this, v, this.originalValue);
+				this.fireEvent("change", this, v, this.originalValue);
 			}
 		}
 		this.hasFocus = false;
-		this.fireEvent('blur', this);
+		this.fireEvent("blur", this);
 	},
 
 	/**
@@ -849,10 +763,9 @@ Zarafa.common.ui.HtmlEditor = Ext.extend(Ext.ux.form.TinyMCETextArea, {
 		if (this.hasFocus === true) {
 			return;
 		}
-
 		this.originalValue = this.getRawValue();
 		this.hasFocus = true;
-		this.fireEvent('focus', this);
+		this.fireEvent("focus", this);
 		// While body is empty and switching a focus in editor after tab change then
 		// some how firefox consider current selection on P tag instead of span and
 		// P tag doesn't have formatting that's way default formatting will remove.
@@ -869,26 +782,25 @@ Zarafa.common.ui.HtmlEditor = Ext.extend(Ext.ux.form.TinyMCETextArea, {
 	setCursorLocation: function()
 	{
 		var editor = this.getEditor();
-
 		// check If editor instance is available or not
-		if (editor){
-			this.withEd(function() {
+		if (editor) {
+			this.withEd((function() {
 				// Here we need to fire the focusin event of editor because
 				// in default formatting we have two span tags, so somehow
 				// when mail is reply/forward cursor set in first outer span which is not contains any
 				// formatting so default formatting gets lost. to overcome this problem
 				// we need to fire the focusin event of editor.
-				editor.fire('focusin', {});
-			});
+				editor.fire("focusin", {});
+			}));
 		} else {
 			// if editor instance is not available yet to do auto focus than we have to reschedule the
 			// auto focus mechanism un till editor instance will be available, simply register on
 			// {@link #initialized} event.
-			this.on('initialized', function() {
+			this.on("initialized", (function() {
 				var focusCmp = this.ownerCt;
 				focusCmp.focus.defer(1, focusCmp);
-				focusCmp.fireEvent('setAutoFocusCursor', focusCmp.getEditor());
-			}, this);
+				focusCmp.fireEvent("setAutoFocusCursor", focusCmp.getEditor());
+			}), this);
 		}
 	},
 
@@ -896,7 +808,8 @@ Zarafa.common.ui.HtmlEditor = Ext.extend(Ext.ux.form.TinyMCETextArea, {
 	 * Function will get the editor and fetch document element of the editor.
 	 * @return {HTMLDocument} it will return document element of the editor iframe
 	 */
-	getEditorDocument: function() {
+	getEditorDocument: function()
+	{
 		return this.getEditor().getDoc();
 	},
 
@@ -904,7 +817,8 @@ Zarafa.common.ui.HtmlEditor = Ext.extend(Ext.ux.form.TinyMCETextArea, {
 	 * Function will get the editor and fetch body element of the editor.
 	 * @return {HTMLBodyElement} it will return body element of the editor iframe
 	 */
-	getEditorBody: function() {
+	getEditorBody: function()
+	{
 		return this.getEditor().getBody();
 	},
 
@@ -921,59 +835,58 @@ Zarafa.common.ui.HtmlEditor = Ext.extend(Ext.ux.form.TinyMCETextArea, {
 	/**
 	 * Event handler triggers when content tab panel is changed
 	 */
-	onBeforeTabChange: function ()
+	onBeforeTabChange: function()
 	{
 		this.isTabChanged = true;
-
-		if(this.hasFocus){
-			this.getEditor().fire('blur', this);
+		if (this.hasFocus) {
+			this.getEditor().fire("blur", this);
 		}
 	},
 
 	/**
 	 * Function to set formatting with default font family and font size
 	 */
-	applyFontStyles: function ()
+	applyFontStyles: function()
 	{
 		var body = Ext.get(this.getEditorBody());
-		body.setStyle('font-family',this.defaultFontFamily);
-		body.setStyle('font-size',this.defaultFontSize);
+		body.setStyle("font-family", this.defaultFontFamily);
+		body.setStyle("font-size", this.defaultFontSize);
 	}
 });
 
-Ext.reg('zarafa.htmleditor', Zarafa.common.ui.HtmlEditor);
+Ext.reg("zarafa.htmleditor", Zarafa.common.ui.HtmlEditor);
 
 // Create a hidden html editor to prefetch all tiny files
-Zarafa.onReady(function(){
+Zarafa.onReady((function()
+{
 	var body = Ext.getBody();
 	// Only prefetch for the webclient not for the welcome screen
-	if ( body.hasClass('zarafa-webclient') ){
+	if (body.hasClass("zarafa-webclient")) {
 		var el = body.createChild({
-			id: 'tiny-prefetch',
+			id: "tiny-prefetch",
 			style: {
-				width: '10px',
-				height: '10px',
-				'z-index': -10,
-				top: '-10000px',
-				left: '-10000px',
-				visibility: 'hidden',
-				position: 'absolute'
+				width: "10px",
+				height: "10px",
+				"z-index": -10,
+				top: "-10000px",
+				left: "-10000px",
+				visibility: "hidden",
+				position: "absolute"
 			}
 		});
-
 		new Ext.Panel({
-			xtype: 'panel',
+			xtype: "panel",
 			applyTo: el,
-			layout: 'fit',
+			layout: "fit",
 			border: false,
 			flex: 1,
 			autoHeight: false,
-			items: [{
-				xtype: 'zarafa.editorfield',
-				ref: '../editorField',
+			items: [ {
+				xtype: "zarafa.editorfield",
+				ref: "../editorField",
 				flex: 1,
 				useHtml: true
-			}]
+			} ]
 		});
 	}
-});
+}));
