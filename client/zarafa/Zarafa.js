@@ -81,15 +81,6 @@ Ext.apply(Zarafa, {
 	idleTime: 0,
 
 	/**
-	 * True if the Wingdings font is installed on the system of the user, false
-	 * otherwise
-
-	 * @property
-	 * @type {Boolean}
-	 */
-	wingdingsInstalled: false,
-
-	/**
 	 * True if the user is running DeskApp to view grommunio Web, false otherwise.
 	 *
 	 * @property
@@ -894,9 +885,6 @@ Ext.apply(Zarafa, {
 
 		// Starts shared stores unread email poller.
 		this.startSharedStoresHierarchyChecker();
-
-		// Check if the Wingdings font is installed
-		this.wingdingsInstalled = window.checkfont.exists('Wingdings');
 	},
 
 	/**
