@@ -132,7 +132,7 @@ Zarafa.common.ui.HtmlEditor = Ext.extend(Ext.ux.form.TinyMCETextArea, {
 		// Set the correct language for tinymce
 		var lang = container.getSettingsModel().get("zarafa/v1/main/language", true);
 		var tinyLanguageCode = Zarafa.common.ui.htmleditor.LanguageMap.getTinyLanguageCode(lang);
-		if (!Ext.isEmpty(tinyLanguageCode) && tinyLanguageCode !== "en_GB") {
+		if (!Ext.isEmpty(tinyLanguageCode) && tinyLanguageCode !== "en_GB" && tinyLanguageCode !== "en_US") {
 			config.tinyMCEConfig.language = tinyLanguageCode;
 			config.tinyMCEConfig.language_url = baseUrl + "client/tinymce-languages/" + tinyLanguageCode + ".js";
 		}
