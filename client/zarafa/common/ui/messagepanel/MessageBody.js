@@ -214,9 +214,9 @@ Zarafa.common.ui.messagepanel.MessageBody = Ext.extend(Ext.Container, {
 			body = record.getBody(html);
 			if (html) {
 				if (container.getServerConfig().getDOMPurifyEnabled()) {
-					body = "<!DOCTYPE html>" + record.cleanupOutlookStyles(DOMPurify.sanitize(inlineCSS(body), {USE_PROFILES: {html: true, svg: true, mathMl: true}}));
+					body = "<!DOCTYPE html>" + record.cleanupOutlookStyles(DOMPurify.sanitize(body, {USE_PROFILES: {html: true}}));
 				} else {
-					body = "<!DOCTYPE html>" + record.cleanupOutlookStyles(inlineCSS(body));
+					body = "<!DOCTYPE html>" + record.cleanupOutlookStyles(body);
 				}
 			}
 
