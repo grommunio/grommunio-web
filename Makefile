@@ -19,7 +19,7 @@ CSSCOMPILER ?= node_modules/postcss-cli/index.js
 HTMLCOMPILER ?= node_modules/html-minifier-terser/cli.js
 SVGCOMPRESS ?= node_modules/svgo/bin/svgo
 
-JSOPTIONS = --compress ecma=2015,computed_props=false --mangle reserved=['FormData','Ext','Zarafa','container','settings','properties','languages','serverconfig','user','version','urlActionData','console','Tokenizr','module','define','global','require','proxy','_','dgettext','dngettext','dnpgettext','ngettext','pgettext','onResize','tinymce','resizeLoginBox','userManager','DOMPurify','PDFJS','odf','L','GeoSearch']
+JSOPTIONS = --compress ecma=2015,computed_props=false --mangle reserved=['FormData','Ext','Zarafa','container','settings','properties','languages','serverconfig','user','version','urlActionData','console','Tokenizr','module','define','global','require','proxy','_','dgettext','dngettext','dnpgettext','ngettext','pgettext','onResize','tinymce','resizeLoginBox','userManager','DOMPurify','PDFJS','odf','L','GeoSearch','inlineCSS','CSSTree']
 CSSOPTIONS = --no-map --use postcss-preset-env --use cssnano --verbose
 HTMLOPTIONS = --collapse-whitespace --remove-comments
 
