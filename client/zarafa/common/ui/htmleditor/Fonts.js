@@ -56,11 +56,24 @@ Zarafa.common.ui.htmleditor.Fonts = function(){
 		 */
 		getFontFamilies: function()
 		{
-			var fontFamilies = "Arial=arial,helvetica,sans-serif;" +
-				"Courier New=courier new,courier;" +
+			var fontFamilies = "Andale Mono=andale mono,monospace;" +
+				"Arial=arial,helvetica,sans-serif;" +
+				"Arial Black=arial black,sans-serif;" +
+				"Book Antiqua=book antiqua,palatino,serif;" +
+				"Comic Sans MS=comic sans ms,sans-serif;" +
+				"Courier New=courier new,courier,monospace;" +
+				"Fira Mono=fira mono,monospace;" +
+				"Georgia=georgia,palatino,serif;" +
+				"Helvetica=helvetica,arial,sans-serif;" +
+				"Impact=impact,sans-serif;" +
+				"Symbol=symbol;" +
 				"Tahoma=tahoma,arial,helvetica,sans-serif;" +
-				"Times New Roman=times new roman,times;" +
-				"Verdana=verdana,geneva";
+				"Terminal=terminal,monaco,monospace;" +
+				"Times New Roman=times new roman,times,serif;" +
+				"Trebuchet MS=trebuchet ms,geneva,sans-serif;" +
+				"Verdana=verdana,geneva,sans-serif;" +
+				"Webdings=webdings;" +
+				"Wingdings=wingdings,zapf dingbats";
 
 			return fontFamilies;
 		},
