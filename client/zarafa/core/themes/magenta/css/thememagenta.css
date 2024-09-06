@@ -389,3 +389,7 @@ input.x-form-text.x-form-field.x-form-focus {
 .preview-header-sender-initial {
  color: #b8005e;
 }
+
+.tox .tox-edit-area:before {
+  border: 1px solid #E20074 !important;
+}

@@ -80,6 +80,8 @@ Zarafa.common.ui.HtmlEditor = Ext.extend(Ext.ux.form.TinyMCETextArea, {
 		var baseUrl = container.getServerConfig().getBaseUrl();
 		const cacheBuster = "7.3.0";
 
+		var themeIsDark = container.getSettingsModel().get("zarafa/v1/main/active_theme") === "dark";
+
 		this.defaultFontFamily = container.getSettingsModel().get("zarafa/v1/main/default_font");
 		this.defaultFontSize = Zarafa.common.ui.htmleditor.Fonts.getDefaultFontSize();
 		config = Ext.applyIf(config, {
@@ -105,7 +107,8 @@ Zarafa.common.ui.HtmlEditor = Ext.extend(Ext.ux.form.TinyMCETextArea, {
 				width: "100%",
 				menubar: false,
 				statusbar: false,
-				skin: "oxide",
+				skin: themeIsDark ? "oxide-dark" : "oxide",
+				content_css: themeIsDark ? "dark" : "default",
 				branding: false,
 				relative_urls: false,
 				remove_script_host: false,
