@@ -17,7 +17,6 @@
 /* settings */
 /* The font */
 /* Set our preferred font on the body and all selectors that Ext has used to change the default font */
-@import url(../../tinymce/skins/white/skin.min.css);
 /* line 22, ../scss/base/_fonts.scss */
 body,
 .x-panel-header,
