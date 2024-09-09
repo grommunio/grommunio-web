@@ -4173,12 +4173,6 @@ msgstr "Typ"
 msgid "Description"
 msgstr "Name"
 
-msgid "EntryID"
-msgstr "EntryID"
-
-msgid "Parent EID"
-msgstr "Übergeordnete EID"
-
 msgid "Folder size"
 msgstr "Ordnergrösse"
 
@@ -4544,9 +4538,6 @@ msgstr "Von anzeigen"
 
 msgid "Cannot save while attachment is being uploaded"
 msgstr "Es kann nicht gespeichert werden, während ein Anhang hochlädt"
-
-msgid "Miscellaneous Options"
-msgstr "Verschiedene Optionen"
 
 msgid "Internet Headers"
 msgstr "Internet-Kopfzeilen"

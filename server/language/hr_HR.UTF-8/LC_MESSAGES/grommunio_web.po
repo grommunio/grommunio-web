@@ -4033,12 +4033,6 @@ msgstr ""
 msgid "Description"
 msgstr ""
 
-msgid "EntryID"
-msgstr ""
-
-msgid "Parent EID"
-msgstr ""
-
 msgid "Folder size"
 msgstr ""
 
@@ -4392,9 +4386,6 @@ msgid "Show From field"
 msgstr ""
 
 msgid "Cannot save while attachment is being uploaded"
-msgstr ""
-
-msgid "Miscellaneous Options"
 msgstr ""
 
 msgid "Internet Headers"

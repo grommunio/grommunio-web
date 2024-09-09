@@ -4335,14 +4335,6 @@ msgstr "Type"
 msgid "Description"
 msgstr "Beskrivelse"
 
-#, fuzzy
-msgid "EntryID"
-msgstr "EntryID"
-
-#, fuzzy
-msgid "Parent EID"
-msgstr "Forældre EID"
-
 msgid "Folder size"
 msgstr "Mappestørrelse"
 
@@ -4722,9 +4714,6 @@ msgstr "Vis fra"
 #, fuzzy
 msgid "Cannot save while attachment is being uploaded"
 msgstr "Kan ikke gemme, mens vedhæftede fil er ved at blive uploadet"
-
-msgid "Miscellaneous Options"
-msgstr "Diverse muligheder"
 
 msgid "Internet Headers"
 msgstr "Internet brevhoveder"

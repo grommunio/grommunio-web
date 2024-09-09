@@ -4071,12 +4071,6 @@ msgstr "유형"
 msgid "Description"
 msgstr "설명"
 
-msgid "EntryID"
-msgstr "엔트리ID"
-
-msgid "Parent EID"
-msgstr "부모 EID"
-
 msgid "Folder size"
 msgstr "폴더 크기"
 
@@ -4433,9 +4427,6 @@ msgstr "필드에서 표시"
 
 msgid "Cannot save while attachment is being uploaded"
 msgstr "첨부 파일을 업로드하는 동안에는 저장할 수 없습니다."
-
-msgid "Miscellaneous Options"
-msgstr "기타 옵션"
 
 msgid "Internet Headers"
 msgstr "인터넷 헤더"

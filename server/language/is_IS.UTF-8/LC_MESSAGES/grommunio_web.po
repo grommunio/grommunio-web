@@ -4112,12 +4112,6 @@ msgstr "Gerð"
 msgid "Description"
 msgstr "Lýsing"
 
-msgid "EntryID"
-msgstr "Færsluauðkenni"
-
-msgid "Parent EID"
-msgstr ""
-
 msgid "Folder size"
 msgstr "Möppustærð"
 
@@ -4478,9 +4472,6 @@ msgstr "Sýna reit fyrir sendanda"
 
 msgid "Cannot save while attachment is being uploaded"
 msgstr "Gat ekki vistað á meðan upphal viðhengis er í gangi"
-
-msgid "Miscellaneous Options"
-msgstr "Ýmsir valmöguleikar"
 
 msgid "Internet Headers"
 msgstr "Nethausar"

@@ -4497,14 +4497,6 @@ msgstr "Kirjoita"
 msgid "Description"
 msgstr "Kuvaus"
 
-#, fuzzy
-msgid "EntryID"
-msgstr "EntryID"
-
-#, fuzzy
-msgid "Parent EID"
-msgstr "Vanhemman EID"
-
 msgid "Folder size"
 msgstr "Kansion koko"
 
@@ -4901,9 +4893,6 @@ msgstr "Näytä lähettäjä"
 #, fuzzy
 msgid "Cannot save while attachment is being uploaded"
 msgstr "Ei voi tallentaa, kun liitetiedostoa ladataan"
-
-msgid "Miscellaneous Options"
-msgstr "Sekalaiset valinnat"
 
 msgid "Internet Headers"
 msgstr "Internet-otsikot"

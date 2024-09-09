@@ -311,16 +311,6 @@ Zarafa.core.EntryId = (function()
 
 	return {
 		/**
-		 * Creates an object that has split up all the components of an AB entryID.
-		 * @param {String} entryid Entryid
-		 * @return {Object} EntryID object
-		 */
-		createABEntryIdObj: function(entryid)
-		{
-			return new ABEID(entryid);
-		},
-
-		/**
 		 * Compares two AB entryIds. It is possible to have two different entryIds that should match as they
 		 * represent the same object (in multiserver environments).
 		 * @param {String} entryId1 EntryID
@@ -471,42 +461,6 @@ Zarafa.core.EntryId = (function()
 		},
 
 		/**
-		 * Checks if the passed folder entryid is root favorites folder.
-		 * @param {String} entryId folder entryid
-		 * @return {Boolean} true of folder is a root favorite folder else false
-		 */
-		isFavoriteRootFolder: function(entryId)
-		{
-			var entryIdObj = Zarafa.core.EntryId.createEntryIdObj(entryId);
-
-			return entryIdObj.uniqueId === STATIC_GUID_FAVORITE;
-		},
-
-		/**
-		 * Checks if the passed folder entryid is root public folder.
-		 * @param {String} entryId folder entryid
-		 * @return {Boolean} true of folder is a root public folder else false
-		 */
-		isPublicRootFolder: function(entryId)
-		{
-			var entryIdObj = Zarafa.core.EntryId.createEntryIdObj(entryId);
-
-			return entryIdObj.uniqueId === STATIC_GUID_PUBLICFOLDER;
-		},
-
-		/**
-		 * Checks if the passed folder entryid is public subtree folder.
-		 * @param {String} entryId folder entryid
-		 * @return {Boolean} true of folder is a root public folder else false
-		 */
-		isPublicSubtreeFolder: function(entryId)
-		{
-			var entryIdObj = Zarafa.core.EntryId.createEntryIdObj(entryId);
-
-			return entryIdObj.uniqueId === STATIC_GUID_FAVSUBTREE;
-		},
-
-		/**
 		 * Checks if the GUID part of the entryid is of the Contact Provider.
 		 * @param {String} entryId Address Book entryid
 		 * @return {Boolean} true if guid matches the Contact Provider else false
@@ -517,35 +471,5 @@ Zarafa.core.EntryId = (function()
 
 			return entryIdObj.guid === MUIDZCSAB;
 		},
-
-		/**
-		 * Checks if the GUID part of the entryid is of the Global Addressbook.
-		 * @param {String} entryId Address Book entryid
-		 * @return {Boolean} true if guid matches the Global Addressbook else false
-		 */
-		hasAddressBookGUID: function(entryId)
-		{
-			var entryIdObj = Zarafa.core.EntryId.createABEntryIdObj(entryId);
-
-			return entryIdObj.guid === MUIDECSAB;
-		},
-
-		/**
-		 * Checks if the GUID part of the entryid is of the Global Addressbook Container.
-		 * @param {String} entryId Address Book entryid
-		 * @return {Boolean} true if guid matches the Global Addressbook Container else false
-		 */
-		isGlobalAddressbookContainer: function(entryId)
-		{
-			// check for global addressbook entryid
-			if(Zarafa.core.EntryId.hasAddressBookGUID(entryId) === false) {
-				return false;
-			}
-
-			var entryIdObj = Zarafa.core.EntryId.createABEntryIdObj(entryId);
-
-			// check for object_type == MAPI_ABCONT and id == 1
-			return (entryIdObj.type === '04000000' && entryIdObj.id === ZARAFA_UID_GLOBAL_ADDRESS_BOOK);
-		}
 	};
 })();

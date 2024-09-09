@@ -23,7 +23,7 @@ Zarafa.mail.dialogs.MailOptionsMiscPanel = Ext.extend(Ext.form.FormPanel, {
 
 		config = Ext.applyIf(config, {
 			xtype: 'zarafa.mailoptionsmiscpanel',
-			title: _('Miscellaneous Options'),
+			title: _('Properties'),
 			layout: 'form',
 			items: [{
 				xtype: 'textarea',
@@ -38,16 +38,8 @@ Zarafa.mail.dialogs.MailOptionsMiscPanel = Ext.extend(Ext.form.FormPanel, {
 				ref: 'headersTextArea'
 			},{
 				xtype: 'textfield',
-				fieldLabel: _('EntryID'),
-				name: 'entryid',
-				readOnly: true,
-				anchor: '100%',
-				autoScroll: true,
-				border: false
-			},{
-				xtype: 'textfield',
-				fieldLabel: _('Parent EID'),
-				name: 'parent_entryid',
+				fieldLabel: _('Object ID'),
+				name: 'x_midtext',
 				readOnly: true,
 				anchor: '100%',
 				autoScroll: true,

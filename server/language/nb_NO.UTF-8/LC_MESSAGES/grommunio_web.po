@@ -4135,12 +4135,6 @@ msgstr "Type"
 msgid "Description"
 msgstr "beskrivning"
 
-msgid "EntryID"
-msgstr "EntryID"
-
-msgid "Parent EID"
-msgstr "Foreldre EID"
-
 msgid "Folder size"
 msgstr "Mappestørrelse"
 
@@ -4502,9 +4496,6 @@ msgstr "Vis fra-felt"
 
 msgid "Cannot save while attachment is being uploaded"
 msgstr "Kan ikke lagre samtidig som vedlegget blir lastet opp"
-
-msgid "Miscellaneous Options"
-msgstr "Diverse alternativer"
 
 msgid "Internet Headers"
 msgstr "Internett meldingshoder"

@@ -4214,12 +4214,6 @@ msgstr "סוג"
 msgid "Description"
 msgstr "תיאור"
 
-msgid "EntryID"
-msgstr ""
-
-msgid "Parent EID"
-msgstr ""
-
 msgid "Folder size"
 msgstr "גודל התיקיה"
 
@@ -4595,9 +4589,6 @@ msgstr ""
 
 msgid "Cannot save while attachment is being uploaded"
 msgstr ""
-
-msgid "Miscellaneous Options"
-msgstr "אפשרויות שונות"
 
 msgid "Internet Headers"
 msgstr "כותרות אינטרנט"

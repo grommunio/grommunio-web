@@ -4263,12 +4263,6 @@ msgstr "Tüüp"
 msgid "Description"
 msgstr "Kirjeldus"
 
-msgid "EntryID"
-msgstr "EntryID"
-
-msgid "Parent EID"
-msgstr "Vanem EID"
-
 msgid "Folder size"
 msgstr "Kausta suurus"
 
@@ -4641,9 +4635,6 @@ msgstr "Näita väljalt"
 
 msgid "Cannot save while attachment is being uploaded"
 msgstr "Manuse üleslaadimise ajal ei saa salvestada"
-
-msgid "Miscellaneous Options"
-msgstr "Mitmesugused valikud"
 
 msgid "Internet Headers"
 msgstr "Interneti-pealkirjad"

@@ -4331,12 +4331,6 @@ msgstr "Tipo"
 msgid "Description"
 msgstr "Descrição"
 
-msgid "EntryID"
-msgstr "ID de entrada"
-
-msgid "Parent EID"
-msgstr "EID dos pais"
-
 msgid "Folder size"
 msgstr "Tamanho da pasta"
 
@@ -4721,9 +4715,6 @@ msgstr "Mostrar De"
 
 msgid "Cannot save while attachment is being uploaded"
 msgstr "Não é possível salvar enquanto o anexo está sendo carregado"
-
-msgid "Miscellaneous Options"
-msgstr "Outras Opções"
 
 msgid "Internet Headers"
 msgstr "Cabeçalho da Internet"
