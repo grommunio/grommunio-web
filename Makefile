@@ -19,7 +19,7 @@ CSSCOMPILER ?= node_modules/postcss-cli/index.js
 HTMLCOMPILER ?= node_modules/html-minifier-terser/cli.js
 SVGCOMPRESS ?= node_modules/svgo/bin/svgo
 
-JSOPTIONS = --compress ecma=2015,computed_props=false --mangle reserved=['FormData','Ext','Zarafa','container','settings','properties','languages','serverconfig','user','version','urlActionData','console','Tokenizr','module','define','global','require','proxy','_','dgettext','dngettext','dnpgettext','ngettext','pgettext','onResize','tinymce','resizeLoginBox','userManager','DOMPurify','PDFJS','odf','L','GeoSearch']
+JSOPTIONS = --compress ecma=2015,computed_props=false --mangle reserved=['FormData','Ext','Zarafa','container','settings','properties','languages','serverconfig','user','version','urlActionData','console','Tokenizr','module','define','global','require','proxy','_','dgettext','dngettext','dnpgettext','ngettext','pgettext','onResize','tinymce','resizeLoginBox','userManager','DOMPurify','PDFJS','odf','L','GeoSearch','inlineCSS','CSSTree']
 CSSOPTIONS = --no-map --use postcss-preset-env --use cssnano --verbose
 HTMLOPTIONS = --collapse-whitespace --remove-comments
 
@@ -97,7 +97,6 @@ clearartifacts:
 js: $(JSDEPLOY)/fingerprint.js $(JSDEPLOY)/resize.js $(JSDEPLOY)/grommunio.js $(JSDEPLOY)/extjs-mod/extjs-mod.js $(JSDEPLOY)/extjs/ext-base-all.js $(DESTDIR)/client/third-party/ux-thirdparty.js $(DEPLOYPURIFYJS) $(JSDEPLOY)/filepreviewer/pdfjs/build/pdf.sandbox.js $(JSDEPLOY)/filepreviewer/pdfjs/build/pdf.worker.js $(JSDEPLOY)/filepreviewer/pdfjs/build/pdf.js $(JSDEPLOY)/filepreviewer/pdfjs/web/viewer.js $(JSDEPLOY)/filepreviewer/ViewerJS/ImageViewerPlugin.js $(JSDEPLOY)/filepreviewer/ViewerJS/MultimediaViewerPlugin.js $(JSDEPLOY)/filepreviewer/ViewerJS/ODFViewerPlugin.js $(JSDEPLOY)/filepreviewer/ViewerJS/UnknownFilePlugin.js $(JSDEPLOY)/filepreviewer/ViewerJS/viewer.js $(JSDEPLOY)/filepreviewer/ViewerJS/video-js/video.js
 	cp -rn client/tinymce $(DESTDIR)/client/
 	cp -rn client/tinymce-languages $(DESTDIR)/client/
-	cp -rn client/tinymce-plugins $(DESTDIR)/client/
 	cp -rn client/extjs $(DESTDIR)/client/
 	cp -rn client/filepreviewer $(DESTDIR)/client/
 	rm $(DESTDIR)/client/extjs/ext-base.js $(DESTDIR)/client/extjs/ext-base-debug.js $(DESTDIR)/client/extjs/ext-all.js $(DESTDIR)/client/filepreviewer/pdfjs/web/debugger.js
@@ -228,13 +227,6 @@ $(DEPLOYPURIFYJS): $(PURIFYJS)
 	        $(JSOPTIONS)
 
 $(JSDEPLOY)/third-party/ux-thirdparty.js: $(THIRDPARTY)
-	mkdir -p $(JSDEPLOY)/third-party
-	cat $^ > $(@:.js=-debug.js)
-	$(JSCOMPILER) $(@:.js=-debug.js) --output $@ \
-		--source-map "url='$(shell basename $@.map)'" \
-	        $(JSOPTIONS)
-
-$(JSDEPLOY)/third-party/TinyMceTextArea-debug.js: client/third-party/tinymce/TinyMceTextArea.js
 	mkdir -p $(JSDEPLOY)/third-party
 	cat $^ > $(@:.js=-debug.js)
 	$(JSCOMPILER) $(@:.js=-debug.js) --output $@ \

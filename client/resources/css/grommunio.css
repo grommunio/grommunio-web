@@ -17,7 +17,6 @@
 /* settings */
 /* The font */
 /* Set our preferred font on the body and all selectors that Ext has used to change the default font */
-@import url(../../tinymce/skins/white/skin.min.css);
 body,
 .x-panel-header,
 .x-panel-mc,
@@ -877,7 +876,7 @@ div.x-btn-group-bc {
 #zarafa-mainpanel-contentpanel-mail.zarafa-preview-right .zarafa-context-mainpanel {
   border-right: 1px solid #e6e6e6; }
 #zarafa-mainpanel-contentpanel-mail.zarafa-preview-right #zarafa-main-content-mail-preview {
-  border-left: none !important;
+  border-left: 1px solid #e6e6e6 !important;
   margin-left: -3px; }
 
 #zarafa-mainpanel-contentpanel-mail.zarafa-preview-bottom .zarafa-context-mainpanel {
@@ -1783,7 +1782,8 @@ ul.x-tab-strip-bottom li {
     #zarafa-mainpanel > .x-tab-panel-bwrap > .x-tab-panel-body > div > div#zarafa-mainpanel-contentpanel-mail {
       border: none; }
       #zarafa-mainpanel > .x-tab-panel-bwrap > .x-tab-panel-body > div > div#zarafa-mainpanel-contentpanel-mail > .x-panel-bwrap > .x-panel-body > .x-panel {
-        border: 1px solid #e6e6e6; }
+        border-left: 1px solid #e6e6e6;
+        border-top: 1px solid #e6e6e6; }
 
 /************************************************************
  * Icons
@@ -2317,7 +2317,7 @@ span.preview-header-sender-image {
  * Mail create panel
  *********************************************************************/
 .zarafa-mailcreatepanel > .x-panel-bwrap > .x-panel-body {
-  padding: 6px 0;
+  padding: 6px 0 0 0;
   /* Override min-width to take account for the drop down entry */ }
   .zarafa-mailcreatepanel > .x-panel-bwrap > .x-panel-body .zarafa-mailcreatepanel-field-from,
   .zarafa-mailcreatepanel > .x-panel-bwrap > .x-panel-body .zarafa-mailcreatepanel-field-from-large,
@@ -4699,8 +4699,12 @@ input.x-tree-node-cb {
     height: 36px;
 }
 
-.x-tree-lines .x-tree-elbow, .x-tree-lines .x-tree-elbow-end, .x-tree-lines .x-tree-elbow-line .arrow_right_l, .light-background .zarafa-calendar-tab-icon-separate, .x-date-mp-ybtn a, .x-date-right a, .x-layout-collapsed .x-tool.x-tool-expand-west, .x-layout-collapsed .x-tool.x-tool-toggle.x-tool-expand-west, .x-menu-item-arrow, .x-panel-header .x-tool.x-tool-collapse-east, .x-tab-scroller-right, .x-tool.x-tool-toggle.x-tool-collapse-east, .x-tree-lines .x-tree-elbow-end-plus, .x-tree-lines .x-tree-elbow-plus .arrow_down_l, .preview-header-collapse-plus, .x-panel-collapsed .x-tool.x-tool-toggle, .x-tree-lines .x-tree-elbow-end-minus, .x-tree-lines .x-tree-elbow-minus, .zarafa-rules-sequence-down, td.sort-desc .x-grid3-sort-icon .arrow_right_l, .light-background .zarafa-calendar-tab-icon-separate, .x-date-mp-ybtn a, .x-date-right a, .x-layout-collapsed .x-tool.x-tool-expand-west, .x-layout-collapsed .x-tool.x-tool-toggle.x-tool-expand-west, .x-menu-item-arrow, .x-panel-header .x-tool.x-tool-collapse-east, .x-tab-scroller-right, .x-tool.x-tool-toggle.x-tool-collapse-east, .x-tree-lines .x-tree-elbow-end-plus, .x-tree-lines .x-tree-elbow-plus, .x-date-picker .x-date-left a {
+.x-tree-lines .x-tree-elbow, .x-tree-lines .x-tree-elbow-end, .x-tree-lines .x-tree-elbow-line .arrow_right_l, .light-background .zarafa-calendar-tab-icon-separate, .x-date-mp-ybtn a, .x-date-right a, .x-layout-collapsed .x-tool.x-tool-toggle.x-tool-expand-west, .x-menu-item-arrow, .x-panel-header .x-tool.x-tool-collapse-east, .x-tab-scroller-right, .x-tool.x-tool-toggle.x-tool-collapse-east, .x-tree-lines .x-tree-elbow-end-plus, .x-tree-lines .x-tree-elbow-plus .arrow_down_l, .preview-header-collapse-plus, .x-panel-collapsed .x-tool.x-tool-toggle, .x-tree-lines .x-tree-elbow-end-minus, .x-tree-lines .x-tree-elbow-minus, .zarafa-rules-sequence-down, td.sort-desc .x-grid3-sort-icon .arrow_right_l, .light-background .zarafa-calendar-tab-icon-separate, .x-date-mp-ybtn a, .x-date-right a, .x-layout-collapsed .x-tool.x-tool-expand-west, .x-layout-collapsed .x-tool.x-tool-toggle.x-tool-expand-west, .x-menu-item-arrow, .x-panel-header .x-tool.x-tool-collapse-east, .x-tab-scroller-right, .x-tool.x-tool-toggle.x-tool-collapse-east, .x-tree-lines .x-tree-elbow-end-plus, .x-tree-lines .x-tree-elbow-plus, .x-date-picker .x-date-left a {
     padding: 6px;
+}
+
+.x-layout-collapsed .x-tool.x-tool-expand-west {
+    padding: 0;
 }
 
 .icon_attachment, .icon_pencil, .k-grid-button-edit {
@@ -4737,6 +4741,35 @@ input.x-tree-node-cb {
 
 .x-menu .x-date-picker {
     width: 210px !important;
+}
+
+.tox-tinymce {
+    height: 100% !important;
+    border: 0 !important;
+}
+
+.tox-tinymce {
+  border-radius: 0 !important;
+}
+
+.tox-toolbar__primary,
+.tox-toolbar__secondary,
+.tox-editor-header,
+.tox-statusbar {
+  border-radius: 0 !important;
+}
+
+.tox:not(.tox-tinymce-inline) .tox-editor-header {
+  padding: 0 !important;
+}
+
+.tox .tox-edit-area:before {
+  border: 1px solid #3094e3 !important;
+  border-radius: 0px !important;
+}
+
+.x-box-inner {
+  overflow: visible;
 }
 
 /*# sourceMappingURL=grommunio.css.map */

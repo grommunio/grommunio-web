@@ -1,41 +1,17 @@
-/*-------------------------------------------------------------------
+/*--------------------------------------------------------------------
  Ext.ux.form.TinyMCETextArea
 
  ExtJS form field - a text area with integrated TinyMCE WYSIWYG Editor
 
- Version: 4.0.1
- Release date: 17.12.2013
- ExtJS Version: 4.2.1
- TinyMCE Version: 4.0.11
- License: LGPL v2.1 or later, Sencha License
+ Integration for TinyMCE 7.x WYSIWYG Editor with HTML5 text areas and
+ ExtJS integration
 
- Author: Oleg Schildt
- E-Mail: Oleg.Schildt@gmail.com
+ Rewrite by grommunio, inspired by the work of:
 
- Copyright (c) 2013 Oleg Schildt
-
- Enhanced by Steve Drucker (sdrucker@figleaf.com):
- ExtJS Version: 4.2.1
- TinyMCE Version: 4.0.20
-
- Re-Enhanced by Bhavin Bathani (bhavin.gir@gmail.com):
- ExtJS Version: 3.4
- TinyMCE Version: 4.1.0
-
- Following issues are covered:
-
- - Make the whole class compitible with ExtJS Version 3.4
- - Avoid using callparent function.
- - Using the way for inherit class which is supported in ExtJS Version 3.4
- - Avoid uaing 'alias' config to declare xtype.
- - add 'getInputId' function.
- - 'withEd' function is added to reschedule function call after editor will be initialized.
- - 'getEditor' function is added to reduce code duplication to get the editor instance.
- - 'insertAtCursor' function is added.
- - Enabling and disabling of the WYSIWYG editor controls without reinitialize the whole editor.
- - Removed all the configuration overhead for tinymce plugin inclusion.
- - Proper API code commenting is followed for better understanding.
- -------------------------------------------------------------------*/
+ - Oleg Schildt
+ - Steve Drucker
+ - Bhavin Bathani
+--------------------------------------------------------------------*/
 
 Ext.ux.form.TinyMCETextArea = Ext.extend(Ext.form.TextArea, {
 	/**
@@ -84,19 +60,19 @@ Ext.ux.form.TinyMCETextArea = Ext.extend(Ext.form.TextArea, {
 	 * @property
 	 * @type Object
 	 */
-	editor : undefined,
+	editor: undefined,
 
 	/**
 	 * @cfg {Boolean} disabled Render this component disabled (default is false).
 	 */
-	disableEditor : false,
+	disableEditor: false,
 
 	/**
 	 * This property holds the window object which is the owner of the selector element.
 	 * @property
 	 * @type HTMLElement
 	 */
-	editorOwnerWindow : undefined,
+	editorOwnerWindow: undefined,
 
 	/**
 	 * @constructor
@@ -105,19 +81,14 @@ Ext.ux.form.TinyMCETextArea = Ext.extend(Ext.form.TextArea, {
 	constructor: function(config)
 	{
 		config = config || {};
-
 		Ext.applyIf(config, {
-			hideMode: 'offsets'
+			hideMode: "offsets"
 		});
-
-		// Apply some required tinymce config
 		Ext.applyIf(config.tinyMCEConfig, {
-			hideMode: 'offsets',
-			mode : 'exact',
-			resize : false,
-			force_p_newlines : true
+			hideMode: "offsets",
+			resize: false,
+			license_key: "gpl"
 		});
-
 		Ext.ux.form.TinyMCETextArea.superclass.constructor.call(this, config);
 	},
 
@@ -126,14 +97,11 @@ Ext.ux.form.TinyMCETextArea = Ext.extend(Ext.form.TextArea, {
 	 * @return {HTMLElement} the window object which contains the selector element.
 	 * @private
 	 */
-	getEditorOwnerWindow : function()
+	getEditorOwnerWindow: function()
 	{
-		if(Ext.isDefined(this.editorOwnerWindow)) {
+		if (Ext.isDefined(this.editorOwnerWindow)) {
 			return this.editorOwnerWindow;
 		} else {
-			// There might be more than one browser window, and we are using tinymce environment loaded saperatly
-			// in respective browser window. So it is mendatory to use global object of currently active window to
-			// initialize and render the editor instance into respective browser window.
 			var selectorElement = Ext.getDom(this.getInputId());
 			var browserWindow = selectorElement ? selectorElement.ownerDocument.defaultView : undefined;
 			return this.editorOwnerWindow = browserWindow;
@@ -147,20 +115,12 @@ Ext.ux.form.TinyMCETextArea = Ext.extend(Ext.form.TextArea, {
 	afterRender: function()
 	{
 		var me = this;
-
 		Ext.ux.form.TinyMCETextArea.superclass.afterRender.call(this, arguments);
-
-		// Rendering is completed, now the target textarea element is available which is required to create TinyMce editor.
 		this.initEditor();
-
-		me.on('blur', function(elm, ev, eOpts) {
+		me.on("blur", (function(elm, ev, eOpts) {
 			var ctrl = document.getElementById(me.getInputId());
-
 			if (me.wysiwygIntialized) {
 				var ed = me.getEditor();
-
-				// In the HTML text modus, the contents should be
-				// synchronized upon the blur event.
 				if (ed && ed.isHidden()) {
 					if (ctrl) {
 						me.positionBeforeBlur = {
@@ -168,7 +128,6 @@ Ext.ux.form.TinyMCETextArea = Ext.extend(Ext.form.TextArea, {
 							end: ctrl.selectionEnd
 						};
 					}
-
 					ed.load();
 				}
 			} else {
@@ -179,12 +138,10 @@ Ext.ux.form.TinyMCETextArea = Ext.extend(Ext.form.TextArea, {
 					};
 				}
 			}
-		}, me);
-
-		// Synchronize the tinymce editor height whenever base-textarea gets resized.
-		me.on('resize', function(elm, width, height, oldWidth, oldHeight, eOpts) {
+		}), me);
+		me.on("resize", (function(elm, width, height, oldWidth, oldHeight, eOpts) {
 			me.syncEditorHeight(height);
-		}, me);
+		}), me);
 	},
 
 	/**
@@ -197,51 +154,36 @@ Ext.ux.form.TinyMCETextArea = Ext.extend(Ext.form.TextArea, {
 	syncEditorHeight: function(height)
 	{
 		var me = this;
-
 		me.lastHeight = height;
-
-		// if the editor is not initialized/ rendered than simply return.
 		if (!me.wysiwygIntialized || !me.rendered) {
 			return;
 		}
-
-		// There is multiple tinymce editors loaded in multiple browser windows, Use global object of currently
-		// active window to get the editor instance.
 		var browserWindow = me.getEditorOwnerWindow();
 		var ed = browserWindow.tinymce.get(me.getInputId());
-
-		// if the editor is not available at all than simply return.
-		if(!ed || !ed.iframeElement){
+		if (!ed || !ed.iframeElement) {
 			return;
 		}
-
-		// if the editor is hidden, we do not synchronize
-		// because the size values of the hidden editor are calculated wrong.
 		if (ed.isHidden()) {
 			return;
 		}
-
 		var edIframe = Ext.get(ed.iframeElement);
 		var parent = edIframe.up(".mce-edit-area");
+		if (!parent) {
+			return;
+		}
 		parent = parent.up(".mce-container-body");
-
+		if (!parent) {
+			return;
+		}
 		var newHeight = height;
-
 		var edToolbar = parent.down(".mce-toolbar-grp");
-		if (edToolbar)
-			newHeight -= edToolbar.getHeight();
-
+		if (edToolbar) newHeight -= edToolbar.getHeight();
 		var edMenubar = parent.down(".mce-menubar");
-		if (edMenubar)
-			newHeight -= edMenubar.getHeight();
-
+		if (edMenubar) newHeight -= edMenubar.getHeight();
 		var edStatusbar = parent.down(".mce-statusbar");
-		if (edStatusbar)
-			newHeight -= edStatusbar.getHeight();
-
-		me.lastFrameHeight = newHeight - 3;
-
-		edIframe.setHeight(newHeight - 3);
+		if (edStatusbar) newHeight -= edStatusbar.getHeight();
+		me.lastFrameHeight = newHeight - 100;
+		edIframe.setHeight(newHeight - 100);
 	},
 
 	/**
@@ -254,15 +196,12 @@ Ext.ux.form.TinyMCETextArea = Ext.extend(Ext.form.TextArea, {
 	{
 		var me = this;
 		var ed = this.getEditor();
-
-		// check If editor instance is available or not
-		if (ed){
-			// if editor is created but not initialized then reschedule the function call on init event.
-			if(!ed.initialized){
-				this.on("initialized", function() {
+		if (ed) {
+			if (!ed.initialized) {
+				this.on("initialized", (function() {
 					me.withEd(func);
-				}, me);
-			} else if(ed.initialized){
+				}), me);
+			} else if (ed.initialized) {
 				me.editor = ed;
 				func.call(me);
 			}
@@ -282,7 +221,7 @@ Ext.ux.form.TinyMCETextArea = Ext.extend(Ext.form.TextArea, {
 	 * Method to determine whether this Component is currently disabled.
 	 * @return {Boolean} the disabled state of this Component.
 	 */
-	isDisabled : function()
+	isDisabled: function()
 	{
 		return this.disabled;
 	},
@@ -294,39 +233,77 @@ Ext.ux.form.TinyMCETextArea = Ext.extend(Ext.form.TextArea, {
 	 */
 	insertAtCursor: function(value)
 	{
-		// Call tiny MCE insert content function
 		var ed = this.getEditor();
-		ed.execCommand('mceInsertContent', false, value);
-		ed.undoManager.clear();
+		if (ed) {
+			var doc = ed.getDoc();
+			var body = doc.body;
+			// Create a range and insert the HTML directly at the cursor
+			var range = ed.selection.getRng();
+			var fragment = range.createContextualFragment(value);
+			// Insert the fragment at the current range
+			range.insertNode(fragment);
+			ed.undoManager.clear();
+		} else {
+			console.error("Editor instance not available for direct DOM insertion.");
+		}
 	},
 
 	/**
-	 * Function select the text in editor by given selector.
-	 *
-	 * @param {String} selector The selector query which used to select the text in editor.
-	 * @return {boolean} return true if text is selected in editor else false.
+	 * Check if the signature already exists in the editor content.
+	 * @return {Boolean} the state if a signature exists.
+	 */
+	hasSignature: function()
+	{
+		var ed = this.getEditor();
+		if (ed) {
+			var content = ed.getContent();
+			return content.indexOf('class="signatureContainer"') !== -1;
+		}
+		return false;
+	},
+
+	/**
+	 * Move the cursor to the existing signature in the editor.
+	 */
+	moveToSignature: function()
+	{
+		var ed = this.getEditor();
+		if (ed) {
+			var selection = ed.dom.select(".signatureContainer");
+			if (selection.length > 0) {
+				ed.selection.select(selection[0]);
+				ed.selection.collapse(false);
+			}
+		}
+	},
+
+	/**
+	 * Replace the content of the existing signature.
+	 * @param {String} value Content which needs to be inserted.
+	 */
+	replaceSignatureContent: function(newContent)
+	{
+		var ed = this.getEditor();
+		if (ed) {
+			var selection = ed.dom.select(".signatureContainer");
+			if (selection.length > 0) {
+				ed.dom.setHTML(selection[0], newContent);
+				ed.selection.select(selection[0]);
+				ed.selection.collapse(false);
+			}
+		}
+	},
+	/**
+	 * Select editor content based on selector.
+	 * @param {String} value Name of editor object to be selected.
+	 * @return {Boolean} success of select node action.
 	 */
 	selectBySelector: function(selector)
 	{
 		var ed = this.getEditor();
 		var selection = ed.getDoc().querySelector(selector);
 		if (selection) {
-			// FF specific fix. we need to manually select the 
-			// signature elemets. 
-			if (Ext.isGecko) {
-				var dom = ed.selection.dom;
-				var range = dom.createRng();
-				var idx = dom.nodeIndex(selection.firstChild);
-				range.setStart(selection.firstChild, idx);
-				if (selection.firstChild !== selection.lastChild) {
-					range.setEnd(selection.lastChild, idx + (selection.childElementCount-1));
-				} else {
-					range.setEnd(selection.lastChild, selection.lastChild.childNodes.length);
-				}
-				ed.selection.setRng(range);	
-			} else {
-				ed.execCommand('mceSelectNode', false, selection);	
-			}
+			ed.execCommand("mceSelectNode", false, selection);
 			return true;
 		}
 		return false;
@@ -342,124 +319,43 @@ Ext.ux.form.TinyMCETextArea = Ext.extend(Ext.form.TextArea, {
 	initEditor: function()
 	{
 		var me = this;
-
 		if (me.noWysiwyg || me.intializationInProgress || me.wysiwygIntialized) {
 			return;
 		}
-
 		me.intializationInProgress = true;
-
-		me.tinyMCEConfig.selector = 'textarea#' + me.getInputId();
-
+		me.tinyMCEConfig.selector = "textarea#" + me.getInputId();
 		if (me.lastFrameHeight) {
 			me.tinyMCEConfig.height = me.lastFrameHeight;
 		} else {
 			me.tinyMCEConfig.height = 30;
 		}
-
-		// We have to override the setup method of the TinyMCE.
-		// If the user has define own one, we shall not loose it.
-		// Store it and call it after our specific actions.
 		var user_setup = null;
-
 		if (me.tinyMCEConfig.setup) {
 			user_setup = me.tinyMCEConfig.setup;
 		}
-
-		// BEGIN: setup
 		me.tinyMCEConfig.setup = function(ed) {
-
-			if(!Ext.isDefined(me.editor)) {
+			if (!Ext.isDefined(me.editor)) {
 				me.editor = ed;
 			}
-
-			var editorWindow = me.getEditorOwnerWindow();
-			// Themes will dynamically load their stylesheets into the DOM.
-			// We will overwrite the loadCSS function to add listeners for
-			// the loading. This way we make sure that all css has been loaded
-			// before we resize the editor.
-			var origTinymceDOMloadCSS = editorWindow.tinymce.DOM.loadCSS;
-			// We will store the urls of all stylesheets that are loading in this array
-			var cssFilesLoading = [];
-
-			editorWindow.tinymce.DOM.loadCSS = function(url){
-				if (!url) {
-					url = '';
-				}
-
-				Ext.each(url.split(','), function(url){
-					if ( Ext.isEmpty(url) ){
-						return;
-					}
-					// Store the url in the array, so we can check if we are still
-					// loading css files
-					cssFilesLoading.push(url);
-					// Create an element to load the stylesheet
-					var el = editorWindow.document.createElement('link');
-					// Add the element to the DOM, or it will not fire events
-					editorWindow.document.head.appendChild(el);
-					// Add a handler for the load event
-					el.addEventListener('load', function(){
-						// Remove the url from the array
-						cssFilesLoading.splice(cssFilesLoading.indexOf(url), 1);
-						// Remove the element from the DOM because tiny will have added it also
-						// and we don't need it twice
-						editorWindow.document.head.removeChild(el);
-						me.fireEvent('stylesheetloaded', url);
-					});
-					// Add a handler for the error event
-					el.addEventListener('error', function(){
-						// Remove the url from the array
-						cssFilesLoading.splice(cssFilesLoading.indexOf(url), 1);
-						me.fireEvent('stylesheetloaded', url);
-					});
-					el.setAttribute('rel', 'stylesheet');
-					el.setAttribute('type', 'text/css');
-					el.setAttribute('href', url);
-
-				});
-
-				return origTinymceDOMloadCSS.apply(this, arguments);
-			};
-
-			ed.on('init', function(e) {
-				// Restore the original loadCSS function
-				editorWindow.tinymce.DOM.loadCSS = origTinymceDOMloadCSS;
-
+			ed.on("init", (function(e) {
 				me.wysiwygIntialized = true;
 				me.intializationInProgress = false;
-
 				if (me.disableEditor || me.isDisabled()) {
 					me.disable();
 				}
-
-				me.fireEvent('initialized', me, ed, {});
-
-				// A wrapper function for syncEditorHeight(). It will check
-				// if all css has been loaded before calling syncEditorHeight()
-				function setEditorHeight(){
-					if ( cssFilesLoading.length>0 ){
-						me.on('stylesheetloaded', function(){
-							setEditorHeight();
-						}, this);
-					} else {
-						me.syncEditorHeight(me.lastHeight || me.height);
-					}
+				me.fireEvent("initialized", me, ed, {});
+				function setEditorHeight() {
+					me.syncEditorHeight(me.lastHeight || me.height);
 				}
-
 				if (me.lastHeight || me.height) {
 					setEditorHeight();
 				}
-			});
-
+			}));
 			if (user_setup) {
 				user_setup(ed);
 			}
 		};
-
-		var editorWindow = me.getEditorOwnerWindow();
-		editorWindow.tinymce.init(me.tinyMCEConfig);
-
+		me.getEditorOwnerWindow().tinymce.init(me.tinyMCEConfig);
 		me.intializationInProgress = false;
 		me.wysiwygIntialized = true;
 	},
@@ -470,8 +366,6 @@ Ext.ux.form.TinyMCETextArea = Ext.extend(Ext.form.TextArea, {
 	 */
 	getEditor: function()
 	{
-		// There is multiple tinymce editors loaded in multiple browser windows, Use global object of currently
-		// active window to get the editor instance.
 		var editorWindow = this.getEditorOwnerWindow();
 		return editorWindow ? editorWindow.tinymce.get(this.getInputId()) : undefined;
 	},
@@ -483,23 +377,18 @@ Ext.ux.form.TinyMCETextArea = Ext.extend(Ext.form.TextArea, {
 	removeEditor: function()
 	{
 		var me = this;
-
 		if (me.intializationInProgress) {
 			return me;
 		}
-
 		if (!me.wysiwygIntialized) {
 			return me;
 		}
-
 		var ed = me.getEditor();
 		if (ed) {
 			ed.save();
 			ed.destroy(false);
 		}
-
 		me.wysiwygIntialized = false;
-
 		return me;
 	},
 
@@ -511,30 +400,21 @@ Ext.ux.form.TinyMCETextArea = Ext.extend(Ext.form.TextArea, {
 	setValue: function(v)
 	{
 		var me = this;
-
 		if (me.wysiwygIntialized) {
-			// The editor does some preformatting of the HTML text
-			// entered by the user.
-			// The method setValue sets the value of the textarea.
-			// We have to load the text into editor for the
-			// preformatting and then to save it back to the textarea.
 			if (this.value !== v) {
 				this.value = v;
 				if (this.rendered) {
 					var ed = me.getEditor();
-					if(!ed){
-						// There is multiple tinymce editors loaded in multiple browser windows,
-						// Use global object of currently active window to register AddEditor event.
+					if (!ed) {
 						var editorGlobalInstance = me.getEditorOwnerWindow().tinymce;
-						editorGlobalInstance.EditorManager.on("AddEditor", function() {
-							me.withEd(function(){
+						editorGlobalInstance.EditorManager.on("AddEditor", (function() {
+							me.withEd((function() {
 								var ed = me.getEditor();
-								// if selected editor is dirty then dont call setContent function.
-								if(!ed.isDirty()) {
+								if (!ed.isDirty()) {
 									me.setContent(ed, v);
 								}
-							});
-						}, this);
+							}));
+						}), this);
 					} else {
 						me.setContent(ed, v);
 					}
@@ -549,10 +429,14 @@ Ext.ux.form.TinyMCETextArea = Ext.extend(Ext.form.TextArea, {
 	 * @param {Object} editor the HTML Editor Object
 	 * @param {String} value the value which is going to set in editor.
 	 */
-	setContent : function(editor, value)
+	setContent: function(editor, value)
 	{
-		editor.setContent(value === null || value === undefined ? '' : value, { format: 'raw' });
-		editor.startContent = editor.getContent({ format: 'raw' });
+		editor.setContent(value === null || value === undefined ? "" : value, {
+			format: "raw"
+		});
+		editor.startContent = editor.getContent({
+			format: "raw"
+		});
 	},
 
 	/**
@@ -562,15 +446,13 @@ Ext.ux.form.TinyMCETextArea = Ext.extend(Ext.form.TextArea, {
 	getValue: function(some)
 	{
 		var ed = this.getEditor();
-		if(!ed){
+		if (!ed) {
 			return;
 		}
-		if(!this.rendered || !ed.initialized )
-			return Ext.value( this.value, '' );
-
+		if (!this.rendered || !ed.initialized) return Ext.value(this.value, "");
 		var v = ed.getContent();
-		if( v === this.emptyText || v === undefined ){
-			v = '';
+		if (v === this.emptyText || v === undefined) {
+			v = "";
 		}
 		return v;
 	},
@@ -579,38 +461,34 @@ Ext.ux.form.TinyMCETextArea = Ext.extend(Ext.form.TextArea, {
 	 * Returns the raw data value which may or may not be a valid, defined value.
 	 * @return {Mixed} v The field value
 	 */
-	getRawValue : function(){
-
+	getRawValue: function()
+	{
 		var ed = this.getEditor();
-		if(!ed){
+		if (!ed) {
 			return;
 		}
-
-		if( !this.rendered || !ed.initialized )
-			return Ext.value( this.value, '' );
-
-		var v = ed.getContent({format : 'raw'});
-		if(v === this.emptyText){
-			v = '';
+		if (!this.rendered || !ed.initialized) return Ext.value(this.value, "");
+		var v = ed.getContent({
+			format: "raw"
+		});
+		if (v === this.emptyText) {
+			v = "";
 		}
 		return v;
 	},
 
 	/**
 	 * Initializes the field's value based on the initial config.
+	 * @return {Mixed} v The field value
 	 */
 	initValue: function()
 	{
-		if (!this.rendered)
-			Ext.ux.TinyMCE.superclass.initValue.call(this);
-		else {
+		if (!this.rendered) Ext.ux.TinyMCE.superclass.initValue.call(this); else {
 			if (this.value !== undefined) {
 				this.setValue(this.value);
-			}
-			else {
+			} else {
 				var v = this.getEl().value;
-				if ( v )
-					this.setValue( v );
+				if (v) this.setValue(v);
 			}
 		}
 	},
@@ -625,40 +503,31 @@ Ext.ux.form.TinyMCETextArea = Ext.extend(Ext.form.TextArea, {
 	focus: function(selectText, delay)
 	{
 		var me = this;
-
 		if (me.isDisabled()) {
 			return me;
 		}
-
 		if (delay) {
 			if (isNaN(delay)) {
 				delay = 10;
 			}
-
-			setTimeout(function() {
+			setTimeout((function() {
 				me.focus.call(me, selectText, false);
-			}, delay);
+			}), delay);
 			return me;
 		}
-
 		if (!me.wysiwygIntialized) {
 			return Ext.ux.form.TinyMCETextArea.superclass.focus.call(this, arguments);
 		}
-
 		var ed = me.getEditor();
-
 		if (ed && !ed.isHidden() && ed.initialized) {
 			Ext.ux.form.TinyMCETextArea.superclass.focus.call(this, arguments);
-
 			ed.focus();
 		} else {
-			this.withEd(function () {
+			this.withEd((function() {
 				ed.focus();
-			});
-
+			}));
 			return Ext.ux.form.TinyMCETextArea.superclass.focus.call(this, arguments);
 		}
-
 		return me;
 	},
 
@@ -669,18 +538,14 @@ Ext.ux.form.TinyMCETextArea = Ext.extend(Ext.form.TextArea, {
 	enable: function()
 	{
 		var me = this;
-		var result  = Ext.ux.form.TinyMCETextArea.superclass.enable.call(this, arguments);
-
+		var result = Ext.ux.form.TinyMCETextArea.superclass.enable.call(this, arguments);
 		if (!result) {
 			return result;
 		}
-
 		var ed = me.getEditor();
-		if(ed) {
-			ed.theme.panel.find('*').disabled(false);
-			this.getEditorBody().setAttribute('contenteditable', true);
+		if (ed) {
+			ed.mode.set("design");
 		}
-
 		return me;
 	},
 
@@ -693,17 +558,13 @@ Ext.ux.form.TinyMCETextArea = Ext.extend(Ext.form.TextArea, {
 	{
 		var me = this;
 		var result = Ext.ux.form.TinyMCETextArea.superclass.disable.call(this, arguments);
-
 		if (!result) {
 			return result;
 		}
-
-		me.withEd(function () {
+		me.withEd((function() {
 			var ed = me.getEditor();
-			ed.theme.panel.find('*').disabled(true);
-			this.getEditorBody().setAttribute('contenteditable', false);
-		});
-
+			ed.mode.set("readonly");
+		}));
 		return me;
 	},
 
@@ -714,19 +575,16 @@ Ext.ux.form.TinyMCETextArea = Ext.extend(Ext.form.TextArea, {
 	hide: function()
 	{
 		var me = this;
-
 		Ext.ux.form.TinyMCETextArea.superclass.hide.call(this, arguments);
-
 		var ed = me.getEditor();
 		if (ed && ed.iframeElement) {
 			ed.hide();
 		} else {
-			me.withEd(function () {
+			me.withEd((function() {
 				var ed = me.getEditor();
 				ed.hide();
-			});
+			}));
 		}
-
 		return me;
 	},
 
@@ -737,15 +595,13 @@ Ext.ux.form.TinyMCETextArea = Ext.extend(Ext.form.TextArea, {
 	show: function()
 	{
 		var me = this;
-
 		Ext.ux.form.TinyMCETextArea.superclass.show.call(this, arguments);
-
 		var ed = me.getEditor();
-		if(ed){
+		if (ed) {
 			ed.show();
 		}
-
 		return me;
 	}
 });
-Ext.reg('zarafa.tinymcetextarea', Ext.ux.form.TinyMCETextArea);
+
+Ext.reg("zarafa.tinymcetextarea", Ext.ux.form.TinyMCETextArea);

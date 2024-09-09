@@ -633,8 +633,8 @@ Zarafa.mail.MailContextModel = Ext.extend(Zarafa.core.ContextModel, {
 	},
 
 	/**
-	 * Function is used to wrap the signature with div 'signature' which again wrapped wtith 'signatureContainer'
-	 * alogn with two empty lines.
+	 * Function is used to wrap the signature with div 'signatureContainer'
+	 * along with two empty lines.
 	 *
 	 * @param {String} signature The signature which is going to wrapped.
 	 * @return {String} Wrapped signature.
@@ -646,7 +646,7 @@ Zarafa.mail.MailContextModel = Ext.extend(Zarafa.core.ContextModel, {
 
 		return '<p style="font-family:'+fontFamily+'; font-size:'+fontSize+'; padding: 0; margin: 0;"><br/></p>' +
 			'<p style="font-family:'+fontFamily+'; font-size:'+fontSize+'; padding: 0; margin: 0;"><br/></p>' +
-			'<div class="signatureContainer"><div class="signature">'+signature+'</div></div>';
+			'<div class="signatureContainer">'+signature+'</div>';
 	},
 
 	/**

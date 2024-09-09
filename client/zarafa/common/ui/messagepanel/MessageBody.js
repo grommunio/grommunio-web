@@ -214,7 +214,7 @@ Zarafa.common.ui.messagepanel.MessageBody = Ext.extend(Ext.Container, {
 			body = record.getBody(html);
 			if (html) {
 				if (container.getServerConfig().getDOMPurifyEnabled()) {
-					body = "<!DOCTYPE html>" + record.cleanupOutlookStyles(DOMPurify.sanitize(body, {USE_PROFILES: {html: true, svg: true, mathMl: true}}));
+					body = "<!DOCTYPE html>" + record.cleanupOutlookStyles(DOMPurify.sanitize(body, {USE_PROFILES: {html: true}}));
 				} else {
 					body = "<!DOCTYPE html>" + record.cleanupOutlookStyles(body);
 				}
@@ -420,26 +420,6 @@ Zarafa.common.ui.messagepanel.MessageBody = Ext.extend(Ext.Container, {
 			// table img: all images in tables. Often used in newsletters
 			'.k-original, table img { max-width: none !important; }'
 		));
-
-		// Add a wingdings compatible font (only the smilies)
-		// for systems that don't have wingdings installed, and
-		// always for firefox because that browser doesn't support
-		// rendering with system installed symbol fonts.
-		if ( (Ext.isGecko && !Ext.isIE && !Ext.isEdge) || !Zarafa.wingdingsInstalled ){
-			var baseUrl = container.getServerConfig().getBaseUrl();
-			css.appendChild(document.createTextNode(
-				"@font-face {" +
-					"font-family: 'Wingdings';" +
-					"src: url('"+baseUrl+"client/resources/fonts/webappdings.eot');" +
-					"src: url('"+baseUrl+"client/resources/fonts/webappdings.eot?#iefix') format('embedded-opentype')," +
-						"url('"+baseUrl+"client/resources/fonts/webappdings.woff2') format('woff2')," +
-						"url('"+baseUrl+"client/resources/fonts/webappdings.woff') format('woff')," +
-						"url('"+baseUrl+"client/resources/fonts/webappdings.ttf') format('truetype');" +
-					"font-weight: normal;" +
-					"font-style: normal;" +
-				"}"
-			));
-		}
 
 		head.appendChild(css);
 	},

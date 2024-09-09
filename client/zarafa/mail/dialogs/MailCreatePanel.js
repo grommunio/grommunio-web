@@ -287,7 +287,7 @@ Zarafa.mail.dialogs.MailCreatePanel = Ext.extend(Ext.form.FormPanel, {
 				// 2) We get whole HTML page as a body so we need to remove extra tags
 				// before setting it into the editor.
 				if (this.useHtml && container.getServerConfig().getDOMPurifyEnabled()) {
-					body = DOMPurify.sanitize(body, {USE_PROFILES: {html: true, svg: true, mathMl: true}});
+					body = DOMPurify.sanitize(body, {USE_PROFILES: {html: true}});
 				}
 				this.editorField.setValue(body);
 			}

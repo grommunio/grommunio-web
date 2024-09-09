@@ -7,21 +7,26 @@ Ext.namespace('Zarafa.common.ui.htmleditor');
  */
 Zarafa.common.ui.htmleditor.LanguageMap = {
 	fileMapping: {
+		ar_DZ: 'ar',
+		ar_SA: 'ar_SA',
 		bg_BG: 'bg_BG',
-		cs_CZ: 'cs_CZ',
+		ca_ES: 'ca',
+		cs_CZ: 'cs',
 		da_DK: 'da',
 		de_DE: 'de',
+		de_CH: 'de',
 		el_GR: 'el',
-		en_GB: 'en_GB',
+		en_GB: '', // Special case, as this is the default language of tinymce
 		en_US: '', // Special case, as this is the default language of tinymce
-		ca_ES: 'ca',
+		es_ES: 'es',
 		et_EE: 'et',
-		fa_IR: 'fa_IR',
+		fa_IR: 'fa',
 		fi_FI: 'fi',
 		fr_FR: 'fr_FR',
 		he_IL: 'he_IL',
 		hr_HR: 'hr',
 		hu_HU: 'hu_HU',
+		is_IS: 'is_IS',
 		it_IT: 'it',
 		ja_JP: 'ja',
 		ko_KR: 'ko_KR',
@@ -31,11 +36,11 @@ Zarafa.common.ui.htmleditor.LanguageMap = {
 		pl_PL: 'pl',
 		pt_BR: 'pt_BR',
 		pt_PT: 'pt_PT',
-		ru_RU: 'ru_RU',
-		sl_SL: 'sl_SL',
+		ru_RU: 'ru',
+		sl_SL: 'sl_SI',
 		sv_SE: 'sv_SE',
-		tr_TR: 'tr_TR',
-		uk_UA: 'uk_UA',
+		tr_TR: 'tr',
+		uk_UA: 'uk',
 		zh_CN: 'zh_CN',
 		zh_TW: 'zh_TW'
 	},
@@ -57,6 +62,6 @@ Zarafa.common.ui.htmleditor.LanguageMap = {
 		}
 
 		// By default use en_GB
-		return 'en_GB';
+		return 'en_US';
 	}
 };

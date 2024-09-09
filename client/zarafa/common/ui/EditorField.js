@@ -8,8 +8,6 @@ Ext.namespace('Zarafa.common.ui');
  * The grommunio Web EditorField is intended as Input area for data. This field
  * offers the possibility for editing using the {@link Zarafa.common.ui.HtmlEditor HtmlEditor}
  * or a simple {@link Ext.form.TextArea textarea}.
- *
- * TODO: Support dynamic switching of editor
  */
 Zarafa.common.ui.EditorField = Ext.extend(Ext.Container, {
 	/**
@@ -327,6 +325,68 @@ Zarafa.common.ui.EditorField = Ext.extend(Ext.Container, {
 	{
 		var component = this.getLayout().activeItem;
 		component.setCursorLocation();
+	},
+
+	/**
+	 * Function is used to get current editor content.
+	 */
+	getContent: function()
+	{
+		return this.tinyMceTextArea.getEditorContent();
+	},
+
+	/**
+	 * Check if the editor content already contains the signature.
+	 */
+	hasSignature: function()
+	{
+		var component = this.getLayout().activeItem;
+
+		// Check if the active editor is TinyMCE
+		if (component instanceof Ext.ux.form.TinyMCETextArea) {
+			return component.hasSignature();
+		} else {
+			// For plain text editor, convert the HTML signature to plain text
+			var content = component.getValue();
+			var plainSignature = Zarafa.core.HTMLParser.convertHTMLToPlain(this.currentSignatureHtml);
+
+			return content.includes(plainSignature);
+		}
+	},
+
+	/**
+	 * Replace the content of the existing signature.
+	 * @param {String} value The text which is to be replaced for in-place-signature edit
+	 */
+	replaceSignatureContent: function(newContent) {
+		var component = this.getLayout().activeItem;
+
+		// Check if the active editor is TinyMCE
+		if (component instanceof Ext.ux.form.TinyMCETextArea) {
+			component.replaceSignatureContent(newContent);
+		} else {
+			// For plain text editor, convert the HTML signature to plain text
+			var content = component.getValue();
+			var plainSignature = Zarafa.core.HTMLParser.convertHTMLToPlain(this.currentSignatureHtml);
+
+			// Replace the plain text signature
+			if (content.includes(plainSignature)) {
+			var beforeSignature = content.split(plainSignature)[0];
+			component.setValue(beforeSignature + Zarafa.core.HTMLParser.convertHTMLToPlain(newContent)); // Replace with converted plain text
+			}
+		}
+	},
+
+	/**
+	 * Skip moveToSignature for plain text editor
+	 */
+	moveToSignature: function() {
+		var component = this.getLayout().activeItem;
+
+		// Check if the active editor is TinyMCE
+		if (component instanceof Ext.ux.form.TinyMCETextArea) {
+			component.moveToSignature();
+		}
 	},
 
 	/**
