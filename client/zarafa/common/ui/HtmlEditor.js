@@ -32,6 +32,9 @@ Zarafa.common.ui.HtmlEditor = Ext.extend(Ext.ux.form.TinyMCETextArea, {
 
 	processContentWithCSSTree: function(editor)
 	{
+		if (editor.isPasteEvent) {
+			return;
+		}
 		var content = editor.getContent();
 
 		try {
@@ -78,7 +81,7 @@ Zarafa.common.ui.HtmlEditor = Ext.extend(Ext.ux.form.TinyMCETextArea, {
 		var fontFamilies = Zarafa.common.ui.htmleditor.Fonts.getFontFamilies();
 
 		var baseUrl = container.getServerConfig().getBaseUrl();
-		const cacheBuster = "7.3.0";
+		const cacheBuster = "7.3.0.21";
 
 		var themeIsDark = container.getSettingsModel().get("zarafa/v1/main/active_theme") === "dark";
 
@@ -91,7 +94,7 @@ Zarafa.common.ui.HtmlEditor = Ext.extend(Ext.ux.form.TinyMCETextArea, {
 			readOnly: false,
 			tinyMCEConfig: {
 				delta_height: 1,
-				plugins: "autolink directionality image link emoticons media charmap anchor lists advlist quickbars searchreplace visualchars",
+				plugins: "autolink directionality image link emoticons media charmap anchor lists advlist quickbars searchreplace visualchars officepaste",
 				quickbars_insert_toolbar: false,
 				cache_suffix: "?version=" + cacheBuster,
 				link_assume_external_targets: true,
@@ -104,6 +107,10 @@ Zarafa.common.ui.HtmlEditor = Ext.extend(Ext.ux.form.TinyMCETextArea, {
 				font_formats: fontFamilies,
 				font_size_input_default_unit: "pt",
 				browser_spellcheck: true,
+				valid_elements: '*[*]',
+				extended_valid_elements: 'p[class|style],span[class|style],a[href|style],*[*]',
+				valid_children: '+body[p],+p[span|a|b|strong|i|em|u|#text]',
+				paste_as_text: false,
 				width: "100%",
 				menubar: false,
 				statusbar: false,
@@ -113,17 +120,26 @@ Zarafa.common.ui.HtmlEditor = Ext.extend(Ext.ux.form.TinyMCETextArea, {
 				relative_urls: false,
 				remove_script_host: false,
 				contextmenu_never_use_native: true,
-				newline_behavior: "linebreak",
 				content_style: "body{ " + "word-wrap: break-word; margin: 1rem !important;" + "}",
 				table_default_styles: {
 					width: "10%"
 				},
 				setup: function(editor) {
+					let isPasteEvent = false;
+					editor.on('PastePreProcess', function () {
+						isPasteEvent = true;
+					});
+
+					editor.on('PastePostProcess', function () {
+						isPasteEvent = false;
+					});
 					editor.on("init", function() {
 						this.processContentWithCSSTree(editor);
 					}.bind(this));
 					editor.on("SetContent", function() {
-						this.processContentWithCSSTree(editor);
+						if (!isPasteEvent) {
+							this.processContentWithCSSTree(editor);
+						}
 					}.bind(this));
 				}.bind(this)
 			}
@@ -177,7 +193,6 @@ Zarafa.common.ui.HtmlEditor = Ext.extend(Ext.ux.form.TinyMCETextArea, {
 		}
 
 		tinymceEditor.on("keydown", this.onKeyDown.createDelegate(this), this);
-		tinymceEditor.on("paste", this.onPaste.createDelegate(this), this);
 		tinymceEditor.on("mousedown", this.relayIframeEvent.createDelegate(this), this);
 
 		if (Ext.isGecko) {
@@ -246,87 +261,6 @@ Zarafa.common.ui.HtmlEditor = Ext.extend(Ext.ux.form.TinyMCETextArea, {
 		// Check if the editor was activated
 				if (editor) {
 			editor.remove();
-		}
-	},
-
-	/**
-	 * Event handler is called when content will be pasted in editor.
-	 * the clipboardData is a read-only property of DataTransfer object, the data
-	 * affected by the user-initialed cut, copy, or paste operation, along with its MIME type.
-	 * if clipboardData and MIME type is specified then register a handler which replace the
-	 * carriage return to Br and white space to &nbsp; on {@link tinymce.pasteplugin.Clipboard BeforePastePreProcess} event.
-	 * @param {object} event the event object.
-	 */
-	onPaste: function(event)
-	{
-		var editor = this.getEditor();
-		var editorMgr = editor.editorManager;
-
-		/**
-		 * check that current selected browser webkit supported. also check clipboardData and types are
-		 * there.
-		 */
-		if (editorMgr.Env.webkit && event.clipboardData && event.clipboardData.types) {
-			var clipboardHtmlContent = event.clipboardData.getData("text/html");
-			if (Ext.isEmpty(clipboardHtmlContent)) {
-				var clipboardContent = event.clipboardData.getData("text");
-				if (clipboardContent && clipboardContent.length > 0) {
-					editor.once("BeforePastePreProcess", (function(args) {
-						var replaceCarriage = clipboardContent.replace(/\n/g, "<br/>");
-						var replaceWithSpace = replaceCarriage.replace(/\s/g, "&nbsp;");
-						args.content = replaceWithSpace;
-						return args;
-					}));
-				}
-			}
-		}
-
-		/**
-		 * Tinymce parse url with some default entities which convert '&' to '&amp;'
-		 * So here we just replace '&amp;' to '&' before inserting content into body.
-		 */
-		editor.once("BeforeExecCommand", (function(args) {
-			if (args.command === "mceInsertContent") {
-				var content = args.value.content;
-				// Get all anchor tags and replace '&amp;' to '&'.
-				var subStrings = content.match(/<a.*\/a>/g);
-				if (!Ext.isEmpty(subStrings)) {
-					for (var i = 0; i < subStrings.length; i++) {
-						var decodedSubStr = tinymce.html.Entities.decode(subStrings[i]);
-						args.value.content = content.replace(subStrings[i], decodedSubStr);
-					}
-				}
-			}
-			return args;
-		}));
-
-		/**
-		 * If browser is IE then before the paste content in editor make it proper formatted content.
-		 */
-		if (Ext.isIE) {
-			var fontName = this.defaultFontFamily;
-			var fontSize = this.defaultFontSize;
-			editor.once("BeforePastePreProcess", (function(args) {
-				var content = args.content;
-				var startingTags = '<p style="margin: 0px; padding: 0px; data-mce-style="margin: 0px; padding: 0px;">';
-				startingTags += '<span style="font-family:' + fontName + "; font-size:" + fontSize + '; data-mce-style="font-family:' + fontName + "; font-size:" + fontSize + ";>";
-				var closingTags = '<br data-mce-bogus="1"></span></p>';
-				var replaceStartingTags = content.replace(/<p>|<P>/g, startingTags);
-				var formattedString = replaceStartingTags.replace(/<\/p>|<\/P>/g, closingTags);
-				args.content = formattedString;
-
-				/**
-				 * After the paste operation set the cursor position at proper place.
-				 */
-				editor.once("NodeChange", (function(arg) {
-					var node = editor.selection.getNode();
-					var parentNode = editor.dom.getParent(node, "p");
-					if (parentNode && parentNode.nextSibling) {
-						editor.selection.setCursorLocation(parentNode.nextSibling.firstChild, 0);
-					}
-				}));
-				return args;
-			}));
 		}
 	},
 
@@ -536,53 +470,6 @@ Zarafa.common.ui.HtmlEditor = Ext.extend(Ext.ux.form.TinyMCETextArea, {
 					return false;
 				}
 			}
-		}
-
-		/*
-		 * HACK: for IE and webkit browsers backspace/delete removes default formatting, so we have to
-		 * add it again, so we will set empty content and rest will be handled by BeforeSetContent
-		 * event. Here we need defer because this keydown handler is called first before other
-		 * handlers which clears the content of editor.
-		 */
-		if (event.keyCode === Ext.EventObject.BACKSPACE || event.keyCode === Ext.EventObject.DELETE) {
-
-			/*
-			 * Specifically in IE while selecting all of the editor content,
-			 * Somehow tinymce selection range not selecting whole body.
-			 * Selecting whole body content manually before deleting all content.
-			 */
-			if (Ext.isEdge) {
-				var oldRange = editor.selection.getRng();
-				var editorBodyElement = editor.getBody();
-				if (oldRange.startContainer === editorBodyElement) {
-					var newRange = editor.dom.createRng();
-					newRange.selectNodeContents(editorBodyElement);
-					editor.selection.setRng(newRange);
-				}
-			}
-			(function() {
-				var content = editor.getContent({
-					format: "text"
-				});
-				var node;
-				if (Ext.isEmpty(content) || content === "\n" || content === " &#13;") {
-					editor.setContent("");
-					this.applyFontStyles();
-					editor.selection.setCursorLocation(editor.getBody().firstChild, 0);
-					this.composeDefaultFormatting(editor);
-				} else {
-					node = editor.selection.getNode();
-					if (node.nodeName === "P") {
-						if (!node.hasChildNodes() || node.firstChild.nodeName === "BR") {
-							this.composeDefaultFormatting(editor);
-							this.getEditorDocument().execCommand("Delete", false, null);
-						}
-					} else if (node.nodeName === "SPAN" && node.hasChildNodes() && node.firstChild.nodeName === "BR") {
-						var textNode = this.getEditorDocument().createTextNode("");
-						node.insertBefore(textNode, node.firstChild);
-					}
-				}
-			}).createDelegate(this).defer(1);
 		}
 
 		if (event.keyCode === Ext.EventObject.ENTER) {
