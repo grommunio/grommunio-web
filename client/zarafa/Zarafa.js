@@ -256,8 +256,7 @@ Ext.apply(Zarafa, {
 				// set non-HTML/MathML links to xlink:show=new
 				node.setAttribute('xlink:show', 'new');
 			}
-			if ((node.hasAttribute('xlink:href') && !node.getAttribute('xlink:href').match(/^#/)) ||
-			    (node.hasAttribute('href') && !node.getAttribute('href').match(/^#/))) {
+			if ((node.hasAttribute('xlink:href') && !node.getAttribute('xlink:href').match(/^#/))) {
 				node.remove()
 			}
 		});
