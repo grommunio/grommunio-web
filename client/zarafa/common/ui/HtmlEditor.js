@@ -94,12 +94,12 @@ Zarafa.common.ui.HtmlEditor = Ext.extend(Ext.ux.form.TinyMCETextArea, {
 			readOnly: false,
 			tinyMCEConfig: {
 				delta_height: 1,
-				plugins: "autolink directionality image link emoticons media charmap anchor lists advlist quickbars searchreplace visualchars officepaste",
+				plugins: "autolink directionality image link emoticons media charmap anchor lists advlist quickbars searchreplace visualchars table officepaste",
 				quickbars_insert_toolbar: false,
 				cache_suffix: "?version=" + cacheBuster,
 				link_assume_external_targets: true,
-				toolbar: "undo redo | fontfamily fontsizeinput bold italic underline strikethrough | backcolor forecolor removeformat | bullist numlist outdent indent align lineheight | ltr rtl | subscript superscript | link anchor image media | charmap emoticons | copy cut paste pastetext searchreplace",
-				quickbars_selection_toolbar: "fontsizeinput | bold italic underline strikethrough | backcolor forecolor removeformat | quicklink blockquote quickimage",
+				toolbar: "undo redo | fontfamily fontsizeinput bold italic underline strikethrough | backcolor forecolor removeformat | bullist numlist outdent indent align lineheight | ltr rtl | subscript superscript | link anchor image media table | charmap emoticons | searchreplace",
+				quickbars_selection_toolbar: "fontsizeinput | bold italic underline strikethrough | backcolor forecolor removeformat | quicklink blockquote quickimage quicktable",
 				toolbar_mode: "sliding",
 				paste_data_images: true,
 				automatic_uploads: false,
@@ -121,25 +121,9 @@ Zarafa.common.ui.HtmlEditor = Ext.extend(Ext.ux.form.TinyMCETextArea, {
 				remove_script_host: false,
 				contextmenu_never_use_native: true,
 				content_style: "body{ " + "word-wrap: break-word; margin: 1rem !important;" + "}",
-				table_default_styles: {
-					width: "10%"
-				},
 				setup: function(editor) {
-					let isPasteEvent = false;
-					editor.on('PastePreProcess', function () {
-						isPasteEvent = true;
-					});
-
-					editor.on('PastePostProcess', function () {
-						isPasteEvent = false;
-					});
 					editor.on("init", function() {
 						this.processContentWithCSSTree(editor);
-					}.bind(this));
-					editor.on("SetContent", function() {
-						if (!isPasteEvent) {
-							this.processContentWithCSSTree(editor);
-						}
 					}.bind(this));
 				}.bind(this)
 			}
