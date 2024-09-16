@@ -48,9 +48,8 @@ class ResolveNamesModule extends Module {
 	public function checkNames($action) {
 		if (isset($action['resolverequests'])) {
 			$data = [];
-			$excludeLocalContacts = !empty($action['exclude_local_contacts']) ? $action['exclude_local_contacts'] : false;
-			$excludeGABGroups = !empty($action['exclude_gab_groups']) ? $action['exclude_gab_groups'] : false;
-
+			$excludeLocalContacts = $action['exclude_local_contacts'] ?? false;
+			$excludeGABGroups = $action['exclude_gab_groups'] ?? false;
 			$resolveRequest = $action['resolverequests'];
 			if (!is_array($resolveRequest)) {
 				$resolveRequest = [$resolveRequest];
@@ -61,8 +60,7 @@ class ResolveNamesModule extends Module {
 			// so we will not have any Contact Providers set on the Addressbook resource.
 			$ab = $GLOBALS['mapisession']->getAddressbook($excludeLocalContacts);
 
-			$ab_entryid = mapi_ab_getdefaultdir($ab);
-			$ab_dir = mapi_ab_openentry($ab, $ab_entryid);
+			$ab_dir = mapi_ab_openentry($ab);
 			$resolveResponse = [];
 
 			// check names
@@ -107,9 +105,12 @@ class ResolveNamesModule extends Module {
 		try {
 			// First, try an addressbook lookup
 			$rows = mapi_ab_resolvename($ab, [[PR_DISPLAY_NAME => $searchstr]], $flags);
+			$this->searchContactsFolders($ab, $ab_dir, $searchstr, $rows);
 		}
 		catch (MAPIException $e) {
 			if ($e->getCode() == MAPI_E_AMBIGUOUS_RECIP) {
+				$ab_entryid = mapi_ab_getdefaultdir($ab);
+				$ab_dir = mapi_ab_openentry($ab, $ab_entryid);
 				// Ambiguous, show possibilities:
 				$table = mapi_folder_getcontentstable($ab_dir, MAPI_DEFERRED_ERRORS);
 				$restriction = $this->getAmbigiousContactRestriction($searchstr, $excludeGABGroups, PR_ACCOUNT);
@@ -123,15 +124,21 @@ class ResolveNamesModule extends Module {
 			}
 			elseif ($e->getCode() == MAPI_E_NOT_FOUND) {
 				$rows = [];
-				// If we still can't find anything, and we were searching for a SMTP user
-				// we can generate a oneoff entry which contains the information of the user.
-				if ($query['address_type'] === 'SMTP' && !empty($query['email_address'])) {
-					$rows[] = [
-						PR_ACCOUNT => $query['email_address'], PR_ADDRTYPE => 'SMTP', PR_EMAIL_ADDRESS => $query['email_address'],
-						PR_DISPLAY_NAME => $query['display_name'], PR_DISPLAY_TYPE_EX => DT_REMOTE_MAILUSER, PR_DISPLAY_TYPE => DT_MAILUSER,
-						PR_SMTP_ADDRESS => $query['email_address'], PR_OBJECT_TYPE => MAPI_MAILUSER,
-						PR_ENTRYID => mapi_createoneoff($query['display_name'], 'SMTP', $query['email_address']),
-					];
+				if ($query['address_type'] === 'SMTP') {
+					// If we still can't find anything, and we were searching for a SMTP user
+					// we can generate a oneoff entry which contains the information of the user.
+					if (!empty($query['email_address'])) {
+						$rows[] = [
+							PR_ACCOUNT => $query['email_address'], PR_ADDRTYPE => 'SMTP', PR_EMAIL_ADDRESS => $query['email_address'],
+							PR_DISPLAY_NAME => $query['display_name'], PR_DISPLAY_TYPE_EX => DT_REMOTE_MAILUSER, PR_DISPLAY_TYPE => DT_MAILUSER,
+							PR_SMTP_ADDRESS => $query['email_address'], PR_OBJECT_TYPE => MAPI_MAILUSER,
+							PR_ENTRYID => mapi_createoneoff($query['display_name'], 'SMTP', $query['email_address']),
+						];
+					}
+					// Check also the user's contacts folders
+					else {
+						$this->searchContactsFolders($ab, $ab_dir, $searchstr, $rows);
+					}
 				}
 			}
 			else {
@@ -363,5 +370,42 @@ class ResolveNamesModule extends Module {
 		}
 
 		parent::handleException($e, $actionType, $store, $parententryid, $entryid, $action);
+	}
+
+	/**
+	 * This function searches the private contact folders for users and returns an array with data.
+	 * Please note that the returning array must be UTF8.
+	 *
+	 * @param resource $ab        The addressbook
+	 * @param resource $ab_dir    The addressbook container
+	 * @param string   $searchstr The search query, case is ignored
+	 * @param array    $rows      Array of the found contacts
+	 */
+	public function searchContactsFolders($ab, $ab_dir, $searchstr, &$rows) {
+		$abhtable = mapi_folder_gethierarchytable($ab_dir, MAPI_DEFERRED_ERRORS | CONVENIENT_DEPTH);
+		$abcntfolders = mapi_table_queryallrows($abhtable, [PR_ENTRYID, PR_AB_PROVIDER_ID]);
+		$restriction = [
+			RES_CONTENT,
+			[
+				FUZZYLEVEL => FL_SUBSTRING | FL_IGNORECASE,
+				ULPROPTAG => PR_DISPLAY_NAME,
+				VALUE => [PR_DISPLAY_NAME => $searchstr],
+			],
+		];
+		// restriction on hierarchy table for PR_AB_PROVIDER_ID
+		// seems not to work, just loop through
+		foreach ($abcntfolders as $abcntfolder) {
+			if ($abcntfolder[PR_AB_PROVIDER_ID] == ZARAFA_CONTACTS_GUID) {
+				$abfldentry = mapi_ab_openentry($ab, $abcntfolder[PR_ENTRYID]);
+				$abfldcontents = mapi_folder_getcontentstable($abfldentry);
+				mapi_table_restrict($abfldcontents, $restriction);
+				$r = mapi_table_queryallrows($abfldcontents, [PR_ACCOUNT, PR_ADDRTYPE, PR_DISPLAY_NAME, PR_ENTRYID,
+					PR_SEARCH_KEY, PR_OBJECT_TYPE, PR_SMTP_ADDRESS, PR_DISPLAY_TYPE_EX, PR_EMAIL_ADDRESS,
+					PR_OBJECT_TYPE, PR_DISPLAY_TYPE]);
+				if (is_array($r) && !empty($r)) {
+					$rows = array_merge($rows, $r);
+				}
+			}
+		}
 	}
 }
