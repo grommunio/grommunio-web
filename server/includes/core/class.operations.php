@@ -4274,7 +4274,7 @@ class Operations {
 		// Retrieve the recipient history
 		$store = $GLOBALS["mapisession"]->getDefaultMessageStore();
 		$storeProps = mapi_getprops($store, [PR_EC_RECIPIENT_HISTORY_JSON]);
-		$recipient_history = false;
+		$recipient_history = [];
 
 		if (isset($storeProps[PR_EC_RECIPIENT_HISTORY_JSON]) || propIsError(PR_EC_RECIPIENT_HISTORY_JSON, $storeProps) == MAPI_E_NOT_ENOUGH_MEMORY) {
 			$datastring = streamProperty($store, PR_EC_RECIPIENT_HISTORY_JSON);
