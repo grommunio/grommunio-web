@@ -2101,6 +2101,9 @@ class Operations {
 			}
 			if ($tzdef !== false) {
 				$action['props']['tzdefstart'] = $action['props']['tzdefend'] = bin2hex($tzdef);
+				if (isset($action['props']['recurring']) && $action['props']['recurring'] == true) {
+					$action['props']['tzdefrecur'] = $action['props']['tzdefstart'];
+				}
 			}
 		}
 
@@ -2118,7 +2121,7 @@ class Operations {
 						!isset($action['props']['startdate']) &&
 						!isset($action['props']['enddate'])
 					) {
-						unset($action['props']['tzdefstart'], $action['props']['tzdefend']);
+						unset($action['props']['tzdefstart'], $action['props']['tzdefend'], $action['props']['tzdefrecur']);
 					}
 					// Check if appointment is an exception to a recurring item
 					if (isset($action['basedate']) && $action['basedate'] > 0) {

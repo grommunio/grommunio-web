@@ -279,6 +279,7 @@ class Properties {
 			$properties["timezone"] = "PT_STRING8:PSETID_Appointment:" . PidLidTimeZoneDescription;
 			$properties["tzdefstart"] = "PT_BINARY:PSETID_Appointment:" . PidLidAppointmentTimeZoneDefinitionStartDisplay;
 			$properties["tzdefend"] = "PT_BINARY:PSETID_Appointment:" . PidLidAppointmentTimeZoneDefinitionEndDisplay;
+			$properties["tzdefrecur"] = "PT_BINARY:PSETID_Appointment:" . PidLidAppointmentTimeZoneDefinitionRecur;
 
 			$this->mapping[$this->storeMapping]['meeting'] = getPropIdsFromStrings($this->store, $properties);
 		}
@@ -357,6 +358,7 @@ class Properties {
 			$properties["request_sent"] = "PT_BOOLEAN:PSETID_Appointment:0x8229";
 			$properties["tzdefstart"] = "PT_BINARY:PSETID_Appointment:" . PidLidAppointmentTimeZoneDefinitionStartDisplay;
 			$properties["tzdefend"] = "PT_BINARY:PSETID_Appointment:" . PidLidAppointmentTimeZoneDefinitionEndDisplay;
+			$properties["tzdefrecur"] = "PT_BINARY:PSETID_Appointment:" . PidLidAppointmentTimeZoneDefinitionRecur;
 
 			// Meeting properties
 			$properties["goid"] = "PT_BINARY:PSETID_Meeting:0x3";
@@ -444,6 +446,7 @@ class Properties {
 			$properties["hideattachments"] = "PT_BOOLEAN:PSETID_Common:" . PidLidSmartNoAttach;
 			$properties["tzdefstart"] = "PT_BINARY:PSETID_Appointment:" . PidLidAppointmentTimeZoneDefinitionStartDisplay;
 			$properties["tzdefend"] = "PT_BINARY:PSETID_Appointment:" . PidLidAppointmentTimeZoneDefinitionEndDisplay;
+			$properties["tzdefrecur"] = "PT_BINARY:PSETID_Appointment:" . PidLidAppointmentTimeZoneDefinitionRecur;
 
 			$this->mapping[$this->storeMapping]['recurrence'] = getPropIdsFromStrings($this->store, $properties);
 		}
