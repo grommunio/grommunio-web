@@ -273,8 +273,10 @@ Zarafa.common.recurrence.dialogs.RecurrencePanel = Ext.extend(Ext.Panel, {
 							allowNegative: false,
 							minValue: 1,
 							width: 50,
+							enableKeyEvents: true,
 							listeners: {
 								change: this.onFieldChange,
+								keypress: this.onKeyPress,
 								scope: this
 							}
 						}]
@@ -386,6 +388,9 @@ Zarafa.common.recurrence.dialogs.RecurrencePanel = Ext.extend(Ext.Panel, {
 		// The field is represented in UTC time,
 		// so convert it to local to get the time for the property
 		this.record.set(field.getName(), newValue.fromUTC());
+		Ext.each(this.endPatternPanel.findByType('radio'), function(radio) {
+			radio.setValue(radio.endTerm == Zarafa.common.recurrence.data.RecurrenceEnd.ON_DATE);
+		});
 	},
 
 	/**
@@ -676,7 +681,20 @@ Zarafa.common.recurrence.dialogs.RecurrencePanel = Ext.extend(Ext.Panel, {
 		record.set('commonend', dueDate);
 
 		record.endEdit();
-	}
+	},
+
+	/**
+	 * Event is fired when keypress event is fired on recurrence_numoccur field,
+	 * e.g. the user enters the number of the occurrences manually.
+	 * @param {HtmlElement} element The target of the event
+	 * @param {Ext.EventObject} event The Ext.EventObject encapsulating the DOM event
+	 */
+	onKeyPress: function(element, event)
+	{
+		Ext.each(this.endPatternPanel.findByType('radio'), function(radio) {
+			radio.setValue(radio.endTerm == Zarafa.common.recurrence.data.RecurrenceEnd.N_OCCURRENCES);
+		});
+	},
 });
 
 Ext.reg('zarafa.recurrencepanel', Zarafa.common.recurrence.dialogs.RecurrencePanel);
