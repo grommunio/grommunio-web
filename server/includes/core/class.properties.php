@@ -964,6 +964,9 @@ class Properties {
 			$properties["appointment_enddate_recurring"] = "PT_SYSTIME:PSETID_Appointment:" . PidLidClipEnd;		// ClipEnd
 			$properties["appointment_exception"] = "PT_BOOLEAN:PSETID_Meeting:0xA";						// LID_IS_EXCEPTION
 			$properties["appointment_location"] = "PT_STRING8:PSETID_Appointment:" . PidLidLocation;
+			$properties["alldayevent"] = "PT_BOOLEAN:PSETID_Appointment:" . PidLidAppointmentSubType;
+			$properties["tzdefstart"] = "PT_BINARY:PSETID_Appointment:" . PidLidAppointmentTimeZoneDefinitionStartDisplay;
+			$properties["tzdefend"] = "PT_BINARY:PSETID_Appointment:" . PidLidAppointmentTimeZoneDefinitionEndDisplay;
 			// Propose new time properties
 			$properties["proposed_start_date"] = "PT_SYSTIME:PSETID_Appointment:" . PidLidAppointmentProposedStartWhole;
 			$properties["proposed_end_date"] = "PT_SYSTIME:PSETID_Appointment:" . PidLidAppointmentProposedEndWhole;

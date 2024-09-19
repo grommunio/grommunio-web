@@ -507,7 +507,39 @@ class ItemModule extends Module {
 								 * if meeting request is not out of date then process it for the first time
 								 * which will create corresponding appointment in the user's calendar
 								 */
-								$req->doAccept(true, false, false);
+								$calItemEntryid = $req->doAccept(true, false, false);
+								// we need to set timezone information for all-day events
+								if (isset($data['item']['props']['alldayevent']) &&
+									$data['item']['props']['alldayevent'] == true &&
+									!empty($action["timezone_iana"]) &&
+									is_string($calItemEntryid)) {
+									try {
+										$tzdef = mapi_ianatz_to_tzdef($action['timezone_iana']);
+										$tzdefObj = $GLOBALS['entryid']->createTimezoneDefinitionObject($tzdef);
+										$tzEffRuleIdx = getEffectiveTzreg($tzdefObj['rules']);
+										if (!is_null($tzEffRuleIdx)) {
+											$localStart = $data['item']['props']['appointment_startdate'] + $tzdefObj['rules'][$tzEffRuleIdx]['bias'] * 60;
+											if (isDst($tzdefObj['rules'][$tzEffRuleIdx], $data['item']['props']['appointment_startdate'])) {
+												$localStart += $tzdefObj['rules'][$tzEffRuleIdx]['dstbias'] * 60;
+											}
+											$duration = $data['item']['props']['appointment_duedate'] - $data['item']['props']['appointment_startdate'];
+
+											$calItem = $GLOBALS['mapisession']->openMessage($calItemEntryid);
+											mapi_setprops($calItem, [
+												$this->properties['appointment_startdate'] => $localStart,
+												$this->properties['appointment_duedate'] => $localStart + $duration,
+												$this->properties['tzdefstart'] => $tzdef,
+												$this->properties['tzdefend'] => $tzdef,
+											]);
+											mapi_savechanges($calItem);
+											$data['item']['props']['appointment_startdate'] = $localStart;
+											$data['item']['props']['appointment_duedate'] = $localStart + $duration;
+										}
+									}
+									catch (Exception $e) {
+										error_log(sprintf("Error setting timezone to an all-day event: %s", $e));
+									}
+								}
 							}
 
 							// Show user whether meeting request conflict with other appointment or not.
