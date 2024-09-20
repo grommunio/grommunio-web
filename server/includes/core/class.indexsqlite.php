@@ -283,6 +283,7 @@ class IndexSqlite extends SQLite3 {
 		chmod(SQLITE_INDEX_PATH . '/' . $this->username, 0770);
 		$this->open(SQLITE_INDEX_PATH . '/' . $this->username . '/index.sqlite3');
 		chmod(SQLITE_INDEX_PATH . '/' . $this->username . '/index.sqlite3', 0660);
+
 		return true;
 	}
 
@@ -346,7 +347,7 @@ class IndexSqlite extends SQLite3 {
 			$ipm_subtree = mapi_msgstore_openentry($this->store, $entryid);
 			$table = mapi_folder_gethierarchytable($ipm_subtree, CONVENIENT_DEPTH);
 		}
-		catch (Exception  $e) {
+		catch (Exception $e) {
 			error_log("fail to refresh indexing sqlite, cannot open ipmsubstree hierarchy table in " . $this->username . "'s store");
 
 			return false;
@@ -439,7 +440,9 @@ class IndexSqlite extends SQLite3 {
 			PR_PRIMARY_TELEPHONE_NUMBER,
 			PR_RADIO_TELEPHONE_NUMBER,
 			PR_TELEX_NUMBER,
-			PR_TTYTDD_PHONE_NUMBER, ];
+			PR_TTYTDD_PHONE_NUMBER,
+			PR_COMPANY_NAME,
+			PR_TITLE, ];
 		$proptags = array_merge(
 			[PR_ENTRYID,
 				PR_SENT_REPRESENTING_NAME,
