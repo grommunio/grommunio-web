@@ -154,7 +154,7 @@ class ContactItemModule extends ItemModule {
 					}
 					else {
 						$parts = [];
-						$parts['distlist_guid'] = DL_GUID;
+						$parts['distlist_guid'] = WAB_GUID;
 						$parts['distlist_type'] = $item['distlist_type'];
 						$parts['entryid'] = hex2bin($item['entryid']);
 						$member = pack('VA16CA*', 0, $parts['distlist_guid'], $parts['distlist_type'], $parts['entryid']);
