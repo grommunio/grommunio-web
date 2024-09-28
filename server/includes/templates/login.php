@@ -92,7 +92,11 @@
 				return false;
 			};
 		</script>
-		<?php if (file_exists('disclaimer.html')) { ?>
+		<?php if (file_exists('/etc/grommunio-web/disclaimer.html')) { ?>
+		<div class="disclaimer">
+			<?php include '/etc/grommunio-web/disclaimer.html'; ?>
+		</div>
+		<?php } elseif (file_exists('disclaimer.html')) { ?>
 		<div class="disclaimer">
 			<?php include 'disclaimer.html'; ?>
 		</div>
