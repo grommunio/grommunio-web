@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: grommunio Web Estonian (Estonia)\n"
 "Report-Msgid-Bugs-To: dev@grommunio.com\n"
 "POT-Creation-Date: 2024-04-28 23:29+0200\n"
-"PO-Revision-Date: 2024-10-03 07:09+0000\n"
+"PO-Revision-Date: 2024-10-03 07:16+0000\n"
 "Last-Translator: Priit Jõerüüt <hwlate@joeruut.com>\n"
 "Language-Team: Estonian <https://hosted.weblate.org/projects/grommunio/"
 "grommunio-web/et/>\n"
@@ -25,7 +25,7 @@ msgid "Now"
 msgstr "Nüüd"
 
 msgid "Value must be between 0% to 100%"
-msgstr "Väärtus peab olema vahemikus 0% kuni 100%."
+msgstr "Väärtus peab olema vahemikus 0% kuni 100%"
 
 msgid "Number must be higher than zero"
 msgstr "Number peab olema suurem kui null"
@@ -173,7 +173,7 @@ msgid "First Page"
 msgstr "Esimene leht"
 
 msgid "Previous Page"
-msgstr "Eelmine leht."
+msgstr "Eelmine leht"
 
 msgid "Next Page"
 msgstr "Järgmine leht"
@@ -816,13 +816,13 @@ msgstr "Toimub iga {0} {1} kehtiv {2}."
 msgid "Occurs every {0} effective {1} for {2} occurrence from {3} to {4}."
 msgid_plural ""
 "Occurs every {0} effective {1} for {2} occurrences from {3} to {4}."
-msgstr[0] "Toimub iga {0} kehtiv {1} {2} korral alates {3} kuni {4}."
+msgstr[0] "Toimub iga {0} kehtiv {1} {2} kord alates {3} kuni {4}."
 msgstr[1] "Toimub iga {0} kehtiv {1} {2} korral alates {3} kuni {4}."
 
 msgid "Occurs every {0} {1} effective {2} for {3} occurrence from {4} to {5}."
 msgid_plural ""
 "Occurs every {0} {1} effective {2} for {3} occurrences {4} to {5}."
-msgstr[0] "Toimub iga {0} {1} kehtib {2} {3} korral alates {4} kuni {5}."
+msgstr[0] "Toimub iga {0} {1} kehtib {2} {3} kord alates {4} kuni {5}."
 msgstr[1] "Toimub iga {0} {1} kehtib {2} {3} korral alates {4} kuni {5}."
 
 msgid "Occurs every {0} effective {1} for {2} occurrence."
@@ -1124,8 +1124,8 @@ msgid ""
 "Please note that any changes you make will be overwritten when this meeting "
 "request is updated by the organizer"
 msgstr ""
-"Pange tähele, et kõik teie tehtud muudatused kirjutatakse üle, kui "
-"korraldaja uuendab seda koosolekutaotlust."
+"Palun arvesta, et kõik sinu tehtud muudatused kirjutatakse üle, kui "
+"korraldaja uuendab seda koosolekukutset."
 
 msgid "Create in"
 msgstr "Loo sisse"
@@ -1149,7 +1149,7 @@ msgid "Warning"
 msgstr "Hoiatus"
 
 msgid "Attachments cannot be modified for a single occurence"
-msgstr "Manuseid ei saa muuta ühe korra puhul."
+msgstr "Manuseid ei saa muuta ühe korra puhul"
 
 msgid "Type your message here…"
 msgstr "Sisesta oma sõnum siia…"
@@ -1626,7 +1626,7 @@ msgid "The time of the meeting has changed. What would you like to do?"
 msgstr "Koosoleku aeg on muutunud. Mida soovite teha?"
 
 msgid "Save changes and send an update to all recipients"
-msgstr "Salvesta muudatused ja saada ajakohastus kõigile adressaatidele."
+msgstr "Salvesta muudatused ja saada ajakohastus kõigile adressaatidele"
 
 msgid "Open meeting request with changes"
 msgstr "Avatud koosoleku taotlus koos muudatustega"
@@ -1857,7 +1857,7 @@ msgid "You have not responded to the meeting request \"{0}\"."
 msgstr "Te ei ole vastanud kohtumise taotlusele \"{0}\"."
 
 msgid "Delete and send a response to the meeting organizer"
-msgstr "Kustuta ja saada vastus koosoleku korraldajale."
+msgstr "Kustuta ja saada vastus koosoleku korraldajale"
 
 msgid "Delete without sending"
 msgstr "Kustuta ilma saatmiseta"
@@ -2192,8 +2192,8 @@ msgid ""
 "If you only want to set folder permissions, right-click on a folder to open "
 "the context menu and click on \"Share folder…\""
 msgstr ""
-"Kui soovite määrata ainult kaustade õigusi, avage kontekstmenüü "
-"paremklõpsuga kaustal ja klõpsake \"Jaga kaust...\"."
+"Kui soovid määrata ainult kaustade õigusi, ava paremklõpsuga kaustal "
+"kontekstmenüü ja klõpsa „Jaga kausta…“"
 
 msgid "Permission"
 msgstr "Luba"
@@ -2215,8 +2215,8 @@ msgstr "Sihtkoha kaust"
 
 msgid "There is {0} message selected."
 msgid_plural "There are {0} messages selected."
-msgstr[0] "{0} sõnum on valitud"
-msgstr[1] "{0} sõnumit on valitud"
+msgstr[0] "{0} sõnum on valitud."
+msgstr[1] "{0} sõnumit on valitud."
 
 msgid "Folder '{0}' selected."
 msgstr "Kaust '{0}' valitud."
@@ -2329,7 +2329,7 @@ msgid "Hide non-working hours"
 msgstr "Varjata töövälised tunnid"
 
 msgid "No freebusy information available for this date"
-msgstr "Selle kuupäeva kohta ei ole vabavara teavet saadaval."
+msgstr "Selle kuupäeva kohta ei leidu saadavuse teavet"
 
 msgid "No suggestions available"
 msgstr "Ettepanekud puuduvad"
@@ -2376,7 +2376,7 @@ msgid "Extend the selection to the first item in the list"
 msgstr "Laiendada valikut nimekirja esimese elemendini"
 
 msgid "Extend the selection to the last item in the list"
-msgstr "Laiendab valikut nimekirja viimase elemendini."
+msgstr "Laienda valikut loendi viimase kirjeni"
 
 #, fuzzy
 msgid "Open selected item"
@@ -2432,9 +2432,8 @@ msgstr "Vastus Mail"
 msgid "New Mail"
 msgstr "Uus post"
 
-#, fuzzy
 msgid "Please select a Cc recipient record."
-msgstr "Palun täpsusta saaja"
+msgstr "Palun täpsusta koopia saaja."
 
 #, fuzzy
 msgid "Manage Cc recipients"
@@ -2757,7 +2756,7 @@ msgid "includes these words in the body…"
 msgstr "sisaldab järgmisi sõnu sisus…"
 
 msgid "includes these words in the transport headers…"
-msgstr "sisaldab neid sõnu transpordi päises…"
+msgstr "sisaldab neid sõnu kirja tehnilises päises…"
 
 #, fuzzy
 msgid "has importance…"
@@ -2929,7 +2928,7 @@ msgid "All folders"
 msgstr "Kadunud kaustad"
 
 msgid "Other…"
-msgstr "Muud..."
+msgstr "Teised…"
 
 #, fuzzy
 msgid "Search in…"
@@ -3063,7 +3062,7 @@ msgid "{0} overdue"
 msgstr "{0} üle tähtaja"
 
 msgid "Loading…"
-msgstr "Laadimine..."
+msgstr "Laadime…"
 
 msgid "Message could not be loaded"
 msgstr "Sõnumit ei saanud laadida"
@@ -3571,7 +3570,7 @@ msgid "Add New"
 msgstr "Lisa uus"
 
 msgid "Type your note here…"
-msgstr "Kirjutage oma märkus siia..."
+msgstr "Kirjuta oma märkus siia…"
 
 msgid "New contact"
 msgstr "Uus kontakt"
@@ -4508,7 +4507,7 @@ msgid "Your email will be sent {0}{1}"
 msgstr "Teie e-kiri saadetakse {0}{1}"
 
 msgid "Saving…"
-msgstr "Säästmine..."
+msgstr "Salvestame…"
 
 msgid "Saved at {0}"
 msgstr "Salvestatud aadressil {0}"
@@ -5663,7 +5662,7 @@ msgid "More than 1 share link exists. Only showing the latest one"
 msgstr "Olemas on rohkem kui 1 jagamislink. Näitab ainult viimast"
 
 msgid "Loading details…"
-msgstr "Detailide laadimine..."
+msgstr "Laadime üksikasju…"
 
 msgid "Share Details"
 msgstr "Jaga üksikasjad"
