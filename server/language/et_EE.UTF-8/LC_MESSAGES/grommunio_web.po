@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: grommunio Web Estonian (Estonia)\n"
 "Report-Msgid-Bugs-To: dev@grommunio.com\n"
 "POT-Creation-Date: 2024-04-28 23:29+0200\n"
-"PO-Revision-Date: 2024-09-30 12:29+0000\n"
+"PO-Revision-Date: 2024-10-03 07:08+0000\n"
 "Last-Translator: Priit Jõerüüt <hwlate@joeruut.com>\n"
 "Language-Team: Estonian <https://hosted.weblate.org/projects/grommunio/"
 "grommunio-web/et/>\n"
@@ -481,7 +481,6 @@ msgstr ""
 msgid "Use the search bar to get results"
 msgstr "Tulemuste saamiseks kasutage otsinguriba"
 
-#, fuzzy
 msgid "There are no items to show in this list"
 msgstr "Selles vaates pole hetkel kirjeid kuvamiseks"
 
@@ -2132,9 +2131,8 @@ msgstr "Leitakse rohkem kui üks '{0}'."
 msgid "Alert"
 msgstr "Hoiatus"
 
-#, fuzzy
 msgid "Please select a recipient"
-msgstr "Palun täpsusta saaja"
+msgstr "Palun vali saaja"
 
 msgid "Mail and Post"
 msgstr "Post ja post"
@@ -2148,9 +2146,8 @@ msgstr "Päevaraamat"
 msgid "Note"
 msgstr "Märkus"
 
-#, fuzzy
 msgid "Task"
-msgstr "Ülesanded"
+msgstr "Ülesanne"
 
 msgid "Inbox"
 msgstr "Sisendkaust"
@@ -2201,9 +2198,8 @@ msgstr ""
 msgid "Permission"
 msgstr "Luba"
 
-#, fuzzy
 msgid "Duplicate delegate"
-msgstr "Keeldutud"
+msgstr "Dubleeriv delegaat"
 
 msgid "Delegate already exists in the list."
 msgstr "Delegaat on juba nimekirjas olemas."
@@ -2248,10 +2244,10 @@ msgid "Subject:"
 msgstr "Teema:"
 
 msgid "Would you like to copy instead?"
-msgstr "Kas soovite hoopis kopeerida?"
+msgstr "Kas soovid hoopis kopeerida?"
 
 msgid "Do not show this message again."
-msgstr "Ärge näidake seda teadet uuesti."
+msgstr "Ära näita seda teadet uuesti."
 
 msgid "ICS"
 msgstr "ICS"
@@ -2298,9 +2294,8 @@ msgstr "järgmisel nädalal"
 msgid "Edit recipient"
 msgstr "Redigeeri vastuvõtja"
 
-#, fuzzy
 msgid "Copy email address"
-msgstr "E-posti aadressid"
+msgstr "Kopeeri e-posti aadress"
 
 #, fuzzy
 msgid "Set as required"
@@ -2726,28 +2721,28 @@ msgid "Sort by: Size"
 msgstr "Sorteeri: pealkiri"
 
 msgid "Move the message to folder…"
-msgstr "Viige sõnum kausta..."
+msgstr "Tõsta sõnum kausta…"
 
 msgid "Copy the message to folder…"
-msgstr "Kopeeri sõnum kausta..."
+msgstr "Kopeeri sõnum kausta…"
 
 msgid "Delete the message"
 msgstr "Kustuta sõnum"
 
 msgid "Redirect the message to…"
-msgstr "Suunake sõnum ümber..."
+msgstr "Suuna sõnum uuele aadressile…"
 
 msgid "Forward the message to…"
-msgstr "Edastage sõnum edasi..."
+msgstr "Edasta sõnum uuele aadressile…"
 
 msgid "Forward the message as attachment to…"
-msgstr "Edastage sõnum manusena aadressil..."
+msgstr "Edasta sõnum manusena uuele aadressile…"
 
 msgid "Mark the message as read…"
 msgstr "Märgi sõnum loetuks…"
 
 msgid "is received from…"
-msgstr "on saadud..."
+msgstr "on saadud…"
 
 msgid "includes these words in the sender's address…"
 msgstr "sisaldab neid sõnu saatja aadressil..."
