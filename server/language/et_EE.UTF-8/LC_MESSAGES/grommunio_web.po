@@ -7,7 +7,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: dev@grommunio.com\n"
 "POT-Creation-Date: 2024-04-28 23:29+0200\n"
 "PO-Revision-Date: 2024-10-03 07:16+0000\n"
-"Last-Translator: Priit Jõerüüt <hwlate@joeruut.com>\n"
+"Last-Translator: DeepL <noreply-mt-deepl@weblate.org>\n"
 "Language-Team: Estonian <https://hosted.weblate.org/projects/grommunio/"
 "grommunio-web/et/>\n"
 "Language: et_EE\n"
@@ -2782,19 +2782,19 @@ msgid "has my name in the To or Cc field"
 msgstr "on minu nimi To- või Cc-väljal"
 
 msgid "has sensitivity…"
-msgstr "on tundlikkus..."
+msgstr "on tundlikkus…"
 
 msgid "is received after…"
-msgstr "saadakse pärast..."
+msgstr "saadakse pärast…"
 
 msgid "is received before…"
-msgstr "on saadud enne..."
+msgstr "on saadud enne…"
 
 msgid "size is at least…"
-msgstr "suurus on vähemalt..."
+msgstr "suurus on vähemalt…"
 
 msgid "size is at most…"
-msgstr "suurus on maksimaalselt..."
+msgstr "suurus on maksimaalselt…"
 
 msgid "has my name in the To field"
 msgstr "on minu nimi väljal To"
@@ -2909,7 +2909,7 @@ msgid "Always move messages with this subject"
 msgstr "Liigutage alati selle teemaga sõnumeid"
 
 msgid "Create rule…"
-msgstr "Loo reegel..."
+msgstr "Loo reegel…"
 
 msgid "myself"
 msgstr "ise"
@@ -4405,7 +4405,7 @@ msgid "Properties of {0}"
 msgstr "{0} omadused"
 
 msgid "Share {0} with…"
-msgstr "Jaga {0} koos..."
+msgstr "Jaga {0} koos…"
 
 msgid "Properties of {0} - {1}"
 msgstr "{0} - {1} omadused"
@@ -4751,7 +4751,7 @@ msgid "Automatically reply with the following message:"
 msgstr "Automaatselt vastata järgmise tekstiga:"
 
 msgid "(The frequency of replies is dependent on server configuration.)"
-msgstr ""
+msgstr "(Vastuste sagedus sõltub serveri konfiguratsioonist.)"
 
 msgid "Inside My Organization"
 msgstr "Minu organisatsiooni sees"
