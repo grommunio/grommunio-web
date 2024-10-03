@@ -7,7 +7,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: dev@grommunio.com\n"
 "POT-Creation-Date: 2024-04-28 23:29+0200\n"
 "PO-Revision-Date: 2024-10-03 22:25+0000\n"
-"Last-Translator: Priit Jõerüüt <hwlate@joeruut.com>\n"
+"Last-Translator: DeepL <noreply-mt-deepl@weblate.org>\n"
 "Language-Team: Estonian <https://hosted.weblate.org/projects/grommunio/"
 "grommunio-web/et/>\n"
 "Language: et_EE\n"
@@ -2740,16 +2740,14 @@ msgstr "sisaldab järgmisi sõnu sisus…"
 msgid "includes these words in the transport headers…"
 msgstr "sisaldab neid sõnu kirja tehnilises päises…"
 
-#, fuzzy
 msgid "has importance…"
-msgstr "Oluline…"
+msgstr "on oluline…"
 
 msgid "has an attachment"
 msgstr "on kinnitus"
 
-#, fuzzy
 msgid "is sent to…"
-msgstr "Saadetud…"
+msgstr "saadetakse…"
 
 msgid "is sent only to me"
 msgstr "saadetakse ainult mulle"
@@ -2908,9 +2906,8 @@ msgstr "Kõik kaustad"
 msgid "Other…"
 msgstr "Teised…"
 
-#, fuzzy
 msgid "Search in…"
-msgstr "Märts…"
+msgstr "Otsi…"
 
 msgid "Folder does not exist"
 msgstr "Kausta ei ole olemas"
