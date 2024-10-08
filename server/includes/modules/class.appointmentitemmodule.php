@@ -370,13 +370,16 @@ class AppointmentItemModule extends ItemModule {
 	 * @param object $message
 	 */
 	private function processAllDayItem($store, &$calendaritem, $message) {
-		if (!isset($calendaritem['props']['tzdefstart'])) {
-			return;
-		}
+		// If the appointment doesn't have tzdefstart property, it was probably
+		// created on a mobile device (mobile devices do not send a timezone for
+		// all-day events).
+		$tzdefstart = isset($calendaritem['props']['tzdefstart']) ?
+			hex2bin($calendaritem['props']['tzdefstart']) :
+			mapi_ianatz_to_tzdef("Etc/UTC");
 
 		// Compare the timezone definitions of the client and the appointment.
 		// Further processing is only required if they don't match.
-		if ($GLOBALS['entryid']->compareEntryIds($this->tzdef, $calendaritem['props']['tzdefstart'])) {
+		if ($GLOBALS['entryid']->compareEntryIds($this->tzdef, $tzdefstart)) {
 			return;
 		}
 
@@ -385,7 +388,7 @@ class AppointmentItemModule extends ItemModule {
 		}
 		$this->tzEffRuleIdx = getEffectiveTzreg($this->tzdefObj['rules']);
 
-		$appTzDefStart = $GLOBALS['entryid']->createTimezoneDefinitionObject(hex2bin($calendaritem['props']['tzdefstart']));
+		$appTzDefStart = $GLOBALS['entryid']->createTimezoneDefinitionObject($tzdefstart);
 
 		// Find TZRULE_FLAG_EFFECTIVE_TZREG rule for the appointment's timezone
 		$appTzEffRuleIdx = getEffectiveTzreg($appTzDefStart['rules']);

@@ -538,15 +538,17 @@ class AppointmentListModule extends ListModule {
 	 * @param array  $openedMessages
 	 */
 	private function processAllDayItem($store, &$calendaritem, &$openedMessages) {
-		if (!isset($calendaritem['props']['tzdefstart'])) {
-			return;
-		}
-		$tzdefstart = hex2bin($calendaritem['props']['tzdefstart']);
+		// If the appointment doesn't have tzdefstart property, it was probably
+		// created on a mobile device (mobile devices do not send a timezone for
+		// all-day events).
+		$tzdefstart = isset($calendaritem['props']['tzdefstart']) ?
+			hex2bin($calendaritem['props']['tzdefstart']) :
+			mapi_ianatz_to_tzdef("Etc/UTC");
 
 		// queryrows only returns 510 chars max, so if tzdef is longer than that
 		// it was probably silently truncated. In such case we need to open
 		// the message and read the prop value as stream.
-		if (strlen($calendaritem['props']['tzdefstart']) > 500) {
+		if (strlen($tzdefstart) > 500 && isset($calendaritem['props']['tzdefstart'])) {
 			if (!isset($openedMessages[$calendaritem['entryid']])) {
 				// Open the message and add it to the openedMessages property
 				$openedMessages[$calendaritem['entryid']] = mapi_msgstore_openentry($store, hex2bin($calendaritem['entryid']));
