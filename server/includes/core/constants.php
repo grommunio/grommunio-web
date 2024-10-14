@@ -25,7 +25,7 @@
 	define("HIERARCHY_GET_ONE", 2);
 
 	// used by distribution lists
-	define("DL_GUID", pack("H*", "C091ADD3519DCF11A4A900AA0047FAA4"));
+	define("WAB_GUID", pack("H*", "C091ADD3519DCF11A4A900AA0047FAA4"));
 	define("DL_USER", 0xC3);		//	195
 	define("DL_USER2", 0xD3);		//	211
 	define("DL_USER3", 0xE3);		//	227
