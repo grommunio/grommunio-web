@@ -113,6 +113,7 @@ Zarafa.common.ui.HtmlEditor = Ext.extend(Ext.ux.form.TinyMCETextArea, {
 				paste_as_text: false,
 				width: "100%",
 				menubar: false,
+				contextmenu: false,
 				statusbar: false,
 				skin: themeIsDark ? "oxide-dark" : "oxide",
 				content_css: themeIsDark ? "dark" : "default",
