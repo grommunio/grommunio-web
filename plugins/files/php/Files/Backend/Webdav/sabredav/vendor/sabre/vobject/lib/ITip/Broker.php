@@ -108,7 +108,7 @@ class Broker
      *
      * @return VCalendar|null
      */
-    public function processMessage(Message $itipMessage, VCalendar $existingObject = null)
+    public function processMessage(Message $itipMessage, ?VCalendar $existingObject = null)
     {
         // We only support events at the moment.
         if ('VEVENT' !== $itipMessage->component) {
@@ -266,7 +266,7 @@ class Broker
      *
      * @return VCalendar|null
      */
-    protected function processMessageRequest(Message $itipMessage, VCalendar $existingObject = null)
+    protected function processMessageRequest(Message $itipMessage, ?VCalendar $existingObject = null)
     {
         if (!$existingObject) {
             // This is a new invite, and we're just going to copy over
@@ -301,7 +301,7 @@ class Broker
      *
      * @return VCalendar|null
      */
-    protected function processMessageCancel(Message $itipMessage, VCalendar $existingObject = null)
+    protected function processMessageCancel(Message $itipMessage, ?VCalendar $existingObject = null)
     {
         if (!$existingObject) {
             // The event didn't exist in the first place, so we're just
@@ -326,7 +326,7 @@ class Broker
      *
      * @return VCalendar|null
      */
-    protected function processMessageReply(Message $itipMessage, VCalendar $existingObject = null)
+    protected function processMessageReply(Message $itipMessage, ?VCalendar $existingObject = null)
     {
         // A reply can only be processed based on an existing object.
         // If the object is not available, the reply is ignored.
@@ -510,10 +510,11 @@ class Broker
                 $icalMsg->add(clone $timezone);
             }
 
-            if (!$attendee['newInstances']) {
-                // If there are no instances the attendee is a part of, it
-                // means the attendee was removed and we need to send him a
-                // CANCEL.
+            if (!$attendee['newInstances'] || 'CANCELLED' === $eventInfo['status']) {
+                // If there are no instances the attendee is a part of, it means
+                // the attendee was removed and we need to send them a CANCEL message.
+                // Also If the meeting STATUS property was changed to CANCELLED
+                // we need to send the attendee a CANCEL message.
                 $message->method = 'CANCEL';
 
                 $icalMsg->METHOD = $message->method;
@@ -807,7 +808,7 @@ class Broker
      *
      * @return array
      */
-    protected function parseEventInfo(VCalendar $calendar = null)
+    protected function parseEventInfo(?VCalendar $calendar = null)
     {
         $uid = null;
         $organizer = null;
