@@ -541,7 +541,7 @@ class ListModule extends Module {
 	 */
 	public function stopSearch($store, $entryid, $action) {
 		// if no entryid is present in the request then get the search folder entryid from session data
-		$entryid = !empty($entryid) ? $entryid : hex2bin($action['search_folder_entryid']);
+		$entryid = !empty($entryid) ? $entryid : (!empty($action['search_folder_entryid']) ? hex2bin($action['search_folder_entryid']) : null);
 
 		if (empty($entryid)) {
 			// still no entryid? sorry i can't help you anymore

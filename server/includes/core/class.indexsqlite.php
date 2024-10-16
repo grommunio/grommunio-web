@@ -67,7 +67,7 @@ class IndexSqlite extends SQLite3 {
 						}
 						$tmp_props = mapi_getprops($folder, [PR_PARENT_ENTRYID, PR_FOLDER_ID]);
 						$folder_entryid = $tmp_props[PR_PARENT_ENTRYID];
-						$tmp_fid = IndexSqlite::get_gc_value($tmp_props[PR_FOLDER_ID]);
+						$tmp_fid = IndexSqlite::get_gc_value((int) $tmp_props[PR_FOLDER_ID]);
 						if ($tmp_fid == $folder_id) {
 							break;
 						}
@@ -164,7 +164,6 @@ class IndexSqlite extends SQLite3 {
 	) {
 		$search_folder = mapi_msgstore_openentry($this->store, $search_entryid);
 		$tmp_props = mapi_getprops($search_folder, [PR_FOLDER_ID]);
-		$search_id = IndexSqlite::get_gc_value($tmp_props[PR_FOLDER_ID]);
 		if (isset($folder_entrid)) {
 			try {
 				$folder = mapi_msgstore_openentry($this->store, $folder_entrid);
@@ -175,7 +174,7 @@ class IndexSqlite extends SQLite3 {
 				if (empty($tmp_props[PR_FOLDER_ID])) {
 					return false;
 				}
-				$folder_id = IndexSqlite::get_gc_value($tmp_props[PR_FOLDER_ID]);
+				$folder_id = IndexSqlite::get_gc_value((int) $tmp_props[PR_FOLDER_ID]);
 			}
 			catch (Exception $e) {
 				return false;
