@@ -187,13 +187,14 @@ class Language {
 		$memid = @shm_attach(0x950412DE, 16 * 1024 * 1024, 0666);
 		if (@shm_has_var($memid, 0)) {
 			$cache_table = @shm_get_var($memid, 0);
-			if (empty($cache_table)) {
+			$selected_lang = $this->getSelected();
+			if (empty($cache_table) || empty($cache_table[$selected_lang])) {
 				@shm_remove_var($memid, 0);
 				@shm_detach($memid);
 
 				return ['grommunio_web' => []];
 			}
-			$translation_id = $cache_table[$this->getSelected()];
+			$translation_id = $cache_table[$selected_lang];
 			if (empty($translation_id)) {
 				@shm_detach($memid);
 
