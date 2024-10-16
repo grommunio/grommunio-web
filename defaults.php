@@ -74,7 +74,7 @@ if (!defined("SQLITE_FTS_ENGINE")) {
 // Tokenizer for sqlite full text search engine
 // can be simple, unicode61, icu, ascii, porter
 if (!defined("SQLITE_FTS_TOKENIZER")) {
-	define("SQLITE_FTS_TOKENIZER", "unicode61");
+	define("SQLITE_FTS_TOKENIZER", "trigram");
 }
 
 /*
