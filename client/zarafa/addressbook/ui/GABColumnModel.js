@@ -29,7 +29,7 @@ Zarafa.addressbook.ui.GABColumnModel = Ext.extend(Zarafa.common.ui.grid.ColumnMo
 	},
 
 	/**
-	 * Gets the columns for the GAB, including from the insertion point \
+	 * Gets the columns for the GAB, including from the insertion point
 	 * @returns {Array} An array of objects with column configurations
 	 *
 	 * @private
@@ -40,7 +40,7 @@ Zarafa.addressbook.ui.GABColumnModel = Ext.extend(Zarafa.common.ui.grid.ColumnMo
 		var defaultItems = [{
 			dataIndex: 'icon_index',
 			headerCls: 'zarafa-icon-column',
-			header: '<p class="icon_index">&nbsp;</p>',
+			header: _('Icon'),
 			sortable: true,
 			tooltip: _('Sort by: Icon'),
 			width: 25,
