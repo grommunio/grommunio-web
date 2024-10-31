@@ -136,6 +136,19 @@ class AddressbookListModule extends ListModule {
 					],
 				];
 			}
+			elseif ($action["sort"][0]["field"] === 'icon_index') {
+				$sortingField = 'display_type_ex';
+				$action["sort"] = [
+					[
+						"field" => 'display_type_ex',
+						"direction" => $sortingDir,
+					],
+					[
+						"field" => 'display_name',
+						"direction" => $sortingDir,
+					],
+				];
+			}
 
 			// Parse incoming sort order
 			$this->parseSortOrder($action, $map, true);
@@ -442,12 +455,12 @@ class AddressbookListModule extends ListModule {
 				function cmpAsc($a, $b) {
 					global $sortingField;
 
-					return strcasecmp($b['props'][$sortingField], $a['props'][$sortingField]);
+					return strcasecmp($b['props'][$sortingField] ?? '', $a['props'][$sortingField] ?? '');
 				}
 				function cmpDesc($a, $b) {
 					global $sortingField;
 
-					return strcasecmp($a['props'][$sortingField], $b['props'][$sortingField]);
+					return strcasecmp($a['props'][$sortingField] ?? '', $b['props'][$sortingField] ?? '');
 				}
 
 				$cmpFn = $sortingDir === 'DESC' ? 'cmpDesc' : 'cmpAsc';

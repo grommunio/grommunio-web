@@ -52,7 +52,8 @@ Zarafa.addressbook.AddressBookRecordFields = [
 	{name: 'home2_telephone_number_mv'},
 	{name: 'mobile_telephone_number'},
 	{name: 'pager_telephone_number'},
-	{name: 'comment'}
+	{name: 'comment'},
+	{name: 'icon_index'},
 ];
 
 Zarafa.core.data.RecordFactory.addFieldToObjectType(Zarafa.core.mapi.ObjectType.MAPI_MAILUSER, Zarafa.addressbook.AddressBookRecordFields);
