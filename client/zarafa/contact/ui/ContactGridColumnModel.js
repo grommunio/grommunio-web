@@ -43,7 +43,7 @@ Zarafa.contact.ui.ContactGridColumnModel = Ext.extend(Zarafa.common.ui.grid.Colu
 		return [{
 			dataIndex: 'icon_index',
 			headerCls: 'zarafa-icon-column icon',
-			header: '<p class="icon_index">&nbsp;<span class="title">' + _('Icon') + '</span></p>',
+			header: _('Icon'),
 			tooltip: _('Sort by: Icon'),
 			width: 25,
 			fixed: true,
