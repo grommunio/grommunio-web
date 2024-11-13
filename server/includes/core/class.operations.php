@@ -2617,11 +2617,12 @@ class Operations {
 	public function submitMessage($store, $entryid, $props, &$messageProps, $recipients = [], $attachments = [], $copyFromMessage = false, $copyAttachments = false, $copyRecipients = false, $copyInlineAttachmentsOnly = false, $isPlainText = false) {
 		$message = false;
 		$origStore = $store;
+		$reprMessage = false;
 
 		// Get the outbox and sent mail entryid, ignore the given $store, use the default store for submitting messages
 		$store = $GLOBALS["mapisession"]->getDefaultMessageStore();
 		$storeprops = mapi_getprops($store, [PR_IPM_OUTBOX_ENTRYID, PR_IPM_SENTMAIL_ENTRYID, PR_ENTRYID]);
-		$origStoreprops = mapi_getprops($origStore, [PR_ENTRYID]);
+		$origStoreprops = mapi_getprops($origStore, [PR_ENTRYID, PR_IPM_SENTMAIL_ENTRYID]);
 
 		if (!isset($storeprops[PR_IPM_OUTBOX_ENTRYID])) {
 			return false;
@@ -2739,6 +2740,12 @@ class Operations {
 				$folder = mapi_msgstore_openentry($origStore, $oldParentEntryId);
 				mapi_folder_deletemessages($folder, [$oldEntryId], DELETE_HARD_DELETE);
 			}
+			$delegateSentItemsStyle = $GLOBALS['settings']->get('zarafa/v1/contexts/mail/delegate_sent_items_style');
+			if (strcasecmp($delegateSentItemsStyle, 'both') == 0) {
+				$destfolder = mapi_msgstore_openentry($origStore, $origStoreprops[PR_IPM_SENTMAIL_ENTRYID]);
+				$reprMessage = mapi_folder_createmessage($destfolder);
+				mapi_copyto($message, [], [], $reprMessage, 0);
+			}
 		}
 		else {
 			// When the message is in your own store, just move it to your outbox. We move it manually so we know the new entryid after it has been moved.
@@ -2821,8 +2828,15 @@ class Operations {
 			return $errorName;
 		}
 
-		$tmp_props = mapi_getprops($message, [PR_PARENT_ENTRYID]);
+		$tmp_props = mapi_getprops($message, [PR_PARENT_ENTRYID, PR_MESSAGE_DELIVERY_TIME, PR_CLIENT_SUBMIT_TIME]);
 		$messageProps[PR_PARENT_ENTRYID] = $tmp_props[PR_PARENT_ENTRYID];
+		if ($reprMessage !== false) {
+			mapi_setprops($reprMessage, [
+				PR_CLIENT_SUBMIT_TIME => $tmp_props[PR_CLIENT_SUBMIT_TIME] ?? time(),
+				PR_MESSAGE_DELIVERY_TIME => $tmp_props[PR_MESSAGE_DELIVERY_TIME] ?? time(),
+			]);
+			mapi_savechanges($reprMessage);
+		}
 
 		$this->addRecipientsToRecipientHistory($this->getRecipientsInfo($message));
 
