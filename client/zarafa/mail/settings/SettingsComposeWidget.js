@@ -70,6 +70,19 @@ Zarafa.mail.settings.SettingsComposeWidget = Ext.extend(Zarafa.settings.ui.Setti
 			data: fontSizeData
 		};
 
+		var delegateSentItemsStore = {
+			xtype: 'jsonstore',
+			autoDestroy: true,
+			fields: ['name', 'value'],
+			data: [{
+				'name': _('In both representee\'s and delegate\'s Sent Items'),
+				'value': 'both'
+			},{
+				'name': _('Only in delegate\'s Sent Items'),
+				'value': 'delegate'
+			}]
+		};
+
 		Ext.applyIf(config, {
 			title: _('Compose mail settings'),
 			layout: 'form',
@@ -140,6 +153,26 @@ Zarafa.mail.settings.SettingsComposeWidget = Ext.extend(Zarafa.settings.ui.Setti
 				width: 200,
 				ref: 'fontSizeCombo',
 				store: fontSizeStore,
+				triggerAction: 'all',
+				mode: 'local',
+				displayField: 'name',
+				valueField: 'value',
+				editable: false,
+				autoSelect: true,
+				forceSelection: true,
+				lazyInit: false,
+				listeners: {
+					select: this.onSelectComboItem,
+					scope: this
+				}
+			},{
+				xtype: 'combo',
+				name: 'zarafa/v1/contexts/mail/delegate_sent_items_style',
+				cls:'x-font-select',
+				fieldLabel: _('Save emails sent by delegate'),
+				width: 200,
+				ref: 'delegateSentItemsStyleCombo',
+				store: delegateSentItemsStore,
 				triggerAction: 'all',
 				mode: 'local',
 				displayField: 'name',
@@ -278,6 +311,8 @@ Zarafa.mail.settings.SettingsComposeWidget = Ext.extend(Zarafa.settings.ui.Setti
 		// disable font and font size combos for plain text compose option
 		this.fontCombo.setDisabled(useHtml !== true);
 		this.fontSizeCombo.setDisabled(useHtml !== true);
+
+		this.delegateSentItemsStyleCombo.setValue(settingsModel.get(this.delegateSentItemsStyleCombo.name));
 
 		this.readBox.setValue(settingsModel.get(this.readBox.name));
 
