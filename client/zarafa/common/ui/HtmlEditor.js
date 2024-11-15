@@ -104,7 +104,7 @@ Zarafa.common.ui.HtmlEditor = Ext.extend(Ext.ux.form.TinyMCETextArea, {
 				paste_data_images: true,
 				automatic_uploads: false,
 				remove_trailing_brs: false,
-				font_formats: fontFamilies,
+				font_family_formats: fontFamilies,
 				font_size_input_default_unit: "pt",
 				browser_spellcheck: true,
 				valid_elements: '*[*]',
