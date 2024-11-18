@@ -7,6 +7,7 @@ define('CHANGE_PASSPHRASE_ERROR', 2);
 define('CHANGE_PASSPHRASE_WRONG', 3);
 
 class PluginSmimeModule extends Module {
+	private $store;
 	/**
 	 * Constructor.
 	 *
