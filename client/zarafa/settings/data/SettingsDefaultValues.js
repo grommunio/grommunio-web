@@ -842,7 +842,7 @@ Zarafa.settings.data.SettingsDefaultValue = function(){
 								 * @property
 								 * @type String
 								 */
-								'delegate_sent_items_style': 'both'
+								'delegate_sent_items_style': 'delegate'
 							},
 
 							'task': {
