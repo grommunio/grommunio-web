@@ -4184,10 +4184,10 @@ class Operations {
 		return [
 			'rowid' => $rowid,
 			'props' => [
-				'entryid' => bin2hex($props[PR_ENTRYID]),
+				'entryid' => !empty($props[PR_ENTRYID]) ? bin2hex($props[PR_ENTRYID]) : '',
 				'object_type' => $props[PR_OBJECT_TYPE] ?? MAPI_MAILUSER,
 				'search_key' => $props[PR_SEARCH_KEY] ?? '',
-				'display_name' => $props[PR_DISPLAY_NAME] ?? $props[PR_EMAIL_ADDRESS],
+				'display_name' => !empty($props[PR_DISPLAY_NAME]) ? $props[PR_DISPLAY_NAME] : $props[PR_EMAIL_ADDRESS],
 				'address_type' => $props[PR_ADDRTYPE] ?? 'SMTP',
 				'email_address' => $props[PR_EMAIL_ADDRESS] ?? '',
 				'smtp_address' => $props[PR_EMAIL_ADDRESS] ?? '',
