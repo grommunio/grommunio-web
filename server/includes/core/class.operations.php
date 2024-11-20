@@ -4159,9 +4159,23 @@ class Operations {
 				$recipients[] = $this->composeRecipient(count($recipients), $props);
 			}
 			catch (MAPIException $e) {
-				$oneoff = mapi_parseoneoff($entryid);
+				try {
+					$oneoff = mapi_parseoneoff($entryid);
+				}
+				catch(MAPIException $ex) {
+					error_log(sprintf(
+						"readReplyRecipientEntry unable to open AB entry and mapi_parseoneoff failed: %s - %s",
+						get_mapi_error_name($ex->getCode()),
+						$ex->getDisplayMessage()
+					));
+					continue;
+				}
 				if (!isset($oneoff['address'])) {
-					Log::Write(LOGLEVEL_WARN, "readReplyRecipientEntry unable to open AB entry and oneoff address is not available: " . get_mapi_error_name($e->getCode()), $e->getDisplayMessage());
+					error_log(sprintf(
+						"readReplyRecipientEntry unable to open AB entry and oneoff address is not available: %s - %s ",
+						get_mapi_error_name($e->getCode()),
+						$e->getDisplayMessage()
+				));
 
 					continue;
 				}
