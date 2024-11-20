@@ -835,7 +835,14 @@ Zarafa.settings.data.SettingsDefaultValue = function(){
 								 * @property
 								 * @type Array
 								 */
-								'cc_recipients':[]
+								'cc_recipients':[],
+
+								/**
+								 * zarafa/v1/contexts/mail/delegate_sent_items_style
+								 * @property
+								 * @type String
+								 */
+								'delegate_sent_items_style': 'delegate'
 							},
 
 							'task': {

@@ -2617,11 +2617,13 @@ class Operations {
 	public function submitMessage($store, $entryid, $props, &$messageProps, $recipients = [], $attachments = [], $copyFromMessage = false, $copyAttachments = false, $copyRecipients = false, $copyInlineAttachmentsOnly = false, $isPlainText = false) {
 		$message = false;
 		$origStore = $store;
+		$reprMessage = false;
+		$saveBoth = $saveRepresentee = false;
 
 		// Get the outbox and sent mail entryid, ignore the given $store, use the default store for submitting messages
 		$store = $GLOBALS["mapisession"]->getDefaultMessageStore();
 		$storeprops = mapi_getprops($store, [PR_IPM_OUTBOX_ENTRYID, PR_IPM_SENTMAIL_ENTRYID, PR_ENTRYID]);
-		$origStoreprops = mapi_getprops($origStore, [PR_ENTRYID]);
+		$origStoreprops = mapi_getprops($origStore, [PR_ENTRYID, PR_IPM_SENTMAIL_ENTRYID]);
 
 		if (!isset($storeprops[PR_IPM_OUTBOX_ENTRYID])) {
 			return false;
@@ -2647,7 +2649,7 @@ class Operations {
 
 		if (!$GLOBALS["entryid"]->compareEntryIds(bin2hex($origStoreprops[PR_ENTRYID]), bin2hex($storeprops[PR_ENTRYID]))) {
 			// set properties for "on behalf of" mails
-			$origStoreProps = mapi_getprops($origStore, [PR_MAILBOX_OWNER_ENTRYID, PR_MDB_PROVIDER]);
+			$origStoreProps = mapi_getprops($origStore, [PR_MAILBOX_OWNER_ENTRYID, PR_MDB_PROVIDER, PR_IPM_SENTMAIL_ENTRYID]);
 
 			// set PR_SENDER_* properties, which contains currently logged users data
 			$ab = $GLOBALS['mapisession']->getAddressbook();
@@ -2714,7 +2716,7 @@ class Operations {
 				$oldParentEntryId = $copyMessageProps[PR_PARENT_ENTRYID];
 
 				// unset id properties before merging the props, so we will be creating new item instead of sending same item
-				unset($copyMessageProps[PR_ENTRYID], $copyMessageProps[PR_PARENT_ENTRYID], $copyMessageProps[PR_STORE_ENTRYID]);
+				unset($copyMessageProps[PR_ENTRYID], $copyMessageProps[PR_PARENT_ENTRYID], $copyMessageProps[PR_STORE_ENTRYID], $copyMessageProps[PR_SEARCH_KEY]);
 
 				// grommunio generates PR_HTML on the fly, but it's necessary to unset it
 				// if the original message didn't have PR_HTML property.
@@ -2738,6 +2740,14 @@ class Operations {
 			if (!empty($oldEntryId) && !empty($oldParentEntryId)) {
 				$folder = mapi_msgstore_openentry($origStore, $oldParentEntryId);
 				mapi_folder_deletemessages($folder, [$oldEntryId], DELETE_HARD_DELETE);
+			}
+			$delegateSentItemsStyle = $GLOBALS['settings']->get('zarafa/v1/contexts/mail/delegate_sent_items_style');
+			$saveBoth = strcasecmp($delegateSentItemsStyle, 'both') == 0;
+			$saveRepresentee = strcasecmp($delegateSentItemsStyle, 'representee') == 0;
+			if ($saveBoth || $saveRepresentee) {
+				$destfolder = mapi_msgstore_openentry($origStore, $origStoreprops[PR_IPM_SENTMAIL_ENTRYID]);
+				$reprMessage = mapi_folder_createmessage($destfolder);
+				mapi_copyto($message, [], [], $reprMessage, 0);
 			}
 		}
 		else {
@@ -2821,8 +2831,37 @@ class Operations {
 			return $errorName;
 		}
 
-		$tmp_props = mapi_getprops($message, [PR_PARENT_ENTRYID]);
+		$tmp_props = mapi_getprops($message, [PR_PARENT_ENTRYID, PR_MESSAGE_DELIVERY_TIME, PR_CLIENT_SUBMIT_TIME, PR_SEARCH_KEY]);
 		$messageProps[PR_PARENT_ENTRYID] = $tmp_props[PR_PARENT_ENTRYID];
+		if ($reprMessage !== false) {
+			mapi_setprops($reprMessage, [
+				PR_CLIENT_SUBMIT_TIME => $tmp_props[PR_CLIENT_SUBMIT_TIME] ?? time(),
+				PR_MESSAGE_DELIVERY_TIME => $tmp_props[PR_MESSAGE_DELIVERY_TIME] ?? time(),
+			]);
+			mapi_savechanges($reprMessage);
+			if ($saveRepresentee) {
+				// delete the message in the delegate's Sent Items folder
+				$sentFolder = mapi_msgstore_openentry($store, $storeprops[PR_IPM_SENTMAIL_ENTRYID]);
+				$sentTable = mapi_folder_getcontentstable($sentFolder, MAPI_DEFERRED_ERRORS);
+				$restriction = [RES_PROPERTY, [
+					RELOP => RELOP_EQ,
+					ULPROPTAG => PR_SEARCH_KEY,
+					VALUE => $tmp_props[PR_SEARCH_KEY]
+				]];
+				mapi_table_restrict($sentTable, $restriction);
+				$sentMessageProps = mapi_table_queryallrows($sentTable, [PR_ENTRYID, PR_SEARCH_KEY]);
+				if (mapi_table_getrowcount($sentTable) == 1) {
+					mapi_folder_deletemessages($sentFolder, [$sentMessageProps[0][PR_ENTRYID]], DELETE_HARD_DELETE);
+				}
+				else {
+					error_log(sprintf(
+						"Found multiple entries in Sent Items with the same PR_SEARCH_KEY (%d)." .
+						" Impossible to delete email from the delegate's Sent Items folder.",
+						mapi_table_getrowcount($sentTable)
+					));
+				}
+			}
+		}
 
 		$this->addRecipientsToRecipientHistory($this->getRecipientsInfo($message));
 
