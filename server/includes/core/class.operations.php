@@ -3003,7 +3003,6 @@ class Operations {
 		if (empty($ignoreProps) && empty($props)) {
 			try {
 				mapi_folder_copymessages($sourcefolder, $entryids, $destfolder, $moveMessages ? MESSAGE_MOVE : 0);
-				dump(sprintf("copied sucessfully: 0x%08X", mapi_last_hresult()));
 			}
 			catch (MAPIException $e) {
 				error_log(sprintf("mapi_folder_copymessages failed with code: 0x%08X. Wait 250ms and try again", mapi_last_hresult()));
