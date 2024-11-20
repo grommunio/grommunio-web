@@ -80,6 +80,9 @@ Zarafa.mail.settings.SettingsComposeWidget = Ext.extend(Zarafa.settings.ui.Setti
 			},{
 				'name': _('Only in delegate\'s Sent Items'),
 				'value': 'delegate'
+			},{
+				'name': _('Only in representee\'s Sent Items'),
+				'value': 'representee'
 			}]
 		};
 
