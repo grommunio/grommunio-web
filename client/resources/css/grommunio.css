@@ -220,6 +220,10 @@ body,
   font-family: 'Fira Mono';
   font-style: normal;
   font-weight: 400;
+  /* Many a monospace font has an advance width that's a bit too much for
+     prose. We would love to just do letter-spacing: -0.05em inside @font-face,
+     but browsers do not support that. This font file was edited externally for
+     the -0.05 adjustment. */
   src: url(../fonts/FiraMono-Regular.woff2) format('woff2');
 }
 
