@@ -843,11 +843,8 @@ class MAPISession {
 					$user_entryid = mapi_msgstore_createentryid($this->getDefaultMessageStore(), $username);
 
 					$sharedStore = $this->openMessageStore($user_entryid, $username);
-					if ($sharedStore !== false && $sharedStore !== ecLoginPerm &&
-						$sharedStore !== MAPI_E_CALL_FAILED && $sharedStore !== MAPI_E_NOT_FOUND) {
-						array_push($otherUsersStores, $sharedStore);
-					}
-					else {
+					if ($sharedStore === false && $sharedStore === ecLoginPerm &&
+						$sharedStore === MAPI_E_CALL_FAILED && $sharedStore === MAPI_E_NOT_FOUND) {
 						$storeOk = false;
 					}
 
@@ -883,7 +880,7 @@ class MAPISession {
 		}
 
 		foreach ($this->userstores as $entryid) {
-			array_push($otherUsersStores, $this->stores[$entryid]);
+			$otherUsersStores[$entryid] = $this->stores[$entryid];
 		}
 
 		return $otherUsersStores;
@@ -1054,14 +1051,17 @@ class MAPISession {
 					$this->getOtherUserStore();
 				}
 
+				$sharedSetting = $GLOBALS["settings"]->get("zarafa/v1/contexts/hierarchy/shared_stores", []);
 				// Find available contact folders from all user stores, one by one.
 				foreach ($this->userstores as $username => $storeEntryID) {
 					$userContactFolders = [];
+					$sharedUserSetting = [];
 					$openedUserStore = $this->openMessageStore($storeEntryID, $username);
 
 					// Get settings of respective shared folder of given user
-					$sharedSetting = $GLOBALS["settings"]->get("zarafa/v1/contexts/hierarchy/shared_stores", null);
-					$sharedUserSetting = $sharedSetting[strtolower(hex2bin($username))];
+					if (array_key_exists(strtolower(bin2hex($username)), $sharedSetting)) {
+						$sharedUserSetting = $sharedSetting[strtolower(bin2hex($username))];
+					}
 
 					// Only add opened shared folders into addressbook contacts provider.
 					// If entire inbox is opened then add each and every contact folders of that particular user.
@@ -1118,7 +1118,7 @@ class MAPISession {
 
 			// Create the lists of store entryids, folder entryids and folder names to be added
 			// to the profile section
-			for ($i = 0,$len = count($contactFolders); $i < $len; ++$i) {
+			for ($i = 0, $len = count($contactFolders); $i < $len; ++$i) {
 				$contact_store_entryids[] = $contactFolders[$i][PR_STORE_ENTRYID];
 				$contact_folder_entryids[] = $contactFolders[$i][PR_ENTRYID];
 				$contact_folder_names[] = $contactFolders[$i][PR_DISPLAY_NAME];
@@ -1143,21 +1143,11 @@ class MAPISession {
 	 */
 	public function getContactFoldersForABContactProvider($store) {
 		$storeProps = mapi_getprops($store, [PR_ENTRYID, PR_MDB_PROVIDER, PR_IPM_SUBTREE_ENTRYID, PR_IPM_PUBLIC_FOLDERS_ENTRYID]);
-
-		// For the public store we need to use the PR_IPM_PUBLIC_FOLDERS_ENTRYID instead of the
-		// PR_IPM_SUBTREE_ENTRYID that can be used on your own and delegate stores.
-		if ($storeProps[PR_MDB_PROVIDER] == ZARAFA_STORE_PUBLIC_GUID) {
-			$subtreeEntryid = $storeProps[PR_IPM_PUBLIC_FOLDERS_ENTRYID];
-		}
-		else {
-			$subtreeEntryid = $storeProps[PR_IPM_SUBTREE_ENTRYID];
-		}
-
 		$contactFolders = [];
 
 		try {
 			// Only searches one level deep, otherwise deleted contact folders will also be included.
-			$contactFolders = $this->getContactFolders($store, $subtreeEntryid, false);
+			$contactFolders = $this->getContactFolders($store, $storeProps[PR_IPM_SUBTREE_ENTRYID], false);
 		}
 		catch (Exception $e) {
 			return $contactFolders;
@@ -1165,7 +1155,7 @@ class MAPISession {
 
 		// Need to search all the contact-subfolders within first level contact folders.
 		$firstLevelHierarchyNodes = $contactFolders;
-		foreach ($firstLevelHierarchyNodes as $key => $firstLevelNode) {
+		foreach ($firstLevelHierarchyNodes as $firstLevelNode) {
 			// To search for multiple levels CONVENIENT_DEPTH needs to be passed as well.
 			$contactFolders = array_merge($contactFolders, $this->getContactFolders($store, $firstLevelNode[PR_ENTRYID], true));
 		}
@@ -1214,7 +1204,7 @@ class MAPISession {
 		$contactFolderTable = mapi_folder_gethierarchytable($hierarchyFolder, $depthFlag);
 		mapi_table_restrict($contactFolderTable, $restriction, TBL_BATCH);
 
-		return mapi_table_queryallrows($contactFolderTable, [PR_STORE_ENTRYID, PR_ENTRYID, PR_DISPLAY_NAME]);
+		return mapi_table_queryallrows($contactFolderTable, [PR_STORE_ENTRYID, PR_ENTRYID, PR_DISPLAY_NAME, PR_PARENT_ENTRYID, PR_DEPTH]);
 	}
 
 	/**

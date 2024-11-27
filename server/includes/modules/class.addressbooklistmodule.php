@@ -905,11 +905,8 @@ class AddressbookListModule extends ListModule {
 	}
 
 	public function getHierarchy($action) {
-		$hideContacts = false;
 		// Check if hide_contacts is set in the restriction
-		if (isset($action['restriction'], $action['restriction']['hide_contacts'])) {
-			$hideContacts = $action['restriction']['hide_contacts'];
-		}
+		$hideContacts = $action['restriction']['hide_contacts'] ?? false;
 
 		$folders = $this->getAddressbookHierarchy($hideContacts);
 		$data = ['item' => $folders];
@@ -929,14 +926,31 @@ class AddressbookListModule extends ListModule {
 	 * "display_name" => Name of the folder, "entryid" => entryid of the folder, "parent_entryid" => parent entryid
 	 * "storeid" => store entryid, "type" => gab | contacts
 	 *
-	 * @param array Associative array with store information
-	 * @param mixed $hideContacts
+	 * @param bool $hideContacts
 	 *
 	 * @return array Array of associative arrays with addressbook container information
-	 *
-	 * @todo Fix bizarre input parameter format
 	 */
 	public function getAddressbookHierarchy($hideContacts = false) {
+		$folders = [];
+		$this->getAbContactFolders($hideContacts, $folders);
+		// add shared contact folders if they are enabled
+		if (ENABLE_SHARED_CONTACT_FOLDERS) {
+			$this->getSharedContactFolders($folders);
+		}
+		if (ENABLE_PUBLIC_CONTACT_FOLDERS && ENABLE_PUBLIC_FOLDERS) {
+			$this->getPublicContactFolders($folders);
+		}
+
+		return $folders;
+	}
+
+	/**
+	 * Gets the contacts' folders from the global addressbook.
+	 *
+	 * @param bool  $hideContacts
+	 * @param array $folders      list of folders
+	 */
+	public function getAbContactFolders($hideContacts, &$folders) {
 		$ab = $GLOBALS["mapisession"]->getAddressbook(false, true);
 		$dir = mapi_ab_openentry($ab);
 		$table = mapi_folder_gethierarchytable($dir, MAPI_DEFERRED_ERRORS | CONVENIENT_DEPTH);
@@ -956,30 +970,95 @@ class AddressbookListModule extends ListModule {
 		}
 
 		$items = mapi_table_queryallrows($table, [PR_DISPLAY_NAME, PR_ENTRYID, PR_PARENT_ENTRYID, PR_DEPTH, PR_AB_PROVIDER_ID]);
-
-		$folders = [];
-
 		$parent = false;
 		foreach ($items as $item) {
-			// TODO: fix for missing PR_PARENT_ENTRYID, see #2190
 			if ($item[PR_DEPTH] == 0) {
 				$parent = $item[PR_ENTRYID];
 			}
-
 			$item[PR_PARENT_ENTRYID] = $parent;
 
-			$folders[] = [
-				"props" => [
-					"display_name" => $item[PR_DISPLAY_NAME] ?? '',
-					"entryid" => bin2hex($item[PR_ENTRYID]),
-					"parent_entryid" => bin2hex($item[PR_PARENT_ENTRYID]),
-					"depth" => $item[PR_DEPTH],
-					"type" => $item[PR_AB_PROVIDER_ID] == MUIDECSAB ? "gab" : 'contacts',
-					"object_type" => MAPI_ABCONT,
-				],
-			];
+			$this->addFolder($folders, [
+				"display_name" => $item[PR_DISPLAY_NAME] ?? '',
+				"entryid" => bin2hex($item[PR_ENTRYID]),
+				"parent_entryid" => bin2hex($item[PR_PARENT_ENTRYID]),
+				"depth" => $item[PR_DEPTH],
+				"type" => $item[PR_AB_PROVIDER_ID] == MUIDECSAB ? "gab" : 'contacts',
+				"object_type" => MAPI_ABCONT,
+			]);
 		}
+	}
 
-		return $folders;
+	/**
+	 * Gets the shared contacts folders.
+	 *
+	 * @param array $folders list of folders
+	 */
+	public function getSharedContactFolders(&$folders) {
+		$otherstores = $GLOBALS['mapisession']->getOtherUserStore();
+		$mainUserEntryId = $GLOBALS['mapisession']->getUserEntryID();
+		$shareUserSettings = $GLOBALS["mapisession"]->retrieveOtherUsersFromSettings();
+		foreach ($otherstores as $sharedEntryId => $sharedStore) {
+			$sharedStoreProps = mapi_getprops($sharedStore, [PR_MAILBOX_OWNER_NAME, PR_MDB_PROVIDER]);
+			$sharedUserSetting = [];
+			if ($sharedStoreProps[PR_MDB_PROVIDER] == ZARAFA_STORE_DELEGATE_GUID) {
+				$eidObj = $GLOBALS["entryid"]->createMsgStoreEntryIdObj($sharedEntryId);
+				if (array_key_exists(strtolower($eidObj['MailboxDN']), $shareUserSettings)) {
+					$sharedUserSetting = $shareUserSettings[strtolower($eidObj['MailboxDN'])];
+				}
+				$sharedContactFolders = $GLOBALS["mapisession"]->getContactFoldersForABContactProvider($sharedStore);
+				for ($i = 0, $len = count($sharedContactFolders); $i < $len; ++$i) {
+					$folder = mapi_msgstore_openentry($sharedStore, $sharedContactFolders[$i][PR_ENTRYID]);
+					$folderProps = mapi_getprops($folder, [PR_CONTAINER_CLASS]);
+					if (isset($folderProps[PR_CONTAINER_CLASS]) && $folderProps[PR_CONTAINER_CLASS] == 'IPF.Contact') {
+						$grants = mapi_zarafa_getpermissionrules($folder, ACCESS_TYPE_GRANT);
+						if (isset($sharedUserSetting['all']) || in_array($mainUserEntryId, array_column($grants, 'userid'))) {
+							$this->addFolder($folders, [
+								// Postfix display name of every contact folder with respective owner name
+								// it is mandatory to keep display-name different
+								"display_name" => $sharedContactFolders[$i][PR_DISPLAY_NAME] . " - " . $sharedStoreProps[PR_MAILBOX_OWNER_NAME],
+								"entryid" => bin2hex($sharedContactFolders[$i][PR_ENTRYID]),
+								"parent_entryid" => bin2hex($sharedContactFolders[$i][PR_PARENT_ENTRYID]),
+								"depth" => $sharedContactFolders[$i][PR_DEPTH],
+								"type" => 'sharedcontacts',
+								"object_type" => MAPI_ABCONT,
+							]);
+						}
+					}
+				}
+			}
+		}
+	}
+
+	/**
+	 * Gets the public contacts folders.
+	 *
+	 * @param array $folders list of folders
+	 */
+	public function getPublicContactFolders(&$folders) {
+		$publicStore = $GLOBALS['mapisession']->getPublicMessageStore();
+		$publicStoreProps = mapi_getprops($publicStore, [PR_DISPLAY_NAME]);
+		$publicContactFolders = $GLOBALS['mapisession']->getContactFoldersForABContactProvider($publicStore);
+		for ($i = 0, $len = count($publicContactFolders); $i < $len; ++$i) {
+			$this->addFolder($folders, [
+				// Postfix display name of every contact folder with respective owner name
+				// it is mandatory to keep display-name different
+				"display_name" => $publicContactFolders[$i][PR_DISPLAY_NAME] . ' - ' . $publicStoreProps[PR_DISPLAY_NAME],
+				"entryid" => bin2hex($publicContactFolders[$i][PR_ENTRYID]),
+				"parent_entryid" => bin2hex($publicContactFolders[$i][PR_PARENT_ENTRYID]),
+				"depth" => $publicContactFolders[$i][PR_DEPTH],
+				"type" => 'sharedcontacts',
+				"object_type" => MAPI_ABCONT,
+			]);
+		}
+	}
+
+	/**
+	 * Adds folder information to the folder list.
+	 *
+	 * @param array $folders list of folders
+	 * @param array $data    folder information
+	 */
+	public function addFolder(&$folders, $data) {
+		$folders[] = ["props" => $data];
 	}
 }
