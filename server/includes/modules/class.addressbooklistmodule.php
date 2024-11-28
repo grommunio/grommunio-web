@@ -75,39 +75,13 @@ class AddressbookListModule extends ListModule {
 	 * @return bool true on success or false on failure
 	 */
 	public function GABUsers($action, $actionType) {
-		$searchstring = '';
-		$hide_users = false;
-		$hide_groups = false;
-		$hide_companies = false;
-
-		if (isset($action['restriction'])) {
-			if (isset($action['restriction']['searchstring'])) {
-				// Get search string for searching in AB.
-				$searchstring = $action['restriction']['searchstring'];
-			}
-
-			if (isset($action['restriction']['hide_users'])) {
-				$hide_users = $action['restriction']['hide_users'];
-			}
-			if (isset($action['restriction']['hide_groups'])) {
-				$hide_groups = $action['restriction']['hide_groups'];
-			}
-			if (isset($action['restriction']['hide_companies'])) {
-				$hide_companies = $action['restriction']['hide_companies'];
-			}
-		}
-
+		$searchstring = $action['restriction']['searchstring'] ?? '';
+		$hide_users = $action['restriction']['hide_users'] ?? false;
+		$hide_groups = $action['restriction']['hide_groups'] ?? false;
+		$hide_companies = $action['restriction']['hide_companies'] ?? false;
 		$items = [];
-
-		$data['page'] = [];
-		$data['page']['start'] = 0;
-		$data['page']['rowcount'] = 0;
-		$data['page']['totalrowcount'] = 0;
-
 		$data = [];
-
 		$this->sort = [];
-
 		$map = [];
 		$map['fileas'] = $this->properties['account'];
 
