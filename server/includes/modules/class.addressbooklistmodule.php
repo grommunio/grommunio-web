@@ -84,50 +84,8 @@ class AddressbookListModule extends ListModule {
 		$this->sort = [];
 		$map = [];
 		$map['fileas'] = $this->properties['account'];
-
-		// Rewrite the sort info when sorting on full name as this is a combination of multiple fields
-		global $sortingField;
-		if (isset($action["sort"]) && is_array($action["sort"]) && count($action["sort"]) === 1 && isset($action["sort"][0]["field"])) {
-			$sortingDir = $action["sort"][0]["direction"];
-			$sortingField = $action["sort"][0]["field"];
-			if ($action["sort"][0]["field"] === 'full_name') {
-				$action["sort"] = [
-					[
-						"field" => "surname",
-						"direction" => $sortingDir,
-					],
-					[
-						"field" => "given_name",
-						"direction" => $sortingDir,
-					],
-					[
-						"field" => "middle_name",
-						"direction" => $sortingDir,
-					],
-					[
-						"field" => "display_name",
-						"direction" => $sortingDir,
-					],
-				];
-			}
-			elseif ($action["sort"][0]["field"] === 'icon_index') {
-				$sortingField = 'display_type_ex';
-				$action["sort"] = [
-					[
-						"field" => 'display_type_ex',
-						"direction" => $sortingDir,
-					],
-					[
-						"field" => 'display_name',
-						"direction" => $sortingDir,
-					],
-				];
-			}
-
-			// Parse incoming sort order
-			$this->parseSortOrder($action, $map, true);
-		}
-
+		$sortingDir = $action["sort"][0]["direction"] ?? 'ASC';
+		$sortingField = $this->getSortingField($action, $map, $sortingDir);
 		$folderType = $action['folderType'];
 
 		if (($folderType !== 'gab' || ENABLE_FULL_GAB) || !empty($searchstring)) {
@@ -425,7 +383,7 @@ class AddressbookListModule extends ListModule {
 
 			function sorter($direction, $key) {
 				return function($a, $b) use ($direction, $key) {
-					return $direction == 'DESC' ?
+					return $direction == 'ASC' ?
 						strcasecmp($a['props'][$key] ?? '', $b['props'][$key] ?? '') :
 						strcasecmp($b['props'][$key] ?? '', $a['props'][$key] ?? '');
 				};
@@ -1025,5 +983,60 @@ class AddressbookListModule extends ListModule {
 	 */
 	public function addFolder(&$folders, $data) {
 		$folders[] = ["props" => $data];
+	}
+
+	/**
+	 * Returns the field which will be used to sort the ab items
+	 *
+	 * @param array  $action
+	 * @param array  $map
+	 * @param string $sortingDir
+	 *
+	 * @return string
+	 */
+	public function getSortingField(&$action, $map, $sortingDir) {
+		// Rewrite the sort info when sorting on full name as this is a combination of multiple fields
+		$sortingField = 'full_name';
+		if (isset($action["sort"]) && is_array($action["sort"]) && count($action["sort"]) === 1 && isset($action["sort"][0]["field"])) {
+			$sortingField = $action["sort"][0]["field"];
+			if ($action["sort"][0]["field"] === 'full_name') {
+				$action["sort"] = [
+					[
+						"field" => "surname",
+						"direction" => $sortingDir,
+					],
+					[
+						"field" => "given_name",
+						"direction" => $sortingDir,
+					],
+					[
+						"field" => "middle_name",
+						"direction" => $sortingDir,
+					],
+					[
+						"field" => "display_name",
+						"direction" => $sortingDir,
+					],
+				];
+			}
+			elseif ($action["sort"][0]["field"] === 'icon_index') {
+				$sortingField = 'display_type_ex';
+				$action["sort"] = [
+					[
+						"field" => 'display_type_ex',
+						"direction" => $sortingDir,
+					],
+					[
+						"field" => 'display_name',
+						"direction" => $sortingDir,
+					],
+				];
+			}
+
+			// Parse incoming sort order
+			$this->parseSortOrder($action, $map, true);
+		}
+
+		return $sortingField;
 	}
 }
