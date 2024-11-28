@@ -449,23 +449,14 @@ class AddressbookListModule extends ListModule {
 				array_push($items, ['props' => $item]);
 			}
 
-			if (!empty($sortingField)) {
-				// Sort the items here, because full_name is not a real property, so we can not use the regular sorting
-				// Note: This hack only works because the GAB does not work with paging!
-				function cmpAsc($a, $b) {
-					global $sortingField;
-
-					return strcasecmp($b['props'][$sortingField] ?? '', $a['props'][$sortingField] ?? '');
-				}
-				function cmpDesc($a, $b) {
-					global $sortingField;
-
-					return strcasecmp($a['props'][$sortingField] ?? '', $b['props'][$sortingField] ?? '');
-				}
-
-				$cmpFn = $sortingDir === 'DESC' ? 'cmpDesc' : 'cmpAsc';
-				usort($items, $cmpFn);
+			function sorter($direction, $key) {
+				return function($a, $b) use ($direction, $key) {
+					return $direction == 'DESC' ?
+						strcasecmp($a['props'][$key] ?? '', $b['props'][$key] ?? '') :
+						strcasecmp($b['props'][$key] ?? '', $a['props'][$key] ?? '');
+				};
 			}
+			usort($items, sorter($sortingDir, $sortingField));
 
 			// todo: fix paging stuff
 			$data['page']['start'] = 0;
