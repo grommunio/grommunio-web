@@ -107,112 +107,9 @@ class AddressbookListModule extends ListModule {
 			 */
 			$table = mapi_folder_getcontentstable($dir, MAPI_DEFERRED_ERRORS);
 
-			$restriction = false;
-			$tempRestriction = false;
-			$userGroupRestriction = false;
-
-			if ($hide_users || $hide_groups || $hide_companies) {
-				$userRestrictions = [];
-				if ($hide_users) {
-					$tmp = $this->createUsersRestriction($hide_users);
-					if ($tmp) {
-						$userRestrictions[] = $tmp;
-					}
-				}
-				if ($hide_groups) {
-					$tmp = $this->createGroupsRestriction($hide_groups);
-					if ($tmp) {
-						$userRestrictions[] = $tmp;
-					}
-				}
-				if ($hide_companies) {
-					$tmp = $this->createCompanyRestriction($hide_companies);
-					if ($tmp) {
-						$userRestrictions[] = $tmp;
-					}
-				}
-				$userGroupRestriction = [RES_AND, $userRestrictions];
-			}
-
-			if (!empty($searchstring)) {
-				// create restriction for search
-				// only return users from who the displayName or the username starts with $searchstring
-				// TODO: use PR_ANR for this restriction instead of PR_DISPLAY_NAME and PR_ACCOUNT
-				$tempRestriction = [RES_OR,
-					[
-						// Display name of user from GAB and contacts.
-						[
-							RES_CONTENT,
-							[FUZZYLEVEL => FL_SUBSTRING | FL_IGNORECASE,
-								ULPROPTAG => PR_DISPLAY_NAME,
-								VALUE => $searchstring,
-							],
-						],
-						// fileas value of user from GAB.
-						[
-							RES_CONTENT,
-							[FUZZYLEVEL => FL_SUBSTRING | FL_IGNORECASE,
-								ULPROPTAG => PR_ACCOUNT,
-								VALUE => $searchstring,
-							],
-						],
-						// smtp_address of user from GAB.
-						[
-							RES_CONTENT,
-							[FUZZYLEVEL => FL_SUBSTRING | FL_IGNORECASE,
-								ULPROPTAG => PR_SMTP_ADDRESS,
-								VALUE => $searchstring,
-							],
-						],
-						// email_address of user from GAB and contacts.
-						[
-							RES_CONTENT,
-							[FUZZYLEVEL => FL_SUBSTRING | FL_IGNORECASE,
-								ULPROPTAG => PR_EMAIL_ADDRESS,
-								VALUE => $searchstring,
-							],
-						],
-						// department of user from GAB.
-						[
-							RES_CONTENT,
-							[FUZZYLEVEL => FL_SUBSTRING | FL_IGNORECASE,
-								ULPROPTAG => PR_DEPARTMENT_NAME,
-								VALUE => $searchstring,
-							],
-						],
-						// fileas of user from Contacts.
-						[
-							RES_CONTENT,
-							[FUZZYLEVEL => FL_SUBSTRING | FL_IGNORECASE,
-								ULPROPTAG => PR_ORIGINAL_DISPLAY_NAME,
-								VALUE => $searchstring,
-							],
-						],
-					],
-				];
-			}
-
-			if ($tempRestriction && $userGroupRestriction) {
-				$restriction = [
-					RES_AND,
-					[
-						// restriction for search/alphabet bar
-						$tempRestriction,
-						// restriction for hiding users/groups
-						$userGroupRestriction,
-					], ];
-			}
-			elseif ($tempRestriction) {
-				// restriction for search/alphabet bar
-				$restriction = $tempRestriction;
-			}
-			else {
-				// restriction for hiding users/groups
-				$restriction = $userGroupRestriction;
-			}
-
+			$restriction = $this->getRestriction($searchstring, $hide_users, $hide_groups, $hide_companies);
 			// Only add restriction when it is used
-			if ($restriction) {
+			if (!empty($restriction)) {
 				mapi_table_restrict($table, $restriction, TBL_BATCH);
 			}
 			// Only sort when asked for
@@ -1038,5 +935,151 @@ class AddressbookListModule extends ListModule {
 		}
 
 		return $sortingField;
+	}
+
+	/**
+	 * Returns the restriction for the ab items.
+	 *
+	 * @param string $searchstring
+	 * @param bool   $hide_users
+	 * @param bool   $hide_groups
+	 * @param bool   $hide_companies
+	 *
+	 * @return array
+	 */
+	public function getRestriction($searchstring, $hide_users, $hide_groups, $hide_companies) {
+		$restriction = [];
+		$userGroupRestriction = $this->getUserGroupCompanyRestriction($hide_users, $hide_groups, $hide_companies);
+		$searchRestriction = $this->getSearchRestriction($searchstring);
+
+		if (!empty($searchRestriction) && !empty($userGroupRestriction)) {
+			$restriction = [
+				RES_AND,
+				[
+					// restriction for search/alphabet bar
+					$searchRestriction,
+					// restriction for hiding users/groups
+					$userGroupRestriction,
+				], ];
+		}
+		elseif (!empty($searchRestriction)) {
+			// restriction for search/alphabet bar
+			$restriction = $searchRestriction;
+		}
+		else {
+			// restriction for hiding users/groups
+			$restriction = $userGroupRestriction;
+		}
+
+		return $restriction;
+	}
+
+	/**
+	 * Returns the search/alphabet bar restriction for the ab items.
+	 *
+	 * @param string $searchstring
+	 *
+	 * @return array
+	 */
+	public function getSearchRestriction($searchstring) {
+		$searchRestriction = [];
+
+		if (!empty($searchstring)) {
+			// create restriction for search
+			// only return users from who the displayName or the username starts with $searchstring
+			// TODO: use PR_ANR for this restriction instead of PR_DISPLAY_NAME and PR_ACCOUNT
+			$searchRestriction = [RES_OR,
+				[
+					// Display name of user from GAB and contacts.
+					[
+						RES_CONTENT,
+						[FUZZYLEVEL => FL_SUBSTRING | FL_IGNORECASE,
+							ULPROPTAG => PR_DISPLAY_NAME,
+							VALUE => $searchstring,
+						],
+					],
+					// fileas value of user from GAB.
+					[
+						RES_CONTENT,
+						[FUZZYLEVEL => FL_SUBSTRING | FL_IGNORECASE,
+							ULPROPTAG => PR_ACCOUNT,
+							VALUE => $searchstring,
+						],
+					],
+					// smtp_address of user from GAB.
+					[
+						RES_CONTENT,
+						[FUZZYLEVEL => FL_SUBSTRING | FL_IGNORECASE,
+							ULPROPTAG => PR_SMTP_ADDRESS,
+							VALUE => $searchstring,
+						],
+					],
+					// email_address of user from GAB and contacts.
+					[
+						RES_CONTENT,
+						[FUZZYLEVEL => FL_SUBSTRING | FL_IGNORECASE,
+							ULPROPTAG => PR_EMAIL_ADDRESS,
+							VALUE => $searchstring,
+						],
+					],
+					// department of user from GAB.
+					[
+						RES_CONTENT,
+						[FUZZYLEVEL => FL_SUBSTRING | FL_IGNORECASE,
+							ULPROPTAG => PR_DEPARTMENT_NAME,
+							VALUE => $searchstring,
+						],
+					],
+					// fileas of user from Contacts.
+					[
+						RES_CONTENT,
+						[FUZZYLEVEL => FL_SUBSTRING | FL_IGNORECASE,
+							ULPROPTAG => PR_ORIGINAL_DISPLAY_NAME,
+							VALUE => $searchstring,
+						],
+					],
+				],
+			];
+		}
+
+		return $searchRestriction;
+	}
+
+	/**
+	 * Returns the hiding users/groups restriction for the ab items.
+	 *
+	 * @param bool   $hide_users
+	 * @param bool   $hide_groups
+	 * @param bool   $hide_companies
+	 *
+	 * @return array
+	 */
+	public function getUserGroupCompanyRestriction($hide_users, $hide_groups, $hide_companies) {
+		$userGroupRestriction = [];
+
+		if ($hide_users || $hide_groups || $hide_companies) {
+			$userRestrictions = [];
+			if ($hide_users) {
+				$tmp = $this->createUsersRestriction($hide_users);
+				if ($tmp) {
+					$userRestrictions[] = $tmp;
+				}
+			}
+			if ($hide_groups) {
+				$tmp = $this->createGroupsRestriction($hide_groups);
+				if ($tmp) {
+					$userRestrictions[] = $tmp;
+				}
+			}
+			if ($hide_companies) {
+				$tmp = $this->createCompanyRestriction($hide_companies);
+				if ($tmp) {
+					$userRestrictions[] = $tmp;
+				}
+			}
+			$userGroupRestriction = [RES_AND, $userRestrictions];
+		}
+
+		return $userGroupRestriction;
 	}
 }
