@@ -356,7 +356,7 @@ Zarafa.addressbook.ui.AddressBookMainPanel = Ext.extend(Ext.Panel, {
 			var folder = folderType === 'contacts' ?
 				container.getHierarchyStore().getFolder(unwrappedEntryID) :
 				container.getHierarchyStore().getFolder(folderId);
-			var isSharedStore = folder.getMAPIStore().isSharedStore();
+			var isSharedStore = folder.getMAPIStore().isSharedStore() || folder.getMAPIStore().isPublicStore();
 			if (isSharedStore) {
 				params["isSharedFolder"] = isSharedStore;
 				params["sharedFolder"] = {
