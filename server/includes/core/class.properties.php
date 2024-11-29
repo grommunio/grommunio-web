@@ -487,6 +487,7 @@ class Properties {
 			$properties["entryid"] = PR_ENTRYID;
 			$properties["parent_entryid"] = PR_PARENT_ENTRYID;
 			$properties["store_entryid"] = PR_STORE_ENTRYID;
+			$properties["search_key"] = PR_SEARCH_KEY;
 			$properties["access"] = PR_ACCESS;
 			$properties["subject"] = PR_SUBJECT;
 			$properties["icon_index"] = PR_ICON_INDEX;
