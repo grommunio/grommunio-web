@@ -3,9 +3,9 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Croatian (Croatia)\n"
-"Report-Msgid-Bugs-To: \n"
+"Report-Msgid-Bugs-To: dev@grommunio.com\n"
 "POT-Creation-Date: 2024-04-28 22:53+0200\n"
-"PO-Revision-Date: 2022-08-27 18:15+0000\n"
+"PO-Revision-Date: 2024-12-07 14:00+0000\n"
 "Last-Translator: Milo Ivir <mail@milotype.de>\n"
 "Language-Team: Croatian <https://hosted.weblate.org/projects/grommunio/"
 "grommunio-web/hr/>\n"
@@ -13,9 +13,9 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
-"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 4.14.1-dev\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"X-Generator: Weblate 5.9-dev\n"
 
 #. TRANSLATORS: This message is used as label for the column which indicates the week number of the month in date picker. and 'Wk' stands for week
 msgid "Wk"
@@ -681,7 +681,7 @@ msgid "Unread"
 msgstr "Nepročitano"
 
 msgid "Attachments"
-msgstr "Privitci"
+msgstr "Privici"
 
 msgid "Date"
 msgstr "Datum"
@@ -859,7 +859,7 @@ msgstr "Kada"
 
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "l jS F Y {0}"
-msgstr "l j. t. Y. {0}"
+msgstr "l j. n. Y. {0}"
 
 msgid "Where"
 msgstr "Gdje"
@@ -934,7 +934,7 @@ msgid "Decline"
 msgstr "Odbij"
 
 msgid "Decline Meeting Request"
-msgstr "Odbije zahtjev za sastanak"
+msgstr "Odbij zahtjev za sastanak"
 
 msgid "Propose New Time"
 msgstr "Predloži novo vrijeme"
@@ -1150,7 +1150,7 @@ msgid "Warning"
 msgstr ""
 
 msgid "Attachments cannot be modified for a single occurence"
-msgstr ""
+msgstr "Privici se ne mogu promijeniti za jedno pojavljivanje"
 
 msgid "Type your message here…"
 msgstr ""
@@ -1182,7 +1182,7 @@ msgid "Delete"
 msgstr ""
 
 msgid "Add attachment"
-msgstr ""
+msgstr "Dodaj privitak"
 
 msgid "Check names"
 msgstr ""
@@ -1923,7 +1923,7 @@ msgid "Text only"
 msgstr ""
 
 msgid "Attachment"
-msgstr ""
+msgstr "Privitak"
 
 msgid "Attach Item"
 msgstr ""
@@ -1947,6 +1947,8 @@ msgid ""
 "These attachments have an unsupported file type and can not be added to the "
 "ZIP file:"
 msgstr ""
+"Ovi privici sadrže nepodržanu vrstu datoteka i ne mogu se dodati u ZIP "
+"datoteku:"
 
 msgid "Would you like to continue downloading without adding these files?"
 msgstr ""
@@ -1981,7 +1983,7 @@ msgid ""
 msgstr ""
 
 msgid "Attachment error"
-msgstr ""
+msgstr "Greška u privitku"
 
 msgid "Cannot create ZIP, The allowed maximum size is 30 MB."
 msgstr ""
@@ -1996,7 +1998,7 @@ msgid "Supported format for contact pictures are"
 msgstr ""
 
 msgid "Attachment Error"
-msgstr ""
+msgstr "Greška u privitku"
 
 msgid "Manage Categories"
 msgstr ""
@@ -2654,7 +2656,7 @@ msgid "Forward the message to…"
 msgstr ""
 
 msgid "Forward the message as attachment to…"
-msgstr ""
+msgstr "Proslijedi poruku kao privitak za …"
 
 msgid "Mark the message as read…"
 msgstr ""
@@ -2681,7 +2683,7 @@ msgid "has importance…"
 msgstr ""
 
 msgid "has an attachment"
-msgstr ""
+msgstr "sadrži privitak"
 
 msgid "is sent to…"
 msgstr ""
@@ -2975,7 +2977,7 @@ msgstr ""
 #. TRANSLATORS: This message is used as label for the field which indicates which attachments are inside the message
 msgctxt "mail.previewpanel"
 msgid "Attachments"
-msgstr ""
+msgstr "Privici"
 
 msgid "Download Pictures"
 msgstr ""
@@ -3430,10 +3432,10 @@ msgid "Extension"
 msgstr ""
 
 msgid "Add Attachment"
-msgstr ""
+msgstr "Dodaj privitak"
 
 msgid "Add attachments to this contact"
-msgstr ""
+msgstr "Dodaj privitke ovom kontaktu"
 
 msgid "Mark this contact as private"
 msgstr ""
@@ -3801,10 +3803,10 @@ msgid "The attached files are not uploaded yet."
 msgstr "Priložene datoteke još nisu prenešene."
 
 msgid "Do you want to send this message without attachments?"
-msgstr "Želiš li poslati ovu poruku bez priloga?"
+msgstr "Želiš li poslati ovu poruku bez privitka?"
 
 msgid "Attachments not uploaded yet"
-msgstr "Prilozi još nisu prenešeni"
+msgstr "Privici još nisu prenešeni"
 
 msgid "Don't Send"
 msgstr "Nemoj poslati"
@@ -4347,7 +4349,7 @@ msgid "Schedule your mail to be sent on a specific date and time"
 msgstr ""
 
 msgid "Add attachments to this email"
-msgstr ""
+msgstr "Dodaj privitke ovom e-mailu"
 
 msgid "Add signature"
 msgstr ""
@@ -4863,7 +4865,7 @@ msgid "Page width"
 msgstr ""
 
 msgid "Attachment preview (PDF and Open formats)"
-msgstr ""
+msgstr "Pregled privitaka (PDF i „otvoreni” formati)"
 
 msgid "Document default zoom"
 msgstr ""
@@ -5118,7 +5120,7 @@ msgid "Delete this task"
 msgstr ""
 
 msgid "Add attachments to this task"
-msgstr ""
+msgstr "Dodaj privitke ovom zadatku"
 
 msgid "Mark as Complete"
 msgstr ""
@@ -5455,7 +5457,7 @@ msgid "No results"
 msgstr ""
 
 msgid "Add attachment from {0}"
-msgstr ""
+msgstr "Dodaj privitak iz {0}"
 
 msgid "Confirm deletion"
 msgstr ""
@@ -5525,7 +5527,7 @@ msgid "Add from Files"
 msgstr ""
 
 msgid "Add attachment from Files"
-msgstr ""
+msgstr "Dodaj privitak iz „Datoteke”"
 
 msgid "Add to Files"
 msgstr ""
@@ -5697,13 +5699,13 @@ msgid "Uploaded"
 msgstr ""
 
 msgid "Attachment successfully stored in Files"
-msgstr ""
+msgstr "Privitak uspješno dodan u „Datoteke”"
 
 msgid "Upload Failed"
 msgstr ""
 
 msgid "Attachment could not be stored in Files! Error: "
-msgstr ""
+msgstr "Neuspjelo spremanje privitka u „Datoteke”! Greška: "
 
 msgid "Share Files"
 msgstr ""
@@ -6731,10 +6733,10 @@ msgid "Eml is corrupted"
 msgstr ""
 
 msgid "The eml Attachment is not imported successfully"
-msgstr ""
+msgstr "eml-privitak nije uspješno uvezen"
 
 msgid "The vcf attachment is not imported successfully"
-msgstr ""
+msgstr "VCF-privitak nije uspješno uvezen"
 
 #, php-format
 msgid "Unable to import '%s' to '%s'. "
@@ -6754,16 +6756,16 @@ msgid "Unable to import '%s'. "
 msgstr ""
 
 msgid "Attachment is not imported successfully"
-msgstr ""
+msgstr "Privitak nije uspješno uvezen"
 
 msgid "Embedded attachment not found."
-msgstr ""
+msgstr "Ugrađeni privitak nije pronađen."
 
 msgid "ZIP is not created successfully"
 msgstr ""
 
 msgid "Attachments can not be downloaded"
-msgstr ""
+msgstr "Privici se ne mogu preuzeti"
 
 msgid "Could not find attachment."
 msgstr ""
