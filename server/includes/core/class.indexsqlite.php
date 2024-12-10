@@ -51,36 +51,6 @@ class IndexSqlite extends SQLite3 {
 				$row['entryid'] = $row1[0];
 			}
 		}
-		if (isset($folder_id)) {
-			try {
-				if ($folder_id != $row['folder_id']) {
-					if (!$recursive) {
-						return;
-					}
-					$message = mapi_msgstore_openentry($this->store, $row['entryid']);
-					$tmp_props = mapi_getprops($message, [PR_PARENT_ENTRYID]);
-					$folder_entryid = $tmp_props[PR_PARENT_ENTRYID];
-					while (true) {
-						$folder = mapi_msgstore_openentry($this->store, $folder_entryid);
-						if (!$folder) {
-							return;
-						}
-						$tmp_props = mapi_getprops($folder, [PR_PARENT_ENTRYID, PR_FOLDER_ID]);
-						$folder_entryid = $tmp_props[PR_PARENT_ENTRYID];
-						$tmp_fid = IndexSqlite::get_gc_value((int) $tmp_props[PR_FOLDER_ID]);
-						if ($tmp_fid == $folder_id) {
-							break;
-						}
-						if ($tmp_fid == PRIVATE_FID_ROOT) {
-							return;
-						}
-					}
-				}
-			}
-			catch (Exception $e) {
-				return;
-			}
-		}
 		if (isset($message_classes)) {
 			$found = false;
 			foreach ($message_classes as $message_class) {
@@ -258,7 +228,7 @@ class IndexSqlite extends SQLite3 {
 			}
 			$sql_string .= "'";
 		}
-		$sql_string .= " GROUP BY message_id";
+		$sql_string .= " GROUP BY message_id ORDER BY date DESC";
 		$results = $this->query($sql_string);
 		while (($row = $results->fetchArray(SQLITE3_ASSOC)) && !$this->result_full()) {
 			$this->try_insert_content(
@@ -317,8 +287,8 @@ class IndexSqlite extends SQLite3 {
 			return false;
 		}
 
-		// refresh the index sqlite database
-		return $this->refresh();
+		// refresh the index sqlite database if configured
+		return REFRESH_SEARCH_INDEX ? $this->refresh() : true;
 	}
 
 	private function refresh() {

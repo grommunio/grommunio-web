@@ -611,7 +611,7 @@ if (!defined("POWERPASTE_ALLOW_LOCAL_IMAGES")) {
  * Defaults for sqlite search index
  */
 if (!defined("MAX_FTS_RESULT_ITEMS")) {
-	define("MAX_FTS_RESULT_ITEMS", 1000);
+	define("MAX_FTS_RESULT_ITEMS", 5000);
 }
 
 /*
@@ -661,4 +661,10 @@ if (!defined("LOG_FILE_DIR")) {
 }
 if (!defined("LOG_SUCCESSFUL_LOGINS")) {
 	define("LOG_SUCCESSFUL_LOGINS", false);
+}
+
+// Disable refreshing search index before searching per default because
+// grommunio-index updates it regularly anyway.
+if (!defined("REFRESH_SEARCH_INDEX")) {
+	define("REFRESH_SEARCH_INDEX", false);
 }
