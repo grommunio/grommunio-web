@@ -228,7 +228,7 @@ class IndexSqlite extends SQLite3 {
 			}
 			$sql_string .= "'";
 		}
-		$sql_string .= " GROUP BY message_id";
+		$sql_string .= " GROUP BY message_id ORDER BY date DESC";
 		$results = $this->query($sql_string);
 		while (($row = $results->fetchArray(SQLITE3_ASSOC)) && !$this->result_full()) {
 			$this->try_insert_content(
@@ -287,8 +287,8 @@ class IndexSqlite extends SQLite3 {
 			return false;
 		}
 
-		// refresh the index sqlite database
-		return $this->refresh();
+		// refresh the index sqlite database if configured
+		return REFRESH_SEARCH_INDEX ? $this->refresh() : true;
 	}
 
 	private function refresh() {

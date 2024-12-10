@@ -662,3 +662,9 @@ if (!defined("LOG_FILE_DIR")) {
 if (!defined("LOG_SUCCESSFUL_LOGINS")) {
 	define("LOG_SUCCESSFUL_LOGINS", false);
 }
+
+// Disable refreshing search index before searching per default because
+// grommunio-index updates it regularly anyway.
+if (!defined("REFRESH_SEARCH_INDEX")) {
+	define("REFRESH_SEARCH_INDEX", false);
+}
