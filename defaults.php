@@ -611,7 +611,7 @@ if (!defined("POWERPASTE_ALLOW_LOCAL_IMAGES")) {
  * Defaults for sqlite search index
  */
 if (!defined("MAX_FTS_RESULT_ITEMS")) {
-	define("MAX_FTS_RESULT_ITEMS", 1000);
+	define("MAX_FTS_RESULT_ITEMS", 5000);
 }
 
 /*
