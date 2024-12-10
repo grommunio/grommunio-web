@@ -123,47 +123,9 @@ Zarafa.advancesearch.AdvanceSearchStore = Ext.extend(Zarafa.core.data.ListModule
 	{
 		// Set the searchdate field for each record, so Ext can use it for local sorting
 		Ext.each(records, function(record){
-			var searchDate = '';
-			switch (record.get('message_class')){
-				case 'IPM.Note':
-				case 'IPM.Note.SMIME.MultipartSigned':
-				case 'IPM.Note.SMIME.SignedEncrypt':
-				case 'IPM.Note.SMIME':
-					searchDate = record.get('message_delivery_time') || record.get('last_modification_time');
-					record.data['duedate'] = record.get('task_duedate');
-					break;
-				case 'IPM.Task':
-					searchDate = record.get('task_duedate');
-					break;
-				case 'IPM.TaskRequest':
-				case 'IPM.TaskRequest.Accept':
-				case 'IPM.TaskRequest.Update':
-				case 'IPM.TaskRequest.Decline':
-				case 'IPM.TaskRequest.Complete':
-					searchDate = record.isTaskOrganized() ? record.get('client_submit_time') : record.get('message_delivery_time');
-					break;
-				case 'IPM.Contact':
-				case 'IPM.StickyNote':
-					searchDate = record.get('creation_time');
-					break;
-				case 'IPM.Appointment':
-					searchDate = record.get('commonstart');
-					break;
-				case 'IPM.Schedule':
-				case 'IPM.Schedule.Meeting':
-				case 'IPM.Schedule.Meeting.Request':
-				case 'IPM.Schedule.Meeting.Canceled':
-					searchDate = record.get('startdate');
-					break;
-				case 'IPM.Schedule.Meeting.Resp.Pos':
-				case 'IPM.Schedule.Meeting.Resp.Neg':
-				case 'IPM.Schedule.Meeting.Resp.Tent':
-					searchDate = record.senderIsUser() ? record.get('client_submit_time') : record.get('message_delivery_time');
-			}
-
 			// update the record in the store, bypass setting dirty flag,
 			// and do not store the change in the modified records
-			record.data['searchdate'] = searchDate;
+			record.data['searchdate'] = record.get('message_delivery_time') || record.get('last_modification_time');
 			record.commit();
 		});
 	},
