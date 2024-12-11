@@ -69,37 +69,11 @@ class IndexSqlite extends SQLite3 {
 		if (isset($date_end) && $row['date'] > $date_end) {
 			return;
 		}
-		if (isset($unread) || isset($has_attachments)) {
-			if (!isset($this->hide_attachments_proptag)) {
-				$mapping = ["hide_attachments" => "PT_BOOLEAN:PSETID_Common:" . PidLidSmartNoAttach];
-				$properties = getPropIdsFromStrings($this->store, $mapping);
-				$this->hide_attachments_proptag = $properties['hide_attachments'];
-			}
-			$message = mapi_msgstore_openentry($this->store, $row['entryid']);
-			$propvals = mapi_getprops($message, [PR_MESSAGE_FLAGS, $this->hide_attachments_proptag]);
-			if (isset($unread)) {
-				if (($unread && ($propvals[PR_MESSAGE_FLAGS] & MSGFLAG_READ)) ||
-					(!$unread && !($propvals[PR_MESSAGE_FLAGS] & MSGFLAG_READ))) {
-					return;
-				}
-			}
-			if (isset($has_attachments)) {
-				if ($propvals[PR_MESSAGE_FLAGS] & MSGFLAG_HASATTACH) {
-					if (isset($propvals[$properties['hide_attachments']]) &&
-						$propvals[$properties['hide_attachments']]) {
-						$has_attachments1 = false;
-					}
-					else {
-						$has_attachments1 = true;
-					}
-				}
-				else {
-					$has_attachments1 = false;
-				}
-				if ($has_attachments !== $has_attachments1) {
-					return;
-				}
-			}
+		if (isset($unread) && $row['readflag']) {
+			return;
+		}
+		if (isset($has_attachments) && !$row['attach_indexed']) {
+			return;
 		}
 
 		try {
@@ -150,8 +124,8 @@ class IndexSqlite extends SQLite3 {
 				return false;
 			}
 		}
-		$sql_string = "SELECT DISTINCT(message_id), entryid, folder_id, sender, sending, " .
-			"recipients, subject, content, attachments, message_class, date FROM" .
+		$sql_string = "SELECT message_id, entryid, folder_id, sender, sending, " .
+			"recipients, subject, content, attachments, message_class, date, attach_indexed, readflag FROM" .
 			" messages WHERE messages MATCH '";
 		$this->count = 0;
 		if (isset($sender) && $sender == $sending && $sending == $recipients && $recipients == $subject &&
@@ -228,7 +202,7 @@ class IndexSqlite extends SQLite3 {
 			}
 			$sql_string .= "'";
 		}
-		$sql_string .= " GROUP BY message_id ORDER BY date DESC";
+		$sql_string .= " ORDER BY date DESC LIMIT " . MAX_FTS_RESULT_ITEMS;
 		$results = $this->query($sql_string);
 		while (($row = $results->fetchArray(SQLITE3_ASSOC)) && !$this->result_full()) {
 			$this->try_insert_content(
@@ -280,6 +254,7 @@ class IndexSqlite extends SQLite3 {
 				"folder_id UNINDEXED," .
 				"message_class UNINDEXED," .
 				"date UNINDEXED, " .
+				"readflag UNINDEXED, " .
 				"tokenize=" . SQLITE_FTS_TOKENIZER . ");";
 		if ($this->exec($sql_string) === false) {
 			error_log("fail to execute sqlite create table statemente, " . $this->lastErrorMsg());
@@ -427,7 +402,8 @@ class IndexSqlite extends SQLite3 {
 				PR_FOLDER_ID,
 				PR_MESSAGE_CLASS,
 				PR_MESSAGE_DELIVERY_TIME,
-				PR_LAST_MODIFICATION_TIME, ],
+				PR_LAST_MODIFICATION_TIME,
+				PR_MESSAGE_FLAGS, ],
 			array_values($properties)
 		);
 		$proptags = array_merge($proptags, $others_tags);
@@ -532,6 +508,9 @@ class IndexSqlite extends SQLite3 {
 			empty($propvals[PR_MESSAGE_CLASS])) {
 			return;
 		}
+		$readflag = isset($propvals[PR_MESSAGE_FLAGS]) ?
+			$propvals[PR_MESSAGE_FLAGS] & MSGFLAG_READ : 1;
+
 		$this->bind_insert(
 			$sender,
 			$sending,
@@ -545,16 +524,17 @@ class IndexSqlite extends SQLite3 {
 			IndexSqlite::get_gc_value((int) $propvals[PR_CHANGE_NUMBER]),
 			IndexSqlite::get_gc_value((int) $propvals[PR_FOLDER_ID]),
 			$propvals[PR_MESSAGE_CLASS],
-			$last_time
+			$last_time,
+			$readflag
 		);
 	}
 
 	private function precompile_insert() {
 		$this->stmt = $this->prepare("INSERT INTO messages (sender, sending, recipients, subject, " .
 			"content, attachments, others, message_id, attach_indexed, entryid, change_num, folder_id," .
-			" message_class, date) VALUES (:sender, :sending, :recipients, :subject, :content, " .
+			" message_class, date, readflag) VALUES (:sender, :sending, :recipients, :subject, :content, " .
 			":attachments, :others, :message_id, :attach_indexed, :entryid, :change_num, :folder_id, " .
-			":message_class, :date)");
+			":message_class, :date, :readflag)");
 		if (!$this->stmt) {
 			error_log("fail to precompile the insert statement for messages table, " . $this->lastErrorMsg());
 
@@ -578,7 +558,8 @@ class IndexSqlite extends SQLite3 {
 		$change_num,
 		$folder_id,
 		$message_class,
-		$date
+		$date,
+		$readflag
 	) {
 		$this->stmt->clear();
 		if (isset($sender)) {
@@ -635,6 +616,7 @@ class IndexSqlite extends SQLite3 {
 		$this->stmt->bindValue(":folder_id", $folder_id, SQLITE3_INTEGER);
 		$this->stmt->bindValue(":message_class", $message_class, SQLITE3_TEXT);
 		$this->stmt->bindValue(":date", $date, SQLITE3_INTEGER);
+		$this->stmt->bindValue(":readflag", $readflag, SQLITE3_INTEGER);
 		$this->stmt->execute();
 	}
 
