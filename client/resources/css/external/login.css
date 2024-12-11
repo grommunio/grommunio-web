@@ -207,4 +207,8 @@ body.login>#form-container #submitbutton:focus {
   width: 100%;
 }
 
+.x-box-inner {
+  overflow: auto !important;
+}
+
 /*# sourceMappingURL=login.css.map */
