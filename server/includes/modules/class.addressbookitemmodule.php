@@ -42,54 +42,40 @@ class AddressbookItemModule extends ItemModule {
 				// Let us try to get that particular contact item in respective user store.
 				// @Fixme: After implementation of KC-350 this extra handling can be removed.
 				if ($e->getCode() == MAPI_E_NOT_FOUND || $e->getCode() == MAPI_E_INVALID_PARAMETER) {
-					$hexEntryid = bin2hex($entryid);
-					// Remove Address-Book-Provider prefix from the entryid
-					$externalEntryid = $GLOBALS["entryid"]->unwrapABEntryIdObj($hexEntryid);
-					// Check if it's a contact from the user's contacts folder
-					$contactItem = $GLOBALS['operations']->openMessage($GLOBALS['mapisession']->getDefaultMessageStore(), hex2bin($externalEntryid));
-
-					if ($contactItem === false) {
-						// Retrieve user store entryid to which this external item belongs
-						$userStore = $GLOBALS['operations']->getOtherStoreFromEntryid($externalEntryid);
-
-						// If userStore not found it means user is not exists in address book
-						if ($userStore === false) {
-							$msg = "The contact \"%s\" could not be displayed because it could not be retrieved or has been deleted";
-
-							error_log(sprintf($msg, $action["message_action"]["username"]));
-
-							$e->setTitle(_('Contact not found'));
-							$e->setDisplayMessage(_("Contact information could not be displayed because the server had trouble retrieving the information.") .
-							_("Please contact your system administrator if the problem persists."));
-
-							throw $e;
-
-							return false;
-						}
-
-						$e->setHandled();
-						$contactItem = $GLOBALS['operations']->openMessage($userStore, hex2bin($externalEntryid));
+					if (strlen($entryid) == 71) {
+						$entryid = substr($entryid, 0, -1);
 					}
+					try {
+						$contactItem = $GLOBALS['operations']->openMessage($GLOBALS['mapisession']->getDefaultMessageStore(), $entryid);
+					}
+					catch (MAPIException $me) {
+						if (isset($action['store_entryid'])) {
+							$e->setHandled();
+							$me->setHandled();
+							$userStore = $GLOBALS['mapisession']->openMessageStore(hex2bin($action['store_entryid']));
+							// $contactItem = $GLOBALS['operations']->openMessage($userStore, hex2bin($externalEntryid));
+							$contactItem = $GLOBALS['operations']->openMessage($userStore, $entryid);
+							if ($contactItem != false) {
+								// Get necessary property from respective contact item
+								$contactItemProps = mapi_getprops($contactItem, [PR_GIVEN_NAME, PR_DISPLAY_NAME, PR_TITLE, PR_COMPANY_NAME]);
 
-					if ($contactItem != false) {
-						// Get necessary property from respective contact item
-						$contactItemProps = mapi_getprops($contactItem, [PR_GIVEN_NAME, PR_DISPLAY_NAME, PR_TITLE, PR_COMPANY_NAME]);
+								// Use the data retrieved from contact item to prepare response
+								// as similar as it seems like an addressbook item.
+								$data['props'] = [
+									'object_type' => MAPI_MAILUSER,
+									'given_name' => $contactItemProps[PR_GIVEN_NAME],
+									'display_name' => $contactItemProps[PR_DISPLAY_NAME],
+									'title' => $contactItemProps[PR_TITLE],
+									'company_name' => $contactItemProps[PR_COMPANY_NAME],
+								];
+								$data['entryid'] = bin2hex($entryid);
 
-						// Use the data retrieved from contact item to prepare response
-						// as similar as it seems like an addressbook item.
-						$data['props'] = [
-							'object_type' => MAPI_MAILUSER,
-							'given_name' => $contactItemProps[PR_GIVEN_NAME],
-							'display_name' => $contactItemProps[PR_DISPLAY_NAME],
-							'title' => $contactItemProps[PR_TITLE],
-							'company_name' => $contactItemProps[PR_COMPANY_NAME],
-						];
-						$data['entryid'] = $hexEntryid;
+								$this->addActionData("item", $data);
+								$GLOBALS["bus"]->addData($this->getResponseData());
 
-						$this->addActionData("item", $data);
-						$GLOBALS["bus"]->addData($this->getResponseData());
-
-						return;
+								return;
+							}
+						}
 					}
 				}
 			}
