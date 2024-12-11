@@ -32,8 +32,7 @@ Zarafa.addressbook.Actions = {
 		if (Array.isArray(records) && !Ext.isEmpty(records)) {
 			records = records[0];
 		}
-
-		if (records.isPersonalContact()) {
+		if (records.isPersonalContact() || records.isSharedContact()) {
 			// A personal contact needs to be converted to a contact so the correct panel can be shown.
 			records = records.convertToContactRecord();
 			// FIXME: We put the abRecord into the ShadowStore to be able
