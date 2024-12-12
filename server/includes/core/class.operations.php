@@ -1970,7 +1970,8 @@ class Operations {
 					case PT_MV_STRING8:
 						// Empty multivalued string
 						if (empty($propVal)) {
-							$propertiesToDelete[] = $propTag;
+							// $propertiesToDelete[] = $propTag;
+							$props[$propTag] = [];
 						}
 						break;
 				}
