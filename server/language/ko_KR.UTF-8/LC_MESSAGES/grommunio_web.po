@@ -4619,7 +4619,7 @@ msgid "Automatically reply with the following message:"
 msgstr "다음 텍스트로 자동 회신합니다:"
 
 msgid "(The frequency of replies is dependent on server configuration.)"
-msgstr ""
+msgstr "(답장 빈도는 서버 구성에 따라 다릅니다.)"
 
 msgid "Inside My Organization"
 msgstr "내 조직 내부"
@@ -7427,3 +7427,22 @@ msgstr "잘못 인코딩되었을 가능성이 있는 잘못된 UTF-8 문자"
 #, php-format
 msgid "Some problem encountered when encoding/decoding JSON data: - %s"
 msgstr "JSON 데이터를 인코딩/디코딩할 때 발생하는 몇 가지 문제: - %s"
+
+msgid "Contact not found"
+msgstr "연락처를 찾을 수 없음"
+
+msgid ""
+"Contact information could not be displayed because the server had trouble "
+"retrieving the information."
+msgstr ""
+"서버에서 정보를 검색하는 데 문제가 발생하여 연락처 정보를 표시할 수 없습니다."
+
+msgid "Please contact your system administrator if the problem persists."
+msgstr "문제가 지속되면 시스템 관리자에게 문의하세요."
+
+#, php-format
+msgid "JSON Error: - %s"
+msgstr "JSON 오류: - %s"
+
+msgid "Some problem encountered when encoding/decoding JSON data."
+msgstr "JSON 데이터를 인코딩/디코딩할 때 일부 문제가 발생했습니다."
