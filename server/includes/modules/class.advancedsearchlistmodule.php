@@ -27,6 +27,9 @@ class AdvancedSearchListModule extends ListModule {
 			"task_duedate" => "PT_SYSTIME:PSETID_Task:" . PidLidTaskDueDate,
 		]);
 		$this->properties = getPropIdsFromStrings($GLOBALS["mapisession"]->getDefaultMessageStore(), $this->properties);
+		$this->sort = [
+			PR_MESSAGE_DELIVERY_TIME => TABLE_SORT_DESCEND,
+		];
 	}
 
 	/**

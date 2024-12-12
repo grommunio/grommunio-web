@@ -76,7 +76,7 @@ Zarafa.advancesearch.ui.SearchGrid = Ext.extend(Zarafa.common.ui.grid.MapiMessag
 			enableHdMenu: false,
 			supportLiveScroll: true,
 			autoExpandMin: 200,
-			sortableRecordsMax: 5000
+			sortableRecordsMax: 1000
 		});
 
 		Zarafa.advancesearch.ui.SearchGrid.superclass.constructor.call(this, config);
