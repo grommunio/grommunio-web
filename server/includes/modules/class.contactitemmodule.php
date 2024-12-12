@@ -527,6 +527,10 @@ class ContactItemModule extends ItemModule {
 			$data['entryid'] = $entryid;
 		}
 
+		if (isset($action['timezone_iana'])) {
+			$props['timezone_iana'] = $action['timezone_iana'];
+		}
+
 		$data['props'] = $props;
 
 		// Save appointment (saveAppointment takes care of creating/modifying exceptions to recurring
