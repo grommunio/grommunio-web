@@ -98,7 +98,7 @@ class IndexSqlite extends SQLite3 {
 		$content,
 		$attachments,
 		$others,
-		$folder_entrid,
+		$folder_entryid,
 		$recursive,
 		$message_classes,
 		$date_start,
@@ -108,9 +108,9 @@ class IndexSqlite extends SQLite3 {
 	) {
 		$search_folder = mapi_msgstore_openentry($this->store, $search_entryid);
 		$tmp_props = mapi_getprops($search_folder, [PR_FOLDER_ID]);
-		if (isset($folder_entrid)) {
+		if (isset($folder_entryid)) {
 			try {
-				$folder = mapi_msgstore_openentry($this->store, $folder_entrid);
+				$folder = mapi_msgstore_openentry($this->store, $folder_entryid);
 				if (!$folder) {
 					return false;
 				}
@@ -124,9 +124,11 @@ class IndexSqlite extends SQLite3 {
 				return false;
 			}
 		}
-		$sql_string = "SELECT message_id, entryid, folder_id, sender, sending, " .
-			"recipients, subject, content, attachments, message_class, date, attach_indexed, readflag FROM" .
-			" messages WHERE messages MATCH '";
+		$sql_string = "SELECT c.message_id, c.entryid, c.folder_id, ".
+			"c.message_class, c.date, c.readflag, c.attach_indexed ".
+			"FROM msg_content c ".
+			"JOIN messages m ON c.message_id = m.rowid ".
+			"WHERE messages MATCH '";
 		$this->count = 0;
 		if (isset($sender) && $sender == $sending && $sending == $recipients && $recipients == $subject &&
 			$subject == $content && $content == $attachments && $attachments == $others) {
@@ -202,7 +204,7 @@ class IndexSqlite extends SQLite3 {
 			}
 			$sql_string .= "'";
 		}
-		$sql_string .= " ORDER BY date DESC LIMIT " . MAX_FTS_RESULT_ITEMS;
+		$sql_string .= " ORDER BY c.date DESC LIMIT " . MAX_FTS_RESULT_ITEMS;
 		$results = $this->query($sql_string);
 		while (($row = $results->fetchArray(SQLITE3_ASSOC)) && !$this->result_full()) {
 			$this->try_insert_content(
