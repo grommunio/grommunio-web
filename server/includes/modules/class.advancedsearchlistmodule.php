@@ -384,14 +384,6 @@ class AdvancedSearchListModule extends ListModule {
 			$indexDB = new IndexSqlite();
 		}
 
-		if (!$indexDB->load()) {
-			// if error in creating search folder then send error to client
-			$errorInfo = [];
-			$errorInfo["error_message"] = _("Unable to perform search query, store might not support searching.");
-			$errorInfo["original_error_message"] = _("Error in creating search folder.");
-
-			return $this->sendSearchErrorToClient($store, $entryid, $action, $errorInfo);
-		}
 		$search_result = $indexDB->search(
 			hex2bin($searchFolderEntryId),
 			$search_patterns['sender'],
