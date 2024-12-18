@@ -8,7 +8,6 @@ define('PR_CHANGE_NUMBER', 0x67A40014);
 
 class IndexSqlite extends SQLite3 {
 	private $username;
-	private $stmt;
 	private $count;
 	private $store;
 	private $session;
