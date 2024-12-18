@@ -135,7 +135,6 @@ class IndexSqlite extends SQLite3 {
 			'date_end' => $date_end,
 			'unread' => $unread,
 			'has_attachments' => $has_attachments
-
 		] = $search_patterns;
 		if (isset($sender) && $sender == $sending && $sending == $recipients && $recipients == $subject &&
 			$subject == $content && $content == $attachments && $attachments == $others) {
@@ -143,68 +142,25 @@ class IndexSqlite extends SQLite3 {
 		}
 		else {
 			$first = true;
-			if (isset($sender)) {
-				if ($first === true) {
-					$first = false;
+			foreach ($search_patterns as $key => $search_pattern) {
+				switch($key) {
+					case 'message_classes':
+					case 'date_start':
+					case 'date_end':
+					case 'unread':
+					case 'has_attachments':
+						break;
+					default:
+						if (!is_null($search_pattern)) {
+							if ($first === true) {
+								$first = false;
+							}
+							else {
+								$sql_string .= " OR ";
+							}
+							$sql_string .= $key . ':' . SQLite3::escapeString($this->quote_words($search_pattern));
+						}
 				}
-				else {
-					$sql_string .= " OR ";
-				}
-				$sql_string .= 'sender:' . SQLite3::escapeString($this->quote_words($sender));
-			}
-			if (isset($sending)) {
-				if ($first === true) {
-					$first = false;
-				}
-				else {
-					$sql_string .= " OR ";
-				}
-				$sql_string .= 'sending:' . SQLite3::escapeString($this->quote_words($sending));
-			}
-			if (isset($recipients)) {
-				if ($first === true) {
-					$first = false;
-				}
-				else {
-					$sql_string .= " OR ";
-				}
-				$sql_string .= 'recipients:' . SQLite3::escapeString($this->quote_words($recipients));
-			}
-			if (isset($subject)) {
-				if ($first === true) {
-					$first = false;
-				}
-				else {
-					$sql_string .= " OR ";
-				}
-				$sql_string .= 'subject:' . SQLite3::escapeString($this->quote_words($subject));
-			}
-			if (isset($content)) {
-				if ($first === true) {
-					$first = false;
-				}
-				else {
-					$sql_string .= " OR ";
-				}
-				$sql_string .= 'content:' . SQLite3::escapeString($this->quote_words($content));
-			}
-			if (isset($attachments)) {
-				if ($first === true) {
-					$first = false;
-				}
-				else {
-					$sql_string .= " OR ";
-				}
-				$sql_string .= 'attachments:' . SQLite3::escapeString($this->quote_words($attachments));
-			}
-			if (isset($others)) {
-				if ($first === true) {
-					$first = false;
-				}
-				else {
-					$sql_string .= " OR ";
-				}
-				$sql_string .= 'others:' . SQLite3::escapeString($this->quote_words($others));
 			}
 			if ($first) {
 				return false;

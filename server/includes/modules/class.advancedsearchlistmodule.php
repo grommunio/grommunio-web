@@ -175,7 +175,7 @@ class AdvancedSearchListModule extends ListModule {
 					break;
 
 				case PR_SENT_REPRESENTING_NAME:
-					$patterns['from'] = $subres[VALUE][$subres[ULPROPTAG]];
+					$patterns['sending'] = $subres[VALUE][$subres[ULPROPTAG]];
 					break;
 
 				case PR_DISPLAY_TO:
