@@ -35,8 +35,6 @@ class IndexSqlite extends SQLite3 {
 	private function try_insert_content(
 		$search_entryid,
 		$row,
-		$folder_id,
-		$recursive,
 		$message_classes,
 		$date_start,
 		$date_end,
@@ -220,8 +218,6 @@ class IndexSqlite extends SQLite3 {
 			$this->try_insert_content(
 				$search_entryid,
 				$row,
-				$folder_id,
-				$recursive,
 				$message_classes,
 				$date_start,
 				$date_end,
