@@ -87,23 +87,7 @@ class IndexSqlite extends SQLite3 {
 		return $this->count >= MAX_FTS_RESULT_ITEMS;
 	}
 
-	public function search(
-		$search_entryid,
-		$sender,
-		$sending,
-		$recipients,
-		$subject,
-		$content,
-		$attachments,
-		$others,
-		$folder_entryid,
-		$recursive,
-		$message_classes,
-		$date_start,
-		$date_end,
-		$unread,
-		$has_attachments
-	) {
+	public function search($search_entryid, $search_patterns, $folder_entryid, $recursive) {
 		$whereFolderids = '';
 		if (isset($folder_entryid)) {
 			try {
@@ -138,6 +122,22 @@ class IndexSqlite extends SQLite3 {
 		}
 		$sql_string .= "messages MATCH '";
 		$this->count = 0;
+		// Extract search_patterns into separate variables
+		[
+			'sender' => $sender,
+			'sending' => $sending,
+			'recipients' => $recipients,
+			'subject' => $subject,
+			'content' => $content,
+			'attachments' => $attachments,
+			'others' => $others,
+			'message_classes' => $message_classes,
+			'date_start' => $date_start,
+			'date_end' => $date_end,
+			'unread' => $unread,
+			'has_attachments' => $has_attachments
+
+		] = $search_patterns;
 		if (isset($sender) && $sender == $sending && $sending == $recipients && $recipients == $subject &&
 			$subject == $content && $content == $attachments && $attachments == $others) {
 			$sql_string .= SQLite3::escapeString($this->quote_words($sender)) . "'";
