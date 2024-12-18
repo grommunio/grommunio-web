@@ -106,8 +106,7 @@ class IndexSqlite extends SQLite3 {
 		$unread,
 		$has_attachments
 	) {
-		$search_folder = mapi_msgstore_openentry($this->store, $search_entryid);
-		$tmp_props = mapi_getprops($search_folder, [PR_FOLDER_ID]);
+		$whereFolderids = '';
 		if (isset($folder_entryid)) {
 			try {
 				$folder = mapi_msgstore_openentry($this->store, $folder_entryid);
@@ -119,16 +118,27 @@ class IndexSqlite extends SQLite3 {
 					return false;
 				}
 				$folder_id = IndexSqlite::get_gc_value((int) $tmp_props[PR_FOLDER_ID]);
+				$whereFolderids .= "c.folder_id in (" . $folder_id . ", ";
+				if ($recursive) {
+					$this->getWhereFolderids($folder, $whereFolderids);
+				}
+				$whereFolderids = substr($whereFolderids, 0, -2) . ") AND ";
 			}
 			catch (Exception $e) {
+				error_log(sprintf("Index: error getting folder information %s - %s", $this->username, $e));
+
 				return false;
 			}
 		}
-		$sql_string = "SELECT c.message_id, c.entryid, c.folder_id, ".
-			"c.message_class, c.date, c.readflag, c.attach_indexed ".
-			"FROM msg_content c ".
-			"JOIN messages m ON c.message_id = m.rowid ".
-			"WHERE messages MATCH '";
+		$sql_string = "SELECT c.message_id, c.entryid, c.folder_id, " .
+			"c.message_class, c.date, c.readflag, c.attach_indexed " .
+			"FROM msg_content c " .
+			"JOIN messages m ON c.message_id = m.rowid " .
+			"WHERE ";
+		if (!empty($whereFolderids)) {
+			$sql_string .= $whereFolderids;
+		}
+		$sql_string .= "messages MATCH '";
 		$this->count = 0;
 		if (isset($sender) && $sender == $sending && $sending == $recipients && $recipients == $subject &&
 			$subject == $content && $content == $attachments && $attachments == $others) {
@@ -225,5 +235,55 @@ class IndexSqlite extends SQLite3 {
 
 	private function quote_words($search_string) {
 		return '"' . preg_replace("/(\\s+)/", '*" "', trim($search_string)) . '"*';
+	}
+
+	/**
+	 * Returns the restriction to filter hidden folders.
+	 *
+	 * @return array
+	 */
+	private function getHiddenRestriction() {
+		return
+			[RES_OR, [
+				[RES_PROPERTY,
+					[
+						RELOP => RELOP_EQ,
+						ULPROPTAG => PR_ATTR_HIDDEN,
+						VALUE => [PR_ATTR_HIDDEN => false],
+					],
+				],
+				[RES_NOT,
+					[
+						[RES_EXIST,
+							[
+								ULPROPTAG => PR_ATTR_HIDDEN,
+							],
+						],
+					],
+				],
+			]];
+	}
+
+	/**
+	 * Returns the comma joined folderids for the WHERE clause in the SQL
+	 * statement.
+	 *
+	 * @param mixed  $folder
+	 * @param string $whereFolderids
+	 */
+	private function getWhereFolderids($folder, &$whereFolderids) {
+		/**
+		 * remove hidden folders, folders with PR_ATTR_HIDDEN property set
+		 * should not be shown to the client.
+		 */
+		$restriction = $this->getHiddenRestriction();
+		$hierarchy = mapi_folder_gethierarchytable($folder, CONVENIENT_DEPTH | MAPI_DEFERRED_ERRORS);
+		mapi_table_restrict($hierarchy, $restriction, TBL_BATCH);
+		$rows = mapi_table_queryallrows($hierarchy, [PR_FOLDER_ID]);
+		foreach ($rows as $row) {
+			if (isset($row[PR_FOLDER_ID])) {
+				$whereFolderids .= IndexSqlite::get_gc_value((int) $row[PR_FOLDER_ID]) . ", ";
+			}
+		}
 	}
 }
