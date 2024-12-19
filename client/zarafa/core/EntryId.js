@@ -41,6 +41,8 @@ Zarafa.core.EntryId = (function()
 	var MUIDZCSAB = '727F0430E3924FDAB86AE52A7FE46571';
 	/* GUID for OneOff entryid */
 	var MAPI_ONE_OFF_UID = '812B1FA4BEA310199D6E00DD010F5402';
+	/* GUID for Address book recipient */
+	var MUIDEMSAB = 'DCA740C8C042101AB4B908002B2FE182';
 
 	/* Hardcoded ID used for generating entryid of addressbook container */
 	var ZARAFA_UID_GLOBAL_ADDRESS_BOOK = '01000000';
@@ -470,6 +472,18 @@ Zarafa.core.EntryId = (function()
 			var entryIdObj = Zarafa.core.EntryId.createEntryIdObj(entryId);
 
 			return entryIdObj.guid === MUIDZCSAB;
+		},
+
+		/**
+		 * Checks if the GUID part of the entryid is of the AB Provider.
+		 * @param {String} entryId Address Book entryid
+		 * @return {Boolean} true if guid matches the AB Provider else false
+		 */
+		hasABProviderGUID: function(entryId)
+		{
+			var entryIdObj = Zarafa.core.EntryId.createEntryIdObj(entryId);
+
+			return entryIdObj.guid === MUIDEMSAB;
 		},
 	};
 })();

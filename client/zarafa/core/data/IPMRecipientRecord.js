@@ -455,6 +455,17 @@ Zarafa.core.data.IPMRecipientRecord = Ext.extend(Ext.data.Record, {
 		if (this.dirty) {
 			this.afterEdit();
 		}
+	},
+
+	/**
+	 * This determines if the Recipient refers to a shared contact
+	 * @return {Boolean} True when the recipient represents a shared contact
+	 */
+	isSharedContact: function()
+	{
+		return this.get('object_type') == Zarafa.core.mapi.ObjectType.MAPI_MAILUSER &&
+			!Zarafa.core.EntryId.hasContactProviderGUID(this.get('entryid')) &&
+			!Zarafa.core.EntryId.hasABProviderGUID(this.get('entryid'));
 	}
 });
 
