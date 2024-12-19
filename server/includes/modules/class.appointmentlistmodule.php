@@ -612,6 +612,7 @@ class AppointmentListModule extends ListModule {
 				if ($fbEvent['end'] < $start || $fbEvent['start'] > $end) {
 					continue;
 				}
+				$isPrivate = $fbEvent['private'] ?? false;
 				$items[] = [
 					// entryid is required, generate a fake one if a real is not available
 					'entryid' => isset($fbEvent['id']) ? bin2hex($fbEvent['id']) : bin2hex(random_bytes(16)),
@@ -619,9 +620,9 @@ class AppointmentListModule extends ListModule {
 					'store_entryid' => $storeEntryid,
 					'props' => [
 						'access' => 0,
-						'subject' => $fbEvent['subject'] ?? _('Busy'),
-						'normalized_subject' => $fbEvent['subject'] ?? _('Busy'),
-						'location' => $fbEvent['location'] ?? '',
+						'subject' => $isPrivate ? _('Private Appointment') : ($fbEvent['subject'] ?? _('Busy')),
+						'normalized_subject' => $isPrivate ? _('Private Appointment') : ($fbEvent['subject'] ?? _('Busy')),
+						'location' => $isPrivate ? '' : ($fbEvent['location'] ?? ''),
 						'startdate' => $fbEvent['start'],
 						'duedate' => $fbEvent['end'],
 						'commonstart' => $fbEvent['start'],
@@ -649,9 +650,10 @@ class AppointmentListModule extends ListModule {
 						'recurring' => false,
 						'recurring_data' => '',
 						'recurring_pattern' => '',
-						'meeting' => $fbEvent['meeting'],
+						'meeting' => $fbEvent['meeting'] ?? false,
 						'reminder' => 0,
 						'reminder_minutes' => 0,
+						'private' => $isPrivate,
 					],
 				];
 			}
