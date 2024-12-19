@@ -45,6 +45,10 @@ class AddressbookItemModule extends ItemModule {
 					if (strlen($entryid) == 71) {
 						$entryid = substr($entryid, 0, -1);
 					}
+					else {
+						// unwrap ab entry id
+						$entryid = substr($entryid, 28);
+					}
 					try {
 						$contactItem = $GLOBALS['operations']->openMessage($GLOBALS['mapisession']->getDefaultMessageStore(), $entryid);
 					}
@@ -53,28 +57,29 @@ class AddressbookItemModule extends ItemModule {
 							$e->setHandled();
 							$me->setHandled();
 							$userStore = $GLOBALS['mapisession']->openMessageStore(hex2bin($action['store_entryid']));
-							// $contactItem = $GLOBALS['operations']->openMessage($userStore, hex2bin($externalEntryid));
 							$contactItem = $GLOBALS['operations']->openMessage($userStore, $entryid);
-							if ($contactItem != false) {
-								// Get necessary property from respective contact item
-								$contactItemProps = mapi_getprops($contactItem, [PR_GIVEN_NAME, PR_DISPLAY_NAME, PR_TITLE, PR_COMPANY_NAME]);
+						}
+					}
+					finally {
+						if (isset($contactItem) && $contactItem != false) {
+							// Get necessary property from respective contact item
+							$contactItemProps = mapi_getprops($contactItem, [PR_GIVEN_NAME, PR_DISPLAY_NAME, PR_TITLE, PR_COMPANY_NAME]);
 
-								// Use the data retrieved from contact item to prepare response
-								// as similar as it seems like an addressbook item.
-								$data['props'] = [
-									'object_type' => MAPI_MAILUSER,
-									'given_name' => $contactItemProps[PR_GIVEN_NAME],
-									'display_name' => $contactItemProps[PR_DISPLAY_NAME],
-									'title' => $contactItemProps[PR_TITLE],
-									'company_name' => $contactItemProps[PR_COMPANY_NAME],
-								];
-								$data['entryid'] = bin2hex($entryid);
+							// Use the data retrieved from contact item to prepare response
+							// as similar as it seems like an addressbook item.
+							$data['props'] = [
+								'object_type' => MAPI_MAILUSER,
+								'given_name' => $contactItemProps[PR_GIVEN_NAME],
+								'display_name' => $contactItemProps[PR_DISPLAY_NAME],
+								'title' => $contactItemProps[PR_TITLE],
+								'company_name' => $contactItemProps[PR_COMPANY_NAME],
+							];
+							$data['entryid'] = bin2hex($entryid);
 
-								$this->addActionData("item", $data);
-								$GLOBALS["bus"]->addData($this->getResponseData());
+							$this->addActionData("item", $data);
+							$GLOBALS["bus"]->addData($this->getResponseData());
 
-								return;
-							}
+							return;
 						}
 					}
 				}

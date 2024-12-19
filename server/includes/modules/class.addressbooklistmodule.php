@@ -318,34 +318,36 @@ class AddressbookListModule extends ListModule {
 					}
 
 					array_push($items, ['props' => $item]);
-					switch ($abprovidertype) {
-						case 3:
-							$item['address_type'] = $user_data[$this->properties["email_address_type_2"]];
-							$item['email_address'] = $user_data[$this->properties["email_address_2"]];
-							$item['search_key'] = bin2hex(strtoupper($item['address_type'] . ':' . $item['email_address'])) . '00';
-							$item['entryid'] = $entryid . '02';
-							array_push($items, ['props' => $item]);
-							break;
-						case 5:
-						case 6:
-							$item['address_type'] = $user_data[$this->properties["email_address_type_3"]];
-							$item['email_address'] = $user_data[$this->properties["email_address_3"]];
-							$item['search_key'] = bin2hex(strtoupper($item['address_type'] . ':' . $item['email_address'])) . '00';
-							$item['entryid'] = $entryid . '03';
-							array_push($items, ['props' => $item]);
-							break;
-						case 7:
-							$item['address_type'] = $user_data[$this->properties["email_address_type_2"]];
-							$item['email_address'] = $user_data[$this->properties["email_address_2"]];
-							$item['search_key'] = bin2hex(strtoupper($item['address_type'] . ':' . $item['email_address'])) . '00';
-							$item['entryid'] = $entryid . '02';
-							array_push($items, ['props' => $item]);
-							$item['address_type'] = $user_data[$this->properties["email_address_type_3"]];
-							$item['email_address'] = $user_data[$this->properties["email_address_3"]];
-							$item['search_key'] = bin2hex(strtoupper($item['address_type'] . ':' . $item['email_address'])) . '00';
-							$item['entryid'] = $entryid . '03';
-							array_push($items, ['props' => $item]);
-							break;
+					if ($isSharedFolder && $sharedStore) {
+						switch ($abprovidertype) {
+							case 3:
+								$item['address_type'] = $user_data[$this->properties["email_address_type_2"]];
+								$item['email_address'] = $user_data[$this->properties["email_address_2"]];
+								$item['search_key'] = bin2hex(strtoupper($item['address_type'] . ':' . $item['email_address'])) . '00';
+								$item['entryid'] = $entryid . '02';
+								array_push($items, ['props' => $item]);
+								break;
+							case 5:
+							case 6:
+								$item['address_type'] = $user_data[$this->properties["email_address_type_3"]];
+								$item['email_address'] = $user_data[$this->properties["email_address_3"]];
+								$item['search_key'] = bin2hex(strtoupper($item['address_type'] . ':' . $item['email_address'])) . '00';
+								$item['entryid'] = $entryid . '03';
+								array_push($items, ['props' => $item]);
+								break;
+							case 7:
+								$item['address_type'] = $user_data[$this->properties["email_address_type_2"]];
+								$item['email_address'] = $user_data[$this->properties["email_address_2"]];
+								$item['search_key'] = bin2hex(strtoupper($item['address_type'] . ':' . $item['email_address'])) . '00';
+								$item['entryid'] = $entryid . '02';
+								array_push($items, ['props' => $item]);
+								$item['address_type'] = $user_data[$this->properties["email_address_type_3"]];
+								$item['email_address'] = $user_data[$this->properties["email_address_3"]];
+								$item['search_key'] = bin2hex(strtoupper($item['address_type'] . ':' . $item['email_address'])) . '00';
+								$item['entryid'] = $entryid . '03';
+								array_push($items, ['props' => $item]);
+								break;
+						}
 					}
 				}
 
