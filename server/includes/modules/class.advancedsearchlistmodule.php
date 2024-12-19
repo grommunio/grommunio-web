@@ -175,7 +175,7 @@ class AdvancedSearchListModule extends ListModule {
 					break;
 
 				case PR_SENT_REPRESENTING_NAME:
-					$patterns['from'] = $subres[VALUE][$subres[ULPROPTAG]];
+					$patterns['sending'] = $subres[VALUE][$subres[ULPROPTAG]];
 					break;
 
 				case PR_DISPLAY_TO:
@@ -203,9 +203,7 @@ class AdvancedSearchListModule extends ListModule {
 		elseif ($type == RES_BITMASK) {
 			$subres = $restriction[1];
 			if ($subres[ULPROPTAG] == PR_MESSAGE_FLAGS && $subres[ULTYPE] == BMR_EQZ) {
-				if (MSGFLAG_READ & $subres[ULMASK]) {
-					$patterns['unread'] = true;
-				}
+				$patterns['unread'] = MSGFLAG_READ & $subres[ULMASK];
 			}
 		}
 		elseif ($type == RES_PROPERTY) {
@@ -224,9 +222,7 @@ class AdvancedSearchListModule extends ListModule {
 		}
 		elseif ($type == RES_SUBRESTRICTION) {
 			$subres = $restriction[1];
-			if ($subres[ULPROPTAG] == PR_MESSAGE_ATTACHMENTS) {
-				$patterns['has_attachments'] = true;
-			}
+			$patterns['has_attachments'] = $subres[ULPROPTAG] == PR_MESSAGE_ATTACHMENTS;
 		}
 	}
 
@@ -363,12 +359,15 @@ class AdvancedSearchListModule extends ListModule {
 
 		// Sort
 		$this->parseSortOrder($action);
-
-		$search_patterns = [];
+		// Initialize search patterns with default values
+		$search_patterns = array_fill_keys(['sender', 'sending', 'recipients',
+			'subject', 'content', 'attachments', 'others', 'message_classes',
+			'date_start', 'date_end', 'unread', 'has_attachments'],
+			null);
 		AdvancedSearchListModule::parsePatterns($this->restriction, $search_patterns);
 		if (isset($search_patterns['message_classes']) &&
 			count($search_patterns['message_classes']) >= 7) {
-			unset($search_patterns['message_classes']);
+			$search_patterns['message_classes'] = null;
 		}
 
 		if ($store_props[PR_MDB_PROVIDER] == ZARAFA_STORE_DELEGATE_GUID) {
@@ -384,31 +383,7 @@ class AdvancedSearchListModule extends ListModule {
 			$indexDB = new IndexSqlite();
 		}
 
-		if (!$indexDB->load()) {
-			// if error in creating search folder then send error to client
-			$errorInfo = [];
-			$errorInfo["error_message"] = _("Unable to perform search query, store might not support searching.");
-			$errorInfo["original_error_message"] = _("Error in creating search folder.");
-
-			return $this->sendSearchErrorToClient($store, $entryid, $action, $errorInfo);
-		}
-		$search_result = $indexDB->search(
-			hex2bin($searchFolderEntryId),
-			$search_patterns['sender'],
-			$search_patterns['from'],
-			$search_patterns['recipients'],
-			$search_patterns['subject'],
-			$search_patterns['content'],
-			$search_patterns['attachments'],
-			$search_patterns['others'],
-			$entryid,
-			$recursive,
-			$search_patterns['message_classes'] ?? null,
-			$search_patterns['date_start'] ?? null,
-			$search_patterns['date_end'] ?? null,
-			$search_patterns['unread'] ?? null,
-			$search_patterns['has_attachments'] ?? null
-		);
+		$search_result = $indexDB->search(hex2bin($searchFolderEntryId), $search_patterns, $entryid, $recursive);
 		if ($search_result == false) {
 			// if error in creating search folder then send error to client
 			$errorInfo = [];
