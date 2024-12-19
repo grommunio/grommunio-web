@@ -350,10 +350,13 @@ Zarafa.addressbook.ui.AddressBookMainPanel = Ext.extend(Ext.Panel, {
 			folderType: folderType
 		};
 
-		if (folderType === 'contacts') {
-			var unwrappedEntryID = Zarafa.core.EntryId.unwrapContactProviderEntryId(selectedFolder.get("entryid"));
-			var folder = container.getHierarchyStore().getFolder(unwrappedEntryID);
-			var isSharedStore = folder.getMAPIStore().isSharedStore();
+		if (folderType === 'contacts' || folderType === 'sharedcontacts') {
+			var folderId = selectedFolder.get("entryid");
+			var unwrappedEntryID = Zarafa.core.EntryId.unwrapContactProviderEntryId(folderId);
+			var folder = folderType === 'contacts' ?
+				container.getHierarchyStore().getFolder(unwrappedEntryID) :
+				container.getHierarchyStore().getFolder(folderId);
+			var isSharedStore = folder.getMAPIStore().isSharedStore() || folder.getMAPIStore().isPublicStore();
 			if (isSharedStore) {
 				params["isSharedFolder"] = isSharedStore;
 				params["sharedFolder"] = {

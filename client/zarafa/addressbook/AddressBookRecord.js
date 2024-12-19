@@ -18,6 +18,7 @@ Ext.namespace('Zarafa.addressbook');
 Zarafa.addressbook.AddressBookRecordFields = [
 	{name: 'entryid'},
 	{name: 'search_key'},
+	{name: 'store_entryid'},
 	{name: 'full_name'},
 	{name: 'fileas'},
 	{name: 'object_type', type: 'int', defaultValue: Zarafa.core.mapi.ObjectType.MAPI_MAILUSER },
@@ -54,6 +55,7 @@ Zarafa.addressbook.AddressBookRecordFields = [
 	{name: 'pager_telephone_number'},
 	{name: 'comment'},
 	{name: 'icon_index'},
+	{name: 'is_shared'},
 ];
 
 Zarafa.core.data.RecordFactory.addFieldToObjectType(Zarafa.core.mapi.ObjectType.MAPI_MAILUSER, Zarafa.addressbook.AddressBookRecordFields);
@@ -304,6 +306,11 @@ Zarafa.addressbook.AddressBookRecord = Ext.extend(Zarafa.core.data.MAPIRecord, {
 		}
 
 		return Zarafa.core.EntryId.compareABEntryIds(this.get('entryid'),record.get('entryid'));
+	},
+
+	isSharedContact: function()
+	{
+		return !!this.get('is_shared');
 	}
 });
 

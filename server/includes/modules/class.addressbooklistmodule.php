@@ -75,403 +75,297 @@ class AddressbookListModule extends ListModule {
 	 * @return bool true on success or false on failure
 	 */
 	public function GABUsers($action, $actionType) {
-		$searchstring = '';
-		$hide_users = false;
-		$hide_groups = false;
-		$hide_companies = false;
-
-		if (isset($action['restriction'])) {
-			if (isset($action['restriction']['searchstring'])) {
-				// Get search string for searching in AB.
-				$searchstring = $action['restriction']['searchstring'];
-			}
-
-			if (isset($action['restriction']['hide_users'])) {
-				$hide_users = $action['restriction']['hide_users'];
-			}
-			if (isset($action['restriction']['hide_groups'])) {
-				$hide_groups = $action['restriction']['hide_groups'];
-			}
-			if (isset($action['restriction']['hide_companies'])) {
-				$hide_companies = $action['restriction']['hide_companies'];
-			}
-		}
-
+		$searchstring = $action['restriction']['searchstring'] ?? '';
+		$hide_users = $action['restriction']['hide_users'] ?? false;
+		$hide_groups = $action['restriction']['hide_groups'] ?? false;
+		$hide_companies = $action['restriction']['hide_companies'] ?? false;
 		$items = [];
-
-		$data['page'] = [];
-		$data['page']['start'] = 0;
-		$data['page']['rowcount'] = 0;
-		$data['page']['totalrowcount'] = 0;
-
 		$data = [];
-
 		$this->sort = [];
-
 		$map = [];
 		$map['fileas'] = $this->properties['account'];
-
-		// Rewrite the sort info when sorting on full name as this is a combination of multiple fields
-		global $sortingField;
-		if (isset($action["sort"]) && is_array($action["sort"]) && count($action["sort"]) === 1 && isset($action["sort"][0]["field"])) {
-			$sortingDir = $action["sort"][0]["direction"];
-			$sortingField = $action["sort"][0]["field"];
-			if ($action["sort"][0]["field"] === 'full_name') {
-				$action["sort"] = [
-					[
-						"field" => "surname",
-						"direction" => $sortingDir,
-					],
-					[
-						"field" => "given_name",
-						"direction" => $sortingDir,
-					],
-					[
-						"field" => "middle_name",
-						"direction" => $sortingDir,
-					],
-					[
-						"field" => "display_name",
-						"direction" => $sortingDir,
-					],
-				];
-			}
-			elseif ($action["sort"][0]["field"] === 'icon_index') {
-				$sortingField = 'display_type_ex';
-				$action["sort"] = [
-					[
-						"field" => 'display_type_ex',
-						"direction" => $sortingDir,
-					],
-					[
-						"field" => 'display_name',
-						"direction" => $sortingDir,
-					],
-				];
-			}
-
-			// Parse incoming sort order
-			$this->parseSortOrder($action, $map, true);
-		}
-
+		$sortingDir = $action["sort"][0]["direction"] ?? 'ASC';
+		$sortingField = $this->getSortingField($action, $map, $sortingDir);
 		$folderType = $action['folderType'];
+		$sharedStore = null;
+		$isSharedFolder = $folderType === 'sharedcontacts' && isset($action["sharedFolder"]["store_entryid"]);
 
 		if (($folderType !== 'gab' || ENABLE_FULL_GAB) || !empty($searchstring)) {
+			$table = null;
 			$ab = $GLOBALS['mapisession']->getAddressbook(false, true);
-
-			if (!empty($action['entryid'])) {
-				$entryid = hex2bin($action['entryid']);
+			$entryid = !empty($action['entryid']) ? hex2bin($action['entryid']) : mapi_ab_getdefaultdir($ab);
+			try {
+				$dir = mapi_ab_openentry($ab, $entryid);
+				/**
+				 * @TODO: 'All Address Lists' on IABContainer gives MAPI_E_INVALID_PARAMETER,
+				 * as it contains subfolders only. When #7344 is fixed, MAPI will return error here,
+				 * handle it here and return false.
+				 */
+				$table = mapi_folder_getcontentstable($dir, MAPI_DEFERRED_ERRORS);
 			}
-			else {
-				$entryid = mapi_ab_getdefaultdir($ab);
-			}
-
-			$dir = mapi_ab_openentry($ab, $entryid);
-
-			/**
-			 * @TODO: 'All Address Lists' on IABContainer gives MAPI_E_INVALID_PARAMETER,
-			 * as it contains subfolders only. When #7344 is fixed, MAPI will return error here,
-			 * handle it here and return false.
-			 */
-			$table = mapi_folder_getcontentstable($dir, MAPI_DEFERRED_ERRORS);
-
-			$restriction = false;
-			$tempRestriction = false;
-			$userGroupRestriction = false;
-
-			if ($hide_users || $hide_groups || $hide_companies) {
-				$userRestrictions = [];
-				if ($hide_users) {
-					$tmp = $this->createUsersRestriction($hide_users);
-					if ($tmp) {
-						$userRestrictions[] = $tmp;
-					}
-				}
-				if ($hide_groups) {
-					$tmp = $this->createGroupsRestriction($hide_groups);
-					if ($tmp) {
-						$userRestrictions[] = $tmp;
-					}
-				}
-				if ($hide_companies) {
-					$tmp = $this->createCompanyRestriction($hide_companies);
-					if ($tmp) {
-						$userRestrictions[] = $tmp;
-					}
-				}
-				$userGroupRestriction = [RES_AND, $userRestrictions];
-			}
-
-			if (!empty($searchstring)) {
-				// create restriction for search
-				// only return users from who the displayName or the username starts with $searchstring
-				// TODO: use PR_ANR for this restriction instead of PR_DISPLAY_NAME and PR_ACCOUNT
-				$tempRestriction = [RES_OR,
-					[
-						// Display name of user from GAB and contacts.
-						[
-							RES_CONTENT,
-							[FUZZYLEVEL => FL_SUBSTRING | FL_IGNORECASE,
-								ULPROPTAG => PR_DISPLAY_NAME,
-								VALUE => $searchstring,
-							],
-						],
-						// fileas value of user from GAB.
-						[
-							RES_CONTENT,
-							[FUZZYLEVEL => FL_SUBSTRING | FL_IGNORECASE,
-								ULPROPTAG => PR_ACCOUNT,
-								VALUE => $searchstring,
-							],
-						],
-						// smtp_address of user from GAB.
-						[
-							RES_CONTENT,
-							[FUZZYLEVEL => FL_SUBSTRING | FL_IGNORECASE,
-								ULPROPTAG => PR_SMTP_ADDRESS,
-								VALUE => $searchstring,
-							],
-						],
-						// email_address of user from GAB and contacts.
-						[
-							RES_CONTENT,
-							[FUZZYLEVEL => FL_SUBSTRING | FL_IGNORECASE,
-								ULPROPTAG => PR_EMAIL_ADDRESS,
-								VALUE => $searchstring,
-							],
-						],
-						// department of user from GAB.
-						[
-							RES_CONTENT,
-							[FUZZYLEVEL => FL_SUBSTRING | FL_IGNORECASE,
-								ULPROPTAG => PR_DEPARTMENT_NAME,
-								VALUE => $searchstring,
-							],
-						],
-						// fileas of user from Contacts.
-						[
-							RES_CONTENT,
-							[FUZZYLEVEL => FL_SUBSTRING | FL_IGNORECASE,
-								ULPROPTAG => PR_ORIGINAL_DISPLAY_NAME,
-								VALUE => $searchstring,
-							],
-						],
-					],
-				];
-			}
-
-			if ($tempRestriction && $userGroupRestriction) {
-				$restriction = [
-					RES_AND,
-					[
-						// restriction for search/alphabet bar
-						$tempRestriction,
-						// restriction for hiding users/groups
-						$userGroupRestriction,
-					], ];
-			}
-			elseif ($tempRestriction) {
-				// restriction for search/alphabet bar
-				$restriction = $tempRestriction;
-			}
-			else {
-				// restriction for hiding users/groups
-				$restriction = $userGroupRestriction;
-			}
-
-			// Only add restriction when it is used
-			if ($restriction) {
-				mapi_table_restrict($table, $restriction, TBL_BATCH);
-			}
-			// Only sort when asked for
-			if (!empty($this->sort)) {
-				mapi_table_sort($table, $this->sort, TBL_BATCH);
-			}
-
-			$rowCount = mapi_table_getrowcount($table);
-
-			if (is_int(MAX_GAB_RESULTS) && MAX_GAB_RESULTS > 0 && $rowCount > MAX_GAB_RESULTS) {
-				// Create a response that contains an error message that there are too much results
-				$data['error'] = ['code' => 'listexceederror', 'max_gab_users' => MAX_GAB_RESULTS];
-				$rows = mapi_table_queryrows($table, $this->properties, 0, MAX_GAB_RESULTS);
-				$rowCount = MAX_GAB_RESULTS;
-			}
-			else {
-				$rows = mapi_table_queryallrows($table, $this->properties);
-			}
-
-			$sharedStore = null;
-			if (isset($action["isSharedFolder"]) && $action["isSharedFolder"] === true) {
-				if (isset($action["sharedFolder"]) && !empty($action["sharedFolder"])) {
-					$sharedStoreEntryID = $action["sharedFolder"]["store_entryid"];
-					$sharedStore = $GLOBALS["mapisession"]->openMessageStore(hex2bin($sharedStoreEntryID));
+			catch (MAPIException $e) {
+				// for the shared and public contact folders open the store
+				// and get the contents of the folder
+				if ($isSharedFolder) {
+					$sharedStore = $GLOBALS["mapisession"]->openMessageStore(
+						hex2bin($action["sharedFolder"]["store_entryid"]));
+					$sharedContactsFolder = mapi_msgstore_openentry($sharedStore, $entryid);
+					$table = mapi_folder_getcontentstable($sharedContactsFolder, MAPI_DEFERRED_ERRORS);
+					$this->properties = $GLOBALS['properties']->getContactProperties();
 				}
 			}
 
-			for ($i = 0, $len = $rowCount; $i < $len; ++$i) {
-				// Use array_shift to so we won't double memory usage!
-				$user_data = array_shift($rows);
-				$item = [];
-				$item['entryid'] = bin2hex($user_data[$this->properties['entryid']]);
-				$item['display_name'] = isset($user_data[$this->properties['display_name']]) ? $user_data[$this->properties['display_name']] : "";
-				$item['object_type'] = isset($user_data[$this->properties['object_type']]) ? $user_data[$this->properties['object_type']] : "";
-				$item['display_type'] = isset($user_data[PR_DISPLAY_TYPE]) ? $user_data[PR_DISPLAY_TYPE] : "";
-				$item['title'] = isset($user_data[PR_TITLE]) ? $user_data[PR_TITLE] : "";
-				$item['company_name'] = isset($user_data[PR_COMPANY_NAME]) ? $user_data[PR_COMPANY_NAME] : "";
+			if ($table) {
+				$restriction = $this->getRestriction($searchstring, $hide_users, $hide_groups, $hide_companies);
+				// Only add restriction when it is used
+				if (!empty($restriction)) {
+					mapi_table_restrict($table, $restriction, TBL_BATCH);
+				}
+				// Only sort when asked for
+				if (!empty($this->sort)) {
+					mapi_table_sort($table, $this->sort, TBL_BATCH);
+				}
 
-				// Test whether the GUID in the entryid is from the Contact Provider
-				if ($GLOBALS['entryid']->hasContactProviderGUID(bin2hex($user_data[$this->properties['entryid']]))) {
-					// Use the original_display_name property to fill in the fileas column
-					$item['fileas'] = $user_data[$this->properties['original_display_name']] ?? $item['display_name'];
-					$item['address_type'] = isset($user_data[$this->properties['address_type']]) ? $user_data[$this->properties['address_type']] : 'SMTP';
-					// necessary to display the proper icon
-					if ($item['address_type'] === 'MAPIPDL') {
-						$item['display_type_ex'] = DTE_FLAG_ACL_CAPABLE | DT_MAILUSER | DT_DISTLIST;
+				$rowCount = mapi_table_getrowcount($table);
+
+				if (is_int(MAX_GAB_RESULTS) && MAX_GAB_RESULTS > 0 && $rowCount > MAX_GAB_RESULTS) {
+					// Create a response that contains an error message that there are too much results
+					$data['error'] = ['code' => 'listexceederror', 'max_gab_users' => MAX_GAB_RESULTS];
+					$rows = mapi_table_queryrows($table, $this->properties, 0, MAX_GAB_RESULTS);
+					$rowCount = MAX_GAB_RESULTS;
+				}
+				else {
+					$rows = mapi_table_queryallrows($table, $this->properties);
+				}
+
+				for ($i = 0, $len = $rowCount; $i < $len; ++$i) {
+					// Use array_shift to so we won't double memory usage!
+					$user_data = array_shift($rows);
+					$abprovidertype = 0;
+					$item = [];
+					$entryid = bin2hex($user_data[$this->properties['entryid']]);
+					$item['entryid'] = $entryid;
+					$item['display_name'] = isset($user_data[$this->properties['display_name']]) ? $user_data[$this->properties['display_name']] : "";
+					$item['object_type'] = isset($user_data[$this->properties['object_type']]) ? $user_data[$this->properties['object_type']] : "";
+					$item['display_type'] = isset($user_data[PR_DISPLAY_TYPE]) ? $user_data[PR_DISPLAY_TYPE] : "";
+					$item['title'] = isset($user_data[PR_TITLE]) ? $user_data[PR_TITLE] : "";
+					$item['company_name'] = isset($user_data[PR_COMPANY_NAME]) ? $user_data[PR_COMPANY_NAME] : "";
+
+					// Test whether the GUID in the entryid is from the Contact Provider
+					if ($GLOBALS['entryid']->hasContactProviderGUID(bin2hex($user_data[$this->properties['entryid']]))) {
+						// Use the original_display_name property to fill in the fileas column
+						$item['fileas'] = $user_data[$this->properties['original_display_name']] ?? $item['display_name'];
+						$item['address_type'] = isset($user_data[$this->properties['address_type']]) ? $user_data[$this->properties['address_type']] : 'SMTP';
+						// necessary to display the proper icon
+						if ($item['address_type'] === 'MAPIPDL') {
+							$item['display_type_ex'] = DTE_FLAG_ACL_CAPABLE | DT_MAILUSER | DT_DISTLIST;
+						}
+
+						switch ($user_data[PR_DISPLAY_TYPE]) {
+							case DT_PRIVATE_DISTLIST:
+								$item['email_address'] = '';
+								break;
+
+							case DT_MAILUSER:
+							default:
+								$item['email_address'] = $user_data[$this->properties['email_address']];
+						}
 					}
+					elseif ($isSharedFolder && $sharedStore) {
+						// do not display private items
+						if (isset($user_data[$this->properties['private']]) && $user_data[$this->properties['private']] === true) {
+							continue;
+						}
+						// do not display items without an email address
+						if (empty($user_data[$this->properties["email_address_1"]]) &&
+							empty($user_data[$this->properties["email_address_2"]]) &&
+							empty($user_data[$this->properties["email_address_3"]])) {
+							continue;
+						}
+						// a shared contact is either a single contact item or a distribution list
+						$item['display_type_ex'] = $user_data[PR_ICON_INDEX] == 512 ?
+							DTE_FLAG_ACL_CAPABLE | DT_MAILUSER :
+							DTE_FLAG_ACL_CAPABLE | DT_MAILUSER | DT_DISTLIST;
+						$item['display_type'] = $user_data[PR_ICON_INDEX] == 512 ? DT_MAILUSER : DT_DISTLIST;
+						$item['fileas'] = $item['display_name'];
+						$item['surname'] = isset($user_data[PR_SURNAME]) ? $user_data[PR_SURNAME] : '';
+						$item['given_name'] = isset($user_data[$this->properties['given_name']]) ? $user_data[$this->properties['given_name']] : '';
+						$item['object_type'] = $user_data[PR_ICON_INDEX] == 512 ? MAPI_MAILUSER : MAPI_DISTLIST;
+						$item['store_entryid'] = $action["sharedFolder"]["store_entryid"];
+						$item['is_shared'] = true;
+						if (!empty($user_data[$this->properties["email_address_type_1"]])) {
+							$abprovidertype |= 1;
+						}
+						if (!empty($user_data[$this->properties["email_address_type_2"]])) {
+							$abprovidertype |= 2;
+						}
+						if (!empty($user_data[$this->properties["email_address_type_3"]])) {
+							$abprovidertype |= 4;
+						}
+						switch ($abprovidertype) {
+							case 1:
+							case 3:
+							case 5:
+							case 7:
+								$item['entryid'] .= '01';
+								$item['address_type'] = $user_data[$this->properties["email_address_type_1"]];
+								$item['email_address'] = $user_data[$this->properties["email_address_1"]];
+								break;
+							case 2:
+							case 6:
+								$item['entryid'] .= '02';
+								$item['address_type'] = $user_data[$this->properties["email_address_type_2"]];
+								$item['email_address'] = $user_data[$this->properties["email_address_2"]];
+								break;
+							case 4:
+								$item['entryid'] .= '03';
+								$item['address_type'] = $user_data[$this->properties["email_address_type_3"]];
+								$item['email_address'] = $user_data[$this->properties["email_address_3"]];
+								break;
+						}
+					}
+					else {
+						// If display_type_ex is not set we can overwrite it with display_type
+						$item['display_type_ex'] = isset($user_data[PR_DISPLAY_TYPE_EX]) ? $user_data[PR_DISPLAY_TYPE_EX] : $user_data[PR_DISPLAY_TYPE];
+						$item['fileas'] = $item['display_name'];
+						$item['mobile_telephone_number'] = isset($user_data[PR_MOBILE_TELEPHONE_NUMBER]) ? $user_data[PR_MOBILE_TELEPHONE_NUMBER] : '';
+						$item['home_telephone_number'] = isset($user_data[PR_HOME_TELEPHONE_NUMBER]) ? $user_data[PR_HOME_TELEPHONE_NUMBER] : '';
+						$item['pager_telephone_number'] = isset($user_data[PR_PAGER_TELEPHONE_NUMBER]) ? $user_data[PR_PAGER_TELEPHONE_NUMBER] : '';
+						$item['surname'] = isset($user_data[PR_SURNAME]) ? $user_data[PR_SURNAME] : '';
+						$item['given_name'] = isset($user_data[$this->properties['given_name']]) ? $user_data[$this->properties['given_name']] : '';
 
-					if (isset($action["isSharedFolder"]) && $action["isSharedFolder"] === true) {
-						if (isset($action["sharedFolder"]) && !empty($action["sharedFolder"])) {
-							$sharedContactEntryID = $GLOBALS['entryid']->unwrapABEntryIdObj(bin2hex($user_data[$this->properties['entryid']]));
-							// Address book record does not have 'private' property so we need to open shared contact to
-							// get the value of 'private'  property.
-							$contact = $GLOBALS['operations']->openMessage($sharedStore, hex2bin($sharedContactEntryID));
-							$sharedContactProps = mapi_getprops($contact, [$this->properties['private']]);
-							// Don't show the private contact.
-							if (isset($sharedContactProps[$this->properties['private']]) && $sharedContactProps[$this->properties['private']] === true) {
-								continue;
-							}
+						switch ($user_data[PR_DISPLAY_TYPE]) {
+							case DT_ORGANIZATION:
+								$item['email_address'] = $user_data[$this->properties['account']];
+								$item['address_type'] = 'EX';
+								// The account property is used to fill in the fileas column
+								$item['fileas'] = $user_data[$this->properties['account']];
+								break;
+
+							case DT_DISTLIST:
+								// The account property is used to fill in the fileas column, private dislist does not have that
+								$item['fileas'] = $user_data[$this->properties['account']];
+
+							// no break
+							case DT_PRIVATE_DISTLIST:
+								$item['email_address'] = $user_data[$this->properties['account']];
+								// FIXME: shouldn't be needed, but atm this gives us an undefined offset error which makes the unittests fail.
+								if ($item['email_address'] !== 'Everyone') {
+									if (isset($user_data[$this->properties['smtp_address']])) {
+										$item['smtp_address'] = $user_data[$this->properties['smtp_address']];
+									}
+								}
+								$item['address_type'] = 'EX';
+								break;
+
+							case DT_MAILUSER:
+								// The account property is used to fill in the fileas column, remote mailuser does not have that
+								$item['fileas'] = $user_data[$this->properties['account']];
+
+							// no break
+							case DT_REMOTE_MAILUSER:
+							default:
+								$item['email_address'] = $user_data[$this->properties['email_address']];
+								$item['smtp_address'] = $user_data[$this->properties['smtp_address']];
+
+								$item['address_type'] = isset($user_data[$this->properties['address_type']]) ? $user_data[$this->properties['address_type']] : 'SMTP';
+								$item['department_name'] = isset($user_data[$this->properties['department_name']]) ? $user_data[$this->properties['department_name']] : '';
+								$item['office_telephone_number'] = isset($user_data[$this->properties['office_telephone_number']]) ? $user_data[$this->properties['office_telephone_number']] : '';
+								$item['office_location'] = isset($user_data[$this->properties['office_location']]) ? $user_data[$this->properties['office_location']] : '';
+								$item['primary_fax_number'] = isset($user_data[$this->properties['primary_fax_number']]) ? $user_data[$this->properties['primary_fax_number']] : '';
+								break;
 						}
 					}
 
-					switch ($user_data[PR_DISPLAY_TYPE]) {
-						case DT_PRIVATE_DISTLIST:
-							$item['email_address'] = '';
-							break;
-
-						case DT_MAILUSER:
-						default:
-							$item['email_address'] = $user_data[$this->properties['email_address']];
+					// Create a nice full_name prop ("Lastname, Firstname Middlename")
+					if (isset($user_data[$this->properties['surname']])) {
+						$item['full_name'] = $user_data[$this->properties['surname']];
 					}
-				}
-				else {
-					// If display_type_ex is not set we can overwrite it with display_type
-					$item['display_type_ex'] = isset($user_data[PR_DISPLAY_TYPE_EX]) ? $user_data[PR_DISPLAY_TYPE_EX] : $user_data[PR_DISPLAY_TYPE];
-					$item['fileas'] = $item['display_name'];
-					$item['mobile_telephone_number'] = isset($user_data[PR_MOBILE_TELEPHONE_NUMBER]) ? $user_data[PR_MOBILE_TELEPHONE_NUMBER] : '';
-					$item['home_telephone_number'] = isset($user_data[PR_HOME_TELEPHONE_NUMBER]) ? $user_data[PR_HOME_TELEPHONE_NUMBER] : '';
-					$item['pager_telephone_number'] = isset($user_data[PR_PAGER_TELEPHONE_NUMBER]) ? $user_data[PR_PAGER_TELEPHONE_NUMBER] : '';
-					$item['surname'] = isset($user_data[PR_SURNAME]) ? $user_data[PR_SURNAME] : '';
-					$item['given_name'] = isset($user_data[$this->properties['given_name']]) ? $user_data[$this->properties['given_name']] : '';
-
-					switch ($user_data[PR_DISPLAY_TYPE]) {
-						case DT_ORGANIZATION:
-							$item['email_address'] = $user_data[$this->properties['account']];
-							$item['address_type'] = 'EX';
-							// The account property is used to fill in the fileas column
-							$item['fileas'] = $user_data[$this->properties['account']];
-							break;
-
-						case DT_DISTLIST:
-							// The account property is used to fill in the fileas column, private dislist does not have that
-							$item['fileas'] = $user_data[$this->properties['account']];
-
-							// no break
-						case DT_PRIVATE_DISTLIST:
-							$item['email_address'] = $user_data[$this->properties['account']];
-							// FIXME: shouldn't be needed, but atm this gives us an undefined offset error which makes the unittests fail.
-							if ($item['email_address'] !== 'Everyone') {
-								if (isset($user_data[$this->properties['smtp_address']])) {
-									$item['smtp_address'] = $user_data[$this->properties['smtp_address']];
-								}
-							}
-							$item['address_type'] = 'EX';
-							break;
-
-						case DT_MAILUSER:
-							// The account property is used to fill in the fileas column, remote mailuser does not have that
-							$item['fileas'] = $user_data[$this->properties['account']];
-
-							// no break
-						case DT_REMOTE_MAILUSER:
-						default:
-							$item['email_address'] = $user_data[$this->properties['email_address']];
-							$item['smtp_address'] = $user_data[$this->properties['smtp_address']];
-
-							$item['address_type'] = isset($user_data[$this->properties['address_type']]) ? $user_data[$this->properties['address_type']] : 'SMTP';
-							$item['department_name'] = isset($user_data[$this->properties['department_name']]) ? $user_data[$this->properties['department_name']] : '';
-							$item['office_telephone_number'] = isset($user_data[$this->properties['office_telephone_number']]) ? $user_data[$this->properties['office_telephone_number']] : '';
-							$item['office_location'] = isset($user_data[$this->properties['office_location']]) ? $user_data[$this->properties['office_location']] : '';
-							$item['primary_fax_number'] = isset($user_data[$this->properties['primary_fax_number']]) ? $user_data[$this->properties['primary_fax_number']] : '';
-							break;
+					else {
+						$item['full_name'] = '';
 					}
-				}
-
-				// Create a nice full_name prop ("Lastname, Firstname Middlename")
-				if (isset($user_data[$this->properties['surname']])) {
-					$item['full_name'] = $user_data[$this->properties['surname']];
-				}
-				else {
-					$item['full_name'] = '';
-				}
-				if ((isset($user_data[$this->properties['given_name']]) || isset($user_data[$this->properties['middle_name']])) && !empty($item['full_name'])) {
-					$item['full_name'] .= ', ';
-				}
-				if (isset($user_data[$this->properties['given_name']])) {
-					$item['full_name'] .= $user_data[$this->properties['given_name']];
-				}
-				if (isset($user_data[$this->properties['middle_name']])) {
-					$item['full_name'] .= ' ' . $user_data[$this->properties['middle_name']];
-				}
-				if (empty($item['full_name'])) {
-					$item['full_name'] = $item['display_name'];
-				}
-
-				if (!empty($user_data[$this->properties['search_key']])) {
-					$item['search_key'] = bin2hex($user_data[$this->properties['search_key']]);
-				}
-				else {
-					// contacts folders are not returning search keys, this should be fixed in Gromox
-					// meanwhile this is a workaround, check ZCP-10814
-					// if search key is not passed then we will generate it
-					$email_address = '';
-					if (!empty($item['smtp_address'])) {
-						$email_address = $item['smtp_address'];
+					if ((isset($user_data[$this->properties['given_name']]) || isset($user_data[$this->properties['middle_name']])) && !empty($item['full_name'])) {
+						$item['full_name'] .= ', ';
 					}
-					elseif (!empty($item['email_address'])) {
-						$email_address = $item['email_address'];
+					if (isset($user_data[$this->properties['given_name']])) {
+						$item['full_name'] .= $user_data[$this->properties['given_name']];
+					}
+					if (isset($user_data[$this->properties['middle_name']])) {
+						$item['full_name'] .= ' ' . $user_data[$this->properties['middle_name']];
+					}
+					if (empty($item['full_name'])) {
+						$item['full_name'] = $item['display_name'];
 					}
 
-					if (!empty($email_address)) {
-						$item['search_key'] = bin2hex(strtoupper($item['address_type'] . ':' . $email_address)) . '00';
+					if (!empty($user_data[$this->properties['search_key']])) {
+						$item['search_key'] = bin2hex($user_data[$this->properties['search_key']]);
+					}
+					else {
+						// contacts folders are not returning search keys, this should be fixed in Gromox
+						// meanwhile this is a workaround, check ZCP-10814
+						// if search key is not passed then we will generate it
+						$email_address = '';
+						if (!empty($item['smtp_address'])) {
+							$email_address = $item['smtp_address'];
+						}
+						elseif (!empty($item['email_address'])) {
+							$email_address = $item['email_address'];
+						}
+
+						if (!empty($email_address)) {
+							$item['search_key'] = bin2hex(strtoupper($item['address_type'] . ':' . $email_address)) . '00';
+						}
+					}
+
+					array_push($items, ['props' => $item]);
+					if ($isSharedFolder && $sharedStore) {
+						switch ($abprovidertype) {
+							case 3:
+								$item['address_type'] = $user_data[$this->properties["email_address_type_2"]];
+								$item['email_address'] = $user_data[$this->properties["email_address_2"]];
+								$item['search_key'] = bin2hex(strtoupper($item['address_type'] . ':' . $item['email_address'])) . '00';
+								$item['entryid'] = $entryid . '02';
+								array_push($items, ['props' => $item]);
+								break;
+							case 5:
+							case 6:
+								$item['address_type'] = $user_data[$this->properties["email_address_type_3"]];
+								$item['email_address'] = $user_data[$this->properties["email_address_3"]];
+								$item['search_key'] = bin2hex(strtoupper($item['address_type'] . ':' . $item['email_address'])) . '00';
+								$item['entryid'] = $entryid . '03';
+								array_push($items, ['props' => $item]);
+								break;
+							case 7:
+								$item['address_type'] = $user_data[$this->properties["email_address_type_2"]];
+								$item['email_address'] = $user_data[$this->properties["email_address_2"]];
+								$item['search_key'] = bin2hex(strtoupper($item['address_type'] . ':' . $item['email_address'])) . '00';
+								$item['entryid'] = $entryid . '02';
+								array_push($items, ['props' => $item]);
+								$item['address_type'] = $user_data[$this->properties["email_address_type_3"]];
+								$item['email_address'] = $user_data[$this->properties["email_address_3"]];
+								$item['search_key'] = bin2hex(strtoupper($item['address_type'] . ':' . $item['email_address'])) . '00';
+								$item['entryid'] = $entryid . '03';
+								array_push($items, ['props' => $item]);
+								break;
+						}
 					}
 				}
 
-				array_push($items, ['props' => $item]);
+				function sorter($direction, $key) {
+					return function($a, $b) use ($direction, $key) {
+						return $direction == 'ASC' ?
+							strcasecmp($a['props'][$key] ?? '', $b['props'][$key] ?? '') :
+							strcasecmp($b['props'][$key] ?? '', $a['props'][$key] ?? '');
+					};
+				}
+				usort($items, sorter($sortingDir, $sortingField));
+
+				// todo: fix paging stuff
+				$data['page']['start'] = 0;
+				$data['page']['rowcount'] = $rowCount;
+				$data['page']['totalrowcount'] = $data['page']['rowcount'];
+				$data = array_merge($data, ['item' => $items]);
 			}
-
-			if (!empty($sortingField)) {
-				// Sort the items here, because full_name is not a real property, so we can not use the regular sorting
-				// Note: This hack only works because the GAB does not work with paging!
-				function cmpAsc($a, $b) {
-					global $sortingField;
-
-					return strcasecmp($b['props'][$sortingField] ?? '', $a['props'][$sortingField] ?? '');
-				}
-				function cmpDesc($a, $b) {
-					global $sortingField;
-
-					return strcasecmp($a['props'][$sortingField] ?? '', $b['props'][$sortingField] ?? '');
-				}
-
-				$cmpFn = $sortingDir === 'DESC' ? 'cmpDesc' : 'cmpAsc';
-				usort($items, $cmpFn);
-			}
-
-			// todo: fix paging stuff
-			$data['page']['start'] = 0;
-			$data['page']['rowcount'] = $rowCount;
-			$data['page']['totalrowcount'] = $data['page']['rowcount'];
-			$data = array_merge($data, ['item' => $items]);
 		}
 		else {
 			// Provide clue that full GAB is disabled.
@@ -905,11 +799,8 @@ class AddressbookListModule extends ListModule {
 	}
 
 	public function getHierarchy($action) {
-		$hideContacts = false;
 		// Check if hide_contacts is set in the restriction
-		if (isset($action['restriction'], $action['restriction']['hide_contacts'])) {
-			$hideContacts = $action['restriction']['hide_contacts'];
-		}
+		$hideContacts = $action['restriction']['hide_contacts'] ?? false;
 
 		$folders = $this->getAddressbookHierarchy($hideContacts);
 		$data = ['item' => $folders];
@@ -929,14 +820,31 @@ class AddressbookListModule extends ListModule {
 	 * "display_name" => Name of the folder, "entryid" => entryid of the folder, "parent_entryid" => parent entryid
 	 * "storeid" => store entryid, "type" => gab | contacts
 	 *
-	 * @param array Associative array with store information
-	 * @param mixed $hideContacts
+	 * @param bool $hideContacts
 	 *
 	 * @return array Array of associative arrays with addressbook container information
-	 *
-	 * @todo Fix bizarre input parameter format
 	 */
 	public function getAddressbookHierarchy($hideContacts = false) {
+		$folders = [];
+		$this->getAbContactFolders($hideContacts, $folders);
+		// add shared contact folders if they are enabled
+		if (ENABLE_SHARED_CONTACT_FOLDERS) {
+			$this->getSharedContactFolders($folders);
+		}
+		if (ENABLE_PUBLIC_CONTACT_FOLDERS && ENABLE_PUBLIC_FOLDERS) {
+			$this->getPublicContactFolders($folders);
+		}
+
+		return $folders;
+	}
+
+	/**
+	 * Gets the contacts' folders from the global addressbook.
+	 *
+	 * @param bool  $hideContacts
+	 * @param array $folders      list of folders
+	 */
+	public function getAbContactFolders($hideContacts, &$folders) {
 		$ab = $GLOBALS["mapisession"]->getAddressbook(false, true);
 		$dir = mapi_ab_openentry($ab);
 		$table = mapi_folder_gethierarchytable($dir, MAPI_DEFERRED_ERRORS | CONVENIENT_DEPTH);
@@ -956,30 +864,296 @@ class AddressbookListModule extends ListModule {
 		}
 
 		$items = mapi_table_queryallrows($table, [PR_DISPLAY_NAME, PR_ENTRYID, PR_PARENT_ENTRYID, PR_DEPTH, PR_AB_PROVIDER_ID]);
-
-		$folders = [];
-
 		$parent = false;
 		foreach ($items as $item) {
-			// TODO: fix for missing PR_PARENT_ENTRYID, see #2190
 			if ($item[PR_DEPTH] == 0) {
 				$parent = $item[PR_ENTRYID];
 			}
-
 			$item[PR_PARENT_ENTRYID] = $parent;
 
-			$folders[] = [
-				"props" => [
-					"display_name" => $item[PR_DISPLAY_NAME] ?? '',
-					"entryid" => bin2hex($item[PR_ENTRYID]),
-					"parent_entryid" => bin2hex($item[PR_PARENT_ENTRYID]),
-					"depth" => $item[PR_DEPTH],
-					"type" => $item[PR_AB_PROVIDER_ID] == MUIDECSAB ? "gab" : 'contacts',
-					"object_type" => MAPI_ABCONT,
+			$this->addFolder($folders, [
+				"display_name" => $item[PR_DISPLAY_NAME] ?? '',
+				"entryid" => bin2hex($item[PR_ENTRYID]),
+				"parent_entryid" => bin2hex($item[PR_PARENT_ENTRYID]),
+				"depth" => $item[PR_DEPTH],
+				"type" => $item[PR_AB_PROVIDER_ID] == MUIDECSAB ? "gab" : 'contacts',
+				"object_type" => MAPI_ABCONT,
+			]);
+		}
+	}
+
+	/**
+	 * Gets the shared contacts folders.
+	 *
+	 * @param array $folders list of folders
+	 */
+	public function getSharedContactFolders(&$folders) {
+		$otherstores = $GLOBALS['mapisession']->getOtherUserStore();
+		$mainUserEntryId = $GLOBALS['mapisession']->getUserEntryID();
+		$shareUserSettings = $GLOBALS["mapisession"]->retrieveOtherUsersFromSettings();
+		foreach ($otherstores as $sharedEntryId => $sharedStore) {
+			$sharedStoreProps = mapi_getprops($sharedStore, [PR_MAILBOX_OWNER_NAME, PR_MDB_PROVIDER]);
+			$sharedUserSetting = [];
+			if ($sharedStoreProps[PR_MDB_PROVIDER] == ZARAFA_STORE_DELEGATE_GUID) {
+				$eidObj = $GLOBALS["entryid"]->createMsgStoreEntryIdObj($sharedEntryId);
+				if (array_key_exists(strtolower($eidObj['MailboxDN']), $shareUserSettings)) {
+					$sharedUserSetting = $shareUserSettings[strtolower($eidObj['MailboxDN'])];
+				}
+				$sharedContactFolders = $GLOBALS["mapisession"]->getContactFoldersForABContactProvider($sharedStore);
+				for ($i = 0, $len = count($sharedContactFolders); $i < $len; ++$i) {
+					$folder = mapi_msgstore_openentry($sharedStore, $sharedContactFolders[$i][PR_ENTRYID]);
+					$folderProps = mapi_getprops($folder, [PR_CONTAINER_CLASS]);
+					if (isset($folderProps[PR_CONTAINER_CLASS]) && $folderProps[PR_CONTAINER_CLASS] == 'IPF.Contact') {
+						$grants = mapi_zarafa_getpermissionrules($folder, ACCESS_TYPE_GRANT);
+						if (isset($sharedUserSetting['all']) || in_array($mainUserEntryId, array_column($grants, 'userid'))) {
+							$this->addFolder($folders, [
+								// Postfix display name of every contact folder with respective owner name
+								// it is mandatory to keep display-name different
+								"display_name" => $sharedContactFolders[$i][PR_DISPLAY_NAME] . " - " . $sharedStoreProps[PR_MAILBOX_OWNER_NAME],
+								"entryid" => bin2hex($sharedContactFolders[$i][PR_ENTRYID]),
+								"parent_entryid" => bin2hex($sharedContactFolders[$i][PR_PARENT_ENTRYID]),
+								"depth" => $sharedContactFolders[$i][PR_DEPTH],
+								"type" => 'sharedcontacts',
+								"object_type" => MAPI_ABCONT,
+							]);
+						}
+					}
+				}
+			}
+		}
+	}
+
+	/**
+	 * Gets the public contacts folders.
+	 *
+	 * @param array $folders list of folders
+	 */
+	public function getPublicContactFolders(&$folders) {
+		$publicStore = $GLOBALS['mapisession']->getPublicMessageStore();
+		$publicStoreProps = mapi_getprops($publicStore, [PR_DISPLAY_NAME]);
+		$publicContactFolders = $GLOBALS['mapisession']->getContactFoldersForABContactProvider($publicStore);
+		for ($i = 0, $len = count($publicContactFolders); $i < $len; ++$i) {
+			$this->addFolder($folders, [
+				// Postfix display name of every contact folder with respective owner name
+				// it is mandatory to keep display-name different
+				"display_name" => $publicContactFolders[$i][PR_DISPLAY_NAME] . ' - ' . $publicStoreProps[PR_DISPLAY_NAME],
+				"entryid" => bin2hex($publicContactFolders[$i][PR_ENTRYID]),
+				"parent_entryid" => bin2hex($publicContactFolders[$i][PR_PARENT_ENTRYID]),
+				"depth" => $publicContactFolders[$i][PR_DEPTH],
+				"type" => 'sharedcontacts',
+				"object_type" => MAPI_ABCONT,
+			]);
+		}
+	}
+
+	/**
+	 * Adds folder information to the folder list.
+	 *
+	 * @param array $folders list of folders
+	 * @param array $data    folder information
+	 */
+	public function addFolder(&$folders, $data) {
+		$folders[] = ["props" => $data];
+	}
+
+	/**
+	 * Returns the field which will be used to sort the ab items
+	 *
+	 * @param array  $action
+	 * @param array  $map
+	 * @param string $sortingDir
+	 *
+	 * @return string
+	 */
+	public function getSortingField(&$action, $map, $sortingDir) {
+		// Rewrite the sort info when sorting on full name as this is a combination of multiple fields
+		$sortingField = 'full_name';
+		if (isset($action["sort"]) && is_array($action["sort"]) && count($action["sort"]) === 1 && isset($action["sort"][0]["field"])) {
+			$sortingField = $action["sort"][0]["field"];
+			if ($action["sort"][0]["field"] === 'full_name') {
+				$action["sort"] = [
+					[
+						"field" => "surname",
+						"direction" => $sortingDir,
+					],
+					[
+						"field" => "given_name",
+						"direction" => $sortingDir,
+					],
+					[
+						"field" => "middle_name",
+						"direction" => $sortingDir,
+					],
+					[
+						"field" => "display_name",
+						"direction" => $sortingDir,
+					],
+				];
+			}
+			elseif ($action["sort"][0]["field"] === 'icon_index') {
+				$sortingField = 'display_type_ex';
+				$action["sort"] = [
+					[
+						"field" => 'display_type_ex',
+						"direction" => $sortingDir,
+					],
+					[
+						"field" => 'display_name',
+						"direction" => $sortingDir,
+					],
+				];
+			}
+
+			// Parse incoming sort order
+			$this->parseSortOrder($action, $map, true);
+		}
+
+		return $sortingField;
+	}
+
+	/**
+	 * Returns the restriction for the ab items.
+	 *
+	 * @param string $searchstring
+	 * @param bool   $hide_users
+	 * @param bool   $hide_groups
+	 * @param bool   $hide_companies
+	 *
+	 * @return array
+	 */
+	public function getRestriction($searchstring, $hide_users, $hide_groups, $hide_companies) {
+		$restriction = [];
+		$userGroupRestriction = $this->getUserGroupCompanyRestriction($hide_users, $hide_groups, $hide_companies);
+		$searchRestriction = $this->getSearchRestriction($searchstring);
+
+		if (!empty($searchRestriction) && !empty($userGroupRestriction)) {
+			$restriction = [
+				RES_AND,
+				[
+					// restriction for search/alphabet bar
+					$searchRestriction,
+					// restriction for hiding users/groups
+					$userGroupRestriction,
+				], ];
+		}
+		elseif (!empty($searchRestriction)) {
+			// restriction for search/alphabet bar
+			$restriction = $searchRestriction;
+		}
+		else {
+			// restriction for hiding users/groups
+			$restriction = $userGroupRestriction;
+		}
+
+		return $restriction;
+	}
+
+	/**
+	 * Returns the search/alphabet bar restriction for the ab items.
+	 *
+	 * @param string $searchstring
+	 *
+	 * @return array
+	 */
+	public function getSearchRestriction($searchstring) {
+		$searchRestriction = [];
+
+		if (!empty($searchstring)) {
+			// create restriction for search
+			// only return users from who the displayName or the username starts with $searchstring
+			// TODO: use PR_ANR for this restriction instead of PR_DISPLAY_NAME and PR_ACCOUNT
+			$searchRestriction = [RES_OR,
+				[
+					// Display name of user from GAB and contacts.
+					[
+						RES_CONTENT,
+						[FUZZYLEVEL => FL_SUBSTRING | FL_IGNORECASE,
+							ULPROPTAG => PR_DISPLAY_NAME,
+							VALUE => $searchstring,
+						],
+					],
+					// fileas value of user from GAB.
+					[
+						RES_CONTENT,
+						[FUZZYLEVEL => FL_SUBSTRING | FL_IGNORECASE,
+							ULPROPTAG => PR_ACCOUNT,
+							VALUE => $searchstring,
+						],
+					],
+					// smtp_address of user from GAB.
+					[
+						RES_CONTENT,
+						[FUZZYLEVEL => FL_SUBSTRING | FL_IGNORECASE,
+							ULPROPTAG => PR_SMTP_ADDRESS,
+							VALUE => $searchstring,
+						],
+					],
+					// email_address of user from GAB and contacts.
+					[
+						RES_CONTENT,
+						[FUZZYLEVEL => FL_SUBSTRING | FL_IGNORECASE,
+							ULPROPTAG => PR_EMAIL_ADDRESS,
+							VALUE => $searchstring,
+						],
+					],
+					// department of user from GAB.
+					[
+						RES_CONTENT,
+						[FUZZYLEVEL => FL_SUBSTRING | FL_IGNORECASE,
+							ULPROPTAG => PR_DEPARTMENT_NAME,
+							VALUE => $searchstring,
+						],
+					],
+					// fileas of user from Contacts.
+					[
+						RES_CONTENT,
+						[FUZZYLEVEL => FL_SUBSTRING | FL_IGNORECASE,
+							ULPROPTAG => PR_ORIGINAL_DISPLAY_NAME,
+							VALUE => $searchstring,
+						],
+					],
 				],
 			];
 		}
 
-		return $folders;
+		return $searchRestriction;
+	}
+
+	/**
+	 * Returns the hiding users/groups restriction for the ab items.
+	 *
+	 * @param bool   $hide_users
+	 * @param bool   $hide_groups
+	 * @param bool   $hide_companies
+	 *
+	 * @return array
+	 */
+	public function getUserGroupCompanyRestriction($hide_users, $hide_groups, $hide_companies) {
+		$userGroupRestriction = [];
+
+		if ($hide_users || $hide_groups || $hide_companies) {
+			$userRestrictions = [];
+			if ($hide_users) {
+				$tmp = $this->createUsersRestriction($hide_users);
+				if ($tmp) {
+					$userRestrictions[] = $tmp;
+				}
+			}
+			if ($hide_groups) {
+				$tmp = $this->createGroupsRestriction($hide_groups);
+				if ($tmp) {
+					$userRestrictions[] = $tmp;
+				}
+			}
+			if ($hide_companies) {
+				$tmp = $this->createCompanyRestriction($hide_companies);
+				if ($tmp) {
+					$userRestrictions[] = $tmp;
+				}
+			}
+			$userGroupRestriction = [RES_AND, $userRestrictions];
+		}
+
+		return $userGroupRestriction;
 	}
 }

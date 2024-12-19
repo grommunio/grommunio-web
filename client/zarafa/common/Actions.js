@@ -244,7 +244,7 @@ Zarafa.common.Actions = {
 	openViewRecipientContent: function(recipient, config)
 	{
 		if (recipient.isResolved()) {
-			if (recipient.isPersonalContact()) {
+			if (recipient.isPersonalContact() || recipient.isSharedContact()) {
 				// A personal contact needs to be converted to a contact so the correct panel can be shown.
 				recipient = recipient.convertToContactRecord();
 				// FIXME: We put the abRecord into the ShadowStore to be able
