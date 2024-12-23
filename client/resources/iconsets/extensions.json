@@ -19,8 +19,8 @@
 	".icon_paperclip": ".icon_attachment",
 	".icon_priority_high": ".icon_importance_urgent",
 	".icon_priority_low": ".icon_importance_nonurgent",
-	".icon_sort_ascending": ".x-menu-item.xg-hmenu-sort-desc .x-menu-item-icon",
-	".icon_sort_descending": ".x-menu-item.xg-hmenu-sort-asc .x-menu-item-icon",
+	".icon_sort_ascending": ".x-menu-item.xg-hmenu-sort-asc .x-menu-item-icon",
+	".icon_sort_descending": ".x-menu-item.xg-hmenu-sort-desc .x-menu-item-icon",
 	".icon_columns": ".x-menu-item .x-cols-icon.x-menu-item-icon",
 
 	".icon_favorites": ".icon_folder_favorites",

@@ -436,7 +436,7 @@ Zarafa.common.ui.grid.GridView = Ext.extend(Ext.grid.GroupingView, {
 		store.sortInfo.field = groupField;
 
 		var direction = store.sortToggle[groupField];
-		store.sortInfo.direction = Ext.isDefined(direction)? direction : 'DESC';
+		store.sortInfo.direction = Ext.isDefined(direction) ? direction : 'ASC';
 		store.groupField = groupField;
 		store.applyGrouping();
 		grid.fireEvent('groupchange', grid, store.getGroupState());
