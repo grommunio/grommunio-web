@@ -177,16 +177,16 @@ class AddressbookListModule extends ListModule {
 							continue;
 						}
 						// do not display items without an email address
-						if (empty($user_data[$this->properties["email_address_1"]]) &&
+						// a shared contact is either a single contact item or a distribution list
+						$isContact = strcasecmp($user_data[$this->properties['message_class']], 'IPM.Contact') === 0;
+						if ($isContact &&
+							empty($user_data[$this->properties["email_address_1"]]) &&
 							empty($user_data[$this->properties["email_address_2"]]) &&
 							empty($user_data[$this->properties["email_address_3"]])) {
 							continue;
 						}
-						// a shared contact is either a single contact item or a distribution list
-						$item['display_type_ex'] = $user_data[PR_ICON_INDEX] == 512 ?
-							DTE_FLAG_ACL_CAPABLE | DT_MAILUSER :
-							DTE_FLAG_ACL_CAPABLE | DT_MAILUSER | DT_DISTLIST;
-						$item['display_type'] = $user_data[PR_ICON_INDEX] == 512 ? DT_MAILUSER : DT_DISTLIST;
+						$item['display_type_ex'] = $isContact ? DT_MAILUSER : DT_MAILUSER | DT_PRIVATE_DISTLIST;
+						$item['display_type'] = $isContact ? DT_MAILUSER : DT_DISTLIST;
 						$item['fileas'] = $item['display_name'];
 						$item['surname'] = isset($user_data[PR_SURNAME]) ? $user_data[PR_SURNAME] : '';
 						$item['given_name'] = isset($user_data[$this->properties['given_name']]) ? $user_data[$this->properties['given_name']] : '';
