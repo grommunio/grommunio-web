@@ -42,7 +42,7 @@ class AddressbookItemModule extends ItemModule {
 				// Let us try to get that particular contact item in respective user store.
 				// @Fixme: After implementation of KC-350 this extra handling can be removed.
 				if ($e->getCode() == MAPI_E_NOT_FOUND || $e->getCode() == MAPI_E_INVALID_PARAMETER) {
-					if (strlen($entryid) == 71) {
+					if ($GLOBALS['entryid']->hasNoMuid(bin2hex($entryid))) {
 						$entryid = substr($entryid, 0, -1);
 					}
 					else {
