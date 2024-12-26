@@ -692,6 +692,21 @@ class EntryId {
 	public function createMuidemsabEntryid($user) {
 		return "00000000dca740c8c042101ab4b908002b2fe1820100000000000000" . bin2hex($user);
 	}
+
+	/**
+	 * Checks if the GUID part of the entryid has one of the known MUIDs.
+	 *
+	 * @param mixed $entryId Addressbook entryid
+	 *
+	 * @return bool true if guid matches one of the known MUIDs else false
+	 */
+	public function hasNoMuid($entryId) {
+		$entryIdObj = $this->createABEntryIdObj($entryId);
+
+		return $entryIdObj['guid'] != self::MUIDZCSAB &&
+			$entryIdObj['guid'] != self::MUIDECSAB &&
+			$entryIdObj['guid'] != self::MUIDEMSAB;
+	}
 }
 
 // Create global entryId object
