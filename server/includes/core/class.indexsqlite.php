@@ -41,11 +41,16 @@ class IndexSqlite extends SQLite3 {
 		$has_attachments
 	) {
 		// if match condition contains '@', $row['entryid'] will disappear. it seems a bug for php-sqlite
-		if (strlen($row['entryid']) == 0) {
-			$results = $this->query("SELECT entryid FROM messages WHERE message_id=" . $row['message_id']);
+		if (empty($row['entryid'])) {
+			$results = $this->query("SELECT entryid FROM msg_content WHERE message_id=" . $row['message_id']);
 			$row1 = $results->fetchArray(SQLITE3_NUM);
-			if ($row1) {
+			if ($row1 && !empty($row1[0])) {
 				$row['entryid'] = $row1[0];
+			}
+			// abort if the entryid is not available
+			else {
+				error_log(sprintf("No entryid available, not possible to link the message %d.", $row['message_id']));
+				return;
 			}
 		}
 		if (isset($message_classes)) {
