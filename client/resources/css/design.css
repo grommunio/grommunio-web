@@ -4789,7 +4789,7 @@ div.zarafa-contact-cardview-selected {
 
 /* line 27, ../scss/components/_search.scss */
 .k-searchcenterpanel {
-  margin-left: 3px;
+  margin-left: -1px;
 }
 
 /* The search results grid */

@@ -3626,7 +3626,7 @@ div.zarafa-contact-cardview-selected {
     height: 24px !important; }
 
 .k-searchcenterpanel {
-  margin-left: 3px; }
+  margin-left: -1px; }
 
 /* The search results grid */
 .zarafa-searchgrid .x-grid3-hd-row td:first-child:active .x-grid3-hd-inner {
@@ -4774,6 +4774,10 @@ input.x-tree-node-cb {
 
 .x-box-inner {
   overflow: visible;
+}
+
+.zarafa-previewpanel {
+    margin-left: -6px;
 }
 
 /*# sourceMappingURL=grommunio.css.map */
