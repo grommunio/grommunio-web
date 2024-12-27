@@ -207,7 +207,7 @@ body.login>#form-container #submitbutton:focus {
   width: 100%;
 }
 
-.x-box-inner {
+.grommunio-welcome-viewport .x-box-inner {
   overflow: auto !important;
 }
 

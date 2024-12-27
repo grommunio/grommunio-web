@@ -28,6 +28,7 @@ Zarafa.core.ui.WelcomeViewport = Ext.extend(Ext.Viewport, {
 
 		config = Ext.applyIf(config, {
 			layout: {
+				cls: 'grommunio-welcome-viewport',
 				type: 'vbox',
 				align: 'stretch'
 			},
