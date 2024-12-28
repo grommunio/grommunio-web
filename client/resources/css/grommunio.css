@@ -2164,7 +2164,6 @@ Note: Does not work in IE11 */
   float: right;
   width: 20px;
   height: 20px;
-  margin: -9px -9px 0 9px;
   /* pulling it to the top and the right to be able to create a larger click area */
   cursor: pointer;
   -webkit-user-select: none;
@@ -4713,7 +4712,7 @@ input.x-tree-node-cb {
     height: 36px;
 }
 
-.x-tree-lines .x-tree-elbow, .x-tree-lines .x-tree-elbow-end, .x-tree-lines .x-tree-elbow-line .arrow_right_l, .light-background .zarafa-calendar-tab-icon-separate, .x-date-mp-ybtn a, .x-date-right a, .x-layout-collapsed .x-tool.x-tool-toggle.x-tool-expand-west, .x-menu-item-arrow, .x-panel-header .x-tool.x-tool-collapse-east, .x-tab-scroller-right, .x-tool.x-tool-toggle.x-tool-collapse-east, .x-tree-lines .x-tree-elbow-end-plus, .x-tree-lines .x-tree-elbow-plus .arrow_down_l, .preview-header-collapse-plus, .x-panel-collapsed .x-tool.x-tool-toggle, .x-tree-lines .x-tree-elbow-end-minus, .x-tree-lines .x-tree-elbow-minus, .zarafa-rules-sequence-down, td.sort-desc .x-grid3-sort-icon .arrow_right_l, .light-background .zarafa-calendar-tab-icon-separate, .x-date-mp-ybtn a, .x-date-right a, .x-layout-collapsed .x-tool.x-tool-expand-west, .x-layout-collapsed .x-tool.x-tool-toggle.x-tool-expand-west, .x-menu-item-arrow, .x-panel-header .x-tool.x-tool-collapse-east, .x-tab-scroller-right, .x-tool.x-tool-toggle.x-tool-collapse-east, .x-tree-lines .x-tree-elbow-end-plus, .x-tree-lines .x-tree-elbow-plus, .x-date-picker .x-date-left a {
+.x-tree-lines .x-tree-elbow, .x-tree-lines .x-tree-elbow-end, .x-tree-lines .x-tree-elbow-line .arrow_right_l, .light-background .zarafa-calendar-tab-icon-separate, .x-date-mp-ybtn a, .x-date-right a, .x-layout-collapsed .x-tool.x-tool-toggle.x-tool-expand-west, .x-menu-item-arrow, .x-panel-header .x-tool.x-tool-collapse-east, .x-tab-scroller-right, .x-tool.x-tool-toggle.x-tool-collapse-east, .x-tree-lines .x-tree-elbow-end-plus, .x-tree-lines .x-tree-elbow-plus .arrow_down_l, .x-panel-collapsed .x-tool.x-tool-toggle, .x-tree-lines .x-tree-elbow-end-minus, .x-tree-lines .x-tree-elbow-minus, .zarafa-rules-sequence-down, td.sort-desc .x-grid3-sort-icon .arrow_right_l, .light-background .zarafa-calendar-tab-icon-separate, .x-date-mp-ybtn a, .x-date-right a, .x-layout-collapsed .x-tool.x-tool-expand-west, .x-layout-collapsed .x-tool.x-tool-toggle.x-tool-expand-west, .x-menu-item-arrow, .x-panel-header .x-tool.x-tool-collapse-east, .x-tab-scroller-right, .x-tool.x-tool-toggle.x-tool-collapse-east, .x-tree-lines .x-tree-elbow-end-plus, .x-tree-lines .x-tree-elbow-plus, .x-date-picker .x-date-left a {
     padding: 6px;
 }
 

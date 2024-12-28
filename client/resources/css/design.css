@@ -2709,7 +2709,6 @@ Note: Does not work in IE11 */
   float: right;
   width: 20px;
   height: 20px;
-  margin: -9px -9px 0 9px;
   /* pulling it to the top and the right to be able to create a larger click area */
   cursor: pointer;
   -webkit-user-select: none;
