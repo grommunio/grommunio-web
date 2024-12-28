@@ -561,7 +561,7 @@ span.error_files {
 
 .zarafa-files-hierarchypanel-subpanel > .x-panel-header {
 	background-color: white;
-	padding: 8px 9px 8px 12px;
+	padding: 12px 9px 12px 12px;
 }
 
 .files-create-folder-tree-panel {
