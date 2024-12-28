@@ -1998,7 +1998,7 @@ body.scrollFavorites .zarafa-tree-ipm-subtree-favorites-container, .x-window .za
 /* hierarchy toolbar (Show all folders panel) */
 #zarafa-navigationpanel .zarafa-hierarchy-treepanel .zarafa-hierarchy-treepanel-tbar .x-toolbar {
   /* Bottom has -1 pixel since we have a bottom-border of 1px */
-  padding: 9px 12px 7px 12px; }
+  padding: 4px 12px 4px; }
   #zarafa-navigationpanel .zarafa-hierarchy-treepanel .zarafa-hierarchy-treepanel-tbar .x-toolbar .x-form-check-wrap input, #zarafa-navigationpanel .zarafa-hierarchy-treepanel .zarafa-hierarchy-treepanel-tbar .x-toolbar .x-form-check-wrap label {
     line-height: 20px;
     vertical-align: middle; }
