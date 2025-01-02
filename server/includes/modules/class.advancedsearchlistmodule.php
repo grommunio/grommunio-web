@@ -152,7 +152,7 @@ class AdvancedSearchListModule extends ListModule {
 		}
 	}
 
-	private static function parsePatterns($restriction, &$patterns) {
+	private function parsePatterns($restriction, &$patterns) {
 		if (empty($restriction)) {
 			return;
 		}
@@ -193,11 +193,20 @@ class AdvancedSearchListModule extends ListModule {
 				case PR_DISPLAY_NAME:
 					$patterns['others'] = $subres[VALUE][$subres[ULPROPTAG]];
 					break;
+
+				case $this->properties['categories']:
+					if (!isset($patterns['categories'])) {
+						$patterns['categories'] = [];
+					}
+					if (isset($subres[VALUE][$subres[ULPROPTAG]][0])) {
+						$patterns['categories'][] = $subres[VALUE][$subres[ULPROPTAG]][0];
+					}
+					break;
 			}
 		}
 		elseif ($type == RES_AND || $type == RES_OR) {
 			foreach ($restriction[1] as $subres) {
-				AdvancedSearchListModule::parsePatterns($subres, $patterns);
+				$this->parsePatterns($subres, $patterns);
 			}
 		}
 		elseif ($type == RES_BITMASK) {
@@ -362,9 +371,9 @@ class AdvancedSearchListModule extends ListModule {
 		// Initialize search patterns with default values
 		$search_patterns = array_fill_keys(['sender', 'sending', 'recipients',
 			'subject', 'content', 'attachments', 'others', 'message_classes',
-			'date_start', 'date_end', 'unread', 'has_attachments'],
+			'date_start', 'date_end', 'unread', 'has_attachments', 'categories'],
 			null);
-		AdvancedSearchListModule::parsePatterns($this->restriction, $search_patterns);
+		$this->parsePatterns($this->restriction, $search_patterns);
 		if (isset($search_patterns['message_classes']) &&
 			count($search_patterns['message_classes']) >= 7) {
 			$search_patterns['message_classes'] = null;
