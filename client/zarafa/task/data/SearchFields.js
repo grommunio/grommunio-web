@@ -7,7 +7,7 @@ Ext.namespace('Zarafa.task.data');
  */
 Zarafa.task.data.SearchFields = [{
 	name: _('All text fields'),
-	value: 'subject body categories owner companies'
+	value: 'subject body owner companies'
 }, {
 	name: _('Subject'),
 	value: 'subject'
