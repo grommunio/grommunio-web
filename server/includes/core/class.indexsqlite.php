@@ -139,10 +139,11 @@ class IndexSqlite extends SQLite3 {
 			'date_start' => $date_start,
 			'date_end' => $date_end,
 			'unread' => $unread,
-			'has_attachments' => $has_attachments
+			'has_attachments' => $has_attachments,
+			'categories' => $categories,
 		] = $search_patterns;
 		if (isset($sender) && $sender == $sending && $sending == $recipients && $recipients == $subject &&
-			$subject == $content && $content == $attachments && $attachments == $others) {
+			$subject == $content && $content == $attachments && $attachments == $others && empty($categories)) {
 			$sql_string .= SQLite3::escapeString($this->quote_words($sender)) . "'";
 		}
 		else {
@@ -154,6 +155,7 @@ class IndexSqlite extends SQLite3 {
 					case 'date_end':
 					case 'unread':
 					case 'has_attachments':
+					case 'categories':
 						break;
 					default:
 						if (!is_null($search_pattern)) {
@@ -171,6 +173,11 @@ class IndexSqlite extends SQLite3 {
 				return false;
 			}
 			$sql_string .= "'";
+			if (!empty($categories)) {
+				foreach ($categories as $category) {
+					$sql_string .= " AND messages MATCH 'others:" . SQLite3::escapeString($this->quote_words($category)) . "'";
+				}
+			}
 		}
 		$sql_string .= " ORDER BY c.date DESC LIMIT " . MAX_FTS_RESULT_ITEMS;
 		$results = $this->query($sql_string);

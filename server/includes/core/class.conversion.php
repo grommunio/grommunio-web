@@ -351,7 +351,7 @@ class Conversion {
 				$value = [];
 
 				foreach ($json[1][VALUE] as $propTag => $propValue) {
-					$propTag = Conversion::json2property($mapping, $propTag, true);
+					$propTag = Conversion::json2property($mapping, $propTag);
 					$type = mapi_prop_type($propTag);
 
 					if ($type === PT_BINARY) {
