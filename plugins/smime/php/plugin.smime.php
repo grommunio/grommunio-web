@@ -68,7 +68,7 @@ class Pluginsmime extends Plugin {
 		$this->registerHook('server.index.load.custom');
 
 		if (version_compare(phpversion(), '5.4', '<')) {
-			$this->cipher = OPENSSL_CIPHER_3DES;
+			$this->cipher = OPENSSL_CIPHER_AES_256_CBC;
 		}
 	}
 
