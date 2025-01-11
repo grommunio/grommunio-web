@@ -120,6 +120,7 @@ Zarafa.common.ui.HtmlEditor = Ext.extend(Ext.ux.form.TinyMCETextArea, {
 				branding: false,
 				relative_urls: false,
 				remove_script_host: false,
+				newline_behavior: "linebreak",
 				content_style: "body{ " + "word-wrap: break-word; margin: 1rem !important;" + "}",
 				setup: function(editor) {
 					editor.on("init", function() {
