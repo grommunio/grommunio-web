@@ -116,6 +116,13 @@ class CreateMailItemModule extends ItemModule {
 						}
 					}
 				}
+				elseif (isset($action['props']['sent_representing_email_address'], $action['props']['sent_representing_address_type']) &&
+					strcasecmp($action['props']['sent_representing_address_type'], 'EX') == 0) {
+					$otherstore = $GLOBALS["mapisession"]->addUserStore($action['props']['sent_representing_email_address']);
+					if ($otherstore && $send) {
+						$store = $otherstore;
+					}
+				}
 
 				if ($send) {
 					// Allowing to hook in just before the data sent away to be sent to the client
