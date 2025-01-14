@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Czech\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-04-28 23:19+0200\n"
+"POT-Creation-Date: 2025-01-14 12:12+0100\n"
 "PO-Revision-Date: 2022-07-26 14:09+0200\n"
 "Last-Translator: import\n"
 "Language-Team: \n"
@@ -360,6 +360,9 @@ msgstr "Poznámky"
 
 msgid "Members"
 msgstr "Členové"
+
+msgid "Icon"
+msgstr "Ikona"
 
 msgid "Email Address"
 msgstr "E-mailová adresa"
@@ -1538,9 +1541,6 @@ msgstr "Celodenní"
 
 msgid "Sort by: All Day"
 msgstr "Třídit podle: Celodenní"
-
-msgid "Icon"
-msgstr "Ikona"
 
 msgid "Recurring"
 msgstr "Opakování"
@@ -4392,6 +4392,9 @@ msgstr "Typ"
 msgid "Description"
 msgstr "Popis"
 
+msgid "Object ID"
+msgstr "ID objektu"
+
 msgid "Folder size"
 msgstr "Velikost složky"
 
@@ -4881,6 +4884,15 @@ msgstr "HTML"
 msgid "Plain Text"
 msgstr "Běžný text"
 
+msgid "In both representee's and delegate's Sent Items"
+msgstr "V odeslaných položkách zástupce i delegáta"
+
+msgid "Only in delegate's Sent Items"
+msgstr "Pouze v odeslaných položkách delegáta"
+
+msgid "Only in representee's Sent Items"
+msgstr "Pouze v zaslaných položkách zástupce"
+
 msgid "Compose mail settings"
 msgstr "Vytvořit nastavení pošty"
 
@@ -4894,6 +4906,9 @@ msgstr "Výchozí písmo"
 #, fuzzy
 msgid "Default font size"
 msgstr "Výchozí velikost písma"
+
+msgid "Save emails sent by delegate"
+msgstr "Uložení e-mailů odeslaných delegátem"
 
 msgid "Always request a read receipt"
 msgstr "Vždy vyžádat potvrzení o přečtení"
@@ -7775,22 +7790,6 @@ msgid "Action is not performed correctly."
 msgstr "Akce není provedena správně."
 
 #, fuzzy
-msgid "Contact not found"
-msgstr "Kontakt nebyl nalezen"
-
-#, fuzzy
-msgid ""
-"Contact information could not be displayed because the server had trouble "
-"retrieving the information."
-msgstr ""
-"Kontaktní informace nebylo možné zobrazit, protože server měl potíže s "
-"jejich načtením."
-
-#, fuzzy
-msgid "Please contact your system administrator if the problem persists."
-msgstr "Pokud problém přetrvává, obraťte se na správce systému."
-
-#, fuzzy
 msgid "Could not handle this type of object."
 msgstr "Tento typ objektu se nepodařilo zpracovat."
 
@@ -8393,10 +8392,6 @@ msgstr "Syntaktická chyba"
 msgid "Malformed UTF-8 characters, possibly incorrectly encoded"
 msgstr "Chybné znaky UTF-8, pravděpodobně nesprávně kódované"
 
-#, fuzzy, php-format
-msgid "JSON Error: - %s"
-msgstr "Chyba JSON: - %s"
-
-#, fuzzy
-msgid "Some problem encountered when encoding/decoding JSON data."
-msgstr "Při kódování/dekódování dat JSON se vyskytl nějaký problém."
+#, php-format
+msgid "Some problem encountered when encoding/decoding JSON data: - %s"
+msgstr "Při kódování/dekódování dat JSON se vyskytl nějaký problém: - %s"

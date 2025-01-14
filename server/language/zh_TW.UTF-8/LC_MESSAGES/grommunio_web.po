@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Chinese (Taiwan)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-04-28 22:53+0200\n"
+"POT-Creation-Date: 2025-01-14 12:12+0100\n"
 "PO-Revision-Date: 2022-08-27 18:15+0000\n"
 "Last-Translator: Hugel <qihu@nfschina.com>\n"
 "Language-Team: Chinese (Traditional) <https://hosted.weblate.org/projects/"
@@ -340,6 +340,10 @@ msgstr "筆記"
 
 msgid "Members"
 msgstr "成員"
+
+#, fuzzy
+msgid "Icon"
+msgstr "圖示"
 
 msgid "Email Address"
 msgstr "電子郵件地址"
@@ -1499,10 +1503,6 @@ msgstr "全天"
 
 msgid "Sort by: All Day"
 msgstr "依全天事件排序"
-
-#, fuzzy
-msgid "Icon"
-msgstr "圖示"
 
 #, fuzzy
 msgid "Recurring"
@@ -4169,6 +4169,9 @@ msgstr "類型"
 msgid "Description"
 msgstr "描述"
 
+msgid "Object ID"
+msgstr "对象ID"
+
 msgid "Folder size"
 msgstr "資料夾大小"
 
@@ -4185,13 +4188,13 @@ msgid "Profile"
 msgstr "檔案"
 
 msgid "Full Details"
-msgstr ""
+msgstr "全部详情"
 
 msgid "Read"
-msgstr ""
+msgstr "阅读"
 
 msgid "Write"
-msgstr ""
+msgstr "写"
 
 msgid "Create items"
 msgstr "建立新項目"
@@ -4200,10 +4203,10 @@ msgid "Create subfolders"
 msgstr "建立子資料夾"
 
 msgid "Edit own"
-msgstr ""
+msgstr "编辑自己的"
 
 msgid "Edit all"
-msgstr ""
+msgstr "全部编辑"
 
 msgid "Delete items"
 msgstr "刪除項目"
@@ -4215,16 +4218,16 @@ msgid "All"
 msgstr "所有"
 
 msgid "Folder owner"
-msgstr ""
+msgstr "文件夹所有者"
 
 msgid "Folder contact"
-msgstr ""
+msgstr "文件夹联系人"
 
 msgid "Folder visible"
 msgstr "已有的資料夾"
 
 msgid "Apply (copy) changed permissions recursively"
-msgstr ""
+msgstr "递归应用（复制）更改的权限"
 
 msgid "User already exists"
 msgstr "使用者已存在"
@@ -4600,7 +4603,7 @@ msgid "Print selected email"
 msgstr "列印此任務"
 
 msgid "Filter"
-msgstr ""
+msgstr "过滤器"
 
 msgid "Fwd"
 msgstr "轉寄"
@@ -4609,25 +4612,34 @@ msgid "Re"
 msgstr "回覆"
 
 msgid "on behalf of"
-msgstr ""
+msgstr "代表"
 
 msgid "Safe Senders list is empty"
-msgstr ""
+msgstr "安全发件人列表为空"
 
 msgid "Please select a safe sender record."
-msgstr ""
+msgstr "请选择一个安全的发件人记录。"
 
 msgid "Delete all safe senders"
-msgstr ""
+msgstr "删除所有安全发件人"
 
 msgid "Are you sure you want to delete all safe senders?"
-msgstr ""
+msgstr "您确定要删除所有安全发件人吗？"
 
 msgid "HTML"
 msgstr "HTML"
 
 msgid "Plain Text"
 msgstr "純文字"
+
+msgid "In both representee's and delegate's Sent Items"
+msgstr "在代表和委托人的“已发送邮件”中"
+
+msgid "Only in delegate's Sent Items"
+msgstr "仅在代表的“已发送邮件”中可见"
+
+msgid "Only in representee's Sent Items"
+msgstr "仅限于被代表的“已发送邮件”"
 
 msgid "Compose mail settings"
 msgstr "編輯郵件設定"
@@ -4639,7 +4651,10 @@ msgid "Default font"
 msgstr "預設字型"
 
 msgid "Default font size"
-msgstr ""
+msgstr "默认字体大小"
+
+msgid "Save emails sent by delegate"
+msgstr "保存代表发送的电子邮件"
 
 msgid "Always request a read receipt"
 msgstr "總是要求讀取回條"
@@ -4818,17 +4833,17 @@ msgid "Older"
 msgstr "資料夾"
 
 msgid "Yesterday"
-msgstr ""
+msgstr "昨天"
 
 #, fuzzy
 msgid "Last Week"
 msgstr "最後一頁"
 
 msgid "Two Weeks Ago"
-msgstr ""
+msgstr "两周前"
 
 msgid "Three Weeks Ago"
-msgstr ""
+msgstr "三周前"
 
 #, fuzzy
 msgid "Last Month"
@@ -7086,17 +7101,6 @@ msgstr "不明的MAPI Error: %s"
 msgid "Action is not performed correctly."
 msgstr ""
 
-msgid "Contact not found"
-msgstr ""
-
-msgid ""
-"Contact information could not be displayed because the server had trouble "
-"retrieving the information."
-msgstr ""
-
-msgid "Please contact your system administrator if the problem persists."
-msgstr ""
-
 msgid "Could not handle this type of object."
 msgstr ""
 
@@ -7574,8 +7578,5 @@ msgid "Malformed UTF-8 characters, possibly incorrectly encoded"
 msgstr ""
 
 #, php-format
-msgid "JSON Error: - %s"
-msgstr ""
-
-msgid "Some problem encountered when encoding/decoding JSON data."
+msgid "Some problem encountered when encoding/decoding JSON data: - %s"
 msgstr ""

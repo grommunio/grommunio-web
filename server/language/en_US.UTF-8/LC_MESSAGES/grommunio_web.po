@@ -3,8 +3,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web English (United States)\n"
-"Report-Msgid-Bugs-To: dev@grommunio.com\n"
-"POT-Creation-Date: 2024-04-28 22:53+0200\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-01-14 12:12+0100\n"
 "PO-Revision-Date: 2024-04-30 06:29+0000\n"
 "Last-Translator: Mike Williams <mike.williams@grommunio.com>\n"
 "Language-Team: English (United States) <https://hosted.weblate.org/projects/"
@@ -347,6 +347,9 @@ msgstr "Notes"
 
 msgid "Members"
 msgstr "Members"
+
+msgid "Icon"
+msgstr "Icon"
 
 msgid "Email Address"
 msgstr "Email Address"
@@ -1489,9 +1492,6 @@ msgstr "All Day"
 
 msgid "Sort by: All Day"
 msgstr "Sort by: All Day"
-
-msgid "Icon"
-msgstr "Icon"
 
 msgid "Recurring"
 msgstr "Recurring"
@@ -4132,6 +4132,9 @@ msgstr "Type"
 msgid "Description"
 msgstr "Description"
 
+msgid "Object ID"
+msgstr "Object ID"
+
 msgid "Folder size"
 msgstr "Folder size"
 
@@ -4574,6 +4577,15 @@ msgstr "HTML"
 msgid "Plain Text"
 msgstr "Plain Text"
 
+msgid "In both representee's and delegate's Sent Items"
+msgstr "In both representee's and delegate's Sent Items"
+
+msgid "Only in delegate's Sent Items"
+msgstr "Only in delegate's Sent Items"
+
+msgid "Only in representee's Sent Items"
+msgstr "Only in representee's Sent Items"
+
 msgid "Compose mail settings"
 msgstr "Compose mail settings"
 
@@ -4585,6 +4597,9 @@ msgstr "Default font"
 
 msgid "Default font size"
 msgstr "Default font size"
+
+msgid "Save emails sent by delegate"
+msgstr "Save emails sent by delegate"
 
 msgid "Always request a read receipt"
 msgstr "Always request a read receipt"
@@ -7007,19 +7022,6 @@ msgstr "Unknown MAPI Error: %s"
 msgid "Action is not performed correctly."
 msgstr "Action was not performed correctly."
 
-msgid "Contact not found"
-msgstr "Contact not found"
-
-msgid ""
-"Contact information could not be displayed because the server had trouble "
-"retrieving the information."
-msgstr ""
-"Contact information could not be displayed because the server had trouble "
-"retrieving the information."
-
-msgid "Please contact your system administrator if the problem persists."
-msgstr "Contact your system administrator if the problem persists."
-
 msgid "Could not handle this type of object."
 msgstr "Could not handle this type of object."
 
@@ -7455,7 +7457,8 @@ msgid "File is not imported successfully"
 msgstr "File was not imported successfully"
 
 msgid "The uploaded file exceeds the upload_max_filesize directive in php.ini."
-msgstr "The uploaded file exceeds the upload_max_filesize directive in php.ini."
+msgstr ""
+"The uploaded file exceeds the upload_max_filesize directive in php.ini."
 
 msgid ""
 "The uploaded file exceeds the MAX_FILE_SIZE directive that was specified in "
@@ -7529,8 +7532,5 @@ msgid "Malformed UTF-8 characters, possibly incorrectly encoded"
 msgstr "Malformed UTF-8 characters, possibly incorrectly encoded"
 
 #, php-format
-msgid "JSON Error: - %s"
-msgstr "JSON Error: - %s"
-
-msgid "Some problem encountered when encoding/decoding JSON data."
-msgstr "Some problem encountered when encoding/decoding JSON data."
+msgid "Some problem encountered when encoding/decoding JSON data: - %s"
+msgstr "Some problem encountered when encoding/decoding JSON data: - %s"

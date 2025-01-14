@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Russian\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-04-28 23:57+0200\n"
+"POT-Creation-Date: 2025-01-14 12:12+0100\n"
 "PO-Revision-Date: 2022-07-26 17:59+0200\n"
 "Last-Translator: Artem <Localizer_in_Russian@protonmail.com>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/grommunio/"
@@ -359,6 +359,9 @@ msgstr "Заметки"
 
 msgid "Members"
 msgstr "Участники"
+
+msgid "Icon"
+msgstr "Иконка"
 
 msgid "Email Address"
 msgstr "Адрес эл. почты"
@@ -1531,9 +1534,6 @@ msgstr "Весь день"
 
 msgid "Sort by: All Day"
 msgstr "Сортировка по: Весь день"
-
-msgid "Icon"
-msgstr "Иконка"
 
 msgid "Recurring"
 msgstr "Повторение"
@@ -4317,6 +4317,9 @@ msgstr "Тип"
 msgid "Description"
 msgstr "Описание"
 
+msgid "Object ID"
+msgstr "Идентификатор объекта"
+
 msgid "Folder size"
 msgstr "Размер каталога"
 
@@ -4771,6 +4774,15 @@ msgstr "HTML"
 msgid "Plain Text"
 msgstr "Просто текст"
 
+msgid "In both representee's and delegate's Sent Items"
+msgstr "В «Отправленных пунктах» как представителя, так и делегата"
+
+msgid "Only in delegate's Sent Items"
+msgstr "Только в «Отправленных предметах» делегата"
+
+msgid "Only in representee's Sent Items"
+msgstr "Только в «Отправленных предметах» представителя"
+
 msgid "Compose mail settings"
 msgstr "Настройки написания письма"
 
@@ -4782,6 +4794,9 @@ msgstr "Основной шрифт"
 
 msgid "Default font size"
 msgstr "Основной размер шрифта"
+
+msgid "Save emails sent by delegate"
+msgstr "Сохраняйте электронные письма, отправленные делегатом"
 
 msgid "Always request a read receipt"
 msgstr "Всегда отправлять запрос на прочтение"
@@ -7463,21 +7478,6 @@ msgstr "Неизвестная ошибка MAPI: %s"
 msgid "Action is not performed correctly."
 msgstr "Действие не завершено корректно."
 
-msgid "Contact not found"
-msgstr "Контакт не найден"
-
-#, fuzzy
-msgid ""
-"Contact information could not be displayed because the server had trouble "
-"retrieving the information."
-msgstr ""
-"Контактная информация не может быть отображена, поскольку серверу не удалось "
-"получить информацию."
-
-#, fuzzy
-msgid "Please contact your system administrator if the problem persists."
-msgstr "Если проблема сохраняется, обратитесь к системному администратору."
-
 #, fuzzy
 msgid "Could not handle this type of object."
 msgstr "Не удалось обработать объект данного типа."
@@ -8089,10 +8089,6 @@ msgstr "Ошибка синтаксиса"
 msgid "Malformed UTF-8 characters, possibly incorrectly encoded"
 msgstr "Искаженной символов UTF-8, возможно неверная кодировка"
 
-#, fuzzy, php-format
-msgid "JSON Error: - %s"
-msgstr "JSON Error: - %s"
-
-#, fuzzy
-msgid "Some problem encountered when encoding/decoding JSON data."
-msgstr "Возникла проблема при кодировании/декодировании данных JSON."
+#, php-format
+msgid "Some problem encountered when encoding/decoding JSON data: - %s"
+msgstr "При кодировании/декодировании данных JSON возникла проблема: - %s"

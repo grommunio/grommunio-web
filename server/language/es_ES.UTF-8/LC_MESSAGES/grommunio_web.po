@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Spanish (Spain)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-04-28 23:09+0200\n"
+"POT-Creation-Date: 2025-01-14 12:12+0100\n"
 "PO-Revision-Date: 2024-01-03 16:10+0000\n"
 "Last-Translator: gallegonovato <fran-carro@hotmail.es>\n"
 "Language-Team: Spanish <https://hosted.weblate.org/projects/grommunio/"
@@ -349,6 +349,9 @@ msgstr "Notas"
 
 msgid "Members"
 msgstr "Miembros"
+
+msgid "Icon"
+msgstr "Icono"
 
 msgid "Email Address"
 msgstr "Dirección de correo electrónico"
@@ -1550,9 +1553,6 @@ msgstr "Todo el día"
 
 msgid "Sort by: All Day"
 msgstr "Ordenar por: Todo el día"
-
-msgid "Icon"
-msgstr "Icono"
 
 msgid "Recurring"
 msgstr "Recurrente"
@@ -4454,6 +4454,9 @@ msgstr "Tipo"
 msgid "Description"
 msgstr "Descripción"
 
+msgid "Object ID"
+msgstr "ID del objeto"
+
 msgid "Folder size"
 msgstr "Tamaño carpeta"
 
@@ -4932,6 +4935,15 @@ msgstr "HTML"
 msgid "Plain Text"
 msgstr "Texto Plano"
 
+msgid "In both representee's and delegate's Sent Items"
+msgstr "En los elementos enviados del representante y del delegado"
+
+msgid "Only in delegate's Sent Items"
+msgstr "Sólo en los elementos enviados del delegado"
+
+msgid "Only in representee's Sent Items"
+msgstr "Sólo en los elementos enviados por el representante"
+
 msgid "Compose mail settings"
 msgstr "Opciones de composición correo"
 
@@ -4943,6 +4955,9 @@ msgstr "Tipo de letra por omisión"
 
 msgid "Default font size"
 msgstr "Tamaño de letra por omisión"
+
+msgid "Save emails sent by delegate"
+msgstr "Guardar los correos electrónicos enviados por el delegado"
 
 msgid "Always request a read receipt"
 msgstr "Solicitar siempre confirmación de lectura"
@@ -7812,23 +7827,6 @@ msgid "Action is not performed correctly."
 msgstr "La acción no se realiza correctamente."
 
 #, fuzzy
-msgid "Contact not found"
-msgstr "Contacto no encontrado"
-
-#, fuzzy
-msgid ""
-"Contact information could not be displayed because the server had trouble "
-"retrieving the information."
-msgstr ""
-"La información de contacto no pudo ser mostrada porque el servidor tuvo "
-"problemas para recuperar la información."
-
-#, fuzzy
-msgid "Please contact your system administrator if the problem persists."
-msgstr ""
-"Póngase en contacto con el administrador del sistema si el problema persiste."
-
-#, fuzzy
 msgid "Could not handle this type of object."
 msgstr "No se puede manejar este tipo de objeto."
 
@@ -8469,10 +8467,6 @@ msgstr ""
 "Caracteres de UTF-8 con formato incorrecto, posiblemente incorrectamente "
 "codificados"
 
-#, fuzzy, php-format
-msgid "JSON Error: - %s"
-msgstr "Error JSON: - %s"
-
-#, fuzzy
-msgid "Some problem encountered when encoding/decoding JSON data."
-msgstr "Algún problema encontrado al codificar/decodificar datos JSON."
+#, php-format
+msgid "Some problem encountered when encoding/decoding JSON data: - %s"
+msgstr "Algún problema al codificar/decodificar datos JSON: - %s"

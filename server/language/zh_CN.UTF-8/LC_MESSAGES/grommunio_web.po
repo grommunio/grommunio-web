@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Chinese (Simplified)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-04-29 00:04+0200\n"
+"POT-Creation-Date: 2025-01-14 12:12+0100\n"
 "PO-Revision-Date: 2022-07-26 18:09+0200\n"
 "Last-Translator: import\n"
 "Language-Team: \n"
@@ -338,6 +338,9 @@ msgstr "便签"
 
 msgid "Members"
 msgstr "成员"
+
+msgid "Icon"
+msgstr "图标"
 
 msgid "Email Address"
 msgstr "电子邮件地址"
@@ -1460,9 +1463,6 @@ msgstr "全天"
 
 msgid "Sort by: All Day"
 msgstr "排序方式：全天"
-
-msgid "Icon"
-msgstr "图标"
 
 msgid "Recurring"
 msgstr "重复发生"
@@ -4050,6 +4050,9 @@ msgstr "类型"
 msgid "Description"
 msgstr "说明"
 
+msgid "Object ID"
+msgstr "对象ID"
+
 msgid "Folder size"
 msgstr "文件夹大小"
 
@@ -4492,6 +4495,15 @@ msgstr "HTML"
 msgid "Plain Text"
 msgstr "纯文本"
 
+msgid "In both representee's and delegate's Sent Items"
+msgstr "在代表和委托人的“已发送邮件”中"
+
+msgid "Only in delegate's Sent Items"
+msgstr "仅在代表的“已发送邮件”中可见"
+
+msgid "Only in representee's Sent Items"
+msgstr "仅限于被代表的“已发送邮件”"
+
 msgid "Compose mail settings"
 msgstr "撰写邮件设置"
 
@@ -4503,6 +4515,9 @@ msgstr "默认字体"
 
 msgid "Default font size"
 msgstr "默认字体大小"
+
+msgid "Save emails sent by delegate"
+msgstr "保存代表发送的电子邮件"
 
 msgid "Always request a read receipt"
 msgstr "始终请求已读回执"
@@ -7147,18 +7162,6 @@ msgstr "未知的邮件应用程序编程接口（MAPI）错误：%s"
 msgid "Action is not performed correctly."
 msgstr "行动没有正确执行。"
 
-msgid "Contact not found"
-msgstr "接触未找到"
-
-#, fuzzy
-msgid ""
-"Contact information could not be displayed because the server had trouble "
-"retrieving the information."
-msgstr "联系信息无法显示，因为服务器在检索信息时出现问题。"
-
-msgid "Please contact your system administrator if the problem persists."
-msgstr "如果该问题仍然存在，请联系您的系统管理员。"
-
 #, fuzzy
 msgid "Could not handle this type of object."
 msgstr "无法处理这种类型的对象。"
@@ -7721,10 +7724,6 @@ msgstr "语法错误"
 msgid "Malformed UTF-8 characters, possibly incorrectly encoded"
 msgstr "格式错误的UTF-8字符，可能编码错误"
 
-#, fuzzy, php-format
-msgid "JSON Error: - %s"
-msgstr "JSON错误: - %s"
-
-#, fuzzy
-msgid "Some problem encountered when encoding/decoding JSON data."
-msgstr "在对JSON数据进行编码/解码时遇到了一些问题。"
+#, php-format
+msgid "Some problem encountered when encoding/decoding JSON data: - %s"
+msgstr "在编码/解码JSON数据时遇到一些问题： - %s"

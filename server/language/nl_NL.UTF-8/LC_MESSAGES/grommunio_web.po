@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Dutch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-04-28 23:16+0200\n"
+"POT-Creation-Date: 2025-01-14 12:12+0100\n"
 "PO-Revision-Date: 2022-12-11 14:12+0000\n"
 "Last-Translator: Orkan Eser <orkan.eser@grommunio.com>\n"
 "Language-Team: Dutch <https://hosted.weblate.org/projects/grommunio/"
@@ -354,6 +354,9 @@ msgstr "Notities"
 
 msgid "Members"
 msgstr "Leden"
+
+msgid "Icon"
+msgstr "Icoon"
 
 msgid "Email Address"
 msgstr "E-mailadres"
@@ -1499,9 +1502,6 @@ msgstr "Hele dag"
 
 msgid "Sort by: All Day"
 msgstr "Sorteer op: Hele dag"
-
-msgid "Icon"
-msgstr "Icoon"
 
 msgid "Recurring"
 msgstr "Terugkerend"
@@ -4147,6 +4147,9 @@ msgstr "Type"
 msgid "Description"
 msgstr "Omschrijving"
 
+msgid "Object ID"
+msgstr "Object ID"
+
 msgid "Folder size"
 msgstr "Mapgrootte"
 
@@ -4590,6 +4593,15 @@ msgstr "HTML"
 msgid "Plain Text"
 msgstr "Platte Tekst"
 
+msgid "In both representee's and delegate's Sent Items"
+msgstr "In Verzonden items van zowel vertegenwoordigers als afgevaardigden"
+
+msgid "Only in delegate's Sent Items"
+msgstr "Alleen in Verzonden items van de gedelegeerde"
+
+msgid "Only in representee's Sent Items"
+msgstr "Alleen in de verzonden items van de vertegenwoordiger"
+
 msgid "Compose mail settings"
 msgstr "Instellingen voor nieuwe e-mail"
 
@@ -4601,6 +4613,9 @@ msgstr "Standaardlettertype"
 
 msgid "Default font size"
 msgstr "Standaard lettergrootte"
+
+msgid "Save emails sent by delegate"
+msgstr "E-mails opslaan die zijn verzonden door afgevaardigde"
 
 msgid "Always request a read receipt"
 msgstr "Vraag altijd om een leesbevestiging"
@@ -4685,7 +4700,8 @@ msgid "Automatically reply with the following message:"
 msgstr "Antwoord automatisch met de volgende tekst:"
 
 msgid "(The frequency of replies is dependent on server configuration.)"
-msgstr "(De frequentie van antwoorden is afhankelijk van de serverconfiguratie.)"
+msgstr ""
+"(De frequentie van antwoorden is afhankelijk van de serverconfiguratie.)"
 
 msgid "Inside My Organization"
 msgstr "Binnen Mijn Organisatie"
@@ -7056,21 +7072,6 @@ msgstr "Onbekende MAPI-Fout: %s"
 msgid "Action is not performed correctly."
 msgstr "Actie is niet correct uitgevoerd."
 
-msgid "Contact not found"
-msgstr "Contact niet gevonden"
-
-msgid ""
-"Contact information could not be displayed because the server had trouble "
-"retrieving the information."
-msgstr ""
-"Contactinformatie kon niet worden weergegeven omdat de server moeite had de "
-"informatie op te halen."
-
-msgid "Please contact your system administrator if the problem persists."
-msgstr ""
-"Neem contact op met uw systeem administrator als het probleem zich blijft "
-"voortdoen."
-
 msgid "Could not handle this type of object."
 msgstr "Kon dit type object niet verwerken."
 
@@ -7596,9 +7597,5 @@ msgid "Malformed UTF-8 characters, possibly incorrectly encoded"
 msgstr "Misvormde UTF-8 tekens, mogelijk onjuist gecodeerd"
 
 #, php-format
-msgid "JSON Error: - %s"
-msgstr "JSON Fout: - %s"
-
-msgid "Some problem encountered when encoding/decoding JSON data."
-msgstr ""
-"Er is een probleem opgetreden bij het coderen/decoderen van JSON-gegevens."
+msgid "Some problem encountered when encoding/decoding JSON data: - %s"
+msgstr "Er is een probleem opgetreden bij het coderen/decoderen van JSON-gegevens: - %s"

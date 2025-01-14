@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Portuguese (Portugal)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-04-28 23:56+0200\n"
+"POT-Creation-Date: 2025-01-14 12:12+0100\n"
 "PO-Revision-Date: 2022-07-26 18:47+0200\n"
 "Last-Translator: import\n"
 "Language-Team: \n"
@@ -347,6 +347,9 @@ msgstr "Notas"
 
 msgid "Members"
 msgstr "Membros"
+
+msgid "Icon"
+msgstr "Icone"
 
 msgid "Email Address"
 msgstr "Endereço de Email"
@@ -1487,9 +1490,6 @@ msgstr "Todo o dia"
 
 msgid "Sort by: All Day"
 msgstr "Ordenar por: Dia inteiro"
-
-msgid "Icon"
-msgstr "Icone"
 
 msgid "Recurring"
 msgstr "Periódico"
@@ -4149,6 +4149,9 @@ msgstr "Tipo"
 msgid "Description"
 msgstr "Descrição"
 
+msgid "Object ID"
+msgstr "ID do objeto"
+
 msgid "Folder size"
 msgstr "Tamanho da pasta"
 
@@ -4592,6 +4595,15 @@ msgstr "HTML"
 msgid "Plain Text"
 msgstr "Texto simples"
 
+msgid "In both representee's and delegate's Sent Items"
+msgstr "Nos Itens Enviados do representante e do delegado"
+
+msgid "Only in delegate's Sent Items"
+msgstr "Apenas nos Itens Enviados do delegado"
+
+msgid "Only in representee's Sent Items"
+msgstr "Apenas nos itens enviados pelo representante"
+
 msgid "Compose mail settings"
 msgstr "Definições de composição de E-mail"
 
@@ -4603,6 +4615,9 @@ msgstr "Tipo de letra por defeito"
 
 msgid "Default font size"
 msgstr "Tamanho da letra por defeito"
+
+msgid "Save emails sent by delegate"
+msgstr "Guardar as mensagens de correio eletrónico enviadas pelo delegado"
 
 msgid "Always request a read receipt"
 msgstr "Enviar sempre um pedido de recibo de leitura"
@@ -7143,21 +7158,6 @@ msgstr "Erro MAPI desconhecido: %s"
 msgid "Action is not performed correctly."
 msgstr "A acção não é executada correctamente."
 
-msgid "Contact not found"
-msgstr "Contacto Não Encontrado"
-
-#, fuzzy
-msgid ""
-"Contact information could not be displayed because the server had trouble "
-"retrieving the information."
-msgstr ""
-"As informações de contacto não puderam ser exibidas porque o servidor teve "
-"dificuldades na recuperação das informações."
-
-msgid "Please contact your system administrator if the problem persists."
-msgstr ""
-"Por favor contacte o seu administrador de sistema se o problema persistir."
-
 #, fuzzy
 msgid "Could not handle this type of object."
 msgstr "Não conseguia lidar com este tipo de objecto."
@@ -7763,10 +7763,6 @@ msgstr "Erro de sintaxe"
 msgid "Malformed UTF-8 characters, possibly incorrectly encoded"
 msgstr "Caracteres UTF-8 malformados, possivelmente codificados incorretamente"
 
-#, fuzzy, php-format
-msgid "JSON Error: - %s"
-msgstr "Erro JSON: - %s"
-
-#, fuzzy
-msgid "Some problem encountered when encoding/decoding JSON data."
-msgstr "Alguns problemas encontrados ao codificar/descodificar dados JSON."
+#, php-format
+msgid "Some problem encountered when encoding/decoding JSON data: - %s"
+msgstr "Encontrámos um problema ao codificar/decodificar dados JSON: - %s"

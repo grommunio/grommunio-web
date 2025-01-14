@@ -3,8 +3,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Croatian (Croatia)\n"
-"Report-Msgid-Bugs-To: dev@grommunio.com\n"
-"POT-Creation-Date: 2024-04-28 22:53+0200\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-01-14 12:12+0100\n"
 "PO-Revision-Date: 2024-12-07 14:00+0000\n"
 "Last-Translator: Milo Ivir <mail@milotype.de>\n"
 "Language-Team: Croatian <https://hosted.weblate.org/projects/grommunio/"
@@ -357,6 +357,9 @@ msgstr "Bilješke"
 
 msgid "Members"
 msgstr "Članovi"
+
+msgid "Icon"
+msgstr ""
 
 msgid "Email Address"
 msgstr "E-mail adresa"
@@ -1480,9 +1483,6 @@ msgid "All Day"
 msgstr ""
 
 msgid "Sort by: All Day"
-msgstr ""
-
-msgid "Icon"
 msgstr ""
 
 msgid "Recurring"
@@ -4035,6 +4035,9 @@ msgstr ""
 msgid "Description"
 msgstr ""
 
+msgid "Object ID"
+msgstr ""
+
 msgid "Folder size"
 msgstr ""
 
@@ -4471,6 +4474,15 @@ msgstr ""
 msgid "Plain Text"
 msgstr ""
 
+msgid "In both representee's and delegate's Sent Items"
+msgstr ""
+
+msgid "Only in delegate's Sent Items"
+msgstr ""
+
+msgid "Only in representee's Sent Items"
+msgstr ""
+
 msgid "Compose mail settings"
 msgstr ""
 
@@ -4481,6 +4493,9 @@ msgid "Default font"
 msgstr ""
 
 msgid "Default font size"
+msgstr ""
+
+msgid "Save emails sent by delegate"
 msgstr ""
 
 msgid "Always request a read receipt"
@@ -6813,17 +6828,6 @@ msgstr ""
 msgid "Action is not performed correctly."
 msgstr ""
 
-msgid "Contact not found"
-msgstr ""
-
-msgid ""
-"Contact information could not be displayed because the server had trouble "
-"retrieving the information."
-msgstr ""
-
-msgid "Please contact your system administrator if the problem persists."
-msgstr ""
-
 msgid "Could not handle this type of object."
 msgstr ""
 
@@ -7298,8 +7302,5 @@ msgid "Malformed UTF-8 characters, possibly incorrectly encoded"
 msgstr ""
 
 #, php-format
-msgid "JSON Error: - %s"
-msgstr ""
-
-msgid "Some problem encountered when encoding/decoding JSON data."
+msgid "Some problem encountered when encoding/decoding JSON data: - %s"
 msgstr ""

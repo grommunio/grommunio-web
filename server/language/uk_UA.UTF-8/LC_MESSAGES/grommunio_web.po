@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Ukrainian (Ukraine)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-04-29 00:03+0200\n"
+"POT-Creation-Date: 2025-01-14 12:12+0100\n"
 "PO-Revision-Date: 2022-08-23 04:19+0000\n"
 "Last-Translator: Artem <artem@molotov.work>\n"
 "Language-Team: Ukrainian <https://hosted.weblate.org/projects/grommunio/"
@@ -358,6 +358,9 @@ msgstr "Примітки"
 
 msgid "Members"
 msgstr "Учасники"
+
+msgid "Icon"
+msgstr "Значок"
 
 msgid "Email Address"
 msgstr "Адреса ел. пошти"
@@ -1502,9 +1505,6 @@ msgstr "Весь день"
 
 msgid "Sort by: All Day"
 msgstr "Сортувати по: Весь день"
-
-msgid "Icon"
-msgstr "Значок"
 
 msgid "Recurring"
 msgstr "Повторюється"
@@ -4163,6 +4163,9 @@ msgstr "Тип"
 msgid "Description"
 msgstr "Опис"
 
+msgid "Object ID"
+msgstr "Ідентифікатор об'єкта"
+
 msgid "Folder size"
 msgstr "Розмір папки"
 
@@ -4607,6 +4610,15 @@ msgstr "HTML"
 msgid "Plain Text"
 msgstr "Звичайний текст"
 
+msgid "In both representee's and delegate's Sent Items"
+msgstr "У надісланих об'єктах як представника, так і делегата"
+
+msgid "Only in delegate's Sent Items"
+msgstr "Тільки у надісланих елементах делегата"
+
+msgid "Only in representee's Sent Items"
+msgstr "Тільки у Відправлених відправленнях представника"
+
 msgid "Compose mail settings"
 msgstr "Налаштуйте параметри пошти"
 
@@ -4618,6 +4630,9 @@ msgstr "Шрифт за замовчуванням"
 
 msgid "Default font size"
 msgstr "Розмір шрифту за замовчуванням"
+
+msgid "Save emails sent by delegate"
+msgstr "Зберегти електронні листи, надіслані делегатом"
 
 msgid "Always request a read receipt"
 msgstr "Завжди вимагайте прочитання квитанції"
@@ -7074,19 +7089,6 @@ msgstr "Невідома помилка MAPI: %s"
 msgid "Action is not performed correctly."
 msgstr "Дія виконується некоректно."
 
-msgid "Contact not found"
-msgstr "Контакт не знайдено"
-
-msgid ""
-"Contact information could not be displayed because the server had trouble "
-"retrieving the information."
-msgstr ""
-"Контактна інформація не могла бути відображена, оскільки сервер мав проблеми "
-"з отриманням інформації."
-
-msgid "Please contact your system administrator if the problem persists."
-msgstr "Якщо проблема не зникне, зверніться до системного адміністратора."
-
 msgid "Could not handle this type of object."
 msgstr "Не зміг впоратися з таким типом об'єктів."
 
@@ -7596,8 +7598,5 @@ msgid "Malformed UTF-8 characters, possibly incorrectly encoded"
 msgstr "Неправильні символи UTF-8, можливо, неправильно закодовані"
 
 #, php-format
-msgid "JSON Error: - %s"
-msgstr "JSON Помилка: - %s"
-
-msgid "Some problem encountered when encoding/decoding JSON data."
-msgstr "Виникла проблема при кодуванні/декодуванні даних JSON."
+msgid "Some problem encountered when encoding/decoding JSON data: - %s"
+msgstr "Виникла проблема при кодуванні/декодуванні даних JSON: - %s"

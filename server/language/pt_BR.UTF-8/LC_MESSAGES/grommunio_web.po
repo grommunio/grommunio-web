@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Portuguese (Brazil)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-04-28 23:55+0200\n"
+"POT-Creation-Date: 2025-01-14 12:12+0100\n"
 "PO-Revision-Date: 2017-10-03 21:54+0200\n"
 "Last-Translator: import\n"
 "Language: pt_BR\n"
@@ -350,6 +350,10 @@ msgstr "Notas"
 
 msgid "Members"
 msgstr "Membros"
+
+#, fuzzy
+msgid "Icon"
+msgstr "Ícones"
 
 msgid "Email Address"
 msgstr "Endereço de E-mail"
@@ -1542,10 +1546,6 @@ msgstr "Evento diurno"
 
 msgid "Sort by: All Day"
 msgstr "Ordenar por: Evento diurno"
-
-#, fuzzy
-msgid "Icon"
-msgstr "Ícones"
 
 #, fuzzy
 msgid "Recurring"
@@ -4331,6 +4331,9 @@ msgstr "Tipo"
 msgid "Description"
 msgstr "Descrição"
 
+msgid "Object ID"
+msgstr "ID do objeto"
+
 msgid "Folder size"
 msgstr "Tamanho da pasta"
 
@@ -4801,6 +4804,15 @@ msgstr "HTML"
 msgid "Plain Text"
 msgstr "Plain text"
 
+msgid "In both representee's and delegate's Sent Items"
+msgstr "Nos itens enviados do representante e do delegado"
+
+msgid "Only in delegate's Sent Items"
+msgstr "Somente nos itens enviados do delegado"
+
+msgid "Only in representee's Sent Items"
+msgstr "Somente nos itens enviados pelo representante"
+
 msgid "Compose mail settings"
 msgstr "Configurações para composição de e-mails"
 
@@ -4812,6 +4824,9 @@ msgstr "Fonte padrão"
 
 msgid "Default font size"
 msgstr "Tamanho padrão da fonte"
+
+msgid "Save emails sent by delegate"
+msgstr "Salvar e-mails enviados pelo delegado"
 
 msgid "Always request a read receipt"
 msgstr "Sempre solicitar a confirmação de leitura"
@@ -7337,20 +7352,6 @@ msgstr "Erro MAPI desconhecido: %s"
 msgid "Action is not performed correctly."
 msgstr "A ação não foi executada corretamente."
 
-msgid "Contact not found"
-msgstr "Contato não encontrado"
-
-msgid ""
-"Contact information could not be displayed because the server had trouble "
-"retrieving the information."
-msgstr ""
-"As informações de contato não puderam ser exibidas porque o servidor teve "
-"problemas para recuperar as informações."
-
-msgid "Please contact your system administrator if the problem persists."
-msgstr ""
-"Entre em contato com o administrador do sistema se o problema persistir."
-
 msgid "Could not handle this type of object."
 msgstr "Não foi possível lidar com esse tipo de objeto."
 
@@ -7888,8 +7889,5 @@ msgid "Malformed UTF-8 characters, possibly incorrectly encoded"
 msgstr "Caracteres UTF-8 malformados, possivelmente codificados incorretamente"
 
 #, php-format
-msgid "JSON Error: - %s"
-msgstr "Erro JSON: - %s"
-
-msgid "Some problem encountered when encoding/decoding JSON data."
-msgstr "Foi encontrado algum problema ao codificar/decodificar dados JSON."
+msgid "Some problem encountered when encoding/decoding JSON data: - %s"
+msgstr "Algum problema foi encontrado ao codificar/decodificar dados JSON: - %s"

@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Finnish (Finland)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-04-28 23:13+0200\n"
+"POT-Creation-Date: 2025-01-14 12:12+0100\n"
 "PO-Revision-Date: 2022-07-26 15:25+0200\n"
 "Last-Translator: import\n"
 "Language-Team: \n"
@@ -352,6 +352,9 @@ msgstr "Merkinnät"
 
 msgid "Members"
 msgstr "Jäsenet"
+
+msgid "Icon"
+msgstr "Kuvake"
 
 msgid "Email Address"
 msgstr "Sähköpostiosoite"
@@ -1566,9 +1569,6 @@ msgstr "Koko päivä"
 
 msgid "Sort by: All Day"
 msgstr "Järjestä: Koko päivä"
-
-msgid "Icon"
-msgstr "Kuvake"
 
 msgid "Recurring"
 msgstr "Toistuva"
@@ -4497,6 +4497,9 @@ msgstr "Kirjoita"
 msgid "Description"
 msgstr "Kuvaus"
 
+msgid "Object ID"
+msgstr "Kohteen ID"
+
 msgid "Folder size"
 msgstr "Kansion koko"
 
@@ -4986,6 +4989,15 @@ msgstr "HTML"
 msgid "Plain Text"
 msgstr "Pelkkä teksti"
 
+msgid "In both representee's and delegate's Sent Items"
+msgstr "Sekä edustajan että valtuutetun lähetetyissä asioissa."
+
+msgid "Only in delegate's Sent Items"
+msgstr "Vain valtuutetun lähetetyissä kohteissa"
+
+msgid "Only in representee's Sent Items"
+msgstr "Ainoastaan edustajan lähettämissä asioissa"
+
 msgid "Compose mail settings"
 msgstr "Postin kirjoitusasetukset"
 
@@ -4997,6 +5009,9 @@ msgstr "Oletusfontti"
 
 msgid "Default font size"
 msgstr "Kirjasimen oletuskoko"
+
+msgid "Save emails sent by delegate"
+msgstr "Tallenna valtuutetun lähettämät sähköpostit"
 
 msgid "Always request a read receipt"
 msgstr "Pyydä aina lukukuittaus"
@@ -7883,21 +7898,6 @@ msgstr "Tuntematon MAPI-virhe: %s"
 msgid "Action is not performed correctly."
 msgstr "Toimintaa ei suoriteta oikein."
 
-msgid "Contact not found"
-msgstr "Henkilöä ei löytynyt"
-
-#, fuzzy
-msgid ""
-"Contact information could not be displayed because the server had trouble "
-"retrieving the information."
-msgstr ""
-"Yhteystietoja ei voitu näyttää, koska palvelimella oli ongelmia tietojen "
-"hakemisessa."
-
-#, fuzzy
-msgid "Please contact your system administrator if the problem persists."
-msgstr "Ota yhteyttä järjestelmänvalvojaan, jos ongelma jatkuu."
-
 #, fuzzy
 msgid "Could not handle this type of object."
 msgstr "Tätä objektityyppiä ei voitu käsitellä."
@@ -8506,10 +8506,6 @@ msgstr "Syntaksivirhe"
 msgid "Malformed UTF-8 characters, possibly incorrectly encoded"
 msgstr "Epämuodostuneet UTF-8-merkit, mahdollisesti väärin koodattu"
 
-#, fuzzy, php-format
-msgid "JSON Error: - %s"
-msgstr "JSON-virhe: - %s"
-
-#, fuzzy
-msgid "Some problem encountered when encoding/decoding JSON data."
-msgstr "JSON-tietojen koodauksessa/dekoodauksessa ilmeni ongelmia."
+#, php-format
+msgid "Some problem encountered when encoding/decoding JSON data: - %s"
+msgstr ""

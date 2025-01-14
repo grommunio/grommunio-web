@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web German (Germany)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-04-28 22:58+0200\n"
+"POT-Creation-Date: 2025-01-14 12:12+0100\n"
 "PO-Revision-Date: 2023-09-06 16:56+0000\n"
 "Last-Translator: Jan Engelhardt <jengelh@inai.de>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/grommunio/"
@@ -349,6 +349,9 @@ msgstr "Notizen"
 
 msgid "Members"
 msgstr "Mitglieder"
+
+msgid "Icon"
+msgstr "Symbol"
 
 msgid "Email Address"
 msgstr "E-Mail-Adresse"
@@ -1500,9 +1503,6 @@ msgstr "Ganztägig"
 
 msgid "Sort by: All Day"
 msgstr "Sortieren nach: Ganztägig"
-
-msgid "Icon"
-msgstr "Symbol"
 
 msgid "Recurring"
 msgstr "Serienmuster"
@@ -4175,6 +4175,9 @@ msgstr "Typ"
 msgid "Description"
 msgstr "Beschreibung"
 
+msgid "Object ID"
+msgstr "Objekt-ID"
+
 msgid "Folder size"
 msgstr "Ordnergröße"
 
@@ -4622,6 +4625,15 @@ msgstr "HTML"
 msgid "Plain Text"
 msgstr "Nur-Text"
 
+msgid "In both representee's and delegate's Sent Items"
+msgstr "In den gesendeten Objekten sowohl des Vertretenen als auch des Delegierten"
+
+msgid "Only in delegate's Sent Items"
+msgstr "Nur in den gesendeten Objekten des Delegierten"
+
+msgid "Only in representee's Sent Items"
+msgstr "Nur in den gesendeten Objekten des Vertretenen"
+
 msgid "Compose mail settings"
 msgstr "Einstellungen zur E-Mail-Erstellung"
 
@@ -4633,6 +4645,9 @@ msgstr "Standardschriftart"
 
 msgid "Default font size"
 msgstr "Voreingestellte Schriftgröße"
+
+msgid "Save emails sent by delegate"
+msgstr "Vom Delegierten gesendete E-Mails speichern"
 
 msgid "Always request a read receipt"
 msgstr "Immer eine Empfangsbestätigung anfordern"
@@ -7120,21 +7135,6 @@ msgstr "Unbekannter MAPI-Fehler: %s"
 msgid "Action is not performed correctly."
 msgstr "Aktion wurde nicht korrekt ausgeführt."
 
-msgid "Contact not found"
-msgstr "Kontakt nicht gefunden"
-
-msgid ""
-"Contact information could not be displayed because the server had trouble "
-"retrieving the information."
-msgstr ""
-"Kontaktinformationen konnten nicht dargestellt werden, da der Server "
-"Probleme hatte, die Information einzuholen."
-
-msgid "Please contact your system administrator if the problem persists."
-msgstr ""
-"Bitte kontaktieren Sie Ihren lokalen Administrator, falls das Problem "
-"wiederholt auftritt."
-
 msgid "Could not handle this type of object."
 msgstr "Konnte diese Objektart nicht verarbeiten."
 
@@ -7661,8 +7661,5 @@ msgid "Malformed UTF-8 characters, possibly incorrectly encoded"
 msgstr "Ungültiges UTF-8-Zeichen, möglicherweise falsch enkodiert"
 
 #, php-format
-msgid "JSON Error: - %s"
-msgstr "JSON-Fehler: %s"
-
-msgid "Some problem encountered when encoding/decoding JSON data."
-msgstr "Bei der En-/Dekodierung von JSON-Daten ist ein Problem aufgetreten."
+msgid "Some problem encountered when encoding/decoding JSON data: - %s"
+msgstr "Bei der En-/Dekodierung von JSON-Daten ist ein Problem aufgetreten: - %s"

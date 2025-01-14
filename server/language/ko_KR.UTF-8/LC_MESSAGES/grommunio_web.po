@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Korean (Korea)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-04-28 23:40+0200\n"
+"POT-Creation-Date: 2025-01-14 12:12+0100\n"
 "PO-Revision-Date: 2017-10-05 20:07+0200\n"
 "Last-Translator: import\n"
 "Language: ko_KR\n"
@@ -336,6 +336,9 @@ msgstr "참고"
 
 msgid "Members"
 msgstr "회원"
+
+msgid "Icon"
+msgstr "아이콘"
 
 msgid "Email Address"
 msgstr "이메일 주소"
@@ -1465,9 +1468,6 @@ msgstr "하루 종일"
 
 msgid "Sort by: All Day"
 msgstr "정렬 기준 하루 종일"
-
-msgid "Icon"
-msgstr "아이콘"
 
 msgid "Recurring"
 msgstr "반복"
@@ -4071,6 +4071,9 @@ msgstr "유형"
 msgid "Description"
 msgstr "설명"
 
+msgid "Object ID"
+msgstr "객체 ID"
+
 msgid "Folder size"
 msgstr "폴더 크기"
 
@@ -4509,6 +4512,15 @@ msgstr "HTML"
 msgid "Plain Text"
 msgstr "일반 텍스트"
 
+msgid "In both representee's and delegate's Sent Items"
+msgstr "대표자와 위임자의 보낸 편지함"
+
+msgid "Only in delegate's Sent Items"
+msgstr "위임자의 보낸 편지함에서만"
+
+msgid "Only in representee's Sent Items"
+msgstr "대표자의 보낸 편지함에서만"
+
 msgid "Compose mail settings"
 msgstr "메일 설정 작성"
 
@@ -4520,6 +4532,9 @@ msgstr "기본 글꼴"
 
 msgid "Default font size"
 msgstr "기본 글꼴 크기"
+
+msgid "Save emails sent by delegate"
+msgstr "대리인이 보낸 이메일 저장"
 
 msgid "Always request a read receipt"
 msgstr "항상 읽기 영수증 요청하기"
@@ -6913,18 +6928,6 @@ msgstr "알 수 없는 MAPI 오류: %s"
 msgid "Action is not performed correctly."
 msgstr "작업이 올바르게 수행되지 않습니다."
 
-msgid "Contact not found"
-msgstr "연락처를 찾을 수 없음"
-
-msgid ""
-"Contact information could not be displayed because the server had trouble "
-"retrieving the information."
-msgstr ""
-"서버에서 정보를 검색하는 데 문제가 발생하여 연락처 정보를 표시할 수 없습니다."
-
-msgid "Please contact your system administrator if the problem persists."
-msgstr "문제가 지속되면 시스템 관리자에게 문의하세요."
-
 msgid "Could not handle this type of object."
 msgstr "이 유형의 개체를 처리할 수 없습니다."
 
@@ -7422,8 +7425,5 @@ msgid "Malformed UTF-8 characters, possibly incorrectly encoded"
 msgstr "잘못 인코딩되었을 가능성이 있는 잘못된 UTF-8 문자"
 
 #, php-format
-msgid "JSON Error: - %s"
-msgstr "JSON 오류: - %s"
-
-msgid "Some problem encountered when encoding/decoding JSON data."
-msgstr "JSON 데이터를 인코딩/디코딩할 때 일부 문제가 발생했습니다."
+msgid "Some problem encountered when encoding/decoding JSON data: - %s"
+msgstr "JSON 데이터를 인코딩/디코딩할 때 발생하는 몇 가지 문제: - %s"

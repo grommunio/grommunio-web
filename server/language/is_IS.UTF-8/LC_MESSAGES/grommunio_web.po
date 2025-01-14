@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Icelandic (Iceland)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-04-28 22:53+0200\n"
+"POT-Creation-Date: 2025-01-14 12:12+0100\n"
 "PO-Revision-Date: 2019-12-01 02:07+0000\n"
 "Last-Translator: import\n"
 "Language: is_IS\n"
@@ -345,6 +345,9 @@ msgstr "Minnisatriði"
 
 msgid "Members"
 msgstr "Meðlimir"
+
+msgid "Icon"
+msgstr "Teikn"
 
 msgid "Email Address"
 msgstr "Tölvupóstfang"
@@ -1486,9 +1489,6 @@ msgstr "Heill dagur"
 
 msgid "Sort by: All Day"
 msgstr "Raða eftir heilsdagsviðburðum"
-
-msgid "Icon"
-msgstr "Teikn"
 
 msgid "Recurring"
 msgstr "Endurtekning"
@@ -4112,6 +4112,9 @@ msgstr "Gerð"
 msgid "Description"
 msgstr "Lýsing"
 
+msgid "Object ID"
+msgstr ""
+
 msgid "Folder size"
 msgstr "Möppustærð"
 
@@ -4554,6 +4557,15 @@ msgstr "HTML"
 msgid "Plain Text"
 msgstr "Hreinn texti"
 
+msgid "In both representee's and delegate's Sent Items"
+msgstr ""
+
+msgid "Only in delegate's Sent Items"
+msgstr ""
+
+msgid "Only in representee's Sent Items"
+msgstr ""
+
 msgid "Compose mail settings"
 msgstr "Stillingar póstritils"
 
@@ -4565,6 +4577,9 @@ msgstr "Sjálfgefin leturgerð"
 
 msgid "Default font size"
 msgstr "Sjálfgefin leturstærð"
+
+msgid "Save emails sent by delegate"
+msgstr ""
 
 msgid "Always request a read receipt"
 msgstr "Alltaf biðja um lestrarkvittun"
@@ -4649,6 +4664,9 @@ msgid "Automatically reply with the following message:"
 msgstr "Svaraðu sjálfkrafa með eftirfarandi skilaboðum:"
 
 msgid "(The frequency of replies is dependent on server configuration.)"
+msgstr ""
+
+msgid "Inside My Organization"
 msgstr ""
 
 msgid "User is currently out of office."
@@ -6922,17 +6940,6 @@ msgstr "Óþekkt MAPI-villa: %s"
 msgid "Action is not performed correctly."
 msgstr ""
 
-msgid "Contact not found"
-msgstr ""
-
-msgid ""
-"Contact information could not be displayed because the server had trouble "
-"retrieving the information."
-msgstr ""
-
-msgid "Please contact your system administrator if the problem persists."
-msgstr "Láttu kerfisstjórn vita ef vandamálið heldur áfram."
-
 msgid "Could not handle this type of object."
 msgstr ""
 
@@ -7410,8 +7417,5 @@ msgid "Malformed UTF-8 characters, possibly incorrectly encoded"
 msgstr ""
 
 #, php-format
-msgid "JSON Error: - %s"
-msgstr ""
-
-msgid "Some problem encountered when encoding/decoding JSON data."
+msgid "Some problem encountered when encoding/decoding JSON data: - %s"
 msgstr ""

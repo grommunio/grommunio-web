@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Japanese\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-04-28 23:08+0200\n"
+"POT-Creation-Date: 2025-01-14 12:12+0100\n"
 "PO-Revision-Date: 2022-12-12 13:00+0200\n"
 "Last-Translator: Jan Engelhardt <jengelh@inai.de>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/grommunio/"
@@ -345,6 +345,9 @@ msgstr "メモ"
 
 msgid "Members"
 msgstr "メンバー"
+
+msgid "Icon"
+msgstr "アイコン"
 
 msgid "Email Address"
 msgstr "電子メールアドレス"
@@ -1488,9 +1491,6 @@ msgstr "終日イベント"
 
 msgid "Sort by: All Day"
 msgstr "並び替え：繰り返し"
-
-msgid "Icon"
-msgstr "アイコン"
 
 msgid "Recurring"
 msgstr "繰り返し"
@@ -4331,6 +4331,9 @@ msgstr "タイプ"
 msgid "Description"
 msgstr "説明"
 
+msgid "Object ID"
+msgstr "オブジェクトID"
+
 msgid "Folder size"
 msgstr "フォルダサイズ"
 
@@ -4801,6 +4804,15 @@ msgstr "HTML"
 msgid "Plain Text"
 msgstr "テキスト形式"
 
+msgid "In both representee's and delegate's Sent Items"
+msgstr "代理出席者および代理人の送信済みアイテムの両方"
+
+msgid "Only in delegate's Sent Items"
+msgstr "代行者の送信済みアイテムのみ"
+
+msgid "Only in representee's Sent Items"
+msgstr "代理人の送信済みアイテムのみ"
+
 msgid "Compose mail settings"
 msgstr "メール設定"
 
@@ -4812,6 +4824,9 @@ msgstr "デフォルトフォント"
 
 msgid "Default font size"
 msgstr "デフォルトのフォント サイズ"
+
+msgid "Save emails sent by delegate"
+msgstr "代理人が送信したメールを保存する"
 
 msgid "Always request a read receipt"
 msgstr "常に開封確認の通知を要求をします"
@@ -7487,22 +7502,6 @@ msgid "Action is not performed correctly."
 msgstr "動作が正しく行われない。"
 
 #, fuzzy
-msgid "Contact not found"
-msgstr "連絡先が見つかりません"
-
-#, fuzzy
-msgid ""
-"Contact information could not be displayed because the server had trouble "
-"retrieving the information."
-msgstr ""
-"連絡先情報の取得に問題があったため、連絡先情報を表示することができませんでし"
-"た。"
-
-#, fuzzy
-msgid "Please contact your system administrator if the problem persists."
-msgstr "問題が解決しない場合は、システム管理者にお問い合わせください。"
-
-#, fuzzy
 msgid "Could not handle this type of object."
 msgstr "このタイプのオブジェクトを扱えませんでした。"
 
@@ -8099,9 +8098,5 @@ msgid "Malformed UTF-8 characters, possibly incorrectly encoded"
 msgstr "誤ってエンコードされた可能性のある不正なUTF-8文字列"
 
 #, php-format
-msgid "JSON Error: - %s"
-msgstr "JSON Error: - %s"
-
-#, fuzzy
-msgid "Some problem encountered when encoding/decoding JSON data."
-msgstr "JSONデータのエンコード/デコード時に何らかの問題が発生した。"
+msgid "Some problem encountered when encoding/decoding JSON data: - %s"
+msgstr "JSONデータのエンコード/デコード時に問題が発生しました。- %s"

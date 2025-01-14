@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Turkish\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-04-28 23:59+0200\n"
+"POT-Creation-Date: 2025-01-14 12:12+0100\n"
 "PO-Revision-Date: 2022-12-10 22:44+0000\n"
 "Last-Translator: Orkan Eser <orkan.eser@grommunio.com>\n"
 "Language-Team: Turkish <https://hosted.weblate.org/projects/grommunio/"
@@ -347,6 +347,9 @@ msgstr "Notlar"
 
 msgid "Members"
 msgstr "Üyeler"
+
+msgid "Icon"
+msgstr "Simge"
 
 msgid "Email Address"
 msgstr "E-posta adresi"
@@ -1491,9 +1494,6 @@ msgstr "Tüm Gün"
 
 msgid "Sort by: All Day"
 msgstr "Sıralama: Tüm Gün"
-
-msgid "Icon"
-msgstr "Simge"
 
 msgid "Recurring"
 msgstr "Tekrar Eden"
@@ -4124,6 +4124,9 @@ msgstr "Tür"
 msgid "Description"
 msgstr "Açıklama"
 
+msgid "Object ID"
+msgstr "Nesne Kimliği"
+
 msgid "Folder size"
 msgstr "Klasör boyutu"
 
@@ -4566,6 +4569,15 @@ msgstr "HTML"
 msgid "Plain Text"
 msgstr "Düz Metin"
 
+msgid "In both representee's and delegate's Sent Items"
+msgstr "Hem temsilcinin hem de delegenin Gönderilen Öğelerinde"
+
+msgid "Only in delegate's Sent Items"
+msgstr "Yalnızca temsilcinin Gönderilmiş Öğelerinde"
+
+msgid "Only in representee's Sent Items"
+msgstr "Sadece Temsilcinin Gönderdiği Öğelerde"
+
 msgid "Compose mail settings"
 msgstr "Posta ayarlarını düzenleyin"
 
@@ -4577,6 +4589,9 @@ msgstr "Varsayılan yazı tipi"
 
 msgid "Default font size"
 msgstr "Varsayılan yazı boyutu"
+
+msgid "Save emails sent by delegate"
+msgstr "Temsilci tarafından gönderilen e-postaları kaydetme"
 
 msgid "Always request a read receipt"
 msgstr "Her zaman okundu bilgisi istemek"
@@ -6997,19 +7012,6 @@ msgstr "Bilinmeyen MAPI hatası: %s"
 msgid "Action is not performed correctly."
 msgstr "Eylem doğru şekilde gerçekleştirilmemiştir."
 
-msgid "Contact not found"
-msgstr "İletişim bulunamadı"
-
-msgid ""
-"Contact information could not be displayed because the server had trouble "
-"retrieving the information."
-msgstr ""
-"Sunucu bilgileri alırken sorun yaşadığı için iletişim bilgileri "
-"görüntülenemedi."
-
-msgid "Please contact your system administrator if the problem persists."
-msgstr "Sorun devam ederse lütfen sistem yöneticinize başvurun."
-
 msgid "Could not handle this type of object."
 msgstr "Bu tür bir nesne işlenemedi."
 
@@ -7523,8 +7525,5 @@ msgid "Malformed UTF-8 characters, possibly incorrectly encoded"
 msgstr "Hatalı biçimde kodlanmış, hatalı biçimlendirilmiş UTF-8 karakterleri"
 
 #, php-format
-msgid "JSON Error: - %s"
-msgstr "JSON Hatası: - %s"
-
-msgid "Some problem encountered when encoding/decoding JSON data."
-msgstr "JSON verilerini kodlarken/kod çözerken bazı sorunlarla karşılaşıldı."
+msgid "Some problem encountered when encoding/decoding JSON data: - %s"
+msgstr "JSON verileri kodlanırken/kod çözülürken bazı sorunlarla karşılaşıldı: - %s"

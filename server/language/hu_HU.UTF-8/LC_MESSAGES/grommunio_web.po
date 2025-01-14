@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Hungarian\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-04-28 23:33+0200\n"
+"POT-Creation-Date: 2025-01-14 12:12+0100\n"
 "PO-Revision-Date: 2022-07-26 16:08+0200\n"
 "Last-Translator: f3rr31 <5920873@disroot.org>\n"
 "Language-Team: Hungarian <https://hosted.weblate.org/projects/grommunio/"
@@ -354,6 +354,9 @@ msgstr "Jegyzetek"
 
 msgid "Members"
 msgstr "Tagok"
+
+msgid "Icon"
+msgstr "Ikon"
 
 msgid "Email Address"
 msgstr "Email cím"
@@ -1553,9 +1556,6 @@ msgstr "Teljes nap"
 
 msgid "Sort by: All Day"
 msgstr "Rendezés: Egész napos események"
-
-msgid "Icon"
-msgstr "Ikon"
 
 msgid "Recurring"
 msgstr "Ismétlődés"
@@ -4383,6 +4383,9 @@ msgstr "Típus"
 msgid "Description"
 msgstr "Leírás"
 
+msgid "Object ID"
+msgstr "Objektum azonosító"
+
 msgid "Folder size"
 msgstr "Mappa méret"
 
@@ -4850,6 +4853,15 @@ msgstr "HTML"
 msgid "Plain Text"
 msgstr "Egyszerű szöveg"
 
+msgid "In both representee's and delegate's Sent Items"
+msgstr "Mind a képviselő, mind a küldött elküldött tételek között"
+
+msgid "Only in delegate's Sent Items"
+msgstr "Csak a küldött küldött tárgyaiban"
+
+msgid "Only in representee's Sent Items"
+msgstr "Csak a képviselő által küldött tételekben"
+
 msgid "Compose mail settings"
 msgstr "Levél írás beállításai"
 
@@ -4861,6 +4873,9 @@ msgstr "Alapértelmezett betűtípus"
 
 msgid "Default font size"
 msgstr "Alapértelmezett betűméret"
+
+msgid "Save emails sent by delegate"
+msgstr "A küldött által küldött e-mailek mentése"
 
 msgid "Always request a read receipt"
 msgstr "Mindig kérjen olvasási visszaigazolást"
@@ -7541,21 +7556,6 @@ msgstr "Ismeretlen MAPI hiba: %s"
 msgid "Action is not performed correctly."
 msgstr "A művelet nem megfelelően történik."
 
-msgid "Contact not found"
-msgstr "Kapcsolat nem található"
-
-#, fuzzy
-msgid ""
-"Contact information could not be displayed because the server had trouble "
-"retrieving the information."
-msgstr ""
-"Az elérhetőségi adatok nem jelenhettek meg, mert a kiszolgálónak gondjai "
-"voltak az információk lekérdezésével."
-
-#, fuzzy
-msgid "Please contact your system administrator if the problem persists."
-msgstr "Ha a probléma továbbra is fennáll, forduljon a rendszergazdához."
-
 #, fuzzy
 msgid "Could not handle this type of object."
 msgstr "Nem tudta kezelni ezt az objektumtípust."
@@ -8171,11 +8171,6 @@ msgstr "Szintaxis hiba"
 msgid "Malformed UTF-8 characters, possibly incorrectly encoded"
 msgstr "Rosszul formázott UTF-8 karakterek, esetleg helytelenül kódolva"
 
-#, fuzzy, php-format
-msgid "JSON Error: - %s"
-msgstr "JSON hiba: - %s"
-
-#, fuzzy
-msgid "Some problem encountered when encoding/decoding JSON data."
-msgstr ""
-"A JSON-adatok kódolásakor/dekódolásakor valamilyen probléma merült fel."
+#, php-format
+msgid "Some problem encountered when encoding/decoding JSON data: - %s"
+msgstr "A JSON-adatok kódolásakor/dekódolásakor valamilyen probléma merült fel: - %s"

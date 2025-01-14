@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Norwegian (Bokmål)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-04-28 23:51+0200\n"
+"POT-Creation-Date: 2025-01-14 12:12+0100\n"
 "PO-Revision-Date: 2023-09-06 16:56+0000\n"
 "Last-Translator: Jan Engelhardt <jengelh@inai.de>\n"
 "Language-Team: Norwegian Bokmål <https://hosted.weblate.org/projects/"
@@ -347,6 +347,9 @@ msgstr "Notater"
 
 msgid "Members"
 msgstr "Medlemmer"
+
+msgid "Icon"
+msgstr "Ikoner"
 
 msgid "Email Address"
 msgstr "E-postadresse"
@@ -1489,9 +1492,6 @@ msgstr "Heldagshendelse"
 
 msgid "Sort by: All Day"
 msgstr "Sorter på: heldags"
-
-msgid "Icon"
-msgstr "Ikoner"
 
 msgid "Recurring"
 msgstr "Regelmessighet"
@@ -4135,6 +4135,9 @@ msgstr "Type"
 msgid "Description"
 msgstr "beskrivning"
 
+msgid "Object ID"
+msgstr ""
+
 msgid "Folder size"
 msgstr "Mappestørrelse"
 
@@ -4578,6 +4581,15 @@ msgstr "HTML"
 msgid "Plain Text"
 msgstr "Tekst"
 
+msgid "In both representee's and delegate's Sent Items"
+msgstr ""
+
+msgid "Only in delegate's Sent Items"
+msgstr ""
+
+msgid "Only in representee's Sent Items"
+msgstr ""
+
 msgid "Compose mail settings"
 msgstr "Innstilling for redigering av e-post"
 
@@ -4589,6 +4601,9 @@ msgstr "Standardskrift"
 
 msgid "Default font size"
 msgstr "Standard skriftstørrelse"
+
+msgid "Save emails sent by delegate"
+msgstr ""
 
 msgid "Always request a read receipt"
 msgstr "Alltid be om lesebekreftelse"
@@ -7031,19 +7046,6 @@ msgstr "Ukjent MAPI feil: %s"
 msgid "Action is not performed correctly."
 msgstr "Handlingen er ikke utført korrekt."
 
-msgid "Contact not found"
-msgstr "Kontakt ikke funnet"
-
-msgid ""
-"Contact information could not be displayed because the server had trouble "
-"retrieving the information."
-msgstr ""
-"Kontaktinformasjon kunne ikke vises fordi serveren hadde problemer med å "
-"hente informasjonen."
-
-msgid "Please contact your system administrator if the problem persists."
-msgstr "Ta kontakt med din systemadministrator om dette problemet vedvarer."
-
 msgid "Could not handle this type of object."
 msgstr "Kunne ikke håndtere denne typen objekt."
 
@@ -7577,8 +7579,5 @@ msgid "Malformed UTF-8 characters, possibly incorrectly encoded"
 msgstr "Feil UTF-8-tegn, muligens feilkodet"
 
 #, php-format
-msgid "JSON Error: - %s"
-msgstr "JSON-feil: - %s"
-
-msgid "Some problem encountered when encoding/decoding JSON data."
-msgstr "Det oppstod et problem ved koding/avkoding av JSON-data."
+msgid "Some problem encountered when encoding/decoding JSON data: - %s"
+msgstr ""

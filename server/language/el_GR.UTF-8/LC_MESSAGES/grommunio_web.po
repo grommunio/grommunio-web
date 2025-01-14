@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Greek\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-04-28 23:15+0200\n"
+"POT-Creation-Date: 2025-01-14 12:12+0100\n"
 "PO-Revision-Date: 2022-07-26 14:49+0200\n"
 "Last-Translator: import\n"
 "Language-Team: \n"
@@ -400,6 +400,9 @@ msgstr "Σημειώσεις"
 
 msgid "Members"
 msgstr "Μέλη"
+
+msgid "Icon"
+msgstr "Εικονίδιο"
 
 msgid "Email Address"
 msgstr "Διεύθυνση Email"
@@ -1765,9 +1768,6 @@ msgstr "Ολοήμερο"
 #, fuzzy
 msgid "Sort by: All Day"
 msgstr "Ταξινόμηση κατά: Ταξινόμηση: Όλη την ημέρα"
-
-msgid "Icon"
-msgstr "Εικονίδιο"
 
 msgid "Recurring"
 msgstr "Επαναλαμβανόμενη"
@@ -5034,6 +5034,9 @@ msgstr "Τύπος"
 msgid "Description"
 msgstr "Περιγραφή"
 
+msgid "Object ID"
+msgstr "Αναγνωριστικό αντικειμένου"
+
 #, fuzzy
 msgid "Folder size"
 msgstr "Μέγεθος φακέλου"
@@ -5591,6 +5594,15 @@ msgstr "HTML"
 msgid "Plain Text"
 msgstr "Απλό κείμενο"
 
+msgid "In both representee's and delegate's Sent Items"
+msgstr "Στα απεσταλμένα στοιχεία τόσο του αντιπροσώπου όσο και του αντιπροσώπου"
+
+msgid "Only in delegate's Sent Items"
+msgstr "Μόνο στα απεσταλμένα στοιχεία του εντολοδόχου"
+
+msgid "Only in representee's Sent Items"
+msgstr "Μόνο στα απεσταλμένα στοιχεία του αντιπροσώπου"
+
 #, fuzzy
 msgid "Compose mail settings"
 msgstr "Ρυθμίσεις σύνταξης μηνυμάτων"
@@ -5606,6 +5618,9 @@ msgstr "Προεπιλεγμένη γραμματοσειρά"
 #, fuzzy
 msgid "Default font size"
 msgstr "Προεπιλεγμένο μέγεθος γραμματοσειράς"
+
+msgid "Save emails sent by delegate"
+msgstr "Αποθήκευση μηνυμάτων ηλεκτρονικού ταχυδρομείου που αποστέλλονται από αντιπρόσωπο"
 
 #, fuzzy
 msgid "Always request a read receipt"
@@ -8699,24 +8714,6 @@ msgid "Action is not performed correctly."
 msgstr "Η ενέργεια δεν εκτελείται σωστά."
 
 #, fuzzy
-msgid "Contact not found"
-msgstr "Επικοινωνία δεν βρέθηκε"
-
-#, fuzzy
-msgid ""
-"Contact information could not be displayed because the server had trouble "
-"retrieving the information."
-msgstr ""
-"Οι πληροφορίες επικοινωνίας δεν ήταν δυνατό να εμφανιστούν επειδή ο "
-"διακομιστής είχε πρόβλημα με την ανάκτηση των πληροφοριών."
-
-#, fuzzy
-msgid "Please contact your system administrator if the problem persists."
-msgstr ""
-"Επικοινωνήστε με το διαχειριστή του συστήματός σας εάν το πρόβλημα "
-"εξακολουθεί να υφίσταται."
-
-#, fuzzy
 msgid "Could not handle this type of object."
 msgstr "Δεν μπορούσε να χειριστεί αυτόν τον τύπο αντικειμένου."
 
@@ -9377,12 +9374,6 @@ msgstr "Σφάλμα σύνταξης"
 msgid "Malformed UTF-8 characters, possibly incorrectly encoded"
 msgstr "Κακοσχηματισμένοι χαρακτήρες UTF-8, πιθανώς εσφαλμένα κωδικοποιημένοι"
 
-#, fuzzy, php-format
-msgid "JSON Error: - %s"
-msgstr "Σφάλμα JSON: - %s"
-
-#, fuzzy
-msgid "Some problem encountered when encoding/decoding JSON data."
-msgstr ""
-"Παρουσιάστηκε κάποιο πρόβλημα κατά την κωδικοποίηση/αποκωδικοποίηση "
-"δεδομένων JSON."
+#, php-format
+msgid "Some problem encountered when encoding/decoding JSON data: - %s"
+msgstr "Παρουσιάστηκε κάποιο πρόβλημα κατά την κωδικοποίηση/αποκωδικοποίηση δεδομένων JSON: - %s"

@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web French (France)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-04-28 23:10+0200\n"
+"POT-Creation-Date: 2025-01-14 12:12+0100\n"
 "PO-Revision-Date: 2022-12-11 16:35+0000\n"
 "Last-Translator: Orkan Eser <orkan.eser@grommunio.com>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/grommunio/"
@@ -351,6 +351,9 @@ msgstr "Notes"
 
 msgid "Members"
 msgstr "Membres"
+
+msgid "Icon"
+msgstr "Icône"
 
 msgid "Email Address"
 msgstr "Adresse électronique"
@@ -1510,9 +1513,6 @@ msgstr "Journée entière"
 
 msgid "Sort by: All Day"
 msgstr "Trier par: Journée entière"
-
-msgid "Icon"
-msgstr "Icône"
 
 msgid "Recurring"
 msgstr "Périodicité"
@@ -4343,6 +4343,9 @@ msgstr "Type"
 msgid "Description"
 msgstr "Description"
 
+msgid "Object ID"
+msgstr "ID de l'objet"
+
 msgid "Folder size"
 msgstr "Taille du dossier"
 
@@ -4817,6 +4820,15 @@ msgstr "HTML"
 msgid "Plain Text"
 msgstr "Text brut"
 
+msgid "In both representee's and delegate's Sent Items"
+msgstr "Dans les éléments envoyés par les représentants et les délégués"
+
+msgid "Only in delegate's Sent Items"
+msgstr "Uniquement dans les éléments envoyés par le délégué"
+
+msgid "Only in representee's Sent Items"
+msgstr "Uniquement dans les éléments envoyés par le représentant"
+
 msgid "Compose mail settings"
 msgstr "Paramètres de rédaction du courrier"
 
@@ -4828,6 +4840,9 @@ msgstr "Police par défaut"
 
 msgid "Default font size"
 msgstr "Taille de la police par défaut"
+
+msgid "Save emails sent by delegate"
+msgstr "Sauvegarder les courriels envoyés par le délégué"
 
 msgid "Always request a read receipt"
 msgstr "Toujours demander un accusé de réception"
@@ -7623,22 +7638,6 @@ msgstr "Erreur MAPI inconnue : %s"
 msgid "Action is not performed correctly."
 msgstr "L'action n'est pas effectuée correctement."
 
-msgid "Contact not found"
-msgstr "Contact introuvable"
-
-#, fuzzy
-msgid ""
-"Contact information could not be displayed because the server had trouble "
-"retrieving the information."
-msgstr ""
-"Les informations de contact n'ont pas pu être affichées car le serveur a eu "
-"des difficultés à les récupérer."
-
-#, fuzzy
-msgid "Please contact your system administrator if the problem persists."
-msgstr ""
-"Veuillez contacter votre administrateur système si le problème persiste."
-
 #, fuzzy
 msgid "Could not handle this type of object."
 msgstr "Impossible de traiter ce type d'objet."
@@ -8283,10 +8282,6 @@ msgstr "Erreur de syntaxe"
 msgid "Malformed UTF-8 characters, possibly incorrectly encoded"
 msgstr "Caractères UTF-8 mal formés, éventuellement mal encodés"
 
-#, fuzzy, php-format
-msgid "JSON Error: - %s"
-msgstr "Erreur JSON : - %s"
-
-#, fuzzy
-msgid "Some problem encountered when encoding/decoding JSON data."
-msgstr "Un problème rencontré lors de l'encodage/décodage des données JSON."
+#, php-format
+msgid "Some problem encountered when encoding/decoding JSON data: - %s"
+msgstr "Problème rencontré lors de l'encodage/décodage des données JSON: - %s"

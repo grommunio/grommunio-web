@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Polish (Poland)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-04-28 23:52+0200\n"
+"POT-Creation-Date: 2025-01-14 12:12+0100\n"
 "PO-Revision-Date: 2022-07-26 17:49+0200\n"
 "Last-Translator: import\n"
 "Language-Team: \n"
@@ -367,6 +367,9 @@ msgstr "Notatki"
 
 msgid "Members"
 msgstr "Członkowie"
+
+msgid "Icon"
+msgstr "Ikona"
 
 msgid "Email Address"
 msgstr "Adres e-mail"
@@ -1523,9 +1526,6 @@ msgstr "Zdarzenia całodzienne"
 
 msgid "Sort by: All Day"
 msgstr "Sortuj według: Całodzienny"
-
-msgid "Icon"
-msgstr "Ikona"
 
 msgid "Recurring"
 msgstr "Wzór seryjny"
@@ -4221,6 +4221,9 @@ msgstr "Typ"
 msgid "Description"
 msgstr "Nazwa"
 
+msgid "Object ID"
+msgstr "Identyfikator obiektu"
+
 msgid "Folder size"
 msgstr "Wielkość folderu"
 
@@ -4668,6 +4671,15 @@ msgstr "HTML"
 msgid "Plain Text"
 msgstr "Tekst"
 
+msgid "In both representee's and delegate's Sent Items"
+msgstr "W elementach wysłanych zarówno przez przedstawiciela, jak i delegata"
+
+msgid "Only in delegate's Sent Items"
+msgstr "Tylko w wysłanych elementach delegata"
+
+msgid "Only in representee's Sent Items"
+msgstr "Tylko w elementach wysłanych przez przedstawiciela"
+
 msgid "Compose mail settings"
 msgstr "Ustawienia dla utworzenia e-maila"
 
@@ -4679,6 +4691,9 @@ msgstr "Czcionka domyślna"
 
 msgid "Default font size"
 msgstr "Rozmiar czcionki domyślnej"
+
+msgid "Save emails sent by delegate"
+msgstr "Zapisywanie wiadomości e-mail wysłanych przez delegata"
 
 msgid "Always request a read receipt"
 msgstr "Zawsze żądaj potwierdzenia odczytu przez odbiorcę"
@@ -7444,23 +7459,6 @@ msgid "Action is not performed correctly."
 msgstr "Działanie nie jest wykonywane prawidłowo."
 
 #, fuzzy
-msgid "Contact not found"
-msgstr "Nie znaleziono kontaktu"
-
-#, fuzzy
-msgid ""
-"Contact information could not be displayed because the server had trouble "
-"retrieving the information."
-msgstr ""
-"Informacje kontaktowe nie mogły zostać wyświetlone, ponieważ serwer miał "
-"problemy z pobraniem informacji."
-
-msgid "Please contact your system administrator if the problem persists."
-msgstr ""
-"Jeśli problem się powtarza, należy skontaktować się z administratorem "
-"systemu."
-
-#, fuzzy
 msgid "Could not handle this type of object."
 msgstr "Nie można było obsłużyć tego typu obiektu."
 
@@ -8077,10 +8075,6 @@ msgstr "Błąd składni"
 msgid "Malformed UTF-8 characters, possibly incorrectly encoded"
 msgstr "Złe znaki UTF-8, prawdopodobnie niepoprawnie zakodowane"
 
-#, fuzzy, php-format
-msgid "JSON Error: - %s"
-msgstr "JSON Error: - %s"
-
-#, fuzzy
-msgid "Some problem encountered when encoding/decoding JSON data."
-msgstr "Jakiś problem napotkany podczas kodowania/dekodowania danych JSON."
+#, php-format
+msgid "Some problem encountered when encoding/decoding JSON data: - %s"
+msgstr "Napotkano problem podczas kodowania/dekodowania danych JSON: - %s"

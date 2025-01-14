@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Danish (Denmark)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-04-28 23:12+0200\n"
+"POT-Creation-Date: 2025-01-14 12:12+0100\n"
 "PO-Revision-Date: 2022-07-26 14:28+0200\n"
 "Last-Translator: Mike Williams <mike.williams@grammm.com>\n"
 "Language-Team: Danish <https://hosted.weblate.org/projects/grommunio/"
@@ -348,6 +348,9 @@ msgstr "Noter"
 
 msgid "Members"
 msgstr "Medlemmer"
+
+msgid "Icon"
+msgstr "Ikon"
 
 msgid "Email Address"
 msgstr "Email adresse"
@@ -1529,9 +1532,6 @@ msgstr "Hele dagen"
 
 msgid "Sort by: All Day"
 msgstr "Sorter efter: Hele dagen"
-
-msgid "Icon"
-msgstr "Ikon"
 
 msgid "Recurring"
 msgstr "Tilbagevendende"
@@ -4335,6 +4335,9 @@ msgstr "Type"
 msgid "Description"
 msgstr "Beskrivelse"
 
+msgid "Object ID"
+msgstr "Objekt-ID"
+
 msgid "Folder size"
 msgstr "Mappestørrelse"
 
@@ -4801,6 +4804,15 @@ msgstr "HTML"
 msgid "Plain Text"
 msgstr "Klar tekst"
 
+msgid "In both representee's and delegate's Sent Items"
+msgstr "I både repræsentantens og den delegeredes sendte emner"
+
+msgid "Only in delegate's Sent Items"
+msgstr "Kun i den delegeredes sendte emner"
+
+msgid "Only in representee's Sent Items"
+msgstr "Kun i repræsentantens Sent Items"
+
 msgid "Compose mail settings"
 msgstr "Indstillinger for redigering af email"
 
@@ -4812,6 +4824,9 @@ msgstr "Standard skrifttype"
 
 msgid "Default font size"
 msgstr "Standard skriftstørrelse"
+
+msgid "Save emails sent by delegate"
+msgstr "Gem e-mails sendt af en delegeret"
 
 msgid "Always request a read receipt"
 msgstr "Bed altid om kvittering for læsning"
@@ -7636,21 +7651,6 @@ msgstr "Ukendt MAPI fejl: %s"
 msgid "Action is not performed correctly."
 msgstr "Handlingen er ikke udført korrekt."
 
-msgid "Contact not found"
-msgstr "Kontakt blev ikke fundet"
-
-#, fuzzy
-msgid ""
-"Contact information could not be displayed because the server had trouble "
-"retrieving the information."
-msgstr ""
-"Kontaktoplysningerne kunne ikke vises, fordi serveren havde problemer med at "
-"hente oplysningerne."
-
-#, fuzzy
-msgid "Please contact your system administrator if the problem persists."
-msgstr "Kontakt din systemadministrator, hvis problemet fortsætter."
-
 #, fuzzy
 msgid "Could not handle this type of object."
 msgstr "Kunne ikke håndtere denne type objekt."
@@ -8294,10 +8294,6 @@ msgstr "Syntaksfejl"
 msgid "Malformed UTF-8 characters, possibly incorrectly encoded"
 msgstr "Misdannede UTF-8-tegn, muligvis forkert kodet"
 
-#, fuzzy, php-format
-msgid "JSON Error: - %s"
-msgstr "JSON-fejl: - %s"
-
-#, fuzzy
-msgid "Some problem encountered when encoding/decoding JSON data."
-msgstr "Der er opstået et problem ved kodning/afkodning af JSON-data."
+#, php-format
+msgid "Some problem encountered when encoding/decoding JSON data: - %s"
+msgstr "Der opstod et problem under kodning/afkodning af JSON-data: - %s"

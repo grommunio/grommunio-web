@@ -4,8 +4,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Estonian (Estonia)\n"
-"Report-Msgid-Bugs-To: dev@grommunio.com\n"
-"POT-Creation-Date: 2024-04-28 23:29+0200\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-01-14 12:12+0100\n"
 "PO-Revision-Date: 2024-10-03 22:25+0000\n"
 "Last-Translator: DeepL <noreply-mt-deepl@weblate.org>\n"
 "Language-Team: Estonian <https://hosted.weblate.org/projects/grommunio/"
@@ -347,6 +347,9 @@ msgstr "Märkmed"
 
 msgid "Members"
 msgstr "Liikmed"
+
+msgid "Icon"
+msgstr "Ikoon"
 
 msgid "Email Address"
 msgstr "E-posti aadress"
@@ -1485,9 +1488,6 @@ msgstr "Kogu päev"
 
 msgid "Sort by: All Day"
 msgstr "Sorteerimine: Kogu päev"
-
-msgid "Icon"
-msgstr "Ikoon"
 
 msgid "Recurring"
 msgstr "Korduvad"
@@ -4124,6 +4124,9 @@ msgstr "Tüüp"
 msgid "Description"
 msgstr "Kirjeldus"
 
+msgid "Object ID"
+msgstr "Objekti ID"
+
 msgid "Folder size"
 msgstr "Kausta suurus"
 
@@ -4566,6 +4569,15 @@ msgstr "HTML"
 msgid "Plain Text"
 msgstr "Lihtne tekst"
 
+msgid "In both representee's and delegate's Sent Items"
+msgstr "Nii esindajate kui ka delegaatide saadetud esemetes"
+
+msgid "Only in delegate's Sent Items"
+msgstr "Ainult delegaadi saadetud esemetes"
+
+msgid "Only in representee's Sent Items"
+msgstr "Ainult esindajate saadetud esemed"
+
 msgid "Compose mail settings"
 msgstr "Posti koostamise seaded"
 
@@ -4577,6 +4589,9 @@ msgstr "Vaikimisi kirjatüüp"
 
 msgid "Default font size"
 msgstr "Vaikimisi kirjasuurus"
+
+msgid "Save emails sent by delegate"
+msgstr "Salvesta delegaadi saadetud e-kirjad"
 
 msgid "Always request a read receipt"
 msgstr "Alati nõuda lugemiskviitungi"
@@ -7003,19 +7018,6 @@ msgstr "Tundmatu MAPI viga: %s"
 msgid "Action is not performed correctly."
 msgstr "Tegevus ei ole korrektselt sooritatud."
 
-msgid "Contact not found"
-msgstr "Kontakt ei leitud"
-
-msgid ""
-"Contact information could not be displayed because the server had trouble "
-"retrieving the information."
-msgstr ""
-"Kontaktandmeid ei saanud kuvada, sest serveril oli probleeme teabe "
-"kättesaamisega."
-
-msgid "Please contact your system administrator if the problem persists."
-msgstr "Kui probleem püsib, võtke ühendust oma süsteemiadministraatoriga."
-
 msgid "Could not handle this type of object."
 msgstr "Seda tüüpi objekti ei saanud käsitleda."
 
@@ -7220,8 +7222,8 @@ msgid ""
 "click the %1$s folder > properties > permissions)."
 msgstr ""
 "Sul ei ole piisavalt õigusi selle %1$s kausta avamiseks. Kausta omanik saab "
-"neid määrata kausta omaduste vahekaardil \"õigused\" (paremklikk kaustale %1$"
-"s > omadused > õigused)."
+"neid määrata kausta omaduste vahekaardil \"õigused\" (paremklikk kaustale "
+"%1$s > omadused > õigused)."
 
 msgid "default"
 msgstr "vaikimisi"
@@ -7522,8 +7524,5 @@ msgstr ""
 "Ebakorrektselt vormitud UTF-8 tähemärgid, võimalik, et valesti kodeeritud"
 
 #, php-format
-msgid "JSON Error: - %s"
-msgstr "JSON-viga: - %s"
-
-msgid "Some problem encountered when encoding/decoding JSON data."
-msgstr "JSON-andmete kodeerimisel/dekodeerimisel on tekkinud mingi probleem."
+msgid "Some problem encountered when encoding/decoding JSON data: - %s"
+msgstr "JSON-andmete kodeerimisel/dekodeerimisel on tekkinud mingi probleem: - %s"

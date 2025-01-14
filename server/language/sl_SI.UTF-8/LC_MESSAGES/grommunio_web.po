@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Slovenian (Slovenia)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-04-28 23:58+0200\n"
+"POT-Creation-Date: 2025-01-14 12:12+0100\n"
 "PO-Revision-Date: 2022-07-26 19:05+0200\n"
 "Last-Translator: import\n"
 "Language-Team: \n"
@@ -371,6 +371,9 @@ msgstr "Zapiski"
 
 msgid "Members"
 msgstr "Člani"
+
+msgid "Icon"
+msgstr "Ikona"
 
 msgid "Email Address"
 msgstr "Elektronski naslov"
@@ -1597,9 +1600,6 @@ msgstr "Cel dan"
 
 msgid "Sort by: All Day"
 msgstr "Razvrsti po: Celi dan"
-
-msgid "Icon"
-msgstr "Ikona"
 
 msgid "Recurring"
 msgstr "Ponavljajoče se"
@@ -4493,6 +4493,9 @@ msgstr "Tip"
 msgid "Description"
 msgstr "Opis"
 
+msgid "Object ID"
+msgstr "ID predmeta"
+
 msgid "Folder size"
 msgstr "Velikost mape"
 
@@ -4972,6 +4975,15 @@ msgstr "HTML"
 msgid "Plain Text"
 msgstr "Navaden tekst"
 
+msgid "In both representee's and delegate's Sent Items"
+msgstr "V poslanih točkah zastopnika in delegata"
+
+msgid "Only in delegate's Sent Items"
+msgstr "Samo v poslanih elementih delegata"
+
+msgid "Only in representee's Sent Items"
+msgstr "Samo v poslanih točkah zastopnika"
+
 msgid "Compose mail settings"
 msgstr "Sestavi nastavitve sporočila"
 
@@ -4983,6 +4995,9 @@ msgstr "Privzeta pisava"
 
 msgid "Default font size"
 msgstr "Privzeta velikost pisave"
+
+msgid "Save emails sent by delegate"
+msgstr "Shranjevanje e-poštnih sporočil, ki jih je poslal delegat"
 
 msgid "Always request a read receipt"
 msgstr "Vedno zahtevaj potrdilo o branju"
@@ -7864,22 +7879,6 @@ msgid "Action is not performed correctly."
 msgstr "Ukrep se ne izvede pravilno."
 
 #, fuzzy
-msgid "Contact not found"
-msgstr "Kontakt ni najden"
-
-#, fuzzy
-msgid ""
-"Contact information could not be displayed because the server had trouble "
-"retrieving the information."
-msgstr ""
-"Kontaktnih informacij ni bilo mogoče prikazati, ker je imel strežnik težave "
-"s pridobivanjem informacij."
-
-#, fuzzy
-msgid "Please contact your system administrator if the problem persists."
-msgstr "Če težava še vedno obstaja, se obrnite na skrbnika sistema."
-
-#, fuzzy
 msgid "Could not handle this type of object."
 msgstr "Te vrste predmeta ni bilo mogoče obdelati."
 
@@ -8485,10 +8484,6 @@ msgstr "Napaka sintakse"
 msgid "Malformed UTF-8 characters, possibly incorrectly encoded"
 msgstr "Napačno oblikovani znaki UTF-8, morda nepravilno kodirani"
 
-#, fuzzy, php-format
-msgid "JSON Error: - %s"
-msgstr "Napaka JSON: - %s"
-
-#, fuzzy
-msgid "Some problem encountered when encoding/decoding JSON data."
-msgstr "Pri kodiranju/dekodiranju podatkov JSON je prišlo do težav."
+#, php-format
+msgid "Some problem encountered when encoding/decoding JSON data: - %s"
+msgstr "Pri kodiranju/dekodiranju podatkov JSON je prišlo do težave: - %s"
