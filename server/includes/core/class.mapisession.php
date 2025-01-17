@@ -506,10 +506,20 @@ class MAPISession {
 	}
 
 	/**
+	 * Checks whether the user is enabled for grommunio-web.
+	 *
+	 * @return bool
+	 */
+	public function isGwebEnabled() {
+		$store_props = mapi_getprops($this->getDefaultMessageStore(), [PR_EC_ENABLED_FEATURES_L]);
+		return $store_props[PR_EC_ENABLED_FEATURES_L] & UP_WEB;
+	}
+
+	/**
 	 * @return bool true if webapp is disabled feature else return false
 	 */
 	public function isWebappDisableAsFeature() {
-		return array_search('webapp', $this->getDisabledFeatures()) !== false;
+		return !$this->isGwebEnabled() || array_search('webapp', $this->getDisabledFeatures()) !== false;
 	}
 
 	/**
