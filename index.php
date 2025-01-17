@@ -162,7 +162,7 @@ $GLOBALS["operations"] = new Operations();
 // If webapp feature is not enabled for the user,
 // we will show the login page with appropriated error message.
 if ($GLOBALS['mapisession']->isWebappDisableAsFeature()) {
-	header("X-grommunio-Hresult: " . get_mapi_error_name(MAPI_E_WEBAPP_FEATURE_DISABLED));
+	header("X-grommunio-Hresult: " . get_mapi_error_name(ecLoginPerm));
 
 	$error = _("Sorry, access to grommunio Web is not available with this user account. Please contact your system administrator.");
 	// Set some template variables for the login page
