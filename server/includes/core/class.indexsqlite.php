@@ -11,6 +11,7 @@ class IndexSqlite extends SQLite3 {
 	private $count;
 	private $store;
 	private $session;
+	private $openResult;
 
 	private static function get_gc_value($eid) {
 		$r0 = ($eid >> 56) & 0xFF;
@@ -28,7 +29,14 @@ class IndexSqlite extends SQLite3 {
 		$this->username = $username ?? $GLOBALS["mapisession"]->getSMTPAddress();
 		$this->session = $session ?? $GLOBALS["mapisession"]->getSession();
 		$this->store = $store ?? $GLOBALS["mapisession"]->getDefaultMessageStore();
-		$this->open(SQLITE_INDEX_PATH . '/' . $this->username . '/index.sqlite3');
+		try {
+			$this->open(SQLITE_INDEX_PATH . '/' . $this->username . '/index.sqlite3', SQLITE3_OPEN_READONLY);
+			$this->openResult = 0;
+		}
+		catch (Exception $e) {
+			error_log(sprintf("Error opening the index database: %s", $e));
+			$this->openResult = 1;
+		}
 	}
 
 	private function try_insert_content(
@@ -92,6 +100,9 @@ class IndexSqlite extends SQLite3 {
 	}
 
 	public function search($search_entryid, $search_patterns, $folder_entryid, $recursive) {
+		if ($this->openResult) {
+			return false;
+		}
 		$whereFolderids = '';
 		if (isset($folder_entryid)) {
 			try {
