@@ -255,7 +255,7 @@ class AdvancedSearchListModule extends ListModule {
 			return parent::messageList($store, $entryid, $action, "list");
 		}
 		$store_props = mapi_getprops($store, [PR_MDB_PROVIDER, PR_DEFAULT_STORE, PR_IPM_SUBTREE_ENTRYID]);
-		if ($store_props[PR_MDB_PROVIDER] == ZARAFA_STORE_PUBLIC_GUID) {
+		if ($store_props[PR_MDB_PROVIDER] == ZARAFA_STORE_PUBLIC_GUID || $store_props[PR_MDB_PROVIDER] == ZARAFA_STORE_DELEGATE_GUID) {
 			// public store does not support search folders
 			return parent::messageList($store, $entryid, $action, "search");
 		}
