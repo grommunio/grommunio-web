@@ -254,8 +254,8 @@ class AdvancedSearchListModule extends ListModule {
 			 */
 			return parent::messageList($store, $entryid, $action, "list");
 		}
-		$store_props = mapi_getprops($store, [PR_MDB_PROVIDER, PR_DEFAULT_STORE]);
-		if ($store_props[PR_MDB_PROVIDER] == ZARAFA_STORE_PUBLIC_GUID) {
+		$store_props = mapi_getprops($store, [PR_MDB_PROVIDER, PR_DEFAULT_STORE, PR_IPM_SUBTREE_ENTRYID]);
+		if ($store_props[PR_MDB_PROVIDER] == ZARAFA_STORE_PUBLIC_GUID || $store_props[PR_MDB_PROVIDER] == ZARAFA_STORE_DELEGATE_GUID) {
 			// public store does not support search folders
 			return parent::messageList($store, $entryid, $action, "search");
 		}
@@ -364,8 +364,6 @@ class AdvancedSearchListModule extends ListModule {
 			}
 		}
 
-		unset($action["restriction"]);
-
 		// Sort
 		$this->parseSortOrder($action);
 		// Initialize search patterns with default values
@@ -393,14 +391,20 @@ class AdvancedSearchListModule extends ListModule {
 		}
 
 		$search_result = $indexDB->search(hex2bin($searchFolderEntryId), $search_patterns, $entryid, $recursive);
+		// Use the query search if search in index fails or is not available.
 		if ($search_result == false) {
-			// if error in creating search folder then send error to client
-			$errorInfo = [];
-			$errorInfo["error_message"] = _("Unable to perform search query, search folder not found.");
-			$errorInfo["original_error_message"] = _("Error in creating search folder.");
+			// Search in the inbox instead of Top of Information Store
+			if (isset($store_props[PR_IPM_SUBTREE_ENTRYID]) &&
+				$GLOBALS['entryid']->compareEntryIds(bin2hex($entryid), bin2hex($store_props[PR_IPM_SUBTREE_ENTRYID]))) {
+				$inbox = mapi_msgstore_getreceivefolder($store);
+				$inboxProps = mapi_getprops($inbox, [PR_ENTRYID]);
+				$entryid = $inboxProps[PR_ENTRYID];
+			}
 
-			return $this->sendSearchErrorToClient($store, $entryid, $action, $errorInfo);
+			return parent::messageList($store, $entryid, $action, "search");
 		}
+
+		unset($action["restriction"]);
 
 		// Get the table and merge the arrays
 		$table = $GLOBALS["operations"]->getTable($store, hex2bin($searchFolderEntryId), $this->properties, $this->sort, $this->start);
