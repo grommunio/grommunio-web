@@ -1967,10 +1967,13 @@ class Operations {
 						// Empty Strings
 					case PT_MV_LONG:
 						// Empty multivalued long
+						if (empty($propVal)) {
+							$propertiesToDelete[] = $propTag;
+						}
+						break;
 					case PT_MV_STRING8:
 						// Empty multivalued string
 						if (empty($propVal)) {
-							// $propertiesToDelete[] = $propTag;
 							$props[$propTag] = [];
 						}
 						break;
