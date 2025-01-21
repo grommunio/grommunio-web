@@ -905,7 +905,18 @@ class AddressbookListModule extends ListModule {
 					$folderProps = mapi_getprops($folder, [PR_CONTAINER_CLASS]);
 					if (isset($folderProps[PR_CONTAINER_CLASS]) && $folderProps[PR_CONTAINER_CLASS] == 'IPF.Contact') {
 						$grants = mapi_zarafa_getpermissionrules($folder, ACCESS_TYPE_GRANT);
-						if (isset($sharedUserSetting['all']) || in_array($mainUserEntryId, array_column($grants, 'userid'))) {
+						// Do not show contacts' folders in the AB list view for which
+						// the user has permissions, but hasn't added them to the folder hierarchy.
+						if (!empty($sharedUserSetting) &&
+						    !isset($sharedUserSetting['all']) &&
+						    !isset($sharedUserSetting['contact']) &&
+						    in_array($mainUserEntryId, array_column($grants, 'userid'))) {
+							continue;
+						}
+						if (isset($sharedUserSetting['all']) ||
+						    isset($sharedUserSetting['contact']) ||
+						    in_array($mainUserEntryId, array_column($grants, 'userid')))
+						{
 							$this->addFolder($folders, [
 								// Postfix display name of every contact folder with respective owner name
 								// it is mandatory to keep display-name different
