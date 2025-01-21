@@ -905,7 +905,18 @@ class AddressbookListModule extends ListModule {
 					$folderProps = mapi_getprops($folder, [PR_CONTAINER_CLASS]);
 					if (isset($folderProps[PR_CONTAINER_CLASS]) && $folderProps[PR_CONTAINER_CLASS] == 'IPF.Contact') {
 						$grants = mapi_zarafa_getpermissionrules($folder, ACCESS_TYPE_GRANT);
-						if (isset($sharedUserSetting['all']) || in_array($mainUserEntryId, array_column($grants, 'userid'))) {
+						// Do not show contacts' folders in the AB list view for which
+						// the user has permissions, but hasn't added them to the folder hierarchy.
+						if (!empty($sharedUserSetting) &&
+						    !isset($sharedUserSetting['all']) &&
+						    !isset($sharedUserSetting['contact']) &&
+						    in_array($mainUserEntryId, array_column($grants, 'userid'))) {
+							continue;
+						}
+						if (isset($sharedUserSetting['all']) ||
+						    isset($sharedUserSetting['contact']) ||
+						    in_array($mainUserEntryId, array_column($grants, 'userid')))
+						{
 							$this->addFolder($folders, [
 								// Postfix display name of every contact folder with respective owner name
 								// it is mandatory to keep display-name different
@@ -932,14 +943,18 @@ class AddressbookListModule extends ListModule {
 		$publicStore = $GLOBALS['mapisession']->getPublicMessageStore();
 		$publicStoreProps = mapi_getprops($publicStore, [PR_DISPLAY_NAME]);
 		$publicContactFolders = $GLOBALS['mapisession']->getContactFoldersForABContactProvider($publicStore);
+		$knownParents = [];
 		for ($i = 0, $len = count($publicContactFolders); $i < $len; ++$i) {
+			$knownParents[] = $publicContactFolders[$i][PR_ENTRYID];
 			$this->addFolder($folders, [
 				// Postfix display name of every contact folder with respective owner name
 				// it is mandatory to keep display-name different
 				"display_name" => $publicContactFolders[$i][PR_DISPLAY_NAME] . ' - ' . $publicStoreProps[PR_DISPLAY_NAME],
 				"entryid" => bin2hex($publicContactFolders[$i][PR_ENTRYID]),
 				"parent_entryid" => bin2hex($publicContactFolders[$i][PR_PARENT_ENTRYID]),
-				"depth" => $publicContactFolders[$i][PR_DEPTH],
+				// only indent folders which have a parent folder already in the list
+				"depth" => $publicContactFolders[$i][PR_DEPTH] > 1 && in_array($publicContactFolders[$i][PR_PARENT_ENTRYID], $knownParents) ?
+					$publicContactFolders[$i][PR_DEPTH] : 1,
 				"type" => 'sharedcontacts',
 				"object_type" => MAPI_ABCONT,
 			]);
