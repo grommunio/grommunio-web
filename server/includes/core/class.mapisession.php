@@ -1157,17 +1157,19 @@ class MAPISession {
 
 		try {
 			// Only searches one level deep, otherwise deleted contact folders will also be included.
-			$contactFolders = $this->getContactFolders($store, $storeProps[PR_IPM_SUBTREE_ENTRYID], false);
+			$contactFolders = $this->getContactFolders($store, $storeProps[PR_IPM_SUBTREE_ENTRYID], $storeProps[PR_MDB_PROVIDER] === ZARAFA_STORE_PUBLIC_GUID ? true : false);
 		}
 		catch (Exception $e) {
 			return $contactFolders;
 		}
 
 		// Need to search all the contact-subfolders within first level contact folders.
-		$firstLevelHierarchyNodes = $contactFolders;
-		foreach ($firstLevelHierarchyNodes as $firstLevelNode) {
-			// To search for multiple levels CONVENIENT_DEPTH needs to be passed as well.
-			$contactFolders = array_merge($contactFolders, $this->getContactFolders($store, $firstLevelNode[PR_ENTRYID], true));
+		if ($storeProps[PR_MDB_PROVIDER] != ZARAFA_STORE_PUBLIC_GUID) {
+			$firstLevelHierarchyNodes = $contactFolders;
+			foreach ($firstLevelHierarchyNodes as $firstLevelNode) {
+				// To search for multiple levels CONVENIENT_DEPTH needs to be passed as well.
+				$contactFolders = array_merge($contactFolders, $this->getContactFolders($store, $firstLevelNode[PR_ENTRYID], true));
+			}
 		}
 
 		return $contactFolders;

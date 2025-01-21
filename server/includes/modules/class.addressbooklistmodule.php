@@ -932,14 +932,18 @@ class AddressbookListModule extends ListModule {
 		$publicStore = $GLOBALS['mapisession']->getPublicMessageStore();
 		$publicStoreProps = mapi_getprops($publicStore, [PR_DISPLAY_NAME]);
 		$publicContactFolders = $GLOBALS['mapisession']->getContactFoldersForABContactProvider($publicStore);
+		$knownParents = [];
 		for ($i = 0, $len = count($publicContactFolders); $i < $len; ++$i) {
+			$knownParents[] = $publicContactFolders[$i][PR_ENTRYID];
 			$this->addFolder($folders, [
 				// Postfix display name of every contact folder with respective owner name
 				// it is mandatory to keep display-name different
 				"display_name" => $publicContactFolders[$i][PR_DISPLAY_NAME] . ' - ' . $publicStoreProps[PR_DISPLAY_NAME],
 				"entryid" => bin2hex($publicContactFolders[$i][PR_ENTRYID]),
 				"parent_entryid" => bin2hex($publicContactFolders[$i][PR_PARENT_ENTRYID]),
-				"depth" => $publicContactFolders[$i][PR_DEPTH],
+				// only indent folders which have a parent folder already in the list
+				"depth" => $publicContactFolders[$i][PR_DEPTH] > 1 && in_array($publicContactFolders[$i][PR_PARENT_ENTRYID], $knownParents) ?
+					$publicContactFolders[$i][PR_DEPTH] : 1,
 				"type" => 'sharedcontacts',
 				"object_type" => MAPI_ABCONT,
 			]);
