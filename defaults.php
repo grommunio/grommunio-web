@@ -120,7 +120,7 @@ if (!defined("MAX_GAB_RESULTS")) {
  * as it may increase address-book loading time.
  */
 if (!defined("ENABLE_PUBLIC_CONTACT_FOLDERS")) {
-	define("ENABLE_PUBLIC_CONTACT_FOLDERS", false);
+	define("ENABLE_PUBLIC_CONTACT_FOLDERS", true);
 }
 
 /*
@@ -128,7 +128,7 @@ if (!defined("ENABLE_PUBLIC_CONTACT_FOLDERS")) {
  * which, when enabled, may cause delay in loading of address-book
  */
 if (!defined("ENABLE_SHARED_CONTACT_FOLDERS")) {
-	define("ENABLE_SHARED_CONTACT_FOLDERS", false);
+	define("ENABLE_SHARED_CONTACT_FOLDERS", true);
 }
 
 /*
