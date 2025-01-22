@@ -81,7 +81,7 @@ Zarafa.common.ui.HtmlEditor = Ext.extend(Ext.ux.form.TinyMCETextArea, {
 		var fontFamilies = Zarafa.common.ui.htmleditor.Fonts.getFontFamilies();
 
 		var baseUrl = container.getServerConfig().getBaseUrl();
-		const cacheBuster = "7.6.0.192";
+		const cacheBuster = "7.6.1.232";
 
 		var themeIsDark = container.getSettingsModel().get("zarafa/v1/main/active_theme") === "dark";
 
