@@ -36,10 +36,12 @@ Zarafa.common.checknames.dialogs.CheckNamesContentPanel = Ext.extend(Zarafa.core
 				xtype	: 'zarafa.checknamespanel',
 				buttons: [{
 					text	: _('Ok'),
-					handler	:this.onOk,
+					tabIndex: 2,
+					handler	: this.onOk,
 					scope	: this
 					},{
 					text	: _('Cancel'),
+					tabIndex: 3,
 					handler	: this.onCancel,
 					scope	: this
 				}]
@@ -60,6 +62,24 @@ Zarafa.common.checknames.dialogs.CheckNamesContentPanel = Ext.extend(Zarafa.core
 		Zarafa.common.checknames.dialogs.CheckNamesContentPanel.superclass.onRender.apply(this, arguments);
 
 		this.get(0).update(this.record, this.checkNamesData);
+
+		// Add focus trapping for Tab navigation
+		this.getEl().on('keydown', function(e) {
+			if (e.getKey() === Ext.EventObject.TAB) {
+				const focusableElements = this.getEl().query('button, [tabindex]:not([tabindex="-1"])');
+				const firstElement = focusableElements[0];
+				const lastElement = focusableElements[focusableElements.length - 1];
+
+				if (e.shiftKey && e.target === firstElement) {
+					e.stopEvent();
+					lastElement.focus();
+				} else if (!e.shiftKey && e.target === lastElement) {
+					e.stopEvent();
+					firstElement.focus();
+				}
+			}
+		}, this);
+
 	},
 
 	/**

@@ -56,6 +56,10 @@ Zarafa.common.checknames.dialogs.CheckNamesPanel = Ext.extend(Ext.Panel, {
 				viewConfig: {
 					forceFit: true
 				},
+				tabindex: 1,
+				listeners: {
+					afterrender: function(grid) { grid.getEl().dom.setAttribute('tabindex', 1); },
+				},
 				columns: [{
 					dataIndex: 'display_name',
 					header: _('Name'),
@@ -95,6 +99,15 @@ Zarafa.common.checknames.dialogs.CheckNamesPanel = Ext.extend(Ext.Panel, {
 	},
 
 	/**
+	 * Enable focus navigation to the grid using the Tab key.
+	 */
+	focusGrid: function() {
+		if (this.checkNamesList && this.checkNamesList.getEl()) {
+			this.checkNamesList.getEl().focus();
+		}
+	},
+
+	/**
 	 * Event handler which is fired when the gridPanel is ready. This will automatically
 	 * select the first row in the grid.
 	 * @private
@@ -131,7 +144,9 @@ Zarafa.common.checknames.dialogs.CheckNamesPanel = Ext.extend(Ext.Panel, {
 	onDblClick: function()
 	{
 		this.dialog.onOk();
-	}
+	},
+
+	onFocus: function() { this.focusGrid(); }
 });
 
 Ext.reg('zarafa.checknamespanel', Zarafa.common.checknames.dialogs.CheckNamesPanel);
