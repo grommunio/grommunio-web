@@ -8,39 +8,22 @@
 		"phplint": "phpmd server text .phpmd.xml || true",
 		"lint": "eslint client/zarafa",
 		"phplintci": "phpmd server xml .phpmd.xml --ignore-violations-on-exit | python tools/violations_to_junit.py > phpmd.xml",
-		"jsunit": "karma start test/js/unittest.conf.js",
 		"app-icons": "ikode --out client/resources/scss/base/_icons.scss --css --important --yes --ext client/resources/images/app-icons.extensions.json client/resources/images/app-icons",
 		"iconsets:classic": "ikode --out client/resources/iconsets/classic/classic-icons.css --css --important --yes --ext client/resources/iconsets/extensions.json -d client/resources/iconsets/classic/src/png/16x16 client/resources/iconsets/classic/src/png/large -d client/resources/iconsets/classic/src/svg/16x16",
 		"iconsets:breeze": "ikode --out client/resources/iconsets/breeze/breeze-icons.css --css --important --yes --ext client/resources/iconsets/extensions.json --ext client/resources/iconsets/breeze/extensions-breeze.json -d client/resources/iconsets/breeze/src/svg/16x16 client/resources/iconsets/breeze/src/svg/large",
-		"iconsets": "\"$npm_execpath\" run iconsets:classic && \"$npm_execpath\" run iconsets:breeze",
-		"build:tokenizr": "grunt --gruntfile Gruntfile.tokenizr.js"
+		"iconsets": "\"$npm_execpath\" run iconsets:classic && \"$npm_execpath\" run iconsets:breeze"
 	},
 	"devDependencies": {
-		"@babel/cli": "^7.16.0",
-		"@babel/core": "^7.16.0",
-		"@babel/preset-env": "^7.16.4",
-		"babelify": "^10.0.0",
-		"browserify": "^16.5.2",
-		"browserify-derequire": "^1.1.1",
-		"eslint": "^5.16.0",
-		"grunt": "^1.4.1",
-		"grunt-browserify": "^6.0.0",
-		"grunt-cli": "^1.4.3",
-		"jasmine-core": "^4.2.0",
-		"karma": "^6.4.0",
-		"karma-chrome-launcher": "^3.1.1",
-		"karma-jasmine": "^5.1.0",
-		"karma-junit-reporter": "^2.0.1",
-		"karma-spec-reporter": "^0.0.34"
+		"eslint": "^9.18.0"
 	},
 	"dependencies": {
 		"cssnano": "^6.0.1",
+		"glob": "^11.0.1",
 		"html-minifier-terser": "^7.2.0",
 		"postcss": "^8.4.31",
 		"postcss-cli": "^10.1.0",
 		"postcss-preset-env": "^9.2.0",
 		"svgo": "^3.0.2",
-		"terser": "^5.21.0",
-		"tokenizr": "^1.5.3"
+		"terser": "^5.21.0"
 	}
 }
