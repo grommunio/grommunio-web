@@ -470,7 +470,7 @@ class Settings {
 				if (preg_match('/^data:image\/(?<extension>(?:png|gif|jpg|jpeg));base64,(?<image>.+)$/', $thumbnail_photo, $matchings)) {
 					$imageData = base64_decode($matchings['image']);
 					$extension = $matchings['extension'];
-					$tmp_file = "/tmp/thumbnail-" . time() . "." . $extension;
+					$tmp_file = tempnam(sys_get_temp_dir(), "thumbnail_");
 					if (file_put_contents($tmp_file, $imageData)) {
 						if (strcasecmp($extension, "gif") == 0) {
 							$im = imagecreatefromgif($tmp_file);
