@@ -184,7 +184,7 @@ class Language {
 	}
 
 	public function getTranslations() {
-		$memid = @shm_attach(0x950412DE, 16 * 1024 * 1024, 0666);
+		$memid = @shm_attach(0x950412DE, 16 * 1024 * 1024, 0644);
 		if (@shm_has_var($memid, 0)) {
 			$cache_table = @shm_get_var($memid, 0);
 			$selected_lang = $this->getSelected();
