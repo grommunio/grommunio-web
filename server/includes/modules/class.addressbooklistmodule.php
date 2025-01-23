@@ -248,12 +248,10 @@ class AddressbookListModule extends ListModule {
 
 							// no break
 							case DT_PRIVATE_DISTLIST:
-								$item['email_address'] = $user_data[$this->properties['account']];
+								$item['email_address'] = $user_data[$this->properties['email_address']] ?? $user_data[$this->properties['account']];
 								// FIXME: shouldn't be needed, but atm this gives us an undefined offset error which makes the unittests fail.
-								if ($item['email_address'] !== 'Everyone') {
-									if (isset($user_data[$this->properties['smtp_address']])) {
-										$item['smtp_address'] = $user_data[$this->properties['smtp_address']];
-									}
+								if ($item['email_address'] !== 'Everyone' && isset($user_data[$this->properties['smtp_address']])) {
+									$item['smtp_address'] = $user_data[$this->properties['smtp_address']];
 								}
 								$item['address_type'] = 'EX';
 								break;

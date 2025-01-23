@@ -53,7 +53,7 @@ class AddressbookItemModule extends ItemModule {
 						$contactItem = $GLOBALS['operations']->openMessage($GLOBALS['mapisession']->getDefaultMessageStore(), $entryid);
 					}
 					catch (MAPIException $me) {
-						if (isset($action['store_entryid'])) {
+						if (!empty($action['store_entryid'])) {
 							$e->setHandled();
 							$me->setHandled();
 							$userStore = $GLOBALS['mapisession']->openMessageStore(hex2bin($action['store_entryid']));
