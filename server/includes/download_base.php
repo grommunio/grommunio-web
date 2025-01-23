@@ -80,9 +80,6 @@ abstract class DownloadBase {
 			if (isset($data['entryid'])) {
 				$this->entryId = sanitizeValue($data['entryid'], '', ID_REGEX);
 				$this->message = mapi_msgstore_openentry($this->store, hex2bin($this->entryId));
-
-				// Decode smime signed messages on this message
-				parse_smime($this->store, $this->message);
 			}
 		}
 	}
