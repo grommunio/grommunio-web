@@ -124,10 +124,10 @@ class PluginSmimeModule extends Module {
 				// TODO: create a more generic function which verifyies if the certificate is valid
 				// And remove possible duplication from plugin.smime.php->onUploadCertificate
 				if ($privateCerts[$i][PR_MESSAGE_DELIVERY_TIME] < time()) { // validTo
-					$message = _('Private certificate is not valid yet, unable to sign email');
+					$message = _('Private certificate has expired, unable to sign email');
 				}
 				elseif ($privateCerts[$i][PR_CLIENT_SUBMIT_TIME] >= time()) { // validFrom
-					$message = _('Private certificate has been expired, unable to sign email');
+					$message = _('Private certificate is not valid yet, unable to sign email');
 				}
 				elseif (strcasecmp($privateCerts[$i][PR_SUBJECT], $smtpAddress) !== 0) {
 					$message = _('Private certificate does not match email address');
