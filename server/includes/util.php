@@ -475,6 +475,15 @@ function sanitizePostValue($key, $default = '', $regex = false) {
 	return $default;
 }
 
+function parse_smime__join_xph(&$prop, $msg)
+{
+	$a = mapi_getprops($msg, [PR_TRANSPORT_MESSAGE_HEADERS]);
+	$a = $a === false ? "" : ($a[PR_TRANSPORT_MESSAGE_HEADERS] ?? "");
+	$prop[PR_TRANSPORT_MESSAGE_HEADERS] =
+		"# Outer headers:\n".($prop[PR_TRANSPORT_MESSAGE_HEADERS] ?? "").
+		"# Inner headers:\n".$a;
+}
+
 /**
  * Function will be used to decode smime messages and convert it to normal messages.
  *
@@ -484,7 +493,8 @@ function sanitizePostValue($key, $default = '', $regex = false) {
 function parse_smime($store, $message) {
 	$props = mapi_getprops($message, [PR_MESSAGE_CLASS, PR_MESSAGE_FLAGS,
 	PR_SENT_REPRESENTING_NAME, PR_SENT_REPRESENTING_ENTRYID, PR_SENT_REPRESENTING_SEARCH_KEY,
-	PR_SENT_REPRESENTING_EMAIL_ADDRESS, PR_SENT_REPRESENTING_SMTP_ADDRESS, PR_SENT_REPRESENTING_ADDRTYPE, PR_CLIENT_SUBMIT_TIME, ]);
+	PR_SENT_REPRESENTING_EMAIL_ADDRESS, PR_SENT_REPRESENTING_SMTP_ADDRESS,
+	PR_SENT_REPRESENTING_ADDRTYPE, PR_CLIENT_SUBMIT_TIME, PR_TRANSPORT_MESSAGE_HEADERS]);
 	$read = $props[PR_MESSAGE_FLAGS] & MSGFLAG_READ;
 
 	if (isset($props[PR_MESSAGE_CLASS]) && stripos($props[PR_MESSAGE_CLASS], 'IPM.Note.SMIME.MultipartSigned') !== false) {
@@ -520,7 +530,7 @@ function parse_smime($store, $message) {
 			$origRecipients = mapi_table_queryallrows($origRcptTable, $GLOBALS["properties"]->getRecipientProperties());
 
 			mapi_inetmapi_imtomapi($GLOBALS['mapisession']->getSession(), $store, $GLOBALS['mapisession']->getAddressbook(), $message, $data, ["parse_smime_signed" => 1]);
-
+			parse_smime__join_xph($props, $message);
 			$decapRcptTable = mapi_message_getrecipienttable($message);
 			$decapRecipients = mapi_table_queryallrows($decapRcptTable, $GLOBALS["properties"]->getRecipientProperties());
 			if (empty($decapRecipients) && !empty($origRecipients)) {
@@ -536,6 +546,7 @@ function parse_smime($store, $message) {
 				PR_SENT_REPRESENTING_SMTP_ADDRESS => $props[PR_SENT_REPRESENTING_SMTP_ADDRESS] ?? '',
 				PR_SENT_REPRESENTING_ADDRTYPE => $props[PR_SENT_REPRESENTING_ADDRTYPE] ?? 'SMTP',
 				PR_CLIENT_SUBMIT_TIME => $props[PR_CLIENT_SUBMIT_TIME] ?? time(),
+				PR_TRANSPORT_MESSAGE_HEADERS => ($props[PR_TRANSPORT_MESSAGE_HEADERS] ?? "").$inner_headers,
 			]);
 		}
 	}

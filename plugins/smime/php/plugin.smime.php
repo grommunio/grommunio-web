@@ -383,6 +383,15 @@ class Pluginsmime extends Plugin {
 		unlink($tmpUserCert);
 	}
 
+	function join_xph(&$prop, $msg)
+	{
+		$a = mapi_getprops($msg, [PR_TRANSPORT_MESSAGE_HEADERS]);
+		$a = $a === false ? "" : ($a[PR_TRANSPORT_MESSAGE_HEADERS] ?? "");
+		$prop[PR_TRANSPORT_MESSAGE_HEADERS] =
+			"# Outer headers:\n".($prop[PR_TRANSPORT_MESSAGE_HEADERS] ?? "").
+			"# Inner headers:\n".$a;
+	}
+
 	/**
 	 * Function which decrypts an encrypted message.
 	 * The key should be unlocked and stored in the EncryptionStore for a successful decrypt
@@ -440,8 +449,9 @@ class Pluginsmime extends Plugin {
 				unlink($olcert);
 			}
 
-			$copyProps = mapi_getprops($data['message'], [PR_MESSAGE_DELIVERY_TIME, PR_SENDER_ENTRYID, PR_SENT_REPRESENTING_ENTRYID]);
+			$copyProps = mapi_getprops($data['message'], [PR_MESSAGE_DELIVERY_TIME, PR_SENDER_ENTRYID, PR_SENT_REPRESENTING_ENTRYID, PR_TRANSPORT_MESSAGE_HEADERS]);
 			mapi_inetmapi_imtomapi($GLOBALS['mapisession']->getSession(), $data['store'], $GLOBALS['mapisession']->getAddressbook(), $data['message'], $content, ['parse_smime_signed' => true]);
+			$this->join_xph($copyProps, $data['message']);
 			// Manually set time back to the received time, since mapi_inetmapi_imtomapi overwrites this
 			mapi_setprops($data['message'], $copyProps);
 
@@ -474,7 +484,7 @@ class Pluginsmime extends Plugin {
 			unlink($tmpFile);
 			unlink($msg);
 			if ($ret === true && !empty($content)) {
-				$copyProps = mapi_getprops($data['message'], [PR_MESSAGE_DELIVERY_TIME, PR_SENDER_ENTRYID, PR_SENT_REPRESENTING_ENTRYID]);
+				$copyProps = mapi_getprops($data['message'], [PR_MESSAGE_DELIVERY_TIME, PR_SENDER_ENTRYID, PR_SENT_REPRESENTING_ENTRYID, PR_TRANSPORT_MESSAGE_HEADERS]);
 				mapi_inetmapi_imtomapi(
 					$GLOBALS['mapisession']->getSession(),
 					$data['store'],
@@ -483,6 +493,7 @@ class Pluginsmime extends Plugin {
 					$content,
 					['parse_smime_signed' => true]
 				);
+				$this->join_xph($copyProps, $data['message']);
 				// Manually set time back to the received time, since mapi_inetmapi_imtomapi overwrites this
 				mapi_setprops($data['message'], $copyProps);
 				$this->message['type'] = 'encryptsigned';
