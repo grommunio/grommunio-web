@@ -303,6 +303,7 @@ class Pluginsmime extends Plugin {
 				if (!empty($userCert)) { // Check MAPI UserStore
 					file_put_contents($tmpUserCert, $userCert);
 				}
+				$this->clear_openssl_error();
 				$signed_ok = openssl_pkcs7_verify($tmpfname, PKCS7_NOINTERN, $outcert, explode(';', PLUGIN_SMIME_CACERTS), $tmpUserCert);
 				$openssl_error_code = $this->extract_openssl_error();
 				$this->validateSignedMessage($signed_ok, $openssl_error_code);
@@ -335,6 +336,7 @@ class Pluginsmime extends Plugin {
 		}
 		else {
 			// Works. Just leave it.
+			$this->clear_openssl_error();
 			$signed_ok = openssl_pkcs7_verify($tmpfname, PKCS7_NOSIGS, $outcert, explode(';', PLUGIN_SMIME_CACERTS));
 			$openssl_error_code = $this->extract_openssl_error();
 			$this->validateSignedMessage($signed_ok, $openssl_error_code);
@@ -361,6 +363,7 @@ class Pluginsmime extends Plugin {
 		// Certificate is newer or not yet imported to the user store and not revoked
 		// If certificate is from the GAB, then don't import it.
 		if ($importMessageCert && !$fromGAB) {
+			$this->clear_openssl_error();
 			$signed_ok = openssl_pkcs7_verify($tmpfname, PKCS7_NOSIGS, $outcert, explode(';', PLUGIN_SMIME_CACERTS));
 			$openssl_error_code = $this->extract_openssl_error();
 			$this->validateSignedMessage($signed_ok, $openssl_error_code);
@@ -425,6 +428,7 @@ class Pluginsmime extends Plugin {
 			// If multiple private certs were decrypted with supplied password
 			if (!$certs['cert'] && count($certs) > 0) {
 				foreach ($certs as $cert) {
+					$this->clear_openssl_error();
 					$decryptStatus = openssl_pkcs7_decrypt($tmpFile, $tmpDecrypted, $cert['cert'], [$cert['pkey'], $pass]);
 					if ($decryptStatus !== false) {
 						break;
@@ -432,9 +436,11 @@ class Pluginsmime extends Plugin {
 				}
 			}
 			else {
+				$this->clear_openssl_error();
 				$decryptStatus = openssl_pkcs7_decrypt($tmpFile, $tmpDecrypted, $certs['cert'], [$certs['pkey'], $pass]);
 			}
 
+			$ossl_error = $this->extract_openssl_error();
 			$content = file_get_contents($tmpDecrypted);
 			// Handle OL empty body Outlook Signed & Encrypted mails.
 			// The S/MIME plugin has to extract the body from the signed message.
@@ -469,7 +475,7 @@ class Pluginsmime extends Plugin {
 				$this->message['info'] = SMIME_DECRYPT_SUCCESS;
 				$this->message['success'] = SMIME_STATUS_SUCCESS;
 			}
-			elseif ($this->extract_openssl_error() === OPENSSL_RECIPIENT_CERTIFICATE_MISMATCH) {
+			elseif ($ossl_error === OPENSSL_RECIPIENT_CERTIFICATE_MISMATCH) {
 				error_log("[smime] Error when decrypting email, openssl error: " . print_r($this->openssl_error, true));
 				Log::Write(LOGLEVEL_ERROR, sprintf("[smime] Error when decrypting email, openssl error: '%s'", $this->openssl_error));
 				$this->message['info'] = SMIME_DECRYPT_CERT_MISMATCH;
@@ -982,6 +988,12 @@ class Pluginsmime extends Plugin {
 		return !empty($rows);
 	}
 
+	public function clear_openssl_error()
+	{
+		while (@openssl_error_string() !== false)
+			/* nothing */;
+	}
+
 	/**
 	 * Helper functions which extracts the errors from openssl_error_string()
 	 * Example error from openssl_error_string(): error:21075075:PKCS7 routines:PKCS7_verify:certificate verify error
@@ -990,8 +1002,12 @@ class Pluginsmime extends Plugin {
 	 * @return string
 	 */
 	public function extract_openssl_error() {
-		// TODO: should catch more errors by using while($error = @openssl_error_string())
-		$this->openssl_error = @openssl_error_string();
+		$this->openssl_error = "";
+		while (($s = @openssl_error_string()) !== false)
+			if (strlen($this->openssl_error) == 0)
+				$this->openssl_error = $s;
+			else
+				$this->openssl_error .= "\n".$s;
 		$openssl_error_code = 0;
 		if ($this->openssl_error) {
 			$openssl_error_list = explode(":", $this->openssl_error);
