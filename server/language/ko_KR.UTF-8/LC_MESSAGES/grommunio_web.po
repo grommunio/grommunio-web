@@ -7429,7 +7429,7 @@ msgid "Some problem encountered when encoding/decoding JSON data: - %s"
 msgstr "JSON 데이터를 인코딩/디코딩할 때 발생하는 몇 가지 문제: - %s"
 
 msgid "Contact not found"
-msgstr "연락처를 찾을 수 없음"
+msgstr "연락처를 찾을 수 없어요"
 
 msgid ""
 "Contact information could not be displayed because the server had trouble "
