@@ -669,7 +669,7 @@ msgid "Mails"
 msgstr "E-mail poruke"
 
 msgid "Appointments"
-msgstr "Ugovoreni sastanci"
+msgstr "Termini"
 
 msgid "Contacts"
 msgstr "Kontakti"
@@ -973,22 +973,22 @@ msgid "List"
 msgstr "Popis"
 
 msgid "Appointment"
-msgstr "Sastanak"
+msgstr "Termin"
 
 msgid "Meeting request"
 msgstr "Zahtjev za sastanak"
 
 msgid "Print selected appointment"
-msgstr ""
+msgstr "Ispiši odabrani termin"
 
 msgid "No appointment selected"
-msgstr ""
+msgstr "Nijedan termin nije odabran"
 
 msgid "Print overview"
 msgstr ""
 
 msgid "Create Appointment"
-msgstr ""
+msgstr "Stvori termin"
 
 msgid "Calendar"
 msgstr "Kalendar"
@@ -1779,7 +1779,7 @@ msgid "meeting request"
 msgstr ""
 
 msgid "appointment"
-msgstr ""
+msgstr "termin"
 
 msgid "Paste this occurrence only"
 msgstr ""
@@ -7303,4 +7303,22 @@ msgstr ""
 
 #, php-format
 msgid "Some problem encountered when encoding/decoding JSON data: - %s"
+msgstr ""
+
+msgid "Contact not found"
+msgstr ""
+
+msgid ""
+"Contact information could not be displayed because the server had trouble "
+"retrieving the information."
+msgstr ""
+
+msgid "Please contact your system administrator if the problem persists."
+msgstr ""
+
+#, php-format
+msgid "JSON Error: - %s"
+msgstr ""
+
+msgid "Some problem encountered when encoding/decoding JSON data."
 msgstr ""
