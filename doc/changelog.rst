@@ -1,9 +1,34 @@
-grommunio-web 3.10 (unreleased)
+grommunio-web 3.10 (2025-01-28)
 ===============================
 
 Fixes:
 
-* Fix delegate permissions which have not been saved
+* Delegate permissions were not saved, which has been fixed.
+* The Business Card view of the Contacts tab used the wrong MAPI property and
+  did not show any cards when selecting a letter group from the right hand
+  pane, which has been fixed.
+* When looking at meeting requests in e.g. inbox, the "When" line was empty,
+  which has been fixed.
+* Retain recipients during S/MIME unwrapping
+* Removal of all categories from a message did nothing, which is fixed.
+
+Enhancements:
+
+* Use (and depend on) new Fulltext Search index structure (cf. grommunio-index)
+* Implement copy-to-delegate on message submission
+* Address book: allow sorting contacts by icon
+* Address book: offer selecting contacts from shared stores
+* TinyMCE edit widget updated to v7.6
+* The "Entry ID" field in "Message Options" has been replaced by the
+  more user-friendly Gromox object ID
+
+Behavioral changes:
+
+* The default search result cutoff is now 1000 elements.
+* In "Message Options", show both outer and inner headers for S/MIME messages.
+  (Messages need to be decrypted first to see the inner ones, obviously.)
+* Respect the USER_PRIVILEGE_WEB flag of the user account on login.
+
 
 grommunio-web 3.9 (2024-06-04)
 ==============================
