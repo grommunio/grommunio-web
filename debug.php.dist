@@ -60,12 +60,11 @@ function grommunio_error_handler($errno, $errstr, $errfile, $errline, $errorCont
 function dump($variable, $title="", $backtrace=false, $resource=false)
 {
 	$file = fopen(DEBUG_DUMP_FILE, "a+");
-	$date = strftime("%d-%b-%Y");
-	$time = strftime("%H:%M:%S");
+	$datetime = date("d-M-Y H:i:s");
 	if($resource) {
-		fwrite($file, ("[" . $date . " " . $time . "] " . $title. " - " . var_export(get_resource_type($variable), true) . "\r\n"));
+		fwrite($file, ("[" . $datetime . "] " . $title. " - " . var_export(get_resource_type($variable), true) . "\r\n"));
 	} else {
-		fwrite($file, ("[" . $date . " " . $time . "] " . $title. " - " . var_export($variable, true) . "\r\n"));
+		fwrite($file, ("[" . $datetime . "] " . $title. " - " . var_export($variable, true) . "\r\n"));
 	}
 
 	if ($backtrace) {
@@ -108,7 +107,7 @@ function dump_json($json, $prefix) {
 
 	if (DEBUG_JSONOUT && is_dir(DEBUG_JSONOUT_DIR)) {
 		if (!isset($debug_json_id) || empty($debug_json_id)) {
-			$debug_json_id = strftime("%Y%m%d%H%M%S").uniqid("_");
+			$debug_json_id = date("YmdHiS").uniqid("_");
 		}
 
 		$data = json_decode($json, true);
@@ -154,9 +153,8 @@ function dump_restriction($restriction) {
 	$variable = simplify_restriction($restriction);
 
 	$file = fopen(DEBUG_DUMP_FILE, "a+");
-	$date = strftime("%d-%b-%Y");
-	$time = strftime("%H:%M:%S");
-	fwrite($file, ("[" . $date . " " . $time . "] Restrictions - " . var_export($variable, true) . "\r\n"));
+	$datetime = date("d-M-Y H:i:s");
+	fwrite($file, ("[" . $datetime . "] Restrictions - " . var_export($variable, true) . "\r\n"));
 }
 
 /**
