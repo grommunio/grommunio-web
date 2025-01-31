@@ -565,7 +565,13 @@ class Operations {
 					// faulty link message.
 					if (isset($row[PR_WLINK_STORE_ENTRYID]) && empty($row[PR_WLINK_STORE_ENTRYID]) ||
 						!isset($row[PR_WLINK_STORE_ENTRYID])) {
-						array_push($faultyLinkMsg, $row[PR_ENTRYID]);
+						// Outlook apparently doesn't set PR_WLINK_STORE_ENTRYID
+						// for with free/busy permission only opened shared calenders,
+						// so do not remove them from the IPM_COMMON_VIEWS
+						if ((isset($row[PR_WLINK_SECTION]) && $row[PR_WLINK_SECTION] != wbsidCalendar) ||
+						    !isset($row[PR_WLINK_SECTION])) {
+							array_push($faultyLinkMsg, $row[PR_ENTRYID]);
+						}
 
 						continue;
 					}

@@ -1244,6 +1244,7 @@ class Properties {
 		$properties["favorites_folder_ordinal"] = PR_WLINK_ORDINAL;
 		$properties["favorites_store_entryid"] = PR_WLINK_STORE_ENTRYID;
 		$properties["favorites_link_type"] = PR_WLINK_TYPE;
+		$properties["favorites_link_section"] = PR_WLINK_SECTION;
 		unset($properties['subfolders']);
 
 		return $properties;
