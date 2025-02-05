@@ -97,6 +97,7 @@ class AdvancedSearchListModule extends ListModule {
 	 */
 	public function messageList($store, $entryid, $action, $actionType) {
 		$this->searchFolderList = false; // Set to indicate this is not the search result, but a normal folder content
+		$data = [];
 
 		if ($store && $entryid) {
 			// Restriction
@@ -105,16 +106,37 @@ class AdvancedSearchListModule extends ListModule {
 			// Sort
 			$this->parseSortOrder($action, null, true);
 
-			$limit = false;
-			if (isset($action['restriction']['limit'])) {
-				$limit = $action['restriction']['limit'];
-			}
+			$limit = $action['restriction']['limit'] ?? 1000;
 
 			$isSearchFolder = isset($action['search_folder_entryid']);
 			$entryid = $isSearchFolder ? hex2bin($action['search_folder_entryid']) : $entryid;
 
-			// Get the table and merge the arrays
-			$data = $GLOBALS["operations"]->getTable($store, $entryid, $this->properties, $this->sort, $this->start, $limit, $this->restriction);
+			if ($actionType == 'search' && isset($action['subfolders']) && $action['subfolders']) {
+				$data['item'] = [];
+				$folder = mapi_msgstore_openentry($store, $entryid);
+				$htable = mapi_folder_gethierarchytable($folder, CONVENIENT_DEPTH | MAPI_DEFERRED_ERRORS);
+				$rows = mapi_table_queryallrows($htable, [PR_ENTRYID, PR_DISPLAY_NAME]);
+				foreach ($rows as $row) {
+					$items = $GLOBALS["operations"]->getTable($store, $row[PR_ENTRYID], $this->properties, $this->sort, $this->start, $limit, $this->restriction);
+					$data['item'] = array_merge($data['item'], $items['item']);
+					if (count($data['item']) >= $limit) {
+						break;
+					}
+				}
+				$data['page'] = [];
+				$data['page']['start'] = 0;
+				$data['page']['rowcount'] = 0;
+				$data['page']['totalrowcount'] = count($data['item']);
+				$data['search_meta'] = [];
+				$data['search_meta']['searchfolder_entryid'] = null;
+				$data['search_meta']['search_store_entryid'] = $action['store_entryid'];
+				$data['search_meta']['searchstate'] = null;
+				$data['search_meta']['results'] = count($data['item']);
+			}
+			else {
+				// Get the table and merge the arrays
+				$data = $GLOBALS["operations"]->getTable($store, $entryid, $this->properties, $this->sort, $this->start, $limit, $this->restriction);
+			}
 
 			// If the request come from search folder then no need to send folder information
 			if (!$isSearchFolder) {
@@ -255,7 +277,7 @@ class AdvancedSearchListModule extends ListModule {
 			return parent::messageList($store, $entryid, $action, "list");
 		}
 		$store_props = mapi_getprops($store, [PR_MDB_PROVIDER, PR_DEFAULT_STORE, PR_IPM_SUBTREE_ENTRYID]);
-		if ($store_props[PR_MDB_PROVIDER] == ZARAFA_STORE_PUBLIC_GUID || $store_props[PR_MDB_PROVIDER] == ZARAFA_STORE_DELEGATE_GUID) {
+		if ($store_props[PR_MDB_PROVIDER] == ZARAFA_STORE_PUBLIC_GUID) {
 			// public store does not support search folders
 			return parent::messageList($store, $entryid, $action, "search");
 		}
@@ -290,6 +312,10 @@ class AdvancedSearchListModule extends ListModule {
 		// create or open search folder
 		$searchFolder = $this->createSearchFolder($store, $isSetSearchFolderEntryId);
 		if ($searchFolder === false) {
+			if ($store_props[PR_MDB_PROVIDER] == ZARAFA_STORE_DELEGATE_GUID) {
+				$this->messageList($store, $entryid, $action, "search");
+				return true;
+			}
 			// if error in creating search folder then send error to client
 			$errorInfo = [];
 
