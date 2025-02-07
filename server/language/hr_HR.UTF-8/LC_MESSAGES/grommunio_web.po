@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: grommunio Web Croatian (Croatia)\n"
 "Report-Msgid-Bugs-To: dev@grommunio.com\n"
 "POT-Creation-Date: 2025-01-14 12:12+0100\n"
-"PO-Revision-Date: 2025-02-07 17:30+0000\n"
+"PO-Revision-Date: 2025-02-07 17:45+0000\n"
 "Last-Translator: Milo Ivir <mail@milotype.de>\n"
 "Language-Team: Croatian <https://hosted.weblate.org/projects/grommunio/"
 "grommunio-web/hr/>\n"
@@ -1366,7 +1366,7 @@ msgid "Organiser"
 msgstr ""
 
 msgid "Meeting status"
-msgstr ""
+msgstr "Stanje sastanka"
 
 msgid "Required Attendees"
 msgstr ""
@@ -1496,22 +1496,22 @@ msgid "Sort by: Duration"
 msgstr "Razvrstaj po: Trajanje"
 
 msgid "Meeting Status"
-msgstr ""
+msgstr "Stanje sastanka"
 
 msgid "Sort by: Meeting Status"
-msgstr ""
+msgstr "Razvrstaj po: Stanje sastanka"
 
 msgid "Sort by: Show as"
 msgstr "Razvrstaj po: Prikaži kao"
 
 msgid "Sort by: Categories"
-msgstr ""
+msgstr "Razvrstaj po: Kategorije"
 
 msgid "Created On"
-msgstr ""
+msgstr "Datum stvaranja"
 
 msgid "Sort by: Created On"
-msgstr ""
+msgstr "Razvrstaj po: Datum stvaranja"
 
 msgid "Due By"
 msgstr ""
@@ -1520,22 +1520,22 @@ msgid "Sort by: Due By"
 msgstr ""
 
 msgid "Label"
-msgstr ""
+msgstr "Oznaka"
 
 msgid "Sort by: Label"
-msgstr ""
+msgstr "Razvrstaj po: Oznaka"
 
 msgid "Sort by: Organizer"
-msgstr ""
+msgstr "Razvrstaj po: Organizator"
 
 msgid "Sort by: Required Attendee"
-msgstr ""
+msgstr "Razvrstaj po: Potrebni sudionik"
 
 msgid "Sort by: Optional Attendee"
-msgstr ""
+msgstr "Razvrstaj po: Opcionalni sudionik"
 
 msgid "Sort by: Resources"
-msgstr ""
+msgstr "Razvrstaj po: Resursi"
 
 msgid "Recurring Start Date"
 msgstr ""
@@ -1556,10 +1556,10 @@ msgid "Sort by: Recurring Pattern"
 msgstr ""
 
 msgid "Sort by: Reminder"
-msgstr ""
+msgstr "Razvrstaj po: Podsjetnik"
 
 msgid "Sort by: Sensitivity"
-msgstr ""
+msgstr "Razvrstaj po: Povjerljivost"
 
 msgid "Loading appointments"
 msgstr ""
@@ -2390,7 +2390,7 @@ msgid "INSERT"
 msgstr ""
 
 msgid "Sort by: context.mail.griddefaultcolumn"
-msgstr ""
+msgstr "Razvrstaj po: context.mail.griddefaultcolumn"
 
 msgid "ZDeveloper"
 msgstr ""
@@ -2618,16 +2618,16 @@ msgstr[1] ""
 msgstr[2] ""
 
 msgid "Deleted On"
-msgstr ""
+msgstr "Datum brisanja"
 
 msgid "Sort by: Deleted On"
-msgstr ""
+msgstr "Razvrstaj po: Datum brisanja"
 
 msgid "Item Count"
 msgstr ""
 
 msgid "Sort by: Item Count"
-msgstr ""
+msgstr "Razvrstaj po: Broj stavki"
 
 msgid "Sort by: From"
 msgstr "Razvrstaj po: Šalje"
@@ -2636,13 +2636,13 @@ msgid "Received"
 msgstr ""
 
 msgid "Sort by: Received"
-msgstr ""
+msgstr "Razvrstaj po: Primljeno"
 
 msgid "Size"
 msgstr "Veličina"
 
 msgid "Sort by: Size"
-msgstr ""
+msgstr "Razvrstaj po: Veličina"
 
 msgid "Move the message to folder…"
 msgstr ""
@@ -3497,13 +3497,13 @@ msgid "Mobile:"
 msgstr ""
 
 msgid "Sort by: Full Name"
-msgstr ""
+msgstr "Razvrstaj po: Potpuno ime"
 
 msgid "Sort by: Email Address 2"
-msgstr ""
+msgstr "Razvrstaj po: E-mail adresa 2"
 
 msgid "Sort by: Email Address 3"
-msgstr ""
+msgstr "Razvrstaj po: E-mail adresa 3"
 
 msgid "Mobile Phone"
 msgstr ""
