@@ -3,9 +3,9 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Croatian (Croatia)\n"
-"Report-Msgid-Bugs-To: \n"
+"Report-Msgid-Bugs-To: dev@grommunio.com\n"
 "POT-Creation-Date: 2025-01-14 12:12+0100\n"
-"PO-Revision-Date: 2024-12-07 14:00+0000\n"
+"PO-Revision-Date: 2025-02-07 17:30+0000\n"
 "Last-Translator: Milo Ivir <mail@milotype.de>\n"
 "Language-Team: Croatian <https://hosted.weblate.org/projects/grommunio/"
 "grommunio-web/hr/>\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
-"X-Generator: Weblate 5.9-dev\n"
+"X-Generator: Weblate 5.10-dev\n"
 
 #. TRANSLATORS: This message is used as label for the column which indicates the week number of the month in date picker. and 'Wk' stands for week
 msgid "Wk"
@@ -329,7 +329,7 @@ msgid "This field should only contain letters and _"
 msgstr "Ovo polje treba sadržavati samo slova i _"
 
 msgid "This field should only contain letters, numbers and _"
-msgstr "Ovo polje treba sadržavati samo slova, brojeve i _"
+msgstr "Ovo polje treba sadržavati samo slova, brojke i _"
 
 msgid "Email Addresses"
 msgstr "E-mail adrese"
@@ -359,7 +359,7 @@ msgid "Members"
 msgstr "Članovi"
 
 msgid "Icon"
-msgstr ""
+msgstr "Ikona"
 
 msgid "Email Address"
 msgstr "E-mail adresa"
@@ -476,7 +476,7 @@ msgid "Select"
 msgstr "Odaberi"
 
 msgid "Show Details"
-msgstr "Pokaži detalje"
+msgstr "Prikaži detalje"
 
 msgid "Copy contact"
 msgstr "Kopiraj kontakt"
@@ -487,90 +487,92 @@ msgstr "Kopiraj kontakte"
 msgid ""
 "Showing only the first {0} names. Use search to find more specific results."
 msgstr ""
+"Prikazuju se samo prva {0} imena. Koristi pretragu za dobivanje konkretnijih "
+"rezultata."
 
 msgid "Use the search bar to get results"
-msgstr ""
+msgstr "Za dobivanje rezultata koristi traku za pretraživanje"
 
 msgid "There are no items to show in this list"
-msgstr ""
+msgstr "U ovom popisu nema stavki"
 
 msgid "Show Names from the"
-msgstr ""
+msgstr "Prikaži imena iz"
 
 msgid "Search…"
 msgstr "Traži…"
 
 msgid "Sort by: Icon"
-msgstr "Razvrstaj po: ikona"
+msgstr "Razvrstaj po: Ikona"
 
 msgid "Sort by: Name"
-msgstr "Razvrstaj po: ime"
+msgstr "Razvrstaj po: Ime"
 
 msgid "Sort by: Display Name"
-msgstr "Razvrstaj po: prikazno ime"
+msgstr "Razvrstaj po: Prikazno ime"
 
 msgid "File as"
-msgstr "Datoteka kao"
+msgstr "Spremi kao"
 
 msgid "Sort by: File As"
-msgstr "Razvrstaj po: datoteka kao"
+msgstr "Razvrstaj po: Spremi kao"
 
 msgid "First Name"
 msgstr "Ime"
 
 msgid "Sort by: First Name"
-msgstr "Razvrstaj po: ime"
+msgstr "Razvrstaj po: Ime"
 
 msgid "Last Name"
 msgstr "Prezime"
 
 msgid "Sort by: Last Name"
-msgstr "Razvrstaj po: prezime"
+msgstr "Razvrstaj po: Prezime"
 
 msgid "Sort by: Email Address"
-msgstr "Razvrstaj po: e-mail adresa"
+msgstr "Razvrstaj po: E-mail adresa"
 
 msgid "Job Title"
 msgstr "Pozicija"
 
 msgid "Sort by: Job Title"
-msgstr "Razvrstaj po: pozicija"
+msgstr "Razvrstaj po: Pozicija"
 
 msgid "Company Name"
 msgstr "Ime poduzeća"
 
 msgid "Sort by: Company Name"
-msgstr "Razvrstaj po: ime poduzeća"
+msgstr "Razvrstaj po: Ime poduzeća"
 
 msgid "Sort by: Department"
-msgstr "Razvrstaj po: odjel"
+msgstr "Razvrstaj po: Odjel"
 
 msgid "Office Phone"
 msgstr "Poslovni telefon"
 
 msgid "Sort by: Office Phone"
-msgstr "Razvrstaj po: telefonski broj ureda"
+msgstr "Razvrstaj po: Poslovni telefon"
 
 msgid "Sort by: Mobile"
-msgstr "Razvrstaj po: telefonski broj mobitela"
+msgstr "Razvrstaj po: Telefonski broj mobitela"
 
 msgid "Home Phone"
 msgstr "Privatni telefon"
 
 msgid "Sort by: Home Phone"
-msgstr "Razvrstaj po: privatni telefonski broj"
+msgstr "Razvrstaj po: Privatni telefon"
 
 msgid "Sort by: Pager"
-msgstr "Razvrstaj po: pager"
+msgstr "Razvrstaj po: Pager"
 
 msgid "Location"
 msgstr "Lokacija"
 
 msgid "Sort by: Location"
-msgstr "Razvrstaj po: lokacija"
+msgstr "Razvrstaj po: Lokacija"
 
 msgid "Sort by: Fax"
-msgstr "Razvrstaj po: faks"
+msgstr "Razvrstaj po: Faks"
 
 msgid "Print single item"
 msgstr "Ispiši element"
@@ -722,7 +724,7 @@ msgid "Delete search folder"
 msgstr "Izbriši mapu pretrage"
 
 msgid "Sort by: Date"
-msgstr "Razvrstaj po: datum"
+msgstr "Razvrstaj po: Datum"
 
 msgid "Loading Search results"
 msgstr "Učitavanje rezultata pretrage"
@@ -874,25 +876,25 @@ msgid "and "
 msgstr "i "
 
 msgid "Sort by: Attachment"
-msgstr "Razvrstaj po: privitak"
+msgstr "Razvrstaj po: Privitak"
 
 msgid "Sort by: Recurring"
-msgstr "Razvrstaj po: ponavljanje"
+msgstr "Razvrstaj po: Ponavljanje"
 
 msgid "Sort by: Subject"
-msgstr "Razvrstaj po: predmet"
+msgstr "Razvrstaj po: Predmet"
 
 msgid "Start Date"
 msgstr "Datum početka"
 
 msgid "Sort by: Start Date"
-msgstr "Razvrstaj po: datum početka"
+msgstr "Razvrstaj po: Datum početka"
 
 msgid "End Date"
 msgstr "Datum završetka"
 
 msgid "Sort by: End Date"
-msgstr "Razvrstaj po: datum završetka"
+msgstr "Razvrstaj po: Datum završetka"
 
 msgid "Organizer"
 msgstr "Organizator"
@@ -985,7 +987,7 @@ msgid "No appointment selected"
 msgstr "Nijedan termin nije odabran"
 
 msgid "Print overview"
-msgstr ""
+msgstr "Ispiši pregled"
 
 msgid "Create Appointment"
 msgstr "Stvori termin"
@@ -1000,15 +1002,17 @@ msgid ""
 "The selected calendar has \"read-only\" permissions. Instead you can create "
 "an item in your own calendar."
 msgstr ""
+"Odabrani kalendar ima dozvole „samo za čitanje”. Umjesto toga, stavku možeš "
+"stvoriti u vlastitom kalendaru."
 
 msgid "What would you like?"
-msgstr ""
+msgstr "Što želiš?"
 
 msgid "Own calendar"
-msgstr ""
+msgstr "Vlastiti kalendar"
 
 msgid "F Y"
-msgstr "F. Y."
+msgstr "F Y."
 
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "l"
@@ -1147,7 +1151,7 @@ msgid "Reminder"
 msgstr ""
 
 msgid "Show as"
-msgstr ""
+msgstr "Prikaži kao"
 
 msgid "Warning"
 msgstr ""
@@ -1239,7 +1243,7 @@ msgid "Current Meeting Time"
 msgstr ""
 
 msgid "Show only working hours"
-msgstr ""
+msgstr "Prikaži samo radne sate"
 
 msgid "Start time"
 msgstr ""
@@ -1413,7 +1417,7 @@ msgid "Working days"
 msgstr ""
 
 msgid "Show busy dates as bold in the date picker"
-msgstr ""
+msgstr "Prikaži zauzete datume podebljano u biraču datuma"
 
 msgid "Side-by-side mode"
 msgstr ""
@@ -1480,10 +1484,10 @@ msgid "This appointment has been moved or deleted, do you want to continue?"
 msgstr ""
 
 msgid "All Day"
-msgstr ""
+msgstr "Cijeli dan"
 
 msgid "Sort by: All Day"
-msgstr ""
+msgstr "Razvrstaj po: Cijeli dan"
 
 msgid "Recurring"
 msgstr ""
@@ -1498,7 +1502,7 @@ msgid "Sort by: Meeting Status"
 msgstr ""
 
 msgid "Sort by: Show as"
-msgstr ""
+msgstr "Razvrstaj po: Prikaži kao"
 
 msgid "Sort by: Categories"
 msgstr ""
@@ -1905,22 +1909,22 @@ msgid ""
 msgstr ""
 
 msgid "Cc"
-msgstr ""
+msgstr "Cc"
 
 msgid "Bcc"
-msgstr ""
+msgstr "Bcc"
 
 msgid "From"
-msgstr ""
+msgstr "Šalje"
 
 msgid "Insert item"
-msgstr ""
+msgstr "Umetni stavku"
 
 msgid "Insert as"
-msgstr ""
+msgstr "Umetni kao"
 
 msgid "Text only"
-msgstr ""
+msgstr "Samo tekst"
 
 msgid "Attachment"
 msgstr "Privitak"
@@ -2186,7 +2190,7 @@ msgid "Would you like to copy instead?"
 msgstr ""
 
 msgid "Do not show this message again."
-msgstr ""
+msgstr "Ovu poruku više nemoj prikazivati."
 
 msgid "ICS"
 msgstr ""
@@ -2261,10 +2265,10 @@ msgid "No Information"
 msgstr ""
 
 msgid "Show non-working hours"
-msgstr ""
+msgstr "Prikaži sate izvan radnog vremena"
 
 msgid "Hide non-working hours"
-msgstr ""
+msgstr "Sakrij sate izvan radnog vremena"
 
 msgid "No freebusy information available for this date"
 msgstr ""
@@ -2398,7 +2402,7 @@ msgid "Display name"
 msgstr ""
 
 msgid "Email address"
-msgstr ""
+msgstr "E-mail adresa"
 
 msgid "Expand distribution list"
 msgstr ""
@@ -2626,7 +2630,7 @@ msgid "Sort by: Item Count"
 msgstr ""
 
 msgid "Sort by: From"
-msgstr ""
+msgstr "Razvrstaj po: Šalje"
 
 msgid "Received"
 msgstr ""
@@ -2692,7 +2696,7 @@ msgid "is sent only to me"
 msgstr ""
 
 msgid "has my name in the Cc field"
-msgstr ""
+msgstr "sadrži moje ime u polju „Cc”"
 
 msgid "does not have my name in the To or Cc field"
 msgstr ""
@@ -2921,7 +2925,7 @@ msgid "From Addresses settings"
 msgstr ""
 
 msgid "Full name"
-msgstr "Ime i prezime"
+msgstr "Potpuno ime"
 
 msgid "Phone Numbers"
 msgstr ""
@@ -3149,11 +3153,11 @@ msgstr ""
 
 msgctxt "mail.previewpanel"
 msgid "Cc"
-msgstr ""
+msgstr "Cc"
 
 msgctxt "mail.previewpanel"
 msgid "Bcc"
-msgstr ""
+msgstr "Bcc"
 
 msgctxt "mail.previewpanel"
 msgid "Categories"
@@ -3178,25 +3182,25 @@ msgid "Pop-out"
 msgstr ""
 
 msgid "Mark as read"
-msgstr ""
+msgstr "Označi kao pročitano"
 
 msgid "Mark as unread"
-msgstr ""
+msgstr "Označi kao nepročitano"
 
 msgid "in"
-msgstr ""
+msgstr "u"
 
 msgid "Root"
 msgstr ""
 
 msgid "Datepicker"
-msgstr ""
+msgstr "Birač datuma"
 
 msgid "File As"
-msgstr ""
+msgstr "Spremi kao"
 
 msgid "Full Name"
-msgstr ""
+msgstr "Potpuno ime"
 
 msgid "Department Name"
 msgstr ""
@@ -3353,7 +3357,7 @@ msgid "Country/Region"
 msgstr ""
 
 msgid "Show this again when address is incomplete or unclear."
-msgstr ""
+msgstr "Prikaži ovo ponovo kada je adresa nepotpuna ili nejasna."
 
 msgid "Details"
 msgstr ""
@@ -3414,7 +3418,7 @@ msgid "Last"
 msgstr ""
 
 msgid "Show this again when name is incomplete or unclear."
-msgstr ""
+msgstr "Prikaži ovo ponovo kada je ime nepotpuno ili nejasno."
 
 msgid "Check phone number"
 msgstr ""
@@ -3478,7 +3482,7 @@ msgstr ""
 
 msgid ""
 "There are no items to show in this list. Update the filter for more results."
-msgstr ""
+msgstr "U ovom popisu nema stavki. Aktualiziraj filtar za više rezultata."
 
 msgid "[Group]"
 msgstr ""
@@ -4171,7 +4175,7 @@ msgid "Folder type"
 msgstr ""
 
 msgid "Show subfolders"
-msgstr ""
+msgstr "Prikaži podmape"
 
 msgid "Open shared folder/store"
 msgstr ""
@@ -4259,10 +4263,10 @@ msgid "Are you sure you want to empty {0}?"
 msgstr ""
 
 msgid "Show All"
-msgstr ""
+msgstr "Prikaži sve"
 
 msgid "Show all folders"
-msgstr ""
+msgstr "Prikaži sve mape"
 
 msgid ""
 "You have insufficient privileges to move this folder. Would you like to copy "
@@ -4270,10 +4274,10 @@ msgid ""
 msgstr ""
 
 msgid "CC"
-msgstr ""
+msgstr "CC"
 
 msgid "BCC"
-msgstr ""
+msgstr "BCC"
 
 msgid "Sort by: Importance"
 msgstr ""
@@ -4382,13 +4386,13 @@ msgid "Request read receipt from recipients"
 msgstr ""
 
 msgid "Show Bcc"
-msgstr ""
+msgstr "Prikaži Bcc"
 
 msgid "Show Bcc field"
-msgstr ""
+msgstr "Prikaži polje „Bcc”"
 
 msgid "Show From field"
-msgstr ""
+msgstr "Prikaži polje „Šalje”"
 
 msgid "Cannot save while attachment is being uploaded"
 msgstr ""
@@ -4859,16 +4863,16 @@ msgid "Give unread items a colored border"
 msgstr ""
 
 msgid "Show 'help' button in top-right corner"
-msgstr ""
+msgstr "Prikaži gumb „Pomoć” u gornjem desnom kutu"
 
 msgid "Show unread mail counter in application title"
-msgstr ""
+msgstr "Prikaži broj nepročitanih e-maila u naslovu aplikacije"
 
 msgid "Hide widget panel"
 msgstr ""
 
 msgid "Show search bar above folder list"
-msgstr ""
+msgstr "Prikaži traku za pretraživanje iznad popisa mapa"
 
 msgid "Auto"
 msgstr ""
@@ -5440,6 +5444,7 @@ msgstr ""
 
 msgid "More than 1 share link exists. Only showing the latest one"
 msgstr ""
+"Postoji više od jedne poveznice za dijeljenje. Prikazuje se samo najnovija"
 
 msgid "Loading details…"
 msgstr ""
@@ -5612,13 +5617,13 @@ msgid "Features"
 msgstr ""
 
 msgid "Shows all available features of the backend."
-msgstr ""
+msgstr "Prikazuje sve dostupne funkcije pozadinskog sustava."
 
 msgid "Show quota information"
-msgstr ""
+msgstr "Prikaži informacije o kvoti"
 
 msgid "Show version information"
-msgstr ""
+msgstr "Prikaži podatke verzije"
 
 msgid "Share files"
 msgstr ""
@@ -5838,7 +5843,7 @@ msgid "Sort by: Shared"
 msgstr ""
 
 msgid "There are no items to show in this view"
-msgstr ""
+msgstr "U ovom prikazu nema stavki"
 
 msgid "files selected"
 msgstr ""
