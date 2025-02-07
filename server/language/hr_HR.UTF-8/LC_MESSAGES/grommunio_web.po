@@ -5,9 +5,8 @@ msgstr ""
 "Project-Id-Version: grommunio Web Croatian (Croatia)\n"
 "Report-Msgid-Bugs-To: dev@grommunio.com\n"
 "POT-Creation-Date: 2025-01-14 12:12+0100\n"
-"PO-Revision-Date: 2025-02-07 17:45+0000\n"
-"Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-"
-"memory@weblate.org>\n"
+"PO-Revision-Date: 2025-02-07 18:08+0000\n"
+"Last-Translator: Milo Ivir <mail@milotype.de>\n"
 "Language-Team: Croatian <https://hosted.weblate.org/projects/grommunio/"
 "grommunio-web/hr/>\n"
 "Language: hr_HR\n"
@@ -3486,16 +3485,16 @@ msgid ""
 msgstr "U ovom popisu nema stavki. Aktualiziraj filtar za više rezultata."
 
 msgid "[Group]"
-msgstr ""
+msgstr "[Grupa]"
 
 msgid "Work:"
-msgstr ""
+msgstr "Posao:"
 
 msgid "Primary:"
-msgstr ""
+msgstr "Primarni:"
 
 msgid "Mobile:"
-msgstr ""
+msgstr "Mobitel:"
 
 msgid "Sort by: Full Name"
 msgstr "Razvrstaj po: Potpuno ime"
@@ -3507,88 +3506,88 @@ msgid "Sort by: Email Address 3"
 msgstr "Razvrstaj po: E-mail adresa 3"
 
 msgid "Mobile Phone"
-msgstr ""
+msgstr "Mobitel"
 
 msgid "Sort by: Mobile Phone"
-msgstr "Razvrstaj po: privatni telefonski broj"
+msgstr "Razvrstaj po: Mobitel"
 
 msgid "Sort by: Business Phone"
-msgstr ""
+msgstr "Razvrstaj po: Poslovni telefon"
 
 msgid "Sort by: Business Fax"
-msgstr ""
+msgstr "Razvrstaj po: Poslovni faks"
 
 msgid "Sort by: Department Name"
-msgstr ""
+msgstr "Razvrstaj po: Ime odjela"
 
 msgid "Office Location"
 msgstr ""
 
 msgid "Sort by: Office Location"
-msgstr ""
+msgstr "Razvrstaj po: Mjesto ureda"
 
 msgid "Sort by: Profession"
-msgstr ""
+msgstr "Razvrstaj po: Profesija"
 
 msgid "Manager Name"
 msgstr ""
 
 msgid "Sort by: Manager Name"
-msgstr ""
+msgstr "Razvrstaj po: Ime upravitelja"
 
 msgid "Sort by: Assistant's Name"
-msgstr ""
+msgstr "Razvrstaj po: Ime asistenta"
 
 msgid "Sort by: Nickname"
-msgstr ""
+msgstr "Razvrstaj po: Nadimak"
 
 msgid "Sort by: Spouse/Partner Name"
-msgstr ""
+msgstr "Razvrstaj po: Ime supružnika/partnera"
 
 msgid "Sort by: Birthday"
-msgstr ""
+msgstr "Razvrstaj po: Rođendan"
 
 msgid "Sort by: Anniversary"
-msgstr ""
+msgstr "Razvrstaj po: Godišnjica"
 
 msgid "Sort by: Business Address"
-msgstr ""
+msgstr "Razvrstaj po: Poslovna adresa"
 
 msgid "Sort by: Home Address"
-msgstr ""
+msgstr "Razvrstaj po: Privatna adresa"
 
 msgid "Sort by: Office Address"
-msgstr ""
+msgstr "Razvrstaj po: Adresa ureda"
 
 msgid "Mailing Address"
-msgstr ""
+msgstr "Poštanska adresa"
 
 msgid "Sort by: Mailing Address"
-msgstr ""
+msgstr "Razvrstaj po: Poštanska adresa"
 
 msgid "Sort by: IM Address"
-msgstr ""
+msgstr "Razvrstaj po: IM adresa"
 
 msgid "Sort by: Webpage"
-msgstr ""
+msgstr "Razvrstaj po: Web stranica"
 
 msgid "Assistant's Phone"
 msgstr ""
 
 msgid "Sort by: Assistant's Phone"
-msgstr ""
+msgstr "Razvrstaj po: Telefon asistenta"
 
 msgid "Business Phone 2"
 msgstr ""
 
 msgid "Sort by: Business Phone 2"
-msgstr ""
+msgstr "Razvrstaj po: Poslovni telefon 2"
 
 msgid "Sort by: Callback"
 msgstr ""
 
 msgid "Sort by: Car Phone"
-msgstr ""
+msgstr "Razvrstaj po: Telefon u autu"
 
 msgid "Company Phone"
 msgstr ""
@@ -3600,13 +3599,13 @@ msgid "Home Phone 2"
 msgstr ""
 
 msgid "Sort by: Home Phone 2"
-msgstr ""
+msgstr "Razvrstaj po: Privatni telefon 2"
 
 msgid "Sort by: Home Fax"
-msgstr ""
+msgstr "Razvrstaj po: Privatni faks"
 
 msgid "Sort by: ISDN"
-msgstr ""
+msgstr "Razvrstaj po: ISDN"
 
 msgid "Sort by: Other Phone"
 msgstr ""
