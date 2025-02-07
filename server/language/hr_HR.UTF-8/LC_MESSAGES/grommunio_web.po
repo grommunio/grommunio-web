@@ -5,9 +5,8 @@ msgstr ""
 "Project-Id-Version: grommunio Web Croatian (Croatia)\n"
 "Report-Msgid-Bugs-To: dev@grommunio.com\n"
 "POT-Creation-Date: 2025-01-14 12:12+0100\n"
-"PO-Revision-Date: 2025-02-07 19:08+0000\n"
-"Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-"
-"memory@weblate.org>\n"
+"PO-Revision-Date: 2025-02-07 22:06+0000\n"
+"Last-Translator: Milo Ivir <mail@milotype.de>\n"
 "Language-Team: Croatian <https://hosted.weblate.org/projects/grommunio/"
 "grommunio-web/hr/>\n"
 "Language: hr_HR\n"
@@ -213,7 +212,7 @@ msgstr "Ovaj datum je prije maksimalnog datuma"
 
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "d/m/Y"
-msgstr "d. m. Y."
+msgstr "d. m. Y."
 
 msgid "Disabled"
 msgstr "Deaktivirano"
@@ -1667,13 +1666,13 @@ msgid "Please select a calendar via widget settings"
 msgstr ""
 
 msgid "Number of days"
-msgstr ""
+msgstr "Broj dana"
 
 msgid "day(s)"
-msgstr ""
+msgstr "dan(a)"
 
 msgid "{0}"
-msgstr ""
+msgstr "{0}"
 
 msgid "Upcoming Appointments"
 msgstr ""
@@ -1688,24 +1687,24 @@ msgid "No appointments"
 msgstr ""
 
 msgid "Today {0} - {1}"
-msgstr ""
+msgstr "Danas {0} – {1}"
 
 msgid "Today (all day)"
-msgstr ""
+msgstr "Danas (cijeli dan)"
 
 #. TRANSLATORS: Display name of a folder: "FOLDERNAME - STORENAME".
 #. TRANSLATORS: Displayed on top of a tree with folders: "FOLDERNAME - USERNAME".
 msgid "{0} - {1}"
-msgstr ""
+msgstr "{0} – {1}"
 
 msgid "d/m/y {0}"
-msgstr ""
+msgstr "d.m.y. {0}"
 
 msgid "{0} - {1} (all day)"
-msgstr ""
+msgstr "{0} – {1} (cijeli dan)"
 
 msgid "d/m/y"
-msgstr ""
+msgstr "d. m. Y."
 
 msgid "Select one…"
 msgstr ""
@@ -1934,13 +1933,13 @@ msgid "Attach Item"
 msgstr ""
 
 msgid "No message selected"
-msgstr ""
+msgstr "Nijedna poruka nije odabrana"
 
 msgid "Import to"
-msgstr ""
+msgstr "Uvezi u"
 
 msgid "New folder"
-msgstr ""
+msgstr "Nova mapa"
 
 msgid "Download as ZIP"
 msgstr ""
@@ -2239,31 +2238,31 @@ msgid "Edit recipient"
 msgstr "Uredi primatelja"
 
 msgid "Copy email address"
-msgstr "E-mail adresa poduzeća"
+msgstr "Kopiraj e-mail adresu"
 
 msgid "Set as required"
-msgstr ""
+msgstr "Postavi kao obavezno"
 
 msgid "Set as optional"
-msgstr ""
+msgstr "Postavi kao opcionalno"
 
 msgid "Set as resource"
-msgstr ""
+msgstr "Postavi kao resurs"
 
 msgid "Select attendees"
-msgstr ""
+msgstr "Odaberi prisutnike"
 
 msgid "Suggested Times"
-msgstr ""
+msgstr "Predložena vremena"
 
 msgid "Busy"
-msgstr ""
+msgstr "Zauzet"
 
 msgid "Out of Office"
-msgstr ""
+msgstr "Odsutan"
 
 msgid "No Information"
-msgstr ""
+msgstr "Bez informacija"
 
 msgid "Show non-working hours"
 msgstr "Prikaži sate izvan radnog vremena"
@@ -2279,7 +2278,7 @@ msgstr ""
 
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "l jS F Y"
-msgstr ""
+msgstr "l j. F Y."
 
 msgid "Switch between different contexts e.g. inbox, calendar, etc."
 msgstr ""
@@ -2294,25 +2293,25 @@ msgid "New item"
 msgstr ""
 
 msgid "All views"
-msgstr ""
+msgstr "Svi prikazi"
 
 msgid "Close tab"
-msgstr ""
+msgstr "Zatvori karticu"
 
 msgid "Print item"
 msgstr ""
 
 msgid "Items"
-msgstr ""
+msgstr "Stavke"
 
 msgid "Save an item e.g. mail, contact, etc."
-msgstr ""
+msgstr "Spremi stavke, npr. e-mail adresu, kontakt itd."
 
 msgid "Send an item e.g. mail, meeting request, etc."
-msgstr ""
+msgstr "Pošalji stavke, npr. e-mail adresu, zahtjev za sastanak itd."
 
 msgid "Select all items"
-msgstr ""
+msgstr "Odaberi sve stavke"
 
 msgid "Extend the selection to the first item in the list"
 msgstr ""
@@ -2700,10 +2699,10 @@ msgid "has my name in the Cc field"
 msgstr "sadrži moje ime u polju „Cc”"
 
 msgid "does not have my name in the To or Cc field"
-msgstr ""
+msgstr "ne sadrži moje ime u polju „Prima” ili „Cc”"
 
 msgid "has my name in the To or Cc field"
-msgstr ""
+msgstr "sadrži moje ime u polju „Prima” ili „Cc”"
 
 msgid "has sensitivity…"
 msgstr ""
@@ -2721,7 +2720,7 @@ msgid "size is at most…"
 msgstr ""
 
 msgid "has my name in the To field"
-msgstr ""
+msgstr "sadrži moje ime u polju „Prima”"
 
 msgid "is received (all messages)"
 msgstr ""
@@ -2801,7 +2800,7 @@ msgid "Active"
 msgstr ""
 
 msgid "Out of office"
-msgstr ""
+msgstr "Odsutan"
 
 msgid "Rule"
 msgstr ""
@@ -4116,7 +4115,7 @@ msgid "Size (without subfolders)"
 msgstr ""
 
 msgid "Total size (including subfolders)"
-msgstr ""
+msgstr "Ukupna veličina (uključujući podmape)"
 
 msgid "Loading subfolder sizes"
 msgstr ""
@@ -4197,7 +4196,7 @@ msgid "Rename Folder"
 msgstr ""
 
 msgid "New Folder"
-msgstr ""
+msgstr "Nova mapa"
 
 msgid "Mark All Messages Read"
 msgstr ""
@@ -5095,7 +5094,7 @@ msgid "Multiple companies name must be separated by"
 msgstr ""
 
 msgid "Update List"
-msgstr ""
+msgstr "Aktualiziraj popis"
 
 msgid "Create Unassigned Copy"
 msgstr ""
@@ -5225,7 +5224,7 @@ msgid "Mark Incomplete"
 msgstr ""
 
 msgid "Remove from To-Do List"
-msgstr ""
+msgstr "Ukloni iz popisa zadataka"
 
 msgid "Changes to assigned task"
 msgstr ""
@@ -5245,7 +5244,7 @@ msgid "Sort by: Reminder Time"
 msgstr "Razvrstaj po: Vrijeme podsjetnika"
 
 msgid "Assigned To"
-msgstr ""
+msgstr "Dodijeljeno je"
 
 msgid "Sort by: Assignee"
 msgstr ""
@@ -5272,22 +5271,22 @@ msgid "Billing information"
 msgstr ""
 
 msgid "Update list"
-msgstr ""
+msgstr "Aktualiziraj popis"
 
 msgid "D d-m-Y"
-msgstr ""
+msgstr "D, d. m. Y."
 
 msgid "none"
 msgstr ""
 
 msgid "Quick Task"
-msgstr ""
+msgstr "Brzi zadatak"
 
 msgid "No tasks."
-msgstr ""
+msgstr "Nema zadataka."
 
 msgid "Tasks / To-Do"
-msgstr ""
+msgstr "Zadaci"
 
 msgid "Click the link to open the URL in a new window."
 msgstr ""
@@ -5654,7 +5653,7 @@ msgid "Used"
 msgstr ""
 
 msgid "Total"
-msgstr ""
+msgstr "Ukupno"
 
 msgid "Version Information"
 msgstr ""
@@ -5926,16 +5925,16 @@ msgid "Connected since"
 msgstr ""
 
 msgid "d F Y"
-msgstr ""
+msgstr "d. F Y."
 
 msgid "Last updated"
-msgstr ""
+msgstr "Zadnje aktualiziranje"
 
 msgid "d F Y, H:i"
-msgstr ""
+msgstr "d. F Y., H:i"
 
 msgid "Synchronize"
-msgstr ""
+msgstr "Sinkroniziraj"
 
 msgid "Manage Shared Folders"
 msgstr ""
@@ -5946,13 +5945,13 @@ msgid ""
 msgstr ""
 
 msgid "grommunio-sync"
-msgstr ""
+msgstr "grommunio-sync"
 
 msgid "Mobile device management"
-msgstr ""
+msgstr "Upravljanje mobilnim uređajima"
 
 msgid "Mobile Devices"
-msgstr ""
+msgstr "Mobilni uređaji"
 
 msgid ""
 "Unable to connect to the grommunio-sync server. Click {0} to enter your "
@@ -5960,7 +5959,7 @@ msgid ""
 msgstr ""
 
 msgid "Devices"
-msgstr ""
+msgstr "Uređaji"
 
 msgid "No devices connected to your account"
 msgstr ""
@@ -5972,34 +5971,34 @@ msgid "Last Update"
 msgstr ""
 
 msgid "Device ID"
-msgstr ""
+msgstr "ID uređaja"
 
 msgid "Device OS"
-msgstr ""
+msgstr "OS uređaja"
 
 msgid "Device Info"
-msgstr ""
+msgstr "Podaci uređaja"
 
 msgid "First Sync time"
 msgstr ""
 
 msgid "Wipe Device"
-msgstr ""
+msgstr "Izbriši uređaj"
 
 msgid "Full resync"
 msgstr ""
 
 msgid "Remove device"
-msgstr ""
+msgstr "Ukloni uređaj"
 
 msgid "Please enter your username and password"
-msgstr ""
+msgstr "Upiši korisničko ime i lozinku"
 
 msgid "Wipe only data related to this account"
-msgstr ""
+msgstr "Izbriši samo podatke u vezi s ovim računom"
 
 msgid "Wipe all data"
-msgstr ""
+msgstr "Izbriši sve podatke"
 
 msgid "Username"
 msgstr "Korisničko ime"
@@ -6015,13 +6014,13 @@ msgid ""
 msgstr ""
 
 msgid "Add meeting"
-msgstr ""
+msgstr "Dodaj sastanak"
 
 msgid "Room name:"
-msgstr ""
+msgstr "Ime prostorije:"
 
 msgid "Room URL:"
-msgstr ""
+msgstr "URL prostorije:"
 
 msgid "Shift-click for advanced settings"
 msgstr ""
@@ -6717,7 +6716,7 @@ msgid "An unexpected error has occurred"
 msgstr ""
 
 msgid "To-Do List"
-msgstr ""
+msgstr "Popis zadataka"
 
 #. TRANSLATORS: This indicates that the opened folder belongs to a particular user,
 #. * for example: 'Calendar of Holiday', in this case %1$s is 'Calendar' (the foldername)
