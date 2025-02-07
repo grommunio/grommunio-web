@@ -5,9 +5,8 @@ msgstr ""
 "Project-Id-Version: grommunio Web Croatian (Croatia)\n"
 "Report-Msgid-Bugs-To: dev@grommunio.com\n"
 "POT-Creation-Date: 2025-01-14 12:12+0100\n"
-"PO-Revision-Date: 2025-02-07 18:14+0000\n"
-"Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-"
-"memory@weblate.org>\n"
+"PO-Revision-Date: 2025-02-07 19:08+0000\n"
+"Last-Translator: Milo Ivir <mail@milotype.de>\n"
 "Language-Team: Croatian <https://hosted.weblate.org/projects/grommunio/"
 "grommunio-web/hr/>\n"
 "Language: hr_HR\n"
@@ -1029,7 +1028,7 @@ msgid "Subject or Sender"
 msgstr "Predmet ili pošiljatelj"
 
 msgid "To or cc"
-msgstr "Za ili cc"
+msgstr "Prima ili cc"
 
 msgid "Meeting"
 msgstr "Sastanak"
@@ -1220,7 +1219,7 @@ msgid "Mark this appointment as low priority"
 msgstr ""
 
 msgid "Categories"
-msgstr ""
+msgstr "Kategorije"
 
 msgid "Open the categories dialog"
 msgstr ""
@@ -1370,10 +1369,10 @@ msgid "Meeting status"
 msgstr "Stanje sastanka"
 
 msgid "Required Attendees"
-msgstr ""
+msgstr "Obavezni sudionici"
 
 msgid "Optional Attendees"
-msgstr ""
+msgstr "Opcionalni sudionici"
 
 msgid "Resources"
 msgstr ""
@@ -1563,21 +1562,21 @@ msgid "Sort by: Sensitivity"
 msgstr "Razvrstaj po: Povjerljivost"
 
 msgid "Loading appointments"
-msgstr ""
+msgstr "Učitavanje termina"
 
 msgid "Attendees"
-msgstr ""
+msgstr "Sudionici"
 
 msgid "Optional attendees"
-msgstr ""
+msgstr "Opcionalni sudionici"
 
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "jS F {0}"
-msgstr ""
+msgstr "j. F {0}"
 
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "jS F Y"
-msgstr ""
+msgstr "j. F Y."
 
 msgid ""
 "You have insufficient privileges to move and copy this item. Ask the folder "
@@ -2185,7 +2184,7 @@ msgid "You have insufficient privileges to move following items."
 msgstr ""
 
 msgid "Subject:"
-msgstr ""
+msgstr "Predmet:"
 
 msgid "Would you like to copy instead?"
 msgstr ""
@@ -2194,49 +2193,49 @@ msgid "Do not show this message again."
 msgstr "Ovu poruku više nemoj prikazivati."
 
 msgid "ICS"
-msgstr ""
+msgstr "ICS"
 
 msgid "Set custom flag"
 msgstr ""
 
 msgid "Start date"
-msgstr ""
+msgstr "Datum početka"
 
 msgid "End date"
-msgstr ""
+msgstr "Datum završetka"
 
 msgid "Tomorrow"
-msgstr ""
+msgstr "Sutra"
 
 msgid "This week"
-msgstr ""
+msgstr "Ovaj tjedan"
 
 msgid "Next week"
-msgstr ""
+msgstr "Sljedeći tjedan"
 
 msgid "Custom"
-msgstr "Prilagođena"
+msgstr "Prilagođeno"
 
 msgid "Set reminder"
-msgstr ""
+msgstr "Postavi podsjetnika"
 
 msgid "Complete"
-msgstr ""
+msgstr "Završeno"
 
 msgid "today"
-msgstr ""
+msgstr "danas"
 
 msgid "tomorrow"
-msgstr ""
+msgstr "sutra"
 
 msgid "this week"
-msgstr ""
+msgstr "ovaj tjedan"
 
 msgid "next week"
-msgstr ""
+msgstr "sljedeći tjedan"
 
 msgid "Edit recipient"
-msgstr ""
+msgstr "Uredi primatelja"
 
 msgid "Copy email address"
 msgstr ""
@@ -3150,7 +3149,7 @@ msgstr ""
 
 msgctxt "mail.previewpanel"
 msgid "To"
-msgstr ""
+msgstr "Prima"
 
 msgctxt "mail.previewpanel"
 msgid "Cc"
@@ -3162,7 +3161,7 @@ msgstr "Bcc"
 
 msgctxt "mail.previewpanel"
 msgid "Categories"
-msgstr ""
+msgstr "Kategorije"
 
 #. TRANSLATORS: This message is used as label for the field which to indicates to whom the given mail was sent
 msgctxt "mail.previewpanel"
@@ -3573,13 +3572,13 @@ msgid "Sort by: Webpage"
 msgstr "Razvrstaj po: Web stranica"
 
 msgid "Assistant's Phone"
-msgstr ""
+msgstr "Telefon asistenta"
 
 msgid "Sort by: Assistant's Phone"
 msgstr "Razvrstaj po: Telefon asistenta"
 
 msgid "Business Phone 2"
-msgstr ""
+msgstr "Poslovni telefon 2"
 
 msgid "Sort by: Business Phone 2"
 msgstr "Razvrstaj po: Poslovni telefon 2"
@@ -3591,13 +3590,13 @@ msgid "Sort by: Car Phone"
 msgstr "Razvrstaj po: Telefon u autu"
 
 msgid "Company Phone"
-msgstr ""
+msgstr "Centrala"
 
 msgid "Sort by: Company Main Phone"
-msgstr ""
+msgstr "Razvrstaj po: Centrala"
 
 msgid "Home Phone 2"
-msgstr ""
+msgstr "Privatni telefon 2"
 
 msgid "Sort by: Home Phone 2"
 msgstr "Razvrstaj po: Privatni telefon 2"
@@ -3621,7 +3620,7 @@ msgid "Sort by: TTY/TDD Phone"
 msgstr ""
 
 msgid "Sort by: Telex Phone"
-msgstr "Razvrstaj po: privatni telefonski broj"
+msgstr "Razvrstaj po: Telex telefon"
 
 msgid "Change Picture"
 msgstr ""
@@ -4128,16 +4127,16 @@ msgid "Subfolder"
 msgstr ""
 
 msgid "Sort by: Name of the subfolder"
-msgstr ""
+msgstr "Razvrstaj po: Ime pomape"
 
 msgid "Sort by: Size (without subfolders)"
-msgstr ""
+msgstr "Razvrstaj po: Veličina (bez podmapa)"
 
 msgid "Total size"
 msgstr ""
 
 msgid "Sort by: Total size (including subfolders)"
-msgstr ""
+msgstr "Razvrstaj po: Ukupna veličina (uključujući podmape)"
 
 msgid "Open Shared Folders"
 msgstr ""
@@ -4281,10 +4280,10 @@ msgid "BCC"
 msgstr "BCC"
 
 msgid "Sort by: Importance"
-msgstr ""
+msgstr "Razvrstaj po: Važnost"
 
 msgid "Sort by: To"
-msgstr ""
+msgstr "Razvrstaj po: Prima"
 
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "Sent"
@@ -4655,13 +4654,13 @@ msgid "max. "
 msgstr ""
 
 msgid "Sort by: Sent"
-msgstr ""
+msgstr "Razvrstaj po: Poslano"
 
 msgid "Modified"
 msgstr ""
 
 msgid "Sort by: Modified"
-msgstr ""
+msgstr "Razvrstaj po: Promijenjeno"
 
 msgid "Flag"
 msgstr ""
@@ -4757,10 +4756,10 @@ msgid "Created"
 msgstr "Stvoreno"
 
 msgid "Sort by: Created"
-msgstr ""
+msgstr "Razvrstaj po: Stvoreno"
 
 msgid "Sort by: Color"
-msgstr ""
+msgstr "Razvrstaj po: Boja"
 
 msgid "Loading Notes"
 msgstr "Učitavanje bilježaka"
@@ -5028,13 +5027,13 @@ msgid "Do you want to delete the item(s)?"
 msgstr ""
 
 msgid "Sort by: Priority"
-msgstr ""
+msgstr "Razvrstaj po: Prioritet"
 
 msgid "Status"
 msgstr ""
 
 msgid "Sort by: Status"
-msgstr ""
+msgstr "Razvrstaj po: Stanje"
 
 msgid "Due Date"
 msgstr ""
@@ -5043,10 +5042,10 @@ msgid "Sort by: Due Date"
 msgstr ""
 
 msgid "% Completed"
-msgstr ""
+msgstr "% završenih"
 
 msgid "Sort by: Percent Completed"
-msgstr ""
+msgstr "Razvrstaj po: Posto završenih"
 
 msgid "Task Status"
 msgstr ""
@@ -5236,13 +5235,13 @@ msgid ""
 msgstr ""
 
 msgid "Sort by: Complete"
-msgstr ""
+msgstr "Razvrstaj po: Završeno"
 
 msgid "Reminder Time"
 msgstr ""
 
 msgid "Sort by: Reminder Time"
-msgstr ""
+msgstr "Razvrstaj po: Vrijeme podsjetnika"
 
 msgid "Assigned To"
 msgstr ""
@@ -5251,10 +5250,10 @@ msgid "Sort by: Assignee"
 msgstr ""
 
 msgid "Sort by: Owner"
-msgstr ""
+msgstr "Razvrstaj po: Vlasnik"
 
 msgid "Sort by: Percentage Completed"
-msgstr ""
+msgstr "Razvrstaj po: Postotak završenih"
 
 msgid "Assigned task changes"
 msgstr ""
@@ -5463,7 +5462,7 @@ msgid "Share with"
 msgstr ""
 
 msgid "Sort by: Type"
-msgstr ""
+msgstr "Razvrstaj po: Vrsta"
 
 msgid "Loading users and groups"
 msgstr ""
@@ -5606,13 +5605,13 @@ msgid "ID"
 msgstr ""
 
 msgid "Sort by: ID"
-msgstr ""
+msgstr "Razvrstaj po: ID"
 
 msgid "Backend"
 msgstr ""
 
 msgid "Sort by: Backend"
-msgstr ""
+msgstr "Razvrstaj po: Pozadinski sustav"
 
 msgid "Features"
 msgstr ""
@@ -5663,7 +5662,7 @@ msgid "Filename"
 msgstr ""
 
 msgid "Sort by: Filename"
-msgstr ""
+msgstr "Razvrstaj po: Ime datoteke"
 
 msgid "Loading files"
 msgstr ""
@@ -5808,40 +5807,40 @@ msgid ""
 msgstr ""
 
 msgid "Filesize"
-msgstr ""
+msgstr "Veličina datoteke"
 
 msgid "Last modified"
-msgstr ""
+msgstr "Zadnja promjena"
 
 msgid "Is shared"
-msgstr ""
+msgstr "Dijeli se"
 
 msgid "File preview"
-msgstr ""
+msgstr "Pregled datoteke"
 
 msgid "Your browser does not support previewing of audio files!"
-msgstr ""
+msgstr "Tvoj preglednik ne podržava pregled audio datoteka!"
 
 msgid "Your browser does not support previewing of video files!"
-msgstr ""
+msgstr "Tvoj preglednik ne podržava pregled video datoteka!"
 
 msgid "d.m.Y G:i"
-msgstr ""
+msgstr "d.m.Y. G:i"
 
 msgid "Folder"
-msgstr ""
+msgstr "Mapa"
 
 msgid "File ({0})"
-msgstr ""
+msgstr "Datoteka ({0})"
 
 msgid "Sort by: Path"
-msgstr ""
+msgstr "Razvrstaj po: Putanja"
 
 msgid "Sort by: Last modified"
-msgstr ""
+msgstr "Razvrstaj po: Zadnja promjena"
 
 msgid "Sort by: Shared"
-msgstr ""
+msgstr "Razvrstaj po: Dijeljeno"
 
 msgid "There are no items to show in this view"
 msgstr "U ovom prikazu nema stavki"
@@ -5853,32 +5852,32 @@ msgid "Authentication required, when using grommunio-files for the first time"
 msgstr ""
 
 msgid "Intranet"
-msgstr ""
+msgstr "Intranet"
 
 msgid "Openstreetmap"
 msgstr ""
 
 #. TRANSLATORS: The map of earth
 msgid "Map"
-msgstr ""
+msgstr "Karta"
 
 msgid "Mobile Device Manager"
-msgstr ""
+msgstr "Upravljač mobilnim uređajima"
 
 msgid "Wiping device"
 msgstr ""
 
 msgid "Password incorrect"
-msgstr ""
+msgstr "Neispravna lozinka"
 
 msgid "Full resync in progress"
 msgstr ""
 
 msgid "Username or password incorrect"
-msgstr ""
+msgstr "Neispravno korisničko ime ili lozinka"
 
 msgid "Not Applicable"
-msgstr ""
+msgstr "Nije primjenjivo"
 
 msgid "Wipe Pending"
 msgstr ""
