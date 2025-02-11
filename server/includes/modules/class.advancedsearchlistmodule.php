@@ -111,11 +111,14 @@ class AdvancedSearchListModule extends ListModule {
 			$isSearchFolder = isset($action['search_folder_entryid']);
 			$entryid = $isSearchFolder ? hex2bin($action['search_folder_entryid']) : $entryid;
 
-			if ($actionType == 'search' && isset($action['subfolders']) && $action['subfolders']) {
+			if ($actionType == 'search') {
+				$rows = [[PR_ENTRYID => $entryid]];
+				if (isset($action['subfolders']) && $action['subfolders']) {
+					$folder = mapi_msgstore_openentry($store, $entryid);
+					$htable = mapi_folder_gethierarchytable($folder, CONVENIENT_DEPTH | MAPI_DEFERRED_ERRORS);
+					$rows = mapi_table_queryallrows($htable, [PR_ENTRYID]);
+				}
 				$data['item'] = [];
-				$folder = mapi_msgstore_openentry($store, $entryid);
-				$htable = mapi_folder_gethierarchytable($folder, CONVENIENT_DEPTH | MAPI_DEFERRED_ERRORS);
-				$rows = mapi_table_queryallrows($htable, [PR_ENTRYID, PR_DISPLAY_NAME]);
 				foreach ($rows as $row) {
 					$items = $GLOBALS["operations"]->getTable($store, $row[PR_ENTRYID], $this->properties, $this->sort, $this->start, $limit, $this->restriction);
 					$data['item'] = array_merge($data['item'], $items['item']);
@@ -132,6 +135,9 @@ class AdvancedSearchListModule extends ListModule {
 				$data['search_meta']['search_store_entryid'] = $action['store_entryid'];
 				$data['search_meta']['searchstate'] = null;
 				$data['search_meta']['results'] = count($data['item']);
+				$data['folder'] = [];
+				$data['folder']['content_count'] = count($data['item']);
+				$data['folder']['content_unread'] = 0;
 			}
 			else {
 				// Get the table and merge the arrays
@@ -139,7 +145,7 @@ class AdvancedSearchListModule extends ListModule {
 			}
 
 			// If the request come from search folder then no need to send folder information
-			if (!$isSearchFolder) {
+			if (!$isSearchFolder && !isset($data['folder'])) {
 				// Open the folder.
 				$folder = mapi_msgstore_openentry($store, $entryid);
 				$data["folder"] = [];
