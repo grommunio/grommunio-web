@@ -7,6 +7,11 @@
  */
 class AppointmentItemModule extends ItemModule {
 	/**
+	 * @var string client or server IANA timezone
+	 */
+	protected $tziana;
+
+	/**
 	 * @var bool|string client timezone definition
 	 */
 	protected $tzdef;
@@ -40,6 +45,7 @@ class AppointmentItemModule extends ItemModule {
 			PR_OWNER_APPT_ID,
 		];
 
+		$this->tziana = date_default_timezone_get();
 		$this->tzdef = false;
 		$this->tzdefObj = false;
 	}
@@ -73,6 +79,7 @@ class AppointmentItemModule extends ItemModule {
 			}
 
 			if (!empty($action["timezone_iana"])) {
+				$this->tziana = $action["timezone_iana"];
 				try {
 					$this->tzdef = mapi_ianatz_to_tzdef($action['timezone_iana']);
 				}

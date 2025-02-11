@@ -15,6 +15,11 @@ class AppointmentListModule extends ListModule {
 	private $enddate;
 
 	/**
+	 * @var string client or server IANA timezone
+	 */
+	protected $tziana;
+
+	/**
 	 * @var bool|string client timezone definition
 	 */
 	protected $tzdef;
@@ -42,6 +47,7 @@ class AppointmentListModule extends ListModule {
 
 		$this->startdate = false;
 		$this->enddate = false;
+		$this->tziana = date_default_timezone_get();
 		$this->tzdef = false;
 		$this->tzdefObj = false;
 	}
@@ -122,6 +128,7 @@ class AppointmentListModule extends ListModule {
 			}
 
 			if (!empty($action["timezone_iana"])) {
+				$this->tziana = $action["timezone_iana"];
 				try {
 					$this->tzdef = mapi_ianatz_to_tzdef($action['timezone_iana']);
 				}
