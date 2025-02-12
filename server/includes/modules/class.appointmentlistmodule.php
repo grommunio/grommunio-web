@@ -47,7 +47,7 @@ class AppointmentListModule extends ListModule {
 
 		$this->startdate = false;
 		$this->enddate = false;
-		$this->tziana = date_default_timezone_get();
+		$this->tziana = 'Etc/UTC';
 		$this->tzdef = false;
 		$this->tzdefObj = false;
 	}

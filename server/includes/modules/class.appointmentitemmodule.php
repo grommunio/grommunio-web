@@ -45,7 +45,7 @@ class AppointmentItemModule extends ItemModule {
 			PR_OWNER_APPT_ID,
 		];
 
-		$this->tziana = date_default_timezone_get();
+		$this->tziana = 'Etc/UTC';
 		$this->tzdef = false;
 		$this->tzdefObj = false;
 	}
