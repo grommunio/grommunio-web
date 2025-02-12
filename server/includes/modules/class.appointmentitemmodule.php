@@ -380,38 +380,45 @@ class AppointmentItemModule extends ItemModule {
 		// If the appointment doesn't have tzdefstart property, it was probably
 		// created on a mobile device (mobile devices do not send a timezone for
 		// all-day events).
-		$tzdefstart = isset($calendaritem['props']['tzdefstart']) ?
+		$isTzdefstartSet = isset($calendaritem['props']['tzdefstart']);
+		$tzdefstart = $isTzdefstartSet ?
 			hex2bin($calendaritem['props']['tzdefstart']) :
 			mapi_ianatz_to_tzdef("Etc/UTC");
 
 		// Compare the timezone definitions of the client and the appointment.
 		// Further processing is only required if they don't match.
-		if ($GLOBALS['entryid']->compareEntryIds($this->tzdef, $tzdefstart)) {
+		if ($isTzdefstartSet && $GLOBALS['entryid']->compareEntryIds($this->tzdef, $tzdefstart)) {
 			return;
 		}
 
-		if ($this->tzdefObj === false) {
-			$this->tzdefObj = $GLOBALS['entryid']->createTimezoneDefinitionObject($this->tzdef);
-		}
-		$this->tzEffRuleIdx = getEffectiveTzreg($this->tzdefObj['rules']);
-
-		$appTzDefStart = $GLOBALS['entryid']->createTimezoneDefinitionObject($tzdefstart);
-
-		// Find TZRULE_FLAG_EFFECTIVE_TZREG rule for the appointment's timezone
-		$appTzEffRuleIdx = getEffectiveTzreg($appTzDefStart['rules']);
-
-		if (is_null($this->tzEffRuleIdx) && !is_null($appTzEffRuleIdx)) {
-			return;
-		}
-		// first apply the bias of the appointment timezone and the bias of the browser
-		$localStart = $calendaritem['props']['startdate'] - $appTzDefStart['rules'][$appTzEffRuleIdx]['bias'] * 60 + $this->tzdefObj['rules'][$this->tzEffRuleIdx]['bias'] * 60;
-		if (isDst($appTzDefStart['rules'][$appTzEffRuleIdx], $calendaritem['props']['startdate'])) {
-			$localStart -= $appTzDefStart['rules'][$appTzEffRuleIdx]['dstbias'] * 60;
-		}
-		if (isDst($this->tzdefObj['rules'][$this->tzEffRuleIdx], $calendaritem['props']['startdate'])) {
-			$localStart += $this->tzdefObj['rules'][$this->tzEffRuleIdx]['dstbias'] * 60;
-		}
 		$duration = $calendaritem['props']['duedate'] - $calendaritem['props']['startdate'];
+		$localStart = $calendaritem['props']['startdate'];
+		if (!$isTzdefstartSet) {
+			$localStart = getLocalStart($calendaritem['props']['startdate'], $this->tziana);
+		}
+		else {
+			if ($this->tzdefObj === false) {
+				$this->tzdefObj = $GLOBALS['entryid']->createTimezoneDefinitionObject($this->tzdef);
+			}
+			$this->tzEffRuleIdx = getEffectiveTzreg($this->tzdefObj['rules']);
+			
+			$appTzDefStart = $GLOBALS['entryid']->createTimezoneDefinitionObject($tzdefstart);
+			
+			// Find TZRULE_FLAG_EFFECTIVE_TZREG rule for the appointment's timezone
+			$appTzEffRuleIdx = getEffectiveTzreg($appTzDefStart['rules']);
+			
+			if (is_null($this->tzEffRuleIdx) && !is_null($appTzEffRuleIdx)) {
+				return;
+			}
+			// first apply the bias of the appointment timezone and the bias of the browser
+			$localStart = $calendaritem['props']['startdate'] - $appTzDefStart['rules'][$appTzEffRuleIdx]['bias'] * 60 + $this->tzdefObj['rules'][$this->tzEffRuleIdx]['bias'] * 60;
+			if (isDst($appTzDefStart['rules'][$appTzEffRuleIdx], $calendaritem['props']['startdate'])) {
+				$localStart -= $appTzDefStart['rules'][$appTzEffRuleIdx]['dstbias'] * 60;
+			}
+			if (isDst($this->tzdefObj['rules'][$this->tzEffRuleIdx], $calendaritem['props']['startdate'])) {
+				$localStart += $this->tzdefObj['rules'][$this->tzEffRuleIdx]['dstbias'] * 60;
+			}
+		}
 		$calendaritem['props']['startdate'] = $calendaritem['props']['commonstart'] = $localStart;
 		$calendaritem['props']['duedate'] = $calendaritem['props']['commonend'] = $localStart + $duration;
 	}

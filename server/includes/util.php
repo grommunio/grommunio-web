@@ -1025,3 +1025,37 @@ function isDst($tzrules, $startdate) {
 		(($tzDstStart > $tzStdStart) && !($startdate > $tzStdStart && $startdate < $tzDstStart)) ||
 		(($tzDstStart < $tzStdStart) && ($startdate < $tzStdStart && $startdate > $tzDstStart));
 }
+
+/**
+ * Calculates the local startime for a timezone from a timestamp.
+ *
+ * @param int    $ts
+ * @param string $tz
+ *
+ * @return int
+ */
+function getLocalStart($ts, $tz) {
+	$calItemStart = new DateTime();
+	$calItemStart->setTimestamp($ts);
+	$clientDate = DateTime::createFromInterface($calItemStart);
+	$clientDate->setTimezone(new DateTimeZone($tz));
+	// It's only necessary to calculate new start and end times
+	// if the appointment does not start at midnight
+	if ((int) $clientDate->format("His") != 0) {
+		$clientMidnight = DateTimeImmutable::createFromFormat(
+			"Y-m-d H:i:s",
+			$clientDate->format("Y-m-d ") . "00:00:00",
+			$clientDate->getTimezone()
+		);
+		$interval = $clientDate->getTimestamp() - $clientMidnight->getTimestamp();
+		// The code here is based on assumption that if the interval
+		// is greater than 12 hours then the appointment takes place
+		// on the day before or after. This should be fine for all the
+		// timezones which do not exceed 12 hour difference to UTC.
+		$ts = $interval > 0 ?
+			$ts - ($interval < 43200 ? $interval : $interval - 86400) :
+			$ts + ($interval > -43200 ? $interval : $interval - 86400);
+	}
+
+	return $ts;
+}
