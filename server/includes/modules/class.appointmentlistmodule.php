@@ -547,7 +547,7 @@ class AppointmentListModule extends ListModule {
 	private function processAllDayItem($store, &$calendaritem, &$openedMessages) {
 		// If the appointment doesn't have tzdefstart property, it was probably
 		// created on a mobile device (mobile devices do not send a timezone for
-		// all-day events).
+		// all-day events) or was imported from a system which doesn't set it.
 		$isTzdefstartSet = isset($calendaritem['props']['tzdefstart']);
 		$tzdefstart = $isTzdefstartSet ?
 			hex2bin($calendaritem['props']['tzdefstart']) :
@@ -564,9 +564,35 @@ class AppointmentListModule extends ListModule {
 			$tzdefstart = streamProperty($openedMessages[$calendaritem['entryid']], $this->properties['tzdefstart']);
 		}
 
+		$duration = $calendaritem['props']['duedate'] - $calendaritem['props']['startdate'];
+		// Set the start and endtimes to the midnight of the client's timezone
+		// if that's not the case already.
+		if (!$isTzdefstartSet) {
+			$calItemStart = new DateTime();
+			$calItemStart->setTimestamp($calendaritem['props']['startdate']);
+			$clientDate = DateTime::createFromInterface($calItemStart);
+			$clientDate->setTimezone(new DateTimeZone($this->tziana));
+			// It's only necessary to calculate new start and end times
+			// if the appointment does not start at midnight
+			if ((int) $clientDate->format("His") != 0) {
+				$clientMidnight = DateTimeImmutable::createFromFormat(
+					"Y-m-d H:i:s", $clientDate->format("Y-m-d ") . "00:00:00",
+					$clientDate->getTimezone());
+				$interval = $clientDate->getTimestamp() - $clientMidnight->getTimestamp();
+				// The code here is based on assumption that if the interval
+				// is greater than 12 hours then the appointment takes place
+				// on the day before or after. This should be fine for all the
+				// timezones which do not exceed 12 hour difference to UTC.
+				$localStart = $interval > 0 ?
+					$calendaritem['props']['startdate'] - ($interval < 43200 ? $interval : $interval - 86400):
+					$calendaritem['props']['startdate'] + ($interval > -43200 ? $interval : $interval - 86400) ;
+				$calendaritem['props']['startdate'] = $calendaritem['props']['commonstart'] = $localStart;
+				$calendaritem['props']['duedate'] = $calendaritem['props']['commonend'] = $localStart + $duration;
+			}
+		}
 		// Compare the timezone definitions of the client and the appointment.
 		// Further processing is only required if they don't match.
-		if (!$GLOBALS['entryid']->compareEntryIds($this->tzdef, $tzdefstart)) {
+		elseif ($isTzdefstartSet && !$GLOBALS['entryid']->compareEntryIds($this->tzdef, $tzdefstart)) {
 			if ($this->tzdefObj === false) {
 				$this->tzdefObj = $GLOBALS['entryid']->createTimezoneDefinitionObject($this->tzdef);
 			}
@@ -585,7 +611,6 @@ class AppointmentListModule extends ListModule {
 				if (isDst($this->tzdefObj['rules'][$this->tzEffRuleIdx], $calendaritem['props']['startdate'])) {
 					$localStart += $this->tzdefObj['rules'][$this->tzEffRuleIdx]['dstbias'] * 60;
 				}
-				$duration = $calendaritem['props']['duedate'] - $calendaritem['props']['startdate'];
 				$calendaritem['props']['startdate'] = $calendaritem['props']['commonstart'] = $localStart;
 				$calendaritem['props']['duedate'] = $calendaritem['props']['commonend'] = $localStart + $duration;
 			}
