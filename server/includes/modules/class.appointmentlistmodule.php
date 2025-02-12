@@ -446,41 +446,12 @@ class AppointmentListModule extends ListModule {
 						}
 					}
 
-					$item = $this->processPrivateItem($item);
-
-					// only add it in response if its not removed by above function
-					if (!empty($item)) {
-						if (empty($item["props"]["commonstart"]) && isset($item["props"]["startdate"])) {
-							$item["props"]["commonstart"] = $item["props"]["startdate"];
-						}
-						if (empty($item["props"]["commonend"]) && isset($item["props"]["duedate"])) {
-							$item["props"]["commonend"] = $item["props"]["duedate"];
-						}
-						if (isset($item["props"]["alldayevent"]) && $item["props"]["alldayevent"]) {
-							$this->processAllDayItem($store, $item, $openedMessages);
-						}
-						array_push($items, $item);
-					}
+					$this->addItems($store, $item, $openedMessages, $start, $end, $items);
 				}
 			}
 			else {
 				$item = Conversion::mapMAPI2XML($this->properties, $calendaritem);
-
-				$item = $this->processPrivateItem($item);
-
-				// only add it in response if its not removed by above function
-				if (!empty($item)) {
-					if (empty($item["props"]["commonstart"]) && isset($item["props"]["startdate"])) {
-						$item["props"]["commonstart"] = $item["props"]["startdate"];
-					}
-					if (empty($item["props"]["commonend"]) && isset($item["props"]["duedate"])) {
-						$item["props"]["commonend"] = $item["props"]["duedate"];
-					}
-					if (isset($item["props"]["alldayevent"]) && $item["props"]["alldayevent"]) {
-						$this->processAllDayItem($store, $item, $openedMessages);
-					}
-					array_push($items, $item);
-				}
+				$this->addItems($store, $item, $openedMessages, $start, $end, $items);
 			}
 		}
 
@@ -614,6 +585,34 @@ class AppointmentListModule extends ListModule {
 				$calendaritem['props']['startdate'] = $calendaritem['props']['commonstart'] = $localStart;
 				$calendaritem['props']['duedate'] = $calendaritem['props']['commonend'] = $localStart + $duration;
 			}
+		}
+	}
+
+	/**
+	 * Adds items to return items list
+	 *
+	 * @param object $store
+	 * @param array  $calendaritem
+	 * @param array  $openedMessages
+	 * @param mixed  $start          startdate of the interval
+	 * @param mixed  $end            enddate of the interval
+	 * @param array  $items
+	 */
+	private function addItems($store, &$item, &$openedMessages, $start, $end, &$items) {
+		$item = $this->processPrivateItem($item);
+
+		// only add it in response if its not removed by above function
+		if (!empty($item)) {
+			if (empty($item["props"]["commonstart"]) && isset($item["props"]["startdate"])) {
+				$item["props"]["commonstart"] = $item["props"]["startdate"];
+			}
+			if (empty($item["props"]["commonend"]) && isset($item["props"]["duedate"])) {
+				$item["props"]["commonend"] = $item["props"]["duedate"];
+			}
+			if (isset($item["props"]["alldayevent"]) && $item["props"]["alldayevent"]) {
+				$this->processAllDayItem($store, $item, $openedMessages);
+			}
+			array_push($items, $item);
 		}
 	}
 
