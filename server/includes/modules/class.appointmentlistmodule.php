@@ -612,7 +612,12 @@ class AppointmentListModule extends ListModule {
 			if (isset($item["props"]["alldayevent"]) && $item["props"]["alldayevent"]) {
 				$this->processAllDayItem($store, $item, $openedMessages);
 			}
-			array_push($items, $item);
+			// After processing the all-day events, their start and due dates
+			// may have changed, so it's necessary to check again if they are
+			// still in the requested interval.
+			if ($start <= $item["props"]["startdate"] && $end >= $item['props']['duedate']) {
+				array_push($items, $item);
+			}
 		}
 	}
 
