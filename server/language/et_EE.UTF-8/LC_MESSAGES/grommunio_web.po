@@ -4,10 +4,10 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Estonian (Estonia)\n"
-"Report-Msgid-Bugs-To: \n"
+"Report-Msgid-Bugs-To: dev@grommunio.com\n"
 "POT-Creation-Date: 2025-01-14 12:12+0100\n"
-"PO-Revision-Date: 2024-10-03 22:25+0000\n"
-"Last-Translator: DeepL <noreply-mt-deepl@weblate.org>\n"
+"PO-Revision-Date: 2025-02-17 16:39+0000\n"
+"Last-Translator: Priit Jõerüüt <hwlate@joeruut.com>\n"
 "Language-Team: Estonian <https://hosted.weblate.org/projects/grommunio/"
 "grommunio-web/et/>\n"
 "Language: et_EE\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.8-dev\n"
+"X-Generator: Weblate 5.10.1-dev\n"
 
 #. TRANSLATORS: This message is used as label for the column which indicates the week number of the month in date picker. and 'Wk' stands for week
 msgid "Wk"
@@ -1204,13 +1204,13 @@ msgid "High priority"
 msgstr "Kõrge prioriteet"
 
 msgid "Mark this appointment as high priority"
-msgstr "Märkige see kohtumine kõrge prioriteediga"
+msgstr "Märgi see kohtumine kõrge prioriteediga"
 
 msgid "Low priority"
 msgstr "Madal prioriteet"
 
 msgid "Mark this appointment as low priority"
-msgstr "Märkige see kohtumine madala prioriteediga"
+msgstr "Märgi see kohtumine madala prioriteediga"
 
 msgid "Categories"
 msgstr "Kategooriad"
@@ -1222,7 +1222,7 @@ msgid "Private"
 msgstr "Isiklik"
 
 msgid "Mark this appointment as private"
-msgstr "Märgista see kohtumine eraviisiliseks"
+msgstr "Märgi see kohtumine eraviisiliseks"
 
 msgid "Proposed Date and Time"
 msgstr "Kavandatud kuupäev ja kellaaeg"
@@ -1895,7 +1895,7 @@ msgid "Decline and delete"
 msgstr "Keeldu ja kustuta"
 
 msgid "Mark complete and delete"
-msgstr "Märgi täielik ja kustuta"
+msgstr "Märgi tehtuks ja kustuta"
 
 msgid "Following recipients are already exists"
 msgstr "Järgmised abisaajad on juba olemas"
@@ -4468,7 +4468,7 @@ msgid "Mark this mail as high priority"
 msgstr "Märgi see kiri tähtsaks"
 
 msgid "Mark this mail as low priority"
-msgstr "Märgista see kiri väheoluliseks"
+msgstr "Märgi see kiri väheoluliseks"
 
 msgid "Set read receipt"
 msgstr "Määra lugemise kviitung"
@@ -4628,7 +4628,7 @@ msgstr "Küsige minult enne vastuse saatmist"
 #. TRANSLATORS: The {A} _must_ always be at the start of the translation
 #. The '{B}' represents the number of seconds which the user will type in.
 msgid "{A}Automatically mark mail as read after {B} second(s)"
-msgstr "{A}Automaatselt posti lugemiseks märkimine pärast {B} sekund(id)"
+msgstr "{A}Märgi e-kiri automaatselt loetuks pärast {B} sekundit"
 
 msgid "Off"
 msgstr "Väljaspool"
@@ -5251,7 +5251,7 @@ msgid "Add attachments to this task"
 msgstr "Lisage sellele ülesandele manuseid"
 
 msgid "Mark as Complete"
-msgstr "Märgi valmistehtuks"
+msgstr "Märgi lõpetatuks"
 
 msgid "Mark this task as complete"
 msgstr "Märgi see ülesanne lõpetatuks"
@@ -5266,7 +5266,7 @@ msgid "Cancel Assignment"
 msgstr "Tühista määramine"
 
 msgid "Mark this task as private"
-msgstr "Märgi see ülesanne privaatseks"
+msgstr "Märgi see ülesanne eraviisiliseks"
 
 msgid "New task"
 msgstr "Uus ülesanne"
@@ -7072,10 +7072,10 @@ msgid ""
 "enter the name as a required or optional attendee or talk to your "
 "administrator about giving you permission to schedule '%s'."
 msgstr ""
-"Sa märkisid ressursiks '%s'. Te ei saa planeerida koosolekut koos '%s', sest "
-"teil ei ole selle konto jaoks sobivaid õigusi. Sisestage nimi kas nõutava "
-"või vabatahtliku osalejana või rääkige oma administraatoriga, et saada teile "
-"luba \"%s\" ajakava koostamiseks."
+"Sina märkisid ressursiks „%s“. Sa ei saa planeerida koosolekut koos "
+"kasutajaga „%s“, sest sul ei ole selle konto jaoks sobivaid õigusi. Sisesta "
+"nimi kas nõutava või vabatahtliku osalejana või räägi oma peakasutajaga, et "
+"saada endale õigus „%s“ ajakava koostamiseks."
 
 #, php-format
 msgid ""
