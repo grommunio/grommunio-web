@@ -74,7 +74,14 @@ build: node_modules deploy
 
 test: jstest
 
-server: $(MOS) $(LANGTXTDEST) $(PHPFILES) $(DISTFILES) $(DESTDIR)/version $(SERVERROOTFILES)
+local-mos:
+	# Use this target to enable translations in case
+	# /usr/share/grommunio-web is pointing to a Git working copy
+	${MAKE} mos DESTDIR=.
+
+mos: ${MOS}
+
+server: mos $(LANGTXTDEST) $(PHPFILES) $(DISTFILES) $(DESTDIR)/version $(SERVERROOTFILES)
 
 client: $(CSSDEST) $(ICONSETSDEST) $(IMAGESDEST) html js
 	cp -r client/resources/fonts $(DESTDIR)/client/resources/
