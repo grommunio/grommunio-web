@@ -208,7 +208,6 @@ class Language {
 				@shm_detach($memid);
 				return ['grommunio_web' => []];
 			}
-			@shm_detach($memid);
 
 			return $translations;
 		}
