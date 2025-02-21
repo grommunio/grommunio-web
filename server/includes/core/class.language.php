@@ -202,12 +202,12 @@ class Language {
 				return ['grommunio_web' => []];
 			}
 			$translations = @shm_get_var($memid, $translation_id);
-			@shm_detach($memid);
 			if (empty($translations)) {
 				@shm_remove_var($memid, 0);
 				@shm_detach($memid);
 				return ['grommunio_web' => []];
 			}
+			@shm_detach($memid);
 
 			return $translations;
 		}
