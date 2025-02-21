@@ -185,7 +185,7 @@ class Language {
 
 	public function getTranslations() {
 		$memid = @shm_attach(0x950412DE, 16 * 1024 * 1024, 0644);
-		if (@shm_has_var($memid, 0)) {
+		if ($memid && @shm_has_var($memid, 0)) {
 			$cache_table = @shm_get_var($memid, 0);
 			$selected_lang = $this->getSelected();
 			if (empty($cache_table) || empty($cache_table[$selected_lang])) {
@@ -213,8 +213,8 @@ class Language {
 		}
 		$handle = opendir(LANGUAGE_DIR);
 		if ($handle == false) {
-			@shm_detach($memid);
-
+			if ($memid)
+				@shm_detach($memid);
 			return ['grommunio_web' => []];
 		}
 		$last_id = 1;
@@ -240,15 +240,18 @@ class Language {
 				}
 			}
 			$cache_table[$entry] = $last_id;
-			@shm_put_var($memid, $last_id, $translations);
+			if ($memid)
+				@shm_put_var($memid, $last_id, $translations);
 			if (strcmp($entry, $this->getSelected()) == 0) {
 				$ret_val = $translations;
 			}
 			++$last_id;
 		}
 		closedir($handle);
-		@shm_put_var($memid, 0, $cache_table);
-		@shm_detach($memid);
+		if ($memid) {
+			@shm_put_var($memid, 0, $cache_table);
+			@shm_detach($memid);
+		}
 		if (empty($ret_val)) {
 			return ['grommunio_web' => []];
 		}
