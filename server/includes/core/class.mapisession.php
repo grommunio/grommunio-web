@@ -496,16 +496,6 @@ class MAPISession {
 	}
 
 	/**
-	 * Get currently disabled features for the user.
-	 *
-	 * @return array an disabled features list
-	 */
-	public function getDisabledFeatures() {
-		$userProps = mapi_getprops($this->getUser(), [PR_EC_DISABLED_FEATURES]);
-		return isset($userProps[PR_EC_DISABLED_FEATURES]) ? $userProps[PR_EC_DISABLED_FEATURES] : [];
-	}
-
-	/**
 	 * Checks whether the user is enabled for grommunio-web.
 	 *
 	 * @return bool
@@ -519,7 +509,7 @@ class MAPISession {
 	 * @return bool true if webapp is disabled feature else return false
 	 */
 	public function isWebappDisableAsFeature() {
-		return !$this->isGwebEnabled() || array_search('webapp', $this->getDisabledFeatures()) !== false;
+		return !$this->isGwebEnabled();
 	}
 
 	/**
