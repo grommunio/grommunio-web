@@ -44,11 +44,6 @@ class MAPISession {
 	private $userstores;
 
 	/**
-	 * @var array Cache for userentryid -> archive properties
-	 */
-	private $archivePropsCache;
-
-	/**
 	 * @var int Makes sure retrieveUserData is called only once
 	 */
 	private $userDataRetrieved;
@@ -60,7 +55,6 @@ class MAPISession {
 		$this->session = false;
 		$this->ab = false;
 		$this->userstores = [];
-		$this->archivePropsCache = [];
 		$this->userDataRetrieved = false;
 	}
 
@@ -653,33 +647,18 @@ class MAPISession {
 	}
 
 	/**
-	 * Get single store and it's archive store as well if we are openig full store.
+	 * Get single store if we are opening full store.
 	 *
 	 * @param object $store        the store of the user
 	 * @param array  $storeOptions contains folder_type of which folder to open
 	 *                             It is mapped to username, If folder_type is 'all' (i.e. Open Entire Inbox)
-	 *                             then we will open full store and it's archived stores.
+	 *                             then we will open full store.
 	 * @param string $username     The username
 	 *
-	 * @return array storeArray The array of stores containing user's store and archived stores
+	 * @return array storeArray The array of stores containing user's store
 	 */
 	public function getSingleMessageStores($store, $storeOptions, $username) {
-		$storeArray = [$store];
-		$archivedStores = [];
-
-		// Get archived stores for user if there's any
-		if (!empty($username)) {
-			// Check whether we should open the whole store or just single folders
-			if (is_array($storeOptions) && isset($storeOptions[$username], $storeOptions[$username]['all'])) {
-				$archivedStores = $this->getArchivedStores($this->resolveStrictUserName($username));
-			}
-		}
-
-		foreach ($archivedStores as $archivedStore) {
-			$storeArray[] = $archivedStore;
-		}
-
-		return $storeArray;
+		return [$store];
 	}
 
 	/**
@@ -708,7 +687,6 @@ class MAPISession {
 	public function getAllMessageStores() {
 		$this->getDefaultMessageStore();
 		$this->getPublicMessageStore();
-		$this->getArchivedStores($this->getUserEntryID());
 		// The cache now contains all the stores in our profile. Next, add the stores
 		// for other users.
 		$this->getOtherUserStore();
@@ -761,69 +739,6 @@ class MAPISession {
 	}
 
 	/**
-	 * Searches for the PR_EC_ARCHIVE_SERVERS property of the user of the passed entryid in the
-	 * Addressbook. It will get all his archive store objects and add those to the $this->stores
-	 * list. It will return an array with the list of archive stores where the key is the
-	 * entryid of the store and the value the store resource.
-	 *
-	 * @param string $userEntryid Binary entryid of the user
-	 *
-	 * @return MAPIStore[] List of store resources with the key being the entryid of the store
-	 */
-	public function getArchivedStores($userEntryid) {
-		if (!isset($this->archivePropsCache[$userEntryid])) {
-			$this->archivePropsCache[$userEntryid] = $this->getArchiveProps($userEntryid);
-		}
-
-		$userData = $this->archivePropsCache[$userEntryid];
-
-		$archiveStores = [];
-		if (isset($userData[PR_EC_ARCHIVE_SERVERS]) && count($userData[PR_EC_ARCHIVE_SERVERS]) > 0) {
-			// Get the store of the user, need this for the call to mapi_msgstore_getarchiveentryid()
-			$userStoreEntryid = mapi_msgstore_createentryid($this->getDefaultMessageStore(), $userData[PR_ACCOUNT]);
-			$userStore = mapi_openmsgstore($GLOBALS['mapisession']->getSession(), $userStoreEntryid);
-
-			for ($i = 0; $i < count($userData[PR_EC_ARCHIVE_SERVERS]); ++$i) {
-				try {
-					// Check if the store exists. It can be that the store archiving has been enabled, but no
-					// archived store has been created an none can be found in the PR_EC_ARCHIVE_SERVERS property.
-					$archiveStoreEntryid = mapi_msgstore_getarchiveentryid($userStore, $userData[PR_ACCOUNT], $userData[PR_EC_ARCHIVE_SERVERS][$i]);
-					$archiveStores[$archiveStoreEntryid] = mapi_openmsgstore($GLOBALS['mapisession']->getSession(), $archiveStoreEntryid);
-					// Add the archive store to the list
-					$this->stores[$archiveStoreEntryid] = $archiveStores[$archiveStoreEntryid];
-				}
-				catch (MAPIException $e) {
-					$e->setHandled();
-					if ($e->getCode() == MAPI_E_UNKNOWN_ENTRYID) {
-						dump('Failed to load archive store as entryid is not valid' . $e->getDisplayMessage());
-					}
-					elseif ($e->getCode() == MAPI_E_NOT_FOUND) {
-						// The corresponding store couldn't be found, print an error to the log.
-						dump('Corresponding archive store couldn\'t be found' . $e->getDisplayMessage());
-					}
-					else {
-						dump('Failed to load archive store' . $e->getDisplayMessage());
-					}
-				}
-			}
-		}
-
-		return $archiveStores;
-	}
-
-	/**
-	 * @param string $userEntryid binary entryid of the user
-	 *
-	 * @return array address Archive Properties of the user
-	 */
-	private function getArchiveProps($userEntryid) {
-		$ab = $this->getAddressbook();
-		$abitem = mapi_ab_openentry($ab, $userEntryid);
-
-		return mapi_getprops($abitem, [PR_ACCOUNT, PR_EC_ARCHIVE_SERVERS]);
-	}
-
-	/**
 	 * Get all the available shared stores.
 	 *
 	 * The store is opened only once, subsequent calls will return the previous store object
@@ -846,11 +761,6 @@ class MAPISession {
 					if ($sharedStore === false && $sharedStore === ecLoginPerm &&
 						$sharedStore === MAPI_E_CALL_FAILED && $sharedStore === MAPI_E_NOT_FOUND) {
 						$storeOk = false;
-					}
-
-					// Check if an entire store will be loaded, if so load the archive store as well
-					if ($storeOk && isset($folder['all']) && $folder['all']['folder_type'] == 'all') {
-						$this->getArchivedStores($this->resolveStrictUserName($username));
 					}
 				}
 				catch (MAPIException $e) {
