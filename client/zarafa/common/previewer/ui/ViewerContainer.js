@@ -237,30 +237,28 @@ Zarafa.common.previewer.ui.ViewerContainer = Ext.extend(Zarafa.core.ui.ContentPa
 		var self = this;
 		var frameDom = this.dom.contentDocument;
 		var frameWindow = this.dom.contentWindow;
-		var pdfjsObj = frameWindow.PDFJS;
 
-		if (!Ext.isEmpty(pdfjsObj)) {
-			// Open all links inside pdf into new tab of browser.
-			pdfjsObj.externalLinkTarget = pdfjsObj.LinkTarget.BLANK;
-		}
+		frameDom.addEventListener('webviewerloaded', function () {
+			if (frameWindow.PDFViewerApplicationOptions) {
+				frameWindow.PDFViewerApplicationOptions.set('externalLinkTarget', 2);
+				frameWindow.PDFViewerApplicationOptions.set('disablePreferences', true);
+			}
+		});
 
 		frameDom.addEventListener('keydown', function(origEvent) {
-			// Pass the esc keydown event to the parent window, so
-			// it can close the preview window
+			// Pass the esc keydown event to the parent window
 			if ( origEvent.keyCode === 27 ) {
 				self.dom.dispatchEvent(new KeyboardEvent(origEvent.type, origEvent));
 			}
 		});
 
 		var download = frameDom.getElementById('download');
-		download = Ext.get(download);
-
-		// when user clicks on download button,the attachment document url will open on parent window and
-		// that's way it calls unload event of parent window and there for requester will be shown.
-		// So, we just need to skip the requester.
-		download.on('click', function () {
-			Zarafa.core.Util.skipRequester = true;
-		});
+		if (download) {
+			download = Ext.get(download);
+			download.on('click', function () {
+				Zarafa.core.Util.skipRequester = true;
+			});
+		}
 	},
 
 	/**
