@@ -108,7 +108,7 @@ Zarafa.common.ui.HtmlEditor = Ext.extend(Ext.ux.form.TinyMCETextArea, {
 				font_size_input_default_unit: "pt",
 				browser_spellcheck: true,
 				valid_elements: '*[*]',
-				extended_valid_elements: 'p[class|style],span[class|style],a[href|style],*[*]',
+				extended_valid_elements: 'img[src|data-mce-src|alt|width|height],p[class|style],span[class|style],a[href|style],*[*]',
 				valid_children: '+body[p],+p[span|a|b|strong|i|em|u|#text]',
 				paste_as_text: false,
 				width: "100%",
@@ -126,10 +126,12 @@ Zarafa.common.ui.HtmlEditor = Ext.extend(Ext.ux.form.TinyMCETextArea, {
 				},
 				content_style: "body{ " + "word-wrap: break-word; margin: 1rem !important;" + "}",
 				setup: function(editor) {
-					editor.on("init", function() {
-						this.processContentWithCSSTree(editor);
-					}.bind(this));
-				}.bind(this)
+					editor.on("PostProcess", function (e) {
+						if (e.get) {
+							e.content = inlineCSS(e.content);
+						}
+					});
+				}
 			}
 		});
 
