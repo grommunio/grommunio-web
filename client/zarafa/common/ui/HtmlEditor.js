@@ -30,45 +30,6 @@ Zarafa.common.ui.HtmlEditor = Ext.extend(Ext.ux.form.TinyMCETextArea, {
 	 */
 	defaultFontSize: undefined,
 
-	processContentWithCSSTree: function(editor)
-	{
-		if (editor.isPasteEvent) {
-			return;
-		}
-		var content = editor.getContent();
-
-		try {
-			// Assuming inlineCSS is globally available or defined earlier
-			const inlinedContent = inlineCSS(content);
-			editor.setContent(inlinedContent);
-		} catch (error) {
-			console.error("Error inlining CSS with CSSTree:", error);
-			// Fallback to original content if an error occurs
-			editor.setContent(content);
-		}
-	},
-
-	// Add a flag to track processing
-	isProcessingContent: false,
-
-	processContentWithCSSTree: function(editor)
-	{
-		// Exit if already processing
-		if (this.isProcessingContent) return;
-				this.isProcessingContent = true;
-				var content = editor.getContent();
-		try {
-			const inlinedContent = inlineCSS(content);
-			editor.setContent(inlinedContent);
-		} catch (error) {
-			console.error("Error inlining CSS with CSSTree:", error);
-			// Fallback to original content if an error occurs
-			editor.setContent(content);
-		} finally {
-			this.isProcessingContent = false;
-		}
-	},
-
 	/**
 	 * @constructor
 	 * @param config configuration object
