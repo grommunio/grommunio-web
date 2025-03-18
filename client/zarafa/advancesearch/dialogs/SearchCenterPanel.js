@@ -63,6 +63,8 @@ Zarafa.advancesearch.dialogs.SearchCenterPanel = Ext.extend(Ext.Panel, {
 					split: true,
 					width: 400,
 					height: 400,
+					minWidth: 400,
+					minHeight: 200,
 					searchContext: config.searchContext
 				}]
 			}]
