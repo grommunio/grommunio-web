@@ -23,7 +23,7 @@ Zarafa.advancesearch.dialogs.SearchToolbarPanel = Ext.extend(Ext.Panel, {
 
 		Ext.applyIf(config, {
 			xtype: 'zarafa.searchtoolbarpanel',
-			layout: 'hbox',
+			layout: 'auto',
 			ref: 'searchToolbar',
 			cls: 'k-search-toolbar-panel',
 			border: false,
@@ -33,7 +33,7 @@ Zarafa.advancesearch.dialogs.SearchToolbarPanel = Ext.extend(Ext.Panel, {
 			},{
 				ptype: 'zarafa.recordcomponentupdaterplugin'
 			}],
-			height: 40,
+			autoHeight: true,
 			items: [{
 				xtype: 'zarafa.contextmainpaneltoolbar',
 				style: 'border-style: none',

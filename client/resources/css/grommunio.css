@@ -4217,6 +4217,17 @@ div.zarafa-contact-cardview-selected {
     .zarafa-search-toolbox .x-fieldset .x-form-check-wrap {
       padding: 3px 0; }
 
+.k-search-toolbar-panel,
+.k-search-toolbar-panel > .x-panel-bwrap,
+.k-search-toolbar-panel > .x-panel-bwrap > .x-panel-body {
+  overflow: visible !important; }
+.k-search-toolbar-panel > .x-panel-bwrap > .x-panel-body {
+  display: flex; }
+.k-search-toolbar-panel .x-toolbar {
+  overflow: visible; }
+.k-search-toolbar-panel .k-search-token-input {
+  overflow: visible; }
+
 .zarafa-search-previewpanel-toolbar {
   margin-left: 5px; }
 
