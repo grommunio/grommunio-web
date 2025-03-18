@@ -130,6 +130,11 @@ Zarafa.common.ui.layout.SwitchBorderLayout.SwitchRegion = Ext.extend(Ext.layout.
 				// Take something off for the split element
 				size.height -= splitSize;
 			}
+
+			// Enforce minimum height of the panel
+			if (Ext.isNumber(panel.minHeight)) {
+				size.height = Math.max(size.height, panel.minHeight);
+			}
 		} else {
 			// Ensure enough room remains for the center panel.
 			var maxWidth = targetEl.getWidth() - (center.minWidth || center.width) - splitSize;
@@ -151,6 +156,11 @@ Zarafa.common.ui.layout.SwitchBorderLayout.SwitchRegion = Ext.extend(Ext.layout.
 
 				// Take something off for the split element
 				size.width -= splitSize;
+			}
+
+			// Enforce minimum width of the panel
+			if (Ext.isNumber(panel.minWidth)) {
+				size.width = Math.max(size.width, panel.minWidth);
 			}
 		}
 
