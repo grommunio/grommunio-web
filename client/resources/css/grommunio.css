@@ -4189,10 +4189,11 @@ div.zarafa-contact-cardview-selected {
 
 /* The toolbox */
 .zarafa-search-toolbox {
-  border-top: 1px solid #e6e6e6;
-  border-right: 1px solid #e6e6e6;
-  padding: 12px;
   background-color: #ffffff; }
+  .zarafa-search-toolbox > .x-plain-bwrap > .x-plain-body {
+    border-top: 1px solid #e6e6e6;
+    border-right: 1px solid #e6e6e6;
+    padding: 12px 4px 12px 12px; }
   .zarafa-search-toolbox .zarafa-search-toolbox-favoritesbutton-container {
     margin-top: 12px;
     padding-right: 0; }
