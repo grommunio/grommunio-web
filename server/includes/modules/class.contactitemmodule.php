@@ -29,8 +29,28 @@ class ContactItemModule extends ItemModule {
 	 */
 	public function open($store, $entryid, $action) {
 		$data = [];
+		$orEntryid = $entryid;
 
 		if ($entryid) {
+			// Check if OneOff entryid is a local contact
+			if ($GLOBALS['entryid']->hasAddressBookOneOff(bin2hex($entryid))) {
+				try {
+					$oneoff = mapi_parseoneoff($entryid);
+					$ab = $GLOBALS['mapisession']->getAddressbook();
+					$ab_dir = mapi_ab_openentry($ab);
+					$res = $this->searchContactsFolders($ab, $ab_dir, $oneoff['address']);
+					if (count($res) > 0) {
+						$entryid = $res[0][PR_ENTRYID];
+					}
+				}
+				catch (MAPIException $ex) {
+					error_log(sprintf(
+						"Unable to open contact because mapi_parseoneoff failed: %s - %s",
+						get_mapi_error_name($ex->getCode()),
+						$ex->getDisplayMessage()
+					));
+				}
+			}
 			/* Check if given entryid is shared folder distlist then
 			* get the store of distlist for fetching it's members.
 			*/
@@ -78,7 +98,7 @@ class ContactItemModule extends ItemModule {
 		}
 
 		// By openentry from address book, the entryid will differ, make it same as the origin
-		$data['item']['entryid'] = bin2hex($entryid);
+		$data['item']['entryid'] = bin2hex($orEntryid);
 
 		// Allowing to hook in just before the data sent away to be sent to the client
 		$GLOBALS['PluginManager']->triggerHook('server.module.contactitemmodule.open.after', [
@@ -577,5 +597,42 @@ class ContactItemModule extends ItemModule {
 		if ($result) {
 			$GLOBALS['bus']->notify(bin2hex($parentEntryId), TABLE_DELETE, $props);
 		}
+	}
+
+	/**
+	 * This function searches the private contact folders for users and returns an array with data.
+	 * Please note that the returning array must be UTF8.
+	 *
+	 * @param resource $ab        The addressbook
+	 * @param resource $ab_dir    The addressbook container
+	 * @param string   $searchstr The search query, case is ignored
+	 */
+	public function searchContactsFolders($ab, $ab_dir, $searchstr) {
+		$r = [];
+		$abhtable = mapi_folder_gethierarchytable($ab_dir, MAPI_DEFERRED_ERRORS | CONVENIENT_DEPTH);
+		$abcntfolders = mapi_table_queryallrows($abhtable, [PR_ENTRYID, PR_AB_PROVIDER_ID, PR_DISPLAY_NAME]);
+		$restriction = [
+			RES_CONTENT,
+			[
+				FUZZYLEVEL => FL_SUBSTRING | FL_IGNORECASE,
+				ULPROPTAG => PR_SMTP_ADDRESS,
+				VALUE => [PR_SMTP_ADDRESS => $searchstr],
+			],
+		];
+		// restriction on hierarchy table for PR_AB_PROVIDER_ID
+		// seems not to work, just loop through
+		foreach ($abcntfolders as $abcntfolder) {
+			if ($abcntfolder[PR_AB_PROVIDER_ID] == ZARAFA_CONTACTS_GUID) {
+				$abfldentry = mapi_ab_openentry($ab, $abcntfolder[PR_ENTRYID]);
+				$abfldcontents = mapi_folder_getcontentstable($abfldentry);
+				mapi_table_restrict($abfldcontents, $restriction);
+				$r = mapi_table_queryallrows($abfldcontents, [PR_ENTRYID]);
+				if (is_array($r) && !empty($r)) {
+					return $r;
+				}
+			}
+		}
+
+		return $r;
 	}
 }
