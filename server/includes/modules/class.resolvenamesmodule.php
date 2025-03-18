@@ -178,7 +178,7 @@ class ResolveNamesModule extends Module {
 						$item['smtp_address'] = isset($item['smtp_address']) ? $item['smtp_address'] : '';
 					}
 					else {
-						$item['address_type'] = 'EX';
+						$item['address_type'] = $user_data[PR_ADDRTYPE] ?? 'SMTP';
 						if (isset($user_data['address_type']) && $user_data['address_type'] === 'EX') {
 							$item['email_address'] = isset($user_data[PR_EMAIL_ADDRESS]) ? $user_data[PR_EMAIL_ADDRESS] : '';
 						}
