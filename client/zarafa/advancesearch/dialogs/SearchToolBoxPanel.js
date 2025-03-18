@@ -98,14 +98,16 @@ Zarafa.advancesearch.dialogs.SearchToolBoxPanel = Ext.extend(Ext.Panel, {
 		Ext.applyIf(config, {
 			xtype: 'zarafa.searchtoolboxpanel',
 			header: false,
-			width: 220,
+			width: 190,
+			minWidth: 190,
+			maxWidth: 190,
 			cls: 'zarafa-search-toolbox',
 			plugins: [{
 				ptype: 'zarafa.recordcomponentplugin'
 			},{
 				ptype: 'zarafa.recordcomponentupdaterplugin'
 			}],
-			collapsible: true,
+			collapsible: false,
 			layout: 'fit',
 			unstyled: true,
 			ref: 'searchToolBox',
@@ -589,7 +591,7 @@ Zarafa.advancesearch.dialogs.SearchToolBoxPanel = Ext.extend(Ext.Panel, {
 				value: dateRangeStore.data[0].value,
 				mode: 'local',
 				triggerAction: 'all',
-				anchor: '100%',
+				width: 150,
 				listeners: {
 					select: this.onSelectCombo,
 					beforerender: this.onBeforeRenderDateRangeCombo,

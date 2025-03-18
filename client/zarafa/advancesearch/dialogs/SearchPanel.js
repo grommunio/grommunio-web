@@ -39,7 +39,6 @@ Zarafa.advancesearch.dialogs.SearchPanel = Ext.extend(Ext.Panel, {
 				xtype: 'zarafa.searchtoolboxpanel',
 				searchContext: searchContext,
 				searchTabId: config.searchTabId,
-				collapsed: Ext.isDefined(config.searchFolder),
 				region:'west',
 				scope: this
 			},{
