@@ -74,11 +74,14 @@ Zarafa.mail.ui.MailPanel = Ext.extend(Zarafa.common.ui.ContextMainPanel, {
 			xtype: 'panel',
 			layout: 'zarafa.collapsible',
 			cls: 'zarafa-context-mainpanel',
-			minWidth: 200,
+			minWidth: 500,
 			minHeight: 200,
-			region: 'center',
+			region: 'west',
 			collapsible: false,
+			floatable: false,
 			split: true,
+			stateful: true,
+			stateId: 'mail-list-pane',
 			items: [{
 				xtype: 'zarafa.switchviewcontentcontainer',
 				ref: '../viewPanel',
@@ -149,8 +152,10 @@ Zarafa.mail.ui.MailPanel = Ext.extend(Zarafa.common.ui.ContextMainPanel, {
 		return {
 			xtype: 'zarafa.mailpreviewpanel',
 			id: 'zarafa-main-content-mail-preview',
-			region: 'south',
+			region: 'center',
 			split: true,
+			stateful: true,
+			stateId: 'mail-preview-pane',
 			context: context
 		};
 	},

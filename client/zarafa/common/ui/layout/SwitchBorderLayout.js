@@ -78,6 +78,12 @@ Zarafa.common.ui.layout.SwitchBorderLayout = Ext.extend(Ext.layout.BorderLayout,
 					collapsed.push(c);
 				}
 				c.collapsed = false;
+				if (pos != 'center') {
+					c.stateful = true;
+					if (!c.stateId && c.id) {
+						c.stateId = c.id;
+					}
+				}
 				if(!c.rendered){
 					c.render(target, i);
 					c.getPositionEl().addClass('x-border-panel');
@@ -164,20 +170,10 @@ Zarafa.common.ui.layout.SwitchBorderLayout = Ext.extend(Ext.layout.BorderLayout,
 				horizontalRegion.setVisible(false);
 				verticalRegion.setVisible(false);
 
-				// Simplest way to hide the panel while maintaining
-				// its dimensions is to collapse the entire panel.
-				// Don't use animations as that will upset or size
-				// calculations later.
-				horizontalRegion.panel.collapse(false);
 				break;
 			case Zarafa.common.ui.layout.SwitchBorderLayout.Orientation.HORIZONTAL:
 			/* falls through */
 			default:
-				// In case our previous orientation was 'OFF'
-				// we must expand the panel (Again don't use animations
-				// to prevent problems with size calculations).
-				verticalRegion.panel.expand(false);
-
 				// The horizontal region is visible
 				horizontalRegion.setVisible(true);
 				verticalRegion.setVisible(false);
@@ -191,11 +187,6 @@ Zarafa.common.ui.layout.SwitchBorderLayout = Ext.extend(Ext.layout.BorderLayout,
 				}
 				break;
 			case Zarafa.common.ui.layout.SwitchBorderLayout.Orientation.VERTICAL:
-				// In case our previous orientation was 'OFF'
-				// we must expand the panel (Again don't use animations
-				// to prevent problems with size calculations).
-				horizontalRegion.panel.expand(false);
-
 				// The vertical region is visible
 				horizontalRegion.setVisible(false);
 				verticalRegion.setVisible(true);
