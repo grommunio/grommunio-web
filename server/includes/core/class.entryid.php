@@ -333,6 +333,19 @@ class EntryId {
 	}
 
 	/**
+	 * Checks if the GUID part of the entryid is of the OneOff.
+	 *
+	 * @param mixed $entryId Address Book entryid
+	 *
+	 * @return bool true if guid matches the OneOff else false
+	 */
+	public function hasAddressBookOneOff($entryId) {
+		$entryIdObj = $this->createABEntryIdObj($entryId);
+
+		return $entryIdObj['guid'] == self::MAPI_ONE_OFF_UID;
+	}
+
+	/**
 	 * Creates an object that has split up all the components of an message store entryid.
 	 *
 	 * @param mixed $entryId message store entryid
