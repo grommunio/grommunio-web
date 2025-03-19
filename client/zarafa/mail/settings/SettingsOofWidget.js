@@ -774,6 +774,11 @@ Zarafa.mail.settings.SettingsOofWidget = Ext.extend(Zarafa.settings.ui.SettingsW
 	onFieldChange: function(field, value)
 	{
 		this.record.set(field.name, value || field.emptyText);
+
+		// Ensure settings model is marked dirty when a field is changed
+		var model = this.settingsContext.getModel();
+		model.setDirty();
+
 	},
 
 	/**
@@ -870,9 +875,18 @@ Zarafa.mail.settings.SettingsOofWidget = Ext.extend(Zarafa.settings.ui.SettingsW
 	{
 		if (operation !== Ext.data.Record.COMMIT) {
 			var contextModel = this.settingsContext.getModel();
-			contextModel.setDirty();
+
+			if (!store.isLoaded || (store.isInitializing && !this.savingSettings)) {
+				return;
+			}
+
+			if (operation !== Ext.data.Record.COMMIT) {
+				var contextModel = this.settingsContext.getModel();
+				contextModel.setDirty();
+			}
 		}
 	},
+
 
 	/**
 	 * Function will be used to reload data in the {@link Zarafa.common.outofoffice.data.OofStore OofStore}.
@@ -890,8 +904,16 @@ Zarafa.mail.settings.SettingsOofWidget = Ext.extend(Zarafa.settings.ui.SettingsW
 	 */
 	onSaveSettings: function()
 	{
-		this.getOofStore().save();
+		var store = this.getOofStore();
+
+		// Ensure store is fully initialized before saving
+		if (store.isInitializing) {
+			store.isInitializing = false;
+		}
+
+		store.save();
 	}
+
 });
 
 Ext.reg('zarafa.settingsoofwidget', Zarafa.mail.settings.SettingsOofWidget);
