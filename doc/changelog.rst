@@ -1,3 +1,39 @@
+grommunio-web 3.11 (2025-03-19)
+===============================
+
+Fixes:
+
+* Fix contact details for OneOff recipients, traditionally objects from local
+  addressbook
+* Do not detect changes in Out Of Office settings pane where there are none
+* Do not remove inline embedded images with reply/forward actions
+* Fix multi day event view not visible in ranged views
+* Properly detect end-of-search in shared mailboxes
+
+Enhancements:
+
+* Do not collapse the mail list view to invisibility, instead now mail preview
+* Enhance detection of translation modifications to reload to cache (also in
+  non-packaged environments)
+* Correct all day event on wrong day for non-proper MAPI elements without TZ
+  (Kopano migrations)
+* Introduce new plugin for integration with Kendox InfoShare
+
+Behavorial changes:
+
+* Opening Links in PDF viewer now open new windows instead of replacing
+  current window
+* Remove any requests to non-existing archive stores, reducing login time
+* Shared store searches fallback to query search if store permissions are not
+  given
+
+Changes:
+
+* Update TinyMCE to 7.7.1
+* Update pdf.js to 5.0.375
+* Update dompurify to 3.2.4
+* Translation updates
+
 grommunio-web 3.10 (2025-01-28)
 ===============================
 
