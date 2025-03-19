@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<!DOCTYPE plugin SYSTEM "manifest.dtd">
+<plugin version="2">
+	<info>
+		<version>3.0</version>
+		<name>kendox</name>
+		<title>Kendox Infoshare plugin</title>
+		<author>grommunio GmbH</author>
+		<authorURL>http://www.grommunio.com</authorURL>
+		<description>Archiving emails to Kendox Infoshare system</description>
+	</info>
+	<config>
+		<configfile>config.php</configfile>
+	</config>
+	<components>
+		<component>
+			<files>
+				<server>
+					<serverfile type="module" module="kendoxmodule">php/class.kendox-module.php</serverfile>				
+					<serverfile>php/plugin.kendox.php</serverfile>
+				</server>
+				<client>
+					<clientfile load="debug">js/kendox-debug.js</clientfile>
+					<clientfile load="release">js/kendox.js</clientfile>
+					<clientfile load="source">js/about.js</clientfile>			
+					<clientfile load="source">js/kendox-plugin.js</clientfile>
+					<clientfile load="source">js/kendox-settings.js</clientfile>	
+					<clientfile load="source">js/kendox-upload-dialog.js</clientfile>
+				</client>
+				<resources>
+					<resourcefile load="debug">resources/kendox.css</resourcefile>
+					<resourcefile load="release">resources/kendox.css</resourcefile>
+					<resourcefile load="source">resources/kendox.css</resourcefile>
+				</resources>
+			</files>
+		</component>
+	</components>
+</plugin>

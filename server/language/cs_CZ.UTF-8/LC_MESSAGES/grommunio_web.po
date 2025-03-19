@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Czech\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-14 12:12+0100\n"
+"POT-Creation-Date: 2025-03-19 00:03+0100\n"
 "PO-Revision-Date: 2022-07-26 14:09+0200\n"
 "Last-Translator: import\n"
 "Language-Team: \n"
@@ -4951,9 +4951,6 @@ msgstr "Dotázat se před odesláním odpovědi"
 msgid "{A}Automatically mark mail as read after {B} second(s)"
 msgstr "{A}Zpráva označená automaticky jako přečtená za {B} sekund(y)"
 
-msgid "Off"
-msgstr "Vypnuto"
-
 msgid "Right"
 msgstr "Vpravo"
 
@@ -6522,6 +6519,98 @@ msgstr "Při prvním použití grommunio-files je vyžadováno ověření totož
 msgid "Intranet"
 msgstr "Intranet"
 
+msgid "Archive to InfoShare"
+msgstr ""
+
+msgid "Kendox InfoShare"
+msgstr ""
+
+msgid "Constraints for single attachment archiving"
+msgstr ""
+
+msgid "Max count attachments"
+msgstr ""
+
+msgid "Max size all selected attachments (MB)"
+msgstr ""
+
+msgid "Selection Kendox InfoShare environment"
+msgstr ""
+
+msgid "Production"
+msgstr ""
+
+msgid "Test"
+msgstr ""
+
+msgid "URLs for production environment"
+msgstr ""
+
+msgid "Kendox InfoShare API URL"
+msgstr ""
+
+msgid "Kendox InfoShare Web dialog URL"
+msgstr ""
+
+msgid "URLs for test environment"
+msgstr ""
+
+msgid "Mail/Document archive to Kendox InfoShare"
+msgstr ""
+
+msgid "Attachment information is requested"
+msgstr ""
+
+msgid "Please select the type of Archive (max"
+msgstr ""
+
+msgid "files, max"
+msgstr ""
+
+msgid "MB total size)"
+msgstr ""
+
+msgid "Everything - Store mail in original format"
+msgstr ""
+
+msgid "Separate - Store attachments separately"
+msgstr ""
+
+msgid "No attachments available in mail"
+msgstr ""
+
+msgid "Start archive"
+msgstr ""
+
+msgid "Reading attachment information failed"
+msgstr ""
+
+msgid "Files are sent to Kendox InfoShare"
+msgstr ""
+
+msgid "With the selection of separate attachments a maximum of"
+msgstr ""
+
+msgid "attachments can be selected. There have been"
+msgstr ""
+
+msgid "attachments selected"
+msgstr ""
+
+msgid ""
+"With the selection of separate attachments the total size of all attachments "
+"may not exceed"
+msgstr ""
+
+msgid "MB. There have been"
+msgstr ""
+
+msgid "MB selected."
+msgstr ""
+
+msgid "Sending of mail failed"
+msgstr ""
+
 #, fuzzy
 msgid "Openstreetmap"
 msgstr "Openstreetmap"
@@ -7511,6 +7600,9 @@ msgstr "Generování souboru Zip se nezdařilo. Informujte prosím správce."
 msgid "This file is no longer available. Please reload the folder."
 msgstr "Tento soubor již není k dispozici. Prosím, načtěte složku znovu."
 
+msgid "Kendox certificate is not available."
+msgstr ""
+
 #, fuzzy
 msgid "Mobile device management plugin"
 msgstr "Zásuvný modul pro správu mobilních zařízení"
@@ -7556,13 +7648,12 @@ msgstr "Heslo bylo úspěšně změněno."
 msgid "No certificate avaliable"
 msgstr "Není k dispozici žádný certifikát"
 
+msgid "Private certificate has expired, unable to sign email"
+msgstr ""
+
 #, fuzzy
 msgid "Private certificate is not valid yet, unable to sign email"
 msgstr "Soukromý certifikát ještě není platný, nelze podepsat e-mail"
-
-#, fuzzy
-msgid "Private certificate has been expired, unable to sign email"
-msgstr "Platnost soukromého certifikátu vypršela, nelze podepsat e-mail"
 
 #, fuzzy
 msgid "Private certificate does not match email address"

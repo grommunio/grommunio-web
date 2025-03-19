@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web French (France)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-14 12:12+0100\n"
+"POT-Creation-Date: 2025-03-19 00:03+0100\n"
 "PO-Revision-Date: 2022-12-11 16:35+0000\n"
 "Last-Translator: Orkan Eser <orkan.eser@grommunio.com>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/grommunio/"
@@ -4885,9 +4885,6 @@ msgstr "Me demander avant d'envoyer une réponse"
 msgid "{A}Automatically mark mail as read after {B} second(s)"
 msgstr "{A} Marquer automatiquement le courrier comme lu après {B} seconde (s)"
 
-msgid "Off"
-msgstr "Désactivé"
-
 msgid "Right"
 msgstr "Droit"
 
@@ -6413,6 +6410,98 @@ msgstr ""
 msgid "Intranet"
 msgstr "Intranet"
 
+msgid "Archive to InfoShare"
+msgstr ""
+
+msgid "Kendox InfoShare"
+msgstr ""
+
+msgid "Constraints for single attachment archiving"
+msgstr ""
+
+msgid "Max count attachments"
+msgstr ""
+
+msgid "Max size all selected attachments (MB)"
+msgstr ""
+
+msgid "Selection Kendox InfoShare environment"
+msgstr ""
+
+msgid "Production"
+msgstr ""
+
+msgid "Test"
+msgstr ""
+
+msgid "URLs for production environment"
+msgstr ""
+
+msgid "Kendox InfoShare API URL"
+msgstr ""
+
+msgid "Kendox InfoShare Web dialog URL"
+msgstr ""
+
+msgid "URLs for test environment"
+msgstr ""
+
+msgid "Mail/Document archive to Kendox InfoShare"
+msgstr ""
+
+msgid "Attachment information is requested"
+msgstr ""
+
+msgid "Please select the type of Archive (max"
+msgstr ""
+
+msgid "files, max"
+msgstr ""
+
+msgid "MB total size)"
+msgstr ""
+
+msgid "Everything - Store mail in original format"
+msgstr ""
+
+msgid "Separate - Store attachments separately"
+msgstr ""
+
+msgid "No attachments available in mail"
+msgstr ""
+
+msgid "Start archive"
+msgstr ""
+
+msgid "Reading attachment information failed"
+msgstr ""
+
+msgid "Files are sent to Kendox InfoShare"
+msgstr ""
+
+msgid "With the selection of separate attachments a maximum of"
+msgstr ""
+
+msgid "attachments can be selected. There have been"
+msgstr ""
+
+msgid "attachments selected"
+msgstr ""
+
+msgid ""
+"With the selection of separate attachments the total size of all attachments "
+"may not exceed"
+msgstr ""
+
+msgid "MB. There have been"
+msgstr ""
+
+msgid "MB selected."
+msgstr ""
+
+msgid "Sending of mail failed"
+msgstr ""
+
 #, fuzzy
 msgid "Openstreetmap"
 msgstr "Openstreetmap"
@@ -7366,6 +7455,9 @@ msgstr ""
 msgid "This file is no longer available. Please reload the folder."
 msgstr "Ce dossier n'est plus disponible. Veuillez recharger le dossier."
 
+msgid "Kendox certificate is not available."
+msgstr ""
+
 #, fuzzy
 msgid "Mobile device management plugin"
 msgstr "Plugin de gestion des dispositifs mobiles"
@@ -7413,11 +7505,11 @@ msgstr "Le mot de passe a été mis à jour avec succès."
 msgid "No certificate avaliable"
 msgstr "Pas de certificat disponible"
 
+msgid "Private certificate has expired, unable to sign email"
+msgstr ""
+
 msgid "Private certificate is not valid yet, unable to sign email"
 msgstr "Certificat privé pas encore valide, impossible de signer le courriel"
-
-msgid "Private certificate has been expired, unable to sign email"
-msgstr "Certificat privé expiré, impossible de signer le courriel"
 
 msgid "Private certificate does not match email address"
 msgstr "Le certificat privé ne correspond pas avec le courriel"

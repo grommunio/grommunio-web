@@ -1,0 +1,4 @@
+php_value max_execution_time 7200
+php_value memory_limit 2048M
+php_value upload_max_filesize 2048M
+php_value post_max_size 2048M

@@ -1,0 +1,18 @@
+{
+    "require": {
+        "guzzlehttp/psr7": "*",
+        "paragonie/constant_time_encoding": "*",
+        "paragonie/random_compat": "*",
+        "phpseclib/phpseclib": "*",
+        "pimple/pimple": "*",
+        "psr/container": "*",
+        "psr/http-factory": "*",
+        "psr/http-message": "*",
+        "ralouphie/getallheaders": "*",
+        "symfony/polyfill-iconv": "*",
+        "symfony/polyfill-mbstring": "*",
+        "zbateson/mail-mime-parser": "*",
+        "zbateson/mb-wrapper": "*",
+        "zbateson/stream-decorators": "*"
+    }
+}

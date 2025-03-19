@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Norwegian (Bokmål)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-14 12:12+0100\n"
+"POT-Creation-Date: 2025-03-19 00:03+0100\n"
 "PO-Revision-Date: 2023-09-06 16:56+0000\n"
 "Last-Translator: Jan Engelhardt <jengelh@inai.de>\n"
 "Language-Team: Norwegian Bokmål <https://hosted.weblate.org/projects/"
@@ -4642,9 +4642,6 @@ msgstr "Spør meg før svar sendes"
 msgid "{A}Automatically mark mail as read after {B} second(s)"
 msgstr "{A}Automatisk marker e-post som lest etter {B} sekund(er)"
 
-msgid "Off"
-msgstr "Av"
-
 msgid "Right"
 msgstr "Høyre"
 
@@ -5992,6 +5989,98 @@ msgstr "Autentisering kreves når grommunio-files brukes for første gang"
 msgid "Intranet"
 msgstr "Intranett"
 
+msgid "Archive to InfoShare"
+msgstr ""
+
+msgid "Kendox InfoShare"
+msgstr ""
+
+msgid "Constraints for single attachment archiving"
+msgstr ""
+
+msgid "Max count attachments"
+msgstr ""
+
+msgid "Max size all selected attachments (MB)"
+msgstr ""
+
+msgid "Selection Kendox InfoShare environment"
+msgstr ""
+
+msgid "Production"
+msgstr ""
+
+msgid "Test"
+msgstr ""
+
+msgid "URLs for production environment"
+msgstr ""
+
+msgid "Kendox InfoShare API URL"
+msgstr ""
+
+msgid "Kendox InfoShare Web dialog URL"
+msgstr ""
+
+msgid "URLs for test environment"
+msgstr ""
+
+msgid "Mail/Document archive to Kendox InfoShare"
+msgstr ""
+
+msgid "Attachment information is requested"
+msgstr ""
+
+msgid "Please select the type of Archive (max"
+msgstr ""
+
+msgid "files, max"
+msgstr ""
+
+msgid "MB total size)"
+msgstr ""
+
+msgid "Everything - Store mail in original format"
+msgstr ""
+
+msgid "Separate - Store attachments separately"
+msgstr ""
+
+msgid "No attachments available in mail"
+msgstr ""
+
+msgid "Start archive"
+msgstr ""
+
+msgid "Reading attachment information failed"
+msgstr ""
+
+msgid "Files are sent to Kendox InfoShare"
+msgstr ""
+
+msgid "With the selection of separate attachments a maximum of"
+msgstr ""
+
+msgid "attachments can be selected. There have been"
+msgstr ""
+
+msgid "attachments selected"
+msgstr ""
+
+msgid ""
+"With the selection of separate attachments the total size of all attachments "
+"may not exceed"
+msgstr ""
+
+msgid "MB. There have been"
+msgstr ""
+
+msgid "MB selected."
+msgstr ""
+
+msgid "Sending of mail failed"
+msgstr ""
+
 msgid "Openstreetmap"
 msgstr "Openstreetmap"
 
@@ -6813,6 +6902,9 @@ msgid "This file is no longer available. Please reload the folder."
 msgstr ""
 "Denne filen er ikke lenger tilgjengelig. Vennligst last inn mappa på nytt."
 
+msgid "Kendox certificate is not available."
+msgstr ""
+
 msgid "Mobile device management plugin"
 msgstr "Plugin for administrasjon av mobile enheter"
 
@@ -6851,11 +6943,11 @@ msgstr "Passordet har blitt endret."
 msgid "No certificate avaliable"
 msgstr "Ingen sertifikat tilgjengelig"
 
+msgid "Private certificate has expired, unable to sign email"
+msgstr ""
+
 msgid "Private certificate is not valid yet, unable to sign email"
 msgstr "Privat sertifikat er ikke gyldig ennå, kan ikke signere e-post"
-
-msgid "Private certificate has been expired, unable to sign email"
-msgstr "Privat sertifikat er utløpt, kan ikke signere e-post"
 
 msgid "Private certificate does not match email address"
 msgstr "Privat sertifikat samsvarer ikke med e-postadressen"
@@ -7101,8 +7193,8 @@ msgid ""
 "enter the name as a required or optional attendee or talk to your "
 "administrator about giving you permission to schedule '%s'."
 msgstr ""
-"Du har merket \"%s\" som en ressurs. Du kan ikke planlegge et møte med "
-"\"%s\" fordi du ikke har de riktige tillatelsene for den kontoen. Angi enten "
+"Du har merket \"%s\" som en ressurs. Du kan ikke planlegge et møte med \"%s"
+"\" fordi du ikke har de riktige tillatelsene for den kontoen. Angi enten "
 "navnet som en obligatorisk eller valgfri deltaker, eller snakk med "
 "administratoren din om å gi deg tillatelse til å planlegge \"%s\"."
 

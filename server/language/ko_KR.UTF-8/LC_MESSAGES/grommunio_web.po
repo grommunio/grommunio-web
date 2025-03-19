@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Korean (Korea)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-14 12:12+0100\n"
+"POT-Creation-Date: 2025-03-19 00:03+0100\n"
 "PO-Revision-Date: 2017-10-05 20:07+0200\n"
 "Last-Translator: import\n"
 "Language: ko_KR\n"
@@ -4573,9 +4573,6 @@ msgstr "응답을 보내기 전에 저에게 물어보세요."
 msgid "{A}Automatically mark mail as read after {B} second(s)"
 msgstr "{A} {B}초 후에 자동으로 메일을 읽음으로 표시합니다."
 
-msgid "Off"
-msgstr "꺼짐"
-
 msgid "Right"
 msgstr "오른쪽"
 
@@ -5901,6 +5898,98 @@ msgstr "그로뮤니오 파일을 처음 사용하는 경우 인증이 필요합
 msgid "Intranet"
 msgstr "인트라넷"
 
+msgid "Archive to InfoShare"
+msgstr ""
+
+msgid "Kendox InfoShare"
+msgstr ""
+
+msgid "Constraints for single attachment archiving"
+msgstr ""
+
+msgid "Max count attachments"
+msgstr ""
+
+msgid "Max size all selected attachments (MB)"
+msgstr ""
+
+msgid "Selection Kendox InfoShare environment"
+msgstr ""
+
+msgid "Production"
+msgstr ""
+
+msgid "Test"
+msgstr ""
+
+msgid "URLs for production environment"
+msgstr ""
+
+msgid "Kendox InfoShare API URL"
+msgstr ""
+
+msgid "Kendox InfoShare Web dialog URL"
+msgstr ""
+
+msgid "URLs for test environment"
+msgstr ""
+
+msgid "Mail/Document archive to Kendox InfoShare"
+msgstr ""
+
+msgid "Attachment information is requested"
+msgstr ""
+
+msgid "Please select the type of Archive (max"
+msgstr ""
+
+msgid "files, max"
+msgstr ""
+
+msgid "MB total size)"
+msgstr ""
+
+msgid "Everything - Store mail in original format"
+msgstr ""
+
+msgid "Separate - Store attachments separately"
+msgstr ""
+
+msgid "No attachments available in mail"
+msgstr ""
+
+msgid "Start archive"
+msgstr ""
+
+msgid "Reading attachment information failed"
+msgstr ""
+
+msgid "Files are sent to Kendox InfoShare"
+msgstr ""
+
+msgid "With the selection of separate attachments a maximum of"
+msgstr ""
+
+msgid "attachments can be selected. There have been"
+msgstr ""
+
+msgid "attachments selected"
+msgstr ""
+
+msgid ""
+"With the selection of separate attachments the total size of all attachments "
+"may not exceed"
+msgstr ""
+
+msgid "MB. There have been"
+msgstr ""
+
+msgid "MB selected."
+msgstr ""
+
+msgid "Sending of mail failed"
+msgstr ""
+
 msgid "Openstreetmap"
 msgstr "오픈스트리트맵"
 
@@ -6700,6 +6789,9 @@ msgstr "Zip 파일 생성에 실패했습니다. 관리자에게 알려주세요
 msgid "This file is no longer available. Please reload the folder."
 msgstr "이 파일은 더 이상 사용할 수 없습니다. 폴더를 다시 로드하세요."
 
+msgid "Kendox certificate is not available."
+msgstr ""
+
 msgid "Mobile device management plugin"
 msgstr "모바일 기기 관리 플러그인"
 
@@ -6735,11 +6827,11 @@ msgstr "비밀번호가 성공적으로 변경되었습니다."
 msgid "No certificate avaliable"
 msgstr "사용 가능한 인증서 없음"
 
+msgid "Private certificate has expired, unable to sign email"
+msgstr ""
+
 msgid "Private certificate is not valid yet, unable to sign email"
 msgstr "개인 인증서가 아직 유효하지 않아 이메일에 서명할 수 없습니다."
-
-msgid "Private certificate has been expired, unable to sign email"
-msgstr "개인 인증서가 만료되어 이메일에 서명할 수 없습니다."
 
 msgid "Private certificate does not match email address"
 msgstr "개인 인증서가 이메일 주소와 일치하지 않습니다."
@@ -7427,22 +7519,3 @@ msgstr "잘못 인코딩되었을 가능성이 있는 잘못된 UTF-8 문자"
 #, php-format
 msgid "Some problem encountered when encoding/decoding JSON data: - %s"
 msgstr "JSON 데이터를 인코딩/디코딩할 때 발생하는 몇 가지 문제: - %s"
-
-msgid "Contact not found"
-msgstr "연락처를 찾을 수 없어요"
-
-msgid ""
-"Contact information could not be displayed because the server had trouble "
-"retrieving the information."
-msgstr ""
-"서버에서 정보를 검색하는 데 문제가 발생하여 연락처 정보를 표시할 수 없습니다."
-
-msgid "Please contact your system administrator if the problem persists."
-msgstr "문제가 지속되면 시스템 관리자에게 문의하세요."
-
-#, php-format
-msgid "JSON Error: - %s"
-msgstr "JSON 오류: - %s"
-
-msgid "Some problem encountered when encoding/decoding JSON data."
-msgstr "JSON 데이터를 인코딩/디코딩할 때 일부 문제가 발생했습니다."

@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web German (Germany)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-14 12:12+0100\n"
+"POT-Creation-Date: 2025-03-19 00:03+0100\n"
 "PO-Revision-Date: 2023-09-06 16:56+0000\n"
 "Last-Translator: Jan Engelhardt <jengelh@inai.de>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/grommunio/"
@@ -4626,7 +4626,8 @@ msgid "Plain Text"
 msgstr "Nur-Text"
 
 msgid "In both representee's and delegate's Sent Items"
-msgstr "In den gesendeten Objekten sowohl des Vertretenen als auch des Delegierten"
+msgstr ""
+"In den gesendeten Objekten sowohl des Vertretenen als auch des Delegierten"
 
 msgid "Only in delegate's Sent Items"
 msgstr "Nur in den gesendeten Objekten des Delegierten"
@@ -4685,9 +4686,6 @@ msgstr "Vor dem Senden einer Antwort nachfragen"
 #. The '{B}' represents the number of seconds which the user will type in.
 msgid "{A}Automatically mark mail as read after {B} second(s)"
 msgstr "{A}Wartezeit bevor die „gelesen“-Markierung gesezt wird: {B} Sekunden"
-
-msgid "Off"
-msgstr "Aus"
 
 msgid "Right"
 msgstr "Rechts"
@@ -6057,6 +6055,100 @@ msgstr ""
 msgid "Intranet"
 msgstr "Intranet"
 
+msgid "Archive to InfoShare"
+msgstr "Archivieren in InfoShare"
+
+msgid "Kendox InfoShare"
+msgstr "Kendox InfoShare"
+
+msgid "Constraints for single attachment archiving"
+msgstr "Einschränkungen für einzelne Anlagen-Archivierung"
+
+msgid "Max count attachments"
+msgstr "Max anzahl Anlagen"
+
+msgid "Max size all selected attachments (MB)"
+msgstr "Maximale Größe aller gewählten Anhänge (MB)"
+
+msgid "Selection Kendox InfoShare environment"
+msgstr "Auswahl Kendox InfoShare Umgebung"
+
+msgid "Production"
+msgstr "Produktion"
+
+msgid "Test"
+msgstr "Test"
+
+msgid "URLs for production environment"
+msgstr "URLs für Produktivumgebung"
+
+msgid "Kendox InfoShare API URL"
+msgstr "Kendox InfoShare API URL"
+
+msgid "Kendox InfoShare Web dialog URL"
+msgstr "Kendox InfoShare Web-Dialog URL"
+
+msgid "URLs for test environment"
+msgstr "URLs für Testumgebung"
+
+msgid "Mail/Document archive to Kendox InfoShare"
+msgstr "E-Mail/Dokument archivieren an Kendox InfoShare"
+
+msgid "Attachment information is requested"
+msgstr "Anhang-Informationen werden ausgelesen"
+
+msgid "Please select the type of Archive (max"
+msgstr "Bitte wählen Sie die Art der Archivierung (max"
+
+msgid "files, max"
+msgstr "Dateien, max"
+
+msgid "MB total size)"
+msgstr "MB Gesamtgröße"
+
+msgid "Everything - Store mail in original format"
+msgstr "Alles - Archiviere E-Mail im Originalformat"
+
+msgid "Separate - Store attachments separately"
+msgstr "Separat - Anhänge separat speichern"
+
+msgid "No attachments available in mail"
+msgstr "Keine Anhänge verfügbar in E-Mail"
+
+msgid "Start archive"
+msgstr "Archivierung starten"
+
+msgid "Reading attachment information failed"
+msgstr "Abrufen der Anhangsinformation fehlgeschlagen"
+
+msgid "Files are sent to Kendox InfoShare"
+msgstr "Dateien werden an Kendox InfoShare gesendet"
+
+msgid "With the selection of separate attachments a maximum of"
+msgstr "Mit der Auswahl separater Anhänge kann ein maximum von"
+
+msgid "attachments can be selected. There have been"
+msgstr "Anhängen selektiert werden. Es wurden"
+
+msgid "attachments selected"
+msgstr "Anhänge ausgewählt."
+
+msgid ""
+"With the selection of separate attachments the total size of all attachments "
+"may not exceed"
+msgstr ""
+"Mit der Auswahl separater Anhänge darf die Gesamtgröße der Anhänge nicht "
+"mehr als"
+
+msgid "MB. There have been"
+msgstr "MB betragen. Es wurden"
+
+msgid "MB selected."
+msgstr "MB ausgewählt."
+
+msgid "Sending of mail failed"
+msgstr "Versenden der E-Mail fehlgeschlagen"
+
 msgid "Openstreetmap"
 msgstr "OpenStreetMap"
 
@@ -6892,6 +6984,9 @@ msgstr ""
 msgid "This file is no longer available. Please reload the folder."
 msgstr "Diese Datei existiert nicht mehr. Bitte den Ordner neu laden."
 
+msgid "Kendox certificate is not available."
+msgstr "Kendox-Zertifikat ist nicht verfügbar."
+
 msgid "Mobile device management plugin"
 msgstr "Plugin für Mobile Device Management"
 
@@ -6932,15 +7027,13 @@ msgstr "Passwort wurde erfolgreich geändert."
 msgid "No certificate avaliable"
 msgstr "Kein Zertifikat verfügbar"
 
+msgid "Private certificate has expired, unable to sign email"
+msgstr ""
+
 msgid "Private certificate is not valid yet, unable to sign email"
 msgstr ""
 "Das persönliche Zertifikat ist noch nicht gültig, die Nachricht konnte nicht "
 "signiert werden"
-
-msgid "Private certificate has been expired, unable to sign email"
-msgstr ""
-"Das persönliche Zertifikat ist abgelaufen, Nachricht konnte nicht signiert "
-"werden"
 
 msgid "Private certificate does not match email address"
 msgstr "Persönliches Zertifikat stimmt nicht mit der E-Mail-Adresse überein"
@@ -7662,4 +7755,5 @@ msgstr "Ungültiges UTF-8-Zeichen, möglicherweise falsch enkodiert"
 
 #, php-format
 msgid "Some problem encountered when encoding/decoding JSON data: - %s"
-msgstr "Bei der En-/Dekodierung von JSON-Daten ist ein Problem aufgetreten: - %s"
+msgstr ""
+"Bei der En-/Dekodierung von JSON-Daten ist ein Problem aufgetreten: - %s"

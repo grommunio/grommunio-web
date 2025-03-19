@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Slovenian (Slovenia)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-14 12:12+0100\n"
+"POT-Creation-Date: 2025-03-19 00:03+0100\n"
 "PO-Revision-Date: 2022-07-26 19:05+0200\n"
 "Last-Translator: import\n"
 "Language-Team: \n"
@@ -13,8 +13,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || "
-"n%100==4 ? 2 : 3);\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n"
+"%100==4 ? 2 : 3);\n"
 "X-Generator: Weblate 4.14-dev\n"
 
 #. TRANSLATORS: This message is used as label for the column which indicates the week number of the month in date picker. and 'Wk' stands for week
@@ -5040,9 +5040,6 @@ msgstr "Vprašaj me pred pošiljanjem odziva"
 msgid "{A}Automatically mark mail as read after {B} second(s)"
 msgstr "{A}Avtomatično označi sporočilo kot prebrano po {B} sekundah(s)"
 
-msgid "Off"
-msgstr "Izklopljeno"
-
 msgid "Right"
 msgstr "Desno"
 
@@ -6602,6 +6599,98 @@ msgstr "Ob prvi uporabi programa grommunio-files je potrebna avtentikacija"
 msgid "Intranet"
 msgstr "Intranet"
 
+msgid "Archive to InfoShare"
+msgstr ""
+
+msgid "Kendox InfoShare"
+msgstr ""
+
+msgid "Constraints for single attachment archiving"
+msgstr ""
+
+msgid "Max count attachments"
+msgstr ""
+
+msgid "Max size all selected attachments (MB)"
+msgstr ""
+
+msgid "Selection Kendox InfoShare environment"
+msgstr ""
+
+msgid "Production"
+msgstr ""
+
+msgid "Test"
+msgstr ""
+
+msgid "URLs for production environment"
+msgstr ""
+
+msgid "Kendox InfoShare API URL"
+msgstr ""
+
+msgid "Kendox InfoShare Web dialog URL"
+msgstr ""
+
+msgid "URLs for test environment"
+msgstr ""
+
+msgid "Mail/Document archive to Kendox InfoShare"
+msgstr ""
+
+msgid "Attachment information is requested"
+msgstr ""
+
+msgid "Please select the type of Archive (max"
+msgstr ""
+
+msgid "files, max"
+msgstr ""
+
+msgid "MB total size)"
+msgstr ""
+
+msgid "Everything - Store mail in original format"
+msgstr ""
+
+msgid "Separate - Store attachments separately"
+msgstr ""
+
+msgid "No attachments available in mail"
+msgstr ""
+
+msgid "Start archive"
+msgstr ""
+
+msgid "Reading attachment information failed"
+msgstr ""
+
+msgid "Files are sent to Kendox InfoShare"
+msgstr ""
+
+msgid "With the selection of separate attachments a maximum of"
+msgstr ""
+
+msgid "attachments can be selected. There have been"
+msgstr ""
+
+msgid "attachments selected"
+msgstr ""
+
+msgid ""
+"With the selection of separate attachments the total size of all attachments "
+"may not exceed"
+msgstr ""
+
+msgid "MB. There have been"
+msgstr ""
+
+msgid "MB selected."
+msgstr ""
+
+msgid "Sending of mail failed"
+msgstr ""
+
 #, fuzzy
 msgid "Openstreetmap"
 msgstr "Openstreetmap"
@@ -7597,6 +7686,9 @@ msgstr "Generiranje datoteke Zip ni uspelo. O tem obvestite skrbnika."
 msgid "This file is no longer available. Please reload the folder."
 msgstr "Ta datoteka ni več na voljo. Ponovno naložite mapo."
 
+msgid "Kendox certificate is not available."
+msgstr ""
+
 #, fuzzy
 msgid "Mobile device management plugin"
 msgstr "Vtičnik za upravljanje mobilnih naprav"
@@ -7643,13 +7735,12 @@ msgstr "Geslo je bilo uspešno spremenjeno."
 msgid "No certificate avaliable"
 msgstr "Potrdilo ni na voljo"
 
+msgid "Private certificate has expired, unable to sign email"
+msgstr ""
+
 #, fuzzy
 msgid "Private certificate is not valid yet, unable to sign email"
 msgstr "Zasebno potrdilo še ni veljavno, ne morete podpisati e-pošte"
-
-#, fuzzy
-msgid "Private certificate has been expired, unable to sign email"
-msgstr "Zasebno potrdilo je poteklo, ni mogoče podpisati e-pošte"
 
 #, fuzzy
 msgid "Private certificate does not match email address"

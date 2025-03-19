@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Ukrainian (Ukraine)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-14 12:12+0100\n"
+"POT-Creation-Date: 2025-03-19 00:03+0100\n"
 "PO-Revision-Date: 2022-08-23 04:19+0000\n"
 "Last-Translator: Artem <artem@molotov.work>\n"
 "Language-Team: Ukrainian <https://hosted.weblate.org/projects/grommunio/"
@@ -14,8 +14,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
-"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "X-Generator: Weblate 4.14-dev\n"
 
 #. TRANSLATORS: This message is used as label for the column which indicates the week number of the month in date picker. and 'Wk' stands for week
@@ -4671,9 +4671,6 @@ msgstr "Запитайте мене, перш ніж надсилати відп
 msgid "{A}Automatically mark mail as read after {B} second(s)"
 msgstr "{A}Саморушно позначати лист як прочитаний через {B} секунд(и)"
 
-msgid "Off"
-msgstr "Вимкнено"
-
 msgid "Right"
 msgstr "Так."
 
@@ -5742,8 +5739,8 @@ msgid ""
 "Accounts marked by your administrator as \"cannot be changed\" will not be "
 "removed."
 msgstr ""
-"Облікові записи, позначені вашим адміністратором як \"не можуть бути "
-"змінені\", не будуть видалені."
+"Облікові записи, позначені вашим адміністратором як \"не можуть бути змінені"
+"\", не будуть видалені."
 
 msgid ""
 "grommunio Web will automatically restart in order for these changes to take "
@@ -6024,6 +6021,98 @@ msgstr "При першому використанні grommunio-файлів п
 
 msgid "Intranet"
 msgstr "Інтранет"
+
+msgid "Archive to InfoShare"
+msgstr ""
+
+msgid "Kendox InfoShare"
+msgstr ""
+
+msgid "Constraints for single attachment archiving"
+msgstr ""
+
+msgid "Max count attachments"
+msgstr ""
+
+msgid "Max size all selected attachments (MB)"
+msgstr ""
+
+msgid "Selection Kendox InfoShare environment"
+msgstr ""
+
+msgid "Production"
+msgstr ""
+
+msgid "Test"
+msgstr ""
+
+msgid "URLs for production environment"
+msgstr ""
+
+msgid "Kendox InfoShare API URL"
+msgstr ""
+
+msgid "Kendox InfoShare Web dialog URL"
+msgstr ""
+
+msgid "URLs for test environment"
+msgstr ""
+
+msgid "Mail/Document archive to Kendox InfoShare"
+msgstr ""
+
+msgid "Attachment information is requested"
+msgstr ""
+
+msgid "Please select the type of Archive (max"
+msgstr ""
+
+msgid "files, max"
+msgstr ""
+
+msgid "MB total size)"
+msgstr ""
+
+msgid "Everything - Store mail in original format"
+msgstr ""
+
+msgid "Separate - Store attachments separately"
+msgstr ""
+
+msgid "No attachments available in mail"
+msgstr ""
+
+msgid "Start archive"
+msgstr ""
+
+msgid "Reading attachment information failed"
+msgstr ""
+
+msgid "Files are sent to Kendox InfoShare"
+msgstr ""
+
+msgid "With the selection of separate attachments a maximum of"
+msgstr ""
+
+msgid "attachments can be selected. There have been"
+msgstr ""
+
+msgid "attachments selected"
+msgstr ""
+
+msgid ""
+"With the selection of separate attachments the total size of all attachments "
+"may not exceed"
+msgstr ""
+
+msgid "MB. There have been"
+msgstr ""
+
+msgid "MB selected."
+msgstr ""
+
+msgid "Sending of mail failed"
+msgstr ""
 
 msgid "Openstreetmap"
 msgstr "Openstreetmap"
@@ -6848,6 +6937,9 @@ msgstr ""
 msgid "This file is no longer available. Please reload the folder."
 msgstr "Цей файл більше не доступний. Будь ласка, перезавантажте папку."
 
+msgid "Kendox certificate is not available."
+msgstr ""
+
 msgid "Mobile device management plugin"
 msgstr "Плагін для керування мобільними пристроями"
 
@@ -6884,14 +6976,12 @@ msgstr "Пароль успішно змінено."
 msgid "No certificate avaliable"
 msgstr "Сертифікат відсутній"
 
+msgid "Private certificate has expired, unable to sign email"
+msgstr ""
+
 msgid "Private certificate is not valid yet, unable to sign email"
 msgstr ""
 "Приватний сертифікат ще не дійсний, не вдається підписати електронну пошту"
-
-msgid "Private certificate has been expired, unable to sign email"
-msgstr ""
-"Термін дії приватного сертифіката закінчився, не вдається підписати "
-"електронну пошту"
 
 msgid "Private certificate does not match email address"
 msgstr "Приватний сертифікат не відповідає адресі електронної пошти"
