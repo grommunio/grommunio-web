@@ -5981,7 +5981,7 @@ msgid "Constraints for single attachment archiving"
 msgstr "Ühe manuse arhiveerimise piirangud"
 
 msgid "Max count attachments"
-msgstr "Maksimaalne arv manuseid"
+msgstr "Manuste suurim arv"
 
 msgid "Max size all selected attachments (MB)"
 msgstr ""
