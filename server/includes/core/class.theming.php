@@ -358,7 +358,7 @@ class Theming {
 
 		if ($themeProps['primary-color']) {
 			if (!$themeProps['primary-color:hover']) {
-				list(, , $l) = Colors::rgb2hsl(Colors::colorString2Object($themeProps['primary-color']));
+				list(,, $l) = Colors::rgb2hsl(Colors::colorString2Object($themeProps['primary-color']));
 				if ($l > 20) {
 					$themeProps['primary-color:hover'] = Colors::darker($themeProps['primary-color'], 10);
 				}

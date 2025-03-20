@@ -445,7 +445,7 @@ class Nemid52Compat {
 
 	public static function my_rsa_sha_encode($data, $key_id, $signagure_alg) {
 		$algos = [
-			'sha1WithRSAEncryption' => ['alg' => 'sha1',   'oid' => '1.3.14.3.2.26'],
+			'sha1WithRSAEncryption' => ['alg' => 'sha1', 'oid' => '1.3.14.3.2.26'],
 			'sha256WithRSAEncryption' => ['alg' => 'sha256', 'oid' => '2.16.840.1.101.3.4.2.1'],
 			'sha384WithRSAEncryption' => ['alg' => 'sha384', 'oid' => '2.16.840.1.101.3.4.2.2'],
 			'sha512WithRSAEncryption' => ['alg' => 'sha512', 'oid' => '2.16.840.1.101.3.4.2.3'],

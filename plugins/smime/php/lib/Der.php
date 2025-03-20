@@ -212,7 +212,7 @@ class Der extends Oids {
 	}
 
 	protected function name($tag = null) {
-		$this->beginsequence($tag);  # seq of RDN
+		$this->beginsequence($tag);
 		$res = [];
 		while ($this->in()) {
 			$parts = [];

@@ -5,6 +5,7 @@ require_once __DIR__ . "/Files/Core/class.uploadhandler.php";
 require_once __DIR__ . "/Files/Core/class.recipienthandler.php";
 require_once __DIR__ . "/Files/Backend/class.backendstore.php";
 
+use Files\Backend\BackendStore;
 use Files\Core\DownloadHandler;
 use Files\Core\RecipientHandler;
 use Files\Core\UploadHandler;
@@ -45,39 +46,39 @@ class Pluginfiles extends Plugin {
 
 			case 'server.index.load.custom':
 				switch ($data['name']) {
-				case 'files_get_recipients':
-					RecipientHandler::doGetRecipients();
-					break;
+					case 'files_get_recipients':
+						RecipientHandler::doGetRecipients();
+						break;
 
-				case 'download_file':
-					DownloadHandler::doDownload();
-					break;
+					case 'download_file':
+						DownloadHandler::doDownload();
+						break;
 
-				case 'upload_file':
-					UploadHandler::doUpload();
-					break;
+					case 'upload_file':
+						UploadHandler::doUpload();
+						break;
 
-				case 'form':
-					if (isset($_GET['backend'])) {
-						$backend = urldecode($_GET["backend"]);
-					}
-					else {
-						$backend = '';
-					}
-					$backendstore = Files\Backend\BackendStore::getInstance();
+					case 'form':
+						if (isset($_GET['backend'])) {
+							$backend = urldecode($_GET["backend"]);
+						}
+						else {
+							$backend = '';
+						}
+						$backendstore = BackendStore::getInstance();
 
-					if ($backendstore->backendExists($backend)) {
-						$backendInstance = $backendstore->getInstanceOfBackend($backend);
-						$formdata = $backendInstance->getFormConfig();
+						if ($backendstore->backendExists($backend)) {
+							$backendInstance = $backendstore->getInstanceOfBackend($backend);
+							$formdata = $backendInstance->getFormConfig();
 
-						exit($formdata);
-					}
+							exit($formdata);
+						}
 
 						exit("Specified backend does not exist!");
 
-					break;
-			}
-			break;
+						break;
+				}
+				break;
 		}
 	}
 
@@ -95,7 +96,7 @@ class Pluginfiles extends Plugin {
 						'notifier' => [
 							'info' => [
 								'files' => [
-									'value' => "dropdown",        // static notifier
+									'value' => "dropdown",
 								],
 							],
 						],

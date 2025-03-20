@@ -60,7 +60,7 @@ class BackendStore {
 	 * Search the backend folder for backends and register them.
 	 */
 	public function initialize() {
-		$list = [];    // this hold our plugin folders
+		$list = [];
 		$workdir = __DIR__ . self::BACKEND_DIR;
 
 		// Populate the list of directories to check against
@@ -87,7 +87,7 @@ class BackendStore {
 	 * Search the backend folder for external backends and register them.
 	 */
 	public function initializeExternal() {
-		$list = [];    // this hold our plugin folders
+		$list = [];
 		$workdir = $this->EXTERNAL_BACKEND_DIR;
 
 		// Populate the list of directories to check against

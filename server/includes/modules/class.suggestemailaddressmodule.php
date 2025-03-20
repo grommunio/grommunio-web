@@ -122,8 +122,8 @@ class suggestEmailAddressModule extends Module {
 		if (!empty($action["query"]) && !empty($recipient_history) && !empty($recipient_history['recipients'])) {
 			// Setup result array with match levels
 			$l_aResult = [
-				0 => [],	// Matches on whole string
-				1 => [],	// Matches on part of string
+				0 => [],
+				1 => [],
 			];
 
 			// Loop through all the recipients

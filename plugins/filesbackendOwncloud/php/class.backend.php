@@ -136,7 +136,7 @@ class Backend extends \Files\Backend\Webdav\Backend implements iFeatureSharing {
 				"fields" => $this->formFields,
 				"formConfig" => $this->formConfig,
 			],
-			"data" => [ // here we can specify the default values.
+			"data" => [
 				"server_address" => $_SERVER['HTTP_HOST'],
 				"server_ssl" => true,
 				"server_port" => "443",

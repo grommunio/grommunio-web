@@ -196,7 +196,7 @@ class Backend extends AbstractBackend implements iFeatureQuota, iFeatureVersionI
 				"fields" => $this->formFields,
 				"formConfig" => $this->formConfig,
 			],
-			"data" => [ // here we can specify the default values.
+			"data" => [
 				"server_address" => "files.demo.com",
 				"server_port" => "80",
 				"server_path" => "/remote.php/webdav",
