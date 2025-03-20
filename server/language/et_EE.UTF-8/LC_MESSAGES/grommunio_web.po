@@ -6002,7 +6002,7 @@ msgid "Kendox InfoShare API URL"
 msgstr "Kendox InfoShare API URL"
 
 msgid "Kendox InfoShare Web dialog URL"
-msgstr ""
+msgstr "Kendox InfoShare veebidialoogi URL"
 
 msgid "URLs for test environment"
 msgstr ""
