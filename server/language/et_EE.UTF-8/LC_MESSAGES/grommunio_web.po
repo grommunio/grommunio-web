@@ -6,8 +6,8 @@ msgstr ""
 "Project-Id-Version: grommunio Web Estonian (Estonia)\n"
 "Report-Msgid-Bugs-To: dev@grommunio.com\n"
 "POT-Creation-Date: 2025-03-19 00:03+0100\n"
-"PO-Revision-Date: 2025-03-20 07:41+0000\n"
-"Last-Translator: DeepL <noreply-mt-deepl@weblate.org>\n"
+"PO-Revision-Date: 2025-03-20 07:46+0000\n"
+"Last-Translator: Priit Jõerüüt <hwlate@joeruut.com>\n"
 "Language-Team: Estonian <https://hosted.weblate.org/projects/grommunio/"
 "grommunio-web/et/>\n"
 "Language: et_EE\n"
@@ -5675,13 +5675,13 @@ msgid "Files Plugin"
 msgstr "Failide pistikprogramm"
 
 msgid "Manage Accounts"
-msgstr "Kontode haldamine"
+msgstr "Halda kontosid"
 
 msgid "Reset Files settings"
-msgstr "Failide seadete lähtestamine"
+msgstr "Lähtesta Failide seadistused"
 
 msgid "Resets Files settings to their original defaults"
-msgstr "Taastab failide seaded algsetesse vaikeseadistustesse"
+msgstr "Asendab failide seadistused algsete vaikeseadistustega"
 
 msgid "Are you sure to remove all settings and accounts?"
 msgstr "Kas olete kindlasti eemaldanud kõik seaded ja kontod?"
@@ -5753,7 +5753,7 @@ msgid "Add Account"
 msgstr "Lisa konto"
 
 msgid "Remove Account"
-msgstr "Konto eemaldamine"
+msgstr "Eemalda konto"
 
 msgid "Loading accounts"
 msgstr "Kontode laadimine"
@@ -5825,7 +5825,7 @@ msgid "File \"{0}\" is too large! Maximum allowed filesize: {1}."
 msgstr "Faili \"{0}\" on liiga suur! Maksimaalne lubatud faili suurus: {1}."
 
 msgid "Add item to Files"
-msgstr "Lisa objekt failidesse"
+msgstr "Lisa objekt failide sekka"
 
 msgid "You have to choose a folder!"
 msgstr "Sa pead valima kausta!"
@@ -5834,7 +5834,7 @@ msgid "Uploaded"
 msgstr "Üleslaetud"
 
 msgid "Attachment successfully stored in Files"
-msgstr "Lisa edukalt salvestatud failides"
+msgstr "Manus on edukalt salvestatud failides"
 
 msgid "Upload Failed"
 msgstr "Üleslaadimine ebaõnnestus"
@@ -5897,16 +5897,16 @@ msgid "Create office document"
 msgstr "Büroodokumendi loomine"
 
 msgid "Download files"
-msgstr "Failide allalaadimine"
+msgstr "Laadi failid alla"
 
 msgid "Share"
 msgstr "Jaga"
 
 msgid "Attach to mail"
-msgstr "Lisage posti juurde"
+msgstr "Lisa e-kirjale"
 
 msgid "Attach to mail as link"
-msgstr "Lisage postitusele lingina"
+msgstr "Lisa e-kirjale lingina"
 
 msgid "Attaching"
 msgstr "Kinnitamine"
@@ -5987,16 +5987,16 @@ msgid "Max size all selected attachments (MB)"
 msgstr "Kõigi valitud manuste maksimaalne suurus (MB)"
 
 msgid "Selection Kendox InfoShare environment"
-msgstr "Valik Kendox InfoShare keskkond"
+msgstr "Vali Kendox InfoShare'i keskkond"
 
 msgid "Production"
-msgstr ""
+msgstr "Töökeskkond"
 
 msgid "Test"
-msgstr ""
+msgstr "Testkeskkond"
 
 msgid "URLs for production environment"
-msgstr ""
+msgstr "Töökeskonna võrguaadressid"
 
 msgid "Kendox InfoShare API URL"
 msgstr ""
