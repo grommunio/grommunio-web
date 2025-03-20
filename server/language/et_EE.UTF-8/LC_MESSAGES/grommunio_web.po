@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: grommunio Web Estonian (Estonia)\n"
 "Report-Msgid-Bugs-To: dev@grommunio.com\n"
 "POT-Creation-Date: 2025-03-19 00:03+0100\n"
-"PO-Revision-Date: 2025-03-20 07:56+0000\n"
+"PO-Revision-Date: 2025-03-20 09:16+0000\n"
 "Last-Translator: Priit Jõerüüt <hwlate@joeruut.com>\n"
 "Language-Team: Estonian <https://hosted.weblate.org/projects/grommunio/"
 "grommunio-web/et/>\n"
@@ -1958,7 +1958,7 @@ msgid "Insert item"
 msgstr "Sisesta kirje"
 
 msgid "Insert as"
-msgstr "Sisestage nagu"
+msgstr "Sisesta nagu"
 
 msgid "Text only"
 msgstr "Ainult tekst"
@@ -2008,7 +2008,7 @@ msgid "Download"
 msgstr "Laadi alla"
 
 msgid "Download all as ZIP"
-msgstr "Laadige kõik alla ZIP-ina"
+msgstr "Laadi kõik alla zip-failina"
 
 msgid "Import to folder"
 msgstr "Impordi kausta"
@@ -2046,7 +2046,7 @@ msgid "Attachment Error"
 msgstr "Kinnitusviga"
 
 msgid "Manage Categories"
-msgstr "Kategooriate haldamine"
+msgstr "Halda kategooriaid"
 
 msgid "New"
 msgstr "Uus"
@@ -2058,7 +2058,7 @@ msgid ""
 "Are you sure you want to delete the category \"{0}\"? Other items keep this "
 "category, but lose the assigned color."
 msgstr ""
-"Kas olete kindel, et soovite kategooria \"{0}\" kustutada? Teised elemendid "
+"Kas oled kindel, et soovid „{0}“ kategooria \"{0}\"? Muud elemendid "
 "säilitavad selle kategooria, kuid kaotavad määratud värvi."
 
 msgid "Rename Category"
@@ -2083,7 +2083,7 @@ msgstr ""
 "Enne selle kategooria loomist peate rakendama kategooriates tehtud muudatusi."
 
 msgid "You already have a category named '{0}'. Please use another name."
-msgstr "Teil on juba kategooria nimega '{0}'. Palun kasutage teist nime."
+msgstr "Sul juba on olemas kategooria nimega „{0}“. Palun kasuta teist nime."
 
 msgid ""
 "You already have a category named '{0}' in your pending changes. Please use "
@@ -2093,7 +2093,7 @@ msgstr ""
 "kasutage teist nime."
 
 msgid "Rename"
-msgstr "Nimetage ümber"
+msgstr "Muuda nime"
 
 msgid "This is the first time you have used \"{0}\" category."
 msgstr "See on esimene kord, kui te kasutate kategooriat \"{0}\"."
@@ -2109,16 +2109,16 @@ msgstr ""
 "ja \"{2}\"?"
 
 msgid "Merge"
-msgstr "Ühinemine"
+msgstr "Mesti"
 
 msgid "Remove"
-msgstr "Eemaldage"
+msgstr "Eemalda"
 
 msgid "Check Names"
 msgstr "Kontrollida nimesid"
 
 msgid "Select an address to use"
-msgstr "Valige kasutatav aadress"
+msgstr "Vali kasutatav aadress"
 
 msgid "Email"
 msgstr "E-post"
@@ -2172,7 +2172,7 @@ msgid "Delegate receives copies of meeting-related messages sent to me."
 msgstr "Delegaat saab koopiad mulle saadetud koosolekuga seotud sõnumitest."
 
 msgid "Other"
-msgstr "Muud"
+msgstr "Muu"
 
 msgid "No delegates configured"
 msgstr "Delegaate ei ole konfigureeritud"
@@ -2194,7 +2194,7 @@ msgstr ""
 "kontekstmenüü ja klõpsa „Jaga kausta…“"
 
 msgid "Permission"
-msgstr "Luba"
+msgstr "Kasutusõigus"
 
 msgid "Duplicate delegate"
 msgstr "Dubleeriv delegaat"
@@ -6682,7 +6682,7 @@ msgid "Key Customer"
 msgstr "Võtmeklient"
 
 msgid "Miscellaneous"
-msgstr "Muu"
+msgstr "Varia"
 
 msgid "Phone Calls"
 msgstr "Telefonikõned"
@@ -6915,7 +6915,7 @@ msgid "No certificate avaliable"
 msgstr "Sertifikaat puudub"
 
 msgid "Private certificate has expired, unable to sign email"
-msgstr "Erasertifikaat on aegunud, ei saa e-kirja allkirjastada"
+msgstr "Privaatne sertifikaat on aegunud, ei saa e-kirja allkirjastada"
 
 msgid "Private certificate is not valid yet, unable to sign email"
 msgstr "Erasertifikaat ei ole veel kehtiv, ei saa e-kirja allkirjastada"
