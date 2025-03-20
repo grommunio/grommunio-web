@@ -7,7 +7,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: dev@grommunio.com\n"
 "POT-Creation-Date: 2025-03-19 00:03+0100\n"
 "PO-Revision-Date: 2025-03-20 07:56+0000\n"
-"Last-Translator: DeepL <noreply-mt-deepl@weblate.org>\n"
+"Last-Translator: Priit Jõerüüt <hwlate@joeruut.com>\n"
 "Language-Team: Estonian <https://hosted.weblate.org/projects/grommunio/"
 "grommunio-web/et/>\n"
 "Language: et_EE\n"
@@ -5915,7 +5915,7 @@ msgid "Creating email... Please wait!"
 msgstr "E-posti loomine... Palun oodake!"
 
 msgid "Edit share"
-msgstr "Muuda aktsiat"
+msgstr "Muuda jagamist"
 
 msgid ""
 "There are no accounts added. Go to settings, Files tab and add an account"
@@ -5936,10 +5936,10 @@ msgid "File preview"
 msgstr "Faili eelvaade"
 
 msgid "Your browser does not support previewing of audio files!"
-msgstr "Teie brauser ei toeta helifailide eelvaatlust!"
+msgstr "Sinu brauser ei toeta helifailide eelvaadet!"
 
 msgid "Your browser does not support previewing of video files!"
-msgstr "Teie brauser ei toeta videofailide eelvaadet!"
+msgstr "Sinu brauser ei toeta videofailide eelvaadet!"
 
 msgid "d.m.Y G:i"
 msgstr "d.m.Y G:i"
@@ -6002,66 +6002,67 @@ msgid "Kendox InfoShare API URL"
 msgstr "Kendox InfoShare API võrguaadress"
 
 msgid "Kendox InfoShare Web dialog URL"
-msgstr "Kendox InfoShare veebidialoogi URL"
+msgstr "Kendox InfoShare veebivaate võrguaadress"
 
 msgid "URLs for test environment"
-msgstr ""
+msgstr "Testkeskonna võrguaadressid"
 
 msgid "Mail/Document archive to Kendox InfoShare"
-msgstr ""
+msgstr "Kirja või dokumendi arhiiv Kendox InfoShare'i teenuses"
 
 msgid "Attachment information is requested"
-msgstr ""
+msgstr "Manuse teabe päring"
 
 msgid "Please select the type of Archive (max"
-msgstr ""
+msgstr "Palun vali arhiivi tüüp (kuni"
 
 msgid "files, max"
-msgstr ""
+msgstr "faili, kogumahuga kuni"
 
 msgid "MB total size)"
-msgstr ""
+msgstr "MB)"
 
 msgid "Everything - Store mail in original format"
-msgstr ""
+msgstr "Kõik - hoiusta e-kirjad algsetena"
 
 msgid "Separate - Store attachments separately"
-msgstr ""
+msgstr "Eraldi - hoiusta manused eraldi"
 
 msgid "No attachments available in mail"
-msgstr ""
+msgstr "Kirjas poel manuseid"
 
 msgid "Start archive"
-msgstr ""
+msgstr "Loo arhiiv"
 
 msgid "Reading attachment information failed"
-msgstr ""
+msgstr "Ei õnnestunud lugeda manuse teavet"
 
 msgid "Files are sent to Kendox InfoShare"
-msgstr ""
+msgstr "Failid on saadetud Kendox InfoShare'i teenusesse"
 
 msgid "With the selection of separate attachments a maximum of"
-msgstr ""
+msgstr "Eelistades eraldi manuste valikut on võimalik valida kuni"
 
 msgid "attachments can be selected. There have been"
-msgstr ""
+msgstr "manust. Oled juba valinud"
 
 msgid "attachments selected"
-msgstr ""
+msgstr "manust"
 
 msgid ""
 "With the selection of separate attachments the total size of all attachments "
 "may not exceed"
 msgstr ""
+"Eelistades eraldi manuste valikut on võimalik valida manused mahuga kuni"
 
 msgid "MB. There have been"
-msgstr ""
+msgstr "MB. Oled juba valinud"
 
 msgid "MB selected."
-msgstr ""
+msgstr "MB."
 
 msgid "Sending of mail failed"
-msgstr ""
+msgstr "Ei õnnestunud saata e-kirja"
 
 msgid "Openstreetmap"
 msgstr "Openstreetmap"
@@ -6074,7 +6075,7 @@ msgid "Mobile Device Manager"
 msgstr "Mobiilseadmete haldur"
 
 msgid "Wiping device"
-msgstr "Pühkimisseade"
+msgstr "Seadme sisu on kustutamisel"
 
 msgid "Password incorrect"
 msgstr "Vale salasõna"
@@ -6089,13 +6090,13 @@ msgid "Not Applicable"
 msgstr "Ei kohaldata"
 
 msgid "Wipe Pending"
-msgstr "Pühkida ootab"
+msgstr "Kustutamine on ootel"
 
 msgid "Wipe Requested"
-msgstr "Taotletud pühkida"
+msgstr "Kustutamine on tellitud"
 
 msgid "Wipe Executed"
-msgstr "Pühkida teostatud"
+msgstr "Kustutamine on tehtud"
 
 msgid "Account Only Wipe Pending"
 msgstr "Ainult konto kustutamine ootel"
