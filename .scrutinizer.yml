@@ -6,11 +6,15 @@ build:
       version: 8.3.3
       ini:
         xdebug.mode: coverage
+    node:
+      version: 14.17.6
   nodes:
     analysis:
       dependencies:
         before:
           - 'sudo git clone https://github.com/grommunio/mapi-header-php.git /usr/share/php-mapi'
+      environment:
+        node: 14.17.6
       project_setup:
         override:
           - true
