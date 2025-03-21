@@ -487,12 +487,7 @@ class AppointmentListModule extends ListModule {
 	public static function compareCalendarItems($a, $b) {
 		$start_a = $a["props"]["startdate"];
 		$start_b = $b["props"]["startdate"];
-
-		if ($start_a == $start_b) {
-			return 0;
-		}
-
-		return ($start_a < $start_b) ? -1 : 1;
+        return $start_a <=> $start_b;
 	}
 
 	/**
