@@ -4295,11 +4295,8 @@ class Operations {
 	 */
 	public function calcFolderMessageSize($folder) {
 		$folderProps = mapi_getprops($folder, [PR_MESSAGE_SIZE_EXTENDED]);
-		if (isset($folderProps[PR_MESSAGE_SIZE_EXTENDED])) {
-			return $folderProps[PR_MESSAGE_SIZE_EXTENDED];
-		}
 
-		return 0;
+		return $folderProps[PR_MESSAGE_SIZE_EXTENDED] ?? 0;
 	}
 
 	/**
@@ -4466,11 +4463,8 @@ class Operations {
 		if (isset($abprops[PR_SMTP_ADDRESS])) {
 			return $abprops[PR_SMTP_ADDRESS];
 		}
-		if (isset($abprops[PR_EMAIL_ADDRESS])) {
-			return $abprops[PR_EMAIL_ADDRESS];
-		}
 
-		return "";
+		return $abprops[PR_EMAIL_ADDRESS] ?? "";
 	}
 
 	/**

@@ -232,11 +232,8 @@ class Der extends Oids {
 
 	protected function oid($tag = 6) {
 		$v = $this->oid_($this->next($tag));
-		if (isset($this->oids[$v])) {
-			return $this->oids[$v];
-		}
 
-		return $v;
+		return $this->oids[$v] ?? $v;
 	}
 
 	protected function oid_($oid) {

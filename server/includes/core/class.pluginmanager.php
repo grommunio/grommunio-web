@@ -510,11 +510,7 @@ class PluginManager {
 	 * @return string The path to the file for the module
 	 */
 	public function getModuleFilePath($modulename) {
-		if (isset($this->modules[$modulename])) {
-			return $this->modules[$modulename];
-		}
-
-		return false;
+		return $this->modules[$modulename] ?? false;
 	}
 
 	/**
@@ -527,11 +523,7 @@ class PluginManager {
 	 * @return string The path to the file for the notifier
 	 */
 	public function getNotifierFilePath($notifiername) {
-		if (isset($this->notifiers[$notifiername])) {
-			return $this->notifiers[$notifiername];
-		}
-
-		return false;
+		return $this->notifiers[$notifiername] ?? false;
 	}
 
 	/**

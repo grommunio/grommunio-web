@@ -125,11 +125,7 @@ class WebAppSession {
 	 * @return false|int The starttime (timestamp) when set, false otherwise
 	 */
 	public function getStartTime() {
-		if (isset($_SESSION['starttime'])) {
-			return $_SESSION['starttime'];
-		}
-
-		return false;
+		return $_SESSION['starttime'] ?? false;
 	}
 
 	/**

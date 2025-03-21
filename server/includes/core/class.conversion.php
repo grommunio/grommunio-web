@@ -774,13 +774,10 @@ class Conversion {
 	 * @return string iconv-compatible charset name
 	 */
 	public static function getCodepageCharset($codepage) {
-		if (isset(Conversion::$_CODEPAGES[$codepage])) {
-			return Conversion::$_CODEPAGES[$codepage];
-		}
 		// Defaulting to iso-8859-15 since it is more likely for someone to make a mistake in the codepage
 		// when using west-european charsets then when using other charsets since utf-8 is binary compatible
 		// with the bottom 7 bits of west-european
-		return "iso-8859-15";
+		return Conversion::$_CODEPAGES[$codepage] ?? "iso-8859-15";
 	}
 
 	/**

@@ -212,11 +212,8 @@ class ocsclient {
 		$url = $this->getOCSUrl() . "/" . $id;
 		$this->parseListingResponse($this->doCurlGetRequest($url));
 		$this->loaded = true;
-		if (isset($this->shares[$id])) {
-			return $this->shares[$id];
-		}
 
-		return false;
+		return $this->shares[$id] ?? false;
 	}
 
 	/**
@@ -314,11 +311,7 @@ class ocsclient {
 			return false;
 		}
 
-		if (isset($this->shares[$id])) {
-			return $this->shares[$id];
-		}
-
-		return false;
+		return $this->shares[$id] ?? false;
 	}
 
 	/**

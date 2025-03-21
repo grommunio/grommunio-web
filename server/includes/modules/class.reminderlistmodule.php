@@ -46,12 +46,9 @@ class ReminderListModule extends ListModule {
 	public function getReminderFolderEntryId($store) {
 		$root = mapi_msgstore_openentry($store);
 		$rootProps = mapi_getprops($root, [PR_REM_ONLINE_ENTRYID]);
-		if (isset($rootProps[PR_REM_ONLINE_ENTRYID])) {
-			return $rootProps[PR_REM_ONLINE_ENTRYID];
-		}
 
 		// Reminder folder didn't exist, create one
-		return $this->createReminderFolder($store);
+		return $rootProps[PR_REM_ONLINE_ENTRYID] ?? $this->createReminderFolder($store);
 	}
 
 	public function createReminderFolder($store) {
