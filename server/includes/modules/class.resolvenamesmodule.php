@@ -171,7 +171,7 @@ class ResolveNamesModule extends Module {
 						$item['address_type'] = 'MAPIPDL';
 						// The email_address is empty for DistList, using display name for resolving
 						$item['email_address'] = $item['display_name'];
-						$item['smtp_address'] = $item['smtp_address'] ?? '';
+						$item['smtp_address'] ??= '';
 					}
 					else {
 						$item['address_type'] = $user_data[PR_ADDRTYPE] ?? 'SMTP';
