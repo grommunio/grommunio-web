@@ -188,13 +188,13 @@ class suggestEmailAddressModule extends Module {
 				 */
 				$l_iMaxNumListItems = 10;
 				$l_aSortedList = [];
-				usort($l_aResult[0], [$this, 'cmpSortResultList']);
+				usort($l_aResult[0], $this->cmpSortResultList(...));
 				for ($i = 0, $len = min($l_iMaxNumListItems, count($l_aResult[0])); $i < $len; ++$i) {
 					$l_aSortedList[] = $l_aResult[0][$i];
 				}
 				if (count($l_aSortedList) < $l_iMaxNumListItems) {
 					$l_iMaxNumRemainingListItems = $l_iMaxNumListItems - count($l_aSortedList);
-					usort($l_aResult[1], [$this, 'cmpSortResultList']);
+					usort($l_aResult[1], $this->cmpSortResultList(...));
 					for ($i = 0, $len = min($l_iMaxNumRemainingListItems, count($l_aResult[1])); $i < $len; ++$i) {
 						$l_aSortedList[] = $l_aResult[1][$i];
 					}

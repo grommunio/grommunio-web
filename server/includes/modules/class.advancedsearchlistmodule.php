@@ -75,7 +75,7 @@ class AdvancedSearchListModule extends ListModule {
 						$this->processException($e, $actionType);
 					}
 					else {
-						if (DEBUG_LOADER === 'LOAD_SOURCE') {
+						if (DEBUG_LOADER === 0) {
 							// Log all info we can get about this error to the error log of the web server
 							error_log("Error in search: \n" . var_export($e, true) . "\n\n" . var_export(debug_backtrace(), true));
 						}
