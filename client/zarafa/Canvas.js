@@ -145,7 +145,7 @@ if (!!document.createElement('canvas').getContext)
 		}
 
 		// Calculate the written height, this means that the current
-		// offset must be substracted by the start offset. And finally
+		// offset must be subtracted by the start offset. And finally
 		// we need to add a lineHeight, as we have written at least
 		// 1 line.
 		return ty - y + lineHeight;
@@ -228,18 +228,18 @@ if (!!document.createElement('canvas').getContext)
 	};
 	
 	/**
-	 * Converts the hexidecimal RGB notation (#FFAA00) to a decimal notation using the rgba 
+	 * Converts the hexadecimal RGB notation (#FFAA00) to a decimal notation using the rgba 
 	 * function. It will output a string that can be used in defining colors and opacity in Canvas. 
 	 * By default it will return rgba(0,0,0,0) if no or incorrect values are passed. This is a black
 	 * and completely transparent rgba() value.
-	 * @param {String} str Hexidecimal RGB notation like #FFAA00. The '#' is optional, the rest of 
+	 * @param {String} str Hexadecimal RGB notation like #FFAA00. The '#' is optional, the rest of 
 	 * the strings needs to contain 6 characters.
 	 * @param {Number} opacity (Optional) Will set the opacity in the rgba function. Defaults to 1.
 	 * @return {String} The rgba() notation. 
 	 */
 	CanvasRenderingContext2D.prototype.convertHexRgbToDecRgba = function(str, opacity)
 	{
-		// The regex ensures that the input has at least 6 RGB characters and the preceeding # is optional
+		// The regex ensures that the input has at least 6 RGB characters and the preceding # is optional
 		if(Ext.isString(str) && str.search(/#?[A-F0-9]{6}/i) === 0){
 			if(!Ext.isNumber(opacity)){
 				opacity = 1;

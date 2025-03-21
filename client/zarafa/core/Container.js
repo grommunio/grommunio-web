@@ -346,7 +346,7 @@ Zarafa.core.Container = Ext.extend(Ext.util.Observable, {
 	},
 
 	/**
-	 * Resturns the applications main toolbar
+	 * Returns the applications main toolbar
 	 * @return {Zarafa.core.ui.MainToolbar} then application main tool bar
 	 */
 	getMainToolbar: function()

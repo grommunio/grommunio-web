@@ -5,7 +5,7 @@ Ext.namespace('Zarafa.hierarchy.data');
  * @extends Ext.tree.TreeLoader
  *
  * A Special treeloader to be used by the {@link Zarafa.hierarchy.ui.HierarchyTreePanel HierarchyTree}.
- * This wil dynamically load the child nodes for a given node by obtaining the subfolders of
+ * This will dynamically load the child nodes for a given node by obtaining the subfolders of
  * the folder related to the given node.
  */
 Zarafa.hierarchy.data.HierarchyTreeLoader = Ext.extend(Ext.tree.TreeLoader, {
@@ -55,7 +55,7 @@ Zarafa.hierarchy.data.HierarchyTreeLoader = Ext.extend(Ext.tree.TreeLoader, {
 
 	/**
 	 * This will be used in {@link #directFn} to determine whether to set defer or not when expanding a node.
-	 * For normal expansion its set to true to avoid browser crash while loding larger hierarchy.
+	 * For normal expansion its set to true to avoid browser crash while loading larger hierarchy.
 	 * It will be set to false in function {@link #onHierarchyAddFolder} to add nested folders in proper order.
 	 */
 	deferExpandNode: true,
@@ -127,7 +127,7 @@ Zarafa.hierarchy.data.HierarchyTreeLoader = Ext.extend(Ext.tree.TreeLoader, {
 	},
 
 	/**
-	 * Bind a store to this loader. This will intialize all required event handlers.
+	 * Bind a store to this loader. This will initialize all required event handlers.
 	 * @param {Zarafa.core.data.HierarchyStore} store The store to bind
 	 * @param {Boolean} init True when this is called during initialization.
 	 * @private
@@ -160,7 +160,7 @@ Zarafa.hierarchy.data.HierarchyTreeLoader = Ext.extend(Ext.tree.TreeLoader, {
 	},
 
 	/**
-	 * Event handler for the {@link Zarafa.hierarcy.data.HierarchyStore#load load} event.
+	 * Event handler for the {@link Zarafa.hierarchy.data.HierarchyStore#load load} event.
 	 * This will add the loaded records into the tree as Store nodes.
 	 * @param {Ext.data.Store} store The store which fired the event
 	 * @param {Ext.data.Record[]} records The records which were loaded into the store

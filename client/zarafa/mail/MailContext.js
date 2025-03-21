@@ -461,7 +461,7 @@ Zarafa.mail.MailContext = Ext.extend(Zarafa.core.Context, {
 			update: function(record, resetContent) {
 				this.record = record;
 				if (resetContent) {
-					// Smal workaround, update is called from the btn scope,
+					// Small workaround, update is called from the btn scope,
 					// but the handler from the Context scope. So access
 					// isSendEmailButtonVisible from the scope.
 					if (!this.scope.isSendEmailButtonVisible(record)) {

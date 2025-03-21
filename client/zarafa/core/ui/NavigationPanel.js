@@ -199,7 +199,7 @@ Zarafa.core.ui.NavigationPanel = Ext.extend(Zarafa.core.ui.MainViewSidebar, {
 	},
 
 	/**
-	 * Set all compontents that are related to the active Context to visible and hide the other
+	 * Set all components that are related to the active Context to visible and hide the other
 	 * ones. The {@link #centerPanel centerPanel} is always visible and contains a card layout. It
 	 * will switch to the tab that is related to the active Context as well. If no tab is related
 	 * than it will show the {@link #AllFoldersPanel AllFoldersPanel} by default.
@@ -280,7 +280,7 @@ Zarafa.core.ui.NavigationPanel = Ext.extend(Zarafa.core.ui.MainViewSidebar, {
 			if (isContextSwitched && !this.showFolderList) {
 				currentActiveSearchFilter.reset();
 			} else if (!isContextSwitched && Ext.isDefined(previousActiveSearchFilter)) {
-				// If "Show All" toggle occured then pass the previous filterSearchTextBox's value to the current filterSearchTextBox.
+				// If "Show All" toggle occurred then pass the previous filterSearchTextBox's value to the current filterSearchTextBox.
 				var currSearchValue = currentActiveSearchFilter.getValue();
 				var prevSearchValue = previousActiveSearchFilter.getValue();
 				

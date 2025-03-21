@@ -132,7 +132,7 @@ Zarafa.settings.ui.SettingsFilePreviewerWidget = Ext.extend(Zarafa.settings.ui.S
 	update: function (settingsModel)
 	{
 		this.model = settingsModel;
-		// Check if filepreviewer plugin's setings are available then apply them on UI.
+		// Check if filepreviewer plugin's settings are available then apply them on UI.
 		var pluginSetting = settingsModel.get('zarafa/v1/plugins/filepreviewer/enable');
 		this.pluginSettingsApplied = Ext.isDefined(pluginSetting);
 

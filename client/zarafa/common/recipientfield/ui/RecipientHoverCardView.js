@@ -228,7 +228,7 @@ Zarafa.common.recipientfield.ui.RecipientHoverCardView = Ext.extend(Ext.Window, 
 	},
 
 	/**
-	 * Event handler handel mouse leave event it will hide recipient card view
+	 * Event handler handle mouse leave event it will hide recipient card view
 	 */
 	onMouseLeave: function ()
 	{
@@ -247,7 +247,7 @@ Zarafa.common.recipientfield.ui.RecipientHoverCardView = Ext.extend(Ext.Window, 
 	},
 
 	/**
-	 * Event handler handel mouse enter event it will update {@link #hasFocus}.
+	 * Event handler handle mouse enter event it will update {@link #hasFocus}.
 	 */
 	onMouseEnter: function ()
 	{

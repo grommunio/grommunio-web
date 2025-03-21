@@ -55,7 +55,7 @@ Zarafa.common.ui.grid.ColumnModel = Ext.extend(Ext.grid.ColumnModel, {
 	{
 		// Make a fresh copy of the configuration array. The 'beforeconfigchange' allows for
 		// modifications on the argument we pass it. So we need a copy to prevent the default
-		// values to be overridden accidently.
+		// values to be overridden accidentally.
 		var newConfig = [];
 		for (var i = 0, len = config.length; i < len; i++) {
 			newConfig.push(Ext.apply({}, config[i]));

@@ -37,7 +37,7 @@ Zarafa.core.data.MessageRecordFields = [
 Zarafa.core.data.MessageRecord = Ext.extend(Zarafa.core.data.IPMRecord, {
 	/**
 	 * Flag will be used to indicate {@link Zarafa.core.data.MessageRecord MessageRecord} contains external content
-	 * in the body property or not. Flag is used here because everytime we load the same mail then we don't have to
+	 * in the body property or not. Flag is used here because every time we load the same mail then we don't have to
 	 * run through {@link Zarafa.core.HTMLParser HTMLParser} to find out if it contains external content or not
 	 * as checking whole body consumes lots of resources so we check only once and store the value for further uses.
 	 * @property
@@ -117,7 +117,7 @@ Zarafa.core.data.MessageRecord = Ext.extend(Zarafa.core.data.IPMRecord, {
 				// If the paragraph has a negative text-indent, we replace it by a positive text-indent.
 				// If there is no negative text-indent, we set it to 0.
 				// We exclude items that have 'margin-left' and negative text-indent,
-				// as those items are indentified with multi-indent items
+				// as those items are identified with multi-indent items
 				// and we can still use that CSS.
 				// Ref KW-3437
 				if (Ext.isEmpty(p.getStyle('margin-left'))) {
@@ -340,7 +340,7 @@ Zarafa.core.data.MessageRecord = Ext.extend(Zarafa.core.data.IPMRecord, {
 		var days = 25569;
 
 		// convert message_delivery_time property to number of days from 1st jan 1970
-		// 86400 = no of seconds in a day, 1000 is used to convert timestamp from miliseconds to seconds
+		// 86400 = no of seconds in a day, 1000 is used to convert timestamp from milliseconds to seconds
 		days += (this.get('message_delivery_time').getTime() / (86400 * 1000));
 
 		var result = ((days - Math.floor(days)) * 100000000) + 3;
@@ -353,7 +353,7 @@ Zarafa.core.data.MessageRecord = Ext.extend(Zarafa.core.data.IPMRecord, {
 	 * Function is used to check if the sender and receiver in the message is same or different
 	 * first it checks for entryids of sender and receiver and if no entryids are present then it checks
 	 * on smtp/email address of sender and receiver.
-	 * @FIXME when sentItems folder is selected, propertes 'received_by_entryid' and 'received_by_email_address' are not set.
+	 * @FIXME when sentItems folder is selected, properties 'received_by_entryid' and 'received_by_email_address' are not set.
 	 * @return {Boolean} true if sender and receiver is same user else false.
 	 */
 	senderIsReceiver: function()

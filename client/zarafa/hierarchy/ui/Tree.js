@@ -144,7 +144,7 @@ Zarafa.hierarchy.ui.Tree = Ext.extend(Ext.tree.TreePanel, {
 			this.treeSorter = new Zarafa.hierarchy.ui.TreeSorter(this, Ext.apply({}, this.treeSorter));
 		}
 
-		// filter tree on search querry.
+		// filter tree on search query.
 		if (this.treeFilter && !(this.treeFilter instanceof Ext.tree.TreeFilter)) {
 			this.treeFilter = new Zarafa.hierarchy.ui.HierarchyTreeFilter(this, {autoClear: true});
 		}
@@ -152,12 +152,12 @@ Zarafa.hierarchy.ui.Tree = Ext.extend(Ext.tree.TreePanel, {
 
 	/**
 	 * Function will initialize {@link Zarafa.hierarchy.ui.Tree Tree} and creates a
-	 * {@link Zarafa.common.ui.LoadMask} if {@link Zarafa.hierarchy.ui.Tree Tree} is intantiated as full tree.
+	 * {@link Zarafa.common.ui.LoadMask} if {@link Zarafa.hierarchy.ui.Tree Tree} is instantiated as full tree.
 	 * @protected
 	 */
 	initComponent: function()
 	{
-		// Intialize the loader
+		// Initialize the loader
 		if (!this.loader) {
 			this.loader = new Zarafa.hierarchy.data.HierarchyTreeLoader({
 				tree: this,
@@ -202,7 +202,7 @@ Zarafa.hierarchy.ui.Tree = Ext.extend(Ext.tree.TreePanel, {
 
 		if (ct) {
 			// When autoScroll is enabled, the 'body' of the component will
-			// have the the actuall scrollbar attached to it.
+			// have the the actual scrollbar attached to it.
 			this.registerScrollContainer(ct.body || ct.el);
 		}
 	},
@@ -298,7 +298,7 @@ Zarafa.hierarchy.ui.Tree = Ext.extend(Ext.tree.TreePanel, {
 	{
 		var hide = false;
 
-		// Chek if folder does not belong to public store or the given store then hide it.
+		// Check if folder does not belong to public store or the given store then hide it.
 		if (Ext.isDefined(this.IPMSubTreeFilter)) {
 			var mapiStore = this.store.getById(this.IPMSubTreeFilter);
 			if (mapiStore) {
@@ -439,7 +439,7 @@ Zarafa.hierarchy.ui.Tree = Ext.extend(Ext.tree.TreePanel, {
 	 * we append "favorites-" keyword with folder entryid to uniquely identify and get the favorites marked folder node.
 	 *
 	 * @param {Zarafa.hierarchy.data.MAPIFolderRecord | Zarafa.common.favorites.data.FavoritesFolderRecord} folder the folder
-	 * can be favorites folder or any noramal folder.
+	 * can be favorites folder or any normal folder.
 	 * @returns {Zarafa.hierarchy.ui.FolderNode} folder node object
 	 */
 	getTreeNode: function (folder)

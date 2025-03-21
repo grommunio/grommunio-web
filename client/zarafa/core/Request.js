@@ -148,7 +148,7 @@ Zarafa.core.Request = Ext.extend(Ext.util.Observable, (function() {
 		 * @cfg {String} subSystemPrefix string that will be used to generate session filename which
 		 * will be used to store session data in php. current timestamp will be appended to this string
 		 * so different tabs opened in same browser will have different session data. So every request object
-		 * corresponds to one unique subSystem string id (accuracy upto miliseconds).
+		 * corresponds to one unique subSystem string id (accuracy upto milliseconds).
 		 */
 		subSystemPrefix: 'webapp',
 
@@ -823,7 +823,7 @@ Zarafa.core.Request = Ext.extend(Ext.util.Observable, (function() {
 
 		/**
 		 * Adds a single request to the Request object. Opposed to {@link #addRequest} this will be raw data.
-		 * The paramenters object will be placed to the action tag.
+		 * The parameters object will be placed to the action tag.
 		 * The callbacks are used when the responds for this specific request has returned.
 		 * @param {String} moduleName name of the module to communicate with (i.e. 'addressbooklistmodule')
 		 * @param {String} actionType action to perform (i.e. 'list' or 'globaladdressbook')
@@ -838,7 +838,7 @@ Zarafa.core.Request = Ext.extend(Ext.util.Observable, (function() {
 				throw 'Request object not initialised. Call reset() first';
 			}
 			if (hasJson) {
-				throw 'Request object intitialized with JSON data';
+				throw 'Request object initialized with JSON data';
 			}
 			if (hasData) {
 				throw 'Request object already contains RAW data';

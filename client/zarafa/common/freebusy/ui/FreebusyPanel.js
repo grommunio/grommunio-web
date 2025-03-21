@@ -395,7 +395,7 @@ Zarafa.common.freebusy.ui.FreebusyPanel = Ext.extend(Ext.Panel, {
 	},
 
 	/**
-	 * Used to syncronize the scrolling height of the timeline view with the user list
+	 * Used to synchronize the scrolling height of the timeline view with the user list
 	 * @param {Object} scrollPos Scroll position
 	 * @private
 	 */

@@ -181,7 +181,7 @@ Zarafa.core.Actions =
 	modifyFolder: 'modify',
 
 	/**
-	 * Used for deleteing folder from tree
+	 * Used for deleting folder from tree
 	 * @property
 	 * @type String
 	 */

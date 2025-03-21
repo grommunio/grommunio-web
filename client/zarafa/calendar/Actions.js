@@ -290,7 +290,7 @@ Zarafa.calendar.Actions = {
 			 * 3) sent_representing_entryid, if it is in sent items, then delegator's id,
 			 *    where delegator is organizer
 			 * 4) sender_entryid, if it is in sent items, then organizer's id
-			 * and then open correpondent user's store.
+			 * and then open correspondent user's store.
 			 */
 			var ownerEntryId = record.get('received_representing_entryid') || record.get('received_by_entryid') || record.get('sent_representing_entryid') || record.get('sender_entryid');
 			mapiStoreRecord = container.getHierarchyStore().getStoreByOwnerEntryId(ownerEntryId);
@@ -376,7 +376,7 @@ Zarafa.calendar.Actions = {
 	 * {@link Zarafa.calendar.AppointmentRecord.convertToOccurenceRecord OccurenceRecord}. Also it will open
 	 * the record if it is not.
 	 *
-	 * @param {Zarafa.core.data.IPMRecord} record A selected calender item in calender view.
+	 * @param {Zarafa.core.data.IPMRecord} record A selected calendar item in calendar view.
 	 * @param {Object} config Configuration object which contains {@link Ext.Component component}
 	 * on which key event is fired and scope of the {@link Zarafa.calendar.KeyMapping KeyMapping} object.
 	 */

@@ -21,7 +21,7 @@ Zarafa.plugins.mdm.ui.MDMHierarchyTreePanel = Ext.extend(Zarafa.hierarchy.ui.Tre
 
 	/**
 	 * Function will initialize {@link Zarafa.hierarchy.ui.Tree Tree} and creates a
-	 * {@link Zarafa.common.ui.LoadMask} if {@link Zarafa.hierarchy.ui.Tree Tree} is intantiated as full tree.
+	 * {@link Zarafa.common.ui.LoadMask} if {@link Zarafa.hierarchy.ui.Tree Tree} is instantiated as full tree.
 	 * @protected
 	 */
 	initComponent : function()

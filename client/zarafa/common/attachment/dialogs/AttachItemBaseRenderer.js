@@ -32,7 +32,7 @@ Zarafa.common.attachment.dialogs.AttachItemBaseRenderer = Ext.extend(Object, {
 	plainTemplate: undefined,
 
 	/**
-	 * Constructor will intialize default properties
+	 * Constructor will initialize default properties
 	 * @param {Object} config configuration object
 	 */
 	constructor: function(config)

@@ -197,7 +197,7 @@ Zarafa.settings.ui.SettingsCategory = Ext.extend(Ext.Container, {
 
 	/**
 	 * Hide the {@link Zarafa.core.ui.notifier.Notifier Notification} from {@link #displaySavingMask}
-	 * and optionally show a new Notification indicatin that the settings were saved successfully.
+	 * and optionally show a new Notification indicating that the settings were saved successfully.
 	 * This uses the {@link #savingElCounter} counter to determine if this was the last Saving method
 	 * in order to update the notifications.
 	 * @param {Boolean} success True if a notification should be shown that the settings were saved.

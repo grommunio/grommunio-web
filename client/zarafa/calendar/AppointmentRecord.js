@@ -169,7 +169,7 @@ Zarafa.calendar.AppointmentRecord = Ext.extend(Zarafa.core.data.MessageRecord, {
 
 	/**
 	 * Function will get the recurrence information from (@link Zarafa.core.data.IPMRecord IPMRecord) and
-	 * will generate the recurring pattern string that can be saved in recurring_pattern proeprty of {@link Zarafa.core.data.IPMRecord IPMRecord}.
+	 * will generate the recurring pattern string that can be saved in recurring_pattern property of {@link Zarafa.core.data.IPMRecord IPMRecord}.
 	 * @return {String} Recurring pattern string that can be saved in {@link Zarafa.core.data.IPMRecord IPMRecord}.
 	 */
 	generateRecurringPattern: function()
@@ -399,7 +399,7 @@ Zarafa.calendar.AppointmentRecord = Ext.extend(Zarafa.core.data.MessageRecord, {
 	},
 
 	/**
-	 * Genereates body for propose new time MR mail.
+	 * Generates body for propose new time MR mail.
 	 *
 	 * @param {String} comment user's extra comments in propose new time dialog
 	 * @param {Date} startDate Proposed start time for the meeting
@@ -581,12 +581,12 @@ Zarafa.calendar.AppointmentRecord = Ext.extend(Zarafa.core.data.MessageRecord, {
 	 */
 	hasRecurringExceptions: function()
 	{
-		// The appointment is not open, we don't know if there is an exeption or not
+		// The appointment is not open, we don't know if there is an exception or not
 		if (!this.isOpened()) {
 			return undefined;
 		}
 
-		// If the apointment is not recurring, or this is an occurrence, there are no exceptions.
+		// If the appointment is not recurring, or this is an occurrence, there are no exceptions.
 		if (!this.isRecurring()) {
 			return false;
 		}
@@ -613,7 +613,7 @@ Zarafa.calendar.AppointmentRecord = Ext.extend(Zarafa.core.data.MessageRecord, {
 	{
 		if (this.isRecurring()) {
 			// Recurring appointments can be opened as series or as occurrence.
-			// When openening as a series, we actually have all the data for a single
+			// When opening as a series, we actually have all the data for a single
 			// occurrence (the one the user selected from the UI), which we are overriding
 			// with the data about the series. However, the occurrence and series have
 			// slight differences. The series doesn't have a basedate, and the startdate

@@ -208,7 +208,7 @@ Zarafa.advancesearch.dialogs.SearchToolBoxPanel = Ext.extend(Ext.Panel, {
 	 * Creates the message type fieldset for search tool box of form panel.
 	 *
 	 * @param {Object} messageType setting object which used to pre-select the check box when
-	 * user tring to open saved search folder.
+	 * user trying to open saved search folder.
 	 *
 	 * @return {Object} config object for creating {@link Ext.form.FieldSet FieldSet}.
 	 * @private
@@ -260,7 +260,7 @@ Zarafa.advancesearch.dialogs.SearchToolBoxPanel = Ext.extend(Ext.Panel, {
 	 * Creates the filter fieldset for search tool box of form panel.
 	 *
 	 * @param {Object} filterSetting setting object which used to pre-select the check box when
-	 * user tring to open saved search folder.
+	 * user trying to open saved search folder.
 	 *
 	 * @return {Object} config object for creating {@link Ext.form.FieldSet FieldSet}.
 	 * @private
@@ -420,7 +420,7 @@ Zarafa.advancesearch.dialogs.SearchToolBoxPanel = Ext.extend(Ext.Panel, {
 	 * which fields search has to look in.
 	 *
 	 * @param {Object} searchInCheckBoxSetting setting object which used to pre-select the check box when
-	 * user tring to open saved search folder.
+	 * user trying to open saved search folder.
 	 *
 	 * @return {Object} config object for creating {@link Ext.form.FieldSet FieldSet}.
 	 * @private
@@ -1082,7 +1082,7 @@ Zarafa.advancesearch.dialogs.SearchToolBoxPanel = Ext.extend(Ext.Panel, {
 		}, this);
 
 		/**
-		 * If date informations are present in search criteria then create search restriction
+		 * If date-information is present in search criteria then create search restriction
 		 * something like this.
 		 * AND
 		 * 		AND

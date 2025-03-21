@@ -504,7 +504,7 @@ Zarafa.contact.ContactContext = Ext.extend(Zarafa.core.Context, {
 	 */
 	createNewDistributionListButton: function(context)
 	{
-		//create new Distribution list buttton, as we don't want support create Distribution list function in Milestone 6 launch
+		//create new Distribution list button, as we don't want support create Distribution list function in Milestone 6 launch
 		return {
 			xtype: 'menuitem',
 			id: 'zarafa-maintoolbar-newitem-distlist',

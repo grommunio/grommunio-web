@@ -281,7 +281,7 @@ Zarafa.common.ui.messagepanel.SentInfoLinks = Ext.extend(Ext.Container, {
 	},
 
 	/**
-	 * Event handler which handel mouse enter event.
+	 * Event handler which handle mouse enter event.
 	 * It will show {@link Zarafa.common.recipientfield.ui.RecipientHoverCardView}
 	 * after 700 ms.
 	 * @param {Ext.EventObject} e The mouse event

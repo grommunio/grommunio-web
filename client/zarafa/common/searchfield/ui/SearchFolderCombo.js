@@ -205,8 +205,8 @@ Zarafa.common.searchfield.ui.SearchFolderCombo = Ext.extend(Ext.form.ComboBox, {
 
 	/**
 	 * Event handler triggered when {@link Zarafa.calendar.ui.CalendarMultiView CalendarMultiView}
-	 * was activated and user select the calendar by using clicking on tab of calender.
-	 * it was used to set the selected calender folder as current folder in search folder combo box.
+	 * was activated and user select the calendar by using clicking on tab of calendar.
+	 * it was used to set the selected calendar folder as current folder in search folder combo box.
 	 *
 	 * @param {Zarafa.hierarchy.data.MAPIFolderRecord} folder which will be current folder in search folder combo box.
 	 */

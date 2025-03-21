@@ -22,7 +22,7 @@ Zarafa.task.widgets.TasksWidget = Ext.extend(Zarafa.core.ui.widget.AbstractFolde
 		// sort by duedate
 		store.setDefaultSort('duedate', 'asc');
 
-		// Create a restriction, we only want uncomplete tasks, so tasks which
+		// Create a restriction, we only want incomplete tasks, so tasks which
 		// do not have the status flag set to Zarafa.core.mapi.TaskStatus.COMPLETE or
 		// Zarafa.core.mapi.FlagStatus.completed
 		store.setRestriction({

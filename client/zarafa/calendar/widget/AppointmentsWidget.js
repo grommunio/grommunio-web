@@ -10,7 +10,7 @@ Ext.namespace('Zarafa.calendar.widget');
  *
  * Reload time is configurable per instance of the
  * widget (keys: 'reloadinterval', default 5 minutes).  These values are in
- * saved in miliseconds but displayed in seconds. The reload
+ * saved in milliseconds but displayed in seconds. The reload
  * interval is how often the calendar is fully reloaded from the
  * server, to show records that were added to the folder
  * outside of grommunio Web.

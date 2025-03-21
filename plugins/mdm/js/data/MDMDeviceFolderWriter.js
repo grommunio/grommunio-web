@@ -14,7 +14,7 @@ Zarafa.plugins.mdm.data.MDMDeviceFolderWriter = Ext.extend(Zarafa.core.data.Json
 	 *
 	 * Convert sharedFolder into a hash. {@link Zarafa.plugins.mdm.data.MDMDeviceFolderRecord folder} exists
 	 * within a {@link Zarafa.plugins.mdm.data.MDMDeviceRecord IPMRecord} and thus must be serialized
-	 * seperately into the hash object.
+	 * separately into the hash object.
 	 *
 	 * @param {Ext.data.Record} record The record to hash
 	 * @return {Object} The hashed object

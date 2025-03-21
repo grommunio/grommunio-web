@@ -287,7 +287,7 @@ Zarafa.common.recurrence.dialogs.DailyPanel = Ext.extend(Zarafa.common.recurrenc
 			record.set('recurrence_everyn', this.regenNDaysSpinner.getValue() * (24 * 60));
 		}
 
-		// Unset all unsused properties for this recurrence type.
+		// Unset all unused properties for this recurrence type.
 		record.set('recurrence_weekdays', undefined);
 		record.set('recurrence_month', undefined);
 		record.set('recurrence_monthday', undefined);

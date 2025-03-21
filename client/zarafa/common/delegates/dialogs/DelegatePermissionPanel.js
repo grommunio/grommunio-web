@@ -79,7 +79,7 @@ Zarafa.common.delegates.dialogs.DelegatePermissionPanel = Ext.extend(Ext.form.Fo
 
 	/**
 	 * Generic function to create check box for delegate meeting rules check box.
-	 * @return {Obect} config object to create {@link Ext.form.CheckBox CheckBox}.
+	 * @return {Object} config object to create {@link Ext.form.CheckBox CheckBox}.
 	 */
 	createDelegateMeetingRuleCheck: function()
 	{

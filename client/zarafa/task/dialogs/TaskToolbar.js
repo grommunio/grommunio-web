@@ -232,7 +232,7 @@ Zarafa.task.dialogs.TaskToolbar = Ext.extend(Zarafa.core.ui.ContentPanelToolbar,
 	/**
 	 * Event handler when the "Save" button has been pressed.
 	 * This will {@link Zarafa.core.data.RecordContentPanel#saveRecord save} the given record.
-	 * it also checks whether the meesage is a meeting, and iff to will send the changes to attendees aswell
+	 * it also checks whether the message is a meeting, and if to send the changes to attendees as well
 	 * @param {Ext.Button} button The button which has been pressed
 	 * @private
 	 */
@@ -284,7 +284,7 @@ Zarafa.task.dialogs.TaskToolbar = Ext.extend(Zarafa.core.ui.ContentPanelToolbar,
 
 	/**
 	 * Event handler which is called when the "Assign Task" button has
-	 * been pressed. This will update the "Assiging" state of the record which
+	 * been pressed. This will update the "Assigning" state of the record which
 	 * will trigger the update of all UI components.
 	 * @param {Ext.Button} button The button which has been pressed
 	 * @private

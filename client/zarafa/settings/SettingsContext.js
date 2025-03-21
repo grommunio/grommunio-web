@@ -281,7 +281,7 @@ Zarafa.settings.SettingsContext = Ext.extend(Zarafa.core.Context, {
 	 * {@link Zarafa.settings.ui.SettingsCategoryTab tabs} for the
 	 * {@link Zarafa.settings.ui.SettingsGeneralCategory General},
 	 * {@link Zarafa.settings.ui.SettingsPluginsCategory Plugins},
-	 * {@link Zarafa.settings.ui.SettingsAdvancedCategory Advanced setings} and
+	 * {@link Zarafa.settings.ui.SettingsAdvancedCategory Advanced settings} and
 	 * {@link Zarafa.settings.ui.SettingsCopyrightCategory Copyright notice}
 	 * in the {@link Zarafa.settings.ui.SettingsCategoryWidgetPanel Widget Panel}.
 	 * @return {Array} configuration object for the categories to register
@@ -390,7 +390,7 @@ Zarafa.settings.SettingsContext = Ext.extend(Zarafa.core.Context, {
 	/**
 	 * Event handler for the {@link Zarafa.core.Container.contextswitch contextswitch}
 	 * event of the {@link Zarafa.core.Container Container} Will collapse the
-	 * {@link Zarafa.core.ui.NavigationPanel NavigationPanel} when we swithch
+	 * {@link Zarafa.core.ui.NavigationPanel NavigationPanel} when we switch
 	 * to the SettingContext.
 	 * @param {Zarafa.hierarchy.data.MAPIFolderRecord} folder folder that is loaded for the new context
 	 * @param {Zarafa.core.Context} oldContext context that was switched out

@@ -130,7 +130,7 @@ Zarafa.calendar.KeyMapping = Ext.extend(Object, {
 
 	/**
 	 * Event handler for the keydown event of the {@link Zarafa.core.KeyMap KeyMap} when the user wants to
-	 * copy selected appointment/meeting in calender.
+	 * copy selected appointment/meeting in calendar.
 	 *
 	 * @param {Number} key Key code
 	 * @param {Ext.EventObject} event The event
@@ -146,10 +146,10 @@ Zarafa.calendar.KeyMapping = Ext.extend(Object, {
 	},
 
 	/**
-	 * Function which is used to open the selected calender item.
+	 * Function which is used to open the selected calendar item.
 	 *
 	 * @param {Ext.Component} component The component on which key event is fired.
-	 * @param {Zarafa.core.data.IPMRecord} record A selected calender item in calender view.
+	 * @param {Zarafa.core.data.IPMRecord} record A selected calendar item in calendar view.
 	 * @private
 	 */
 	openRecord: function (component, record)
@@ -170,7 +170,7 @@ Zarafa.calendar.KeyMapping = Ext.extend(Object, {
 
 	/**
 	 * Event handler for the keydown event of the {@link Zarafa.core.KeyMap KeyMap} when the user wants to
-	 * paste the copied appointment/meeting in calender.
+	 * paste the copied appointment/meeting in calendar.
 	 *
 	 * @param {Number} key Key code
 	 * @param {Ext.EventObject} event The event

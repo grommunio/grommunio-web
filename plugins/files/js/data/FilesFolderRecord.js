@@ -148,7 +148,7 @@ Zarafa.plugins.files.data.FilesFolderRecord = Ext.extend(Zarafa.core.data.IPFRec
 				this.cacheParentFolder = this.getFilesFolderStore().getById(path);
 			}
 
-			// Guarentee that the parent folder knows it has children...
+			// Guarantee that the parent folder knows it has children...
 			// Don't use record::set() as we don't want to trigger updates.
 			if (this.cacheParentFolder && this.get('object_type') === Zarafa.plugins.files.data.FileTypes.FOLDER) {
 				this.cacheParentFolder.data.has_subfolder = this.get("object_type") === Zarafa.plugins.files.data.FileTypes.FOLDER;

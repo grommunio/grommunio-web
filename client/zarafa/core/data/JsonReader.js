@@ -35,7 +35,7 @@ Zarafa.core.data.JsonReader = Ext.extend(Ext.data.JsonReader, {
 	 * @param {Object} meta Metadata configuration options.
 	 * @param {Object} recordType (optional) Optional Record type matches the type
 	 * which must be read from response. If no type is given, {@link Zarafa.core.data.JsonReader}
-	 * will dynamicly detect the record type based on the response.
+	 * will dynamically detect the record type based on the response.
 	 */
 	constructor: function(meta, recordType)
 	{

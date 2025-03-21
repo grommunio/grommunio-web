@@ -194,7 +194,7 @@ Zarafa.common.ui.grid.MapiMessageGrid = Ext.extend(Zarafa.common.ui.grid.GridPan
 		this.labelPaddingLeftRight = this.labelPaddingLeftRight || parseFloat(window.getComputedStyle(labels[0]).paddingLeft) + parseFloat(window.getComputedStyle(labels[0]).paddingRight);
 
 		// Calculate what the label width would be if we would divide the column width by the number of labels
-		// (taking into acount the right-margin of a label)
+		// (taking into account the right-margin of a label)
 		var labelWidth = (colWidth + this.labelMarginRight)/labelCount - this.labelMarginRight - this.labelPaddingLeftRight;
 
 		// Some labels are smaller than the calculated label width, so we will divide the space that

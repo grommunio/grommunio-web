@@ -43,7 +43,7 @@ Ext.apply(Zarafa, {
 	/**
 	 * Registration object for {@link #onReady} onto which all event
 	 * handlers are being registered which want to be notified when
-	 * grommunio Web has been intialized and ready for plugin interaction.
+	 * grommunio Web has been initialized and ready for plugin interaction.
 	 *
 	 * @property
 	 * @type Ext.util.Event
@@ -147,7 +147,7 @@ Ext.apply(Zarafa, {
 	},
 
 	/**
-	 * Called when grommunio Web's UI has been loaded and the hiearchy is loaded.
+	 * Called when grommunio Web's UI has been loaded and the hierarchy is loaded.
 	 * All handlers registered through {@link #onUIReady} will now be fired and {@link #uiReady}
 	 * will be set.
 	 *
@@ -505,7 +505,7 @@ Ext.apply(Zarafa, {
 			reference: this.connEl,
 			listeners: {
 				// If the user clicks on the notification,
-				// immediately retry to connecto to the server.
+				// immediately retry to connect to to the server.
 				click: service.retry,
 				scope: service
 			}
@@ -580,7 +580,7 @@ Ext.apply(Zarafa, {
 	 * with the PHP server failed and the user should login again.
 	 *
 	 * @param {Object} requestdata The request data which was send to the server.
-	 * @param {Object} xmlHttpRequest The raw browser response objec
+	 * @param {Object} xmlHttpRequest The raw browser response object
 	 * @private
 	 */
 	onReceiveException: function(requestdata, xmlHttpRequest)
@@ -889,7 +889,7 @@ Ext.apply(Zarafa, {
 	 * the useCapture property with ExtJS events.
 	 * See https://developer.mozilla.org/en/docs/Web/API/EventTarget.addEventListener
 	 *
-	 * @param {Number} clientTimeout The timout time in seconds.
+	 * @param {Number} clientTimeout The timeout time in seconds.
 	 * @private
 	 */
 	startIdleTimeChecker: function(clientTimeout)

@@ -86,7 +86,7 @@ Zarafa.hierarchy.KeyMapping = Ext.extend(Object, {
 	},
 
 	/**
-	 * Helper function used to identify that folder is not specical/default folder which we can't rename folder.
+	 * Helper function used to identify that folder is not special/default folder which we can't rename folder.
 	 * 
 	 * @param {Zarafa.hierarchy.data.MAPIFolderRecord} folder The folder which is currently selected in hieararchy.
 	 * @returns {Boolean} return true if folder is not allow to change the name else false.

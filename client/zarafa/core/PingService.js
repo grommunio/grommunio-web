@@ -99,7 +99,7 @@ Zarafa.core.PingService = Ext.extend(Ext.util.Observable, {
 			/**
 			 * @event stop
 			 * Fired during {@link #stop} to indicate that the Ping Service will stop
-			 * polling the server for link connectivity. This doen't imply that the
+			 * polling the server for link connectivity. This doesn't imply that the
 			 * Service has been stopped before or after a successful response was returned.
 			 * @param {Zarafa.core.PingService} service This object
 			 */

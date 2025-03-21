@@ -153,7 +153,7 @@ Zarafa.common.recurrence.dialogs.RecurrenceSubPanel = Ext.extend(Ext.Panel, {
 		// the correct values for the UI components belonging to the subtype, and default
 		// values for all other components.
 		//
-		// Only do this during intializing as the user will probably be switching around
+		// Only do this during initializing as the user will probably be switching around
 		// types and subtypes a couple of times.
 		if (contentReset) {
 			var subTypeRadios = this.findByType('radio');

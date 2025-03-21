@@ -373,7 +373,7 @@ Zarafa.core.data.IPMRecipientRecord = Ext.extend(Ext.data.Record, {
 	},
 
 	/**
-	 * Convinience method to get {@link Zarafa.core.mapi.DisplayType} or {@link Zarafa.core.mapi.DisplayTypeEx}
+	 * Convenience method to get {@link Zarafa.core.mapi.DisplayType} or {@link Zarafa.core.mapi.DisplayTypeEx}
 	 * property value from {@link Zarafa.core.data.IPMRecipientRecord}.
 	 *
 	 * @return {Zarafa.core.mapi.DisplayType|Zarafa.core.mapi.DisplayTypeEx} The display type value.

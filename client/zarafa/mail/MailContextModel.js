@@ -32,7 +32,7 @@ Zarafa.mail.MailContextModel = Ext.extend(Zarafa.core.ContextModel, {
 	prefetchedTotal: 0,
 
 	/**
-	 * The id of the background load deffered task, used to clear the timer.
+	 * The id of the background load deferred task, used to clear the timer.
 	 * @property
 	 * @type Number
 	 * @private
@@ -182,7 +182,7 @@ Zarafa.mail.MailContextModel = Ext.extend(Zarafa.core.ContextModel, {
 	},
 
 	/**
-	 * Fuction is used to set the soruce message action type.
+	 * Function is used to set the source message action type.
 	 * @param {Zarafa.core.data.IPMRecord} record The original {@link Zarafa.core.data.IPMRecord IPMRecord}.
 	 * @param {String} actionType The action type for the given {@link Zarafa.core.data.IPMRecord record}.
 	 * @param {Zarafa.core.data.IPMRecord} responseRecord The new {@link Zarafa.core.data.IPMRecord IPMRecord}.

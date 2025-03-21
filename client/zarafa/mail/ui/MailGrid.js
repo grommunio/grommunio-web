@@ -317,7 +317,7 @@ Zarafa.mail.ui.MailGrid = Ext.extend(Zarafa.common.ui.grid.MapiMessageGrid, {
 		var isSentFolderType = this.sentFolderTypes.indexOf(folderKey) >= 0;
 		// It will return true if selected folder is 'Drafts' folder else return false.
 		var isUnsentFolderType = this.unSentFolderTypes.indexOf(folderKey) >= 0;
-		// it will retur true if selected folder is other then 'Outbox', 'Sent', and 'Drafts' else return false.
+		// it will return true if selected folder is other then 'Outbox', 'Sent', and 'Drafts' else return false.
 		var isReceivedFolderType = (!isSentFolderType && !isUnsentFolderType);
 
 		for (var i = 0, len = config.length; i < len; i++) {

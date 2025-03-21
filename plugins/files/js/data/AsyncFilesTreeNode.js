@@ -1,6 +1,6 @@
 /**
  * @class Ext.tree.AsyncTreeNode
- * @overrrides Ext.tree.AsyncTreeNode
+ * @overrides Ext.tree.AsyncTreeNode
  *
  * This class overrides Ext.tree.AsyncTreeNode. It adds the functionality to silently load a node without expanding it.
  */

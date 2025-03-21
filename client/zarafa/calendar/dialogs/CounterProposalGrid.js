@@ -60,7 +60,7 @@ Zarafa.calendar.dialogs.CounterProposalGrid = Ext.extend(Ext.grid.GridPanel, {
 			sortable: true,
 			renderer: Zarafa.common.ui.grid.Renderers.text
 		}
-		//@TODO:this column should show wheather the proposed time is conflicting with any other organizer appointment
+		//@TODO:this column should show whether the proposed time is conflicting with any other organizer appointment
 		/*,{
 			dataIndex: 'conflict',
 			header: _('Attendees'),

@@ -337,7 +337,7 @@ Zarafa.core.ui.MessageContentPanel = Ext.extend(Zarafa.core.ui.RecordContentPane
 	 * This function is use to solve below problem.
 	 *
 	 * If we call {@link #sendRecord} straight away after {@link Zarafa.core.ui.RecordContentPanel #aftersaverecord} event then
-	 * {@link Ext.data.Store #write} event is triggerd on {@link Zarafa.core.data.ShadowStore ShadowStore} for this record,
+	 * {@link Ext.data.Store #write} event is triggered on {@link Zarafa.core.data.ShadowStore ShadowStore} for this record,
 	 * It will call {@link Zarafa.core.data.MAPIRecord.clearMessageActions clearMessageActions}(i.e. send=true),
 	 * so when we get response of send request there will be no reference of the send request in record.
 	 * So we will not be able to perform {@link #aftersendrecord} event functionalities like,

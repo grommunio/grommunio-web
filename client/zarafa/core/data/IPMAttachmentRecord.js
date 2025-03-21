@@ -240,7 +240,7 @@ Zarafa.core.data.IPMAttachmentRecord = Ext.extend(Ext.data.Record, {
 	},
 
 	/**
-	 * Returns attach_num proeprty of all the parents of this record.
+	 * Returns attach_num property of all the parents of this record.
 	 * @param {Zarafa.core.data.IPMRecord} parentRecord parent record that holds this attachment
 	 * @return {Array} attach_num of parent
 	 */

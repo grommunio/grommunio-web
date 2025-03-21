@@ -308,7 +308,7 @@ Zarafa.common.restoreitem.dialogs.RestoreItemPanel = Ext.extend(Zarafa.common.ui
 	},
 
 	/**
-	 * This will retore the selected record(s) which is passed as argument.
+	 * This will restore the selected record(s) which is passed as argument.
 	 * @param {Zarafa.common.restoreitem.data.RestoreItemRecord[]} records The records that should be restored
 	 * @param {boolean} bulkAction true to restore all items.
 	 * @private

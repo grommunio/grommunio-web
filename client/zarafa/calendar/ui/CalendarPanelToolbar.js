@@ -97,7 +97,7 @@ Zarafa.calendar.ui.CalendarPanelToolbar = Ext.extend(Zarafa.common.ui.ContextMai
 			// we have to set the width of tbtext field based on the different views of calendar
 			// because when we navigate the months or days in calendar, text length of month/days
 			// gets resize the tbtext and due to that copy/delete button gets hide, to overcome this
-			// problem we give the fixed width to tbtext as per the calender view
+			// problem we give the fixed width to tbtext as per the calendar view
 			switch(mode) {
 				case Zarafa.calendar.data.DataModes.WEEK:
 				case Zarafa.calendar.data.DataModes.WORKWEEK:

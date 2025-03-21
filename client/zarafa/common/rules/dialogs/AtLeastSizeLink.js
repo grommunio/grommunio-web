@@ -97,7 +97,7 @@ Zarafa.common.rules.dialogs.AtLeatSizeLink = Ext.extend(Zarafa.common.rules.dial
   },
 
   /**
-   * Handler for inout box and combo box value change. It will set component's isModified to true.
+   * Handler for input box and combo box value change. It will set component's isModified to true.
    */
   setModified: function()
   {
@@ -185,7 +185,7 @@ Zarafa.common.rules.dialogs.AtLeatSizeLink = Ext.extend(Zarafa.common.rules.dial
 
     sizeunit = this.atMostSizeLink ? record.get(atmostSizeProp) : record.get(atleastSizeProp);
 
-    // For the case where we have multiple atleast or atmost size condition,
+    // For the case where we have multiple at least or at most size condition,
     // if value already exists than concat that value with ";" and new value.
     if (sizeunit && !overwrite) {
       sizeunit = sizeunit +';'+ this.comboValue;
@@ -203,7 +203,7 @@ Zarafa.common.rules.dialogs.AtLeatSizeLink = Ext.extend(Zarafa.common.rules.dial
   /**
    * Function which will check if given input is safe to convert into Bytes size unit
    * from MB/KB size unit.
-   * @param {Number} imput the number in KB/MB/Bytes size unit which needs to be checked for compatibility.
+   * @param {Number} input the number in KB/MB/Bytes size unit which needs to be checked for compatibility.
    * @param {Zarafa.common.data.SizeUnits} sizeUnit string which should indicate size unit of an input.
    * @return {Boolean} true if input is valid to convert into Bytes else false.
    */

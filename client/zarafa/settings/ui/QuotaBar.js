@@ -78,7 +78,7 @@ Zarafa.settings.ui.QuotaBar = Ext.extend(Ext.BoxComponent, {
 
 				/*
 				 * Just add necessary quota information in quota variable,
-				 * and remove inapropriate info like softQuota > hardQuota.
+				 * and remove inappropriate info like softQuota > hardQuota.
 				 * There might be the case where if hardQuota is not set
 				 * then in that case add soft quota to information variable.
 				 */
@@ -156,7 +156,7 @@ Zarafa.settings.ui.QuotaBar = Ext.extend(Ext.BoxComponent, {
 					 * Update element according to which quota is started in quotabar.
 					 * This variable will maintain that which quota is till now displayed,
 					 * e.g. we have set soft quota and hard quota only, then first it will
-					 * draw noraml green block till soft-quota limit, then it will get
+					 * draw normal green block till soft-quota limit, then it will get
 					 * element of soft quota i.e. orange element, then it will draw ornage
 					 * element till hard-quota and now it reached hard quota so it will draw
 					 * red element.

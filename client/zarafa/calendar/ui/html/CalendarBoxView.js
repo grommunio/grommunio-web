@@ -18,7 +18,7 @@ Ext.namespace('Zarafa.calendar.ui.html');
  *  - Layer 2: The appointments
  *    This contains all the appointments which are available in the calendar. None of the appointments
  *    are allowed to overlap with another appointment (The time can obviously overlap, but
- *    the appointments are placed under each other until the maxium number of appointment that can be
+ *    the appointments are placed under each other until the maximum number of appointment that can be
  *    shown is reached. After that an "expand button" is rendered. Whenever a single appointment
  *    changes, we only have to rerender that single appointment (since it doesn't overlap with any other
  *    appointment, we can be sure that redrawing the appointment will not affect other appointments).

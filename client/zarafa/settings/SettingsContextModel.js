@@ -227,7 +227,7 @@ Zarafa.settings.SettingsContextModel = Ext.extend(Zarafa.core.ContextModel, {
 			}
 			this.realModel.endEdit();
 
-			// now we have syncronized changes from edit model to real model, its time to
+			// now we have synchronized changes from edit model to real model, its time to
 			// remove modifications from edit model
 			this.editModel.commit();
 

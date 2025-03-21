@@ -61,7 +61,7 @@ Zarafa.addressbook.AddressBookRecordFields = [
 Zarafa.core.data.RecordFactory.addFieldToObjectType(Zarafa.core.mapi.ObjectType.MAPI_MAILUSER, Zarafa.addressbook.AddressBookRecordFields);
 Zarafa.core.data.RecordFactory.addFieldToObjectType(Zarafa.core.mapi.ObjectType.MAPI_DISTLIST, Zarafa.addressbook.AddressBookRecordFields);
 
-// support substores for furthur AB user details
+// support substores for further AB user details
 Zarafa.core.data.RecordFactory.setSubStoreToObjectType(Zarafa.core.mapi.ObjectType.MAPI_MAILUSER, 'ems_ab_manager', Zarafa.addressbook.AddressBookSubStore);
 Zarafa.core.data.RecordFactory.setSubStoreToObjectType(Zarafa.core.mapi.ObjectType.MAPI_MAILUSER, 'ems_ab_proxy_addresses', Zarafa.addressbook.AddressBookEmailAddressesSubStore);
 Zarafa.core.data.RecordFactory.setSubStoreToObjectType(Zarafa.core.mapi.ObjectType.MAPI_MAILUSER, 'ems_ab_is_member_of_dl', Zarafa.addressbook.AddressBookSubStore);

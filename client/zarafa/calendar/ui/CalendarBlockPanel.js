@@ -102,7 +102,7 @@ Zarafa.calendar.ui.CalendarBlockPanel = Ext.extend(Ext.Panel, {
 
 	/**
 	 * Obtain a reference to the {@link Zarafa.calendar.ui.CalendarPanel CalendarPanel}
-	 * which renderering within this CalendarBlockPanel.
+	 * which rerenders within this CalendarBlockPanel.
 	 * @return {Zarafa.calendar.ui.CalendarPanel} The calendar panel.
 	 */
 	getCalendarPanel: function()

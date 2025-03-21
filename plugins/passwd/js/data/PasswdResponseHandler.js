@@ -36,7 +36,7 @@ Zarafa.plugins.passwd.data.PasswdResponseHandler = Ext.extend(Zarafa.core.data.A
 	},
 
 	/**
-	 * When password change is successfull server will send a success response including display message.
+	 * When password change is successful server will send a success response including display message.
 	 * @param {Object} response Object contained the response data.
 	 */
 	doSuccess : function(response)

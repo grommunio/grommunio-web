@@ -616,7 +616,7 @@ Zarafa.calendar.CalendarContext = Ext.extend(Zarafa.core.Context, {
 	 * {@link Zarafa.core.Context Context} is active. If no Context is supplied as an argument it
 	 * will get that from the {@link Zarafa.core.Container container}.
 	 * @param {Ext.Button} btn The button
-	 * @param {Zarafa.core.Context} activeContext (Optionial} The active Context
+	 * @param {Zarafa.core.Context} activeContext (Optional} The active Context
 	 * @private
 	 */
 	setVisiblityMainToolbarButton: function(btn, activeContext)

@@ -59,7 +59,7 @@ Zarafa.task.Actions = {
 			var newTaskRecord = record.convertToTask(model.getDefaultFolder());
 			Zarafa.core.data.UIFactory.openCreateRecord(newTaskRecord);
 		} else {
-			// If record is not openend, then we need to reopen it to get the body. (For example when the selected records store reloads)
+			// If record is not opened, then we need to reopen it to get the body. (For example when the selected records store reloads)
 			record.getStore().on('open', this.openHandler.createDelegate(this, [model], 2), this, {single: true});
 			record.open();
 		}

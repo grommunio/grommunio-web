@@ -88,7 +88,7 @@ Zarafa.common.ui.DraggableDataView = Ext.extend(Ext.DataView, {
 		 * We are using 'zarafa.enablefocusplugin' plugin with this view, the plugin adds
 		 * anchor element within component's {@link #el element}, Dataview also renders its
 		 * template inside {@link #el element}. So whenever data is changed, dataview
-		 * recreates the {@link #el element} so anchor tag added by the plugin will be removeed,
+		 * recreates the {@link #el element} so anchor tag added by the plugin will be removed,
 		 * so here we are creating new templateEl inside {@link #el element} as a child in which
 		 * data view will render its template.
 		 */

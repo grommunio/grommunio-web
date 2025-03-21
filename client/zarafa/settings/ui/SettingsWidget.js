@@ -7,7 +7,7 @@ Ext.namespace('Zarafa.settings.ui');
  *
  * A widget which is placed in a {@link Zarafa.settings.ui.SettingsCategory Settings Category}
  * and will be rendered into the {@link Zarafa.settings.ui.SettingContentPanel}. Each
- * widget is a collection of settings which logically belong to eachother and allows the
+ * widget is a collection of settings which logically belong to each other and allows the
  * user to edit them nicely.
  */
 Zarafa.settings.ui.SettingsWidget = Ext.extend(Ext.Panel, {

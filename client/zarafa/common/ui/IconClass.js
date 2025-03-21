@@ -103,7 +103,7 @@ Zarafa.common.ui.IconClass = {
 	 * {@link Zarafa.core.data.IPFRecord IPFRecord}.
 	 *
 	 * Function will first check whether folder is IPM_Subtree then return store icon,
-	 * Then check whether it's a default folder than set perticular default folder icon,
+	 * Then check whether it's a default folder than set particular default folder icon,
 	 * otherwise get icon class from container_class.
 	 *
 	 * @param {Zarafa.hierarchy.data.IPFRecord} folder The mapi folder/store record.

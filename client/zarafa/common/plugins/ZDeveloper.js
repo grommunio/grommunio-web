@@ -21,7 +21,7 @@ Zarafa.common.plugins.ZDeveloperPlugin = Ext.extend(Zarafa.core.Plugin, {
 			this.registerInsertionPoint(/(.*?)/, this.putMessageBox, this);
 		}
 
-		// Registrate the item data button when the setting is enabled and when advanced settings is enabled
+		// Register the item data button when the setting is enabled and when advanced settings is enabled
 		if (container.getSettingsModel().get('zarafa/v1/main/kdeveloper_tool/itemdata') === true && isAdvancedSettingsEnabled === true) {
 			this.registerInsertionPoint('context.mail.contextmenu.options', this.itemdatabutton, this);
 		}

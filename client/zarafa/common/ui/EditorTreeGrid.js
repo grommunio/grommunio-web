@@ -76,7 +76,7 @@ Zarafa.common.ui.EditorTreeGrid = Ext.extend(Zarafa.common.ui.TreeGrid, {
 	},
 
 	/**
-	 * Called by Extjs to intialize all event handlers.
+	 * Called by Extjs to initialize all event handlers.
 	 * This will register the {@link #onClickEdit} function on the {@link #click} or
 	 * {@link #dblclick} event (depending on the {@link #clicksToEdit} configuration option.
 	 * @private

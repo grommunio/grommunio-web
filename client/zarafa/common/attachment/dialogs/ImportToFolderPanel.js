@@ -48,7 +48,7 @@ Zarafa.common.attachment.dialogs.ImportToFolderPanel = Ext.extend(Zarafa.common.
 	},
 
 	/**
-	* Event handler which is trigggered when the user select a {@link Zarafa.hierarchy.data.MAPIFolderRecord folder}
+	* Event handler which is triggered when the user select a {@link Zarafa.hierarchy.data.MAPIFolderRecord folder}
 	* from the {@link Zarafa.hierarchy.ui.Tree tree}. This will determine if a valid
 	* {@link Zarafa.hierarchy.data.MAPIFolderRecord folder} is selected to which the {@link Zarafa.core.data.IPMRecord records}
 	* can indeed be copied or moved to.

@@ -68,7 +68,7 @@ Zarafa.common.freebusy.ui.TimelineView = Ext.extend(Ext.BoxComponent,
 	/**
 	 * @cfg {Number} daySpacing
 	 * The width of the borders. The cellspacing in the tables is used to create the borders (defaults to 1).
-	 * Changing this property to another value alone is not witout issues.
+	 * Changing this property to another value alone is not without issues.
 	 */
 	borderSpacing: 0,
 	/**
@@ -800,7 +800,7 @@ Zarafa.common.freebusy.ui.TimelineView = Ext.extend(Ext.BoxComponent,
 	 * Resizes the vertical sizes based on the number of users that have been added. This needs to
 	 * be recalculated because if the number of users exceeds the amount that can be shown in the
 	 * viewport at one time the height of the timeline needs to be resized beyond the height of the
-	 * viewport. Everytime a new user is added or one is removed this function can be called to
+	 * viewport. Every time a new user is added or one is removed this function can be called to
 	 * resized the timeline to the correct height.
 	 * @private
 	 */
@@ -833,7 +833,7 @@ Zarafa.common.freebusy.ui.TimelineView = Ext.extend(Ext.BoxComponent,
 	},
 
 	/**
-	 * Everytime the user scrolls or when the component is resized the background needs to be
+	 * Every time the user scrolls or when the component is resized the background needs to be
 	 * redrawn. The background of the timeline only loads the days that are visible and their
 	 * surrounding days. To determine what range should be loaded it looks for the
 	 * bufferTimesViewportWidth to see how many times the width of the viewport should be loaded in
@@ -1145,11 +1145,11 @@ Zarafa.common.freebusy.ui.TimelineView = Ext.extend(Ext.BoxComponent,
 	 * Renders the sum blocks that show the cumulative freebusy information for all the recipients.
 	 * The data from the blocks is combined into cumulative blocks for all recipients. When this
 	 * calculation is done it does it separately for the different busy statuses. So you will get a
-	 * different track for tentative, busy and outofoffice. By displaying them on top of eachother
+	 * different track for tentative, busy and outofoffice. By displaying them on top of each other
 	 * the outofoffice is more important than busy and busy more important than tentative.
 	 *
 	 * @param {Ext.data.Store} store The store which raised the event
-	 * @oaram {Ext.data.Record[]} records The records which have been loaded
+	 * @param {Ext.data.Record[]} records The records which have been loaded
 	 * @param {Object} options The options from the load event
 	 * @private
 	 */
@@ -1431,7 +1431,7 @@ Zarafa.common.freebusy.ui.TimelineView = Ext.extend(Ext.BoxComponent,
 		 * timestamp is lying on next day, this thing occurs for 'showing working hours only' setup.
 		 *
 		 * if we are showing working hours only then appointments on saturday will have dayindex of
-		 * friday so we need to set it's offset to end of the day so directlly settings it's offset
+		 * friday so we need to set it's offset to end of the day so directly settings it's offset
 		 * to most end of the day.
 		 */
 		if(timestamp - this.daysMap[dayIndex].timestamp >= 86400) {
@@ -1531,7 +1531,7 @@ Zarafa.common.freebusy.ui.TimelineView = Ext.extend(Ext.BoxComponent,
 		}
 
 		/**
-		 * If date takes place before the start of te first day in the daysMap the selector will
+		 * If date takes place before the start of the first day in the daysMap the selector will
 		 * select from the first day in the daysMap.
 		 */
 		var dayIndex = 0;

@@ -146,7 +146,7 @@ Zarafa.calendar.ui.html.AppointmentBoxView = Ext.extend(Zarafa.calendar.ui.Appoi
 	/**
 	 * Body start time text renderer. This will return the start time in string which
 	 * must be displayed most prominently in the appointment when it has been rendered in the main contents
-	 * section of the calendar. This applies to non-all-day appointments and while calender was
+	 * section of the calendar. This applies to non-all-day appointments and while calendar was
 	 * {@link Zarafa.calendar.data.DataModes#MONTH month view} mode.
 	 * @return {String} The start time text of appointment.
 	 * @private
@@ -159,7 +159,7 @@ Zarafa.calendar.ui.html.AppointmentBoxView = Ext.extend(Zarafa.calendar.ui.Appoi
 	/**
 	 * Body end time text renderer. This will return the start time in string which
 	 * must be displayed most prominently in the appointment when it has been rendered in the main contents
-	 * section of the calendar. This applies to non-all-day appointments and while calender was
+	 * section of the calendar. This applies to non-all-day appointments and while calendar was
 	 * {@link Zarafa.calendar.data.DataModes#MONTH month view} mode.
 	 * @return {String} The end time text of appointment.
 	 * @private

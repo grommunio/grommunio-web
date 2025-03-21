@@ -112,7 +112,7 @@ Zarafa.settings.SettingsModel = Ext.extend(Ext.util.Observable, {
 			 * @event remove
 			 * Fires when a property is removed.
 			 * @param {Zarafa.settings.SettingsModel} settingsModel
-			 * @param {String/Array} path The key to delete. When multiple settings are removed simulataneously, then the
+			 * @param {String/Array} path The key to delete. When multiple settings are removed simultaneously, then the
 			 * array of Strings is provided.
 			 */
 			'remove',
@@ -566,7 +566,7 @@ Zarafa.settings.SettingsModel = Ext.extend(Ext.util.Observable, {
 	/**
 	 * Convert the string into a fully-validated path which is accepted
 	 * by this SettingsModel. This will check if the path is a string, and
-	 * remove any prefixed or postfixed {@link #pathSeperator path seperators}.
+	 * remove any prefixed or postfixed {@link #pathSeparator path separators}.
 	 * @param {String} path The path the convert
 	 * @return {String} The converted path
 	 * @private

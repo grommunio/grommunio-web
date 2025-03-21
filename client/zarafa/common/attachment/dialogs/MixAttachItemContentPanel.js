@@ -79,7 +79,7 @@ Zarafa.common.attachment.dialogs.MixAttachItemContentPanel = Ext.extend(Zarafa.c
 
 	/**
 	 * Handler function that will be called when user checks/unchecks checkbox of don't show this message again,
-	 * @param {Ext.form.Checkbox} checkBox checkbox for don't show this messsage again.
+	 * @param {Ext.form.Checkbox} checkBox checkbox for don't show this message again.
 	 * @param {Boolean} checked current state of the checkbox.
 	 * @private
 	 */

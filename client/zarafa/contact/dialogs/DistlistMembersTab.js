@@ -150,7 +150,7 @@ Zarafa.contact.dialogs.DistlistMembersTab = Ext.extend(Ext.form.FormPanel, {
 
 		this.getForm().updateRecord(record);
 
-		// Also set subject dependant properties.
+		// Also set subject dependent properties.
 		record.set('fileas', record.get('subject'));
 		record.set('display_name', record.get('subject'));
 

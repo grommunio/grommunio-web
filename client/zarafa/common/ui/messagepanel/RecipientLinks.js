@@ -242,7 +242,7 @@ Zarafa.common.ui.messagepanel.RecipientLinks = Ext.extend(Ext.DataView, {
 	 * Function that is called to refresh a single node of this DataView. Overwritten
 	 * because all {@link Zarafa.common.ui.messagepanel.RecipientLinks RecipientLinks} (To,
 	 * CC, BCC) share a single store for which only records with the correct {@link #recipientType}
-	 * are shown. Therfore we might not have rendered nodes for all records and we must
+	 * are shown. Therefore we might not have rendered nodes for all records and we must
 	 * keep that in mind.
 	 * @param {Zarafa.core.data.IPMRecipientStore} store The store that holds the updated record
 	 * @param {Zarafa.core.data.IPMRecipientRecord} record The record that was updated
@@ -388,7 +388,7 @@ Zarafa.common.ui.messagepanel.RecipientLinks = Ext.extend(Ext.DataView, {
 	},
 
 	/**
-	 * Event handler which handel mouse enter event.
+	 * Event handler which handle mouse enter event.
 	 * It will show {@link Zarafa.common.recipientfield.ui.RecipientHoverCardView}
 	 * after 700 ms.
 	 * @param {Ext.DataView} dataView Reference to this object

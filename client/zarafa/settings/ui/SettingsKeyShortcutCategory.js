@@ -29,7 +29,7 @@ Zarafa.settings.ui.SettingsKeyShortcutCategory = Ext.extend(Zarafa.settings.ui.S
 	},
 
 	/**
-	 * Retrive The list of {@link Zarafa.core.KeyMapMgr#keys key} configurations.
+	 * Retrieve The list of {@link Zarafa.core.KeyMapMgr#keys key} configurations.
 	 * Generate the key Combinations and Description based on the
 	 * available {@link Zarafa.core.KeyMap KeyMap} configurations.
 	 * Preparing a Key Combination of keys along with some Special keys like ENTER, F5, DELETE.

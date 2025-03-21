@@ -606,7 +606,7 @@ Zarafa.common.freebusy.data.FreebusyModel = Ext.extend(Ext.util.Observable,
 		});
 
 		// Perhaps none of the so-called "Resolved" users were
-		// resolved. Thats lame, but it does mean less work for us.
+		// resolved. That's lame, but it does mean less work for us.
 		if (!Ext.isEmpty(loadData.params.users)) {
 			this.blockStore.load(loadData);
 		}
@@ -897,7 +897,7 @@ Zarafa.common.freebusy.data.FreebusyModel = Ext.extend(Ext.util.Observable,
 		// Sort all sumblocks based on the status. This will force the
 		// TENTATIVE records to be rendered before the BUSY which in turn is before
 		// the OUTOFOFFICE. This in turn forces the browser to position the OUTOFOFFICE
-		// divs on top of the BUSY blocks (which in turn are on top of TENATIVE) when
+		// divs on top of the BUSY blocks (which in turn are on top of TENTATIVE) when
 		// the blocks overlap.
 		this.sumBlockStore.sort('status', 'ASC');
 

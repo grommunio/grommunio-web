@@ -194,7 +194,7 @@ Zarafa.common.sendas.ui.SendAsPanel = Ext.extend(Ext.Panel, {
 	},
 
 	/**
-	 * Fuction will be call to get the selected contact from {@link Zarafa.common.ui.SendAsGrid SendAsGrid}
+	 * Function will be call to get the selected contact from {@link Zarafa.common.ui.SendAsGrid SendAsGrid}
 	 * @return {Ext.data.Record} The record which is selected from {@link Zarafa.common.ui.SendAsGrid SendAsGrid}.
 	 * @private
 	 */

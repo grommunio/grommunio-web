@@ -66,7 +66,7 @@ Zarafa.common.rules.dialogs.RulesConditionContainer = Ext.extend(Zarafa.common.r
 	removeComboBoxContainer: function()
 	{
 		if (this.boxContainerCount > 1) {
-			// if removed condition was atleast / atmost size condition then reset the size unit property in the record accordingly.
+			// if removed condition was at least / at most size condition then reset the size unit property in the record accordingly.
 			var conditionBoxToRemove = this.get(this.items.getCount() - 2).get(0);
 			var conditionFlag = conditionBoxToRemove.getValue();
 			if (conditionFlag === Zarafa.common.rules.data.ConditionFlags.ATMOST_SIZE) {
@@ -150,7 +150,7 @@ Zarafa.common.rules.dialogs.RulesConditionContainer = Ext.extend(Zarafa.common.r
 		var conditions = [];
 		var conditionsValid = true;
 
-		// initAtleastCond and initAtmostCond are flags for initial atleast and atmost conditions respectively.
+		// initAtleastCond and initAtmostCond are flags for initial at least and at most conditions respectively.
 		var initAtleastCond = true;
 		var initAtmostCond = true;
 

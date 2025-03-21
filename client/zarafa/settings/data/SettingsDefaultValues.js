@@ -179,7 +179,7 @@ Zarafa.settings.data.SettingsDefaultValue = function(){
 
 									'license': {
 										/**
-										 * zarafa/v1/main/notifier/eror/license/value
+										 * zarafa/v1/main/notifier/error/license/value
 										 * Default plugin for the "Expired or over used license" user notifications
 										 * @property
 										 * @type String
@@ -191,7 +191,7 @@ Zarafa.settings.data.SettingsDefaultValue = function(){
 
 										'defaultfolder': {
 											/**
-											 * zarafa/v1/main/notifier/eror/hierarchy/defaultfolder/value
+											 * zarafa/v1/main/notifier/error/hierarchy/defaultfolder/value
 											 * Default plugin for the "Missing Default folder" user notifications
 											 * @property
 											 * @type String

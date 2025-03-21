@@ -73,7 +73,7 @@ Zarafa.calendar.ui.TimeStripView = Ext.extend(Zarafa.core.ui.View, {
 
 	/**
 	 * The &lt;div&gt; elements which are used to separate the different
-	 * {@link #bodyElements} from eachother.
+	 * {@link #bodyElements} from each other.
 	 * These elements are created using {@link #createDiv} during {@link #render}.
 	 * @property
 	 * @type Array

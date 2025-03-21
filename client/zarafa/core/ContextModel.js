@@ -71,7 +71,7 @@ Zarafa.core.ContextModel = Ext.extend(Zarafa.core.data.StatefulObservable, {
 
 	/**
 	 * A key-value array of {@link Zarafa.hierarchy.data.MAPIFolderRecord Folder} and {{@link Zarafa.core.data.IPMRecord Records} entryids.
-	 * In this array we store the last record selection which was selected in thie Context.
+	 * In this array we store the last record selection which was selected in the Context.
 	 * @property
 	 * @type Object
 	 */
@@ -423,7 +423,7 @@ Zarafa.core.ContextModel = Ext.extend(Zarafa.core.data.StatefulObservable, {
 			return;
 		}
 
-		// assign default folder of this context model based on preffered message class from store, so getDefaultFolder can use this
+		// assign default folder of this context model based on preferred message class from store, so getDefaultFolder can use this
 		var folderType = Zarafa.core.MessageClass.getDefaultFolderTypeFromMessageClass(this.store.preferredMessageClass);
 		this.defaultFolder = hierarchyStore.getDefaultFolder(folderType);
 
@@ -460,7 +460,7 @@ Zarafa.core.ContextModel = Ext.extend(Zarafa.core.data.StatefulObservable, {
 
 	/**
 	 * Event handler which is triggered when a {@link Zarafa.core.data.IPFRecord record} has been
-	 * updated from the server. This function will check whehter action on the
+	 * updated from the server. This function will check whether action on the
 	 * {@link Zarafa.core.data.IPFRecord record} does affect on the current context model i.e.
 	 * {@link Zarafa.core.Actions.emptyFolder}, {@link Zarafa.core.Actions.readAllMsgs}, if it
 	 * affects then we should reload current context model.
@@ -730,7 +730,7 @@ Zarafa.core.ContextModel = Ext.extend(Zarafa.core.data.StatefulObservable, {
 	 * {@link #recordselectionchange} to inform any listeners about the update.
 	 *
 	 * @param {Zarafa.core.data.IPMRecord[]} records The selected records
-	 * @param {Boolean} stateful (optinal) false to prevent the selected records to be saved
+	 * @param {Boolean} stateful (optional) false to prevent the selected records to be saved
 	 * in the {@link #lastSelectedRecords}.
 	 */
 	setSelectedRecords: function(records, stateful)
@@ -859,7 +859,7 @@ Zarafa.core.ContextModel = Ext.extend(Zarafa.core.data.StatefulObservable, {
 	 * This will fire the event {@link #previewrecordchange}.
 	 *
 	 * @param {Zarafa.core.data.IPMRecord} record The record which is set as preview
-	 * @param {Boolean} stateful (optinal) false to prevent the previewrecord to be saved
+	 * @param {Boolean} stateful (optional) false to prevent the previewrecord to be saved
 	 * in the {@link #lastPreviewedRecord}.
 	 */
 	setPreviewRecord: function(record, stateful)

@@ -421,7 +421,7 @@ Zarafa.common.recurrence.dialogs.MonthlyPanel = Ext.extend(Zarafa.common.recurre
 			record.set('recurrence_everyn', this.regenNMonthsSpinner.getValue());
 		}
 
-		// Unset all unsused properties for this recurrence type.
+		// Unset all unused properties for this recurrence type.
 		record.set('recurrence_month', undefined);
 	}
 });

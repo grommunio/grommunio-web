@@ -34,7 +34,7 @@ Zarafa.core.plugins.MarkAsReadPlugin = Ext.extend(Object, {
 	readFlagTimer: undefined,
 
 	/**
-	 * Indicate that seting/starting up the {@link #readFlagTimer} will be
+	 * Indicate that setting/starting up the {@link #readFlagTimer} will be
 	 * ignored and record will be marked as read directly.
 	 * @property
 	 * @type Boolean

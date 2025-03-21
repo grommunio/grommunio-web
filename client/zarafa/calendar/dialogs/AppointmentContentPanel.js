@@ -202,7 +202,7 @@ Zarafa.calendar.dialogs.AppointmentContentPanel = Ext.extend(Zarafa.core.ui.Mess
 	/**
 	 * Function is used to automatically set recipient_type property value to
 	 * {@link Zarafa.core.mapi.RecipientType#MAPI_BCC} to mark it as a resource if it is a room or equipment.
-	 * This can be chekced by using display_type and display_type_ex properties. This function is called when
+	 * This can be checked by using display_type and display_type_ex properties. This function is called when
 	 * {@link Zarafa.core.data.IPMRecipientStore IPMRecipientStore} fires 'resolved' event.
 	 * @param {Zarafa.core.data.IPMRecipientStore} store store which fired the 'resolved' event.
 	 * @param {Zarafa.core.data.IPMRecipientRecord[]} records records which are in the response of resolve request.
@@ -246,7 +246,7 @@ Zarafa.calendar.dialogs.AppointmentContentPanel = Ext.extend(Zarafa.core.ui.Mess
 	{
 		if (action === Ext.data.Record.COMMIT) {
 			// If the record is a meeting request that has been sent successfully and contains resources
-			// then we have to notify the user of the successfullness of the action.
+			// then we have to notify the user of the successfulness of the action.
 			if(record.isMeetingOrganized() && this.isSending === true) {
 				if(record.getRecipientStore().findExact('recipient_type', Zarafa.core.mapi.RecipientType.MAPI_BCC) !== -1){
 					// If the server lets the client now the appointment has been booked (resources) then notify the user.

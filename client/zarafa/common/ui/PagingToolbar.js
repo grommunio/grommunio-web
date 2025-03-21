@@ -171,7 +171,7 @@ Zarafa.common.ui.PagingToolbar = Ext.extend(Ext.PagingToolbar, {
 
 	/**
 	 * This will update the paging status message to be displayed and also the
-	 * will preserve the state of refresh buttton to be enabled/disable on every
+	 * will preserve the state of refresh button to be enabled/disable on every
 	 * {@link Zarafa.core.data.IPMStore#load onLoad}
 	 * @private
 	 */
@@ -270,7 +270,7 @@ Zarafa.common.ui.PagingToolbar = Ext.extend(Ext.PagingToolbar, {
 	},
 
 	/**
-	 * This will move the page to next or preivous page and fire the load event on
+	 * This will move the page to next or previous page and fire the load event on
 	 * {@link Zarafa.core.data.IPMStore store} to get the data
 	 * @param {Ext.Number} start start range from where the items should be displayed
 	 * @private

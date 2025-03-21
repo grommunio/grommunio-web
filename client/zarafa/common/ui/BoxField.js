@@ -804,7 +804,7 @@ Zarafa.common.ui.BoxField = Ext.extend(Ext.form.ComboBox, {
 		}
 
 		if (outerHeight > this.boxMaxHeight) {
-			// The height of the box exceeds the maximim height,
+			// The height of the box exceeds the maximum height,
 			// enable the scrollbar and scroll to the bottom.
 			target.setHeight(this.boxMaxHeight);
 			if (this.initialConfig.autoScroll !== false) {

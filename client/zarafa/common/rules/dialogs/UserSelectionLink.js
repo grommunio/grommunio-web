@@ -102,7 +102,7 @@ Zarafa.common.rules.dialogs.UserSelectionLink = Ext.extend(Ext.BoxComponent, {
 							'&quot;{smtp_address:htmlEncode}&quot;' +
 						'</tpl>' +
 						'<tpl if="xcount &gt; 0 && xindex != xcount">' +
-							'<span>&nbsp;{parent.seperator}&nbsp;</span>' +
+							'<span>&nbsp;{parent.separator}&nbsp;</span>' +
 						'</tpl>' +
 					'</tpl>' +
 				'</div>',

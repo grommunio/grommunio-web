@@ -16,7 +16,7 @@ Zarafa.core.data.JsonWriter = Ext.extend(Ext.data.JsonWriter, {
 		Ext.applyIf(config, {
 			writeAllFields: false,
 			// FIXME: Disable automatic encoding for now,
-			// the MAPIProxy needs an individuall encoded string
+			// the MAPIProxy needs an individual encoded string
 			// for each record in the request. We might want to
 			// fix this in the future though.
 			encode: false
@@ -75,7 +75,7 @@ Zarafa.core.data.JsonWriter = Ext.extend(Ext.data.JsonWriter, {
 	},
 
 	/**
-	 * Adds special function for serialization needed when openening
+	 * Adds special function for serialization needed when opening
 	 * a record. We can use the default {@link Zarafa.core.data.JsonWriter.toIdHash toIdHash}
 	 * function.
 	 *

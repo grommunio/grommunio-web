@@ -99,7 +99,7 @@ Zarafa.core.Events = {
 	 * @param {Ext.Element} el The element on which the event should be registered
 	 * @param {Function} fn The callback function to be called when text
 	 * has been pasted. This function has no arguments (See {@link Ext.util.Observable#on}).
-	 * @param {Object} scope The scope in which the functon will be called (See {@link Ext.util.Observable#on}).
+	 * @param {Object} scope The scope in which the function will be called (See {@link Ext.util.Observable#on}).
 	 * @param {Object} obj (optional) Additional options (See {@link Ext.util.Observable#on}).
 	 */
 	addPasteEventHandler: function(field, el, fn, scope, obj)

@@ -10,7 +10,7 @@ Ext.namespace('Zarafa.advancesearch');
 Zarafa.advancesearch.Actions = {
 	/**
 	 * Open a {@link Zarafa.advancesearch.dialogs.SelectFolderContentPanel SelectFolderContentPanel} for
-	 * select the {@link Zarafa.core.data.IPFRecord folder} on which search get's performs.
+	 * select the {@link Zarafa.core.data.IPFRecord folder} on which search gets performs.
 	 *
 	 * @param {Object} config (optional) Configuration object to create the ContentPanel
 	 */

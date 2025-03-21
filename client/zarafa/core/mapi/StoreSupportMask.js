@@ -157,7 +157,7 @@ Zarafa.core.mapi.StoreSupportMask = Zarafa.core.Enum.create({
 	STORE_UNICODE_OK: 0x00040000,
 
 	/**
-	 * Convinience method to check if {@link Zarafa.core.MAPIStore MAPIStore} supports creation of
+	 * Convenience method to check if {@link Zarafa.core.MAPIStore MAPIStore} supports creation of
 	 * search folders.
 	 * @param {Number} storeSupportMask value of property PR_STORE_SUPPORT_MASK.
 	 * @return {Boolean} true if {@link Zarafa.core.MAPIStore MAPIStore} supports creation of

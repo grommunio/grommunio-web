@@ -85,7 +85,7 @@ Zarafa.common.recipientfield.ui.RecipientHoverCardButton = Ext.extend(Ext.Button
 	},
 
 	/**
-	 * Event handler handel click event it will fire click event of item and then
+	 * Event handler handle click event it will fire click event of item and then
 	 * call {@link #handelClick} to hide parent card view.
 	 * @param e
 	 */

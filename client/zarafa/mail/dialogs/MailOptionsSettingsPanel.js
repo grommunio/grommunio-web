@@ -131,7 +131,7 @@ Zarafa.mail.dialogs.MailOptionsSettingsPanel = Ext.extend(Ext.form.FormPanel, {
 		if (record) {
 			this.getForm().loadRecord(record);
 
-			// Disable the sensitivity comboBox when readig received mail.
+			// Disable the sensitivity comboBox when reading received mail.
 			if (!record.phantom && !record.isUnsent()) {
 				this.sensitivityCombo.disable();
 			} else {

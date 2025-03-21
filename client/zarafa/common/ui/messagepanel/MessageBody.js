@@ -291,7 +291,7 @@ Zarafa.common.ui.messagepanel.MessageBody = Ext.extend(Ext.Container, {
 	/**
 	 * Function will replace text nodes with element nodes which contains anchor tag.
 	 * @param {HTMLElement} node The node that has to be examined for links or emails
-	 * @parem {HTMLElement} parentNode The parent of the passed node
+	 * @param {HTMLElement} parentNode The parent of the passed node
 	 * @private
 	 */
 	linkifyDOMNode: function(node, parentNode)

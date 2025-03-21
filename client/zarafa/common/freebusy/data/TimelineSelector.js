@@ -187,7 +187,7 @@ Zarafa.common.freebusy.data.TimelineSelector = Ext.extend(Ext.util.Observable,
 		var timelineElem = this.parent.bodyElem;
 		var timestampCoordX = evt.getPageX() - timelineElem.getLeft() + timelineElem.getScroll().left;
 
-		// Get the position of the mouse to determine wether it is on the outer edges or in the center.
+		// Get the position of the mouse to determine whether it is on the outer edges or in the center.
 		var mousePos = this.getMousePosition(evt.getPageX());
 
 		// Transform X coordinate into a timestamp by using the TimelineView's methods.

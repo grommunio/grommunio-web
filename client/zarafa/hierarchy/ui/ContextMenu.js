@@ -230,7 +230,7 @@ Zarafa.hierarchy.ui.ContextMenu = Ext.extend(Zarafa.core.ui.menu.ConditionalMenu
 				var folderEntryId = this.contextNode.id;
 				var contextModel = this.contextTree.model;
 
-				// Allow user to choose calendar color from every calendar node wether it belongs to
+				// Allow user to choose calendar color from every calendar node whether it belongs to
 				// MultiSelectHierarchyTree or simple HierarchyTree
 				if (record.isCalendarFolder()) {
 					item.setDisabled(false);

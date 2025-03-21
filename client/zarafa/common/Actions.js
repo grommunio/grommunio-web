@@ -1113,7 +1113,7 @@ Zarafa.common.Actions = {
 
 	/**
 	 * Mark the given messages as read or unread. When a read receipt was requested
-	 * for this message, the setttings are consulted to see if we must automatically
+	 * for this message, the settings are consulted to see if we must automatically
 	 * send the receipt or not, or if we should ask the user.
 	 *
 	 * @param {Zarafa.core.data.IPMRecord/Array} records The record or records which must
@@ -1343,7 +1343,7 @@ Zarafa.common.Actions = {
 	 *
 	 * @param {Zarafa.core.dat.IPMRecipientRecord} record The record is resolved
 	 * @param {Zarafa.core.data.IPMRecipientStore} store The {@link Zarafa.core.data.IPMRecipientStore store} which contains the recipients.
-	 * @param {Boolean} copyAll The copyAll true to copy all the recipients from TO,Cc or BCc fileds
+	 * @param {Boolean} copyAll The copyAll true to copy all the recipients from TO,Cc or BCc fields
 	 */
 	copyEmailAddress: function (record, store, copyAll)
 	{

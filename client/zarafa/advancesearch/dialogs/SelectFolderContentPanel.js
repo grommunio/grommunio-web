@@ -6,7 +6,7 @@ Ext.namespace('Zarafa.advancesearch.dialogs');
  * @xtype zarafa.selectfoldercontentpanel
  *
  * This will display a {@link Zarafa.core.ui.ContentPanel contentpanel}
- * for select {@link Zarafa.core.data.IPFRecord folder} on which search get's perform.
+ * for select {@link Zarafa.core.data.IPFRecord folder} on which search gets performed.
  */
 Zarafa.advancesearch.dialogs.SelectFolderContentPanel = Ext.extend(Zarafa.core.ui.ContentPanel, {
 

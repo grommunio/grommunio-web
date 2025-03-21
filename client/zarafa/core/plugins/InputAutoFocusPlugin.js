@@ -97,7 +97,7 @@ Zarafa.core.plugins.InputAutoFocusPlugin = Ext.extend(Object, {
 	},
 
 	/**
-	 * Event hander which is fired after the {@link #field} has been {@link Ext.Container#afterlayout laid out}.
+	 * Event handler which is fired after the {@link #field} has been {@link Ext.Container#afterlayout laid out}.
 	 * This will check if the {@link #field} is a tab in a {@link Ext.TabPanel} or a normal {@link Ext.Container}.
 	 * When it is a tab, it will wait for the {@link Ext.Container#activate tab-activation}, otherwise it will
 	 * start the {@link #doAutoFocus}.

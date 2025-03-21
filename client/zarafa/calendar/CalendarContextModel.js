@@ -36,7 +36,7 @@ Zarafa.calendar.CalendarContextModel = Ext.extend(Zarafa.core.MultiFolderContext
 	/**
 	 * The {@link Date date} which has been selected by the user. This is used as base date
 	 * for the {@link #dateRange} object. See the comment at {@link #dateRange} on how
-	 * the values relate to eachother.
+	 * the values relate to each other.
 	 *
 	 * @property
 	 * @type Date

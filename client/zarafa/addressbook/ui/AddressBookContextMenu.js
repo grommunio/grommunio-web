@@ -118,7 +118,7 @@ Zarafa.addressbook.ui.AddressBookContextMenu = Ext.extend(Zarafa.core.ui.menu.Co
 		if (isGABContact && records.length > 1) {
 			item.setText(_("Copy contacts"));
 			// When multiple items are selected from the addressbook
-			// check atleast one GAB contact is selected.
+			// check at least one GAB contact is selected.
 			var hasGABContact = records.some(function(record){
 				return record.get('object_type') === Zarafa.core.mapi.ObjectType.MAPI_MAILUSER;
 			});

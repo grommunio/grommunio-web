@@ -71,7 +71,7 @@ Zarafa.calendar.ui.ToolTip = Ext.extend(Ext.ToolTip, {
 	show: function(id, config, event)
 	{
 		// We only show a tooltip when we hover over an appointment, but since
-		// the calender view is a canvas element the appointments aren't html elements
+		// the calendar view is a canvas element the appointments aren't html elements
 		// and so we cannot use those as delegate elements. Hence the Ext will try to
 		// show the tooltip for every mouse hover over the calendar view. When
 		// The config is not set, we know this method was called by Ext and not by

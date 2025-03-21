@@ -356,7 +356,7 @@ Zarafa.core.BrowserWindowMgr = Ext.extend(Ext.util.Observable, {
 			return undefined;
 		}
 
-		// Incase we receive Ext.Component as parameter then we have to get underlying Ext.Element
+		// In case we receive Ext.Component as parameter then we have to get underlying Ext.Element
 		if(Ext.isFunction(component.getEl)) {
 			component = component.getEl();
 		}

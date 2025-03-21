@@ -49,7 +49,7 @@ Zarafa.settings.ui.SettingsQuotaInfoWidget = Ext.extend(Zarafa.settings.ui.Setti
 
 	/**
 	 * Function sets information in quota bar widget,
-	 * it updates quota bar and information string aswell.
+	 * it updates quota bar and information string as well.
 	 * @private
 	 */
 	updateQuotaInfo: function()

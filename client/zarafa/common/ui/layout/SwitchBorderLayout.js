@@ -40,7 +40,7 @@ Zarafa.common.ui.layout.SwitchBorderLayout = Ext.extend(Ext.layout.BorderLayout,
 
 	/**
 	 * @cfg {Object} switchMap The switchMap on how {@link #horizontalRegion} and {@link #verticalRegion}
-	 * relate to eachother. A vertical region always maps to a horizontal region, so 'north' can
+	 * relate to each other. A vertical region always maps to a horizontal region, so 'north' can
 	 * be mapped to 'east' or 'west' and 'west' can be mapped to 'north' and 'south'.
 	 */
 	switchMap: {
@@ -157,7 +157,7 @@ Zarafa.common.ui.layout.SwitchBorderLayout = Ext.extend(Ext.layout.BorderLayout,
 
 		switch (orientation) {
 			case Zarafa.common.ui.layout.SwitchBorderLayout.Orientation.OFF:
-				// Hide the seperators, as resizing is not
+				// Hide the separators, as resizing is not
 				// allowed when we are hiding the panel.
 				if (horizontalRegion.split) {
 					horizontalRegion.splitEl.setVisible(false);

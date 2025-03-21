@@ -35,7 +35,7 @@ Zarafa.core.ContainerClass = {
 	 *
 	 * @param {String} containerClass The Container Class to compare
 	 * @param {String} messageClass The Message Class to compare
-	 * @return {Boolean} True when the containerClass is compatible with the given messsageClass
+	 * @return {Boolean} True when the containerClass is compatible with the given messageClass
 	 */
 	isMessageClassCompatible: function(containerClass, messageClass)
 	{

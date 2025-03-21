@@ -212,7 +212,7 @@ Zarafa.calendar.ui.DatePicker = Ext.extend(Ext.DatePicker, {
 				model.setDate(new Date());
 				model.load();
 			}
-			// Reset timer to referesh date picker
+			// Reset timer to refresh date picker
 			this.setNextDayTimer();
 		}, diff, this);
 	}

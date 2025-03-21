@@ -96,7 +96,7 @@ Zarafa.plugins.mdm.ui.MDMFolderNodeUI = Ext.extend(Zarafa.hierarchy.ui.FolderNod
 			this.checkbox = cs[2];
 			this.iconNode = cs[3];
 
-			// Get child elements of caledar icon which is used to register in drag and drop manager.
+			// Get child elements of calendar icon which is used to register in drag and drop manager.
 			var groupContainerNode = this.iconNode.childNodes[0];
 			if (Ext.isDefined(groupContainerNode)) {
 				var groupNode = groupContainerNode.childNodes[0];

@@ -10,7 +10,7 @@ Ext.namespace('Zarafa.common.widget');
  *
  * Reload time is configurable per instance of the
  * widget (keys: 'reloadinterval', default 5 minutes). These values are in
- * saved in miliseconds but displayed in seconds. The reload
+ * saved in milliseconds but displayed in seconds. The reload
  * interval is how often the calendar is fully reloaded from the
  * server, to show records that were added to the folder
  * outside of grommunio Web.
@@ -69,7 +69,7 @@ Zarafa.common.widget.DatepickerWidget = Ext.extend(Zarafa.core.ui.widget.Abstrac
 	datePickerHandler: Ext.emptyFn,
 
 	/**
-	 * Update the DatePicker when the calender is changed
+	 * Update the DatePicker when the calendar is changed
 	 * @private
 	 */
 	updateFilter: function ()

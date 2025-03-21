@@ -8,7 +8,7 @@ Ext.namespace('Zarafa.calendar.ui.html');
  * {@link Zarafa.calendar.ui.CalendarViewDropZone} when an appointment is being resized or
  * dragged over the calendar.
  *
- * This will render the selecte area as a grey block with some extra information text.
+ * This will render the selected area as a grey block with some extra information text.
  */
 Zarafa.calendar.ui.html.AppointmentProxy = Ext.extend(Zarafa.calendar.ui.AppointmentView, {
 

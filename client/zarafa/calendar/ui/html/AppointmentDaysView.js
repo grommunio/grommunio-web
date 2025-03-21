@@ -186,7 +186,7 @@ Zarafa.calendar.ui.html.AppointmentDaysView = Ext.extend(Zarafa.calendar.ui.Appo
 	},
 
 	/**
-	 * Tests whether a mouse event is over the apointment.
+	 * Tests whether a mouse event is over the appointment.
 	 *
 	 * @param {Ext.EventObject} event event object.
 	 * @return {Boolean} true if the event is over the appointment.
@@ -214,7 +214,7 @@ Zarafa.calendar.ui.html.AppointmentDaysView = Ext.extend(Zarafa.calendar.ui.Appo
 	},
 
 	/**
-	 * Tests whether a mouse event is over an apointment in the header of the calendar.
+	 * Tests whether a mouse event is over an appointment in the header of the calendar.
 	 *
 	 * @param {Ext.EventObject} event event object.
 	 * @return {Boolean} true if the event is over the appointment.
@@ -226,7 +226,7 @@ Zarafa.calendar.ui.html.AppointmentDaysView = Ext.extend(Zarafa.calendar.ui.Appo
 	},
 
 	/**
-	 * Tests whether a mouse event is over an apointment in the body of the calendar.
+	 * Tests whether a mouse event is over an appointment in the body of the calendar.
 	 *
 	 * @param {Ext.EventObject} event event object.
 	 * @return {Boolean} true if the event is over the appointment.

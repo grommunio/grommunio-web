@@ -363,7 +363,7 @@ Zarafa.task.TaskContext = Ext.extend(Zarafa.core.Context, {
 	 */
 	createToolbarNewTaskButton: function()
 	{
-		//create new task buttton.
+		//create new task button.
 		return {
 
 			xtype	: 'menuitem',

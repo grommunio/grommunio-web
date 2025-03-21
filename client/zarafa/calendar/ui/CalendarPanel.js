@@ -471,7 +471,7 @@ Zarafa.calendar.ui.CalendarPanel = Ext.extend(Ext.Panel, {
 			}
 
 			// Create copy of selected record and update that particular copy with the specific drop location because
-			// if we update orignal record then changes will be reflected to UI as well
+			// if we update original record then changes will be reflected to UI as well
 			var copyAppointment = appointment.copy();
 			this.doAppointmentChange(copyAppointment, dateRange);
 
@@ -801,7 +801,7 @@ Zarafa.calendar.ui.CalendarPanel = Ext.extend(Ext.Panel, {
 		// Appointment durations are stored in minutes.
 		record.set('duration', dateRange.getDuration(Date.MINUTE));
 
-		// update reminder times aswell
+		// update reminder times as well
 		if (record.get('reminder') === true) {
 			record.set('reminder_time', startDate);
 			record.set('flagdueby', startDate.add(Date.MINUTE, -record.get('reminder_minutes')));
@@ -1058,7 +1058,7 @@ Zarafa.calendar.ui.CalendarPanel = Ext.extend(Ext.Panel, {
 	 * show {@link Zarafa.common.dialogs.MessageBox#addCustomButtons message box} to intimate that
 	 * new copy will no more private item.
 	 *
-	 * @param {Zarafa.core.data.IPMRecord} clipBoardRecord copied calender item which will paste in calender view.
+	 * @param {Zarafa.core.data.IPMRecord} clipBoardRecord copied calendar item which will paste in calendar view.
 	 * @private
 	 */
 	doPaste: function(clipBoardRecord)
@@ -1102,8 +1102,8 @@ Zarafa.calendar.ui.CalendarPanel = Ext.extend(Ext.Panel, {
 	/**
 	 * Function used to set MessageAction and save the record in store.
 	 *
-	 * @param {Zarafa.core.data.IPMRecord} clipBoardRecord copied calender item which will paste in calender view.
-	 * @param {Zarafa.core.data.IPMRecord} record new calender item which will paste in calender view.
+	 * @param {Zarafa.core.data.IPMRecord} clipBoardRecord copied calendar item which will paste in calendar view.
+	 * @param {Zarafa.core.data.IPMRecord} record new calendar item which will paste in calendar view.
 	 * @private
 	 */
 	paste : function(clipBoardRecord, record)
@@ -1131,7 +1131,7 @@ Zarafa.calendar.ui.CalendarPanel = Ext.extend(Ext.Panel, {
 	 * Function which is used to generate new date range as per the user selected in
 	 * calendar view.
 	 *
-	 * @param {Zarafa.core.data.IPMRecord} copiedRecord copied calender item.
+	 * @param {Zarafa.core.data.IPMRecord} copiedRecord copied calendar item.
 	 * @return {Zarafa.core.DateRange} dateRange new date range.
 	 * @private
 	 */
@@ -1184,8 +1184,8 @@ Zarafa.calendar.ui.CalendarPanel = Ext.extend(Ext.Panel, {
 	 * Function which is used to create new copy of record from original record
 	 * with some updated information like date range, recurring pattern etc.
 	 *
-	 * @param {Zarafa.core.data.IPMRecord} copiedRecord copied calender item.
-	 * @return {Zarafa.calendar.AppointmentRecord} record which is going to paste in calender.
+	 * @param {Zarafa.core.data.IPMRecord} copiedRecord copied calendar item.
+	 * @return {Zarafa.calendar.AppointmentRecord} record which is going to paste in calendar.
 	 * @private
 	 */
 	createRecordCopy: function (copiedRecord)
@@ -1196,7 +1196,7 @@ Zarafa.calendar.ui.CalendarPanel = Ext.extend(Ext.Panel, {
 		// Outlook add's this 0x00000008 and 0x00000080 flags along with auxApptFlagCopied in
 		// auxiliary_flags(value is 137), As of now we are not able to figure it out what
 		// it is, so for now we follow Ol and added this flags. This flag is used to distinguish
-		// between original and copied appointment/meeting record in calender.
+		// between original and copied appointment/meeting record in calendar.
 		var auxiliaryFlags = Zarafa.core.mapi.AppointmentAuxiliaryFlags.auxApptFlagCopied | 0x00000008 | 0x00000080;
 		Ext.apply(record.data, {
 			'subject': !copiedRecord.isCopied() ? _('Copy')+": "+copiedRecord.get('subject') : copiedRecord.get('subject'),

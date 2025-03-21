@@ -10,7 +10,7 @@ Ext.namespace('Zarafa.plugins.files.data');
 Zarafa.plugins.files.data.ResponseHandler = Ext.extend(Zarafa.core.data.IPMResponseHandler, {
 
 	/**
-	 * @cgf {String} The id of the opened node in fuile tree recieved from the Files
+	 * @cgf {String} The id of the opened node in fuile tree received from the Files
 	 */
 	nodeId: undefined,
 

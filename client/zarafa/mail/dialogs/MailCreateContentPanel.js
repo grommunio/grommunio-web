@@ -301,7 +301,7 @@ Zarafa.mail.dialogs.MailCreateContentPanel = Ext.extend(Zarafa.core.ui.MessageCo
 	 * to grommunio Web user settings.
 	 *
 	 * @param {Zarafa.mail.dialogs.MailCreateContentPanel} panel the mail create content panel
-	 * @param {Boolean} visible visiblity of button
+	 * @param {Boolean} visible visibility of button
 	 * @param {Boolean} saveState save the state of the button.
 	 */
 	saveState: function(panel, visible, saveState)

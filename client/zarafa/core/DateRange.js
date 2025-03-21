@@ -8,7 +8,7 @@ Ext.namespace('Zarafa.core');
  * to denote an appointment that lasts all day on July 1st, 2010 one would write this as (00:00 July 1st 2010, 00:00 July 2nd 2010).
  * In sort, the range is defined as [startDate, dueDate>.
  * <p>
- * This class encapsulates such ranges because they are used often in especially the calendering components.
+ * This class encapsulates such ranges because they are used often in especially the calendaring components.
  */
 Zarafa.core.DateRange = Ext.extend(Ext.util.Observable, {
 	/**
@@ -72,7 +72,7 @@ Zarafa.core.DateRange = Ext.extend(Ext.util.Observable, {
 			 * @event update
 			 * Fires when the daterange is modified.
 			 * @param {Zarafa.core.DateRange} newRange The changed daterange object
-			 * @param {Zarafa.core.DateRange} oldRange The orignal daterange values (clone of the daterange object,
+			 * @param {Zarafa.core.DateRange} oldRange The original daterange values (clone of the daterange object,
 			 * prior of the change).
 			 */
 			'update'
@@ -595,7 +595,7 @@ Zarafa.core.DateRange = Ext.extend(Ext.util.Observable, {
 		// does not move before the startDate).
 		if (dueDate.getTime() === dueDate.clearTime(true).getTime()) {
 			// Move to the previous day, use 12:00 as starting hour,
-			// to prevent problems when the DST swithes at 00:00 (e.g. in Brasil).
+			// to prevent problems when the DST switches at 00:00 (e.g. in Brasil).
 			// We don't need to restore to the original time, as the string
 			// which we are going to ignore doesn't contain a time representation.
 			dueDate = dueDate.clone();

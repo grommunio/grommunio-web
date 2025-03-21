@@ -328,7 +328,7 @@ Zarafa.core.data.MAPIStore = Ext.extend(Ext.data.GroupingStore, {
 	/**
 	 * Function is used to get extra properties from the server, which are not received in
 	 * 'list' action. function will call {@link #execute} event, which is entry point for every
-	 * CRUD operation, {@link #execute} will internall call {@link #createCallback} to create a
+	 * CRUD operation, {@link #execute} will internal call {@link #createCallback} to create a
 	 * callback function based on operation type ('open' -> onOpenRecords).
 	 * @param {Zarafa.core.data.MAPIRecord[]} records records for which we need extra properties.
 	 * @param {Object} options Extra options which can be used for opening the records

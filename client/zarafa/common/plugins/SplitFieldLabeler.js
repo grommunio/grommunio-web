@@ -7,7 +7,7 @@ Ext.ns('Zarafa.common.plugins');
  *
  * This plugin functions similarly as the {@link Zarafa.common.plugins.FieldLabeler FieldLabeler}.
  * This plugin should be attached to an {@link Ext.Container container} or anything which
- * has an 'items' field containing components. And is therefor primarily intended for
+ * has an 'items' field containing components. And is therefore primarily intended for
  * splitting a label for more then one component.
  * On the {@link Ext.Container container} the fieldLabel must be set consisting
  * of a string which can be split into multiple substrings.

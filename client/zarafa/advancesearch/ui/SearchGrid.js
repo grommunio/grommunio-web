@@ -354,7 +354,7 @@ Zarafa.advancesearch.ui.SearchGrid = Ext.extend(Zarafa.common.ui.grid.MapiMessag
 	},
 
 	/**
-	 * Event handler which is triggered when the user opems the context menu.
+	 * Event handler which is triggered when the user opens the context menu.
 	 *
 	 * There are some selection rules regarding the context menu. If no rows where
 	 * selected, the row on which the context menu was requested will be marked

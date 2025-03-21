@@ -5,7 +5,7 @@ Ext.namespace('Zarafa.hierarchy.data');
  * @extends Zarafa.hierarchy.data.HierarchyTreeLoader
  *
  * A Special treeloader to be used by the {@link Zarafa.plugins.mdm.data.MDMHierarchyTreeLoader MDMHierarchyTree}.
- * This wil dynamically load the child nodes for a given node by obtaining the subfolders of
+ * This will dynamically load the child nodes for a given node by obtaining the subfolders of
  * the folder related to the given node.
  */
 Zarafa.plugins.mdm.data.MDMHierarchyTreeLoader = Ext.extend(Zarafa.hierarchy.data.HierarchyTreeLoader, {

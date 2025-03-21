@@ -724,7 +724,7 @@ Ext.apply(Date, {
 	 * will occur on a Sunday at 2:00 or 3:00 AM, and simply scan all the sundays in a
 	 * year, looking for changes. We then have to guess which bit is DST and which is 'normal'
 	 * by assuming that the DST offset will be less than the normal offset. From this we
-	 * calculate the start and end dates of DST and the actuall offset in minutes.
+	 * calculate the start and end dates of DST and the actual offset in minutes.
 	 *
 	 * Unfortunately we can't detect the difference between 'the last week of october' and
 	 * 'the fourth week of october'. This can cause subtle problems, so we assume 'last week'

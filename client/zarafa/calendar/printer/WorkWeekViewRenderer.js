@@ -73,7 +73,7 @@ Zarafa.calendar.printer.WorkWeekViewRenderer = Ext.extend(Zarafa.calendar.printe
 			+ '</div>'
 
 			// Middle table row
-			// Every day is inside a table so we can re-use thead
+			// Every day is inside a table so we can reuse thead
 			+ '<div id="middle">'
 			+	'<table class="k-week-view">'
 			+		'<thead>'

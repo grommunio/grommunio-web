@@ -88,7 +88,7 @@ Zarafa.core.mapi.Search = Zarafa.core.Enum.create({
 	BACKGROUND_SEARCH: 0x00000020,
 
 	/**
-	 * Convinience method to check if search is active or it has been stopped by user.
+	 * Convenience method to check if search is active or it has been stopped by user.
 	 * @param {Number} searchState value of searchState flag that is returned by GetSearchCriteria.
 	 * @return {Boolean} true if search is active or false.
 	 */
@@ -110,7 +110,7 @@ Zarafa.core.mapi.Search = Zarafa.core.Enum.create({
 	},
 
 	/**
-	 * Convinience method to check if search is locating messages in folder containers for matching entries.
+	 * Convenience method to check if search is locating messages in folder containers for matching entries.
 	 * @param {Number} searchState value of searchState flag that is returned by GetSearchCriteria.
 	 * @return {Boolean} true if search is running or false.
 	 */

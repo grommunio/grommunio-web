@@ -62,7 +62,7 @@ Zarafa.note.ui.NoteIconView = Ext.extend(Zarafa.common.ui.DraggableDataView, {
 	},
 
 	/*
-	 * Initialize html template by seting color icon and note subject
+	 * Initialize html template by setting color icon and note subject
 	 * @private
 	 */
 	initTemplate: function()

@@ -311,7 +311,7 @@ Zarafa.common.recurrence.dialogs.YearlyPanel = Ext.extend(Zarafa.common.recurren
 	 */
 	onEveryNWeekdayMonthSelect: function(combo, record, index)
 	{
-		var maxDaysInMonth = [31, 29 /* Include leapyear */, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+		var maxDaysInMonth = [31, 29 /* Include leap year */, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
 		var value = maxDaysInMonth[index];
 
 		if (this.monthDaySpinner.getValue() > value) {

@@ -178,7 +178,7 @@ Zarafa.core.data.IPMRecord = Ext.extend(Zarafa.core.data.MAPIRecord, {
 
 	/**
 	 * Utility function to get sender string from {@link Zarafa.core.data.IPMRecord IPMRecord},
-	 * Fuction will also check if delegate is present then it will generate a different string.
+	 * Function will also check if delegate is present then it will generate a different string.
 	 * @return {String} string which can be shown in ui as from address.
 	 */
 	getSenderString: function()

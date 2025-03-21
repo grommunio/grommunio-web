@@ -8,7 +8,7 @@ Ext.namespace('Zarafa.contact.attachitem');
  */
 Zarafa.contact.attachitem.AttachContactRenderer = Ext.extend(Zarafa.common.attachment.dialogs.AttachItemBaseRenderer, {
 	/**
-	 * Constructor will intialize default properties
+	 * Constructor will initialize default properties
 	 * @param {Object} config configuration object
 	 */
 	constructor: function(config)

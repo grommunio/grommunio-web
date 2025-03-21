@@ -83,7 +83,7 @@ Zarafa.calendar.ui.CalendarMultiView = Ext.extend(Zarafa.core.ui.View, {
 	/**
 	 * number of pixels the strips are shifted left by. This is used to obtain black vertical lines between
 	 * multiple time strips. Each strip as 'border-left: 1px solid black', and all strips are shifted left
-	 * one pixel so that the border of the first time strip is hidden (it's horizonal position is -1).
+	 * one pixel so that the border of the first time strip is hidden (it's horizontal position is -1).
 	 * @property
 	 * @type Number
 	 */
@@ -1078,7 +1078,7 @@ Zarafa.calendar.ui.CalendarMultiView = Ext.extend(Zarafa.core.ui.View, {
 				var targetCalendar = this.getCalendarViewByFolder(folder);
 				if (targetCalendar) {
 					// We have a target calendar, if our folder is the only occupant,
-					// then we can re-use the calendar. Otherwise we create a new
+					// then we can reuse the calendar. Otherwise we create a new
 					// calendar view and move the folder.
 					if (targetCalendar.folders.length > 1) {
 						var newCalendar = this.createCalendarView(key);
@@ -1133,7 +1133,7 @@ Zarafa.calendar.ui.CalendarMultiView = Ext.extend(Zarafa.core.ui.View, {
 
 		// Run over the list of folders and find for each folder a calendar view that goes with it.
 		// The views are added in sequence to the calendars list and in this way are ordered in the same
-		// way als the folders in the input list. And yeah, I know this is O(n^2), but n is small, so meh:)
+		// way as the folders in the input list. And yeah, I know this is O(n^2), but n is small, so meh:)
 		for (var i=0, folder; folder = folders[i]; i++)
 		{
 			var calendarView = this.getCalendarViewByFolder(folder);

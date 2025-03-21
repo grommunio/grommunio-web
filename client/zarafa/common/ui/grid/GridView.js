@@ -20,7 +20,7 @@ Zarafa.common.ui.grid.GridView = Ext.extend(Ext.grid.GroupingView, {
 	/**
 	 * @cfg {Boolean} isBuffering by default it was false which represent that no more rows are in buffer to
 	 * insert in to {@link Zarafa.mail.ui.MailGrid mailgrid} and if it is true means there are some rows
-	 * in buffer which are going to inser in {@link Zarafa.mail.ui.MailGrid mailgrid}, also it will not allow
+	 * in buffer which are going to insert in {@link Zarafa.mail.ui.MailGrid mailgrid}, also it will not allow
 	 * to fire {@link #livescrollstart} event till {@link #isBuffering} get false.
 	 */
 	isBuffering: false,

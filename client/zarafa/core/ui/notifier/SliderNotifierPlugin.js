@@ -106,7 +106,7 @@ Zarafa.core.ui.notifier.SliderNotifierPlugin = Ext.extend(Zarafa.core.ui.notifie
 			});
 		} else {
 			// The parent component could be removed from the DOM and rendered again later.
-			// If we set it again we are sure we have the DOM oject
+			// If we set it again we are sure we have the DOM object
 			containers[containerid].parentContainer = parentCt;
 		}
 

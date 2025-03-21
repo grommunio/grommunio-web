@@ -158,10 +158,10 @@ Zarafa.hierarchy.data.HierarchyStore = Ext.extend(Zarafa.core.data.IPFStore, {
 
 		// Only allow Shared Stores to be removed
 		if (record.isSharedStore()) {
-			// removeFavorites is true in case when user try to open the entire store
-			// where some of the folders are already opened in that case we don't need to
-			// remove exsiting favoirtes folder else  Remove all favorites marked folders which are
-			// belongs to shared user because we are going to close the shared user hierarchy store.
+			// removeFavorites is true in case when user tries to open the entire store
+			// where some of the folders are already opened in that case we don't need to.
+			// Remove existing favorites folder else remove all favorites marked folders which
+			// belong to shared user because we are going to close the shared user hierarchy store.
 			if (removeFavorites !== false){
 				var favoritesStore = record.getFavoritesStore();
 				var records = favoritesStore.query('store_entryid',record.get('store_entryid'));
@@ -375,7 +375,7 @@ Zarafa.hierarchy.data.HierarchyStore = Ext.extend(Zarafa.core.data.IPFStore, {
 
 			if (Ext.isDefined(folder)) {
 				// If a user is trying to open a shared calendar folder, we need to check
-				// whether there was any previously opened calender or not. If yes, we open
+				// whether there was any previously opened calendar or not. If yes, we open
 				// that too instead of the previous one getting closed.
         if (folder_type === "calendar") {
           var context = container.getContextByFolder(folder);
@@ -878,7 +878,7 @@ Zarafa.hierarchy.data.HierarchyStore = Ext.extend(Zarafa.core.data.IPFStore, {
 
 	/**
 	 * Initialize the keepalive requests to the server. Listen to the aftersend event in the
-	 * {@link Zarafa.core.Request Request} object to reset the counter everytime the clients sends a
+	 * {@link Zarafa.core.Request Request} object to reset the counter every time the clients sends a
 	 * request to the server.
 	 */
 	startKeepAlive: function()

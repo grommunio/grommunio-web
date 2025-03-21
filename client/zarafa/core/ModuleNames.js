@@ -200,7 +200,7 @@ Zarafa.core.ModuleNames =
 	},
 
 	/**
-	 * Modul information for advance search.
+	 * Module information for advanced search.
 	 * @property
 	 * @type Mixed
 	 */

@@ -79,7 +79,7 @@ Zarafa.hierarchy.ui.HierarchyFolderDropZone = Ext.extend(Zarafa.hierarchy.ui.Hie
 	 * @param {Object} n The object which describes the node over which
 	 * the item is being hovered
 	 * @parmam {Ext.tree.TreeDragZone} dd The DragZone which is used
-	 * for draging the current item
+	 * for dragging the current item
 	 * @private
 	 */
 	getDropPoint: function(e, n, dd)

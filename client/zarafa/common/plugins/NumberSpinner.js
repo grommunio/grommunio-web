@@ -61,7 +61,7 @@ Zarafa.common.plugins.NumberSpinner = Ext.extend(Zarafa.common.plugins.SpinnerPl
 			field.maxValue = parseFloat(field.maxValue);
 		}
 
-		// Enfore all values which were set on the plugin to be present
+		// Enforce all values which were set on the plugin to be present
 		// on the field.
 		if (!Ext.isDefined(field.allowDecimals)) {
 			field.allowDecimals = this.allowDecimals;

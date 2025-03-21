@@ -56,7 +56,7 @@ Zarafa.common.attachment.ui.UploadAttachmentComponent = Ext.extend(Ext.Component
 		// so we detect when the user selects a file.
 		attachEl.on('change', this.onFileInputChange, this);
 
-		// Mimick clicking on the <input> field
+		// Mimic clicking on the <input> field
 		// to open the File Selection dialog.
 		attachEl.dom.click();
 	},
@@ -121,7 +121,7 @@ Zarafa.common.attachment.ui.UploadAttachmentComponent = Ext.extend(Ext.Component
 	},
 
 	/**
-	 * Function shows the attachment error message when picture formate is not supported by webapp
+	 * Function shows the attachment error message when picture format is not supported by webapp
 	 */
 	showAttachmentError: function()
 	{

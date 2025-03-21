@@ -110,7 +110,7 @@ Zarafa.advancesearch.dialogs.SelectFolderPanel = Ext.extend(Ext.Panel, {
 	/**
 	 * Event handler which is triggered when the user select a {@link Zarafa.hierarchy.data.MAPIFolderRecord folder}
 	 * from the {@link Zarafa.hierarchy.ui.Tree tree}. This will determine if a valid
-	 * {@link Zarafa.hierarchy.data.MAPIFolderRecord folder} is selected on which search get's perform.
+	 * {@link Zarafa.hierarchy.data.MAPIFolderRecord folder} is selected on which search gets performed.
 	 *
 	 * @param {DefaultSelectionModel} selectionModel The selectionModel for the treepanel
 	 * @param {TreeNode} node The selected tree node

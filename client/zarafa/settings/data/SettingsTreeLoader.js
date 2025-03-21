@@ -6,7 +6,7 @@ Ext.namespace('Zarafa.settings.data');
  *
  * A Special treeloader to be used by the
  * {@link Zarafa.settings.ui.SettingsTreePanel SettingsTreePanel}.
- * This wil dynamically load the child nodes for a given node by reading the
+ * This will dynamically load the child nodes for a given node by reading the
  * {@link Zarafa.core.data.SettingsModel Settings}.
  */
 Zarafa.settings.data.SettingsTreeLoader = Ext.extend(Ext.ux.tree.TreeGridLoader, {

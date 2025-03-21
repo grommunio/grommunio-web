@@ -7,7 +7,7 @@ Ext.namespace('Zarafa.plugins.files.data');
  *
  * A store which holds all items which are being created or edited within a {@link Zarafa.core.ui.ContentPanel}
  * This store only contains references of {@link Zarafa.core.data.IPMRecord} elements which have
- * been retreived from the server by a regular {@link Zarafa.core.data.ListModuleStore}.
+ * been retrieved from the server by a regular {@link Zarafa.core.data.ListModuleStore}.
  * <p>
  * Each {@link Zarafa.core.ui.ContentPanel} will register the {@link Zarafa.core.data.MAPIRecord} on which it is working
  * to this {@link Zarafa.core.data.ShadowStore}

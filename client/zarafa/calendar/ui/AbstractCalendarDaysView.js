@@ -4,7 +4,7 @@ Ext.namespace('Zarafa.calendar.ui');
  * @class Zarafa.calendar.ui.AbstractCalendarDaysView
  * @extends Zarafa.calendar.ui.AbstractCalendarView
  *
- * The DaysView is used to display one or more days in columns next to eachother. This is usually limited to 7 days,
+ * The DaysView is used to display one or more days in columns next to each other. This is usually limited to 7 days,
  * although more days are supported. For an overview of a large number of days, the {@link Zarafa.calendar.ui.AbstractCalendarBoxView BoxView}
  * is however more recommended
  */
@@ -116,7 +116,7 @@ Zarafa.calendar.ui.AbstractCalendarDaysView = Ext.extend(Zarafa.calendar.ui.Abst
 	 * Determine the Header Text which must be displayed for the given {@link Date}. If the
 	 * available width for the header is sufficiently large (The width is greater then
 	 * {@link Zarafa.calendar.ui.CalendarMultiView#minHeaderDayTextWidth minHeaderDayTextWidth})
-	 * then the {@link #longDayHeaderFormat} will be used for fomatting the date. Otherwise the
+	 * then the {@link #longDayHeaderFormat} will be used for formatting the date. Otherwise the
 	 * {@link #shortDayHeaderFormat} will be used.
 	 * @param {Date} date The date for which the header title is requested
 	 * @param {Number} width The available width for the header

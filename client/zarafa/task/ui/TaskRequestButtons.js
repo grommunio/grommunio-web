@@ -86,7 +86,7 @@ Zarafa.task.ui.TaskRequestButtons = Ext.extend(Ext.ButtonGroup, {
 				// showAcceptButton gets true if task is received task, task is assigned to user, user is owner of the task
 				// and task yet not accepted else false.
 				showAcceptButton = (isTaskReceived && isTaskAssigned && isTaskOwner && !isTaskAccepted && !isSubMessage);
-				// showDeclineButton get's true if task is received task, user is owner of the task and
+				// showDeclineButton gets true if task is received task, user is owner of the task and
 				// task is assigned to user and task is accepted else false.
 				showDeclineButton = (!isSubMessage && isTaskReceived && isTaskOwner && (isTaskAssigned || isTaskAccepted || record.isTaskUpdated()));
 			}

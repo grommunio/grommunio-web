@@ -4,7 +4,7 @@ Ext.namespace('Zarafa.common.ui');
  * @class Zarafa.common.ui.DataDragZone
  * @extends Ext.dd.DragZone
  *
- * A Special DragZone implemention which
+ * A Special DragZone implementation which
  * can be used on a {@link Ext.DataView DataView}.
  * This is used for example in the
  * {@link Zarafa.common.ui.DraggableDataView}
@@ -55,7 +55,7 @@ Zarafa.common.ui.DataDragZone = Ext.extend(Ext.dd.DragZone, {
 	 * <p>The data object contains the following properties:<ul>
 	 * <li><b>view</b>: Ext.DataView<div class="sub-desc">The DataView from which the data is being dragged.</div></li>
 	 * <li><b>ddel</b>: htmlElement<div class="sub-desc">An htmlElement which provides the "picture" of the data being dragged.</div></li>
-	 * <li><b>rowIndex</b>: Number<div class="sub-desc">The index of the row which receieved the mousedown gesture which triggered the drag.</div></li>
+	 * <li><b>rowIndex</b>: Number<div class="sub-desc">The index of the row which received the mousedown gesture which triggered the drag.</div></li>
 	 * <li><b>selections</b>: Array<div class="sub-desc">An Array of the selected Records which are being dragged from the DataView.</div></li>
 	 * </ul></p>
 	 * @private

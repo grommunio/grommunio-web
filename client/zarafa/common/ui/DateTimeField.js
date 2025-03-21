@@ -221,7 +221,7 @@ Zarafa.common.ui.DateTimeField = Ext.extend(Zarafa.common.ui.CompositeField, {
 	 * and firing the {@link #change} event.
 	 * @param {Ext.form.DateField} field The field which has fired the event
 	 * @param {Date} date The new value for the field
-	 * @pivate
+	 * @private
 	 */
 	onDateSelect: function(field, date)
 	{

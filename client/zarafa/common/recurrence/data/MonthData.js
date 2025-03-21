@@ -3,7 +3,7 @@ Ext.namespace('Zarafa.common.recurrence.data');
 /**
  * @class Zarafa.common.recurrence.data.MonthData
  * Month value is calculated on the bases of total minutes before that month.
- * As for exaple, February starts after 44640 minutes obtained by 31(days of January month) * 1440(minutes of a day).
+ * As for example, February starts after 44640 minutes obtained by 31(days of January month) * 1440(minutes of a day).
  * @singleton
  */
 Zarafa.common.recurrence.data.MonthData = [

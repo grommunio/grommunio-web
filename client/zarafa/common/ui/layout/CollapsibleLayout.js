@@ -68,7 +68,7 @@ Zarafa.common.ui.layout.CollapsibleLayout = Ext.extend(Ext.layout.FitLayout, {
 	/**
 	 * Called whenever the {@link #activeItem} has expanded or collapsed or when calculating
 	 * the initial height for the component. This will adjust the size of the {@link #resizeItem}
-	 * to make sure it will fit inside the height offered by the {@link #contaner}.
+	 * to make sure it will fit inside the height offered by the {@link #container}.
 	 * @private
 	 */
 	doResizeItem: function()

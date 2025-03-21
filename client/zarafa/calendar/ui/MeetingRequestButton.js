@@ -62,7 +62,7 @@ Zarafa.calendar.ui.MeetingRequestButton = Ext.extend(Ext.Button, {
 		 * This 'zarafa.recordcomponentupdaterplugin' plugin will call update function
 		 * which will not be found in newly created menuitem.
 		 * So it will call Ext's update function instead
-		 * and beacause Ext's update function will get called with wrong parameters,
+		 * and because Ext's update function will get called with wrong parameters,
 		 * text of menu item will be changed.
 		 */
 		this.initialConfig.plugins = [];
@@ -104,7 +104,7 @@ Zarafa.calendar.ui.MeetingRequestButton = Ext.extend(Ext.Button, {
 
 		// Check whether message receiver is not the message creator.
 		// Check whether message is in sent_items folder
-		// Check whether messsage was sent to himself
+		// Check whether message was sent to himself
 		var senderIsStoreOwner = record.senderIsStoreOwner();
 
 		// Check if this was a received meeting
@@ -147,7 +147,7 @@ Zarafa.calendar.ui.MeetingRequestButton = Ext.extend(Ext.Button, {
 
 				// Determine the action button
 				// @FIXME: find a better solution to determine action button.
-				// we don't have calendar button access directly as we created seprate buttons for meetingrequests.
+				// we don't have calendar button access directly as we created separate buttons for meetingrequests.
 				if (this.name === Zarafa.calendar.data.MeetingRequestButtonNames.ACCEPT) {
 					var calendarButton = this.parentScope ? this.parentScope.calendarButton : false;
 					if (this.visible && calendarButton) {
@@ -240,7 +240,7 @@ Zarafa.calendar.ui.MeetingRequestButton = Ext.extend(Ext.Button, {
 	},
 
 	/**
-	 * Callback function for {@link #openSendConfirmationContent}, which openes a {@link Ext.MessageBox} if
+	 * Callback function for {@link #openSendConfirmationContent}, which opens a {@link Ext.MessageBox} if
 	 * the appointment is not found in the calendar, but we still want to accept it.
 	 * @param {String} button The button which was clicked by the user
 	 * @param {Zarafa.core.mapi.ResponseStatus} responseType The response type which was selected by the user
@@ -262,7 +262,7 @@ Zarafa.calendar.ui.MeetingRequestButton = Ext.extend(Ext.Button, {
 	acceptProposal: function(button, eventObject)
 	{
 		// When the button belongs to one of the currently opened popout windows then
-		// it is required to bring the main webapp window to front prior to switching to the calender context.
+		// it is required to bring the main webapp window to front prior to switching to the calendar context.
 		if (!Zarafa.core.BrowserWindowMgr.isOwnedByMainWindow(button)) {
 			Zarafa.core.BrowserWindowMgr.switchFocusToMainWindow();
 		}
@@ -279,7 +279,7 @@ Zarafa.calendar.ui.MeetingRequestButton = Ext.extend(Ext.Button, {
 	showMeetingInCalendar: function(button, eventObject)
 	{
 		// When the button belongs to one of the currently opened popout windows then
-		// it is required to bring the main webapp window to front prior to switching to the calender context.
+		// it is required to bring the main webapp window to front prior to switching to the calendar context.
 		if (!Zarafa.core.BrowserWindowMgr.isOwnedByMainWindow(button)) {
 			Zarafa.core.BrowserWindowMgr.switchFocusToMainWindow();
 		}
@@ -345,7 +345,7 @@ Zarafa.calendar.ui.MeetingRequestButton = Ext.extend(Ext.Button, {
     },
 
     /**
-	 * Callback function for {@link #openProposeNewTimeContent}, which openes a {@link Ext.MessageBox} if
+	 * Callback function for {@link #openProposeNewTimeContent}, which opens a {@link Ext.MessageBox} if
 	 * the appointment is not found in the calendar, but we still wants to propose a new time.
 	 * @param {String} button The button which was clicked by the user
 	 * @private
@@ -382,7 +382,7 @@ Zarafa.calendar.ui.MeetingRequestButton = Ext.extend(Ext.Button, {
 	viewAllProposals: function(button, eventObject)
 	{
 		// When the button belongs to one of the currently opened popout windows then
-		// it is required to bring the main webapp window to front prior to switching to the calender context.
+		// it is required to bring the main webapp window to front prior to switching to the calendar context.
 		if (!Zarafa.core.BrowserWindowMgr.isOwnedByMainWindow(button)) {
 			Zarafa.core.BrowserWindowMgr.switchFocusToMainWindow();
 		}

@@ -279,7 +279,7 @@ Zarafa.common.dialogs.CopyMovePanel = Ext.extend(Ext.Panel, {
 	},
 
 	/**
-	 * Event handler which is trigggered when the user select a {@link Zarafa.hierarchy.data.MAPIFolderRecord folder}
+	 * Event handler which is triggered when the user select a {@link Zarafa.hierarchy.data.MAPIFolderRecord folder}
 	 * from the {@link Zarafa.hierarchy.ui.Tree tree}. This will determine if a valid
 	 * {@link Zarafa.hierarchy.data.MAPIFolderRecord folder} is selected to which the {@link Zarafa.core.data.IPMRecord records}
 	 * can indeed be copied or moved to.
@@ -302,7 +302,7 @@ Zarafa.common.dialogs.CopyMovePanel = Ext.extend(Ext.Panel, {
 
 	/**
 	 * Event handler which is triggered when the user presses the Create new folder {@link Ext.Button button}.
-	 * This will call {@link Zarafa.hierachy.actions.openCreateFolderContent} with the selected {@link Zarafa.hierarchy.data.MAPIFolderRecord folder}.
+	 * This will call {@link Zarafa.hierarchy.actions.openCreateFolderContent} with the selected {@link Zarafa.hierarchy.data.MAPIFolderRecord folder}.
 	 * @private
 	 */
 	onCreateFolder: function()

@@ -187,7 +187,7 @@ Zarafa.core.ResponseRouter = Ext.extend(Ext.util.Observable, {
 
 	/**
 	 * Resolve all response data into a collection of {@link Zarafa.core.data.AbstractResponseHandlers}
-	 * which will be in charge of handling all responsed. The responsehandlers will be returned into
+	 * which will be in charge of handling all responses. The responsehandlers will be returned into
 	 * an array which is sorted on priority, meaning that the response handlers should be called in
 	 * the order in which they are listed in the array.
 	 * @param {Object} data The data from the response

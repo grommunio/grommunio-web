@@ -188,7 +188,7 @@ Ext.ux.form.MetaForm = Ext.extend(Ext.form.FormPanel, {
 	}
 
 	/**
-	 * Returns button thet has the given name
+	 * Returns button that has the given name
 	 * @param {String} name Button name
 	 * @return {Ext.Button/Null} Button found or null if not found
 	 */
@@ -203,7 +203,7 @@ Ext.ux.form.MetaForm = Ext.extend(Ext.form.FormPanel, {
 	}
 
 	/**
-	 * Returns the button. This funcion is undefined by default, supply it if you want an automated button creation.
+	 * Returns the button. This function is undefined by default, supply it if you want an automated button creation.
 	 * @method getButton
 	 * @param {String} name A symbolic button name
 	 * @param {Object} config The button config object
@@ -389,7 +389,7 @@ Ext.ux.form.MetaForm = Ext.extend(Ext.form.FormPanel, {
 		this.removeAll();
 		this.hasMeta = false;
 
-		// declare varables
+		// declare variables
 		var columns, colIndex, tabIndex, ignore = {};
 
 		// add column layout
@@ -431,7 +431,7 @@ Ext.ux.form.MetaForm = Ext.extend(Ext.form.FormPanel, {
 				ignore[f] = true;
 			});
 		}
-		// loop through metadata colums or fields
+		// loop through metadata columns or fields
 		// format follows grid column model structure
 		Ext.each(meta.columns || meta.fields, function (item) {
 			if (true === ignore[item.name]) {

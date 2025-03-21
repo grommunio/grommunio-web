@@ -420,7 +420,7 @@ Zarafa.hierarchy.ui.HierarchyTreePanel = Ext.extend(Zarafa.hierarchy.ui.Tree, {
 	},
 
 	/**
-	 * Event handler which is trigggered after drop of item is completed on {@link Zarafa.hierarchy.ui.Tree Tree}.
+	 * Event handler which is triggered after drop of item is completed on {@link Zarafa.hierarchy.ui.Tree Tree}.
 	 * @param {Object} dropEvent The object describing the drop information
 	 * @private
 	 */
@@ -721,7 +721,7 @@ Zarafa.hierarchy.ui.HierarchyTreePanel = Ext.extend(Zarafa.hierarchy.ui.Tree, {
 	 * folder has the 'is_open' state enabled.
 	 * If the folder is not found in the settings, the rule is that
 	 * {@link Zarafa.hierarchy.data.MAPIFolderRecord#isIPMSubTree subtrees}
-	 * will be expaned by default, all other folders are collapsed.
+	 * will be expanded by default, all other folders are collapsed.
 	 * @param {Zarafa.hierarchy.data.MAPIFolderRecord} folder The folder to check
 	 * @return {Boolean} True if the folder should be expanded by default
 	 * @private

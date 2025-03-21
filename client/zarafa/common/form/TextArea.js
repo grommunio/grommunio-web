@@ -17,7 +17,7 @@ Zarafa.common.form.TextArea = Ext.extend(Ext.form.TextArea, {
 	enableSystemContextMenu: false,
 
 	/**
-	 * Called during {@link #render}. If {@link #enableSystemContextMenu} is eanbled, this
+	 * Called during {@link #render}. If {@link #enableSystemContextMenu} is enabled, this
 	 * will apply the 'zarafa-contextmenu-enabled' CSS class on the {@link #el element}.
 	 * @param {Ext.Container} ct The container in which the component is being rendered
 	 * @param {Number} position The position inside the container where the component is being rendered

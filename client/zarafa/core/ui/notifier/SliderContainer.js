@@ -303,7 +303,7 @@ Zarafa.core.ui.notifier.SliderContainer = Ext.extend(Object, {
 		}
 
 		// Don't animate the repositioning, otherwise all visible
-		// messages will be bumbed above and then animated down again.
+		// messages will be bumped above and then animated down again.
 		// By not animating, the messages will remain exactly where they
 		// are.
 		this.updateContainer(newHeight, false);

@@ -212,8 +212,8 @@ Zarafa.common.rules.data.RulesData = {
 	{
 		var restrictionFactory = Zarafa.core.data.RestrictionFactory;
 
-		// If there was only 1 condtion, we don't need to convert
-		// it to a OR subrestriction. If we have more then 1 condtion,
+		// If there was only 1 condition, we don't need to convert
+		// it to a OR subrestriction. If we have more then 1 condition,
 		// then we should create the OR restriction.
 		if (Ext.isArray(conditions)) {
 			if (conditions.length === 1) {

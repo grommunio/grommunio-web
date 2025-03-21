@@ -431,7 +431,7 @@ Zarafa.calendar.ui.CalendarContextMenu = Ext.extend(Zarafa.core.ui.menu.Conditio
 	},
 
 	/**
-	 * Callback function for {@link #openProposeNewTimeContent}, which openes a {@link Ext.MessageBox} if
+	 * Callback function for {@link #openProposeNewTimeContent}, which opens a {@link Ext.MessageBox} if
 	 * the appointment is not found in the calendar, but we still wants to propose a new time.
 	 * @param {String} button The button which was clicked by the user
 	 * @param {Zarafa.core.data.MAPIRecord} record The record on which this context
@@ -479,7 +479,7 @@ Zarafa.calendar.ui.CalendarContextMenu = Ext.extend(Zarafa.core.ui.menu.Conditio
 	},
 
 	/**
-	 * Callback function for {@link #openSendConfirmationContent}, which openes a {@link Ext.MessageBox} if
+	 * Callback function for {@link #openSendConfirmationContent}, which opens a {@link Ext.MessageBox} if
 	 * the appointment is not found in the calendar, but we still want to accept it.
 	 * @param {String} button The button which was clicked by the user
 	 * @param {Zarafa.core.mapi.ResponseStatus} responseType The response type which was selected by the user

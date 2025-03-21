@@ -8,7 +8,7 @@ Ext.namespace('Zarafa.core');
  */
 Zarafa.core.ErrorType = Zarafa.core.Enum.create({
 	/**
-	 * Denotes type of error is MAPI which is generated from an errornous mapi call.
+	 * Denotes type of error is MAPI which is generated from an erroneous mapi call.
 	 * @property
 	 * @type Number
 	 */

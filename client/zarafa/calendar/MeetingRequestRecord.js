@@ -203,7 +203,7 @@ Zarafa.calendar.MeetingRequestRecord = Ext.extend(Zarafa.calendar.AppointmentRec
 			/*
 			 * we need to provide some properties initially to the appointment record so when its set first time in
 			 * the record dialog, checks which are using initial === true will work correct otherwise
-			 * these properties will only be avaialable after record is opened and at that time
+			 * these properties will only be available after record is opened and at that time
 			 * initial will be false
 			 */
 			meeting: Zarafa.core.mapi.MeetingStatus.MEETING,

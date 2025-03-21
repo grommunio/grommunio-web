@@ -197,7 +197,7 @@ Zarafa.core.Util =
 
 	/**
 	 * This is a utility function to copy all the properties of config to obj recursively.
-	 * Ext.appply() does the same thing but this extension preserves child object's previous values
+	 * Ext.apply() does the same thing but this extension preserves child object's previous values
 	 * instead of overwriting it with new values.
 	 * @param {Object} obj The receiver of the properties
 	 * @param {Object} config The source of the properties
@@ -480,7 +480,7 @@ Zarafa.core.Util =
 	},
 
 	/**
-	 * Merge 2 objects containing event hanlers into a single object,
+	 * Merge 2 objects containing event handlers into a single object,
 	 * while preserving scopes. This can be used when a {@link Ext.Component}
 	 * receives a {@link Ext.Component#listeners} object while it also needs
 	 * to add listeners in the same way (while it cannot use {@link Ext.Component#on}).
@@ -669,7 +669,7 @@ Zarafa.core.Util =
 
 	/**
 	 * Function which will convert given input into Bytes.
-	 * @param {Number} imput the number which needs to be converted in bytes.
+	 * @param {Number} input the number which needs to be converted in bytes.
 	 * @param {String} sizeUnit string which indicates given input is in which unit.
 	 * And value must be 'KB' or 'MB'.
 	 * @return {Number} input in Bytes.
@@ -688,7 +688,7 @@ Zarafa.core.Util =
 	/**
 	 * Function which will convert given input into
 	 * KB or MB size unit.
-	 * @param {Number} imput the number in bytes which needs to be converted.
+	 * @param {Number} input the number in bytes which needs to be converted.
 	 * @param {String} sizeUnit string which should indicate
 	 * in which unit input is needed to be converted.
 	 * And value must be 'KB' or 'MB'.

@@ -19,7 +19,7 @@ Zarafa.common.ui.grid.GridDragZone = Ext.extend(Ext.grid.GridDragZone, {
 	 *
 	 * <li><b>grid</b>: Ext.Grid.GridPanel<div class="sub-desc">The GridPanel from which the data is being dragged.</div></li>
 	 * <li><b>ddel</b>: htmlElement<div class="sub-desc">An htmlElement which provides the "picture" of the data being dragged.</div></li>
-	 * <li><b>rowIndex</b>: Number<div class="sub-desc">The index of the row which receieved the mousedown gesture which triggered the drag.</div></li>
+	 * <li><b>rowIndex</b>: Number<div class="sub-desc">The index of the row which received the mousedown gesture which triggered the drag.</div></li>
 	 * <li><b>selections</b>: Array<div class="sub-desc">An Array of the selected Records which are being dragged from the GridPanel.</div></li>
 	 * </ul></p>
 	 */

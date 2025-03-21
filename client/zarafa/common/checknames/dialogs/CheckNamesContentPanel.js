@@ -83,7 +83,7 @@ Zarafa.common.checknames.dialogs.CheckNamesContentPanel = Ext.extend(Zarafa.core
 	},
 
 	/**
-	 * event hadler for Ok button click for checkNames content panel
+	 * event handler for Ok button click for checkNames content panel
 	 * this will set the selected display name to recipient record
 	 * @param {Zarafa.core.data.IPMRecipientRecord} recipientrecord
 	 * @private
@@ -96,7 +96,7 @@ Zarafa.common.checknames.dialogs.CheckNamesContentPanel = Ext.extend(Zarafa.core
 	},
 
 	/**
-	 * event hadler for Cancel button click for checkNames content panel
+	 * event handler for Cancel button click for checkNames content panel
 	 * this will close the checkNames content panel
 	 * @private
 	 */

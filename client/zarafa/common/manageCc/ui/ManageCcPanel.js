@@ -6,7 +6,7 @@ Ext.namespace('Zarafa.common.manageCc.ui');
  * @xtype zarafa.manageccpanel
  *
  * Panel contains the {@link Zarafa.common.manageCc.ui.ManageCcGrid ManageCcGrid}.
- * which mange the default Cc recipient for new / reply mails.
+ * which manages the default Cc recipient for new / reply mails.
  */
 Zarafa.common.manageCc.ui.ManageCcPanel = Ext.extend(Ext.Panel, {
 

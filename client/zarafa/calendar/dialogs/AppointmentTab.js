@@ -101,7 +101,7 @@ Zarafa.calendar.dialogs.AppointmentTab = Ext.extend(Ext.form.FormPanel, {
 	/**
 	 * Property which is set to true when user changes location manually, If user has
 	 * changed/set location manually. {@link updateLocation} function will use this
-	 * property to chech whether has changed location or not, if this property is false
+	 * property to check whether has changed location or not, if this property is false
 	 * then it will change location generated using recipients without any confirmation.
 	 * @property
 	 * @type Boolean
@@ -691,7 +691,7 @@ Zarafa.calendar.dialogs.AppointmentTab = Ext.extend(Ext.form.FormPanel, {
 				case Zarafa.core.mapi.MeetingStatus.MEETING_RECEIVED:
 				case Zarafa.core.mapi.MeetingStatus.MEETING_CANCELED:
 				case Zarafa.core.mapi.MeetingStatus.MEETING_RECEIVED_AND_CANCELED:
-					// here we ensure that response status,is nither none nor organizer
+					// here we ensure that response status, is neither none nor organizer
 					if(record.get('responsestatus') != Zarafa.core.mapi.ResponseStatus.RESPONSE_NONE || record.get('responsestatus') != Zarafa.core.mapi.ResponseStatus.RESPONSE_ORGANIZED) {
 						this.meetingOrganizerPanel.setVisible(true);
 						this.recipientPanel.setVisible(false);
@@ -842,7 +842,7 @@ Zarafa.calendar.dialogs.AppointmentTab = Ext.extend(Ext.form.FormPanel, {
 
 		/*
 		 * When any property with reminder is changed then we need
-		 * to update reminder_time and flagdueby aswell, When
+		 * to update reminder_time and flagdueby as well, When
 		 * 1) flagdueby is changed
 		 * 2) reminder minutes is changed
 		 * 3) startdate and reminder time not same
@@ -981,7 +981,7 @@ Zarafa.calendar.dialogs.AppointmentTab = Ext.extend(Ext.form.FormPanel, {
 
 		/*
 		 * When any property with reminder is changed then we need
-		 * to update reminder_time and flagdueby aswell, When
+		 * to update reminder_time and flagdueby as well, When
 		 * 1) flagdueby is changed
 		 * 2) reminder minutes is changed
 		 * 3) startdate is changed
@@ -1064,7 +1064,7 @@ Zarafa.calendar.dialogs.AppointmentTab = Ext.extend(Ext.form.FormPanel, {
 	 * Event handler which is fired when a combobox selection has changed.
 	 * This will update the corresponding field inside the {@link Zarafa.core.data.IPMRecord record}
 	 * @param {Ext.form.ComboBox} combo The combobox which was selected
-	 * @param {Ext.data.Record} record The selected calender-folder record
+	 * @param {Ext.data.Record} record The selected calendar-folder record
 	 * @param {Number} index The index of the selected record
 	 * @private
 	 */

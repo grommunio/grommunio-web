@@ -154,7 +154,7 @@ Zarafa.hierarchy.data.MAPIFolderRecord = Ext.extend(Zarafa.core.data.IPFRecord, 
 	},
 
 	/**
-	 * This will check wheather the selected folder is default folder or not.
+	 * This will check whether the selected folder is default folder or not.
 	 * @return {Boolean} true if the folder is a default folder
 	 */
 	isDefaultFolder: function()
@@ -262,8 +262,8 @@ Zarafa.hierarchy.data.MAPIFolderRecord = Ext.extend(Zarafa.core.data.IPFRecord, 
 	},
 
 	/**
-	 * Helper function to get display name of {@link Zarafa.hierachy.data.MAPIFolderRecord MAPIFolderRecord},
-	 * For a subtree folder it will get name of {@link Zarafa.hierachy.data.MAPIStoreRecord MAPIStoreRecord},
+	 * Helper function to get display name of {@link Zarafa.hierarchy.data.MAPIFolderRecord MAPIFolderRecord},
+	 * For a subtree folder it will get name of {@link Zarafa.hierarchy.data.MAPIStoreRecord MAPIStoreRecord},
 	 * and for normal folders it will get it from display_name property.
 	 * @return {String} name of the folder.
 	 */

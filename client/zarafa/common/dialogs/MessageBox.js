@@ -256,8 +256,8 @@ Zarafa.common.dialogs.MessageBox = Ext.apply({}, {
 	 * it will hide the {@link Ext.MessageBox messagebox}.
 	 * @param {Ext.Button} button The button which user pressed.
 	 * @param {Ext.EventObject} event the event object
-	 * @parma {Function} callback The callback function to call when button is pressed.
-	 * @parma {Ext.form.RadioGroup} radioGroup The radioGroup contains if message box triggered from {@link #select} message box.
+	 * @param {Function} callback The callback function to call when button is pressed.
+	 * @param {Ext.form.RadioGroup} radioGroup The radioGroup contains if message box triggered from {@link #select} message box.
 	 */
 	onButtonClick: function(button, event, callback, radioGroup)
 	{

@@ -430,7 +430,7 @@ Zarafa.hierarchy.dialogs.FolderPropertiesPermissionTab = Ext.extend(Ext.Panel, {
 	/**
 	 * Check if the given permissions masks can be represented by a
 	 * {@link Zarafa.hierarchy.data.PermissionProfiles profile}. If it doesn't
-	 * match anyting the 'Other' profile will be displayed in the profile combobox.
+	 * match anything the 'Other' profile will be displayed in the profile combobox.
 	 * @param {Number} permissions The permissions to load
 	 * @private
 	 */

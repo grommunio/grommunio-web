@@ -62,7 +62,7 @@ Zarafa.task.ui.TaskRequestButton = Ext.extend(Ext.Button, {
 		 * This 'zarafa.recordcomponentupdaterplugin' plugin will call update function
 		 * which will not be found in newly created menuitem.
 		 * So it will call Ext's update function instead
-		 * and beacause Ext's update function will get called with wrong parameters,
+		 * and because Ext's update function will get called with wrong parameters,
 		 * text of menu item will be changed.
 		 */
 		this.initialConfig.plugins = [];
@@ -116,7 +116,7 @@ Zarafa.task.ui.TaskRequestButton = Ext.extend(Ext.Button, {
 				if (isAcceptbtn) {
 					this.visible = (isTaskReceived && isTaskAssigned && isTaskOwner && !isTaskAccepted && !isSubMessage);
 				} else if (isDeclineBtn) {
-					// showDeclineButton get's true if task is received task, user is owner of the task and
+					// showDeclineButton gets true if task is received task, user is owner of the task and
 					// task is assigned to user and task is accepted else false.
 					this.visible = (!isSubMessage && isTaskReceived && isTaskOwner && (isTaskAssigned || isTaskAccepted || record.isTaskUpdated()));
 				}

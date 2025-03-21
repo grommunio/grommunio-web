@@ -266,7 +266,7 @@ Zarafa.core.MultiFolderContextModel = Ext.extend(Zarafa.core.ContextModel, {
 	 * Move a {@link Zarafa.hierarchy.data.MAPIFolderRecord folder} out of the current group and
 	 * create a new group into which the folder should be moved.
 	 * @param {Zarafa.hierarchy.data.MAPIFolderRecord} folder The folder to move to a new group
-	 * @param {String} oldGroup The group from wehre the folder is moved
+	 * @param {String} oldGroup The group from where the folder is moved
 	 * @return {String} The groupID to which the folder was added.
 	 */
 	separateFolderFromGroup: function(folder, oldGroup)
@@ -291,7 +291,7 @@ Zarafa.core.MultiFolderContextModel = Ext.extend(Zarafa.core.ContextModel, {
 	/**
 	 * Remove a {@link Zarafa.hierarchy.data.MAPIFolderRecord folder} out of the current group.
 	 * @param {Zarafa.hierarchy.data.MAPIFolderRecord} folder The folder to move to a new group
-	 * @param {String} oldGroup The group from wehre the folder is moved
+	 * @param {String} oldGroup The group from where the folder is moved
 	 */
 	removeFolderFromGroup: function(folder, oldGroup)
 	{

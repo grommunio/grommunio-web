@@ -4,7 +4,7 @@
  *
  * This custom loadmask is created to handle search requests. When {@link Zarafa.core.data.MAPIStore MAPIStore}
  * starts search it is started as incremental search so search results are updated periodically.
- * but everytime search results are updated we shouldn't show loadmask, so this custom loadmask handles
+ * but every time search results are updated we shouldn't show loadmask, so this custom loadmask handles
  * this situation and doesn't show load mask when load event is fired for updating search results.
  */
 Zarafa.common.ui.LoadMask = Ext.extend(Ext.LoadMask, {
@@ -45,7 +45,7 @@ Zarafa.common.ui.LoadMask = Ext.extend(Ext.LoadMask, {
 	{
 		if(options && (options.actionType === Zarafa.core.Actions['updatesearch'] || options.actionType === Zarafa.core.Actions['updatelist'])) {
 			// don't do anything here, as we are just updating the search or live scroll results
-			// so loadmask shoudn't be removed
+			// so loadmask shouldn't be removed
 			return;
 		}
 
@@ -64,7 +64,7 @@ Zarafa.common.ui.LoadMask = Ext.extend(Ext.LoadMask, {
 	{
 		if(options && (options.actionType === Zarafa.core.Actions['updatesearch'] || options.actionType === Zarafa.core.Actions['updatelist'])){
 			// don't do anything here, as we are just updating the search or live scroll results
-			// so loadmask shoudn't be shown
+			// so loadmask shouldn't be shown
 			return;
 		}
 

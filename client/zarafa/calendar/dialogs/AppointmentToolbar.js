@@ -457,7 +457,7 @@ Zarafa.calendar.dialogs.AppointmentToolbar = Ext.extend(Zarafa.core.ui.ContentPa
 	/**
 	 * Event handler when the "Save" button has been pressed.
 	 * This will {@link Zarafa.core.data.RecordContentPanel#saveRecord save} the given record.
-	 * it also checks whether the meesage is a meeting, and iff to will send the changes to attendees aswell
+	 * it also checks whether the message is a meeting, and if to send the changes to attendees as well
 	 * @param {Ext.Button} button The button which has been pressed
 	 * @private
 	 */

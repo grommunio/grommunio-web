@@ -199,7 +199,7 @@ Zarafa.task.ui.TaskGridView = Ext.extend(Zarafa.common.ui.grid.MapiMessageGrid, 
 
 	/**
 	 * Apply custom style and content for the row body. This will always
-	 * apply the Complete/UnComplete and overdue style to the entire row.
+	 * apply the Complete/Incomplete and overdue style to the entire row.
 	 *
 	 * @param {Ext.data.Record} record The {@link Ext.data.Record Record} corresponding to the current row.
 	 * @param {Number} rowIndex The row index

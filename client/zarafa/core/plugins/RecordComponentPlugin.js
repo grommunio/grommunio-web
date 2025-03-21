@@ -98,7 +98,7 @@ Zarafa.core.plugins.RecordComponentPlugin = Ext.extend(Object, {
 	 *  has completed its work.
 	 * The task should also contain the 'scope' property which refers to the scope in which the
 	 * 'fn' should be called. If the task contains the 'defer' property, the call to 'fn' will
-	 * be defferred for the given number of milliseconds.
+	 * be deferred for the given number of milliseconds.
 	 */
 	loadTasks: undefined,
 
@@ -356,7 +356,7 @@ Zarafa.core.plugins.RecordComponentPlugin = Ext.extend(Object, {
 	 * Otherwise this function will call {@link #beforesetrecord} to check if the record should be
 	 * set on this field. Depending on the {@link Zarafa.core.data.MAPIRecord#isOpened opened} status
 	 * of the record, it will call to the server to open the record (and wait with displaying the
-	 * record until the server has responsed) or display the record directly.
+	 * record until the server has responded) or display the record directly.
 	 * @param {Zarafa.core.data.MAPIRecord} record The record to set
 	 * @param {Boolean} cheapCopy true to prevent the record from being copied. This is usually the case
 	 * when {@link #allowWrite} is enabled, and the given record is not a phantom.
@@ -470,7 +470,7 @@ Zarafa.core.plugins.RecordComponentPlugin = Ext.extend(Object, {
 	 * @param {Ext.Component} component The component which contains the record
 	 * @param {Zarafa.core.data.MAPIRecord} record The record to be opened
 	 * @param {Object} task The task object
-	 * @parma {Function} callback The function to call when the task has been
+	 * @param {Function} callback The function to call when the task has been
 	 * completed.
 	 * @private
 	 */
