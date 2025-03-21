@@ -46,7 +46,7 @@ At a glance
 Compatibility
 =============
 
-* PHP 7.4+, 8.x
+* PHP 8.x
 * Required modules: json, gd, gettext, mapi, xml
 * Required backend: gromox-zcore
 
