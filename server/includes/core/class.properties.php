@@ -143,7 +143,7 @@ class Properties {
 		try {
 			$storeMapping = mapi_getprops($store, [PR_MAPPING_SIGNATURE]);
 		}
-		catch (Exception $e) {
+		catch (Exception) {
 		}
 
 		return isset($storeMapping[PR_MAPPING_SIGNATURE]) ? bin2hex((string) $storeMapping[PR_MAPPING_SIGNATURE]) : '0';

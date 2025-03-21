@@ -89,7 +89,7 @@ class IndexSqlite extends SQLite3 {
 		try {
 			mapi_linkmessage($this->session, $search_entryid, $row['entryid']);
 		}
-		catch (Exception $e) {
+		catch (Exception) {
 			return;
 		}
 		++$this->count;

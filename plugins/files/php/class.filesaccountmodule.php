@@ -158,7 +158,7 @@ class FilesAccountModule extends ListModule {
 			$accountStore = new \Files\Core\AccountStore();
 			$accountStore->getAccount($actionData['entryid'])->beforeDelete();
 		}
-		catch (\Files\Backend\Exception $e) {
+		catch (\Files\Backend\Exception) {
 			// ignore errors here
 		}
 

@@ -92,7 +92,7 @@ class AddressbookListModule extends ListModule {
 				 */
 				$table = mapi_folder_getcontentstable($dir, MAPI_DEFERRED_ERRORS);
 			}
-			catch (MAPIException $e) {
+			catch (MAPIException) {
 				// for the shared and public contact folders open the store
 				// and get the contents of the folder
 				if ($isSharedFolder) {

@@ -272,7 +272,7 @@ class ocsclient {
 			try {
 				$xmldata = new \SimpleXMLElement($responsedata);
 			}
-			catch (\Exception $e) {
+			catch (\Exception) {
 				throw new InvalidResponseException($responsedata);
 			}
 
@@ -456,7 +456,7 @@ class ocsclient {
 			try {
 				$xmldata = new \SimpleXMLElement($response);
 			}
-			catch (\Exception $e) {
+			catch (\Exception) {
 				throw new InvalidResponseException($response);
 			}
 
@@ -502,7 +502,7 @@ class ocsclient {
 		try {
 			$xmldata = new \SimpleXMLElement($response);
 		}
-		catch (\Exception $e) {
+		catch (\Exception) {
 			throw new InvalidResponseException($response);
 		}
 

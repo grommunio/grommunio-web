@@ -236,7 +236,7 @@ class Pluginsmime extends Plugin {
 					file_put_contents($tmpUserCert, $userCert);
 				}
 			}
-			catch (MAPIException $e) {
+			catch (MAPIException) {
 				$msg = "[smime] Unable to open PR_SENT_REPRESENTING_ENTRYID. Maybe %s was does not exists or deleted from server.";
 				Log::write(LOGLEVEL_ERROR, sprintf($msg, $userProps[PR_SENT_REPRESENTING_NAME]));
 				error_log("[smime] Unable to open PR_SENT_REPRESENTING_NAME: " . print_r($userProps[PR_SENT_REPRESENTING_NAME], true));

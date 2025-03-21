@@ -920,7 +920,7 @@ class HierarchyModule extends Module {
 				$hierarchyTable = mapi_folder_gethierarchytable($finderFolder, MAPI_DEFERRED_ERRORS);
 				$finderHierarchyTables[$props[PR_FINDER_ENTRYID]] = $hierarchyTable;
 			}
-			catch (Exception $e) {
+			catch (Exception) {
 			}
 		}
 

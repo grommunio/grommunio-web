@@ -382,7 +382,7 @@ class Settings {
 				try {
 					$persistentSettings = json_decode_data($this->persistentSettingsString, true);
 				}
-				catch (Exception $e) {
+				catch (Exception) {
 				}
 
 				if (empty($persistentSettings) || empty($persistentSettings['settings'])) {
@@ -522,7 +522,7 @@ class Settings {
 
 				mapi_savechanges($this->store);
 			}
-			catch (Exception $e) {
+			catch (Exception) {
 			}
 
 			// Settings saved, update settings_string and modified array

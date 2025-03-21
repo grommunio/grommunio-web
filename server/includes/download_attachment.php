@@ -183,7 +183,7 @@ class DownloadAttachment extends DownloadBase {
 				try {
 					$this->destinationFolder = mapi_msgstore_openentry($this->store, hex2bin((string) $this->destinationFolderId));
 				}
-				catch (Exception $e) {
+				catch (Exception) {
 					// Try to find the folder from shared stores in case if it is not found in current user's store
 					$this->otherStore = $GLOBALS['operations']->getOtherStoreFromEntryid($this->destinationFolderId);
 					if ($this->otherStore !== false) {
@@ -654,7 +654,7 @@ class DownloadAttachment extends DownloadBase {
 					// Convert an RFC822-formatted e-mail to a MAPI Message
 					$ok = mapi_inetmapi_imtomapi($GLOBALS['mapisession']->getSession(), $this->store, $addrBook, $newMessage, $attachmentStream, []);
 				}
-				catch (Exception $e) {
+				catch (Exception) {
 					throw new ZarafaException(_("The eml Attachment is not imported successfully"));
 				}
 
@@ -665,7 +665,7 @@ class DownloadAttachment extends DownloadBase {
 					// Convert an RFC6350-formatted vCard to a MAPI Contact
 					$ok = mapi_vcftomapi($GLOBALS['mapisession']->getSession(), $this->store, $newMessage, $attachmentStream);
 				}
-				catch (Exception $e) {
+				catch (Exception) {
 					throw new ZarafaException(_("The vcf attachment is not imported successfully"));
 				}
 				break;

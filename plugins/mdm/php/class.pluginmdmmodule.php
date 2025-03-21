@@ -382,7 +382,7 @@ class PluginMDMModule extends Module {
 				try {
 					$entryid = mapi_msgstore_entryidfromsourcekey($store, hex2bin((string) $item->folderid));
 				}
-				catch (MAPIException $me) {
+				catch (MAPIException) {
 					continue;
 				}
 			}

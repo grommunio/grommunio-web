@@ -189,7 +189,7 @@ class Der extends Oids {
 					$theext['extnValue'] = chunk_split(bin2hex((string) $theext['extnValue']), 2, ':');
 				}
 			}
-			catch (\Exception $e) {
+			catch (\Exception) {
 				$theext['extnValue'] = chunk_split(bin2hex((string) $theext['extnValue']), 2, ':');
 			}
 			$this->end();

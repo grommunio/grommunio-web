@@ -587,7 +587,7 @@ class Operations {
 					}
 				}
 			}
-			catch (MAPIException $e) {
+			catch (MAPIException) {
 				continue;
 			}
 
@@ -666,7 +666,7 @@ class Operations {
 
 			return mapi_getprops($folderObj, $GLOBALS["properties"]->getFavoritesFolderProperties());
 		}
-		catch (Exception $e) {
+		catch (Exception) {
 			// in some cases error_log was causing an endless loop, so disable it for now
 			// error_log($e);
 		}
@@ -1543,7 +1543,7 @@ class Operations {
 						}
 					}
 				}
-				catch (MAPIException $e) {
+				catch (MAPIException) {
 					// do nothing
 				}
 			}
@@ -2103,7 +2103,7 @@ class Operations {
 			try {
 				$tzdef = mapi_ianatz_to_tzdef($action['props']['timezone_iana']);
 			}
-			catch (Exception $e) {
+			catch (Exception) {
 			}
 			if ($tzdef !== false) {
 				$action['props']['tzdefstart'] = $action['props']['tzdefend'] = bin2hex($tzdef);
@@ -3010,7 +3010,7 @@ class Operations {
 			try {
 				mapi_folder_copymessages($sourcefolder, $entryids, $destfolder, $moveMessages ? MESSAGE_MOVE : 0);
 			}
-			catch (MAPIException $e) {
+			catch (MAPIException) {
 				error_log(sprintf("mapi_folder_copymessages failed with code: 0x%08X. Wait 250ms and try again", mapi_last_hresult()));
 				// wait 250ms before trying again
 				usleep(250000);
@@ -3018,7 +3018,7 @@ class Operations {
 				try {
 					mapi_folder_copymessages($sourcefolder, $entryids, $destfolder, $moveMessages ? MESSAGE_MOVE : 0);
 				}
-				catch (MAPIException $e) {
+				catch (MAPIException) {
 					error_log(sprintf("2nd attempt of mapi_folder_copymessages also failed with code: 0x%08X. Abort.", mapi_last_hresult()));
 
 					return false;
@@ -3209,7 +3209,7 @@ class Operations {
 					try {
 						mapi_message_deleteattach($message, (int) $attach_num);
 					}
-					catch (Exception $e) {
+					catch (Exception) {
 						continue;
 					}
 				}
@@ -3543,7 +3543,7 @@ class Operations {
 		try {
 			$mailuser = mapi_ab_openentry($GLOBALS["mapisession"]->getAddressbook(), $senderEntryid);
 		}
-		catch (MAPIException $e) {
+		catch (MAPIException) {
 			// The user might have a new uidNumber, which makes the user not resolve, see WA-7673
 			// FIXME: Lookup the user by PR_SENDER_NAME or another attribute if PR_SENDER_ADDRTYPE is "EX"
 			return false;
@@ -3937,7 +3937,7 @@ class Operations {
 					return $store;
 				}
 			}
-			catch (MAPIException $e) {
+			catch (MAPIException) {
 			}
 		}
 
@@ -3963,7 +3963,7 @@ class Operations {
 			}
 			mapi_ab_openentry($GLOBALS["mapisession"]->getAddressbook(), $entryid);
 		}
-		catch (MAPIException $e) {
+		catch (MAPIException) {
 			return true;
 		}
 
@@ -4020,7 +4020,7 @@ class Operations {
 		try {
 			$distlist = $this->openMessage($store, hex2bin((string) $distlistEntryid));
 		}
-		catch (Exception $e) {
+		catch (Exception) {
 			// the distribution list is in a public folder
 			$distlist = $this->openMessage($GLOBALS["mapisession"]->getPublicMessageStore(), hex2bin((string) $distlistEntryid));
 		}
@@ -4070,7 +4070,7 @@ class Operations {
 			try {
 				$distlist = $this->openMessage($store, hex2bin((string) $entryid));
 			}
-			catch (Exception $e) {
+			catch (Exception) {
 				$distlist = $this->openMessage($GLOBALS["mapisession"]->getPublicMessageStore(), hex2bin((string) $entryid));
 			}
 

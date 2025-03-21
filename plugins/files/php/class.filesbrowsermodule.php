@@ -496,7 +496,7 @@ class FilesBrowserModule extends FilesListModule {
 			try {
 				$result = $initializedBackend->delete($relNodeId);
 			}
-			catch (\Files\Backend\Exception $e) {
+			catch (\Files\Backend\Exception) {
 				// TODO: this might fails because the file was already deleted.
 				// fire error message if any other error occurred.
 				Logger::debug(self::LOG_CONTEXT, "deleted a directory that was no longer available");
@@ -687,7 +687,7 @@ class FilesBrowserModule extends FilesListModule {
 			try {
 				$lsdata = $initializedBackend->ls($relDirname); // we can only check files in the same folder, so one request will be enough
 			}
-			catch (Exception $e) {
+			catch (Exception) {
 				// ignore - if file not found -> does not exist :)
 			}
 			if (isset($lsdata) && is_array($lsdata)) {

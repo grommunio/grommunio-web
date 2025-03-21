@@ -631,7 +631,7 @@ class ListModule extends Module {
 					return $searchFolder;
 				}
 			}
-			catch (MAPIException $e) {
+			catch (MAPIException) {
 				// ignore error and continue creation of search folder
 				unset($this->sessionData['searchFolderEntryId']);
 			}

@@ -186,7 +186,7 @@ class HierarchyListModule extends FilesListModule {
 			try {
 				$initializedBackend->delete($relNodeId);
 			}
-			catch (\Files\Backend\Exception $e) {
+			catch (\Files\Backend\Exception) {
 				// TODO: this might fails because the file was already deleted.
 				// fire error message if any other error occurred.
 				// Logger::debug(self::LOG_CONTEXT, "deleted a directory that was no longer available");

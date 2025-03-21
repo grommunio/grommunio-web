@@ -119,7 +119,7 @@ class AppointmentListModule extends ListModule {
 				try {
 					$this->tzdef = mapi_ianatz_to_tzdef($action['timezone_iana']);
 				}
-				catch (Exception $e) {
+				catch (Exception) {
 				}
 			}
 

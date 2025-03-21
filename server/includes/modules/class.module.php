@@ -356,7 +356,7 @@ class Module {
 				}
 			}
 		}
-		catch (Exception $e) {
+		catch (Exception) {
 		}
 
 		return $store;

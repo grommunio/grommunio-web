@@ -667,7 +667,7 @@ class UploadAttachment {
 		try {
 			$destinationFolder = mapi_msgstore_openentry($this->store, hex2bin((string) $this->destinationFolderId));
 		}
-		catch (Exception $e) {
+		catch (Exception) {
 			// Try to find the folder from shared stores in case if it is not found in current user's store
 			$destinationFolder = mapi_msgstore_openentry($GLOBALS['operations']->getOtherStoreFromEntryid($this->destinationFolderId), hex2bin((string) $this->destinationFolderId));
 		}

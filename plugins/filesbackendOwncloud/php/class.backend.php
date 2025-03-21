@@ -459,7 +459,7 @@ class Backend extends \Files\Backend\Webdav\Backend implements iFeatureSharing {
 				try {
 					$shares = $this->ocs_client->loadShareByPath($patharray[0]);
 				}
-				catch (FileNotFoundException $e) {
+				catch (FileNotFoundException) {
 					$shares = false;
 				}
 
