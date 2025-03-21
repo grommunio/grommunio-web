@@ -20,4 +20,4 @@ $validTo = time() + (86400 * 365);
 $sscert = openssl_csr_sign($csr, null, $privkey, $daysvalid, $config);
 openssl_x509_export($sscert, $publickey);
 openssl_pkcs12_export($publickey, $filename, $privkey, "test");
-echo base64_encode($filename);
+echo base64_encode((string) $filename);

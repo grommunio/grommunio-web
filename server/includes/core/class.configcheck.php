@@ -57,7 +57,7 @@ class ConfigCheck {
 			?>
 				<p style="font-weight: bold;">grommunio Web can't start because of incompatible configuration.</p>
 				<p>Please correct above errors, a good start is by checking your '<tt><?php echo $this->get_php_ini(); ?></tt>' file.</p>
-				<p>You can disable this configuration check by editing the file '<tt><?php echo dirname($_SERVER["SCRIPT_FILENAME"]); ?>/config.php</tt>', but this is not recommended.</p>
+				<p>You can disable this configuration check by editing the file '<tt><?php echo dirname((string) $_SERVER["SCRIPT_FILENAME"]); ?>/config.php</tt>', but this is not recommended.</p>
 			<?php
 			exit;
 		}
@@ -75,7 +75,7 @@ class ConfigCheck {
 			printf("<div style=\"color: #f00;\">%s</div><div style=\"font-size: smaller; margin-left: 20px;\">%s</div>\n", $string, $help);
 		}
 		else {
-			trigger_error(strip_tags($string), E_USER_NOTICE);
+			trigger_error(strip_tags((string) $string), E_USER_NOTICE);
 		}
 		$this->result = false;
 	}
@@ -256,7 +256,7 @@ class ConfigCheck {
 	public function checkPHPsetting($setting, $value_needed, $help_msg = "") {
 		$result = true;
 		$inival = ini_get($setting);
-		if (strcmp($inival, $value_needed) != 0) {
+		if (strcmp($inival, (string) $value_needed) != 0) {
 			$this->error_config($setting, $value_needed, $help_msg . " (Current value: \"{$inival}\")");
 			$result = false;
 		}
@@ -323,7 +323,7 @@ class ConfigCheck {
 		}
 
 		if (is_dir($dir)) {
-			$states = strtolower($states);
+			$states = strtolower((string) $states);
 			if (str_contains($states, "r")) {
 				if (!is_readable($dir)) {
 					$this->error_directory($dir, "isn't readable", $help_msg);

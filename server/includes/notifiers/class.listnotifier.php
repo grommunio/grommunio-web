@@ -61,9 +61,9 @@ class ListNotifier extends Notifier {
 									"content_unread" => $folderProps[PR_CONTENT_UNREAD],
 									// Add store_entryid,entryid of folder and display_name of folder
 									// to JSON data in order to refresh the list.
-									"store_entryid" => bin2hex($folderProps[PR_STORE_ENTRYID]),
-									"parent_entryid" => bin2hex($folderProps[PR_PARENT_ENTRYID]),
-									"entryid" => bin2hex($folderProps[PR_ENTRYID]),
+									"store_entryid" => bin2hex((string) $folderProps[PR_STORE_ENTRYID]),
+									"parent_entryid" => bin2hex((string) $folderProps[PR_PARENT_ENTRYID]),
+									"entryid" => bin2hex((string) $folderProps[PR_ENTRYID]),
 									"display_name" => $folderProps[PR_DISPLAY_NAME],
 								],
 							],
@@ -79,17 +79,17 @@ class ListNotifier extends Notifier {
 
 				if (isset($props[PR_ENTRYID]) && $folderEntryID) {
 					$data = [];
-					$data["parent_entryid"] = bin2hex($folderEntryID);
+					$data["parent_entryid"] = bin2hex((string) $folderEntryID);
 
 					if (is_array($props[PR_ENTRYID])) {
 						$data["entryid"] = [];
 
 						foreach ($props[PR_ENTRYID] as $entryid) {
-							array_push($data["entryid"], bin2hex($entryid));
+							array_push($data["entryid"], bin2hex((string) $entryid));
 						}
 					}
 					else {
-						$data["entryid"] = bin2hex($props[PR_ENTRYID]);
+						$data["entryid"] = bin2hex((string) $props[PR_ENTRYID]);
 					}
 
 					$this->addNotificationActionData("delete", ["item" => [$data]]);

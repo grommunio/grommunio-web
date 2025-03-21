@@ -43,7 +43,7 @@ class WebAppSession {
 		// Start the session so we can use it for timeout checking
 		$this->start();
 
-		if (basename($_SERVER['PHP_SELF']) != 'grommunio.php') {
+		if (basename((string) $_SERVER['PHP_SELF']) != 'grommunio.php') {
 			// We will only check for timeout in the grommunio.php page
 			$this->setStartTime();
 		}
@@ -137,7 +137,7 @@ class WebAppSession {
 			return;
 		}
 
-		if (array_key_exists('HTTP_CONTENT_TYPE', $_SERVER) && !str_contains($_SERVER['HTTP_CONTENT_TYPE'], 'application/json')) {
+		if (array_key_exists('HTTP_CONTENT_TYPE', $_SERVER) && !str_contains((string) $_SERVER['HTTP_CONTENT_TYPE'], 'application/json')) {
 			return;
 		}
 

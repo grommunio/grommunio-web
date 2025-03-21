@@ -214,7 +214,7 @@ class TaskItemModule extends ItemModule {
 				$taskReq = new TaskRequest($store, $message, $GLOBALS["mapisession"]->getSession());
 				$result = $taskReq->deleteReceivedTR();
 				if ($result) {
-					$GLOBALS["bus"]->notify(bin2hex($result[PR_PARENT_ENTRYID]), TABLE_DELETE, $result);
+					$GLOBALS["bus"]->notify(bin2hex((string) $result[PR_PARENT_ENTRYID]), TABLE_DELETE, $result);
 				}
 			}
 
@@ -261,7 +261,7 @@ class TaskItemModule extends ItemModule {
 				}
 
 				if (isset($action["entryid"]) && !empty($action["entryid"])) {
-					$message = mapi_msgstore_openentry($store, hex2bin($action["entryid"]));
+					$message = mapi_msgstore_openentry($store, hex2bin((string) $action["entryid"]));
 					if ($message) {
 						$messageProps = mapi_getprops($message, [PR_ENTRYID, PR_PARENT_ENTRYID, PR_STORE_ENTRYID, $properties['recurring']]);
 
@@ -297,7 +297,7 @@ class TaskItemModule extends ItemModule {
 					// we need to copy the original attachments when create task from message.
 					if (isset($action['message_action'], $action['message_action']['source_entryid'])) {
 						$copyFromMessage = hex2bin($action['message_action']['source_entryid']);
-						$copyFromStore = hex2bin($action['message_action']['source_store_entryid']);
+						$copyFromStore = hex2bin((string) $action['message_action']['source_store_entryid']);
 						$copyAttachments = true;
 
 						// get resources of store and message
@@ -329,7 +329,7 @@ class TaskItemModule extends ItemModule {
 					if (isset($action["message_action"]["action_type"]) && $action["message_action"]["action_type"] === "restoreToTaskList") {
 						$deleteTRProps = $tr->deleteReceivedTR();
 						if ($deleteTRProps) {
-							$GLOBALS["bus"]->notify(bin2hex($deleteTRProps[PR_PARENT_ENTRYID]), TABLE_DELETE, $deleteTRProps);
+							$GLOBALS["bus"]->notify(bin2hex((string) $deleteTRProps[PR_PARENT_ENTRYID]), TABLE_DELETE, $deleteTRProps);
 						}
 
 						return $messageProps;

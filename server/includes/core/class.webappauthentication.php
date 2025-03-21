@@ -240,7 +240,7 @@ class WebAppAuthentication {
 		$encryptionStore = EncryptionStore::getInstance();
 		$data = '';
 		if (kc_session_save($session, $data) === NOERROR) {
-			$encryptionStore->add('savedsession', bin2hex($data));
+			$encryptionStore->add('savedsession', bin2hex((string) $data));
 		}
 	}
 
@@ -256,7 +256,7 @@ class WebAppAuthentication {
 			return false;
 		}
 
-		if (kc_session_restore(hex2bin($encryptionStore->get('savedsession')), $session) === NOERROR) {
+		if (kc_session_restore(hex2bin((string) $encryptionStore->get('savedsession')), $session) === NOERROR) {
 			WebAppAuthentication::$_errorCode = NOERROR;
 			WebAppAuthentication::$_authenticated = true;
 			WebAppAuthentication::setMAPISession($session);
@@ -290,7 +290,7 @@ class WebAppAuthentication {
 		// Login form is only found on index.php
 		// If we don't check it, then posting to grommunio.php would
 		// also make authenticating possible.
-		if (basename($_SERVER['SCRIPT_NAME']) !== 'index.php') {
+		if (basename((string) $_SERVER['SCRIPT_NAME']) !== 'index.php') {
 			return false;
 		}
 

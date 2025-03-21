@@ -37,8 +37,8 @@ if (isset($_GET['logout'])) {
 		// GET variable user will be set when the user was logged out because of session timeout
 		// or because he logged out in another window.
 		$username = sanitizeGetValue('user', '', USERNAME_REGEX);
-		$location = rtrim(dirname($_SERVER['PHP_SELF']), '/') . '/';
-		header('Location: ' . $location . ($username ? '?user=' . rawurlencode($username) : ''), true, 303);
+		$location = rtrim(dirname((string) $_SERVER['PHP_SELF']), '/') . '/';
+		header('Location: ' . $location . ($username ? '?user=' . rawurlencode((string) $username) : ''), true, 303);
 	}
 	$webappSession->destroy();
 
@@ -104,7 +104,7 @@ if (!WebAppAuthentication::isAuthenticated()) {
 
 	// If a username was passed as GET parameter we will prefill the username input
 	// of the login form with it.
-	$user = isset($_GET['user']) ? htmlentities($_GET['user']) : '';
+	$user = isset($_GET['user']) ? htmlentities((string) $_GET['user']) : '';
 
 	// Lets add a header when login failed (DeskApp needs it to identify failed login attempts)
 	if (WebAppAuthentication::getErrorCode() !== NOERROR) {
@@ -125,7 +125,7 @@ if (!WebAppAuthentication::isAuthenticated()) {
 // the credentials again, and that the url data is taken away from the
 // url in the address bar (so a browser refresh will not pass them again)
 if (isset($_GET['code']) || (WebAppAuthentication::isUsingLoginForm() || isset($_GET['action']) && !empty($_GET['action']))) {
-	$location = rtrim(dirname($_SERVER['PHP_SELF']), '/') . '/';
+	$location = rtrim(dirname((string) $_SERVER['PHP_SELF']), '/') . '/';
 	header('Location: ' . $location, true, 303);
 
 	exit;
@@ -204,7 +204,7 @@ else {
 }
 
 $Language->setLanguage($lang);
-setcookie('lang', $lang, [
+setcookie('lang', (string) $lang, [
 	'expires' => time() + 31536000,
 	'path' => '/',
 	'domain' => '',

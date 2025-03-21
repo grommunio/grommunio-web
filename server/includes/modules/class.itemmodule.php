@@ -157,14 +157,14 @@ class ItemModule extends Module {
 								if ($delete) {
 									// send TABLE_DELETE event because the message has moved
 									$this->sendFeedback(true);
-									$GLOBALS["bus"]->notify(bin2hex($messageProps[PR_PARENT_ENTRYID]), TABLE_DELETE, $messageProps);
+									$GLOBALS["bus"]->notify(bin2hex((string) $messageProps[PR_PARENT_ENTRYID]), TABLE_DELETE, $messageProps);
 								}
 								else {
 									$this->addActionData("update", ["item" => Conversion::mapMAPI2XML($this->properties, $messageProps)]);
 									$GLOBALS["bus"]->addData($this->getResponseData());
 
 									// send TABLE_SAVE event because an occurrence is deleted
-									$GLOBALS["bus"]->notify(bin2hex($messageProps[PR_PARENT_ENTRYID]), TABLE_SAVE, $messageProps);
+									$GLOBALS["bus"]->notify(bin2hex((string) $messageProps[PR_PARENT_ENTRYID]), TABLE_SAVE, $messageProps);
 								}
 
 								break;
@@ -193,13 +193,13 @@ class ItemModule extends Module {
 
 								$this->sendFeedback(true);
 								if ($result !== false) {
-									$GLOBALS["bus"]->notify(bin2hex($result[PR_PARENT_ENTRYID]), TABLE_DELETE, $result);
+									$GLOBALS["bus"]->notify(bin2hex((string) $result[PR_PARENT_ENTRYID]), TABLE_DELETE, $result);
 								}
 
 								$props = mapi_getprops($message, [PR_ENTRYID, PR_STORE_ENTRYID, PR_PARENT_ENTRYID]);
 								if (!$tr->isTaskRequest()) {
 									unset($props[PR_MESSAGE_CLASS]);
-									$GLOBALS["bus"]->notify(bin2hex($props[PR_PARENT_ENTRYID]), $isAccept ? TABLE_SAVE : TABLE_DELETE, $props);
+									$GLOBALS["bus"]->notify(bin2hex((string) $props[PR_PARENT_ENTRYID]), $isAccept ? TABLE_SAVE : TABLE_DELETE, $props);
 								}
 								break;
 
@@ -260,7 +260,7 @@ class ItemModule extends Module {
 								$req->doDecline(true, $basedate, $body);
 
 								$messageProps = mapi_getprops($message, [PR_ENTRYID, PR_STORE_ENTRYID, PR_PARENT_ENTRYID]);
-								$GLOBALS["bus"]->notify(bin2hex($messageProps[PR_PARENT_ENTRYID]), $basedate ? TABLE_SAVE : TABLE_DELETE, $messageProps);
+								$GLOBALS["bus"]->notify(bin2hex((string) $messageProps[PR_PARENT_ENTRYID]), $basedate ? TABLE_SAVE : TABLE_DELETE, $messageProps);
 
 								break;
 
@@ -500,7 +500,7 @@ class ItemModule extends Module {
 
 								// send update to maillistmodule that meeting request is updated with out of date flag
 								$messageProps = mapi_getprops($message, [PR_ENTRYID, PR_PARENT_ENTRYID, PR_STORE_ENTRYID]);
-								$GLOBALS['bus']->notify(bin2hex($messageProps[PR_PARENT_ENTRYID]), TABLE_SAVE, $messageProps);
+								$GLOBALS['bus']->notify(bin2hex((string) $messageProps[PR_PARENT_ENTRYID]), TABLE_SAVE, $messageProps);
 							}
 							else {
 								/*
@@ -844,9 +844,9 @@ class ItemModule extends Module {
 			$calendarItemProps = mapi_getprops($calendarItem, [PR_STORE_ENTRYID, PR_PARENT_ENTRYID, PR_ENTRYID, $meetingRequestObject->proptags['updatecounter'], $meetingRequestObject->proptags['goid']]);
 
 			// Store calendar item's necessary properties in props array.
-			$props['appointment_store_entryid'] = bin2hex($calendarItemProps[PR_STORE_ENTRYID]);
-			$props['appointment_parent_entryid'] = bin2hex($calendarItemProps[PR_PARENT_ENTRYID]);
-			$props['appointment_entryid'] = bin2hex($calendarItemProps[PR_ENTRYID]);
+			$props['appointment_store_entryid'] = bin2hex((string) $calendarItemProps[PR_STORE_ENTRYID]);
+			$props['appointment_parent_entryid'] = bin2hex((string) $calendarItemProps[PR_PARENT_ENTRYID]);
+			$props['appointment_entryid'] = bin2hex((string) $calendarItemProps[PR_ENTRYID]);
 
 			$props['appointment_updatecounter'] = isset($calendarItemProps[$meetingRequestObject->proptags['updatecounter']]) ? $calendarItemProps[$meetingRequestObject->proptags['updatecounter']] : 0;
 
@@ -945,12 +945,12 @@ class ItemModule extends Module {
 			// if basedate is specified then we have created exception in recurring meeting request
 			// so send notification of creation of exception
 			$messageProps = mapi_getprops($message, [PR_ENTRYID, PR_STORE_ENTRYID, PR_PARENT_ENTRYID]);
-			$GLOBALS["bus"]->notify(bin2hex($messageProps[PR_PARENT_ENTRYID]), TABLE_SAVE, $messageProps);
+			$GLOBALS["bus"]->notify(bin2hex((string) $messageProps[PR_PARENT_ENTRYID]), TABLE_SAVE, $messageProps);
 		}
 		else {
 			// for normal/recurring meetings send delete notification
 			$messageProps = mapi_getprops($message, [PR_ENTRYID, PR_STORE_ENTRYID, PR_PARENT_ENTRYID]);
-			$GLOBALS["bus"]->notify(bin2hex($messageProps[PR_PARENT_ENTRYID]), TABLE_DELETE, $messageProps);
+			$GLOBALS["bus"]->notify(bin2hex((string) $messageProps[PR_PARENT_ENTRYID]), TABLE_DELETE, $messageProps);
 		}
 	}
 
@@ -974,6 +974,6 @@ class ItemModule extends Module {
 
 		// Notify the bus that the message has been deleted
 		$messageProps = mapi_getprops($message, [PR_ENTRYID, PR_STORE_ENTRYID, PR_PARENT_ENTRYID]);
-		$GLOBALS["bus"]->notify(bin2hex($messageProps[PR_PARENT_ENTRYID]), $basedate ? TABLE_SAVE : TABLE_DELETE, $messageProps);
+		$GLOBALS["bus"]->notify(bin2hex((string) $messageProps[PR_PARENT_ENTRYID]), $basedate ? TABLE_SAVE : TABLE_DELETE, $messageProps);
 	}
 }

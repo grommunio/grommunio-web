@@ -59,7 +59,7 @@ class Response {
 			return;
 		}
 
-		$allowedDomains = explode(' ', preg_replace('/\s+/', ' ', $allowedDomains));
+		$allowedDomains = explode(' ', (string) preg_replace('/\s+/', ' ', $allowedDomains));
 		if (count($allowedDomains) && !empty($allowedDomains[0])) {
 			foreach ($allowedDomains as $domain) {
 				if ($domain === $_SERVER['HTTP_ORIGIN']) {

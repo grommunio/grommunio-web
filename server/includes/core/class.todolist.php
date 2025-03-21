@@ -42,9 +42,9 @@ class TodoList {
 		$additionalRenEntryidsEx = $rootProperties[PR_ADDITIONAL_REN_ENTRYIDS_EX];
 
 		$headerFormat = 'Sid/Ssize';
-		while (strlen($additionalRenEntryidsEx) > 0) {
-			$header = unpack($headerFormat, substr($additionalRenEntryidsEx, 0, 4));
-			$additionalRenEntryidsEx = substr($additionalRenEntryidsEx, 4);
+		while (strlen((string) $additionalRenEntryidsEx) > 0) {
+			$header = unpack($headerFormat, substr((string) $additionalRenEntryidsEx, 0, 4));
+			$additionalRenEntryidsEx = substr((string) $additionalRenEntryidsEx, 4);
 
 			if ($header['id'] === PERSIST_SENTINEL) {
 				// We found the end block
@@ -105,7 +105,7 @@ class TodoList {
 		$rootProperties = mapi_getprops($root, [PR_ADDITIONAL_REN_ENTRYIDS_EX]);
 		$additionalRenEntryidsEx = $rootProperties[PR_ADDITIONAL_REN_ENTRYIDS_EX];
 
-		$dataHeader = pack('SS', RSF_ELID_ENTRYID, strlen($entryid));
+		$dataHeader = pack('SS', RSF_ELID_ENTRYID, strlen((string) $entryid));
 		$dataElement = $dataHeader . $entryid;
 		$blockHeader = pack('SS', RSF_PID_TODO_SEARCH, strlen($dataElement));
 

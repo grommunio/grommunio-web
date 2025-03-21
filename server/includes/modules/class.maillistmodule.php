@@ -131,7 +131,7 @@ class MailListModule extends ListModule {
 
 			try {
 				$inboxProps = mapi_getprops($inbox, [PR_ENTRYID]);
-				$this->_inboxEntryId = bin2hex($inboxProps[PR_ENTRYID]);
+				$this->_inboxEntryId = bin2hex((string) $inboxProps[PR_ENTRYID]);
 			}
 			catch (MAPIException $e) {
 				// don't propagate this error to parent handlers, if store doesn't support it

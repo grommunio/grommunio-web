@@ -60,7 +60,7 @@ class DownloadMessage extends DownloadBase {
 
 		if ($result === true) {
 			for ($index = 0, $count = count($this->entryIds); $index < $count; ++$index) {
-				$this->message = mapi_msgstore_openentry($this->store, hex2bin($this->entryIds[$index]));
+				$this->message = mapi_msgstore_openentry($this->store, hex2bin((string) $this->entryIds[$index]));
 
 				// get message properties.
 				$messageProps = mapi_getprops($this->message, [PR_SUBJECT, PR_MESSAGE_CLASS]);

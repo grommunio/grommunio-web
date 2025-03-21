@@ -191,7 +191,7 @@ class AppointmentListModule extends ListModule {
 					}
 
 					$isSearchFolder = isset($action['search_folder_entryid']);
-					$entryid = $isSearchFolder ? hex2bin($action['search_folder_entryid']) : $entryid;
+					$entryid = $isSearchFolder ? hex2bin((string) $action['search_folder_entryid']) : $entryid;
 
 					if (!is_array($entryid) && !is_array($store)) {
 						$entryid = [$entryid];
@@ -421,7 +421,7 @@ class AppointmentListModule extends ListModule {
 						// We will create a new Recurrence object with the opened message,
 						// so we can open the attachments. The attachments for this exception
 						// contains the categories property (if changed)
-						$msgEntryid = bin2hex($calendaritem[$this->properties["entryid"]]);
+						$msgEntryid = bin2hex((string) $calendaritem[$this->properties["entryid"]]);
 						if (!isset($openedMessages[$msgEntryid])) {
 							// Open the message and add it to the openedMessages property
 							$message = mapi_msgstore_openentry($store, $calendaritem[$this->properties["entryid"]]);
@@ -521,7 +521,7 @@ class AppointmentListModule extends ListModule {
 		// all-day events) or was imported from a system which doesn't set it.
 		$isTzdefstartSet = isset($calendaritem['props']['tzdefstart']);
 		$tzdefstart = $isTzdefstartSet ?
-			hex2bin($calendaritem['props']['tzdefstart']) :
+			hex2bin((string) $calendaritem['props']['tzdefstart']) :
 			mapi_ianatz_to_tzdef("Etc/UTC");
 
 		// queryrows only returns 510 chars max, so if tzdef is longer than that
@@ -530,7 +530,7 @@ class AppointmentListModule extends ListModule {
 		if (strlen($tzdefstart) > 500 && $isTzdefstartSet) {
 			if (!isset($openedMessages[$calendaritem['entryid']])) {
 				// Open the message and add it to the openedMessages property
-				$openedMessages[$calendaritem['entryid']] = mapi_msgstore_openentry($store, hex2bin($calendaritem['entryid']));
+				$openedMessages[$calendaritem['entryid']] = mapi_msgstore_openentry($store, hex2bin((string) $calendaritem['entryid']));
 			}
 			$tzdefstart = streamProperty($openedMessages[$calendaritem['entryid']], $this->properties['tzdefstart']);
 		}
@@ -634,8 +634,8 @@ class AppointmentListModule extends ListModule {
 	public function getFreebusyItems($store, $folderEntryid, $start, $end) {
 		$items = [];
 		$storeProps = mapi_getprops($store, [PR_ENTRYID, PR_MAILBOX_OWNER_ENTRYID]);
-		$folderEntryid = bin2hex($folderEntryid);
-		$storeEntryid = bin2hex($storeProps[PR_ENTRYID]);
+		$folderEntryid = bin2hex((string) $folderEntryid);
+		$storeEntryid = bin2hex((string) $storeProps[PR_ENTRYID]);
 		// if start was not set, get items one month back
 		if ($start === false) {
 			$start = time() - 2592000;

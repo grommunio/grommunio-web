@@ -165,7 +165,7 @@ class ListModule extends Module {
 		}
 
 		$isSearchFolder = isset($action['search_folder_entryid']);
-		$entryid = $isSearchFolder ? hex2bin($action['search_folder_entryid']) : $entryid;
+		$entryid = $isSearchFolder ? hex2bin((string) $action['search_folder_entryid']) : $entryid;
 
 		// Get the table and merge the arrays
 		$data = $GLOBALS["operations"]->getTable($store, $entryid, $this->properties, $this->sort, $this->start, $limit, $this->restriction);
@@ -321,14 +321,14 @@ class ListModule extends Module {
 				// get entryids of original folders, and use it to set new search criteria
 				$entryids = [];
 				for ($index = 0; $index < count($this->sessionData['searchOriginalEntryids']); ++$index) {
-					$entryids[] = hex2bin($this->sessionData['searchOriginalEntryids'][$index]);
+					$entryids[] = hex2bin((string) $this->sessionData['searchOriginalEntryids'][$index]);
 				}
 			}
 			else {
 				// store entryids of original folders, so that can be used for re-setting the search criteria if needed
 				$this->sessionData['searchOriginalEntryids'] = [];
 				for ($index = 0, $len = count($entryids); $index < $len; ++$index) {
-					$this->sessionData['searchOriginalEntryids'][] = bin2hex($entryids[$index]);
+					$this->sessionData['searchOriginalEntryids'][] = bin2hex((string) $entryids[$index]);
 				}
 			}
 
@@ -337,7 +337,7 @@ class ListModule extends Module {
 		}
 
 		if (isset($this->sessionData['searchCriteriaCheck']) || $restrictionCheck == $this->sessionData['searchCriteriaCheck']) {
-			$folderEntryid = bin2hex($entryid);
+			$folderEntryid = bin2hex((string) $entryid);
 			if ($this->sessionData['searchOriginalEntryids'][0] !== $folderEntryid) {
 				$this->sessionData['searchOriginalEntryids'][0] = $folderEntryid;
 				mapi_folder_setsearchcriteria($searchFolder, $this->restriction, [$entryid], $subfolder_flag);
@@ -375,7 +375,7 @@ class ListModule extends Module {
 		}
 
 		// Get the table and merge the arrays
-		$table = $GLOBALS["operations"]->getTable($store, hex2bin($searchFolderEntryId), $this->properties, $this->sort, $this->start);
+		$table = $GLOBALS["operations"]->getTable($store, hex2bin((string) $searchFolderEntryId), $this->properties, $this->sort, $this->start);
 		$data = array_merge($data, $table);
 
 		$this->getDelegateFolderInfo($store);
@@ -464,7 +464,7 @@ class ListModule extends Module {
 			foreach ($items as $props) {
 				$sendItemToClient = false;
 
-				if (!array_key_exists(bin2hex($props[PR_ENTRYID]), $searchResults)) {
+				if (!array_key_exists(bin2hex((string) $props[PR_ENTRYID]), $searchResults)) {
 					$sendItemToClient = true;
 				}
 				else {
@@ -475,7 +475,7 @@ class ListModule extends Module {
 					 * that item has been modified since we have sent it to client
 					 */
 					// TODO if any item is deleted from search folder it will be not notified to client
-					if ($searchResults[bin2hex($props[PR_ENTRYID])] < $props[PR_LAST_MODIFICATION_TIME]) {
+					if ($searchResults[bin2hex((string) $props[PR_ENTRYID])] < $props[PR_LAST_MODIFICATION_TIME]) {
 						$sendItemToClient = true;
 					}
 				}
@@ -486,7 +486,7 @@ class ListModule extends Module {
 					array_push($listData, $GLOBALS["operations"]->getProps($message, $this->properties));
 
 					// store entryid => last_modification_time mapping
-					$searchResults[bin2hex($props[PR_ENTRYID])] = $props[PR_LAST_MODIFICATION_TIME];
+					$searchResults[bin2hex((string) $props[PR_ENTRYID])] = $props[PR_LAST_MODIFICATION_TIME];
 				}
 
 				// when we have more results then fit in the client, we break here,
@@ -541,7 +541,7 @@ class ListModule extends Module {
 	 */
 	public function stopSearch($store, $entryid, $action) {
 		// if no entryid is present in the request then get the search folder entryid from session data
-		$entryid = !empty($entryid) ? $entryid : (!empty($action['search_folder_entryid']) ? hex2bin($action['search_folder_entryid']) : null);
+		$entryid = !empty($entryid) ? $entryid : (!empty($action['search_folder_entryid']) ? hex2bin((string) $action['search_folder_entryid']) : null);
 
 		if (empty($entryid)) {
 			// still no entryid? sorry i can't help you anymore
@@ -659,7 +659,7 @@ class ListModule extends Module {
 			$table = mapi_folder_gethierarchytable($searchFolderRoot, 0);
 			$rows = mapi_table_queryrows($table, [PR_DISPLAY_NAME, PR_ENTRYID], 0, 0xFFFF);
 			foreach ($rows as $row) {
-				if (strcasecmp($folderName, $row[PR_DISPLAY_NAME]) == 0) {
+				if (strcasecmp($folderName, (string) $row[PR_DISPLAY_NAME]) == 0) {
 					mapi_folder_deletefolder($searchFolderRoot, $row[PR_ENTRYID], DEL_FOLDERS | DEL_MESSAGES | DELETE_HARD_DELETE);
 					break;
 				}
@@ -667,7 +667,7 @@ class ListModule extends Module {
 			$searchFolder = mapi_folder_createfolder($searchFolderRoot, $folderName, '', OPEN_IF_EXISTS, FOLDER_SEARCH);
 
 			$props = mapi_getprops($searchFolder, [PR_ENTRYID]);
-			$this->sessionData['searchFolderEntryId'] = bin2hex($props[PR_ENTRYID]);
+			$this->sessionData['searchFolderEntryId'] = bin2hex((string) $props[PR_ENTRYID]);
 
 			// we have created new search folder so search criteria check should be removed
 			unset($this->sessionData['searchCriteriaCheck']);
@@ -951,7 +951,7 @@ class ListModule extends Module {
 							$userFound = false;
 							$seePrivate = false;
 							foreach ($localFreeBusyMessageProps[PR_SCHDINFO_DELEGATE_ENTRYIDS] as $key => $entryId) {
-								if ($GLOBALS['entryid']->compareEntryIds(bin2hex($userEntryId), bin2hex($entryId))) {
+								if ($GLOBALS['entryid']->compareEntryIds(bin2hex((string) $userEntryId), bin2hex((string) $entryId))) {
 									$userFound = true;
 									$seePrivate = $localFreeBusyMessageProps[PR_DELEGATE_FLAGS][$key];
 									break;

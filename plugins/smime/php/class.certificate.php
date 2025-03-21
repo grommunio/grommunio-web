@@ -92,7 +92,7 @@ class Certificate {
 	 * @return string X509 Certificate in PEM format
 	 */
 	protected function der2pem($cert) {
-		return "-----BEGIN CERTIFICATE-----\n" . chunk_split(base64_encode($cert), 64, "\n") . "-----END CERTIFICATE-----\n";
+		return "-----BEGIN CERTIFICATE-----\n" . chunk_split(base64_encode((string) $cert), 64, "\n") . "-----END CERTIFICATE-----\n";
 	}
 
 	/**
@@ -106,7 +106,7 @@ class Certificate {
 	protected function pem2der($pem_data) {
 		$begin = "CERTIFICATE-----";
 		$end = "-----END";
-		$pem_data = substr($pem_data, strpos($pem_data, $begin) + strlen($begin));
+		$pem_data = substr((string) $pem_data, strpos((string) $pem_data, $begin) + strlen($begin));
 		$pem_data = substr($pem_data, 0, strpos($pem_data, $end));
 
 		return base64_decode($pem_data);
@@ -338,7 +338,7 @@ class Certificate {
 				'issuerName' => $issuer['tbsCertificate']['subject_der'],
 				// remember to skip the first byte it is the number of
 				// unused bits and it is always 0 for keys and certificates
-				'issuerKey' => substr($issuer['tbsCertificate']['subjectPublicKeyInfo']['subjectPublicKey'], 1),
+				'issuerKey' => substr((string) $issuer['tbsCertificate']['subjectPublicKeyInfo']['subjectPublicKey'], 1),
 				'serialNumber_der' => $certificate['tbsCertificate']['serialNumber_der'],
 			],
 			'sha1'

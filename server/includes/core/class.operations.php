@@ -89,12 +89,12 @@ class Operations {
 			}
 
 			$storeData = [
-				"store_entryid" => bin2hex($msgstore_props[PR_ENTRYID]),
+				"store_entryid" => bin2hex((string) $msgstore_props[PR_ENTRYID]),
 				"props" => [
 					// Showing the store as 'Inbox - Name' is confusing, so we strip the 'Inbox - ' part.
 					"display_name" => str_replace('Inbox - ', '', $msgstore_props[PR_DISPLAY_NAME]),
-					"subtree_entryid" => bin2hex($msgstore_props[PR_IPM_SUBTREE_ENTRYID]),
-					"mdb_provider" => bin2hex($msgstore_props[PR_MDB_PROVIDER]),
+					"subtree_entryid" => bin2hex((string) $msgstore_props[PR_IPM_SUBTREE_ENTRYID]),
+					"mdb_provider" => bin2hex((string) $msgstore_props[PR_MDB_PROVIDER]),
 					"object_type" => $msgstore_props[PR_OBJECT_TYPE],
 					"store_support_mask" => $msgstore_props[PR_STORE_SUPPORT_MASK],
 					"user_name" => $storeUserName,
@@ -102,15 +102,15 @@ class Operations {
 					"quota_warning" => isset($msgstore_props[PR_QUOTA_WARNING_THRESHOLD]) ? $msgstore_props[PR_QUOTA_WARNING_THRESHOLD] : 0,
 					"quota_soft" => isset($msgstore_props[PR_QUOTA_SEND_THRESHOLD]) ? $msgstore_props[PR_QUOTA_SEND_THRESHOLD] : 0,
 					"quota_hard" => isset($msgstore_props[PR_QUOTA_RECEIVE_THRESHOLD]) ? $msgstore_props[PR_QUOTA_RECEIVE_THRESHOLD] : 0,
-					"common_view_entryid" => isset($msgstore_props[PR_COMMON_VIEWS_ENTRYID]) ? bin2hex($msgstore_props[PR_COMMON_VIEWS_ENTRYID]) : "",
-					"finder_entryid" => isset($msgstore_props[PR_FINDER_ENTRYID]) ? bin2hex($msgstore_props[PR_FINDER_ENTRYID]) : "",
+					"common_view_entryid" => isset($msgstore_props[PR_COMMON_VIEWS_ENTRYID]) ? bin2hex((string) $msgstore_props[PR_COMMON_VIEWS_ENTRYID]) : "",
+					"finder_entryid" => isset($msgstore_props[PR_FINDER_ENTRYID]) ? bin2hex((string) $msgstore_props[PR_FINDER_ENTRYID]) : "",
 					"todolist_entryid" => bin2hex(TodoList::getEntryId()),
 				],
 			];
 
 			// these properties doesn't exist in public store
 			if (isset($msgstore_props[PR_MAILBOX_OWNER_ENTRYID], $msgstore_props[PR_MAILBOX_OWNER_NAME])) {
-				$storeData["props"]["mailbox_owner_entryid"] = bin2hex($msgstore_props[PR_MAILBOX_OWNER_ENTRYID]);
+				$storeData["props"]["mailbox_owner_entryid"] = bin2hex((string) $msgstore_props[PR_MAILBOX_OWNER_ENTRYID]);
 				$storeData["props"]["mailbox_owner_name"] = $msgstore_props[PR_MAILBOX_OWNER_NAME];
 			}
 
@@ -161,25 +161,25 @@ class Operations {
 				switch ($from) {
 					case "inbox":
 						if (isset($inboxProps[$tag])) {
-							$storeData["props"][$key] = bin2hex($inboxProps[$tag]);
+							$storeData["props"][$key] = bin2hex((string) $inboxProps[$tag]);
 						}
 						break;
 
 					case "store":
 						if (isset($msgstore_props[$tag])) {
-							$storeData["props"][$key] = bin2hex($msgstore_props[$tag]);
+							$storeData["props"][$key] = bin2hex((string) $msgstore_props[$tag]);
 						}
 						break;
 
 					case "root":
 						if (isset($rootProps[$tag])) {
-							$storeData["props"][$key] = bin2hex($rootProps[$tag]);
+							$storeData["props"][$key] = bin2hex((string) $rootProps[$tag]);
 						}
 						break;
 
 					case "additional":
 						if (isset($additional_ren_entryids[$tag])) {
-							$storeData["props"][$key] = bin2hex($additional_ren_entryids[$tag]);
+							$storeData["props"][$key] = bin2hex((string) $additional_ren_entryids[$tag]);
 						}
 						break;
 				}
@@ -192,7 +192,7 @@ class Operations {
 
 				$openWholeStore = true;
 				if ($storeType == ZARAFA_STORE_DELEGATE_GUID) {
-					$username = strtolower($storeData["props"]["user_name"]);
+					$username = strtolower((string) $storeData["props"]["user_name"]);
 					$sharedFolders = [];
 
 					// Check whether we should open the whole store or just single folders
@@ -270,7 +270,7 @@ class Operations {
 						try {
 							// Update the store properties to refer to the shared folder,
 							// note that we don't care if we have access to the folder or not.
-							$storeData["props"]["shared_folder_all"] = bin2hex($subtreeFolderEntryID);
+							$storeData["props"]["shared_folder_all"] = bin2hex((string) $subtreeFolderEntryID);
 							$this->getSubFolders($subtreeFolder, $store, $properties, $storeData);
 
 							if ($storeType == ZARAFA_SERVICE_GUID) {
@@ -300,7 +300,7 @@ class Operations {
 									$todoSearchFolderProps[PR_CONTENT_UNREAD] = 0;
 									$todoSearchFolderProps[PR_CONTENT_COUNT] = 0;
 									array_push($storeData["folders"]["item"], $this->setFolder($todoSearchFolderProps));
-									$storeData["props"]['default_folder_todolist'] = bin2hex($todoSearchFolderProps[PR_ENTRYID]);
+									$storeData["props"]['default_folder_todolist'] = bin2hex((string) $todoSearchFolderProps[PR_ENTRYID]);
 								}
 							}
 						}
@@ -472,9 +472,9 @@ class Operations {
 	public function setFolder($folderProps) {
 		$props = [
 			// Identification properties
-			"entryid" => bin2hex($folderProps[PR_ENTRYID]),
-			"parent_entryid" => bin2hex($folderProps[PR_PARENT_ENTRYID]),
-			"store_entryid" => bin2hex($folderProps[PR_STORE_ENTRYID]),
+			"entryid" => bin2hex((string) $folderProps[PR_ENTRYID]),
+			"parent_entryid" => bin2hex((string) $folderProps[PR_PARENT_ENTRYID]),
+			"store_entryid" => bin2hex((string) $folderProps[PR_STORE_ENTRYID]),
 			// Scalar properties
 			"props" => [
 				"display_name" => $folderProps[PR_DISPLAY_NAME],
@@ -695,7 +695,7 @@ class Operations {
 		foreach ($finderHierarchyTables as $finderEntryid => $hierarchyTable) {
 			$rows = mapi_table_queryallrows($hierarchyTable, $GLOBALS["properties"]->getFavoritesFolderProperties(), $restriction);
 			foreach ($rows as $row) {
-				$flags = unpack("H2ExtendedFlags-Id/H2ExtendedFlags-Cb/H8ExtendedFlags-Data/H2SearchFolderTag-Id/H2SearchFolderTag-Cb/H8SearchFolderTag-Data/H2SearchFolderId-Id/H2SearchFolderId-Cb/H32SearchFolderId-Data", $row[PR_EXTENDED_FOLDER_FLAGS]);
+				$flags = unpack("H2ExtendedFlags-Id/H2ExtendedFlags-Cb/H8ExtendedFlags-Data/H2SearchFolderTag-Id/H2SearchFolderTag-Cb/H8SearchFolderTag-Data/H2SearchFolderId-Id/H2SearchFolderId-Cb/H32SearchFolderId-Data", (string) $row[PR_EXTENDED_FOLDER_FLAGS]);
 				if ($flags["SearchFolderId-Data"] === bin2hex($searchFolderId)) {
 					return $row;
 				}
@@ -715,8 +715,8 @@ class Operations {
 		if ($GLOBALS["settings"]->get("zarafa/v1/contexts/hierarchy/show_default_favorites") !== false) {
 			$commonViewFolder = mapi_msgstore_openentry($store, $commonViewFolderEntryid);
 
-			$inboxFolderEntryid = hex2bin($storeData["props"]["default_folder_inbox"]);
-			$sentFolderEntryid = hex2bin($storeData["props"]["default_folder_sent"]);
+			$inboxFolderEntryid = hex2bin((string) $storeData["props"]["default_folder_inbox"]);
+			$sentFolderEntryid = hex2bin((string) $storeData["props"]["default_folder_sent"]);
 
 			$table = mapi_folder_getcontentstable($commonViewFolder, MAPI_ASSOCIATED);
 
@@ -789,7 +789,7 @@ class Operations {
 			// when reset setting was triggered because on reset setting we remove all
 			// link messages from common view folder which are linked with either
 			// favorites or search folder.
-			$finderFolderEntryid = hex2bin($storeData["props"]["finder_entryid"]);
+			$finderFolderEntryid = hex2bin((string) $storeData["props"]["finder_entryid"]);
 			$finderFolder = mapi_msgstore_openentry($store, $finderFolderEntryid);
 			$hierarchyTable = mapi_folder_gethierarchytable($finderFolder, MAPI_DEFERRED_ERRORS);
 			$folders = mapi_table_queryallrows($hierarchyTable, [PR_ENTRYID]);
@@ -820,7 +820,7 @@ class Operations {
 			if (empty($rows)) {
 				$defaultFavFoldersKeys = ["inbox", "sent"];
 				foreach ($defaultFavFoldersKeys as $folderKey) {
-					$folderObj = $GLOBALS["mapisession"]->openMessage(hex2bin($storeData["props"]["default_folder_" . $folderKey]));
+					$folderObj = $GLOBALS["mapisession"]->openMessage(hex2bin((string) $storeData["props"]["default_folder_" . $folderKey]));
 					$props = mapi_getprops($folderObj, [PR_ENTRYID, PR_STORE_ENTRYID, PR_DISPLAY_NAME]);
 					$this->createFavoritesLink($commonViewFolder, $props);
 				}
@@ -868,7 +868,7 @@ class Operations {
 			];
 		}
 		else {
-			$defaultStoreEntryId = hex2bin($GLOBALS['mapisession']->getDefaultMessageStoreEntryId());
+			$defaultStoreEntryId = hex2bin((string) $GLOBALS['mapisession']->getDefaultMessageStoreEntryId());
 			$props = [
 				PR_MESSAGE_CLASS => "IPM.Microsoft.WunderBar.Link",
 				PR_WLINK_ENTRYID => $folderProps[PR_ENTRYID],
@@ -966,8 +966,8 @@ class Operations {
 		// to indicate that he can't open it.
 		$tempFolderProps = $this->setFolder([
 			PR_ENTRYID => $folderEntryID,
-			PR_PARENT_ENTRYID => hex2bin($storeData["props"]["subtree_entryid"]),
-			PR_STORE_ENTRYID => hex2bin($storeData["store_entryid"]),
+			PR_PARENT_ENTRYID => hex2bin((string) $storeData["props"]["subtree_entryid"]),
+			PR_STORE_ENTRYID => hex2bin((string) $storeData["store_entryid"]),
 			PR_DISPLAY_NAME => $folderName,
 			PR_OBJECT_TYPE => MAPI_FOLDER,
 			PR_SUBFOLDERS => false,
@@ -1002,8 +1002,8 @@ class Operations {
 		// to acknowledge that he has a shared store.
 		$tempFolderProps = $this->setFolder([
 			PR_ENTRYID => $folderEntryID,
-			PR_PARENT_ENTRYID => hex2bin($storeData["props"]["subtree_entryid"]),
-			PR_STORE_ENTRYID => hex2bin($storeData["store_entryid"]),
+			PR_PARENT_ENTRYID => hex2bin((string) $storeData["props"]["subtree_entryid"]),
+			PR_STORE_ENTRYID => hex2bin((string) $storeData["store_entryid"]),
 			PR_DISPLAY_NAME => "IPM_SUBTREE",
 			PR_OBJECT_TYPE => MAPI_FOLDER,
 			PR_SUBFOLDERS => true,
@@ -1539,7 +1539,7 @@ class Operations {
 					if (isset($user)) {
 						$user_props = mapi_getprops($user, [PR_EMS_AB_THUMBNAIL_PHOTO]);
 						if (isset($user_props[PR_EMS_AB_THUMBNAIL_PHOTO])) {
-							$props["props"]['thumbnail_photo'] = "data:image/jpeg;base64," . base64_encode($user_props[PR_EMS_AB_THUMBNAIL_PHOTO]);
+							$props["props"]['thumbnail_photo'] = "data:image/jpeg;base64," . base64_encode((string) $user_props[PR_EMS_AB_THUMBNAIL_PHOTO]);
 						}
 					}
 				}
@@ -1609,7 +1609,7 @@ class Operations {
 			}
 			else {
 				if ($html2text && isset($tmpProps[PR_HTML])) {
-					$plaincontent = strip_tags($tmpProps[PR_HTML]);
+					$plaincontent = strip_tags((string) $tmpProps[PR_HTML]);
 				}
 			}
 
@@ -1709,7 +1709,7 @@ class Operations {
 								$mime_tag = $attachprop[PR_ATTACH_MIME_TAG];
 							}
 							$search[] = "src=\"cid:{$match}\"";
-							$replace[] = "src=\"data:{$mime_tag};base64," . base64_encode($attachprop[PR_ATTACH_DATA_BIN]) . "\"";
+							$replace[] = "src=\"data:{$mime_tag};base64," . base64_encode((string) $attachprop[PR_ATTACH_DATA_BIN]) . "\"";
 							unset($props["attachments"]["item"][$idx]);
 						}
 						$props["attachments"]["item"] = array_values($props["attachments"]["item"]);
@@ -1807,9 +1807,9 @@ class Operations {
 
 		// sub message will not be having entryid, so use parent's entryid
 		$parentProps = mapi_getprops($parentMessage, [PR_ENTRYID, PR_PARENT_ENTRYID, PR_STORE_ENTRYID]);
-		$props['entryid'] = bin2hex($parentProps[PR_ENTRYID]);
-		$props['parent_entryid'] = bin2hex($parentProps[PR_PARENT_ENTRYID]);
-		$props['store_entryid'] = bin2hex($parentProps[PR_STORE_ENTRYID]);
+		$props['entryid'] = bin2hex((string) $parentProps[PR_ENTRYID]);
+		$props['parent_entryid'] = bin2hex((string) $parentProps[PR_PARENT_ENTRYID]);
+		$props['store_entryid'] = bin2hex((string) $parentProps[PR_STORE_ENTRYID]);
 		$props['attach_num'] = $attach_num;
 
 		return $props;
@@ -1999,7 +1999,7 @@ class Operations {
 			if ($property != false) {
 				// Stream the body to the PR_BODY or PR_HTML property
 				$stream = mapi_openproperty($message, $property, IID_IStream, 0, MAPI_CREATE | MAPI_MODIFY);
-				mapi_stream_setsize($stream, strlen($body));
+				mapi_stream_setsize($stream, strlen((string) $body));
 				mapi_stream_write($stream, $body);
 				mapi_stream_commit($stream);
 			}
@@ -2285,7 +2285,7 @@ class Operations {
 					$sourceEntryId = $action['message_action']['source_entryid'];
 					$sourceStoreEntryId = $action['message_action']['source_store_entryid'];
 
-					$sourceStore = $GLOBALS['mapisession']->openMessageStore(hex2bin($sourceStoreEntryId));
+					$sourceStore = $GLOBALS['mapisession']->openMessageStore(hex2bin((string) $sourceStoreEntryId));
 					$sourceRecord = mapi_msgstore_openentry($sourceStore, hex2bin($sourceEntryId));
 					if ($pasteRecord) {
 						$sourceRecordProps = mapi_getprops($sourceRecord, [$properties["meeting"], $properties["responsestatus"]]);
@@ -2585,7 +2585,7 @@ class Operations {
 		$mailuser = mapi_ab_openentry($GLOBALS["mapisession"]->getAddressbook(), $storeProps[PR_MAILBOX_OWNER_ENTRYID]);
 		if ($mailuser) {
 			$userprops = mapi_getprops($mailuser, [PR_ADDRTYPE, PR_DISPLAY_NAME, PR_EMAIL_ADDRESS, PR_SMTP_ADDRESS]);
-			$action["props"]["sent_representing_entryid"] = bin2hex($storeProps[PR_MAILBOX_OWNER_ENTRYID]);
+			$action["props"]["sent_representing_entryid"] = bin2hex((string) $storeProps[PR_MAILBOX_OWNER_ENTRYID]);
 			// we do conversion here, because before passing props to saveMessage() props are converted from utf8-to-w
 			$action["props"]["sent_representing_name"] = $userprops[PR_DISPLAY_NAME];
 			$action["props"]["sent_representing_address_type"] = $userprops[PR_ADDRTYPE];
@@ -2657,7 +2657,7 @@ class Operations {
 			}
 		}
 
-		if (!$GLOBALS["entryid"]->compareEntryIds(bin2hex($origStoreprops[PR_ENTRYID]), bin2hex($storeprops[PR_ENTRYID]))) {
+		if (!$GLOBALS["entryid"]->compareEntryIds(bin2hex((string) $origStoreprops[PR_ENTRYID]), bin2hex((string) $storeprops[PR_ENTRYID]))) {
 			// set properties for "on behalf of" mails
 			$origStoreProps = mapi_getprops($origStore, [PR_MAILBOX_OWNER_ENTRYID, PR_MDB_PROVIDER, PR_IPM_SENTMAIL_ENTRYID]);
 
@@ -2752,8 +2752,8 @@ class Operations {
 				mapi_folder_deletemessages($folder, [$oldEntryId], DELETE_HARD_DELETE);
 			}
 			$delegateSentItemsStyle = $GLOBALS['settings']->get('zarafa/v1/contexts/mail/delegate_sent_items_style');
-			$saveBoth = strcasecmp($delegateSentItemsStyle, 'both') == 0;
-			$saveRepresentee = strcasecmp($delegateSentItemsStyle, 'representee') == 0;
+			$saveBoth = strcasecmp((string) $delegateSentItemsStyle, 'both') == 0;
+			$saveRepresentee = strcasecmp((string) $delegateSentItemsStyle, 'representee') == 0;
 			if ($saveBoth || $saveRepresentee) {
 				$destfolder = mapi_msgstore_openentry($origStore, $origStoreprops[PR_IPM_SENTMAIL_ENTRYID]);
 				$reprMessage = mapi_folder_createmessage($destfolder);
@@ -2798,7 +2798,7 @@ class Operations {
 
 			$reprProps = mapi_getprops($newmessage, [PR_SENT_REPRESENTING_EMAIL_ADDRESS, PR_SENDER_EMAIL_ADDRESS, PR_SENT_REPRESENTING_ENTRYID]);
 			if (isset($reprProps[PR_SENT_REPRESENTING_EMAIL_ADDRESS], $reprProps[PR_SENDER_EMAIL_ADDRESS], $reprProps[PR_SENT_REPRESENTING_ENTRYID]) &&
-				strcasecmp($reprProps[PR_SENT_REPRESENTING_EMAIL_ADDRESS], $reprProps[PR_SENDER_EMAIL_ADDRESS]) != 0) {
+				strcasecmp((string) $reprProps[PR_SENT_REPRESENTING_EMAIL_ADDRESS], (string) $reprProps[PR_SENDER_EMAIL_ADDRESS]) != 0) {
 				$ab = $GLOBALS['mapisession']->getAddressbook();
 				$abitem = mapi_ab_openentry($ab, $reprProps[PR_SENT_REPRESENTING_ENTRYID]);
 				$abitemprops = mapi_getprops($abitem, [PR_DISPLAY_NAME, PR_EMAIL_ADDRESS, PR_SEARCH_KEY]);
@@ -3117,7 +3117,7 @@ class Operations {
 				$folderObject = mapi_msgstore_openentry($store, $subfolder[PR_ENTRYID]);
 				$folderProps = mapi_getprops($folderObject, [PR_DISPLAY_NAME]);
 
-				array_push($folderNames, strtolower($folderProps[PR_DISPLAY_NAME]));
+				array_push($folderNames, strtolower((string) $folderProps[PR_DISPLAY_NAME]));
 			}
 		}
 
@@ -3265,8 +3265,8 @@ class Operations {
 			foreach ($files as $tmpname => $fileinfo) {
 				if ($fileinfo['sourcetype'] === 'embedded') {
 					// open message which needs to be embedded
-					$copyFromStore = $GLOBALS['mapisession']->openMessageStore(hex2bin($fileinfo['store_entryid']));
-					$copyFrom = mapi_msgstore_openentry($copyFromStore, hex2bin($fileinfo['entryid']));
+					$copyFromStore = $GLOBALS['mapisession']->openMessageStore(hex2bin((string) $fileinfo['store_entryid']));
+					$copyFrom = mapi_msgstore_openentry($copyFromStore, hex2bin((string) $fileinfo['entryid']));
 
 					$msgProps = mapi_getprops($copyFrom, [PR_SUBJECT]);
 
@@ -3290,8 +3290,8 @@ class Operations {
 					mapi_savechanges($attachment);
 				}
 				elseif ($fileinfo['sourcetype'] === 'icsfile') {
-					$messageStore = $GLOBALS['mapisession']->openMessageStore(hex2bin($fileinfo['store_entryid']));
-					$copyFrom = mapi_msgstore_openentry($messageStore, hex2bin($fileinfo['entryid']));
+					$messageStore = $GLOBALS['mapisession']->openMessageStore(hex2bin((string) $fileinfo['store_entryid']));
+					$copyFrom = mapi_msgstore_openentry($messageStore, hex2bin((string) $fileinfo['entryid']));
 
 					// Get addressbook for current session
 					$addrBook = $GLOBALS['mapisession']->getAddressbook();
@@ -3355,7 +3355,7 @@ class Operations {
 							PR_ATTACH_MIME_TAG => $mimeType,
 							PR_ATTACHMENT_HIDDEN => !empty($cid) ? true : false,
 							PR_EC_WA_ATTACHMENT_ID => isset($fileinfo["attach_id"]) && !empty($fileinfo["attach_id"]) ? $fileinfo["attach_id"] : uniqid(),
-							PR_ATTACH_EXTENSION => pathinfo($fileinfo["name"], PATHINFO_EXTENSION),
+							PR_ATTACH_EXTENSION => pathinfo((string) $fileinfo["name"], PATHINFO_EXTENSION),
 						];
 
 						if (isset($fileinfo['sourcetype']) && $fileinfo['sourcetype'] === 'contactphoto') {
@@ -3469,7 +3469,7 @@ class Operations {
 					}
 
 					$contentID = $props[PR_ATTACH_CONTENT_ID];
-					if (!str_contains($body, $contentID)) {
+					if (!str_contains($body, (string) $contentID)) {
 						continue;
 					}
 				}
@@ -3568,7 +3568,7 @@ class Operations {
 		}
 
 		// Obtain the Domain address from smtp/email address.
-		$domain = substr($address, strpos($address, "@") + 1);
+		$domain = substr((string) $address, strpos((string) $address, "@") + 1);
 
 		if (!empty($safeSenderList)) {
 			foreach ($safeSenderList as $safeSender) {
@@ -3618,7 +3618,7 @@ class Operations {
 					$attach_id = $attachmentRow[PR_EC_WA_ATTACHMENT_ID];
 				}
 				elseif (isset($attachmentRow[PR_RECORD_KEY])) {
-					$attach_id = bin2hex($attachmentRow[PR_RECORD_KEY]);
+					$attach_id = bin2hex((string) $attachmentRow[PR_RECORD_KEY]);
 				}
 				else {
 					$attach_id = uniqid();
@@ -3657,7 +3657,7 @@ class Operations {
 				}
 				else {
 					// For backward compatibility where attachments doesn't have the extension property
-					$props["extension"] = pathinfo($props["name"], PATHINFO_EXTENSION);
+					$props["extension"] = pathinfo((string) $props["name"], PATHINFO_EXTENSION);
 				}
 
 				if (isset($attachmentRow[PR_ATTACHMENT_CONTACTPHOTO]) && $attachmentRow[PR_ATTACHMENT_CONTACTPHOTO]) {
@@ -3705,7 +3705,7 @@ class Operations {
 
 				$props = [];
 				$props['rowid'] = $recipientRow[PR_ROWID];
-				$props['search_key'] = isset($recipientRow[PR_SEARCH_KEY]) ? bin2hex($recipientRow[PR_SEARCH_KEY]) : '';
+				$props['search_key'] = isset($recipientRow[PR_SEARCH_KEY]) ? bin2hex((string) $recipientRow[PR_SEARCH_KEY]) : '';
 				$props['display_name'] = $recipientRow[PR_DISPLAY_NAME] ?? '';
 				$props['email_address'] = $recipientRow[PR_EMAIL_ADDRESS] ?? '';
 				$props['smtp_address'] = $recipientRow[PR_SMTP_ADDRESS] ?? '';
@@ -3720,7 +3720,7 @@ class Operations {
 				}
 
 				if (isset($recipientRow[PR_ENTRYID])) {
-					$props['entryid'] = bin2hex($recipientRow[PR_ENTRYID]);
+					$props['entryid'] = bin2hex((string) $recipientRow[PR_ENTRYID]);
 
 					// Get the SMTP address from the addressbook if no address is found
 					if (empty($props['smtp_address']) && ($recipientRow[PR_ADDRTYPE] == 'EX' || $props['address_type'] === 'ZARAFA')) {
@@ -3820,12 +3820,12 @@ class Operations {
 
 			if (isset($recipientItem['search_key']) && !empty($recipientItem['search_key'])) {
 				// search keys sent from client are in hex format so convert it to binary format
-				$recipientItem['search_key'] = hex2bin($recipientItem['search_key']);
+				$recipientItem['search_key'] = hex2bin((string) $recipientItem['search_key']);
 			}
 
 			if (isset($recipientItem["entryid"]) && !empty($recipientItem["entryid"])) {
 				// entryids sent from client are in hex format so convert it to binary format
-				$recipientItem["entryid"] = hex2bin($recipientItem["entryid"]);
+				$recipientItem["entryid"] = hex2bin((string) $recipientItem["entryid"]);
 
 			// Only resolve the recipient when no entryid is set
 			}
@@ -3936,7 +3936,7 @@ class Operations {
 			}
 
 			try {
-				$record = mapi_msgstore_openentry($store, hex2bin($entryid));
+				$record = mapi_msgstore_openentry($store, hex2bin((string) $entryid));
 				if ($record) {
 					return $store;
 				}
@@ -3963,7 +3963,7 @@ class Operations {
 	public function isExternalContactItem($entryid) {
 		try {
 			if (!$GLOBALS['entryid']->hasContactProviderGUID(bin2hex($entryid))) {
-				$entryid = hex2bin($GLOBALS['entryid']->wrapABEntryIdObj(bin2hex($entryid), MAPI_DISTLIST));
+				$entryid = hex2bin((string) $GLOBALS['entryid']->wrapABEntryIdObj(bin2hex($entryid), MAPI_DISTLIST));
 			}
 			mapi_ab_openentry($GLOBALS["mapisession"]->getAddressbook(), $entryid);
 		}
@@ -4013,13 +4013,13 @@ class Operations {
 
 		$store = $GLOBALS["mapisession"]->getDefaultMessageStore();
 		$contactFolderId = $this->getPropertiesFromStoreRoot($store, [PR_IPM_CONTACT_ENTRYID]);
-		$contactFolderidObj = $GLOBALS['entryid']->createFolderEntryIdObj(bin2hex($contactFolderId[PR_IPM_CONTACT_ENTRYID]));
+		$contactFolderidObj = $GLOBALS['entryid']->createFolderEntryIdObj(bin2hex((string) $contactFolderId[PR_IPM_CONTACT_ENTRYID]));
 
 		if ($contactFolderidObj['providerguid'] != $extidObj['providerguid'] && $contactFolderidObj['folderdbguid'] != $extidObj['folderdbguid']) {
 			$storelist = $GLOBALS["mapisession"]->getAllMessageStores();
 			foreach ($storelist as $storeObj) {
 				$contactFolderId = $this->getPropertiesFromStoreRoot($storeObj, [PR_IPM_CONTACT_ENTRYID]);
-				$contactFolderidObj = $GLOBALS['entryid']->createFolderEntryIdObj(bin2hex($contactFolderId[PR_IPM_CONTACT_ENTRYID]));
+				$contactFolderidObj = $GLOBALS['entryid']->createFolderEntryIdObj(bin2hex((string) $contactFolderId[PR_IPM_CONTACT_ENTRYID]));
 				if ($contactFolderidObj['providerguid'] == $extidObj['providerguid'] && $contactFolderidObj['folderdbguid'] == $extidObj['folderdbguid']) {
 					$store = $storeObj;
 					break;
@@ -4030,11 +4030,11 @@ class Operations {
 		$distlistEntryid = $GLOBALS["entryid"]->unwrapABEntryIdObj($distlistEntryid);
 
 		try {
-			$distlist = $this->openMessage($store, hex2bin($distlistEntryid));
+			$distlist = $this->openMessage($store, hex2bin((string) $distlistEntryid));
 		}
 		catch (Exception $e) {
 			// the distribution list is in a public folder
-			$distlist = $this->openMessage($GLOBALS["mapisession"]->getPublicMessageStore(), hex2bin($distlistEntryid));
+			$distlist = $this->openMessage($GLOBALS["mapisession"]->getPublicMessageStore(), hex2bin((string) $distlistEntryid));
 		}
 
 		// Retrieve the members from distribution list.
@@ -4080,10 +4080,10 @@ class Operations {
 		 */
 		if ($isLocalDistlist) {
 			try {
-				$distlist = $this->openMessage($store, hex2bin($entryid));
+				$distlist = $this->openMessage($store, hex2bin((string) $entryid));
 			}
 			catch (Exception $e) {
-				$distlist = $this->openMessage($GLOBALS["mapisession"]->getPublicMessageStore(), hex2bin($entryid));
+				$distlist = $this->openMessage($GLOBALS["mapisession"]->getPublicMessageStore(), hex2bin((string) $entryid));
 			}
 
 			$abProps = $this->getProps($distlist, $GLOBALS['properties']->getRecipientProperties());
@@ -4103,7 +4103,7 @@ class Operations {
 			 * retrieve all properties which requires to prepare ideal recipient to send mail.
 			 */
 			try {
-				$abentry = mapi_ab_openentry($GLOBALS["mapisession"]->getAddressbook(), hex2bin($entryid));
+				$abentry = mapi_ab_openentry($GLOBALS["mapisession"]->getAddressbook(), hex2bin((string) $entryid));
 				$abProps = $this->getProps($abentry, $GLOBALS['properties']->getRecipientProperties());
 				$props = $abProps["props"];
 				$props["entryid"] = $abProps["entryid"];
@@ -4182,7 +4182,7 @@ class Operations {
 
 			// unpack() will remove the NULL characters, readd
 			// them until we match the 'cb' length.
-			while ($entryid['cb'] > strlen($entryid['entryid'])) {
+			while ($entryid['cb'] > strlen((string) $entryid['entryid'])) {
 				$entryid['entryid'] .= chr(0x00);
 			}
 
@@ -4247,7 +4247,7 @@ class Operations {
 		return [
 			'rowid' => $rowid,
 			'props' => [
-				'entryid' => !empty($props[PR_ENTRYID]) ? bin2hex($props[PR_ENTRYID]) : '',
+				'entryid' => !empty($props[PR_ENTRYID]) ? bin2hex((string) $props[PR_ENTRYID]) : '',
 				'object_type' => $props[PR_OBJECT_TYPE] ?? MAPI_MAILUSER,
 				'search_key' => $props[PR_SEARCH_KEY] ?? '',
 				'display_name' => !empty($props[PR_DISPLAY_NAME]) ? $props[PR_DISPLAY_NAME] : $props[PR_EMAIL_ADDRESS],
@@ -4388,9 +4388,9 @@ class Operations {
 
 					if ($l_bFoundInHistory === true) {
 						// Check if a name has been supplied.
-						$newDisplayName = trim($emailAddresses[$i]['display_name']);
+						$newDisplayName = trim((string) $emailAddresses[$i]['display_name']);
 						if (!empty($newDisplayName)) {
-							$oldDisplayName = trim($recipient_history['recipients'][$j]['display_name']);
+							$oldDisplayName = trim((string) $recipient_history['recipients'][$j]['display_name']);
 
 							// Check if the name is not the same as the email address
 							if ($newDisplayName != $emailAddresses[$i]['smtp_address']) {
@@ -4518,10 +4518,10 @@ class Operations {
 			 * for more http://php.net/manual/en/function.unpack.php
 			 */
 			if (version_compare(PHP_VERSION, '5.5.0', '>=')) {
-				$parts = unpack('Vnull/A16guid/Ctype/a*entryid', $item);
+				$parts = unpack('Vnull/A16guid/Ctype/a*entryid', (string) $item);
 			}
 			else {
-				$parts = unpack('Vnull/A16guid/Ctype/A*entryid', $item);
+				$parts = unpack('Vnull/A16guid/Ctype/A*entryid', (string) $item);
 			}
 
 			$memberItem = [];
@@ -4536,7 +4536,7 @@ class Operations {
 				$memberItem['props']['address_type'] = $oneoff['type'];
 				$memberItem['props']['email_address'] = $oneoff['address'];
 				$memberItem['props']['smtp_address'] = $oneoff['address'];
-				$memberItem['props']['entryid'] = bin2hex($members[$key]);
+				$memberItem['props']['entryid'] = bin2hex((string) $members[$key]);
 
 				$items[] = $memberItem;
 			}
@@ -4547,7 +4547,7 @@ class Operations {
 					$items = array_merge($items, $this->getMembersFromDistributionList($store, $distlist, $properties, true, $listEntryIDs));
 				}
 				else {
-					$memberItem['props']['entryid'] = bin2hex($parts['entryid']);
+					$memberItem['props']['entryid'] = bin2hex((string) $parts['entryid']);
 					$memberItem['props']['display_name'] = $oneoffmembers[$key]['name'];
 					$memberItem['props']['address_type'] = $oneoffmembers[$key]['type'];
 					// distribution lists don't have valid email address so ignore that property
@@ -4780,7 +4780,7 @@ class Operations {
 	 */
 	public function getFilesEncryptionKey() {
 		// fallback if FILES_ACCOUNTSTORE_V1_SECRET_KEY is defined globally
-		$key = defined('FILES_ACCOUNTSTORE_V1_SECRET_KEY') ? hex2bin(constant('FILES_ACCOUNTSTORE_V1_SECRET_KEY')) : null;
+		$key = defined('FILES_ACCOUNTSTORE_V1_SECRET_KEY') ? hex2bin((string) constant('FILES_ACCOUNTSTORE_V1_SECRET_KEY')) : null;
 		if ($key === null) {
 			$encryptionStore = EncryptionStore::getInstance();
 			$key = $encryptionStore->get('filesenckey');

@@ -96,7 +96,7 @@ class UploadAttachment {
 		}
 
 		if ($this->storeId) {
-			$this->store = $GLOBALS['mapisession']->openMessageStore(hex2bin($this->storeId));
+			$this->store = $GLOBALS['mapisession']->openMessageStore(hex2bin((string) $this->storeId));
 		}
 
 		if (isset($data['import'])) {
@@ -165,7 +165,7 @@ class UploadAttachment {
 				if (isset($fileSize) && !(isset($_POST['MAX_FILE_SIZE']) && $fileSize > $_POST['MAX_FILE_SIZE'])) {
 					// Parse the filename, strip it from
 					// any illegal characters.
-					$filename = mb_basename(stripslashes($_FILES['attachments']['name'][$key]));
+					$filename = mb_basename(stripslashes((string) $_FILES['attachments']['name'][$key]));
 
 					// set sourcetype as default if sourcetype is unset.
 					$sourcetype = isset($_POST['sourcetype']) ? $_POST['sourcetype'] : 'default';
@@ -379,7 +379,7 @@ class UploadAttachment {
 				// something similar is mentioned in this ticket KC-1509.
 				$this->processContactData($GLOBALS["mapisession"]->getDefaultMessageStore(), $contact);
 				mapi_message_savechanges($contact);
-				$vcf = bin2hex(mapi_getprops($contact, [PR_ENTRYID])[PR_ENTRYID]);
+				$vcf = bin2hex((string) mapi_getprops($contact, [PR_ENTRYID])[PR_ENTRYID]);
 				array_push($newcontact, $vcf);
 			}
 
@@ -599,7 +599,7 @@ class UploadAttachment {
 				}
 
 				$this->allowUpdateCounter = false;
-				$entryid = bin2hex(mapi_getprops($event, [PR_ENTRYID])[PR_ENTRYID]);
+				$entryid = bin2hex((string) mapi_getprops($event, [PR_ENTRYID])[PR_ENTRYID]);
 				array_push($newEvents, $entryid);
 			}
 
@@ -668,7 +668,7 @@ class UploadAttachment {
 		if ($ok === true) {
 			mapi_message_savechanges($newMessage);
 
-			return bin2hex(mapi_getprops($newMessage, [PR_ENTRYID])[PR_ENTRYID]);
+			return bin2hex((string) mapi_getprops($newMessage, [PR_ENTRYID])[PR_ENTRYID]);
 		}
 
 		return false;
@@ -684,11 +684,11 @@ class UploadAttachment {
 		$destinationFolder = null;
 
 		try {
-			$destinationFolder = mapi_msgstore_openentry($this->store, hex2bin($this->destinationFolderId));
+			$destinationFolder = mapi_msgstore_openentry($this->store, hex2bin((string) $this->destinationFolderId));
 		}
 		catch (Exception $e) {
 			// Try to find the folder from shared stores in case if it is not found in current user's store
-			$destinationFolder = mapi_msgstore_openentry($GLOBALS['operations']->getOtherStoreFromEntryid($this->destinationFolderId), hex2bin($this->destinationFolderId));
+			$destinationFolder = mapi_msgstore_openentry($GLOBALS['operations']->getOtherStoreFromEntryid($this->destinationFolderId), hex2bin((string) $this->destinationFolderId));
 		}
 
 		return $destinationFolder;
@@ -705,7 +705,7 @@ class UploadAttachment {
 		if ($num === false) {
 			// string is passed in attachNum so get it
 			// Parse the filename, strip it from any illegal characters
-			$num = mb_basename(stripslashes(sanitizePostValue('attach_num', '', FILENAME_REGEX)));
+			$num = mb_basename(stripslashes((string) sanitizePostValue('attach_num', '', FILENAME_REGEX)));
 
 			// Delete the file instance and unregister the file
 			$this->attachment_state->deleteUploadedAttachmentFile($_REQUEST['dialog_attachments'], $num, $attachID);
@@ -781,7 +781,7 @@ class UploadAttachment {
 
 		// check whether the doc is already moved
 		if (file_exists($providedFile)) {
-			$filename = mb_basename(stripslashes($_GET['name']));
+			$filename = mb_basename(stripslashes((string) $_GET['name']));
 
 			// Move the uploaded file to the session
 			$this->attachment_state->addProvidedAttachmentFile($_REQUEST['attachment_id'], $filename, $providedFile, [
@@ -825,8 +825,8 @@ class UploadAttachment {
 							'item' => [
 								0 => [
 									'entryid' => $this->destinationFolderId,
-									'parent_entryid' => bin2hex($destinationFolderProps[PR_PARENT_ENTRYID]),
-									'store_entryid' => bin2hex($storeProps[PR_ENTRYID]),
+									'parent_entryid' => bin2hex((string) $destinationFolderProps[PR_PARENT_ENTRYID]),
+									'store_entryid' => bin2hex((string) $storeProps[PR_ENTRYID]),
 									'props' => [
 										'content_unread' => $this->allowUpdateCounter ? $destinationFolderProps[PR_CONTENT_UNREAD] + 1 : 0,
 									],
@@ -844,8 +844,8 @@ class UploadAttachment {
 									'content_unread' => 0,
 									'display_name' => 'subsubin',
 									'entryid' => $this->destinationFolderId,
-									'parent_entryid' => bin2hex($destinationFolderProps[PR_PARENT_ENTRYID]),
-									'store_entryid' => bin2hex($storeProps[PR_ENTRYID]),
+									'parent_entryid' => bin2hex((string) $destinationFolderProps[PR_PARENT_ENTRYID]),
+									'store_entryid' => bin2hex((string) $storeProps[PR_ENTRYID]),
 								],
 							],
 						],

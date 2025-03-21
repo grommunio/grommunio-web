@@ -395,14 +395,14 @@ class Language {
 				$translation_data[$i]['msgid'] = $orig_str['str'];	// unpack converts to array :S
 
 				// Find context in the original string
-				if (str_contains($translation_data[$i]['msgid'], "\004")) {
-					$contextSplit = explode("\004", $translation_data[$i]['msgid']);
+				if (str_contains((string) $translation_data[$i]['msgid'], "\004")) {
+					$contextSplit = explode("\004", (string) $translation_data[$i]['msgid']);
 					$translation_data[$i]['msgctxt'] = $contextSplit[0];
 					$translation_data[$i]['msgid'] = $contextSplit[1];
 				}
 				// Find plural forms in the original string
-				if (str_contains($translation_data[$i]['msgid'], "\0")) {
-					$original = explode("\0", $translation_data[$i]['msgid']);
+				if (str_contains((string) $translation_data[$i]['msgid'], "\0")) {
+					$original = explode("\0", (string) $translation_data[$i]['msgid']);
 					$translation_data[$i]['msgid'] = $original[0];
 					$translation_data[$i]['msgid_plural'] = $original[1];
 				}
@@ -428,7 +428,7 @@ class Language {
 				// have only one plural form won't have this
 				// (e.g. Japanese)
 				if ($translation_data[$i]['msgid_plural'] !== false) {
-					$translation_data[$i]['msgstr'] = explode("\0", $translation_data[$i]['msgstr']);
+					$translation_data[$i]['msgstr'] = explode("\0", (string) $translation_data[$i]['msgstr']);
 				}
 			}
 			else {

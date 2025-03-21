@@ -169,8 +169,8 @@ class DownloadAttachment extends DownloadBase {
 		}
 
 		if ($this->store && $this->entryId) {
-			$this->store = $GLOBALS['mapisession']->openMessageStore(hex2bin($this->store));
-			$this->message = mapi_msgstore_openentry($this->store, hex2bin($this->entryId));
+			$this->store = $GLOBALS['mapisession']->openMessageStore(hex2bin((string) $this->store));
+			$this->message = mapi_msgstore_openentry($this->store, hex2bin((string) $this->entryId));
 
 			// Decode smime signed messages on this message
 			parse_smime($this->store, $this->message);
@@ -181,16 +181,16 @@ class DownloadAttachment extends DownloadBase {
 
 			if ($this->destinationFolder === false) {
 				try {
-					$this->destinationFolder = mapi_msgstore_openentry($this->store, hex2bin($this->destinationFolderId));
+					$this->destinationFolder = mapi_msgstore_openentry($this->store, hex2bin((string) $this->destinationFolderId));
 				}
 				catch (Exception $e) {
 					// Try to find the folder from shared stores in case if it is not found in current user's store
 					$this->otherStore = $GLOBALS['operations']->getOtherStoreFromEntryid($this->destinationFolderId);
 					if ($this->otherStore !== false) {
-						$this->destinationFolder = mapi_msgstore_openentry($this->otherStore, hex2bin($this->destinationFolderId));
+						$this->destinationFolder = mapi_msgstore_openentry($this->otherStore, hex2bin((string) $this->destinationFolderId));
 					}
 					else {
-						$this->destinationFolder = mapi_msgstore_openentry($GLOBALS["mapisession"]->getPublicMessageStore(), hex2bin($this->destinationFolderId));
+						$this->destinationFolder = mapi_msgstore_openentry($GLOBALS["mapisession"]->getPublicMessageStore(), hex2bin((string) $this->destinationFolderId));
 						if (!$this->destinationFolder) {
 							throw new ZarafaException(_("Destination folder not found."));
 						}
@@ -304,9 +304,9 @@ class DownloadAttachment extends DownloadBase {
 	 * @param mixed $last
 	 */
 	public function downloadSetRange($range, $filesize, &$first, &$last) {
-		$dash = strpos($range, '-');
-		$first = trim(substr($range, 0, $dash));
-		$last = trim(substr($range, $dash + 1));
+		$dash = strpos((string) $range, '-');
+		$first = trim(substr((string) $range, 0, $dash));
+		$last = trim(substr((string) $range, $dash + 1));
 
 		if ($first == '') {
 			// suffix byte range: gets last x bytes
@@ -374,7 +374,7 @@ class DownloadAttachment extends DownloadBase {
 				 * it to MAPI. Since it does not handle this,
 				 * set the filename to CONTENT_ID plus mime tag.
 				 */
-				$tags = explode('/', $props[PR_ATTACH_MIME_TAG]);
+				$tags = explode('/', (string) $props[PR_ATTACH_MIME_TAG]);
 				// IE 11 is weird, when a user renames the file it's not saved as in image, when
 				// the filename is "test.jpeg", but it works when it's "test.jpg".
 				$filename = $props[PR_ATTACH_CONTENT_ID] . '.' . str_replace('jpeg', 'jpg', $tags[1]);
@@ -411,7 +411,7 @@ class DownloadAttachment extends DownloadBase {
 
 			$bodysize = $stat['cb'];
 
-			if ($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_SERVER['HTTP_RANGE']) && $range = stristr(trim($_SERVER['HTTP_RANGE']), 'bytes=')) {
+			if ($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_SERVER['HTTP_RANGE']) && $range = stristr(trim((string) $_SERVER['HTTP_RANGE']), 'bytes=')) {
 				$range = substr($range, 6);
 				$boundary = bin2hex(random_bytes(48));
 				$ranges = explode(',', $range);
@@ -576,8 +576,8 @@ class DownloadAttachment extends DownloadBase {
 			// When "Send to" option used with calendar item. which create the new mail with
 			// ics file as an attachment and now user try to download the ics attachment before saving
 			// mail at that time this code is used to download the ics file successfully.
-			$messageStore = $GLOBALS['mapisession']->openMessageStore(hex2bin($fileinfo['store_entryid']));
-			$message = mapi_msgstore_openentry($messageStore, hex2bin($fileinfo['entryid']));
+			$messageStore = $GLOBALS['mapisession']->openMessageStore(hex2bin((string) $fileinfo['store_entryid']));
+			$message = mapi_msgstore_openentry($messageStore, hex2bin((string) $fileinfo['entryid']));
 
 			// Get address book for current session
 			$addrBook = $GLOBALS['mapisession']->getAddressbook();
@@ -644,7 +644,7 @@ class DownloadAttachment extends DownloadBase {
 		$attachmentProps = mapi_attach_getprops($attachment, [PR_ATTACH_LONG_FILENAME]);
 		$attachmentStream = streamProperty($attachment, PR_ATTACH_DATA_BIN);
 
-		switch (pathinfo($attachmentProps[PR_ATTACH_LONG_FILENAME], PATHINFO_EXTENSION)) {
+		switch (pathinfo((string) $attachmentProps[PR_ATTACH_LONG_FILENAME], PATHINFO_EXTENSION)) {
 			case 'eml':
 				if (isBrokenEml($attachmentStream)) {
 					throw new ZarafaException(_("Eml is corrupted"));
@@ -741,15 +741,15 @@ class DownloadAttachment extends DownloadBase {
 			];
 
 			// send hierarchy notification only in case of 'eml'
-			if (pathinfo($attachmentProps[PR_ATTACH_LONG_FILENAME], PATHINFO_EXTENSION) === 'eml') {
+			if (pathinfo((string) $attachmentProps[PR_ATTACH_LONG_FILENAME], PATHINFO_EXTENSION) === 'eml') {
 				$hierarchynotifier = [
 					'hierarchynotifier1' => [
 						'folders' => [
 							'item' => [
 								0 => [
 									'entryid' => $this->destinationFolderId,
-									'parent_entryid' => bin2hex($destinationFolderProps[PR_PARENT_ENTRYID]),
-									'store_entryid' => bin2hex($storeProps[PR_ENTRYID]),
+									'parent_entryid' => bin2hex((string) $destinationFolderProps[PR_PARENT_ENTRYID]),
+									'store_entryid' => bin2hex((string) $storeProps[PR_ENTRYID]),
 									'props' => [
 										'content_unread' => $destinationFolderProps[PR_CONTENT_UNREAD] + 1,
 									],
@@ -774,7 +774,7 @@ class DownloadAttachment extends DownloadBase {
 	 */
 	public function importEmbeddedAttachment() {
 		// get message props of sub message
-		$copyFromMessage = $GLOBALS['operations']->openMessage($this->store, hex2bin($this->entryId), $this->attachNum, true);
+		$copyFromMessage = $GLOBALS['operations']->openMessage($this->store, hex2bin((string) $this->entryId), $this->attachNum, true);
 
 		if (empty($copyFromMessage)) {
 			throw new ZarafaException(_("Embedded attachment not found."));
@@ -805,8 +805,8 @@ class DownloadAttachment extends DownloadBase {
 							'item' => [
 								0 => [
 									'entryid' => $this->destinationFolderId,
-									'parent_entryid' => bin2hex($destinationFolderProps[PR_PARENT_ENTRYID]),
-									'store_entryid' => bin2hex($storeProps[PR_ENTRYID]),
+									'parent_entryid' => bin2hex((string) $destinationFolderProps[PR_PARENT_ENTRYID]),
+									'store_entryid' => bin2hex((string) $storeProps[PR_ENTRYID]),
 									'props' => [
 										'content_unread' => $destinationFolderProps[PR_CONTENT_UNREAD] + 1,
 									],

@@ -233,7 +233,7 @@ class FilesListModule extends ListModule {
 		if ($dir) {
 			$updateCache = false;
 			foreach ($dir as $id => $node) {
-				$objectType = strcmp($node['resourcetype'], "collection") !== 0 ? FILES_FILE : FILES_FOLDER;
+				$objectType = strcmp((string) $node['resourcetype'], "collection") !== 0 ? FILES_FILE : FILES_FOLDER;
 
 				// Only get the Folder item.
 				if ($objectType !== FILES_FOLDER) {
@@ -252,7 +252,7 @@ class FilesListModule extends ListModule {
 				$size = $objectType == FILES_FILE ? $size : -1;
 
 				$realID = $nodeIdPrefix . $id;
-				$filename = stringToUTF8Encode(basename($id));
+				$filename = stringToUTF8Encode(basename((string) $id));
 
 				if (!isset($node['entryid']) || !isset($node['parent_entryid']) || !isset($node['store_entryid'])) {
 					$parentNode = $this->getParentNode($cachePath, $accountID);
@@ -295,7 +295,7 @@ class FilesListModule extends ListModule {
 							'icon_index' => ICON_FOLDER,
 							'filename' => $filename,
 							'display_name' => $filename,
-							'lastmodified' => strtotime($node['getlastmodified']) * 1000,
+							'lastmodified' => strtotime((string) $node['getlastmodified']) * 1000,
 							'has_subfolder' => $nodeHasSubFolder,
 						],
 					]);
@@ -400,7 +400,7 @@ class FilesListModule extends ListModule {
 
 		if ($dir) {
 			foreach ($dir as $id => $node) {
-				if (strcmp($node['resourcetype'], "collection") === 0) {
+				if (strcmp((string) $node['resourcetype'], "collection") === 0) {
 					// we have a folder
 					return true;
 				}
@@ -423,7 +423,7 @@ class FilesListModule extends ListModule {
 		if (isset($actionData["entryid"]) && empty($actionData["entryid"])) {
 			$path = isset($props['path']) && !empty($props['path']) ? $props['path'] : "/";
 
-			$relDirname = substr($path, strpos($path, '/'));
+			$relDirname = substr((string) $path, strpos((string) $path, '/'));
 			$relDirname = $relDirname . $props["display_name"] . '/';
 			$account = $this->accountFromNode($path);
 
@@ -432,7 +432,7 @@ class FilesListModule extends ListModule {
 			$relDirname = stringToUTF8Encode($relDirname);
 			$result = $initializedBackend->mkcol($relDirname); // create it !
 
-			$filesPath = substr($path, strpos($path, '/'));
+			$filesPath = substr((string) $path, strpos((string) $path, '/'));
 			$dir = $initializedBackend->ls($filesPath);
 
 			$id = $path . $props["display_name"] . '/';
@@ -495,13 +495,13 @@ class FilesListModule extends ListModule {
 			$parentEntryid = $actionData["parent_entryid"];
 
 			$isfolder = "";
-			if (substr($folderId, -1) == '/') {
+			if (substr((string) $folderId, -1) == '/') {
 				$isfolder = "/"; // we have a folder...
 			}
 
-			$src = rtrim($folderId, '/');
+			$src = rtrim((string) $folderId, '/');
 			$dstdir = dirname($src) == "/" ? "" : dirname($src);
-			$dst = $dstdir . "/" . rtrim($props['filename'], '/');
+			$dst = $dstdir . "/" . rtrim((string) $props['filename'], '/');
 
 			$relDst = substr($dst, strpos($dst, '/'));
 			$relSrc = substr($src, strpos($src, '/'));
@@ -576,13 +576,13 @@ class FilesListModule extends ListModule {
 		$dir = $this->getCache($accountId, $cachePath);
 		if ($dir) {
 			foreach ($dir as $id => $node) {
-				$newId = str_replace(dirname($id), $newPath, $id);
+				$newId = str_replace(dirname((string) $id), $newPath, $id);
 				unset($dir[$id]);
 				$dir[$newId] = $node;
 
 				$type = FILES_FILE;
 
-				if (strcmp($node['resourcetype'], "collection") == 0) { // we have a folder
+				if (strcmp((string) $node['resourcetype'], "collection") == 0) { // we have a folder
 					$type = FILES_FOLDER;
 				}
 

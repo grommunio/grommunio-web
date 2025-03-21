@@ -167,7 +167,7 @@ class Theming {
 			while ($iterator->valid()) {
 				$fileName = $iterator->getFilename();
 				if (!$iterator->isDir() && (strtolower($iterator->getExtension()) === 'css' || substr($fileName, -8) === '.css.php')) {
-					$cssFiles[] = substr($iterator->key(), strlen(BASE_PATH));
+					$cssFiles[] = substr((string) $iterator->key(), strlen(BASE_PATH));
 				}
 				$iterator->next();
 			}
@@ -411,7 +411,7 @@ class Theming {
 		$styles = '<style>';
 		foreach ($themeProps as $k => $v) {
 			if ($v && isset(Theming::$styles[$k])) {
-				$styles .= str_replace("{{{$k}}}", htmlspecialchars($v), Theming::$styles[$k]);
+				$styles .= str_replace("{{{$k}}}", htmlspecialchars((string) $v), Theming::$styles[$k]);
 			}
 		}
 		$styles .= '</style>' . "\n";
@@ -430,7 +430,7 @@ class Theming {
 					if (empty($stylesheet)) {
 						continue;
 					}
-					$styles .= "\t\t" . '<link rel="stylesheet" type="text/css" href="' . htmlspecialchars(Theming::fixUrl($stylesheet, $theme)) . '" />' . "\n";
+					$styles .= "\t\t" . '<link rel="stylesheet" type="text/css" href="' . htmlspecialchars((string) Theming::fixUrl($stylesheet, $theme)) . '" />' . "\n";
 				}
 			}
 		}

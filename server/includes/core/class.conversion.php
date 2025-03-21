@@ -77,7 +77,7 @@ class Conversion {
 
 					case PT_MV_STRING8:
 					case PT_MV_STRING8 | MVI_FLAG:
-						$mv_values = explode(";", $value);
+						$mv_values = explode(";", (string) $value);
 						$values = [];
 
 						foreach ($mv_values as $mv_value) {
@@ -95,7 +95,7 @@ class Conversion {
 
 					case PT_BINARY:
 						if (!empty($value)) {
-							$properties[$mapi_property] = hex2bin($value);
+							$properties[$mapi_property] = hex2bin((string) $value);
 						}
 						break;
 
@@ -168,7 +168,7 @@ class Conversion {
 
 			switch (mapi_prop_type($property)) {
 				case PT_BINARY:
-					$value = bin2hex($value);
+					$value = bin2hex((string) $value);
 					break;
 
 				case PT_MV_BINARY:
@@ -336,7 +336,7 @@ class Conversion {
 				foreach ($json[1][PROPS] as $propTag => $propValue) {
 					$propTag = Conversion::json2property($mapping, $propTag);
 					if (mapi_prop_type($propTag) === PT_BINARY) {
-						$propValue = hex2bin($propValue);
+						$propValue = hex2bin((string) $propValue);
 					}
 					$props[$propTag] = $propValue;
 				}
@@ -355,11 +355,11 @@ class Conversion {
 					$type = mapi_prop_type($propTag);
 
 					if ($type === PT_BINARY) {
-						$propValue = hex2bin($propValue);
+						$propValue = hex2bin((string) $propValue);
 					}
 					elseif ($type === PT_MV_STRING8) {
 						// Convert multivalued strings to arrays
-						$mv_values = explode(";", $propValue);
+						$mv_values = explode(";", (string) $propValue);
 						$values = [];
 
 						foreach ($mv_values as $mv_value) {
@@ -436,7 +436,7 @@ class Conversion {
 
 				foreach ($restriction[1][PROPS] as $propTag => $propValue) {
 					if (mapi_prop_type($propTag) === PT_BINARY) {
-						$propValue = bin2hex($propValue);
+						$propValue = bin2hex((string) $propValue);
 					}
 					$props[Conversion::property2json($propTag)] = is_array($propValue) ? $propValue[$propTag] : $propValue;
 				}
@@ -457,7 +457,7 @@ class Conversion {
 
 				foreach ($restriction[1][VALUE] as $propTag => $propValue) {
 					if (mapi_prop_type($propTag) === PT_BINARY) {
-						$propValue = bin2hex($propValue);
+						$propValue = bin2hex((string) $propValue);
 					}
 
 					$value[Conversion::property2json($propTag)] = $propValue;
@@ -501,7 +501,7 @@ class Conversion {
 			if (substr($propTag, 0, 2) == '0x') {
 				$propTag = hexdec($propTag);
 				$propTag &= ~MV_FLAG;
-				$propTag = '0x' . strtoupper(str_pad(dechex_32($propTag), 8, '0', STR_PAD_LEFT));
+				$propTag = '0x' . strtoupper(str_pad((string) dechex_32($propTag), 8, '0', STR_PAD_LEFT));
 			}
 		}
 		else {
@@ -529,7 +529,7 @@ class Conversion {
 					case 'replyentryid':
 					case 'replyguid':
 					case 'dam':
-						$action[$key] = hex2bin($value);
+						$action[$key] = hex2bin((string) $value);
 						break;
 
 					case 'adrlist':
@@ -542,7 +542,7 @@ class Conversion {
 								$addrkey = Conversion::json2property($mapping, $addrkey);
 
 								if (mapi_prop_type($addrkey) === PT_BINARY) {
-									$addrval = hex2bin($addrval);
+									$addrval = hex2bin((string) $addrval);
 								}
 
 								$recipient[$addrkey] = $addrval;
@@ -578,7 +578,7 @@ class Conversion {
 					case 'replyentryid':
 					case 'replyguid':
 					case 'dam':
-						$action[$key] = bin2hex($value);
+						$action[$key] = bin2hex((string) $value);
 						break;
 
 					case 'adrlist':
@@ -589,7 +589,7 @@ class Conversion {
 
 							foreach ($addr as $addrkey => $addrval) {
 								if (mapi_prop_type($addrkey) === PT_BINARY) {
-									$addrval = bin2hex($addrval);
+									$addrval = bin2hex((string) $addrval);
 								}
 
 								$recipient[Conversion::property2json($addrkey)] = $addrval;

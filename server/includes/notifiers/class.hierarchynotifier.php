@@ -129,7 +129,7 @@ class HierarchyNotifier extends Notifier {
 					$data["folderdelete"] = 1;
 					$data["entryid"] = bin2hex($props[PR_ENTRYID]);
 					$data["parent_entryid"] = bin2hex($props[PR_PARENT_ENTRYID]);
-					$data["store_entryid"] = bin2hex($props[PR_STORE_ENTRYID]);
+					$data["store_entryid"] = bin2hex((string) $props[PR_STORE_ENTRYID]);
 
 					$this->addNotificationActionData("folders", ["item" => $data]);
 					$GLOBALS["bus"]->addData($this->createNotificationResponseData());
@@ -163,7 +163,7 @@ class HierarchyNotifier extends Notifier {
 					if ($this->storeSize != $storeSize) {
 						$data = [];
 						$data["props"] = [];
-						$data["store_entryid"] = bin2hex($storeProps[PR_STORE_ENTRYID]);
+						$data["store_entryid"] = bin2hex((string) $storeProps[PR_STORE_ENTRYID]);
 						$data["props"]["object_type"] = $storeProps[PR_OBJECT_TYPE];
 						$data["props"]["store_size"] = $storeSize;
 						$data["props"]["quota_warning"] = isset($storeProps[PR_QUOTA_WARNING_THRESHOLD]) ? $storeProps[PR_QUOTA_WARNING_THRESHOLD] : 0;

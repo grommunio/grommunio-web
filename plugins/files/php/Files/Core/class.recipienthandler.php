@@ -22,7 +22,7 @@ class RecipientHandler {
 		else {
 			$tmpId = $_GET["id"];
 		}
-		$accountID = substr($tmpId, 3, (strpos($tmpId, '/') - 3));
+		$accountID = substr((string) $tmpId, 3, (strpos((string) $tmpId, '/') - 3));
 
 		// Initialize the account and backendstore
 		$accountStore = new \Files\Core\AccountStore();

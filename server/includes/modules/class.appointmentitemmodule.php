@@ -248,7 +248,7 @@ class AppointmentItemModule extends ItemModule {
 						$e->setTitle(_('Insufficient privileges'));
 
 						// Need this notification to refresh the calendar.
-						$GLOBALS['bus']->notify(bin2hex($parententryid), TABLE_DELETE, $messageProps);
+						$GLOBALS['bus']->notify(bin2hex((string) $parententryid), TABLE_DELETE, $messageProps);
 					}
 					break;
 			}
@@ -382,7 +382,7 @@ class AppointmentItemModule extends ItemModule {
 		// all-day events).
 		$isTzdefstartSet = isset($calendaritem['props']['tzdefstart']);
 		$tzdefstart = $isTzdefstartSet ?
-			hex2bin($calendaritem['props']['tzdefstart']) :
+			hex2bin((string) $calendaritem['props']['tzdefstart']) :
 			mapi_ianatz_to_tzdef("Etc/UTC");
 
 		// Compare the timezone definitions of the client and the appointment.

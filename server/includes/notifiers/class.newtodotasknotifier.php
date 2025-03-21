@@ -27,7 +27,7 @@ class NewTodoTaskNotifier extends Notifier {
 			case OBJECT_SAVE:
 				$data['item'][] = [
 					'entryid' => $entryid,
-					'store_entryid' => bin2hex($props[PR_STORE_ENTRYID]),
+					'store_entryid' => bin2hex((string) $props[PR_STORE_ENTRYID]),
 				];
 				$this->addNotificationActionData("newtodotask", $data);
 				$GLOBALS["bus"]->addData($this->createNotificationResponseData());

@@ -36,10 +36,10 @@ class UploadHandler {
 			}
 		}
 
-		$accountID = substr($dstID, 3, (strpos($dstID, '/') - 3));
+		$accountID = substr((string) $dstID, 3, (strpos((string) $dstID, '/') - 3));
 
 		// relative node ID. We need to trim off the #R# and account ID
-		$relNodeId = substr($dstID, strpos($dstID, '/'));
+		$relNodeId = substr((string) $dstID, strpos((string) $dstID, '/'));
 
 		// Initialize the account and backendstore
 		$accountStore = new \Files\Core\AccountStore();
@@ -168,7 +168,7 @@ class UploadHandler {
 		$keepBoth = isset($_REQUEST["keep_both"]) ? $_REQUEST["keep_both"] : false;
 		// Check if file was already exist in directory and $keepBoth is true
 		// then append the counter in files name.
-		if (strtolower($keepBoth) === 'true') {
+		if (strtolower((string) $keepBoth) === 'true') {
 			$lsNodes = $initializedBackend->ls($relNodeId);
 			$nodeExist = array_key_exists(rawurldecode($targetPath), $lsNodes);
 			if ($nodeExist) {

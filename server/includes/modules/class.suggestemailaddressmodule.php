@@ -64,9 +64,9 @@ class suggestEmailAddressModule extends Module {
 		if ($a['count'] > $b['count']) {
 			return -1;
 		}
-		$l_iReturnVal = strnatcasecmp($a['display_name'], $b['display_name']);
+		$l_iReturnVal = strnatcasecmp((string) $a['display_name'], (string) $b['display_name']);
 		if ($l_iReturnVal == 0) {
-			$l_iReturnVal = strnatcasecmp($a['smtp_address'], $b['smtp_address']);
+			$l_iReturnVal = strnatcasecmp((string) $a['smtp_address'], (string) $b['smtp_address']);
 		}
 
 		return $l_iReturnVal;
@@ -130,9 +130,9 @@ class suggestEmailAddressModule extends Module {
 
 			for ($i = 0, $len = count($recipient_history['recipients']); $i < $len; ++$i) {
 				// Prepare strings for case sensitive search
-				$l_sName = strtolower($recipient_history['recipients'][$i]['display_name']);
-				$l_sEmail = strtolower($recipient_history['recipients'][$i]['smtp_address']);
-				$l_sSearchString = strtolower($action["query"]);
+				$l_sName = strtolower((string) $recipient_history['recipients'][$i]['display_name']);
+				$l_sEmail = strtolower((string) $recipient_history['recipients'][$i]['smtp_address']);
+				$l_sSearchString = strtolower((string) $action["query"]);
 
 				// Check for the presence of the search string
 				$l_ibPosName = strpos($l_sName, $l_sSearchString);
@@ -168,7 +168,7 @@ class suggestEmailAddressModule extends Module {
 			}
 
 			// Prevent the displaying of the exact match of the whole email address when only one item is found.
-			if (count($l_aResult[0]) == 1 && empty($l_aResult[1]) && $l_sSearchString == strtolower($l_aResult[0][0]['smtp_address'])) {
+			if (count($l_aResult[0]) == 1 && empty($l_aResult[1]) && $l_sSearchString == strtolower((string) $l_aResult[0][0]['smtp_address'])) {
 				$recipientList = [];
 			}
 			else {

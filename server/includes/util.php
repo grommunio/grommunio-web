@@ -34,7 +34,7 @@ function appendDefaultDomain($user) {
 	if (empty($user)) {
 		return '';
 	}
-	if (!defined('DEFAULT_DOMAIN') || empty(DEFAULT_DOMAIN) || str_contains($user, '@')) {
+	if (!defined('DEFAULT_DOMAIN') || empty(DEFAULT_DOMAIN) || str_contains((string) $user, '@')) {
 		return $user;
 	}
 
@@ -49,7 +49,7 @@ function appendDefaultDomain($user) {
  * @param mixed $className
  */
 function sessionNotifierLoader($className) {
-	$className = strtolower($className); // for PHP5 set className to lower case to find the file (see ticket #839 for more information)
+	$className = strtolower((string) $className); // for PHP5 set className to lower case to find the file (see ticket #839 for more information)
 
 	switch ($className) {
 		case "bus":
@@ -305,7 +305,7 @@ function browserDependingHTTPHeaderEncode($input) {
 		return $input;
 	}
 
-	return rawurlencode($input);
+	return rawurlencode((string) $input);
 }
 
 /**
@@ -314,7 +314,7 @@ function browserDependingHTTPHeaderEncode($input) {
  * @return bool true if Edge is the requester, position of the word otherwise
  */
 function isEdge() {
-	return str_contains($_SERVER['HTTP_USER_AGENT'], 'Edge');
+	return str_contains((string) $_SERVER['HTTP_USER_AGENT'], 'Edge');
 }
 
 /**
@@ -354,13 +354,13 @@ function mb_basename($filepath, $suffix = '') {
 function storeURLDataToSession() {
 	$data = [];
 
-	$urlData = urldecode($_SERVER['QUERY_STRING']);
+	$urlData = urldecode((string) $_SERVER['QUERY_STRING']);
 	if (!empty($_GET['action']) && $_GET['action'] === 'mailto') {
 		$data['mailto'] = $_GET['to'];
 
 		// There may be some data after to field, like cc, subject, body
 		// So add them in the urlData string as well
-		$pos = stripos($urlData, $_GET['to']) + strlen($_GET['to']);
+		$pos = stripos($urlData, (string) $_GET['to']) + strlen((string) $_GET['to']);
 		$subString = substr($urlData, $pos);
 		$data['mailto'] .= $subString;
 	}
@@ -393,7 +393,7 @@ function isContinueRedirectAllowed($url) {
 	}
 
 	// Check if the domain is white listed
-	$allowedDomains = explode(' ', preg_replace('/\s+/', ' ', REDIRECT_ALLOWED_DOMAINS));
+	$allowedDomains = explode(' ', (string) preg_replace('/\s+/', ' ', REDIRECT_ALLOWED_DOMAINS));
 	if (count($allowedDomains) && !empty($allowedDomains[0])) {
 		foreach ($allowedDomains as $domain) {
 			$parsedDomain = parse_url($domain);
@@ -432,7 +432,7 @@ define("FILENAME_REGEX", "/^[^\\/\\:\\*\\?\"\\<\\>\\|]+$/im");
  * @param string $regex   regex to validate values based on type of value passed
  */
 function sanitizeValue($value, $default = '', $regex = false) {
-	$result = addslashes($value);
+	$result = addslashes((string) $value);
 	if ($regex) {
 		$match = preg_match_all($regex, $result);
 		if (!$match) {
@@ -497,7 +497,7 @@ function parse_smime($store, $message) {
 	PR_SENT_REPRESENTING_ADDRTYPE, PR_CLIENT_SUBMIT_TIME, PR_TRANSPORT_MESSAGE_HEADERS]);
 	$read = $props[PR_MESSAGE_FLAGS] & MSGFLAG_READ;
 
-	if (isset($props[PR_MESSAGE_CLASS]) && stripos($props[PR_MESSAGE_CLASS], 'IPM.Note.SMIME.MultipartSigned') !== false) {
+	if (isset($props[PR_MESSAGE_CLASS]) && stripos((string) $props[PR_MESSAGE_CLASS], 'IPM.Note.SMIME.MultipartSigned') !== false) {
 		// this is a signed message. decode it.
 		$atable = mapi_message_getattachmenttable($message);
 
@@ -550,7 +550,7 @@ function parse_smime($store, $message) {
 			]);
 		}
 	}
-	elseif (isset($props[PR_MESSAGE_CLASS]) && stripos($props[PR_MESSAGE_CLASS], 'IPM.Note.SMIME') !== false) {
+	elseif (isset($props[PR_MESSAGE_CLASS]) && stripos((string) $props[PR_MESSAGE_CLASS], 'IPM.Note.SMIME') !== false) {
 		// this is a encrypted message. decode it.
 		$attachTable = mapi_message_getattachmenttable($message);
 
@@ -585,7 +585,7 @@ function parse_smime($store, $message) {
 			// deleting an attachment removes an actual attachment of the message
 			$mprops = mapi_getprops($message, [PR_MESSAGE_CLASS]);
 			if (isSmimePluginEnabled() && isset($mprops[PR_MESSAGE_CLASS]) &&
-				stripos($mprops[PR_MESSAGE_CLASS], 'IPM.Note.SMIME') !== false) {
+				stripos((string) $mprops[PR_MESSAGE_CLASS], 'IPM.Note.SMIME') !== false) {
 				mapi_message_deleteattach($message, $attnum);
 			}
 
@@ -752,8 +752,8 @@ function updateHierarchyCounters($username = '', $folderType = '') {
 	foreach ($rows as $folder) {
 		$folderStatCache[$folder[PR_DISPLAY_NAME]] = [
 			'commit_time' => isset($folder[PR_LOCAL_COMMIT_TIME_MAX]) ? $folder[PR_LOCAL_COMMIT_TIME_MAX] : "0000000000",
-			'entryid' => bin2hex($folder[PR_ENTRYID]),
-			'store_entryid' => bin2hex($folder[PR_STORE_ENTRYID]),
+			'entryid' => bin2hex((string) $folder[PR_ENTRYID]),
+			'store_entryid' => bin2hex((string) $folder[PR_STORE_ENTRYID]),
 			'content_count' => isset($folder[PR_CONTENT_COUNT]) ? $folder[PR_CONTENT_COUNT] : -1,
 			'content_unread' => isset($folder[PR_CONTENT_UNREAD]) ? $folder[PR_CONTENT_UNREAD] : -1,
 		];

@@ -194,7 +194,7 @@ class RestoreItemsListModule extends ListModule {
 		$props[PR_PARENT_ENTRYID] = $folderProps[PR_ENTRYID];
 		$props[PR_STORE_ENTRYID] = $folderProps[PR_STORE_ENTRYID];
 
-		$GLOBALS["bus"]->notify(bin2hex($folderProps[PR_ENTRYID]), TABLE_SAVE, $props);
+		$GLOBALS["bus"]->notify(bin2hex((string) $folderProps[PR_ENTRYID]), TABLE_SAVE, $props);
 	}
 
 	/**
@@ -280,7 +280,7 @@ class RestoreItemsListModule extends ListModule {
 		$sfolder = mapi_msgstore_openentry($store, $parententryid);
 
 		for ($index = 0, $len = count($items); $index < $len; ++$index) {
-			mapi_folder_deletemessages($sfolder, [hex2bin($items[$index]['entryid'])], DELETE_HARD_DELETE);
+			mapi_folder_deletemessages($sfolder, [hex2bin((string) $items[$index]['entryid'])], DELETE_HARD_DELETE);
 		}
 		$this->sendFeedback(true);
 	}
@@ -301,7 +301,7 @@ class RestoreItemsListModule extends ListModule {
 		$sfolder = mapi_msgstore_openentry($store, $parententryid);
 
 		for ($index = 0, $len = count($items); $index < $len; ++$index) {
-			mapi_folder_copymessages($sfolder, [hex2bin($items[$index]['entryid'])], $sfolder, MESSAGE_MOVE);
+			mapi_folder_copymessages($sfolder, [hex2bin((string) $items[$index]['entryid'])], $sfolder, MESSAGE_MOVE);
 		}
 
 		// as after moving the message/s the entryid gets changed, so need to notify about the folder
@@ -314,7 +314,7 @@ class RestoreItemsListModule extends ListModule {
 		 */
 		$props[PR_PARENT_ENTRYID] = $folderProps[PR_ENTRYID];
 		$props[PR_STORE_ENTRYID] = $folderProps[PR_STORE_ENTRYID];
-		$GLOBALS["bus"]->notify(bin2hex($folderProps[PR_ENTRYID]), TABLE_SAVE, $props);
+		$GLOBALS["bus"]->notify(bin2hex((string) $folderProps[PR_ENTRYID]), TABLE_SAVE, $props);
 		$this->sendFeedback(true);
 	}
 
@@ -334,7 +334,7 @@ class RestoreItemsListModule extends ListModule {
 		$sfolder = mapi_msgstore_openentry($store, $parententryid);
 
 		for ($index = 0, $len = count($folders); $index < $len; ++$index) {
-			mapi_folder_deletefolder($sfolder, hex2bin($folders[$index]['entryid']), DEL_FOLDERS | DEL_MESSAGES | DELETE_HARD_DELETE);
+			mapi_folder_deletefolder($sfolder, hex2bin((string) $folders[$index]['entryid']), DEL_FOLDERS | DEL_MESSAGES | DELETE_HARD_DELETE);
 		}
 
 		$this->sendFeedback(true);
@@ -398,11 +398,11 @@ class RestoreItemsListModule extends ListModule {
 			foreach ($subfolders as $subfolder) {
 				$folderObject = mapi_msgstore_openentry($store, $subfolder[PR_ENTRYID]);
 				$folderProps = mapi_getprops($folderObject, [PR_ENTRYID, PR_STORE_ENTRYID]);
-				$GLOBALS["bus"]->notify(bin2hex($subfolder[PR_ENTRYID]), OBJECT_SAVE, $folderProps);
+				$GLOBALS["bus"]->notify(bin2hex((string) $subfolder[PR_ENTRYID]), OBJECT_SAVE, $folderProps);
 			}
 		}
 
 		$folderProps = mapi_getprops($parentFolder, [PR_ENTRYID, PR_STORE_ENTRYID]);
-		$GLOBALS["bus"]->notify(bin2hex($folderProps[PR_ENTRYID]), OBJECT_SAVE, $folderProps);
+		$GLOBALS["bus"]->notify(bin2hex((string) $folderProps[PR_ENTRYID]), OBJECT_SAVE, $folderProps);
 	}
 }

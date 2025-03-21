@@ -127,7 +127,7 @@ function readPrivateCert($store, $passphrase, $singleCert = true) {
  * @return string X509 Certificate in PEM format
  */
 function der2pem($certificate) {
-	return "-----BEGIN CERTIFICATE-----\n" . chunk_split(base64_encode($certificate), 64, "\n") . "-----END CERTIFICATE-----\n";
+	return "-----BEGIN CERTIFICATE-----\n" . chunk_split(base64_encode((string) $certificate), 64, "\n") . "-----END CERTIFICATE-----\n";
 }
 
 /**
@@ -233,7 +233,7 @@ function validateUploadedPKCS($certificate, $passphrase, $emailAddress) {
 			$message = _('Private key can\'t be used to sign email');
 		}
 		// Check if the certificate owner matches the grommunio Web users email address
-		elseif (strcasecmp($certEmailAddress, $emailAddress) !== 0) {
+		elseif (strcasecmp((string) $certEmailAddress, (string) $emailAddress) !== 0) {
 			$message = _('Certificate email address doesn\'t match grommunio Web account ') . $certEmailAddress;
 		}
 		// Check if certificate is not expired, still import the certificate since a user wants to decrypt his old email

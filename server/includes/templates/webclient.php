@@ -51,10 +51,10 @@ if (CONTACT_SUFFIX) {
 	$serverConfig['contact_suffix'] = json_decode(CONTACT_SUFFIX);
 }
 if (defined('ADDITIONAL_COLOR_SCHEMES')) {
-	$serverConfig['additional_color_schemes'] = json_decode(ADDITIONAL_COLOR_SCHEMES);
+	$serverConfig['additional_color_schemes'] = json_decode((string) ADDITIONAL_COLOR_SCHEMES);
 }
 if (defined('ADDITIONAL_CATEGORIES')) {
-	$serverConfig['additional_default_categories'] = json_decode(ADDITIONAL_CATEGORIES);
+	$serverConfig['additional_default_categories'] = json_decode((string) ADDITIONAL_CATEGORIES);
 }
 ?>
 <!DOCTYPE html>

@@ -254,7 +254,7 @@ class DelegatesModule extends Module {
 	 */
 	public function openDelegate($delegate) {
 		// Get permissions of a delegate.
-		$data = $this->getDelegatePermissions(hex2bin($delegate['entryid']));
+		$data = $this->getDelegatePermissions(hex2bin((string) $delegate['entryid']));
 
 		$this->addActionData('item', ['item' => $data]);
 		$GLOBALS['bus']->addData($this->getResponseData());
@@ -305,7 +305,7 @@ class DelegatesModule extends Module {
 
 			// Find current delegate and get permission.
 			foreach ($grants as $id => $grant) {
-				if ($GLOBALS["entryid"]->compareEntryIds(bin2hex($userEntryId), bin2hex($grant['userid']))) {
+				if ($GLOBALS["entryid"]->compareEntryIds(bin2hex($userEntryId), bin2hex((string) $grant['userid']))) {
 					$delegateRights['rights_' . $folderName] = $grant['rights'];
 				}
 			}
@@ -388,17 +388,17 @@ class DelegatesModule extends Module {
 			$delegate = $delegates[$i];
 			$len1 = count($delegateProps[PR_SCHDINFO_DELEGATE_ENTRYIDS]);
 			for ($j = 0; $j < $len1; ++$j) {
-				if ($delegateProps[PR_SCHDINFO_DELEGATE_ENTRYIDS][$j] == hex2bin($delegate['entryid'])) {
+				if ($delegateProps[PR_SCHDINFO_DELEGATE_ENTRYIDS][$j] == hex2bin((string) $delegate['entryid'])) {
 					break;
 				}
 			}
-			$delegateProps[PR_SCHDINFO_DELEGATE_ENTRYIDS][$j] = hex2bin($delegate['entryid']);
+			$delegateProps[PR_SCHDINFO_DELEGATE_ENTRYIDS][$j] = hex2bin((string) $delegate['entryid']);
 			if (isset($delegate['props']['display_name'])) {
 				$delegateProps[PR_SCHDINFO_DELEGATE_NAMES][$j] = $delegate['props']['display_name'];
 			}
 			else {
 				$addrBook = $GLOBALS['mapisession']->getAddressbook();
-				$user = mapi_ab_openentry($addrBook, hex2bin($delegate['entryid']));
+				$user = mapi_ab_openentry($addrBook, hex2bin((string) $delegate['entryid']));
 				if (empty($user)) {
 					$delegateProps[PR_SCHDINFO_DELEGATE_NAMES][$j] = "";
 				}
@@ -443,7 +443,7 @@ class DelegatesModule extends Module {
 				$acls = [
 					[
 						'type' => ACCESS_TYPE_GRANT,
-						'userid' => hex2bin($delegate['entryid']),
+						'userid' => hex2bin((string) $delegate['entryid']),
 						'rights' => $delegate['props']['rights_' . $folderName],
 						'state' => RIGHT_NEW | RIGHT_AUTOUPDATE_DENIED,
 						'memberid' => 0,
@@ -488,7 +488,7 @@ class DelegatesModule extends Module {
 		for ($i = 0; $i < $len; ++$i) {
 			$delegate = $delegates[$i];
 			// get user info, using entryid
-			$user = mapi_ab_openentry($addrBook, hex2bin($delegate['entryid']));
+			$user = mapi_ab_openentry($addrBook, hex2bin((string) $delegate['entryid']));
 			$userProps = mapi_getprops($user, [PR_ENTRYID, PR_ADDRTYPE, PR_EMAIL_ADDRESS, PR_DISPLAY_NAME, PR_SEARCH_KEY, PR_SMTP_ADDRESS, PR_OBJECT_TYPE, PR_DISPLAY_TYPE, PR_DISPLAY_TYPE_EX]);
 
 			if (is_array($userProps)) {
@@ -653,7 +653,7 @@ class DelegatesModule extends Module {
 		$delegateIndex = -1;
 		$len = count($delegateProps[PR_SCHDINFO_DELEGATE_ENTRYIDS]);
 		for ($i = 0; $i < $len; ++$i) {
-			if ($delegateProps[PR_SCHDINFO_DELEGATE_ENTRYIDS][$i] == hex2bin($delegate["entryid"])) {
+			if ($delegateProps[PR_SCHDINFO_DELEGATE_ENTRYIDS][$i] == hex2bin((string) $delegate["entryid"])) {
 				$delegateIndex = $i;
 				break;
 			}
@@ -699,7 +699,7 @@ class DelegatesModule extends Module {
 			$acls = [
 				[
 					'type' => ACCESS_TYPE_GRANT,
-					'userid' => hex2bin($delegate['entryid']),
+					'userid' => hex2bin((string) $delegate['entryid']),
 					'rights' => ecRightsNone,
 					'state' => RIGHT_DELETED | RIGHT_AUTOUPDATE_DENIED,
 					'memberid' => 0,
@@ -737,7 +737,7 @@ class DelegatesModule extends Module {
 		$new_users = [];
 		foreach ($old_users as $user) {
 			for ($index = 0; $index < $len; ++$index) {
-				if ($user[PR_ENTRYID] == hex2bin($delegates[$index]['entryid'])) {
+				if ($user[PR_ENTRYID] == hex2bin((string) $delegates[$index]['entryid'])) {
 					break;
 				}
 			}

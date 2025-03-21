@@ -79,7 +79,7 @@ class PluginSmimeModule extends Module {
 				// FIXME: handle multiple deletes? Separate function?
 				$entryid = $actionData['entryid'];
 				$root = mapi_msgstore_openentry($this->store);
-				mapi_folder_deletemessages($root, [hex2bin($entryid)]);
+				mapi_folder_deletemessages($root, [hex2bin((string) $entryid)]);
 
 				$this->sendFeedback(true);
 				break;
@@ -129,7 +129,7 @@ class PluginSmimeModule extends Module {
 				elseif ($privateCerts[$i][PR_CLIENT_SUBMIT_TIME] >= time()) { // validFrom
 					$message = _('Private certificate is not valid yet, unable to sign email');
 				}
-				elseif (strcasecmp($privateCerts[$i][PR_SUBJECT], $smtpAddress) !== 0) {
+				elseif (strcasecmp((string) $privateCerts[$i][PR_SUBJECT], (string) $smtpAddress) !== 0) {
 					$message = _('Private certificate does not match email address');
 				}
 				else {
@@ -217,7 +217,7 @@ class PluginSmimeModule extends Module {
 		$certs = mapi_table_queryallrows($table, [PR_SUBJECT, PR_ENTRYID, PR_MESSAGE_DELIVERY_TIME, PR_CLIENT_SUBMIT_TIME, PR_MESSAGE_CLASS, PR_SENDER_NAME, PR_SENDER_EMAIL_ADDRESS, PR_SUBJECT_PREFIX, PR_RECEIVED_BY_NAME, PR_INTERNET_MESSAGE_ID], $restrict);
 		foreach ($certs as $cert) {
 			$item = [];
-			$item['entryid'] = bin2hex($cert[PR_ENTRYID]);
+			$item['entryid'] = bin2hex((string) $cert[PR_ENTRYID]);
 			$item['email'] = $cert[PR_SUBJECT];
 			$item['validto'] = $cert[PR_MESSAGE_DELIVERY_TIME];
 			$item['validfrom'] = $cert[PR_CLIENT_SUBMIT_TIME];
@@ -226,7 +226,7 @@ class PluginSmimeModule extends Module {
 			$item['issued_to'] = $cert[PR_SUBJECT_PREFIX];
 			$item['fingerprint_sha1'] = $cert[PR_RECEIVED_BY_NAME];
 			$item['fingerprint_md5'] = $cert[PR_INTERNET_MESSAGE_ID];
-			$item['type'] = strtolower($cert[PR_MESSAGE_CLASS]) == 'webapp.security.public' ? 'public' : 'private';
+			$item['type'] = strtolower((string) $cert[PR_MESSAGE_CLASS]) == 'webapp.security.public' ? 'public' : 'private';
 			array_push($items, ['props' => $item]);
 		}
 		$data['page']['start'] = 0;
@@ -263,7 +263,7 @@ class PluginSmimeModule extends Module {
 		}
 		$privateCert = mapi_msgstore_openentry($this->store, $mapiCert[PR_ENTRYID]);
 
-		$msgBody = base64_encode($cert);
+		$msgBody = base64_encode((string) $cert);
 		$stream = mapi_openproperty($privateCert, PR_BODY, IID_IStream, 0, MAPI_CREATE | MAPI_MODIFY);
 		mapi_stream_setsize($stream, strlen($msgBody));
 		mapi_stream_write($stream, $msgBody);

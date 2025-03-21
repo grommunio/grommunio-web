@@ -132,7 +132,7 @@ class PluginMDMModule extends Module {
 		$ret = file_get_contents(PLUGIN_MDM_ADMIN_API_WIPE_ENDPOINT . $GLOBALS["mapisession"]->getUserName() . "?devices=" . $deviceid, false, stream_context_create($opts));
 		$ret = json_decode($ret, true);
 
-		return strncasecmp('success', $ret['message'], 7) === 0;
+		return strncasecmp('success', (string) $ret['message'], 7) === 0;
 	}
 
 	/**
@@ -398,7 +398,7 @@ class PluginMDMModule extends Module {
 		foreach ($items as $item) {
 			foreach ($stores as $store) {
 				try {
-					$entryid = mapi_msgstore_entryidfromsourcekey($store, hex2bin($item->folderid));
+					$entryid = mapi_msgstore_entryidfromsourcekey($store, hex2bin((string) $item->folderid));
 				}
 				catch (MAPIException $me) {
 					continue;
@@ -433,7 +433,7 @@ class PluginMDMModule extends Module {
 	public function additionalFolderAdd($entryId, $folder) {
 		$client = $this->getSoapClient();
 		$containerClass = isset($folder[PR_CONTAINER_CLASS]) ? $folder[PR_CONTAINER_CLASS] : "IPF.Note";
-		$folderId = bin2hex($folder[PR_SOURCE_KEY]);
+		$folderId = bin2hex((string) $folder[PR_SOURCE_KEY]);
 		$userName = $folder["user"];
 		$folderName = $userName === "SYSTEM" ? $folder[PR_DISPLAY_NAME] : $folder[PR_DISPLAY_NAME] . " - " . $userName;
 		$folderType = $this->getFolderTypeFromContainerClass($containerClass);
@@ -460,7 +460,7 @@ class PluginMDMModule extends Module {
 				$hierarchyFolders = $this->getHierarchyList();
 				foreach ($addFolders as $folder) {
 					foreach ($hierarchyFolders as $hierarchyFolder) {
-						$folderEntryid = bin2hex($hierarchyFolder[PR_ENTRYID]);
+						$folderEntryid = bin2hex((string) $hierarchyFolder[PR_ENTRYID]);
 						if ($folderEntryid === $folder["entryid"]) {
 							$this->additionalFolderAdd($entryid, $hierarchyFolder);
 
@@ -595,25 +595,25 @@ class PluginMDMModule extends Module {
 			switch ($from) {
 				case "inbox":
 					if (isset($inboxProps[$tag])) {
-						$storeData["props"][$key] = bin2hex($inboxProps[$tag]);
+						$storeData["props"][$key] = bin2hex((string) $inboxProps[$tag]);
 					}
 					break;
 
 				case "store":
 					if (isset($msgstore_props[$tag])) {
-						$storeData["props"][$key] = bin2hex($msgstore_props[$tag]);
+						$storeData["props"][$key] = bin2hex((string) $msgstore_props[$tag]);
 					}
 					break;
 
 				case "root":
 					if (isset($rootProps[$tag])) {
-						$storeData["props"][$key] = bin2hex($rootProps[$tag]);
+						$storeData["props"][$key] = bin2hex((string) $rootProps[$tag]);
 					}
 					break;
 
 				case "additional":
 					if (isset($additional_ren_entryids[$tag])) {
-						$storeData["props"][$key] = bin2hex($additional_ren_entryids[$tag]);
+						$storeData["props"][$key] = bin2hex((string) $additional_ren_entryids[$tag]);
 					}
 					break;
 			}

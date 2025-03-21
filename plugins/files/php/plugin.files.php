@@ -60,7 +60,7 @@ class Pluginfiles extends Plugin {
 
 					case 'form':
 						if (isset($_GET['backend'])) {
-							$backend = urldecode($_GET["backend"]);
+							$backend = urldecode((string) $_GET["backend"]);
 						}
 						else {
 							$backend = '';

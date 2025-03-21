@@ -77,7 +77,7 @@ class ContactItemModule extends ItemModule {
 			// Check if message is distlist then we need to use different set of properties
 			$props = mapi_getprops($message, [PR_MESSAGE_CLASS]);
 
-			if (stripos($props[PR_MESSAGE_CLASS], 'IPM.Distlist') !== false) {
+			if (stripos((string) $props[PR_MESSAGE_CLASS], 'IPM.Distlist') !== false) {
 				// for distlist we need to use different set of properties
 				$this->properties = $GLOBALS['properties']->getDistListProperties();
 			}
@@ -88,7 +88,7 @@ class ContactItemModule extends ItemModule {
 			// Check if message is distlist then we need to use different set of properties
 			$props = mapi_getprops($message, [PR_MESSAGE_CLASS]);
 
-			if (stripos($props[PR_MESSAGE_CLASS], 'IPM.Distlist') !== false) {
+			if (stripos((string) $props[PR_MESSAGE_CLASS], 'IPM.Distlist') !== false) {
 				// for distlist we need to use different set of properties
 				$this->properties = $GLOBALS['properties']->getDistListProperties();
 			}
@@ -176,7 +176,7 @@ class ContactItemModule extends ItemModule {
 						$parts = [];
 						$parts['distlist_guid'] = WAB_GUID;
 						$parts['distlist_type'] = $item['distlist_type'];
-						$parts['entryid'] = hex2bin($item['entryid']);
+						$parts['entryid'] = hex2bin((string) $item['entryid']);
 						$member = pack('VA16CA*', 0, $parts['distlist_guid'], $parts['distlist_type'], $parts['entryid']);
 					}
 
@@ -339,7 +339,7 @@ class ContactItemModule extends ItemModule {
 	 */
 	public function copyGABRecordProps(&$action) {
 		$addrbook = $GLOBALS["mapisession"]->getAddressbook();
-		$abitem = mapi_ab_openentry($addrbook, hex2bin($action["message_action"]["source_entryid"]));
+		$abitem = mapi_ab_openentry($addrbook, hex2bin((string) $action["message_action"]["source_entryid"]));
 		$abItemProps = mapi_getprops($abitem, [
 			PR_COMPANY_NAME,
 			PR_ASSISTANT,
@@ -409,11 +409,11 @@ class ContactItemModule extends ItemModule {
 
 				// if any of the appointment entryid exists then delete it
 				if (!empty($props[$this->properties['birthday_eventid']])) {
-					$this->deleteSpecialDateAppointment($store, bin2hex($props[$this->properties['birthday_eventid']]));
+					$this->deleteSpecialDateAppointment($store, bin2hex((string) $props[$this->properties['birthday_eventid']]));
 				}
 
 				if (!empty($props[$this->properties['anniversary_eventid']])) {
-					$this->deleteSpecialDateAppointment($store, bin2hex($props[$this->properties['anniversary_eventid']]));
+					$this->deleteSpecialDateAppointment($store, bin2hex((string) $props[$this->properties['anniversary_eventid']]));
 				}
 			}
 			catch (MAPIException $e) {
@@ -456,8 +456,8 @@ class ContactItemModule extends ItemModule {
 
 		$root = mapi_msgstore_openentry($store);
 		$rootProps = mapi_getprops($root, [PR_IPM_APPOINTMENT_ENTRYID, PR_STORE_ENTRYID]);
-		$parentEntryId = bin2hex($rootProps[PR_IPM_APPOINTMENT_ENTRYID]);
-		$storeEntryId = bin2hex($rootProps[PR_STORE_ENTRYID]);
+		$parentEntryId = bin2hex((string) $rootProps[PR_IPM_APPOINTMENT_ENTRYID]);
+		$storeEntryId = bin2hex((string) $rootProps[PR_STORE_ENTRYID]);
 
 		$actionProps = $action['props'];
 		$subject = !empty($actionProps['subject']) ? $actionProps['subject'] : _('Untitled');
@@ -556,7 +556,7 @@ class ContactItemModule extends ItemModule {
 		// Save appointment (saveAppointment takes care of creating/modifying exceptions to recurring
 		// items if necessary)
 		try {
-			$messageProps = $GLOBALS['operations']->saveAppointment($store, hex2bin($entryid), hex2bin($parentEntryId), $data);
+			$messageProps = $GLOBALS['operations']->saveAppointment($store, hex2bin((string) $entryid), hex2bin($parentEntryId), $data);
 		}
 		catch (MAPIException $e) {
 			// if the appointment is deleted then create a new one
@@ -569,7 +569,7 @@ class ContactItemModule extends ItemModule {
 		// Notify the bus if the save was OK
 		if ($messageProps && !(is_array($messageProps) && isset($messageProps['error']))) {
 			$GLOBALS['bus']->notify($parentEntryId, TABLE_SAVE, $messageProps);
-			$result = bin2hex($messageProps[PR_ENTRYID]);
+			$result = bin2hex((string) $messageProps[PR_ENTRYID]);
 		}
 
 		return $result;
@@ -589,13 +589,13 @@ class ContactItemModule extends ItemModule {
 
 		$props = [];
 		$props[PR_PARENT_ENTRYID] = $parentEntryId;
-		$props[PR_ENTRYID] = hex2bin($entryid);
+		$props[PR_ENTRYID] = hex2bin((string) $entryid);
 		$props[PR_STORE_ENTRYID] = $storeEntryId;
 
 		$result = $GLOBALS['operations']->deleteMessages($store, $parentEntryId, $props[PR_ENTRYID]);
 
 		if ($result) {
-			$GLOBALS['bus']->notify(bin2hex($parentEntryId), TABLE_DELETE, $props);
+			$GLOBALS['bus']->notify(bin2hex((string) $parentEntryId), TABLE_DELETE, $props);
 		}
 	}
 

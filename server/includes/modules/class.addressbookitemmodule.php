@@ -56,7 +56,7 @@ class AddressbookItemModule extends ItemModule {
 						if (!empty($action['store_entryid'])) {
 							$e->setHandled();
 							$me->setHandled();
-							$userStore = $GLOBALS['mapisession']->openMessageStore(hex2bin($action['store_entryid']));
+							$userStore = $GLOBALS['mapisession']->openMessageStore(hex2bin((string) $action['store_entryid']));
 							$contactItem = $GLOBALS['operations']->openMessage($userStore, $entryid);
 						}
 					}

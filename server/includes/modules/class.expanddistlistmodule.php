@@ -69,7 +69,7 @@ class ExpandDistlistModule extends Module {
 				$memberProps = Conversion::mapMAPI2XML($this->properties, $rows[$i]);
 				$isDistlist = $memberProps['props']['object_type'] == MAPI_DISTLIST;
 				if ($isDistlist && $isRecurse === true) {
-					$data = array_merge($data, $this->expandDist(hex2bin($memberProps['entryid']), [], $isRecurse));
+					$data = array_merge($data, $this->expandDist(hex2bin((string) $memberProps['entryid']), [], $isRecurse));
 				}
 				else {
 					$data[] = $memberProps;
@@ -102,7 +102,7 @@ class ExpandDistlistModule extends Module {
 	 */
 	public function expand($action) {
 		// Get the distribution list entryid from request
-		$entryid = hex2bin($action["entryid"]);
+		$entryid = hex2bin((string) $action["entryid"]);
 		$this->addrbook = $GLOBALS["mapisession"]->getAddressbook();
 
 		if ($entryid) {

@@ -107,7 +107,7 @@ class ReminderItemModule extends ItemModule {
 			}
 
 			$reminderTime = time() + ($snoozeTime * 60);
-			if (stripos($props[$this->properties["message_class"]], "IPM.Appointment") === 0) {
+			if (stripos((string) $props[$this->properties["message_class"]], "IPM.Appointment") === 0) {
 				if (isset($props[$this->properties["appointment_recurring"]]) && $props[$this->properties["appointment_recurring"]]) {
 					$recurrence = new Recurrence($store, $message);
 					$nextReminder = $recurrence->getNextReminderTime(time());
@@ -161,7 +161,7 @@ class ReminderItemModule extends ItemModule {
 			$newProps = [];
 			$props = mapi_getprops($message, $this->properties);
 
-			if (stripos($props[$this->properties["message_class"]], "IPM.Appointment") === 0) {
+			if (stripos((string) $props[$this->properties["message_class"]], "IPM.Appointment") === 0) {
 				if (isset($props[$this->properties["appointment_recurring"]]) && $props[$this->properties["appointment_recurring"]]) {
 					$recurrence = new Recurrence($store, $message);
 					// check for next reminder after "now" for the next instance
@@ -177,7 +177,7 @@ class ReminderItemModule extends ItemModule {
 					$newProps[$this->properties["reminder"]] = false;
 				}
 			}
-			elseif (stripos($props[$this->properties["message_class"]], "IPM.Task") === 0) {
+			elseif (stripos((string) $props[$this->properties["message_class"]], "IPM.Task") === 0) {
 				$newProps[$this->properties["reminder"]] = false;
 
 				if (isset($props[$this->properties['task_recurring']]) && $props[$this->properties['task_recurring']] == 1) {

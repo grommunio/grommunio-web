@@ -93,7 +93,7 @@ class AddressbookListModule extends ListModule {
 		if (($folderType !== 'gab' || ENABLE_FULL_GAB) || !empty($searchstring)) {
 			$table = null;
 			$ab = $GLOBALS['mapisession']->getAddressbook(false, true);
-			$entryid = !empty($action['entryid']) ? hex2bin($action['entryid']) : mapi_ab_getdefaultdir($ab);
+			$entryid = !empty($action['entryid']) ? hex2bin((string) $action['entryid']) : mapi_ab_getdefaultdir($ab);
 			try {
 				$dir = mapi_ab_openentry($ab, $entryid);
 				/**
@@ -108,7 +108,7 @@ class AddressbookListModule extends ListModule {
 				// and get the contents of the folder
 				if ($isSharedFolder) {
 					$sharedStore = $GLOBALS["mapisession"]->openMessageStore(
-						hex2bin($action["sharedFolder"]["store_entryid"]));
+						hex2bin((string) $action["sharedFolder"]["store_entryid"]));
 					$sharedContactsFolder = mapi_msgstore_openentry($sharedStore, $entryid);
 					$table = mapi_folder_getcontentstable($sharedContactsFolder, MAPI_DEFERRED_ERRORS);
 					$this->properties = $GLOBALS['properties']->getContactProperties();
@@ -143,7 +143,7 @@ class AddressbookListModule extends ListModule {
 					$user_data = array_shift($rows);
 					$abprovidertype = 0;
 					$item = [];
-					$entryid = bin2hex($user_data[$this->properties['entryid']]);
+					$entryid = bin2hex((string) $user_data[$this->properties['entryid']]);
 					$item['entryid'] = $entryid;
 					$item['display_name'] = isset($user_data[$this->properties['display_name']]) ? $user_data[$this->properties['display_name']] : "";
 					$item['object_type'] = isset($user_data[$this->properties['object_type']]) ? $user_data[$this->properties['object_type']] : "";
@@ -152,7 +152,7 @@ class AddressbookListModule extends ListModule {
 					$item['company_name'] = isset($user_data[PR_COMPANY_NAME]) ? $user_data[PR_COMPANY_NAME] : "";
 
 					// Test whether the GUID in the entryid is from the Contact Provider
-					if ($GLOBALS['entryid']->hasContactProviderGUID(bin2hex($user_data[$this->properties['entryid']]))) {
+					if ($GLOBALS['entryid']->hasContactProviderGUID(bin2hex((string) $user_data[$this->properties['entryid']]))) {
 						// Use the original_display_name property to fill in the fileas column
 						$item['fileas'] = $user_data[$this->properties['original_display_name']] ?? $item['display_name'];
 						$item['address_type'] = isset($user_data[$this->properties['address_type']]) ? $user_data[$this->properties['address_type']] : 'SMTP';
@@ -178,7 +178,7 @@ class AddressbookListModule extends ListModule {
 						}
 						// do not display items without an email address
 						// a shared contact is either a single contact item or a distribution list
-						$isContact = strcasecmp($user_data[$this->properties['message_class']], 'IPM.Contact') === 0;
+						$isContact = strcasecmp((string) $user_data[$this->properties['message_class']], 'IPM.Contact') === 0;
 						if ($isContact &&
 							empty($user_data[$this->properties["email_address_1"]]) &&
 							empty($user_data[$this->properties["email_address_2"]]) &&
@@ -296,7 +296,7 @@ class AddressbookListModule extends ListModule {
 					}
 
 					if (!empty($user_data[$this->properties['search_key']])) {
-						$item['search_key'] = bin2hex($user_data[$this->properties['search_key']]);
+						$item['search_key'] = bin2hex((string) $user_data[$this->properties['search_key']]);
 					}
 					else {
 						// contacts folders are not returning search keys, this should be fixed in Gromox
@@ -871,8 +871,8 @@ class AddressbookListModule extends ListModule {
 
 			$this->addFolder($folders, [
 				"display_name" => $item[PR_DISPLAY_NAME] ?? '',
-				"entryid" => bin2hex($item[PR_ENTRYID]),
-				"parent_entryid" => bin2hex($item[PR_PARENT_ENTRYID]),
+				"entryid" => bin2hex((string) $item[PR_ENTRYID]),
+				"parent_entryid" => bin2hex((string) $item[PR_PARENT_ENTRYID]),
 				"depth" => $item[PR_DEPTH],
 				"type" => $item[PR_AB_PROVIDER_ID] == MUIDECSAB ? "gab" : 'contacts',
 				"object_type" => MAPI_ABCONT,
@@ -894,8 +894,8 @@ class AddressbookListModule extends ListModule {
 			$sharedUserSetting = [];
 			if ($sharedStoreProps[PR_MDB_PROVIDER] == ZARAFA_STORE_DELEGATE_GUID) {
 				$eidObj = $GLOBALS["entryid"]->createMsgStoreEntryIdObj($sharedEntryId);
-				if (array_key_exists(strtolower($eidObj['MailboxDN']), $shareUserSettings)) {
-					$sharedUserSetting = $shareUserSettings[strtolower($eidObj['MailboxDN'])];
+				if (array_key_exists(strtolower((string) $eidObj['MailboxDN']), $shareUserSettings)) {
+					$sharedUserSetting = $shareUserSettings[strtolower((string) $eidObj['MailboxDN'])];
 				}
 				$sharedContactFolders = $GLOBALS["mapisession"]->getContactFoldersForABContactProvider($sharedStore);
 				for ($i = 0, $len = count($sharedContactFolders); $i < $len; ++$i) {
@@ -919,8 +919,8 @@ class AddressbookListModule extends ListModule {
 								// Postfix display name of every contact folder with respective owner name
 								// it is mandatory to keep display-name different
 								"display_name" => $sharedContactFolders[$i][PR_DISPLAY_NAME] . " - " . $sharedStoreProps[PR_MAILBOX_OWNER_NAME],
-								"entryid" => bin2hex($sharedContactFolders[$i][PR_ENTRYID]),
-								"parent_entryid" => bin2hex($sharedContactFolders[$i][PR_PARENT_ENTRYID]),
+								"entryid" => bin2hex((string) $sharedContactFolders[$i][PR_ENTRYID]),
+								"parent_entryid" => bin2hex((string) $sharedContactFolders[$i][PR_PARENT_ENTRYID]),
 								"depth" => $sharedContactFolders[$i][PR_DEPTH],
 								"type" => 'sharedcontacts',
 								"object_type" => MAPI_ABCONT,
@@ -948,8 +948,8 @@ class AddressbookListModule extends ListModule {
 				// Postfix display name of every contact folder with respective owner name
 				// it is mandatory to keep display-name different
 				"display_name" => $publicContactFolders[$i][PR_DISPLAY_NAME] . ' - ' . $publicStoreProps[PR_DISPLAY_NAME],
-				"entryid" => bin2hex($publicContactFolders[$i][PR_ENTRYID]),
-				"parent_entryid" => bin2hex($publicContactFolders[$i][PR_PARENT_ENTRYID]),
+				"entryid" => bin2hex((string) $publicContactFolders[$i][PR_ENTRYID]),
+				"parent_entryid" => bin2hex((string) $publicContactFolders[$i][PR_PARENT_ENTRYID]),
 				// only indent folders which have a parent folder already in the list
 				"depth" => $publicContactFolders[$i][PR_DEPTH] > 1 && in_array($publicContactFolders[$i][PR_PARENT_ENTRYID], $knownParents) ?
 					$publicContactFolders[$i][PR_DEPTH] : 1,

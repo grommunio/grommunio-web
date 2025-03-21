@@ -29,7 +29,7 @@ class NemidLogin {
 			'ZIP_FILE_ALIAS' => 'OpenLogon2',
 			'log_level' => 'ERROR',
 			'paramcert' => $paramcert,
-			'signproperties' => "NoNcE=" . base64_encode(uniqid($config->nonceprefix, true)),
+			'signproperties' => "NoNcE=" . base64_encode(uniqid((string) $config->nonceprefix, true)),
 		];
 
 		uksort($params, "strnatcasecmp");
@@ -45,7 +45,7 @@ class NemidLogin {
 		$privatekey = file_get_contents($config->privatekey);
 		$key = openssl_pkey_get_private($privatekey, $config->privatekeypass);
 		Nemid52Compat::openssl_sign($normalized, $signeddigest, $key, 'sha256WithRSAEncryption');
-		$params['signeddigest'] = base64_encode($signeddigest);
+		$params['signeddigest'] = base64_encode((string) $signeddigest);
 
 		$params['MAYSCRIPT'] = 'true';
 
@@ -84,7 +84,7 @@ class NemidCertificateCheck {
 	 */
 	public function checkAndReturnCertificate($signature, $nonce, $trustedroots, $disableocspcheck = false) {
 		$document = new \DOMDocument();
-		$xml = base64_decode($signature);
+		$xml = base64_decode((string) $signature);
 		$document->loadXML($xml);
 
 		$xp = new \DOMXPath($document);
@@ -110,7 +110,7 @@ class NemidCertificateCheck {
 
 	private function certificateAsPem($cert) {
 		return "-----BEGIN CERTIFICATE-----\n" .
-			   chunk_split(base64_encode($cert['certificate_der'])) .
+			   chunk_split(base64_encode((string) $cert['certificate_der'])) .
 			   "-----END CERTIFICATE-----";
 	}
 
@@ -143,7 +143,7 @@ class NemidCertificateCheck {
 			$issuer = max($i - 1, 0);
 			$der = $certchain[$i]['tbsCertificate']['tbsCertificate_der'];
 			# skip first null byte - number of unused bits at the end ...
-			$signature = substr($certchain[$i]['signature'], 1);
+			$signature = substr((string) $certchain[$i]['signature'], 1);
 			$this->verifyRSASignature($der, $signature, $certchain[$i]['signatureAlgorithm'], $this->certificateAsPem($certchain[$issuer]));
 
 			($certchain[$i]['tbsCertificate']['validity']['notBefore'] <= $now &&
@@ -163,7 +163,7 @@ class NemidCertificateCheck {
 
 		# first digest is for the root ...
 		# check the root digest against a list of known root oces certificates
-		$digest = hash('sha256', $certchain[0]['certificate_der']);
+		$digest = hash('sha256', (string) $certchain[0]['certificate_der']);
 		in_array($digest, array_values($trustedroots->trustedrootdigests)) or trigger_error('Certificate chain not signed by any trustedroots', E_USER_ERROR);
 	}
 
@@ -184,16 +184,16 @@ class NemidCertificateCheck {
 		}
 
 		$signedElement = $xp->query('ds:Object[@Id="ToBeSigned"]', $context)->item(0)->C14N();
-		$digestValue = base64_decode($xp->query('ds:SignedInfo/ds:Reference/ds:DigestValue', $context)->item(0)->textContent);
+		$digestValue = base64_decode((string) $xp->query('ds:SignedInfo/ds:Reference/ds:DigestValue', $context)->item(0)->textContent);
 
 		$signedInfo = $xp->query('ds:SignedInfo', $context)->item(0)->C14N();
-		$signatureValue = base64_decode($xp->query('ds:SignatureValue', $context)->item(0)->textContent);
+		$signatureValue = base64_decode((string) $xp->query('ds:SignatureValue', $context)->item(0)->textContent);
 		$publicKey = openssl_get_publickey($this->certificateAsPem($certificate));
 
-		if (!((hash('sha256', $signedElement, true) == $digestValue) &&
+		if (!((hash('sha256', (string) $signedElement, true) == $digestValue) &&
 				openssl_verify($signedInfo, $signatureValue, $publicKey, 'sha256WithRSAEncryption') == 1)) {
 			trigger_error('Error verifying incoming XMLsignature' . PHP_EOL .
-					openssl_error_string() . PHP_EOL . 'XMLsignature: ' . print_r(htmlspecialchars($message), 1), E_USER_ERROR);
+					openssl_error_string() . PHP_EOL . 'XMLsignature: ' . print_r(htmlspecialchars((string) $message), 1), E_USER_ERROR);
 		}
 	}
 
@@ -212,7 +212,7 @@ class NemidCertificateCheck {
 		$certID = $ocspclient->certOcspID([
 			'issuerName' => $issuer['tbsCertificate']['subject_der'],
 			/* remember to skip the first byte it is the number of unused bits and it is alwayf 0 for keys and certificates */
-			'issuerKey' => substr($issuer['tbsCertificate']['subjectPublicKeyInfo']['subjectPublicKey'], 1),
+			'issuerKey' => substr((string) $issuer['tbsCertificate']['subjectPublicKeyInfo']['subjectPublicKey'], 1),
 			'serialNumber_der' => $certificate['tbsCertificate']['serialNumber_der'], ]);
 
 		$ocspreq = $ocspclient->request([$certID]);
@@ -237,7 +237,7 @@ class NemidCertificateCheck {
 		/* check that the response was signed with the accompanying certificate */
 		$der = $ocspresponse['responseBytes']['BasicOCSPResponse']['tbsResponseData_der'];
 		# skip first null byte - the unused number bits in the end ...
-		$signature = substr($ocspresponse['responseBytes']['BasicOCSPResponse']['signature'], 1);
+		$signature = substr((string) $ocspresponse['responseBytes']['BasicOCSPResponse']['signature'], 1);
 		$signatureAlgorithm = $ocspresponse['responseBytes']['BasicOCSPResponse']['signatureAlgorithm'];
 
 		$ocspcertificate = $ocspresponse['responseBytes']['BasicOCSPResponse']['certs'][0];
@@ -246,7 +246,7 @@ class NemidCertificateCheck {
 
 		/* check that the accompanying certificate was signed with the intermediate certificate */
 		$der = $ocspcertificate['tbsCertificate']['tbsCertificate_der'];
-		$signature = substr($ocspcertificate['signature'], 1);
+		$signature = substr((string) $ocspcertificate['signature'], 1);
 
 		$this->verifyRSASignature($der, $signature, $ocspcertificate['signatureAlgorithm'], $this->certificateAsPem($issuer));
 
@@ -282,7 +282,7 @@ class NemidCertificateCheck {
 
 		foreach ($nodeList as $node) {
 			$cert = $node->nodeValue;
-			$certhash = $x509->certificate(base64_decode($cert));
+			$certhash = $x509->certificate(base64_decode((string) $cert));
 			$certsbysubject[$certhash['tbsCertificate']['subject_']] = $certhash;
 		}
 
@@ -426,7 +426,7 @@ class NemidCertificateCheck {
 
 class NemidRoot {
 	public static function fingerprint($url) {
-		echo hash('sha256', base64_decode(preg_replace('/(-----BEGIN CERTIFICATE-----|-----END CERTIFICATE-----|\s)/s', "", file_get_contents($url))));
+		echo hash('sha256', base64_decode((string) preg_replace('/(-----BEGIN CERTIFICATE-----|-----END CERTIFICATE-----|\s)/s', "", file_get_contents($url))));
 	}
 }
 
@@ -457,10 +457,10 @@ class Nemid52Compat {
 		$digestalgorithm or trigger_error('unknown or unsupported signaturealgorithm: ' . $signagure_alg);
 		$oid = $algos[$signagure_alg]['oid'];
 
-		$digest = hash($digestalgorithm, $data, true);
+		$digest = hash($digestalgorithm, (string) $data, true);
 
 		$t = self::sequence(self::sequence(self::s2oid($oid) . "\x05\x00") . self::octetstring($digest));
-		$pslen = $pinfo['bits'] / 8 - (strlen($t) + 3);
+		$pslen = $pinfo['bits'] / 8 - (strlen((string) $t) + 3);
 
 		return "\x00\x01" . str_repeat("\xff", $pslen) . "\x00" . $t;
 	}
@@ -470,7 +470,7 @@ class Nemid52Compat {
 	}
 
 	public static function s2oid($s) {
-		$e = explode('.', $s);
+		$e = explode('.', (string) $s);
 		$der = chr(40 * $e[0] + $e[1]);
 
 		foreach (array_slice($e, 2) as $c) {
@@ -492,7 +492,7 @@ class Nemid52Compat {
 	}
 
 	public static function len($i) {
-		$i = strlen($i);
+		$i = strlen((string) $i);
 		if ($i <= 127) {
 			$res = pack('C', $i);
 		}

@@ -68,7 +68,7 @@ abstract class DownloadBase {
 		}
 
 		if ($this->storeId) {
-			$this->store = $GLOBALS['mapisession']->openMessageStore(hex2bin($this->storeId));
+			$this->store = $GLOBALS['mapisession']->openMessageStore(hex2bin((string) $this->storeId));
 		}
 
 		if ($this->allAsZip) {
@@ -79,7 +79,7 @@ abstract class DownloadBase {
 		else {
 			if (isset($data['entryid'])) {
 				$this->entryId = sanitizeValue($data['entryid'], '', ID_REGEX);
-				$this->message = mapi_msgstore_openentry($this->store, hex2bin($this->entryId));
+				$this->message = mapi_msgstore_openentry($this->store, hex2bin((string) $this->entryId));
 			}
 		}
 	}

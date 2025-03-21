@@ -61,9 +61,9 @@ class AppointmentListNotifier extends ListNotifier {
 									"content_unread" => $folderProps[PR_CONTENT_UNREAD],
 									// Add store_entryid,entryid of folder and display_name of folder
 									// to JSON data in order to refresh the list.
-									"store_entryid" => bin2hex($folderProps[PR_STORE_ENTRYID]),
-									"parent_entryid" => bin2hex($folderProps[PR_PARENT_ENTRYID]),
-									"entryid" => bin2hex($folderProps[PR_ENTRYID]),
+									"store_entryid" => bin2hex((string) $folderProps[PR_STORE_ENTRYID]),
+									"parent_entryid" => bin2hex((string) $folderProps[PR_PARENT_ENTRYID]),
+									"entryid" => bin2hex((string) $folderProps[PR_ENTRYID]),
 									"display_name" => $folderProps[PR_DISPLAY_NAME],
 								],
 							],

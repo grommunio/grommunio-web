@@ -44,7 +44,7 @@ class HierarchyModule extends Module {
 		$storelist = $GLOBALS["mapisession"]->getAllMessageStores();
 
 		foreach ($storelist as $entryid => $store) {
-			$entryids[] = bin2hex($entryid);
+			$entryids[] = bin2hex((string) $entryid);
 		}
 
 		return $entryids;
@@ -195,7 +195,7 @@ class HierarchyModule extends Module {
 								if (isset($action["message_action"]["isSearchFolder"]) && $action["message_action"]["isSearchFolder"]) {
 									$searchStoreEntryId = $action["message_action"]["search_store_entryid"];
 									// Set display name to search folder.
-									$searchStore = $GLOBALS["mapisession"]->openMessageStore(hex2bin($searchStoreEntryId));
+									$searchStore = $GLOBALS["mapisession"]->openMessageStore(hex2bin((string) $searchStoreEntryId));
 									$searchFolder = mapi_msgstore_openentry($searchStore, $entryid);
 									mapi_setprops($searchFolder, [
 										PR_DISPLAY_NAME => $action["props"]["display_name"],
@@ -211,7 +211,7 @@ class HierarchyModule extends Module {
 						}
 						else {
 							// save folder
-							$folder = mapi_msgstore_openentry($store, hex2bin($action["entryid"]));
+							$folder = mapi_msgstore_openentry($store, hex2bin((string) $action["entryid"]));
 							$this->save($store, $folder, $action);
 							if ($data["props"]["container_class"] === "IPF.Contact") {
 								$GLOBALS["bus"]->notify(ADDRESSBOOK_ENTRYID, OBJECT_SAVE);
@@ -230,8 +230,8 @@ class HierarchyModule extends Module {
 									$searchFolderEntryId = $action["message_action"]["search_folder_entryid"];
 
 									// Get the search folder and search criteria using $storeEntryId and $searchFolderEntryId.
-									$Store = $GLOBALS["mapisession"]->openMessageStore(hex2bin($storeEntryId));
-									$searchFolder = mapi_msgstore_openentry($Store, hex2bin($searchFolderEntryId));
+									$Store = $GLOBALS["mapisession"]->openMessageStore(hex2bin((string) $storeEntryId));
+									$searchFolder = mapi_msgstore_openentry($Store, hex2bin((string) $searchFolderEntryId));
 									$searchCriteria = mapi_folder_getsearchcriteria($searchFolder);
 
 									// Get FINDERS_ROOT folder from store.
@@ -267,13 +267,13 @@ class HierarchyModule extends Module {
 						// We're closing a Shared folder, check if we still have other
 						// folders for the same user opened, if not we can safely close
 						// the usrstore.
-						$stores = $GLOBALS["settings"]->get("zarafa/v1/contexts/hierarchy/shared_stores/" . strtolower(bin2hex($action["user_name"])));
+						$stores = $GLOBALS["settings"]->get("zarafa/v1/contexts/hierarchy/shared_stores/" . strtolower(bin2hex((string) $action["user_name"])));
 						if (!isset($stores) || empty($stores) || (count($stores) == 1 && isset($stores[$action["folder_type"]]))) {
 							$entryid = $GLOBALS["mapisession"]->removeUserStore($action["user_name"]);
 						}
 						else {
 							$entryid = $GLOBALS["mapisession"]->getStoreEntryIdOfUser($action["user_name"]);
-							$this->removeFromFavorite(hex2bin($action["entryid"]), $store, PR_WLINK_ENTRYID, false);
+							$this->removeFromFavorite(hex2bin((string) $action["entryid"]), $store, PR_WLINK_ENTRYID, false);
 						}
 					}
 					else {
@@ -281,12 +281,12 @@ class HierarchyModule extends Module {
 						$entryid = $GLOBALS["mapisession"]->removeUserStore($action["user_name"]);
 
 						if (isset($action["remove_favorites"]) && $action["remove_favorites"]) {
-							$this->removeFromFavorite(hex2bin($action["store_entryid"]), $store, PR_WLINK_STORE_ENTRYID, false);
+							$this->removeFromFavorite(hex2bin((string) $action["store_entryid"]), $store, PR_WLINK_STORE_ENTRYID, false);
 						}
 					}
 
 					$data = [];
-					$data["store_entryid"] = bin2hex($entryid);
+					$data["store_entryid"] = bin2hex((string) $entryid);
 					if (isset($action["folder_type"])) {
 						$data["folder_type"] = $action["folder_type"];
 					}
@@ -297,7 +297,7 @@ class HierarchyModule extends Module {
 					break;
 
 				case "opensharedfolder":
-					$username = strtolower($action["user_name"]);
+					$username = strtolower((string) $action["user_name"]);
 					$store = $GLOBALS["mapisession"]->addUserStore($username);
 					if (!$store) {
 						break;
@@ -341,7 +341,7 @@ class HierarchyModule extends Module {
 							continue;
 						}
 
-						$GLOBALS["bus"]->notify(REQUEST_ENTRYID, HIERARCHY_UPDATE, [strtolower(hex2bin($username)), $folder_type]);
+						$GLOBALS["bus"]->notify(REQUEST_ENTRYID, HIERARCHY_UPDATE, [strtolower(hex2bin((string) $username)), $folder_type]);
 					}
 
 					$this->sendFeedback(true);
@@ -577,7 +577,7 @@ class HierarchyModule extends Module {
 
 		// replace "IPM_SUBTREE" with the display name of the store, and use the store message size
 		$store_props = mapi_getprops($store, [PR_IPM_SUBTREE_ENTRYID]);
-		if ($data["entryid"] == bin2hex($store_props[PR_IPM_SUBTREE_ENTRYID])) {
+		if ($data["entryid"] == bin2hex((string) $store_props[PR_IPM_SUBTREE_ENTRYID])) {
 			$store_props = mapi_getprops($store, [PR_DISPLAY_NAME, PR_MESSAGE_SIZE_EXTENDED,
 				PR_CONTENT_COUNT, PR_QUOTA_WARNING_THRESHOLD, PR_PROHIBIT_SEND_QUOTA, PR_PROHIBIT_RECEIVE_QUOTA, ]);
 			$data["props"]["display_name"] = $store_props[PR_DISPLAY_NAME];
@@ -644,9 +644,9 @@ class HierarchyModule extends Module {
 
 			if ($hide !== true) {
 				array_push($subfolders, [
-					"entryid" => bin2hex($row[PR_ENTRYID]),
-					"parent_entryid" => bin2hex($row[PR_PARENT_ENTRYID]),
-					"store_entryid" => bin2hex($row[PR_STORE_ENTRYID]),
+					"entryid" => bin2hex((string) $row[PR_ENTRYID]),
+					"parent_entryid" => bin2hex((string) $row[PR_PARENT_ENTRYID]),
+					"store_entryid" => bin2hex((string) $row[PR_STORE_ENTRYID]),
 					"props" => [
 						"folder_pathname" => $subpath, // This equals PR_FOLDER_PATHNAME, which is not supported by Gromox
 						"display_name" => $row[PR_DISPLAY_NAME],
@@ -673,7 +673,7 @@ class HierarchyModule extends Module {
 	public function save($store, $folder, $action) {
 		// Rename folder
 		if (isset($action["props"]["display_name"])) {
-			$this->modifyFolder($store, hex2bin($action["entryid"]), $action["props"]["display_name"]);
+			$this->modifyFolder($store, hex2bin((string) $action["entryid"]), $action["props"]["display_name"]);
 		}
 
 		if (isset($action["props"]["comment"])) {
@@ -697,9 +697,9 @@ class HierarchyModule extends Module {
 	}
 
 	public function getFolderPermissions($folder) {
-		$eidObj = $GLOBALS["entryid"]->createMsgStoreEntryIdObj(hex2bin($this->store_entryid));
-		$cnUserPos = strrpos($eidObj['MailboxDN'], '/cn=');
-		$cnUserBase = ($cnUserPos !== false) ? substr($eidObj['MailboxDN'], 0, $cnUserPos) : '';
+		$eidObj = $GLOBALS["entryid"]->createMsgStoreEntryIdObj(hex2bin((string) $this->store_entryid));
+		$cnUserPos = strrpos((string) $eidObj['MailboxDN'], '/cn=');
+		$cnUserBase = ($cnUserPos !== false) ? substr((string) $eidObj['MailboxDN'], 0, $cnUserPos) : '';
 		$grants = mapi_zarafa_getpermissionrules($folder, ACCESS_TYPE_GRANT);
 		foreach ($grants as $id => $grant) {
 			// The mapi_zarafa_getpermissionrules returns the entryid in the userid key
@@ -736,9 +736,9 @@ class HierarchyModule extends Module {
 
 		// first, get the current permissions because we need to delete all current acl's
 		$curAcls = mapi_zarafa_getpermissionrules($folder, ACCESS_TYPE_GRANT);
-		$eidObj = $GLOBALS["entryid"]->createMsgStoreEntryIdObj(hex2bin($this->store_entryid));
-		$cnUserPos = strrpos($eidObj['MailboxDN'], '/cn=');
-		$cnUserBase = ($cnUserPos !== false) ? substr($eidObj['MailboxDN'], 0, $cnUserPos) : '';
+		$eidObj = $GLOBALS["entryid"]->createMsgStoreEntryIdObj(hex2bin((string) $this->store_entryid));
+		$cnUserPos = strrpos((string) $eidObj['MailboxDN'], '/cn=');
+		$cnUserBase = ($cnUserPos !== false) ? substr((string) $eidObj['MailboxDN'], 0, $cnUserPos) : '';
 		foreach ($curAcls as &$curAcl) {
 			$curAcl = $this->getUserInfo($curAcl, $cnUserBase);
 		}
@@ -746,7 +746,7 @@ class HierarchyModule extends Module {
 		// First check which permissions should be removed from the existing list
 		if (isset($permissions['remove']) && !empty($permissions['remove'])) {
 			foreach ($permissions['remove'] as $i => &$delAcl) {
-				$userid = hex2bin($delAcl['entryid']);
+				$userid = hex2bin((string) $delAcl['entryid']);
 				foreach ($curAcls as $aclIndex => &$curAcl) {
 					// do not remove default and anonymous grants
 					if ($curAcl['userid'] === $userid && $curAcl['memberid'] != 0 && $curAcl['memberid'] != 0xFFFFFFFF) {
@@ -774,7 +774,7 @@ class HierarchyModule extends Module {
 					array_push($permissions['add'], $modAcl);
 				}
 				else {
-					$userid = hex2bin($entryid);
+					$userid = hex2bin((string) $entryid);
 					foreach ($curAcls as $aclIndex => &$curAcl) {
 						if ($curAcl['userid'] === $userid) {
 							$curAcl['rights'] = $modAcl['rights'];
@@ -796,7 +796,7 @@ class HierarchyModule extends Module {
 			foreach ($permissions['add'] as $i => &$addAcl) {
 				$curAcls[$cnt++] = [
 					'type' => ACCESS_TYPE_GRANT,
-					'userid' => hex2bin($addAcl['entryid']),
+					'userid' => hex2bin((string) $addAcl['entryid']),
 					'rights' => $addAcl['rights'],
 					'state' => RIGHT_NEW | RIGHT_AUTOUPDATE_DENIED,
 					'memberid' => 0, // for new permissions memberid may be any number
@@ -839,7 +839,7 @@ class HierarchyModule extends Module {
 			$grant["fullname"] = _("default");
 			$grant["username"] = _("default");
 			$grant["entryid"] = $entryid;
-			$grant["userid"] = hex2bin($entryid);
+			$grant["userid"] = hex2bin((string) $entryid);
 
 			return $grant;
 		}
@@ -849,7 +849,7 @@ class HierarchyModule extends Module {
 			$grant["fullname"] = _("anonymous");
 			$grant["username"] = _("anonymous");
 			$grant["entryid"] = $entryid;
-			$grant["userid"] = hex2bin($entryid);
+			$grant["userid"] = hex2bin((string) $entryid);
 
 			return $grant;
 		}
@@ -862,12 +862,12 @@ class HierarchyModule extends Module {
 
 			$grant["fullname"] = $props[PR_DISPLAY_NAME];
 			$grant["username"] = $props[PR_ACCOUNT];
-			$grant["entryid"] = bin2hex($grant["userid"]);
+			$grant["entryid"] = bin2hex((string) $grant["userid"]);
 
 			return $grant;
 		}
 
-		error_log(sprintf("No user with the entryid %s found (memberid: %s)", bin2hex($grant["userid"]), $grant["memberid"]));
+		error_log(sprintf("No user with the entryid %s found (memberid: %s)", bin2hex((string) $grant["userid"]), $grant["memberid"]));
 
 		// default return stuff
 		return [
@@ -952,7 +952,7 @@ class HierarchyModule extends Module {
 					if (isset($message[$prop]) && $GLOBALS['entryid']->compareEntryIds($message[$prop], $entryid)) {
 						mapi_folder_deletemessages($commonViewsFolder, [$message[PR_ENTRYID]]);
 						if ($doNotify) {
-							$GLOBALS["bus"]->notify(bin2hex($message[PR_ENTRYID]), OBJECT_SAVE, $message);
+							$GLOBALS["bus"]->notify(bin2hex((string) $message[PR_ENTRYID]), OBJECT_SAVE, $message);
 						}
 					}
 					elseif (isset($message[PR_WLINK_STORE_ENTRYID])) {
@@ -1001,7 +1001,7 @@ class HierarchyModule extends Module {
 
 		if (!empty($messages)) {
 			foreach ($messages as $message) {
-				if (bin2hex($message[PR_WB_SF_ID]) === $searchFolderId) {
+				if (bin2hex((string) $message[PR_WB_SF_ID]) === $searchFolderId) {
 					mapi_folder_deletemessages($commonViewsFolder, [$message[PR_ENTRYID]]);
 				}
 			}
@@ -1044,7 +1044,7 @@ class HierarchyModule extends Module {
 		$props = mapi_getprops($folder, [PR_EXTENDED_FOLDER_FLAGS]);
 		// for more information about PR_EXTENDED_FOLDER_FLAGS go through this link
 		// https://msdn.microsoft.com/en-us/library/ee203919(v=exchg.80).aspx
-		$flags = unpack("H2ExtendedFlags-Id/H2ExtendedFlags-Cb/H8ExtendedFlags-Data/H2SearchFolderTag-Id/H2SearchFolderTag-Cb/H8SearchFolderTag-Data/H2SearchFolderId-Id/H2SearchFolderId-Cb/H32SearchFolderId-Data", $props[PR_EXTENDED_FOLDER_FLAGS]);
+		$flags = unpack("H2ExtendedFlags-Id/H2ExtendedFlags-Cb/H8ExtendedFlags-Data/H2SearchFolderTag-Id/H2SearchFolderTag-Cb/H8SearchFolderTag-Data/H2SearchFolderId-Id/H2SearchFolderId-Cb/H32SearchFolderId-Data", (string) $props[PR_EXTENDED_FOLDER_FLAGS]);
 		$searchFolderId = $flags["SearchFolderId-Data"];
 		$this->removeSearchLinkMessage($searchFolderId);
 
@@ -1267,7 +1267,7 @@ class HierarchyModule extends Module {
 				// if move folder then refresh parent of source folder
 				$sourcefolder = mapi_msgstore_openentry($store, $parententryid);
 				$folderProps = mapi_getprops($sourcefolder, [PR_ENTRYID, PR_STORE_ENTRYID]);
-				$GLOBALS["bus"]->notify(bin2hex($folderProps[PR_ENTRYID]), OBJECT_SAVE, $folderProps);
+				$GLOBALS["bus"]->notify(bin2hex((string) $folderProps[PR_ENTRYID]), OBJECT_SAVE, $folderProps);
 			}
 			else {
 				$this->sendFeedback(true);
@@ -1309,14 +1309,14 @@ class HierarchyModule extends Module {
 				foreach ($subfolders as $subfolder) {
 					$folderObject = mapi_msgstore_openentry($deststore, $subfolder[PR_ENTRYID]);
 					$folderProps = mapi_getprops($folderObject, [PR_ENTRYID, PR_STORE_ENTRYID]);
-					$GLOBALS["bus"]->notify(bin2hex($subfolder[PR_ENTRYID]), OBJECT_SAVE, $folderProps);
+					$GLOBALS["bus"]->notify(bin2hex((string) $subfolder[PR_ENTRYID]), OBJECT_SAVE, $folderProps);
 				}
 			}
 
 			// Now update destination folder
 			$folder = mapi_msgstore_openentry($deststore, $destfolderentryid);
 			$folderProps = mapi_getprops($folder, [PR_ENTRYID, PR_STORE_ENTRYID]);
-			$GLOBALS["bus"]->notify(bin2hex($folderProps[PR_ENTRYID]), OBJECT_SAVE, $folderProps);
+			$GLOBALS["bus"]->notify(bin2hex((string) $folderProps[PR_ENTRYID]), OBJECT_SAVE, $folderProps);
 		}
 		else {
 			if ($moveFolder) {

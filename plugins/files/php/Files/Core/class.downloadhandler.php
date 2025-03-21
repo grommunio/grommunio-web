@@ -29,7 +29,7 @@ class DownloadHandler {
 		else {
 			$tmpId = $_GET["id"];
 		}
-		$accountID = substr($tmpId, 3, (strpos($tmpId, '/') - 3));
+		$accountID = substr((string) $tmpId, 3, (strpos((string) $tmpId, '/') - 3));
 
 		// Initialize the account and backendstore
 		$accountStore = new \Files\Core\AccountStore();
@@ -75,7 +75,7 @@ class DownloadHandler {
 				$tmpfiles = [];
 				foreach ($_GET["ids"] as $id) {
 					// relative node ID. We need to trim off the #R# and account ID
-					$relNodeId = substr($id, strpos($id, '/'));
+					$relNodeId = substr((string) $id, strpos((string) $id, '/'));
 
 					$tmpfiles[$i] = tempnam(TMP_PATH, stripslashes(base64_encode($relNodeId)));
 					$initializedBackend->get_file($relNodeId, $tmpfiles[$i]);
@@ -106,7 +106,7 @@ class DownloadHandler {
 				exit();
 			}
 			// relative node ID. We need to trim off the #R# and account ID
-			$relNodeId = substr($_GET["id"], strpos($_GET["id"], '/'));
+			$relNodeId = substr((string) $_GET["id"], strpos((string) $_GET["id"], '/'));
 			$stream = false;
 
 			if (!$initializedBackend->supports(\Files\Backend\BackendStore::FEATURE_STREAMING)) {

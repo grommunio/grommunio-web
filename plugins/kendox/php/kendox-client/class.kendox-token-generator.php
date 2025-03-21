@@ -100,10 +100,10 @@ class TokenGenerator
         $utcTime = str_replace(" ", "T", $utcTime)."Z";
         xmlwriter_start_element($writer, "SignedInfo");
             xmlwriter_start_element($writer, "UserPrincipalName");
-            xmlwriter_text($writer, $userEMail);
+            xmlwriter_text($writer, (string) $userEMail);
             xmlwriter_end_element($writer);    
             xmlwriter_start_element($writer, "UniqueId");
-            xmlwriter_text($writer, $uniqueId);
+            xmlwriter_text($writer, (string) $uniqueId);
             xmlwriter_end_element($writer);            
             xmlwriter_start_element($writer, "Version");
             xmlwriter_text($writer, $this->TokenVersion);
@@ -115,7 +115,7 @@ class TokenGenerator
             xmlwriter_text($writer, $this->TokenLifeTime);
             xmlwriter_end_element($writer);             
             xmlwriter_start_element($writer, "IssueServer");
-            xmlwriter_text($writer, $this->Issuer);
+            xmlwriter_text($writer, (string) $this->Issuer);
             xmlwriter_end_element($writer);     
             xmlwriter_start_element($writer, "CertificateFingerprint");
             xmlwriter_text($writer, strtoupper(openssl_x509_fingerprint($this->Certificate)));
@@ -139,11 +139,11 @@ class TokenGenerator
     function SignXmlString($signedInfoXml)
     {
         try {
-            $data = iconv('utf-8', 'utf-16le', $signedInfoXml);    
+            $data = iconv('utf-8', 'utf-16le', (string) $signedInfoXml);    
             $privateKey = \phpseclib3\Crypt\RSA::loadFormat('PKCS8', $this->CertPrivateKey)
                             ->withPadding(\phpseclib3\Crypt\RSA::SIGNATURE_PKCS1)
                             ->withHash('sha512');
-            $base64 = base64_encode($privateKey->sign($data));
+            $base64 = base64_encode((string) $privateKey->sign($data));
             return $base64;
         } catch (\Exception $ex) {
             throw new \Exception("XML signing failed: ".$ex->getMessage());

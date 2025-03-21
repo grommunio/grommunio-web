@@ -36,15 +36,15 @@ class OCSP extends X509 {
 	private function d2i($d) {
 		$der = '';
 		while ($d) {
-			$der .= chr(bcmod($d, 256));
-			$d = bcdiv($d, 256, 0);
+			$der .= chr(bcmod((string) $d, 256));
+			$d = bcdiv((string) $d, 256, 0);
 		}
 
 		return "\x02" . $this->len($der) . strrev($der);
 	}
 
 	private function len($i) {
-		$i = strlen($i);
+		$i = strlen((string) $i);
 		if ($i <= 127) {
 			$res = pack('C', $i);
 		}
@@ -62,7 +62,7 @@ class OCSP extends X509 {
 	}
 
 	protected function s2oid($s) {
-		$e = explode('.', $s);
+		$e = explode('.', (string) $s);
 		$der = chr(40 * $e[0] + $e[1]);
 
 		foreach (array_slice($e, 2) as $c) {

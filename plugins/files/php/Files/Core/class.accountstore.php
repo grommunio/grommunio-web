@@ -52,7 +52,7 @@ class AccountStore {
 		// get sequence number
 		$sequence = $this->getNewSequenceNumber();
 
-		$newAccount = new Account($newID, strip_tags($name), $status[0], $status[1], strip_tags($backend), $backendConfig, $features, $sequence, false);
+		$newAccount = new Account($newID, strip_tags((string) $name), $status[0], $status[1], strip_tags((string) $backend), $backendConfig, $features, $sequence, false);
 
 		// now store all the values to the user settings
 		$GLOBALS["settings"]->set(self::ACCOUNT_STORAGE_PATH . "/" . $newID . "/id", $newAccount->getId());
@@ -344,7 +344,7 @@ class AccountStore {
 		if ($version == self::ACCOUNT_VERSION && !is_bool($value)) {
 			$nonce = random_bytes(SODIUM_CRYPTO_SECRETBOX_NONCEBYTES);
 			$key = $GLOBALS["operations"]->getFilesEncryptionKey();
-			$encrypted = sodium_crypto_secretbox($value, $nonce, $key);
+			$encrypted = sodium_crypto_secretbox((string) $value, $nonce, (string) $key);
 			$value = bin2hex($nonce) . bin2hex($encrypted);
 		}
 		elseif ($version !== self::ACCOUNT_VERSION) {
@@ -368,7 +368,7 @@ class AccountStore {
 		}
 
 		if ($version == self::ACCOUNT_VERSION) {
-			$value = hex2bin($value);
+			$value = hex2bin((string) $value);
 			$nonce = substr($value, 0, SODIUM_CRYPTO_SECRETBOX_NONCEBYTES);
 			$encrypted = substr($value, SODIUM_CRYPTO_SECRETBOX_NONCEBYTES, strlen($value));
 			$key = $GLOBALS["operations"]->getFilesEncryptionKey();

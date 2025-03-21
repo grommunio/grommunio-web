@@ -1083,7 +1083,7 @@ class PluginManager {
 	 * @param mixed $pluginList
 	 */
 	public function expandPluginList($pluginList) {
-		$pluginNames = explode(';', $pluginList);
+		$pluginNames = explode(';', (string) $pluginList);
 		$pluginList = [];
 		foreach ($pluginNames as $pluginName) {
 			$pluginName = trim($pluginName);

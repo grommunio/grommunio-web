@@ -75,7 +75,7 @@ class ArrayUtil {
 				return ($a[$key2sort] < $b[$key2sort]) ? -1 : 1;
 			}
 
-			return strcasecmp($a[$key2sort], $b[$key2sort]);
+			return strcasecmp((string) $a[$key2sort], (string) $b[$key2sort]);
 		}
 
 		return (int) $a['isFolder'] - (int) $b['isFolder'];
@@ -103,7 +103,7 @@ class ArrayUtil {
 				return ($a[$key2sort] < $b[$key2sort]) ? 1 : -1;
 			}
 
-			return -1 * strcasecmp($a[$key2sort], $b[$key2sort]);
+			return -1 * strcasecmp((string) $a[$key2sort], (string) $b[$key2sort]);
 		}
 
 		return (int) $b['isFolder'] - (int) $a['isFolder'];
@@ -131,7 +131,7 @@ class ArrayUtil {
 				return ($a['props'][$key2sort] < $b['props'][$key2sort]) ? -1 : 1;
 			}
 
-			return strcasecmp($a['props'][$key2sort], $b['props'][$key2sort]);
+			return strcasecmp((string) $a['props'][$key2sort], (string) $b['props'][$key2sort]);
 		}
 
 		return $a['props']['type'] - $b['props']['type'];
@@ -159,7 +159,7 @@ class ArrayUtil {
 				return ($a['props'][$key2sort] < $b['props'][$key2sort]) ? 1 : -1;
 			}
 
-			return -1 * strcasecmp($a['props'][$key2sort], $b['props'][$key2sort]);
+			return -1 * strcasecmp((string) $a['props'][$key2sort], (string) $b['props'][$key2sort]);
 		}
 
 		return $b['props']['type'] - $a['props']['type'];

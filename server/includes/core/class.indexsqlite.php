@@ -64,7 +64,7 @@ class IndexSqlite extends SQLite3 {
 		if (isset($message_classes)) {
 			$found = false;
 			foreach ($message_classes as $message_class) {
-				if (strncasecmp($row['message_class'], $message_class, strlen($message_class)) == 0) {
+				if (strncasecmp((string) $row['message_class'], (string) $message_class, strlen((string) $message_class)) == 0) {
 					$found = true;
 					break;
 				}
@@ -208,7 +208,7 @@ class IndexSqlite extends SQLite3 {
 	}
 
 	private function quote_words($search_string) {
-		return '"' . preg_replace("/(\\s+)/", '*" "', trim($search_string)) . '"*';
+		return '"' . preg_replace("/(\\s+)/", '*" "', trim((string) $search_string)) . '"*';
 	}
 
 	/**

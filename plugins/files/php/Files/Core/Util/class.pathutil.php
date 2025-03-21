@@ -167,7 +167,7 @@ class PathUtil {
 	 */
 	public static function sanitizeFilename($string) {
 		$cleanerString = preg_replace('/[:\|\"!\*\?\\\\\/]+/i', '', $string);
-		$cleanerString = strip_tags($cleanerString);
+		$cleanerString = strip_tags((string) $cleanerString);
 
 		return preg_replace('/[><]+/i', '', $cleanerString);
 	}

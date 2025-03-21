@@ -227,7 +227,7 @@ class ocsclient {
 	 * @return ocsshare[] or FALSE
 	 */
 	public function loadShareByPath($path) {
-		$path = rtrim($path, "/");
+		$path = rtrim((string) $path, "/");
 		$url = $this->getOCSUrl() . "?path=" . urlencode($path);
 		$this->parseListingResponse($this->doCurlGetRequest($url));
 		$this->loaded = true;
@@ -255,7 +255,7 @@ class ocsclient {
 	 * @return [] or FALSE
 	 */
 	public function getRecipients($search) {
-		$url = $this->baseurl . self::OCS_PATH . "/sharees?itemType=file&search=" . urlencode($search);
+		$url = $this->baseurl . self::OCS_PATH . "/sharees?itemType=file&search=" . urlencode((string) $search);
 
 		$ch = curl_init();
 		curl_setopt($ch, CURLOPT_URL, $url);
@@ -362,11 +362,11 @@ class ocsclient {
 
 		// post variables
 		$fields = [
-			'path' => urlencode($path),
+			'path' => urlencode((string) $path),
 		];
 
 		foreach ($options as $key => $value) {
-			$fields[$key] = urlencode($value);
+			$fields[$key] = urlencode((string) $value);
 		}
 		// url-ify the data for the POST
 		$fields_string = "";
@@ -398,7 +398,7 @@ class ocsclient {
 		$url = $this->getOCSUrl() . "/" . $id;
 
 		// post variables
-		$fields_string = $key . '=' . urlencode($value);
+		$fields_string = $key . '=' . urlencode((string) $value);
 		$curlExtraOptions = [
 			CURLOPT_CUSTOMREQUEST => "PUT",
 			CURLOPT_POSTFIELDS => $fields_string,

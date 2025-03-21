@@ -96,8 +96,8 @@ class CreateMailItemModule extends ItemModule {
 						 * OR
 						 * we need to copy ONLY original inline(HIDDEN) attachments when it is reply/replyall message.
 						 */
-						$copyFromMessage = hex2bin($action['message_action']['source_entryid']);
-						$copyFromStore = hex2bin($action['message_action']['source_store_entryid']);
+						$copyFromMessage = hex2bin((string) $action['message_action']['source_entryid']);
+						$copyFromStore = hex2bin((string) $action['message_action']['source_store_entryid']);
 						$copyFromAttachNum = !empty($action['message_action']['source_attach_num']) ? $action['message_action']['source_attach_num'] : false;
 						$copyAttachments = true;
 
@@ -326,10 +326,10 @@ class CreateMailItemModule extends ItemModule {
 		$metaData = [];
 		if (isset($action["props"]["source_message_info"]) && !empty($action["props"]["source_message_info"])) {
 			if (isset($action["props"]['sent_representing_entryid']) && !empty($action["props"]['sent_representing_entryid'])) {
-				$storeEntryid = hex2bin($action['message_action']['source_store_entryid']);
+				$storeEntryid = hex2bin((string) $action['message_action']['source_store_entryid']);
 			}
 			else {
-				$storeEntryid = hex2bin($action['store_entryid']);
+				$storeEntryid = hex2bin((string) $action['store_entryid']);
 			}
 			$metaData['source_message_info'] = $action["props"]["source_message_info"];
 			$metaData['storeEntryid'] = $storeEntryid;
@@ -337,10 +337,10 @@ class CreateMailItemModule extends ItemModule {
 			return $metaData;
 		}
 		if (isset($action["entryid"]) && !empty($action["entryid"])) {
-			$storeEntryid = hex2bin($action['store_entryid']);
+			$storeEntryid = hex2bin((string) $action['store_entryid']);
 			$store = $GLOBALS['mapisession']->openMessageStore($storeEntryid);
 
-			$entryid = hex2bin($action['entryid']);
+			$entryid = hex2bin((string) $action['entryid']);
 			$message = $GLOBALS['operations']->openMessage($store, $entryid);
 			$messageProps = mapi_getprops($message);
 
@@ -372,10 +372,10 @@ class CreateMailItemModule extends ItemModule {
 	 */
 	public function getSourceStoreEntryId($props) {
 		$sentRepresentingEntryid = $props['props']['sent_representing_entryid'];
-		$user = mapi_ab_openentry($GLOBALS['mapisession']->getAddressbook(), hex2bin($sentRepresentingEntryid));
+		$user = mapi_ab_openentry($GLOBALS['mapisession']->getAddressbook(), hex2bin((string) $sentRepresentingEntryid));
 		$userProps = mapi_getprops($user, [PR_EMAIL_ADDRESS]);
 
-		return $GLOBALS['mapisession']->getStoreEntryIdOfUser(strtolower($userProps[PR_EMAIL_ADDRESS]));
+		return $GLOBALS['mapisession']->getStoreEntryIdOfUser(strtolower((string) $userProps[PR_EMAIL_ADDRESS]));
 	}
 
 	/**
@@ -396,9 +396,9 @@ class CreateMailItemModule extends ItemModule {
 			 * Here 66 represents the REPLY action type. same way 67 and 68 is represent
 			 * REPLY ALL and FORWARD respectively.
 			 */
-			$mailActionType = substr($sourceMsgInfo['source_message_info'], 24, 2);
+			$mailActionType = substr((string) $sourceMsgInfo['source_message_info'], 24, 2);
 			// get the entry id of origanal mail's.
-			$originalEntryid = substr($sourceMsgInfo['source_message_info'], 48);
+			$originalEntryid = substr((string) $sourceMsgInfo['source_message_info'], 48);
 			$entryid = hex2bin($originalEntryid);
 
 			$store = $GLOBALS['mapisession']->openMessageStore($sourceMsgInfo['storeEntryid']);

@@ -268,7 +268,7 @@ class Pluginsmime extends Plugin {
 					$searchKeys = mapi_getprops($message, [PR_SEARCH_KEY, PR_SENT_REPRESENTING_SEARCH_KEY]);
 					$searchKey = $searchKeys[PR_SEARCH_KEY] ?? $searchKeys[PR_SENT_REPRESENTING_SEARCH_KEY];
 					if ($searchKey) {
-						$sk = strtolower(explode(':', $searchKey)[1]);
+						$sk = strtolower(explode(':', (string) $searchKey)[1]);
 						$emailAddr = trim($sk);
 					}
 				}
@@ -292,7 +292,7 @@ class Pluginsmime extends Plugin {
 		if (count($userCerts) > 0) {
 			// Try to verify a certificate in the MAPI store
 			foreach ($userCerts as $userCert) {
-				$userCert = base64_decode($userCert);
+				$userCert = base64_decode((string) $userCert);
 				// Save signed message in a random file
 				$tmpfname = tempnam(sys_get_temp_dir(), true);
 				file_put_contents($tmpfname, $eml);
@@ -417,7 +417,7 @@ class Pluginsmime extends Plugin {
 		fwrite($fp, "Content-Type: application/pkcs7-mime; name=\"smime.p7m\"; smime-type=enveloped-data\n");
 		fwrite($fp, "Content-Transfer-Encoding: base64\nContent-Disposition: attachment; filename=\"smime.p7m\"\n");
 		fwrite($fp, "Content-Description: S/MIME Encrypted Message\n\n");
-		fwrite($fp, chunk_split(base64_encode($data['data']), 72) . "\n");
+		fwrite($fp, chunk_split(base64_encode((string) $data['data']), 72) . "\n");
 		fclose($fp);
 		if (isset($pass) && !empty($pass)) {
 			$certs = readPrivateCert($this->getStore(), $pass, false);
@@ -666,8 +666,8 @@ class Pluginsmime extends Plugin {
 		if (!isset($messageClass)) {
 			return;
 		}
-		if (stripos($messageClass, 'IPM.Note.deferSMIME') === false &&
-			stripos($messageClass, 'IPM.Note.SMIME') === false) {
+		if (stripos((string) $messageClass, 'IPM.Note.deferSMIME') === false &&
+			stripos((string) $messageClass, 'IPM.Note.SMIME') === false) {
 			return;
 		}
 
@@ -1196,7 +1196,7 @@ class Pluginsmime extends Plugin {
 				$userprops = mapi_getprops($senderUser, [PR_ADDRTYPE, PR_DISPLAY_NAME, PR_EMAIL_ADDRESS, PR_SMTP_ADDRESS, PR_OBJECT_TYPE, PR_RECIPIENT_TYPE, PR_DISPLAY_TYPE, PR_DISPLAY_TYPE_EX, PR_ENTRYID]);
 
 				$senderStructure = [];
-				$senderStructure["props"]['entryid'] = isset($userprops[PR_ENTRYID]) ? bin2hex($userprops[PR_ENTRYID]) : '';
+				$senderStructure["props"]['entryid'] = isset($userprops[PR_ENTRYID]) ? bin2hex((string) $userprops[PR_ENTRYID]) : '';
 				$senderStructure["props"]['display_name'] = $userprops[PR_DISPLAY_NAME] ?? '';
 				$senderStructure["props"]['email_address'] = $userprops[PR_EMAIL_ADDRESS] ?? '';
 				$senderStructure["props"]['smtp_address'] = $userprops[PR_SMTP_ADDRESS] ?? '';

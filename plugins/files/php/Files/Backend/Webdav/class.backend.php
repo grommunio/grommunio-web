@@ -586,7 +586,7 @@ class Backend extends AbstractBackend implements iFeatureQuota, iFeatureVersionI
 	public function put($path, $data) {
 		$time_start = microtime(true);
 		$path = $this->removeSlash($path);
-		$this->log("[PUT] start for dir: {$path} strlen: " . strlen($data));
+		$this->log("[PUT] start for dir: {$path} strlen: " . strlen((string) $data));
 
 		try {
 			$response = $this->sabre_client->request("PUT", $path, $data);

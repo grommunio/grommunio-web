@@ -27,7 +27,7 @@ namespace Kendox;
 
         function __construct($serviceEndpoint)
         {
-            if (!str_ends_with($serviceEndpoint, '/')) $serviceEndpoint .= '/';
+            if (!str_ends_with((string) $serviceEndpoint, '/')) $serviceEndpoint .= '/';
             $this->ServiceEndpoint = $serviceEndpoint;
         }
 
@@ -120,7 +120,7 @@ namespace Kendox;
         }
 
         private function uploadContent($content) {
-            $base64 = base64_encode($content);
+            $base64 = base64_encode((string) $content);
             $uploadParameters = [
                 "connectionId" => $this->ConnectionId,
                 "fileContentbase64" => $base64
@@ -159,7 +159,7 @@ namespace Kendox;
             if ($json === FALSE) {
                 throw new \Exception("No valid JSON has been returned from service.");
             }
-            $result = json_decode($json);
+            $result = json_decode((string) $json);
             if (isset($result->ErrorNumber)) {
                 throw new \Exception("(".$result->ErrorNumber.") ".$result->Message);
             }

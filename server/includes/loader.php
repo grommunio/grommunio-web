@@ -192,7 +192,7 @@ class FileLoader {
 	 */
 	public function printFiles($files, $template = '{file}', $base = false, $concatVersion = true) {
 		foreach ($files as $file) {
-			$file = $base === true ? basename($file) : $file;
+			$file = $base === true ? basename((string) $file) : $file;
 			if ($concatVersion) {
 				$file = $file . "?version=" . $this->getVersion();
 			}
@@ -353,7 +353,7 @@ class FileLoader {
 			$core = (str_contains($content, '#core')) ? true : false;
 
 			for ($j = 0, $lenJ = count($coreFiles); $j < $lenJ; ++$j) {
-				if (strpos($filename, $coreFiles[$j]) === 0) {
+				if (strpos((string) $filename, (string) $coreFiles[$j]) === 0) {
 					$core = true;
 					break;
 				}

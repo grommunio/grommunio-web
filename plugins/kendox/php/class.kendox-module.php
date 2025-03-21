@@ -168,14 +168,14 @@ class KendoxModule extends Module {
 	private function loadMapiMessage($storeId, $mailEntryId) {
 		try {
 			// Read message store
-			$store = $GLOBALS['mapisession']->openMessageStore(hex2bin($storeId));
+			$store = $GLOBALS['mapisession']->openMessageStore(hex2bin((string) $storeId));
 		}
 		catch (Exception $ex) {
 			$this->logErrorAndThrow("Error on open MAPI store", $ex);
 		}
 
 		try {
-			$this->mapiMessage = mapi_msgstore_openentry($store, hex2bin($mailEntryId));
+			$this->mapiMessage = mapi_msgstore_openentry($store, hex2bin((string) $mailEntryId));
 		}
 		catch (Exception $ex) {
 			$this->logErrorAndThrow("Error on open MAPI message", $ex);
@@ -373,7 +373,7 @@ class KendoxModule extends Module {
 	 * @param string $regex   regex to validate values based on type of value passed
 	 */
 	public function sanitizeValue($value, $default = '', $regex = false) {
-		$result = addslashes($value);
+		$result = addslashes((string) $value);
 		if ($regex) {
 			$match = preg_match_all($regex, $result);
 			if (!$match) {

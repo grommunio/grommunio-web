@@ -72,7 +72,7 @@ class X509Helper extends Der {
 			$mrdnd = '';
 			$r = "";
 			foreach ($rdn as $type => $value) {
-				if (substr($type, -1) == '*') {
+				if (substr((string) $type, -1) == '*') {
 					continue;
 				}
 				$type = empty($abbvrs[$type]) ? $type : $abbvrs[$type];
@@ -177,8 +177,8 @@ class X509 extends Der {
 		  as well as the '1' prefix from above
 		 */
 
-		$unusedbits = ord(substr($bitstring, 0, 1));
-		$ku = base_convert(bin2hex(chr(1) . substr($bitstring, 1)), 16, 2);
+		$unusedbits = ord(substr((string) $bitstring, 0, 1));
+		$ku = base_convert(bin2hex(chr(1) . substr((string) $bitstring, 1)), 16, 2);
 		$ku = substr($ku, 1, -$unusedbits);
 		$res = [];
 		for ($c = 0; $c < strlen($ku); ++$c) {
@@ -288,7 +288,7 @@ class X509 extends Der {
 		$this->xtns->init($der);
 		$this->xtns->beginsequence();
 		if ($this->xtns->peek() == 0) {
-			$res['keyIdentifier'] = chunk_split(bin2hex($this->xtns->next()), 2, ':');
+			$res['keyIdentifier'] = chunk_split(bin2hex((string) $this->xtns->next()), 2, ':');
 		}
 		if ($this->xtns->in() && $this->xtns->peek() == 1) {
 			$res['authorityCertIssuer'] = $this->xtns->GeneralNames();
@@ -303,7 +303,7 @@ class X509 extends Der {
 
 	protected function subjectKeyIdentifier($der) {
 		$this->xtns->init($der);
-		$res['keyIdentifier'] = chunk_split(bin2hex($this->xtns->next(4)), 2, ':');
+		$res['keyIdentifier'] = chunk_split(bin2hex((string) $this->xtns->next(4)), 2, ':');
 
 		return $res;
 	}

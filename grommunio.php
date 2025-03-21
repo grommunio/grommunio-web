@@ -156,7 +156,7 @@ if (DEBUG_JSONOUT) {
 }
 
 // Check if we can use gzip compression
-if (ENABLE_RESPONSE_COMPRESSION && function_exists("gzencode") && isset($_SERVER["HTTP_ACCEPT_ENCODING"]) && str_contains($_SERVER["HTTP_ACCEPT_ENCODING"], "gzip")) {
+if (ENABLE_RESPONSE_COMPRESSION && function_exists("gzencode") && isset($_SERVER["HTTP_ACCEPT_ENCODING"]) && str_contains((string) $_SERVER["HTTP_ACCEPT_ENCODING"], "gzip")) {
 	// Set the correct header and compress the response
 	header("Content-Encoding: gzip");
 	echo gzencode($json);

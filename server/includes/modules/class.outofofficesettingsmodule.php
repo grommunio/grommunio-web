@@ -86,17 +86,17 @@ class OutOfOfficeSettingsModule extends Module {
 				$props[PR_EC_EXTERNAL_SUBJECT] = '';
 			}
 
-			$externalProps['props']['entryid'] = bin2hex($props[PR_MAILBOX_OWNER_ENTRYID]);
-			$externalProps['props']['store_entryid'] = bin2hex($props[PR_ENTRYID]);
+			$externalProps['props']['entryid'] = bin2hex((string) $props[PR_MAILBOX_OWNER_ENTRYID]);
+			$externalProps['props']['store_entryid'] = bin2hex((string) $props[PR_ENTRYID]);
 			$externalProps['props']['set'] = $props[PR_EC_OUTOFOFFICE];
-			$externalProps['props']['internal_reply'] = trim($props[PR_EC_OUTOFOFFICE_MSG]);
-			$externalProps['props']['internal_subject'] = trim($props[PR_EC_OUTOFOFFICE_SUBJECT]);
+			$externalProps['props']['internal_reply'] = trim((string) $props[PR_EC_OUTOFOFFICE_MSG]);
+			$externalProps['props']['internal_subject'] = trim((string) $props[PR_EC_OUTOFOFFICE_SUBJECT]);
 			$externalProps['props']['from'] = $props[PR_EC_OUTOFOFFICE_FROM];
 			$externalProps['props']['until'] = $props[PR_EC_OUTOFOFFICE_UNTIL];
 			$externalProps['props']['allow_external'] = $props[PR_EC_ALLOW_EXTERNAL];
 			$externalProps['props']['external_audience'] = $props[PR_EC_EXTERNAL_AUDIENCE];
-			$externalProps['props']['external_reply'] = trim($props[PR_EC_EXTERNAL_REPLY]);
-			$externalProps['props']['external_subject'] = trim($props[PR_EC_EXTERNAL_SUBJECT]);
+			$externalProps['props']['external_reply'] = trim((string) $props[PR_EC_EXTERNAL_REPLY]);
+			$externalProps['props']['external_subject'] = trim((string) $props[PR_EC_EXTERNAL_SUBJECT]);
 
 			array_push($oofSettings, $externalProps);
 		}
@@ -159,7 +159,7 @@ class OutOfOfficeSettingsModule extends Module {
 	public function saveOofSettings($action) {
 		$storeEntryId = $action['store_entryid'];
 		$oofSettings = $action['props'];
-		$store = $GLOBALS['mapisession']->openMessageStore(hex2bin($storeEntryId));
+		$store = $GLOBALS['mapisession']->openMessageStore(hex2bin((string) $storeEntryId));
 		$props = Conversion::mapXML2MAPI($this->properties, $oofSettings);
 		$oofProps = mapi_getprops($store, [PR_EC_OUTOFOFFICE, PR_EC_OUTOFOFFICE_FROM, PR_EC_OUTOFOFFICE_UNTIL]);
 

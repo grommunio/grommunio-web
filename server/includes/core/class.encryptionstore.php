@@ -96,7 +96,7 @@ class EncryptionStore {
 		if (empty(EncryptionStore::$_initializionVector)) {
 			// Try to find the initialization vector in the session
 			if (isset($_SESSION['encryption-store-iv'])) {
-				EncryptionStore::$_initializionVector = hex2bin($_SESSION['encryption-store-iv']);
+				EncryptionStore::$_initializionVector = hex2bin((string) $_SESSION['encryption-store-iv']);
 			}
 		}
 
@@ -135,7 +135,7 @@ class EncryptionStore {
 		if (empty(EncryptionStore::$_encryptionKey)) {
 			// Try to find the encryption key in the cookie
 			if (isset($_COOKIE['encryption-store-key'])) {
-				EncryptionStore::$_encryptionKey = hex2bin($_COOKIE['encryption-store-key']);
+				EncryptionStore::$_encryptionKey = hex2bin((string) $_COOKIE['encryption-store-key']);
 			}
 		}
 

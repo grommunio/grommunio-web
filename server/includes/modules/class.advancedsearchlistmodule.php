@@ -109,7 +109,7 @@ class AdvancedSearchListModule extends ListModule {
 			$limit = $action['restriction']['limit'] ?? 1000;
 
 			$isSearchFolder = isset($action['search_folder_entryid']);
-			$entryid = $isSearchFolder ? hex2bin($action['search_folder_entryid']) : $entryid;
+			$entryid = $isSearchFolder ? hex2bin((string) $action['search_folder_entryid']) : $entryid;
 
 			if ($actionType == 'search') {
 				$rows = [[PR_ENTRYID => $entryid]];
@@ -372,7 +372,7 @@ class AdvancedSearchListModule extends ListModule {
 				$entryids = [];
 				$entryIdsCount = count($this->sessionData['searchOriginalEntryids']);
 				for ($index = 0; $index < $entryIdsCount; ++$index) {
-					$entryids[] = hex2bin($this->sessionData['searchOriginalEntryids'][$index]);
+					$entryids[] = hex2bin((string) $this->sessionData['searchOriginalEntryids'][$index]);
 				}
 			}
 			else {
@@ -410,7 +410,7 @@ class AdvancedSearchListModule extends ListModule {
 		}
 
 		if ($store_props[PR_MDB_PROVIDER] == ZARAFA_STORE_DELEGATE_GUID) {
-			$eidObj = $GLOBALS["entryid"]->createMsgStoreEntryIdObj(hex2bin($action['store_entryid']));
+			$eidObj = $GLOBALS["entryid"]->createMsgStoreEntryIdObj(hex2bin((string) $action['store_entryid']));
 			$username = $eidObj['ServerShortname'];
 			$session = $GLOBALS["mapisession"]->getSession();
 
@@ -422,12 +422,12 @@ class AdvancedSearchListModule extends ListModule {
 			$indexDB = new IndexSqlite();
 		}
 
-		$search_result = $indexDB->search(hex2bin($searchFolderEntryId), $search_patterns, $entryid, $recursive);
+		$search_result = $indexDB->search(hex2bin((string) $searchFolderEntryId), $search_patterns, $entryid, $recursive);
 		// Use the query search if search in index fails or is not available.
 		if ($search_result == false) {
 			// Search in the inbox instead of Top of Information Store
 			if (isset($store_props[PR_IPM_SUBTREE_ENTRYID]) &&
-				$GLOBALS['entryid']->compareEntryIds(bin2hex($entryid), bin2hex($store_props[PR_IPM_SUBTREE_ENTRYID]))) {
+				$GLOBALS['entryid']->compareEntryIds(bin2hex($entryid), bin2hex((string) $store_props[PR_IPM_SUBTREE_ENTRYID]))) {
 				$inbox = mapi_msgstore_getreceivefolder($store);
 				$inboxProps = mapi_getprops($inbox, [PR_ENTRYID]);
 				$entryid = $inboxProps[PR_ENTRYID];
@@ -439,7 +439,7 @@ class AdvancedSearchListModule extends ListModule {
 		unset($action["restriction"]);
 
 		// Get the table and merge the arrays
-		$table = $GLOBALS["operations"]->getTable($store, hex2bin($searchFolderEntryId), $this->properties, $this->sort, $this->start);
+		$table = $GLOBALS["operations"]->getTable($store, hex2bin((string) $searchFolderEntryId), $this->properties, $this->sort, $this->start);
 		// Create the data array, which will be send back to the client
 		$data = [];
 		$data = array_merge($data, $table);

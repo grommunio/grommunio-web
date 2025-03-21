@@ -317,7 +317,7 @@ class FilesBrowserModule extends FilesListModule {
 			foreach ($dir as $id => $node) {
 				$type = FILES_FILE;
 
-				if (strcmp($node['resourcetype'], "collection") == 0) { // we have a folder
+				if (strcmp((string) $node['resourcetype'], "collection") == 0) { // we have a folder
 					$type = FILES_FOLDER;
 				}
 
@@ -334,7 +334,7 @@ class FilesBrowserModule extends FilesListModule {
 
 				Logger::debug(self::LOG_CONTEXT, "parsing: " . $id . " in base: " . $nodeId);
 
-				$filename = stringToUTF8Encode(basename($id));
+				$filename = stringToUTF8Encode(basename((string) $id));
 
 				$size = $node['getcontentlength'] === null ? -1 : intval($node['getcontentlength']);
 				$size = $type == FILES_FOLDER ? -1 : $size; // folder's dont have a size
@@ -345,7 +345,7 @@ class FilesBrowserModule extends FilesListModule {
 				$sharedid = [];
 				if (isset($sharingInfo) && count($sharingInfo[$relNodeId]) > 0) {
 					foreach ($sharingInfo[$relNodeId] as $sid => $sdetails) {
-						if ($sdetails["path"] == rtrim($id, "/")) {
+						if ($sdetails["path"] == rtrim((string) $id, "/")) {
 							$shared = true;
 							$sharedid[] = $sid;
 						}
@@ -384,7 +384,7 @@ class FilesBrowserModule extends FilesListModule {
 					'path' => $path,
 					'filename' => $filename,
 					'message_size' => $size,
-					'lastmodified' => strtotime($node['getlastmodified']) * 1000,
+					'lastmodified' => strtotime((string) $node['getlastmodified']) * 1000,
 					'message_class' => "IPM.Files",
 					'isshared' => $shared,
 					'sharedid' => $sharedid,
@@ -457,7 +457,7 @@ class FilesBrowserModule extends FilesListModule {
 		if (isset($actionData['records']) && is_array($actionData['records'])) {
 			foreach ($actionData['records'] as $record) {
 				$nodeId = $record['folder_id'];
-				$relNodeId = substr($nodeId, strpos($nodeId, '/'));
+				$relNodeId = substr((string) $nodeId, strpos((string) $nodeId, '/'));
 
 				$account = $this->accountFromNode($nodeId);
 
@@ -485,7 +485,7 @@ class FilesBrowserModule extends FilesListModule {
 		else {
 			$nodeId = $actionData['folder_id'];
 
-			$relNodeId = substr($nodeId, strpos($nodeId, '/'));
+			$relNodeId = substr((string) $nodeId, strpos((string) $nodeId, '/'));
 			$response = [];
 
 			$account = $this->accountFromNode($nodeId);
@@ -541,24 +541,24 @@ class FilesBrowserModule extends FilesListModule {
 	 * @return bool if the backend request failed
 	 */
 	private function move($actionType, $actionData) {
-		$dst = rtrim($actionData['message_action']["destination_folder_id"], '/');
+		$dst = rtrim((string) $actionData['message_action']["destination_folder_id"], '/');
 
 		$overwrite = isset($actionData['message_action']["overwrite"]) ? $actionData['message_action']["overwrite"] : true;
 		$isFolder = isset($actionData['message_action']["isFolder"]) ? $actionData['message_action']["isFolder"] : false;
 
 		$pathPostfix = "";
-		if (substr($actionData['folder_id'], -1) == '/') {
+		if (substr((string) $actionData['folder_id'], -1) == '/') {
 			$pathPostfix = "/"; // we have a folder...
 		}
 
-		$source = rtrim($actionData['folder_id'], '/');
+		$source = rtrim((string) $actionData['folder_id'], '/');
 		$fileName = basename($source);
 		$destination = $dst . '/' . basename($source);
 
 		// get dst and source account ids
 		// currently only moving within one account is supported
-		$srcAccountID = substr($actionData['folder_id'], 3, (strpos($actionData['folder_id'], '/') - 3)); // parse account id from node id
-		$dstAccountID = substr($actionData['message_action']["destination_folder_id"], 3, (strpos($actionData['message_action']["destination_folder_id"], '/') - 3)); // parse account id from node id
+		$srcAccountID = substr((string) $actionData['folder_id'], 3, (strpos((string) $actionData['folder_id'], '/') - 3)); // parse account id from node id
+		$dstAccountID = substr((string) $actionData['message_action']["destination_folder_id"], 3, (strpos((string) $actionData['message_action']["destination_folder_id"], '/') - 3)); // parse account id from node id
 
 		if ($srcAccountID !== $dstAccountID) {
 			$this->sendFeedback(false, [
@@ -681,7 +681,7 @@ class FilesBrowserModule extends FilesListModule {
 			// initialize the backend
 			$initializedBackend = $this->initializeBackend($account);
 
-			$relDirname = substr($destination, strpos($destination, '/'));
+			$relDirname = substr((string) $destination, strpos((string) $destination, '/'));
 			Logger::debug(self::LOG_CONTEXT, "Getting content for: " . $relDirname);
 
 			try {
@@ -692,15 +692,15 @@ class FilesBrowserModule extends FilesListModule {
 			}
 			if (isset($lsdata) && is_array($lsdata)) {
 				foreach ($records as $record) {
-					$relRecId = substr($record["id"], strpos($record["id"], '/'));
+					$relRecId = substr((string) $record["id"], strpos((string) $record["id"], '/'));
 					Logger::debug(self::LOG_CONTEXT, "Checking rec: " . $relRecId, "Core");
 					foreach ($lsdata as $argsid => $args) {
-						if (strcmp($args['resourcetype'], "collection") == 0 && $record["isFolder"] && strcmp(basename($argsid), basename($relRecId)) == 0) { // we have a folder
+						if (strcmp((string) $args['resourcetype'], "collection") == 0 && $record["isFolder"] && strcmp(basename($argsid), basename($relRecId)) == 0) { // we have a folder
 							Logger::debug(self::LOG_CONTEXT, "Duplicate folder found: " . $argsid, "Core");
 							$duplicate = true;
 							break;
 						}
-						if (strcmp($args['resourcetype'], "collection") != 0 && !$record["isFolder"] && strcmp(basename($argsid), basename($relRecId)) == 0) {
+						if (strcmp((string) $args['resourcetype'], "collection") != 0 && !$record["isFolder"] && strcmp(basename($argsid), basename($relRecId)) == 0) {
 							Logger::debug(self::LOG_CONTEXT, "Duplicate file found: " . $argsid, "Core");
 							$duplicate = true;
 							break;
@@ -742,11 +742,11 @@ class FilesBrowserModule extends FilesListModule {
 		$initializedBackend = $this->initializeBackend($account);
 
 		foreach ($ids as $file) {
-			$filename = basename($file);
+			$filename = basename((string) $file);
 			$tmpname = $attachment_state->getAttachmentTmpPath($filename);
 
 			// download file from the backend
-			$relRecId = substr($file, strpos($file, '/'));
+			$relRecId = substr((string) $file, strpos((string) $file, '/'));
 			$http_status = $initializedBackend->get_file($relRecId, $tmpname);
 
 			$filesize = filesize($tmpname);
@@ -800,7 +800,7 @@ class FilesBrowserModule extends FilesListModule {
 			foreach ($actionData["items"] as $item) {
 				list($tmpname, $filename) = $this->prepareAttachmentForUpload($item);
 
-				$dirName = substr($actionData["destdir"], strpos($actionData["destdir"], '/'));
+				$dirName = substr((string) $actionData["destdir"], strpos((string) $actionData["destdir"], '/'));
 				$filePath = $dirName . $filename;
 
 				Logger::debug(self::LOG_CONTEXT, "Uploading to: " . $filePath . " tmpfile: " . $tmpname);
@@ -815,7 +815,7 @@ class FilesBrowserModule extends FilesListModule {
 			foreach ($actionData["items"] as $item) {
 				list($tmpname, $filename) = $this->prepareEmailForUpload($item);
 
-				$dirName = substr($actionData["destdir"], strpos($actionData["destdir"], '/'));
+				$dirName = substr((string) $actionData["destdir"], strpos((string) $actionData["destdir"], '/'));
 				$filePath = $dirName . $filename;
 
 				Logger::debug(self::LOG_CONTEXT, "Uploading to: " . $filePath . " tmpfile: " . $tmpname);
@@ -904,11 +904,11 @@ class FilesBrowserModule extends FilesListModule {
 		// Check if storeid and entryid isset
 		if ($storeid && $entryid) {
 			// Open the store
-			$store = $GLOBALS["mapisession"]->openMessageStore(hex2bin($storeid));
+			$store = $GLOBALS["mapisession"]->openMessageStore(hex2bin((string) $storeid));
 
 			if ($store) {
 				// Open the message
-				$message = mapi_msgstore_openentry($store, hex2bin($entryid));
+				$message = mapi_msgstore_openentry($store, hex2bin((string) $entryid));
 
 				if ($message) {
 					$attachment = false;
@@ -1049,9 +1049,9 @@ class FilesBrowserModule extends FilesListModule {
 			$messageProps = mapi_getprops($message, [PR_SUBJECT, PR_MESSAGE_CLASS]);
 
 			$isSupportedMessage = (
-				(stripos($messageProps[PR_MESSAGE_CLASS], 'IPM.Note') === 0) ||
-				(stripos($messageProps[PR_MESSAGE_CLASS], 'Report.IPM.Note') === 0) ||
-				(stripos($messageProps[PR_MESSAGE_CLASS], 'IPM.Schedule') === 0)
+				(stripos((string) $messageProps[PR_MESSAGE_CLASS], 'IPM.Note') === 0) ||
+				(stripos((string) $messageProps[PR_MESSAGE_CLASS], 'Report.IPM.Note') === 0) ||
+				(stripos((string) $messageProps[PR_MESSAGE_CLASS], 'IPM.Schedule') === 0)
 			);
 
 			if ($isSupportedMessage) {
@@ -1119,7 +1119,7 @@ class FilesBrowserModule extends FilesListModule {
 
 		$relRecords = [];
 		foreach ($records as $record) {
-			$relRecords[] = substr($record, strpos($record, '/')); // remove account id
+			$relRecords[] = substr((string) $record, strpos((string) $record, '/')); // remove account id
 		}
 
 		try {
@@ -1179,7 +1179,7 @@ class FilesBrowserModule extends FilesListModule {
 
 		$sharingRecords = [];
 		foreach ($records as $record) {
-			$path = substr($record, strpos($record, '/')); // remove account id
+			$path = substr((string) $record, strpos((string) $record, '/')); // remove account id
 			$sharingRecords[$path] = $shareOptions; // add options
 		}
 
@@ -1330,7 +1330,7 @@ class FilesBrowserModule extends FilesListModule {
 		$account = $this->accountStore->getAccount($accountID);
 		// initialize the backend
 		$initializedBackend = $this->initializeBackend($account, true);
-		$relNodeId = substr($nodeId, strpos($nodeId, '/'));
+		$relNodeId = substr((string) $nodeId, strpos((string) $nodeId, '/'));
 
 		// remove the trailing slash for the cache key
 		$cachePath = rtrim($relNodeId, '/');

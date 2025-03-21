@@ -30,12 +30,12 @@ class EntryId {
 
 	// Detect padding (max 3 bytes) from the entryId
 	private function getPadding($entryId) {
-		$len = strlen($entryId);
+		$len = strlen((string) $entryId);
 		$padding = '';
 		$offset = 0;
 
 		for ($iterations = 4; $iterations > 0; --$iterations) {
-			if (substr($entryId, $len - ($offset + 2), $len - $offset) == '00') {
+			if (substr((string) $entryId, $len - ($offset + 2), $len - $offset) == '00') {
 				$padding .= '00';
 				$offset += 2;
 			}
@@ -57,7 +57,7 @@ class EntryId {
 	 */
 	private function getEIDVersion($entryid) {
 		// always make entryids in uppercase so comparison will be case insensitive
-		$entryId = strtoupper($entryid);
+		$entryId = strtoupper((string) $entryid);
 
 		$res = [
 			'abFlags' => '',		// BYTE[4],   4 bytes,  8 hex characters
@@ -74,7 +74,7 @@ class EntryId {
 
 		// First determine padding, and remove if from the entryId
 		$res['padding'] = $this->getPadding($entryId);
-		$entryId = substr($entryId, 0, strlen($entryId) - strlen($res['padding']));
+		$entryId = substr($entryId, 0, strlen($entryId) - strlen((string) $res['padding']));
 
 		$res['abFlags'] = substr($entryId, $offset, 8);
 		$offset = +8;
@@ -108,7 +108,7 @@ class EntryId {
 	 */
 	private function getEID_V0Version($entryid) {
 		// always make entryids in uppercase so comparison will be case insensitive
-		$entryId = strtoupper($entryid);
+		$entryId = strtoupper((string) $entryid);
 
 		$res = [
 			'abFlags' => '',		// BYTE[4],   4 bytes,  8 hex characters
@@ -125,7 +125,7 @@ class EntryId {
 
 		// First determine padding, and remove if from the entryId
 		$res['padding'] = $this->getPadding($entryId);
-		$entryId = substr($entryId, 0, strlen($entryId) - strlen($res['padding']));
+		$entryId = substr($entryId, 0, strlen($entryId) - strlen((string) $res['padding']));
 
 		$res['abFlags'] = substr($entryId, $offset, 8);
 		$offset = +8;
@@ -159,7 +159,7 @@ class EntryId {
 	 */
 	private function getABEIDVersion($entryId) {
 		// always make entryids in uppercase so comparison will be case insensitive
-		$entryId = strtoupper($entryId);
+		$entryId = strtoupper((string) $entryId);
 
 		$res = [
 			'abFlags' => '',		// BYTE[4],   4 bytes,  8 hex characters
@@ -176,7 +176,7 @@ class EntryId {
 
 		// First determine padding, and remove if from the entryId
 		$res['padding'] = $this->getPadding($entryId);
-		$entryId = substr($entryId, 0, strlen($entryId) - strlen($res['padding']));
+		$entryId = substr($entryId, 0, strlen($entryId) - strlen((string) $res['padding']));
 
 		$res['abFlags'] = substr($entryId, $offset, 8);
 		$offset = +8;
@@ -210,7 +210,7 @@ class EntryId {
 	 */
 	private function createEntryIdObj($entryid) {
 		// check if we are dealing with old or new object entryids
-		$versionString = substr($entryid, 40, 8);
+		$versionString = substr((string) $entryid, 40, 8);
 
 		if ($versionString == '00000000') {
 			// use EID_V0 struct
@@ -276,7 +276,7 @@ class EntryId {
 	 */
 	public function unwrapABEntryIdObj($abEntryId) {
 		// Remove ulVersion (8 char), muid (32 char), ulObjType (8 char) and ulOffset (8 char)
-		return substr($abEntryId, 56);
+		return substr((string) $abEntryId, 56);
 	}
 
 	/**
@@ -290,7 +290,7 @@ class EntryId {
 	public function isFavoriteFolder($entryId) {
 		$entryIdObj = $this->createEntryIdObj($entryId);
 
-		return substr($entryIdObj['abFlags'], 6, 8) == self::ZARAFA_FAVORITE;
+		return substr((string) $entryIdObj['abFlags'], 6, 8) == self::ZARAFA_FAVORITE;
 	}
 
 	/**
@@ -428,15 +428,15 @@ class EntryId {
 		}
 		$offset += 4;
 
-		$zeroBytePos = strpos($entryId, "\0", $offset);
+		$zeroBytePos = strpos((string) $entryId, "\0", $offset);
 		if ($zeroBytePos !== false) {
-			$res['ServerShortname'] = trim(substr($entryId, $offset, $zeroBytePos - $offset));
+			$res['ServerShortname'] = trim(substr((string) $entryId, $offset, $zeroBytePos - $offset));
 			$offset = $zeroBytePos + 1;
 		}
 
-		$zeroBytePos = strpos($entryId, "\0", $offset);
+		$zeroBytePos = strpos((string) $entryId, "\0", $offset);
 		if ($zeroBytePos !== false) {
-			$res['MailboxDN'] = trim(substr($entryId, $offset, $zeroBytePos - $offset));
+			$res['MailboxDN'] = trim(substr((string) $entryId, $offset, $zeroBytePos - $offset));
 			$offset = $zeroBytePos + 1;
 		}
 
@@ -508,7 +508,7 @@ class EntryId {
 	 */
 	public function createMessageEntryIdObj($entryId) {
 		// always make entryids in uppercase so comparison will be case insensitive
-		$entryId = strtoupper($entryId);
+		$entryId = strtoupper((string) $entryId);
 
 		$res = [
 			'providerguid' => '',			// GUID,     16 bytes, 32 hex characters
@@ -574,7 +574,7 @@ class EntryId {
 	 */
 	public function createFolderEntryIdObj($entryId) {
 		// always make entryids in uppercase so comparison will be case insensitive
-		$entryId = strtoupper($entryId);
+		$entryId = strtoupper((string) $entryId);
 
 		$res = [
 			'abflags' => '',					// BYTE[4],   4 bytes,  8 hex characters

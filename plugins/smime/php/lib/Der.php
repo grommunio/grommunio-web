@@ -25,10 +25,10 @@ class Der extends Oids {
 	}
 
 	protected function dump($note = '') {
-		$z = strlen($this->buffer) - $this->i;
+		$z = strlen((string) $this->buffer) - $this->i;
 		print_r("{$note}\n");
 		print_r("len: {$z}\n");
-		print_r(chunk_split(bin2hex(substr($this->buffer, $this->i)), 2, ':'));
+		print_r(chunk_split(bin2hex(substr((string) $this->buffer, $this->i)), 2, ':'));
 		echo "\n";
 	}
 
@@ -45,7 +45,7 @@ class Der extends Oids {
 		print_r("len: {$len}\n");
 		print_r("class:   {$class}\n");
 		print_r("tag  :   {$tag}\n");
-		print_r(chunk_split(bin2hex(substr($this->buffer, $this->i, min(32, strlen($this->buffer) - $this->i))) . "\n", 2, ':'));
+		print_r(chunk_split(bin2hex(substr((string) $this->buffer, $this->i, min(32, strlen((string) $this->buffer) - $this->i))) . "\n", 2, ':'));
 		print_r("---\n");
 	}
 
@@ -68,7 +68,7 @@ class Der extends Oids {
 		if ($this->constructed) {
 			return;
 		}
-		$value = substr($this->buffer, $this->i, $this->len);
+		$value = substr((string) $this->buffer, $this->i, $this->len);
 		if ($this->class == 0 || $this->class == 0x80) {
 			if ($this->tag == 2 || $this->tag == 10) { # ints and enums
 				$int = 0;
@@ -107,7 +107,7 @@ class Der extends Oids {
 			$this->i += $this->len;
 		}
 
-		return substr($this->buffer, $oldi, $this->len + $i - $oldi);
+		return substr((string) $this->buffer, $oldi, $this->len + $i - $oldi);
 	}
 
 	/*
@@ -186,11 +186,11 @@ class Der extends Oids {
 					trigger_error("Unknown extension {$extnID}", E_USER_ERROR);
 				}
 				else {
-					$theext['extnValue'] = chunk_split(bin2hex($theext['extnValue']), 2, ':');
+					$theext['extnValue'] = chunk_split(bin2hex((string) $theext['extnValue']), 2, ':');
 				}
 			}
 			catch (\Exception $e) {
-				$theext['extnValue'] = chunk_split(bin2hex($theext['extnValue']), 2, ':');
+				$theext['extnValue'] = chunk_split(bin2hex((string) $theext['extnValue']), 2, ':');
 			}
 			$this->end();
 			$extns[$extnID] = $theext;
@@ -237,7 +237,7 @@ class Der extends Oids {
 	}
 
 	protected function oid_($oid) {
-		$len = strlen($oid);
+		$len = strlen((string) $oid);
 		$v = "";
 		$n = 0;
 		for ($c = 0; $c < $len; ++$c) {
@@ -255,7 +255,7 @@ class Der extends Oids {
 	protected function time($tag = null) {
 		$time = $this->next($tag);
 		if ($this->tag == 23) {
-			$time = (substr($time, 0, 2) < 50 ? '20' : '19') . $time;
+			$time = (substr((string) $time, 0, 2) < 50 ? '20' : '19') . $time;
 		}
 		elseif ($this->tag != 24) {
 			trigger_error('expected der utc or generalized time', E_USER_ERROR);
@@ -265,6 +265,6 @@ class Der extends Oids {
 	}
 
 	protected function keyident($tag = 4) {
-		return chunk_split(bin2hex($this->next($tag)), 2, ':');
+		return chunk_split(bin2hex((string) $this->next($tag)), 2, ':');
 	}
 }

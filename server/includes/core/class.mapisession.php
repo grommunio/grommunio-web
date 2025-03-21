@@ -188,7 +188,7 @@ class MAPISession {
 				$this->session_info["smtpaddress"] = $user_props[PR_SMTP_ADDRESS];
 				$this->session_info["emailaddress"] = $user_props[PR_EMAIL_ADDRESS];
 				$this->session_info["searchkey"] = $user_props[PR_SEARCH_KEY];
-				$this->session_info["userimage"] = isset($user_props[PR_EMS_AB_THUMBNAIL_PHOTO]) ? "data:image/jpeg;base64," . base64_encode($user_props[PR_EMS_AB_THUMBNAIL_PHOTO]) : "";
+				$this->session_info["userimage"] = isset($user_props[PR_EMS_AB_THUMBNAIL_PHOTO]) ? "data:image/jpeg;base64," . base64_encode((string) $user_props[PR_EMS_AB_THUMBNAIL_PHOTO]) : "";
 
 				$this->session_info["given_name"] = isset($user_props[PR_GIVEN_NAME]) ? $user_props[PR_GIVEN_NAME] : '';
 				$this->session_info["initials"] = isset($user_props[PR_INITIALS]) ? $user_props[PR_INITIALS] : '';
@@ -526,7 +526,7 @@ class MAPISession {
 			throw new Exception('Method ' . $methodName . ' does not exist');
 		}
 		$this->retrieveUserData();
-		$propertyName = strtolower(preg_replace('/([^A-Z])([A-Z])/', '$1_$2', $matches[1]));
+		$propertyName = strtolower((string) preg_replace('/([^A-Z])([A-Z])/', '$1_$2', $matches[1]));
 		if (!array_key_exists($propertyName, $this->session_info)) {
 			// We don't know this function, so let's throw an error
 			throw new Exception('Method ' . $methodName . ' does not exist ' . $propertyName);
@@ -828,7 +828,7 @@ class MAPISession {
 				continue;
 			}
 
-			$username = strtolower(hex2bin($username));
+			$username = strtolower(hex2bin((string) $username));
 			if (!isset($result[$username])) {
 				$result[$username] = [];
 			}
@@ -920,7 +920,7 @@ class MAPISession {
 	 */
 	public function getUserNameOfStore($entryid) {
 		foreach ($this->userstores as $username => $storeentryid) {
-			if ($GLOBALS["entryid"]->compareEntryIds(bin2hex($storeentryid), bin2hex($entryid))) {
+			if ($GLOBALS["entryid"]->compareEntryIds(bin2hex((string) $storeentryid), bin2hex($entryid))) {
 				return $username;
 			}
 		}

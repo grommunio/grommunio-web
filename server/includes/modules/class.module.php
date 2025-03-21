@@ -348,11 +348,11 @@ class Module {
 				if (is_array($action["store_entryid"])) {
 					$store = [];
 					foreach ($action["store_entryid"] as $store_id) {
-						array_push($store, $GLOBALS["mapisession"]->openMessageStore(hex2bin($store_id)));
+						array_push($store, $GLOBALS["mapisession"]->openMessageStore(hex2bin((string) $store_id)));
 					}
 				}
-				elseif (ctype_xdigit($action["store_entryid"])) {
-					$store = $GLOBALS["mapisession"]->openMessageStore(hex2bin($action["store_entryid"]));
+				elseif (ctype_xdigit((string) $action["store_entryid"])) {
+					$store = $GLOBALS["mapisession"]->openMessageStore(hex2bin((string) $action["store_entryid"]));
 				}
 			}
 		}
@@ -374,7 +374,7 @@ class Module {
 		$parententryid = false;
 
 		if (isset($action["parent_entryid"]) && !empty($action["parent_entryid"])) {
-			$parententryid = hex2bin($action["parent_entryid"]);
+			$parententryid = hex2bin((string) $action["parent_entryid"]);
 		}
 
 		return $parententryid;
@@ -395,11 +395,11 @@ class Module {
 			if (is_array($action["entryid"])) {
 				$entryid = [];
 				foreach ($action["entryid"] as $action_entryid) {
-					array_push($entryid, hex2bin($action_entryid));
+					array_push($entryid, hex2bin((string) $action_entryid));
 				}
 			}
 			else {
-				$entryid = hex2bin($action["entryid"]);
+				$entryid = hex2bin((string) $action["entryid"]);
 			}
 		}
 

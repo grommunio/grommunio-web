@@ -150,7 +150,7 @@ class HierarchyListModule extends FilesListModule {
 		if (isset($actionData['records']) && is_array($actionData['records'])) {
 			foreach ($actionData['records'] as $record) {
 				$nodeId = $record['entryid'];
-				$relNodeId = substr($nodeId, strpos($nodeId, '/'));
+				$relNodeId = substr((string) $nodeId, strpos((string) $nodeId, '/'));
 
 				$account = $this->accountFromNode($nodeId);
 
@@ -175,7 +175,7 @@ class HierarchyListModule extends FilesListModule {
 		}
 		else {
 			$nodeId = $actionData['folder_id'];
-			$relNodeId = substr($nodeId, strpos($nodeId, '/'));
+			$relNodeId = substr((string) $nodeId, strpos((string) $nodeId, '/'));
 
 			$account = $this->accountFromNode($nodeId);
 			$accountId = $account->getId();

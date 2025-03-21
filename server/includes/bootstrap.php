@@ -27,7 +27,7 @@ require_once BASE_PATH . 'config.php';
 require_once BASE_PATH . 'defaults.php';
 
 // check if configuration is correct (only for the index.php)
-if (defined("CONFIG_CHECK") && basename($_SERVER['SCRIPT_NAME']) === 'index.php') {
+if (defined("CONFIG_CHECK") && basename((string) $_SERVER['SCRIPT_NAME']) === 'index.php') {
 	require_once BASE_PATH . 'server/includes/core/class.configcheck.php';
 	new ConfigCheck(CONFIG_CHECK);
 }

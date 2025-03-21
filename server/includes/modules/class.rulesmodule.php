@@ -46,7 +46,7 @@ class RulesModule extends Module {
 					// the user still tries this (probably hacking) we will not allow this
 					throw new MAPIException(_('Setting mail filters on the stores of other users is not allowed.'));
 				}
-				$store = $GLOBALS['mapisession']->openMessageStore(hex2bin($storeEntryid));
+				$store = $GLOBALS['mapisession']->openMessageStore(hex2bin((string) $storeEntryid));
 
 				switch ($actionType) {
 					case 'list':
